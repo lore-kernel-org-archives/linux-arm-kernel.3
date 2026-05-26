@@ -4,76 +4,125 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 0A3F0CD5BD5
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 26 May 2026 21:52:57 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id A7E1CCD5BD5
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 26 May 2026 21:53:49 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:Cc:To:Subject:Message-ID:Date:From:In-Reply-To:References:
-	MIME-Version:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Content-Type:In-Reply-To:From:References:CC:To:Subject:MIME-Version:Date:
+	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=vofwtLagvBRYkOYwKOjHnTeC6C87g7YP3KZhbzyhI3Q=; b=zFoaKTmSnT5wYn2qLvqh0KughV
-	OO8AA3z+JbP9QcJRaAdWABCsjBAoRaGAhyRV4ijhoO1Y/6eoeUMc/S6BIwXXun9qSTRPLUseOxiba
-	L0Bq4LdC99QVT/5QRxeAQUcnJklVIDxdGRL5J1ChLrq04swq/ebkJbzxzwHKOhII5WHjaHB2jGI/5
-	xkMiWs/zh9OX7z55gFcnlk+n0haVCkV33Rp0gR2WT9BA2slPTblVyDnYHdJ7Olg3HPMCfvPOx4IlN
-	E2pyGfLrQfYXtTquYWvBNYrJv5x1We6Xnr2QDGWJhRy8ayn0uP1BP6YdibUKqsnrW6WoKvSx91ACT
-	mFPpnq0g==;
+	bh=QWmDfUoUxhXZd/fkYU4u0VqaMt04Qm8oDwjOUCgfzn0=; b=IL26rAGW306UtEzUzG2rTZparc
+	Fh979/apVdNgr8GpQd+Ryc00oYCjJmqG3CVUoej0RFA2wBH0UQyZtq+o9VsvEb8HaF/Q3OqxyqmJH
+	ZvsWWktp96Ix42xOgF0rasqQf4h9p2OXjM1L6PhXeBoN7bjo6nSKHdI9Pd+RV3yEo8IzTEH/9BVNA
+	XwGvLn2EIBkrCXBRS09VVGxY6K8ynjpTNIYHPlDudFZ02l/GMKZUIHtVeQ54DEsXq01JQbwYOlBmL
+	gyAZpLvKFiNEpwFvGjALb77+0CA10qmsJwvnOui7onwwIoes2tnC1i9Fnieim3FWtMGzskFL49plc
+	sjxg4rlg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wRzhg-0000000301v-3l7G;
-	Tue, 26 May 2026 21:52:48 +0000
-Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
+	id 1wRziZ-000000030AC-0h6W;
+	Tue, 26 May 2026 21:53:43 +0000
+Received: from mail-westus2azlp170120002.outbound.protection.outlook.com ([2a01:111:f403:c007::2] helo=MW6PR02CU001.outbound.protection.outlook.com)
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wRzhe-0000000300w-2oOi
+	id 1wRziU-00000003091-3G8x
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 26 May 2026 21:52:47 +0000
-Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
-	by sea.source.kernel.org (Postfix) with ESMTP id DEAEB441DF
-	for <linux-arm-kernel@lists.infradead.org>; Tue, 26 May 2026 21:52:45 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id C6B7C1F00A3F
-	for <linux-arm-kernel@lists.infradead.org>; Tue, 26 May 2026 21:52:45 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1779832365;
-	bh=vofwtLagvBRYkOYwKOjHnTeC6C87g7YP3KZhbzyhI3Q=;
-	h=References:In-Reply-To:From:Date:Subject:To:Cc;
-	b=JvySodVWkZ4MM3tRJ8YS99NO8G7r2QGWchQgjJs/N+v4T2fakaO4nQDdnRKzeIqTT
-	 twW0FxpXffz7ntaZsc3O/ISWeFOfVsNb/x05burAQaCV9x0p4/oCBx+unOrZNDKiKH
-	 l9eEs/xvzHk7ZO9LGKRzD+wyhYk/qRZhK5KF4wg+jKuzkyANdqT3/0CZ70KJQmgnhs
-	 zZQSlPOBMLaWKn7O7IGnTpnQLYT/fNAPwTGi9bD8J0K1DlMF127mpbMjHwpWu/C29v
-	 j8kQ4+Ada+sfRBKhvdrHvYOoaCl3yhfcJa5ke+GxzVVmXHgt06pmnxndTucORDzD0u
-	 JP8bxaosMVwHg==
-Received: by mail-lj1-f180.google.com with SMTP id 38308e7fff4ca-395f24a5f2cso32339361fa.2
-        for <linux-arm-kernel@lists.infradead.org>; Tue, 26 May 2026 14:52:45 -0700 (PDT)
-X-Forwarded-Encrypted: i=1; AFNElJ+go6Rf83yV/kklpr61saNR3xRqzr9cI9MD/2mdTXAZXuc4pQYB/cZ2i9otXMtfWeznYw/ZZe35985pdUAxXAZr@lists.infradead.org
-X-Gm-Message-State: AOJu0Yzicsh2N8yTyij2PHmwTiG9bvuwxk3cdVxn8Yt3ODkdegrDk3ZA
-	FcOCd2sb21Rmhg/8gg+sqnCm9WzAYaqcp+tAWv2h9KGIIiqQQyxS7hjyJam54DTRYJ6JReWB2dl
-	ghmfTqT515mYoElTglBQVjJfeHUayVe4=
-X-Received: by 2002:a2e:8192:0:b0:394:2b8a:2374 with SMTP id
- 38308e7fff4ca-395d8d3de65mr47969431fa.16.1779832364145; Tue, 26 May 2026
- 14:52:44 -0700 (PDT)
+	Tue, 26 May 2026 21:53:41 +0000
+ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
+ b=aPBS8S53cr2AQiuveCDV+jmWPbVGYblSfFJgFaL692BEXF/waQXSVAdeu4z+qYqz99Wh4LjVq1qOIy3KaRMuAEZ4xdIIL5z+X8WeX9CWs7XaaEPjVhrVo1RgzjWaNaUFeRSD3ljOddDKkzxWe8ezFdJ4Vo6obsv9Q+A1uhCFzw9ocRz9078LeHnMvLYn2pZ9nx26n4wS3omHirHaTs76L/xEx7VuABHTGGNoHc/SfRsljsmKmFKc+dyavITT1Om7b139MmBvIrDG6El+Rjx1JU8CQtN5h29OfJ+ev5g2F++ZzuQFUKcfoswBi8rEm69faaTlyVfI957lNgPMp9Tw4Q==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
+ s=arcselector10001;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
+ bh=QWmDfUoUxhXZd/fkYU4u0VqaMt04Qm8oDwjOUCgfzn0=;
+ b=KCAKkLPhWcJxlflkbTBpI8trO0mKoGfxUGDsn8xAKH+ARTDBbT1YnJCpVfBYX4bcoqIdOi+tqaex8MSgqyqW9J5ILUP5x7/Cg0dIc/mVeAlidom/nObQ0aE2ef4DdCWV9bqKwQhCGmcvn9boKCjmbrvRxTaieOPtEUpGf43kg7YhBNuH2T+T84j3+Hcj1e21+WXhPk+g2smwj0TkCW0tIa3FnzUMVK7hHvTHbBPJ0DlPFj87NTWxiS7jANu7uWLVD86p3mMYZBxAoHe1ntYaZ7oWfhV1jAHE6aUqvb9Gxlrmo3r9H2AEWG13NNChaFaEqFyrk4IlKimElxoR0Zl3yA==
+ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass (sender ip is
+ 198.47.23.195) smtp.rcpttodomain=gmail.com smtp.mailfrom=ti.com; dmarc=pass
+ (p=quarantine sp=none pct=100) action=none header.from=ti.com; dkim=none
+ (message not signed); arc=none (0)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=ti.com; s=selector1;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
+ bh=QWmDfUoUxhXZd/fkYU4u0VqaMt04Qm8oDwjOUCgfzn0=;
+ b=awLiMpMpE60GYS/ZydAhfglaVE4Ie69l3lTJdSSDduf/dR1U3XH903BFmAZ8d7kpVC76ppf19xwj4xE1JftqSu/5XMLyTDzPYh1KldFA0M+AuljNyeaOnx1J9/X09WJUxx4/Vq7LyTeLSW46Bp2VB7uHTPlVU83uJFuWzSw+mEY=
+Received: from SJ2PR07CA0019.namprd07.prod.outlook.com (2603:10b6:a03:505::21)
+ by CO1PR10MB4484.namprd10.prod.outlook.com (2603:10b6:303:90::12) with
+ Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.21.71.11; Tue, 26 May
+ 2026 21:53:33 +0000
+Received: from MWH0EPF000A672F.namprd04.prod.outlook.com
+ (2603:10b6:a03:505:cafe::8a) by SJ2PR07CA0019.outlook.office365.com
+ (2603:10b6:a03:505::21) with Microsoft SMTP Server (version=TLS1_3,
+ cipher=TLS_AES_256_GCM_SHA384) id 15.21.71.12 via Frontend Transport; Tue, 26
+ May 2026 21:53:33 +0000
+X-MS-Exchange-Authentication-Results: spf=pass (sender IP is 198.47.23.195)
+ smtp.mailfrom=ti.com; dkim=none (message not signed) header.d=none;dmarc=pass
+ action=none header.from=ti.com;
+Received-SPF: Pass (protection.outlook.com: domain of ti.com designates
+ 198.47.23.195 as permitted sender) receiver=protection.outlook.com;
+ client-ip=198.47.23.195; helo=lewvzet201.ext.ti.com; pr=C
+Received: from lewvzet201.ext.ti.com (198.47.23.195) by
+ MWH0EPF000A672F.mail.protection.outlook.com (10.167.249.21) with Microsoft
+ SMTP Server (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
+ 15.21.71.7 via Frontend Transport; Tue, 26 May 2026 21:53:32 +0000
+Received: from DLEE213.ent.ti.com (157.170.170.116) by lewvzet201.ext.ti.com
+ (10.4.14.104) with Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.2.2562.37; Tue, 26 May
+ 2026 16:53:31 -0500
+Received: from DLEE200.ent.ti.com (157.170.170.75) by DLEE213.ent.ti.com
+ (157.170.170.116) with Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.2.2562.37; Tue, 26 May
+ 2026 16:53:30 -0500
+Received: from lelvem-mr06.itg.ti.com (10.180.75.8) by DLEE200.ent.ti.com
+ (157.170.170.75) with Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.2.2562.37 via Frontend
+ Transport; Tue, 26 May 2026 16:53:30 -0500
+Received: from [128.247.81.105] (judy-hp.dhcp.ti.com [128.247.81.105])
+	by lelvem-mr06.itg.ti.com (8.18.1/8.18.1) with ESMTP id 64QLrU521736851;
+	Tue, 26 May 2026 16:53:30 -0500
+Message-ID: <3c4c5104-97c4-4d5d-8bb4-21332e39c707@ti.com>
+Date: Tue, 26 May 2026 16:53:30 -0500
 MIME-Version: 1.0
-References: <20260526060841.49161-1-liujiajia@kylinos.cn>
-In-Reply-To: <20260526060841.49161-1-liujiajia@kylinos.cn>
-From: Sean Wang <sean.wang@kernel.org>
-Date: Tue, 26 May 2026 16:52:32 -0500
-X-Gmail-Original-Message-ID: <CAGp9LzqzddmyDHMNsaqigYpVEdo_Pmzwbeh5Ri5_Gr87cVL6Dg@mail.gmail.com>
-X-Gm-Features: AVHnY4JN4XiSX6iZ8nQKBZrwSnhXgkTYMQMdyt2mZqBTxzISywSnHzHgBHOFEuo
-Message-ID: <CAGp9LzqzddmyDHMNsaqigYpVEdo_Pmzwbeh5Ri5_Gr87cVL6Dg@mail.gmail.com>
-Subject: Re: [PATCH] wifi: mt76: mt7925: add wcid publish check in mt76_sta_add
-To: Jiajia Liu <liujiajia@kylinos.cn>
-Cc: Felix Fietkau <nbd@nbd.name>, Lorenzo Bianconi <lorenzo@kernel.org>, Ryder Lee <ryder.lee@mediatek.com>, 
-	Shayne Chen <shayne.chen@mediatek.com>, Sean Wang <sean.wang@mediatek.com>, 
-	Matthias Brugger <matthias.bgg@gmail.com>, 
-	AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>, 
-	Ming Yen Hsieh <mingyen.hsieh@mediatek.com>, Michael Lo <michael.lo@mediatek.com>, 
-	Leon Yen <leon.yen@mediatek.com>, linux-wireless@vger.kernel.org, 
-	linux-kernel@vger.kernel.org, linux-arm-kernel@lists.infradead.org, 
-	linux-mediatek@lists.infradead.org
-Content-Type: text/plain; charset="UTF-8"
-Content-Transfer-Encoding: quoted-printable
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH v4 2/3] arm64: dts: ti: Add k3-am62l3-beaglebadge
+To: Nishanth Menon <nm@ti.com>
+CC: Vignesh Raghavendra <vigneshr@ti.com>, Tero Kristo <kristo@kernel.org>,
+	Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>,
+	Conor Dooley <conor+dt@kernel.org>, <linux-arm-kernel@lists.infradead.org>,
+	<devicetree@vger.kernel.org>, <linux-kernel@vger.kernel.org>, Andrew Davis
+	<afd@ti.com>, Bryan Brattlof <bb@ti.com>, Jason Kridner <jkridner@gmail.com>,
+	Robert Nelson <robertcnelson@gmail.com>
+References: <20260515153541.294698-1-jm@ti.com>
+ <20260515153541.294698-3-jm@ti.com>
+ <20260518131137.zazw4xf6n7ftil6l@predator>
+Content-Language: en-US
+From: Judith Mendez <jm@ti.com>
+In-Reply-To: <20260518131137.zazw4xf6n7ftil6l@predator>
+Content-Type: text/plain; charset="UTF-8"; format=flowed
+Content-Transfer-Encoding: 7bit
+X-C2ProcessedOrg: 333ef613-75bf-4e12-a4b1-8e3623f5dcea
+X-EOPAttributedMessage: 0
+X-MS-PublicTrafficType: Email
+X-MS-TrafficTypeDiagnostic: MWH0EPF000A672F:EE_|CO1PR10MB4484:EE_
+X-MS-Office365-Filtering-Correlation-Id: 5858de7e-7907-4565-0b6f-08debb713af3
+X-LD-Processed: e5b49634-450b-4709-8abb-1e2b19b982b7,ExtAddr
+X-MS-Exchange-SenderADCheck: 1
+X-MS-Exchange-AntiSpam-Relay: 0
+X-Microsoft-Antispam: BCL:0;ARA:13230040|376014|36860700016|1800799024|82310400026|13003099007|18002099003|22082099003|56012099006|3023799007|4143699003;
+X-Microsoft-Antispam-Message-Info: hvF/5+XanNFXmRfzzSXMW+NYAZUVomuZAdjsMKMnI1dfhOZdQPPaVe/m3ctSosOK1We78e4aznl8qKBxtMzLJoN1Z4S0pFV/PrcQ6Us/swXJvfV+bFwMGxcU3ZDhZwUpmeBHAQOkU06UJf0HOjL+1pGMIDAFHwXi1o/SDky3THTB7Wzj3NJCZxADqJAgMyoPBbDxDmDsV9D6BsSDMhyk9k3hhZ5/SRd3SOFqcvjJEAJP9MUvWI7nEzgJ362iHsPIbDs9gzm7ncv8oecv5IrbmzH9chv4aD6GM5SYyTX9F/noFku6SlMssYRZ7o08/48UIB1A6wttUPBQStj/dy35exfmCxl/HGRitiwbStzc9+7oR/KgD/RdAUgOQzr4WBtG7QALWbQJ3oKw3spjHhNsLLup8M4mmzKqz+YL1G47E+F2N0lityJlWHDaFJnAvqrQP2FcP/+rGGs+kL9p3wVYg+5/zYgsT+tEEjooRid/qTrGKvIeUQou1ZEPRkTqeD8GoKcWuOvSY0hJXDm8Q25H/5mt7FXuRzavJF9jt5xNSegHpUx+oFJqAb6mIQbH84xoLwrtLAPxu9eKZYU2eSyJBNriecZRce3UZYssmsTjIa+6LNCI8RBYklbDiW+peMF3vv10drwecUsaazdrVW0yJDSmbUCbApqpNOrzdrwmD/Q=
+X-Forefront-Antispam-Report: CIP:198.47.23.195;CTRY:US;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:lewvzet201.ext.ti.com;PTR:InfoDomainNonexistent;CAT:NONE;SFS:(13230040)(376014)(36860700016)(1800799024)(82310400026)(13003099007)(18002099003)(22082099003)(56012099006)(3023799007)(4143699003);DIR:OUT;SFP:1101;
+X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
+X-MS-Exchange-AntiSpam-MessageData-0: n27b7MA50CNLB1Sv4sdtyKMWtODaz+E1N/gPtQH0x2lHzunXlQJ/vn7nLPbJ/oHPODJ9gFCJ/Qqc9sAOsAiwtpfqHU6lXmMaU6KZTnHPx97gwNcPT60EdXSGgsHfxWOtozves3Kt7aS1U1qNnfoKZ79cyHK2z2y/1Psl499sItKknh/2TyG1DXY/ohog6w/g0yiB8RDeEgLiH9QeyIv2xCydjyLbZWpiGEZ3S1w1lNHRY2tzBp+ufEFtGIzCT3yq9GaL1UMPLsNP45Lgg9w7imWOi/YVZ3OWn7h75lO8STOjViGLDciQy8QsxOrjSYjoBAl+Hi7bVsuMwZ1ZPH88lkM0f4Htq2NK3ybJdYA8Virmyad0mSQ/bd+AUlaOZNr+OM/5H8ZUu3ZqT4b2FGWVHkCAKXpz73l/JwVC7O220ZdOKyFGTficNHA5uWh8jS1T
+X-OriginatorOrg: ti.com
+X-MS-Exchange-CrossTenant-OriginalArrivalTime: 26 May 2026 21:53:32.6607
+ (UTC)
+X-MS-Exchange-CrossTenant-Network-Message-Id: 5858de7e-7907-4565-0b6f-08debb713af3
+X-MS-Exchange-CrossTenant-Id: e5b49634-450b-4709-8abb-1e2b19b982b7
+X-MS-Exchange-CrossTenant-OriginalAttributedTenantConnectingIp: TenantId=e5b49634-450b-4709-8abb-1e2b19b982b7;Ip=[198.47.23.195];Helo=[lewvzet201.ext.ti.com]
+X-MS-Exchange-CrossTenant-AuthSource: MWH0EPF000A672F.namprd04.prod.outlook.com
+X-MS-Exchange-CrossTenant-AuthAs: Anonymous
+X-MS-Exchange-CrossTenant-FromEntityHeader: HybridOnPrem
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: CO1PR10MB4484
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260526_145246_753047_E98F5E00 
-X-CRM114-Status: GOOD (  26.05  )
+X-CRM114-CacheID: sfid-20260526_145339_053622_8D9A665A 
+X-CRM114-Status: GOOD (  24.17  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -88,165 +137,272 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hi,
+On 5/18/26 8:11 AM, Nishanth Menon wrote:
+> On 10:35-20260515, Judith Mendez wrote:
+>> BeagleBoard.org BeagleBadge is a compact, affordable open source
+>> hardware single board computer based on the Texas Instruments AM62L3
+>> SoC designed for IoT and embedded applications with low power
+>> consumption. Expansion is provided over open standards based headers
+>> including QWIIC and GPIO interfaces.
+>>
+>> https://github.com/beagleboard/BeagleBadge
+> 
+> Why not use https://www.beagleboard.org/boards/beaglebadge ?
 
-On Tue, May 26, 2026 at 1:09=E2=80=AFAM Jiajia Liu <liujiajia@kylinos.cn> w=
-rote:
->
-> Since mt7925_mac_sta_add publishes wcid, add publish check in mt76_sta_ad=
-d
-> to avoid reinitializing the wcid->poll_list for mt7925.
->
-> Found dev->sta_poll_list corruption when using mt7925 and 7.0-rc4.
-> According to the corruption information, prev->next was changed to itself=
-.
->
-> wlan0: disconnect from AP 90:fb:5d:94:8b:e3 for new auth to 90:fb:5d:94:8=
-b:e2
-> wlan0: authenticate with 90:fb:5d:94:8b:e2 (local address=3D84:9e:56:9c:7=
-e:6b)
-> wlan0: send auth to 90:fb:5d:94:8b:e2 (try 1/3)
->  slab kmalloc-8k start ffff8c80958a6000 pointer offset 4160 size 8192
-> list_add corruption. prev->next should be next (ffff8c808a7488f8), but wa=
-s ffff8c80958a7040. (prev=3Dffff8c80958a7040).
->
->  mt76_wcid_add_poll+0x95/0xd0 [mt76]
->  mt7925_mac_add_txs.part.0+0xa5/0xe0 [mt7925_common]
->  mt7925_rx_check+0xa7/0xc0 [mt7925_common]
->  mt76_dma_rx_poll+0x50d/0x790 [mt76]
->  mt792x_poll_rx+0x52/0xe0 [mt792x_lib]
->
-> Signed-off-by: Jiajia Liu <liujiajia@kylinos.cn>
-> ---
->
-> Reproduced and tested using the script below over ssh. Roam between two
-> bssids with the same SSID on a router.
->
-> #!/bin/bash
->
-> set -ex
->
-> while :; do
->         num=3D$(sudo iw wlan0 scan | grep Polaris | wc -l)
->         if [ $num -eq 2 ]; then
->                 break
->         fi
-> done
->
-> for i in $(seq 1 500); do
->
-> echo "index $i"
-> wpa_cli -i wlan0 roam 90:fb:5d:94:8b:e3
-> sleep 5
-> wpa_cli -i wlan0 roam 90:fb:5d:94:8b:e2
-> sleep 5
->
-> done
->
-> ---
->  drivers/net/wireless/mediatek/mt76/mac80211.c    | 11 ++++++++---
->  drivers/net/wireless/mediatek/mt76/mt76.h        |  1 +
->  drivers/net/wireless/mediatek/mt76/mt7925/main.c |  3 +++
->  3 files changed, 12 insertions(+), 3 deletions(-)
->
-> diff --git a/drivers/net/wireless/mediatek/mt76/mac80211.c b/drivers/net/=
-wireless/mediatek/mt76/mac80211.c
-> index 4ae5e4715a9c..83f4f941b890 100644
-> --- a/drivers/net/wireless/mediatek/mt76/mac80211.c
-> +++ b/drivers/net/wireless/mediatek/mt76/mac80211.c
-> @@ -1595,11 +1595,16 @@ mt76_sta_add(struct mt76_phy *phy, struct ieee802=
-11_vif *vif,
->                 mtxq->wcid =3D wcid->idx;
->         }
->
-> -       ewma_signal_init(&wcid->rssi);
-> -       rcu_assign_pointer(dev->wcid[wcid->idx], wcid);
-> +       if (!test_bit(MT_WCID_FLAG_DRV_PUBLISH, &wcid->flags)) {
-> +               ewma_signal_init(&wcid->rssi);
-> +               rcu_assign_pointer(dev->wcid[wcid->idx], wcid);
-> +               mt76_wcid_init(wcid, phy->band_idx);
-> +       } else {
-> +               wcid->phy_idx =3D phy->band_idx;
-> +       }
-> +
->         phy->num_sta++;
->
+Will switch link
 
-Thanks for spotting the roaming issue.
+>>
+>> Co-developed-by: Andrew Davis <afd@ti.com>
+>> Signed-off-by: Andrew Davis <afd@ti.com>
+>> Signed-off-by: Judith Mendez <jm@ti.com>
+>> ---
+>> Changelog since v3:
+>> - Add missing newline in commit message
+>> - Drop beagleboard URL
+>> - Drop uneeded header files
+>> - Add boothph flags in wkup_i2c0 & PMC nodes
+>> ---
+>>   arch/arm64/boot/dts/ti/Makefile               |   1 +
+>>   .../boot/dts/ti/k3-am62l3-beaglebadge.dts     | 700 ++++++++++++++++++
+>>   2 files changed, 701 insertions(+)
+>>   create mode 100644 arch/arm64/boot/dts/ti/k3-am62l3-beaglebadge.dts
+>>
+>> diff --git a/arch/arm64/boot/dts/ti/Makefile b/arch/arm64/boot/dts/ti/Makefile
+>> index 5269c9619b65c..4e377ca011cd8 100644
+>> --- a/arch/arm64/boot/dts/ti/Makefile
+>> +++ b/arch/arm64/boot/dts/ti/Makefile
+>> @@ -41,6 +41,7 @@ dtb-$(CONFIG_ARCH_K3) += k3-am62d2-evm.dtb
+>>   
+>>   # Boards with AM62Lx SoCs
+>>   dtb-$(CONFIG_ARCH_K3) += k3-am62l3-evm.dtb
+>> +dtb-$(CONFIG_ARCH_K3) += k3-am62l3-beaglebadge.dtb
+>>   
+>>   # Boards with AM62Px SoC
+>>   dtb-$(CONFIG_ARCH_K3) += k3-am62p5-sk.dtb
+>> diff --git a/arch/arm64/boot/dts/ti/k3-am62l3-beaglebadge.dts b/arch/arm64/boot/dts/ti/k3-am62l3-beaglebadge.dts
+>> new file mode 100644
+>> index 0000000000000..30fc9c83b1f44
+>> --- /dev/null
+>> +++ b/arch/arm64/boot/dts/ti/k3-am62l3-beaglebadge.dts
+>> @@ -0,0 +1,700 @@
+>> +// SPDX-License-Identifier: GPL-2.0
+>> +/*
+>> + * https://www.beagleboard.org/boards/beaglebadge
+>> + *
+>> + * Copyright (C) 2026 Texas Instruments Incorporated - https://www.ti.com/
+> 
+> Seeing the tags, I assume no BeagleBoard.org member contributions?
 
-I think we can avoid adding MT_WCID_FLAG_DRV_PUBLISH and instead use the
-WCID table itself for the publish check.
+Not yet ^.^
 
-dev->wcid[] already encodes whether a WCID has been published, so checking
-it directly avoids adding a second mirror state. MT_WCID_FLAG_* is also
-better kept for WCID features that affect WTBL setup or data-path handling,
-rather than common bookkeeping state.
+> 
+>> + */
+>> +
+>> +/dts-v1/;
+>> +
+>> +#include <dt-bindings/gpio/gpio.h>
+>> +#include <dt-bindings/input/input.h>
+>> +#include <dt-bindings/leds/common.h>
+>> +#include "k3-am62l3.dtsi"
+>> +#include "k3-pinctrl.h"
+>> +
+>> +/ {
+>> +	compatible = "beagle,am62l3-beaglebadge", "ti,am62l3";
+>> +	model = "BeagleBoard.org BeagleBadge";
+>> +
+>> +	chosen {
+>> +		stdout-path = &uart0;
+>> +	};
+>> +
+>> +	aliases {
+>> +		gpio0 = &gpio0;
+>> +		gpio2 = &wkup_gpio0;
+>> +		i2c0 = &i2c0;
+>> +		i2c1 = &i2c1;
+>> +		i2c2 = &i2c2;
+>> +		i2c4 = &wkup_i2c0;
+>> +		mmc1 = &sdhci1;
+>> +		mmc2 = &sdhci2;
+>> +		serial3 = &uart1;
+>> +		usb0 = &usb0;
+>> +		usb1 = &usb1;
+> 
+> is this valid?
+> git grep of_alias_ driver/usb/
+> 
+> am I missing something?
+> 
+>> +	};
+>> +
+>> +	memory@80000000 {
+>> +		/* 256MB */
+>> +		reg = <0x00000000 0x80000000 0x00000000 0x10000000>;
+>> +		device_type = "memory";
+>> +		bootph-all;
+>> +	};
+>> +
+>> +	thermal-zones {
+>> +		wkup0-thermal {
+>> +			polling-delay-passive = <250>;	/* milliSeconds */
+>> +			polling-delay = <500>;		/* milliSeconds */
+>> +			thermal-sensors = <&vtm0 0>;
+>> +
+>> +			trips {
+>> +				crit0 {
+>> +					temperature = <125000>;
+>> +					hysteresis = <2000>;
+>> +					type = "critical";
+>> +				};
+>> +			};
+>> +		};
+>> +	};
+> 
+> This is better done by having something like
+> arch/arm64/boot/dts/ti/k3-am62l-industrial-thermal.dtsi
 
-Something like:
+I am following what k3-am62l3-evm.dts is doing [0], we moved
+thermal-zones node to the board file instead of defining in thermal.dtsi
 
-@@ -1620,6 +1620,7 @@ mt76_sta_add(struct mt76_phy *phy, struct
-ieee80211_vif *vif,
-{
-  struct mt76_wcid *wcid =3D (struct mt76_wcid *)sta->drv_priv;
-  struct mt76_dev *dev =3D phy->dev;
-+       struct mt76_wcid *published;
-  int ret;
-  int i;
+[0] 
+https://github.com/torvalds/linux/blob/master/arch/arm64/boot/dts/ti/k3-am62l3-evm.dts#L61
 
-@@ -1639,7 +1640,10 @@ mt76_sta_add(struct mt76_phy *phy, struct
-ieee80211_vif *vif,
-          mtxq->wcid =3D wcid->idx;
-  }
+> 
+> [..]
+> 
+>> +
+>> +	sensor_3v3: regulator-4 {
+>> +		/* TPS22918DBVR */
+>> +		compatible = "regulator-fixed";
+>> +		regulator-name = "Sensor_3V3";
+>> +		regulator-min-microvolt = <3300000>;
+>> +		regulator-max-microvolt = <3300000>;
+>> +		vin-supply = <&vdd_3v3>;
+>> +		regulator-boot-on;
+>> +		regulator-always-on;
+> 
+> Why sensor supply is always on?
 
--       if (!test_bit(MT_WCID_FLAG_DRV_PUBLISH, &wcid->flags)) {
-+       published =3D rcu_dereference_protected(dev->wcid[wcid->idx],
-+                                             lockdep_is_held(&dev->mutex))=
-;
-+       if (published !=3D wcid) {
-+               WARN_ON_ONCE(published);
-                 ewma_signal_init(&wcid->rssi);
-                 rcu_assign_pointer(dev->wcid[wcid->idx], wcid);
-                 mt76_wcid_init(wcid, phy->band_idx);
+No special reason, I can remove to help with power saving.
 
-   ....
+> 
+>> +		enable-active-high;
+>> +		gpio = <&wkup_gpio0 1 GPIO_ACTIVE_HIGH>;
+>> +		pinctrl-names = "default";
+>> +		pinctrl-0 = <&sensor_3v3_ena_pins_default>;
+>> +		bootph-all;
+>> +	};
+>> +
+>> +	wlan_en: regulator-5 {
+>> +		compatible = "regulator-fixed";
+>> +		regulator-name = "wlan_en";
+>> +		regulator-min-microvolt = <1800000>;
+>> +		regulator-max-microvolt = <1800000>;
+>> +		enable-active-high;
+>> +		gpios = <&gpio0 51 GPIO_ACTIVE_HIGH>;
+>> +		pinctrl-names = "default";
+>> +		pinctrl-0 = <&wlan_en_pins_default>;
+>> +	};
+>> +};
+>> +
+> 
+> [..]
+> 
+>> +
+>> +	usr_button_pins_default: usr-button-default-pins {
+>> +		pinctrl-single,pins = <
+>> +			AM62LX_IOPAD(0x00a4, PIN_INPUT, 7) /* (H18) GPMC0_AD11.GPIO0_26 */
+>> +			AM62LX_IOPAD(0x01e4, PIN_INPUT, 7) /* (D16) EXT_REFCLK1.GPIO0_104 */
+>> +			AM62LX_IOPAD(0x00c0, PIN_INPUT, 7) /* (N19) GPMC0_ADVn_ALE.GPIO0_32 */
+>> +			AM62LX_IOPAD(0x00e8, PIN_INPUT, 7) /* (L19) GPMC0_CSn1.GPIO0_42 */
+>> +			AM62LX_IOPAD(0x00b8, PIN_INPUT, 7) /* (L21) GPMC0_CLK.GPIO0_31 */
+>> +			AM62LX_IOPAD(0x01c0, PIN_INPUT, 7) /* (B13) UART0_RTSn.GPIO0_95 */
+>> +		>;
+>> +	};
+> 
+> no wakeup from usr buttons?
 
+RTC wakeup node is not in upstream tree, so no, user button wakeup
+support is not enabled yet.
 
-> -       mt76_wcid_init(wcid, phy->band_idx);
->  out:
->         mutex_unlock(&dev->mutex);
->
-> diff --git a/drivers/net/wireless/mediatek/mt76/mt76.h b/drivers/net/wire=
-less/mediatek/mt76/mt76.h
-> index 527bef97e122..8bfce686bff7 100644
-> --- a/drivers/net/wireless/mediatek/mt76/mt76.h
-> +++ b/drivers/net/wireless/mediatek/mt76/mt76.h
-> @@ -361,6 +361,7 @@ enum mt76_wcid_flags {
->         MT_WCID_FLAG_PS,
->         MT_WCID_FLAG_4ADDR,
->         MT_WCID_FLAG_HDR_TRANS,
-> +       MT_WCID_FLAG_DRV_PUBLISH,
->  };
->
->  #define MT76_N_WCIDS 1088
-> diff --git a/drivers/net/wireless/mediatek/mt76/mt7925/main.c b/drivers/n=
-et/wireless/mediatek/mt76/mt7925/main.c
-> index 73d3722739d0..35b5c718475c 100644
-> --- a/drivers/net/wireless/mediatek/mt76/mt7925/main.c
-> +++ b/drivers/net/wireless/mediatek/mt76/mt7925/main.c
-> @@ -1102,6 +1102,9 @@ int mt7925_mac_sta_add(struct mt76_dev *mdev, struc=
-t ieee80211_vif *vif,
->                                               &msta->deflink);
->         }
->
-> +       if (!err)
-> +               set_bit(MT_WCID_FLAG_DRV_PUBLISH, &msta->deflink.wcid.fla=
-gs);
-> +
->         return err;
->  }
->  EXPORT_SYMBOL_GPL(mt7925_mac_sta_add);
-> --
-> 2.53.0
->
->
+> 
+> [...]
+> 
+>> +};
+>> +
+>> +&gpio0 {
+>> +	gpio-line-names ="","","","","","","","","","",									/* 0-9 */
+> 
+> space after that =
+
+Will fix.
+
+> 
+>> +			 "","","","","","BOOST_5V_ENA","VDD_3V3_SD_ENA","","","",					/* 10-19 */
+>> +			 "","","","","","MCP23S18_RESET","BTN_SELECT","","","",						/* 20-29 */
+>> +			 "","BTN_LEFT","BTN_UP","","LORA_RESET","","","","","",						/* 30-39 */
+>> +			 "FUEL_GAUGE_BATLOW","LORA_RFSW","BTN_DOWN","USB_HUB_RST","MIKROBUS_INT","","","","","",	/* 40-49 */
+>> +			 "","WLAN_EN","","","","","","","","",								/* 50-59 */
+>> +			 "","","","","","","","","","",									/* 60-69 */
+>> +			 "","","","","","","","","","",									/* 70-79 */
+>> +			 "","","","","MIKROBUS_RST","","","","LORA_BUSY","",						/* 80-89 */
+>> +			 "","","","","LORA_DIO","BTN_RIGHT","","","","",						/* 90-99 */
+>> +			 "","","","","BTN_BACK","","","","","",								/* 100-109 */
+>> +			 "","","","","","","","","","",									/* 110-119 */
+>> +			 "","","SD_CD","","","";									/* 120-125 */
+> 
+> Could you keep these under 100 chars?
+
+I could for most of these lines I believe, but it will completely mess
+up the alignment in comments, If that is fine, I will fix. (:
+
+> 
+>> +	pinctrl-names = "default";
+>> +	pinctrl-0 = <&gpio0_pins_default>, <&usr_button_pins_default>, <&lora_control_pins_default>;
+>> +	bootph-all;
+>> +	status = "okay";
+>> +};
+>> +
+>> +&wkup_gpio0 {
+>> +	gpio-line-names ="","SENSOR_3V3_ENA","","","","","","";								/* 0-7 */
+> 
+> same
+> 
+>> +	bootph-all;
+>> +	status = "okay";
+>> +};
+>> +
+>> +&sdhci1 {
+>> +	/* SD/MMC */
+>> +	vmmc-supply = <&vdd_3v3_sd>;
+>> +	disable-wp;
+>> +	cd-gpios = <&gpio0 122 GPIO_ACTIVE_LOW>;
+>> +	cd-debounce-delay-ms = <100>;
+>> +	ti,fails-without-test-cd;
+>> +	pinctrl-names = "default";
+>> +	pinctrl-0 = <&mmc1_pins_default>;
+>> +	bootph-all;
+>> +	status = "okay";
+>> +};
+>> +
+>> +&sdhci2 {
+>> +	vmmc-supply = <&wlan_en>;
+>> +	bus-width = <4>;
+>> +	non-removable;
+>> +	cap-power-off-card;
+>> +	keep-power-in-suspend;
+>> +	pinctrl-names = "default";
+>> +	pinctrl-0 = <&mmc2_pins_default>;
+>> +	ti,driver-strength-ohm = <50>;
+>> +	ti,fails-without-test-cd;
+>> +	status = "okay";
+>> +};
+> 
+> Why not introduce the sdhci2 and supplies once we get wlan driver in
+> upstream?
+
+I can do that. NP.
+
+~ Judith
+
+...
 
