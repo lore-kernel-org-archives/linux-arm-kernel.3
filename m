@@ -4,76 +4,73 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 657FACD5BC8
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 26 May 2026 09:48:25 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 7EDACCD5BDE
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 26 May 2026 09:54:57 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
 	Content-Type:Cc:To:Subject:Message-ID:Date:From:In-Reply-To:References:
 	MIME-Version:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=6xgiU7UHk0fyH8OtVpuJExgRt0VbjZpUEjJ/frbR0FA=; b=jruNwTWko5I07CPxh7YDxcQG4u
-	q0dTcnl7ioEh29+wagOWj3P8dffpzV8tNdRIMGew0mVUCtc5BT1RCF2rDH1acxeNvJ6Q5ty3EYTrE
-	HdQEJ2x2X0F+SarhVcyodU+/uqpFht/xgq9lTItqgTDf5yhyTJWS28a+vnaF5EIltxo/aHN/oxbi5
-	IQLBNkaWdyXi07abcGvPNI7GEH7CoWo0+o+CLHkBPIAHpbNFJmiGH8aSmwN9rTawyrbbrwUW66YQi
-	6yiH3Bsg2vhoEawJatN6nVYTKHisA6DyRY7J7ov2lvOAPCcBqx+5qGCQ6SIqm2RKmCTBVwMD55G3I
-	E1UdYR4w==;
+	bh=1ZLjE0blDgs8rIXohnrgIdGtGyxBNGZG1NuH9Cx+4Uk=; b=Fi5DCz3fuDhTc7iQwxyWclcloV
+	SNUio7XqCV/uHoJ2RtSEUlPcXUM03tDxYqsG87wwT3pkrk8odQgzi4Xgp7HlCLmWaAHt6VNH7v1i1
+	7C8SDTq575DTntesdDXlACsBvkWvSx3iTc8J89CixqaPvm9kF5vpinpg9V9biFygWaw8OeQycroOP
+	YG3tl0XSzMq8A9mVL2GbOkCAD08K6MwbTCA+hFCk5n/bB0L7PGSr7Ys+hjV1NpLj7VNO3sUw8YOc8
+	F844Yl/EwK6WyrE1IgWDBTzAJNnn+SjdsH6BwdLbxcNLpUnNJEps5sn0WP3O1XlEVaqjV8IjHH+Nd
+	Q0aOLI/Q==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wRoOX-00000001ZIQ-3bYa;
-	Tue, 26 May 2026 09:48:17 +0000
-Received: from sea.source.kernel.org ([172.234.252.31])
+	id 1wRoUq-00000001a8S-3vTb;
+	Tue, 26 May 2026 09:54:48 +0000
+Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wRoOV-00000001ZHE-3Kpp
+	id 1wRoUo-00000001a7Z-3WZ7
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 26 May 2026 09:48:16 +0000
+	Tue, 26 May 2026 09:54:47 +0000
 Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
-	by sea.source.kernel.org (Postfix) with ESMTP id 1EBFE43D1F
-	for <linux-arm-kernel@lists.infradead.org>; Tue, 26 May 2026 09:48:15 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id F2BA81F00ADE
-	for <linux-arm-kernel@lists.infradead.org>; Tue, 26 May 2026 09:48:14 +0000 (UTC)
+	by sea.source.kernel.org (Postfix) with ESMTP id D840544281
+	for <linux-arm-kernel@lists.infradead.org>; Tue, 26 May 2026 09:54:45 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id BD8331F00ACF
+	for <linux-arm-kernel@lists.infradead.org>; Tue, 26 May 2026 09:54:45 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1779788895;
-	bh=6xgiU7UHk0fyH8OtVpuJExgRt0VbjZpUEjJ/frbR0FA=;
+	s=k20260515; t=1779789285;
+	bh=1ZLjE0blDgs8rIXohnrgIdGtGyxBNGZG1NuH9Cx+4Uk=;
 	h=References:In-Reply-To:From:Date:Subject:To:Cc;
-	b=NVZlTsys9BWdtHzTDLDn5rfEhTbtLxyyJGzF9yhWAnDRt41GZGQkchM1KVUs4BE+V
-	 1ZfotqeJQVRfUIDBM6RJ2k1gVu2eBPsu9O+FeP6SXfWF/fNjDthrrS7mHTkNCjm0tu
-	 z8lXLoRuCz3oM81VIG4KNypW0wZMBD+C0W5bBLTTQrUkpCxFSnVeLs5s6QmfusqyrK
-	 2DZ+l73jxUWSahhHCjeNnze7jpJ4/4lfxQqN/demRkAnfOOJj/aQiLbtdK7j/e7uRU
-	 bs0KQ9vbAJ0Tk2r4RTaxzHBYygw2z2HFkI95yphzgxLV8SHOsGkb3Hm9fXVZm2Odf1
-	 r7Hx6MJKvNEGw==
-Received: by mail-lj1-f176.google.com with SMTP id 38308e7fff4ca-392445f11c5so105831691fa.1
-        for <linux-arm-kernel@lists.infradead.org>; Tue, 26 May 2026 02:48:14 -0700 (PDT)
-X-Forwarded-Encrypted: i=1; AFNElJ94F5ADA4ll6XdZ1ol6FeHG2IXRjxFM2GrVgLsyvxBWH0aemOOn6UxOMSQqOe6uFfVy8/yVDjhMHgdHOD9BxxlX@lists.infradead.org
-X-Gm-Message-State: AOJu0YzMMC61kx/UYYYB2wbvOFuT0urtssfF5QsFudFSkmwEqTqjCZUI
-	W2xLQuhH5JOhAUG4jiRwjI6pFNkDB9z3fLkTR7DuHGOYkLZbfyiwjSboBnh+e4L2Gl+Iwx6pLoY
-	jm9cK3jhzCBYmZ7nDwS7EhdXGvzoD52pCHk8J4CylGA==
-X-Received: by 2002:a05:651c:20cd:20b0:38e:94c6:b706 with SMTP id
- 38308e7fff4ca-395ca1c8679mr43054031fa.7.1779788893678; Tue, 26 May 2026
- 02:48:13 -0700 (PDT)
+	b=dxo6ihjwxavCdVOP1XWBGE+CkJ5yd5Rv29vX2ChuIA1yStvCAP5yhZmBA2tSp+SLN
+	 ZGYgq6fL8aF//hkfq4hea9/4p6nNiRRn1dd7RvQhkgriGbpd7AYgtf8nzrgv54pEkL
+	 FtnwdVnuu3caxpfCEQ5XLQ6YbK2i9zWas0+SvodAnE9U43wB2ibokvXXHXRlv9SFoj
+	 2ws8LUYedbQAAdtLXRPngPkW+VeYpO99ar7J/DGDCTnuVY6GIPrlTa8o3e2rGupwlQ
+	 AgNihSRCENfYI7yCxNdbQIm2fOyl9OJ1LTb8E026FUtVnmeJo9h/IGPeMYHcSj1nox
+	 wt4ZOQCcbEjmg==
+Received: by mail-lf1-f54.google.com with SMTP id 2adb3069b0e04-5aa1b2327c8so11967024e87.0
+        for <linux-arm-kernel@lists.infradead.org>; Tue, 26 May 2026 02:54:45 -0700 (PDT)
+X-Forwarded-Encrypted: i=1; AFNElJ/tTe3+HN0/3mQmQiZU3tQ9dwVkffwwaXJCAfYnGnJl6Q+T59vAJkIesC2dYiAqPE87cZOGyeW8phawUewyKw23@lists.infradead.org
+X-Gm-Message-State: AOJu0Yza0IGj1Mki2j1V/EOWCGi0JVvXb7pgulgJ+HVgY5DU2sAGvf/2
+	tO+uVGTKHGHt5bSI5C4mPqKgMv9Y+z2W74/z6sLJ9dR1HKu5y2lWBYMfs1Ieq1ICWdie71NHVmg
+	DkYcYdqoB4UuaQj0Z855W3XI+og0jvzQ=
+X-Received: by 2002:ac2:43d3:0:b0:5a8:ee4c:8ae2 with SMTP id
+ 2adb3069b0e04-5aa3237c1e2mr3443175e87.30.1779789284401; Tue, 26 May 2026
+ 02:54:44 -0700 (PDT)
 MIME-Version: 1.0
-References: <20260515090149.3169406-1-wenst@chromium.org> <CAMRc=MdnjRRMVzxPkkrPhQ4dz7rsK8-HKUp9cQ0z11apL3escQ@mail.gmail.com>
- <CAGXv+5HC3dqgcE3KnKzakHHWFHB6m_X42orOkNUvZvp=SL_O8g@mail.gmail.com>
-In-Reply-To: <CAGXv+5HC3dqgcE3KnKzakHHWFHB6m_X42orOkNUvZvp=SL_O8g@mail.gmail.com>
-From: Bartosz Golaszewski <brgl@kernel.org>
-Date: Tue, 26 May 2026 11:48:01 +0200
-X-Gmail-Original-Message-ID: <CAMRc=Med-_0GSYzoFBRiwFzBCK0DZqJD8_SEBxi+zwR20GS-HA@mail.gmail.com>
-X-Gm-Features: AVHnY4JnWCndh1h2w4rgycQThCJN5e2R-74Cpg5S6rpAEGBFVHeaeEFDCnabd1Q
-Message-ID: <CAMRc=Med-_0GSYzoFBRiwFzBCK0DZqJD8_SEBxi+zwR20GS-HA@mail.gmail.com>
-Subject: Re: [PATCH RFC 00/12] arm64: mediatek: Add M.2 E-key slot on Chromebooks
-To: Chen-Yu Tsai <wenst@chromium.org>
-Cc: Greg Kroah-Hartman <gregkh@linuxfoundation.org>, Rob Herring <robh@kernel.org>, 
-	Krzysztof Kozlowski <krzk+dt@kernel.org>, Conor Dooley <conor+dt@kernel.org>, 
-	Matthias Brugger <matthias.bgg@gmail.com>, 
-	AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>, linux-pm@vger.kernel.org, 
-	linux-usb@vger.kernel.org, devicetree@vger.kernel.org, 
-	linux-mediatek@lists.infradead.org, linux-arm-kernel@lists.infradead.org, 
-	linux-kernel@vger.kernel.org, Manivannan Sadhasivam <mani@kernel.org>
+References: <20260518-fix-set-value-glitch-v1-1-d350732dc934@amlogic.com>
+In-Reply-To: <20260518-fix-set-value-glitch-v1-1-d350732dc934@amlogic.com>
+From: Linus Walleij <linusw@kernel.org>
+Date: Tue, 26 May 2026 11:54:31 +0200
+X-Gmail-Original-Message-ID: <CAD++jL=0NVSdZ6jMprK0W+5h8gSoxjZRNqrHmfTSMPf0obTnJA@mail.gmail.com>
+X-Gm-Features: AVHnY4LigDhYSCnaPwhQTYPGRYJs6hffPdPcGze_-mYukq-oq5Xsx1gQevrGyvU
+Message-ID: <CAD++jL=0NVSdZ6jMprK0W+5h8gSoxjZRNqrHmfTSMPf0obTnJA@mail.gmail.com>
+Subject: Re: [PATCH] pinctrl: meson: amlogic-a4: fix gpio output glitch
+To: xianwei.zhao@amlogic.com
+Cc: Neil Armstrong <neil.armstrong@linaro.org>, Kevin Hilman <khilman@baylibre.com>, 
+	Jerome Brunet <jbrunet@baylibre.com>, 
+	Martin Blumenstingl <martin.blumenstingl@googlemail.com>, linux-amlogic@lists.infradead.org, 
+	linux-gpio@vger.kernel.org, linux-arm-kernel@lists.infradead.org, 
+	linux-kernel@vger.kernel.org
 Content-Type: text/plain; charset="UTF-8"
 Content-Transfer-Encoding: quoted-printable
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260526_024815_889930_7024D35F 
-X-CRM114-Status: GOOD (  23.92  )
+X-CRM114-CacheID: sfid-20260526_025446_933411_ADF0168E 
+X-CRM114-Status: GOOD (  14.60  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -88,42 +85,28 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Sun, May 24, 2026 at 10:06=E2=80=AFAM Chen-Yu Tsai <wenst@chromium.org> =
-wrote:
->
-> > >
-> > > I expect some discussion on this patch, because a) it adds some
-> > > OF-specific code into an otherwise generic (core) driver, and
-> > > b) it doesn't yet handle USB 2.0 / 3.x shared ports; it ends up power=
-ing
-> > > on the port twice, which negates the port reset part.
-> > >
-> >
-> > I understand that you do this because the port device has no OF node
-> > assigned. If we wanted to call pwrseq_get() for the port device, is
-> > there really no other way to associate it with the correct pwrseq
-> > provider?
->
-> I suppose we could tie the "port@X" node to the usb port device, but
-> AFAIK no other subsystem does this so we would be introducing a new
-> pattern.
->
-> In the M.2 pwrseq driver, we would have to match by port node instead
-> of its parent device node. We may end up with different behavior for
-> the USB target vs the other targets.
->
+On Mon, May 18, 2026 at 10:26=E2=80=AFAM Xianwei Zhao via B4 Relay
+<devnull+xianwei.zhao.amlogic.com@kernel.org> wrote:
 
-I imagine, we can check the bus type of the parent device to know if
-this is USB?
-
-> Also, the "port@X" nodes only exist for the OF graph connections to
-> connectors and/or muxes (this series doesn't deal with the latter).
-> For directly connected devices, there is a "device@X" child node
-> directly under the USB hub node. That node is what gets tied to the
-> the USB device.
+> From: Xianwei Zhao <xianwei.zhao@amlogic.com>
 >
+> When the system transitions from bootloader to kernel, the GPIO is
+> expected to keep driving high.
+>
+> However, the Linux kernel first configures the pin direction and then
+> sets the output value. This may cause a brief low-level glitch on the
+> GPIO line, which can be problematic for regulator control.
+>
+> By configuring the output value before switching the pin direction to
+> output, the glitch can be avoided.
+>
+> This commit fixes the issue by swapping the configuration order.
+>
+> Fixes: 6e9be3abb78c ("pinctrl: Add driver support for Amlogic SoCs")
+> Signed-off-by: Xianwei Zhao <xianwei.zhao@amlogic.com>
 
-Is this a problem? I don't think I understand what you're saying here.
+Patch applied as non-critical fix based on my gut feeling.
 
-Bart
+Yours,
+Linus Walleij
 
