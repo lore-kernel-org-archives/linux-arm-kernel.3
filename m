@@ -4,83 +4,70 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id AB83ECD5BB1
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 26 May 2026 12:22:51 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 60185CD5BC8
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 26 May 2026 12:25:00 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
-	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=k6UJo4pZSxmwVwN6SJHCB6KePie4SHwN/GD0EnZdR7A=; b=WJBwZfUGehLaf4A0FuCIjxXUrD
-	WzI9/GzJBdFJFTHG6AiF2lT9lvXxpJUWeYML3sw+cdFgbhG4fC8nRua/2769AI1t3tu78zYGRVLY0
-	08Jl1fj3X+HE/NxK1mlK1IVxTd2bFQdaQaUaxstbpHQuLKxMk+lWNBhPY7b2dt5x5tPRZMqzhNuDN
-	V2LmNGtiPP2yoJv0mvbGaM/KlN4DLi/ndb4tFvN/vMI6PajA1k9EKeU8uDMfijIDUl49rmpIsBpfX
-	ADv+AkQMh8gPsm29DeRN0vn4xJbGIITH9IQbTshQY/wbvRXIpt8NzrJ9QfVYS8eU0p6kk//oYh/dz
-	hWhswAlQ==;
+	Content-Type:MIME-Version:References:In-Reply-To:Subject:Cc:To:From:
+	Message-ID:Date:Reply-To:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=kXHQg71bAXxckbX3tH5zEBgAoUtODudj6ZHDRQ1RDpY=; b=kONE7W0Zp1fCHm2M6SeC5T3BOp
+	SKrH7+NW/ZAd+9TJCpb8S/dGQD5TcKEDIE+2yDMZzjPXmuNICRNTfcDRvx1STcCWYeSSKQ1IWa/L/
+	gYuHIfX7lYvTa6PQJhS9Rt3Up+gIVwgjYmeD/B9MEE5zcpTPfuyXFKMoOkWhbTNfWTz5FR0p/lusQ
+	5+axeUFyUcAbQ32mZ0RszbqnfUKorW6QxwBeLB7xM2DNaUmHIMPy/4VImVoqBOkE4t3mQSBtGXaGC
+	CX8N9ratGvtKTCaxNPmtbwg0+6PnduqXR/IVN07RDd0kZrcvX57rFbinC+YJGam6a2yD/Pk93lj4l
+	sty+23vQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wRql4-00000001tkl-0uVO;
-	Tue, 26 May 2026 12:19:42 +0000
-Received: from dggsgout11.his.huawei.com ([45.249.212.51])
+	id 1wRqq5-00000001uK4-3VWR;
+	Tue, 26 May 2026 12:24:53 +0000
+Received: from tor.source.kernel.org ([2600:3c04:e001:324:0:1991:8:25])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wRql0-00000001tjl-0iTE
+	id 1wRqq5-00000001uJl-0rTB
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 26 May 2026 12:19:40 +0000
-Received: from mail.maildlp.com (unknown [172.19.163.198])
-	by dggsgout11.his.huawei.com (SkyGuard) with ESMTPS id 4gPsH03RRnzYQtsm
-	for <linux-arm-kernel@lists.infradead.org>; Tue, 26 May 2026 20:18:36 +0800 (CST)
-Received: from mail02.huawei.com (unknown [10.116.40.128])
-	by mail.maildlp.com (Postfix) with ESMTP id 1A71940573
-	for <linux-arm-kernel@lists.infradead.org>; Tue, 26 May 2026 20:19:31 +0800 (CST)
-Received: from [10.174.179.37] (unknown [10.174.179.37])
-	by APP4 (Coremail) with SMTP id gCh0CgAX31rQjxVq6kXSDg--.29133S3;
-	Tue, 26 May 2026 20:19:30 +0800 (CST)
-Message-ID: <262fdd41-81bf-fb65-c1b7-c9f15e893156@huaweicloud.com>
-Date: Tue, 26 May 2026 20:19:28 +0800
-MIME-Version: 1.0
-User-Agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:102.0) Gecko/20100101
- Thunderbird/102.11.0
-Subject: Re: [PATCH] arm64: kernel: Disable CNP on HiSilicon HIP09
-Content-Language: en-US
-To: Vladimir Murzin <vladimir.murzin@arm.com>,
- Zeng Heng <zengheng@huaweicloud.com>, corbet@lwn.net,
- kuninori.morimoto.gx@renesas.com, maz@kernel.org, oupton@kernel.org,
- catalin.marinas@arm.com, lucaswei@google.com, yeoreum.yun@arm.com,
- skhan@linuxfoundation.org, james.clark@linaro.org, broonie@kernel.org,
- mark.rutland@arm.com, lpieralisi@kernel.org, ryan.roberts@arm.com,
- will@kernel.org, tongtiangen@huawei.com, kevin.brodsky@arm.com,
- yangyicong@hisilicon.com, miko.lenczewski@arm.com
-Cc: linux-doc@vger.kernel.org, wangkefeng.wang@huawei.com,
- linux-kernel@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
- sunnanyong@huawei.com
-References: <20260526015720.206854-1-zengheng@huaweicloud.com>
- <3e7d5472-9c40-456c-876e-c2e71fa0e8fa@arm.com>
-From: Zeng Heng <zengheng@huaweicloud.com>
-In-Reply-To: <3e7d5472-9c40-456c-876e-c2e71fa0e8fa@arm.com>
-Content-Type: text/plain; charset=UTF-8; format=flowed
-Content-Transfer-Encoding: 7bit
-X-CM-TRANSID: gCh0CgAX31rQjxVq6kXSDg--.29133S3
-X-Coremail-Antispam: 1UD129KBjvJXoW3GryrGr1ktFyxZFy5tw18Xwb_yoW7XF15pw
-	4fJr4fJF1DWF13G34UXw1UXr45Ca1fGwn0gF1Utry0qr1avryUAF18Xw1xGFWjqrykWw48
-	ur1j9FyjyF17ArDanT9S1TB71UUUUU7qnTZGkaVYY2UrUUUUjbIjqfuFe4nvWSU5nxnvy2
-	9KBjDU0xBIdaVrnRJUUUBY14x267AKxVW5JVWrJwAFc2x0x2IEx4CE42xK8VAvwI8IcIk0
-	rVWUuVWrJwAFIxvE14AKwVWUJVWUGwA2ocxC64kIII0Yj41l84x0c7CEw4AK67xGY2AK02
-	1l84ACjcxK6xIIjxv20xvE14v26F1j6w1UM28EF7xvwVC0I7IYx2IY6xkF7I0E14v26F4j
-	6r4UJwA2z4x0Y4vEx4A2jsIE14v26rxl6s0DM28EF7xvwVC2z280aVCY1x0267AKxVW0oV
-	Cq3wAS0I0E0xvYzxvE52x082IY62kv0487Mc02F40EFcxC0VAKzVAqx4xG6I80ewAv7VC0
-	I7IYx2IY67AKxVWUJVWUGwAv7VC2z280aVAFwI0_Jr0_Gr1lOx8S6xCaFVCjc4AY6r1j6r
-	4UM4x0Y48IcVAKI48JM4x0x7Aq67IIx4CEVc8vx2IErcIFxwACI402YVCY1x02628vn2kI
-	c2xKxwCYjI0SjxkI62AI1cAE67vIY487MxkF7I0En4kS14v26r4a6rW5MxAIw28IcxkI7V
-	AKI48JMxC20s026xCaFVCjc4AY6r1j6r4UMI8I3I0E5I8CrVAFwI0_Jr0_Jr4lx2IqxVCj
-	r7xvwVAFwI0_JrI_JrWlx4CE17CEb7AF67AKxVW8ZVWrXwCIc40Y0x0EwIxGrwCI42IY6x
-	IIjxv20xvE14v26r1j6r1xMIIF0xvE2Ix0cI8IcVCY1x0267AKxVW8JVWxJwCI42IY6xAI
-	w20EY4v20xvaj40_Jr0_JF4lIxAIcVC2z280aVAFwI0_Jr0_Gr1lIxAIcVC2z280aVCY1x
-	0267AKxVW8JVW8JrUvcSsGvfC2KfnxnUUI43ZEXa7sRidbbtUUUUU==
-X-CM-SenderInfo: p2hqwxhhqjqx5xdzvxpfor3voofrz/
-X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260526_051938_660632_0BA58C94 
-X-CRM114-Status: GOOD (  19.68  )
+	Tue, 26 May 2026 12:24:53 +0000
+Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
+	by tor.source.kernel.org (Postfix) with ESMTP id E6B4A6008A;
+	Tue, 26 May 2026 12:24:51 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 9D8B11F000E9;
+	Tue, 26 May 2026 12:24:51 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
+	s=k20260515; t=1779798291;
+	bh=kXHQg71bAXxckbX3tH5zEBgAoUtODudj6ZHDRQ1RDpY=;
+	h=Date:From:To:Cc:Subject:In-Reply-To:References;
+	b=jqvCjM5TZzau8HI4W9fqEBQhzTBsxmznDYVIh8+zjv2k6+YRoDBhoCjh859/i/Ktj
+	 nEy93gnloejDZuYZF5LlmUYkruN2DYtgBHyL7l++XQw1Eix7w4BwAwtUkPermuddjm
+	 crNoL2tcrWjyBFzrQxa6HfHqC4yJZsbf5PBAN0oAx0DWUj/Kxh80ShVcbPDZg+0Vzp
+	 ioUi1S2zyXNWwgJ+07QA/CXGe5cMB2v68wZHWzU+cJIL5Ep/KrDb292w16NHDOaVvV
+	 RxylSYyZfS2nC/AfzfnvnUwfIffWpPH63KjQklVEdFeGyKNmkhIqI1xab5ZuwliJhn
+	 q1h4kApxkQXLA==
+Received: from sofa.misterjones.org ([185.219.108.64] helo=goblin-girl.misterjones.org)
+	by disco-boy.misterjones.org with esmtpsa  (TLS1.3) tls TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384
+	(Exim 4.98.2)
+	(envelope-from <maz@kernel.org>)
+	id 1wRqq1-00000006GFf-22kQ;
+	Tue, 26 May 2026 12:24:49 +0000
+Date: Tue, 26 May 2026 13:24:49 +0100
+Message-ID: <86v7cauzn2.wl-maz@kernel.org>
+From: Marc Zyngier <maz@kernel.org>
+To: Mostafa Saleh <smostafa@google.com>
+Cc: linux-arm-kernel@lists.infradead.org,
+	linux-kernel@vger.kernel.org,
+	tglx@kernel.org
+Subject: Re: [PATCH v2] irqchip/gic-v4: Harden against bogus command line
+In-Reply-To: <20260526112618.3629321-1-smostafa@google.com>
+References: <20260526112618.3629321-1-smostafa@google.com>
+User-Agent: Wanderlust/2.15.9 (Almost Unreal) SEMI-EPG/1.14.7 (Harue)
+ FLIM-LB/1.14.9 (=?UTF-8?B?R29qxY0=?=) APEL-LB/10.8 EasyPG/1.0.0 Emacs/30.1
+ (aarch64-unknown-linux-gnu) MULE/6.0 (HANACHIRUSATO)
+MIME-Version: 1.0 (generated by SEMI-EPG 1.14.7 - "Harue")
+Content-Type: text/plain; charset=UTF-8
+Content-Transfer-Encoding: quoted-printable
+X-SA-Exim-Connect-IP: 185.219.108.64
+X-SA-Exim-Rcpt-To: smostafa@google.com, linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org, tglx@kernel.org
+X-SA-Exim-Mail-From: maz@kernel.org
+X-SA-Exim-Scanned: No (on disco-boy.misterjones.org); SAEximRunCond expanded to false
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -95,135 +82,73 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hi Vladimir,
+On Tue, 26 May 2026 12:26:18 +0100,
+Mostafa Saleh <smostafa@google.com> wrote:
+>=20
 
-On 2026/5/26 20:10, Vladimir Murzin wrote:
-> Hi,
-> 
-> On 5/26/26 02:57, Zeng Heng wrote:
->> From: Tong Tiangen <tongtiangen@huawei.com>
->>
->> HiSilicon HIP09 implements TLB entry matching behavior that deviates
->> from the ARM architecture specification when the CNP (Common not Private)
->> bit is set in TTBRx_ELx.
->>
->> When TTBRx.CNP=1, TLB entries may be incorrectly shared between CPU
->> cores, leading to TLB conflicts and stale mappings. This affects
->> coherency and can result in incorrect translations.
->>
->> Add the hardware erratum workaround (Hisilicon erratum 162100125) to
->> disable CNP on affected HIP09 cores.
->>
->> Signed-off-by: Tong Tiangen <tongtiangen@huawei.com>
->> Signed-off-by: Zeng Heng <zengheng4@huawei.com>
->> ---
->>   Documentation/arch/arm64/silicon-errata.rst |  2 ++
->>   arch/arm64/Kconfig                          | 15 +++++++++++++++
->>   arch/arm64/kernel/cpu_errata.c              |  7 +++++++
->>   arch/arm64/kernel/cpufeature.c              |  3 ++-
->>   arch/arm64/tools/cpucaps                    |  1 +
->>   5 files changed, 27 insertions(+), 1 deletion(-)
->>
->> diff --git a/Documentation/arch/arm64/silicon-errata.rst b/Documentation/arch/arm64/silicon-errata.rst
->> index 211119ce7adc..cd50059edb85 100644
->> --- a/Documentation/arch/arm64/silicon-errata.rst
->> +++ b/Documentation/arch/arm64/silicon-errata.rst
->> @@ -284,6 +284,8 @@ stable kernels.
->>   +----------------+-----------------+-----------------+-----------------------------+
->>   | Hisilicon      | Hip09           | #162100801      | HISILICON_ERRATUM_162100801 |
->>   +----------------+-----------------+-----------------+-----------------------------+
->> +| Hisilicon      | Hip09           | #162100125      | HISILICON_ERRATUM_162100125 |
->> ++----------------+-----------------+-----------------+-----------------------------+
->>   +----------------+-----------------+-----------------+-----------------------------+
->>   | Qualcomm Tech. | Kryo/Falkor v1  | E1003           | QCOM_FALKOR_ERRATUM_1003    |
->>   +----------------+-----------------+-----------------+-----------------------------+
->> diff --git a/arch/arm64/Kconfig b/arch/arm64/Kconfig
->> index fe60738e5943..ed6207c75b54 100644
->> --- a/arch/arm64/Kconfig
->> +++ b/arch/arm64/Kconfig
->> @@ -1273,6 +1273,21 @@ config HISILICON_ERRATUM_162100801
->>   
->>   	  If unsure, say Y.
->>   
->> +config HISILICON_ERRATUM_162100125
->> +	bool "Hisilicon erratum 162100125"
->> +	default y
->> +	help
->> +	  On HiSilicon HIP09, TLB entry matching behavior when CNP
->> +	  (TTBRx.CNP=1) is enabled differs from the ARM architecture
->> +	  specification.
->> +
->> +	  TLB entries may be incorrectly shared between CPUs, potentially
->> +	  causing TLB conflicts and stale mappings.
->> +
->> +	  Disable CNP support for affected HiSilicon HIP09 cores.
->> +
->> +	  If unsure, say Y.
->> +
->>   config QCOM_FALKOR_ERRATUM_1003
->>   	bool "Falkor E1003: Incorrect translation due to ASID change"
->>   	default y
->> diff --git a/arch/arm64/kernel/cpu_errata.c b/arch/arm64/kernel/cpu_errata.c
->> index 5377e4c2eba2..26d9677a20fc 100644
->> --- a/arch/arm64/kernel/cpu_errata.c
->> +++ b/arch/arm64/kernel/cpu_errata.c
->> @@ -968,6 +968,13 @@ const struct arm64_cpu_capabilities arm64_errata[] = {
->>   		.matches = has_impdef_pmuv3,
->>   		.cpu_enable = cpu_enable_impdef_pmuv3_traps,
->>   	},
->> +#ifdef CONFIG_HISILICON_ERRATUM_162100125
->> +	{
->> +		.desc = "Hisilicon erratum 162100125",
->> +		.capability = ARM64_WORKAROUND_HISILICON_ERRATUM_162100125,
->> +		ERRATA_MIDR_ALL_VERSIONS(MIDR_HISI_HIP09),
->> +	},
->> +#endif
->>   	{
->>   	}
->>   };
->> diff --git a/arch/arm64/kernel/cpufeature.c b/arch/arm64/kernel/cpufeature.c
->> index 6d53bb15cf7b..c4b0db77a58a 100644
->> --- a/arch/arm64/kernel/cpufeature.c
->> +++ b/arch/arm64/kernel/cpufeature.c
->> @@ -1785,7 +1785,8 @@ has_useable_cnp(const struct arm64_cpu_capabilities *entry, int scope)
->>   	if (is_kdump_kernel())
->>   		return false;
->>   
->> -	if (cpus_have_cap(ARM64_WORKAROUND_NVIDIA_CARMEL_CNP))
->> +	if (cpus_have_cap(ARM64_WORKAROUND_NVIDIA_CARMEL_CNP) ||
->> +	    cpus_have_cap(ARM64_WORKAROUND_HISILICON_ERRATUM_162100125))
->>   		return false;
-> 
-> Since we now have a second user for this workaround, would it
-> make sense to:
-> 1. factor out the existing ARM64_WORKAROUND_NVIDIA_CARMEL_CNP into a common capability,
->     for example ARM64_WORKAROUND_DISABLE_CNP
-> 2. wire up erratum 162100125 to use the common ARM64_WORKAROUND_DISABLE_CNP capability?
-> 
-> Cheers
-> Vladimir
-> 
+nit: $SUBJECT isn't quite telling the full story, and the command-line
+is only a second order effect. Something like:
 
-This makes sense to me. Thanks for the reminder.
+"irqchip/gic-v4: Don't advertise VLPIs if no ITS is probed"
 
-Best regards,
-Zeng Heng
+actually describes the nature of the issue.
 
->>   
->>   	return has_cpuid_feature(entry, scope);
->> diff --git a/arch/arm64/tools/cpucaps b/arch/arm64/tools/cpucaps
->> index 811c2479e82d..b797d4893adc 100644
->> --- a/arch/arm64/tools/cpucaps
->> +++ b/arch/arm64/tools/cpucaps
->> @@ -128,3 +128,4 @@ WORKAROUND_REPEAT_TLBI
->>   WORKAROUND_SPECULATIVE_AT
->>   WORKAROUND_SPECULATIVE_SSBS
->>   WORKAROUND_SPECULATIVE_UNPRIV_LOAD
->> +WORKAROUND_HISILICON_ERRATUM_162100125
->> -- 2.43.0
->>
-> 
-> 
-> 
+> When accidentally setting =E2=80=9Ckvm-arm.vgic_v4_enable=3D1=E2=80=9D on=
+ the wrong
+> setup that has no MSI controller device tree node (it exists but
+> not used) and GICv4, it caused a panic as =E2=80=9Cgic_domain=E2=80=9D is=
+ NULL and
+> the kernel attempted to access its ops.
+>=20
+> Originally, I hit this on an older kernel, but was able to reproduce
+> it on upstream with Qemu by hacking this unreasonable setup.
+>=20
+> [   33.145536] Unable to handle kernel NULL pointer dereference at virtua=
+l address 0000000000000028
+> [   33.145658] Mem abort info:
+> [   33.145751]   ESR =3D 0x0000000096000006
+> ...
+> [   33.154057] CPU: 1 UID: 0 PID: 295 Comm: lkvm-static Not tainted 7.1.0=
+-rc4-ge3f15ad3970e #5 PREEMPT
+> [   33.156922] Hardware name: linux,dummy-virt (DT)
+> [   33.158780] pstate: 81402005 (Nzcv daif +PAN -UAO -TCO +DIT -SSBS BTYP=
+E=3D--)
+> [   33.160340] pc : __irq_domain_instantiate+0x1d4/0x578
+> [   33.162602] lr : __irq_domain_instantiate+0x1cc/0x578
+>=20
+> Set vLPI support to false at init time if the host has no ITS, so it
+> propagates properly to kvm_vgic_global_state.has_gicv4.
+>
+> Suggested-by: Marc Zyngier <maz@kernel.org>
+> Signed-off-by: Mostafa Saleh <smostafa@google.com>
+>=20
+> ---
+> v2: Fix the issue at construction as Marc suggested.
+> ---
+>  drivers/irqchip/irq-gic-v3-its.c | 1 +
+>  1 file changed, 1 insertion(+)
+>=20
+> diff --git a/drivers/irqchip/irq-gic-v3-its.c b/drivers/irqchip/irq-gic-v=
+3-its.c
+> index 291d7668cc8d..d02cb9c17c0b 100644
+> --- a/drivers/irqchip/irq-gic-v3-its.c
+> +++ b/drivers/irqchip/irq-gic-v3-its.c
+> @@ -5837,6 +5837,7 @@ int __init its_init(struct fwnode_handle *handle, s=
+truct rdists *rdists,
+>  		its_acpi_probe();
+> =20
+>  	if (list_empty(&its_nodes)) {
+> +		rdists->has_vlpis =3D false;
+>  		pr_warn("ITS: No ITS available, not enabling LPIs\n");
+>  		return -ENXIO;
+>  	}
 
+With the above fixed:
+
+Acked-by: Marc Zyngier <maz@kernel.org>
+
+	M.
+
+--=20
+Without deviation from the norm, progress is not possible.
 
