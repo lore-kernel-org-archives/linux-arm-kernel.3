@@ -4,63 +4,140 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id C5055CD5BB4
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 26 May 2026 06:58:45 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 220CECD5BCF
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 26 May 2026 07:00:21 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:Message-Id:
-	Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:From:
-	Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender
-	:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
-	bh=Z7b2hUwG6+YnBfBMmHjYGQwh5dGHfQEVaggyyf/in4s=; b=lyPZqNVUZjNglm6qfGw4vrUtMC
-	HABFanOHQ2lfNvVTQnCzpRBMSNKBEh94Zc65KzbMwmW+EFABLyMyv3UtwInvybOCJkvRUWhmlXxj5
-	bAgMlHvGg/Ub93/aSviOG5Cq/5qjzmI5LnBBFNDP/U4zDMWgeu3M3Nvhqusya5IZdg1DkCiV4Ix0e
-	/JbqUvy/QqP1DlF3k6upqIkITCx3Lsi+eyvCIdbSHMpJ+lIyePbEji5JPOmTgerYpvpSIUVh+93pK
-	HIWFqBdxcutr0KjVnKF8YhETepz1q7AQzpuUDzi0GPmGAan853GdFvMcuezh5VzfJn1kezqQ6qAQa
-	7kd/mGTQ==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:
+	Content-Transfer-Encoding:Content-Type:In-Reply-To:References:Message-ID:Date
+	:Subject:CC:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=v842Zw1RqH6tMAZuqSlsuRjsFZYqUcohGUYmJKRPrjY=; b=w5xcX2+8tgi8HRLjjqkASkxUyE
+	oxkAuT7o4eUq1kqRNbBbPQ2mMtX98qjEA93OL6P2t+VjLfepLW6s34bHpJfEQHMLfj5ORqxRTWLGE
+	q/vsFJZM8aY5JkB+FCSHvlxMynKrAfaS+BIlFa3t57JvNHp+DGdeeMLfcpYzLKv8ZiTCHlEOwjcIH
+	lc2HSVPj3fOhXS6wxSjsNk6sgYrzB+rV8onLHHteloUkbC4Ek8akYu3dUf7M54X3kslD3qCPaL8Oi
+	g7685rzVgZC1L5rZKW3zUlZDq5U2J2MycigsAY0Yk/fjWTvwn50SyjSjOFiMuZq2GOQbwjlHQMUAs
+	2z83SudA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wRlkN-00000001DQR-1QR1;
-	Tue, 26 May 2026 06:58:39 +0000
-Received: from tor.source.kernel.org ([2600:3c04:e001:324:0:1991:8:25])
+	id 1wRlls-00000001Dlt-0MUi;
+	Tue, 26 May 2026 07:00:12 +0000
+Received: from mail-westeuropeazon11010025.outbound.protection.outlook.com ([52.101.69.25] helo=AM0PR83CU005.outbound.protection.outlook.com)
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wRlkE-00000001DOH-1ZPX;
-	Tue, 26 May 2026 06:58:30 +0000
-Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
-	by tor.source.kernel.org (Postfix) with ESMTP id 47FFD600BB;
-	Tue, 26 May 2026 06:58:29 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 744F71F000E9;
-	Tue, 26 May 2026 06:58:28 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1779778709;
-	bh=Z7b2hUwG6+YnBfBMmHjYGQwh5dGHfQEVaggyyf/in4s=;
-	h=From:Date:Subject:To:Cc;
-	b=JeVRqH7cgXgDuw4uQ4LxwIKjnuqfJL7i9oJF1k6s+3NllQOjaRb4k2oknMPtJPRe/
-	 u0hGFKyZ/0GW1KaiCjDqVHLQ1PkwJrFOQCvTVxgZ9+s+C6oRllEs00dqeiegnjEMj7
-	 Ev1ecp/eGkDSUoP6pCuDaGYflOgZd5P4j8qET2l56Y8baqBVXzoybrXx2AZlpWzmgi
-	 wkS0gCjbRcseZiisWpfrMkhwrEVQjBE9VWulsoPkwvIKlYLwyGGp7sYNm5DGOpyxb1
-	 uXtQpjN0TOWo6lRcH1YqklFNuORoCiXvAvFWcFqZvl/2hfb64BcSkcD1w+5JkhNqio
-	 JmVdzxrljLuig==
-From: Lorenzo Bianconi <lorenzo@kernel.org>
-Date: Tue, 26 May 2026 08:58:05 +0200
-Subject: [PATCH RFC net-next v2] net: airoha: Add TCP LRO support
+	id 1wRllp-00000001DlD-26k5
+	for linux-arm-kernel@lists.infradead.org;
+	Tue, 26 May 2026 07:00:11 +0000
+ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
+ b=XnjYn+e8FGry4FkHAnWAd8AlmA7Hpiq1J9I6NHd6m+57mg3Zvka4jh/AepMOdrGSIPIMKOPSxVXg/7GCVYxvFRhTQnHAKmvFBCNcHfo1GW5noneo7L1yt/c3RzF7QUg7ahEtDsxeDCEDjkwksIkvXRRHgd9bO80+ihhS9QFW2seMeI4A8otNRR7jCs1V86hLndD6UTQlUC+zfe03Z4lmBk2itkzrIUsd5WOlTsJoF6fEuyBizf+3h0wWvShuwpRMnoVXfqw+E58KOzF+96wVkkDyNr7mw8vDjOFCHudCEehX3jowd8dIDe29Vr/1dspkB7LBcIO6Y/4sWzeWrlKFzw==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
+ s=arcselector10001;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
+ bh=v842Zw1RqH6tMAZuqSlsuRjsFZYqUcohGUYmJKRPrjY=;
+ b=I1EDIehvMnd7SAOjwqmjnl8qqLDjp+TX1txtKfg1OZbmzcJ8xZu8Kg4cyuGsXrXFZJuaG3rYHjcsZf3GRyyHhbE4ZPzJaU9xL+LhfC82efdunUpxak2J/twsq90ife65ZulAxUmDJJUwdNld8C453ZOqKsk6Kg0y/eIa9zutXEDfw9fjRoJZmBalMeVOR6WRVBC39oM68oFRtZZd6GlUXzV0+DUvpQE9CTnQ9L2gu0UKAh43A+5lp6793/ekj//iQ5bAq+ybQEfrKuVR2R8MIBEgB4wCr9YXJ15CdHhXAI1jnw3svpkOjzW1pDdFlIZ/T5z+qxM1AHEh/FIleJuIZg==
+ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
+ smtp.mailfrom=oss.nxp.com; dmarc=pass action=none header.from=oss.nxp.com;
+ dkim=pass header.d=oss.nxp.com; arc=none
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=NXP1.onmicrosoft.com;
+ s=selector1-NXP1-onmicrosoft-com;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
+ bh=v842Zw1RqH6tMAZuqSlsuRjsFZYqUcohGUYmJKRPrjY=;
+ b=FFHqA4XOOQ23//TXM2sqWj1jvWrO9B54A8g4XPMmmCzckY4UzMFjqKRBLYFaWSdQcRG5vLgKI6+IHxpnYIpGqdAl0PPXQsPMBRgLOZQWgUmmk95L88XxUq+qe6Vzt4WK3n9IGC7myhGfyQAo+rPJHH2YSCsf4EGQPOnI+YqOISlK2AAMsbahKFT/IBMZQOQ4gtfG9IwESYOvqN+Wvo5xgerRK/ho/0A58X66N34l0uCzPWRL2wSErN/UrU0asE/E7p2TsYZm5OB0hbEvgu8o1TsOS5kYSX69M3zbNFYwwXAgK5NmgwesvGk/KM6Mkhc8VZDoeaFP7xcpbF8f/DpuWg==
+Received: from AM0PR04MB6802.eurprd04.prod.outlook.com (2603:10a6:208:184::17)
+ by GV1PR04MB10680.eurprd04.prod.outlook.com (2603:10a6:150:20c::17) with
+ Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.21.71.11; Tue, 26 May
+ 2026 07:00:01 +0000
+Received: from AM0PR04MB6802.eurprd04.prod.outlook.com
+ ([fe80::dc36:17b6:e5b1:fa51]) by AM0PR04MB6802.eurprd04.prod.outlook.com
+ ([fe80::dc36:17b6:e5b1:fa51%4]) with mapi id 15.21.0048.019; Tue, 26 May 2026
+ 07:00:01 +0000
+From: "Carlos Song (OSS)" <carlos.song@oss.nxp.com>
+To: Vincent Jardin <vjardin@free.fr>, Oleksij Rempel
+	<o.rempel@pengutronix.de>, Pengutronix Kernel Team <kernel@pengutronix.de>,
+	Andi Shyti <andi.shyti@kernel.org>, Frank Li <frank.li@nxp.com>, Sascha Hauer
+	<s.hauer@pengutronix.de>, Fabio Estevam <festevam@gmail.com>, Wolfram Sang
+	<wsa@kernel.org>, Kaushal Butala <kaushalkernelmailinglist@gmail.com>, Shawn
+ Guo <shawn.guo@freescale.com>, Stefan Eichenberger
+	<stefan.eichenberger@toradex.com>
+CC: "linux-i2c@vger.kernel.org" <linux-i2c@vger.kernel.org>,
+	"imx@lists.linux.dev" <imx@lists.linux.dev>,
+	"linux-arm-kernel@lists.infradead.org"
+	<linux-arm-kernel@lists.infradead.org>, "linux-kernel@vger.kernel.org"
+	<linux-kernel@vger.kernel.org>, "stable@vger.kernel.org"
+	<stable@vger.kernel.org>
+Subject: RE: [PATCH v2 0/2] i2c: imx: fix SMBus block-read of 0 locking the
+ bus
+Thread-Topic: [PATCH v2 0/2] i2c: imx: fix SMBus block-read of 0 locking the
+ bus
+Thread-Index: AQHc7N1F3oFMAbZiGUKDWYIfsI8lBA==
+Date: Tue, 26 May 2026 07:00:01 +0000
+Message-ID: <AM0PR04MB6802B906706F0CDE5BA73696E80B2@AM0PR04MB6802.eurprd04.prod.outlook.com>
+References: <20260525-for-upstream-i2c-lx2160-fix-v1-v1-0-f30ab53dd97c@free.fr>
+ <20260525-for-upstream-i2c-lx2160-fix-v1-v2-0-26a3cc8cd055@free.fr>
+In-Reply-To: <20260525-for-upstream-i2c-lx2160-fix-v1-v2-0-26a3cc8cd055@free.fr>
+Accept-Language: en-US
+Content-Language: en-US
+X-MS-Has-Attach: 
+X-MS-TNEF-Correlator: 
+authentication-results: dkim=none (message not signed)
+ header.d=none;dmarc=none action=none header.from=oss.nxp.com;
+x-ms-exchange-messagesentrepresentingtype: 1
+x-ms-publictraffictype: Email
+x-ms-traffictypediagnostic: AM0PR04MB6802:EE_|GV1PR04MB10680:EE_
+x-ms-office365-filtering-correlation-id: 9e019998-5744-4021-4f4e-08debaf46816
+x-ms-exchange-sharedmailbox-routingagent-processed: True
+x-ms-exchange-senderadcheck: 1
+x-ms-exchange-antispam-relay: 0
+x-microsoft-antispam: BCL:0;ARA:13230040|1800799024|376014|7416014|19092799006|366016|38070700021|921020|4143699003|11063799006|6133799003|18002099003|56012099003|22082099003|41080700001|15866825006;
+x-microsoft-antispam-message-info: 4TCqS4hc1lK2yH9slWbgxR5m7z5sbb+nzVR1WWgYuH+AXZ5yaDi2ic/mx+IJdtp/JYeC1orksAgK9NJqWaOByG+M+GDjAuGpJFhTIgTfwx7Z8w02xUViEjPXfuy7O9u6r8nsbxQGNldMWmDAxyAt7WYgdIMYh+TX8kjJnhh827aXsLYPgufOHAtyKUeupdmXWd/f60/HuBDkHNTdnIlqi/1/8JtaRudGd3mAbv+8fb65D/tp4topxigOMquDE3brV2I+49O39TI3bgz9xWkRGxp5NTYMDIvuQyua2b1bODK7oJPVX01d4vb8w6w1zXNjfdE6Phu6aA5zVlFp8FRqWIrmiD2jBQaxmCVw2UY8fGxFOdlwePQFpyy8zNVlH+4EWwlSAUhwY/Kys5yzoawvI1e2IOFThqzKFhWInqq2cplw3Sc/XBZ5r1ocur4bXgBXzJNIYBBNUKtuvtZzlP4bRDiF63eNYHGaGbKz3vcq/2/fkzpJVm5z+FlV7KiT0HPAqLyg68RZdI2q+lQzpyH9w5pEWDNx2YAAZbtvJizVKcmXqYHy2s6jaVfneDM0oJwJdT2V9tdb/aiw80uj54OOZiKDF+kbXcD5ZRawSnsdbqjAb7JFj+Fr53M9mHhSEYCk73xrA/vxoYgVY4buoRZ5w/ITM5P2W2zTFvfzlOQ4V00iDtJP6gwyQ5ppX2nNfYyU050mlHK6E8/AoMVxD4jes/sUg5558YkbTyMsF6kDAsK6CooqMoM9kfOfyfUE8I4S8zS7fNV/3VDmwr6S347+AkjAGU5EUd627nI0yGVBz+BTPCJNu+5qnEnoQaL4xN9QKt1lCFbkEr1jYkWYJ/SAJw==
+x-forefront-antispam-report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:AM0PR04MB6802.eurprd04.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(1800799024)(376014)(7416014)(19092799006)(366016)(38070700021)(921020)(4143699003)(11063799006)(6133799003)(18002099003)(56012099003)(22082099003)(41080700001)(15866825006);DIR:OUT;SFP:1101;
+x-ms-exchange-antispam-messagedata-chunkcount: 1
+x-ms-exchange-antispam-messagedata-0: =?us-ascii?Q?k+chqc5Yc3tz6R3Q8empiTBpLorTVCTsWTBDJz8jBmI6ywC93c9BdaazVb9E?=
+ =?us-ascii?Q?40XGISLD57VKdJRst7XIUEbFA5Z+QtnoPKAg1QQGCPI1sWhAGFqHVvnjZhVG?=
+ =?us-ascii?Q?Cvp32gDXUAJhoaXQi+tC25HnhZszaxKytiSLKgkZ2g77tnpgYzqQ6vxH2+Qz?=
+ =?us-ascii?Q?gpMntXpiBJDcGELU6ln+0JfVXnXrpuxR02DTneyEOwSMLdwEsdhAe+60Rlxm?=
+ =?us-ascii?Q?QB2hGTlf5IAiwGomLgJdd6v4+54puSG18JY8gc6MDObi/kn6dlj5hvxSGUOZ?=
+ =?us-ascii?Q?SNGzrOg/MhOTKHVNywi9EE9Phx3yHxBzVEMYJUWfHJOib9M1URiGdnE7eFu0?=
+ =?us-ascii?Q?0q+9rBuoYoUExdLcXOB4YZm0QnN/1b5nT8n3HaPBqamoJR8DWgXoGB7uNKIv?=
+ =?us-ascii?Q?aydlWrjg13PILeRxOPAQwVrmLX6HWnZnJjpnK6JsoWpz4c2AlEqseEVySp4j?=
+ =?us-ascii?Q?6BJIMTomhnTmr7onqFt4AVnE9HmAieCZ/6b7C/AZ5B6zz4l5UnPDwa6gUzp4?=
+ =?us-ascii?Q?MbPPTgoF2g6VdlJaLOPM7PPP2wrE8MjniptF/c1pfNLVs9oFpLNAvzFBV4bL?=
+ =?us-ascii?Q?Gm5EgHiYbh25RCPB7qE2O7G5xToD9FtBqOQnha5sMAzs98LKgE39OaLWCuBF?=
+ =?us-ascii?Q?1fZYBaoe5/637tPbPjkAKbicOJPNQ97bFriKPjg2GLrFizjPUalbKizol3iC?=
+ =?us-ascii?Q?YSTe2ntWu77dlXCYhxs08KuGlA9DY/YNcC2tkE4lyCjqgHS4YieCsvAT4Yph?=
+ =?us-ascii?Q?priH4qGugEcLklRUJoNpvWMrU0B9vJwVfFyGO7TBANk5w0rWiTzy9HJCMxiF?=
+ =?us-ascii?Q?koBdm6/b7lX7G9P3JMIcJRDuttwUr2odT3Clev/DtX36KxQ1QGvEw4i4CXvw?=
+ =?us-ascii?Q?LIZ2lsoctPxRvv8q9FbIJ4CuyRBuielNrmqV4rpgGcm80WgKsmaqJH32qvjX?=
+ =?us-ascii?Q?TXptQNdtVy0K2saGJSH8+Mu9cNfuzJ+mtn7fZT6m6kdrXsxUkpF3anZyt2FA?=
+ =?us-ascii?Q?349e3H2fsQ0iYmbvjCuPLXNvGF1nx0FgD+rSRjagdJmGM2QRoy6HKaUyPfaN?=
+ =?us-ascii?Q?xL9pEIfMU7rjBFhdOH1xwzz3xPZWjvf7V/3AvIoy9fLd5h5u7mMroVMV3iYC?=
+ =?us-ascii?Q?8wLJp5vfAp7KSTkTFB/9Y3WSGeKqPVtmYTPVGda5ivvzcBpmqdQN7G8eOaca?=
+ =?us-ascii?Q?Z8qYprjRRHLYezg2uoS+jUM00os7vn1Vt4t7pxNRbW7OPEUa/W2goLBkdoe8?=
+ =?us-ascii?Q?r3r/nBX/oWhYVo9nEOgnENFP0vrPbDFu1l3/B2aCJZnOS7HgMzxULJh/tS7I?=
+ =?us-ascii?Q?KftKGeqmSxeTvhYtNxEEKs2pMRJA2nL5ZyQii5VnROaRVYcq0jHuAho5pVmD?=
+ =?us-ascii?Q?9Tw+EDP/lQECWKv3n3e+PtTbRVZn04TMBlCe04pjJzda5IA+gKx/3SN100jw?=
+ =?us-ascii?Q?EyJVDKa4+/QVZ3zoC3dOyMFtGgABa1ac7rrrupJbG5lgUy4LhH/BWVjqFy+i?=
+ =?us-ascii?Q?MBOke0Ho+Cr9EIIP9ezLb2Mf1klnkz6+kDS1Veq9F0ZXh+z3bfrELcfFjgwF?=
+ =?us-ascii?Q?0qXhVW6eG5Uo18pIGqmQHkqcdnp69b5CxCM1D69jF+6S1w3hWpwZPH0lVo6m?=
+ =?us-ascii?Q?nvx+JCc3HodeQGSxyzlpccr24w4BK62TP0gv6YmAuQX8XbzxrnC4ex7GjP3E?=
+ =?us-ascii?Q?Q0JqeWICcm5OHXNFsGplPXOzB1qg05X/0dZHSbqM7IdaETO7?=
+Content-Type: text/plain; charset="us-ascii"
+Content-Transfer-Encoding: quoted-printable
 MIME-Version: 1.0
-Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: 8bit
-Message-Id: <20260526-airoha-eth-lro-v2-1-24e2a9e7a397@kernel.org>
-X-B4-Tracking: v=1; b=H4sIAAAAAAAC/3WNTQrCMBCFr1JmbaRJaLSuBMEDuJUuQjo2gyWRS
- SiVkrsbupe3+nh/GyRkwgSXZgPGhRLFUEEdGnDehgkFjZVBtcq0nWqFJY7eCsxezByF7UbptNH
- yLCXU0ofxRes++ITH/dYEzCLgmmGorqeUI3/3t0XumX/DixRVqndO65Mx2F/fyAHnY+QJhlLKD
- 6g7IjS7AAAA
-X-Change-ID: 20260520-airoha-eth-lro-a5d1c3631811
-To: Andrew Lunn <andrew+netdev@lunn.ch>, 
- "David S. Miller" <davem@davemloft.net>, Eric Dumazet <edumazet@google.com>, 
- Jakub Kicinski <kuba@kernel.org>, Paolo Abeni <pabeni@redhat.com>, 
- Lorenzo Bianconi <lorenzo@kernel.org>
-Cc: linux-arm-kernel@lists.infradead.org, 
- linux-mediatek@lists.infradead.org, netdev@vger.kernel.org, 
- Madhur Agrawal <madhur.agrawal@airoha.com>
-X-Mailer: b4 0.14.3
+X-OriginatorOrg: oss.nxp.com
+X-MS-Exchange-CrossTenant-AuthAs: Internal
+X-MS-Exchange-CrossTenant-AuthSource: AM0PR04MB6802.eurprd04.prod.outlook.com
+X-MS-Exchange-CrossTenant-Network-Message-Id: 9e019998-5744-4021-4f4e-08debaf46816
+X-MS-Exchange-CrossTenant-originalarrivaltime: 26 May 2026 07:00:01.3866
+ (UTC)
+X-MS-Exchange-CrossTenant-fromentityheader: Hosted
+X-MS-Exchange-CrossTenant-id: 686ea1d3-bc2b-4c6f-a92c-d99c5c301635
+X-MS-Exchange-CrossTenant-mailboxtype: HOSTED
+X-MS-Exchange-CrossTenant-userprincipalname: UecDeTk4cr3uKKKjNevX5h5Sl6yUiG7zoFXHhOmnaCrWEH9bWpWhmpM3X/HEKRclJx6DAaYkHqK2tGR4QDp0Iw==
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: GV1PR04MB10680
+X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
+X-CRM114-CacheID: sfid-20260526_000009_630908_808C38CB 
+X-CRM114-Status: GOOD (  22.47  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -75,439 +152,91 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Add hardware TCP Large Receive Offload (LRO) support to the airoha_eth
-driver, leveraging the EN7581/AN7583 SoC's 8 dedicated LRO hardware queues
-mapped to RX queues 24–31. LRO hw offloading does not support
-Scatter-Gather (SG) so it is required to increase the page_pool allocation
-order to 2 for RX queues 24–31 (LRO queues).
 
-Performance comparison between GRO and hw LRO has been carried out using
-a 10Gbps NIC:
 
-GRO: ~2.7 Gbps
-LRO: ~8.1 Gbps
+> -----Original Message-----
+> From: Vincent Jardin <vjardin@free.fr>
+> Sent: Tuesday, May 26, 2026 12:43 AM
+> To: Oleksij Rempel <o.rempel@pengutronix.de>; Pengutronix Kernel Team
+> <kernel@pengutronix.de>; Andi Shyti <andi.shyti@kernel.org>; Frank Li
+> <frank.li@nxp.com>; Sascha Hauer <s.hauer@pengutronix.de>; Fabio Estevam
+> <festevam@gmail.com>; Wolfram Sang <wsa@kernel.org>; Kaushal Butala
+> <kaushalkernelmailinglist@gmail.com>; Shawn Guo
+> <shawn.guo@freescale.com>; Stefan Eichenberger
+> <stefan.eichenberger@toradex.com>
+> Cc: linux-i2c@vger.kernel.org; imx@lists.linux.dev;
+> linux-arm-kernel@lists.infradead.org; linux-kernel@vger.kernel.org; Vince=
+nt
+> Jardin <vjardin@free.fr>; stable@vger.kernel.org
+> Subject: [PATCH v2 0/2] i2c: imx: fix SMBus block-read of 0 locking the b=
+us
+>=20
+> [You don't often get email from vjardin@free.fr. Learn why this is import=
+ant at
+> https://aka.ms/LearnAboutSenderIdentification ]
+>=20
+> i2c-imx rejects a SMBus Block Read byte count of 0 (valid per SMBus 3.1
+> 6.5.7) and it returns without a NACK+STOP, leaving the target holding SDA=
+ so the
+> bus is stuck until a power cycle occur.
+>=20
+> The same bug is occuring with two independently introduced spots, so the =
+fix is
+> two patches with their respective Fixes: tags and backport ranges:
+>=20
+>   1/2  atomic/polling path       Fixes: 8e8782c71595   v3.16+
+>   2/2  IRQ-driven state machine  Fixes: 5f5c2d4579ca   v6.13+
+>=20
 
-Please note with respect to the previous implementation, page_pool
-allocation order has been reduced from 5 to 2.
 
-Tested-by: Madhur Agrawal <madhur.agrawal@airoha.com>
-Signed-off-by: Lorenzo Bianconi <lorenzo@kernel.org>
----
-Changes in RFC v2:
-- Improve performances fixing buf_size computation.
-- Fix possible overflow in REG_CDM_LRO_LIMIT() register configuration.
-- Require the device to be not running before configuring LRO.
-- Fix configuration order in airoha_fe_lro_is_enabled().
-- Check skb header length in airoha_qdma_lro_rx_process().
-- Do not check net_device feature in airoha_qdma_rx_process() before
-  executing airoha_qdma_lro_rx_process() but rely on
-  airoha_qdma_lro_rx_process() logic.
-- Fix possible double recycle in airoha_qdma_rx_process() for LRO
-  packets.
-- Always use AIROHA_RXQ_LRO_MAX_AGG_COUNT macro for max LRO aggregated
-  fragments in airoha_fe_lro_init_rx_queue().
-- Link to v1: https://lore.kernel.org/r/20260520-airoha-eth-lro-v1-1-129cc33766e9@kernel.org
----
- drivers/net/ethernet/airoha/airoha_eth.c  | 217 +++++++++++++++++++++++++++---
- drivers/net/ethernet/airoha/airoha_eth.h  |  24 ++++
- drivers/net/ethernet/airoha/airoha_regs.h |  22 ++-
- 3 files changed, 247 insertions(+), 16 deletions(-)
+Hi Vincent,
 
-diff --git a/drivers/net/ethernet/airoha/airoha_eth.c b/drivers/net/ethernet/airoha/airoha_eth.c
-index 6418fe0c9f80..c8e5abe8942a 100644
---- a/drivers/net/ethernet/airoha/airoha_eth.c
-+++ b/drivers/net/ethernet/airoha/airoha_eth.c
-@@ -12,6 +12,7 @@
- #include <net/dst_metadata.h>
- #include <net/page_pool/helpers.h>
- #include <net/pkt_cls.h>
-+#include <net/tcp.h>
- #include <uapi/linux/ppp_defs.h>
- 
- #include "airoha_regs.h"
-@@ -431,6 +432,48 @@ static void airoha_fe_crsn_qsel_init(struct airoha_eth *eth)
- 				 CDM_CRSN_QSEL_Q1));
- }
- 
-+static void airoha_fe_lro_init_rx_queue(struct airoha_eth *eth, int qdma_id,
-+					int lro_queue_index, int qid,
-+					int buf_size)
-+{
-+	int id = qdma_id + 1;
-+
-+	airoha_fe_rmw(eth, REG_CDM_LRO_LIMIT(id),
-+		      CDM_LRO_AGG_NUM_MASK | CDM_LRO_AGG_SIZE_MASK,
-+		      FIELD_PREP(CDM_LRO_AGG_SIZE_MASK, buf_size) |
-+		      FIELD_PREP(CDM_LRO_AGG_NUM_MASK,
-+				 AIROHA_RXQ_LRO_MAX_AGG_COUNT));
-+	airoha_fe_rmw(eth, REG_CDM_LRO_AGE_TIME(id),
-+		      CDM_LRO_AGE_TIME_MASK | CDM_LRO_AGG_TIME_MASK,
-+		      FIELD_PREP(CDM_LRO_AGE_TIME_MASK,
-+				 AIROHA_RXQ_LRO_MAX_AGE_TIME) |
-+		      FIELD_PREP(CDM_LRO_AGG_TIME_MASK,
-+				 AIROHA_RXQ_LRO_MAX_AGG_TIME));
-+	airoha_fe_rmw(eth, REG_CDM_LRO_RXQ(id, lro_queue_index),
-+		      LRO_RXQ_MASK(lro_queue_index),
-+		      __field_prep(LRO_RXQ_MASK(lro_queue_index), qid));
-+	airoha_fe_set(eth, REG_CDM_LRO_EN(id), BIT(lro_queue_index));
-+}
-+
-+static void airoha_fe_lro_disable(struct airoha_eth *eth, int qdma_id)
-+{
-+	int i, id = qdma_id + 1;
-+
-+	airoha_fe_clear(eth, REG_CDM_LRO_EN(id), LRO_RXQ_EN_MASK);
-+	airoha_fe_clear(eth, REG_CDM_LRO_LIMIT(id),
-+			CDM_LRO_AGG_NUM_MASK | CDM_LRO_AGG_SIZE_MASK);
-+	airoha_fe_clear(eth, REG_CDM_LRO_AGE_TIME(id),
-+			CDM_LRO_AGE_TIME_MASK | CDM_LRO_AGG_TIME_MASK);
-+	for (i = 0; i < AIROHA_MAX_NUM_LRO_QUEUES; i++)
-+		airoha_fe_clear(eth, REG_CDM_LRO_RXQ(id, i), LRO_RXQ_MASK(i));
-+}
-+
-+static bool airoha_fe_lro_is_enabled(struct airoha_eth *eth, int qdma_id)
-+{
-+	return airoha_fe_get(eth, REG_CDM_LRO_EN(qdma_id + 1),
-+			     LRO_RXQ_EN_MASK);
-+}
-+
- static int airoha_fe_init(struct airoha_eth *eth)
- {
- 	airoha_fe_maccr_init(eth);
-@@ -587,6 +630,85 @@ static int airoha_qdma_get_gdm_port(struct airoha_eth *eth,
- 	return port >= ARRAY_SIZE(eth->ports) ? -EINVAL : port;
- }
- 
-+static int airoha_qdma_lro_rx_process(struct airoha_queue *q,
-+				      struct airoha_qdma_desc *desc)
-+{
-+	u32 desc_ctrl = le32_to_cpu(READ_ONCE(desc->ctrl));
-+	u32 msg1 = le32_to_cpu(READ_ONCE(desc->msg1));
-+	u32 msg2 = le32_to_cpu(READ_ONCE(desc->msg2));
-+	u32 msg3 = le32_to_cpu(READ_ONCE(desc->msg3));
-+	struct sk_buff *skb = q->skb;
-+	u32 len, th_off, tcp_ack_seq;
-+	u16 tcp_win, l2_len;
-+	struct tcphdr *th;
-+	bool ipv4, ipv6;
-+
-+	if (FIELD_GET(QDMA_ETH_RXMSG_AGG_COUNT_MASK, msg2) <= 1)
-+		return 0;
-+
-+	ipv4 = FIELD_GET(QDMA_ETH_RXMSG_IP4_MASK, msg1);
-+	ipv6 = FIELD_GET(QDMA_ETH_RXMSG_IP6_MASK, msg1);
-+	if (!ipv4 && !ipv6)
-+		return -EOPNOTSUPP;
-+
-+	l2_len = FIELD_GET(QDMA_ETH_RXMSG_L2_LEN_MASK, msg2);
-+	len = FIELD_GET(QDMA_DESC_LEN_MASK, desc_ctrl);
-+	if (ipv4) {
-+		struct iphdr *iph;
-+
-+		if (!pskb_may_pull(skb, l2_len + sizeof(*iph)))
-+			return -EINVAL;
-+
-+		iph = (struct iphdr *)(skb->data + l2_len);
-+		if (iph->protocol != IPPROTO_TCP)
-+			return -EOPNOTSUPP;
-+
-+		iph->tot_len = cpu_to_be16(len - l2_len);
-+		iph->check = 0;
-+		iph->check = ip_fast_csum((void *)iph, iph->ihl);
-+		th_off = l2_len + (iph->ihl << 2);
-+	} else {
-+		struct ipv6hdr *ip6h;
-+
-+		if (!pskb_may_pull(skb, l2_len + sizeof(*ip6h)))
-+			return -EINVAL;
-+
-+		ip6h = (struct ipv6hdr *)(skb->data + l2_len);
-+		if (ip6h->nexthdr != NEXTHDR_TCP)
-+			return -EOPNOTSUPP;
-+
-+		ip6h->payload_len = cpu_to_be16(len - l2_len - sizeof(*ip6h));
-+		th_off = l2_len + sizeof(*ip6h);
-+	}
-+
-+	tcp_win = FIELD_GET(QDMA_ETH_RXMSG_TCP_WIN_MASK, msg3);
-+	tcp_ack_seq = le32_to_cpu(READ_ONCE(desc->data));
-+
-+	if (!pskb_may_pull(skb, th_off + sizeof(*th)))
-+		return -EINVAL;
-+
-+	th = (struct tcphdr *)(skb->data + th_off);
-+	th->ack_seq = cpu_to_be32(tcp_ack_seq);
-+	th->window = cpu_to_be16(tcp_win);
-+
-+	/* Check tcp timestamp option */
-+	if (th->doff == (sizeof(*th) + TCPOLEN_TSTAMP_ALIGNED) / 4) {
-+		__be32 *topt = (__be32 *)(th + 1);
-+
-+		if (*topt == cpu_to_be32((TCPOPT_NOP << 24) |
-+					 (TCPOPT_NOP << 16) |
-+					 (TCPOPT_TIMESTAMP << 8) |
-+					 TCPOLEN_TIMESTAMP)) {
-+			__le32 tcp_ts_reply = READ_ONCE(desc->tcp_ts_reply);
-+
-+			put_unaligned_be32(le32_to_cpu(tcp_ts_reply),
-+					   topt + 2);
-+		}
-+	}
-+
-+	return 0;
-+}
-+
- static int airoha_qdma_rx_process(struct airoha_queue *q, int budget)
- {
- 	enum dma_data_direction dir = page_pool_get_dma_dir(q->page_pool);
-@@ -634,11 +756,15 @@ static int airoha_qdma_rx_process(struct airoha_queue *q, int budget)
- 
- 			skb_reserve(q->skb, AIROHA_RX_HEADROOM);
- 			__skb_put(q->skb, len);
--			skb_mark_for_recycle(q->skb);
- 			q->skb->dev = port->dev;
--			q->skb->protocol = eth_type_trans(q->skb, port->dev);
- 			q->skb->ip_summed = CHECKSUM_UNNECESSARY;
- 			skb_record_rx_queue(q->skb, qid);
-+
-+			if (airoha_qdma_lro_rx_process(q, desc) < 0)
-+				goto free_frag;
-+
-+			q->skb->protocol = eth_type_trans(q->skb, port->dev);
-+			skb_mark_for_recycle(q->skb);
- 		} else { /* scattered frame */
- 			struct skb_shared_info *shinfo = skb_shinfo(q->skb);
- 			int nr_frags = shinfo->nr_frags;
-@@ -727,23 +853,18 @@ static int airoha_qdma_rx_napi_poll(struct napi_struct *napi, int budget)
- static int airoha_qdma_init_rx_queue(struct airoha_queue *q,
- 				     struct airoha_qdma *qdma, int ndesc)
- {
--	const struct page_pool_params pp_params = {
--		.order = 0,
--		.pool_size = 256,
-+	struct page_pool_params pp_params = {
- 		.flags = PP_FLAG_DMA_MAP | PP_FLAG_DMA_SYNC_DEV,
- 		.dma_dir = DMA_FROM_DEVICE,
--		.max_len = PAGE_SIZE,
- 		.nid = NUMA_NO_NODE,
- 		.dev = qdma->eth->dev,
- 		.napi = &q->napi,
- 	};
-+	int pp_order, qid = q - &qdma->q_rx[0], thr;
- 	struct airoha_eth *eth = qdma->eth;
--	int qid = q - &qdma->q_rx[0], thr;
- 	dma_addr_t dma_addr;
- 
--	q->buf_size = PAGE_SIZE / 2;
- 	q->qdma = qdma;
--
- 	q->entry = devm_kzalloc(eth->dev, ndesc * sizeof(*q->entry),
- 				GFP_KERNEL);
- 	if (!q->entry)
-@@ -754,6 +875,11 @@ static int airoha_qdma_init_rx_queue(struct airoha_queue *q,
- 	if (!q->desc)
- 		return -ENOMEM;
- 
-+	pp_order = airoha_qdma_is_lro_queue(q) ? AIROHA_LRO_PAGE_ORDER : 0;
-+	pp_params.order = pp_order;
-+	pp_params.pool_size = 256;
-+	pp_params.max_len = PAGE_SIZE << pp_order;
-+
- 	q->page_pool = page_pool_create(&pp_params);
- 	if (IS_ERR(q->page_pool)) {
- 		int err = PTR_ERR(q->page_pool);
-@@ -762,6 +888,8 @@ static int airoha_qdma_init_rx_queue(struct airoha_queue *q,
- 		return err;
- 	}
- 
-+	q->buf_size = airoha_qdma_is_lro_queue(q) ? pp_params.max_len
-+						  : pp_params.max_len / 2;
- 	q->ndesc = ndesc;
- 	netif_napi_add(eth->napi_dev, &q->napi, airoha_qdma_rx_napi_poll);
- 
-@@ -1993,6 +2121,67 @@ int airoha_get_fe_port(struct airoha_gdm_port *port)
- 	}
- }
- 
-+static int airoha_dev_set_features(struct net_device *dev,
-+				   netdev_features_t features)
-+{
-+	netdev_features_t diff = dev->features ^ features;
-+	struct airoha_gdm_port *port = netdev_priv(dev);
-+	struct airoha_qdma *qdma = port->qdma;
-+	struct airoha_eth *eth = qdma->eth;
-+	int qdma_id = qdma - &eth->qdma[0];
-+	int i;
-+
-+	if (!(diff & NETIF_F_LRO))
-+		return 0;
-+
-+	if (netif_running(dev))
-+		return -EBUSY;
-+
-+	/* reset LRO configuration */
-+	if (features & NETIF_F_LRO) {
-+		int lro_queue_index = 0;
-+
-+		if (airoha_fe_lro_is_enabled(eth, qdma_id))
-+			return 0;
-+
-+		for (i = 0; i < ARRAY_SIZE(qdma->q_rx); i++) {
-+			struct airoha_queue *q = &qdma->q_rx[i];
-+			u32 size;
-+
-+			if (!q->ndesc)
-+				continue;
-+
-+			if (!airoha_qdma_is_lro_queue(q))
-+				continue;
-+
-+			size = SKB_WITH_OVERHEAD(AIROHA_RX_LEN(q->buf_size));
-+			size = min_t(u32, size, CDM_LRO_AGG_SIZE_MASK);
-+			airoha_fe_lro_init_rx_queue(eth, qdma_id,
-+						    lro_queue_index, i, size);
-+			lro_queue_index++;
-+		}
-+	} else {
-+		for (i = 0; i < ARRAY_SIZE(eth->ports); i++) {
-+			struct airoha_gdm_port *p = eth->ports[i];
-+
-+			if (!p)
-+				continue;
-+
-+			if (p->qdma != qdma)
-+				continue;
-+
-+			if (p->dev == dev)
-+				continue;
-+
-+			if (p->dev->features & NETIF_F_LRO)
-+				return 0;
-+		}
-+		airoha_fe_lro_disable(eth, qdma_id);
-+	}
-+
-+	return 0;
-+}
-+
- static netdev_tx_t airoha_dev_xmit(struct sk_buff *skb,
- 				   struct net_device *dev)
- {
-@@ -2892,6 +3081,7 @@ static const struct net_device_ops airoha_netdev_ops = {
- 	.ndo_stop		= airoha_dev_stop,
- 	.ndo_change_mtu		= airoha_dev_change_mtu,
- 	.ndo_select_queue	= airoha_dev_select_queue,
-+	.ndo_set_features	= airoha_dev_set_features,
- 	.ndo_start_xmit		= airoha_dev_xmit,
- 	.ndo_get_stats64        = airoha_dev_get_stats64,
- 	.ndo_set_mac_address	= airoha_dev_set_macaddr,
-@@ -2989,12 +3179,9 @@ static int airoha_alloc_gdm_port(struct airoha_eth *eth,
- 	dev->ethtool_ops = &airoha_ethtool_ops;
- 	dev->max_mtu = AIROHA_MAX_MTU;
- 	dev->watchdog_timeo = 5 * HZ;
--	dev->hw_features = NETIF_F_IP_CSUM | NETIF_F_RXCSUM |
--			   NETIF_F_TSO6 | NETIF_F_IPV6_CSUM |
--			   NETIF_F_SG | NETIF_F_TSO |
--			   NETIF_F_HW_TC;
--	dev->features |= dev->hw_features;
--	dev->vlan_features = dev->hw_features;
-+	dev->hw_features = AIROHA_HW_FEATURES | NETIF_F_LRO;
-+	dev->features |= AIROHA_HW_FEATURES;
-+	dev->vlan_features = AIROHA_HW_FEATURES;
- 	dev->dev.of_node = np;
- 	SET_NETDEV_DEV(dev, eth->dev);
- 
-diff --git a/drivers/net/ethernet/airoha/airoha_eth.h b/drivers/net/ethernet/airoha/airoha_eth.h
-index d3781103abb5..aed5077d3db5 100644
---- a/drivers/net/ethernet/airoha/airoha_eth.h
-+++ b/drivers/net/ethernet/airoha/airoha_eth.h
-@@ -43,6 +43,18 @@
- 	 (_n) == 15 ? 128 :		\
- 	 (_n) ==  0 ? 1024 : 16)
- 
-+#define AIROHA_LRO_PAGE_ORDER		2
-+#define AIROHA_MAX_NUM_LRO_QUEUES	8
-+#define AIROHA_RXQ_LRO_EN_MASK		0xff000000
-+#define AIROHA_RXQ_LRO_MAX_AGG_COUNT	64
-+#define AIROHA_RXQ_LRO_MAX_AGG_TIME	100
-+#define AIROHA_RXQ_LRO_MAX_AGE_TIME	2000 /* 1ms */
-+
-+#define AIROHA_HW_FEATURES			\
-+	(NETIF_F_IP_CSUM | NETIF_F_RXCSUM |	\
-+	 NETIF_F_TSO6 | NETIF_F_IPV6_CSUM |	\
-+	 NETIF_F_SG | NETIF_F_TSO | NETIF_F_HW_TC)
-+
- #define PSE_RSV_PAGES			128
- #define PSE_QUEUE_RSV_PAGES		64
- 
-@@ -661,6 +673,18 @@ static inline bool airoha_is_7583(struct airoha_eth *eth)
- 	return eth->soc->version == 0x7583;
- }
- 
-+static inline bool airoha_qdma_is_lro_queue(struct airoha_queue *q)
-+{
-+	struct airoha_qdma *qdma = q->qdma;
-+	int qid = q - &qdma->q_rx[0];
-+
-+	/* EN7581 SoC supports at most 8 LRO rx queues */
-+	BUILD_BUG_ON(hweight32(AIROHA_RXQ_LRO_EN_MASK) >
-+		     AIROHA_MAX_NUM_LRO_QUEUES);
-+
-+	return !!(AIROHA_RXQ_LRO_EN_MASK & BIT(qid));
-+}
-+
- int airoha_get_fe_port(struct airoha_gdm_port *port);
- bool airoha_is_valid_gdm_port(struct airoha_eth *eth,
- 			      struct airoha_gdm_port *port);
-diff --git a/drivers/net/ethernet/airoha/airoha_regs.h b/drivers/net/ethernet/airoha/airoha_regs.h
-index 436f3c8779c1..dfc786583774 100644
---- a/drivers/net/ethernet/airoha/airoha_regs.h
-+++ b/drivers/net/ethernet/airoha/airoha_regs.h
-@@ -122,6 +122,20 @@
- #define CDM_CRSN_QSEL_REASON_MASK(_n)	\
- 	GENMASK(4 + (((_n) % 4) << 3),	(((_n) % 4) << 3))
- 
-+#define REG_CDM_LRO_RXQ(_n, _m)		(CDM_BASE(_n) + 0x78 + ((_m) & 0x4))
-+#define LRO_RXQ_MASK(_n)		GENMASK(4 + (((_n) & 0x3) << 3), ((_n) & 0x3) << 3)
-+
-+#define REG_CDM_LRO_EN(_n)		(CDM_BASE(_n) + 0x80)
-+#define LRO_RXQ_EN_MASK			GENMASK(7, 0)
-+
-+#define REG_CDM_LRO_LIMIT(_n)		(CDM_BASE(_n) + 0x84)
-+#define CDM_LRO_AGG_NUM_MASK		GENMASK(23, 16)
-+#define CDM_LRO_AGG_SIZE_MASK		GENMASK(15, 0)
-+
-+#define REG_CDM_LRO_AGE_TIME(_n)	(CDM_BASE(_n) + 0x88)
-+#define CDM_LRO_AGE_TIME_MASK		GENMASK(31, 16)
-+#define CDM_LRO_AGG_TIME_MASK		GENMASK(15, 0)
-+
- #define REG_GDM_FWD_CFG(_n)		GDM_BASE(_n)
- #define GDM_PAD_EN_MASK			BIT(28)
- #define GDM_DROP_CRC_ERR_MASK		BIT(23)
-@@ -883,9 +897,15 @@
- #define QDMA_ETH_RXMSG_SPORT_MASK	GENMASK(25, 21)
- #define QDMA_ETH_RXMSG_CRSN_MASK	GENMASK(20, 16)
- #define QDMA_ETH_RXMSG_PPE_ENTRY_MASK	GENMASK(15, 0)
-+/* RX MSG2 */
-+#define QDMA_ETH_RXMSG_AGG_COUNT_MASK	GENMASK(31, 24)
-+#define QDMA_ETH_RXMSG_L2_LEN_MASK	GENMASK(6, 0)
-+/* RX MSG3 */
-+#define QDMA_ETH_RXMSG_AGG_LEN_MASK	GENMASK(31, 16)
-+#define QDMA_ETH_RXMSG_TCP_WIN_MASK	GENMASK(15, 0)
- 
- struct airoha_qdma_desc {
--	__le32 rsv;
-+	__le32 tcp_ts_reply;
- 	__le32 ctrl;
- 	__le32 addr;
- 	__le32 data;
+Thanks for working on this fix, this looks good to me.
 
----
-base-commit: 3baa7ba4ab98af452925926ffc2ee58c683e3f28
-change-id: 20260520-airoha-eth-lro-a5d1c3631811
+SMBus block reads with a length of 0 seem quite uncommon in practice.
+Was this triggered by a specific device behavior, or mainly found
+during boundary / compliance testing?
 
-Best regards,
--- 
-Lorenzo Bianconi <lorenzo@kernel.org>
+Regarding the handling of len =3D=3D 0,
+I see that the patch sets:
+
+    msg->buf[0] =3D 0;
+    msg->len =3D 2;
+
+It relies on the last-byte STOP handling together with TXAK. It will help I=
+2C-IMX generate NACK + STOP and
+release the bus, right? len =3D 0 is a legal behavior, So it go into a succ=
+essful path.
+But len > I2C_SMBUS_BLOCK_MAX is abnormal behavior. So it go into a fail pa=
+th.
+Do I understand it right?
+
+Also, if possible could you briefly describe how you validated this change
+(e.g. test setup or steps, with and without the fix)?
+
+Thanks again for the fix.
+
+Carlos
+
+> ---
+> Changes in v2:
+> - Handle when count > I2C_SMBUS_BLOCK_MAX the same way as count =3D=3D 0
+>   Reported by the Sashiko AI review on v1.
+>=20
+> ---
+> Vincent Jardin (2):
+>       i2c: imx: fix locked bus on SMBus block-read of 0 (atomic)
+>       i2c: imx: fix locked bus on SMBus block-read of 0 (IRQ)
+>=20
+>  drivers/i2c/busses/i2c-imx.c | 36 +++++++++++++++++++++++++++++++++---
+>  1 file changed, 33 insertions(+), 3 deletions(-)
+> ---
+> base-commit: 6916d5703ddf9a38f1f6c2cc793381a24ee914c6
+> change-id: 20260525-for-upstream-i2c-lx2160-fix-v1-0cba0a0093e5
+>=20
+> Best regards,
+> --
+> Vincent Jardin <vjardin@free.fr>
+>=20
 
 
