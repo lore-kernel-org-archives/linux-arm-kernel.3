@@ -4,105 +4,65 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 2CB74CD5BC8
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 26 May 2026 00:24:36 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 36E67CD5BC9
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 26 May 2026 00:34:34 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:Cc:To:Subject:Message-ID:Date:From:In-Reply-To:References:
-	MIME-Version:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=NQSMw3Vvv8eJ1+UHIh3MK/+HpaNM97XO5hlqHFibpi8=; b=p+cLW5Hj6S5OzVxQVluQhiJnO/
-	zzzuhXAtUUFoCA/Wzii8A/JnfO/rTYIXX6WrF/dSCxNADI+Pm2i9fqjbQ5MoOU5wxpXRsORJedc+q
-	l4hTbQKd8uTS5lmpwIwp4y4YNb6dqkyinmPvSba5Xfe2JiEI2PMqsmCr9MUPDGcbiZ004dgZjyX+m
-	3dK/Kn3BO0wIW3IG3QYXPdLdxKcVuQ6HFlogiFjaWHwdpmiTJ27J/U4hiqXjzTAvOhQ1bwmBZjwiw
-	cmBrTbpXnOokIrZnLijpdR5uRfckDkpKmR5j3NkvwGdnedkHKcX+q+x87Fae0tY+SS9nBix2oJJRl
-	ILd/LM4g==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=0euLdxJnWy0EoxKDZrB4CSHo7mPetTf1x1QsmKsxErs=; b=n2QXiWTQ8ulyC9Lt9yFrIZJnwx
+	TAgMvMmeeSbiMSQbtWrhQJ02RXcc6cuq+lyTbT3WrNXrhjSH0RNRQSWxFz/vqGNcx8tCCL4UPZ0wx
+	OlsC32HbBi0W3+v+4iDOWv3keBNPkLWjNtEtm5w4X2ODMbin8mpWyr4YlIk75joy8PG/TrjMMbV+F
+	nLcv3oSqQ3QOCvrijOyFV5B+4Ptdm/ynJNQiqs6TJHLx1nT3IFDGNX+i2q5iRhIZZp8RCdSBkq8Wk
+	KwAbO+MUkXqXRawNqeILtcRUXr+GHgzmQMK8+2AZwiajqE9VVDX6Mwx5ftTKRa7+zzlybZObx+WJ0
+	GNOrWjsw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wRfat-00000000hFs-2reM;
-	Tue, 26 May 2026 00:24:27 +0000
-Received: from mail-lf1-x130.google.com ([2a00:1450:4864:20::130])
+	id 1wRfkY-00000000huT-29mi;
+	Tue, 26 May 2026 00:34:26 +0000
+Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wRfar-00000000hFE-12KZ
+	id 1wRfkV-00000000htw-3Ett
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 26 May 2026 00:24:26 +0000
-Received: by mail-lf1-x130.google.com with SMTP id 2adb3069b0e04-5a8c6fc5fd3so9859088e87.0
-        for <linux-arm-kernel@lists.infradead.org>; Mon, 25 May 2026 17:24:24 -0700 (PDT)
-ARC-Seal: i=1; a=rsa-sha256; t=1779755063; cv=none;
-        d=google.com; s=arc-20240605;
-        b=Oey7apAunko7EaCmRB6BQvVv5WsZxKmukE/0mfNPgWmHW20JzMSzLo+pfEELF+Wy9Z
-         RZcuoaw1WyKzTLvUlIrw2XwdeolLMH8Qhe/Rhtkc+3voicCZ/CrhFOz6SPZrVNLCt4d9
-         5KquVpJ30wraDKR7E9gWD/bsOKtOClJqNlWepItyWwSWLGbgK3v10Obv4HeAqfdhbR2e
-         diMWVuFJm+JAYUVPjnsJQfLG9W/TbJTu6iTwTjp9F1EMr5Bo0kCuAhqP6R536mueNma8
-         V2c2UJskwN0hoETbJyEs4jlDE3mEee8mH85ewR5RMqwIOZMVhxcTHKMJ09IGqc1SNXgg
-         2hzw==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20240605;
-        h=content-transfer-encoding:cc:to:subject:message-id:date:from
-         :in-reply-to:references:mime-version:dkim-signature;
-        bh=NQSMw3Vvv8eJ1+UHIh3MK/+HpaNM97XO5hlqHFibpi8=;
-        fh=4MSTu370vmz4WeHJ9jLEfb9WZLEZ9fuPeW++adMtpK8=;
-        b=dhiHyCUR2IfdmyMAFfpn8ENmHj/BLlWkCQOPfudA1DPB0yeQqZBEGCbqJwfV0CBUlH
-         3okXzhfR4uiu+11sdoqYAw3L1MoWvQtllVD+RP/fQnllGtewBquyWycjzrZCtY/aCtGk
-         U1WPQhSRZnqC/0JS1IivXx/SsWdsX1JcFhm3xzMvuvRlpOOu2MjX30CeBb+eEB/prdJu
-         TCqHNcwF9SuacXP2NgERHcI86fHnLwqGKVRgsRIAB7zO1Uqx2OD4TSRE/TWqm8O8q2ve
-         Jl/f/ohUeDuuLlmRt4+/m08Y0C0ab85vmAbU9GAgQWCJGHXb7NsD8FvMO0Mk+kU6egal
-         ngMw==;
-        darn=lists.infradead.org
-ARC-Authentication-Results: i=1; mx.google.com; arc=none
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20251104; t=1779755063; x=1780359863; darn=lists.infradead.org;
-        h=content-transfer-encoding:cc:to:subject:message-id:date:from
-         :in-reply-to:references:mime-version:from:to:cc:subject:date
-         :message-id:reply-to;
-        bh=NQSMw3Vvv8eJ1+UHIh3MK/+HpaNM97XO5hlqHFibpi8=;
-        b=lqsfBSaZzt44+4HRZM6byHc1fK4P4BH5/XEOR4k+g7Ds4MS/+43Ay6qDtB/de7DX+v
-         C1CriPd9X/7HOED06AdlCo2SjXoN9Zjto1E9FejEv456lLxlovyfSx2aofwpYnGlc1o3
-         hiAZrZVgqq1JYOPvzqCitHbJl4nwX/xSqzbf2GjF0+gymZMjSOCdeH6g8OXkUCJWsR+B
-         lOTHlJTEVzgJUZponBNfMKy403UO9YHOJfK3P1BR1AbjnFLw0TneIqx35MCD2wOF1C3C
-         /lzjIaxLuMkdAyltFaxyS9zSP8Z1bofMrroiSIJHxrC0yeTtm/9Pu8buBoMK9WwuBYJh
-         rQxg==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20251104; t=1779755063; x=1780359863;
-        h=content-transfer-encoding:cc:to:subject:message-id:date:from
-         :in-reply-to:references:mime-version:x-gm-gg:x-gm-message-state:from
-         :to:cc:subject:date:message-id:reply-to;
-        bh=NQSMw3Vvv8eJ1+UHIh3MK/+HpaNM97XO5hlqHFibpi8=;
-        b=L5TS26gCRir+l9xYTa84YJxtFsgdQMkv+vTDETat2klsmM28Azf08QoX5682l/lYOx
-         UMEG53vZHFYGwMxsMKfEM1Yq8gklleI4mxah385wth4VYVqPMYlJ+7ti+uWaPMItH4hf
-         tG3DOAnZKuc5R+tC6Mr/uws0zu5+4cA7CXemU9I8SOFGZZk9iIQ+Sz4UXuF4GpABQHbC
-         6nJoLazX0qQR1EkmiQPxM8TjAXLphczAF8h2gnFYwW6GfY9Vaemo3yMp+nzolX3x3Q2z
-         0crUc/7VyCArXLbzguKppV4OUN/jWBzKJ2lEWR2Ji5Po4t17qH6xt+ZSiUtn+kLXmn1I
-         Jf7w==
-X-Gm-Message-State: AOJu0YwoxjL8LjQ2VZIoUMrgT1Ob+WXT+k7riECreE62pD8c8rY4COQe
-	sVEMe7fCKwlIVT2ssr/ZVcCpP9+3QvnoBEXUqM1a060ow9yOFYZSUccsXFlz/j9ovLhw3gSveUL
-	0itcPvQN8CoGoJrXxVeaG8xgBBu7v09c=
-X-Gm-Gg: Acq92OEm86/+lAPU7n8yo/+cF7l4iPn0ySlsqApKMjSWT6HAlWZ95SXl3hde1souBQo
-	ZGZbyi66uLkVJE73UKvbIe+CjVRQzlVFLU8GNjOgJDBoCg36un7Gjnr3kmi7qq7d0PakS0FQu6M
-	vX7b1DzhjLeX3RaiWGdHs1dY/kWek2xPBZUH3e7mz7g8SYKfmOHuDzWK4LjMEne4MIC6eyvNXs4
-	hK6KZHt62Do8wMJNh/3o9K32YF50rAEtSow7Bg8EEzZMAcxs9yk5pyD21HpkyxJO+jrFsGX4tS9
-	NS2GwlQ9d5uK5v1FSiIrwGKGjZyHl0i3b0vhJtT2fF8DLUyFQ9u56zjWwb3iX0QR4iM+E5jl
-X-Received: by 2002:a05:6512:1599:b0:5a7:4699:9fd8 with SMTP id
- 2adb3069b0e04-5aa2ba85b09mr7355408e87.16.1779755062403; Mon, 25 May 2026
- 17:24:22 -0700 (PDT)
+	Tue, 26 May 2026 00:34:24 +0000
+Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
+	by sea.source.kernel.org (Postfix) with ESMTP id 8E09340012;
+	Tue, 26 May 2026 00:34:21 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 03B1C1F000E9;
+	Tue, 26 May 2026 00:34:19 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
+	s=k20260515; t=1779755661;
+	bh=0euLdxJnWy0EoxKDZrB4CSHo7mPetTf1x1QsmKsxErs=;
+	h=Date:From:To:Cc:Subject:References:In-Reply-To;
+	b=nNsx6HUUrBFi1hstkNcO6rfTFM6VKyf23dX5e/5h9sw5LaG+20/FtCnYANJmHVMxL
+	 Zy7NV8yGNYZ30ubtmiZTkJxeofpy1QJyvWlQPp46UH7egFpCAkVQ6W81mB12VnkXUu
+	 ayhHPM52ILxNsNalIjA5KJCnW/GSEtE1/0HaVhV1TbHI8/morqLwraLvxHnRqx9bIu
+	 HzlHcCA0LA79933C9k5Liacf1G7kBLk9+SFjeO1HLeTmGDGIzITNmGlsiMYWAcJcts
+	 6fjRT32ONMvjFel9AkbTOkcvRxpBYxbtryXrVIHtz/MpRsDfFIiaipi6gBNGDOQ25Q
+	 ZHjDk5EUsMIog==
+Date: Mon, 25 May 2026 19:34:17 -0500
+From: Namhyung Kim <namhyung@kernel.org>
+To: Ian Rogers <irogers@google.com>
+Cc: acme@kernel.org, adrian.hunter@intel.com, alice.mei.rogers@gmail.com,
+	dapeng1.mi@linux.intel.com, james.clark@linaro.org,
+	leo.yan@linux.dev, linux-arm-kernel@lists.infradead.org,
+	linux-kernel@vger.kernel.org, linux-perf-users@vger.kernel.org,
+	mingo@redhat.com, peterz@infradead.org, tmricht@linux.ibm.com
+Subject: Re: [PATCH v9 01/23] perf arch arm: Sort includes and add missed
+ explicit dependencies
+Message-ID: <ahTqiZ_EQXR3PFxp@google.com>
+References: <20260428071903.1886173-1-irogers@google.com>
+ <20260522220435.2378363-1-irogers@google.com>
+ <20260522220435.2378363-2-irogers@google.com>
 MIME-Version: 1.0
-References: <CAOMZO5AHK2FF1_wws3wQsJs5ofvjn2JpQmk3of+p1+ExL8h+ew@mail.gmail.com>
-In-Reply-To: <CAOMZO5AHK2FF1_wws3wQsJs5ofvjn2JpQmk3of+p1+ExL8h+ew@mail.gmail.com>
-From: Fabio Estevam <festevam@gmail.com>
-Date: Mon, 25 May 2026 21:24:10 -0300
-X-Gm-Features: AVHnY4JS4uosGBNNT0O2e2-uAlaBFEkB6tUSmGGzp3aw6DXRUG7IRPZ2XdoJxuA
-Message-ID: <CAOMZO5AX8z-S6x7agjAs9qvyVL=Je9GBwtLc8Jhg=s=baerfgA@mail.gmail.com>
-Subject: Re: sunxi: Watchdog reboot fails on Allwinner R40 after Linux boot
-To: Guenter Roeck <linux@roeck-us.net>, wens@kernel.org, 
-	Jernej Skrabec <jernej.skrabec@gmail.com>, Samuel Holland <samuel@sholland.org>, 
-	Andre Przywara <andre.przywara@arm.com>
-Cc: "moderated list:ARM/FREESCALE IMX / MXC ARM ARCHITECTURE" <linux-arm-kernel@lists.infradead.org>, linux-sunxi@lists.linux.dev, 
-	linux-watchdog@vger.kernel.org, Otavio Salvador <otavio@ossystems.com.br>
-Content-Type: text/plain; charset="UTF-8"
-Content-Transfer-Encoding: quoted-printable
+Content-Type: text/plain; charset=utf-8
+Content-Disposition: inline
+In-Reply-To: <20260522220435.2378363-2-irogers@google.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260525_172425_306687_0343F6C0 
-X-CRM114-Status: GOOD (  14.52  )
+X-CRM114-CacheID: sfid-20260525_173423_834096_B65418DE 
+X-CRM114-Status: GOOD (  13.48  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -117,21 +77,78 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Sun, May 24, 2026 at 9:41=E2=80=AFAM Fabio Estevam <festevam@gmail.com> =
-wrote:
->
-> Hi,
->
-> I am seeing a reboot failure on an Allwinner R40-based board
-> (Boardcon EMA40i) running mainline Linux v6.18 or also 7.1.0-rc4-next-202=
-60522.
-> This board hasn't been upstreamed yet, but I plan to do so soon.
->
-> The board reboots correctly from U-Boot 2026.04 using the sunxi watchdog,
-> but Linux fails to reboot even when programming the watchdog
-> registers with the exact same values used by U-Boot.
+On Fri, May 22, 2026 at 03:04:12PM -0700, Ian Rogers wrote:
+> Fix missing #includes found while cleaning the evsel/evlist header
+> files. Sort the remaining header files for consistency with the rest
+> of the code.
+> 
+> Signed-off-by: Ian Rogers <irogers@google.com>
 
-This is solved now. The problem was that the X32KIN R40 pin was not
-getting a 32kHz
-from the external PCF8563 CLKOUT pin.
+Acked-by: Namhyung Kim <namhyung@kernel.org>
+
+Thanks,
+Namhyung
+
+> ---
+>  tools/perf/arch/arm/util/cs-etm.c | 26 ++++++++++++++------------
+>  1 file changed, 14 insertions(+), 12 deletions(-)
+> 
+> diff --git a/tools/perf/arch/arm/util/cs-etm.c b/tools/perf/arch/arm/util/cs-etm.c
+> index b7a839de8707..cdf8e3e60606 100644
+> --- a/tools/perf/arch/arm/util/cs-etm.c
+> +++ b/tools/perf/arch/arm/util/cs-etm.c
+> @@ -3,10 +3,13 @@
+>   * Copyright(C) 2015 Linaro Limited. All rights reserved.
+>   * Author: Mathieu Poirier <mathieu.poirier@linaro.org>
+>   */
+> +#include "../../../util/cs-etm.h"
+> +
+> +#include <errno.h>
+> +#include <stdlib.h>
+>  
+> -#include <api/fs/fs.h>
+> -#include <linux/bits.h>
+>  #include <linux/bitops.h>
+> +#include <linux/bits.h>
+>  #include <linux/compiler.h>
+>  #include <linux/coresight-pmu.h>
+>  #include <linux/kernel.h>
+> @@ -14,25 +17,24 @@
+>  #include <linux/string.h>
+>  #include <linux/types.h>
+>  #include <linux/zalloc.h>
+> +#include <sys/stat.h>
+> +
+> +#include <api/fs/fs.h>
+> +#include <internal/lib.h> // page_size
+>  
+> -#include "cs-etm.h"
+> -#include "../../../util/debug.h"
+> -#include "../../../util/record.h"
+>  #include "../../../util/auxtrace.h"
+>  #include "../../../util/cpumap.h"
+> +#include "../../../util/debug.h"
+>  #include "../../../util/event.h"
+>  #include "../../../util/evlist.h"
+>  #include "../../../util/evsel.h"
+> -#include "../../../util/perf_api_probe.h"
+>  #include "../../../util/evsel_config.h"
+> +#include "../../../util/perf_api_probe.h"
+> +#include "../../../util/pmu.h"
+>  #include "../../../util/pmus.h"
+> -#include "../../../util/cs-etm.h"
+> -#include <internal/lib.h> // page_size
+> +#include "../../../util/record.h"
+>  #include "../../../util/session.h"
+> -
+> -#include <errno.h>
+> -#include <stdlib.h>
+> -#include <sys/stat.h>
+> +#include "cs-etm.h"
+>  
+>  struct cs_etm_recording {
+>  	struct auxtrace_record	itr;
+> -- 
+> 2.54.0.794.g4f17f83d09-goog
+> 
 
