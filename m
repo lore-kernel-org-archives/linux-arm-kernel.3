@@ -4,72 +4,64 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 696DDCD5BB1
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 26 May 2026 17:01:18 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id EBE41CD5BC8
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 26 May 2026 17:11:24 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:References
-	:Message-Id:Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:
-	From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:
+	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=vVJMSBzJe/cO9SUCIdq0jjSCtGyg2HmFU6eZcLqxq70=; b=cM2TUB21inzSO/nG4E950ioCuK
-	b/aP80cFqnXLbwMstzePfhXKgV6AP8I4mtejwgUwmdSBZ5dIvysYS/5zqFbqv7mUeatSUXMRRFgX3
-	Z7AXq7Zd6+14ZQ31cgGagaoBiGg3U/rm0g3zjvW2J1K8glLJ/K/p9lNEIIHN/M10vN3UmijrixZ47
-	TiTik1VvZF0NoZNKP6T+KXU2B1yLnmQuc03Y9hHDzJ20/CtbVhJAj88bKF+/KjwjvE2Q80ZAWTKy+
-	NGqzQU9mVQwus7Ml37kiOFdRA/ln7C3NZX/DdGjgV/bogq+Moygwi+B67VGZOfUj/Di+Y4V1Vjziw
-	fQkqnuVA==;
+	bh=rLTEyXP7DRPl8i7g7DG4YLwd/sdcsQbC3ghkKvp2cuI=; b=IPR2ZRG92qmeuGNu3/+qsr3hwu
+	p+IzK3bHaI2/G1bAHbtl2coUP1fBefKQ5NMPIlTHT1lUvXFBDZIwh5U+mNR3Hv6wM6lzSHNR+owC8
+	JRR+i7oMXBf4XaJGH9KMlgJ6oU2Dmwmr1sfIttT8giwPUlyeaxDtbbGzJ5WFRKB2jw6KSI08X2yMO
+	ZmhifkPLpe1GH//xjUdmZts4RuDA+GFCoI8y/uchxkr9g3mamCLSbaBXZT15bfUhm2nzIPg3QO9nJ
+	wrSdPR/tukSDdjBksXQsXuvyZRF9Y/k1VOQ5FLIJ4qtqcgBtL9l84+JMSXo0BF8xyy7iLiNQ49oPV
+	13bd63Xw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wRv9T-00000002dKd-0bqP;
-	Tue, 26 May 2026 17:01:11 +0000
-Received: from foss.arm.com ([217.140.110.172])
-	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wRv97-00000002d6H-0Gqp
-	for linux-arm-kernel@lists.infradead.org;
-	Tue, 26 May 2026 17:00:55 +0000
-Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
-	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id 706CF2944;
-	Tue, 26 May 2026 10:00:42 -0700 (PDT)
-Received: from e132581.arm.com (e132581.arm.com [10.1.196.87])
-	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id 2089E3F7B4;
-	Tue, 26 May 2026 10:00:45 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=simple/simple; d=arm.com; s=foss;
-	t=1779814847; bh=7WlkOoaE/RMqjgbj6G1MbXEsmIn23jDaiZiX8j542bI=;
-	h=From:Date:Subject:References:In-Reply-To:To:Cc:From;
-	b=pzwO60gd4diW64UcQ5crqbNRahVnOLgAtjSFb/rh1KHRUvObLGdeftOaX8ZygvssS
-	 QlALxi07BPipfInujbnGOE4w2vwzc/uGvvpYNzAhFOlK4REMc9UDwKUaILt1o7wUCM
-	 gvRfFNBGNT0Du6jjfScdNvF3ewZz0Sbv/nELAH2o=
-From: Leo Yan <leo.yan@arm.com>
-Date: Tue, 26 May 2026 17:59:44 +0100
-Subject: [PATCH v6 8/8] perf test: Add Arm CoreSight callchain test
+	id 1wRvJD-00000002fFV-1yr8;
+	Tue, 26 May 2026 17:11:15 +0000
+Received: from layka.disroot.org ([178.21.23.139])
+	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
+	id 1wRvJA-00000002fEX-36T0;
+	Tue, 26 May 2026 17:11:14 +0000
+Received: from mail01.disroot.lan (localhost [127.0.0.1])
+	by disroot.org (Postfix) with ESMTP id C740A26FB1;
+	Tue, 26 May 2026 19:11:07 +0200 (CEST)
+X-Virus-Scanned: SPAM Filter at disroot.org
+Received: from layka.disroot.org ([127.0.0.1])
+ by localhost (disroot.org [127.0.0.1]) (amavis, port 10024) with ESMTP
+ id KdRAlyE6vvhA; Tue, 26 May 2026 19:11:07 +0200 (CEST)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=disroot.org; s=mail;
+	t=1779815467; bh=nG8T2sDyMTvq1VTUzB4uTiqI65Ywba/cU0io/fgNHAM=;
+	h=From:To:Cc:Subject:Date:In-Reply-To:References;
+	b=brMpP/3uRaqBFyS/3FuWaqj1LkIPLM+tFUWQRmjORbIzViIkjkFoIPeTkRbUS8zKs
+	 T1lRwi0t99btr6XxUHAVG4C867WQISraNMZIsSq24o+dcwB1tXcVQIAz46Yh2bvpCu
+	 JgxJHhkG4XyFoYHChl+8F6RP/G28Wj3wGQdNDiVyYd1q2i5OeRYb4N44AuWaxPU8wV
+	 cDiG69QFl4XFcpm8RbK5qeD/h/21HpPgUfOryzfzHg3bFWUz6ZGXaYH3ODantIsYCH
+	 jZeX0y86TV0PKcZeFCmMbsqNpvYcwszxdeD/c5Uy6Cgotvehm5IEut3i+vkoFwoctl
+	 9CYvG703MaCow==
+From: Marco Scardovi <scardracs@disroot.org>
+To: brgl@kernel.org
+Cc: heiko@sntech.de,
+	linusw@kernel.org,
+	linux-arm-kernel@lists.infradead.org,
+	linux-gpio@vger.kernel.org,
+	linux-kernel@vger.kernel.org,
+	linux-rockchip@lists.infradead.org,
+	scardracs@disroot.org
+Subject: [PATCH v2 2/2] gpio: rockchip: teardown bugs and resource leaks
+Date: Tue, 26 May 2026 19:02:46 +0200
+Message-ID: <20260526171050.12785-3-scardracs@disroot.org>
+In-Reply-To: <20260526171050.12785-1-scardracs@disroot.org>
+References: <CAMRc=Mfk9tP091DN=5kjb8fvFhj1=MiBZSq4NJ7+k5LNCVy9bw@mail.gmail.com>
+ <20260526171050.12785-1-scardracs@disroot.org>
 MIME-Version: 1.0
-Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: 7bit
-Message-Id: <20260526-b4-arm_cs_callchain_support_v1-v6-8-f9f49f53c9dd@arm.com>
-References: <20260526-b4-arm_cs_callchain_support_v1-v6-0-f9f49f53c9dd@arm.com>
-In-Reply-To: <20260526-b4-arm_cs_callchain_support_v1-v6-0-f9f49f53c9dd@arm.com>
-To: Arnaldo Carvalho de Melo <acme@kernel.org>, 
- John Garry <john.g.garry@oracle.com>, Will Deacon <will@kernel.org>, 
- James Clark <james.clark@linaro.org>, Mike Leach <mike.leach@arm.com>, 
- Suzuki K Poulose <suzuki.poulose@arm.com>, 
- Namhyung Kim <namhyung@kernel.org>, Mark Rutland <mark.rutland@arm.com>, 
- Alexander Shishkin <alexander.shishkin@linux.intel.com>, 
- Jiri Olsa <jolsa@kernel.org>, Ian Rogers <irogers@google.com>, 
- Adrian Hunter <adrian.hunter@intel.com>, Al Grant <al.grant@arm.com>, 
- Paschalis Mpeis <paschalis.mpeis@arm.com>, Amir Ayupov <aaupov@fb.com>
-Cc: linux-arm-kernel@lists.infradead.org, coresight@lists.linaro.org, 
- linux-perf-users@vger.kernel.org
-X-Mailer: b4 0.14.2
-X-Developer-Signature: v=1; a=ed25519-sha256; t=1779814822; l=6359;
- i=leo.yan@arm.com; s=20250604; h=from:subject:message-id;
- bh=7WlkOoaE/RMqjgbj6G1MbXEsmIn23jDaiZiX8j542bI=;
- b=YIbR2VfgZ7s5gODkXaxRPPzhT9ryH1uDOX8j/3Ysscp8o3Yvt/mudI7IlYHcedGnbATow3UjY
- VVCq6HaAqx/BlwP4170dTfUb79F0uF+WikErwnLZ6RhYY1U3FqiM0OG
-X-Developer-Key: i=leo.yan@arm.com; a=ed25519;
- pk=k4BaDbvkCXzBFA7Nw184KHGP5thju8lKqJYIrOWxDhI=
+Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260526_100053_918932_E38F523B 
-X-CRM114-Status: GOOD (  13.13  )
+X-CRM114-CacheID: sfid-20260526_101113_186997_5DF76877 
+X-CRM114-Status: GOOD (  14.09  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -84,274 +76,81 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Add a shell test for synthesized callchains from Arm CoreSight trace.
-The test runs only on arm64 systems with cs_etm event and gcc available.
+Address several teardown issues and resource leaks in the driver's remove
+path and error handling:
 
-Build a small test program for syscall, record them with CoreSight trace
-data, and decode with itrace callchain synthesis enabled. Verify that
-the push and pop callchain.
+1. Debounce clock reference leak: The debounce clock (bank->db_clk) is
+   obtained using of_clk_get() which increments the clock's reference
+   count, but clk_put() is never called. Register a devm action to
+   cleanly release it on unbind. Note that of_clk_get(..., 1) remains
+   necessary over devm_clk_get() because the DT binding does not define
+   clock-names, precluding name-based lookup.
 
-After:
+2. Unregistered chained IRQ handler: The chained IRQ handler is not
+   disconnected in remove(). If a stray interrupt fires after the driver
+   is removed, the kernel attempts to execute a stale handler, leading
+   to a panic. Fix this by clearing the handler in remove().
 
-  perf test 150 -vvv
+3. IRQ domain leak: The linear IRQ domain and its generic chips are
+   allocated manually during probe but never removed. Remove the IRQ
+   domain during driver teardown to free the associated generic chips
+   and mappings.
 
-  150: Check Arm CoreSight synthesized callchain:
-  --- start ---
-  test child forked, pid 13528
-  Test callchain push: PASS
-  Test callchain pop: PASS
-  ---- end(0) ----
-  150: Check Arm CoreSight synthesized callchain                       : Ok
-
-Assisted-by: Codex:GPT-5.5
-Signed-off-by: Leo Yan <leo.yan@arm.com>
+Fixes: 936ee2675eee ("gpio/rockchip: add driver for rockchip gpio")
+Assisted-by: Antigravity:gemini-3.5-flash
+Signed-off-by: Marco Scardovi <scardracs@disroot.org>
 ---
- .../tests/shell/test_arm_coresight_callchain.sh    | 235 +++++++++++++++++++++
- 1 file changed, 235 insertions(+)
+ drivers/gpio/gpio-rockchip.c | 19 ++++++++++++++++++-
+ 1 file changed, 18 insertions(+), 1 deletion(-)
 
-diff --git a/tools/perf/tests/shell/test_arm_coresight_callchain.sh b/tools/perf/tests/shell/test_arm_coresight_callchain.sh
-new file mode 100755
-index 0000000000000000000000000000000000000000..0e5a5d1129ae7d34f8e0c5942fb62d27db3e862d
---- /dev/null
-+++ b/tools/perf/tests/shell/test_arm_coresight_callchain.sh
-@@ -0,0 +1,235 @@
-+#!/bin/bash
-+# Check Arm CoreSight synthesized callchain (exclusive)
-+# SPDX-License-Identifier: GPL-2.0
-+
-+glb_err=1
-+
-+if ! tmpdir=$(mktemp -d /tmp/perf-cs-callchain-test.XXXXXX); then
-+	echo "mktemp failed"
-+	exit 1
-+fi
-+
-+cleanup_files()
+diff --git a/drivers/gpio/gpio-rockchip.c b/drivers/gpio/gpio-rockchip.c
+index 33580093a4e7..c804f970d823 100644
+--- a/drivers/gpio/gpio-rockchip.c
++++ b/drivers/gpio/gpio-rockchip.c
+@@ -638,10 +638,17 @@ static int rockchip_gpiolib_register(struct rockchip_pin_bank *bank)
+ 	return ret;
+ }
+ 
++static void rockchip_clk_put(void *data)
 +{
-+	rm -rf "$tmpdir"
++	struct clk *clk = data;
++
++	clk_put(clk);
 +}
 +
-+trap cleanup_files EXIT
-+trap 'cleanup_files; exit $glb_err' TERM INT
+ static int rockchip_get_bank_data(struct rockchip_pin_bank *bank)
+ {
+ 	struct resource res;
+-	int id = 0;
++	int id = 0, ret;
+ 
+ 	if (of_address_to_resource(bank->of_node, 0, &res)) {
+ 		dev_err(bank->dev, "cannot find IO resource for bank\n");
+@@ -673,6 +680,13 @@ static int rockchip_get_bank_data(struct rockchip_pin_bank *bank)
+ 			dev_err(bank->dev, "cannot find debounce clk\n");
+ 			return -EINVAL;
+ 		}
 +
-+skip_if_system_is_not_ready()
-+{
-+	[ "$(uname -m)" = "aarch64" ] || {
-+		echo "Skip: arm64 only test" >&2
-+		return 2
-+	}
-+
-+	perf list | grep -q 'cs_etm//' || {
-+		echo "Skip: cs_etm event is not available" >&2
-+		return 2
-+	}
-+
-+	command -v gcc >/dev/null 2>&1 || {
-+		echo "Skip: gcc is not available" >&2
-+		return 2
-+	}
-+
-+	return 0
-+}
-+
-+build_test_program()
-+{
-+	local src=$1
-+	local bin=$2
-+
-+	gcc -g -O0 -o "$bin" "$src"
-+}
-+
-+record_trace()
-+{
-+	local bin=$1
-+	local data=$2
-+	local script=$3
-+
-+	perf record -m ,32M -o "$data" --per-thread -e cs_etm// -- "$bin" >/dev/null 2>&1 &&
-+	perf script --itrace=g16i10il64 -i "$data" > "$script"
-+}
-+
-+check_regex()
-+{
-+	local name=$1
-+	local regex=$2
-+	local script=$3
-+
-+	if grep -Pzo "$regex" "$script" >/dev/null; then
-+		echo "Test $name: PASS"
-+		return 0
-+	else
-+		echo "Test $name: FAIL"
-+		return 1
-+	fi
-+}
-+
-+run_test()
-+{
-+	local name=$1
-+	local src=$tmpdir/$name.S
-+	local bin=$tmpdir/$name
-+	local data=$tmpdir/perf.$name.data
-+	local script=$tmpdir/perf.$name.script
-+	local regex
-+
-+	"${name}_src" "$src"
-+
-+	if ! build_test_program "$src" "$bin"; then
-+		echo "$name: build failed"
-+		return
-+	fi
-+
-+	if ! record_trace "$bin" "$data" "$script"; then
-+		echo "$name: perf record/script failed"
-+		return
-+	fi
-+
-+	regex=$("${name}_push_regex")
-+	check_regex "${name} push" "$regex" "$script" || return
-+
-+	regex=$("${name}_pop_regex")
-+	check_regex "${name} pop" "$regex" "$script" || return
-+
-+	glb_err=0
-+}
-+
-+callchain_src()
-+{
-+	cat > "$1" <<'EOF'
-+/* callchain.S */
-+	.text
-+
-+	.global do_svc
-+	.type do_svc, %function
-+do_svc:
-+	stp	x29, x30, [sp, #-16]!
-+	mov	x29, sp
-+
-+	mov	x0, #1
-+	adr	x1, msg
-+	mov	x2, #23
-+	mov	x8, #64
-+
-+	nop
-+	nop	// Pad nops for 9 insns before svc
-+
-+	b	1f
-+1:
-+	svc	#0
-+
-+	nop
-+	nop
-+	nop
-+	nop
-+	nop
-+	nop
-+	nop
-+	nop	// Pad nops for 10 insns after svc
-+
-+	ldp	x29, x30, [sp], #16
-+	ret
-+	.size do_svc, .-do_svc
-+
-+	.global foo
-+	.type foo, %function
-+foo:
-+	stp	x29, x30, [sp, #-16]!
-+	mov	x29, sp
-+	nop
-+	nop
-+	nop
-+	nop
-+	nop
-+	nop
-+	nop	// Pad nops for 9 insns before call
-+
-+	bl	do_svc
-+
-+	nop
-+	nop
-+	nop
-+	nop
-+	nop
-+	nop
-+	nop
-+	nop	// Pad nops for 10 insns after call
-+
-+	ldp	x29, x30, [sp], #16
-+	ret
-+	.size foo, .-foo
-+
-+	.global main
-+	.type main, %function
-+main:
-+	stp	x29, x30, [sp, #-16]!
-+	mov	x29, sp
-+
-+	bl	foo
-+
-+	mov	w0, #0
-+	ldp	x29, x30, [sp], #16
-+	.size main, .-main
-+	ret
-+
-+	.section .rodata
-+msg:
-+	.asciz	"hello from svc syscall\n"
-+EOF
-+}
-+
-+callchain_push_regex()
-+{
-+	printf '%s' \
-+'callchain[[:space:]]+[0-9]+ \[[0-9]+\][[:space:]]+10 instructions:[[:space:]]*\n'\
-+'[[:space:]]+[[:xdigit:]]+ foo\+0x[[:xdigit:]]+ \(.*/callchain\)\n'\
-+'[[:space:]]+[[:xdigit:]]+ main\+0xc \(.*/callchain\)\n'\
-+'([[:space:]]+[[:xdigit:]]+ .*\n)*'\
-+'\n'\
-+'callchain[[:space:]]+[0-9]+ \[[0-9]+\][[:space:]]+10 instructions:[[:space:]]*\n'\
-+'[[:space:]]+[[:xdigit:]]+ do_svc\+0x[[:xdigit:]]+ \(.*/callchain\)\n'\
-+'[[:space:]]+[[:xdigit:]]+ foo\+0x28 \(.*/callchain\)\n'\
-+'[[:space:]]+[[:xdigit:]]+ main\+0xc \(.*/callchain\)\n'\
-+'([[:space:]]+[[:xdigit:]]+ .*\n)*'\
-+'\n'\
-+'callchain[[:space:]]+[0-9]+ \[[0-9]+\][[:space:]]+10 instructions:[[:space:]]*\n'\
-+'[[:space:]]+[[:xdigit:]]+ (vectors|el.*_64_sync|tramp_vectors)\+0x[[:xdigit:]]+ \(\[kernel\.kallsyms\]\)\n'\
-+'[[:space:]]+[[:xdigit:]]+ do_svc\+0x28 \(.*/callchain\)\n'\
-+'[[:space:]]+[[:xdigit:]]+ foo\+0x28 \(.*/callchain\)\n'\
-+'[[:space:]]+[[:xdigit:]]+ main\+0xc \(.*/callchain\)\n'\
-+'([[:space:]]+[[:xdigit:]]+ .*\n)*'
-+}
-+
-+callchain_pop_regex()
-+{
-+	printf '%s' \
-+'callchain[[:space:]]+[0-9]+ \[[0-9]+\][[:space:]]+10 instructions:[[:space:]]*\n'\
-+'[[:space:]]+[[:xdigit:]]+ (ret_to_user|tramp_exit)\+0x[[:xdigit:]]+ \(\[kernel\.kallsyms\]\)\n'\
-+'[[:space:]]+[[:xdigit:]]+ do_svc\+0x28 \(.*/callchain\)\n'\
-+'[[:space:]]+[[:xdigit:]]+ foo\+0x28 \(.*/callchain\)\n'\
-+'[[:space:]]+[[:xdigit:]]+ main\+0xc \(.*/callchain\)\n'\
-+'([[:space:]]+[[:xdigit:]]+ .*\n)*'\
-+'\n'\
-+'callchain[[:space:]]+[0-9]+ \[[0-9]+\][[:space:]]+10 instructions:[[:space:]]*\n'\
-+'[[:space:]]+[[:xdigit:]]+ do_svc\+0x[[:xdigit:]]+ \(.*/callchain\)\n'\
-+'[[:space:]]+[[:xdigit:]]+ foo\+0x28 \(.*/callchain\)\n'\
-+'[[:space:]]+[[:xdigit:]]+ main\+0xc \(.*/callchain\)\n' \
-+'([[:space:]]+[[:xdigit:]]+ .*\n)*'\
-+'\n'\
-+'callchain[[:space:]]+[0-9]+ \[[0-9]+\][[:space:]]+10 instructions:[[:space:]]*\n'\
-+'[[:space:]]+[[:xdigit:]]+ foo\+0x[[:xdigit:]]+ \(.*/callchain\)\n'\
-+'[[:space:]]+[[:xdigit:]]+ main\+0xc \(.*/callchain\)\n'\
-+'([[:space:]]+[[:xdigit:]]+ .*\n)*'
-+}
-+
-+skip_if_system_is_not_ready || exit 2
-+
-+run_test "callchain"
-+
-+exit $glb_err
-
++		ret = devm_add_action_or_reset(bank->dev, rockchip_clk_put,
++					       bank->db_clk);
++		if (ret) {
++			dev_err(bank->dev, "failed to register debounce clk action\n");
++			return ret;
++		}
+ 		break;
+ 	case GPIO_TYPE_V1:
+ 		bank->gpio_regs = &gpio_regs_v1;
+@@ -789,6 +803,9 @@ static void rockchip_gpio_remove(struct platform_device *pdev)
+ {
+ 	struct rockchip_pin_bank *bank = platform_get_drvdata(pdev);
+ 
++	irq_set_chained_handler_and_data(bank->irq, NULL, NULL);
++	if (bank->domain)
++		irq_domain_remove(bank->domain);
+ 	gpiochip_remove(&bank->gpio_chip);
+ }
+ 
 -- 
-2.34.1
+2.54.0
 
 
