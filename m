@@ -4,75 +4,72 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id B6737CD5BD0
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 26 May 2026 11:26:33 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 7BBF1CD5BB1
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 26 May 2026 11:28:26 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:Cc:To:From:Subject:Message-ID:Mime-Version:Date:Reply-To:
-	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
-	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
-	bh=O7rx7KyPWyATkNYQBTFfTCI2vUcCFRxmTiO8Ep3+9hI=; b=Ylc5Mq2ZifV4Ae2rgM6kfn7tSJ
-	0yuIomxS8wytOaTypH+rOlOItgHLAfjt/hl8djMKctAeGo6s/1aRdoEApJFHMiB9ae03RoysaOvGc
-	QOV6pdcwf2QAn55lPkXyohIshjVQMr/NpdJROQ4hKANzCQjeUPCo5XV0ggxBbtbLId7IkogXa5Ll0
-	U7ZqYm4g5NSOeWjC4xQE2uF6FIHd2nrm/mxWUPm+LR9zjk+BZfQxN+xjxnZknSXVwPNw6SdCPbJkE
-	XMSUhfHugb52rD/mALtnWLYXVLeRqrWqzX77xXiRNAm9nDlHQO95j56BTNuc0RQ1I/+oniFneEqaU
-	gWoI93gA==;
+	Content-Type:In-Reply-To:References:Cc:To:From:Subject:MIME-Version:Date:
+	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=CA3vEIesYpDr2R+IgNJm0/KUdwGN/M9rR+d1PmsZUNg=; b=mehaW/2B833/vJHOEZEq9wFVrQ
+	+9vp+Nx/bPjoDR7dkkzyK0ZHZ1saZi8ZDRHRNW933zIqk+om+1qiL6w1pHzmrmvkMJdQ1XIltVIIm
+	SR8dk0xtC1JpRCv8S8X+mCnHz47uSZonQLlvXuHnQp+dSGh4c5SJjg94h4qBPf879XRloZoRjM3jM
+	MARprDF4b/uhuk7MtWpITrnLfbR9WGOXJcQGLjmutVkhr44G7vUkPqQxSbL7bJg/B2MgU6zt8pGtX
+	ymn/UBZ7cFGcxbc32cWl8n3SurG+z6xvJN8SN+r8RAAmcmgZ5ySljGoeqFMJSkuY4ccCzQMXBno9z
+	lw9WN5ww==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wRpvX-00000001muK-07Uw;
-	Tue, 26 May 2026 11:26:27 +0000
-Received: from mail-wm1-x34a.google.com ([2a00:1450:4864:20::34a])
+	id 1wRpxJ-00000001nCg-1zbT;
+	Tue, 26 May 2026 11:28:17 +0000
+Received: from mail-m81145.netease.com ([47.88.81.145])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wRpvT-00000001mtQ-3Pg2
-	for linux-arm-kernel@lists.infradead.org;
-	Tue, 26 May 2026 11:26:25 +0000
-Received: by mail-wm1-x34a.google.com with SMTP id 5b1f17b1804b1-48fe40b61a3so68263055e9.3
-        for <linux-arm-kernel@lists.infradead.org>; Tue, 26 May 2026 04:26:23 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=google.com; s=20251104; t=1779794782; x=1780399582; darn=lists.infradead.org;
-        h=content-transfer-encoding:cc:to:from:subject:message-id
-         :mime-version:date:from:to:cc:subject:date:message-id:reply-to;
-        bh=O7rx7KyPWyATkNYQBTFfTCI2vUcCFRxmTiO8Ep3+9hI=;
-        b=pc/q8g1flzUhc2mSUTflnqMPgE1WnqHsK7mTsTNfXBayV0uSrzwHZ02QXEDMCZbT08
-         SUc0KNQsWFuHZstJ8CtvE1gcGZaRO/srVu8sABXhNH/lKkRlS0m+Y8EVtEWfzfJ4jzr+
-         FcRlUjF3YAAANcUaapQmmW6y9YD3nBZ91dp5UevwJ3NWugeRR3MyXRX0yUhJ7n5TEYzK
-         zmPGDD53dQx/QUr/CGEc+KKBNHzt5Ec/je6zmQZrtHpWB2iqF1NeU0orOB7oEVtrstpu
-         5VtIClcwSRwExPCVHLpRDSyv4IetrXn7VxW33QWUdhYpTxwBjwjFD13757bx5owzI1K9
-         /qGg==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20251104; t=1779794782; x=1780399582;
-        h=content-transfer-encoding:cc:to:from:subject:message-id
-         :mime-version:date:x-gm-message-state:from:to:cc:subject:date
-         :message-id:reply-to;
-        bh=O7rx7KyPWyATkNYQBTFfTCI2vUcCFRxmTiO8Ep3+9hI=;
-        b=hI/e+B3oZyNY19rUkZGyTJprRAefppr0LTmbeAhrMKvS8FTwVm7fFpOH2Oii45jDco
-         7c2ACg02WoRcES4GK5pkCcHp11T1o8gFvwNAqKTrGrY8NLDskmsFc9j03muyYtKoGCUX
-         KlIW6HHlFt6GZnGha3ZuIxpZQmHrYJ5DJTidrTrTscCW2mtodoA3HtLmC0Gk9uLCrTdx
-         iK0Y3KOXU75b0QrPVYpXF7FnCm69hMtqe082UgpRZ9A0+pgPtLixrzpbBWzLpg+WFbYk
-         7hi0kHEoobI6AoxnW8pyBBPhG6E4cKcxXXY135/+1QM+Z3iXrQkU3yEFt02qB0htlPSX
-         6v8g==
-X-Gm-Message-State: AOJu0YwJwljm30N5SrsrIF3yCh9epQlYD6Q9XmU7NVKKrNI7/5/pgIpj
-	nQ/EIJbZLEJxIDw3wk1HzvCfewId/zPeaF4SYY4oA7AiG307qpaCwtJ4btxmcyF4rfdMmZx4thb
-	hko29Sxxg7X8/HSVMR+vx47go+XLVvIH18HDXjb4j9/61JkEYJLqhfEpCYwsWNcFpu5R6BJ5RB6
-	GLNkF+eqMKPOEIrEn/uc9hDpy6hqJ8h6+XX+4ZTlLwe3pTI3Tr9wrPBpuqTwd6Rec9GA==
-X-Received: from wmco1.prod.google.com ([2002:a05:600c:a301:b0:490:6868:7565])
- (user=smostafa job=prod-delivery.src-stubby-dispatcher) by
- 2002:a05:600c:35c8:b0:490:45bb:8dd9 with SMTP id 5b1f17b1804b1-49045bb8efdmr318834875e9.8.1779794781467;
- Tue, 26 May 2026 04:26:21 -0700 (PDT)
-Date: Tue, 26 May 2026 11:26:18 +0000
-Mime-Version: 1.0
-X-Mailer: git-send-email 2.54.0.746.g67dd491aae-goog
-Message-ID: <20260526112618.3629321-1-smostafa@google.com>
-Subject: [PATCH v2] irqchip/gic-v4: Harden against bogus command line
-From: Mostafa Saleh <smostafa@google.com>
-To: linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org
-Cc: maz@kernel.org, tglx@kernel.org, Mostafa Saleh <smostafa@google.com>
-Content-Type: text/plain; charset="UTF-8"
-Content-Transfer-Encoding: quoted-printable
+	id 1wRpxF-00000001n9t-2gSE;
+	Tue, 26 May 2026 11:28:16 +0000
+Received: from [172.16.12.74] (unknown [61.154.14.86])
+	by smtp.qiye.163.com (Hmail) with ESMTP id 3fe1e02e5;
+	Tue, 26 May 2026 19:27:56 +0800 (GMT+08:00)
+Message-ID: <0c6299ce-29a6-4443-9877-498d65c8881b@rock-chips.com>
+Date: Tue, 26 May 2026 19:27:55 +0800
+MIME-Version: 1.0
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH v8 01/10] dt-bindings: display: rockchip: analogix-dp: Fix
+ hclk as third clock for RK3588
+From: Damon Ding <damon.ding@rock-chips.com>
+To: Conor Dooley <conor@kernel.org>
+Cc: hjc@rock-chips.com, heiko@sntech.de, andy.yan@rock-chips.com,
+ maarten.lankhorst@linux.intel.com, mripard@kernel.org, tzimmermann@suse.de,
+ airlied@gmail.com, simona@ffwll.ch, robh@kernel.org, krzk+dt@kernel.org,
+ conor+dt@kernel.org, andrzej.hajda@intel.com, neil.armstrong@linaro.org,
+ rfoss@kernel.org, Laurent.pinchart@ideasonboard.com, jonas@kwiboo.se,
+ jernej.skrabec@gmail.com, nicolas.frattaroli@collabora.com,
+ cristian.ciocaltea@collabora.com, sebastian.reichel@collabora.com,
+ dmitry.baryshkov@oss.qualcomm.com, luca.ceresoli@bootlin.com,
+ dianders@chromium.org, m.szyprowski@samsung.com,
+ dri-devel@lists.freedesktop.org, devicetree@vger.kernel.org,
+ linux-arm-kernel@lists.infradead.org, linux-rockchip@lists.infradead.org,
+ linux-kernel@vger.kernel.org
+References: <20260525125331.140059-1-damon.ding@rock-chips.com>
+ <20260525125331.140059-2-damon.ding@rock-chips.com>
+ <20260525-ominous-hurling-c24874030f5a@spud>
+ <f6c2f07b-52b8-4181-aa1d-a7d8dcda245c@rock-chips.com>
+Content-Language: en-US
+In-Reply-To: <f6c2f07b-52b8-4181-aa1d-a7d8dcda245c@rock-chips.com>
+Content-Type: text/plain; charset=UTF-8; format=flowed
+Content-Transfer-Encoding: 8bit
+X-HM-Tid: 0a9e640a975403a8kunmdb4d9780b82cd9
+X-HM-MType: 1
+X-HM-Spam-Status: e1kfGhgUHx5ZQUpXWQgPGg8OCBgUHx5ZQUlOS1dZFg8aDwILHllBWSg2Ly
+	tZV1koWUFITzdXWRgWCB1ZQUpXWS1ZQUlXWQ8JGhUIEh9ZQVlDGkofVk8YTUIZSUhJSxkdHlYVFA
+	kWGhdVEwETFhoSFyQUDg9ZV1kYEgtZQVlNSlVKTk9VSk9VQ01ZV1kWGg8SFR0UWUFZT0tIVUpLSE
+	pKQk1VSktLVUpCWQY+
+DKIM-Signature: a=rsa-sha256;
+	b=T+VFQrdClvcP/O2v5qFlRx6F02LnccpcsGKQOrU6IbQAyoBjW2V40VeklsbdKbglbmXlWV0Mc1N3ctIvC5SxnGJVmgg3qMdzqE0LkrkpCSlEjRp49YhrxykR/EQ3VanMbZ6P3MG3TdfkHMdOQW1k2xXh2v6Ylz6fjsIP6qTG4cQ=; c=relaxed/relaxed; s=default; d=rock-chips.com; v=1;
+	bh=CA3vEIesYpDr2R+IgNJm0/KUdwGN/M9rR+d1PmsZUNg=;
+	h=date:mime-version:subject:message-id:from;
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260526_042623_885241_959617FB 
-X-CRM114-Status: GOOD (  12.55  )
+X-CRM114-CacheID: sfid-20260526_042814_773094_B0267D47 
+X-CRM114-Status: GOOD (  18.95  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -87,56 +84,217 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-When accidentally setting =E2=80=9Ckvm-arm.vgic_v4_enable=3D1=E2=80=9D on t=
-he wrong
-setup that has no MSI controller device tree node (it exists but
-not used) and GICv4, it caused a panic as =E2=80=9Cgic_domain=E2=80=9D is N=
-ULL and
-the kernel attempted to access its ops.
+Hi Conor,
 
-Originally, I hit this on an older kernel, but was able to reproduce
-it on upstream with Qemu by hacking this unreasonable setup.
+On 5/26/2026 8:54 AM, Damon Ding wrote:
+> Hi Conor,
+> 
+> On 5/26/2026 12:54 AM, Conor Dooley wrote:
+>> On Mon, May 25, 2026 at 08:53:22PM +0800, Damon Ding wrote:
+>>> RK3588 eDP controller requires HCLK_VO1 to access the VO1 GRF
+>>> registers and enable the video datapath.
+>>>
+>>> Previously, the clock was enabled implicitly via the 'rockchip,vo-grf'
+>>> phandle reference, which allowed the eDP to work without explicitly
+>>> managing the hclk_vo1 clock. However, this is not safe or explicit.
+>>>
+>>> To make the clock dependency explicit, enforce per-SoC clock-names
+>>> requirements:
+>>>   - RK3288: 2 clocks (dp, pclk)
+>>>   - RK3399: 3 clocks (dp, pclk, grf)
+>>>   - RK3588: 3 clocks (dp, pclk, hclk)
+>>>
+>>> Do not reuse the 'grf' clock name for RK3588 because it represents
+>>> a different clock with distinct control logic:
+>>> - The 'grf' clock is only for GRF register access and is toggled
+>>>    dynamically during register access.
+>>> - The 'hclk' clock controls both GRF access and video datapath
+>>>    gating, and must remain enabled during probe.
+>>>
+>>> Fixes: f855146263b1 ("dt-bindings: display: rockchip: analogix-dp: 
+>>> Add support for RK3588")
+>>> Signed-off-by: Damon Ding <damon.ding@rock-chips.com>
+>>>
+>>> ---
+>>>
+>>> Changes in v4:
+>>> - Modify the commit msg.
+>>>
+>>> Changes in v5:
+>>> - Enforce the correct third clock name on a per-compatible basis.
+>>> - Modify the commit msg simultaneously.
+>>>
+>>> Changes in v6:
+>>> - Expand more detail commit msg about using hclk instead of grf clock.
+>>>
+>>> Changes in v7:
+>>> - List all valid clock names at the top level, and constrain the clock
+>>>    count for each platform with minItems/maxItems in allOf.
+>>>
+>>> Changes in v8:
+>>> - Fix indentation to 10 for enum in clock-names property.
+>>> ---
+>>>   .../rockchip/rockchip,analogix-dp.yaml        | 34 ++++++++++++++++++-
+>>>   1 file changed, 33 insertions(+), 1 deletion(-)
+>>>
+>>> diff --git a/Documentation/devicetree/bindings/display/rockchip/ 
+>>> rockchip,analogix-dp.yaml b/Documentation/devicetree/bindings/ 
+>>> display/rockchip/rockchip,analogix-dp.yaml
+>>> index d99b23b88cc5..a1ab7a77bdd3 100644
+>>> --- a/Documentation/devicetree/bindings/display/rockchip/ 
+>>> rockchip,analogix-dp.yaml
+>>> +++ b/Documentation/devicetree/bindings/display/rockchip/ 
+>>> rockchip,analogix-dp.yaml
+>>> @@ -26,7 +26,9 @@ properties:
+>>>       items:
+>>>         - const: dp
+>>>         - const: pclk
+>>> -      - const: grf
+>>> +      - enum:
+>>> +          - grf
+>>> +          - hclk
+>>>     power-domains:
+>>>       maxItems: 1
+>>> @@ -60,6 +62,32 @@ required:
+>>>   allOf:
+>>>     - $ref: /schemas/display/bridge/analogix,dp.yaml#
+>>> +  - if:
+>>> +      properties:
+>>> +        compatible:
+>>> +          contains:
+>>> +            enum:
+>>> +              - rockchip,rk3288-dp
+>>> +    then:
+>>> +      properties:
+>>> +        clocks:
+>>> +          maxItems: 2
+>>> +        clock-names:
+>>> +          maxItems: 2
+>>> +
+>>> +  - if:
+>>> +      properties:
+>>> +        compatible:
+>>> +          contains:
+>>> +            enum:
+>>> +              - rockchip,rk3399-edp
+>>> +    then:
+>>> +      properties:
+>>> +        clocks:
+>>> +          minItems: 3
+>>> +        clock-names:
+>>> +          minItems: 3
+>>
+>> If you go back to v6, you'll see that I never asked you to remove the
+>> explict clock-names from here or below. Only the one from the 3288
+>> section. The minItems was an addition, not a replacement.
+>>
+>> pw-bot: changes-requested
+>>
+> 
+> Sorry for the misunderstanding. I will restore the explicit clock-names 
+> definitions and fix this in next version.
+> 
 
-[   33.145536] Unable to handle kernel NULL pointer dereference at virtual =
-address 0000000000000028
-[   33.145658] Mem abort info:
-[   33.145751]   ESR =3D 0x0000000096000006
-...
-[   33.154057] CPU: 1 UID: 0 PID: 295 Comm: lkvm-static Not tainted 7.1.0-r=
-c4-ge3f15ad3970e #5 PREEMPT
-[   33.156922] Hardware name: linux,dummy-virt (DT)
-[   33.158780] pstate: 81402005 (Nzcv daif +PAN -UAO -TCO +DIT -SSBS BTYPE=
-=3D--)
-[   33.160340] pc : __irq_domain_instantiate+0x1d4/0x578
-[   33.162602] lr : __irq_domain_instantiate+0x1cc/0x578
+Sorry to bother you. I attempted to place the explicit clock-names under 
+minItems:
 
-Set vLPI support to false at init time if the host has no ITS, so it
-propagates properly to kvm_vgic_global_state.has_gicv4.
+diff --git 
+a/Documentation/devicetree/bindings/display/rockchip/rockchip,analogix-dp.yaml 
+b/Documentation/devicetree/bindings/display/rockchip/rockchip,analogix-dp.yaml
+index a1ab7a77bdd3..ef03edf52de8 100644
+--- 
+a/Documentation/devicetree/bindings/display/rockchip/rockchip,analogix-dp.yaml
++++ 
+b/Documentation/devicetree/bindings/display/rockchip/rockchip,analogix-dp.yaml
+@@ -87,6 +87,10 @@ allOf:
+            minItems: 3
+          clock-names:
+            minItems: 3
++          items:
++            - const: dp
++            - const: pclk
++            - const: grf
 
-Suggested-by: Marc Zyngier <maz@kernel.org>
-Signed-off-by: Mostafa Saleh <smostafa@google.com>
+    - if:
+        properties:
+@@ -100,6 +104,10 @@ allOf:
+            minItems: 3
+          clock-names:
+            minItems: 3
++          items:
++            - const: dp
++            - const: pclk
++            - const: hclk
+          resets:
+            minItems: 2
+          reset-names:
 
----
-v2: Fix the issue at construction as Marc suggested.
----
- drivers/irqchip/irq-gic-v3-its.c | 1 +
- 1 file changed, 1 insertion(+)
+make dt_binding_check 
+DT_SCHEMA_FILES=Documentation/devicetree/bindings/display/rockchip/rockchip,analogix-dp.yaml
 
-diff --git a/drivers/irqchip/irq-gic-v3-its.c b/drivers/irqchip/irq-gic-v3-=
-its.c
-index 291d7668cc8d..d02cb9c17c0b 100644
---- a/drivers/irqchip/irq-gic-v3-its.c
-+++ b/drivers/irqchip/irq-gic-v3-its.c
-@@ -5837,6 +5837,7 @@ int __init its_init(struct fwnode_handle *handle, str=
-uct rdists *rdists,
- 		its_acpi_probe();
-=20
- 	if (list_empty(&its_nodes)) {
-+		rdists->has_vlpis =3D false;
- 		pr_warn("ITS: No ITS available, not enabling LPIs\n");
- 		return -ENXIO;
- 	}
---=20
-2.54.0.746.g67dd491aae-goog
+Then the following errors occurred:
+
+   SCHEMA  Documentation/devicetree/bindings/processed-schema.json
+   CHKDT   ./Documentation/devicetree/bindings
+/home/ding/drm-misc/Documentation/devicetree/bindings/display/rockchip/rockchip,analogix-dp.yaml: 
+allOf:2:then:properties:clock-names: 'oneOf' conditional failed, one 
+must be fixed:
+         False schema does not allow 3
+         [{'const': 'dp'}, {'const': 'pclk'}, {'const': 'grf'}] is too long
+         [{'const': 'dp'}, {'const': 'pclk'}, {'const': 'grf'}] is too short
+         1 was expected
+         3 is greater than the maximum of 2
+         hint: "minItems" is only needed if less than the "items" list 
+length
+         from schema $id: http://devicetree.org/meta-schemas/items.yaml
+/home/ding/drm-misc/Documentation/devicetree/bindings/display/rockchip/rockchip,analogix-dp.yaml: 
+allOf:3:then:properties:clock-names: 'oneOf' conditional failed, one 
+must be fixed:
+         False schema does not allow 3
+         [{'const': 'dp'}, {'const': 'pclk'}, {'const': 'hclk'}] is too long
+         [{'const': 'dp'}, {'const': 'pclk'}, {'const': 'hclk'}] is too 
+short
+         1 was expected
+         3 is greater than the maximum of 2
+         hint: "minItems" is only needed if less than the "items" list 
+length
+         from schema $id: http://devicetree.org/meta-schemas/items.yaml
+   LINT    ./Documentation/devicetree/bindings
+   DTEX 
+Documentation/devicetree/bindings/display/rockchip/rockchip,analogix-dp.example.dts
+   DTC [C] 
+Documentation/devicetree/bindings/display/rockchip/rockchip,analogix-dp.example.dtb
+
+Neither keeping only minItems nor only the explicit clock-names causes 
+any errors. Would it be a better idea to keep just the explicit 
+clock-names here?
+
+Best regards,
+Damon
+
+> 
+>>
+>>> +
+>>>     - if:
+>>>         properties:
+>>>           compatible:
+>>> @@ -68,6 +96,10 @@ allOf:
+>>>                 - rockchip,rk3588-edp
+>>>       then:
+>>>         properties:
+>>> +        clocks:
+>>> +          minItems: 3
+>>> +        clock-names:
+>>> +          minItems: 3
+>>>           resets:
+>>>             minItems: 2
+>>>           reset-names:
+>>> -- 
+>>> 2.34.1
+>>>
+>>>
+> 
+> 
+> 
 
 
