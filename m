@@ -4,67 +4,72 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 26FD4CD5BD0
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 26 May 2026 09:44:56 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id E88D8CD5BD0
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 26 May 2026 09:45:25 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:MIME-Version:References:In-Reply-To:Subject:Cc:To:From:
+	Message-ID:Date:Reply-To:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=TDRHDmGEsWoGhX4hRehGVfE9UV2CZph1ARQ/RBNtl1Y=; b=gt0iuRXPEe22W9ohYgGhV6RNbB
-	Ejx4gOyBDlhNSOKCmoBbNekOb5Rtm3sQSFoV249lNA6QjEaZXoirXKQdZODiNLeeT8a0kKDt6GUka
-	cT7j9uwqHqEZQlrcN4ugF7gnDC7M3r4UayeJx3eWAL3rGuLfwBImAsB+4JE/iPcUBfVfUfDG2ZaoI
-	lA19XmRKZRxcC4qMNBVd1GjKpGa7cE0csNLIiGcpofHAqI7GYZtkE8N+obbTYAlMZaaHMjK49K0KW
-	Md9dcgtNDIimsUXaJ3/Lpt7IT+B8KfXc0xlEYv2Gs6aHkae/PGHDLgzAYqtkKp3BaTN0NwbNZwCtw
-	EiOr8zqA==;
+	bh=qfZ8jIhULX/PMlWy8k9rOHZDv5XHvqSFyZJRXhlq460=; b=BXwmHBVm8y+wEEe45+dLtRZ7UD
+	w2z9ZyXrhpUSPMd1W8PzgKbcIRtegeyPC74A357npF/xtC9DFDqUjYCoBw13RMxhUB0VwzvRIY7I1
+	4zstOnwWaAEvBycvezg83cA8NOwCP0besWtqf4x/qfPuqYej6sMtgtZDT5B2mZ8Eh/j1FGkT8V0yE
+	QvREt4dqmcjasF4HF7RTy7WWQTuALO4BdMHU4Htov+zh4tF02H3OMOZA56bt5D/UaBpJBRPyuazdq
+	FDWBJOO/QODyFt9217Xt72dcxL/dhQ9eJhCnEk5g6BxRjnxtRuhMGFeSv+1wkjWEODzJga2b/9T03
+	7xJbPQtg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wRoL9-00000001YiX-2u4B;
-	Tue, 26 May 2026 09:44:47 +0000
-Received: from perceval.ideasonboard.com ([213.167.242.64])
+	id 1wRoLe-00000001Ynf-3ZyF;
+	Tue, 26 May 2026 09:45:18 +0000
+Received: from tor.source.kernel.org ([172.105.4.254])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wRoL6-00000001Yhd-2E1w
+	id 1wRoLd-00000001YnR-3rfR
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 26 May 2026 09:44:46 +0000
-Received: from killaraus.ideasonboard.com (unknown [146.0.25.242])
-	by perceval.ideasonboard.com (Postfix) with ESMTPSA id A9E1A492;
-	Tue, 26 May 2026 11:44:21 +0200 (CEST)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=ideasonboard.com;
-	s=mail; t=1779788661;
-	bh=U2+ZqPjvAiVmxd7qt0wOerBLfKuC1rSIN5i69jydn5k=;
-	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
-	b=PvhOmsToRO3rC28XupWVRACpG//74c+zZot9GLddRpSbnxeuPf/vOixR7V9Bl3cpb
-	 jCB7tuhVixoWh4HX02RVmNxldN6d2LGQq/vry4oFR6F1HwGIBhs6OJ4qKyydu2wSD/
-	 jjw6GYpYF3RiFLHCYc/P4cHrI3LRDeKD8YxQVI/Q=
-Date: Tue, 26 May 2026 11:44:38 +0200
-From: Laurent Pinchart <laurent.pinchart@ideasonboard.com>
-To: Krzysztof Kozlowski <krzk@kernel.org>
-Cc: Guoniu Zhou <guoniu.zhou@oss.nxp.com>,
-	Mauro Carvalho Chehab <mchehab@kernel.org>,
-	Rob Herring <robh@kernel.org>,
-	Krzysztof Kozlowski <krzk+dt@kernel.org>,
-	Conor Dooley <conor+dt@kernel.org>, Shawn Guo <shawnguo@kernel.org>,
-	Sascha Hauer <s.hauer@pengutronix.de>,
-	Pengutronix Kernel Team <kernel@pengutronix.de>,
-	Fabio Estevam <festevam@gmail.com>, Frank Li <frank.li@nxp.com>,
-	imx@lists.linux.dev, linux-media@vger.kernel.org,
-	devicetree@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
-	linux-kernel@vger.kernel.org, Guoniu Zhou <guoniu.zhou@nxp.com>,
-	Krzysztof Kozlowski <krzysztof.kozlowski@oss.qualcomm.com>
-Subject: Re: [PATCH v8 1/2] media: dt-bindings: Add CSI Pixel Formatter DT
- bindings
-Message-ID: <20260526094438.GE228394@killaraus.ideasonboard.com>
-References: <20260525-csi_formatter-v8-0-6b646231224b@oss.nxp.com>
- <20260525-csi_formatter-v8-1-6b646231224b@oss.nxp.com>
- <20260526-towering-essential-civet-19a5ad@quoll>
-MIME-Version: 1.0
-Content-Type: text/plain; charset=utf-8
-Content-Disposition: inline
-In-Reply-To: <20260526-towering-essential-civet-19a5ad@quoll>
-X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260526_024444_724121_87EFC4A4 
-X-CRM114-Status: GOOD (  24.55  )
+	Tue, 26 May 2026 09:45:18 +0000
+Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
+	by tor.source.kernel.org (Postfix) with ESMTP id 534B4600BB;
+	Tue, 26 May 2026 09:45:17 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 0A02A1F000E9;
+	Tue, 26 May 2026 09:45:17 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
+	s=k20260515; t=1779788717;
+	bh=qfZ8jIhULX/PMlWy8k9rOHZDv5XHvqSFyZJRXhlq460=;
+	h=Date:From:To:Cc:Subject:In-Reply-To:References;
+	b=B1mNMy3BD8zaywpuraQosBrTjFhg4LbbDViTHvkgubXo9fkH+70/MEdYCxFdKs6jM
+	 KfVLkZR0h/Zu/s1K6eIPG1Fm0YF0dzfXDE0SZweM5aADPV7nC7tQ+fAtIT7hOg8iBj
+	 YthiHwGreJC/bhd4SG6aJYLlQd+jKQMEGB8zk0140A6mgzlMyComggeG5A3WCBAnu5
+	 5ofKpowD65lIKTDV79hSPchBy7JgIX9YkmmoFDBTsmFMwJQeYLEIuZdW8Zj+1po/d/
+	 J9TylNfeZwh9TSYUnfaXVJGRetAM7yxVBu4GBqlZwUk6wiXUsNHxiNadGM/4eupDnw
+	 8QINI1mg3zgxg==
+Received: from sofa.misterjones.org ([185.219.108.64] helo=goblin-girl.misterjones.org)
+	by disco-boy.misterjones.org with esmtpsa  (TLS1.3) tls TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384
+	(Exim 4.98.2)
+	(envelope-from <maz@kernel.org>)
+	id 1wRoLa-00000006D6b-3RnT;
+	Tue, 26 May 2026 09:45:14 +0000
+Date: Tue, 26 May 2026 10:45:14 +0100
+Message-ID: <86wlwqv711.wl-maz@kernel.org>
+From: Marc Zyngier <maz@kernel.org>
+To: Mostafa Saleh <smostafa@google.com>
+Cc: linux-arm-kernel@lists.infradead.org,
+	linux-kernel@vger.kernel.org,
+	tglx@kernel.org
+Subject: Re: [PATCH] irqchip/gic-v4: Harden against bogus command line
+In-Reply-To: <ahVQtakwshwI9ss-@google.com>
+References: <20260521130503.4103369-1-smostafa@google.com>
+	<86zf1qv4do.wl-maz@kernel.org>
+	<ahVQtakwshwI9ss-@google.com>
+User-Agent: Wanderlust/2.15.9 (Almost Unreal) SEMI-EPG/1.14.7 (Harue)
+ FLIM-LB/1.14.9 (=?UTF-8?B?R29qxY0=?=) APEL-LB/10.8 EasyPG/1.0.0 Emacs/30.1
+ (aarch64-unknown-linux-gnu) MULE/6.0 (HANACHIRUSATO)
+MIME-Version: 1.0 (generated by SEMI-EPG 1.14.7 - "Harue")
+Content-Type: text/plain; charset=UTF-8
+Content-Transfer-Encoding: quoted-printable
+X-SA-Exim-Connect-IP: 185.219.108.64
+X-SA-Exim-Rcpt-To: smostafa@google.com, linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org, tglx@kernel.org
+X-SA-Exim-Mail-From: maz@kernel.org
+X-SA-Exim-Scanned: No (on disco-boy.misterjones.org); SAEximRunCond expanded to false
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -79,141 +84,87 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Tue, May 26, 2026 at 11:13:35AM +0200, Krzysztof Kozlowski wrote:
-> On Mon, May 25, 2026 at 04:12:22PM +0800, Guoniu Zhou wrote:
-> > From: Guoniu Zhou <guoniu.zhou@nxp.com>
-> > 
-> > The i.MX95 CSI pixel formatting module uses packet info, pixel and
-> > non-pixel data from the CSI-2 host controller and reformat them to
-> > match Pixel Link(PL) definition.
-> > 
-> > Reviewed-by: Frank Li <Frank.Li@nxp.com>
-> > Reviewed-by: Krzysztof Kozlowski <krzysztof.kozlowski@oss.qualcomm.com>
-> 
-> Drop both review tags and request re-review since you made significant
-> changes.
-> 
-> > Signed-off-by: Guoniu Zhou <guoniu.zhou@nxp.com>
-> > ---
-> > Changes in v8:
-> > - Use standard port reference instead of video-interfaces.yaml
-> 
-> Why? Properties are not applicable?
-> 
-> > - Add parent syscon node in example to show device integration
-> > - Add required constraints for port@0 and port@1 in ports node
-> > 
-> > Changes in v7:
-> > - Change compatible to imx95-csi-formatter as IP is i.MX95 specific per Marco's suggestion
-> >   Link: https://lore.kernel.org/linux-media/20260511-csi_formatter-v6-0-01028e312e2b@oss.nxp.com/T/#mcd135b3de179b3cb69daa1fd6e0e8e27c85b3332
-> > ---
-> >  .../bindings/media/fsl,imx95-csi-formatter.yaml    | 92 ++++++++++++++++++++++
-> >  1 file changed, 92 insertions(+)
-> > 
-> > diff --git a/Documentation/devicetree/bindings/media/fsl,imx95-csi-formatter.yaml b/Documentation/devicetree/bindings/media/fsl,imx95-csi-formatter.yaml
-> > new file mode 100644
-> > index 000000000000..bc2f5d448fe5
-> > --- /dev/null
-> > +++ b/Documentation/devicetree/bindings/media/fsl,imx95-csi-formatter.yaml
-> > @@ -0,0 +1,92 @@
-> > +# SPDX-License-Identifier: (GPL-2.0-only OR BSD-2-Clause)
-> > +%YAML 1.2
-> > +---
-> > +$id: http://devicetree.org/schemas/media/fsl,imx95-csi-formatter.yaml#
-> > +$schema: http://devicetree.org/meta-schemas/core.yaml#
-> > +
-> > +title: i.MX95 CSI Pixel Formatter
-> > +
-> > +maintainers:
-> > +  - Guoniu Zhou <guoniu.zhou@nxp.com>
-> > +
-> > +description:
-> > +  The CSI pixel formatting module found on i.MX95 uses packet info, pixel
-> > +  and non-pixel data from the CSI-2 host controller and reformat them to
-> > +  match Pixel Link(PL) definition.
-> > +
-> > +properties:
-> > +  compatible:
-> > +    const: fsl,imx95-csi-formatter
-> > +
-> > +  reg:
-> > +    maxItems: 1
-> > +
-> > +  clocks:
-> > +    maxItems: 1
-> > +
-> > +  power-domains:
-> > +    maxItems: 1
-> > +
-> > +  ports:
-> > +    $ref: /schemas/graph.yaml#/properties/ports
-> > +
-> > +    properties:
-> > +      port@0:
-> > +        $ref: /schemas/graph.yaml#/properties/port
-> > +        description: MIPI CSI-2 RX IDI interface
-> > +
-> > +      port@1:
-> > +        $ref: /schemas/graph.yaml#/properties/port
-> > +        description: Pixel Link Interface
-> > +
-> > +    required:
-> > +      - port@0
-> > +      - port@1
-> > +
-> > +required:
-> > +  - compatible
-> > +  - reg
-> > +  - clocks
-> > +  - power-domains
-> > +  - ports
-> > +
-> > +additionalProperties: false
-> > +
-> > +examples:
-> > +  - |
-> > +    #include <dt-bindings/clock/nxp,imx95-clock.h>
-> > +
-> > +    syscon@4ac10000 {
-> > +        compatible = "nxp,imx95-camera-csr", "syscon";
-> 
-> Drop entire node, not relevant. Or actually this example could be in the
-> parent binding example.
+On Tue, 26 May 2026 08:50:13 +0100,
+Mostafa Saleh <smostafa@google.com> wrote:
+>=20
+> On Sat, May 23, 2026 at 10:53:23AM +0100, Marc Zyngier wrote:
+> > On Thu, 21 May 2026 14:05:03 +0100,
+> > Mostafa Saleh <smostafa@google.com> wrote:
+> > >=20
+> > > When accidentally setting =E2=80=9Ckvm-arm.vgic_v4_enable=3D1=E2=80=
+=9D on the wrong
+> > > setup that has no MSI controller device tree node (it exists but
+> > > not used) and GICv4, it caused a panic as =E2=80=9Cgic_domain=E2=80=
+=9D is NULL and
+> > > the kernel attempted to access its ops.
+> >=20
+> > When you say "that has no MSI controller device tree node", does it
+> > mean that the ITS has not been probed at all?
+>=20
+> Yes.
+>=20
+> >=20
+> > >
+> > > Originally, I hit this on an older kernel, but was able to reproduce
+> > > it on upstream with Qemu by hacking this unreasonable setup.
+> > >=20
+> > > [   33.145536] Unable to handle kernel NULL pointer dereference at vi=
+rtual address 0000000000000028
+> > > [   33.145658] Mem abort info:
+> > > [   33.145751]   ESR =3D 0x0000000096000006
+> > > ...
+> > > [   33.154057] CPU: 1 UID: 0 PID: 295 Comm: lkvm-static Not tainted 7=
+.1.0-rc4-ge3f15ad3970e #5 PREEMPT
+> > > [   33.156922] Hardware name: linux,dummy-virt (DT)
+> > > [   33.158780] pstate: 81402005 (Nzcv daif +PAN -UAO -TCO +DIT -SSBS =
+BTYPE=3D--)
+> > > [   33.160340] pc : __irq_domain_instantiate+0x1d4/0x578
+> > > [   33.162602] lr : __irq_domain_instantiate+0x1cc/0x578
+> > >=20
+> > > Add a hardening check to avoid the NULL access, and fail the VM
+> > > creation in that case.
+> > >=20
+> > > Signed-off-by: Mostafa Saleh <smostafa@google.com>
+> > > ---
+> > >  drivers/irqchip/irq-gic-v4.c | 3 +++
+> > >  1 file changed, 3 insertions(+)
+> > >=20
+> > > diff --git a/drivers/irqchip/irq-gic-v4.c b/drivers/irqchip/irq-gic-v=
+4.c
+> > > index 8455b4a5fbb0..7e39f7eae85f 100644
+> > > --- a/drivers/irqchip/irq-gic-v4.c
+> > > +++ b/drivers/irqchip/irq-gic-v4.c
+> > > @@ -159,6 +159,9 @@ int its_alloc_vcpu_irqs(struct its_vm *vm)
+> > >  {
+> > >  	int vpe_base_irq, i;
+> > > =20
+> > > +	if (!gic_domain)
+> > > +		return -EINVAL;
+> > > +
+> > >  	vm->fwnode =3D irq_domain_alloc_named_id_fwnode("GICv4-vpe",
+> > >  						      task_pid_nr(current));
+> > >  	if (!vm->fwnode)
+> >=20
+> > I think this check is a good few levels too late. If you want to fix
+> > this, I'd rather make sure that kvm_vgic_global_state.has_gicv4 is
+> > reliable and covers this case. Which means making sure that
+> > gic_kvm_info::has_v4 is itself reliable.
+> >=20
+> > If my above understanding is correct, I'd expect the following
+> > (untested) hack to help.
+>=20
+> Thanks! That also fixes the crash, the VM will launch with a vGIC with
+> no ITS in that case.
 
-I asked for this in the review of a previous version. The example only
-stated "formatter@20" and it was not mentioned anywhere that the device
-was supposed to be a child node of a syscon. The driver reads the reg
-property and uses it as an offset to the regmap of the syscon, I wanted
-to see where/how the node was meant to be integrated in DT.
+You should still be able to have a virtual ITS, just no direct
+injection of any sort.
 
-> > +        reg = <0x0 0x4ac10000 0x0 0x10000>;
-> > +        #address-cells = <1>;
-> > +        #size-cells = <1>;
-> > +
-> > +        formatter@20 {
-> > +            compatible = "fsl,imx95-csi-formatter";
-> > +            reg = <0x20 0x100>;
-> > +            clocks = <&cameramix_csr IMX95_CLK_CAMBLK_CSI2_FOR0>;
-> > +            power-domains = <&scmi_devpd 3>;
-> > +
-> > +            ports {
-> > +                #address-cells = <1>;
-> > +                #size-cells = <0>;
-> > +
-> > +                port@0 {
-> > +                    reg = <0>;
-> > +
-> > +                    endpoint {
-> > +                        remote-endpoint = <&mipi_csi_0_out>;
-> > +                };
-> > +            };
-> > +
-> > +                port@1 {
-> 
-> Messed indentation.
+If you're happy with that, please respin a patch with this hack.
 
--- 
-Regards,
+Thanks,
 
-Laurent Pinchart
+	M.
+
+--=20
+Without deviation from the norm, progress is not possible.
 
