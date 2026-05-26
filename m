@@ -4,112 +4,125 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 51606CD5BC8
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 26 May 2026 12:31:16 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 140ADCD5BB1
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 26 May 2026 12:33:03 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
-	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Content-Type:MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:CC:
+	To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=CMSIxvChsdu1V/cdy6UaokWB5ztGbjE2wCafo6jTDRU=; b=CrXPm8zFG6SP9XUfouGAQF7RDD
-	wJx21NqwBgTlRRYFNOjkeUoeLWeyQCOtx0MncgjccTFRFID6akjAbc7G90VtEIjddgnutC2uN+diu
-	VRMXnDKWENHmnf4+32/eS7azzzUypcmbaK2yF4S5N6Y1e6WT5HjWv2rYXG8YpCXDdRaOFpNP4wlG2
-	8jdbGD4FTD6QNA9v7yJ8k0tnVaupx6ZcdbrooAWwpJ46T3w9Zfj1HV+7ds+uf9me8BdIpVwcsW7p9
-	LTkWu8VZqU6fB5qWN8RJy8+m4AJ07t1QkGGe2OygZwe1wQYmdB8CLBThJ8bDpsKcin/o50KC7XGKB
-	URjApiew==;
+	bh=7RFfsGAYoOvy/AlHmBfGGYsPu7cYnjwOCKNoBfcKIzI=; b=jLfK+vFfWOa6YazYBt3tHv7mU5
+	kvylznLSK6VU/CWuM75jc4JVBg/w5KbBDKRpeqJhNcznOH7NeNakHddkPPbLuOX/tgw9mC1NNwqgO
+	XlCW/SYUtAIpaEbV8LdCh9py3JKCCIsPkIBwoVjzQQSUEhlwE11HPdCsmyJWY15hm+TnpRcRQzKCd
+	bNeLYPgwBWvGI1476ztYp4yky8BxgdxL5dQM/Nrw9my7bmpSphodT9Z2nib4ooM9oyISgYvaUzn+d
+	pQbAcKgXLvGr5Er5Ff7n4sNJV8ui/h6Zx8CJDQ7eB4Uak/69QxAXt08NSHghKtv9+2hfHn4/GnWcC
+	ChLWk3QA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wRqw9-00000001v2c-3akM;
-	Tue, 26 May 2026 12:31:09 +0000
-Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
+	id 1wRqL8-00000001qof-2jKr;
+	Tue, 26 May 2026 11:52:54 +0000
+Received: from mail-centralusazon11011033.outbound.protection.outlook.com ([52.101.62.33] helo=DM5PR21CU001.outbound.protection.outlook.com)
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wRqw7-00000001v21-0O55
-	for linux-arm-kernel@lists.infradead.org;
-	Tue, 26 May 2026 12:31:08 +0000
-Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
-	by sea.source.kernel.org (Postfix) with ESMTP id 6279E43D03;
-	Tue, 26 May 2026 12:31:06 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 43AAA1F000E9;
-	Tue, 26 May 2026 12:31:04 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1779798666;
-	bh=CMSIxvChsdu1V/cdy6UaokWB5ztGbjE2wCafo6jTDRU=;
-	h=Date:Subject:To:Cc:References:From:In-Reply-To;
-	b=FN9HaspCvpo45qFUkCrH02hplPk1gBW2uGeTih14XCaOD8sfCm/g869W4yziDNgt3
-	 YKudIUanXvtWU68PiPCDbtCPimZtF1DnjV06TYb0gnjB285yALRZoOGAxV1awxMUxm
-	 BfFkFYSLOacWK5oLz8FoT72P6eBS3q2QYdBwhQPZZLXvt1b1edkO/3Fw8KDYeIh/DG
-	 IooDTEi8jvk4wioMvL+w8hB0ahsCVoDFZ1ZRZe/Y6uvWR7168SzrtbK2m5Ju1sQsn5
-	 zW4Sy/JmAyiUVXhn/vnX19K/fWrUWfEUrUb7Iy2kn+XlJ6nA6P4WkRJY45064oKHj9
-	 WukAgd3mtnxaA==
-Message-ID: <1be38262-53de-4a27-9841-393e12fc1475@kernel.org>
-Date: Tue, 26 May 2026 14:31:01 +0200
+	id 1wRqL6-00000001qnX-1JPE;
+	Tue, 26 May 2026 11:52:53 +0000
+ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
+ b=EytFJ/mpV9jAjrSR1dOdFL6OKBFvnrFqwPa9azN6CHyXPa1ncPWnqbXVxWb4i2mnWVt1VvpPMXCUr8Vp87GA/XkUCe550zclQYRwQarWOxIX++ov0DhfmKMHcIHvNYkRyec845aS3c3bqAwEVfYLPX/0DvipoGGwgEVQRxMOE7IRaNkalvNNH5NLWbZhMrdBMy/ieScdz839AEhbPJRq+/+4WT/uUIINpnGyDUFRsM7lt6x8qiu86D78CiHrIS+toQTvufbS4t2vRG4gwrj8RND4p2B6Z+GvC45y1Iqc/6JWzT6epXyRf7wRl3hkaqievE1x9J+CPpqgr256SyxEiA==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
+ s=arcselector10001;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
+ bh=7RFfsGAYoOvy/AlHmBfGGYsPu7cYnjwOCKNoBfcKIzI=;
+ b=UTfjxprArLAv26LEr1/0s8kpoZghOXacnBOSJS5qC5xCpe9OlkLS1H6Pgf3qxxtYPTYaIB5im1XxBgEqt4SSQp1r8PtMw4xKKfJAtMesR86Dg8llbH+HmoyNl6VyhZHwUiz92dqQcLc5ZHT/rLZiVFO4XR7Ww6+DSoNhJ1xfU88sFd9kbakjUqkqNfck6gM/sk9H9LEVWUrce1RZ0gMOOLqnLECU+SVccto7dgpjoLiU3nGDO+/O4thFz1nJazjdT+GblrVlN7crAKVRM2sIKdmuDgOsE5aFh4ppUMPyMVT7bR1azmAJT8mM+/new5Kw5t961FphgTGQX2NorKudnw==
+ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass (sender ip is
+ 198.47.23.195) smtp.rcpttodomain=ew.tq-group.com smtp.mailfrom=ti.com;
+ dmarc=pass (p=quarantine sp=none pct=100) action=none header.from=ti.com;
+ dkim=none (message not signed); arc=none (0)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=ti.com; s=selector1;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
+ bh=7RFfsGAYoOvy/AlHmBfGGYsPu7cYnjwOCKNoBfcKIzI=;
+ b=NqL57GyAZbrbUv2oHS9llwzJgZHcf1wU69DjUTb3zjFi5amTIj8G+EEXlZaBd0fp2229teub8Qigm5GY69EGAsav7bQhoSiK1DbhnyRu2C9Y7d4Up+cydPcWtXCL75INdGuH57unsYmz+/9zdfhx6oksX/F2kTUo2TpKv9lzM94=
+Received: from BL1PR13CA0357.namprd13.prod.outlook.com (2603:10b6:208:2c6::32)
+ by CO6PR10MB5792.namprd10.prod.outlook.com (2603:10b6:303:14d::12) with
+ Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.21.48.20; Tue, 26 May
+ 2026 11:52:47 +0000
+Received: from BL02EPF00021F69.namprd02.prod.outlook.com
+ (2603:10b6:208:2c6:cafe::e) by BL1PR13CA0357.outlook.office365.com
+ (2603:10b6:208:2c6::32) with Microsoft SMTP Server (version=TLS1_3,
+ cipher=TLS_AES_256_GCM_SHA384) id 15.21.71.12 via Frontend Transport; Tue, 26
+ May 2026 11:52:46 +0000
+X-MS-Exchange-Authentication-Results: spf=pass (sender IP is 198.47.23.195)
+ smtp.mailfrom=ti.com; dkim=none (message not signed) header.d=none;dmarc=pass
+ action=none header.from=ti.com;
+Received-SPF: Pass (protection.outlook.com: domain of ti.com designates
+ 198.47.23.195 as permitted sender) receiver=protection.outlook.com;
+ client-ip=198.47.23.195; helo=lewvzet201.ext.ti.com; pr=C
+Received: from lewvzet201.ext.ti.com (198.47.23.195) by
+ BL02EPF00021F69.mail.protection.outlook.com (10.167.249.5) with Microsoft
+ SMTP Server (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
+ 15.21.71.7 via Frontend Transport; Tue, 26 May 2026 11:52:46 +0000
+Received: from DLEE205.ent.ti.com (157.170.170.85) by lewvzet201.ext.ti.com
+ (10.4.14.104) with Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.2.2562.37; Tue, 26 May
+ 2026 06:52:45 -0500
+Received: from DLEE204.ent.ti.com (157.170.170.84) by DLEE205.ent.ti.com
+ (157.170.170.85) with Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.2.2562.37; Tue, 26 May
+ 2026 06:52:45 -0500
+Received: from lelvem-mr06.itg.ti.com (10.180.75.8) by DLEE204.ent.ti.com
+ (157.170.170.84) with Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.2.2562.37 via Frontend
+ Transport; Tue, 26 May 2026 06:52:44 -0500
+Received: from localhost (uda0133052.dhcp.ti.com [128.247.81.232])
+	by lelvem-mr06.itg.ti.com (8.18.1/8.18.1) with ESMTP id 64QBqi9E816194;
+	Tue, 26 May 2026 06:52:44 -0500
+From: Nishanth Menon <nm@ti.com>
+To: Vignesh Raghavendra <vigneshr@ti.com>, Tero Kristo <kristo@kernel.org>,
+	Vinod Koul <vkoul@kernel.org>, Neil Armstrong <neil.armstrong@linaro.org>,
+	Nora Schiffer <nora.schiffer@ew.tq-group.com>
+CC: Nishanth Menon <nm@ti.com>, Andrew Lunn <andrew+netdev@lunn.ch>, "David S.
+ Miller" <davem@davemloft.net>, Eric Dumazet <edumazet@google.com>, "Jakub
+ Kicinski" <kuba@kernel.org>, Paolo Abeni <pabeni@redhat.com>, "Siddharth
+ Vadapalli" <s-vadapalli@ti.com>, Roger Quadros <rogerq@kernel.org>, "Rob
+ Herring" <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>, "Conor
+ Dooley" <conor+dt@kernel.org>, <netdev@vger.kernel.org>,
+	<devicetree@vger.kernel.org>, <linux-kernel@vger.kernel.org>,
+	<linux-phy@lists.infradead.org>, <linux-arm-kernel@lists.infradead.org>,
+	<linux@ew.tq-group.com>
+Subject: Re: (subset) [PATCH v4 0/5] J722S SGMII support
+Date: Tue, 26 May 2026 06:52:43 -0500
+Message-ID: <177979634620.2039539.2170816510689676943.b4-ty@b4>
+X-Mailer: git-send-email 2.47.0
+In-Reply-To: <cover.1775559102.git.nora.schiffer@ew.tq-group.com>
+References: <cover.1775559102.git.nora.schiffer@ew.tq-group.com>
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH] arm64: mm: call pagetable dtor when freeing hot-removed
- page tables
-To: Kevin Brodsky <kevin.brodsky@arm.com>,
- Vishal Moola <vishal.moola@gmail.com>,
- Catalin Marinas <catalin.marinas@arm.com>
-Cc: Andrew Morton <akpm@linux-foundation.org>,
- Alistair Popple <apopple@nvidia.com>, linux-arm-kernel@lists.infradead.org,
- linux-kernel@vger.kernel.org, linux-mm@kvack.org, will@kernel.org
-References: <20260521032730.2104017-1-apopple@nvidia.com>
- <20260521153130.d7d5cd060f7522f894252333@linux-foundation.org>
- <ahACfQ6kCfONqz5h@arm.com> <ahAjudlB32VbkKbG@fedora>
- <92450154-e1ab-46e4-b23d-eaa59c9cdd3b@arm.com>
-From: "David Hildenbrand (Arm)" <david@kernel.org>
-Content-Language: en-US
-Autocrypt: addr=david@kernel.org; keydata=
- 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
- qIws/H2t
-In-Reply-To: <92450154-e1ab-46e4-b23d-eaa59c9cdd3b@arm.com>
-Content-Type: text/plain; charset=UTF-8
-Content-Transfer-Encoding: 7bit
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: 8bit
+X-C2ProcessedOrg: 333ef613-75bf-4e12-a4b1-8e3623f5dcea
+X-EOPAttributedMessage: 0
+X-MS-PublicTrafficType: Email
+X-MS-TrafficTypeDiagnostic: BL02EPF00021F69:EE_|CO6PR10MB5792:EE_
+X-MS-Office365-Filtering-Correlation-Id: 757dc2b5-ea7c-46ff-4bde-08debb1d4da1
+X-MS-Exchange-SenderADCheck: 1
+X-MS-Exchange-AntiSpam-Relay: 0
+X-Microsoft-Antispam: BCL:0;ARA:13230040|7416014|82310400026|36860700016|376014|1800799024|18002099003|22082099003|56012099003;
+X-Microsoft-Antispam-Message-Info: FCMnxqJAh0TSbVl5o3cIR0ikR9c7LEfQqvUn1goFoh9ijxqQ8Mmw6BsISnYNmZqBw35meaRGxboM45Zpomg4YY/tmyI2iZ3osDbbNiqao3fMg2b9tQLiGijjcUXWBXFdoqCbImyd1Twrw4/a+ZPRIw8x/uzaadBblggvhfcwszhLOfWnrOXbgB7KmJmB8MO4KVu17gbO8Inb0EnhFqUnaDXMaDnw8cxPBk6JactNxUx0xmifQMd1hZZADq+A2VCFOchgS70ggmhn+J6XVUhoEZrnuRKVkG33GuE1f0EzjSTnMDKGCR//Ja/muAtY6R+LP/zXHiIhA2nSUPGKwXWI9rCjIBsDU3n10ohjrrpIjemXug9KkO1KOeM8piRjAjxFeE7+b8c/pW6aw1/1tG64uc5BsZa6a6GUiJCDt7Z53lzP8K+PMcytSzEAiTMS3n6bqh2BS+KEaFOZ1FEB4LMrroWPKdnsy3GPgY++Ap2zyfZJ1iAgIt34WRf4esnwuf61h5o1HIhY+Pc5816ko4OUeoxxECGZNpjDyt8HO+xJxoz5G1x5hwSgCu76ropIP4FkxoBvz8caIelH90cGlVnePWjNbQFZDUXQ9yGMtftUZpKi9HvKgCcbgFZwMMhXRn5bC18c1TN/qcOAW9xSKirXifjFStAHQkIg/yFk8Q2dEW4gNSRFIZIV1YKRWPBkoc+97ywXREweSdA+9gK7RL1LboaoxDAwnzDy7EHAJdfsulU=
+X-Forefront-Antispam-Report: CIP:198.47.23.195;CTRY:US;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:lewvzet201.ext.ti.com;PTR:InfoDomainNonexistent;CAT:NONE;SFS:(13230040)(7416014)(82310400026)(36860700016)(376014)(1800799024)(18002099003)(22082099003)(56012099003);DIR:OUT;SFP:1101;
+X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
+X-MS-Exchange-AntiSpam-MessageData-0: F3xQi+zeBSP0Jxb9B1mJCAIeRhIV7I1lWljsIfSuC7tk0F1FuyGcs0wPJKqYozDQZ1qkXqEnxGf60zfUJf3XXkFUMueBBpRyUoiRfk5X5A4Y2FGYqi+PSD3OAnM5cuKcZ4fn3LK4M8CaegdjHQfIFeSp2ds82TwHdTdiI4WciQ6tFf+adHHq/UH9P8NBDpGhUWm6by+SPdEqzPrmENgc5d4qPq9ChWBQMhYGkEa006dFxodbjnKb9eqGbaXTnh0esNRRiXw5aJwxvEyKhZycYgZWMs0Mvm38Ss451/DErlK4yO/W+5yKtxtLbtO670FbTmrFPs1hmT06fJ2UMjqT6zknCmDonYc9Ih4uBxHJdWgtPq/XMGyuZAif7dWNeR5kQD1nfo2+AVr65ThLoEqvXPUoV876VghSA/sQ+UuMpjdXXmIUtxigyXxF4KTmRG2F
+X-OriginatorOrg: ti.com
+X-MS-Exchange-CrossTenant-OriginalArrivalTime: 26 May 2026 11:52:46.2835
+ (UTC)
+X-MS-Exchange-CrossTenant-Network-Message-Id: 757dc2b5-ea7c-46ff-4bde-08debb1d4da1
+X-MS-Exchange-CrossTenant-Id: e5b49634-450b-4709-8abb-1e2b19b982b7
+X-MS-Exchange-CrossTenant-OriginalAttributedTenantConnectingIp: TenantId=e5b49634-450b-4709-8abb-1e2b19b982b7;Ip=[198.47.23.195];Helo=[lewvzet201.ext.ti.com]
+X-MS-Exchange-CrossTenant-AuthSource: BL02EPF00021F69.namprd02.prod.outlook.com
+X-MS-Exchange-CrossTenant-AuthAs: Anonymous
+X-MS-Exchange-CrossTenant-FromEntityHeader: HybridOnPrem
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: CO6PR10MB5792
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260526_053107_178474_75C50661 
-X-CRM114-Status: GOOD (  12.02  )
+X-CRM114-CacheID: sfid-20260526_045252_354614_4E80CC0C 
+X-CRM114-Status: GOOD (  15.29  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -124,41 +137,46 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On 5/26/26 13:54, Kevin Brodsky wrote:
-> On 22/05/2026 11:36, Vishal Moola wrote:
->>> diff --git a/arch/arm64/mm/mmu.c b/arch/arm64/mm/mmu.c
->>> index 4c8959153ac4..9d42cbddce27 100644
->>> --- a/arch/arm64/mm/mmu.c
->>> +++ b/arch/arm64/mm/mmu.c
->>> @@ -1441,6 +1441,9 @@ static void free_hotplug_page_range(struct page *page, size_t size,
->>>  
->>>  static void free_hotplug_pgtable_page(struct page *page)
->>>  {
->>> +	if (folio_test_pgtable(page_folio(page)))
->> This should work.
->>
->>> +		pagetable_dtor(page_ptdesc(page));
->>> +
->>>  	free_hotplug_page_range(page, PAGE_SIZE, NULL);
->> In the case we presumably have a page table page (ptdesc) at this
->> point, we should really be freeing it with pagetable_free() as well.
+Hi Nora Schiffer,
+
+On Tue, 07 Apr 2026 13:42:32 +0200, Nora Schiffer wrote:
+> The J722S CPSW and SERDES are very similar to the variants found on the
+> AM64, but they additionally support SGMII. Introduce new compatible
+> strings for the J722S to add this support to the drivers.
 > 
-> Agreed, I think this is the right thing to do, something like:
+> This is a prerequisite for the Single-Pair Ethernet interface of the
+> TQ-Systems MBa67xx baseboard for the TQMa67xx SoM, which will be
+> submitted separately.
 > 
-> if (folio_test_pgtable(page_folio(page)))
-> pagetable_dtor_free(page_ptdesc(page)); else
-> free_hotplug_page_range(page, PAGE_SIZE, NULL);
+> [...]
 
-That code pattern is wrong.
+I have applied the following to branch ti-k3-dts-next on [1].
+Thank you!
 
-folio_test_pgtable() shouldn't exist.
+[5/5] arm64: dts: ti: k3-j722s-main: use J722S compatibles for WIZ, gmii-sel and CPSW3G
+      commit: 2bdc0ea4e7304f6aa7e87089609fd902d9de7a2d
 
-In the future, something is either a pgtable or a folio, not both.
+All being well this means that it will be integrated into the linux-next
+tree (usually sometime in the next 24 hours) and sent up the chain during
+the next merge window (or sooner if it is a relevant bug fix), however if
+problems are discovered then the patch may be dropped or reverted.
 
-So check the type against the page, not the folio.
+You may get further e-mails resulting from automated or manual testing
+and review of the tree, please engage with people reporting problems and
+send followup patches addressing any issues that are reported if needed.
 
+If any updates are required or you are submitting further changes they
+should be sent as incremental updates against current git, existing
+patches will not be replaced.
+
+Please add any relevant lists and maintainers to the CCs when replying
+to this mail.
+
+[1] https://git.kernel.org/pub/scm/linux/kernel/git/ti/linux.git
 -- 
-Cheers,
+Regards,
+Nishanth Menon
+Key (0xDDB5849D1736249D) / Fingerprint: F8A2 8693 54EB 8232 17A3  1A34 DDB5 849D 1736 249D
+https://ti.com/opensource
 
-David
 
