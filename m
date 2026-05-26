@@ -4,59 +4,61 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 3FAA7CD5BC8
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 26 May 2026 20:21:12 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 5622DCD5BB1
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 26 May 2026 20:42:49 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=UqsXzG3EIwp1sqqf8YZYAAjA95+BZS9vLPguSQeo5Yk=; b=vMpx3GmuBGOazQNGH/3MQJUvVx
-	aCA6JKmUxU1FNZJOQjEMiDe11CMQPtJf9/zwbX3LFY8Bb1WyuM0naFtEgw7sf8+TkwcF6C7XZC6dV
-	7DUqrYdfiMNhV2KNuutneWc7NcVUrd2Hu89U69Vzt7AiT2ODJZExMeZQ808oKz6cYagspPTl3CUg5
-	kSx/kjzM/alohRk9pqdt3dgY5wfSQWRpFMKVLVtnMWvF5zGd/GbJbnBn8s4T+4y0K2xIgGmycvtNF
-	1LdgvdhErrot068eLpRq/7/CELnIAyj2Dapfzu7G8Snz2DHPvIOTTVM029ox+axuvSNejAVU86fSq
-	poCCH8Fg==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	MIME-Version:Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-Type:
+	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
+	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=bnf9sV68B7jkZZZAWFvdhLXnESO2rYVBlDigia/2LrQ=; b=p3xpEiK4lBMZZuLgnIVv/FRjO+
+	Z/7o975Y/wDfCTfIiUTurMtM3V8gidVVDOI+bT4Q8ptPsQrlfFgUOWSg2CsM4RUaob7eb3tipIsR7
+	3wyw2Bl1eXMNV9Dto/xBtZBhss+le8iDYR4CVtXDpVM2Z9HIN9qcIJDbju8rWKXoejU0EfoWFP70S
+	/2K2oD685OzdOM6h6yumZNSreHIJHCRAbvhXJAOsJE23pQ3BpGUK7YLg91BEugl0jeO93XVehhs1H
+	L9AWlpHFfRPN3iPTTfr0V+05/6gzoOp7nHTW5BlbnAf9bHyRBPk5UP/9L2y0mO/hWtisUx7eFpp5v
+	hWjK7CUg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wRxZ7-00000002uks-3wav;
-	Tue, 26 May 2026 19:35:49 +0000
-Received: from tor.source.kernel.org ([172.105.4.254])
+	id 1wRybp-00000002wrI-29n6;
+	Tue, 26 May 2026 20:42:41 +0000
+Received: from mta.al2klimov.de ([2a01:4f8:c0c:a5b1::1])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wRxZ6-00000002ukh-3Mpy
+	id 1wRybn-00000002wql-09s4
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 26 May 2026 19:35:48 +0000
-Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
-	by tor.source.kernel.org (Postfix) with ESMTP id 018F160018;
-	Tue, 26 May 2026 19:35:48 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 2820A1F000E9;
-	Tue, 26 May 2026 19:35:45 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1779824147;
-	bh=UqsXzG3EIwp1sqqf8YZYAAjA95+BZS9vLPguSQeo5Yk=;
-	h=Date:From:To:Cc:Subject:References:In-Reply-To;
-	b=NI2hQmpEQE/z2Z+7tSge10ATcMoE1mRlOv0DhD0ugjyRU8c2YkeTcET/dsexrEUuI
-	 NxWxcN5OYV/eg8o9PKGj8IlOs6gyc+Thd8rGvEeP032p2tY+eC/tzPoned/ulilAO/
-	 X2S+PGlRRo8VZASpofRBcHQTuJQPIqzh561oweaoJJ4Hi0nOEvLsLGSZBKcJaiF3Z6
-	 CxEu+yj+o1BSaHDOci5WbBZn+7dp79waI68V8PVkUWse7BCiYkUbEFOa+huLp5dQ0H
-	 /45bVYFa1BKQu1uvIiqFiSFstTPw2GPObKEIkixs/hj1fbmRAT3VOtlTschOIxgRw3
-	 CeOXypizc93Sg==
-Date: Tue, 26 May 2026 12:35:43 -0700
-From: Nathan Chancellor <nathan@kernel.org>
-To: Sudeep Holla <sudeep.holla@kernel.org>
-Cc: linux-security-module@vger.kernel.org, linux-kernel@vger.kernel.org,
-	linux-integrity@vger.kernel.org,
-	linux-arm-kernel@lists.infradead.org, kvmarm@lists.linux.dev,
-	Yeoreum Yun <yeoreum.yun@arm.com>
-Subject: Re: [PATCH] firmware: arm_ffa: Treat missing FF-A feature on a
- platform as a probe miss
-Message-ID: <20260526193543.GB2851089@ax162>
-References: <20260526103649.5684-1-sudeep.holla@kernel.org>
+	Tue, 26 May 2026 20:42:40 +0000
+DKIM-Signature: v=1; a=rsa-sha256; c=simple/simple; s=default; bh=xPJm8fGfxE42
+	Pzfa4WxRQce3kxEQReqDCeHFRJtXUZE=; h=date:subject:cc:to:from;
+	d=al2klimov.de; b=aIsLNngtHgasmh4xTzaISRu5wq9PTcVvObR83qSDN0uSYvLU7jaj
+	7oUe87jdBTXERthZHOzD0iVZ9XKM52hXw1Y7K8PZKBDDxIBJ7TrxF1TAbnUe57UuNuNtev
+	Ud1fBjxBUKitI+SGr97QePwKdxv9YbhtthGgGTmo4Oa6eBfADKkDQC04z/Ydp/v/ROBsVr
+	VNSclkN2On4H1kN1b7V1cqJOedzutFfK85Jrp4/29r59Z15xFa83PoF4u/CQKAZka8S2pn
+	RNjyQYrdvrAsyA2HT7JYPEIbzFKDNC+N8l5WLFWJLNp4lYMd17TLzJeunNnf1fEW4uoQiG
+	hv0fyY3vDA==
+Received: from cachy-ak (88.215.123.80.dyn.pyur.net [88.215.123.80])
+	by mta.al2klimov.de (OpenSMTPD) with ESMTPSA id 50619732 (TLSv1.3:TLS_CHACHA20_POLY1305_SHA256:256:NO);
+	Tue, 26 May 2026 20:42:35 +0000 (UTC)
+From: "Alexander A. Klimov" <grandmaster@al2klimov.de>
+To: Krzysztof Kozlowski <krzk@kernel.org>,
+	Michael Turquette <mturquette@baylibre.com>,
+	Stephen Boyd <sboyd@kernel.org>,
+	Brian Masney <bmasney@redhat.com>,
+	Jonas Jensen <jonas.jensen@gmail.com>,
+	Mike Turquette <mturquette@linaro.org>,
+	linux-arm-kernel@lists.infradead.org (moderated list:ARM/MOXA ART SOC),
+	linux-clk@vger.kernel.org (open list:COMMON CLK FRAMEWORK),
+	linux-kernel@vger.kernel.org (open list)
+Cc: "Alexander A. Klimov" <grandmaster@al2klimov.de>
+Subject: [PATCH] clk: moxart: remove unused variables, fix refcount leak
+Date: Tue, 26 May 2026 22:42:26 +0200
+Message-ID: <20260526204227.23181-1-grandmaster@al2klimov.de>
+X-Mailer: git-send-email 2.54.0
 MIME-Version: 1.0
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-In-Reply-To: <20260526103649.5684-1-sudeep.holla@kernel.org>
+Content-Transfer-Encoding: 8bit
+X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
+X-CRM114-CacheID: sfid-20260526_134239_381969_79F1D958 
+X-CRM114-Status: UNSURE (   8.53  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -71,63 +73,62 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Tue, May 26, 2026 at 11:36:49AM +0100, Sudeep Holla wrote:
-> When FF-A initialisation is driven from a platform device probe, systems
-> that do not implement FF-A can return -EOPNOTSUPP from the early transport
-> or version discovery paths. Driver core treats that as a matched probe
-> failure and prints:
-> 
->   |  arm-ffa arm-ffa: probe with driver arm-ffa failed with error -95
-> 
-> That is noisy for a firmware interface that can be absent on otherwise
-> valid systems. Driver core already treats -ENODEV and -ENXIO as quiet
-> rejected matches, so translate only the early unsupported discovery cases
-> to -ENODEV. Keep later setup failures unchanged so real FF-A
-> initialisation problems are still reported as probe failures.
-> 
-> Reported-by: Nathan Chancellor <nathan@kernel.org>
-> Closes: https://lore.kernel.org/all/20260523001148.GA1319283@ax162
-> Signed-off-by: Sudeep Holla <sudeep.holla@kernel.org>
+Not only these error checks are redundand,
+those of_clk_get() return values weren't cleaned up via clk_put().
 
-Appears to work for me.
+Fixes: c7bb4fc16ead ("clk: add MOXA ART SoCs clock driver")
+Signed-off-by: Alexander A. Klimov <grandmaster@al2klimov.de>
+---
+ drivers/clk/clk-moxart.c | 14 --------------
+ 1 file changed, 14 deletions(-)
 
-Tested-by: Nathan Chancellor <nathan@kernel.org>
-
-> ---
->  drivers/firmware/arm_ffa/driver.c | 7 +++++--
->  1 file changed, 5 insertions(+), 2 deletions(-)
-> 
-> diff --git a/drivers/firmware/arm_ffa/driver.c b/drivers/firmware/arm_ffa/driver.c
-> index 54984e1b9741..0f468362c288 100644
-> --- a/drivers/firmware/arm_ffa/driver.c
-> +++ b/drivers/firmware/arm_ffa/driver.c
-> @@ -2109,7 +2109,7 @@ static int ffa_probe(struct platform_device *pdev)
->  
->  	ret = ffa_transport_init(&invoke_ffa_fn);
->  	if (ret)
-> -		return ret;
-> +		return ret == -EOPNOTSUPP ? -ENODEV : ret;
->  
->  	drv_info = kzalloc_obj(*drv_info);
->  	if (!drv_info)
-> @@ -2117,8 +2117,11 @@ static int ffa_probe(struct platform_device *pdev)
->  	platform_set_drvdata(pdev, drv_info);
->  
->  	ret = ffa_version_check(&drv_info->version);
-> -	if (ret)
-> +	if (ret) {
-> +		if (ret == -EOPNOTSUPP)
-> +			ret = -ENODEV;
->  		goto free_drv_info;
-> +	}
->  
->  	if (ffa_id_get(&drv_info->vm_id)) {
->  		pr_err("failed to obtain VM id for self\n");
-> -- 
-> 2.43.0
-> 
-
+diff --git a/drivers/clk/clk-moxart.c b/drivers/clk/clk-moxart.c
+index 3786a0153ad1..40663ef3ef0a 100644
+--- a/drivers/clk/clk-moxart.c
++++ b/drivers/clk/clk-moxart.c
+@@ -17,7 +17,6 @@ static void __init moxart_of_pll_clk_init(struct device_node *node)
+ {
+ 	void __iomem *base;
+ 	struct clk_hw *hw;
+-	struct clk *ref_clk;
+ 	unsigned int mul;
+ 	const char *name = node->name;
+ 	const char *parent_name;
+@@ -34,12 +33,6 @@ static void __init moxart_of_pll_clk_init(struct device_node *node)
+ 	mul = readl(base + 0x30) >> 3 & 0x3f;
+ 	iounmap(base);
+ 
+-	ref_clk = of_clk_get(node, 0);
+-	if (IS_ERR(ref_clk)) {
+-		pr_err("%pOF: of_clk_get failed\n", node);
+-		return;
+-	}
+-
+ 	hw = clk_hw_register_fixed_factor(NULL, name, parent_name, 0, mul, 1);
+ 	if (IS_ERR(hw)) {
+ 		pr_err("%pOF: failed to register clock\n", node);
+@@ -56,7 +49,6 @@ static void __init moxart_of_apb_clk_init(struct device_node *node)
+ {
+ 	void __iomem *base;
+ 	struct clk_hw *hw;
+-	struct clk *pll_clk;
+ 	unsigned int div, val;
+ 	unsigned int div_idx[] = { 2, 3, 4, 6, 8};
+ 	const char *name = node->name;
+@@ -78,12 +70,6 @@ static void __init moxart_of_apb_clk_init(struct device_node *node)
+ 		val = 0;
+ 	div = div_idx[val] * 2;
+ 
+-	pll_clk = of_clk_get(node, 0);
+-	if (IS_ERR(pll_clk)) {
+-		pr_err("%pOF: of_clk_get failed\n", node);
+-		return;
+-	}
+-
+ 	hw = clk_hw_register_fixed_factor(NULL, name, parent_name, 0, 1, div);
+ 	if (IS_ERR(hw)) {
+ 		pr_err("%pOF: failed to register clock\n", node);
 -- 
-Cheers,
-Nathan
+2.54.0
+
 
