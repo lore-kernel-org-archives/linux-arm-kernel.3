@@ -4,70 +4,92 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id A3B54CD5BC8
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 26 May 2026 08:47:23 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 94F7ACD5BD1
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 26 May 2026 08:53:36 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
-	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=9gtqh4xOUV+/BTJfQh8l0NiLkWHwZTkE1BMphbhqj24=; b=qMsB97u0i064qEc5SIQtHs/YTZ
-	y4s1jXZLoaewaefN21RNXoAmOlqbGljx4ssfWOJPZXPR5G2j2VOYCo8lOhh+N9vsO9n/6jQXq7o0A
-	GedTnjl+G58kTySZJNdJsqchgbB5nFEiQ7MxYcUjkChedFolgtx+MePElvHek5eD68hAD9MMChM+P
-	+t81UH7JBYx35wKx7c7KJEX5NKfRAvYz1dqfJhX3xvSMV0/SUOWWZariw+W/0hzJCaVIiG5n9cu/H
-	JuE9ck8PXw7uSl3D85yjIQNw/Zvgi29ubkJtn1jDTrjzIJIA9GZv+dU6S7LDqQG96WiiLeAqYc3TC
-	kXJDVdHg==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:
+	Content-Transfer-Encoding:Content-Type:MIME-Version:Message-Id:Date:Subject:
+	From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:
+	List-Owner; bh=l7VErk4ZLg+3sShapVbVsbipSoUmWfTkdEOMvIvFw88=; b=5BETa6eH7mV6nh
+	Owixwd2eIOrtQTxyK49G72ue/NgtIK4MZ7j5mV2WkPZeqhGpXwRR4Hl/INL9x1xDUS86+PNynVzla
+	JuNQR4LyPtjSqubYa97Aaa7nntPNdgLhTFC1lyP37tcsC131HU1zukXP5lwunrGZSnopGuPXtMSqg
+	UmaCd6smY/5MTvCS88PIzhbDnPE7FOdpBMIZmxNVkQIqKoXmq/Ys+W1O50fXHL5K8Blv6qdORMjdQ
+	WeQqHG69+76Ze5WWPH+ARVjLZGqJ+FWKQHTyVtn1z6Ex0AYQWZuTQ/WY6wu2xHxIPYMrSFzDhduGn
+	BA/ylI129fGR9Ck9kWbQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wRnRV-00000001PrG-2OeN;
-	Tue, 26 May 2026 08:47:17 +0000
-Received: from foss.arm.com ([217.140.110.172])
-	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wRnRU-00000001PqS-0CQ9
+	id 1wRnXV-00000001QRn-1Hn4;
+	Tue, 26 May 2026 08:53:29 +0000
+Received: from tor.source.kernel.org ([2600:3c04:e001:324:0:1991:8:25])
+	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
+	id 1wRnXT-00000001QRe-47Rz
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 26 May 2026 08:47:17 +0000
-Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
-	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id 33A991692;
-	Tue, 26 May 2026 01:47:07 -0700 (PDT)
-Received: from [10.1.196.46] (e134344.arm.com [10.1.196.46])
-	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id 494B33F7D8;
-	Tue, 26 May 2026 01:47:08 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=simple/simple; d=arm.com; s=foss;
-	t=1779785232; bh=5N7+lkiFxV7RLcXzh/0yKBJesDKuIOo8kIVz26kvfHk=;
-	h=Date:Subject:To:Cc:References:From:In-Reply-To:From;
-	b=ax+ATAT/7SL7Pz5JsziWD+iHXwnqmDVZLS1KIpvhzduOwyvghjvbnuAOGP3d2+ocN
-	 dL6mr81fEFKe/LudHDWQj07SSDMAr6pZOpi2tkftSPlV/6sHR5LedoUXn8mPuVucey
-	 AUxe06S15rx+dOH7ExIomt0LUtHlOMA+zRLGLXdc=
-Message-ID: <4103d7b6-7f69-4e9a-b31c-488f54d36e66@arm.com>
-Date: Tue, 26 May 2026 09:47:06 +0100
+	Tue, 26 May 2026 08:53:28 +0000
+Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
+	by tor.source.kernel.org (Postfix) with ESMTP id F3F3F60018;
+	Tue, 26 May 2026 08:53:26 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 293951F000E9;
+	Tue, 26 May 2026 08:53:26 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
+	s=k20260515; t=1779785606;
+	bh=l7VErk4ZLg+3sShapVbVsbipSoUmWfTkdEOMvIvFw88=;
+	h=From:Subject:Date:To:Cc;
+	b=Qc+qJLV4TQnlbrXiSVrsaWs9YQ6i9pOr4RvMYLRM9ECCYB5xtGFh1DRF0Bvp7j7XE
+	 KmKrSkclv3jx5q53le12XFJEhdNY6bYMARgbgOmsV4uajKpFraXFqK1eI6giTNSk0q
+	 KP5zLJHRdTa6wdF/KATud1w3ywizhGBYA86otZClQxF3AuANIPK68vLYrVhtpNou9I
+	 NCUt5MgNqajJW27dRJPssJBiFI2frAnk3H6lVKcPuVtNWESUjINZpbhKHK8ZHN+g8c
+	 fp824153oEh7r2dywAKxoatPm6L5QfkU8fsywpEIDhwBLQtc9ezVZKf4lAsBj6qEyK
+	 AAAJv1U8M/FVQ==
+From: Thierry Reding <thierry.reding@kernel.org>
+Subject: [PATCH v5 0/4] PCI: tegra: Add Tegra264 support
+Date: Tue, 26 May 2026 10:53:09 +0200
+Message-Id: <20260526-tegra264-pcie-v5-0-84a813b979d7@nvidia.com>
 MIME-Version: 1.0
-User-Agent: Thunderbird Daily
-Subject: Re: [PATCH v4 2/5] arm_mpam: resctrl: Pre-allocate assignable
- monitors
-To: Koba Ko <kobak@nvidia.com>
-Cc: amitsinght@marvell.com, baisheng.gao@unisoc.com,
- baolin.wang@linux.alibaba.com, carl@os.amperecomputing.com,
- dave.martin@arm.com, david@kernel.org, dfustini@baylibre.com,
- fenghuay@nvidia.com, gshan@redhat.com, james.morse@arm.com,
- jic23@kernel.org, lcherian@marvell.com,
- linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org,
- peternewman@google.com, punit.agrawal@oss.qualcomm.com,
- quic_jiles@quicinc.com, reinette.chatre@intel.com, rohit.mathew@arm.com,
- scott@os.amperecomputing.com, sdonthineni@nvidia.com,
- tan.shaopeng@fujitsu.com, xhao@linux.alibaba.com, zengheng4@huawei.com,
- x86@kernel.org
-References: <20260520212458.1797221-1-ben.horgan@arm.com>
- <20260520212458.1797221-3-ben.horgan@arm.com>
- <1aea92be-0e7c-459c-a96c-5a54cea073ff@nvidia.com>
-Content-Language: en-US
-From: Ben Horgan <ben.horgan@arm.com>
-In-Reply-To: <1aea92be-0e7c-459c-a96c-5a54cea073ff@nvidia.com>
-Content-Type: text/plain; charset=UTF-8
-Content-Transfer-Encoding: 8bit
-X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260526_014716_175642_78B52FB2 
-X-CRM114-Status: GOOD (  18.15  )
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: 7bit
+X-B4-Tracking: v=1; b=H4sIAAAAAAAC/4WQwW7DIAyGX6XiPBA2kISd+h5TDzTxEm8rqSBDq
+ 6q8+0h7WKUderH8S//3WfJVZEpMWbzuriJR4cxzrMG97EQ/hTiS5KFmgRobbTXKhcYUsLHy3DN
+ JMjocCc0QdCsqc070zj8339vhnvP38YP6ZZNsjYnzMqfL7WCBrXd3G/DQaACtEOrurAS5TEwpX
+ VSigeO4/6QU6UvNaRSbu+ADXSc6a41C14JH/Zw2j3QDxnXOKWy9A+uf0/aP/v+VYqWWCIQE3nc
+ tdftYeOCg+vkkDuu6/gIoNvEwdwEAAA==
+X-Change-ID: 20260402-tegra264-pcie-e30abe23da07
+To: Bjorn Helgaas <bhelgaas@google.com>, 
+ Lorenzo Pieralisi <lpieralisi@kernel.org>, 
+ =?utf-8?q?Krzysztof_Wilczy=C5=84ski?= <kwilczynski@kernel.org>, 
+ Manivannan Sadhasivam <mani@kernel.org>, Rob Herring <robh@kernel.org>, 
+ Krzysztof Kozlowski <krzk+dt@kernel.org>, 
+ Conor Dooley <conor+dt@kernel.org>, 
+ Thierry Reding <thierry.reding@gmail.com>, 
+ Jonathan Hunter <jonathanh@nvidia.com>, 
+ Karthikeyan Mitran <m.karthikeyan@mobiveil.co.in>, 
+ Hou Zhiqiang <Zhiqiang.Hou@nxp.com>, 
+ Thomas Petazzoni <thomas.petazzoni@bootlin.com>, 
+ =?utf-8?q?Pali_Roh=C3=A1r?= <pali@kernel.org>, 
+ Michal Simek <michal.simek@amd.com>, Kevin Xie <kevin.xie@starfivetech.com>, 
+ Thierry Reding <thierry.reding@kernel.org>, Aksh Garg <a-garg7@ti.com>
+Cc: linux-pci@vger.kernel.org, devicetree@vger.kernel.org, 
+ linux-tegra@vger.kernel.org, linux-kernel@vger.kernel.org, 
+ linux-arm-kernel@lists.infradead.org, Thierry Reding <treding@nvidia.com>, 
+ Manikanta Maddireddy <mmaddireddy@nvidia.com>
+X-Mailer: b4 0.15.1
+X-Developer-Signature: v=1; a=openpgp-sha256; l=3046; i=treding@nvidia.com;
+ h=from:subject:message-id; bh=wJLfF2BZVe+uXfktz9Da0Q6EG/mzRSCgVR+2/5DdZo8=;
+ b=owEBbQKS/ZANAwAKAd0jrNd/PrOhAcsmYgBqFV+DGK/1Dej/huYhz95sX4UhRpjd24UsF9ExP
+ 7grwHuRsCyJAjMEAAEKAB0WIQSI6sMIAUnM98CNyJ/dI6zXfz6zoQUCahVfgwAKCRDdI6zXfz6z
+ ocHBD/4odEjmVuVeubUzJUhPR2J9AzYRayD+8uc0uqyxofWuu7adt17WH1rssHDf1NDlCp1sKiV
+ RSDepxfB3NJiJuc//ArZHMWq/JlgHTx5gmyYZaKbgehEWfr/QXldeg49kF/oEekm6X6StEWK5n5
+ SKPKQ/uSfOzCWS1c2G1pQkw4a4gIpIKLaTon+/ElDb5ynibUjvkHvYBc/F/W0pPlIBcmYVXxyiZ
+ TrmXCVL18QNvf4FWVfORTryW/pL0//gE8u32Axz2OSEU61h6EsPS+BzYC65Tn+ggflnr5jAF1AL
+ 4vhk2Zf06dJJEHEHr6J29hIcFWiu3cb9yj5XKCc6TnxmG6fRYxT6AWmIVcyHtVRZzAsAiOTLfEk
+ qUduT8LY8StYKTVNNigpuuo58+wu6z3pP2Opcq+KbKjO9LpkEFdATT/DEowxHaM6guBKB5lMmO0
+ vG8uq2bCxfyeaTKeQDbfcYZiP4PN5FVzYOT+MHZtIwOPyOk+hh/yZgvKloyv4aCheydsBjvmmQs
+ Ejt2PVm9jJXA+QsoJxQt2qk4qltWUwlhSZZukZStSZrohKgWL5Sl/LDAswvqbkYNN8gL/7dKkfP
+ CipATu3+T+MdxH32cgz6eQYepNvtOCfVdwd7R95Y+5niIHcK/BnSmHolJHjvOiZINrjGmfl8KGc
+ HzT9mHAmNMA6qFg==
+X-Developer-Key: i=treding@nvidia.com; a=openpgp;
+ fpr=88EAC3080149CCF7C08DC89FDD23ACD77F3EB3A1
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -82,136 +104,80 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hi Koba,
+Hi,
 
-On 5/26/26 03:50, Koba Ko wrote:
-> 
->>
->> +/*
->> + * This must run after all event counters have been picked so that any free
->> + * running counters have already been allocated.
->> + */
->> +static int mpam_resctrl_monitor_init_abmc(struct mpam_resctrl_mon *mon)
->> +{
->> +       struct mpam_resctrl_res *res = &mpam_resctrl_controls[RDT_RESOURCE_L3];
->> +       size_t num_rmid = resctrl_arch_system_num_rmid_idx();
->> +       struct rdt_resource *l3 = &res->resctrl_res;
->> +       struct mpam_class *class = mon->class;
->> +       u16 num_mbwu_mon;
->> +       int *cntrs;
->> +
->> +       int *rmid_array __free(kvfree) = kvmalloc_objs(*rmid_array, num_rmid);
->> +       if (!rmid_array) {
->> +               pr_debug("Failed to allocate RMID array\n");
->> +               return -ENOMEM;
->> +       }
->> +       memset(rmid_array, -1, num_rmid * sizeof(*rmid_array));
->> +
->> +       num_mbwu_mon = class->props.num_mbwu_mon;
->> +       cntrs = __alloc_mbwu_array(mon->class, num_mbwu_mon);
-> 
-> hi Ben,
-> One thing double-checking here.
-> The allocation path uses class->props.num_mbwu_mon,
-> but teardown frees using l3_num_allocated_mbwu,
-> which is the global minimum exposed counter counter.
-> If classes can have different num_mbwu_mon values, a class with more
-> monitors than the global minimum may leak the tail of assigned_counters during
-> teardown.
-> 
-> koba
+this series adds support for the PCIe controllers found on the Tegra264
+SoC. There are six instances, one of which is for internal purposes only
+and the other five are general purpose.
 
-Thanks for bringing this up. The l3_num_allocated_mbwu is a hangover from when
-this code supported both mbm_total_bytes and mbm_local_bytes with a separate
-class for each. As we've now decided that mbm_total_bytes is the only bandwidth
-counter it makes sense to support we will always have at most single class with
-allocated bandwidth counters. Hence, I don't think there is a leak but
-l3_num_allocated_mbwu adds unneeeded complication so I'll have a go at removing it.
+The first patch tweaks the DT bindings slightly to avoid new DT compiler
+warnings that slipped through because they are now disabled by default
+(-Wno-unit_address_vs_reg).
+
+Before adding the driver in patch 3, patch 2 introduces some new common
+wait times for PCIe and unifies the way that drivers use them. Finally,
+patch 4 reorders the reg and reg-names property entries to match the
+bindings changes from patch 1.
+
+All of the prerequisites were merged in v7.1-rc1, so this can be applied
+to the PCI tree directly. Optionally I can also pick up patch 4 into the
+Tegra tree, but there should be no conflicts, so feel free to pick this
+up with the rest.
 
 Thanks,
+Thierry
 
-Ben
+Changes in v5:
+- address review comments for the PCI driver patch
+- Link to v4: https://patch.msgid.link/20260402-tegra264-pcie-v4-0-21e2e19987e8@nvidia.com
 
-> 
->> +       if (IS_ERR(cntrs))
->> +               return PTR_ERR(cntrs);
->> +       mon->assigned_counters = cntrs;
->> +       mon->mbwu_idx_to_mon = no_free_ptr(rmid_array);
->> +
->> +       l3->mon.mbm_cntr_assignable = true;
->> +       l3->mon.mbm_assign_on_mkdir = true;
->> +       l3->mon.mbm_cntr_configurable = false;
->> +       l3->mon.mbm_cntr_assign_fixed = true;
->> +
->> +       mpam_resctrl_monitor_sync_abmc_vals(l3);
->> +
->> +       return 0;
->> +}
->> +
->>   static int mpam_resctrl_monitor_init(struct mpam_resctrl_mon *mon,
->>                                       enum resctrl_event_id type)
->>   {
->> @@ -1133,8 +1234,21 @@ static int mpam_resctrl_monitor_init(struct
->> mpam_resctrl_mon *mon,
->>           */
->>          l3->mon.num_rmid = resctrl_arch_system_num_rmid_idx();
->>
->> -       if (resctrl_enable_mon_event(type, false, 0, NULL))
->> -               l3->mon_capable = true;
->> +       if (type == QOS_L3_MBM_TOTAL_EVENT_ID) {
->> +               int err;
->> +
->> +               err = mpam_resctrl_monitor_init_abmc(mon);
->> +               if (err)
->> +                       return err;
->> +
->> +               static_assert(MAX_EVT_CONFIG_BITS == 0x7f);
->> +               l3->mon.mbm_cfg_mask = MAX_EVT_CONFIG_BITS;
->> +       }
->> +
->> +       if (!resctrl_enable_mon_event(type, false, 0, NULL))
->> +               return -EINVAL;
->> +
->> +       l3->mon_capable = true;
->>
->>          return 0;
->>   }
->> @@ -1697,6 +1811,23 @@ void mpam_resctrl_exit(void)
->>          resctrl_exit();
->>   }
->>
->> +static void mpam_resctrl_teardown_mon(struct mpam_resctrl_mon *mon, struct
->> mpam_class *class)
->> +{
->> +       u32 num_mbwu_mon = l3_num_allocated_mbwu;
->> +
->> +       if (!mon->mbwu_idx_to_mon)
->> +               return;
->> +
->> +       if (mon->assigned_counters) {
->> +               __free_mbwu_mon(class, mon->assigned_counters, num_mbwu_mon);
->> +               kvfree(mon->assigned_counters);
->> +               mon->assigned_counters = NULL;
->> +       }
->> +
->> +       kvfree(mon->mbwu_idx_to_mon);
->> +       mon->mbwu_idx_to_mon = NULL;
->> +}
->> +
->>   /*
->>    * The driver is detaching an MSC from this class, if resctrl was using it,
->>    * pull on resctrl_exit().
->> @@ -1719,6 +1850,8 @@ void mpam_resctrl_teardown_class(struct mpam_class *class)
->>          for_each_mpam_resctrl_mon(mon, eventid) {
->>                  if (mon->class == class) {
->>                          mon->class = NULL;
->> +
->> +                       mpam_resctrl_teardown_mon(mon, class);
->>                          break;
->>                  }
->>          }
->> -- 
->> 2.43.0
->>
+Changes in v4:
+- strip out dependencies that are going in through the ARM SoC tree
+- revert bindings to oneOf construct so that we don't produce new DTC
+  warnings
+- Link to v3: https://patch.msgid.link/20260326135855.2795149-1-thierry.reding@kernel.org
+
+Changes in v3:
+- integrate PCI standard wait times patch into the series to maintain
+  bisectability
+- fix review comments from Mikko
+- Link to v2: https://patch.msgid.link/20260320225443.2571920-1-thierry.reding@kernel.org
+
+Changes in v2:
+- fix an issue with sanity-checking disabled BARs
+- address review comments
+- Link to v1: https://patch.msgid.link/20260319160110.2131954-1-thierry.reding@kernel.org
+
+Thanks,
+Thierry
+
+---
+Thierry Reding (4):
+      dt-bindings: pci: Strictly distinguish C0 from C1-C5
+      PCI: Use standard wait times for PCIe link monitoring
+      PCI: tegra: Add Tegra264 support
+      arm64: tegra: Reorder reg and reg-names to match bindings
+
+ .../bindings/pci/nvidia,tegra264-pcie.yaml         |  75 ++-
+ arch/arm64/boot/dts/nvidia/tegra264.dtsi           |  48 +-
+ drivers/pci/controller/Kconfig                     |   9 +-
+ drivers/pci/controller/Makefile                    |   1 +
+ .../controller/cadence/pcie-cadence-host-common.c  |   6 +-
+ .../pci/controller/cadence/pcie-cadence-lga-regs.h |   5 -
+ drivers/pci/controller/mobiveil/pcie-mobiveil.c    |   4 +-
+ drivers/pci/controller/mobiveil/pcie-mobiveil.h    |   5 -
+ drivers/pci/controller/pci-aardvark.c              |   7 +-
+ drivers/pci/controller/pcie-tegra264.c             | 544 +++++++++++++++++++++
+ drivers/pci/controller/pcie-xilinx-nwl.c           |   9 +-
+ drivers/pci/controller/plda/pcie-starfive.c        |   9 +-
+ drivers/pci/pci.h                                  |   2 +
+ 13 files changed, 641 insertions(+), 83 deletions(-)
+---
+base-commit: 550604d6c9b9efc8d068aff94dc301694a7afdee
+change-id: 20260402-tegra264-pcie-e30abe23da07
+
+Best regards,
+--  
+Thierry Reding <treding@nvidia.com>
 
 
