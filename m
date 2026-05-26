@@ -4,59 +4,99 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 1DAF3CD5BB1
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 26 May 2026 14:53:37 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id AB613CD5BD0
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 26 May 2026 14:53:51 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	MIME-Version:Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-Type:
-	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
-	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
-	bh=NG1MsJD+6r7VdzmGyqNvXHjFFZ8NsZMlL149djZSr2g=; b=yU+cuepQnQfe2A+s4LKUyxjvOJ
-	qVw9v0vcrsrRSbCFfLl1JMfcf3SlNMDPKQ0MDFSMCuFeJfrKZiqQ7/pisje47SThF9XRXWZAG7oEP
-	HblLsPulEZt+hNWJDtA70WDewXhWBIZJyXYoSmN6WBgkfmihy/vhRaB4ab0MLtjFZvo+fng51MvH2
-	DUuXpKZWWCJMb7YMI+Ff/x6HSAOUvut2bzFHVBNmqYR9H6EA6NrGQXv7YRRPix0YWQs8QWzCsPssF
-	hi024iYcgkM9EPH5FQA3wFUHtmEr/K8GJEcsOkWXSH7iLoyKKBjJbi+v/gmHM3CIE4Cx16UF3quYZ
-	lCq4olQQ==;
+	Content-Type:MIME-Version:Date:Message-Id:Subject:References:In-Reply-To:Cc:
+	To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=VW3FGEMYl3HtrO5py8lQ+JYd7M0lWOH5Fx7/bpcIlXg=; b=BvmEF4+r/vSJDEyxTRlb/lpBAU
+	Ua4gfRc8tYiEYHtcwhHq1LkCJdI3CUxhgZ/ahkoeslA/chm+diQG0PaEipfgqx2r2CYi+OfbYxr4n
+	XibSaA1E2A9GfEAuM3LDOYYrTA8TYIIHWirVbiLz3LR81VNEQ/ik2a2zWCstPufrpK37lRqO+Dx4r
+	wSLTK2OpC9l/LRSnU3oj8hkY/EwISdaDFarLFO1YzpPaqlFppIGJe5ol1VezpWJvzvFOdJJzcxLUZ
+	wAd/btDHROu9sNCs293BYFbYGd1sixzIXzRtGKjsKfn8EUft5YwWUBDHJCeY9uxPOr6tSGn7Aq1VB
+	3hLIw7cg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wRt9u-00000002ENe-1lfp;
-	Tue, 26 May 2026 14:53:30 +0000
-Received: from tor.source.kernel.org ([2600:3c04:e001:324:0:1991:8:25])
+	id 1wRtA9-00000002ESw-2kUK;
+	Tue, 26 May 2026 14:53:45 +0000
+Received: from mail-wr1-x435.google.com ([2a00:1450:4864:20::435])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wRt9t-00000002ENW-1YqZ
+	id 1wRtA6-00000002ERM-3ej6
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 26 May 2026 14:53:29 +0000
-Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
-	by tor.source.kernel.org (Postfix) with ESMTP id A28DA60123;
-	Tue, 26 May 2026 14:53:28 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id A5F881F00A3D;
-	Tue, 26 May 2026 14:53:27 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1779807208;
-	bh=NG1MsJD+6r7VdzmGyqNvXHjFFZ8NsZMlL149djZSr2g=;
-	h=From:To:Cc:Subject:Date;
-	b=gAM1KIY5bwj49FuQYukZaEMwgitseVn3EbKtSxJdWs8YFyuOMTPA0vq0maMBegu9Q
-	 Jq4HO3zPzN70CZoz17fpFothsZFMaHtqpmfWjQ+2twUZZu6RdaNPnFtLtMxBiIn3t2
-	 LsFaTw4gh7P8mLDgfp+9ji5EmQyJcU9j4/SKI+llCHCa0y6DTw6dnVJO1YgOaK07Fq
-	 +ciKoyeIPK1/69UVye8EIOTmTTy3kVWLmfx9l2Txo85tMN5+dX7w1rH0oPkpok2s3g
-	 7N3AY/684akel4mlBcv0Zri8zVBBCC3u1A2xtpPUjPrpVm7NZIznSxi71qUifSrUhv
-	 qtpBDtNMDcWUw==
-From: Bjorn Andersson <andersson@kernel.org>
-To: arm@kernel.org,
-	soc@kernel.org
-Cc: linux-arm-msm@vger.kernel.org,
-	linux-arm-kernel@lists.infradead.org,
-	Arnd Bergmann <arnd@arndb.de>,
-	Harshal Dev <harshal.dev@oss.qualcomm.com>,
-	Abel Vesa <abel.vesa@oss.qualcomm.com>,
-	Val Packett <val@packett.cool>
-Subject: [GIT PULL] Qualcomm Arm64 DeviceTree fixes for v7.1
-Date: Tue, 26 May 2026 09:53:26 -0500
-Message-ID: <20260526145326.3243-1-andersson@kernel.org>
-X-Mailer: git-send-email 2.53.0
+	Tue, 26 May 2026 14:53:44 +0000
+Received: by mail-wr1-x435.google.com with SMTP id ffacd0b85a97d-43d734223e4so6774583f8f.0
+        for <linux-arm-kernel@lists.infradead.org>; Tue, 26 May 2026 07:53:42 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=linaro.org; s=google; t=1779807221; x=1780412021; darn=lists.infradead.org;
+        h=content-transfer-encoding:mime-version:date:message-id:subject
+         :references:in-reply-to:cc:to:from:from:to:cc:subject:date
+         :message-id:reply-to;
+        bh=VW3FGEMYl3HtrO5py8lQ+JYd7M0lWOH5Fx7/bpcIlXg=;
+        b=mIr28wtH942l5EpO9DeXJGuzYkpNInMUYxbYGla/0IkQF7VaOJ4boR8Kh2ir/c+eJb
+         oeigQ18G8zseprfiOuldT578xZlPD/doUorkSFgPPXZ68Sxksg3qLDEDgispKxf0hjd5
+         pWoq5M/NH8SRniUYYk2xp+Av3PSZpiTh4fh9v7LGk9KlYI7V4ryhUoU8VZZeh0mjjoql
+         vRCMMOTGgpWIoXCa9rPxyHYiy0OYEKSgDuL3bCTigp5eV2Fj1SzYyJEZsdlo4nyK8GPN
+         B+kfiOdPlgZKnXM1ky1xDxmhhl8/loFtM1s0PTxrkUnZYYhTe6giwrtBT6nF5zi26w8e
+         Njyg==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20251104; t=1779807221; x=1780412021;
+        h=content-transfer-encoding:mime-version:date:message-id:subject
+         :references:in-reply-to:cc:to:from:x-gm-gg:x-gm-message-state:from
+         :to:cc:subject:date:message-id:reply-to;
+        bh=VW3FGEMYl3HtrO5py8lQ+JYd7M0lWOH5Fx7/bpcIlXg=;
+        b=rVAeZsll9+friW6Hh3HZUSMAbyLzjOCtlII6BmVsDtwtonTZToqJ/VXu2yDms+mThc
+         fjs8Avzk/Y6B+7yt5LmDEdY4j+1OfchMyPjwTVFgyISJLd+jIdzPYt/JYA2wYtFoyKe5
+         6LpfAipnRfPcRdwi889AVl0xKcg0mfvPE/gLKUHVABTUXZ765F9FCSqr6ji10ZB6yQzV
+         CziHM17jS+7l1IAHEh/gX1QISc5SvXmDQ8EAjjfkfQ5i6JvBygt9BNipTt9CVbb8kixi
+         5LnwLOcTA87mDrjeMjlVA/2ffKhdtn65pXMSLpW9slkl+k7aRq+41Pv/RVabizMJudNz
+         Wbmg==
+X-Forwarded-Encrypted: i=1; AFNElJ/n4gbxsNpx2nNN1b/2YSz+cqNtgY9QM73NnVJWYiJ4fR/Sfo9gvxZ7Okes4rE6FFXuCu/jooh60lNYQN2rqL/t@lists.infradead.org
+X-Gm-Message-State: AOJu0YyF+tFUhjxGMKUHPhFHhd4yMQntWRoXAgTfjOAKCykojp6TLptb
+	vGJwugruSEx5Pni4arrO8GuImirjX11tzNCKLbO5Jm4CSTHZAKgHcZCR/AaWOea9FMM=
+X-Gm-Gg: Acq92OEBEmzhIZLl2fkrYn/JpzZauNIBpyBC14fEMne6Bm/l8MQ6Viwosnf4hMzkYlP
+	gjuPdj4C9W1F/myGC0ieSdqxS8FVL6QbbTDbU/ABr8fMmr3DOL61WgPk03lfySu416RCym3/0i1
+	no/SIPFjYhKXOHDyVBNOX/xrKy2jFYkBFMzXZNku4tS7lGnOH6Voftt9hjIHXoe92m7EwAkyEut
+	MC+LhvGnaKVTdbpmd8sn/5/qR7EYKxabJliu45wXDb/QM08qDtZ/pCCnGWiN5aFX4swTU8OEnxD
+	e4MnKzVRqrMylrDVGuunYXNlUKjK/zl+AZWV7XlN1mVu0s134w54oVO/knDv+WxP1660c0L8L3p
+	CCXI0mwMCpltvkakr9Ylrkl8AUCZLv2CSMRgtvdoryMKvxaTI10MdtUBAbj+dekDrPv0GwnbTpl
+	ZKkDnPg1TfU4I1aLUBkAEzeYsGcLuQpq8dNS/6c8GuWcnH
+X-Received: by 2002:a05:6000:258a:b0:45e:6a3e:1ddb with SMTP id ffacd0b85a97d-45ea3128db3mr35001389f8f.1.1779807220786;
+        Tue, 26 May 2026 07:53:40 -0700 (PDT)
+Received: from arrakeen.starnux.net ([2a01:e0a:106d:1080:8261:5fff:fe11:bdda])
+        by smtp.gmail.com with ESMTPSA id ffacd0b85a97d-45eb6d49132sm36278884f8f.24.2026.05.26.07.53.39
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Tue, 26 May 2026 07:53:40 -0700 (PDT)
+From: Neil Armstrong <neil.armstrong@linaro.org>
+To: Laurent Pinchart <laurent.pinchart@ideasonboard.com>, 
+ Jessica Zhang <jesszhan0024@gmail.com>, David Airlie <airlied@gmail.com>, 
+ Simona Vetter <simona@ffwll.ch>, 
+ Maarten Lankhorst <maarten.lankhorst@linux.intel.com>, 
+ Maxime Ripard <mripard@kernel.org>, Thomas Zimmermann <tzimmermann@suse.de>, 
+ Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>, 
+ Conor Dooley <conor+dt@kernel.org>, Nishanth Menon <nm@ti.com>, 
+ Vignesh Raghavendra <vigneshr@ti.com>, Tero Kristo <kristo@kernel.org>, 
+ Lad Prabhakar <prabhakar.mahadev-lad.rj@bp.renesas.com>, 
+ Thierry Reding <thierry.reding@gmail.com>, Vitor Soares <ivitro@gmail.com>
+Cc: Vitor Soares <vitor.soares@toradex.com>, 
+ dri-devel@lists.freedesktop.org, devicetree@vger.kernel.org, 
+ linux-kernel@vger.kernel.org, linux-arm-kernel@lists.infradead.org
+In-Reply-To: <20260522161105.277519-13-ivitro@gmail.com>
+References: <20260522161105.277519-13-ivitro@gmail.com>
+Subject: Re: (subset) [PATCH v3 00/11] arm64: dts: ti: k3-am62-verdin: Add
+ display and peripheral overlays
+Message-Id: <177980721984.3070642.16547338359984019493.b4-ty@b4>
+Date: Tue, 26 May 2026 16:53:39 +0200
 MIME-Version: 1.0
-Content-Transfer-Encoding: 8bit
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: 7bit
+X-Mailer: b4 0.15.1
+X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
+X-CRM114-CacheID: sfid-20260526_075342_928072_F82A56C6 
+X-CRM114-Status: UNSURE (   9.14  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -71,47 +111,24 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
+Hi,
 
-The following changes since commit 254f49634ee16a731174d2ae34bc50bd5f45e731:
+On Fri, 22 May 2026 17:11:04 +0100, Vitor Soares wrote:
+> From: Vitor Soares <vitor.soares@toradex.com>
+> 
+> This series adds device tree overlays, expanding the hardware support for
+> the Toradex Verdin AM62 SoM. The overlays target displays, cameras, audio,
+> and peripherals available through Toradex carrier boards and the accessory
+> ecosystem.
+> 
+> [...]
 
-  Linux 7.1-rc1 (2026-04-26 14:19:00 -0700)
+Thanks, Applied to https://gitlab.freedesktop.org/drm/misc/kernel.git (drm-misc-next)
 
-are available in the Git repository at:
+[04/11] dt-bindings: display: panel-lvds: Add Riverdi RVT70HSLNWCA0 and RVT101HVLNWC00
+        https://gitlab.freedesktop.org/drm/misc/kernel/-/commit/3c3c5fb9b36836d279ebe370189d68a0a3387362
 
-  https://git.kernel.org/pub/scm/linux/kernel/git/qcom/linux.git tags/qcom-arm64-fixes-for-7.1
+-- 
+Neil
 
-for you to fetch changes up to 67802f981361ebb49cc25175c57179aecb14626c:
-
-  Merge branch '20260416-qcom_ice_power_and_clk_vote-v5-13-5ccf5d7e2846@oss.qualcomm.com' into arm64-fixes-for-7.1 (2026-05-21 16:34:26 -0500)
-
-----------------------------------------------------------------
-Qualcomm Arm64 DeviceTree fixes for v7.1
-
-Add missing power-domain and iface clocks for the ICE node of Eliza and
-Milos to avoid the validation errors that resulted from late binding
-changes. Also drop the reference clock for the USB QMP PHYs, for the
-same reason.
-
-Avoid touching the 20'th I2C bus on the Hamoa-based (X Elite) Dell
-laptops, as this conflicts with the battery management firmware.
-
-----------------------------------------------------------------
-Abel Vesa (1):
-      arm64: dts: qcom: glymur: Drop RPMh CXO clocks from QMP PHYs
-
-Bjorn Andersson (1):
-      Merge branch '20260416-qcom_ice_power_and_clk_vote-v5-13-5ccf5d7e2846@oss.qualcomm.com' into arm64-fixes-for-7.1
-
-Harshal Dev (2):
-      arm64: dts: qcom: milos: Add power-domain and iface clk for ice node
-      arm64: dts: qcom: eliza: Add power-domain and iface clk for ice node
-
-Val Packett (1):
-      arm64: dts: qcom: x1-dell-thena: remove i2c20 (battery SMBus) and reserve its pins
-
- arch/arm64/boot/dts/qcom/eliza.dtsi         |  6 +++++-
- arch/arm64/boot/dts/qcom/glymur.dtsi        | 20 ++++++--------------
- arch/arm64/boot/dts/qcom/milos.dtsi         |  6 +++++-
- arch/arm64/boot/dts/qcom/x1-dell-thena.dtsi |  7 +------
- 4 files changed, 17 insertions(+), 22 deletions(-)
 
