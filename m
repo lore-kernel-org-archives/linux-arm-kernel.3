@@ -4,75 +4,64 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 261F5CD5BB1
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 26 May 2026 12:08:29 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 4DC93CD5BB1
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 26 May 2026 12:10:41 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Message-Id:Date:References:
-	In-Reply-To:Cc:To:From:Subject:Content-Transfer-Encoding:Content-Type:
-	MIME-Version:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
+	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=DK8eA9/GN7NzLuxBx/GTovhK/apGoGFfUGeCC5d5iyI=; b=d8obQYudvx+//ObK56sXlr2Dnf
-	aTKmdWx3R3kDBIcF7IsAC/h2nMB1xzqOOMdn7c0Wgxcj8gkl4TCvamYJSk2AjE3F5fERTKsuXlGhe
-	UMHe0TS2rE3buwT9jS89moYTdGkonumK8ghXpmtTJhySaR9fAChXlF1bF7mdh0WaXhAJKzBJ5M1sN
-	Kx6wdJHa0qZjSyrlkKSObjq8WAV58aibM9IgG1P+tNpvosHdy7a6sw5EOFj9ODEBuDPt2+aZOkMgI
-	gwyC1MVGy0zbPkWTbnsFLsODSr/jW5CmeDAcr9bUcSV5mleBF56/vndTkwOEfBcfyzhnISfyP9emo
-	1JXan0sw==;
+	bh=GjFgISZ1WjOIRfoU8ZABnyN4waAz+1VlS0VreTIPFl0=; b=im8KOFrhZUZfcMrU0XAQypWvRn
+	wkuGTn3Y0z0aV7FcQTNP3Z8cOmPQSZSWcExRk0uVJeAds729GGG2HInEllb2Ko+Dy13uP8iuWTHYn
+	vdhkpcJ6d7+dNxzdKJqUIyXWAogP5uaUc83BVV2aNbk6iqmLtIRF8Q5fx/JVnBh6NDFrMCHuSNPOs
+	DW6/BodP+z3Z43B3S1N2rCvV8wMI0uACfITW2uCThrKI9xdj/4fwDbBwPky6EHb4qBz8RbZXT2pEJ
+	c0wfoRn0wosygEh7fsx2wI7bt/9W5wyE4EZqhT27fctG/lJ8R/fOY578GpOZ+UjFTe/BM1BRmb2Ee
+	1pml8SDA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wRqa5-00000001sie-2z0y;
-	Tue, 26 May 2026 12:08:21 +0000
-Received: from smtpout-03.galae.net ([185.246.85.4])
-	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wRqa2-00000001shD-2xdg
+	id 1wRqcE-00000001sxw-06qo;
+	Tue, 26 May 2026 12:10:34 +0000
+Received: from foss.arm.com ([217.140.110.172])
+	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
+	id 1wRqcB-00000001sxQ-2gK0
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 26 May 2026 12:08:21 +0000
-Received: from smtpout-01.galae.net (smtpout-01.galae.net [212.83.139.233])
-	by smtpout-03.galae.net (Postfix) with ESMTPS id BC4A54E42D59;
-	Tue, 26 May 2026 12:08:13 +0000 (UTC)
-Received: from mail.galae.net (mail.galae.net [212.83.136.155])
-	by smtpout-01.galae.net (Postfix) with ESMTPS id 866A56011D;
-	Tue, 26 May 2026 12:08:13 +0000 (UTC)
-Received: from [127.0.0.1] (localhost [127.0.0.1]) by localhost (Mailerdaemon) with ESMTPSA id 7181C10888356;
-	Tue, 26 May 2026 14:07:55 +0200 (CEST)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=bootlin.com; s=dkim;
-	t=1779797292; h=from:subject:date:message-id:to:cc:mime-version:content-type:
-	 content-transfer-encoding:in-reply-to:references;
-	bh=DK8eA9/GN7NzLuxBx/GTovhK/apGoGFfUGeCC5d5iyI=;
-	b=RNU5++s0L9bfnoxU24iB+xsMHm5P0Ae9cOJvZKPHxeM97AF368q8RuNWiwcQLO12P9CZ6o
-	moU9/AUpCKd8iyFRV54iR+l+nhFxSXVFwjQn4i9RbIvM26ms7QueBOCrGZ0MMKChE14P7P
-	HZ4an8aN8PC+KrEOHJu3tLBY7Zi/DIs7l3U2GzxAYnRfA3DEp2mUT0jZPfnbEJn4DAORa7
-	xVj58D97QdBzzHxdheW2w2kq4sIQtzS+j2fdh6rSwYZIdd5EZ0oVBR7inInOpoANc0OCpg
-	LhcQsFUfMpAh+toIhmX2aljXCS2HNweQL5NuMs0i3q0TuPvtlh6+YQ76VYqetA==
+	Tue, 26 May 2026 12:10:33 +0000
+Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
+	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id C7AE9169C;
+	Tue, 26 May 2026 05:10:23 -0700 (PDT)
+Received: from [10.1.28.159] (e121487-lin.cambridge.arm.com [10.1.28.159])
+	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id 5ACF93F7B4;
+	Tue, 26 May 2026 05:10:24 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=simple/simple; d=arm.com; s=foss;
+	t=1779797428; bh=PX7NDHB2FxC4BlZEAVWkuMN5ig+djh8Bm6MPl/nYDrY=;
+	h=Date:Subject:To:Cc:References:From:In-Reply-To:From;
+	b=W+5PiR20FnaW9O6awOHd9A9ukfUevZlrG3yMKTBGK6pHIUJtipn5nFusQe1s0UL3t
+	 Sm9wRFPc+Qi7V02YabfKtpXduAzL0u+xiHK4ylfDrdz3tuArkrXghYahFtrgM5EfHV
+	 t3Z+kaMLMJlzx43oqGM4djuZsQkmOIqnhOfSyuSg=
+Message-ID: <3e7d5472-9c40-456c-876e-c2e71fa0e8fa@arm.com>
+Date: Tue, 26 May 2026 13:10:22 +0100
 MIME-Version: 1.0
-Content-Type: text/plain; charset="utf-8"
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH] arm64: kernel: Disable CNP on HiSilicon HIP09
+To: Zeng Heng <zengheng@huaweicloud.com>, corbet@lwn.net,
+ kuninori.morimoto.gx@renesas.com, maz@kernel.org, oupton@kernel.org,
+ catalin.marinas@arm.com, lucaswei@google.com, yeoreum.yun@arm.com,
+ skhan@linuxfoundation.org, james.clark@linaro.org, broonie@kernel.org,
+ mark.rutland@arm.com, lpieralisi@kernel.org, ryan.roberts@arm.com,
+ will@kernel.org, tongtiangen@huawei.com, kevin.brodsky@arm.com,
+ yangyicong@hisilicon.com, miko.lenczewski@arm.com
+Cc: linux-doc@vger.kernel.org, wangkefeng.wang@huawei.com,
+ linux-kernel@vger.kernel.org, linux-arm-kernel@lists.infradead.org
+References: <20260526015720.206854-1-zengheng@huaweicloud.com>
+Content-Language: en-GB
+From: Vladimir Murzin <vladimir.murzin@arm.com>
+In-Reply-To: <20260526015720.206854-1-zengheng@huaweicloud.com>
+Content-Type: text/plain; charset=UTF-8
 Content-Transfer-Encoding: 7bit
-Subject: Re: [PATCH v3 2/2] drm/bridge: analogix_dp: Add support for
- optional data-lanes mapping
-From: Luca Ceresoli <luca.ceresoli@bootlin.com>
-To: Damon Ding <damon.ding@rock-chips.com>
-Cc: hjc@rock-chips.com, heiko@sntech.de, andy.yan@rock-chips.com, 
- maarten.lankhorst@linux.intel.com, mripard@kernel.org, tzimmermann@suse.de, 
- airlied@gmail.com, simona@ffwll.ch, robh@kernel.org, krzk+dt@kernel.org, 
- conor+dt@kernel.org, andrzej.hajda@intel.com, neil.armstrong@linaro.org, 
- rfoss@kernel.org, Laurent.pinchart@ideasonboard.com, jonas@kwiboo.se, 
- jernej.skrabec@gmail.com, nicolas.frattaroli@collabora.com, 
- cristian.ciocaltea@collabora.com, sebastian.reichel@collabora.com, 
- dmitry.baryshkov@oss.qualcomm.com, luca.ceresoli@bootlin.com, 
- dianders@chromium.org, m.szyprowski@samsung.com, 
- dri-devel@lists.freedesktop.org, devicetree@vger.kernel.org, 
- linux-arm-kernel@lists.infradead.org, linux-rockchip@lists.infradead.org, 
- linux-kernel@vger.kernel.org
-In-Reply-To: <20260525094731.121380-3-damon.ding@rock-chips.com>
-References: <20260525094731.121380-1-damon.ding@rock-chips.com>
- <20260525094731.121380-3-damon.ding@rock-chips.com>
-Date: Tue, 26 May 2026 14:07:50 +0200
-Message-Id: <177979727057.297330.10691183273720133245.b4-review@b4>
-X-Mailer: b4 0.15.2
-X-Last-TLS-Session-Version: TLSv1.3
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260526_050818_886377_EA3E8E35 
-X-CRM114-Status: GOOD (  11.25  )
+X-CRM114-CacheID: sfid-20260526_051031_885116_E16B9D1E 
+X-CRM114-Status: GOOD (  22.33  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -87,37 +76,123 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Mon, 25 May 2026 17:47:31 +0800, Damon Ding <damon.ding@rock-chips.com> wrote:
+Hi,
 
-Hello Damon,
-
->
-> diff --git a/drivers/gpu/drm/bridge/analogix/analogix_dp_core.c b/drivers/gpu/drm/bridge/analogix/analogix_dp_core.c
-> index 8cf6b73bceac..d53ab25bc57b 100644
-> --- a/drivers/gpu/drm/bridge/analogix/analogix_dp_core.c
-> +++ b/drivers/gpu/drm/bridge/analogix/analogix_dp_core.c
-> @@ -1234,6 +1234,59 @@ static const struct drm_bridge_funcs analogix_dp_bridge_funcs = {
-> [ ... skip 11 lines ... ]
-> +	int ret, i;
+On 5/26/26 02:57, Zeng Heng wrote:
+> From: Tong Tiangen <tongtiangen@huawei.com>
+> 
+> HiSilicon HIP09 implements TLB entry matching behavior that deviates
+> from the ARM architecture specification when the CNP (Common not Private)
+> bit is set in TTBRx_ELx.
+> 
+> When TTBRx.CNP=1, TLB entries may be incorrectly shared between CPU
+> cores, leading to TLB conflicts and stale mappings. This affects
+> coherency and can result in incorrect translations.
+> 
+> Add the hardware erratum workaround (Hisilicon erratum 162100125) to
+> disable CNP on affected HIP09 cores.
+> 
+> Signed-off-by: Tong Tiangen <tongtiangen@huawei.com>
+> Signed-off-by: Zeng Heng <zengheng4@huawei.com>
+> ---
+>  Documentation/arch/arm64/silicon-errata.rst |  2 ++
+>  arch/arm64/Kconfig                          | 15 +++++++++++++++
+>  arch/arm64/kernel/cpu_errata.c              |  7 +++++++
+>  arch/arm64/kernel/cpufeature.c              |  3 ++-
+>  arch/arm64/tools/cpucaps                    |  1 +
+>  5 files changed, 27 insertions(+), 1 deletion(-)
+> 
+> diff --git a/Documentation/arch/arm64/silicon-errata.rst b/Documentation/arch/arm64/silicon-errata.rst
+> index 211119ce7adc..cd50059edb85 100644
+> --- a/Documentation/arch/arm64/silicon-errata.rst
+> +++ b/Documentation/arch/arm64/silicon-errata.rst
+> @@ -284,6 +284,8 @@ stable kernels.
+>  +----------------+-----------------+-----------------+-----------------------------+
+>  | Hisilicon      | Hip09           | #162100801      | HISILICON_ERRATUM_162100801 |
+>  +----------------+-----------------+-----------------+-----------------------------+
+> +| Hisilicon      | Hip09           | #162100125      | HISILICON_ERRATUM_162100125 |
+> ++----------------+-----------------+-----------------+-----------------------------+
+>  +----------------+-----------------+-----------------+-----------------------------+
+>  | Qualcomm Tech. | Kryo/Falkor v1  | E1003           | QCOM_FALKOR_ERRATUM_1003    |
+>  +----------------+-----------------+-----------------+-----------------------------+
+> diff --git a/arch/arm64/Kconfig b/arch/arm64/Kconfig
+> index fe60738e5943..ed6207c75b54 100644
+> --- a/arch/arm64/Kconfig
+> +++ b/arch/arm64/Kconfig
+> @@ -1273,6 +1273,21 @@ config HISILICON_ERRATUM_162100801
+>  
+>  	  If unsure, say Y.
+>  
+> +config HISILICON_ERRATUM_162100125
+> +	bool "Hisilicon erratum 162100125"
+> +	default y
+> +	help
+> +	  On HiSilicon HIP09, TLB entry matching behavior when CNP
+> +	  (TTBRx.CNP=1) is enabled differs from the ARM architecture
+> +	  specification.
 > +
-> +	memcpy(video_info->lane_map, map, sizeof(map));
+> +	  TLB entries may be incorrectly shared between CPUs, potentially
+> +	  causing TLB conflicts and stale mappings.
 > +
-> +	num_lanes = drm_of_get_data_lanes_count_ep(dp->dev->of_node, 1, 0, 1,
-> +						   video_info->max_lane_count);
+> +	  Disable CNP support for affected HiSilicon HIP09 cores.
+> +
+> +	  If unsure, say Y.
+> +
+>  config QCOM_FALKOR_ERRATUM_1003
+>  	bool "Falkor E1003: Incorrect translation due to ASID change"
+>  	default y
+> diff --git a/arch/arm64/kernel/cpu_errata.c b/arch/arm64/kernel/cpu_errata.c
+> index 5377e4c2eba2..26d9677a20fc 100644
+> --- a/arch/arm64/kernel/cpu_errata.c
+> +++ b/arch/arm64/kernel/cpu_errata.c
+> @@ -968,6 +968,13 @@ const struct arm64_cpu_capabilities arm64_errata[] = {
+>  		.matches = has_impdef_pmuv3,
+>  		.cpu_enable = cpu_enable_impdef_pmuv3_traps,
+>  	},
+> +#ifdef CONFIG_HISILICON_ERRATUM_162100125
+> +	{
+> +		.desc = "Hisilicon erratum 162100125",
+> +		.capability = ARM64_WORKAROUND_HISILICON_ERRATUM_162100125,
+> +		ERRATA_MIDR_ALL_VERSIONS(MIDR_HISI_HIP09),
+> +	},
+> +#endif
+>  	{
+>  	}
+>  };
+> diff --git a/arch/arm64/kernel/cpufeature.c b/arch/arm64/kernel/cpufeature.c
+> index 6d53bb15cf7b..c4b0db77a58a 100644
+> --- a/arch/arm64/kernel/cpufeature.c
+> +++ b/arch/arm64/kernel/cpufeature.c
+> @@ -1785,7 +1785,8 @@ has_useable_cnp(const struct arm64_cpu_capabilities *entry, int scope)
+>  	if (is_kdump_kernel())
+>  		return false;
+>  
+> -	if (cpus_have_cap(ARM64_WORKAROUND_NVIDIA_CARMEL_CNP))
+> +	if (cpus_have_cap(ARM64_WORKAROUND_NVIDIA_CARMEL_CNP) ||
+> +	    cpus_have_cap(ARM64_WORKAROUND_HISILICON_ERRATUM_162100125))
+>  		return false;
 
-Should num_lanes be > 4, the buffers could overflow. I realize it should
-not happen, but analogix_dp_dt_parse_pdata() can set max_lane_count from
-the device tree, so a bogus dtb could cause such overflow.
+Since we now have a second user for this workaround, would it
+make sense to:
+1. factor out the existing ARM64_WORKAROUND_NVIDIA_CARMEL_CNP into a common capability,
+   for example ARM64_WORKAROUND_DISABLE_CNP
+2. wire up erratum 162100125 to use the common ARM64_WORKAROUND_DISABLE_CNP capability?
 
-Perhaps you should just (in a separate patch) error out in
-analogix_dp_dt_parse_pdata() to prevent this. And maybe even adding an
-BUG_ON(lane_count > 4) here.
+Cheers
+Vladimir
 
-Otherwise LGTM.
-
--- 
-Luca Ceresoli, Bootlin
-Embedded Linux and Kernel engineering
-https://bootlin.com
+>  
+>  	return has_cpuid_feature(entry, scope);
+> diff --git a/arch/arm64/tools/cpucaps b/arch/arm64/tools/cpucaps
+> index 811c2479e82d..b797d4893adc 100644
+> --- a/arch/arm64/tools/cpucaps
+> +++ b/arch/arm64/tools/cpucaps
+> @@ -128,3 +128,4 @@ WORKAROUND_REPEAT_TLBI
+>  WORKAROUND_SPECULATIVE_AT
+>  WORKAROUND_SPECULATIVE_SSBS
+>  WORKAROUND_SPECULATIVE_UNPRIV_LOAD
+> +WORKAROUND_HISILICON_ERRATUM_162100125
+> -- 2.43.0
+> 
 
 
