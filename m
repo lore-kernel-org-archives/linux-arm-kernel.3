@@ -4,72 +4,75 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id CAE86CD5BD1
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 26 May 2026 17:59:45 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 2C8E6CD5BC8
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 26 May 2026 17:59:47 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:Cc:To:From:
-	Subject:Message-ID:Mime-Version:Date:Reply-To:Content-Transfer-Encoding:
-	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
-	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
-	bh=n0vWMvJYNWuq9BUtLKfBugHf8I5ifX5auG02Ilaszzw=; b=Z8fRpZG0oWsn7KG4BVDQcDWJB3
-	1YnNbADIhkfBzcekaROuZW0ISrET0ey0iorXe4MLps5+b8k3nuvz59f/is9NrllcfXX+jmBqIK9oE
-	RdZqXUr3UJ9aMPhw4oFivsuKVxOQ+BuRgHcYpZK7XpEtfiyYNe/NEk4yozMJTSyYpYPoVBkYxFmjO
-	0fPphFfonlUvV0Fo1M9XT5B9t5G31lq+nN7bkWlfNfw7bFrU5L+1bChUqUY+XEXs3EaJtYt698Huv
-	x0tSb9cxCq4GNH7MNnZGs4SAWGkLw8o45f8EIzFg1678Jn74MFwhsYlyHIthU94H1HgjsajQoiW/z
-	uMMGpYKQ==;
+	Subject:Message-ID:References:Mime-Version:In-Reply-To:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=LtBeFQlOADPYK4gJNp1okGIhaF4i6t2Ouexf2+2MrWs=; b=KJPSYsay3pN7TDKNVGGf/PSYtF
+	Ue+UCVhotH3g93e4bFi9RfkCrshHE5rWMbcBHIpeBzDJ4xIgTRAuwl58x4UD1tkdTuhBkzsK7dHDK
+	wv0411ELfJM1/QtesBIoeCy+hIlgutuyqzwpzudNB14hAay8eEjKGf9I9FXpU/3i3nsTk9D9e6CCq
+	3V055v5h6BGTf7BaCS8KfrFfbJl4FeL7oZxxiXkfM37tuiiBXgZvbPI4VKPR9haHBM0xaJl24NF/q
+	JtVJNIP99hbOjezEtWCVXKxkK6rwOlAaabaNvrqDOAm8sw0QZ2Ss/OHNOx0XZU3Igw+X3qGXKGHNK
+	VZwFJWgA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wRw3q-00000002mjx-2Ocd;
-	Tue, 26 May 2026 17:59:26 +0000
-Received: from mail-wm1-x34a.google.com ([2a00:1450:4864:20::34a])
+	id 1wRw40-00000002mqV-0CwS;
+	Tue, 26 May 2026 17:59:36 +0000
+Received: from mail-ed1-x54a.google.com ([2a00:1450:4864:20::54a])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wRw3n-00000002mie-0B7R
+	id 1wRw3q-00000002mjM-2I5D
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 26 May 2026 17:59:25 +0000
-Received: by mail-wm1-x34a.google.com with SMTP id 5b1f17b1804b1-49047e9ca88so35876705e9.3
-        for <linux-arm-kernel@lists.infradead.org>; Tue, 26 May 2026 10:59:21 -0700 (PDT)
+	Tue, 26 May 2026 17:59:27 +0000
+Received: by mail-ed1-x54a.google.com with SMTP id 4fb4d7f45d1cf-68751570301so6069326a12.3
+        for <linux-arm-kernel@lists.infradead.org>; Tue, 26 May 2026 10:59:25 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=google.com; s=20251104; t=1779818360; x=1780423160; darn=lists.infradead.org;
-        h=cc:to:from:subject:message-id:mime-version:date:from:to:cc:subject
-         :date:message-id:reply-to;
-        bh=n0vWMvJYNWuq9BUtLKfBugHf8I5ifX5auG02Ilaszzw=;
-        b=oNNqjwA5yRCn5WKIwAFCjGU7hciz1J9aFqKhWw+hcnhvHZkmkgvfcrIDVrjtMFHIeY
-         NJrGCTddWQfNRY+Ei3VLHHBVb22kraGpeWz65L5rQKko33GbWecmJaxu4GKEWlyoMx/q
-         skW6eHAnjVsvncT/hHMXomZg6UVffkOzv+469skZEqDsPuhRU0wuKv6KgF8E3Ce16wO1
-         knuTVRY+6T8XtGPLN1RtCGWreD6LT2LmAg6QrluMB6C5t2h3r20UnHxLquCsqJhUzlTf
-         wozBf9J1QRij9tfkfc7SIqJYSqUKUwehIVZKynO1Cc32kRsaDq9q5e6TftoTKJMDxjjN
-         m2cw==
+        d=google.com; s=20251104; t=1779818364; x=1780423164; darn=lists.infradead.org;
+        h=cc:to:from:subject:message-id:references:mime-version:in-reply-to
+         :date:from:to:cc:subject:date:message-id:reply-to;
+        bh=LtBeFQlOADPYK4gJNp1okGIhaF4i6t2Ouexf2+2MrWs=;
+        b=MXg3B9S+03272o2sdxYf6EbFlVZ429W0sveZ+SUmFWJ+ATiA92q8yiMN0xECBIHHbd
+         fF2/VCUa6dLhY6LTT03zictpC6ZiLGC0blb6TNHDRpWjTLdYOXznF9etpq7D3DdWjSvI
+         cGiZqTXwaxlNTrIYAD7ghm/vSrSKiWf8lYfB6uGxVb3RQo6NxUBJBXNBMC56mejqhY/P
+         /z4EtzDXJIRi7O3bnnphfJfzVsUcbZ9VgrkioAOcO7c9vHTU6WXG8hnK0QV0Gg9hZ9rp
+         oblsm4fDmCOH+Be7AlEhdKsUnWdB1f7x3v7gKFm8HNHvpmBCP9RPyrnhjx/jScurNdek
+         xL/A==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20251104; t=1779818360; x=1780423160;
-        h=cc:to:from:subject:message-id:mime-version:date:x-gm-message-state
-         :from:to:cc:subject:date:message-id:reply-to;
-        bh=n0vWMvJYNWuq9BUtLKfBugHf8I5ifX5auG02Ilaszzw=;
-        b=msTetV0Ux858ZZNXYocN6axVAPyA6wRhbTvYu/aAg8okEHtiu2wvttMlEKCTSq/Nq6
-         5vhUubTlqbrF2IjAUw/bN8Be6bQPJPQdxUDWpKWYMbEaGTUnFQfWgUJjZVTxT6zwnXo+
-         UA8r0AuB/dYdf361GI+VEVdUsUsdJ/gtp5IFQb4UWHsHHjRn1AU5PL7Ctmq8fHvqwo7g
-         O0ZE095uhvdW8t3hWVyz1ONENZ4ESil+vQmEdY/IOmKtsYucwhPD4De0nZ5vlOC0FsMw
-         0AEG3mRpVybfC2dGnu3SeS83UfhexE/coFvVvubK98VhJmsZ+KH2DgSVz3rosgKeolR+
-         PK0A==
-X-Gm-Message-State: AOJu0YwiwHIEeJORuECJNz2H4pR1WJSqnjQthGhfmzccN1ia216+//fW
-	/PVqQRC0v/f7yytQg0HoA37EZzjaTZdALROiTnqkcDsGJhfa87kb2KGFQRiSEnxDYs4bsdlSra3
-	bA0Cw3ZP6ErHsgSC+JbJpDDiidkUeKhjxrcjGd0NDYmR+V/YZi/O3C2lIQIDqNdcFf2Qm4yT0mq
-	jrMgXmP0hpZZKKBPS5mPEr6ks23ZHPe5RtCjJJt6npu0Ek
-X-Received: from wmbfj10.prod.google.com ([2002:a05:600c:c8a:b0:489:1f67:5a81])
- (user=ardb job=prod-delivery.src-stubby-dispatcher) by 2002:a05:600c:3581:b0:490:482c:4391
- with SMTP id 5b1f17b1804b1-490482c4586mr347539725e9.23.1779818360071; Tue, 26
- May 2026 10:59:20 -0700 (PDT)
-Date: Tue, 26 May 2026 19:58:47 +0200
+        d=1e100.net; s=20251104; t=1779818364; x=1780423164;
+        h=cc:to:from:subject:message-id:references:mime-version:in-reply-to
+         :date:x-gm-message-state:from:to:cc:subject:date:message-id:reply-to;
+        bh=LtBeFQlOADPYK4gJNp1okGIhaF4i6t2Ouexf2+2MrWs=;
+        b=AIsB45FO8slE27TU1IIRNCoDbbu6M0nhKW/hVzcnFtqOAXAODfT1uhmp1dHXsoBAY0
+         tnS9v6PjEzt/QiAAivF9iUP73zgHmO7C0++/NgChYlxCIcIDXt2wKGcZ5ylxXrwvtoqD
+         MYC4OQ4lUU97a5lIcMOjy1z8uMLc4CHe1BiQT+J4YutqWDDVBeFt/35fhUfIx3wd3phN
+         Z64CAnHKvZVVOnTpWI7dh/ZKh+JG/rmF+EkDfoEoENHSnpf1CoA9FmDmz54sHDu8x1zB
+         ftwAL3zKc+zFVxLVS88/W10mLxmdye82iszdKn7UiWZVpKnFISUL1AkIahV0O9FZiXSD
+         KKPA==
+X-Gm-Message-State: AOJu0Yx4JBEGuV+xfpExKHnLWlhcNm07wxlgzuQBTy/BRazmr4kiJGFF
+	Cppdow9mVWLHK8x5zAYTyvqRSVmdqpljziI20vX13mQln/+TRGvB7C6EcxT4yOeIkuEcJvGKiEM
+	eh1WfNQhkKXoNBRmW6jVarmgUoqbmbjZPp3X5w52ZdD2JlvgsI3RE6BJmMAK6jaKP5S3bBOFtXH
+	SQNHx3KFLNt6VVfJnuO6bEwSvM5mzutoAC8R8uuNTUJFCW
+X-Received: from edye18.prod.google.com ([2002:a05:6402:892:b0:67c:573d:d3a0])
+ (user=ardb job=prod-delivery.src-stubby-dispatcher) by 2002:a05:6402:40d4:b0:67b:cd1f:9cc1
+ with SMTP id 4fb4d7f45d1cf-6889c445088mr10125279a12.6.1779818363764; Tue, 26
+ May 2026 10:59:23 -0700 (PDT)
+Date: Tue, 26 May 2026 19:58:50 +0200
+In-Reply-To: <20260526175846.2694125-17-ardb+git@google.com>
 Mime-Version: 1.0
+References: <20260526175846.2694125-17-ardb+git@google.com>
 X-Developer-Key: i=ardb@kernel.org; a=openpgp; fpr=F43D03328115A198C90016883D200E9CA6329909
-X-Developer-Signature: v=1; a=openpgp-sha256; l=5484; i=ardb@kernel.org;
- h=from:subject; bh=U8803ZhDPt8GJ8Atx6VTFHHmARjJ+nX3UDhXHVYH9xo=;
- b=owGbwMvMwCVmkMcZplerG8N4Wi2JIUv0frj6sbw7T/xOHgou4E0vMGDKO3VgAmdWo+XnCVG6T
- 1oEOto7SlkYxLgYZMUUWQRm/3238/REqVrnWbIwc1iZQIYwcHEKwERU7jL8L1Z3r3IPnBwlZzZh
- j9LEyREPWzJrNh55n6V8I1KW299LiZHhyvMT6w/KRn2cG6r8u+luO6dv1+6fH92Tg3pK51buVHT gBAA=
+X-Developer-Signature: v=1; a=openpgp-sha256; l=2121; i=ardb@kernel.org;
+ h=from:subject; bh=UYuabKAGVqw/38U/k7XQfrNPG5ThRXq/7mqnsjcGnSk=;
+ b=owGbwMvMwCVmkMcZplerG8N4Wi2JIUv0fvTm0BsvTTTaUheFf26uWyada7zXR7A5ui2rSTZi1
+ o2FJrwdpSwMYlwMsmKKLAKz/77beXqiVK3zLFmYOaxMIEMYuDgFYCKHcxj+Cl+U+L3mz31fZxuh
+ tHcrzdsEq/i1War/p2x78yRMa8USUUaGzw8WujlZRJw7v672d9asvI8f57TITLjpqnwn3Gp2wO5 +NgA=
 X-Mailer: git-send-email 2.54.0.794.g4f17f83d09-goog
-Message-ID: <20260526175846.2694125-17-ardb+git@google.com>
-Subject: [PATCH v6 00/15] arm64: Unmap linear alias of kernel data/bss
+Message-ID: <20260526175846.2694125-20-ardb+git@google.com>
+Subject: [PATCH v6 03/15] arm64: mm: Check for pud_/pmd_set_huge() failures on
+ kernel mappings
 From: Ard Biesheuvel <ardb+git@google.com>
 To: linux-arm-kernel@lists.infradead.org
 Cc: linux-kernel@vger.kernel.org, will@kernel.org, catalin.marinas@arm.com, 
@@ -82,8 +85,8 @@ Cc: linux-kernel@vger.kernel.org, will@kernel.org, catalin.marinas@arm.com,
 	linux-sh@vger.kernel.org
 Content-Type: text/plain; charset="UTF-8"
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260526_105923_113060_53F16731 
-X-CRM114-Status: GOOD (  22.18  )
+X-CRM114-CacheID: sfid-20260526_105926_622137_B516A4EA 
+X-CRM114-Status: GOOD (  17.08  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -100,123 +103,55 @@ Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.i
 
 From: Ard Biesheuvel <ardb@kernel.org>
 
-One of the reasons the lack of randomization of the linear map on arm64
-is considered problematic is the fact that bootloaders adhering to the
-original arm64 boot protocol (i.e., a substantial fraction of all
-Android phones) may place the kernel at the base of DRAM, and therefore
-at the base of the non-randomized linear map. This puts a writable alias
-of the kernel's data and bss regions at a predictable location, removing
-the need for an attacker to guess where KASLR mapped the kernel.
+Sashiko reports:
 
-Let's unmap this linear, writable alias entirely, so that knowing the
-location of the linear alias does not give write access to the kernel's
-data and bss regions.
+| If pmd_set_huge() rejects an unsafe page table transition (such as
+| mapping a different physical address over an existing block mapping),
+| it returns 0 and leaves the page table entry unmodified.
+|
+| Because *pmdp remains unmodified, READ_ONCE(pmd_val(*pmdp)) will equal
+| pmd_val(old_pmd). The transition from old_pmd to old_pmd is evaluated
+| as safe by pgattr_change_is_safe(), so the BUG_ON never triggers.
+|
+| This allows invalid and unsafe mapping updates to be silently dropped
+| instead of panicking, leaving stale memory mappings active while the
+| caller assumes the update was successful.
 
-Changes since v5:
-- Reorder series in ascending order of impact, so that the first few can
-  be merged earlier if desired. This also makes the patch that remaps
-  the data/bss linear alias as tagged redundant, which is therefore
-  dropped.
-- Add patch #3 to address an existing issue spotted by Sashiko
-- Fix thinko in contiguous region check (#5), where the whole region
-  needs to be considered and not only the first entry (dropped Rb as
-  well) - this addresses the kfence issue Sashiko reported on v5 [0]
-- Update commit log on #6 to clarify that changing permission bits on
-  PTE_CONT entries is safe as long as PTE_CONT itself does not change
-- Likewise, drop hunk that adds the PTE_CONT bit to the 'permitted' mask
-  in pgattr_change_is_safe(), as changing it is not safe. (#8)
-- Move kasan's additional page table to pgdir BSS as well
-- Use (NOLOAD) on the .pgdir.bss section so it does not get emitted into
-  vmlinux
-- Add powerpc and SuperH patches to deal with empty_zero_page[] being
-  made const
+The same applies to pud_set_huge() in alloc_init_pud().
 
-Changes since v4:
-- Update the correct [early] mapping in patch #1
-- Make empty_zero_page[] const instead of __ro_after_init
-- Drop patches that remap the fixmap page tables r/o for now
-- Don't force page mappings for the data/bss linear alias, as it is no
-  longer needed for set_memory_valid()
-- Add acks
+Given how it is generally preferred to limp on rather than blow up the
+system if an unexpected condition such as this one occurs, and the fact
+that there are no known cases where this disparity results in real
+problems, let's WARN on these failures rather than BUG, allowing the
+system to survive to the point where it can actually report them.
 
-Changes since v3:
-- Drop bogus patch adding hierarchical PXN to the fixmap mapping, which
-  breaks the KPTI trampoline (thanks to Sashiko)
-- Add generic patch to move the empty_zero_page to __ro_after_init, as
-  it now lives in generic code.
-- Add patches to remap the linear aliases of the fixmap page tables
-  read-only too - these live at an a priori known offset in the linear
-  map if physical KASLR was omitted, and control a priori known
-  addresses in the virtual kernel space.
-- Rebase onto v7.1-rc1
+Signed-off-by: Ard Biesheuvel <ardb@kernel.org>
+---
+ arch/arm64/mm/mmu.c | 4 ++--
+ 1 file changed, 2 insertions(+), 2 deletions(-)
 
-Changes since v2:
-- Keep bm_pte[] in the region that is remapped r/o or unmapped, as it is
-  only manipulated via its kernel alias
-- Drop check that prohibits any manipulation of descriptors with the
-  CONT bit set
-- Add Ryan's ack to a couple of patches
-- Rebase onto v7.0-rc4
-
-Changes since v1:
-- Put zero page patch at the start of the series
-- Tweak __map_memblock() API to respect existing table and contiguous
-  mappings, so that the logic to map the kernel alias can be simplified
-- Stop abusing the MEMBLOCK_NOMAP flag to initially omit the kernel
-  linear alias from the linear map
-- Some additional cleanup patches
-- Use proper API [set_memory_valid()] to (un)map the linear alias of
-  data/bss.
-
-Cc: Ryan Roberts <ryan.roberts@arm.com>
-Cc: Anshuman Khandual <anshuman.khandual@arm.com>
-Cc; Kevin Brodsky <kevin.brodsky@arm.com>
-Cc: Liz Prucka <lizprucka@google.com>
-Cc: Seth Jenkins <sethjenkins@google.com>
-Cc: Kees Cook <kees@kernel.org>
-Cc: Mike Rapoport <rppt@kernel.org>
-Cc: David Hildenbrand <david@kernel.org>
-Cc: Andrew Morton <akpm@linux-foundation.org>
-Cc: Jann Horn <jannh@google.com>
-Cc: linux-mm@kvack.org
-Cc: linux-hardening@vger.kernel.org
-Cc: linuxppc-dev@lists.ozlabs.org
-Cc: linux-sh@vger.kernel.org
-
-[0] https://sashiko.dev/#/patchset/20260519151616.2557018-15-ardb%2Bgit%40google.com
-
-Ard Biesheuvel (15):
-  arm64: mm: Remove bogus stop condition from map_mem() loop
-  arm64: mm: Drop redundant pgd_t* argument from map_mem()
-  arm64: mm: Check for pud_/pmd_set_huge() failures on kernel mappings
-  arm64: mm: Preserve existing table mappings when mapping DRAM
-  arm64: mm: Preserve non-contiguous descriptors when mapping DRAM
-  arm64: mm: Permit contiguous descriptors to be manipulated
-  arm64: kfence: Avoid NOMAP tricks when mapping the early pool
-  arm64: mm: Permit contiguous attribute for preliminary mappings
-  arm64: Move fixmap and kasan page tables to end of kernel image
-  arm64: mm: Don't abuse memblock NOMAP to check for overlaps
-  arm64: mm: Map the kernel data/bss read-only in the linear map
-  powerpc/code-patching: Avoid r/w mapping of the zero page
-  sh: cast away constness from the zero page when flushing it from the
-    cache
-  mm: Make empty_zero_page[] const
-  arm64: mm: Unmap kernel data/bss entirely from the linear map
-
- arch/arm64/include/asm/mmu.h     |   2 +
- arch/arm64/include/asm/pgtable.h |   4 +
- arch/arm64/kernel/vmlinux.lds.S  |   8 +-
- arch/arm64/mm/fixmap.c           |   6 +-
- arch/arm64/mm/kasan_init.c       |   2 +-
- arch/arm64/mm/mmu.c              | 153 ++++++++++++--------
- arch/powerpc/lib/code-patching.c |  52 +------
- arch/sh/mm/init.c                |   2 +-
- include/linux/pgtable.h          |   2 +-
- mm/mm_init.c                     |   2 +-
- 10 files changed, 111 insertions(+), 122 deletions(-)
-
-
-base-commit: 254f49634ee16a731174d2ae34bc50bd5f45e731
+diff --git a/arch/arm64/mm/mmu.c b/arch/arm64/mm/mmu.c
+index aa0e2c6435f7..b2ba5b35c35f 100644
+--- a/arch/arm64/mm/mmu.c
++++ b/arch/arm64/mm/mmu.c
+@@ -257,7 +257,7 @@ static int init_pmd(pmd_t *pmdp, unsigned long addr, unsigned long end,
+ 		/* try section mapping first */
+ 		if (((addr | next | phys) & ~PMD_MASK) == 0 &&
+ 		    (flags & NO_BLOCK_MAPPINGS) == 0) {
+-			pmd_set_huge(pmdp, phys, prot);
++			WARN_ON(!pmd_set_huge(pmdp, phys, prot));
+ 
+ 			/*
+ 			 * After the PMD entry has been populated once, we
+@@ -380,7 +380,7 @@ static int alloc_init_pud(p4d_t *p4dp, unsigned long addr, unsigned long end,
+ 		if (pud_sect_supported() &&
+ 		   ((addr | next | phys) & ~PUD_MASK) == 0 &&
+ 		    (flags & NO_BLOCK_MAPPINGS) == 0) {
+-			pud_set_huge(pudp, phys, prot);
++			WARN_ON(!pud_set_huge(pudp, phys, prot));
+ 
+ 			/*
+ 			 * After the PUD entry has been populated once, we
 -- 
 2.54.0.794.g4f17f83d09-goog
 
