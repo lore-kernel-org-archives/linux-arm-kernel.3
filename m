@@ -4,45 +4,45 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 2641FCD5BC9
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 26 May 2026 00:36:25 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id C7341CD5BC8
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 26 May 2026 00:38:44 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
 	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
 	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=UYSzyCnRfkbGvYmjVFNQOma+CAUK4X7j6Q3neoMpKbY=; b=N4KrMSlFXDMIcIreORyLd3RCex
-	z2uuDDJ+QInu6mLGOmKDEEpzGnzZ6aQadvLNjnxpNWgTF+AkJbZWGJaztk5kYYClV+HnTluKzTU/b
-	S/baF0sCLbfx+DK9i+mD2oDLOi9psAg+B5vyjO9NOIEK15fwCMg6Ddi0laV1F4iy1jCDKLzQMutGO
-	T32BrUxB3uY250b2OU1RvGpC4C8PMvhCnAsXwaLVkV9Q52ZCZKRRj+QD9ry+Xzwj4V8UtA4UvQ8zq
-	nXAFNefdNg9DZjRDTWo0gTlPi0bagXaZYGEVV3sWSwC7TysLDRY0Byx4hTux6lUCDQDAYXQqJivg9
-	rbbPlF+A==;
+	bh=+8bg39MIcg+2fCN2CcreG9UKxic/kHUFI16hwnrIPTc=; b=teqX/LwKCxsjuMCmqkTAhgtd01
+	QY6bAznOmPsieQuv0fmdMm3/rXKSnCpwMyUONij7p9SueCqq1Wg2EaqnXVtObAuik2enQBhAPzONt
+	0zwSrfUPFlLMY20tiZlxgvcwd/OQNMCBYigyNKrK9kBZFDLF3QsqTUE1CEwehsWxSzhqLdeW1jRKT
+	A5wmUYCWhhG2zXANZovU0xSNzfxxk50pr022QpVeA7UdD2N3MDD4WUlFL1XCQJwXwkwSyQd+8QfCP
+	URgDIoRLpRqj7lMe4ktBcr+mtGmlQyExzd0N33Je3t89KJk1LZ+mg1f+umSTiHWrlEoT3QiujBcsn
+	Mabm2jUg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wRfmN-00000000iJl-0B8P;
-	Tue, 26 May 2026 00:36:19 +0000
-Received: from tor.source.kernel.org ([172.105.4.254])
+	id 1wRfoc-00000000iXN-1Nqs;
+	Tue, 26 May 2026 00:38:38 +0000
+Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wRfmL-00000000iJL-0NBr
+	id 1wRfoZ-00000000iWf-12sq
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 26 May 2026 00:36:17 +0000
+	Tue, 26 May 2026 00:38:36 +0000
 Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
-	by tor.source.kernel.org (Postfix) with ESMTP id 8721C60018;
-	Tue, 26 May 2026 00:36:16 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 2AFB01F000E9;
-	Tue, 26 May 2026 00:36:15 +0000 (UTC)
+	by sea.source.kernel.org (Postfix) with ESMTP id 2625040258;
+	Tue, 26 May 2026 00:38:33 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id D88B41F000E9;
+	Tue, 26 May 2026 00:38:31 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1779755776;
-	bh=UYSzyCnRfkbGvYmjVFNQOma+CAUK4X7j6Q3neoMpKbY=;
+	s=k20260515; t=1779755913;
+	bh=+8bg39MIcg+2fCN2CcreG9UKxic/kHUFI16hwnrIPTc=;
 	h=Date:From:To:Cc:Subject:References:In-Reply-To;
-	b=P0jpn/jL3qQEM0a9SLXlroUwzMVDhs5N/pHt121fHBqplnElvGyIULUz33iYLlYDu
-	 B0Hm+UOeLshaQS70MoaorFeFnvcgfA0VRNlPxQlJTpVc7zwwqy+0VqTn3D3A8ua0UU
-	 Mu2g97UozyCYowT6b/10mSmic4dsbJnJV4qnw0cQVHdiMNrAvkCGoCHhjqrCi8VzH3
-	 1n4smKPZdrVQHbRC/fp9mHP1GDGpV41olMU3IjDzNWmpFsciGjnwvldGim4BkJwOOY
-	 OvU3qseA8mFYI4xiAgCDK7LmBON8YUJZO5Rve+8VzPDGaijx43RRo69x04XEXZKwNs
-	 NjhXvJNvzGN/Q==
-Date: Mon, 25 May 2026 19:36:13 -0500
+	b=BDMv2isJG+a49bLqmydipTEXev0lODsV4+5mDUq3oczED3dZEF0iShW5RHdqk2O82
+	 NFHC7OoCxoP8jXQeIKoyooWPI/+4fT2pOgT+STKnuHdzCExMt7DsrHg8efowqs11tZ
+	 9rzy5QLcF8NrBJ/EJuL+tMx2Mb5FIRTQceHDmq1wcsFIQd0rqAF6Cm6asJFNzFcidL
+	 HstRwuWkMFw/WZAApuU39gGNbrGFrgI4nO5mio4qQQ1h5bIm589dIUH7I30/NAsSgW
+	 tq+j4jvQv4GCLwokY87SlHCWy8wZ3cbAN4EBpgaTBhVr6c2Z1lO2bzQszausBU44mE
+	 XDfp60DN+jYIQ==
+Date: Mon, 25 May 2026 19:38:29 -0500
 From: Namhyung Kim <namhyung@kernel.org>
 To: Ian Rogers <irogers@google.com>
 Cc: acme@kernel.org, adrian.hunter@intel.com, alice.mei.rogers@gmail.com,
@@ -50,16 +50,18 @@ Cc: acme@kernel.org, adrian.hunter@intel.com, alice.mei.rogers@gmail.com,
 	leo.yan@linux.dev, linux-arm-kernel@lists.infradead.org,
 	linux-kernel@vger.kernel.org, linux-perf-users@vger.kernel.org,
 	mingo@redhat.com, peterz@infradead.org, tmricht@linux.ibm.com
-Subject: Re: [PATCH v9 05/23] perf util: Sort includes and add missed
- explicit dependencies
-Message-ID: <ahTq_Wb-S9o3OV0o@google.com>
+Subject: Re: [PATCH v9 07/23] perf evsel/evlist: Avoid unnecessary #includes
+Message-ID: <ahTrhaHGEtHLEAIM@google.com>
 References: <20260428071903.1886173-1-irogers@google.com>
  <20260522220435.2378363-1-irogers@google.com>
- <20260522220435.2378363-6-irogers@google.com>
+ <20260522220435.2378363-8-irogers@google.com>
 MIME-Version: 1.0
 Content-Type: text/plain; charset=utf-8
 Content-Disposition: inline
-In-Reply-To: <20260522220435.2378363-6-irogers@google.com>
+In-Reply-To: <20260522220435.2378363-8-irogers@google.com>
+X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
+X-CRM114-CacheID: sfid-20260525_173835_327907_13146269 
+X-CRM114-Status: GOOD (  11.65  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -74,10 +76,9 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Fri, May 22, 2026 at 03:04:16PM -0700, Ian Rogers wrote:
-> Fix missing includes found while cleaning the evsel/evlist header
-> files. Sort the remaining header files for consistency with the rest
-> of the code.
+On Fri, May 22, 2026 at 03:04:18PM -0700, Ian Rogers wrote:
+> Use forward declarations and remove unnecessary #includes in
+> evsel.h. Sort the forward declarations in evsel.h and evlist.h.
 > 
 > Signed-off-by: Ian Rogers <irogers@google.com>
 
@@ -87,14 +88,98 @@ Thanks,
 Namhyung
 
 > ---
->  tools/perf/util/bpf_off_cpu.c       | 30 +++++-----
->  tools/perf/util/bpf_trace_augment.c |  8 +--
->  tools/perf/util/evlist.c            | 91 +++++++++++++++--------------
->  tools/perf/util/evsel.c             | 75 ++++++++++++------------
->  tools/perf/util/map.h               |  9 ++-
->  tools/perf/util/perf_api_probe.c    | 18 +++---
->  tools/perf/util/s390-sample-raw.c   | 19 +++---
->  tools/perf/util/stat-shadow.c       | 20 ++++---
->  tools/perf/util/stat.c              | 16 +++--
->  9 files changed, 152 insertions(+), 134 deletions(-)
+>  tools/perf/util/evlist.h | 15 +++++++++------
+>  tools/perf/util/evsel.h  | 20 +++++++++++---------
+>  2 files changed, 20 insertions(+), 15 deletions(-)
+> 
+> diff --git a/tools/perf/util/evlist.h b/tools/perf/util/evlist.h
+> index e507f5f20ef6..e54761c670b6 100644
+> --- a/tools/perf/util/evlist.h
+> +++ b/tools/perf/util/evlist.h
+> @@ -2,29 +2,32 @@
+>  #ifndef __PERF_EVLIST_H
+>  #define __PERF_EVLIST_H 1
+>  
+> +#include <signal.h>
+> +
+>  #include <linux/compiler.h>
+>  #include <linux/kernel.h>
+> -#include <linux/refcount.h>
+>  #include <linux/list.h>
+> +#include <linux/refcount.h>
+> +#include <pthread.h>
+> +#include <unistd.h>
+> +
+>  #include <api/fd/array.h>
+>  #include <internal/evlist.h>
+>  #include <internal/evsel.h>
+>  #include <perf/evlist.h>
+> +
+>  #include "affinity.h"
+>  #include "events_stats.h"
+>  #include "evsel.h"
+>  #include "rblist.h"
+> -#include <pthread.h>
+> -#include <signal.h>
+> -#include <unistd.h>
+>  
+> -struct pollfd;
+> -struct thread_map;
+>  struct perf_cpu_map;
+>  struct perf_stat_config;
+> +struct pollfd;
+>  struct record_opts;
+>  struct strbuf;
+>  struct target;
+> +struct thread_map;
+>  
+>  /*
+>   * State machine of bkw_mmap_state:
+> diff --git a/tools/perf/util/evsel.h b/tools/perf/util/evsel.h
+> index 927e5b4756cc..2221694bb819 100644
+> --- a/tools/perf/util/evsel.h
+> +++ b/tools/perf/util/evsel.h
+> @@ -2,28 +2,30 @@
+>  #ifndef __PERF_EVSEL_H
+>  #define __PERF_EVSEL_H 1
+>  
+> -#include <linux/list.h>
+>  #include <stdbool.h>
+> -#include <sys/types.h>
+> +
+> +#include <linux/list.h>
+>  #include <linux/perf_event.h>
+>  #include <linux/types.h>
+> +#include <sys/types.h>
+> +
+>  #include <internal/evsel.h>
+>  #include <perf/evsel.h>
+> +
+>  #include "symbol_conf.h"
+> -#include "pmus.h"
+> -#include "pmu.h"
+>  
+> +struct bperf_follower_bpf;
+> +struct bperf_leader_bpf;
+> +struct bpf_counter_ops;
+>  struct bpf_object;
+>  struct cgroup;
+> +struct hashmap;
+>  struct perf_counts;
+> +struct perf_pmu;
+>  struct perf_stat_config;
+>  struct perf_stat_evsel;
+> -union perf_event;
+> -struct bpf_counter_ops;
+>  struct target;
+> -struct hashmap;
+> -struct bperf_leader_bpf;
+> -struct bperf_follower_bpf;
+> +union perf_event;
+>  
+>  typedef int (evsel__sb_cb_t)(union perf_event *event, void *data);
+>  
+> -- 
+> 2.54.0.794.g4f17f83d09-goog
+> 
 
