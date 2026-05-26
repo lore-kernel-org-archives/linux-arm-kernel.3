@@ -4,85 +4,172 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 4361ACD5BD1
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 26 May 2026 08:59:02 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 23790CD5BD1
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 26 May 2026 09:00:14 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:MIME-Version:
-	References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=Oik2LsJqVBPuGcGjV5Ma+3vEUKfmkhyynM2jzK69ui0=; b=XWMhArOSqAhOMg7nPwsrqzEhKC
-	0qxqJBVLHrnlFYd+DQg98KYlGWU0FbxbT2JwPzB3tWZU5KHjqcF6ZK2SZ0EJ3NCFTir443ZLsTOPj
-	B2+9u+QExZyojm8rzRZ9DPoexwiiBAttiZo1b1z2EmVcVSr/ysqWxQEMPfddDMjiRLqr4TR/elO2W
-	IHqhCW9eiFsg8aNNbbjBZ07qn9bFn5OnufVh4xR4hny40FXKP2POZ8nafPiRntYmRvgvnEDH26IM+
-	H4G3FxtmuIoofH0Rtj2kYAtVTSIb/FF4wNOuRTIebv47HZQdYRCfgSC8O2mjb4EEVag9GILXoPSYz
-	QFWgDggw==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
+	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=ejy15HLRULv/iHzJLGVQCrLp/AiLuLDwUgWtV4C2EU0=; b=E9pdPYtB70xObKHN0QiDHcYHyI
+	eqyyjMolCxRYf614z3d236fRGkzIZ1CeA1aFw1HAcLD0ecbeRQ6THjzgOdqe7orx4GqbK/d2iMIJJ
+	Ss4s5IsgFQ6ymSQcK64xlZATPTy0ls4RugRKb4zElikCICLMBxFXbvrOPEN4PxJuYCZKEtBtwXu2Y
+	Mwbn/y7rHRdNDlpuGa3zxR7Tg3rYiGQtgC1v+Q1Rv+8/UieS70ofV3+NLA+4wVz8k6uTXma2tnA9C
+	c12OQIbY+91iQ27W4p3vBoypCjUiuNk81bEtDs/dgbkq8uHa5t8DSbTMiKrus52mIOkSr7X/emdIw
+	CzARj4Vg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wRnci-00000001Rdh-3uql;
-	Tue, 26 May 2026 08:58:52 +0000
-Received: from mail-wm1-x333.google.com ([2a00:1450:4864:20::333])
+	id 1wRndu-00000001RpR-0U1M;
+	Tue, 26 May 2026 09:00:06 +0000
+Received: from smtp-out1.suse.de ([2a07:de40:b251:101:10:150:64:1])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wRncg-00000001Rd8-0lHx
+	id 1wRndr-00000001RoV-0DV2
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 26 May 2026 08:58:51 +0000
-Received: by mail-wm1-x333.google.com with SMTP id 5b1f17b1804b1-4905529b933so19949395e9.0
-        for <linux-arm-kernel@lists.infradead.org>; Tue, 26 May 2026 01:58:49 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20251104; t=1779785928; x=1780390728; darn=lists.infradead.org;
-        h=mime-version:references:in-reply-to:message-id:date:subject:cc:to
-         :from:from:to:cc:subject:date:message-id:reply-to;
-        bh=Oik2LsJqVBPuGcGjV5Ma+3vEUKfmkhyynM2jzK69ui0=;
-        b=plDQVGHI+5KBKifOnLSsUzU70ZuD7/zeCOUqhc70sJO8lZTFd2dxNXmsi3T9tg8t5q
-         KeTP7pkvQSGNo9Cmcy06B6EG/HppMOvQ0TRudXpK8W5jBSbx/lHtlTPKME63LxaDLBd3
-         /RVub4g8F/YkRCP50sHBqTKVkdgWoIu0+DgslWJJxsUPqMsyvHxP0GGzF0wAK70daLj2
-         1r8kYaKYR3ppWcVhiD3mwpyVQ7RIy7HzEUzxgoXd0Z5IItprxZ9PLto5LgCSMA+/rHKJ
-         vfBV8ODoSaURK04vqVfcr3DGkvJ+EmXcdQWf4TZnkBYkkKf/I3SPDEm3NL8fVwQpkNU+
-         FC+A==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20251104; t=1779785928; x=1780390728;
-        h=mime-version:references:in-reply-to:message-id:date:subject:cc:to
-         :from:x-gm-gg:x-gm-message-state:from:to:cc:subject:date:message-id
-         :reply-to;
-        bh=Oik2LsJqVBPuGcGjV5Ma+3vEUKfmkhyynM2jzK69ui0=;
-        b=cL2YofdSK9S/eMXb9hUPp73IMBLZNmF4mLB+GE+/ryRtPuBquOqojwdHMVjARdrNLg
-         hgFWbU5YleAKnMpZ624ZiQPo+XikeaLezHf27wPdVsVkYRyFJj/cq5iVXozmfp/19Tb0
-         oTNq80OclXsXVCXXW/Yw36kGEuQFpD7q5WoZLNiL6zqVdIgKGhv9m4lboIPdknADJd2x
-         8py0Gm9Ue8btPEpcAi/yVBjnGkfntXId/Qd83DhqB9r1Zol5cRrqAiqZvkRdsWslFCPq
-         leggd251bTh6eCfiP4YLb2Db+QDoJAE0EIXBX8/lUN5xMvf8FdvPTvRWCh0zIvC4aydG
-         WMSQ==
-X-Gm-Message-State: AOJu0Ywg5fGrTY6UQzChUiiwUpI/SZ4XXJAca3yzr42PGAhEy9blYYaH
-	xm2xdHvKnOcEQi3H3xWWfMREovrn28EGDyOoOZK3Ql6CYBSLoRAX1Y3h7zChPeJ9
-X-Gm-Gg: Acq92OE+kcAoWpVdGTmHCda2hnGciPik+VQOFvyOystE9Z5X0UUHG/jMB43RPvWna5E
-	W3GtitXUcosN0qH5ZSs0eK6GpFKzs6BndChoGqomBhf4eGINiXvopQx5TtKCZpHvZsnMfNqOaaz
-	+93Axw2+7lGMl5QbiTCYHSSM+3UZqzKaRivbv1mL94eEYafOTTjd476irvck3GFAUUzTchWAaKM
-	eVLB6NJhfG8JbiUMyFuRfFgxfMVh3zE+Bh0RIotNaiSlhxLmLwb/Z5RVdIiq/wZXhNeQvUxcK9e
-	5ROlNspFhfQVd3M1ZCgADfZjh+Qnfgf74yGa5LtZYUdy82e6iUuIZgCt7/TU5M3J1YQE/7yuIho
-	WVcoidDCTKjdBEgslIgOrUhIuUsyXFeDV8NoDrRwlPsFWvX6QtISpoNbEKwes2O/OFzvVM18O67
-	TFRV91hOmWTitrcciHXI0fikW/JQ+fJcn8PVQ=
-X-Received: by 2002:a05:600c:5254:b0:490:484b:bf41 with SMTP id 5b1f17b1804b1-490484bbf7amr281384845e9.6.1779785927558;
-        Tue, 26 May 2026 01:58:47 -0700 (PDT)
-Received: from strix.localnet ([197.250.51.175])
-        by smtp.gmail.com with ESMTPSA id 5b1f17b1804b1-490452580dfsm160876075e9.1.2026.05.26.01.58.45
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Tue, 26 May 2026 01:58:46 -0700 (PDT)
-From: Stefan =?UTF-8?B?RMO2c2luZ2Vy?= <stefandoesinger@gmail.com>
-To: linux-kernel@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
- linux-doc@vger.kernel.org
-Cc: linux-arm-kernel@lists.infradead.org, Randy Dunlap <rdunlap@infradead.org>
-Subject: Re: [PATCH] ARM: zte: clean up zx297520v3 doc. warnings
-Date: Tue, 26 May 2026 11:58:35 +0300
-Message-ID: <12903636.O9o76ZdvQC@strix>
-In-Reply-To: <ca29c0fe-8725-4cc2-8f4f-db3f80ccafed@infradead.org>
-References: <20260521191458.177046-1-rdunlap@infradead.org> <6270885.lOV4Wx5bFT@strix>
- <ca29c0fe-8725-4cc2-8f4f-db3f80ccafed@infradead.org>
+	Tue, 26 May 2026 09:00:04 +0000
+Received: from imap1.dmz-prg2.suse.org (unknown [10.150.64.97])
+	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
+	 key-exchange X25519 server-signature RSA-PSS (4096 bits) server-digest SHA256)
+	(No client certificate requested)
+	by smtp-out1.suse.de (Postfix) with ESMTPS id 363006B3E6;
+	Tue, 26 May 2026 08:59:58 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=suse.de; s=susede2_rsa;
+	t=1779785999; h=from:from:reply-to:date:date:message-id:message-id:to:to:cc:cc:
+	 mime-version:mime-version:content-type:content-type:
+	 content-transfer-encoding:content-transfer-encoding:
+	 in-reply-to:in-reply-to:references:references:autocrypt:autocrypt;
+	bh=ejy15HLRULv/iHzJLGVQCrLp/AiLuLDwUgWtV4C2EU0=;
+	b=baaPyYMv4yGoQHFimAxytqQjn6ho5Zd1wa0FMTwsSYl4HfumaHInOXtFRCQanNqprT5hFp
+	auTBrgDJ8tUVkwo6MaC9M+qFT+nZxC/H4fWaDNQArID5i810CzAF4F5PbEZZtaZC05Nhrn
+	bHaoQ2UTzpstuC6Fr9OqknOV9u9dO9o=
+DKIM-Signature: v=1; a=ed25519-sha256; c=relaxed/relaxed; d=suse.de;
+	s=susede2_ed25519; t=1779785999;
+	h=from:from:reply-to:date:date:message-id:message-id:to:to:cc:cc:
+	 mime-version:mime-version:content-type:content-type:
+	 content-transfer-encoding:content-transfer-encoding:
+	 in-reply-to:in-reply-to:references:references:autocrypt:autocrypt;
+	bh=ejy15HLRULv/iHzJLGVQCrLp/AiLuLDwUgWtV4C2EU0=;
+	b=CFOTXZ/Jc28jW6gUmHAzNdWyt0f6zPZG+4PWGuwLGJUl0oh2nsUA9GcdS6AVEZhA2OrMKV
+	WtkbZVOIvCyH3+BA==
+Authentication-Results: smtp-out1.suse.de;
+	none
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=suse.de; s=susede2_rsa;
+	t=1779785998; h=from:from:reply-to:date:date:message-id:message-id:to:to:cc:cc:
+	 mime-version:mime-version:content-type:content-type:
+	 content-transfer-encoding:content-transfer-encoding:
+	 in-reply-to:in-reply-to:references:references:autocrypt:autocrypt;
+	bh=ejy15HLRULv/iHzJLGVQCrLp/AiLuLDwUgWtV4C2EU0=;
+	b=Osk3/v8mo9hxyPDuoXN6f41EsFVPQmCgg+ElT42l3CUUFnP0mQEO8Tf4arcKpUWI3bpw5N
+	32aTrm9kBeHRV4iUfnJ1+9hZL4oCsIj1+zudrX0f+JoDcETLgzINRl2Igclt+cV9fFFw7P
+	GpQad7BUfcrYFlgjt5c27wIFwuvWm2Q=
+DKIM-Signature: v=1; a=ed25519-sha256; c=relaxed/relaxed; d=suse.de;
+	s=susede2_ed25519; t=1779785998;
+	h=from:from:reply-to:date:date:message-id:message-id:to:to:cc:cc:
+	 mime-version:mime-version:content-type:content-type:
+	 content-transfer-encoding:content-transfer-encoding:
+	 in-reply-to:in-reply-to:references:references:autocrypt:autocrypt;
+	bh=ejy15HLRULv/iHzJLGVQCrLp/AiLuLDwUgWtV4C2EU0=;
+	b=o3oEKfPyVr5jbUeUmexTQStzMVEUG9KNlGA+0hMIrGHnx4fp31jKEhtkVwom+QxhKRCnN1
+	ZM2Wuy20DjfNrKBA==
+Received: from imap1.dmz-prg2.suse.org (localhost [127.0.0.1])
+	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
+	 key-exchange X25519 server-signature RSA-PSS (4096 bits) server-digest SHA256)
+	(No client certificate requested)
+	by imap1.dmz-prg2.suse.org (Postfix) with ESMTPS id 5162C5A10E;
+	Tue, 26 May 2026 08:59:57 +0000 (UTC)
+Received: from dovecot-director2.suse.de ([2a07:de40:b281:106:10:150:64:167])
+	by imap1.dmz-prg2.suse.org with ESMTPSA
+	id 01R4Eg1hFWqZZAAAD6G6ig
+	(envelope-from <tzimmermann@suse.de>); Tue, 26 May 2026 08:59:57 +0000
+Message-ID: <0057f209-c8a6-48bc-9194-36e3b19bec67@suse.de>
+Date: Tue, 26 May 2026 10:59:56 +0200
 MIME-Version: 1.0
-Content-Type: multipart/signed; boundary="nextPart5999182.DvuYhMxLoT";
- micalg="pgp-sha256"; protocol="application/pgp-signature"
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH v5 01/19] drm/atomic: Document atomic commit lifetime
+To: Maxime Ripard <mripard@kernel.org>,
+ Maarten Lankhorst <maarten.lankhorst@linux.intel.com>,
+ David Airlie <airlied@gmail.com>, Simona Vetter <simona@ffwll.ch>,
+ Jonathan Corbet <corbet@lwn.net>, Shuah Khan <skhan@linuxfoundation.org>,
+ Dmitry Baryshkov <dmitry.baryshkov@oss.qualcomm.com>,
+ Jyri Sarha <jyri.sarha@iki.fi>,
+ Tomi Valkeinen <tomi.valkeinen@ideasonboard.com>,
+ Andrzej Hajda <andrzej.hajda@intel.com>,
+ Neil Armstrong <neil.armstrong@linaro.org>, Robert Foss <rfoss@kernel.org>,
+ Laurent Pinchart <Laurent.pinchart@ideasonboard.com>,
+ Jonas Karlman <jonas@kwiboo.se>, Jernej Skrabec <jernej.skrabec@gmail.com>,
+ Simon Ser <contact@emersion.fr>, Harry Wentland <harry.wentland@amd.com>,
+ Melissa Wen <mwen@igalia.com>, Sebastian Wick <sebastian.wick@redhat.com>,
+ Alex Hung <alex.hung@amd.com>, Jani Nikula <jani.nikula@linux.intel.com>,
+ Rodrigo Vivi <rodrigo.vivi@intel.com>,
+ Joonas Lahtinen <joonas.lahtinen@linux.intel.com>,
+ Tvrtko Ursulin <tursulin@ursulin.net>, Chen-Yu Tsai <wens@kernel.org>,
+ Samuel Holland <samuel@sholland.org>,
+ Dave Stevenson <dave.stevenson@raspberrypi.com>,
+ =?UTF-8?Q?Ma=C3=ADra_Canal?= <mcanal@igalia.com>,
+ Raspberry Pi Kernel Maintenance <kernel-list@raspberrypi.com>
+Cc: dri-devel@lists.freedesktop.org, linux-doc@vger.kernel.org,
+ linux-kernel@vger.kernel.org, Daniel Stone <daniels@collabora.com>,
+ intel-gfx@lists.freedesktop.org, intel-xe@lists.freedesktop.org,
+ linux-arm-kernel@lists.infradead.org, linux-sunxi@lists.linux.dev,
+ Laurent Pinchart <laurent.pinchart+renesas@ideasonboard.com>
+References: <20260519-drm-mode-config-init-v5-0-388b03321e38@kernel.org>
+ <20260519-drm-mode-config-init-v5-1-388b03321e38@kernel.org>
+Content-Language: en-US
+From: Thomas Zimmermann <tzimmermann@suse.de>
+Autocrypt: addr=tzimmermann@suse.de; keydata=
+ xsBNBFs50uABCADEHPidWt974CaxBVbrIBwqcq/WURinJ3+2WlIrKWspiP83vfZKaXhFYsdg
+ XH47fDVbPPj+d6tQrw5lPQCyqjwrCPYnq3WlIBnGPJ4/jreTL6V+qfKRDlGLWFjZcsrPJGE0
+ BeB5BbqP5erN1qylK9i3gPoQjXGhpBpQYwRrEyQyjuvk+Ev0K1Jc5tVDeJAuau3TGNgah4Yc
+ hdHm3bkPjz9EErV85RwvImQ1dptvx6s7xzwXTgGAsaYZsL8WCwDaTuqFa1d1jjlaxg6+tZsB
+ 9GluwvIhSezPgnEmimZDkGnZRRSFiGP8yjqTjjWuf0bSj5rUnTGiyLyRZRNGcXmu6hjlABEB
+ AAHNJ1Rob21hcyBaaW1tZXJtYW5uIDx0emltbWVybWFubkBzdXNlLmRlPsLAjgQTAQgAOAIb
+ AwULCQgHAgYVCgkICwIEFgIDAQIeAQIXgBYhBHIX+6yM6c9jRKFo5WgNwR1TC3ojBQJftODH
+ AAoJEGgNwR1TC3ojx1wH/0hKGWugiqDgLNXLRD/4TfHBEKmxIrmfu9Z5t7vwUKfwhFL6hqvo
+ lXPJJKQpQ2z8+X2vZm/slsLn7J1yjrOsoJhKABDi+3QWWSGkaGwRJAdPVVyJMfJRNNNIKwVb
+ U6B1BkX2XDKDGffF4TxlOpSQzdtNI/9gleOoUA8+jy8knnDYzjBNOZqLG2FuTdicBXblz0Mf
+ vg41gd9kCwYXDnD91rJU8tzylXv03E75NCaTxTM+FBXPmsAVYQ4GYhhgFt8S2UWMoaaABLDe
+ 7l5FdnLdDEcbmd8uLU2CaG4W2cLrUaI4jz2XbkcPQkqTQ3EB67hYkjiEE6Zy3ggOitiQGcqp
+ j//OwE0EWznS4AEIAMYmP4M/V+T5RY5at/g7rUdNsLhWv1APYrh9RQefODYHrNRHUE9eosYb
+ T6XMryR9hT8XlGOYRwKWwiQBoWSDiTMo/Xi29jUnn4BXfI2px2DTXwc22LKtLAgTRjP+qbU6
+ 3Y0xnQN29UGDbYgyyK51DW3H0If2a3JNsheAAK+Xc9baj0LGIc8T9uiEWHBnCH+RdhgATnWW
+ GKdDegUR5BkDfDg5O/FISymJBHx2Dyoklv5g4BzkgqTqwmaYzsl8UxZKvbaxq0zbehDda8lv
+ hFXodNFMAgTLJlLuDYOGLK2AwbrS3Sp0AEbkpdJBb44qVlGm5bApZouHeJ/+n+7r12+lqdsA
+ EQEAAcLAdgQYAQgAIAIbDBYhBHIX+6yM6c9jRKFo5WgNwR1TC3ojBQJftOH6AAoJEGgNwR1T
+ C3ojVSkIALpAPkIJPQoURPb1VWjh34l0HlglmYHvZszJWTXYwavHR8+k6Baa6H7ufXNQtThR
+ yIxJrQLW6rV5lm7TjhffEhxVCn37+cg0zZ3j7zIsSS0rx/aMwi6VhFJA5hfn3T0TtrijKP4A
+ SAQO9xD1Zk9/61JWk8OysuIh7MXkl0fxbRKWE93XeQBhIJHQfnc+YBLprdnxR446Sh8Wn/2D
+ Ya8cavuWf2zrB6cZurs048xe0UbSW5AOSo4V9M0jzYI4nZqTmPxYyXbm30Kvmz0rYVRaitYJ
+ 4kyYYMhuULvrJDMjZRvaNe52tkKAvMevcGdt38H4KSVXAylqyQOW5zvPc4/sq9c=
+In-Reply-To: <20260519-drm-mode-config-init-v5-1-388b03321e38@kernel.org>
+Content-Type: text/plain; charset=UTF-8; format=flowed
+Content-Transfer-Encoding: 8bit
+X-Spamd-Result: default: False [-2.80 / 50.00];
+	BAYES_HAM(-3.00)[100.00%];
+	SUSPICIOUS_RECIPS(1.50)[];
+	NEURAL_HAM_LONG(-1.00)[-1.000];
+	NEURAL_HAM_SHORT(-0.20)[-1.000];
+	MIME_GOOD(-0.10)[text/plain];
+	MIME_TRACE(0.00)[0:+];
+	FUZZY_RATELIMITED(0.00)[rspamd.com];
+	RCVD_VIA_SMTP_AUTH(0.00)[];
+	ARC_NA(0.00)[];
+	TAGGED_RCPT(0.00)[renesas];
+	RCPT_COUNT_TWELVE(0.00)[38];
+	TO_DN_SOME(0.00)[];
+	FREEMAIL_TO(0.00)[kernel.org,linux.intel.com,gmail.com,ffwll.ch,lwn.net,linuxfoundation.org,oss.qualcomm.com,iki.fi,ideasonboard.com,intel.com,linaro.org,kwiboo.se,emersion.fr,amd.com,igalia.com,redhat.com,ursulin.net,sholland.org,raspberrypi.com];
+	FREEMAIL_ENVRCPT(0.00)[gmail.com];
+	MID_RHS_MATCH_FROM(0.00)[];
+	FROM_EQ_ENVFROM(0.00)[];
+	FROM_HAS_DN(0.00)[];
+	R_RATELIMIT(0.00)[to_ip_from(RLyhjdboxbrjk5hnijtjs4kbm6)];
+	RCVD_TLS_ALL(0.00)[];
+	RCVD_COUNT_TWO(0.00)[2];
+	TO_MATCH_ENVRCPT_SOME(0.00)[];
+	DKIM_SIGNED(0.00)[suse.de:s=susede2_rsa,suse.de:s=susede2_ed25519];
+	DBL_BLOCKED_OPENRESOLVER(0.00)[suse.com:url,suse.de:mid,imap1.dmz-prg2.suse.org:helo,ideasonboard.com:email]
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260526_015850_265061_246ED609 
-X-CRM114-Status: GOOD (  11.17  )
+X-CRM114-CacheID: sfid-20260526_020003_422886_5E858777 
+X-CRM114-Status: GOOD (  37.56  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -97,58 +184,172 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
---nextPart5999182.DvuYhMxLoT
-Content-Transfer-Encoding: quoted-printable
-Content-Type: text/plain; charset="utf-8"; protected-headers="v1"
-From: Stefan =?UTF-8?B?RMO2c2luZ2Vy?= <stefandoesinger@gmail.com>
-Subject: Re: [PATCH] ARM: zte: clean up zx297520v3 doc. warnings
-Date: Tue, 26 May 2026 11:58:35 +0300
-Message-ID: <12903636.O9o76ZdvQC@strix>
-In-Reply-To: <ca29c0fe-8725-4cc2-8f4f-db3f80ccafed@infradead.org>
-MIME-Version: 1.0
+Hi,
 
-Am Samstag, 23. Mai 2026, 00:20:35 Ostafrikanische Zeit schrieb Randy Dunla=
-p:
+I left a number of comments on the style of writing. Apart from that, 
+it's great to have the lifetime documented.
 
-> The same way that this commit was merged:
-> commit 220ae5d36dba
-> Author: Stefan D=C3=B6singer <stefandoesinger@gmail.com>
-> Date:   Tue Jan 27 20:52:08 2026 +0300
->     ARM: zte: Add zx297520v3 platform support
->=20
-> I guess to the soc list.
+Am 19.05.26 um 11:01 schrieb Maxime Ripard:
+> How drm_atomic_commit and the various entity structures are allocated
+> and freed isn't really trivial. Document it.
+>
+> Reviewed-by: Laurent Pinchart <laurent.pinchart+renesas@ideasonboard.com>
+> Signed-off-by: Maxime Ripard <mripard@kernel.org>
+> ---
+>   Documentation/gpu/drm-kms.rst |  6 +++++
+>   drivers/gpu/drm/drm_atomic.c  | 58 +++++++++++++++++++++++++++++++++++++++++++
+>   2 files changed, 64 insertions(+)
+>
+> diff --git a/Documentation/gpu/drm-kms.rst b/Documentation/gpu/drm-kms.rst
+> index d22817fdf9aa..36d76e391074 100644
+> --- a/Documentation/gpu/drm-kms.rst
+> +++ b/Documentation/gpu/drm-kms.rst
+> @@ -282,10 +282,16 @@ structure, ordering of committing state changes to hardware is sequenced using
+>   :c:type:`struct drm_crtc_commit <drm_crtc_commit>`.
+>   
+>   Read on in this chapter, and also in :ref:`drm_atomic_helper` for more detailed
+>   coverage of specific topics.
+>   
+> +Atomic State Lifetime
+> +---------------------
+> +
+> +.. kernel-doc:: drivers/gpu/drm/drm_atomic.c
+> +   :doc: state lifetime
+> +
+>   Handling Driver Private State
+>   -----------------------------
+>   
+>   .. kernel-doc:: drivers/gpu/drm/drm_atomic.c
+>      :doc: handling driver private state
+> diff --git a/drivers/gpu/drm/drm_atomic.c b/drivers/gpu/drm/drm_atomic.c
+> index 170de30c28ae..d98586d89bbe 100644
+> --- a/drivers/gpu/drm/drm_atomic.c
+> +++ b/drivers/gpu/drm/drm_atomic.c
+> @@ -45,10 +45,68 @@
+>   #include <drm/drm_colorop.h>
+>   
+>   #include "drm_crtc_internal.h"
+>   #include "drm_internal.h"
+>   
+> +/**
+> + * DOC: state lifetime
+> + *
+> + * &struct drm_atomic_commit represents an update to video pipeline
 
-I sent it to the SoC list with my SoB: https://lore.kernel.org/soc/
-1991560.tdWV9SEqCh@strix/T/#u . I hope that's what you had in mind.
+I'd say 'modeset pipeline'. Video sounds too much like V4L.
 
-Cheers,
-Stefan
+> + * state. It's a transient object that holds a state update as a
+> + * collection of pointers to individual objects' states. &struct
+> + * drm_atomic_commit has a much shorter lifetime than the objects'
+> + * states, since it's only allocated while preparing, checking or
+> + * committing the update, while object states are allocated when
+> + * preparing the update and kept alive as long as they are active in the
+> + * device.
+> + *
+> + * Their respective lifetimes are:
+> + *
+> + * - at reset time, the object reset implementation will allocate a new
+> + *   default state and will store it in the object state pointer.
 
---nextPart5999182.DvuYhMxLoT
-Content-Type: application/pgp-signature; name="signature.asc"
-Content-Description: This is a digitally signed message part.
-Content-Transfer-Encoding: 7Bit
+Using present seems more natural, e.g., 'allocates' and 'stores'
 
------BEGIN PGP SIGNATURE-----
+> + *
+> + * - whenever a new update is needed:
+> + *
+> + *   + A new &struct drm_atomic_commit is allocated using
+> + *     drm_atomic_commit_alloc().
 
-iQJPBAABCAA5FiEEQxb0tqoFWyeVMl1sPRO8yFRPGiIFAmoVYLsbFIAAAAAABAAO
-bWFudTIsMi41KzEuMTIsMiwyAAoJED0TvMhUTxoiW5wQALE6jwe7vYvUC+gtdqXV
-k7xUCRl0FvEBUWoV+SL78Qil7kXSzKQXJEiX+Riu03dVbr0t74HRLZyhFxHalg7T
-kRyBtwAeQb7S/RJJo78U4y/qmmaKHx5meRgI/skxVie8JC/rzsW1VbmB/59ziB8c
-pXm9jwwGF61sm5ZZS3FafG/RXJWIdpDXd9qk/ZUBGOv3XcYcU07Jc/DGku4Q/o4g
-bQGpgxq4plYK4RB7JE15jrNBUr7UUKAQilCG7WScXReDku4HApsF5NY2riEW/5PK
-OnIhZXc4HT3xl6V2zOAxOhyB3AGACNH9yeottg4xQrW3f4jUsQjtz/1o2hRmCOGS
-0QOqcN/vZVhJOANDNb7OAJGd0aK5XC74Rz591jx3ohzlRmDy/h6Pv7NiOlumzEyG
-+cjwHdKD1qvSipO5x34gqClfvWUTHX5v/kgxHhRaSKAq8y8+FKUb4AlrIzPG8JAf
-n248mSk5JxB4zG46yqlYB0E18bPI+0Sc71c4hsQYQUC+7PExJ8MEs6pgQlGZBAyU
-aEw2m3S9MH2QW6fqVHijWiBtC4xdEpvvGAy/uaSQ6Oh07Ov0zUubAS/ATAuORWaD
-ewlBYuLMOfZsg+sQD+Hga31dwXQ2wGRdRupCcl4OuF5BmdtXbx98cgJ8MadSPf2F
-Kblk2tTWqqVq1SMhZc6MF3fv
-=9qjW
------END PGP SIGNATURE-----
+Active form: "drm_atomic_commit_alloc() allocates a new instance of 
+struct drm_atomic_commit."
 
---nextPart5999182.DvuYhMxLoT--
+IIRC the '&' needs to go before drm_atomic_commit.
 
+> + *
+> + *   + The current active state of all entities affected by the update
+> + *     is copied into this new &struct drm_atomic_commit using
+> + *     drm_atomic_get_plane_state(), drm_atomic_get_crtc_state(),
+> + *     drm_atomic_get_connector_state(), or
+> + *     drm_atomic_get_private_obj_state(). This new state can then be
+> + *     modified.
+
+Again use active form.  Mention which helper invokes the copying. I 
+assume it's drm_atomic_commit_alloc() or the UAPI entry points.
+
+> + *
+> + *     At that point, &struct drm_atomic_commit stores three state
+> + *     pointers for any affected entity: the "old" and "new" states, and
+> + *     state_to_destroy. The old state is the state currently active in
+> + *     the hardware, which is either the one initialized by reset() or a
+> + *     newer one if a commit has been made. The new state is the state
+> + *     we just allocated and we might eventually commit to the hardware.
+> + *     The state_to_destroy points to the state we'll eventually have to
+> + *     free when the drm_atomic_commit will be destroyed, and points to
+> + *     the new state for now since the old state is still the active
+> + *     state.
+
+Ok, sounds good.
+
+> + *
+> + *   + After the state is populated, it is checked. If the check is
+
+You mean, it populated the new commit with the updated states?
+
+Where does the check happen?
+
+Again, use active form. Like: 'After ... populated the new commit with 
+the updated states, it checks by invoking atomic_check of all involved 
+pipeline stages."
+
+> + *     successful, the update is committed. Part of the commit is a call
+
+Active form: "successful, ... commits the update."
+
+> + *     to drm_atomic_helper_swap_state() which will turn the new states
+> + *     into the active states. Doing so involves updating the object's
+> + *     state pointer (&drm_crtc.state or similar) to point to the new
+> + *     state, and state_to_destroy will now point to the old states,
+> + *     that used to be active but aren't anymore.
+
+The final sentence ""Doing so..." is serviceable. For splendid writing, 
+you could write somethink like "After swapping states, each object's 
+state pointer refers to the formerly new state. The state_to_destroy 
+pointer refers to the formerly old state."
+
+> + *
+> + *   + When the commit is done, and when all references to our &struct
+> + *     drm_atomic_commit are put, __drm_atomic_commit_free() is called.
+
+Active form: "After commiting the new state to hardware, ... puts all 
+references to strut drm_atomic_commit and calls __drm_atomic_commit_free()".
+
+> + *     It will, in turn, call drm_atomic_commit_clear() that will free
+
+Present form: "It calls ... the frees ... and ...."
+
+Best regards
+Thomas
+
+> + *     all state_to_destroy (ie. old states), and finally free &struct
+> + *     drm_atomic_commit instance.
+> + *
+> + *   + Now, we don't have any active &struct drm_atomic_commit anymore,
+> + *     and only the entity active states remain allocated.
+> + */
+> +
+>   void __drm_crtc_commit_free(struct kref *kref)
+>   {
+>   	struct drm_crtc_commit *commit =
+>   		container_of(kref, struct drm_crtc_commit, ref);
+>   
+>
+
+-- 
+--
+Thomas Zimmermann
+Graphics Driver Developer
+SUSE Software Solutions Germany GmbH
+Frankenstr. 146, 90461 Nürnberg, Germany, www.suse.com
+GF: Jochen Jaser, Andrew McDonald, Werner Knoblich, (HRB 36809, AG Nürnberg)
 
 
 
