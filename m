@@ -4,182 +4,120 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 20379CD5BC8
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 26 May 2026 09:22:55 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id C7236CD5BD0
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 26 May 2026 09:27:02 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
-	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:CC:To:In-Reply-To:References
+	:Message-ID:Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:
+	From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=dSvjQQSdD0rwF6LUM0JsPgONSlRbO3wD9RFgWm9OySo=; b=KsOYWuZ4ZwcEvl92gLOSofHFTp
-	U9B9ZXo8fgLJwrnANv2KpnvIjw+tkPwRpnHnz4ajlROzxlXwU8J6zkmqm93Wo/bb8UlvZWhuszroQ
-	HnJTzAzg/50g3NzNhZdDJrYXdgbsgm2gJpR9CL5u+dQebcqN+14/B75pkVexrWitQQDU9q3Rz07jb
-	t69Pb/+kMU6Jh2m833xJEtgjU6vtAEHa3O3hSBd5KKqDs5kb06JFju3sTiyuU+J8vQ7ibTzs4B6z8
-	iral593fVeLe+bixYDtZxmM6xRb8gm7hsii9YZQPQk7VX4H+8SKLST3L2342MWar2gb9bP443DyyG
-	xHcEECYw==;
+	bh=jkxkko4ftqDaHo/izTn9QHmIISRTtfMp02w5yD7lJmA=; b=Bo2Dnm7M2R0lAcneppvkxMXyhs
+	FnXhULs0lFI34EvFarEjVUNWJTSMKUeZWvYGu+CmlCgZwLNAkzjeD/WebpTi5lOpI9OICyNj5VucB
+	UhbdZkIO+PiNy7SWLMv8BRB0T9jqW6Cwfo4BGgRb0cdjAG8hQq8T1OFV9HeYBZ84zqvJFWoqf5ci6
+	EfYJYOKYYO11rX4EozoL2r2UtOIQX+Wt0NqKxIoXOG20jg7a+sQpxSW0n1rbAlrLDGzj/utMDKZr6
+	RFPMn25VEom72vQCCVT0zssMzcT+PSfwI8rxGRPHS/ARI/BKAIWVgP6Rab4lXNrxgIDgiaK7Fhtvp
+	k5Jd7rnA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wRnzs-00000001Ug4-3eYz;
-	Tue, 26 May 2026 09:22:48 +0000
-Received: from smtp-out1.suse.de ([195.135.223.130])
+	id 1wRo3r-00000001V5b-1Bg9;
+	Tue, 26 May 2026 09:26:55 +0000
+Received: from mail-westeuropeazlp170130006.outbound.protection.outlook.com ([2a01:111:f403:c201::6] helo=AM0PR02CU008.outbound.protection.outlook.com)
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wRnzq-00000001Uf2-2JF9
+	id 1wRo3o-00000001V3n-224i
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 26 May 2026 09:22:48 +0000
-Received: from imap1.dmz-prg2.suse.org (imap1.dmz-prg2.suse.org [IPv6:2a07:de40:b281:104:10:150:64:97])
-	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
-	 key-exchange X25519 server-signature RSA-PSS (4096 bits) server-digest SHA256)
-	(No client certificate requested)
-	by smtp-out1.suse.de (Postfix) with ESMTPS id 94B526B346;
-	Tue, 26 May 2026 09:22:44 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=suse.de; s=susede2_rsa;
-	t=1779787364; h=from:from:reply-to:date:date:message-id:message-id:to:to:cc:cc:
-	 mime-version:mime-version:content-type:content-type:
-	 content-transfer-encoding:content-transfer-encoding:
-	 in-reply-to:in-reply-to:references:references:autocrypt:autocrypt;
-	bh=dSvjQQSdD0rwF6LUM0JsPgONSlRbO3wD9RFgWm9OySo=;
-	b=VAijS1ode21962RALMpEDQvhWosJZQD54KvUSbmvsBbY7fSXj6QCrVc13ZksbrnNDb9I8s
-	c1V9fnoWbf+87mc0qDndSFsDw3McYPL1tdXqCJIU9G3cHhYfdj3Bvla/C2fL9pQPcGuo7C
-	Zo6VaV9zBe4nglfZDEvfBrHSGl7IB9o=
-DKIM-Signature: v=1; a=ed25519-sha256; c=relaxed/relaxed; d=suse.de;
-	s=susede2_ed25519; t=1779787364;
-	h=from:from:reply-to:date:date:message-id:message-id:to:to:cc:cc:
-	 mime-version:mime-version:content-type:content-type:
-	 content-transfer-encoding:content-transfer-encoding:
-	 in-reply-to:in-reply-to:references:references:autocrypt:autocrypt;
-	bh=dSvjQQSdD0rwF6LUM0JsPgONSlRbO3wD9RFgWm9OySo=;
-	b=Q6I6VFLJL7j6Ca4GX4Dp6xrpYpciDlP+JyRLy/WLruUox4Hydh39c/SxpyqYBNqgMSAbtn
-	kyG6pGULsZmxM1DA==
-Authentication-Results: smtp-out1.suse.de;
-	dkim=pass header.d=suse.de header.s=susede2_rsa header.b=VAijS1od;
-	dkim=pass header.d=suse.de header.s=susede2_ed25519 header.b=Q6I6VFLJ
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=suse.de; s=susede2_rsa;
-	t=1779787364; h=from:from:reply-to:date:date:message-id:message-id:to:to:cc:cc:
-	 mime-version:mime-version:content-type:content-type:
-	 content-transfer-encoding:content-transfer-encoding:
-	 in-reply-to:in-reply-to:references:references:autocrypt:autocrypt;
-	bh=dSvjQQSdD0rwF6LUM0JsPgONSlRbO3wD9RFgWm9OySo=;
-	b=VAijS1ode21962RALMpEDQvhWosJZQD54KvUSbmvsBbY7fSXj6QCrVc13ZksbrnNDb9I8s
-	c1V9fnoWbf+87mc0qDndSFsDw3McYPL1tdXqCJIU9G3cHhYfdj3Bvla/C2fL9pQPcGuo7C
-	Zo6VaV9zBe4nglfZDEvfBrHSGl7IB9o=
-DKIM-Signature: v=1; a=ed25519-sha256; c=relaxed/relaxed; d=suse.de;
-	s=susede2_ed25519; t=1779787364;
-	h=from:from:reply-to:date:date:message-id:message-id:to:to:cc:cc:
-	 mime-version:mime-version:content-type:content-type:
-	 content-transfer-encoding:content-transfer-encoding:
-	 in-reply-to:in-reply-to:references:references:autocrypt:autocrypt;
-	bh=dSvjQQSdD0rwF6LUM0JsPgONSlRbO3wD9RFgWm9OySo=;
-	b=Q6I6VFLJL7j6Ca4GX4Dp6xrpYpciDlP+JyRLy/WLruUox4Hydh39c/SxpyqYBNqgMSAbtn
-	kyG6pGULsZmxM1DA==
-Received: from imap1.dmz-prg2.suse.org (localhost [127.0.0.1])
-	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
-	 key-exchange X25519 server-signature RSA-PSS (4096 bits) server-digest SHA256)
-	(No client certificate requested)
-	by imap1.dmz-prg2.suse.org (Postfix) with ESMTPS id 9EA955A125;
-	Tue, 26 May 2026 09:22:43 +0000 (UTC)
-Received: from dovecot-director2.suse.de ([2a07:de40:b281:106:10:150:64:167])
-	by imap1.dmz-prg2.suse.org with ESMTPSA
-	id Mc5aJWNmFWpaewAAD6G6ig
-	(envelope-from <tzimmermann@suse.de>); Tue, 26 May 2026 09:22:43 +0000
-Message-ID: <3e523040-b59a-40dc-8b60-d604c32bac88@suse.de>
-Date: Tue, 26 May 2026 11:22:43 +0200
+	Tue, 26 May 2026 09:26:54 +0000
+ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
+ b=ABy2sEVHip9zK0wKUMZk3RmqXdJ5iCEYdbxiwuZm2QadY/VNq42s13eYGA4JAWp7TNk8NwYLebPOCFR3CnyVFCkr5sMHmkRVNIZrIO1igBROcSrudb0lBYmSUtNrVAbpoZMMbIl6rRNPb8LgjCF2/DdbJWE7OLRczzWue/BHB1GxdGNxnWTrKuGdmaCxMm9n+uMeVMW/SyAOL8MCvUH/s4fWv95aePFu3QAfvHuFnbadOIxasNkD4huCdqEkaLEd6E89r69yWAjfiQChQgEGbUeXOY9EWaYSnjXrKX0It2TxcRgvtXfB652qBmm+z81+XplpIUFJ/0U25mR2qrXsLQ==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
+ s=arcselector10001;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
+ bh=jkxkko4ftqDaHo/izTn9QHmIISRTtfMp02w5yD7lJmA=;
+ b=HWnNZF2a2GJ+kAKj+Wr/NpWygsfkOBSHpyWOf/RUOJLwS3nekAzaBwBHi2ieAHMmsWu3e8BM3Y443c3XBVesEf+B7mdgzgSWc+AHZ6Cfr3Hlc8l/zbin0IYwtcOHlz3jPpVRLoewk2IWxA3/VVi6hTCMDMkLj3dpNWnVIO1/g5PlT8qfNo3+LDp6C+lJznTA/igmCl6A0Pkvb5UUVrUM7Pec1Aln8ZO+74cKXo5NG+yXK6h1H3Nw7RZY95khAq25y0iSDNMDgrIid1L+G4T05IApdC11OMwoeSWzd6ZS11sCRdw4u7VMmWtrNA2us+JYsMBOSHkNe4VJw149DBSyKw==
+ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=fail (sender ip is
+ 164.130.1.59) smtp.rcpttodomain=kernel.org smtp.mailfrom=foss.st.com;
+ dmarc=fail (p=none sp=none pct=100) action=none header.from=foss.st.com;
+ dkim=none (message not signed); arc=none (0)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=foss.st.com;
+ s=selector2;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
+ bh=jkxkko4ftqDaHo/izTn9QHmIISRTtfMp02w5yD7lJmA=;
+ b=NjWPW1z+7lDlZ+C77PKW69K4O+nW5vqYeWrR7DBFygjRuvKiMjDnSAaSAqWYHqZQTwmXhrvnmGgPcvof3K87m8y6UKQ4c4NncRomOkvf5RxaB72EN6x4oE7K1h1ghQvlMQqmlfsnhm3BfcU6QHqYY1CD9D1sX0ZehZsTRB9ggGXsvwDx+nVW7BrUNc0dhgWw1P0XRMmkvkEmItzLBl8WaBPyZgbjwl4VHi0dWKT5WntgZJxejMbkQsrSsWasoh25s4YIXpDqJSEjCp1HWQdcURmnOJXBWjJcfKnoM9BSbm3NxZXHEXIcCSiBsuvyAn8siS/u76vAVQNT86iLf47Amg==
+Received: from AM0PR02CA0177.eurprd02.prod.outlook.com (2603:10a6:20b:28e::14)
+ by VI1PR10MB8207.EURPRD10.PROD.OUTLOOK.COM (2603:10a6:800:1d9::21) with
+ Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.21.48.20; Tue, 26 May
+ 2026 09:26:44 +0000
+Received: from AM2PEPF0001C715.eurprd05.prod.outlook.com
+ (2603:10a6:20b:28e:cafe::93) by AM0PR02CA0177.outlook.office365.com
+ (2603:10a6:20b:28e::14) with Microsoft SMTP Server (version=TLS1_3,
+ cipher=TLS_AES_256_GCM_SHA384) id 15.21.71.11 via Frontend Transport; Tue, 26
+ May 2026 09:26:44 +0000
+X-MS-Exchange-Authentication-Results: spf=fail (sender IP is 164.130.1.59)
+ smtp.mailfrom=foss.st.com; dkim=none (message not signed)
+ header.d=none;dmarc=fail action=none header.from=foss.st.com;
+Received-SPF: Fail (protection.outlook.com: domain of foss.st.com does not
+ designate 164.130.1.59 as permitted sender) receiver=protection.outlook.com;
+ client-ip=164.130.1.59; helo=smtpO365.st.com;
+Received: from smtpO365.st.com (164.130.1.59) by
+ AM2PEPF0001C715.mail.protection.outlook.com (10.167.16.185) with Microsoft
+ SMTP Server (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
+ 15.21.71.7 via Frontend Transport; Tue, 26 May 2026 09:26:44 +0000
+Received: from STKDAG1NODE2.st.com (10.75.128.133) by smtpo365.st.com
+ (10.250.44.71) with Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.2.2562.35; Tue, 26 May
+ 2026 11:30:49 +0200
+Received: from localhost (10.48.87.93) by STKDAG1NODE2.st.com (10.75.128.133)
+ with Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.2.2562.35; Tue, 26 May
+ 2026 11:26:43 +0200
+From: Patrice Chotard <patrice.chotard@foss.st.com>
+Date: Tue, 26 May 2026 11:26:41 +0200
+Subject: [PATCH v7 1/7] ARM: dts: stm32: Add boot phase tags for
+ STMicroelectronics f4 boards
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH v5 12/19] drm/crtc: Add new atomic_create_state callback
-To: Maxime Ripard <mripard@kernel.org>,
- Maarten Lankhorst <maarten.lankhorst@linux.intel.com>,
- David Airlie <airlied@gmail.com>, Simona Vetter <simona@ffwll.ch>,
- Jonathan Corbet <corbet@lwn.net>, Shuah Khan <skhan@linuxfoundation.org>,
- Dmitry Baryshkov <dmitry.baryshkov@oss.qualcomm.com>,
- Jyri Sarha <jyri.sarha@iki.fi>,
- Tomi Valkeinen <tomi.valkeinen@ideasonboard.com>,
- Andrzej Hajda <andrzej.hajda@intel.com>,
- Neil Armstrong <neil.armstrong@linaro.org>, Robert Foss <rfoss@kernel.org>,
- Laurent Pinchart <Laurent.pinchart@ideasonboard.com>,
- Jonas Karlman <jonas@kwiboo.se>, Jernej Skrabec <jernej.skrabec@gmail.com>,
- Simon Ser <contact@emersion.fr>, Harry Wentland <harry.wentland@amd.com>,
- Melissa Wen <mwen@igalia.com>, Sebastian Wick <sebastian.wick@redhat.com>,
- Alex Hung <alex.hung@amd.com>, Jani Nikula <jani.nikula@linux.intel.com>,
- Rodrigo Vivi <rodrigo.vivi@intel.com>,
- Joonas Lahtinen <joonas.lahtinen@linux.intel.com>,
- Tvrtko Ursulin <tursulin@ursulin.net>, Chen-Yu Tsai <wens@kernel.org>,
- Samuel Holland <samuel@sholland.org>,
- Dave Stevenson <dave.stevenson@raspberrypi.com>,
- =?UTF-8?Q?Ma=C3=ADra_Canal?= <mcanal@igalia.com>,
- Raspberry Pi Kernel Maintenance <kernel-list@raspberrypi.com>
-Cc: dri-devel@lists.freedesktop.org, linux-doc@vger.kernel.org,
- linux-kernel@vger.kernel.org, Daniel Stone <daniels@collabora.com>,
- intel-gfx@lists.freedesktop.org, intel-xe@lists.freedesktop.org,
- linux-arm-kernel@lists.infradead.org, linux-sunxi@lists.linux.dev
-References: <20260519-drm-mode-config-init-v5-0-388b03321e38@kernel.org>
- <20260519-drm-mode-config-init-v5-12-388b03321e38@kernel.org>
-Content-Language: en-US
-From: Thomas Zimmermann <tzimmermann@suse.de>
-Autocrypt: addr=tzimmermann@suse.de; keydata=
- xsBNBFs50uABCADEHPidWt974CaxBVbrIBwqcq/WURinJ3+2WlIrKWspiP83vfZKaXhFYsdg
- XH47fDVbPPj+d6tQrw5lPQCyqjwrCPYnq3WlIBnGPJ4/jreTL6V+qfKRDlGLWFjZcsrPJGE0
- BeB5BbqP5erN1qylK9i3gPoQjXGhpBpQYwRrEyQyjuvk+Ev0K1Jc5tVDeJAuau3TGNgah4Yc
- hdHm3bkPjz9EErV85RwvImQ1dptvx6s7xzwXTgGAsaYZsL8WCwDaTuqFa1d1jjlaxg6+tZsB
- 9GluwvIhSezPgnEmimZDkGnZRRSFiGP8yjqTjjWuf0bSj5rUnTGiyLyRZRNGcXmu6hjlABEB
- AAHNJ1Rob21hcyBaaW1tZXJtYW5uIDx0emltbWVybWFubkBzdXNlLmRlPsLAjgQTAQgAOAIb
- AwULCQgHAgYVCgkICwIEFgIDAQIeAQIXgBYhBHIX+6yM6c9jRKFo5WgNwR1TC3ojBQJftODH
- AAoJEGgNwR1TC3ojx1wH/0hKGWugiqDgLNXLRD/4TfHBEKmxIrmfu9Z5t7vwUKfwhFL6hqvo
- lXPJJKQpQ2z8+X2vZm/slsLn7J1yjrOsoJhKABDi+3QWWSGkaGwRJAdPVVyJMfJRNNNIKwVb
- U6B1BkX2XDKDGffF4TxlOpSQzdtNI/9gleOoUA8+jy8knnDYzjBNOZqLG2FuTdicBXblz0Mf
- vg41gd9kCwYXDnD91rJU8tzylXv03E75NCaTxTM+FBXPmsAVYQ4GYhhgFt8S2UWMoaaABLDe
- 7l5FdnLdDEcbmd8uLU2CaG4W2cLrUaI4jz2XbkcPQkqTQ3EB67hYkjiEE6Zy3ggOitiQGcqp
- j//OwE0EWznS4AEIAMYmP4M/V+T5RY5at/g7rUdNsLhWv1APYrh9RQefODYHrNRHUE9eosYb
- T6XMryR9hT8XlGOYRwKWwiQBoWSDiTMo/Xi29jUnn4BXfI2px2DTXwc22LKtLAgTRjP+qbU6
- 3Y0xnQN29UGDbYgyyK51DW3H0If2a3JNsheAAK+Xc9baj0LGIc8T9uiEWHBnCH+RdhgATnWW
- GKdDegUR5BkDfDg5O/FISymJBHx2Dyoklv5g4BzkgqTqwmaYzsl8UxZKvbaxq0zbehDda8lv
- hFXodNFMAgTLJlLuDYOGLK2AwbrS3Sp0AEbkpdJBb44qVlGm5bApZouHeJ/+n+7r12+lqdsA
- EQEAAcLAdgQYAQgAIAIbDBYhBHIX+6yM6c9jRKFo5WgNwR1TC3ojBQJftOH6AAoJEGgNwR1T
- C3ojVSkIALpAPkIJPQoURPb1VWjh34l0HlglmYHvZszJWTXYwavHR8+k6Baa6H7ufXNQtThR
- yIxJrQLW6rV5lm7TjhffEhxVCn37+cg0zZ3j7zIsSS0rx/aMwi6VhFJA5hfn3T0TtrijKP4A
- SAQO9xD1Zk9/61JWk8OysuIh7MXkl0fxbRKWE93XeQBhIJHQfnc+YBLprdnxR446Sh8Wn/2D
- Ya8cavuWf2zrB6cZurs048xe0UbSW5AOSo4V9M0jzYI4nZqTmPxYyXbm30Kvmz0rYVRaitYJ
- 4kyYYMhuULvrJDMjZRvaNe52tkKAvMevcGdt38H4KSVXAylqyQOW5zvPc4/sq9c=
-In-Reply-To: <20260519-drm-mode-config-init-v5-12-388b03321e38@kernel.org>
-Content-Type: text/plain; charset=UTF-8; format=flowed
-Content-Transfer-Encoding: 8bit
-X-Rspamd-Queue-Id: 94B526B346
-X-Rspamd-Action: no action
-X-Spamd-Result: default: False [-3.01 / 50.00];
-	BAYES_HAM(-3.00)[100.00%];
-	SUSPICIOUS_RECIPS(1.50)[];
-	NEURAL_HAM_LONG(-1.00)[-1.000];
-	R_DKIM_ALLOW(-0.20)[suse.de:s=susede2_rsa,suse.de:s=susede2_ed25519];
-	NEURAL_HAM_SHORT(-0.20)[-1.000];
-	MIME_GOOD(-0.10)[text/plain];
-	MX_GOOD(-0.01)[];
-	FUZZY_RATELIMITED(0.00)[rspamd.com];
-	RCPT_COUNT_TWELVE(0.00)[37];
-	TO_MATCH_ENVRCPT_ALL(0.00)[];
-	RBL_SPAMHAUS_BLOCKED_OPENRESOLVER(0.00)[2a07:de40:b281:104:10:150:64:97:from];
-	MIME_TRACE(0.00)[0:+];
-	FREEMAIL_TO(0.00)[kernel.org,linux.intel.com,gmail.com,ffwll.ch,lwn.net,linuxfoundation.org,oss.qualcomm.com,iki.fi,ideasonboard.com,intel.com,linaro.org,kwiboo.se,emersion.fr,amd.com,igalia.com,redhat.com,ursulin.net,sholland.org,raspberrypi.com];
-	DKIM_SIGNED(0.00)[suse.de:s=susede2_rsa,suse.de:s=susede2_ed25519];
-	ARC_NA(0.00)[];
-	FREEMAIL_ENVRCPT(0.00)[gmail.com];
-	DKIM_TRACE(0.00)[suse.de:+];
-	TO_DN_SOME(0.00)[];
-	RCVD_COUNT_TWO(0.00)[2];
-	DNSWL_BLOCKED(0.00)[2a07:de40:b281:106:10:150:64:167:received];
-	FROM_EQ_ENVFROM(0.00)[];
-	FROM_HAS_DN(0.00)[];
-	RCVD_TLS_ALL(0.00)[];
-	internal_greylist_whitelist(0.00)[2a07:de40:b281:104:10:150:64:97];
-	RECEIVED_SPAMHAUS_BLOCKED_OPENRESOLVER(0.00)[2a07:de40:b281:106:10:150:64:167:received];
-	R_RATELIMIT(0.00)[to_ip_from(RL7gneoo7ydcsn9o76mxr5d8pb)];
-	MID_RHS_MATCH_FROM(0.00)[];
-	RCVD_VIA_SMTP_AUTH(0.00)[];
-	TAGGED_RCPT(0.00)[];
-	DBL_BLOCKED_OPENRESOLVER(0.00)[suse.com:url,suse.de:email,suse.de:mid,suse.de:dkim,imap1.dmz-prg2.suse.org:rdns,imap1.dmz-prg2.suse.org:helo,qualcomm.com:email]
-X-Rspamd-Server: rspamd1.dmz-prg2.suse.org
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: 7bit
+Message-ID: <20260526-upstream_uboot_properties-v7-1-e17cd424d5db@foss.st.com>
+References: <20260526-upstream_uboot_properties-v7-0-e17cd424d5db@foss.st.com>
+In-Reply-To: <20260526-upstream_uboot_properties-v7-0-e17cd424d5db@foss.st.com>
+To: Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>,
+	Conor Dooley <conor+dt@kernel.org>, Maxime Coquelin
+	<mcoquelin.stm32@gmail.com>, Alexandre Torgue <alexandre.torgue@foss.st.com>,
+	Patrick Delaunay <patrick.delaunay@foss.st.com>, Christoph Niedermaier
+	<cniedermaier@dh-electronics.com>, Marek Vasut <marex@denx.de>
+CC: <devicetree@vger.kernel.org>, <linux-stm32@st-md-mailman.stormreply.com>,
+	<linux-arm-kernel@lists.infradead.org>, <linux-kernel@vger.kernel.org>,
+	<kernel@dh-electronics.com>, Patrice Chotard <patrice.chotard@foss.st.com>
+X-Mailer: b4 0.14.3
+X-Originating-IP: [10.48.87.93]
+X-ClientProxiedBy: STKCAS1NODE1.st.com (10.75.128.134) To STKDAG1NODE2.st.com
+ (10.75.128.133)
+X-EOPAttributedMessage: 0
+X-MS-PublicTrafficType: Email
+X-MS-TrafficTypeDiagnostic: AM2PEPF0001C715:EE_|VI1PR10MB8207:EE_
+X-MS-Office365-Filtering-Correlation-Id: 382f74d6-2b11-4985-ee16-08debb08e736
+X-MS-Exchange-SenderADCheck: 1
+X-MS-Exchange-AntiSpam-Relay: 0
+X-Microsoft-Antispam: BCL:0;ARA:13230040|82310400026|36860700016|1800799024|7416014|376014|3023799007|11063799006|56012099003|18002099003|22082099003;
+X-Microsoft-Antispam-Message-Info: 46xvISFI771ox6f7Py5yWRPF4C1t7vdIA9rzC84Qw3NnzTaBIEat0vwzsBbQjj71+4BJDyBmt+TtbUp5BuAHC5SBat+fFt9A8t4RnY+lCWxeSKDH6/XSW9v3/dORelwE9csQ169AlxvdJzwjEuHxm8Vy5O92bjWzz2qxq4QNid7Fz6LieyVo7KFwVu9CxNVEz7Y5l2p1XP8/sQAzZZ/Ij+FQdZHY569EeT3HrABA61w2G9hUFnhrJlOz/QgzK1nUurp81apRK0VX+8TWikkXrbZfxpwDwRdK5hvuTH4/9nL1xQKzkpKs3nJr/TvAChNd8EDXR1iECj74dJ7e5Z0l8pzXHZNpHxoPNdFMSTR5mtIf0ry7qFXlG7M3C0iDlaABwk+gEvB/XelUqXPU6iubVKiutgg84zSwgTNLhBWj+ul9MrgZNYKmXRgqhEGyTmRPQMGcwvhy3Ss+J8QADcyYzBUo9Q5FXmYtfrHC23wedJ89v2v0iM2cHx5UxOaP8Q/dlBsUid0n1uFFLRt/+oP++KdngoIY1htWjeOwNzBSTGAhcA8w65EYhuk4EzLuTbj/ReA7myN3o410P6KXd+xlXFmxy4FXqX352IXgUEx1zSxodGEFOV2lmniuNgYHwsjp+pMMf1MOjggSMc2x9Kr9oCmIe0OirgS+dB2xiQGbh054Tbj0bl67Q8kbP7Hx5IjCHN+ZcEDqltOzox85yw8eHsbm8ZgH73O+iGm7Zov7Qeg=
+X-Forefront-Antispam-Report: CIP:164.130.1.59;CTRY:IT;LANG:en;SCL:1;SRV:;IPV:CAL;SFV:NSPM;H:smtpO365.st.com;PTR:InfoDomainNonexistent;CAT:NONE;SFS:(13230040)(82310400026)(36860700016)(1800799024)(7416014)(376014)(3023799007)(11063799006)(56012099003)(18002099003)(22082099003);DIR:OUT;SFP:1101;
+X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
+X-MS-Exchange-AntiSpam-MessageData-0: 7YNneAwk/uG+QEsziHrsnV4ouHg3uBnTqisg/JHMNtDpH2pCDW2mTs85n2DU/4kMgGvmHNbgJDXfYGR2OIVqYfSVjGtWECVmbLw+5cReXswFa+NJrRr6AqNBxqY5V8UwYDWfoJmUgUDivAYFr+u1VY9542q+y0ZPlvi1iYOreNJ+3/aDO1s6gUDNIeFP+6sJZEybqnTnURsXvCM8xmr1KRXQnsnw/RrLeaQ1N5wfkeMrRKVrBgZOMEH4P/wZug/S/vqMFzJcu8F5IzHqILaRI2nubOw9Rk6tIY4Uu7KqMjTH780bTEIo9IS29nEx61JwSDj8yoJy6vzXhsvrRpC+e9FO1Y1TqhOdDsLiZdFUW1PWhYtMI8gRFEeVdT1ZOSQhNEF6Q5Mfn6bhKkfluAf3WG4zA6HqQDVbv7WxeeAyrgQ5X/BLcLr5j/PvLEAbpcft
+X-OriginatorOrg: foss.st.com
+X-MS-Exchange-CrossTenant-OriginalArrivalTime: 26 May 2026 09:26:44.5519
+ (UTC)
+X-MS-Exchange-CrossTenant-Network-Message-Id: 382f74d6-2b11-4985-ee16-08debb08e736
+X-MS-Exchange-CrossTenant-Id: 75e027c9-20d5-47d5-b82f-77d7cd041e8f
+X-MS-Exchange-CrossTenant-OriginalAttributedTenantConnectingIp: TenantId=75e027c9-20d5-47d5-b82f-77d7cd041e8f;Ip=[164.130.1.59];Helo=[smtpO365.st.com]
+X-MS-Exchange-CrossTenant-AuthSource: AM2PEPF0001C715.eurprd05.prod.outlook.com
+X-MS-Exchange-CrossTenant-AuthAs: Anonymous
+X-MS-Exchange-CrossTenant-FromEntityHeader: HybridOnPrem
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: VI1PR10MB8207
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260526_022246_885158_C92840AC 
-X-CRM114-Status: GOOD (  33.66  )
+X-CRM114-CacheID: sfid-20260526_022652_974623_65F775A9 
+X-CRM114-Status: UNSURE (   9.30  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -194,157 +132,380 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
+The bootph-all flag was introduced in dt-schema
+(dtschema/schemas/bootph.yaml) to define node usage across
+different boot phases.
 
+To ensure SD boot, timer, gpio, syscfg, clock and uart nodes need to be
+present in all boot stages, so add missing bootph-all phase flag
+to these nodes to support SD boot.
 
-Am 19.05.26 um 11:01 schrieb Maxime Ripard:
-> Commit 47b5ac7daa46 ("drm/atomic: Add new atomic_create_state callback
-> to drm_private_obj") introduced a new pattern for allocating drm object
-> states.
->
-> Instead of relying on the reset() callback, it created a new
-> atomic_create_state hook. This is helpful because reset is a bit
-> overloaded: it's used to create the initial software state, reset it,
-> but also reset the hardware.
->
-> It can also be used either at probe time, to create the initial state
-> and possibly reset the hardware to an expected default, but also during
-> suspend/resume.
->
-> Both these cases come with different expectations too: during the
-> initialization, we want to initialize all states, but during
-> suspend/resume, drm_private_states for example are expected to be kept
-> around.
->
-> reset() also isn't fallible, which makes it harder to handle
-> initialization errors properly. This is only really relevant for some
-> drivers though, since all the helpers for reset only create a new
-> state, and don't touch the hardware at all.
->
-> It was thus decided to create a new hook that would allocate and
-> initialize a pristine state without any side effect:
-> atomic_create_state to untangle a bit some of it, and to separate the
-> initialization with the actual reset one might need during a
-> suspend/resume.
->
-> Continue the transition to the new pattern with CRTCs.
->
-> Reviewed-by: Dmitry Baryshkov <dmitry.baryshkov@oss.qualcomm.com>
-> Signed-off-by: Maxime Ripard <mripard@kernel.org>
+Signed-off-by: Patrice Chotard <patrice.chotard@foss.st.com>
+---
+ arch/arm/boot/dts/st/stm32429i-eval.dts  | 80 ++++++++++++++++++++++++++++++++
+ arch/arm/boot/dts/st/stm32f429-disco.dts | 80 ++++++++++++++++++++++++++++++++
+ arch/arm/boot/dts/st/stm32f469-disco.dts | 72 ++++++++++++++++++++++++++++
+ 3 files changed, 232 insertions(+)
 
-Reviewed-by: Thomas Zimmermann <tzimmermann@suse.de>
-
-[...]
-> +
-> +	crtc_state = crtc->funcs->atomic_create_state(crtc);
-> +	if (IS_ERR(crtc_state))
-> +		return PTR_ERR(crtc_state);
-> +
-> +	if (drm_dev_has_vblank(crtc->dev))
-> +		drm_crtc_vblank_reset(crtc);
-
-I've recently looked at the vblank init and reset code. At some point, 
-we'll have to make the vblank reset controllable by drivers. Not an 
-issue for now though.
-
-Best regards
-Thomas
-
-> +
-> +	crtc->state = crtc_state;
-> +
-> +	return 0;
-> +}
-> +
-> +static int drm_mode_config_crtc_reset_with_create_state(struct drm_crtc *crtc)
-> +{
-> +	if (crtc->state) {
-> +		crtc->funcs->atomic_destroy_state(crtc, crtc->state);
-> +		crtc->state = NULL;
-> +	}
-> +
-> +	return drm_mode_config_crtc_create_state(crtc);
-> +}
-> +
->   /**
->    * drm_mode_config_reset - call ->reset callbacks
->    * @dev: drm device
->    *
->    * This functions calls all the crtc's, encoder's and connector's ->reset
-> @@ -237,13 +266,16 @@ void drm_mode_config_reset(struct drm_device *dev)
->   			plane->funcs->reset(plane);
->   		else if (plane->funcs->atomic_create_state)
->   			drm_mode_config_plane_reset_with_create_state(plane);
->   	}
->   
-> -	drm_for_each_crtc(crtc, dev)
-> +	drm_for_each_crtc(crtc, dev) {
->   		if (crtc->funcs->reset)
->   			crtc->funcs->reset(crtc);
-> +		else if (crtc->funcs->atomic_create_state)
-> +			drm_mode_config_crtc_reset_with_create_state(crtc);
-> +	}
->   
->   	drm_for_each_encoder(encoder, dev)
->   		if (encoder->funcs && encoder->funcs->reset)
->   			encoder->funcs->reset(encoder);
->   
-> diff --git a/include/drm/drm_atomic_state_helper.h b/include/drm/drm_atomic_state_helper.h
-> index 0bb72453464a..213f7e298008 100644
-> --- a/include/drm/drm_atomic_state_helper.h
-> +++ b/include/drm/drm_atomic_state_helper.h
-> @@ -43,10 +43,12 @@ struct drm_device;
->   void __drm_atomic_helper_crtc_state_init(struct drm_crtc_state *state,
->   					  struct drm_crtc *crtc);
->   void __drm_atomic_helper_crtc_reset(struct drm_crtc *crtc,
->   				    struct drm_crtc_state *state);
->   void drm_atomic_helper_crtc_reset(struct drm_crtc *crtc);
-> +struct drm_crtc_state *
-> +drm_atomic_helper_crtc_create_state(struct drm_crtc *crtc);
->   void __drm_atomic_helper_crtc_duplicate_state(struct drm_crtc *crtc,
->   					      struct drm_crtc_state *state);
->   struct drm_crtc_state *
->   drm_atomic_helper_crtc_duplicate_state(struct drm_crtc *crtc);
->   void __drm_atomic_helper_crtc_destroy_state(struct drm_crtc_state *state);
-> diff --git a/include/drm/drm_crtc.h b/include/drm/drm_crtc.h
-> index c6dbe8b7db9e..152349f973e3 100644
-> --- a/include/drm/drm_crtc.h
-> +++ b/include/drm/drm_crtc.h
-> @@ -636,10 +636,26 @@ struct drm_crtc_funcs {
->   	 * 0 on success or a negative error code on failure.
->   	 */
->   	int (*set_property)(struct drm_crtc *crtc,
->   			    struct drm_property *property, uint64_t val);
->   
-> +	/**
-> +	 * @atomic_create_state:
-> +	 *
-> +	 * Allocate a pristine, initialized, state for the CRTC object
-> +	 * and return it. This callback must have no side effects: in
-> +	 * particular, the returned state must not be assigned to the
-> +	 * object's state pointer and it must not affect the hardware
-> +	 * state.
-> +	 *
-> +	 * RETURNS:
-> +	 *
-> +	 * A new, pristine, CRTC state instance or an error pointer
-> +	 * on failure.
-> +	 */
-> +	struct drm_crtc_state *(*atomic_create_state)(struct drm_crtc *crtc);
-> +
->   	/**
->   	 * @atomic_duplicate_state:
->   	 *
->   	 * Duplicate the current atomic state for this CRTC and return it.
->   	 * The core and helpers guarantee that any atomic state duplicated with
->
+diff --git a/arch/arm/boot/dts/st/stm32429i-eval.dts b/arch/arm/boot/dts/st/stm32429i-eval.dts
+index f4b1c4eb64f2..8a08b9f6b837 100644
+--- a/arch/arm/boot/dts/st/stm32429i-eval.dts
++++ b/arch/arm/boot/dts/st/stm32429i-eval.dts
+@@ -188,6 +188,15 @@ adc3: adc@200 {
+ 
+ &clk_hse {
+ 	clock-frequency = <25000000>;
++	bootph-all;
++};
++
++&clk_lse {
++	bootph-all;
++};
++
++&clk_i2s_ckin {
++	bootph-all;
+ };
+ 
+ &crc {
+@@ -209,6 +218,50 @@ dcmi_0: endpoint {
+ 	};
+ };
+ 
++&gpioa {
++	bootph-all;
++};
++
++&gpiob {
++	bootph-all;
++};
++
++&gpioc {
++	bootph-all;
++};
++
++&gpiod {
++	bootph-all;
++};
++
++&gpioe {
++	bootph-all;
++};
++
++&gpiof {
++	bootph-all;
++};
++
++&gpiog {
++	bootph-all;
++};
++
++&gpioh {
++	bootph-all;
++};
++
++&gpioi {
++	bootph-all;
++};
++
++&gpioj {
++	bootph-all;
++};
++
++&gpiok {
++	bootph-all;
++};
++
+ &i2c1 {
+ 	pinctrl-0 = <&i2c1_pins>;
+ 	pinctrl-names = "default";
+@@ -278,6 +331,18 @@ phy1: ethernet-phy@1 {
+ 	};
+ };
+ 
++&pinctrl {
++	bootph-all;
++};
++
++&pwrcfg {
++	bootph-all;
++};
++
++&rcc {
++	bootph-all;
++};
++
+ &rtc {
+ 	status = "okay";
+ };
+@@ -293,6 +358,10 @@ &sdio {
+ 	max-frequency = <12500000>;
+ };
+ 
++&syscfg {
++	bootph-all;
++};
++
+ &timers1 {
+ 	status = "okay";
+ 
+@@ -325,6 +394,7 @@ &timers5 {
+ 	/* Override timer5 to act as clockevent */
+ 	compatible = "st,stm32-timer";
+ 	interrupts = <50>;
++	bootph-all;
+ 	status = "okay";
+ 	/delete-property/#address-cells;
+ 	/delete-property/#size-cells;
+@@ -339,6 +409,16 @@ &usart1 {
+ 	status = "okay";
+ };
+ 
++&usart1_pins_a {
++	bootph-all;
++	pins1 {
++		bootph-all;
++	};
++	pins2 {
++		bootph-all;
++	};
++};
++
+ &usbotg_hs {
+ 	dr_mode = "host";
+ 	phys = <&usbotg_hs_phy>;
+diff --git a/arch/arm/boot/dts/st/stm32f429-disco.dts b/arch/arm/boot/dts/st/stm32f429-disco.dts
+index ded369abee4f..047845ab3d5f 100644
+--- a/arch/arm/boot/dts/st/stm32f429-disco.dts
++++ b/arch/arm/boot/dts/st/stm32f429-disco.dts
+@@ -113,12 +113,65 @@ vcc5v_otg: vcc5v-otg-regulator {
+ 
+ &clk_hse {
+ 	clock-frequency = <8000000>;
++	bootph-all;
++};
++
++&clk_lse {
++	bootph-all;
++};
++
++&clk_i2s_ckin {
++	bootph-all;
+ };
+ 
+ &crc {
+ 	status = "okay";
+ };
+ 
++&gpioa {
++	bootph-all;
++};
++
++&gpiob {
++	bootph-all;
++};
++
++&gpioc {
++	bootph-all;
++};
++
++&gpiod {
++	bootph-all;
++};
++
++&gpioe {
++	bootph-all;
++};
++
++&gpiof {
++	bootph-all;
++};
++
++&gpiog {
++	bootph-all;
++};
++
++&gpioh {
++	bootph-all;
++};
++
++&gpioi {
++	bootph-all;
++};
++
++&gpioj {
++	bootph-all;
++};
++
++&gpiok {
++	bootph-all;
++};
++
+ &i2c3 {
+ 	pinctrl-names = "default";
+ 	pinctrl-0 = <&i2c3_pins>;
+@@ -176,6 +229,18 @@ ltdc_out_rgb: endpoint {
+ 	};
+ };
+ 
++&pinctrl {
++	bootph-all;
++};
++
++&pwrcfg {
++	bootph-all;
++};
++
++&rcc {
++	bootph-all;
++};
++
+ &rtc {
+ 	assigned-clocks = <&rcc 1 CLK_RTC>;
+ 	assigned-clock-parents = <&rcc 1 CLK_LSI>;
+@@ -216,10 +281,15 @@ panel_in_rgb: endpoint {
+ 	};
+ };
+ 
++&syscfg {
++	bootph-all;
++};
++
+ &timers5 {
+ 	/* Override timer5 to act as clockevent */
+ 	compatible = "st,stm32-timer";
+ 	interrupts = <50>;
++	bootph-all;
+ 	status = "okay";
+ 	/delete-property/#address-cells;
+ 	/delete-property/#size-cells;
+@@ -234,6 +304,16 @@ &usart1 {
+ 	status = "okay";
+ };
+ 
++&usart1_pins_a {
++	bootph-all;
++	pins1 {
++		bootph-all;
++	};
++	pins2 {
++		bootph-all;
++	};
++};
++
+ &usbotg_hs {
+ 	compatible = "st,stm32f4x9-fsotg";
+ 	dr_mode = "host";
+diff --git a/arch/arm/boot/dts/st/stm32f469-disco.dts b/arch/arm/boot/dts/st/stm32f469-disco.dts
+index 943afba06b5f..ecd33d6003b3 100644
+--- a/arch/arm/boot/dts/st/stm32f469-disco.dts
++++ b/arch/arm/boot/dts/st/stm32f469-disco.dts
+@@ -181,7 +181,52 @@ dsi_panel_in: endpoint {
+ 	};
+ };
+ 
++&gpioa {
++	bootph-all;
++};
++
++&gpiob {
++	bootph-all;
++};
++
++&gpioc {
++	bootph-all;
++};
++
++&gpiod {
++	bootph-all;
++};
++
++&gpioe {
++	bootph-all;
++};
++
++&gpiof {
++	bootph-all;
++};
++
++&gpiog {
++	bootph-all;
++};
++
++&gpioh {
++	bootph-all;
++};
++
++&gpioi {
++	bootph-all;
++};
++
++&gpioj {
++	bootph-all;
++};
++
++&gpiok {
++	bootph-all;
++};
++
+ &ltdc {
++	bootph-all;
+ 	status = "okay";
+ 
+ 	port {
+@@ -191,10 +236,26 @@ ltdc_out_dsi: endpoint {
+ 	};
+ };
+ 
++&pinctrl {
++	bootph-all;
++};
++
++&pwrcfg {
++	bootph-all;
++};
++
++&rcc {
++	bootph-all;
++};
++
+ &rtc {
+ 	status = "okay";
+ };
+ 
++&syscfg {
++	bootph-all;
++};
++
+ &timers1 {
+ 	status = "okay";
+ 
+@@ -238,6 +299,7 @@ &timers5 {
+ 	/* Override timer5 to act as clockevent */
+ 	compatible = "st,stm32-timer";
+ 	interrupts = <50>;
++	bootph-all;
+ 	status = "okay";
+ 	/delete-property/#address-cells;
+ 	/delete-property/#size-cells;
+@@ -252,6 +314,16 @@ &usart3 {
+ 	status = "okay";
+ };
+ 
++&usart3_pins_a	{
++	bootph-all;
++	pins1 {
++		bootph-all;
++	};
++	pins2 {
++		bootph-all;
++	};
++};
++
+ &usbotg_fs {
+ 	dr_mode = "host";
+ 	pinctrl-0 = <&usbotg_fs_pins_a>;
 
 -- 
---
-Thomas Zimmermann
-Graphics Driver Developer
-SUSE Software Solutions Germany GmbH
-Frankenstr. 146, 90461 Nürnberg, Germany, www.suse.com
-GF: Jochen Jaser, Andrew McDonald, Werner Knoblich, (HRB 36809, AG Nürnberg)
-
+2.43.0
 
 
