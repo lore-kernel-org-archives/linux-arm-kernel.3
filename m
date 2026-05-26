@@ -4,67 +4,126 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 5B535CD5BD0
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 26 May 2026 22:32:51 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id D7B39CD5BD5
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 26 May 2026 22:36:49 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=cHAkb9ussuW/gFMo+6tUXK1GuaNMsXBey6vyC2VXx6o=; b=orwkmp2Yi9jn+5dSDqAdloSUyX
-	zW0UvaMP6cdKXjnkgyLStaxHui3zOvYrI/rUBsS7hVq3dZ8yqPddf6xAUd4h0NY/3oTW8GkDAh2bx
-	czjJaZBJZgkXDDzh897CNnoK87S9n6zvfLEXBJteCnjVo1rwJeUv6Sm5I2m9zpSgWpOl9d/4W7s4N
-	XT+LI8H8CFzxt/N0cP14sH4xfOZVZakZDOLRWHXO4esqRJtrAhkaWRCt15LPAV+lOgJ+KKcOD1wQu
-	IDD63/mRBmYQKV+ut60GeUY1ehfabYFC5h+vDqEzPXrZs6jVddmUw/1up7m0yMp66PLRXK5Ul2/70
-	hGotzt5Q==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:In-Reply-To:References:CC:To:From:Subject:MIME-Version:Date:
+	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=/xlSn/ASZpIQh0ZYHGii0yx1BE+FrhF+Z/Y9aY230zY=; b=ofb4HZqAl6niZf/Wi7h8FZ9koG
+	IkuA27pmA1N8EQBZuSGeuhtZ45x1nDdnDxQIZct+MV/fRbaR+NwQhNtmiblgFbAESgpl3yfHCC4Jo
+	6FjG56JOKFN2MM+jM85U8r+LgNNhE8CkT0elv6l8jaAHXc1ySggNLLSOmwcM+urksKl1gPVpMT0hP
+	XTt+qOEm1yamjvL0HQWpbgE2uuYeKaK3ODJkF+Pa43aTdgtvjcAEA3l0q3cY0AauuWU32n8p7GTzp
+	e6Y7lB1aYkNQm/pmJN6as2AP+m6QBgC8t9qxbmD1F9K++FHYGWnLTG2xdSCXngWvAKT3BHyBaxrrG
+	ZNUAS3Hw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wS0KK-000000031UD-2vgZ;
-	Tue, 26 May 2026 22:32:44 +0000
-Received: from foss.arm.com ([217.140.110.172])
-	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wS0KI-000000031Tj-0EGL
+	id 1wS0O9-000000031e2-0UHm;
+	Tue, 26 May 2026 22:36:41 +0000
+Received: from mail-southcentralusazon11011054.outbound.protection.outlook.com ([40.93.194.54] helo=SN4PR0501CU005.outbound.protection.outlook.com)
+	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
+	id 1wS0O4-000000031dV-1jJ5
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 26 May 2026 22:32:43 +0000
-Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
-	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id C32B31477;
-	Tue, 26 May 2026 15:32:34 -0700 (PDT)
-Received: from thinkpad-e142931.arm.com (usa-sjc-imap-foss1.foss.arm.com [10.121.207.14])
-	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id 84A2F3F7B4;
-	Tue, 26 May 2026 15:32:34 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=simple/simple; d=arm.com; s=foss;
-	t=1779834759; bh=CnTQg5Em7qbBD++2a2OXx4PHl2fVqQrbo8tj+7BfMfE=;
-	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
-	b=tjPO0vqvFaiqqgm2BzZR61freoSwDS6m3d5vKVc3BssrtXVrDDk0deeUcyaFJU3lb
-	 d18sTjnUlknydHfl3/deJeRP+vEMiR8ZprN3nTWc6ut3gP080bGKC5nkGEeGRn1zGz
-	 e7pNvwYOU5G9i2n4UltF+BZTABbIvNnbpcHhqv4Q=
-Date: Tue, 26 May 2026 23:32:28 +0100
-From: Wei-Lin Chang <weilin.chang@arm.com>
-To: Steven Price <steven.price@arm.com>, kvm@vger.kernel.org, 
-	kvmarm@lists.linux.dev
-Cc: Catalin Marinas <catalin.marinas@arm.com>, 
-	Marc Zyngier <maz@kernel.org>, Will Deacon <will@kernel.org>, James Morse <james.morse@arm.com>, 
-	Oliver Upton <oliver.upton@linux.dev>, Suzuki K Poulose <suzuki.poulose@arm.com>, 
-	Zenghui Yu <yuzenghui@huawei.com>, linux-arm-kernel@lists.infradead.org, 
-	linux-kernel@vger.kernel.org, Joey Gouly <joey.gouly@arm.com>, 
-	Alexandru Elisei <alexandru.elisei@arm.com>, Christoffer Dall <christoffer.dall@arm.com>, 
-	Fuad Tabba <tabba@google.com>, linux-coco@lists.linux.dev, 
-	Ganapatrao Kulkarni <gankulkarni@os.amperecomputing.com>, Gavin Shan <gshan@redhat.com>, 
-	Shanker Donthineni <sdonthineni@nvidia.com>, Alper Gun <alpergun@google.com>, 
-	"Aneesh Kumar K . V" <aneesh.kumar@kernel.org>, Emi Kisanuki <fj0570is@fujitsu.com>, 
-	Vishal Annapurve <vannapurve@google.com>, Lorenzo.Pieralisi2@arm.com
-Subject: Re: [PATCH v14 17/44] arm64: RMI: RTT tear down
-Message-ID: <mpesc2j3czpunbg3pvgwbotvfn7vahaabvoiu77vd2g5uervho@255lwycekmxh>
-References: <20260513131757.116630-1-steven.price@arm.com>
- <20260513131757.116630-18-steven.price@arm.com>
+	Tue, 26 May 2026 22:36:39 +0000
+ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
+ b=RxQf2RUW7fPTOzh535xI/RZYL8Tw8l9qthiNB/vZXKc1vQkCIcLDy0Ztrog3oUfsToEuMlQTX0yC7QYwomvVqbgEBgdL+Ggt57EAGiYeY3qaAsqYEwmy4GlK1o3+Cu6+8FyU2v3qcSozAs/yifYRbfvq0xFRurt0ZMa3cTIbzrDUKFtT0DpXIBBXEQMj3Hfe8e6VrrOcZyp72+4rUMLUukihpI/XuuZv/bw2uo1f/lwUoY9qq0xX4Lpg//U4xXFfWCe79CeJ0GpHP3jI4T936EEnbP4zn5NcG61harMDuWJelRiqF4KUP2pOgqD5iIovtqj/SZDecYBV+3SvWZ5y+A==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
+ s=arcselector10001;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
+ bh=/xlSn/ASZpIQh0ZYHGii0yx1BE+FrhF+Z/Y9aY230zY=;
+ b=VcF45LY3zmdbxHIOFWIr5RXYjMPjjSgkqQQgeXU5BN8lEPVp8QHrygE+J6CWy7jYMqLPaTmUqd614iEWHrEECsSZlhbJYZmbKFcUY5JzfmmZuwRtwnIeI7IFpPbcn+7EjEhBdnjSUKTmCNS2w0iI+WkCk95+ao9UMH3BaAR8uIxcoq/bREYqwpNPynLOip2CVQB2rNTqSn3EkRBAdNf2nRrxrKUehFO8zL3ENZFfL572nbn8S1hs3BpCkwHHxoqnbxwnYyGVH+U6TUVg5R1lOtTkDtNcFurXv6yZXeoP+498fgq1IR6GC2GjYrxuc/IJmQrwEmiSg0UWlhtrDVuPnA==
+ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass (sender ip is
+ 198.47.23.195) smtp.rcpttodomain=gmail.com smtp.mailfrom=ti.com; dmarc=pass
+ (p=quarantine sp=none pct=100) action=none header.from=ti.com; dkim=none
+ (message not signed); arc=none (0)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=ti.com; s=selector1;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
+ bh=/xlSn/ASZpIQh0ZYHGii0yx1BE+FrhF+Z/Y9aY230zY=;
+ b=jCvw7guZ0u3dpiakLCTMwxn7/275B0X18sGYDIG+y/n0b4YctrxNNBtFLxcfSub50bkE1acGo9nBzAmENeyfT/x0yjfWlj2DE67nGqpm5GxYIl1wffluOHdk9vTUpc5mwT2XA4MlUjOApzj2qMVCS0RtsNJHE5JjqQo6JWZ0/4o=
+Received: from BL0PR05CA0005.namprd05.prod.outlook.com (2603:10b6:208:91::15)
+ by PH0PR10MB997667.namprd10.prod.outlook.com (2603:10b6:510:382::9) with
+ Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.21.48.20; Tue, 26 May
+ 2026 22:36:30 +0000
+Received: from MN1PEPF0000ECD9.namprd02.prod.outlook.com
+ (2603:10b6:208:91:cafe::a5) by BL0PR05CA0005.outlook.office365.com
+ (2603:10b6:208:91::15) with Microsoft SMTP Server (version=TLS1_3,
+ cipher=TLS_AES_256_GCM_SHA384) id 15.21.71.12 via Frontend Transport; Tue, 26
+ May 2026 22:36:30 +0000
+X-MS-Exchange-Authentication-Results: spf=pass (sender IP is 198.47.23.195)
+ smtp.mailfrom=ti.com; dkim=none (message not signed) header.d=none;dmarc=pass
+ action=none header.from=ti.com;
+Received-SPF: Pass (protection.outlook.com: domain of ti.com designates
+ 198.47.23.195 as permitted sender) receiver=protection.outlook.com;
+ client-ip=198.47.23.195; helo=lewvzet201.ext.ti.com; pr=C
+Received: from lewvzet201.ext.ti.com (198.47.23.195) by
+ MN1PEPF0000ECD9.mail.protection.outlook.com (10.167.242.138) with Microsoft
+ SMTP Server (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
+ 15.21.71.7 via Frontend Transport; Tue, 26 May 2026 22:36:30 +0000
+Received: from DLEE215.ent.ti.com (157.170.170.118) by lewvzet201.ext.ti.com
+ (10.4.14.104) with Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.2.2562.37; Tue, 26 May
+ 2026 17:36:29 -0500
+Received: from DLEE209.ent.ti.com (157.170.170.98) by DLEE215.ent.ti.com
+ (157.170.170.118) with Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.2.2562.37; Tue, 26 May
+ 2026 17:36:29 -0500
+Received: from lelvem-mr05.itg.ti.com (10.180.75.9) by DLEE209.ent.ti.com
+ (157.170.170.98) with Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.2.2562.37 via Frontend
+ Transport; Tue, 26 May 2026 17:36:29 -0500
+Received: from [128.247.81.105] (judy-hp.dhcp.ti.com [128.247.81.105])
+	by lelvem-mr05.itg.ti.com (8.18.1/8.18.1) with ESMTP id 64QMaTXR2333587;
+	Tue, 26 May 2026 17:36:29 -0500
+Message-ID: <1d62e614-084b-456d-823b-21fc7d78c0c9@ti.com>
+Date: Tue, 26 May 2026 17:36:29 -0500
 MIME-Version: 1.0
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-In-Reply-To: <20260513131757.116630-18-steven.price@arm.com>
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH v4 2/3] arm64: dts: ti: Add k3-am62l3-beaglebadge
+From: Judith Mendez <jm@ti.com>
+To: Nishanth Menon <nm@ti.com>
+CC: Vignesh Raghavendra <vigneshr@ti.com>, Tero Kristo <kristo@kernel.org>,
+	Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>,
+	Conor Dooley <conor+dt@kernel.org>, <linux-arm-kernel@lists.infradead.org>,
+	<devicetree@vger.kernel.org>, <linux-kernel@vger.kernel.org>, Andrew Davis
+	<afd@ti.com>, Bryan Brattlof <bb@ti.com>, Jason Kridner <jkridner@gmail.com>,
+	Robert Nelson <robertcnelson@gmail.com>
+References: <20260515153541.294698-1-jm@ti.com>
+ <20260515153541.294698-3-jm@ti.com>
+ <20260518131137.zazw4xf6n7ftil6l@predator>
+ <3c4c5104-97c4-4d5d-8bb4-21332e39c707@ti.com>
+Content-Language: en-US
+In-Reply-To: <3c4c5104-97c4-4d5d-8bb4-21332e39c707@ti.com>
+Content-Type: text/plain; charset="UTF-8"; format=flowed
+Content-Transfer-Encoding: 8bit
+X-C2ProcessedOrg: 333ef613-75bf-4e12-a4b1-8e3623f5dcea
+X-EOPAttributedMessage: 0
+X-MS-PublicTrafficType: Email
+X-MS-TrafficTypeDiagnostic: MN1PEPF0000ECD9:EE_|PH0PR10MB997667:EE_
+X-MS-Office365-Filtering-Correlation-Id: 49f27f0b-0b75-40b2-6afe-08debb773b31
+X-LD-Processed: e5b49634-450b-4709-8abb-1e2b19b982b7,ExtAddr
+X-MS-Exchange-SenderADCheck: 1
+X-MS-Exchange-AntiSpam-Relay: 0
+X-Microsoft-Antispam: BCL:0;ARA:13230040|1800799024|376014|82310400026|36860700016|13003099007|22082099003|18002099003|56012099006|3023799007|4143699003;
+X-Microsoft-Antispam-Message-Info: 3357JyNefJQja9auSZwHN/bBUds+HTUQPN2Bud0oGepd1j+wioRsQ6xbRYvvcyaxXKESIdS7SRGv9lkfH5MzdOLW2EfiauIfowcfwCkMTKpZ/JBYB9m/taCMbfOhuJu7GgOy4KfHz+Z+oBK04yAvY4pxnvBjWN2fyL7F61QguE5xfTBAjGjYcxTU0Q2xhBzO2cj3u6rIsP+NF8dT2C8AoEAQmO0YPfegxDEu8DSX2UzEF37ENKaoYK9qFbF28t+y9Zn4dahMtAhFrHTdrQLwzwBHakh6QfS+snkSuBxjJRFLOKknd0YRpY8OVFgQAlcRWf1p+oaCZsByc9p/oCdst1PL9AiGLrLvSsXKHBu180La0qGLHiU5/PLg9OArCcRfgSk7wDqDQBCM0UB2O9u0QfMChBlLSoYIHER+7PxQFfy90dg2XmWRWD/kpOB1bPaOvzr9PM1pB3zfNmyVImEhqFnxC64h88j49buVsKm2KUBiSkvJ0gdSNA9Y3NjQuEYXWAsmqeUN6xKQn1SWXIC7eu9uUj3he9qXbqloTzk9II9rcZyHx9oSvJfdPY3eswTNAZt3xQsYW2lPC1sxi3f+0nbFOmuJcTbKR36geTd3JEEiUNM5CmIJCwOdUeWJgjO0g0/DlFgjSFsjTXLO2Tb9k2SVsmEJE+yAWzw4P3cYMIGCHo52KCvgDznyz6+3TSQn
+X-Forefront-Antispam-Report: CIP:198.47.23.195;CTRY:US;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:lewvzet201.ext.ti.com;PTR:InfoDomainNonexistent;CAT:NONE;SFS:(13230040)(1800799024)(376014)(82310400026)(36860700016)(13003099007)(22082099003)(18002099003)(56012099006)(3023799007)(4143699003);DIR:OUT;SFP:1101;
+X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
+X-MS-Exchange-AntiSpam-MessageData-0: jGYK5rOIhIc0Uh7pzWQ/wIIH6sFqUK1qo1UGYdB81HffxgGdjuybi7gClz4A581YBvMI74efbxz8hku8RoBZyu2nuh251dhh9O3XqL0v4pHmUY0vSOy7L5MtpfchY4LLV3SCdI+V8fKjA+wv5Unz7RDouEEc6VKFMY0ubJd/oLoesfhst8HvDiRfRNsHLSVIvFFIIgAtdoVm+BnK2o7N0uWL+ff9WlpOTsVXHwITheXs0Dc6QuYo7v2fKZo/bNOxzUA/ajHBt8mZcTL4xbRtf53p+V/AlAo3DnpKp88DAHrDB7fvMiLz7Y2ioBHZF/MrVn7a8Hy6pEkscd2u2sU25h/JMZucWEziq6ypNaOfMMLXJzwnoSGdBxPKyDsFluv7uHsyW0efaMbH5sgblhKaq2JRYkkoviIvYy/zcvIrXvDuyd9Iml32C+z9v4sOT72g
+X-OriginatorOrg: ti.com
+X-MS-Exchange-CrossTenant-OriginalArrivalTime: 26 May 2026 22:36:30.0510
+ (UTC)
+X-MS-Exchange-CrossTenant-Network-Message-Id: 49f27f0b-0b75-40b2-6afe-08debb773b31
+X-MS-Exchange-CrossTenant-Id: e5b49634-450b-4709-8abb-1e2b19b982b7
+X-MS-Exchange-CrossTenant-OriginalAttributedTenantConnectingIp: TenantId=e5b49634-450b-4709-8abb-1e2b19b982b7;Ip=[198.47.23.195];Helo=[lewvzet201.ext.ti.com]
+X-MS-Exchange-CrossTenant-AuthSource: MN1PEPF0000ECD9.namprd02.prod.outlook.com
+X-MS-Exchange-CrossTenant-AuthAs: Anonymous
+X-MS-Exchange-CrossTenant-FromEntityHeader: HybridOnPrem
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: PH0PR10MB997667
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260526_153242_184482_F92CF90B 
-X-CRM114-Status: GOOD (  36.66  )
+X-CRM114-CacheID: sfid-20260526_153636_461926_ADB09928 
+X-CRM114-Status: GOOD (  15.55  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -79,181 +138,112 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hi,
+Hi Nishanth,
 
-On Wed, May 13, 2026 at 02:17:25PM +0100, Steven Price wrote:
-> The RMM owns the stage 2 page tables for a realm, and KVM must request
-> that the RMM creates/destroys entries as necessary. The physical pages
-> to store the page tables are delegated to the realm as required, and can
-> be undelegated when no longer used.
+On 5/26/26 4:53 PM, Judith Mendez wrote:
+> On 5/18/26 8:11 AM, Nishanth Menon wrote:
+>> On 10:35-20260515, Judith Mendez wrote:
+>>> BeagleBoard.org BeagleBadge is a compact, affordable open source
+>>> hardware single board computer based on the Texas Instruments AM62L3
+>>> SoC designed for IoT and embedded applications with low power
+>>> consumption. Expansion is provided over open standards based headers
+>>> including QWIIC and GPIO interfaces.
+>>>
+>>> https://github.com/beagleboard/BeagleBadge
+>>
+>> Why not use https://www.beagleboard.org/boards/beaglebadge ?
 > 
-> Creating new RTTs is the easy part, tearing down is a little more
-> tricky. The result of realm_rtt_destroy() can be used to effectively
-> walk the tree and destroy the entries (undelegating pages that were
-> given to the realm).
+> Will switch link
 > 
-> Signed-off-by: Steven Price <steven.price@arm.com>
-> ---
-> Changes since v13:
->  * Avoid the double call of kvm_free_stage2_pgd() by splitting the work
->    across that and a new function kvm_realm_uninit_stage2() which is
->    only called for realm guests.
-> Changes since v12:
->  * Simplify some functions now we know RMM page size is the same as the
->    host's.
-> Changes since v11:
->  * Moved some code from earlier in the series to this one so that it's
->    added when it's first used.
-> Changes since v10:
->  * RME->RMI rename.
->  * Some code to handle freeing stage 2 PGD moved into this patch where
->    it belongs.
-> Changes since v9:
->  * Add a comment clarifying that root level RTTs are not destroyed until
->    after the RD is destroyed.
-> Changes since v8:
->  * Introduce free_rtt() wrapper which calls free_delegated_granule()
->    followed by kvm_account_pgtable_pages(). This makes it clear where an
->    RTT is being freed rather than just a delegated granule.
-> Changes since v6:
->  * Move rme_rtt_level_mapsize() and supporting defines from kvm_rme.h
->    into rme.c as they are only used in that file.
-> Changes since v5:
->  * Rename some RME_xxx defines to do with page sizes as RMM_xxx - they are
->    a property of the RMM specification not the RME architecture.
-> Changes since v2:
->  * Moved {alloc,free}_delegated_page() and ensure_spare_page() to a
->    later patch when they are actually used.
->  * Some simplifications now rmi_xxx() functions allow NULL as an output
->    parameter.
->  * Improved comments and code layout.
-> ---
->  arch/arm64/include/asm/kvm_rmi.h |   7 ++
->  arch/arm64/kvm/mmu.c             |  21 ++++-
->  arch/arm64/kvm/rmi.c             | 148 +++++++++++++++++++++++++++++++
->  3 files changed, 174 insertions(+), 2 deletions(-)
+>>>
+>>> Co-developed-by: Andrew Davis <afd@ti.com>
+>>> Signed-off-by: Andrew Davis <afd@ti.com>
+>>> Signed-off-by: Judith Mendez <jm@ti.com>
+>>> ---
+>>> Changelog since v3:
+>>> - Add missing newline in commit message
+>>> - Drop beagleboard URL
+>>> - Drop uneeded header files
+>>> - Add boothph flags in wkup_i2c0 & PMC nodes
+>>> ---
+>>>   arch/arm64/boot/dts/ti/Makefile               |   1 +
+>>>   .../boot/dts/ti/k3-am62l3-beaglebadge.dts     | 700 ++++++++++++++++++
+>>>   2 files changed, 701 insertions(+)
+>>>   create mode 100644 arch/arm64/boot/dts/ti/k3-am62l3-beaglebadge.dts
+>>>
+>>> diff --git a/arch/arm64/boot/dts/ti/Makefile b/arch/arm64/boot/dts/ 
+>>> ti/Makefile
+>>> index 5269c9619b65c..4e377ca011cd8 100644
+>>> --- a/arch/arm64/boot/dts/ti/Makefile
+>>> +++ b/arch/arm64/boot/dts/ti/Makefile
+>>> @@ -41,6 +41,7 @@ dtb-$(CONFIG_ARCH_K3) += k3-am62d2-evm.dtb
+>>>   # Boards with AM62Lx SoCs
+>>>   dtb-$(CONFIG_ARCH_K3) += k3-am62l3-evm.dtb
+>>> +dtb-$(CONFIG_ARCH_K3) += k3-am62l3-beaglebadge.dtb
+>>>   # Boards with AM62Px SoC
+>>>   dtb-$(CONFIG_ARCH_K3) += k3-am62p5-sk.dtb
+>>> diff --git a/arch/arm64/boot/dts/ti/k3-am62l3-beaglebadge.dts b/arch/ 
+>>> arm64/boot/dts/ti/k3-am62l3-beaglebadge.dts
+>>> new file mode 100644
+>>> index 0000000000000..30fc9c83b1f44
+>>> --- /dev/null
+>>> +++ b/arch/arm64/boot/dts/ti/k3-am62l3-beaglebadge.dts
+>>> @@ -0,0 +1,700 @@
+>>> +// SPDX-License-Identifier: GPL-2.0
+>>> +/*
+>>> + * https://www.beagleboard.org/boards/beaglebadge
+>>> + *
+>>> + * Copyright (C) 2026 Texas Instruments Incorporated - https:// 
+>>> www.ti.com/
+>>
+>> Seeing the tags, I assume no BeagleBoard.org member contributions?
 > 
-> diff --git a/arch/arm64/include/asm/kvm_rmi.h b/arch/arm64/include/asm/kvm_rmi.h
-> index 9de34983ee52..06ba0d4745c6 100644
-> --- a/arch/arm64/include/asm/kvm_rmi.h
-> +++ b/arch/arm64/include/asm/kvm_rmi.h
-> @@ -64,5 +64,12 @@ u32 kvm_realm_ipa_limit(void);
->  
->  int kvm_init_realm(struct kvm *kvm);
->  void kvm_destroy_realm(struct kvm *kvm);
-> +void kvm_realm_destroy_rtts(struct kvm *kvm);
-> +
-> +static inline bool kvm_realm_is_private_address(struct realm *realm,
-> +						unsigned long addr)
-> +{
-> +	return !(addr & BIT(realm->ia_bits - 1));
-> +}
->  
->  #endif /* __ASM_KVM_RMI_H */
-> diff --git a/arch/arm64/kvm/mmu.c b/arch/arm64/kvm/mmu.c
-> index ba8286472286..eb56d4e7f21a 100644
-> --- a/arch/arm64/kvm/mmu.c
-> +++ b/arch/arm64/kvm/mmu.c
-> @@ -1024,9 +1024,26 @@ int kvm_init_stage2_mmu(struct kvm *kvm, struct kvm_s2_mmu *mmu, unsigned long t
->  	return err;
->  }
->  
-> +static void kvm_realm_uninit_stage2(struct kvm_s2_mmu *mmu)
-> +{
-> +	struct kvm *kvm = kvm_s2_mmu_to_kvm(mmu);
-> +	struct realm *realm = &kvm->arch.realm;
-> +
-> +	if (kvm_realm_state(kvm) != REALM_STATE_ACTIVE)
-> +		return;
-> +
-> +	write_lock(&kvm->mmu_lock);
-> +	kvm_stage2_unmap_range(mmu, 0, BIT(realm->ia_bits - 1), true);
-> +	write_unlock(&kvm->mmu_lock);
-> +	kvm_realm_destroy_rtts(kvm);
-> +}
-> +
->  void kvm_uninit_stage2_mmu(struct kvm *kvm)
->  {
-> -	kvm_free_stage2_pgd(&kvm->arch.mmu);
-> +	if (kvm_is_realm(kvm))
-> +		kvm_realm_uninit_stage2(&kvm->arch.mmu);
-> +	else
-> +		kvm_free_stage2_pgd(&kvm->arch.mmu);
->  	kvm_mmu_free_memory_cache(&kvm->arch.mmu.split_page_cache);
->  }
->  
-> @@ -1103,7 +1120,7 @@ void stage2_unmap_vm(struct kvm *kvm)
->  void kvm_free_stage2_pgd(struct kvm_s2_mmu *mmu)
->  {
->  	struct kvm *kvm = kvm_s2_mmu_to_kvm(mmu);
-> -	struct kvm_pgtable *pgt = NULL;
-> +	struct kvm_pgtable *pgt;
->  
->  	write_lock(&kvm->mmu_lock);
->  	pgt = mmu->pgt;
-> diff --git a/arch/arm64/kvm/rmi.c b/arch/arm64/kvm/rmi.c
-> index f51ec667445e..5b00ccca4af3 100644
-> --- a/arch/arm64/kvm/rmi.c
-> +++ b/arch/arm64/kvm/rmi.c
-> @@ -11,6 +11,14 @@
->  #include <asm/rmi_cmds.h>
->  #include <asm/virt.h>
->  
-> +static inline unsigned long rmi_rtt_level_mapsize(int level)
-> +{
-> +	if (WARN_ON(level > KVM_PGTABLE_LAST_LEVEL))
-> +		return PAGE_SIZE;
-> +
-> +	return (1UL << ARM64_HW_PGTABLE_LEVEL_SHIFT(level));
-> +}
-> +
->  static bool rmi_has_feature(unsigned long feature)
->  {
->  	return !!u64_get_bits(rmm_feat_reg0, feature);
-> @@ -21,6 +29,144 @@ u32 kvm_realm_ipa_limit(void)
->  	return u64_get_bits(rmm_feat_reg0, RMI_FEATURE_REGISTER_0_S2SZ);
->  }
->  
-> +static int get_start_level(struct realm *realm)
-> +{
-> +	return 4 - stage2_pgtable_levels(realm->ia_bits);
-> +}
-> +
-> +static void free_rtt(phys_addr_t phys)
-> +{
-> +	if (free_delegated_page(phys))
-> +		return;
-> +
-> +	kvm_account_pgtable_pages(phys_to_virt(phys), -1);
-> +}
-> +
-> +/*
-> + * realm_rtt_destroy - Destroy an RTT at @level for @addr.
-> + *
-> + * Returns - Result of the RMI_RTT_DESTROY call, and:
-> + * @rtt_granule:	RTT granule, if the RTT was destroyed.
-> + * @next_addr:		IPA corresponding to the next possible valid entry we
-> + *			can target
-> + */
-> +static int realm_rtt_destroy(struct realm *realm, unsigned long addr,
-> +			     int level, phys_addr_t *rtt_granule,
-> +			     unsigned long *next_addr)
-> +{
-> +	unsigned long out_rtt;
-> +	int ret;
-> +
-> +	ret = rmi_rtt_destroy(virt_to_phys(realm->rd), addr, level,
-> +			      &out_rtt, next_addr);
-> +
-> +	*rtt_granule = out_rtt;
-> +
-> +	return ret;
-> +}
+> Not yet ^.^
+> 
+>>
+>>> + */
+>>> +
+>>> +/dts-v1/;
+>>> +
+>>> +#include <dt-bindings/gpio/gpio.h>
+>>> +#include <dt-bindings/input/input.h>
+>>> +#include <dt-bindings/leds/common.h>
+>>> +#include "k3-am62l3.dtsi"
+>>> +#include "k3-pinctrl.h"
+>>> +
+>>> +/ {
+>>> +    compatible = "beagle,am62l3-beaglebadge", "ti,am62l3";
+>>> +    model = "BeagleBoard.org BeagleBadge";
+>>> +
+>>> +    chosen {
+>>> +        stdout-path = &uart0;
+>>> +    };
+>>> +
+>>> +    aliases {
+>>> +        gpio0 = &gpio0;
+>>> +        gpio2 = &wkup_gpio0;
+>>> +        i2c0 = &i2c0;
+>>> +        i2c1 = &i2c1;
+>>> +        i2c2 = &i2c2;
+>>> +        i2c4 = &wkup_i2c0;
+>>> +        mmc1 = &sdhci1;
+>>> +        mmc2 = &sdhci2;
+>>> +        serial3 = &uart1;
+>>> +        usb0 = &usb0;
+>>> +        usb1 = &usb1;
+>>
+>> is this valid?
+>> git grep of_alias_ driver/usb/
+>>
+>> am I missing something?
 
-Looks like out_rtt can be simplified out.
 
-[...]
+Missed this one, actually I had originally copied alias list from 
+beagleplay [0], but checking once, seems like these aliases are not
+needed, so will remove for Badge & beagleplay as well.
 
-Thanks,
-Wei-Lin Chang
+~ Judith
+
+...
+
 
