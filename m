@@ -4,65 +4,76 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id D5DFECD5BD2
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 26 May 2026 21:29:21 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 0A3F0CD5BD5
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 26 May 2026 21:52:57 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=QzwgwypkHaL96nsdzAkl5yH0GD0dCTKW1kcyCj3G6qA=; b=GnN/OOtgliJKR/I9/1KXd9z0xd
-	7pQmXT1TWWlAB+bwX0jaqwR6hFqOaKPFU9ucxQBb9q2GE/Bx0fMWuAHJ7IxtiKvChMFqIRmJfm03K
-	2kddX92ZHeyCBFnQffvYrf547xjd3zSXsGMkBNxVB8VLYVC5UuJX+sLYvTZo8g5xTqv7tUI8IWnc6
-	GEPZr8BK7pjd9s4anOMux+YZZPZas3YoCqL6OOIr9TXR7fmUBnKgzpXgmf+W8V2uSv0zoTYiEsaoa
-	ZnycVlyC56zSx/iKdeU6CdOX5w9WYp9Uz8NbVAAIbzMw8jT1ovAmE8w68c7vxOydT/qMALisBhixu
-	KR7KjocA==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:Cc:To:Subject:Message-ID:Date:From:In-Reply-To:References:
+	MIME-Version:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=vofwtLagvBRYkOYwKOjHnTeC6C87g7YP3KZhbzyhI3Q=; b=zFoaKTmSnT5wYn2qLvqh0KughV
+	OO8AA3z+JbP9QcJRaAdWABCsjBAoRaGAhyRV4ijhoO1Y/6eoeUMc/S6BIwXXun9qSTRPLUseOxiba
+	L0Bq4LdC99QVT/5QRxeAQUcnJklVIDxdGRL5J1ChLrq04swq/ebkJbzxzwHKOhII5WHjaHB2jGI/5
+	xkMiWs/zh9OX7z55gFcnlk+n0haVCkV33Rp0gR2WT9BA2slPTblVyDnYHdJ7Olg3HPMCfvPOx4IlN
+	E2pyGfLrQfYXtTquYWvBNYrJv5x1We6Xnr2QDGWJhRy8ayn0uP1BP6YdibUKqsnrW6WoKvSx91ACT
+	mFPpnq0g==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wRz0g-00000002xvH-2asX;
-	Tue, 26 May 2026 21:08:22 +0000
-Received: from sea.source.kernel.org ([172.234.252.31])
+	id 1wRzhg-0000000301v-3l7G;
+	Tue, 26 May 2026 21:52:48 +0000
+Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wRz0d-00000002xuc-0iXy;
-	Tue, 26 May 2026 21:08:20 +0000
+	id 1wRzhe-0000000300w-2oOi
+	for linux-arm-kernel@lists.infradead.org;
+	Tue, 26 May 2026 21:52:47 +0000
 Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
-	by sea.source.kernel.org (Postfix) with ESMTP id 48A7340D7F;
-	Tue, 26 May 2026 21:08:17 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id A20151F000E9;
-	Tue, 26 May 2026 21:08:16 +0000 (UTC)
+	by sea.source.kernel.org (Postfix) with ESMTP id DEAEB441DF
+	for <linux-arm-kernel@lists.infradead.org>; Tue, 26 May 2026 21:52:45 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id C6B7C1F00A3F
+	for <linux-arm-kernel@lists.infradead.org>; Tue, 26 May 2026 21:52:45 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1779829697;
-	bh=QzwgwypkHaL96nsdzAkl5yH0GD0dCTKW1kcyCj3G6qA=;
-	h=Date:From:To:Cc:Subject:References:In-Reply-To;
-	b=hHknQda5xEYsK9IBnCJXCvpT/FS27W7drakg0GHskeVSZn3m8q0ZmlNMkcyN5h5YA
-	 xhdm2eb6Kscy68HoKwokIZwV2L0HeGQBunFBGntDQr08jbMfr/gTrhBJfxzOT41nsZ
-	 tFLfzr9nBhUwUXNS6QWyfM25blqoolgKL10jc3mJdn3i4Wkw2KThlx8zEwv999YSie
-	 wbs5eXxXfCzy7MT7epDG9kC729+BkZYxdMRal8G/kOKFc/hpDZRRFli5njkIPfGi6e
-	 OemMvy2bVODCYRN+x7au9+WjbNqWRWuJSg3jcBT3KVxTNjyDhl1I9j0z9zNBMl8wCE
-	 xH8AmfaG2r4kg==
-Date: Tue, 26 May 2026 23:08:14 +0200
-From: Lorenzo Bianconi <lorenzo@kernel.org>
-To: Alexander Lobakin <aleksander.lobakin@intel.com>
-Cc: Andrew Lunn <andrew+netdev@lunn.ch>,
-	"David S. Miller" <davem@davemloft.net>,
-	Eric Dumazet <edumazet@google.com>,
-	Jakub Kicinski <kuba@kernel.org>, Paolo Abeni <pabeni@redhat.com>,
-	linux-arm-kernel@lists.infradead.org,
-	linux-mediatek@lists.infradead.org, netdev@vger.kernel.org,
-	Madhur Agrawal <madhur.agrawal@airoha.com>
-Subject: Re: [PATCH RFC net-next v2] net: airoha: Add TCP LRO support
-Message-ID: <ahYLvlIYH60cvkWB@lore-desk>
-References: <20260526-airoha-eth-lro-v2-1-24e2a9e7a397@kernel.org>
- <7473204e-2ccd-44d8-b703-5a5dbcb29b61@intel.com>
+	s=k20260515; t=1779832365;
+	bh=vofwtLagvBRYkOYwKOjHnTeC6C87g7YP3KZhbzyhI3Q=;
+	h=References:In-Reply-To:From:Date:Subject:To:Cc;
+	b=JvySodVWkZ4MM3tRJ8YS99NO8G7r2QGWchQgjJs/N+v4T2fakaO4nQDdnRKzeIqTT
+	 twW0FxpXffz7ntaZsc3O/ISWeFOfVsNb/x05burAQaCV9x0p4/oCBx+unOrZNDKiKH
+	 l9eEs/xvzHk7ZO9LGKRzD+wyhYk/qRZhK5KF4wg+jKuzkyANdqT3/0CZ70KJQmgnhs
+	 zZQSlPOBMLaWKn7O7IGnTpnQLYT/fNAPwTGi9bD8J0K1DlMF127mpbMjHwpWu/C29v
+	 j8kQ4+Ada+sfRBKhvdrHvYOoaCl3yhfcJa5ke+GxzVVmXHgt06pmnxndTucORDzD0u
+	 JP8bxaosMVwHg==
+Received: by mail-lj1-f180.google.com with SMTP id 38308e7fff4ca-395f24a5f2cso32339361fa.2
+        for <linux-arm-kernel@lists.infradead.org>; Tue, 26 May 2026 14:52:45 -0700 (PDT)
+X-Forwarded-Encrypted: i=1; AFNElJ+go6Rf83yV/kklpr61saNR3xRqzr9cI9MD/2mdTXAZXuc4pQYB/cZ2i9otXMtfWeznYw/ZZe35985pdUAxXAZr@lists.infradead.org
+X-Gm-Message-State: AOJu0Yzicsh2N8yTyij2PHmwTiG9bvuwxk3cdVxn8Yt3ODkdegrDk3ZA
+	FcOCd2sb21Rmhg/8gg+sqnCm9WzAYaqcp+tAWv2h9KGIIiqQQyxS7hjyJam54DTRYJ6JReWB2dl
+	ghmfTqT515mYoElTglBQVjJfeHUayVe4=
+X-Received: by 2002:a2e:8192:0:b0:394:2b8a:2374 with SMTP id
+ 38308e7fff4ca-395d8d3de65mr47969431fa.16.1779832364145; Tue, 26 May 2026
+ 14:52:44 -0700 (PDT)
 MIME-Version: 1.0
-Content-Type: multipart/signed; micalg=pgp-sha512;
-	protocol="application/pgp-signature"; boundary="EScZYE8yc4PJ+rAl"
-Content-Disposition: inline
-In-Reply-To: <7473204e-2ccd-44d8-b703-5a5dbcb29b61@intel.com>
+References: <20260526060841.49161-1-liujiajia@kylinos.cn>
+In-Reply-To: <20260526060841.49161-1-liujiajia@kylinos.cn>
+From: Sean Wang <sean.wang@kernel.org>
+Date: Tue, 26 May 2026 16:52:32 -0500
+X-Gmail-Original-Message-ID: <CAGp9LzqzddmyDHMNsaqigYpVEdo_Pmzwbeh5Ri5_Gr87cVL6Dg@mail.gmail.com>
+X-Gm-Features: AVHnY4JN4XiSX6iZ8nQKBZrwSnhXgkTYMQMdyt2mZqBTxzISywSnHzHgBHOFEuo
+Message-ID: <CAGp9LzqzddmyDHMNsaqigYpVEdo_Pmzwbeh5Ri5_Gr87cVL6Dg@mail.gmail.com>
+Subject: Re: [PATCH] wifi: mt76: mt7925: add wcid publish check in mt76_sta_add
+To: Jiajia Liu <liujiajia@kylinos.cn>
+Cc: Felix Fietkau <nbd@nbd.name>, Lorenzo Bianconi <lorenzo@kernel.org>, Ryder Lee <ryder.lee@mediatek.com>, 
+	Shayne Chen <shayne.chen@mediatek.com>, Sean Wang <sean.wang@mediatek.com>, 
+	Matthias Brugger <matthias.bgg@gmail.com>, 
+	AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>, 
+	Ming Yen Hsieh <mingyen.hsieh@mediatek.com>, Michael Lo <michael.lo@mediatek.com>, 
+	Leon Yen <leon.yen@mediatek.com>, linux-wireless@vger.kernel.org, 
+	linux-kernel@vger.kernel.org, linux-arm-kernel@lists.infradead.org, 
+	linux-mediatek@lists.infradead.org
+Content-Type: text/plain; charset="UTF-8"
+Content-Transfer-Encoding: quoted-printable
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260526_140819_256284_1FE2603F 
-X-CRM114-Status: GOOD (  22.91  )
+X-CRM114-CacheID: sfid-20260526_145246_753047_E98F5E00 
+X-CRM114-Status: GOOD (  26.05  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -77,177 +88,165 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
+Hi,
 
---EScZYE8yc4PJ+rAl
-Content-Type: text/plain; charset=utf-8
-Content-Disposition: inline
-Content-Transfer-Encoding: quoted-printable
+On Tue, May 26, 2026 at 1:09=E2=80=AFAM Jiajia Liu <liujiajia@kylinos.cn> w=
+rote:
+>
+> Since mt7925_mac_sta_add publishes wcid, add publish check in mt76_sta_ad=
+d
+> to avoid reinitializing the wcid->poll_list for mt7925.
+>
+> Found dev->sta_poll_list corruption when using mt7925 and 7.0-rc4.
+> According to the corruption information, prev->next was changed to itself=
+.
+>
+> wlan0: disconnect from AP 90:fb:5d:94:8b:e3 for new auth to 90:fb:5d:94:8=
+b:e2
+> wlan0: authenticate with 90:fb:5d:94:8b:e2 (local address=3D84:9e:56:9c:7=
+e:6b)
+> wlan0: send auth to 90:fb:5d:94:8b:e2 (try 1/3)
+>  slab kmalloc-8k start ffff8c80958a6000 pointer offset 4160 size 8192
+> list_add corruption. prev->next should be next (ffff8c808a7488f8), but wa=
+s ffff8c80958a7040. (prev=3Dffff8c80958a7040).
+>
+>  mt76_wcid_add_poll+0x95/0xd0 [mt76]
+>  mt7925_mac_add_txs.part.0+0xa5/0xe0 [mt7925_common]
+>  mt7925_rx_check+0xa7/0xc0 [mt7925_common]
+>  mt76_dma_rx_poll+0x50d/0x790 [mt76]
+>  mt792x_poll_rx+0x52/0xe0 [mt792x_lib]
+>
+> Signed-off-by: Jiajia Liu <liujiajia@kylinos.cn>
+> ---
+>
+> Reproduced and tested using the script below over ssh. Roam between two
+> bssids with the same SSID on a router.
+>
+> #!/bin/bash
+>
+> set -ex
+>
+> while :; do
+>         num=3D$(sudo iw wlan0 scan | grep Polaris | wc -l)
+>         if [ $num -eq 2 ]; then
+>                 break
+>         fi
+> done
+>
+> for i in $(seq 1 500); do
+>
+> echo "index $i"
+> wpa_cli -i wlan0 roam 90:fb:5d:94:8b:e3
+> sleep 5
+> wpa_cli -i wlan0 roam 90:fb:5d:94:8b:e2
+> sleep 5
+>
+> done
+>
+> ---
+>  drivers/net/wireless/mediatek/mt76/mac80211.c    | 11 ++++++++---
+>  drivers/net/wireless/mediatek/mt76/mt76.h        |  1 +
+>  drivers/net/wireless/mediatek/mt76/mt7925/main.c |  3 +++
+>  3 files changed, 12 insertions(+), 3 deletions(-)
+>
+> diff --git a/drivers/net/wireless/mediatek/mt76/mac80211.c b/drivers/net/=
+wireless/mediatek/mt76/mac80211.c
+> index 4ae5e4715a9c..83f4f941b890 100644
+> --- a/drivers/net/wireless/mediatek/mt76/mac80211.c
+> +++ b/drivers/net/wireless/mediatek/mt76/mac80211.c
+> @@ -1595,11 +1595,16 @@ mt76_sta_add(struct mt76_phy *phy, struct ieee802=
+11_vif *vif,
+>                 mtxq->wcid =3D wcid->idx;
+>         }
+>
+> -       ewma_signal_init(&wcid->rssi);
+> -       rcu_assign_pointer(dev->wcid[wcid->idx], wcid);
+> +       if (!test_bit(MT_WCID_FLAG_DRV_PUBLISH, &wcid->flags)) {
+> +               ewma_signal_init(&wcid->rssi);
+> +               rcu_assign_pointer(dev->wcid[wcid->idx], wcid);
+> +               mt76_wcid_init(wcid, phy->band_idx);
+> +       } else {
+> +               wcid->phy_idx =3D phy->band_idx;
+> +       }
+> +
+>         phy->num_sta++;
+>
 
-> From: Lorenzo Bianconi <lorenzo@kernel.org>
-> Date: Tue, 26 May 2026 08:58:05 +0200
->=20
-> > Add hardware TCP Large Receive Offload (LRO) support to the airoha_eth
-> > driver, leveraging the EN7581/AN7583 SoC's 8 dedicated LRO hardware que=
-ues
-> > mapped to RX queues 24=E2=80=9331. LRO hw offloading does not support
-> > Scatter-Gather (SG) so it is required to increase the page_pool allocat=
-ion
-> > order to 2 for RX queues 24=E2=80=9331 (LRO queues).
-> >=20
-> > Performance comparison between GRO and hw LRO has been carried out using
-> > a 10Gbps NIC:
-> >=20
-> > GRO: ~2.7 Gbps
-> > LRO: ~8.1 Gbps
-> >=20
-> > Please note with respect to the previous implementation, page_pool
-> > allocation order has been reduced from 5 to 2.
-> >=20
-> > Tested-by: Madhur Agrawal <madhur.agrawal@airoha.com>
-> > Signed-off-by: Lorenzo Bianconi <lorenzo@kernel.org>
->=20
-> [...]
->=20
-> > @@ -587,6 +630,85 @@ static int airoha_qdma_get_gdm_port(struct airoha_=
-eth *eth,
-> >  	return port >=3D ARRAY_SIZE(eth->ports) ? -EINVAL : port;
-> >  }
-> > =20
-> > +static int airoha_qdma_lro_rx_process(struct airoha_queue *q,
-> > +				      struct airoha_qdma_desc *desc)
-> > +{
-> > +	u32 desc_ctrl =3D le32_to_cpu(READ_ONCE(desc->ctrl));
-> > +	u32 msg1 =3D le32_to_cpu(READ_ONCE(desc->msg1));
-> > +	u32 msg2 =3D le32_to_cpu(READ_ONCE(desc->msg2));
-> > +	u32 msg3 =3D le32_to_cpu(READ_ONCE(desc->msg3));
->=20
-> Why are these READ_ONCE()s needed? Does desc come from the HW (sorry I
-> didn't follow the whole code flow) or...?
+Thanks for spotting the roaming issue.
 
-Correct, ctrl, msg1, msg2 and msg3 are subfields of the DMA descriptor read=
- by
-airoha_qdma_rx_process() from the NIC. I guess here we have a similar issue=
- as
-the one fixed in [0]
+I think we can avoid adding MT_WCID_FLAG_DRV_PUBLISH and instead use the
+WCID table itself for the publish check.
 
-[0] https://git.kernel.org/pub/scm/linux/kernel/git/netdev/net.git/commit/?=
-id=3D4ae0604a0673e11e2075b178387151fcad5111b5
+dev->wcid[] already encodes whether a WCID has been published, so checking
+it directly avoids adding a second mirror state. MT_WCID_FLAG_* is also
+better kept for WCID features that affect WTBL setup or data-path handling,
+rather than common bookkeeping state.
 
->=20
-> > +	struct sk_buff *skb =3D q->skb;
-> > +	u32 len, th_off, tcp_ack_seq;
-> > +	u16 tcp_win, l2_len;
-> > +	struct tcphdr *th;
-> > +	bool ipv4, ipv6;
-> > +
-> > +	if (FIELD_GET(QDMA_ETH_RXMSG_AGG_COUNT_MASK, msg2) <=3D 1)
-> > +		return 0;
-> > +
-> > +	ipv4 =3D FIELD_GET(QDMA_ETH_RXMSG_IP4_MASK, msg1);
-> > +	ipv6 =3D FIELD_GET(QDMA_ETH_RXMSG_IP6_MASK, msg1);
-> > +	if (!ipv4 && !ipv6)
-> > +		return -EOPNOTSUPP;
-> > +
-> > +	l2_len =3D FIELD_GET(QDMA_ETH_RXMSG_L2_LEN_MASK, msg2);
-> > +	len =3D FIELD_GET(QDMA_DESC_LEN_MASK, desc_ctrl);
-> > +	if (ipv4) {
-> > +		struct iphdr *iph;
-> > +
-> > +		if (!pskb_may_pull(skb, l2_len + sizeof(*iph)))
-> > +			return -EINVAL;
-> > +
-> > +		iph =3D (struct iphdr *)(skb->data + l2_len);
-> > +		if (iph->protocol !=3D IPPROTO_TCP)
-> > +			return -EOPNOTSUPP;
-> > +
-> > +		iph->tot_len =3D cpu_to_be16(len - l2_len);
-> > +		iph->check =3D 0;
-> > +		iph->check =3D ip_fast_csum((void *)iph, iph->ihl);
-> > +		th_off =3D l2_len + (iph->ihl << 2);
-> > +	} else {
-> > +		struct ipv6hdr *ip6h;
-> > +
-> > +		if (!pskb_may_pull(skb, l2_len + sizeof(*ip6h)))
-> > +			return -EINVAL;
-> > +
-> > +		ip6h =3D (struct ipv6hdr *)(skb->data + l2_len);
-> > +		if (ip6h->nexthdr !=3D NEXTHDR_TCP)
-> > +			return -EOPNOTSUPP;
-> > +
-> > +		ip6h->payload_len =3D cpu_to_be16(len - l2_len - sizeof(*ip6h));
-> > +		th_off =3D l2_len + sizeof(*ip6h);
-> > +	}
-> > +
-> > +	tcp_win =3D FIELD_GET(QDMA_ETH_RXMSG_TCP_WIN_MASK, msg3);
-> > +	tcp_ack_seq =3D le32_to_cpu(READ_ONCE(desc->data));
-> > +
-> > +	if (!pskb_may_pull(skb, th_off + sizeof(*th)))
-> > +		return -EINVAL;
-> > +
-> > +	th =3D (struct tcphdr *)(skb->data + th_off);
-> > +	th->ack_seq =3D cpu_to_be32(tcp_ack_seq);
-> > +	th->window =3D cpu_to_be16(tcp_win);
-> > +
-> > +	/* Check tcp timestamp option */
-> > +	if (th->doff =3D=3D (sizeof(*th) + TCPOLEN_TSTAMP_ALIGNED) / 4) {
-> > +		__be32 *topt =3D (__be32 *)(th + 1);
->=20
-> Make sure you checked the code with sparse (sometimes it's needed to
-> mark casts as __force, not this one tho)
+Something like:
 
-$ make C=3D2 CHECK=3Dsparse drivers/net/ethernet/airoha/
-  CHECK   scripts/mod/empty.c
-  DESCEND objtool
-  INSTALL libsubcmd_headers
-  DESCEND bpf/resolve_btfids
-  INSTALL libsubcmd_headers
-  CHECK   drivers/net/ethernet/airoha/airoha_eth.c
-  CHECK   drivers/net/ethernet/airoha/airoha_ppe.c
-  CHECK   drivers/net/ethernet/airoha/airoha_ppe_debugfs.c
-  CHECK   drivers/net/ethernet/airoha/airoha_npu.c
+@@ -1620,6 +1620,7 @@ mt76_sta_add(struct mt76_phy *phy, struct
+ieee80211_vif *vif,
+{
+  struct mt76_wcid *wcid =3D (struct mt76_wcid *)sta->drv_priv;
+  struct mt76_dev *dev =3D phy->dev;
++       struct mt76_wcid *published;
+  int ret;
+  int i;
 
-$ sparse --version
-v0.6.5-rc1
+@@ -1639,7 +1640,10 @@ mt76_sta_add(struct mt76_phy *phy, struct
+ieee80211_vif *vif,
+          mtxq->wcid =3D wcid->idx;
+  }
 
->=20
-> > +
-> > +		if (*topt =3D=3D cpu_to_be32((TCPOPT_NOP << 24) |
->=20
-> Shouldn't this be `((u32)TCPOPT_NOP) << 24` to avoid sign issues?
+-       if (!test_bit(MT_WCID_FLAG_DRV_PUBLISH, &wcid->flags)) {
++       published =3D rcu_dereference_protected(dev->wcid[wcid->idx],
++                                             lockdep_is_held(&dev->mutex))=
+;
++       if (published !=3D wcid) {
++               WARN_ON_ONCE(published);
+                 ewma_signal_init(&wcid->rssi);
+                 rcu_assign_pointer(dev->wcid[wcid->idx], wcid);
+                 mt76_wcid_init(wcid, phy->band_idx);
 
-I guess this is same approach used in [1]. Am I missing something?
+   ....
 
-[1] https://github.com/torvalds/linux/blob/master/net/ipv4/tcp_ipv4.c#L823
 
-Regards,
-Lorenzo
-
->=20
-> > +					 (TCPOPT_NOP << 16) |
-> > +					 (TCPOPT_TIMESTAMP << 8) |
-> > +					 TCPOLEN_TIMESTAMP)) {
-> > +			__le32 tcp_ts_reply =3D READ_ONCE(desc->tcp_ts_reply);
-> > +
-> > +			put_unaligned_be32(le32_to_cpu(tcp_ts_reply),
-> > +					   topt + 2);
-> > +		}
-> > +	}
-> > +
-> > +	return 0;
-> > +}
-> Thanks,
-> Olek
-
---EScZYE8yc4PJ+rAl
-Content-Type: application/pgp-signature; name=signature.asc
-
------BEGIN PGP SIGNATURE-----
-
-iHUEABYKAB0WIQTquNwa3Txd3rGGn7Y6cBh0uS2trAUCahYLvgAKCRA6cBh0uS2t
-rD5IAQDm649Y+OIXgnX3tqPjEv0sZKv9Zt+HPJ2Car7wGP9blAD/QhomlYinsEb6
-cOFaX+lWBwG7XoOzG8IhnE4orgKEuA8=
-=Ypxv
------END PGP SIGNATURE-----
-
---EScZYE8yc4PJ+rAl--
+> -       mt76_wcid_init(wcid, phy->band_idx);
+>  out:
+>         mutex_unlock(&dev->mutex);
+>
+> diff --git a/drivers/net/wireless/mediatek/mt76/mt76.h b/drivers/net/wire=
+less/mediatek/mt76/mt76.h
+> index 527bef97e122..8bfce686bff7 100644
+> --- a/drivers/net/wireless/mediatek/mt76/mt76.h
+> +++ b/drivers/net/wireless/mediatek/mt76/mt76.h
+> @@ -361,6 +361,7 @@ enum mt76_wcid_flags {
+>         MT_WCID_FLAG_PS,
+>         MT_WCID_FLAG_4ADDR,
+>         MT_WCID_FLAG_HDR_TRANS,
+> +       MT_WCID_FLAG_DRV_PUBLISH,
+>  };
+>
+>  #define MT76_N_WCIDS 1088
+> diff --git a/drivers/net/wireless/mediatek/mt76/mt7925/main.c b/drivers/n=
+et/wireless/mediatek/mt76/mt7925/main.c
+> index 73d3722739d0..35b5c718475c 100644
+> --- a/drivers/net/wireless/mediatek/mt76/mt7925/main.c
+> +++ b/drivers/net/wireless/mediatek/mt76/mt7925/main.c
+> @@ -1102,6 +1102,9 @@ int mt7925_mac_sta_add(struct mt76_dev *mdev, struc=
+t ieee80211_vif *vif,
+>                                               &msta->deflink);
+>         }
+>
+> +       if (!err)
+> +               set_bit(MT_WCID_FLAG_DRV_PUBLISH, &msta->deflink.wcid.fla=
+gs);
+> +
+>         return err;
+>  }
+>  EXPORT_SYMBOL_GPL(mt7925_mac_sta_add);
+> --
+> 2.53.0
+>
+>
 
