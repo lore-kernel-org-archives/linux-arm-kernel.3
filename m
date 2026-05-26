@@ -4,70 +4,62 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id A4E62CD5BB1
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 26 May 2026 12:55:21 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id AB3A4CD5BC8
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 26 May 2026 13:01:38 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
 	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
 	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=3qXSZJMK/2dH8m/b+M+8pKJBgl6M5At4J1MYXkelW14=; b=qHfi10e1z/Duf0NYrQWFaoDzZK
-	GRifoSrO+BF1UVegIK9ji1+StsAT5UvfWiohgteSfyBm8ADzf7BVunJf8BqZnl39DyTpKZle8D8Wx
-	VP7LpYD/5AmxtZcsOy8v/TPA68GfKJPXV+EgSkbCfub03VWbEBr2WHauYwIQ1Nj5UJhnCYiDe/k0V
-	KOXZRwo/gsYfh/SG5C/HZTTQsqdDpKjx6N0tf234GvaK5Pnf0sambSPTeubwUFogqCU0prsvdliwa
-	Aaw7KGCaGiGkE059VppK21+xQFPSjLxHAm8TtE0o/sz3HDwOxhv9y9T28/GlBqVgowS/FhQjurmbU
-	69coB75A==;
+	bh=p674zEnWHv8nUzAecGlmwz5Fx3UFXOqGsTZBm8jEkn8=; b=UaNRoluyN1+4dQoIIAKlPpUWox
+	8YMvVaiMkyypzRWgBVDGDmAUHaO8sNhWDmwNc8TllB0WFTecnUZ/Fhv282CEBL8HbB8d2XfFpjf0i
+	yxhjOAQlqFuyJ8YADlV+SLhcwR6bwiPoK/GGtMLWKW9UoUX3Ko/jeFlUOCwq60BhqiBfPWk/6dpgX
+	UusN82cfmbpcE7jN34KEi18u3qbUNWH9oHTdy22XaTqFtcqrKGhDOJUO7rsnv0yOcInbX9GEDp5Pv
+	BLb+VnThBjAevFOXzVdkTIULHUjkJSwYZfZdW/BwSEBCBLhz3W+dpXf/I+yV1pWuGcz6RuPZYYu1H
+	YAlvBDPg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wRrJR-00000001z40-3Pb7;
-	Tue, 26 May 2026 12:55:13 +0000
+	id 1wRrPX-00000001zmC-1v25;
+	Tue, 26 May 2026 13:01:31 +0000
 Received: from foss.arm.com ([217.140.110.172])
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wRrJP-00000001z3N-1unY
+	id 1wRrPU-00000001zlX-39CX
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 26 May 2026 12:55:12 +0000
+	Tue, 26 May 2026 13:01:30 +0000
 Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
-	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id 15BC0169C;
-	Tue, 26 May 2026 05:55:05 -0700 (PDT)
-Received: from J2N7QTR9R3 (usa-sjc-imap-foss1.foss.arm.com [10.121.207.14])
-	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id D1B823F86F;
-	Tue, 26 May 2026 05:55:06 -0700 (PDT)
+	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id 2E9E9169C;
+	Tue, 26 May 2026 06:01:20 -0700 (PDT)
+Received: from arm.com (usa-sjc-mx-foss1.foss.arm.com [172.31.20.19])
+	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id 6F1563F7B4;
+	Tue, 26 May 2026 06:01:23 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=simple/simple; d=arm.com; s=foss;
-	t=1779800110; bh=VxSbsncF9vADETy7fhLZoS22+L7DTIEAKMxSb9WtYrM=;
+	t=1779800485; bh=QpvJy6L0CWjMFpDpW8hAGQht5XAWKU3uc1IdSsCVqqI=;
 	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
-	b=fo5a9G0/UR1rJmXRW8xYXjhAvtLS2+70sZ6z1sOp/HlSEMk0q9pDFKe5TXJFhEe9p
-	 Bus1NUBvRv9ywGtrw5jgFylzEHIQv/5HBa9k1qcjGljFnL/ePc8CNz2C2IXRURJUTt
-	 6oHeIDtNLGjpysUwLQableFVV5GxivWDR9z3iuXQ=
-Date: Tue, 26 May 2026 13:55:04 +0100
-From: Mark Rutland <mark.rutland@arm.com>
-To: Mark Brown <broonie@kernel.org>
-Cc: Marc Zyngier <maz@kernel.org>, Joey Gouly <joey.gouly@arm.com>,
-	Catalin Marinas <catalin.marinas@arm.com>,
-	Suzuki K Poulose <suzuki.poulose@arm.com>,
-	Will Deacon <will@kernel.org>, Paolo Bonzini <pbonzini@redhat.com>,
-	Jonathan Corbet <corbet@lwn.net>, Shuah Khan <shuah@kernel.org>,
-	Oliver Upton <oupton@kernel.org>, Dave Martin <Dave.Martin@arm.com>,
-	Fuad Tabba <tabba@google.com>, Ben Horgan <ben.horgan@arm.com>,
-	linux-arm-kernel@lists.infradead.org, kvmarm@lists.linux.dev,
-	linux-kernel@vger.kernel.org, kvm@vger.kernel.org,
-	linux-doc@vger.kernel.org, linux-kselftest@vger.kernel.org,
-	Peter Maydell <peter.maydell@linaro.org>,
-	Eric Auger <eric.auger@redhat.com>
-Subject: Re: [PATCH v10 04/30] arm64/fpsimd: Determine maximum virtualisable
- SME vector length
-Message-ID: <ahWYKJ5zOrnNnAgI@J2N7QTR9R3>
-References: <20260306-kvm-arm64-sme-v10-0-43f7683a0fb7@kernel.org>
- <20260306-kvm-arm64-sme-v10-4-43f7683a0fb7@kernel.org>
- <agGwWE2hcj9O4EGu@J2N7QTR9R3.cambridge.arm.com>
- <agHOvFiI1e3y_ur4@sirena.co.uk>
+	b=p5Dsr0XgPS8sKERaqTqbDerx+Dn5jf/pmbrKN+O+qEDCMgx32IF7d+aOy0yyNZYcH
+	 +XwBPVX+lcDnvbKX7Dms7cneX8kxmoejWuL43TPu0moc2NGzHIA6y7Q0YGice4hMx+
+	 eCJbFlg5YILwosv9Sj8NQkWWJYc8jsLPEp/mmU1g=
+Date: Tue, 26 May 2026 14:01:20 +0100
+From: Catalin Marinas <catalin.marinas@arm.com>
+To: Zeng Heng <zengheng@huaweicloud.com>
+Cc: will@kernel.org, akpm@linux-foundation.org, npiggin@gmail.com,
+	aneesh.kumar@kernel.org, peterz@infradead.org,
+	linux-kernel@vger.kernel.org, wangkefeng.wang@huawei.com,
+	linux-arm-kernel@lists.infradead.org, linux-mm@kvack.org,
+	linux-arch@vger.kernel.org, zengheng4@huawei.com,
+	sunnanyong@huawei.com, blingxue@tencent.com
+Subject: Re: [PATCH] arm64: tlb: Flush walk cache when unsharing PMD tables
+Message-ID: <ahWZoD9Ubaxx-GdK@arm.com>
+References: <20260521073011.4121277-1-zengheng@huaweicloud.com>
+ <177944657885.252010.9796978866224637120.b4-ty@arm.com>
+ <f5b7460a-5719-bdb2-c53b-413468857f57@huaweicloud.com>
 MIME-Version: 1.0
 Content-Type: text/plain; charset=us-ascii
 Content-Disposition: inline
-In-Reply-To: <agHOvFiI1e3y_ur4@sirena.co.uk>
+In-Reply-To: <f5b7460a-5719-bdb2-c53b-413468857f57@huaweicloud.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260526_055511_545291_F40FEEE9 
-X-CRM114-Status: GOOD (  16.87  )
+X-CRM114-CacheID: sfid-20260526_060128_893915_C3D4435B 
+X-CRM114-Status: GOOD (  14.62  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -82,51 +74,37 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Mon, May 11, 2026 at 09:42:36PM +0900, Mark Brown wrote:
-> On Mon, May 11, 2026 at 11:32:56AM +0100, Mark Rutland wrote:
-> > On Fri, Mar 06, 2026 at 05:00:56PM +0000, Mark Brown wrote:
+On Mon, May 25, 2026 at 05:20:14PM +0800, Zeng Heng wrote:
+> On 2026/5/22 18:42, Catalin Marinas wrote:
+> > On Thu, 21 May 2026 15:30:11 +0800, Zeng Heng wrote:
+> > > When huge_pmd_unshare() is called to unshare a PMD table, the
+> > > tlb_unshare_pmd_ptdesc() function sets tlb->unshared_tables=true
+> > > but the aarch64 tlb_flush() only checked tlb->freed_tables to
+> > > determine whether to use TLBF_NONE (vae1is, invalidates walk
+> > > cache) or TLBF_NOWALKCACHE (vale1is, leaf-only).
+> > > 
+> > > This caused the stale PMD page table entry to remain in the walk cache
+> > > after unshare, potentially leading to incorrect page table walks.
+> > > 
+> > > [...]
+> > Applied to arm64 (for-next/fixes), thanks!
+> > 
+> > [1/1] arm64: tlb: Flush walk cache when unsharing PMD tables
+> >        https://git.kernel.org/arm64/c/c2ff4764e03e
 > 
-> > > +#define SME_VQ_INVALID	(SME_VQ_MAX + 1)
+> This original issue was reported by our customer, who also participated
+> in the root cause analysis and resolution.
 > 
-> > Does using (SME_VQ_MAX + 1) for this make something easier than if we
-> > used 0?
+> Could you please help add the below tags:
 > 
-> There were checks for VLs less than $THING which were causing annoyance
-> IIRC but it should be workable since we shouldn't offer SME to guests if
-> the invalid VL comes up.  I'll look again when I'm back from holiday.
+> Co-developed-by: Xue Xiaowei <blingxue@tencent.com>
+> Signed-off-by: Xue Xiaowei <blingxue@tencent.com>
 > 
-> > To solve all of the above, I think what we actually want to do is find
-> > the largest uniformly implemented VL which is smaller than the smallest
-> > partially implemented VL.
-> 
-> Yes, that's what we're going for.
+> Thank you in advance.
 
-To be clear, that was a concrete suggestiong as to the algorithm.
+Too late unfortunately, the pull request went in on Friday. It will be
+in the list archives though.
 
-I'm saying we should have code along the lines of:
-
-int find_virtualisable_vl(struct vl_info *info)
-{
-        DECLARE_BITMAP(partial_only_map, SVE_VQ_MAX);
-        unsigned long b_min_partial, m_max_virt;
-
-        bitmap_andnot(partial_only_map, info->va_partial_map, info->vq_map,
-                      SVE_VQ_MAX);
-        b_min_partial = find_last_bit(partial_only_map, SVE_VQ_MAX);
-
-        /* All implemented VLs are virtualisable */
-        if (m_min_partial >= SVE_VQ_MAX)
-                return info->max_vl;
-
-        b_max_virt = find_next_bit(info->vq_map, SVE_VQ_MAX, b_min_partial);
-
-        /* No implemented VLs are virtualisable */
-        if (b_max_virt >= SVE_VQ_MAX)
-                return 0;
-
-	/* At least one virtualisable VL exists */
-        return sve_vl_from_vq(__bit_to_vq(b_max_virt));
-}
-
-Mark.
+-- 
+Catalin
 
