@@ -4,51 +4,52 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id DF02DCD5BB1
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 26 May 2026 16:47:09 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id C804ECD5BC8
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 26 May 2026 16:47:47 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:References
 	:Message-Id:Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:
 	From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=QpsHNeJPl5VJ6mtYV2JlpSODR+qwpx5hKoH4rXf8nUk=; b=sMG/uDoqlhD1dhIDVVqTVptNny
-	bwmTzb9hu6BVDBr3Q+LRwAf32NWFwMkEMYtIWyaTScLu3OrZ1zfGOlBkyA81HsYF5tdIjM67vM3lZ
-	G9Zh5h+EjZG8bjOXNNbJoGtv61BeOYAQQjgklaoxFj5ncFnvy8+ziLAlu7lJX21PDk73GONWaeqLw
-	NhR9ajpfxnJllQU0HNdr1oMNZ63CSeEkqyOsUU3OpPUD7XWMIOZ++jHEcXlNCwRHC4hFqg9pTXOdv
-	HGbGo+fSsC8Rw51gJPkuJZ/QpL5mEYwthZldUq7fV5kEmxw/LzHASq6vC4P1+jGH4qqi9pO3AuFP0
-	zvbA2VQg==;
+	bh=NNcsfpFL5AXyCLIStvdr24JH+mlgdzXSo7VmilEiYxg=; b=QzecDDyOhZV4fRMwMl1+mGNtbH
+	WvCcfiky7TSaF+wjt9wP5LupU2tuRvScUefUn4AilNCZOgX/Vyj9A1M6BMuY1gfKEp1eoTkfqSoNB
+	xWifRPUWBpjYhQxrJuoSJrWs+0S+KK5x4TKsjf6xNR1ZAy7wbprYtKPjOYVj7D0MzH5+8861BBpB0
+	/Q8Cuo0sFUu3LJHUscOHdDANqwXehFw2nyKEjdO5kuTGXdEOY5CrGT03X6zE0t/6xMP9BOxYw029h
+	+woY9hDuMT4+g+ciqYa5pFP+r6ioYijLpOwZ01t24zWvEKpdRH457HQJTfGqLFOgBinwupQrh4cH2
+	+/wDgHiA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wRuvk-00000002ZP0-3sIW;
-	Tue, 26 May 2026 16:47:00 +0000
+	id 1wRuwP-00000002a2I-2RO0;
+	Tue, 26 May 2026 16:47:41 +0000
 Received: from tor.source.kernel.org ([2600:3c04:e001:324:0:1991:8:25])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wRuvf-00000002ZJY-1rsp
+	id 1wRuvr-00000002ZWS-01wd
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 26 May 2026 16:46:55 +0000
+	Tue, 26 May 2026 16:47:07 +0000
 Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
-	by tor.source.kernel.org (Postfix) with ESMTP id DB53760018;
-	Tue, 26 May 2026 16:46:54 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id DE8251F00A3C;
-	Tue, 26 May 2026 16:46:53 +0000 (UTC)
+	by tor.source.kernel.org (Postfix) with ESMTP id 6AC59600AB;
+	Tue, 26 May 2026 16:47:06 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 675971F00ADE;
+	Tue, 26 May 2026 16:47:05 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1779814014;
-	bh=QpsHNeJPl5VJ6mtYV2JlpSODR+qwpx5hKoH4rXf8nUk=;
+	s=k20260515; t=1779814026;
+	bh=NNcsfpFL5AXyCLIStvdr24JH+mlgdzXSo7VmilEiYxg=;
 	h=From:Date:Subject:References:In-Reply-To:To:Cc;
-	b=Gh3IsmY7lsVmKOnvpORh6kBR4O2BCX1J3BKLGqcpev3jz5mFuxHcpoSwnTk95riOk
-	 YpABkWlZ/I9hWqH4576IOrQPo9LX8RO99oWDIAWZbU+SVV+zm+HteR1FQS5n5fSQCW
-	 3zBwI+jRvep4G83Pk0MCQxyqSfT08BAfq6ExWwQ2cvEVnMvz0ptYOfNnlYXLQbaAao
-	 EzkZ7IL2UOdn+OXIjjK7oB9dBJgkcl2CwToA1Pn0jfI8SpPS2F6cfzgC5JFtxmdF3n
-	 OP0uOUb5+gcj+yToKCGN9IpUvl3iZ+Pkg9azXBu1KNMPr23At8Yr4Q5Y/mTo26lXvm
-	 A9QflVe1J2sxA==
+	b=Bc4344t7ldw/lt30cDN0Tl+81qveyZ/j9FYIhr4C8GGui1W7fO30F6jEUg5XESLGp
+	 eLxu7LHC/LmyNP4WpVC2uzzMOOgy8crtA1AIwO2o0eVPMxRbaB1Q5cZoybEhQQeMKz
+	 gEUKsFPho8Q2sPUKu2IcFNOt8bQl+amEOzNXaESDrqTXJMVUs95voQRMz9ib6hymI8
+	 Xmo0u0NpeZpWa/okMz4VTwDbm/qttZxbhSJ0muKv3arh+qNTUhI/fVuvcDd4pMsXJZ
+	 TgMOos+5m6deSmC/FwHOKP3K1snjUeP/HfjiY+HwSZe4att6uO705FU9t5ienelzn6
+	 X7CqBtNl7W+yA==
 From: Maxime Ripard <mripard@kernel.org>
-Date: Tue, 26 May 2026 18:46:22 +0200
-Subject: [PATCH v6 10/19] drm/plane: Add new atomic_create_state callback
+Date: Tue, 26 May 2026 18:46:26 +0200
+Subject: [PATCH v6 14/19] drm/hdmi: Rename
+ __drm_atomic_helper_connector_hdmi_reset()
 MIME-Version: 1.0
 Content-Type: text/plain; charset="utf-8"
 Content-Transfer-Encoding: 7bit
-Message-Id: <20260526-drm-mode-config-init-v6-10-852346394200@kernel.org>
+Message-Id: <20260526-drm-mode-config-init-v6-14-852346394200@kernel.org>
 References: <20260526-drm-mode-config-init-v6-0-852346394200@kernel.org>
 In-Reply-To: <20260526-drm-mode-config-init-v6-0-852346394200@kernel.org>
 To: Maarten Lankhorst <maarten.lankhorst@linux.intel.com>, 
@@ -77,14 +78,15 @@ Cc: dri-devel@lists.freedesktop.org, linux-doc@vger.kernel.org,
  intel-gfx@lists.freedesktop.org, intel-xe@lists.freedesktop.org, 
  linux-arm-kernel@lists.infradead.org, linux-sunxi@lists.linux.dev, 
  Maxime Ripard <mripard@kernel.org>, 
+ Laurent Pinchart <laurent.pinchart@ideasonboard.com>, 
  Laurent Pinchart <laurent.pinchart+renesas@ideasonboard.com>
 X-Mailer: b4 0.14.3
-X-Developer-Signature: v=1; a=openpgp-sha256; l=6853; i=mripard@kernel.org;
- h=from:subject:message-id; bh=FLwmp4TRdtu4/j3sifgieWbjEHtON+8bMECRTgAIlMo=;
- b=owGbwMvMwCmsHn9OcpHtvjLG02pJDFmi56IchCPqTi7m17rTwmq/0mhO3yaLrZta96X6uV+uE
- M3lXPqjYyoLgzAng6yYIssTmbDTy9sXVznYr/wBM4eVCWQIAxenAEyEh5OxYf+nPbsW9j1LfJ+Y
- kdFr36OWb/s2prRPvC/U9olWbEfgquvbDlWI1WqKWnW0bwpO6fvFWCvfcqVczPpry9KvR79zvH3
- P0a919XmwFuepNQlrnCwefv7wvYRTPfCH/I7e4qDnMfVzRAA=
+X-Developer-Signature: v=1; a=openpgp-sha256; l=7569; i=mripard@kernel.org;
+ h=from:subject:message-id; bh=+roR9EKY5P3KByKKPZTrAIusl8O7nRXXLQS93qqd3OQ=;
+ b=owGbwMvMwCmsHn9OcpHtvjLG02pJDFmi52IUQ65OvTpZ9A7vo8iby3pnd78yNbn41WSX/FJ3j
+ 1U/7RYv7ZjKwiDMySArpsjyRCbs9PL2xVUO9it/wMxhZQIZwsDFKQATOVnB2LAz5fqCx/FiTBJh
+ jF+FE5S57gcmHzskby4zbbNU8LY2XjPbfrefy5juCaab+C1LmPfqHWPD3lvbz/3/PHdBIjPjdi+
+ GHh2fy0+9fn5PvrP766e7mVYddmk+rztr0lYmrtHde9eYR9IGAA==
 X-Developer-Key: i=mripard@kernel.org; a=openpgp;
  fpr=BE5675C37E818C8B5764241C254BCFC56BF6CE8D
 X-BeenThere: linux-arm-kernel@lists.infradead.org
@@ -101,194 +103,166 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Commit 47b5ac7daa46 ("drm/atomic: Add new atomic_create_state callback
-to drm_private_obj") introduced a new pattern for allocating drm object
-states.
+__drm_atomic_helper_connector_hdmi_reset() is typically used to
+initialize a newly allocated drm_connector_state when the connector is
+using the HDMI helpers, and is being called by the
+drm_connector_funcs.reset implementation.
 
-Instead of relying on the reset() callback, it created a new
-atomic_create_state hook. This is helpful because reset is a bit
-overloaded: it's used to create the initial software state, reset it,
-but also reset the hardware.
+Since we want to consolidate DRM objects state allocation around the
+atomic_create_state callback that will only allocate and initialize a
+new drm_connector_state instance, we will need to call
+__drm_atomic_helper_connector_hdmi_reset() from both the reset and
+atomic_create hooks.
 
-It can also be used either at probe time, to create the initial state
-and possibly reset the hardware to an expected default, but also during
-suspend/resume.
+To avoid any confusion, we can thus rename
+__drm_atomic_helper_connector_hdmi_reset() to
+__drm_atomic_helper_connector_hdmi_state_init().
 
-Both these cases come with different expectations too: during the
-initialization, we want to initialize all states, but during
-suspend/resume, drm_private_states for example are expected to be kept
-around.
-
-reset() also isn't fallible, which makes it harder to handle
-initialization errors properly. This is only really relevant for some
-drivers though, since all the helpers for reset only create a new
-state, and don't touch the hardware at all.
-
-It was thus decided to create a new hook that would allocate and
-initialize a pristine state without any side effect:
-atomic_create_state to untangle a bit some of it, and to separate the
-initialization with the actual reset one might need during a
-suspend/resume.
-
-Continue the transition to the new pattern with planes.
-
-Reviewed-by: Laurent Pinchart <laurent.pinchart+renesas@ideasonboard.com>
+Suggested-by: Laurent Pinchart <laurent.pinchart@ideasonboard.com>
+Reviewed-by: Dmitry Baryshkov <dmitry.baryshkov@oss.qualcomm.com>
 Reviewed-by: Thomas Zimmermann <tzimmermann@suse.de>
+Reviewed-by: Laurent Pinchart <laurent.pinchart+renesas@ideasonboard.com>
 Signed-off-by: Maxime Ripard <mripard@kernel.org>
 ---
- drivers/gpu/drm/drm_atomic_state_helper.c | 25 +++++++++++++++++++++++++
- drivers/gpu/drm/drm_mode_config.c         | 31 ++++++++++++++++++++++++++++++-
- include/drm/drm_atomic_state_helper.h     |  2 ++
- include/drm/drm_plane.h                   | 16 ++++++++++++++++
- 4 files changed, 73 insertions(+), 1 deletion(-)
+ drivers/gpu/drm/display/drm_bridge_connector.c     |  4 ++--
+ drivers/gpu/drm/display/drm_hdmi_state_helper.c    | 15 ++++++++-------
+ drivers/gpu/drm/sun4i/sun4i_hdmi_enc.c             |  2 +-
+ drivers/gpu/drm/tests/drm_hdmi_state_helper_test.c |  2 +-
+ drivers/gpu/drm/vc4/vc4_hdmi.c                     |  2 +-
+ include/drm/display/drm_hdmi_state_helper.h        |  4 ++--
+ 6 files changed, 15 insertions(+), 14 deletions(-)
 
-diff --git a/drivers/gpu/drm/drm_atomic_state_helper.c b/drivers/gpu/drm/drm_atomic_state_helper.c
-index ee01700d4ca7..ab171bfe6e86 100644
---- a/drivers/gpu/drm/drm_atomic_state_helper.c
-+++ b/drivers/gpu/drm/drm_atomic_state_helper.c
-@@ -338,10 +338,35 @@ void drm_atomic_helper_plane_reset(struct drm_plane *plane)
- 	if (plane->state)
- 		__drm_atomic_helper_plane_reset(plane, plane->state);
- }
- EXPORT_SYMBOL(drm_atomic_helper_plane_reset);
+diff --git a/drivers/gpu/drm/display/drm_bridge_connector.c b/drivers/gpu/drm/display/drm_bridge_connector.c
+index 649969fca141..50408af746d8 100644
+--- a/drivers/gpu/drm/display/drm_bridge_connector.c
++++ b/drivers/gpu/drm/display/drm_bridge_connector.c
+@@ -270,12 +270,12 @@ static void drm_bridge_connector_reset(struct drm_connector *connector)
+ 	struct drm_bridge_connector *bridge_connector =
+ 		to_drm_bridge_connector(connector);
  
-+/**
-+ * drm_atomic_helper_plane_create_state - default &drm_plane_funcs.atomic_create_state hook for planes
-+ * @plane: plane object
-+ *
-+ * Allocates and initializes pristine @drm_plane_state.
-+ *
-+ * This is useful for drivers that don't subclass @drm_plane_state.
-+ *
-+ * RETURNS:
-+ * Pointer to new plane state, or ERR_PTR on failure.
-+ */
-+struct drm_plane_state *drm_atomic_helper_plane_create_state(struct drm_plane *plane)
-+{
-+	struct drm_plane_state *state;
-+
-+	state = kzalloc_obj(*state);
-+	if (!state)
-+		return ERR_PTR(-ENOMEM);
-+
-+	__drm_atomic_helper_plane_state_init(state, plane);
-+
-+	return state;
-+}
-+EXPORT_SYMBOL(drm_atomic_helper_plane_create_state);
-+
- /**
-  * __drm_atomic_helper_plane_duplicate_state - copy atomic plane state
-  * @plane: plane object
-  * @state: atomic plane state
-  *
-diff --git a/drivers/gpu/drm/drm_mode_config.c b/drivers/gpu/drm/drm_mode_config.c
-index c33382a38191..fa609357858f 100644
---- a/drivers/gpu/drm/drm_mode_config.c
-+++ b/drivers/gpu/drm/drm_mode_config.c
-@@ -180,10 +180,36 @@ int drm_mode_getresources(struct drm_device *dev, void *data,
- 	drm_connector_list_iter_end(&conn_iter);
- 
- 	return ret;
+ 	drm_atomic_helper_connector_reset(connector);
+ 	if (bridge_connector->bridge_hdmi)
+-		__drm_atomic_helper_connector_hdmi_reset(connector,
+-							 connector->state);
++		__drm_atomic_helper_connector_hdmi_state_init(connector,
++							      connector->state);
  }
  
-+static int drm_mode_config_plane_create_state(struct drm_plane *plane)
-+{
-+	struct drm_plane_state *plane_state;
-+
-+	if (!plane->funcs->atomic_create_state)
-+		return 0;
-+
-+	plane_state = plane->funcs->atomic_create_state(plane);
-+	if (IS_ERR(plane_state))
-+		return PTR_ERR(plane_state);
-+
-+	plane->state = plane_state;
-+
-+	return 0;
-+}
-+
-+static int drm_mode_config_plane_reset_with_create_state(struct drm_plane *plane)
-+{
-+	if (plane->state) {
-+		plane->funcs->atomic_destroy_state(plane, plane->state);
-+		plane->state = NULL;
-+	}
-+
-+	return drm_mode_config_plane_create_state(plane);
-+}
-+
+ static const struct drm_connector_funcs drm_bridge_connector_funcs = {
+ 	.reset = drm_bridge_connector_reset,
+ 	.detect = drm_bridge_connector_detect,
+diff --git a/drivers/gpu/drm/display/drm_hdmi_state_helper.c b/drivers/gpu/drm/display/drm_hdmi_state_helper.c
+index 4867edbf2622..a331ebdd65af 100644
+--- a/drivers/gpu/drm/display/drm_hdmi_state_helper.c
++++ b/drivers/gpu/drm/display/drm_hdmi_state_helper.c
+@@ -304,29 +304,30 @@
+  *		--kunitconfig=drivers/gpu/drm/tests \
+  *		drm_atomic_helper_connector_hdmi_*
+  */
+ 
  /**
-  * drm_mode_config_reset - call ->reset callbacks
-  * @dev: drm device
+- * __drm_atomic_helper_connector_hdmi_reset() - Initializes all HDMI @drm_connector_state resources
++ * __drm_atomic_helper_connector_hdmi_state_init() - Initialize all HDMI @drm_connector_state resources
+  * @connector: DRM connector
+- * @new_conn_state: connector state to reset
++ * @new_conn_state: connector state to initialize
   *
-  * This functions calls all the crtc's, encoder's and connector's ->reset
-@@ -204,13 +230,16 @@ void drm_mode_config_reset(struct drm_device *dev)
- 	struct drm_connector_list_iter conn_iter;
+  * Initializes all HDMI resources from a @drm_connector_state without
+  * actually allocating it. This is useful for HDMI drivers, in
+- * combination with __drm_atomic_helper_connector_reset() or
+- * drm_atomic_helper_connector_reset().
++ * combination with __drm_atomic_helper_connector_state_init(),
++ * drm_atomic_helper_connector_reset(), or
++ * drm_atomic_helper_connector_create_state().
+  */
+-void __drm_atomic_helper_connector_hdmi_reset(struct drm_connector *connector,
+-					      struct drm_connector_state *new_conn_state)
++void __drm_atomic_helper_connector_hdmi_state_init(struct drm_connector *connector,
++						   struct drm_connector_state *new_conn_state)
+ {
+ 	unsigned int max_bpc = connector->max_bpc;
  
- 	drm_for_each_colorop(colorop, dev)
- 		drm_colorop_reset(colorop);
+ 	new_conn_state->max_bpc = max_bpc;
+ 	new_conn_state->max_requested_bpc = max_bpc;
+ 	new_conn_state->hdmi.broadcast_rgb = DRM_HDMI_BROADCAST_RGB_AUTO;
+ }
+-EXPORT_SYMBOL(__drm_atomic_helper_connector_hdmi_reset);
++EXPORT_SYMBOL(__drm_atomic_helper_connector_hdmi_state_init);
  
--	drm_for_each_plane(plane, dev)
-+	drm_for_each_plane(plane, dev) {
- 		if (plane->funcs->reset)
- 			plane->funcs->reset(plane);
-+		else if (plane->funcs->atomic_create_state)
-+			drm_mode_config_plane_reset_with_create_state(plane);
-+	}
+ static enum hdmi_colorspace
+ output_color_format_to_hdmi_colorspace(const struct drm_connector *connector,
+ 				       enum drm_output_color_format fmt)
+ {
+diff --git a/drivers/gpu/drm/sun4i/sun4i_hdmi_enc.c b/drivers/gpu/drm/sun4i/sun4i_hdmi_enc.c
+index 07e2afcb4f95..3cad8f9bc529 100644
+--- a/drivers/gpu/drm/sun4i/sun4i_hdmi_enc.c
++++ b/drivers/gpu/drm/sun4i/sun4i_hdmi_enc.c
+@@ -283,11 +283,11 @@ sun4i_hdmi_connector_detect(struct drm_connector *connector, bool force)
+ }
  
- 	drm_for_each_crtc(crtc, dev)
- 		if (crtc->funcs->reset)
- 			crtc->funcs->reset(crtc);
+ static void sun4i_hdmi_connector_reset(struct drm_connector *connector)
+ {
+ 	drm_atomic_helper_connector_reset(connector);
+-	__drm_atomic_helper_connector_hdmi_reset(connector, connector->state);
++	__drm_atomic_helper_connector_hdmi_state_init(connector, connector->state);
+ }
  
-diff --git a/include/drm/drm_atomic_state_helper.h b/include/drm/drm_atomic_state_helper.h
-index 691c1ccfa4e0..8d1ef268fdef 100644
---- a/include/drm/drm_atomic_state_helper.h
-+++ b/include/drm/drm_atomic_state_helper.h
-@@ -53,10 +53,12 @@ void __drm_atomic_helper_crtc_destroy_state(struct drm_crtc_state *state);
- void drm_atomic_helper_crtc_destroy_state(struct drm_crtc *crtc,
- 					  struct drm_crtc_state *state);
+ static const struct drm_connector_funcs sun4i_hdmi_connector_funcs = {
+ 	.detect			= sun4i_hdmi_connector_detect,
+ 	.fill_modes		= drm_helper_probe_single_connector_modes,
+diff --git a/drivers/gpu/drm/tests/drm_hdmi_state_helper_test.c b/drivers/gpu/drm/tests/drm_hdmi_state_helper_test.c
+index c9819c3fc635..e89e1af7a811 100644
+--- a/drivers/gpu/drm/tests/drm_hdmi_state_helper_test.c
++++ b/drivers/gpu/drm/tests/drm_hdmi_state_helper_test.c
+@@ -166,11 +166,11 @@ static const struct drm_connector_helper_funcs dummy_connector_helper_funcs = {
+ };
  
- void __drm_atomic_helper_plane_state_init(struct drm_plane_state *state,
- 					   struct drm_plane *plane);
-+struct drm_plane_state *
-+drm_atomic_helper_plane_create_state(struct drm_plane *plane);
- void __drm_atomic_helper_plane_reset(struct drm_plane *plane,
- 				     struct drm_plane_state *state);
- void drm_atomic_helper_plane_reset(struct drm_plane *plane);
- void __drm_atomic_helper_plane_duplicate_state(struct drm_plane *plane,
- 					       struct drm_plane_state *state);
-diff --git a/include/drm/drm_plane.h b/include/drm/drm_plane.h
-index 419c88c873a6..2c5a5a70a71b 100644
---- a/include/drm/drm_plane.h
-+++ b/include/drm/drm_plane.h
-@@ -386,10 +386,26 @@ struct drm_plane_funcs {
- 	 * 0 on success or a negative error code on failure.
- 	 */
- 	int (*set_property)(struct drm_plane *plane,
- 			    struct drm_property *property, uint64_t val);
+ static void dummy_hdmi_connector_reset(struct drm_connector *connector)
+ {
+ 	drm_atomic_helper_connector_reset(connector);
+-	__drm_atomic_helper_connector_hdmi_reset(connector, connector->state);
++	__drm_atomic_helper_connector_hdmi_state_init(connector, connector->state);
+ }
  
-+	/**
-+	 * @atomic_create_state:
-+	 *
-+	 * Allocate a pristine, initialized, state for the plane object
-+	 * and return it. This callback must have no side effects: in
-+	 * particular, the returned state must not be assigned to the
-+	 * object's state pointer and it must not affect the hardware
-+	 * state.
-+	 *
-+	 * RETURNS:
-+	 *
-+	 * A new, pristine, plane state instance or an error pointer
-+	 * on failure.
-+	 */
-+	struct drm_plane_state *(*atomic_create_state)(struct drm_plane *plane);
-+
- 	/**
- 	 * @atomic_duplicate_state:
- 	 *
- 	 * Duplicate the current atomic state for this plane and return it.
- 	 * The core and helpers guarantee that any atomic state duplicated with
+ static const struct drm_connector_funcs dummy_connector_funcs = {
+ 	.atomic_destroy_state	= drm_atomic_helper_connector_destroy_state,
+ 	.atomic_duplicate_state	= drm_atomic_helper_connector_duplicate_state,
+diff --git a/drivers/gpu/drm/vc4/vc4_hdmi.c b/drivers/gpu/drm/vc4/vc4_hdmi.c
+index a161d3b00a25..74dce4be0c00 100644
+--- a/drivers/gpu/drm/vc4/vc4_hdmi.c
++++ b/drivers/gpu/drm/vc4/vc4_hdmi.c
+@@ -506,11 +506,11 @@ static int vc4_hdmi_connector_atomic_check(struct drm_connector *connector,
+ }
+ 
+ static void vc4_hdmi_connector_reset(struct drm_connector *connector)
+ {
+ 	drm_atomic_helper_connector_reset(connector);
+-	__drm_atomic_helper_connector_hdmi_reset(connector, connector->state);
++	__drm_atomic_helper_connector_hdmi_state_init(connector, connector->state);
+ 	drm_atomic_helper_connector_tv_margins_reset(connector);
+ }
+ 
+ static const struct drm_connector_funcs vc4_hdmi_connector_funcs = {
+ 	.force = drm_atomic_helper_connector_hdmi_force,
+diff --git a/include/drm/display/drm_hdmi_state_helper.h b/include/drm/display/drm_hdmi_state_helper.h
+index 0adc30c55ec9..13375bd0f4ae 100644
+--- a/include/drm/display/drm_hdmi_state_helper.h
++++ b/include/drm/display/drm_hdmi_state_helper.h
+@@ -9,12 +9,12 @@ struct drm_connector_state;
+ struct drm_display_mode;
+ struct hdmi_audio_infoframe;
+ 
+ enum drm_connector_status;
+ 
+-void __drm_atomic_helper_connector_hdmi_reset(struct drm_connector *connector,
+-					      struct drm_connector_state *new_conn_state);
++void __drm_atomic_helper_connector_hdmi_state_init(struct drm_connector *connector,
++						   struct drm_connector_state *new_conn_state);
+ 
+ int drm_atomic_helper_connector_hdmi_check(struct drm_connector *connector,
+ 					   struct drm_atomic_commit *state);
+ 
+ int drm_atomic_helper_connector_hdmi_update_audio_infoframe(struct drm_connector *connector,
 
 -- 
 2.54.0
