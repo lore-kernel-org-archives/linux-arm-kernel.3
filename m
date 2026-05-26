@@ -4,99 +4,83 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id E53A2CD5BB1
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 26 May 2026 11:18:53 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 047EBCD5BB1
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 26 May 2026 11:19:17 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
-	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:References
+	:Message-Id:Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:
+	From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=Iel9G2dSq5mVeEVrZU7ubpkoHb7PNbJx58eC9mITM2Y=; b=ERFf6ySgVuHfAJ+WE7Fdwi5FFZ
-	4i1rPHmXxaZvE3OarvTUjElKLGtAIQEzbg1IYF1rG19pmYwZtCxA5xAB5AjzEkHQk1E3lcIMD1b6H
-	goQHcbfC5JQ3SR/Gh0+1+LKQYj3/J+QM5H8sUPIPivNnvcptXai6v21V/MDs2tkFX9Td8pasHpgFb
-	8lO4hF7kGjLQ+gcJ8R54prskmMVI/5qYxm2WNduD3szOZXIzj7KfKOfsyCkWGbgPGz8hUHZj6KpuE
-	fRl4Hn6JyVvKNsrJUlH7hBCX8goZF3gT8F7HAm+nlavPFt2830wVW1y2l8tJE+WaQcOmQ+BP6i9Gg
-	A/XY8T7A==;
+	bh=Z2aPhMnNwxFPZ7UsLO+fy52KmBehe9/q06FyWM2x5Bg=; b=z3DydyVjP4ig4HcVtD/CbJRcsy
+	gdJ36zBcmaF3dgO4bjSeDqvUIjNtozLg12hfS1AYzvL7R1FMpiALErKxTNc8dYnmpOUjJhHZeFCNB
+	WbNlYVLqeJKHtxhk7JQwhxAVcmO7eRfUShM6onbV3sI03ZY06KrIq/AbIEeI0SWjd5iGualWysNon
+	7YyM1c/Zu13r5PPWRCu3xs0sauOfY04k9jZMXBGfG5mnuUONe6SrU/gye+1Q1QWfLXeBdkojWYAx4
+	6uV0ZsuEkwaE0LrbrRE2lM/Try1MSbX/OW3ApljnCJrerZUvu0zNbol9kRMRmurSQuZQf7tGXbrr+
+	XLqeK4Ow==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wRpo5-00000001lQs-3f6Q;
-	Tue, 26 May 2026 11:18:45 +0000
-Received: from mail-wm1-x32f.google.com ([2a00:1450:4864:20::32f])
-	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wRpnr-00000001lBY-1bPy
+	id 1wRpoV-00000001ljQ-06Jy;
+	Tue, 26 May 2026 11:19:11 +0000
+Received: from foss.arm.com ([217.140.110.172])
+	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
+	id 1wRpnw-00000001lIt-3rJ7
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 26 May 2026 11:18:34 +0000
-Received: by mail-wm1-x32f.google.com with SMTP id 5b1f17b1804b1-4904c1ce4c1so40642535e9.3
-        for <linux-arm-kernel@lists.infradead.org>; Tue, 26 May 2026 04:18:30 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=linaro.org; s=google; t=1779794309; x=1780399109; darn=lists.infradead.org;
-        h=content-transfer-encoding:in-reply-to:from:content-language
-         :references:cc:to:subject:user-agent:mime-version:date:message-id
-         :from:to:cc:subject:date:message-id:reply-to;
-        bh=Iel9G2dSq5mVeEVrZU7ubpkoHb7PNbJx58eC9mITM2Y=;
-        b=u3oj3PrmkyubiwhTPszy7p59IzUf6cZ5xQtK8vf8A3FaNicV7gCX2vM9R1mzt6VNp2
-         Ni3WuMYbX1Cwgc43FkJPA3uG72/F6Om89/brh1/21IaHZnQeHz6HQH+0SZnrVg04684o
-         HujgeevWaXwH3i7aELkx1KSGb6EmJqeIAfTxNIh7zFz4YdHCmEy4dJF1bopk6WFnlXDv
-         9I3c0vJPyGUtupd+4Hxw1EenEov+ubsI0Ow3lriz/ln8fNwEr8K62pZ73iBqxwlcTVI0
-         ITScRU6p0acW5O7Vky1HG/YR3S7akRQ/g5h+w4ZL+KaIIT7s0Y8ak9vgrFEH7M+9tU/A
-         kQXg==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20251104; t=1779794309; x=1780399109;
-        h=content-transfer-encoding:in-reply-to:from:content-language
-         :references:cc:to:subject:user-agent:mime-version:date:message-id
-         :x-gm-gg:x-gm-message-state:from:to:cc:subject:date:message-id
-         :reply-to;
-        bh=Iel9G2dSq5mVeEVrZU7ubpkoHb7PNbJx58eC9mITM2Y=;
-        b=ZuL/a3q03dPQgu2vucZMBA5MY5bU25nqC1U18hfyu2G0p/bVE6G7QOnWnYnZeZuiDQ
-         4MtMhFfMN7EnKjfwngprE89COW1kC3I5S0zVOh2722sacbutqWErlTNZsBVz0WTM3Uo5
-         Zp2P5uPU10aPGu+TB4hUDWLs8WJOLSc1OJHG640ddoVeAfMYaaJ94GUk01s5jI0kcKk0
-         Rqp8jwtwhvxE/58uXQ4PyYA5hCVq+nazuiXW6HrLvfpic8u7PnnLqa0dWiFrxeaCHOI6
-         +nNdJVKNjg39Ik+mYgylhWPbYCUvayv1Qe+TiTDGkmNsSg8As7pSlpwclJ20LbpxSksB
-         2uBw==
-X-Forwarded-Encrypted: i=1; AFNElJ8UT2K2y4kcDqeSFpf1zjgi8XgoocopQBXI2LNAfkPj0NtMGtcUdo6Lgr/W5QkkELuf8PL0xXVfk+W2xNYwx4JG@lists.infradead.org
-X-Gm-Message-State: AOJu0Yxk0Bl2R8j/+XNsaPGL7kqZKxMx/sYxmNn+ik+T9bH2j1TVymDV
-	uNxEpLEOD6nPTeEy8tjFBlQOi1a2hyuIuGfZSpVkD/LcdaQoZ0E/YtgqnDkvX2KTx5E=
-X-Gm-Gg: Acq92OFfMIYR+ycUjq+xq4oBwlm5CppWjN2yi/Cbih/k0p3BQM88cHel8/23EVPnoMG
-	E9iJB8UYA/e5NfyIg8IvkYuwOhdb4lh8c+qDHq7sE7aSSbdkvTCGSQyq/UjPbm/3q2dJoL+Qd2H
-	U/4JmHQhUEifWTIyZJVmtFRBBmZeHlTw5Mev1m4Fk02WzLWrlXNjmP2E6m1QATt/hs6LvLluRc4
-	TMYGhLvGWFOJJKAIgJNo881jK35a0LRY8mt+bQiE3B4o2+QydKVk9kypV4X0cKQBai2zxMQ1izR
-	1NDlppVXWFbcCnWc7BHNyv7JoObffjY6BrX280NLEspPMEVKFZvWMiCdi+H+MCL90Q/CtMkSgMY
-	D6FS9oUsZfiyYH4dmw48CLPsYefizdQKERQfXbgaL8BLr28gn1eVF0fWzfmLdLeDAfJQs2Q1ken
-	G3YWSpAZmA7uRLfhgxH20TdC+WSTHk
-X-Received: by 2002:a05:600c:4510:b0:48a:53ea:140b with SMTP id 5b1f17b1804b1-490428ddf15mr282865845e9.28.1779794309281;
-        Tue, 26 May 2026 04:18:29 -0700 (PDT)
-Received: from [192.168.1.3] ([185.48.77.170])
-        by smtp.gmail.com with ESMTPSA id 5b1f17b1804b1-490428d4d8asm109534425e9.16.2026.05.26.04.18.28
-        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
-        Tue, 26 May 2026 04:18:28 -0700 (PDT)
-Message-ID: <f767dc3b-9796-4b12-a776-1de6a9ff3f99@linaro.org>
-Date: Tue, 26 May 2026 12:18:27 +0100
+	Tue, 26 May 2026 11:18:39 +0000
+Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
+	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id 5820A169C;
+	Tue, 26 May 2026 04:18:31 -0700 (PDT)
+Received: from localhost.localdomain (e123572-lin.cambridge.arm.com [10.1.194.54])
+	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id 8CC293F7D8;
+	Tue, 26 May 2026 04:18:31 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=simple/simple; d=arm.com; s=foss;
+	t=1779794316; bh=9wBueeoIAFIdpCFPeoLi/EZkGlpSFOkAKC8me35KoYQ=;
+	h=From:Date:Subject:References:In-Reply-To:To:Cc:From;
+	b=eXOLH7MdxJiOkZAP09iP5uw9iCgsxj2We3+sJWtQmd8d061E+2loD2GFwpxMovdHs
+	 LkkJNWWWTbLMzrvvXKCOGN9snp9rVpHRftvn//W84DGsK8vZ3pfuDtOV20nXYNOXgx
+	 KEnsow/YXuphRzS2h1zxu8OS9NOsZUePYgmR8K38=
+From: Kevin Brodsky <kevin.brodsky@arm.com>
+Date: Tue, 26 May 2026 12:16:08 +0100
+Subject: [PATCH RFC v8 19/24] arm64: kpkeys: Protect early page tables
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH] perf cs-etm: stamp pid/tid/EL on each buffered packet to
- fix cross-pid attribution
-To: Amir Ayupov <aaupov@meta.com>
-Cc: stable@vger.kernel.org, Suzuki K Poulose <suzuki.poulose@arm.com>,
- Mike Leach <mike.leach@arm.com>, Leo Yan <leo.yan@arm.com>,
- Peter Zijlstra <peterz@infradead.org>, Ingo Molnar <mingo@redhat.com>,
- Arnaldo Carvalho de Melo <acme@kernel.org>,
- Namhyung Kim <namhyung@kernel.org>, Mark Rutland <mark.rutland@arm.com>,
- Alexander Shishkin <alexander.shishkin@linux.intel.com>,
- Jiri Olsa <jolsa@kernel.org>, Ian Rogers <irogers@google.com>,
- Adrian Hunter <adrian.hunter@intel.com>, John Garry
- <john.g.garry@oracle.com>, Will Deacon <will@kernel.org>,
- coresight@lists.linaro.org, linux-arm-kernel@lists.infradead.org,
- linux-perf-users@vger.kernel.org, linux-kernel@vger.kernel.org
-References: <20260515021135.1729028-1-aaupov@meta.com>
-Content-Language: en-US
-From: James Clark <james.clark@linaro.org>
-In-Reply-To: <20260515021135.1729028-1-aaupov@meta.com>
-Content-Type: text/plain; charset=UTF-8; format=flowed
+Content-Type: text/plain; charset="utf-8"
 Content-Transfer-Encoding: 7bit
+Message-Id: <20260526-kpkeys-v8-19-eaaacdacc67c@arm.com>
+References: <20260526-kpkeys-v8-0-eaaacdacc67c@arm.com>
+In-Reply-To: <20260526-kpkeys-v8-0-eaaacdacc67c@arm.com>
+To: linux-hardening@vger.kernel.org
+Cc: Kevin Brodsky <kevin.brodsky@arm.com>, 
+ Andrew Morton <akpm@linux-foundation.org>, 
+ Andy Lutomirski <luto@kernel.org>, 
+ Catalin Marinas <catalin.marinas@arm.com>, 
+ Dave Hansen <dave.hansen@linux.intel.com>, 
+ "David Hildenbrand (Arm)" <david@kernel.org>, 
+ Ira Weiny <ira.weiny@intel.com>, Jann Horn <jannh@google.com>, 
+ Jeff Xu <jeffxu@chromium.org>, Joey Gouly <joey.gouly@arm.com>, 
+ Kees Cook <kees@kernel.org>, Linus Walleij <linusw@kernel.org>, 
+ Marc Zyngier <maz@kernel.org>, Mark Brown <broonie@kernel.org>, 
+ Matthew Wilcox <willy@infradead.org>, Maxwell Bland <mbland@motorola.com>, 
+ "Mike Rapoport (IBM)" <rppt@kernel.org>, 
+ Peter Zijlstra <peterz@infradead.org>, 
+ Pierre Langlois <pierre.langlois@arm.com>, 
+ Quentin Perret <qperret@google.com>, 
+ Rick Edgecombe <rick.p.edgecombe@intel.com>, 
+ Ryan Roberts <ryan.roberts@arm.com>, Vlastimil Babka <vbabka@kernel.org>, 
+ Will Deacon <will@kernel.org>, Yang Shi <yang@os.amperecomputing.com>, 
+ Yeoreum Yun <yeoreum.yun@arm.com>, linux-arm-kernel@lists.infradead.org, 
+ linux-mm@kvack.org, x86@kernel.org, Lorenzo Stoakes <ljs@kernel.org>, 
+ Thomas Gleixner <tglx@kernel.org>
+X-Mailer: b4 0.15.2
+X-Developer-Signature: v=1; a=ed25519-sha256; t=1779794212; l=1150;
+ i=kevin.brodsky@arm.com; s=20260427; h=from:subject:message-id;
+ bh=9wBueeoIAFIdpCFPeoLi/EZkGlpSFOkAKC8me35KoYQ=;
+ b=hUZ4Yyz5aVs6xpjZ1bdjTDRJfpeVGlGiY3rWKsG5Z1xMA/LMf3Vg/P8KbC4MF9EHQU3Mnw9ah
+ fidBllv5ILqAMkofFH+F/kdGsTqbbi3lJBwRm6AiQE+GRrMzYmyWRch
+X-Developer-Key: i=kevin.brodsky@arm.com; a=ed25519;
+ pk=N2QG+eJKrvkNovwhhwJhnJ4+ScVfsGCHldmqLfcMTFs=
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260526_041831_671506_81038B5A 
-X-CRM114-Status: GOOD (  32.97  )
+X-CRM114-CacheID: sfid-20260526_041838_390428_EFA3C5F1 
+X-CRM114-Status: GOOD (  12.94  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -111,122 +95,39 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
+Use the dedicated kpkeys allocator for early page tables (used to create
+the linear map) when the kpkeys_hardened_pgtables feature is enabled.
 
+CPU features have not been detected at this stage so we use the
+early_enabled() helper. This is not a concern as
+kpkeys_physmem_pgtable_alloc() does not itself use POE or
+set_memory_pkey().
 
-On 15/05/2026 3:11 am, Amir Ayupov wrote:
-> In a system-wide `perf record -e cs_etm/.../u` capture on aarch64,
-> synthesized samples emitted by `perf script --itrace=il64` are
-> sometimes attributed to the WRONG sample.pid/tid (and to the wrong
-> EL/cpumode) for the chunk of branches that straddle a context-switch
-> boundary on a CPU. A branch actually retired by process A is emitted
-> with sample.pid set to the thread that next ran on the same CPU.
-> 
-> Mechanism:
->    1. ETM emits CONTEXTIDR/EL packets in-stream when the kernel updates
->       CONTEXTIDR_EL1 on context switch / EL change. OpenCSD turns these
->       into OCSD_GEN_TRC_ELEM_PE_CONTEXT elements interleaved with
->       OCSD_GEN_TRC_ELEM_INSTR_RANGE elements for retired branch ranges.
->    2. cs_etm_decoder__buffer_range() queues each INSTR_RANGE into
->       packet_queue->packet_buffer[]; packets carry start/end addrs,
->       instr_count, last-instruction info, etc., but NO owner identity.
->    3. PE_CONTEXT goes through cs_etm_decoder__set_tid() ->
->       cs_etm__set_thread(), which immediately mutates tidq->thread and
->       tidq->el. Queued packets are not drained first; reset_timestamp()
->       is called so the next TIMESTAMP triggers OCSD_RESP_WAIT and a
->       drain.
->    4. By drain time in cs_etm__process_traceid_queue() ->
->       cs_etm__sample(), sample.pid/tid is read from the now-mutated
->       tidq->thread and sample.cpumode from the now-mutated tidq->el.
->       Pre-context INSTR_RANGEs get the post-context owner.
-> 
-> The same race affects branch samples via tidq->prev_packet_thread /
-> tidq->prev_packet_el, captured at packet-swap time from
-> tidq->thread / tidq->el (which may already have flipped).
-> 
-> This is independent of PERF_RECORD_SWITCH_CPU_WIDE, which is
-> deliberately not used to assign sample identity in this path. The
-> bug applies to any cs_etm capture with in-stream CONTEXTIDR
-> (PIDFMT_CTXTID or PIDFMT_CTXTID2).
-> 
-> Effect on downstream tools: branches that should belong to the
-> previous thread on the CPU get attributed to the next thread. When
-> the two threads share a binary, leaked branches' VAs land in the
-> wrong thread's mappings; samples whose IPs land in r-x mappings
-> silently pollute that binary's profile, while samples landing in
-> R-only/RW mappings show up as out-of-range / non-text samples.
-> Either way, AutoFDO/BOLT profiles built from `perf script --itrace`
-> output of system-wide cs_etm captures contain misattributed samples.
-> 
-> Concrete example from `perf script --itrace=il64` of the same
-> captured branch (same timestamp, same IP, same from/to addrs) before
-> and after this fix:
-> 
->    before: launcher_multia 2638146/2638146 705897.219172: \
->                fffcda6b124c 0xfffcda641958/0xfffcda6b123c
->    after:  ws-tcf-sr-io13  2736581/2741587 705897.219172: \
->                fffcda6b124c 0xfffcda641958/0xfffcda6b123c
-> 
-> The branch was retired by ws-tcf-sr-io13 (tid 2741587) but, before
-> the fix, was attributed to launcher_multia (the next thread to run on
-> that CPU after the context switch). After the fix, it is correctly
-> attributed to ws-tcf-sr-io13.
-> 
-> Why not "drain on PE_CONTEXT then switch" (deferred-set_thread):
-> tidq->thread has two consumers \u2014 sample emission needs the OUTGOING
-> identity for queued packets, but cs_etm__mem_access() needs the
-> CURRENT thread's maps to fetch instruction bytes for OpenCSD. The
-> two needs are temporally inverted; a single tidq->thread cannot
-> serve both. Keeping tidq->thread current and stamping owner identity
-> per packet is the only design that decouples them cleanly.
-> 
-> Fix: capture the owning pid/tid/EL on each buffered packet at
-> cs_etm_decoder__buffer_packet() time (before any subsequent
-> PE_CONTEXT can mutate tidq->thread / tidq->el), and read them at
-> sample emission time.
-> 
->    - struct cs_etm_packet gains pid_t pid, pid_t tid, int el (storing
->      an ocsd_ex_level value; typed as int so the struct does not
->      depend on OpenCSD headers, which are only included inside
->      HAVE_CSTRACE_SUPPORT).
->    - cs_etm__etmq_get_pid_tid_el() (formerly cs_etm__etmq_get_pid_tid)
->      returns all three.
->    - cs_etm__synth_instruction_sample() reads sample.pid / sample.tid
->      from tidq->packet->{pid,tid} and derives sample.cpumode from
->      tidq->packet->el.
->    - cs_etm__synth_branch_sample() reads sample.pid / sample.tid /
->      cpumode from tidq->prev_packet->{pid,tid,el}.
->    - The separate prev_packet_thread / prev_packet_el bookkeeping in
->      cs_etm__packet_swap() / cs_etm__init_traceid_queue() /
->      cs_etm__free_traceid_queues() is removed; the per-packet stamp
->      on prev_packet now carries that information.
-> 
-> Cost: 12 bytes added to struct cs_etm_packet (~12-16 KB per
-> packet_queue with CS_ETM_PACKET_MAX_BUFFER=1024), 16 bytes saved per
-> cs_etm_traceid_queue (one struct thread * + one ocsd_ex_level).
-> 
-> A residual gap: cs_etm__copy_insn() reads sample.insn bytes via
-> cs_etm__mem_access(), which still uses tidq->thread (the current
-> thread), so the inline insn bytes for an outgoing-thread sample may
-> be looked up against the wrong address space. Fixing this requires
-> threading the packet's owner pid through cs_etm__mem_access and is
-> left for a follow-up. sample.ip / sample.pid attribution \u2014 what
-> AutoFDO/BOLT consume \u2014 is correct.
-> 
+Signed-off-by: Kevin Brodsky <kevin.brodsky@arm.com>
+---
+ arch/arm64/mm/mmu.c | 7 +++++--
+ 1 file changed, 5 insertions(+), 2 deletions(-)
 
+diff --git a/arch/arm64/mm/mmu.c b/arch/arm64/mm/mmu.c
+index c67b46592af6..a9cc189affd8 100644
+--- a/arch/arm64/mm/mmu.c
++++ b/arch/arm64/mm/mmu.c
+@@ -109,8 +109,11 @@ static phys_addr_t __init early_pgtable_alloc(enum pgtable_level pgtable_level)
+ {
+ 	phys_addr_t phys;
+ 
+-	phys = memblock_phys_alloc_range(PAGE_SIZE, PAGE_SIZE, 0,
+-					 MEMBLOCK_ALLOC_NOLEAKTRACE);
++	if (kpkeys_hardened_pgtables_early_enabled())
++		phys = kpkeys_physmem_pgtable_alloc();
++	else
++		phys = memblock_phys_alloc_range(PAGE_SIZE, PAGE_SIZE, 0,
++						 MEMBLOCK_ALLOC_NOLEAKTRACE);
+ 	if (!phys)
+ 		panic("Failed to allocate page table page\n");
+ 
 
-Hi Amir,
-
-Can you test the patch here to see if it fixes your issue [1]?
-
-We thought it didn't make sense to store the thread on every packet when 
-there is only one active thread for the decoder and one for sample 
-generation. We also fixed the other issue mentioned above about 
-cs_etm__copy_insn() not working.
-
-Thanks
-James
-
-[1]: 
-https://lore.kernel.org/linux-perf-users/20260526-james-cs-context-tracking-fix-v1-0-ebd602e18287@linaro.org/T/#t
+-- 
+2.51.2
 
 
