@@ -4,84 +4,75 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 8D59BCD6E40
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 26 May 2026 11:19:19 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id B6737CD5BD0
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 26 May 2026 11:26:33 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:References
-	:Message-Id:Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:
-	From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=emygvYxhkWsqMuM5q9K6kqLmMjPTQyXSCWgwyuJaPJY=; b=rlJx3lu4G7cZSsQSpHZWbMkv7M
-	i/q/FO/vo9yPD2t92+nfprVrKjYkTJKiI8rP8ZGkKWcBttwbs8ioA8N2anpXCc2PeStk1p+ZWRGIr
-	TzN0Wa7p1G//ZjpGfzTBJbj3EmYxCO3Iym71/5Ny2coAjdhO4CdCRbrNcrVNZIZifTsSzHMtmZYWa
-	OZSb7JX+Nic2pDdI5krSKWTjRGDw0fKJ9jhJiVwGlAACCKgOBHcFdqXPR8Y3tAtJh4gtbdKeRY7oz
-	6ckSgC+dSSCYvWzK8lHQKGYobbwnnNFheb9wVEfHyLNFBfIwIlLkpBDrP69TdceGPDqvpJWx71olZ
-	1WXdmzSg==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:Cc:To:From:Subject:Message-ID:Mime-Version:Date:Reply-To:
+	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
+	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=O7rx7KyPWyATkNYQBTFfTCI2vUcCFRxmTiO8Ep3+9hI=; b=Ylc5Mq2ZifV4Ae2rgM6kfn7tSJ
+	0yuIomxS8wytOaTypH+rOlOItgHLAfjt/hl8djMKctAeGo6s/1aRdoEApJFHMiB9ae03RoysaOvGc
+	QOV6pdcwf2QAn55lPkXyohIshjVQMr/NpdJROQ4hKANzCQjeUPCo5XV0ggxBbtbLId7IkogXa5Ll0
+	U7ZqYm4g5NSOeWjC4xQE2uF6FIHd2nrm/mxWUPm+LR9zjk+BZfQxN+xjxnZknSXVwPNw6SdCPbJkE
+	XMSUhfHugb52rD/mALtnWLYXVLeRqrWqzX77xXiRNAm9nDlHQO95j56BTNuc0RQ1I/+oniFneEqaU
+	gWoI93gA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wRpoV-00000001lkY-3FaU;
-	Tue, 26 May 2026 11:19:12 +0000
-Received: from foss.arm.com ([217.140.110.172])
-	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wRpoC-00000001lXB-2xlz
+	id 1wRpvX-00000001muK-07Uw;
+	Tue, 26 May 2026 11:26:27 +0000
+Received: from mail-wm1-x34a.google.com ([2a00:1450:4864:20::34a])
+	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
+	id 1wRpvT-00000001mtQ-3Pg2
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 26 May 2026 11:18:56 +0000
-Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
-	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id E6DEF16F2;
-	Tue, 26 May 2026 04:18:46 -0700 (PDT)
-Received: from localhost.localdomain (e123572-lin.cambridge.arm.com [10.1.194.54])
-	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id 27F6D3F7D8;
-	Tue, 26 May 2026 04:18:47 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=simple/simple; d=arm.com; s=foss;
-	t=1779794332; bh=f+o3e9jzGdoDfuO+adnmSdYfcmQjcKxMxDU6OWrV3wo=;
-	h=From:Date:Subject:References:In-Reply-To:To:Cc:From;
-	b=Z2yhCO+0glanNMpcjEtQJ/w7SiPK2pLeNqNIszMDIQnLC7FyNWkJKh+0FaNJkADVw
-	 oCUknh15J4XZ9damwbiBICy8lVbhyZChQsIkvhTagh/dkWDPNAFBeqdkP6i+Q2yad/
-	 QTx3llxmEHu+AFJIJ5qDvltcn5e6H3IiEsWOqkbo=
-From: Kevin Brodsky <kevin.brodsky@arm.com>
-Date: Tue, 26 May 2026 12:16:11 +0100
-Subject: [PATCH RFC v8 22/24] arm64: kpkeys: Batch KPKEYS_CTX_PGTABLES
- switches
-MIME-Version: 1.0
-Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: 7bit
-Message-Id: <20260526-kpkeys-v8-22-eaaacdacc67c@arm.com>
-References: <20260526-kpkeys-v8-0-eaaacdacc67c@arm.com>
-In-Reply-To: <20260526-kpkeys-v8-0-eaaacdacc67c@arm.com>
-To: linux-hardening@vger.kernel.org
-Cc: Kevin Brodsky <kevin.brodsky@arm.com>, 
- Andrew Morton <akpm@linux-foundation.org>, 
- Andy Lutomirski <luto@kernel.org>, 
- Catalin Marinas <catalin.marinas@arm.com>, 
- Dave Hansen <dave.hansen@linux.intel.com>, 
- "David Hildenbrand (Arm)" <david@kernel.org>, 
- Ira Weiny <ira.weiny@intel.com>, Jann Horn <jannh@google.com>, 
- Jeff Xu <jeffxu@chromium.org>, Joey Gouly <joey.gouly@arm.com>, 
- Kees Cook <kees@kernel.org>, Linus Walleij <linusw@kernel.org>, 
- Marc Zyngier <maz@kernel.org>, Mark Brown <broonie@kernel.org>, 
- Matthew Wilcox <willy@infradead.org>, Maxwell Bland <mbland@motorola.com>, 
- "Mike Rapoport (IBM)" <rppt@kernel.org>, 
- Peter Zijlstra <peterz@infradead.org>, 
- Pierre Langlois <pierre.langlois@arm.com>, 
- Quentin Perret <qperret@google.com>, 
- Rick Edgecombe <rick.p.edgecombe@intel.com>, 
- Ryan Roberts <ryan.roberts@arm.com>, Vlastimil Babka <vbabka@kernel.org>, 
- Will Deacon <will@kernel.org>, Yang Shi <yang@os.amperecomputing.com>, 
- Yeoreum Yun <yeoreum.yun@arm.com>, linux-arm-kernel@lists.infradead.org, 
- linux-mm@kvack.org, x86@kernel.org, Lorenzo Stoakes <ljs@kernel.org>, 
- Thomas Gleixner <tglx@kernel.org>
-X-Mailer: b4 0.15.2
-X-Developer-Signature: v=1; a=ed25519-sha256; t=1779794212; l=4465;
- i=kevin.brodsky@arm.com; s=20260427; h=from:subject:message-id;
- bh=f+o3e9jzGdoDfuO+adnmSdYfcmQjcKxMxDU6OWrV3wo=;
- b=0J/grukgqVXGPI4sxKZSOOHsNw1TH6qH9g4Z8OmoH5fl1qwIvtsWZMkKtU79kvfE+eqTuxetR
- Ve2LsAYtKj3DDxCRTqrZDhEB/3G9K61ztemgjXsqj0PTVBHZkbOFaTd
-X-Developer-Key: i=kevin.brodsky@arm.com; a=ed25519;
- pk=N2QG+eJKrvkNovwhhwJhnJ4+ScVfsGCHldmqLfcMTFs=
+	Tue, 26 May 2026 11:26:25 +0000
+Received: by mail-wm1-x34a.google.com with SMTP id 5b1f17b1804b1-48fe40b61a3so68263055e9.3
+        for <linux-arm-kernel@lists.infradead.org>; Tue, 26 May 2026 04:26:23 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=google.com; s=20251104; t=1779794782; x=1780399582; darn=lists.infradead.org;
+        h=content-transfer-encoding:cc:to:from:subject:message-id
+         :mime-version:date:from:to:cc:subject:date:message-id:reply-to;
+        bh=O7rx7KyPWyATkNYQBTFfTCI2vUcCFRxmTiO8Ep3+9hI=;
+        b=pc/q8g1flzUhc2mSUTflnqMPgE1WnqHsK7mTsTNfXBayV0uSrzwHZ02QXEDMCZbT08
+         SUc0KNQsWFuHZstJ8CtvE1gcGZaRO/srVu8sABXhNH/lKkRlS0m+Y8EVtEWfzfJ4jzr+
+         FcRlUjF3YAAANcUaapQmmW6y9YD3nBZ91dp5UevwJ3NWugeRR3MyXRX0yUhJ7n5TEYzK
+         zmPGDD53dQx/QUr/CGEc+KKBNHzt5Ec/je6zmQZrtHpWB2iqF1NeU0orOB7oEVtrstpu
+         5VtIClcwSRwExPCVHLpRDSyv4IetrXn7VxW33QWUdhYpTxwBjwjFD13757bx5owzI1K9
+         /qGg==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20251104; t=1779794782; x=1780399582;
+        h=content-transfer-encoding:cc:to:from:subject:message-id
+         :mime-version:date:x-gm-message-state:from:to:cc:subject:date
+         :message-id:reply-to;
+        bh=O7rx7KyPWyATkNYQBTFfTCI2vUcCFRxmTiO8Ep3+9hI=;
+        b=hI/e+B3oZyNY19rUkZGyTJprRAefppr0LTmbeAhrMKvS8FTwVm7fFpOH2Oii45jDco
+         7c2ACg02WoRcES4GK5pkCcHp11T1o8gFvwNAqKTrGrY8NLDskmsFc9j03muyYtKoGCUX
+         KlIW6HHlFt6GZnGha3ZuIxpZQmHrYJ5DJTidrTrTscCW2mtodoA3HtLmC0Gk9uLCrTdx
+         iK0Y3KOXU75b0QrPVYpXF7FnCm69hMtqe082UgpRZ9A0+pgPtLixrzpbBWzLpg+WFbYk
+         7hi0kHEoobI6AoxnW8pyBBPhG6E4cKcxXXY135/+1QM+Z3iXrQkU3yEFt02qB0htlPSX
+         6v8g==
+X-Gm-Message-State: AOJu0YwJwljm30N5SrsrIF3yCh9epQlYD6Q9XmU7NVKKrNI7/5/pgIpj
+	nQ/EIJbZLEJxIDw3wk1HzvCfewId/zPeaF4SYY4oA7AiG307qpaCwtJ4btxmcyF4rfdMmZx4thb
+	hko29Sxxg7X8/HSVMR+vx47go+XLVvIH18HDXjb4j9/61JkEYJLqhfEpCYwsWNcFpu5R6BJ5RB6
+	GLNkF+eqMKPOEIrEn/uc9hDpy6hqJ8h6+XX+4ZTlLwe3pTI3Tr9wrPBpuqTwd6Rec9GA==
+X-Received: from wmco1.prod.google.com ([2002:a05:600c:a301:b0:490:6868:7565])
+ (user=smostafa job=prod-delivery.src-stubby-dispatcher) by
+ 2002:a05:600c:35c8:b0:490:45bb:8dd9 with SMTP id 5b1f17b1804b1-49045bb8efdmr318834875e9.8.1779794781467;
+ Tue, 26 May 2026 04:26:21 -0700 (PDT)
+Date: Tue, 26 May 2026 11:26:18 +0000
+Mime-Version: 1.0
+X-Mailer: git-send-email 2.54.0.746.g67dd491aae-goog
+Message-ID: <20260526112618.3629321-1-smostafa@google.com>
+Subject: [PATCH v2] irqchip/gic-v4: Harden against bogus command line
+From: Mostafa Saleh <smostafa@google.com>
+To: linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org
+Cc: maz@kernel.org, tglx@kernel.org, Mostafa Saleh <smostafa@google.com>
+Content-Type: text/plain; charset="UTF-8"
+Content-Transfer-Encoding: quoted-printable
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260526_041853_717059_6D93562F 
-X-CRM114-Status: GOOD (  21.39  )
+X-CRM114-CacheID: sfid-20260526_042623_885241_959617FB 
+X-CRM114-Status: GOOD (  12.55  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -96,133 +87,56 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-The kpkeys_hardened_pgtables feature currently switches kpkeys
-context in every helper that writes to page tables, such as
-set_pte(). With kpkeys implemented using POE, this entails a pair of
-ISBs whenever such helper is called.
+When accidentally setting =E2=80=9Ckvm-arm.vgic_v4_enable=3D1=E2=80=9D on t=
+he wrong
+setup that has no MSI controller device tree node (it exists but
+not used) and GICv4, it caused a panic as =E2=80=9Cgic_domain=E2=80=9D is N=
+ULL and
+the kernel attempted to access its ops.
 
-A simple way to reduce this overhead is to make use of the lazy MMU
-mode. We amend the kpkeys_hardened_pgtables guard so that no kpkeys
-context switch (i.e. POR_EL1 update) is issued while the lazy MMU
-mode is active. Instead, we switch to KPKEYS_CTX_PGTABLES when
-entering the lazy MMU mode, and restore the previous context when
-exiting it.
+Originally, I hit this on an older kernel, but was able to reproduce
+it on upstream with Qemu by hacking this unreasonable setup.
 
-Restoring the previous kpkeys context requires storing the original
-value of POR_EL1 somewhere. This is a full 64-bit value so we cannot
-simply use a TIF flag. There is no straightforward way to reuse
-current->thread.por_el1 for that purpose - this is where the current
-value of POR_EL1 is stored on a context switch, i.e. the value
-corresponding to KPKEYS_CTX_PGTABLES inside a lazy_mmu section.
-Instead, we add a new member to thread_struct to hold that value
-temporarily. This isn't optimal as that member is unused outside of
-lazy MMU sections, but it is the simplest option. Nesting of
-sections is not a concern as arch_{enter,leave}_lazy_mmu_mode() are
-not called in inner sections (nor do we need to do anything there).
+[   33.145536] Unable to handle kernel NULL pointer dereference at virtual =
+address 0000000000000028
+[   33.145658] Mem abort info:
+[   33.145751]   ESR =3D 0x0000000096000006
+...
+[   33.154057] CPU: 1 UID: 0 PID: 295 Comm: lkvm-static Not tainted 7.1.0-r=
+c4-ge3f15ad3970e #5 PREEMPT
+[   33.156922] Hardware name: linux,dummy-virt (DT)
+[   33.158780] pstate: 81402005 (Nzcv daif +PAN -UAO -TCO +DIT -SSBS BTYPE=
+=3D--)
+[   33.160340] pc : __irq_domain_instantiate+0x1d4/0x578
+[   33.162602] lr : __irq_domain_instantiate+0x1cc/0x578
 
-A further optimisation this patch makes is to merge the ISBs when
-exiting lazy_mmu mode. That is, if an ISB is going to be issued by
-emit_pte_barriers() because kernel pgtables were modified in the
-lazy MMU section, we skip the ISB after restoring POR_EL1. This is
-done by checking TIF_LAZY_MMU_PENDING and ensuring that POR_EL1 is
-restored before emit_pte_barriers() is called.
+Set vLPI support to false at init time if the host has no ITS, so it
+propagates properly to kvm_vgic_global_state.has_gicv4.
 
-Signed-off-by: Kevin Brodsky <kevin.brodsky@arm.com>
+Suggested-by: Marc Zyngier <maz@kernel.org>
+Signed-off-by: Mostafa Saleh <smostafa@google.com>
+
 ---
- arch/arm64/include/asm/pgtable.h   | 50 +++++++++++++++++++++++++++++++++++---
- arch/arm64/include/asm/processor.h |  1 +
- 2 files changed, 47 insertions(+), 4 deletions(-)
+v2: Fix the issue at construction as Marc suggested.
+---
+ drivers/irqchip/irq-gic-v3-its.c | 1 +
+ 1 file changed, 1 insertion(+)
 
-diff --git a/arch/arm64/include/asm/pgtable.h b/arch/arm64/include/asm/pgtable.h
-index 20072f32677d..1c0dcfd14678 100644
---- a/arch/arm64/include/asm/pgtable.h
-+++ b/arch/arm64/include/asm/pgtable.h
-@@ -43,10 +43,44 @@
- 
- #ifdef CONFIG_KPKEYS_HARDENED_PGTABLES
- KPKEYS_GUARD_COND(kpkeys_hardened_pgtables, KPKEYS_CTX_PGTABLES,
--		  kpkeys_hardened_pgtables_enabled())
--#else
-+		  kpkeys_hardened_pgtables_enabled() &&
-+		  !is_lazy_mmu_mode_active())
-+
-+static void kpkeys_lazy_mmu_enter(void)
-+{
-+	if (!kpkeys_hardened_pgtables_enabled())
-+		return;
-+
-+	current->thread.por_el1_lazy_mmu = kpkeys_set_context(KPKEYS_CTX_PGTABLES);
-+}
-+
-+static void kpkeys_lazy_mmu_exit(void)
-+{
-+	u64 saved_por_el1;
-+
-+	if (!kpkeys_hardened_pgtables_enabled())
-+		return;
-+
-+	saved_por_el1 = current->thread.por_el1_lazy_mmu;
-+
-+	/*
-+	 * We skip any barrier if TIF_LAZY_MMU_PENDING is set:
-+	 * emit_pte_barriers() will issue an ISB just after this function
-+	 * returns.
-+	 */
-+	if (test_thread_flag(TIF_LAZY_MMU_PENDING))
-+		__kpkeys_set_pkey_reg_nosync(saved_por_el1);
-+	else
-+		arch_kpkeys_restore_pkey_reg(saved_por_el1);
-+}
-+#else /* CONFIG_KPKEYS_HARDENED_PGTABLES */
- KPKEYS_GUARD_NOOP(kpkeys_hardened_pgtables)
--#endif
-+
-+static void kpkeys_lazy_mmu_enter(void) {}
-+static void kpkeys_lazy_mmu_exit(void) {}
-+#endif /* CONFIG_KPKEYS_HARDENED_PGTABLES */
-+
-+
- 
- static inline void emit_pte_barriers(void)
- {
-@@ -79,7 +113,10 @@ static inline void queue_pte_barriers(void)
+diff --git a/drivers/irqchip/irq-gic-v3-its.c b/drivers/irqchip/irq-gic-v3-=
+its.c
+index 291d7668cc8d..d02cb9c17c0b 100644
+--- a/drivers/irqchip/irq-gic-v3-its.c
++++ b/drivers/irqchip/irq-gic-v3-its.c
+@@ -5837,6 +5837,7 @@ int __init its_init(struct fwnode_handle *handle, str=
+uct rdists *rdists,
+ 		its_acpi_probe();
+=20
+ 	if (list_empty(&its_nodes)) {
++		rdists->has_vlpis =3D false;
+ 		pr_warn("ITS: No ITS available, not enabling LPIs\n");
+ 		return -ENXIO;
  	}
- }
- 
--static inline void arch_enter_lazy_mmu_mode(void) {}
-+static inline void arch_enter_lazy_mmu_mode(void)
-+{
-+	kpkeys_lazy_mmu_enter();
-+}
- 
- static inline void arch_flush_lazy_mmu_mode(void)
- {
-@@ -89,6 +126,11 @@ static inline void arch_flush_lazy_mmu_mode(void)
- 
- static inline void arch_leave_lazy_mmu_mode(void)
- {
-+	/*
-+	 * The ordering should be preserved to allow kpkeys_lazy_mmu_exit()
-+	 * to skip any barrier when TIF_LAZY_MMU_PENDING is set.
-+	 */
-+	kpkeys_lazy_mmu_exit();
- 	arch_flush_lazy_mmu_mode();
- }
- 
-diff --git a/arch/arm64/include/asm/processor.h b/arch/arm64/include/asm/processor.h
-index 6095322343fc..c3a86ddce637 100644
---- a/arch/arm64/include/asm/processor.h
-+++ b/arch/arm64/include/asm/processor.h
-@@ -193,6 +193,7 @@ struct thread_struct {
- 	u64			tpidr2_el0;
- 	u64			por_el0;
- 	u64			por_el1;
-+	u64			por_el1_lazy_mmu;
- #ifdef CONFIG_ARM64_GCS
- 	unsigned int		gcs_el0_mode;
- 	unsigned int		gcs_el0_locked;
-
--- 
-2.51.2
+--=20
+2.54.0.746.g67dd491aae-goog
 
 
