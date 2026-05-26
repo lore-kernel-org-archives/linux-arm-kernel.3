@@ -4,75 +4,74 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 14F22CD5BB1
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 26 May 2026 17:59:55 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 28CF2CD5BC8
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 26 May 2026 18:00:12 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:Cc:To:From:
 	Subject:Message-ID:References:Mime-Version:In-Reply-To:Date:Reply-To:
 	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=uVwVNe3cqI0RCHG1xJv3LRo5BwxDkOUdlieXkffr7Nw=; b=PWg+ZvTOKAanKm6o8zsMUnMyW/
-	AQUIUrtEU8Ctvc/5AbaOGUtSnG2oyYBCJD/wnJfPWyZR06j0XbZ9pOJ0gcWI3SnyXN1HHrvDQj9Tp
-	wr2UxTaiD04yNJKwfRbwfgHH9kCAl5oYW/twXwPcKNMrtWgeaqWwfmGu47d3k2ItQbXh2NsYjDl/C
-	qPHpWar3Ni+o0qJQjpNPQQqjDJ1lsLbiqxb/cFmyF3vZNoo88r+KgjOM7vC6OrgmXEvZOQe3IOW98
-	Ud70+gUA6GwGpSFSlzaAcget3lIbezpBJw+avahYt11doY20XRFVa3sYW2cIzuT2BM5wplhJPL6zk
-	SmKhKckA==;
+	bh=/YEs+3ha0YZ0GL65qiPfv2bavm0rO2bwvFUt4jkd+Vg=; b=oEq75PpCCT7R5L9eUGUeOuMdzD
+	KwyT//R3jqlWqDAPSJNS2tZEO+2weCdDwUlvRPyJWkv8DrwIzCxSI07cAKPkqO6rm0wg+aQn0U6ni
+	L0Izrnn7NI5CwpbPRhbV2TG71ZsCSJj7BZTXp8H86buJGjSC15Tq+b8CrPXFrdev3D4t1iYlrH9Fh
+	KLQkflzIsBJcX6YB48v5Gws7hPj3kxrwZ4wiYFfZ5HCushYDnaYNHtC7TuGueT55aSFSkx+Lng905
+	b82vIL55x8rHogZq3a47sLrlFrAW7NeSzUwHSFSf525YrKMT5FH5wvcoGsK9BDd70XOyGEms5tlAj
+	e6kLCfLA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wRw40-00000002msh-3r0G;
-	Tue, 26 May 2026 17:59:37 +0000
-Received: from mail-wr1-x44a.google.com ([2a00:1450:4864:20::44a])
+	id 1wRw4T-00000002nJk-3uHg;
+	Tue, 26 May 2026 18:00:05 +0000
+Received: from mail-wm1-x349.google.com ([2a00:1450:4864:20::349])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wRw3w-00000002mmd-1KRQ
+	id 1wRw3z-00000002mp3-3yGt
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 26 May 2026 17:59:34 +0000
-Received: by mail-wr1-x44a.google.com with SMTP id ffacd0b85a97d-45ea38c03a1so4729284f8f.1
-        for <linux-arm-kernel@lists.infradead.org>; Tue, 26 May 2026 10:59:31 -0700 (PDT)
+	Tue, 26 May 2026 17:59:37 +0000
+Received: by mail-wm1-x349.google.com with SMTP id 5b1f17b1804b1-4905428aad6so30182135e9.1
+        for <linux-arm-kernel@lists.infradead.org>; Tue, 26 May 2026 10:59:35 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=google.com; s=20251104; t=1779818370; x=1780423170; darn=lists.infradead.org;
+        d=google.com; s=20251104; t=1779818374; x=1780423174; darn=lists.infradead.org;
         h=cc:to:from:subject:message-id:references:mime-version:in-reply-to
          :date:from:to:cc:subject:date:message-id:reply-to;
-        bh=uVwVNe3cqI0RCHG1xJv3LRo5BwxDkOUdlieXkffr7Nw=;
-        b=r2SeIiQ26lraEwoN0f7k+nwqO+Wx/D7wfwxdJMqQBYXm1v6fNWGIgxxKcYkyU+KkW8
-         LBoxjFBlhUdxNkAA/3e5C4lvCRnCrK7qNlX5g9YqzKozNLfysKh1/IXm37FZxuYPCf3y
-         VSORxA2CiMFbLAFWKzdTig68904gGXmg15Ji1z/EPTEiPo9XbbMrFIqlPnfTsxNydhKM
-         5vaw+gQh7VMq587SfzI6PwAjMb/z/lhvEOPNkViHQDLuBfcWDsxV/4Uj6egzVRbeRbeT
-         iup3uG7pleKjIHhWws1TR+q9O++mcmztMukrgYZRwIxlzf5u+QsY4uVz6mTLF46Kt3Xj
-         tMwg==
+        bh=/YEs+3ha0YZ0GL65qiPfv2bavm0rO2bwvFUt4jkd+Vg=;
+        b=Xca96ZBWxUgQ7vhwDO2EpbGbna9RJxbdwMLB7i/8jMsLzZg8Ia8xKsdF9xEXDMOiW6
+         sLWPaYvNOVLZoMOD4tnqFhZpmACN1eVO64AZLmSxsUQzC4etTvmmCAOGC0VaXOVwbFlv
+         eb9V/aKega38iQPeOBNB0wSe7FfQkEkFnhE98+2dUeDfCSJpYuqkdDul+o+yfjzqsQJG
+         rD7xjl+Wa7dgyQ28Ot+pIOCt6r+OQQ7+h7S93sS/a21kBav1k9rghUf7oMxh4Owos/HK
+         VuGcLVsVJbuwAPFar4GqVQQzOy3D5faa5pKZ0EZfSXOs9esvbInq1LP5CawjT6Dn9Myc
+         5+jA==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20251104; t=1779818370; x=1780423170;
+        d=1e100.net; s=20251104; t=1779818374; x=1780423174;
         h=cc:to:from:subject:message-id:references:mime-version:in-reply-to
          :date:x-gm-message-state:from:to:cc:subject:date:message-id:reply-to;
-        bh=uVwVNe3cqI0RCHG1xJv3LRo5BwxDkOUdlieXkffr7Nw=;
-        b=PrsX45Ahk9L7kdqtymKYEtBlDyQ1mvBvWQqBKQPQdEhXu7p+E39OdiUXglFEaJPvIZ
-         FIQM1KonFaAlQfLo+1SISJQvu7FiR+TcutGv6GrVnydGbHfCtay0S1EG5yG2o5t2yqi7
-         2eiz0mFo/S9J8CN6CHzQUPY6Ad3lx4w/AvjIFfs8zrzgqOtJdXEzAGT24iBGgrObbgAe
-         n4mbYgUHHrBbwzwymiEca1MfXNi5TYQazcD/1lapH+ewtYGLpqueJjavLg9Yzk5r/mU0
-         K7stVfHpKSaUTDgXfIgYdBC/l20CkJe0oHpEo7Vi2fqNY2R48EbHaXD950K2FwzaWtVh
-         fZYg==
-X-Gm-Message-State: AOJu0YyRUFGHVMgJR3y4fKBSSvs/XoYzisPVQ9K93L7wSec8LK4saPZf
-	ZfCxBP76jG0grYCl8FAQDmEnR3NMW4XjvyicrExGoHFBPoUohQCUvtoOPQDvueHPDfA6etm/fdx
-	NTw9QdbwJK1abnwWDk1q6nOKOGmBxb6ngcHpeKeyCDR88wX+P6N+8yU84zF3sKW4xPUFXl/7+kz
-	HWBm2Zsh7G4WmsxF8FSeqikXVlEno5sYpjZPayu57BbSjC
-X-Received: from wmxb15-n2.prod.google.com ([2002:a05:600d:844f:20b0:48f:d328:60c])
- (user=ardb job=prod-delivery.src-stubby-dispatcher) by 2002:a05:600c:4e14:b0:490:5cb3:e936
- with SMTP id 5b1f17b1804b1-4905cb3eb00mr223400195e9.4.1779818369475; Tue, 26
- May 2026 10:59:29 -0700 (PDT)
-Date: Tue, 26 May 2026 19:58:54 +0200
+        bh=/YEs+3ha0YZ0GL65qiPfv2bavm0rO2bwvFUt4jkd+Vg=;
+        b=rNg2IgJpaqX3Y0eBetzQ3x5ZwGx2gqh154BEVwy03PJYadT26QPmRi/EyQvN/KDJxr
+         jUdVWjfubit7oFgq5Gfrl2ouqXAgxstT6GqRNO4lzLkIdP9VJ4Avf+gPaijZk/jtjP9o
+         6bUQPmVgWFz8FnH0X7f79y4KG0AJtLK4gtu4thNhswYc3eokTvKI6okvkqSFqjwAH41p
+         c4eEdYYZubcZuNuCs1i8oCRNgnxBE8063V4z6/Kp4o8q/6hRkghuZ/pRtO+sebqK2oIt
+         IR0iGZM8gEpBbae+kEECM5KrBGMLqNC78Pmg5vSWLtM6+/O/Imc3TJmZf8zpMCEpj4b0
+         amlQ==
+X-Gm-Message-State: AOJu0YwOpC3gc99VNJf2OzjIzg9TQG2FpyCKFBtKkR6spqo509n3fSE6
+	t0CI3uoCx2f8GvVDJRfWgBgamMV4aLhuU7Ksgc334/leh8VkVRnBgQowc5LZwBh9pAfuFFXhQ37
+	6/rTpvMlZ4HgTaBhP2YsRmfHLg54Qpzqk6d/DKUbLF7U8q/HpLkXdpuRth6yteB0Yp5LhXFsUuf
+	7/+KGfH+q+Qlb9Swd8YZaR6JXM4JqbxnnrQzeAaOjBIb0P
+X-Received: from wmri26-n1.prod.google.com ([2002:a05:600c:8a1a:10b0:490:49db:2263])
+ (user=ardb job=prod-delivery.src-stubby-dispatcher) by 2002:a05:600c:5298:b0:48f:e230:1d12
+ with SMTP id 5b1f17b1804b1-490428dd63emr346556585e9.31.1779818373602; Tue, 26
+ May 2026 10:59:33 -0700 (PDT)
+Date: Tue, 26 May 2026 19:58:57 +0200
 In-Reply-To: <20260526175846.2694125-17-ardb+git@google.com>
 Mime-Version: 1.0
 References: <20260526175846.2694125-17-ardb+git@google.com>
 X-Developer-Key: i=ardb@kernel.org; a=openpgp; fpr=F43D03328115A198C90016883D200E9CA6329909
-X-Developer-Signature: v=1; a=openpgp-sha256; l=3123; i=ardb@kernel.org;
- h=from:subject; bh=p/GjcIFRscd8SARDtYvyFpPt1lS/DKkRLXn2dxWNXF4=;
- b=owGbwMvMwCVmkMcZplerG8N4Wi2JIUv0fsKpx8vWnXp9PDbK7d7pQ5f7tV6IZt198fXxgbl3+
- RdMT7Zr6ShlYRDjYpAVU2QRmP333c7TE6VqnWfJwsxhZQIZwsDFKQAT0bvEyHDiTj+j5qWAr0Y/
- aoUNp/5XU7S1WV4v/ue8Dkfu9tf7llszMqzS+fykyFm2qtwylU02r291afDEKR3P9d4q/j84eW/ EbjYA
+X-Developer-Signature: v=1; a=openpgp-sha256; l=2521; i=ardb@kernel.org;
+ h=from:subject; bh=IVFHANRX1Y5B7sO2czLQgDyXUEkQiTSy8G1FQDCgg/E=;
+ b=owGbwMvMwCVmkMcZplerG8N4Wi2JIUv0fsoLbrWLu7gSw7a4He9yccnfFaz2Zfnzl9euX9kmw
+ 5F4//u9jlIWBjEuBlkxRRaB2X/f7Tw9UarWeZYszBxWJpAhDFycAjCR2HhGhum3KqfUzpnosfjs
+ O4PZz65tu/Cten/afJ4dmhfPiNRN+BDP8D8myOOB5p+Lm9QF963bJLbl3IvwqSc/fj98Oa1ZZH3 U5m2sAA==
 X-Mailer: git-send-email 2.54.0.794.g4f17f83d09-goog
-Message-ID: <20260526175846.2694125-24-ardb+git@google.com>
-Subject: [PATCH v6 07/15] arm64: kfence: Avoid NOMAP tricks when mapping the
- early pool
+Message-ID: <20260526175846.2694125-27-ardb+git@google.com>
+Subject: [PATCH v6 10/15] arm64: mm: Don't abuse memblock NOMAP to check for overlaps
 From: Ard Biesheuvel <ardb+git@google.com>
 To: linux-arm-kernel@lists.infradead.org
 Cc: linux-kernel@vger.kernel.org, will@kernel.org, catalin.marinas@arm.com, 
@@ -85,8 +84,8 @@ Cc: linux-kernel@vger.kernel.org, will@kernel.org, catalin.marinas@arm.com,
 	linux-sh@vger.kernel.org
 Content-Type: text/plain; charset="UTF-8"
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260526_105932_373275_7BCBFCFB 
-X-CRM114-Status: GOOD (  16.17  )
+X-CRM114-CacheID: sfid-20260526_105936_029897_5D2FD611 
+X-CRM114-Status: GOOD (  14.89  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -103,96 +102,60 @@ Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.i
 
 From: Ard Biesheuvel <ardb@kernel.org>
 
-Now that the map_mem() routines respect existing page mappings and
-contiguous granule sized blocks with the contiguous bit cleared, there
-is no longer a reason to play tricks with the memblock NOMAP attribute.
+Now that the linear region mapping routines respect existing table
+mappings and contiguous block and page mappings, it is no longer needed
+to fiddle with the memblock tables to set and clear the NOMAP attribute
+in order to omit text and rodata when creating the linear map.
 
-Instead, the kfence pool can be allocated and mapped with page
-granularity first, and this granularity will be respected when the rest
-of DRAM is mapped later, even if block and contiguous mappings are
-allowed for the remainder of those mappings.
+Instead, map the kernel text and rodata alias first with the desired
+initial attributes and granularity, so that the loop iterating over the
+memblocks will not remap it in a manner that prevents it from being
+remapped with updated attributes later.
 
 Signed-off-by: Ard Biesheuvel <ardb@kernel.org>
 ---
- arch/arm64/mm/mmu.c | 25 ++++----------------
- 1 file changed, 5 insertions(+), 20 deletions(-)
+ arch/arm64/mm/mmu.c | 23 ++++++--------------
+ 1 file changed, 7 insertions(+), 16 deletions(-)
 
 diff --git a/arch/arm64/mm/mmu.c b/arch/arm64/mm/mmu.c
-index d7a6991e1844..55bb40348a47 100644
+index 04cc579c7a15..b20c76b8381d 100644
 --- a/arch/arm64/mm/mmu.c
 +++ b/arch/arm64/mm/mmu.c
-@@ -1083,36 +1083,24 @@ static int __init parse_kfence_early_init(char *arg)
- }
- early_param("kfence.sample_interval", parse_kfence_early_init);
+@@ -1164,12 +1164,14 @@ static void __init map_mem(void)
+ 		flags |= NO_BLOCK_MAPPINGS | NO_CONT_MAPPINGS;
  
--static phys_addr_t __init arm64_kfence_alloc_pool(void)
-+static void __init arm64_kfence_map_pool(void)
- {
- 	phys_addr_t kfence_pool;
- 
- 	if (!kfence_early_init)
--		return 0;
-+		return;
- 
- 	kfence_pool = memblock_phys_alloc(KFENCE_POOL_SIZE, PAGE_SIZE);
- 	if (!kfence_pool) {
- 		pr_err("failed to allocate kfence pool\n");
- 		kfence_early_init = false;
--		return 0;
--	}
--
--	/* Temporarily mark as NOMAP. */
--	memblock_mark_nomap(kfence_pool, KFENCE_POOL_SIZE);
--
--	return kfence_pool;
--}
--
--static void __init arm64_kfence_map_pool(phys_addr_t kfence_pool)
--{
--	if (!kfence_pool)
- 		return;
-+	}
- 
- 	/* KFENCE pool needs page-level mapping. */
- 	__map_memblock(kfence_pool, kfence_pool + KFENCE_POOL_SIZE,
- 			pgprot_tagged(PAGE_KERNEL),
- 			NO_BLOCK_MAPPINGS | NO_CONT_MAPPINGS);
--	memblock_clear_nomap(kfence_pool, KFENCE_POOL_SIZE);
- 	__kfence_pool = phys_to_virt(kfence_pool);
- }
- 
-@@ -1144,8 +1132,7 @@ bool arch_kfence_init_pool(void)
- }
- #else /* CONFIG_KFENCE */
- 
--static inline phys_addr_t arm64_kfence_alloc_pool(void) { return 0; }
--static inline void arm64_kfence_map_pool(phys_addr_t kfence_pool) { }
-+static inline void arm64_kfence_map_pool(void) { }
- 
- #endif /* CONFIG_KFENCE */
- 
-@@ -1155,7 +1142,6 @@ static void __init map_mem(void)
- 	phys_addr_t kernel_start = __pa_symbol(_text);
- 	phys_addr_t kernel_end = __pa_symbol(__init_begin);
- 	phys_addr_t start, end;
--	phys_addr_t early_kfence_pool;
- 	int flags = NO_EXEC_MAPPINGS;
- 	u64 i;
- 
-@@ -1172,7 +1158,7 @@ static void __init map_mem(void)
- 	BUILD_BUG_ON(pgd_index(direct_map_end - 1) == pgd_index(direct_map_end) &&
- 		     pgd_index(_PAGE_OFFSET(VA_BITS_MIN)) != PTRS_PER_PGD - 1);
- 
--	early_kfence_pool = arm64_kfence_alloc_pool();
-+	arm64_kfence_map_pool();
- 
- 	linear_map_requires_bbml2 = !force_pte_mapping() && can_set_direct_map();
- 
-@@ -1210,7 +1196,6 @@ static void __init map_mem(void)
+ 	/*
+-	 * Take care not to create a writable alias for the
+-	 * read-only text and rodata sections of the kernel image.
+-	 * So temporarily mark them as NOMAP to skip mappings in
+-	 * the following for-loop
++	 * Map the linear alias of the [_text, __init_begin) interval
++	 * as non-executable now, and remove the write permission in
++	 * mark_linear_text_alias_ro() above (which will be called after
++	 * alternative patching has completed). This makes the contents
++	 * of the region accessible to subsystems such as hibernate,
++	 * but protects it from inadvertent modification or execution.
  	 */
- 	__map_memblock(kernel_start, kernel_end, PAGE_KERNEL, NO_CONT_MAPPINGS);
- 	memblock_clear_nomap(kernel_start, kernel_end - kernel_start);
--	arm64_kfence_map_pool(early_kfence_pool);
+-	memblock_mark_nomap(kernel_start, kernel_end - kernel_start);
++	__map_memblock(kernel_start, kernel_end, PAGE_KERNEL, flags);
+ 
+ 	/* map all the memory banks */
+ 	for_each_mem_range(i, &start, &end) {
+@@ -1181,17 +1183,6 @@ static void __init map_mem(void)
+ 		__map_memblock(start, end, pgprot_tagged(PAGE_KERNEL),
+ 			       flags);
+ 	}
+-
+-	/*
+-	 * Map the linear alias of the [_text, __init_begin) interval
+-	 * as non-executable now, and remove the write permission in
+-	 * mark_linear_text_alias_ro() below (which will be called after
+-	 * alternative patching has completed). This makes the contents
+-	 * of the region accessible to subsystems such as hibernate,
+-	 * but protects it from inadvertent modification or execution.
+-	 */
+-	__map_memblock(kernel_start, kernel_end, PAGE_KERNEL, 0);
+-	memblock_clear_nomap(kernel_start, kernel_end - kernel_start);
  }
  
  void mark_rodata_ro(void)
