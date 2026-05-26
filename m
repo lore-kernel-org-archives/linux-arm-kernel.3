@@ -4,64 +4,93 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 7254CCD5BB4
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 26 May 2026 07:34:26 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id CCC6FCD5BCF
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 26 May 2026 07:38:36 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:CC:To:In-Reply-To:References
-	:Message-ID:Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:
-	From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=FEbuSSlyTO1+A3hILfwOHLfAP4JuG8GIaJ9/WOC0RFA=; b=lt83hM6j82mpY5lWDxVd1jQ/wW
-	bzFizncnq4W2sSErZRbHEXJmURMrbpd6P84DPPIbqZkut9xllaP5E7Q7qBtkJO2gQ1dZvxo4TcmIU
-	Rw8Qq4bfxEiJUXNaegEk69rSVbzYT2lM4LC9w5C9ah8gmb9iD3Gn5Cu9arI5Y4twyxoRwelqEoASL
-	52n9I2ltKaGNXtfLBBcBUYqIyGF0fg6LeOLeWR0P7aokrpUTyqzzLubyKzRdaJhaSwfqLUVjKNJ2T
-	I2T3mRbOP8V5qC/gMskYTqLOEtKG4ZJia3joe7rORmGN2prJDxLH0ggIKhzuaj2S3xy5Q1mY8/LkR
-	8S2t33fw==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:MIME-Version:
+	Message-ID:Date:References:In-Reply-To:Subject:Cc:To:From:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=5WXRNNHPyXQvvYNRb7UDQ2d4k6RO8dKZjGyn0hWbK7M=; b=o3WS4rIc92TbV+Tt7yRA+2e69S
+	rgAzpar28G6LLA7TnIGfaZDJ37hjT8XTKwrB/nzbF/BvoWarFwvUQFRqrBsI8K8zxuNNmpVWrCQNn
+	ojrhyc+sfdV2ldeXCWe1o9XtOSTjmjjKhuaQw5mOj95ueJ+3FkibVkUh0PGCGVk5QFQESLS7evaEk
+	Pma/1p5TdO0BUEXa+tBr8GdtJOHqv3rinAnDH+273/wpTS1sx8bvr3bFNa6s9nLrEKe7VeaLz0Fho
+	74yzL2ErAGVst/9wrNta3KtwOlt7ydVZqaw87Vv0LsQb7YlP6ysIhuBXF4hSnVfgbvwwjs7vB++KS
+	OPICKVWA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wRmIu-00000001H8B-0VlX;
-	Tue, 26 May 2026 07:34:20 +0000
-Received: from [64.106.246.77] (helo=mail-sc.amlogic.com)
+	id 1wRmHz-00000001GtX-0eo2;
+	Tue, 26 May 2026 07:33:23 +0000
+Received: from mail-wm1-x32d.google.com ([2a00:1450:4864:20::32d])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wRmIp-00000001H4k-2n3a;
-	Tue, 26 May 2026 07:34:16 +0000
-Received: from [127.0.1.1] (10.28.11.83) by mailsc.amlogic.com (10.8.11.35)
- with Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.2.2562.35; Tue, 26 May
- 2026 00:34:12 -0700
-From: Zhentao Guo <zhentao.guo@amlogic.com>
-Date: Tue, 26 May 2026 15:33:38 +0800
-Subject: [PATCH RFC v5 3/6] media: dt-bindings: Add Amlogic V4L2 video
- decoder
+	id 1wRmHu-00000001GsD-1K9q
+	for linux-arm-kernel@lists.infradead.org;
+	Tue, 26 May 2026 07:33:21 +0000
+Received: by mail-wm1-x32d.google.com with SMTP id 5b1f17b1804b1-490686877a1so11012035e9.0
+        for <linux-arm-kernel@lists.infradead.org>; Tue, 26 May 2026 00:33:17 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=baylibre.com; s=google; t=1779780796; x=1780385596; darn=lists.infradead.org;
+        h=mime-version:message-id:date:user-agent:references:in-reply-to
+         :subject:cc:to:from:from:to:cc:subject:date:message-id:reply-to;
+        bh=5WXRNNHPyXQvvYNRb7UDQ2d4k6RO8dKZjGyn0hWbK7M=;
+        b=U9XkM6s8pk2Dq0Wc6O/ZKweQwYx5sLHJ5m0QlqOJYv3w2sBe4I3zbgSxb/DnN98A1y
+         n6vCd5tShRFP3PF9im2GgRLx5wkVnoFmJ20P3vyd/Oh3zzgQVH0OqKaaSHpGwY6gBnhc
+         ikq4mEpjyU7P44jLQsEzdXZRXevLNA0OeI/2yrIeaDg+pNuXvmWpu/NvPGWxFL2d65T4
+         MWvk4B9hnKndLmccJn/cCJmJPRrjbUbshpv/UvwHqyb3zBigvjqR0hVdvEqKJpRI9aKs
+         fyXI+apculKayNzlff6TnjpAYdNCQI0Qp1ppSygaeSrH8XFNFRYqbGHnKEQFOcy8xThi
+         u7MQ==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20251104; t=1779780796; x=1780385596;
+        h=mime-version:message-id:date:user-agent:references:in-reply-to
+         :subject:cc:to:from:x-gm-gg:x-gm-message-state:from:to:cc:subject
+         :date:message-id:reply-to;
+        bh=5WXRNNHPyXQvvYNRb7UDQ2d4k6RO8dKZjGyn0hWbK7M=;
+        b=BSTYblkhG7bJkLZLaZ08OxHf881q4J3nE+km9H3Bss5hhJ9FftLdR8rnCHatRfUuki
+         Br/Dt3OBp5rnI2vLr46lEyXRck13MEEjMjaQ5i8F1QRZaWwt9pn3NpLMhAXeCQ1B0g85
+         WIfhJvNVXJ+H1Hy8U8MjNE7ffo18ZQuIcQwNmXvabLlrx61AuzEyDvCtve87o8et/cdw
+         xgWvsKW3i6ORzkTmU0eeI7zQd0QFmu89JXcLAUSIemEtikSMbNrMkjMoVrF8QQZXv+71
+         h+ulW9mNcR0LKK8OIG6pEzDOP2J99hb7vwSbU5xVc+9JPpVlZdHO9fOsF4+lzVMFTXs2
+         AZNw==
+X-Forwarded-Encrypted: i=1; AFNElJ/qgn2F4gOReUXX64GFwUpmThpjt32TBze9b/TQM5zpeb9XNAV5hlUFLTtGdFYOhHGhLleMjOqXfyHQGqrijnZM@lists.infradead.org
+X-Gm-Message-State: AOJu0YxA/tynwX5rpfr0TXbKQGA5VkZx3fXtZInNCfPcD1HYEBqD362P
+	Y1bgDZHjkqo9ucJWjktDleauiGPwMaVgqWHwSbzla2u4dd0lgBR8OuS6BAu0eqHEg0Q=
+X-Gm-Gg: Acq92OGp1ZypR9Fmogx0acJ9rHKYxj6JVvsJYGBcJB8WwrklpIeg+wQ0qHUDU9IbuhB
+	UqsTBJfODI9YCVK5rkHu/ROD7A2F+2c+jpawT0McwCVV5IGemcyv3QDtrToUtqe2tWB589sWcxJ
+	srM0Efo/Onm8j/YUZ7qlpkHYk4pZoau6kIcT8RtL7qRL7YebELMdmNx/ZqIEEVrUiWf3xmv9rwn
+	QkDURYxmATWfUXlDC1j3PeYW3+SK4GlGdp4Z7UyigWn9cMRLOUfUlj2yfwF4GXaoGBoNuAcW58Z
+	c7hMZK9KkdWeCrYHWPwHL3ddezeoowoA+l/mAQ7VxpR5tBdTRjUjFgujxxc3l1eIBEy1RSy8Atp
+	tllFk1MEtguJlgnsrXHyFDYc7n8sdTVwwMmHMm2qeMjnujnEUsEQpFptvqMkr26Of+NmN4qkAKz
+	smBKG+xpddd6YIxAF5pLQAoA==
+X-Received: by 2002:a05:600c:8599:b0:48f:e230:29f4 with SMTP id 5b1f17b1804b1-490426ade02mr179110335e9.15.1779780796190;
+        Tue, 26 May 2026 00:33:16 -0700 (PDT)
+Received: from localhost ([2a01:e0a:3c5:5fb1:4a0c:b15a:3467:f4ed])
+        by smtp.gmail.com with UTF8SMTPSA id 5b1f17b1804b1-490454ea134sm338481635e9.8.2026.05.26.00.33.15
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Tue, 26 May 2026 00:33:15 -0700 (PDT)
+From: Jerome Brunet <jbrunet@baylibre.com>
+To: Jian Hu via B4 Relay <devnull+jian.hu.amlogic.com@kernel.org>
+Cc: Michael Turquette <mturquette@baylibre.com>,  Stephen Boyd
+ <sboyd@kernel.org>,  Rob Herring <robh@kernel.org>,  Krzysztof Kozlowski
+ <krzk+dt@kernel.org>,  Conor Dooley <conor+dt@kernel.org>,  Neil Armstrong
+ <neil.armstrong@linaro.org>,  Xianwei Zhao <xianwei.zhao@amlogic.com>,
+  Kevin Hilman <khilman@baylibre.com>,  Martin Blumenstingl
+ <martin.blumenstingl@googlemail.com>,  jian.hu@amlogic.com,
+  linux-kernel@vger.kernel.org,  linux-clk@vger.kernel.org,
+  devicetree@vger.kernel.org,  linux-amlogic@lists.infradead.org,
+  linux-arm-kernel@lists.infradead.org
+Subject: Re: [PATCH 00/10] Add support for A9 family clock controller
+In-Reply-To: <20260511-b4-a9_clk-v1-0-41cb4071b7c9@amlogic.com> (Jian Hu via's
+	message of "Mon, 11 May 2026 20:47:22 +0800")
+References: <20260511-b4-a9_clk-v1-0-41cb4071b7c9@amlogic.com>
+User-Agent: mu4e 1.12.9; emacs 30.1
+Date: Tue, 26 May 2026 09:33:14 +0200
+Message-ID: <1jldd662x1.fsf@starbuckisacylon.baylibre.com>
 MIME-Version: 1.0
-Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: 7bit
-Message-ID: <20260526-b4-s4-vdec-upstream-v5-3-c6edebf5ea89@amlogic.com>
-References: <20260526-b4-s4-vdec-upstream-v5-0-c6edebf5ea89@amlogic.com>
-In-Reply-To: <20260526-b4-s4-vdec-upstream-v5-0-c6edebf5ea89@amlogic.com>
-To: Mauro Carvalho Chehab <mchehab@kernel.org>, Rob Herring <robh@kernel.org>,
-	Krzysztof Kozlowski <krzk+dt@kernel.org>, Conor Dooley <conor+dt@kernel.org>,
-	Neil Armstrong <neil.armstrong@linaro.org>, Kevin Hilman
-	<khilman@baylibre.com>, Jerome Brunet <jbrunet@baylibre.com>, "Martin
- Blumenstingl" <martin.blumenstingl@googlemail.com>
-CC: <linux-media@vger.kernel.org>, <devicetree@vger.kernel.org>,
-	<linux-kernel@vger.kernel.org>, <linux-arm-kernel@lists.infradead.org>,
-	<linux-amlogic@lists.infradead.org>, Zhentao Guo <zhentao.guo@amlogic.com>
-X-Mailer: b4 0.14.3
-X-Developer-Signature: v=1; a=ed25519-sha256; t=1779780841; l=3277;
- i=zhentao.guo@amlogic.com; s=20251024; h=from:subject:message-id;
- bh=Y6NOz9RdMoIgnHY7/7xm2UZW9WOOh5UFL6VA7UOlVrU=;
- b=e6sYid5BnJUFgrfP7ySI2S0SX9wbJ8AhN8kWNjc8bxrFXQ7m5t0ZXZNg3GxqxFkYV4OhUPmgK
- lrIjODkblQ8DZVg89r2JwgmpxrTmGYzKs14TRVRYx7sibjitJv/ww0Y
-X-Developer-Key: i=zhentao.guo@amlogic.com; a=ed25519;
- pk=5yfDKrjreXwcAoEUsdtWafy6YN500upXp/CgtnXjLVU=
-X-Originating-IP: [10.28.11.83]
-X-ClientProxiedBy: mailsh.amlogic.com (10.18.11.5) To mailsc.amlogic.com
- (10.8.11.35)
+Content-Type: text/plain
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260526_003415_720769_E904DB8A 
-X-CRM114-Status: GOOD (  11.23  )
+X-CRM114-CacheID: sfid-20260526_003318_390759_79105E9A 
+X-CRM114-Status: GOOD (  20.73  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -76,125 +105,94 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Describe the initial support for the V4L2 stateless video decoder
-driver used with the Amlogic S4 (S805X2) platform.
+On lun. 11 mai 2026 at 20:47, Jian Hu via B4 Relay <devnull+jian.hu.amlogic.com@kernel.org> wrote:
 
-Signed-off-by: Zhentao Guo <zhentao.guo@amlogic.com>
----
- .../devicetree/bindings/media/amlogic,s4-vdec.yaml | 103 +++++++++++++++++++++
- 1 file changed, 103 insertions(+)
+> There are 4 clock controllers in A9 SoC:
+> - SCMI clock controller: these clocks are managed by the
+>   Trusted Firmware-A(TF-A) and handled through SCMI.
+> - PLL clock controller.
+> - peripheral clock controller.
+> - AO clock controller.
+>
+> There are reserved register regions placed between individual PLLs, so a
+> separate driver is implemented for each PLL, similar to T7.
+>
+> Compared to previous SoCs PLLs, the A9 PLL controller introduces 4 new features:
+> 1.PLL l_detect signal supports active-high configuration.
+>   Previous A7 and T7 l_detect signals are active-low.
+> 2.PLL reset signal supports active-low configuration.
+>   Previous reset signals are active-high.
+> 3.Support POWER_OF_TWO for the PLL pre-divider N;
+>   the N pre-divider follows the same calculation rule as OD.
+> 4.The PLL input path includes an inherent divide-by-2 divider.
+>
+> Implement the first three features in clk-pll.c (verified on A9 and T7),
+> with no impact to PLL logic on existing SoCs. Add a fixed divide-by-2 to
+> A9 PLL driver for the fourth feature.
+>  
+> A9 PLL is composed as follows:
+>  
+>                        PLL
+>           +---------------------------------+
+>           |                                 |
+>           |             +--+                |
+>    in/2 >>---[ /2^N ]-->|  |      +-----+   |
+>           |             |  |------| DCO |----->> out
+>           |  +--------->|  |      +--v--+   |
+>           |  |          +--+         |      |
+>           |  |                       |      |
+>           |  +--[ *(M + (F/Fmax) ]<--+      |
+>           |                                 |
+>           +---------------------------------+
+>  
+>   out = in / 2  * (m + frac / frac_max) / 2^n
+>
+> Signed-off-by: Jian Hu <jian.hu@amlogic.com>
+> ---
+> Jian Hu (10):
+>       dt-bindings: clock: Add Amlogic A9 SCMI clock controller
+>       dt-bindings: clock: Add Amlogic A9 PLL clock controller
+>       dt-bindings: clock: Add Amlogic A9 peripherals clock controller
+>       dt-bindings: clock: Add Amlogic A9 AO clock controller
+>       clk: amlogic: PLL l_detect signal supports active-high configuration
+>       clk: amlogic: PLL reset signal supports active-low configuration
+>       clk: amlogic: Support POWER_OF_TWO for PLL pre-divider
+>       clk: amlogic: Add A9 PLL clock controller driver
+>       clk: amlogic: Add A9 peripherals clock controller driver
+>       clk: amlogic: Add A9 AO clock controller driver
+>
+>  .../bindings/clock/amlogic,a9-aoclkc.yaml          |   76 +
+>  .../clock/amlogic,a9-peripherals-clkc.yaml         |  150 ++
+>  .../bindings/clock/amlogic,a9-pll-clkc.yaml        |  110 +
+>  drivers/clk/meson/Kconfig                          |   28 +
+>  drivers/clk/meson/Makefile                         |    2 +
+>  drivers/clk/meson/a9-aoclk.c                       |  494 +++++
+>  drivers/clk/meson/a9-peripherals.c                 | 2317 ++++++++++++++++++++
+>  drivers/clk/meson/a9-pll.c                         |  831 +++++++
+>  drivers/clk/meson/clk-pll.c                        |   79 +-
+>  drivers/clk/meson/clk-pll.h                        |    6 +
+>  include/dt-bindings/clock/amlogic,a9-aoclkc.h      |   76 +
+>  .../clock/amlogic,a9-peripherals-clkc.h            |  352 +++
+>  include/dt-bindings/clock/amlogic,a9-pll-clkc.h    |   55 +
+>  include/dt-bindings/clock/amlogic,a9-scmi-clkc.h   |   51 +
+>  14 files changed, 4609 insertions(+), 18 deletions(-)
 
-diff --git a/Documentation/devicetree/bindings/media/amlogic,s4-vdec.yaml b/Documentation/devicetree/bindings/media/amlogic,s4-vdec.yaml
-new file mode 100644
-index 000000000000..a0f33f6c35a1
---- /dev/null
-+++ b/Documentation/devicetree/bindings/media/amlogic,s4-vdec.yaml
-@@ -0,0 +1,103 @@
-+# SPDX-License-Identifier: (GPL-2.0-only OR BSD-2-Clause)
-+# Copyright (C) 2025 Amlogic, Inc. All rights reserved
-+%YAML 1.2
-+---
-+$id: http://devicetree.org/schemas/media/amlogic,s4-vdec.yaml#
-+$schema: http://devicetree.org/meta-schemas/core.yaml#
-+
-+title: Amlogic Video Decode Accelerator
-+
-+maintainers:
-+  - Zhentao Guo <zhentao.guo@amlogic.com>
-+
-+description:
-+  The Video Decoder Accelerator present on Amlogic SOCs.
-+  It supports stateless h264 decoding.
-+
-+properties:
-+  compatible:
-+    const: amlogic,s4-vdec
-+
-+  reg:
-+    maxItems: 2
-+
-+  reg-names:
-+    items:
-+      - const: dos
-+      - const: dmc
-+
-+  interrupts:
-+    maxItems: 3
-+
-+  clocks:
-+    maxItems: 3
-+
-+  clock-names:
-+    items:
-+      - const: dos
-+      - const: vdec
-+      - const: hevcf
-+
-+  power-domains:
-+    maxItems: 2
-+
-+  power-domain-names:
-+    items:
-+      - const: vdec
-+      - const: hevc
-+
-+  resets:
-+    maxItems: 1
-+
-+  amlogic,canvas:
-+    description: should point to a canvas provider node
-+    $ref: /schemas/types.yaml#/definitions/phandle
-+
-+  secure-monitor:
-+    description: phandle to the secure-monitor node
-+    $ref: /schemas/types.yaml#/definitions/phandle
-+
-+required:
-+  - compatible
-+  - reg
-+  - reg-names
-+  - interrupts
-+  - clocks
-+  - clock-names
-+  - power-domains
-+  - power-domain-names
-+  - amlogic,canvas
-+  - secure-monitor
-+
-+additionalProperties: false
-+
-+examples:
-+  - |
-+    #include <dt-bindings/interrupt-controller/arm-gic.h>
-+    #include <dt-bindings/clock/amlogic,s4-pll-clkc.h>
-+    #include <dt-bindings/clock/amlogic,s4-peripherals-clkc.h>
-+    #include <dt-bindings/power/meson-s4-power.h>
-+    #include <dt-bindings/reset/amlogic,meson-s4-reset.h>
-+    video-codec@fe320000 {
-+      compatible = "amlogic,s4-vdec";
-+      reg = <0xfe320000 0x10000>,
-+            <0xfe036000 0x20>;
-+      amlogic,canvas = <&canvas>;
-+      reg-names = "dos",
-+                  "dmc";
-+      interrupts = <GIC_SPI 91 IRQ_TYPE_EDGE_RISING>,
-+                   <GIC_SPI 92 IRQ_TYPE_EDGE_RISING>,
-+                   <GIC_SPI 93 IRQ_TYPE_EDGE_RISING>;
-+      clocks = <&clkc_periphs CLKID_DOS>,
-+               <&clkc_periphs CLKID_VDEC_SEL>,
-+               <&clkc_periphs CLKID_HEVCF_SEL>;
-+      clock-names = "dos",
-+                    "vdec",
-+                    "hevcf";
-+      power-domains = <&pwrc PWRC_S4_DOS_VDEC_ID>,
-+                      <&pwrc PWRC_S4_DOS_HEVC_ID>;
-+      power-domain-names = "vdec",
-+                           "hevc";
-+      resets = <&reset RESET_DOS>;
-+      secure-monitor = <&sm>;
-+    };
+For the next version, please split things up.
+There is no hard dependency between the different controllers. This will
+ease the review.
+
+The PLL controllers are bringing a new contraints in. The global/static
+nature of the controllers is something that has been bothering me for a
+while but there was no real reason to address it so far. Please give me
+some time to think about. Feel free to re-post the other controllers in the
+meantime. 
+
+> ---
+> base-commit: ca89c88bcf69daca829044c638a8163d5ce47af0
+> change-id: 20260511-b4-a9_clk-67652c1ae56e
+>
+> Best regards,
 
 -- 
-2.42.0
-
+Jerome
 
