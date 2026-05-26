@@ -4,66 +4,68 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 43771CD5BB1
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 26 May 2026 15:19:56 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id DEFBFCD5BD5
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 26 May 2026 15:19:57 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:Cc:To:From:
-	Subject:Message-ID:Mime-Version:Date:Reply-To:Content-Transfer-Encoding:
-	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
-	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
-	bh=lrWlfTK5Lutt6aW80bi7cx4j7i0TUVnce7pHBOYoWwo=; b=NKTaPlqiwLv5WJvsfZZGY/jkqv
-	sNKeuvYnujX4jTonw3ksHO/I/FmhC/w322iDwoQzmngmgpuuF0b6xWJQ6wbRU9ugCDhDFrmZzBmek
-	/CjXWRQIR898Zcntx8REE4A1GlPPW0CWSedqZugNloOdeQisLS1T9xjaB8JGE6xqMk/wXo4YnQfBt
-	cw1JvwYBLWlyIFf0fY6b4ObvJajjvtzlS/n5Gx4isSLS0tG3105iHhYoYnLm4jvcioSe3HpNdKacI
-	vVlJRdCAxENhuJ3Yr43Ud+4RgvzMJIT+OlB3ZhqRc837T3ABlfFnmOv/FKQoot2E60FEyYZrKZP+x
-	13v4q6JQ==;
+	Subject:Message-ID:References:Mime-Version:In-Reply-To:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=JYSPuJSk3QuKc7sf14ipiOObeqdt7tBHKRBi5y5X6HQ=; b=ZoUCuIGJa9EycwerZGlwbcqB8M
+	up6vGxlmVMGUZ+7cIc4+jBRf5aPMD7x+IUOB1aN+5wp3BcZOf/hzMZuGJb61SOX4FdChgOaSTumg/
+	iYyfuk8Ihx/T2+RrL4f9k+uiutVS3yOA6WvhuG2xdCS3HY/2FDHZmut9Gx4yaDBZoTDki4JbJfW00
+	ZpctXUgFFPVKYSsxdgrLnD/5pwkOwTtMmgl6w7zfGLTspNA9/E/1Jd92B0B/YV0EZTm3COfKK7aNY
+	sA73h67r87kcZWrfdkf+cDmFha6/05clWKPpqoIOolNGi/LXb8ZZJLwxqZHVnPuOfpWCfKgXI5k8Q
+	bPJ5i45w==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wRtZO-00000002LXU-0kdC;
+	id 1wRtZO-00000002LXl-1AHt;
 	Tue, 26 May 2026 15:19:50 +0000
-Received: from mail-wm1-x34a.google.com ([2a00:1450:4864:20::34a])
+Received: from mail-ej1-x649.google.com ([2a00:1450:4864:20::649])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wRtZL-00000002LVj-24UB
+	id 1wRtZM-00000002LW3-1bjh
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 26 May 2026 15:19:48 +0000
-Received: by mail-wm1-x34a.google.com with SMTP id 5b1f17b1804b1-48fe44ce385so83260125e9.0
-        for <linux-arm-kernel@lists.infradead.org>; Tue, 26 May 2026 08:19:46 -0700 (PDT)
+	Tue, 26 May 2026 15:19:49 +0000
+Received: by mail-ej1-x649.google.com with SMTP id a640c23a62f3a-bdb96f6cb84so214011266b.1
+        for <linux-arm-kernel@lists.infradead.org>; Tue, 26 May 2026 08:19:47 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=google.com; s=20251104; t=1779808785; x=1780413585; darn=lists.infradead.org;
-        h=cc:to:from:subject:message-id:mime-version:date:from:to:cc:subject
-         :date:message-id:reply-to;
-        bh=lrWlfTK5Lutt6aW80bi7cx4j7i0TUVnce7pHBOYoWwo=;
-        b=fooSfYQ6DfO7amoEWO584PoHvMUel0ULyGlrfgxq3DnuxkjTfwHBEqfrkXBSh7fVxR
-         o6b0MoFi8Rb60F+zccpdhOpK5W2aY/nHvShjOv2fIZ8x9pMik7SMqcEsBMjRgOnGFxEO
-         jGxMWQSYnJSn9RogRP/ee2N41V9AR6t6v8p6/2BNAE1vkZ35VhiDycds27zUyF8CfHFD
-         Ul2yrqiMi2QWdeYYmBOETvHuNT3X5/9OdwGZlf13RnBwqjEs6z7w/vkJu2Nx4+Y4RsFy
-         fABAV3JcfY8iWBJsRxIP4KUkFgjlvYBLYRi+E+WZKJigq8psMo9nYsx+fvvo2ZK0jIcT
-         s0Ew==
+        d=google.com; s=20251104; t=1779808786; x=1780413586; darn=lists.infradead.org;
+        h=cc:to:from:subject:message-id:references:mime-version:in-reply-to
+         :date:from:to:cc:subject:date:message-id:reply-to;
+        bh=JYSPuJSk3QuKc7sf14ipiOObeqdt7tBHKRBi5y5X6HQ=;
+        b=UjndDgK9PX333AM3fYJHFsHXXmySYYYZAPbNLPh8vg+kiwLI6R8NVE64EhnmGbOjkC
+         CAafqGwVL6ACaplFiE9jSNOOphfLJxNiqBtzcuvI+H9u15vQgJWiIl5pWzgfZxteC8BP
+         1pEpnkaQxStdH8hkZJtjkjToV7YTuxpHcISAFz/8lww5j0XnDzAkyDQtOlOfgt7R87e8
+         lC98Oz4ykxpu6WhnPvn9weSkPInNHWsZgs2rFMV1vNlyoqC8f1cqoqGl0/zuiG9QsOvp
+         E+AqGb5nQIUaxa0ALw/xGtGiwADYOWTynyZ2aMmaarTOyP2Lid0SRkNVjin1xRbH8/bp
+         3hvA==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20251104; t=1779808785; x=1780413585;
-        h=cc:to:from:subject:message-id:mime-version:date:x-gm-message-state
-         :from:to:cc:subject:date:message-id:reply-to;
-        bh=lrWlfTK5Lutt6aW80bi7cx4j7i0TUVnce7pHBOYoWwo=;
-        b=AjAKJf4/kFF8D0AvLOnQjPfljADfoq3l5kwoETQJsmInJJg3qk9Xul+94XOmf1oZ7k
-         BkmBcjZuBR2uQsWa8tYYZVn5cm45rTNJ3g73arJg+RtrzKISCot/qz+DKwPa+rb+7xkq
-         pHx1nWZwWbwAEr8XnbSMxiAawV73Nv5rj+dRZ61K6WWDollMECDuLhLDkau58TTb7r2s
-         zPR8HZYOaFa5Kyxv/OQE0gCSnIuCIzdDe+5DmPD5vDcK3DRuVzu2WyseQprIPRzEgoo8
-         6m9c5EvwOrhdFgoJ1zPZBU1ID1EnN9IQgQRytvOhJ8Az8+QNeVmynhIexkIphOLJLzca
-         e74A==
-X-Forwarded-Encrypted: i=1; AFNElJ8Gb1Laod/2hTTiqms0AxgMc6aCJt9i7qqYUXwiC2WWEsq7RbHMDP4zp9yxm15w8Ibcqy/kXoPEWF9LtD8jPAXL@lists.infradead.org
-X-Gm-Message-State: AOJu0Yz1Jx35tLRZYI9Q1Ri1olJAnJ/k/aZL+Rj/RG7fU1dl3Xbjzx9V
-	57b/TBfz/ddGD6rQu4BsqV08fYWwctcAcOX9X7Slg21fIqG4MW3g8juD3uUDrzIj4xgwFSHOPFv
-	bLjFVBa0Tr6WUjQ==
-X-Received: from wmbem24.prod.google.com ([2002:a05:600c:8218:b0:490:51ba:4f8])
+        d=1e100.net; s=20251104; t=1779808786; x=1780413586;
+        h=cc:to:from:subject:message-id:references:mime-version:in-reply-to
+         :date:x-gm-message-state:from:to:cc:subject:date:message-id:reply-to;
+        bh=JYSPuJSk3QuKc7sf14ipiOObeqdt7tBHKRBi5y5X6HQ=;
+        b=QpL9U9PIQ8vslpAFwxzt7KxDYPbPtcXMuSG9e9iqk6v1l4KEYnI6pZYVt28urWxDyo
+         DcY2LH2Rmami7YNIlqCen7JsL+A6QgXjLQ6iPdKCsFXHaFpfIgnXXV3hpk65I0zTUlF+
+         HrH1jNMimqw+ZUWPtxawF7ED/6WxT9y8KyJ10XXyhd4H2R9dB69v2/IMQaHNfPf3h8BN
+         pjWPvVXPUxbwhBy9DMoc6GFab8Yxx0f1bJ71DUgqblZNBflsOB0IiYzwJQ0ibArUlKUc
+         438cLjo+I61pDBksWJRKbAZSU32ZBU6qb2B8NI3HbqmgAZh/8wjc/RNCIXxIOmzt5FTY
+         zjFQ==
+X-Forwarded-Encrypted: i=1; AFNElJ+Tq3r9AaBCo7EvKZ8Iv0twkEfZXflkZDnecGPuQTLXLGYusGBihG+VgyGpikdjluJTg98eOjrBdLh196OltOZf@lists.infradead.org
+X-Gm-Message-State: AOJu0Ywe6UJf02R5LfaY0kuJHmpcvue8vR0IybCnJfYu2S0YabXOFi1b
+	FyGNsWnL8nrleRbkQxFoD8udJJy63sV5XhszVf2uV3S1u1BPDJk318NsmtBUIx6BXIKfeQt2X6b
+	qeDblDqK3d6bhvA==
+X-Received: from ejki2.prod.google.com ([2002:a17:906:71c2:b0:bb7:b0ba:e7e2])
  (user=smostafa job=prod-delivery.src-stubby-dispatcher) by
- 2002:a05:600c:4511:b0:490:6869:46c3 with SMTP id 5b1f17b1804b1-490686947bemr126353045e9.30.1779808784404;
- Tue, 26 May 2026 08:19:44 -0700 (PDT)
-Date: Tue, 26 May 2026 15:19:28 +0000
+ 2002:a17:907:3f1b:b0:bd3:6ec5:f141 with SMTP id a640c23a62f3a-bdd25ce1b65mr1107073466b.30.1779808785644;
+ Tue, 26 May 2026 08:19:45 -0700 (PDT)
+Date: Tue, 26 May 2026 15:19:29 +0000
+In-Reply-To: <20260526151934.3783707-1-smostafa@google.com>
 Mime-Version: 1.0
+References: <20260526151934.3783707-1-smostafa@google.com>
 X-Mailer: git-send-email 2.54.0.746.g67dd491aae-goog
-Message-ID: <20260526151934.3783707-1-smostafa@google.com>
-Subject: [PATCH v5 0/6] arm_ffa, KVM: Fix FF-A emad offset calculations
+Message-ID: <20260526151934.3783707-2-smostafa@google.com>
+Subject: [PATCH v5 1/6] optee: ffa: Add NULL check in optee_ffa_lend_protmem
 From: Mostafa Saleh <smostafa@google.com>
 To: op-tee@lists.trustedfirmware.org, linux-kernel@vger.kernel.org, 
 	kvmarm@lists.linux.dev, linux-arm-kernel@lists.infradead.org
@@ -73,8 +75,8 @@ Cc: maz@kernel.org, oupton@kernel.org, joey.gouly@arm.com,
 	sudeep.holla@kernel.org, Mostafa Saleh <smostafa@google.com>
 Content-Type: text/plain; charset="UTF-8"
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260526_081947_553434_615474FC 
-X-CRM114-Status: GOOD (  15.87  )
+X-CRM114-CacheID: sfid-20260526_081948_427083_377F6C28 
+X-CRM114-Status: GOOD (  10.04  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -89,75 +91,30 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hi all,
+Sashiko (locally) reports a possible null dereference under memory
+pressure due to the lack of validation of the allocated pointer.
 
-This series fixes the Endpoint Memory Access Descriptor (EMAD) offset
-calculations and adds the necessary bounds checks for both the core
-FF-A driver and the pKVM hypervisor.
+Fix that by adding the missing check.
 
-Prior to FF-A version 1.1, the memory region header didn't specify an
-explicit offset for the EMADs, leading to the assumption that they
-immediately follow the header.
-However, from v1.1 onwards, the specification dictates using the
-ep_mem_offset` field to determine the start of the memory access
-array.
+Signed-off-by: Mostafa Saleh <smostafa@google.com>
+---
+ drivers/tee/optee/ffa_abi.c | 3 +++
+ 1 file changed, 3 insertions(+)
 
-The patches in this series address this by:
-1. Updating the core `arm_ffa` firmware driver to correctly calculate the descriptor
-   offset using `ep_mem_offset` rather than defaulting to `sizeof(struct ffa_mem_region)`.
-   It also introduces bounds checking against `max_fragsize`.
-2. Enhancing the pKVM hypervisor validation logic to no longer strictly enforce that
-   the descriptor strictly follows the header, aligning it with the driver behavior
-   and the FF-A specification, while also ensuring the offset falls within the mailbox
-   buffer bounds.
-
-While addressing these bugs, Sashiko uncovered other issues that were
-fixed in the same series.
-
-Changelog
-#########
-v4->v5:
-- Collect Sudeep Rbs
-- Add extra patch to check base address alignment.
-- Remove WARN_ONs in KVM code
-- Use ffa_emad_size_get() instead of hardcoded size in KVM code.
-
-v3 -> v4:
-- Address review comments and fix Sashiko bugs
-
-v2 -> v3:
-- Fixed typo in nvhe/ffa.c (missing sizeof)
-
-v1 -> v2:
-- For pKVM, removed the strict placement enforcement for `ep_mem_offset` as it is not
-  compliant with the spec, and avoids making assumptions about the driver's memory
-  layout.
-
-Link to:
-########
-v4: https://lore.kernel.org/all/20260520204948.2440882-1-smostafa@google.com/
-v3: https://lore.kernel.org/all/20260512124442.1899107-1-sebastianene@google.com/
-v2: https://lore.kernel.org/all/20260430160241.1934777-1-sebastianene@google.com/
-v1: https://lore.kernel.org/all/ae9KN9nkOgDYJcGP@google.com/T/#t
-
-
-Mostafa Saleh (4):
-  optee: ffa: Add NULL check in optee_ffa_lend_protmem
-  firmware: arm_ffa: Fix out-of-bound writes in ffa_setup_and_transmit()
-  KVM: arm64: Fix bounds checking in do_ffa_mem_reclaim()
-  KVM: arm64: Ensure FFA ranges are page aligned
-
-Sebastian Ene (2):
-  firmware: arm_ffa: Fix Endpoint Memory Access Descriptor offset
-    calculation
-  KVM: arm64: Validate the offset to the mem access descriptor
-
- arch/arm64/kvm/hyp/nvhe/ffa.c     | 38 ++++++++++++++++++++++---------
- drivers/firmware/arm_ffa/driver.c | 21 ++++++++++-------
- drivers/tee/optee/ffa_abi.c       |  3 +++
- include/linux/arm_ffa.h           |  2 +-
- 4 files changed, 44 insertions(+), 20 deletions(-)
-
+diff --git a/drivers/tee/optee/ffa_abi.c b/drivers/tee/optee/ffa_abi.c
+index b4372fa268d0..633715b98625 100644
+--- a/drivers/tee/optee/ffa_abi.c
++++ b/drivers/tee/optee/ffa_abi.c
+@@ -698,6 +698,9 @@ static int optee_ffa_lend_protmem(struct optee *optee, struct tee_shm *protmem,
+ 	int rc;
+ 
+ 	mem_attr = kzalloc_objs(*mem_attr, ma_count);
++	if (!mem_attr)
++		return -ENOMEM;
++
+ 	for (n = 0; n < ma_count; n++) {
+ 		mem_attr[n].receiver = mem_attrs[n] & U16_MAX;
+ 		mem_attr[n].attrs = mem_attrs[n] >> 16;
 -- 
 2.54.0.746.g67dd491aae-goog
 
