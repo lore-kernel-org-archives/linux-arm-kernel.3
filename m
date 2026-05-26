@@ -4,59 +4,55 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 7C97DCD5BD0
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 26 May 2026 14:59:31 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 1A3CCCD5BC8
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 26 May 2026 14:59:37 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:
-	Content-Transfer-Encoding:Content-Type:MIME-Version:Message-Id:Date:Subject:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:References
+	:Message-Id:Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:
 	From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:
-	List-Owner; bh=qSWC2bwXN5eZKIvKMTmPlXNwMNG0Qn43PondJFMWLl0=; b=RFvNB34Dw+1v4Y
-	o/QwUkN2xh8Dpa9lLvxbLhvOSsBZWcx1E8BTFmCp0hDJy57e0G8pq3U13yVKMex2T8qDnrpkqmdHD
-	geM3DUjJ5yDFazmJdjIiKCGQao3OTGKyJytwbUrHwOuQb78sK9kygBzdAE9cIDufoaGPqt1nfwvqa
-	3wNORv701cpI3KIiOC4DfBVAcMBYdICXtjdXqqevHqrKyKW7Q9m9WenPtSYCWwkWYAPG9axDAXudE
-	V0lTCNZcDj3zQg8/0qvj5akaT1DFkLYB2jEZx3dfrcT7rSYjBrOUdH7olZYZg/Jo8qDc+y9CBwfi7
-	7fLY23tA0075SdvjprZg==;
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=cAR4GOKA4Q39eUc167fIAhl1r9Q+0Cq2T5oOTDYcepk=; b=OWykopC4m2H/PYLEbmYwLS1hPX
+	RQNKcEEw4614PAHtAehAmhETrlJkHF4IF1cc6RjzeIp2w7Cjaf30pDUVoLR9+YT0m+LKazM07oBzQ
+	2GMReG6Oef8ssLWrkf5Ytnon5cemlBZQ+MdId6mYOfqAKv0w8eUmLPj13JFNuoIr0Sn0qjLOHiGIX
+	ZIMAFZuItCdv3ROKssBQlGuTyQUK67ioSVj6gr7bbdJ7oVFvo+M/LWiGOqLRGwOOYmgeNJrHULP5Q
+	CCpL+uALsitAd83OCzgyHQDUXZ7qkYHwkTd5QFGYA8yap4DudiwBSWsW10yqr8OrMbe1GOMfppIYp
+	Ux94v2rQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wRtFb-00000002HDm-2yqT;
-	Tue, 26 May 2026 14:59:24 +0000
+	id 1wRtFi-00000002HIk-2JS2;
+	Tue, 26 May 2026 14:59:30 +0000
 Received: from bali.collaboradmins.com ([2a01:4f8:201:9162::2])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wRtFY-00000002HBf-2H9q;
-	Tue, 26 May 2026 14:59:22 +0000
+	id 1wRtFa-00000002HCf-2fIo;
+	Tue, 26 May 2026 14:59:24 +0000
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=collabora.com;
-	s=mail; t=1779807556;
-	bh=iUP6wrb3pFcKOuTBHFbKtXby6NSizpZ3dLcO4teW898=;
-	h=From:Subject:Date:To:Cc:From;
-	b=GqlNqL72FVMbzLr8weNkSLN7zNmZOlSoG+dVwci0m0m6yLXumb28Kq0fNvUmwGHE+
-	 CGwSXOcZyx47ffCI2pmXvuwwndOkv5stnKQdgZBvTog19kTPE5aZP9taFjYs7WhPvz
-	 LdKorawObBh2ijWzXa+tNf17fKV/vb9w59YQpyjgA8Kzhu4VyCyZhkqNPyspZOODgD
-	 LAviJu5hDjltcOsdUcPDje3zGxhzShNqfG+yVE3DnCE1xGI4FTcsq+Ww9GmQ0byV36
-	 Pm+lX7XsAgQ6+ctpnrM0iyYSOzKqJY6KXGZ0BilXKB9IPN4ibEbaMfU02p88AzkmXu
-	 Y5t2LpjYryrIQ==
+	s=mail; t=1779807560;
+	bh=KFfk0PhMePzxO9UxVYUfEp185S/glCJ9TCT8OX9EIZk=;
+	h=From:Date:Subject:References:In-Reply-To:To:Cc:From;
+	b=gIJjsRC2SQb/ozLLO1TRCNJiFf5pfZhROrK6JCTfAK4vOfGUDkdUSq6kWH+6hisjn
+	 7lbCPYueKhfPeV0aa09Df9ZgWxxLABcyp0V3IHq3wxxtVj86J+PBIpzSTBUOPI/fri
+	 UgdDEu61I4N2s+uudP60JLMNzpOm9wJY0I5SyLA1RMNzfFvz3kF0Qn26TTkCmiZYJl
+	 RkHPikrw+Dqz/CZcvh52P9bHOXuYPMppKWBhDPMtidaWgb2aeFdL4J3VdPANfWH6Jl
+	 vA9D3lMiVPNkz0wAHusgPC65yJIAmHQOOqmvbPOojwFTIaBbZ6GgZ1svPtkk38wogH
+	 dGgttyFjtk+0w==
 Received: from yukiji.home (unknown [100.64.0.131])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange X25519 server-signature RSA-PSS (4096 bits) server-digest SHA256)
 	(No client certificate requested)
 	(Authenticated sender: laeyraud)
-	by bali.collaboradmins.com (Postfix) with ESMTPSA id 8809E17E0CF3;
-	Tue, 26 May 2026 16:59:15 +0200 (CEST)
+	by bali.collaboradmins.com (Postfix) with ESMTPSA id CAFAB17E12C6;
+	Tue, 26 May 2026 16:59:18 +0200 (CEST)
 From: Louis-Alexis Eyraud <louisalexis.eyraud@collabora.com>
-Subject: [PATCH net-next v5 0/6] Introduce Airoha AN8801R series Gigabit
- Ethernet PHY driver
-Date: Tue, 26 May 2026 16:58:05 +0200
-Message-Id: <20260526-add-airoha-an8801-support-v5-0-01aea8dee69b@collabora.com>
+Date: Tue, 26 May 2026 16:58:07 +0200
+Subject: [PATCH net-next v5 2/6] net: phy: Add Airoha phy library for
+ shared code
 MIME-Version: 1.0
 Content-Type: text/plain; charset="utf-8"
 Content-Transfer-Encoding: 7bit
-X-B4-Tracking: v=1; b=H4sIAAAAAAAC/33OTWrDMBAF4KsYrauin5HjZNV7lC7G1qgWJJYjK
- SYl+O5V1UBDCV4OM++bd2OJoqfEDs2NRVp88mEqg3lp2DDi9Enc2zIzJVQrtNAcreXoYxiR49R
- 1QvJ0mecQMzc7awAQ0JFlJT9Hcv5a7Xc2UeYTXTP7+N1EOl/Ks3xf95iID+F08vnQ7IUVmkgNx
- g71fvQph/hVSy6yBu59YKPPIrngAgmIDCq3t29DOB6xDxFfy6sqL+pBU+2WpoomEZRt+1YY4Z5
- p+k8zUm1p+kcj22sg3WqkZxo8aEpuaVA16PTOakEO/mvrun4DcvFq7OoBAAA=
-X-Change-ID: 20260303-add-airoha-an8801-support-57d544a4afed
+Message-Id: <20260526-add-airoha-an8801-support-v5-2-01aea8dee69b@collabora.com>
+References: <20260526-add-airoha-an8801-support-v5-0-01aea8dee69b@collabora.com>
+In-Reply-To: <20260526-add-airoha-an8801-support-v5-0-01aea8dee69b@collabora.com>
 To: Andrew Lunn <andrew+netdev@lunn.ch>, 
  "David S. Miller" <davem@davemloft.net>, Eric Dumazet <edumazet@google.com>, 
  Jakub Kicinski <kuba@kernel.org>, Paolo Abeni <pabeni@redhat.com>, 
@@ -71,16 +67,16 @@ Cc: kevin-kw.huang@airoha.com, macpaul.lin@mediatek.com,
  linux-mediatek@lists.infradead.org, linux-kernel@vger.kernel.org, 
  Louis-Alexis Eyraud <louisalexis.eyraud@collabora.com>
 X-Mailer: b4 0.14.3
-X-Developer-Signature: v=1; a=ed25519-sha256; t=1779807555; l=9316;
+X-Developer-Signature: v=1; a=ed25519-sha256; t=1779807555; l=4623;
  i=louisalexis.eyraud@collabora.com; s=20250113; h=from:subject:message-id;
- bh=iUP6wrb3pFcKOuTBHFbKtXby6NSizpZ3dLcO4teW898=;
- b=uzqZUHGFFDeBZNzRubLSNVpsQlA5Ft0SiaPDVDw76xee5k5MByragWyCq7Fj1bMpctGm3irYD
- efsJw+5z6aRBa0NqQWR6rl4WA8qNiT+YFL5ReQx4Qy+/xDhhiSd0Dnf
+ bh=KFfk0PhMePzxO9UxVYUfEp185S/glCJ9TCT8OX9EIZk=;
+ b=TxiLMAUdU+ehakmm52ZXTW/G8exTekECuqEeRI2TEp+lKn4rIPJDqNPjgFUEI+en4xI0HzG1h
+ K/2HD4JYqw/AcOh4gR9ITyZXijL+P3MMk0AGAUj1kCcRGF+VzZXhd5N
 X-Developer-Key: i=louisalexis.eyraud@collabora.com; a=ed25519;
  pk=CHFBDB2Kqh4EHc6JIqFn69GhxJJAzc0Zr4e8QxtumuM=
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260526_075920_745330_F6BC97C9 
-X-CRM114-Status: GOOD (  28.21  )
+X-CRM114-CacheID: sfid-20260526_075923_601974_D36AF719 
+X-CRM114-Status: GOOD (  15.81  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -95,188 +91,154 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-This series introduces the Airoha AN8801R Gigabit Ethernet PHY initial
-support.
+In preparation of Airoha AN8801R PHY support, split out the interface
+functions that will be common between the already present air_en8811h
+driver and the new one, and put them into a new library named
+air_phy_lib.
 
-The Airoha AN8801R is a low power single-port Ethernet PHY Transceiver
-with Single-port serdes interface for 1000Base-X/RGMII.
-This chip is compliant with 10Base-T, 100Base-TX and 1000Base-T IEEE
-802.3(u,ab) and supports:
-  - Energy Efficient Ethernet (802.3az)
-  - Full Duplex Control Flow (802.3x)
-  - auto-negotiation
-  - crossover detect and autocorrection,
-  - Wake-on-LAN with Magic Packet
-  - Jumbo Frame up to 9 Kilobytes.
-This PHY also supports up to three user-configurable LEDs, which are
-usually used for LAN Activity, 100M, 1000M indication.
-
-The series provides the devicetree binding and the driver that have been
-written by AngeloGioacchino Del Regno, based on downstream
-implementation ([1]). The driver allows setting up PHY LEDs, 10/100M,
-1000M speeds, and Wake on LAN and PHY interrupts.
-
-Since v2, the series also adds the air_phy_lib library, which goal is to
-share common code between air_en8811h and air_an8801 drivers, and its use
-in them. The first shared functions are the existing BuckPbus register
-accessors and air_phy_read/write_page functions coming from air_en8811h
-driver.
-
-The series is based on net-next kernel tree (sha1: 90d03ee2c5dc) and
-I have tested it on Mediatek Genio 720-EVK board (that integrates an
-Airoha AN8801RIN/A Ethernet PHY) with early board hardware enablement
-patches.
-
-[1]: https://gitlab.com/mediatek/aiot/bsp/linux/-/blob/mtk-v6.6/drivers/net/phy/an8801.c
-
+Reviewed-by: Andrew Lunn <andrew@lunn.ch>
 Signed-off-by: Louis-Alexis Eyraud <louisalexis.eyraud@collabora.com>
 ---
-Changes in v5:
-- Rebased on net-next (90d03ee2c5dc)
-- Fixed in patch 1 missing unevaluatedProperties/additionalProperties
-  to resolve dt_binding_check issues
-- Reworked in patch 5 overflow handling when writing LED_BLINK_DUR
-  register value in an8801r_led_blink_set (sashiko-nipa and
-  sashiko.dev)
-- Reworked an8801r_led_brightness_set to disable blinking first before
-  setting led state (sashiko-dev)
-- Added led index validity check in an8801r_led_hw_control_get
-  (sashiko-nipa)
-- Added attached_dev and mac adress validity check in
-  an8801r_set_wol (sashiko-nipa)
-- Reworked ternary operation syntax to make it more explicit in
-  an8801r_led_hw_control_set (sashiko-nipa)
-- Removed unused AN8801_LED_DURATION_UNIT_US definition (sashiko-nipa)
-- Fixed AN8801_RGMII_RXDELAY_DEFAULT definition comment (sashiko-nipa)
-- Fixed typo in an8801r_suspend (sashiko-nipa)
-- Removed in patch 6 the speed restore action on an8801_buckpbus_reg_rmw
-  error to restore v3 behaviour in an8801r_read_status (sashiko-nipa and
-  sashiko-dev)
-- Link to v4: https://lore.kernel.org/r/20260521-add-airoha-an8801-support-v4-0-1e4837d30ef4@collabora.com
+ drivers/net/phy/Kconfig       |  6 ++++++
+ drivers/net/phy/Makefile      |  1 +
+ drivers/net/phy/air_en8811h.c | 13 ++-----------
+ drivers/net/phy/air_phy_lib.c | 32 ++++++++++++++++++++++++++++++++
+ drivers/net/phy/air_phy_lib.h | 16 ++++++++++++++++
+ 5 files changed, 57 insertions(+), 11 deletions(-)
 
-Changes in v4:
-- Rebased on net-next (830d8771ae3c)
-- Added in patch 1 the missing function-enumator property description,
-  that should already have been present in v3
-- Modified patch 1 and patch 5 subjects to use AN8801R and not AN8801/R
-  (detected by sashiko-nipa)
-- Modified patch 3 to add missing wordpath.h include (detected by
-  sashiko.dev)
-- Modified patch 5 to use NSEC_PER_MSEC definition instead of hardcoded
-  value in an8801r_led_blink_ms_to_hw
-- Removed unnecessary RGMII_DELAY_STEP_MASK mask operation in
-  an8801r_rgmii_rxdelay and an8801r_rgmii_txdelay
-- Removed extra empty line in an8801r_led_hw_control_set
-- Improved AN8801_RGMII_TX/RXDELAY_DEFAULT definition comments 
-- Fixed inverted GENMASK arguments in AN8801_WAKE_OUT_WIDTH
-  definition (detected by sashiko-nipa)
-- Fixed possible overflow when writing LED_BLINK_DUR register value
-  in an8801r_led_blink_set (detected by sashiko-nipa and sashiko.dev)
-- Modified the an8801r_handle_interrupt to allow the WAKE_MAGICPKT and
-  WAKE_LNKCHG interrupts handling in the same call
-  (detected by sashiko-nipa and sashiko.dev)
-- Add extra check in an8801r_set_wol to reject unsupported modes
-  (detected by sashiko-nipa)
-- Fixed supported led trigger detection in an8801r_led_trig_to_hw
-  (detected by sashiko.dev)
-- Fixed possible uninitialized return value in an8801r_of_init_leds
-  (detected by sashiko-nipa and sashiko.dev)
-- Modified patch 6 to fix possible cases where the link mode register value
-  might not be updated (detected by sashiko-nipa)
-- Added new reviewed-by trailers
-- Link to v3: https://lore.kernel.org/r/20260512-add-airoha-an8801-support-v3-0-1edb34e363ae@collabora.com
+diff --git a/drivers/net/phy/Kconfig b/drivers/net/phy/Kconfig
+index 8b51bdc2e945..d969a792beb5 100644
+--- a/drivers/net/phy/Kconfig
++++ b/drivers/net/phy/Kconfig
+@@ -92,10 +92,16 @@ config AS21XXX_PHY
+ 
+ config AIR_EN8811H_PHY
+ 	tristate "Airoha EN8811H 2.5 Gigabit PHY"
++	select AIR_NET_PHYLIB
+ 	select PHY_COMMON_PROPS
+ 	help
+ 	  Currently supports the Airoha EN8811H PHY.
+ 
++config AIR_NET_PHYLIB
++	tristate
++	help
++	  Airoha Ethernet PHY common library
++
+ config AMD_PHY
+ 	tristate "AMD and Altima PHYs"
+ 	help
+diff --git a/drivers/net/phy/Makefile b/drivers/net/phy/Makefile
+index 05e4878af27a..7cf1fa9e12cb 100644
+--- a/drivers/net/phy/Makefile
++++ b/drivers/net/phy/Makefile
+@@ -30,6 +30,7 @@ obj-y				+= $(sfp-obj-y) $(sfp-obj-m)
+ obj-$(CONFIG_ADIN_PHY)		+= adin.o
+ obj-$(CONFIG_ADIN1100_PHY)	+= adin1100.o
+ obj-$(CONFIG_AIR_EN8811H_PHY)   += air_en8811h.o
++obj-$(CONFIG_AIR_NET_PHYLIB)	+= air_phy_lib.o
+ obj-$(CONFIG_AMD_PHY)		+= amd.o
+ obj-$(CONFIG_AMCC_QT2025_PHY)	+= qt2025.o
+ obj-$(CONFIG_AQUANTIA_PHY)	+= aquantia/
+diff --git a/drivers/net/phy/air_en8811h.c b/drivers/net/phy/air_en8811h.c
+index 29ae73e65caa..be7c3426182a 100644
+--- a/drivers/net/phy/air_en8811h.c
++++ b/drivers/net/phy/air_en8811h.c
+@@ -21,6 +21,8 @@
+ #include <linux/wordpart.h>
+ #include <linux/unaligned.h>
+ 
++#include "air_phy_lib.h"
++
+ #define EN8811H_PHY_ID		0x03a2a411
+ #define AN8811HB_PHY_ID		0xc0ff04a0
+ 
+@@ -40,7 +42,6 @@
+ #define   AIR_AUX_CTRL_STATUS_SPEED_1000	0x8
+ #define   AIR_AUX_CTRL_STATUS_SPEED_2500	0xc
+ 
+-#define AIR_EXT_PAGE_ACCESS		0x1f
+ #define   AIR_PHY_PAGE_STANDARD			0x0000
+ #define   AIR_PHY_PAGE_EXTENDED_4		0x0004
+ 
+@@ -244,16 +245,6 @@ static const unsigned long en8811h_led_trig = BIT(TRIGGER_NETDEV_FULL_DUPLEX) |
+ 					      BIT(TRIGGER_NETDEV_RX)          |
+ 					      BIT(TRIGGER_NETDEV_TX);
+ 
+-static int air_phy_read_page(struct phy_device *phydev)
+-{
+-	return __phy_read(phydev, AIR_EXT_PAGE_ACCESS);
+-}
+-
+-static int air_phy_write_page(struct phy_device *phydev, int page)
+-{
+-	return __phy_write(phydev, AIR_EXT_PAGE_ACCESS, page);
+-}
+-
+ static int __air_buckpbus_reg_write(struct phy_device *phydev,
+ 				    u32 pbus_address, u32 pbus_data)
+ {
+diff --git a/drivers/net/phy/air_phy_lib.c b/drivers/net/phy/air_phy_lib.c
+new file mode 100644
+index 000000000000..8ef5af4becf0
+--- /dev/null
++++ b/drivers/net/phy/air_phy_lib.c
+@@ -0,0 +1,32 @@
++// SPDX-License-Identifier: GPL-2.0+
++/*
++ * Airoha Ethernet PHY common library
++ *
++ * Copyright (C) 2026 Airoha Technology Corp.
++ * Copyright (C) 2026 Collabora Ltd.
++ *                    Louis-Alexis Eyraud <louisalexis.eyraud@collabora.com>
++ */
++
++#include <linux/export.h>
++#include <linux/module.h>
++#include <linux/phy.h>
++
++#include "air_phy_lib.h"
++
++#define AIR_EXT_PAGE_ACCESS		0x1f
++
++int air_phy_read_page(struct phy_device *phydev)
++{
++	return __phy_read(phydev, AIR_EXT_PAGE_ACCESS);
++}
++EXPORT_SYMBOL_GPL(air_phy_read_page);
++
++int air_phy_write_page(struct phy_device *phydev, int page)
++{
++	return __phy_write(phydev, AIR_EXT_PAGE_ACCESS, page);
++}
++EXPORT_SYMBOL_GPL(air_phy_write_page);
++
++MODULE_DESCRIPTION("Airoha PHY Library");
++MODULE_LICENSE("GPL");
++MODULE_AUTHOR("Louis-Alexis Eyraud");
+diff --git a/drivers/net/phy/air_phy_lib.h b/drivers/net/phy/air_phy_lib.h
+new file mode 100644
+index 000000000000..79367e8e5907
+--- /dev/null
++++ b/drivers/net/phy/air_phy_lib.h
+@@ -0,0 +1,16 @@
++/* SPDX-License-Identifier: GPL-2.0+ */
++/*
++ * Copyright (C) 2026 Airoha Technology Corp.
++ * Copyright (C) 2026 Collabora Ltd.
++ *                    Louis-Alexis Eyraud <louisalexis.eyraud@collabora.com>
++ */
++
++#ifndef __AIR_PHY_LIB_H
++#define __AIR_PHY_LIB_H
++
++#include <linux/phy.h>
++
++int air_phy_read_page(struct phy_device *phydev);
++int air_phy_write_page(struct phy_device *phydev, int page);
++
++#endif /* __AIR_PHY_LIB_H */
 
-Changes in v3:
-- Rebased on net-next (7e0cccae6b45)
-- Updated patch 1 to describe the function-enumator property for the
-  LEDs and its possible values
-- Modified patch 2 to add missing includes in air_phy_lib source and
-  header files
-- Split patch 3 in two so that the api call renames in air_en8811h
-  driver is done in a separate patch
-- Simplified return code handling in several functions
-- Fixed return code handling in several functions detected by AI
-  peer-reviews (netdev-ai or sashiko)
-- Added additional interrupt enabled check before enabling/disabling 
-  link changed interrupt in an8801r_suspend/resume callbacks
-- Fixed register mask for GPIO LED selection register in
-  an8801r_led_init function
-- Fixed potential uninitialized variable in an8801r_led_polarity_set
-  function
-- Fixed LED blink register settings in an8801r_led_blink_set function
-- Split an8801r_read_status function implementation in a separate patch
-  as requested and add comment to describe why the link mode register
-  needed to be modified after reading the link speed.
-- Link to v2: https://lore.kernel.org/r/20260326-add-airoha-an8801-support-v2-0-1a42d6b6050f@collabora.com
-
-Changes in v2:
-- Rebased on net-next (d1e59a4697371)
-- Fixed dt-bindings to remove the leds property from the required ones and
-  add wakeup-source as valid property
-- Added new reviewed-by trailer for dt_bindings
-- Added new patches (2 and 3) to create air_phy_lib, to share common code
-  between air_en8811h and air_an8801 drivers and use it in air_en8811h.
-- Remove custom BuckPBus register accessor functions and definitions from
-  air_an8801 and use the ones from air_phy_lib. It also fixes a build
-  issue on v1 due to an uninitialized variable used in
-  __air_buckpbus_reg_read, that is now removed from driver code
-- Added air_an8801_probe function to allocate the newly added private
-  data structure and detect if the PHY is wakeup capable and the interrupt
-  can be registered as a wakeup IRQ, and perform the needed actions
-- Added an8801r_suspend and an8801r_resume functions to perform specific
-  actions when WoL is enabled (reset its status, enable/disable the Link
-  Changed interrupt) and call the genphy_suspend/resume functions if
-  needed
-- Modified an8801r_get_wol to return WoL is not supported if the PHY
-  device is not wakeup capable
-- Modified an8801r_set_wol to return EOPNOTSUPP error code if the PHY
-  device is not wakeup capable, and to update the wakeup flag according
-  to WoL mode
-- Modified an8801r_config_init to remove EEE disabling and replace
-  __phy_write use by phy_write_paged
-- Reworked an8801r_rgmii_delay_config and its subfunctions to fix a
-  double return use in PHY_INTERFACE_MODE_RGMII_ID case, replace the
-  magic value use for default TX and RX delay and handle better the
-  enable/disable the inserted delays for all RGMII modes
-- Merged an8801r_did_interrupt function in an8801r_handle_interrupt
-- Modified the an8801r_handle_interrupt processing to process differently
-  the Magic Packet (to notify system wakeup) and the Link Changed
-  interrupt (to notify PHY state machine)
-- Splitted the reset WoL status part from an8801r_ack_interrupt and fix
-  an issue that in some random cases made WAKEUP_CTL1 register lose the
-  Magic Packet WoL settings
-- Modified an8801r_of_init_leds function so it does not return an error
-  if the leds configuration is not present in devicetree
-- Removed feature field and add PHY_ALWAYS_CALL_SUSPEND flag in
-  airoha_driver data structure
-
-- Link to v1: https://lore.kernel.org/r/20260304-add-airoha-an8801-support-v1-0-0ae4ee5a2f9d@collabora.com
-
----
-AngeloGioacchino Del Regno (2):
-      dt-bindings: net: Add support for Airoha AN8801R GbE PHY
-      net: phy: Introduce Airoha AN8801R Gigabit Ethernet PHY driver
-
-Louis-Alexis Eyraud (4):
-      net: phy: Add Airoha phy library for shared code
-      net: phy: air_phy_lib: Factorize BuckPBus register accessors
-      net: phy: Rename Airoha common BuckPBus register accessors
-      net: phy: air_an8801: ensure maximum available speed link use
-
- .../devicetree/bindings/net/airoha,an8801.yaml     |  120 ++
- drivers/net/phy/Kconfig                            |   12 +
- drivers/net/phy/Makefile                           |    2 +
- drivers/net/phy/air_an8801.c                       | 1156 ++++++++++++++++++++
- drivers/net/phy/air_en8811h.c                      |  316 +-----
- drivers/net/phy/air_phy_lib.c                      |  213 ++++
- drivers/net/phy/air_phy_lib.h                      |   39 +
- 7 files changed, 1600 insertions(+), 258 deletions(-)
----
-base-commit: 90d03ee2c5dc5f7ee11da90e8eb6868dcbee177b
-change-id: 20260303-add-airoha-an8801-support-57d544a4afed
-
-Best regards,
 -- 
-Louis-Alexis Eyraud <louisalexis.eyraud@collabora.com>
+2.54.0
 
 
