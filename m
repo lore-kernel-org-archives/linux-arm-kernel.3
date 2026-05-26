@@ -4,74 +4,75 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id DDCADCD5BB1
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 26 May 2026 18:22:59 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id D3BD9CD5BC8
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 26 May 2026 18:24:51 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:Cc:To:From:
 	Subject:Message-ID:References:Mime-Version:In-Reply-To:Date:Reply-To:
 	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=cNZ6xElfqK3A4SE3F9P829uWscll1GihYVBHckeq6A0=; b=mN1EXC7DwB24Bkdbu28EgcY567
-	wB2w6cvVHmka02vjZES5TCgd3MFHYjk6uSR31VKbivlpPXyOFHdi3pxEaXehAlRD+2KoifxA0X41f
-	nZAsl+yPqwVT2rfNPXiO2YH3qzGbP/aI2SnrEMEm6aafur6K0TfEkmz9LM4FezJSwGwdxGeKVICIf
-	t/0N3M8sQP6ElSp8HvueYhrYPlsN09IwxmM+qsjG4YUPMPnPWFq21nq1M+qjJsn82GEbQCT5P4hIO
-	oNFQqCOIBpxfxPbOn06f7kdpJJYl8tLPauCXySkKESSyI+qB6isp3MKK1Nwdagp98gvQM+Qs9Kxer
-	Q0Dcb//A==;
+	bh=+RFflol+bsWEcr4KlK98zfj4SqOIgycSAYTOMgzlgw0=; b=AeapJSpkjUjZ1VU2WrMSQOEpEm
+	rnYP7TlIL5SFHRo7Y2GUlRVPjiEdyX7mqOWrEBlwan+BjpsGM+JQNjAfo1d01XJ9h4SPgDd8Hxmjn
+	RWAPoKlI+ANLTvmxxUdW0GXt/a5OL1F02YYtUSslChZsXRGYARmCXCNbhF0Hm0gcVLk0N1tWU4XFa
+	ggp7weXhKgLei7+oyJ3yzsBclrWn26TWOQWDp9+qdO2/v/HL734aIaLvB+SXGvUZFELTgdGEj3ZAD
+	SjetUyafhrb/YeeWExq9WSYvLBlFHT9rWuFyOzfotJOUyMXX9LWAN7vDl4PJMzMYsOClDIwYosAFO
+	eS8VBXww==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wRw40-00000002mro-2ktr;
-	Tue, 26 May 2026 17:59:36 +0000
-Received: from mail-wm1-x34a.google.com ([2a00:1450:4864:20::34a])
+	id 1wRw3q-00000002mkK-2tLU;
+	Tue, 26 May 2026 17:59:26 +0000
+Received: from mail-wm1-x349.google.com ([2a00:1450:4864:20::349])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wRw3u-00000002mlf-3MKo
+	id 1wRw3o-00000002mij-1lXw
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 26 May 2026 17:59:32 +0000
-Received: by mail-wm1-x34a.google.com with SMTP id 5b1f17b1804b1-48eb0da933fso75100995e9.0
-        for <linux-arm-kernel@lists.infradead.org>; Tue, 26 May 2026 10:59:29 -0700 (PDT)
+	Tue, 26 May 2026 17:59:25 +0000
+Received: by mail-wm1-x349.google.com with SMTP id 5b1f17b1804b1-49048e21ea7so20745225e9.1
+        for <linux-arm-kernel@lists.infradead.org>; Tue, 26 May 2026 10:59:23 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=google.com; s=20251104; t=1779818368; x=1780423168; darn=lists.infradead.org;
+        d=google.com; s=20251104; t=1779818362; x=1780423162; darn=lists.infradead.org;
         h=cc:to:from:subject:message-id:references:mime-version:in-reply-to
          :date:from:to:cc:subject:date:message-id:reply-to;
-        bh=cNZ6xElfqK3A4SE3F9P829uWscll1GihYVBHckeq6A0=;
-        b=AN72Kb7a0dQvIVzubQI16R2e88iv+D97ghMS/Qk/OnrtmQcX6qgtZ3OxB8e9PyLici
-         aNtt/TCyLWy24LZYGqKUXzySZ/N7alhcHaHO7mbNtpGrve3Rliq13tCPyWPG3HNDIVOp
-         mX4dZw8A86oDFz7Rwgs7b5hcEne0L1SYvCkzs0xsc4T69qccZx7tVHcO0420F70Fndyc
-         Z6V1610X3IYh4BR3B805GaS87211to9echq5Dl+scJF7hQtho7eUggFhQm8B4Nh0JgK9
-         NKzQsK0jmSwSAzClA7Nu5RoRTurQKUxkE8YzjElxrhu0tWJwGJqcMQ29uBh07MW5Lqd3
-         MbGg==
+        bh=+RFflol+bsWEcr4KlK98zfj4SqOIgycSAYTOMgzlgw0=;
+        b=oc7iqRN1HU0Nt57FIw6Z9N5WsF5cOTEbPDCAWiK74TabD8TZkqQrZK4yUSZsjik6k0
+         IKQA8r1DgLy53YA7teCT0Wdy2uLfjKGWVTgl2a9YsGqW6EMfJcHyS3OuXDzitDfT78G8
+         /wrcWtRsSvd8R+UlzXB82jCnXwZVK3hDVz1FDD7q2TR1tSj1X+KIy7FHHdjYsDypP4fe
+         idHrnS3q+0CY9Fgg83GMdeItuSVnI/5HfJCCl7nB0xJjPbb3Hl+D9/MUDS84PbV0LirT
+         vxf6B0YFNXnMQiHz+4T6FJBk7tX/uGYyc5O3I8xU74iwEGg3zWoppruzURUBu+UY1KPs
+         5syw==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20251104; t=1779818368; x=1780423168;
+        d=1e100.net; s=20251104; t=1779818362; x=1780423162;
         h=cc:to:from:subject:message-id:references:mime-version:in-reply-to
          :date:x-gm-message-state:from:to:cc:subject:date:message-id:reply-to;
-        bh=cNZ6xElfqK3A4SE3F9P829uWscll1GihYVBHckeq6A0=;
-        b=iMFgPlwatV+xP7jiJtmLTym7lhZevOJTaC+fDGLnrg+z4SvAuhM4RViJ6sSHeKP2wA
-         BVl8yhTsKoK2+nOb3tO0Jt1yf2VM3fIMUgHnW7gL0PVb/OA3/o/4m0yZVjW6Ig9x/LlK
-         c4Dy+aG9UOingCW+n0PDPo7mDfsjlUImfWRRmvTIu/7e1vSezf0d99fOD0PQ0x4sv4JS
-         rVFmP2HeMrJUpkVbbJRJgsl2YpsQ+3VaX4J0/X/QFHbknLMxZ60r1voZLq+2q06XFvqN
-         cvglzkGxilH6/MBJXGzcRz4XUviakBqMcPk5BrdsqSV4Vk1xXfKL4pv7ddUrB4suUg1Y
-         KZMg==
-X-Gm-Message-State: AOJu0Yyokk4RfqkY7ouvKPmdbkCGyFH8h+oOgYOgEgSi2Hu9K/jFqjPu
-	pVcYs20Sn4gepICdo80mzaPlje/B7yCRxqYm4RcgS20YqxR8vqVVNO4OfxXbZ4XA1zMFlAAQ//p
-	JmZuFHnX5lOuYfVqkok+fVpvbWAYCbmg/ExJEuZW2rJR3Vh6YoAxNvAWWo27EaRoNkmFU7fqko1
-	iiPxkjtIO/q17VynBbJdYwaUQhOGFSnC+Ethe9WXuQZMuq
-X-Received: from wmbje7.prod.google.com ([2002:a05:600c:1f87:b0:48a:5970:2007])
- (user=ardb job=prod-delivery.src-stubby-dispatcher) by 2002:a05:600c:3b97:b0:490:52fb:12dd
- with SMTP id 5b1f17b1804b1-49052fb14fdmr292012705e9.10.1779818367951; Tue, 26
- May 2026 10:59:27 -0700 (PDT)
-Date: Tue, 26 May 2026 19:58:53 +0200
+        bh=+RFflol+bsWEcr4KlK98zfj4SqOIgycSAYTOMgzlgw0=;
+        b=Tg3fKxiX5SLXsMlKzNkx3XGwbrBt5ubew/jJJUbS9tyJMEqd/6WRW6J22hVfLINPe1
+         6mh5MHpKO86gFV/ETVrXk+fkmQjJPsAQnc0eesqMPy83BnGcOq20nVqD+sd4XBcnVYtp
+         d6VMFN3PdWvRIOPhsxVoq7fXQytz49ygWra4S1E4Vlr0/kJDPgdTiuqNOvFeKAQiPNPh
+         YJt9SFVwuigyS2PBtmh6oWxkcfh4cKWEVFc3y8KOkVpMAnGkF/tZI/i9nnasidixlLZ4
+         RPgz5YLlmzGk5SnX5drixEjaJQno4kuBVASN+HZvWFtzFa//mYaJjcQDpZngXPYOo6ID
+         p4TA==
+X-Gm-Message-State: AOJu0YxnyuRceoAcDpP9y16SlkfWv7T/aAO7n9Ba5v0576MU3tY7Kmaj
+	2WcMfVT4kEN28b6/pUkM7BYvLK+LSFIWeCZn1l2qKmAEpJDp7rzCzwZteW7+CoM5V9N091aryuf
+	QBBSfxxg8w6CXzqaHcv1RZWP7XH9YidyyPqfopkIqFZOILKlQzoeAgs/dTlTOMeuGALd0bOEuvG
+	YewFRd+17FbDTIRQXHm8qfy8ds8tpbEJZtk5INWSSKkQkR
+X-Received: from wmgb20.prod.google.com ([2002:a05:600c:1514:b0:48f:de5b:469b])
+ (user=ardb job=prod-delivery.src-stubby-dispatcher) by 2002:a05:600c:8599:b0:48f:e230:29f4
+ with SMTP id 5b1f17b1804b1-490426ade02mr205371775e9.15.1779818361151; Tue, 26
+ May 2026 10:59:21 -0700 (PDT)
+Date: Tue, 26 May 2026 19:58:48 +0200
 In-Reply-To: <20260526175846.2694125-17-ardb+git@google.com>
 Mime-Version: 1.0
 References: <20260526175846.2694125-17-ardb+git@google.com>
 X-Developer-Key: i=ardb@kernel.org; a=openpgp; fpr=F43D03328115A198C90016883D200E9CA6329909
-X-Developer-Signature: v=1; a=openpgp-sha256; l=1543; i=ardb@kernel.org;
- h=from:subject; bh=0Wnsvtw0Z2vu8jTM+plTHkuWXyq+RnVgc0hID3nHEQ0=;
- b=owGbwMvMwCVmkMcZplerG8N4Wi2JIUv0fnxSZsWx12f761qXqC0qS65U2ZVyr3Slf87jmSwTV
- KRvvbncUcrCIMbFICumyCIw+++7nacnStU6z5KFmcPKBDKEgYtTACbSLsjIsFvkWXjX0hVFJxZW
- Ldt97vPXdU3PRc8XH9GZ8UZlg9pB7T+MDA9i+Q/xn5Hz+Zl1U29m5LMYieUfPCfvSXROOpI/3bA ngBUA
+X-Developer-Signature: v=1; a=openpgp-sha256; l=1021; i=ardb@kernel.org;
+ h=from:subject; bh=Kh7cxWXkNrSTDvznUsNThby14Lf6cpInZSVAIOoSUVU=;
+ b=owGbwMvMwCVmkMcZplerG8N4Wi2JIUv0fsQvk8viPq9V2vx6dMWennJ+dkQqIjT+cV/VLZF1b
+ R7nhSZ2lLIwiHExyIopsgjM/vtu5+mJUrXOs2Rh5rAygQxh4OIUgImsLWZk2HK0ii1yonQZe7ZV
+ +ApXXrWOD0eLlqwV53zN/y7vkpHmYUaGZx8+meyLTM/2WSaWZW95P1zc+UOGxrXah+2Pw7MWVjW xAgA=
 X-Mailer: git-send-email 2.54.0.794.g4f17f83d09-goog
-Message-ID: <20260526175846.2694125-23-ardb+git@google.com>
-Subject: [PATCH v6 06/15] arm64: mm: Permit contiguous descriptors to be manipulated
+Message-ID: <20260526175846.2694125-18-ardb+git@google.com>
+Subject: [PATCH v6 01/15] arm64: mm: Remove bogus stop condition from
+ map_mem() loop
 From: Ard Biesheuvel <ardb+git@google.com>
 To: linux-arm-kernel@lists.infradead.org
 Cc: linux-kernel@vger.kernel.org, will@kernel.org, catalin.marinas@arm.com, 
@@ -81,11 +82,11 @@ Cc: linux-kernel@vger.kernel.org, will@kernel.org, catalin.marinas@arm.com,
 	Mike Rapoport <rppt@kernel.org>, David Hildenbrand <david@kernel.org>, 
 	Andrew Morton <akpm@linux-foundation.org>, Jann Horn <jannh@google.com>, linux-mm@kvack.org, 
 	linux-hardening@vger.kernel.org, linuxppc-dev@lists.ozlabs.org, 
-	linux-sh@vger.kernel.org
+	linux-sh@vger.kernel.org, Kevin Brodsky <kevin.brodsky@arm.com>
 Content-Type: text/plain; charset="UTF-8"
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260526_105930_976772_53125BC7 
-X-CRM114-Status: GOOD (  14.83  )
+X-CRM114-CacheID: sfid-20260526_105924_466779_52E0F0EB 
+X-CRM114-Status: GOOD (  12.77  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -102,42 +103,33 @@ Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.i
 
 From: Ard Biesheuvel <ardb@kernel.org>
 
-Currently, pgattr_change_is_safe() is overly pedantic when it comes to
-descriptors with the contiguous hint attribute set, as it rejects
-assignments even if the old and the new value are the same.
+The memblock API guarantees that start is not greater than or equal to
+end, so there is no need to test it. And if it were, it is doubtful that
+breaking out of the loop would be a reasonable course of action here
+(rather than attempting to map the remaining regions)
 
-In fact, as per ARM ARM RJQQTC, manipulating descriptors with the
-contiguous bit set is safe as long as the bit itself does not change
-value, in the sense that no TLB conflict aborts or other exceptions may
-be raised as a result. Inconsistent permission attributes within the
-contiguous region may result in any of the alternatives to be taken to
-apply to the entire region, which might be a programming error, but it
-does not constitute an unsafe manipulation in terms of what
-pgattr_change_is_safe() is intended to detect.
+So let's drop this check.
 
-So drop the special PTE_CONT check, but still omit PTE_CONT from 'mask'
-so that modifying the bit is still regarded as unsafe.
-
+Reviewed-by: Ryan Roberts <ryan.roberts@arm.com>
+Reviewed-by: Kevin Brodsky <kevin.brodsky@arm.com>
 Signed-off-by: Ard Biesheuvel <ardb@kernel.org>
 ---
- arch/arm64/mm/mmu.c | 4 ----
- 1 file changed, 4 deletions(-)
+ arch/arm64/mm/mmu.c | 2 --
+ 1 file changed, 2 deletions(-)
 
 diff --git a/arch/arm64/mm/mmu.c b/arch/arm64/mm/mmu.c
-index 6b42d724bd1b..d7a6991e1844 100644
+index dd85e093ffdb..112fa4a3b0eb 100644
 --- a/arch/arm64/mm/mmu.c
 +++ b/arch/arm64/mm/mmu.c
-@@ -134,10 +134,6 @@ bool pgattr_change_is_safe(pteval_t old, pteval_t new)
- 	if (pte_pfn(__pte(old)) != pte_pfn(__pte(new)))
- 		return false;
+@@ -1173,8 +1173,6 @@ static void __init map_mem(pgd_t *pgdp)
  
--	/* live contiguous mappings may not be manipulated at all */
--	if ((old | new) & PTE_CONT)
--		return false;
--
- 	/* Transitioning from Non-Global to Global is unsafe */
- 	if (old & ~new & PTE_NG)
- 		return false;
+ 	/* map all the memory banks */
+ 	for_each_mem_range(i, &start, &end) {
+-		if (start >= end)
+-			break;
+ 		/*
+ 		 * The linear map must allow allocation tags reading/writing
+ 		 * if MTE is present. Otherwise, it has the same attributes as
 -- 
 2.54.0.794.g4f17f83d09-goog
 
