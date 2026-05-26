@@ -4,52 +4,52 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id D562ECD5BB1
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 26 May 2026 17:20:53 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 5E763CD5BB1
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 26 May 2026 17:24:21 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:References
 	:Message-Id:Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:
 	From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=vmAxlo1wPpVUGFi4z8FBEYgHX8eETYEQ7eEa1NRb4nY=; b=RIXvjzfr7Kx7+jPNYhsp1e6NzR
-	hfXk16V+nLwNyi8hWWID2gVe80BHUStMEPOSAsoaJLhwFkTtVV39tJQfZgYm6aSztJWrldGSQ5rBN
-	FLigGbUJi0XE0tq2f0tdLGHf4+zjsCFMYyu8BCW16ZkzM80F9YuKagsRY+MQZcgejlMH9Mi37qVTq
-	Iwkt8oHNcOTmq9nISMZOw8U2Xyc1Ls3sjKhhvsbt2yDegXbcFEHEW0Q0FY+owTmvAAsVXvmw5qp4L
-	4FCGsTZ8pOF6lAdpfB33QKwrEmb/0XDS1o2GQhr21nNETtTbyXxIy/0QR4JyZKhTO+QwfyAQ+boiG
-	FeVd1QBA==;
+	bh=YVd/1WhGwRypYnaVWi4R06/xFOEvMXU+alOysERPHRk=; b=G+NT2Or1b/5VlMkuHkRHBhzH/X
+	+KaaWVqwKfB4ckMNEXeZ5hogegFu9qpCYWd8sczi155SAAq30oBmHJ2ifhG3mKFoVnvFHyPcxeN5L
+	QPfi+wj7YsafYyPwt4MlAnNEc6iuCnvdwbhUEfSSZnumSzZKKvf2ofSiYB814bJ5RBNRRhzG/UsR8
+	ZVnV4XGsla7YmKBvoLxFVVof2bim/TCnPPrz9/3ZyfZHdIQ2I/pYLg0MmHRbISp9cuRrjKa7O0WVR
+	J7Is/YkdxG/vPPn/6IjhytQo1ztdT2uOWdBJiNUSL3mvju6Sj1ZdU+aCde9p614QjDFndsVaqOHXs
+	hf5OF3bw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wRuvk-00000002ZNa-0ia8;
-	Tue, 26 May 2026 16:47:00 +0000
-Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
+	id 1wRuwQ-00000002a3v-1fAL;
+	Tue, 26 May 2026 16:47:42 +0000
+Received: from sea.source.kernel.org ([172.234.252.31])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wRuvQ-00000002Z8o-3hqK
+	id 1wRuvw-00000002Zdx-28YF
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 26 May 2026 16:46:42 +0000
+	Tue, 26 May 2026 16:47:15 +0000
 Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
-	by sea.source.kernel.org (Postfix) with ESMTP id 8BC71407DA;
-	Tue, 26 May 2026 16:46:40 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id B384D1F00A3E;
-	Tue, 26 May 2026 16:46:39 +0000 (UTC)
+	by sea.source.kernel.org (Postfix) with ESMTP id 17E904321A;
+	Tue, 26 May 2026 16:47:12 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 3C2D91F00A3F;
+	Tue, 26 May 2026 16:47:11 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1779814000;
-	bh=vmAxlo1wPpVUGFi4z8FBEYgHX8eETYEQ7eEa1NRb4nY=;
+	s=k20260515; t=1779814032;
+	bh=YVd/1WhGwRypYnaVWi4R06/xFOEvMXU+alOysERPHRk=;
 	h=From:Date:Subject:References:In-Reply-To:To:Cc;
-	b=ccr+aUxQl8B8VP26+PznQjAM5jvmJNlSdE8U9y1ip5BaMLJntllTX7BY3Nr43ByYR
-	 3I7qL/PTr0QwCrtyQp5W+bo5LH0b+yhWamg9kaS/Fw6GLalmo3/TqXzvjcAl9nVoTn
-	 t8pbV74ygCP68BufoMuGEOi+/SGvtWM7zzOAXpKfVmwYbW2Tm5LKKOWmxbPJWLA57b
-	 rSEhj3pPq4GQvInyObJ0rsAxTMjEppCSJ4qJqErb5Uii0gr0M+ohJ5g6VIUDtjpb+D
-	 dfh5vciNbOM7B3WO74qXzJZivvN3UwICa9CBKQ43vqHiJAJxStDMBJJyEzSMzn3vBU
-	 WScG04N75WgRQ==
+	b=kuFoo3O8zsEHoN5QXKy4DGVo71Np0UBtkJij1HSNM5ItaOiMKruDf5hzsJDfElPR0
+	 6QAVqsZv0AFH5cx+jeyxIBnmM8cppqJy/N0JCVEI7aomagHSLjhKIbFU9mNINIrDwa
+	 w2rxly6bvBut6tEZUx9He83B7YeGLNqncgueVSToB12acB8cMdNdOuQyN1l6RwYDoV
+	 na7Dgn97F65X8MLOKISUT82bonNBJtXdtZHgFDu/7OZ1yqPgKGsciw49FxsPVd2Oj/
+	 4TGYwReqwbvK7BE6xuKEbazwKuFl1atdHuTkzA8z+kEZNvPecu4lILb/lVA8449pY3
+	 7dSJUuHzFAK0A==
 From: Maxime Ripard <mripard@kernel.org>
-Date: Tue, 26 May 2026 18:46:17 +0200
-Subject: [PATCH v6 05/19] drm/mode-config: Document drm_private_obj
- exclusion from drm_mode_config_reset()
+Date: Tue, 26 May 2026 18:46:28 +0200
+Subject: [PATCH v6 16/19] drm/mode-config: Create
+ drm_mode_config_create_initial_state()
 MIME-Version: 1.0
 Content-Type: text/plain; charset="utf-8"
 Content-Transfer-Encoding: 7bit
-Message-Id: <20260526-drm-mode-config-init-v6-5-852346394200@kernel.org>
+Message-Id: <20260526-drm-mode-config-init-v6-16-852346394200@kernel.org>
 References: <20260526-drm-mode-config-init-v6-0-852346394200@kernel.org>
 In-Reply-To: <20260526-drm-mode-config-init-v6-0-852346394200@kernel.org>
 To: Maarten Lankhorst <maarten.lankhorst@linux.intel.com>, 
@@ -80,17 +80,17 @@ Cc: dri-devel@lists.freedesktop.org, linux-doc@vger.kernel.org,
  Maxime Ripard <mripard@kernel.org>, 
  Laurent Pinchart <laurent.pinchart+renesas@ideasonboard.com>
 X-Mailer: b4 0.14.3
-X-Developer-Signature: v=1; a=openpgp-sha256; l=1438; i=mripard@kernel.org;
- h=from:subject:message-id; bh=p9ZaVQhU6x2BUkTWwGqZUaX+oUcICWz2dxNRq772dNc=;
- b=owGbwMvMwCmsHn9OcpHtvjLG02pJDFmi5yICquxP9H7QShWVXMCSd7vposCC4Dzt1JqfSx6dF
- OiqXWTfMZWFQZiTQVZMkeWJTNjp5e2LqxzsV/6AmcPKBDKEgYtTACbCrsBYZ/nwX9WGoDVKv2vC
- bjQvNb9///Z62doejbvN/TxBeZqHE8IkZtxlYhThFdlgIOh3tdKFsYarJe3f9J1988I8rvZvE1u
- oMvX4X9NpIZ7ygitPKZ30zlN6mP9kotbOvJ9v2Q70TLGW9AUA
+X-Developer-Signature: v=1; a=openpgp-sha256; l=6231; i=mripard@kernel.org;
+ h=from:subject:message-id; bh=cYjI8QYvkKuK5SIyJNpOUPUh8YDmbmoEcur+ZgsP/9E=;
+ b=owGbwMvMwCmsHn9OcpHtvjLG02pJDFmi52Kd3C7WyHnq/j7tv6XWNk32g3bbR0VX8xtv9+xQK
+ mZtZXfomMrCIMzJICumyPJEJuz08vbFVQ72K3/AzGFlAhnCwMUpABPZzsJY79e1bt3hmElfOyMd
+ G19bfV7GuFRyebdz3o57r7/zmB0yZH4nqn90E9e8qrJNdosD/0o0MDb0TUjxMwg4/s/d3XGVy2P
+ zA8y3NSKfebwvynpfzbT3juN8wa3T/nyw0dixuNOh9fD1MwsB
 X-Developer-Key: i=mripard@kernel.org; a=openpgp;
  fpr=BE5675C37E818C8B5764241C254BCFC56BF6CE8D
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260526_094640_976953_7854B615 
-X-CRM114-Status: GOOD (  10.54  )
+X-CRM114-CacheID: sfid-20260526_094712_608038_36C27348 
+X-CRM114-Status: GOOD (  26.34  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -105,41 +105,190 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-drm_mode_config_reset() does not reset drm_private_states by design.
+drm_mode_config_reset() can be used to create the initial state, but
+also to return to the initial state, when doing a suspend/resume cycle
+for example.
 
-This is especially significant for the DP MST and tunneling code that
-expect to be preserved across a suspend/resume cycle, where
-drm_mode_config_reset() is also used.
+It also affects both the software and the hardware, and drivers can
+choose to reset the hardware as well. Most will just create an empty
+state and the synchronisation between hardware and software states will
+effectively be done when the first commit is done.
 
-Document this expectation.
+That dual role can be harmful, since some objects do need to be
+initialized but also need to be preserved across a suspend/resume cycle.
+drm_private_obj are such objects for example.
 
-Link: https://lore.kernel.org/dri-devel/aOaQLx-7EpsHRwkH@ideak-desk/
+Thus, create another helper for drivers to call to initialize their
+state when the driver is loaded, so we can make
+drm_mode_config_reset() only about handling suspend/resume and similar.
+
+Reviewed-by: Dmitry Baryshkov <dmitry.baryshkov@oss.qualcomm.com>
 Reviewed-by: Laurent Pinchart <laurent.pinchart+renesas@ideasonboard.com>
 Reviewed-by: Thomas Zimmermann <tzimmermann@suse.de>
 Signed-off-by: Maxime Ripard <mripard@kernel.org>
 ---
- drivers/gpu/drm/drm_mode_config.c | 4 ++++
- 1 file changed, 4 insertions(+)
+ drivers/gpu/drm/drm_atomic.c      | 12 +++++-
+ drivers/gpu/drm/drm_mode_config.c | 89 +++++++++++++++++++++++++++++++++++++++
+ include/drm/drm_mode_config.h     |  1 +
+ 3 files changed, 100 insertions(+), 2 deletions(-)
 
+diff --git a/drivers/gpu/drm/drm_atomic.c b/drivers/gpu/drm/drm_atomic.c
+index 3c5714481ad2..796de2bbcb0c 100644
+--- a/drivers/gpu/drm/drm_atomic.c
++++ b/drivers/gpu/drm/drm_atomic.c
+@@ -58,12 +58,20 @@
+  * object states are allocated when preparing the update and kept alive
+  * as long as they are active in the device.
+  *
+  * Their respective lifetimes are:
+  *
+- * - at reset time, the object reset implementation allocates a new
+- *   default state and stores it in the object state pointer.
++ * - at driver initialization time, the driver calls
++ *   drm_mode_config_create_initial_state() to allocate an initial,
++ *   pristine, state for each object and stores it in the objects state
++ *   pointer. Historically, this was one of drm_mode_config_reset() job,
++ *   so one might still encounter it in a driver.
++ *
++ * - When resuming from suspend, drm_mode_config_reset() resets the
++ *   software and hardware state to a known default and stores it in the
++ *   object's state pointer. Not all objects are affected by
++ *   drm_mode_config_reset() though.
+  *
+  * - whenever a new update is needed:
+  *
+  *   + drm_atomic_commit_alloc() allocates a new &drm_atomic_commit
+  *     instance.
 diff --git a/drivers/gpu/drm/drm_mode_config.c b/drivers/gpu/drm/drm_mode_config.c
-index 66f7dc37b597..c33382a38191 100644
+index 9d240817f8b6..f432f485a914 100644
 --- a/drivers/gpu/drm/drm_mode_config.c
 +++ b/drivers/gpu/drm/drm_mode_config.c
-@@ -187,10 +187,14 @@ int drm_mode_getresources(struct drm_device *dev, void *data,
-  * @dev: drm device
-  *
-  * This functions calls all the crtc's, encoder's and connector's ->reset
-  * callback. Drivers can use this in e.g. their driver load or resume code to
-  * reset hardware and software state.
-+ *
-+ * Note that &drm_private_obj structures are expected to be stable across
-+ * suspend/resume cycles, and drm_mode_config_reset() does not affect these
-+ * structures.
+@@ -21,10 +21,11 @@
   */
- void drm_mode_config_reset(struct drm_device *dev)
+ 
+ #include <linux/export.h>
+ #include <linux/uaccess.h>
+ 
++#include <drm/drm_atomic.h>
+ #include <drm/drm_drv.h>
+ #include <drm/drm_encoder.h>
+ #include <drm/drm_file.h>
+ #include <drm/drm_framebuffer.h>
+ #include <drm/drm_managed.h>
+@@ -314,10 +315,98 @@ void drm_mode_config_reset(struct drm_device *dev)
+ 	}
+ 	drm_connector_list_iter_end(&conn_iter);
+ }
+ EXPORT_SYMBOL(drm_mode_config_reset);
+ 
++/**
++ * drm_mode_config_create_initial_state - Allocates the initial state
++ * @dev: drm device
++ *
++ * This functions creates the initial state for all the objects. Drivers
++ * can use this in e.g. probe to initialize their software state.
++ *
++ * It has two main differences with drm_mode_config_reset(): the reset()
++ * hooks aren't called and thus the hardware will be left untouched, but
++ * also the &drm_private_obj structures will be initialized as opposed
++ * to drm_mode_config_reset() that skips them.
++ *
++ * Returns: 0 on success, negative error value on failure.
++ */
++int drm_mode_config_create_initial_state(struct drm_device *dev)
++{
++	struct drm_crtc *crtc;
++	struct drm_colorop *colorop;
++	struct drm_plane *plane;
++	struct drm_connector *connector;
++	struct drm_connector_list_iter conn_iter;
++	struct drm_private_obj *privobj;
++	int ret;
++
++	drm_for_each_privobj(privobj, dev) {
++		struct drm_private_state *privobj_state;
++
++		if (privobj->state)
++			continue;
++
++		if (!privobj->funcs->atomic_create_state)
++			continue;
++
++		privobj_state = privobj->funcs->atomic_create_state(privobj);
++		if (IS_ERR(privobj_state))
++			return PTR_ERR(privobj_state);
++
++		privobj->state = privobj_state;
++	}
++
++	drm_for_each_colorop(colorop, dev) {
++		struct drm_colorop_state *colorop_state;
++
++		if (colorop->state)
++			continue;
++
++		colorop_state = drm_atomic_helper_colorop_create_state(colorop);
++		if (IS_ERR(colorop_state))
++			return PTR_ERR(colorop_state);
++
++		colorop->state = colorop_state;
++	}
++
++	drm_for_each_plane(plane, dev) {
++		if (plane->state)
++			continue;
++
++		ret = drm_mode_config_plane_create_state(plane);
++		if (ret)
++			return ret;
++	}
++
++	drm_for_each_crtc(crtc, dev) {
++		if (crtc->state)
++			continue;
++
++		ret = drm_mode_config_crtc_create_state(crtc);
++		if (ret)
++			return ret;
++	}
++
++	drm_connector_list_iter_begin(dev, &conn_iter);
++	drm_for_each_connector_iter(connector, &conn_iter) {
++		if (connector->state)
++			continue;
++
++		ret = drm_mode_config_connector_create_state(connector);
++		if (ret) {
++			drm_connector_list_iter_end(&conn_iter);
++			return ret;
++		}
++	}
++	drm_connector_list_iter_end(&conn_iter);
++
++	return 0;
++}
++EXPORT_SYMBOL(drm_mode_config_create_initial_state);
++
+ /*
+  * Global properties
+  */
+ static const struct drm_prop_enum_list drm_plane_type_enum_list[] = {
+ 	{ DRM_PLANE_TYPE_OVERLAY, "Overlay" },
+diff --git a/include/drm/drm_mode_config.h b/include/drm/drm_mode_config.h
+index e584652ddf67..d8f5b7e9673e 100644
+--- a/include/drm/drm_mode_config.h
++++ b/include/drm/drm_mode_config.h
+@@ -1005,9 +1005,10 @@ int __must_check drmm_mode_config_init(struct drm_device *dev);
+ static inline int drm_mode_config_init(struct drm_device *dev)
  {
- 	struct drm_crtc *crtc;
- 	struct drm_colorop *colorop;
+ 	return drmm_mode_config_init(dev);
+ }
+ 
++int drm_mode_config_create_initial_state(struct drm_device *dev);
+ void drm_mode_config_reset(struct drm_device *dev);
+ void drm_mode_config_cleanup(struct drm_device *dev);
+ 
+ #endif
 
 -- 
 2.54.0
