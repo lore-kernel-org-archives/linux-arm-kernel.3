@@ -4,72 +4,72 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 3FA55CD5BC8
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 26 May 2026 08:12:39 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id E9088CD5BB4
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 26 May 2026 08:24:14 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:
+	Content-Transfer-Encoding:MIME-Version:References:In-Reply-To:Message-ID:Date
+	:Subject:Cc:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=JnjXZyZU6nQwG3AVMZ4mrEOLDYwRmI5lE9MfWukoaF4=; b=KYyIC3L2JCCijrdNu9WAVvvMhN
-	ZyXnNGsZpPh6qINaBL0CU0cC5FFuVEwyTJza8nwhzfHInPUxJv5Fuj78vxW5kWWpQEFlf7uKWKibB
-	ypAG7lNVtU6JAB1FhhRAuDfkORlw9BlHfyUbuWVrcedJIqeZFMo+hfJIo6JeMMz4uQRfM5qT9IHrX
-	gag639eKmEhLEC9UFkXk4oyCG+qWMF/sCE3wBL5B63gUwdnpd3UztwFlMMOKPKsT5ljE3uI6OCkEr
-	k3VlA1onJaoVcyv11F/Je76bKPzYelEsrnr6dl2/dhRp4vonS/r4OrYMhGC+L2hPczM2ZHhH7zc/b
-	PKBoWDnw==;
+	bh=Jz2YYHrj1dgz9D267IoLZDXvPm7YaDuL+I5moOpvFWE=; b=u8b5/LvZHKDxHay2Re0nP2cAZ3
+	sb6MDrdBdddcoHxh6pubLXb4+08diAzcx61b6xmllWVkCUuR/RH3uQJwrRsT4RL3kV+xLeDvgBa+/
+	I01eVS7mpdUg3ls589tvQdrYuy63In1SHWu1Wo28UvRHjbXaxhP0bg+qhek+j5ZS/RV2umxcegtCv
+	wGlJVBpUE5SvXKxSeFhotRH9wrG7DGp9f8DyHo0OyHNoy7ZH2EmThzPwgamJrVhD0r/bmYAnecdYt
+	IJ2P6HeimiTYyxJU3uLx1EeLoqv3EEsl8l0pXjfyfILBvSV+WtRZCP6oQa0AWKylvSSgst7Du032I
+	sxauSxbQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wRmtr-00000001Lhx-06df;
-	Tue, 26 May 2026 08:12:31 +0000
-Received: from smtp1-g21.free.fr ([212.27.42.1])
+	id 1wRn54-00000001Mjo-0AY8;
+	Tue, 26 May 2026 08:24:06 +0000
+Received: from www537.your-server.de ([188.40.3.216])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wRmtn-00000001LhE-3kGy
+	id 1wRn50-00000001Mj3-2Idw
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 26 May 2026 08:12:29 +0000
-Received: from L30177.local (unknown [213.36.132.10])
-	(Authenticated sender: vjardin@free.fr)
-	by smtp1-g21.free.fr (Postfix) with ESMTPSA id 10920B005A2;
-	Tue, 26 May 2026 10:12:06 +0200 (CEST)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=free.fr;
-	s=smtp-20201208; t=1779783145;
-	bh=+DPMC/KrZCk4rVtESWROJTmVz5LPk9WoNgb7oufpbx8=;
-	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
-	b=qFizvqVzYPKNFYIcW3si0zGbaZtRe8WyeohMEQ6KWPMEMBq/MocoVLpqRC6Cld4sL
-	 USUACjmgBlTdomdUylNmtcmyq0tGBlB6rjcEPYTpyv/e6vZ9kXGsYSUligCr92tMfl
-	 vcEMJYOsILPJx60NnYxCCesCjQ3BHx6vb1VirelHgsiPSL6ePrfmkc830smzcjUvVu
-	 mV732C72lPZq4i22KrXVwT/bWXStPBwXqG4GN0GDbTbhMHzoYE+kMk+f7Y4SySaI61
-	 X6JSGFBHQpZPfik4TVaT1yvFurhWWGEZVkZ84EFn2CNfkdBjcLoX+GCdXYwy6e3ilQ
-	 0tHla7hwu5eLA==
-Date: Tue, 26 May 2026 10:12:05 +0200
-From: Vincent Jardin <vjardin@free.fr>
-To: "Carlos Song (OSS)" <carlos.song@oss.nxp.com>
-Cc: Oleksij Rempel <o.rempel@pengutronix.de>,
-	Pengutronix Kernel Team <kernel@pengutronix.de>,
-	Andi Shyti <andi.shyti@kernel.org>, Frank Li <frank.li@nxp.com>,
-	Sascha Hauer <s.hauer@pengutronix.de>,
-	Fabio Estevam <festevam@gmail.com>, Wolfram Sang <wsa@kernel.org>,
-	Kaushal Butala <kaushalkernelmailinglist@gmail.com>,
-	Shawn Guo <shawn.guo@freescale.com>,
-	Stefan Eichenberger <stefan.eichenberger@toradex.com>,
-	"linux-i2c@vger.kernel.org" <linux-i2c@vger.kernel.org>,
-	"imx@lists.linux.dev" <imx@lists.linux.dev>,
-	"linux-arm-kernel@lists.infradead.org" <linux-arm-kernel@lists.infradead.org>,
-	"linux-kernel@vger.kernel.org" <linux-kernel@vger.kernel.org>,
-	"stable@vger.kernel.org" <stable@vger.kernel.org>
-Subject: Re: [PATCH v2 0/2] i2c: imx: fix SMBus block-read of 0 locking the
- bus
-Message-ID: <ahVV1X_cdhHDmRwc@L30177.local>
-References: <20260525-for-upstream-i2c-lx2160-fix-v1-v1-0-f30ab53dd97c@free.fr>
- <20260525-for-upstream-i2c-lx2160-fix-v1-v2-0-26a3cc8cd055@free.fr>
- <AM0PR04MB6802B906706F0CDE5BA73696E80B2@AM0PR04MB6802.eurprd04.prod.outlook.com>
+	Tue, 26 May 2026 08:24:03 +0000
+DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
+	d=ew.tq-group.com; s=default2602; h=Content-Type:Content-Transfer-Encoding:
+	MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:Sender
+	:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID;
+	bh=Jz2YYHrj1dgz9D267IoLZDXvPm7YaDuL+I5moOpvFWE=; b=ZyGQyVQTYvZazDTz43A4s9V6U6
+	RiYJ8cZTKGcPRbAVpyh2CSvaWNEwsxidxgPIBNUAcx2T+XJbHyGSh7Ih9laSNIh/hejE1Bn/XmX4F
+	EabNmK8K64bIMz1tbBAZwGmuOXTF3253BwT8B9oRH+U/pUbRy1CGF1w6LeA3iltvR2/sySAiJNtvv
+	NfbsJyltzrEARriRgXsdJTXJ1TCWCcl6jCTYJDkrrbOKQTjFGQZWzDrNKTKazDNoqe3s1AxTCekA2
+	rl15FCUNp35Ws01m4aDnpvFn6vGyy8XfmGEuDE0zDnN3GuIqCeQbFrRSaEJg/H4vRPrY5nJHJJWbo
+	oyc6dRhQ==;
+Received: from sslproxy06.your-server.de ([78.46.172.3])
+	by www537.your-server.de with esmtpsa  (TLS1.3) tls TLS_AES_256_GCM_SHA384
+	(Exim 4.96.2)
+	(envelope-from <alexander.stein@ew.tq-group.com>)
+	id 1wRn4y-00078m-0z;
+	Tue, 26 May 2026 10:24:00 +0200
+Received: from localhost ([127.0.0.1])
+	by sslproxy06.your-server.de with esmtpsa  (TLS1.3) tls TLS_AES_256_GCM_SHA384
+	(Exim 4.96)
+	(envelope-from <alexander.stein@ew.tq-group.com>)
+	id 1wRn4x-000EHC-11;
+	Tue, 26 May 2026 10:23:59 +0200
+From: Alexander Stein <alexander.stein@ew.tq-group.com>
+To: Frank Li <Frank.Li@nxp.com>, Rob Herring <robh@kernel.org>,
+ Krzysztof Kozlowski <krzk+dt@kernel.org>, Conor Dooley <conor+dt@kernel.org>,
+ Shawn Guo <shawnguo@kernel.org>
+Cc: linux-arm-kernel@lists.infradead.org, linux@ew.tq-group.com,
+ devicetree@vger.kernel.org, linux-kernel@vger.kernel.org,
+ Nora Schiffer <nora.schiffer@ew.tq-group.com>
+Subject: Re: [PATCH 0/7] TQMLX2160A-MBLS2160A DT fixes/updates
+Date: Tue, 26 May 2026 10:23:58 +0200
+Message-ID: <2834667.mvXUDI8C0e@steina-w>
+Organization: TQ-Systems GmbH
+In-Reply-To: <20260331141915.2918927-1-alexander.stein@ew.tq-group.com>
+References: <20260331141915.2918927-1-alexander.stein@ew.tq-group.com>
 MIME-Version: 1.0
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-In-Reply-To: <AM0PR04MB6802B906706F0CDE5BA73696E80B2@AM0PR04MB6802.eurprd04.prod.outlook.com>
+Content-Transfer-Encoding: quoted-printable
+Content-Type: text/plain; charset="iso-8859-1"
+X-Virus-Scanned: Clear (ClamAV 1.4.3/28012/Tue May 26 08:24:34 2026)
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260526_011228_071136_5F7E84B6 
-X-CRM114-Status: GOOD (  18.91  )
+X-CRM114-CacheID: sfid-20260526_012402_691854_138FB4DB 
+X-CRM114-Status: GOOD (  10.19  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -84,56 +84,54 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hi Carlos,
+Hi Frank,
 
-> Thanks for working on this fix, this looks good to me.
+Am Dienstag, 31. M=E4rz 2026, 16:19:01 CEST schrieb Alexander Stein:
+> Hi,
+>=20
+> this series adds small fixes and improvements for TQMLX2160A DTs.
+> The DT overlays address specific hardware behaviour when serdes is config=
+ured
+> differently.
 
-thanks for checking it. It took some times to isolate this issue and
-then find a fix.
+Any feedback here?
 
-> SMBus block reads with a length of 0 seem quite uncommon in practice.
-> Was this triggered by a specific device behavior, or mainly found
-> during boundary / compliance testing?
+Thank and best regards,
+Alexander
 
-It is trigger by the usage of a mpq8785 on the i2c bus: when the kernel attaches
-on it using its pmsbus/hwmon framework, then the i2c bus get locked on lx2160 !
+>=20
+> Best regards,
+> Alexander
+>=20
+> Alexander Stein (1):
+>   arm64: dts: fsl-lx2160a-tqmlx2160a: Remove deprecated properties
+>=20
+> Nora Schiffer (6):
+>   arm64: dts: fsl-lx2160a-tqmlx2160a: fix LED polarity
+>   arm64: dts: fsl-lx2160a-tqmlx2160a-mblx2160a: use DPMAC 17 and 18 for
+>     SGMII in SERDES2 configs 7 and 11
+>   arm64: dts: fsl-lx2160a-tqmlx2160a: add aliases for all 18 DPMAC
+>     instances
+>   arm64: dts: fsl-lx2160a-tqmlx2160a-mbls2160a: add various GPIO hogs
+>   arm64: dts: fsl-lx2160a-tqmlx2160a-mbls2160a: enable pcs_mdio17 and
+>     pcs_mdio18 in appropriate overlays
+>   arm64: dts: fsl-lx2160a-tqmlx2160a-mbls2160a: specify Ethernet PHY
+>     reset GPIOs
+>=20
+>  .../fsl-lx2160a-tqmlx2160a-mblx2160a.dts      | 306 +++++++++++++++++-
+>  ...l-lx2160a-tqmlx2160a-mblx2160a_x_11_x.dtso |  20 ++
+>  ...sl-lx2160a-tqmlx2160a-mblx2160a_x_7_x.dtso |  20 ++
+>  .../dts/freescale/fsl-lx2160a-tqmlx2160a.dtsi |  23 +-
+>  4 files changed, 357 insertions(+), 12 deletions(-)
+>=20
+>=20
 
-> Regarding the handling of len == 0,
-> I see that the patch sets:
-> 
->     msg->buf[0] = 0;
->     msg->len = 2;
-> 
-> It relies on the last-byte STOP handling together with TXAK. It will help I2C-IMX generate NACK + STOP and
-> release the bus, right?
 
-Yes, exactly. Reading I2DR for the length byte has already armed the
-next byte, so we set TXAK to NACK it and extend msg->len to 2.
-Next then i2c_imx_isr_read_continue() at msg_buf_idx == msg->len - 1,
-ie the normal last-byte path, which clears MSTA to emit STOP. So NACK + STOP,
-and THEN the bus is released. I do not see any other means to handle it.
+=2D-=20
+TQ-Systems GmbH | M=FChlstra=DFe 2, Gut Delling | 82229 Seefeld, Germany
+Amtsgericht M=FCnchen, HRB 105018
+Gesch=E4ftsf=FChrer: Detlef Schneider, R=FCdiger Stahl, Stefan Schneider
+http://www.tq-group.com/
 
-> len = 0 is a legal behavior, So it go into a successful path.
 
-Yes. count == 0 is legal (SMBus 3.1 6.5.7), so the transfer reaches
-STATE_DONE and returns success.
-
-> But len > I2C_SMBUS_BLOCK_MAX is abnormal behavior. So it go into a fail path.
-
-Correct, and it is a protocol error, so it needs to end up with a -EPROTO while
-a count of 0 is an ok case.
-
-> Do I understand it right?
-
-yes. I do not see any other means to handle it.
-
-> Also, if possible could you briefly describe how you validated this change
-> (e.g. test setup or steps, with and without the fix)?
-
-On a lx2160a board, on its i2c, bind a mpq8785, and enable the Kernel pmbus/hwmon
-framework, then the i2c bus becomes un-useable. Using a scope, we can confirm that
-the lx21260a i2c cannot recover.
-
-Best regards,
-  Vincent 
 
