@@ -4,67 +4,87 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 08416CD5BD2
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 26 May 2026 10:19:52 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 993DDCD5BD2
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 26 May 2026 10:23:01 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=EMxpQmTjCQ6YYHFflXj5KI5bPtCqrLFvEvMHOInAGjA=; b=1zajZT3iQebMAgVKJ72JtInfuV
-	WTmEo7Lz1ltnKOjCh92qkS9+DhjdZ2tEwuE/Jc0vQA7Y0qcUEExzOATl8y7MextJspQYnK62huYMG
-	I156qEoQcCtg4pt22ulJ/aBh+FXDRsZ2LNT7BKckKb6LjasbLd1po+VwVPs8RqjGDnvES2WjvyccU
-	lZqE8quH99sZ2Ou3KIGRNsp9eEUqyBt7G5E5H/OADUfLAALfh+UPLgDlu4TpaXt4RV5XsR4YZu4qG
-	y0DQuAKGJaJoOYJAiZgGr4DZ6aoA1RAgXNL5fLfZLx5I0/G7mTRN1i/OGapoMmXyDQL5gnRSaXTg3
-	XLCGtA+w==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	MIME-Version:Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-Type:
+	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
+	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=GsMFlu4zMM9QAuZhA61CFIpsfkuzQD+bunJ5hQnI6aw=; b=WbKWV55NTLTIeZ8Mm7+6Uv/Y+5
+	0tyh5hn5TYI0SIrz4Gd3Q8Zku47o9qqgRZBrajAsG3GFy8sGS3W85A63LYj0yRanZMY9IrcIO3Y5L
+	eQPWaWizzgDxLSGQpFvYJqON0wnk0r9/MxtrbmVt6Ito8T2acL/lYOwbxbTwlpltp/+XBmd5EENa4
+	VUsMjyT9lw/+fihOPSqbh2MSf6zA1qxjui48vnSP3m3MS16GDlbatyz9Z+pjOKrcvTSQQo5ByrtuW
+	8e3I+6PYImhqLb8cJi+gaBYMCSlEkLLFGsfc2QQqlCQ81SGaFfhIeKDP8aWHkO+G40jf90bGqGvpm
+	2gvgI4dg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wRosz-00000001dBY-49mS;
-	Tue, 26 May 2026 10:19:45 +0000
-Received: from sea.source.kernel.org ([172.234.252.31])
+	id 1wRow3-00000001dcu-2SLt;
+	Tue, 26 May 2026 10:22:55 +0000
+Received: from mail-pj1-x1030.google.com ([2607:f8b0:4864:20::1030])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wRosy-00000001dB4-1zg4
+	id 1wRow1-00000001dby-0YYL
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 26 May 2026 10:19:45 +0000
-Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
-	by sea.source.kernel.org (Postfix) with ESMTP id BBA0243B74;
-	Tue, 26 May 2026 10:19:43 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 6D1831F000E9;
-	Tue, 26 May 2026 10:19:41 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1779790783;
-	bh=EMxpQmTjCQ6YYHFflXj5KI5bPtCqrLFvEvMHOInAGjA=;
-	h=Date:From:To:Cc:Subject:References:In-Reply-To;
-	b=VvOwFLahmsKGzLreqDRyvIkSIuhcPMXsklNZ5PHm9NhzHTLYjwfn5E/uRYB+NZJeH
-	 T/Jk+mEYO8a0WZj/Np+770VbTN6QUgy/S3o8IkyKSwKxdOFQsarNsr2Ky/nDDRyY04
-	 HwHCYK+e+JWfErkdLRsfQFru6w5lUz0jeSo2WW9mOelHjCHco5CZAE6XuWRE1++RAb
-	 js3+2/8MjmCxanHWhzH/M+nng8pyZ8UCqgZ1SKybQO8tdkKdR/0VvQZzE8T3OtHp01
-	 5TX7lrUxCz6qA7MwJkOsPaLWXW7gao4NH+y/Rb/ntqTMK1DQKMUx15TUYoV5iDTlKP
-	 s98Idt/wW/Irw==
-Date: Tue, 26 May 2026 11:19:38 +0100
-From: Mark Brown <broonie@kernel.org>
-To: Mark Rutland <mark.rutland@arm.com>
-Cc: Marc Zyngier <maz@kernel.org>, Oliver Upton <oupton@kernel.org>,
-	Joey Gouly <joey.gouly@arm.com>,
-	Steffen Eiden <seiden@linux.ibm.com>,
-	Suzuki K Poulose <suzuki.poulose@arm.com>,
-	Catalin Marinas <catalin.marinas@arm.com>,
-	Will Deacon <will@kernel.org>, linux-arm-kernel@lists.infradead.org,
-	kvmarm@lists.linux.dev, linux-kernel@vger.kernel.org
-Subject: Re: [PATCH] KVM: arm64: Preserve all guest ZCR_EL2.LEN values
-Message-ID: <b4fdceb6-5fa7-4829-a60e-6f80f47f032a@sirena.org.uk>
-References: <20260522-kvm-arm64-fix-zcr-len-nv-v1-1-ec254e9078cf@kernel.org>
- <ahSWwl-uCv4ZW-nE@J2N7QTR9R3>
+	Tue, 26 May 2026 10:22:54 +0000
+Received: by mail-pj1-x1030.google.com with SMTP id 98e67ed59e1d1-36a35e4eefeso3546644a91.1
+        for <linux-arm-kernel@lists.infradead.org>; Tue, 26 May 2026 03:22:52 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=gmail.com; s=20251104; t=1779790972; x=1780395772; darn=lists.infradead.org;
+        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
+         :to:from:from:to:cc:subject:date:message-id:reply-to;
+        bh=GsMFlu4zMM9QAuZhA61CFIpsfkuzQD+bunJ5hQnI6aw=;
+        b=fJ6QHW8XmAx3Batai4faXk9Vh5bNYTWGcrHysa+d5SOVJrptjYNyCN8xTne7H8ITTY
+         3zinIxE9A6LT1lHdOCkfPIiP/Yp2fDDGpa59jvZBv6RH1RFxjyNFfRxVrfUQtetVmg82
+         Knjo5E41+WxVX2Kj1dpn2+D8ih+/sHUwdqcPL2ZMS341YZNVgcHAQ/ugjh+WEIwSmA6M
+         SaDhomEnpjtyZ11UxpxGz5xxgtB3lbRFXoz5c+lGAXaISxggV9WXzpLRZiqRB9Ui5/Xu
+         no4hTkwf5DL0sDSBiV7BJeYt9WHOTGVtxoywQnybALGZLAiAmUDdkUxI7genzgwb58js
+         9BCg==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20251104; t=1779790972; x=1780395772;
+        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
+         :to:from:x-gm-gg:x-gm-message-state:from:to:cc:subject:date
+         :message-id:reply-to;
+        bh=GsMFlu4zMM9QAuZhA61CFIpsfkuzQD+bunJ5hQnI6aw=;
+        b=s07yqv9R5dW99QV7xfyBYNd7BJi8CPJkoFewRGHfMJnbew/1NthhWytrhVJ3LL/4qN
+         fRiG/1G6a68DuMw8waLBJwuoEMVHQRZKmRJnqSvsmMS1jK1BFjKBYXoEXkRYjPu9tmyi
+         VF74q95mM1InACJ6vWjJrCgW0uxI3NLCbbDpNT/2dg2whqHWReJ9OC/0akzk2lV1M2xY
+         HnmmrHsmyhfBVsXbqQXFsLk8ZYE9oa/PjuH24fPSsrjPC6TFNUcf2MICzpjZJ/m6FW21
+         viFNYB7mr4geWt/cnkeNaINMx5oYZFOCRa1vHZ6PvaFjYDGGJy9OTf205wg8dXuFxf3x
+         gGog==
+X-Gm-Message-State: AOJu0YwHruttzKQMJrJjJQFG0GocMe6Rb/xBNr7IazHTXiG/LOe8dKfG
+	1aSBRVzG5viI+L95s1qva/ojzJFpH2wHtTtxFc5394a2aVaaW9oUmrHX
+X-Gm-Gg: Acq92OHb2laZGRWNLx8BTqpV/0iDNWzTyorK+KqT9s/Ijv90fBUJjjw1h+wQTdUTzLB
+	HniKE4KXEgtRebgvsuKMUrbiAdsqM7t88M9znfZRWXrhk7Zb26Q8GrQk9pUX9upTGaN3KHyzHJd
+	uTHa/PSXMhEVhedbYaPTMhbO6XQH85Hzs9JOuAmNwVBBB+eMl5+PsoSTQsRyKX5dpMv69FBLdtT
+	CqIdgl87SUsUSmnNV+YnIrglqPdU0NjJW1LxnLyz3S0HraHQ7OJW6wrJOQI2N3zlfkuAbbnico2
+	6E69Inh9Ar+sLv4+5VtBQxOqjWXZdmP47OtrfwNjYoYHD37RvsOQ5OklJdvN7bEbhhHGdbtoOjS
+	njVL5pyxVZZ5cGd6mBrqeZXS4OnuHtCeZ2UN2JkGBOWeHTLsTnm61rdV2KGkIuiR2Ka513aGp11
+	fZn6PaexqlEGdspvYmjwQ4zYjjAEonP7XaaMA4oiPC+P41RLVypudYCW3glMw1D9BYxBS7D/HL
+X-Received: by 2002:a17:90b:42:b0:36a:f382:9f72 with SMTP id 98e67ed59e1d1-36af382a1efmr4718899a91.13.1779790971630;
+        Tue, 26 May 2026 03:22:51 -0700 (PDT)
+Received: from chaitanya-virtualbox.. ([103.249.241.55])
+        by smtp.gmail.com with ESMTPSA id 98e67ed59e1d1-36a71d9416csm16435713a91.3.2026.05.26.03.22.48
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Tue, 26 May 2026 03:22:51 -0700 (PDT)
+From: Chaitanya Sabnis <chaitanya.msabnis@gmail.com>
+To: brgl@kernel.org,
+	andi.shyti@kernel.org
+Cc: linux-arm-kernel@lists.infradead.org,
+	linux-i2c@vger.kernel.org,
+	linux-kernel@vger.kernel.org,
+	Chaitanya Sabnis <chaitanya.msabnis@gmail.com>,
+	Sashiko <sashiko-bot@kernel.org>,
+	Bartosz Golaszewski <bartosz.golaszewski@oss.qualcomm.com>
+Subject: [PATCH v4] i2c: davinci: fix division by zero on missing clock-frequency
+Date: Tue, 26 May 2026 15:52:40 +0530
+Message-ID: <20260526102240.4949-1-chaitanya.msabnis@gmail.com>
+X-Mailer: git-send-email 2.43.0
 MIME-Version: 1.0
-Content-Type: multipart/signed; micalg=pgp-sha512;
-	protocol="application/pgp-signature"; boundary="RL/ZeSeTiUvxwP7H"
-Content-Disposition: inline
-In-Reply-To: <ahSWwl-uCv4ZW-nE@J2N7QTR9R3>
-X-Cookie: You are fairminded, just and loving.
+Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260526_031944_536702_B4697A36 
-X-CRM114-Status: GOOD (  18.38  )
+X-CRM114-CacheID: sfid-20260526_032253_203737_FE88458C 
+X-CRM114-Status: GOOD (  14.67  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -79,55 +99,55 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
+When the 'clock-frequency' property is missing from the device tree,
+the driver falls back to DAVINCI_I2C_DEFAULT_BUS_FREQ. However, this
+macro was defined in kHz (100), whereas the device tree property is
+expected in Hz.
 
---RL/ZeSeTiUvxwP7H
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-Content-Transfer-Encoding: quoted-printable
+The probe function divided the fallback value by 1000, causing
+integer truncation that resulted in dev->bus_freq = 0. This triggered
+a deterministic division-by-zero kernel panic when calculating clock
+dividers later in the probe sequence.
 
-On Mon, May 25, 2026 at 07:36:50PM +0100, Mark Rutland wrote:
-> On Fri, May 22, 2026 at 07:00:04PM +0100, Mark Brown wrote:
+Fix this by redefining DAVINCI_I2C_DEFAULT_BUS_FREQ in Hz (100000)
+to match the expected device tree property unit, allowing the existing
+division logic to work correctly for both cases.
 
-> > Since b3d29a823099 ("KVM: arm64: nv: Handle ZCR_EL2 traps") when guests
-> > write to ZCR_EL2 we have clamped the value of ZCR_EL2.LEN to be at most
-> > that configuring the maximum guest VL. This is not the behaviour the
+Fixes: b04ce6385979 ("i2c: davinci: kill platform data")
+Reported-by: Sashiko <sashiko-bot@kernel.org>
+Closes: https://lore.kernel.org/all/20260514044726.57297C2BCB7@smtp.kernel.org/
+Signed-off-by: Chaitanya Sabnis <chaitanya.msabnis@gmail.com>
+Reviewed-by: Bartosz Golaszewski <bartosz.golaszewski@oss.qualcomm.com>
+---
 
-=2E..
+Changes in v4:
+- Restored accidentally removed blank lines (removed ninja changes).
+- Collected Reviewed-by tag.
 
-> Have we sought feedback from architects? While I said "*or* the
-> architcture requires a clarification", I think it should be clarified
-> more explicitly either way given that the pattern is unusual.
+Changes in v3:
+- Reverted probe function changes and correctly applied the fix to the macro.
 
-> Given this is particularly subtle, please keep me in the loop when
-> speaking with architects about this.
+Changes in v2:
+- Changed approach: updated macro to Hz instead of dividing in probe.
+- Added Fixes tag.
 
-TBH it didn't strike me as subtle, I don't see anything in the
-architecture which would lead me to expect the current behaviour.  The
-psudocode all just has direct assignments for the write and there's
-language in the ARM (eg, in the ZCR_EL2 description) saying "for all
-purposes other than returning the result of a direct read of ZCR_EL2"
-which seems specifically intended to cover there being a divergence
-between the written and effective values, though I guess it doesn't
-explicitly mention writes in the text. =20
+ drivers/i2c/busses/i2c-davinci.c | 2 +-
+ 1 file changed, 1 insertion(+), 1 deletion(-)
 
-When I saw the code it looked like something KVM was doing for some
-KVM reason that was obscure to me, the lack of clarity seemed like it
-was on the KVM side.
+diff --git a/drivers/i2c/busses/i2c-davinci.c b/drivers/i2c/busses/i2c-davinci.c
+index a773ba082321..66c23535656b 100644
+--- a/drivers/i2c/busses/i2c-davinci.c
++++ b/drivers/i2c/busses/i2c-davinci.c
+@@ -117,7 +117,7 @@
+ /* timeout for pm runtime autosuspend */
+ #define DAVINCI_I2C_PM_TIMEOUT	1000	/* ms */
+ 
+-#define DAVINCI_I2C_DEFAULT_BUS_FREQ	100
++#define DAVINCI_I2C_DEFAULT_BUS_FREQ	100000
+ 
+ struct davinci_i2c_dev {
+ 	struct device           *dev;
+-- 
+2.43.0
 
---RL/ZeSeTiUvxwP7H
-Content-Type: application/pgp-signature; name="signature.asc"
-
------BEGIN PGP SIGNATURE-----
-
-iQEzBAABCgAdFiEEreZoqmdXGLWf4p/qJNaLcl1Uh9AFAmoVc7oACgkQJNaLcl1U
-h9C5hQf+Pn14856B4Py7Pz8HRV87FyRnoP8UMgUuC8d7Fz5BC0Xr+U6ugjlgZlry
-yjK7eZ3LusILO/1JnPbdZLPuMFDgfKkwaGyDw4tvX+6mw7FZOTZP2+dfow8G7gQs
-vE7CE0d8eBBL2mh6updIvf5IxImvyhC8ifSwxMEEt3xp5ROAxISABKA1V4eHJ6mT
-ReWoLIonclaNncyt4mJEKzM0zDfL3NrVSmi4XGKKuqOeVGF2xf5c923LZk0/RoRp
-nP3rQrOXpMTbikdif5N9SmMyzi2a0BoBN41+24axwLmcAeNeNtkhxy8s5ZlURz/1
-pwwqS2hV/zq7pPoXhfVohlIA0XHTkQ==
-=k37g
------END PGP SIGNATURE-----
-
---RL/ZeSeTiUvxwP7H--
 
