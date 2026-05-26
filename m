@@ -4,75 +4,62 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id BE1EBCD5BCF
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 26 May 2026 06:12:40 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id B5668CD5BCF
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 26 May 2026 06:13:53 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=C4Q6K7bbOoVpU1MwP5UtVcbQqMSK8GB1uvqgVWAyIgA=; b=KLVvdZqWdzbWKPTfXcmOPIlejg
-	AGNjBT0b8+qzAk5gPDLj6QsmqGi1YChsPE+TOepq9nzK28Nh2WcifRdyzWyDSbYxuW31j3hsb55Jj
-	rVWDPyyCX2aTj3twkBP3XUKBQWVeQkm6/1+gciPmI6MTgH4pXH4OpwzLESd1jaRGNuuQ0qNhf9jUw
-	R+oV1507iV6yuv81LNIBGnQdGq8YZocC2iPp5LNL28NHjI1eyKDgopQSKfbNzhyCf0e7auQ+JAS4y
-	iWkWn/7VFCOgETDh3Bo5+YYDJKPsuLtesqOvGO+QNQb9Xdz8M740cVEz/XQUGVYSLNb/MTgDqVxrb
-	WyXcIlTA==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	MIME-Version:Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-Type:
+	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
+	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=9pfIt+I8Gc7ZeOBqbNyxrbDCdJLoJqdT1TG1Fhf5apY=; b=VpqxIRC8v+Oc5WqpqoI9o4/Ao4
+	ecFlzchaq4fLOFXrblJDz/395cjS8NDrULVc0DbYhlKfq/r8mulnWvC6cBhYIFYrhT7GfzDYT+W3i
+	m5AzpvG8xx5t40vSTiur4ALdZCWYiSPaxEm33GDZpeigB3s+EJSc3Gwt3WA6CoolEIokSIf29xgBD
+	KuDASvnQ/DWuMM8Y9COGLNxQKif88JZTut8noUv47LYLQYPGubvAfH/9MrkKBLJTBc/sxbpBRHsvZ
+	x9Dm8qQ/o+hY6wNVupcmGnw86w9SWleiIkW6z6bKFRyHCzqmws+JVu5e1Z69C3d7WqHcLOwouDaCP
+	tN+p2JAA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wRl1l-000000018ek-0Stx;
-	Tue, 26 May 2026 06:12:33 +0000
-Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
+	id 1wRl2w-000000018ow-2bu0;
+	Tue, 26 May 2026 06:13:46 +0000
+Received: from mta.al2klimov.de ([2a01:4f8:c0c:a5b1::1])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wRl1h-000000018e0-2GuW
+	id 1wRl2t-000000018oB-1Fiv
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 26 May 2026 06:12:30 +0000
-Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
-	by sea.source.kernel.org (Postfix) with ESMTP id 77E7A437B8;
-	Tue, 26 May 2026 06:12:28 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id A3D341F000E9;
-	Tue, 26 May 2026 06:12:27 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1779775948;
-	bh=C4Q6K7bbOoVpU1MwP5UtVcbQqMSK8GB1uvqgVWAyIgA=;
-	h=Date:From:To:Cc:Subject:References:In-Reply-To;
-	b=PaNxY70+YMonEMLTIazGO/O55U8XOU9hI8Sd6x+lIwRz+krY7I2MIFVP2TtWHQRk6
-	 oLs6o/MlXIoueCpSrWzl4/TP61gPF+HN/xvzZ2vYpOcuWB0Dm95zHR9huRUsF9V+Hf
-	 YnTyB9za+3uCaHbFr+R2wcRewXry6G17iicxgZkjKeAXoiSONhiO8kf+vbI4ljsIDR
-	 1fy3F+EBJAgg0t5T5mg4+PsdSDHbAEaAyRvnVetK1IwZ8UztJCg6MOoYJa1oLvRi7m
-	 9dhRl/AKdtuVr7cjGvsAMXrJhl9YyIGQK1PcdmnOV19LefKY14Nezbe0MAE8vRqjtb
-	 Xzj2xjTt805IA==
-Date: Tue, 26 May 2026 08:12:26 +0200
-From: Krzysztof Kozlowski <krzk@kernel.org>
-To: Vijayanand Jitta <vijayanand.jitta@oss.qualcomm.com>
-Cc: Nipun Gupta <nipun.gupta@amd.com>, 
-	Nikhil Agarwal <nikhil.agarwal@amd.com>, Joerg Roedel <joro@8bytes.org>, Will Deacon <will@kernel.org>, 
-	Robin Murphy <robin.murphy@arm.com>, Marc Zyngier <maz@kernel.org>, 
-	Lorenzo Pieralisi <lpieralisi@kernel.org>, Thomas Gleixner <tglx@kernel.org>, 
-	Saravana Kannan <saravanak@kernel.org>, Richard Zhu <hongxing.zhu@nxp.com>, 
-	Lucas Stach <l.stach@pengutronix.de>, Krzysztof =?utf-8?Q?Wilczy=C5=84ski?= <kwilczynski@kernel.org>, 
-	Manivannan Sadhasivam <mani@kernel.org>, Bjorn Helgaas <bhelgaas@google.com>, Frank Li <Frank.Li@nxp.com>, 
-	Sascha Hauer <s.hauer@pengutronix.de>, Pengutronix Kernel Team <kernel@pengutronix.de>, 
-	Fabio Estevam <festevam@gmail.com>, Juergen Gross <jgross@suse.com>, 
-	Stefano Stabellini <sstabellini@kernel.org>, Oleksandr Tyshchenko <oleksandr_tyshchenko@epam.com>, 
-	Dmitry Baryshkov <dmitry.baryshkov@oss.qualcomm.com>, Konrad Dybcio <konrad.dybcio@oss.qualcomm.com>, 
-	Bjorn Andersson <bjorn.andersson@oss.qualcomm.com>, Rob Herring <robh@kernel.org>, 
-	Conor Dooley <conor+dt@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>, 
-	Prakash Gupta <prakash.gupta@oss.qualcomm.com>, Vikash Garodia <vikash.garodia@oss.qualcomm.com>, 
-	linux-kernel@vger.kernel.org, iommu@lists.linux.dev, linux-arm-kernel@lists.infradead.org, 
-	devicetree@vger.kernel.org, linux-pci@vger.kernel.org, imx@lists.linux.dev, 
-	xen-devel@lists.xenproject.org, linux-arm-msm@vger.kernel.org, 
-	Charan Teja Kalla <charan.kalla@oss.qualcomm.com>
-Subject: Re: [PATCH v15 0/3] of: parsing of multi #{iommu,msi}-cells in maps
-Message-ID: <20260526-finicky-crafty-hare-eae27c@quoll>
-References: <20260520-parse_iommu_cells-v15-0-b5f99ad4e7e8@oss.qualcomm.com>
+	Tue, 26 May 2026 06:13:45 +0000
+DKIM-Signature: v=1; a=rsa-sha256; c=simple/simple; s=default; bh=VQwPEACzLrn3
+	sirzJhEJwSUsl+8N7bfQkDfoCfrIXz0=; h=date:subject:cc:to:from;
+	d=al2klimov.de; b=FR8Xwd3eL2vwsAGnlMaWeh4Pljo1eFEpKwrdVXr2zBe+tBwPVlcp
+	mTonJL/JmYeGMORZCri1YG3pqVj6EVS6xsEA8781MGkjt8XDD0UMnu2mIjXEEXrHmPkyS6
+	ocDt4qaBdmy0HAnYvsstjWl+hey+lNaRkdK3+9saOdWlFq5uEs+jSdyG9WHDWO4YoqjrQc
+	dNpTUGEA5/q0W0X73tNez3OsC9Vlcp4jnGCFgD0CpJAImYZwrheab5aP6y5oyymfudXkN0
+	o8rSEC3hZiiiximX46wwBuc1GrLQz7U8jDEIoMwIIMaHSUikav/jz3hqIkGSiwMM9U7UYf
+	KyxST6KZeQ==
+Received: from cachy-ak (88.215.123.80.dyn.pyur.net [88.215.123.80])
+	by mta.al2klimov.de (OpenSMTPD) with ESMTPSA id c93a46ee (TLSv1.3:TLS_CHACHA20_POLY1305_SHA256:256:NO);
+	Tue, 26 May 2026 06:13:37 +0000 (UTC)
+From: "Alexander A. Klimov" <grandmaster@al2klimov.de>
+To: Krzysztof Kozlowski <krzk@kernel.org>,
+	Sylwester Nawrocki <s.nawrocki@samsung.com>,
+	Chanwoo Choi <cw00.choi@samsung.com>,
+	Alim Akhtar <alim.akhtar@samsung.com>,
+	Michael Turquette <mturquette@baylibre.com>,
+	Stephen Boyd <sboyd@kernel.org>,
+	Brian Masney <bmasney@redhat.com>,
+	linux-samsung-soc@vger.kernel.org (open list:SAMSUNG SOC CLOCK DRIVERS),
+	linux-clk@vger.kernel.org (open list:COMMON CLK FRAMEWORK),
+	linux-arm-kernel@lists.infradead.org (moderated list:ARM/SAMSUNG S3C, S5P AND EXYNOS ARM ARCHITECTURES),
+	linux-kernel@vger.kernel.org (open list)
+Cc: "Alexander A. Klimov" <grandmaster@al2klimov.de>
+Subject: [PATCH] clk: samsung: exynos5410: fix refcount leak
+Date: Tue, 26 May 2026 08:13:12 +0200
+Message-ID: <20260526061321.6123-1-grandmaster@al2klimov.de>
+X-Mailer: git-send-email 2.54.0
 MIME-Version: 1.0
-Content-Type: text/plain; charset=utf-8
-Content-Disposition: inline
-In-Reply-To: <20260520-parse_iommu_cells-v15-0-b5f99ad4e7e8@oss.qualcomm.com>
+Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260525_231229_753826_68CFEA23 
-X-CRM114-Status: GOOD (  19.12  )
+X-CRM114-CacheID: sfid-20260525_231343_711804_ACA0297A 
+X-CRM114-Status: GOOD (  11.52  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -87,36 +74,35 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Wed, May 20, 2026 at 01:32:39PM +0530, Vijayanand Jitta wrote:
-> So far our parsing of {iommu,msi}-map properties has always blindly
-> assumed that the output specifiers will always have exactly 1 cell.
-> This typically does happen to be the case, but is not actually enforced
-> (and the PCI msi-map binding even explicitly states support for 0 or 1
-> cells) - as a result we've now ended up with dodgy DTs out in the field
-> which depend on this behaviour to map a 1-cell specifier for a 2-cell
-> provider, despite that being bogus per the bindings themselves.
-> 
-> Since there is some potential use[1] in being able to map at least
-> single input IDs to multi-cell output specifiers (and properly support
-> 0-cell outputs as well), add support for properly parsing and using the
-> target nodes' #cells values, albeit with the unfortunate complication of
-> still having to work around expectations of the old behaviour too.
-> 							-- Robin.
-> 
-> Unlike single #{}-cell, it is complex to establish a linear relation
-> between input 'id' and output specifier for multi-cell properties, thus
-> it is always expected that len never going to be > 1.
-> 
-> These changes have been tested on QEMU for the arm64 architecture.
+Every value returned from of_clk_get() is supposed to be cleaned up
+via clk_put() once not needed anymore.
 
-So there is no real user for that. That's unconvincing. I would assume
-that at least you have real user where you test it.
+Fixes: be95d2c7d918 ("clk: samsung: Add support for EPLL on exynos5410")
+Signed-off-by: Alexander A. Klimov <grandmaster@al2klimov.de>
+---
+ drivers/clk/samsung/clk-exynos5410.c | 8 ++++++--
+ 1 file changed, 6 insertions(+), 2 deletions(-)
 
-If you want to speed up acceptance of your patches, then also I would
-prefer to see at least one more user, beside Qualcomm. IOW, show how you
-solve other people problems, not only yours.
-
-Best regards,
-Krzysztof
+diff --git a/drivers/clk/samsung/clk-exynos5410.c b/drivers/clk/samsung/clk-exynos5410.c
+index baa9988c7bb7..0cd9b0392cf5 100644
+--- a/drivers/clk/samsung/clk-exynos5410.c
++++ b/drivers/clk/samsung/clk-exynos5410.c
+@@ -269,8 +269,12 @@ static void __init exynos5410_clk_init(struct device_node *np)
+ {
+ 	struct clk *xxti = of_clk_get(np, 0);
+ 
+-	if (!IS_ERR(xxti) && clk_get_rate(xxti) == 24 * MHZ)
+-		exynos5410_plls[epll].rate_table = exynos5410_pll2550x_24mhz_tbl;
++	if (!IS_ERR(xxti)) {
++		if (clk_get_rate(xxti) == 24 * MHZ)
++			exynos5410_plls[epll].rate_table =
++				exynos5410_pll2550x_24mhz_tbl;
++		clk_put(xxti);
++	}
+ 
+ 	samsung_cmu_register_one(np, &cmu);
+ 
+-- 
+2.54.0
 
 
