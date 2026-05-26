@@ -4,87 +4,88 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 64E63CD5BD1
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 26 May 2026 07:48:28 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id D8DB3CD5BB4
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 26 May 2026 07:50:31 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	MIME-Version:Message-Id:Date:Subject:Cc:To:From:Reply-To:Content-Type:
-	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
-	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
-	bh=Wy4Eu7O9j5XBvcQTir7gfOahUHq3NYBZ0Gi/24hA7Ew=; b=Vg0uBI0l28i6bVUyTLFjneu5tV
-	8PgK7U3prJ1odqXhQgmuqSonHxmYZCVcAqf/uigCIvVVES7fVFc5Cfrmy6whcSYNE0UaDuBSm1qFI
-	WbmqnxH5V34doLc519EQohj9/ST8OxYGM4wG69S02t/B0wCi7RmGiyfRNG+i1FsOGn82FRPT6VDva
-	dla1kZTryi0OUjAWtPlTu7lR8jk1nJp8HG8gbY7A7RxM2TSUxTeBHxcP7jlNwXpK+I1PLcS3Um5Gp
-	TiVKXk7FNE6n5OKTjslTH04Km0z+sd+g3uPgq30hlUh2aha07gAY0fOkg6e/gW7hgSgyzI9ZJH3Qk
-	uGfkzNOA==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:
+	Content-Transfer-Encoding:Content-Type:MIME-Version:References:Message-ID:
+	Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=lZV+VCMUCy52tuI2qmm/aDP+m+/9nKTduvdWfC/7mhI=; b=GThkZAT2ZGvrS4J4X+gFFlhxnz
+	gcQk2hG3lRjY7zdZA5PCFDrViB0MoO6dvPQjE0R2jhpwD8nG1jFF6wv/3bmEUWGLLvgPYZyjbmfYf
+	D018yzmXMXRzpAGZBJ/b6mPq4T+Vnd1EwXrimPGc+JOrdQX2XItqrg/GHlxrn8WiezLU6YXUh6e7/
+	Hp6y+iH39XhKQQ5yaepcmQeJOvzXzKDNb/JDDmxk34UmSxwXRMctEtJTpaHDMFNUVwHmEM8HzIJYm
+	4PdWU+8SB//gyA7fgQKVGsgj3F8lJnZgcxrFRhx0jQ0CtSfjJg/H/9aRYWlsh6d7PHzamTPwZgCvs
+	EQDJ+ZZA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wRmWR-00000001Ipo-0uA0;
-	Tue, 26 May 2026 07:48:19 +0000
-Received: from smtpbgeu2.qq.com ([18.194.254.142])
+	id 1wRmYR-00000001J8u-21ey;
+	Tue, 26 May 2026 07:50:23 +0000
+Received: from mail-wm1-x331.google.com ([2a00:1450:4864:20::331])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wRmWK-00000001ImR-0wS9
+	id 1wRmYO-00000001J7m-1KBa
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 26 May 2026 07:48:17 +0000
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=uniontech.com;
-	s=onoh2408; t=1779781638;
-	bh=Wy4Eu7O9j5XBvcQTir7gfOahUHq3NYBZ0Gi/24hA7Ew=;
-	h=From:To:Subject:Date:Message-Id:MIME-Version;
-	b=juvoB+SgZb8pGnGblCDwjgcK+cTp/ehVN38AgQFtoKjmV+2TINf44cgamvqCvdcHt
-	 UBE/miVC36uEzcl+XqkciqwJyBlDVmsmnhjL/B44OyQpNv6BcvTXdzb3raVRliZdi7
-	 ecLrK1kZlCJQ1gayt7WNt2Cxytf8EPfabTNE1doM=
-X-QQ-mid: esmtpsz11t1779781613t98d4711c
-X-QQ-Originating-IP: rkFwe4EmsfAYDIX/GpaJpeEnMzqmGhoXMpZ5mKtkV4c=
-Received: from localhost.localdomain ( [123.114.60.34])
-	by bizesmtp.qq.com (ESMTP) with 
-	id ; Tue, 26 May 2026 15:46:50 +0800 (CST)
-X-QQ-SSF: 0000000000000000000000000000000
-X-QQ-GoodBg: 1
-X-BIZMAIL-ID: 10288803396514652520
-EX-QQ-RecipientCnt: 11
-From: Qiang Ma <maqianga@uniontech.com>
-To: maz@kernel.org,
-	oupton@kernel.org,
-	joey.gouly@arm.com,
-	suzuki.poulose@arm.com,
-	yuzenghui@huawei.com,
-	catalin.marinas@arm.com,
-	will@kernel.org
-Cc: linux-arm-kernel@lists.infradead.org,
-	kvmarm@lists.linux.dev,
-	linux-kernel@vger.kernel.org,
-	Qiang Ma <maqianga@uniontech.com>
-Subject: [PATCH] KVM: arm64: PMU: Preserve AArch32 counter low bits
-Date: Tue, 26 May 2026 15:46:40 +0800
-Message-Id: <20260526074640.791991-1-maqianga@uniontech.com>
-X-Mailer: git-send-email 2.20.1
+	Tue, 26 May 2026 07:50:21 +0000
+Received: by mail-wm1-x331.google.com with SMTP id 5b1f17b1804b1-4891b4934ffso05e9.0
+        for <linux-arm-kernel@lists.infradead.org>; Tue, 26 May 2026 00:50:18 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=google.com; s=20251104; t=1779781818; x=1780386618; darn=lists.infradead.org;
+        h=in-reply-to:content-transfer-encoding:content-disposition
+         :mime-version:references:message-id:subject:cc:to:from:date:from:to
+         :cc:subject:date:message-id:reply-to;
+        bh=lZV+VCMUCy52tuI2qmm/aDP+m+/9nKTduvdWfC/7mhI=;
+        b=vy7NVRPjkCD1GXxWG5RHou686jKVhd0cQjvKsv2rGVKqfyrQs1ZzQZN+YOEtYGdEbR
+         sx3DA5qR1rDmlkFxYTgyKyPXHtUjOs6dwcxQ9N5VW6SYsylMZgNu4MHrGpnDFL4RT+Rs
+         5S0MfBegZFLOUR9CF4rAqaFlFb205tbjiIXYozsFTFdNhL4EQaPzyEKMBzUHIfWgIDeJ
+         8DsChWP4suN6wmSLqZwpd23+Ia8/E8xXDWuMmLzWuvcKs5Vs2i/9/X+5inlmjCI7dTYu
+         islSltXV8QIopjh+rdwsQmnbfr5O4sje2rzrIGZUiLxRLVDLyyLeWKJmkAEvjxVFM0wK
+         tsBg==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20251104; t=1779781818; x=1780386618;
+        h=in-reply-to:content-transfer-encoding:content-disposition
+         :mime-version:references:message-id:subject:cc:to:from:date:x-gm-gg
+         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to;
+        bh=lZV+VCMUCy52tuI2qmm/aDP+m+/9nKTduvdWfC/7mhI=;
+        b=NINCfq4JchqUjYiYCwqIiR0R0wjzKo2WQWXmuFCOUKj6NtBQdinMDO7hdFBlqYsnvC
+         flBbC37GQHv+kp3qRIRu7PmdqxXVi2FXZXTgGWYR46RxF9dL+46ifGx9NAwELV3hFEvl
+         2xb6bbeG7hBdxSVSWRYfuUYzs9zUTkj7V+6vZrzWKnQCEC5OPRUKFuiWisFEgQrdj/Fj
+         h4PkddcRvrw4BPL/yIxsBorX054iCsZq2ewytLsnf4J7yUKLmdOPIuD8MRY69+EnAfAJ
+         TfIAmDUN9w2NBVoV3sJbzxB6DTSP9LBhYAcbX7TBTTT3iBSnD73aTh3s5wg4ECVFkUO8
+         CvAQ==
+X-Gm-Message-State: AOJu0YzXHbPGsCx3h/YbYq9Tpfqg0NCl8+qaeswSajtLLHuA/oTqqMkg
+	p65FMpmlB6BycrrDoQSOtlEK7kHwg4oLzjt2Fg9/AdPAjXB3K+T9IYrx4fJ1MwwXHg==
+X-Gm-Gg: Acq92OFQEJ1TjO00TZKxAkpbqN+y2NEmN1CIu2nB+JfHYSdvO1vZZ910sGY/YPbYQiR
+	EALM6ufZ3QQ6ueBKelSL+YqTdOtfIVg1uSpIfe08qOqS3ggbLP6zP1qVIPA/5feareUv7t8x7L7
+	ePbiTcyfPE6Sqz+UQ9R5aSScjcOVeaX7jF8Imi4gadmlP2vBPyNtf4UTvq8T5TpAYRswMRoqJs8
+	M8oNfqBodxiL+IJB4aH6gvDAdiJ5lD4b1gv5XSlBpLNMew616Hmwc3b61C96R8MGY75aadjBdvs
+	dIcgec4gHODOm6dD4Pvm/DR1rTCyTxIjOkQJYDdUfzPBYYcliIOtmGTvA2ZbUTGqYNKvraMdrwl
+	N1ltn+DmEp96rMBiu2uU5rYT56UDzYqLhVC/0qfynufNm5gztVEwRgY8z62TzDhra8fExE9KWoe
+	2WSB7foHHsZEJTI7cNwr9WYZ0LceoZGX4mAYAQdS2wUssR0buGxYCRu7nis+kXB4zcq/m6gL3NI
+	d0=
+X-Received: by 2002:a05:600c:a313:b0:489:1bbb:3356 with SMTP id 5b1f17b1804b1-4904f68f399mr2720555e9.2.1779781817275;
+        Tue, 26 May 2026 00:50:17 -0700 (PDT)
+Received: from google.com (136.41.155.104.bc.googleusercontent.com. [104.155.41.136])
+        by smtp.gmail.com with ESMTPSA id 5b1f17b1804b1-490454db285sm282079495e9.5.2026.05.26.00.50.16
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Tue, 26 May 2026 00:50:16 -0700 (PDT)
+Date: Tue, 26 May 2026 07:50:13 +0000
+From: Mostafa Saleh <smostafa@google.com>
+To: Marc Zyngier <maz@kernel.org>
+Cc: linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org,
+	tglx@kernel.org
+Subject: Re: [PATCH] irqchip/gic-v4: Harden against bogus command line
+Message-ID: <ahVQtakwshwI9ss-@google.com>
+References: <20260521130503.4103369-1-smostafa@google.com>
+ <86zf1qv4do.wl-maz@kernel.org>
 MIME-Version: 1.0
+Content-Type: text/plain; charset=utf-8
+Content-Disposition: inline
 Content-Transfer-Encoding: 8bit
-X-QQ-SENDSIZE: 520
-Feedback-ID: esmtpsz:uniontech.com:qybglogicsvrsz:qybglogicsvrsz3b-0
-X-QQ-XMAILINFO: Nlna3a5R+peuQBRtI9/Q0FpmNInSMKurmczkvV6zxqo8aN9eMNO0PE+q
-	uLI99m2diB1jRoD/0zTb0MlIRTuLzeaNxNMNoW/bPeE4tozsl6WkIyPAhl0tmfPpnM7h4Tw
-	+ugF0lunSS3oAMYLn4yVeLwfk5VXPIRcdFOVmj3KQxjOFN3M5tTSThnbwrrk3M4rZ6eGul8
-	uU7z06NA6ggbOkfN7ZBguhFOp70I645eRqk/qT0Evkh3o/NnroUW3U5SVr4KnC9Ln2rU4ix
-	6r2/zEof3zdM9SGYVbhLa/JG1PVRlb0Q4mFWepp/McJPmlKOpn675l1F8J09WVmUi5ESRHe
-	GsqnApHyYkft2//TmtjsvIpB4GgNIrDqvJoe1KAcdCrOpOUWYRqcY9VdTmre9llVuhs21ud
-	u2GZOvt/ujcVHNc59QLg0fDH9BwToBI6WAE8k2vEU7wuz+O0/LHBC2SSh758gX2DOPnmggH
-	IDnHNC8cgLusB8KIswVeoHRDO+sim/yaXf3Kl38N5LlkDLRgtqpxcNbmP/oEniScwwZy6xq
-	9Rl1LMn8pY7Q34PbzhtFi/DP5NsuiGPT91ynsq/TMQ0NJ+ZAcAeNm2f32EuegszsL+ofo3w
-	YVcloZ9QJ8zJ038fseRib+zmeFULISymukystQ/qdPQzQGDCaRF7PpJHJBRt7nOU5JYfCMi
-	12b10MK8zNG6MEW5JngNsN6biQmIJuAeTpoyB52OSi1Gsa/U+idvCZ+I3J3M5kqdlxL6m4B
-	OoD6ymPCmtqpQoWEPtpyK8/81SHzxXCVAQaJStIdbSWIN+F7J+GHU1LbNAmeum8aGmad49L
-	UN13X+HiQVG/q9TY9QhYqD8hKEJIqZ4ZJgkEjkYqkzuKSr8vVspiC77I86bqKKeUkXraTOe
-	McDwcqZxETg4WD199vm7ry1IhWUTbTQZx1XV/NjgklujkRqQUxRhjZqTXJ+r47a5/H786CS
-	yBhHyeZ9uRyX2qrAp4vNiVovZXLJLNxOmtXaxbkzshPaQrvtkfLUiNRyhCPoyRoiuGIYk44
-	6nEyyyvDf73xKGinB6X7dl+nPZdRgGMTZQzodqXtU61xc7zRoJ3uVZG6Wk4IP4XHzO9fQYp
-	w==
-X-QQ-XMRINFO: M/715EihBoGS47X28/vv4NpnfpeBLnr4Qg==
-X-QQ-RECHKSPAM: 0
+In-Reply-To: <86zf1qv4do.wl-maz@kernel.org>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260526_004812_721816_36231153 
-X-CRM114-Status: GOOD (  13.27  )
+X-CRM114-CacheID: sfid-20260526_005020_367455_BD74D4DC 
+X-CRM114-Status: GOOD (  33.12  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -99,43 +100,90 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-AArch32 writes to PMU event counters cannot update the top 32 bits,
-even when PMUv3p5 makes the counters 64-bit. KVM therefore needs to
-preserve the existing high half and only update the low half written by
-the guest, unless the caller explicitly forces a full reset through
-PMCR.P.
+On Sat, May 23, 2026 at 10:53:23AM +0100, Marc Zyngier wrote:
+> On Thu, 21 May 2026 14:05:03 +0100,
+> Mostafa Saleh <smostafa@google.com> wrote:
+> > 
+> > When accidentally setting “kvm-arm.vgic_v4_enable=1” on the wrong
+> > setup that has no MSI controller device tree node (it exists but
+> > not used) and GICv4, it caused a panic as “gic_domain” is NULL and
+> > the kernel attempted to access its ops.
+> 
+> When you say "that has no MSI controller device tree node", does it
+> mean that the ITS has not been probed at all?
 
-The current code masks @val down to the old high half before taking
-lower_32_bits(val), which means the low half is always zero. As a
-result, AArch32 writes to event counters discard the guest-provided low
-32 bits instead of storing them.
+Yes.
 
-Build the new value from the old high 32 bits and the low 32 bits of
-the value supplied by the guest.
+> 
+> >
+> > Originally, I hit this on an older kernel, but was able to reproduce
+> > it on upstream with Qemu by hacking this unreasonable setup.
+> > 
+> > [   33.145536] Unable to handle kernel NULL pointer dereference at virtual address 0000000000000028
+> > [   33.145658] Mem abort info:
+> > [   33.145751]   ESR = 0x0000000096000006
+> > ...
+> > [   33.154057] CPU: 1 UID: 0 PID: 295 Comm: lkvm-static Not tainted 7.1.0-rc4-ge3f15ad3970e #5 PREEMPT
+> > [   33.156922] Hardware name: linux,dummy-virt (DT)
+> > [   33.158780] pstate: 81402005 (Nzcv daif +PAN -UAO -TCO +DIT -SSBS BTYPE=--)
+> > [   33.160340] pc : __irq_domain_instantiate+0x1d4/0x578
+> > [   33.162602] lr : __irq_domain_instantiate+0x1cc/0x578
+> > 
+> > Add a hardening check to avoid the NULL access, and fail the VM
+> > creation in that case.
+> > 
+> > Signed-off-by: Mostafa Saleh <smostafa@google.com>
+> > ---
+> >  drivers/irqchip/irq-gic-v4.c | 3 +++
+> >  1 file changed, 3 insertions(+)
+> > 
+> > diff --git a/drivers/irqchip/irq-gic-v4.c b/drivers/irqchip/irq-gic-v4.c
+> > index 8455b4a5fbb0..7e39f7eae85f 100644
+> > --- a/drivers/irqchip/irq-gic-v4.c
+> > +++ b/drivers/irqchip/irq-gic-v4.c
+> > @@ -159,6 +159,9 @@ int its_alloc_vcpu_irqs(struct its_vm *vm)
+> >  {
+> >  	int vpe_base_irq, i;
+> >  
+> > +	if (!gic_domain)
+> > +		return -EINVAL;
+> > +
+> >  	vm->fwnode = irq_domain_alloc_named_id_fwnode("GICv4-vpe",
+> >  						      task_pid_nr(current));
+> >  	if (!vm->fwnode)
+> 
+> I think this check is a good few levels too late. If you want to fix
+> this, I'd rather make sure that kvm_vgic_global_state.has_gicv4 is
+> reliable and covers this case. Which means making sure that
+> gic_kvm_info::has_v4 is itself reliable.
+> 
+> If my above understanding is correct, I'd expect the following
+> (untested) hack to help.
 
-Fixes: 26d2d0594d70 ("KVM: arm64: PMU: Do not let AArch32 change the counters' top 32 bits")
+Thanks! That also fixes the crash, the VM will launch with a vGIC with
+no ITS in that case.
 
-Signed-off-by: Qiang Ma <maqianga@uniontech.com>
----
- arch/arm64/kvm/pmu-emul.c | 4 ++--
- 1 file changed, 2 insertions(+), 2 deletions(-)
+Thanks,
+Mostafa
 
-diff --git a/arch/arm64/kvm/pmu-emul.c b/arch/arm64/kvm/pmu-emul.c
-index e1860acae641..c816db5d6761 100644
---- a/arch/arm64/kvm/pmu-emul.c
-+++ b/arch/arm64/kvm/pmu-emul.c
-@@ -174,8 +174,8 @@ static void kvm_pmu_set_pmc_value(struct kvm_pmc *pmc, u64 val, bool force)
- 		 * action is to use PMCR.P, which will reset them to
- 		 * 0 (the only use of the 'force' parameter).
- 		 */
--		val  = __vcpu_sys_reg(vcpu, reg) & GENMASK(63, 32);
--		val |= lower_32_bits(val);
-+		val = (__vcpu_sys_reg(vcpu, reg) & GENMASK(63, 32)) |
-+		      lower_32_bits(val);
- 	}
- 
- 	__vcpu_assign_sys_reg(vcpu, reg, val);
--- 
-2.20.1
-
+> 
+> Thanks,
+> 
+> 	M.
+> 
+> diff --git a/drivers/irqchip/irq-gic-v3-its.c b/drivers/irqchip/irq-gic-v3-its.c
+> index 291d7668cc8da..e6b9fee1b6786 100644
+> --- a/drivers/irqchip/irq-gic-v3-its.c
+> +++ b/drivers/irqchip/irq-gic-v3-its.c
+> @@ -5838,6 +5838,7 @@ int __init its_init(struct fwnode_handle *handle, struct rdists *rdists,
+>  
+>  	if (list_empty(&its_nodes)) {
+>  		pr_warn("ITS: No ITS available, not enabling LPIs\n");
+> +		rdists->has_vlpis = false;
+>  		return -ENXIO;
+>  	}
+>  
+> 
+> -- 
+> Without deviation from the norm, progress is not possible.
 
