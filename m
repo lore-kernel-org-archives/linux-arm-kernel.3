@@ -4,75 +4,68 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 3D4D8CD5BC8
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 26 May 2026 12:53:40 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 990F2CD5BB1
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 26 May 2026 12:53:51 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:Cc:To:From:Subject:Message-ID:Mime-Version:Date:Reply-To:
-	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
-	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
-	bh=acvmgNPS7kuyE45pt1syfWlXH/w85mKYitCTw47nvPc=; b=n9HysUQIpZr/mHi0dabsO1VBKp
-	/yhA4tTOI4TUKcwJnf2wDRT2oMx3nxVLxtQZ2zCDE2/jOBPabV51SeuzEfPHbpLvShQGlUU4hRqIF
-	p9oNViqfbJ1vwmQqJTwiuhRfyjZjzJVyHH8LajBurnEnoqSXKe/VKsyM/jWzaijgtwGMOZcOtDD/4
-	Z6N+LvWizoZG2ts8+mvNFqRywtNkJV/7tyNYtHKQPwQ5rFYMnPRM7StDXE/pVDwqL1rtMVNjSVNX0
-	OwhTTqsoPiXj3S3tQmEy+fl2pJLTbvz1xEtl2r9mZOAD5vP9P2jr5Z7n942BFKiwh56a6uxz8TFzu
-	zPeP50DA==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=m1QRwhQlDfqiNBLKp34h7frboX4SB5UjwEEIE2eefH4=; b=SKJy/1WdFpv5v6GT5AEII6OBGg
+	2deuxQJIz0Av/1qn0yvnUi+7HsVVAFvF8ZgKJ23yUXYPNQV18ZxHEX0k4SuxcMIA+th03VU7J+tw0
+	+HDaRu6/b9GvK0eugAH/drpN2Wx8ioAwf9FJJhWWPYJP9QVoQCFgAn1uELyRbgE0zwh3hJjjThGSJ
+	pLuTh7uA8I4uG9cuZuhKEwM0Zr6WTg/9JlGfXPQ9gwBMCOOJf1qEXxOh+4CH7XvTVjSh6ZwZZ6ZKj
+	8K3i6OUQjMmgFlIVv9QADe03wyGUI7TS9gaD8MZbCRX7U+Hzp2CoH/dUClm/i4h0SZpz35SN2DU/w
+	H3JVJIHg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wRrHp-00000001ylU-1fW1;
-	Tue, 26 May 2026 12:53:33 +0000
-Received: from mail-wr1-x449.google.com ([2a00:1450:4864:20::449])
-	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wRrHn-00000001ykY-0pMQ
+	id 1wRrI1-00000001ynd-2CYJ;
+	Tue, 26 May 2026 12:53:45 +0000
+Received: from foss.arm.com ([217.140.110.172])
+	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
+	id 1wRrHy-00000001yn4-2wkY
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 26 May 2026 12:53:32 +0000
-Received: by mail-wr1-x449.google.com with SMTP id ffacd0b85a97d-44dad1b938fso6277203f8f.1
-        for <linux-arm-kernel@lists.infradead.org>; Tue, 26 May 2026 05:53:30 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=google.com; s=20251104; t=1779800009; x=1780404809; darn=lists.infradead.org;
-        h=content-transfer-encoding:cc:to:from:subject:message-id
-         :mime-version:date:from:to:cc:subject:date:message-id:reply-to;
-        bh=acvmgNPS7kuyE45pt1syfWlXH/w85mKYitCTw47nvPc=;
-        b=g86gA3JdcoZyuzJQIAyzAHJi2ZXepMY8GTyBoAy2YUsDCiIkEdKSzHD+zVynTXnnn/
-         +hXy0N70GuSHc23TsfxFMEjUQtMaexSJJU2Dn9bWkqdwQmISi0IgVtH1OHTPdZYwlGsk
-         7LOAfiVbFuSR6fEKLzvoYl5FTWA+f7ZxNti+ViLeXIQNYrfZ2aFm4ak5emuHx7PDSp33
-         6TyVRc6qZuXS/2oTobFFR6sd+1JZGa06y85E6sSKa6vFubIVyAe6AD4psOwn0YfkrGgm
-         kSBEjCoXpNjoqspl5HTpvYEuCHt5mWWe3d77+VW2HNRhTB0xZATafGy4foon+qLZIn+k
-         qbPg==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20251104; t=1779800009; x=1780404809;
-        h=content-transfer-encoding:cc:to:from:subject:message-id
-         :mime-version:date:x-gm-message-state:from:to:cc:subject:date
-         :message-id:reply-to;
-        bh=acvmgNPS7kuyE45pt1syfWlXH/w85mKYitCTw47nvPc=;
-        b=SCsXtxuJ2MqSvWTcTVmz0SvH95JrFwEGdxx6DReHIIvM0HPUt/GsxexO52FVtRDZMG
-         NtsJE91F5uih5fs6aFuXdNvOg+/5P6e7zq9H8EoP2W34hB4xvqzyQiCnCtL1E/LWmonR
-         wnq7VqgDv2sxxH9B0tl4ErV6XtGtUl5hGXjlxwK8ITiH0v6qq0lUO3vu1u3h8++jZh5k
-         Ut0aG4haPuer56OQYc9C2ecHtQvd+6bRIb84N6/hX/eSjB2cFVjEqAj3+EUCCTMXgawg
-         Iberi7OYVdHi8LcAsjKB5gK8Gf9dw8JFhedFLZkq+M+i4aXx1oNUoplw4xjErC62oXkH
-         sr+g==
-X-Gm-Message-State: AOJu0Yw5PB2m/049czBEGxZFpbCpr2zj1/qZ3/qiePiqCtKm0Qb603AL
-	5lafTwRugIDgTx/G3WY4cHNjyggMcUH3fRWSlzBGafHjkN0StjlfIJZB/yzTOfwCPvecOfcsJtT
-	N5Kvcxeib7jWBsGT91xBL7smebCdce+xxp5lHCGZr9foCpm5e8WXGX1y2B+3qEmEOf3LQ8XweSk
-	uzkrHqHy40chLvd67NVMMQNF+y7JBH/1/WbkEDFb7V9l9oMvLaKRFsmd/3nC+8HTPdMw==
-X-Received: from wrme2.prod.google.com ([2002:adf:e382:0:b0:44e:14c6:8605])
- (user=smostafa job=prod-delivery.src-stubby-dispatcher) by
- 2002:a05:6000:2411:b0:43d:775b:c9bd with SMTP id ffacd0b85a97d-45eb38a167amr31151264f8f.10.1779800008357;
- Tue, 26 May 2026 05:53:28 -0700 (PDT)
-Date: Tue, 26 May 2026 12:53:17 +0000
-Mime-Version: 1.0
-X-Mailer: git-send-email 2.54.0.746.g67dd491aae-goog
-Message-ID: <20260526125317.3672297-1-smostafa@google.com>
-Subject: [PATCH v3] irqchip/gic-v4: Don't advertise VLPIs if no ITS is probed
-From: Mostafa Saleh <smostafa@google.com>
-To: linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org
-Cc: maz@kernel.org, tglx@kernel.org, Mostafa Saleh <smostafa@google.com>
-Content-Type: text/plain; charset="UTF-8"
-Content-Transfer-Encoding: quoted-printable
+	Tue, 26 May 2026 12:53:43 +0000
+Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
+	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id 42E68169C;
+	Tue, 26 May 2026 05:53:36 -0700 (PDT)
+Received: from J2N7QTR9R3 (usa-sjc-imap-foss1.foss.arm.com [10.121.207.14])
+	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id 1662E3F7B4;
+	Tue, 26 May 2026 05:53:37 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=simple/simple; d=arm.com; s=foss;
+	t=1779800021; bh=Nf1wOqkOkww7+3uMdBvetcAtVOV8bY2s9Q9u+8JrwuI=;
+	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
+	b=fCQ816MZEwvQhB2vTUsb+mbg5kA1F2C4IaZMzycKOrNWwB2LbaaEHzwx/x2vWCMUv
+	 0VBGW3JPYfEOqoTkaXTM/zomWyYwmUvQyq5zn7+cv9lh20KnTJTDCT6Ug1Ak3AHEaC
+	 FuM2eMKuzV+aIV7cOOPVVtxu7NZDNLeIYPXZ5NS0=
+Date: Tue, 26 May 2026 13:53:35 +0100
+From: Mark Rutland <mark.rutland@arm.com>
+To: Mark Brown <broonie@kernel.org>
+Cc: Marc Zyngier <maz@kernel.org>, Joey Gouly <joey.gouly@arm.com>,
+	Catalin Marinas <catalin.marinas@arm.com>,
+	Suzuki K Poulose <suzuki.poulose@arm.com>,
+	Will Deacon <will@kernel.org>, Paolo Bonzini <pbonzini@redhat.com>,
+	Jonathan Corbet <corbet@lwn.net>, Shuah Khan <shuah@kernel.org>,
+	Oliver Upton <oupton@kernel.org>, Dave Martin <Dave.Martin@arm.com>,
+	Fuad Tabba <tabba@google.com>, Ben Horgan <ben.horgan@arm.com>,
+	linux-arm-kernel@lists.infradead.org, kvmarm@lists.linux.dev,
+	linux-kernel@vger.kernel.org, kvm@vger.kernel.org,
+	linux-doc@vger.kernel.org, linux-kselftest@vger.kernel.org,
+	Peter Maydell <peter.maydell@linaro.org>,
+	Eric Auger <eric.auger@redhat.com>
+Subject: Re: [PATCH v10 03/30] arm64/fpsimd: Decide to save ZT0 and streaming
+ mode FFR at bind time
+Message-ID: <ahWXz4u7cXtG2PS_@J2N7QTR9R3>
+References: <20260306-kvm-arm64-sme-v10-0-43f7683a0fb7@kernel.org>
+ <20260306-kvm-arm64-sme-v10-3-43f7683a0fb7@kernel.org>
+MIME-Version: 1.0
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+In-Reply-To: <20260306-kvm-arm64-sme-v10-3-43f7683a0fb7@kernel.org>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260526_055331_241530_78A594E2 
-X-CRM114-Status: GOOD (  12.51  )
+X-CRM114-CacheID: sfid-20260526_055342_829048_385954F5 
+X-CRM114-Status: GOOD (  25.89  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -87,58 +80,69 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-When accidentally setting =E2=80=9Ckvm-arm.vgic_v4_enable=3D1=E2=80=9D on t=
-he wrong
-setup that has no MSI controller device tree node (it exists but
-not used) and GICv4, it caused a panic as =E2=80=9Cgic_domain=E2=80=9D is N=
-ULL and
-the kernel attempted to access its ops.
+On Fri, Mar 06, 2026 at 05:00:55PM +0000, Mark Brown wrote:
+> Some parts of the SME state are optional, enabled by additional features
+> on top of the base FEAT_SME and controlled with enable bits in SMCR_ELx. We
+> unconditionally enable these for the host but for KVM we will allow the
+> feature set exposed to guests to be restricted by the VMM. These are the
+> FFR register (FEAT_SME_FA64) and ZT0 (FEAT_SME2).
+> 
+> We defer saving of guest floating point state for non-protected guests to
+> the host kernel. We also want to avoid having to reconfigure the guest
+> floating point state if nothing used the floating point state while running
+> the host. If the guest was running with the optional features disabled then
+> traps will be enabled for them so the host kernel will need to skip
+> accessing that state when saving state for the guest.
+> 
+> Support this by moving the decision about saving this state to the point
+> where we bind floating point state to the CPU, adding a new variable to
+> the cpu_fp_state which uses the enable bits in SMCR_ELx to flag which
+> features are enabled.
+> 
+> Reviewed-by: Fuad Tabba <tabba@google.com>
+> Signed-off-by: Mark Brown <broonie@kernel.org>
+> ---
+>  arch/arm64/include/asm/fpsimd.h |  1 +
+>  arch/arm64/kernel/fpsimd.c      | 10 ++++++++--
+>  arch/arm64/kvm/fpsimd.c         |  1 +
+>  3 files changed, 10 insertions(+), 2 deletions(-)
+> 
+> diff --git a/arch/arm64/include/asm/fpsimd.h b/arch/arm64/include/asm/fpsimd.h
+> index 7361b3b4a5f5..e97729aa3b2f 100644
+> --- a/arch/arm64/include/asm/fpsimd.h
+> +++ b/arch/arm64/include/asm/fpsimd.h
+> @@ -87,6 +87,7 @@ struct cpu_fp_state {
+>  	void *sme_state;
+>  	u64 *svcr;
+>  	u64 *fpmr;
+> +	u64 sme_features;
+>  	unsigned int sve_vl;
+>  	unsigned int sme_vl;
 
-Originally, I hit this on an older kernel, but was able to reproduce
-it on upstream with Qemu by hacking this unreasonable setup.
+It would be simpler to store the full SMCR value, and remove the
+'sme_vl' field. Likewise for ZCR and the 'sve_vl` field.
 
-[   33.145536] Unable to handle kernel NULL pointer dereference at virtual =
-address 0000000000000028
-[   33.145658] Mem abort info:
-[   33.145751]   ESR =3D 0x0000000096000006
-...
-[   33.154057] CPU: 1 UID: 0 PID: 295 Comm: lkvm-static Not tainted 7.1.0-r=
-c4-ge3f15ad3970e #5 PREEMPT
-[   33.156922] Hardware name: linux,dummy-virt (DT)
-[   33.158780] pstate: 81402005 (Nzcv daif +PAN -UAO -TCO +DIT -SSBS BTYPE=
-=3D--)
-[   33.160340] pc : __irq_domain_instantiate+0x1d4/0x578
-[   33.162602] lr : __irq_domain_instantiate+0x1cc/0x578
+If nothing else, it would make the format of these fields more obvious,
+and easier to reason about.
 
-Set vLPI support to false at init time if the host has no ITS, so it
-propagates properly to kvm_vgic_global_state.has_gicv4.
+It would also potentially allow us to extend the VL sanity-check in
+fpsimd_save_user_state() to check all the relevant control bits prior to
+saving state.
 
-Suggested-by: Marc Zyngier <maz@kernel.org>
-Acked-by: Marc Zyngier <maz@kernel.org>
-Signed-off-by: Mostafa Saleh <smostafa@google.com>
----
-v3: Reword subject based on Marc feedback.
-v2: Fix the issue at construction as Marc suggested.
+[...]
 
----
- drivers/irqchip/irq-gic-v3-its.c | 1 +
- 1 file changed, 1 insertion(+)
+> @@ -1632,6 +1632,12 @@ static void fpsimd_bind_task_to_cpu(void)
+>  	last->to_save = FP_STATE_CURRENT;
+>  	current->thread.fpsimd_cpu = smp_processor_id();
+>  
+> +	last->sme_features = 0;
+> +	if (system_supports_fa64())
+> +		last->sme_features |= SMCR_ELx_FA64;
+> +	if (system_supports_sme2())
+> +		last->sme_features |= SMCR_ELx_EZT0;
 
-diff --git a/drivers/irqchip/irq-gic-v3-its.c b/drivers/irqchip/irq-gic-v3-=
-its.c
-index 291d7668cc8d..d02cb9c17c0b 100644
---- a/drivers/irqchip/irq-gic-v3-its.c
-+++ b/drivers/irqchip/irq-gic-v3-its.c
-@@ -5837,6 +5837,7 @@ int __init its_init(struct fwnode_handle *handle, str=
-uct rdists *rdists,
- 		its_acpi_probe();
-=20
- 	if (list_empty(&its_nodes)) {
-+		rdists->has_vlpis =3D false;
- 		pr_warn("ITS: No ITS available, not enabling LPIs\n");
- 		return -ENXIO;
- 	}
---=20
-2.54.0.746.g67dd491aae-goog
+With my proposal on patch 2, this conditional logic would be
+centralised within a helper function.
 
+Mark.
 
