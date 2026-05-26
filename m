@@ -4,64 +4,87 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id A6FE7CD5BC8
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 26 May 2026 19:48:25 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id D826BCD5BB1
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 26 May 2026 20:16:23 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=cY7PmbuIO+wL0uJ2uHrRtzrWH+FdbJWbWlM2ezduFew=; b=bE2D4UQF+7mx00ikNt8H346qX6
-	yNUyQX/9cKhGYRg5BQV3RRcbSfDNRQcpikA4FI8eox8xJLd67D5EYBpt4FrdEismSQnvfWkPRlTPF
-	62CupGVXNyF7D/zmz2J6jM1QeXWHGZXUL/+YCCVVwxfHmUN69i1b6bY4/t6i883lm+pt17/CCZ3P9
-	mspxdS0UIsR7gSqJRwh3sDZTwHvBos2Orcu+XhiMzTHEPnerou42eLKeGzwEcIrK3ccszFgGHXgm+
-	fi4ZG+9cs1QqLVqDf1CAYlm8cpzDgXcV5gUReXvZrrtCp0ZbYOwONyXYLHel9hIHdWVwd57PJtAu6
-	qhFtm/Rw==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	MIME-Version:Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-Type:
+	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
+	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=ku/vxDrBu7T4TGqb3O0QJz0UZRxcqf3H+SXkaiCq2AE=; b=qUIdLOtNmFbxzqmXwuQy1oesiQ
+	h/ao5XvjcpwLqC91fctpzt04XznwuD1g2HqndG1R+FSk52DrovS9Qf8dggJnA5s/siQKadoB8X7TS
+	WbpCQIArC8yNIzz7E+t6N411UtyBm9pJjH0E2phleyoTUKWHa05auc2VFGtS7pQ88DLK9BbcNM/JT
+	k4Fu8fpqL08PZWsloMMU84//mIhi0JncXzfTM3k5XheiWA688YFVNKj59usz2vVkWJEcGRd9ExJiZ
+	SWwem47CX/n4kZq87LHqiAtvqHkZehmIQJrphsP9wm80FB8ohOZLPaPRiQVDW42xkNcA6qGwtZ8u3
+	LRISKCDQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wRxlD-00000002vGD-0KCA;
-	Tue, 26 May 2026 19:48:19 +0000
-Received: from zeus03.de ([194.117.254.33] helo=mail.zeus03.de)
+	id 1wRyCE-00000002w1e-2SzG;
+	Tue, 26 May 2026 20:16:14 +0000
+Received: from mail-qt1-x831.google.com ([2607:f8b0:4864:20::831])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wRxlA-00000002vFg-1XgU
+	id 1wRyCC-00000002w1J-3Gta
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 26 May 2026 19:48:17 +0000
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=
-	sang-engineering.com; h=date:from:to:cc:subject:message-id
-	:references:mime-version:content-type:in-reply-to; s=k1; bh=cY7P
-	mbuIO+wL0uJ2uHrRtzrWH+FdbJWbWlM2ezduFew=; b=bbaoKaIhE2stUAQjF+qp
-	e5k+KFnssZaLadQbzBvPrVO+x0Z/lZ4yrLiKyuco2pzoP8GxeQpGq/Faamk/QMlc
-	H49x4g28PQzCLD8Xmf2SPiFs6rM81aBGELe/gGomrOOEz7kp5IZ2QYXtWxaRmg+K
-	W7b+0uR0NcxZGb5rdn/vRLWU9hrOA9pv7+qbQow1wZvpTe+MnOpSeLbBrCpy3JWG
-	nxGKx/TP4XfnyjXnHMnSfOTEDu/PXznTkr4fVivQ/tQL+GEeBkvu4W38BoC64IdY
-	Kwip2QCsLx3mNBxiWjVuoDO6b9AAJdNAqrYXkuq5JOlyi9zMP49HC9DW5tTRKc0o
-	aw==
-Received: (qmail 387701 invoked from network); 26 May 2026 21:48:14 +0200
-Received: by mail.zeus03.de with ESMTPSA (TLS_AES_256_GCM_SHA384 encrypted, authenticated); 26 May 2026 21:48:14 +0200
-X-UD-Smtp-Session: l3s3148p1@QSmTxr1S41OSABpf
-Date: Tue, 26 May 2026 21:48:13 +0200
-From: Wolfram Sang <wsa+renesas@sang-engineering.com>
-To: Marcus Folkesson <marcus.folkesson@gmail.com>
-Cc: Peter Rosin <peda@axentia.se>,
-	Michael Hennerich <michael.hennerich@analog.com>,
-	Bartosz Golaszewski <brgl@bgdev.pl>,
-	Andi Shyti <andi.shyti@kernel.org>,
-	Andy Shevchenko <andriy.shevchenko@intel.com>,
-	Bartosz Golaszewski <brgl@kernel.org>, linux-i2c@vger.kernel.org,
-	linux-kernel@vger.kernel.org, linux-arm-kernel@lists.infradead.org
-Subject: Re: [PATCH v9 5/5] docs: i2c: i2c-topology: add section about bus
- speed
-Message-ID: <ahX4_WaqodYt3PmD@shikoro>
-References: <20260324-i2c-mux-v9-0-5292b0608243@gmail.com>
- <20260324-i2c-mux-v9-5-5292b0608243@gmail.com>
+	Tue, 26 May 2026 20:16:13 +0000
+Received: by mail-qt1-x831.google.com with SMTP id d75a77b69052e-516d78df76aso47847851cf.3
+        for <linux-arm-kernel@lists.infradead.org>; Tue, 26 May 2026 13:16:12 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=gmail.com; s=20251104; t=1779826571; x=1780431371; darn=lists.infradead.org;
+        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
+         :to:from:from:to:cc:subject:date:message-id:reply-to;
+        bh=ku/vxDrBu7T4TGqb3O0QJz0UZRxcqf3H+SXkaiCq2AE=;
+        b=ct0bcuiijylc2MnlIhUr9tPsHLC8NjLUUP0DMhs4qL5Gs/ebT66fAehn/GnF4hZ8Bc
+         V9oV4QT0qBNSxnCuHL4yywEWXTNoBRrM813iyMrcNZO3QgSfGc7GOL/ZxEZrhZJ73LOT
+         ByI1U/rpDnB5FxHEJLFq6cAa275YikP5f8GlHoUDm2dCTF5UuuJR1XG/h6D8Bxk1pIix
+         0jvCraNWYsNP35l8J0OPIuop2JhBW0DHcwz6L2W5oNmmHo9kRLkieDxR5gHqw48ePrU4
+         pkZUhheiJiwsTwub1otchqRdtE5UaBQfcOSucW3gS9J+/Hpyl0lLg4Hoso8KPgkAjK+r
+         9lZA==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20251104; t=1779826571; x=1780431371;
+        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
+         :to:from:x-gm-gg:x-gm-message-state:from:to:cc:subject:date
+         :message-id:reply-to;
+        bh=ku/vxDrBu7T4TGqb3O0QJz0UZRxcqf3H+SXkaiCq2AE=;
+        b=BXEN4J5aW6zo9BZwohY85wvY5scViIUjUzBRt+DQJIfyoVmh619VVQe4Ja2ycLtnbq
+         vNYTTr/viai5aYdnwoM6mbHx90nK6Ykxxl5nJXhl/XdZr4MpFuJuN/4bp4okOqIcNAb1
+         lNPnPJ0vhhyyPn51v+iHWU8Q4tehxwMvt9Euqhg+Iyjf8BB2uLTneS7xAGe4/b44DvGo
+         /4D33dVp/tjFDwkefK88bjNGLzQXnbW7SrwbDLwPV6YD7J1hfsLkeruSg6JOojABnwb5
+         gxuBQflN1dRXEbqQyDGbSdu7zdTRPFrHUVyEYglIintDILn51R2wzVTZRKVY+u/Otkco
+         RzQg==
+X-Forwarded-Encrypted: i=1; AFNElJ9Y0BSs8o0cNjYyL3QLtVgjV3HXsZGpnRuI72p+xxdimfP+HrwmDyd6o7O7+GWmtOqbmU0G2nEFjs8574UJ0Smq@lists.infradead.org
+X-Gm-Message-State: AOJu0Yw0vo5D0RiOuBJ12bk1maBhnl6RuZchQYRqKm7fpbe4g67WefTO
+	TlMvISrjRDgEGaSqwf+HmUYOdngeOEOpWvHHfpELhvHlxGFVsDSgaHIK
+X-Gm-Gg: Acq92OGsfZu6WSe4mRGSGPVMeluJ6en405h1EwIjV0wbZads2Wkf9KErX06Qbm/mgk9
+	wNE1i52Za5Psz1148P4+bpOZYxkYKAou1DlUR3wFsJpaMs6+pRzOJfOPAm2dv+dJlj2pDgXJYuH
+	REVCnvSr8oslbI+02qBw+ShPOsBlttEqULDYSM4dfp48LiP94At6PsLwB6oPqFFfLHOO0B7kaIY
+	VVf1oQzdpMfRc+zeMlCljOCjBFT1DJiS/RYyArktZlj0wOftUTg4J8LXNpaMY0lqxZ0IJoMTUPj
+	03jSu7BJ8djyVGCzC+dMDCotGLvZ3mgKKgYOwi3zBFsJQVQfmZ0oGjVGtbD7a55Dofq69hi2M9M
+	m47jNZsKqLsBcFQOFA/Fd9PGC8egTwVRnoem31Vn37p+k0NvqmlupvOQm+PX7tJhjPS1xUJ7v1E
+	u1V+FaU9yO2W9u+0yC2Jj1X/ScZturm+jy84lALIekFHNIwbyYPPUtz8f9hc7hElxpbyTHzSa0Q
+	pwUvZIMBBmFfi3GGBrJTck7pd4U6vnulO38X5008dOF6Q==
+X-Received: by 2002:a05:622a:4a09:b0:50f:bd79:2642 with SMTP id d75a77b69052e-516d463bd85mr282690521cf.48.1779826571221;
+        Tue, 26 May 2026 13:16:11 -0700 (PDT)
+Received: from ryzen ([2601:644:8000:5b5d:7285:c2ff:fe45:8a32])
+        by smtp.gmail.com with ESMTPSA id d75a77b69052e-51706adc9cfsm25433541cf.19.2026.05.26.13.16.09
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Tue, 26 May 2026 13:16:10 -0700 (PDT)
+From: Rosen Penev <rosenp@gmail.com>
+To: dmaengine@vger.kernel.org
+Cc: Linus Walleij <linusw@kernel.org>,
+	Vinod Koul <vkoul@kernel.org>,
+	Frank Li <Frank.Li@kernel.org>,
+	linux-arm-kernel@lists.infradead.org (moderated list:ARM/NOMADIK/Ux500 ARCHITECTURES),
+	linux-kernel@vger.kernel.org (open list)
+Subject: [PATCH] dmaengine: ste_dma40: turn d40_base phy_chans into a flexible array
+Date: Tue, 26 May 2026 13:15:52 -0700
+Message-ID: <20260526201552.13376-1-rosenp@gmail.com>
+X-Mailer: git-send-email 2.54.0
 MIME-Version: 1.0
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-In-Reply-To: <20260324-i2c-mux-v9-5-5292b0608243@gmail.com>
+Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260526_124816_685764_2D145A94 
-X-CRM114-Status: GOOD (  18.27  )
+X-CRM114-CacheID: sfid-20260526_131612_828805_68CC06E3 
+X-CRM114-Status: GOOD (  13.39  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -76,90 +99,70 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
+Convert the separately-offset phy_chans pointer to a C99 flexible array
+member at the end of struct d40_base, and switch the allocation to
+struct_size(). The log_chans and memcpy_chans slots continue to live
+in the same allocation immediately after phy_chans, indexed via
+base->log_chans. This removes the hand-rolled pointer fixup that
+recomputed phy_chans from base + ALIGN(sizeof(struct d40_base), 4).
 
-> +Multiple muxes in series
-> +--------------------------
-> +
-> +When multiple muxes are used in series the same rules applies.
-> +
-> +Transfers to D3 may interleave between select-transfer-deselect to D1, which
-> +results that the bus speed to D2 or D3 will be at 100KHz.
-> +
-> +Transfers to D2 may interleave between select-transfer-deselect to D1, which
-> +results in that the bus speed to D1 may be at 400kHz as the transfer to D2
-> +will set the bus speed to before the transfer to D1 starts.
-> +
-> +This is probably a bad topology ::
+Assisted-by: Claude:Opus-4.7
+Signed-off-by: Rosen Penev <rosenp@gmail.com>
+---
+ drivers/dma/ste_dma40.c | 11 +++++------
+ 1 file changed, 5 insertions(+), 6 deletions(-)
 
-In documentation, we probably shouldn't say "probably" ;)
+diff --git a/drivers/dma/ste_dma40.c b/drivers/dma/ste_dma40.c
+index 9b803c0aec25..d3e3c4cd43f1 100644
+--- a/drivers/dma/ste_dma40.c
++++ b/drivers/dma/ste_dma40.c
+@@ -602,7 +602,6 @@ struct d40_base {
+ 	struct dma_device		  dma_both;
+ 	struct dma_device		  dma_slave;
+ 	struct dma_device		  dma_memcpy;
+-	struct d40_chan			 *phy_chans;
+ 	struct d40_chan			 *log_chans;
+ 	struct d40_chan			**lookup_log_chans;
+ 	struct d40_chan			**lookup_phy_chans;
+@@ -621,6 +620,7 @@ struct d40_base {
+ 	u32				 *regs_interrupt;
+ 	u16				  gcc_pwr_off_mask;
+ 	struct d40_gen_dmac		  gen_dmac;
++	struct d40_chan			 phy_chans[];
+ };
+ 
+ static struct device *chan2dev(struct d40_chan *d40c)
+@@ -3128,6 +3128,7 @@ static int __init d40_hw_detect_init(struct platform_device *pdev,
+ 	struct clk *clk;
+ 	void __iomem *virtbase;
+ 	struct d40_base *base;
++	size_t alloc_size;
+ 	int num_log_chans;
+ 	int num_phy_chans;
+ 	int num_memcpy_chans;
+@@ -3197,10 +3198,9 @@ static int __init d40_hw_detect_init(struct platform_device *pdev,
+ 		 "hardware rev: %d with %d physical and %d logical channels\n",
+ 		 rev, num_phy_chans, num_log_chans);
+ 
+-	base = devm_kzalloc(dev,
+-		ALIGN(sizeof(struct d40_base), 4) +
+-		(num_phy_chans + num_log_chans + num_memcpy_chans) *
+-		sizeof(struct d40_chan), GFP_KERNEL);
++	alloc_size = struct_size(base, phy_chans, num_phy_chans);
++	alloc_size += sizeof(*base->log_chans) * (num_log_chans + num_memcpy_chans);
++	base = devm_kzalloc(dev, alloc_size, GFP_KERNEL);
+ 
+ 	if (!base)
+ 		return -ENOMEM;
+@@ -3213,7 +3213,6 @@ static int __init d40_hw_detect_init(struct platform_device *pdev,
+ 	base->virtbase = virtbase;
+ 	base->plat_data = plat_data;
+ 	base->dev = dev;
+-	base->phy_chans = ((void *)base) + ALIGN(sizeof(struct d40_base), 4);
+ 	base->log_chans = &base->phy_chans[num_phy_chans];
+ 
+ 	if (base->plat_data->num_of_phy_chans == 14) {
+-- 
+2.54.0
 
-> +
-> +                     .----------. 400kHz .----------. 100kHz .--------.
-> +    .--------.400kHz |   mux-   |--------|   mux-   |--------| dev D1 |
-> +    |  root  |--+----|  locked  | 400kHz |  locked  |        '--------'
-> +    '--------'  |    |  mux M1  |--.     |  mux M2  |
-> +                |    '----------'  |     '----------'
-> +                |  .--------.      |  .--------.
-> +                '--| dev D3 |      '--| dev D2 |
-> +                   '--------'         '--------'
-
-400kHz leaking to a 100kHz device is bad. I guess we cannot do much
-about it here because the bus speed is a board specific parameter...
-
-> +Idle state
-> +-----------
-> +
-> +Muxes have an idle state, which is the state the channels are put into when no channel
-> +is active. The state is typically one of the following:
-> +
-> +- All channels are disconnected
-> +- The last selected channel is left as-is
-> +- A predefined channel is selected
-> +
-> +Muxes that support an idle state where all channels are disconnected are preferred when using
-> +different bus speeds. Otherwise high bus speeds may "leak" through to devices that
-> +may not support that higher speed.
-> +
-> +Consider the following example: ::
-> +
-> +                          .----------. 100kHz .--------.
-> +        .--------. 400kHz |   mux-   |--------| dev D1 |
-> +        |  root  |--+-----|  locked  |        '--------'
-> +        '--------'  |     |  mux M1  |--. 400kHz .--------.
-> +                    |     '----------'  '--------| dev D2 |
-> +                    |  .--------.                '--------'
-> +                    '--| dev D3 |
-> +                       '--------'
-> +
-> +If the idle state of M1 is:
-> +
-> +- All channels disconnected: No problem, D1 and D2 are not affected by communication
-> +  to D3.
-> +- Last selected channel: Problem if D1 was the last selected channel. High speed
-> +  communication to D3 will be "leaked" to D1.
-> +- Predefined channel: Problem if the predefined channel D1. Set predefined channel
-> +  to D2 as D2 may handle 400kHz.
-
-... unlike here. We have MUX_IDLE_AS_IS and MUX_IDLE_DISCONNECT defined
-already. And I'd think we should only allow bus speed switching for
-MUX_IDLE_DISCONNECT to avoid out-of-spec scenarios. Opinions?
-
-> +Supported controllers
-> +-----------------------
-> +
-> +Not all I2C controllers support setting the bus speed dynamically.
-> +At the time of writing, the following controllers have support:
-> +
-> +============================   =============================================
-> +i2c-davinci                    Supports dynamic bus speed
-> +============================   =============================================
-
-This paragaph is easy to get outdated. We can document that only
-controller drivers with the callback function implemented will work.
-People then can find out if that applies for their driver...
-
-There are some grammar correction in the Sashiko-review[1]. Most of them
-look correct to me. Can you have a look at these, too, please?
-
-[1] https://sashiko.dev/#/patchset/20260324-i2c-mux-v9-0-5292b0608243%40gmail.com
 
