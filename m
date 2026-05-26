@@ -4,49 +4,48 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 39D43CD5BC8
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 26 May 2026 17:01:17 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 696DDCD5BB1
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 26 May 2026 17:01:18 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:References
 	:Message-Id:Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:
 	From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=rZ5II9BdJZejFan8KejY1h0TeQAor6PT1THOItEsq3Q=; b=RzbJKZeXrTz3ZNE2ykspQPN/65
-	F2HhrCkEc1g6itFZLOaU80G0X4iG09Li+Uqk5Dsb+jwetjfuPadKghMSz8sCfatCsVrXdAtjEbRbO
-	OThDTqugIetYI3v5BZvoALerenlq/6fq2HXREjfAaWNqbCm6yikKD5jsP+mxd3nn4yIPFT2gX4kRE
-	qwnFAs+XH1fJOuW/hpScvw8l7x8H8+dhj5YdklrGFjR4wSVjjaMQveFdnNISWGMvddOqDpQCF3FtO
-	bmGsA3/kAtEBC4viIgmje30FG7REoFk/lhdtNUUjEXqvd+2CGuuhn/7GHQaVO0GYUvtkVbJP1FDE5
-	JUPgourw==;
+	bh=vVJMSBzJe/cO9SUCIdq0jjSCtGyg2HmFU6eZcLqxq70=; b=cM2TUB21inzSO/nG4E950ioCuK
+	b/aP80cFqnXLbwMstzePfhXKgV6AP8I4mtejwgUwmdSBZ5dIvysYS/5zqFbqv7mUeatSUXMRRFgX3
+	Z7AXq7Zd6+14ZQ31cgGagaoBiGg3U/rm0g3zjvW2J1K8glLJ/K/p9lNEIIHN/M10vN3UmijrixZ47
+	TiTik1VvZF0NoZNKP6T+KXU2B1yLnmQuc03Y9hHDzJ20/CtbVhJAj88bKF+/KjwjvE2Q80ZAWTKy+
+	NGqzQU9mVQwus7Ml37kiOFdRA/ln7C3NZX/DdGjgV/bogq+Moygwi+B67VGZOfUj/Di+Y4V1Vjziw
+	fQkqnuVA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wRv9T-00000002dKE-079D;
+	id 1wRv9T-00000002dKd-0bqP;
 	Tue, 26 May 2026 17:01:11 +0000
 Received: from foss.arm.com ([217.140.110.172])
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wRv94-00000002d3d-3SHc
+	id 1wRv97-00000002d6H-0Gqp
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 26 May 2026 17:00:48 +0000
+	Tue, 26 May 2026 17:00:55 +0000
 Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
-	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id BB60316F2;
-	Tue, 26 May 2026 10:00:39 -0700 (PDT)
-Received: from e132581.arm.com (e132581.arm.com [10.1.196.87])
-	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id 4B0203F7B4;
+	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id 706CF2944;
 	Tue, 26 May 2026 10:00:42 -0700 (PDT)
+Received: from e132581.arm.com (e132581.arm.com [10.1.196.87])
+	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id 2089E3F7B4;
+	Tue, 26 May 2026 10:00:45 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=simple/simple; d=arm.com; s=foss;
-	t=1779814844; bh=AoBmj6oARPibtpwLxmEEnpUB2eETbTbQmfrNkJRna7Q=;
+	t=1779814847; bh=7WlkOoaE/RMqjgbj6G1MbXEsmIn23jDaiZiX8j542bI=;
 	h=From:Date:Subject:References:In-Reply-To:To:Cc:From;
-	b=OfCxTzcfCby0PbhPAkdoPCgqSFJNR1LUuHry85tNcStEhrM8YBhKVvlXx44yQA3n4
-	 WzlDhXJRZrfPehtJ4J+A+Vvwxd5pCXI1LM0UWOq0HOtBRCX4diXKkaKyucJxrm4aIA
-	 cskerURNG7twHa3cOjf61goPrj6l3fZQaEJAqupA=
+	b=pzwO60gd4diW64UcQ5crqbNRahVnOLgAtjSFb/rh1KHRUvObLGdeftOaX8ZygvssS
+	 QlALxi07BPipfInujbnGOE4w2vwzc/uGvvpYNzAhFOlK4REMc9UDwKUaILt1o7wUCM
+	 gvRfFNBGNT0Du6jjfScdNvF3ewZz0Sbv/nELAH2o=
 From: Leo Yan <leo.yan@arm.com>
-Date: Tue, 26 May 2026 17:59:43 +0100
-Subject: [PATCH v6 7/8] perf cs-etm: Synthesize callchains for instruction
- samples
+Date: Tue, 26 May 2026 17:59:44 +0100
+Subject: [PATCH v6 8/8] perf test: Add Arm CoreSight callchain test
 MIME-Version: 1.0
 Content-Type: text/plain; charset="utf-8"
 Content-Transfer-Encoding: 7bit
-Message-Id: <20260526-b4-arm_cs_callchain_support_v1-v6-7-f9f49f53c9dd@arm.com>
+Message-Id: <20260526-b4-arm_cs_callchain_support_v1-v6-8-f9f49f53c9dd@arm.com>
 References: <20260526-b4-arm_cs_callchain_support_v1-v6-0-f9f49f53c9dd@arm.com>
 In-Reply-To: <20260526-b4-arm_cs_callchain_support_v1-v6-0-f9f49f53c9dd@arm.com>
 To: Arnaldo Carvalho de Melo <acme@kernel.org>, 
@@ -59,18 +58,18 @@ To: Arnaldo Carvalho de Melo <acme@kernel.org>,
  Adrian Hunter <adrian.hunter@intel.com>, Al Grant <al.grant@arm.com>, 
  Paschalis Mpeis <paschalis.mpeis@arm.com>, Amir Ayupov <aaupov@fb.com>
 Cc: linux-arm-kernel@lists.infradead.org, coresight@lists.linaro.org, 
- linux-perf-users@vger.kernel.org, Leo Yan <leo.yan@linux.dev>
+ linux-perf-users@vger.kernel.org
 X-Mailer: b4 0.14.2
-X-Developer-Signature: v=1; a=ed25519-sha256; t=1779814822; l=5883;
+X-Developer-Signature: v=1; a=ed25519-sha256; t=1779814822; l=6359;
  i=leo.yan@arm.com; s=20250604; h=from:subject:message-id;
- bh=zGujfEFKWe0VzZgvSGUYUIWft4UQWCHlLiz2Rwf3q6A=;
- b=quZUYDw8aDi8JRb3RMHLr8NURo6xn3IDC+/CcgmGT3ByUfQJl9os9A5BtpLQS+HOLtp0aMouh
- /ipB5v45emDCIlibfRcHl1hwMSI7YTJpo8dJJBxoylauFYwAqFQannN
+ bh=7WlkOoaE/RMqjgbj6G1MbXEsmIn23jDaiZiX8j542bI=;
+ b=YIbR2VfgZ7s5gODkXaxRPPzhT9ryH1uDOX8j/3Ysscp8o3Yvt/mudI7IlYHcedGnbATow3UjY
+ VVCq6HaAqx/BlwP4170dTfUb79F0uF+WikErwnLZ6RhYY1U3FqiM0OG
 X-Developer-Key: i=leo.yan@arm.com; a=ed25519;
  pk=k4BaDbvkCXzBFA7Nw184KHGP5thju8lKqJYIrOWxDhI=
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260526_100046_992964_3592B802 
-X-CRM114-Status: GOOD (  18.87  )
+X-CRM114-CacheID: sfid-20260526_100053_918932_E38F523B 
+X-CRM114-Status: GOOD (  13.13  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -85,169 +84,272 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-From: Leo Yan <leo.yan@linaro.org>
+Add a shell test for synthesized callchains from Arm CoreSight trace.
+The test runs only on arm64 systems with cs_etm event and gcc available.
 
-CS ETM already records branches into the thread stack, but instruction
-samples do not carry synthesized callchains. It misses to support the
-callchain and no output with the itrace option 'g'.
-
-Allocate a callchain buffer per queue and use thread_stack__sample()
-when synthesizing instruction samples. Advertise PERF_SAMPLE_CALLCHAIN
-on the synthetic instruction event.
-
-Allocate the callchain stack with one more entry than requested, as the
-first entry is reserved for storing context information.
+Build a small test program for syscall, record them with CoreSight trace
+data, and decode with itrace callchain synthesis enabled. Verify that
+the push and pop callchain.
 
 After:
 
-  perf script --itrace=g16l64i100
+  perf test 150 -vvv
 
-  callchain_test    9187 [002] 599611.826599:          1 instructions:
-              aaaae3ed0774 do_svc+0xc (/home/kernel/leoy/test_cs_callchain/callchain_test)
-              aaaae3ed0798 print+0xc (/home/kernel/leoy/test_cs_callchain/callchain_test)
-              aaaae3ed07b0 foo+0xc (/home/kernel/leoy/test_cs_callchain/callchain_test)
-              aaaae3ed07c8 main+0xc (/home/kernel/leoy/test_cs_callchain/callchain_test)
-              ffff8331225c __libc_start_call_main+0x7c (/usr/lib/aarch64-linux-gnu/libc.so.6)
-              ffff8331233c call_init+0x9c (inlined)
-              ffff8331233c __libc_start_main_impl+0x9c (inlined)
-              aaaae3ed0670 _start+0x30 (/home/kernel/leoy/test_cs_callchain/callchain_test)
+  150: Check Arm CoreSight synthesized callchain:
+  --- start ---
+  test child forked, pid 13528
+  Test callchain push: PASS
+  Test callchain pop: PASS
+  ---- end(0) ----
+  150: Check Arm CoreSight synthesized callchain                       : Ok
 
-Signed-off-by: Leo Yan <leo.yan@linaro.org>
+Assisted-by: Codex:GPT-5.5
 Signed-off-by: Leo Yan <leo.yan@arm.com>
 ---
- tools/perf/util/cs-etm.c | 49 +++++++++++++++++++++++++++++++++++++++++++++++-
- 1 file changed, 48 insertions(+), 1 deletion(-)
+ .../tests/shell/test_arm_coresight_callchain.sh    | 235 +++++++++++++++++++++
+ 1 file changed, 235 insertions(+)
 
-diff --git a/tools/perf/util/cs-etm.c b/tools/perf/util/cs-etm.c
-index 8d98e772ecb307381b5ed1b4bbc4056e8779b261..90e0beb910156093d8bd0f320bb0210aca95dd26 100644
---- a/tools/perf/util/cs-etm.c
-+++ b/tools/perf/util/cs-etm.c
-@@ -17,6 +17,7 @@
- #include <stdlib.h>
- 
- #include "auxtrace.h"
-+#include "callchain.h"
- #include "color.h"
- #include "cs-etm.h"
- #include "cs-etm-decoder/cs-etm-decoder.h"
-@@ -85,6 +86,7 @@ struct cs_etm_auxtrace {
- struct cs_etm_traceid_queue {
- 	u8 trace_chan_id;
- 	u64 period_instructions;
-+	u64 kernel_start;
- 	union perf_event *event_buf;
- 	struct thread *thread;
- 	struct thread *prev_packet_thread;
-@@ -92,6 +94,7 @@ struct cs_etm_traceid_queue {
- 	ocsd_ex_level el;
- 	unsigned int br_stack_sz;
- 	struct branch_stack *last_branch;
-+	struct ip_callchain *callchain;
- 	struct cs_etm_packet *prev_packet;
- 	struct cs_etm_packet *packet;
- 	struct cs_etm_packet_queue packet_queue;
-@@ -640,6 +643,16 @@ static int cs_etm__init_traceid_queue(struct cs_etm_queue *etmq,
- 		tidq->br_stack_sz = etm->synth_opts.last_branch_sz;
- 	}
- 
-+	if (etm->synth_opts.callchain) {
-+		size_t sz = sizeof(struct ip_callchain);
+diff --git a/tools/perf/tests/shell/test_arm_coresight_callchain.sh b/tools/perf/tests/shell/test_arm_coresight_callchain.sh
+new file mode 100755
+index 0000000000000000000000000000000000000000..0e5a5d1129ae7d34f8e0c5942fb62d27db3e862d
+--- /dev/null
++++ b/tools/perf/tests/shell/test_arm_coresight_callchain.sh
+@@ -0,0 +1,235 @@
++#!/bin/bash
++# Check Arm CoreSight synthesized callchain (exclusive)
++# SPDX-License-Identifier: GPL-2.0
 +
-+		/* Add 1 to callchain_sz for callchain context */
-+		sz += (etm->synth_opts.callchain_sz + 1) * sizeof(u64);
-+		tidq->callchain = zalloc(sz);
-+		if (!tidq->callchain)
-+			goto out_free;
++glb_err=1
++
++if ! tmpdir=$(mktemp -d /tmp/perf-cs-callchain-test.XXXXXX); then
++	echo "mktemp failed"
++	exit 1
++fi
++
++cleanup_files()
++{
++	rm -rf "$tmpdir"
++}
++
++trap cleanup_files EXIT
++trap 'cleanup_files; exit $glb_err' TERM INT
++
++skip_if_system_is_not_ready()
++{
++	[ "$(uname -m)" = "aarch64" ] || {
++		echo "Skip: arm64 only test" >&2
++		return 2
 +	}
 +
- 	tidq->event_buf = malloc(PERF_SAMPLE_MAX_SIZE);
- 	if (!tidq->event_buf)
- 		goto out_free;
-@@ -647,6 +660,7 @@ static int cs_etm__init_traceid_queue(struct cs_etm_queue *etmq,
- 	return 0;
- 
- out_free:
-+	zfree(&tidq->callchain);
- 	zfree(&tidq->last_branch);
- 	zfree(&tidq->prev_packet);
- 	zfree(&tidq->packet);
-@@ -939,6 +953,7 @@ static void cs_etm__free_traceid_queues(struct cs_etm_queue *etmq)
- 		thread__zput(tidq->thread);
- 		thread__zput(tidq->prev_packet_thread);
- 		zfree(&tidq->event_buf);
-+		zfree(&tidq->callchain);
- 		zfree(&tidq->last_branch);
- 		zfree(&tidq->prev_packet);
- 		zfree(&tidq->packet);
-@@ -1431,6 +1446,7 @@ static void cs_etm__set_thread(struct cs_etm_queue *etmq,
- 		tidq->thread = machine__idle_thread(machine);
- 
- 	tidq->el = el;
-+	tidq->kernel_start = machine__kernel_start(machine);
- }
- 
- int cs_etm__etmq_set_tid_el(struct cs_etm_queue *etmq, pid_t tid,
-@@ -1561,6 +1577,25 @@ static int cs_etm__synth_instruction_sample(struct cs_etm_queue *etmq,
- 		sample.branch_stack = tidq->last_branch;
- 	}
- 
-+	if (etm->synth_opts.callchain) {
-+		if (tidq->kernel_start)
-+			thread_stack__sample(tidq->thread, tidq->packet->cpu,
-+					     tidq->callchain,
-+					     etm->synth_opts.callchain_sz + 1,
-+					     sample.ip, tidq->kernel_start);
-+		else
-+			/*
-+			 * Clear the callchain when the kernel start address is
-+			 * not available yet. The empty callchain can then be
-+			 * consumed by cs_etm__inject_event().
-+			 */
-+			memset(tidq->callchain, 0,
-+			       sizeof(struct ip_callchain) +
-+			       (etm->synth_opts.callchain_sz + 1) * sizeof(u64));
-+
-+		sample.callchain = tidq->callchain;
++	perf list | grep -q 'cs_etm//' || {
++		echo "Skip: cs_etm event is not available" >&2
++		return 2
 +	}
 +
- 	if (etm->synth_opts.inject) {
- 		ret = cs_etm__inject_event(etm, event, &sample,
- 					   etm->instructions_sample_type);
-@@ -1724,6 +1759,9 @@ static int cs_etm__synth_events(struct cs_etm_auxtrace *etm,
- 		attr.branch_sample_type |= PERF_SAMPLE_BRANCH_HW_INDEX;
- 	}
- 
-+	if (etm->synth_opts.callchain)
-+		attr.sample_type |= PERF_SAMPLE_CALLCHAIN;
-+
- 	if (etm->synth_opts.instructions) {
- 		attr.config = PERF_COUNT_HW_INSTRUCTIONS;
- 		attr.sample_period = etm->synth_opts.period;
-@@ -3457,6 +3495,14 @@ int cs_etm__process_auxtrace_info_full(union perf_event *event,
- 					PERF_IP_FLAG_TRACE_BEGIN |
- 					PERF_IP_FLAG_TRACE_END;
- 
-+	if (etm->synth_opts.callchain && !symbol_conf.use_callchain) {
-+		symbol_conf.use_callchain = true;
-+		if (callchain_register_param(&callchain_param) < 0) {
-+			symbol_conf.use_callchain = false;
-+			etm->synth_opts.callchain = false;
-+		}
++	command -v gcc >/dev/null 2>&1 || {
++		echo "Skip: gcc is not available" >&2
++		return 2
 +	}
 +
- 	etm->session = session;
- 
- 	etm->num_cpu = num_cpu;
-@@ -3508,7 +3554,8 @@ int cs_etm__process_auxtrace_info_full(union perf_event *event,
- 	}
- 
- 	etm->use_thread_stack = etm->synth_opts.thread_stack ||
--				etm->synth_opts.last_branch;
-+				etm->synth_opts.last_branch ||
-+				etm->synth_opts.callchain;
- 
- 	err = cs_etm__synth_events(etm, session);
- 	if (err)
++	return 0
++}
++
++build_test_program()
++{
++	local src=$1
++	local bin=$2
++
++	gcc -g -O0 -o "$bin" "$src"
++}
++
++record_trace()
++{
++	local bin=$1
++	local data=$2
++	local script=$3
++
++	perf record -m ,32M -o "$data" --per-thread -e cs_etm// -- "$bin" >/dev/null 2>&1 &&
++	perf script --itrace=g16i10il64 -i "$data" > "$script"
++}
++
++check_regex()
++{
++	local name=$1
++	local regex=$2
++	local script=$3
++
++	if grep -Pzo "$regex" "$script" >/dev/null; then
++		echo "Test $name: PASS"
++		return 0
++	else
++		echo "Test $name: FAIL"
++		return 1
++	fi
++}
++
++run_test()
++{
++	local name=$1
++	local src=$tmpdir/$name.S
++	local bin=$tmpdir/$name
++	local data=$tmpdir/perf.$name.data
++	local script=$tmpdir/perf.$name.script
++	local regex
++
++	"${name}_src" "$src"
++
++	if ! build_test_program "$src" "$bin"; then
++		echo "$name: build failed"
++		return
++	fi
++
++	if ! record_trace "$bin" "$data" "$script"; then
++		echo "$name: perf record/script failed"
++		return
++	fi
++
++	regex=$("${name}_push_regex")
++	check_regex "${name} push" "$regex" "$script" || return
++
++	regex=$("${name}_pop_regex")
++	check_regex "${name} pop" "$regex" "$script" || return
++
++	glb_err=0
++}
++
++callchain_src()
++{
++	cat > "$1" <<'EOF'
++/* callchain.S */
++	.text
++
++	.global do_svc
++	.type do_svc, %function
++do_svc:
++	stp	x29, x30, [sp, #-16]!
++	mov	x29, sp
++
++	mov	x0, #1
++	adr	x1, msg
++	mov	x2, #23
++	mov	x8, #64
++
++	nop
++	nop	// Pad nops for 9 insns before svc
++
++	b	1f
++1:
++	svc	#0
++
++	nop
++	nop
++	nop
++	nop
++	nop
++	nop
++	nop
++	nop	// Pad nops for 10 insns after svc
++
++	ldp	x29, x30, [sp], #16
++	ret
++	.size do_svc, .-do_svc
++
++	.global foo
++	.type foo, %function
++foo:
++	stp	x29, x30, [sp, #-16]!
++	mov	x29, sp
++	nop
++	nop
++	nop
++	nop
++	nop
++	nop
++	nop	// Pad nops for 9 insns before call
++
++	bl	do_svc
++
++	nop
++	nop
++	nop
++	nop
++	nop
++	nop
++	nop
++	nop	// Pad nops for 10 insns after call
++
++	ldp	x29, x30, [sp], #16
++	ret
++	.size foo, .-foo
++
++	.global main
++	.type main, %function
++main:
++	stp	x29, x30, [sp, #-16]!
++	mov	x29, sp
++
++	bl	foo
++
++	mov	w0, #0
++	ldp	x29, x30, [sp], #16
++	.size main, .-main
++	ret
++
++	.section .rodata
++msg:
++	.asciz	"hello from svc syscall\n"
++EOF
++}
++
++callchain_push_regex()
++{
++	printf '%s' \
++'callchain[[:space:]]+[0-9]+ \[[0-9]+\][[:space:]]+10 instructions:[[:space:]]*\n'\
++'[[:space:]]+[[:xdigit:]]+ foo\+0x[[:xdigit:]]+ \(.*/callchain\)\n'\
++'[[:space:]]+[[:xdigit:]]+ main\+0xc \(.*/callchain\)\n'\
++'([[:space:]]+[[:xdigit:]]+ .*\n)*'\
++'\n'\
++'callchain[[:space:]]+[0-9]+ \[[0-9]+\][[:space:]]+10 instructions:[[:space:]]*\n'\
++'[[:space:]]+[[:xdigit:]]+ do_svc\+0x[[:xdigit:]]+ \(.*/callchain\)\n'\
++'[[:space:]]+[[:xdigit:]]+ foo\+0x28 \(.*/callchain\)\n'\
++'[[:space:]]+[[:xdigit:]]+ main\+0xc \(.*/callchain\)\n'\
++'([[:space:]]+[[:xdigit:]]+ .*\n)*'\
++'\n'\
++'callchain[[:space:]]+[0-9]+ \[[0-9]+\][[:space:]]+10 instructions:[[:space:]]*\n'\
++'[[:space:]]+[[:xdigit:]]+ (vectors|el.*_64_sync|tramp_vectors)\+0x[[:xdigit:]]+ \(\[kernel\.kallsyms\]\)\n'\
++'[[:space:]]+[[:xdigit:]]+ do_svc\+0x28 \(.*/callchain\)\n'\
++'[[:space:]]+[[:xdigit:]]+ foo\+0x28 \(.*/callchain\)\n'\
++'[[:space:]]+[[:xdigit:]]+ main\+0xc \(.*/callchain\)\n'\
++'([[:space:]]+[[:xdigit:]]+ .*\n)*'
++}
++
++callchain_pop_regex()
++{
++	printf '%s' \
++'callchain[[:space:]]+[0-9]+ \[[0-9]+\][[:space:]]+10 instructions:[[:space:]]*\n'\
++'[[:space:]]+[[:xdigit:]]+ (ret_to_user|tramp_exit)\+0x[[:xdigit:]]+ \(\[kernel\.kallsyms\]\)\n'\
++'[[:space:]]+[[:xdigit:]]+ do_svc\+0x28 \(.*/callchain\)\n'\
++'[[:space:]]+[[:xdigit:]]+ foo\+0x28 \(.*/callchain\)\n'\
++'[[:space:]]+[[:xdigit:]]+ main\+0xc \(.*/callchain\)\n'\
++'([[:space:]]+[[:xdigit:]]+ .*\n)*'\
++'\n'\
++'callchain[[:space:]]+[0-9]+ \[[0-9]+\][[:space:]]+10 instructions:[[:space:]]*\n'\
++'[[:space:]]+[[:xdigit:]]+ do_svc\+0x[[:xdigit:]]+ \(.*/callchain\)\n'\
++'[[:space:]]+[[:xdigit:]]+ foo\+0x28 \(.*/callchain\)\n'\
++'[[:space:]]+[[:xdigit:]]+ main\+0xc \(.*/callchain\)\n' \
++'([[:space:]]+[[:xdigit:]]+ .*\n)*'\
++'\n'\
++'callchain[[:space:]]+[0-9]+ \[[0-9]+\][[:space:]]+10 instructions:[[:space:]]*\n'\
++'[[:space:]]+[[:xdigit:]]+ foo\+0x[[:xdigit:]]+ \(.*/callchain\)\n'\
++'[[:space:]]+[[:xdigit:]]+ main\+0xc \(.*/callchain\)\n'\
++'([[:space:]]+[[:xdigit:]]+ .*\n)*'
++}
++
++skip_if_system_is_not_ready || exit 2
++
++run_test "callchain"
++
++exit $glb_err
 
 -- 
 2.34.1
