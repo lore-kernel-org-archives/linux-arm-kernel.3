@@ -4,48 +4,49 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 4DB67CD5BD0
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 26 May 2026 11:18:27 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id DEB8ACD5BB1
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 26 May 2026 11:18:28 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:References
 	:Message-Id:Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:
 	From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=psIx14i0HOMPTcNRbiuxKnGv1CcOZrRyO12qfssHmzA=; b=jyuKBHyvgQQ0/cS1T7kLay+Cvz
-	x28ZMXA/9auKswu3Szz/kdOXyXHW0k+WMV9KkyJ3Pj5AKp3wmU7hGC4wWEWda0FJ2FKqavhT0mbdP
-	rBPRy7sEK3rzlAarrDrrq/rOx50yuqXphGwG8D44CgwP1U+o5hE1r5mKH5HOOp9ytY7OrdUGUn1XP
-	4U3xl5lWubId9rTSOnr3/0HtKVdttstUh5/erHWyMwn3S8XXp7qw0Vg4ylKX8WDlcNMCEsRF/j6rp
-	RaJ3jWxJRFOwnVFZdW9SApu1Bk8TNVzIcVHxqCA6gPm5sysEnFHFeeDanRtYOlg4uV5R/4bmpR7dT
-	iPkE8Xkw==;
+	bh=J2Od3Visigv+Mu5zzSkNojGtp9S2MPzs+b1nypHMhNE=; b=dio5MFP/5hVWMwHudbxjp7inqz
+	LCu5pMtA3ECvgWiaizlY3v+QrHEwM/mz0JJXAgU2v/Ux4Dc5yJh/mPV6mOXPrM7BcWqpRA0PqEQOL
+	HYVEQ9zidBkpOQg+iplN+Vfy99U/dEaW9h8LSKO76+6w84Yii7Ibi8AcFGshgvIsnYJJLf2GRuW6s
+	2+xMHxc1uigs5GGasK3eUpROrYYYXVsD6LZK7f/0qKAR8SsPNEnCrRVdBDtanNp5Sl+GmIRqbxZfD
+	CGB8pSOJ/yX9txOKIm9Tq3xYw3Cr/wA8pe38mpp/uq6u3XeLum5d726cI3svxh5WvnRKfdIaDJhbK
+	XOk2eHTQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wRpng-00000001l1r-1EXF;
-	Tue, 26 May 2026 11:18:20 +0000
+	id 1wRpnh-00000001l3C-1KDQ;
+	Tue, 26 May 2026 11:18:21 +0000
 Received: from foss.arm.com ([217.140.110.172])
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wRpnX-00000001ksK-0n7W
+	id 1wRpnd-00000001kyU-0XhM
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 26 May 2026 11:18:12 +0000
+	Tue, 26 May 2026 11:18:18 +0000
 Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
-	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id 578DC169C;
-	Tue, 26 May 2026 04:18:05 -0700 (PDT)
+	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id 86AA516F2;
+	Tue, 26 May 2026 04:18:10 -0700 (PDT)
 Received: from localhost.localdomain (e123572-lin.cambridge.arm.com [10.1.194.54])
-	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id 89ACC3F86F;
-	Tue, 26 May 2026 04:18:05 -0700 (PDT)
+	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id BAA1E3F7D8;
+	Tue, 26 May 2026 04:18:10 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=simple/simple; d=arm.com; s=foss;
-	t=1779794290; bh=3MEEK8v1bfnLhoM5ox+LZlMLIGtsmSp29MPld+CwMKk=;
+	t=1779794295; bh=fwOalTBtBiQy7yflhfOV/Fg5vwBSEwk71GDTKgEw42M=;
 	h=From:Date:Subject:References:In-Reply-To:To:Cc:From;
-	b=Tot9zraTJURJnw5N2IUpFuIBwE+z/e64lle88HA7J+VCC3fLS1BZsjDjPje3s9gtx
-	 mhTd1/9PtqQp6F5DyId7iaMHMzccT2G30lSwCXvU+hx3AoGw59oDHndFiNxg82f2NJ
-	 PBPHY/gxutAfOHhSVJwJeGW8CS/lQd8p5NIFzRfY=
+	b=WdoT247xqLwcDzKYB5w6TPdxIOv/0hLDrcKqU8ZAHJCGdXfBctoo3NhSKbRnpq0Ug
+	 F/NUOOlXrOb+e0+ob5vMB94B1mOPwSc/16y1H8q+MXP4y8TxN2oiSEAr+nnmxJotaO
+	 o3pLtWLCTfqcm12bllcOL3Qt37kL4HYv4xx4UVeo=
 From: Kevin Brodsky <kevin.brodsky@arm.com>
-Date: Tue, 26 May 2026 12:16:03 +0100
-Subject: [PATCH RFC v8 14/24] mm: kpkeys: Protect vmemmap page tables
+Date: Tue, 26 May 2026 12:16:04 +0100
+Subject: [PATCH RFC v8 15/24] mm: kpkeys: Introduce hook for protecting
+ static page tables
 MIME-Version: 1.0
 Content-Type: text/plain; charset="utf-8"
 Content-Transfer-Encoding: 7bit
-Message-Id: <20260526-kpkeys-v8-14-eaaacdacc67c@arm.com>
+Message-Id: <20260526-kpkeys-v8-15-eaaacdacc67c@arm.com>
 References: <20260526-kpkeys-v8-0-eaaacdacc67c@arm.com>
 In-Reply-To: <20260526-kpkeys-v8-0-eaaacdacc67c@arm.com>
 To: linux-hardening@vger.kernel.org
@@ -71,16 +72,16 @@ Cc: Kevin Brodsky <kevin.brodsky@arm.com>,
  linux-mm@kvack.org, x86@kernel.org, Lorenzo Stoakes <ljs@kernel.org>, 
  Thomas Gleixner <tglx@kernel.org>
 X-Mailer: b4 0.15.2
-X-Developer-Signature: v=1; a=ed25519-sha256; t=1779794212; l=4833;
+X-Developer-Signature: v=1; a=ed25519-sha256; t=1779794212; l=1755;
  i=kevin.brodsky@arm.com; s=20260427; h=from:subject:message-id;
- bh=3MEEK8v1bfnLhoM5ox+LZlMLIGtsmSp29MPld+CwMKk=;
- b=vBG5Zuv3HOVHNsnoNF+3P4kSpu/6WZh/D0smiFfnmmsLBMtBrJLanxEpANJIXWhoUNDd6RFd4
- 54dbwGJva/GDdEXzjpQlmcIJ6UIJcQ3zlP9Q8bFLYiyDlIdC7SVJ/N8
+ bh=fwOalTBtBiQy7yflhfOV/Fg5vwBSEwk71GDTKgEw42M=;
+ b=MMyRKvdFbw5n0x3BHWmzUFGalBCYk15D1iFtFV5PFtnL2Q/OnmlCMdgahosi4QTWrGRCjLb0L
+ zTuUX9EBU6gAFV3rMWNqK2an5ARmHiiZM6pxuyHLuVyTgRogpP4Z0AA
 X-Developer-Key: i=kevin.brodsky@arm.com; a=ed25519;
  pk=N2QG+eJKrvkNovwhhwJhnJ4+ScVfsGCHldmqLfcMTFs=
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260526_041811_360254_D84A44DA 
-X-CRM114-Status: GOOD (  20.45  )
+X-CRM114-CacheID: sfid-20260526_041817_280272_C263EF34 
+X-CRM114-Status: GOOD (  11.58  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -95,147 +96,52 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-When the kpkeys_hardened_pgtables feature is enabled, make sure that
-vmemmap page tables are protected by using:
+The kpkeys_hardened_pgtables infrastructure introduced so far allows
+compatible architectures to protect all page table pages (PTPs)
+allocated at runtime (first via memblock, then the buddy allocator).
+Some PTPs are however required even earlier, before any allocator is
+available. This is typically needed for mapping the kernel image
+itself.
 
-* The standard pagetable_alloc() if the buddy allocator is
-  available, as it already allocates protected memory.
+These PTPs are at least as sensitive as those allocated later on,
+and should be protected by mapping them with the privileged pkey.
+Exactly how these pages are obtained is entirely arch-specific, so
+we introduce a hook to let architectures that implement
+kpkeys_hardened_pgtables do the right thing.
 
-* The memblock-based kpkeys allocator for early allocations.
-
-These allocators are not NUMA-aware, so the page tables may be
-allocated on any node. This could potentially incur some overhead on
-large NUMA systems.
-
-The arm64 hotplug code is also amended to use a matching
-pagetable_free(), ensuring that the pkey is reset when the page
-tables are freed. x86 already uses pagetable_free() on that path.
-
-Unlike in vmemmap_alloc_block(), __GFP_RETRY_MAYFAIL is not used as
-it isn't justified for allocating page tables - this disables the
-OOM and we do not have a fallback if we fail to allocate page
-tables. See previous discussion linked below.
-
-Link: https://lore.kernel.org/all/38d2a358-4146-bfc9-2a4f-68ce02f75c94@suse.cz/
 Signed-off-by: Kevin Brodsky <kevin.brodsky@arm.com>
 ---
+ include/linux/kpkeys.h        | 4 ++++
+ mm/kpkeys_hardened_pgtables.c | 1 +
+ 2 files changed, 5 insertions(+)
 
-This is a minimal patch to protect vmemmmap page tables. More work
-may be needed here:
-
-* Restoring NUMA awareness
-
-* Moving the arm64 change to a separate commit?
-
-* General refactoring of how these page tables are allocated: since
-  we are not using the standard per-level functions (e.g.
-  pmd_alloc()), we are not calling pagetable_*_ctor() or
-  ptdesc_set_kernel(). [Maybe that doesn't matter because these page
-  tables can only be freed via vmemmap_free()?]
----
- arch/arm64/mm/mmu.c |  2 +-
- mm/sparse-vmemmap.c | 33 +++++++++++++++++++++++++--------
- 2 files changed, 26 insertions(+), 9 deletions(-)
-
-diff --git a/arch/arm64/mm/mmu.c b/arch/arm64/mm/mmu.c
-index 493310cf0486..dc69553d6326 100644
---- a/arch/arm64/mm/mmu.c
-+++ b/arch/arm64/mm/mmu.c
-@@ -1441,7 +1441,7 @@ static void free_hotplug_page_range(struct page *page, size_t size,
+diff --git a/include/linux/kpkeys.h b/include/linux/kpkeys.h
+index 0e246354e95c..c0ae7e1fc382 100644
+--- a/include/linux/kpkeys.h
++++ b/include/linux/kpkeys.h
+@@ -146,6 +146,10 @@ void kpkeys_hardened_pgtables_init(void);
  
- static void free_hotplug_pgtable_page(struct page *page)
- {
--	free_hotplug_page_range(page, PAGE_SIZE, NULL);
-+	pagetable_free(page_ptdesc(page));
+ phys_addr_t kpkeys_physmem_pgtable_alloc(void);
+ 
++#ifndef arch_kpkeys_protect_static_pgtables
++static inline void arch_kpkeys_protect_static_pgtables(void) {}
++#endif
++
+ #else /* CONFIG_KPKEYS_HARDENED_PGTABLES */
+ 
+ static inline bool kpkeys_hardened_pgtables_enabled(void)
+diff --git a/mm/kpkeys_hardened_pgtables.c b/mm/kpkeys_hardened_pgtables.c
+index 13af4930db3d..269de610d744 100644
+--- a/mm/kpkeys_hardened_pgtables.c
++++ b/mm/kpkeys_hardened_pgtables.c
+@@ -66,6 +66,7 @@ void __init kpkeys_hardened_pgtables_init(void)
+ 	static_branch_enable(&kpkeys_hardened_pgtables_key);
+ 
+ 	ppa_finalize();
++	arch_kpkeys_protect_static_pgtables();
  }
  
- static bool pgtable_range_aligned(unsigned long start, unsigned long end,
-diff --git a/mm/sparse-vmemmap.c b/mm/sparse-vmemmap.c
-index 6eadb9d116e4..c93f5b9f4a26 100644
---- a/mm/sparse-vmemmap.c
-+++ b/mm/sparse-vmemmap.c
-@@ -184,13 +184,29 @@ pte_t * __meminit vmemmap_pte_populate(pmd_t *pmd, unsigned long addr, int node,
- 	return pte;
- }
- 
--static void * __meminit vmemmap_alloc_block_zero(unsigned long size, int node)
-+static void * __meminit vmemmap_alloc_pgtable(int node)
- {
--	void *p = vmemmap_alloc_block(size, node);
-+	void *p;
-+
-+	if (slab_is_available()) {
-+		gfp_t gfp = GFP_KERNEL | __GFP_ZERO;
-+		struct ptdesc *ptdesc = pagetable_alloc(gfp, 0);
-+
-+		return ptdesc ? ptdesc_address(ptdesc) : NULL;
-+	}
-+
-+	if (kpkeys_hardened_pgtables_early_enabled()) {
-+		phys_addr_t phys = kpkeys_physmem_pgtable_alloc();
-+
-+		p = phys ? phys_to_virt(phys) : NULL;
-+	} else {
-+		p = __earlyonly_bootmem_alloc(node, PAGE_SIZE, PAGE_SIZE,
-+					      __pa(MAX_DMA_ADDRESS));
-+	}
- 
- 	if (!p)
- 		return NULL;
--	memset(p, 0, size);
-+	memset(p, 0, PAGE_SIZE);
- 
- 	return p;
- }
-@@ -199,7 +215,7 @@ pmd_t * __meminit vmemmap_pmd_populate(pud_t *pud, unsigned long addr, int node)
- {
- 	pmd_t *pmd = pmd_offset(pud, addr);
- 	if (pmd_none(*pmd)) {
--		void *p = vmemmap_alloc_block_zero(PAGE_SIZE, node);
-+		void *p = vmemmap_alloc_pgtable(node);
- 		if (!p)
- 			return NULL;
- 		kernel_pte_init(p);
-@@ -212,7 +228,7 @@ pud_t * __meminit vmemmap_pud_populate(p4d_t *p4d, unsigned long addr, int node)
- {
- 	pud_t *pud = pud_offset(p4d, addr);
- 	if (pud_none(*pud)) {
--		void *p = vmemmap_alloc_block_zero(PAGE_SIZE, node);
-+		void *p = vmemmap_alloc_pgtable(node);
- 		if (!p)
- 			return NULL;
- 		pmd_init(p);
-@@ -225,7 +241,7 @@ p4d_t * __meminit vmemmap_p4d_populate(pgd_t *pgd, unsigned long addr, int node)
- {
- 	p4d_t *p4d = p4d_offset(pgd, addr);
- 	if (p4d_none(*p4d)) {
--		void *p = vmemmap_alloc_block_zero(PAGE_SIZE, node);
-+		void *p = vmemmap_alloc_pgtable(node);
- 		if (!p)
- 			return NULL;
- 		pud_init(p);
-@@ -238,7 +254,7 @@ pgd_t * __meminit vmemmap_pgd_populate(unsigned long addr, int node)
- {
- 	pgd_t *pgd = pgd_offset_k(addr);
- 	if (pgd_none(*pgd)) {
--		void *p = vmemmap_alloc_block_zero(PAGE_SIZE, node);
-+		void *p = vmemmap_alloc_pgtable(node);
- 		if (!p)
- 			return NULL;
- 		pgd_populate_kernel(addr, pgd, p);
-@@ -351,10 +367,11 @@ static __meminit struct page *vmemmap_get_tail(unsigned int order, struct zone *
- 	 * memmap_init().
- 	 */
- 
--	p = vmemmap_alloc_block_zero(PAGE_SIZE, node);
-+	p = vmemmap_alloc_block(PAGE_SIZE, node);
- 	if (!p)
- 		return NULL;
- 
-+	memset(p, 0, PAGE_SIZE);
- 	tail = virt_to_page(p);
- 	zone->vmemmap_tails[idx] = tail;
- 
+ /*
 
 -- 
 2.51.2
