@@ -4,116 +4,75 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 2AC28CD5BB4
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 26 May 2026 06:11:03 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id BE1EBCD5BCF
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 26 May 2026 06:12:40 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:References:Cc:To:From:Subject:MIME-Version:Date:
-	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=fZ2JvegKZaO+3ovjrbUf5OlnVEXr0Gp72qNjLJy4bCQ=; b=jhmj2v7seEy6T9qsM962/TSiwZ
-	dlodnrk8S2IOMZL14JpzFXzXjsfaLgPHizO6qhNPfFCF1DrOg5cMeLomt/ouOjPSRZ7tNRghE98/J
-	dYTMncTmEryEiCqca3tLro3kD5M/vHqlbZW9mp2U4tJ+1/tzYBPR3vORMC+nOEMfAphKHlE8C6CrA
-	y2/63QGjRrPKFSpif9zqwDGSBPcn60HXYjqlvBWaZD/H6mxFWKHLqE11yPpbizSJ2ePThv4RmpniY
-	8ylyZBRksCSLcidoe0x/KEZFZihaOLHb2LhshKqbW5FfHM7ZyZ4YxkkASdlzcWZAuZG4512ovdC1P
-	vhQVzt9A==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=C4Q6K7bbOoVpU1MwP5UtVcbQqMSK8GB1uvqgVWAyIgA=; b=KLVvdZqWdzbWKPTfXcmOPIlejg
+	AGNjBT0b8+qzAk5gPDLj6QsmqGi1YChsPE+TOepq9nzK28Nh2WcifRdyzWyDSbYxuW31j3hsb55Jj
+	rVWDPyyCX2aTj3twkBP3XUKBQWVeQkm6/1+gciPmI6MTgH4pXH4OpwzLESd1jaRGNuuQ0qNhf9jUw
+	R+oV1507iV6yuv81LNIBGnQdGq8YZocC2iPp5LNL28NHjI1eyKDgopQSKfbNzhyCf0e7auQ+JAS4y
+	iWkWn/7VFCOgETDh3Bo5+YYDJKPsuLtesqOvGO+QNQb9Xdz8M740cVEz/XQUGVYSLNb/MTgDqVxrb
+	WyXcIlTA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wRl0B-000000018Rd-2Nvi;
-	Tue, 26 May 2026 06:10:55 +0000
-Received: from tor.source.kernel.org ([2600:3c04:e001:324:0:1991:8:25])
+	id 1wRl1l-000000018ek-0Stx;
+	Tue, 26 May 2026 06:12:33 +0000
+Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wRl09-000000018RE-3GTe;
-	Tue, 26 May 2026 06:10:53 +0000
+	id 1wRl1h-000000018e0-2GuW
+	for linux-arm-kernel@lists.infradead.org;
+	Tue, 26 May 2026 06:12:30 +0000
 Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
-	by tor.source.kernel.org (Postfix) with ESMTP id 90ABC60018;
-	Tue, 26 May 2026 06:10:52 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id EAF301F000E9;
-	Tue, 26 May 2026 06:10:46 +0000 (UTC)
+	by sea.source.kernel.org (Postfix) with ESMTP id 77E7A437B8;
+	Tue, 26 May 2026 06:12:28 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id A3D341F000E9;
+	Tue, 26 May 2026 06:12:27 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1779775852;
-	bh=fZ2JvegKZaO+3ovjrbUf5OlnVEXr0Gp72qNjLJy4bCQ=;
-	h=Date:Subject:From:To:Cc:References:In-Reply-To;
-	b=iAU1/90pq/W//r5pfIGVyA0PZ2dOG6vjfZDBdOBmd8gFSW0z2iU7/FXaC1CoBVNA+
-	 r+sH4MqQEL3QngTzuuTeV5/1DjjR0qNU8wUwfkP+frjAI/ABEL59A5pP8OYMraOVQ6
-	 bM/6Y1fO7cke/z8ExI7qcSeq4zzyDga1F2yl7RWKUKXTgE2V7dOHcgtuzUzP/Oy/aE
-	 Wc8vkbZ4WzyHJiLm2ASnaw3HNU61OCty8+5PcoaNaXDcs4UwJqAsD+Fau5UJTbVG0H
-	 x+4TScUXlu/Qt9l+lh3Hh60ykf+FNxVTjLFEHxtmXKmGFbBa0EqJnBHLt0ijtPXQc8
-	 ESJeWDKDNZFjA==
-Message-ID: <2301c829-5203-47ea-bc26-09f9e3b459a4@kernel.org>
-Date: Tue, 26 May 2026 08:10:43 +0200
-MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH v23 5/8] dt-bindings: display: bridge: Add Cadence
- MHDP8501
+	s=k20260515; t=1779775948;
+	bh=C4Q6K7bbOoVpU1MwP5UtVcbQqMSK8GB1uvqgVWAyIgA=;
+	h=Date:From:To:Cc:Subject:References:In-Reply-To;
+	b=PaNxY70+YMonEMLTIazGO/O55U8XOU9hI8Sd6x+lIwRz+krY7I2MIFVP2TtWHQRk6
+	 oLs6o/MlXIoueCpSrWzl4/TP61gPF+HN/xvzZ2vYpOcuWB0Dm95zHR9huRUsF9V+Hf
+	 YnTyB9za+3uCaHbFr+R2wcRewXry6G17iicxgZkjKeAXoiSONhiO8kf+vbI4ljsIDR
+	 1fy3F+EBJAgg0t5T5mg4+PsdSDHbAEaAyRvnVetK1IwZ8UztJCg6MOoYJa1oLvRi7m
+	 9dhRl/AKdtuVr7cjGvsAMXrJhl9YyIGQK1PcdmnOV19LefKY14Nezbe0MAE8vRqjtb
+	 Xzj2xjTt805IA==
+Date: Tue, 26 May 2026 08:12:26 +0200
 From: Krzysztof Kozlowski <krzk@kernel.org>
-To: Laurentiu Palcu <laurentiu.palcu@oss.nxp.com>
-Cc: Andrzej Hajda <andrzej.hajda@intel.com>,
- Neil Armstrong <neil.armstrong@linaro.org>, Robert Foss <rfoss@kernel.org>,
- Laurent Pinchart <Laurent.pinchart@ideasonboard.com>,
- Jonas Karlman <jonas@kwiboo.se>, Jernej Skrabec <jernej.skrabec@gmail.com>,
- Luca Ceresoli <luca.ceresoli@bootlin.com>,
- Maarten Lankhorst <maarten.lankhorst@linux.intel.com>,
- Maxime Ripard <mripard@kernel.org>, Thomas Zimmermann <tzimmermann@suse.de>,
- David Airlie <airlied@gmail.com>, Simona Vetter <simona@ffwll.ch>,
- Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>,
- Conor Dooley <conor+dt@kernel.org>, dri-devel@lists.freedesktop.org,
- devicetree@vger.kernel.org, linux-kernel@vger.kernel.org,
- linux-phy@lists.infradead.org, imx@lists.linux.dev,
- linux-arm-kernel@lists.infradead.org, linux@ew.tq-group.com,
- Alexander Stein <alexander.stein@ew.tq-group.com>,
- Ying Liu <victor.liu@nxp.com>
-References: <20260519-dcss-hdmi-upstreaming-v23-0-5615524a9c63@oss.nxp.com>
- <20260519-dcss-hdmi-upstreaming-v23-5-5615524a9c63@oss.nxp.com>
- <20260526-golden-bobcat-of-aurora-fd1fef@quoll>
-Content-Language: en-US
-Autocrypt: addr=krzk@kernel.org; keydata=
- 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 a/A=
-In-Reply-To: <20260526-golden-bobcat-of-aurora-fd1fef@quoll>
-Content-Type: text/plain; charset=UTF-8
-Content-Transfer-Encoding: 7bit
+To: Vijayanand Jitta <vijayanand.jitta@oss.qualcomm.com>
+Cc: Nipun Gupta <nipun.gupta@amd.com>, 
+	Nikhil Agarwal <nikhil.agarwal@amd.com>, Joerg Roedel <joro@8bytes.org>, Will Deacon <will@kernel.org>, 
+	Robin Murphy <robin.murphy@arm.com>, Marc Zyngier <maz@kernel.org>, 
+	Lorenzo Pieralisi <lpieralisi@kernel.org>, Thomas Gleixner <tglx@kernel.org>, 
+	Saravana Kannan <saravanak@kernel.org>, Richard Zhu <hongxing.zhu@nxp.com>, 
+	Lucas Stach <l.stach@pengutronix.de>, Krzysztof =?utf-8?Q?Wilczy=C5=84ski?= <kwilczynski@kernel.org>, 
+	Manivannan Sadhasivam <mani@kernel.org>, Bjorn Helgaas <bhelgaas@google.com>, Frank Li <Frank.Li@nxp.com>, 
+	Sascha Hauer <s.hauer@pengutronix.de>, Pengutronix Kernel Team <kernel@pengutronix.de>, 
+	Fabio Estevam <festevam@gmail.com>, Juergen Gross <jgross@suse.com>, 
+	Stefano Stabellini <sstabellini@kernel.org>, Oleksandr Tyshchenko <oleksandr_tyshchenko@epam.com>, 
+	Dmitry Baryshkov <dmitry.baryshkov@oss.qualcomm.com>, Konrad Dybcio <konrad.dybcio@oss.qualcomm.com>, 
+	Bjorn Andersson <bjorn.andersson@oss.qualcomm.com>, Rob Herring <robh@kernel.org>, 
+	Conor Dooley <conor+dt@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>, 
+	Prakash Gupta <prakash.gupta@oss.qualcomm.com>, Vikash Garodia <vikash.garodia@oss.qualcomm.com>, 
+	linux-kernel@vger.kernel.org, iommu@lists.linux.dev, linux-arm-kernel@lists.infradead.org, 
+	devicetree@vger.kernel.org, linux-pci@vger.kernel.org, imx@lists.linux.dev, 
+	xen-devel@lists.xenproject.org, linux-arm-msm@vger.kernel.org, 
+	Charan Teja Kalla <charan.kalla@oss.qualcomm.com>
+Subject: Re: [PATCH v15 0/3] of: parsing of multi #{iommu,msi}-cells in maps
+Message-ID: <20260526-finicky-crafty-hare-eae27c@quoll>
+References: <20260520-parse_iommu_cells-v15-0-b5f99ad4e7e8@oss.qualcomm.com>
+MIME-Version: 1.0
+Content-Type: text/plain; charset=utf-8
+Content-Disposition: inline
+In-Reply-To: <20260520-parse_iommu_cells-v15-0-b5f99ad4e7e8@oss.qualcomm.com>
+X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
+X-CRM114-CacheID: sfid-20260525_231229_753826_68CFEA23 
+X-CRM114-Status: GOOD (  19.12  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -128,57 +87,36 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On 26/05/2026 08:08, Krzysztof Kozlowski wrote:
-> On Tue, May 19, 2026 at 02:42:28PM +0000, Laurentiu Palcu wrote:
->> From: Sandor Yu <Sandor.yu@nxp.com>
->>
->> Add bindings for Cadence MHDP8501 DisplayPort/HDMI bridge.
->>
->> Signed-off-by: Sandor Yu <Sandor.yu@nxp.com>
->> Signed-off-by: Laurentiu Palcu <laurentiu.palcu@oss.nxp.com>
->> ---
->>  .../bindings/display/bridge/cdns,mhdp8501.yaml     | 136 +++++++++++++++++++++
->>  1 file changed, 136 insertions(+)
->>
->> diff --git a/Documentation/devicetree/bindings/display/bridge/cdns,mhdp8501.yaml b/Documentation/devicetree/bindings/display/bridge/cdns,mhdp8501.yaml
->> new file mode 100644
->> index 0000000000000..57e7e95199777
->> --- /dev/null
->> +++ b/Documentation/devicetree/bindings/display/bridge/cdns,mhdp8501.yaml
-
-Filename must match compatible.
-
->> @@ -0,0 +1,136 @@
->> +# SPDX-License-Identifier: (GPL-2.0 OR BSD-2-Clause)
->> +%YAML 1.2
->> +---
->> +$id: http://devicetree.org/schemas/display/bridge/cdns,mhdp8501.yaml#
->> +$schema: http://devicetree.org/meta-schemas/core.yaml#
->> +
->> +title: Cadence MHDP8501 DP/HDMI bridge
->> +
->> +maintainers:
->> +  - Laurentiu Palcu <laurentiu.palcu@oss.nxp.com>
->> +
->> +description:
->> +  Cadence MHDP8501 DisplayPort/HDMI interface.
->> +
->> +properties:
->> +  compatible:
->> +    enum:
->> +      - fsl,imx8mq-mhdp8501-hdmi
->> +      - fsl,imx8mq-mhdp8501-dp
+On Wed, May 20, 2026 at 01:32:39PM +0530, Vijayanand Jitta wrote:
+> So far our parsing of {iommu,msi}-map properties has always blindly
+> assumed that the output specifiers will always have exactly 1 cell.
+> This typically does happen to be the case, but is not actually enforced
+> (and the PCI msi-map binding even explicitly states support for 0 or 1
+> cells) - as a result we've now ended up with dodgy DTs out in the field
+> which depend on this behaviour to map a 1-cell specifier for a 2-cell
+> provider, despite that being bogus per the bindings themselves.
 > 
-> We are at v23 and you will be getting the same questions till you
-> finally fix that commit msg.
+> Since there is some potential use[1] in being able to map at least
+> single input IDs to multi-cell output specifiers (and properly support
+> 0-cell outputs as well), add support for properly parsing and using the
+> target nodes' #cells values, albeit with the unfortunate complication of
+> still having to work around expectations of the old behaviour too.
+> 							-- Robin.
 > 
-> Why bus/connector is part of the compatible? Device is exactly the same.
-> Please read writing bindings - it covers exactly this case.
+> Unlike single #{}-cell, it is complex to establish a linear relation
+> between input 'id' and output specifier for multi-cell properties, thus
+> it is always expected that len never going to be > 1.
+> 
+> These changes have been tested on QEMU for the arm64 architecture.
 
-And this was BTW completely different in previous version.
+So there is no real user for that. That's unconvincing. I would assume
+that at least you have real user where you test it.
 
-NAK
+If you want to speed up acceptance of your patches, then also I would
+prefer to see at least one more user, beside Qualcomm. IOW, show how you
+solve other people problems, not only yours.
 
 Best regards,
 Krzysztof
+
 
