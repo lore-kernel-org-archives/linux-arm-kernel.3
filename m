@@ -4,71 +4,132 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 37C85CD5BD0
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 26 May 2026 10:53:52 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 6DCFCCD5BC8
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 26 May 2026 11:03:42 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:Cc:To:Subject:Message-ID:Date:From:In-Reply-To:References:
-	MIME-Version:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=WhuqxR/QIe3nS20UsYxd6qka1LHnS/Vv+3trUyjXJgY=; b=LdR81eN5x6FV4Bk5rOjckWV3NI
-	2lILd8xXEnwPd8H+v9LjDg5rbT2oXvYExWugm4m2bl955MmRGynO7Y2TZfX5b0vek9gx85ZiNz5ki
-	CewQgGVFbNeBmwH+JQiwWlYL50F3eikXSEiNYLRUEsYOSwTZmWMD/JYgZEq61s0tzwpbqZhEsd7bT
-	wWgG0AkeRyXtgt/qTWfc1e5UvpWxZEMCKGZBMU8KEry5HAhlYdFnvBc0svWT7hJMaRbVIAIkjakpS
-	W6RMWCyllqcYiFxx0tc20ziBcVvIyK+9a9VvX3PoHo1oRCUg1rMXZrRBwEEIivHz/lMicYf26YG9+
-	4M/DA/pA==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:
+	Content-Transfer-Encoding:Content-Type:In-Reply-To:References:Message-ID:Date
+	:Subject:CC:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=vGESvY4H+Ut4KC/4km3NuRMwuQIwPJ2aKx8V6aaK1fQ=; b=iFJRp4auUQ2KGvHWUACli67qc9
+	zM0Pbu50ntdP0+WwyRdoLM5iI0oi9JOQOvxVHUTB9iR+5LbIo3ZCjs6cpFK7+dtPqhOO6y3a9Mj0Q
+	G0dXEvIBDFOUtszrLkKIIPsiNi13HDzzGo3sfA1mlk5F2D9lLYjV6BomAyQGTgE2MuNoCkWRQxaO4
+	L0ickWAJhcbJlB+sbVGnnwhmOJtVX/0PUgAWzxoHw6pYUDlm7lhIokyWPLH0MZsqyML3yx7ksYyfu
+	HHUhZCsPtKkChSdpy73oOOuVmLHJUeKBN6ISMh60u2t6vo6f0SYxOE2NdAPqj22KzshtUmbsdDsuR
+	KY6vzxeg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wRpPs-00000001hRP-1was;
-	Tue, 26 May 2026 10:53:44 +0000
-Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
+	id 1wRpZO-00000001ijQ-3kNt;
+	Tue, 26 May 2026 11:03:34 +0000
+Received: from mail-westeuropeazlp170130006.outbound.protection.outlook.com ([2a01:111:f403:c201::6] helo=AM0PR02CU008.outbound.protection.outlook.com)
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wRpPp-00000001hQJ-3otR
+	id 1wRpZM-00000001iiz-05sM
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 26 May 2026 10:53:43 +0000
-Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
-	by sea.source.kernel.org (Postfix) with ESMTP id 2F472437BF
-	for <linux-arm-kernel@lists.infradead.org>; Tue, 26 May 2026 10:53:41 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 139A61F00A3D
-	for <linux-arm-kernel@lists.infradead.org>; Tue, 26 May 2026 10:53:41 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1779792821;
-	bh=WhuqxR/QIe3nS20UsYxd6qka1LHnS/Vv+3trUyjXJgY=;
-	h=References:In-Reply-To:From:Date:Subject:To:Cc;
-	b=oL2Gh0JsgYvwkQlyQh9IICOYgChS38+93irPAGfuq9/vZ9gxJ9VXQbee7s2dv3A5n
-	 VLjuylBuUJtjOZ9C7X7zM1TN5puJ8UyHYCdzbbIO3u6FqfdYLTzWyK01KThe+QLC1l
-	 bdIiooU3boem5n37PN4Q4JQoAdO+6xrzFG8MTy7QTWcmWPKHck/4rhVKi3cnVoAAF1
-	 B2zhCztsa0+ScJTcM/wkjP/N1W1VvgVvzXxQrvSxYEFx5lbvxAIfAzhwbAZ652q0Jv
-	 7AHUjLSHy9BzwYdZb/oAOuYJZi94BoR2IRGdJlpLoSwqRTkM1pUv1EZ3/zcyLWXjAy
-	 i5uYyX3KlEIqw==
-Received: by mail-lf1-f45.google.com with SMTP id 2adb3069b0e04-5a40b2bc96dso4947981e87.3
-        for <linux-arm-kernel@lists.infradead.org>; Tue, 26 May 2026 03:53:40 -0700 (PDT)
-X-Forwarded-Encrypted: i=1; AFNElJ8Jyrlx9Kc5ix7PAGbGoNcpZN68gsIw1Q2LBZmFeNij1DWef4ux+NsWksy4QMLbijSuz1qKMguRnayXewAFAWXf@lists.infradead.org
-X-Gm-Message-State: AOJu0Yx24JhxjrQouJixjuREnwRX0Wns532GsYeVoyOCIB4/wI/Hhqja
-	8Q82sBf8bNe2JlujL5yBYtCu7PPLPmqBDeQmiOtES6HrkyYQ+3hNQpiSrJMx+Mfask3KQQAvzzh
-	bQmO+wzIbP/8TyUhPX9Ufz9HQlMyKXgNJdFUNBvFCcw==
-X-Received: by 2002:ac2:4c4d:0:b0:5a8:7ca9:9f81 with SMTP id
- 2adb3069b0e04-5aa322fed0amr7213835e87.0.1779792819733; Tue, 26 May 2026
- 03:53:39 -0700 (PDT)
-MIME-Version: 1.0
-References: <20260525164230.43307-1-scardracs@disroot.org> <20260525164230.43307-3-scardracs@disroot.org>
-In-Reply-To: <20260525164230.43307-3-scardracs@disroot.org>
-From: Bartosz Golaszewski <brgl@kernel.org>
-Date: Tue, 26 May 2026 12:53:27 +0200
-X-Gmail-Original-Message-ID: <CAMRc=Mfk9tP091DN=5kjb8fvFhj1=MiBZSq4NJ7+k5LNCVy9bw@mail.gmail.com>
-X-Gm-Features: AVHnY4I2BwinMwSq8u5U4_yQOEEUDoRNRKEENiOHIvRdG1GkR8xNAptPz-zlq5o
-Message-ID: <CAMRc=Mfk9tP091DN=5kjb8fvFhj1=MiBZSq4NJ7+k5LNCVy9bw@mail.gmail.com>
-Subject: Re: [PATCH 2/2] gpio: rockchip: fix teardown bugs and resource leaks
-To: "Marco Scardovi (scardracs)" <scardracs@disroot.org>
-Cc: linusw@kernel.org, heiko@sntech.de, linux-gpio@vger.kernel.org, 
-	linux-rockchip@lists.infradead.org, linux-arm-kernel@lists.infradead.org, 
-	linux-kernel@vger.kernel.org
-Content-Type: text/plain; charset="UTF-8"
+	Tue, 26 May 2026 11:03:33 +0000
+ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
+ b=SpK35PKglT8IJri5N63yX02kT96M3Jxci9z3a6z3WWJv3u5adhqLXXDyFE+gzWpPkT0g8dALu5mwuk0/Kl9A9POMOeA9l/BwuLItFswkOvnUCqWI8IystUNO2msSGmBNaCQdCz+L1GIqFeUAgDqJ7SB8DJ7htwF2HZHLjv8ENCe7gObJtJv+xOl6AKypgNsuLFltOjH6foPdQEhMC3gqdgxJuVeki38H5kLUFUb9TBY71yPTcxUp5Crg0S7PKkq2cP33LAQhYao6IXkbqzKqtMe13+WnCiRyrm8QCXs5wfNYJe9YntcpG4RDEPEnaKvfomIQ9ZcpbGc+oKDWKU96Rg==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
+ s=arcselector10001;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
+ bh=vGESvY4H+Ut4KC/4km3NuRMwuQIwPJ2aKx8V6aaK1fQ=;
+ b=gck15Yy1UvaZw7mibVU9UPtZrCzxLEoSDj63l9VcX+Xn2eQZGWCH8VH2WyfxhIGfC6BCKKdh2mqHstCqXYDdjJ1eowoVh1DwOMVzON5PzEDkn0l7MQs853Yuq3s0QmK9L31Rpb0lzBmtxO6veA8ZNZXHITn5OPJAcRpRd6EbGfKGe5GmL0lWDFC5vPLUCSeJa3B2yItWmX+VHTgKe2v0sDZ6QCCrAS1tdWOyjD3J/BK6Yrwnx/ldhzUpOrJ+64mHV3t9Z9dFqPRNMpli6qr/GBGVTfCPIFl8EC2Y0E/9CI7yYxbMJs4+5dGW8MMV3g0pxI/Xef76YyWyPAEBlP08GQ==
+ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
+ smtp.mailfrom=nxp.com; dmarc=pass action=none header.from=nxp.com; dkim=pass
+ header.d=nxp.com; arc=none
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=nxp.com; s=selector1;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
+ bh=vGESvY4H+Ut4KC/4km3NuRMwuQIwPJ2aKx8V6aaK1fQ=;
+ b=cet1simnXISTFa+jilVK0ZEEhmdpMxi2/j4ok81n1Zkv6P5v5P9M6ImwuPNIUZQLagdhz/qx8oN6Zocz1aG6A+tnSDU3n8s1tiktdudXwT6UVnKyUt8VnnEaDZWZNhFHU/8Z9iFSZjXwQuMXH5n0yFAyQnbs5AoEp+Irdkx0lc1W9uw5R30MbQnBEjBupcZDtAO6mv8W6EDh2oSQebbwqbjjrMBOAySHicGpcj5OeSQ5P8Gg3n/oevVIjR+TDk8Sydq9WFwDLw/J87dj0Bi/7DdnpVetfkHKnN9rFRqKMWgFn5t32Kyah68aOtv0uPGP5Z8itz8mIvbm+MKYodQBig==
+Received: from DBBPR04MB7500.eurprd04.prod.outlook.com (2603:10a6:10:1f4::16)
+ by DB8PR04MB7194.eurprd04.prod.outlook.com (2603:10a6:10:127::7) with
+ Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.21.48.20; Tue, 26 May
+ 2026 11:03:24 +0000
+Received: from DBBPR04MB7500.eurprd04.prod.outlook.com
+ ([fe80::c291:543b:4bde:cee7]) by DBBPR04MB7500.eurprd04.prod.outlook.com
+ ([fe80::c291:543b:4bde:cee7%6]) with mapi id 15.21.0048.019; Tue, 26 May 2026
+ 11:03:24 +0000
+From: Wei Fang <wei.fang@nxp.com>
+To: Arnd Bergmann <arnd@kernel.org>, Claudiu Manoil <claudiu.manoil@nxp.com>,
+	Clark Wang <xiaoning.wang@nxp.com>, "Christophe Leroy (CS GROUP)"
+	<chleroy@kernel.org>
+CC: Arnd Bergmann <arnd@arndb.de>, Andrew Lunn <andrew@lunn.ch>, Vladimir
+ Oltean <olteanv@gmail.com>, "David S. Miller" <davem@davemloft.net>, Eric
+ Dumazet <edumazet@google.com>, Jakub Kicinski <kuba@kernel.org>, Paolo Abeni
+	<pabeni@redhat.com>, "imx@lists.linux.dev" <imx@lists.linux.dev>,
+	"netdev@vger.kernel.org" <netdev@vger.kernel.org>,
+	"linux-kernel@vger.kernel.org" <linux-kernel@vger.kernel.org>,
+	"linuxppc-dev@lists.ozlabs.org" <linuxppc-dev@lists.ozlabs.org>,
+	"linux-arm-kernel@lists.infradead.org" <linux-arm-kernel@lists.infradead.org>
+Subject: RE: [PATCH] [net-next] net: dsa: netc: fix enetc dependencies
+Thread-Topic: [PATCH] [net-next] net: dsa: netc: fix enetc dependencies
+Thread-Index: AQHc7PpN5+QO0dxQGEmzQ8bYQ25kWbYgIojg
+Date: Tue, 26 May 2026 11:03:24 +0000
+Message-ID: <DBBPR04MB7500D92831D793CDD1D562E2880B2@DBBPR04MB7500.eurprd04.prod.outlook.com>
+References: <20260526102708.2837129-1-arnd@kernel.org>
+In-Reply-To: <20260526102708.2837129-1-arnd@kernel.org>
+Accept-Language: en-US
+Content-Language: en-US
+X-MS-Has-Attach: 
+X-MS-TNEF-Correlator: 
+authentication-results: dkim=none (message not signed)
+ header.d=none;dmarc=none action=none header.from=nxp.com;
+x-ms-publictraffictype: Email
+x-ms-traffictypediagnostic: DBBPR04MB7500:EE_|DB8PR04MB7194:EE_
+x-ms-office365-filtering-correlation-id: 47fa9dba-ff5f-4285-5a04-08debb16684a
+x-ms-exchange-senderadcheck: 1
+x-ms-exchange-antispam-relay: 0
+x-microsoft-antispam: BCL:0;ARA:13230040|1800799024|366016|376014|7416014|19092799006|56012099003|11063799006|18002099003|22082099003|38070700021;
+x-microsoft-antispam-message-info: fF/UluNUQeUzcpSM7Y9303W1u7Md3H4fJhwv34L1C+DPDj6iE5Ka32zRCX6oNSh6QiOjU72w9oY3ELH+PW35rXAQHMPFZKJQxCiZwfv/fhgbSgAmi0QH7YOBDP6hSTyZHED6i/Rphsw6WXXeadrwqbrBuSx2LQaXs3YhXf4tvIXclJKHumGtVYMW7Zgnoq7qmMOJx3aoEH6Ts1xxV6eMmus3prdOJJskwhQWUXGMxfXbDrj/EZvAp0BZfVV/PHqUvlw5j0or5Bq7xnH1X2UNhsGA6drzsEa/XHg32U/VnqdAW/PPNSItqk84ASCmmxiic3Cfjinfe3Sm8pv16rsSwggHQ7pFWlSj207zJENJdwACnLxLxN5susdhXYInOidgtMV26Ih8SCFFmTh3WOjsnFAAgPAbeS3qshpi0unQYhIv7NPbWiFq4phzp6JscDWoz/ZiYbtUta1qvpgA1JLFE4V1wLn/BJoUiwIYlV1kybepHTvNRQWTdI65mUWGqz8a/o065yJ0TOXALDXkZudr0zas9Gf7g1+M+1eQwSpVP+G5LYm4dmCKlmbEqXQjXQ//l/aDpO+3ysU3B4EdDvVYvdkMA65+P4Vj8uFsl9W9uVK0iyYCNyRsx07qVKt6Fpb/pKvdwecYLxdQvS0AetonTZUZ67k3f6MBYBtP/rPxe5Qkdjr1KAJhv9kszsjCi4hepeeCEOcpLGItEyhluW53HQ==
+x-forefront-antispam-report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:DBBPR04MB7500.eurprd04.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(1800799024)(366016)(376014)(7416014)(19092799006)(56012099003)(11063799006)(18002099003)(22082099003)(38070700021);DIR:OUT;SFP:1101;
+x-ms-exchange-antispam-messagedata-chunkcount: 1
+x-ms-exchange-antispam-messagedata-0: =?us-ascii?Q?+L0DLO15AQwMx/fkkpildy7lJdOU/LygYJn8GxB08o+JCrH8syAdCufj+IEH?=
+ =?us-ascii?Q?ANcJwQyqzwAMIlDQPHVyN+b2CCixOTusZBnbO6Zhj0cukXvasPDt5mgO8GTe?=
+ =?us-ascii?Q?6wi3NVCyK7vXFEeyXnKLBIZFwt12gHtVk8ZF1j1100jwQAR2N9zE6C2pjN+9?=
+ =?us-ascii?Q?rnYoB6qAT8JcRE8phwccYN6ormkAhA5wqkbaoLUCMDu24M265cwckN3eHxAE?=
+ =?us-ascii?Q?4Sa5TMf77hOS9LphHYMJ4MZ5LHv9VHsGl/1MYmAFPyscWAeyM/zPy8StpcdV?=
+ =?us-ascii?Q?+GC89a0n7DWp27WkfbdaqVhYffQfoxHD/soGmIFFd1KavgliWU77u8k3HUR5?=
+ =?us-ascii?Q?RDflijYCBHH4AClCF/u1ZVaSKRzIknreIiUjRdNAKw6ayFaMeJf9mPDiAKfv?=
+ =?us-ascii?Q?HuTBxdDTnOKZENLW+D6A69lxb5UuUSyXX2gWedZBuL14KIEAWMkZFOZoB6hK?=
+ =?us-ascii?Q?A/e4vMBbO4fbD1NriOuJOIHdgQjum1nuJvNZxv+FN0GkIC1xvv+iTh101aP7?=
+ =?us-ascii?Q?jjvAeW/+qG+X0J/rSEoDu4m4xgwlz9sFKjI9AMy6aDV8Ut6lR+85JMjWikcq?=
+ =?us-ascii?Q?5SFKYmM5zFW0IEYqelE5Dlute+3igdmo4hC3tFVIaRoBsadU8GxNJ3WzL2/i?=
+ =?us-ascii?Q?u6NKNlgk8OI46Ubiip1sFzlNneuMRa/3jUHQLVNaPTsUIerWWCl6OOsdj+GX?=
+ =?us-ascii?Q?ccHVYqHyviSSZzY57OGUgy2HmTPUfGxZ2potO4ukY1GZtFheTzk7ziWihcvc?=
+ =?us-ascii?Q?ic9wdGAfyoQkykYJSu+58VY/s4mq2CXOqIbZVv/rU5dRzSAk0XLb7DK72SvY?=
+ =?us-ascii?Q?CLS+0qfSVYtCGCwRjyjvBgB0E6xdk4ns8Plg6ERrc7TNE9DOHF5YJF3dhL5X?=
+ =?us-ascii?Q?pl46kG39i75qu6kSrTkB90xWfpqmleh4rmxCYB88oaMBroYHY0bwgyiUq4Cc?=
+ =?us-ascii?Q?PVnQlDuo5ymVw6C+riV+DVAdyfE5q1xYZDZxWHsvWScSuMUGzUVsJw/Xh80S?=
+ =?us-ascii?Q?n41080SjhylbhS+xmoGBUos7tJbgQjHedEHiHkmv9y+LaF5wdCLi8AIKxA41?=
+ =?us-ascii?Q?u/O4WE6++Gk91dCMHtalk89gkTg0rYRTABVZG4M1nBrLjiZ/mwKaDdZENj2u?=
+ =?us-ascii?Q?jObrju/9T317b1+1AJ4/e69wp0r6w/UDua1k41Ft9/9EaHuVvnQZ94mKSMXy?=
+ =?us-ascii?Q?imxq6piQ/dtZLtV4okGrk8387e9OBXXJIQsMWf9cUlyRPCFHVUZgcDVYcK/m?=
+ =?us-ascii?Q?/Q2BncjubSXxH6DsXnVFlGiOXAx2h0dMETnaq98T2JbdP9oILI1luxynDp1a?=
+ =?us-ascii?Q?wGojZ3bhuHJj9w5lNlOYPDYGtgj8HDdNdIFahHFwZkiHVUtaN/Y9OHTfoOAC?=
+ =?us-ascii?Q?f8K/ViqvdXk7IPZ4+lnh+vbN3UY7wfm2IrsYmVVcwdg2KxIKacxaA/Ua+zi4?=
+ =?us-ascii?Q?e4tOlTipk0zc1Fls8r/cwDguJmALrPCJNweLnQypbleQdHaA3kW5Fn9HbGVb?=
+ =?us-ascii?Q?sYqdbEkrG6mWkiw7m2I/GFAKXTS9dIHF76AQSynhpp9SphTzN4PT9Rh5A2SD?=
+ =?us-ascii?Q?HnXu+se0tYCdcsXxuHClX6P6StiU28RI/KEygng8QUj97/fHGcH/Kf+u6XHU?=
+ =?us-ascii?Q?uhW2sZgZ4E0P9a9ActRaqObY4EdfZb7oA545kF7IxV7HeQtND+RSZPl5Nbvt?=
+ =?us-ascii?Q?+UzW7iE5evDX4MiLMBCDOu1K9A7qrtpUvIF6gDCGBwbLubiT?=
+Content-Type: text/plain; charset="us-ascii"
 Content-Transfer-Encoding: quoted-printable
+MIME-Version: 1.0
+X-OriginatorOrg: nxp.com
+X-MS-Exchange-CrossTenant-AuthAs: Internal
+X-MS-Exchange-CrossTenant-AuthSource: DBBPR04MB7500.eurprd04.prod.outlook.com
+X-MS-Exchange-CrossTenant-Network-Message-Id: 47fa9dba-ff5f-4285-5a04-08debb16684a
+X-MS-Exchange-CrossTenant-originalarrivaltime: 26 May 2026 11:03:24.5949
+ (UTC)
+X-MS-Exchange-CrossTenant-fromentityheader: Hosted
+X-MS-Exchange-CrossTenant-id: 686ea1d3-bc2b-4c6f-a92c-d99c5c301635
+X-MS-Exchange-CrossTenant-mailboxtype: HOSTED
+X-MS-Exchange-CrossTenant-userprincipalname: Ub3q1cb/1D6mkYxNeToKb9Us/m1VYNYRFQjWo00nYcWF8v3kqOMFjkH8z4DipYCa4++7p8wxlDkAFbfvmzDREA==
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: DB8PR04MB7194
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260526_035341_994327_CF1035AA 
-X-CRM114-Status: GOOD (  28.81  )
+X-CRM114-CacheID: sfid-20260526_040332_073385_806D1333 
+X-CRM114-Status: GOOD (  13.20  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -83,100 +144,24 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Mon, May 25, 2026 at 6:42=E2=80=AFPM Marco Scardovi (scardracs)
-<scardracs@disroot.org> wrote:
->
-> This commit addresses several teardown issues and resource leaks in the
-> driver's remove path and error handling:
->
-> 1. Debounce clock reference leak: The debounce clock (bank->db_clk) was
->    obtained using of_clk_get() which increments the clock's reference
->    count, but clk_put() was never called. A devm action is now registered
->    to cleanly release it on unbind. Note that of_clk_get(..., 1) remains
->    necessary over devm_clk_get() because the DT binding does not define
->    clock-names, precluding name-based lookup.
->
-> 2. Unregistered chained IRQ handler: The chained IRQ handler was not
->    disconnected in remove(). If a stray interrupt fired after the driver
->    was removed, the kernel would attempt to execute a stale handler,
->    leading to a panic. This is fixed by clearing the handler in remove().
->
-> 3. IRQ domain leak: The linear IRQ domain and its generic chips were
->    allocated manually during probe but never removed. The IRQ domain is
->    now removed during driver teardown to free the associated generic chip=
-s
->    and mappings.
->
+> Add the required 'NET_VENDOR_FREESCALE' dependency to make it possible
+> to select both the PHY and NTMP library modules. Originally this was
+> meant to be done through an 'IS_REACHABLE' check in the header file,
+> but that did not work because the drivers/net/ethernet/freescale
+> directory is not even entered in this case. IS_REACHABLE() is generally
+> counterproductive because even when it works as intended, it turns
+> a helpful link-time error into a silent runtime failure that is
+> harder to debug. In this case, it clearly did not even do anything.
+>=20
 
-I suppose the description comes from the LMM. Please use imperative
-mode as is customary in kernel commit messages.
+Hi Arnd,
 
-> Assisted-by: Antigravity:gemini-3.5-flash
-> Signed-off-by: Marco Scardovi <scardracs@disroot.org>
-> ---
->  drivers/gpio/gpio-rockchip.c | 19 ++++++++++++++++++-
->  1 file changed, 18 insertions(+), 1 deletion(-)
->
-> diff --git a/drivers/gpio/gpio-rockchip.c b/drivers/gpio/gpio-rockchip.c
-> index 33580093a4e7..c804f970d823 100644
-> --- a/drivers/gpio/gpio-rockchip.c
-> +++ b/drivers/gpio/gpio-rockchip.c
-> @@ -638,10 +638,17 @@ static int rockchip_gpiolib_register(struct rockchi=
-p_pin_bank *bank)
->         return ret;
->  }
->
-> +static void rockchip_clk_put(void *data)
-> +{
-> +       struct clk *clk =3D data;
-> +
-> +       clk_put(clk);
-> +}
-> +
->  static int rockchip_get_bank_data(struct rockchip_pin_bank *bank)
->  {
->         struct resource res;
-> -       int id =3D 0;
-> +       int id =3D 0, ret;
->
->         if (of_address_to_resource(bank->of_node, 0, &res)) {
->                 dev_err(bank->dev, "cannot find IO resource for bank\n");
-> @@ -673,6 +680,13 @@ static int rockchip_get_bank_data(struct rockchip_pi=
-n_bank *bank)
->                         dev_err(bank->dev, "cannot find debounce clk\n");
->                         return -EINVAL;
->                 }
-> +
-> +               ret =3D devm_add_action_or_reset(bank->dev, rockchip_clk_=
-put,
-> +                                              bank->db_clk);
+Thanks for fix this issue, I have sent a patch last Sunday.
+Link: https://lore.kernel.org/netdev/20260524070310.2429819-1-wei.fang@nxp.=
+com/
 
-Is there any reason to not convert his call into a devm_clk_get() variant t=
-oo?
+I think the solution should simply be to add
+"depends on NET_VENDOR_FREESCALE", right? The changes in
+enetc_mdio.h seem more like improvements to me.
 
-> +               if (ret) {
-> +                       dev_err(bank->dev, "failed to register debounce c=
-lk action\n");
-> +                       return ret;
-> +               }
->                 break;
->         case GPIO_TYPE_V1:
->                 bank->gpio_regs =3D &gpio_regs_v1;
-> @@ -789,6 +803,9 @@ static void rockchip_gpio_remove(struct platform_devi=
-ce *pdev)
->  {
->         struct rockchip_pin_bank *bank =3D platform_get_drvdata(pdev);
->
-> +       irq_set_chained_handler_and_data(bank->irq, NULL, NULL);
-> +       if (bank->domain)
-> +               irq_domain_remove(bank->domain);
->         gpiochip_remove(&bank->gpio_chip);
->  }
->
-> --
-> 2.54.0
->
->
-
-Bart
 
