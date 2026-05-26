@@ -4,71 +4,85 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id D4B52CD5BC8
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 26 May 2026 12:35:58 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 532E7CD5BC8
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 26 May 2026 12:36:20 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
-	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=oQ+OHMp99D8xoRZvJBBEvxSuLKoEVBXtdAFFTNEa6Rw=; b=IEJ9VAVtjzxV50UROgtrP2tXIR
-	zm/Q3i+tE/fNa9DV003I31ChMDtWvQxR/TTgPkgrv/NCFaAi7tbtuj66r3a+KTygUFAQKXumX9QxY
-	RMN1AeAOR95bn3qOSV0pEvr+nDOGoL6DxnduO2hj0K+fIFu0Y7itxzjNfb3NkDvH4kwcfdQEXDM5g
-	9nC/uXBJ5iOhttxZDqhLTFZKHoN5aI3S72eCYSXnYOqFXmaqZs22lv0trWQjYDDDQN2cf1lt8xUWy
-	MNQn3/i4mpF0SHuSguKfl6trxiz9GXpJMP3kkCYYOzr29EmGp3VzgAY+kdBg6Q2GN+jm21ckyXwHP
-	wnAN1o8g==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:Cc:To:From:
+	Subject:Message-ID:References:Mime-Version:In-Reply-To:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=V673JxVOaLJnhRNwY1KkynB6RZb0FVbqE1Xmria2HkI=; b=p3aEfwAvYZe4/RkOKp3B+x8YGA
+	Y5NLlBfLnUm6ZkQcPG/NtL+64Fagq8VmfZjysedMl9pGYxr01CMD4G61Ra8UFsxm79N5RdNtaLqS3
+	zIdx40uDBzeTSD6yJebJZuIURp29WfmomQd1UKz2UYHFN1U8MZSZeSysl6+E7W940WTcn+fpDPtWS
+	H7HrGvM3FFKEoVsrVyiVskRgQpttgQNOjuSeKIr7j+bS/y6x0GEmncsMa+gZ7LXU92D/pvGt92a6T
+	7EuYfyZbSt8bfEzzv8nkEqJ7O18fvcfLKv2By4Ni+ERQWqRBgS+iiMe9wns6f8Hhm/HC8EmJ/8zWJ
+	4j4Fwc7Q==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wRr0b-00000001veH-3Of4;
-	Tue, 26 May 2026 12:35:45 +0000
-Received: from mail-m816.xmail.ntesmail.com ([156.224.81.6])
+	id 1wRr12-00000001vmM-3xP9;
+	Tue, 26 May 2026 12:36:12 +0000
+Received: from mail-pf1-x449.google.com ([2607:f8b0:4864:20::449])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wRr0Y-00000001vdC-2mus;
-	Tue, 26 May 2026 12:35:44 +0000
-Received: from [172.16.12.74] (unknown [61.154.14.86])
-	by smtp.qiye.163.com (Hmail) with ESMTP id 3fe38e512;
-	Tue, 26 May 2026 20:35:31 +0800 (GMT+08:00)
-Message-ID: <00565241-3962-4418-8711-859dc98dba13@rock-chips.com>
-Date: Tue, 26 May 2026 20:35:30 +0800
-MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH v3 2/2] drm/bridge: analogix_dp: Add support for optional
- data-lanes mapping
-To: Luca Ceresoli <luca.ceresoli@bootlin.com>,
- Marek Szyprowski <m.szyprowski@samsung.com>
-Cc: hjc@rock-chips.com, heiko@sntech.de, andy.yan@rock-chips.com,
- maarten.lankhorst@linux.intel.com, mripard@kernel.org, tzimmermann@suse.de,
- airlied@gmail.com, simona@ffwll.ch, robh@kernel.org, krzk+dt@kernel.org,
- conor+dt@kernel.org, andrzej.hajda@intel.com, neil.armstrong@linaro.org,
- rfoss@kernel.org, Laurent.pinchart@ideasonboard.com, jonas@kwiboo.se,
- jernej.skrabec@gmail.com, nicolas.frattaroli@collabora.com,
- cristian.ciocaltea@collabora.com, sebastian.reichel@collabora.com,
- dmitry.baryshkov@oss.qualcomm.com, dianders@chromium.org,
- dri-devel@lists.freedesktop.org, devicetree@vger.kernel.org,
- linux-arm-kernel@lists.infradead.org, linux-rockchip@lists.infradead.org,
- linux-kernel@vger.kernel.org
-References: <20260525094731.121380-1-damon.ding@rock-chips.com>
- <20260525094731.121380-3-damon.ding@rock-chips.com>
- <177979727057.297330.10691183273720133245.b4-review@b4>
-Content-Language: en-US
-From: Damon Ding <damon.ding@rock-chips.com>
-In-Reply-To: <177979727057.297330.10691183273720133245.b4-review@b4>
-Content-Type: text/plain; charset=UTF-8; format=flowed
-Content-Transfer-Encoding: 7bit
-X-HM-Tid: 0a9e6448786d03a8kunm591ab7c8b8886b
-X-HM-MType: 1
-X-HM-Spam-Status: e1kfGhgUHx5ZQUpXWQgPGg8OCBgUHx5ZQUlOS1dZFg8aDwILHllBWSg2Ly
-	tZV1koWUFITzdXWRgWCB1ZQUpXWS1ZQUlXWQ8JGhUIEh9ZQVkZHktNVhhKTRhCH0gaHxoaTlYVFA
-	kWGhdVEwETFhoSFyQUDg9ZV1kYEgtZQVlNSlVKTk9VSk9VQ01ZV1kWGg8SFR0UWUFZT0tIVUpLSE
-	pKQk1VSktLVUpCWQY+
-DKIM-Signature: a=rsa-sha256;
-	b=Mri3/IGcBzNc+G9t8s5zfRoweaS3NFeHeZAVbKn66fIdfriaFiCCbSNgVT9cecYd24uwwupB6hn52vIM91IrI4Vc2uMrMpQwV1SrQ8zA1M2u2YsdZRT9h1lZC4z+ANp/d5pgObI9xFP5vO798m9/dNx7HD/Gkg8btotIad81iTk=; c=relaxed/relaxed; s=default; d=rock-chips.com; v=1;
-	bh=oQ+OHMp99D8xoRZvJBBEvxSuLKoEVBXtdAFFTNEa6Rw=;
-	h=date:mime-version:subject:message-id:from;
+	id 1wRr10-00000001vlI-25XS
+	for linux-arm-kernel@lists.infradead.org;
+	Tue, 26 May 2026 12:36:11 +0000
+Received: by mail-pf1-x449.google.com with SMTP id d2e1a72fcca58-82f9f49e4beso5269045b3a.0
+        for <linux-arm-kernel@lists.infradead.org>; Tue, 26 May 2026 05:36:09 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=google.com; s=20251104; t=1779798969; x=1780403769; darn=lists.infradead.org;
+        h=cc:to:from:subject:message-id:references:mime-version:in-reply-to
+         :date:from:to:cc:subject:date:message-id:reply-to;
+        bh=V673JxVOaLJnhRNwY1KkynB6RZb0FVbqE1Xmria2HkI=;
+        b=Z43Iq7TOlSwqz/O64QQezMCe+6uCEq8LuQMZ3HdrE7roAXW4O0sjWZp7fqBGszZHU4
+         tKAwvC9h3kIHzDSi0EzNzI3+sqA3b7+Q/dHqRvqrYZRuYEJR8+e7XkqCBSjUCDOLGxGK
+         8jp1ePjqRkO2SXuM/BMt7c5HsDW1B8zsGNBPFizop5r6p4hMnh6IR2H/M/+EhlUKXMnZ
+         ltxD+JmdcqyMOjRYYFWkORQojRpMA+2w4+T3J92SywujwwcQhBKAmBTDBi0btpwNTFFj
+         rCTkJcGkJa3/QXTagfkhRGfGS41ku7GFrOqYmqcuOJNWOKOfWrlQiMXu5OMI1L0tOcTx
+         rORg==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20251104; t=1779798969; x=1780403769;
+        h=cc:to:from:subject:message-id:references:mime-version:in-reply-to
+         :date:x-gm-message-state:from:to:cc:subject:date:message-id:reply-to;
+        bh=V673JxVOaLJnhRNwY1KkynB6RZb0FVbqE1Xmria2HkI=;
+        b=cl8MdORzFGd+UI4V0eqcqAFRlqQzOg/ZEHJvON+sZSWhXWjrWFVjqgkCb5IdI9Z9BZ
+         LySMUsD2BKcG+Yc6EJ4kAdwpS8M2eSh+2EA2jDHwjgylfT0HWWlRjt6+XJGCIUigGJmT
+         7H0qN0Tx8KlRUOMDuifPli5r0AvmHbJiS+hlDIDYiTIaiLZfRVa2HWQ3ryHwK6OMGT8g
+         3rL6QVSne8EHHk9CcySj02MDzihzne89rep9uzB19P2C31LIPSHR8l1d3a/9bx5hm/NN
+         F5r3wMjjnIwJNZwo3tUOiE2TfwulsdZog+9TofihRINbkdaCyQjKXUuyLBI/xdgUpCub
+         Uk8A==
+X-Forwarded-Encrypted: i=1; AFNElJ9yvRHLn/tKQSXtN9xPxI2NqUT5omeJZ++j7zcNc+kIzQAJWgJ3G4OT0iykXYVFnRjlnrhqc/WCtCuZpAl8lTDR@lists.infradead.org
+X-Gm-Message-State: AOJu0YzueWOF4+lI+cgHZTO1KAUUHlepf6sRgx1aWXUeN+QvJ0AFj5ef
+	G7fDBrvV1/tBPoSqlSHsl1aBPQqdh46dOC58tsKOl3pcK13P0b6RvPQk9Oze0EqGWpGZRlFzPNi
+	ZfuGwyGSdEX+ChT6SeoO5TITnLQ==
+X-Received: from pfbgt8.prod.google.com ([2002:a05:6a00:4e08:b0:837:aa2e:b191])
+ (user=joonwonkang job=prod-delivery.src-stubby-dispatcher) by
+ 2002:a05:6a00:12dd:b0:82f:6841:8733 with SMTP id d2e1a72fcca58-8415f62643dmr17524566b3a.48.1779798968505;
+ Tue, 26 May 2026 05:36:08 -0700 (PDT)
+Date: Tue, 26 May 2026 12:36:06 +0000
+In-Reply-To: <DM6PR11MB3690699A3178F1559D4BE1CA8C0B2@DM6PR11MB3690.namprd11.prod.outlook.com>
+Mime-Version: 1.0
+References: <DM6PR11MB3690699A3178F1559D4BE1CA8C0B2@DM6PR11MB3690.namprd11.prod.outlook.com>
+X-Mailer: git-send-email 2.54.0.746.g67dd491aae-goog
+Message-ID: <20260526123606.2488278-1-joonwonkang@google.com>
+Subject: RE: [PATCH v2] iommu: Allow device driver to use its own PASID space
+ for SVA
+From: Joonwon Kang <joonwonkang@google.com>
+To: kevin.tian@intel.com, jgg@ziepe.ca
+Cc: Alexander.Grest@microsoft.com, alexander.shishkin@linux.intel.com, 
+	amhetre@nvidia.com, baolu.lu@linux.intel.com, bp@alien8.de, 
+	dave.hansen@linux.intel.com, easwar.hariharan@linux.microsoft.com, 
+	hpa@zytor.com, iommu@lists.linux.dev, jacob.jun.pan@linux.intel.com, 
+	joonwonkang@google.com, joro@8bytes.org, jpb@kernel.org, kas@kernel.org, 
+	kees@kernel.org, linux-arm-kernel@lists.infradead.org, 
+	linux-kernel@vger.kernel.org, mingo@redhat.com, nicolinc@nvidia.com, 
+	peterz@infradead.org, praan@google.com, robin.murphy@arm.com, 
+	ryasuoka@redhat.com, smostafa@google.com, sohil.mehta@intel.com, 
+	tglx@kernel.org, will@kernel.org, x86@kernel.org, xin@zytor.com
+Content-Type: text/plain; charset="UTF-8"
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260526_053543_291719_06E8579E 
-X-CRM114-Status: GOOD (  14.36  )
+X-CRM114-CacheID: sfid-20260526_053610_539118_CE08C85A 
+X-CRM114-Status: GOOD (  24.90  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -83,52 +97,38 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hi Luca,
-
-On 5/26/2026 8:07 PM, Luca Ceresoli wrote:
-> On Mon, 25 May 2026 17:47:31 +0800, Damon Ding <damon.ding@rock-chips.com> wrote:
+> > From: Joonwon Kang <joonwonkang@google.com>
+> > Sent: Tuesday, May 26, 2026 2:58 PM
+> > 
+> > > On Mon, May 25, 2026 at 03:29:24PM +0000, Joonwon Kang wrote:
+> > >
+> > > > Currently, the only known expected user of the new kAPI is our team.
+> > Since
+> > > > I test if the patch resolves our problem before sending it, I believe it
+> > > > should be good enough. Do you mean more than our team by
+> > "accompanied
+> > > > users"?
+> > >
+> > > He means you cannot send patches like this that only serve OOT drivers
+> > > to the mainline kernel.
+> > 
+> > Hmm, it gets back to the chicken-and-egg problem. So, do you recommend
+> > deferring the patch submission until we find a new in-tree user of the
+> > new kAPI? I believe we will not make our module in-tree anytime soon.
+> > Or, is it like I still can send the patch and get it reviewed although we
+> > cannot merge it to the mainline?
+> > 
 > 
-> Hello Damon,
+> It's not chicken-and-egg problem. Just always send them together.
 > 
->>
->> diff --git a/drivers/gpu/drm/bridge/analogix/analogix_dp_core.c b/drivers/gpu/drm/bridge/analogix/analogix_dp_core.c
->> index 8cf6b73bceac..d53ab25bc57b 100644
->> --- a/drivers/gpu/drm/bridge/analogix/analogix_dp_core.c
->> +++ b/drivers/gpu/drm/bridge/analogix/analogix_dp_core.c
->> @@ -1234,6 +1234,59 @@ static const struct drm_bridge_funcs analogix_dp_bridge_funcs = {
->> [ ... skip 11 lines ... ]
->> +	int ret, i;
->> +
->> +	memcpy(video_info->lane_map, map, sizeof(map));
->> +
->> +	num_lanes = drm_of_get_data_lanes_count_ep(dp->dev->of_node, 1, 0, 1,
->> +						   video_info->max_lane_count);
-> 
-> Should num_lanes be > 4, the buffers could overflow. I realize it should
-> not happen, but analogix_dp_dt_parse_pdata() can set max_lane_count from
-> the device tree, so a bogus dtb could cause such overflow.
-> 
-> Perhaps you should just (in a separate patch) error out in
-> analogix_dp_dt_parse_pdata() to prevent this. And maybe even adding an
-> BUG_ON(lane_count > 4) here.
-> 
-> Otherwise LGTM.
-> 
+> so let's wait until your module is ready for in-tree review...
 
-Thank you for the review.
+Since adding a new kAPI has this limitation, what do you think about the
+idea of adding a new boot parameter to enforce disabling ENQCMD at EL0 and
+using the non-global PASID space in that case? This way, I guess we could
+resolve our issue without having to wait until we have new in-tree users.
+Do you think it should have the same limitation?
 
-I think it would be a better idea to add a separate patch to validate 
-the max_link_rate and max_lane_count values for Exynos DP.
-
-I checked the Exynos DP related DTS files:
-- The maximum value of samsung,lane-count is 4
-- The maximum value of samsung,link-rate is 0x0a, which corresponds to 
-the HBR lane rate.
-
-Could Marek please help confirm if we can set these as the upper limits 
-for the checks?
-
-Best regards,
-Damon
-
+Thanks,
+Joonwon Kang
 
