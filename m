@@ -4,105 +4,104 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 545DCCD5BCF
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 26 May 2026 05:53:02 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 84A1DCD5BB4
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 26 May 2026 06:02:15 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:Cc:To:Subject:
-	Message-ID:Date:From:In-Reply-To:References:MIME-Version:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=2duKumKePn4zoDG7Cxt1kGXnqGO0J1TlCgaAU7R0q8g=; b=1DzAAQH5KQ5O46ZyoSe23umDGP
-	SM0yIBnV1OZgnMt24OLPhWP0do1HeuTJiGuLjpy/Y/+5y2Dy0etHdjm1ekizMaCT4Ib237+Rt6hZW
-	GhLpZQEf6u0zRBm/Zh3BOxQti5apOE2zTPsO+rk6zHHWVrSz2wHdgfvSRICbMnYODkCRQidN2pVJA
-	UyNtQb/rcP7zljbV62TZ+fn8q1Mg8aJH7Z1DilwNRqAsnNrVika5qE9dZf0ZADhM1aa2eh0O8ETHK
-	9u88g6LmgHXGfpSRq6fsADxbslPencWhA2AqxBHeiH+hyQyswn+M0xD9JLQTJtHsFpruX2i3g4Z/I
-	iE+OvkXw==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	MIME-Version:Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-Type:
+	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
+	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=I15Qye72rXnWF52br0qRQsOfcY4+owD8kwcdhmYsCXA=; b=gQGR7EZJOaQ8+P/JE8GMcEswgt
+	t9iJ7Gir6iFw/rjgnjd1XpYDje9uk5UOiMLo3Hre6tLF8Kl7ob8Tk0Ob75MHPZZM42S5FVntzELkE
+	AW8kXqjD/PYjZy0NFObd1D6gXpw9sawIlOU1f1cZdoS3YKAochmmqFmUT/foHW+t+flsR9eIbQFlr
+	qHEmc2FDK4QxSL3LRtCGJOXuwOcBmYZRJDTbFpoMuJcsvHKzhC5+146pvuhf48jR7JWw+6soiHO+l
+	kh3ShNS5KxxvBEg7naEJ9RADmvu3ShyPmdCxxBT5pzVOW9QKnjEZ/Nkx+NuyHF4I1CaWMfmGR4bpS
+	MqmTqZ4g==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wRkil-000000016kw-2BIf;
-	Tue, 26 May 2026 05:52:55 +0000
-Received: from mail-yx1-xb134.google.com ([2607:f8b0:4864:20::b134])
+	id 1wRkrg-000000017Y9-3ZcH;
+	Tue, 26 May 2026 06:02:08 +0000
+Received: from mail-wm1-x334.google.com ([2a00:1450:4864:20::334])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wRkij-000000016kL-2Tbz
+	id 1wRkre-000000017X3-04cZ
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 26 May 2026 05:52:55 +0000
-Received: by mail-yx1-xb134.google.com with SMTP id 956f58d0204a3-65318dafbcbso10136392d50.2
-        for <linux-arm-kernel@lists.infradead.org>; Mon, 25 May 2026 22:52:52 -0700 (PDT)
-ARC-Seal: i=1; a=rsa-sha256; t=1779774772; cv=none;
-        d=google.com; s=arc-20240605;
-        b=ZJY1d/+PGH2Oo565OuTV+RZ9pHfwQX9wp9Pstl25h/zN72mTn2CWJq/NZ94LhZasYP
-         FTVVu22p8VOfA+uyTrOy3d3kgYWqHLPKGPv3aLUbrXs4mEcP1vh9Gfq0um+WQp1JmF3M
-         JfqaSbLXVlvj3nFg19snvBWTuerlWEz67w8Wpkk4rhSYiZY3U9yWHZHX+BfY53+DgZl9
-         XTOIohP8SULeDmrm6MQndO/mP6Lm6L2Y88MmfWr+9HUxh1jWFO4VF1NgVTxdwoF+cMTk
-         HtqBiEMRTnIWSCR/OJrsxiEoBK3n6VKyye0Bux4l30napoaXdHBHZSgRZpcU25M51/UY
-         lYPA==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20240605;
-        h=cc:to:subject:message-id:date:from:in-reply-to:references
-         :mime-version:dkim-signature;
-        bh=2duKumKePn4zoDG7Cxt1kGXnqGO0J1TlCgaAU7R0q8g=;
-        fh=GyzZHtzC2kCO6TlU6ZMNyz3BqvU8Pzy3q9GZ65a/f5I=;
-        b=M49OBO/8veoMs/DdPFbiPA8JydVybOHe58hl9NmoR1F6+t8AvO3cc8EjC5rLUpYLb3
-         5qKaPpfjlfIwJHxdvV+0OAH1dnmVJme9Q4TtUjf9+xnoBVYRl0d4J0vVTI4YhhMKLCz4
-         yEDH37Gh37v+tkaaMqzcGnepl+SlutqT1lT7SgOBqif3C4/gfW5PLKlA6uUQDN6KVFha
-         kB4VtwKxBLAZmSOzSTFlCxyTwH+BaarCdFfvX8tsXL6x9oJPzd0DhByeyICUL6gZ0E5h
-         FiPV9rVqzDBo5mwHXPIQc9B49Nnu8YZphJD4b3Qbuyb6DRy/U53aE0AgqrN6bs3/eBtC
-         j5eA==;
-        darn=lists.infradead.org
-ARC-Authentication-Results: i=1; mx.google.com; arc=none
+	Tue, 26 May 2026 06:02:07 +0000
+Received: by mail-wm1-x334.google.com with SMTP id 5b1f17b1804b1-4903997fcb5so45072655e9.2
+        for <linux-arm-kernel@lists.infradead.org>; Mon, 25 May 2026 23:02:04 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20251104; t=1779774772; x=1780379572; darn=lists.infradead.org;
-        h=cc:to:subject:message-id:date:from:in-reply-to:references
-         :mime-version:from:to:cc:subject:date:message-id:reply-to;
-        bh=2duKumKePn4zoDG7Cxt1kGXnqGO0J1TlCgaAU7R0q8g=;
-        b=Pz8rPTPNwpOMS0ooEPyMcm5cnGuJUrtUbEiwQ8AfzoPWpeEEV9yVOxNQ/LSAGVh0i/
-         X5n3dAdL+pNSC4pTQKs0Bhrp1L8ASctSeevj3tdWEEZIYx0JwEbtvBVulC2m+Vvdji0W
-         pwW6k1kanYLyuTl979+OjqGmaS79fEb+Cv5WWTPXyIx2kAPlss4pgjcrA/HXFtqt/jp3
-         xcO2GlTe6F6VPyd/bD2XBQIB96ULRhLehDRbHmWbhc19AWbMqEMDmK0k+0wmxW6u9UmM
-         txBAYtY/oassNlSRM0Jw2qf7oYd+j7hvi/uWQDxOLGYDi81udtIt9c2/cqWcgEpD4goE
-         CyCQ==
+        d=gmail.com; s=20251104; t=1779775323; x=1780380123; darn=lists.infradead.org;
+        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
+         :to:from:from:to:cc:subject:date:message-id:reply-to;
+        bh=I15Qye72rXnWF52br0qRQsOfcY4+owD8kwcdhmYsCXA=;
+        b=WHLZNc0O9INgem355s3GGvx0LwZ/MPE3asxOyyri7TVDTXpg5vwSDzSogGG0Ltkw5b
+         FfxNer1VAHK85EwdyqInCyj/3GuwzaZBO29/t4GP/TZuG2hZnbja9RjJ5DtMqHWBm4LU
+         PENwSzWXEZEvEmqIPGjeKrp/IQcFv0e8nwecVRXSni63Eappx/luiJXgDCaEQDCIoLMq
+         J+q3VTIkOWwat/3IOC2k+6M0qLi5w50RdZuY2CPJjpauTNK6tNsUYoeapavsf7Oc3o4y
+         fXbcB5YZo6k7Fmm7lwBcBazeLg6SwI9wp8/6uqJ9RcyJ1TJWtC55szYrK/0LRY81pvIE
+         2YMg==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20251104; t=1779774772; x=1780379572;
-        h=cc:to:subject:message-id:date:from:in-reply-to:references
-         :mime-version:x-gm-gg:x-gm-message-state:from:to:cc:subject:date
+        d=1e100.net; s=20251104; t=1779775323; x=1780380123;
+        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
+         :to:from:x-gm-gg:x-gm-message-state:from:to:cc:subject:date
          :message-id:reply-to;
-        bh=2duKumKePn4zoDG7Cxt1kGXnqGO0J1TlCgaAU7R0q8g=;
-        b=VjSoIvvZU4qbBcQhmcPQU5WkYUjZVtPKaqWwxnEEwzpZsp82OOnbTKSYE2erNPnbdG
-         ECAjw0B1OBL9lng6Dh55vQn0ww4YrpVBBQ+ql2U2vcnTCXqzPWt8kxUPDS/aGp9v2XYI
-         jrq7+rQsWQoKJ6Jl7Em21TKJQBth1TMBY2FUtROZTY4AE+PRqO1jxellCvbNiLZqm7NR
-         DuIKamrkoMxBCh0cZ/3XYgDulRmnikZbtvKvdY+320Xo92AkCvgtTTJyl0YRDnNjB8BE
-         TpihvUoPIPPPbCFuAsQuOo9z4/kqM0Zux0Zc+VLo4LHtHVCVPOnXjzByA7oMx24ALnEi
-         DJog==
-X-Forwarded-Encrypted: i=1; AFNElJ+w7jAvs9EsFVy/Fipubyj0p6SaZHBX5xpjv63VdMqy9J2gOGrh+LlGn6yrXp0nLAs+MxIEx2Z2rqF6TJSzSBqh@lists.infradead.org
-X-Gm-Message-State: AOJu0Yy/1ewPjzeIeEOzyNRkyiuYqIS0kfToSn3/eAHiiP2aRzwWIAje
-	V42SddL2c9FQEVot88V2c0eFf9Jym5ls75N22qnr83WJ/8+VMdbOouarinTgKKjRdzHjH3ynSR/
-	a9myIba/ut2yh0g476De1Z6Z9CpztJK3TFanW
-X-Gm-Gg: Acq92OEQpm20GbazkjBmroOfM+pEu2fCLNFskbu3oMa6rWfcpHjPq9W6Xr59mJigH5x
-	deLmSsZDKq9U7GCFemNcmpaa46fNfW/ltYitHG8CTAJ6QrCumhnmajYr2FunZsr/tuHqeNHHlzF
-	CmOb2hekw9e3ocQVm7acb1vlmdr1eWodq/WQ3ebX1wqvv6lKN/3bKPyjWymS9w32wlf1RVJ1EGG
-	CYvE2uYJoKQBuVbheUcIMvxAs1slzhDcW+ClpaBFpqG4zOA1BMGco+Ui0sRyZyvFmpyImRNyPFU
-	kOJtZgl1pbbz
-X-Received: by 2002:a05:690e:11cc:b0:651:be68:77e3 with SMTP id
- 956f58d0204a3-65ec98a2a85mr17519833d50.31.1779774771987; Mon, 25 May 2026
- 22:52:51 -0700 (PDT)
+        bh=I15Qye72rXnWF52br0qRQsOfcY4+owD8kwcdhmYsCXA=;
+        b=jyKf5FskjU1P2zI9mxBi6rlfu0ujyZRoA+D8SsK60uM0cYGMRJhqiZE7wMBFDZGwQj
+         H1RixjQhoAcN9X1qDt2uKIQGV9OAbznUbM99cVfw8uVatNczb6hVfXGm3ktHxg56HCnb
+         +yN1A7fsxIe4B9gS1+TJyVS/EOpjQfmzWFy61/QqILFXuihSfKGVbtysnmPEMXyZ03yR
+         BHJS41g8Fs9GPCDA/vZ5ruXjlquBcN0p4KwuIP2SlMcFYaO+4qVHLUw1XvMxd2HBcoXw
+         L16FTqqMwbg2gl0rXo5++m8Hve3OHDyQ8yspu0an1vt/L5MkrYTFTohQhxP6tiFjDIcv
+         MJ+w==
+X-Forwarded-Encrypted: i=1; AFNElJ8S33f6+6rsm1YkKOKW1U8sjvYrhZhX0BS+AXltN+sklnz8jWcgqSZU052/b2WXATdn6JtxfA5DaMBNTYwn0u7N@lists.infradead.org
+X-Gm-Message-State: AOJu0YwtDG/GslmWG07+msRCJ+fqQ5IGMiiC7xBrYQ2lEyOlqs7Ud1yS
+	n5DI/2X+H1l+ocJA3yCfvuirlL+VNwQofJWsK2Vr2fGW57BhhGXO2vXw
+X-Gm-Gg: Acq92OFi//EHqkw5bggwcq/+fEVkOH6FYItFNIRUvsEH6Adddx40bMTna1fMgdtxs6c
+	6VS4VGHQcpqj5HsXh9w6ihq4qt/gfJLWbZSSq0Bxq3X4i5BYgr03LDt+WoFqBNghk1Z44u6dg/V
+	gPMts4r4o6JB6Lyis1A2UswfyEHdTb9DtdYHLVmdn7+KPTpwA48gr6MYXhlXFL9Lexh/qmIqQMM
+	33NDyMTVN7LMNKOemtdsgxFxkcgaYvGPq/gg9+I2m32XTEbbWhhRvDRW4Hz2Fm6sV3aN8pbcpem
+	Sdaj1bqMHyqsttGS7yfnxbynswWFXbosTLcMIkIa8NtF5T3obblvGjn1FzkUJiHSjpFwAUJi0VA
+	JZbJgc88rjxk9XCsvu5cdmSpLm4ig+58kWj/LS5IdvzHutU58fmbKPfy4DEq10LfOmAEAQLaocr
+	rFCOax5P7FaoWTzjLV57utrEzegwfUnhXtVvVeeGCWfK2pnXZ8rM8i1PHCDgkwfjE8T2Mak6opt
+	uFPero=
+X-Received: by 2002:a05:600d:6447:10b0:48f:d5b8:5b07 with SMTP id 5b1f17b1804b1-490426c5b1emr200251675e9.20.1779775322583;
+        Mon, 25 May 2026 23:02:02 -0700 (PDT)
+Received: from localhost.localdomain ([188.27.64.216])
+        by smtp.gmail.com with ESMTPSA id 5b1f17b1804b1-490454b7d57sm295929035e9.15.2026.05.25.23.01.59
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Mon, 25 May 2026 23:02:01 -0700 (PDT)
+From: Adrian Bente <adibente@gmail.com>
+To: pablo@netfilter.org,
+	kadlec@netfilter.org,
+	fw@strlen.de,
+	netfilter-devel@vger.kernel.org
+Cc: phil@nwl.cc,
+	davem@davemloft.net,
+	edumazet@google.com,
+	kuba@kernel.org,
+	pabeni@redhat.com,
+	horms@kernel.org,
+	nbd@nbd.name,
+	sean.wang@mediatek.com,
+	lorenzo@kernel.org,
+	andrew+netdev@lunn.ch,
+	matthias.bgg@gmail.com,
+	angelogioacchino.delregno@collabora.com,
+	daniel@makrotopia.org,
+	coreteam@netfilter.org,
+	netdev@vger.kernel.org,
+	linux-kernel@vger.kernel.org,
+	linux-arm-kernel@lists.infradead.org,
+	linux-mediatek@lists.infradead.org,
+	Adrian Bente <adibente@gmail.com>
+Subject: [RFC PATCH net] netfilter: flowtable: fix offloaded ct timeout never being extended
+Date: Tue, 26 May 2026 09:01:38 +0300
+Message-ID: <20260526060138.3924-1-adibente@gmail.com>
+X-Mailer: git-send-email 2.43.0
 MIME-Version: 1.0
-References: <20260518130259.1001956-1-lgs201920130244@gmail.com> <824d2c59-d355-4f8c-a602-bc08e49d52e1@nxp.com>
-In-Reply-To: <824d2c59-d355-4f8c-a602-bc08e49d52e1@nxp.com>
-From: Guangshuo Li <lgs201920130244@gmail.com>
-Date: Tue, 26 May 2026 13:52:41 +0800
-X-Gm-Features: AVHnY4KKr9sNKWxiy0Iphg81sV9b0GYog6HfF4iC0Ir_KdVPm-LnQZBI08OEfrU
-Message-ID: <CANUHTR-_bAft05ycvb77QP2ck5PNpFcT1nmDQ6WMhe-rD42gmg@mail.gmail.com>
-Subject: Re: [PATCH] media: imx-jpeg: avoid double free on video register failure
-To: Mirela Rabulea <mirela.rabulea@nxp.com>
-Cc: Mauro Carvalho Chehab <mchehab@kernel.org>, Frank Li <Frank.Li@nxp.com>, 
-	Sascha Hauer <s.hauer@pengutronix.de>, Pengutronix Kernel Team <kernel@pengutronix.de>, 
-	Fabio Estevam <festevam@gmail.com>, Hans Verkuil <hverkuil@kernel.org>, imx@lists.linux.dev, 
-	linux-media@vger.kernel.org, linux-arm-kernel@lists.infradead.org, 
-	linux-kernel@vger.kernel.org
-Content-Type: text/plain; charset="UTF-8"
+Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260525_225253_745598_FB29A9FC 
-X-CRM114-Status: GOOD (  32.67  )
+X-CRM114-CacheID: sfid-20260525_230206_108952_8A243599 
+X-CRM114-Status: GOOD (  11.90  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -117,93 +116,54 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hi Mirela,
+OpenWrt has recently migrated many platforms to kernel 6.18. On the
+MediaTek platform, which supports hardware network offloading, WiFi
+connections accelerated via the WED path were observed to drop after
+roughly 300 seconds.
 
-On Mon, 25 May 2026 at 21:57, Mirela Rabulea <mirela.rabulea@nxp.com> wrote:
->
-> > [You don't often get email from lgs201920130244@gmail.com. Learn why this is important at https://aka.ms/LearnAboutSenderIdentification ]
-> >
-> > Caution: This is an external email. Please take care when clicking links or opening attachments. When in doubt, report the message using the 'Report this email' button
-> >
-> >
-> > mxc_jpeg_probe() allocates a video_device with video_device_alloc() and
-> > releases it from the err_vdev_register error path if
-> > video_register_device() fails.
-> >
-> > This can double free the video_device when __video_register_device()
-> > reaches device_register() and that call fails:
-> >
-> >    video_register_device()
-> >      -> __video_register_device()
-> >         -> device_register() fails
-> >            -> put_device(&vdev->dev)
-> >               -> v4l2_device_release()
-> >                  -> vdev->release(vdev)
-> >                     -> video_device_release(vdev)
-> >
-> >    mxc_jpeg_probe()
-> >      -> err_vdev_register
-> >         -> video_device_release(jpeg->dec_vdev)
-> >
-> > Use video_device_release_empty() while registering the device so that
-> > registration failure paths do not free jpeg->dec_vdev through
-> > vdev->release(). mxc_jpeg_probe() then releases jpeg->dec_vdev exactly
-> > once from err_vdev_register. Restore video_device_release() after
-> > successful registration so the registered device keeps its normal lifetime
-> > handling.
-> >
-> > This issue was found by a static analysis tool I am developing.
-> >
-> > Fixes: 2db16c6ed72c ("media: imx-jpeg: Add V4L2 driver for i.MX8 JPEG Encoder/Decoder")
-> > Signed-off-by: Guangshuo Li <lgs201920130244@gmail.com>
->
-> Hi Guangshuo,
->
-> sorry for the late response, so I assume this patch will be dropped in
-> favor of a fix in v4l2-core, as per discussions here?:
->
-> https://lore.kernel.org/linux-media/20260519090819.1041314-1-lgs201920130244@gmail.com/
->
-> Thanks,
->
-> Mirela
->
-> > ---
-> >   drivers/media/platform/nxp/imx-jpeg/mxc-jpeg.c | 4 +++-
-> >   1 file changed, 3 insertions(+), 1 deletion(-)
-> >
-> > diff --git a/drivers/media/platform/nxp/imx-jpeg/mxc-jpeg.c b/drivers/media/platform/nxp/imx-jpeg/mxc-jpeg.c
-> > index b442dcba02e7..fe8a373576ef 100644
-> > --- a/drivers/media/platform/nxp/imx-jpeg/mxc-jpeg.c
-> > +++ b/drivers/media/platform/nxp/imx-jpeg/mxc-jpeg.c
-> > @@ -2943,7 +2943,7 @@ static int mxc_jpeg_probe(struct platform_device *pdev)
-> >          jpeg->dec_vdev->fops = &mxc_jpeg_fops;
-> >          jpeg->dec_vdev->ioctl_ops = &mxc_jpeg_ioctl_ops;
-> >          jpeg->dec_vdev->minor = -1;
-> > -       jpeg->dec_vdev->release = video_device_release;
-> > +       jpeg->dec_vdev->release = video_device_release_empty;
-> >          jpeg->dec_vdev->lock = &jpeg->lock; /* lock for ioctl serialization */
-> >          jpeg->dec_vdev->v4l2_dev = &jpeg->v4l2_dev;
-> >          jpeg->dec_vdev->vfl_dir = VFL_DIR_M2M;
-> > @@ -2962,6 +2962,8 @@ static int mxc_jpeg_probe(struct platform_device *pdev)
-> >                  dev_err(dev, "failed to register video device\n");
-> >                  goto err_vdev_register;
-> >          }
-> > +       jpeg->dec_vdev->release = video_device_release;
-> > +
-> >          if (mode == MXC_JPEG_ENCODE)
-> >                  v4l2_info(&jpeg->v4l2_dev,
-> >                            "encoder device registered as /dev/video%d (%d,%d)\n",
-> > --
-> > 2.43.0
-> >
-Yes, you are right. Please drop this patch.
+After several debugging sessions, assisted by the Claude LLM, the
+problem was narrowed down as follows:
 
-As discussed in the related thread, this issue should be fixed in
-v4l2-core instead of handling it in the imx-jpeg driver.
+nf_flow_table_extend_ct_timeout() extends ct->timeout for offloaded
+flows using:
 
-Thanks for checking.
+	cmpxchg(&ct->timeout, expires, new_timeout);
 
-Best regards,
-Guangshuo
+'expires' comes from nf_ct_expires(ct) and is a relative value, while
+ct->timeout holds an absolute timestamp. The two are never equal, so
+the cmpxchg always fails and the timeout is never extended.
+
+This goes unnoticed for most flows, but a long-lived hardware (WED)
+offloaded flow on MediaTek MT7986 eventually has ct->timeout decay to
+zero, the conntrack entry is reaped and the connection breaks.
+
+Compare against the current ct->timeout value instead.
+
+This patch is sent as RFC: the diagnosis is verified on hardware and
+the fix resolves the drop, but review of the chosen approach is
+welcome.
+
+Fixes: 03428ca5cee9 ("netfilter: conntrack: rework offload nf_conn timeout extension logic")
+Signed-off-by: Adrian Bente <adibente@gmail.com>
+---
+ net/netfilter/nf_flow_table_core.c | 4 +++-
+ 1 file changed, 3 insertions(+), 1 deletion(-)
+
+--- a/net/netfilter/nf_flow_table_core.c
++++ b/net/netfilter/nf_flow_table_core.c
+@@ -541,8 +541,10 @@
+ 		 * after this -- is fine, datapath is authoritative.
+ 		 */
+ 		if (new_timeout) {
++			u32 old = READ_ONCE(ct->timeout);
++
+ 			new_timeout += nfct_time_stamp;
+-			cmpxchg(&ct->timeout, expires, new_timeout);
++			cmpxchg(&ct->timeout, old, new_timeout);
+ 		}
+ 	}
+ 
+
+-- 
+2.46.0
 
