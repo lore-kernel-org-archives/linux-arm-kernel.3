@@ -4,70 +4,76 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 55C85CD5BD2
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 26 May 2026 09:46:30 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 657FACD5BC8
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 26 May 2026 09:48:25 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
 	Content-Type:Cc:To:Subject:Message-ID:Date:From:In-Reply-To:References:
 	MIME-Version:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=khYHto0da/rGsGN1yk7Vbe05HTgfzl5xI2TS8KPj3Tc=; b=mR8H3kiCgGxwcpWAYj87MojrT4
-	yaXXN4ioCMCRy0udxhWapC4ZJKycUzXvdHF88rbPWD7IFvNk0nwGNk/Py0EJfqkc941IMNtrYIqje
-	NzGTno3Rm5UnAxCUtFDxDS2PSok8dvSaBDJPleDAJ+3B4XMnpobis0tajbV3heBDvTJl6c/XI+4lc
-	9fmThCWy/BY9oZTJv+0slmtpWjfGWCYyy1KhWfB88FqlxwAHLmm9qU/CdT/MTsKY7u6iQWAasoOSI
-	Xqq9gXaTOXN06J7A/fyONwGD/6aK/cT6USVCN5sBfWC4q7KXFvzxihLQSWaHF8xG0ZkRsBsGfbw8p
-	xzZaRh1w==;
+	bh=6xgiU7UHk0fyH8OtVpuJExgRt0VbjZpUEjJ/frbR0FA=; b=jruNwTWko5I07CPxh7YDxcQG4u
+	q0dTcnl7ioEh29+wagOWj3P8dffpzV8tNdRIMGew0mVUCtc5BT1RCF2rDH1acxeNvJ6Q5ty3EYTrE
+	HdQEJ2x2X0F+SarhVcyodU+/uqpFht/xgq9lTItqgTDf5yhyTJWS28a+vnaF5EIltxo/aHN/oxbi5
+	IQLBNkaWdyXi07abcGvPNI7GEH7CoWo0+o+CLHkBPIAHpbNFJmiGH8aSmwN9rTawyrbbrwUW66YQi
+	6yiH3Bsg2vhoEawJatN6nVYTKHisA6DyRY7J7ov2lvOAPCcBqx+5qGCQ6SIqm2RKmCTBVwMD55G3I
+	E1UdYR4w==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wRoMh-00000001Z0b-1PC6;
-	Tue, 26 May 2026 09:46:23 +0000
-Received: from tor.source.kernel.org ([2600:3c04:e001:324:0:1991:8:25])
+	id 1wRoOX-00000001ZIQ-3bYa;
+	Tue, 26 May 2026 09:48:17 +0000
+Received: from sea.source.kernel.org ([172.234.252.31])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wRoMe-00000001YzQ-39GT
+	id 1wRoOV-00000001ZHE-3Kpp
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 26 May 2026 09:46:20 +0000
+	Tue, 26 May 2026 09:48:16 +0000
 Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
-	by tor.source.kernel.org (Postfix) with ESMTP id DC5DE60018
-	for <linux-arm-kernel@lists.infradead.org>; Tue, 26 May 2026 09:46:19 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 948ED1F00A3F
-	for <linux-arm-kernel@lists.infradead.org>; Tue, 26 May 2026 09:46:19 +0000 (UTC)
+	by sea.source.kernel.org (Postfix) with ESMTP id 1EBFE43D1F
+	for <linux-arm-kernel@lists.infradead.org>; Tue, 26 May 2026 09:48:15 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id F2BA81F00ADE
+	for <linux-arm-kernel@lists.infradead.org>; Tue, 26 May 2026 09:48:14 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1779788779;
-	bh=khYHto0da/rGsGN1yk7Vbe05HTgfzl5xI2TS8KPj3Tc=;
+	s=k20260515; t=1779788895;
+	bh=6xgiU7UHk0fyH8OtVpuJExgRt0VbjZpUEjJ/frbR0FA=;
 	h=References:In-Reply-To:From:Date:Subject:To:Cc;
-	b=ZC4nw5RlVagCmmwh4piDdw1J2TtzBgSQ+gE2+/aAu4gq5Ues8ljzCh5XrVTRPMPAl
-	 wQrjB+ZBvM+3odSH4XpiLeAErDAIbRLShUgJ2xSBGmAnFejCqUJJMHEbwIhMIkeAnN
-	 V6IDBUtlQZ/q+YN45k7LpxS+1jBMMrq+tPTMwqP5ZZZhOHV7sfaTIrjZ37daUqn29N
-	 FbWR2IY0/ZwxyOVioJM/6adNGD9JE5ucr8yJ4kNcWemjyQPWiBevgsATkU/FV0ZwO+
-	 YA7Q3VnJbvVFECOdTok7R3VkgeL5Hb6um2GYL5R4ozYD09TUBXC9pysNClMrx8bXqj
-	 vwL745W8zPYwA==
-Received: by mail-lf1-f46.google.com with SMTP id 2adb3069b0e04-5a85b30dd54so11095286e87.2
-        for <linux-arm-kernel@lists.infradead.org>; Tue, 26 May 2026 02:46:19 -0700 (PDT)
-X-Forwarded-Encrypted: i=1; AFNElJ8NCiDZLJeRqPXKOB3Y4tAnERbnEhxOmmM2NqseBtxi0cllBwktEAvPJMIMRdal/trbi2vQG/wqtMuGkMZtswDo@lists.infradead.org
-X-Gm-Message-State: AOJu0Yz4goa/K6JMqZb7a7wo13P/uNIl3EONEgDKdepvrl+bx1lthOFC
-	YrMNMALk7WTJNBCP4nKXo6NE1IfpNGZOLuz30Z/x5+BofutSelozIPxvX3C1WHXWBslZbdU2w63
-	xxzETvbJW0dKTiVvBmzWSQ5cWIN5AGCE=
-X-Received: by 2002:a05:6512:a91:b0:5a9:163a:9ebc with SMTP id
- 2adb3069b0e04-5aa32328f6emr5890808e87.19.1779788778299; Tue, 26 May 2026
- 02:46:18 -0700 (PDT)
+	b=NVZlTsys9BWdtHzTDLDn5rfEhTbtLxyyJGzF9yhWAnDRt41GZGQkchM1KVUs4BE+V
+	 1ZfotqeJQVRfUIDBM6RJ2k1gVu2eBPsu9O+FeP6SXfWF/fNjDthrrS7mHTkNCjm0tu
+	 z8lXLoRuCz3oM81VIG4KNypW0wZMBD+C0W5bBLTTQrUkpCxFSnVeLs5s6QmfusqyrK
+	 2DZ+l73jxUWSahhHCjeNnze7jpJ4/4lfxQqN/demRkAnfOOJj/aQiLbtdK7j/e7uRU
+	 bs0KQ9vbAJ0Tk2r4RTaxzHBYygw2z2HFkI95yphzgxLV8SHOsGkb3Hm9fXVZm2Odf1
+	 r7Hx6MJKvNEGw==
+Received: by mail-lj1-f176.google.com with SMTP id 38308e7fff4ca-392445f11c5so105831691fa.1
+        for <linux-arm-kernel@lists.infradead.org>; Tue, 26 May 2026 02:48:14 -0700 (PDT)
+X-Forwarded-Encrypted: i=1; AFNElJ94F5ADA4ll6XdZ1ol6FeHG2IXRjxFM2GrVgLsyvxBWH0aemOOn6UxOMSQqOe6uFfVy8/yVDjhMHgdHOD9BxxlX@lists.infradead.org
+X-Gm-Message-State: AOJu0YzMMC61kx/UYYYB2wbvOFuT0urtssfF5QsFudFSkmwEqTqjCZUI
+	W2xLQuhH5JOhAUG4jiRwjI6pFNkDB9z3fLkTR7DuHGOYkLZbfyiwjSboBnh+e4L2Gl+Iwx6pLoY
+	jm9cK3jhzCBYmZ7nDwS7EhdXGvzoD52pCHk8J4CylGA==
+X-Received: by 2002:a05:651c:20cd:20b0:38e:94c6:b706 with SMTP id
+ 38308e7fff4ca-395ca1c8679mr43054031fa.7.1779788893678; Tue, 26 May 2026
+ 02:48:13 -0700 (PDT)
 MIME-Version: 1.0
-References: <20260523-pinctrl-imx-v1-1-73b7cb731351@gmail.com>
-In-Reply-To: <20260523-pinctrl-imx-v1-1-73b7cb731351@gmail.com>
-From: Linus Walleij <linusw@kernel.org>
-Date: Tue, 26 May 2026 11:46:04 +0200
-X-Gmail-Original-Message-ID: <CAD++jL=YqfDXE9OgKX4fbk0FgK8=W0gWMVHJ1icmHkRd4pN5JQ@mail.gmail.com>
-X-Gm-Features: AVHnY4K6rfRItQ-L5UFwu1FlZNpnb2Hkdgdyqdf1qhLTp0XnK7hfhnYE8AoesZ4
-Message-ID: <CAD++jL=YqfDXE9OgKX4fbk0FgK8=W0gWMVHJ1icmHkRd4pN5JQ@mail.gmail.com>
-Subject: Re: [PATCH] pinctrl: imx1: fix device_node leak in dt_is_flat_functions()
-To: Felix Gu <ustc.gu@gmail.com>
-Cc: Dong Aisheng <aisheng.dong@nxp.com>, Fabio Estevam <festevam@gmail.com>, 
-	Frank Li <Frank.Li@nxp.com>, Jacky Bai <ping.bai@nxp.com>, 
-	Pengutronix Kernel Team <kernel@pengutronix.de>, NXP S32 Linux Team <s32@nxp.com>, 
-	Sascha Hauer <s.hauer@pengutronix.de>, linux-gpio@vger.kernel.org, imx@lists.linux.dev, 
-	linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org
+References: <20260515090149.3169406-1-wenst@chromium.org> <CAMRc=MdnjRRMVzxPkkrPhQ4dz7rsK8-HKUp9cQ0z11apL3escQ@mail.gmail.com>
+ <CAGXv+5HC3dqgcE3KnKzakHHWFHB6m_X42orOkNUvZvp=SL_O8g@mail.gmail.com>
+In-Reply-To: <CAGXv+5HC3dqgcE3KnKzakHHWFHB6m_X42orOkNUvZvp=SL_O8g@mail.gmail.com>
+From: Bartosz Golaszewski <brgl@kernel.org>
+Date: Tue, 26 May 2026 11:48:01 +0200
+X-Gmail-Original-Message-ID: <CAMRc=Med-_0GSYzoFBRiwFzBCK0DZqJD8_SEBxi+zwR20GS-HA@mail.gmail.com>
+X-Gm-Features: AVHnY4JnWCndh1h2w4rgycQThCJN5e2R-74Cpg5S6rpAEGBFVHeaeEFDCnabd1Q
+Message-ID: <CAMRc=Med-_0GSYzoFBRiwFzBCK0DZqJD8_SEBxi+zwR20GS-HA@mail.gmail.com>
+Subject: Re: [PATCH RFC 00/12] arm64: mediatek: Add M.2 E-key slot on Chromebooks
+To: Chen-Yu Tsai <wenst@chromium.org>
+Cc: Greg Kroah-Hartman <gregkh@linuxfoundation.org>, Rob Herring <robh@kernel.org>, 
+	Krzysztof Kozlowski <krzk+dt@kernel.org>, Conor Dooley <conor+dt@kernel.org>, 
+	Matthias Brugger <matthias.bgg@gmail.com>, 
+	AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>, linux-pm@vger.kernel.org, 
+	linux-usb@vger.kernel.org, devicetree@vger.kernel.org, 
+	linux-mediatek@lists.infradead.org, linux-arm-kernel@lists.infradead.org, 
+	linux-kernel@vger.kernel.org, Manivannan Sadhasivam <mani@kernel.org>
 Content-Type: text/plain; charset="UTF-8"
 Content-Transfer-Encoding: quoted-printable
+X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
+X-CRM114-CacheID: sfid-20260526_024815_889930_7024D35F 
+X-CRM114-Status: GOOD (  23.92  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -82,28 +88,42 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Sat, May 23, 2026 at 12:27=E2=80=AFPM Felix Gu <ustc.gu@gmail.com> wrote=
-:
-
-> for_each_child_of_node() holds a reference on the iterator node that
-> must be released on early return. imx1_pinctrl_dt_is_flat_functions()
-> has two early return paths inside the loop that skip this cleanup.
+On Sun, May 24, 2026 at 10:06=E2=80=AFAM Chen-Yu Tsai <wenst@chromium.org> =
+wrote:
 >
-> Replace both loops with the scoped variant so that the reference is
-> automatically dropped when the iterator goes out of scope.
+> > >
+> > > I expect some discussion on this patch, because a) it adds some
+> > > OF-specific code into an otherwise generic (core) driver, and
+> > > b) it doesn't yet handle USB 2.0 / 3.x shared ports; it ends up power=
+ing
+> > > on the port twice, which negates the port reset part.
+> > >
+> >
+> > I understand that you do this because the port device has no OF node
+> > assigned. If we wanted to call pwrseq_get() for the port device, is
+> > there really no other way to associate it with the correct pwrseq
+> > provider?
 >
-> Fixes: 63d2059cd665 ("pinctrl: imx1: Allow parsing DT without function no=
-des")
-> Signed-off-by: Felix Gu <ustc.gu@gmail.com>
+> I suppose we could tie the "port@X" node to the usb port device, but
+> AFAIK no other subsystem does this so we would be introducing a new
+> pattern.
+>
+> In the M.2 pwrseq driver, we would have to match by port node instead
+> of its parent device node. We may end up with different behavior for
+> the USB target vs the other targets.
+>
 
-So what we got here is a non-critical patch on top of something that was
-critical and was merged as fixes. (A minor memory leak is not critical
-and not -rc material.)
+I imagine, we can check the bus type of the parent device to know if
+this is USB?
 
-Linus (the big penguin) has been annoyed of too many noncritical
-patches going in as fixes recently so can you please resend this after
-the next merge window? (I will try to remember the patch as well.)
+> Also, the "port@X" nodes only exist for the OF graph connections to
+> connectors and/or muxes (this series doesn't deal with the latter).
+> For directly connected devices, there is a "device@X" child node
+> directly under the USB hub node. That node is what gets tied to the
+> the USB device.
+>
 
-Yours,
-Linus Walleij
+Is this a problem? I don't think I understand what you're saying here.
+
+Bart
 
