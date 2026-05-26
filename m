@@ -4,40 +4,40 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 2AA74CD5BD5
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 26 May 2026 07:34:25 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 8350CCD5BCF
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 26 May 2026 07:34:26 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:CC:To:In-Reply-To:References
 	:Message-ID:Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:
 	From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=IdFoG90RH0XYQJFT2dA8mXxeqVG59sXC+ozloSlrvhA=; b=QXP0dX6uOh0ArgC2SVmAwKYH8b
-	rIx/5AdnYygVJ307RC/eb0WSU2O8DzdbvH3xPC21URX3JP5LAbrsRm/ipcVR83bNUjTLlNzXARwBW
-	4ge8c9vqcmfKUSbJeImRB4xiTl/QAumV5IZTM4vhNlPrXZq5NlBbBRIeLYm67ZMypO38B2UoUwm7v
-	eN4FzNro+PevGfwxKsav4QmzUHMMWtaIUdPZGzbOZYPI9WWafFaNP+Z9I5pMvzP9gzXpGepk6JuiP
-	iUjARxNoHfBd15Nt6WP++gwnE0oVMTkmTyQkygoroC9BXO4AIQAq354TaUoA7E89Hh4bg1s4pdsDH
-	ul7ZgNlQ==;
+	bh=Cjz47cFF0Zp3613Ye9IJenoOjxsQkT2fNoo1fCKoNSg=; b=mcL/y+a9qUQQ5sxYRgd9tIUUsB
+	UJ+JN7q/M4BvRPGSq8sy6GN/hcf60szllogF7SCDX85+7bfM22zPcZY8nrehWtIU95eyQulyM49lb
+	Hdnny5/MSaEt10Cb7OpTpPtsN9OnwuqesP9psogCV8TReXin1D2J8wRD4eiYesPk8omw0QOBQKGwl
+	SD7Mx7n77P+tZyjIdnUOwKrJ+W96nw9LctifITkbFbzKBXox+8DgrbBm+uGYxGKcTc13GSQMwOVV5
+	9P584tCmassKz+TQRq0gUBn8d6ZIFlJh1VyNqm7FznZ0lW7PBLEJKe3VlIYtJa+2idrB5ZEGi9/ME
+	A50AZOag==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wRmIt-00000001H6P-0fy1;
+	id 1wRmIt-00000001H6w-1alm;
 	Tue, 26 May 2026 07:34:19 +0000
 Received: from [64.106.246.77] (helo=mail-sc.amlogic.com)
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wRmIl-00000001H1M-2BKX;
-	Tue, 26 May 2026 07:34:12 +0000
+	id 1wRmIm-00000001H1M-2VDi;
+	Tue, 26 May 2026 07:34:13 +0000
 Received: from [127.0.1.1] (10.28.11.83) by mailsc.amlogic.com (10.8.11.35)
  with Microsoft SMTP Server (version=TLS1_2,
  cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.2.2562.35; Tue, 26 May
- 2026 00:34:05 -0700
+ 2026 00:34:08 -0700
 From: Zhentao Guo <zhentao.guo@amlogic.com>
-Date: Tue, 26 May 2026 15:33:36 +0800
-Subject: [PATCH RFC v5 1/6] firmware: meson: sm: Add video firmware loading
- SMC call
+Date: Tue, 26 May 2026 15:33:37 +0800
+Subject: [PATCH RFC v5 2/6] firmware: meson: sm: video firmware loading via
+ secure monitor
 MIME-Version: 1.0
 Content-Type: text/plain; charset="utf-8"
 Content-Transfer-Encoding: 7bit
-Message-ID: <20260526-b4-s4-vdec-upstream-v5-1-c6edebf5ea89@amlogic.com>
+Message-ID: <20260526-b4-s4-vdec-upstream-v5-2-c6edebf5ea89@amlogic.com>
 References: <20260526-b4-s4-vdec-upstream-v5-0-c6edebf5ea89@amlogic.com>
 In-Reply-To: <20260526-b4-s4-vdec-upstream-v5-0-c6edebf5ea89@amlogic.com>
 To: Mauro Carvalho Chehab <mchehab@kernel.org>, Rob Herring <robh@kernel.org>,
@@ -49,19 +49,19 @@ CC: <linux-media@vger.kernel.org>, <devicetree@vger.kernel.org>,
 	<linux-kernel@vger.kernel.org>, <linux-arm-kernel@lists.infradead.org>,
 	<linux-amlogic@lists.infradead.org>, Zhentao Guo <zhentao.guo@amlogic.com>
 X-Mailer: b4 0.14.3
-X-Developer-Signature: v=1; a=ed25519-sha256; t=1779780841; l=701;
+X-Developer-Signature: v=1; a=ed25519-sha256; t=1779780841; l=663;
  i=zhentao.guo@amlogic.com; s=20251024; h=from:subject:message-id;
- bh=EIbyEqiJ64VIutoxUMLEEjiZLuEMFFURkZoqXNKTANY=;
- b=7/SFWew3pk2OIXRhw+gXjJ6zO9SpMclslVvqDIMdvdUYP6BkKPPRYCWQTW1BLj6aozUHtdc6i
- xy42EToyXR2ARaoPfx0rblMuNp8i6nC5QlQvbmbXvmqzChAvXkWfCVV
+ bh=2+l4DUwLwWn2GDHI6LoxkCkn7TDYkl4Sv8Q4p9SlS/E=;
+ b=fisoGxmpmpD3OGsSymtZjeoHzqY31q5LtOvvKlcXp3nr6ubgkezELz5uqoiy8weF+a6qSHTOO
+ a/K/VbOG/dFBDBFiJTO8C+PKqcFqIZhrSGzyUJQ2KYEr8zyz6eUfhVP
 X-Developer-Key: i=zhentao.guo@amlogic.com; a=ed25519;
  pk=5yfDKrjreXwcAoEUsdtWafy6YN500upXp/CgtnXjLVU=
 X-Originating-IP: [10.28.11.83]
 X-ClientProxiedBy: mailsh.amlogic.com (10.18.11.5) To mailsc.amlogic.com
  (10.8.11.35)
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260526_003411_561885_60AF9175 
-X-CRM114-Status: UNSURE (   8.23  )
+X-CRM114-CacheID: sfid-20260526_003412_697951_4A82D27A 
+X-CRM114-Status: UNSURE (   7.17  )
 X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
@@ -77,26 +77,27 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Add SM_LOAD_VIDEO_FW at SMC ID 0xb200000f in the command
-table to load video firmware.
+Add SM_LOAD_VIDEO_FW to the secure monitor command enum
+to allow decoder drivers to load firmware through the meson_sm
+interface.
 
 Signed-off-by: Zhentao Guo <zhentao.guo@amlogic.com>
 ---
- drivers/firmware/meson/meson_sm.c | 1 +
+ include/linux/firmware/meson/meson_sm.h | 1 +
  1 file changed, 1 insertion(+)
 
-diff --git a/drivers/firmware/meson/meson_sm.c b/drivers/firmware/meson/meson_sm.c
-index 3ab67aaa9e5d..5da6c65d684a 100644
---- a/drivers/firmware/meson/meson_sm.c
-+++ b/drivers/firmware/meson/meson_sm.c
-@@ -47,6 +47,7 @@ static const struct meson_sm_chip gxbb_chip = {
- 		CMD(SM_GET_CHIP_ID,	0x82000044),
- 		CMD(SM_A1_PWRC_SET,	0x82000093),
- 		CMD(SM_A1_PWRC_GET,	0x82000095),
-+		CMD(SM_LOAD_VIDEO_FW,	0xb200000f),
- 		{ /* sentinel */ },
- 	},
+diff --git a/include/linux/firmware/meson/meson_sm.h b/include/linux/firmware/meson/meson_sm.h
+index 8eaf8922ab02..f40867a000f1 100644
+--- a/include/linux/firmware/meson/meson_sm.h
++++ b/include/linux/firmware/meson/meson_sm.h
+@@ -14,6 +14,7 @@ enum {
+ 	SM_GET_CHIP_ID,
+ 	SM_A1_PWRC_SET,
+ 	SM_A1_PWRC_GET,
++	SM_LOAD_VIDEO_FW,
  };
+ 
+ struct meson_sm_firmware;
 
 -- 
 2.42.0
