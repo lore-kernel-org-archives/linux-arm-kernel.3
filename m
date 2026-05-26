@@ -4,84 +4,99 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 560B4CD5BD0
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 26 May 2026 11:18:52 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id E53A2CD5BB1
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 26 May 2026 11:18:53 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:References
-	:Message-Id:Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:
-	From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
+	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=rOgGyybA1RFHUYhGBde0hOiuSxoA2CWz/XAXRbLfO+Q=; b=VdEESt7bL/m9xtSAMnvoyWVx6c
-	LTovGVKl0GwLGzIe3tg+jYsENeopgM8a8xSY1pd0CddAIeL4n5T2a5wmv4lKeN1/D2dXwCuFOGC+c
-	AYJqzkB2sUf7T6vK6tGTFKcAvBso0D8u9x3GtDBlAJlepM9NZWWKKgvXbaVq04vUTbjdU3wOqnsPW
-	loM6uFF4VX80HDrN5BXO8A/h9g0KM5a9hmlg90lupuIx3eBMutVtNWZs4C2kpYzTClQ578KIM0Z8O
-	jBDqR7mVSFD9Y0sxn9uNKOfFe/O/vgqj+u/RIklHbnoHW3MA05sDBeBL/kDU/WHuX8U3YzGYzTrwo
-	8YSWObDg==;
+	bh=Iel9G2dSq5mVeEVrZU7ubpkoHb7PNbJx58eC9mITM2Y=; b=ERFf6ySgVuHfAJ+WE7Fdwi5FFZ
+	4i1rPHmXxaZvE3OarvTUjElKLGtAIQEzbg1IYF1rG19pmYwZtCxA5xAB5AjzEkHQk1E3lcIMD1b6H
+	goQHcbfC5JQ3SR/Gh0+1+LKQYj3/J+QM5H8sUPIPivNnvcptXai6v21V/MDs2tkFX9Td8pasHpgFb
+	8lO4hF7kGjLQ+gcJ8R54prskmMVI/5qYxm2WNduD3szOZXIzj7KfKOfsyCkWGbgPGz8hUHZj6KpuE
+	fRl4Hn6JyVvKNsrJUlH7hBCX8goZF3gT8F7HAm+nlavPFt2830wVW1y2l8tJE+WaQcOmQ+BP6i9Gg
+	A/XY8T7A==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wRpo5-00000001lQV-2gyI;
+	id 1wRpo5-00000001lQs-3f6Q;
 	Tue, 26 May 2026 11:18:45 +0000
-Received: from foss.arm.com ([217.140.110.172])
-	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wRpns-00000001lCM-0LE9
+Received: from mail-wm1-x32f.google.com ([2a00:1450:4864:20::32f])
+	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
+	id 1wRpnr-00000001lBY-1bPy
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 26 May 2026 11:18:33 +0000
-Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
-	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id 2AD62169C;
-	Tue, 26 May 2026 04:18:26 -0700 (PDT)
-Received: from localhost.localdomain (e123572-lin.cambridge.arm.com [10.1.194.54])
-	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id 5ABD73F7D8;
-	Tue, 26 May 2026 04:18:26 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=simple/simple; d=arm.com; s=foss;
-	t=1779794311; bh=tdSh+emP90ANDDLr4gHqcl2n9jLxHG0p28D+Gnc4lOo=;
-	h=From:Date:Subject:References:In-Reply-To:To:Cc:From;
-	b=G6Qh4uyOUk14RrgWwvp7BlKMYZOIJVQPQyDyGrJ/wn6FiXKVFkyn0lMuRcFJzfGej
-	 DFzV1DszD8XXUocbHQkip3oFVB/VukZmNPLOUC4Fwgsk/4enrFmlAsnPDK1b4vca8o
-	 t3Hil7XQ68LyxySvYJaOj8elFG/Qyunte2v8kDGw=
-From: Kevin Brodsky <kevin.brodsky@arm.com>
-Date: Tue, 26 May 2026 12:16:07 +0100
-Subject: [PATCH RFC v8 18/24] arm64: kpkeys: Ensure the linear map can be
- modified
+	Tue, 26 May 2026 11:18:34 +0000
+Received: by mail-wm1-x32f.google.com with SMTP id 5b1f17b1804b1-4904c1ce4c1so40642535e9.3
+        for <linux-arm-kernel@lists.infradead.org>; Tue, 26 May 2026 04:18:30 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=linaro.org; s=google; t=1779794309; x=1780399109; darn=lists.infradead.org;
+        h=content-transfer-encoding:in-reply-to:from:content-language
+         :references:cc:to:subject:user-agent:mime-version:date:message-id
+         :from:to:cc:subject:date:message-id:reply-to;
+        bh=Iel9G2dSq5mVeEVrZU7ubpkoHb7PNbJx58eC9mITM2Y=;
+        b=u3oj3PrmkyubiwhTPszy7p59IzUf6cZ5xQtK8vf8A3FaNicV7gCX2vM9R1mzt6VNp2
+         Ni3WuMYbX1Cwgc43FkJPA3uG72/F6Om89/brh1/21IaHZnQeHz6HQH+0SZnrVg04684o
+         HujgeevWaXwH3i7aELkx1KSGb6EmJqeIAfTxNIh7zFz4YdHCmEy4dJF1bopk6WFnlXDv
+         9I3c0vJPyGUtupd+4Hxw1EenEov+ubsI0Ow3lriz/ln8fNwEr8K62pZ73iBqxwlcTVI0
+         ITScRU6p0acW5O7Vky1HG/YR3S7akRQ/g5h+w4ZL+KaIIT7s0Y8ak9vgrFEH7M+9tU/A
+         kQXg==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20251104; t=1779794309; x=1780399109;
+        h=content-transfer-encoding:in-reply-to:from:content-language
+         :references:cc:to:subject:user-agent:mime-version:date:message-id
+         :x-gm-gg:x-gm-message-state:from:to:cc:subject:date:message-id
+         :reply-to;
+        bh=Iel9G2dSq5mVeEVrZU7ubpkoHb7PNbJx58eC9mITM2Y=;
+        b=ZuL/a3q03dPQgu2vucZMBA5MY5bU25nqC1U18hfyu2G0p/bVE6G7QOnWnYnZeZuiDQ
+         4MtMhFfMN7EnKjfwngprE89COW1kC3I5S0zVOh2722sacbutqWErlTNZsBVz0WTM3Uo5
+         Zp2P5uPU10aPGu+TB4hUDWLs8WJOLSc1OJHG640ddoVeAfMYaaJ94GUk01s5jI0kcKk0
+         Rqp8jwtwhvxE/58uXQ4PyYA5hCVq+nazuiXW6HrLvfpic8u7PnnLqa0dWiFrxeaCHOI6
+         +nNdJVKNjg39Ik+mYgylhWPbYCUvayv1Qe+TiTDGkmNsSg8As7pSlpwclJ20LbpxSksB
+         2uBw==
+X-Forwarded-Encrypted: i=1; AFNElJ8UT2K2y4kcDqeSFpf1zjgi8XgoocopQBXI2LNAfkPj0NtMGtcUdo6Lgr/W5QkkELuf8PL0xXVfk+W2xNYwx4JG@lists.infradead.org
+X-Gm-Message-State: AOJu0Yxk0Bl2R8j/+XNsaPGL7kqZKxMx/sYxmNn+ik+T9bH2j1TVymDV
+	uNxEpLEOD6nPTeEy8tjFBlQOi1a2hyuIuGfZSpVkD/LcdaQoZ0E/YtgqnDkvX2KTx5E=
+X-Gm-Gg: Acq92OFfMIYR+ycUjq+xq4oBwlm5CppWjN2yi/Cbih/k0p3BQM88cHel8/23EVPnoMG
+	E9iJB8UYA/e5NfyIg8IvkYuwOhdb4lh8c+qDHq7sE7aSSbdkvTCGSQyq/UjPbm/3q2dJoL+Qd2H
+	U/4JmHQhUEifWTIyZJVmtFRBBmZeHlTw5Mev1m4Fk02WzLWrlXNjmP2E6m1QATt/hs6LvLluRc4
+	TMYGhLvGWFOJJKAIgJNo881jK35a0LRY8mt+bQiE3B4o2+QydKVk9kypV4X0cKQBai2zxMQ1izR
+	1NDlppVXWFbcCnWc7BHNyv7JoObffjY6BrX280NLEspPMEVKFZvWMiCdi+H+MCL90Q/CtMkSgMY
+	D6FS9oUsZfiyYH4dmw48CLPsYefizdQKERQfXbgaL8BLr28gn1eVF0fWzfmLdLeDAfJQs2Q1ken
+	G3YWSpAZmA7uRLfhgxH20TdC+WSTHk
+X-Received: by 2002:a05:600c:4510:b0:48a:53ea:140b with SMTP id 5b1f17b1804b1-490428ddf15mr282865845e9.28.1779794309281;
+        Tue, 26 May 2026 04:18:29 -0700 (PDT)
+Received: from [192.168.1.3] ([185.48.77.170])
+        by smtp.gmail.com with ESMTPSA id 5b1f17b1804b1-490428d4d8asm109534425e9.16.2026.05.26.04.18.28
+        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
+        Tue, 26 May 2026 04:18:28 -0700 (PDT)
+Message-ID: <f767dc3b-9796-4b12-a776-1de6a9ff3f99@linaro.org>
+Date: Tue, 26 May 2026 12:18:27 +0100
 MIME-Version: 1.0
-Content-Type: text/plain; charset="utf-8"
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH] perf cs-etm: stamp pid/tid/EL on each buffered packet to
+ fix cross-pid attribution
+To: Amir Ayupov <aaupov@meta.com>
+Cc: stable@vger.kernel.org, Suzuki K Poulose <suzuki.poulose@arm.com>,
+ Mike Leach <mike.leach@arm.com>, Leo Yan <leo.yan@arm.com>,
+ Peter Zijlstra <peterz@infradead.org>, Ingo Molnar <mingo@redhat.com>,
+ Arnaldo Carvalho de Melo <acme@kernel.org>,
+ Namhyung Kim <namhyung@kernel.org>, Mark Rutland <mark.rutland@arm.com>,
+ Alexander Shishkin <alexander.shishkin@linux.intel.com>,
+ Jiri Olsa <jolsa@kernel.org>, Ian Rogers <irogers@google.com>,
+ Adrian Hunter <adrian.hunter@intel.com>, John Garry
+ <john.g.garry@oracle.com>, Will Deacon <will@kernel.org>,
+ coresight@lists.linaro.org, linux-arm-kernel@lists.infradead.org,
+ linux-perf-users@vger.kernel.org, linux-kernel@vger.kernel.org
+References: <20260515021135.1729028-1-aaupov@meta.com>
+Content-Language: en-US
+From: James Clark <james.clark@linaro.org>
+In-Reply-To: <20260515021135.1729028-1-aaupov@meta.com>
+Content-Type: text/plain; charset=UTF-8; format=flowed
 Content-Transfer-Encoding: 7bit
-Message-Id: <20260526-kpkeys-v8-18-eaaacdacc67c@arm.com>
-References: <20260526-kpkeys-v8-0-eaaacdacc67c@arm.com>
-In-Reply-To: <20260526-kpkeys-v8-0-eaaacdacc67c@arm.com>
-To: linux-hardening@vger.kernel.org
-Cc: Kevin Brodsky <kevin.brodsky@arm.com>, 
- Andrew Morton <akpm@linux-foundation.org>, 
- Andy Lutomirski <luto@kernel.org>, 
- Catalin Marinas <catalin.marinas@arm.com>, 
- Dave Hansen <dave.hansen@linux.intel.com>, 
- "David Hildenbrand (Arm)" <david@kernel.org>, 
- Ira Weiny <ira.weiny@intel.com>, Jann Horn <jannh@google.com>, 
- Jeff Xu <jeffxu@chromium.org>, Joey Gouly <joey.gouly@arm.com>, 
- Kees Cook <kees@kernel.org>, Linus Walleij <linusw@kernel.org>, 
- Marc Zyngier <maz@kernel.org>, Mark Brown <broonie@kernel.org>, 
- Matthew Wilcox <willy@infradead.org>, Maxwell Bland <mbland@motorola.com>, 
- "Mike Rapoport (IBM)" <rppt@kernel.org>, 
- Peter Zijlstra <peterz@infradead.org>, 
- Pierre Langlois <pierre.langlois@arm.com>, 
- Quentin Perret <qperret@google.com>, 
- Rick Edgecombe <rick.p.edgecombe@intel.com>, 
- Ryan Roberts <ryan.roberts@arm.com>, Vlastimil Babka <vbabka@kernel.org>, 
- Will Deacon <will@kernel.org>, Yang Shi <yang@os.amperecomputing.com>, 
- Yeoreum Yun <yeoreum.yun@arm.com>, linux-arm-kernel@lists.infradead.org, 
- linux-mm@kvack.org, x86@kernel.org, Lorenzo Stoakes <ljs@kernel.org>, 
- Thomas Gleixner <tglx@kernel.org>
-X-Mailer: b4 0.15.2
-X-Developer-Signature: v=1; a=ed25519-sha256; t=1779794212; l=1874;
- i=kevin.brodsky@arm.com; s=20260427; h=from:subject:message-id;
- bh=tdSh+emP90ANDDLr4gHqcl2n9jLxHG0p28D+Gnc4lOo=;
- b=fr6yZ8zM49YMzbl4pAqvIkdQX/UfKJYoPwtJoio3Jal7ikmbiUIgCdawtO09/ldvib7ULH/Mo
- AAKCsH7PRrcAzXVFFVEK/p3goI1iijinMde8JrGEBNZJcPtBkmoSXNV
-X-Developer-Key: i=kevin.brodsky@arm.com; a=ed25519;
- pk=N2QG+eJKrvkNovwhhwJhnJ4+ScVfsGCHldmqLfcMTFs=
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260526_041832_228870_1C3F0D97 
-X-CRM114-Status: GOOD (  14.86  )
+X-CRM114-CacheID: sfid-20260526_041831_671506_81038B5A 
+X-CRM114-Status: GOOD (  32.97  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -96,55 +111,122 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-When the kpkeys_hardened_pgtables feature is enabled, we need to be
-able to modify attributes (specifically the pkey/POIndex) in the
-linear map at page granularity.
 
-Add the appropriate check to can_set_direct_map() on the same
-principle as rodata_full and other features.
 
-kpkeys_hardened_pgtables currently requires the linear map to be
-fully PTE-mapped, so we also need to ensure that force_pte_mapping()
-returns true, like for DEBUG_PAGEALLOC.
+On 15/05/2026 3:11 am, Amir Ayupov wrote:
+> In a system-wide `perf record -e cs_etm/.../u` capture on aarch64,
+> synthesized samples emitted by `perf script --itrace=il64` are
+> sometimes attributed to the WRONG sample.pid/tid (and to the wrong
+> EL/cpumode) for the chunk of branches that straddle a context-switch
+> boundary on a CPU. A branch actually retired by process A is emitted
+> with sample.pid set to the thread that next ran on the same CPU.
+> 
+> Mechanism:
+>    1. ETM emits CONTEXTIDR/EL packets in-stream when the kernel updates
+>       CONTEXTIDR_EL1 on context switch / EL change. OpenCSD turns these
+>       into OCSD_GEN_TRC_ELEM_PE_CONTEXT elements interleaved with
+>       OCSD_GEN_TRC_ELEM_INSTR_RANGE elements for retired branch ranges.
+>    2. cs_etm_decoder__buffer_range() queues each INSTR_RANGE into
+>       packet_queue->packet_buffer[]; packets carry start/end addrs,
+>       instr_count, last-instruction info, etc., but NO owner identity.
+>    3. PE_CONTEXT goes through cs_etm_decoder__set_tid() ->
+>       cs_etm__set_thread(), which immediately mutates tidq->thread and
+>       tidq->el. Queued packets are not drained first; reset_timestamp()
+>       is called so the next TIMESTAMP triggers OCSD_RESP_WAIT and a
+>       drain.
+>    4. By drain time in cs_etm__process_traceid_queue() ->
+>       cs_etm__sample(), sample.pid/tid is read from the now-mutated
+>       tidq->thread and sample.cpumode from the now-mutated tidq->el.
+>       Pre-context INSTR_RANGEs get the post-context owner.
+> 
+> The same race affects branch samples via tidq->prev_packet_thread /
+> tidq->prev_packet_el, captured at packet-swap time from
+> tidq->thread / tidq->el (which may already have flipped).
+> 
+> This is independent of PERF_RECORD_SWITCH_CPU_WIDE, which is
+> deliberately not used to assign sample identity in this path. The
+> bug applies to any cs_etm capture with in-stream CONTEXTIDR
+> (PIDFMT_CTXTID or PIDFMT_CTXTID2).
+> 
+> Effect on downstream tools: branches that should belong to the
+> previous thread on the CPU get attributed to the next thread. When
+> the two threads share a binary, leaked branches' VAs land in the
+> wrong thread's mappings; samples whose IPs land in r-x mappings
+> silently pollute that binary's profile, while samples landing in
+> R-only/RW mappings show up as out-of-range / non-text samples.
+> Either way, AutoFDO/BOLT profiles built from `perf script --itrace`
+> output of system-wide cs_etm captures contain misattributed samples.
+> 
+> Concrete example from `perf script --itrace=il64` of the same
+> captured branch (same timestamp, same IP, same from/to addrs) before
+> and after this fix:
+> 
+>    before: launcher_multia 2638146/2638146 705897.219172: \
+>                fffcda6b124c 0xfffcda641958/0xfffcda6b123c
+>    after:  ws-tcf-sr-io13  2736581/2741587 705897.219172: \
+>                fffcda6b124c 0xfffcda641958/0xfffcda6b123c
+> 
+> The branch was retired by ws-tcf-sr-io13 (tid 2741587) but, before
+> the fix, was attributed to launcher_multia (the next thread to run on
+> that CPU after the context switch). After the fix, it is correctly
+> attributed to ws-tcf-sr-io13.
+> 
+> Why not "drain on PE_CONTEXT then switch" (deferred-set_thread):
+> tidq->thread has two consumers \u2014 sample emission needs the OUTGOING
+> identity for queued packets, but cs_etm__mem_access() needs the
+> CURRENT thread's maps to fetch instruction bytes for OpenCSD. The
+> two needs are temporally inverted; a single tidq->thread cannot
+> serve both. Keeping tidq->thread current and stamping owner identity
+> per packet is the only design that decouples them cleanly.
+> 
+> Fix: capture the owning pid/tid/EL on each buffered packet at
+> cs_etm_decoder__buffer_packet() time (before any subsequent
+> PE_CONTEXT can mutate tidq->thread / tidq->el), and read them at
+> sample emission time.
+> 
+>    - struct cs_etm_packet gains pid_t pid, pid_t tid, int el (storing
+>      an ocsd_ex_level value; typed as int so the struct does not
+>      depend on OpenCSD headers, which are only included inside
+>      HAVE_CSTRACE_SUPPORT).
+>    - cs_etm__etmq_get_pid_tid_el() (formerly cs_etm__etmq_get_pid_tid)
+>      returns all three.
+>    - cs_etm__synth_instruction_sample() reads sample.pid / sample.tid
+>      from tidq->packet->{pid,tid} and derives sample.cpumode from
+>      tidq->packet->el.
+>    - cs_etm__synth_branch_sample() reads sample.pid / sample.tid /
+>      cpumode from tidq->prev_packet->{pid,tid,el}.
+>    - The separate prev_packet_thread / prev_packet_el bookkeeping in
+>      cs_etm__packet_swap() / cs_etm__init_traceid_queue() /
+>      cs_etm__free_traceid_queues() is removed; the per-packet stamp
+>      on prev_packet now carries that information.
+> 
+> Cost: 12 bytes added to struct cs_etm_packet (~12-16 KB per
+> packet_queue with CS_ETM_PACKET_MAX_BUFFER=1024), 16 bytes saved per
+> cs_etm_traceid_queue (one struct thread * + one ocsd_ex_level).
+> 
+> A residual gap: cs_etm__copy_insn() reads sample.insn bytes via
+> cs_etm__mem_access(), which still uses tidq->thread (the current
+> thread), so the inline insn bytes for an outgoing-thread sample may
+> be looked up against the wrong address space. Fixing this requires
+> threading the packet's owner pid through cs_etm__mem_access and is
+> left for a follow-up. sample.ip / sample.pid attribution \u2014 what
+> AutoFDO/BOLT consume \u2014 is correct.
+> 
 
-Both functions can be called very early, before POE is actually
-detected, so the early_enabled() helper is used.
 
-Signed-off-by: Kevin Brodsky <kevin.brodsky@arm.com>
----
- arch/arm64/mm/mmu.c      | 2 +-
- arch/arm64/mm/pageattr.c | 3 ++-
- 2 files changed, 3 insertions(+), 2 deletions(-)
+Hi Amir,
 
-diff --git a/arch/arm64/mm/mmu.c b/arch/arm64/mm/mmu.c
-index dc69553d6326..c67b46592af6 100644
---- a/arch/arm64/mm/mmu.c
-+++ b/arch/arm64/mm/mmu.c
-@@ -760,7 +760,7 @@ static inline bool force_pte_mapping(void)
- 	const bool bbml2 = system_capabilities_finalized() ?
- 		system_supports_bbml2_noabort() : cpu_supports_bbml2_noabort();
- 
--	if (debug_pagealloc_enabled())
-+	if (debug_pagealloc_enabled() || kpkeys_hardened_pgtables_early_enabled())
- 		return true;
- 	if (bbml2)
- 		return false;
-diff --git a/arch/arm64/mm/pageattr.c b/arch/arm64/mm/pageattr.c
-index 8f3519400bd1..87543ec660f5 100644
---- a/arch/arm64/mm/pageattr.c
-+++ b/arch/arm64/mm/pageattr.c
-@@ -101,7 +101,8 @@ bool can_set_direct_map(void)
- 	 * Realms need to make pages shared/protected at page granularity.
- 	 */
- 	return rodata_full || debug_pagealloc_enabled() ||
--		arm64_kfence_can_set_direct_map() || is_realm_world();
-+		arm64_kfence_can_set_direct_map() || is_realm_world() ||
-+		kpkeys_hardened_pgtables_early_enabled();
- }
- 
- static int update_range_prot(unsigned long start, unsigned long size,
+Can you test the patch here to see if it fixes your issue [1]?
 
--- 
-2.51.2
+We thought it didn't make sense to store the thread on every packet when 
+there is only one active thread for the decoder and one for sample 
+generation. We also fixed the other issue mentioned above about 
+cs_etm__copy_insn() not working.
+
+Thanks
+James
+
+[1]: 
+https://lore.kernel.org/linux-perf-users/20260526-james-cs-context-tracking-fix-v1-0-ebd602e18287@linaro.org/T/#t
 
 
