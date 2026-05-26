@@ -4,137 +4,67 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 271A6CD5BC8
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 26 May 2026 10:14:41 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 08416CD5BD2
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 26 May 2026 10:19:52 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:
-	Content-Transfer-Encoding:Content-Type:In-Reply-To:From:References:Cc:To:
-	Subject:Date:Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=ZDvOFDpaksUUU/ZPLbdXHxvMT7keXlHRcQVjQ5Gw0jk=; b=183+bEa+aCGMjQfd0PMfyOM9j8
-	DZlmzUvlQ1+37d/7NJRfmEaQ4/bmvt0y0r/3taVnp2vULOFZ4Egt5VZJZnnkrhg58MXLtDbPge4q1
-	8Lugoq7bSgyU85W0MPO5mceIL5hP4p5eZHR6CFJAVC5en6xoeg6WNmimQR7Xs2ECNleXOeHraTiuY
-	k7s035qgww16uMZxjBda7xfTzqgioWpnBQp3HR9eIkn6rPmo00Oyvwk5BbUMF/WsNIHjv8AbVJ4gt
-	kxBBXrLZ04UnwoFkRAA22TDPfz5FQlNc+Rn7a76zXHHUUYxU0bKhUIiTCJmUFUrGMXIXp4y3OQQAC
-	3ufKGFWg==;
+	bh=EMxpQmTjCQ6YYHFflXj5KI5bPtCqrLFvEvMHOInAGjA=; b=1zajZT3iQebMAgVKJ72JtInfuV
+	WTmEo7Lz1ltnKOjCh92qkS9+DhjdZ2tEwuE/Jc0vQA7Y0qcUEExzOATl8y7MextJspQYnK62huYMG
+	I156qEoQcCtg4pt22ulJ/aBh+FXDRsZ2LNT7BKckKb6LjasbLd1po+VwVPs8RqjGDnvES2WjvyccU
+	lZqE8quH99sZ2Ou3KIGRNsp9eEUqyBt7G5E5H/OADUfLAALfh+UPLgDlu4TpaXt4RV5XsR4YZu4qG
+	y0DQuAKGJaJoOYJAiZgGr4DZ6aoA1RAgXNL5fLfZLx5I0/G7mTRN1i/OGapoMmXyDQL5gnRSaXTg3
+	XLCGtA+w==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wRonw-00000001ceS-3K3o;
-	Tue, 26 May 2026 10:14:32 +0000
-Received: from mail-northcentralusazlp170130007.outbound.protection.outlook.com ([2a01:111:f403:c105::7] helo=CH4PR04CU002.outbound.protection.outlook.com)
+	id 1wRosz-00000001dBY-49mS;
+	Tue, 26 May 2026 10:19:45 +0000
+Received: from sea.source.kernel.org ([172.234.252.31])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wRonu-00000001cdb-46Xn
+	id 1wRosy-00000001dB4-1zg4
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 26 May 2026 10:14:32 +0000
-ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
- b=O0sasW0I/lJmWWTkmifCcE3sQ7zmK2TUkoYIojRxj4TczYD4pj8GmmTWxaLSHauDiAE1yGlC7A/8PsvJcObODk52LBhxexQQR1ZOUKDNWA1i3Dw7/HtJp8PRbXDEOvzf04IVzNQbVOdWB97UsBzFSzJayUWEkz2IUISdL6NslliUk9dXuenoxKg+cCEqK2m7P1Ugrk8iR1Abqe8gg+plPRUguyWu+2ZDII6Dsye8ipmJ8wJPYUTNbdIJ+cR/z0e9TyYIOjDmyywynoAPNxjj5Y231nbJ91szE1nv98xCVsJcItphRjW7DAtUsPyncEfEGh82v8YdCQ+Lv8Ze+qJdQA==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
- s=arcselector10001;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
- bh=ZDvOFDpaksUUU/ZPLbdXHxvMT7keXlHRcQVjQ5Gw0jk=;
- b=h2Ftag3ie3Hrk3DOt8qcYV0rKL/Zr7FsbGBWg8iTGr+alK7WPKBfJW+1Kga9H3Zyd49pdZUUbCijbcb9sCD5paSa2tDGtaV4OWSsfMvgVDP4goLOH0L0iIonl8PHY1Rk2Bexm6lprT2FQ61ZS40Nav8GE9WliElISrr7yhdXxd+n5Q3DGwVO8xXTuquSLOCpf1K+p5z//Yr/SMv3xe8lm1c8qmLCh6a729kyh9TaLdmPVDAFmtHOVb42h4DHiZjVtDXGSVB5p+n5J+OYHBm0WdIBHdea24LucMb2wqnRtSHO8jm2jycjR2oMPAyndrK0hIs0nYPsZ1j7dFqq39CvIA==
-ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
- smtp.mailfrom=axiado.com; dmarc=pass action=none header.from=axiado.com;
- dkim=pass header.d=axiado.com; arc=none
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=axiado.com;
- s=selector1;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
- bh=ZDvOFDpaksUUU/ZPLbdXHxvMT7keXlHRcQVjQ5Gw0jk=;
- b=j6Qgvf3lxV6HQ1ZI7WRHNkWJQ/Vu8SFmizalySItnrRIv9ZMAsdcVZpoWZxShT5LnGLzZirO+NxGLfdsdhnc87+rulrPjBWak2W51PSkxksqp86NV5traITMcgPJJUdt2kh7OGwr/4KOlHiiDBduFP031DobmlsdJeXu/HQnOzwU057P/luDmbocXoHtyEXHxUUyZI7OqUnjnK8e1DtGz19M3GTVnpLU6SpZL9MhVUa2hKCwJX8YWRJbwsdYyDABOfJZ1YuzMced3ombQTqqtDlsWaQ4Rj33/MlsUOJO3W63yy0bHnotv+KCCVNPnlwq9shAoe4YvaTfyQx1ylqdRw==
-Authentication-Results: dkim=none (message not signed)
- header.d=none;dmarc=none action=none header.from=axiado.com;
-Received: from DS5PPFE7B3EE5B6.namprd18.prod.outlook.com
- (2603:10b6:f:fc02::1ca) by CH3PR18MB5746.namprd18.prod.outlook.com
- (2603:10b6:610:1b8::19) with Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.21.71.11; Tue, 26 May
- 2026 10:14:24 +0000
-Received: from DS5PPFE7B3EE5B6.namprd18.prod.outlook.com
- ([fe80::fb4c:ebd2:78ca:fd5e]) by DS5PPFE7B3EE5B6.namprd18.prod.outlook.com
- ([fe80::fb4c:ebd2:78ca:fd5e%6]) with mapi id 15.20.9846.025; Tue, 26 May 2026
- 10:14:24 +0000
-Message-ID: <0c6e3442-1638-4c81-af9e-977ed913248b@axiado.com>
-Date: Tue, 26 May 2026 18:14:18 +0800
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH 0/2] i2c: cadence: Add support for Axiado AX3000
-To: Michal Simek <michal.simek@amd.com>, Andi Shyti <andi.shyti@kernel.org>,
- Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>,
- Conor Dooley <conor+dt@kernel.org>
-Cc: linux-arm-kernel@lists.infradead.org, linux-i2c@vger.kernel.org,
- devicetree@vger.kernel.org, linux-kernel@vger.kernel.org,
- openbmc@lists.ozlabs.org
-References: <20260426-axiado-ax3000-cadence-i2c-support-v1-0-0cb9346a7fb5@axiado.com>
-Content-Language: en-US
-From: Swark Yang <syang@axiado.com>
-In-Reply-To: <20260426-axiado-ax3000-cadence-i2c-support-v1-0-0cb9346a7fb5@axiado.com>
-Content-Type: text/plain; charset=UTF-8; format=flowed
-Content-Transfer-Encoding: 8bit
-X-ClientProxiedBy: TPYP295CA0028.TWNP295.PROD.OUTLOOK.COM
- (2603:1096:7d0:a::17) To DS5PPFE7B3EE5B6.namprd18.prod.outlook.com
- (2603:10b6:f:fc02::1ca)
+	Tue, 26 May 2026 10:19:45 +0000
+Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
+	by sea.source.kernel.org (Postfix) with ESMTP id BBA0243B74;
+	Tue, 26 May 2026 10:19:43 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 6D1831F000E9;
+	Tue, 26 May 2026 10:19:41 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
+	s=k20260515; t=1779790783;
+	bh=EMxpQmTjCQ6YYHFflXj5KI5bPtCqrLFvEvMHOInAGjA=;
+	h=Date:From:To:Cc:Subject:References:In-Reply-To;
+	b=VvOwFLahmsKGzLreqDRyvIkSIuhcPMXsklNZ5PHm9NhzHTLYjwfn5E/uRYB+NZJeH
+	 T/Jk+mEYO8a0WZj/Np+770VbTN6QUgy/S3o8IkyKSwKxdOFQsarNsr2Ky/nDDRyY04
+	 HwHCYK+e+JWfErkdLRsfQFru6w5lUz0jeSo2WW9mOelHjCHco5CZAE6XuWRE1++RAb
+	 js3+2/8MjmCxanHWhzH/M+nng8pyZ8UCqgZ1SKybQO8tdkKdR/0VvQZzE8T3OtHp01
+	 5TX7lrUxCz6qA7MwJkOsPaLWXW7gao4NH+y/Rb/ntqTMK1DQKMUx15TUYoV5iDTlKP
+	 s98Idt/wW/Irw==
+Date: Tue, 26 May 2026 11:19:38 +0100
+From: Mark Brown <broonie@kernel.org>
+To: Mark Rutland <mark.rutland@arm.com>
+Cc: Marc Zyngier <maz@kernel.org>, Oliver Upton <oupton@kernel.org>,
+	Joey Gouly <joey.gouly@arm.com>,
+	Steffen Eiden <seiden@linux.ibm.com>,
+	Suzuki K Poulose <suzuki.poulose@arm.com>,
+	Catalin Marinas <catalin.marinas@arm.com>,
+	Will Deacon <will@kernel.org>, linux-arm-kernel@lists.infradead.org,
+	kvmarm@lists.linux.dev, linux-kernel@vger.kernel.org
+Subject: Re: [PATCH] KVM: arm64: Preserve all guest ZCR_EL2.LEN values
+Message-ID: <b4fdceb6-5fa7-4829-a60e-6f80f47f032a@sirena.org.uk>
+References: <20260522-kvm-arm64-fix-zcr-len-nv-v1-1-ec254e9078cf@kernel.org>
+ <ahSWwl-uCv4ZW-nE@J2N7QTR9R3>
 MIME-Version: 1.0
-X-MS-PublicTrafficType: Email
-X-MS-TrafficTypeDiagnostic: DS5PPFE7B3EE5B6:EE_|CH3PR18MB5746:EE_
-X-MS-Office365-Filtering-Correlation-Id: 16d50f80-b6b9-4665-b31b-08debb0f8f51
-X-MS-Exchange-SenderADCheck: 1
-X-MS-Exchange-AntiSpam-Relay: 0
-X-Microsoft-Antispam: BCL:0;ARA:13230040|1800799024|376014|7416014|366016|3023799007|6133799003|18002099003|56012099003|22082099003;
-X-Microsoft-Antispam-Message-Info: Or5PWQRCa2/nlA5dKzECeCnx9NHuvsSFcyHHJckSn4iEM0EAN4SR2uIgOcr+GXiK4FAWa6oYqozeT009knl3hVt04Z3ZAQYfA0kbU9YL0mF+OisLLr213h138A+lGsEQPkmxIBwRhtCsTZRj6Vnl/FEAJn55yxQWG2yPiUJF3yrti+afY7sC10yGTVkijw8Tnadj8Ysr5MPZzAQ5jBhKkmCCiAgZFo7Ws7lY/NDiv6SYv/Kp+d0Im07Trfr+er5oQ4V8c2lhhDVLNYsy7s8mi6PhsFRZcXIdnaZ/0wCJ2dUj14OaVmTx97hwOZE88ZDtgf15rtICJ5AjRNY7M1pAz2AklVmfIxW1qDncF4RGD+eQaDASw+s40uhHHoJdffK0krYklica454OCX0SKuJD8kHtA7/YmPugLolBue7OERgoaXLt8wWJHzTh1p+35sReyjiQTFxetGIxJmudIKPUqdet6VpT7OWxZBpnBvA1DI4kpY63U8orDJQQ/RzADbIvBP0F15qkJiUdyruvPfdjETRiQ2Nkb6TBu0+Asz2TLOWwINNOdCfrmpQVgiKVB+06NDCcK0sN+H2NgZJCYbuJ+fvNaWjnHWtrTtpMG84J97sZ3dKIDTUZik/JnDefoGZKFRdtiqOP6INMEhzHEqUXDNzhaGoeUZVXBGAsQGjcU4FegxW4gE/HE4CFTy2gGyDd
-X-Forefront-Antispam-Report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:DS5PPFE7B3EE5B6.namprd18.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(1800799024)(376014)(7416014)(366016)(3023799007)(6133799003)(18002099003)(56012099003)(22082099003);DIR:OUT;SFP:1102;
-X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
-X-MS-Exchange-AntiSpam-MessageData-0: =?utf-8?B?NW9oRitkTTBFb0sxaHJWMG8vcFFGQTArSmJXd3JKQXdBREVvbEZMS2Q2TGdS?=
- =?utf-8?B?b3ZVdkxrS040dlgxRDU3eXBxaXdYa0FhbUtveU13TUI0ZkR6UEozYUV6OUdG?=
- =?utf-8?B?RVQvSS9tajllaHFiMmo2aC9lUGkvYUZ2TVc5dG03RmJUQ2Y4RlQveXErZENH?=
- =?utf-8?B?YUVETHNOdEhEL2hXRjRhNnhsYUdCQjMra2NKQzdQL28zOEtObTBFWU1wRUt2?=
- =?utf-8?B?bU1TOTZaRE5VT2xiRzBmdjBQRFNNdU50bEFOZHpSbnJPUklCYWc1ZmVrMnNS?=
- =?utf-8?B?OWJXaWRqbngxZ0JUQVJ6QnIzdDI5UTFHWm1JSzljRTlvTGNIeTE1QmJRMS92?=
- =?utf-8?B?OGhzejFtWGdhS2ZxYTNoTHpBUm15RGJiRXhWQTRMYVBHUDlOKzQreitDU2dq?=
- =?utf-8?B?RTIvQUFsRFU5OXFZZEJqSkFZOUdabmJ5Q2ppcVdEY0k0L2RwajJOMlFnc3g3?=
- =?utf-8?B?SFpRdWw4T2RhNHVqKzN3TldIbUMrWU0wN3RkZFVBSnNFWStQOGgzaTRIOWlZ?=
- =?utf-8?B?MFhjNWoxMU91aU5idzZGdjNNWTQvODl0M0gzVVplUEh5ZGhoRXV1T2t3SzBC?=
- =?utf-8?B?OGhHWGhkZnNiNUUzdEpwQmZWT2g3aVV0UVlJaVBZbmM2NEhNRWluTGlwZjhH?=
- =?utf-8?B?Z1JkMkh2a0NyR1ZlREJac21zdW4yMjROaUw0L1dkWDU0ODFPcDBwYlpVWk1G?=
- =?utf-8?B?c0VWZDVsUnBEbWUrcktTSGVyejQ4dWZLY21CVmFBdTZWQmd5aGlSbXdjZVpv?=
- =?utf-8?B?Ui9jWjZ5bkltWEZ4d3RZQ0pjZ3h5RGJKSzltT29NTVFHRWZUTkJzZG1ITjh3?=
- =?utf-8?B?b0JDVGxqNDlVYXBiQWdWeFNLYktGendOSFV3NElMU2xIMWlXcHpMY2JQSDFz?=
- =?utf-8?B?NDZOdVFOUSt3NXlQMmZKODd3Z3hPYnZYdVh2Y1FJZTBtWWVqSWYvRWt5TFYx?=
- =?utf-8?B?MTlJd0YrMFYrc0p1L3lSWUM0Sjg4SkVlNlRRTGdITVV5WldnOUt2WXpCUUxI?=
- =?utf-8?B?ZmF1eHJKN1ppNjJhZU9tbVIvYmFHNjVkcGhxcUE5NVJyYk5yUUJGUTh2REhF?=
- =?utf-8?B?L3k1LzBaK093dHdCZnhwQjRZUHg0SEQvYStyQTltT0hCL0xaSkNhT0R5SUl1?=
- =?utf-8?B?cjhpMk5ZUy9MYW90U2p1K3hMNms3ZEVEVDBYRDFhNXQyMWFXSEhuY3VwSUxE?=
- =?utf-8?B?N3RpeVMzRWV5bVhER3VzL1ZDRGF6b1dJNmkrejFWUGErdS95cHhiUUI5dTl6?=
- =?utf-8?B?Z1V6Tm9jOXp1a1hjUWY5WlA1WDRKL3RQd0s4RmJuYllxMVN6cnhOUkNETWtj?=
- =?utf-8?B?dTVJcjZTVTY2b1U0QXozQjdkWTVFd1FXQ0VZeStLVUs3NWx4YWlGOEEzRWFz?=
- =?utf-8?B?bVFDcmUrYzdpSUUyWmVjTGxjV2tGQkhCb08zNEhQdXlxVW1FS0d4cVJza2xl?=
- =?utf-8?B?RHNwMTdCdG5mNG5ld0VRUVdKNitkQlFNWjVTdjlXZFBzV0ZvUFFCY01YMUFO?=
- =?utf-8?B?em5hdFl4azJqT0lRa2hhS3NHWU5TTDVLNzBXcysyMWJxQlMxN01CWlNqL1dD?=
- =?utf-8?B?dGNZSFRrT3JqcjA4M29hdkFKWS9LNlorS2ozVmNISzJLWjhkci9sSURBcDNQ?=
- =?utf-8?B?cHg4QXRSS2hnZUNleUMyS2dnSnZpc1FuOFp5eHZLWVBuQkNiaVhNZDluaGtD?=
- =?utf-8?B?MW05dGJ2QlhLQ1RtZ0svdDBVdkxPT2d6OWwzZ2w3UEZkamRuWFdJVWdxN1Vk?=
- =?utf-8?B?Z21FOVg4MExwcVhqalovZFZGWFFySlluQjBpdXpLZGJDQ2MrMkNpbUhmanc1?=
- =?utf-8?B?YTZEaGQ4VmZvOHJRTVQ5N1hNOFlLYWRWaElsUURwb2NSby9GS0R6TXc2UmdC?=
- =?utf-8?B?dnFmckw5cEZPQVlBdTFkUExvZThHNFpveWc1K2dRZ1NINU9hN2tMQnNLUEJa?=
- =?utf-8?B?Qk5maG5xd2JKZWNmSWlhTUJLa0ZSME1nUmtPblhBRGNESTl6RnJDWHBSbUJT?=
- =?utf-8?B?Q040cnNMOXhuVjBjbVVyWjcyNGVvK0FRM20zREFwcG5YTlVRc0lYMnFNeGw5?=
- =?utf-8?B?TVlGRnlHMnE4RVBSb1UyRVdob1BPdyt0U252eStwU2JBR2FxMVlRbEZTbTFx?=
- =?utf-8?B?VG9wRGNwREEyVU5RSHRGekk1R0pkQlpoYjR0d3h0WHdsMnBwNjBkcnlETGhy?=
- =?utf-8?B?NWZlSmhBT2txclpmZ1VEYml4NFVhSlhFV1pmc1ErZm1kSkJZTnRtaWxXY0pp?=
- =?utf-8?B?SnQwVDdodSticE9FSUxiSUVnSWIxWXcvYmxPMERwYnR4WG9kd2ZuSC9vUEVX?=
- =?utf-8?B?OHliMk1KeFIzMXNtVVZMaSs0RlVsRjVLbCtPWXRBU05WUHhaVnBhdz09?=
-X-OriginatorOrg: axiado.com
-X-MS-Exchange-CrossTenant-Network-Message-Id: 16d50f80-b6b9-4665-b31b-08debb0f8f51
-X-MS-Exchange-CrossTenant-AuthSource: DS5PPFE7B3EE5B6.namprd18.prod.outlook.com
-X-MS-Exchange-CrossTenant-AuthAs: Internal
-X-MS-Exchange-CrossTenant-OriginalArrivalTime: 26 May 2026 10:14:24.2953
- (UTC)
-X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
-X-MS-Exchange-CrossTenant-Id: ff2db17c-4338-408e-9036-2dee8e3e17d7
-X-MS-Exchange-CrossTenant-MailboxType: HOSTED
-X-MS-Exchange-CrossTenant-UserPrincipalName: WVQiu/I+HE1OWiOQRtvJ0EAOvlIpiUE1yo4CF9s62k1Acom5k5qSk31CgJfPTwOJFfuidmBmoHIMHh+tm29YQQ==
-X-MS-Exchange-Transport-CrossTenantHeadersStamped: CH3PR18MB5746
+Content-Type: multipart/signed; micalg=pgp-sha512;
+	protocol="application/pgp-signature"; boundary="RL/ZeSeTiUvxwP7H"
+Content-Disposition: inline
+In-Reply-To: <ahSWwl-uCv4ZW-nE@J2N7QTR9R3>
+X-Cookie: You are fairminded, just and loving.
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260526_031431_026012_3CB482E5 
-X-CRM114-Status: GOOD (  21.38  )
+X-CRM114-CacheID: sfid-20260526_031944_536702_B4697A36 
+X-CRM114-Status: GOOD (  18.38  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -149,68 +79,55 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hi,
 
-Gentle ping on this patch series.
+--RL/ZeSeTiUvxwP7H
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+Content-Transfer-Encoding: quoted-printable
 
-Patch 1/2 (dt-bindings) has already received an Acked-by from Conor.
-I wanted to kindly check if you have any comments or feedback regarding 
-the driver changes in Patch 2/2.
+On Mon, May 25, 2026 at 07:36:50PM +0100, Mark Rutland wrote:
+> On Fri, May 22, 2026 at 07:00:04PM +0100, Mark Brown wrote:
 
-Please let me know if any further adjustments are needed.
+> > Since b3d29a823099 ("KVM: arm64: nv: Handle ZCR_EL2 traps") when guests
+> > write to ZCR_EL2 we have clamped the value of ZCR_EL2.LEN to be at most
+> > that configuring the maximum guest VL. This is not the behaviour the
 
-Best Regards,
-Swark
+=2E..
 
+> Have we sought feedback from architects? While I said "*or* the
+> architcture requires a clarification", I think it should be clarified
+> more explicitly either way given that the pattern is unusual.
 
-Swark Yang 於 2026/4/27 上午 11:57 寫道:
-> CAUTION: This email originated from outside of the organization. Do not click links or open attachments unless you recognize the sender and know the content is safe.
->
->
-> This patch series adds support for the Cadence I2C controller
-> integrated into the Axiado AX3000 SoC and enables SMBus Quick
-> command functionality.
->
-> The Axiado AX3000 utilizes the Cadence I2C IP core (version r1p14).
-> While it is largely compatible with the existing i2c-cadence
-> driver logic, the AX3000 hardware specifically supports SMBus Quick
-> commands. This feature is currently disabled by default in the
-> i2c-cadence driver (masked out from I2C_FUNC_SMBUS_EMUL).
->
-> To enable this functionality, this series introduces a new
-> platform-specific quirk (CDNS_I2C_QUIRK_SMBUS_QUICK) and uses driver
-> match data for the "axiado,ax3000-i2c" compatible string. This allows
-> tools like 'i2cdetect' to properly scan the bus using quick write
-> commands.
->
-> The DT binding update follows the recommended fallback structure,
-> referencing the 'cdns,i2c-r1p14' fallback to ensure compatibility with
-> older kernels while allowing the new quirk to be enabled on AX3000.
->
-> Patch breakdown:
->
-> Patch 1: dt-bindings: i2c: cadence: Add Axiado AX3000
-> Patch 2: i2c: cadence: Add support for Axiado AX3000
->
-> These patches are expected to go via the I2C subsystem tree.
->
-> Feedback is welcome.
->
-> Signed-off-by: Swark Yang <syang@axiado.com>
-> ---
-> Swark Yang (2):
->        dt-bindings: i2c: cadence: Add Axiado AX3000
->        i2c: cadence: Add support for Axiado AX3000
->
->   Documentation/devicetree/bindings/i2c/cdns,i2c-r1p10.yaml | 10 +++++++---
->   drivers/i2c/busses/i2c-cadence.c                          | 10 ++++++++++
->   2 files changed, 17 insertions(+), 3 deletions(-)
-> ---
-> base-commit: 63804fed149a6750ffd28610c5c1c98cce6bd377
-> change-id: 20260111-axiado-ax3000-cadence-i2c-support-53ec117bb074
->
-> Best regards,
-> --
-> Swark Yang <syang@axiado.com>
->
+> Given this is particularly subtle, please keep me in the loop when
+> speaking with architects about this.
+
+TBH it didn't strike me as subtle, I don't see anything in the
+architecture which would lead me to expect the current behaviour.  The
+psudocode all just has direct assignments for the write and there's
+language in the ARM (eg, in the ZCR_EL2 description) saying "for all
+purposes other than returning the result of a direct read of ZCR_EL2"
+which seems specifically intended to cover there being a divergence
+between the written and effective values, though I guess it doesn't
+explicitly mention writes in the text. =20
+
+When I saw the code it looked like something KVM was doing for some
+KVM reason that was obscure to me, the lack of clarity seemed like it
+was on the KVM side.
+
+--RL/ZeSeTiUvxwP7H
+Content-Type: application/pgp-signature; name="signature.asc"
+
+-----BEGIN PGP SIGNATURE-----
+
+iQEzBAABCgAdFiEEreZoqmdXGLWf4p/qJNaLcl1Uh9AFAmoVc7oACgkQJNaLcl1U
+h9C5hQf+Pn14856B4Py7Pz8HRV87FyRnoP8UMgUuC8d7Fz5BC0Xr+U6ugjlgZlry
+yjK7eZ3LusILO/1JnPbdZLPuMFDgfKkwaGyDw4tvX+6mw7FZOTZP2+dfow8G7gQs
+vE7CE0d8eBBL2mh6updIvf5IxImvyhC8ifSwxMEEt3xp5ROAxISABKA1V4eHJ6mT
+ReWoLIonclaNncyt4mJEKzM0zDfL3NrVSmi4XGKKuqOeVGF2xf5c923LZk0/RoRp
+nP3rQrOXpMTbikdif5N9SmMyzi2a0BoBN41+24axwLmcAeNeNtkhxy8s5ZlURz/1
+pwwqS2hV/zq7pPoXhfVohlIA0XHTkQ==
+=k37g
+-----END PGP SIGNATURE-----
+
+--RL/ZeSeTiUvxwP7H--
 
