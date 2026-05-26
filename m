@@ -4,101 +4,112 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id A9659CD5BB1
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 26 May 2026 12:27:26 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 51606CD5BC8
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 26 May 2026 12:31:16 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:MIME-Version:Message-ID:Date:References:In-Reply-To:Subject:Cc:
-	To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
+	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=3cGdeRIyed7u9Vu7ldN0+lFeh1o2iiXjimB366st4kA=; b=CS5dB/ZZfiotwgmcb5e0R942k1
-	TyLbd4nL4Fvd0UOc3dVreGoRc3gKdZfWCxo7M6ORLEtOAHpLG1N3jYbFpJ3X+p4Zx9KqMSlzuNkml
-	qIv6ugY0g7Js08/4FpAlTIHcxvHJa6hShtAM7PHsQT7jrJRZ6AsPL6c39lnPX/da0U3VoVVinYi3Q
-	a8lq3WexQHqVVh+KSrgI6dSa3djcAU41FxLWJ7r0NqhMxAUMaVSjmWu3wyaCnhNlJHL0JAakBz0M8
-	E8UfDWCfWJWAtsTnleJ9YfiN8Crf+Pw9aWVwpDpSVS5Of+NGdwZODF3Z+se8VyX/v8M2Kr5m/FUXa
-	WNvWdpNA==;
+	bh=CMSIxvChsdu1V/cdy6UaokWB5ztGbjE2wCafo6jTDRU=; b=CrXPm8zFG6SP9XUfouGAQF7RDD
+	wJx21NqwBgTlRRYFNOjkeUoeLWeyQCOtx0MncgjccTFRFID6akjAbc7G90VtEIjddgnutC2uN+diu
+	VRMXnDKWENHmnf4+32/eS7azzzUypcmbaK2yF4S5N6Y1e6WT5HjWv2rYXG8YpCXDdRaOFpNP4wlG2
+	8jdbGD4FTD6QNA9v7yJ8k0tnVaupx6ZcdbrooAWwpJ46T3w9Zfj1HV+7ds+uf9me8BdIpVwcsW7p9
+	LTkWu8VZqU6fB5qWN8RJy8+m4AJ07t1QkGGe2OygZwe1wQYmdB8CLBThJ8bDpsKcin/o50KC7XGKB
+	URjApiew==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wRqsR-00000001uas-0jVW;
-	Tue, 26 May 2026 12:27:19 +0000
-Received: from mail-wr1-x433.google.com ([2a00:1450:4864:20::433])
+	id 1wRqw9-00000001v2c-3akM;
+	Tue, 26 May 2026 12:31:09 +0000
+Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wRqsO-00000001uZv-1to2
+	id 1wRqw7-00000001v21-0O55
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 26 May 2026 12:27:18 +0000
-Received: by mail-wr1-x433.google.com with SMTP id ffacd0b85a97d-4526a8170ceso5323126f8f.2
-        for <linux-arm-kernel@lists.infradead.org>; Tue, 26 May 2026 05:27:15 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=baylibre.com; s=google; t=1779798434; x=1780403234; darn=lists.infradead.org;
-        h=content-transfer-encoding:mime-version:message-id:date:user-agent
-         :references:in-reply-to:subject:cc:to:from:from:to:cc:subject:date
-         :message-id:reply-to;
-        bh=3cGdeRIyed7u9Vu7ldN0+lFeh1o2iiXjimB366st4kA=;
-        b=CcmIL+rUSisdJp/fHe2a46OGusZk4YIdcvdXe1LFGHj740VZshQRCAPd+tIuXG9cjD
-         w8pGaLTJH/NU4zXuuAOKTgrmRRUG9V1sPM8m5bC4a3+3EU0zV/NaOfm54mLcm2XoeGzq
-         UzkjU+M57rL4pEC16w9labH4ZMXXfRMn5jccwh3bu3gZxty6dCOwW47XRpvcc4zX9OF2
-         dWfXFHm584ntZDEKDLZAAohMWlLZjjSLhDyrWVZHnXomf034GWoBkm2BrI+7QCUOiDe/
-         VOGbWpQ79NidRounmFFjD+2i754u3j7iPnhAQUM34hp4DiVjUGxEXnvRlj1U3zi6rLeB
-         GSUw==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20251104; t=1779798434; x=1780403234;
-        h=content-transfer-encoding:mime-version:message-id:date:user-agent
-         :references:in-reply-to:subject:cc:to:from:x-gm-gg
-         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to;
-        bh=3cGdeRIyed7u9Vu7ldN0+lFeh1o2iiXjimB366st4kA=;
-        b=rJuTlKeQr8Rjk4qUbnvMD5VygNjcQV5nYpJVLuaYB4D1Sk82j+I/wN5zhALgiLvYNs
-         Y2lXU48Tszn2EGVkRh2HU7zCOu/MZ3US+U4C/N55z0iOY/aBXtcITgH8C43kvbGESGnJ
-         GdGCj5ANBBPARNvaT5JTgWhkmSk1WktylXv6V61yUFM5OKf/cUGpBy3iBxeiDQJpp0N/
-         JVxbrgWDJf4Ca+HuyKA3aXT04ut3rfPSCYd0kqK+RNe1l9xLAjYKAbRlS9QIByWFPtQd
-         r3mAWEMRYWSK96AYkWpIBCPUki/sn6v0q7yQJQKWdJiMA3ECtyzjnXLTO+bKltTI1G0Y
-         jIyQ==
-X-Forwarded-Encrypted: i=1; AFNElJ/aVo4EDcx4GRvI8OT/iDfey+a67QCnuapXFls/as7lWIlebTM5cBcXjVonJt3La7kNiymIeVUSVmIXQUe71fKf@lists.infradead.org
-X-Gm-Message-State: AOJu0Ywxy4HjvRI7bdE6lWtUetsU6osb0kSAyg4IAcCJtTmfk7bwGvQE
-	s+0YqidOwAKIQ4Vw7TBQZ0rJ4qA/NkT8foEwkXU+UY9GZ94sOJCrQX9v0fan8Nrl8qc=
-X-Gm-Gg: Acq92OE56yq9EPCYyBC3lEzWWB5PvG13nEfaIsEVHakEwI0GwFdGlAKq89CoqHrlg9E
-	eUNCryYXmsEBgsG4ttTixQwgfuIOTtRG8f6VBr6Ly2UDDw6Kf70I03VFTun5AtKHIzNTMI1iJIE
-	8LZlGxq+0MqRN2Ca3Y4LRW83xcEl0dEwiJYfElCqmlzcusGFwqe7PSTEVgQaKMb7CGo2zqaRZrz
-	MYeq+IASEzlb6kmDCCjyeSb//MA1tdOgmKhBPnOLuPCxGmNXGciNzhnmAX12SixE851jbGAkgKA
-	hbSSKWYX4F7ctAXe98n1SEdySsrJ/c6pRDVb62Dm6kvEaplJ/i7Q1lCBKnZWYnyYqxco4rfzey7
-	l/A6lVk2XX7YFW5t7A3OaZxtvlP3++CRnXx9DHjiEgukp8QTt3x18M0RAs4qY2S+R9E5snfBaVs
-	S0Op1easG2gJbbPitBV9wgjr40krnTECN3
-X-Received: by 2002:a05:6000:2408:b0:45e:941e:77b3 with SMTP id ffacd0b85a97d-45eb38c9299mr32625100f8f.41.1779798434376;
-        Tue, 26 May 2026 05:27:14 -0700 (PDT)
-Received: from localhost ([2a01:e0a:3c5:5fb1:4a0c:b15a:3467:f4ed])
-        by smtp.gmail.com with UTF8SMTPSA id ffacd0b85a97d-45eb6d5cb9asm38009953f8f.27.2026.05.26.05.27.13
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Tue, 26 May 2026 05:27:13 -0700 (PDT)
-From: Jerome Brunet <jbrunet@baylibre.com>
-To: Jian Hu <jian.hu@amlogic.com>
-Cc: Jian Hu via B4 Relay <devnull+jian.hu.amlogic.com@kernel.org>,  Michael
- Turquette <mturquette@baylibre.com>,  Stephen Boyd <sboyd@kernel.org>,
-  Rob Herring <robh@kernel.org>,  Krzysztof Kozlowski <krzk+dt@kernel.org>,
-  Conor Dooley <conor+dt@kernel.org>,  Neil Armstrong
- <neil.armstrong@linaro.org>,  Xianwei Zhao <xianwei.zhao@amlogic.com>,
-  Kevin Hilman <khilman@baylibre.com>,  Martin Blumenstingl
- <martin.blumenstingl@googlemail.com>,  linux-kernel@vger.kernel.org,
-  linux-clk@vger.kernel.org,  devicetree@vger.kernel.org,
-  linux-amlogic@lists.infradead.org,  linux-arm-kernel@lists.infradead.org
-Subject: Re: [PATCH 07/10] clk: amlogic: Support POWER_OF_TWO for PLL
- pre-divider
-In-Reply-To: <3fda1592-f7d0-4e86-8615-602804673414@amlogic.com> (Jian Hu's
-	message of "Tue, 26 May 2026 17:58:19 +0800")
-References: <20260511-b4-a9_clk-v1-0-41cb4071b7c9@amlogic.com>
-	<20260511-b4-a9_clk-v1-7-41cb4071b7c9@amlogic.com>
-	<1jy0hm6n7e.fsf@starbuckisacylon.baylibre.com>
-	<8d89b669-e72e-4663-9596-999a12922d32@amlogic.com>
-	<1jqzn65y9l.fsf@starbuckisacylon.baylibre.com>
-	<3fda1592-f7d0-4e86-8615-602804673414@amlogic.com>
-User-Agent: mu4e 1.12.9; emacs 30.1
-Date: Tue, 26 May 2026 14:27:12 +0200
-Message-ID: <1ja4tm5pb3.fsf@starbuckisacylon.baylibre.com>
+	Tue, 26 May 2026 12:31:08 +0000
+Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
+	by sea.source.kernel.org (Postfix) with ESMTP id 6279E43D03;
+	Tue, 26 May 2026 12:31:06 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 43AAA1F000E9;
+	Tue, 26 May 2026 12:31:04 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
+	s=k20260515; t=1779798666;
+	bh=CMSIxvChsdu1V/cdy6UaokWB5ztGbjE2wCafo6jTDRU=;
+	h=Date:Subject:To:Cc:References:From:In-Reply-To;
+	b=FN9HaspCvpo45qFUkCrH02hplPk1gBW2uGeTih14XCaOD8sfCm/g869W4yziDNgt3
+	 YKudIUanXvtWU68PiPCDbtCPimZtF1DnjV06TYb0gnjB285yALRZoOGAxV1awxMUxm
+	 BfFkFYSLOacWK5oLz8FoT72P6eBS3q2QYdBwhQPZZLXvt1b1edkO/3Fw8KDYeIh/DG
+	 IooDTEi8jvk4wioMvL+w8hB0ahsCVoDFZ1ZRZe/Y6uvWR7168SzrtbK2m5Ju1sQsn5
+	 zW4Sy/JmAyiUVXhn/vnX19K/fWrUWfEUrUb7Iy2kn+XlJ6nA6P4WkRJY45064oKHj9
+	 WukAgd3mtnxaA==
+Message-ID: <1be38262-53de-4a27-9841-393e12fc1475@kernel.org>
+Date: Tue, 26 May 2026 14:31:01 +0200
 MIME-Version: 1.0
-Content-Type: text/plain; charset=utf-8
-Content-Transfer-Encoding: quoted-printable
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH] arm64: mm: call pagetable dtor when freeing hot-removed
+ page tables
+To: Kevin Brodsky <kevin.brodsky@arm.com>,
+ Vishal Moola <vishal.moola@gmail.com>,
+ Catalin Marinas <catalin.marinas@arm.com>
+Cc: Andrew Morton <akpm@linux-foundation.org>,
+ Alistair Popple <apopple@nvidia.com>, linux-arm-kernel@lists.infradead.org,
+ linux-kernel@vger.kernel.org, linux-mm@kvack.org, will@kernel.org
+References: <20260521032730.2104017-1-apopple@nvidia.com>
+ <20260521153130.d7d5cd060f7522f894252333@linux-foundation.org>
+ <ahACfQ6kCfONqz5h@arm.com> <ahAjudlB32VbkKbG@fedora>
+ <92450154-e1ab-46e4-b23d-eaa59c9cdd3b@arm.com>
+From: "David Hildenbrand (Arm)" <david@kernel.org>
+Content-Language: en-US
+Autocrypt: addr=david@kernel.org; keydata=
+ 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
+ qIws/H2t
+In-Reply-To: <92450154-e1ab-46e4-b23d-eaa59c9cdd3b@arm.com>
+Content-Type: text/plain; charset=UTF-8
+Content-Transfer-Encoding: 7bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260526_052716_540010_13A3EC97 
-X-CRM114-Status: GOOD (  28.95  )
+X-CRM114-CacheID: sfid-20260526_053107_178474_75C50661 
+X-CRM114-Status: GOOD (  12.02  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -113,150 +124,41 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On mar. 26 mai 2026 at 17:58, Jian Hu <jian.hu@amlogic.com> wrote:
-
-> On 5/20/2026 3:35 PM, Jerome Brunet wrote:
->> [ EXTERNAL EMAIL ]
+On 5/26/26 13:54, Kevin Brodsky wrote:
+> On 22/05/2026 11:36, Vishal Moola wrote:
+>>> diff --git a/arch/arm64/mm/mmu.c b/arch/arm64/mm/mmu.c
+>>> index 4c8959153ac4..9d42cbddce27 100644
+>>> --- a/arch/arm64/mm/mmu.c
+>>> +++ b/arch/arm64/mm/mmu.c
+>>> @@ -1441,6 +1441,9 @@ static void free_hotplug_page_range(struct page *page, size_t size,
+>>>  
+>>>  static void free_hotplug_pgtable_page(struct page *page)
+>>>  {
+>>> +	if (folio_test_pgtable(page_folio(page)))
+>> This should work.
 >>
->> On mer. 20 mai 2026 at 13:47, Jian Hu <jian.hu@amlogic.com> wrote:
->>
->>> On 5/14/2026 11:11 PM, Jerome Brunet wrote:
->>>> [ EXTERNAL EMAIL ]
->>>>
->>>> On lun. 11 mai 2026 at 20:47, Jian Hu via B4 Relay <devnull+jian.hu.am=
-logic.com@kernel.org> wrote:
->>>>
->>>>> From: Jian Hu <jian.hu@amlogic.com>
->>>>>
->>>>> The A9 PLL pre-divider uses a division factor of 2^n to ensure a clock
->>>>> duty cycle of 50% after predivision.
->>>>>
->>>>> Add flag 'CLK_MESON_PLL_N_POWER_OF_TWO' to indicate that the PLL
->>>>> pre-divider division factor is 2^n.
->>>> I understand what you are doing here but I have to ask why this can't =
-be
->>>> implemented with independent dividers that already supports power of 2=
- ?
->>>
->>> If we use independent dividers, the n member would have to be removed f=
-rom
->>> meson_clk_pll_data.
->>>
->>> However, n is referenced 35 times in clk-pll.c, which means we would ne=
-ed
->>> to modify all
->>> related logic across the file. This would be a relatively large
->>> change.
->> Yes
->>
->>>
->>> Moreover, for all Amlogic chips, the n divider is an indispensable part=
- of
->>> the DCO clock.
->> There is hardly a justification here
->>
->>> The difference between SoC generations is as follows:
->>>      Previous SoCs PLL: n =3D 1, 2, 3, 4... (linear divider)
->>>      A9 SoC PLL:            n =3D 2^0, 2^1, 2^2, 2^3, 2^4... (power-of-=
-two
->>> divider)
->> Yes that was fairly obvious
->>
->>> Therefore, splitting out the n divider from the DCO clock might not be a
->>> good design choice.
->> I'm not sure I agree and you've only stated your point of view without
->> providing any technical justification here.
->>
->>  From the datasheets of the different SoC we have, the documented
->> limitation is always the DCO output rate range. Nothing related to n (or
->> m, or the mult-range for that matter). This is a legacy problem, we
->> started with monolithic driver and slowly simplified it.
->>
->> As far as I can see now, reworking the PLL driver to be a simple
->> multiplier driver with range output rate constraint could actually be
->> simpler than the current code. I would also make simpler to accomodate
->> differences such as the one presented here.
->>
->> Unless you can provide technical reasons why going in this direction
->> would be incorrect, that's where I'd prefer to go.
->>
->>> [...]
->>>
->>> Best regards,
->>>
->>> Jian
->> --
->> Jerome
->
->
-> I agree that having an independent N divider would simplify the PLL rate
-> calculation.
->
-> A separate pre-divider for N is technically possible, but there are some
-> hardware constraints that need to be considered:
->
-> N =3D 1 is the preferred operating mode except a few fixed-frequency PLLs.
-> Larger N values reduce the PLL phase detector frequency, which may
-> negatively impact
-> jitter performance and overall PLL stability.
+>>> +		pagetable_dtor(page_ptdesc(page));
+>>> +
+>>>  	free_hotplug_page_range(page, PAGE_SIZE, NULL);
+>> In the case we presumably have a page table page (ptdesc) at this
+>> point, we should really be freeing it with pagetable_free() as well.
+> 
+> Agreed, I think this is the right thing to do, something like:
+> 
+> if (folio_test_pgtable(page_folio(page)))
+> pagetable_dtor_free(page_ptdesc(page)); else
+> free_hotplug_page_range(page, PAGE_SIZE, NULL);
 
-Understood. You could really make a difference by going deeper and
-explaining what those constraints are, especially since you ask question
-internally at Amlogic.
+That code pattern is wrong.
 
-At the moment what is documented is a range regarding the output rate of
-the PLLs. A PLL is made of a pre-divider and fractional multiplier.
-and you are saying that for the multiplier to work and lock, there is
-actually a constraint the input rate too.
+folio_test_pgtable() shouldn't exist.
 
-If you can discuss with your HW team and clarify what the constraints
-really are, that would help to better model the PLL. In then more likely
-for us to figure out the best way to drive it.
+In the future, something is either a pgtable or a folio, not both.
 
+So check the type against the page, not the folio.
 
->
-> Because of this, we cannot guarantee stable system operation when arbitra=
-ry
-> larger
-> N values are used.
->
-> Some PLLs require non-1 N values to generate specific fixed output
-> frequencies because
-> the target rate cannot be achieved with N =3D 1 while keeping the PLL whi=
-le
-> keeping the
-> PLL within its valid operating range. So N is designed to have other valu=
-es
-> =E2=80=8B=E2=80=8Bto
-> satisfy this requirement.
+-- 
+Cheers,
 
-Again it seems like the constraints we are using are not the real
-limitation, just by-products, which the situation unclear.
-
->
-> For example, the AXG PCIe PLL uses N =3D 3 to generate the required 100 M=
-Hz
-> output frequency,
-> since the target frequency cannot be achieved with N =3D 1.
->
-
-PCIe is a topic in itself. It uses different ops for historic reasons though
-I suspect, with proper constraints, it would not really need to.
-
->
-> Additionally, is the refactored pre-divider N implemented as a separate
-> patchset,
-> independent from the A9 PLL changes?
-
-I could be seen as a pre-requisite.
-
->
->
-> Best regards,
->
->
-> Jian
-
---=20
-Jerome
+David
 
