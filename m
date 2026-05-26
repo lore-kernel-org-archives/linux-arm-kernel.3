@@ -4,61 +4,110 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id D074ECD5BB1
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 26 May 2026 16:30:34 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 34B44CD5BD1
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 26 May 2026 16:37:38 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=N1zQ/GnLIMTNMTyliK2PK2FgHD+TxRA5OeforZE4vNA=; b=Ai4F1ojycrj70BlFgrtG2a9cE1
-	XmJfPYeFHF0IA06uzeQzr8mTNrS6018ZVxXTxVUmj7EIhb8+JYnjXrWE9c3Tq+Sr5heYEuspZniUw
-	h3OaUWMyvTyINwAuLIdwGVab1+EDg2OYh2Bgv5ISQFeuEfpFaNQpPG1vnUPaC+VHwi8Ag1enh2TCd
-	mKnGCpMihNeUw4CzV/mgMwZ5Rq0gTw6SEAIsX6iShkjM7o8HkEuSJjUB6gyRpaKnagWzNmMupbEEt
-	oAUobgqHwelWG59wBrrtoO6rGXEH1nmoKO0wIl1TAfbVrR6jD5Snpe+FTjYKdbl1dEV69oaGVi+p/
-	D8VG701Q==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:MIME-Version:Date:Message-Id:Subject:References:In-Reply-To:Cc:
+	To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=CbEyVDKYB6brZVOZVveRW94ChbWHXbhuaSGALUdMmOo=; b=ZjHe5XcPk9hPFypy2mVIqLEqcI
+	EqkV+M0PujXLljDoLUlakdIa3foK10o6vpgFiK05R2hHxcdTpGUEMU7mleDhlC/kloRmm86fne/DI
+	NU02uiZX/2n98de0E0TeBHFAa47C1OuW3RLIZxVkNMls89N9hs/mI68PcQ8s1cHJqvE/UDYS9cPgn
+	HH8T/jTixLIuXzyujyXfFj/aPKRFGmijNXQjTkJhgSg5zn/fljfHVptdf0qGTveQ42esrERB1F9bO
+	i3c6C19YHb7BHHLkQ8K1uxXEgD/HgKWsQLFJ33gsRmudt188wt77pUBdBR6gGXsgGCjtU7amlb0el
+	eXBnfU+Q==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wRufj-00000002WAr-27qX;
-	Tue, 26 May 2026 16:30:27 +0000
-Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
+	id 1wRumX-00000002WxW-1WS8;
+	Tue, 26 May 2026 16:37:29 +0000
+Received: from mail-oa1-x34.google.com ([2001:4860:4864:20::34])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wRufi-00000002WAQ-01sF
+	id 1wRumU-00000002Ww0-193r
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 26 May 2026 16:30:27 +0000
-Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
-	by sea.source.kernel.org (Postfix) with ESMTP id 783F240E81;
-	Tue, 26 May 2026 16:30:25 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 39EB41F000E9;
-	Tue, 26 May 2026 16:30:24 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1779813025;
-	bh=N1zQ/GnLIMTNMTyliK2PK2FgHD+TxRA5OeforZE4vNA=;
-	h=Date:From:To:Cc:Subject:References:In-Reply-To;
-	b=E98wwYHqUSZ1ZFu4yZW2IYMhiymKdhxy4pI0qNyTU7tiRSe2AQfOW2dinU4YRaoiF
-	 WoMmTOIQjL/C01NOEwoW7SthRE8x72M2xEnAVqm1n9BXzr+3bbYeijvvX5aMX0agBS
-	 qdoGBuldJpkeetMlVqHFw4YEssWpm1WMf+A5x74inLkn737/tJSY4SWP6yhR36cSp0
-	 9J/Y+i2i4Yk/i+Skgsm4pmYE9s4XS+rlNzAxbjAyu+wrWUydg5ZL2+s1r81JW0fZRB
-	 PZEu09LoaVDO8EPw0qzEafgZ93w2kUpbatAI63ySd6pxsJ+AyJqfpyd56BPeSYAdVX
-	 KEjva8ejbhgbw==
-Date: Tue, 26 May 2026 17:30:21 +0100
-From: Mark Brown <broonie@kernel.org>
-To: Gaetan Florio <gaetansjo@gmail.com>
-Cc: michal.simek@amd.com, linux-spi@vger.kernel.org,
-	linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org
-Subject: Re: [PATCH] spi: zynq-qspi: Remove redundant clock enables in setup
-Message-ID: <8b3f5645-5589-4ad4-b4af-ff5d37b35717@sirena.org.uk>
-References: <20260525174614.1052191-1-gaetansjo@gmail.com>
+	Tue, 26 May 2026 16:37:28 +0000
+Received: by mail-oa1-x34.google.com with SMTP id 586e51a60fabf-43acf1694daso6105494fac.3
+        for <linux-arm-kernel@lists.infradead.org>; Tue, 26 May 2026 09:37:25 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=kernel-dk.20251104.gappssmtp.com; s=20251104; t=1779813445; x=1780418245; darn=lists.infradead.org;
+        h=content-transfer-encoding:mime-version:date:message-id:subject
+         :references:in-reply-to:cc:to:from:from:to:cc:subject:date
+         :message-id:reply-to;
+        bh=CbEyVDKYB6brZVOZVveRW94ChbWHXbhuaSGALUdMmOo=;
+        b=HEL4T936s/nS5h0Z96ZhVfw+APwy1p0C5+kKXnev5S8aQkzRpqp/oasBn0WwiMOLGb
+         rL/KYbvRtvHe+hmn1b5jgHs9Zn8nEmJ011we0Dd/dRYwCb3IxU/q2+vPIOw03wxS9XHO
+         pvnIe3hGcX5sE5rtT0mV6MStCv9kpBS4bUDJGPCd5tKX7aISOIf3bSyFm9BqHu9q4LO1
+         p+73BHAa50MIyRTU4e7xBlk3ldGLN5kaqvFmhHoEMMaTPxWb8ZFVIeG6MlBcjwkRIofy
+         V8MS0OofcLSDfWoSme6tXEScxOJ9gTgMeDmf28Pwa5KqueXnQHzdLNqW5CN5NjCTHll7
+         Ibiw==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20251104; t=1779813445; x=1780418245;
+        h=content-transfer-encoding:mime-version:date:message-id:subject
+         :references:in-reply-to:cc:to:from:x-gm-gg:x-gm-message-state:from
+         :to:cc:subject:date:message-id:reply-to;
+        bh=CbEyVDKYB6brZVOZVveRW94ChbWHXbhuaSGALUdMmOo=;
+        b=RT2qFgs1A9sfiZoHmMkwfQWerSJx0grS14JrZTjua5sPaCuxPSJA3OJQnjvWXLepY8
+         0YyzIm/YYW6gazsP5zWyFM7YbeMa5RtrzvlJqJNVuo8rEICqSK4q+W78Vsyj+BmSdmso
+         xZD4me0lmEcu5sUR+A9cZCbQQPcECjFnn6NhJLDLal7Lbyfzps2k/1BRoglxgvPoWXyn
+         3gCifstH0eE5Nc5f/uv8p5c8psd8GlWNbm4DkD2c6DT5KazKHeC6J17W0QevNZtmTMcC
+         mJrEF4PzZHBCVlu/ZW7HnP0HOqR/4MCUomxqy7/b1zxZMcvy9f8irPBBpeBYNobrwcjg
+         jaOg==
+X-Forwarded-Encrypted: i=1; AFNElJ9hH4sISixvC1DrzDDLwmruZUkvOzPQix7zQuSqIaPSNkk4dm5Fhs+QBWSsDC0SQExnynSb/SUPV+g4T8Xmk0sM@lists.infradead.org
+X-Gm-Message-State: AOJu0YzOBn44qlrmBMWHbdsByTqLZWa1qF5LKlH7O4MasU/mr6S13w5J
+	ESlTLothmObmIC146UtHR5pCV4Fa0Hkl0RfTZRWIv8I8ckXysIVeJ7xuBTTfbmykqW0=
+X-Gm-Gg: Acq92OH35rMNgCJ9EdwAfAkroj7nsvj4chEhWg8fvad/9CiNeBhtFPaZ+n38cE00MVG
+	v8yn0xH+WfxZYZs85cFoa9E+zo8xkAO8eVuBa8joeYF8QmRmOQW4iMDuel6r7vBYZiw3O0PyBC7
+	c56CKCp9H/ZzeBcf8O8ztMivJcF8oEcZckKwqaHu4HD2XHFqI7hXMTwlsLL8PNoKUf6EJE5eM3Q
+	pWnWFxYQy2AX8XsYQsFvAuFUi/Rrg69DLcw1yT5NCC95oXn+pvqLKCpBF6RQanVllCVR9OjE+yT
+	RJ91c1xFXj42KocMOAlTmLC3Hyeg6N6+vjASnVF458sRErt9tT0gcslwrSjeqWtepVmcNuMXhqn
+	PhuwtM7AT2ffZ1R32DdxR4sqp7HENHyvVRoghTH1AKfHfXKmIUrCszutxfLVMJBlpnx8hkhyGwL
+	Y2Ga9y01Ae48ixOjUz7QiowEiefErFNksbxJJN3SQNTBs5WgzoeYPSRGgfPBRyY46T574F99MhB
+	fxFqJOksZx62NXbcrV32KCB
+X-Received: by 2002:a05:6871:289a:b0:43a:5cd0:db00 with SMTP id 586e51a60fabf-43b5adb7a25mr12258063fac.23.1779813444777;
+        Tue, 26 May 2026 09:37:24 -0700 (PDT)
+Received: from [127.0.0.1] ([96.43.243.2])
+        by smtp.gmail.com with ESMTPSA id 586e51a60fabf-43b639fd7adsm13561265fac.14.2026.05.26.09.37.20
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Tue, 26 May 2026 09:37:22 -0700 (PDT)
+From: Jens Axboe <axboe@kernel.dk>
+To: Mateusz Nowicki <mateusz.nowicki@posteo.net>
+Cc: Caleb Sander Mateos <csander@purestorage.com>, 
+ Sung-woo Kim <iam@sung-woo.kim>, Josef Bacik <josef@toxicpanda.com>, 
+ Alasdair Kergon <agk@redhat.com>, Mike Snitzer <snitzer@kernel.org>, 
+ Mikulas Patocka <mpatocka@redhat.com>, 
+ Benjamin Marzinski <bmarzins@redhat.com>, Ulf Hansson <ulfh@kernel.org>, 
+ Richard Weinberger <richard@nod.at>, Zhihao Cheng <chengzhihao1@huawei.com>, 
+ Miquel Raynal <miquel.raynal@bootlin.com>, 
+ Vignesh Raghavendra <vigneshr@ti.com>, Sven Peter <sven@kernel.org>, 
+ Janne Grunau <j@jannau.net>, Neal Gompa <neal@gompa.dev>, 
+ Keith Busch <kbusch@kernel.org>, Christoph Hellwig <hch@lst.de>, 
+ Sagi Grimberg <sagi@grimberg.me>, Justin Tee <justin.tee@broadcom.com>, 
+ Naresh Gottumukkala <nareshgottumukkala83@gmail.com>, 
+ Paul Ely <paul.ely@broadcom.com>, Chaitanya Kulkarni <kch@nvidia.com>, 
+ "James E.J. Bottomley" <James.Bottomley@HansenPartnership.com>, 
+ "Martin K. Petersen" <martin.petersen@oracle.com>, 
+ Thomas Fourier <fourier.thomas@gmail.com>, 
+ Al Viro <viro@zeniv.linux.org.uk>, Luke Wang <ziniu.wang_1@nxp.com>, 
+ Kees Cook <kees@kernel.org>, linux-block@vger.kernel.org, 
+ linux-kernel@vger.kernel.org, nbd@other.debian.org, 
+ dm-devel@lists.linux.dev, linux-mmc@vger.kernel.org, 
+ linux-mtd@lists.infradead.org, asahi@lists.linux.dev, 
+ linux-arm-kernel@lists.infradead.org, linux-nvme@lists.infradead.org, 
+ linux-scsi@vger.kernel.org
+In-Reply-To: <20260523125210.272274-1-mateusz.nowicki@posteo.net>
+References: <20260523125210.272274-1-mateusz.nowicki@posteo.net>
+Subject: Re: [PATCH v1] block: switch numa_node to int in blk_mq_hw_ctx and
+ init_request
+Message-Id: <177981344077.464267.4670805396521914701.b4-ty@b4>
+Date: Tue, 26 May 2026 10:37:20 -0600
 MIME-Version: 1.0
-Content-Type: multipart/signed; micalg=pgp-sha512;
-	protocol="application/pgp-signature"; boundary="W3rUfarjGCZc3sU7"
-Content-Disposition: inline
-In-Reply-To: <20260525174614.1052191-1-gaetansjo@gmail.com>
-X-Cookie: You are fairminded, just and loving.
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: 7bit
+X-Mailer: b4 0.15.2
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260526_093026_069296_A2690253 
-X-CRM114-Status: GOOD (  12.89  )
+X-CRM114-CacheID: sfid-20260526_093726_310616_0A33B16A 
+X-CRM114-Status: GOOD (  10.72  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -74,33 +123,28 @@ Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
 
---W3rUfarjGCZc3sU7
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
+On Sat, 23 May 2026 12:52:35 +0000, Mateusz Nowicki wrote:
+> numa_node in blk_mq_hw_ctx and the matching argument of
+> blk_mq_ops::init_request can be NUMA_NO_NODE (-1).  Declared as
+> unsigned int, NUMA_NO_NODE becomes UINT_MAX and walks off
+> nvme_dev::descriptor_pools[] on CONFIG_NUMA=n [1].
+> 
+> Switch the field and the callback prototype to int and update all
+> in-tree init_request implementations.  No functional change:
+> cpu_to_node(), kmalloc_node() and blk_alloc_flush_queue() already
+> take int.
+> 
+> [...]
 
-On Mon, May 25, 2026 at 01:46:14PM -0400, Gaetan Florio wrote:
-> The QSPI clocks are already enabled in probe() with clk_prepare_enable().
-> zynq_qspi_setup_op() enables them again with clk_enable(), but the extra
-> enable is never balanced. This leaves the clock enable count elevated and
-> can trigger warnings when unbinding the driver.
+Applied, thanks!
 
-This doesn't apply against current code, please check and resend - there
-was a recent fix here so I think the issue is already fixed.
+[1/1] block: switch numa_node to int in blk_mq_hw_ctx and init_request
+      commit: 65e1c8f96ad1a1f3b72e8a91d1341d570f91d985
 
---W3rUfarjGCZc3sU7
-Content-Type: application/pgp-signature; name="signature.asc"
+Best regards,
+-- 
+Jens Axboe
 
------BEGIN PGP SIGNATURE-----
 
-iQEzBAABCgAdFiEEreZoqmdXGLWf4p/qJNaLcl1Uh9AFAmoVypwACgkQJNaLcl1U
-h9Cg2gf/ZuG4skohiVfl20CqyWYWH6iC2PcX0TOn8HhH4ZN6TCrrOhumy/+yjsCg
-RwNIeegsZZKd8Nh4QD9/TUSeNgFW2LBfxs7orFh7f7q+R1jIJivR0qtG8L7N+nBS
-rGvFAwLKo06wP99qX5yFuYS+HF2gY8fShMysJA3tkdvBL5Agmmm+I5x7r+n/4VSK
-14vYazehz9CiMpN8LIXcqipJj+pC0Ygc5PxtP8Ki9S43Z6GuO5tzJG+7A+ZZMhC/
-Wni2ohi+idn0EPXizVP/R2pl91mzj/LxdFR2hQ67JFjRk1LK6bDCDDCMdB6X5Zv4
-rLF2365W0U2Vw5g6jdh3i+UBCIGfxQ==
-=KHGn
------END PGP SIGNATURE-----
 
---W3rUfarjGCZc3sU7--
 
