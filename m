@@ -4,48 +4,48 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 00D2ACD5BC8
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 26 May 2026 02:03:17 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 32F24CD5BC9
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 26 May 2026 02:14:58 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
 	Content-Type:In-Reply-To:MIME-Version:Date:Message-ID:From:References:CC:To:
 	Subject:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=MKNaIvCnm8qUnyfYhGibyJaJtEQHAb1VhcqtfRguFO4=; b=KEJDqE224i0CE9Y+h5TFtLxRFS
-	FCxkeHeewTRxlhXzAtXsexNjrHP/s0kiT6GfZT3vaBWq+Gkv0pRYUMRGsVskeNCflIDW+/nTaGvW6
-	Ebx4JHyAVlpHgJFxWfeNcD9SCjgD+v1dfC7ueLA+rYdbmpOpTCwOAlO2Wpltd7Kslo8ethxZsLlDi
-	MagBa0EC2G+K6gPBM1jkt9Pfl6awQv+kmJlSEpPBBEwzdEZlYz5NHcTgJYZSR7b2EPBWO6UwrzH+W
-	cPWGwLZAlcXRBclfJSSd6pRkbWweCoCP43UZW/Iy/myJqsRefEA0D05WegCyexRiIJwmcN/it3gQZ
-	BE0BeBqQ==;
+	bh=iqoFEqRrz+VITnn7JX0KLSm23oivmL3aruRn9IsfzBM=; b=EhXOBbtZXOyKnAwUKnizB8GfXN
+	YjXFfiuFQaXIOmEVh8iqYfEEg11xT3kD+ma2pM8Vi61zfqLWSDKIYw/nmet6htVFcWVwLuYTs8xAG
+	kJ7P9aQqGfikfvF2OgMTJhB+PVIFM+aa34BsXEYpkR4JCc2tA0a+Qf3ryXJ9oVSfjRebWXN3nN5cv
+	NQpka1XUZbFPVafK/7KGpgUW9iF4YANAUazojEc0ADeHBSq2IYGqPaere/Uf9yKwVjM/Kr+HkPPVq
+	SczBuLkBcYyt27S2D2Tzby5ySY4f3LcJ7xPzY6wrLRalXlJOI0Wi8PDGMVKj6W5Yoy2DPfi//s1ut
+	VXtTgTRQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wRh8P-00000000pMG-154P;
-	Tue, 26 May 2026 02:03:09 +0000
-Received: from canpmsgout10.his.huawei.com ([113.46.200.225])
+	id 1wRhJi-00000000qIC-0Rsm;
+	Tue, 26 May 2026 02:14:50 +0000
+Received: from canpmsgout07.his.huawei.com ([113.46.200.222])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wRh8L-00000000pLD-3pWz
+	id 1wRhJe-00000000qHM-42c3
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 26 May 2026 02:03:08 +0000
+	Tue, 26 May 2026 02:14:49 +0000
 dkim-signature: v=1; a=rsa-sha256; d=huawei.com; s=dkim;
 	c=relaxed/relaxed; q=dns/txt;
 	h=From;
-	bh=MKNaIvCnm8qUnyfYhGibyJaJtEQHAb1VhcqtfRguFO4=;
-	b=vnQ8zd26ObL6sz8BBQYf50Rk1KQLIazS4QZSDd4yDPU6l90+E+HaAIdGb5Q0I45iYYIMToehV
-	ENPARSZ4+iuNRTJzjJYVycsMhn/yY4VXCOlaeOWbFUe8MGPg2vWLHngy8ZCDG3pORrmQUxsWXQm
-	WMjSlPKyK4XdFv+cSAxX+nY=
-Received: from mail.maildlp.com (unknown [172.19.163.15])
-	by canpmsgout10.his.huawei.com (SkyGuard) with ESMTPS id 4gPbRd2grYz1K9ZR;
-	Tue, 26 May 2026 09:55:09 +0800 (CST)
+	bh=iqoFEqRrz+VITnn7JX0KLSm23oivmL3aruRn9IsfzBM=;
+	b=qg3va+tJlYSUbutvQ+T8srTjCVODQHoKmiJesdJbTqzhOOJYzMN684gmdFepLcNeL++Kd2OeB
+	I3751WyoTMMPTJRT5tKbtx1juWHKwApCX4kKE0ZKgoPbghVrkjIq1P+PNl3iN4cSWuAMgy094ue
+	CLB9cumxvInQKIiU5vKvXYs=
+Received: from mail.maildlp.com (unknown [172.19.163.127])
+	by canpmsgout07.his.huawei.com (SkyGuard) with ESMTPS id 4gPbj22TlDzLlTj;
+	Tue, 26 May 2026 10:06:46 +0800 (CST)
 Received: from dggpemf500002.china.huawei.com (unknown [7.185.36.57])
-	by mail.maildlp.com (Postfix) with ESMTPS id DD2EA40539;
-	Tue, 26 May 2026 10:02:52 +0800 (CST)
+	by mail.maildlp.com (Postfix) with ESMTPS id C9763402AB;
+	Tue, 26 May 2026 10:14:30 +0800 (CST)
 Received: from [10.174.179.24] (10.174.179.24) by
  dggpemf500002.china.huawei.com (7.185.36.57) with Microsoft SMTP Server
  (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
- 15.2.1544.11; Tue, 26 May 2026 10:02:50 +0800
-Subject: Re: [PATCH v3 01/17] ACPI: GTDT: Account for GTDTv3 size when walking
- the platform timer descriptors
+ 15.2.1544.11; Tue, 26 May 2026 10:14:27 +0800
+Subject: Re: [PATCH v3 02/17] ACPI: GTDT: Parse information related to the EL2
+ virtual timer
 To: Marc Zyngier <maz@kernel.org>, <linux-arm-kernel@lists.infradead.org>,
 	<linux-acpi@vger.kernel.org>, <linux-kernel@vger.kernel.org>,
 	<devicetree@vger.kernel.org>
@@ -75,23 +75,23 @@ CC: Lorenzo Pieralisi <lpieralisi@kernel.org>, Sudeep Holla
 	<orsonzhai@gmail.com>, Baolin Wang <baolin.wang@linux.alibaba.com>, Michal
  Simek <michal.simek@amd.com>
 References: <20260523140242.586031-1-maz@kernel.org>
- <20260523140242.586031-2-maz@kernel.org>
+ <20260523140242.586031-3-maz@kernel.org>
 From: Hanjun Guo <guohanjun@huawei.com>
-Message-ID: <4d583ddf-13c0-104b-78c4-3f8d89307e72@huawei.com>
-Date: Tue, 26 May 2026 10:02:49 +0800
+Message-ID: <ed3d35f7-a9db-98d4-de99-313587b15ed1@huawei.com>
+Date: Tue, 26 May 2026 10:14:26 +0800
 User-Agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:68.0) Gecko/20100101
  Thunderbird/68.6.0
 MIME-Version: 1.0
-In-Reply-To: <20260523140242.586031-2-maz@kernel.org>
+In-Reply-To: <20260523140242.586031-3-maz@kernel.org>
 Content-Type: text/plain; charset="utf-8"; format=flowed
 Content-Language: en-GB
 Content-Transfer-Encoding: 7bit
 X-Originating-IP: [10.174.179.24]
-X-ClientProxiedBy: kwepems200002.china.huawei.com (7.221.188.68) To
+X-ClientProxiedBy: kwepems100001.china.huawei.com (7.221.188.238) To
  dggpemf500002.china.huawei.com (7.185.36.57)
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260525_190306_603207_63D428D5 
-X-CRM114-Status: GOOD (  22.98  )
+X-CRM114-CacheID: sfid-20260525_191447_646067_81C92D28 
+X-CRM114-Status: GOOD (  20.53  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -107,71 +107,75 @@ Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
 On 2026/5/23 22:02, Marc Zyngier wrote:
-> Since ARMv8.1, the architecture has grown an EL2-private virtual
-> timer. This has been described in ACPI since ACPI v6.3 and revision
-> 3 of the GTDT table.
+> Now that we have a way to identify GTDTv3, allow the information
+> related to the EL2 virtual timer to be retrieved by the interface
+> used by the architected timer driver.
 > 
-> An aditional structure was added in ACPICA, though in a rather
-> bizarre way, and merged in v5.1 as 8f5a14d053100 ("ACPICA: ACPI 6.3:
-> add GTDT Revision 3 support").
-> 
-> Finally plug the table parsing in GTDT, and correct the parsing of
-> the platform timer subtables to account for the expanded size of
-> the base table. This also comes with some extra sanitisation of
-> the table, in the unlikely case someone got it wrong...
-> 
-> Suggested-by: Sudeep Holla <sudeep.holla@kernel.org>
+> Reviewed-by: Sudeep Holla <sudeep.holla@kernel.org>
 > Signed-off-by: Marc Zyngier <maz@kernel.org>
 > ---
->   drivers/acpi/arm64/gtdt.c | 22 ++++++++++++++++++++--
->   1 file changed, 20 insertions(+), 2 deletions(-)
+>   drivers/acpi/arm64/gtdt.c | 20 ++++++++++++++++++++
+>   1 file changed, 20 insertions(+)
 > 
 > diff --git a/drivers/acpi/arm64/gtdt.c b/drivers/acpi/arm64/gtdt.c
-> index ffc867bac2d60..950d5efdf85ea 100644
+> index 950d5efdf85ea..00158c8aa6d90 100644
 > --- a/drivers/acpi/arm64/gtdt.c
 > +++ b/drivers/acpi/arm64/gtdt.c
-> @@ -34,14 +34,25 @@ struct acpi_gtdt_descriptor {
->   	void *platform_timer;
->   };
+> @@ -41,6 +41,14 @@ struct gtdt_v3 {
 >   
-> +struct gtdt_v3 {
-> +	struct acpi_table_gtdt	gtdt_v2;
-> +	struct acpi_gtdt_el2	el2_vtimer;
-> +};
-> +
 >   static struct acpi_gtdt_descriptor acpi_gtdt_desc __initdata;
 >   
+> +static __init struct acpi_gtdt_el2 *gtdt_to_el2_vtimer(struct acpi_table_gtdt *gtdt)
+> +{
+> +	if (gtdt->header.revision < 3)
+> +		return NULL;
+> +
+> +	return &container_of(gtdt, struct gtdt_v3, gtdt_v2)->el2_vtimer;
+> +}
+> +
 >   static __init bool platform_timer_valid(void *platform_timer)
 >   {
 >   	struct acpi_gtdt_header *gh = platform_timer;
-> +	void *platform_timer_begin;
+> @@ -112,6 +120,7 @@ static int __init map_gt_gsi(u32 interrupt, u32 flags)
+>   int __init acpi_gtdt_map_ppi(int type)
+>   {
+>   	struct acpi_table_gtdt *gtdt = acpi_gtdt_desc.gtdt;
+> +	struct acpi_gtdt_el2 *el2_vtimer = gtdt_to_el2_vtimer(gtdt);
 >   
-> -	return (platform_timer >= (void *)(acpi_gtdt_desc.gtdt + 1) &&
-> -		platform_timer < acpi_gtdt_desc.gtdt_end &&
-> +	if (acpi_gtdt_desc.gtdt->header.revision >= 3)
-> +		platform_timer_begin = container_of(acpi_gtdt_desc.gtdt, struct gtdt_v3, gtdt_v2) + 1;
-> +	else
-> +		platform_timer_begin = acpi_gtdt_desc.gtdt + 1;
+>   	switch (type) {
+>   	case ARCH_TIMER_PHYS_NONSECURE_PPI:
+> @@ -124,6 +133,12 @@ int __init acpi_gtdt_map_ppi(int type)
+>   	case ARCH_TIMER_HYP_PPI:
+>   		return map_gt_gsi(gtdt->non_secure_el2_interrupt,
+>   				  gtdt->non_secure_el2_flags);
+> +	case ARCH_TIMER_HYP_VIRT_PPI:
+> +		if (el2_vtimer && el2_vtimer->virtual_el2_timer_gsiv)
+> +			return map_gt_gsi(el2_vtimer->virtual_el2_timer_gsiv,
+> +					  el2_vtimer->virtual_el2_timer_flags);
 > +
-> +	return (platform_timer >= platform_timer_begin &&
-> +		platform_timer + sizeof(*gh) <= acpi_gtdt_desc.gtdt_end &&
->   		gh->length != 0 &&
->   		platform_timer + gh->length <= acpi_gtdt_desc.gtdt_end);
->   }
-> @@ -166,6 +177,13 @@ int __init acpi_gtdt_init(struct acpi_table_header *table,
->   	u32 cnt = 0;
+> +		return 0;
+>   	default:
+>   		pr_err("Failed to map timer interrupt: invalid type.\n");
+>   	}
+> @@ -141,6 +156,7 @@ int __init acpi_gtdt_map_ppi(int type)
+>   bool __init acpi_gtdt_c3stop(int type)
+>   {
+>   	struct acpi_table_gtdt *gtdt = acpi_gtdt_desc.gtdt;
+> +	struct acpi_gtdt_el2 *el2_vtimer = gtdt_to_el2_vtimer(gtdt);
 >   
->   	gtdt = container_of(table, struct acpi_table_gtdt, header);
+>   	switch (type) {
+>   	case ARCH_TIMER_PHYS_NONSECURE_PPI:
+> @@ -152,6 +168,10 @@ bool __init acpi_gtdt_c3stop(int type)
+>   	case ARCH_TIMER_HYP_PPI:
+>   		return !(gtdt->non_secure_el2_flags & ACPI_GTDT_ALWAYS_ON);
+>   
+> +	case ARCH_TIMER_HYP_VIRT_PPI:
+> +		return el2_vtimer && el2_vtimer->virtual_el2_timer_gsiv &&
+> +		       !(el2_vtimer->virtual_el2_timer_flags & ACPI_GTDT_ALWAYS_ON);
 > +
-> +	if ((gtdt->header.revision >= 3 && gtdt->header.length < sizeof(struct gtdt_v3)) ||
-> +	    (gtdt->header.revision == 2 && gtdt->header.length < sizeof(*gtdt))) {
-> +		pr_err(FW_BUG "GTDT with invalid size %d\n", gtdt->header.length);
-> +		return -EINVAL;
-> +	}
-> +
->   	acpi_gtdt_desc.gtdt = gtdt;
->   	acpi_gtdt_desc.gtdt_end = (void *)table + table->length;
->   	acpi_gtdt_desc.platform_timer = NULL;
+>   	default:
+>   		pr_err("Failed to get c3stop info: invalid type.\n");
+>   	}
 
 Reviewed-by: Hanjun Guo <guohanjun@huawei.com>
 
