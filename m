@@ -4,153 +4,134 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id D39F1CD5BB4
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 26 May 2026 04:31:09 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 75D39CD5BCF
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 26 May 2026 05:19:41 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:
-	Content-Transfer-Encoding:Content-Type:In-Reply-To:References:Message-ID:Date
-	:Subject:CC:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=QB5n4HIcBR1Ydw8PIc+kYAsDnU4G964CODu4WBoU95A=; b=TnzzIeWpEnMdVNHc2dH4QDTlqm
-	XOdhiXCRaZORTDNAVS0J+ND1h9efxVH2BHJs4e/MCKW6tUXysF3vBCKeUtN2HIBuwGYADinBB4Yo3
-	JagRyGyz1RBSO0gQtZlQItAdo2h6GNi9HpIkwGkmkTajZE/jgtVEocIeZNddTP0Ezbe30qEebNBpC
-	ominmxEzgMre8yJdVt70bNTF19VWHVSL4t7ou0o5am19EiubVaeyGoR8JnYLfhD4M2Kk/2ArfINtJ
-	dktcXoGL3qiLrhveclXpJnaeqUM92nmIPVEDFCOYMNV2H26jn4gi85mH96vz+DJLR+mvr9wDXnhjP
-	jiCRG7ZA==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:Content-Type:
+	Content-Transfer-Encoding:Message-ID:Date:Subject:Cc:To:From:Reply-To:
+	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
+	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=eJ+Vi4+B5kPJUFu/fodRO6Xgp2oKpWw/SA0EwT0Bjy4=; b=gGseInDoTroURUjEplwSoc+P6m
+	Fz/n6tY85uGIuVBKqo8ABUB8vjaO2/rrVZxHnMD0U35hdSR58E+3TjrCtfdppRVKqZSgUIFnd1xFM
+	BpIpvCLFWJCs0jK6FBoo1KuN1iBQ1CNcuhnk+QMtncKq9vrWVkYpTKJRTOWiuU37yitVJok7sKwKP
+	yJhnrDjipvZ20erFmGdC98BdYxI9ZMe9Yc6EBB7qch01GkJEDHaFWhIOqeUeDm5uYtlY4qxjV9rbg
+	XHxEiVtjVJiTO26VbGZLPex/C5oYDbw9g05zV9pBJec99hloF3mkFAIxahC66p5I9mYZOchcaskyN
+	ToqK0bMA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wRjRW-000000010YI-1JDI;
-	Tue, 26 May 2026 04:31:02 +0000
-Received: from mail-southcentralusazolkn19011025.outbound.protection.outlook.com ([52.103.14.25] helo=SN4PR0501CU005.outbound.protection.outlook.com)
+	id 1wRkCP-000000013xb-2IeD;
+	Tue, 26 May 2026 05:19:29 +0000
+Received: from mail-northcentralusazon11010047.outbound.protection.outlook.com ([52.101.193.47] helo=CH1PR05CU001.outbound.protection.outlook.com)
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wRjRT-000000010Xj-3ZWg
+	id 1wRkCN-000000013x9-0ZPG
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 26 May 2026 04:31:00 +0000
+	Tue, 26 May 2026 05:19:28 +0000
 ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
- b=LAkEJgncpFvDou3PKEMZf5dOjiUdSQh3JC6vUj8EhxqW7lTmSHLGA8gJIljlyKGiAE7UYieJYcLjdXG1hVUsl4cA2sKT0YdVruMKndJo59/Q/M768tBGl3Hvbhx5bX4Qh5AgCPQunSVB+sr6fRQO3F75C5hONVBRAsFdd3+F1Am6WpW04N0kRZRB6uzTkNgmv91rCI9F4A5QPIw9Yo7OdXZZVyUkCT1Cs19YzfmSYwlDYIXPueAqCqE0H0aWYWRan2ZWOto3V1XIYez1nqh9GC/bZJXZYY58gSDRdetfj92iUeAcmr/c1evrh0JmB/ipsHUta6HQnsm8hqk2cIVf8A==
+ b=cbtwVvo4OG1HspWPmvateho+MvOmBDBAmE/JsipdWqTVhz6619K7Op6MiU/tpCy4+719XTHO+g0/o32cnPfweoRyUOAxLgt2Tp9fKcaZY8AHds4DlDl5i1Hs5l3rbdIe9hmzn1YiR26W99UZIUm1L3ugTDQFvKee6kR19ysj5WBGmzLMkacswOpsDKz+QYFPgTSRtfbFSRozsnAQ53vuEm6nvIWup7B+gP3lieY4y9PtQPcc7NPmTwT9GlMDajScoJX+/9xCkJ6NAOySeop7mjjp6DM2/mkyhNljKtPaZgasahYhu4bf0hIMz6OLLZkSIamG47NS+9DDV/2pSAU5/w==
 ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
  s=arcselector10001;
  h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
- bh=QB5n4HIcBR1Ydw8PIc+kYAsDnU4G964CODu4WBoU95A=;
- b=lVL86d2vW9vUQ+fiEgdt2yIysiMctLDEYxaqcWFyFdOI5LyxCEtPCaYg1Hsd0Ur5ExLbKY5p8OQodZJCdNPOtuIRKyTCEZUK+aap6WrApgiAcQBsfzJAwRXrHYhd1ilpk4MJLPTVq5ZSK5+5HVHtP/CspmOT+h/OyLcfT3cvb7A8KB/fbevd2I4OiS7OR0sDYzu51KKA0pSYDlMwwkhtr/LoIuZ3Nr2g5HW/rvHkaiG79XVkDp8hjM62SSF8HDtX1caz358W+jPVFoSthQAzGfR82KzNj3qnNmYmrc2OuRGC4tT241J5QQc7XXvQjdsZaFv2VIM7l80qK4Mfke33DQ==
-ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=none; dmarc=none;
- dkim=none; arc=none
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=outlook.com;
- s=selector1;
+ bh=eJ+Vi4+B5kPJUFu/fodRO6Xgp2oKpWw/SA0EwT0Bjy4=;
+ b=fpX8gV1vaypJw4YQ9nu1S+tPN4gyt3qEWcOm7I2dhqm2aMi7jVurnlAlvsYoVx11Rr1EwmP5KyzOmC0QrWP4mAU5KxKyqlC+uxdEQC2t2njc0VSNetFaj7hVNhB+/UQiBUPvQ/RfzRXCE/xUmsfMuURUbDCJ8xvwBZjC6hr5VbEdqTap4dnViKpyvuRsn2VfteCmFxNImJxa0aDLgxUnM5dv2peEOyfIL9UyVQbK61hvc8NoMt8kNOCkQnBG1cw2cgsMUqov7y/bn40QwlwmbSpT9CYlf3um9ULDZ9UVJeAdFJGR3o/oFsdwZHlajMwCJtiWHLAIj4mjHE4PXTXcuw==
+ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
+ smtp.mailfrom=altera.com; dmarc=pass action=none header.from=altera.com;
+ dkim=pass header.d=altera.com; arc=none
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=altera.com;
+ s=selector2;
  h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
- bh=QB5n4HIcBR1Ydw8PIc+kYAsDnU4G964CODu4WBoU95A=;
- b=sy0oB93kWmfbT4Dzqkp+vW9s2lQtyTwRVK/qz4GVgVn0WbzqZfbN+a5uozCs57LyYBeEppLvIVVkTym/qm+pnO5PI9GCl8pMDz2gC5BUZ1gPdZsQKlJBqCv6xEYfU0ft7TvktG1ueOy4kAeoff5fsGhBkXk/VLV/FPw9PYgLjPkpop5yZyvnjwnvW5G7zq3CxvD/SEH5U80b8DqgcgsE/ze5TsUinUPjgrOv/wIILuzxjOnzuVUL5foEKhRnkd+1yoeUroNVOmJnPCD5Sa1O5eDgu5Y5VIQjkUy/P4H3ZiLEZoIJLoK9s0/YPc4X8QmXna0AUExrFrLUymPJhZfJtg==
-Received: from SN6PR02MB4157.namprd02.prod.outlook.com (2603:10b6:805:33::23)
- by DSVPR02MB11591.namprd02.prod.outlook.com (2603:10b6:8:3ab::5) with
+ bh=eJ+Vi4+B5kPJUFu/fodRO6Xgp2oKpWw/SA0EwT0Bjy4=;
+ b=asirksYik12U9qwYXLOeFFCVVWPIemLoaA1DG4Djs4JLbGJFOkUuaLzdTRGucjDXQGFbyhML3N5MkM7vi3Sfs1QXM9GH1ADfxqHHRJApjuoWU2eaCi1C3roE08bki5bcFrbq+p2htAydEHf3qucpdxev/xwt2EDWw8L2YBalmDprInxAuWFI5ulsJR4VDr1GOhI27AaDHXUIIX/Kw/v5FXaQLQFCaipLi/qMyzF58KMYEnx7cZImRBaO81Uy6HvHgXz47zWjDyFWJAVuuKNNupqtUz3Fjrc02M2gGlpnczsw0/m24+8R878UX9N/4XhC9YRT3XT1VLzAW7HakXMwbQ==
+Authentication-Results: dkim=none (message not signed)
+ header.d=none;dmarc=none action=none header.from=altera.com;
+Received: from SJ0PR03MB6964.namprd03.prod.outlook.com (2603:10b6:a03:432::18)
+ by SA1PR03MB989270.namprd03.prod.outlook.com (2603:10b6:806:4f4::16) with
  Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.21.48.19; Tue, 26 May
- 2026 04:30:54 +0000
-Received: from SN6PR02MB4157.namprd02.prod.outlook.com
- ([fe80::900:1ccf:2b1e:52b6]) by SN6PR02MB4157.namprd02.prod.outlook.com
- ([fe80::900:1ccf:2b1e:52b6%3]) with mapi id 15.21.0048.019; Tue, 26 May 2026
- 04:30:53 +0000
-From: Michael Kelley <mhklinux@outlook.com>
-To: "Aneesh Kumar K.V (Arm)" <aneesh.kumar@kernel.org>,
-	"iommu@lists.linux.dev" <iommu@lists.linux.dev>,
-	"linux-arm-kernel@lists.infradead.org"
-	<linux-arm-kernel@lists.infradead.org>, "linux-kernel@vger.kernel.org"
-	<linux-kernel@vger.kernel.org>, "linux-coco@lists.linux.dev"
-	<linux-coco@lists.linux.dev>
-CC: Robin Murphy <robin.murphy@arm.com>, Marek Szyprowski
-	<m.szyprowski@samsung.com>, Will Deacon <will@kernel.org>, Marc Zyngier
-	<maz@kernel.org>, Steven Price <steven.price@arm.com>, Suzuki K Poulose
-	<Suzuki.Poulose@arm.com>, Catalin Marinas <catalin.marinas@arm.com>, Jiri
- Pirko <jiri@resnulli.us>, Jason Gunthorpe <jgg@ziepe.ca>, Mostafa Saleh
-	<smostafa@google.com>, Petr Tesarik <ptesarik@suse.com>, Alexey Kardashevskiy
-	<aik@amd.com>, Dan Williams <dan.j.williams@intel.com>, Xu Yilun
-	<yilun.xu@linux.intel.com>, "linuxppc-dev@lists.ozlabs.org"
-	<linuxppc-dev@lists.ozlabs.org>, "linux-s390@vger.kernel.org"
-	<linux-s390@vger.kernel.org>, Madhavan Srinivasan <maddy@linux.ibm.com>,
-	Michael Ellerman <mpe@ellerman.id.au>, Nicholas Piggin <npiggin@gmail.com>,
-	"Christophe Leroy (CS GROUP)" <chleroy@kernel.org>, Alexander Gordeev
-	<agordeev@linux.ibm.com>, Gerald Schaefer <gerald.schaefer@linux.ibm.com>,
-	Heiko Carstens <hca@linux.ibm.com>, Vasily Gorbik <gor@linux.ibm.com>,
-	Christian Borntraeger <borntraeger@linux.ibm.com>, Sven Schnelle
-	<svens@linux.ibm.com>, "x86@kernel.org" <x86@kernel.org>
-Subject: RE: [PATCH v5 00/20] dma-mapping: Use DMA_ATTR_CC_SHARED through
- direct, pool and swiotlb paths
-Thread-Topic: [PATCH v5 00/20] dma-mapping: Use DMA_ATTR_CC_SHARED through
- direct, pool and swiotlb paths
-Thread-Index: AQHp6tfu5DGfxW+HBL9src0vNhss0bYFtf7w
-Date: Tue, 26 May 2026 04:30:53 +0000
-Message-ID: <SN6PR02MB415710407D87B1A36974D765D40B2@SN6PR02MB4157.namprd02.prod.outlook.com>
-References: <20260522042815.370873-1-aneesh.kumar@kernel.org>
-In-Reply-To: <20260522042815.370873-1-aneesh.kumar@kernel.org>
-Accept-Language: en-US
-Content-Language: en-US
-X-MS-Has-Attach: 
-X-MS-TNEF-Correlator: 
-x-ms-publictraffictype: Email
-x-ms-traffictypediagnostic: SN6PR02MB4157:EE_|DSVPR02MB11591:EE_
-x-ms-office365-filtering-correlation-id: 06e8a270-a8cc-45eb-bb49-08debadf92cf
-x-microsoft-antispam: BCL:0;ARA:14566002|12121999013|13091999003|19110799012|31061999003|15080799012|37011999003|41001999006|8062599012|8060799015|51005399006|19101099003|3412199025|440099028|102099032|12091999003|40105399003;
-x-microsoft-antispam-message-info: =?us-ascii?Q?OP13b3uYRKwk33PW49bUy1FqFI+LMg4cV6DX4yUfXGx4EVO/wHQh9A2vLSBL?=
- =?us-ascii?Q?UoMD9VWVsIbLeYZzMLT4J/3Yod9zEJsltfswFWphGnGRnGn47lSARUVDkpzc?=
- =?us-ascii?Q?U2Y8oN3dR/OODJUrAegm0DfJV0zHrX3pff1U86WiTribAKMHF9PVvWZKaDNM?=
- =?us-ascii?Q?2d1rxjBZnf4ptgotByygw0Tffb/2F/2fMUunve9pLs8YtItxGo/uUswH9eby?=
- =?us-ascii?Q?P8gMDPLqY8GXphDKhEzNFHjZfNx7sQ++UPH3O4X5QPtpExWtb9SzD8q/bJsm?=
- =?us-ascii?Q?6Ea6dnQ8JZxrKD9cZ0YHOPe365J8ClMhEUn3VcYgZL1vIaLdK5pp1KbcWQTp?=
- =?us-ascii?Q?pEtD7lg2BrY4gnPE1gU4uAe9uHuEirryt6Z4R3HCHrkm6pXzSJaWtwGNJYad?=
- =?us-ascii?Q?SBJdcJbxjt8s1IkbTc1U82oYM3ZtpWXKZGD/2/QDIR/G3AZ9q+n4dLTFP/cY?=
- =?us-ascii?Q?N4ob6pNN03eI3SrthfIUNDjFMS4cDo0uRTbC6DS4APJSlvwJ/6NufSuuLNwF?=
- =?us-ascii?Q?ljPcM1eu47RQL+9jfqmU7EXao6Wib79nkS46hiGb2D2HmKguDrckEYDYVMfp?=
- =?us-ascii?Q?DUXvvAfeyhOUzd7lqg3f2sjHd4SNYdq6AgNKkuLACcc6KhpLKnVz8hsxvd2z?=
- =?us-ascii?Q?i2dtDwDSvAMikMC8Tk0wtCcqYtddjiA0JvFI4F5NEYXutbJcN2+3bCNc8fuY?=
- =?us-ascii?Q?yXfPXudoS+oUEkcqinSUWA8nOmIXRYCSRLJ2+8QYb8+uShfrRDkie0eYRqLH?=
- =?us-ascii?Q?UXjdbVZlH2PLBR7ZQvxQn35Pu86yb4DXFPNgiCnL03ZGMwhZIQ1e2yPBc7wC?=
- =?us-ascii?Q?lBX746ALkrrl9Y3mFyDRlv8nvxfkCcXsF4OeybDigip15xsQgWlTc16xRchd?=
- =?us-ascii?Q?pzPBoZzMJSLKEMHr8FLNWmYqqtV5/m90LAFGKxtGn6ATocdPUHZFB58dDL1g?=
- =?us-ascii?Q?H3/OTk+87IL5JwFmNgWsu3gSGGAlKQKu2IQ/ZKFIghOms15Qmcf9Sa5x4/dY?=
- =?us-ascii?Q?F8fW09WOXv+3tWvilBKwhtotwKHXHtrKsA04Q9/vD0nPcqjI/n7jur7Ssyvw?=
- =?us-ascii?Q?aTRAB3vJvcp/ftZHwE5eaTkanROzxDlBR6pXT1wCiZXbTl120qQ=3D?=
-x-ms-exchange-antispam-messagedata-chunkcount: 1
-x-ms-exchange-antispam-messagedata-0: =?us-ascii?Q?vnx4KQpFC/JdGl13E8oJSg7/l5CW8OxQL3xRC77MhyEARiqN4Ry1XyZgkzuL?=
- =?us-ascii?Q?eZFp5uVerOH9AAIYOhvF05MJEPR/vn0FC9biKrXJwgD4DICMiR8U1LjnEnpU?=
- =?us-ascii?Q?DtcCGy4T/uVZLkfGnrCsLkI6+JNvtFA+dIRqayULktnwCW7P/vs54g3aRR9O?=
- =?us-ascii?Q?oX8NTnXzJNvVJivAnqbj8C7Nj0eMpOSR/mRLxfrUClxv9XuVVd51sD0ZhfN3?=
- =?us-ascii?Q?N0qhFA/BHfwa8XPl96LKOfsPp7FRjOdS41qdXvw4C4Q250AdjlZrY1d91Hq2?=
- =?us-ascii?Q?PHKtuXNRWg/HZ5+eP5Ifoq48nJbkCC6CS73EQCYvsnRKC3SFEbEu0RgoFpco?=
- =?us-ascii?Q?YSfmKFa6Lpdd3YT+hyWomIqrlZCQv8DwC3kR8HrUutVKvoHQlgsJvEVsKLG5?=
- =?us-ascii?Q?KL3FPGlul0/vQ/WDkWE+TPfq9o7vdv3EZMjxna9ymW7qkPkb04dY7L5qMIZb?=
- =?us-ascii?Q?4uR/OU6gRtXp4DK2hK14LAm1FDghkYJMC0U8n8rm3qAmFqm/8VX7AwG3fius?=
- =?us-ascii?Q?qlZdwkok6wUhlBxJ9YYbPuOYucBzRk/fl+lUuxSD8Y1QjKl9m/pE4QnH7b4N?=
- =?us-ascii?Q?1f9pWXLc1+QoKDvjzwuwvWeC/yGQt6EUxF6U2Y2catGKvi13b3m01U1SKwiJ?=
- =?us-ascii?Q?wtQKi4ywX7rctjUzlizr8WKQiLfYzY1ltsSTjAlncpYDCFptn6oQilBTb9HC?=
- =?us-ascii?Q?ftveVBPfpvBN2XG4+c5M1W9TueR67wf0+pi1TkOU3RIUh2jvAAScRKb7yXRr?=
- =?us-ascii?Q?ZZ4A1NIpo80Zujcn97Rts26fP9iarCkh4RVBNpa8B41iU1qjnyhn+Ko+uA6/?=
- =?us-ascii?Q?Z2l0tLoOC0WHZ90D1rwoNk7lXScdSggKqO/s+wQBMZ6hVkFMvjRaaqchCNTa?=
- =?us-ascii?Q?sy1fNzeVK0H8za+VlEhk7c+fzXdrzi+uFhT83DrILH4O9ELpHZMSgcfhg2rR?=
- =?us-ascii?Q?2zrhrV9Wby3SDkNjdtrKMSxuKQN8muQ3qp+nPLr41alS3GAFWv9B/fNoQsy4?=
- =?us-ascii?Q?NYRvNTHQtiA9QJl3yPH29rUVUynd3D7IKX1snpFvX3txt2eUfJSKC3zWnugp?=
- =?us-ascii?Q?VN0+luJ/pUpfgpwS7QT4QQG+Ffr+sEL78WrmlHAELuTwGjKlTkHsXzEmLcJZ?=
- =?us-ascii?Q?aFIER0jpAw4qyuAVy0XjBWAis0FJzzStF/kJrp3VwmK+RLUXaqZbqdF+bazZ?=
- =?us-ascii?Q?2XTvZhvVFEbH7rRkFLscj6ordiGPYlGsunEvO2zTW7SUFHi48W01rya/MXDd?=
- =?us-ascii?Q?VpTqiagYv6jXW/iKDb9Ek9Jwb8JA5egJKSplpeCkXlpL8R6bUeY06Nw/D2pt?=
- =?us-ascii?Q?p5hugC3LVcgppmdjQF9jy5mWzKkqAzEEcxft9oegKqocv4tJTneYUgfIXyxt?=
- =?us-ascii?Q?3RyUQ6k=3D?=
-Content-Type: text/plain; charset="us-ascii"
-Content-Transfer-Encoding: quoted-printable
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.21.48.20; Tue, 26 May
+ 2026 05:19:23 +0000
+Received: from SJ0PR03MB6964.namprd03.prod.outlook.com
+ ([fe80::b965:bfa8:58fb:e775]) by SJ0PR03MB6964.namprd03.prod.outlook.com
+ ([fe80::b965:bfa8:58fb:e775%6]) with mapi id 15.21.0048.019; Tue, 26 May 2026
+ 05:19:22 +0000
+From: muhammad.nazim.amirul.nazle.asmade@altera.com
+To: netdev@vger.kernel.org
+Cc: andrew+netdev@lunn.ch,
+	davem@davemloft.net,
+	edumazet@google.com,
+	kuba@kernel.org,
+	pabeni@redhat.com,
+	mcoquelin.stm32@gmail.com,
+	alexandre.torgue@foss.st.com,
+	rmk+kernel@armlinux.org.uk,
+	maxime.chevallier@bootlin.com,
+	linux-stm32@st-md-mailman.stormreply.com,
+	linux-arm-kernel@lists.infradead.org,
+	linux-kernel@vger.kernel.org
+Subject: [PATCH v2] net: stmmac: Improve Tx timer arm logic further
+Date: Mon, 25 May 2026 22:19:21 -0700
+Message-ID: <20260526051921.14540-1-muhammad.nazim.amirul.nazle.asmade@altera.com>
+X-Mailer: git-send-email 2.43.7
+Content-Transfer-Encoding: 8bit
+Content-Type: text/plain
+X-ClientProxiedBy: SJ0PR03CA0199.namprd03.prod.outlook.com
+ (2603:10b6:a03:2ef::24) To SJ0PR03MB6964.namprd03.prod.outlook.com
+ (2603:10b6:a03:432::18)
 MIME-Version: 1.0
-X-OriginatorOrg: outlook.com
+X-MS-PublicTrafficType: Email
+X-MS-TrafficTypeDiagnostic: SJ0PR03MB6964:EE_|SA1PR03MB989270:EE_
+X-MS-Office365-Filtering-Correlation-Id: 43b7257e-7371-469d-1409-08debae658cb
+X-MS-Exchange-AtpMessageProperties: SA
+X-MS-Exchange-SenderADCheck: 1
+X-MS-Exchange-AntiSpam-Relay: 0
+X-Microsoft-Antispam: BCL:0;ARA:13230040|376014|7416014|366016|1800799024|55112099003|11063799006|56012099003|18002099003;
+X-Microsoft-Antispam-Message-Info: PTV++ier5csNlMPFdMFAaJLPmrL94YWJtII/u3E5pvdIMGUngqfNySyhvxBb6A7Y/yu1+SbX1+y+lKqogfULh4YlJN44gSEcTLhGWrTFCPG+nvvG2O0vcLDwfw2CzzKJNMaw9FVpT1DiDqynubTJOH92FN43R5P6CusQ9UkD7P4k+l4uUK9YPorhwl5Lm8glQNeQWQ2xNwOci6XVcPXWU8MQbhRqot12TwZHF/TJP85JN3AHhIt0TIjiyyAEIdksTyQ33lCaPQUGfadBRQjDE+Vt7NCu0n2vksvtrEXVk78WnGI5taEFOyz09VqrwaXj8WMN9syZJ0b4/H6fJ2iTB9Pflk0vsLGGOVt2FOZPwhUkHgIZhsTrxl6RyrnXrnPr2gA353Y3+cMy4ax159LiPUE0Ku+IRALt+IfEPn06tO5bgowR9ZN22ZD1aaYsLU52Zw/sF//sgOY3Ley/6SEtabiMmoUBSTlgyzjilvMaOpJAa9vVfVmuujNcyrOz07yUGMltJ5RN2+Fi0D43jxKv9VDXRw4hnuIjxIF1DWFG23EicgeKq9A8nw2cJMR7zdfmR2lehMtN3xvQrAsXL3CGbOQuMWyX6T8p0i7EYNUvNvYDdVWWGV69Gq7PlSy4AjUzEAQ3ZBEiAxp2yqt+LkWMskCQ7OcGiF6fe5QBurZqookGymdeQMMPJS8eVte+Taxu
+X-Forefront-Antispam-Report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:SJ0PR03MB6964.namprd03.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(376014)(7416014)(366016)(1800799024)(55112099003)(11063799006)(56012099003)(18002099003);DIR:OUT;SFP:1101;
+X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 2
+X-MS-Exchange-AntiSpam-MessageData-0: =?us-ascii?Q?u65+tg35OUOV4CLq9G0hzLAos5KvkOP/6fK+1LPFZHboGY/A9K5OYHKRv1xs?=
+ =?us-ascii?Q?bOpYWYqaDy+Pigu+xiT+x7AO45BtgPA/NFoXlO6v5A3ov/RfWCa4lJMvNqAF?=
+ =?us-ascii?Q?OWVeDZQeB3EUhsYh5YY0zn9MDTF029+0qISKwV+NZiv/1tzli/xXkKjEopWg?=
+ =?us-ascii?Q?bVixLS0Uy0EUo3ukwr3vVcwuGYZn/mZCACQgW0OrVGshyBMSj5PMCaMqYXjQ?=
+ =?us-ascii?Q?QG+4vOZ0N2v2fOGUA9MacR2c696fC377wFIepz28+1EX+9ng14N6YW5MJZ5v?=
+ =?us-ascii?Q?2drFfBTXs8pI/gAxzSzvF7Je+CJGFLOCWudP9b+LvW3C0KBTjXEiuxEMoPZR?=
+ =?us-ascii?Q?Pu5ks/FC6pFDJphGbmZubbRHZd1rPzx2iM08R2NT3R0wWp/CZnS7QxiFgo+C?=
+ =?us-ascii?Q?W6Xo89k9ANp+yACqSyhnB/LcAVJrD0O2QaSL/Y+ysoJ4c5aCmF3JdQdYUCne?=
+ =?us-ascii?Q?InjPPg3WsAiexqI1aGuv+AlygHXOdVuT70rxkqruOx/VpQWfSybhamG5cCda?=
+ =?us-ascii?Q?aSYcabD+4fPrUhNzbJSQEvtzeKThHbzTK1rA3DL7NPLoGwh5InJbZUPp3/yW?=
+ =?us-ascii?Q?QRrn2kidBsKE+yg2DubNf8JMO5qZHmcmqHgSVcVNj/qZDWHDLZ3JeYL+J8xK?=
+ =?us-ascii?Q?czbgKJpC0ljEIE5RaU3B9MLG/+KrGfJCaNVJn2EF96ja+PvJA0L8af5jUuXv?=
+ =?us-ascii?Q?nUTWWFAw8mcR7XbLa7+GryqhT7eIEB4F8EqTQsb5l56gfQdd8A5xiOB1Zwcn?=
+ =?us-ascii?Q?7GgMfBM14z0hnb/zusJY9jfYbtZ+ebJA4ply/SZZQ+adbCh+skkizhjoTOMX?=
+ =?us-ascii?Q?heIEpm7/Pf3oaO3OfQaH1GpiPZ1qyLfAZDTMANs1HvMi1x6QPryQmeGeVX80?=
+ =?us-ascii?Q?2d8aZhuEBHmmBnW2FKJ5udmDKlP7D1CoqrisBBjr/pM6OvOrdmvGC/QBck/6?=
+ =?us-ascii?Q?lehUcXqVDmLeVtOl5SUqX5EbSnMCU9suo9sKmnN1lKpQuZWc+joeqTTLmasx?=
+ =?us-ascii?Q?UJ5xOZ4olbAiruAMpuoH8gs6XnnoP0XxIGGZ8u0oXnUzuTnBDaktw+62I1HC?=
+ =?us-ascii?Q?fiPZlZfsZJ6WpjxcXl/fZZ7n8h4s+LafrvmXx/iuGtph+vralrDRmpTVuDAc?=
+ =?us-ascii?Q?QfPcEiESZjj5TPYdSkerJPfvNGr8BKdHfaT3vuX6UJOt9l5s6h06VQoFt+X1?=
+ =?us-ascii?Q?KB4b3yCWJqh4UuCZRnp+P2se7iTcI9UoQJk0runj8bo8+gNQS4pPZKZh4qu2?=
+ =?us-ascii?Q?BN7wm1tXRWSuoBLHkeTDB1TsrAP173p/2T3Or3778TEA1j0+ZYhb7Gk9rJF+?=
+ =?us-ascii?Q?6FxDkT5YX2YJmaL8aewXSXgmM2ePAUXWrzFafecZCtf0ShHTkQuRpwjE8Ra1?=
+ =?us-ascii?Q?Vj/LYlCE2oc0J7Wr2uSLRefGutZXeEkOJzRKBSKb5Qlefz3LhJWD0BsK3/IB?=
+ =?us-ascii?Q?wIdaAM+n+S6SmIMXrI3Q/IQQ7ePZh/5TecHz7gxN92ENKJaKivWzRlYnhsI7?=
+ =?us-ascii?Q?wqGqEgogpkGZZn48vO6FoldLlESP7aBBFGsEnTqRjGxf3SdaUkstXbRcxnm0?=
+ =?us-ascii?Q?88ZOceytMGcsgpW9WqZBF8oPYeA0MMqA5qSI++kRok3ly1l0zP8k+1nnqXD0?=
+ =?us-ascii?Q?bViQSgIXa8UweA1HQLLGtmTl8MbipBlXYu988g5OedWurFveWIK/QdJKCx6H?=
+ =?us-ascii?Q?27/19zeXyINsglNzZjYqcjT/JBr6kk/rVND4kc88vXkxcwzV5MyvYCnADYzx?=
+ =?us-ascii?Q?do2XNe79ZBIuidb5LqM0GAxdiFLrfwh16GfubtBopOOP3SzvP9B1hJOxyr6E?=
+X-MS-Exchange-AntiSpam-MessageData-1: 5vs0yLLhHIAdHw==
+X-OriginatorOrg: altera.com
+X-MS-Exchange-CrossTenant-Network-Message-Id: 43b7257e-7371-469d-1409-08debae658cb
+X-MS-Exchange-CrossTenant-AuthSource: SJ0PR03MB6964.namprd03.prod.outlook.com
 X-MS-Exchange-CrossTenant-AuthAs: Internal
-X-MS-Exchange-CrossTenant-AuthSource: SN6PR02MB4157.namprd02.prod.outlook.com
-X-MS-Exchange-CrossTenant-RMS-PersistedConsumerOrg: 00000000-0000-0000-0000-000000000000
-X-MS-Exchange-CrossTenant-Network-Message-Id: 06e8a270-a8cc-45eb-bb49-08debadf92cf
-X-MS-Exchange-CrossTenant-originalarrivaltime: 26 May 2026 04:30:53.6141
+X-MS-Exchange-CrossTenant-OriginalArrivalTime: 26 May 2026 05:19:22.9058
  (UTC)
-X-MS-Exchange-CrossTenant-fromentityheader: Hosted
-X-MS-Exchange-CrossTenant-id: 84df9e7f-e9f6-40af-b435-aaaaaaaaaaaa
-X-MS-Exchange-CrossTenant-rms-persistedconsumerorg: 00000000-0000-0000-0000-000000000000
-X-MS-Exchange-Transport-CrossTenantHeadersStamped: DSVPR02MB11591
+X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
+X-MS-Exchange-CrossTenant-Id: fbd72e03-d4a5-4110-adce-614d51f2077a
+X-MS-Exchange-CrossTenant-MailboxType: HOSTED
+X-MS-Exchange-CrossTenant-UserPrincipalName: AQIURGYrut8GK2Y8eHQFTcNDCuvA5bvaNzqtcmHAvFgEMsuPdvPDrCOkz0jN/18Y9LGxxLHnHNEI4E0m9EF7zb3nwSaMTXjqYKFla4T0mdGOSpHyBm7VZ5fPTwxNffh1+SByAyx/PTM8uxTZoxQsUA==
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: SA1PR03MB989270
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260525_213059_904037_36F7E050 
-X-CRM114-Status: GOOD (  23.59  )
+X-CRM114-CacheID: sfid-20260525_221927_196626_69C17424 
+X-CRM114-Status: GOOD (  12.84  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -165,108 +146,69 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-From: Aneesh Kumar K.V (Arm) <aneesh.kumar@kernel.org> Sent: Thursday, May =
-21, 2026 9:28 PM
->=20
-> This series propagates DMA_ATTR_CC_SHARED through the dma-direct,
-> dma-pool, and swiotlb paths so that encrypted and decrypted DMA buffers
-> are handled consistently.
->=20
-> Today, the direct DMA path mostly relies on force_dma_unencrypted() for
-> shared/decrypted buffer handling. This series consolidates the
-> force_dma_unencrypted() checks in the top-level functions and ensures
-> that the remaining DMA interfaces use DMA attributes to make the correct
-> decisions.
->=20
-> The series:
-> - moves swiotlb-backed allocations out of __dma_direct_alloc_pages(),
-> - propagates DMA_ATTR_CC_SHARED through the dma-direct alloc/free
->   paths
-> - teaches the atomic DMA pools to track encrypted versus decrypted
->   state
-> - tracks swiotlb pool encryption state and enforces strict pool
->   selection
-> - centralizes encrypted/decrypted pgprot handling in dma_pgprot() using
->   DMA attributes
-> - passes DMA attributes down to dma_capable() so capability checks can
->   validate whether the selected DMA address encoding matches
->   DMA_ATTR_CC_SHARED
-> - makes dma_direct_map_phys() choose the DMA address encoding from
->   DMA_ATTR_CC_SHARED and fall back to swiotlb when a shared DMA request
->   cannot use the direct mapping, which lets arm64 and x86 CCA guests stop
->   relying on SWIOTLB_FORCE for DMA mappings
-> - use the selected swiotlb pool state to derive the returned DMA
->   address.
+From: Nazim Amirul <muhammad.nazim.amirul.nazle.asmade@altera.com>
 
-[snip]
+Calling hrtimer_start() on an already-active txtimer is unnecessary
+and expensive. Skip the restart if the timer is already active by
+adding an hrtimer_active() check before hrtimer_start().
 
->=20
->=20
-> Aneesh Kumar K.V (Arm) (20):
->   [DO NOT MERGE] arm64/coco: Add pKVM as a CC platform
->   [DO NOT MERGE] s390: Expose protected virtualization through
->     cc_platform_has()
->   dma-direct: swiotlb: handle swiotlb alloc/free outside
->     __dma_direct_alloc_pages
->   dma-direct: use DMA_ATTR_CC_SHARED in alloc/free paths
->   dma-pool: track decrypted atomic pools and select them via attrs
->   dma: swiotlb: pass mapping attributes by reference
->   dma: swiotlb: track pool encryption state and honor DMA_ATTR_CC_SHARED
->   dma-mapping: make dma_pgprot() honor DMA_ATTR_CC_SHARED
->   dma-direct: pass attrs to dma_capable() for DMA_ATTR_CC_SHARED checks
->   dma-direct: make dma_direct_map_phys() honor DMA_ATTR_CC_SHARED
->   dma-direct: set decrypted flag for remapped DMA allocations
->   dma-direct: select DMA address encoding from DMA_ATTR_CC_SHARED
->   dma-pool: fix page leak in atomic_pool_expand() cleanup
->   dma-direct: rename ret to cpu_addr in alloc helpers
->   dma-direct: return struct page from dma_direct_alloc_from_pool()
->   iommu/dma: Check atomic pool allocation result directly
->   dma: swiotlb: free dynamic pools from process context
->   dma: swiotlb: handle set_memory_decrypted() failures
->   dma: free atomic pool pages by physical address
->   swiotlb: Preserve allocation virtual address for dynamic pools
->=20
->  arch/arm64/include/asm/hypervisor.h           |   6 +
->  arch/arm64/include/asm/mem_encrypt.h          |   3 +-
->  arch/arm64/kernel/rsi.c                       |  12 -
->  arch/arm64/mm/init.c                          |  17 +-
->  arch/powerpc/platforms/pseries/svm.c          |   2 +-
->  arch/s390/Kconfig                             |   1 +
->  arch/s390/mm/init.c                           |  16 +-
->  arch/x86/kernel/amd_gart_64.c                 |  30 +-
->  arch/x86/kernel/pci-dma.c                     |   4 +-
->  drivers/iommu/dma-iommu.c                     |  15 +-
->  drivers/virt/coco/pkvm-guest/arm-pkvm-guest.c |   5 +
->  drivers/xen/swiotlb-xen.c                     |   8 +-
->  include/linux/dma-direct.h                    |  20 +-
->  include/linux/dma-map-ops.h                   |   3 +-
->  include/linux/swiotlb.h                       |  20 +-
->  kernel/dma/direct.c                           | 275 +++++++++++++-----
->  kernel/dma/direct.h                           |  47 +--
->  kernel/dma/mapping.c                          |  16 +-
->  kernel/dma/pool.c                             | 221 ++++++++++----
->  kernel/dma/swiotlb.c                          | 270 +++++++++++++----
->  20 files changed, 717 insertions(+), 274 deletions(-)
->=20
+This avoids redundant timer restarts under burst traffic and ensures
+NAPI is scheduled within tx_coal_timer microseconds of the first
+packet rather than having the window reset on every packet.
 
-I tested the series in a linux-next20260518 kernel, running in an
-Azure VM on the Hyper-V hypervisor. The physical processor is Intel
-XEON(R) PLATINUM 8573C with TDX memory encryption in use, so
-this is a Linux CoCo VM. The VM has the usual VMBus synthetic disk
-and network devices provided by Hyper-V, plus two PCI NVMe devices
-that are directly assigned to the VM. I did basic smoke tests in the
-VM, including reading and writing the NVMe devices. The swiotlb is
-used as expected for DMA transfers to/from the synthetic and NVMe
-devices. The NVMe driver does dma_alloc_coherent() to allocate
-memory for control structures that must be decrypted. I did "unbind"
-on the NVMe devices, and then rebound them so the dma allocations
-would be freed and then reallocated. All looks good.
+There is no race concern: hrtimer_start() is internally serialized and
+safe to call on an active timer. In the event of a race between
+hrtimer_active() and hrtimer_start(), the worst case is calling
+hrtimer_start() on an already-active timer, which is identical to the
+pre-patch behaviour. The meaning of tx_coal_timer is unchanged.
 
-I'd like to try the same tests in a CoCo VM based on AMD SEV-SNP,
-but I need to get quota for that VM size in Azure, and I don't know
-how soon that can happen.
+Performance on Cyclone V with dwmac-socfpga (iperf3 -u -b 0 -l 64):
+  Before: ~45200 pps
+  After:  ~52300 pps (~15% improvement)
 
-So as described above,
+Additionally, ~10% improvement in UDP throughput observed on Agilex5,
+with hrtimer CPU usage reduced from ~8% to ~0.6%.
 
-Tested-by: Michael Kelley <mhklinux@outlook.com>
+Signed-off-by: Rohan G Thomas <rohan.g.thomas@altera.com>
+Tested-by: Maxime Chevallier <maxime.chevallier@bootlin.com>
+Reviewed-by: Maxime Chevallier <maxime.chevallier@bootlin.com>
+Signed-off-by: Nazim Amirul <muhammad.nazim.amirul.nazle.asmade@altera.com>
+---
+Changes in v2:
+ - Expanded commit message to address race condition concern and clarify
+   tx_coal_timer semantics (Andrew Lunn)
+ - Added performance numbers to commit message (Andrew Lunn)
+ - Added Agilex5 performance data with hrtimer CPU usage improvement
+ - Added Tested-by and Reviewed-by from Maxime Chevallier
+---
+ drivers/net/ethernet/stmicro/stmmac/stmmac_main.c | 12 +++++++-----
+ 1 file changed, 7 insertions(+), 5 deletions()
+
+diff --git a/drivers/net/ethernet/stmicro/stmmac/stmmac_main.c b/drivers/net/ethernet/stmicro/stmmac/stmmac_main.c
+index 3591755ea30b..35da51c26248 100644
+--- a/drivers/net/ethernet/stmicro/stmmac/stmmac_main.c
++++ b/drivers/net/ethernet/stmicro/stmmac/stmmac_main.c
+@@ -3341,12 +3341,14 @@ static void stmmac_tx_timer_arm(struct stmmac_priv *priv, u32 queue)
+ 	 * Try to cancel any timer if napi is scheduled, timer will be armed
+ 	 * again in the next scheduled napi.
+ 	 */
+-	if (unlikely(!napi_is_scheduled(napi)))
+-		hrtimer_start(&tx_q->txtimer,
+-			      STMMAC_COAL_TIMER(tx_coal_timer),
+-			      HRTIMER_MODE_REL);
+-	else
++	if (unlikely(!napi_is_scheduled(napi))) {
++		if (unlikely(!(hrtimer_active(&tx_q->txtimer))))
++			hrtimer_start(&tx_q->txtimer,
++				      STMMAC_COAL_TIMER(tx_coal_timer),
++				      HRTIMER_MODE_REL);
++	} else {
+ 		hrtimer_try_to_cancel(&tx_q->txtimer);
++	}
+ }
+ 
+ /**
+-- 
+2.43.7
+
 
