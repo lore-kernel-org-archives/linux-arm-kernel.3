@@ -4,67 +4,55 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id B10A9CD5BC8
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 26 May 2026 18:46:05 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 19B97CD5BC8
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 26 May 2026 18:57:46 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:MIME-Version:References:In-Reply-To:Message-ID:Subject:Cc:To:
-	From:Date:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=5ngCoUCdLUTbdrymHOsCev6X6hH5iQoI3DmGS6ubV2s=; b=zekaBUurAJp6dGeflsFwoFcFGk
-	HFUzvf4wTr35fmvqPQ/3+/YKRv0TlGRFJcgDwrt9U+cZjopEpDc3mBsIqGz400lalzS1c02eu5jQU
-	BR7B8uc/rCKKZ1+7RG4uG4CrnC31idAbmVWBOuvWl6Ak70vs77PyYpBDgjhdHAqL23+OkAXSOzmHL
-	vV3CZG14DfL468LACa4nm0Fp/F3oW7zhu9ZIoAtDaCNKYym3T3HWu+jJR90ayJCdQCEH7FUisM1Wx
-	f0yVRY9k7P2+6OD/ub1Jp3n2ASu3iFl1JxIKzuWnCc7p+upUE+3BZipx05zwz+BS1vHgnDWqYRpGK
-	R+sP7aaw==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=OL4ezgVHqxIU9/ztDnUrt+XU8dQB6VIAk9+zK2VqSU4=; b=m+HXX/kA/afY7pO0ADRUb3XniK
+	4u0MM4zHyxDmP2swMfVCv+dJ052xYpT+QK0ioEJC/4AS7B8J1rHHhXeuknR3lTXUN7S0rIOXlNgzQ
+	7hHsy4NbB5zD+pmnTKBdIXCX6uMB9hlONP5Dk98Rx4FnRpZ7tK50ebbf6F4iHOKdiidp1giWcioMi
+	cYgrtlbmTK+tpwinRallXtJVz1gLGlKvWP18el9o8pGH6eECOt9tRHO/5C0EffnGhusvNzM/EpSla
+	QGxkjGJiZcT+oRaXBymgliimPyeN92ibErAvGCHZjECs6TBr5BJl5irl71PwpFtj+pL+aNJqn/b30
+	QAlYdyww==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wRwGn-00000002pfT-3yxN;
-	Tue, 26 May 2026 18:12:49 +0000
-Received: from tor.source.kernel.org ([2600:3c04:e001:324:0:1991:8:25])
-	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wRwGn-00000002pf5-07sh
+	id 1wRwy8-00000002sc3-39ZW;
+	Tue, 26 May 2026 18:57:36 +0000
+Received: from foss.arm.com ([217.140.110.172])
+	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
+	id 1wRwy5-00000002sbd-2Gag
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 26 May 2026 18:12:49 +0000
-Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
-	by tor.source.kernel.org (Postfix) with ESMTP id CA36460018;
-	Tue, 26 May 2026 18:12:47 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 6C74F1F000E9;
-	Tue, 26 May 2026 18:12:40 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1779819167;
-	bh=5ngCoUCdLUTbdrymHOsCev6X6hH5iQoI3DmGS6ubV2s=;
-	h=Date:From:To:Cc:Subject:In-Reply-To:References;
-	b=j/tm/PMK6+xds8mCajlHkpjxIdln5XEF/6vMWcOztxsauj1YR3ATmxVMine3MbaIr
-	 18ADqFnZ5vyMr3g2fI2ATHMYtCdy6BpHvi3j6IqhI0isnTMraXyFLlQyOaeDiDCo2X
-	 gf1tys8RZWGoVuqNvkA4fesqF1kf6vFx/4mS1N2ATGABncvcZPrLCFwzynRAb1Yv10
-	 wNnQW7AQFUY6vBX6t9C38qNM+9ouImx91LGPOKrQRb9Uha1kyyPzncAClj2O77Pkc1
-	 BwaSViJRG/pCvr8LOwbOfuanKixf9gGBp4LquqcbtG+ToBhBdML4N2BbF8SnontwTb
-	 +23XpWM/w0rrg==
-Date: Tue, 26 May 2026 19:12:35 +0100
-From: Jonathan Cameron <jic23@kernel.org>
-To: David Lechner <dlechner@baylibre.com>
-Cc: Jyoti Bhayana <jbhayana@google.com>, Nuno =?UTF-8?B?U8Oh?=
- <nuno.sa@analog.com>, Andy Shevchenko <andy@kernel.org>, Nicolas Ferre
- <nicolas.ferre@microchip.com>, Alexandre Belloni
- <alexandre.belloni@bootlin.com>, Claudiu Beznea <claudiu.beznea@tuxon.dev>,
- Maxime Coquelin <mcoquelin.stm32@gmail.com>, Alexandre Torgue
- <alexandre.torgue@foss.st.com>, Benson Leung <bleung@chromium.org>, Guenter
- Roeck <groeck@chromium.org>, linux-iio@vger.kernel.org,
- linux-kernel@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
- linux-stm32@st-md-mailman.stormreply.com, chrome-platform@lists.linux.dev,
- Andy Shevchenko <andriy.shevchenko@linux.intel.com>
-Subject: Re: [PATCH] iio: pressure: cros_ec_baro: simplify timestamp channel
- definition
-Message-ID: <20260526191235.0a01be62@jic23-huawei>
-In-Reply-To: <3c12da03-6c62-4045-b831-e7b07c0ecb5d@baylibre.com>
-References: <20260525014654.2399354-1-dlechner@baylibre.com>
-	<3c12da03-6c62-4045-b831-e7b07c0ecb5d@baylibre.com>
-X-Mailer: Claws Mail 4.4.0 (GTK 3.24.52; x86_64-pc-linux-gnu)
+	Tue, 26 May 2026 18:57:35 +0000
+Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
+	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id 946302BCA;
+	Tue, 26 May 2026 11:57:26 -0700 (PDT)
+Received: from arm.com (usa-sjc-mx-foss1.foss.arm.com [172.31.20.19])
+	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id 1B78F3F7B4;
+	Tue, 26 May 2026 11:57:30 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=simple/simple; d=arm.com; s=foss;
+	t=1779821851; bh=9JHhyqB0zfSMPkqz7enVGYRVoj1TTMjap+1OvUN5cXA=;
+	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
+	b=BFi0Td14nrTZoo2hbXxOvq/kGAdkv7R+vZPGnLjZm+U//3g+5cVegAJATL4VUYIyr
+	 eW4CE1WZdV42Ohj8DWQaIKpv+G/xSQgkv2jfiRyQTXnywy9m7n4y3PO0JaflIWk1Il
+	 Z4fxBXGPJ63d8dj6C9/B16L/UbBziH0xPvt5Phv8=
+Date: Tue, 26 May 2026 19:57:28 +0100
+From: Catalin Marinas <catalin.marinas@arm.com>
+To: Sang-Heon Jeon <ekffu200098@gmail.com>
+Cc: will@kernel.org, linux-arm-kernel@lists.infradead.org
+Subject: Re: [PATCH] arm64: mm: drop redundant remap of FDT first page
+Message-ID: <ahXtGL7QI82ZHPDO@arm.com>
+References: <20260513170101.1858213-1-ekffu200098@gmail.com>
 MIME-Version: 1.0
-Content-Type: text/plain; charset=US-ASCII
-Content-Transfer-Encoding: 7bit
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+In-Reply-To: <20260513170101.1858213-1-ekffu200098@gmail.com>
+X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
+X-CRM114-CacheID: sfid-20260526_115733_906062_C3543D4C 
+X-CRM114-Status: GOOD (  17.40  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -79,26 +67,39 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Sun, 24 May 2026 20:49:11 -0500
-David Lechner <dlechner@baylibre.com> wrote:
-
-> On 5/24/26 8:46 PM, David Lechner wrote:
-> > Use IIO_CHAN_SOFT_TIMESTAMP() to define the timestamp channel instead of
-> > manually filling in the struct iio_chan_spec fields. This makes the code
-> > less verbose and mistake-prone.
-> >   
-> FYI, there was a server error when doing b4 send, so this last patch
-> didn't get sent with the rest. I missed the [PATCH v2 9/9] when editing
-> it manually to send again.
+On Thu, May 14, 2026 at 02:01:01AM +0900, Sang-Heon Jeon wrote:
+> fixmap_remap_fdt() calls create_mapping_noalloc() to map the first
+> page of the FDT to read its magic and totalsize from the header. If
+> the FDT does not fit in a single page, it calls create_mapping_noalloc()
+> again to map the rest.
 > 
+> The second mapping redundantly covers the first page that was just
+> mapped by the first mapping.
 > 
+> Start the second mapping at dt_phys_base + PAGE_SIZE so it only covers
+> the pages that have not been mapped yet. No functional change.
+> 
+> Signed-off-by: Sang-Heon Jeon <ekffu200098@gmail.com>
+[...]
+> diff --git a/arch/arm64/mm/fixmap.c b/arch/arm64/mm/fixmap.c
+> index c5c5425791da..f8aea5572f7c 100644
+> --- a/arch/arm64/mm/fixmap.c
+> +++ b/arch/arm64/mm/fixmap.c
+> @@ -167,8 +167,9 @@ void *__init fixmap_remap_fdt(phys_addr_t dt_phys, int *size, pgprot_t prot)
+>  		return NULL;
+>  
+>  	if (offset + *size > PAGE_SIZE) {
+> -		create_mapping_noalloc(dt_phys_base, dt_virt_base,
+> -				       offset + *size, prot);
+> +		create_mapping_noalloc(dt_phys_base + PAGE_SIZE,
+> +			dt_virt_base + PAGE_SIZE,
+> +			offset + *size - PAGE_SIZE, prot);
+>  	}
 
-New and exciting way to confuse b4 :)  Anyhow easy to work around
-with a -v 2 for the first lot and then it thinks this one is v3 anyway.
+Is it actually worth it? It's not that we allocate memory here or take a
+noticeable time to reach the first pte. I find the current easier to
+read.
 
-Applied.
-
-Thanks,
-
-Jonathan
+-- 
+Catalin
 
