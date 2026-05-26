@@ -4,87 +4,100 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 0DB4DCD5BC8
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 26 May 2026 08:40:59 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 3D2E1CD5BC8
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 26 May 2026 08:43:09 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:Cc:To:Subject:Message-ID:Date:References:MIME-Version:
-	In-Reply-To:From:Reply-To:Content-ID:Content-Description:Resent-Date:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=+Ki6uWxNT/B00QDkxwb3Oci7j2KyejSG6wxzHzrChn8=; b=V8moGs+fccEndtazB2SFAxGelU
-	7MQ5XAXlXXJ9aTwh/0c8N9/hYziGLqcaBOTp1rX30KMveRnjVDh+M5z2J07PvpGzjIl8d2f1+eg37
-	YhlvvCUKHgEYYTtkMb3JOo6cCyCn52lgSTFuheQh8mxIoM/hzy2hRkAnMcg82kQhWodAYftlJ7gUM
-	hTuslKzK7+obYPNnsyAW5T4XM2ZHArn8bVtoIOcZKotz34jFJhvcQtIxZU3CA3uMBFGKqUSMaolQ1
-	OGkz4xbHHimpSypgggPJfPuj6L9R76X2V295nmSdH2VUFhWxrCRbtmYy+SdYgODjDboMJZQfiRXtF
-	BLIYNICw==;
+	bh=ydnICT1XC8Vp9E9v1sQrxCC0lGHYdxwXITHGPqNpjR0=; b=2b5mp1WNp/w9R0zGfvYI1pY9bQ
+	0vDgeNA9a2hQmmwA/4Ymjr55xU5gojyt5BXW78wTb0TzSwRL8HfoCCLmU8iMfvwseGTD75xA6m1Vf
+	SlE9l/ePBPuLgczg5FFrkdYj+t9gzOnvO7CE6ohxQAQk1RZEfKTGb4sIAGrHHaEIRBZTifYAmC2g/
+	vCkLf+seWgadLAuBp46cCvDnETqC9dHZnMS2U5uPoyDbDH8XGtm/nyiiqeBLqAin8CaGE1mJbRiFX
+	J3K5kvChb5nUvMY6sTpCD1iF/Taat1FhsXGcVjUL5Lo8h2ZzrBo2gGCNyQdz1BFuXPPLadwxAgJ4+
+	wHUCUJrw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wRnLH-00000001OYI-0fX3;
-	Tue, 26 May 2026 08:40:51 +0000
-Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
+	id 1wRnNN-00000001PI5-3Vms;
+	Tue, 26 May 2026 08:43:01 +0000
+Received: from mail-wm1-x335.google.com ([2a00:1450:4864:20::335])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wRnL1-00000001OLj-4Bhu
+	id 1wRnNL-00000001PHO-2gAw
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 26 May 2026 08:40:38 +0000
-Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
-	by sea.source.kernel.org (Postfix) with ESMTP id 72C2843860
-	for <linux-arm-kernel@lists.infradead.org>; Tue, 26 May 2026 08:40:35 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 50BA81F00A3D
-	for <linux-arm-kernel@lists.infradead.org>; Tue, 26 May 2026 08:40:35 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1779784835;
-	bh=+Ki6uWxNT/B00QDkxwb3Oci7j2KyejSG6wxzHzrChn8=;
-	h=From:In-Reply-To:References:Date:Subject:To:Cc;
-	b=DWeYAlqgj5FLsoLgUmVUDmDgShJarvffGYWpmR91ZUTQiAeyLz2Mv9mhOcRT9b6zi
-	 fycwcOlT3oge6cR04gYvbiTFzt+KDEMmTDcaA3Fs4n3lZtB1P6BDmWN9bnLBRCdfsf
-	 91sM2wZYlcLkLL0MV4Q0TkjhRJF01tzmZ08Jvu09WpD2Znol67paALt3ciRB3Mut0K
-	 Bst7gBCEtjiD4R96HXqLbVTbLSXGL/n/DFBtdEknjjj79Qy6HPIVYQ49JE0Vg7LKVo
-	 7zDv2UnHXMmb+BhwniyQmHWidYQtATWSj0J8mpAEy298bvlsUuDdFtpHGAAsmJQlrn
-	 RrDLAy/2BOWIA==
-Received: by mail-lf1-f42.google.com with SMTP id 2adb3069b0e04-5a74ac8b40aso10176357e87.1
-        for <linux-arm-kernel@lists.infradead.org>; Tue, 26 May 2026 01:40:35 -0700 (PDT)
-X-Forwarded-Encrypted: i=1; AFNElJ+qEdNW8xbtIC+MvGqcZKrLmHrk6IDt6WKFPFegvw5pDhfexskYe4e31QI3lYofbhDMCK7eeISzGjkOYNk/d/9s@lists.infradead.org
-X-Gm-Message-State: AOJu0YzRtOG/qknKfaXhAXkW83BOXcJkWVJqeJCaky7gjMAEWWZhWcKK
-	AzFPp2uDEc02oMA+YYsO56lm6hVmXkkiiYfW7LToK3Aem0vG5EW5+8DdXstKVJ0cLMP08d38zC8
-	HCUvHKYMCSfIzzwYZchyyqnauaByFxfvZGwPns02M6A==
-X-Received: by 2002:a05:6512:694:b0:5a8:63e0:cd92 with SMTP id
- 2adb3069b0e04-5aa323b29f9mr5504025e87.33.1779784834004; Tue, 26 May 2026
- 01:40:34 -0700 (PDT)
-Received: from 969154062570 named unknown by gmailapi.google.com with
- HTTPREST; Tue, 26 May 2026 04:40:32 -0400
-Received: from 969154062570 named unknown by gmailapi.google.com with
- HTTPREST; Tue, 26 May 2026 04:40:32 -0400
-From: Bartosz Golaszewski <brgl@kernel.org>
-In-Reply-To: <20260525144629.498630-4-jerrysteve1101@gmail.com>
-MIME-Version: 1.0
-References: <20260525144629.498630-1-jerrysteve1101@gmail.com> <20260525144629.498630-4-jerrysteve1101@gmail.com>
-Date: Tue, 26 May 2026 04:40:32 -0400
-X-Gmail-Original-Message-ID: <CAMRc=Mearb0F8CSNUqo-J8Zp2bbR6ti1aE4UO1A0v+pfZ9dtUg@mail.gmail.com>
-X-Gm-Features: AVHnY4Kv0sUH774IV01K5ycsVeEWPf8Q4-jYLuoJnpteIVsc5mnJpzvEPaA9BR0
-Message-ID: <CAMRc=Mearb0F8CSNUqo-J8Zp2bbR6ti1aE4UO1A0v+pfZ9dtUg@mail.gmail.com>
-Subject: Re: [PATCH v2 3/6] gpiolib: of: add quirk for IS31FL319X shutdown line
-To: Jun Yan <jerrysteve1101@gmail.com>
-Cc: Pavel Machek <pavel@ucw.cz>, Krzysztof Kozlowski <krzk@kernel.org>, Wei Xu <xuwei5@hisilicon.com>, 
-	Geert Uytterhoeven <geert+renesas@glider.be>, Peter Rosin <peda@axentia.se>, linux-leds@vger.kernel.org, 
-	devicetree@vger.kernel.org, linux-kernel@vger.kernel.org, 
-	linux-arm-msm@vger.kernel.org, linux-arm-kernel@lists.infradead.org, 
-	linux-gpio@vger.kernel.org, linusw@kernel.org, 
-	dmitry.baryshkov@oss.qualcomm.com, Lee Jones <lee@kernel.org>, 
-	Pavel Machek <pavel@kernel.org>, Rob Herring <robh@kernel.org>, 
+	Tue, 26 May 2026 08:43:00 +0000
+Received: by mail-wm1-x335.google.com with SMTP id 5b1f17b1804b1-4905e190c71so21273625e9.3
+        for <linux-arm-kernel@lists.infradead.org>; Tue, 26 May 2026 01:42:58 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=gmail.com; s=20251104; t=1779784977; x=1780389777; darn=lists.infradead.org;
+        h=in-reply-to:content-disposition:mime-version:references:message-id
+         :subject:cc:to:from:date:from:to:cc:subject:date:message-id:reply-to;
+        bh=ydnICT1XC8Vp9E9v1sQrxCC0lGHYdxwXITHGPqNpjR0=;
+        b=S8HO5Z5erLcufsXSy5jLtjJBjQ0cGX4brt0DvpHitpS2d5MJfPb4ZwDhm7tC7XRJS5
+         4/JEVM5arJehqNKxydxnh/KyqRBtYrX9ruvEe0Eor9jebl5UdVmPwR4E8vqC5vpI1f4j
+         pROy30/FfU9r/Gkv5Gd8N1vT67P6K/TpBteyvmijax47EzWG2DGV4RQf1s3Z8SXiWz95
+         5Bc6svaUlbpSeuaia1t2b5r7TuA283MfD9wdZ1clMDJ5rKwquyu7lqHMXN99nqf2nkag
+         L7b0ErkwMIapSIctU5v0p4rK4sGyb19Z4sKPv9PGqpZpzjtB9etOSO7nl8QiA+t/BwyJ
+         frhA==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20251104; t=1779784977; x=1780389777;
+        h=in-reply-to:content-disposition:mime-version:references:message-id
+         :subject:cc:to:from:date:x-gm-gg:x-gm-message-state:from:to:cc
+         :subject:date:message-id:reply-to;
+        bh=ydnICT1XC8Vp9E9v1sQrxCC0lGHYdxwXITHGPqNpjR0=;
+        b=XW6RY8kdvZgYByjxn3PEyuQpj8TpWwXZCe4UHS/VIxbSC6GJkAtxoABZrodAYkiPMn
+         YMHhB3FIOCSek80h3kbcMHvtZCCuWLbNnqgHPpvdJzcFKy7vGkFtxqHA2d2EdD9fSEwx
+         V7lkFZa3pNI389F9ifqHaqRh540hk7BBoBnpaOkIbwl5qYJR8qLxhxnIb1jwjdv6qGaE
+         Mb6PQ91HCbBCYZc6gZIDT+sztqiOhzme4L2Jo76HC9X6MDwmvrl2EWhTtTV2U/GiwyjC
+         PEDzKvg/IXtb0hbavvV4t0XjhM6UbjRpfRt+bZKNurx7dOrHizr5+DDEWs9Yj1SFIEIv
+         YFuQ==
+X-Forwarded-Encrypted: i=1; AFNElJ98B8Qa/NV2GQqwTHVFWTQ5/oA63NtDdSAW/pAKXHl8RLVRP1nMblPKFekkxHSellnJmFeuEkC+ELm7v+nvy0nJ@lists.infradead.org
+X-Gm-Message-State: AOJu0YyFRbpOQrN1/nMVgTIMntxosOn0cD6iZdn6yyeZgdC0C0LW/YBz
+	5T4OYoPcPpTzsW6W2N4qstoYzigc13/4Q8tfdiAzwNnD0Hx5VZI/VncnIgqKzQ==
+X-Gm-Gg: Acq92OHiysXm6w1ep+mFxwNuN/WoStsSuELydTpwwms1R2fqWnu81sjItjhJ1XBTlxX
+	mXrebw6jOw3QpgXZaxZ26C2jnIS2a41ba+bkFp0n+QL0e+Ljl/zhVQ5yGpiiAs45gCpUr2phQ9h
+	EfaLYW2PnydAS5qOpcsJCRCipLZQDH2cJKC66idS6dnd0+Uf1EYg/SB8X7KdhzrUd5NdMPK0ltW
+	98MqwqvqJWToynHbLgO7ZKxpwTcWEkaP6BW79Og9oZRFFlgk5OSvx3VCzoD25gV8L/dpXd+tqmp
+	1jrO5D1QvuNTagIxChDMPKbA4/T2Z10XhiebmE0/f75rIus8St3bLB3EntWgYmPtDtb8eVEROMR
+	uXWF0KWG3aqLhbdn8r1aaRB+xDdDXaxXB1FeNKzgCr6PbYyrmG1qFCf+xceUXIredSQYdQE2zOL
+	2fEPpvLYjQGLuwnmG7UBojVKLtRykWvpdfhO2a+o/Zl3YALyVmNuXV6roJog/l45WLuUEe+bP04
+	U52rQaw5DAkEQ==
+X-Received: by 2002:a05:600c:6303:b0:488:904b:f31 with SMTP id 5b1f17b1804b1-490426d7025mr293058365e9.22.1779784976851;
+        Tue, 26 May 2026 01:42:56 -0700 (PDT)
+Received: from orome (p200300e41f291e00f22f74fffe1f3a53.dip0.t-ipconnect.de. [2003:e4:1f29:1e00:f22f:74ff:fe1f:3a53])
+        by smtp.gmail.com with ESMTPSA id 5b1f17b1804b1-490454a0b82sm325360665e9.9.2026.05.26.01.42.53
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Tue, 26 May 2026 01:42:54 -0700 (PDT)
+Date: Tue, 26 May 2026 10:42:52 +0200
+From: Thierry Reding <thierry.reding@gmail.com>
+To: Manivannan Sadhasivam <mani@kernel.org>
+Cc: Thierry Reding <thierry.reding@kernel.org>, 
+	Bjorn Helgaas <bhelgaas@google.com>, Lorenzo Pieralisi <lpieralisi@kernel.org>, 
+	Krzysztof =?utf-8?Q?Wilczy=C5=84ski?= <kwilczynski@kernel.org>, Rob Herring <robh@kernel.org>, 
 	Krzysztof Kozlowski <krzk+dt@kernel.org>, Conor Dooley <conor+dt@kernel.org>, 
-	Bjorn Andersson <andersson@kernel.org>, Konrad Dybcio <konradybcio@kernel.org>, 
-	Andrew Lunn <andrew@lunn.ch>, Gregory Clement <gregory.clement@bootlin.com>, 
-	Sebastian Hesselbarth <sebastian.hesselbarth@gmail.com>, Bartosz Golaszewski <brgl@kernel.org>, 
-	Vincent Knecht <vincent.knecht@mailoo.org>, Grant Feng <von81@163.com>, 
-	Andre Przywara <andre.przywara@arm.com>, Tony Lindgren <tony@atomide.com>, 
-	Sudeep Holla <sudeep.holla@kernel.org>, Romain Perier <romain.perier@gmail.com>, 
-	Jesper Nilsson <jesper.nilsson@axis.com>, Robert Marko <robert.marko@sartura.hr>
-Content-Type: text/plain; charset="UTF-8"
-Content-Transfer-Encoding: quoted-printable
+	Jonathan Hunter <jonathanh@nvidia.com>, Karthikeyan Mitran <m.karthikeyan@mobiveil.co.in>, 
+	Hou Zhiqiang <Zhiqiang.Hou@nxp.com>, Thomas Petazzoni <thomas.petazzoni@bootlin.com>, 
+	Pali =?utf-8?B?Um9ow6Fy?= <pali@kernel.org>, Michal Simek <michal.simek@amd.com>, 
+	Kevin Xie <kevin.xie@starfivetech.com>, linux-pci@vger.kernel.org, devicetree@vger.kernel.org, 
+	linux-tegra@vger.kernel.org, linux-kernel@vger.kernel.org, 
+	linux-arm-kernel@lists.infradead.org, Thierry Reding <treding@nvidia.com>, 
+	Manikanta Maddireddy <mmaddireddy@nvidia.com>
+Subject: Re: [PATCH v4 3/4] PCI: tegra: Add Tegra264 support
+Message-ID: <ahVbq96MYmhIngcP@orome>
+References: <20260402-tegra264-pcie-v4-0-21e2e19987e8@nvidia.com>
+ <20260402-tegra264-pcie-v4-3-21e2e19987e8@nvidia.com>
+ <iaoee5r5e2w52fap7ex23wdikbuvpjpesinedgjkehsedszhzo@64yoo2avmxle>
+ <adTAVYEzfD9FQl8N@orome>
+ <ukeelrtmjgxxwlkkzsojygzo6us5ijshis66a4x2a44hg4bw25@hggglahvrajy>
+MIME-Version: 1.0
+Content-Type: multipart/signed; micalg=pgp-sha512;
+	protocol="application/pgp-signature"; boundary="zyj365btmhllqxkn"
+Content-Disposition: inline
+In-Reply-To: <ukeelrtmjgxxwlkkzsojygzo6us5ijshis66a4x2a44hg4bw25@hggglahvrajy>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260526_014036_108435_0AE96BFD 
-X-CRM114-Status: GOOD (  16.38  )
+X-CRM114-CacheID: sfid-20260526_014259_715762_4BB4995B 
+X-CRM114-Status: GOOD (  51.28  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -99,49 +112,198 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Mon, 25 May 2026 16:46:09 +0200, Jun Yan <jerrysteve1101@gmail.com> said=
-:
-> According to the IS31FL319x datasheet[1], the SDB pin is active=E2=80=91l=
-ow.
-> However, existing device tree incorrectly configure it as active=E2=80=91=
-high.
->
-> Add a fixup to force the consumer active low for legacy device trees.
->
-> [1] https://lumissil.com/assets/pdf/core/IS31FL3196_DS.pdf
->
-> Signed-off-by: Jun Yan <jerrysteve1101@gmail.com>
-> ---
->  drivers/gpio/gpiolib-of.c | 10 ++++++++++
->  1 file changed, 10 insertions(+)
->
-> diff --git a/drivers/gpio/gpiolib-of.c b/drivers/gpio/gpiolib-of.c
-> index ef1ac68b94b7..8a79aaadc9ea 100644
-> --- a/drivers/gpio/gpiolib-of.c
-> +++ b/drivers/gpio/gpiolib-of.c
-> @@ -194,6 +194,16 @@ static void of_gpio_try_fixup_polarity(const struct =
-device_node *np,
->  		{ "himax,hx8357",	"gpios-reset",	false },
->  		{ "himax,hx8369",	"gpios-reset",	false },
->  #endif
-> +#if IS_ENABLED(CONFIG_LEDS_IS31FL319X)
-> +		/*
-> +		 * According to the IS31FL319x datasheet, the SDB pin is active=E2=80=
-=91low.
-> +		 * However, existing device tree incorrectly configure it
-> +		 * as active=E2=80=91high.
-> +		 */
-> +		{ "issi,is31fl3199",	"shutdown-gpios",	false },
-> +		{ "si-en,sn3190",	"shutdown-gpios",	false },
-> +		{ "si-en,sn3193",	"shutdown-gpios",	false },
-> +#endif
->  #if IS_ENABLED(CONFIG_MTD_NAND_JZ4780)
->  		/*
->  		 * The rb-gpios semantics was undocumented and qi,lb60 (along with
-> --
-> 2.54.0
->
->
 
-Acked-by: Bartosz Golaszewski <bartosz.golaszewski@oss.qualcomm.com>
+--zyj365btmhllqxkn
+Content-Type: text/plain; protected-headers=v1; charset=us-ascii
+Content-Disposition: inline
+Content-Transfer-Encoding: quoted-printable
+Subject: Re: [PATCH v4 3/4] PCI: tegra: Add Tegra264 support
+MIME-Version: 1.0
+
+On Fri, Apr 10, 2026 at 10:04:20PM +0530, Manivannan Sadhasivam wrote:
+> On Tue, Apr 07, 2026 at 11:38:28AM +0200, Thierry Reding wrote:
+> > On Thu, Apr 02, 2026 at 11:02:02PM +0530, Manivannan Sadhasivam wrote:
+> > > On Thu, Apr 02, 2026 at 04:27:37PM +0200, Thierry Reding wrote:
+[...]
+> > > > +	depends on ARCH_TEGRA || COMPILE_TEST
+> > > > +	depends on PCI_MSI
+> > >=20
+> > > Why?
+> >=20
+> > I suppose it's not necessary in the sense of it being a build
+> > dependency. At runtime, however, the root complex is not useful if PCI
+> > MSI is not enabled. We can drop this dependency and rely on .config to
+> > have it enabled as needed.
+> >=20
+>=20
+> Yes. I think the rationale is to depend on the symbols that the driver ne=
+eds for
+> build dependency.
+
+Done.
+
+[...]
+> > > > +						  GPIOD_IN);
+> > > > +	if (IS_ERR(pcie->wake_gpio))
+> > > > +		return PTR_ERR(pcie->wake_gpio);
+> > > > +
+> > > > +	if (pcie->wake_gpio) {
+> > >=20
+> > > Since you are bailing out above, you don't need this check.
+> >=20
+> > I think we still want to have this check to handle the case of optional
+> > wake GPIOs. Not all controllers may have this wired up and
+> > devm_gpiod_get_optional() will return NULL (not an ERR_PTR()-encoded
+> > error) if the wake-gpios property is missing.
+> >=20
+>=20
+> Ok. In that case you can just bail out:
+> 	if (!pcie->wake_gpio)
+> 		return 0;
+
+Done.
+
+[...]
+> > > > +	bw =3D width * (PCIE_SPEED2MBS_ENC(speed) / BITS_PER_BYTE);
+> > > > +	value =3D MBps_to_icc(bw);
+> > >=20
+> > > So this becomes, 'width * (PCIE_SPEED2MBS_ENC(speed) / 8) * 1000 / 8'=
+=2E But don't
+> > > you want, 'width * (PCIE_SPEED2MBS_ENC(speed)) * 1000 / 8'?
+> >=20
+> > This is M*B*ps_to_icc(), not M*b*ps_to_icc(), so we do in fact get the
+> > latter. I almost fell for this as well because I got confused by some of
+> > these macros being all-caps and other times the case actually mattering.
+> >=20
+>=20
+> Oops, I was misleaded too. But you can simply do:
+> 	bw =3D Mbps_to_icc(width * PCIE_SPEED2MBS_ENC(speed));
+>=20
+> > > > +	err =3D icc_set_bw(pcie->icc_path, bw, bw);
+>=20
+> And here you were setting the MBps, not Kbps.
+
+Done.
+
+> > > > +	if (err < 0)
+> > > > +		dev_err(pcie->dev,
+> > > > +			"failed to request bandwidth (%u MBps): %pe\n",
+> > > > +			bw, ERR_PTR(err));
+> > >=20
+> > > So you don't want to error out if this fails?
+> >=20
+> > No. This is not a fatal error and the system will continue to work,
+> > albeit perhaps at suboptimal performance. Given that Ethernet and mass
+> > storage are connected to these, a failure to set the bandwidth and
+> > erroring out here may leave the system unusable, but continuing on would
+> > let the system boot and update firmware, kernel or whatever to recover.
+> >=20
+> > I'll add a comment explaining this.
+> >=20
+>=20
+> Yeah, that'll help.
+
+Done.
+
+[...]
+> > > s/link/controller or endpoint?
+> >=20
+> > This controls the PERST# signal, so I guess "endpoint" would be more
+> > correct.
+> >=20
+>=20
+> Yes!
+
+Done.
+
+[...]
+> > > > +	if (!pcie->link_up)
+> > > > +		goto free;
+> > >=20
+> > > goto free_ecam;
+> >=20
+> > It's not clear to me, but are you suggesting to rename the existing
+> > "free" label to "free_ecam"? I can do that.
+> >=20
+>=20
+> Yeah, I was just asking for a rename.
+
+Done.
+
+[...]
+> > > > +static int tegra264_pcie_resume_noirq(struct device *dev)
+> > > > +{
+> > > > +	struct tegra264_pcie *pcie =3D dev_get_drvdata(dev);
+> > > > +	int err;
+> > > > +
+> > > > +	if (pcie->wake_gpio && device_may_wakeup(dev)) {
+> > > > +		err =3D disable_irq_wake(pcie->wake_irq);
+> > > > +		if (err < 0)
+> > > > +			dev_err(dev, "failed to disable wake IRQ: %pe\n",
+> > > > +				ERR_PTR(err));
+> > > > +	}
+> > > > +
+> > > > +	if (pcie->link_up =3D=3D false)
+> > > > +		return 0;
+> > > > +
+> > > > +	tegra264_pcie_init(pcie);
+> > > > +
+> > >=20
+> > > Why do you need init() here without deinit() in tegra264_pcie_suspend=
+_noirq()?
+> >=20
+> > That's because when we come out of suspend the link may have gone down
+> > again, so we need to take the endpoint out of reset to retrigger the
+> > link training. I think we could possibly explicitly clear that PERST_O_N
+> > bit in the PERST_CONTROL register in a new tegra264_pcie_deinit() to
+> > mirror what tegra264_pcie_init() does, but it's automatically done by
+> > firmware anyway, so not needed.
+> >=20
+>=20
+> Hmm, so firmware asserts PERST# at the end of suspend? It is not clear to=
+ me why
+> it is doing so. But for symmetry I'd like to do it in tegra264_pcie_deini=
+t().
+
+Done.
+
+> Also, I'm not certain about the 'pcie->link_up' check here. If it is 'fal=
+se',
+> then probe() should've failed. So why do you need the check here anyway?
+>=20
+> Maybe you should get rid of this check and return the link status from
+> tegra264_pcie_init() directly?
+
+We specifically don't want to fail the probe for this when the link is
+not there because we want to tighly control the power mode when the link
+is not up. We also need to keep the link alive for the case where it can
+be hotplug capable.
+
+I've added a new tegra264_pcie_deinit() function to clear that PERST_O_N
+bit explicitly, but I've kept the link_up flag.
+
+Thanks,
+Thierry
+
+--zyj365btmhllqxkn
+Content-Type: application/pgp-signature; name="signature.asc"
+
+-----BEGIN PGP SIGNATURE-----
+
+iQIzBAABCgAdFiEEiOrDCAFJzPfAjcif3SOs138+s6EFAmoVXQgACgkQ3SOs138+
+s6GQqA/+KSnsckn3+QROPSYwl6WFhBwH/d766AWMTz1MGrQhNGuXXph5WZDZlNHq
+qDbOjvCc0NtpXT5MDRWoBJYWiuzqHwgqOrsWprV2Vyb1omZHV8pWgJwDVDFOez0J
+FKTX96dA+6vwIyFfUb+7H4Uv2F6yeG11pBHMmZD/EWmXWDGUMp5u9jSCvh1sHenC
+c4hLaL4SozZnTnvtZlxTE+hw8OQ48YU912lY3SzAbLKy/f4wtgYJMwFv8rkrT19s
+n8tZsOaqjCJaLl4/ugYCSusB29JlMwFdW0tn5pvX3zivBELigovK+3IX6a45TKHE
+cPfWT7tk2AxpDyGBpV6U7OCwQKvIcsybni3ezlk6uEThZMbUyyEmA3tQ7lbMj6gA
+kr6VLCSiYZmKUIVHtSw3Lj1v3XsuTomcSn4hgsb2sFFQwWiIAO2B+JCbexeY1Ljs
+mwaM9we7rAAFXR15OELuuqFxobE/SlcWvLKUI99wfumNaKnQskBtnVYnIIxGmhgj
+bPQCesXH3pb08C8XZcFDF/2aqD4myzgldJcz09pu+6y0pqREz91HQ/YsUpRjZgKp
+i7OYSOyo8nb2kN9GDrIUWTf7wOXIWppJrAuWqyiwOjnm/dV7L9si4iPbV57Z2its
+YS3B1Stbq3LJJABBKpFp04HTbOnxCk2Mg80CNLAnuV/JqdPCfrY=
+=WV2r
+-----END PGP SIGNATURE-----
+
+--zyj365btmhllqxkn--
 
