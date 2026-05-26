@@ -4,63 +4,72 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 0A6B7CD5BC8
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 26 May 2026 12:03:41 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id CB605CD5BC8
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 26 May 2026 12:07:02 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
 	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
 	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=snO0GPCcpAIumJIbbpDl03xp41IGS0xxxbEpNFTS3AA=; b=O5sAQ6McrDaVJv1otsN/xcAFJJ
-	icZYv3EGVwU7ysyYSrQGHxc0MlQX47F+thEcvoII3+eOqv9YQVah2fJGUv2ASypgDItV28Sf4Njt+
-	co5Wt3ffXSyMGj71fExLBY1+1Vp4Ed46mWGiuouSI7Nnh6fxCs0RSLJZTyABThOBCbS/BJ4s8k+Ya
-	botSg1tmTEV2CSQVNjbUr68oi90zMLQbW10L29fLFmoq90L7DSac7wfKmeaQvIiS6fJDqPHhHvYac
-	1+Izd6dK1ooUE0t7NyhHgVA/YGK1d2QlKt2Oy0g6z7WxYKo8EABsi9NfKW0lQgV7Jld2KBLdPBBRF
-	NiiwPH+w==;
+	bh=3YbZlqd0BBc0X5BDowSBVCyi9Ei0k9dPDQCq9TAzo7s=; b=21J9zDlf32VsUur5Y8xjn8GEnq
+	kW5ULScKsi8d7w322zvy+jT+l7tOHgHKXvD+DYXPZUD5cePX3sqFc0VpVqnTOEJsMrHF+sJye7Kkv
+	nhWhkJAarhwmbYIG+KHcWbwTe/mZTZRIKzCvOFVSyS2o5LeHC9+zkOzArvUoCJYoLRqf68ln7bGRc
+	52vELbt6Iwqv7NiaDRv2eFdEWpsMLZczynOOnllz0Eu491ygXbVYlCNrdnCqZv3pQN7JRyR84Hc4q
+	FRfS+2twQ3R0GZlGXrCNHD6AlKEO7MdDWml/ncudvsYsRHXujkJ9dqTLh7mFPpRlS7d08NLX3ll7f
+	1DUthKlg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wRqVR-00000001s33-0mKb;
-	Tue, 26 May 2026 12:03:33 +0000
-Received: from foss.arm.com ([217.140.110.172])
-	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wRqVO-00000001s2b-2T7o
+	id 1wRpoW-00000001llM-28hp;
+	Tue, 26 May 2026 11:19:12 +0000
+Received: from mailout3.hostsharing.net ([144.76.133.104])
+	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
+	id 1wRpoC-00000001lUi-2dz4
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 26 May 2026 12:03:31 +0000
-Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
-	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id C5B89169C;
-	Tue, 26 May 2026 05:03:23 -0700 (PDT)
-Received: from J2N7QTR9R3 (usa-sjc-imap-foss1.foss.arm.com [10.121.207.14])
-	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id EF7E43F7B4;
-	Tue, 26 May 2026 05:03:26 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=simple/simple; d=arm.com; s=foss;
-	t=1779797008; bh=FlkpAY2X0Yf6Pfxqf2EFeAIJYm7FxKNht2VVBPprLyY=;
-	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
-	b=JocWluzfka/6ENtOHIR4dFPNqvNa8CNewaA4hKshW5Dw0uZjcQsvUUIhXmf4AIjaO
-	 0pGRR2jmTc0GcfqCJTAs9/uh/FJ1Evnjc8x+7gw5zRF5zyqTbGZZ8/7HJfVRkQyGXE
-	 XdHOXd086EHrfmvunqN2WcSHj0m9rz1IbmlbrMtg=
-Date: Tue, 26 May 2026 13:03:19 +0100
-From: Mark Rutland <mark.rutland@arm.com>
-To: Mark Brown <broonie@kernel.org>
-Cc: Marc Zyngier <maz@kernel.org>, Oliver Upton <oupton@kernel.org>,
-	Joey Gouly <joey.gouly@arm.com>,
-	Steffen Eiden <seiden@linux.ibm.com>,
-	Suzuki K Poulose <suzuki.poulose@arm.com>,
-	Catalin Marinas <catalin.marinas@arm.com>,
-	Will Deacon <will@kernel.org>, linux-arm-kernel@lists.infradead.org,
-	kvmarm@lists.linux.dev, linux-kernel@vger.kernel.org
-Subject: Re: [PATCH] KVM: arm64: Preserve all guest ZCR_EL2.LEN values
-Message-ID: <ahWMByoIme6_oECX@J2N7QTR9R3>
-References: <20260522-kvm-arm64-fix-zcr-len-nv-v1-1-ec254e9078cf@kernel.org>
- <ahSWwl-uCv4ZW-nE@J2N7QTR9R3>
- <b4fdceb6-5fa7-4829-a60e-6f80f47f032a@sirena.org.uk>
+	Tue, 26 May 2026 11:18:57 +0000
+Received: from h08.hostsharing.net (h08.hostsharing.net [83.223.95.28])
+	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
+	 key-exchange x25519 server-signature ECDSA (secp384r1) server-digest SHA384
+	 client-signature ECDSA (secp384r1) client-digest SHA384)
+	(Client CN "*.hostsharing.net", Issuer "GlobalSign GCC R6 AlphaSSL CA 2025" (verified OK))
+	by mailout3.hostsharing.net (Postfix) with ESMTPS id 463BFC93;
+	Tue, 26 May 2026 13:10:39 +0200 (CEST)
+Received: by h08.hostsharing.net (Postfix, from userid 100393)
+	id 1E2B36109E4F; Tue, 26 May 2026 13:10:39 +0200 (CEST)
+Date: Tue, 26 May 2026 13:10:39 +0200
+From: Lukas Wunner <lukas@wunner.de>
+To: Thierry Reding <thierry.reding@kernel.org>
+Cc: Bjorn Helgaas <bhelgaas@google.com>,
+	Lorenzo Pieralisi <lpieralisi@kernel.org>,
+	Krzysztof Wilczy??ski <kwilczynski@kernel.org>,
+	Manivannan Sadhasivam <mani@kernel.org>,
+	Rob Herring <robh@kernel.org>,
+	Krzysztof Kozlowski <krzk+dt@kernel.org>,
+	Conor Dooley <conor+dt@kernel.org>,
+	Thierry Reding <thierry.reding@gmail.com>,
+	Jonathan Hunter <jonathanh@nvidia.com>,
+	Karthikeyan Mitran <m.karthikeyan@mobiveil.co.in>,
+	Hou Zhiqiang <Zhiqiang.Hou@nxp.com>,
+	Thomas Petazzoni <thomas.petazzoni@bootlin.com>,
+	Pali =?iso-8859-1?Q?Roh=E1r?= <pali@kernel.org>,
+	Michal Simek <michal.simek@amd.com>,
+	Kevin Xie <kevin.xie@starfivetech.com>, Aksh Garg <a-garg7@ti.com>,
+	linux-pci@vger.kernel.org, devicetree@vger.kernel.org,
+	linux-tegra@vger.kernel.org, linux-kernel@vger.kernel.org,
+	linux-arm-kernel@lists.infradead.org,
+	Thierry Reding <treding@nvidia.com>
+Subject: Re: [PATCH v5 2/4] PCI: Use standard wait times for PCIe link
+ monitoring
+Message-ID: <ahV_r6NJWnmJptT2@wunner.de>
+References: <20260526-tegra264-pcie-v5-0-84a813b979d7@nvidia.com>
+ <20260526-tegra264-pcie-v5-2-84a813b979d7@nvidia.com>
 MIME-Version: 1.0
 Content-Type: text/plain; charset=us-ascii
 Content-Disposition: inline
-In-Reply-To: <b4fdceb6-5fa7-4829-a60e-6f80f47f032a@sirena.org.uk>
+In-Reply-To: <20260526-tegra264-pcie-v5-2-84a813b979d7@nvidia.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260526_050330_721181_0C4B9C39 
-X-CRM114-Status: GOOD (  27.60  )
+X-CRM114-CacheID: sfid-20260526_041853_716163_CD9AA44F 
+X-CRM114-Status: GOOD (  13.57  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -75,87 +84,28 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Tue, May 26, 2026 at 11:19:38AM +0100, Mark Brown wrote:
-> On Mon, May 25, 2026 at 07:36:50PM +0100, Mark Rutland wrote:
-> > On Fri, May 22, 2026 at 07:00:04PM +0100, Mark Brown wrote:
-> 
-> > > Since b3d29a823099 ("KVM: arm64: nv: Handle ZCR_EL2 traps") when guests
-> > > write to ZCR_EL2 we have clamped the value of ZCR_EL2.LEN to be at most
-> > > that configuring the maximum guest VL. This is not the behaviour the
-> 
-> ...
-> 
-> > Have we sought feedback from architects? While I said "*or* the
-> > architcture requires a clarification", I think it should be clarified
-> > more explicitly either way given that the pattern is unusual.
+On Tue, May 26, 2026 at 10:53:11AM +0200, Thierry Reding wrote:
+> Instead of defining the wait values for each driver, use common values
+> defined in the core pci.h header file. Note that most drivers don't use
+> the millisecond waits, but rather usleep_range(), so add these commonly
+> used values to the header so that all drivers can use them.
 
-The part I asked for clarification on was:
+Hm, why not just replace usleep_range() with msleep() and use the existing
+macro instead of defining new ones?
 
-  AFAICT, none of the values for the SMCR_ELx.LEN and ZCR_ELx.LEN fields
-  are reserved or unallocated. Thus all the bits of those fields should
-  be stateful, and a read should observe the last value written,
-  regardless of the effective value of the field.
+> +++ b/drivers/pci/pci.h
+> @@ -63,6 +63,8 @@ struct pcie_tlp_log;
+>  /* Parameters for the waiting for link up routine */
+>  #define PCIE_LINK_WAIT_MAX_RETRIES	10
+>  #define PCIE_LINK_WAIT_SLEEP_MS		90
+> +#define PCIE_LINK_WAIT_US_MIN		90000
+> +#define PCIE_LINK_WAIT_US_MAX		100000
 
-  [...]
+If you absolutely positively want to add a new macro, consider
+90 * USEC_PER_MSEC instead of 90000.  Moreover, consider using
+fsleep() instead of adding an additional MAX macro.
 
-  Either what we're doing is wrong, or the architcture requires a
-  clarification to say that values corresponding to unimplmented vector
-  lengths are reserved.
+Thanks,
 
-> > Given this is particularly subtle, please keep me in the loop when
-> > speaking with architects about this.
-> 
-> TBH it didn't strike me as subtle, I don't see anything in the
-> architecture which would lead me to expect the current behaviour. 
-
-The point I was trying to get across is that I don't think this is
-specified clearly enough, and I think we need to get this clarified.
-
-There's a general principle regarding reserved values. See K1.2.19
-("Reserved values in System and memory-mapped registers and translation
-table entries"), and specifically note "reserved values of fields".
-
-There's no explicit statement either way regarding the values for
-ZCR_ELx.LEN and SMCR_ELx.LEN. The statement regarding the selection of
-the effective vector length implies *some* constraints, but
-(explicitly!) doesn't specify the behaviour for direct reads.
-
-It's possible for a reader to come to one of the following conclusions:
-
-(a) Any value written to the LEN field must be preserved exactly. In all
-    cases a read must observe the last value written.
-
-(b) Some values written to the LEN field are reserved, and don't need to
-    be preserved exactly.
-
-    For example, since the only architecturally-defined VLs are
-    powers-of-two, the only "legitimate" values are: 0b0000, 0b0001,
-    0b0011, 0b0111, 0b1111. Hence any written value could be collapsed
-    to that set.
-
-(c) Some values written to the LEN field are reserved, and can be
-    replaced with *any* value.
-
-    See the statement at the end of K1.2.19 regarding subsequent reads
-    returning an UNKNOWN value.
-
-While one simple reading is that all values must be preserved exactly, I
-don't think this watertight, and I think while some people will take
-reading (a), others will take (b) or (c). I should have spelled that out
-more clearly in my initial mail, sorry.
-
-> The psudocode all just has direct assignments for the write
-
-The pseudocode doesn't capture the detail I've described above.
-
-> and there's language in the ARM (eg, in the ZCR_EL2 description)
-> saying "for all purposes other than returning the result of a direct
-> read of ZCR_EL2" which seems specifically intended to cover there
-> being a divergence between the written and effective values, though I
-> guess it doesn't explicitly mention writes in the text.  
-
-That permits a divergence, but does not define the boundary conditions
-for what a direct read can observe.
-
-Mark.
+Lukas
 
