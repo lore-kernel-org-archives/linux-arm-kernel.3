@@ -4,127 +4,76 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 9E6AECD5BC8
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 26 May 2026 15:22:01 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 87DCDCD5BC8
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 26 May 2026 15:26:14 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:
-	Content-Transfer-Encoding:Content-Type:In-Reply-To:References:Message-ID:Date
-	:Subject:CC:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=QyuDzba8LgwjhwhapR+zMF/lNmbwn+t9q/HTQamKOlU=; b=sfkd2RKzYg8a8OKpUyqaDBJqB6
-	cFvRRt4MCEhhhth96zOapBRGcJlLLbGwAkD3N1vY95gFvwOGBtEu+iwyRC/2QkDFD46BZSF1++zyC
-	CJkKyLtLwTFSIUc/LOEYITz8Z3Vtj2Ncn1BWPl5xlAZ4HFC+4p6/qxMSVA/fReg4SShxTaqZX9GkN
-	/GoMA9rHNfUm1pTgDPCOSl9k/iwMDkl3UdsiwittlMrvTWfBfIDhl5RED63lzfy/Q7jGuMKhmBwgJ
-	CWODEnlXaNVcxsGVjlFM5VJgIb11SsthyiY8B1pqRt3wu1QSS2KADcJm3SxL9pD9Nmc40dIV2jym1
-	TCG6+XyQ==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	MIME-Version:Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-Type:
+	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
+	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=uxU73nF8gsoP+9GE3Bs4snys6NdnKXB0MX+R9iiSiT0=; b=XNiGlZaUpr1ChAC0an9hbb+Ftl
+	deYpwRil5asZE3RZjKJh68Wn2tWlcO0K4BlU/2/ujAfzcixKqj5FumxzsjVCWFtQUvm8aR+rPMvjd
+	GYGgjCFVFuUP3Thq3SB6bHfSFzHTmPRTCJ9hFpjUU5n0uD6RR81c0/2PsANnOb1DwzmbGBOzv481+
+	lK6Z8ksT914Ymq6OBZw5lL/uJSqQ2PogYvRb3ps111XayIre4VveP8C91NMxyr2sPd+TOCpUC0RG9
+	kURmMfWaVL7h+JRFjxrbuZ+2LeM4xGKRQ+Gm9Mllt1nJ8LuMvj6BGUklvXoMgGCYy1/ua2KsfGcaS
+	1ehxYw0Q==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wRtbO-00000002MMl-1ykF;
-	Tue, 26 May 2026 15:21:54 +0000
-Received: from mail-northeuropeazon11012008.outbound.protection.outlook.com ([52.101.66.8] helo=DUZPR83CU001.outbound.protection.outlook.com)
+	id 1wRtfU-00000002Mxd-0PN3;
+	Tue, 26 May 2026 15:26:08 +0000
+Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wRtbM-00000002MLq-2ySf
+	id 1wRtfR-00000002Mww-1FHo
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 26 May 2026 15:21:53 +0000
-ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
- b=TW0kAuJ32hjGixJ56xEnWZNN6JXwPZ0KLTx+aZJjFxyz+dqDRKl3gnzlXTkeT6zhDukkiPouIQjrAUzno1YmJIYMKZTWmMlTiCLIQ1sGkQjk60PvMrl6g5UQuowaKuYSYXh37c85HhD1d2Jh3kZVF7qFHtgdxERvJwicC/ni6IR2zwUk2JbVLwnX3+Cu9xGYT9iibvLjrH6w3SHt16Qq8j8ni3tSG8qfU3fHsfIEXqZggjJz3m0+IYfJrkaXBkyMM7mAwASntgo1uU1ev+pBloP85iQBjMI4tn48x45pJPHyv0XV3N6bCieNNLfTj9MBYAgLUS19JWluYb+/cNlLwg==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
- s=arcselector10001;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
- bh=QyuDzba8LgwjhwhapR+zMF/lNmbwn+t9q/HTQamKOlU=;
- b=cBngmrgUJVcrZRp+BpTTv3bRYRHG+yOTJIsxqiXsMwfWKjSwcV2Z/5VV/aEYOgw8l27g6tbEeX1DzW0XglLB2YDBkAEqWi1K6qWrypQmFHlAJL3g3jf76V1FXV3YSq8MUSskRUou6K0RxmpxwzhNvQsmGT6XGWdIKv0DWRDA1ywjojh6o/swYKT0pyymqsyE3/jOV/Z0vJD9bzyU9mfroXAHW6Eyq4WwrReUm6eH9NqBLd1h8yhYFN+VobKDzwTG8fcD24aGo8nuMFlkOuqeOQIT+MePJKGPfgF2f2PGVNUvmwNXRIe3GIeFE7Z3S/JX5+soGguzxrBiZT65ezCm3w==
-ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
- smtp.mailfrom=nxp.com; dmarc=pass action=none header.from=nxp.com; dkim=pass
- header.d=nxp.com; arc=none
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=nxp.com; s=selector1;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
- bh=QyuDzba8LgwjhwhapR+zMF/lNmbwn+t9q/HTQamKOlU=;
- b=DwfWC8oA6nxuyCLO2xZF5Js7oRKMWxs6XPR4yi23kUYUHIEPwvw+hp6AjmjikyOuL/9nIdt876JgZq++r5rxbqxYuVa1eHYfdLPCr0Yis3qOia888NQcXDvrysq0KmAtlokT9/8FSAETjSIQBfsGuMHeG7eAQrtSlprckGIMD4FTc4PGfAp0hoxZEtzr/0MsRliqHJc0bLXKPNcHA2+CsVichxwnv4Gt4Cqci+U3gopfq73pBnk7yFIXIjB6bp+AHVqrQB4jX46je6Wm0oPz3WJWZ1PYwwO4QyI/k1dRpvOsX7STIWjrGu5W174KeNk2XAycyFo3YPxCWIfUm67cMA==
-Received: from VI0PR04MB12114.eurprd04.prod.outlook.com
- (2603:10a6:800:315::13) by AS8PR04MB7605.eurprd04.prod.outlook.com
- (2603:10a6:20b:292::6) with Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.21.48.20; Tue, 26 May
- 2026 15:21:45 +0000
-Received: from VI0PR04MB12114.eurprd04.prod.outlook.com
- ([fe80::feda:fd0e:147f:f994]) by VI0PR04MB12114.eurprd04.prod.outlook.com
- ([fe80::feda:fd0e:147f:f994%6]) with mapi id 15.21.0048.016; Tue, 26 May 2026
- 15:21:44 +0000
-From: Sherry Sun <sherry.sun@nxp.com>
-To: Stefan Wahren <wahrenst@gmx.net>, Greg Kroah-Hartman
-	<gregkh@linuxfoundation.org>, Jiri Slaby <jirislaby@kernel.org>
-CC: Christophe JAILLET <christophe.jaillet@wanadoo.fr>, Ingo Molnar
-	<mingo@kernel.org>, Frank Li <frank.li@nxp.com>,
-	"linux-serial@vger.kernel.org" <linux-serial@vger.kernel.org>,
-	"linux-arm-kernel@lists.infradead.org" <linux-arm-kernel@lists.infradead.org>
-Subject: RE: [PATCH RFT] tty: serial: fsl_lpuart: Add register dump
-Thread-Topic: [PATCH RFT] tty: serial: fsl_lpuart: Add register dump
-Thread-Index: AQHc7RguiXOUem3zBkK8SdV4HIDu5LYga5sQ
-Date: Tue, 26 May 2026 15:21:44 +0000
-Message-ID: <VI0PR04MB1211492AAE8858FD14187E922920B2@VI0PR04MB12114.eurprd04.prod.outlook.com>
-References: <20260526140113.50372-1-wahrenst@gmx.net>
-In-Reply-To: <20260526140113.50372-1-wahrenst@gmx.net>
-Accept-Language: zh-CN, en-US
-Content-Language: en-US
-X-MS-Has-Attach: 
-X-MS-TNEF-Correlator: 
-authentication-results: dkim=none (message not signed)
- header.d=none;dmarc=none action=none header.from=nxp.com;
-x-ms-publictraffictype: Email
-x-ms-traffictypediagnostic: VI0PR04MB12114:EE_|AS8PR04MB7605:EE_
-x-ms-office365-filtering-correlation-id: 03234a02-cf4f-4399-6dfa-08debb3a7f2d
-x-ms-exchange-senderadcheck: 1
-x-ms-exchange-antispam-relay: 0
-x-microsoft-antispam: BCL:0;ARA:13230040|376014|1800799024|366016|19092799006|56012099003|22082099003|18002099003|38070700021|6133799003|11063799006;
-x-microsoft-antispam-message-info: rzNSrcZxZqxtEWsdhvetPTbWkMGL7L7sHSn1hZoYLwsFPC6v0wZDaEb6yxoJXW8TMgIsLD+Ohb84ENRhF4WO/iB+NKmbmcvB50K8T3SCfGai0Cgwr/NXh6GfP9GMpSGIUfjPflzyacmX3mho6b515OlysU+xBTZ9TjV1DB27wRaS86A052Uy+MNntn1aPZikQIc1I5q267Z0ogRZO8qPr5hyOM/4zQOsPbwBqKar4ToTDdiYFklCJ1KBXqoKjtYovXWlN25bzvsYhULQJRc+C+zjvilqtfFwsbz5JAIkXKvp7/Od3ErN+XCJ+Aji1v14oQGUyuam3FDNNU2nsdglw5H8HoFWqBoGAIFXxUIRfY9qlBGSbFs0nDxjdYvpECn04uTMP7vqdAHvlnDxZsrCkpSZCj2jPvsZCbORklef2Qgkj+6qBl+QTnDCDeN6/MHFj+zJxJWFz1eu337SZE6WR77CQ9bjxySLXITbCFubS870SfHwxuuksGSPb0POi/q0CB5ctGwelq43lGhRGBOHImX94t2FLFMUTkqqwJoYw7bvqe78b3+fBMWpKTddbI8W81lM5iH84aIR8DjRdUvtxTbCx4tbqDCOLYQIxm6wHdt7Zj1ie47gJcU4DwHatYEsdb2pmrW9jAZlfgPRBlpbQwvfrTxpbmdpMItBagvpIFVirZQDmPvueYU9rSbOx31uv8ByksnV3N/ibhOeREF27BX/e8tiO3sPY7BOlumnbVrAmCJGlSrgfN1+zUi5zU7w
-x-forefront-antispam-report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:VI0PR04MB12114.eurprd04.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(376014)(1800799024)(366016)(19092799006)(56012099003)(22082099003)(18002099003)(38070700021)(6133799003)(11063799006);DIR:OUT;SFP:1101;
-x-ms-exchange-antispam-messagedata-chunkcount: 1
-x-ms-exchange-antispam-messagedata-0: =?us-ascii?Q?lPsLmhsMPCQM1XAEOJlejQ2D9ClJebeG0y/0dtrEfWi+3aFQpPFc6iAPK6EC?=
- =?us-ascii?Q?sU/hYlv+3sbPh2+R6/qBFlDjFLlWgYzJ+qFRDNTBIdcqUGJXVbjAxRQ3eolW?=
- =?us-ascii?Q?fI/RTBtcRiUGfatW48u07rCaFS2xWXVmNcdaNU7aeW54xkafYpGR7aVOoe00?=
- =?us-ascii?Q?mv82eQ/jyEHqo3dVAvBHrLGOAiVInbIJAIYBj+AhCU0pQZwqxsjyaW6YDL0/?=
- =?us-ascii?Q?09en5C62LTzwTwFzOahKUz0Lmu5kxLRO/e0q8SsSuOexIsCU6QaLH64dcz3Y?=
- =?us-ascii?Q?CFBUB7t0zWEoqwDUuJH4WYTqW6sdd7XKR5NlPindMzytUiMNe4OWerk1iaf9?=
- =?us-ascii?Q?IGtTtSi1BAqMaAfYS0KlYNLj7LH72O1dtjQTGxbRDwXmgQotosGlOMvKyIsz?=
- =?us-ascii?Q?4jzLpb1dkH7+LmXELtk4DZXT4DzOgTi4vVrNKX1cYXIVcG8bQDL7e3HH+tXA?=
- =?us-ascii?Q?IklOiHwEJVp5ztaP5cfCmDtPCfrPylOZsyqAaOA3zE49gKsvZeH2GHsozsKi?=
- =?us-ascii?Q?Rnp2He70JqNr3Bnrip2gehQSl7jEnVXZlsJLj40ETcQlJ22GrskV6NcRoBSl?=
- =?us-ascii?Q?pox0hc8QeS4YxifPyb7CPr2595UsWLOXIt9sAj1HaiXuHXGaURuzq8vJF0aB?=
- =?us-ascii?Q?mdtJKUgObaEzQZ9LKVvHy3Iljuoh7nAazNsmAOd4RpLxFfhg6IbeVPA9eqHl?=
- =?us-ascii?Q?wISezdZllbbAW1F9scKjWtmrJ9rvOs30aFJQwqPnj2/wNimqCEMcNwhB++3K?=
- =?us-ascii?Q?vEx2rY3UUeF4z0YwhAnc0kGR2XP4O1eSPn++coK8bJ3yzy2IpR/nzamlEx4T?=
- =?us-ascii?Q?uYp31MLbgBiL7y3TUMmLB9C0QI+M4yu/aauslbMWp+7j9zq77GR0CU/2kY63?=
- =?us-ascii?Q?9O+GGkc9Ctd4fr44k0nG7p1LeyOh8YthY+VbJBbObe7lnkd4dthpc6G8gc0c?=
- =?us-ascii?Q?JHB6rY84vcfWIP0MuoJEA9xdUI6s2CSj/RdeJxgi9hnWHQAVn2JKEJ/ev3x6?=
- =?us-ascii?Q?lCaiMGlJuBS26Qvvy59GNuTJ1k5YMV37LMImySbMGf5TAFvih4qE8OK9hLIB?=
- =?us-ascii?Q?FUALRDwJV2axTZ/GWJN2rmrSpgDJWrNmLCkRF/+aHWTv8ySE88CywocvSFQS?=
- =?us-ascii?Q?XMWd32oPgUk3G+5aKjmF/gsfLLrM21yg2V1VgbgOksx+9GeK698i6CiLeJX1?=
- =?us-ascii?Q?pSDhYs8+rDzltW5WSQ4+SAGMSnFeYmW93Teqvw/871sLH3fHKkkm1c8hOwKx?=
- =?us-ascii?Q?QEjBqwQKQWFCeY8sYSki6voGRJWi9jFL7trYvc9LRmSCc0GTGBa2HbDUIBU9?=
- =?us-ascii?Q?QZd+wtyLCJS4qXW5vDnHkrVGcF3TIu0rhbe9mNHfasSznql7/OTRB2MKRzaP?=
- =?us-ascii?Q?ad7ppMtlXdwHy5VBCqEtBAluXAMAgdCQ1ntCO4FYSL1eUfeRXBAt6cRQkOOD?=
- =?us-ascii?Q?Kb/IyZa27ztlSQNHQPbMxdk1ux/FQ2up3QPIgwsowMJhvuqfBnYOKtNZMkAd?=
- =?us-ascii?Q?Ej5v5SuR7LfjlMqv/OyaR76CQnYclcK8r2m1QIdMd0d0A5eh8BkNGbbBbd4f?=
- =?us-ascii?Q?U7ABFD69brvk7d5oyJ7/k7HaLhY2kuVOf8P/lnOMXjmJsXwXxDCcN6MM5Irr?=
- =?us-ascii?Q?KsGjrQNSO4GudCxDV4wOIrq0JeXoqQt3mOxxyc4bHpLGBugIiRUyEmV139v1?=
- =?us-ascii?Q?VVu8o0U0yHWJHhkx2agWrIT9ol8ZnyXf70aA9GvfwpIyJFMH?=
-Content-Type: text/plain; charset="us-ascii"
-Content-Transfer-Encoding: quoted-printable
+	Tue, 26 May 2026 15:26:06 +0000
+Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
+	by sea.source.kernel.org (Postfix) with ESMTP id AE5CD4034B;
+	Tue, 26 May 2026 15:26:04 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 6417C1F000E9;
+	Tue, 26 May 2026 15:26:01 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
+	s=k20260515; t=1779809164;
+	bh=uxU73nF8gsoP+9GE3Bs4snys6NdnKXB0MX+R9iiSiT0=;
+	h=From:To:Cc:Subject:Date;
+	b=DLhTsRocxrCum8Nohtv0dzZzjlCL5fL5viYcrhzXekCng/Sif+JtLN+m2qi1Zqwd2
+	 H7WaswjdMFgGdEI1hR4+sS23STWN+o0xpdqv/tj17d1Sfxgx1YXHfDShiPXu2dt0M7
+	 NHTX6mbB4cwGCxTOVHaJR+FsV3ZOGYbJmL9q9hESquqSgcKifArqq6fE3eov99cY5A
+	 8PpnMqAcbPTJnXtJUx3hVfBi13pzXPYqkAcE0l+o2zbVSjrY51RtjtKa3g94U9cRMe
+	 aJI11g+kFUJKkqMydcECCTiHQImybTFeyZxLyTT84NZcB3Zq11tkTayKdzV6LI5Yw/
+	 ACMh6Wo4Jo1yw==
+From: Bjorn Andersson <andersson@kernel.org>
+To: arm@kernel.org,
+	soc@kernel.org
+Cc: linux-arm-msm@vger.kernel.org,
+	linux-arm-kernel@lists.infradead.org,
+	Arnd Bergmann <arnd@arndb.de>,
+	Praveen Talari <praveen.talari@oss.qualcomm.com>,
+	Abel Vesa <abel.vesa@oss.qualcomm.com>,
+	Alexander Koskovich <akoskovich@pm.me>,
+	Deepti Jaggi <deepti.jaggi@oss.qualcomm.com>,
+	Dmitry Baryshkov <dmitry.baryshkov@oss.qualcomm.com>,
+	Francisco Munoz Ruiz <francisco.ruiz@oss.qualcomm.com>,
+	Komal Bajaj <komal.bajaj@oss.qualcomm.com>,
+	Mukesh Ojha <mukesh.ojha@oss.qualcomm.com>,
+	Kathiravan Thirumoorthy <kathiravan.thirumoorthy@oss.qualcomm.com>,
+	Shawn Guo <shengchao.guo@oss.qualcomm.com>,
+	Dan Carpenter <error27@gmail.com>,
+	Fenglin Wu <fenglin.wu@oss.qualcomm.com>,
+	Harrison Vanderbyl <harrison.vanderbyl@gmail.com>,
+	Konrad Dybcio <konrad.dybcio@oss.qualcomm.com>,
+	Raj Aryan <raryan@qti.qualcomm.com>,
+	Rosen Penev <rosenp@gmail.com>,
+	Tony Truong <tony.truong@oss.qualcomm.com>
+Subject: [GIT PULL] Qualcomm driver updates for v7.2
+Date: Tue, 26 May 2026 10:26:00 -0500
+Message-ID: <20260526152600.5555-1-andersson@kernel.org>
+X-Mailer: git-send-email 2.53.0
 MIME-Version: 1.0
-X-OriginatorOrg: nxp.com
-X-MS-Exchange-CrossTenant-AuthAs: Internal
-X-MS-Exchange-CrossTenant-AuthSource: VI0PR04MB12114.eurprd04.prod.outlook.com
-X-MS-Exchange-CrossTenant-Network-Message-Id: 03234a02-cf4f-4399-6dfa-08debb3a7f2d
-X-MS-Exchange-CrossTenant-originalarrivaltime: 26 May 2026 15:21:44.8987
- (UTC)
-X-MS-Exchange-CrossTenant-fromentityheader: Hosted
-X-MS-Exchange-CrossTenant-id: 686ea1d3-bc2b-4c6f-a92c-d99c5c301635
-X-MS-Exchange-CrossTenant-mailboxtype: HOSTED
-X-MS-Exchange-CrossTenant-userprincipalname: WiJbe/2jE/JpbT6t8LkomijnNtZTHVptfbj7QTCkrgTSOvuLrfsngh4fSbh2X71oub5yw4fe4w/6MHIyjKPlDg==
-X-MS-Exchange-Transport-CrossTenantHeadersStamped: AS8PR04MB7605
+Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260526_082152_764827_4F559877 
-X-CRM114-Status: GOOD (  25.64  )
+X-CRM114-CacheID: sfid-20260526_082605_375767_885A17FA 
+X-CRM114-Status: GOOD (  11.36  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -139,163 +88,143 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-> Subject: [PATCH RFT] tty: serial: fsl_lpuart: Add register dump
->=20
-> Dumping the registers from userspace for debug purposes isn't trivial,
-> because runtime PM can gate the required clocks and any read access to
-> these registers would result in a lockup.
->=20
-> So implement a register dump via debugfs, which deals with the runtime PM=
-.
 
-No need, you can disable runtime pm from user space before dump the registe=
-rs.
-For example: echo on > /sys/bus/platform/devices/29860000.serial/power/cont=
-rol
+The following changes since commit 254f49634ee16a731174d2ae34bc50bd5f45e731:
 
-Best Regards
-Sherry
->=20
-> Signed-off-by: Stefan Wahren <wahrenst@gmx.net>
-> ---
->=20
-> Hi, I only have access to a board (i.MX93) with 32 bit registers, so it w=
-ould be
-> great if someone could test it for 8 bit registers.
->=20
-> Thanks
->=20
->  drivers/tty/serial/fsl_lpuart.c | 69 +++++++++++++++++++++++++++++++++
->  1 file changed, 69 insertions(+)
->=20
-> diff --git a/drivers/tty/serial/fsl_lpuart.c b/drivers/tty/serial/fsl_lpu=
-art.c index
-> 1bd7ec9c81ea..7e4b3e59414a 100644
-> --- a/drivers/tty/serial/fsl_lpuart.c
-> +++ b/drivers/tty/serial/fsl_lpuart.c
-> @@ -10,6 +10,7 @@
->  #include <linux/circ_buf.h>
->  #include <linux/clk.h>
->  #include <linux/console.h>
-> +#include <linux/debugfs.h>
->  #include <linux/delay.h>
->  #include <linux/dma-mapping.h>
->  #include <linux/dmaengine.h>
-> @@ -23,6 +24,7 @@
->  #include <linux/pinctrl/consumer.h>
->  #include <linux/platform_device.h>
->  #include <linux/pm_runtime.h>
-> +#include <linux/seq_file.h>
->  #include <linux/serial_core.h>
->  #include <linux/slab.h>
->  #include <linux/tty_flip.h>
-> @@ -291,6 +293,8 @@ struct lpuart_port {
->  	bool			is_cs7; /* Set to true when character size is 7
-> */
->  					/* and the parity is enabled
-> 	*/
->  	bool			dma_idle_int;
-> +
-> +	struct dentry		*debugfs_dir;
->  };
->=20
->  struct lpuart_soc_data {
-> @@ -1031,6 +1035,7 @@ static void lpuart32_rxint(struct lpuart_port *spor=
-t)
->  	}
->=20
->  out:
-> +
->  	uart_unlock_and_check_sysrq(&sport->port);
->=20
->  	tty_flip_buffer_push(port);
-> @@ -2860,6 +2865,67 @@ static int lpuart_global_reset(struct lpuart_port
-> *sport)
->  	return 0;
->  }
->=20
-> +#ifdef CONFIG_DEBUG_FS
-> +
-> +#define dump_register_hex(_seq, _reg, _sport) \ seq_printf((_seq),
-> +"%-12s: 0x%02x\n", #_reg, readb((_sport)->port.membase + (_reg)))
-> +
-> +#define dump_register32_hex(_seq, _reg, _sport) \ seq_printf((_seq),
-> +"%-12s: 0x%08x\n", #_reg, lpuart32_read(&(_sport)->port, _reg))
-> +
-> +static int regs_show(struct seq_file *s, void *p) {
-> +	struct lpuart_port *sport =3D s->private;
-> +
-> +	pm_runtime_get_sync(sport->port.dev);
-> +
-> +	if (lpuart_is_32(sport)) {
-> +		dump_register32_hex(s, UARTBAUD, sport);
-> +		dump_register32_hex(s, UARTSTAT, sport);
-> +		dump_register32_hex(s, UARTCTRL, sport);
-> +		dump_register32_hex(s, UARTMATCH, sport);
-> +		dump_register32_hex(s, UARTMODIR, sport);
-> +		dump_register32_hex(s, UARTFIFO, sport);
-> +		dump_register32_hex(s, UARTWATER, sport);
-> +	} else {
-> +		dump_register_hex(s, UARTBDH, sport);
-> +		dump_register_hex(s, UARTBDL, sport);
-> +		dump_register_hex(s, UARTCR1, sport);
-> +		dump_register_hex(s, UARTCR2, sport);
-> +		dump_register_hex(s, UARTSR1, sport);
-> +		dump_register_hex(s, UARTCR3, sport);
-> +		dump_register_hex(s, UARTDR, sport);
-> +		dump_register_hex(s, UARTCR4, sport);
-> +		dump_register_hex(s, UARTCR5, sport);
-> +		dump_register_hex(s, UARTMODEM, sport);
-> +		dump_register_hex(s, UARTPFIFO, sport);
-> +		dump_register_hex(s, UARTCFIFO, sport);
-> +		dump_register_hex(s, UARTSFIFO, sport);
-> +		dump_register_hex(s, UARTTWFIFO, sport);
-> +		dump_register_hex(s, UARTTCFIFO, sport);
-> +		dump_register_hex(s, UARTRWFIFO, sport);
-> +	}
-> +
-> +	pm_runtime_mark_last_busy(sport->port.dev);
-> +	pm_runtime_put_autosuspend(sport->port.dev);
-> +
-> +	return 0;
-> +}
-> +
-> +DEFINE_SHOW_ATTRIBUTE(regs);
-> +
-> +static void lpuart_init_debugfs(struct lpuart_port *sport) {
-> +	sport->debugfs_dir =3D debugfs_create_dir(dev_name(sport-
-> >port.dev),
-> +						NULL);
-> +
-> +	debugfs_create_file("regs", 0400, sport->debugfs_dir, sport,
-> +&regs_fops); }
-> +
-> +#else
-> +static inline void lpuart_init_debugfs(struct lpuart_port *sport) {}
-> +#endif
-> +
->  static int lpuart_probe(struct platform_device *pdev)  {
->  	const struct lpuart_soc_data *sdata =3D
-> of_device_get_match_data(&pdev->dev);
-> @@ -2969,6 +3035,8 @@ static int lpuart_probe(struct platform_device
-> *pdev)
->  	if (ret)
->  		goto failed_irq_request;
->=20
-> +	lpuart_init_debugfs(sport);
-> +
->  	return 0;
->=20
->  failed_irq_request:
-> @@ -2987,6 +3055,7 @@ static void lpuart_remove(struct platform_device
-> *pdev)  {
->  	struct lpuart_port *sport =3D platform_get_drvdata(pdev);
->=20
-> +	debugfs_remove_recursive(sport->debugfs_dir);
->  	uart_remove_one_port(&lpuart_reg, &sport->port);
->=20
->  	lpuart_disable_clks(sport);
-> --
-> 2.43.0
+  Linux 7.1-rc1 (2026-04-26 14:19:00 -0700)
 
+are available in the Git repository at:
+
+  https://git.kernel.org/pub/scm/linux/kernel/git/qcom/linux.git tags/qcom-drivers-for-7.2
+
+for you to fetch changes up to 23cee0d07a412f1fadb236358e0d834fabf0efcc:
+
+  Merge branch '20260227061544.1785978-1-praveen.talari@oss.qualcomm.com' into drivers-for-7.2 (2026-05-21 22:00:31 -0500)
+
+----------------------------------------------------------------
+Qualcomm driver updates for v7.2
+
+Enable QSEECOM and with that access to UEFI variables on the Surface Pro
+12in laptop.
+
+Refactor the Geni Serial-Engine helper code to allow the serial engine
+drivers (such as I2C) to operate on targets where power and performance
+is controlled through an SCMI server instead of individual resources in
+Linux.
+
+Extend the LLCC driver to support reading its data from a System Cache
+Table (SCT) in memory instead of being hard coded per platform in the
+driver. Also add support for the Eliza platform.
+
+Add support for the Hawi platform to pd-mapper.
+
+Switch the SMEM driver to track partitions using xarray to handle the
+ever growing number of hosts better.
+
+Extend the socinfo driver with knowledge about the Nord, SM7750,
+IPQ9650, and Shikra SoCs, as well as PMAU0102, PMC1020H, PMIV0102, and
+PMIV0104 PMICs.
+
+Define UBWC 3.1 and add a couple of convenient helpers in the UBWC
+library for MDSS and Adreno.
+
+Fix a memory leak in the WCNSS firmware download mechanism.
+
+----------------------------------------------------------------
+Abel Vesa (4):
+      dt-bindings: soc: qcom: qcom,pmic-glink: Document Eliza compatible
+      dt-bindings: soc: qcom,aoss-qmp: Document the Eliza Always-On Subsystem side channel
+      dt-bindings: cache: qcom,llcc: Document Eliza LLCC block
+      soc: qcom: llcc-qcom: Add support for Eliza
+
+Alexander Koskovich (3):
+      soc: qcom: socinfo: Add PMIV0102 & PMIV0104 PMICs
+      dt-bindings: arm: qcom,ids: Add SoC ID for SM7750
+      soc: qcom: socinfo: Add SoC ID for SM7750
+
+Bjorn Andersson (2):
+      Merge branch '20260507-ubwc-rework-v4-4-c19593d20c1d@oss.qualcomm.com' into drivers-for-7.2
+      Merge branch '20260227061544.1785978-1-praveen.talari@oss.qualcomm.com' into drivers-for-7.2
+
+Dan Carpenter (1):
+      soc: qcom: llcc-qcom: Fix NULL vs IS_ERR() bug in qcom_llcc_get_fw_config()
+
+Deepti Jaggi (3):
+      dt-bindings: qcom: geni-se-qup: Add compatible for SA8797P SoC
+      dt-bindings: arm: qcom,ids: Add SoC ID for Nord SA8797P
+      soc: qcom: socinfo: Add SoC ID for Nord SA8797P
+
+Dmitry Baryshkov (3):
+      soc: qcom: ubwc: define UBWC 3.1
+      soc: qcom: ubwc: define helper for MDSS and Adreno drivers
+      soc: qcom: ubwc: add helper controlling AMSBC enablement
+
+Fenglin Wu (1):
+      dt-bindings: soc: qcom: qcom,pmic-glink: Add Hawi compatible string
+
+Francisco Munoz Ruiz (3):
+      dt-bindings: cache: qcom,llcc: Document Hawi SoC
+      soc: qcom: llcc-qcom: get SCT descriptors from fw-populated memory
+      soc: qcom: llcc-qcom: Capitalize LLCC/EDAC in comments and diagnostics
+
+Harrison Vanderbyl (1):
+      firmware: qcom: scm: Allow QSEECOM on Surface Pro 12in
+
+Kathiravan Thirumoorthy (2):
+      dt-bindings: arm: qcom,ids: add SOC IDs for IPQ9650 family
+      soc: qcom: socinfo: add SoC ID for IPQ9650 family
+
+Komal Bajaj (3):
+      dt-bindings: cache: qcom,llcc: Document Shikra LLCC
+      dt-bindings: arm: qcom,ids: Add SoC ID for Shikra IoT variants
+      soc: qcom: socinfo: Add SoC ID for Shikra IoT variants
+
+Konrad Dybcio (1):
+      soc: qcom: socinfo: Add PMICs that ship with Glymur
+
+Mukesh Ojha (3):
+      dt-bindings: firmware: qcom,scm: Document SCM on Hawi SoC
+      dt-bindings: soc: qcom,aoss-qmp: Document the Hawi AOSS side channel
+      soc: qcom: pd-mapper: Add support for Hawi SoC
+
+Praveen Talari (7):
+      soc: qcom: geni-se: Refactor geni_icc_get() and make qup-memory ICC path optional
+      soc: qcom: geni-se: Add geni_icc_set_bw_ab() function
+      soc: qcom: geni-se: Introduce helper API for resource initialization
+      soc: qcom: geni-se: Handle core clk in geni_se_clks_off() and geni_se_clks_on()
+      soc: qcom: geni-se: Add resources activation/deactivation helpers
+      soc: qcom: geni-se: Introduce helper API for attaching power domains
+      soc: qcom: geni-se: Introduce helper APIs for performance control
+
+Raj Aryan (1):
+      soc: qcom: spmi-pmic: add SUBTYPEs for Glymur/Kaanapali/SM8750 PMICs
+
+Rosen Penev (1):
+      soc: qcom: wcnss: fix leak of fw
+
+Shawn Guo (2):
+      dt-bindings: firmware: qcom,scm: Document SCM for Nord SoC
+      soc: qcom: socinfo: Add PMIC PMAU0102
+
+Tony Truong (1):
+      soc: qcom: smem: Switch partitions to xarray
+
+ .../devicetree/bindings/cache/qcom,llcc.yaml       |  43 ++
+ .../devicetree/bindings/firmware/qcom,scm.yaml     |   3 +
+ .../bindings/soc/qcom/qcom,aoss-qmp.yaml           |   2 +
+ .../bindings/soc/qcom/qcom,pmic-glink.yaml         |   6 +
+ .../soc/qcom/qcom,sa8255p-geni-se-qup.yaml         |  31 +-
+ drivers/firmware/qcom/qcom_scm.c                   |   1 +
+ drivers/soc/qcom/llcc-qcom.c                       | 481 ++++++++++++++++++---
+ drivers/soc/qcom/qcom-geni-se.c                    | 270 +++++++++++-
+ drivers/soc/qcom/qcom_pd_mapper.c                  |   8 +
+ drivers/soc/qcom/smem.c                            |  56 +--
+ drivers/soc/qcom/socinfo.c                         |  23 +
+ drivers/soc/qcom/wcnss_ctrl.c                      |  11 +-
+ include/dt-bindings/arm/qcom,ids.h                 |  11 +
+ include/linux/soc/qcom/geni-se.h                   |  19 +
+ include/linux/soc/qcom/llcc-qcom.h                 |  44 +-
+ include/linux/soc/qcom/ubwc.h                      |  22 +
+ include/soc/qcom/qcom-spmi-pmic.h                  |  15 +-
+ 17 files changed, 920 insertions(+), 126 deletions(-)
 
