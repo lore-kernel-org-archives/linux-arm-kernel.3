@@ -4,101 +4,72 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 70759CD5BB4
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 26 May 2026 08:06:26 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 3FA55CD5BC8
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 26 May 2026 08:12:39 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
 	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
 	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=g6XMMZUVsPZY3zr1bCsuHRKX53Xlum27v7L+XlSyf60=; b=q37hHfmDIlcgUzvWfZ9NPjn/GS
-	BZbUcwGKnD1LMmnrpYqlSzU/qN+xhiyJGqOVVSpTvX9wXuhUUmd7l6i6yBeuBw9lYDQ3pZzwLCZWq
-	5OhiIkk5YR+67DoD3nes5M9CWrBJhhk9h92JdxCpDfNLGB4Y7GRJDckkvDg2B/z0jluK7c6gfqpPD
-	bd+DUeZCuiRHF10E4iwgxU9Xnzu4/tCCczsuWs8sAE/L0mf+8GF81uXODPej9KMNn2jQe7zt559IG
-	YNTburxArbdDfMIu//1InCk+4jWWUz5wnEecSIvwnXrDduwkzgo0y8FPdMqBlirhJby7zXI34IDui
-	ndsRiBVA==;
+	bh=JnjXZyZU6nQwG3AVMZ4mrEOLDYwRmI5lE9MfWukoaF4=; b=KYyIC3L2JCCijrdNu9WAVvvMhN
+	ZyXnNGsZpPh6qINaBL0CU0cC5FFuVEwyTJza8nwhzfHInPUxJv5Fuj78vxW5kWWpQEFlf7uKWKibB
+	ypAG7lNVtU6JAB1FhhRAuDfkORlw9BlHfyUbuWVrcedJIqeZFMo+hfJIo6JeMMz4uQRfM5qT9IHrX
+	gag639eKmEhLEC9UFkXk4oyCG+qWMF/sCE3wBL5B63gUwdnpd3UztwFlMMOKPKsT5ljE3uI6OCkEr
+	k3VlA1onJaoVcyv11F/Je76bKPzYelEsrnr6dl2/dhRp4vonS/r4OrYMhGC+L2hPczM2ZHhH7zc/b
+	PKBoWDnw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wRmnr-00000001L3x-0rwn;
-	Tue, 26 May 2026 08:06:19 +0000
-Received: from sea.source.kernel.org ([172.234.252.31])
+	id 1wRmtr-00000001Lhx-06df;
+	Tue, 26 May 2026 08:12:31 +0000
+Received: from smtp1-g21.free.fr ([212.27.42.1])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wRmno-00000001L3K-2DXH
+	id 1wRmtn-00000001LhE-3kGy
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 26 May 2026 08:06:17 +0000
-Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
-	by sea.source.kernel.org (Postfix) with ESMTP id 649AD40106;
-	Tue, 26 May 2026 08:06:15 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 3A9651F000E9;
-	Tue, 26 May 2026 08:06:08 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1779782775;
-	bh=g6XMMZUVsPZY3zr1bCsuHRKX53Xlum27v7L+XlSyf60=;
-	h=Date:From:To:Cc:Subject:References:In-Reply-To;
-	b=GjjrCFpc7W/uWJBxjHgFnxkFPVfFFFVq+t9oz2m0MynTPoKSQD1tJcaO8PtZUPk3I
-	 uTcq4jba6ubS0GK5hI0943sfDtwBQVcE8Z4WF4OZvxllIIy3M2EQvj+c34Lo5ZVLj4
-	 b3rfB4k0S8JaWUHAKrebtPBjKNP3AwC+HgCaPLfXU8amyec9wo+EdGh5yVlN0I2gMw
-	 9rwPKA0vAFYqKSmpdkHNAw6fI4znsSfArIe503zTeTYvKLIYDQjFNhB+7J8+0JBagJ
-	 8YPJiVHIfxXZ8UzNlx8bW/yEO1ohwBwLq4KG4T9x8uUUsdiSDqSYKJZp2KI3U45AgX
-	 WNX6SXE33xZcA==
-Date: Tue, 26 May 2026 09:06:06 +0100
-From: Sudeep Holla <sudeep.holla@kernel.org>
-To: Marc Zyngier <maz@kernel.org>
-Cc: linux-arm-kernel@lists.infradead.org, linux-acpi@vger.kernel.org,
-	linux-kernel@vger.kernel.org, devicetree@vger.kernel.org,
-	Lorenzo Pieralisi <lpieralisi@kernel.org>,
-	Sudeep Holla <sudeep.holla@kernel.org>,
-	Hanjun Guo <guohanjun@huawei.com>,
-	Catalin Marinas <catalin.marinas@arm.com>,
-	Will Deacon <will@kernel.org>,
-	"Rafael J. Wysocki" <rafael@kernel.org>,
-	Mark Rutland <mark.rutland@arm.com>,
-	Daniel Lezcano <daniel.lezcano@kernel.org>,
-	Thomas Gleixner <tglx@kernel.org>, Rob Herring <robh@kernel.org>,
-	Krzysztof Kozlowski <krzk+dt@kernel.org>,
-	Conor Dooley <conor+dt@kernel.org>, Chen-Yu Tsai <wens@kernel.org>,
-	Jernej Skrabec <jernej.skrabec@gmail.com>,
-	Samuel Holland <samuel@sholland.org>,
-	Neil Armstrong <neil.armstrong@linaro.org>,
-	Kevin Hilman <khilman@baylibre.com>,
-	Jerome Brunet <jbrunet@baylibre.com>,
-	Martin Blumenstingl <martin.blumenstingl@googlemail.com>,
-	Ge Gordon <gordon.ge@bst.ai>,
-	BST Linux Kernel Upstream Group <bst-upstream@bstai.top>,
-	Jesper Nilsson <jesper.nilsson@axis.com>,
-	Lars Persson <lars.persson@axis.com>,
-	Alim Akhtar <alim.akhtar@samsung.com>,
-	Ivaylo Ivanov <ivo.ivanov.ivanov1@gmail.com>,
-	Frank Li <Frank.Li@nxp.com>, Sascha Hauer <s.hauer@pengutronix.de>,
+	Tue, 26 May 2026 08:12:29 +0000
+Received: from L30177.local (unknown [213.36.132.10])
+	(Authenticated sender: vjardin@free.fr)
+	by smtp1-g21.free.fr (Postfix) with ESMTPSA id 10920B005A2;
+	Tue, 26 May 2026 10:12:06 +0200 (CEST)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=free.fr;
+	s=smtp-20201208; t=1779783145;
+	bh=+DPMC/KrZCk4rVtESWROJTmVz5LPk9WoNgb7oufpbx8=;
+	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
+	b=qFizvqVzYPKNFYIcW3si0zGbaZtRe8WyeohMEQ6KWPMEMBq/MocoVLpqRC6Cld4sL
+	 USUACjmgBlTdomdUylNmtcmyq0tGBlB6rjcEPYTpyv/e6vZ9kXGsYSUligCr92tMfl
+	 vcEMJYOsILPJx60NnYxCCesCjQ3BHx6vb1VirelHgsiPSL6ePrfmkc830smzcjUvVu
+	 mV732C72lPZq4i22KrXVwT/bWXStPBwXqG4GN0GDbTbhMHzoYE+kMk+f7Y4SySaI61
+	 X6JSGFBHQpZPfik4TVaT1yvFurhWWGEZVkZ84EFn2CNfkdBjcLoX+GCdXYwy6e3ilQ
+	 0tHla7hwu5eLA==
+Date: Tue, 26 May 2026 10:12:05 +0200
+From: Vincent Jardin <vjardin@free.fr>
+To: "Carlos Song (OSS)" <carlos.song@oss.nxp.com>
+Cc: Oleksij Rempel <o.rempel@pengutronix.de>,
 	Pengutronix Kernel Team <kernel@pengutronix.de>,
-	Fabio Estevam <festevam@gmail.com>,
-	Dinh Nguyen <dinguyen@kernel.org>,
-	Matthias Brugger <matthias.bgg@gmail.com>,
-	AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>,
-	Thierry Reding <thierry.reding@kernel.org>,
-	Jonathan Hunter <jonathanh@nvidia.com>,
-	Bjorn Andersson <andersson@kernel.org>,
-	Konrad Dybcio <konradybcio@kernel.org>,
-	Andreas =?iso-8859-1?Q?F=E4rber?= <afaerber@suse.de>,
-	Yu-Chun Lin =?utf-8?B?W+ael+elkOWQm10=?= <eleanor.lin@realtek.com>,
-	Heiko Stuebner <heiko@sntech.de>,
-	Shawn Lin <shawn.lin@rock-chips.com>,
-	Orson Zhai <orsonzhai@gmail.com>,
-	Baolin Wang <baolin.wang@linux.alibaba.com>,
-	Michal Simek <michal.simek@amd.com>
-Subject: Re: [PATCH v3 01/17] ACPI: GTDT: Account for GTDTv3 size when
- walking the platform timer descriptors
-Message-ID: <20260526-logical-ape-of-courage-c1ccbf@sudeepholla>
-References: <20260523140242.586031-1-maz@kernel.org>
- <20260523140242.586031-2-maz@kernel.org>
+	Andi Shyti <andi.shyti@kernel.org>, Frank Li <frank.li@nxp.com>,
+	Sascha Hauer <s.hauer@pengutronix.de>,
+	Fabio Estevam <festevam@gmail.com>, Wolfram Sang <wsa@kernel.org>,
+	Kaushal Butala <kaushalkernelmailinglist@gmail.com>,
+	Shawn Guo <shawn.guo@freescale.com>,
+	Stefan Eichenberger <stefan.eichenberger@toradex.com>,
+	"linux-i2c@vger.kernel.org" <linux-i2c@vger.kernel.org>,
+	"imx@lists.linux.dev" <imx@lists.linux.dev>,
+	"linux-arm-kernel@lists.infradead.org" <linux-arm-kernel@lists.infradead.org>,
+	"linux-kernel@vger.kernel.org" <linux-kernel@vger.kernel.org>,
+	"stable@vger.kernel.org" <stable@vger.kernel.org>
+Subject: Re: [PATCH v2 0/2] i2c: imx: fix SMBus block-read of 0 locking the
+ bus
+Message-ID: <ahVV1X_cdhHDmRwc@L30177.local>
+References: <20260525-for-upstream-i2c-lx2160-fix-v1-v1-0-f30ab53dd97c@free.fr>
+ <20260525-for-upstream-i2c-lx2160-fix-v1-v2-0-26a3cc8cd055@free.fr>
+ <AM0PR04MB6802B906706F0CDE5BA73696E80B2@AM0PR04MB6802.eurprd04.prod.outlook.com>
 MIME-Version: 1.0
 Content-Type: text/plain; charset=us-ascii
 Content-Disposition: inline
-In-Reply-To: <20260523140242.586031-2-maz@kernel.org>
+In-Reply-To: <AM0PR04MB6802B906706F0CDE5BA73696E80B2@AM0PR04MB6802.eurprd04.prod.outlook.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260526_010616_610223_BAFC8A79 
-X-CRM114-Status: GOOD (  13.23  )
+X-CRM114-CacheID: sfid-20260526_011228_071136_5F7E84B6 
+X-CRM114-Status: GOOD (  18.91  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -113,25 +84,56 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Sat, May 23, 2026 at 03:02:26PM +0100, Marc Zyngier wrote:
-> Since ARMv8.1, the architecture has grown an EL2-private virtual
-> timer. This has been described in ACPI since ACPI v6.3 and revision
-> 3 of the GTDT table.
-> 
-> An aditional structure was added in ACPICA, though in a rather
-> bizarre way, and merged in v5.1 as 8f5a14d053100 ("ACPICA: ACPI 6.3:
-> add GTDT Revision 3 support").
-> 
-> Finally plug the table parsing in GTDT, and correct the parsing of
-> the platform timer subtables to account for the expanded size of
-> the base table. This also comes with some extra sanitisation of
-> the table, in the unlikely case someone got it wrong...
-> 
-> Suggested-by: Sudeep Holla <sudeep.holla@kernel.org>
+Hi Carlos,
 
-Reviewed-by:  Sudeep Holla <sudeep.holla@kernel.org>
+> Thanks for working on this fix, this looks good to me.
 
--- 
-Regards,
-Sudeep
+thanks for checking it. It took some times to isolate this issue and
+then find a fix.
+
+> SMBus block reads with a length of 0 seem quite uncommon in practice.
+> Was this triggered by a specific device behavior, or mainly found
+> during boundary / compliance testing?
+
+It is trigger by the usage of a mpq8785 on the i2c bus: when the kernel attaches
+on it using its pmsbus/hwmon framework, then the i2c bus get locked on lx2160 !
+
+> Regarding the handling of len == 0,
+> I see that the patch sets:
+> 
+>     msg->buf[0] = 0;
+>     msg->len = 2;
+> 
+> It relies on the last-byte STOP handling together with TXAK. It will help I2C-IMX generate NACK + STOP and
+> release the bus, right?
+
+Yes, exactly. Reading I2DR for the length byte has already armed the
+next byte, so we set TXAK to NACK it and extend msg->len to 2.
+Next then i2c_imx_isr_read_continue() at msg_buf_idx == msg->len - 1,
+ie the normal last-byte path, which clears MSTA to emit STOP. So NACK + STOP,
+and THEN the bus is released. I do not see any other means to handle it.
+
+> len = 0 is a legal behavior, So it go into a successful path.
+
+Yes. count == 0 is legal (SMBus 3.1 6.5.7), so the transfer reaches
+STATE_DONE and returns success.
+
+> But len > I2C_SMBUS_BLOCK_MAX is abnormal behavior. So it go into a fail path.
+
+Correct, and it is a protocol error, so it needs to end up with a -EPROTO while
+a count of 0 is an ok case.
+
+> Do I understand it right?
+
+yes. I do not see any other means to handle it.
+
+> Also, if possible could you briefly describe how you validated this change
+> (e.g. test setup or steps, with and without the fix)?
+
+On a lx2160a board, on its i2c, bind a mpq8785, and enable the Kernel pmbus/hwmon
+framework, then the i2c bus becomes un-useable. Using a scope, we can confirm that
+the lx21260a i2c cannot recover.
+
+Best regards,
+  Vincent 
 
