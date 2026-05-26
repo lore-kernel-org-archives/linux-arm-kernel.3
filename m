@@ -4,89 +4,89 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 8F639CD5BD1
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 26 May 2026 09:03:59 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 4F68DCD5BC8
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 26 May 2026 09:05:34 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
 	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
 	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=J5dGxZtpy5ij+pAHk4WPSXIy03xOLi19OuSp2R26ZrU=; b=tbyrUkDpCTMHJiODb9IL9xUSla
-	yn0q/ccNz1Qezzi2j2DAJwWlyx3GvYwxZKuaNCtOPMf2PwYoOvYjqswSzoCf16Ed4ZfToY2OQpHFn
-	nqAKu/xCdomi67H/HUlbFItBqmAvTbK5elP9z6GtleNq978KKz2j9ubmds725tCbMpxH2zRPCY/w6
-	fzOjqv5JI1tzx9JIibxbrxIgm6djerBvtToyJMXG4nl6/2rv+nF8ROXhVLAFOSDiMfg22S8GJATBz
-	f5V0oy+FM0EasNatsZ43Iil9tLf9h2G7pfacQB4cR1bFFmXjD56EiReM0wEE0ZN+shgzWGdMJyIhH
-	+UdftdkQ==;
+	bh=lIydC1avDsw19ESavVjQVJZ2gdc1/n1+I22JGOMviIQ=; b=1yN4DqoyttNtvgyamEHSDZrEsf
+	NlZ2sFdbM0KQ2Etj0icP6Xc+4mH/OO3VFCKx2OZWKdZEZzkXTzFM/xG2bacBGTGNtP1Vf3y+bhZAi
+	/PfA97CpgfeQCrkZyP+XPAKC2Jfr+TbE6yDokJu445deiZX/X6rZAYdb32ilKDFIcBe6kPGrSUN10
+	D3hXyh7BtVFGjjwT0CM+Jw2YCWffItYa6Je7b0Nojh7cZrk7PHatwRHvREJ8j25cFpRGQW2ATQnPT
+	TVK2XOmyzyc1MfM67TWkh7r8TyhvGMtyZnT4TjF+4Fn5/fkM2X50rMBUsGIVmXAecwAhqJY/YHHCb
+	HGqcMayw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wRnhX-00000001SN6-4301;
-	Tue, 26 May 2026 09:03:51 +0000
-Received: from smtp-out2.suse.de ([2a07:de40:b251:101:10:150:64:2])
+	id 1wRnj4-00000001SYX-1mnS;
+	Tue, 26 May 2026 09:05:26 +0000
+Received: from smtp-out1.suse.de ([2a07:de40:b251:101:10:150:64:1])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wRnhV-00000001SMT-1wAv
+	id 1wRnj1-00000001SXk-3pGl
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 26 May 2026 09:03:50 +0000
+	Tue, 26 May 2026 09:05:25 +0000
 Received: from imap1.dmz-prg2.suse.org (unknown [10.150.64.97])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange X25519 server-signature RSA-PSS (4096 bits) server-digest SHA256)
 	(No client certificate requested)
-	by smtp-out2.suse.de (Postfix) with ESMTPS id A68FE75DE3;
-	Tue, 26 May 2026 09:03:47 +0000 (UTC)
+	by smtp-out1.suse.de (Postfix) with ESMTPS id 07FB06B308;
+	Tue, 26 May 2026 09:05:20 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=suse.de; s=susede2_rsa;
-	t=1779786227; h=from:from:reply-to:date:date:message-id:message-id:to:to:cc:cc:
+	t=1779786322; h=from:from:reply-to:date:date:message-id:message-id:to:to:cc:cc:
 	 mime-version:mime-version:content-type:content-type:
 	 content-transfer-encoding:content-transfer-encoding:
 	 in-reply-to:in-reply-to:references:references:autocrypt:autocrypt;
-	bh=J5dGxZtpy5ij+pAHk4WPSXIy03xOLi19OuSp2R26ZrU=;
-	b=fcaLr41wi6LlSI+nAzE4H+LuevRdosexi678VlNlWmQQsScmJJnz6o4OXVnyEd0LD613Dt
-	8A2PmGmB5b+PSvMiY3Iqj5XDbCufeGcykjd2iNnHphZW7EW6dMdKJv7RTgVlDob8nnk2vf
-	lHrTDHvUs1IodnOcjanH29ghKCFTTiM=
+	bh=lIydC1avDsw19ESavVjQVJZ2gdc1/n1+I22JGOMviIQ=;
+	b=NUmoAo4BQu4sEtgiv5mgPm0M9SQZw7XBCu4mfGFLvE3RIEn3kg9wRMnZjbWQ+3i/OeV+Sx
+	EdzCI18GfMptngVBXhhHRv2S4iHzsywn1fpOB6NfIrvSjVeB6FImL6mBH1/YdZLY7GWnj/
+	83O+ftjbNYIi/ofg5hEGLzD35RcjdM0=
 DKIM-Signature: v=1; a=ed25519-sha256; c=relaxed/relaxed; d=suse.de;
-	s=susede2_ed25519; t=1779786227;
+	s=susede2_ed25519; t=1779786322;
 	h=from:from:reply-to:date:date:message-id:message-id:to:to:cc:cc:
 	 mime-version:mime-version:content-type:content-type:
 	 content-transfer-encoding:content-transfer-encoding:
 	 in-reply-to:in-reply-to:references:references:autocrypt:autocrypt;
-	bh=J5dGxZtpy5ij+pAHk4WPSXIy03xOLi19OuSp2R26ZrU=;
-	b=QY6iM1B9Tob4ne3W8JlwDd8PA1xqKMuk2ClDgxqF7DDaJt0TvdjXG8i3wRWMODY/NWOoR0
-	V3Ox4qfuOI8+OSBA==
-Authentication-Results: smtp-out2.suse.de;
+	bh=lIydC1avDsw19ESavVjQVJZ2gdc1/n1+I22JGOMviIQ=;
+	b=5tDWpwNukEaRjIQrWQUayL2BZVQF+R5SaF1I+0KTbG9QT4erfQOGNMjQkHvkUflRL48dIs
+	vVrqcWAZ/x0QvGBQ==
+Authentication-Results: smtp-out1.suse.de;
 	none
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=suse.de; s=susede2_rsa;
-	t=1779786227; h=from:from:reply-to:date:date:message-id:message-id:to:to:cc:cc:
+	t=1779786320; h=from:from:reply-to:date:date:message-id:message-id:to:to:cc:cc:
 	 mime-version:mime-version:content-type:content-type:
 	 content-transfer-encoding:content-transfer-encoding:
 	 in-reply-to:in-reply-to:references:references:autocrypt:autocrypt;
-	bh=J5dGxZtpy5ij+pAHk4WPSXIy03xOLi19OuSp2R26ZrU=;
-	b=fcaLr41wi6LlSI+nAzE4H+LuevRdosexi678VlNlWmQQsScmJJnz6o4OXVnyEd0LD613Dt
-	8A2PmGmB5b+PSvMiY3Iqj5XDbCufeGcykjd2iNnHphZW7EW6dMdKJv7RTgVlDob8nnk2vf
-	lHrTDHvUs1IodnOcjanH29ghKCFTTiM=
+	bh=lIydC1avDsw19ESavVjQVJZ2gdc1/n1+I22JGOMviIQ=;
+	b=w4PF2rCz1guGLJLtiXYEpGUMnvt9ki5ygPN8Y4mXw4OqrxQziRpmJDtt5e9dvl/mQ+kzjS
+	pvwgo4QdmUuROVxyPwQp9JcJnJPxU7wGcjiMMyKs9tBcFo0/muU3Vfes8FsYHzJ15RN6ZU
+	JbKwZDsT3HkB6sduAG2/agpm7P77j/0=
 DKIM-Signature: v=1; a=ed25519-sha256; c=relaxed/relaxed; d=suse.de;
-	s=susede2_ed25519; t=1779786227;
+	s=susede2_ed25519; t=1779786320;
 	h=from:from:reply-to:date:date:message-id:message-id:to:to:cc:cc:
 	 mime-version:mime-version:content-type:content-type:
 	 content-transfer-encoding:content-transfer-encoding:
 	 in-reply-to:in-reply-to:references:references:autocrypt:autocrypt;
-	bh=J5dGxZtpy5ij+pAHk4WPSXIy03xOLi19OuSp2R26ZrU=;
-	b=QY6iM1B9Tob4ne3W8JlwDd8PA1xqKMuk2ClDgxqF7DDaJt0TvdjXG8i3wRWMODY/NWOoR0
-	V3Ox4qfuOI8+OSBA==
+	bh=lIydC1avDsw19ESavVjQVJZ2gdc1/n1+I22JGOMviIQ=;
+	b=nQiKt1rYh1XKIb+FmfLfVwwc1SNJxabLKHHH14zHua9k/FuTdDEy7TLoiE3p7obsahCEDD
+	Bxe3+tVxf/b5GYCw==
 Received: from imap1.dmz-prg2.suse.org (localhost [127.0.0.1])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange X25519 server-signature RSA-PSS (4096 bits) server-digest SHA256)
 	(No client certificate requested)
-	by imap1.dmz-prg2.suse.org (Postfix) with ESMTPS id BCBDD5A110;
-	Tue, 26 May 2026 09:03:46 +0000 (UTC)
+	by imap1.dmz-prg2.suse.org (Postfix) with ESMTPS id 10E9A5A113;
+	Tue, 26 May 2026 09:05:19 +0000 (UTC)
 Received: from dovecot-director2.suse.de ([2a07:de40:b281:106:10:150:64:167])
 	by imap1.dmz-prg2.suse.org with ESMTPSA
-	id BzDhLPJhFWr+aAAAD6G6ig
-	(envelope-from <tzimmermann@suse.de>); Tue, 26 May 2026 09:03:46 +0000
-Message-ID: <044b1285-186b-4c88-b8d4-8dc5e9af324a@suse.de>
-Date: Tue, 26 May 2026 11:03:46 +0200
+	id xO2qAk9iFWrmaQAAD6G6ig
+	(envelope-from <tzimmermann@suse.de>); Tue, 26 May 2026 09:05:19 +0000
+Message-ID: <b3133d29-34bb-43a2-8f10-3fbb7586bd8b@suse.de>
+Date: Tue, 26 May 2026 11:05:18 +0200
 MIME-Version: 1.0
 User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH v5 04/19] drm/atomic: Expand atomic_create_state
- expectations for drm_private_obj
+Subject: Re: [PATCH v5 05/19] drm/mode-config: Document drm_private_obj
+ exclusion from drm_mode_config_reset()
 To: Maxime Ripard <mripard@kernel.org>,
  Maarten Lankhorst <maarten.lankhorst@linux.intel.com>,
  David Airlie <airlied@gmail.com>, Simona Vetter <simona@ffwll.ch>,
@@ -114,7 +114,7 @@ Cc: dri-devel@lists.freedesktop.org, linux-doc@vger.kernel.org,
  linux-arm-kernel@lists.infradead.org, linux-sunxi@lists.linux.dev,
  Laurent Pinchart <laurent.pinchart+renesas@ideasonboard.com>
 References: <20260519-drm-mode-config-init-v5-0-388b03321e38@kernel.org>
- <20260519-drm-mode-config-init-v5-4-388b03321e38@kernel.org>
+ <20260519-drm-mode-config-init-v5-5-388b03321e38@kernel.org>
 Content-Language: en-US
 From: Thomas Zimmermann <tzimmermann@suse.de>
 Autocrypt: addr=tzimmermann@suse.de; keydata=
@@ -141,7 +141,7 @@ Autocrypt: addr=tzimmermann@suse.de; keydata=
  SAQO9xD1Zk9/61JWk8OysuIh7MXkl0fxbRKWE93XeQBhIJHQfnc+YBLprdnxR446Sh8Wn/2D
  Ya8cavuWf2zrB6cZurs048xe0UbSW5AOSo4V9M0jzYI4nZqTmPxYyXbm30Kvmz0rYVRaitYJ
  4kyYYMhuULvrJDMjZRvaNe52tkKAvMevcGdt38H4KSVXAylqyQOW5zvPc4/sq9c=
-In-Reply-To: <20260519-drm-mode-config-init-v5-4-388b03321e38@kernel.org>
+In-Reply-To: <20260519-drm-mode-config-init-v5-5-388b03321e38@kernel.org>
 Content-Type: text/plain; charset=UTF-8; format=flowed
 Content-Transfer-Encoding: 8bit
 X-Spamd-Result: default: False [-2.80 / 50.00];
@@ -167,10 +167,10 @@ X-Spamd-Result: default: False [-2.80 / 50.00];
 	RCVD_COUNT_TWO(0.00)[2];
 	TO_MATCH_ENVRCPT_SOME(0.00)[];
 	DKIM_SIGNED(0.00)[suse.de:s=susede2_rsa,suse.de:s=susede2_ed25519];
-	DBL_BLOCKED_OPENRESOLVER(0.00)[imap1.dmz-prg2.suse.org:helo,ideasonboard.com:email,suse.com:url,suse.de:email,suse.de:mid]
+	DBL_BLOCKED_OPENRESOLVER(0.00)[ideasonboard.com:email,suse.de:email,suse.de:mid,imap1.dmz-prg2.suse.org:helo,suse.com:url]
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260526_020349_792767_71CC9AFB 
-X-CRM114-Status: GOOD (  20.30  )
+X-CRM114-CacheID: sfid-20260526_020524_102646_D22C6A79 
+X-CRM114-Status: GOOD (  17.70  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -188,43 +188,43 @@ Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.i
 
 
 Am 19.05.26 um 11:01 schrieb Maxime Ripard:
-> The atomic_create_state callback documentation for planes, CRTCs, and
-> connectors explicitly states the expected behaviour: the returned
-> state must not be assigned to the object's state pointer, and hardware
-> must not be touched.
+> drm_mode_config_reset() does not reset drm_private_states by design.
 >
-> The drm_private_state_funcs.atomic_create_state documentation is
-> missing this clarification. Add it for consistency.
+> This is especially significant for the DP MST and tunneling code that
+> expect to be preserved across a suspend/resume cycle, where
+> drm_mode_config_reset() is also used.
 >
+> Document this expectation.
+>
+> Link: https://lore.kernel.org/dri-devel/aOaQLx-7EpsHRwkH@ideak-desk/
 > Reviewed-by: Laurent Pinchart <laurent.pinchart+renesas@ideasonboard.com>
 > Signed-off-by: Maxime Ripard <mripard@kernel.org>
 
 Reviewed-by: Thomas Zimmermann <tzimmermann@suse.de>
 
 > ---
->   include/drm/drm_atomic.h | 5 ++++-
->   1 file changed, 4 insertions(+), 1 deletion(-)
+>   drivers/gpu/drm/drm_mode_config.c | 4 ++++
+>   1 file changed, 4 insertions(+)
 >
-> diff --git a/include/drm/drm_atomic.h b/include/drm/drm_atomic.h
-> index 1a80a8cdf269..88087910ab1a 100644
-> --- a/include/drm/drm_atomic.h
-> +++ b/include/drm/drm_atomic.h
-> @@ -263,11 +263,14 @@ struct drm_private_state;
->   struct drm_private_state_funcs {
->   	/**
->   	 * @atomic_create_state:
->   	 *
->   	 * Allocates a pristine, initialized, state for the private
-> -	 * object and returns it.
-> +	 * object and returns it. This callback must have no side
-> +	 * effects: in particular, the returned state must not be
-> +	 * assigned to the object's state pointer and it must not affect
-> +	 * the hardware state.
->   	 *
->   	 * RETURNS:
->   	 *
->   	 * A new, pristine, private state instance or an error pointer
->   	 * on failure.
+> diff --git a/drivers/gpu/drm/drm_mode_config.c b/drivers/gpu/drm/drm_mode_config.c
+> index 66f7dc37b597..c33382a38191 100644
+> --- a/drivers/gpu/drm/drm_mode_config.c
+> +++ b/drivers/gpu/drm/drm_mode_config.c
+> @@ -187,10 +187,14 @@ int drm_mode_getresources(struct drm_device *dev, void *data,
+>    * @dev: drm device
+>    *
+>    * This functions calls all the crtc's, encoder's and connector's ->reset
+>    * callback. Drivers can use this in e.g. their driver load or resume code to
+>    * reset hardware and software state.
+> + *
+> + * Note that &drm_private_obj structures are expected to be stable across
+> + * suspend/resume cycles, and drm_mode_config_reset() does not affect these
+> + * structures.
+>    */
+>   void drm_mode_config_reset(struct drm_device *dev)
+>   {
+>   	struct drm_crtc *crtc;
+>   	struct drm_colorop *colorop;
 >
 
 -- 
