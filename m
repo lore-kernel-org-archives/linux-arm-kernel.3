@@ -4,86 +4,88 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id EB52DCD5BC8
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 26 May 2026 16:43:52 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id E402FCD5BC8
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 26 May 2026 16:43:57 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:MIME-Version:
-	Message-ID:Date:Subject:CC:To:From:Reply-To:Content-Transfer-Encoding:
-	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
-	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
-	bh=Zz7MftTdMtbpCLnTR6X1mYOZHc1vxcavzEx/I7D1Ds4=; b=t8iCYa3T4iylArXH5NwUbd4dOH
-	5T22yaaLxPebHNXSOa2U3mjZVBVrv5KGCiB+N4615mL2yy5Z4mpj80P1ZzGZhXYN/xew2NvQDE5fg
-	rlf/RUConSPwLE4ykAuNkE+Fn+NtPt5Y2xCIixjyI9c4ValwxUi/vuLLpS5Wr9Loq7wsFD76qDORV
-	Wqcm+foVHkS7tZwy8DWcq6KeCfyep6zXz2YA7SKimHIzGs7ebkWzaK4Jz8VH/SoIyWFTkUW7SGEl4
-	C4kREJPOmQNtD9jDhC9yP13pNBF5WfwVeZj1uOFygEJ5VeX0ZtTt56eJZsYYwDfp/2EbTuM9P2EfQ
-	cpNjqvdA==;
+	References:In-Reply-To:Message-ID:Date:Subject:CC:To:From:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=BBTg1eE/1oWssJcmckcNGbb5AVGahvXtqeWtCGgTeKw=; b=wtXZP7Tyt5I4lXCrnTariyhONl
+	+iUMZ4jMJfr7Isj0eS6CHRyMC/r+Wv2FBRQS4ZSkfjD7K/ymCXiI3COOqsU5S27VfL/vZ2InUKWsp
+	0gC6KBkoqeUP5iF2dk23CxvLw3EvWwwq4V0imBiTzY9PFbVzi81hVoot8qrQLIAFdRkFJk8cVICkW
+	J+WVl+Ym6SkU70gTeWvOjdq1pM20WwNeHn2XnGb769KYeZR3fWaIj7UnmAblyWha28PUoMjKHRuRM
+	G9mOGFeCnnew6wZN/5TwwAd8KkljwScUrRy3effehqkT/fznLA671MjmZgvrjcuWGapxdQvO/sp7Q
+	tptigXTQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wRusb-00000002Y5k-1n4V;
-	Tue, 26 May 2026 16:43:45 +0000
-Received: from mx0b-0016f401.pphosted.com ([67.231.156.173])
+	id 1wRusg-00000002Y7v-2ZhG;
+	Tue, 26 May 2026 16:43:50 +0000
+Received: from mx0a-0016f401.pphosted.com ([67.231.148.174])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wRusY-00000002Y4J-2od5
+	id 1wRusZ-00000002Y4i-0ZQ2
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 26 May 2026 16:43:44 +0000
-Received: from pps.filterd (m0045851.ppops.net [127.0.0.1])
-	by mx0b-0016f401.pphosted.com (8.18.1.11/8.18.1.11) with ESMTP id 64QGOCEu2935095;
-	Tue, 26 May 2026 09:43:35 -0700
+	Tue, 26 May 2026 16:43:45 +0000
+Received: from pps.filterd (m0431384.ppops.net [127.0.0.1])
+	by mx0a-0016f401.pphosted.com (8.18.1.11/8.18.1.11) with ESMTP id 64QB7E0h3724400;
+	Tue, 26 May 2026 09:43:38 -0700
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=marvell.com; h=
-	cc:content-type:date:from:message-id:mime-version:subject:to; s=
-	pfpt0220; bh=Zz7MftTdMtbpCLnTR6X1mYOZHc1vxcavzEx/I7D1Ds4=; b=O1S
-	3cvKvUUx8rIsQ9NQDIohJ8oDWM7Zvczo9XLwdVdWprvOEHweGj7ZN/XonhuBnkFD
-	zzExY0qOuxfpxkgiOwFQR6+L7itbMK067LJIYOfJ6dU2p03LjJezWUrz5hQxqrTJ
-	OcTYbiZKQieHTpBo7ESf4F5BR6r4o44I5IDQ/lkIwE+Nn5ap1Sk//WLO3I+y2VAF
-	zsHTSeHvGeK2AXY81+uhKGy96uhOh1DCen4eNRqfVjRm03e4AVvf4TCrP8VEaX9t
-	2OUH4b2oQVwTEGUkZqIKybzHkT34a6DchkvHZkza0IlVyu3aHmzdG6zCVVeW8txD
-	IEm1xcqH0y3EPK3oZXw==
+	cc:content-type:date:from:in-reply-to:message-id:mime-version
+	:references:subject:to; s=pfpt0220; bh=BBTg1eE/1oWssJcmckcNGbb5A
+	VGahvXtqeWtCGgTeKw=; b=hlJXfCZBvFWMiIHwT5tTONZDoXWphtgv9oOQ5TAg/
+	sw9XkATGxlr/LoaUrcoyS+P1DMjJ17JRzHWSjN8BldIcYQBbc5cQRu7L1HlNPQtg
+	neapQurjdQ6hWakC+i6juixXJ+zZAqZ5LtBjDo1Piy/4Ece9ik7RpKXXfkVeFzre
+	f5qHm05+NvgBNcJKvIzp1J0PdEHWagpnZptDnnPQJ6+kwmDZ0Y82F80jvZhLmWRQ
+	heEeHfdPBEDq51wE6Qhh47Ya3TQG9HLqyqSbZg7soClK9wCrye3t3Gvry9sm120p
+	sYgo972b2VTyFDLP7Q0sGv684NAk83O+ayBTLu28j196A==
 Received: from dc5-exch05.marvell.com ([199.233.59.128])
-	by mx0b-0016f401.pphosted.com (PPS) with ESMTPS id 4ebbrf8u9m-1
+	by mx0a-0016f401.pphosted.com (PPS) with ESMTPS id 4ec0g6eq0c-1
 	(version=TLSv1.2 cipher=ECDHE-RSA-AES256-GCM-SHA384 bits=256 verify=NOT);
-	Tue, 26 May 2026 09:43:35 -0700 (PDT)
+	Tue, 26 May 2026 09:43:37 -0700 (PDT)
 Received: from DC5-EXCH05.marvell.com (10.69.176.209) by
  DC5-EXCH05.marvell.com (10.69.176.209) with Microsoft SMTP Server
  (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
- 15.2.1544.25; Tue, 26 May 2026 09:43:34 -0700
+ 15.2.1544.25; Tue, 26 May 2026 09:43:37 -0700
 Received: from maili.marvell.com (10.69.176.80) by DC5-EXCH05.marvell.com
  (10.69.176.209) with Microsoft SMTP Server id 15.2.1544.25 via Frontend
- Transport; Tue, 26 May 2026 09:43:34 -0700
+ Transport; Tue, 26 May 2026 09:43:37 -0700
 Received: from hyd1soter3.marvell.com (unknown [10.29.37.12])
-	by maili.marvell.com (Postfix) with ESMTP id 5E9713F70C7;
-	Tue, 26 May 2026 09:43:31 -0700 (PDT)
+	by maili.marvell.com (Postfix) with ESMTP id 2FE463F70C7;
+	Tue, 26 May 2026 09:43:33 -0700 (PDT)
 From: Geetha sowjanya <gakula@marvell.com>
 To: <linux-perf-users@vger.kernel.org>, <linux-kernel@vger.kernel.org>,
         <linux-arm-kernel@lists.infradead.org>, <devicetree@vger.kernel.org>
 CC: <mark.rutland@arm.com>, <will@kernel.org>, <krzk+dt@kernel.org>
-Subject: [PATCH v6 0/2] perf: marvell: Add CN20K DDR PMU support
-Date: Tue, 26 May 2026 22:13:28 +0530
-Message-ID: <20260526164330.23878-1-gakula@marvell.com>
+Subject: [PATCH v6 1/2] dt-bindings: perf: marvell: Extend CN10K DDR PMU binding for CN20K
+Date: Tue, 26 May 2026 22:13:29 +0530
+Message-ID: <20260526164330.23878-2-gakula@marvell.com>
 X-Mailer: git-send-email 2.17.1
+In-Reply-To: <20260526164330.23878-1-gakula@marvell.com>
+References: <20260526164330.23878-1-gakula@marvell.com>
 MIME-Version: 1.0
 Content-Type: text/plain
-X-Authority-Analysis: v=2.4 cv=epTvCIpX c=1 sm=1 tr=0 ts=6a15cdb7 cx=c_pps
+X-Authority-Analysis: v=2.4 cv=BK6DalQG c=1 sm=1 tr=0 ts=6a15cdb9 cx=c_pps
  a=rEv8fa4AjpPjGxpoe8rlIQ==:117 a=rEv8fa4AjpPjGxpoe8rlIQ==:17
  a=NGcC8JguVDcA:10 a=VkNPw1HP01LnGYTKEx00:22 a=l0iWHRpgs5sLHlkKQ1IR:22
- a=QXcCYyLzdtTjyudCfB6f:22 a=M5GUcnROAAAA:8 a=9AQr2LruEoLi4OK7xoYA:9
- a=OBjm3rFKGHvpk9ecZwUJ:22
-X-Proofpoint-ORIG-GUID: Tllr-yeZ8g1NOvjYg3bIcSAhhS15GmLs
-X-Proofpoint-GUID: Tllr-yeZ8g1NOvjYg3bIcSAhhS15GmLs
-X-Proofpoint-Spam-Details-Enc: AW1haW4tMjYwNTI2MDE0NSBTYWx0ZWRfX8rAeaiuRoXA1
- oEziy4k/+miTOY1mEridpe9ge8OaJChdfQbFe0FZCcwgxhiZ/fpmwE0elq2IeS9Cr0SlFRXGk6P
- qy2lVRkOqwfsiTRaPy1ZHDa2mfVANpcA6c8NrJTZ1Lb8CEnzfBQwGsCr7UU0wnZ7pfVMOusBpGI
- 9IZ4zOvxK4Bz3/crqgArnalYBGhKi4N2k+UzHLpyrNR1pijHBEXa5Wx2RLMNn9drQIb+vmBmS6G
- Kt4vNnJVOWu27LJtOv0+jXcwFhdsNwqkR5HLrIX50q99PmYGm4IDSOBZ6u2P0fzIKreIVjg8F6q
- dVtKpEy1RE0B3iurwnnk8SD97dWQWkUYShSIZnMDoqrVZiU9X5SIKBMXavaStLLFboI9ZZ5vWkP
- OR5WfcD2pxlIJG7+zn9EHEgZxtIoJZItTNqwh7bUGSkyxaUokLPP1YK1AsU3z1bUA+YnMlsEgeY
- LRWOAbKBMmCO2nxHnwA==
+ a=TtqV-g6YmW1Jfm2GSLaY:22 a=gEfo2CItAAAA:8 a=M5GUcnROAAAA:8
+ a=9AufDOCnfQXnCl7mI70A:9 a=sptkURWiP4Gy88Gu7hUp:22 a=OBjm3rFKGHvpk9ecZwUJ:22
+X-Proofpoint-GUID: JQhONNLmzFy8JI3PRJUCM-A422-pjb_Y
+X-Proofpoint-ORIG-GUID: JQhONNLmzFy8JI3PRJUCM-A422-pjb_Y
+X-Proofpoint-Spam-Details-Enc: AW1haW4tMjYwNTI2MDE0NSBTYWx0ZWRfX006vW+oEXb/Y
+ CCjzbJ+03PZ3ZM8XCSuBJuVYruM9UO0OckfmNXadLxlISXRYTG5mPjfEqkq5LCODAJ0SBylUf/5
+ /YFticxLj1VtBRVNQndjpUZenRRXUw38Ae7/vCrVOusDkKYqJ0GoYbVxXw8Dg2lShy/ICfFYCx/
+ pPW6ZN4sdkmCvEqJBLXvfD6zG4uALfT0Nwokp21sACkgHTQ9ch1qSugkWVAHhDmO20jhonQ6X/o
+ fuy9+cvRRLuWhsyO8YF2Ye8pbfGMGzIB52rVhsNxrqbRYecKj5pXb3hZYDNrPg4liDp6HizN1Rz
+ pAMkmG2NP8Zzp9ieyCULBKVVODl+qZvYk8eNopURWUR9czrC0Pp07/k7B6YZblNOuTTSIv6k3vt
+ BnBC8ySIDUYq+iOloTyhnR0hU/haS2I+q8Dzj7zrBYRUzta1dKDKsqtIYukc5hEUNvFJjORO07f
+ 2Xxk++TO8i4mjxZ+L5w==
 X-Proofpoint-Virus-Version: vendor=baseguard
  engine=ICAP:2.0.293,Aquarius:18.0.1143,Hydra:6.1.125,FMLib:17.12.100.49
  definitions=2026-05-26_04,2026-05-26_03,2025-10-01_01
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260526_094342_822999_EDCFA9B3 
-X-CRM114-Status: GOOD (  14.05  )
+X-CRM114-CacheID: sfid-20260526_094343_179630_6665D37A 
+X-CRM114-Status: GOOD (  11.84  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -98,62 +100,67 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-This series adds support for the DDR Performance Monitoring Unit (PMU)
-present in Marvell CN20K SoCs.
+Marvell CN20K SoCs integrate a DDR Performance Monitoring Unit (PMU)
+associated with the DDR controller. The block provides hardware counters
+to monitor DDR traffic and performance events and is accessed via a
+dedicated MMIO region.
 
-The DDR PMU is part of the DRAM Subsystem (DSS) and provides hardware
-counters to monitor DDR traffic and performance events. The block
-implements eight programmable counters and two fixed-function counters
-tracking DDR read and write activity, and is accessed via a dedicated
-MMIO region.
-
-CN20K is the successor to CN10K, and the DDR PMU hardware is functionally
-equivalent to the CN10K implementation, with only minor differences in
-register offsets and event mappings. To allow software to distinguish
-between the two silicon variants, this series introduces a specific
-"marvell,cn20k-ddr-pmu" compatible and extends the existing
-marvell_cn10k_ddr_pmu driver to handle CN20K via variant-specific data.
+The CN20K DDR PMU is functionally equivalent to the CN10K DDR PMU, with
+minor register offset differences.
 
 Changes in v6:
 - dt-bindings: Document CN20K in the existing marvell-cn10k-ddr.yaml;
   add maintainer, description, compatible enum entry, and a CN20K example
   with unit-address aligned to reg.
-- perf: Route CN20K ZQ events via dedicated sysfs IDs (62/63) and CFG1
-  programming; use (eventid - 42) for CFG1 bit positions and reject those IDs
-  on non-CN20K silicon.
-- perf: Disambiguate CN20K perf width events (58-61) from Odyssey DFI events
-  at the same numeric IDs using an early CN20K branch and fallthrough into the
-  existing DFI + programmable-event path on Odyssey.
-- perf: Run CN20K programmable counters through the same manual-mode / start
-  sequence as Odyssey.
-
-Changes in v4:
-- Fixed document file name.
-
-Changes in v3:
-- Expanded cover letter and commit message to better describe the DDR PMU
-  hardware and its relationship to CN10K
-- Fixed the file name.
-
-Changes in v2:
-- Fixed YAML syntax error triggered by a tab character in the examples
-  section, which caused dt_binding_check to fail.
-
-Changes in v1:
-- Added a description field to the binding.
-- Simplified the compatible property using 'const' instead of 'items/enum'.
-- Updated the example node name to include a unit-address matching the reg base.
 
 Signed-off-by: Geetha sowjanya <gakula@marvell.com>
+---
+ .../bindings/perf/marvell-cn10k-ddr.yaml       | 18 +++++++++++++++++-
+ 1 file changed, 17 insertions(+), 1 deletion(-)
 
-Geetha sowjanya (2):
-  dt-bindings: perf: marvell: Extend CN10K DDR PMU binding for CN20K
-  perf: marvell: Add CN20K DDR PMU support
-
- .../bindings/perf/marvell-cn10k-ddr.yaml      |  18 +-
- drivers/perf/marvell_cn10k_ddr_pmu.c          | 197 ++++++++++++++++--
- 2 files changed, 200 insertions(+), 15 deletions(-)
-
+diff --git a/Documentation/devicetree/bindings/perf/marvell-cn10k-ddr.yaml b/Documentation/devicetree/bindings/perf/marvell-cn10k-ddr.yaml
+index a18dd0a8c43a..79fae9fdb6f1 100644
+--- a/Documentation/devicetree/bindings/perf/marvell-cn10k-ddr.yaml
++++ b/Documentation/devicetree/bindings/perf/marvell-cn10k-ddr.yaml
+@@ -4,16 +4,22 @@
+ $id: http://devicetree.org/schemas/perf/marvell-cn10k-ddr.yaml#
+ $schema: http://devicetree.org/meta-schemas/core.yaml#
+ 
+-title: Marvell CN10K DDR performance monitor
++title: Marvell CN10K / CN20K DDR performance monitor
++
++description:
++  Performance Monitoring Unit (PMU) for the DDR controller on Marvell
++  CN10K and CN20K SoCs. The block is accessed via a dedicated MMIO region.
+ 
+ maintainers:
+   - Bharat Bhushan <bbhushan2@marvell.com>
++  - Geetha sowjanya <gakula@marvell.com>
+ 
+ properties:
+   compatible:
+     items:
+       - enum:
+           - marvell,cn10k-ddr-pmu
++          - marvell,cn20k-ddr-pmu
+ 
+   reg:
+     maxItems: 1
+@@ -35,3 +41,13 @@ examples:
+             reg = <0x87e1 0xc0000000 0x0 0x10000>;
+         };
+     };
++  - |
++    bus {
++        #address-cells = <2>;
++        #size-cells = <2>;
++
++        pmu@c20000000000 {
++            compatible = "marvell,cn20k-ddr-pmu";
++            reg = <0xc200 0x00000000 0x0 0x100000>;
++        };
++    };
 -- 
 2.25.1
+
 
