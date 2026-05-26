@@ -4,54 +4,54 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 7A8F8CD5BB4
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 26 May 2026 05:39:34 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 6436FCD5BB4
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 26 May 2026 05:39:37 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:Content-Type:
 	Content-Transfer-Encoding:References:In-Reply-To:Message-ID:Date:Subject:Cc:
 	To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=NyqP/aV77HrOGYWYMooRXv5V1QRyVGnnTCtdUwsE4yA=; b=NheuJukn57QvLnrWPKTbsklQ8q
-	5sO1Fftyw1OC2wMOFI7bDIPot71PYXF2q2UcR3crfzomvmhR6Tvgo8qDKGZRA6fpLfrsu0LjK96ii
-	rmhPiJU0FVLr3FpGNljRIjKwccsgwTpWaooAl1NhX5k6MjXKDvJO8T6oZ9dJyw8KJy+LByUMuKrXj
-	wK3Dou4Z/LEfsUMWokSAMcgCpcZGAwAZxdluFyQNir/ML1yTO1xCMR2Oh0wSu2A7zeafmQlaqF4BF
-	jdlxfj0IkEuryvqn/rstqVYCpUKAmFomRbG+oRkMUusSroKJfwHId4S3n8d26Yb6NE9GbnBHSXe4x
-	WIZJBN+A==;
+	bh=wNUO4LSI266OI3D3ob+rXVP0ldFw3uWAHokXER1Bnkg=; b=47PxQduM3g830/eLig07+ZfDOW
+	diLq+bEEFj9FEQAKCeQAYjmWg6PvYdCLFsep6a5HYILSy04TzX5zuRSJXTGLeRTlpsCVV9ez3CrrS
+	bwEy7e+q4cw/2vmi5/kRPFmEwQ2w6zIi1azsa9futHZkbzEm5W+CAu6sYXYh2ADQQyd2g6JMPKTDR
+	9ft7dSYra/Do6A+AKbvdSxx4JQrt/5sMxr+05uZoMCI407eigjxTraU/ZKuwkR5ruRh8v0e1URzOX
+	esf8fGnueLQUaQlb5b6kOUtQ5obPrpkrGvTTgNYL4Lc12tINTw5zK+vkAkzNnMNHKfILdAbNab3Lg
+	igZQMIsg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wRkVi-000000015cc-3JfW;
-	Tue, 26 May 2026 05:39:26 +0000
+	id 1wRkVn-000000015eY-04Ta;
+	Tue, 26 May 2026 05:39:31 +0000
 Received: from mail-norwayeastazlp170130007.outbound.protection.outlook.com ([2a01:111:f403:c20f::7] helo=OSPPR02CU001.outbound.protection.outlook.com)
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wRkVc-000000015ZU-47pN
+	id 1wRkVi-000000015c2-1a7R
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 26 May 2026 05:39:22 +0000
+	Tue, 26 May 2026 05:39:27 +0000
 ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
- b=jEYFSPT+A7gKuJtCJZJt3Tr3PRJejYIfY5DHe6nbz3hYuB10c+5WEWct1IiOTCkGczduE9w632if//Nyw0qXcxDvvN0tb0Ii0w+PRyuGRz0ooLs4+BNAuP3zvBW3Uo9WdUA0jYuXCGTnBvRwq1L3w9mz5khp8VtVRNf9iLqfrWvcmK2ppJZRwSNEtyyL8LMGZxw6t3d9Ab/Dyyac4ifapRUnSedZdXQqeMigKV5IE6qurmOgyEq8m+mjNvBe2WQaVRRLqhmlwqmzPcPuWgjpCXy04cHgsFqz/9z9gpWtsbctMKTv8jCzOhD7qU/D7508OScY061yw9pGo+qMsp7yCA==
+ b=LaxjjjHDftIqSiZ/buGMh/CpNhHCtwClR2N+W4y0IuZQLBQkv7FhUq3DDuLqJ/bC66P8BPYlg1uxr893346MCmnGobhYxdgAKgFSIPjBP/1leS4lo7VL9/tK7Gx5/AKRyO9e4Xcwh/r2o8SSdH0SfFYRC7qUvrxS7XTUuvVeI7fDzF0P4k0/u9TSI+jSrdNZ8EjCnX3FX8MV1qswHoYHXZDkiCisuyosulFK+tjVcGVEJfzeGSFF3W4rmKBctXflpieKVctTfDExV6NlWjxMV6AIIBa1Dua6IU9ALePwG1FwdIbFZmDDJCl2H5ezz55sJ+vqMMmSQjFrI9sj92DTNw==
 ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
  s=arcselector10001;
  h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
- bh=NyqP/aV77HrOGYWYMooRXv5V1QRyVGnnTCtdUwsE4yA=;
- b=GwStK7a4eBtoes+h4DBVoaiI+1T9Qxe6nu14oUPOojWgruXawDhs7UrTizmTCOCS5gH7GvGYE1wqQJdTqCigPLGNsn1GduNnU+ptoM58z8AMXBjmALtoAMdMwwXfMkvHniDYom5LE+jv9r9Hep16l194rFygalodumBuV24AI23vsXDvV2pMtn7MBNd8kHtPjH7bs0hdwPGom2HMkYBpyqtJ4YhyoAm2y6gdMODV2Wo4O++OlRELKpmkQqR8CwdzPMlL74vTkQvAe17a5oOiT3GKrDY7iLk+mLUqg9n1pGVDIzepEn2bowbZvfEkgXUksx/5NV5aSw+zrKRqnx+5GA==
+ bh=wNUO4LSI266OI3D3ob+rXVP0ldFw3uWAHokXER1Bnkg=;
+ b=EFx//bLxryjuPLZ7gnX0O7x19d6vCZkZ+0ZPHdxEbmBUBsd+COJR5cvpC+u/sXxB5il+t7+CJuo+YgeaqdXZURQcoRReqVI/i5miMNcBzSsXHmgfQdlMsbcVqp7C70YfwMUc4/7ZkW/u4vY16YFmejrRvV66sN/cwQ7ldhZVJXlH/Wn9aZ2SDhuR7ncZrZKRW/Kd/Jsc9k1PYRRB8lCQTucSz7fnzZGvIQryBzSppvsliAsAGdlqmen3KxHXZuaOi6z2JQ00cYJp9yd3O3dF7ZqKiV4ud8I0VFLFntmbYPoJoi1qIknwfmH21VkZTPI8Utg3A3hNu8ODLKk8rPZX4Q==
 ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
  smtp.mailfrom=nxp.com; dmarc=pass action=none header.from=nxp.com; dkim=pass
  header.d=nxp.com; arc=none
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=nxp.com; s=selector1;
  h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
- bh=NyqP/aV77HrOGYWYMooRXv5V1QRyVGnnTCtdUwsE4yA=;
- b=UmtM0NYoQuQRwJ8/DVqfhsSSItchb3zOe9gSZs2IWkzsr1H7YlRrR9UEU46KhRYIGSf8w3gSyRT7wmS6ZhXvvLjar7dP/mnhmWqqRPSOAaNJ+DQCu4QSCea31xoq9SIJKB0udrmpOm5aO9Si2EP8C+FIoluJytkKZFblYLQ5jO1x5h1f3gPlEB9NFPDt6/ZFs9pQLT94bucIu1tJv9dA3YgAcvjx3BfRd5cGswYNva4kY0alokoTrTx5vMj719IaN10gHnkUwKCDsoXGU8Q+XvLHK5411+L9G/IK5usTa0Gps44KlESc3JGOb31wohuqyuveMKih5uRisB/vTfxyYw==
+ bh=wNUO4LSI266OI3D3ob+rXVP0ldFw3uWAHokXER1Bnkg=;
+ b=TSBIQtOMCAYUJ3g9TZ2Ubej7847SVPugtt9jKhjEUFaz6zmN0rcMJqEen5UMFE/0Lm4moRs8PTcAPjehIaZMbKJV6zHWqARNz9e1QqjTTRD11vXXXBFiPpo/LeHqJpNGwg0MkHGaSDIQH1vh9c2wvgRAdOEgRRTNwVcUD8ZQiC4onUgk8Gtm8AWk720LwfMmuYo0q4BQ5V2ppP1ibmJANLNEWufJXwWuJrjZ58SSOstp2XifxJMrUCaIaxNFhb0TnCAn51WNYo+eAVfzbQnVudszQ5W+vcJmNrzB45eSF7JCUmlyF65kRPGjcBO95smrcCZo9lhtUJlZ+teEn9/a8w==
 Authentication-Results: dkim=none (message not signed)
  header.d=none;dmarc=none action=none header.from=nxp.com;
 Received: from AM9PR04MB8353.eurprd04.prod.outlook.com (2603:10a6:20b:3ef::22)
  by PAXPR04MB9708.eurprd04.prod.outlook.com (2603:10a6:102:24e::17) with
  Microsoft SMTP Server (version=TLS1_2,
  cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.21.48.20; Tue, 26 May
- 2026 05:39:17 +0000
+ 2026 05:39:22 +0000
 Received: from AM9PR04MB8353.eurprd04.prod.outlook.com
  ([fe80::46ae:f774:f04c:a1bc]) by AM9PR04MB8353.eurprd04.prod.outlook.com
  ([fe80::46ae:f774:f04c:a1bc%5]) with mapi id 15.20.9870.023; Tue, 26 May 2026
- 05:39:17 +0000
+ 05:39:22 +0000
 From: Chancel Liu <chancel.liu@nxp.com>
 To: broonie@kernel.org,
 	lgirdwood@gmail.com,
@@ -71,9 +71,9 @@ Cc: shengjiu.wang@gmail.com,
 	linux-arm-kernel@lists.infradead.org,
 	imx@lists.linux.dev,
 	linux-kernel@vger.kernel.org
-Subject: [PATCH 1/3] ASoC: dt-bindings: fsl,rpmsg: Add hp-det-gpios property
-Date: Tue, 26 May 2026 14:38:13 +0900
-Message-ID: <20260526053815.140008-2-chancel.liu@nxp.com>
+Subject: [PATCH 2/3] ASoC: imx-rpmsg: Support headphone jack detection
+Date: Tue, 26 May 2026 14:38:14 +0900
+Message-ID: <20260526053815.140008-3-chancel.liu@nxp.com>
 X-Mailer: git-send-email 2.50.1
 In-Reply-To: <20260526053815.140008-1-chancel.liu@nxp.com>
 References: <20260526053815.140008-1-chancel.liu@nxp.com>
@@ -85,57 +85,57 @@ X-ClientProxiedBy: SL2P216CA0082.KORP216.PROD.OUTLOOK.COM
 MIME-Version: 1.0
 X-MS-PublicTrafficType: Email
 X-MS-TrafficTypeDiagnostic: AM9PR04MB8353:EE_|PAXPR04MB9708:EE_
-X-MS-Office365-Filtering-Correlation-Id: 7c3d91fb-b34e-4fa5-2e9f-08debae920b6
+X-MS-Office365-Filtering-Correlation-Id: 33c4f801-937b-470d-38fb-08debae923d1
 X-MS-Exchange-SenderADCheck: 1
 X-MS-Exchange-AntiSpam-Relay: 0
-X-Microsoft-Antispam: BCL:0;ARA:13230040|19092799006|1800799024|366016|376014|7416014|52116014|38350700014|22082099003|18002099003|56012099003|6133799003|11063799006;
-X-Microsoft-Antispam-Message-Info: D1nG27zbrGqeEefmqVcPWk4bzj8kiLbp25e+7ZCJ96uSvcXrVxxi4LgZ/NFRFCE26MQCowzYZ9OB2ZOqkN/J7kkB7X9HjyGXr2qIToXxWiWsRcbc9aTewhs9+bOCymajzY/PQw5MnhkQ0omrD7Zu7phHl5cN7XN2D8ick5x/Jwi2YPraBXN3BObqFEVUzID9sVnOvTFmn8TL562pWtoKurSIBlCiRdebOuMMxxQdSh2aIaNPIkLXStzQywygk/M2ZWx6zttLx7jAaYOKeKcrGReZWwGMRKDpipMd7/BqMnJkqh3p4WagSnN2cjM/Tf/Kf3YaayvNzPVEa9/K3zxP9z0QQ2cUOkp4D/ef+M97tG83g2xfxZrIcHn+qx6mVYwJw7yB/DYw72CIn4KLOzBFeaix2pMVfxHs+4u3MrP7AnqOt9i31cHujxWX4nSKto765e0mfey7lzhWCxU0oaZYtN/fAT60G41KTzCg258NqD442tQVmKeEo5lmgDymnKRR6ZWCJ/oXfPeud9TTmzoZEHgFGgYdyanKFFspaKrWEYut71/aJj0Rqx2y5WB7jtURieTiQi/zhb23xPIi8eHwRGLxTomob2nKxj20PqFQgvbG2QWIi4RQI5FsJ2DZMZdyucmLU1IfL3HBy2C+if/i5M5oh6rAkeKh+3awzwOOfAnjFqCNXAFx5gbdcR8ryq5g72efqESSe3ImMEb7zZoi/v20JRKt1ITJ9Bn7Q5u+6/0IctSbKvekVOkaR//YBSKO
-X-Forefront-Antispam-Report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:AM9PR04MB8353.eurprd04.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(19092799006)(1800799024)(366016)(376014)(7416014)(52116014)(38350700014)(22082099003)(18002099003)(56012099003)(6133799003)(11063799006);DIR:OUT;SFP:1101;
+X-Microsoft-Antispam: BCL:0;ARA:13230040|19092799006|1800799024|366016|376014|7416014|52116014|38350700014|22082099003|18002099003|56012099003|11063799006;
+X-Microsoft-Antispam-Message-Info: sDno9bFmjf0fnKZ78rsoVRxkB2PFrOkLVgIqzHvFc1KLNtzqhzQCp+3/1qdbDPhJNiq1VWT/jN9vB4Ck/L7UTA2XXIvcgEuPe0UgsRrKuY9IpOMNtBJhiWRRjsnYGBCwSLBvKL+ItdesIVdhkGsK7g9nrOJXRjzkZ54qyUg3qPtebQdO8VNQAwIPT4DIYnMVwOeaCeWjY9n2rRx2Dig+5NgxGPMZgpFRCDYgpWbMKc5usZCTinfOWllSuAz6RnBuNZIBxBscjNzOSua9A76KzyXx8Zp0M96qhIc3QCGnWh3dDJIF/I/5draQoMr6osodWAZnhpF6KRb/OVgqmKAYvrvgdkSC+3AGiGTQRMsjvH/930aEo7fQta1if18nKLvF8xGRpPgzZOLNIsA/2uOLiH4Xb9beAALOPruj7MpEMJXzdd/fD09PAHulLzZ4n2fY+OX6q3QohVjoRVad3A1F6s0VLKLGZ2mnO2LQA0q5oa9A0g6jQUfKUpsPjnMjD6xWqFELKIP6eyMRWqgLF+PDZ6Xpyz23PqtiEHdrbGHqbkUkALuYnyg+JoU4JwwVrY/IVn99L+2ibmbqe/+KbVKyfr4F7JWu6lq1ThseYga2tHW+uYtuwXTQkjZMAI0kcosayC53ain4EJueQaE9cS+r09Zb99ft/KD6SqPsK47Cja6baQKCaDD3FBEIO8BAPseFOWIIxWJYzuq0vktemVTlCQ+XM8gQbauYa2xGUpsKlk/qtu2ltJCpYdQWLk0CBgAA
+X-Forefront-Antispam-Report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:AM9PR04MB8353.eurprd04.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(19092799006)(1800799024)(366016)(376014)(7416014)(52116014)(38350700014)(22082099003)(18002099003)(56012099003)(11063799006);DIR:OUT;SFP:1101;
 X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
-X-MS-Exchange-AntiSpam-MessageData-0: =?us-ascii?Q?DzUJK94imoQJX4PwddT7sMyNrvgcZOKjBDUpsuJAimVuLJjP2d43PCYi4ICa?=
- =?us-ascii?Q?fMwhcyorQZp3lvBoMQA4GAmqZyMRwXtN9S8SY8VDDolvzOvcJtunFnAV9dvl?=
- =?us-ascii?Q?QjzzHVh45kiLQUVbr6n2Rfnb/66byo1bW/MYop5md9mV4h+0AUEFqRs3WSJL?=
- =?us-ascii?Q?cjm8Vqz+h+ehaegzMhgTnMCBFWus+HSv4bIDtKM+aQFF1bgNgKnRscTsyPoe?=
- =?us-ascii?Q?CNvpRsLaLMfig74EE7P1l6CWEGsYCe/PfAg+YeJ3HP6GNNMRNNOwJb1gE3wN?=
- =?us-ascii?Q?sXmtui0JqsehZz1IRd9kp4HRQDHWeIyileYl+Wd3ycwa1sbUwbUUetsU9oAG?=
- =?us-ascii?Q?/9fx2Jp/vJD+rLjAlMa9n5IOk8vg/HS09ktXO1+wYPQln9fHLgoUlY3fZtWr?=
- =?us-ascii?Q?3XtrDFhKsZXRztq3+5Y35+XwsMTOYEhhz2i5iiR0CTPUK/WK7j2ftArWGTnJ?=
- =?us-ascii?Q?KkGz82ZnyI9vZ3G8P3U+hHbpnnkn4nmCGPDsVyRSFS1wHbOEEgfcxtvmYfGu?=
- =?us-ascii?Q?4WEU57MEHPHF/kRrJJvRM4yjdLWZ0vyQG7AZ4o2POYbHCx0NLarKnHq4FdhH?=
- =?us-ascii?Q?2Bz0wRAVaEe80cNaXjkcgtprIN6eH8m3x+onay1ruiA6HMsPz0N9GR44DG+O?=
- =?us-ascii?Q?Rtl7020Ws3dn+FfCO50P8StHEOOaAokI49v+wOh7m8sDHe5uQXPS6t5F4xee?=
- =?us-ascii?Q?cQ1k4950I6EEmmtpPtAI0gs1DhC2/ReSO+i5NnnrKnuqyo2NdlbI+ZLPGGAN?=
- =?us-ascii?Q?5Tp/iud+vy6HIkojYu2996ZGVMzFUtq07IHE/lag0hhDJcLAY3eqTqsq4BID?=
- =?us-ascii?Q?nHtCMBkvoHmJBgMqk/1D52AMPqtKV2/9u+scsrRL1i31EBgCv8YWnWOdZVfH?=
- =?us-ascii?Q?Ifi8Vbg2v5yd/mK97KZAKi/N0iKcqhJwWIPCGsL3dAtjMpR/JkjtfMCSOzAK?=
- =?us-ascii?Q?cOtDgRxMjSTTJhdEzI0bbTqGgMLEeGA7eeXN+uUmsLlyoMzejTShaiPJge3B?=
- =?us-ascii?Q?RqcMg5Qa1iSSx1dtGnF5A64OtCmGVuyOcTK4JqcxQ5JjxShIbY19XI65tMCk?=
- =?us-ascii?Q?KgT1eckuQVsciPsLbeO/+XZ5wU4T1B9m/7tTIFxIUxcXNuf6eG6i8DfOuGS1?=
- =?us-ascii?Q?i1sOI7L0wt/udblEpcEo0nLX1goFwP2Xs+1PUS1dPRfoVoRx3Fvb3hKjWSW2?=
- =?us-ascii?Q?O5zebboIIkWTOyI4LUERpXhUvYWbx4chB37OgtuaCV8HCSpS0p4CQg6TXHDi?=
- =?us-ascii?Q?Ue6ePl97cwQdPwaDsUjpI3TDTyIp9iXUzEjRxRx1g3qVuUsqCwTMl52zKoJb?=
- =?us-ascii?Q?qYb4EL3CVun3RFFdkBMoD/cIgoxkSZHXa+Q7Bh8nWhn8YJ/IuAQtlVaB/iK7?=
- =?us-ascii?Q?S9aqg2X2RxRlCakXlMnWdwlrQDPiQ9kKDQbgqA9aQiISKXDLo8rGXp/G5zMR?=
- =?us-ascii?Q?2Z7PSik6jKBnsYufTnXuNxuNOOen+goOt9eDxvADaG2JguCGuG0qpKUhObJS?=
- =?us-ascii?Q?kn+0AhZ3ZoaYrymChHTlp/+412C7z0fvOscapbWIFO/MB0Cuob8Fd5yLun0B?=
- =?us-ascii?Q?KvCgll1P5hdNIvgqn5m2uSF1vlASD4k4DJbjKv1PR6UxYPC8GkkuyE9qOMcD?=
- =?us-ascii?Q?9xLQSGp9vvT8Vpt//8cLWzF5QVYyvaQQJrx/Oyz2Z6vHWJEUVIAGJ4EbdHiX?=
- =?us-ascii?Q?S6yyWn9nu6nr4ZKRbWZwqma3L4mw2Q7/5vjuOogngSSoquUshThuUphRZC9J?=
- =?us-ascii?Q?amVA0/eKrw=3D=3D?=
+X-MS-Exchange-AntiSpam-MessageData-0: =?us-ascii?Q?oMJ0aiGNWJbG8EOYvw3IYzAOhRpmNBNJviUsY1pMbUvmCC7E4HZwr1PxNIM6?=
+ =?us-ascii?Q?nRiQ1Q1sxzrrJPZ8sqDE31c+6Ha9c/bZ7kPJ5/hsXVugGcigfgA0NrGDHdV6?=
+ =?us-ascii?Q?KlCAfh2MZdh/RxRlaHGJ3GadEVcgh3VSDEtNwk8m5j1nddySnt6gwg4/0Eeq?=
+ =?us-ascii?Q?K0fEtIqWjqSsW4cCuCLuwYaNLEiS1Z1kiOUP86SnDQI0A9hL/5QatOoPTn16?=
+ =?us-ascii?Q?kh1VdD59+IwqXkmK64nlEHBWj/fWtt4cGJ699Mjc6smkSwudD6dP6ufkiLM5?=
+ =?us-ascii?Q?kPZELBIZyU87YrYU6/X3YGx9/7m8EcsjzfcVYGS6h2NIgLiUGR+dOnfxC3A2?=
+ =?us-ascii?Q?v9N6ZwOMVijCRoEajirGIGnsgwb/YyHnr6RqJJSxr+GcbMgUIUCHxF3IvkBF?=
+ =?us-ascii?Q?qKHJw96v+cAeIAG+pVEmxG51iFMp/Gbetlk7S/0DtKvsC+mdKQSr10ewpnQ0?=
+ =?us-ascii?Q?mjQZ+EAkgodS6SdSRQmyfTzO6emOHEneeOJSklSzwSqC0yYN93N365vsSp2Q?=
+ =?us-ascii?Q?gWurr8fhyK8EyM8SRfHH1w47q5VryVOv7hHiQwIF2mUSyXcSMlbkhMPQ9PJo?=
+ =?us-ascii?Q?YUkyzt6Z7Abz7e+y0sTO43e4qSYHMHU0NtcVYAyXx8EpTdCS2Ij4yAbVzkdx?=
+ =?us-ascii?Q?LU0tI3okRHNPiUJsN/R0ddhDd21YLnKjTA2cbOwTW+oo/jy1rOlvQAmWBxSz?=
+ =?us-ascii?Q?FUEHGYbiIet2aOnmIEhPOZzdp0OQckh6wSw71F1S8DCYGOIiWSgzRG5nDJW5?=
+ =?us-ascii?Q?PhyAI0rJGP1R4BMh0P/h1faMR8vkm++89AyXiV/jt5MJJgwYpbCsprBRAaJJ?=
+ =?us-ascii?Q?o44XGTMtAKBpEFYRM1f+5iEfrfSHjYyyAGyGqS4QzMC8FgzrAfvi3sVxbqsU?=
+ =?us-ascii?Q?sJCzdSSHk8g3lyOOZ6LIOkNJ7cjt8PIZsMqF/qn6m3Vn/a0jYRatFNq6A1q9?=
+ =?us-ascii?Q?884RWrJfkBAWtInET4ImhcNpkhGFRWoNT5+Xubd6v8GHIeere04GVvc6aKuP?=
+ =?us-ascii?Q?FEV6IEYIbZpp/VuYNZ0IvwKaVANgSwyYFSJLo4KHnp2JJ7X7iOT+Sp6dlL+x?=
+ =?us-ascii?Q?qHuQYVp1c/su7bAh19jn9cq+c5lss+h1EV64wYw5WkFGphK9KOh/upFvfLyq?=
+ =?us-ascii?Q?43UYON/KY9qp2LXiy6r5hsW7oXGHwtgrynnhQ4gUvbYvJ4D1BWkbvpbeABcf?=
+ =?us-ascii?Q?ov538QkYgLiLr6jlzHW6tBmGpJOp1aJC3rkdVnjIOy2DsANFSwWr5bIrlKZA?=
+ =?us-ascii?Q?5c5xnNcbpgwz38SD9hSlziBxYr3xUrExWyj6gMtN05BhEFEaNLyiQUrpAxXm?=
+ =?us-ascii?Q?vfVA0pGEFqUqPxmM9Xq16twQRu9SKKNakfZdx7xMSl+ZOzigSQVqh/wHPHEu?=
+ =?us-ascii?Q?nW1E3JOua+M6gevsIP9DIWuzK0KGGEayRH7pcjsiXsoD1o+VHA/B66XoCPGF?=
+ =?us-ascii?Q?3dqStuUmMnoNUve6cZaM7espe+pkzG/0NmAafJV5LO0wTY+fImKCptjQKoMY?=
+ =?us-ascii?Q?FARSZ6JS+hjPkTJDIdkK1747KoRY4XWZCbYXIf2Bg0DEQ0IAN8iekwDRDyJH?=
+ =?us-ascii?Q?DMNV1Pb/xLFQg/bcdR+nRcn+PwvWK+HxtlOeex64mOzxrWMBIxlLoS4vsj91?=
+ =?us-ascii?Q?/I7CsDDq/0FNNbl3RgcI83uWlwHFtx2HevI0oMg0+U6ZqIb/gLJv4pxnOiTe?=
+ =?us-ascii?Q?cASaEAfGGz67Rm6WaM01G3ZTrLMOG/VFkp7FSElkRC6HdEuN9vOC+cqG4gxm?=
+ =?us-ascii?Q?ekEuBJgWzg=3D=3D?=
 X-OriginatorOrg: nxp.com
-X-MS-Exchange-CrossTenant-Network-Message-Id: 7c3d91fb-b34e-4fa5-2e9f-08debae920b6
+X-MS-Exchange-CrossTenant-Network-Message-Id: 33c4f801-937b-470d-38fb-08debae923d1
 X-MS-Exchange-CrossTenant-AuthSource: AM9PR04MB8353.eurprd04.prod.outlook.com
 X-MS-Exchange-CrossTenant-AuthAs: Internal
-X-MS-Exchange-CrossTenant-OriginalArrivalTime: 26 May 2026 05:39:17.5917
+X-MS-Exchange-CrossTenant-OriginalArrivalTime: 26 May 2026 05:39:22.7893
  (UTC)
 X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
 X-MS-Exchange-CrossTenant-Id: 686ea1d3-bc2b-4c6f-a92c-d99c5c301635
 X-MS-Exchange-CrossTenant-MailboxType: HOSTED
-X-MS-Exchange-CrossTenant-UserPrincipalName: 75JiIYk1pBxM+AUJXgFiyfK7OzNODz03fg1QlqUgHL9rLu+VtpAKu1bqUfofLUJWrc1T0cOr6aT1M2Npm38TCg==
+X-MS-Exchange-CrossTenant-UserPrincipalName: CLnmvNwHtvS+QkDO9lw3GBdTyybfZIzToOP9hKDz07Pg2XBWtZqnALc6Oz5kqsh3Fkzpl9IhghSOVSnBDH79nQ==
 X-MS-Exchange-Transport-CrossTenantHeadersStamped: PAXPR04MB9708
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260525_223921_100831_B06B921F 
-X-CRM114-Status: GOOD (  10.51  )
+X-CRM114-CacheID: sfid-20260525_223926_423294_E216CC2B 
+X-CRM114-Status: GOOD (  15.02  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -150,31 +150,49 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Sound cards using the i.MX RPMSG audio interface may connect a
-headphone jack with GPIO-based insertion detection. Add the
-"hp-det-gpios" property to the fsl,rpmsg binding to support this
-configuration.
+Add headphone jack detection support for i.MX RPMSG audio cards.
+When the "hp-det-gpios" property is present in the device tree node,
+use simple_util_init_jack() from the ASoC simple card utilities to
+register a headphone jack with GPIO-based insertion detection.
 
 Signed-off-by: Chancel Liu <chancel.liu@nxp.com>
 ---
- Documentation/devicetree/bindings/sound/fsl,rpmsg.yaml | 4 ++++
- 1 file changed, 4 insertions(+)
+ sound/soc/fsl/imx-rpmsg.c | 8 ++++++++
+ 1 file changed, 8 insertions(+)
 
-diff --git a/Documentation/devicetree/bindings/sound/fsl,rpmsg.yaml b/Documentation/devicetree/bindings/sound/fsl,rpmsg.yaml
-index 3a32f7517d0c..e3cadb93c183 100644
---- a/Documentation/devicetree/bindings/sound/fsl,rpmsg.yaml
-+++ b/Documentation/devicetree/bindings/sound/fsl,rpmsg.yaml
-@@ -98,6 +98,10 @@ properties:
-       - rpmsg-audio-channel
-       - rpmsg-micfil-channel
+diff --git a/sound/soc/fsl/imx-rpmsg.c b/sound/soc/fsl/imx-rpmsg.c
+index fd4624786b62..e93ca31e75da 100644
+--- a/sound/soc/fsl/imx-rpmsg.c
++++ b/sound/soc/fsl/imx-rpmsg.c
+@@ -12,6 +12,7 @@
+ #include <sound/control.h>
+ #include <sound/pcm_params.h>
+ #include <sound/soc-dapm.h>
++#include <sound/simple_card_utils.h>
+ #include "imx-pcm-rpmsg.h"
  
-+  hp-det-gpios:
-+    maxItems: 1
-+    description: The GPIO that detect headphones are plugged in
-+
- required:
-   - compatible
+ struct imx_rpmsg {
+@@ -19,6 +20,7 @@ struct imx_rpmsg {
+ 	struct snd_soc_card card;
+ 	unsigned long sysclk;
+ 	bool lpa;
++	struct simple_util_jack hp_jack;
+ };
  
+ static struct dev_pm_ops lpa_pm;
+@@ -274,6 +276,12 @@ static int imx_rpmsg_probe(struct platform_device *pdev)
+ 		goto fail;
+ 	}
+ 
++	if (of_property_present(np, "hp-det-gpios")) {
++		ret = simple_util_init_jack(&data->card, &data->hp_jack,
++					    1, NULL, "Headphone Jack");
++		if (ret)
++			goto fail;
++	}
+ fail:
+ 	pdev->dev.of_node = NULL;
+ 	return ret;
 -- 
 2.50.1
 
