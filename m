@@ -4,102 +4,67 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 10948CD5BD5
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 26 May 2026 22:39:23 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 59074CD5BD0
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 26 May 2026 22:40:23 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:In-Reply-To:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
 	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
 	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=nTo+rj9jPpTZ6MzOUwsfpt4ByYvJX/zAd699vG59KFk=; b=TOJ6AppKCFO4FgRHVrEktgvv9V
-	Le7X/xUXgWWAjZnT9tC9QbG4i7Sb/ZiaYgVDVxdak1yrUrWcJ00sHd2OBMBLKzAZ/uXH4tZC+MeDB
-	FEBb+pvkjanZhF+vZDw9ixulso1hDEXg+iR+bt01PSvQrAen8N7m30Nkp/p1BSsjlGHLHy3RGAC6z
-	4lYBbv54D4nKs/3zp2tgCbIpu+cVJQ/AgZswCrkJyRfQvNXAu9rmYsdReYvMp0Bh3VLRKk8Ny0FKC
-	xeButthMBcyr+9quytD4V/piFtmLxEKn+/jUlWS4qul0qf7vVaVzQ2NvdQsvvgVjCVcumlmJJpsCn
-	fe34kvow==;
+	bh=sXAjMZONLXS92iE/8p7owRokXqorXNYFSEQk5KFyCzU=; b=33BB2tieTuzsX1/N9qG6gh+U93
+	Beewx39LFb0jFaWlL2V9dOj6sS1Sh+CgvzGCJhJsYekIadJY4oVC2mNRGixTbaMC35+8Uss5ym8Ph
+	9RcAm+Z8J1oFU929nQar71znQbf7OGC+fAeewzn5kE6XLYtoS1L8kOs/UeI1xWiwtIlm7IuvQ1Tp7
+	NHBvCII2Z21s+4N5nl5gn5sSG6E8PPqE9d2njD3yT3ZCe2kty0V66XPbZbt7dZuc61Xxlc18OyluS
+	UnJWHQTyiCNKgbkQoARWDr8Raqr3MA4z9//+xsVvQN51cTIG29jO7Qi9lE8eGH14pmQfSnfDvrRUZ
+	6ymxyfSw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wS0Qd-000000031pN-2aT9;
-	Tue, 26 May 2026 22:39:15 +0000
-Received: from us-smtp-delivery-124.mimecast.com ([170.10.129.124])
-	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wS0Qa-000000031p2-1b56
+	id 1wS0RZ-000000031vq-3Ekw;
+	Tue, 26 May 2026 22:40:13 +0000
+Received: from foss.arm.com ([217.140.110.172])
+	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
+	id 1wS0RX-000000031vM-3tQr
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 26 May 2026 22:39:14 +0000
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=redhat.com;
-	s=mimecast20190719; t=1779835151;
-	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
-	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
-	 in-reply-to:in-reply-to:references:references;
-	bh=nTo+rj9jPpTZ6MzOUwsfpt4ByYvJX/zAd699vG59KFk=;
-	b=RnW0B3aGdvMQI4Ey2x0ycnR1gPvClDLCXVAiKyEMjjt/YsPbtNGmsonsAYB8cw/Rha/AKI
-	Ba+xcWxcfZ7A5zu6ICaB9JkYUGxgRwSPg9f2PaK2QpHwQ4oGhXsG6T4/zilP5fqt4MzXYk
-	WV/DfVsaIBS96u9wTvENjq7x8WBrLec=
-Received: from mail-qk1-f198.google.com (mail-qk1-f198.google.com
- [209.85.222.198]) by relay.mimecast.com with ESMTP with STARTTLS
- (version=TLSv1.3, cipher=TLS_AES_256_GCM_SHA384) id
- us-mta-621-3RWqZHLrPB-zR9zL4i6hCg-1; Tue, 26 May 2026 18:39:09 -0400
-X-MC-Unique: 3RWqZHLrPB-zR9zL4i6hCg-1
-X-Mimecast-MFC-AGG-ID: 3RWqZHLrPB-zR9zL4i6hCg_1779835148
-Received: by mail-qk1-f198.google.com with SMTP id af79cd13be357-914ac72db7cso646490585a.0
-        for <linux-arm-kernel@lists.infradead.org>; Tue, 26 May 2026 15:39:08 -0700 (PDT)
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20251104; t=1779835148; x=1780439948;
-        h=user-agent:in-reply-to:content-disposition:mime-version:references
-         :message-id:subject:cc:to:from:date:x-gm-gg:x-gm-message-state:from
-         :to:cc:subject:date:message-id:reply-to;
-        bh=nTo+rj9jPpTZ6MzOUwsfpt4ByYvJX/zAd699vG59KFk=;
-        b=eYY86I4DjXX0qodjW7m123b0DjfEz3z5/+xE+Q57DN69zuwUfWsiioVOsJE/dWkOt6
-         7aN5ek2+O2BnomHy1xy4A94gJiAYvrN0dIfhTBe6a/oBgSLaRBHyWC7q1uKklY1gMtZh
-         zgM9rv7M78jmSqv/7CozKPjTmJdg0cdB6/W+Pik+VYExsRQw7ngtfJdx0XCiliv59t1v
-         vsTFV02v5aoBb/Z6S80unWgJ91G2ORTr0divhDe8YyJyUAPc5xoXzVDxKgTzhPXTGb0H
-         bpo60ZOPYFEklZobozBBwiN1K2721fBITNNC6zmolcCwZL/zuYxBmkndx8KklZTMp/De
-         7daA==
-X-Forwarded-Encrypted: i=1; AFNElJ8PETcAuBugvhDkaOVyC8936FT//w+0zpBUwELNp57lffgHy+I6WFyBw+UkQoa6YKsWTGVNkYg8/fhYbqYcpZ1I@lists.infradead.org
-X-Gm-Message-State: AOJu0Yy7wldR1eQgnqR5pxulCmIO9FbKMKPB4SmucV/uneEUC8RCEmKr
-	BXconCsZd/acUQFeFzEarKVh/AnhiTW46lFf+Mk0luNma2OWCjZi6nqPQIwuQbRWv0imOKsXZc4
-	zKFFFuvUVE0Ym8RrZ1GJtYi6UsTNrO8BCmWUF30i5Kjhzo+hHVgy7pfy9WjMFYKBLjQqU34lGtA
-	WJp+IubTU9
-X-Gm-Gg: Acq92OGKA40f90Wbk4ta0fuYpW4+FjfoVV4y/jmXs50pz24Wmb+EeX64rsMu6Sg2Y4v
-	A24Jcy1zboY6LnEbLu3I0XeHhr+o/Fajd/wU5uXCIhWOsRYHVXmd4mnb+ni2AHQyLr3mhMtAfAt
-	Tb5XDB7tzqlyXWoyiNcj7ls4ruHbEca+apNwx/3w509pU1PC3ZY1eKnlWUPORHlIw7VwcBMaOK5
-	iBj/147qOq3053yhPp1wigCrsrZjqcPieB4rdbCksHir88iTUbcMBKQX8jsytXWk2s4dKUx7/wD
-	CoZVuLJRnHr16sMTsty+sxg1lQTSQd9lyXA5AMt1LfvI0QSpeu3AUj8+Eu8M+ynFpTpko4MLupL
-	CUMZjKhze/bW4vcv55clb2ryAXVNkIs/TL23b+P1vzNelDZ1HvqUnDPEAXLP21OwpsAc=
-X-Received: by 2002:a05:620a:690f:b0:914:cad9:fa2b with SMTP id af79cd13be357-914cad9fac8mr1968269285a.55.1779835148468;
-        Tue, 26 May 2026 15:39:08 -0700 (PDT)
-X-Received: by 2002:a05:620a:690f:b0:914:cad9:fa2b with SMTP id af79cd13be357-914cad9fac8mr1968266585a.55.1779835148050;
-        Tue, 26 May 2026 15:39:08 -0700 (PDT)
-Received: from redhat.com (c-73-183-52-120.hsd1.pa.comcast.net. [73.183.52.120])
-        by smtp.gmail.com with ESMTPSA id af79cd13be357-914f8713144sm314985185a.21.2026.05.26.15.39.05
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Tue, 26 May 2026 15:39:07 -0700 (PDT)
-Date: Tue, 26 May 2026 18:39:04 -0400
-From: Brian Masney <bmasney@redhat.com>
-To: "Alexander A. Klimov" <grandmaster@al2klimov.de>
-Cc: Krzysztof Kozlowski <krzk@kernel.org>,
-	Michael Turquette <mturquette@baylibre.com>,
-	Stephen Boyd <sboyd@kernel.org>,
-	Jonas Jensen <jonas.jensen@gmail.com>,
-	Mike Turquette <mturquette@linaro.org>,
-	"moderated list:ARM/MOXA ART SOC" <linux-arm-kernel@lists.infradead.org>,
-	"open list:COMMON CLK FRAMEWORK" <linux-clk@vger.kernel.org>,
-	open list <linux-kernel@vger.kernel.org>
-Subject: Re: [PATCH] clk: moxart: remove unused variables, fix refcount leak
-Message-ID: <ahYhCJ_ShikWTVc9@redhat.com>
-References: <20260526204227.23181-1-grandmaster@al2klimov.de>
+	Tue, 26 May 2026 22:40:13 +0000
+Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
+	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id 55CDD2BCD;
+	Tue, 26 May 2026 15:40:05 -0700 (PDT)
+Received: from thinkpad-e142931.arm.com (usa-sjc-imap-foss1.foss.arm.com [10.121.207.14])
+	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id 004C43F7B4;
+	Tue, 26 May 2026 15:40:04 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=simple/simple; d=arm.com; s=foss;
+	t=1779835210; bh=4ZsHIv4N6/NCP2/ajrwyNNKnubLcTNHLLsZjty2wESk=;
+	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
+	b=AXsm1hzpBuEeCpbPMpGNwj2zpuAZiBw7QvuDvzJn9YdzvELwZzalI22u5I6syuUcx
+	 g+ZcRViMTXlEw9buABxdoeHEgSz8zotJJ8soarEZVxPWzYrGlbdZ02BjicfyFt8/RX
+	 kNBBLV9MAeurOwPVEHaKHASILTG6HMQewD3U3pDU=
+Date: Tue, 26 May 2026 23:39:58 +0100
+From: Wei-Lin Chang <weilin.chang@arm.com>
+To: Steven Price <steven.price@arm.com>, kvm@vger.kernel.org, 
+	kvmarm@lists.linux.dev
+Cc: Catalin Marinas <catalin.marinas@arm.com>, 
+	Marc Zyngier <maz@kernel.org>, Will Deacon <will@kernel.org>, James Morse <james.morse@arm.com>, 
+	Oliver Upton <oliver.upton@linux.dev>, Suzuki K Poulose <suzuki.poulose@arm.com>, 
+	Zenghui Yu <yuzenghui@huawei.com>, linux-arm-kernel@lists.infradead.org, 
+	linux-kernel@vger.kernel.org, Joey Gouly <joey.gouly@arm.com>, 
+	Alexandru Elisei <alexandru.elisei@arm.com>, Christoffer Dall <christoffer.dall@arm.com>, 
+	Fuad Tabba <tabba@google.com>, linux-coco@lists.linux.dev, 
+	Ganapatrao Kulkarni <gankulkarni@os.amperecomputing.com>, Gavin Shan <gshan@redhat.com>, 
+	Shanker Donthineni <sdonthineni@nvidia.com>, Alper Gun <alpergun@google.com>, 
+	"Aneesh Kumar K . V" <aneesh.kumar@kernel.org>, Emi Kisanuki <fj0570is@fujitsu.com>, 
+	Vishal Annapurve <vannapurve@google.com>, Lorenzo.Pieralisi2@arm.com
+Subject: Re: [PATCH v14 19/44] arm64: RMI: Allocate/free RECs to match vCPUs
+Message-ID: <2uvtjhncf57yek5i4fupdefunukmidzw452mcavnmixpr5u3qd@uoaktzpak3nl>
+References: <20260513131757.116630-1-steven.price@arm.com>
+ <20260513131757.116630-20-steven.price@arm.com>
 MIME-Version: 1.0
-In-Reply-To: <20260526204227.23181-1-grandmaster@al2klimov.de>
-User-Agent: Mutt/2.3.1 (2026-03-20)
-X-Mimecast-Spam-Score: 0
-X-Mimecast-MFC-PROC-ID: VBYFnfivaSM44dyyR7m2S5hJjOLTMLPA_0bfzbpzQ9s_1779835148
-X-Mimecast-Originator: redhat.com
 Content-Type: text/plain; charset=us-ascii
 Content-Disposition: inline
+In-Reply-To: <20260513131757.116630-20-steven.price@arm.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260526_153912_492995_1A4A3FF5 
-X-CRM114-Status: GOOD (  11.67  )
+X-CRM114-CacheID: sfid-20260526_154012_063832_AE25C32E 
+X-CRM114-Status: GOOD (  36.59  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -114,22 +79,248 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Tue, May 26, 2026 at 10:42:26PM +0200, Alexander A. Klimov wrote:
-> Not only these error checks are redundand,
-> those of_clk_get() return values weren't cleaned up via clk_put().
+Hi,
+
+On Wed, May 13, 2026 at 02:17:27PM +0100, Steven Price wrote:
+> The RMM maintains a data structure known as the Realm Execution Context
+> (or REC). It is similar to struct kvm_vcpu and tracks the state of the
+> virtual CPUs. KVM must delegate memory and request the structures are
+> created when vCPUs are created, and suitably tear down on destruction.
 > 
-> Fixes: c7bb4fc16ead ("clk: add MOXA ART SoCs clock driver")
-> Signed-off-by: Alexander A. Klimov <grandmaster@al2klimov.de>
+> RECs may require additional pages (e.g. for storing larger register
+> state for SVE). The RMM can request extra pages for this purpose using
+> the Stateful RMI Operations (SRO) functionality to request pages during
+> REC creation. These pages are then passed back to the host from the RMM
+> ('reclaimed') when the REC is destroyed. The kernel tracking object
+> (struct rmi_sro_state) is stored in the realm_rec structure to avoid
+> memory allocation during the destruction path.
+> 
+> Note that only some of register state for the REC can be set by KVM, the
+> rest is defined by the RMM (zeroed). The register state then cannot be
+> changed by KVM after the REC is created (except when the guest
+> explicitly requests this e.g. by performing a PSCI call).
+> 
+> Signed-off-by: Steven Price <steven.price@arm.com>
+> ---
+> Changes since v13:
+>  * Support SRO for REC creation/destruction instead of auxiliary
+>    granules.
+> Changes since v12:
+>  * Use the new range-based delegation RMI.
+> Changes since v11:
+>  * Remove the KVM_ARM_VCPU_REC feature. User space no longer needs to
+>    configure each VCPU separately, RECs are created on the first VCPU
+>    run of the guest.
+> Changes since v9:
+>  * Size the aux_pages array according to the PAGE_SIZE of the host.
+> Changes since v7:
+>  * Add comment explaining the aux_pages array.
+>  * Rename "undeleted_failed" variable to "should_free" to avoid a
+>    confusing double negative.
+> Changes since v6:
+>  * Avoid reporting the KVM_ARM_VCPU_REC feature if the guest isn't a
+>    realm guest.
+>  * Support host page size being larger than RMM's granule size when
+>    allocating/freeing aux granules.
+> Changes since v5:
+>  * Separate the concept of vcpu_is_rec() and
+>    kvm_arm_vcpu_rec_finalized() by using the KVM_ARM_VCPU_REC feature as
+>    the indication that the VCPU is a REC.
+> Changes since v2:
+>  * Free rec->run earlier in kvm_destroy_realm() and adapt to previous patches.
+> ---
+>  arch/arm64/include/asm/kvm_emulate.h |   2 +-
+>  arch/arm64/include/asm/kvm_host.h    |   3 +
+>  arch/arm64/include/asm/kvm_rmi.h     |  17 +++++
+>  arch/arm64/kvm/arm.c                 |   6 ++
+>  arch/arm64/kvm/reset.c               |   1 +
+>  arch/arm64/kvm/rmi.c                 | 105 +++++++++++++++++++++++++++
+>  6 files changed, 133 insertions(+), 1 deletion(-)
+> 
+> diff --git a/arch/arm64/include/asm/kvm_emulate.h b/arch/arm64/include/asm/kvm_emulate.h
+> index 82fd777bd9bb..2e69fe494716 100644
+> --- a/arch/arm64/include/asm/kvm_emulate.h
+> +++ b/arch/arm64/include/asm/kvm_emulate.h
+> @@ -714,7 +714,7 @@ static inline bool kvm_realm_is_created(struct kvm *kvm)
+>  
+>  static inline bool vcpu_is_rec(const struct kvm_vcpu *vcpu)
+>  {
+> -	return false;
+> +	return kvm_is_realm(vcpu->kvm);
+>  }
+>  
+>  #endif /* __ARM64_KVM_EMULATE_H__ */
+> diff --git a/arch/arm64/include/asm/kvm_host.h b/arch/arm64/include/asm/kvm_host.h
+> index 3512696ed506..39b5de03d0fe 100644
+> --- a/arch/arm64/include/asm/kvm_host.h
+> +++ b/arch/arm64/include/asm/kvm_host.h
+> @@ -969,6 +969,9 @@ struct kvm_vcpu_arch {
+>  
+>  	/* Hyp-readable copy of kvm_vcpu::pid */
+>  	pid_t pid;
+> +
+> +	/* Realm meta data */
+> +	struct realm_rec rec;
+>  };
+>  
+>  /*
+> diff --git a/arch/arm64/include/asm/kvm_rmi.h b/arch/arm64/include/asm/kvm_rmi.h
+> index 8bd743093ccf..d99bf4fc3c39 100644
+> --- a/arch/arm64/include/asm/kvm_rmi.h
+> +++ b/arch/arm64/include/asm/kvm_rmi.h
+> @@ -59,6 +59,22 @@ struct realm {
+>  	unsigned int ia_bits;
+>  };
+>  
+> +/**
+> + * struct realm_rec - Additional per VCPU data for a Realm
+> + *
+> + * @mpidr: MPIDR (Multiprocessor Affinity Register) value to identify this VCPU
+> + * @rec_page: Kernel VA of the RMM's private page for this REC
+> + * @aux_pages: Additional pages private to the RMM for this REC
+> + * @run: Kernel VA of the RmiRecRun structure shared with the RMM
+> + * @sro: A preallocated SRO state context
+> + */
+> +struct realm_rec {
+> +	unsigned long mpidr;
+> +	void *rec_page;
+> +	struct rec_run *run;
+> +	struct rmi_sro_state *sro;
+> +};
+> +
+>  void kvm_init_rmi(void);
+>  u32 kvm_realm_ipa_limit(void);
+>  
+> @@ -66,6 +82,7 @@ int kvm_init_realm(struct kvm *kvm);
+>  int kvm_activate_realm(struct kvm *kvm);
+>  void kvm_destroy_realm(struct kvm *kvm);
+>  void kvm_realm_destroy_rtts(struct kvm *kvm);
+> +void kvm_destroy_rec(struct kvm_vcpu *vcpu);
+>  
+>  static inline bool kvm_realm_is_private_address(struct realm *realm,
+>  						unsigned long addr)
+> diff --git a/arch/arm64/kvm/arm.c b/arch/arm64/kvm/arm.c
+> index eb2b61fe1f0a..93d34762db91 100644
+> --- a/arch/arm64/kvm/arm.c
+> +++ b/arch/arm64/kvm/arm.c
+> @@ -586,6 +586,8 @@ int kvm_arch_vcpu_create(struct kvm_vcpu *vcpu)
+>  	/* Force users to call KVM_ARM_VCPU_INIT */
+>  	vcpu_clear_flag(vcpu, VCPU_INITIALIZED);
+>  
+> +	vcpu->arch.rec.mpidr = INVALID_HWID;
+> +
+>  	vcpu->arch.mmu_page_cache.gfp_zero = __GFP_ZERO;
+>  
+>  	/* Set up the timer */
+> @@ -1651,6 +1653,10 @@ static int kvm_vcpu_init_check_features(struct kvm_vcpu *vcpu,
+>  	if (test_bit(KVM_ARM_VCPU_HAS_EL2, &features))
+>  		return -EINVAL;
+>  
+> +	/* Realms are incompatible with AArch32 */
+> +	if (vcpu_is_rec(vcpu))
+> +		return -EINVAL;
+> +
+>  	return 0;
+>  }
+>  
+> diff --git a/arch/arm64/kvm/reset.c b/arch/arm64/kvm/reset.c
+> index b963fd975aac..c18cdca7d125 100644
+> --- a/arch/arm64/kvm/reset.c
+> +++ b/arch/arm64/kvm/reset.c
+> @@ -161,6 +161,7 @@ void kvm_arm_vcpu_destroy(struct kvm_vcpu *vcpu)
+>  	free_page((unsigned long)vcpu->arch.ctxt.vncr_array);
+>  	kfree(vcpu->arch.vncr_tlb);
+>  	kfree(vcpu->arch.ccsidr);
+> +	kvm_destroy_rec(vcpu);
+>  }
+>  
+>  static void kvm_vcpu_reset_sve(struct kvm_vcpu *vcpu)
+> diff --git a/arch/arm64/kvm/rmi.c b/arch/arm64/kvm/rmi.c
+> index 849111817af7..353a5ca45e78 100644
+> --- a/arch/arm64/kvm/rmi.c
+> +++ b/arch/arm64/kvm/rmi.c
+> @@ -173,9 +173,108 @@ static int realm_ensure_created(struct kvm *kvm)
+>  	return -ENXIO;
+>  }
+>  
+> +static int kvm_create_rec(struct kvm_vcpu *vcpu)
+> +{
+> +	struct user_pt_regs *vcpu_regs = vcpu_gp_regs(vcpu);
+> +	unsigned long mpidr = kvm_vcpu_get_mpidr_aff(vcpu);
+> +	struct realm *realm = &vcpu->kvm->arch.realm;
+> +	struct realm_rec *rec = &vcpu->arch.rec;
+> +	unsigned long rec_page_phys;
+> +	struct rec_params *params;
+> +	int r, i;
+> +
+> +	if (rec->run)
+> +		return -EBUSY;
+> +
+> +	/*
+> +	 * The RMM will report PSCI v1.0 to Realms and the KVM_ARM_VCPU_PSCI_0_2
+> +	 * flag covers v0.2 and onwards.
+> +	 */
+> +	if (!vcpu_has_feature(vcpu, KVM_ARM_VCPU_PSCI_0_2))
+> +		return -EINVAL;
+> +
+> +	BUILD_BUG_ON(sizeof(*params) > PAGE_SIZE);
+> +	BUILD_BUG_ON(sizeof(*rec->run) > PAGE_SIZE);
+> +
+> +	params = (struct rec_params *)get_zeroed_page(GFP_KERNEL);
+> +	rec->rec_page = (void *)__get_free_page(GFP_KERNEL);
+> +	rec->run = (void *)get_zeroed_page(GFP_KERNEL);
 
-Reviewed-by: Brian Masney <bmasney@redhat.com>
+Should this be cast to (struct rec_run *) ?
 
-For the future: Include the version number (v2) on the subject, and include a
-changelog below the --- with what changed since the last version. You may want
-to consider using b4 since it'll help set this up for you. Plus it's a
-much improved contribution experience.
+> +	rec->sro = kmalloc_obj(*rec->sro);
+> +	if (!params || !rec->rec_page || !rec->run || !rec->sro) {
+> +		r = -ENOMEM;
+> +		goto out_free_pages;
+> +	}
+> +
+> +	for (i = 0; i < ARRAY_SIZE(params->gprs); i++)
+> +		params->gprs[i] = vcpu_regs->regs[i];
+> +
+> +	params->pc = vcpu_regs->pc;
+> +
+> +	if (vcpu->vcpu_id == 0)
+> +		params->flags |= REC_PARAMS_FLAG_RUNNABLE;
+> +
+> +	rec_page_phys = virt_to_phys(rec->rec_page);
+> +
+> +	if (rmi_delegate_page(rec_page_phys)) {
+> +		r = -ENXIO;
+> +		goto out_free_pages;
+> +	}
+> +
+> +	params->mpidr = mpidr;
+> +
+> +	if (rmi_rec_create(virt_to_phys(realm->rd), rec_page_phys,
+> +			   virt_to_phys(params), rec->sro)) {
+> +		r = -ENXIO;
+> +		goto out_undelegate_rmm_rec;
+> +	}
+> +
+> +	rec->mpidr = mpidr;
+> +
+> +	free_page((unsigned long)params);
+> +	return 0;
+> +
+> +out_undelegate_rmm_rec:
+> +	if (WARN_ON(rmi_undelegate_page(rec_page_phys)))
+> +		rec->rec_page = NULL;
+> +out_free_pages:
+> +	free_page((unsigned long)rec->run);
+> +	free_page((unsigned long)rec->rec_page);
+> +	free_page((unsigned long)params);
+> +	kfree(rec->sro);
+> +	rec->run = NULL;
+> +	return r;
+> +}
+> +
 
-https://b4.docs.kernel.org/en/latest/contributor/overview.html
+[...]
 
-Brian
-
+Thanks,
+Wei-Lin Chang
 
