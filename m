@@ -4,64 +4,70 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id BD3C2CD5BB1
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 26 May 2026 14:18:42 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 5C31CCD5BB1
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 26 May 2026 14:21:11 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
 	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
 	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=/H/hJa1FEjQPpe/KYbX90f7yxfTWFQPS0ifgrelJ5fE=; b=TAL4kx78RyOB1LJSI686MbSCYA
-	0wJRGTW66NVmHd8eFhOFQK9Kc1QyOfioxXxj10xEDtVOOtdZN/4rAWlJaFyzh4/yFrYUSEXlPGt0X
-	HLPKexNG/k0fvhZNNYuuOFdAhWNngCrmjU4ZM2vopqx9psi+WvnACq8LgXfZBG36kqNPx6tFDNBSS
-	pQC6jk/pMLs+GjqHPjzdz0f2fRKlxtNN5cjrtIhPMEFSgDEaQmGwg0YJy1qVNiPmJwRvcBr4Sj38L
-	FKP5TrMrA3Z0i+GvpCtxvbgvZDrUKHSwH/REUQXq1NzYljHbE1s6dHukMTVzVhpfMn57aTifVHLby
-	85ywx9nw==;
+	bh=jn9rjZ7auH6k2Tiv9JWt/UdV9cmEs1gB2wZE8cBVyJM=; b=acVzbf/m6Nidt1k2/spBqSPK0q
+	tXa26HGR4o+uKjouueNoCMVtH1j8Q6lYd91YXJT8hM9jwRvOV7co9GBSfFcFaumzM1OVMNqL0XPv0
+	vgB6lddDfdv53nAjBcnnd3JRoNKagbFo3txIxofCFSEYVO+GdN/uWt5xaA/SflA+BT6bQ97AaPuwp
+	jEDwXQto+zmqAeeJJTXhisZyt6ZzfbOOjSVjNIv7i6BncWvZ6XoPYsBq4wLhmbPb6ZtqQXgABmf89
+	McOlNmdV0lir4DwPYDKxihJqscIeGgox1lZigCsxFGQGsWvjQPKh1yGTVSw6vFk0KtLhBQFPJK0A0
+	1GMOLd2Q==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wRsc6-000000029O6-2x8y;
-	Tue, 26 May 2026 14:18:34 +0000
-Received: from sea.source.kernel.org ([172.234.252.31])
-	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wRsc3-000000029NH-36yd
+	id 1wRseW-000000029hu-0Hiw;
+	Tue, 26 May 2026 14:21:04 +0000
+Received: from foss.arm.com ([217.140.110.172])
+	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
+	id 1wRseS-000000029hE-30w6
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 26 May 2026 14:18:32 +0000
-Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
-	by sea.source.kernel.org (Postfix) with ESMTP id ADB56418D6;
-	Tue, 26 May 2026 14:18:30 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id B79E31F000E9;
-	Tue, 26 May 2026 14:18:28 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1779805110;
-	bh=/H/hJa1FEjQPpe/KYbX90f7yxfTWFQPS0ifgrelJ5fE=;
-	h=Date:From:To:Cc:Subject:References:In-Reply-To;
-	b=Q+J2Nkskz8fJbNcXHe8+HfSCiBX5wlDKZ3VHBcGJch0eEWdqVZQKbSomDNCFR1/L9
-	 6+vc/55b6RRtqqLtzfBX2vwtbL90jyptSiUOFpAiTdpLjM09adfNbwNC9HKp2ZsJpZ
-	 vKUUeTKTbLa4e/Vaz5aQhBcaDYzsH8/+z72mH9mofBkhVpNhihMNJl/5o3UGIl/y5V
-	 rUWD9O0Z4BXvXFypcxg6dESELUWGtizrBqaZ91G7e20VfPdXyeFRQfSk3JZ2awsOZQ
-	 BJ/5T29v8bzjPzu/XVcHf2ZLcIAYwDr8SXE7nuOLekRM7ocw1eFlot9hP1sOqZ5/ck
-	 iF8895v+j4EGQ==
-Date: Tue, 26 May 2026 15:18:25 +0100
-From: Mark Brown <broonie@kernel.org>
-To: Mark Rutland <mark.rutland@arm.com>
-Cc: linux-arm-kernel@lists.infradead.org, kvmarm@lists.linux.dev,
-	catalin.marinas@arm.com, james.morse@arm.com, maz@kernel.org,
-	oupton@kernel.org, tabba@google.com, will@kernel.org
-Subject: Re: [PATCH 01/18] KVM: arm64: Don't include <asm/fpsimdmacros.h>
-Message-ID: <a9bc03f5-e7f1-4927-9156-8dc17ffdb5f9@sirena.org.uk>
-References: <20260521132556.584676-1-mark.rutland@arm.com>
- <20260521132556.584676-2-mark.rutland@arm.com>
+	Tue, 26 May 2026 14:21:01 +0000
+Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
+	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id 7A69B169C;
+	Tue, 26 May 2026 07:20:53 -0700 (PDT)
+Received: from J2N7QTR9R3 (usa-sjc-imap-foss1.foss.arm.com [10.121.207.14])
+	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id D58D33F7B4;
+	Tue, 26 May 2026 07:20:54 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=simple/simple; d=arm.com; s=foss;
+	t=1779805258; bh=oKeqOBlOW8Be2H98W+ENHlID/l7YbOJiPsGt4yqgS+M=;
+	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
+	b=F14nbYYPYB2LN8COACBdN+twjwuAYIeYGM2J8IXo78QE4ABzj31FapUzVEAbdR68/
+	 vp89J59Lbka/24fD+2rVIhuJpEKbpJxb6Or8JQDk7VkpomwibdibkkRcNe87C/CqSW
+	 6o4tvmW4yUVy510uaZnZh+LaHy1N+NcMfmkLyvic=
+Date: Tue, 26 May 2026 15:20:52 +0100
+From: Mark Rutland <mark.rutland@arm.com>
+To: Mark Brown <broonie@kernel.org>
+Cc: Marc Zyngier <maz@kernel.org>, Joey Gouly <joey.gouly@arm.com>,
+	Catalin Marinas <catalin.marinas@arm.com>,
+	Suzuki K Poulose <suzuki.poulose@arm.com>,
+	Will Deacon <will@kernel.org>, Paolo Bonzini <pbonzini@redhat.com>,
+	Jonathan Corbet <corbet@lwn.net>, Shuah Khan <shuah@kernel.org>,
+	Oliver Upton <oupton@kernel.org>, Dave Martin <Dave.Martin@arm.com>,
+	Fuad Tabba <tabba@google.com>, Ben Horgan <ben.horgan@arm.com>,
+	linux-arm-kernel@lists.infradead.org, kvmarm@lists.linux.dev,
+	linux-kernel@vger.kernel.org, kvm@vger.kernel.org,
+	linux-doc@vger.kernel.org, linux-kselftest@vger.kernel.org,
+	Peter Maydell <peter.maydell@linaro.org>,
+	Eric Auger <eric.auger@redhat.com>
+Subject: Re: [PATCH v10 02/30] arm64/fpsimd: Update FA64 and ZT0 enables when
+ loading SME state
+Message-ID: <ahWsRNb9uZhf46hG@J2N7QTR9R3>
+References: <20260306-kvm-arm64-sme-v10-0-43f7683a0fb7@kernel.org>
+ <20260306-kvm-arm64-sme-v10-2-43f7683a0fb7@kernel.org>
+ <ahWWqU51Zffmhlo5@J2N7QTR9R3>
+ <d8074c6b-9bc9-496e-8a74-94ac18ce9a55@sirena.org.uk>
 MIME-Version: 1.0
-Content-Type: multipart/signed; micalg=pgp-sha512;
-	protocol="application/pgp-signature"; boundary="PoA56a1ZTiAd6PNU"
+Content-Type: text/plain; charset=us-ascii
 Content-Disposition: inline
-In-Reply-To: <20260521132556.584676-2-mark.rutland@arm.com>
-X-Cookie: You are fairminded, just and loving.
+In-Reply-To: <d8074c6b-9bc9-496e-8a74-94ac18ce9a55@sirena.org.uk>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260526_071831_800528_4D132ED7 
-X-CRM114-Status: UNSURE (   9.63  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20260526_072100_857862_694E0467 
+X-CRM114-Status: GOOD (  26.09  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -76,36 +82,88 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
+On Tue, May 26, 2026 at 02:25:56PM +0100, Mark Brown wrote:
+> On Tue, May 26, 2026 at 01:48:41PM +0100, Mark Rutland wrote:
+> > On Fri, Mar 06, 2026 at 05:00:54PM +0000, Mark Brown wrote:
+> 
+> > > We provide a helper which does the configuration as part of a
+> > > read/modify/write operation along with the configuration of the task VL,
+> > > then update the floating point state load and SME access trap to use it.
+> 
+> > > +		if (fa64)					\
+> > > +			__new |= SMCR_ELx_FA64;			\
+> > > +		if (zt0)					\
+> > > +			__new |= SMCR_ELx_EZT0;			\
+> 
+> > I'd strongly prefer that we make it the caller's responsiblity to track
+> > all the bits within SMCR, rather than requiring each caller to pass a
+> > bag of booleans.
+> 
+> I was explicitly going for the opposite of that in order to make it
+> harder for someone implementing a future extension to miss a place where
+> an update is required, having the callers independently constructing the
+> register values feels like it's asking for trouble.
 
---PoA56a1ZTiAd6PNU
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-Content-Transfer-Encoding: quoted-printable
+I didn't say callers should *construct* the value independently, and I
+showed how to centralize the construction in a __task_smcr() function.
 
-On Thu, May 21, 2026 at 02:25:39PM +0100, Mark Rutland wrote:
-> There's no need for hyp/entry.S to include <asm/fpsimdmacros.h>.
->=20
-> The fpsimd macros have never been used by code in hyp/entry.S, and were
-> instead used by code in hyp/fpsimd.S.
->=20
-> Remove the unnecessary include.
+I think callers should pass the entire value around rather than a
+collection of discrete booleans: constructing a collection of discrete
+booleans is functionally equivalent to construction the entire value,
+and we can more easily manage the construction and passing of the entire
+value.
 
-Reviewed-by: Mark Brown <broonie@kernel.org>
+> > 	unsigned long __task_smcr(const struct task_struct *tsk)
+> > 	{
+> > 		unsigned long vq = sve_vq_from_vl(task_get_sme_vl(tsk));
+> > 		unsigned long smcr = vq - 1;
+> 
+> I agree that's a better pattern for the main kernel - we could also do
+> something similar with a task_set_smcr() which wraps the explicitly
+> specifed version.
 
---PoA56a1ZTiAd6PNU
-Content-Type: application/pgp-signature; name="signature.asc"
+I don't think a task_set_smcr() function would gain much vs
+using sysreg_cond_update_s(). I expect that we'd use the SMCR value as
+the source of truth (and hence that would need to be generated outside
+of task_set_smcr()), at which point either task_set_smcr() would be a
+thin wrapper that just hides the register name, or it would generate the
+value independently and obscure the connection.
 
------BEGIN PGP SIGNATURE-----
+I expect that what we should have eventually is something like:
 
-iQEzBAABCgAdFiEEreZoqmdXGLWf4p/qJNaLcl1Uh9AFAmoVq7EACgkQJNaLcl1U
-h9A8Gwf8CEp6Hc6OgwT3SM+2uiPQUQevRblOiY6/WkUv407QoqYP4JDWJlHYqnDj
-r/REeCBEJ7vcqX6hhZdkUz7p/MekCKN/0+pzOPUjZWHA1dTU082CFDAyFmxaq66c
-VG31Dk0d4cbGrlMwhb3QflhiIp5bhAHLz2Kj5vrHuKZzESywAfZXDXtpXKFm4EQ1
-1Hi0k/lnZEg+udle9++dDyzwC7GuHOAyhqUHnvXfssAmBdd8BVl/1A1YYjaPyimR
-h0lYsHvEfYL2IfPI2pOZCIwGWIuVlvVHYkFmeBloCd6La/WXEsyy5I9r9JmGymTq
-bucSQ4qKF+CHB42caIp8KgHDaDuaqw==
-=LUWf
------END PGP SIGNATURE-----
+	unsigned long smcr = __task_smcr(task);
 
---PoA56a1ZTiAd6PNU--
+	sysreg_cond_update_s(SYS_SMCR_EL1, smcr);
+
+	if (za) {
+		__sme load_za(sme_state);
+		if (smcr & SMCR_ELx_EZT0)
+			__sme_load_zt(sme_state);
+	}
+
+... or:
+
+	const unsigned long smcr = __task_smcr(task);
+	const bool zt0 = smcr & SMCR_ELx_EZT0;
+
+	sysreg_cond_update_s(SYS_SMCR_EL1, smcr);
+
+	if (za) {
+		__sme load_za(sme_state);
+		if (zt0)
+			__sme_load_zt(sme_state);
+	}
+
+... where in either case it's clear at the function level that the value
+programmed into SMCR matches what we're using for boolean decisions, and
+it's clear at a higher level that functions are consistent given
+consistent usage of __task_smcr().
+
+> That would I think avoid most of the issue you're seeing?
+
+I'm not sure what you mean here.
+
+I don't think we need task_set_smcr(), and I'd prefer what I suggested.
+
+Mark.
 
