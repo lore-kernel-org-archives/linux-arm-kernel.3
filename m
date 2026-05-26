@@ -4,78 +4,63 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 40DBCCD5BC8
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 26 May 2026 19:25:08 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 1D903CD5BB1
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 26 May 2026 19:48:11 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:MIME-Version:Message-ID:Date:Subject:CC:To:From:Reply-To:
-	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
-	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
-	bh=QI5pqrgQZausjaud47QeEyBjvOaVr93foW8MP2UsAr4=; b=MKKNJjvc1j2N6ivUqVlq14fIKQ
-	/3u3XTy0ouH8GbdyCI1ehphFhtiEumVy6YR49W8BckvqIdxKb3LUz7lK3NtngT7xArehIeg4JRtcv
-	t7LlSpgvOi+ugTpC8i/i9kAP6HbHprQvptFGBd66fUyt5jypZV/r93oGMwOciMEC7vCTEgx3mCnn7
-	RQr4H2RTGXLZTr+pdELvnUVr3/kAPdJqQpc93LWeMhVCF8aoSpEfSWWI6v7+j6Qozu4Nv6Pq9ovNA
-	ovFgL2o155qsSrKLFBhgFM4z706nAh5gV5d/Vsed30HR9OaCf/5jD59esYnX7+J4vdhJzMzoOmIEs
-	424TJmGg==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=yHu61V9glS/Y4VHMiUleiLB3zLNBd4rcjKVPWNimHUk=; b=XCWgblqxZAZRe3+6/ioNNc+0IG
+	5pbOfIHLqklw6vSaWbgl6MI3aW33etRq3eQA680S8PiB0TOIfPp7qN/8eh+CCVttz9kb7RPJRXmx/
+	fy28l0MGfPGoMySpwcHrnMWCVG6dy4lrO3TuoyE50IBZd6yyCQICxqR9AlBGEDbxbIT3bB4pX4um/
+	DXGC/DT3uvvVV0nNp6nQ2KjGfXGaAaWL9vtbiHi8spHjdqOlJ2F5dB1jlaJFCWoSv500um5eLNfK6
+	zfIAXOWOZnK/KPHpD+OUNQzAn+Jj5ywMuysLeGrVDzbRi9cFAgNyuFKgiFqDqMH57y/ww9ydLfy9J
+	kobSTK8Q==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wRxOg-00000002u0t-0wn5;
-	Tue, 26 May 2026 19:25:02 +0000
-Received: from pdx-out-012.esa.us-west-2.outbound.mail-perimeter.amazon.com ([35.162.73.231])
+	id 1wRxkr-00000002vDz-45Kh;
+	Tue, 26 May 2026 19:47:57 +0000
+Received: from zeus03.de ([194.117.254.33] helo=mail.zeus03.de)
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wRxOd-00000002u08-1uy7
+	id 1wRxko-00000002vDN-00w3
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 26 May 2026 19:25:00 +0000
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-  d=amazon.de; i=@amazon.de; q=dns/txt; s=amazoncorp2;
-  t=1779823499; x=1811359499;
-  h=from:to:cc:subject:date:message-id:mime-version:
-   content-transfer-encoding;
-  bh=QI5pqrgQZausjaud47QeEyBjvOaVr93foW8MP2UsAr4=;
-  b=lEqCkPllPZXikwZ4RtW9/ArxKQBR2OSrdvbXHxUG4AMNw5+HqflY7u2r
-   vNoevfPAiCrshLpSkjG+E3w1oQS+hMUDYPogwiN7Aa143oDaQ8ulOHW6q
-   j+EW9Xf812rMElX4L7dpBxfym/JO4e4MD/Bq66G7M35hJRVb8AAYR1r5l
-   hczIFqdp1oKlgo+hPYYEoY2bGAOxKQ+AfCkjJLlLsa4JhmP5KfPxN+c7J
-   djgbrw6R68fVBYIcS9v4y4wUH9bS7O+KU6R8ujxsg2xW4OnHJcLDCRghG
-   oENZzRCkW58dHxSvTYT/w1rBCiFArhs5xIAJmkKhyytfLOhhUADK3CJkT
-   Q==;
-X-CSE-ConnectionGUID: NpGOqmOKT4O8b/HvBdWj/g==
-X-CSE-MsgGUID: QHubuRbaT4yEgHZ5sWUsoQ==
-X-IronPort-AV: E=Sophos;i="6.24,170,1774310400"; 
-   d="scan'208";a="20301174"
-Received: from ip-10-5-6-203.us-west-2.compute.internal (HELO smtpout.naws.us-west-2.prod.farcaster.email.amazon.dev) ([10.5.6.203])
-  by internal-pdx-out-012.esa.us-west-2.outbound.mail-perimeter.amazon.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 26 May 2026 19:24:55 +0000
-Received: from EX19MTAUWA002.ant.amazon.com [205.251.233.234:5449]
- by smtpin.naws.us-west-2.prod.farcaster.email.amazon.dev [10.0.4.252:2525] with esmtp (Farcaster)
- id 752a9f20-8217-4266-8697-8272c09e7d45; Tue, 26 May 2026 19:24:55 +0000 (UTC)
-X-Farcaster-Flow-ID: 752a9f20-8217-4266-8697-8272c09e7d45
-Received: from EX19D001UWA001.ant.amazon.com (10.13.138.214) by
- EX19MTAUWA002.ant.amazon.com (10.250.64.202) with Microsoft SMTP Server
- (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_128_CBC_SHA) id 15.2.2562.37;
- Tue, 26 May 2026 19:24:53 +0000
-Received: from dev-dsk-gyokhan-1b-83b48b3c.eu-west-1.amazon.com (10.13.234.1)
- by EX19D001UWA001.ant.amazon.com (10.13.138.214) with Microsoft SMTP Server
- (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_128_CBC_SHA) id 15.2.2562.37;
- Tue, 26 May 2026 19:24:52 +0000
-From: Gyokhan Kochmarla <gyokhan@amazon.de>
-To: <stable@vger.kernel.org>, <gregkh@linuxfoundation.org>
-CC: <lukas.bulwahn@redhat.com>, <catalin.marinas@arm.com>, <will@kernel.org>,
-	<rostedt@goodmis.org>, <mhiramat@kernel.org>,
-	<linux-arm-kernel@lists.infradead.org>, Gyokhan Kochmarla <gyokhan@amazon.de>
-Subject: [PATCH 6.12] arm64: Kconfig: Remove selecting replaced HAVE_FUNCTION_GRAPH_RETVAL
-Date: Tue, 26 May 2026 19:24:40 +0000
-Message-ID: <20260526192440.81431-1-gyokhan@amazon.de>
-X-Mailer: git-send-email 2.47.3
+	Tue, 26 May 2026 19:47:56 +0000
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=
+	sang-engineering.com; h=date:from:to:cc:subject:message-id
+	:references:mime-version:content-type:in-reply-to; s=k1; bh=yHu6
+	1V9glS/Y4VHMiUleiLB3zLNBd4rcjKVPWNimHUk=; b=Pm1FXxNKnGU6CCHHZm0Z
+	7o46lu3vYQzXzPorLDSse0cHtyGWfIn+OSCg5qA8BngoLL6PE9qkn8rAZzN3PqhB
+	bQ27AUqzoh6cjJxY+8MXa9Yv79TMfBxgANsZvX4+G2dSTN1+B1VHxKKX4ImKtTCd
+	aok2REIiE9bikt9m2rAxA9V0nqVeW2aM0ciboQJHG7ihpOWk50trcYdtQCv5Yeza
+	xAC4+PiSz+HzUUWPkVtIuBR3PT+HNn7zAo2Fvok6gpa80eD6S92zLdKbhbChtWRz
+	+Mf9fQ3zsaus4YYbmfDcq0XD/b4lcXXyk9HjaLG5ZPsauovq5GCrPYcMD+1QISRK
+	4w==
+Received: (qmail 387587 invoked from network); 26 May 2026 21:47:48 +0200
+Received: by mail.zeus03.de with ESMTPSA (TLS_AES_256_GCM_SHA384 encrypted, authenticated); 26 May 2026 21:47:48 +0200
+X-UD-Smtp-Session: l3s3148p1@2/gExb1S4VOSABpf
+Date: Tue, 26 May 2026 21:47:47 +0200
+From: Wolfram Sang <wsa+renesas@sang-engineering.com>
+To: Marcus Folkesson <marcus.folkesson@gmail.com>
+Cc: Peter Rosin <peda@axentia.se>,
+	Michael Hennerich <michael.hennerich@analog.com>,
+	Bartosz Golaszewski <brgl@bgdev.pl>,
+	Andi Shyti <andi.shyti@kernel.org>,
+	Andy Shevchenko <andriy.shevchenko@intel.com>,
+	Bartosz Golaszewski <brgl@kernel.org>, linux-i2c@vger.kernel.org,
+	linux-kernel@vger.kernel.org, linux-arm-kernel@lists.infradead.org
+Subject: Re: [PATCH v9 1/5] i2c: core: add callback to change bus frequency
+Message-ID: <ahX44_rzaRlTLSLU@shikoro>
+References: <20260324-i2c-mux-v9-0-5292b0608243@gmail.com>
+ <20260324-i2c-mux-v9-1-5292b0608243@gmail.com>
 MIME-Version: 1.0
-X-Originating-IP: [10.13.234.1]
-X-ClientProxiedBy: EX19D033UWA003.ant.amazon.com (10.13.139.42) To
- EX19D001UWA001.ant.amazon.com (10.13.138.214)
-Content-Type: text/plain; charset="us-ascii"
-Content-Transfer-Encoding: 7bit
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+In-Reply-To: <20260324-i2c-mux-v9-1-5292b0608243@gmail.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260526_122459_553023_C0512A95 
-X-CRM114-Status: GOOD (  10.45  )
+X-CRM114-CacheID: sfid-20260526_124754_905640_6CC546A7 
+X-CRM114-Status: GOOD (  16.58  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -90,53 +75,53 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-From: Lukas Bulwahn <lukas.bulwahn@redhat.com>
+Hi Marcus,
 
-commit f458b2165d7ac0f2401fff48f19c8f864e7e1e38 upstream.
+finally I found some time... thank you for your patience!
 
-Commit a3ed4157b7d8 ("fgraph: Replace fgraph_ret_regs with ftrace_regs")
-replaces the config HAVE_FUNCTION_GRAPH_RETVAL with the config
-HAVE_FUNCTION_GRAPH_FREGS, and it replaces all the select commands in the
-various architecture Kconfig files. In the arm64 architecture, the commit
-adds the 'select HAVE_FUNCTION_GRAPH_FREGS', but misses to remove the
-'select HAVE_FUNCTION_GRAPH_RETVAL', i.e., the select on the replaced
-config.
+Some comments here, but I have high level questions first to be
+discussed in patch 5. Maybe we should start there...
 
-Remove selecting the replaced config. No functional change, just cleanup.
+> +	int (*set_clk_freq)(struct i2c_adapter *adap, u32 clock_hz); /* Optional */
 
-Fixes: a3ed4157b7d8 ("fgraph: Replace fgraph_ret_regs with ftrace_regs")
-Signed-off-by: Lukas Bulwahn <lukas.bulwahn@redhat.com>
-Link: https://lore.kernel.org/r/20250117125522.99071-1-lukas.bulwahn@redhat.com
-Signed-off-by: Will Deacon <will@kernel.org>
-Signed-off-by: Gyokhan Kochmarla <gyokhan@amazon.de>
----
- arch/arm64/Kconfig | 1 -
- 1 file changed, 1 deletion(-)
+Shouldn't this rather go into 'struct i2c_algorithm'?
 
-diff --git a/arch/arm64/Kconfig b/arch/arm64/Kconfig
-index f487c5e21e2f..d4ebdc16cdb4 100644
---- a/arch/arm64/Kconfig
-+++ b/arch/arm64/Kconfig
-@@ -219,7 +219,6 @@ config ARM64
- 	select HAVE_FUNCTION_ERROR_INJECTION
- 	select HAVE_FUNCTION_GRAPH_FREGS
- 	select HAVE_FUNCTION_GRAPH_TRACER
--	select HAVE_FUNCTION_GRAPH_RETVAL
- 	select HAVE_GCC_PLUGINS
- 	select HAVE_HARDLOCKUP_DETECTOR_PERF if PERF_EVENTS && \
- 		HW_PERF_EVENTS && HAVE_PERF_EVENTS_NMI
--- 
-2.47.3
+> +static inline int
+> +__i2c_adapter_set_clk_freq(struct i2c_adapter *adapter, u32 clock_hz)
+> +{
+> +	if (adapter->set_clk_freq)
+> +		return adapter->set_clk_freq(adapter, clock_hz);
 
+So, Sashiko mentions[1] that setting 'adapter->clock_hz' below is not
+executed. This is fine in my book because the requested new rate might
+not be the actually used rate. However, I agree that it must be
+documented that the callback is required to set 'clock_hz'. Or maybe
+even better, the callback should return the newly set value and this
+function then updates the variable?
 
+[1] https://sashiko.dev/#/patchset/20260324-i2c-mux-v9-0-5292b0608243%40gmail.com
 
+> +
+> +	/*
+> +	 * If the adapter is a root adapter without .set_clk_freq() implemented, this feature is not
+> +	 * supported.
+> +	 */
+> +	if (!i2c_parent_is_i2c_adapter(adapter))
+> +		return -EOPNOTSUPP;
+> +
+> +	/*
+> +	 * Update the clock_hz for non-root adapters, even if .set_clk_freq() is not implemented,
+> +	 * to allow the clock frequency to be propagated to root adapters that do support it.
+> +	 */
+> +	adapter->clock_hz = clock_hz;
+> +	return 0;
 
-Amazon Web Services Development Center Germany GmbH
-Tamara-Danz-Str. 13
-10243 Berlin
-Geschaeftsfuehrung: Christof Hellmis, Andreas Stieger
-Eingetragen am Amtsgericht Charlottenburg unter HRB 257764 B
-Sitz: Berlin
-Ust-ID: DE 365 538 597
+So, Sashiko is IMO correct with asking what happens if setting the new
+freq in the root adapter fails? There is no path to restore the old
+values for the children then, or did I miss it?
+
+Happy hacking,
+
+   Wolfram
 
 
