@@ -4,65 +4,76 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 94815CD5BC8
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 26 May 2026 15:07:59 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 0A98CCD5BC8
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 26 May 2026 15:19:46 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
 	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
 	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=6SqJFKinbEr7svW1dQW6jTP27boWm+szW3qKbXBVvW4=; b=dIPBc19TtBbSmLPrhuAxrxNhsU
-	TnreKuHgm7B7tMP9hxbpMcS0d75EoFEB9OdoZ9V01DSb6ln+tzGjkifbZ3c2umEIEY4mN3+ypFr13
-	qO+x8/B7YCcrwK8LXC+VsOkvaeNhkePDoHP/YHCkVAsXbRc1x5fiJWD2QqlpOf94Z6N0k6/sIY1OB
-	TPCtAWmh52dnQs+pzBhjavFtej8000Mm4kBViqbGXAhK0cEPFYNPkfNx8e8/ftEmwy7RLKVML89ih
-	9AE/WgZ+aTh8OBkhqiJqbzYceyFjp2TPh4v/IvX1JojFRSs+xNdl2HJZiBTs7/BKj2UQVlVswOqVG
-	vpYN3rrA==;
+	bh=Fj96/yHeNPt6Cv4EkJ4bgbsXqIfa2PjP2NmQ5QjGnZU=; b=jT/zQsz6eMV2dROR9ZZANU2lBU
+	Zpou7AtVRJ90cI+I8fwq0W8poJg9UfPHN3db8qqulIxCor5xi9Wh3f9zgq8V17Bd+W/DBVw725oDl
+	RD/RPsC5Pt88zLJx6v6vAO6uZdTZ2XeVsj0mHbUMthdSuE0E7DGWIJtQe7cdCNTymvdUeAJsA+tlE
+	0RXX/SwUrBzpxYxqVfb9WoH+BWZJ4ltN8dk5IrqP2SNga4yscteWFHYeio0EC1ma5Lrs+MvGDNY0C
+	MwUY8ji/gDWRxUxXrBaGevyEI7kWuYd+7tSYnLy54SuEsBfwyl1UVx++ny7vyWizBt4/8oPXDpnDg
+	yeT6+8OQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wRtNp-00000002K2W-0SYc;
-	Tue, 26 May 2026 15:07:53 +0000
-Received: from tor.source.kernel.org ([172.105.4.254])
+	id 1wRtZD-00000002LUK-0MPs;
+	Tue, 26 May 2026 15:19:39 +0000
+Received: from sea.source.kernel.org ([172.234.252.31])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wRtNn-00000002K2Q-2LLD
+	id 1wRtZB-00000002LTg-2BcO
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 26 May 2026 15:07:51 +0000
+	Tue, 26 May 2026 15:19:38 +0000
 Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
-	by tor.source.kernel.org (Postfix) with ESMTP id F0E4760123;
-	Tue, 26 May 2026 15:07:50 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id D65CC1F00A3A;
-	Tue, 26 May 2026 15:07:48 +0000 (UTC)
+	by sea.source.kernel.org (Postfix) with ESMTP id EC17340015;
+	Tue, 26 May 2026 15:19:36 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 21C411F000E9;
+	Tue, 26 May 2026 15:19:32 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1779808070;
-	bh=6SqJFKinbEr7svW1dQW6jTP27boWm+szW3qKbXBVvW4=;
+	s=k20260515; t=1779808776;
+	bh=Fj96/yHeNPt6Cv4EkJ4bgbsXqIfa2PjP2NmQ5QjGnZU=;
 	h=Date:From:To:Cc:Subject:References:In-Reply-To;
-	b=GTAatHrP3iJIl9JT988fS1WFiaKoTnRfabeWG/y+gaP4r6qd54u9cbUuWHelFzedy
-	 Erzg6WtrjXYY0epwNZBtAJ9DfB4HJ1857jYJe2pdJE73MObjjqCDlw1AGC78+4p4bk
-	 XRvtB27ml/610OAsdiNt/yOKJlEVeX9orF20AumHj84pSol8hcRo1jxS4gaFxBByf2
-	 yV39DOZuSt/wKLMVAt+/Pq/2WVZ6M6YmcaNzzi5dtYChYFm7c1olo1ngYtLLKZ3oyG
-	 b6g5N9PQuzO90foJu6ndG+tykKwHk2L/y8Zk5U+1MyR9ORt9wePLJWXV+XXzcpgOQK
-	 wWd2PFP91pshg==
-Date: Tue, 26 May 2026 16:07:45 +0100
-From: Will Deacon <will@kernel.org>
-To: Kevin Brodsky <kevin.brodsky@arm.com>
-Cc: Vishal Moola <vishal.moola@gmail.com>,
+	b=DEXgZHuw791/GRbMTcEj+6sGSTqq8DcjMj+sMViOavnQ7zCZ1XF093R0JwczhqgLW
+	 rWzmwVldZKVRyxDJp8jkNVDFSQ4mz8lUiQzzw3d6FwTP1fVx6aVcpYivjY5fMYo3pj
+	 gkQg9QVkMK9nzrCsfj5DASsHTvJhWbbnhEikgkKCmNfTO1sDzOnONxPnIpoiz/zEoz
+	 68YRryRoA3VRde5fpfdWcb3qBQ2KcgLO4iSzhh59cdngtJQF7NXAy0MPsvAoKw7ZUg
+	 FjEXx7lwWFiKCNp9cQOHX6p/zGyaoPiPy0Hg1JaibiaGNdDzip5H24JrHuVX8tfSYO
+	 OgGLH694iilFw==
+Date: Tue, 26 May 2026 16:19:30 +0100
+From: Mark Brown <broonie@kernel.org>
+To: Mark Rutland <mark.rutland@arm.com>
+Cc: Marc Zyngier <maz@kernel.org>, Joey Gouly <joey.gouly@arm.com>,
 	Catalin Marinas <catalin.marinas@arm.com>,
-	Andrew Morton <akpm@linux-foundation.org>,
-	Alistair Popple <apopple@nvidia.com>,
-	linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org,
-	linux-mm@kvack.org, david@kernel.org
-Subject: Re: [PATCH] arm64: mm: call pagetable dtor when freeing hot-removed
- page tables
-Message-ID: <ahW3QYiYjjVB4Knv@willie-the-truck>
-References: <20260521032730.2104017-1-apopple@nvidia.com>
- <20260521153130.d7d5cd060f7522f894252333@linux-foundation.org>
- <ahACfQ6kCfONqz5h@arm.com>
- <ahAjudlB32VbkKbG@fedora>
- <92450154-e1ab-46e4-b23d-eaa59c9cdd3b@arm.com>
+	Suzuki K Poulose <suzuki.poulose@arm.com>,
+	Will Deacon <will@kernel.org>, Paolo Bonzini <pbonzini@redhat.com>,
+	Jonathan Corbet <corbet@lwn.net>, Shuah Khan <shuah@kernel.org>,
+	Oliver Upton <oupton@kernel.org>, Dave Martin <Dave.Martin@arm.com>,
+	Fuad Tabba <tabba@google.com>, Ben Horgan <ben.horgan@arm.com>,
+	linux-arm-kernel@lists.infradead.org, kvmarm@lists.linux.dev,
+	linux-kernel@vger.kernel.org, kvm@vger.kernel.org,
+	linux-doc@vger.kernel.org, linux-kselftest@vger.kernel.org,
+	Peter Maydell <peter.maydell@linaro.org>,
+	Eric Auger <eric.auger@redhat.com>
+Subject: Re: [PATCH v10 02/30] arm64/fpsimd: Update FA64 and ZT0 enables when
+ loading SME state
+Message-ID: <733ec6da-c8de-4b6b-9ab7-1f819a1a8465@sirena.org.uk>
+References: <20260306-kvm-arm64-sme-v10-0-43f7683a0fb7@kernel.org>
+ <20260306-kvm-arm64-sme-v10-2-43f7683a0fb7@kernel.org>
+ <ahWWqU51Zffmhlo5@J2N7QTR9R3>
+ <d8074c6b-9bc9-496e-8a74-94ac18ce9a55@sirena.org.uk>
+ <ahWsRNb9uZhf46hG@J2N7QTR9R3>
 MIME-Version: 1.0
-Content-Type: text/plain; charset=us-ascii
+Content-Type: multipart/signed; micalg=pgp-sha512;
+	protocol="application/pgp-signature"; boundary="lTHQvf4c3zxfQxl6"
 Content-Disposition: inline
-In-Reply-To: <92450154-e1ab-46e4-b23d-eaa59c9cdd3b@arm.com>
+In-Reply-To: <ahWsRNb9uZhf46hG@J2N7QTR9R3>
+X-Cookie: You are fairminded, just and loving.
+X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
+X-CRM114-CacheID: sfid-20260526_081937_596546_023B6115 
+X-CRM114-Status: GOOD (  17.77  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -77,45 +88,48 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Tue, May 26, 2026 at 01:54:00PM +0200, Kevin Brodsky wrote:
-> On 22/05/2026 11:36, Vishal Moola wrote:
-> >> diff --git a/arch/arm64/mm/mmu.c b/arch/arm64/mm/mmu.c
-> >> index 4c8959153ac4..9d42cbddce27 100644
-> >> --- a/arch/arm64/mm/mmu.c
-> >> +++ b/arch/arm64/mm/mmu.c
-> >> @@ -1441,6 +1441,9 @@ static void free_hotplug_page_range(struct page *page, size_t size,
-> >>  
-> >>  static void free_hotplug_pgtable_page(struct page *page)
-> >>  {
-> >> +	if (folio_test_pgtable(page_folio(page)))
-> > This should work.
-> >
-> >> +		pagetable_dtor(page_ptdesc(page));
-> >> +
-> >>  	free_hotplug_page_range(page, PAGE_SIZE, NULL);
-> > In the case we presumably have a page table page (ptdesc) at this
-> > point, we should really be freeing it with pagetable_free() as well.
-> 
-> Agreed, I think this is the right thing to do, something like:
-> 
-> if (folio_test_pgtable(page_folio(page)))
-> pagetable_dtor_free(page_ptdesc(page)); else
-> free_hotplug_page_range(page, PAGE_SIZE, NULL);
-> 
-> 
-> Strangely enough x86 calls pagetable_free() in both cases.
-> 
-> My series protecting page tables with pkeys has a patch [1] to get
-> vmemmap to allocate page tables with pagetable_alloc(). The diff above
-> will require pagetable_*_ctor() to be called as well, but I think that's
-> the right thing to do anyway. That could be posted as a separate series,
-> but I'm hesitant due to the lack of NUMA awareness in pagetable_alloc().
 
-I agree that calling the ctor()/dtor() functions consistently is the
-cleanest approach and that will need something like your patch to call
-the constructor from vmemmap_alloc_block_zero(). Trying to elide these
-calls for the page-table pages used to map the altmap just feels odd to
-me, as there isn't anything particularly special about them afaik.
+--lTHQvf4c3zxfQxl6
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
 
-Will
+On Tue, May 26, 2026 at 03:20:52PM +0100, Mark Rutland wrote:
+> On Tue, May 26, 2026 at 02:25:56PM +0100, Mark Brown wrote:
+
+> > I was explicitly going for the opposite of that in order to make it
+> > harder for someone implementing a future extension to miss a place where
+> > an update is required, having the callers independently constructing the
+> > register values feels like it's asking for trouble.
+
+> I didn't say callers should *construct* the value independently, and I
+> showed how to centralize the construction in a __task_smcr() function.
+
+> I think callers should pass the entire value around rather than a
+> collection of discrete booleans: constructing a collection of discrete
+> booleans is functionally equivalent to construction the entire value,
+> and we can more easily manage the construction and passing of the entire
+> value.
+
+I got that, the problem I see is that it's equivalent to passing the
+entire value right up until the point where there's another field that
+needs managing and then every place that sets a new value needs to make
+sure it does the right thing.  I think a __task_smcr() that constructs
+the value each time time as you suggest avoids that well enough.
+
+--lTHQvf4c3zxfQxl6
+Content-Type: application/pgp-signature; name="signature.asc"
+
+-----BEGIN PGP SIGNATURE-----
+
+iQEzBAABCgAdFiEEreZoqmdXGLWf4p/qJNaLcl1Uh9AFAmoVugEACgkQJNaLcl1U
+h9BPlwf/Ze/FTGkfrNEWHYQnTukgy62jd2hLEoI81w2cJWeW1iKUcQRKDOnQqfoO
+tdiYqwOiv+lncrlx2l1VXph79UoTYcP6qxN3lKt1cGQVqaTEDXmtMz4uQ4ZJo5Sq
+mqMEFr4VxrejxmenvuTBM4Oz9NT+nGVviTN0lZor1Kn6+8TDPhbJ5SuTCsPy1W1g
+Vc+z92OsPbX2Pv/0v9diUBqEZ5IMEbDL8oGAn7XTXFkgO5ERDV5rDuMn5bza4a2c
+g9SL5xHA4uqZtpCHJWFUninWXEF82rbjg3oJxg0V63ZTMsfoZaW30LH3RATwqbSw
+fx5ZyMSwIve2BQRIl/4avbmXOPJBpw==
+=v5ln
+-----END PGP SIGNATURE-----
+
+--lTHQvf4c3zxfQxl6--
 
