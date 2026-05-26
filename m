@@ -4,61 +4,67 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id BFBCBCD5BB1
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 26 May 2026 18:44:32 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id B10A9CD5BC8
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 26 May 2026 18:46:05 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=YmfxbnauUmkzK854kmYOR4Xc0TjQJxYDT+OqVUV3in8=; b=BhqN9M5die3ub/ki8j7M9fbc6+
-	ESEhZ8DWXM0Pyr9eNyI+3wluPwmBy73fIHhNlCPQQdJFjhAHZ9MJw3upm+aHNMsJgP/I5Z/xrXXAm
-	CJnnqeuETPeNQLa5cnx93d3HckZZQsV0EdXCwdbrgnLP1eBq156LfeYQkOjH7RLDnQC74KjeNwKzc
-	k9K+iEd1LtrF3+P6daPQkmc35ElxLNSfYf9ANpzQvRzOcM1973Mkdqlm2ySiKy0uxiAm+GxmIMjSv
-	OSY0y0Tq4Lavb2CBUKhqCepBBm1JxzxqvzgaTbihvEwWT+dtoq6i+9L81BtXcuZXo6DeDT7g1ywfh
-	6iNlbhHA==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:MIME-Version:References:In-Reply-To:Message-ID:Subject:Cc:To:
+	From:Date:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=5ngCoUCdLUTbdrymHOsCev6X6hH5iQoI3DmGS6ubV2s=; b=zekaBUurAJp6dGeflsFwoFcFGk
+	HFUzvf4wTr35fmvqPQ/3+/YKRv0TlGRFJcgDwrt9U+cZjopEpDc3mBsIqGz400lalzS1c02eu5jQU
+	BR7B8uc/rCKKZ1+7RG4uG4CrnC31idAbmVWBOuvWl6Ak70vs77PyYpBDgjhdHAqL23+OkAXSOzmHL
+	vV3CZG14DfL468LACa4nm0Fp/F3oW7zhu9ZIoAtDaCNKYym3T3HWu+jJR90ayJCdQCEH7FUisM1Wx
+	f0yVRY9k7P2+6OD/ub1Jp3n2ASu3iFl1JxIKzuWnCc7p+upUE+3BZipx05zwz+BS1vHgnDWqYRpGK
+	R+sP7aaw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wRwlO-00000002s0g-1eV0;
-	Tue, 26 May 2026 18:44:26 +0000
-Received: from foss.arm.com ([217.140.110.172])
-	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wRwlM-00000002rzj-1CgF
+	id 1wRwGn-00000002pfT-3yxN;
+	Tue, 26 May 2026 18:12:49 +0000
+Received: from tor.source.kernel.org ([2600:3c04:e001:324:0:1991:8:25])
+	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
+	id 1wRwGn-00000002pf5-07sh
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 26 May 2026 18:44:25 +0000
-Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
-	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id 429012BCA;
-	Tue, 26 May 2026 11:44:17 -0700 (PDT)
-Received: from arm.com (usa-sjc-mx-foss1.foss.arm.com [172.31.20.19])
-	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id E84CC3F7B4;
-	Tue, 26 May 2026 11:44:20 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=simple/simple; d=arm.com; s=foss;
-	t=1779821062; bh=7/GKK9Xs5YFpcLA3j6qlOr9qtyCyn+LpUFftgBBUrUo=;
-	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
-	b=MZMn8o66Lxhw2NGPpMnkeSQVR9oc3SNYuHEo7XiIIBjLBc5RvWALHojca6aGqBQm5
-	 Cte3LnM0B70Q9IKkwKUwfyX1slBENOolIl3tyW0XIl4/02CcORuJccQ1z5b58ur8Az
-	 a4gGoi6dqNOWup5LmEtMeVpnX+HRhqV+IE9Vi2eY=
-Date: Tue, 26 May 2026 19:44:18 +0100
-From: Catalin Marinas <catalin.marinas@arm.com>
-To: Marc Zyngier <maz@kernel.org>
-Cc: linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org,
-	Will Deacon <will@kernel.org>, Mark Rutland <mark.rutland@arm.com>,
-	Thomas Gleixner <tglx@kernel.org>, Ben Horgan <ben.horgan@arm.com>,
-	Daniel Lezcano <daniel.lezcano@linaro.org>
-Subject: Re: [PATCH v2 5/5] arm64: Convert __delay_cycles() to
- arch_timer_read_vcounter()
-Message-ID: <ahXqAgZWOgzUDEel@arm.com>
-References: <20260508094203.2913880-1-maz@kernel.org>
- <20260508094203.2913880-6-maz@kernel.org>
+	Tue, 26 May 2026 18:12:49 +0000
+Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
+	by tor.source.kernel.org (Postfix) with ESMTP id CA36460018;
+	Tue, 26 May 2026 18:12:47 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 6C74F1F000E9;
+	Tue, 26 May 2026 18:12:40 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
+	s=k20260515; t=1779819167;
+	bh=5ngCoUCdLUTbdrymHOsCev6X6hH5iQoI3DmGS6ubV2s=;
+	h=Date:From:To:Cc:Subject:In-Reply-To:References;
+	b=j/tm/PMK6+xds8mCajlHkpjxIdln5XEF/6vMWcOztxsauj1YR3ATmxVMine3MbaIr
+	 18ADqFnZ5vyMr3g2fI2ATHMYtCdy6BpHvi3j6IqhI0isnTMraXyFLlQyOaeDiDCo2X
+	 gf1tys8RZWGoVuqNvkA4fesqF1kf6vFx/4mS1N2ATGABncvcZPrLCFwzynRAb1Yv10
+	 wNnQW7AQFUY6vBX6t9C38qNM+9ouImx91LGPOKrQRb9Uha1kyyPzncAClj2O77Pkc1
+	 BwaSViJRG/pCvr8LOwbOfuanKixf9gGBp4LquqcbtG+ToBhBdML4N2BbF8SnontwTb
+	 +23XpWM/w0rrg==
+Date: Tue, 26 May 2026 19:12:35 +0100
+From: Jonathan Cameron <jic23@kernel.org>
+To: David Lechner <dlechner@baylibre.com>
+Cc: Jyoti Bhayana <jbhayana@google.com>, Nuno =?UTF-8?B?U8Oh?=
+ <nuno.sa@analog.com>, Andy Shevchenko <andy@kernel.org>, Nicolas Ferre
+ <nicolas.ferre@microchip.com>, Alexandre Belloni
+ <alexandre.belloni@bootlin.com>, Claudiu Beznea <claudiu.beznea@tuxon.dev>,
+ Maxime Coquelin <mcoquelin.stm32@gmail.com>, Alexandre Torgue
+ <alexandre.torgue@foss.st.com>, Benson Leung <bleung@chromium.org>, Guenter
+ Roeck <groeck@chromium.org>, linux-iio@vger.kernel.org,
+ linux-kernel@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
+ linux-stm32@st-md-mailman.stormreply.com, chrome-platform@lists.linux.dev,
+ Andy Shevchenko <andriy.shevchenko@linux.intel.com>
+Subject: Re: [PATCH] iio: pressure: cros_ec_baro: simplify timestamp channel
+ definition
+Message-ID: <20260526191235.0a01be62@jic23-huawei>
+In-Reply-To: <3c12da03-6c62-4045-b831-e7b07c0ecb5d@baylibre.com>
+References: <20260525014654.2399354-1-dlechner@baylibre.com>
+	<3c12da03-6c62-4045-b831-e7b07c0ecb5d@baylibre.com>
+X-Mailer: Claws Mail 4.4.0 (GTK 3.24.52; x86_64-pc-linux-gnu)
 MIME-Version: 1.0
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-In-Reply-To: <20260508094203.2913880-6-maz@kernel.org>
-X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260526_114424_372779_CFD35535 
-X-CRM114-Status: UNSURE (   9.24  )
-X-CRM114-Notice: Please train this message.
+Content-Type: text/plain; charset=US-ASCII
+Content-Transfer-Encoding: 7bit
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -73,12 +79,26 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Fri, May 08, 2026 at 10:42:03AM +0100, Marc Zyngier wrote:
-> Relax the need for disabling preemption in __delay_cycles() by
-> using arch_timer_read_vcounter(), which will disable preemption
-> only when this is actually required.
-> 
-> Signed-off-by: Marc Zyngier <maz@kernel.org>
+On Sun, 24 May 2026 20:49:11 -0500
+David Lechner <dlechner@baylibre.com> wrote:
 
-Acked-by: Catalin Marinas <catalin.marinas@arm.com>
+> On 5/24/26 8:46 PM, David Lechner wrote:
+> > Use IIO_CHAN_SOFT_TIMESTAMP() to define the timestamp channel instead of
+> > manually filling in the struct iio_chan_spec fields. This makes the code
+> > less verbose and mistake-prone.
+> >   
+> FYI, there was a server error when doing b4 send, so this last patch
+> didn't get sent with the rest. I missed the [PATCH v2 9/9] when editing
+> it manually to send again.
+> 
+> 
+
+New and exciting way to confuse b4 :)  Anyhow easy to work around
+with a -v 2 for the first lot and then it thinks this one is v3 anyway.
+
+Applied.
+
+Thanks,
+
+Jonathan
 
