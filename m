@@ -4,119 +4,182 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 08BA6CD5BD0
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 26 May 2026 09:27:35 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id A299DCD5BD0
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 26 May 2026 09:28:32 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:CC:To:In-Reply-To:References
-	:Message-ID:Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:
-	From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
+	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=ZzI55iJCbyZtyJyjBplbYUD0YP6XX7CoeSsP+uWuQhg=; b=SSTzMtrvWeUGTM3RopolmgVUnE
-	kWeyJKj56SeHmgFz2hBFn+j0yPUDGKlCKXACxht8+FI3V5nyfLB3msfXL77CJGAk/5MTbQMctaqX2
-	oVLwsf0WOfgc+j5+hZo9gYQqtSGstd3LNaLuz4g8bzHD2fWPyojejCPtB4LYlmgLytOENGr0zz9SM
-	4kHaYvSOXZOaXmhnV7pXk8KBloq2wO4vskYxPD7Lem9YHlrfthopTA8Pdj69FPHby3dJSM/JR8XWR
-	CCNuN4NrSU2HLBjyRtHUmdXgpwgwB1oDYLxxU6ZiudRKPIkSUQ/wr/+COLEPXZVlGogvfbbBudHyr
-	3baUvB9A==;
+	bh=e1ycFbTDM1H/MkSqi8mEXcvsJDNC+SpL10p5P+mjlCM=; b=s5oXCoNCNSHpCngLG/qs6ct0bZ
+	EPIa0jaWFk6ZaAs877ejrR5R/zGjoCO6dACIFZ4urhiUUI9Pf980BRCZf6wb3EhXPUnAmJl8+Pu6R
+	qHdV9BkQUgf9L+eZcUhJRr3duXNMyhpJFL/wtJzPU0dJkIvg/WwyoGiqdrrFCxekAzUtrFGbA5qVz
+	3zNiuURX4LWECIUAYbvCIXOQIjhGSJ4YXgoiztDvtiQgUXSfybuTf20I3AsWoomLJt3Xh3A3sjdek
+	GE40TZggdroMzexziYVH6dKe6ee6WUZczmNQbIQfMgnPhoUHXqUK009brBGAqG/rX/Ppz+tUu05Ay
+	KBti8W1g==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wRo4O-00000001VRy-3FsI;
-	Tue, 26 May 2026 09:27:28 +0000
-Received: from mail-northeuropeazon11010021.outbound.protection.outlook.com ([52.101.84.21] helo=DB3PR0202CU003.outbound.protection.outlook.com)
+	id 1wRo5I-00000001Vv5-4AyX;
+	Tue, 26 May 2026 09:28:25 +0000
+Received: from smtp-out1.suse.de ([2a07:de40:b251:101:10:150:64:1])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wRo3y-00000001V7s-1hwz
+	id 1wRo5F-00000001Vtr-1mvw
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 26 May 2026 09:27:03 +0000
-ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
- b=BL/LItmBAKGfTw5XW/YQp3LmnwZ38ejXFFG7V29oRZ71pCZ00Dx+hAf2e62zuI/e+M+bA83Fh5Li72xLqbddz7DBCjzh4SbrHibNx5ElGgs4gwl5yVrLojLTeFkW5Na9ITLiu/Eesj67i5JQc2AG6njhVQN2MGWFLCgEmwz67DADQmx3DDuc21eObRd7f4ZatF8QXo+PR4pO/6yc0NL3U2MLTxT/v3ZAgRPWo5difGY4rMsk7RW+E32w4uIPP0iv9T8r4z/r6A17g+8yRK5WT/qJWdPnojBWzvlND9/Fo52sSkGwmKDkULkHVnnhEfZK8YcHhgnL1kUbGxL55175Ew==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
- s=arcselector10001;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
- bh=ZzI55iJCbyZtyJyjBplbYUD0YP6XX7CoeSsP+uWuQhg=;
- b=oSPWtcocsem5/Wkzhv6xEyunH3Jn8ggO80UqiEBTQ0NWogpngBWHEUZgmJNOcVIItFg2S13dQLVLa+71Con+apOdpSUl/S9P9NOaM3HXgJpzQzGQ1sHsHhESIrQwchPy1948lpZHGfZxC1jjfpV9omgEwZGG6rAFwMsTRZ/q+4KeM2FuVGTeyk8BrV/Rkag0sY1KOj0iT4EWVIrMZ6+KEg1WJhIsHf4ZEmyJ1pyFmwBIGzXb/aXTzZHkwCt68xamvY71tsumEwKhKDzKB9KxhWPRXUxnWOWnnbOvMgAES5uhrFehQF0ntU04VICnG2Sr9j7MqPv61Mtml/hmzTZJ3A==
-ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=fail (sender ip is
- 164.130.1.59) smtp.rcpttodomain=kernel.org smtp.mailfrom=foss.st.com;
- dmarc=fail (p=none sp=none pct=100) action=none header.from=foss.st.com;
- dkim=none (message not signed); arc=none (0)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=foss.st.com;
- s=selector2;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
- bh=ZzI55iJCbyZtyJyjBplbYUD0YP6XX7CoeSsP+uWuQhg=;
- b=hLcaVhpywbXqrNWZhmNmx/Qv+7dncvzGtWcCyO/KQ7rt7Jo9yLJgl2nEW1ZGk1NWDjlMCRij8DJmMzl/w+Sfocz2KLRreigIDGaBJg2AFbUdq+t1rSZhejqy3tbNznFzVrYOymSYWj7hbssYhZLHhnwnUOsjphRDusH1GeAmxVd4J9ymTIhkTi5U7Fp59qOCSkmHyVFWQqd9x8Ir/Nks7L6mxXBvlyNeApat0lxinnzRnvMPJXfDn+lutfquWJ10CjFwyPQSyl70NzpPnMdVO8gy5V6fLnOraZ5xklskjKzwFeK4kOt+NDtUm0BzcMH+8RAv5HkDFFDQ4+FvHPbqRg==
-Received: from CWLP265CA0409.GBRP265.PROD.OUTLOOK.COM (2603:10a6:400:1b6::8)
- by DB9PR10MB5504.EURPRD10.PROD.OUTLOOK.COM (2603:10a6:10:307::15) with
- Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.21.71.11; Tue, 26 May
- 2026 09:26:52 +0000
-Received: from AM2PEPF0001C714.eurprd05.prod.outlook.com
- (2603:10a6:400:1b6:cafe::a) by CWLP265CA0409.outlook.office365.com
- (2603:10a6:400:1b6::8) with Microsoft SMTP Server (version=TLS1_3,
- cipher=TLS_AES_256_GCM_SHA384) id 15.21.71.12 via Frontend Transport; Tue, 26
- May 2026 09:26:52 +0000
-X-MS-Exchange-Authentication-Results: spf=fail (sender IP is 164.130.1.59)
- smtp.mailfrom=foss.st.com; dkim=none (message not signed)
- header.d=none;dmarc=fail action=none header.from=foss.st.com;
-Received-SPF: Fail (protection.outlook.com: domain of foss.st.com does not
- designate 164.130.1.59 as permitted sender) receiver=protection.outlook.com;
- client-ip=164.130.1.59; helo=smtpO365.st.com;
-Received: from smtpO365.st.com (164.130.1.59) by
- AM2PEPF0001C714.mail.protection.outlook.com (10.167.16.184) with Microsoft
- SMTP Server (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
- 15.21.71.7 via Frontend Transport; Tue, 26 May 2026 09:26:52 +0000
-Received: from STKDAG1NODE2.st.com (10.75.128.133) by smtpo365.st.com
- (10.250.44.71) with Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.2.2562.35; Tue, 26 May
- 2026 11:30:54 +0200
-Received: from localhost (10.48.87.93) by STKDAG1NODE2.st.com (10.75.128.133)
- with Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.2.2562.35; Tue, 26 May
- 2026 11:26:49 +0200
-From: Patrice Chotard <patrice.chotard@foss.st.com>
-Date: Tue, 26 May 2026 11:26:47 +0200
-Subject: [PATCH v7 7/7] arm64: dts: st: Add boot phase tags for
- STMicroelectronics mp2 boards
+	Tue, 26 May 2026 09:28:23 +0000
+Received: from imap1.dmz-prg2.suse.org (imap1.dmz-prg2.suse.org [IPv6:2a07:de40:b281:104:10:150:64:97])
+	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
+	 key-exchange X25519 server-signature RSA-PSS (4096 bits) server-digest SHA256)
+	(No client certificate requested)
+	by smtp-out1.suse.de (Postfix) with ESMTPS id 0BE4E6B11C;
+	Tue, 26 May 2026 09:28:19 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=suse.de; s=susede2_rsa;
+	t=1779787699; h=from:from:reply-to:date:date:message-id:message-id:to:to:cc:cc:
+	 mime-version:mime-version:content-type:content-type:
+	 content-transfer-encoding:content-transfer-encoding:
+	 in-reply-to:in-reply-to:references:references:autocrypt:autocrypt;
+	bh=e1ycFbTDM1H/MkSqi8mEXcvsJDNC+SpL10p5P+mjlCM=;
+	b=PUVYor5zx7Jt+ICxWfd9bLJwBsE+2vq9/K+2zVitrvTgxyjLcKFtGv5SvhmQHFhyWNopRu
+	6S0GBXIxSI0LovcCDAENVq0FVqKHhceyWVQ5VPW8q4BvJ3Tws5efEvtPnRNrlkaW0FOUIT
+	kyrTbKZQVbIZ+Oncm+SBKvK18yZf8lE=
+DKIM-Signature: v=1; a=ed25519-sha256; c=relaxed/relaxed; d=suse.de;
+	s=susede2_ed25519; t=1779787699;
+	h=from:from:reply-to:date:date:message-id:message-id:to:to:cc:cc:
+	 mime-version:mime-version:content-type:content-type:
+	 content-transfer-encoding:content-transfer-encoding:
+	 in-reply-to:in-reply-to:references:references:autocrypt:autocrypt;
+	bh=e1ycFbTDM1H/MkSqi8mEXcvsJDNC+SpL10p5P+mjlCM=;
+	b=ze1+YUzqyKtBg14ZF61vCY6plLvB0Uc0m8BFw1rrj3ZtfBmAlXNYJ9kIjPoq9gdPHp4i+x
+	OGTnbbxjY+5aoCBA==
+Authentication-Results: smtp-out1.suse.de;
+	dkim=pass header.d=suse.de header.s=susede2_rsa header.b=PUVYor5z;
+	dkim=pass header.d=suse.de header.s=susede2_ed25519 header.b=ze1+YUzq
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=suse.de; s=susede2_rsa;
+	t=1779787699; h=from:from:reply-to:date:date:message-id:message-id:to:to:cc:cc:
+	 mime-version:mime-version:content-type:content-type:
+	 content-transfer-encoding:content-transfer-encoding:
+	 in-reply-to:in-reply-to:references:references:autocrypt:autocrypt;
+	bh=e1ycFbTDM1H/MkSqi8mEXcvsJDNC+SpL10p5P+mjlCM=;
+	b=PUVYor5zx7Jt+ICxWfd9bLJwBsE+2vq9/K+2zVitrvTgxyjLcKFtGv5SvhmQHFhyWNopRu
+	6S0GBXIxSI0LovcCDAENVq0FVqKHhceyWVQ5VPW8q4BvJ3Tws5efEvtPnRNrlkaW0FOUIT
+	kyrTbKZQVbIZ+Oncm+SBKvK18yZf8lE=
+DKIM-Signature: v=1; a=ed25519-sha256; c=relaxed/relaxed; d=suse.de;
+	s=susede2_ed25519; t=1779787699;
+	h=from:from:reply-to:date:date:message-id:message-id:to:to:cc:cc:
+	 mime-version:mime-version:content-type:content-type:
+	 content-transfer-encoding:content-transfer-encoding:
+	 in-reply-to:in-reply-to:references:references:autocrypt:autocrypt;
+	bh=e1ycFbTDM1H/MkSqi8mEXcvsJDNC+SpL10p5P+mjlCM=;
+	b=ze1+YUzqyKtBg14ZF61vCY6plLvB0Uc0m8BFw1rrj3ZtfBmAlXNYJ9kIjPoq9gdPHp4i+x
+	OGTnbbxjY+5aoCBA==
+Received: from imap1.dmz-prg2.suse.org (localhost [127.0.0.1])
+	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
+	 key-exchange X25519 server-signature RSA-PSS (4096 bits) server-digest SHA256)
+	(No client certificate requested)
+	by imap1.dmz-prg2.suse.org (Postfix) with ESMTPS id 17D095A12A;
+	Tue, 26 May 2026 09:28:18 +0000 (UTC)
+Received: from dovecot-director2.suse.de ([2a07:de40:b281:106:10:150:64:167])
+	by imap1.dmz-prg2.suse.org with ESMTPSA
+	id /hxgBLJnFWpwAQAAD6G6ig
+	(envelope-from <tzimmermann@suse.de>); Tue, 26 May 2026 09:28:18 +0000
+Message-ID: <12542083-04b9-4e49-98f6-4715df6b4764@suse.de>
+Date: Tue, 26 May 2026 11:28:17 +0200
 MIME-Version: 1.0
-Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: 7bit
-Message-ID: <20260526-upstream_uboot_properties-v7-7-e17cd424d5db@foss.st.com>
-References: <20260526-upstream_uboot_properties-v7-0-e17cd424d5db@foss.st.com>
-In-Reply-To: <20260526-upstream_uboot_properties-v7-0-e17cd424d5db@foss.st.com>
-To: Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>,
-	Conor Dooley <conor+dt@kernel.org>, Maxime Coquelin
-	<mcoquelin.stm32@gmail.com>, Alexandre Torgue <alexandre.torgue@foss.st.com>,
-	Patrick Delaunay <patrick.delaunay@foss.st.com>, Christoph Niedermaier
-	<cniedermaier@dh-electronics.com>, Marek Vasut <marex@denx.de>
-CC: <devicetree@vger.kernel.org>, <linux-stm32@st-md-mailman.stormreply.com>,
-	<linux-arm-kernel@lists.infradead.org>, <linux-kernel@vger.kernel.org>,
-	<kernel@dh-electronics.com>, Patrice Chotard <patrice.chotard@foss.st.com>
-X-Mailer: b4 0.14.3
-X-Originating-IP: [10.48.87.93]
-X-ClientProxiedBy: STKCAS1NODE1.st.com (10.75.128.134) To STKDAG1NODE2.st.com
- (10.75.128.133)
-X-EOPAttributedMessage: 0
-X-MS-PublicTrafficType: Email
-X-MS-TrafficTypeDiagnostic: AM2PEPF0001C714:EE_|DB9PR10MB5504:EE_
-X-MS-Office365-Filtering-Correlation-Id: 2d53bf13-e14e-459e-c976-08debb08ec08
-X-MS-Exchange-SenderADCheck: 1
-X-MS-Exchange-AntiSpam-Relay: 0
-X-Microsoft-Antispam: BCL:0;ARA:13230040|1800799024|376014|82310400026|7416014|36860700016|3023799007|11063799006|18002099003|56012099003|22082099003;
-X-Microsoft-Antispam-Message-Info: VfKHGIBZT85nHqLPl2V18+DqryDhwrhzUT+uSx/Y/xn6uryJE+ho211hU9Dg1Q+LhKUSvYHw4nkpD4Oem0Zh5PSP6mkctibhZ2rTfS2GDPWfUrMCN1677naPb9uxPswUzrFrmiAvgE69ZdIN47AYGk4g5MdMybk6OLYmQ6LcILz8zfIANmd1L8xEWE0zHDagC4qYw+Keu4dRxJnqrZRSVYftq4xx3un9L2fyD4OEvHcAT+hEt6/o+QUKlCzhL12jNt81Y74aGGwCtindrRjzphl4bBXerBBTHWPr819M4hoIOclug7ZKDP70Jus5ioXdw+BVjCYs86USSW87g1kDWhoG3WiFDUQaVK528fdMkfyW9FMfEuqU4n8F6jhZeStGHN15u5/ggRqRhBdx2q/5TOPwqefZWFCSjouq4v5Au1Aeja8TYx2+ccWKJBYdKASb88sFfnaC5mcK3f1F5YYb5BliS4RZzdqVPuL6UBKWbRVR+Voazkii/ZCLRvrYjbnsox1/qg/wjHypmnTN3QQ0dsKis/Fwfi32YzeU9mNa1Iz0XxmwvxKlt/Njug21ghMzAxrdOlE3pgpk4o86fvztJh1GBsK4NxcT3F3guDT/IRR6hVmo9udl6LwBxjQYrieIYCT3DwhS2klMrAFyYCzEze5FvLKDi07TY0vUNdVRQ0oQg+RVU7ds6Yi7SJHBWCcX94C+9ga2AEigMwzL8CROYtzFYacqkrQQh3YUXyZXk2E=
-X-Forefront-Antispam-Report: CIP:164.130.1.59;CTRY:IT;LANG:en;SCL:1;SRV:;IPV:CAL;SFV:NSPM;H:smtpO365.st.com;PTR:InfoDomainNonexistent;CAT:NONE;SFS:(13230040)(1800799024)(376014)(82310400026)(7416014)(36860700016)(3023799007)(11063799006)(18002099003)(56012099003)(22082099003);DIR:OUT;SFP:1101;
-X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
-X-MS-Exchange-AntiSpam-MessageData-0: gk9tLZbWW/6bDJ/4lUjt2ZU9yn/uSE4Dm/cnARrc3kxb1+5SS/D7bNOOgdcWRr3XCZtKreD9vN8FCXICl2xHRwhXdBcKDN5PmMBv3iSNVlM9dFFQzPhm6yV8e/hQaBU6JOiU64hKvg+opsjjqOQ8J8+/dWaj2pbFi92CLaeANKx4GTtzmjDPJg/gfGlvrda61Ikavjc3oGJnUrrtnnMLMePJPGjtUIDpmhAnDGTyXdPws/WNalJdKdoydSsA3LN5v3gP2lFvWUXszdX8WGGE3L69tVyYzLyOmH0/DR1Jra9Pq8SgjJtTvDJO80PWmY3OeqxtcTEiA2to5efq7fYg1A1wwgfh+xuDj4hpTcO2HDop362h7DF+qq4oiK88tXnvd7tuiwlaXXziR0z+WxV48BiHr6/+zVoh7yYWbZ09dlE2iboBpfnl0Ga3LLWny8Pm
-X-OriginatorOrg: foss.st.com
-X-MS-Exchange-CrossTenant-OriginalArrivalTime: 26 May 2026 09:26:52.6478
- (UTC)
-X-MS-Exchange-CrossTenant-Network-Message-Id: 2d53bf13-e14e-459e-c976-08debb08ec08
-X-MS-Exchange-CrossTenant-Id: 75e027c9-20d5-47d5-b82f-77d7cd041e8f
-X-MS-Exchange-CrossTenant-OriginalAttributedTenantConnectingIp: TenantId=75e027c9-20d5-47d5-b82f-77d7cd041e8f;Ip=[164.130.1.59];Helo=[smtpO365.st.com]
-X-MS-Exchange-CrossTenant-AuthSource: AM2PEPF0001C714.eurprd05.prod.outlook.com
-X-MS-Exchange-CrossTenant-AuthAs: Anonymous
-X-MS-Exchange-CrossTenant-FromEntityHeader: HybridOnPrem
-X-MS-Exchange-Transport-CrossTenantHeadersStamped: DB9PR10MB5504
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH v5 15/19] drm/connector: Add new atomic_create_state
+ callback
+To: Maxime Ripard <mripard@kernel.org>,
+ Maarten Lankhorst <maarten.lankhorst@linux.intel.com>,
+ David Airlie <airlied@gmail.com>, Simona Vetter <simona@ffwll.ch>,
+ Jonathan Corbet <corbet@lwn.net>, Shuah Khan <skhan@linuxfoundation.org>,
+ Dmitry Baryshkov <dmitry.baryshkov@oss.qualcomm.com>,
+ Jyri Sarha <jyri.sarha@iki.fi>,
+ Tomi Valkeinen <tomi.valkeinen@ideasonboard.com>,
+ Andrzej Hajda <andrzej.hajda@intel.com>,
+ Neil Armstrong <neil.armstrong@linaro.org>, Robert Foss <rfoss@kernel.org>,
+ Laurent Pinchart <Laurent.pinchart@ideasonboard.com>,
+ Jonas Karlman <jonas@kwiboo.se>, Jernej Skrabec <jernej.skrabec@gmail.com>,
+ Simon Ser <contact@emersion.fr>, Harry Wentland <harry.wentland@amd.com>,
+ Melissa Wen <mwen@igalia.com>, Sebastian Wick <sebastian.wick@redhat.com>,
+ Alex Hung <alex.hung@amd.com>, Jani Nikula <jani.nikula@linux.intel.com>,
+ Rodrigo Vivi <rodrigo.vivi@intel.com>,
+ Joonas Lahtinen <joonas.lahtinen@linux.intel.com>,
+ Tvrtko Ursulin <tursulin@ursulin.net>, Chen-Yu Tsai <wens@kernel.org>,
+ Samuel Holland <samuel@sholland.org>,
+ Dave Stevenson <dave.stevenson@raspberrypi.com>,
+ =?UTF-8?Q?Ma=C3=ADra_Canal?= <mcanal@igalia.com>,
+ Raspberry Pi Kernel Maintenance <kernel-list@raspberrypi.com>
+Cc: dri-devel@lists.freedesktop.org, linux-doc@vger.kernel.org,
+ linux-kernel@vger.kernel.org, Daniel Stone <daniels@collabora.com>,
+ intel-gfx@lists.freedesktop.org, intel-xe@lists.freedesktop.org,
+ linux-arm-kernel@lists.infradead.org, linux-sunxi@lists.linux.dev,
+ Laurent Pinchart <laurent.pinchart+renesas@ideasonboard.com>
+References: <20260519-drm-mode-config-init-v5-0-388b03321e38@kernel.org>
+ <20260519-drm-mode-config-init-v5-15-388b03321e38@kernel.org>
+Content-Language: en-US
+From: Thomas Zimmermann <tzimmermann@suse.de>
+Autocrypt: addr=tzimmermann@suse.de; keydata=
+ xsBNBFs50uABCADEHPidWt974CaxBVbrIBwqcq/WURinJ3+2WlIrKWspiP83vfZKaXhFYsdg
+ XH47fDVbPPj+d6tQrw5lPQCyqjwrCPYnq3WlIBnGPJ4/jreTL6V+qfKRDlGLWFjZcsrPJGE0
+ BeB5BbqP5erN1qylK9i3gPoQjXGhpBpQYwRrEyQyjuvk+Ev0K1Jc5tVDeJAuau3TGNgah4Yc
+ hdHm3bkPjz9EErV85RwvImQ1dptvx6s7xzwXTgGAsaYZsL8WCwDaTuqFa1d1jjlaxg6+tZsB
+ 9GluwvIhSezPgnEmimZDkGnZRRSFiGP8yjqTjjWuf0bSj5rUnTGiyLyRZRNGcXmu6hjlABEB
+ AAHNJ1Rob21hcyBaaW1tZXJtYW5uIDx0emltbWVybWFubkBzdXNlLmRlPsLAjgQTAQgAOAIb
+ AwULCQgHAgYVCgkICwIEFgIDAQIeAQIXgBYhBHIX+6yM6c9jRKFo5WgNwR1TC3ojBQJftODH
+ AAoJEGgNwR1TC3ojx1wH/0hKGWugiqDgLNXLRD/4TfHBEKmxIrmfu9Z5t7vwUKfwhFL6hqvo
+ lXPJJKQpQ2z8+X2vZm/slsLn7J1yjrOsoJhKABDi+3QWWSGkaGwRJAdPVVyJMfJRNNNIKwVb
+ U6B1BkX2XDKDGffF4TxlOpSQzdtNI/9gleOoUA8+jy8knnDYzjBNOZqLG2FuTdicBXblz0Mf
+ vg41gd9kCwYXDnD91rJU8tzylXv03E75NCaTxTM+FBXPmsAVYQ4GYhhgFt8S2UWMoaaABLDe
+ 7l5FdnLdDEcbmd8uLU2CaG4W2cLrUaI4jz2XbkcPQkqTQ3EB67hYkjiEE6Zy3ggOitiQGcqp
+ j//OwE0EWznS4AEIAMYmP4M/V+T5RY5at/g7rUdNsLhWv1APYrh9RQefODYHrNRHUE9eosYb
+ T6XMryR9hT8XlGOYRwKWwiQBoWSDiTMo/Xi29jUnn4BXfI2px2DTXwc22LKtLAgTRjP+qbU6
+ 3Y0xnQN29UGDbYgyyK51DW3H0If2a3JNsheAAK+Xc9baj0LGIc8T9uiEWHBnCH+RdhgATnWW
+ GKdDegUR5BkDfDg5O/FISymJBHx2Dyoklv5g4BzkgqTqwmaYzsl8UxZKvbaxq0zbehDda8lv
+ hFXodNFMAgTLJlLuDYOGLK2AwbrS3Sp0AEbkpdJBb44qVlGm5bApZouHeJ/+n+7r12+lqdsA
+ EQEAAcLAdgQYAQgAIAIbDBYhBHIX+6yM6c9jRKFo5WgNwR1TC3ojBQJftOH6AAoJEGgNwR1T
+ C3ojVSkIALpAPkIJPQoURPb1VWjh34l0HlglmYHvZszJWTXYwavHR8+k6Baa6H7ufXNQtThR
+ yIxJrQLW6rV5lm7TjhffEhxVCn37+cg0zZ3j7zIsSS0rx/aMwi6VhFJA5hfn3T0TtrijKP4A
+ SAQO9xD1Zk9/61JWk8OysuIh7MXkl0fxbRKWE93XeQBhIJHQfnc+YBLprdnxR446Sh8Wn/2D
+ Ya8cavuWf2zrB6cZurs048xe0UbSW5AOSo4V9M0jzYI4nZqTmPxYyXbm30Kvmz0rYVRaitYJ
+ 4kyYYMhuULvrJDMjZRvaNe52tkKAvMevcGdt38H4KSVXAylqyQOW5zvPc4/sq9c=
+In-Reply-To: <20260519-drm-mode-config-init-v5-15-388b03321e38@kernel.org>
+Content-Type: text/plain; charset=UTF-8; format=flowed
+Content-Transfer-Encoding: 8bit
+X-Rspamd-Queue-Id: 0BE4E6B11C
+X-Rspamd-Server: rspamd2.dmz-prg2.suse.org
+X-Spamd-Result: default: False [-3.01 / 50.00];
+	BAYES_HAM(-3.00)[100.00%];
+	SUSPICIOUS_RECIPS(1.50)[];
+	NEURAL_HAM_LONG(-1.00)[-1.000];
+	R_DKIM_ALLOW(-0.20)[suse.de:s=susede2_rsa,suse.de:s=susede2_ed25519];
+	NEURAL_HAM_SHORT(-0.20)[-1.000];
+	MIME_GOOD(-0.10)[text/plain];
+	MX_GOOD(-0.01)[];
+	RCPT_COUNT_TWELVE(0.00)[38];
+	FUZZY_RATELIMITED(0.00)[rspamd.com];
+	ARC_NA(0.00)[];
+	MIME_TRACE(0.00)[0:+];
+	FREEMAIL_TO(0.00)[kernel.org,linux.intel.com,gmail.com,ffwll.ch,lwn.net,linuxfoundation.org,oss.qualcomm.com,iki.fi,ideasonboard.com,intel.com,linaro.org,kwiboo.se,emersion.fr,amd.com,igalia.com,redhat.com,ursulin.net,sholland.org,raspberrypi.com];
+	DKIM_SIGNED(0.00)[suse.de:s=susede2_rsa,suse.de:s=susede2_ed25519];
+	SPAMHAUS_XBL(0.00)[2a07:de40:b281:104:10:150:64:97:from];
+	FREEMAIL_ENVRCPT(0.00)[gmail.com];
+	DKIM_TRACE(0.00)[suse.de:+];
+	TO_DN_SOME(0.00)[];
+	RCVD_COUNT_TWO(0.00)[2];
+	TO_MATCH_ENVRCPT_SOME(0.00)[];
+	FROM_EQ_ENVFROM(0.00)[];
+	FROM_HAS_DN(0.00)[];
+	RCVD_TLS_ALL(0.00)[];
+	DNSWL_BLOCKED(0.00)[2a07:de40:b281:106:10:150:64:167:received];
+	TAGGED_RCPT(0.00)[renesas];
+	MID_RHS_MATCH_FROM(0.00)[];
+	R_RATELIMIT(0.00)[to_ip_from(RL7gneoo7ydcsn9o76mxr5d8pb)];
+	RCVD_VIA_SMTP_AUTH(0.00)[];
+	DBL_BLOCKED_OPENRESOLVER(0.00)[ideasonboard.com:email,imap1.dmz-prg2.suse.org:rdns,imap1.dmz-prg2.suse.org:helo,qualcomm.com:email,suse.de:dkim,suse.de:email,suse.de:mid,suse.com:url]
+X-Rspamd-Action: no action
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260526_022702_638162_6DC5FA61 
-X-CRM114-Status: GOOD (  11.09  )
+X-CRM114-CacheID: sfid-20260526_022821_764452_100D031C 
+X-CRM114-Status: GOOD (  33.29  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -131,614 +194,236 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-The bootph-all flag was introduced in dt-schema
-(dtschema/schemas/bootph.yaml) to define node usage across
-different boot phases.
 
-To ensure SD boot, timer, gpio, syscfg, clock and uart nodes need to be
-present in all boot stages, so add missing bootph-all phase flag
-to these nodes to support SD boot.
 
-Signed-off-by: Patrice Chotard <patrice.chotard@foss.st.com>
----
- arch/arm64/boot/dts/st/stm32mp211.dtsi     |   4 +-
- arch/arm64/boot/dts/st/stm32mp215f-dk.dts  |  29 ++++++++
- arch/arm64/boot/dts/st/stm32mp231.dtsi     |   4 +-
- arch/arm64/boot/dts/st/stm32mp235f-dk.dts  |  95 ++++++++++++++++++++++++++
- arch/arm64/boot/dts/st/stm32mp251.dtsi     |   4 +-
- arch/arm64/boot/dts/st/stm32mp255.dtsi     |   2 +-
- arch/arm64/boot/dts/st/stm32mp257f-dk.dts  | 103 ++++++++++++++++++++++++++++
- arch/arm64/boot/dts/st/stm32mp257f-ev1.dts | 105 +++++++++++++++++++++++++++++
- 8 files changed, 339 insertions(+), 7 deletions(-)
+Am 19.05.26 um 11:01 schrieb Maxime Ripard:
+> Commit 47b5ac7daa46 ("drm/atomic: Add new atomic_create_state callback
+> to drm_private_obj") introduced a new pattern for allocating drm object
+> states.
+>
+> Instead of relying on the reset() callback, it created a new
+> atomic_create_state hook. This is helpful because reset is a bit
+> overloaded: it's used to create the initial software state, reset it,
+> but also reset the hardware.
+>
+> It can also be used either at probe time, to create the initial state
+> and possibly reset the hardware to an expected default, but also during
+> suspend/resume.
+>
+> Both these cases come with different expectations too: during the
+> initialization, we want to initialize all states, but during
+> suspend/resume, drm_private_states for example are expected to be kept
+> around.
+>
+> reset() also isn't fallible, which makes it harder to handle
+> initialization errors properly. This is only really relevant for some
+> drivers though, since all the helpers for reset only create a new
+> state, and don't touch the hardware at all.
+>
+> It was thus decided to create a new hook that would allocate and
+> initialize a pristine state without any side effect:
+> atomic_create_state to untangle a bit some of it, and to separate the
+> initialization with the actual reset one might need during a
+> suspend/resume.
+>
+> Continue the transition to the new pattern with connectors.
+>
+> Reviewed-by: Dmitry Baryshkov <dmitry.baryshkov@oss.qualcomm.com>
+> Reviewed-by: Laurent Pinchart <laurent.pinchart+renesas@ideasonboard.com>
+> Signed-off-by: Maxime Ripard <mripard@kernel.org>
 
-diff --git a/arch/arm64/boot/dts/st/stm32mp211.dtsi b/arch/arm64/boot/dts/st/stm32mp211.dtsi
-index 4bfd58b26b51..a79c056fdfb1 100644
---- a/arch/arm64/boot/dts/st/stm32mp211.dtsi
-+++ b/arch/arm64/boot/dts/st/stm32mp211.dtsi
-@@ -47,7 +47,7 @@ ck_flexgen_51: clock-200000000 {
- 	};
- 
- 	firmware {
--		optee {
-+		optee: optee {
- 			compatible = "linaro,optee-tz";
- 			method = "smc";
- 		};
-@@ -70,7 +70,7 @@ scmi_reset: protocol@16 {
- 		};
- 	};
- 
--	psci {
-+	psci: psci {
- 		compatible = "arm,psci-1.0";
- 		method = "smc";
- 	};
-diff --git a/arch/arm64/boot/dts/st/stm32mp215f-dk.dts b/arch/arm64/boot/dts/st/stm32mp215f-dk.dts
-index a1285abc80ca..100f787168d6 100644
---- a/arch/arm64/boot/dts/st/stm32mp215f-dk.dts
-+++ b/arch/arm64/boot/dts/st/stm32mp215f-dk.dts
-@@ -48,6 +48,35 @@ &bsec {
- 	bootph-all;
- };
- 
-+&optee {
-+	bootph-all;
-+};
-+
-+&psci {
-+	bootph-all;
-+};
-+
-+&rifsc {
-+	bootph-all;
-+};
-+
-+&scmi {
-+	bootph-all;
-+};
-+
-+&scmi_clk {
-+	bootph-all;
-+};
-+
-+&scmi_reset {
-+	bootph-all;
-+};
-+
-+&syscfg {
-+	bootph-all;
-+};
-+
- &usart2 {
-+	bootph-all;
- 	status = "okay";
- };
-diff --git a/arch/arm64/boot/dts/st/stm32mp231.dtsi b/arch/arm64/boot/dts/st/stm32mp231.dtsi
-index 9e1d240888ff..8942a5a29a1c 100644
---- a/arch/arm64/boot/dts/st/stm32mp231.dtsi
-+++ b/arch/arm64/boot/dts/st/stm32mp231.dtsi
-@@ -65,7 +65,7 @@ optee: optee {
- 			interrupts = <GIC_PPI 15 (GIC_CPU_MASK_SIMPLE(1) | IRQ_TYPE_LEVEL_LOW)>;
- 		};
- 
--		scmi {
-+		scmi: scmi {
- 			compatible = "linaro,scmi-optee";
- 			#address-cells = <1>;
- 			#size-cells = <0>;
-@@ -117,7 +117,7 @@ scmi_vdda18adc: regulator@7 {
- 		};
- 	};
- 
--	psci {
-+	psci: psci {
- 		compatible = "arm,psci-1.0";
- 		method = "smc";
- 
-diff --git a/arch/arm64/boot/dts/st/stm32mp235f-dk.dts b/arch/arm64/boot/dts/st/stm32mp235f-dk.dts
-index dd4efbe5a46e..0608b978cbe5 100644
---- a/arch/arm64/boot/dts/st/stm32mp235f-dk.dts
-+++ b/arch/arm64/boot/dts/st/stm32mp235f-dk.dts
-@@ -131,6 +131,10 @@ &arm_wdt {
- 	status = "okay";
- };
- 
-+&bsec {
-+	bootph-all;
-+};
-+
- &ethernet1 {
- 	pinctrl-0 = <&eth1_rgmii_pins_b>;
- 	pinctrl-1 = <&eth1_rgmii_sleep_pins_b>;
-@@ -153,6 +157,46 @@ phy1_eth1: ethernet-phy@1 {
- 	};
- };
- 
-+&gpioa {
-+	bootph-all;
-+};
-+
-+&gpiob {
-+	bootph-all;
-+};
-+
-+&gpioc {
-+	bootph-all;
-+};
-+
-+&gpiod {
-+	bootph-all;
-+};
-+
-+&gpioe {
-+	bootph-all;
-+};
-+
-+&gpiof {
-+	bootph-all;
-+};
-+
-+&gpiog {
-+	bootph-all;
-+};
-+
-+&gpioh {
-+	bootph-all;
-+};
-+
-+&gpioi {
-+	bootph-all;
-+};
-+
-+&gpioz {
-+	bootph-all;
-+};
-+
- &i2c2 {
- 	pinctrl-names = "default", "sleep";
- 	pinctrl-0 = <&i2c2_pins_b>;
-@@ -219,6 +263,38 @@ lvds_out0: endpoint {
- 	};
- };
- 
-+&optee {
-+	bootph-all;
-+};
-+
-+&pinctrl {
-+	bootph-all;
-+};
-+
-+&pinctrl_z {
-+	bootph-all;
-+};
-+
-+&psci {
-+	bootph-all;
-+};
-+
-+&rcc {
-+	bootph-all;
-+};
-+
-+&rifsc {
-+	bootph-all;
-+};
-+
-+&scmi {
-+	bootph-all;
-+};
-+
-+&scmi_clk {
-+	bootph-all;
-+};
-+
- &scmi_regu {
- 	scmi_vddio1: regulator@0 {
- 		regulator-min-microvolt = <1800000>;
-@@ -258,6 +334,10 @@ scmi_vdd_sdcard: regulator@23 {
- 	};
- };
- 
-+&scmi_reset {
-+	bootph-all;
-+};
-+
- &sdmmc1 {
- 	pinctrl-names = "default", "opendrain", "sleep";
- 	pinctrl-0 = <&sdmmc1_b4_pins_a>;
-@@ -272,12 +352,27 @@ &sdmmc1 {
- 	status = "okay";
- };
- 
-+&syscfg {
-+	bootph-all;
-+};
-+
- &usart2 {
- 	pinctrl-names = "default", "idle", "sleep";
- 	pinctrl-0 = <&usart2_pins_a>;
- 	pinctrl-1 = <&usart2_idle_pins_a>;
- 	pinctrl-2 = <&usart2_sleep_pins_a>;
-+	bootph-all;
- 	/delete-property/dmas;
- 	/delete-property/dma-names;
- 	status = "okay";
- };
-+
-+&usart2_pins_a {
-+	bootph-all;
-+	pins1 {
-+		bootph-all;
-+	};
-+	pins2 {
-+		bootph-all;
-+	};
-+};
-diff --git a/arch/arm64/boot/dts/st/stm32mp251.dtsi b/arch/arm64/boot/dts/st/stm32mp251.dtsi
-index 673fbc5632e6..190877cec012 100644
---- a/arch/arm64/boot/dts/st/stm32mp251.dtsi
-+++ b/arch/arm64/boot/dts/st/stm32mp251.dtsi
-@@ -68,7 +68,7 @@ optee: optee {
- 			interrupts = <GIC_PPI 15 (GIC_CPU_MASK_SIMPLE(1) | IRQ_TYPE_LEVEL_LOW)>;
- 		};
- 
--		scmi {
-+		scmi: scmi {
- 			compatible = "linaro,scmi-optee";
- 			#address-cells = <1>;
- 			#size-cells = <0>;
-@@ -139,7 +139,7 @@ v2m0: v2m@48090000 {
- 		};
- 	};
- 
--	psci {
-+	psci: psci {
- 		compatible = "arm,psci-1.0";
- 		method = "smc";
- 
-diff --git a/arch/arm64/boot/dts/st/stm32mp255.dtsi b/arch/arm64/boot/dts/st/stm32mp255.dtsi
-index 7a598f53a2a0..3ba4e6166586 100644
---- a/arch/arm64/boot/dts/st/stm32mp255.dtsi
-+++ b/arch/arm64/boot/dts/st/stm32mp255.dtsi
-@@ -40,4 +40,4 @@ venc: venc@480e0000 {
- 		clocks = <&rcc CK_BUS_VENC>;
- 		access-controllers = <&rifsc 90>;
- 	};
--};
-\ No newline at end of file
-+};
-diff --git a/arch/arm64/boot/dts/st/stm32mp257f-dk.dts b/arch/arm64/boot/dts/st/stm32mp257f-dk.dts
-index 8daf3dfd5133..7e0b6502467e 100644
---- a/arch/arm64/boot/dts/st/stm32mp257f-dk.dts
-+++ b/arch/arm64/boot/dts/st/stm32mp257f-dk.dts
-@@ -138,6 +138,10 @@ &arm_wdt {
- 	status = "okay";
- };
- 
-+&bsec {
-+	bootph-all;
-+};
-+
- &ethernet1 {
- 	pinctrl-0 = <&eth1_rgmii_pins_b>;
- 	pinctrl-1 = <&eth1_rgmii_sleep_pins_b>;
-@@ -160,6 +164,54 @@ phy1_eth1: ethernet-phy@1 {
- 	};
- };
- 
-+&gpioa {
-+	bootph-all;
-+};
-+
-+&gpiob {
-+	bootph-all;
-+};
-+
-+&gpioc {
-+	bootph-all;
-+};
-+
-+&gpiod {
-+	bootph-all;
-+};
-+
-+&gpioe {
-+	bootph-all;
-+};
-+
-+&gpiof {
-+	bootph-all;
-+};
-+
-+&gpiog {
-+	bootph-all;
-+};
-+
-+&gpioh {
-+	bootph-all;
-+};
-+
-+&gpioi {
-+	bootph-all;
-+};
-+
-+&gpioj {
-+	bootph-all;
-+};
-+
-+&gpiok {
-+	bootph-all;
-+};
-+
-+&gpioz {
-+	bootph-all;
-+};
-+
- &i2c2 {
- 	pinctrl-names = "default", "sleep";
- 	pinctrl-0 = <&i2c2_pins_b>;
-@@ -226,6 +278,38 @@ lvds_out0: endpoint {
- 	};
- };
- 
-+&optee {
-+	bootph-all;
-+};
-+
-+&pinctrl {
-+	bootph-all;
-+};
-+
-+&pinctrl_z {
-+	bootph-all;
-+};
-+
-+&psci {
-+	bootph-all;
-+};
-+
-+&rcc {
-+	bootph-all;
-+};
-+
-+&rifsc {
-+	bootph-all;
-+};
-+
-+&scmi {
-+	bootph-all;
-+};
-+
-+&scmi_clk {
-+	bootph-all;
-+};
-+
- &scmi_regu {
- 	scmi_vddio1: regulator@0 {
- 		regulator-min-microvolt = <1800000>;
-@@ -265,6 +349,10 @@ scmi_vdd_sdcard: regulator@23 {
- 	};
- };
- 
-+&scmi_reset {
-+	bootph-all;
-+};
-+
- &sdmmc1 {
- 	pinctrl-names = "default", "opendrain", "sleep";
- 	pinctrl-0 = <&sdmmc1_b4_pins_a>;
-@@ -279,12 +367,27 @@ &sdmmc1 {
- 	status = "okay";
- };
- 
-+&syscfg {
-+	bootph-all;
-+};
-+
- &usart2 {
- 	pinctrl-names = "default", "idle", "sleep";
- 	pinctrl-0 = <&usart2_pins_a>;
- 	pinctrl-1 = <&usart2_idle_pins_a>;
- 	pinctrl-2 = <&usart2_sleep_pins_a>;
-+	bootph-all;
- 	/delete-property/dmas;
- 	/delete-property/dma-names;
- 	status = "okay";
- };
-+
-+&usart2_pins_a {
-+	bootph-all;
-+	pins1 {
-+		bootph-all;
-+	};
-+	pins2 {
-+		bootph-all;
-+	};
-+};
-diff --git a/arch/arm64/boot/dts/st/stm32mp257f-ev1.dts b/arch/arm64/boot/dts/st/stm32mp257f-ev1.dts
-index 14e033f365e3..dab54742e01c 100644
---- a/arch/arm64/boot/dts/st/stm32mp257f-ev1.dts
-+++ b/arch/arm64/boot/dts/st/stm32mp257f-ev1.dts
-@@ -167,6 +167,10 @@ &arm_wdt {
- 	status = "okay";
- };
- 
-+&bsec {
-+	bootph-all;
-+};
-+
- &combophy {
- 	clocks = <&rcc CK_BUS_USB3PCIEPHY>, <&rcc CK_KER_USB3PCIEPHY>, <&pad_clk>;
- 	clock-names = "apb", "ker", "pad";
-@@ -253,6 +257,54 @@ phy0_eth2: ethernet-phy@1 {
- 	};
- };
- 
-+&gpioa {
-+	bootph-all;
-+};
-+
-+&gpiob {
-+	bootph-all;
-+};
-+
-+&gpioc {
-+	bootph-all;
-+};
-+
-+&gpiod {
-+	bootph-all;
-+};
-+
-+&gpioe {
-+	bootph-all;
-+};
-+
-+&gpiof {
-+	bootph-all;
-+};
-+
-+&gpiog {
-+	bootph-all;
-+};
-+
-+&gpioh {
-+	bootph-all;
-+};
-+
-+&gpioi {
-+	bootph-all;
-+};
-+
-+&gpioj {
-+	bootph-all;
-+};
-+
-+&gpiok {
-+	bootph-all;
-+};
-+
-+&gpioz {
-+	bootph-all;
-+};
-+
- &i2c2 {
- 	pinctrl-names = "default", "sleep";
- 	pinctrl-0 = <&i2c2_pins_a>;
-@@ -344,6 +396,7 @@ timer {
- };
- 
- &ltdc {
-+	bootph-all;
- 	status = "okay";
- 	port {
- 		ltdc_ep0_out: endpoint {
-@@ -353,6 +406,7 @@ ltdc_ep0_out: endpoint {
- };
- 
- &lvds {
-+	bootph-all;
- 	status = "okay";
- 	ports {
- 		#address-cells = <1>;
-@@ -374,6 +428,10 @@ lvds_out0: endpoint {
- 	};
- };
- 
-+&optee {
-+	bootph-all;
-+};
-+
- &pcie_ep {
- 	pinctrl-names = "default", "init";
- 	pinctrl-0 = <&pcie_pins_a>;
-@@ -395,10 +453,38 @@ pcie@0,0 {
- 	};
- };
- 
-+&pinctrl {
-+	bootph-all;
-+};
-+
-+&pinctrl_z {
-+	bootph-all;
-+};
-+
-+&psci {
-+	bootph-all;
-+};
-+
-+&rcc {
-+	bootph-all;
-+};
-+
- &rtc {
- 	status = "okay";
- };
- 
-+&rifsc {
-+	bootph-all;
-+};
-+
-+&scmi {
-+	bootph-all;
-+};
-+
-+&scmi_clk {
-+	bootph-all;
-+};
-+
- &scmi_regu {
- 	scmi_vddio1: regulator@0 {
- 		regulator-min-microvolt = <1800000>;
-@@ -430,6 +516,10 @@ scmi_vdd_sdcard: regulator@23 {
- 	};
- };
- 
-+&scmi_reset {
-+	bootph-all;
-+};
-+
- &sdmmc1 {
- 	pinctrl-names = "default", "opendrain", "sleep";
- 	pinctrl-0 = <&sdmmc1_b4_pins_a>;
-@@ -444,6 +534,10 @@ &sdmmc1 {
- 	status = "okay";
- };
- 
-+&syscfg {
-+	bootph-all;
-+};
-+
- &spi3 {
- 	pinctrl-names = "default", "sleep";
- 	pinctrl-0 = <&spi3_pins_a>;
-@@ -521,11 +615,22 @@ &usart2 {
- 	pinctrl-0 = <&usart2_pins_a>;
- 	pinctrl-1 = <&usart2_idle_pins_a>;
- 	pinctrl-2 = <&usart2_sleep_pins_a>;
-+	bootph-all;
- 	/delete-property/dmas;
- 	/delete-property/dma-names;
- 	status = "okay";
- };
- 
-+&usart2_pins_a {
-+	bootph-all;
-+	pins1 {
-+		bootph-all;
-+	};
-+	pins2 {
-+		bootph-all;
-+	};
-+};
-+
- &usart6 {
- 	pinctrl-names = "default", "idle", "sleep";
- 	pinctrl-0 = <&usart6_pins_a>;
+Reviewed-by: Thomas Zimmermann <tzimmermann@suse.de>
+
+> ---
+>   drivers/gpu/drm/drm_atomic_state_helper.c | 26 ++++++++++++++++++++++++++
+>   drivers/gpu/drm/drm_connector.c           | 10 +++++++++-
+>   drivers/gpu/drm/drm_mode_config.c         | 31 ++++++++++++++++++++++++++++++-
+>   include/drm/drm_atomic_state_helper.h     |  2 ++
+>   include/drm/drm_connector.h               | 16 ++++++++++++++++
+>   5 files changed, 83 insertions(+), 2 deletions(-)
+>
+> diff --git a/drivers/gpu/drm/drm_atomic_state_helper.c b/drivers/gpu/drm/drm_atomic_state_helper.c
+> index e2e5a1b8a820..07686e94aae0 100644
+> --- a/drivers/gpu/drm/drm_atomic_state_helper.c
+> +++ b/drivers/gpu/drm/drm_atomic_state_helper.c
+> @@ -532,10 +532,36 @@ void drm_atomic_helper_connector_reset(struct drm_connector *connector)
+>   	kfree(connector->state);
+>   	__drm_atomic_helper_connector_reset(connector, conn_state);
+>   }
+>   EXPORT_SYMBOL(drm_atomic_helper_connector_reset);
+>   
+> +/**
+> + * drm_atomic_helper_connector_create_state - default &drm_connector_funcs.atomic_create_state hook for connectors
+> + * @connector: connector object
+> + *
+> + * Allocates and  initializes pristine @drm_connector_state.
+> + *
+> + * This is useful for drivers that don't subclass @drm_connector_state.
+> + *
+> + * RETURNS:
+> + * Pointer to new connector state, or ERR_PTR on failure.
+> + */
+> +struct drm_connector_state *
+> +drm_atomic_helper_connector_create_state(struct drm_connector *connector)
+> +{
+> +	struct drm_connector_state *state;
+> +
+> +	state = kzalloc_obj(*state);
+> +	if (!state)
+> +		return ERR_PTR(-ENOMEM);
+> +
+> +	__drm_atomic_helper_connector_state_init(state, connector);
+> +
+> +	return state;
+> +}
+> +EXPORT_SYMBOL(drm_atomic_helper_connector_create_state);
+> +
+>   /**
+>    * drm_atomic_helper_connector_tv_margins_reset - Resets TV connector properties
+>    * @connector: DRM connector
+>    *
+>    * Resets the TV-related properties attached to a connector.
+> diff --git a/drivers/gpu/drm/drm_connector.c b/drivers/gpu/drm/drm_connector.c
+> index 3fa4d2082cd7..a0b132c658a1 100644
+> --- a/drivers/gpu/drm/drm_connector.c
+> +++ b/drivers/gpu/drm/drm_connector.c
+> @@ -616,11 +616,19 @@ int drmm_connector_hdmi_init(struct drm_device *dev,
+>   
+>   	/*
+>   	 * drm_connector_attach_max_bpc_property() requires the
+>   	 * connector to have a state.
+>   	 */
+> -	if (connector->funcs->reset)
+> +	if (connector->funcs->atomic_create_state) {
+> +		struct drm_connector_state *state;
+> +
+> +		state = connector->funcs->atomic_create_state(connector);
+> +		if (IS_ERR(state))
+> +			return PTR_ERR(state);
+> +
+> +		connector->state = state;
+> +	} else if (connector->funcs->reset)
+>   		connector->funcs->reset(connector);
+>   
+>   	drm_connector_attach_max_bpc_property(connector, 8, max_bpc);
+>   	connector->max_bpc = max_bpc;
+>   
+> diff --git a/drivers/gpu/drm/drm_mode_config.c b/drivers/gpu/drm/drm_mode_config.c
+> index 2e2cd18a14b4..9d240817f8b6 100644
+> --- a/drivers/gpu/drm/drm_mode_config.c
+> +++ b/drivers/gpu/drm/drm_mode_config.c
+> @@ -235,10 +235,36 @@ static int drm_mode_config_crtc_reset_with_create_state(struct drm_crtc *crtc)
+>   	}
+>   
+>   	return drm_mode_config_crtc_create_state(crtc);
+>   }
+>   
+> +static int drm_mode_config_connector_create_state(struct drm_connector *connector)
+> +{
+> +	struct drm_connector_state *conn_state;
+> +
+> +	if (!connector->funcs->atomic_create_state)
+> +		return 0;
+> +
+> +	conn_state = connector->funcs->atomic_create_state(connector);
+> +	if (IS_ERR(conn_state))
+> +		return PTR_ERR(conn_state);
+> +
+> +	connector->state = conn_state;
+> +
+> +	return 0;
+> +}
+> +
+> +static int drm_mode_config_connector_reset_with_create_state(struct drm_connector *connector)
+> +{
+> +	if (connector->state) {
+> +		connector->funcs->atomic_destroy_state(connector, connector->state);
+> +		connector->state = NULL;
+> +	}
+> +
+> +	return drm_mode_config_connector_create_state(connector);
+> +}
+> +
+>   /**
+>    * drm_mode_config_reset - call ->reset callbacks
+>    * @dev: drm device
+>    *
+>    * This functions calls all the crtc's, encoder's and connector's ->reset
+> @@ -278,13 +304,16 @@ void drm_mode_config_reset(struct drm_device *dev)
+>   	drm_for_each_encoder(encoder, dev)
+>   		if (encoder->funcs && encoder->funcs->reset)
+>   			encoder->funcs->reset(encoder);
+>   
+>   	drm_connector_list_iter_begin(dev, &conn_iter);
+> -	drm_for_each_connector_iter(connector, &conn_iter)
+> +	drm_for_each_connector_iter(connector, &conn_iter) {
+>   		if (connector->funcs->reset)
+>   			connector->funcs->reset(connector);
+> +		else if (connector->funcs->atomic_create_state)
+> +			drm_mode_config_connector_reset_with_create_state(connector);
+> +	}
+>   	drm_connector_list_iter_end(&conn_iter);
+>   }
+>   EXPORT_SYMBOL(drm_mode_config_reset);
+>   
+>   /*
+> diff --git a/include/drm/drm_atomic_state_helper.h b/include/drm/drm_atomic_state_helper.h
+> index 9634a70e0401..f4b6d8833bc2 100644
+> --- a/include/drm/drm_atomic_state_helper.h
+> +++ b/include/drm/drm_atomic_state_helper.h
+> @@ -73,10 +73,12 @@ void drm_atomic_helper_plane_destroy_state(struct drm_plane *plane,
+>   void __drm_atomic_helper_connector_state_init(struct drm_connector_state *conn_state,
+>   					       struct drm_connector *connector);
+>   void __drm_atomic_helper_connector_reset(struct drm_connector *connector,
+>   					 struct drm_connector_state *conn_state);
+>   void drm_atomic_helper_connector_reset(struct drm_connector *connector);
+> +struct drm_connector_state *
+> +drm_atomic_helper_connector_create_state(struct drm_connector *connector);
+>   void drm_atomic_helper_connector_tv_reset(struct drm_connector *connector);
+>   int drm_atomic_helper_connector_tv_check(struct drm_connector *connector,
+>   					 struct drm_atomic_commit *state);
+>   void drm_atomic_helper_connector_tv_margins_reset(struct drm_connector *connector);
+>   void
+> diff --git a/include/drm/drm_connector.h b/include/drm/drm_connector.h
+> index 5ad62c207d00..529755c2e862 100644
+> --- a/include/drm/drm_connector.h
+> +++ b/include/drm/drm_connector.h
+> @@ -1569,10 +1569,26 @@ struct drm_connector_funcs {
+>   	 * when a connector is being hot-unplugged for drivers that support
+>   	 * connector hotplugging (e.g. DisplayPort MST).
+>   	 */
+>   	void (*destroy)(struct drm_connector *connector);
+>   
+> +	/**
+> +	 * @atomic_create_state:
+> +	 *
+> +	 * Allocate a pristine, initialized, state for the connector
+> +	 * object and return it. This callback must have no side
+> +	 * effects: in particular, the returned state must not be
+> +	 * assigned to the object's state pointer and it must not affect
+> +	 * the hardware state.
+> +	 *
+> +	 * RETURNS:
+> +	 *
+> +	 * A new, pristine, connector state instance or an error pointer
+> +	 * on failure.
+> +	 */
+> +	struct drm_connector_state *(*atomic_create_state)(struct drm_connector *connector);
+> +
+>   	/**
+>   	 * @atomic_duplicate_state:
+>   	 *
+>   	 * Duplicate the current atomic state for this connector and return it.
+>   	 * The core and helpers guarantee that any atomic state duplicated with
+>
 
 -- 
-2.43.0
+--
+Thomas Zimmermann
+Graphics Driver Developer
+SUSE Software Solutions Germany GmbH
+Frankenstr. 146, 90461 Nürnberg, Germany, www.suse.com
+GF: Jochen Jaser, Andrew McDonald, Werner Knoblich, (HRB 36809, AG Nürnberg)
+
 
 
