@@ -4,140 +4,174 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id E2CCFCD5BC8
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 26 May 2026 09:33:34 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id C7F68CD5BD0
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 26 May 2026 09:33:44 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:
-	Content-Transfer-Encoding:Content-Type:In-Reply-To:References:Message-ID:Date
-	:Subject:CC:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=sBE1POiLNETeTItMf1mAuHpXmrSS2vWuQzbL7e1Ziso=; b=rJU8WYMoIj2j88CgxtwfvPSGJ8
-	u5vUmaruPZBOpjuwQE/VR5y24fGtbqRGR3/aC7iYDQyVVP5HiVk/D+JPF4iXtydtz+rY1pf976DBB
-	mQrGRNxdeD24wh6Drxd0q/jo1nifb6Q+qM5/XgfZIn1uu6XCPeIlqHbb/jUEVfSsITaKydb/7AraN
-	05MbPGV4yHavmo1hSbvbKAnKOVzmA0OjhRVUjPbox8+G0wVPWGiBYpR32QOQuRFHsEUftgwHusZDs
-	7JwOtikNaS4iiVD7Zc7zHn/fM5RLvZgyxlgNEmPZjanwkIiLzkAr/EoE21imHT8bjPopD/DGQP2cF
-	lyFrTMbw==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
+	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=G4y+FdQyG4vd1UAt5SwUKmSBgkQyxPz42yMUqHZGQNM=; b=IfWoUSgJY+/nK8iiP2KcXY8VCg
+	R590Rxm5OEru/9RLwFEkgfOucEUlGOWX/nOAC0W6dDCgBAqK2m8EzIAskfOJaml+6iXiu2hqfju+r
+	d8zKQZPInfciEAHhWtjKxnWG2u1jcdwgbr+2vApFaiO6Oh7GVQDY9c55cFB94j3UVZfe9OTmBIiPE
+	dp30Db2twcT9o+j8trvka4WD+R0HJWbo7QZfSG9iaxdAVOsC0tghBeBzYiKr6SecO2lVnK8Oy0bcG
+	u43CEaTrz3RUd3YO25N12Y9vgsbZoYWyT2rJ7XzHbDFrUcS6pQFWnEp/QiiMQgv6iCGXoBHahfDgU
+	szrGB6Cw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wRoA9-00000001Wf9-3zXd;
-	Tue, 26 May 2026 09:33:25 +0000
-Received: from mail-westeuropeazlp170100001.outbound.protection.outlook.com ([2a01:111:f403:c201::1] helo=AM0PR83CU005.outbound.protection.outlook.com)
+	id 1wRoAL-00000001Wij-0tQH;
+	Tue, 26 May 2026 09:33:37 +0000
+Received: from smtp-out2.suse.de ([2a07:de40:b251:101:10:150:64:2])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wRoA7-00000001WeG-1OHb
+	id 1wRoAI-00000001WhY-3yXJ
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 26 May 2026 09:33:24 +0000
-ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
- b=UzGUVSrcS/qGFzp5i5aVhPr4y6hE/q+hTCaRJ/8MMW6ZX4GFxiMBwz/DL+uW5oqnrO49w1ni0bV3sBQzYjdJ/lfwQNgSNJ3lUPU3AJ7Oo97b8Oyes1KNMJ0/JL4zHivpd43Rs/KL0M4jD1k6PEdvOr5yKWcxpLaHLa4ftVyi54WRx7cCJkCxVmUA4bpRTnb2/ZmOncKxxF58zcQv6xLXlAbOFA4YgB54X4jBS8tjI5NM1yJb6qWwP8oWmPulxwVdhyNBiTE734HiIuyewEAATd0uk3oJTKn4FCd2JerML5l6oLudRTtaGdYIiJ6btXIZ0kRmaqdiuLMJWJa3UppLJg==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
- s=arcselector10001;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
- bh=sBE1POiLNETeTItMf1mAuHpXmrSS2vWuQzbL7e1Ziso=;
- b=CTu74sf1oDSIxzTjF2TsV1RIJ8j6QdqzHiExKnOnRUP2MmAi6maPEwC8AJC3zoON4/SzWeo0TuMxCJYEfdH8FkRkINcMTxUQKDYLLxsogKzLgfHrkp1kwVRIQCFZgr/R7ujE2Cv1MXppnAdYVKbzdPaTHmXFxmmToSbkMTl1xZJtII0cph4Hfv9BrSg+aejAB209247nQqNSsLw68h2mg4Srm8jY2+X7qvTv4FsjbGsPLeCkvk9peoO5l16llGC6e0WxQPLfq1fbVVHGEa0afdxwDQebOZwZsvFF8fG1hyOwty5XlIxanDxYE+bsZjRpruz393dpl+gHF3zSxHcxkg==
-ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
- smtp.mailfrom=nxp.com; dmarc=pass action=none header.from=nxp.com; dkim=pass
- header.d=nxp.com; arc=none
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=nxp.com; s=selector1;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
- bh=sBE1POiLNETeTItMf1mAuHpXmrSS2vWuQzbL7e1Ziso=;
- b=M3dKFV/6EIOu6wQfZ7eEIn5nNdvS5mZ0PS9ZOIDIEoBHtU703QovuDgYynlxLSIjW+2VbMox+KTPCl1kHPGeZBGMaV1UckTqBdMU8ef6qdel4oy85NmlBUE9opbC+chRuwsDS1V+mobRjYJWOzJtuSbAy1JowBiBrqi376+5TrFF159KKQ9YyQIQHWbwJMxwCxQm3VU2d3XgSytzIyGBR6MBk0u+fu9bAftOznytvA5boCD36HRsK1VS7GDBOA59sei/oC9fXevX7feU72nv/ORdcAfp1aqNtDvQBBruPOJSCL5qjMrc/dqwxYNWHNjXULU6aJHytCaMgsA/FjhrRw==
-Received: from AS8PR04MB9080.eurprd04.prod.outlook.com (2603:10a6:20b:447::16)
- by DB9PR04MB9962.eurprd04.prod.outlook.com (2603:10a6:10:4c4::16) with
- Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.21.71.11; Tue, 26 May
- 2026 09:33:14 +0000
-Received: from AS8PR04MB9080.eurprd04.prod.outlook.com
- ([fe80::92c2:2e03:bf99:68eb]) by AS8PR04MB9080.eurprd04.prod.outlook.com
- ([fe80::92c2:2e03:bf99:68eb%6]) with mapi id 15.21.0048.019; Tue, 26 May 2026
- 09:33:14 +0000
-From: "G.N. Zhou" <guoniu.zhou@nxp.com>
-To: Krzysztof Kozlowski <krzk@kernel.org>, "G.N. Zhou (OSS)"
-	<guoniu.zhou@oss.nxp.com>
-CC: Mauro Carvalho Chehab <mchehab@kernel.org>, Rob Herring <robh@kernel.org>,
-	Krzysztof Kozlowski <krzk+dt@kernel.org>, Conor Dooley <conor+dt@kernel.org>,
-	Shawn Guo <shawnguo@kernel.org>, Sascha Hauer <s.hauer@pengutronix.de>,
-	Pengutronix Kernel Team <kernel@pengutronix.de>, Fabio Estevam
-	<festevam@gmail.com>, Laurent Pinchart <laurent.pinchart@ideasonboard.com>,
-	Frank Li <frank.li@nxp.com>, "imx@lists.linux.dev" <imx@lists.linux.dev>,
-	"linux-media@vger.kernel.org" <linux-media@vger.kernel.org>,
-	"devicetree@vger.kernel.org" <devicetree@vger.kernel.org>,
-	"linux-arm-kernel@lists.infradead.org"
-	<linux-arm-kernel@lists.infradead.org>, "linux-kernel@vger.kernel.org"
-	<linux-kernel@vger.kernel.org>, Krzysztof Kozlowski
-	<krzysztof.kozlowski@oss.qualcomm.com>
-Subject: RE: [EXT] Re: [PATCH v8 1/2] media: dt-bindings: Add CSI Pixel
- Formatter DT bindings
-Thread-Topic: [EXT] Re: [PATCH v8 1/2] media: dt-bindings: Add CSI Pixel
- Formatter DT bindings
-Thread-Index: AQHc7B3kgtCGeI8K8Euyz6g0Q1Q4+7YgB6CAgAAFDBA=
-Date: Tue, 26 May 2026 09:33:13 +0000
-Message-ID: <AS8PR04MB9080B11226523E132EA18813FA0B2@AS8PR04MB9080.eurprd04.prod.outlook.com>
-References: <20260525-csi_formatter-v8-0-6b646231224b@oss.nxp.com>
- <20260525-csi_formatter-v8-1-6b646231224b@oss.nxp.com>
- <20260526-towering-essential-civet-19a5ad@quoll>
-In-Reply-To: <20260526-towering-essential-civet-19a5ad@quoll>
-Accept-Language: zh-CN, en-US
-Content-Language: en-US
-X-MS-Has-Attach: 
-X-MS-TNEF-Correlator: 
-authentication-results: dkim=none (message not signed)
- header.d=none;dmarc=none action=none header.from=nxp.com;
-x-ms-publictraffictype: Email
-x-ms-traffictypediagnostic: AS8PR04MB9080:EE_|DB9PR04MB9962:EE_
-x-ms-office365-filtering-correlation-id: 81655aa0-998b-4345-bcd1-08debb09cf4b
-x-ld-processed: 686ea1d3-bc2b-4c6f-a92c-d99c5c301635,ExtAddr
-x-ms-exchange-senderadcheck: 1
-x-ms-exchange-antispam-relay: 0
-x-microsoft-antispam: BCL:0;ARA:13230040|1800799024|366016|376014|7416014|19092799006|4133799003|56012099003|11063799006|4143699003|3023799007|22082099003|18002099003|38070700021;
-x-microsoft-antispam-message-info: 1n6uuxG15ibYNfirLJ6EP3fQUdVc/N3aVLcs8SVQecK1DtkL9L8vTlt/srtJUb7u73xUwY5psHb2n7Jvtpa7ALKDlE+1iWrm+5ze7oIxwG0ToDL4r8K7hIoS+S3UC0/sR/0ZOo9+6EAO+eHy91Nvby3IpCO+QwfMwU/7WW7guXOrttausmeVo61YMsTX4zkrX8OqMzxbbQgPTkovY0wAJMVTLkH1QQe04NHKLlgjRUD8Sc0fVY6/iP4h4OKLgrxoWo8yoVgN3o36sm44wah/DifQ5FbBXR/VFccneEAJu3qoctUBndS14wl/rDo5bwt3ngW01OSY2H698lNIGvfvV9BQVHYpDAcCbYCHT3tt2XwBqFJlEoLVLR/uBkyXkCtyL5iGbqxpp0xyvdp68G+b3Jx82bNUEJkTxXwdozcyd0UsYfPjTU/rs+58VCo/cXIOJHzp0tv2skqn6oXRcTkxSwOG3X9ulUbNY/5n8DF4Fd3z5hMXE/aXL39YeIlGDo3C8GQxcBt69zVoSk4SylYXhU/doNChMdwel9cD2htFGgd1SzktFZG8Nh2SP+GurBbl1zwBI9K6DZ36ze0Ab/ZYIDay/Bs+SwJH9jIuD3qHrSMWQ4geD3mVs/5Xn3b+um1yaBFZF+QtcgU704t2N1umeJ4ToHNKFX012d77ECd0vI3scGrncy3Az+jjlowZ/WNtCF+K6KJQXL2No6RrsB6lH3CJ1p4StoiUaOldAbOlLSmdl711Cey5hVOrJO1MvL5S
-x-forefront-antispam-report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:AS8PR04MB9080.eurprd04.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(1800799024)(366016)(376014)(7416014)(19092799006)(4133799003)(56012099003)(11063799006)(4143699003)(3023799007)(22082099003)(18002099003)(38070700021);DIR:OUT;SFP:1101;
-x-ms-exchange-antispam-messagedata-chunkcount: 1
-x-ms-exchange-antispam-messagedata-0: =?us-ascii?Q?2Yybz1f4XSTBN7Fjo84CpqmlAykf3qWTfxtV5boJ56iI9N4pZPIZQtjosaE0?=
- =?us-ascii?Q?VsWKkTfUEApzSUqrQb9fi1AoY7v6e3bLjZPW1XvzlRAMFugu9+IjVtcPo4uB?=
- =?us-ascii?Q?KBkA/M5/dzcpju/A3ZdcBOGpy2V+yQADdrXxbB9hygIHI7k/JVKYjbAdS/4b?=
- =?us-ascii?Q?TCoDBSUPTdf9iQjkr/rKNC06MYtGYZatfxnv5mLUsPrkrbiPhTcpvpdWONpv?=
- =?us-ascii?Q?Lya6LdDYLSCxmiR5bxVu5o7kU9nqV5e9R7tiveLbNIjGpgpYL3wk5Wfl3EB4?=
- =?us-ascii?Q?hEuZa4ttiKhQlMVEGLzKeuhqZyYXqc5aSWCNeJsxSb6EZ4TTTxxHgugnRc6T?=
- =?us-ascii?Q?iKJbESPQNItUBNi1+FnsHaGg1WR9XU2ylZBbpn1WoScr0bvMrNvud4bhDHue?=
- =?us-ascii?Q?6l08NThKl6D5SGqsELbhSvU8A2gxq4zsnrZf3WYRR39mgkKcbBEpINaAR9Tm?=
- =?us-ascii?Q?C4vQsUzNLhpsJhPaWywZ1zMrqMDNVOGXwIR8Kdkf7HAsTDWsJqVHSj/NmxD2?=
- =?us-ascii?Q?Dh4hwKZ1cQmTC4O+uRQjY2p/yy/t+wdLyvAkqSycvEewvzeSo6Woi9PLyllD?=
- =?us-ascii?Q?SlzddKK6RtC1CyQU5oV3hH1r/yIOD39rQAQzJaGIZGjsWbD9R8piQ69QGFk0?=
- =?us-ascii?Q?n7nMH8rEVTd+3a3jv5R9AsTgARTJIToTNiZXGrmtakF8OyfqEgbu/vDqpDBo?=
- =?us-ascii?Q?XwZzjyzkV5rNSwVTb9chEvqVN324APOR6b4rJt5D5gaI1HLusWCHxDfGZssA?=
- =?us-ascii?Q?+AWmocHiu90zR46CsDNYw6RwHuLpvOix+MtDZ6hHHvi+tvsGLnuIVyaqlAPs?=
- =?us-ascii?Q?LRsSYjUAg7FBWp9cES4MaU9qJskDF5oJZQjwdSBxUjvslpSX6HAwrL5PlaRI?=
- =?us-ascii?Q?yoy34FSHYAGrrqzU49Wn1gorICg3qxijc3VO0dkUtJYo/yfdnZSAjzqY8+fC?=
- =?us-ascii?Q?jJrITI/GssyXdlaA3oNpS4sp0Wf72gVxPyv2lnsrmsYOfU5mPA8JOzhL3jeB?=
- =?us-ascii?Q?VmR9W1gfAsBuq2RPjjYWG8pghaLhkgH2YILBBNeNiwcoY0STExKF/k7QQZ+y?=
- =?us-ascii?Q?8UJCtlPHhD5K8XiZNc+n3ZD8qZ5UrnnVq14abiJuVemYElRwiaQ4EiilGQ7d?=
- =?us-ascii?Q?VXGLIiJZRr3G2u6bGuo85NAlguZqqHc656/DxxSv47RD13wVM9KEbrcLfsPF?=
- =?us-ascii?Q?FnxleYEiHotTJZ07xJKtebPYRdo5noA5+RRBzpjbh3IzaOV5+KpcMTuQa7jC?=
- =?us-ascii?Q?trrEfxpDQxtr4eeMCLD9nuwsVZzA937UctrixVYXIPGynojEsQkyEoZjS9od?=
- =?us-ascii?Q?2FJm7BEFbsSQf+nQSezie9tU7P4AQW0zVIayhrtrbo0mUlx5JjPuKndzmgn5?=
- =?us-ascii?Q?d0q+C8MtAIezGNmQ+8ttobqyii9y/lDDbwhqjlllwI1vfKCoWPM25wCHpAJJ?=
- =?us-ascii?Q?URB7DkQOePtrT/Ty5U2HEvyCE8/7w9U/MqLilpFl81JplSeQkvGsUZRdRu7w?=
- =?us-ascii?Q?+4U5mXALLPw4/l/fGSym8qer4JBcUKcUU+s/uR+UkwOfKMLNjHwQAxHsY6vH?=
- =?us-ascii?Q?lYkiFNRIxYb4weYaDEqUy4Yv4s7y5MgTZDH7dmXUPexrU0WLLOPmcCqNPzn/?=
- =?us-ascii?Q?TXISyswJZqg+xpWAKpGSirLT7mKmTgood2rsnrKw5sxNmDdlg2Bn6bbCU2eu?=
- =?us-ascii?Q?mfc0chBcb/gidl3ine5uvIFLhn9XxqTPpOzyON8nTPi4zs0G?=
-Content-Type: text/plain; charset="us-ascii"
-Content-Transfer-Encoding: quoted-printable
+	Tue, 26 May 2026 09:33:36 +0000
+Received: from imap1.dmz-prg2.suse.org (unknown [10.150.64.97])
+	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
+	 key-exchange X25519 server-signature RSA-PSS (4096 bits) server-digest SHA256)
+	(No client certificate requested)
+	by smtp-out2.suse.de (Postfix) with ESMTPS id DB09A66E35;
+	Tue, 26 May 2026 09:33:31 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=suse.de; s=susede2_rsa;
+	t=1779788013; h=from:from:reply-to:date:date:message-id:message-id:to:to:cc:cc:
+	 mime-version:mime-version:content-type:content-type:
+	 content-transfer-encoding:content-transfer-encoding:
+	 in-reply-to:in-reply-to:references:references:autocrypt:autocrypt;
+	bh=G4y+FdQyG4vd1UAt5SwUKmSBgkQyxPz42yMUqHZGQNM=;
+	b=sVA8J1IyW/dMkuYzYOXaBYZfef5oQHILWrng/dE9C8ChaZjdvIA2q9czsB2J6ZDZB1yj29
+	SLUcyEUUEIeepi4KBwwZ10sqCqpTIichnSvhvzXLL8/8c4Z+f9UwNKmOw/ZvKL6SZmUscV
+	H2zzebzevMJ8wNTKNskH01JP7EcUdaU=
+DKIM-Signature: v=1; a=ed25519-sha256; c=relaxed/relaxed; d=suse.de;
+	s=susede2_ed25519; t=1779788013;
+	h=from:from:reply-to:date:date:message-id:message-id:to:to:cc:cc:
+	 mime-version:mime-version:content-type:content-type:
+	 content-transfer-encoding:content-transfer-encoding:
+	 in-reply-to:in-reply-to:references:references:autocrypt:autocrypt;
+	bh=G4y+FdQyG4vd1UAt5SwUKmSBgkQyxPz42yMUqHZGQNM=;
+	b=q1I9JjAuktBn0t9TG8+GAobzMwhectwZouumUIcq47zTVMFOzIy9c7xdZx0IMd+PO+5Am3
+	G9OyW03L6rcx9LCw==
+Authentication-Results: smtp-out2.suse.de;
+	none
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=suse.de; s=susede2_rsa;
+	t=1779788011; h=from:from:reply-to:date:date:message-id:message-id:to:to:cc:cc:
+	 mime-version:mime-version:content-type:content-type:
+	 content-transfer-encoding:content-transfer-encoding:
+	 in-reply-to:in-reply-to:references:references:autocrypt:autocrypt;
+	bh=G4y+FdQyG4vd1UAt5SwUKmSBgkQyxPz42yMUqHZGQNM=;
+	b=oaoa9VTczw+kf2SRk2uyqkOlw67iGDXAoW/ryHHuriJYO8XN5YrDr0vlA5INTTU+r8SqGV
+	qX9o8In4V/ehyXkqtFxQ1R18YBWeHY4vcxgVrTbw5r5BaQnlJTbqUDD1+mZEhdp2h8HRPk
+	yizq0jaDk0C4pfq4+jozFv84bFBfuEE=
+DKIM-Signature: v=1; a=ed25519-sha256; c=relaxed/relaxed; d=suse.de;
+	s=susede2_ed25519; t=1779788011;
+	h=from:from:reply-to:date:date:message-id:message-id:to:to:cc:cc:
+	 mime-version:mime-version:content-type:content-type:
+	 content-transfer-encoding:content-transfer-encoding:
+	 in-reply-to:in-reply-to:references:references:autocrypt:autocrypt;
+	bh=G4y+FdQyG4vd1UAt5SwUKmSBgkQyxPz42yMUqHZGQNM=;
+	b=XlGyeje0JVhGhQc9qoNPFmtNqRt81/TFYmoNlood/zvH9LwhsKxPqtinJz9vjpMQlsdPdf
+	ElKoLP+Nei3eQoBg==
+Received: from imap1.dmz-prg2.suse.org (localhost [127.0.0.1])
+	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
+	 key-exchange X25519 server-signature RSA-PSS (4096 bits) server-digest SHA256)
+	(No client certificate requested)
+	by imap1.dmz-prg2.suse.org (Postfix) with ESMTPS id D7D615A12F;
+	Tue, 26 May 2026 09:33:30 +0000 (UTC)
+Received: from dovecot-director2.suse.de ([2a07:de40:b281:106:10:150:64:167])
+	by imap1.dmz-prg2.suse.org with ESMTPSA
+	id 1MYdM+poFWpwBgAAD6G6ig
+	(envelope-from <tzimmermann@suse.de>); Tue, 26 May 2026 09:33:30 +0000
+Message-ID: <1710fd7f-7bd5-4f87-a2a2-25b518881342@suse.de>
+Date: Tue, 26 May 2026 11:33:30 +0200
 MIME-Version: 1.0
-X-OriginatorOrg: nxp.com
-X-MS-Exchange-CrossTenant-AuthAs: Internal
-X-MS-Exchange-CrossTenant-AuthSource: AS8PR04MB9080.eurprd04.prod.outlook.com
-X-MS-Exchange-CrossTenant-Network-Message-Id: 81655aa0-998b-4345-bcd1-08debb09cf4b
-X-MS-Exchange-CrossTenant-originalarrivaltime: 26 May 2026 09:33:13.9872
- (UTC)
-X-MS-Exchange-CrossTenant-fromentityheader: Hosted
-X-MS-Exchange-CrossTenant-id: 686ea1d3-bc2b-4c6f-a92c-d99c5c301635
-X-MS-Exchange-CrossTenant-mailboxtype: HOSTED
-X-MS-Exchange-CrossTenant-userprincipalname: xi0egMtYVrxPjQuw6qbbDx6aYFIFj73BjAQpg2Zp3THcDE4r3xaR6AhaSKTeIdste+v02turh97r6UYSMfpOVQ==
-X-MS-Exchange-Transport-CrossTenantHeadersStamped: DB9PR04MB9962
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH v5 16/19] drm/mode-config: Create
+ drm_mode_config_create_initial_state()
+To: Maxime Ripard <mripard@kernel.org>,
+ Maarten Lankhorst <maarten.lankhorst@linux.intel.com>,
+ David Airlie <airlied@gmail.com>, Simona Vetter <simona@ffwll.ch>,
+ Jonathan Corbet <corbet@lwn.net>, Shuah Khan <skhan@linuxfoundation.org>,
+ Dmitry Baryshkov <dmitry.baryshkov@oss.qualcomm.com>,
+ Jyri Sarha <jyri.sarha@iki.fi>,
+ Tomi Valkeinen <tomi.valkeinen@ideasonboard.com>,
+ Andrzej Hajda <andrzej.hajda@intel.com>,
+ Neil Armstrong <neil.armstrong@linaro.org>, Robert Foss <rfoss@kernel.org>,
+ Laurent Pinchart <Laurent.pinchart@ideasonboard.com>,
+ Jonas Karlman <jonas@kwiboo.se>, Jernej Skrabec <jernej.skrabec@gmail.com>,
+ Simon Ser <contact@emersion.fr>, Harry Wentland <harry.wentland@amd.com>,
+ Melissa Wen <mwen@igalia.com>, Sebastian Wick <sebastian.wick@redhat.com>,
+ Alex Hung <alex.hung@amd.com>, Jani Nikula <jani.nikula@linux.intel.com>,
+ Rodrigo Vivi <rodrigo.vivi@intel.com>,
+ Joonas Lahtinen <joonas.lahtinen@linux.intel.com>,
+ Tvrtko Ursulin <tursulin@ursulin.net>, Chen-Yu Tsai <wens@kernel.org>,
+ Samuel Holland <samuel@sholland.org>,
+ Dave Stevenson <dave.stevenson@raspberrypi.com>,
+ =?UTF-8?Q?Ma=C3=ADra_Canal?= <mcanal@igalia.com>,
+ Raspberry Pi Kernel Maintenance <kernel-list@raspberrypi.com>
+Cc: dri-devel@lists.freedesktop.org, linux-doc@vger.kernel.org,
+ linux-kernel@vger.kernel.org, Daniel Stone <daniels@collabora.com>,
+ intel-gfx@lists.freedesktop.org, intel-xe@lists.freedesktop.org,
+ linux-arm-kernel@lists.infradead.org, linux-sunxi@lists.linux.dev,
+ Laurent Pinchart <laurent.pinchart+renesas@ideasonboard.com>
+References: <20260519-drm-mode-config-init-v5-0-388b03321e38@kernel.org>
+ <20260519-drm-mode-config-init-v5-16-388b03321e38@kernel.org>
+Content-Language: en-US
+From: Thomas Zimmermann <tzimmermann@suse.de>
+Autocrypt: addr=tzimmermann@suse.de; keydata=
+ xsBNBFs50uABCADEHPidWt974CaxBVbrIBwqcq/WURinJ3+2WlIrKWspiP83vfZKaXhFYsdg
+ XH47fDVbPPj+d6tQrw5lPQCyqjwrCPYnq3WlIBnGPJ4/jreTL6V+qfKRDlGLWFjZcsrPJGE0
+ BeB5BbqP5erN1qylK9i3gPoQjXGhpBpQYwRrEyQyjuvk+Ev0K1Jc5tVDeJAuau3TGNgah4Yc
+ hdHm3bkPjz9EErV85RwvImQ1dptvx6s7xzwXTgGAsaYZsL8WCwDaTuqFa1d1jjlaxg6+tZsB
+ 9GluwvIhSezPgnEmimZDkGnZRRSFiGP8yjqTjjWuf0bSj5rUnTGiyLyRZRNGcXmu6hjlABEB
+ AAHNJ1Rob21hcyBaaW1tZXJtYW5uIDx0emltbWVybWFubkBzdXNlLmRlPsLAjgQTAQgAOAIb
+ AwULCQgHAgYVCgkICwIEFgIDAQIeAQIXgBYhBHIX+6yM6c9jRKFo5WgNwR1TC3ojBQJftODH
+ AAoJEGgNwR1TC3ojx1wH/0hKGWugiqDgLNXLRD/4TfHBEKmxIrmfu9Z5t7vwUKfwhFL6hqvo
+ lXPJJKQpQ2z8+X2vZm/slsLn7J1yjrOsoJhKABDi+3QWWSGkaGwRJAdPVVyJMfJRNNNIKwVb
+ U6B1BkX2XDKDGffF4TxlOpSQzdtNI/9gleOoUA8+jy8knnDYzjBNOZqLG2FuTdicBXblz0Mf
+ vg41gd9kCwYXDnD91rJU8tzylXv03E75NCaTxTM+FBXPmsAVYQ4GYhhgFt8S2UWMoaaABLDe
+ 7l5FdnLdDEcbmd8uLU2CaG4W2cLrUaI4jz2XbkcPQkqTQ3EB67hYkjiEE6Zy3ggOitiQGcqp
+ j//OwE0EWznS4AEIAMYmP4M/V+T5RY5at/g7rUdNsLhWv1APYrh9RQefODYHrNRHUE9eosYb
+ T6XMryR9hT8XlGOYRwKWwiQBoWSDiTMo/Xi29jUnn4BXfI2px2DTXwc22LKtLAgTRjP+qbU6
+ 3Y0xnQN29UGDbYgyyK51DW3H0If2a3JNsheAAK+Xc9baj0LGIc8T9uiEWHBnCH+RdhgATnWW
+ GKdDegUR5BkDfDg5O/FISymJBHx2Dyoklv5g4BzkgqTqwmaYzsl8UxZKvbaxq0zbehDda8lv
+ hFXodNFMAgTLJlLuDYOGLK2AwbrS3Sp0AEbkpdJBb44qVlGm5bApZouHeJ/+n+7r12+lqdsA
+ EQEAAcLAdgQYAQgAIAIbDBYhBHIX+6yM6c9jRKFo5WgNwR1TC3ojBQJftOH6AAoJEGgNwR1T
+ C3ojVSkIALpAPkIJPQoURPb1VWjh34l0HlglmYHvZszJWTXYwavHR8+k6Baa6H7ufXNQtThR
+ yIxJrQLW6rV5lm7TjhffEhxVCn37+cg0zZ3j7zIsSS0rx/aMwi6VhFJA5hfn3T0TtrijKP4A
+ SAQO9xD1Zk9/61JWk8OysuIh7MXkl0fxbRKWE93XeQBhIJHQfnc+YBLprdnxR446Sh8Wn/2D
+ Ya8cavuWf2zrB6cZurs048xe0UbSW5AOSo4V9M0jzYI4nZqTmPxYyXbm30Kvmz0rYVRaitYJ
+ 4kyYYMhuULvrJDMjZRvaNe52tkKAvMevcGdt38H4KSVXAylqyQOW5zvPc4/sq9c=
+In-Reply-To: <20260519-drm-mode-config-init-v5-16-388b03321e38@kernel.org>
+Content-Type: text/plain; charset=UTF-8; format=flowed
+Content-Transfer-Encoding: 8bit
+X-Spamd-Result: default: False [-2.80 / 50.00];
+	BAYES_HAM(-3.00)[100.00%];
+	SUSPICIOUS_RECIPS(1.50)[];
+	NEURAL_HAM_LONG(-1.00)[-1.000];
+	NEURAL_HAM_SHORT(-0.20)[-1.000];
+	MIME_GOOD(-0.10)[text/plain];
+	FUZZY_RATELIMITED(0.00)[rspamd.com];
+	TAGGED_RCPT(0.00)[renesas];
+	RCVD_VIA_SMTP_AUTH(0.00)[];
+	FREEMAIL_ENVRCPT(0.00)[gmail.com];
+	MIME_TRACE(0.00)[0:+];
+	ARC_NA(0.00)[];
+	TO_DN_SOME(0.00)[];
+	RCPT_COUNT_TWELVE(0.00)[38];
+	FREEMAIL_TO(0.00)[kernel.org,linux.intel.com,gmail.com,ffwll.ch,lwn.net,linuxfoundation.org,oss.qualcomm.com,iki.fi,ideasonboard.com,intel.com,linaro.org,kwiboo.se,emersion.fr,amd.com,igalia.com,redhat.com,ursulin.net,sholland.org,raspberrypi.com];
+	MID_RHS_MATCH_FROM(0.00)[];
+	DKIM_SIGNED(0.00)[suse.de:s=susede2_rsa,suse.de:s=susede2_ed25519];
+	FROM_EQ_ENVFROM(0.00)[];
+	FROM_HAS_DN(0.00)[];
+	R_RATELIMIT(0.00)[to_ip_from(RLyhjdboxbrjk5hnijtjs4kbm6)];
+	RCVD_TLS_ALL(0.00)[];
+	RCVD_COUNT_TWO(0.00)[2];
+	TO_MATCH_ENVRCPT_SOME(0.00)[];
+	internal_greylist_whitelist(0.00)[10.150.64.97];
+	DBL_BLOCKED_OPENRESOLVER(0.00)[suse.de:email,suse.de:mid,imap1.dmz-prg2.suse.org:helo,qualcomm.com:email,ideasonboard.com:email,suse.com:url]
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260526_023323_537689_077D582F 
-X-CRM114-Status: GOOD (  29.13  )
+X-CRM114-CacheID: sfid-20260526_023335_282788_ADCCE25C 
+X-CRM114-Status: GOOD (  39.27  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -152,238 +186,221 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hi Krzysztof,
 
-Thanks for your review.
 
-> -----Original Message-----
-> From: Krzysztof Kozlowski <krzk@kernel.org>
-> Sent: Tuesday, May 26, 2026 5:14 PM
-> To: G.N. Zhou (OSS) <guoniu.zhou@oss.nxp.com>
-> Cc: Mauro Carvalho Chehab <mchehab@kernel.org>; Rob Herring
-> <robh@kernel.org>; Krzysztof Kozlowski <krzk+dt@kernel.org>; Conor Dooley
-> <conor+dt@kernel.org>; Shawn Guo <shawnguo@kernel.org>; Sascha Hauer
-> <s.hauer@pengutronix.de>; Pengutronix Kernel Team
-> <kernel@pengutronix.de>; Fabio Estevam <festevam@gmail.com>; Laurent
-> Pinchart <laurent.pinchart@ideasonboard.com>; Frank Li <frank.li@nxp.com>=
-;
-> imx@lists.linux.dev; linux-media@vger.kernel.org; devicetree@vger.kernel.=
-org;
-> linux-arm-kernel@lists.infradead.org; linux-kernel@vger.kernel.org; G.N. =
-Zhou
-> <guoniu.zhou@nxp.com>; Krzysztof Kozlowski
-> <krzysztof.kozlowski@oss.qualcomm.com>
-> Subject: [EXT] Re: [PATCH v8 1/2] media: dt-bindings: Add CSI Pixel Forma=
-tter
-> DT bindings
->=20
-> Caution: This is an external email. Please take care when clicking links =
-or
-> opening attachments. When in doubt, report the message using the 'Report =
-this
-> email' button
->=20
->=20
-> On Mon, May 25, 2026 at 04:12:22PM +0800, Guoniu Zhou wrote:
-> > From: Guoniu Zhou <guoniu.zhou@nxp.com>
-> >
-> > The i.MX95 CSI pixel formatting module uses packet info, pixel and
-> > non-pixel data from the CSI-2 host controller and reformat them to
-> > match Pixel Link(PL) definition.
-> >
-> > Reviewed-by: Frank Li <Frank.Li@nxp.com>
-> > Reviewed-by: Krzysztof Kozlowski
-> > <krzysztof.kozlowski@oss.qualcomm.com>
->=20
-> Drop both review tags and request re-review since you made significant
-> changes.
->=20
-> > Signed-off-by: Guoniu Zhou <guoniu.zhou@nxp.com>
-> > ---
-> > Changes in v8:
-> > - Use standard port reference instead of video-interfaces.yaml
->=20
-> Why? Properties are not applicable?
+Am 19.05.26 um 11:01 schrieb Maxime Ripard:
+> drm_mode_config_reset() can be used to create the initial state, but
+> also to return to the initial state, when doing a suspend/resume cycle
+> for example.
+>
+> It also affects both the software and the hardware, and drivers can
+> choose to reset the hardware as well. Most will just create an empty
+> state and the synchronisation between hardware and software states will
+> effectively be done when the first commit is done.
+>
+> That dual role can be harmful, since some objects do need to be
+> initialized but also need to be preserved across a suspend/resume cycle.
+> drm_private_obj are such objects for example.
+>
+> Thus, create another helper for drivers to call to initialize their
+> state when the driver is loaded, so we can make
+> drm_mode_config_reset() only about handling suspend/resume and similar.
+>
+> Reviewed-by: Dmitry Baryshkov <dmitry.baryshkov@oss.qualcomm.com>
+> Reviewed-by: Laurent Pinchart <laurent.pinchart+renesas@ideasonboard.com>
+> Signed-off-by: Maxime Ripard <mripard@kernel.org>
 
-Yes, the properties defined in video-interfaces.yaml (such as hsync-active,
-vsync-active, pclk-sample, data-lanes, etc.) are not applicable to this
-device. The device only requires the basic port/endpoint structure to
-describe the connection topology, so the standard port reference is
-sufficient.
+Reviewed-by: Thomas Zimmermann <tzimmermann@suse.de>
 
->=20
-> > - Add parent syscon node in example to show device integration
-> > - Add required constraints for port@0 and port@1 in ports node
-> >
-> > Changes in v7:
-> > - Change compatible to imx95-csi-formatter as IP is i.MX95 specific per
-> Marco's suggestion
-> >   Link:
-> > https://eur01.safelinks.protection.outlook.com/?url=3Dhttps%3A%2F%2Flor=
-e
-> > .kernel.org%2Flinux-media%2F20260511-csi_formatter-v6-0-
-> 01028e312e2b%4
-> >
-> 0oss.nxp.com%2FT%2F%23mcd135b3de179b3cb69daa1fd6e0e8e27c85b3332
-> &data=3D0
-> >
-> 5%7C02%7Cguoniu.zhou%40nxp.com%7C3fc5c66c19574e666c7c08debb0713
-> 3d%7C68
-> >
-> 6ea1d3bc2b4c6fa92cd99c5c301635%7C0%7C0%7C639153836249231043%7
-> CUnknown%
-> >
-> 7CTWFpbGZsb3d8eyJFbXB0eU1hcGkiOnRydWUsIlYiOiIwLjAuMDAwMCIsIlAiOiJ
-> XaW4z
-> >
-> MiIsIkFOIjoiTWFpbCIsIldUIjoyfQ%3D%3D%7C0%7C%7C%7C&sdata=3DZNSc0TBvF
-> V61YL
-> > q4u49sEUs7zo5aPODxSKK36y9azAQ%3D&reserved=3D0
-> > ---
-> >  .../bindings/media/fsl,imx95-csi-formatter.yaml    | 92
-> ++++++++++++++++++++++
-> >  1 file changed, 92 insertions(+)
-> >
-> > diff --git
-> > a/Documentation/devicetree/bindings/media/fsl,imx95-csi-formatter.yaml
-> > b/Documentation/devicetree/bindings/media/fsl,imx95-csi-formatter.yaml
-> > new file mode 100644
-> > index 000000000000..bc2f5d448fe5
-> > --- /dev/null
-> > +++ b/Documentation/devicetree/bindings/media/fsl,imx95-csi-formatter.
-> > +++ yaml
-> > @@ -0,0 +1,92 @@
-> > +# SPDX-License-Identifier: (GPL-2.0-only OR BSD-2-Clause) %YAML 1.2
-> > +---
-> > +$id:
-> > +https://eur01.safelinks.protection.outlook.com/?url=3Dhttp%3A%2F%2Fdev=
-i
-> > +cetree.org%2Fschemas%2Fmedia%2Ffsl%2Cimx95-csi-
-> formatter.yaml%23&data
-> >
-> +=3D05%7C02%7Cguoniu.zhou%40nxp.com%7C3fc5c66c19574e666c7c08debb0
-> 7133d%7
-> >
-> +C686ea1d3bc2b4c6fa92cd99c5c301635%7C0%7C0%7C63915383624927629
-> 7%7CUnkn
-> >
-> +own%7CTWFpbGZsb3d8eyJFbXB0eU1hcGkiOnRydWUsIlYiOiIwLjAuMDAwMCI
-> sIlAiOiJ
-> >
-> +XaW4zMiIsIkFOIjoiTWFpbCIsIldUIjoyfQ%3D%3D%7C0%7C%7C%7C&sdata=3D4y
-> rIJ8Bn
-> > +KlbEdq4%2BbZWNeoSWB4g8N1sChHSQ9z3VRZ0%3D&reserved=3D0
-> > +$schema:
-> > +https://eur01.safelinks.protection.outlook.com/?url=3Dhttp%3A%2F%2Fdev=
-i
-> > +cetree.org%2Fmeta-
-> schemas%2Fcore.yaml%23&data=3D05%7C02%7Cguoniu.zhou%4
-> >
-> +0nxp.com%7C3fc5c66c19574e666c7c08debb07133d%7C686ea1d3bc2b4c6fa
-> 92cd99
-> >
-> +c5c301635%7C0%7C0%7C639153836249307152%7CUnknown%7CTWFpbGZ
-> sb3d8eyJFbX
-> >
-> +B0eU1hcGkiOnRydWUsIlYiOiIwLjAuMDAwMCIsIlAiOiJXaW4zMiIsIkFOIjoiTWF
-> pbCI
-> >
-> +sIldUIjoyfQ%3D%3D%7C0%7C%7C%7C&sdata=3DMEUhKnYWZqo0gMxynCFUEB
-> X8TLGC9aK6
-> > +lNgrHXdqpx0%3D&reserved=3D0
-> > +
-> > +title: i.MX95 CSI Pixel Formatter
-> > +
-> > +maintainers:
-> > +  - Guoniu Zhou <guoniu.zhou@nxp.com>
-> > +
-> > +description:
-> > +  The CSI pixel formatting module found on i.MX95 uses packet info,
-> > +pixel
-> > +  and non-pixel data from the CSI-2 host controller and reformat them
-> > +to
-> > +  match Pixel Link(PL) definition.
-> > +
-> > +properties:
-> > +  compatible:
-> > +    const: fsl,imx95-csi-formatter
-> > +
-> > +  reg:
-> > +    maxItems: 1
-> > +
-> > +  clocks:
-> > +    maxItems: 1
-> > +
-> > +  power-domains:
-> > +    maxItems: 1
-> > +
-> > +  ports:
-> > +    $ref: /schemas/graph.yaml#/properties/ports
-> > +
-> > +    properties:
-> > +      port@0:
-> > +        $ref: /schemas/graph.yaml#/properties/port
-> > +        description: MIPI CSI-2 RX IDI interface
-> > +
-> > +      port@1:
-> > +        $ref: /schemas/graph.yaml#/properties/port
-> > +        description: Pixel Link Interface
-> > +
-> > +    required:
-> > +      - port@0
-> > +      - port@1
-> > +
-> > +required:
-> > +  - compatible
-> > +  - reg
-> > +  - clocks
-> > +  - power-domains
-> > +  - ports
-> > +
-> > +additionalProperties: false
-> > +
-> > +examples:
-> > +  - |
-> > +    #include <dt-bindings/clock/nxp,imx95-clock.h>
-> > +
-> > +    syscon@4ac10000 {
-> > +        compatible =3D "nxp,imx95-camera-csr", "syscon";
->=20
-> Drop entire node, not relevant. Or actually this example could be in the =
-parent
-> binding example.
+There are some notes on the style of writing below.
 
-Okay.
+> ---
+>   drivers/gpu/drm/drm_atomic.c      | 13 +++++-
+>   drivers/gpu/drm/drm_mode_config.c | 89 +++++++++++++++++++++++++++++++++++++++
+>   include/drm/drm_mode_config.h     |  1 +
+>   3 files changed, 101 insertions(+), 2 deletions(-)
+>
+> diff --git a/drivers/gpu/drm/drm_atomic.c b/drivers/gpu/drm/drm_atomic.c
+> index d98586d89bbe..ea021250925c 100644
+> --- a/drivers/gpu/drm/drm_atomic.c
+> +++ b/drivers/gpu/drm/drm_atomic.c
+> @@ -59,12 +59,21 @@
+>    * preparing the update and kept alive as long as they are active in the
+>    * device.
+>    *
+>    * Their respective lifetimes are:
+>    *
+> - * - at reset time, the object reset implementation will allocate a new
+> - *   default state and will store it in the object state pointer.
+> + * - at driver initialization time, the driver will call
+> + *   drm_mode_config_create_initial_state() to allocate an initial,
+> + *   pristine, state for each object and will store it in the objects
 
->=20
->=20
-> > +        reg =3D <0x0 0x4ac10000 0x0 0x10000>;
-> > +        #address-cells =3D <1>;
-> > +        #size-cells =3D <1>;
-> > +
-> > +        formatter@20 {
-> > +            compatible =3D "fsl,imx95-csi-formatter";
-> > +            reg =3D <0x20 0x100>;
-> > +            clocks =3D <&cameramix_csr IMX95_CLK_CAMBLK_CSI2_FOR0>;
-> > +            power-domains =3D <&scmi_devpd 3>;
-> > +
-> > +            ports {
-> > +                #address-cells =3D <1>;
-> > +                #size-cells =3D <0>;
-> > +
-> > +                port@0 {
-> > +                    reg =3D <0>;
-> > +
-> > +                    endpoint {
-> > +                        remote-endpoint =3D <&mipi_csi_0_out>;
-> > +                };
-> > +            };
-> > +
-> > +                port@1 {
->=20
-> Messed indentation.
->=20
-> Best regards,
-> Krzysztof
+Present form: 'the driver calls', 'and stores it'.
+
+> + *   state pointer. Historically, this was one of
+> + *   drm_mode_config_reset() job, so one might still encounter it in a
+> + *   driver.
+> + *
+> + * - at reset time, for example during suspend/resume,
+
+Are there other reset times?  If not, then rather say
+
+"- when resuming from suspend, drm_mode_config_reset() resets..."
+
+> + *   drm_mode_config_reset() will reset the software and hardware state
+> + *   to a known default and will store it in the object's state pointer.
+
+Present form.
+
+Best regards
+Thomas
+
+> + *   Not all objects are affected by drm_mode_config_reset() though.
+>    *
+>    * - whenever a new update is needed:
+>    *
+>    *   + A new &struct drm_atomic_commit is allocated using
+>    *     drm_atomic_commit_alloc().
+> diff --git a/drivers/gpu/drm/drm_mode_config.c b/drivers/gpu/drm/drm_mode_config.c
+> index 9d240817f8b6..f432f485a914 100644
+> --- a/drivers/gpu/drm/drm_mode_config.c
+> +++ b/drivers/gpu/drm/drm_mode_config.c
+> @@ -21,10 +21,11 @@
+>    */
+>   
+>   #include <linux/export.h>
+>   #include <linux/uaccess.h>
+>   
+> +#include <drm/drm_atomic.h>
+>   #include <drm/drm_drv.h>
+>   #include <drm/drm_encoder.h>
+>   #include <drm/drm_file.h>
+>   #include <drm/drm_framebuffer.h>
+>   #include <drm/drm_managed.h>
+> @@ -314,10 +315,98 @@ void drm_mode_config_reset(struct drm_device *dev)
+>   	}
+>   	drm_connector_list_iter_end(&conn_iter);
+>   }
+>   EXPORT_SYMBOL(drm_mode_config_reset);
+>   
+> +/**
+> + * drm_mode_config_create_initial_state - Allocates the initial state
+> + * @dev: drm device
+> + *
+> + * This functions creates the initial state for all the objects. Drivers
+> + * can use this in e.g. probe to initialize their software state.
+> + *
+> + * It has two main differences with drm_mode_config_reset(): the reset()
+> + * hooks aren't called and thus the hardware will be left untouched, but
+> + * also the &drm_private_obj structures will be initialized as opposed
+> + * to drm_mode_config_reset() that skips them.
+> + *
+> + * Returns: 0 on success, negative error value on failure.
+> + */
+> +int drm_mode_config_create_initial_state(struct drm_device *dev)
+> +{
+> +	struct drm_crtc *crtc;
+> +	struct drm_colorop *colorop;
+> +	struct drm_plane *plane;
+> +	struct drm_connector *connector;
+> +	struct drm_connector_list_iter conn_iter;
+> +	struct drm_private_obj *privobj;
+> +	int ret;
+> +
+> +	drm_for_each_privobj(privobj, dev) {
+> +		struct drm_private_state *privobj_state;
+> +
+> +		if (privobj->state)
+> +			continue;
+> +
+> +		if (!privobj->funcs->atomic_create_state)
+> +			continue;
+> +
+> +		privobj_state = privobj->funcs->atomic_create_state(privobj);
+> +		if (IS_ERR(privobj_state))
+> +			return PTR_ERR(privobj_state);
+> +
+> +		privobj->state = privobj_state;
+> +	}
+> +
+> +	drm_for_each_colorop(colorop, dev) {
+> +		struct drm_colorop_state *colorop_state;
+> +
+> +		if (colorop->state)
+> +			continue;
+> +
+> +		colorop_state = drm_atomic_helper_colorop_create_state(colorop);
+> +		if (IS_ERR(colorop_state))
+> +			return PTR_ERR(colorop_state);
+> +
+> +		colorop->state = colorop_state;
+> +	}
+> +
+> +	drm_for_each_plane(plane, dev) {
+> +		if (plane->state)
+> +			continue;
+> +
+> +		ret = drm_mode_config_plane_create_state(plane);
+> +		if (ret)
+> +			return ret;
+> +	}
+> +
+> +	drm_for_each_crtc(crtc, dev) {
+> +		if (crtc->state)
+> +			continue;
+> +
+> +		ret = drm_mode_config_crtc_create_state(crtc);
+> +		if (ret)
+> +			return ret;
+> +	}
+> +
+> +	drm_connector_list_iter_begin(dev, &conn_iter);
+> +	drm_for_each_connector_iter(connector, &conn_iter) {
+> +		if (connector->state)
+> +			continue;
+> +
+> +		ret = drm_mode_config_connector_create_state(connector);
+> +		if (ret) {
+> +			drm_connector_list_iter_end(&conn_iter);
+> +			return ret;
+> +		}
+> +	}
+> +	drm_connector_list_iter_end(&conn_iter);
+> +
+> +	return 0;
+> +}
+> +EXPORT_SYMBOL(drm_mode_config_create_initial_state);
+> +
+>   /*
+>    * Global properties
+>    */
+>   static const struct drm_prop_enum_list drm_plane_type_enum_list[] = {
+>   	{ DRM_PLANE_TYPE_OVERLAY, "Overlay" },
+> diff --git a/include/drm/drm_mode_config.h b/include/drm/drm_mode_config.h
+> index e584652ddf67..d8f5b7e9673e 100644
+> --- a/include/drm/drm_mode_config.h
+> +++ b/include/drm/drm_mode_config.h
+> @@ -1005,9 +1005,10 @@ int __must_check drmm_mode_config_init(struct drm_device *dev);
+>   static inline int drm_mode_config_init(struct drm_device *dev)
+>   {
+>   	return drmm_mode_config_init(dev);
+>   }
+>   
+> +int drm_mode_config_create_initial_state(struct drm_device *dev);
+>   void drm_mode_config_reset(struct drm_device *dev);
+>   void drm_mode_config_cleanup(struct drm_device *dev);
+>   
+>   #endif
+>
+
+-- 
+--
+Thomas Zimmermann
+Graphics Driver Developer
+SUSE Software Solutions Germany GmbH
+Frankenstr. 146, 90461 Nürnberg, Germany, www.suse.com
+GF: Jochen Jaser, Andrew McDonald, Werner Knoblich, (HRB 36809, AG Nürnberg)
+
 
 
