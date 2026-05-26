@@ -4,94 +4,73 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 32F24CD5BC9
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 26 May 2026 02:14:58 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id D2AB1CD5BC9
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 26 May 2026 02:28:31 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:MIME-Version:Date:Message-ID:From:References:CC:To:
-	Subject:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=iqoFEqRrz+VITnn7JX0KLSm23oivmL3aruRn9IsfzBM=; b=EhXOBbtZXOyKnAwUKnizB8GfXN
-	YjXFfiuFQaXIOmEVh8iqYfEEg11xT3kD+ma2pM8Vi61zfqLWSDKIYw/nmet6htVFcWVwLuYTs8xAG
-	kJ7P9aQqGfikfvF2OgMTJhB+PVIFM+aa34BsXEYpkR4JCc2tA0a+Qf3ryXJ9oVSfjRebWXN3nN5cv
-	NQpka1XUZbFPVafK/7KGpgUW9iF4YANAUazojEc0ADeHBSq2IYGqPaere/Uf9yKwVjM/Kr+HkPPVq
-	SczBuLkBcYyt27S2D2Tzby5ySY4f3LcJ7xPzY6wrLRalXlJOI0Wi8PDGMVKj6W5Yoy2DPfi//s1ut
-	VXtTgTRQ==;
+	MIME-Version:Message-Id:Date:Subject:Cc:To:From:Reply-To:Content-Type:
+	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
+	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=lw4/4FT2rvt0MC5tdmiJL7oUXfl2ms2f6Q38CmkzsO0=; b=0aUPpvweWTqC4lONed7saaDCOF
+	0z9MkiclYpjZiLCR3ttUYi0YVDX0SXS3cO9nJOkZ4iIdA6tj0dgTWdHbEudgGOT1RnvZHkr2+fVsL
+	Hl+0qCwTq6BJHwS7unDBhFUDLe4AMUFoHDcl7JuM0JMAybijjIpRH7NmrIRnbWL/x5G4Hpt27eVhE
+	zt4giwL3Ky/AvNzGdwVmcW5/XkCTOmcJEPsLiIyI/AOeG1hWiVoMlnAPiMya4UC9LQ5hJAAFL+7P/
+	6UWOnidNIhDqC7XAu8mHzo/63cRmzFzFwv2/D6dh4vAxqt4kZ4MZgl/vuL/1iHnyWkk7c4qegM283
+	xdZ1BS8g==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wRhJi-00000000qIC-0Rsm;
-	Tue, 26 May 2026 02:14:50 +0000
-Received: from canpmsgout07.his.huawei.com ([113.46.200.222])
+	id 1wRhWq-00000000rP3-1AeV;
+	Tue, 26 May 2026 02:28:24 +0000
+Received: from m16.mail.163.com ([117.135.210.4])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wRhJe-00000000qHM-42c3
+	id 1wRhWm-00000000rNm-0Io6
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 26 May 2026 02:14:49 +0000
-dkim-signature: v=1; a=rsa-sha256; d=huawei.com; s=dkim;
-	c=relaxed/relaxed; q=dns/txt;
-	h=From;
-	bh=iqoFEqRrz+VITnn7JX0KLSm23oivmL3aruRn9IsfzBM=;
-	b=qg3va+tJlYSUbutvQ+T8srTjCVODQHoKmiJesdJbTqzhOOJYzMN684gmdFepLcNeL++Kd2OeB
-	I3751WyoTMMPTJRT5tKbtx1juWHKwApCX4kKE0ZKgoPbghVrkjIq1P+PNl3iN4cSWuAMgy094ue
-	CLB9cumxvInQKIiU5vKvXYs=
-Received: from mail.maildlp.com (unknown [172.19.163.127])
-	by canpmsgout07.his.huawei.com (SkyGuard) with ESMTPS id 4gPbj22TlDzLlTj;
-	Tue, 26 May 2026 10:06:46 +0800 (CST)
-Received: from dggpemf500002.china.huawei.com (unknown [7.185.36.57])
-	by mail.maildlp.com (Postfix) with ESMTPS id C9763402AB;
-	Tue, 26 May 2026 10:14:30 +0800 (CST)
-Received: from [10.174.179.24] (10.174.179.24) by
- dggpemf500002.china.huawei.com (7.185.36.57) with Microsoft SMTP Server
- (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
- 15.2.1544.11; Tue, 26 May 2026 10:14:27 +0800
-Subject: Re: [PATCH v3 02/17] ACPI: GTDT: Parse information related to the EL2
- virtual timer
-To: Marc Zyngier <maz@kernel.org>, <linux-arm-kernel@lists.infradead.org>,
-	<linux-acpi@vger.kernel.org>, <linux-kernel@vger.kernel.org>,
-	<devicetree@vger.kernel.org>
-CC: Lorenzo Pieralisi <lpieralisi@kernel.org>, Sudeep Holla
-	<sudeep.holla@kernel.org>, Catalin Marinas <catalin.marinas@arm.com>, Will
- Deacon <will@kernel.org>, "Rafael J. Wysocki" <rafael@kernel.org>, Mark
- Rutland <mark.rutland@arm.com>, Daniel Lezcano <daniel.lezcano@kernel.org>,
-	Thomas Gleixner <tglx@kernel.org>, Rob Herring <robh@kernel.org>, Krzysztof
- Kozlowski <krzk+dt@kernel.org>, Conor Dooley <conor+dt@kernel.org>, Chen-Yu
- Tsai <wens@kernel.org>, Jernej Skrabec <jernej.skrabec@gmail.com>, Samuel
- Holland <samuel@sholland.org>, Neil Armstrong <neil.armstrong@linaro.org>,
-	Kevin Hilman <khilman@baylibre.com>, Jerome Brunet <jbrunet@baylibre.com>,
-	Martin Blumenstingl <martin.blumenstingl@googlemail.com>, Ge Gordon
-	<gordon.ge@bst.ai>, BST Linux Kernel Upstream Group <bst-upstream@bstai.top>,
-	Jesper Nilsson <jesper.nilsson@axis.com>, Lars Persson
-	<lars.persson@axis.com>, Alim Akhtar <alim.akhtar@samsung.com>, Ivaylo Ivanov
-	<ivo.ivanov.ivanov1@gmail.com>, Frank Li <Frank.Li@nxp.com>, Sascha Hauer
-	<s.hauer@pengutronix.de>, Pengutronix Kernel Team <kernel@pengutronix.de>,
-	Fabio Estevam <festevam@gmail.com>, Dinh Nguyen <dinguyen@kernel.org>,
-	Matthias Brugger <matthias.bgg@gmail.com>, AngeloGioacchino Del Regno
-	<angelogioacchino.delregno@collabora.com>, Thierry Reding
-	<thierry.reding@kernel.org>, Jonathan Hunter <jonathanh@nvidia.com>, Bjorn
- Andersson <andersson@kernel.org>, Konrad Dybcio <konradybcio@kernel.org>,
-	=?UTF-8?Q?Andreas_F=c3=a4rber?= <afaerber@suse.de>,
-	=?UTF-8?B?WXUtQ2h1biBMaW4gW+ael+elkOWQm10=?= <eleanor.lin@realtek.com>, Heiko
- Stuebner <heiko@sntech.de>, Shawn Lin <shawn.lin@rock-chips.com>, Orson Zhai
-	<orsonzhai@gmail.com>, Baolin Wang <baolin.wang@linux.alibaba.com>, Michal
- Simek <michal.simek@amd.com>
-References: <20260523140242.586031-1-maz@kernel.org>
- <20260523140242.586031-3-maz@kernel.org>
-From: Hanjun Guo <guohanjun@huawei.com>
-Message-ID: <ed3d35f7-a9db-98d4-de99-313587b15ed1@huawei.com>
-Date: Tue, 26 May 2026 10:14:26 +0800
-User-Agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:68.0) Gecko/20100101
- Thunderbird/68.6.0
+	Tue, 26 May 2026 02:28:22 +0000
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=163.com;
+	s=s110527; h=From:To:Subject:Date:Message-Id:MIME-Version; bh=lw
+	4/4FT2rvt0MC5tdmiJL7oUXfl2ms2f6Q38CmkzsO0=; b=jxnhjdmJVIWAml/kE5
+	u5qCxxbg0JHWtE27q94QEN9ZgRfopHORr6sfGxYz1NZj7FaDA1/9eB+xaknOY9Ie
+	BZDnTh7i1h1pU7pbh58mw8+I8Nu2niWqaT6BYmbdYe4TT3890Ei02po91Cb0MizK
+	EsP3WPZNPJtsPzguS+4p3VVOw=
+Received: from PC-YLX4CAEK.company.local (unknown [])
+	by gzga-smtp-mtada-g0-1 (Coremail) with SMTP id _____wAX0JUKBRVqTduMDQ--.20654S2;
+	Tue, 26 May 2026 10:27:23 +0800 (CST)
+From: Ding Hui <dinghui1111@163.com>
+To: andrew@lunn.ch,
+	Andrew Lunn <andrew+netdev@lunn.ch>,
+	"David S. Miller" <davem@davemloft.net>,
+	Eric Dumazet <edumazet@google.com>,
+	Jakub Kicinski <kuba@kernel.org>,
+	Paolo Abeni <pabeni@redhat.com>,
+	Maxime Coquelin <mcoquelin.stm32@gmail.com>,
+	Alexandre Torgue <alexandre.torgue@foss.st.com>,
+	"Russell King (Oracle)" <rmk+kernel@armlinux.org.uk>,
+	Maxime Chevallier <maxime.chevallier@bootlin.com>,
+	Ding Hui <dinghui@lixiang.com>,
+	netdev@vger.kernel.org (open list:STMMAC ETHERNET DRIVER),
+	linux-stm32@st-md-mailman.stormreply.com (moderated list:ARM/STM32 ARCHITECTURE),
+	linux-arm-kernel@lists.infradead.org (moderated list:ARM/STM32 ARCHITECTURE),
+	linux-kernel@vger.kernel.org (open list)
+Cc: xiasanbo@lixiang.com,
+	yangchen11@lixiang.com,
+	liuxuanjun@lixiang.com
+Subject: [PATCH v2] net: stmmac: fix fatal bus error on resume by reinitializing RX buffers
+Date: Tue, 26 May 2026 10:26:17 +0800
+Message-Id: <20260526022620.501229-1-dinghui1111@163.com>
+X-Mailer: git-send-email 2.34.1
 MIME-Version: 1.0
-In-Reply-To: <20260523140242.586031-3-maz@kernel.org>
-Content-Type: text/plain; charset="utf-8"; format=flowed
-Content-Language: en-GB
-Content-Transfer-Encoding: 7bit
-X-Originating-IP: [10.174.179.24]
-X-ClientProxiedBy: kwepems100001.china.huawei.com (7.221.188.238) To
- dggpemf500002.china.huawei.com (7.185.36.57)
+Content-Transfer-Encoding: 8bit
+X-CM-TRANSID: _____wAX0JUKBRVqTduMDQ--.20654S2
+X-Coremail-Antispam: 1Uf129KBjvJXoW3AF4UCFWfAr45uw1fKFyUWrg_yoWxAryrpa
+	yayw4DKr1kJrs3Gw4rJw48ZFy5Aan0yFW3Ww4xXw4a9a1a9r9avF1ayrWYya4UGr4kZr92
+	yr4DA39rCF1DAFDanT9S1TB71UUUUU7qnTZGkaVYY2UrUUUUjbIjqfuFe4nvWSU5nxnvy2
+	9KBjDUYxBIdaVFxhVjvjDU0xZFpf9x07jtiSdUUUUU=
+X-Originating-IP: [220.248.55.69]
+X-CM-SenderInfo: pglqwx1xlriiqr6rljoofrz/xtbC8wwkUGoVBQw11QAA3d
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260525_191447_646067_81C92D28 
-X-CRM114-Status: GOOD (  20.53  )
+X-CRM114-CacheID: sfid-20260525_192820_689634_D6D60B51 
+X-CRM114-Status: GOOD (  23.52  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -106,79 +85,174 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On 2026/5/23 22:02, Marc Zyngier wrote:
-> Now that we have a way to identify GTDTv3, allow the information
-> related to the EL2 virtual timer to be retrieved by the interface
-> used by the architected timer driver.
-> 
-> Reviewed-by: Sudeep Holla <sudeep.holla@kernel.org>
-> Signed-off-by: Marc Zyngier <maz@kernel.org>
-> ---
->   drivers/acpi/arm64/gtdt.c | 20 ++++++++++++++++++++
->   1 file changed, 20 insertions(+)
-> 
-> diff --git a/drivers/acpi/arm64/gtdt.c b/drivers/acpi/arm64/gtdt.c
-> index 950d5efdf85ea..00158c8aa6d90 100644
-> --- a/drivers/acpi/arm64/gtdt.c
-> +++ b/drivers/acpi/arm64/gtdt.c
-> @@ -41,6 +41,14 @@ struct gtdt_v3 {
->   
->   static struct acpi_gtdt_descriptor acpi_gtdt_desc __initdata;
->   
-> +static __init struct acpi_gtdt_el2 *gtdt_to_el2_vtimer(struct acpi_table_gtdt *gtdt)
-> +{
-> +	if (gtdt->header.revision < 3)
-> +		return NULL;
-> +
-> +	return &container_of(gtdt, struct gtdt_v3, gtdt_v2)->el2_vtimer;
-> +}
-> +
->   static __init bool platform_timer_valid(void *platform_timer)
->   {
->   	struct acpi_gtdt_header *gh = platform_timer;
-> @@ -112,6 +120,7 @@ static int __init map_gt_gsi(u32 interrupt, u32 flags)
->   int __init acpi_gtdt_map_ppi(int type)
->   {
->   	struct acpi_table_gtdt *gtdt = acpi_gtdt_desc.gtdt;
-> +	struct acpi_gtdt_el2 *el2_vtimer = gtdt_to_el2_vtimer(gtdt);
->   
->   	switch (type) {
->   	case ARCH_TIMER_PHYS_NONSECURE_PPI:
-> @@ -124,6 +133,12 @@ int __init acpi_gtdt_map_ppi(int type)
->   	case ARCH_TIMER_HYP_PPI:
->   		return map_gt_gsi(gtdt->non_secure_el2_interrupt,
->   				  gtdt->non_secure_el2_flags);
-> +	case ARCH_TIMER_HYP_VIRT_PPI:
-> +		if (el2_vtimer && el2_vtimer->virtual_el2_timer_gsiv)
-> +			return map_gt_gsi(el2_vtimer->virtual_el2_timer_gsiv,
-> +					  el2_vtimer->virtual_el2_timer_flags);
-> +
-> +		return 0;
->   	default:
->   		pr_err("Failed to map timer interrupt: invalid type.\n");
->   	}
-> @@ -141,6 +156,7 @@ int __init acpi_gtdt_map_ppi(int type)
->   bool __init acpi_gtdt_c3stop(int type)
->   {
->   	struct acpi_table_gtdt *gtdt = acpi_gtdt_desc.gtdt;
-> +	struct acpi_gtdt_el2 *el2_vtimer = gtdt_to_el2_vtimer(gtdt);
->   
->   	switch (type) {
->   	case ARCH_TIMER_PHYS_NONSECURE_PPI:
-> @@ -152,6 +168,10 @@ bool __init acpi_gtdt_c3stop(int type)
->   	case ARCH_TIMER_HYP_PPI:
->   		return !(gtdt->non_secure_el2_flags & ACPI_GTDT_ALWAYS_ON);
->   
-> +	case ARCH_TIMER_HYP_VIRT_PPI:
-> +		return el2_vtimer && el2_vtimer->virtual_el2_timer_gsiv &&
-> +		       !(el2_vtimer->virtual_el2_timer_flags & ACPI_GTDT_ALWAYS_ON);
-> +
->   	default:
->   		pr_err("Failed to get c3stop info: invalid type.\n");
->   	}
+From: Ding Hui <dinghui@lixiang.com>
 
-Reviewed-by: Hanjun Guo <guohanjun@huawei.com>
+On suspend, stmmac_suspend() calls stmmac_disable_all_queues() which
+stops the RX NAPI, but the RX DMA engine may still be running for a
+short window before stmmac_stop_all_dma() takes effect. During that
+window the hardware can write incoming frames into the buffers pointed
+to by the RX descriptors and write back the descriptors (clearing the
+OWN bit and overwriting RDES0/1/2 with status/timestamp data). Because
+NAPI is already disabled, the driver never refills these descriptors,
+so the RX ring is left in a "consumed but not refilled" state with
+stale content in the descriptor buffer-address fields.
 
-Thanks
-Hanjun
+On resume, stmmac_clear_descriptors() only re-arms the OWN bit and
+does not repopulate the RX buffer address fields. When the DMA is
+restarted it dereferences these stale addresses and triggers a fatal
+bus error.
+
+Fix this without any allocation by introducing
+stmmac_reinit_rx_descriptors(), called from stmmac_resume() before
+stmmac_clear_descriptors(). The helper iterates every RX descriptor
+slot and re-programs its buffer address fields:
+
+ - For normal (page_pool) queues: restore RDES0/1 from buf->addr and
+   RDES2 from buf->sec_addr. The DMA mapping has remained valid across
+   suspend/resume because no pages were freed.
+
+ - For AF_XDP zero-copy queues: restore the DMA address from
+   xsk_buff_xdp_get_dma(buf->xdp). Slots with buf->xdp == NULL (TX-only
+   XSK socket) are skipped to avoid a NULL-pointer dereference.
+
+ - For chain mode: call stmmac_mode_init() to rebuild the des3 next-
+   descriptor pointer chain, which hardware may have overwritten with
+   a PTP timestamp value (as noted in chain_mode.c:refill_desc3()).
+
+This approach keeps all RX buffers alive across the PM transition and
+avoids any allocation in the resume path, eliminating the OOM risk
+raised against the previous approach of freeing and re-allocating
+buffers.
+
+Signed-off-by: Ding Hui <dinghui@lixiang.com>
+---
+
+Changes in v2:
+- Introducing stmmac_reinit_rx_descriptors() to reinitializing rx
+  buffers without any allocation.
+- Modify commit log.
+- Link to v1:
+  https://lore.kernel.org/netdev/20260515053856.2310369-1-dinghui1111@163.com/
+---
+ .../net/ethernet/stmicro/stmmac/stmmac_main.c | 90 +++++++++++++++++++
+ 1 file changed, 90 insertions(+)
+
+diff --git a/drivers/net/ethernet/stmicro/stmmac/stmmac_main.c b/drivers/net/ethernet/stmicro/stmmac/stmmac_main.c
+index 3591755ea30b..0dc27d8c66a0 100644
+--- a/drivers/net/ethernet/stmicro/stmmac/stmmac_main.c
++++ b/drivers/net/ethernet/stmicro/stmmac/stmmac_main.c
+@@ -1642,6 +1642,79 @@ static void stmmac_clear_descriptors(struct stmmac_priv *priv,
+ 		stmmac_clear_tx_descriptors(priv, dma_conf, queue);
+ }
+ 
++/**
++ * stmmac_reinit_rx_descriptors - re-program RX descriptors from existing
++ *				   buffers (allocation-free)
++ * @priv: driver private structure
++ * @dma_conf: structure holding the dma data
++ * @queue: RX queue index
++ *
++ * Description: walk rx_q->buf_pool[] and re-program every RX descriptor's
++ * buffer-address fields from the buffers that are already attached to the
++ * queue. This is intended for the resume path: between suspend and resume
++ * the descriptor buffer-address fields may have been overwritten by HW
++ * writeback (RDESx are reused for status/length on completion), but the
++ * underlying RX buffers (page_pool pages or XSK frames) are still alive
++ * in buf_pool[]. By re-using them we avoid any allocation on resume,
++ * which is unsafe under memory pressure.
++ *
++ * This helper is expected to be called only in stmmac_resume.
++ */
++static void stmmac_reinit_rx_descriptors(struct stmmac_priv *priv,
++					 struct stmmac_dma_conf *dma_conf,
++					 u32 queue)
++{
++	struct stmmac_rx_queue *rx_q = &dma_conf->rx_queue[queue];
++	int i;
++
++	for (i = 0; i < dma_conf->dma_rx_size; i++) {
++		struct stmmac_rx_buffer *buf = &rx_q->buf_pool[i];
++		struct dma_desc *p = stmmac_get_rx_desc(priv, rx_q, i);
++
++		if (rx_q->xsk_pool) {
++			dma_addr_t dma_addr;
++
++			/* The XSK pool may not be fully populated (e.g.
++			 * xdpsock TX-only); skip empty slots.
++			 */
++			if (!buf->xdp)
++				continue;
++
++			dma_addr = xsk_buff_xdp_get_dma(buf->xdp);
++			stmmac_set_desc_addr(priv, p, dma_addr);
++			stmmac_set_desc_sec_addr(priv, p, 0, false);
++		} else {
++			/* Theoretically unreachable: napi_disable() in
++			 * stmmac_suspend() ensures all initialized slots
++			 * have a valid page before we get here.
++			 * Defensive check only.
++			 */
++			if (!buf->page)
++				continue;
++
++			stmmac_set_desc_addr(priv, p, buf->addr);
++			stmmac_set_desc_sec_addr(priv, p, buf->sec_addr,
++						 priv->sph_active &&
++						 buf->sec_page);
++
++			if (dma_conf->dma_buf_sz == BUF_SIZE_16KiB)
++				stmmac_init_desc3(priv, p);
++		}
++	}
++
++	/* Chain mode: re-link descriptor 'next' pointers. This is
++	 * allocation-free; it just rewrites the per-descriptor next
++	 * field which may have been clobbered by HW writeback.
++	 */
++	if (priv->descriptor_mode == STMMAC_CHAIN_MODE) {
++		void *des = priv->extend_desc ? (void *)rx_q->dma_erx
++					      : (void *)rx_q->dma_rx;
++
++		stmmac_mode_init(priv, des, rx_q->dma_rx_phy,
++				 dma_conf->dma_rx_size, priv->extend_desc);
++	}
++}
++
+ /**
+  * stmmac_init_rx_buffers - init the RX descriptor buffer.
+  * @priv: driver private structure
+@@ -8272,6 +8345,7 @@ int stmmac_resume(struct device *dev)
+ {
+ 	struct net_device *ndev = dev_get_drvdata(dev);
+ 	struct stmmac_priv *priv = netdev_priv(ndev);
++	u32 queue;
+ 	int ret;
+ 
+ 	if (priv->plat->resume) {
+@@ -8316,6 +8390,22 @@ int stmmac_resume(struct device *dev)
+ 
+ 	mutex_lock(&priv->lock);
+ 
++	/* Re-program the RX descriptors from the buffers that are still
++	 * attached to priv->dma_conf.rx_queue[].buf_pool[]. The buffer-
++	 * address fields of the RX descriptors may have been overwritten
++	 * by HW writeback while the DMA was being stopped on suspend
++	 * (RDESx are reused for status/length on completion), so they
++	 * must be repopulated before the DMA is restarted in
++	 * stmmac_hw_setup() below; otherwise the controller would
++	 * dereference stale addresses and trigger a fatal bus error.
++	 *
++	 * This path is allocation-free: it relies entirely on the RX
++	 * buffers preserved across suspend, which makes the resume path
++	 * safe under memory pressure.
++	 */
++	for (queue = 0; queue < priv->plat->rx_queues_to_use; queue++)
++		stmmac_reinit_rx_descriptors(priv, &priv->dma_conf, queue);
++
+ 	stmmac_reset_queues_param(priv);
+ 
+ 	stmmac_free_tx_skbufs(priv);
+-- 
+2.34.1
+
 
