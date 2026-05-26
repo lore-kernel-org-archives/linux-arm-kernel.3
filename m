@@ -4,84 +4,67 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 0607ACD5BD5
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 26 May 2026 22:23:57 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id EF657CD5BD5
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 26 May 2026 22:28:00 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
 	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
 	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=LLy5JEG+MEjCYTAVQWciJIIB58SaPqhXvPxApYilWxo=; b=Cz6w/2H2SmEABRJSeagPXgSwxM
-	bZYaYX9xlzUwyy8Fk/a4fWnBuXQgSl/603e4/1lVlFuLMdRxsqDjBdNMbanuCHYYur1dn6QfO7+9t
-	k/nf3a4/4sa8cl/QCxUE0SAIGKg2PMKaVWyq64QYPL/qoAZmCkptEDUAk4iuLSO3BOAWvtQID755k
-	0aYEBatbopwfpGcVtCGdId2e8fCCzsSGyX0Qb8leVdJeGgftBUXpiZwrgKe/jpKYf83s1djtXNmMT
-	Xros7hxG1rcgvlS73vr9CDoNIxoGCN82NkqA1j6m7C9q5i6SXjl9Iv2kL9uqeLXoL3Ih8/37GNywD
-	bRpAzGJw==;
+	bh=xyKaWpG8K34wUdn2bubOYPdzAbDa6l5hXnAxBW9DLqk=; b=4TshhKIqIoeJCzKjh3tDENVZOX
+	OUKDl/Q8d4rd2aE4oejf/u5ph/4OLbPsnPGV0yQCcDBN7jHfilXJAF4mblssOOG44ZHWoaXAT0uyZ
+	T2SUfYwmLTXLsPF3r9klvjqIZlLcwXIJUn8PXXus7rcT1nbHfiE6B6p9MG/EHaXIEvXf+SJ7XA8cG
+	F0/1WNGLJRjT9R7qB8xNl6zsXfUAIjN7T/S8HJTFo+nx6iCRLZDlvdilX0CQYrp7SDJp2dVj3aBh7
+	w8nbKj+E+a2FmdurLXYNspvLC4DorM99mDn+O4mQo06mtQFBwL1p1weg5fSFCl6+M3Vq5uM3eK84v
+	BJC+9k+A==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wS0Bg-0000000316H-33DH;
-	Tue, 26 May 2026 22:23:48 +0000
-Received: from mgamail.intel.com ([198.175.65.16])
-	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wS0Bc-0000000315c-49Ee
+	id 1wS0Fd-000000031K6-0ctB;
+	Tue, 26 May 2026 22:27:53 +0000
+Received: from foss.arm.com ([217.140.110.172])
+	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
+	id 1wS0FZ-000000031JW-021s
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 26 May 2026 22:23:47 +0000
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple;
-  d=intel.com; i=@intel.com; q=dns/txt; s=Intel;
-  t=1779834225; x=1811370225;
-  h=date:from:to:cc:subject:message-id:references:
-   mime-version:in-reply-to;
-  bh=PeWkXtVByZaI1HB4gRMRQ14IUpZcVF886iBQEGNYfvg=;
-  b=QyqMsHl2y2YhxGpSv0q1m9DmiiEwyXVfAiVKRFAa5J5wirb4CcD2yeLw
-   YtE5S52kCjOqrTAVTrGybI5U3fuDnnWEm+HKykeBLtb2ap7Q4H5RyIYV4
-   yIuYaCqzSxg9pkCYtjX6n5McvQ5i5y2dH/3r7NtJqlSGkG/Azwfnx358R
-   jy5Sbw4hZUAzYUGTexkAnMuk7lO2cHw7UPUpl0BOL4nEpcKwn3z7FssIZ
-   EKdiCUEo2Gi5uBpeR2v7f8ceSVqbGx7j6nzcIJzSrwg0DpQUdIv3SNb5O
-   3IAp8iWVp0VdmpJC0RloAsxAweKLtjdIMQcn6lw3/w2QK3EWHxKHvtOZC
-   A==;
-X-CSE-ConnectionGUID: pDEg2zRJRZyaHnmw28VLuA==
-X-CSE-MsgGUID: 36fvyCMzQ2mLpKeADEODJA==
-X-IronPort-AV: E=McAfee;i="6800,10657,11798"; a="80848045"
-X-IronPort-AV: E=Sophos;i="6.24,170,1774335600"; 
-   d="scan'208";a="80848045"
-Received: from orviesa008.jf.intel.com ([10.64.159.148])
-  by orvoesa108.jf.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 26 May 2026 15:23:41 -0700
-X-CSE-ConnectionGUID: jXp1pGdtQVWRxKGMFXbOoQ==
-X-CSE-MsgGUID: XwU4YZPvT6+rsx2PIp014g==
-X-ExtLoop1: 1
-X-IronPort-AV: E=Sophos;i="6.24,170,1774335600"; 
-   d="scan'208";a="241890275"
-Received: from igk-lkp-server01.igk.intel.com (HELO bdf09bfdbd5f) ([10.211.93.152])
-  by orviesa008.jf.intel.com with ESMTP; 26 May 2026 15:23:37 -0700
-Received: from kbuild by bdf09bfdbd5f with local (Exim 4.98.2)
-	(envelope-from <lkp@intel.com>)
-	id 1wS0BS-00000000CUr-2yTH;
-	Tue, 26 May 2026 22:23:34 +0000
-Date: Wed, 27 May 2026 00:22:41 +0200
-From: kernel test robot <lkp@intel.com>
-To: Frank.Li@oss.nxp.com, Vinod Koul <vkoul@kernel.org>,
-	Dong Aisheng <aisheng.dong@nxp.com>,
-	Andi Shyti <andi.shyti@kernel.org>, Shawn Guo <shawnguo@kernel.org>,
-	Sascha Hauer <s.hauer@pengutronix.de>,
-	Pengutronix Kernel Team <kernel@pengutronix.de>,
-	Fabio Estevam <festevam@gmail.com>
-Cc: llvm@lists.linux.dev, oe-kbuild-all@lists.linux.dev,
-	dmaengine@vger.kernel.org, linux-kernel@vger.kernel.org,
-	linux-i2c@vger.kernel.org, imx@lists.linux.dev,
-	linux-arm-kernel@lists.infradead.org, carlos.song@nxp.com,
-	Frank Li <Frank.Li@nxp.com>
-Subject: Re: [PATCH v2 2/2] i2c: imx-lpi2c: use dmaengine_prep_submit() to
- simple code
-Message-ID: <202605270007.xFkhAWbC-lkp@intel.com>
-References: <20260522-dma_prep_submit-v2-2-7a87a5a29525@nxp.com>
+	Tue, 26 May 2026 22:27:52 +0000
+Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
+	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id DFAC92BCD;
+	Tue, 26 May 2026 15:27:40 -0700 (PDT)
+Received: from thinkpad-e142931.arm.com (usa-sjc-imap-foss1.foss.arm.com [10.121.207.14])
+	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id 881D23F7B4;
+	Tue, 26 May 2026 15:27:40 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=simple/simple; d=arm.com; s=foss;
+	t=1779834465; bh=4mleRwxx/487qOWzenA0B4ktBvSH1skjy0g7+5i1jT4=;
+	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
+	b=UOeYDOohWEeBzw2bAt2AX18TjQdQbHOVZfrEHd4AIRBYF9jq4/i8HdB/ZGUVgVgsq
+	 dX/V72IFfHuj+6x9e0B+x3vDu5tinOc0nAyZwVrlPe58dRkjeknxe1Xm9h7ptBjjXn
+	 VqJtmIRizdJOT3MDwEQy52rX+mQcrkrsm715/pqY=
+Date: Tue, 26 May 2026 23:27:33 +0100
+From: Wei-Lin Chang <weilin.chang@arm.com>
+To: Steven Price <steven.price@arm.com>, kvm@vger.kernel.org, 
+	kvmarm@lists.linux.dev
+Cc: Catalin Marinas <catalin.marinas@arm.com>, 
+	Marc Zyngier <maz@kernel.org>, Will Deacon <will@kernel.org>, James Morse <james.morse@arm.com>, 
+	Oliver Upton <oliver.upton@linux.dev>, Suzuki K Poulose <suzuki.poulose@arm.com>, 
+	Zenghui Yu <yuzenghui@huawei.com>, linux-arm-kernel@lists.infradead.org, 
+	linux-kernel@vger.kernel.org, Joey Gouly <joey.gouly@arm.com>, 
+	Alexandru Elisei <alexandru.elisei@arm.com>, Christoffer Dall <christoffer.dall@arm.com>, 
+	Fuad Tabba <tabba@google.com>, linux-coco@lists.linux.dev, 
+	Ganapatrao Kulkarni <gankulkarni@os.amperecomputing.com>, Gavin Shan <gshan@redhat.com>, 
+	Shanker Donthineni <sdonthineni@nvidia.com>, Alper Gun <alpergun@google.com>, 
+	"Aneesh Kumar K . V" <aneesh.kumar@kernel.org>, Emi Kisanuki <fj0570is@fujitsu.com>, 
+	Vishal Annapurve <vannapurve@google.com>, Lorenzo.Pieralisi2@arm.com
+Subject: Re: [PATCH v14 17/44] arm64: RMI: RTT tear down
+Message-ID: <7egwow26r6sbbtm53mujbhpwyts2utzv2ddth7554kqwbk7k7d@iptjpvvbsc2n>
+References: <20260513131757.116630-1-steven.price@arm.com>
+ <20260513131757.116630-18-steven.price@arm.com>
 MIME-Version: 1.0
 Content-Type: text/plain; charset=us-ascii
 Content-Disposition: inline
-In-Reply-To: <20260522-dma_prep_submit-v2-2-7a87a5a29525@nxp.com>
+In-Reply-To: <20260513131757.116630-18-steven.price@arm.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260526_152345_080924_FEB2E0B7 
-X-CRM114-Status: GOOD (  10.78  )
+X-CRM114-CacheID: sfid-20260526_152751_051809_B0A8EB9E 
+X-CRM114-Status: GOOD (  33.69  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -96,73 +79,124 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hi Frank,
+Hi,
 
-kernel test robot noticed the following build errors:
+On Wed, May 13, 2026 at 02:17:25PM +0100, Steven Price wrote:
+> The RMM owns the stage 2 page tables for a realm, and KVM must request
+> that the RMM creates/destroys entries as necessary. The physical pages
+> to store the page tables are delegated to the realm as required, and can
+> be undelegated when no longer used.
+> 
+> Creating new RTTs is the easy part, tearing down is a little more
+> tricky. The result of realm_rtt_destroy() can be used to effectively
+> walk the tree and destroy the entries (undelegating pages that were
+> given to the realm).
+> 
+> Signed-off-by: Steven Price <steven.price@arm.com>
+> ---
+> Changes since v13:
+>  * Avoid the double call of kvm_free_stage2_pgd() by splitting the work
+>    across that and a new function kvm_realm_uninit_stage2() which is
+>    only called for realm guests.
+> Changes since v12:
+>  * Simplify some functions now we know RMM page size is the same as the
+>    host's.
+> Changes since v11:
+>  * Moved some code from earlier in the series to this one so that it's
+>    added when it's first used.
+> Changes since v10:
+>  * RME->RMI rename.
+>  * Some code to handle freeing stage 2 PGD moved into this patch where
+>    it belongs.
+> Changes since v9:
+>  * Add a comment clarifying that root level RTTs are not destroyed until
+>    after the RD is destroyed.
+> Changes since v8:
+>  * Introduce free_rtt() wrapper which calls free_delegated_granule()
+>    followed by kvm_account_pgtable_pages(). This makes it clear where an
+>    RTT is being freed rather than just a delegated granule.
+> Changes since v6:
+>  * Move rme_rtt_level_mapsize() and supporting defines from kvm_rme.h
+>    into rme.c as they are only used in that file.
+> Changes since v5:
+>  * Rename some RME_xxx defines to do with page sizes as RMM_xxx - they are
+>    a property of the RMM specification not the RME architecture.
+> Changes since v2:
+>  * Moved {alloc,free}_delegated_page() and ensure_spare_page() to a
+>    later patch when they are actually used.
+>  * Some simplifications now rmi_xxx() functions allow NULL as an output
+>    parameter.
+>  * Improved comments and code layout.
+> ---
+>  arch/arm64/include/asm/kvm_rmi.h |   7 ++
+>  arch/arm64/kvm/mmu.c             |  21 ++++-
+>  arch/arm64/kvm/rmi.c             | 148 +++++++++++++++++++++++++++++++
+>  3 files changed, 174 insertions(+), 2 deletions(-)
+> 
+> diff --git a/arch/arm64/include/asm/kvm_rmi.h b/arch/arm64/include/asm/kvm_rmi.h
+> index 9de34983ee52..06ba0d4745c6 100644
+> --- a/arch/arm64/include/asm/kvm_rmi.h
+> +++ b/arch/arm64/include/asm/kvm_rmi.h
+> @@ -64,5 +64,12 @@ u32 kvm_realm_ipa_limit(void);
+>  
+>  int kvm_init_realm(struct kvm *kvm);
+>  void kvm_destroy_realm(struct kvm *kvm);
+> +void kvm_realm_destroy_rtts(struct kvm *kvm);
+> +
+> +static inline bool kvm_realm_is_private_address(struct realm *realm,
+> +						unsigned long addr)
+> +{
+> +	return !(addr & BIT(realm->ia_bits - 1));
+> +}
+>  
+>  #endif /* __ASM_KVM_RMI_H */
+> diff --git a/arch/arm64/kvm/mmu.c b/arch/arm64/kvm/mmu.c
+> index ba8286472286..eb56d4e7f21a 100644
+> --- a/arch/arm64/kvm/mmu.c
+> +++ b/arch/arm64/kvm/mmu.c
+> @@ -1024,9 +1024,26 @@ int kvm_init_stage2_mmu(struct kvm *kvm, struct kvm_s2_mmu *mmu, unsigned long t
+>  	return err;
+>  }
+>  
+> +static void kvm_realm_uninit_stage2(struct kvm_s2_mmu *mmu)
+> +{
+> +	struct kvm *kvm = kvm_s2_mmu_to_kvm(mmu);
+> +	struct realm *realm = &kvm->arch.realm;
+> +
+> +	if (kvm_realm_state(kvm) != REALM_STATE_ACTIVE)
+> +		return;
+> +
+> +	write_lock(&kvm->mmu_lock);
+> +	kvm_stage2_unmap_range(mmu, 0, BIT(realm->ia_bits - 1), true);
+> +	write_unlock(&kvm->mmu_lock);
+> +	kvm_realm_destroy_rtts(kvm);
+> +}
+> +
+>  void kvm_uninit_stage2_mmu(struct kvm *kvm)
+>  {
+> -	kvm_free_stage2_pgd(&kvm->arch.mmu);
+> +	if (kvm_is_realm(kvm))
+> +		kvm_realm_uninit_stage2(&kvm->arch.mmu);
+> +	else
+> +		kvm_free_stage2_pgd(&kvm->arch.mmu);
+>  	kvm_mmu_free_memory_cache(&kvm->arch.mmu.split_page_cache);
+>  }
+>  
+> @@ -1103,7 +1120,7 @@ void stage2_unmap_vm(struct kvm *kvm)
+>  void kvm_free_stage2_pgd(struct kvm_s2_mmu *mmu)
+>  {
+>  	struct kvm *kvm = kvm_s2_mmu_to_kvm(mmu);
+> -	struct kvm_pgtable *pgt = NULL;
+> +	struct kvm_pgtable *pgt;
 
-[auto build test ERROR on 8f0b4cce4481fb22653697cced8d0d04027cb1e8]
+Is this included by accident?
 
-url:    https://github.com/intel-lab-lkp/linux/commits/Frank-Li-oss-nxp-com/dmaengine-Add-helper-dmaengine_prep_submit_slave_single/20260523-041812
-base:   8f0b4cce4481fb22653697cced8d0d04027cb1e8
-patch link:    https://lore.kernel.org/r/20260522-dma_prep_submit-v2-2-7a87a5a29525%40nxp.com
-patch subject: [PATCH v2 2/2] i2c: imx-lpi2c: use dmaengine_prep_submit() to simple code
-config: x86_64-kexec (https://download.01.org/0day-ci/archive/20260527/202605270007.xFkhAWbC-lkp@intel.com/config)
-compiler: clang version 20.1.8 (https://github.com/llvm/llvm-project 87f0227cb60147a26a1eeb4fb06e3b505e9c7261)
-reproduce (this is a W=1 build): (https://download.01.org/0day-ci/archive/20260527/202605270007.xFkhAWbC-lkp@intel.com/reproduce)
+>  
+>  	write_lock(&kvm->mmu_lock);
+>  	pgt = mmu->pgt;
 
-If you fix the issue in a separate patch/commit (i.e. not just a new version of
-the same patch/commit), kindly add following tags
-| Reported-by: kernel test robot <lkp@intel.com>
-| Closes: https://lore.kernel.org/oe-kbuild-all/202605270007.xFkhAWbC-lkp@intel.com/
+[...]
 
-All errors (new ones prefixed by >>):
-
-   In file included from net/core/dev.c:124:
->> include/linux/dmaengine.h:1588:48: error: expected ')'
-    1588 |                                    dma_async_tx_callback cb, void *cb_param;
-         |                                                                            ^
-   include/linux/dmaengine.h:1587:35: note: to match this '('
-    1587 | dmaengine_prep_submit_slave_single(struct dma_chan *chan,
-         |                                   ^
->> include/linux/dmaengine.h:1587:1: error: conflicting types for 'dmaengine_prep_submit_slave_single'
-    1587 | dmaengine_prep_submit_slave_single(struct dma_chan *chan,
-         | ^
-   include/linux/dmaengine.h:994:1: note: previous declaration is here
-     994 | dmaengine_prep_submit_slave_single(struct dma_chan *chan,
-         | ^
->> include/linux/dmaengine.h:1589:24: error: redefinition of 'size_t' as different kind of symbol
-    1589 |                                    dma_addr_t buf, size_t len,
-         |                                                    ^
-   include/linux/types.h:62:26: note: previous definition is here
-      62 | typedef __kernel_size_t         size_t;
-         |                                 ^
-   In file included from net/core/dev.c:124:
->> include/linux/dmaengine.h:1589:30: error: expected ';' after top level declarator
-    1589 |                                    dma_addr_t buf, size_t len,
-         |                                                          ^
-         |                                                          ;
->> include/linux/dmaengine.h:1592:1: error: expected identifier or '('
-    1592 | {
-         | ^
-   5 errors generated.
-
-
-vim +1588 include/linux/dmaengine.h
-
-  1585	
-  1586	static inline dma_cookie_t
-> 1587	dmaengine_prep_submit_slave_single(struct dma_chan *chan,
-> 1588					   dma_async_tx_callback cb, void *cb_param;
-> 1589					   dma_addr_t buf, size_t len,
-  1590					   enum dma_transfer_direction dir,
-  1591					   unsigned long flags);
-> 1592	{
-  1593		return -ENODEV;
-  1594	}
-  1595	#endif
-  1596	
-
---
-0-DAY CI Kernel Test Service
-https://github.com/intel/lkp-tests/wiki
+Thanks,
+Wei-Lin Chang
 
