@@ -4,62 +4,76 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id B5668CD5BCF
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 26 May 2026 06:13:53 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id BA0E0CD5BCF
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 26 May 2026 06:35:26 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	MIME-Version:Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-Type:
-	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
-	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
-	bh=9pfIt+I8Gc7ZeOBqbNyxrbDCdJLoJqdT1TG1Fhf5apY=; b=VpqxIRC8v+Oc5WqpqoI9o4/Ao4
-	ecFlzchaq4fLOFXrblJDz/395cjS8NDrULVc0DbYhlKfq/r8mulnWvC6cBhYIFYrhT7GfzDYT+W3i
-	m5AzpvG8xx5t40vSTiur4ALdZCWYiSPaxEm33GDZpeigB3s+EJSc3Gwt3WA6CoolEIokSIf29xgBD
-	KuDASvnQ/DWuMM8Y9COGLNxQKif88JZTut8noUv47LYLQYPGubvAfH/9MrkKBLJTBc/sxbpBRHsvZ
-	x9Dm8qQ/o+hY6wNVupcmGnw86w9SWleiIkW6z6bKFRyHCzqmws+JVu5e1Z69C3d7WqHcLOwouDaCP
-	tN+p2JAA==;
+	MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:
+	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=8XVBgfioNoFF3XKmhaeZO33+RcBSbm4amlt4C5V5yD4=; b=eI1tNcdidJmRunROX3vQjPI+5t
+	Va+0m4O+wxy5skZltaRS1jwUct7cDY9ZuPtjOLbnYeg5IAcGtEgnx//oxCXNomXEstzEDWBkqB/eV
+	maq2D1F6F7O0LHkDm7rIsaZUXt53qCae2pT9V9SrB1As+XKk1FQIfDV5Hip2FWXe81OlX9+5U+f7O
+	VNS5sncIbYhokjLP3fk9+3965IlBMIW0fXqJXBTbtRrZEngAn08Xt4sqim7jWCpDWskDUR2ELJeSH
+	6wToFjXbZxM5qZ0kEIGd6v032ChPopyBRBrdVTdSnEccbB6S5IP0Odysw/vPteOLWND8ljKKXGN8g
+	dH4YgqkA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wRl2w-000000018ow-2bu0;
-	Tue, 26 May 2026 06:13:46 +0000
-Received: from mta.al2klimov.de ([2a01:4f8:c0c:a5b1::1])
+	id 1wRlNl-00000001Ay0-1HxK;
+	Tue, 26 May 2026 06:35:17 +0000
+Received: from www537.your-server.de ([188.40.3.216])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wRl2t-000000018oB-1Fiv
+	id 1wRlNh-00000001AwI-3yS6
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 26 May 2026 06:13:45 +0000
-DKIM-Signature: v=1; a=rsa-sha256; c=simple/simple; s=default; bh=VQwPEACzLrn3
-	sirzJhEJwSUsl+8N7bfQkDfoCfrIXz0=; h=date:subject:cc:to:from;
-	d=al2klimov.de; b=FR8Xwd3eL2vwsAGnlMaWeh4Pljo1eFEpKwrdVXr2zBe+tBwPVlcp
-	mTonJL/JmYeGMORZCri1YG3pqVj6EVS6xsEA8781MGkjt8XDD0UMnu2mIjXEEXrHmPkyS6
-	ocDt4qaBdmy0HAnYvsstjWl+hey+lNaRkdK3+9saOdWlFq5uEs+jSdyG9WHDWO4YoqjrQc
-	dNpTUGEA5/q0W0X73tNez3OsC9Vlcp4jnGCFgD0CpJAImYZwrheab5aP6y5oyymfudXkN0
-	o8rSEC3hZiiiximX46wwBuc1GrLQz7U8jDEIoMwIIMaHSUikav/jz3hqIkGSiwMM9U7UYf
-	KyxST6KZeQ==
-Received: from cachy-ak (88.215.123.80.dyn.pyur.net [88.215.123.80])
-	by mta.al2klimov.de (OpenSMTPD) with ESMTPSA id c93a46ee (TLSv1.3:TLS_CHACHA20_POLY1305_SHA256:256:NO);
-	Tue, 26 May 2026 06:13:37 +0000 (UTC)
-From: "Alexander A. Klimov" <grandmaster@al2klimov.de>
-To: Krzysztof Kozlowski <krzk@kernel.org>,
-	Sylwester Nawrocki <s.nawrocki@samsung.com>,
-	Chanwoo Choi <cw00.choi@samsung.com>,
-	Alim Akhtar <alim.akhtar@samsung.com>,
-	Michael Turquette <mturquette@baylibre.com>,
-	Stephen Boyd <sboyd@kernel.org>,
-	Brian Masney <bmasney@redhat.com>,
-	linux-samsung-soc@vger.kernel.org (open list:SAMSUNG SOC CLOCK DRIVERS),
-	linux-clk@vger.kernel.org (open list:COMMON CLK FRAMEWORK),
-	linux-arm-kernel@lists.infradead.org (moderated list:ARM/SAMSUNG S3C, S5P AND EXYNOS ARM ARCHITECTURES),
-	linux-kernel@vger.kernel.org (open list)
-Cc: "Alexander A. Klimov" <grandmaster@al2klimov.de>
-Subject: [PATCH] clk: samsung: exynos5410: fix refcount leak
-Date: Tue, 26 May 2026 08:13:12 +0200
-Message-ID: <20260526061321.6123-1-grandmaster@al2klimov.de>
-X-Mailer: git-send-email 2.54.0
+	Tue, 26 May 2026 06:35:15 +0000
+DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
+	d=ew.tq-group.com; s=default2602; h=Content-Transfer-Encoding:MIME-Version:
+	References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:Sender:Reply-To:
+	Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID;
+	bh=8XVBgfioNoFF3XKmhaeZO33+RcBSbm4amlt4C5V5yD4=; b=KDGebqiSbDLX4U8zIhDPAPmY0v
+	xT4XZltu+uzeO9efqmny5UcqLSX89y7V0fKqiWd5zcigYhi1Dv2RgJWVVpCyGgOwGVwLGHsR8flx/
+	fSmTSPFWxjIAVz9Nq+bencsVzin5awLvYm/4KBqigF5pQ1/uJhWK2FFB3wsn3xBxwCNjdvaGV/x91
+	HgZEx+VLT5ktrxo3bClz6JgcLlcQlerhEB2e2ncQoP77Ukej43mGODy+53b7Z/t0mvyyooemWcEcm
+	BzYoy6rBwhXi52O4vTwZLwALGAYKB2Xp+ZIgw7nuYFqJQx+f+wBqSFwhpOtH8CztUSXMZNVNTbQTv
+	CBZ+rIFA==;
+Received: from sslproxy03.your-server.de ([88.198.220.132])
+	by www537.your-server.de with esmtpsa  (TLS1.3) tls TLS_AES_256_GCM_SHA384
+	(Exim 4.96.2)
+	(envelope-from <alexander.stein@ew.tq-group.com>)
+	id 1wRlNb-000Dvn-0K;
+	Tue, 26 May 2026 08:35:07 +0200
+Received: from localhost ([127.0.0.1])
+	by sslproxy03.your-server.de with esmtpsa  (TLS1.3) tls TLS_AES_256_GCM_SHA384
+	(Exim 4.96)
+	(envelope-from <alexander.stein@ew.tq-group.com>)
+	id 1wRlNZ-000M6u-2q;
+	Tue, 26 May 2026 08:35:06 +0200
+From: Alexander Stein <alexander.stein@ew.tq-group.com>
+To: Linus Walleij <linusw@kernel.org>,
+	Bartosz Golaszewski <brgl@kernel.org>,
+	Frank Li <Frank.Li@nxp.com>,
+	Sascha Hauer <s.hauer@pengutronix.de>,
+	Pengutronix Kernel Team <kernel@pengutronix.de>,
+	Fabio Estevam <festevam@gmail.com>
+Cc: Alexander Stein <alexander.stein@ew.tq-group.com>,
+	linux-gpio@vger.kernel.org,
+	imx@lists.linux.dev,
+	linux-arm-kernel@lists.infradead.org,
+	linux-kernel@vger.kernel.org
+Subject: [PATCH v2 2/2] gpio: mxc: use BIT() macro
+Date: Tue, 26 May 2026 08:35:02 +0200
+Message-ID: <20260526063504.25916-2-alexander.stein@ew.tq-group.com>
+X-Mailer: git-send-email 2.43.0
+In-Reply-To: <20260526063504.25916-1-alexander.stein@ew.tq-group.com>
+References: <20260526063504.25916-1-alexander.stein@ew.tq-group.com>
 MIME-Version: 1.0
 Content-Transfer-Encoding: 8bit
+X-Virus-Scanned: Clear (ClamAV 1.4.3/28011/Mon May 25 08:24:46 2026)
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260525_231343_711804_ACA0297A 
-X-CRM114-Status: GOOD (  11.52  )
+X-CRM114-CacheID: sfid-20260525_233514_091551_FC422111 
+X-CRM114-Status: GOOD (  10.25  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -74,35 +88,39 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Every value returned from of_clk_get() is supposed to be cleaned up
-via clk_put() once not needed anymore.
+Replace the open-code with the BIT() macro.
 
-Fixes: be95d2c7d918 ("clk: samsung: Add support for EPLL on exynos5410")
-Signed-off-by: Alexander A. Klimov <grandmaster@al2klimov.de>
+Signed-off-by: Alexander Stein <alexander.stein@ew.tq-group.com>
+Reviewed-by: Frank Li <Frank.Li@nxp.com>
 ---
- drivers/clk/samsung/clk-exynos5410.c | 8 ++++++--
- 1 file changed, 6 insertions(+), 2 deletions(-)
+Changes in v2:
+* Improved commit message as suggested by Frank
+* Collected Frank's
 
-diff --git a/drivers/clk/samsung/clk-exynos5410.c b/drivers/clk/samsung/clk-exynos5410.c
-index baa9988c7bb7..0cd9b0392cf5 100644
---- a/drivers/clk/samsung/clk-exynos5410.c
-+++ b/drivers/clk/samsung/clk-exynos5410.c
-@@ -269,8 +269,12 @@ static void __init exynos5410_clk_init(struct device_node *np)
- {
- 	struct clk *xxti = of_clk_get(np, 0);
+ drivers/gpio/gpio-mxc.c | 4 ++--
+ 1 file changed, 2 insertions(+), 2 deletions(-)
+
+diff --git a/drivers/gpio/gpio-mxc.c b/drivers/gpio/gpio-mxc.c
+index 12f11a6c96653..7e2690d92df6f 100644
+--- a/drivers/gpio/gpio-mxc.c
++++ b/drivers/gpio/gpio-mxc.c
+@@ -330,13 +330,13 @@ static int gpio_set_wake_irq(struct irq_data *d, u32 enable)
+ 			ret = enable_irq_wake(port->irq_high);
+ 		else
+ 			ret = enable_irq_wake(port->irq);
+-		port->wakeup_pads |= (1 << gpio_idx);
++		port->wakeup_pads |= BIT(gpio_idx);
+ 	} else {
+ 		if (port->irq_high && (gpio_idx >= 16))
+ 			ret = disable_irq_wake(port->irq_high);
+ 		else
+ 			ret = disable_irq_wake(port->irq);
+-		port->wakeup_pads &= ~(1 << gpio_idx);
++		port->wakeup_pads &= ~BIT(gpio_idx);
+ 	}
  
--	if (!IS_ERR(xxti) && clk_get_rate(xxti) == 24 * MHZ)
--		exynos5410_plls[epll].rate_table = exynos5410_pll2550x_24mhz_tbl;
-+	if (!IS_ERR(xxti)) {
-+		if (clk_get_rate(xxti) == 24 * MHZ)
-+			exynos5410_plls[epll].rate_table =
-+				exynos5410_pll2550x_24mhz_tbl;
-+		clk_put(xxti);
-+	}
- 
- 	samsung_cmu_register_one(np, &cmu);
- 
+ 	return ret;
 -- 
-2.54.0
+2.43.0
 
 
