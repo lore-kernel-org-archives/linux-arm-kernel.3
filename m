@@ -4,114 +4,85 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 9AA75CD5BC8
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 26 May 2026 12:45:44 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 2EB2FCD5BC8
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 26 May 2026 12:47:01 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
-	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=QzlfLKei3OF/tSTWl5q71VoQJ0uXecHs8Dxb+dYN9G4=; b=N5qVYmziiZdlSdjq3hb7mtEJMF
-	m1nBC4vUPWq24/iRlNX+KBzKPnNx++MeothrZ1kYwE/8UQBCQEg8oz79XP3SIhy7qBcEUvMv7ELtO
-	2L8+t/9cWRx8VSTowgM4Z99V2w24sT/QGlMa88LkwDNG+zGAFywZBuZRe35xLL6ZkUeDrWw+XnYR2
-	VXW1r2MFEuxvkLDC9po9nWsCC31AuNt2BPA7dezaPtkZzwyGovVevDMY5Qa16j84STRqXgWAIBP0L
-	HY26SyHg1lH10BXfX4RkMVV5c8HNL9HoVmXhP9cVZiT/Gvt1/PbpmPCVQMvxdE25zMWGuYqkIl3h8
-	7agkVtyg==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:Cc:To:From:
+	Subject:Message-ID:References:Mime-Version:In-Reply-To:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=YHjPWhLuYkDH4+fqjN1tzfTEtaV0zDhulaeTcgzzM9c=; b=RmWL/5jIBvdLr9KOMb2nWk8oJI
+	5+QB4Gt8RcVUdkbBgs9vnWbZKCNHTbwzX7DRIGPHk8uc0tA18CWYgpYa3PwKvqqVGBZQyUNVFCXCQ
+	XCDBMZ7srF2LNW9X5gdglgGd6Lyn3NeTAX/cbQg3TPSwZll9Y+7ZQkuvmEZWKT8SHLs2aX5Sbb/sz
+	wizD6TZBssOAWpYjRbyBcdWxLpJi8JgmCRoP5YylV4TuDb/3c/Z+kfab7QTlkOMiNG6ZJM4O07vUj
+	iZiT8gf+60eoonxi80fnG/f0Rmq4F2PTa3P138rN1IzkyVcmiopHsSrNxuNorq552lrjmeo62tVzk
+	53L3t4rw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wRrA8-00000001x2o-1dog;
-	Tue, 26 May 2026 12:45:36 +0000
-Received: from tor.source.kernel.org ([172.105.4.254])
+	id 1wRrBN-00000001xE7-2RAm;
+	Tue, 26 May 2026 12:46:53 +0000
+Received: from mail-pg1-x54a.google.com ([2607:f8b0:4864:20::54a])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wRrA6-00000001x2N-2G5f
+	id 1wRrBL-00000001xDL-0oBW
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 26 May 2026 12:45:34 +0000
-Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
-	by tor.source.kernel.org (Postfix) with ESMTP id AE1C3601D8;
-	Tue, 26 May 2026 12:45:33 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id D16F81F000E9;
-	Tue, 26 May 2026 12:45:27 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1779799533;
-	bh=QzlfLKei3OF/tSTWl5q71VoQJ0uXecHs8Dxb+dYN9G4=;
-	h=Date:Subject:To:Cc:References:From:In-Reply-To;
-	b=NLFTsAWMim8BkpWfM13Ly59xEKPU0Gh340MP2ykVv6v7CucDM8RMVDkl0RU8kOWv5
-	 ZgUwwfWA6Y0O3Bv52yc6C4UCN8Gdpv+sY73hXVMF5IgxzOyV7DHN0ywB0iBh1B5ZUr
-	 sNc2S2C9x5k2lf+3OkuU1WufuYGwUvX/rfOOnQk5UGAtzhozONeCKBkr1rYaWbRIpH
-	 w+1VCdz9YrDSKNgjzqz5Ja8ZI06r5AvQU0oAZl8JvkGm065SjZ/ZzTxUfO+DJUk781
-	 CzaEjH5dLhj6ywN0EpBCKC7xAZ5vAHQ9Kxox4/Co/pSSg3/XNbJtrRRP14CY790KzX
-	 MD8kcSakTORtA==
-Message-ID: <7fd673df-22f3-4d70-a779-ea0b878188b3@kernel.org>
-Date: Tue, 26 May 2026 14:45:25 +0200
-MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH 2/8] bpf: Recover arena kernel faults with scratch page
-To: Tejun Heo <tj@kernel.org>, David Vernet <void@manifault.com>,
- Andrea Righi <arighi@nvidia.com>, Changwoo Min <changwoo@igalia.com>,
- Alexei Starovoitov <ast@kernel.org>, Andrii Nakryiko <andrii@kernel.org>,
- Daniel Borkmann <daniel@iogearbox.net>,
- Martin KaFai Lau <martin.lau@linux.dev>,
- Kumar Kartikeya Dwivedi <memxor@gmail.com>
-Cc: Peter Zijlstra <peterz@infradead.org>,
- Catalin Marinas <catalin.marinas@arm.com>, Will Deacon <will@kernel.org>,
- Thomas Gleixner <tglx@kernel.org>, Ingo Molnar <mingo@redhat.com>,
- Borislav Petkov <bp@alien8.de>, Dave Hansen <dave.hansen@linux.intel.com>,
- Andrew Morton <akpm@linux-foundation.org>, Mike Rapoport <rppt@kernel.org>,
- Emil Tsalapatis <emil@etsalapatis.com>, sched-ext@lists.linux.dev,
- bpf@vger.kernel.org, x86@kernel.org, linux-arm-kernel@lists.infradead.org,
- linux-mm@kvack.org, linux-kernel@vger.kernel.org
-References: <20260522172219.1423324-1-tj@kernel.org>
- <20260522172219.1423324-3-tj@kernel.org>
-From: "David Hildenbrand (Arm)" <david@kernel.org>
-Content-Language: en-US
-Autocrypt: addr=david@kernel.org; keydata=
- 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
- qIws/H2t
-In-Reply-To: <20260522172219.1423324-3-tj@kernel.org>
-Content-Type: text/plain; charset=UTF-8
-Content-Transfer-Encoding: 7bit
+	Tue, 26 May 2026 12:46:52 +0000
+Received: by mail-pg1-x54a.google.com with SMTP id 41be03b00d2f7-c81086bf930so7032416a12.1
+        for <linux-arm-kernel@lists.infradead.org>; Tue, 26 May 2026 05:46:48 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=google.com; s=20251104; t=1779799607; x=1780404407; darn=lists.infradead.org;
+        h=cc:to:from:subject:message-id:references:mime-version:in-reply-to
+         :date:from:to:cc:subject:date:message-id:reply-to;
+        bh=YHjPWhLuYkDH4+fqjN1tzfTEtaV0zDhulaeTcgzzM9c=;
+        b=XW9+ZB25G4IX7kb2YCKiZzuvDfR62BC74alyGdgTEs0vA9pAXxywCyhIayIyvus9T/
+         iHG6ACn2qg1j4o6Al0sQnPNfFn+YEWlzAtBj/NgW+OGgwQMoHydmiwX8aGlCFA6iXQH4
+         Vb5t1HFcJTGi9qYefoVWuW1CgDNnqpAZxeEjd2OKUhoKw7MhKWZKgTQgfryTNQHFA2Ym
+         qrFx8K810G782M1L19s0DXXU7Zbie0iKxL6OFJzEHrX0KX2udV13LPeUhI1dMlCM7j68
+         lQFH+7IOkhJRG9BqDSO1getWwc4p3i0pCv6F418Q2LzANhu5RHJfI1FXI6zMAfe54Ux1
+         n7lw==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20251104; t=1779799607; x=1780404407;
+        h=cc:to:from:subject:message-id:references:mime-version:in-reply-to
+         :date:x-gm-message-state:from:to:cc:subject:date:message-id:reply-to;
+        bh=YHjPWhLuYkDH4+fqjN1tzfTEtaV0zDhulaeTcgzzM9c=;
+        b=eCUwocT4axl5Y2NmVNGMI3/PBqcwxk6oNoqA2qOiwBRwqrA2DkcIIKmzEfoE4WyFYR
+         vYBtD+eCbN73/9Jhusnthz6Qc7tcx5huiDIfqG0fAiYQxT/Vqeywn7TwsYqYcdjlX0en
+         c8zRu+zWzPk98iDcUHtjMUZypf7qaJif7Na5lWp7D2lCd+zRKaNYsdPppj2Xi3lh611o
+         IVAd2V8ea2tZrQAmodUrxgnndRjV5oFTUeRj5XQBkomRKDyAQd+yVlCK5cElftLt1i7m
+         GmZtwDNGO+lwcnMMYBMpVXaMuPEpKWCgBAIHCvrbt1qSKN6UUhOhsc/XL1mNSpxlnAfV
+         TFag==
+X-Forwarded-Encrypted: i=1; AFNElJ+wMWWBWQD7h+eWNS0oCilJK6dWywhH4Ii4Rn0ogQtPbNiNhgwA9OijL9AKJo2pSNXbmogY2m37AMHNYv/BNKGI@lists.infradead.org
+X-Gm-Message-State: AOJu0YzB2K7HjKtXAs3O5NFBTMJeK5GnTNFaFPtVXR+IpOOZnZOR2C7D
+	w/Qk6Dpdvx8bcNld4DgzJxihw6qTMA5i6B4T7rlEZ9mgnlVwOUA6sjFzfJnR0WvV1eDfjdTwbNz
+	GzqKZmkHpdYr+zZpEjNWRSAkqTA==
+X-Received: from pfvo11.prod.google.com ([2002:a05:6a00:1b4b:b0:82f:8e5d:a777])
+ (user=joonwonkang job=prod-delivery.src-stubby-dispatcher) by
+ 2002:a05:6a20:3c89:b0:3b3:dd0:a624 with SMTP id adf61e73a8af0-3b32978b421mr14638532637.23.1779799607252;
+ Tue, 26 May 2026 05:46:47 -0700 (PDT)
+Date: Tue, 26 May 2026 12:46:45 +0000
+In-Reply-To: <20260526123903.GF2487554@ziepe.ca>
+Mime-Version: 1.0
+References: <20260526123903.GF2487554@ziepe.ca>
+X-Mailer: git-send-email 2.54.0.746.g67dd491aae-goog
+Message-ID: <20260526124645.2494330-1-joonwonkang@google.com>
+Subject: Re: [PATCH v2] iommu: Allow device driver to use its own PASID space
+ for SVA
+From: Joonwon Kang <joonwonkang@google.com>
+To: jgg@ziepe.ca
+Cc: Alexander.Grest@microsoft.com, alexander.shishkin@linux.intel.com, 
+	amhetre@nvidia.com, baolu.lu@linux.intel.com, bp@alien8.de, 
+	dave.hansen@linux.intel.com, easwar.hariharan@linux.microsoft.com, 
+	hpa@zytor.com, iommu@lists.linux.dev, jacob.jun.pan@linux.intel.com, 
+	joonwonkang@google.com, joro@8bytes.org, jpb@kernel.org, kas@kernel.org, 
+	kees@kernel.org, kevin.tian@intel.com, linux-arm-kernel@lists.infradead.org, 
+	linux-kernel@vger.kernel.org, mingo@redhat.com, nicolinc@nvidia.com, 
+	peterz@infradead.org, praan@google.com, robin.murphy@arm.com, 
+	ryasuoka@redhat.com, smostafa@google.com, sohil.mehta@intel.com, 
+	tglx@kernel.org, will@kernel.org, x86@kernel.org, xin@zytor.com
+Content-Type: text/plain; charset="UTF-8"
+X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
+X-CRM114-CacheID: sfid-20260526_054651_230652_82A67B74 
+X-CRM114-Status: GOOD (  27.80  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -126,265 +97,43 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On 5/22/26 19:22, Tejun Heo wrote:
-> From: Kumar Kartikeya Dwivedi <memxor@gmail.com>
+> On Tue, May 26, 2026 at 12:36:06PM +0000, Joonwon Kang wrote:
+> > > > From: Joonwon Kang <joonwonkang@google.com>
+> > > > Sent: Tuesday, May 26, 2026 2:58 PM
+> > > > 
+> > > > > On Mon, May 25, 2026 at 03:29:24PM +0000, Joonwon Kang wrote:
+> > > > >
+> > > > > > Currently, the only known expected user of the new kAPI is our team.
+> > > > Since
+> > > > > > I test if the patch resolves our problem before sending it, I believe it
+> > > > > > should be good enough. Do you mean more than our team by
+> > > > "accompanied
+> > > > > > users"?
+> > > > >
+> > > > > He means you cannot send patches like this that only serve OOT drivers
+> > > > > to the mainline kernel.
+> > > > 
+> > > > Hmm, it gets back to the chicken-and-egg problem. So, do you recommend
+> > > > deferring the patch submission until we find a new in-tree user of the
+> > > > new kAPI? I believe we will not make our module in-tree anytime soon.
+> > > > Or, is it like I still can send the patch and get it reviewed although we
+> > > > cannot merge it to the mainline?
+> > > > 
+> > > 
+> > > It's not chicken-and-egg problem. Just always send them together.
+> > > 
+> > > so let's wait until your module is ready for in-tree review...
+> > 
+> > Since adding a new kAPI has this limitation, what do you think about the
+> > idea of adding a new boot parameter to enforce disabling ENQCMD at EL0 and
+> > using the non-global PASID space in that case? This way, I guess we could
+> > resolve our issue without having to wait until we have new in-tree users.
+> > Do you think it should have the same limitation?
 > 
-> BPF arena usage is becoming more prevalent, but kernel <-> BPF communication
-> over arena memory is awkward today. Data has to be staged through a trusted
-> kernel pointer with extra code and copying on the BPF side. While reads
-> through arena pointers can use a fault-safe helper, writes don't have a good
-> solution. The in-line alternative would need instruction emulation or asm
-> fixup labels.
-> 
-> Enable direct kernel-side reads and writes within GUARD_SZ / 2 of any
-> handed-in arena pointer, without bounds checking. A per-arena scratch page
-> is installed by the arch fault path into empty arena kernel PTEs - x86 from
-> page_fault_oops() for not-present faults, arm64 from __do_kernel_fault() for
-> translation faults, both after the existing exception-table and KFENCE
-> handling. The faulting instruction retries and the access is also reported
-> through the program's BPF stream, preserving error reporting.
-> 
-> bpf_prog_find_from_stack() resolves the current BPF program (and its arena)
-> from the kernel stack - no new bpf_run_ctx state is added. Recovery covers
-> the 4 GiB arena plus the upper half-guard (GUARD_SZ / 2). The lower
-> half-guard is excluded because well-behaved kfuncs only access forward from
-> arena pointers. The kfunc-author contract - access at most GUARD_SZ / 2 past
-> a handed-in pointer - is documented in Documentation/bpf/kfuncs.rst.
-> 
-> The install is lock-free via ptep_try_set(). On race-loss the winning
-> installer's PTE is already valid, so the access retry succeeds. The arena
-> clear path uses ptep_get_and_clear() so installer and clearer race through
-> atomic accessors. No flush_tlb_kernel_range() afterwards. Stale "not mapped"
-> entries just cause one extra re-fault, cheaper than a global IPI on every
-> install.
-> 
-> Scratch exists only to keep the kernel from oopsing on an in-line arena
-> access. Its presence at a PTE means the BPF program has already
-> malfunctioned, and the violation is reported through the program's BPF
-> stream. The only requirement for behavior on a scratched PTE is that the
-> kernel doesn't crash. In particular, any user-side access through such a PTE
-> may segfault. The shared scratch page is freed once during map destruction.
-> 
-> BPF instruction faults continue to use the existing JIT exception-table
-> path. This patch changes only the kernel-text fault path. No UAPI flag is
-> added. The new behavior is the default.
-> 
-> v2: Use ptep_get_and_clear() in apply_range_clear_cb(). (David)
-> v3: Stub bpf_arena_handle_page_fault() for !CONFIG_BPF_SYSCALL. (lkp)
-> 
-> Suggested-by: Alexei Starovoitov <ast@kernel.org>
-> Signed-off-by: Kumar Kartikeya Dwivedi <memxor@gmail.com>
-> Signed-off-by: Tejun Heo <tj@kernel.org>
-> Reviewed-by: Emil Tsalapatis <emil@etsalapatis.com>
-> Cc: David Hildenbrand <david@kernel.org>
-> ---
->  Documentation/bpf/kfuncs.rst |  14 +++
->  arch/arm64/mm/fault.c        |  10 +-
->  arch/x86/mm/fault.c          |  12 ++-
->  include/linux/bpf.h          |   1 +
->  include/linux/bpf_defs.h     |  19 ++++
->  kernel/bpf/arena.c           | 177 +++++++++++++++++++++++++++--------
->  kernel/bpf/core.c            |   5 +
->  7 files changed, 191 insertions(+), 47 deletions(-)
->  create mode 100644 include/linux/bpf_defs.h
-> 
-> diff --git a/Documentation/bpf/kfuncs.rst b/Documentation/bpf/kfuncs.rst
-> index 75e6c078e0e7..6d497e720998 100644
-> --- a/Documentation/bpf/kfuncs.rst
-> +++ b/Documentation/bpf/kfuncs.rst
-> @@ -462,6 +462,20 @@ In order to accommodate such requirements, the verifier will enforce strict
->  PTR_TO_BTF_ID type matching if two types have the exact same name, with one
->  being suffixed with ``___init``.
->  
-> +2.8 Accessing arena memory through kfunc arguments
-> +--------------------------------------------------
-> +
-> +A read or write at any address inside an arena does not oops the kernel.
-> +Unallocated arena pages are lazily backed by a scratch page and the
-> +access is reported through the program's BPF stream as an error. Only
-> +the BPF program's correctness is affected; the kernel itself remains
-> +intact.
-> +
-> +The arena is followed by a ``GUARD_SZ / 2`` (32 KiB) guard region that
-> +is also covered by this recovery. A kfunc handed an arena pointer may
-> +therefore access up to ``GUARD_SZ / 2`` past it without bounds-checking
-> +against the arena. Larger accesses must verify the range explicitly.
-> +
->  .. _BPF_kfunc_lifecycle_expectations:
->  
->  3. kfunc lifecycle expectations
-> diff --git a/arch/arm64/mm/fault.c b/arch/arm64/mm/fault.c
-> index 920a8b244d59..0d58d667fcd8 100644
-> --- a/arch/arm64/mm/fault.c
-> +++ b/arch/arm64/mm/fault.c
-> @@ -9,6 +9,7 @@
->  
->  #include <linux/acpi.h>
->  #include <linux/bitfield.h>
-> +#include <linux/bpf_defs.h>
->  #include <linux/extable.h>
->  #include <linux/kfence.h>
->  #include <linux/signal.h>
-> @@ -416,9 +417,12 @@ static void __do_kernel_fault(unsigned long addr, unsigned long esr,
->  	} else if (addr < PAGE_SIZE) {
->  		msg = "NULL pointer dereference";
->  	} else {
-> -		if (esr_fsc_is_translation_fault(esr) &&
-> -		    kfence_handle_page_fault(addr, esr & ESR_ELx_WNR, regs))
-> -			return;
-> +		if (esr_fsc_is_translation_fault(esr)) {
-> +			if (kfence_handle_page_fault(addr, esr & ESR_ELx_WNR, regs))
-> +				return;
-> +			if (bpf_arena_handle_page_fault(addr, esr & ESR_ELx_WNR, regs->pc))
-> +				return;
-> +		}
->  
->  		msg = "paging request";
->  	}
-> diff --git a/arch/x86/mm/fault.c b/arch/x86/mm/fault.c
-> index f0e77e084482..b0f103ddbd23 100644
-> --- a/arch/x86/mm/fault.c
-> +++ b/arch/x86/mm/fault.c
-> @@ -8,6 +8,7 @@
->  #include <linux/sched/task_stack.h>	/* task_stack_*(), ...		*/
->  #include <linux/kdebug.h>		/* oops_begin/end, ...		*/
->  #include <linux/memblock.h>		/* max_low_pfn			*/
-> +#include <linux/bpf_defs.h>		/* bpf_arena_handle_page_fault	*/
->  #include <linux/kfence.h>		/* kfence_handle_page_fault	*/
->  #include <linux/kprobes.h>		/* NOKPROBE_SYMBOL, ...		*/
->  #include <linux/mmiotrace.h>		/* kmmio_handler, ...		*/
-> @@ -688,10 +689,13 @@ page_fault_oops(struct pt_regs *regs, unsigned long error_code,
->  	if (IS_ENABLED(CONFIG_EFI))
->  		efi_crash_gracefully_on_page_fault(address);
->  
-> -	/* Only not-present faults should be handled by KFENCE. */
-> -	if (!(error_code & X86_PF_PROT) &&
-> -	    kfence_handle_page_fault(address, error_code & X86_PF_WRITE, regs))
-> -		return;
-> +	/* Only not-present faults should be handled by KFENCE or BPF arena. */
-> +	if (!(error_code & X86_PF_PROT)) {
-> +		if (kfence_handle_page_fault(address, error_code & X86_PF_WRITE, regs))
-> +			return;
-> +		if (bpf_arena_handle_page_fault(address, error_code & X86_PF_WRITE, regs->ip))
-> +			return;
-> +	}
->  
->  oops:
->  	/*
-> diff --git a/include/linux/bpf.h b/include/linux/bpf.h
-> index 0136a108d083..831996c411cf 100644
-> --- a/include/linux/bpf.h
-> +++ b/include/linux/bpf.h
-> @@ -6,6 +6,7 @@
->  
->  #include <uapi/linux/bpf.h>
->  #include <uapi/linux/filter.h>
-> +#include <linux/bpf_defs.h>
->  
->  #include <crypto/sha2.h>
->  #include <linux/workqueue.h>
-> diff --git a/include/linux/bpf_defs.h b/include/linux/bpf_defs.h
-> new file mode 100644
-> index 000000000000..2185cd3966d4
-> --- /dev/null
-> +++ b/include/linux/bpf_defs.h
-> @@ -0,0 +1,19 @@
-> +/* SPDX-License-Identifier: GPL-2.0-or-later */
-> +/*
-> + * Subset of bpf.h declarations, split out so files that need only these
-> + * declarations can avoid bpf.h's full include cost.
-> + */
-> +#ifndef _LINUX_BPF_DEFS_H
-> +#define _LINUX_BPF_DEFS_H
-> +
-> +#ifdef CONFIG_BPF_SYSCALL
-> +bool bpf_arena_handle_page_fault(unsigned long addr, bool is_write, unsigned long fault_ip);
-> +#else
-> +static inline bool bpf_arena_handle_page_fault(unsigned long addr, bool is_write,
-> +					       unsigned long fault_ip)
-> +{
-> +	return false;
-> +}
-> +#endif
-> +
-> +#endif /* _LINUX_BPF_DEFS_H */
-> diff --git a/kernel/bpf/arena.c b/kernel/bpf/arena.c
-> index 08d008cc471e..1c0b87ecc817 100644
-> --- a/kernel/bpf/arena.c
-> +++ b/kernel/bpf/arena.c
-> @@ -53,6 +53,7 @@ struct bpf_arena {
->  	u64 user_vm_start;
->  	u64 user_vm_end;
->  	struct vm_struct *kern_vm;
-> +	struct page *scratch_page;
->  	struct range_tree rt;
->  	/* protects rt */
->  	rqspinlock_t spinlock;
-> @@ -118,6 +119,11 @@ struct apply_range_data {
->  	int i;
->  };
->  
-> +struct clear_range_data {
-> +	struct llist_head *free_pages;
-> +	struct page *scratch_page;
-> +};
-> +
->  static int apply_range_set_cb(pte_t *pte, unsigned long addr, void *data)
->  {
->  	struct apply_range_data *d = data;
-> @@ -144,33 +150,59 @@ static void flush_vmap_cache(unsigned long start, unsigned long size)
->  	flush_cache_vmap(start, start + size);
->  }
+> No, you can't hack up the kernel for OOT drivers.
 
-There is still the chance that apply_range_set_cb() could race with scratch
-insertion, right?
+Alright, thanks for the confirmation.
 
-Shouldn't we also be using ptep_try_set() there?
-
-The nasty thing is handling whether ptep_try_set() actually works.
-
-Something like the following on top, maybe?
-
-
-diff --git a/kernel/bpf/arena.c b/kernel/bpf/arena.c
-index 49a8f7b1beef5..086bea3f3698e 100644
---- a/kernel/bpf/arena.c
-+++ b/kernel/bpf/arena.c
-@@ -122,19 +122,27 @@ static int apply_range_set_cb(pte_t *pte, unsigned long
-addr, void *data)
- {
-        struct apply_range_data *d = data;
-        struct page *page;
-+       pte_t pteval;
-
-        if (!data)
-                return 0;
--       /* sanity check */
--       if (unlikely(!pte_none(ptep_get(pte))))
--               return -EBUSY;
-
-        page = d->pages[d->i];
-        /* paranoia, similar to vmap_pages_pte_range() */
-        if (WARN_ON_ONCE(!pfn_valid(page_to_pfn(page))))
-                return -EINVAL;
-
--       set_pte_at(&init_mm, addr, pte, mk_pte(page, PAGE_KERNEL));
-+       pteval = mk_pte(page, PAGE_KERNEL);
-+#ifdef ptep_try_set
-+       if (unlikely(!ptep_try_set(pte, pteval)))
-+               return -EBUSY;
-+#else
-+       if (unlikely(!pte_none(ptep_get(pte))))
-+               return -EBUSY;
-+
-+       set_pte_at(&init_mm, addr, pte, pteval);
-+#endif
-        d->i++;
-        return 0;
- }
-
--- 
-Cheers,
-
-David
+Thanks,
+Joonwon Kang
 
