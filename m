@@ -4,105 +4,110 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 82573CD5BC8
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 26 May 2026 12:39:39 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id A2CAFCD5BB1
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 26 May 2026 12:43:48 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:Subject:References:In-Reply-To:Message-Id:Cc:To:From:Date:
+	Content-Type:Cc:To:Subject:Message-ID:Date:From:In-Reply-To:References:
 	MIME-Version:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=2DdhusNN+vFuzB0PmOPfndHbDWMKZxSYmfD1KK2/m2E=; b=lc+Swfhefz8/3NJOmWr8nP6wlX
-	gAsppSRlxeowM0OAZbAszn/RWGZcWTlzuLqxQjpRpgG47kpmKLzlQlQPreehUwSO/VGkpFS/zUgde
-	HMaKhsYyqfXA8iwCi3ZX/QTUc4D3s4FK/EfnkkFdZiQjSXEMDQE9cdgkyAjfnD2GDaX8dmVdZza9S
-	JCIZClA3F5aFk2zlU+LcsrVwm4tkrAnOXpVpjt8yw4houCr7bySOVAuhwNmhByzI1IcjBxT1TbG2K
-	WTpbLXSgCe4WyZxCXJm/45JB5YhwUb0Kru9irTXi3JkaHjp5I4X/P2UffjCgxTGOiAtX6SIohnu0L
-	gj0nL2vw==;
+	bh=DtObxo9XE3EzIiwd27kjN9EEcOHxqFMVaH3d/+QZW9I=; b=W20GwWJyYM7zhWQtiE+/eb6Rzq
+	3NWMyng4rxmggZWBTGLF2XkWWuf1jsRv0oxfrPhxCRwkHWhmrVYx5eBnWQqbgLS2pM9xpcsPc65By
+	9AYKSRJUaW7QihT/YXFLQg7G4mlny9KCtp0HwVw/I4BcnL0jxP/jzFuozc2x2Rs1Ew1gQq6B2IEl9
+	UEItxUH27OPd+Ex1ibL37NN/BknlUeoy0rPinF6sOJ9D/MWQnFKI8ojNQYfh/491oJveyVdhncB53
+	em5EmXMA3bgQH0d1NT7hH5LMkgSFc3jS92p0619Lucii3ggbH+H1rp8C40jRzHHPbxGOW8MN2yFAw
+	C6ebWDYw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wRr4E-00000001wHP-2vvO;
-	Tue, 26 May 2026 12:39:30 +0000
-Received: from fout-b8-smtp.messagingengine.com ([202.12.124.151] helo=fout-c8-smtp.messagingengine.com)
+	id 1wRqiX-00000001tUZ-2tcq;
+	Tue, 26 May 2026 12:17:05 +0000
+Received: from mail-pj1-x1034.google.com ([2607:f8b0:4864:20::1034])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wRr4A-00000001wFL-3vKF
+	id 1wRqiU-00000001tTV-3Wss
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 26 May 2026 12:39:28 +0000
-Received: from phl-compute-04.internal (phl-compute-04.internal [10.202.2.44])
-	by mailfout.stl.internal (Postfix) with ESMTP id 5C6CC1D000FB;
-	Tue, 26 May 2026 08:39:22 -0400 (EDT)
-Received: from phl-imap-05 ([10.202.2.95])
-  by phl-compute-04.internal (MEProxy); Tue, 26 May 2026 08:39:23 -0400
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=arndb.de; h=cc
-	:cc:content-transfer-encoding:content-type:content-type:date
-	:date:from:from:in-reply-to:in-reply-to:message-id:mime-version
-	:references:reply-to:subject:subject:to:to; s=fm3; t=1779799162;
-	 x=1779885562; bh=2DdhusNN+vFuzB0PmOPfndHbDWMKZxSYmfD1KK2/m2E=; b=
-	Zl5C97iHWwzX+s65iHmz4A7cBN0fMHPEaOtqEkDv/450rxtnCqAzaF40910/sCx4
-	XsRkbYxxcRcJTVoVS+Rj3CPRkoTR9FAbkbgVlrTgwnH+fLNR3yKvTxYz6ozFJzD9
-	5yuPXhM+YyiHfrD1U1I94zpXS0nRa7zJJbPfxDZB83OlxXFH7Sx7iMdObzT4nZ/9
-	QyTXQ3GmYNukhtaTlyjn9nLG+6lJtoSVkxHPKo73M27e6ePO6zH7IWFSBDvwofzZ
-	JEKmEpOKHioFh4cFGmWvg9g1WoRdoeyJvLE+MfZMXBSlr8H3FjsSj/lZTUDr3DAI
-	5ctlqw67K0myRrIqnqoL/Q==
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=
-	messagingengine.com; h=cc:cc:content-transfer-encoding
-	:content-type:content-type:date:date:feedback-id:feedback-id
-	:from:from:in-reply-to:in-reply-to:message-id:mime-version
-	:references:reply-to:subject:subject:to:to:x-me-proxy
-	:x-me-sender:x-me-sender:x-sasl-enc; s=fm3; t=1779799162; x=
-	1779885562; bh=2DdhusNN+vFuzB0PmOPfndHbDWMKZxSYmfD1KK2/m2E=; b=W
-	fRF8GIYRCMPR3lZ7dpGkTUoJuGKwURAj+8OZAfKcst2nL0NeRhZT3yRPm2KmRbOP
-	Pg2f9wF6MPHE03aMTf0a4d/Ez2Et0VujQWssWiz1GQy00aCIhYmFBFo/oj4IWcRZ
-	6fZuNjhGAfqa9tybpKAplceAM02TwxPiB2CUU2zcHQ4X/GkAemgOG9eEalZRme3e
-	KNlZieVVgZrtaN0Tw1PBc2OeZKKNGjtL5+BnrwDBK0IoDhIqItOe3DQ/MU7GUM8c
-	iBcnhtkmLvQ6JqQcXaqxQcTUzi1RBhT1HCSq2Oxf2OZJbw9rhxJE7ok8jECbXBaz
-	iME8iqB/zw59FnQTo+h7g==
-X-ME-Sender: <xms:eZQVanw1i65sp2LVimLDuabU3-yASNQPQj7As5LwwpnV27NmqNloJQ>
-    <xme:eZQVaqEBMhWCcmZ-9c-O9nLEdjSvBHkK3jdYjOZX7s3T0_F0CZ8OQyrNy5dRMKv94
-    iSaWwPDo1IurVvRVrTjAMWSxL1NCj1cwauc77ehoF1T9q1m6kpjqEg>
-X-ME-Proxy-Cause: dmFkZTEywkXow3xdYkQ2bDUtuiNbW7HPTteV8VzeERFNC0X3krSq4Ztmxvfvo6lBC3mfHk
-    nIOsh5OPxI5m9OkJYF5SpKXCL0JPa1nAwM4dHAgWRKmM5SD1y0YU3ZEds98AJZO2aNgC8j
-    zzzgjv6EQVgcIXDfju67LcVJpmmJa1u5qE2m+i8WyxOoLatK9rZaqTmq+Chxph1tcZy6Rl
-    gTzCoeLg4agwUggTSBIMIuJWS9zV2ihi7fFBfzxQBNcZLHVyYWYmrgQVAarNy80TcBgYrM
-    I5F11ACojSxd2njeimht6MiOouBM0c7tWRJlPYuirsqeO1C1G2wz8aGh7V0B9KYOs+fuf0
-    QWibBSswoX2aPbe5RpZ/T5/5VyXZ6ici5TcgaxQRbckIofh1dZ3vi2LHFvxvVf/zw1grSy
-    TiFbYmEapVu+EvbVggQzeocyApFx0GmICq1JbLoPZtt68MV/RHZYiHjz082yl3d4xSRIe3
-    7q3Tn3RFm9uDbM+GhABvyKx2DcAodSaFPYbYOTYSg1zpgNzA8elKSiy+uaifiZX3GNtC/x
-    AsDSiCan2W+1fKFlBxfg2RjxvJVGiNVr5S/0feP5fMpdG4S09OQObqy87wJ/x/QEUA7guh
-    WSBRWIsFhVA0TbqVIC33cj+SAHLUdeRWMUKNoj7e2Uj6A1+McumjsS9Oz1fw
-X-ME-Proxy: <xmx:eZQVah4bs_xWeiDDQibLl1aBwgYGX1cCRJ38kh4WBqDH10_9gDDYfw>
-    <xmx:eZQVav39f8LPj7xgJP3MvokKe5igghtVltfyKfZezSrQvzrup_8Fiw>
-    <xmx:eZQVaox4mTj8r5t8eDA1jZs5joqKPISo1WMYqZGbZsYhT5UMPMhqTQ>
-    <xmx:eZQVaonlNzLHp4EPnefWPUG_OJkRaPdx-UyE3T94ThcfHiWSuoKH_w>
-    <xmx:epQVakkNsMABvUsRVbAnepaf_1q-zRd7bKVxZUmYdvNcFqijiIjGZK2h>
-Feedback-ID: i56a14606:Fastmail
-Received: by mailuser.phl.internal (Postfix, from userid 501)
-	id 89ED7182007A; Tue, 26 May 2026 08:39:21 -0400 (EDT)
-X-Mailer: MessagingEngine.com Webmail Interface
+	Tue, 26 May 2026 12:17:03 +0000
+Received: by mail-pj1-x1034.google.com with SMTP id 98e67ed59e1d1-367cbac9c37so6128092a91.2
+        for <linux-arm-kernel@lists.infradead.org>; Tue, 26 May 2026 05:17:02 -0700 (PDT)
+ARC-Seal: i=1; a=rsa-sha256; t=1779797822; cv=none;
+        d=google.com; s=arc-20240605;
+        b=SOuoqyDyd0a11t0ZBoNinWYyGOMPjaK8Afu7H+RYtVZ4PpUedulbsTxkcziwvU7XQ3
+         SOpzrNG4lOXRt6I6eW9cTn3LPOYQpw50QOZjSRMqV/rhJbzljFyFBqugBQSGgp2tjmnW
+         IKDprkF+rUpNh4vdw29PbnOCXK2WIrlc2bsswgLi4A3JMRPp+IcR5jrLSyDR7gjfVHC+
+         3NzvNQmCL0tF88nmsBXJt/0Y8mAa6EEcS+gLYY7KgZV+VRb8mF9Ts7OkiN4HyYAhjhr7
+         59XaCXKVmVjDHU01c22BrS9N6Ye4dl99k5XvG1rI4JVem4Jb42eQuhAWBCjIIM6PoF4z
+         Z/Kg==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20240605;
+        h=content-transfer-encoding:cc:to:subject:message-id:date:from
+         :in-reply-to:references:mime-version:dkim-signature;
+        bh=DtObxo9XE3EzIiwd27kjN9EEcOHxqFMVaH3d/+QZW9I=;
+        fh=vVHym/pGOcf5nHdfekktns5KAFoUCaXOqScwicILP+k=;
+        b=Yt4Mhsra8jKpEJ5LFGpvijxyL87ODFOTGh9qQjwqBrxgrOq3sPTmDE9GCSeJNNnMFF
+         XsRh7xE+PHIIEPJdZqJD3IWhXDhjYm5KxNcYoSQOvWb3qTAwc+kim3/usx40CVwR9SHs
+         A7mPBxAplQRcqskKjQ1xahWW0pCloH4hDzG9YwwQTWLbk4jQONoy1+ScTF/hI7xeoYtD
+         fyzBSZ7ZjiUCdI2Y8X1hjyw25u/q9H4X0MPLhzq4I4YsEONEOCZl4QlJSpmfRgMYpmpO
+         ZyooTXEuCPP+azLyI6IXtW0qmKFmRhu/lcOYCql+yPFvWvaJp9HDiOQHTZfhNe1OAb5d
+         EcdQ==;
+        darn=lists.infradead.org
+ARC-Authentication-Results: i=1; mx.google.com; arc=none
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=gmail.com; s=20251104; t=1779797822; x=1780402622; darn=lists.infradead.org;
+        h=content-transfer-encoding:cc:to:subject:message-id:date:from
+         :in-reply-to:references:mime-version:from:to:cc:subject:date
+         :message-id:reply-to;
+        bh=DtObxo9XE3EzIiwd27kjN9EEcOHxqFMVaH3d/+QZW9I=;
+        b=W/xHggl3tJE6xe0NeMF/YUpDkcYBw4Phf25wgy0y96BYQocRIw6oarWvIlRYwn7ZlS
+         8bJZcRcHh6tdIfGfVife/924/g1Y3jxQSd33n+Q1euSjXvxefDXlcmea/dmD7jvexpDq
+         0Am0hoTwh0lR4zEIATt3CBPmMkgjbICvOHu9RuEl76gm/1u/cWlsfu5E2/Sijd9992Vs
+         Ff7XMYE9opTu0WG37cFxeiWmUNzn6DUB7+gSQD4eaO9t224nFm4IpkUGRvhF/6Y9eh/f
+         gOf9V/PF9dgGUifUvPFQoP0/XdwITj6x5g7xHPyicPKOIcrltDQNg78KEawsp8o6n3iX
+         Yk3w==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20251104; t=1779797822; x=1780402622;
+        h=content-transfer-encoding:cc:to:subject:message-id:date:from
+         :in-reply-to:references:mime-version:x-gm-gg:x-gm-message-state:from
+         :to:cc:subject:date:message-id:reply-to;
+        bh=DtObxo9XE3EzIiwd27kjN9EEcOHxqFMVaH3d/+QZW9I=;
+        b=mZSd91hzK8yR6fJhniG5mpiMs8dlEckoLHI0W7pveEeEQm977+9XLx0hckTSlwxTij
+         ZJ2VLI+8Xa3rzQxqzvdoQCbVGL0cWHtzfn4AV4QYYOw+oQaUihJncl3vRvEr6mWLvRce
+         sBYJQXOp/awmHJBPS7MayPSL8apOo2+0JK6bgfgSIS82RiWjdTDu8F/zPt3HD1LOT74Z
+         IfsCkLOLaxB1K8SxgDynTw6YEUiXvtLDcYzESuA5CKcWGeP9xwfbvpiFgVStm8FsKUds
+         sikBbs7/20oD1un5IjhqnHyF6IaH0ev7f7hWY66/6VrAJSKOFjmHSOEth9/zeRoEQGHe
+         vsOQ==
+X-Forwarded-Encrypted: i=1; AFNElJ+tyF+bA8sgw3EhHeJh/IaIKzbmC3Rh0t1S7fNSpO0MpW8wSzHMuqkENSNnr/4gWwLW5L2fA3xlsDHyjEQE4xUj@lists.infradead.org
+X-Gm-Message-State: AOJu0YwA36jKInaTA9SN2Cjw8w/4QbTRoXGC2XlJpisKMXs5s8LJemxx
+	2RZXynA5sT1xhgHQ0/sC4bda/eZU19gSxv6+VlA5kXfJneSHnJedKgX6+jK5N4bOCWq3oDy0JTp
+	9prydBgOeGYZuDcU3q3qx8IfXcBOpW5I=
+X-Gm-Gg: Acq92OE+XvRPQnOgbtIlEMtKUW7QpFJxS3Kebi6zkPe1N196hn5UZnxcVHASO4nJA29
+	CYZO38vdrAkII5BJpMZqYlWkmESCv8ZUBhG866RAzrDrsCnblh0R4eeTUIvrKpuAuWBvZwyBITz
+	MiCTOscPDYa4Ywl+XUK3Gz4jhBPZlxCSHgWAdagZE6EUI2F5erQWXkglUUyE5fzpZr+pBOrAvwz
+	EJesDqgeh473H34jXyQDEqaRVTu678XVk2pdowtBcWEf8sIwb2Ej15TYU04LVETZgi489KqgQ/x
+	GkIRPC0vqO66S4/Di3XriFwUdZ2mDosE86vANKXrEZb48C4Z6lA4Xi8whqUN899aBsjG0LNl
+X-Received: by 2002:a17:902:c948:b0:2bd:2de3:5181 with SMTP id
+ d9443c01a7336-2beb034603cmr207644055ad.9.1779797821644; Tue, 26 May 2026
+ 05:17:01 -0700 (PDT)
 MIME-Version: 1.0
-X-ThreadId: AuWQEIBBqPC7
-Date: Tue, 26 May 2026 14:39:01 +0200
-From: "Arnd Bergmann" <arnd@arndb.de>
-To: "Wei Fang" <wei.fang@nxp.com>, "Arnd Bergmann" <arnd@kernel.org>,
- "Claudiu Manoil" <claudiu.manoil@nxp.com>,
- "Clark Wang" <xiaoning.wang@nxp.com>, "Christophe Leroy" <chleroy@kernel.org>
-Cc: "Andrew Lunn" <andrew@lunn.ch>, "Vladimir Oltean" <olteanv@gmail.com>,
- "David S . Miller" <davem@davemloft.net>,
- "Eric Dumazet" <edumazet@google.com>, "Jakub Kicinski" <kuba@kernel.org>,
- "Paolo Abeni" <pabeni@redhat.com>,
- "imx@lists.linux.dev" <imx@lists.linux.dev>, Netdev <netdev@vger.kernel.org>,
- "linux-kernel@vger.kernel.org" <linux-kernel@vger.kernel.org>,
- "linuxppc-dev@lists.ozlabs.org" <linuxppc-dev@lists.ozlabs.org>,
- "linux-arm-kernel@lists.infradead.org" <linux-arm-kernel@lists.infradead.org>
-Message-Id: <ef1435b1-0cce-4f15-9e4c-0e9d50a9e1ea@app.fastmail.com>
-In-Reply-To: <DBBPR04MB7500D92831D793CDD1D562E2880B2@DBBPR04MB7500.eurprd04.prod.outlook.com>
-References: <20260526102708.2837129-1-arnd@kernel.org>
- <DBBPR04MB7500D92831D793CDD1D562E2880B2@DBBPR04MB7500.eurprd04.prod.outlook.com>
-Subject: Re: [PATCH] [net-next] net: dsa: netc: fix enetc dependencies
-Content-Type: text/plain
-Content-Transfer-Encoding: 7bit
+References: <20260522095401.72915-1-phucduc.bui@gmail.com> <20260522095401.72915-3-phucduc.bui@gmail.com>
+ <CAGb2v67UmMmM7bQOSf3VxsN9D8s3N8nMMX079_kiMcPU=VszFg@mail.gmail.com>
+ <CAABR9nEB8jizn+NrVgrjcOOJRtaU0u+TH705unMTh7HYO=8Wcg@mail.gmail.com> <CAGb2v65zK7iOce_UZ+_F=dWtKYFGZj-K4k45MewvDbhivXPH2A@mail.gmail.com>
+In-Reply-To: <CAGb2v65zK7iOce_UZ+_F=dWtKYFGZj-K4k45MewvDbhivXPH2A@mail.gmail.com>
+From: Bui Duc Phuc <phucduc.bui@gmail.com>
+Date: Tue, 26 May 2026 19:16:50 +0700
+X-Gm-Features: AVHnY4L36KKu58qpYxsDJHrLwpA0fiNG3V0fNQatxdA3GV3-2n0FXUky_32u4G0
+Message-ID: <CAABR9nEsKjgErDB3jnHrx=dOUajvvN6GbP+6XUb5Ay3VYYjNJA@mail.gmail.com>
+Subject: Re: [PATCH v2 2/3] ASoC: sunxi: sun4i-spdif: Resume device before
+ kcontrol register access
+To: wens@kernel.org
+Cc: broonie@kernel.org, codekipper@gmail.com, jernej.skrabec@gmail.com, 
+	lgirdwood@gmail.com, linux-arm-kernel@lists.infradead.org, 
+	linux-kernel@vger.kernel.org, linux-sound@vger.kernel.org, 
+	linux-sunxi@lists.linux.dev, nichen@iscas.ac.cn, perex@perex.cz, 
+	samuel@sholland.org, tiwai@suse.com
+Content-Type: text/plain; charset="UTF-8"
+Content-Transfer-Encoding: quoted-printable
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260526_053927_447436_97750B71 
-X-CRM114-Status: GOOD (  10.31  )
+X-CRM114-CacheID: sfid-20260526_051702_885552_9FFCF1AD 
+X-CRM114-Status: GOOD (  17.47  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -117,18 +122,36 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Tue, May 26, 2026, at 13:03, Wei Fang wrote:
->
-> Thanks for fix this issue, I have sent a patch last Sunday.
-> Link: https://lore.kernel.org/netdev/20260524070310.2429819-1-wei.fang@nxp.com/
->
-> I think the solution should simply be to add
-> "depends on NET_VENDOR_FREESCALE", right? The changes in
-> enetc_mdio.h seem more like improvements to me.
+Hi Chenyu,
 
-Yes, the added dependency is sufficient. I removed the other
-change only because that was intended as a workaround
-for the same problem but was incorrect.
+> When you submit a patch, it is expected that you already tested it.
+> If you only compile tested it, please remember to say so in the
+> footer (or mark the patch as RFT) so that others can test for you
+> and the maintainer knows the status.
+>
+> And if possible, provide a scheme to test it.
+>
 
-      Arnd
+Thanks for the guidance.
+I=E2=80=99ll clearly mention the test status next time.
+
+>
+> I can't say that it does. But since the only control that SPDIF gives
+> is the IEC958 status, and that doesn't appear in the standard mixer apps,
+> it's unlikely that a _user_ will trigger it. Plus the control was added
+> after the basic structure of the driver was done, so there is definitely
+> some possibility of a crash.
+>
+> But what you wrote in the commit message doesn't match the actual hardwar=
+e
+> behavior, like I wrote.
+
+Thanks for the clarification.
+I'll update the commit message to something like:
+"The kcontrols may access hardware registers while the
+device is runtime-suspended.
+Ensure the device is resumed before touching the registers."
+
+Best Regards,
+Phuc
 
