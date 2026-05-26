@@ -4,93 +4,87 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id CCC6FCD5BCF
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 26 May 2026 07:38:36 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 64E63CD5BD1
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 26 May 2026 07:48:28 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:MIME-Version:
-	Message-ID:Date:References:In-Reply-To:Subject:Cc:To:From:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=5WXRNNHPyXQvvYNRb7UDQ2d4k6RO8dKZjGyn0hWbK7M=; b=o3WS4rIc92TbV+Tt7yRA+2e69S
-	rgAzpar28G6LLA7TnIGfaZDJ37hjT8XTKwrB/nzbF/BvoWarFwvUQFRqrBsI8K8zxuNNmpVWrCQNn
-	ojrhyc+sfdV2ldeXCWe1o9XtOSTjmjjKhuaQw5mOj95ueJ+3FkibVkUh0PGCGVk5QFQESLS7evaEk
-	Pma/1p5TdO0BUEXa+tBr8GdtJOHqv3rinAnDH+273/wpTS1sx8bvr3bFNa6s9nLrEKe7VeaLz0Fho
-	74yzL2ErAGVst/9wrNta3KtwOlt7ydVZqaw87Vv0LsQb7YlP6ysIhuBXF4hSnVfgbvwwjs7vB++KS
-	OPICKVWA==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	MIME-Version:Message-Id:Date:Subject:Cc:To:From:Reply-To:Content-Type:
+	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
+	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=Wy4Eu7O9j5XBvcQTir7gfOahUHq3NYBZ0Gi/24hA7Ew=; b=Vg0uBI0l28i6bVUyTLFjneu5tV
+	8PgK7U3prJ1odqXhQgmuqSonHxmYZCVcAqf/uigCIvVVES7fVFc5Cfrmy6whcSYNE0UaDuBSm1qFI
+	WbmqnxH5V34doLc519EQohj9/ST8OxYGM4wG69S02t/B0wCi7RmGiyfRNG+i1FsOGn82FRPT6VDva
+	dla1kZTryi0OUjAWtPlTu7lR8jk1nJp8HG8gbY7A7RxM2TSUxTeBHxcP7jlNwXpK+I1PLcS3Um5Gp
+	TiVKXk7FNE6n5OKTjslTH04Km0z+sd+g3uPgq30hlUh2aha07gAY0fOkg6e/gW7hgSgyzI9ZJH3Qk
+	uGfkzNOA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wRmHz-00000001GtX-0eo2;
-	Tue, 26 May 2026 07:33:23 +0000
-Received: from mail-wm1-x32d.google.com ([2a00:1450:4864:20::32d])
+	id 1wRmWR-00000001Ipo-0uA0;
+	Tue, 26 May 2026 07:48:19 +0000
+Received: from smtpbgeu2.qq.com ([18.194.254.142])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wRmHu-00000001GsD-1K9q
+	id 1wRmWK-00000001ImR-0wS9
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 26 May 2026 07:33:21 +0000
-Received: by mail-wm1-x32d.google.com with SMTP id 5b1f17b1804b1-490686877a1so11012035e9.0
-        for <linux-arm-kernel@lists.infradead.org>; Tue, 26 May 2026 00:33:17 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=baylibre.com; s=google; t=1779780796; x=1780385596; darn=lists.infradead.org;
-        h=mime-version:message-id:date:user-agent:references:in-reply-to
-         :subject:cc:to:from:from:to:cc:subject:date:message-id:reply-to;
-        bh=5WXRNNHPyXQvvYNRb7UDQ2d4k6RO8dKZjGyn0hWbK7M=;
-        b=U9XkM6s8pk2Dq0Wc6O/ZKweQwYx5sLHJ5m0QlqOJYv3w2sBe4I3zbgSxb/DnN98A1y
-         n6vCd5tShRFP3PF9im2GgRLx5wkVnoFmJ20P3vyd/Oh3zzgQVH0OqKaaSHpGwY6gBnhc
-         ikq4mEpjyU7P44jLQsEzdXZRXevLNA0OeI/2yrIeaDg+pNuXvmWpu/NvPGWxFL2d65T4
-         MWvk4B9hnKndLmccJn/cCJmJPRrjbUbshpv/UvwHqyb3zBigvjqR0hVdvEqKJpRI9aKs
-         fyXI+apculKayNzlff6TnjpAYdNCQI0Qp1ppSygaeSrH8XFNFRYqbGHnKEQFOcy8xThi
-         u7MQ==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20251104; t=1779780796; x=1780385596;
-        h=mime-version:message-id:date:user-agent:references:in-reply-to
-         :subject:cc:to:from:x-gm-gg:x-gm-message-state:from:to:cc:subject
-         :date:message-id:reply-to;
-        bh=5WXRNNHPyXQvvYNRb7UDQ2d4k6RO8dKZjGyn0hWbK7M=;
-        b=BSTYblkhG7bJkLZLaZ08OxHf881q4J3nE+km9H3Bss5hhJ9FftLdR8rnCHatRfUuki
-         Br/Dt3OBp5rnI2vLr46lEyXRck13MEEjMjaQ5i8F1QRZaWwt9pn3NpLMhAXeCQ1B0g85
-         WIfhJvNVXJ+H1Hy8U8MjNE7ffo18ZQuIcQwNmXvabLlrx61AuzEyDvCtve87o8et/cdw
-         xgWvsKW3i6ORzkTmU0eeI7zQd0QFmu89JXcLAUSIemEtikSMbNrMkjMoVrF8QQZXv+71
-         h+ulW9mNcR0LKK8OIG6pEzDOP2J99hb7vwSbU5xVc+9JPpVlZdHO9fOsF4+lzVMFTXs2
-         AZNw==
-X-Forwarded-Encrypted: i=1; AFNElJ/qgn2F4gOReUXX64GFwUpmThpjt32TBze9b/TQM5zpeb9XNAV5hlUFLTtGdFYOhHGhLleMjOqXfyHQGqrijnZM@lists.infradead.org
-X-Gm-Message-State: AOJu0YxA/tynwX5rpfr0TXbKQGA5VkZx3fXtZInNCfPcD1HYEBqD362P
-	Y1bgDZHjkqo9ucJWjktDleauiGPwMaVgqWHwSbzla2u4dd0lgBR8OuS6BAu0eqHEg0Q=
-X-Gm-Gg: Acq92OGp1ZypR9Fmogx0acJ9rHKYxj6JVvsJYGBcJB8WwrklpIeg+wQ0qHUDU9IbuhB
-	UqsTBJfODI9YCVK5rkHu/ROD7A2F+2c+jpawT0McwCVV5IGemcyv3QDtrToUtqe2tWB589sWcxJ
-	srM0Efo/Onm8j/YUZ7qlpkHYk4pZoau6kIcT8RtL7qRL7YebELMdmNx/ZqIEEVrUiWf3xmv9rwn
-	QkDURYxmATWfUXlDC1j3PeYW3+SK4GlGdp4Z7UyigWn9cMRLOUfUlj2yfwF4GXaoGBoNuAcW58Z
-	c7hMZK9KkdWeCrYHWPwHL3ddezeoowoA+l/mAQ7VxpR5tBdTRjUjFgujxxc3l1eIBEy1RSy8Atp
-	tllFk1MEtguJlgnsrXHyFDYc7n8sdTVwwMmHMm2qeMjnujnEUsEQpFptvqMkr26Of+NmN4qkAKz
-	smBKG+xpddd6YIxAF5pLQAoA==
-X-Received: by 2002:a05:600c:8599:b0:48f:e230:29f4 with SMTP id 5b1f17b1804b1-490426ade02mr179110335e9.15.1779780796190;
-        Tue, 26 May 2026 00:33:16 -0700 (PDT)
-Received: from localhost ([2a01:e0a:3c5:5fb1:4a0c:b15a:3467:f4ed])
-        by smtp.gmail.com with UTF8SMTPSA id 5b1f17b1804b1-490454ea134sm338481635e9.8.2026.05.26.00.33.15
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Tue, 26 May 2026 00:33:15 -0700 (PDT)
-From: Jerome Brunet <jbrunet@baylibre.com>
-To: Jian Hu via B4 Relay <devnull+jian.hu.amlogic.com@kernel.org>
-Cc: Michael Turquette <mturquette@baylibre.com>,  Stephen Boyd
- <sboyd@kernel.org>,  Rob Herring <robh@kernel.org>,  Krzysztof Kozlowski
- <krzk+dt@kernel.org>,  Conor Dooley <conor+dt@kernel.org>,  Neil Armstrong
- <neil.armstrong@linaro.org>,  Xianwei Zhao <xianwei.zhao@amlogic.com>,
-  Kevin Hilman <khilman@baylibre.com>,  Martin Blumenstingl
- <martin.blumenstingl@googlemail.com>,  jian.hu@amlogic.com,
-  linux-kernel@vger.kernel.org,  linux-clk@vger.kernel.org,
-  devicetree@vger.kernel.org,  linux-amlogic@lists.infradead.org,
-  linux-arm-kernel@lists.infradead.org
-Subject: Re: [PATCH 00/10] Add support for A9 family clock controller
-In-Reply-To: <20260511-b4-a9_clk-v1-0-41cb4071b7c9@amlogic.com> (Jian Hu via's
-	message of "Mon, 11 May 2026 20:47:22 +0800")
-References: <20260511-b4-a9_clk-v1-0-41cb4071b7c9@amlogic.com>
-User-Agent: mu4e 1.12.9; emacs 30.1
-Date: Tue, 26 May 2026 09:33:14 +0200
-Message-ID: <1jldd662x1.fsf@starbuckisacylon.baylibre.com>
+	Tue, 26 May 2026 07:48:17 +0000
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=uniontech.com;
+	s=onoh2408; t=1779781638;
+	bh=Wy4Eu7O9j5XBvcQTir7gfOahUHq3NYBZ0Gi/24hA7Ew=;
+	h=From:To:Subject:Date:Message-Id:MIME-Version;
+	b=juvoB+SgZb8pGnGblCDwjgcK+cTp/ehVN38AgQFtoKjmV+2TINf44cgamvqCvdcHt
+	 UBE/miVC36uEzcl+XqkciqwJyBlDVmsmnhjL/B44OyQpNv6BcvTXdzb3raVRliZdi7
+	 ecLrK1kZlCJQ1gayt7WNt2Cxytf8EPfabTNE1doM=
+X-QQ-mid: esmtpsz11t1779781613t98d4711c
+X-QQ-Originating-IP: rkFwe4EmsfAYDIX/GpaJpeEnMzqmGhoXMpZ5mKtkV4c=
+Received: from localhost.localdomain ( [123.114.60.34])
+	by bizesmtp.qq.com (ESMTP) with 
+	id ; Tue, 26 May 2026 15:46:50 +0800 (CST)
+X-QQ-SSF: 0000000000000000000000000000000
+X-QQ-GoodBg: 1
+X-BIZMAIL-ID: 10288803396514652520
+EX-QQ-RecipientCnt: 11
+From: Qiang Ma <maqianga@uniontech.com>
+To: maz@kernel.org,
+	oupton@kernel.org,
+	joey.gouly@arm.com,
+	suzuki.poulose@arm.com,
+	yuzenghui@huawei.com,
+	catalin.marinas@arm.com,
+	will@kernel.org
+Cc: linux-arm-kernel@lists.infradead.org,
+	kvmarm@lists.linux.dev,
+	linux-kernel@vger.kernel.org,
+	Qiang Ma <maqianga@uniontech.com>
+Subject: [PATCH] KVM: arm64: PMU: Preserve AArch32 counter low bits
+Date: Tue, 26 May 2026 15:46:40 +0800
+Message-Id: <20260526074640.791991-1-maqianga@uniontech.com>
+X-Mailer: git-send-email 2.20.1
 MIME-Version: 1.0
-Content-Type: text/plain
+Content-Transfer-Encoding: 8bit
+X-QQ-SENDSIZE: 520
+Feedback-ID: esmtpsz:uniontech.com:qybglogicsvrsz:qybglogicsvrsz3b-0
+X-QQ-XMAILINFO: Nlna3a5R+peuQBRtI9/Q0FpmNInSMKurmczkvV6zxqo8aN9eMNO0PE+q
+	uLI99m2diB1jRoD/0zTb0MlIRTuLzeaNxNMNoW/bPeE4tozsl6WkIyPAhl0tmfPpnM7h4Tw
+	+ugF0lunSS3oAMYLn4yVeLwfk5VXPIRcdFOVmj3KQxjOFN3M5tTSThnbwrrk3M4rZ6eGul8
+	uU7z06NA6ggbOkfN7ZBguhFOp70I645eRqk/qT0Evkh3o/NnroUW3U5SVr4KnC9Ln2rU4ix
+	6r2/zEof3zdM9SGYVbhLa/JG1PVRlb0Q4mFWepp/McJPmlKOpn675l1F8J09WVmUi5ESRHe
+	GsqnApHyYkft2//TmtjsvIpB4GgNIrDqvJoe1KAcdCrOpOUWYRqcY9VdTmre9llVuhs21ud
+	u2GZOvt/ujcVHNc59QLg0fDH9BwToBI6WAE8k2vEU7wuz+O0/LHBC2SSh758gX2DOPnmggH
+	IDnHNC8cgLusB8KIswVeoHRDO+sim/yaXf3Kl38N5LlkDLRgtqpxcNbmP/oEniScwwZy6xq
+	9Rl1LMn8pY7Q34PbzhtFi/DP5NsuiGPT91ynsq/TMQ0NJ+ZAcAeNm2f32EuegszsL+ofo3w
+	YVcloZ9QJ8zJ038fseRib+zmeFULISymukystQ/qdPQzQGDCaRF7PpJHJBRt7nOU5JYfCMi
+	12b10MK8zNG6MEW5JngNsN6biQmIJuAeTpoyB52OSi1Gsa/U+idvCZ+I3J3M5kqdlxL6m4B
+	OoD6ymPCmtqpQoWEPtpyK8/81SHzxXCVAQaJStIdbSWIN+F7J+GHU1LbNAmeum8aGmad49L
+	UN13X+HiQVG/q9TY9QhYqD8hKEJIqZ4ZJgkEjkYqkzuKSr8vVspiC77I86bqKKeUkXraTOe
+	McDwcqZxETg4WD199vm7ry1IhWUTbTQZx1XV/NjgklujkRqQUxRhjZqTXJ+r47a5/H786CS
+	yBhHyeZ9uRyX2qrAp4vNiVovZXLJLNxOmtXaxbkzshPaQrvtkfLUiNRyhCPoyRoiuGIYk44
+	6nEyyyvDf73xKGinB6X7dl+nPZdRgGMTZQzodqXtU61xc7zRoJ3uVZG6Wk4IP4XHzO9fQYp
+	w==
+X-QQ-XMRINFO: M/715EihBoGS47X28/vv4NpnfpeBLnr4Qg==
+X-QQ-RECHKSPAM: 0
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260526_003318_390759_79105E9A 
-X-CRM114-Status: GOOD (  20.73  )
+X-CRM114-CacheID: sfid-20260526_004812_721816_36231153 
+X-CRM114-Status: GOOD (  13.27  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -105,94 +99,43 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On lun. 11 mai 2026 at 20:47, Jian Hu via B4 Relay <devnull+jian.hu.amlogic.com@kernel.org> wrote:
+AArch32 writes to PMU event counters cannot update the top 32 bits,
+even when PMUv3p5 makes the counters 64-bit. KVM therefore needs to
+preserve the existing high half and only update the low half written by
+the guest, unless the caller explicitly forces a full reset through
+PMCR.P.
 
-> There are 4 clock controllers in A9 SoC:
-> - SCMI clock controller: these clocks are managed by the
->   Trusted Firmware-A(TF-A) and handled through SCMI.
-> - PLL clock controller.
-> - peripheral clock controller.
-> - AO clock controller.
->
-> There are reserved register regions placed between individual PLLs, so a
-> separate driver is implemented for each PLL, similar to T7.
->
-> Compared to previous SoCs PLLs, the A9 PLL controller introduces 4 new features:
-> 1.PLL l_detect signal supports active-high configuration.
->   Previous A7 and T7 l_detect signals are active-low.
-> 2.PLL reset signal supports active-low configuration.
->   Previous reset signals are active-high.
-> 3.Support POWER_OF_TWO for the PLL pre-divider N;
->   the N pre-divider follows the same calculation rule as OD.
-> 4.The PLL input path includes an inherent divide-by-2 divider.
->
-> Implement the first three features in clk-pll.c (verified on A9 and T7),
-> with no impact to PLL logic on existing SoCs. Add a fixed divide-by-2 to
-> A9 PLL driver for the fourth feature.
->  
-> A9 PLL is composed as follows:
->  
->                        PLL
->           +---------------------------------+
->           |                                 |
->           |             +--+                |
->    in/2 >>---[ /2^N ]-->|  |      +-----+   |
->           |             |  |------| DCO |----->> out
->           |  +--------->|  |      +--v--+   |
->           |  |          +--+         |      |
->           |  |                       |      |
->           |  +--[ *(M + (F/Fmax) ]<--+      |
->           |                                 |
->           +---------------------------------+
->  
->   out = in / 2  * (m + frac / frac_max) / 2^n
->
-> Signed-off-by: Jian Hu <jian.hu@amlogic.com>
-> ---
-> Jian Hu (10):
->       dt-bindings: clock: Add Amlogic A9 SCMI clock controller
->       dt-bindings: clock: Add Amlogic A9 PLL clock controller
->       dt-bindings: clock: Add Amlogic A9 peripherals clock controller
->       dt-bindings: clock: Add Amlogic A9 AO clock controller
->       clk: amlogic: PLL l_detect signal supports active-high configuration
->       clk: amlogic: PLL reset signal supports active-low configuration
->       clk: amlogic: Support POWER_OF_TWO for PLL pre-divider
->       clk: amlogic: Add A9 PLL clock controller driver
->       clk: amlogic: Add A9 peripherals clock controller driver
->       clk: amlogic: Add A9 AO clock controller driver
->
->  .../bindings/clock/amlogic,a9-aoclkc.yaml          |   76 +
->  .../clock/amlogic,a9-peripherals-clkc.yaml         |  150 ++
->  .../bindings/clock/amlogic,a9-pll-clkc.yaml        |  110 +
->  drivers/clk/meson/Kconfig                          |   28 +
->  drivers/clk/meson/Makefile                         |    2 +
->  drivers/clk/meson/a9-aoclk.c                       |  494 +++++
->  drivers/clk/meson/a9-peripherals.c                 | 2317 ++++++++++++++++++++
->  drivers/clk/meson/a9-pll.c                         |  831 +++++++
->  drivers/clk/meson/clk-pll.c                        |   79 +-
->  drivers/clk/meson/clk-pll.h                        |    6 +
->  include/dt-bindings/clock/amlogic,a9-aoclkc.h      |   76 +
->  .../clock/amlogic,a9-peripherals-clkc.h            |  352 +++
->  include/dt-bindings/clock/amlogic,a9-pll-clkc.h    |   55 +
->  include/dt-bindings/clock/amlogic,a9-scmi-clkc.h   |   51 +
->  14 files changed, 4609 insertions(+), 18 deletions(-)
+The current code masks @val down to the old high half before taking
+lower_32_bits(val), which means the low half is always zero. As a
+result, AArch32 writes to event counters discard the guest-provided low
+32 bits instead of storing them.
 
-For the next version, please split things up.
-There is no hard dependency between the different controllers. This will
-ease the review.
+Build the new value from the old high 32 bits and the low 32 bits of
+the value supplied by the guest.
 
-The PLL controllers are bringing a new contraints in. The global/static
-nature of the controllers is something that has been bothering me for a
-while but there was no real reason to address it so far. Please give me
-some time to think about. Feel free to re-post the other controllers in the
-meantime. 
+Fixes: 26d2d0594d70 ("KVM: arm64: PMU: Do not let AArch32 change the counters' top 32 bits")
 
-> ---
-> base-commit: ca89c88bcf69daca829044c638a8163d5ce47af0
-> change-id: 20260511-b4-a9_clk-67652c1ae56e
->
-> Best regards,
+Signed-off-by: Qiang Ma <maqianga@uniontech.com>
+---
+ arch/arm64/kvm/pmu-emul.c | 4 ++--
+ 1 file changed, 2 insertions(+), 2 deletions(-)
 
+diff --git a/arch/arm64/kvm/pmu-emul.c b/arch/arm64/kvm/pmu-emul.c
+index e1860acae641..c816db5d6761 100644
+--- a/arch/arm64/kvm/pmu-emul.c
++++ b/arch/arm64/kvm/pmu-emul.c
+@@ -174,8 +174,8 @@ static void kvm_pmu_set_pmc_value(struct kvm_pmc *pmc, u64 val, bool force)
+ 		 * action is to use PMCR.P, which will reset them to
+ 		 * 0 (the only use of the 'force' parameter).
+ 		 */
+-		val  = __vcpu_sys_reg(vcpu, reg) & GENMASK(63, 32);
+-		val |= lower_32_bits(val);
++		val = (__vcpu_sys_reg(vcpu, reg) & GENMASK(63, 32)) |
++		      lower_32_bits(val);
+ 	}
+ 
+ 	__vcpu_assign_sys_reg(vcpu, reg, val);
 -- 
-Jerome
+2.20.1
+
 
