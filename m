@@ -4,145 +4,156 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 923DFCD5BD0
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 26 May 2026 02:51:16 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 0D29CCD5BC9
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 26 May 2026 03:21:25 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:
-	Content-Transfer-Encoding:Content-Type:In-Reply-To:From:References:Cc:To:
-	Subject:Date:Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:
+	Content-Transfer-Encoding:Content-Type:In-Reply-To:References:Message-ID:Date
+	:Subject:CC:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=f+YTjvc0fUV3kn6SQcEw5IWdlWZ6UEyx9xAL7htsywg=; b=UMe9RKOlX8A1kIiW6dMNbN2KbV
-	TOZDM3UwiFq2gFC1OCLZMGcqTafhLSk9pKWfW8fvnZCXHsfvbVkF7VgI8qmGzieZ9JWBJUUPtGXsw
-	L7Wl6OD/xRUtAHr7FiluA2V/wN+6ChycFkLnzesnU2qup7me6HzeK6bujU/AsCzmNLLH3+XCO4fIH
-	1Rgmzr3rUJ9EyRkyDu8MxfhyYpj3ggNCKkdFNeiOBqd0YCSpdGBavVxReK4Hqg0OPy5x9sFw5w5+c
-	SA7BS1IA/xQcyxtPiI/LAKI/dVuCkmeodJzYRbY6aaB6jqs+W0NJz69n/keFAh8GVw5+WyK7QD0++
-	C8q04gjA==;
+	bh=yei1BelLDSnmx+IXXDFXNeTDPXNmUmksZlj66ZIIwrk=; b=iLWzOIACwdPoVKpfXIvrztbHOv
+	imSR4JlcYrHnI6WJByCy2ekb+QatgHIfCgzZ7lzrRG+cpl68I5/uwrQGFZhWiquwN3zWYxg0dzchL
+	CKcKzEIN1jaY6nFPq3Li0GUpfHFXkYHKSUQvWftB5u2rU+RqhJ3INYGJd9+2651Aoe75nPp+sj7Mk
+	5CEgNHrOi6dF/Dqw3GG7y69FIY0pNzRRfHtGzBQisLwMW10XWyBlJFZOOQ0/m7AaTRR0CXlQJYdlc
+	6ETC7Dt8GHkrfz1cf9eHvF5tTh3TunrPaGB4uJD6UQnge4xGUG2sNdNgB8kk0xHUbAo1mdpiSqfvi
+	YpNHoLbQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wRhsp-00000000tGu-3h3Q;
-	Tue, 26 May 2026 02:51:07 +0000
-Received: from mail-eastus2azon11011031.outbound.protection.outlook.com ([52.101.57.31] helo=BN8PR05CU002.outbound.protection.outlook.com)
+	id 1wRhyi-00000000ton-2WEM;
+	Tue, 26 May 2026 02:57:12 +0000
+Received: from mail-northcentralusazolkn19013066.outbound.protection.outlook.com ([52.103.20.66] helo=CH4PR04CU002.outbound.protection.outlook.com)
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wRhsm-00000000tFr-3x7R
+	id 1wRhyg-00000000to4-2Gta
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 26 May 2026 02:51:06 +0000
+	Tue, 26 May 2026 02:57:11 +0000
 ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
- b=dW+H+3QRLftJYhVjwE9BHHsRZascKCcU19fsfZAyL/nNDvbUwfF6ykQtcM/5AwjwVn88AvzW9AvF+G2Z3LzUcE9LdbuOwKVrRyFFE4Drji7eJwNkNugt6BHNSUguE/MA4/prgQgUeWOkBeIElEreLu+i+s66V9UgleDH9yWc4W0oy1qFKvNiVKM4XL1XlcN1putxObuOk/pIE7CoaSzNcwIIIDrepzJkw+srTfmEc9f+uwrUeJysBE7cfuYh9dPZgVX2iH+ZGCyn1flrs/6WZ4/Yyq6jLVRSLBkkR2jyakoMR1O/JSeeuXA7FiFARNiHaYEKvLrMvqGYuNqhZzIHvQ==
+ b=gG+HV4rBvsgaGFQFYvLTC8IymqY85LGwBCf9GhKyUBpEYT9rYgSmYQgPZRbQ17epxgc3O6BTZzXadwy3EEd65Sr1Jv9qZHvDqbQhp2wMyanTOgiA529L1qXtEXt8o93kTpnYv/ikWjI/UzRy4xdu/Dm2ub90fgRA0q17e+GOnffrNlS75kEQHBVjYnF0zLV1pQ4Y9KvXEAHUKOGaupfEouAnGyo5kG1da0uFM7SkO/ShSdCtvV0h/fzn+eqKPdIskzGq8Lc/v3BMtAbL7iW/AuYQWuDyEMQMtsJ2esj19yYCeHCXJxh06AYc2o+qWSU3iV6/A4je9efkpRfbB5wCKQ==
 ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
  s=arcselector10001;
  h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
- bh=f+YTjvc0fUV3kn6SQcEw5IWdlWZ6UEyx9xAL7htsywg=;
- b=RDP4Hb4l0l0Ci0RQOw1v5QCK7vy44qfYeN+S8jDnTEM6SXXxBdpgBrEh8+qiyqu+xrbcLc0h+NxVt3adhQBl+sijLxIXcXIoSXbMGc0Ih/gSDHdzBEJnYGMmWVNGCg8eTsjUjJdW0DMdKtZ85PTyOcktU5gkKc/8Igo3yQLrm8DDHMO7NJxxJjfMBOLjA3bc4Kf5PQvLbPWZCjUp+q6qdjCUZvCplXdRfx8TFdjiBZWPMkNc192yjhppSVTq+zY8AfE0Dnt+Q28XtY0U0q499Et/0o/AeZ8yqWhd4lFYzFRQtBSyvYGO+0i0SS6T5Bmco2uRajtvvPpCp0abtnAL5Q==
-ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
- smtp.mailfrom=nvidia.com; dmarc=pass action=none header.from=nvidia.com;
- dkim=pass header.d=nvidia.com; arc=none
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=Nvidia.com;
- s=selector2;
+ bh=yei1BelLDSnmx+IXXDFXNeTDPXNmUmksZlj66ZIIwrk=;
+ b=KG1DcY0r4gE9+s/e5/R5DM+ydpegUNmI6LQkciytGRJM0dmhdBWyaF8ScpMphwXl+dWpwEdjiGRuglxBz5mHiIdZK/rxz57W7vUNdAe2wL10sZElvEEhAgGnYNjIw25BwoLI3gU8G9Prn3Ab2uQgXtx9sCYCgbSL4bcaHPNfFz9BilueE5nv4T2vwA2AXA872ePWqp0XMoxXEizWWKsxTzBiE+oztWCI1xWM2g/9yHy9QKxHPGMTbEGEZH/fzW1oyB8nVToyfaKH1+nrSk8G+wmRVInekRTO01bNAqTR0gNir6OIr96zZSiXVAzHMwHMcw2/zqdq45eY0O6hoz5ipg==
+ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=none; dmarc=none;
+ dkim=none; arc=none
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=outlook.com;
+ s=selector1;
  h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
- bh=f+YTjvc0fUV3kn6SQcEw5IWdlWZ6UEyx9xAL7htsywg=;
- b=WWnLRuK/qCTDmNOEtnaYo658stk9Sq6KAs3UbS74BYvPzLs0ghK4qbtkyqAMx85GP/tNfr0meRNTM5dpdxJS6QM7GpN+nuzI87K5sa5zN/ksP8ln5weggI9z1RaqrxmE0eEgL+mWV5pYyQJ+NJ5aOSLUM1KU9ojlq4T5zrpSQ4owDuil7iUYdNbJBRKWtibvYZ4kY+gqDQYzTXBv+fEJxSuJZqUFE15NKarFf+OkVh8eA2PkCU0OQhj+GAt+zA9qfmKzWVwBR9OYfdVmNSj9z2voS+bKFCUCeDDQ5F7XZ1+Wp5oY4SuBZxme6leRkl8fQr1EDG7Kboj38kHNdllvrw==
-Authentication-Results: dkim=none (message not signed)
- header.d=none;dmarc=none action=none header.from=nvidia.com;
-Received: from CHXPR12MB999244.namprd12.prod.outlook.com
- (2603:10b6:610:2fc::17) by IA1PR12MB9500.namprd12.prod.outlook.com
- (2603:10b6:208:596::17) with Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.21.48.19; Tue, 26 May
- 2026 02:50:57 +0000
-Received: from CHXPR12MB999244.namprd12.prod.outlook.com
- ([fe80::168f:599c:f74d:7688]) by CHXPR12MB999244.namprd12.prod.outlook.com
- ([fe80::168f:599c:f74d:7688%5]) with mapi id 15.21.0071.010; Tue, 26 May 2026
- 02:50:57 +0000
-Message-ID: <1aea92be-0e7c-459c-a96c-5a54cea073ff@nvidia.com>
-Date: Tue, 26 May 2026 10:50:43 +0800
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH v4 2/5] arm_mpam: resctrl: Pre-allocate assignable
- monitors
-To: Ben Horgan <ben.horgan@arm.com>
-Cc: amitsinght@marvell.com, baisheng.gao@unisoc.com,
- baolin.wang@linux.alibaba.com, carl@os.amperecomputing.com,
- dave.martin@arm.com, david@kernel.org, dfustini@baylibre.com,
- fenghuay@nvidia.com, gshan@redhat.com, james.morse@arm.com,
- jic23@kernel.org, lcherian@marvell.com,
- linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org,
- peternewman@google.com, punit.agrawal@oss.qualcomm.com,
- quic_jiles@quicinc.com, reinette.chatre@intel.com, rohit.mathew@arm.com,
- scott@os.amperecomputing.com, sdonthineni@nvidia.com,
- tan.shaopeng@fujitsu.com, xhao@linux.alibaba.com, zengheng4@huawei.com,
- x86@kernel.org
-References: <20260520212458.1797221-1-ben.horgan@arm.com>
- <20260520212458.1797221-3-ben.horgan@arm.com>
+ bh=yei1BelLDSnmx+IXXDFXNeTDPXNmUmksZlj66ZIIwrk=;
+ b=XKW1tuipNMOt7J/YR4p+r3x2p3lcvrLFx5MxpaKZ7YCjmQlZbFVioXJgUJu27iRkgx28LZwK2vjPIQF/SefBpJpv03C5l/6n8ZK0IgQzrM9u5K83uNtAKGWW8OXbUf7QTsFpEY4eY/WxVCtgLFbde0mCFK6ce/rii7hYgnDKispi336/Gbzzi5OaaJUhKoGA+l89fjaY0Olfvej/sj2utwi5mjOMAx0+E/oiOeIQQhRby8OVYWoUFVdXpSUv2cX/9XFa9izF19ux4shy0/JkFLyLGzD7bwrbJgTuCKk8xkW6KNYvcsC24NocAYSao3b+pWrw74L15Wmuq0dCfPubnQ==
+Received: from SN6PR02MB4157.namprd02.prod.outlook.com (2603:10b6:805:33::23)
+ by CH3PR02MB9515.namprd02.prod.outlook.com (2603:10b6:610:124::11) with
+ Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.21.48.20; Tue, 26 May
+ 2026 02:56:57 +0000
+Received: from SN6PR02MB4157.namprd02.prod.outlook.com
+ ([fe80::900:1ccf:2b1e:52b6]) by SN6PR02MB4157.namprd02.prod.outlook.com
+ ([fe80::900:1ccf:2b1e:52b6%3]) with mapi id 15.21.0048.019; Tue, 26 May 2026
+ 02:56:57 +0000
+From: Michael Kelley <mhklinux@outlook.com>
+To: "Aneesh Kumar K.V (Arm)" <aneesh.kumar@kernel.org>,
+	"iommu@lists.linux.dev" <iommu@lists.linux.dev>,
+	"linux-arm-kernel@lists.infradead.org"
+	<linux-arm-kernel@lists.infradead.org>, "linux-kernel@vger.kernel.org"
+	<linux-kernel@vger.kernel.org>, "linux-coco@lists.linux.dev"
+	<linux-coco@lists.linux.dev>
+CC: Robin Murphy <robin.murphy@arm.com>, Marek Szyprowski
+	<m.szyprowski@samsung.com>, Will Deacon <will@kernel.org>, Marc Zyngier
+	<maz@kernel.org>, Steven Price <steven.price@arm.com>, Suzuki K Poulose
+	<Suzuki.Poulose@arm.com>, Catalin Marinas <catalin.marinas@arm.com>, Jiri
+ Pirko <jiri@resnulli.us>, Jason Gunthorpe <jgg@ziepe.ca>, Mostafa Saleh
+	<smostafa@google.com>, Petr Tesarik <ptesarik@suse.com>, Alexey Kardashevskiy
+	<aik@amd.com>, Dan Williams <dan.j.williams@intel.com>, Xu Yilun
+	<yilun.xu@linux.intel.com>, "linuxppc-dev@lists.ozlabs.org"
+	<linuxppc-dev@lists.ozlabs.org>, "linux-s390@vger.kernel.org"
+	<linux-s390@vger.kernel.org>, Madhavan Srinivasan <maddy@linux.ibm.com>,
+	Michael Ellerman <mpe@ellerman.id.au>, Nicholas Piggin <npiggin@gmail.com>,
+	"Christophe Leroy (CS GROUP)" <chleroy@kernel.org>, Alexander Gordeev
+	<agordeev@linux.ibm.com>, Gerald Schaefer <gerald.schaefer@linux.ibm.com>,
+	Heiko Carstens <hca@linux.ibm.com>, Vasily Gorbik <gor@linux.ibm.com>,
+	Christian Borntraeger <borntraeger@linux.ibm.com>, Sven Schnelle
+	<svens@linux.ibm.com>, "x86@kernel.org" <x86@kernel.org>, Jiri Pirko
+	<jiri@nvidia.com>
+Subject: RE: [PATCH v5 10/20] dma-direct: make dma_direct_map_phys() honor
+ DMA_ATTR_CC_SHARED
+Thread-Topic: [PATCH v5 10/20] dma-direct: make dma_direct_map_phys() honor
+ DMA_ATTR_CC_SHARED
+Thread-Index: AQHp6tfu5DGfxW+HBL9src0vNhss0QGHKPZ9tflmFZA=
+Date: Tue, 26 May 2026 02:56:57 +0000
+Message-ID: <SN6PR02MB41574064D14D4A2734222C51D40B2@SN6PR02MB4157.namprd02.prod.outlook.com>
+References: <20260522042815.370873-1-aneesh.kumar@kernel.org>
+ <20260522042815.370873-11-aneesh.kumar@kernel.org>
+In-Reply-To: <20260522042815.370873-11-aneesh.kumar@kernel.org>
+Accept-Language: en-US
 Content-Language: en-US
-From: Koba Ko <kobak@nvidia.com>
-In-Reply-To: <20260520212458.1797221-3-ben.horgan@arm.com>
-Content-Type: text/plain; charset=UTF-8; format=flowed
-Content-Transfer-Encoding: 7bit
-X-ClientProxiedBy: KUZPR04CA0019.apcprd04.prod.outlook.com
- (2603:1096:d10:25::18) To CHXPR12MB999244.namprd12.prod.outlook.com
- (2603:10b6:610:2fc::17)
+X-MS-Has-Attach: 
+X-MS-TNEF-Correlator: 
+x-ms-publictraffictype: Email
+x-ms-traffictypediagnostic: SN6PR02MB4157:EE_|CH3PR02MB9515:EE_
+x-ms-office365-filtering-correlation-id: aed58040-491f-4983-3c2d-08debad27362
+x-ms-exchange-slblob-mailprops: 9IecXKUgicAz80qrkIsT6kQ0LfhDX2IsWcHQciuYMUrut1JD3mUof57j+ZGnz3BDMJ33pcptrtsNfB1nR5NzG/s8HcaJ99skL679uM847K4aPKuukd9hq3M/QGNNUT+gWarbgXaFClQoghn7unFfS20gn9iH0a97AqGKT/G52fCZ1OUtc3JMcT9Eb8jp7tICa4ma69YE0khDkXYePCpbheB1p5sEZzPldLqSb5NOPNAoz5lScx9/CO58e+Rf6oY3s5klNgj0ws8BG+m6T+dum4SriqLLEOLE6LkHuocLzTQV8tUt8VQSKz8BiNNWgyWIjcUESY8CAPTUo9oNnmhp4EjC+gmA5VtQNVSEK+HJ+9C+ZyLpDioVNcQGZNYdMNTSdhAnsHMFNCZvYKw+f1EOUffAGlnCDI/8TYySm1gmjPN1M0o3Kz/iypldtmkd6Q1+umdZSw61CuMAPBj1Hxs2ZzgzmbyFWAA91YLq/tBdyKu8V8o6YnUDi0CJ4NEwyr1xwwU1ZiW2UTwwpB1cBMRiHMEYhioqnobRnI2CdpLC0UHQkdJ+RnvxU4QDcuhcl3vZwWsZeSy8i/W1Kfq8JjmmEIihMAyA1eeLLm1Me0XOSeBOm23XTLehBrWNjkHtBSIkDj6DNxFqq5qMhVhB3a94VlosU9U7b+kev4mPLh6nvQRTmllmLhdtkxr7sPfKMojxxMN0AHrOX37kF2UwpM/EXJZHdczFym/bGVhpl5pnmcpTyN2lUTKYDg==
+x-microsoft-antispam: BCL:0;ARA:14566002|8062599012|13091999003|19110799012|15080799012|41001999006|8060799015|31061999003|19101099003|37011999003|440099028|3412199025|102099032|52005399003|41105399003|40105399003;
+x-microsoft-antispam-message-info: =?us-ascii?Q?wWB0OS3byDqi33lC1+iWyKK/RZkm0JEYuQ9LJJtYNkAQ1C9reKc/yTlmbkjm?=
+ =?us-ascii?Q?Y80O5F6uJL4my0BPcvFejtwh7miiM8VIQd7tmWxZBljqM65D2MnYLC4kkKO9?=
+ =?us-ascii?Q?Aq1Mz+DVaIFM6vsedPIQ+dvFyouY4hljpCXyYW9Fy+Hcm7vVZWXp5k6beKMs?=
+ =?us-ascii?Q?Sx6jcGlcwSZWS8pK7MC4o7f+m7dNvP5bFSW3hVClYYseASlxUoiY1q/Swoj2?=
+ =?us-ascii?Q?r1pOp6JAivGauJWOG1Xe85wVZqy0OALOAcHBxcl8hSOYID3StdLFKy5Do6n0?=
+ =?us-ascii?Q?TeRP8W0FQR+kA6IRX4YeyzIedbWjzffOSHjIKBLq6Kij3M3MQ0V7xMHA+MC3?=
+ =?us-ascii?Q?oPTCLWsokBPJxmlHqkRCNKrD0xUIM5/hv7d+huGxrlgVKRwwfLktU3Hr3Njt?=
+ =?us-ascii?Q?Lt20zR/8VVItaHRpKoJut1fqu7LCHoNha6DrXmV0a69BsyktcHWwQJ5mOdGI?=
+ =?us-ascii?Q?ca46Rd4Ws9FJJ/q+Vdo54DwQX8gqM6oG5mFFXcrB+xMyR5kOAzJj8O3kgIHY?=
+ =?us-ascii?Q?yUb47U0LQp85Kj1SOO+xM2DfmZgOuWMAYuyeVm1RUNEGeMJmEPVytxN9GzcU?=
+ =?us-ascii?Q?B3zW5GnHYfmTtH/CjjwOwOERxEkYpspNIgXa8gGQEohevN9maOReIoq2P7af?=
+ =?us-ascii?Q?EuSga42HI4g27XigYdzvb/EGTErQiZZNx+ehkoi2db00W0Cwuf9BjJHXiyYm?=
+ =?us-ascii?Q?eaVumrmYoiaDvQIg0Cc8O2K1kP3VbU9c+weyMWNKKiGSL1FqZjcfBlORxwqp?=
+ =?us-ascii?Q?jZKOjPx4sz2tflbifeRBBIgFhLeADR2SwkGkmytt7mrx86ZP65UfJEJPut8M?=
+ =?us-ascii?Q?wzb6WNKswCbVsQ6bXrLcNSo7S9V5o3edvvg9G7UCn5k5EPOZaaEXCWyN3qwx?=
+ =?us-ascii?Q?5hxGLJE3w5X8/mVEvMncHAJCKnRedTkJdF2L4joMIBuFzbgkGbtuFsoR7dOE?=
+ =?us-ascii?Q?+J7MqvelWt2dwDT0MpPvsocw8k9PfkstPMEPuE8HgTHk213mOr/zdqONFfgL?=
+ =?us-ascii?Q?NEONvMup4eAqbbtVyeKU/CdUm0Xly+qrPv5XfO2GsRsk4+SwXA36qoEfAgnf?=
+ =?us-ascii?Q?1hwxUD4w?=
+x-ms-exchange-antispam-messagedata-chunkcount: 1
+x-ms-exchange-antispam-messagedata-0: =?us-ascii?Q?+WL8doa3bPYcMGNLrhVm7RIh+tVU9VosFxep9HwWXQbVnNwQKLX3iDEP6glH?=
+ =?us-ascii?Q?UpBfxKevdgKE/FoCwKX7g+0q6mMCGeD8GUPJ/YS1V6rxF0Rbb+2iLDdJb85c?=
+ =?us-ascii?Q?7+PUj801lEqJU/7JSnXQZSV35RH8ejHSkRwZ3g5IDc8MEAdL627Kf2Ah0MPA?=
+ =?us-ascii?Q?YPvuTvfLGXtsjvDYCqK88PMMrL7iTAZiHGVCKjBtPiutHlMNg/Zw935r/hWR?=
+ =?us-ascii?Q?BarlghhAhEkAgqnKa0enIG3IeLNoDQK5Ry1VTk+xj27NhbSWPXzy/Hv252WF?=
+ =?us-ascii?Q?FClpVvpgJB1ka9+vMj4DaL33n2erj0Lee38N6LFwgJGmQJdqgpRMFDLjuSvU?=
+ =?us-ascii?Q?54VKzXklGcA4CZwYkr/zk4/n/sOHP+jhgX2vesKDAnPfawjuO6SR4/JdNxXC?=
+ =?us-ascii?Q?sEqmW6JhduUt8a5vYqXvTSsmS4ln1fzfY7DAVSXk0+GtFHvGcddUhvGg9zep?=
+ =?us-ascii?Q?qO03/WZq49Pr322ZB7keqiDRugIodaOV7V7WO+e6jn1b+xtShLpAjYSWDiVp?=
+ =?us-ascii?Q?RJPdz02DCHPH35oUn9k6oGjeUM9xLRTtoaZr18IwEs+HZvWMM4XJ/OSNB53w?=
+ =?us-ascii?Q?jK0a2uA45aouvhPzXDV7sd0B+Clf4XMLb0PBjkWq+7WF9gXdNp1jz5xKPb9/?=
+ =?us-ascii?Q?6ZFY42NtGv6G1nqZcQWbcZ+nmIDji2qCx0PoPxS+iHI7ykurtwYsmXhITDRX?=
+ =?us-ascii?Q?HIpMawfNvRMmj6MMKohpODli29ijx8CULyE5u7ifsmneYUYkiwx9P1k2w+LB?=
+ =?us-ascii?Q?eiQ3fksHNTBxE3ACB+HkUyvVHPJ9eUshIUMTMNiESQA+XO0QGNrLGXY52vA8?=
+ =?us-ascii?Q?5c767j2+9SEb8G7GitX6ZThhCTVni4vaZme0dJnqGG2FFo69hhb12BMC37dU?=
+ =?us-ascii?Q?zIJUsltdZfc+GogtTSW18YFK7qSmmjvl/Tq2RDtyhjVvGkc9So/nN2fz9fMj?=
+ =?us-ascii?Q?S5rbJn60emyuJ/cDuo6X6UztH2UNpGrzO9cW+AlypNHXRoK4FmqG8Z2hAJch?=
+ =?us-ascii?Q?cj1MWr4iS4K/pdVPinbfejsh0j1bQhB4ZZSyKOm+uUFG1tHYzNuFXnsROxWg?=
+ =?us-ascii?Q?B08Q77cj/myMc48JGdwMa8AVrnL/jir7Ukv20LIGBPFdi1+a8zpGumRVGFms?=
+ =?us-ascii?Q?ELnZ5DhQjWxuG/bDOWujcldLbqLOZX8rFW7FRULI52g84IYUItjMaMYiiUng?=
+ =?us-ascii?Q?wUb4QdOTywlbvhpawLmg5zmJp+PTgJK10RCmlAmzG7OH9D7MahMNwGm4pdoj?=
+ =?us-ascii?Q?hpvye+5wpmYodthV4KW7U96iX5u3nSRYN46aCYQUhb4vOHgLpcy1bUJRYxnj?=
+ =?us-ascii?Q?SdSavEY2PFUhe7+FJ5GvXX1rsIW32A2X/Fd25mkGi03cVUgLrPjttfQHLyiT?=
+ =?us-ascii?Q?2UjobOY=3D?=
+Content-Type: text/plain; charset="us-ascii"
+Content-Transfer-Encoding: quoted-printable
 MIME-Version: 1.0
-X-MS-PublicTrafficType: Email
-X-MS-TrafficTypeDiagnostic: CHXPR12MB999244:EE_|IA1PR12MB9500:EE_
-X-MS-Office365-Filtering-Correlation-Id: 15799991-ad96-4fb9-461e-08debad19c67
-X-MS-Exchange-SenderADCheck: 1
-X-MS-Exchange-AntiSpam-Relay: 0
-X-Microsoft-Antispam: BCL:0;ARA:13230040|1800799024|366016|376014|7416014|18002099003|22082099003|56012099003|11063799006|5023799004|4143699003|6133799003;
-X-Microsoft-Antispam-Message-Info: 7QctG0N2BZwTnSrQhs8kTXoLWhPn4/jZk5jCX3i/eqZLad+lPiaOYfFiWzwvg8/5oRNfCBpuMFssB4XXUil046fY5t4rKmaVYPnEPbcq+OEOvd8/o3Bs/h51hreCZH/1UtpTaGNqCyrA3phHDaT08DTWZm4YG8X2hfnHZ4fQCHL+GVqfoLDpn5XbA/geMraq9Nnmu22MOhUJxlMxWo22uowvRDfNJVXfgCzfgWiM3A0OmmlzHCafTMclKGO9+JeqayCGTTOv6IFCWx5RdP+iwNgOLfW30PrRlBkfHAOOkO6Wowt8mPsI0SxY+x1ESbkZ3FeQyLpqrjd1KesAHJ9+Qo+m3+S2QjgvZTAqoC5Zp0nVRA53caP4aCwITcy5OQ5/WbyV7aBEdl2Z+V2jRwktZWlJXEo0wAiZ+9DSsBv0dfMlKko5ZTx9HGNX+MIByw540ymgg8004YrKu5kQVBsBesWjxf4jIh0jUIVDNHZ/Dz1662p841v3wFL0jqdwcuc7TbpZoSRkL5S6fy6/mNxDbNASe4TvwoCZPVYp3EToACSQq31jmHshEd1NFOaeJOrie1dAI3hgANxlzglpTymVSI8FdvHcUCPugPBerT2wwa3ujaqhP1deHWAfVNBT4FRs9de2SKGSt6oge2HPKNHuJaEq+qXiipNcmoP/O8+qS1W2cmw1/wHt/e8qY/sTJW/q
-X-Forefront-Antispam-Report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:CHXPR12MB999244.namprd12.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(1800799024)(366016)(376014)(7416014)(18002099003)(22082099003)(56012099003)(11063799006)(5023799004)(4143699003)(6133799003);DIR:OUT;SFP:1101;
-X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
-X-MS-Exchange-AntiSpam-MessageData-0: =?utf-8?B?OTNFMzBFN0tsUGI5Tmp3Zlg2Y24ra1g3WlIybHdNem1mUEk1R3hJaWJHazM1?=
- =?utf-8?B?OE5HVDNpVVRBaUd2ZzdUUE5oL2YybFNWUnZXMG82M0RuV2d0bTdsODVmY2lj?=
- =?utf-8?B?SUxjbGpIQnJPbGpKRjNhcXo5bGRyeHhibW5TdENSYnQ4SzVDNm43akNlK1ZG?=
- =?utf-8?B?SUJZdXRBajU2enAycklmT3ZJN01QY3l6SU80N1VlY3RqN0tVZ3VYQ1l4ZXAy?=
- =?utf-8?B?R21mMHR3Wm4xb1RvNGU2K2htRWNZRnhRN3ovekgzTGN0a1JMM0dCbm85bmpE?=
- =?utf-8?B?WTlmd29TN2loMGliNWswY3VCQWMyNTlRQldpK0VXb1VXdUtUMENDclFESjR2?=
- =?utf-8?B?TnBrRThwamU2MVJQazVHekhZamFJaFROYlNQbTdZd3BVZUFBUDF3MHVDMCt4?=
- =?utf-8?B?VmhST1ErQXl3VHhhWWRja1hyMCt1UVRGNTNFZXhIVGNaUm1wUlhCOTdkUWdR?=
- =?utf-8?B?UlpoSGxzV1pTRGVyekY2aSsvY1NRNmhidmc0dXBQODc1bDNhVHVnVVlSejUy?=
- =?utf-8?B?d3NmVXgxTkl5ZVV6VFI1bWkxVDdZZlpnMHc0RlRCK3ZWcWlJdVg0MkFUc2hn?=
- =?utf-8?B?bzRMbktyZ0tKTURIMlFxbXJlTXJJZkdmUlVZQm9IbHpWTU8vaEthYnRobkVj?=
- =?utf-8?B?VkFRREZ1aGFsa3FoSkYxeFlJRXBsUlBPRXJZMEhFNzBIdnZDQmptTHBsMDBO?=
- =?utf-8?B?R0hydmZtbGpSU3hFQU5jUkpoUXJCWGRWckpmZThEdk1EZUZRajlnUDQySjBE?=
- =?utf-8?B?Ulo1bzhRSFgxZTdraFJ6cjhPVEpBZ0M0b0pFc09zdk1KOXJMZS9KVWRWU1dm?=
- =?utf-8?B?ajlmcklWS1Z2a1FHci96b0U4MzQvR1ZyTG9iTWpqNlNzQlB0bVliT2ZXMS9C?=
- =?utf-8?B?Q0p3cjVWTmxhZERWeU45MGcycHJkZkNwNGVoRmpXazJkbkVQTTh3cE9qUm5W?=
- =?utf-8?B?c09GWDQ3SWVrcG9IaytNaXJORFp2aXNONFl5dWRkL3V6czZOTVNYTFFNSFMz?=
- =?utf-8?B?eFRITzM1dkJqeEtNZzNDTkxpV0dKcTNLSi91aloyYmFWdTJQRkY0QUhnY3Qy?=
- =?utf-8?B?djc2dlR6R1ZYRDBadmFGVWtMQkRQQk9yWndmTG1Zelk4MnZyWmJjNXc1a1ph?=
- =?utf-8?B?M2p5QlhDNmNNVDZUSTFxc3ZPc05EanhyRHJ5THhsUFBPT2VTZzIyVVY2YnA3?=
- =?utf-8?B?NGorQlZVdkM2SWd6V1gxUG9GTmpnMy8wVGx3QkdoWjhqd3VId3Fva3diaGxC?=
- =?utf-8?B?MzI0d2hrOHh2aitZekV6Vzg2bzhHREVqc3JJU3dKS0hreVpXQ0J0TjM5dEFS?=
- =?utf-8?B?T2FWMDBXM2FkQnNtSFA5SkZ4VE5qNUVMQTF0aERFdGpFWWNuZDNTdHk0RWF6?=
- =?utf-8?B?K1RmZGRJZ1ZUdXh6eDRhdVdyVk84Q3BCSjRUYU9xcFNWNnFaMGZFVUZiM1FW?=
- =?utf-8?B?OFN1NFltY0UxZEJOTlVSWnVLNnMwd1pxcmw2L1BnVUlTMG9kODV6N0MrOXhO?=
- =?utf-8?B?c0dhY3AxZ2NPSit2V1VRaUxmeTJGT09MU1QrUFQ0L2lpVFpDVTdaWTVlRDJi?=
- =?utf-8?B?ckhiL3pncmRhQ2IvVUNuMFVhYjZSM1N6elY0S2Vzb3UwSFZweEhZMXBLL2Va?=
- =?utf-8?B?amd4Ykx1UDZXd21CY1ZmdHZ2Z2k5ejlRbC9sQVhHY1NKTDd1NWF5SzE1Zmgz?=
- =?utf-8?B?ejRpb1NrKzZZdUpVeDh0YnhqZlMzYThEcHhVYzRWSElMSnBYSFVoZGM2UGg1?=
- =?utf-8?B?NGl2RnlheGttVmxPeHpvODBEYld2ZmNtb2FCZmxqYy9YUmx1THo3eGhhQzVV?=
- =?utf-8?B?MTk2ZjdLb3g1K01OOW9JNTE0L2RLQTlwTjBvc0lXYjljYWZXcHczWkFkSjJv?=
- =?utf-8?B?dktJOE43a1I1VkYxWDhaUGJGUWNVYkFTTytSOVVJZUIrN0x2cUIvV3J4bDBl?=
- =?utf-8?B?VDhoallHYUwwQ0EvcGZQcXRBaTMrdmxkK1ZqWWtlWTRKWHJaVzNWODFnYVZG?=
- =?utf-8?B?YzhIcUtaREduUWFlV3c5aUxWODB0QlFrOHd1UStoOGhIUzg3UGtWeUVma1Mw?=
- =?utf-8?B?dmFqY1FEd0wzS1hPSzdXNEhMdnF4Q1JXd3g0bEpsWnN1YU9ScUJ0N1VTcWdR?=
- =?utf-8?B?MldEQ28zayt4cEhNMEJzaXUrTkFsNWVOMnRFNVpwckVkbTNIK09FY20xdVFP?=
- =?utf-8?B?N0Z4eE5RL1hLYUtoY08rYXk4TVdzeDdweWV2M25ka3JGWklQVmtzOEVVM1FP?=
- =?utf-8?B?VXFzR0pQTWttNVFKOWFPMWJEMDB5eDQwYUwxODFCellrdWJRaGtqbXZPV0lH?=
- =?utf-8?Q?WVcBQo0aNyoniTlVtV?=
-X-OriginatorOrg: Nvidia.com
-X-MS-Exchange-CrossTenant-Network-Message-Id: 15799991-ad96-4fb9-461e-08debad19c67
-X-MS-Exchange-CrossTenant-AuthSource: CHXPR12MB999244.namprd12.prod.outlook.com
+X-OriginatorOrg: outlook.com
 X-MS-Exchange-CrossTenant-AuthAs: Internal
-X-MS-Exchange-CrossTenant-OriginalArrivalTime: 26 May 2026 02:50:56.8969
+X-MS-Exchange-CrossTenant-AuthSource: SN6PR02MB4157.namprd02.prod.outlook.com
+X-MS-Exchange-CrossTenant-RMS-PersistedConsumerOrg: 00000000-0000-0000-0000-000000000000
+X-MS-Exchange-CrossTenant-Network-Message-Id: aed58040-491f-4983-3c2d-08debad27362
+X-MS-Exchange-CrossTenant-originalarrivaltime: 26 May 2026 02:56:57.4661
  (UTC)
-X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
-X-MS-Exchange-CrossTenant-Id: 43083d15-7273-40c1-b7db-39efd9ccc17a
-X-MS-Exchange-CrossTenant-MailboxType: HOSTED
-X-MS-Exchange-CrossTenant-UserPrincipalName: fBoLMf2MJ5mmW791W536pPBg7B8bK6MJGbR91GsIBDBTdHuRBPTvg3TiOdf09Ex8Tlnm4dmd8qRO8D7ckIlrCQ==
-X-MS-Exchange-Transport-CrossTenantHeadersStamped: IA1PR12MB9500
+X-MS-Exchange-CrossTenant-fromentityheader: Hosted
+X-MS-Exchange-CrossTenant-id: 84df9e7f-e9f6-40af-b435-aaaaaaaaaaaa
+X-MS-Exchange-CrossTenant-rms-persistedconsumerorg: 00000000-0000-0000-0000-000000000000
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: CH3PR02MB9515
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260525_195105_069210_8B70F64D 
-X-CRM114-Status: GOOD (  33.09  )
+X-CRM114-CacheID: sfid-20260525_195710_597970_0E055D88 
+X-CRM114-Status: GOOD (  23.25  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -157,306 +168,98 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-
-On 5/21/26 05:24, Ben Horgan wrote:
-> External email: Use caution opening links or attachments
->
->
-> MPAM is able to emulate ABMC, i.e. mbm_event mode, by making memory
-> bandwidth monitors assignable. Rather than supporting the 'default'
-> mbm_assign_mode always use 'mbm_event' mode even if there are sufficient
-> memory bandwidth monitors. The per monitor event configuration is only
-> provided by resctrl when in 'mbm_event' mode and so only allowing
-> 'mbm_event' mode will make it easier to support per-monitor event
-> configuration for MPAM. For the moment, the only event supported is
-> mbm_total_event with no bandwidth type configuration. The 'mbm_assign_mode'
-> file will still show 'default' when there is no support for memory
-> bandwidth monitoring.
->
-> The monitors need to be allocated from the driver, and mapped to whichever
-> control/monitor group resctrl wants to use them with.
->
-> Add a second array to hold the monitor values indexed by resctrl's cntr_id.
->
-> When CDP is in use, two monitors are needed so the available number of
-> counters halves. Platforms with one monitor will have zero monitors when
-> CDP is in use.
->
-> Co-developed-by: James Morse <james.morse@arm.com>
-> Signed-off-by: James Morse <james.morse@arm.com>
-> Signed-off-by: Ben Horgan <ben.horgan@arm.com>
+From: Aneesh Kumar K.V (Arm) <aneesh.kumar@kernel.org> Sent: Thursday, May =
+21, 2026 9:28 PM
+>=20
+> Teach dma_direct_map_phys() to select the DMA address encoding based on
+> DMA_ATTR_CC_SHARED.
+>=20
+> Use phys_to_dma_unencrypted() for decrypted mappings and
+> phys_to_dma_encrypted() otherwise. If a device requires unencrypted DMA
+> but the source physical address is still encrypted, force the mapping
+> through swiotlb so the DMA address and backing memory attributes remain
+> consistent.
+>=20
+> Update the arm64, x86, s390 and powerpc secure-guest setup to not use
+> swiotlb force option
+>=20
+> Tested-by: Jiri Pirko <jiri@nvidia.com>
+> Signed-off-by: Aneesh Kumar K.V (Arm) <aneesh.kumar@kernel.org>
 > ---
-> Changes since rfc v1:
-> abmc enabled even if enough counters
-> Helpers from dropped free running commits
-> carry on with zero counters if using cdp
-> set config bits
-> use kmalloc_objs
-> drop tags for rework
-> Configure mbm_cntr_configurable, mbm_cntr_assign_fixed
->
-> Changes since rfc v2:
-> Don't set mon->assigned_counters to an error pointer
-> Fix mpam_resctrl_teardown_mon()
-> Remove free running check
-> Separate cleanup allocations, e.g. __free(), from the rest
-> Restrict scope on err in mpam_resctrl_monitor_init()
->
-> Changes since v3:
-> Correct NULL check in mpam_resctrl_teardown_mon() (Shaopeng)
-> variable allocation ordering in mpam_resctrl_pick_domain_id() (Shaopeng)
-> Move mon.* assignments from mpam_resctrl_monitor_sync_abmc_vals()
-> to mpam_resctrl_monitor_init_abmc() counters (Sashiko)
-> use kvmalloc_obj() for allocations that may be big on some
-> platforms (Sashiko)
+> Changes from v3:
+> * Handle DMA_ATTR_MMIO
 > ---
->   drivers/resctrl/mpam_internal.h |   6 +-
->   drivers/resctrl/mpam_resctrl.c  | 139 +++++++++++++++++++++++++++++++-
->   2 files changed, 141 insertions(+), 4 deletions(-)
->
-> diff --git a/drivers/resctrl/mpam_internal.h b/drivers/resctrl/mpam_internal.h
-> index 1914aefdcba9..7a166b395b5a 100644
-> --- a/drivers/resctrl/mpam_internal.h
-> +++ b/drivers/resctrl/mpam_internal.h
-> @@ -411,7 +411,11 @@ struct mpam_resctrl_res {
->   struct mpam_resctrl_mon {
->          struct mpam_class       *class;
->
-> -       /* per-class data that resctrl needs will live here */
-> +       /* Array of allocated MBWU monitors, indexed by (closid, rmid). */
-> +       int                     *mbwu_idx_to_mon;
-> +
-> +       /* Array of assigned MBWU monitors, indexed by idx argument. */
-> +       int                     *assigned_counters;
->   };
->
->   static inline int mpam_alloc_csu_mon(struct mpam_class *class)
-> diff --git a/drivers/resctrl/mpam_resctrl.c b/drivers/resctrl/mpam_resctrl.c
-> index f70fa65d39e4..a13eb232a19d 100644
-> --- a/drivers/resctrl/mpam_resctrl.c
-> +++ b/drivers/resctrl/mpam_resctrl.c
-> @@ -75,6 +75,8 @@ static DECLARE_WAIT_QUEUE_HEAD(wait_cacheinfo_ready);
->    */
->   static bool resctrl_enabled;
->
-> +static unsigned int l3_num_allocated_mbwu = ~0;
-> +
->   bool resctrl_arch_alloc_capable(void)
->   {
->          struct mpam_resctrl_res *res;
-> @@ -140,7 +142,7 @@ int resctrl_arch_cntr_read(struct rdt_resource *r, struct rdt_l3_mon_domain *d,
->
->   bool resctrl_arch_mbm_cntr_assign_enabled(struct rdt_resource *r)
->   {
-> -       return false;
-> +       return (r == &mpam_resctrl_controls[RDT_RESOURCE_L3].resctrl_res);
->   }
->
->   int resctrl_arch_mbm_cntr_assign_set(struct rdt_resource *r, bool enable)
-> @@ -185,6 +187,18 @@ static void resctrl_reset_task_closids(void)
->          read_unlock(&tasklist_lock);
->   }
->
-> +static void mpam_resctrl_monitor_sync_abmc_vals(struct rdt_resource *l3)
-> +{
-> +       l3->mon.num_mbm_cntrs = l3_num_allocated_mbwu;
-> +       if (cdp_enabled)
-> +               l3->mon.num_mbm_cntrs /= 2;
-> +
-> +       /*
-> +        * Continue as normal even if enabling cdp causes there to be
-> +        * zero counters. This avoid giving resctrl mixed messages.
-> +        */
-> +}
-> +
->   int resctrl_arch_set_cdp_enabled(enum resctrl_res_level rid, bool enable)
->   {
->          u32 partid_i = RESCTRL_RESERVED_CLOSID, partid_d = RESCTRL_RESERVED_CLOSID;
-> @@ -244,6 +258,7 @@ int resctrl_arch_set_cdp_enabled(enum resctrl_res_level rid, bool enable)
->          WRITE_ONCE(arm64_mpam_global_default, mpam_get_regval(current));
->
->          resctrl_reset_task_closids();
-> +       mpam_resctrl_monitor_sync_abmc_vals(l3);
->
->          for_each_possible_cpu(cpu)
->                  mpam_set_cpu_defaults(cpu, partid_d, partid_i, 0, 0);
-> @@ -613,6 +628,9 @@ static bool class_has_usable_mbwu(struct mpam_class *class)
->          if (!mpam_has_feature(mpam_feat_msmon_mbwu, cprops))
->                  return false;
->
-> +       if (!cprops->num_mbwu_mon)
-> +               return false;
-> +
->          return true;
->   }
->
-> @@ -935,6 +953,52 @@ static void mpam_resctrl_pick_mba(void)
->          }
->   }
->
-> +static void __free_mbwu_mon(struct mpam_class *class, int *array,
-> +                           u16 num_mbwu_mon)
-> +{
-> +       for (int i = 0; i < num_mbwu_mon; i++) {
-> +               if (array[i] < 0)
-> +                       continue;
-> +
-> +               mpam_free_mbwu_mon(class, array[i]);
-> +               array[i] = ~0;
-> +       }
-> +}
-> +
-> +static int __alloc_mbwu_mon(struct mpam_class *class, int *array,
-> +                           u16 num_mbwu_mon)
-> +{
-> +       for (int i = 0; i < num_mbwu_mon; i++) {
-> +               int mbwu_mon = mpam_alloc_mbwu_mon(class);
-> +
-> +               if (mbwu_mon < 0) {
-> +                       __free_mbwu_mon(class, array, num_mbwu_mon);
-> +                       return mbwu_mon;
-> +               }
-> +               array[i] = mbwu_mon;
-> +       }
-> +
-> +       l3_num_allocated_mbwu = min(l3_num_allocated_mbwu, num_mbwu_mon);
-> +
-> +       return 0;
-> +}
-> +
-> +static int *__alloc_mbwu_array(struct mpam_class *class, u16 num_mbwu_mon)
-> +{
-> +       int err;
-> +
-> +       int *array __free(kvfree) = kvmalloc_objs(*array, num_mbwu_mon);
-> +       if (!array)
-> +               return ERR_PTR(-ENOMEM);
-> +
-> +       memset(array, -1, num_mbwu_mon * sizeof(*array));
-> +
-> +       err = __alloc_mbwu_mon(class, array, num_mbwu_mon);
-> +       if (err)
-> +               return ERR_PTR(err);
-> +       return_ptr(array);
-> +}
-> +
->   static void counter_update_class(enum resctrl_event_id evt_id,
->                                   struct mpam_class *class)
->   {
-> @@ -1089,6 +1153,43 @@ static int mpam_resctrl_pick_domain_id(int cpu, struct mpam_component *comp)
->          return comp->comp_id;
->   }
->
-> +/*
-> + * This must run after all event counters have been picked so that any free
-> + * running counters have already been allocated.
-> + */
-> +static int mpam_resctrl_monitor_init_abmc(struct mpam_resctrl_mon *mon)
-> +{
-> +       struct mpam_resctrl_res *res = &mpam_resctrl_controls[RDT_RESOURCE_L3];
-> +       size_t num_rmid = resctrl_arch_system_num_rmid_idx();
-> +       struct rdt_resource *l3 = &res->resctrl_res;
-> +       struct mpam_class *class = mon->class;
-> +       u16 num_mbwu_mon;
-> +       int *cntrs;
-> +
-> +       int *rmid_array __free(kvfree) = kvmalloc_objs(*rmid_array, num_rmid);
-> +       if (!rmid_array) {
-> +               pr_debug("Failed to allocate RMID array\n");
-> +               return -ENOMEM;
-> +       }
-> +       memset(rmid_array, -1, num_rmid * sizeof(*rmid_array));
-> +
-> +       num_mbwu_mon = class->props.num_mbwu_mon;
-> +       cntrs = __alloc_mbwu_array(mon->class, num_mbwu_mon);
+>  arch/arm64/mm/init.c                 |  4 +--
+>  arch/powerpc/platforms/pseries/svm.c |  2 +-
+>  arch/s390/mm/init.c                  |  2 +-
+>  arch/x86/kernel/pci-dma.c            |  4 +--
+>  kernel/dma/direct.c                  |  4 ++-
+>  kernel/dma/direct.h                  | 45 +++++++++++++++-------------
+>  6 files changed, 31 insertions(+), 30 deletions(-)
+>=20
+> diff --git a/arch/arm64/mm/init.c b/arch/arm64/mm/init.c
+> index c1b223e7cc8e..a087ac5b15f7 100644
+> --- a/arch/arm64/mm/init.c
+> +++ b/arch/arm64/mm/init.c
+> @@ -340,10 +340,8 @@ void __init arch_mm_preinit(void)
+>  	unsigned int flags =3D SWIOTLB_VERBOSE;
+>  	bool swiotlb =3D max_pfn > PFN_DOWN(arm64_dma_phys_limit);
+>=20
+> -	if (is_realm_world()) {
+> +	if (is_realm_world())
+>  		swiotlb =3D true;
+> -		flags |=3D SWIOTLB_FORCE;
+> -	}
+>=20
+>  	if (IS_ENABLED(CONFIG_DMA_BOUNCE_UNALIGNED_KMALLOC) && !swiotlb)
+> {
+>  		/*
+> diff --git a/arch/powerpc/platforms/pseries/svm.c
+> b/arch/powerpc/platforms/pseries/svm.c
+> index 384c9dc1899a..7a403dbd35ee 100644
+> --- a/arch/powerpc/platforms/pseries/svm.c
+> +++ b/arch/powerpc/platforms/pseries/svm.c
+> @@ -29,7 +29,7 @@ static int __init init_svm(void)
+>  	 * need to use the SWIOTLB buffer for DMA even if dma_capable() says
+>  	 * otherwise.
+>  	 */
+> -	ppc_swiotlb_flags |=3D SWIOTLB_ANY | SWIOTLB_FORCE;
+> +	ppc_swiotlb_flags |=3D SWIOTLB_ANY;
+>=20
+>  	/* Share the SWIOTLB buffer with the host. */
+>  	swiotlb_update_mem_attributes();
+> diff --git a/arch/s390/mm/init.c b/arch/s390/mm/init.c
+> index ad3c6d92b801..581af1483c42 100644
+> --- a/arch/s390/mm/init.c
+> +++ b/arch/s390/mm/init.c
+> @@ -163,7 +163,7 @@ static void __init pv_init(void)
+>  	virtio_set_mem_acc_cb(virtio_require_restricted_mem_acc);
+>=20
+>  	/* make sure bounce buffers are shared */
+> -	swiotlb_init(true, SWIOTLB_FORCE | SWIOTLB_VERBOSE);
+> +	swiotlb_init(true, SWIOTLB_VERBOSE);
+>  	swiotlb_update_mem_attributes();
+>  }
+>=20
+> diff --git a/arch/x86/kernel/pci-dma.c b/arch/x86/kernel/pci-dma.c
+> index 6267363e0189..75cf8f6ae8cd 100644
+> --- a/arch/x86/kernel/pci-dma.c
+> +++ b/arch/x86/kernel/pci-dma.c
+> @@ -59,10 +59,8 @@ static void __init pci_swiotlb_detect(void)
+>  	 * bounce buffers as the hypervisor can't access arbitrary VM memory
+>  	 * that is not explicitly shared with it.
+>  	 */
+> -	if (cc_platform_has(CC_ATTR_GUEST_MEM_ENCRYPT)) {
+> +	if (cc_platform_has(CC_ATTR_GUEST_MEM_ENCRYPT))
+>  		x86_swiotlb_enable =3D true;
+> -		x86_swiotlb_flags |=3D SWIOTLB_FORCE;
+> -	}
 
-hi Ben,
-One thing double-checking here.
-The allocation path uses class->props.num_mbwu_mon,
-but teardown frees using l3_num_allocated_mbwu,
-which is the global minimum exposed counter counter.
-If classes can have different num_mbwu_mon values, a class with more
-monitors than the global minimum may leak the tail of assigned_counters 
-during teardown.
+With this patch removing SWIOTLB_FORCE from four places in
+kernel code, there are no remaining places where it is set.
+The test of SWIOTLB_FORCE could be removed from
+swiotlb_init_remap(), and its definition could be deleted
+from include/linux/swiotlb.h.
 
-koba
-
-> +       if (IS_ERR(cntrs))
-> +               return PTR_ERR(cntrs);
-> +       mon->assigned_counters = cntrs;
-> +       mon->mbwu_idx_to_mon = no_free_ptr(rmid_array);
-> +
-> +       l3->mon.mbm_cntr_assignable = true;
-> +       l3->mon.mbm_assign_on_mkdir = true;
-> +       l3->mon.mbm_cntr_configurable = false;
-> +       l3->mon.mbm_cntr_assign_fixed = true;
-> +
-> +       mpam_resctrl_monitor_sync_abmc_vals(l3);
-> +
-> +       return 0;
-> +}
-> +
->   static int mpam_resctrl_monitor_init(struct mpam_resctrl_mon *mon,
->                                       enum resctrl_event_id type)
->   {
-> @@ -1133,8 +1234,21 @@ static int mpam_resctrl_monitor_init(struct mpam_resctrl_mon *mon,
->           */
->          l3->mon.num_rmid = resctrl_arch_system_num_rmid_idx();
->
-> -       if (resctrl_enable_mon_event(type, false, 0, NULL))
-> -               l3->mon_capable = true;
-> +       if (type == QOS_L3_MBM_TOTAL_EVENT_ID) {
-> +               int err;
-> +
-> +               err = mpam_resctrl_monitor_init_abmc(mon);
-> +               if (err)
-> +                       return err;
-> +
-> +               static_assert(MAX_EVT_CONFIG_BITS == 0x7f);
-> +               l3->mon.mbm_cfg_mask = MAX_EVT_CONFIG_BITS;
-> +       }
-> +
-> +       if (!resctrl_enable_mon_event(type, false, 0, NULL))
-> +               return -EINVAL;
-> +
-> +       l3->mon_capable = true;
->
->          return 0;
->   }
-> @@ -1697,6 +1811,23 @@ void mpam_resctrl_exit(void)
->          resctrl_exit();
->   }
->
-> +static void mpam_resctrl_teardown_mon(struct mpam_resctrl_mon *mon, struct mpam_class *class)
-> +{
-> +       u32 num_mbwu_mon = l3_num_allocated_mbwu;
-> +
-> +       if (!mon->mbwu_idx_to_mon)
-> +               return;
-> +
-> +       if (mon->assigned_counters) {
-> +               __free_mbwu_mon(class, mon->assigned_counters, num_mbwu_mon);
-> +               kvfree(mon->assigned_counters);
-> +               mon->assigned_counters = NULL;
-> +       }
-> +
-> +       kvfree(mon->mbwu_idx_to_mon);
-> +       mon->mbwu_idx_to_mon = NULL;
-> +}
-> +
->   /*
->    * The driver is detaching an MSC from this class, if resctrl was using it,
->    * pull on resctrl_exit().
-> @@ -1719,6 +1850,8 @@ void mpam_resctrl_teardown_class(struct mpam_class *class)
->          for_each_mpam_resctrl_mon(mon, eventid) {
->                  if (mon->class == class) {
->                          mon->class = NULL;
-> +
-> +                       mpam_resctrl_teardown_mon(mon, class);
->                          break;
->                  }
->          }
-> --
-> 2.43.0
->
+Michael
 
