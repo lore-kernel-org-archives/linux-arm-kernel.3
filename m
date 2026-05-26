@@ -4,49 +4,49 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id D4625CD5BD2
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 26 May 2026 11:18:05 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 29173CD5BD0
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 26 May 2026 11:18:07 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:References
 	:Message-Id:Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:
 	From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=UmFSGXNg0MSZohWP7YtFKB7EUmCmD7qHsh+06I3nSqU=; b=XWNF7pMxU4XzpaSGPmuLpfb7EG
-	VRXzH4xC5LGxo+PMTSKOraTNtTI9iIK8TtfuuY9X2bkSl4zyK8j++nGQHkk5dTsl+/jnjtURlgA8q
-	0HM7v/jMml0296GHUXloEQ8Q/cpPy0nLJk3rNraq8P9PMbc8iqvj3szh5HnwO4T7LnfJETn1BYumA
-	4ZIXkQYRqS5f0umbncjuNHuDsmtzXA5ep1ox/VNZ+mO3BpIkfBRrd/+Sg52DKCQmqHWkdI6Xv4aRG
-	/U7n9maEYc+oPJcaqtogIF70pPI9bxyrTTI7k7Nn0w1DUzGW7sm/gcwPS0M0vf0kVY4odegU/11V6
-	x6why6pQ==;
+	bh=NPe2YgoAH0qSAnCpEeNefoayIWUULTmV/B7RSEo0PbI=; b=T67iOtNV2HwzaQZXesSaQVT9Cu
+	cfkDDvb/hHcIfPodapn26xheD4/ya+Lb62WFfaioxsRm/Zl7Ok4sxrnKzy3vCiDFuUo6gqJbeEHax
+	A8BaqZPDVrizBEiqPiB719Le+VnJR0G0w1gfEnrrQcAYse44hv4aQ3drNZBIcc/0XsWdYD8XUvkqu
+	DzhiW1exrpvKyoGhFDObjoonDXaAJlY/7kye6K/UWKaNqPvJJj/dnTizGEXoyLPW9tj6V05DlqzVz
+	/DsyBDF6JKknOpEnuuYe28/442YkyMHYx0VVYQZPUKv6kU2uUtuAlWjKYtBH9BqLpBgPd65VGQ3bK
+	hqc9rsFg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wRpnL-00000001khD-2p3E;
+	id 1wRpnL-00000001khV-3KzB;
 	Tue, 26 May 2026 11:17:59 +0000
 Received: from foss.arm.com ([217.140.110.172])
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wRpnC-00000001kZY-3lVN
+	id 1wRpnH-00000001kdH-1Nfm
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 26 May 2026 11:17:54 +0000
+	Tue, 26 May 2026 11:17:57 +0000
 Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
-	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id 8770216F2;
-	Tue, 26 May 2026 04:17:44 -0700 (PDT)
+	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id B5A35169C;
+	Tue, 26 May 2026 04:17:49 -0700 (PDT)
 Received: from localhost.localdomain (e123572-lin.cambridge.arm.com [10.1.194.54])
-	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id B76F83F7D8;
-	Tue, 26 May 2026 04:17:44 -0700 (PDT)
+	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id E95EE3F7D8;
+	Tue, 26 May 2026 04:17:49 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=simple/simple; d=arm.com; s=foss;
-	t=1779794269; bh=BIW+ZJvi1P4EeD5UF9lAJp1G+q4h4naKio10It8LHdc=;
+	t=1779794274; bh=FwJkibkCBOdtFacZl+Z5KjOcoULy9AB4XvS2nXgTrfE=;
 	h=From:Date:Subject:References:In-Reply-To:To:Cc:From;
-	b=CXUQBxWnRCwDZIJbyDjOv6buZ/ZHuWq3lv1+SZZ95PXYVPCEok99psIDLKCiBWr5j
-	 nA46PFCbUIyYPmEnNSZNNxgOyaOoM5r+Fcgw/ImgQsqrmq4Tf1ySVD6Y18ZCcHBaGz
-	 hyxkxF/1qpwM0AL+laviTWnjvM9ARiQxBMPY1G3w=
+	b=Nn4RkJoLmryKMcVWDZAo2G9SJrXDVC2e2IVuX/B4SuByLHEZPp3EyUsOPRPwgnKi6
+	 u2JIa00peJahtdJ4OiA0FfTH8N4jRfG9r7HvRDrqlEhilfbnhdNzlAkCn7kk69m/5g
+	 wdoPZfIR93zdMSoyz0ZavQj7CwZPq+wYJJ0iqOnI=
 From: Kevin Brodsky <kevin.brodsky@arm.com>
-Date: Tue, 26 May 2026 12:15:59 +0100
-Subject: [PATCH RFC v8 10/24] memblock: Move INIT_MEMBLOCK_* macros to
- header
+Date: Tue, 26 May 2026 12:16:00 +0100
+Subject: [PATCH RFC v8 11/24] mm: kpkeys: Introduce
+ kpkeys_hardened_pgtables feature
 MIME-Version: 1.0
 Content-Type: text/plain; charset="utf-8"
 Content-Transfer-Encoding: 7bit
-Message-Id: <20260526-kpkeys-v8-10-eaaacdacc67c@arm.com>
+Message-Id: <20260526-kpkeys-v8-11-eaaacdacc67c@arm.com>
 References: <20260526-kpkeys-v8-0-eaaacdacc67c@arm.com>
 In-Reply-To: <20260526-kpkeys-v8-0-eaaacdacc67c@arm.com>
 To: linux-hardening@vger.kernel.org
@@ -72,16 +72,16 @@ Cc: Kevin Brodsky <kevin.brodsky@arm.com>,
  linux-mm@kvack.org, x86@kernel.org, Lorenzo Stoakes <ljs@kernel.org>, 
  Thomas Gleixner <tglx@kernel.org>
 X-Mailer: b4 0.15.2
-X-Developer-Signature: v=1; a=ed25519-sha256; t=1779794212; l=1850;
+X-Developer-Signature: v=1; a=ed25519-sha256; t=1779794212; l=5797;
  i=kevin.brodsky@arm.com; s=20260427; h=from:subject:message-id;
- bh=BIW+ZJvi1P4EeD5UF9lAJp1G+q4h4naKio10It8LHdc=;
- b=k/6tYCVgqofYCAapYqWsSvaOAxLzZMkQtTrrGWimL0nEfK5dP+LdOGyVEW4bM+EHz7GaZ5JbC
- m/SoVteI4iJDZnNe5lK94c2vsiiFUy8vWgghfokYtQqib4li3mjDGUK
+ bh=FwJkibkCBOdtFacZl+Z5KjOcoULy9AB4XvS2nXgTrfE=;
+ b=2cUTS8rHt18AsAstVm0NGzVThMD7m5Y67bLhIkADws+GYq1Gk7VC/5rzaVdp7P+4+Kt/pmT4Z
+ oudsu0Y2wlWDejRI1Ya9DPrboy1WjZKr1FzWCgjzCZ4t/G+vItNf9AV
 X-Developer-Key: i=kevin.brodsky@arm.com; a=ed25519;
  pk=N2QG+eJKrvkNovwhhwJhnJ4+ScVfsGCHldmqLfcMTFs=
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260526_041751_046511_74B58A91 
-X-CRM114-Status: GOOD (  11.67  )
+X-CRM114-CacheID: sfid-20260526_041756_004752_4CE3512A 
+X-CRM114-Status: GOOD (  23.69  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -96,65 +96,184 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-The upcoming page table allocator for the kpkeys_hardened_pgtables
-feature will need to know the maximum number of memblock regions.
-Move the corresponding macros to <linux/memblock.h> to allow that.
+kpkeys_hardened_pgtables is a hardening feature based on kpkeys. It
+aims to prevent the corruption of page tables by: 1. mapping all
+page table pages, both kernel and user, with a privileged pkey
+(KPKEYS_PKEY_PGTABLES), and 2. granting write access to that pkey
+only when running at in a privileged kpkeys context
+(KPKEYS_CTX_PGTABLES). This patch introduces basic infrastructure;
+the implementation of both aspects will follow.
 
-INIT_MEMBLOCK_{RESERVED,MEMORY}_REGIONS may be overridden, but this
-should be fine as only arm64 and loong currently do that and the
-relevant header is already (indirectly) included by
-<linux/memblock.h>.
+The feature is exposed as CONFIG_KPKEYS_HARDENED_PGTABLES; it
+requires explicit architecture opt-in by selecting
+ARCH_HAS_KPKEYS_HARDENED_PGTABLES, since much of the page table
+handling is arch-specific.
+
+Because this feature relies on kpkeys being available and enabled,
+and modifies attributes of the linear map, it must be inactive on
+boot. kpkeys_hardened_pgtables_init() enables it by toggling a
+static key; this function must be called by supported architectures
+in mem_init(), before any call to pagetable_alloc() is made.
+
+Supported architectures must also provide
+arch_supports_kpkeys_early() in <asm/kpkeys.h>. This will be used
+during early boot to detect whether kpkeys_hardened_pgtables is
+going to be enabled (e.g. to decide how to allocate early page
+tables).
 
 Signed-off-by: Kevin Brodsky <kevin.brodsky@arm.com>
 ---
- include/linux/memblock.h | 11 +++++++++++
- mm/memblock.c            | 11 -----------
- 2 files changed, 11 insertions(+), 11 deletions(-)
+ include/asm-generic/kpkeys.h  |  4 ++++
+ include/linux/kpkeys.h        | 40 +++++++++++++++++++++++++++++++++++++++-
+ mm/Kconfig                    |  3 +++
+ mm/Makefile                   |  1 +
+ mm/kpkeys_hardened_pgtables.c | 16 ++++++++++++++++
+ security/Kconfig.hardening    | 12 ++++++++++++
+ 6 files changed, 75 insertions(+), 1 deletion(-)
 
-diff --git a/include/linux/memblock.h b/include/linux/memblock.h
-index b0f750d22a7b..e58b2c859b95 100644
---- a/include/linux/memblock.h
-+++ b/include/linux/memblock.h
-@@ -24,6 +24,17 @@ extern unsigned long max_pfn;
-  */
- extern unsigned long long max_possible_pfn;
+diff --git a/include/asm-generic/kpkeys.h b/include/asm-generic/kpkeys.h
+index ab819f157d6a..cec92334a9f3 100644
+--- a/include/asm-generic/kpkeys.h
++++ b/include/asm-generic/kpkeys.h
+@@ -2,6 +2,10 @@
+ #ifndef __ASM_GENERIC_KPKEYS_H
+ #define __ASM_GENERIC_KPKEYS_H
  
-+#define INIT_MEMBLOCK_REGIONS			128
-+#define INIT_PHYSMEM_REGIONS			4
-+
-+#ifndef INIT_MEMBLOCK_RESERVED_REGIONS
-+#define INIT_MEMBLOCK_RESERVED_REGIONS		INIT_MEMBLOCK_REGIONS
++#ifndef KPKEYS_PKEY_PGTABLES
++#define KPKEYS_PKEY_PGTABLES	1
 +#endif
 +
-+#ifndef INIT_MEMBLOCK_MEMORY_REGIONS
-+#define INIT_MEMBLOCK_MEMORY_REGIONS		INIT_MEMBLOCK_REGIONS
-+#endif
+ #ifndef KPKEYS_PKEY_DEFAULT
+ #define KPKEYS_PKEY_DEFAULT	0
+ #endif
+diff --git a/include/linux/kpkeys.h b/include/linux/kpkeys.h
+index 0ce0db80b4ee..d413a17f8882 100644
+--- a/include/linux/kpkeys.h
++++ b/include/linux/kpkeys.h
+@@ -4,11 +4,13 @@
+ 
+ #include <linux/bug.h>
+ #include <linux/cleanup.h>
++#include <linux/jump_label.h>
+ 
+ #define KPKEYS_CTX_DEFAULT	0
++#define KPKEYS_CTX_PGTABLES	1
+ 
+ #define KPKEYS_CTX_MIN		KPKEYS_CTX_DEFAULT
+-#define KPKEYS_CTX_MAX		KPKEYS_CTX_DEFAULT
++#define KPKEYS_CTX_MAX		KPKEYS_CTX_PGTABLES
+ 
+ /*
+  * ... is used to discard extra arguments - this allows users of this macro
+@@ -119,4 +121,40 @@ static inline bool kpkeys_enabled(void)
+ 
+ #endif /* CONFIG_ARCH_HAS_KPKEYS */
+ 
++#ifdef CONFIG_KPKEYS_HARDENED_PGTABLES
 +
- /**
-  * enum memblock_flags - definition of memory region attributes
-  * @MEMBLOCK_NONE: no special request
-diff --git a/mm/memblock.c b/mm/memblock.c
-index a6a1c91e276d..e64ad9c72dc3 100644
---- a/mm/memblock.c
-+++ b/mm/memblock.c
-@@ -30,17 +30,6 @@
++DECLARE_STATIC_KEY_FALSE(kpkeys_hardened_pgtables_key);
++
++static inline bool kpkeys_hardened_pgtables_enabled(void)
++{
++	return static_branch_unlikely(&kpkeys_hardened_pgtables_key);
++}
++
++static inline bool kpkeys_hardened_pgtables_early_enabled(void)
++{
++	return arch_supports_kpkeys_early();
++}
++
++/*
++ * Should be called from mem_init(): as soon as the buddy allocator becomes
++ * available and before any call to pagetable_alloc().
++ */
++void kpkeys_hardened_pgtables_init(void);
++
++#else /* CONFIG_KPKEYS_HARDENED_PGTABLES */
++
++static inline bool kpkeys_hardened_pgtables_enabled(void)
++{
++	return false;
++}
++
++static inline bool kpkeys_hardened_pgtables_early_enabled(void)
++{
++	return false;
++}
++
++static inline void kpkeys_hardened_pgtables_init(void) {}
++
++#endif /* CONFIG_KPKEYS_HARDENED_PGTABLES */
++
+ #endif /* _LINUX_KPKEYS_H */
+diff --git a/mm/Kconfig b/mm/Kconfig
+index 819fb0d7b7bd..042541d28692 100644
+--- a/mm/Kconfig
++++ b/mm/Kconfig
+@@ -1244,6 +1244,9 @@ config ARCH_HAS_PKEYS
+ 	bool
+ config ARCH_HAS_KPKEYS
+ 	bool
++config ARCH_HAS_KPKEYS_HARDENED_PGTABLES
++	bool
++	depends on ARCH_HAS_KPKEYS
  
- #include "internal.h"
+ config ARCH_USES_PG_ARCH_2
+ 	bool
+diff --git a/mm/Makefile b/mm/Makefile
+index 8ad2ab08244e..7603e6051afa 100644
+--- a/mm/Makefile
++++ b/mm/Makefile
+@@ -150,3 +150,4 @@ obj-$(CONFIG_SHRINKER_DEBUG) += shrinker_debug.o
+ obj-$(CONFIG_EXECMEM) += execmem.o
+ obj-$(CONFIG_TMPFS_QUOTA) += shmem_quota.o
+ obj-$(CONFIG_LAZY_MMU_MODE_KUNIT_TEST) += tests/lazy_mmu_mode_kunit.o
++obj-$(CONFIG_KPKEYS_HARDENED_PGTABLES) += kpkeys_hardened_pgtables.o
+diff --git a/mm/kpkeys_hardened_pgtables.c b/mm/kpkeys_hardened_pgtables.c
+new file mode 100644
+index 000000000000..763f267bbfe4
+--- /dev/null
++++ b/mm/kpkeys_hardened_pgtables.c
+@@ -0,0 +1,16 @@
++// SPDX-License-Identifier: GPL-2.0-only
++#include <linux/kpkeys.h>
++#include <linux/mm.h>
++
++#include <kunit/visibility.h>
++
++__ro_after_init DEFINE_STATIC_KEY_FALSE(kpkeys_hardened_pgtables_key);
++EXPORT_SYMBOL_IF_KUNIT(kpkeys_hardened_pgtables_key);
++
++void __init kpkeys_hardened_pgtables_init(void)
++{
++	if (!kpkeys_enabled())
++		return;
++
++	static_branch_enable(&kpkeys_hardened_pgtables_key);
++}
+diff --git a/security/Kconfig.hardening b/security/Kconfig.hardening
+index 86f8768c63d4..fdaf977d4626 100644
+--- a/security/Kconfig.hardening
++++ b/security/Kconfig.hardening
+@@ -275,6 +275,18 @@ config BUG_ON_DATA_CORRUPTION
  
--#define INIT_MEMBLOCK_REGIONS			128
--#define INIT_PHYSMEM_REGIONS			4
--
--#ifndef INIT_MEMBLOCK_RESERVED_REGIONS
--# define INIT_MEMBLOCK_RESERVED_REGIONS		INIT_MEMBLOCK_REGIONS
--#endif
--
--#ifndef INIT_MEMBLOCK_MEMORY_REGIONS
--#define INIT_MEMBLOCK_MEMORY_REGIONS		INIT_MEMBLOCK_REGIONS
--#endif
--
- /**
-  * DOC: memblock overview
-  *
+ 	  If unsure, say N.
+ 
++config KPKEYS_HARDENED_PGTABLES
++	bool "Harden page tables using kernel pkeys"
++	depends on ARCH_HAS_KPKEYS_HARDENED_PGTABLES
++	help
++	  This option makes all page tables mostly read-only by
++	  allocating them with a non-default protection key (pkey) and
++	  only enabling write access to that pkey in routines that are
++	  expected to write to page table entries.
++
++	  This option has no effect if the system does not support
++	  kernel pkeys.
++
+ endmenu
+ 
+ config CC_HAS_RANDSTRUCT
 
 -- 
 2.51.2
