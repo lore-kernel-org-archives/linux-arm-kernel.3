@@ -4,192 +4,68 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 78A4CCD5BB4
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 26 May 2026 07:24:38 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id D35FACD5BCF
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 26 May 2026 07:34:18 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:
-	Content-Transfer-Encoding:Content-Type:In-Reply-To:References:Message-ID:Date
-	:Subject:CC:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=RkC/ryJ7JLFQiKV6Zn/NiF5QszhmiDVLt4SWfpfZJ1E=; b=Jek5Dp9lg85uW9t9sPT+dDp4ko
-	6D5ZBhBy//R9nkKUp04o+du4r1RMyc/5dL5wNRzDltmmkVLfttfc8IHjEY/bjR/IQB73yU/ucg1s5
-	xvpCOzdjiuNe9+RaWiS63b34cfTTk5MnQYMBicMxrt/TgRuBNXsFPwG/U8LidvLGUVjm7xiV17amV
-	XaT+Tyybp2pGhHOO7FEw/kKifuJCvwramAnZ1qb5vtHjJD45JkTtPL0yqjSCReUUtJvIhuZQZ6zWl
-	gisMFYASW4n/AUOxlKnCD6aY9JL7gXJZl4gb2zvLxl7Et3yYX5eSM6Yjclc/yTbC/JQqFeqOsOvPi
-	P74zYeJg==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:CC:To:
+	Content-Transfer-Encoding:Content-Type:MIME-Version:Message-ID:Date:Subject:
+	From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:
+	List-Owner; bh=2hW3Bp0fixYajam9nIWq2zNAl7zAoQLK7HaqPTwH9JE=; b=TMmuWgaAKquFtz
+	Lj0MGBDgePe+v95p9pOQw7nvWflPFLdItkfa7XYi9//5g6ZZa1MWxbXf2gi45aHGEGhZqIHdmH05J
+	g/xCBo919LmBNKORfbSPJ1f5/Y73Hv8DPta/bTt9RKKRIyv96FAbO4Xx3exgV8Y6cGjx0jQHbNIkI
+	ZKOXVVFa2aXrjZ2+0LzsS2tl8dxUK+1neCPKJTkL44Rh+oxpz5olwjSm7DQGI5d/p6uV04K76Xycl
+	IY9xAcxFcseCjwTopLxnZCz+X38FWaQnJRFsl9yf5JzXBWmsJutt4aMaDf49VwqZjV0SElhE746nk
+	7Ch6r5SWweo1RsGrO9Aw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wRm9O-00000001G3D-3ywu;
-	Tue, 26 May 2026 07:24:30 +0000
-Received: from mgamail.intel.com ([192.198.163.7])
+	id 1wRmIm-00000001H2c-2X9u;
+	Tue, 26 May 2026 07:34:12 +0000
+Received: from [64.106.246.77] (helo=mail-sc.amlogic.com)
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wRm9M-00000001FpI-017W
-	for linux-arm-kernel@lists.infradead.org;
-	Tue, 26 May 2026 07:24:29 +0000
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple;
-  d=intel.com; i=@intel.com; q=dns/txt; s=Intel;
-  t=1779780268; x=1811316268;
-  h=from:to:cc:subject:date:message-id:references:
-   in-reply-to:content-transfer-encoding:mime-version;
-  bh=RkC/ryJ7JLFQiKV6Zn/NiF5QszhmiDVLt4SWfpfZJ1E=;
-  b=cP4snfCrNMNzA/m4a/ou8Kxx2lJwHlbvKWIUT5O2KvCZrsOg3SeW7GL5
-   t/R+weZrPKHSBBZ86oGXwQndIt6o8OucWgz4O/Q9DbcvPMm7ZC7OZF5BE
-   C5VIPn6yzoK58Cw7D8IQwZuX3ICb3wjZGXyega8NX/d7uriIG2niwLWo9
-   7wBx7Sh7dlXr1hGbuPI4Y+UrmkhDtERy/XeRMYqMyXIzPJtMUziNP+UiS
-   Kz+odJVHLIwvf6QdIFCTucxfj4NRADmakh2fo2UuhpKstP4hnHpnbAHD0
-   9qlwqH7g6TKP3VNMZ0DhpRroJ3oeGqlAkaPh3Nm8w8u1bQnSIx/CQg4vx
-   Q==;
-X-CSE-ConnectionGUID: iTWd9TBSQfS4wzMzggNoPg==
-X-CSE-MsgGUID: KMUTKHEVSES2nJVaZYgS9A==
-X-IronPort-AV: E=McAfee;i="6800,10657,11797"; a="106045434"
-X-IronPort-AV: E=Sophos;i="6.24,169,1774335600"; 
-   d="scan'208";a="106045434"
-Received: from fmviesa010.fm.intel.com ([10.60.135.150])
-  by fmvoesa101.fm.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 26 May 2026 00:21:14 -0700
-X-CSE-ConnectionGUID: g9ZeM98rSrOHz6yJir8nVg==
-X-CSE-MsgGUID: 9DWIMSQBQ+2YBdNVw3uBiQ==
-X-ExtLoop1: 1
-X-IronPort-AV: E=Sophos;i="6.24,169,1774335600"; 
-   d="scan'208";a="237655835"
-Received: from fmsmsx903.amr.corp.intel.com ([10.18.126.92])
-  by fmviesa010.fm.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 26 May 2026 00:21:13 -0700
-Received: from FMSMSX901.amr.corp.intel.com (10.18.126.90) by
- fmsmsx903.amr.corp.intel.com (10.18.126.92) with Microsoft SMTP Server
- (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
- 15.2.2562.37; Tue, 26 May 2026 00:21:13 -0700
-Received: from fmsedg903.ED.cps.intel.com (10.1.192.145) by
- FMSMSX901.amr.corp.intel.com (10.18.126.90) with Microsoft SMTP Server
- (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
- 15.2.2562.37 via Frontend Transport; Tue, 26 May 2026 00:21:13 -0700
-Received: from BN1PR04CU002.outbound.protection.outlook.com (52.101.56.66) by
- edgegateway.intel.com (192.55.55.83) with Microsoft SMTP Server
- (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
- 15.2.2562.37; Tue, 26 May 2026 00:21:12 -0700
-ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
- b=lSihexQsF+01w/CU1rubKJ4hKnPcq1HdaIzs4F9/MmWPlN9mhSs1SiPixo/+nyKiQCg7hsDMhF7B0tjrxrehGwuGvb2KJFweBz3VYm0W2yhLabp81LgOD7yHmgeGkGGfiymOZk1e5S/Pkcf55bCP9ESDCfCvE9tbUYkoGT/s30J9+kbhEqqqOmIP7XvRlnD3CxupfI1vH38QE0IbnmpNLNe6WDXjeRb6CyN8IKvov4Aci/e8BeGH/mKt7Es0hiniklR0fRHg5DKLRZP23M5CNAmUsph5E/bOeee1t0S0wl87H3lyhThlR+G4VeYKAv4XcBggCkn542PJpPkpzaRNdw==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
- s=arcselector10001;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
- bh=RkC/ryJ7JLFQiKV6Zn/NiF5QszhmiDVLt4SWfpfZJ1E=;
- b=jnHPItcis8sJaK5apHn0qYtUDzaAncNB4IPCu8UHWpMvOv4qlZz+v7nASCpOrGMEmSLov3VL4tBZtjiV4j9FCWIyXMhXp/306ZR5zlx1xmT4OGt8od54MgMYm5Q7Betp/0qJJIf4MBDsGljn8PtjSWcp53ykKgER91ej32jrLTCpdftViiG8JQ6ebzia/n1z5gMP7bIiTq8+hqkmR6Wmdd1/A7T/jR2/SDEcWhzRvyq22Ed+DfHhgqxsVsE0Ic5C8djP+e5kfxdbsXLEOkOUnGHCUwj+/yFf1ny5Y1tjAVo++ehYRzrNRcmQFQZ0dsEpwT8x7Tit2ezFiadcvMAxcw==
-ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
- smtp.mailfrom=intel.com; dmarc=pass action=none header.from=intel.com;
- dkim=pass header.d=intel.com; arc=none
-Received: from DM6PR11MB3690.namprd11.prod.outlook.com (2603:10b6:5:13d::32)
- by IA1PR11MB6100.namprd11.prod.outlook.com (2603:10b6:208:3d4::16) with
- Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.21.48.20; Tue, 26 May
- 2026 07:21:10 +0000
-Received: from DM6PR11MB3690.namprd11.prod.outlook.com
- ([fe80::7db8:f6b3:30f8:ee4b]) by DM6PR11MB3690.namprd11.prod.outlook.com
- ([fe80::7db8:f6b3:30f8:ee4b%4]) with mapi id 15.21.0048.016; Tue, 26 May 2026
- 07:21:10 +0000
-From: "Tian, Kevin" <kevin.tian@intel.com>
-To: Joonwon Kang <joonwonkang@google.com>, "jgg@ziepe.ca" <jgg@ziepe.ca>
-CC: "Alexander.Grest@microsoft.com" <Alexander.Grest@microsoft.com>,
-	"alexander.shishkin@linux.intel.com" <alexander.shishkin@linux.intel.com>,
-	"amhetre@nvidia.com" <amhetre@nvidia.com>, "baolu.lu@linux.intel.com"
-	<baolu.lu@linux.intel.com>, "bp@alien8.de" <bp@alien8.de>,
-	"dave.hansen@linux.intel.com" <dave.hansen@linux.intel.com>,
-	"easwar.hariharan@linux.microsoft.com"
-	<easwar.hariharan@linux.microsoft.com>, "hpa@zytor.com" <hpa@zytor.com>,
-	"iommu@lists.linux.dev" <iommu@lists.linux.dev>,
-	"jacob.jun.pan@linux.intel.com" <jacob.jun.pan@linux.intel.com>,
-	"joro@8bytes.org" <joro@8bytes.org>, "jpb@kernel.org" <jpb@kernel.org>,
-	"kas@kernel.org" <kas@kernel.org>, "kees@kernel.org" <kees@kernel.org>,
-	"linux-arm-kernel@lists.infradead.org"
-	<linux-arm-kernel@lists.infradead.org>, "linux-kernel@vger.kernel.org"
-	<linux-kernel@vger.kernel.org>, "mingo@redhat.com" <mingo@redhat.com>,
-	"nicolinc@nvidia.com" <nicolinc@nvidia.com>, "peterz@infradead.org"
-	<peterz@infradead.org>, "praan@google.com" <praan@google.com>,
-	"robin.murphy@arm.com" <robin.murphy@arm.com>, "ryasuoka@redhat.com"
-	<ryasuoka@redhat.com>, "smostafa@google.com" <smostafa@google.com>, "Mehta,
- Sohil" <sohil.mehta@intel.com>, "tglx@kernel.org" <tglx@kernel.org>,
-	"will@kernel.org" <will@kernel.org>, "x86@kernel.org" <x86@kernel.org>,
-	"xin@zytor.com" <xin@zytor.com>
-Subject: RE: [PATCH v2] iommu: Allow device driver to use its own PASID space
- for SVA
-Thread-Topic: [PATCH v2] iommu: Allow device driver to use its own PASID space
- for SVA
-Thread-Index: AQHc6Gp7+Rzmy9QGK0OfKEU3ud75L7YeaBpAgAB9mACAABXBgIAA7cwAgAAFk5A=
-Date: Tue, 26 May 2026 07:21:10 +0000
-Message-ID: <DM6PR11MB3690699A3178F1559D4BE1CA8C0B2@DM6PR11MB3690.namprd11.prod.outlook.com>
-References: <20260525164715.GA2487554@ziepe.ca>
- <20260526065822.914216-1-joonwonkang@google.com>
-In-Reply-To: <20260526065822.914216-1-joonwonkang@google.com>
-Accept-Language: en-US
-Content-Language: en-US
-X-MS-Has-Attach: 
-X-MS-TNEF-Correlator: 
-authentication-results: dkim=none (message not signed)
- header.d=none;dmarc=none action=none header.from=intel.com;
-x-ms-publictraffictype: Email
-x-ms-traffictypediagnostic: DM6PR11MB3690:EE_|IA1PR11MB6100:EE_
-x-ms-office365-filtering-correlation-id: 888df35a-fc53-423e-13df-08debaf75c56
-x-ms-exchange-senderadcheck: 1
-x-ms-exchange-antispam-relay: 0
-x-microsoft-antispam: BCL:0;ARA:13230040|366016|7416014|1800799024|376014|38070700021|56012099003|22082099003|4143699003|18002099003|11063799006;
-x-microsoft-antispam-message-info: RA0F1axFurjleCpEPHPNibEuTrbImXoJ8hfHjEUPaz4UvOH78A5BTRPG7veEFBEEYetBVeTiX0VAihw86tyH8Cb4k+9Z3odtlO7r4FV2xQzsUQ2O4+bHESHMxlHdtqAI2XpLDoWgra/NQuDMXUb/SqsaYDWPo6Hef9glWVPm64onUnx2H6NOOtUaHyqAa3uJOuZldvAKeRYrk7ZVV/7Yuztlv70kbbsFKoWa+LAROy+t21s5yuOnEsKwfLcPrwJTgp4hUDEH60vF7C6d9BmvqAocHgLZNS+tFQL0xWuvf9X8l4lISflHUuNCQwLzOvuv4jg1s1TC8p+3sllMKbNZgpIqX7rdnVUNS+wF/2gEcEeMxJWBFM2jNriRWETffn8RVBjCgvvNPVz8iQ7+X8ucX/t5U2TpobMM/awzeXGeGBS0rGmCyVYKChzPbXuKE+7bXmHGZ88CVNLKccLplgYyDxXM3YXcUYsIyeWofR9g4nkQd77nNvdGRO9gq8JluDLhm0tHsb36RgxLl5rnsIbBwJJ9aG0wOJ9z5aXgfLOIxqnIwb2NgQcZiIIisRharXv18F0rhX+rTEcqmtYpkCQzLeSqBiHr9Evx1yiXZwPm48oMsrSdemh0+sJs2NRbWdfDmm5rSHfsUZ9CrQUjjJyO/KfAQM2Uv/mYTcgtGO09cHZ+i4eVq2quDd1kyWzu+FOWrOKtoCrVHZ1rx+kolRjxfhPdVFlgHNOhEp6OGg5UjZ9S85ZAZX1HxnZ69ITfBAw/
-x-forefront-antispam-report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:DM6PR11MB3690.namprd11.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(366016)(7416014)(1800799024)(376014)(38070700021)(56012099003)(22082099003)(4143699003)(18002099003)(11063799006);DIR:OUT;SFP:1101;
-x-ms-exchange-antispam-messagedata-chunkcount: 1
-x-ms-exchange-antispam-messagedata-0: =?utf-8?B?V3I3bURXd1NxVXZPM0w2RjI1enNDVm9CWWh4Y2wrNGZkeDlBdnRNakN3bkVH?=
- =?utf-8?B?UFVVbkJDZ3RwZDNteUhyK0ZSZUVpZVR5enlTYlU5ajV1dlVsYkJNQWV4VTJj?=
- =?utf-8?B?bUpRWDl5SDhFYjhicHh5QmlJdU5rNUVHMTBialBHditINjdkTDJreGFaZUNx?=
- =?utf-8?B?cTJpLzFHMkpuL1AzUDhOODV4VURuZnExMU1GQ2NIODdJa2VUWE8yeFhsNk80?=
- =?utf-8?B?QkRFOUU1ZUJZWmdJUUZrdEg2K3k4NWhEMzZFNUF4WlNCMW5TMUQ0RVZrUlpO?=
- =?utf-8?B?UmlIeW4zTkNmdHJ5NHFuSlJWdDJDZVpNc29tcmZpc3l5RW5COHNWU0NUdDZ5?=
- =?utf-8?B?aVNJZENVeDEvT2tHOVpXWXV2MG9MY01sT2VnZFczd1Z0Zzg2TTIzZTduNlo2?=
- =?utf-8?B?YWhMYUlaT0RxTDZ4TzlCTWhhYlZpcldiQ3E0TUNkS1JFTUswcU5uR0RmSFVM?=
- =?utf-8?B?ZFJRQ1lzOFB6djlFTzFuVmVacnVJUlpmb09KbTJYUFJqWHIrQS9NTUpQWjZv?=
- =?utf-8?B?OHBhTFlLYzkrRU9CU3RtN0ZmRlY4dzdzSVErcU5WeFhZbzlvbDQ4SjFmUUlB?=
- =?utf-8?B?WWljdkc1WFh2VE9TVktBd1ZJazJ6N05ha2pUYzlVQ2FrQXBaNGZrZVpiZ0Yv?=
- =?utf-8?B?NGY2T0cycFcwWVFFWFRuRzJFMEpremdodXc0TVUzTzd0Ui9Ed0g3OXkyU09G?=
- =?utf-8?B?Z2hLOEZsR2pKcnpnMnh3am0vR0V4bFVqQnNCVVBLRm1WNmFJQ1F6TzRndFRv?=
- =?utf-8?B?Qmx1NEYwcnFWTGRScjFUaUlVaUNyWVkvTGVNaitnV0ZEdjNJUU8rUjE2b3Zo?=
- =?utf-8?B?VTNGSStBaHNaQmlxQ1l2cGM3YzI5WGI3QytTSm9LOGphTlloN3NkVlJZOFpo?=
- =?utf-8?B?TFo4TlpKWmloSWovMWRBNStmTHlyNjIwc0wyK2lKcEw3REptVmdHQTdtZ1JQ?=
- =?utf-8?B?azV2SjJsSEk3Ni9QQmlHQzdKMjBlSnF3aDF6cTRUcGJxUGZlVjFFdHp0NUJx?=
- =?utf-8?B?TFcxakNPa3NzYTFxV1h3OSt6M0VWajE1UDRqd1hjZ2ZLQVpGYTlsbzZaL0dD?=
- =?utf-8?B?WDhQUG8zM0lqRUoxajJ2bjZJYW9vc216L0c5bElDOGNGVEh2YzJRbGc5dGox?=
- =?utf-8?B?TnVVNS9ZSGdDUWxxcGxzaUZtY0VnS0VuVC9DTGZlZzF0anpuVkRvMW5IdE5k?=
- =?utf-8?B?UjhRYU4vQ2YzbkIzRzJBY0VmeHF6OFFvcVlTd0w4SGFtWWVoM0FacFpKdVZz?=
- =?utf-8?B?aGRpbU9BdnB6akN2VGlNZDVIUnhQcC9uSEJDYXhtYzV2aklPZURLRFlJL3BW?=
- =?utf-8?B?K3llNlVGTTQzcWFGczg5Y1dlSDBsRVBGS2RwUkVtakhsWU4wZmRDTWRoYk9R?=
- =?utf-8?B?a1lIcXl0M0lmTWdTMjNzT2QwTWhGck82NXpicXRrYjQ2SUtMNVF0cGlvRCt6?=
- =?utf-8?B?Qm5rT1B0U0E1eE5hSUcvTHNZd2Y4d3dFdmVTdFhUV1FmRXErUGl4YzZvdzNx?=
- =?utf-8?B?aXFoZ3lXVkwxWjhTbUNvazFZdFZYQ1JsUnBybGhGcEFKUnk3VmwxVmdUTGQ3?=
- =?utf-8?B?Skh0TlM4dWlOL0tZejRwZTZYbnlKRFUrZTJBUURHVkFoT2lwRnlVUVdhZDZo?=
- =?utf-8?B?b2ZFVDR3VG52eUFFUDBOcktrNjFNaHBxdjkvZzRybkRhUDRVdVJDODNEaTBS?=
- =?utf-8?B?S0l5aW5WV3ZKNXdxQVVVc25remg0TmQ5VWloTFBDU004L0ZPZWxTa0l2enBT?=
- =?utf-8?B?TFdUbk1WUDd2S2V3NDNmWXU2aGt2R01hQS85QW1mc0xqVXJDMFF1M0xwZ2pM?=
- =?utf-8?B?WnJydngvTjRtV210ci9NTHFnUmVmNndGQ0MxRWxUZklQMEQ1bmZEc3hoZVFK?=
- =?utf-8?B?UEdYem0xWUdxZTBySUNXWWJnYmhNNjlWYml3anRmaXVDVmkvTGI5TVZKQ0M4?=
- =?utf-8?B?cXpWSUR6VzhNRkdlZ0I4UmZzMDc2UGszdUdNdlNZaThNWkYzZDkwdFRhK25a?=
- =?utf-8?B?TEhIT2ZnVmhlOCtpZHRHU1lJeVBjM3pxT2drZjJkZ1RRRXJQaVhKNUt5bTFY?=
- =?utf-8?B?YUx6ekh6NzYva01WdTUxVTdyaGhWcDFuL2d1ZGVXTzhubHJUN0RubkhFcHhW?=
- =?utf-8?B?RWhoQ2UyNkQ4WHh6OHNKYmlETDBLMUJwK1NETkh4VHJyZ2pKS3VPWmlxS2Zt?=
- =?utf-8?B?akE2dEFHekNHakE2RHZPZ0gyV3dFZm56THBUc0ZvU2lWUWc0dXU3YUQ1Mmdh?=
- =?utf-8?B?cXYwNnFMS1ZuZ2dPeGxUa1FvNXF6c2ppQUx4Z0tpZUlPOExTbjFLOTJqcm92?=
- =?utf-8?B?azQwMUNRQ2Z2WnhqT0tzL3pkUG16RTduZ1NOREk1bnh2TEdIWWp2QT09?=
-Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: base64
+	id 1wRmIk-00000001H1M-06GO;
+	Tue, 26 May 2026 07:34:11 +0000
+Received: from [127.0.1.1] (10.28.11.83) by mailsc.amlogic.com (10.8.11.35)
+ with Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.2.2562.35; Tue, 26 May
+ 2026 00:34:01 -0700
+From: Zhentao Guo <zhentao.guo@amlogic.com>
+Subject: [PATCH RFC v5 0/6] Add Amlogic stateless H.264 video decoder for
+ S4
+Date: Tue, 26 May 2026 15:33:35 +0800
+Message-ID: <20260526-b4-s4-vdec-upstream-v5-0-c6edebf5ea89@amlogic.com>
 MIME-Version: 1.0
-X-Exchange-RoutingPolicyChecked: o5Ag6+1C3Cz6C4GGPQ80PflMdfwGkkH0Pls7LJqMiLZleS9ov8FAz9Ch/MAs22Va6uGpfYFWCn8J/EKkWeD8YMsH3FMZOJV1Y525+iuhLVFN+/c0/LTzPTtbMHjgfu+ibn6RkYFK+11aDMB1T/QSIBlSZBHB72TgRCMxI52bX4uki8tJyN5LgNBS+7oOzU3+RQrqgFttd7T1QOANcCYbWi9sIYwet8/XRW730cpvZCxyTYktF1pzrqvifrlY19lkVs52Oajw946hMovBMtsd2SYo0u4t/swt26yJeUKRdlJJJeruZv2HpDLGzE3fkhO4M26Z+evBAo/DTDsoV0IhCg==
-X-MS-Exchange-CrossTenant-AuthAs: Internal
-X-MS-Exchange-CrossTenant-AuthSource: DM6PR11MB3690.namprd11.prod.outlook.com
-X-MS-Exchange-CrossTenant-Network-Message-Id: 888df35a-fc53-423e-13df-08debaf75c56
-X-MS-Exchange-CrossTenant-originalarrivaltime: 26 May 2026 07:21:10.1991
- (UTC)
-X-MS-Exchange-CrossTenant-fromentityheader: Hosted
-X-MS-Exchange-CrossTenant-id: 46c98d88-e344-4ed4-8496-4ed7712e255d
-X-MS-Exchange-CrossTenant-mailboxtype: HOSTED
-X-MS-Exchange-CrossTenant-userprincipalname: t4Za2DhvKtQ71IbQVpW6Nf9J0bYjt66enjaXoPy9W4ghvz3Hj1zyJoBlRwVr8nKMPV2+7rNbbPNutFO9FLlqwg==
-X-MS-Exchange-Transport-CrossTenantHeadersStamped: IA1PR11MB6100
-X-OriginatorOrg: intel.com
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: 7bit
+X-B4-Tracking: v=1; b=H4sIAM9MFWoC/33OTWoDMQwF4KsEr+siyRpP0lWh0ANkW7rwj5IYM
+ plgJ6YlzN1rBkooGbp8Eu+TbqpITlLUy+qmstRU0nhqoXtaqXBwp73oFFtWBNQhUK8968K6Rgn
+ 6ei6XLG7QYMEEdBzW7FRrnrPs0tesfqjt+5v6bMNDKpcxf8+XKs6rf9GKGrQlYMA1Gt/FVzccx
+ 30Kz2EcZrHSXUHiZYWa4qP3QcwO0dlHxfwqFpBwWTFNYd5YJ8HEfiOPCt8VQrOscFNC336NANF
+ a+qtM0/QDH8MBMY8BAAA=
+X-Change-ID: 20251027-b4-s4-vdec-upstream-0603c1a4c84a
+To: Mauro Carvalho Chehab <mchehab@kernel.org>, Rob Herring <robh@kernel.org>,
+	Krzysztof Kozlowski <krzk+dt@kernel.org>, Conor Dooley <conor+dt@kernel.org>,
+	Neil Armstrong <neil.armstrong@linaro.org>, Kevin Hilman
+	<khilman@baylibre.com>, Jerome Brunet <jbrunet@baylibre.com>, "Martin
+ Blumenstingl" <martin.blumenstingl@googlemail.com>
+CC: <linux-media@vger.kernel.org>, <devicetree@vger.kernel.org>,
+	<linux-kernel@vger.kernel.org>, <linux-arm-kernel@lists.infradead.org>,
+	<linux-amlogic@lists.infradead.org>, Zhentao Guo <zhentao.guo@amlogic.com>
+X-Mailer: b4 0.14.3
+X-Developer-Signature: v=1; a=ed25519-sha256; t=1779780841; l=15984;
+ i=zhentao.guo@amlogic.com; s=20251024; h=from:subject:message-id;
+ bh=UD5EEJEoJXwPhPhRH+IhDseAxaqwQ2XoBOLllXTDp24=;
+ b=eU2dWdhkfxy7TXIYwK8MvhnOoL3Z+zI4jdgVKgcIVWdAnrBUYsWbrKy2CXYUV+k36AY680/GZ
+ PMJecrbEYjTBW3ZVUDoylIunQuT6Xotn3UbRnewakG9ujTmawWg9VRC
+X-Developer-Key: i=zhentao.guo@amlogic.com; a=ed25519;
+ pk=5yfDKrjreXwcAoEUsdtWafy6YN500upXp/CgtnXjLVU=
+X-Originating-IP: [10.28.11.83]
+X-ClientProxiedBy: mailsh.amlogic.com (10.18.11.5) To mailsc.amlogic.com
+ (10.8.11.35)
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260526_002428_197806_937A2B20 
-X-CRM114-Status: GOOD (  19.08  )
+X-CRM114-CacheID: sfid-20260526_003410_077294_B07FE5C0 
+X-CRM114-Status: GOOD (  16.09  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -204,22 +80,366 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-PiBGcm9tOiBKb29ud29uIEthbmcgPGpvb253b25rYW5nQGdvb2dsZS5jb20+DQo+IFNlbnQ6IFR1
-ZXNkYXksIE1heSAyNiwgMjAyNiAyOjU4IFBNDQo+IA0KPiA+IE9uIE1vbiwgTWF5IDI1LCAyMDI2
-IGF0IDAzOjI5OjI0UE0gKzAwMDAsIEpvb253b24gS2FuZyB3cm90ZToNCj4gPg0KPiA+ID4gQ3Vy
-cmVudGx5LCB0aGUgb25seSBrbm93biBleHBlY3RlZCB1c2VyIG9mIHRoZSBuZXcga0FQSSBpcyBv
-dXIgdGVhbS4NCj4gU2luY2UNCj4gPiA+IEkgdGVzdCBpZiB0aGUgcGF0Y2ggcmVzb2x2ZXMgb3Vy
-IHByb2JsZW0gYmVmb3JlIHNlbmRpbmcgaXQsIEkgYmVsaWV2ZSBpdA0KPiA+ID4gc2hvdWxkIGJl
-IGdvb2QgZW5vdWdoLiBEbyB5b3UgbWVhbiBtb3JlIHRoYW4gb3VyIHRlYW0gYnkNCj4gImFjY29t
-cGFuaWVkDQo+ID4gPiB1c2VycyI/DQo+ID4NCj4gPiBIZSBtZWFucyB5b3UgY2Fubm90IHNlbmQg
-cGF0Y2hlcyBsaWtlIHRoaXMgdGhhdCBvbmx5IHNlcnZlIE9PVCBkcml2ZXJzDQo+ID4gdG8gdGhl
-IG1haW5saW5lIGtlcm5lbC4NCj4gDQo+IEhtbSwgaXQgZ2V0cyBiYWNrIHRvIHRoZSBjaGlja2Vu
-LWFuZC1lZ2cgcHJvYmxlbS4gU28sIGRvIHlvdSByZWNvbW1lbmQNCj4gZGVmZXJyaW5nIHRoZSBw
-YXRjaCBzdWJtaXNzaW9uIHVudGlsIHdlIGZpbmQgYSBuZXcgaW4tdHJlZSB1c2VyIG9mIHRoZQ0K
-PiBuZXcga0FQST8gSSBiZWxpZXZlIHdlIHdpbGwgbm90IG1ha2Ugb3VyIG1vZHVsZSBpbi10cmVl
-IGFueXRpbWUgc29vbi4NCj4gT3IsIGlzIGl0IGxpa2UgSSBzdGlsbCBjYW4gc2VuZCB0aGUgcGF0
-Y2ggYW5kIGdldCBpdCByZXZpZXdlZCBhbHRob3VnaCB3ZQ0KPiBjYW5ub3QgbWVyZ2UgaXQgdG8g
-dGhlIG1haW5saW5lPw0KPiANCg0KSXQncyBub3QgY2hpY2tlbi1hbmQtZWdnIHByb2JsZW0uIEp1
-c3QgYWx3YXlzIHNlbmQgdGhlbSB0b2dldGhlci4NCg0Kc28gbGV0J3Mgd2FpdCB1bnRpbCB5b3Vy
-IG1vZHVsZSBpcyByZWFkeSBmb3IgaW4tdHJlZSByZXZpZXcuLi4NCg==
+Introduce initial driver support for Amlogic's new video acceleration
+hardware architecture, designed for video stream decoding.
+
+Compared to the current Amlogic video decoder hardware architecture,
+this new implementation eliminates the Esparser hardware component,
+enabling direct vb2 buffer input. The driver is designed to support
+the V4L2 M2M stateless decoder API. The initial phase includes support
+for H.264 decoding on Amlogic S805X2 platform.
+
+The driver needs to work alongside with a signed firmware. The loading process of
+the signed fw is as follow.
+Stage1: Decypt and decompose the full firmware package when the driver is probed.
+  +---------------------+                        +---------------------+
+  |  Decoder Driver     |                        |  TEE Shared Memory  |
+  |  (Kernel Space)     |                        |                     |
+  |  +---------------+  |                        |  +---------------+  |
+  |  | video_ucode   |  |                        |  | firmware      |  |
+  |  |    .bin       |  |  Copy payload to SHM   |  |   payload     |  |
+  |  | (from fs)     |  | ---------------------> |  | (Secure RAM)  |  |
+  |  +---------------+  |                        |  +---------------+  |
+  +---------------------+                        +----------+----------+
+                                                            |
+                                                            | PTA Invocation
+                                                            v
+                                       +-------------------------------+
+                                       |             BL32              |
+                                       |  +-------------------------+  |
+                                       |  | Decrypt Firmware        |  |
+                                       |  +-----------+-------------+  |
+                                       |              |                |
+                                       |              v                |
+                                       |  +-------------------------+  |
+                                       |  | Decompose the full      |  |
+				       |  | firmware pacakge        |  |
+                                       |  +-----------+-------------+  |
+                                       |              |                |
+                                       |              v                |
+                                       |  +-------------------------+  |
+                                       |  | Store decomposed .bin   |  |
+                                       |  | in Secure Memory        |  |
+                                       |  +-------------------------+  |
+                                       +-------------------------------+
+
+Stage2: When a decode job is scheduled, load decrypted fw via secure monitor.
+
+  +---------------------+
+  |  V4L2 M2M Framework |
+  |  +---------------+  |
+  |  |  device_run   |  |
+  |  +------+--------+  |
+  +---------+-----------+
+            |
+            v
+  +---------------------+                  +---------------------+
+  |  Decoder Driver     |                  |  Secure Monitor     |
+  |  (Kernel Space)     |                  |      (bl32)         |
+  |  +---------------+  |     SMC Call     |  +---------------+  |
+  |  | Select Codec  |  | ---------------> |  | Select & Load |  |
+  |  | Specific FW   |  |                  |  | firmware.bin  |  |
+  |  +---------------+  |                  |  | to AMRISC     |  |
+  +---------------------+                  |  +-------+-------+  |
+                                           +----------+----------+
+                                                      |
+                                                      v
+                                           +---------------------+
+                                           |     AMRISC Core     |
+                                           |  +---------------+  |
+                                           |  | Running fw on |  |
+                                           |  | AMRISC        |  |
+                                           |  +---------------+  |
+                                           +---------------------+
+
+The driver is capable of:
+- Supporting stateless H.264 decoding up to a resolution 1920x1088(on the S805X2 platform).
+- Supporting I/P/B frame handling.
+- Supporting vb2 mmap and dma-buf modes.
+- Supporting frame-based decode mode. (Note that some H.264 bitstreams require
+  DPB reordering to generate reference lists, the stateless decoder driver
+  cannot access reordered reference lists in this mode, requiring the driver
+  to perform reference list reordering itself)
+- Supporting NV12/NV21 output.
+- Supporting Annex B start codes.
+
+This driver is tested with Gstreamer.
+Example:
+gst-launch-1.0 filesrc location=/tmp/video_640x360_mp4_hevc_450kbps_no_b.mp4 !
+parsebin ! v4l2slh264dec ! filesink location=/tmp/output.yuv
+
+Retry the compliance test based on kernel 7.1.0:
+v4l2-compliance 1.30.1, 64 bits, 64-bit time_t
+
+Compliance test for aml-vdec-drv device /dev/video0:
+
+Driver Info:
+Driver name : aml-vdec-drv
+Card type : platform:aml-vdec-drv
+Bus info : platform:fe320000.video-codec
+Driver version : 7.1.0
+Capabilities : 0x84204000
+Video Memory-to-Memory Multiplanar
+Streaming
+Extended Pix Format
+Device Capabilities
+Device Caps : 0x04204000
+Video Memory-to-Memory Multiplanar
+Streaming
+Extended Pix Format
+Detected Stateless Decoder
+Media Driver Info:
+Driver name : aml-vdec-drv
+Model : aml-vdec-drv
+Serial :
+Bus info : platform:fe320000.video-codec
+Media version : 7.1.0
+Hardware revision: 0x00000000 (0)
+Driver version : 7.1.0
+Interface Info:
+ID : 0x0300000c
+Type : V4L Video
+Entity Info:
+ID : 0x00000001 (1)
+Name : aml_dev_drv-source
+Function : V4L2 I/O
+Pad 0x01000002 : 0: Source
+Link 0x02000008: to remote pad 0x1000004 of entity 'aml_dev_drv-proc' (Video Decoder): Data, Enabled, Immutable
+
+Required ioctls:
+test MC information (see 'Media Driver Info' above): OK
+test VIDIOC_QUERYCAP: OK
+test invalid ioctls: OK
+
+Allow for multiple opens:
+test second /dev/video0 open: OK
+test VIDIOC_QUERYCAP: OK
+test VIDIOC_G/S_PRIORITY: OK
+test for unlimited opens: OK
+
+Debug ioctls:
+test VIDIOC_DBG_G/S_REGISTER: OK (Not Supported)
+test VIDIOC_LOG_STATUS: OK (Not Supported)
+
+Input ioctls:
+test VIDIOC_G/S_TUNER/ENUM_FREQ_BANDS: OK (Not Supported)
+test VIDIOC_G/S_FREQUENCY: OK (Not Supported)
+test VIDIOC_S_HW_FREQ_SEEK: OK (Not Supported)
+test VIDIOC_ENUMAUDIO: OK (Not Supported)
+test VIDIOC_G/S/ENUMINPUT: OK (Not Supported)
+test VIDIOC_G/S_AUDIO: OK (Not Supported)
+Inputs: 0 Audio Inputs: 0 Tuners: 0
+
+Output ioctls:
+test VIDIOC_G/S_MODULATOR: OK (Not Supported)
+test VIDIOC_G/S_FREQUENCY: OK (Not Supported)
+test VIDIOC_ENUMAUDOUT: OK (Not Supported)
+test VIDIOC_G/S/ENUMOUTPUT: OK (Not Supported)
+test VIDIOC_G/S_AUDOUT: OK (Not Supported)
+Outputs: 0 Audio Outputs: 0 Modulators: 0
+
+Input/Output configuration ioctls:
+test VIDIOC_ENUM/G/S/QUERY_STD: OK (Not Supported)
+test VIDIOC_ENUM/G/S/QUERY_DV_TIMINGS: OK (Not Supported)
+test VIDIOC_DV_TIMINGS_CAP: OK (Not Supported)
+test VIDIOC_G/S_EDID: OK (Not Supported)
+
+Control ioctls:
+test VIDIOC_QUERY_EXT_CTRL/QUERYMENU: OK
+test VIDIOC_QUERYCTRL: OK
+test VIDIOC_G/S_CTRL: OK
+test VIDIOC_G/S/TRY_EXT_CTRLS: OK
+test VIDIOC_(UN)SUBSCRIBE_EVENT/DQEVENT: OK
+test VIDIOC_G/S_JPEGCOMP: OK (Not Supported)
+Standard Controls: 6 Private Controls: 0
+Standard Compound Controls: 4 Private Compound Controls: 0
+
+Format ioctls:
+test VIDIOC_ENUM_FMT/FRAMESIZES/FRAMEINTERVALS: OK
+test VIDIOC_G/S_PARM: OK (Not Supported)
+test VIDIOC_G_FBUF: OK (Not Supported)
+test VIDIOC_G_FMT: OK
+test VIDIOC_TRY_FMT: OK
+test VIDIOC_S_FMT: OK
+test VIDIOC_G_SLICED_VBI_CAP: OK (Not Supported)
+test Cropping: OK (Not Supported)
+test Composing: OK (Not Supported)
+test Scaling: OK (Not Supported)
+
+Codec ioctls:
+test VIDIOC_(TRY_)ENCODER_CMD: OK (Not Supported)
+test VIDIOC_G_ENC_INDEX: OK (Not Supported)
+test VIDIOC_(TRY_)DECODER_CMD: OK
+
+Buffer ioctls:
+test VIDIOC_REQBUFS/CREATE_BUFS/QUERYBUF: OK
+test CREATE_BUFS maximum buffers: OK
+test VIDIOC_REMOVE_BUFS: OK
+test VIDIOC_EXPBUF: OK
+test Requests: OK
+test blocking wait: OK
+
+Total for aml-vdec-drv device /dev/video0: 49, Succeeded: 49, Failed: 0, Warnings: 0
+Fluster test result of JVT-AVC_V1.
+Result:
+Ran 77/135 tests successfully
+
+- 52 test vectors failed due to interlaced or mbaff clips: The Amlogic stateless
+  decoder driver only support bitstreams with frame_mbs_only_flags == 1.
+  Test Vectors:
+        cabac_mot_fld0_full
+        cabac_mot_mbaff0_full
+        cabac_mot_picaff0_full
+        CABREF3_Sand_D
+        CAFI1_SVA_C
+        CAMA1_Sony_C
+        CAMA1_TOSHIBA_B
+        cama1_vtc_c
+        cama2_vtc_b
+        CAMA3_Sand_E
+        cama3_vtc_b
+        CAMACI3_Sony_C
+        CAMANL1_TOSHIBA_B
+        CAMANL2_TOSHIBA_B
+        CAMANL3_Sand_E
+        CAMASL3_Sony_B
+        CAMP_MOT_MBAFF_L30
+        CAMP_MOT_MBAFF_L31
+        CANLMA2_Sony_C
+        CANLMA3_Sony_C
+        CAPA1_TOSHIBA_B
+        CAPAMA3_Sand_F
+        cavlc_mot_fld0_full_B
+        cavlc_mot_mbaff0_full_B
+        cavlc_mot_picaff0_full_B
+        CVCANLMA2_Sony_C
+        CVFI1_Sony_D
+        CVFI1_SVA_C
+        CVFI2_Sony_H
+        CVFI2_SVA_C
+        CVMA1_Sony_D
+        CVMA1_TOSHIBA_B
+        CVMANL1_TOSHIBA_B
+        CVMANL2_TOSHIBA_B
+        CVMAPAQP3_Sony_E
+        CVMAQP2_Sony_G
+        CVMAQP3_Sony_D
+        CVMP_MOT_FLD_L30_B
+        CVNLFI1_Sony_C
+        CVNLFI2_Sony_H
+        CVPA1_TOSHIBA_B
+        FI1_Sony_E
+        MR6_BT_B
+        MR7_BT_B
+        MR8_BT_B
+        MR9_BT_B
+        Sharp_MP_Field_1_B
+        Sharp_MP_Field_2_B
+        Sharp_MP_Field_3_B
+        Sharp_MP_PAFF_1r2
+        Sharp_MP_PAFF_2r
+        CVMP_MOT_FRM_L31_B
+- 3 test vectors failed due to unsupported bitstream.
+  num_slice_group_minus1 greater than zero is not supported by the
+  hardware.
+  Test Vectors:
+        FM1_BT_B
+        FM1_FT_E
+        FM2_SVA_C
+- 2 test vectors failed because SP_SLICE type is not supported by the
+  hardware.
+  Test Vectors:
+        SP1_BT_A
+        sp2_bt_b
+
+One remain failure is CVFC1_Sony_C, which contains crop information. The md5sum of every decoded YUV indicates that original output from the decoder was correct. The YUV was cropped by gstreamer. The correct cropping method for this bitstream should be to crop 30*2 rows of pixels from both the top and bottom of the image, and 13*2 columns of pixels from both the left and right sides.However, gstreamer cropped 13*4 columns of pixels from the right side and 30*4 rows of pixels from the bottom. We are trying to find out the cause of this. Other failuers mentioned in V1 and V2 were resolved.
+
+Changes in v5:
+- Rename the compatible and the clock item accroding to Krzysztof's feedback.
+- Use tee & meson_sm helpers to decrypt load the signed decoder firmware. Add the meson_sm describsion and reference to dt-binding and dts.
+- Link to v4: https://lore.kernel.org/r/20260213-b4-s4-vdec-upstream-v4-0-c7112d00d662@amlogic.com
+
+Changes in v4:
+- Use %pad to print dma_addr_t type instead of using %llx.
+- Add initial values to some local variables.
+- Link to v3: https://lore.kernel.org/r/20260121-b4-s4-vdec-upstream-v3-0-4496aec3d79e@amlogic.com
+
+Changes in v3:
+- Fixed the DT check error:
+  arch/arm64/boot/dts/amlogic/meson-s4-s805x2-aq222.dtb: video-codec@fe320000 (amlogic,s4-vcodec-dec): 'amlogic,canvas' does not match any of the regexes: '^pinctrl-[0-9]+$' 
+  from schema $id: http://devicetree.org/schemas/media/amlogic,vcodec-dec.yaml
+- Added DOS reset lines to dtsi and dt-binding.
+- Fixed the issue where some B-frames were not decoded correctly(The fluster failures mentioned in patch V1 and V2 were mostly caused by this).
+- Fixed the issue where canvas_index leaks occurred during the decoding of some bitstreams.
+- Rework the src/dst format storage. Use v4l2_pix_format_mplane to store formats that related to bitstreams into the context. Add the reset format function to reset all the formats to default value. 
+- Store decoding parameters related to chip platforms, such as maximum width/height and alignment requirement, organized by chip platform.
+- Link to v2: https://lore.kernel.org/r/20251124-b4-s4-vdec-upstream-v2-0-bdbbce3f11a6@amlogic.com
+
+Changes in v2:
+- Fixed incorrect generation of the reference lists for some B-frames.
+- Rename or get rid of some properties in DTS and dt-binding.
+- Remove some useless code or helper functions, (eg. clk helper functions, reg I/O macros, and some superfluous print messages) replace these functions with existing ones.
+- Replace all the printk messages with dev_err/dev_info/dev_dbg
+- Use the helper functions from the existing meson-canvas driver.
+- Use clk_bulk_data to map clocks from DTS.
+- Retry the V4L2 Compliance test on 6.18-rc6, fix a newly introduced bug.
+- Link to v1: https://lore.kernel.org/r/20251027-b4-s4-vdec-upstream-v1-0-620401813b5d@amlogic.com
+
+To: Mauro Carvalho Chehab <mchehab@kernel.org>
+To: Rob Herring <robh@kernel.org>
+To: Krzysztof Kozlowski <krzk+dt@kernel.org>
+To: Conor Dooley <conor+dt@kernel.org>
+To: Neil Armstrong <neil.armstrong@linaro.org>
+To: Kevin Hilman <khilman@baylibre.com>
+To: Jerome Brunet <jbrunet@baylibre.com>
+To: Martin Blumenstingl <martin.blumenstingl@googlemail.com>
+Cc: linux-media@vger.kernel.org
+Cc: devicetree@vger.kernel.org
+Cc: linux-kernel@vger.kernel.org
+Cc: linux-arm-kernel@lists.infradead.org
+Cc: linux-amlogic@lists.infradead.org
+
+Signed-off-by: Zhentao Guo <zhentao.guo@amlogic.com>
+---
+Zhentao Guo (6):
+      firmware: meson: sm: Add video firmware loading SMC call
+      firmware: meson: sm: video firmware loading via secure monitor
+      media: dt-bindings: Add Amlogic V4L2 video decoder
+      decoder: Add V4L2 stateless H.264 decoder driver
+      arm64: dts: amlogic: Add video decoder driver support for S4 SOCs
+      arm64: defconfig: Enable CONFIG_VIDEO_AMLOGIC_VDEC
+
+ .../devicetree/bindings/media/amlogic,s4-vdec.yaml |  103 +
+ MAINTAINERS                                        |    7 +
+ arch/arm64/boot/dts/amlogic/meson-s4.dtsi          |   34 +
+ arch/arm64/configs/defconfig                       |    1 +
+ drivers/firmware/meson/meson_sm.c                  |    1 +
+ drivers/media/platform/amlogic/Kconfig             |    1 +
+ drivers/media/platform/amlogic/Makefile            |    1 +
+ drivers/media/platform/amlogic/vdec/Kconfig        |   18 +
+ drivers/media/platform/amlogic/vdec/Makefile       |    4 +
+ drivers/media/platform/amlogic/vdec/TODO           |    7 +
+ drivers/media/platform/amlogic/vdec/aml_vdec.c     |  736 +++++++
+ drivers/media/platform/amlogic/vdec/aml_vdec.h     |   33 +
+ drivers/media/platform/amlogic/vdec/aml_vdec_drv.c |  239 +++
+ drivers/media/platform/amlogic/vdec/aml_vdec_drv.h |  172 ++
+ drivers/media/platform/amlogic/vdec/aml_vdec_hw.c  |  538 +++++
+ drivers/media/platform/amlogic/vdec/aml_vdec_hw.h  |  159 ++
+ .../platform/amlogic/vdec/aml_vdec_platform.c      |   81 +
+ .../platform/amlogic/vdec/aml_vdec_platform.h      |   46 +
+ .../media/platform/amlogic/vdec/aml_vdec_tee_fw.c  |  240 +++
+ .../media/platform/amlogic/vdec/aml_vdec_tee_fw.h  |   27 +
+ drivers/media/platform/amlogic/vdec/h264.c         | 2128 ++++++++++++++++++++
+ drivers/media/platform/amlogic/vdec/h264.h         |  299 +++
+ drivers/media/platform/amlogic/vdec/reg_defines.h  |  177 ++
+ include/linux/firmware/meson/meson_sm.h            |    1 +
+ 24 files changed, 5053 insertions(+)
+---
+base-commit: d387b06f7c15b4639244ad66b4b0900c6a02b430
+change-id: 20251027-b4-s4-vdec-upstream-0603c1a4c84a
+
+Best regards,
+-- 
+Zhentao Guo <zhentao.guo@amlogic.com>
+
 
