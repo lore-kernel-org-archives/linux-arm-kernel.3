@@ -4,99 +4,93 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 10243CD5BC8
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 26 May 2026 17:17:42 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id D562ECD5BB1
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 26 May 2026 17:20:53 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:In-Reply-To:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=kbKjzg9bSmm9vRJLbDtl4q72jw2NHj5tbX6e2y5JU5I=; b=eYWTzX6hNIUGBxP1UxWqXAKMWw
-	cmWrN0EtEHaJbIHgJ7ZRViXyIFamb7ZFQ2sLuQ27QIuM0p5iY6MKT4QNaeY3lniG/N5zK8Hmnlpw7
-	WRg2qDtqOQkR38wFJoZCPEIqQm0XrgK+ojrxlbeb8g4qJvhbJj8Rj6d3Du4v43r5Pn3+DCaZAHRo0
-	AUe9bfehkK11C2c/9l5TLOmpvckz5SjGNHUQWFRepHqX+zvv5nAZIRN8hdpT1vdzryFSJfq9YUewj
-	ec32xK2HY8z6bCmiljrTPqvECS1XVkqYzKtzqn8i4sRk2YIJIu2aBu9QLwP6JUz0YbUEWjEElUy4i
-	hSRExRtw==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:References
+	:Message-Id:Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:
+	From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=vmAxlo1wPpVUGFi4z8FBEYgHX8eETYEQ7eEa1NRb4nY=; b=RIXvjzfr7Kx7+jPNYhsp1e6NzR
+	hfXk16V+nLwNyi8hWWID2gVe80BHUStMEPOSAsoaJLhwFkTtVV39tJQfZgYm6aSztJWrldGSQ5rBN
+	FLigGbUJi0XE0tq2f0tdLGHf4+zjsCFMYyu8BCW16ZkzM80F9YuKagsRY+MQZcgejlMH9Mi37qVTq
+	Iwkt8oHNcOTmq9nISMZOw8U2Xyc1Ls3sjKhhvsbt2yDegXbcFEHEW0Q0FY+owTmvAAsVXvmw5qp4L
+	4FCGsTZ8pOF6lAdpfB33QKwrEmb/0XDS1o2GQhr21nNETtTbyXxIy/0QR4JyZKhTO+QwfyAQ+boiG
+	FeVd1QBA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wRvPK-00000002h6k-3JTe;
-	Tue, 26 May 2026 17:17:34 +0000
-Received: from us-smtp-delivery-124.mimecast.com ([170.10.129.124])
+	id 1wRuvk-00000002ZNa-0ia8;
+	Tue, 26 May 2026 16:47:00 +0000
+Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wRvPH-00000002h4s-2uSt
+	id 1wRuvQ-00000002Z8o-3hqK
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 26 May 2026 17:17:33 +0000
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=redhat.com;
-	s=mimecast20190719; t=1779815849;
-	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
-	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
-	 in-reply-to:in-reply-to:references:references;
-	bh=kbKjzg9bSmm9vRJLbDtl4q72jw2NHj5tbX6e2y5JU5I=;
-	b=R6AVUtDrOHvciJ3n+l1MO3qtVn6V6ekeJI80E+Q1j6JUi+itNH5zMzBQLr8RCfRfr4wITo
-	dYZmW4c+RDuXdQm0WhsDeutOYPnxQ0ULgP/dPKZfXz4UbB+0J8/AwGO9ZScOVJBUSzo/d9
-	WUvLL41yQTi++/bnhfsTJSg1zaXx/oA=
-Received: from mail-oa1-f70.google.com (mail-oa1-f70.google.com
- [209.85.160.70]) by relay.mimecast.com with ESMTP with STARTTLS
- (version=TLSv1.3, cipher=TLS_AES_256_GCM_SHA384) id
- us-mta-158-OMMXJv7MMDqZ6w0GrtUImw-1; Tue, 26 May 2026 13:16:03 -0400
-X-MC-Unique: OMMXJv7MMDqZ6w0GrtUImw-1
-X-Mimecast-MFC-AGG-ID: OMMXJv7MMDqZ6w0GrtUImw_1779815762
-Received: by mail-oa1-f70.google.com with SMTP id 586e51a60fabf-43b6f928e2eso3761157fac.3
-        for <linux-arm-kernel@lists.infradead.org>; Tue, 26 May 2026 10:16:03 -0700 (PDT)
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20251104; t=1779815762; x=1780420562;
-        h=user-agent:in-reply-to:content-disposition:mime-version:references
-         :message-id:subject:cc:to:from:date:x-gm-gg:x-gm-message-state:from
-         :to:cc:subject:date:message-id:reply-to;
-        bh=kbKjzg9bSmm9vRJLbDtl4q72jw2NHj5tbX6e2y5JU5I=;
-        b=Lymid2uoovBo41b2KyF7Sw8ceiXalaCOcDmtxxnxx6slMypcKfpQYkPz7Z7sLFJ8dF
-         9Rgw8G7Zc8YMYxAAv7lghQuzoK+c9PQyKTBMCUfuAe9A26m6eR9/qyqtoDpAZ5mOLE2U
-         hr0xp4fWwqHlKRC+N4bsGMGcIqpM0wmp9ByDODpRo2uVXeedKrtBmePBDRxRrIgNExEA
-         Wnuki3ys3vb7SpEvzhOj3zpBGhG3fEx1FGK3NJrhcezMRxGBjLGlSUi5yNiKDQOYDnHn
-         a7Y7XL5WLEIxxBnQisBz4OAwxsMpDy9P2qIeETylajHGHUPFKeWQkLxl1Q2gunv30Ca0
-         TFlQ==
-X-Forwarded-Encrypted: i=1; AFNElJ9GjsTGxgH8ROUcpWZMajS+a6/dfN3cOhVu6IxVRQ6olzNNcWbu+SBbRH5gd4lZ1LRumZ/yiDIva9F3+c0VxFra@lists.infradead.org
-X-Gm-Message-State: AOJu0YyG2pa3IyOlqG7+/fnz6D0DRfknhzI4+Yi0MfRykoBNCd2Axefk
-	HZQRCqhDs73ntagk/YPDaP2Hq3mKh5RhvsnFZR9vv6wviHmCbvLIHmKW2ibGPyNrHiWH4/D4HvP
-	GvVuHyeALjZT6jk5HGRddVxTSCYcqeVAMfGpvtWgoO9UOjJNh2WZ1TO0TWbsoW2hWXgDvxTm5lH
-	uA
-X-Gm-Gg: Acq92OGf8d/aNOJS1ePby2AKZlz7P/LGwIv0WHwUwYk5Quo6RN3VIkc/O2TxDqzdJ64
-	RG1KLxtMrscpSEKQIZxYh0B86UZjS29b0yjQusgBHvXd8uvxOjBfmPUbZCMfHSMdocLioDymPaM
-	dNYxUSypWZ5HGorqsDjUXir2SKrAKuMpVUNCdxMXavMwos7Z04STuYVmh5prZEsbuNnvfYQeRyt
-	a+hl49Zm+lDlRJtn77nVNvVTrIQCX/7Bm2r/+FkolIduU3tOG/HJJPA53E3Tg1/zk+Tgimrld6w
-	DmDSAlOkpOVCGlnfQkHHMaVdaoZQV19ueI/7ZExNHo4ZNJ5JvYxjAuXVeDUmFNmL+12dFK0VS3t
-	PemaA2bnC6J2QLvZFGgrp/dj8YpmePQ/JvX4FCNuX2SAPa0IxRfLFgj+zGT7tYOm7eFY=
-X-Received: by 2002:a05:6820:4b14:b0:69d:d9c5:9308 with SMTP id 006d021491bc7-69dd9c5938emr1142391eaf.16.1779815762421;
-        Tue, 26 May 2026 10:16:02 -0700 (PDT)
-X-Received: by 2002:a05:6820:4b14:b0:69d:d9c5:9308 with SMTP id 006d021491bc7-69dd9c5938emr1142352eaf.16.1779815761931;
-        Tue, 26 May 2026 10:16:01 -0700 (PDT)
-Received: from redhat.com (c-73-183-52-120.hsd1.pa.comcast.net. [73.183.52.120])
-        by smtp.gmail.com with ESMTPSA id 6a1803df08f44-8cc812e2018sm148514636d6.28.2026.05.26.10.15.59
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Tue, 26 May 2026 10:16:00 -0700 (PDT)
-Date: Tue, 26 May 2026 13:15:59 -0400
-From: Brian Masney <bmasney@redhat.com>
-To: Akari Tsuyukusa <akkun11.open@gmail.com>
-Cc: mturquette@baylibre.com, sboyd@kernel.org, matthias.bgg@gmail.com,
-	angelogioacchino.delregno@collabora.com, wenst@chromium.org,
-	laura.nao@collabora.com, linux-clk@vger.kernel.org,
-	linux-kernel@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
-	linux-mediatek@lists.infradead.org, stable@vger.kernel.org
-Subject: Re: [PATCH] clk: mediatek: mt8196: Select REGMAP_MMIO for vlpckgen
-Message-ID: <ahXVT62JUZmliXfy@redhat.com>
-References: <20260522133023.355404-1-akkun11.open@gmail.com>
+	Tue, 26 May 2026 16:46:42 +0000
+Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
+	by sea.source.kernel.org (Postfix) with ESMTP id 8BC71407DA;
+	Tue, 26 May 2026 16:46:40 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id B384D1F00A3E;
+	Tue, 26 May 2026 16:46:39 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
+	s=k20260515; t=1779814000;
+	bh=vmAxlo1wPpVUGFi4z8FBEYgHX8eETYEQ7eEa1NRb4nY=;
+	h=From:Date:Subject:References:In-Reply-To:To:Cc;
+	b=ccr+aUxQl8B8VP26+PznQjAM5jvmJNlSdE8U9y1ip5BaMLJntllTX7BY3Nr43ByYR
+	 3I7qL/PTr0QwCrtyQp5W+bo5LH0b+yhWamg9kaS/Fw6GLalmo3/TqXzvjcAl9nVoTn
+	 t8pbV74ygCP68BufoMuGEOi+/SGvtWM7zzOAXpKfVmwYbW2Tm5LKKOWmxbPJWLA57b
+	 rSEhj3pPq4GQvInyObJ0rsAxTMjEppCSJ4qJqErb5Uii0gr0M+ohJ5g6VIUDtjpb+D
+	 dfh5vciNbOM7B3WO74qXzJZivvN3UwICa9CBKQ43vqHiJAJxStDMBJJyEzSMzn3vBU
+	 WScG04N75WgRQ==
+From: Maxime Ripard <mripard@kernel.org>
+Date: Tue, 26 May 2026 18:46:17 +0200
+Subject: [PATCH v6 05/19] drm/mode-config: Document drm_private_obj
+ exclusion from drm_mode_config_reset()
 MIME-Version: 1.0
-In-Reply-To: <20260522133023.355404-1-akkun11.open@gmail.com>
-User-Agent: Mutt/2.3.1 (2026-03-20)
-X-Mimecast-Spam-Score: 0
-X-Mimecast-MFC-PROC-ID: S_5SpCRZSsL5TcnQI0bUUp4A02-A2w9G7mBC1NFlams_1779815762
-X-Mimecast-Originator: redhat.com
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: 7bit
+Message-Id: <20260526-drm-mode-config-init-v6-5-852346394200@kernel.org>
+References: <20260526-drm-mode-config-init-v6-0-852346394200@kernel.org>
+In-Reply-To: <20260526-drm-mode-config-init-v6-0-852346394200@kernel.org>
+To: Maarten Lankhorst <maarten.lankhorst@linux.intel.com>, 
+ Thomas Zimmermann <tzimmermann@suse.de>, David Airlie <airlied@gmail.com>, 
+ Simona Vetter <simona@ffwll.ch>, Jonathan Corbet <corbet@lwn.net>, 
+ Shuah Khan <skhan@linuxfoundation.org>, 
+ Dmitry Baryshkov <dmitry.baryshkov@oss.qualcomm.com>, 
+ Jyri Sarha <jyri.sarha@iki.fi>, 
+ Tomi Valkeinen <tomi.valkeinen@ideasonboard.com>, 
+ Andrzej Hajda <andrzej.hajda@intel.com>, 
+ Neil Armstrong <neil.armstrong@linaro.org>, Robert Foss <rfoss@kernel.org>, 
+ Laurent Pinchart <Laurent.pinchart@ideasonboard.com>, 
+ Jonas Karlman <jonas@kwiboo.se>, Jernej Skrabec <jernej.skrabec@gmail.com>, 
+ Simon Ser <contact@emersion.fr>, Harry Wentland <harry.wentland@amd.com>, 
+ Melissa Wen <mwen@igalia.com>, Sebastian Wick <sebastian.wick@redhat.com>, 
+ Alex Hung <alex.hung@amd.com>, Jani Nikula <jani.nikula@linux.intel.com>, 
+ Rodrigo Vivi <rodrigo.vivi@intel.com>, 
+ Joonas Lahtinen <joonas.lahtinen@linux.intel.com>, 
+ Tvrtko Ursulin <tursulin@ursulin.net>, Chen-Yu Tsai <wens@kernel.org>, 
+ Samuel Holland <samuel@sholland.org>, 
+ Dave Stevenson <dave.stevenson@raspberrypi.com>, 
+ =?utf-8?q?Ma=C3=ADra_Canal?= <mcanal@igalia.com>, 
+ Raspberry Pi Kernel Maintenance <kernel-list@raspberrypi.com>
+Cc: dri-devel@lists.freedesktop.org, linux-doc@vger.kernel.org, 
+ linux-kernel@vger.kernel.org, Daniel Stone <daniels@collabora.com>, 
+ intel-gfx@lists.freedesktop.org, intel-xe@lists.freedesktop.org, 
+ linux-arm-kernel@lists.infradead.org, linux-sunxi@lists.linux.dev, 
+ Maxime Ripard <mripard@kernel.org>, 
+ Laurent Pinchart <laurent.pinchart+renesas@ideasonboard.com>
+X-Mailer: b4 0.14.3
+X-Developer-Signature: v=1; a=openpgp-sha256; l=1438; i=mripard@kernel.org;
+ h=from:subject:message-id; bh=p9ZaVQhU6x2BUkTWwGqZUaX+oUcICWz2dxNRq772dNc=;
+ b=owGbwMvMwCmsHn9OcpHtvjLG02pJDFmi5yICquxP9H7QShWVXMCSd7vposCC4Dzt1JqfSx6dF
+ OiqXWTfMZWFQZiTQVZMkeWJTNjp5e2LqxzsV/6AmcPKBDKEgYtTACbCrsBYZ/nwX9WGoDVKv2vC
+ bjQvNb9///Z62doejbvN/TxBeZqHE8IkZtxlYhThFdlgIOh3tdKFsYarJe3f9J1988I8rvZvE1u
+ oMvX4X9NpIZ7ygitPKZ30zlN6mP9kotbOvJ9v2Q70TLGW9AUA
+X-Developer-Key: i=mripard@kernel.org; a=openpgp;
+ fpr=BE5675C37E818C8B5764241C254BCFC56BF6CE8D
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260526_101731_803308_2F9E8992 
-X-CRM114-Status: GOOD (  11.66  )
+X-CRM114-CacheID: sfid-20260526_094640_976953_7854B615 
+X-CRM114-Status: GOOD (  10.54  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -111,19 +105,43 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Fri, May 22, 2026 at 10:30:23PM +0900, Akari Tsuyukusa wrote:
-> The MediaTek MT8196 vlpckgen clock driver uses
-> __devm_regmap_init_mmio_clk() by devm_regmap_init_mmio(),
-> which is defined in drivers/base/regmap/regmap-mmio.c.
-> However, the driver's Kconfig entry does not select REGMAP_MMIO.
-> This causes a linker error when REGMAP_MMIO is not enabled.
-> 
-> Fix this by selecting REGMAP_MMIO in the Kconfig entry.
-> 
-> Fixes: 2f8b3ae6f0cb ("clk: mediatek: Add MT8196 vlpckgen clock support")
-> Cc: stable@vger.kernel.org
-> Signed-off-by: Akari Tsuyukusa <akkun11.open@gmail.com>
+drm_mode_config_reset() does not reset drm_private_states by design.
 
-Reviewed-by: Brian Masney <bmasney@redhat.com>
+This is especially significant for the DP MST and tunneling code that
+expect to be preserved across a suspend/resume cycle, where
+drm_mode_config_reset() is also used.
+
+Document this expectation.
+
+Link: https://lore.kernel.org/dri-devel/aOaQLx-7EpsHRwkH@ideak-desk/
+Reviewed-by: Laurent Pinchart <laurent.pinchart+renesas@ideasonboard.com>
+Reviewed-by: Thomas Zimmermann <tzimmermann@suse.de>
+Signed-off-by: Maxime Ripard <mripard@kernel.org>
+---
+ drivers/gpu/drm/drm_mode_config.c | 4 ++++
+ 1 file changed, 4 insertions(+)
+
+diff --git a/drivers/gpu/drm/drm_mode_config.c b/drivers/gpu/drm/drm_mode_config.c
+index 66f7dc37b597..c33382a38191 100644
+--- a/drivers/gpu/drm/drm_mode_config.c
++++ b/drivers/gpu/drm/drm_mode_config.c
+@@ -187,10 +187,14 @@ int drm_mode_getresources(struct drm_device *dev, void *data,
+  * @dev: drm device
+  *
+  * This functions calls all the crtc's, encoder's and connector's ->reset
+  * callback. Drivers can use this in e.g. their driver load or resume code to
+  * reset hardware and software state.
++ *
++ * Note that &drm_private_obj structures are expected to be stable across
++ * suspend/resume cycles, and drm_mode_config_reset() does not affect these
++ * structures.
+  */
+ void drm_mode_config_reset(struct drm_device *dev)
+ {
+ 	struct drm_crtc *crtc;
+ 	struct drm_colorop *colorop;
+
+-- 
+2.54.0
 
 
