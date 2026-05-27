@@ -4,87 +4,74 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 4305FCD5BD0
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 27 May 2026 12:13:11 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 6A57BCD5BD0
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 27 May 2026 12:15:26 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:
-	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Content-Type:MIME-Version:Date:Message-Id:Subject:References:In-Reply-To:Cc:
+	To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=2I29sVWPGLqUjIDyjNAdYt3UxHapRuSjOGldiuvjnFA=; b=KeFW5w5xq/dEh01m5dzHQTiyDd
-	Igat/l55gAcSUt9kOcrkkzc2huNOT7qsjCBZHxJveF0/k3kVuC1Ry0xHFd7BoklyCviE6vfB0fO0K
-	4iVrN24KZhBhOWGy4eFT/aKt49crD7r3SQDfT9aU4juI3Dx++LHXdU3c9U112Gh6ZBM6X9h/VwxlF
-	Eo7JPtxbj7TlLZBvCbq04/S477/bAMlvlmPStInaUY8RPHjLbt6cCcJ4jKZ6OkcGFS7pEQ/JttLnL
-	ie0GEYEPUJAd97gwK5qCtm1PCJPHhXk/5h+jPOo8hkVzjpBPrc3Ee+huq4JE8idxWIAKdDGohceE1
-	G7rMB88w==;
+	bh=vA1rZLkXAAX0deJgLbaiD7Ggpc9NMMGcRExXvihSAhY=; b=AcBZLzO5hrR/wf8MHU4iluOLZ0
+	qXB29vxVjxS4yKdrng04auvn6KrBt/DZQFOhI4sgI8tO5Q9n+gQrcRX2oLBMPYNR0NvXF+gRWVq9I
+	lsP0B+cx1nMfpVd5UXOP9PyMpAs7LnaIL4sGiUWS6U4nUKMG7qrvJyC70qHpSf6gTdReQ9rwOuBXD
+	l3Bu+bO4MGzQfr4TiTyWG3yjdVQYW69QnlOKdodP61kdgPg3MptGU/ybCb3yVvcR64Gxx3VcELqdA
+	fIPthJAbjGjjMiu61AN5Db0FdmGrEHVHcJ9BseOgZaDPV28F8BTgV7rscfKhG8sryAgTqG0YDWNMk
+	LRN6+rsw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wSD8B-000000043Wo-3m0e;
-	Wed, 27 May 2026 12:13:03 +0000
-Received: from tor.source.kernel.org ([172.105.4.254])
+	id 1wSDAN-000000043z8-0v07;
+	Wed, 27 May 2026 12:15:19 +0000
+Received: from sea.source.kernel.org ([172.234.252.31])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wSD7z-000000043QT-06bJ
-	for linux-arm-kernel@lists.infradead.org;
-	Wed, 27 May 2026 12:12:53 +0000
+	id 1wSDAI-000000043xm-1rfD;
+	Wed, 27 May 2026 12:15:16 +0000
 Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
-	by tor.source.kernel.org (Postfix) with ESMTP id 72F3F60154;
-	Wed, 27 May 2026 12:12:50 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id E7C511F000E9;
-	Wed, 27 May 2026 12:12:49 +0000 (UTC)
+	by sea.source.kernel.org (Postfix) with ESMTP id 05488442B6;
+	Wed, 27 May 2026 12:15:14 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 2D2471F000E9;
+	Wed, 27 May 2026 12:15:12 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1779883970;
-	bh=2I29sVWPGLqUjIDyjNAdYt3UxHapRuSjOGldiuvjnFA=;
-	h=From:To:Cc:Subject:Date:In-Reply-To:References;
-	b=YDnomG9T/2ke5Rv5/HWio2Pv40kda1zsQ4ipmwuz1tZU2N6mznX/nEB1PIRxVejpm
-	 8MjwhVuv3sZafyTNpSVtn5o283JlpvGkKVt+T+w/bwjaC1kpKaUr8ZtLFNGONEQnhP
-	 y83MWM+EwN4ovMGJjCuc4rvIGDZCAfEwHOyDOZz16Qv44uQ3f+gudgHHQqV7cz7xib
-	 6Y2sgglGn272YMw5arS+W1mOnnAM/gWtFXT6O1CEBRogZtTdzdlGWvMB67WlaOwwKk
-	 y4azC2jo+CqXj3t3MN2whp0jecPR8xQxiQh6xxRI7/XLrypTkynAirbPivYfTBnGwA
-	 SwD0CwaSZUtMQ==
-From: Puranjay Mohan <puranjay@kernel.org>
-To: bpf@vger.kernel.org
-Cc: Puranjay Mohan <puranjay@kernel.org>,
-	Puranjay Mohan <puranjay12@gmail.com>,
-	Alexei Starovoitov <ast@kernel.org>,
-	Daniel Borkmann <daniel@iogearbox.net>,
-	John Fastabend <john.fastabend@gmail.com>,
-	Andrii Nakryiko <andrii@kernel.org>,
-	Martin KaFai Lau <martin.lau@linux.dev>,
-	Eduard Zingerman <eddyz87@gmail.com>,
-	Song Liu <song@kernel.org>,
-	Yonghong Song <yonghong.song@linux.dev>,
-	Will Deacon <will@kernel.org>,
-	Mark Rutland <mark.rutland@arm.com>,
-	Catalin Marinas <catalin.marinas@arm.com>,
-	Leo Yan <leo.yan@arm.com>,
-	Rob Herring <robh@kernel.org>,
-	Peter Zijlstra <peterz@infradead.org>,
-	Ingo Molnar <mingo@redhat.com>,
-	Arnaldo Carvalho de Melo <acme@kernel.org>,
-	Namhyung Kim <namhyung@kernel.org>,
-	James Clark <james.clark@linaro.org>,
-	Ian Rogers <irogers@google.com>,
-	Adrian Hunter <adrian.hunter@intel.com>,
-	Shuah Khan <shuah@kernel.org>,
-	Breno Leitao <leitao@debian.org>,
-	Ravi Bangoria <ravi.bangoria@amd.com>,
-	Stephane Eranian <eranian@google.com>,
-	Kumar Kartikeya Dwivedi <memxor@gmail.com>,
-	Usama Arif <usama.arif@linux.dev>,
-	linux-arm-kernel@lists.infradead.org,
-	linux-perf-users@vger.kernel.org,
-	linux-kselftest@vger.kernel.org,
-	linux-kernel@vger.kernel.org,
-	kernel-team@meta.com
-Subject: [PATCH v4 4/4] selftests/bpf: Adjust wasted entries threshold for ARM64 BRBE
-Date: Wed, 27 May 2026 05:12:00 -0700
-Message-ID: <20260527121207.2312181-5-puranjay@kernel.org>
-X-Mailer: git-send-email 2.52.0
-In-Reply-To: <20260527121207.2312181-1-puranjay@kernel.org>
-References: <20260527121207.2312181-1-puranjay@kernel.org>
+	s=k20260515; t=1779884113;
+	bh=vA1rZLkXAAX0deJgLbaiD7Ggpc9NMMGcRExXvihSAhY=;
+	h=From:To:Cc:In-Reply-To:References:Subject:Date;
+	b=R16+bl7pxvaUtXS6kBTKrtg1x7C4+06iji7wWiXYOQNX2KFsl5EGCz4rTSjCswlGI
+	 iQZ+1xIVT0du9EO6mmReIUWw+aEBXeMAZfZgRjzmZfz/kG00Qw5XHy4ui4Xsj3c6kc
+	 stEjZjzQJQdvYCUWBKFkzlbre4wamN/qFoDkemJFHn25RivVgBVqC2T8eWxgVv2yQW
+	 fDxVU4HFWAhfsIZIxv/gvijH2BNZNuG28Zx+QIdcE1+/Si6lRStQDkr5NloCuXurVY
+	 KZuAvxyBqi36fha73rLI5RQ5Z+v+UtyBUTSnsu2QRtSzuz5f1SXaJJokYHVH/83fq5
+	 tt/DDYcz2dHug==
+From: Mark Brown <broonie@kernel.org>
+To: linux-sound@vger.kernel.org, Rosen Penev <rosenp@gmail.com>
+Cc: Liam Girdwood <lgirdwood@gmail.com>, Jaroslav Kysela <perex@perex.cz>, 
+ Takashi Iwai <tiwai@suse.com>, Matthias Brugger <matthias.bgg@gmail.com>, 
+ AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>, 
+ linux-kernel@vger.kernel.org, linux-arm-kernel@lists.infradead.org, 
+ linux-mediatek@lists.infradead.org
+In-Reply-To: <20260519010413.629214-1-rosenp@gmail.com>
+References: <20260519010413.629214-1-rosenp@gmail.com>
+Subject: Re: [PATCH] ASoC: mediatek: mt2701: allocate i2s_path with priv
+Message-Id: <177987681143.868420.277392491342387583.b4-ty@b4>
+Date: Wed, 27 May 2026 11:13:31 +0100
 MIME-Version: 1.0
-Content-Transfer-Encoding: 8bit
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: 7bit
+X-Mailer: b4 0.16-dev
+X-Developer-Signature: v=1; a=openpgp-sha256; l=1119; i=broonie@kernel.org;
+ h=from:subject:message-id; bh=GEJQ74VP+zDsUk4K7l8UoIfmlmd7AsGJBB8X3r9TPUM=;
+ b=owEBbQGS/pANAwAKASTWi3JdVIfQAcsmYgBqFuBPQmpnL9F7Di0mzPQARB0JONWViTPk/pM10
+ T9kunVwRbuJATMEAAEKAB0WIQSt5miqZ1cYtZ/in+ok1otyXVSH0AUCahbgTwAKCRAk1otyXVSH
+ 0I3gB/sEVdabjNdhlOJyFPr0tlVBlRrpxxtpUlK8B7sUt0VoRA+3jXqFSJFNT62IwLG1MCUXcCP
+ +YALgMzSqE7lwLe5OeWp6OZzxtcuLumzl5d3uoMmfsDy9voNWkyVq/L+1AOivbUFgNQwZSJTD72
+ eDo+ZhkIi+UWIfnu4xAJhDKarQwtKRPVTSX5h4Kwwq7ptS66MtJx9iHZqbprTKVa+QvjkcRtinN
+ Oygk4gRPqPNvGn+4RibqXpRTQZDIaY2RZ9tporOkIk3+YR2yqitLI46/BtKeAZLrILpcUtAYVaT
+ rz3EWsamwXn2+ORk7JHfaAid09NuLVdkOVoWocujBWAJArxN
+X-Developer-Key: i=broonie@kernel.org; a=openpgp;
+ fpr=3F2568AAC26998F9E813A1C5C3F436CA30F5D8EB
+X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
+X-CRM114-CacheID: sfid-20260527_051515_375035_1A0D4BBA 
+X-CRM114-Status: UNSURE (   9.20  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -99,67 +86,35 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-The get_branch_snapshot test checks that bpf_get_branch_snapshot()
-doesn't waste too many branch entries on infrastructure overhead. The
-threshold of < 10 was calibrated for x86 where about 7 entries are
-wasted.
+On Mon, 18 May 2026 18:04:13 -0700, Rosen Penev wrote:
+> ASoC: mediatek: mt2701: allocate i2s_path with priv
 
-On ARM64, the BPF trampoline generates more branches than x86,
-resulting in about 13 wasted entries. The overhead comes from the BPF
-trampoline calling __bpf_prog_enter_recur which on ARM64 makes
-out-of-line calls to __rcu_read_lock and generates more conditional
-branches than x86:
+Applied to
 
- [#12] bpf_testmod_loop_test+0x40    -> bpf_trampoline_...+0x48
- [#11] bpf_trampoline_...+0x68       -> __bpf_prog_enter_recur+0x0
- [#10] __bpf_prog_enter_recur+0x20   -> __bpf_prog_enter_recur+0x118
- [#09] __bpf_prog_enter_recur+0x154  -> __bpf_prog_enter_recur+0x160
- [#08] __bpf_prog_enter_recur+0x164  -> __bpf_prog_enter_recur+0x2c
- [#07] __bpf_prog_enter_recur+0x2c   -> __rcu_read_lock+0x0
- [#06] __rcu_read_lock+0x18          -> __bpf_prog_enter_recur+0x30
- [#05] __bpf_prog_enter_recur+0x9c   -> __bpf_prog_enter_recur+0xf0
- [#04] __bpf_prog_enter_recur+0xf4   -> __bpf_prog_enter_recur+0xa8
- [#03] __bpf_prog_enter_recur+0xb8   -> __bpf_prog_enter_recur+0x100
- [#02] __bpf_prog_enter_recur+0x114  -> bpf_trampoline_...+0x6c
- [#01] bpf_trampoline_...+0x78       -> bpf_prog_...test1+0x0
- [#00] bpf_prog_...test1+0x58        -> arm_brbe_snapshot_branch_stack+0x0
+   https://git.kernel.org/pub/scm/linux/kernel/git/broonie/sound.git for-7.2
 
-Use an architecture-specific threshold of < 14 for ARM64 to accommodate
-this overhead while still detecting regressions.
+Thanks!
 
-Signed-off-by: Puranjay Mohan <puranjay@kernel.org>
----
- .../selftests/bpf/prog_tests/get_branch_snapshot.c  | 13 +++++++++----
- 1 file changed, 9 insertions(+), 4 deletions(-)
+[1/1] ASoC: mediatek: mt2701: allocate i2s_path with priv
+      https://git.kernel.org/broonie/sound/c/344a4c96b292
 
-diff --git a/tools/testing/selftests/bpf/prog_tests/get_branch_snapshot.c b/tools/testing/selftests/bpf/prog_tests/get_branch_snapshot.c
-index 0394a1156d99..8d1a3480767f 100644
---- a/tools/testing/selftests/bpf/prog_tests/get_branch_snapshot.c
-+++ b/tools/testing/selftests/bpf/prog_tests/get_branch_snapshot.c
-@@ -116,13 +116,18 @@ void serial_test_get_branch_snapshot(void)
- 
- 	ASSERT_GT(skel->bss->test1_hits, 6, "find_looptest_in_lbr");
- 
--	/* Given we stop LBR in software, we will waste a few entries.
-+	/* Given we stop LBR/BRBE in software, we will waste a few entries.
- 	 * But we should try to waste as few as possible entries. We are at
--	 * about 7 on x86_64 systems.
--	 * Add a check for < 10 so that we get heads-up when something
--	 * changes and wastes too many entries.
-+	 * about 7 on x86_64 and about 13 on arm64 systems (the arm64 BPF
-+	 * trampoline generates more branches than x86_64).
-+	 * Add a check so that we get heads-up when something changes and
-+	 * wastes too many entries.
- 	 */
-+#if defined(__aarch64__)
-+	ASSERT_LT(skel->bss->wasted_entries, 14, "check_wasted_entries");
-+#else
- 	ASSERT_LT(skel->bss->wasted_entries, 10, "check_wasted_entries");
-+#endif
- 
- cleanup:
- 	get_branch_snapshot__destroy(skel);
--- 
-2.53.0-Meta
+All being well this means that it will be integrated into the linux-next
+tree (usually sometime in the next 24 hours) and sent to Linus during
+the next merge window (or sooner if it is a bug fix), however if
+problems are discovered then the patch may be dropped or reverted.
+
+You may get further e-mails resulting from automated or manual testing
+and review of the tree, please engage with people reporting problems and
+send followup patches addressing any issues that are reported if needed.
+
+If any updates are required or you are submitting further changes they
+should be sent as incremental updates against current git, existing
+patches will not be replaced.
+
+Please add any relevant lists and maintainers to the CCs when replying
+to this mail.
+
+Thanks,
+Mark
 
 
