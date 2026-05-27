@@ -4,64 +4,71 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id A9850CD5BD5
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 27 May 2026 13:33:17 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 31FBACD5BD5
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 27 May 2026 13:35:16 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
-	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Content-Type:MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:
+	To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=rmb4mYY/tR6wAzo9c72UaF10jDbWAFm5WdiypbDuAek=; b=HE3OkIIgsguAgp/ttzdtBbe4yS
-	7SUkf8LwZ8dAlfPMf1wxbbEGHyP8/DZ7s173t+2J2r3vDrGFGwQQUJoWOHQIcJp4TM6DyCBYNe9dv
-	HwagyMq/zKQ3hZ4GlWRPMMwY75PjO7Jxs8diptjrIz//ODLNDrPOSf0frt+CylmYOvPvdvDjACSub
-	mRtSgbBXSMlItWBzwlmXSFs7vk39r/gciqviLisqzOZHO2CON+EDd73+4MrNP1gyQzLPA/xr2WG6B
-	+IbTNY4byt4lfWVYTtUaVGVJuEULFu+PQkWGMYaZ4zU+qQFfFya2XQsi+TNyP9LxlcIZ2f2LgerPk
-	AdWbKP0Q==;
+	bh=7bbLd/ReiMVal7BI3TQK6EkG9qzsmUQTFJ7L4iRvVGQ=; b=NMDjqdCehAmlHqTVXjM+hcqzCC
+	lvSvhQwor2YBOSjbM99oMAjz0tABUlN9MEBFCsCdoHqmxYKeTd90g8NFg5YrejYnt0kUfN6vk2anK
+	RME9mDwJFxPO7JnM5XQhhYVVktDbHTs0tThv0UcQIgY5/cTGEnrWnCAlOejVq1JzJubyfW19wRZbo
+	XhD2/UiIuHOXf/OlQ9S0BCWOLdoHCKb75pn+CHjp9td2zjf0jxy9ynhsazvb7T8//jByk+sq2JivB
+	DJhe5yly8NNlHA9badEQNUIi9OeFcfbg4ZkY+m95ktoiQULy5Qsgcm5J8Vxj4RNAR8mJdpl7PY8aI
+	jjABNI1w==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wSENh-00000004CUU-41MU;
-	Wed, 27 May 2026 13:33:09 +0000
-Received: from foss.arm.com ([217.140.110.172])
-	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wSENf-00000004CTT-104Q
-	for linux-arm-kernel@lists.infradead.org;
-	Wed, 27 May 2026 13:33:08 +0000
-Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
-	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id ABFD62D97;
-	Wed, 27 May 2026 06:33:00 -0700 (PDT)
-Received: from [10.164.19.7] (unknown [10.164.19.7])
-	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id B50A13F7D8;
-	Wed, 27 May 2026 06:32:58 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=simple/simple; d=arm.com; s=foss;
-	t=1779888785; bh=3ivWgqiUQpM5lpUukOrYmMpxiPpqwEREWe2J1ceJJyQ=;
-	h=Date:Subject:To:Cc:References:From:In-Reply-To:From;
-	b=DS09TTNr6G4NjbjAXlLHBx2vUIEabRA7TZV/BDCQgkCNcsiYvXLIIen3LoIszH4I0
-	 I+o57N2wxdUw2rfue4Qw03PT2fcV9LWeRF3FGViXYm0CyHoOnqTkHvkS7PdSPgZKNy
-	 V2AHs3nRZMnVjFppu6E4/k3ZV1W8cH28sq13xowo=
-Message-ID: <e5a59b25-d8ce-4d78-aec3-ee1b6efccfed@arm.com>
-Date: Wed, 27 May 2026 19:02:55 +0530
+	id 1wSEPd-00000004Cgi-1IFK;
+	Wed, 27 May 2026 13:35:09 +0000
+Received: from gloria.sntech.de ([185.11.138.130])
+	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
+	id 1wSEPa-00000004Cfz-1QrQ;
+	Wed, 27 May 2026 13:35:07 +0000
+DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed; d=sntech.de;
+	s=gloria202408; h=Content-Transfer-Encoding:Content-Type:MIME-Version:
+	References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:Reply-To;
+	bh=7bbLd/ReiMVal7BI3TQK6EkG9qzsmUQTFJ7L4iRvVGQ=; b=Q0uEJmSC2jorPw/8uLKDtgqIft
+	zOgIaT7DfctgL3B+ol+wNUa8zWAEcEOn5hhJqktN64wvxF4qgG3Ns9PylFEd7sN71wq4MgZJfMPyJ
+	lpbu8lfei6JrSi7lVJn3R1M6b7HrRs2HU/ZMfabpTSqDyygO2NUhzjyVzztiY5K/8yC/5HMue/2Ej
+	N8GUNcyGSmQmgvGlkmabT2y8T/NBIt1H5yOLjXPxFGerCwhwfuv3Uyi3yk7YXsktvmP9zJ/kXFcOc
+	HPzqJdpulAQYuFzulBcEWHwTD1Q0VeoVG1OfPLf8h7YWbRpYCiNaJ+rBTF4MIwFZo1sBWK0xx9I/C
+	N9iP95xA==;
+From: Heiko Stuebner <heiko@sntech.de>
+To: Jacob Chen <jacob-chen@iotwrt.com>,
+	Ezequiel Garcia <ezequiel@vanguardiasur.com.ar>,
+	Mauro Carvalho Chehab <mchehab@kernel.org>,
+	Rob Herring <robh@kernel.org>,
+	Krzysztof Kozlowski <krzk+dt@kernel.org>,
+	Conor Dooley <conor+dt@kernel.org>,
+	Hans Verkuil <hverkuil@kernel.org>,
+	=?UTF-8?q?Sven=20P=C3=BCschel?= <s.pueschel@pengutronix.de>
+Cc: Heiko Stuebner <heiko@sntech.de>,
+	linux-media@vger.kernel.org,
+	linux-rockchip@lists.infradead.org,
+	linux-arm-kernel@lists.infradead.org,
+	linux-kernel@vger.kernel.org,
+	devicetree@vger.kernel.org,
+	kernel@pengutronix.de,
+	nicolas@ndufresne.ca,
+	sebastian.reichel@collabora.com,
+	m.tretter@pengutronix.de,
+	p.zabel@pengutronix.de,
+	Nicolas Dufresne <nicolas.dufresne@collabora.com>,
+	Michael Olbrich <m.olbrich@pengutronix.de>
+Subject: Re: (subset) [PATCH v7 00/28] media: platform: rga: Add RGA3 support
+Date: Wed, 27 May 2026 15:34:55 +0200
+Message-ID: <177988888078.3803653.9229622993223830333.b4-ty@sntech.de>
+X-Mailer: git-send-email 2.47.3
+In-Reply-To: <20260521-spu-rga3-v7-0-3f33e8c7145f@pengutronix.de>
+References: <20260521-spu-rga3-v7-0-3f33e8c7145f@pengutronix.de>
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [RFC PATCH 1/3] mm: make persistent huge zero folio read-only
-To: Xueyuan chen <xueyuan.chen21@gmail.com>, akpm@linux-foundation.org,
- linux-mm@kvack.org
-Cc: linux-kernel@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
- x86@kernel.org, catalin.marinas@arm.com, will@kernel.org, tglx@kernel.org,
- mingo@redhat.com, bp@alien8.de, dave.hansen@linux.intel.com, hpa@zytor.com,
- david@kernel.org, ljs@kernel.org, ziy@nvidia.com,
- baolin.wang@linux.alibaba.com, ryan.roberts@arm.com, lance.yang@linux.dev,
- yang@os.amperecomputing.com, jannh@google.com
-References: <20260527035607.14919-1-xueyuan.chen21@gmail.com>
- <20260527035607.14919-2-xueyuan.chen21@gmail.com>
-Content-Language: en-US
-From: Dev Jain <dev.jain@arm.com>
-In-Reply-To: <20260527035607.14919-2-xueyuan.chen21@gmail.com>
-Content-Type: text/plain; charset=UTF-8
-Content-Transfer-Encoding: 7bit
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260527_063307_382307_1C35BEFB 
-X-CRM114-Status: GOOD (  29.55  )
+X-CRM114-CacheID: sfid-20260527_063506_485483_CCC4346C 
+X-CRM114-Status: GOOD (  10.31  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -77,155 +84,22 @@ Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
 
-
-On 27/05/26 9:26 am, Xueyuan chen wrote:
-> From: Xueyuan Chen <xueyuan.chen21@gmail.com>
+On Thu, 21 May 2026 00:44:05 +0200, Sven Püschel wrote:
+> This series adds support for the Raster Graphic Acceleration 3 (RGA3)
+> peripheral, which is included in the RK3588 SoC. The RK3588
+> contains one RGA2-Enhanced core (which is already implemented by the
+> rockchip rga driver) and two independent RGA3 cores. They feature
+> a similar functionality of scaling, cropping and rotating of up to two input
+> images into one output image. Key differences of the RGA3 are:
 > 
-> The huge zero folio is shared globally, and its contents should never
-> change after initialization. As Jann Horn pointed out[1], the kernel has
-> had bugs, including security bugs, where read-only pages were later written
-> to. If the huge zero folio is read-only in the direct map, such writes
-> fault instead of silently corrupting shared zero contents.
-> 
-> For the persistent huge zero folio, set this up once after the folio is
-> allocated at boot.
-> 
-> The permission change is best-effort. If the architecture cannot safely
-> make the direct map read-only, keep using the writable persistent huge zero
-> folio.
-> 
-> While at it, mark the huge_zero_folio pointer itself __ro_after_init.
-> READONLY_HUGE_ZERO_FOLIO depends on PERSISTENT_HUGE_ZERO_FOLIO, so the
-> pointer is initialized during boot and never replaced.
-> 
-> This was inspired by Jann Horn's read-only zero page work[1] and follow-up
-> discussion[2] with Yang Shi.
-> 
-> [1] https://lore.kernel.org/linux-mm/20260508-ro-zeropage-v1-1-9808abc20b49@google.com/
-> [2] https://lore.kernel.org/linux-mm/CAHbLzkrXXe7r3n3jXgDKtwZhRqj=jDx9E6dLOULohnhBguvi9A@mail.gmail.com/
-> 
-> Co-developed-by: Lance Yang <lance.yang@linux.dev>
-> Signed-off-by: Lance Yang <lance.yang@linux.dev>
-> Signed-off-by: Xueyuan Chen <xueyuan.chen21@gmail.com>
-> ---
->  include/linux/huge_mm.h |  5 +++++
->  mm/Kconfig              | 17 +++++++++++++++++
->  mm/huge_memory.c        | 25 ++++++++++++++++++++++++-
->  3 files changed, 46 insertions(+), 1 deletion(-)
-> 
-> diff --git a/include/linux/huge_mm.h b/include/linux/huge_mm.h
-> index edece3e26985..45d1352619d1 100644
-> --- a/include/linux/huge_mm.h
-> +++ b/include/linux/huge_mm.h
-> @@ -5,6 +5,7 @@
->  #include <linux/mm_types.h>
->  
->  #include <linux/fs.h> /* only for vma_is_dax() */
-> +#include <linux/init.h>
->  #include <linux/kobject.h>
->  
->  vm_fault_t do_huge_pmd_anonymous_page(struct vm_fault *vmf);
-> @@ -554,6 +555,10 @@ static inline bool is_huge_zero_pmd(pmd_t pmd)
->  struct folio *mm_get_huge_zero_folio(struct mm_struct *mm);
->  void mm_put_huge_zero_folio(struct mm_struct *mm);
->  
-> +#ifdef CONFIG_READONLY_HUGE_ZERO_FOLIO
-> +bool __init arch_make_huge_zero_folio_readonly(struct folio *folio);
-> +#endif
-> +
->  static inline struct folio *get_persistent_huge_zero_folio(void)
->  {
->  	if (!IS_ENABLED(CONFIG_PERSISTENT_HUGE_ZERO_FOLIO))
-> diff --git a/mm/Kconfig b/mm/Kconfig
-> index 776b67c66e82..f31200816646 100644
-> --- a/mm/Kconfig
-> +++ b/mm/Kconfig
-> @@ -787,6 +787,23 @@ config PERSISTENT_HUGE_ZERO_FOLIO
->  	  Say Y if your system has lots of memory. Say N if you are
->  	  memory constrained.
->  
-> +config ARCH_HAS_READONLY_HUGE_ZERO_FOLIO
-> +	bool
-> +
-> +config READONLY_HUGE_ZERO_FOLIO
-> +	bool "Map the huge zero folio read-only in the direct map"
-> +	depends on PERSISTENT_HUGE_ZERO_FOLIO
-> +	depends on ARCH_HAS_READONLY_HUGE_ZERO_FOLIO
-> +	help
-> +	  The persistent huge zero folio is shared globally, and nothing
-> +	  should ever change its contents after initialization.
-> +
-> +	  When supported, mark the folio read-only in the direct map so such
-> +	  writes trigger a fault instead of silently corrupting the zero contents.
-> +
-> +	  If the permission change is not supported, the kernel keeps using
-> +	  the writable persistent huge zero folio.
-> +
->  config MM_ID
->  	def_bool n
->  
-> diff --git a/mm/huge_memory.c b/mm/huge_memory.c
-> index bf9b480bb3b0..c568755dd58e 100644
-> --- a/mm/huge_memory.c
-> +++ b/mm/huge_memory.c
-> @@ -75,7 +75,11 @@ static unsigned long deferred_split_scan(struct shrinker *shrink,
->  static bool split_underused_thp = true;
->  
->  static atomic_t huge_zero_refcount;
-> +#ifdef CONFIG_READONLY_HUGE_ZERO_FOLIO
-> +struct folio *huge_zero_folio __ro_after_init;
+> [...]
 
+Applied, thanks!
 
-Can we guard this with CONFIG_PERSISTENT_HUGE_ZERO_FOLIO? Since
-in that case too the pointer is never written after init.
+[28/28] arm64: dts: rockchip: add rga3 dt nodes
+        commit: 25ee898961a2c661e4cd72bc98f0060f1cd11222
 
-> +#else
->  struct folio *huge_zero_folio __read_mostly;
-> +#endif
->  unsigned long huge_zero_pfn __read_mostly = ~0UL;
->  unsigned long huge_anon_orders_always __read_mostly;
->  unsigned long huge_anon_orders_madvise __read_mostly;
-> @@ -305,6 +309,18 @@ static unsigned long shrink_huge_zero_folio_scan(struct shrinker *shrink,
->  	return 0;
->  }
->  
-> +#ifdef CONFIG_READONLY_HUGE_ZERO_FOLIO
-> +static bool __init make_huge_zero_folio_readonly(void)
-> +{
-> +	return arch_make_huge_zero_folio_readonly(READ_ONCE(huge_zero_folio));
-
-
-I think READ_ONCE is not required since no one is going to change the
-pointer after allocation?
-
-
-> +}
-> +#else
-> +static bool __init make_huge_zero_folio_readonly(void)
-> +{
-> +	return false;
-> +}
-> +#endif
-> +
->  static struct shrinker *huge_zero_folio_shrinker;
->  
->  #ifdef CONFIG_SYSFS
-> @@ -965,8 +981,15 @@ static int __init thp_shrinker_init(void)
->  		 * that get_huge_zero_folio() will most likely not fail as
->  		 * thp_shrinker_init() is invoked early on during boot.
->  		 */
-> -		if (!get_huge_zero_folio())
-> +		if (!get_huge_zero_folio()) {
->  			pr_warn("Allocating persistent huge zero folio failed\n");
-> +			return 0;
-> +		}
-> +
-> +		if (IS_ENABLED(CONFIG_READONLY_HUGE_ZERO_FOLIO) &&
-> +		    !make_huge_zero_folio_readonly())
-> +			pr_warn("Making persistent huge zero folio read-only failed\n");
-> +
->  		return 0;
->  	}
->  
-
+Best regards,
+-- 
+Heiko Stuebner <heiko@sntech.de>
 
