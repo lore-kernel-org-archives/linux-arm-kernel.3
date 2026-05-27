@@ -4,154 +4,63 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id E156ACD4F54
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 27 May 2026 11:19:43 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id D2623CD5BD5
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 27 May 2026 11:35:46 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:In-Reply-To:
-	References:To:From:Subject:Cc:Message-Id:Date:Content-Type:
-	Content-Transfer-Encoding:Reply-To:Content-ID:Content-Description:Resent-Date
-	:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=/1qQmcGHwo8tfRMDo6HEhkERD82LPQDLNEo5RLkw5RI=; b=KvDvpbIP91cDjgFpf1fyacProw
-	bAR0X7c1q8BkqXGLMC29W4nT53ns5lUQoyMAYz4YwNatd/YlRYYVkHyrb9o0rVCtVRfNqT2Qknec6
-	0uFGQtjmR8DszJiIdJAgogDYIcsmAOQWngylYM48Hbczpw8h7TJGRvOJ6cXrgdzWTtQ3wkVAQDETc
-	Atgr6WmgEVQkBw9rZBVsD4DwQ4or/crqI44xQ/x85eybf+YHLJCT1EqaHXN/kxNk8maWrWsxExmK/
-	01i/U717tN8eKrSeplr7IW7C+EGZsdTA/+jkkkvifrkVagK1SFgldZkwT9vpJUCy+ZlBGA0sbkFux
-	TgLYG8XQ==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
+	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=ljP6BEZRfa2JICSJhYIpT1vvboqfLa/iWqpeXBqZPPE=; b=ef7xXti0Zdq+2mZR6kav0/VyS1
+	dPpFfEPn81YwWYXgamxo1k5oNpumyd2MGD9r/X6mS31lgvsjA6Rr/F4rbhLDe7EbUmggBq1G8OWkm
+	TPjidTHq5D5i87uy/rsUl+deTYxAi0P2aCkHjKYy9iE+vDbkrE5IHaYoOikrc2ZXs0Zai2Q8g6+Xw
+	TWfM0XavG6PAES1sExi2pmoGdrv5SyGBdhGvPB8UKSSbVeel3XPiLvCShALjPuxtRtjxutE52FnZL
+	G9+piCJ3z6wymg86bKazV977h+pu+S/PaiYvLUFbjYiwNNUF0UGXCGMjaAjBWpc5VnDO0Zg6nIMsa
+	+V0fcWqw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wSCIS-00000003zR9-3bii;
-	Wed, 27 May 2026 11:19:36 +0000
-Received: from mail-ukwestazlp170120004.outbound.protection.outlook.com ([2a01:111:f403:c206::4] helo=CWXP265CU010.outbound.protection.outlook.com)
+	id 1wSCY0-000000040su-15Af;
+	Wed, 27 May 2026 11:35:40 +0000
+Received: from out30-98.freemail.mail.aliyun.com ([115.124.30.98])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wSCIN-00000003zQ0-0lSi
+	id 1wSCXw-000000040sA-2Gv9
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 27 May 2026 11:19:32 +0000
-ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
- b=l02oV2KvFu0ubsRg0e3CFgIPOz6d0lFkvOspjo1FtT+5+eSxjDA5Do/5/961eId+50f/FL/c3VvJ2wz3/zNPLHfgkjflQ6CvvTZ4hy2MdFkzwhy8wj8NTU4TLOSROxGXnUY0yop/TYa5dE3B8VoaGhls/x1sYjBN3nUAtxwkXklInTK1p/7mmq6AE6AKeOVt9x2003pdM2QIQvAe7bmhjryi/oPk7MpqPtV/8qFimLjSf1X7SGNNGEE8VUJToz/ZaS/uhkZbBqyST66gYp5AcEpaAyikNZ5LuLlE6TAvswGE63qBQmUsFE686usEmlKqWXlqeYWbg8Wcpooc0S+o9g==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
- s=arcselector10001;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
- bh=/1qQmcGHwo8tfRMDo6HEhkERD82LPQDLNEo5RLkw5RI=;
- b=nsioqx/fLnaqvjbLB0DpkuwIKGko6U9OMuTeNHTwPvXsovf6Yyq9ZABRs2lFS36A+rg7HGPdEcr0ovjy+5s4ZsVAbb4ljfnLc4dblyeYbJmZ/MZH0uo9R3L9/CT3G3OHRrh+2rutOgp9PYUfCknoY9UqoMtZKzM0BgyU8GAI9pYiNltbzlTD7hHiF87ihn+/nco0QdCltnfvRZCWFGsQSo8JBCGOVtaIc9HNzR6HiK7Z67r90PJdKHT7BPZ8//vFsDIi6zWhqVzIsAGHljuD9r+f3rYX+yoX9jEK5BJ76rdduV9Y/WZPo3na4Xky92YGy8Ymcxt4J1gnTSFFEjdVyA==
-ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
- smtp.mailfrom=garyguo.net; dmarc=pass action=none header.from=garyguo.net;
- dkim=pass header.d=garyguo.net; arc=none
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=garyguo.net;
- s=selector1;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
- bh=/1qQmcGHwo8tfRMDo6HEhkERD82LPQDLNEo5RLkw5RI=;
- b=acO+ODRooz5E9bHh0WsVofvJCpqV3CSAiYEq+sbo00t4uK1sf5Sz0s9DfDUmKfgS1OKNg6w9/R+U1qKCF2I8dYqj2RchU/P4B8r+WKRnbJZ1U6EzQ5hMc7xz3HMnLok1WA85mR4EJ8Yz2HFbvXlGzMBFjc3BdS4/vZP5lOAy4YQ=
-Authentication-Results: dkim=none (message not signed)
- header.d=none;dmarc=none action=none header.from=garyguo.net;
-Received: from LOVP265MB8871.GBRP265.PROD.OUTLOOK.COM (2603:10a6:600:488::16)
- by LOYP265MB1888.GBRP265.PROD.OUTLOOK.COM (2603:10a6:600:e5::11) with
- Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.21.71.11; Wed, 27 May
- 2026 11:19:28 +0000
-Received: from LOVP265MB8871.GBRP265.PROD.OUTLOOK.COM
- ([fe80::1c3:ceba:21b4:9986]) by LOVP265MB8871.GBRP265.PROD.OUTLOOK.COM
- ([fe80::1c3:ceba:21b4:9986%4]) with mapi id 15.21.0071.011; Wed, 27 May 2026
- 11:19:28 +0000
-Content-Transfer-Encoding: quoted-printable
-Content-Type: text/plain; charset=UTF-8
-Date: Wed, 27 May 2026 12:19:27 +0100
-Message-Id: <DITF2OMVKRUU.18RS8QOJF6I4R@garyguo.net>
-Cc: "Rahul Bukte" <rahul.bukte@sony.com>, <linux-kernel@vger.kernel.org>,
- <coresight@lists.linaro.org>, <linux-arm-kernel@lists.infradead.org>,
- <driver-core@lists.linux.dev>, <rust-for-linux@vger.kernel.org>,
- <linux-doc@vger.kernel.org>, "Daniel Palmer" <daniel.palmer@sony.com>, "Tim
- Bird" <tim.bird@sony.com>, <linux-modules@vger.kernel.org>,
- <linux-tegra@vger.kernel.org>, "Sumit Gupta" <sumitg@nvidia.com>
-Subject: Re: [PATCH v5 2/4] kernel: param: initialize module_kset in a
- pure_initcall
-From: "Gary Guo" <gary@garyguo.net>
-To: "Shashank Balaji" <shashank.mahadasyam@sony.com>, "Suzuki K Poulose"
- <suzuki.poulose@arm.com>, "James Clark" <james.clark@linaro.org>,
- "Alexander Shishkin" <alexander.shishkin@linux.intel.com>, "Greg
- Kroah-Hartman" <gregkh@linuxfoundation.org>, "Rafael J. Wysocki"
- <rafael@kernel.org>, "Danilo Krummrich" <dakr@kernel.org>, "Miguel Ojeda"
- <ojeda@kernel.org>, "Boqun Feng" <boqun@kernel.org>, "Gary Guo"
- <gary@garyguo.net>, =?utf-8?q?Bj=C3=B6rn_Roy_Baron?=
- <bjorn3_gh@protonmail.com>, "Benno Lossin" <lossin@kernel.org>, "Andreas
- Hindborg" <a.hindborg@kernel.org>, "Alice Ryhl" <aliceryhl@google.com>,
- "Trevor Gross" <tmgross@umich.edu>, "Jonathan Corbet" <corbet@lwn.net>,
- "Shuah Khan" <skhan@linuxfoundation.org>, "Luis Chamberlain"
- <mcgrof@kernel.org>, "Petr Pavlu" <petr.pavlu@suse.com>, "Daniel Gomez"
- <da.gomez@kernel.org>, "Sami Tolvanen" <samitolvanen@google.com>, "Aaron
- Tomlin" <atomlin@atomlin.com>, "Mike Leach" <mike.leach@arm.com>, "Leo Yan"
- <leo.yan@arm.com>, "Thierry Reding" <thierry.reding@kernel.org>, "Jonathan
- Hunter" <jonathanh@nvidia.com>
-X-Mailer: aerc 0.21.0
-References: <20260518-acpi_mod_name-v5-0-705ccc430885@sony.com>
- <20260518-acpi_mod_name-v5-2-705ccc430885@sony.com>
-In-Reply-To: <20260518-acpi_mod_name-v5-2-705ccc430885@sony.com>
-X-ClientProxiedBy: LO4P123CA0026.GBRP123.PROD.OUTLOOK.COM
- (2603:10a6:600:151::13) To LOVP265MB8871.GBRP265.PROD.OUTLOOK.COM
- (2603:10a6:600:488::16)
+	Wed, 27 May 2026 11:35:38 +0000
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+	d=linux.alibaba.com; s=default;
+	t=1779881733; h=Message-ID:Date:MIME-Version:Subject:To:From:Content-Type;
+	bh=ljP6BEZRfa2JICSJhYIpT1vvboqfLa/iWqpeXBqZPPE=;
+	b=M+tSF9RFFvK9Y9hNaCwklK7R0hV8SrQVhTPxXGoFssY02OTVCmlhjuXQeUGwDdz/tcy/KSFhe67K3OVR0E733WcHlnMunyarahxZlYh/S3UFbcyIWOFlkgtzV/DLLLk0aI2PpVTtnX3D/NNHAUcsdeYZ5LFGn1QDU781edxEXc4=
+X-Alimail-AntiSpam: AC=PASS;BC=-1|-1;BR=01201311R471e4;CH=green;DM=||false|;DS=||;FP=0|-1|-1|-1|0|-1|-1|-1;HT=maildocker-contentspam011083073210;MF=xueshuai@linux.alibaba.com;NM=1;PH=DS;RN=27;SR=0;TI=SMTPD_---0X3jdQYC_1779881729;
+Received: from 30.246.179.14(mailfrom:xueshuai@linux.alibaba.com fp:SMTPD_---0X3jdQYC_1779881729 cluster:ay36)
+          by smtp.aliyun-inc.com;
+          Wed, 27 May 2026 19:35:30 +0800
+Message-ID: <056610fa-0dcc-46e9-a0b4-7c72067437ae@linux.alibaba.com>
+Date: Wed, 27 May 2026 19:35:23 +0800
 MIME-Version: 1.0
-X-MS-PublicTrafficType: Email
-X-MS-TrafficTypeDiagnostic: LOVP265MB8871:EE_|LOYP265MB1888:EE_
-X-MS-Office365-Filtering-Correlation-Id: 09b4a8de-9d41-4305-aa8b-08debbe1d10a
-X-MS-Exchange-SenderADCheck: 1
-X-MS-Exchange-AntiSpam-Relay: 0
-X-Microsoft-Antispam: BCL:0;ARA:13230040|366016|7416014|376014|10070799003|1800799024|4143699003|22082099003|18002099003|921020|56012099006;
-X-Microsoft-Antispam-Message-Info: XwMkzx3sgmfXY83TbZaDuRA+V0uDcmLGXOx+5NNr4c/x+IJrCHmLEw132UUlyTn88eropX4RXEYUaSLXz58fnGNWwYQ9wgHCpw0sVOu59uhk/i0GhVikDZi484UIpMTDpcW3c1JoUowLjC+JptVRcrMcEGITHsj4HrCguQ8GuM3QQh4IZlNvHOyUREOsSF6nHEVWW5uxUeFE0usePRLMnqRcKiV8+641h3JztB+MU3hyFDi9FH7uD5lRu4fMNOrVRCELAQ4g7kpQ6KV6QOvIO22jqlA832YGp3ArxT8B/kPzLmT7WkXjau4lIlhDtNmNcAB896gm4/bWQKjlTdtkCyKffw2jsNcIMfU+ZwInRJ/IwUgI70wTK7CoRdbp9cG/2YUejtl8fnNulVZ0LVCFVfZEH+BG75dVQKWz7BuBfURuR5qpO+TzSBCFMNAnnGkDaCAMYl/BaU/T6UjeR7Lhv+Z1YVFNwuZETF3ai9IHsId/0jC5nq4nbym6zqRvO/sLEnsGnG/2I2hpbqHTtTGhrVU1GWOz+g7wXwGuc9f8DLoSjqQeh4BrWIyqIq5n1MT4NCDoVUBRL4nJYLuVE+zNOPuOfD2YPH1DWuu5RRAJLyR/ZaGub9QiUBJhjdaPtwSdv7kI7pWjWAuuNWo8ZGe9Z22MJGtx8lkt2Ghh5jmQJcdllbfAMi0DfYTjVb8iIr9lHtwoET8gX3L6MdC1Fxu3gozjaTpCXmUDPsaFqDqA144=
-X-Forefront-Antispam-Report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:LOVP265MB8871.GBRP265.PROD.OUTLOOK.COM;PTR:;CAT:NONE;SFS:(13230040)(366016)(7416014)(376014)(10070799003)(1800799024)(4143699003)(22082099003)(18002099003)(921020)(56012099006);DIR:OUT;SFP:1102;
-X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
-X-MS-Exchange-AntiSpam-MessageData-0: =?utf-8?B?STlhdkdIRFNURERMeTVtNHh6ZGJtYXZpRnhMQ1hvV3ZQR2gvWjduWUdUdHVz?=
- =?utf-8?B?dFNZRUU5N0dWTUo0V2R0ZUEwUVUrN0RKcWViQUtBVEdsbUlNTUprdGRyV2xM?=
- =?utf-8?B?UmJSOHRLMG95YytaZ0tpQzUzalgwZ3R5d0ZzVWt3Y3dwcDRVeXZkMUYrWnFl?=
- =?utf-8?B?TDg0QzJkUWZaTkdSamZHRnY0cVNaU0dBNkN2ZVIrNWlyVFd0QlRnNW04azli?=
- =?utf-8?B?TTI2aHEzSDVIVDByS090QWZaYlJKc1A1L3dYeGpnSjE0TTBuZjZmQnhSRENP?=
- =?utf-8?B?OGtGYXpzZUFnNXBkb2Rzd0xCTjcxL3BXWGRNSWhhK1VvSWxwYWFaNGxNOURU?=
- =?utf-8?B?bG10UHFQdjF0SmhoU3JSbXhLR0xaZnpOeHNFRUkrUG11QjJ2ME9HdmtuVm9Y?=
- =?utf-8?B?THJkRWdBTWpXRTdrMUNKMEkzdE9lSXIxdTR3Ymttb1pvOEU3SHRGR2ZwdnZq?=
- =?utf-8?B?cFYzUldnbmlVaUlLMTFRTzZ3ZUd0NTdVRzNtRGVNNGM5d2V5QW1WbmpxZXFw?=
- =?utf-8?B?OFhMY3VsNHU3Znh6d2lyZktIUFJWbEs2aisyUGZHTUg3Sy94azI4NlgzdkN2?=
- =?utf-8?B?dHVTMkU3bmowQmdGMXVrRVlNY01XN1dlWStrSjFrUVpCbWpiMGYzQW56WFUr?=
- =?utf-8?B?TE94MWpGbUlya0F6UmhlNGdWMkttbGswUjNUVHhGUTlTNDdGMkh4OXJYWGla?=
- =?utf-8?B?bldnQlM1VFNUVm00Mmhlek8yWHo1YXBPL2hzN0xYejROMi9wQWpoTWc0V1Jz?=
- =?utf-8?B?UkR2bmVrV0EvelAyMXZFQ0FhOWdMOEs0eCttS3ZKVVl6SkZHNU1kSUlHYUhC?=
- =?utf-8?B?alVzT1YvRkRQL3lUcFYxaWhXVDN5NHN1c2hSMHJOdkY4c1J3cEV3QnlWcWRj?=
- =?utf-8?B?NFZ2SGc3QS9ndVZvd0FCa0xvSFFSSmd1b0xIcVJwMnl4MVo3NEd5cGhnczdu?=
- =?utf-8?B?MXdBak1uYXVtVW1IS1hyVzNnWDRiazNKQ284QWxIN1dZMERUS0tDQUp1ZDFh?=
- =?utf-8?B?OERnSTkzYUN3c2xVZEZqQXcwdFdEbG9ZTm5pUk04bWVNdUZ4NUcrOHB1bXl1?=
- =?utf-8?B?Rk9MVUNtbkc1Z2xSZmNwbVh3OFhBMVpVWEw0eldITHA0d2VidnhqRHg0TTgx?=
- =?utf-8?B?UGo1a0JuWGtSV1hQUjFmaFFxM2F5dEx0ZW0vcCtvYklNOUVDMjhITjRQSURJ?=
- =?utf-8?B?N3BBNmNIS216ZDAySU9sVTlxRktOOU02MHM5RFYvRnFWemNYWmRVSGdRd2p6?=
- =?utf-8?B?SHo3c2Z3eHhmRUJROVlBV1pqc1FJb1k4eFJJSTVqL2drd3czL3lqZFRtZTJ1?=
- =?utf-8?B?eWhkUlpXTklUN21oMHFBYWdHK0RRQzliczhWUXl3WVRoMHI1T0d1aUkwREVF?=
- =?utf-8?B?N2ZPRDQ1emxGY1pvL0hYRlMyRHhRMDRtRGxlN3phRUd2NlpldmlzUHYxWURI?=
- =?utf-8?B?UHhZWDBSZG9LaU1vZ1BJekhoQ2dwdzNublg0STQxQmJ3S0ZMc041VjNhUTdB?=
- =?utf-8?B?S3RNTi9PNi9SSjJZZzA3dVB5QytKU2RabDlMdWhKT1hTU3ZYMEM2NzZYNVVJ?=
- =?utf-8?B?VzNmMnVZOTZLbTdDN2tleHIrWkkrOXo1RVNUMzhHOXBuLzNIWGw4UWowWXNE?=
- =?utf-8?B?MWFvNjN3NU16Uzdmc3dFeTlQSmppMG1JbVN1K2ZBUEo2ckg4UkJZUTBNYkdQ?=
- =?utf-8?B?UUlLNDl4WDZLNy83b3R0eU5CMk4xTExOaWpVRnRuNGRnS2p5ak9JZzdtWkRD?=
- =?utf-8?B?R05meXVQd1Jlb21Ib0ZiSUhtaVNWb2dPcFJYNVdGZnEwVDcyQ1Z0amhqWmEw?=
- =?utf-8?B?K3lpOWo4R3psVWxjMjNiSHhsYlh2bi9zeUNaS2V0RURHS3FPUDdYRGNVUEZh?=
- =?utf-8?B?ckpwZ2JYWW9IcXFGM2YxRXdlbm9yTUZnemlVWHova3Fpa0NkaVo2bDNJSGtz?=
- =?utf-8?B?bk9kTmdYS0pDTDgyay9CUXIyOXZFWFpNb0JVOFZBVm93QTUyOHkxcnJNZWd0?=
- =?utf-8?B?RWU4Ym9HSGw3UStsWlZ2bDZCWXU1VWduVGZoOTFTeEI5WndudytJS0ZGcVcz?=
- =?utf-8?B?bWtDNHVwT1lxMlpmL281Y28ydDl0U1BXeFp2WHkrV0krRzM1TWFUVWlKMkJ1?=
- =?utf-8?B?RlVPM1BXQmxsUE9JcmFuN0tUc1RBVFdCWW1TaGpoQVRUdUxldkN2TW9rYmhi?=
- =?utf-8?B?RG41R05PUEE5R3hTVDRWZnV1VDIrZWRWaXhBSnVlZ0pxblVMU1ZiWDNVV1lD?=
- =?utf-8?B?OE9RcVJwaUwzU3JmdmxYQ0I1WmpjZi9nK1dQUElzU1B2Q1ROTkx6YUd3TDhu?=
- =?utf-8?B?Q0VvUzhaOFFIUVpJL1Y1c0hZT0JSU3p0TGRlNFlYUDlTeGoyNEw2Zz09?=
-X-OriginatorOrg: garyguo.net
-X-MS-Exchange-CrossTenant-Network-Message-Id: 09b4a8de-9d41-4305-aa8b-08debbe1d10a
-X-MS-Exchange-CrossTenant-AuthSource: LOVP265MB8871.GBRP265.PROD.OUTLOOK.COM
-X-MS-Exchange-CrossTenant-AuthAs: Internal
-X-MS-Exchange-CrossTenant-OriginalArrivalTime: 27 May 2026 11:19:28.3295
- (UTC)
-X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
-X-MS-Exchange-CrossTenant-Id: bbc898ad-b10f-4e10-8552-d9377b823d45
-X-MS-Exchange-CrossTenant-MailboxType: HOSTED
-X-MS-Exchange-CrossTenant-UserPrincipalName: FXC9mWTjg2Ze3IsnDwl1rVKmDMEWUmMpPee75lmK5LUl2YiLMAoUFrMz0GPaWpH39VEqmvtQRVUCYnNaOqgnDA==
-X-MS-Exchange-Transport-CrossTenantHeadersStamped: LOYP265MB1888
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH v14 3/8] arm64: add support for ARCH_HAS_COPY_MC
+To: Ruidong Tian <tianruidong@linux.alibaba.com>, catalin.marinas@arm.com,
+ will@kernel.org, rafael@kernel.org, tony.luck@intel.com,
+ guohanjun@huawei.com, mchehab@kernel.org, tongtiangen@huawei.com,
+ james.morse@arm.com, robin.murphy@arm.com, andreyknvl@gmail.com,
+ dvyukov@google.com, vincenzo.frascino@arm.com, mpe@ellerman.id.au,
+ npiggin@gmail.com, ryabinin.a.a@gmail.com, glider@google.com,
+ christophe.leroy@csgroup.eu, aneesh.kumar@kernel.org,
+ naveen.n.rao@linux.ibm.com, tglx@linutronix.de, mingo@redhat.com
+Cc: linux-arm-kernel@lists.infradead.org, linux-mm@kvack.org,
+ linuxppc-dev@lists.ozlabs.org, linux-kernel@vger.kernel.org,
+ kasan-dev@googlegroups.com
+References: <20260518084956.2538442-1-tianruidong@linux.alibaba.com>
+ <20260518084956.2538442-4-tianruidong@linux.alibaba.com>
+From: Shuai Xue <xueshuai@linux.alibaba.com>
+In-Reply-To: <20260518084956.2538442-4-tianruidong@linux.alibaba.com>
+Content-Type: text/plain; charset=UTF-8; format=flowed
+Content-Transfer-Encoding: 7bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260527_041931_290566_3C9C7CFF 
-X-CRM114-Status: GOOD (  14.63  )
+X-CRM114-CacheID: sfid-20260527_043536_944631_99411C90 
+X-CRM114-Status: GOOD (  29.88  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -166,38 +75,282 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Mon May 18, 2026 at 11:19 AM BST, Shashank Balaji wrote:
-> Commit "driver core: platform: set mod_name in driver registration" will =
-set
-> struct device_driver's mod_name member for platform driver registration. =
-For a
-> driver to be registered with its mod_name set, module_kset needs to be
-> initialized, which currently happens in a subsys_initcall in param_sysfs_=
-init().
-> The tegra cbb drivers register themselves before module_kset init, in a
-> core_initcall. This works currently because lookup_or_create_module_kobje=
-ct(),
-> which dereferences module_kset via kset_find_obj(), is not called if mod_=
-name
-> is not set, which is the case now.
->=20
-> So in preparation for the commit "driver core: platform: set mod_name in =
-driver registration",
-> move module_kset init to pure_initcall level, ensuring it happens before =
-tegra
-> cbb driver registration.
->=20
-> Suggested-by: Gary Guo <gary@garyguo.net>
-> Co-developed-by: Rahul Bukte <rahul.bukte@sony.com>
-> Signed-off-by: Rahul Bukte <rahul.bukte@sony.com>
-> Signed-off-by: Shashank Balaji <shashank.mahadasyam@sony.com>
 
-Reviewed-by: Gary Guo <gary@garyguo.net>
 
+On 5/18/26 4:49 PM, Ruidong Tian wrote:
+> From: Tong Tiangen <tongtiangen@huawei.com>
+> 
+> For the arm64 kernel, when it processes hardware memory errors for
+> synchronize notifications(do_sea()), if the errors is consumed within the
+> kernel, the current processing is panic. However, it is not optimal.
+> 
+> Take copy_from/to_user for example, If ld* triggers a memory error, even in
+> kernel mode, only the associated process is affected. Killing the user
+> process and isolating the corrupt page is a better choice.
+> 
+> Add new fixup type EX_TYPE_KACCESS_ERR_ZERO_MEM_ERR to identify insn
+> that can recover from memory errors triggered by access to kernel memory,
+> and this fixup type is used in __arch_copy_to_user(), This make the regular
+> copy_to_user() will handle kernel memory errors.
+> 
+> [Ruidong: handle EX_TYPE_UACCESS_CPY in fixup_exception_me()]
+> 
+> Signed-off-by: Tong Tiangen <tongtiangen@huawei.com>
+> Signed-off-by: Ruidong Tian <tianruidong@linux.alibaba.com>
 > ---
-> Patch 4 depends on this patch
-> ---
->  kernel/params.c | 2 +-
->  1 file changed, 1 insertion(+), 1 deletion(-)
+>   arch/arm64/Kconfig                   |  1 +
+>   arch/arm64/include/asm/asm-extable.h | 22 +++++++++++++++++++-
+>   arch/arm64/include/asm/asm-uaccess.h |  4 ++++
+>   arch/arm64/include/asm/extable.h     |  1 +
+>   arch/arm64/lib/copy_to_user.S        | 10 +++++-----
+>   arch/arm64/mm/extable.c              | 21 +++++++++++++++++++
+>   arch/arm64/mm/fault.c                | 30 ++++++++++++++++++++--------
+>   7 files changed, 75 insertions(+), 14 deletions(-)
+> 
+> diff --git a/arch/arm64/Kconfig b/arch/arm64/Kconfig
+> index fe60738e5943..831b20d45893 100644
+> --- a/arch/arm64/Kconfig
+> +++ b/arch/arm64/Kconfig
+> @@ -21,6 +21,7 @@ config ARM64
+>   	select ARCH_HAS_CACHE_LINE_SIZE
+>   	select ARCH_HAS_CC_PLATFORM
+>   	select ARCH_HAS_CPU_CACHE_INVALIDATE_MEMREGION
+> +	select ARCH_HAS_COPY_MC if ACPI_APEI_GHES
 
+
+At this commit:
+
+   - arch/arm64/lib/memcpy_mc.S does not exist (patch 7)
+   - arch/arm64/lib/copy_mc_page.S does not exist (patch 5)
+   - arm64 has no copy_mc_to_kernel() override
+   - __HAVE_ARCH_COPY_MC_USER_HIGHPAGE is not defined
+
+Build does not break because the generic fallback in
+include/linux/uaccess.h and include/linux/highmem.h covers it, but
+ARCH_HAS_COPY_MC=y silently means "plain memcpy() with no MC
+handling at all" between this commit and patch 7. Anyone bisecting
+an MC regression in this window will be very confused.
+
+Please move this select to the last arm64 implementation patch in
+the series.
+
+
+>   	select ARCH_HAS_CURRENT_STACK_POINTER
+>   	select ARCH_HAS_DEBUG_VIRTUAL
+>   	select ARCH_HAS_DEBUG_VM_PGTABLE
+> diff --git a/arch/arm64/include/asm/asm-extable.h b/arch/arm64/include/asm/asm-extable.h
+> index d67e2fdd1aee..4980023f2fbd 100644
+> --- a/arch/arm64/include/asm/asm-extable.h
+> +++ b/arch/arm64/include/asm/asm-extable.h
+> @@ -11,6 +11,8 @@
+>   #define EX_TYPE_KACCESS_ERR_ZERO	3
+>   #define EX_TYPE_UACCESS_CPY		4
+>   #define EX_TYPE_LOAD_UNALIGNED_ZEROPAD	5
+> +/* kernel access memory error safe */
+> +#define EX_TYPE_KACCESS_ERR_ZERO_MEM_ERR	6
+
+KACCESS_ERR_ZERO is already "encode err reg + zero reg". Tacking
+_MEM_ERR on the end reads like "+ another mem-err reg". Please
+rename to e.g. EX_TYPE_KACCESS_ERR_ZERO_MC, which directly tells
+the reader "MC-safe variant of KACCESS_ERR_ZERO".
+
+>   
+>   /* Data fields for EX_TYPE_UACCESS_ERR_ZERO */
+>   #define EX_DATA_REG_ERR_SHIFT	0
+> @@ -42,7 +44,7 @@
+>   	(.L__gpr_num_##gpr << EX_DATA_REG_##reg##_SHIFT)
+>   
+>   #define _ASM_EXTABLE_UACCESS_ERR_ZERO(insn, fixup, err, zero)		\
+> -	__ASM_EXTABLE_RAW(insn, fixup, 					\
+> +	__ASM_EXTABLE_RAW(insn, fixup,					\
+>   			  EX_TYPE_UACCESS_ERR_ZERO,			\
+>   			  (						\
+>   			    EX_DATA_REG(ERR, err) |			\
+> @@ -55,6 +57,17 @@
+>   #define _ASM_EXTABLE_UACCESS(insn, fixup)				\
+>   	_ASM_EXTABLE_UACCESS_ERR_ZERO(insn, fixup, wzr, wzr)
+>   
+> +#define _ASM_EXTABLE_KACCESS_ERR_ZERO_MEM_ERR(insn, fixup, err, zero)	\
+> +	__ASM_EXTABLE_RAW(insn, fixup,					\
+> +			  EX_TYPE_KACCESS_ERR_ZERO_MEM_ERR,		\
+> +			  (						\
+> +			    EX_DATA_REG(ERR, err) |			\
+> +			    EX_DATA_REG(ZERO, zero)			\
+> +			  ))
+> +
+> +#define _ASM_EXTABLE_KACCESS_MEM_ERR(insn, fixup)			\
+> +	_ASM_EXTABLE_KACCESS_ERR_ZERO_MEM_ERR(insn, fixup, wzr, wzr)
+> +
+>   /*
+>    * Create an exception table entry for uaccess `insn`, which will branch to `fixup`
+>    * when an unhandled fault is taken.
+> @@ -76,6 +89,13 @@
+>   	.macro		_asm_extable_uaccess_cpy, insn, fixup, uaccess_is_write
+>   	__ASM_EXTABLE_RAW(\insn, \fixup, EX_TYPE_UACCESS_CPY, \uaccess_is_write)
+>   	.endm
+> +/*
+> + * Create an exception table entry for kaccess `insn`, which will branch to
+> + * `fixup` when an unhandled fault is taken.
+> + */
+> +	.macro          _asm_extable_kaccess_mem_err, insn, fixup
+> +	_ASM_EXTABLE_KACCESS_MEM_ERR(\insn, \fixup)
+> +	.endm
+>   
+>   #else /* __ASSEMBLER__ */
+>   
+> diff --git a/arch/arm64/include/asm/asm-uaccess.h b/arch/arm64/include/asm/asm-uaccess.h
+> index 12aa6a283249..c8f0af5fde63 100644
+> --- a/arch/arm64/include/asm/asm-uaccess.h
+> +++ b/arch/arm64/include/asm/asm-uaccess.h
+> @@ -57,6 +57,10 @@ alternative_else_nop_endif
+>   	.endm
+>   #endif
+>   
+> +#define KERNEL_MEM_ERR(l, x...)			\
+> +9999:	x;					\
+> +	_asm_extable_kaccess_mem_err	9999b, l
+> +
+>   #define USER(l, x...)				\
+>   9999:	x;					\
+>   	_asm_extable_uaccess	9999b, l
+> diff --git a/arch/arm64/include/asm/extable.h b/arch/arm64/include/asm/extable.h
+> index 9dc39612bdf5..47c851d7df4f 100644
+> --- a/arch/arm64/include/asm/extable.h
+> +++ b/arch/arm64/include/asm/extable.h
+> @@ -48,4 +48,5 @@ bool ex_handler_bpf(const struct exception_table_entry *ex,
+>   #endif /* !CONFIG_BPF_JIT */
+>   
+>   bool fixup_exception(struct pt_regs *regs, unsigned long esr);
+> +bool fixup_exception_me(struct pt_regs *regs);
+>   #endif
+> diff --git a/arch/arm64/lib/copy_to_user.S b/arch/arm64/lib/copy_to_user.S
+> index 819f2e3fc7a9..991d94ecc1a8 100644
+> --- a/arch/arm64/lib/copy_to_user.S
+> +++ b/arch/arm64/lib/copy_to_user.S
+> @@ -20,7 +20,7 @@
+>    *	x0 - bytes not copied
+>    */
+>   	.macro ldrb1 reg, ptr, val
+> -	ldrb  \reg, [\ptr], \val
+> +	KERNEL_MEM_ERR(9998f, ldrb  \reg, [\ptr], \val)
+>   	.endm
+>   
+>   	.macro strb1 reg, ptr, val
+> @@ -28,7 +28,7 @@
+>   	.endm
+>   
+>   	.macro ldrh1 reg, ptr, val
+> -	ldrh  \reg, [\ptr], \val
+> +	KERNEL_MEM_ERR(9998f, ldrh  \reg, [\ptr], \val)
+>   	.endm
+>   
+>   	.macro strh1 reg, ptr, val
+> @@ -36,7 +36,7 @@
+>   	.endm
+>   
+>   	.macro ldr1 reg, ptr, val
+> -	ldr \reg, [\ptr], \val
+> +	KERNEL_MEM_ERR(9998f, ldr \reg, [\ptr], \val)
+>   	.endm
+>   
+>   	.macro str1 reg, ptr, val
+> @@ -44,7 +44,7 @@
+>   	.endm
+>   
+>   	.macro ldp1 reg1, reg2, ptr, val
+> -	ldp \reg1, \reg2, [\ptr], \val
+> +	KERNEL_MEM_ERR(9998f, ldp \reg1, \reg2, [\ptr], \val)
+>   	.endm
+>   
+>   	.macro stp1 reg1, reg2, ptr, val
+> @@ -74,7 +74,7 @@ SYM_FUNC_START(__arch_copy_to_user)
+>   9997:	cmp	dst, dstin
+>   	b.ne	9998f
+>   	// Before being absolutely sure we couldn't copy anything, try harder
+> -	ldrb	tmp1w, [srcin]
+> +KERNEL_MEM_ERR(9998f, ldrb	tmp1w, [srcin])
+>   USER(9998f, sttrb tmp1w, [dst])
+>   	add	dst, dst, #1
+>   9998:	sub	x0, end, dst			// bytes not copied
+> diff --git a/arch/arm64/mm/extable.c b/arch/arm64/mm/extable.c
+> index 6e0528831cd3..f78ac7e92845 100644
+> --- a/arch/arm64/mm/extable.c
+> +++ b/arch/arm64/mm/extable.c
+> @@ -110,7 +110,28 @@ bool fixup_exception(struct pt_regs *regs, unsigned long esr)
+>   		return ex_handler_uaccess_cpy(ex, regs, esr);
+>   	case EX_TYPE_LOAD_UNALIGNED_ZEROPAD:
+>   		return ex_handler_load_unaligned_zeropad(ex, regs);
+> +	case EX_TYPE_KACCESS_ERR_ZERO_MEM_ERR:
+> +		return false;
+>   	}
+>   
+>   	BUG();
+>   }
+> +
+> +bool fixup_exception_me(struct pt_regs *regs)
+> +{
+> +	const struct exception_table_entry *ex;
+> +
+> +	ex = search_exception_tables(instruction_pointer(regs));
+> +	if (!ex)
+> +		return false;
+> +
+> +	switch (ex->type) {
+> +	case EX_TYPE_UACCESS_CPY:
+> +		return ex_handler_uaccess_cpy(ex, regs, 0);
+
+Pointed by sashiko:
+
+    copy_to_user.S annotates its MOPS prologue/main/epilogue with
+    USER_CPY(..., 1, cpyf{p,m,e}wt ...), so uaccess_is_write=1 for the
+    whole MOPS sequence. With esr=0 hard-coded here:
+
+        cpy_faulted_on_uaccess(): uaccess_is_write=1, fault_on_write=0
+                                  -> returns false
+        ex_handler_uaccess_cpy()                       -> returns false
+        fixup_exception_me()                           -> returns false
+        do_apei_claim_sea()                            -> returns -ENOENT
+        do_sea()                                       -> panic
+
+    So any MC SEA taken inside a MOPS copy_to_user() panics the kernel,
+    exactly defeating the recovery this patch claims to provide.
+
+
+> +	case EX_TYPE_UACCESS_ERR_ZERO:
+> +	case EX_TYPE_KACCESS_ERR_ZERO_MEM_ERR:
+> +		return ex_handler_uaccess_err_zero(ex, regs);
+> +	}
+> +
+> +	return false;
+> +}
+> diff --git a/arch/arm64/mm/fault.c b/arch/arm64/mm/fault.c
+> index 0f3c5c7ca054..efbda54770be 100644
+> --- a/arch/arm64/mm/fault.c
+> +++ b/arch/arm64/mm/fault.c
+> @@ -858,21 +858,35 @@ static int do_bad(unsigned long far, unsigned long esr, struct pt_regs *regs)
+>   	return 1; /* "fault" */
+>   }
+>   
+> +/*
+> + * APEI claimed this as a firmware-first notification.
+> + * Some processing deferred to task_work before ret_to_user().
+> + */
+> +static int do_apei_claim_sea(struct pt_regs *regs)
+> +{
+> +	int ret;
+> +
+> +	ret = apei_claim_sea(regs);
+> +	if (ret)
+> +		return ret;
+> +
+> +	if (!user_mode(regs) && IS_ENABLED(CONFIG_ARCH_HAS_COPY_MC)) {
+
+The IS_ENABLED(CONFIG_ARCH_HAS_COPY_MC) test is also dead on arm64:
+ARCH_HAS_COPY_MC is selected iff ACPI_APEI_GHES, and without
+ACPI_APEI_GHES apei_claim_sea() returns -ENOENT and we never reach
+this branch. Please drop it.
+
+
+Thanks.
+Shuai
 
