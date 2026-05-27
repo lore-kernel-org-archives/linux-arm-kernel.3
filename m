@@ -4,77 +4,72 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id D6EC8CD6E45
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 27 May 2026 08:24:35 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id C99C5CD4F54
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 27 May 2026 08:27:40 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
-	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=sv59KgmPS9YwACthNWBPKz9+XMUx70b0VSrwo1dUH0g=; b=0J5U+DpiftltKb1xAZ4LB6QT42
-	PW3qKilCvsVm7ze3tKzlZFruoqqtwCTm2RyUfg+pxDGj7hGz1DVdEIxeqfrfeQQSCauFxbjTaP0lS
-	tzkw5yZtpa7eJE0tYSzxxvUcPcd7xoE1TIUbywItkqoFdHMzeMXfYj1IDnocfMDKw7zXXs1rXuzVf
-	QY0fRlDyaE8FWoxkHdYkQKZolZoRmczvCQSlZKthYl56/TOxEByjaiD1uQjdzguZRCl5jyLzJyNVY
-	0qrcHrMWCgmjNYVU0wYr0H4iTJjywzs3etm7XdTyveG0Uw7q1w5uAX+cwI0y0fLLfjy3njtwz3Q6b
-	CgFJrZQA==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:
+	Content-Transfer-Encoding:MIME-Version:Message-ID:Date:Subject:CC:To:From:
+	Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender
+	:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=O8tZjLai5HUG8CN2LbGilq0LXVXTfvjbrMQK65zW/bQ=; b=z9/Zm/rU1aRC6dmXStWiunc5Yo
+	eYvnbNWMHpWhO2m6PAzKia9bMXFx3uG5Qcj2nc7vfwm2VmpULu0P21ORyc2M13/GSbXcBKaNQikW/
+	iCyx1otxqEJ0gqzwgPXudyxImYzdtnr8tgUdxv6ouflf/yjaEAQnz55McuI/nXpUzyYW76o+dZcCJ
+	IIqmCFfDoaWiPWfTJClPs3yULLoobKNbnd3awThQJjYKL7An2gXXeMPDpKmhXToRedzFcvXLM8j+Z
+	rSqx23fPqEZBK/XD+ONZpW0xiR7UExZ9/PNnOBHQre7cT2wKt7XxD4v6YqbRO14Q5PKgBuB8RKxO5
+	TMZ1CZgg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wS9Yy-00000003XVb-1Aqm;
-	Wed, 27 May 2026 08:24:28 +0000
-Received: from foss.arm.com ([217.140.110.172])
-	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wS9Yv-00000003XVE-1YK1
+	id 1wS9bu-00000003XfU-2gNP;
+	Wed, 27 May 2026 08:27:30 +0000
+Received: from canpmsgout06.his.huawei.com ([113.46.200.221])
+	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
+	id 1wS9bq-00000003Xex-1ZDH
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 27 May 2026 08:24:26 +0000
-Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
-	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id BBA6B2880;
-	Wed, 27 May 2026 01:24:16 -0700 (PDT)
-Received: from [10.57.93.47] (unknown [10.57.93.47])
-	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id 4EE113F7D8;
-	Wed, 27 May 2026 01:24:10 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=simple/simple; d=arm.com; s=foss;
-	t=1779870261; bh=bL0SGvpJMA0jKAYtYfSGI2V/YyddodRJo0fhchnToSo=;
-	h=Date:Subject:To:Cc:References:From:In-Reply-To:From;
-	b=kfnU3J8365dlkSur+Ghyy3KcliIFgbIFf/gzBx99N+i08GclVyKtMVVzUswqs3S9H
-	 BbFy3b02pCkmlZFcMYymisrIST9qibyRe//b/zxYjemYcHtRq1ZAzuRlvchaO3WnEr
-	 CFON8PFlu+HITiEmjXFYRSAySy6bNgRNL0wPH9wg=
-Message-ID: <b4eb4ea8-f4d6-4be2-81b1-4a8a46abe94e@arm.com>
-Date: Wed, 27 May 2026 10:24:02 +0200
+	Wed, 27 May 2026 08:27:28 +0000
+dkim-signature: v=1; a=rsa-sha256; d=h-partners.com; s=dkim;
+	c=relaxed/relaxed; q=dns/txt;
+	h=From;
+	bh=O8tZjLai5HUG8CN2LbGilq0LXVXTfvjbrMQK65zW/bQ=;
+	b=NnwdDHuNjKvcuk7Wp8ycck5mYDQiK5WKvGBd4gyanztU/LbVmJ45tRIo+i+dPSySx7vjRj7ED
+	bGNI0yXXKGbNTGH97JDFPuASbAavaqcCnD1hV5Mt8FJ9J70swaxTSO10H5NE+9p8wqMEX71Ge9W
+	+pVnyI5mAHHNZZPpKpVyJvE=
+Received: from mail.maildlp.com (unknown [172.19.163.104])
+	by canpmsgout06.his.huawei.com (SkyGuard) with ESMTPS id 4gQMwX2cnzzRhRC;
+	Wed, 27 May 2026 16:19:24 +0800 (CST)
+Received: from dggemv706-chm.china.huawei.com (unknown [10.3.19.33])
+	by mail.maildlp.com (Postfix) with ESMTPS id A376F4056A;
+	Wed, 27 May 2026 16:27:09 +0800 (CST)
+Received: from kwepemn500004.china.huawei.com (7.202.194.145) by
+ dggemv706-chm.china.huawei.com (10.3.19.33) with Microsoft SMTP Server
+ (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
+ 15.2.1544.11; Wed, 27 May 2026 16:27:09 +0800
+Received: from localhost.localdomain (10.50.163.32) by
+ kwepemn500004.china.huawei.com (7.202.194.145) with Microsoft SMTP Server
+ (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
+ 15.2.1544.11; Wed, 27 May 2026 16:27:08 +0800
+From: Junhao He <hejunhao3@h-partners.com>
+To: <rafael@kernel.org>, <tony.luck@intel.com>, <guohanjun@huawei.com>,
+	<mchehab@kernel.org>, <xueshuai@linux.alibaba.com>, <jarkko@kernel.org>,
+	<yazen.ghannam@amd.com>, <jane.chu@oracle.com>, <lenb@kernel.org>,
+	<linmiaohe@huawei.com>
+CC: <bp@alien8.de>, <linux-acpi@vger.kernel.org>,
+	<linux-arm-kernel@lists.infradead.org>, <linux-kernel@vger.kernel.org>,
+	<linux-edac@vger.kernel.org>, <tanxiaofei@huawei.com>, <linuxarm@huawei.com>,
+	<liuyonglong@huawei.com>, <mawupeng1@huawei.com>, <hejunhao3@h-partners.com>
+Subject: [PATCH v2] ACPI: APEI: Handle repeated SEA error storms
+Date: Wed, 27 May 2026 16:27:07 +0800
+Message-ID: <20260527082707.2013499-1-hejunhao3@h-partners.com>
+X-Mailer: git-send-email 2.33.0
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH RFC v8 01/24] mm: Introduce kpkeys
-To: Linus Walleij <linusw@kernel.org>
-Cc: linux-hardening@vger.kernel.org, Andrew Morton
- <akpm@linux-foundation.org>, Andy Lutomirski <luto@kernel.org>,
- Catalin Marinas <catalin.marinas@arm.com>,
- Dave Hansen <dave.hansen@linux.intel.com>,
- "David Hildenbrand (Arm)" <david@kernel.org>, Ira Weiny
- <ira.weiny@intel.com>, Jann Horn <jannh@google.com>,
- Jeff Xu <jeffxu@chromium.org>, Joey Gouly <joey.gouly@arm.com>,
- Kees Cook <kees@kernel.org>, Marc Zyngier <maz@kernel.org>,
- Mark Brown <broonie@kernel.org>, Matthew Wilcox <willy@infradead.org>,
- Maxwell Bland <mbland@motorola.com>, "Mike Rapoport (IBM)"
- <rppt@kernel.org>, Peter Zijlstra <peterz@infradead.org>,
- Pierre Langlois <pierre.langlois@arm.com>,
- Quentin Perret <qperret@google.com>,
- Rick Edgecombe <rick.p.edgecombe@intel.com>,
- Ryan Roberts <ryan.roberts@arm.com>, Vlastimil Babka <vbabka@kernel.org>,
- Will Deacon <will@kernel.org>, Yang Shi <yang@os.amperecomputing.com>,
- Yeoreum Yun <yeoreum.yun@arm.com>, linux-arm-kernel@lists.infradead.org,
- linux-mm@kvack.org, x86@kernel.org, Lorenzo Stoakes <ljs@kernel.org>,
- Thomas Gleixner <tglx@kernel.org>
-References: <20260526-kpkeys-v8-0-eaaacdacc67c@arm.com>
- <20260526-kpkeys-v8-1-eaaacdacc67c@arm.com>
- <CAD++jLnURXzgAgkWCcYX0dLOLqHQw+gn96V1dzDa_0Aoi3430Q@mail.gmail.com>
-From: Kevin Brodsky <kevin.brodsky@arm.com>
-Content-Language: en-GB
-In-Reply-To: <CAD++jLnURXzgAgkWCcYX0dLOLqHQw+gn96V1dzDa_0Aoi3430Q@mail.gmail.com>
-Content-Type: text/plain; charset=UTF-8
 Content-Transfer-Encoding: 8bit
+Content-Type: text/plain
+X-Originating-IP: [10.50.163.32]
+X-ClientProxiedBy: kwepems500002.china.huawei.com (7.221.188.17) To
+ kwepemn500004.china.huawei.com (7.202.194.145)
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260527_012425_499176_7E63166F 
-X-CRM114-Status: GOOD (  30.94  )
+X-CRM114-CacheID: sfid-20260527_012727_032985_C78644A8 
+X-CRM114-Status: GOOD (  18.34  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -89,113 +84,96 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On 26/05/2026 15:17, Linus Walleij wrote:
-> Hi Kevin,
->
-> here is just a few drive-by review comments pertaining to the
-> API which will be used for all architectures wanting to use
-> pkeys.
+When hardware memory corruption occurs and a user process accesses the
+corrupted page, the CPU triggers a Synchronous External Abort (SEA).
+The kernel invokes do_sea() to handle the exception, which calls
+memory_failure() to handle the faulty page.
 
-Appreciated, thanks!
+Scenario 1: Memory Error Interrupt First, then SEA
+The page is already poisoned by the memory error interrupt path. The
+subsequent SEA handler sends a SIGBUS to the task, which accesses the
+poisoned page. This flow is correct.
 
-> [...]
->
->> Because each architecture implementing pkeys uses a different
->> representation for the pkey register, and may reserve certain pkeys
->> for specific uses, support for kpkeys must be explicitly indicated
->> by selecting ARCH_HAS_KPKEYS and defining the following functions in
->> <asm/kpkeys.h>, in addition to the macros provided in
->> <asm-generic/kpkeys.h>:
->>
->> - arch_kpkeys_set_context()
->> - arch_kpkeys_restore_pkey_reg()
->> - arch_supports_kpkeys()
->>
->> Signed-off-by: Kevin Brodsky <kevin.brodsky@arm.com>
-> I'm following so far.
->
-> Is there no need for something like
->
-> ctx = arch_kpkeys_request_context(KEY_TYPE) ?
->
-> I'm just thinking of the scenario that e.g. two architectures want
-> to request the same type of key for some generic resource, but
-> the underlying implementation is vastly different for the two
-> architectures, so relying on hard-coded arch-specific constants
-> may not work. I'm also thinking about archs supporting different
-> versions/types of kpkeys in a multi-platform executable kernel
-> that may execute on several different silicon with the same ISA.
+Scenario 2: SEA first, then memory error interrupt (problematic scenario)
+If a user task directly accesses corrupted memory through a PFNMAP-style
+mapping (e.g., devmem), the page may still be in the free-buddy state when
+SEA is handled. In this case, memory_failure() will poison the page without
+invoking kill_accessing_process(), and then takes the free-buddy recovery
+path.
 
-I'm not sure I understand what potential limitations this is trying to
-address. The only thing that is imposed by the framework is the value of
-KPKEYS_CTX_*, which is purely symbolic. Everything else is up to the
-architecture, including the value of each key (which could be determined
-at runtime if needed) and the permissions associated to each context.
+After the CPU returns to the task context, the task re-enters the SEA
+handler due to the same access. However, ghes_estatus_cached() suppresses
+all subsequent entries during the 10-second window, preventing
+ghes_do_proc() from being called. This suppression blocks the
+MF_ACTION_REQUIRED-based SIGBUS delivery, causing the kernel to fail to
+kill the task immediately. Consequently, the process keeps re-entering
+the SEA handler, leading to an SEA storm. Later, the memory error
+interrupt path also cannot kill the task, leaving the system stuck in
+this repeated loop.
 
-Conceptually a context is a set of permission overlays for all existing
-keys, it doesn't have to be tied to just one key.
+The following error logs are explained using the devmem process:
+  NOTICE:  SEA Handle
+  [Hardware Error]: Hardware error from APEI Generic Hardware Error Source: 9
+  [Hardware Error]: event severity: recoverable
+  [Hardware Error]:   section_type: ARM processor error
+  [Hardware Error]:    physical fault address: 0x0000001000093c00
+  [T54990] Memory failure: 0x1000093: recovery action for free buddy page: Recovered
+  [ T9955] EDAC MC0: 1 UE Multi-bit ECC on unknown memory
+           (page:0x1000093 offset:0xc00 grain:1 - APEI location: ...)
+  NOTICE:  SEA Handle
+  NOTICE:  SEA Handle
+  ...
+  ...        ---> SEA storm
+  ...
+  NOTICE:  SEA Handle
+  [ T9955] Memory failure: 0x1000093: already hardware poisoned
+  ghes_print_estatus: 1 callbacks suppressed
+  [Hardware Error]: Hardware error from APEI Generic Hardware Error Source: 9
+  [Hardware Error]: event severity: recoverable
+  [Hardware Error]:   section_type: ARM processor error
+  [Hardware Error]:    physical fault address: 0x0000001000093c00
+  [T54990] Memory failure: 0x1000093: already hardware poisoned
+  [T54990] 0x1000093: Sending SIGBUS to devmem:54990 due to hardware memory corruption
 
-> Maybe this is too much upfront design, I understand it needs to
-> be kept simple.
->
->> +#ifndef KPKEYS_PKEY_DEFAULT
->> +#define KPKEYS_PKEY_DEFAULT    0
->> +#endif
-> (...)
->> +#define KPKEYS_CTX_DEFAULT     0
->> +
->> +#define KPKEYS_CTX_MIN         KPKEYS_CTX_DEFAULT
->> +#define KPKEYS_CTX_MAX         KPKEYS_CTX_DEFAULT
-> I was thinking an enum:
->
-> enum kpkey_type {
->     KPKEY_DEFAULT = 0,
->     KPKEY_MMU_TABLE = 1,
->    ....
-> };
->
-> since this is what is used later.
->
->> +/**
->> + * kpkeys_set_context() - switch kpkeys context
->> + * @ctx: the context to switch to
->> + *
->> + * Switches to specified kpkeys context. @ctx must be a compile-time
->> + * constant. The arch-specific pkey register will be updated accordingly, and
->> + * the original value returned.
->> + *
->> + * Return: the original pkey register value if the register was written to, or
->> + *         KPKEYS_PKEY_REG_INVAL otherwise (no write to the register was
->> + *         required).
->> + */
->> +static __always_inline u64 kpkeys_set_context(int ctx)
-> Should ctx be unsigned here? I'm nor sure what a negativ context
-> would mean.
-> kpkeys_set_context(unsigned int ctx)
+To resolve this, return an error when encountering the same SEA again.
+The subsequent SEA handler invocation uses arm64_notify_die() to send a
+SIGBUS signal to the task, which terminates the process and prevents it
+from re-entering the handler loop.
 
-That's a good point, now that we say "context" and not "level" an enum
-would be a better representation. I would directly use:
+Signed-off-by: Junhao He <hejunhao3@h-partners.com>
+---
+ drivers/acpi/apei/ghes.c | 10 +++++++++-
+ 1 file changed, 9 insertions(+), 1 deletion(-)
 
-    u64 kpkeys_set_context(enum kpkeys_ctx ctx);
+Changes in V2:
+1. update the commit message per suggestion from Xueshuai
+2. Add a check to only return failure on the ghes_notify_sea() path,
+   avoiding impact on other NMI-type GHES handlers.
+Link to V1 - https://lore.kernel.org/all/20251030071321.2763224-1-hejunhao3@h-partners.com/
 
-... unless we really need another layer of abstraction.
+diff --git a/drivers/acpi/apei/ghes.c b/drivers/acpi/apei/ghes.c
+index 3236a3ce79d6..787664740150 100644
+--- a/drivers/acpi/apei/ghes.c
++++ b/drivers/acpi/apei/ghes.c
+@@ -1383,8 +1383,16 @@ static int ghes_in_nmi_queue_one_entry(struct ghes *ghes,
+ 	ghes_clear_estatus(ghes, &tmp_header, buf_paddr, fixmap_idx);
+ 
+ 	/* This error has been reported before, don't process it again. */
+-	if (ghes_estatus_cached(estatus))
++	if (ghes_estatus_cached(estatus)) {
++		/*
++		 * Return failure on duplicate SEA entries so that the
++		 * subsequent SEA handler invocation sends a SIGBUS signal to
++		 * the task to prevent it from re-entering the handler loop.
++		 */
++		if (is_hest_sync_notify(ghes))
++			rc = -ECANCELED;
+ 		goto no_work;
++	}
+ 
+ 	llist_add(&estatus_node->llnode, &ghes_estatus_llist);
+ 
+-- 
+2.33.0
 
-- Kevin
-
-> And then I was thinking:
->
-> unsigned int kpkeys_request_context(enum kpkey_type type) {}...
->
-> + arch_ -prefixed version of the same.
->
-> unsigned int ctx;
-> ctx = kpkeys_request_context(KPKEY_MMU_TABLE);
-> (...)
->
-> Constant sinking in the compiler will optimize the arch
-> function to a constant in the object code so it will still
-> be fast just a bit more talkative in source form.
->
-> Yours,
-> Linus Walleij
 
