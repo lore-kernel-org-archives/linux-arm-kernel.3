@@ -4,94 +4,92 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 3B35ACD5BD0
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 27 May 2026 17:45:08 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id B7DFACD4F54
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 27 May 2026 18:00:00 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=+IIwHB4tc8Zk/JmkEkdDm+906F5b3wX8vQAJk7Bu7kM=; b=ZCfZTOT/cFztOnkW/ShkyHOwmG
-	wDztj1FGgkwPMUZ3yQW8ohalAXtEJfAzGaZYr2PvwnPtXnuC2nlgVMohob2x3gFD2cKMlkfcbIhiB
-	JkJiPRxSI7Pw0yiOLmLW+tFpXvHZ0X7rm17VtEFsTlkw1SVbJUDWmuIjBTwcRouhHOmz0pdU5VeUl
-	6SKMhlKej+ACueaqKaG+w2Y9mb1hqBHxs8kepVYYD4pGahEWmzo2m63TidLOe6y/4ZWwHiyTaFqW3
-	kpi3AfRxGXZMIADy7YwcDMsARtQNsqZUtZqa1hQE8dX7PsBLw1ukuHeW1uc+KUmbP3QK5ZiX1ZwM1
-	Vm78RsmA==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:
+	To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=erbsC0Vg9mtqhwjoL7B+eBOB5DX7r/gCOj4pQxWk2VI=; b=vdC5+TIVeHsosaEgqwPlvB+MKn
+	gZCUgRIxDV8frC48maxlklUxbNQFKR2NXFQoZdy70jjLXubavxfQiU3Q//+r8HafXzpIG21YAdysq
+	BFa0KzIRUamUkY7tLbt/GD3M1dOflD3otfpUc9uU8GKc7bU78eddOTnN89AUZMH2DIhyvwiH/vGie
+	GtgTLLCJNbp+mK67gTFnjxW9e0SYtAadgd8au5tQtvzUKM1XKj55PRLXWd5kQZwR+0gMneJsOV0cF
+	+hgMZhlehCYhmLRkFrkTz8j1Hx/7bQb2YIv3u8CBADWC4CsSjKC3H9YoLYN+VAmjYEz37fc12fchC
+	fXwDlGvA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wSIJQ-00000004b5B-3fE4;
-	Wed, 27 May 2026 17:45:00 +0000
-Received: from mail-pg1-x530.google.com ([2607:f8b0:4864:20::530])
+	id 1wSIXp-00000004cED-0ldO;
+	Wed, 27 May 2026 17:59:53 +0000
+Received: from mail-pl1-x631.google.com ([2607:f8b0:4864:20::631])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wSIJO-00000004b4W-0p1u
+	id 1wSIXm-00000004cDm-2PZU
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 27 May 2026 17:44:59 +0000
-Received: by mail-pg1-x530.google.com with SMTP id 41be03b00d2f7-c80170db7d6so4802170a12.0
-        for <linux-arm-kernel@lists.infradead.org>; Wed, 27 May 2026 10:44:57 -0700 (PDT)
+	Wed, 27 May 2026 17:59:51 +0000
+Received: by mail-pl1-x631.google.com with SMTP id d9443c01a7336-2b4583f0a1aso87936635ad.3
+        for <linux-arm-kernel@lists.infradead.org>; Wed, 27 May 2026 10:59:49 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=linaro.org; s=google; t=1779903897; x=1780508697; darn=lists.infradead.org;
-        h=in-reply-to:content-disposition:mime-version:references:message-id
-         :subject:cc:to:from:date:from:to:cc:subject:date:message-id:reply-to;
-        bh=+IIwHB4tc8Zk/JmkEkdDm+906F5b3wX8vQAJk7Bu7kM=;
-        b=vtvyAEayTuuHT8jYIWTgXuR5pAl51wXzl5onJGffsbiYv4ASWPUECBxQdyge+DLD8h
-         HRGuZkkXV/7T9oqe3u4TXEfpftJhOiJNr32CnegUGAzKR02RPhiarTnFYEnUtscqNPdK
-         apRzsNZ8G69NncYTRJaLvkmvi8Bbd+4BozOV4CxpyB2i5uRbDWz2Asn5rhskKyGbWJET
-         i9fVazz5YpgKjS+AhN7HyEPveOP563OtTVOsnlMcUW86zSBeiijyPtAqcmU14zBlxhOD
-         yreE74KdgxyR5TTCrVsW3IFk+RMrnnHlUmQDrrOyXZhGl0Ji4nb7xeO1QwvVrOYtVSIp
-         VUfw==
+        d=gmail.com; s=20251104; t=1779904789; x=1780509589; darn=lists.infradead.org;
+        h=content-transfer-encoding:mime-version:references:in-reply-to
+         :message-id:date:subject:cc:to:from:from:to:cc:subject:date
+         :message-id:reply-to;
+        bh=erbsC0Vg9mtqhwjoL7B+eBOB5DX7r/gCOj4pQxWk2VI=;
+        b=EE/n8WWEnDx8Z2e6oemrCBzpJVld3ResRKsliuIf7vXy1s2c/Mi9qvCtMlydbJ0P4V
+         OkpdTLS1xKxo/mzTuaakMEF3NCTyvYFtMgVUGvLXWULggc8pMr/NjO9zK8nGWzhYjllw
+         ltNPndy+aN4HNjK2m9heGXzNueKoMwGCH30rak0ghU377BUQn2POuPPiwGtUIAUDkc6b
+         02mSzwwWBTFsLwfLURhgwDXnTmTOrPBQqrWv1q0FhuEE9B1c3fg07zgMXei/EtF5/NWv
+         GiiBJaWmze21a2PJwcNfUV/HtCRol6ZoeS/f17nbgI0g59oKS5shhsV4GECwCUE5Kv5A
+         alhA==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20251104; t=1779903897; x=1780508697;
-        h=in-reply-to:content-disposition:mime-version:references:message-id
-         :subject:cc:to:from:date:x-gm-gg:x-gm-message-state:from:to:cc
-         :subject:date:message-id:reply-to;
-        bh=+IIwHB4tc8Zk/JmkEkdDm+906F5b3wX8vQAJk7Bu7kM=;
-        b=gLp5hVDPntypudVOLaGGtzUEaA459pnqzHgzZMEEO742aS2cq3CmLSi2sUm5DmLCDK
-         em7SIgjygNpT3R4Jhb8WjKZa6z770c+gOx+7BlprEXTroqY8/p53r5rgli31rhcg4YiA
-         fSqx6f7VWKxb5BR1/xlxc6jLbLV/qmPv6tx9ksNB+jv84I/eev3e48tXETeE7IB/W7bX
-         JTXdm0i1jv9r8AYMOaqpsy3pMn6VpI5UH2QgGKYEsaKLI+emKoqFrFTf7hqkdQTNzxnS
-         krenZh72g87cIAXBNlDzVzSztbXkglzAHy2Y+jDkieUwsqdV9vMaYHI0du+cI87DXrA5
-         tZLg==
-X-Forwarded-Encrypted: i=1; AFNElJ84qRAV2cLUGX9SxfSMlBS+H10Tfx83ze1krv7rJDhPR3CXse0rHQOUot58e+8cIl9ant2w+JsCppSmiwQbn0jy@lists.infradead.org
-X-Gm-Message-State: AOJu0YyUC/OZ9hsxP04Nblr7DD7X/n27B6/ldmurHF4/6fXI20udmkQ0
-	98ibvi3vfWZRJSiFI26cx80bqjwPug17H2LlqGFCbKnYftsFy/sGmPUuXFc037ASJc0=
-X-Gm-Gg: Acq92OGqI4fujoGtcN+opRzDsTv+b9fRmlgUfsAUGCI0Heyh7IFc+GUDYdaAxEjYJPT
-	pwwf2U5p66zc3WNMNOPQZRx1dKOyjbaOHMxVPJfoYkrOhNeyylwK9a6o0Z+ELMFOsrCe9C7vLOv
-	QhWGd9a2Ug9pOqqSrekazKLYIgytm4GAmyXV8Qh86V1od/IkZKwWYQ75JZ735uKxn0PrTxQrA6U
-	PR2oxsTL6tbQXBAivuv3NN259mpNnlnjB6wQ3+cHwtGPCI6J+zUAwStoPkyfyn6PuoQSeXZKiWX
-	REKaQi3T+psNxast5PqQK2Ix1b1UV4TeqTQHMqVvGW2QlTDIG+QKPUxLQVl+JhXrtzR1944o3ht
-	BSTgOVIhOAfW5Tc4QgQShhgHPDaXRyMAxv2ub4tPlGVLpCBU1FqRJIN5MVCRg3b90adZvaYU1z1
-	v0rLiNXmXNpvcz7IZpXO8AwBsiJes=
-X-Received: by 2002:a05:6a21:a06:b0:3a5:8542:61a4 with SMTP id adf61e73a8af0-3b329340e22mr25394375637.25.1779903896893;
-        Wed, 27 May 2026 10:44:56 -0700 (PDT)
-Received: from p14s ([2604:3d09:148c:c800:9466:b49b:cd0e:2dac])
-        by smtp.gmail.com with ESMTPSA id d2e1a72fcca58-841d70f17cbsm2814639b3a.45.2026.05.27.10.44.55
+        d=1e100.net; s=20251104; t=1779904789; x=1780509589;
+        h=content-transfer-encoding:mime-version:references:in-reply-to
+         :message-id:date:subject:cc:to:from:x-gm-gg:x-gm-message-state:from
+         :to:cc:subject:date:message-id:reply-to;
+        bh=erbsC0Vg9mtqhwjoL7B+eBOB5DX7r/gCOj4pQxWk2VI=;
+        b=DCdRJKX5CNHVSrQBCqOc2BtWjJOGfbyu0V5A2uRGbaJIowKUiKQ/A8hRGth9E7HjM2
+         3hSdrlegZoQCwbaP0bmowrJJxcixJLHhzq3mdnFQTmdBZGWTe4CInRR66vM6HSJWMPF/
+         d3hOH+OJ56jemJHiRgbIaZDp5vhRkUWYLv7rwBegq8wL3GXn0qQD8zdemzA9fBFwGtil
+         Zscg5mSnnGwPWNRKkK0JA1PP3VygElr05T4m75QYLVFWYUvPIEx1uuIHr3Ejshvhyrpf
+         Q4wRFZtSR6VzWehv5lS5p42QmSxSdta8QG2CJuW1lNXxFd6pgaLNU9Bz1zOKSJSLAfAI
+         S0Mg==
+X-Forwarded-Encrypted: i=1; AFNElJ8Kxm0XFz8yOzz6c0xPVdIV96ym1xVtM22dT9YRQlh6WJEmIGRzgTvlRYxUggKChPfCppDw0JvILaC1UHAslElq@lists.infradead.org
+X-Gm-Message-State: AOJu0YzHLbGeRzm/C8H8aWW99SXxyOmef6Zdft47Bej4QacHCdAgsh4m
+	yGjgCPo1dixWpdg9yFeJlGd/pfhue57ctYeshjwLR9OdMZtPdMe1WJ1M
+X-Gm-Gg: Acq92OGKzcvweLtrE2swidg1Ds3uv/PAHKr8o4GuUyjQ+0gPmz1wKz8U9+WPca0vcZu
+	XrH2Vx58pFtmtMX0lVtj93mUOfbCzoVpAcBsReyrxAKzba8E/t5/D2xfsArY+O9Fg8xbKQAQAsE
+	RFlhtOc1TG3m9EtHJGodCdbexQWkt/v+HnvPVK0mwi+fcNxdVy5VyBBHT/Ed5uxipeVZ4La1sv7
+	5ly3YVWKemYTA5zcII62iLPtTKGGeVJR80499D0+6JwtdcQ6P3uNMSMliebrhR73xO6eNUPCpEz
+	XqnMLki0ldSzATtgwK6K2/IyNNid2DjQzhGcr8MgavgB78qne5sZ9mYiKAmCIad3lIrUznYl/wX
+	xoIyJxkYZnE5OCcVpfIDa1lhNBSI9eQ0m64y0mzNXRBXhMHqAIeWaQsCxTHLbvDHTzUkJ72qVbI
+	AQoj+FbXC2piAUd288BWYpLYI6iLOqsAtGJVUA7i9I01yUq4EhnG/+Pgc=
+X-Received: by 2002:a17:903:46c8:b0:2be:fe68:a1c with SMTP id d9443c01a7336-2befe680ebamr8852645ad.39.1779904788724;
+        Wed, 27 May 2026 10:59:48 -0700 (PDT)
+Received: from LAPTOP-97G9G880.domain.name ([106.222.201.80])
+        by smtp.gmail.com with ESMTPSA id d9443c01a7336-2beb5695f05sm204648005ad.6.2026.05.27.10.59.44
         (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Wed, 27 May 2026 10:44:56 -0700 (PDT)
-Date: Wed, 27 May 2026 11:44:53 -0600
-From: Mathieu Poirier <mathieu.poirier@linaro.org>
-To: Ben Levinsky <ben.levinsky@amd.com>
-Cc: andersson@kernel.org, linux-remoteproc@vger.kernel.org,
-	Frank.Li@nxp.com, s.hauer@pengutronix.de, kernel@pengutronix.de,
-	festevam@gmail.com, geert+renesas@glider.be, magnus.damm@gmail.com,
-	patrice.chotard@foss.st.com, mcoquelin.stm32@gmail.com,
-	alexandre.torgue@foss.st.com, arnaud.pouliquen@foss.st.com,
-	daniel.baluta@nxp.com, tanmay.shah@amd.com, imx@lists.linux.dev,
-	linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org,
-	linux-renesas-soc@vger.kernel.org,
-	linux-stm32@st-md-mailman.stormreply.com
-Subject: Re: [PATCH v2 5/5] remoteproc: switch drivers to optional
- resource-table helper
-Message-ID: <ahctlW_4AKS6IHYt@p14s>
-References: <20260514162129.1504162-1-ben.levinsky@amd.com>
- <20260514162129.1504162-6-ben.levinsky@amd.com>
+        Wed, 27 May 2026 10:59:48 -0700 (PDT)
+From: Karthikeyan KS <karthiproffesional@gmail.com>
+To: andrew@codeconstruct.com.au
+Cc: joel@jms.id.au,
+	andrew@aj.id.au,
+	linux-arm-kernel@lists.infradead.org,
+	linux-aspeed@lists.ozlabs.org,
+	linux-kernel@vger.kernel.org,
+	Karthikeyan KS <karthiproffesional@gmail.com>,
+	stable@vger.kernel.org
+Subject: [PATCH v3] soc: aspeed: lpc-snoop: Fix usercopy overflow in snoop_file_read
+Date: Wed, 27 May 2026 17:59:38 +0000
+Message-ID: <20260527175939.2939714-1-karthiproffesional@gmail.com>
+X-Mailer: git-send-email 2.43.0
+In-Reply-To: <53952f011f2c57ad28d6f864317054a2a34922e5.camel@codeconstruct.com.au>
+References: <53952f011f2c57ad28d6f864317054a2a34922e5.camel@codeconstruct.com.au>
 MIME-Version: 1.0
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-In-Reply-To: <20260514162129.1504162-6-ben.levinsky@amd.com>
+Content-Type: text/plain; charset=UTF-8
+Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260527_104458_273335_58F8EF54 
-X-CRM114-Status: GOOD (  30.32  )
+X-CRM114-CacheID: sfid-20260527_105950_624356_1D56836D 
+X-CRM114-Status: GOOD (  17.01  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -106,286 +104,124 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Thu, May 14, 2026 at 09:21:29AM -0700, Ben Levinsky wrote:
-> Use the shared optional resource-table helper in the remoteproc
-> drivers that already treat a missing resource table as non-fatal:
-> xlnx_r5_remoteproc, rcar_rproc, stm32_rproc, imx_rproc, and
-> imx_dsp_rproc.
-> 
-> Keep thin local parse_fw() wrappers in each driver so the helper only
-> centralizes the return-value handling. That lets each platform retain
-> control over whether the missing-table case is logged and at what
-> severity, while other parsing failures continue to propagate to the
-> caller.
-> 
-> Signed-off-by: Ben Levinsky <ben.levinsky@amd.com>
-> ---
->  drivers/remoteproc/imx_dsp_rproc.c      | 24 ++++++++++-----
->  drivers/remoteproc/imx_rproc.c          | 25 ++++++++-------
->  drivers/remoteproc/rcar_rproc.c         | 25 ++++++++-------
->  drivers/remoteproc/stm32_rproc.c        | 23 +++++++++-----
->  drivers/remoteproc/xlnx_r5_remoteproc.c | 41 +++++++++----------------
->  5 files changed, 73 insertions(+), 65 deletions(-)
-> 
-> diff --git a/drivers/remoteproc/imx_dsp_rproc.c b/drivers/remoteproc/imx_dsp_rproc.c
-> index 2d9f14fbef1d..2ff74f7938f6 100644
-> --- a/drivers/remoteproc/imx_dsp_rproc.c
-> +++ b/drivers/remoteproc/imx_dsp_rproc.c
-> @@ -954,14 +954,6 @@ static int imx_dsp_rproc_elf_load_segments(struct rproc *rproc, const struct fir
->  	return ret;
->  }
->  
-> -static int imx_dsp_rproc_parse_fw(struct rproc *rproc, const struct firmware *fw)
-> -{
-> -	if (rproc_elf_load_rsc_table(rproc, fw))
-> -		dev_warn(&rproc->dev, "no resource table found for this firmware\n");
-> -
-> -	return 0;
-> -}
-> -
+put_fifo_with_discard() acts as both producer and consumer on the kfifo:
+it calls kfifo_skip() (advances out) and kfifo_put() (advances in) from
+the IRQ handler without synchronizing with snoop_file_read(), which also
+consumes via kfifo_to_user(). On SMP systems this concurrent access can
+leave (in - out) larger than the ring buffer, so __kfifo_to_user()'s clamp
+to (in - out) is ineffective and kfifo_copy_to_user() can attempt a
+copy_to_user() past the kmalloc-2k backing store:
 
-Why is this getting moved after imx_dsp_rproc_load()?
+  usercopy: Kernel memory exposure attempt detected from SLUB object
+  'kmalloc-2k' (offset 0, size 2049)!
+  kernel BUG at mm/usercopy.c:99!
+  Call trace:
+   usercopy_abort
+   __check_heap_object
+   __check_object_size
+   kfifo_copy_to_user
+   __kfifo_to_user
+   snoop_file_read
+   vfs_read
 
+Reproduced on ast2600-evb (dual-core ARM Cortex-A7) when the host floods
+POST codes while userspace reads /dev/aspeed-lpc-snoop0.
 
->  static int imx_dsp_rproc_load(struct rproc *rproc, const struct firmware *fw)
->  {
->  	struct imx_dsp_rproc *priv = rproc->priv;
-> @@ -990,6 +982,22 @@ static int imx_dsp_rproc_load(struct rproc *rproc, const struct firmware *fw)
->  	return 0;
->  }
->  
-> +static int imx_dsp_rproc_parse_fw(struct rproc *rproc,
-> +				  const struct firmware *fw)
-> +{
-> +	int ret;
-> +
-> +	ret = rproc_elf_load_rsc_table_optional(rproc, fw);
-> +	if (ret)
-> +		return ret;
-> +
-> +	if (!rproc->table_ptr)
-> +		dev_warn(&rproc->dev,
-> +			 "no resource table found for this firmware\n");
-> +
-> +	return 0;
-> +}
-> +
+Serialize kfifo access with a per-channel spinlock: use spin_lock()/
+spin_unlock() in put_fifo_with_discard() (hardirq only) and
+spin_lock_irq()/spin_unlock_irq() around kfifo_to_user() in
+snoop_file_read().
 
-I am not overly fond of having to check rproc->table_ptr for the printout.  How
-about:
+Fixes: 3772e5da4454 ("drivers/misc: Aspeed LPC snoop output using misc chardev")
+Cc: stable@vger.kernel.org
+Signed-off-by: Karthikeyan KS <karthiproffesional@gmail.com>
+---
+Andrew,
 
-#define rproc_elf_load_rsc_table_optional(rproc, fw, dev_func, fmt, ...)        \
-        ({                                                                      \
-                int ret = rproc_elf_load_rsc_table(rproc, fw);                  \
-                if (ret == -EINVAL) {                                           \
-                        dev_func(&rproc->dev, fmt, ##__VA_ARGS__);              \
-                        return 0;                                               \
-                } else {                                                        \
-                        return ret;                                             \
-                }                                                               \
-        })
+Thanks for the review.
 
-in remoteproc_internal.h and something like:
+> The AST2500 has a (single-core) ARM1176JZS
 
-static int imx_dsp_rproc_parse_fw(struct rproc *rproc,
-                                  const struct firmware *fw)
-{
-        rproc_elf_load_rsc_table_optional(rproc, fw, dev_warn,
-                "no resource table found for this firmware\n");
-}
+Corrected in v3.
 
-in the clients?
+> Don't double-account for the bug
 
->  static const struct rproc_ops imx_dsp_rproc_ops = {
->  	.prepare	= imx_dsp_rproc_prepare,
->  	.unprepare	= imx_dsp_rproc_unprepare,
-> diff --git a/drivers/remoteproc/imx_rproc.c b/drivers/remoteproc/imx_rproc.c
-> index 6249815b54d8..58c63f97ebf7 100644
-> --- a/drivers/remoteproc/imx_rproc.c
-> +++ b/drivers/remoteproc/imx_rproc.c
-> @@ -680,17 +680,6 @@ static int imx_rproc_prepare(struct rproc *rproc)
->  	return 0;
->  }
->  
-> -static int imx_rproc_parse_fw(struct rproc *rproc, const struct firmware *fw)
-> -{
-> -	int ret;
-> -
-> -	ret = rproc_elf_load_rsc_table(rproc, fw);
-> -	if (ret)
-> -		dev_info(&rproc->dev, "No resource table in elf\n");
-> -
-> -	return 0;
-> -}
-> -
->  static void imx_rproc_kick(struct rproc *rproc, int vqid)
->  {
->  	struct imx_rproc *priv = rproc->priv;
-> @@ -768,6 +757,20 @@ imx_rproc_elf_find_loaded_rsc_table(struct rproc *rproc, const struct firmware *
->  	return rproc_elf_find_loaded_rsc_table(rproc, fw);
->  }
->  
-> +static int imx_rproc_parse_fw(struct rproc *rproc, const struct firmware *fw)
-> +{
-> +	int ret;
-> +
-> +	ret = rproc_elf_load_rsc_table_optional(rproc, fw);
-> +	if (ret)
-> +		return ret;
-> +
-> +	if (!rproc->table_ptr)
-> +		dev_info(&rproc->dev, "No resource table in elf\n");
-> +
-> +	return 0;
-> +}
-> +
->  static const struct rproc_ops imx_rproc_ops = {
->  	.prepare	= imx_rproc_prepare,
->  	.attach		= imx_rproc_attach,
-> diff --git a/drivers/remoteproc/rcar_rproc.c b/drivers/remoteproc/rcar_rproc.c
-> index e3121fadd292..b7a39014b6bb 100644
-> --- a/drivers/remoteproc/rcar_rproc.c
-> +++ b/drivers/remoteproc/rcar_rproc.c
-> @@ -55,17 +55,6 @@ static int rcar_rproc_prepare(struct rproc *rproc)
->  	}
->  }
->  
-> -static int rcar_rproc_parse_fw(struct rproc *rproc, const struct firmware *fw)
-> -{
-> -	int ret;
-> -
-> -	ret = rproc_elf_load_rsc_table(rproc, fw);
-> -	if (ret)
-> -		dev_info(&rproc->dev, "No resource table in elf\n");
-> -
-> -	return 0;
-> -}
-> -
->  static int rcar_rproc_start(struct rproc *rproc)
->  {
->  	struct rcar_rproc *priv = rproc->priv;
-> @@ -99,6 +88,20 @@ static int rcar_rproc_stop(struct rproc *rproc)
->  	return err;
->  }
->  
-> +static int rcar_rproc_parse_fw(struct rproc *rproc, const struct firmware *fw)
-> +{
-> +	int ret;
-> +
-> +	ret = rproc_elf_load_rsc_table_optional(rproc, fw);
-> +	if (ret)
-> +		return ret;
-> +
-> +	if (!rproc->table_ptr)
-> +		dev_info(&rproc->dev, "No resource table in elf\n");
-> +
-> +	return 0;
-> +}
-> +
->  static struct rproc_ops rcar_rproc_ops = {
->  	.prepare	= rcar_rproc_prepare,
->  	.start		= rcar_rproc_start,
-> diff --git a/drivers/remoteproc/stm32_rproc.c b/drivers/remoteproc/stm32_rproc.c
-> index 7ac8265b60ac..a4d42b755c74 100644
-> --- a/drivers/remoteproc/stm32_rproc.c
-> +++ b/drivers/remoteproc/stm32_rproc.c
-> @@ -232,14 +232,6 @@ static int stm32_rproc_prepare(struct rproc *rproc)
->  	}
->  }
->  
-> -static int stm32_rproc_parse_fw(struct rproc *rproc, const struct firmware *fw)
-> -{
-> -	if (rproc_elf_load_rsc_table(rproc, fw))
-> -		dev_warn(&rproc->dev, "no resource table found for this firmware\n");
-> -
-> -	return 0;
-> -}
-> -
->  static irqreturn_t stm32_rproc_wdg(int irq, void *data)
->  {
->  	struct platform_device *pdev = data;
-> @@ -623,6 +615,21 @@ stm32_rproc_get_loaded_rsc_table(struct rproc *rproc, size_t *table_sz)
->  	return (__force struct resource_table *)ddata->rsc_va;
->  }
->  
-> +static int stm32_rproc_parse_fw(struct rproc *rproc, const struct firmware *fw)
-> +{
-> +	int ret;
-> +
-> +	ret = rproc_elf_load_rsc_table_optional(rproc, fw);
-> +	if (ret)
-> +		return ret;
-> +
-> +	if (!rproc->table_ptr)
-> +		dev_warn(&rproc->dev,
-> +			 "no resource table found for this firmware\n");
-> +
-> +	return 0;
-> +}
-> +
->  static const struct rproc_ops st_rproc_ops = {
->  	.prepare	= stm32_rproc_prepare,
->  	.start		= stm32_rproc_start,
-> diff --git a/drivers/remoteproc/xlnx_r5_remoteproc.c b/drivers/remoteproc/xlnx_r5_remoteproc.c
-> index e5d1903c9636..9b9f07d152e6 100644
-> --- a/drivers/remoteproc/xlnx_r5_remoteproc.c
-> +++ b/drivers/remoteproc/xlnx_r5_remoteproc.c
-> @@ -664,33 +664,6 @@ static int add_tcm_banks(struct rproc *rproc)
->  	return ret;
->  }
->  
-> -/*
-> - * zynqmp_r5_parse_fw()
-> - * @rproc: single R5 core's corresponding rproc instance
-> - * @fw: ptr to firmware to be loaded onto r5 core
-> - *
-> - * get resource table if available
-> - *
-> - * return 0 on success, otherwise non-zero value on failure
-> - */
-> -static int zynqmp_r5_parse_fw(struct rproc *rproc, const struct firmware *fw)
-> -{
-> -	int ret;
-> -
-> -	ret = rproc_elf_load_rsc_table(rproc, fw);
-> -	if (ret == -EINVAL) {
-> -		/*
-> -		 * resource table only required for IPC.
-> -		 * if not present, this is not necessarily an error;
-> -		 * for example, loading r5 hello world application
-> -		 * so simply inform user and keep going.
-> -		 */
-> -		dev_info(&rproc->dev, "no resource table found.\n");
-> -		ret = 0;
-> -	}
-> -	return ret;
-> -}
-> -
->  /**
->   * zynqmp_r5_rproc_prepare() - prepare core to boot/attach
->   * adds carveouts for TCM bank and reserved memory regions
-> @@ -843,6 +816,20 @@ static int zynqmp_r5_detach(struct rproc *rproc)
->  	return 0;
->  }
->  
-> +static int zynqmp_r5_parse_fw(struct rproc *rproc, const struct firmware *fw)
-> +{
-> +	int ret;
-> +
-> +	ret = rproc_elf_load_rsc_table_optional(rproc, fw);
-> +	if (ret)
-> +		return ret;
-> +
-> +	if (!rproc->table_ptr)
-> +		dev_info(&rproc->dev, "no resource table found.\n");
-> +
-> +	return 0;
-> +}
-> +
->  static const struct rproc_ops zynqmp_r5_rproc_ops = {
->  	.prepare	= zynqmp_r5_rproc_prepare,
->  	.unprepare	= zynqmp_r5_rproc_unprepare,
-> -- 
-> 2.34.1
-> 
+Agreed — the spinlock eliminates the unsynchronized window that
+produces the inconsistent pointer state. Clamp removed.
+
+> _irqsave isn't wrong
+
+Changed to spin_lock_irq — fops callbacks always enter with
+interrupts enabled.
+
+> Can you provide more details? The 2500 is single-core
+
+The issue was observed on physical AST2600 (dual-core Cortex-A7)
+in production under heavy POST code traffic during concurrent
+userspace reads. Since the x86 host does not model ARM weak memory
+ordering, the race cannot be reproduced naturally in QEMU. The test
+module adjusts kfifo pointers to reproduce the post-race state for
+deterministic validation.
+
+> AST2600 has a dual-core Cortex-A7, so your bug makes more sense there
+
+Yes, the issue is intermittently observed on production AST2600.
+
+Changes since v2:
+- Dropped count clamp
+- spin_lock_irqsave -> spin_lock_irq in snoop_file_read
+- Fixed platform: AST2600 (dual-core Cortex-A7)
+- Trimmed backtrace
+- Added Fixes tag
+
+ drivers/soc/aspeed/aspeed-lpc-snoop.c | 8 ++++++++
+ 1 file changed, 8 insertions(+)
+
+diff --git a/drivers/soc/aspeed/aspeed-lpc-snoop.c b/drivers/soc/aspeed/aspeed-lpc-snoop.c
+index eceeaf8df..ef6697a42 100644
+--- a/drivers/soc/aspeed/aspeed-lpc-snoop.c
++++ b/drivers/soc/aspeed/aspeed-lpc-snoop.c
+@@ -60,6 +60,7 @@ struct aspeed_lpc_snoop_model_data {
+ 
+ struct aspeed_lpc_snoop_channel {
+ 	struct kfifo		fifo;
++	spinlock_t		lock;
+ 	wait_queue_head_t	wq;
+ 	struct miscdevice	miscdev;
+ };
+@@ -93,7 +94,11 @@ static ssize_t snoop_file_read(struct file *file, char __user *buffer,
+ 		if (ret == -ERESTARTSYS)
+ 			return -EINTR;
+ 	}
++
++	spin_lock_irq(&chan->lock);
+ 	ret = kfifo_to_user(&chan->fifo, buffer, count, &copied);
++	spin_unlock_irq(&chan->lock);
++
+ 	if (ret)
+ 		return ret;
+ 
+@@ -121,9 +126,11 @@ static void put_fifo_with_discard(struct aspeed_lpc_snoop_channel *chan, u8 val)
+ {
+ 	if (!kfifo_initialized(&chan->fifo))
+ 		return;
++	spin_lock(&chan->lock);
+ 	if (kfifo_is_full(&chan->fifo))
+ 		kfifo_skip(&chan->fifo);
+ 	kfifo_put(&chan->fifo, val);
++	spin_unlock(&chan->lock);
+ 	wake_up_interruptible(&chan->wq);
+ }
+ 
+@@ -192,6 +199,7 @@ static int aspeed_lpc_enable_snoop(struct aspeed_lpc_snoop *lpc_snoop,
+ 		of_device_get_match_data(dev);
+ 
+ 	init_waitqueue_head(&lpc_snoop->chan[channel].wq);
++	spin_lock_init(&lpc_snoop->chan[channel].lock);
+ 	/* Create FIFO datastructure */
+ 	rc = kfifo_alloc(&lpc_snoop->chan[channel].fifo,
+ 			 SNOOP_FIFO_SIZE, GFP_KERNEL);
+-- 
+2.43.0
+
 
