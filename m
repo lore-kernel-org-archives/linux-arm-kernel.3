@@ -4,121 +4,74 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 1B87DCD5BC9
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 27 May 2026 03:56:55 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id BAD1DCD5BDE
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 27 May 2026 04:49:05 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:
-	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Content-Type:Cc:To:Subject:Message-ID:Date:From:In-Reply-To:References:
+	MIME-Version:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=76e5d+OwDFACeBsZxMFHmjJHOEXouBWtuBdAHT+B+xY=; b=wK+WAXHTwjmvGHsPVSB5tRgJ7q
-	/+vCgrDigEk0egIXzxn0cJX+/R8nmO3RzUwFUMsezQnGsn8PW/O2bqFUCnI0qnEFMY8ipuicvE6PE
-	93L7f3R8IzcrheM+eXkInQCJMH9y8IV6iraAL07KSB+hz0T/QcZwvldGp8KF11gERUOBG5dk5jcQy
-	csI3kmv/AuDOY1F4+q8cO28FHbaMBwuySjqx4xZeipP7cLlPKJDUU0ZKEZmjcOjVBRGBBV0cE7w/s
-	IxG40SU0p3gLswIIAGh/2dcoOBK2tQ5TY9qB5bolMmPHpEMEP3WOoqPxevBz43i0QDUsLzfAPhBY6
-	ya26CTkw==;
+	bh=7tcqr7MQL0zVS1iggjXewT5XwoMIhxNcBR9iISEez5U=; b=nI4ChoriBIS6vZZfnKm+cHhZFz
+	yadIUBHYY3JX2Cxauf6vmI/4vJtAc8flsdDUgG1KpXrvysF8doyE375pdTYdygPCJKM6AhI+7iGBl
+	ffhhJT4/AiMyy+hEtd5X8Ey/8uaLEOZ4Sjw5SRTzDAJ587jesVWMcDrnmJMT/gTjNUtjqhCLD/Uz3
+	4J209runbDjMFUfdX9Jhe6/jZhdEvhc5AU/m0uI8oAaB4LpFOYf9RU0iQ/6GzIcac17ATTL3baRVL
+	1nnvlwvqNIaQTBb59SuicKh/FWSgJ85DK8EKqqgk+vLz+H69D3BOQsNGPBXPmJGSvebkESyMMRZ3X
+	UXmjpSDA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wS5Nv-00000003I1H-3vrO;
-	Wed, 27 May 2026 03:56:47 +0000
-Received: from desiato.infradead.org ([2001:8b0:10b:1:d65d:64ff:fe57:4e05])
+	id 1wS6CL-00000003Jej-1L8q;
+	Wed, 27 May 2026 04:48:53 +0000
+Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wS5Nu-00000003I0g-3goX
-	for linux-arm-kernel@bombadil.infradead.org;
-	Wed, 27 May 2026 03:56:47 +0000
-DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=infradead.org; s=desiato.20200630; h=Content-Transfer-Encoding:MIME-Version
-	:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:Sender:Reply-To:
-	Content-Type:Content-ID:Content-Description;
-	bh=76e5d+OwDFACeBsZxMFHmjJHOEXouBWtuBdAHT+B+xY=; b=qPbq2sBSu/1QLItZTIPXnVyV8H
-	UPe2rXDRWNdgxI7oEJSCBi7iCmEZhfmhVjXMOV7B0xUkkvsOiUkCSxJdIaED3m0JifSk0K0664mL4
-	O7XdHzQkqFEHHwahySAKYEIbUPFMh7fmgzU6zxEgNfYKKCeozygQy6J8EInXezWnScRmiZ6oJxyt+
-	u6TGnz1hBQ1YUn/c6crfI1lzJ183xo19xW1ML8rUspLoSGEnm2t/TIyslqpQ2nx7UGhobdueFBqLN
-	23HbFWjmRVcY5j1c2w6qDU7/aVng1n0crY/yI99wf1i2JD2wbXnSXkv5JYk1HqBwvKfiTSfoQ7H2O
-	Ed8/Q9pw==;
-Received: from mail-pl1-x62a.google.com ([2607:f8b0:4864:20::62a])
-	by desiato.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wS5Nq-0000000CtXK-00HW
+	id 1wS6CI-00000003Je8-3O3z
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 27 May 2026 03:56:44 +0000
-Received: by mail-pl1-x62a.google.com with SMTP id d9443c01a7336-2bcee5f0d01so18785435ad.0
-        for <linux-arm-kernel@lists.infradead.org>; Tue, 26 May 2026 20:56:41 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20251104; t=1779854200; x=1780459000; darn=lists.infradead.org;
-        h=content-transfer-encoding:mime-version:references:in-reply-to
-         :message-id:date:subject:cc:to:from:from:to:cc:subject:date
-         :message-id:reply-to;
-        bh=76e5d+OwDFACeBsZxMFHmjJHOEXouBWtuBdAHT+B+xY=;
-        b=M7ZPYm0YtBzK7DuzK/h5pACeCmrlD7ENjLKWaDoSlesajPpWMfn7Ubq1B26KHVQnrp
-         qm9he4nIQYd2Y6zxiTAWM57qyXNN7as1kE9QoWSr+WR3o051+uxCWrJJLTniyy6IV/ms
-         gdp6/EK/FYsHfkNdAPCHiFCkl3krkPezi3TSQlm2AueFSlrYK4SSFHyDV4wKqiT0x7Ht
-         GQysUYSKGf9lpvbKtVR7UFS2F2l/qkqaG+ykZg4BW4RX5jnW2MXmnouV1Q+ojQhacPmk
-         m2ntSg3sFxa0NO+5F2dbP92x23O6FgWvkBR7Jlo2aghx8MmjTpf3dIUJ/caPoatLURDX
-         RZhA==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20251104; t=1779854200; x=1780459000;
-        h=content-transfer-encoding:mime-version:references:in-reply-to
-         :message-id:date:subject:cc:to:from:x-gm-gg:x-gm-message-state:from
-         :to:cc:subject:date:message-id:reply-to;
-        bh=76e5d+OwDFACeBsZxMFHmjJHOEXouBWtuBdAHT+B+xY=;
-        b=BH/0K+/z1m0hu7n2I1IRH7p4mIslGLao1GqS+9jhgMcWB8d8MjcTL4r8iKDZkUojAm
-         EOwkLELhI1fqBuGS4UvF6rJK9VXuoiHkv1ECUgSPIuRkWUrcQox0ZO7uUCfDS+vnZifQ
-         Qzka7+Jv8ZLcJ3mRw8NpJLKekds0ibdRRE3hpOSALJiWdWeXTYgJN60MB4X/Di6VCnYt
-         mlxQvq6nlp/Myn0nwPv2MzqX/WBa1WeVj/nIqk6RAdDN5SnQIq98E0ZRyAnzWLImTVfn
-         KFdFpNciSStW25LxZQ2i0mLxzu2VCrsaDLLqNKah5v/bhfrHx+eSUPHAKDibsDRVIYyq
-         hRmA==
-X-Forwarded-Encrypted: i=1; AFNElJ9NeYTtyqxoMiBO2jzziejVAU3W/z4QMRaojakkNiLyJE6jAoDB43ZshkIkTC6SaLy1Cph7P+okOJ/7dM9BpK1A@lists.infradead.org
-X-Gm-Message-State: AOJu0YyGefDgMPf0KV7fC7EwaeDtJ+C5myuJZ+M+D2AezM+5O0T5ZEyg
-	qllAizT4jLeLpwDzusDxl17867i4RlvgohT67/UDHpQrvvBF35DlKah+
-X-Gm-Gg: Acq92OFRRmdGtygZTgKLDiaefjFbX5k6/GmzQbkWKiLto4LS8GD3dxUz5eDi02paEfy
-	RKZHxp67fiCUK3Pv7eLY1W43eVOoixDLkUM7GD+6oyFonUyQVp0IgOvAB+Lx/223nGB1T1PkIvV
-	APq4nwR+KH+UEeWebVfGTsrZ0OZv41oWiqZOSA2oCWtUFRBu56DMCyxymYscMwl1cZzUqSpwntC
-	6c3klDRohhnE2eGDBzap28YHf6KkfZ7Q6xGSNxHnQr+iXbwrFcpJzC6p9PQP5yCO8vBESzXaTJM
-	dgkTsJYcnekLPVz6yxz6USZ2HHA/YJfagDJvdOBLfHU/G4xNQVTYCTwUHlOglkdxsCrGaPdrdxK
-	tkse38DDOjZIP34ot2aIbA7B0NyrVpc0FoXhtsh2ftvUx1zR3Ik5KAokyXnSka4XfRG8N2AysoO
-	NWBprnL6z9mo4Eoh0Umr/vecXtDN09t7Uss6fLPimpbxxqBhV6gPTbltovRXahIA3HvUF1rbUEI
-	nbO8RN0vzE4HgyNbLS2hs94+14=
-X-Received: by 2002:a05:6a00:3a14:b0:82c:ae58:46a5 with SMTP id d2e1a72fcca58-8415f3495d1mr10604971b3a.5.1779854199491;
-        Tue, 26 May 2026 20:56:39 -0700 (PDT)
-Received: from firefly-aio-3588q.. ([36.28.158.221])
-        by smtp.gmail.com with ESMTPSA id d2e1a72fcca58-841d70f1ed8sm828385b3a.43.2026.05.26.20.56.32
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Tue, 26 May 2026 20:56:39 -0700 (PDT)
-From: Xueyuan chen <xueyuan.chen21@gmail.com>
-To: akpm@linux-foundation.org,
-	linux-mm@kvack.org
-Cc: linux-kernel@vger.kernel.org,
-	linux-arm-kernel@lists.infradead.org,
-	x86@kernel.org,
-	catalin.marinas@arm.com,
-	will@kernel.org,
-	tglx@kernel.org,
-	mingo@redhat.com,
-	bp@alien8.de,
-	dave.hansen@linux.intel.com,
-	hpa@zytor.com,
-	david@kernel.org,
-	ljs@kernel.org,
-	ziy@nvidia.com,
-	baolin.wang@linux.alibaba.com,
-	ryan.roberts@arm.com,
-	dev.jain@arm.com,
-	lance.yang@linux.dev,
-	yang@os.amperecomputing.com,
-	jannh@google.com,
-	Xueyuan Chen <xueyuan.chen21@gmail.com>
-Subject: [RFC PATCH 3/3] x86/mm: make huge zero folio read-only in direct map
-Date: Wed, 27 May 2026 11:56:07 +0800
-Message-ID: <20260527035607.14919-4-xueyuan.chen21@gmail.com>
-X-Mailer: git-send-email 2.43.0
-In-Reply-To: <20260527035607.14919-1-xueyuan.chen21@gmail.com>
-References: <20260527035607.14919-1-xueyuan.chen21@gmail.com>
+	Wed, 27 May 2026 04:48:51 +0000
+Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
+	by sea.source.kernel.org (Postfix) with ESMTP id DF87C43DDD
+	for <linux-arm-kernel@lists.infradead.org>; Wed, 27 May 2026 04:48:49 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id C6A7F1F00ADB
+	for <linux-arm-kernel@lists.infradead.org>; Wed, 27 May 2026 04:48:49 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
+	s=k20260515; t=1779857329;
+	bh=7tcqr7MQL0zVS1iggjXewT5XwoMIhxNcBR9iISEez5U=;
+	h=References:In-Reply-To:From:Date:Subject:To:Cc;
+	b=kfqGdCQUuAaBiaTBh3y9ct9XAO1y+AKkBZMqZ4H2SaloagRykPxJ0R+LSm/5MmI08
+	 r1zv+XFg8cuVIwejzMDeJTKAjnYdmnYLXpx2cRqBvWimcwyFQj511vVNBDAkxdc45K
+	 G/vXDhWYDYhh3q7ltZcBxavTOnJ8BZkyzC6FPW560HXG1VOv5ZfxUBPzI7Q/zQCw9t
+	 Vbrtam07tYTDe+Dj3jmtVvAn6zi9yfy6SOPFklSc/nRoyk+mwloOr+mQVtPLivihoH
+	 eGZTi0nOfLGMGnMs6dg7nd11JatMrD8f0o7CdZQJAFIfZgPMMOAppO8tKqHySJKBXs
+	 E+Xw0xJ8F9f9w==
+Received: by mail-lf1-f41.google.com with SMTP id 2adb3069b0e04-5a858881ad2so14045080e87.3
+        for <linux-arm-kernel@lists.infradead.org>; Tue, 26 May 2026 21:48:49 -0700 (PDT)
+X-Forwarded-Encrypted: i=1; AFNElJ+Av39KJ/pxuLx6fbmdmmwyKC/X2RzU2nf+gyzYhjw26RdUC/JhZQG1BANHNjxdViyfbe51HkQvpXFZvGD6T9d0@lists.infradead.org
+X-Gm-Message-State: AOJu0YwEH9M09MA6gi/q5cbvxNRsou2sJ34e4Lw4eMkS4UtQSgPl4XiE
+	8jCTapEWcBfSaiFSIsZF7KVpGvt0bN0iWhsAp3qKDKQzg8lALp3pIHF2FyriqSw6VLIjA2wZdM5
+	UYpXx87xdwTO1GFud5GJcBplT8CpnckY=
+X-Received: by 2002:a05:6512:1452:10b0:5a6:31e9:1e56 with SMTP id
+ 2adb3069b0e04-5aa323263a9mr4824355e87.18.1779857328106; Tue, 26 May 2026
+ 21:48:48 -0700 (PDT)
 MIME-Version: 1.0
-Content-Transfer-Encoding: 8bit
+References: <20260527034350.527482-1-zenghongling@kylinos.cn>
+In-Reply-To: <20260527034350.527482-1-zenghongling@kylinos.cn>
+From: Sean Wang <sean.wang@kernel.org>
+Date: Tue, 26 May 2026 23:48:36 -0500
+X-Gmail-Original-Message-ID: <CAGp9LzruaD57tE5XHHAM8mKoPc-JQSAcaTdgvdSfESJjz-9XnA@mail.gmail.com>
+X-Gm-Features: AVHnY4Kn3PRAO-yghCTyjcaeRLsdka-fBpVL84WPL3a52LfxGBU64M6Iy9-CHoY
+Message-ID: <CAGp9LzruaD57tE5XHHAM8mKoPc-JQSAcaTdgvdSfESJjz-9XnA@mail.gmail.com>
+Subject: Re: [PATCH v2] wifi: mt76: mt7921: fix resource leak in probe error path
+To: Hongling Zeng <zenghongling@kylinos.cn>
+Cc: nbd@nbd.name, lorenzo@kernel.org, ryder.lee@mediatek.com, 
+	shayne.chen@mediatek.com, sean.wang@mediatek.com, matthias.bgg@gmail.com, 
+	angelogioacchino.delregno@collabora.com, xiong.huang@mediatek.com, 
+	madhurkumar004@gmail.com, linux-wireless@vger.kernel.org, 
+	linux-kernel@vger.kernel.org, linux-arm-kernel@lists.infradead.org, 
+	linux-mediatek@lists.infradead.org, zhongling0719@126.com
+Content-Type: text/plain; charset="UTF-8"
+Content-Transfer-Encoding: quoted-printable
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260527_045643_408085_AC784CEC 
-X-CRM114-Status: GOOD (  11.98  )
+X-CRM114-CacheID: sfid-20260526_214850_892749_D5B240FF 
+X-CRM114-Status: GOOD (  20.97  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -133,65 +86,84 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-From: Xueyuan Chen <xueyuan.chen21@gmail.com>
+Hi,
 
-Implement arch_make_huge_zero_folio_readonly() for x86-64. Once allocated,
-try to make the folio read-only in the direct map so unexpected writes
-fault instead of corrupting shared zero contents.
+On Tue, May 26, 2026 at 10:44=E2=80=AFPM Hongling Zeng <zenghongling@kylino=
+s.cn> wrote:
+>
+> When pcim_iomap_region() or devm_kmemdup() fail, the code returns
+> directly without cleaning up previously allocated resources:
+>   - mt76_device allocated by mt76_alloc_device()
+>   - pci irq vectors allocated by pci_alloc_irq_vectors()
+> Fix this by jumping to the existing error cleanup path instead of
+> returning directly.
+>
+> To avoid using an uninitialized variable in the error path, move the
+> dev initialization before the error checks.
+>
+> Fixes: 234738ea3390 ("phy: ti-pipe3: move clk initialization to a separat=
+e function")
+> Signed-off-by: Hongling Zeng <zenghongling@kylinos.cn>
+>
 
-The set_memory_ro() update is best effort: if it fails, generic THP keeps
-using the writable persistent huge zero folio.
+The code change itself looks correct, but commit message Fixes: tag is wron=
+g.
 
-Co-developed-by: Lance Yang <lance.yang@linux.dev>
-Signed-off-by: Lance Yang <lance.yang@linux.dev>
-Signed-off-by: Xueyuan Chen <xueyuan.chen21@gmail.com>
----
- arch/x86/Kconfig   |  1 +
- arch/x86/mm/init.c | 11 +++++++++++
- 2 files changed, 12 insertions(+)
+It points to 234738ea3390 ("phy: ti-pipe3: move clk initialization to
+a separate function"), which is unrelated to mt76/mt7921.
 
-diff --git a/arch/x86/Kconfig b/arch/x86/Kconfig
-index f3f7cb01d69d..81f9478d2803 100644
---- a/arch/x86/Kconfig
-+++ b/arch/x86/Kconfig
-@@ -24,6 +24,7 @@ config X86_64
- 	def_bool y
- 	depends on 64BIT
- 	# Options that are inherently 64-bit kernel only:
-+	select ARCH_HAS_READONLY_HUGE_ZERO_FOLIO
- 	select ARCH_HAS_GIGANTIC_PAGE
- 	select ARCH_SUPPORTS_MSEAL_SYSTEM_MAPPINGS
- 	select ARCH_SUPPORTS_INT128 if CC_HAS_INT128
-diff --git a/arch/x86/mm/init.c b/arch/x86/mm/init.c
-index fb67217fddcd..ef721aa2ff0c 100644
---- a/arch/x86/mm/init.c
-+++ b/arch/x86/mm/init.c
-@@ -3,6 +3,8 @@
- #include <linux/ioport.h>
- #include <linux/swap.h>
- #include <linux/memblock.h>
-+#include <linux/mm.h>
-+#include <linux/huge_mm.h>
- #include <linux/swapfile.h>
- #include <linux/swapops.h>
- #include <linux/kmemleak.h>
-@@ -38,6 +40,15 @@
- 
- #include "mm_internal.h"
- 
-+#ifdef CONFIG_READONLY_HUGE_ZERO_FOLIO
-+bool __init arch_make_huge_zero_folio_readonly(struct folio *folio)
-+{
-+	unsigned long addr = (unsigned long)folio_address(folio);
-+
-+	return !set_memory_ro(addr, HPAGE_PMD_NR);
-+}
-+#endif
-+
- /*
-  * Tables translating between page_cache_type_t and pte encoding.
-  *
--- 
-2.47.3
+The two direct-return leaks appear to come from:
+      - ee5bb35d2b83 ("wifi: mt76: mt7921: Replace deprecated PCI
+function") for the pcim_iomap_region() path.
+      - 222606f43b58 ("wifi: mt76: mt7921: handle MT7902 irq_map quirk
+with mutable copy") for the MT7902 devm_kmemdup() path.
 
+> ---
+>  Change in v1
+>    --fix uninitialized variable warning
+> ---
+>  drivers/net/wireless/mediatek/mt76/mt7921/pci.c | 15 ++++++++++-----
+>  1 file changed, 10 insertions(+), 5 deletions(-)
+>
+> diff --git a/drivers/net/wireless/mediatek/mt76/mt7921/pci.c b/drivers/ne=
+t/wireless/mediatek/mt76/mt7921/pci.c
+> index 7a790ddf43bb..49a37185f056 100644
+> --- a/drivers/net/wireless/mediatek/mt76/mt7921/pci.c
+> +++ b/drivers/net/wireless/mediatek/mt76/mt7921/pci.c
+> @@ -343,11 +343,14 @@ static int mt7921_pci_probe(struct pci_dev *pdev,
+>
+>         pci_set_drvdata(pdev, mdev);
+>
+> +       dev =3D container_of(mdev, struct mt792x_dev, mt76);
+> +
+>         regs =3D  pcim_iomap_region(pdev, 0, pci_name(pdev));
+> -       if (IS_ERR(regs))
+> -               return PTR_ERR(regs);
+> +       if (IS_ERR(regs)) {
+> +               ret =3D PTR_ERR(regs);
+> +               goto err_free_dev;
+> +       }
+>
+> -       dev =3D container_of(mdev, struct mt792x_dev, mt76);
+>         dev->fw_features =3D features;
+>         dev->hif_ops =3D &mt7921_pcie_ops;
+>         dev->irq_map =3D &irq_map;
+> @@ -359,8 +362,10 @@ static int mt7921_pci_probe(struct pci_dev *pdev,
+>                 /* MT7902 needs a mutable copy because wm2_complete_mask =
+differs */
+>                 map =3D devm_kmemdup(&pdev->dev, &irq_map,
+>                                    sizeof(irq_map), GFP_KERNEL);
+> -               if (!map)
+> -                       return -ENOMEM;
+> +               if (!map) {
+> +                       ret =3D -ENOMEM;
+> +                       goto err_free_dev;
+> +               }
+>
+>                 map->rx.wm2_complete_mask =3D 0;
+>                 dev->irq_map =3D map;
+> --
+> 2.25.1
+>
+>
 
