@@ -4,74 +4,114 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id BAD1DCD5BDE
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 27 May 2026 04:49:05 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 9C600CD5BDE
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 27 May 2026 05:16:43 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:Cc:To:Subject:Message-ID:Date:From:In-Reply-To:References:
-	MIME-Version:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=7tcqr7MQL0zVS1iggjXewT5XwoMIhxNcBR9iISEez5U=; b=nI4ChoriBIS6vZZfnKm+cHhZFz
-	yadIUBHYY3JX2Cxauf6vmI/4vJtAc8flsdDUgG1KpXrvysF8doyE375pdTYdygPCJKM6AhI+7iGBl
-	ffhhJT4/AiMyy+hEtd5X8Ey/8uaLEOZ4Sjw5SRTzDAJ587jesVWMcDrnmJMT/gTjNUtjqhCLD/Uz3
-	4J209runbDjMFUfdX9Jhe6/jZhdEvhc5AU/m0uI8oAaB4LpFOYf9RU0iQ/6GzIcac17ATTL3baRVL
-	1nnvlwvqNIaQTBb59SuicKh/FWSgJ85DK8EKqqgk+vLz+H69D3BOQsNGPBXPmJGSvebkESyMMRZ3X
-	UXmjpSDA==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:
+	Content-Transfer-Encoding:MIME-Version:Message-ID:Date:Subject:CC:To:From:
+	Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender
+	:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=Y+kIqASLGw26fXL+jraOSl8GfF/u/55D+yJw4YU+/Bo=; b=oMkrGCuRnEHJjY97n7OLqDWe4t
+	ZVYZfOnJLGGmPeG94YNbSDSnxAGulUIIdlVWoWppGhUbBArpUMCv8BeWtAMfQ4JBUA83sf5NG4nWT
+	mfMl+UHIZPcO1YQd6nS48OYwVNgj52ExJu8jjoS/Zxj0iuuqs5HGlNkJ1s8x+vxEL8eLiPCcs84Km
+	5Hzp9jj/2nvu9pNMBqgq9F/YXyXLMDsTbDOe/usYm+FA3UioeytvR0XqcvjaxgVERzIgpOP6wbozV
+	zVu7Ny/Ugk/1RJUAjZQKUaetDFAuWmOgVAxa3eNAFAh6feigDrsHPG6Inf+6BryC31Oljw9lLlAib
+	vnmGSfxg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wS6CL-00000003Jej-1L8q;
-	Wed, 27 May 2026 04:48:53 +0000
-Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
+	id 1wS6dA-00000003Krs-1Igp;
+	Wed, 27 May 2026 05:16:36 +0000
+Received: from mail-westusazlp170120002.outbound.protection.outlook.com ([2a01:111:f403:c001::2] helo=SJ2PR03CU001.outbound.protection.outlook.com)
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wS6CI-00000003Je8-3O3z
+	id 1wS6d6-00000003Kqb-1lq3
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 27 May 2026 04:48:51 +0000
-Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
-	by sea.source.kernel.org (Postfix) with ESMTP id DF87C43DDD
-	for <linux-arm-kernel@lists.infradead.org>; Wed, 27 May 2026 04:48:49 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id C6A7F1F00ADB
-	for <linux-arm-kernel@lists.infradead.org>; Wed, 27 May 2026 04:48:49 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1779857329;
-	bh=7tcqr7MQL0zVS1iggjXewT5XwoMIhxNcBR9iISEez5U=;
-	h=References:In-Reply-To:From:Date:Subject:To:Cc;
-	b=kfqGdCQUuAaBiaTBh3y9ct9XAO1y+AKkBZMqZ4H2SaloagRykPxJ0R+LSm/5MmI08
-	 r1zv+XFg8cuVIwejzMDeJTKAjnYdmnYLXpx2cRqBvWimcwyFQj511vVNBDAkxdc45K
-	 G/vXDhWYDYhh3q7ltZcBxavTOnJ8BZkyzC6FPW560HXG1VOv5ZfxUBPzI7Q/zQCw9t
-	 Vbrtam07tYTDe+Dj3jmtVvAn6zi9yfy6SOPFklSc/nRoyk+mwloOr+mQVtPLivihoH
-	 eGZTi0nOfLGMGnMs6dg7nd11JatMrD8f0o7CdZQJAFIfZgPMMOAppO8tKqHySJKBXs
-	 E+Xw0xJ8F9f9w==
-Received: by mail-lf1-f41.google.com with SMTP id 2adb3069b0e04-5a858881ad2so14045080e87.3
-        for <linux-arm-kernel@lists.infradead.org>; Tue, 26 May 2026 21:48:49 -0700 (PDT)
-X-Forwarded-Encrypted: i=1; AFNElJ+Av39KJ/pxuLx6fbmdmmwyKC/X2RzU2nf+gyzYhjw26RdUC/JhZQG1BANHNjxdViyfbe51HkQvpXFZvGD6T9d0@lists.infradead.org
-X-Gm-Message-State: AOJu0YwEH9M09MA6gi/q5cbvxNRsou2sJ34e4Lw4eMkS4UtQSgPl4XiE
-	8jCTapEWcBfSaiFSIsZF7KVpGvt0bN0iWhsAp3qKDKQzg8lALp3pIHF2FyriqSw6VLIjA2wZdM5
-	UYpXx87xdwTO1GFud5GJcBplT8CpnckY=
-X-Received: by 2002:a05:6512:1452:10b0:5a6:31e9:1e56 with SMTP id
- 2adb3069b0e04-5aa323263a9mr4824355e87.18.1779857328106; Tue, 26 May 2026
- 21:48:48 -0700 (PDT)
+	Wed, 27 May 2026 05:16:34 +0000
+ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
+ b=AUY9SDs+we36AvxEjYakIhH8tUbA/vFG3MA5Jf+MBiZJwZ5gnYDTROGTHAQPXn4HEXOnCWvDx5Ip5UCMTgYFKh1rLT09uplRjA1FT9owAuqB9DNhe9H6nbIei1DhetKiX3JWP8NpsY06+8ddyUXtVNCj+03Ne05COL4HfPrD53jVzFU41M0rwtpHHeM24yQxVyA+UEaTtTKYaGV/1vPFuxWt0YoEEt9et380TiUrq2hmHq4l/KmHo/5ihj+u12x7RamTap9f3AdBoonIH7HDmt7+gmDFVd3xDx96tT4NPu+gJcvcs+Nmi+H1t1s/W9lSpuRdlLJswGcXrmRd3Awlyg==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
+ s=arcselector10001;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
+ bh=Y+kIqASLGw26fXL+jraOSl8GfF/u/55D+yJw4YU+/Bo=;
+ b=YawOzBatGA8See4jJVCXMf65Gq9qc9mg2d+FpN6diZKDCU4tXL33vEH7YEPn9XZWpNQ25Wauy1nbU/Syqqvs6WitwyjFMw5rQwITSafI78GvlHMwHHTbRMOGIvkPT4g/FyibNnpN0qPouMem5QVYhicZzdCEKecDkv4TrXJ+zFceVR2cBtLlK0tqW2n8QbG14Yk8yyafO9BIoTMLzrJwUoEcM8kgUyiJQXvvfCwTii9XHC2AtDcMvcb1tHs1+EloI+Y4KL/f1QNkdouYeScVckb58ou4Dq6b70lxyfPhYoW6/Nzd/hQyYtGG/6erSp82KjHLC5fX035j1k9BmgLESw==
+ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass (sender ip is
+ 165.204.84.17) smtp.rcpttodomain=kernel.org smtp.mailfrom=amd.com; dmarc=pass
+ (p=quarantine sp=quarantine pct=100) action=none header.from=amd.com;
+ dkim=none (message not signed); arc=none (0)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=amd.com; s=selector1;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
+ bh=Y+kIqASLGw26fXL+jraOSl8GfF/u/55D+yJw4YU+/Bo=;
+ b=ElF+uIh2qUeFRzUizR2BDtDoyOrNTsDzw7/KTNSOgj4tpuLHgyIQxkddPSD7J/tBQhNkct7XGUUCYcDvaq4b5rRqf7cFqti6kilP7vxnM52P10J/p+4vs0i1PyWr79ZxfTd6jDUZLiDHAo7HnESi25UZolaESCsbHxb+U9xckKU=
+Received: from SJ0PR13CA0054.namprd13.prod.outlook.com (2603:10b6:a03:2c2::29)
+ by MW4PR12MB7311.namprd12.prod.outlook.com (2603:10b6:303:227::11) with
+ Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.21.71.12; Wed, 27 May
+ 2026 05:16:25 +0000
+Received: from CO1PEPF00012E80.namprd03.prod.outlook.com
+ (2603:10b6:a03:2c2:cafe::43) by SJ0PR13CA0054.outlook.office365.com
+ (2603:10b6:a03:2c2::29) with Microsoft SMTP Server (version=TLS1_3,
+ cipher=TLS_AES_256_GCM_SHA384) id 15.21.71.12 via Frontend Transport; Wed, 27
+ May 2026 05:16:24 +0000
+X-MS-Exchange-Authentication-Results: spf=pass (sender IP is 165.204.84.17)
+ smtp.mailfrom=amd.com; dkim=none (message not signed)
+ header.d=none;dmarc=pass action=none header.from=amd.com;
+Received-SPF: Pass (protection.outlook.com: domain of amd.com designates
+ 165.204.84.17 as permitted sender) receiver=protection.outlook.com;
+ client-ip=165.204.84.17; helo=satlexmb07.amd.com; pr=C
+Received: from satlexmb07.amd.com (165.204.84.17) by
+ CO1PEPF00012E80.mail.protection.outlook.com (10.167.249.55) with Microsoft
+ SMTP Server (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
+ 15.21.71.7 via Frontend Transport; Wed, 27 May 2026 05:16:24 +0000
+Received: from SATLEXMB04.amd.com (10.181.40.145) by satlexmb07.amd.com
+ (10.181.42.216) with Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_128_GCM_SHA256) id 15.2.2562.41; Wed, 27 May
+ 2026 00:16:24 -0500
+Received: from satlexmb08.amd.com (10.181.42.217) by SATLEXMB04.amd.com
+ (10.181.40.145) with Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_128_GCM_SHA256) id 15.1.2507.39; Wed, 27 May
+ 2026 00:16:23 -0500
+Received: from xsjtanmays50.xilinx.com (10.180.168.240) by satlexmb08.amd.com
+ (10.181.42.217) with Microsoft SMTP Server id 15.2.2562.41 via Frontend
+ Transport; Wed, 27 May 2026 00:16:23 -0500
+From: Tanmay Shah <tanmay.shah@amd.com>
+To: <andersson@kernel.org>, <mathieu.poirier@linaro.org>, <robh@kernel.org>,
+	<krzk+dt@kernel.org>, <conor+dt@kernel.org>, <michal.simek@amd.com>,
+	<ben.levinsky@amd.com>, <tanmay.shah@amd.com>
+CC: <linux-remoteproc@vger.kernel.org>, <devicetree@vger.kernel.org>,
+	<linux-arm-kernel@lists.infradead.org>, <linux-kernel@vger.kernel.org>
+Subject: [PATCH v3 0/2] remoteproc: xlnx: add auto-boot support
+Date: Tue, 26 May 2026 22:16:09 -0700
+Message-ID: <20260527051611.194844-1-tanmay.shah@amd.com>
+X-Mailer: git-send-email 2.34.1
 MIME-Version: 1.0
-References: <20260527034350.527482-1-zenghongling@kylinos.cn>
-In-Reply-To: <20260527034350.527482-1-zenghongling@kylinos.cn>
-From: Sean Wang <sean.wang@kernel.org>
-Date: Tue, 26 May 2026 23:48:36 -0500
-X-Gmail-Original-Message-ID: <CAGp9LzruaD57tE5XHHAM8mKoPc-JQSAcaTdgvdSfESJjz-9XnA@mail.gmail.com>
-X-Gm-Features: AVHnY4Kn3PRAO-yghCTyjcaeRLsdka-fBpVL84WPL3a52LfxGBU64M6Iy9-CHoY
-Message-ID: <CAGp9LzruaD57tE5XHHAM8mKoPc-JQSAcaTdgvdSfESJjz-9XnA@mail.gmail.com>
-Subject: Re: [PATCH v2] wifi: mt76: mt7921: fix resource leak in probe error path
-To: Hongling Zeng <zenghongling@kylinos.cn>
-Cc: nbd@nbd.name, lorenzo@kernel.org, ryder.lee@mediatek.com, 
-	shayne.chen@mediatek.com, sean.wang@mediatek.com, matthias.bgg@gmail.com, 
-	angelogioacchino.delregno@collabora.com, xiong.huang@mediatek.com, 
-	madhurkumar004@gmail.com, linux-wireless@vger.kernel.org, 
-	linux-kernel@vger.kernel.org, linux-arm-kernel@lists.infradead.org, 
-	linux-mediatek@lists.infradead.org, zhongling0719@126.com
-Content-Type: text/plain; charset="UTF-8"
-Content-Transfer-Encoding: quoted-printable
+Content-Transfer-Encoding: 8bit
+Content-Type: text/plain
+Received-SPF: None (SATLEXMB04.amd.com: tanmay.shah@amd.com does not designate
+ permitted sender hosts)
+X-EOPAttributedMessage: 0
+X-MS-PublicTrafficType: Email
+X-MS-TrafficTypeDiagnostic: CO1PEPF00012E80:EE_|MW4PR12MB7311:EE_
+X-MS-Office365-Filtering-Correlation-Id: 968b9e0b-0f7f-46ae-4425-08debbaf1924
+X-MS-Exchange-SenderADCheck: 1
+X-MS-Exchange-AntiSpam-Relay: 0
+X-Microsoft-Antispam: BCL:0;ARA:13230040|36860700016|82310400026|376014|1800799024|56012099006|11063799006|18002099003;
+X-Microsoft-Antispam-Message-Info: vCFhv4imE1EGhGA5AiiaCWJhTNFSsBeJlGsDfRMNRRkhWdA77fiLiiLDR5j8RF6Wbwny1p6+JQuweSrXTpaHR1ao6eujbGRflKPX6kPjig/ZR+Yp4/A1pqOpb42HjvePvFEgURcoXcJuIeBszPqVtjJU+9smI9gvGXFPGI0tGdD5Q8blqBfzM5tK+vjiryL/cH+VWdW7MMdNfjPdzcTAr8hEH1XBZGg1DVwghC5pdAiyrW0a+OWk7dynuBcKwy9QRpk8HFG7j06oMz/xadr5n+AkxAXgNILsyq8jWeXkotmLNDvSy5+D9D33rddoLMP/2pFklABUIglNKNEmuBJiUNnSbs5JnB2zn9TAKIXtUCctwaugYV5U2MRpSHz7ULqMPQOGO4iQgn0q1Jn93KNgeLKzVqzcqd19/QW7gii13se91444pmBdHyS6eCn7KmWs3BzbkhSTcGRpXUrzYseb4nctLqnLNHWsdAWkku3lgNonbPWOq13xf9aF+EiLeP6P2sGbvkZvtMSoLlQvFkayuTxtG0RgAnBsHg1uM/Cs9AcO5ccBzMs76xJGQrXHwu/zS30EOlYjBp4C4CjNFNYuHv2j95JNqdQ47zmXvVdLqGbPvA6YGkAM39RNGCWFRwMp7fG8soPBpqPbBUJcym27A7WUfewTxrHLCkViwIBrCY3pPGQhCS8S6uENbdW6T9rF0JuearjvGLvGcSMOPahqsIx/3iBKvurgedSVkJvlXXM=
+X-Forefront-Antispam-Report: CIP:165.204.84.17;CTRY:US;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:satlexmb07.amd.com;PTR:InfoDomainNonexistent;CAT:NONE;SFS:(13230040)(36860700016)(82310400026)(376014)(1800799024)(56012099006)(11063799006)(18002099003);DIR:OUT;SFP:1101;
+X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
+X-MS-Exchange-AntiSpam-MessageData-0: CYIjN/yrcbo+3/1o4Qhr/IyfuwtSiPOMRLG2uExsXJjApiT2wHXnZj2jPoZH5lo5WdXlsAWr8XOxHkq//4K0VES5TtD3Mtsq61UJRFcfP+86fVQghXVfhYHMIk2t0mo3zCN0P3qfO9XBjhj9NgNgx1t5Hf2ERrafUCXGUcTAg/l+77YNZo18dyFd5KFq3oxrpMJhFrCXqVZHkkYiGLmQyuQn+aY7NVATUoTmO5DuCSOKTbwxAv4WwetQ83C8/RqT5/bL6sZ7kizl/dH68Jmw5eFbeOaXlzf5ZnqoFHes2U8bfBTgPCKTxDvbw6abThGJ1XMPUz7yvUpKppNwhoHPGgC52B7Swf/747MJZcMvYt6ubrNx4LwRLzQhPc7Hc4uGO81WGBXUB70r21zoj1ziJUsu9fV5dM7U6sn1R1Outd5UsmtXJGnYQQKhIwtgu7Er
+X-OriginatorOrg: amd.com
+X-MS-Exchange-CrossTenant-OriginalArrivalTime: 27 May 2026 05:16:24.7331
+ (UTC)
+X-MS-Exchange-CrossTenant-Network-Message-Id: 968b9e0b-0f7f-46ae-4425-08debbaf1924
+X-MS-Exchange-CrossTenant-Id: 3dd8961f-e488-4e60-8e11-a82d994e183d
+X-MS-Exchange-CrossTenant-OriginalAttributedTenantConnectingIp: TenantId=3dd8961f-e488-4e60-8e11-a82d994e183d;Ip=[165.204.84.17];Helo=[satlexmb07.amd.com]
+X-MS-Exchange-CrossTenant-AuthSource: CO1PEPF00012E80.namprd03.prod.outlook.com
+X-MS-Exchange-CrossTenant-AuthAs: Anonymous
+X-MS-Exchange-CrossTenant-FromEntityHeader: HybridOnPrem
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: MW4PR12MB7311
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260526_214850_892749_D5B240FF 
-X-CRM114-Status: GOOD (  20.97  )
+X-CRM114-CacheID: sfid-20260526_221632_490915_761319C6 
+X-CRM114-Status: GOOD (  10.79  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -86,84 +126,33 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hi,
+The Linux kernel remoteproc framework provides auto boot feature. When
+enabled, the remote processor framework attempts to start the remote
+processor based on the firmware-name provided in the device-tree or
+attach to the remote processor if bootloader has already started the
+remote processor. Enable this auto boot feature for all AMD-xilinx
+platforms.
 
-On Tue, May 26, 2026 at 10:44=E2=80=AFPM Hongling Zeng <zenghongling@kylino=
-s.cn> wrote:
->
-> When pcim_iomap_region() or devm_kmemdup() fail, the code returns
-> directly without cleaning up previously allocated resources:
->   - mt76_device allocated by mt76_alloc_device()
->   - pci irq vectors allocated by pci_alloc_irq_vectors()
-> Fix this by jumping to the existing error cleanup path instead of
-> returning directly.
->
-> To avoid using an uninitialized variable in the error path, move the
-> dev initialization before the error checks.
->
-> Fixes: 234738ea3390 ("phy: ti-pipe3: move clk initialization to a separat=
-e function")
-> Signed-off-by: Hongling Zeng <zenghongling@kylinos.cn>
->
+Changes in v3:
+  - add more descriptive commit message in the patch 2/2.
 
-The code change itself looks correct, but commit message Fixes: tag is wron=
-g.
+Changes in v2:
+  - remove the auto-boot property from bindings patch (1/2)
+  - rebase on latest remoteproc for-next branch
+  - refactor the driver patch (2/2) and detect the auto-boot runtime
 
-It points to 234738ea3390 ("phy: ti-pipe3: move clk initialization to
-a separate function"), which is unrelated to mt76/mt7921.
 
-The two direct-return leaks appear to come from:
-      - ee5bb35d2b83 ("wifi: mt76: mt7921: Replace deprecated PCI
-function") for the pcim_iomap_region() path.
-      - 222606f43b58 ("wifi: mt76: mt7921: handle MT7902 irq_map quirk
-with mutable copy") for the MT7902 devm_kmemdup() path.
+Tanmay Shah (2):
+  dt-bindings: remoteproc: xlnx: add firmware-name property
+  remoteproc: xlnx: enable auto boot feature
 
-> ---
->  Change in v1
->    --fix uninitialized variable warning
-> ---
->  drivers/net/wireless/mediatek/mt76/mt7921/pci.c | 15 ++++++++++-----
->  1 file changed, 10 insertions(+), 5 deletions(-)
->
-> diff --git a/drivers/net/wireless/mediatek/mt76/mt7921/pci.c b/drivers/ne=
-t/wireless/mediatek/mt76/mt7921/pci.c
-> index 7a790ddf43bb..49a37185f056 100644
-> --- a/drivers/net/wireless/mediatek/mt76/mt7921/pci.c
-> +++ b/drivers/net/wireless/mediatek/mt76/mt7921/pci.c
-> @@ -343,11 +343,14 @@ static int mt7921_pci_probe(struct pci_dev *pdev,
->
->         pci_set_drvdata(pdev, mdev);
->
-> +       dev =3D container_of(mdev, struct mt792x_dev, mt76);
-> +
->         regs =3D  pcim_iomap_region(pdev, 0, pci_name(pdev));
-> -       if (IS_ERR(regs))
-> -               return PTR_ERR(regs);
-> +       if (IS_ERR(regs)) {
-> +               ret =3D PTR_ERR(regs);
-> +               goto err_free_dev;
-> +       }
->
-> -       dev =3D container_of(mdev, struct mt792x_dev, mt76);
->         dev->fw_features =3D features;
->         dev->hif_ops =3D &mt7921_pcie_ops;
->         dev->irq_map =3D &irq_map;
-> @@ -359,8 +362,10 @@ static int mt7921_pci_probe(struct pci_dev *pdev,
->                 /* MT7902 needs a mutable copy because wm2_complete_mask =
-differs */
->                 map =3D devm_kmemdup(&pdev->dev, &irq_map,
->                                    sizeof(irq_map), GFP_KERNEL);
-> -               if (!map)
-> -                       return -ENOMEM;
-> +               if (!map) {
-> +                       ret =3D -ENOMEM;
-> +                       goto err_free_dev;
-> +               }
->
->                 map->rx.wm2_complete_mask =3D 0;
->                 dev->irq_map =3D map;
-> --
-> 2.25.1
->
->
+ .../remoteproc/xlnx,zynqmp-r5fss.yaml         |  4 ++
+ drivers/remoteproc/xlnx_r5_remoteproc.c       | 48 +++++++++++++------
+ 2 files changed, 38 insertions(+), 14 deletions(-)
+
+
+base-commit: 90de217305800ff32df4c0308e240925c8deb385
+-- 
+2.34.1
+
 
