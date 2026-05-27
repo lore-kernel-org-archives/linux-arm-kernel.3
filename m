@@ -4,64 +4,65 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 46817CD5BDE
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 27 May 2026 09:09:26 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 99AC8CD4F54
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 27 May 2026 09:16:42 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=7ksdgjc40jlzTwXE0aql93RpRNJfc1+mdFdSmhlsHOA=; b=DEWty3qOLJAISXC9ag37Zl70FI
-	3UPzMUWR9RAt6+5g+TwCuLHwq681H+jrh2NlYLQcLFU7O4VE/VHmH0UdQeW6Yz7RlvYUzXFpGc7gq
-	FcZtv3XSPnhQ+G7InXqcYvTKID22Olonc+ZwJjD7iPOG2gFiNC1yBPHWG+f9P1gX91BKbjGNX1E0h
-	6U/xWGkAUvwSY01kYDHd7annWDAPlvs5mG2A7vxNPcqKyz3Q/bFbFQN8YWuVK/Qn7D0FjhF9tC5A5
-	6SvFebUxZp2mhtz8EBkJbB29CfHYCwN9mLfRKMrUiUCIZz9VoQK7nVfL/+KTM2YbFECCBwxX2C4P7
-	+ZHX+Mgg==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
+	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=sBtVQtrG2D+f9Z/sho+DSeJtMa0aOiwSm/AF9v+I85o=; b=FjeeNCOHp0oCfCO1W1qB+RTsc4
+	XIMHJhgGHSyzKzRkmy0+3Sbpr1MNby7AAB5Ir3kkNiaXN0lcsGM9hflPSAKH2hjCQ8K317Sn7mzkh
+	0IXkFml85f1icIWZSsclPjYRIy09nBhEbNmYrcDrJ2+f55l3qGZaDLdmMbGN6iPh/x54ZYFNk/bWo
+	ilyYv0knTN6O6xDVu9WwNtp105JRh532IRR0BgtAqWhmvTR1+HF/a4f/vTq+69Ql4mdVZRGnAR15D
+	9Q2ytBWO2K98DQhQMY4nOLIHCWpT9xwYuWA0IkaE+NvVPbUry4+gzfVfwCa/WTB221P1Nr4RMSvdC
+	cOLSRc9g==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wSAGN-00000003bPA-3MIc;
-	Wed, 27 May 2026 09:09:19 +0000
-Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
+	id 1wSANO-00000003c7P-3qA5;
+	Wed, 27 May 2026 09:16:34 +0000
+Received: from out30-99.freemail.mail.aliyun.com ([115.124.30.99])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wSAGJ-00000003bOo-3MFG
+	id 1wSANJ-00000003c5w-41PB
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 27 May 2026 09:09:18 +0000
-Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
-	by sea.source.kernel.org (Postfix) with ESMTP id EDB8C44539;
-	Wed, 27 May 2026 09:09:14 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 78AB61F000E9;
-	Wed, 27 May 2026 09:09:13 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1779872954;
-	bh=7ksdgjc40jlzTwXE0aql93RpRNJfc1+mdFdSmhlsHOA=;
-	h=Date:From:To:Cc:Subject:References:In-Reply-To;
-	b=izQF6lcVc37gS7ka19Joj79opGsd6eRPOfrXC41G8d1jrB5I0QZI/W7HHz+vuz9Dm
-	 hMsanxgxbP5JVlp+B7sqV08MPhPXNeHZWWqGFjJ71GMvc2wqthWhz7aOKWXHk+7Vdi
-	 yrh+2H9v4pNQu7NfNEI5ECSFWxpxVWp9P7hiIsll+MjzB3svk+tOdTxf1kWKc/HNqZ
-	 6VaQSQOzWduCt9T01SJCPJpqFaBWlGUH+cHeoYPU8+kh85Pcq/UFPEP0X2O3q77R+k
-	 dUwL9oG83iV7KOnPRNIyqosG4nIOTX7SNt5V3n2m9P7Cwj9PTV6YCY+jpyex7sLuE0
-	 OUG3pxnxgsE5A==
-Date: Wed, 27 May 2026 10:09:11 +0100
-From: Sudeep Holla <sudeep.holla@kernel.org>
-To: Nathan Chancellor <nathan@kernel.org>
-Cc: linux-security-module@vger.kernel.org, linux-kernel@vger.kernel.org,
-	Sudeep Holla <sudeep.holla@kernel.org>,
-	linux-integrity@vger.kernel.org,
-	linux-arm-kernel@lists.infradead.org, kvmarm@lists.linux.dev,
-	Yeoreum Yun <yeoreum.yun@arm.com>
-Subject: Re: [PATCH] firmware: arm_ffa: Treat missing FF-A feature on a
- platform as a probe miss
-Message-ID: <20260527-sparkling-sloppy-muskrat-c1e4ac@sudeepholla>
-References: <20260526103649.5684-1-sudeep.holla@kernel.org>
- <20260526193543.GB2851089@ax162>
+	Wed, 27 May 2026 09:16:33 +0000
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+	d=linux.alibaba.com; s=default;
+	t=1779873383; h=Message-ID:Date:MIME-Version:Subject:To:From:Content-Type;
+	bh=sBtVQtrG2D+f9Z/sho+DSeJtMa0aOiwSm/AF9v+I85o=;
+	b=Ca+fO0k3wSiKcac6DMzYaE3yJ5dcTSM/Nko6QY44XiZb4pwoCKcTy5aV4QXjRFqcUGHouPs8PiAccUDgfy+nNflhpZDdDc2MEkggsquC9zEmBE/J9qCXNlfFRhKDMNRgdtmAENy4j+VKqpkB7jkF5ZbTUxjRfb9WaSUPRR1dXIQ=
+X-Alimail-AntiSpam: AC=PASS;BC=-1|-1;BR=01201311R111e4;CH=green;DM=||false|;DS=||;FP=0|-1|-1|-1|0|-1|-1|-1;HT=maildocker-contentspam011083073210;MF=xueshuai@linux.alibaba.com;NM=1;PH=DS;RN=29;SR=0;TI=SMTPD_---0X3jFQTK_1779873377;
+Received: from 30.246.179.14(mailfrom:xueshuai@linux.alibaba.com fp:SMTPD_---0X3jFQTK_1779873377 cluster:ay36)
+          by smtp.aliyun-inc.com;
+          Wed, 27 May 2026 17:16:19 +0800
+Message-ID: <1cc534eb-b323-4cf3-9301-77e3925c613b@linux.alibaba.com>
+Date: Wed, 27 May 2026 17:16:14 +0800
 MIME-Version: 1.0
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-In-Reply-To: <20260526193543.GB2851089@ax162>
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH v14 1/8] uaccess: add generic fallback version of
+ copy_mc_to_user()
+To: Ruidong Tian <tianruidong@linux.alibaba.com>, catalin.marinas@arm.com,
+ will@kernel.org, rafael@kernel.org, tony.luck@intel.com,
+ guohanjun@huawei.com, mchehab@kernel.org, tongtiangen@huawei.com,
+ james.morse@arm.com, robin.murphy@arm.com, andreyknvl@gmail.com,
+ dvyukov@google.com, vincenzo.frascino@arm.com, mpe@ellerman.id.au,
+ npiggin@gmail.com, ryabinin.a.a@gmail.com, glider@google.com,
+ christophe.leroy@csgroup.eu, aneesh.kumar@kernel.org,
+ naveen.n.rao@linux.ibm.com, tglx@linutronix.de, mingo@redhat.com
+Cc: linux-arm-kernel@lists.infradead.org, linux-mm@kvack.org,
+ linuxppc-dev@lists.ozlabs.org, linux-kernel@vger.kernel.org,
+ kasan-dev@googlegroups.com, Mauro Carvalho Chehab
+ <mchehab+huawei@kernel.org>, Jonathan Cameron <Jonathan.Cameron@huawei.com>
+References: <20260518084956.2538442-1-tianruidong@linux.alibaba.com>
+ <20260518084956.2538442-2-tianruidong@linux.alibaba.com>
+From: Shuai Xue <xueshuai@linux.alibaba.com>
+In-Reply-To: <20260518084956.2538442-2-tianruidong@linux.alibaba.com>
+Content-Type: text/plain; charset=UTF-8; format=flowed
+Content-Transfer-Encoding: 7bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260527_020915_858019_11D45459 
-X-CRM114-Status: GOOD (  15.23  )
+X-CRM114-CacheID: sfid-20260527_021630_170243_2D2440DB 
+X-CRM114-Status: GOOD (  15.15  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -76,33 +77,108 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Tue, May 26, 2026 at 12:35:43PM -0700, Nathan Chancellor wrote:
-> On Tue, May 26, 2026 at 11:36:49AM +0100, Sudeep Holla wrote:
-> > When FF-A initialisation is driven from a platform device probe, systems
-> > that do not implement FF-A can return -EOPNOTSUPP from the early transport
-> > or version discovery paths. Driver core treats that as a matched probe
-> > failure and prints:
-> > 
-> >   |  arm-ffa arm-ffa: probe with driver arm-ffa failed with error -95
-> > 
-> > That is noisy for a firmware interface that can be absent on otherwise
-> > valid systems. Driver core already treats -ENODEV and -ENXIO as quiet
-> > rejected matches, so translate only the early unsupported discovery cases
-> > to -ENODEV. Keep later setup failures unchanged so real FF-A
-> > initialisation problems are still reported as probe failures.
-> > 
-> > Reported-by: Nathan Chancellor <nathan@kernel.org>
-> > Closes: https://lore.kernel.org/all/20260523001148.GA1319283@ax162
-> > Signed-off-by: Sudeep Holla <sudeep.holla@kernel.org>
-> 
-> Appears to work for me.
-> 
-> Tested-by: Nathan Chancellor <nathan@kernel.org>
->
 
-Thanks for reporting and testing. Much appreciated!
 
--- 
-Regards,
-Sudeep
+On 5/18/26 4:49 PM, Ruidong Tian wrote:
+> From: Tong Tiangen <tongtiangen@huawei.com>
+> 
+> x86/powerpc has it's implementation of copy_mc_to_user(), we add generic
+> fallback in include/linux/uaccess.h prepare for other architechures to
+> enable CONFIG_ARCH_HAS_COPY_MC.
+> 
+> Signed-off-by: Tong Tiangen <tongtiangen@huawei.com>
+> Acked-by: Michael Ellerman <mpe@ellerman.id.au>
+> Reviewed-by: Mauro Carvalho Chehab <mchehab+huawei@kernel.org>
+> Reviewed-by: Jonathan Cameron <Jonathan.Cameron@huawei.com>
+> ---
+>   arch/powerpc/include/asm/uaccess.h | 1 +
+>   arch/x86/include/asm/uaccess.h     | 1 +
+>   include/linux/uaccess.h            | 8 ++++++++
+>   3 files changed, 10 insertions(+)
+> 
+> diff --git a/arch/powerpc/include/asm/uaccess.h b/arch/powerpc/include/asm/uaccess.h
+> index e98c628e3899..073de098d45a 100644
+> --- a/arch/powerpc/include/asm/uaccess.h
+> +++ b/arch/powerpc/include/asm/uaccess.h
+> @@ -432,6 +432,7 @@ copy_mc_to_user(void __user *to, const void *from, unsigned long n)
+>   
+>   	return n;
+>   }
+> +#define copy_mc_to_user copy_mc_to_user
+>   #endif
+>   
+>   extern size_t copy_from_user_flushcache(void *dst, const void __user *src, size_t size);
+> diff --git a/arch/x86/include/asm/uaccess.h b/arch/x86/include/asm/uaccess.h
+> index 3a0dd3c2b233..308b0854d1d5 100644
+> --- a/arch/x86/include/asm/uaccess.h
+> +++ b/arch/x86/include/asm/uaccess.h
+> @@ -496,6 +496,7 @@ copy_mc_to_kernel(void *to, const void *from, unsigned len);
+>   
+>   unsigned long __must_check
+>   copy_mc_to_user(void __user *to, const void *from, unsigned len);
+> +#define copy_mc_to_user copy_mc_to_user
+>   #endif
+>   
+>   /*
+> diff --git a/include/linux/uaccess.h b/include/linux/uaccess.h
+> index 56328601218c..c53a65394f80 100644
+> --- a/include/linux/uaccess.h
+> +++ b/include/linux/uaccess.h
+> @@ -250,6 +250,14 @@ copy_mc_to_kernel(void *dst, const void *src, size_t cnt)
+>   }
+>   #endif
+>   
+> +#ifndef copy_mc_to_user
+> +static inline unsigned long __must_check
+> +copy_mc_to_user(void *dst, const void *src, size_t cnt)
+> +{
+The prototype of this generic fallback diverges from both copy_to_user()
+and the existing arch implementations of copy_mc_to_user() in two
+non-trivial ways:
+
+   1. The destination pointer drops the __user annotation.
+
+      copy_to_user() is declared as:
+
+          unsigned long copy_to_user(void __user *to,
+                                     const void *from,
+                                     unsigned long n);
+
+      and arch/x86/include/asm/uaccess.h declares the arch version as:
+
+          unsigned long copy_mc_to_user(void __user *to,
+                                        const void *from,
+                                        unsigned long len);
+
+      With this fallback typed as 'void *dst', sparse will silently
+      accept a kernel pointer being passed in, and the address-space
+      check is effectively lost for any architecture that ends up using
+      the fallback. The annotation is the whole point of __user; please
+      keep it.
+
+   2. The size parameter is 'size_t cnt' instead of 'unsigned long n'.
+
+      copy_to_user() and the x86/ppc copy_mc_to_user() implementations
+      all use 'unsigned long'. On all supported arches this happens to
+      be the same width as size_t, so it is not a functional bug, but
+      the inconsistent signature is a foot-gun: when an arch later
+      switches from the fallback to its own implementation, every
+      caller signature has to be re-checked.
+
+Please align the fallback prototype exactly with the arch versions:
+
+     #ifndef copy_mc_to_user
+     static inline unsigned long __must_check
+     copy_mc_to_user(void __user *dst, const void *src, unsigned long cnt)
+     {
+         return copy_to_user(dst, src, cnt);
+     }
+     #endif
+
+With that fixed:
+
+Reviewed-by: Shuai Xue <xueshuai@linux.alibaba.com>
+
+Thanks.
+Shuai
 
