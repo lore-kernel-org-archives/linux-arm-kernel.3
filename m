@@ -4,73 +4,61 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 6219FCD5BC9
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 27 May 2026 03:44:21 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id D6CE9CD5BC9
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 27 May 2026 03:53:28 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	MIME-Version:Message-Id:Date:Subject:Cc:To:From:Reply-To:Content-Type:
-	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
-	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
-	bh=GpMpxoDvyVyVrmoV7nr94m/tM2b2RNF8nLr8TuPp8z4=; b=sOA5cnXTY/kwDfgMj5Lex4JgIS
-	eyIJ8rMh74kgmyBxkZaYIW3Nwr0powdHJNv7EOa+28UPNYLF7e/zM64PtFj8oP9FXUy3sX5k/ZwAu
-	e7YE08rgc8Z5ADRzz3oqiImnJP+6gqyIeO6OtGtX29on2g92MVO09KkH6PxXzA1kqajmUWRJmXqP+
-	LDFbWBcOF/ffSTk+MjJV7d9C4wv6ASfjqXPKW3s5DWDd9+sTth6Hzi+OrYBfoA1iY3PFT/cR3OQH8
-	SymO2Xghw9ldk6pDvcLeM07jZTN3+0ouJqVkrT0MPcAqyNqA7P0A2u00AVWA8it/zhOCYSjDSen+r
-	HbWnCwzA==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:
+	Content-Transfer-Encoding:Content-Type:References:In-Reply-To:Date:Cc:To:From
+	:Subject:Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=tw+GqJxcX23U8Jk0k3T1c9GwbcYKat3sccKmolp9ut8=; b=oF7CJ5Gk9ARj3kukSgiHB8byRY
+	GiBaRgMWd8P6V65F7dh2zHqbydtkB7H7zpfPtg69Mic0zxigIGj6qvjq2NLY2bmGR1vpAbbDBpI7m
+	X5SRJ1LLRGl/Tq1NdZ6k4NKIvARtgBdyu3L6yatPB47xMfoh0NU3tmeT90wzcDsPHqPbwn96lA4/9
+	azIv2vWWfu6GTWuMz7WGCf3lleIUm+Ade3zlifPYr1ykioMHwdSA6NGo5xb3LbL/OGTi2SFgn5UYH
+	CVOUttr066BpTwgMhFNHJnsQEG01XI7JoijHqybGZ3QYAjrEeZA+oTcg2aOCII2fAPW9F9TqGvag6
+	UD67qIYA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wS5Bl-00000003HPA-1phx;
-	Wed, 27 May 2026 03:44:13 +0000
-Received: from mailgw.kylinos.cn ([124.126.103.232])
+	id 1wS5Kc-00000003HkP-17Uq;
+	Wed, 27 May 2026 03:53:22 +0000
+Received: from pi.codeconstruct.com.au ([203.29.241.158] helo=codeconstruct.com.au)
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wS5Bg-00000003HOb-3KUP;
-	Wed, 27 May 2026 03:44:10 +0000
-X-UUID: 4966b1e2597e11f1aa26b74ffac11d73-20260527
-X-CID-P-RULE: Release_Ham
-X-CID-O-INFO: VERSION:1.3.12,REQID:f775e487-f5c3-4a73-bbc5-b3fe8ce1bf47,IP:0,U
-	RL:0,TC:0,Content:-25,EDM:0,RT:0,SF:0,FILE:0,BULK:0,RULE:Release_Ham,ACTIO
-	N:release,TS:-25
-X-CID-META: VersionHash:e7bac3a,CLOUDID:652629b3110685a5ecfcbc68b44006ef,BulkI
-	D:nil,BulkQuantity:0,Recheck:0,SF:102|850|865|898,TC:nil,Content:0|15|50,E
-	DM:-3,IP:nil,URL:0,File:nil,RT:nil,Bulk:nil,QS:nil,BEC:nil,COL:0,OSI:0,OSA
-	:0,AV:0,LES:1,SPR:NO,DKR:0,DKP:0,BRR:0,BRE:0,ARC:0
-X-CID-BVR: 2,SSN|SDN
-X-CID-BAS: 2,SSN|SDN,0,_
-X-CID-FACTOR: TF_CID_SPAM_SNR
-X-CID-RHF: D41D8CD98F00B204E9800998ECF8427E
-X-UUID: 4966b1e2597e11f1aa26b74ffac11d73-20260527
-X-User: zenghongling@kylinos.cn
-Received: from localhost.localdomain [(10.44.16.150)] by mailgw.kylinos.cn
-	(envelope-from <zenghongling@kylinos.cn>)
-	(Generic MTA with TLSv1.3 TLS_AES_256_GCM_SHA384 256/256)
-	with ESMTP id 1685074291; Wed, 27 May 2026 11:43:55 +0800
-From: Hongling Zeng <zenghongling@kylinos.cn>
-To: nbd@nbd.name,
-	lorenzo@kernel.org,
-	ryder.lee@mediatek.com,
-	shayne.chen@mediatek.com,
-	sean.wang@mediatek.com,
-	matthias.bgg@gmail.com,
-	angelogioacchino.delregno@collabora.com,
-	xiong.huang@mediatek.com,
-	madhurkumar004@gmail.com
-Cc: linux-wireless@vger.kernel.org,
-	linux-kernel@vger.kernel.org,
-	linux-arm-kernel@lists.infradead.org,
-	linux-mediatek@lists.infradead.org,
-	zhongling0719@126.com,
-	Hongling Zeng <zenghongling@kylinos.cn>
-Subject: [PATCH v2] wifi: mt76: mt7921: fix resource leak in probe error path
-Date: Wed, 27 May 2026 11:43:50 +0800
-Message-Id: <20260527034350.527482-1-zenghongling@kylinos.cn>
-X-Mailer: git-send-email 2.25.1
+	id 1wS5KZ-00000003Hjs-0NJ8
+	for linux-arm-kernel@lists.infradead.org;
+	Wed, 27 May 2026 03:53:20 +0000
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+	d=codeconstruct.com.au; s=2022a; t=1779853996;
+	bh=tw+GqJxcX23U8Jk0k3T1c9GwbcYKat3sccKmolp9ut8=;
+	h=Subject:From:To:Cc:Date:In-Reply-To:References;
+	b=Lxmf1Pt/wMKSjI0PjUqcSZ6hWFFpSeZ7Pgr3XCEq85P0exUCy/dW3E3J4Hsb753Z2
+	 0P9fsHeB1K9coPxQ3g00uTxglqngsMCH/gDudbMm1qN1zEckLcxXCYm84p1sxvvC5Y
+	 H4qn8f07eLPcvqXqVHFmgCdDJZ71OM0oHL2HwhfHmunqEld/gLtrvnhr0L1K/vpjmj
+	 9QyyO3sb8w3pQFeY7oPp4MbagAox/GEKNy3HCn5QisdR258adl1D4Bvr9KjE3KhdF7
+	 AGU3deEEgbm0+lz5KgmM8DiuUTeKqe8lx4Z797WeMCcfMhlkm+Xc8UpvOAHY/ZZcsh
+	 upX7PfkN3PKEg==
+Received: from [192.168.68.117] (unknown [180.150.112.11])
+	by mail.codeconstruct.com.au (Postfix) with ESMTPSA id 84F2360088;
+	Wed, 27 May 2026 11:53:15 +0800 (AWST)
+Message-ID: <53952f011f2c57ad28d6f864317054a2a34922e5.camel@codeconstruct.com.au>
+Subject: Re: [PATCH v2] soc: aspeed: lpc-snoop: Fix usercopy overflow in
+ snoop_file_read
+From: Andrew Jeffery <andrew@codeconstruct.com.au>
+To: Karthikeyan KS <karthiproffesional@gmail.com>, joel@jms.id.au, 
+	andrew@aj.id.au
+Cc: jdelvare@suse.de, linux-arm-kernel@lists.infradead.org, 
+	linux-aspeed@lists.ozlabs.org, linux-kernel@vger.kernel.org
+Date: Wed, 27 May 2026 13:23:15 +0930
+In-Reply-To: <20260523173528.427889-1-karthiproffesional@gmail.com>
+References: <c3d474a1ec807e686c0b7ac70cc75f86898aee99.camel@codeconstruct.com.au>
+	 <20260523173528.427889-1-karthiproffesional@gmail.com>
+Content-Type: text/plain; charset="UTF-8"
+Content-Transfer-Encoding: quoted-printable
+User-Agent: Evolution 3.56.2-0+deb13u1 
 MIME-Version: 1.0
-Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260526_204409_180343_5FF0E96D 
-X-CRM114-Status: UNSURE (   9.89  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20260526_205319_368914_D0114E32 
+X-CRM114-Status: GOOD (  22.23  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -85,62 +73,231 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-When pcim_iomap_region() or devm_kmemdup() fail, the code returns
-directly without cleaning up previously allocated resources:
-  - mt76_device allocated by mt76_alloc_device()
-  - pci irq vectors allocated by pci_alloc_irq_vectors()
-Fix this by jumping to the existing error cleanup path instead of
-returning directly.
+Hi Karthikeyan,
 
-To avoid using an uninitialized variable in the error path, move the
-dev initialization before the error checks.
+On Sat, 2026-05-23 at 17:35 +0000, Karthikeyan KS wrote:
+> put_fifo_with_discard() violates kfifo's single-producer/single-consumer
+> lock-free contract by calling both kfifo_skip() (consumer op: out++) and
+> kfifo_put() (producer op: in++) from the IRQ handler context.
+> kfifo_skip() increments 'out' without a memory barrier, while
+> kfifo_put() increments 'in' with smp_wmb(). On ARM (weakly ordered), a
+> concurrent reader on another CPU can observe the new 'in' but a stale
+> 'out', causing (in - out) to exceed the buffer size.
+>=20
+> __kfifo_to_user() clamps the copy length to (in - out), but since that
+> value is already corrupted by the race, the clamp is ineffective. The
+> subsequent kfifo_copy_to_user() ring-buffer split produces a second
+> chunk exceeding the 2048-byte kmalloc-2k slab object, triggering:
+>=20
+> =C2=A0 Backtrace:
+> [=C2=A0=C2=A0=C2=A0 2.972611] usercopy: Kernel memory exposure attempt de=
+tected from SLUB object 'kmalloc-2k' (offset 0, size 2049)!
+> [=C2=A0=C2=A0=C2=A0 2.974191] ------------[ cut here ]------------
+> [=C2=A0=C2=A0=C2=A0 2.974677] kernel BUG at mm/usercopy.c:99!
+> [=C2=A0=C2=A0=C2=A0 2.975068] Internal error: Oops - BUG: 0 [#1] SMP ARM
+> [=C2=A0=C2=A0=C2=A0 2.975755] Modules linked in: post_injector(O)
+> [=C2=A0=C2=A0=C2=A0 2.976668] CPU: 0 PID: 1 Comm: init Tainted: G=C2=A0=
+=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0 O=C2=A0=C2=A0=C2=A0=
+=C2=A0=C2=A0 5.15.178 #4
+> [=C2=A0=C2=A0=C2=A0 2.977316] Hardware name: Generic DT based system
+> [=C2=A0=C2=A0=C2=A0 2.977848] PC is at usercopy_abort+0x80/0xa8
+> [=C2=A0=C2=A0=C2=A0 2.978931] LR is at vprintk_emit+0xf0/0x230
+> [=C2=A0=C2=A0=C2=A0 2.979296] pc : [<8095c3a0>]=C2=A0=C2=A0=C2=A0 lr : [<=
+8017cb2c>]=C2=A0=C2=A0=C2=A0 psr: 60000153
+> [=C2=A0=C2=A0=C2=A0 2.979781] sp : 810e3dc8=C2=A0 ip : 810e3d38=C2=A0 fp =
+: 810e3dec
+> [=C2=A0=C2=A0=C2=A0 2.980192] r10: 00000003=C2=A0 r9 : 811ea801=C2=A0 r8 =
+: 811ea800
+> [=C2=A0=C2=A0=C2=A0 2.980616] r7 : 00000001=C2=A0 r6 : 00000801=C2=A0 r5 =
+: 00000801=C2=A0 r4 : 00000000
+> [=C2=A0=C2=A0=C2=A0 2.981104] r3 : 00000000=C2=A0 r2 : 00000000=C2=A0 r1 =
+: 00000000=C2=A0 r0 : 00000066
+> [=C2=A0=C2=A0=C2=A0 2.981712] Flags: nZCv=C2=A0 IRQs on=C2=A0 FIQs off=C2=
+=A0 Mode SVC_32=C2=A0 ISA ARM=C2=A0 Segment none
+> [=C2=A0=C2=A0=C2=A0 2.982363] Control: 00c5387d=C2=A0 Table: 81a64008=C2=
+=A0 DAC: 00000051
+> [=C2=A0=C2=A0=C2=A0 2.982881] Register r0 information: non-paged memory
+> [=C2=A0=C2=A0=C2=A0 2.983662] Register r1 information: NULL pointer
+> [=C2=A0=C2=A0=C2=A0 2.984074] Register r2 information: NULL pointer
+> [=C2=A0=C2=A0=C2=A0 2.984474] Register r3 information: NULL pointer
+> [=C2=A0=C2=A0=C2=A0 2.984879] Register r4 information: NULL pointer
+> [=C2=A0=C2=A0=C2=A0 2.985279] Register r5 information: non-paged memory
+> [=C2=A0=C2=A0=C2=A0 2.985704] Register r6 information: non-paged memory
+> [=C2=A0=C2=A0=C2=A0 2.986118] Register r7 information: non-paged memory
+> [=C2=A0=C2=A0=C2=A0 2.986553] Register r8 information: slab kmalloc-2k st=
+art 811ea800 pointer offset 0 size 2048
+> [=C2=A0=C2=A0=C2=A0 2.987789] Register r9 information: slab kmalloc-2k st=
+art 811ea800 pointer offset 1 size 2048
+> [=C2=A0=C2=A0=C2=A0 2.988541] Register r10 information: non-paged memory
+> [=C2=A0=C2=A0=C2=A0 2.988971] Register r11 information: non-slab/vmalloc =
+memory
+> [=C2=A0=C2=A0=C2=A0 2.989511] Register r12 information: non-slab/vmalloc =
+memory
+> [=C2=A0=C2=A0=C2=A0 2.990064] Process init (pid: 1, stack limit =3D 0x041=
+252af)
+> [=C2=A0=C2=A0=C2=A0 2.990631] Stack: (0x810e3dc8 to 0x810e4000)
+> [=C2=A0=C2=A0=C2=A0 2.991119] 3dc0:=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=
+=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0 80=
+c2ceb4 80c29fd4 80c1f6d4 00000000 00000801 811ea801
+> [=C2=A0=C2=A0=C2=A0 2.992044] 3de0: 810e3e1c 810e3df0 802e3a94 8095c32c 0=
+0000801 801168b0 811ea800 811ea800
+> [=C2=A0=C2=A0=C2=A0 2.992707] 3e00: 00000801 00000001 811eb001 00000001 8=
+10e3e44 810e3e20 802e8774 802e3978
+> [=C2=A0=C2=A0=C2=A0 2.993336] 3e20: 810e3e44 810e3e30 00000801 00001000 7=
+edc2593 811ea800 810e3e6c 810e3e48
+> [=C2=A0=C2=A0=C2=A0 2.993971] 3e40: 804dedf0 802e8604 811d584c 00001000 8=
+10e3e98 7edc1d94 00001000 810e2000
+> [=C2=A0=C2=A0=C2=A0 2.994734] 3e60: 810e3e94 810e3e70 804def50 804ded54 8=
+10e3e98 804d3f28 00000000 811d586c
+> [=C2=A0=C2=A0=C2=A0 2.995377] 3e80: 810e3e98 00000001 810e3ed4 810e3e98 8=
+0579a58 804def0c 810e3f34 810e3ea8
+> [=C2=A0=C2=A0=C2=A0 2.996024] 3ea0: 80282c74 80282744 00000000 37f2b80b f=
+fffe000 819a2cc0 810e3f68 00000001
+> [=C2=A0=C2=A0=C2=A0 2.996684] 3ec0: 805799a8 00001000 810e3f64 810e3ed8 8=
+02ee040 805799b4 00000003 1cd5b000
+> [=C2=A0=C2=A0=C2=A0 2.997310] 3ee0: 00000000 00000000 00000000 00000000 0=
+0000000 00000000 00000000 00000000
+> [=C2=A0=C2=A0=C2=A0 2.997987] 3f00: 801002c4 37f2b80b 810e2000 810e2000 8=
+10e3fb0 00000000 801002c4 80314ce0
+> [=C2=A0=C2=A0=C2=A0 2.998678] 3f20: 00000000 00000003 014fc580 00001000 7=
+edc1d94 37f2b80b 810e2000 819a2cc0
+> [=C2=A0=C2=A0=C2=A0 2.999268] 3f40: 819a2cc0 00000000 00000000 801002c4 8=
+10e2000 00000003 810e3f94 810e3f68
+> [=C2=A0=C2=A0=C2=A0 3.000024] 3f60: 802ee740 802edf90 00000000 00000000 0=
+0000800 37f2b80b 00000003 014fc580
+> [=C2=A0=C2=A0=C2=A0 3.000688] 3f80: 00006f2c 00000003 810e3fa4 810e3f98 8=
+02ee7e4 802ee6dc 00000000 810e3fa8
+> [=C2=A0=C2=A0=C2=A0 3.001364] 3fa0: 80100080 802ee7d8 00000003 014fc580 0=
+0000003 7edc1d94 00001000 00000000
+> [=C2=A0=C2=A0=C2=A0 3.002389] 3fc0: 00000003 014fc580 00006f2c 00000003 7=
+edc2f10 00000000 00000001 00000000
+> [=C2=A0=C2=A0=C2=A0 3.003042] 3fe0: 000000ac 7edc1d18 0002c174 0002c190 6=
+0000150 00000003 00000000 00000000
+> [=C2=A0=C2=A0=C2=A0 3.003773] Backtrace:
+> [=C2=A0=C2=A0=C2=A0 3.004236] [<8095c320>] (usercopy_abort) from [<802e3a=
+94>] (__check_heap_object+0x128/0x150)
+> [=C2=A0=C2=A0=C2=A0 3.005187] [<802e396c>] (__check_heap_object) from [<8=
+02e8774>] (__check_object_size+0x17c/0x1e0)
+> [=C2=A0=C2=A0=C2=A0 3.005996]=C2=A0 r8:00000001 r7:811eb001 r6:00000001 r=
+5:00000801 r4:811ea800
+> [=C2=A0=C2=A0=C2=A0 3.006555] [<802e85f8>] (__check_object_size) from [<8=
+04dedf0>] (kfifo_copy_to_user+0xa8/0x1b8)
+> [=C2=A0=C2=A0=C2=A0 3.007290]=C2=A0 r7:811ea800 r6:7edc2593 r5:00001000 r=
+4:00000801
+> [=C2=A0=C2=A0=C2=A0 3.007766] [<804ded48>] (kfifo_copy_to_user) from [<80=
+4def50>] (__kfifo_to_user+0x50/0x70)
+> [=C2=A0=C2=A0=C2=A0 3.008418]=C2=A0 r9:810e2000 r8:00001000 r7:7edc1d94 r=
+6:810e3e98 r5:00001000 r4:811d584c
+> [=C2=A0=C2=A0=C2=A0 3.009031] [<804def00>] (__kfifo_to_user) from [<80579=
+a58>] (snoop_file_read+0xb0/0xf8)
+> [=C2=A0=C2=A0=C2=A0 3.009683]=C2=A0 r6:00000001 r5:810e3e98 r4:811d586c
+> [=C2=A0=C2=A0=C2=A0 3.010055] [<805799a8>] (snoop_file_read) from [<802ee=
+040>] (vfs_read+0xbc/0x328)
+> [=C2=A0=C2=A0=C2=A0 3.010686]=C2=A0 r8:00001000 r7:805799a8 r6:00000001 r=
+5:810e3f68 r4:819a2cc0
+> [=C2=A0=C2=A0=C2=A0 3.011182] [<802edf84>] (vfs_read) from [<802ee740>] (=
+ksys_read+0x70/0xfc)
+> [=C2=A0=C2=A0=C2=A0 3.011762]=C2=A0 r10:00000003 r9:810e2000 r8:801002c4 =
+r7:00000000 r6:00000000 r5:819a2cc0
+> [=C2=A0=C2=A0=C2=A0 3.012451]=C2=A0 r4:819a2cc0
+> [=C2=A0=C2=A0=C2=A0 3.012677] [<802ee6d0>] (ksys_read) from [<802ee7e4>] =
+(sys_read+0x18/0x1c)
+> [=C2=A0=C2=A0=C2=A0 3.013261]=C2=A0 r7:00000003 r6:00006f2c r5:014fc580 r=
+4:00000003
+> [=C2=A0=C2=A0=C2=A0 3.013724] [<802ee7cc>] (sys_read) from [<80100080>] (=
+ret_fast_syscall+0x0/0x48)
+> [=C2=A0=C2=A0=C2=A0 3.014330] Exception stack(0x810e3fa8 to 0x810e3ff0)
+> [=C2=A0=C2=A0=C2=A0 3.014767] 3fa0:=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=
+=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0 00=
+000003 014fc580 00000003 7edc1d94 00001000 00000000
+> [=C2=A0=C2=A0=C2=A0 3.015379] 3fc0: 00000003 014fc580 00006f2c 00000003 7=
+edc2f10 00000000 00000001 00000000
+> [=C2=A0=C2=A0=C2=A0 3.016030] 3fe0: 000000ac 7edc1d18 0002c174 0002c190
+> [=C2=A0=C2=A0=C2=A0 3.016641] Code: e1cd40fc e58dc000 e59f0024 ebfff741 (=
+e7f001f2)
+> [=C2=A0=C2=A0=C2=A0 3.017733] ---[ end trace d9f7e472f48076c9 ]---
+> [=C2=A0=C2=A0=C2=A0 3.018380] Kernel panic - not syncing: Fatal exception
+> [=C2=A0=C2=A0=C2=A0 3.019190] ---[ end Kernel panic - not syncing: Fatal =
+exception ]---
 
-Fixes: 234738ea3390 ("phy: ti-pipe3: move clk initialization to a separate function")
-Signed-off-by: Hongling Zeng <zenghongling@kylinos.cn>
+Can you please trim this a bit? See the discussion of backtraces here:
 
----
- Change in v1
-   --fix uninitialized variable warning
----
- drivers/net/wireless/mediatek/mt76/mt7921/pci.c | 15 ++++++++++-----
- 1 file changed, 10 insertions(+), 5 deletions(-)
+https://docs.kernel.org/process/submitting-patches.html#explanation-body
 
-diff --git a/drivers/net/wireless/mediatek/mt76/mt7921/pci.c b/drivers/net/wireless/mediatek/mt76/mt7921/pci.c
-index 7a790ddf43bb..49a37185f056 100644
---- a/drivers/net/wireless/mediatek/mt76/mt7921/pci.c
-+++ b/drivers/net/wireless/mediatek/mt76/mt7921/pci.c
-@@ -343,11 +343,14 @@ static int mt7921_pci_probe(struct pci_dev *pdev,
- 
- 	pci_set_drvdata(pdev, mdev);
- 
-+	dev = container_of(mdev, struct mt792x_dev, mt76);
-+
- 	regs =  pcim_iomap_region(pdev, 0, pci_name(pdev));
--	if (IS_ERR(regs))
--		return PTR_ERR(regs);
-+	if (IS_ERR(regs)) {
-+		ret = PTR_ERR(regs);
-+		goto err_free_dev;
-+	}
- 
--	dev = container_of(mdev, struct mt792x_dev, mt76);
- 	dev->fw_features = features;
- 	dev->hif_ops = &mt7921_pcie_ops;
- 	dev->irq_map = &irq_map;
-@@ -359,8 +362,10 @@ static int mt7921_pci_probe(struct pci_dev *pdev,
- 		/* MT7902 needs a mutable copy because wm2_complete_mask differs */
- 		map = devm_kmemdup(&pdev->dev, &irq_map,
- 				   sizeof(irq_map), GFP_KERNEL);
--		if (!map)
--			return -ENOMEM;
-+		if (!map) {
-+			ret = -ENOMEM;
-+			goto err_free_dev;
-+		}
- 
- 		map->rx.wm2_complete_mask = 0;
- 		dev->irq_map = map;
--- 
-2.25.1
+>=20
+>=20
+> This is reproducible on AST2500 BMC (dual-core ARM Cortex-A7) when
 
+The AST2500 has a (single-core) ARM1176JZS, not a dual-core Cortex-A7.
+
+> BIOS floods POST codes while userspace concurrently reads
+> /dev/aspeed-lpc-snoop0.
+>=20
+> Fix by:
+>=20
+> 1. Clamping 'count' to SNOOP_FIFO_SIZE in snoop_file_read() so that
+> =C2=A0=C2=A0 copy_to_user() can never exceed the slab object boundary reg=
+ardless
+> =C2=A0=C2=A0 of kfifo pointer state.
+
+I don't think we shouldn't be double-accounting for the bug. Let's just
+get the locking right given the observation that we have multiple
+consumers.
+
+>=20
+> 2. Protecting the kfifo_skip() + kfifo_put() sequence in
+> =C2=A0=C2=A0 put_fifo_with_discard() and the kfifo_to_user() call in
+> =C2=A0=C2=A0 snoop_file_read() with a spinlock, ensuring pointer updates =
+are
+> =C2=A0=C2=A0 atomic with respect to concurrent access and restoring the
+> =C2=A0=C2=A0 single-writer invariant for each pointer.
+
+This appears sensible.
+
+>=20
+> =C2=A0=C2=A0 put_fifo_with_discard() is only called from hardirq context =
+where
+> =C2=A0=C2=A0 interrupts are already disabled, so plain spin_lock/spin_unl=
+ock is
+> =C2=A0=C2=A0 used. snoop_file_read() runs in process context and must use
+> =C2=A0=C2=A0 spin_lock_irqsave to prevent deadlock with the IRQ handler.
+
+We only need _irqsave for generic code that runs in either context, but
+the fops callbacks are never run in irq context, so we don't have that
+ambiguity. You could make other choices here, however _irqsave isn't
+wrong.
+
+>=20
+> Signed-off-by: Karthikeyan KS <karthiproffesional@gmail.com>
+
+Can you please add a Fixes: tag?
+
+> ---
+> Andrew,
+>=20
+> You're right =E2=80=94 __kfifo_to_user() clamps to (in - out). The issue =
+is
+> that (in - out) itself is corrupted by a race in put_fifo_with_discard().
+>=20
+> The function calls kfifo_skip() (out++) then kfifo_put() (in++) without
+> synchronization. On SMP ARM, the reader observes fresh 'in' (barrier in
+> kfifo_put) but stale 'out' (no barrier in kfifo_skip), making (in - out)
+> exceed the buffer size. The clamp then passes through the corrupted value=
+.
+>=20
+> Reproduced on QEMU ast2500-evb by injecting POST codes and simulating
+> the race outcome.=C2=A0
+>=20
+
+Can you provide more details? The 2500 is single-core, so is either
+executing in interrupt context or not, and the values should be
+consistent after completing the interrupt.
+
+> Also observed intermittently on physical dual-core
+> AST2600 under heavy POST code traffic.
+
+The AST2600 has a dual-core Cortex-A7, so your bug makes more sense to
+me there...
+
+Andrew
 
