@@ -4,110 +4,107 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id BC7B3CD5BD0
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 27 May 2026 16:21:07 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 63C4ECD5BD0
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 27 May 2026 16:21:25 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
 	Content-Type:Cc:To:Subject:Message-ID:Date:From:In-Reply-To:References:
 	MIME-Version:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=BRiRpdixJFrcmqSfsDGBuoh5lIec3C8LN8yr92Ku6F8=; b=hgh3Ugmzn9WYCfs/TxwBqmtBvr
-	G8j1UeEY2tiQEsQJAZtgJTXwWO87cDSyzDJDWPJfkUAlCBS0qH9PGLEPxwDBH3DG9+anq+0eiYRNP
-	dGLpjFzPtugAOwGAUCHucUl8J8xgh2ARQ39ppTSDovbRdBBk5kZLSsOQlEPg7qDsOKO7TkU7GQOl6
-	SstqnT2zUuZP9yDryw7RsFwa7FhRmdzhUZvwNy9lc/p2j+6hrUW637XVO6BewYmtaoHZPQgwNCr0t
-	YTIuqkLcNY/7oeE/NBvnHCSDqHt6526aBciQVndNwA+yj1u2x8K/0y73lFtMEoTXoA4IckR5F4i/v
-	JXpysYnA==;
+	bh=3dxrqcdNnKYVhdfP7nh0R/VHpio1dU95MRkKy/vXfjQ=; b=S0dml4e2KKS4RONa+Nb2CuvQ3P
+	Bc65+ZwDK70M2KDBu/DIJwzr6eYf6+ncxWWG3AD012UBH6UGeijRZLt496fia3/24LhgDsN2Lj32f
+	xV1dvje2zm4osRf38sRprfw3W66VfG98Sg3IBj9x5cyv+RkDDwT7b3DH10jTYL+zpQ4fDUi7am6L+
+	uyyjdkj8UOwj5mZxbokN5jL9y9z05175Jt10F8IrYKZtUjO+d2EDCd/xnFLnWTbTSKITnxFMGo93p
+	sxqxZuNVhaCXe0NcybPd/1CyW4VC5jW+bXew/nyc7K0fkvLpwQ5VwRYXApSmb2L+sp1+TxayGz22t
+	tY5ZPCYQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wSH08-00000004UZU-0rGH;
-	Wed, 27 May 2026 16:21:00 +0000
-Received: from mail-ed1-x52f.google.com ([2a00:1450:4864:20::52f])
+	id 1wSH0R-00000004UeF-1c8i;
+	Wed, 27 May 2026 16:21:19 +0000
+Received: from mail-lf1-x12c.google.com ([2a00:1450:4864:20::12c])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wSH06-00000004UYe-1XXn
+	id 1wSH0O-00000004Uct-3gv4
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 27 May 2026 16:20:59 +0000
-Received: by mail-ed1-x52f.google.com with SMTP id 4fb4d7f45d1cf-67c1eea6b4dso254a12.1
-        for <linux-arm-kernel@lists.infradead.org>; Wed, 27 May 2026 09:20:56 -0700 (PDT)
-ARC-Seal: i=1; a=rsa-sha256; t=1779898855; cv=none;
+	Wed, 27 May 2026 16:21:18 +0000
+Received: by mail-lf1-x12c.google.com with SMTP id 2adb3069b0e04-5aa4a688f6eso1052733e87.0
+        for <linux-arm-kernel@lists.infradead.org>; Wed, 27 May 2026 09:21:15 -0700 (PDT)
+ARC-Seal: i=1; a=rsa-sha256; t=1779898874; cv=none;
         d=google.com; s=arc-20240605;
-        b=jgDvVOw8O5OtrMFnM8Uxd6CzJc2d7y0Wb8mf1zWY35xxrBFBsZtuu8lf6wKQ1dBHT5
-         2IUeo1/vBiw6xQDD46EXPyj005bkgUPh4iyYSmyWbLvhoUy5g3yQrdlmKT1HrFKyRnSC
-         38tNuN0X5oHrEzDCJD1JS5R8HWlUgeks5U178Ni+DQIPbG0oK7tSleCbTnVrzHzWNQG7
-         3qDqzdxT56YG8GxLkeB6tWyn6XdF8+YoZA5Bj//Dc/PJrwYLq6G75mrfw8rQuIgL1Zem
-         UAAx4/H/xQTJ7eaCoY/4wNQ5AWwnECh5VzLL8VjwjT/U3ir0Y1zq1Uyf64Oo1nq7PyOn
-         8zDA==
+        b=C8DwQOPWsrMwu8djepvuWvzdOsSq85mAarzRC+3bGGiKefzxnmSvflq+NPDt/0WVtm
+         LRYzorsugpU5BuKG2iIAjH2QHQBm/F9GDY2JgE3uDhYcHbtqeOgmUjgni5NYpPk9FQdt
+         1grFElltJnS0jYItWr9FouhnIa5yuK/4a7mINy5YT1kOElkGdNU/olLRoj4+aHEdCGZU
+         QswvthQH3pNg+UeD9aEgAhKneODcSd23V1impo/vaM8XOAUbHHM2SjG2CC9jdUwKTjS4
+         hQqZh8pMKV2Cud7RGXZ+H6njYoqdlPh6m9r8zjN5V2+eMuPP85MQU6D838s+D2jbHSF9
+         29Rg==
 ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20240605;
         h=content-transfer-encoding:cc:to:subject:message-id:date:from
          :in-reply-to:references:mime-version:dkim-signature;
-        bh=BRiRpdixJFrcmqSfsDGBuoh5lIec3C8LN8yr92Ku6F8=;
-        fh=0nrcboQ3YcMego7ET2zfU0vunNHfKzia5kpgAlZMbnw=;
-        b=a2mMHos4Xt/iAb6LSz998CBqt1ABYae3bgq9mi5f+ae3DeaeDcf78AAVHNFvWnTY8c
-         u7N5PUbR4ZF5sFioC3aHFrBA2NGN48RPJSOwHkBG5h5nFXkkJO1xFk+PcG0C6O3Br6av
-         MHf7Fh9tgkZUbV6ny7CnOcJIXKPuC1j2y6wJJ5DwGleg048J2Clr6QlrwPbBPl8P727m
-         KrXkwJMcSBWbGDVCow3Iy+4KqI0eFhMpYgaX45Cicgh6lXofGjcBKkSaW2tQ0k5RDSgF
-         KGnbqjVpDSzetqmF8mW+WpwLqRHKq1HRSzh3laQOYfkQ2pHqlnmGT098c2B9YOrbChcR
-         xdEw==;
+        bh=3dxrqcdNnKYVhdfP7nh0R/VHpio1dU95MRkKy/vXfjQ=;
+        fh=Ybqpv0LxWgpMdx9jPg7PYmhrBW64dk6cOXfhVflEzWk=;
+        b=cqCec0pfNtbKJVjSefnfPLzn8+bgEynVmoZtYIGIqGP492gIz3yXodnHkg1LdX6dsv
+         91YR/7nHoEcAUN9SLsH2WvpRMS2/A3tJ/55EYhCbnSalKQEqN4mKY9m43T3kJkOGFo/k
+         Aj3+Mo2a4S8SE5OcUWHBCOpZSaoL/ihQi8IuwuEmUb5I5hcNedvym1gBv4Nsg9M7J3oW
+         cGTUyvjWo+f8sfs73u6n8WaMs1I8Q+UFm2scWPMvaWavxFRfLSw6LjsbD8SbGDN36CfB
+         P/jzE1ptb6QaGIvUuJbkXVitHS6gosCp7zqSeR65Ox4FqFGopUOHaSQ8220ZmfapEcbf
+         AfTQ==;
         darn=lists.infradead.org
 ARC-Authentication-Results: i=1; mx.google.com; arc=none
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=google.com; s=20251104; t=1779898855; x=1780503655; darn=lists.infradead.org;
+        d=chromium.org; s=google; t=1779898874; x=1780503674; darn=lists.infradead.org;
         h=content-transfer-encoding:cc:to:subject:message-id:date:from
          :in-reply-to:references:mime-version:from:to:cc:subject:date
          :message-id:reply-to;
-        bh=BRiRpdixJFrcmqSfsDGBuoh5lIec3C8LN8yr92Ku6F8=;
-        b=usc6JzuuOxfeEsKu47K8Oiznts1W1GeOBx5xNyBpNqyv45mdSZtI36Rvm7w+LLN6bp
-         xIYmLauIAFILlAf4tpi1JSIvUBVaMrwBX3Vv1VZJTuCFnTTznRVcE11QZB/uUe1KT64U
-         /+1gttfQ+4CGYsgaGHo2CULK85TUDbNJr+1GjqFkjHYz3VZre7OgA4ydhjaEoHTaInEr
-         m34cXJeBZByRqWLaPmBF/zCOfsWtJI4k4OumZzeDFVkoSxZpKTj6dmbGrG3FDPB0mFVm
-         6Ta4sbUBkuo1HnlOy8ZLKG4ZwVgUgRd7XJ8Ve/zFeLkHKctBokV9qNqNoWM/CANyJ1B7
-         yDnA==
+        bh=3dxrqcdNnKYVhdfP7nh0R/VHpio1dU95MRkKy/vXfjQ=;
+        b=K5DhtC8B+dzwYuhVAFjXVDw1RygposiZ5SHd2uOs2TDnYQdpTeuS9wTBWN1hePfQC0
+         nv6JbqJw/2xXfxjAadc6Oww7SWAEKnN3Xz602M+SSckIZU1R4LT23q/K83Ml6eUzOGM1
+         npB/rHVYwxgwAfw04aJWOpfhhEA50j9Ve1sGA=
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20251104; t=1779898855; x=1780503655;
+        d=1e100.net; s=20251104; t=1779898874; x=1780503674;
         h=content-transfer-encoding:cc:to:subject:message-id:date:from
          :in-reply-to:references:mime-version:x-gm-gg:x-gm-message-state:from
          :to:cc:subject:date:message-id:reply-to;
-        bh=BRiRpdixJFrcmqSfsDGBuoh5lIec3C8LN8yr92Ku6F8=;
-        b=qPx+yHAQYRFW8/nTPcMp6xh8e9Tb3FsMwNUJzCdpPy6oUrltytMNzFNYY9DfOrUvMe
-         TPd+Vjlyuk4CSYwSlgWE3Zh53L55tg427daOd3KS6/nmK0gVLiomlh6uYYM88lCt2+gM
-         /yI9mr7R6jPwIKFx2VncweFa6vZBSK/uTYhiHHLYAen788HTX4gKosnRtaZMVwOLekRS
-         p0XzPsh1VqQMIWnjEfKcht3oB3e6tpzi9L3Ky8BXIw6/8Mw3rj9Fqc8/+iwkgTbGiiwv
-         zs/AUPy+xdS/1nyyx8CGQNPmBJAHIEEgdpr9Mq/SDwnuXV00Bbt2/TL4eGRuOF4Cmula
-         Ieqg==
-X-Forwarded-Encrypted: i=1; AFNElJ/FqMs44KEaS4DVKxzNEsFPxPcnU9S63v0XCv7GmE0R54xu+ne92XU5LCqYs8M02FBiS7qZrR/6PQp+3euyhjTa@lists.infradead.org
-X-Gm-Message-State: AOJu0Yw6+fnXccAJH1WZurr+1d35fkodkMD7zVX/p3q0TSkrR3jLk+cV
-	AqS1EZF3kRDEz4LFdO2AsSPHg+P8+ZYeKTJoakc3N6v8yY9gfdb+Wzl5+VybTMJ8ABFXeV3Y+Ar
-	qZBhPdE6HDsOA28SLLpfOEPhuM3MFwknOM+k1Sloa
-X-Gm-Gg: Acq92OHZIB77LBIF6uCWIUGHcwblHGwd5KeRUdZct5I7eAkVlhCNVFPC1OXxFK2W9rY
-	VONujeK2BKzD4D5nUDjWqtlwrhvtd2X2pXvz8ApyFyPIA91VC4W4oBPnwtGqXaQOb5c+frlTt5I
-	fqPvruID4J6T6hejPAZhNKwlQCpJWq84vUxVBi+SgdMgBl30SI+K3l6sgylkz7Bg149BzXrkek0
-	N7GmEFD8D/PuzyPjb/MW+Nxs2bRrEcVzygXnQ3K5tf/KWS1fYli+RTANiHA6Iw93vNio1lkHaEH
-	JzhRkO+LCtIiH6qBC4pqLt5Ws4oqZFVfF/b/LjKIY2KVn2c=
-X-Received: by 2002:a05:6402:a218:10b0:670:9e9f:1a5e with SMTP id
- 4fb4d7f45d1cf-688fd0d59f2mr196269a12.2.1779898854707; Wed, 27 May 2026
- 09:20:54 -0700 (PDT)
+        bh=3dxrqcdNnKYVhdfP7nh0R/VHpio1dU95MRkKy/vXfjQ=;
+        b=MdV8pAwMh22SK5H+vIKU0x3khwiONit4iZ0m8CK/DAfMJEX0D2SEAYSfOiAiVCY4wn
+         3wv7AnQasXmqKtfG7BkTyKf3/y4nysx+gVPvVAJN1yQ9bkmC3pqGBO0ZsGgeC4+UjbIk
+         /3yAvQluKzk2uvDGJURSsy+EwynCB0OrdPu950PL24BNG8RcyPTufZtxBDOWd9cO0598
+         65GeIqzChYzckrBth1tbh6dqYUTxwugII38y6jTRbtDt/fWh5K0q27FLapmfp+4E1fua
+         hzHX5TlQk/4eHry91cuB2W2zVLkd+BgfVHJMjwsycyLKWXiDAbKsOiYy0S1gocbBZj6m
+         k0yg==
+X-Forwarded-Encrypted: i=1; AFNElJ93D8dn6Qar7iZ0PpUINaJByK+uKtUan/wb8HHl0Um9oAYUEEdXP42tPlHv5/RoHzMbUC/xMQ03W87m2aONexLK@lists.infradead.org
+X-Gm-Message-State: AOJu0YzCoT4dCDbqwXhd40BkKZXs3bKyfzlz6EPS/dfbT4GC0gfxhMwL
+	5ne5Vrq4eYCgvIE5gUU/vLOHRZLWABm5LkvxHorS60wJRhJmRUF2xiFViJ16q03Aj3fFnYIcvyy
+	cv2FM9LYkR1Ft1ceIzrOHQ7nKrZK1zEyOKlcpiQcA
+X-Gm-Gg: Acq92OE+JqXjZh4OXjLW4CAH/nDMgzHv1ZaIYk0yHsMsMMWLjo1e1MEPJFZ14B3uy79
+	ZjEeOzMakli8J45d5iO9MUIVMwWSt9C/k5ktIMMEeke2eV9mtU6RJhmX8iWg/QKt0TaV/TODM3X
+	ug2ZzouBWV5btLmWEHIn3pbI7sJ8OW+Qm+Sjc9BRizhXOb4CQKp2FdDEQAWHpgQGVK5t4CiKNWi
+	k4LQgpu1jHKWmx6IW/6f1zLPsEdGH9DKaulYBGql6km8zJiROs1cgjl+erBk2Qfmjjo5uXdK+3B
+	BBhK2302Tlrsldnc/w==
+X-Received: by 2002:a05:6512:2204:b0:5aa:b6a:9257 with SMTP id
+ 2adb3069b0e04-5aa32393ff6mr7614476e87.44.1779898874134; Wed, 27 May 2026
+ 09:21:14 -0700 (PDT)
 MIME-Version: 1.0
-References: <20260527035607.14919-1-xueyuan.chen21@gmail.com>
- <20260527035607.14919-2-xueyuan.chen21@gmail.com> <4e0696ee-895c-486d-aacc-71146f0e9047@intel.com>
-In-Reply-To: <4e0696ee-895c-486d-aacc-71146f0e9047@intel.com>
-From: Jann Horn <jannh@google.com>
-Date: Wed, 27 May 2026 18:20:18 +0200
-X-Gm-Features: AVHnY4LJMjA4I-4MPpoRWm5AfgyrLNpqa8PcyRvaif8KE5wTh-FmbgALVAeR1iw
-Message-ID: <CAG48ez2qj+QkLZvvi+6S78_v4Zk2eZBnBx6TozwgG4payOqPLg@mail.gmail.com>
-Subject: Re: [RFC PATCH 1/3] mm: make persistent huge zero folio read-only
-To: Dave Hansen <dave.hansen@intel.com>
-Cc: Xueyuan chen <xueyuan.chen21@gmail.com>, akpm@linux-foundation.org, linux-mm@kvack.org, 
-	linux-kernel@vger.kernel.org, linux-arm-kernel@lists.infradead.org, 
-	x86@kernel.org, catalin.marinas@arm.com, will@kernel.org, tglx@kernel.org, 
-	mingo@redhat.com, bp@alien8.de, dave.hansen@linux.intel.com, hpa@zytor.com, 
-	david@kernel.org, ljs@kernel.org, ziy@nvidia.com, 
-	baolin.wang@linux.alibaba.com, ryan.roberts@arm.com, dev.jain@arm.com, 
-	lance.yang@linux.dev, yang@os.amperecomputing.com
+References: <20260515090149.3169406-1-wenst@chromium.org> <CAMRc=MdnjRRMVzxPkkrPhQ4dz7rsK8-HKUp9cQ0z11apL3escQ@mail.gmail.com>
+ <CAGXv+5HC3dqgcE3KnKzakHHWFHB6m_X42orOkNUvZvp=SL_O8g@mail.gmail.com> <CAMRc=Med-_0GSYzoFBRiwFzBCK0DZqJD8_SEBxi+zwR20GS-HA@mail.gmail.com>
+In-Reply-To: <CAMRc=Med-_0GSYzoFBRiwFzBCK0DZqJD8_SEBxi+zwR20GS-HA@mail.gmail.com>
+From: Chen-Yu Tsai <wenst@chromium.org>
+Date: Wed, 27 May 2026 18:21:00 +0200
+X-Gm-Features: AVHnY4LzsI5n_9iqirzC_of7SGIfiJw_kQ6vIsCvh5Qe5puVB03Deb7QvAn9uiw
+Message-ID: <CAGXv+5GbW0bx3nKdZt2+tHuHyQ-J-1-Z79nMzHAwjmEPGKT02A@mail.gmail.com>
+Subject: Re: [PATCH RFC 00/12] arm64: mediatek: Add M.2 E-key slot on Chromebooks
+To: Bartosz Golaszewski <brgl@kernel.org>, Greg Kroah-Hartman <gregkh@linuxfoundation.org>, 
+	Manivannan Sadhasivam <mani@kernel.org>
+Cc: Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>, 
+	Conor Dooley <conor+dt@kernel.org>, Matthias Brugger <matthias.bgg@gmail.com>, 
+	AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>, linux-pm@vger.kernel.org, 
+	linux-usb@vger.kernel.org, devicetree@vger.kernel.org, 
+	linux-mediatek@lists.infradead.org, linux-arm-kernel@lists.infradead.org, 
+	linux-kernel@vger.kernel.org
 Content-Type: text/plain; charset="UTF-8"
 Content-Transfer-Encoding: quoted-printable
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260527_092058_422575_E9791482 
-X-CRM114-Status: GOOD (  13.33  )
+X-CRM114-CacheID: sfid-20260527_092116_981833_BFF5DA51 
+X-CRM114-Status: GOOD (  37.11  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -122,30 +119,79 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Wed, May 27, 2026 at 5:55=E2=80=AFPM Dave Hansen <dave.hansen@intel.com>=
- wrote:
-> On 5/26/26 20:56, Xueyuan chen wrote:
-> > +config READONLY_HUGE_ZERO_FOLIO
-> > +     bool "Map the huge zero folio read-only in the direct map"
-> > +     depends on PERSISTENT_HUGE_ZERO_FOLIO
-> > +     depends on ARCH_HAS_READONLY_HUGE_ZERO_FOLIO
-> > +     help
-> > +       The persistent huge zero folio is shared globally, and nothing
-> > +       should ever change its contents after initialization.
-> > +
-> > +       When supported, mark the folio read-only in the direct map so s=
-uch
-> > +       writes trigger a fault instead of silently corrupting the zero =
-contents.
-> > +
-> > +       If the permission change is not supported, the kernel keeps usi=
-ng
-> > +       the writable persistent huge zero folio.
+On Tue, May 26, 2026 at 11:48=E2=80=AFAM Bartosz Golaszewski <brgl@kernel.o=
+rg> wrote:
 >
-> I vote for no Kconfig options here. Why? This adds "security" with
-> _basically_ no extra runtime cost. The runtime cost is, what, usually
-> one kernel TLB invalidation during boot?
+> On Sun, May 24, 2026 at 10:06=E2=80=AFAM Chen-Yu Tsai <wenst@chromium.org=
+> wrote:
+> >
+> > > >
+> > > > I expect some discussion on this patch, because a) it adds some
+> > > > OF-specific code into an otherwise generic (core) driver, and
+> > > > b) it doesn't yet handle USB 2.0 / 3.x shared ports; it ends up pow=
+ering
+> > > > on the port twice, which negates the port reset part.
+> > > >
+> > >
+> > > I understand that you do this because the port device has no OF node
+> > > assigned. If we wanted to call pwrseq_get() for the port device, is
+> > > there really no other way to associate it with the correct pwrseq
+> > > provider?
+> >
+> > I suppose we could tie the "port@X" node to the usb port device, but
+> > AFAIK no other subsystem does this so we would be introducing a new
+> > pattern.
+> >
+> > In the M.2 pwrseq driver, we would have to match by port node instead
+> > of its parent device node. We may end up with different behavior for
+> > the USB target vs the other targets.
+> >
+>
+> I imagine, we can check the bus type of the parent device to know if
+> this is USB?
 
-Plus potentially a bit more TLB pressure from losing a huge PUD in the
-linear map, IDK how much we care about that.
+The "bus type" type is probably not exported. However since the DT binding
+explicitly says which port on the M.2 slot is for which connection type,
+I think the matching can do a special case check for the USB port.
+The next obstacle is that the target string is not given to the provider
+match function.
+
+> > Also, the "port@X" nodes only exist for the OF graph connections to
+> > connectors and/or muxes (this series doesn't deal with the latter).
+> > For directly connected devices, there is a "device@X" child node
+> > directly under the USB hub node. That node is what gets tied to the
+> > the USB device.
+> >
+>
+> Is this a problem? I don't think I understand what you're saying here.
+
+It shouldn't be. I'm just saying there would be different behavior on
+the USB side for connectors vs onboard devices (like hubs) device nodes.
+
+I talked to Greg earlier, and he said not to touch the hub driver; the
+hub driver should only deal with features from the USB spec. The
+"onboard USB devices" driver is what should be used. And this would
+be a proper case of adding an auxiliary device to the M.2 slot driver.
+
+However this seems to completely decouple the power sequencing from the
+USB core. Take the USB A connector for example, it was recently added to
+the onboard USB devices driver. However the connector has a device node
+that is not a child node of any USB host controller or hub; it is connected
+through OF graph. At the same time, since it typically sits at the top
+level of the device tree, a platform device is directly created and the
+driver subsequently binds to that device. This is totally different from
+how the hub and other directly connected onboard USB devices work. In
+the onboard device case, the device node is a child node of the USB hub
+or controller, and the corresponding platform device only gets created
+when the USB hub driver probes, thereby sort of tying it into the USB
+device topology.
+
+If the power sequencing ends up not connected to the USB subsystem, then
+maybe the M.2 slot driver could just check if the USB port (port@3) was
+used, and just enable the USB / BT pwrseq target at probe time? That
+would mean less changes needed.
+
+
+Thanks
+ChenYu
 
