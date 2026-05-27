@@ -4,85 +4,126 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 2CB58CD5BDE
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 27 May 2026 07:18:28 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 93BE5CD4F54
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 27 May 2026 07:24:50 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
 	Content-Type:Cc:To:Subject:Message-ID:Date:From:In-Reply-To:References:
 	MIME-Version:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=sy2hrrBG21BdHck1YdIk1SaSJwWCDlg+jpuiQs79vfM=; b=O7xKzKVUInWBS7QserSRUU7y9b
-	8nDjNvOHMcRq+LfVVsFvsV/MPLGN1YQA7TJ1yWG9axhAqh/v1XjmA/hwO0hhPNLiWTuRYYWo4co0u
-	Ja4jkubKMjVzI1kTDGSuS1t25ILFBjgKTZo+y3pIBUEVJIvwVYI/UGj4ZRudP+/9Cpq0RYvqdtU0a
-	m4uQmGsOlD3tp+88pTzj80PDKFAxx9EivGJJbrCkgeqCbRisdWOc2DvHJLEmKGdqAHW1qKnyvowDo
-	aTvNgOsNZ/pVjQwCU2zFZ1i+I6nF0dG/hmBhfJUwBVVlzoxwAGw8I+U+5SSSFqEJm0i2hD+artSu1
-	QUfn9oRA==;
+	bh=UHb/oFJuYkkTXytA5kRGkj7lGPcsOEW8fs36CkvCs2c=; b=0JTzPlYrqcfj9tfWQKGrgRT5zd
+	2kkE7GH//gWXAtoBosdeulzsrJMOHCmfdjnW5jnCOEqgNrqbaYqh+DiXoWYhA7FLQ1GXQYPOyhnUD
+	XE0ymvFSR9hiW8mr0PMRue1YmzldR/1YwDrvD9Y3ob0qbJPuqcrFbl+HWSywRpkWOcu4k1fAIJ0Wa
+	oRjD4pWUvT+0fz7caQdURlbLawjrZSu4iaQiZenIJ3IhEo5poYI2WqTxqMLIT5yrvQpqgLNfbsGl/
+	hr4WOTx0zJF1DcYD8ech5LLCbVP+8wLNI/xL+zcIy/r9SDfBdjfZSsthD3HNCv4unUU/AaRsFq9c5
+	bbc8edwQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wS8Wy-00000003S5Q-3gi6;
-	Wed, 27 May 2026 07:18:20 +0000
-Received: from mail-vs1-f51.google.com ([209.85.217.51])
+	id 1wS8d8-00000003SP7-2MuQ;
+	Wed, 27 May 2026 07:24:42 +0000
+Received: from mail-ej1-x629.google.com ([2a00:1450:4864:20::629])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wS8Ww-00000003S50-2md9
+	id 1wS8d5-00000003SOC-3jPx
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 27 May 2026 07:18:20 +0000
-Received: by mail-vs1-f51.google.com with SMTP id ada2fe7eead31-63329e1c77aso3599691137.3
-        for <linux-arm-kernel@lists.infradead.org>; Wed, 27 May 2026 00:18:18 -0700 (PDT)
+	Wed, 27 May 2026 07:24:41 +0000
+Received: by mail-ej1-x629.google.com with SMTP id a640c23a62f3a-bd5047a2a4cso1737738666b.3
+        for <linux-arm-kernel@lists.infradead.org>; Wed, 27 May 2026 00:24:39 -0700 (PDT)
+ARC-Seal: i=1; a=rsa-sha256; t=1779866678; cv=none;
+        d=google.com; s=arc-20240605;
+        b=iXVGt47LcqW8wIwR653zsglCeqiG4EOYTWpDIEtwnGp7jsuDHHcxDPHu7WHUUkxqEY
+         u1DVJQmZuWxHAk2mEfjI7SQRQmwMle1TmNHYfzI/u/S69394fefg2sjvE0uOvrHtQ9cG
+         dWpGXGODH9XkMGri+yMvgs0iQAvIpoPzlw3Ga1Myup5+//Yb/iw0KAGQBQzbf1pn3h9n
+         XnNcVJWsd09ldTfx1WJ4wwenykwRSlFFZL71ULfHztJ3zGYb5y53pMFb484duzUTkDA8
+         LLJ5Wk1kQWkaBfYWeEwni49bYrh8VEgl6F6c8kOacZKRpITlMMbjVY/DkD4UoRHNJhP7
+         xOoA==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20240605;
+        h=content-transfer-encoding:cc:to:subject:message-id:date:from
+         :in-reply-to:references:mime-version:dkim-signature;
+        bh=UHb/oFJuYkkTXytA5kRGkj7lGPcsOEW8fs36CkvCs2c=;
+        fh=ciseAmgHSfapupVlXcNM20LRjaj00H1N9qTu91+XNro=;
+        b=i7UqiWqy1ROelzMYRqviXXhUMQCqQTjXz1PuG1Km90DoPC3fX9Szh07VYFkYeqgiem
+         9eyQSVDRyAQXQX1bHayI6f479hn5IWry1KBn9HJ1Qe35GDEa0KP/XH7La0xWO42Xa2hU
+         1uPmYv0CmcHaoOFGyeqxyi8ssqRz8tPYV9fIeIRKhEY8dTR0+KWBAXT8hmzZDXH5IcN2
+         aUGyYISuAeeTtuKcJ9jfRHQlEglv+5BfRp3pKL7lTnlsKZFW/24F8VUqN/U2c+HzWA3X
+         EfZRmyfJTbIeYdn4YGQdAW4EQmgqZgMUGe6eToUxo+SsfcAbReYSQSDq107Z7wOOjtkM
+         yzew==;
+        darn=lists.infradead.org
+ARC-Authentication-Results: i=1; mx.google.com; arc=none
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=google.com; s=20251104; t=1779866678; x=1780471478; darn=lists.infradead.org;
+        h=content-transfer-encoding:cc:to:subject:message-id:date:from
+         :in-reply-to:references:mime-version:from:to:cc:subject:date
+         :message-id:reply-to;
+        bh=UHb/oFJuYkkTXytA5kRGkj7lGPcsOEW8fs36CkvCs2c=;
+        b=BA5RNH9S0TtH9v8OfIev4em2i4GtPyDTbcfdy/6s+6fpnJw2at64o5s/iHRlWTAQIS
+         kzPRTwBEkgjJN104xnoNssbLZ082WTgmDUYsyerz0NJa5q79hW2mXHWpUjG+O3dvyaNo
+         IyF1Q78vfyp2/QwxjbX9X2aVSwLV4qIzEwSmY6lHjoauURkpw/Hokv5hlgKVtF2ccaIo
+         c6dv8k2bPi0oBFuBK2mN3MvKapS1GVEIdwPIszJbqZyiobQfKTiIIkmIHiOioFFW1MDv
+         tUockRWqkpCKXBXc1nttTG0CLqceZ+XEpEIrNFU+v0hjHDoBgxLAZaHZoI/7wDnteU48
+         FvNA==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20251104; t=1779866297; x=1780471097;
+        d=1e100.net; s=20251104; t=1779866678; x=1780471478;
         h=content-transfer-encoding:cc:to:subject:message-id:date:from
          :in-reply-to:references:mime-version:x-gm-gg:x-gm-message-state:from
          :to:cc:subject:date:message-id:reply-to;
-        bh=sy2hrrBG21BdHck1YdIk1SaSJwWCDlg+jpuiQs79vfM=;
-        b=o4RwPqEs8wBZVdfUNCPZLETcIydLFWDgtMoihkiyW2TLTKVPBZE9IEs6VGj0R8ov7I
-         5kPiClq1t8tU/wWqhOFENyFMQL6zCX/cpUvZjFFmoK2nLiG7xwwQDpJCu1KG7OHTQnqs
-         BKtWakwnLeRWyTt+V0hjiDfJF5pSoTkJej1ClSovImk6VEzqtibi3RaEvJrIYEQxDwBZ
-         Z8GDX9k8Y94OD8QGxtJ7lw5MLhUuN2nVjKBnvus4vRrxcSolM5uTf0c0kNEXTR3XQyvg
-         n3BsGTr9orn7yYHWYclrZbRF1Wfc+AuVDAzkZo3vvyAzXNRKAGKbBCrzg6QzpkLgfEb5
-         FE7Q==
-X-Gm-Message-State: AOJu0YzSbUOnwm9CuHFy+/xWbbHeirBuVuJck67rqgmTs8OzLXGrW3kb
-	IpX1cWsUB/gzxMlXLhOSV4m19s/uZmYWguosip2RpScEh/M9QjU8UXegbwMwWZigNIc=
-X-Gm-Gg: Acq92OGZcKWvmhfDP7+FO/3/NPUuSf3R/j9oIvkSK/GWws/R5Wcbc5yxPwnd3Sz3p5k
-	Oe4MguWphH2DRICph3ccqy6yyxeGxy0mhGYelGA6zJ8DKrZaI/vYEFPj8Yp5kqbbiO25lly8hIx
-	94xPQlASgAjI0t6izcawr754A+Wb97S3CiW34o0UeI//S9DwZJWgLmKtmqZBru6zJRBF7QYnmxw
-	f1FdRTx2frA335FxefmWmGqpOfMxUdJCSOkYb3p0AxKJMlL7fnIbheV5DdOw9vMJ9KB21pwEyvF
-	pEI3BpReJ69yWn+eiUgkXB9L5AJzkPBosabitsDzRaZmEuHJBuAG99DKeZLzRQRgPDulh0DL1v5
-	O/V2Ml6WyAk/r+PNzAp5Cn4B4zeCHQ6C0ByLwKwf5kAgQJIPdWsch6J6UZXCAxg4fyGfU99Dmto
-	b1urvOgh91T4Zf6V5jd5/T/DiH4z7Q0iUz5L/W0VYcysXbwDk7f+ArDjon4wc4r38g
-X-Received: by 2002:a05:6102:3ec6:b0:631:4580:6a3f with SMTP id ada2fe7eead31-67c767cb843mr10103606137.7.1779866297122;
-        Wed, 27 May 2026 00:18:17 -0700 (PDT)
-Received: from mail-vk1-f180.google.com (mail-vk1-f180.google.com. [209.85.221.180])
-        by smtp.gmail.com with ESMTPSA id ada2fe7eead31-67ff3e499bbsm16021939137.7.2026.05.27.00.18.16
-        for <linux-arm-kernel@lists.infradead.org>
-        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
-        Wed, 27 May 2026 00:18:16 -0700 (PDT)
-Received: by mail-vk1-f180.google.com with SMTP id 71dfb90a1353d-5752b279662so4077066e0c.2
-        for <linux-arm-kernel@lists.infradead.org>; Wed, 27 May 2026 00:18:16 -0700 (PDT)
-X-Received: by 2002:a05:6122:4581:b0:575:a5b5:3233 with SMTP id
- 71dfb90a1353d-5865f154435mr10929054e0c.4.1779866296537; Wed, 27 May 2026
- 00:18:16 -0700 (PDT)
+        bh=UHb/oFJuYkkTXytA5kRGkj7lGPcsOEW8fs36CkvCs2c=;
+        b=I+vidETuQHSTgibRYuB4KcMqpvziz9+Cn9VwwyxnI7YzNc0dGuAL7xQ7GMfsEb7tWj
+         OgsHm9rQHQfnVezE3gfEZQ3OQT+OnEJFHKUrbTO42TwVfN7eRYXjYZBMvDi8tRdJsTW1
+         lOL67y6xI1UddclTi6sQ8Opgq7CK2pPPs6A2CHHjvG28jxJOzujY5evRqUEufCuL7hWV
+         1sL5nepO4xjHIKeTlLB8zS4pjc5raQIGOGnUsJwZVoLQRiHH21zJwDVmn4pr3hFm65XV
+         Y4H2SvNoxGBvBbE4+pmwuNFx/mBKfkrysGgeQa3ICV6v4uIDsEKPzm3M4BiiTIA/cWw4
+         vVKw==
+X-Forwarded-Encrypted: i=1; AFNElJ8ZnpcbRGImhG27lo2ZEkb/HzeXJAAbWHPkCTDqav1tmqbINFPDWDA8u7Vb680o03ElGDgn1bC24kDvhAMa7Pli@lists.infradead.org
+X-Gm-Message-State: AOJu0YwcM/hNhePBOVOOF3UDHYaiBrnecQBeycPBlemN9WqAUfOcbktq
+	QoL57Y3nVCA/lg1TWq68f7wtEKxvN6DuBldzbqw9Q0W7bYQ2uSALH0kremdNkW5X8ms2Hr7vRof
+	A1IxY4UfNwTA4bulkJwKatfe8nJcqLzBQ2FEYZ/dE
+X-Gm-Gg: Acq92OH29vlIOyngQDbrD7vg04q6ODsTTmy+ToGmR4pjpsg2hTHunrQc6LlQW9szjiA
+	gp7QLO14UBA/mgsW/GTyMHc+JWJdrxJ7dy0vw4zooeoT6nDCFWCjM4+M9cR1r49hL86hisg/Osw
+	LtrFFq9CJj3ePwbWaaab5zQZ9ZaGqqLYv+72joMizcVKNqI8wDg7KQR3AvE6ddhGSyFP0Gb960C
+	W21z4t56AyGDwzQIPYS3/3TctjSx2iS15hHrd9r/rj6kNM/RXUINzwXSZA7ZZUEBlTUcsTkEb0e
+	ghoEiyQBjY468/5xgArzezcqiQoxLBPDx9KNg2uKPVSbrJYbSLhB9uNQfscG/ph1U9TddEvCr7P
+	zTrH9KRqOhB37MnRI
+X-Received: by 2002:a17:907:b59a:b0:bd3:893c:c44f with SMTP id
+ a640c23a62f3a-bdd25fd111amr982141566b.19.1779866677452; Wed, 27 May 2026
+ 00:24:37 -0700 (PDT)
 MIME-Version: 1.0
-References: <20260514125328.20954-1-marek.vasut+renesas@mailbox.org>
-In-Reply-To: <20260514125328.20954-1-marek.vasut+renesas@mailbox.org>
-From: Geert Uytterhoeven <geert@linux-m68k.org>
-Date: Wed, 27 May 2026 09:18:04 +0200
-X-Gmail-Original-Message-ID: <CAMuHMdXhk2rf9+1mvdoUbd2T=vNC0L5UXeiEzwDPvfMOT==+mA@mail.gmail.com>
-X-Gm-Features: AVHnY4IRt8fLyNfU8YOCQpYkCYZ9ntliUcjglmYbKUGrrnuUFeY-Av16LJkvBmg
-Message-ID: <CAMuHMdXhk2rf9+1mvdoUbd2T=vNC0L5UXeiEzwDPvfMOT==+mA@mail.gmail.com>
-Subject: Re: [PATCH v2] arm64: dts: renesas: r8a78000: Fix GIC-720AE View 1
- Redistributor description
-To: Marek Vasut <marek.vasut+renesas@mailbox.org>
-Cc: linux-arm-kernel@lists.infradead.org, Marc Zyngier <maz@kernel.org>, 
-	Conor Dooley <conor+dt@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>, 
-	Kuninori Morimoto <kuninori.morimoto.gx@renesas.com>, Magnus Damm <magnus.damm@gmail.com>, 
-	Rob Herring <robh@kernel.org>, devicetree@vger.kernel.org, 
-	linux-renesas-soc@vger.kernel.org
+References: <20260409-feat_link_cap-v1-0-7069e8199ce2@bootlin.com>
+ <adgNxaFhbQaxC5E_@intel.com> <u4ononk4cpccx77gvlywtfen5rmyslvr72v7olkhdrjf65aqce@xo777vofhcan>
+ <20260413141000.0e190dcc@kmaincent-XPS-13-7390> <3698b69f20481ff9c6fb1002b46f9862a1fdd03d@intel.com>
+In-Reply-To: <3698b69f20481ff9c6fb1002b46f9862a1fdd03d@intel.com>
+From: Manasi Navare <navaremanasi@google.com>
+Date: Wed, 27 May 2026 00:24:25 -0700
+X-Gm-Features: AVHnY4JySRBm-2P_CbFmaw_WGo2zCHSC-tgnDBB7us3VQxRDYsfxZLlA23v6OE0
+Message-ID: <CAMNLLoQmwW-QkuiSyageGWBeuUDUVZWmWyXRD-vkAGZbg1kTzw@mail.gmail.com>
+Subject: Re: [PATCH RFC 00/12] Add support for DisplayPort link training
+ information report
+To: Jani Nikula <jani.nikula@linux.intel.com>
+Cc: Kory Maincent <kory.maincent@bootlin.com>, 
+	Dmitry Baryshkov <dmitry.baryshkov@oss.qualcomm.com>, 
+	=?UTF-8?B?VmlsbGUgU3lyasOkbMOk?= <ville.syrjala@linux.intel.com>, 
+	Rodrigo Vivi <rodrigo.vivi@intel.com>, Joonas Lahtinen <joonas.lahtinen@linux.intel.com>, 
+	Tvrtko Ursulin <tursulin@ursulin.net>, David Airlie <airlied@gmail.com>, 
+	Simona Vetter <simona@ffwll.ch>, Dave Airlie <airlied@redhat.com>, 
+	Jesse Barnes <jbarnes@virtuousgeek.org>, Eric Anholt <eric@anholt.net>, 
+	Maarten Lankhorst <maarten.lankhorst@linux.intel.com>, Maxime Ripard <mripard@kernel.org>, 
+	Thomas Zimmermann <tzimmermann@suse.de>, Andrzej Hajda <andrzej.hajda@intel.com>, 
+	Neil Armstrong <neil.armstrong@linaro.org>, Robert Foss <rfoss@kernel.org>, 
+	Laurent Pinchart <Laurent.pinchart@ideasonboard.com>, Jonas Karlman <jonas@kwiboo.se>, 
+	Jernej Skrabec <jernej.skrabec@gmail.com>, Chun-Kuang Hu <chunkuang.hu@kernel.org>, 
+	Philipp Zabel <p.zabel@pengutronix.de>, Matthias Brugger <matthias.bgg@gmail.com>, 
+	AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>, 
+	Chris Wilson <chris@chris-wilson.co.uk>, Thomas Petazzoni <thomas.petazzoni@bootlin.com>, 
+	Mark Yacoub <markyacoub@google.com>, Sean Paul <seanpaul@google.com>, 
+	Louis Chauvet <louis.chauvet@bootlin.com>, intel-gfx@lists.freedesktop.org, 
+	intel-xe@lists.freedesktop.org, dri-devel@lists.freedesktop.org, 
+	linux-kernel@vger.kernel.org, linux-mediatek@lists.infradead.org, 
+	linux-arm-kernel@lists.infradead.org, Simona Vetter <simona.vetter@ffwll.ch>
 Content-Type: text/plain; charset="UTF-8"
 Content-Transfer-Encoding: quoted-printable
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260527_001818_713267_1E1F3F8B 
-X-CRM114-Status: GOOD (  26.58  )
+X-CRM114-CacheID: sfid-20260527_002439_981213_38D01DE7 
+X-CRM114-Status: GOOD (  46.05  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -97,70 +138,157 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Thu, 14 May 2026 at 14:53, Marek Vasut
-<marek.vasut+renesas@mailbox.org> wrote:
-> The Renesas R-Car X5H (R8A78000) SoC contains Arm CoreLink GIC-720AE
-> Generic Interrupt Controller with Multi View capability. Firmware has
-> access to configuration View 0, Linux kernel has access to View 1.
->
-> The Arm CoreLink GIC-720AE Generic Interrupt Controller Technical
-> Reference Manual, currently latest r2p1 [1], chapter "5. Programmers
-> model for GIC-720AE", subchapter "5.4 Redistributor registers
-> for control and physical LPIs summary", part "5.4.3 GICR_TYPER,
-> Redistributor Type Register", "Table 5-50: GICR_TYPER bit descriptions"
-> on page 200, clarifies register "GICR_TYPER" bit 4 "Last" behavior
-> in Multi View setup as follows:
->
-> "
-> Last
-> Last Redistributor:
->
-> 0 ... This Redistributor is not the last Redistributor on the chip.
-> 1 ... This Redistributor is the last Redistributor on the chip.
->       When GICD_CFGID.VIEW =3D=3D 1, for views 1, 2, or 3 this bit
->       always returns 1.
-> "
->
-> On this SoC, GICD_CFGID.VIEW is 1 and the Linux kernel has access to
-> View 1, therefore Linux kernel GICv3 driver will interpret register
-> "GICR_TYPER" bit 4 "Last" =3D 1 in the first Redistributor in continuous
-> Redistributor page as that first Redistributor being the one and only
-> Redistributor and will stop processing the continuous Redistributor
-> page further. This will prevent the other Redistributors from being
-> recognized by the system and used for other PEs.
->
-> Because the hardware indicates that the continuous Redistributor page
-> is not continuous for View 1, 2, or 3, describe every Redistributor
-> separately in the DT. This makes all Redistributors for all cores
-> accessible in Linux.
->
-> [1] https://documentation-service.arm.com/static/69ef3c1cd35efd294e335c43
->     Arm=C2=AE CoreLink=E2=84=A2 GIC-720AE Generic Interrupt Controller
->     Revision: r2p1 / Issue 12 / 102666_0201_12_en
->
-> Fixes: 63500d12cf76 ("arm64: dts: renesas: Add R8A78000 SoC support")
-> Acked-by: Marc Zyngier <maz@kernel.org>
-> Signed-off-by: Marek Vasut <marek.vasut+renesas@mailbox.org>
+Thank you Jani and Ville and others for your feedback on this approach.
+I think adding the current negotiated link rate , lane count and DSC
+status as part of a connector property is a great
+way to standardize this instead of every driver adding a debugfs for
+this same information.
 
-> V2: - Update GIC-700AE documentation link to generated PDF
->     - Update commit message to match the PDF
->     - Add AB from Marc
+Please find my comments for why OS would use this information as below:
 
-LGTM, so
-Reviewed-by: Geert Uytterhoeven <geert+renesas@glider.be>
-i.e. will queue in renesas-devel for v7.2.
 
-Gr{oetje,eeting}s,
+On Mon, Apr 13, 2026 at 6:30=E2=80=AFAM Jani Nikula <jani.nikula@linux.inte=
+l.com> wrote:
+>
+> On Mon, 13 Apr 2026, Kory Maincent <kory.maincent@bootlin.com> wrote:
+> > On Fri, 10 Apr 2026 00:36:09 +0300
+> > Dmitry Baryshkov <dmitry.baryshkov@oss.qualcomm.com> wrote:
+> >
+> >> On Thu, Apr 09, 2026 at 11:36:21PM +0300, Ville Syrj=C3=A4l=C3=A4 wrot=
+e:
+> >> > On Thu, Apr 09, 2026 at 07:08:16PM +0200, Kory Maincent wrote:
+> >> > > DisplayPort link training negotiates the physical-layer parameters=
+ needed
+> >> > > for a reliable connection: lane count, link rate, voltage swing,
+> >> > > pre-emphasis, and optionally Display Stream Compression (DSC). Cur=
+rently,
+> >> > > each driver exposes this state in its own way, often through
+> >> > > driver-specific debugfs entries, with no standard interface for us=
+erspace
+> >> > > diagnostic and monitoring tools.
+> >> > >
+> >> > > This series introduces a generic, DRM-managed framework for exposi=
+ng DP
+> >> > > link training state as standard connector properties, modeled afte=
+r the
+> >> > > existing HDMI helper drmm_connector_hdmi_init().
+> >> > >
+> >> > > The new drmm_connector_dp_init() helper initializes a DP connector=
+ and
+> >> > > registers the following connector properties to expose the negotia=
+ted link
+> >> > > state to userspace:
+> >> > >
+> >> > > - num_lanes:      negotiated lane count (1, 2 or 4)
+> >> > > - link_rate:      negotiated link rate
+> >> > > - dsc_en:         whether Display Stream Compression is active
+> >> > > - voltage_swingN: per-lane voltage swing level (lanes 0-3)
+> >> > > - pre_emphasisN:  per-lane pre-emphasis level (lanes 0-3)
+> >> >
+> >> > I don't see why any real userspace would be interested in those (apa=
+rt
+> >> > from maybe DSC). If this is just for diagnostics and whatnot then I
+> >> > think sysfs/debugfs could be a better fit.
+> >>
+> >> I'd agree here. Please consider implementing it as a debugfs interface=
+,
+> >> possibly reusing the Intel's format.
+> >
+> > Sorry, I completely forgot to include a paragraph explaining the ration=
+ale
+> > behind using DRM properties.
+> >
+> > This DisplayPort link information report was requested by OSes to allow=
+ them to
+> > assess the capabilities of each DisplayPort connector on the system, an=
+d to
+> > guide users from the most to least capable ones. It will also enable th=
+e OS to
+> > warn the user when a cable is too long or experiencing noise (indicated=
+ by high
+> > voltage swing and pre-emphasis levels).
+>
+> The selection of the number of lanes or link rate are at the discretion
+> of the driver, or link policy manager in DP spec terms. It does not
+> really convey the capabilities of the *connectors* but rather the
+> current *link*. Ditto for enabling DSC.
 
-                        Geert
+I agree that it would be up to each driver to have a policy
+on choosing link rate/lane count and when to enable DSC and then if it fail=
+s
+fallback to lower link rate/lane count as per the VESA spec.
 
---=20
-Geert Uytterhoeven -- There's lots of Linux beyond ia32 -- geert@linux-m68k=
-.org
+Currently this information is only available through a debugfs and not stan=
+dard
+across the drivers. However adding it as part of the connector property wou=
+ld
+be useful for the userspace, such as DRM HWC to use this information along
+with the link status property to understand the reason for reduced
+resolutions/modes
+exposed to userspace.  This can be used to provide better diagnostics and u=
+seful
+information up to the end user.
+DSC being enabled or not or what was the final negotiated link rate
+and lane count
+could be used to take smarter mode configuration handling choices in
+the usersapce
+For example for MST, if usersapce can know the negotiated link parameters
+usersapce can be smarter in choosing resolutions on each of the downstream =
+sinks
+based on the total link bandwidth between source and the hub.
 
-In personal conversations with technical people, I call myself a hacker. Bu=
-t
-when I'm talking to journalists I just say "programmer" or something like t=
-hat.
-                                -- Linus Torvalds
+At the end it just helps the OSs to provide better control to the user
+in certain scenarios.
+I agree that Voltage swing and pre emphasis values can be removed and we
+can focus on adding property for link rate, lane count and dsc info
+like enabled/disabled, compressed bpp etc.
+
+Regards
+Manasi
+
+
+
+>
+> I don't think the voltage swing and pre-emphasis are really diagnostic
+> measures either, but a response to measuring and adapting to the
+> link. And if the link training failed, the driver may have already
+> reduced the number of lanes and link rate to compensate. So you could
+> appear to have the perfect link only because it was so bad at high link
+> rate that it was reduced already.
+>
+> The policies may also vary from driver to driver, and possibly depending
+> on what makes sense for the hardware (e.g. power consumption with or
+> without DSC).
+>
+> I think "link information report ... requested by OSs" is vague, and I
+> don't think the concept has been completely thought through. I can't see
+> how you could present reliable and actionable information to the user
+> with what the patch at hand provides. Or how it could work in a generic
+> manner across drivers.
+>
+> Overall sounds like an XY problem [1]. We should focus on what you're
+> trying to achieve first, in userspace, and only then think about what
+> the appropriate kernel mechanism should be.
+>
+> I don't think this is it.
+>
+>
+> BR,
+> Jani.
+>
+>
+> [1] https://en.wikipedia.org/wiki/XY_problem
+>
+>
+> >
+> > Since this is information that OSes will consume on a regular basis, ex=
+posing
+> > it directly as DRM properties seems the most appropriate approach.
+>
+>
+>
+>
+>
+> --
+> Jani Nikula, Intel
 
