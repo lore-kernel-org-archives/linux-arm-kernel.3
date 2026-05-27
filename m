@@ -4,74 +4,68 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 00DF3CD4F54
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 27 May 2026 10:00:45 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 56DF5CD5BC9
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 27 May 2026 10:02:55 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:
-	Content-Transfer-Encoding:Content-Type:MIME-Version:References:Message-ID:
-	Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=4vc12CsyxQZnBff3nclh5xMgmARI3DVC5oAYJEEQSWk=; b=VhcDtt8//O/gdpuWjakGjNcCYH
-	rrFocCG7A37rUN3ne3C0Myp2G1Efn59LV2ipp+GJuq+H2jhpMs1GLQAcAmlFHsDoz6A651+/8fRTj
-	7mbUi9htprvWTob2Ctoze+hY4BZVm2qqJ8xUDEMgSsaQZiJimEBNbqyY58G01TS5spE1K1bdhz+EL
-	3WmEdA97QBHlwrH3XsQZi77e/4rettmIZQc3EjhRew9F50i7FdMetQzbKnshm8f0Js0zaD0RrAcBm
-	TdAbagjS71AL2xdvXDCRa82QHTfZEH8iwzc1DGxP7Asc3BNde7QCTx4jzmC5d3qxx8QJVD9No8bPN
-	Hkgg35hg==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	MIME-Version:Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-Type:
+	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
+	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=Hu7HoK2hIQnOl4q34hOD8+zjB4sz0oZzSs+uNBXGR34=; b=Qy315ZIrQo07XsN6lez3L04DGs
+	swIA97VUviD9RE4gWMBZFARCcpi4TP11wAcxq1kIvO9ZwSZrrTcgwL4+ovRGO+IugijsYr2dSeHwA
+	BFu+hC8gB77yMWTerjYAtCww85p3hqVKvzqj/80m+nb2/HFjteoBzchePKqnHEfPv8Lzs8toXqawZ
+	HPqevoZ55e8oTZVUEhGX6ZUsGn3YA2g8gbOos8f9PNXoyBtwxg1GwJflJsYCAv9ar9/RHz1qhBvRI
+	ZQpQkuL/l+PY7V60IXxnNQpgvBedQOSFcQrQiiIpb33AcyjBnRNDiF2ykVYWqiq95MxHUMcXFAwa8
+	XmXmyF8A==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wSB42-00000003h0D-2CvX;
-	Wed, 27 May 2026 10:00:38 +0000
-Received: from mailgw.kylinos.cn ([124.126.103.232])
+	id 1wSB69-00000003hXy-1WAT;
+	Wed, 27 May 2026 10:02:49 +0000
+Received: from sea.source.kernel.org ([172.234.252.31])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wSB3v-00000003gpW-0n9s;
-	Wed, 27 May 2026 10:00:34 +0000
-X-UUID: dec7402459b211f1aa26b74ffac11d73-20260527
-X-CID-P-RULE: Release_Ham
-X-CID-O-INFO: VERSION:1.3.12,REQID:1fdcb15d-86a5-4dfd-9310-ad06384d0138,IP:0,U
-	RL:0,TC:0,Content:0,EDM:0,RT:0,SF:0,FILE:0,BULK:0,RULE:Release_Ham,ACTION:
-	release,TS:0
-X-CID-META: VersionHash:e7bac3a,CLOUDID:21fde180ab3492c37f445fc5f12cf05d,BulkI
-	D:nil,BulkQuantity:0,Recheck:0,SF:80|81|82|83|102|865|898,TC:nil,Content:0
-	|15|50,EDM:-3,IP:nil,URL:0,File:nil,RT:nil,Bulk:nil,QS:nil,BEC:nil,COL:0,O
-	SI:0,OSA:0,AV:0,LES:1,SPR:NO,DKR:0,DKP:0,BRR:0,BRE:0,ARC:0
-X-CID-BVR: 2,SSN|SDN
-X-CID-BAS: 2,SSN|SDN,0,_
-X-CID-FACTOR: TF_CID_SPAM_SNR
-X-CID-RHF: D41D8CD98F00B204E9800998ECF8427E
-X-UUID: dec7402459b211f1aa26b74ffac11d73-20260527
-X-User: liujiajia@kylinos.cn
-Received: from nature [(10.44.16.150)] by mailgw.kylinos.cn
-	(envelope-from <liujiajia@kylinos.cn>)
-	(Generic MTA with TLSv1.3 TLS_AES_256_GCM_SHA384 256/256)
-	with ESMTP id 1695425657; Wed, 27 May 2026 18:00:20 +0800
-Date: Wed, 27 May 2026 18:00:17 +0800
-From: Jiajia Liu <liujiajia@kylinos.cn>
-To: Sean Wang <sean.wang@kernel.org>
-Cc: Felix Fietkau <nbd@nbd.name>, Lorenzo Bianconi <lorenzo@kernel.org>,
-	Ryder Lee <ryder.lee@mediatek.com>,
-	Shayne Chen <shayne.chen@mediatek.com>,
-	Sean Wang <sean.wang@mediatek.com>,
-	Matthias Brugger <matthias.bgg@gmail.com>,
-	AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>,
-	Ming Yen Hsieh <mingyen.hsieh@mediatek.com>,
-	Michael Lo <michael.lo@mediatek.com>,
-	Leon Yen <leon.yen@mediatek.com>, linux-wireless@vger.kernel.org,
-	linux-kernel@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
-	linux-mediatek@lists.infradead.org
-Subject: Re: [PATCH] wifi: mt76: mt7925: add wcid publish check in
- mt76_sta_add
-Message-ID: <ahbAsYwFCjsvpxEC@nature>
-References: <20260526060841.49161-1-liujiajia@kylinos.cn>
- <CAGp9LzqzddmyDHMNsaqigYpVEdo_Pmzwbeh5Ri5_Gr87cVL6Dg@mail.gmail.com>
+	id 1wSB67-00000003hXa-2Avz
+	for linux-arm-kernel@lists.infradead.org;
+	Wed, 27 May 2026 10:02:48 +0000
+Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
+	by sea.source.kernel.org (Postfix) with ESMTP id 5CFE341775;
+	Wed, 27 May 2026 10:02:46 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 323581F00A3A;
+	Wed, 27 May 2026 10:02:41 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
+	s=k20260515; t=1779876166;
+	bh=Hu7HoK2hIQnOl4q34hOD8+zjB4sz0oZzSs+uNBXGR34=;
+	h=From:To:Cc:Subject:Date;
+	b=SJJuUNH0kznHm/7NTJUFJDUDcFfxYASzOTl/Bfs0D7HTIRMx5pWuystQL+I2H3rJb
+	 dKDWOxMAyGmZRhsR7Wi/v96XGvxjYxN2uV8w6JGXmh8z2lH4bCP6ypQ48HOiFlxSF9
+	 oqqe01KfS9qTThO54vH12vQxak3K8T7+UIHUDv/GlLAvyLWJigzsIFY6/bhUEoJtDQ
+	 1TGNTP27Nqk03jbXkm7oL1Q08NigvNgKc6tLcDe4MeZEF86j6JG7rgr++jZRU8MaqY
+	 vMMcrr+bjUEH3IRoYljmskzX0/X1jZGYnzJHIBeBy3el+eORbbp3bFC3n7GbcT1Bgs
+	 Trdq5qsVU0V0Q==
+From: "Aneesh Kumar K.V (Arm)" <aneesh.kumar@kernel.org>
+To: linux-coco@lists.linux.dev,
+	linux-arm-kernel@lists.infradead.org,
+	linux-kernel@vger.kernel.org
+Cc: "Aneesh Kumar K.V (Arm)" <aneesh.kumar@kernel.org>,
+	Catalin Marinas <catalin.marinas@arm.com>,
+	Greg KH <gregkh@linuxfoundation.org>,
+	Jeremy Linton <jeremy.linton@arm.com>,
+	Jonathan Cameron <jic23@kernel.org>,
+	Lorenzo Pieralisi <lpieralisi@kernel.org>,
+	Mark Rutland <mark.rutland@arm.com>,
+	Sudeep Holla <sudeep.holla@arm.com>,
+	Will Deacon <will@kernel.org>,
+	Steven Price <steven.price@arm.com>,
+	Suzuki K Poulose <Suzuki.Poulose@arm.com>
+Subject: [PATCH v6 0/4] Switch Arm SMCCC firmware services to an SMCCC bus
+Date: Wed, 27 May 2026 15:32:29 +0530
+Message-ID: <20260527100233.428018-1-aneesh.kumar@kernel.org>
+X-Mailer: git-send-email 2.43.0
 MIME-Version: 1.0
-Content-Type: text/plain; charset=utf-8
-Content-Disposition: inline
 Content-Transfer-Encoding: 8bit
-In-Reply-To: <CAGp9LzqzddmyDHMNsaqigYpVEdo_Pmzwbeh5Ri5_Gr87cVL6Dg@mail.gmail.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260527_030031_560076_D9AA3F52 
-X-CRM114-Status: GOOD (  28.76  )
+X-CRM114-CacheID: sfid-20260527_030247_622671_32F424C5 
+X-CRM114-Status: GOOD (  20.01  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -86,156 +80,105 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Tue, May 26, 2026 at 04:52:32PM -0500, Sean Wang wrote:
-> Hi,
-> 
-> On Tue, May 26, 2026 at 1:09 AM Jiajia Liu <liujiajia@kylinos.cn> wrote:
-> >
-> > Since mt7925_mac_sta_add publishes wcid, add publish check in mt76_sta_add
-> > to avoid reinitializing the wcid->poll_list for mt7925.
-> >
-> > Found dev->sta_poll_list corruption when using mt7925 and 7.0-rc4.
-> > According to the corruption information, prev->next was changed to itself.
-> >
-> > wlan0: disconnect from AP 90:fb:5d:94:8b:e3 for new auth to 90:fb:5d:94:8b:e2
-> > wlan0: authenticate with 90:fb:5d:94:8b:e2 (local address=84:9e:56:9c:7e:6b)
-> > wlan0: send auth to 90:fb:5d:94:8b:e2 (try 1/3)
-> >  slab kmalloc-8k start ffff8c80958a6000 pointer offset 4160 size 8192
-> > list_add corruption. prev->next should be next (ffff8c808a7488f8), but was ffff8c80958a7040. (prev=ffff8c80958a7040).
-> >
-> >  mt76_wcid_add_poll+0x95/0xd0 [mt76]
-> >  mt7925_mac_add_txs.part.0+0xa5/0xe0 [mt7925_common]
-> >  mt7925_rx_check+0xa7/0xc0 [mt7925_common]
-> >  mt76_dma_rx_poll+0x50d/0x790 [mt76]
-> >  mt792x_poll_rx+0x52/0xe0 [mt792x_lib]
-> >
-> > Signed-off-by: Jiajia Liu <liujiajia@kylinos.cn>
-> > ---
-> >
-> > Reproduced and tested using the script below over ssh. Roam between two
-> > bssids with the same SSID on a router.
-> >
-> > #!/bin/bash
-> >
-> > set -ex
-> >
-> > while :; do
-> >         num=$(sudo iw wlan0 scan | grep Polaris | wc -l)
-> >         if [ $num -eq 2 ]; then
-> >                 break
-> >         fi
-> > done
-> >
-> > for i in $(seq 1 500); do
-> >
-> > echo "index $i"
-> > wpa_cli -i wlan0 roam 90:fb:5d:94:8b:e3
-> > sleep 5
-> > wpa_cli -i wlan0 roam 90:fb:5d:94:8b:e2
-> > sleep 5
-> >
-> > done
-> >
-> > ---
-> >  drivers/net/wireless/mediatek/mt76/mac80211.c    | 11 ++++++++---
-> >  drivers/net/wireless/mediatek/mt76/mt76.h        |  1 +
-> >  drivers/net/wireless/mediatek/mt76/mt7925/main.c |  3 +++
-> >  3 files changed, 12 insertions(+), 3 deletions(-)
-> >
-> > diff --git a/drivers/net/wireless/mediatek/mt76/mac80211.c b/drivers/net/wireless/mediatek/mt76/mac80211.c
-> > index 4ae5e4715a9c..83f4f941b890 100644
-> > --- a/drivers/net/wireless/mediatek/mt76/mac80211.c
-> > +++ b/drivers/net/wireless/mediatek/mt76/mac80211.c
-> > @@ -1595,11 +1595,16 @@ mt76_sta_add(struct mt76_phy *phy, struct ieee80211_vif *vif,
-> >                 mtxq->wcid = wcid->idx;
-> >         }
-> >
-> > -       ewma_signal_init(&wcid->rssi);
-> > -       rcu_assign_pointer(dev->wcid[wcid->idx], wcid);
-> > +       if (!test_bit(MT_WCID_FLAG_DRV_PUBLISH, &wcid->flags)) {
-> > +               ewma_signal_init(&wcid->rssi);
-> > +               rcu_assign_pointer(dev->wcid[wcid->idx], wcid);
-> > +               mt76_wcid_init(wcid, phy->band_idx);
-> > +       } else {
-> > +               wcid->phy_idx = phy->band_idx;
-> > +       }
-> > +
-> >         phy->num_sta++;
-> >
-> 
-> Thanks for spotting the roaming issue.
-> 
-> I think we can avoid adding MT_WCID_FLAG_DRV_PUBLISH and instead use the
-> WCID table itself for the publish check.
-> 
-> dev->wcid[] already encodes whether a WCID has been published, so checking
-> it directly avoids adding a second mirror state. MT_WCID_FLAG_* is also
-> better kept for WCID features that affect WTBL setup or data-path handling,
-> rather than common bookkeeping state.
-> 
-> Something like:
-> 
-> @@ -1620,6 +1620,7 @@ mt76_sta_add(struct mt76_phy *phy, struct
-> ieee80211_vif *vif,
-> {
->   struct mt76_wcid *wcid = (struct mt76_wcid *)sta->drv_priv;
->   struct mt76_dev *dev = phy->dev;
-> +       struct mt76_wcid *published;
->   int ret;
->   int i;
-> 
-> @@ -1639,7 +1640,10 @@ mt76_sta_add(struct mt76_phy *phy, struct
-> ieee80211_vif *vif,
->           mtxq->wcid = wcid->idx;
->   }
-> 
-> -       if (!test_bit(MT_WCID_FLAG_DRV_PUBLISH, &wcid->flags)) {
-> +       published = rcu_dereference_protected(dev->wcid[wcid->idx],
-> +                                             lockdep_is_held(&dev->mutex));
-> +       if (published != wcid) {
-> +               WARN_ON_ONCE(published);
->                  ewma_signal_init(&wcid->rssi);
->                  rcu_assign_pointer(dev->wcid[wcid->idx], wcid);
->                  mt76_wcid_init(wcid, phy->band_idx);
-> 
->    ....
-> 
+As discussed here:
+https://lore.kernel.org/all/20250728135216.48084-12-aneesh.kumar@kernel.org
 
-Thanks for the suggestion. Will update in v2.
+The earlier CCA guest support used an arm-cca-dev platform device as a pure
+software anchor for the TSM class device. That platform device did not
+correspond to a DT/ACPI described device, MMIO range, interrupt, or other
+platform resource; it existed only to make the CCA guest driver bind and to
+place the resulting TSM device in the driver model. The same pattern also
+exists for smccc_trng. Creating separate platform devices for such
+SMCCC-discovered features is misleading, because those features are not
+independent platform devices.
 
-> 
-> > -       mt76_wcid_init(wcid, phy->band_idx);
-> >  out:
-> >         mutex_unlock(&dev->mutex);
-> >
-> > diff --git a/drivers/net/wireless/mediatek/mt76/mt76.h b/drivers/net/wireless/mediatek/mt76/mt76.h
-> > index 527bef97e122..8bfce686bff7 100644
-> > --- a/drivers/net/wireless/mediatek/mt76/mt76.h
-> > +++ b/drivers/net/wireless/mediatek/mt76/mt76.h
-> > @@ -361,6 +361,7 @@ enum mt76_wcid_flags {
-> >         MT_WCID_FLAG_PS,
-> >         MT_WCID_FLAG_4ADDR,
-> >         MT_WCID_FLAG_HDR_TRANS,
-> > +       MT_WCID_FLAG_DRV_PUBLISH,
-> >  };
-> >
-> >  #define MT76_N_WCIDS 1088
-> > diff --git a/drivers/net/wireless/mediatek/mt76/mt7925/main.c b/drivers/net/wireless/mediatek/mt76/mt7925/main.c
-> > index 73d3722739d0..35b5c718475c 100644
-> > --- a/drivers/net/wireless/mediatek/mt76/mt7925/main.c
-> > +++ b/drivers/net/wireless/mediatek/mt76/mt7925/main.c
-> > @@ -1102,6 +1102,9 @@ int mt7925_mac_sta_add(struct mt76_dev *mdev, struct ieee80211_vif *vif,
-> >                                               &msta->deflink);
-> >         }
-> >
-> > +       if (!err)
-> > +               set_bit(MT_WCID_FLAG_DRV_PUBLISH, &msta->deflink.wcid.flags);
-> > +
-> >         return err;
-> >  }
-> >  EXPORT_SYMBOL_GPL(mt7925_mac_sta_add);
-> > --
-> > 2.53.0
-> >
-> >
+This series adds an Arm SMCCC bus for services discovered through the SMCCC
+firmware interface. The bus provides SMCCC device and driver registration
+helpers, name-based matching, uevent modalias generation, and a sysfs modalias
+attribute. SMCCC service drivers can use MODULE_DEVICE_TABLE(arm_smccc, ...)
+to emit arm_smccc:<name> aliases, allowing userspace to autoload service
+drivers when the SMCCC core registers matching firmware-service devices.
+
+The series then moves SMCCC TRNG and the Arm CCA guest RSI service off the
+platform bus. When the SMCCC core discovers the corresponding firmware
+service, it registers an arm-smccc device for that service. The hwrng
+arm_smccc_trng driver and the Arm CCA guest TSM provider are converted to
+SMCCC drivers that bind to those discovered devices.
+
+The old arm-cca-dev platform device has also been used by userspace as a Realm
+guest indicator. Removing it without a replacement would leave userspace
+depending on an internal driver-binding device. This series therefore adds
+/sys/firmware/cca/realm_guest as a stable, architecture-provided ABI for
+detecting whether the kernel is running as an Arm CCA Realm guest, and then
+removes the dummy arm-cca-dev platform-device registration.
+
+Changes from v5:
+https://lore.kernel.org/all/20260514094030.42495-1-aneesh.kumar@kernel.org
+* Replace the arm-smccc platform-device plus auxiliary-child model with a
+  dedicated Arm SMCCC bus.
+* Add SMCCC module alias support so SMCCC service drivers can use
+  MODULE_DEVICE_TABLE(arm_smccc, ...) and autoload through arm_smccc:<name>
+  aliases.
+* Convert smccc_trng from a platform driver to an SMCCC driver.
+* Convert the Arm CCA guest TSM provider from the arm-cca-dev platform device
+  to an SMCCC driver bound to the discovered RSI service.
+* Add /sys/firmware/cca/realm_guest before removing the old arm-cca-dev dummy
+  platform device.
+
+Changes from v4:
+https://lore.kernel.org/all/20260427061615.905018-1-aneesh.kumar@kernel.org
+* Add /sys/firmware/cca/realm_guest for detecting realm guest
+* Convert smccc_trng to auxiliary device from platform device
+
+Changes from v3:
+https://lore.kernel.org/all/20260309100507.2303361-1-aneesh.kumar@kernel.org
+* Rebased onto the latest kernel
+* Drop pr_fmt() from drivers/firmware/smccc/rmm.c
+
+Cc: Catalin Marinas <catalin.marinas@arm.com>
+Cc: Greg KH <gregkh@linuxfoundation.org>
+Cc: Jeremy Linton <jeremy.linton@arm.com>
+Cc: Jonathan Cameron <jic23@kernel.org>
+Cc: Lorenzo Pieralisi <lpieralisi@kernel.org>
+Cc: Mark Rutland <mark.rutland@arm.com>
+Cc: Sudeep Holla <sudeep.holla@arm.com>
+Cc: Will Deacon <will@kernel.org>
+Cc: Steven Price <steven.price@arm.com>
+Cc: Suzuki K Poulose <Suzuki.Poulose@arm.com>
+
+
+Aneesh Kumar K.V (Arm) (4):
+  firmware: smccc: Add an Arm SMCCC bus
+  firmware: hwrng: arm_smccc_trng: Register as an SMCCC device
+  firmware: smccc: arm-cca-guest: Bind the TSM provider to an SMCCC
+    device
+  coco: guest: arm64: Replace dummy CCA device with sysfs ABI
+
+ Documentation/ABI/testing/sysfs-firmware-cca  |  10 +
+ arch/arm64/include/asm/rsi.h                  |   2 +-
+ arch/arm64/kernel/rsi.c                       |  39 +++-
+ drivers/char/hw_random/arm_smccc_trng.c       |  26 +--
+ drivers/firmware/smccc/Makefile               |   4 +
+ drivers/firmware/smccc/rmm.c                  |  25 +++
+ drivers/firmware/smccc/rmm.h                  |  17 ++
+ drivers/firmware/smccc/smccc.c                | 178 +++++++++++++++++-
+ drivers/virt/coco/arm-cca-guest/Kconfig       |   1 +
+ drivers/virt/coco/arm-cca-guest/Makefile      |   2 +
+ .../{arm-cca-guest.c => arm-cca.c}            |  60 +++---
+ include/linux/arm-smccc-bus.h                 |  49 +++++
+ include/linux/mod_devicetable.h               |  13 ++
+ scripts/mod/devicetable-offsets.c             |   3 +
+ scripts/mod/file2alias.c                      |   8 +
+ 15 files changed, 378 insertions(+), 59 deletions(-)
+ create mode 100644 Documentation/ABI/testing/sysfs-firmware-cca
+ create mode 100644 drivers/firmware/smccc/rmm.c
+ create mode 100644 drivers/firmware/smccc/rmm.h
+ rename drivers/virt/coco/arm-cca-guest/{arm-cca-guest.c => arm-cca.c} (85%)
+ create mode 100644 include/linux/arm-smccc-bus.h
+
+
+base-commit: 50897c955902c93ae71c38698abb910525ebdc89
+-- 
+2.43.0
+
 
