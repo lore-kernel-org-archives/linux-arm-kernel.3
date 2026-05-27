@@ -4,7 +4,7 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 874B5CD5BD5
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id E3CCDCD6E46
 	for <linux-arm-kernel@archiver.kernel.org>; Wed, 27 May 2026 15:02:57 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
@@ -12,61 +12,60 @@ DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	Subject:Message-ID:References:Mime-Version:In-Reply-To:Date:Reply-To:
 	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=u8YigvBWVl26/ICnVgR3tTUB4GzAA0/sj9E2gFe9QwE=; b=INswDdm8VbdEL+11+CgI+LKvUZ
-	TgZxFHm8JyClNErxs+Led366NeyX1kxytv0jbvBPUqiVQbH26DjQAZ+juxel6p9SrZJsmX487610q
-	/6E/D41cqYuEJEL8COEO+Dc99Xquqy8RZOeRv66m+faLrzF2VjCfpDys4t7YbBPoJ+BrpTvFziYXH
-	1AqQQPZAKs2HdsLIvuvD5urUdVw/YmCCAN4qdf4ajcgZigV49EwtveUGmsEiR2zG8JPzAUS1V7I5V
-	f2RVahUmq7kA1IwoeW5gM27ZQe4cvLyWaBw+tctmZw8g+AAYd5iHVPRV4PFtqxY4U1h+68F61gYoI
-	bMGdTXkg==;
+	bh=q7J1ztb6Z4HCTvPSQ3KlFjIJDDk9HF6V81J85Mqd8VE=; b=r1R9fSZsCtY2/zpj7x7cLDvwIL
+	k3LsQhuhioguL3Tb0HWo0eKorZQuHIyODS7vmlrqa77gvmvYTR5lEe77cw29Go/uwgPK3Dpz9Dx1c
+	K6Sg1PsU9qgC5r8mur9mH2B/Qgc0bsnWGdns8HCx1i18O5nE0AjARPsLR9tlS6oYtYgLEUGrv+r3M
+	f2giNtKuuWOycJlljUEW+IXt0FtePP1ihEh0V8mzGWr938dygGfMXUdc7MTKiQ6oUAvEVH9ptJLVP
+	14DT0a9/1Crz3hjtS9eeWDMacq3PI/McGcJbUSizy+qTi2LC2NrmRBiw5iy8uXqF4sDTJVcI+MlB5
+	pBSZB9+g==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wSFmT-00000004MCE-3kTh;
+	id 1wSFmT-00000004MBf-2usH;
 	Wed, 27 May 2026 15:02:49 +0000
-Received: from mail-wm1-x34a.google.com ([2a00:1450:4864:20::34a])
+Received: from mail-wm1-x349.google.com ([2a00:1450:4864:20::349])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wSFmR-00000004M8V-15Ra
+	id 1wSFmO-00000004M7G-0PE6
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 27 May 2026 15:02:48 +0000
-Received: by mail-wm1-x34a.google.com with SMTP id 5b1f17b1804b1-48fd33b4921so77215125e9.2
-        for <linux-arm-kernel@lists.infradead.org>; Wed, 27 May 2026 08:02:45 -0700 (PDT)
+	Wed, 27 May 2026 15:02:45 +0000
+Received: by mail-wm1-x349.google.com with SMTP id 5b1f17b1804b1-48e79219704so81727705e9.1
+        for <linux-arm-kernel@lists.infradead.org>; Wed, 27 May 2026 08:02:42 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=google.com; s=20251104; t=1779894164; x=1780498964; darn=lists.infradead.org;
+        d=google.com; s=20251104; t=1779894161; x=1780498961; darn=lists.infradead.org;
         h=cc:to:from:subject:message-id:references:mime-version:in-reply-to
          :date:from:to:cc:subject:date:message-id:reply-to;
-        bh=u8YigvBWVl26/ICnVgR3tTUB4GzAA0/sj9E2gFe9QwE=;
-        b=uKX3neVw8hOqTItoLl4l5+7Z1V/XQyk+IbceSxvL7oV76/HZUXtkhTwbokNezPLHRQ
-         mlLJm/TPpE/UpwfM/NVkkK6B0VYTsnhMZ6WHAsFjlFwje2Xq47hr0cej3GtG1wAa8tp7
-         unkbmJJRIsy8aSW7+zinBcnci9ILfWgLEi0EgF7F9gsZgREfWsnYnIv0DybCab/UiSfN
-         XUyyJYQEJgzgzn4jRJB9gMMl2x3VMs6fNSDZSpHjNDCwLlVzQddP6TfjO8x9/wHAnheb
-         IoFj9Tj9O9FzoSd6t9aIqqePVNqQwYCOPEWCcS48t8zkKlRyEMTRBe2ImSZ+CCuHVZQh
-         gWbg==
+        bh=q7J1ztb6Z4HCTvPSQ3KlFjIJDDk9HF6V81J85Mqd8VE=;
+        b=gcCOnIPF8KiHsmg5Vwvxu6zjAtvYqUH2EAhSTey89lOQ6+Sji5abOTeTZ0sECDQ78S
+         WFMha8jqpILQhVho/Ugj3vtGk2usZL1aahyf+RNI2rQ865Tj3Nhkso8mk42NwnrMsQ83
+         LOJREYKfn7qPUHKqHI24wPuvHW8WnWE5ru4Ct53gCD8D7ZSgJ+NsAnxneE81ad8U3TaV
+         u9JEfa+XNnRMSdwBPV45XgOzYfz8uJdLBrqcgQOeWlpIiIiolcA4g3crX1mmfNglNHpx
+         hdCkysHcMyBeS9KnAGuVutrFcTfEJH8O3J4FV8jQLqtVu3bCrhvtB4e3IM/EttGnQukF
+         FHfg==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20251104; t=1779894164; x=1780498964;
+        d=1e100.net; s=20251104; t=1779894161; x=1780498961;
         h=cc:to:from:subject:message-id:references:mime-version:in-reply-to
          :date:x-gm-message-state:from:to:cc:subject:date:message-id:reply-to;
-        bh=u8YigvBWVl26/ICnVgR3tTUB4GzAA0/sj9E2gFe9QwE=;
-        b=AdUJDpGwopp7ojtUFPC/HmMVS3sNyC0TB3hNy4adWSwlmoahZiVq0w0wFN3qrZOtAz
-         TneqAGvwbG4Y4RwZcr1Raw5O5tdSLA+mnqx3umvVlaCR5KUuvE8+4jaRbU8qA9eyOh24
-         yvQhAbA0Ytp2RlyHiueNiIhTkywZuizh7mM71e6iMw4A+WY59cDDIpPVPRwUv1P0iRNs
-         iekks0JitPxZgl5g9qY7HaBQJ/uzzJDYDEEnWydDtYjpbd2hGgg4cNZjqkZteS2b47pd
-         MzQxX4ioRDu8mwl824yb7ufM/ndAOdYTzF9DWFUAkK2nwnVLy+tQHQwUjHSWlskLxUYP
-         Bpcg==
-X-Forwarded-Encrypted: i=1; AFNElJ8WPCO+ngTUqlYyKYTVrt+qkTncermio5gHW+qjtWxFSst06Fx92RFB6tGR7N1t7olwdLfEaqtRtY7i79daw1Ls@lists.infradead.org
-X-Gm-Message-State: AOJu0Yx5tqlSLwUQtOKwjoBzZrE4ZcJ2Perg2Kgq69pnA0CPqzbCCVyU
-	rtpmpbDI/1nlPdcY7J9tjZoZPTwjjirHebKJP70c5CvaPsbWAoGtB/1qqdHf5RUBfsFEFMsMKOG
-	XX00uBZbxcSoMUg==
-X-Received: from wrnc9.prod.google.com ([2002:adf:e749:0:b0:43c:fa78:503f])
+        bh=q7J1ztb6Z4HCTvPSQ3KlFjIJDDk9HF6V81J85Mqd8VE=;
+        b=FZJ4HZZA++ZDU/IArewumfo+uLgI6eHN2Gvw7hu/JpBhzh0ugSBWuMl8yBtfSjrzbb
+         0YYdInnBrLCeDX1cCUSzt/1Rj8fjQ8dKJw9pnGAv2QPrvgzlftGuBo4M68TUGa65bbAG
+         1QpDVDJRU/xAbdHOBV+ZejSMz59JN55rWTs06ppjo2l+f8ZoD78pXYHcDqjjuFQlFsD1
+         FScO/bSb37UcmELJstk+wiLYLKn7+iKdpAw4XfXABzbKRoM3o0pogBK+JPyKh4iO17Pj
+         EVSxe8Sk5gMo4N5ffXno9NoNXU8FlQtNRO1jZM0eu8UptvDWHbwaAXfQYSYBBVRDOHwa
+         4TPQ==
+X-Forwarded-Encrypted: i=1; AFNElJ9uucGqZuwDvdrpCEahaNPYnnsl/YwKOoqUGoEOF6pfwNPMyW3y2imgXiRikGOm3Ygmb09RLa8lzJec80sMDQRl@lists.infradead.org
+X-Gm-Message-State: AOJu0YxkY1ij0Im5kqtKTfuHMeAbF3euCLlse0iz67x/APHDkBDmgwfQ
+	rWrfvBTfzxkUOdd9nrDfkUwn8ycTY0psZMZijNyLAO3un4VlYpuIlatQf/jP86fcObG46whINdZ
+	jHkMYaaKDuAYoyg==
+X-Received: from wrrj16.prod.google.com ([2002:adf:ff90:0:b0:43d:2d2:c03b])
  (user=smostafa job=prod-delivery.src-stubby-dispatcher) by
- 2002:a05:600c:3e0c:b0:488:ac01:72de with SMTP id 5b1f17b1804b1-49042489c30mr450538145e9.5.1779894163610;
- Wed, 27 May 2026 08:02:43 -0700 (PDT)
-Date: Wed, 27 May 2026 15:02:33 +0000
+ 2002:a05:600c:530c:b0:490:5527:3be2 with SMTP id 5b1f17b1804b1-49055273be6mr302305885e9.32.1779894161027;
+ Wed, 27 May 2026 08:02:41 -0700 (PDT)
+Date: Wed, 27 May 2026 15:02:31 +0000
 In-Reply-To: <20260527150236.1978655-1-smostafa@google.com>
 Mime-Version: 1.0
 References: <20260527150236.1978655-1-smostafa@google.com>
 X-Mailer: git-send-email 2.54.0.746.g67dd491aae-goog
-Message-ID: <20260527150236.1978655-4-smostafa@google.com>
-Subject: [PATCH v6 3/6] firmware: arm_ffa: Fix Endpoint Memory Access
- Descriptor offset calculation
+Message-ID: <20260527150236.1978655-2-smostafa@google.com>
+Subject: [PATCH v6 1/6] optee: ffa: Add NULL check in optee_ffa_lend_protmem
 From: Mostafa Saleh <smostafa@google.com>
 To: op-tee@lists.trustedfirmware.org, linux-kernel@vger.kernel.org, 
 	kvmarm@lists.linux.dev, linux-arm-kernel@lists.infradead.org
@@ -76,8 +75,9 @@ Cc: maz@kernel.org, oupton@kernel.org, joey.gouly@arm.com,
 	sudeep.holla@kernel.org, Mostafa Saleh <smostafa@google.com>
 Content-Type: text/plain; charset="UTF-8"
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260527_080247_324713_A8A33F3C 
-X-CRM114-Status: GOOD (  12.93  )
+X-CRM114-CacheID: sfid-20260527_080244_139771_68C8DCDF 
+X-CRM114-Status: UNSURE (   9.96  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -92,82 +92,31 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-From: Sebastian Ene <sebastianene@google.com>
+Sashiko (locally) reports a possible null dereference under memory
+pressure due to the lack of validation of the allocated pointer.
 
-Use the descriptor's `ep_mem_offset` to calculate the start of the endpoint
-memory access array and to comply with the FF-A spec instead of defaulting
-to `sizeof(struct ffa_mem_region)`.
-This requires moving `ffa_mem_region_additional_setup()` earlier in the setup
-flow.
-Also, add sanity checks to ensure the calculated descriptor offsets do not
-exceed `max_fragsize`.
-[@Mostafa Harden error checking]
+Fix that by adding the missing check.
 
-Fixes: 113580530ee7 ("firmware: arm_ffa: Update memory descriptor to support v1.1 format")
-Signed-off-by: Sebastian Ene <sebastianene@google.com>
-Reviewed-by: Sudeep Holla <sudeep.holla@kernel.org>
+Fixes: 2b78d79cdf96 ("optee: FF-A: dynamic protected memory allocation")
 Signed-off-by: Mostafa Saleh <smostafa@google.com>
 ---
- drivers/firmware/arm_ffa/driver.c | 16 +++++++++++-----
- include/linux/arm_ffa.h           |  2 +-
- 2 files changed, 12 insertions(+), 6 deletions(-)
+ drivers/tee/optee/ffa_abi.c | 3 +++
+ 1 file changed, 3 insertions(+)
 
-diff --git a/drivers/firmware/arm_ffa/driver.c b/drivers/firmware/arm_ffa/driver.c
-index 059e2aae7ca0..bed4bd48963f 100644
---- a/drivers/firmware/arm_ffa/driver.c
-+++ b/drivers/firmware/arm_ffa/driver.c
-@@ -703,19 +703,26 @@ ffa_setup_and_transmit(u32 func_id, void *buffer, u32 max_fragsize,
- 	struct ffa_composite_mem_region *composite;
- 	struct ffa_mem_region_addr_range *constituents;
- 	struct ffa_mem_region_attributes *ep_mem_access;
--	u32 idx, frag_len, length, buf_sz = 0, num_entries = sg_nents(args->sg);
-+	u32 idx, frag_len, length, buf_sz = 0, num_entries = sg_nents(args->sg), ep_offset;
-+	u32 emad_size = ffa_emad_size_get(drv_info->version);
+diff --git a/drivers/tee/optee/ffa_abi.c b/drivers/tee/optee/ffa_abi.c
+index b4372fa268d0..633715b98625 100644
+--- a/drivers/tee/optee/ffa_abi.c
++++ b/drivers/tee/optee/ffa_abi.c
+@@ -698,6 +698,9 @@ static int optee_ffa_lend_protmem(struct optee *optee, struct tee_shm *protmem,
+ 	int rc;
  
- 	mem_region->tag = args->tag;
- 	mem_region->flags = args->flags;
- 	mem_region->sender_id = drv_info->vm_id;
- 	mem_region->attributes = ffa_memory_attributes_get(func_id);
+ 	mem_attr = kzalloc_objs(*mem_attr, ma_count);
++	if (!mem_attr)
++		return -ENOMEM;
 +
-+	ffa_mem_region_additional_setup(drv_info->version, mem_region);
- 	composite_offset = ffa_mem_desc_offset(buffer, args->nattrs,
- 					       drv_info->version);
-+	if (composite_offset + sizeof(*composite) > max_fragsize)
-+		return -ENXIO;
- 
- 	for (idx = 0; idx < args->nattrs; idx++) {
--		ep_mem_access = buffer +
--			ffa_mem_desc_offset(buffer, idx, drv_info->version);
--		memset(ep_mem_access, 0, ffa_emad_size_get(drv_info->version));
-+		ep_offset = ffa_mem_desc_offset(buffer, idx, drv_info->version);
-+		if (ep_offset + emad_size > max_fragsize)
-+			return -ENXIO;
-+		ep_mem_access = buffer + ep_offset;
-+		memset(ep_mem_access, 0, emad_size);
- 		ep_mem_access->receiver = args->attrs[idx].receiver;
- 		ep_mem_access->attrs = args->attrs[idx].attrs;
- 		ep_mem_access->composite_off = composite_offset;
-@@ -725,7 +732,6 @@ ffa_setup_and_transmit(u32 func_id, void *buffer, u32 max_fragsize,
- 	}
- 	mem_region->handle = 0;
- 	mem_region->ep_count = args->nattrs;
--	ffa_mem_region_additional_setup(drv_info->version, mem_region);
- 
- 	composite = buffer + composite_offset;
- 	composite->total_pg_cnt = ffa_get_num_pages_sg(args->sg);
-diff --git a/include/linux/arm_ffa.h b/include/linux/arm_ffa.h
-index 81e603839c4a..62d67dae8b70 100644
---- a/include/linux/arm_ffa.h
-+++ b/include/linux/arm_ffa.h
-@@ -445,7 +445,7 @@ ffa_mem_desc_offset(struct ffa_mem_region *buf, int count, u32 ffa_version)
- 	if (!FFA_MEM_REGION_HAS_EP_MEM_OFFSET(ffa_version))
- 		offset += offsetof(struct ffa_mem_region, ep_mem_offset);
- 	else
--		offset += sizeof(struct ffa_mem_region);
-+		offset += buf->ep_mem_offset;
- 
- 	return offset;
- }
+ 	for (n = 0; n < ma_count; n++) {
+ 		mem_attr[n].receiver = mem_attrs[n] & U16_MAX;
+ 		mem_attr[n].attrs = mem_attrs[n] >> 16;
 -- 
 2.54.0.746.g67dd491aae-goog
 
