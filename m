@@ -4,62 +4,65 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id CDB19CD5BDE
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 27 May 2026 03:19:01 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 07424CD5BDE
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 27 May 2026 03:19:58 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:MIME-Version:Date:Message-Id:Subject:References:In-Reply-To:Cc:
-	To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=zJU8EAC9I7Spvd0nK3+SuI/L+eH9UzP8lKuPKonV7lk=; b=0FZVAW/bxzQjCYdkA+Pt4Ejh7T
-	QhlmiI/NHpMutcutW/h+UvL0kgEgVgFPK4aJPQZbllgJTj1/OgloZKH3+K5geFqxWjUmYt8bfi6b0
-	9+W3CDDOLeRilEca8HDU6ZFepSsy4ZhkVa03qtzff0LqEQqyu6MqV00oW1ozW6PdoPyZxOlifOtqx
-	I9b73FM2Qvpbjhsn7EZkfXYbsTaHRg8AngJ9nLlmIok4OAKE/z/qE4iU+toetLSlSBK9YMSCHzgVL
-	RGiGNpjXkVqeNlSB55dtis/p0XvsuU2xsaOA6d/U5/Z6Yr83dzvvSk2Wfvgy3dVeQ4KcRp6BZs8+w
-	kfTRU9lw==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:
+	Content-Transfer-Encoding:Content-Type:References:In-Reply-To:Date:Cc:To:From
+	:Subject:Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=RS3tEt0ZcmVbPx/5QD48l1DIJzlT1nMDifXpMkbDJ1Y=; b=zO+vtkxRaES5qs91KWlavb4gYn
+	26GIoDsX66raDxdwC2vvN+qcSVn1nziy9mVtlCjZvkPdtlrIewb9jyNn9xg+KzRBLGnn/3Z67XQ+a
+	x9rtaEvw8D8FDDpyVaSWxX7qWeEJslgcEPcrfKvloJIGlbbVxKu3nSw8/ce9bnD9/R0J+KqOSDngW
+	4Qc3/pFmmddbps//lXnRb2xMTN3iRljGVmcua0oEo3dvz1wfiZcAWLoEK09+Bm6HmOShzFU7fLRUX
+	R73UB+I8o554ja+Gqy7YH+8lpKRRIX1HBM1vUUC2BJsxRM5wtBqu0B1BjSvrQTd48kdbGAVkCbF/k
+	ZB8rFveQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wS4nG-00000003DS5-1sdK;
-	Wed, 27 May 2026 03:18:54 +0000
+	id 1wS4oA-00000003DXB-2VHu;
+	Wed, 27 May 2026 03:19:50 +0000
 Received: from pi.codeconstruct.com.au ([203.29.241.158] helo=codeconstruct.com.au)
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wS4nD-00000003DRl-0iIl
+	id 1wS4o7-00000003DWS-432O
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 27 May 2026 03:18:52 +0000
+	Wed, 27 May 2026 03:19:49 +0000
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-	d=codeconstruct.com.au; s=2022a; t=1779851925;
-	bh=zJU8EAC9I7Spvd0nK3+SuI/L+eH9UzP8lKuPKonV7lk=;
-	h=From:To:Cc:In-Reply-To:References:Subject:Date;
-	b=igtWyFI4rXsCZDEXA0z1LVxggWUxjy5e7qIQWXxdVYIY+6OqjUNjbwEjoxxUra4r6
-	 kujgGJKcVPyV2jB8Pxr6Qx8fL3TpnII9O1zjy/4Sdn1s9VJL2A43Rj8bM7pA6NvWQC
-	 nzXCDqaFOBKifl9Trm7SNdtyq9dojbxLyNz3irLaOssUL60FDZp1VCNqdIyPxgUS/Y
-	 5/TbtsPbflpvLqAh9ozZ2LvAYWsF9saU/WJ8jATIE27YZtkxQM8wvf5zVmv2zio16h
-	 24r9DkzcnalRQ+MxDU17eYhOymUzmNs0xO3lxKNwJWjJWr+rrt/Ld/uPs3MSQWYVkm
-	 ZtoMgDU6dZOHQ==
-Received: from [127.0.1.1] (unknown [180.150.112.11])
-	by mail.codeconstruct.com.au (Postfix) with ESMTPSA id 8729D6001B;
-	Wed, 27 May 2026 11:18:44 +0800 (AWST)
+	d=codeconstruct.com.au; s=2022a; t=1779851985;
+	bh=RS3tEt0ZcmVbPx/5QD48l1DIJzlT1nMDifXpMkbDJ1Y=;
+	h=Subject:From:To:Cc:Date:In-Reply-To:References;
+	b=APLx//61j60ZOooYHs9WVkywLOkinvyZktLXiy4xpewiu2D6IRWK3Wia4FMcaTNXB
+	 VI+e3htamPSpVAx/jBzoDnDD7ieUDk1tN0OsmdNLt8jGlsrgO1DFmGDlleqCB6R/kU
+	 rtsRe9aMpwVxvdo5ytugqpJQNv8fFvsOPcKn4o29dJqMTFKLZ1PEYuO19Tw3Nvs4wA
+	 ZiyG7EUje5pUp690jx8IoJdcF162YOxL/2Ur3D+Ch9gQqPX/1jsaA9fJ3nUrqQgxnD
+	 TvD55DvvahqpvmWl/Kw/ZQqnVLejllAn6Mg49Z6dTZm5jqLgQ+oJcUi7Le0dQoqZhR
+	 rcnHZdEuTocpA==
+Received: from [192.168.68.117] (unknown [180.150.112.11])
+	by mail.codeconstruct.com.au (Postfix) with ESMTPSA id 7588D6001B;
+	Wed, 27 May 2026 11:19:45 +0800 (AWST)
+Message-ID: <1a6ee5e082756931f1c15677ad3f5ba0fa5bbb6a.camel@codeconstruct.com.au>
+Subject: Re: [PATCH 1/2] ARM: dts: aspeed: sanmiguel: Add IOEXP interrupt
+ pin settings
 From: Andrew Jeffery <andrew@codeconstruct.com.au>
-To: Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>, 
- Conor Dooley <conor+dt@kernel.org>, Joel Stanley <joel@jms.id.au>, 
- Patrick Williams <patrick@stwcx.xyz>, Potin Lai <potin.lai.pt@gmail.com>
+To: Potin Lai <potin.lai.pt@gmail.com>, Rob Herring <robh@kernel.org>, 
+ Krzysztof Kozlowski
+	 <krzk+dt@kernel.org>, Conor Dooley <conor+dt@kernel.org>, Joel Stanley
+	 <joel@jms.id.au>, Patrick Williams <patrick@stwcx.xyz>
 Cc: devicetree@vger.kernel.org, linux-arm-kernel@lists.infradead.org, 
- linux-aspeed@lists.ozlabs.org, linux-kernel@vger.kernel.org, 
- Cosmo Chou <cosmo.chou@quantatw.com>, Mike Hsieh <Mike_Hsieh@quantatw.com>, 
- Potin Lai <potin.lai@quantatw.com>
-In-Reply-To: <20260523-potin-update-sanmiguel-dts-20260522-v1-0-169f5fceb5f9@quantatw.com>
+	linux-aspeed@lists.ozlabs.org, linux-kernel@vger.kernel.org, Cosmo Chou
+	 <cosmo.chou@quantatw.com>, Mike Hsieh <Mike_Hsieh@quantatw.com>, Potin Lai
+	 <potin.lai@quantatw.com>
+Date: Wed, 27 May 2026 12:49:45 +0930
+In-Reply-To: <20260523-potin-update-sanmiguel-dts-20260522-v1-1-169f5fceb5f9@quantatw.com>
 References: <20260523-potin-update-sanmiguel-dts-20260522-v1-0-169f5fceb5f9@quantatw.com>
-Subject: Re: [PATCH 0/2] ARM: dts: aspeed: sanmiguel: Update DTS file
-Message-Id: <177985192444.444390.3815686212940487089.b4-ty@b4>
-Date: Wed, 27 May 2026 12:48:44 +0930
+	 <20260523-potin-update-sanmiguel-dts-20260522-v1-1-169f5fceb5f9@quantatw.com>
+Content-Type: text/plain; charset="UTF-8"
+Content-Transfer-Encoding: quoted-printable
+User-Agent: Evolution 3.56.2-0+deb13u1 
 MIME-Version: 1.0
-Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: 7bit
-X-Mailer: b4 0.15.2
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260526_201851_406224_D003192C 
-X-CRM114-Status: UNSURE (   6.22  )
+X-CRM114-CacheID: sfid-20260526_201948_194714_D7532A89 
+X-CRM114-Status: UNSURE (   6.49  )
 X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
@@ -75,13 +78,39 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Sat, 23 May 2026 10:28:06 +0800, Potin Lai wrote:
-> Update the SanMiguel DTS configuration to fix incorrect GPIO
-> linenames and resolve the IOEXP interrupt handling issue.
+Hi Potin,
 
-Thanks, I've applied this to the BMC tree.
+On Sat, 2026-05-23 at 10:28 +0800, Potin Lai wrote:
+> Kernel dmesg reports IRQ #44 being disabled due to unhandled
+> interrupts from multiple PCA953x IO expanders:
+>=20
+> ```
+> [ 447.047861] irq 44: nobody cared (try booting with the "irqpoll" option=
+)
+> [ 447.063124] handlers:
+> [ 447.068176] [<2ab869ad>] irq_default_primary_handler threaded [<b8adc31=
+0>] pca953x_irq_handler
+> [ 447.087268] [<2ab869ad>] irq_default_primary_handler threaded [<b8adc31=
+0>] pca953x_irq_handler
+> [ 447.106344] [<2ab869ad>] irq_default_primary_handler threaded [<b8adc31=
+0>] pca953x_irq_handler
+> [ 447.125421] [<2ab869ad>] irq_default_primary_handler threaded [<b8adc31=
+0>] pca953x_irq_handler
+> [ 447.144513] [<2ab869ad>] irq_default_primary_handler threaded [<b8adc31=
+0>] pca953x_irq_handler
+> [ 447.163587] [<2ab869ad>] irq_default_primary_handler threaded [<b8adc31=
+0>] pca953x_irq_handler
+> [ 447.182663] [<2ab869ad>] irq_default_primary_handler threaded [<b8adc31=
+0>] pca953x_irq_handler
+> [ 447.201756] [<2ab869ad>] irq_default_primary_handler threaded [<b8adc31=
+0>] pca953x_irq_handler
+> [ 447.220837] Disabling IRQ #44
+> ```
 
--- 
-Andrew Jeffery <andrew@codeconstruct.com.au>
+I've applied this, but in the future can you please rather indent log
+snippets rather than use markdown code-block fences?
 
+Cheers,
+
+Andrew
 
