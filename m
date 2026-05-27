@@ -4,63 +4,85 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id E9EADCD4F54
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 27 May 2026 12:11:49 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 4FAADCD5BD0
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 27 May 2026 12:12:46 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
-	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=Xwqbmiv0R32lR8BuocOfuqeBrCq/zaUsqLAFm0txiGU=; b=pu7Dcsv4AG2+BWv44kdUX/Y9Ep
-	WR+kBkHi+Pkqd5go/ZUxqvgPxFDBwQryXhlO754Lwntih1zQo7TpKOfrsylDHf8Qg1XroK0nj1GgB
-	0xhEEubKapiVVAHSTX7LA7IbriMbwvBAMZaxNeEiujdkfnJHTs19zCh6gZORkVR/bTx6aZSpEp51I
-	b0vKliRIE3YML+32wQjj55/m1hqBwEPXr/WzSh1ONbie3h7+ruL42AbYVdRCZlVxlPbV5TA8+NNxR
-	LwxpI8i42QlQpwDxtSetAkA6TkQKL8DtdeZhgjxBJqPHQi5EY668DRjAvBb8bU03qFT8QnOyXUw+b
-	43rieDQw==;
+	MIME-Version:Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-Type:
+	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
+	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=6sWvLyCB663VOfXWnEEFD9PNivnGE6oBxTlxpaLrXdQ=; b=34eAFDqC7bLuNxU4X82R0uEF2y
+	QEShLjiva3/bWuzkDHBKHCVrHUDxbshXsgtkEuIZbidQD0Rx3AxPAREv5JaYCNKAyoniKz74NzHSl
+	T2I503IpuU2IHVw2+XeL2udgqWp5v5IMPF1LOFGmht8CCcPYkd49/Hjlwfpkjt9KewCGykd/UWpX+
+	EqWSctQyRBETzo3opHINrvTSr04iiB7MZGJfji5mqPpuNhPT7VOU/TVWeT0FceDlqEmPhCs36d4Kk
+	dmsYyzd0htfak395olX1uiAXgv0bvmFFNxYiOQHjYEzFwh5O5fV3+vpft9YnSSNBtf19+yJ6Ky9Cp
+	xKa7oENg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wSD6q-000000043FC-2C1W;
-	Wed, 27 May 2026 12:11:40 +0000
-Received: from out30-112.freemail.mail.aliyun.com ([115.124.30.112])
+	id 1wSD7l-000000043Mf-3Thj;
+	Wed, 27 May 2026 12:12:37 +0000
+Received: from tor.source.kernel.org ([2600:3c04:e001:324:0:1991:8:25])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wSD6i-000000043EE-2Zos
+	id 1wSD7k-000000043MN-2PbF
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 27 May 2026 12:11:38 +0000
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-	d=linux.alibaba.com; s=default;
-	t=1779883887; h=Message-ID:Date:MIME-Version:Subject:To:From:Content-Type;
-	bh=Xwqbmiv0R32lR8BuocOfuqeBrCq/zaUsqLAFm0txiGU=;
-	b=OD4FUxgTpVaWcs+LIbTn/Cs7U7gPHJ4tE1syzpH4AIWDvBg4cjIBLdXjq6+D9OYfxcbRfSwXH2LkairXHTHF7q/xXxz+lnfwaOLbkUhc45cbrv6lrz/2Le+tV4kZkFeOSlom9BWTn+qRNN3gb/7cOQJtI+LXSyLh9AV8WW4LpPY=
-X-Alimail-AntiSpam: AC=PASS;BC=-1|-1;BR=01201311R821e4;CH=green;DM=||false|;DS=||;FP=0|-1|-1|-1|0|-1|-1|-1;HT=maildocker-contentspam033032089153;MF=xueshuai@linux.alibaba.com;NM=1;PH=DS;RN=27;SR=0;TI=SMTPD_---0X3jgBSf_1779883878;
-Received: from 30.246.179.14(mailfrom:xueshuai@linux.alibaba.com fp:SMTPD_---0X3jgBSf_1779883878 cluster:ay36)
-          by smtp.aliyun-inc.com;
-          Wed, 27 May 2026 20:11:19 +0800
-Message-ID: <037abe53-860e-4a87-afd8-8abfd3f6093a@linux.alibaba.com>
-Date: Wed, 27 May 2026 20:11:13 +0800
+	Wed, 27 May 2026 12:12:36 +0000
+Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
+	by tor.source.kernel.org (Postfix) with ESMTP id 8E0F7600FC;
+	Wed, 27 May 2026 12:12:35 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id EF9F91F000E9;
+	Wed, 27 May 2026 12:12:34 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
+	s=k20260515; t=1779883955;
+	bh=6sWvLyCB663VOfXWnEEFD9PNivnGE6oBxTlxpaLrXdQ=;
+	h=From:To:Cc:Subject:Date;
+	b=m4Va1NG3iFlc3dEB78wKICpqBDlPM4Uqfti9z/CilgK4meF+xuwIWX0hBfzxxU4KG
+	 1urjasKyfGlgx8mNsfNA3BsPP9pHC4tkaoRz4gBVHREqryl/UQkpHwCz+uWvIUBpq+
+	 nJoZJwGmjcPkenzK9hG+FN3voXcdmyOd4/9sk41/s+t4NHZ9UF+phkB6U3wHWQcgNb
+	 ykLyrSas7k3SjtTD4h5+yRbSDygoJGzAEf2BEXu3HijIU/rDw/RC/61SBRwUHNp0k4
+	 geQzaxTJU5NdGmDGnflUG3iOcn2/7EPAkV5GT4C18kb7wG8Vv3QSn0oB5ZzXPWX73L
+	 qpKjBXeepyBlQ==
+From: Puranjay Mohan <puranjay@kernel.org>
+To: bpf@vger.kernel.org
+Cc: Puranjay Mohan <puranjay@kernel.org>,
+	Puranjay Mohan <puranjay12@gmail.com>,
+	Alexei Starovoitov <ast@kernel.org>,
+	Daniel Borkmann <daniel@iogearbox.net>,
+	John Fastabend <john.fastabend@gmail.com>,
+	Andrii Nakryiko <andrii@kernel.org>,
+	Martin KaFai Lau <martin.lau@linux.dev>,
+	Eduard Zingerman <eddyz87@gmail.com>,
+	Song Liu <song@kernel.org>,
+	Yonghong Song <yonghong.song@linux.dev>,
+	Will Deacon <will@kernel.org>,
+	Mark Rutland <mark.rutland@arm.com>,
+	Catalin Marinas <catalin.marinas@arm.com>,
+	Leo Yan <leo.yan@arm.com>,
+	Rob Herring <robh@kernel.org>,
+	Peter Zijlstra <peterz@infradead.org>,
+	Ingo Molnar <mingo@redhat.com>,
+	Arnaldo Carvalho de Melo <acme@kernel.org>,
+	Namhyung Kim <namhyung@kernel.org>,
+	James Clark <james.clark@linaro.org>,
+	Ian Rogers <irogers@google.com>,
+	Adrian Hunter <adrian.hunter@intel.com>,
+	Shuah Khan <shuah@kernel.org>,
+	Breno Leitao <leitao@debian.org>,
+	Ravi Bangoria <ravi.bangoria@amd.com>,
+	Stephane Eranian <eranian@google.com>,
+	Kumar Kartikeya Dwivedi <memxor@gmail.com>,
+	Usama Arif <usama.arif@linux.dev>,
+	linux-arm-kernel@lists.infradead.org,
+	linux-perf-users@vger.kernel.org,
+	linux-kselftest@vger.kernel.org,
+	linux-kernel@vger.kernel.org,
+	kernel-team@meta.com
+Subject: [PATCH v4 0/4] arm64: Add BRBE support for bpf_get_branch_snapshot()
+Date: Wed, 27 May 2026 05:11:56 -0700
+Message-ID: <20260527121207.2312181-1-puranjay@kernel.org>
+X-Mailer: git-send-email 2.52.0
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH v14 5/8] arm64: support copy_mc_[user]_highpage()
-To: Ruidong Tian <tianruidong@linux.alibaba.com>, catalin.marinas@arm.com,
- will@kernel.org, rafael@kernel.org, tony.luck@intel.com,
- guohanjun@huawei.com, mchehab@kernel.org, tongtiangen@huawei.com,
- james.morse@arm.com, robin.murphy@arm.com, andreyknvl@gmail.com,
- dvyukov@google.com, vincenzo.frascino@arm.com, mpe@ellerman.id.au,
- npiggin@gmail.com, ryabinin.a.a@gmail.com, glider@google.com,
- christophe.leroy@csgroup.eu, aneesh.kumar@kernel.org,
- naveen.n.rao@linux.ibm.com, tglx@linutronix.de, mingo@redhat.com
-Cc: linux-arm-kernel@lists.infradead.org, linux-mm@kvack.org,
- linuxppc-dev@lists.ozlabs.org, linux-kernel@vger.kernel.org,
- kasan-dev@googlegroups.com
-References: <20260518084956.2538442-1-tianruidong@linux.alibaba.com>
- <20260518084956.2538442-6-tianruidong@linux.alibaba.com>
-From: Shuai Xue <xueshuai@linux.alibaba.com>
-In-Reply-To: <20260518084956.2538442-6-tianruidong@linux.alibaba.com>
-Content-Type: text/plain; charset=UTF-8; format=flowed
-Content-Transfer-Encoding: 7bit
-X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260527_051133_510881_9DA060A1 
-X-CRM114-Status: GOOD (  32.15  )
+Content-Transfer-Encoding: 8bit
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -75,437 +97,184 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
+v3: https://lore.kernel.org/all/20260413185740.3286146-1-puranjay@kernel.org/
+Changes in v4:
+- Fix leaking branch records when scheduled task has an unrelated perf event (Sashiko)
+- Update tools/include/uapi/linux/perf_event.h as well for patch 2
+- Introduce cpu_has_brbe() and use it in
+  arm_brbe_snapshot_branch_stack(0 to make sure we don't run on a CPU
+  without BRBE.
+- Add explicit isb() after after writing to SYS_BRBFCR_EL1.
+- Rebase on latest arm64 tree.
+
+v2: https://lore.kernel.org/all/20260318171706.2840512-1-puranjay@kernel.org/
+Changes in v3:
+- Move NULL pmu_ctx fix from arm_pmuv3.c to perf core (Leo Yan)
+- Use union to clear branch entry bitfields instead of per-field
+  zeroing (Leo Yan)
+- Remove per-CPU brbe_active flag; check BRBCR_EL1 == 0 instead (Rob
+  Herring)
+- Remove redundant valid_brbidr() check in snapshot path (Rob Herring)
+- Introduce for_each_brbe_entry() iterator to deduplicate bank
+  iteration (Rob Herring)
+- Include perf core maintainers (Leo Yan, Rob Herring)
+
+v1: https://lore.kernel.org/all/20260313180352.3800358-1-puranjay@kernel.org/
+Changes in v2:
+- Rebased on arm64/for-next/core
+- Add per-CPU brbe_active flag to guard against UNDEFINED sysreg access
+  on non-BRBE CPUs in heterogeneous big.LITTLE systems.
+- Fix pre-existing bug in perf_clear_branch_entry_bitfields() that missed
+  zeroing new_type and priv bitfields, added as a separate patch with
+  Fixes tags (new patch 2).
+- Use architecture-specific selftest threshold (#if defined(__aarch64__))
+  instead of raising the global threshold, to preserve x86 regression
+  detection.
+
+RFC: https://lore.kernel.org/all/20260102214043.1410242-1-puranjay@kernel.org/
+Changes from RFC:
+ - Fix pre-existing NULL pointer dereference in armv8pmu_sched_task()
+   found by Leo Yan during testing (patch 1)
+ - Pause BRBE before local_daif_save() to avoid branch pollution from
+   trace_hardirqs_off()
+ - Use local_daif_save() to prevent pNMI race from counter overflow
+   (Mark Rutland)
+ - Reuse perf_entry_from_brbe_regset() instead of duplicating register
+   read logic, by making it accept NULL event (Mark Rutland)
+ - Invalidate BRBE after reading to maintain record contiguity for
+   other consumers (Mark Rutland)
+ - Adjust selftest wasted_entries threshold for ARM64 (patch 3)
+ - Tested on ARM FVP with BRBE enabled
+
+This series enables the bpf_get_branch_snapshot() BPF helper on ARM64
+by implementing the perf_snapshot_branch_stack static call for ARM's
+Branch Record Buffer Extension (BRBE).
+
+bpf_get_branch_snapshot() [1] allows BPF programs to capture hardware
+branch records on-demand from any BPF tracing context. This was
+previously only available on x86 (Intel LBR) since v5.16. With BRBE
+available on ARMv9, this series closes the gap for ARM64.
+
+Usage model
+-----------
+
+The helper works in conjunction with perf events. The userspace
+component of the BPF application opens a perf event with
+PERF_SAMPLE_BRANCH_STACK on each CPU, which configures the hardware
+to continuously record branches into BRBE (on ARM64) or LBR (on x86).
+A BPF program attached to a tracepoint, kprobe, or fentry hook can
+then call bpf_get_branch_snapshot() to snapshot the branch buffer at
+any point. Without an active perf event, BRBE is not recording and
+the buffer is empty.
+
+On-demand branch snapshots from BPF are useful for diagnosing which
+specific code path was taken inside a function. Stack traces only show
+function boundaries, but branch records reveal the exact sequence of
+jumps, calls, and returns within a function -- making it possible to
+identify which specific error check triggered a failure, or which
+callback implementation was invoked through a function pointer.
+
+For example, retsnoop [2] is a BPF-based tool for non-intrusive
+mass-tracing of kernel internals. Its LBR mode (--lbr) creates per-CPU
+perf events with PERF_SAMPLE_BRANCH_STACK and then uses
+bpf_get_branch_snapshot() in its fentry/fexit BPF programs to capture
+branch records whenever a traced function returns an error.
+
+Consider debugging a bpf() syscall that returns -EINVAL when creating
+a BPF map with invalid parameters. Running retsnoop on an ARM64 FVP
+with BRBE to trace the bpf() syscall and array_map_alloc_check():
+
+  $ retsnoop -e '*sys_bpf' -a 'array_map_alloc_check' --lbr=any \
+             -F -k vmlinux --debug full-lbr
+  $ simfail bpf-bad-map-max-entries-array  # in another terminal
+
+Output of retsnoop:
+
+  --- fentry BPF program (entries #63-#17) ---
+
+  [#63-#59] __htab_map_lookup_elem: hash table walk with memcmp        (hashtab.c)
+  [#58] __htab_map_lookup_elem+0x98  -> dump_bpf_prog+0xc850           (hashtab.c:750)
+  [#57-#55] ... dump_bpf_prog internal branches ...
+  [#54] dump_bpf_prog+0xcab8        -> bpf_get_current_pid_tgid+0x0    (helpers.c:225)
+  [#53] bpf_get_current_pid_tgid+0x1c -> dump_bpf_prog+0xcabc          (helpers.c:225)
+  [#52-#51] ... dump_bpf_prog -> __htab_map_lookup_elem ...
+  [#50-#47] __htab_map_lookup_elem: htab_map_hash (jhash2), select_bucket
+  [#46-#42] lookup_nulls_elem_raw: hash chain walk with memcmp         (hashtab.c:717)
+  [#41] __htab_map_lookup_elem+0x98  -> dump_bpf_prog+0xcaf8           (hashtab.c:750)
+  [#40-#37] ... dump_bpf_prog -> bpf_ktime_get_ns ...
+  [#36] bpf_ktime_get_ns+0x10       -> ktime_get_mono_fast_ns+0x0      (helpers.c:178)
+  [#35-#32] ktime_get_mono_fast_ns: tk_clock_read -> arch_counter_get_cntpct
+  [#31] ktime_get_mono_fast_ns+0x9c -> bpf_ktime_get_ns+0x14           (timekeeping.c:493)
+  [#30] bpf_ktime_get_ns+0x18       -> dump_bpf_prog+0xcd50            (helpers.c:178)
+  [#29-#25] ... dump_bpf_prog internal branches ...
+  [#24] dump_bpf_prog+0x11b28       -> __bpf_prog_exit_recur+0x0       (trampoline.c:1190)
+  [#23-#17] __bpf_prog_exit_recur: rcu_read_unlock, migrate_enable     (trampoline.c:1195)
+
+  --- array_map_alloc_check (entries #16-#12) ---
+
+  [#16] dump_bpf_prog+0x11b38       -> array_map_alloc_check+0x8       (arraymap.c:55)
+  [#15] array_map_alloc_check+0x18  -> array_map_alloc_check+0xb8      (arraymap.c:56)
+        . bpf_map_attr_numa_node       . bpf_map_attr_numa_node
+  [#14] array_map_alloc_check+0xbc  -> array_map_alloc_check+0x20      (arraymap.c:59)
+        . bpf_map_attr_numa_node
+  [#13] array_map_alloc_check+0x24  -> array_map_alloc_check+0x94      (arraymap.c:64)
+  [#12] array_map_alloc_check+0x98  -> dump_bpf_prog+0x11b3c           (arraymap.c:82)
+
+  --- fexit trampoline overhead (entries #11-#00) ---
+
+  [#11] dump_bpf_prog+0x11b5c       -> __bpf_prog_enter_recur+0x0      (trampoline.c:1145)
+  [#10-#03] __bpf_prog_enter_recur: rcu_read_lock, migrate_disable     (trampoline.c:1146)
+  [#02] __bpf_prog_enter_recur+0x114 -> dump_bpf_prog+0x11b60          (trampoline.c:1157)
+  [#01] dump_bpf_prog+0x11b6c       -> dump_bpf_prog+0xd230
+  [#00] dump_bpf_prog+0xd340        -> arm_brbe_snapshot_branch_stack+0x0 (arm_brbe.c:814)
+
+                   el0t_64_sync+0x168
+                   el0t_64_sync_handler+0x98
+                   el0_svc+0x28
+                   do_el0_svc+0x4c
+                   invoke_syscall.constprop.0+0x54
+    373us [-EINVAL] __arm64_sys_bpf+0x8
+                    __sys_bpf+0x87c
+                    map_create+0x120
+     95us [-EINVAL] array_map_alloc_check+0x8
+
+The FVP's BRBE buffer has 64 entries (BRBE supports 8, 16, 32, or
+64). Of these, entries #63-#17 (47) are consumed by the fentry BPF
+trampoline that ran before the function, and entries #11-#00 (12)
+are consumed by the fexit trampoline that runs after. Entry #00
+shows the very last branch recorded before BRBE is paused: the call
+into arm_brbe_snapshot_branch_stack().
+
+The 5 useful entries (#16-#12) show the exact path taken inside
+array_map_alloc_check(). Record #14 shows a jump from line 56
+(bpf_map_attr_numa_node) to line 59 (the if-condition), and #13
+shows an immediate jump from line 59 (attr->max_entries == 0) to
+line 64 (return -EINVAL), skipping lines 60-63. This pinpoints
+max_entries==0 as the cause -- a diagnosis impossible with stack
+traces alone.
+
+[1] 856c02dbce4f ("bpf: Introduce helper bpf_get_branch_snapshot")
+[2] https://github.com/anakryiko/retsnoop
+
+Puranjay Mohan (4):
+  perf/core: Fix sched_task callbacks for CPU-wide branch stack events
+  perf: Use a union to clear branch entry bitfields
+  perf/arm64: Add BRBE support for bpf_get_branch_snapshot()
+  selftests/bpf: Adjust wasted entries threshold for ARM64 BRBE
+
+ drivers/perf/arm_brbe.c                       | 127 +++++++++++++++---
+ drivers/perf/arm_brbe.h                       |   9 ++
+ drivers/perf/arm_pmuv3.c                      |   5 +-
+ include/linux/perf_event.h                    |   9 +-
+ include/uapi/linux/perf_event.h               |  25 ++--
+ kernel/events/core.c                          |  17 ++-
+ tools/include/uapi/linux/perf_event.h         |  25 ++--
+ .../bpf/prog_tests/get_branch_snapshot.c      |  13 +-
+ 8 files changed, 172 insertions(+), 58 deletions(-)
 
 
-On 5/18/26 4:49 PM, Ruidong Tian wrote:
-> From: Tong Tiangen <tongtiangen@huawei.com>
-> 
-> Currently, many scenarios that can tolerate memory errors when copying page
-> have been supported in the kernel[1~5], all of which are implemented by
-> copy_mc_[user]_highpage(). arm64 should also support this mechanism.
-> 
-> Due to mte, arm64 needs to have its own copy_mc_[user]_highpage()
-> architecture implementation, macros __HAVE_ARCH_COPY_MC_HIGHPAGE and
-> __HAVE_ARCH_COPY_MC_USER_HIGHPAGE have been added to control it.
-> 
-> Add new helper copy_mc_page() which provide a page copy implementation with
-> hardware memory error safe. The code logic of copy_mc_page() is the same as
-> copy_page(), the main difference is that the ldp insn of copy_mc_page()
-> contains the fixup type EX_TYPE_KACCESS_ERR_ZERO_MEM_ERR, therefore, the
-> main logic is extracted to copy_page_template.S. In addition, the fixup of
-> MOPS insn is not considered at present.
-> 
-> [Ruidong: add FEAT_MOPS support]
+base-commit: c754aa6b881ade764510b8539a6a313326501e3d
+-- 
+2.53.0-Meta
 
-
-    copy_page_template.S now references the cpy1 macro inside the MOPS
-    alternative:
-
-        #ifdef CONFIG_AS_HAS_MOPS
-        alternative_if_not ARM64_HAS_MOPS
-            b   .Lno_mops
-        alternative_else_nop_endif
-            mov x2, #PAGE_SIZE
-            cpy1    dst, src, x2
-            b   .Lexitfunc
-        .Lno_mops:
-        #endif
-
-    copy_mc_page.S provides cpy1 (using cpyfp/m/ert + USER_CPY).
-    copy_page.S, however, only provides ldp1 -- no cpy1 -- so any
-    toolchain with FEAT_MOPS support fails to assemble copy_page.S
-    with "unknown mnemonic 'cpy1'".
-
-> 
-> [1] commit d302c2398ba2 ("mm, hwpoison: when copy-on-write hits poison, take page offline")
-> [2] commit 1cb9dc4b475c ("mm: hwpoison: support recovery from HugePage copy-on-write faults")
-> [3] commit 6b970599e807 ("mm: hwpoison: support recovery from ksm_might_need_to_copy()")
-> [4] commit 98c76c9f1ef7 ("mm/khugepaged: recover from poisoned anonymous memory")
-> [5] commit 12904d953364 ("mm/khugepaged: recover from poisoned file-backed memory")
-> 
-> Signed-off-by: Tong Tiangen <tongtiangen@huawei.com>
-> Signed-off-by: Ruidong Tian <tianruidong@linux.alibaba.com>
-> ---
->   arch/arm64/include/asm/mte.h        |  9 ++++
->   arch/arm64/include/asm/page.h       | 10 ++++
->   arch/arm64/lib/Makefile             |  2 +
->   arch/arm64/lib/copy_mc_page.S       | 44 +++++++++++++++++
->   arch/arm64/lib/copy_page.S          | 62 ++----------------------
->   arch/arm64/lib/copy_page_template.S | 71 +++++++++++++++++++++++++++
->   arch/arm64/lib/mte.S                | 29 +++++++++++
->   arch/arm64/mm/copypage.c            | 75 +++++++++++++++++++++++++++++
->   include/linux/highmem.h             |  8 +++
->   9 files changed, 253 insertions(+), 57 deletions(-)
->   create mode 100644 arch/arm64/lib/copy_mc_page.S
->   create mode 100644 arch/arm64/lib/copy_page_template.S
-> 
-> diff --git a/arch/arm64/include/asm/mte.h b/arch/arm64/include/asm/mte.h
-> index 7f7b97e09996..a0b1757f4847 100644
-> --- a/arch/arm64/include/asm/mte.h
-> +++ b/arch/arm64/include/asm/mte.h
-> @@ -98,6 +98,11 @@ static inline bool try_page_mte_tagging(struct page *page)
->   void mte_zero_clear_page_tags(void *addr);
->   void mte_sync_tags(pte_t pte, unsigned int nr_pages);
->   void mte_copy_page_tags(void *kto, const void *kfrom);
-> +
-> +#ifdef CONFIG_ARCH_HAS_COPY_MC
-> +int mte_copy_mc_page_tags(void *kto, const void *kfrom);
-> +#endif
-> +
->   void mte_thread_init_user(void);
->   void mte_thread_switch(struct task_struct *next);
->   void mte_cpu_setup(void);
-> @@ -134,6 +139,10 @@ static inline void mte_sync_tags(pte_t pte, unsigned int nr_pages)
->   static inline void mte_copy_page_tags(void *kto, const void *kfrom)
->   {
->   }
-> +static inline int mte_copy_mc_page_tags(void *kto, const void *kfrom)
-> +{
-> +	return 0;
-> +}
->   static inline void mte_thread_init_user(void)
->   {
->   }
-> diff --git a/arch/arm64/include/asm/page.h b/arch/arm64/include/asm/page.h
-> index e25d0d18f6d7..f65818ee614a 100644
-> --- a/arch/arm64/include/asm/page.h
-> +++ b/arch/arm64/include/asm/page.h
-> @@ -29,6 +29,16 @@ void copy_user_highpage(struct page *to, struct page *from,
->   void copy_highpage(struct page *to, struct page *from);
->   #define __HAVE_ARCH_COPY_HIGHPAGE
->   
-> +#ifdef CONFIG_ARCH_HAS_COPY_MC
-> +int copy_mc_page(void *to, const void *from);
-> +int copy_mc_highpage(struct page *to, struct page *from);
-> +#define __HAVE_ARCH_COPY_MC_HIGHPAGE
-> +
-> +int copy_mc_user_highpage(struct page *to, struct page *from,
-> +		unsigned long vaddr, struct vm_area_struct *vma);
-> +#define __HAVE_ARCH_COPY_MC_USER_HIGHPAGE
-> +#endif
-> +
->   struct folio *vma_alloc_zeroed_movable_folio(struct vm_area_struct *vma,
->   						unsigned long vaddr);
->   #define vma_alloc_zeroed_movable_folio vma_alloc_zeroed_movable_folio
-> diff --git a/arch/arm64/lib/Makefile b/arch/arm64/lib/Makefile
-> index 448c917494f3..1f4c3f743a20 100644
-> --- a/arch/arm64/lib/Makefile
-> +++ b/arch/arm64/lib/Makefile
-> @@ -7,6 +7,8 @@ lib-y		:= clear_user.o delay.o copy_from_user.o		\
->   
->   lib-$(CONFIG_ARCH_HAS_UACCESS_FLUSHCACHE) += uaccess_flushcache.o
->   
-> +lib-$(CONFIG_ARCH_HAS_COPY_MC) += copy_mc_page.o
-> +
->   obj-$(CONFIG_FUNCTION_ERROR_INJECTION) += error-inject.o
->   
->   obj-$(CONFIG_ARM64_MTE) += mte.o
-> diff --git a/arch/arm64/lib/copy_mc_page.S b/arch/arm64/lib/copy_mc_page.S
-> new file mode 100644
-> index 000000000000..ad1371e9e687
-> --- /dev/null
-> +++ b/arch/arm64/lib/copy_mc_page.S
-> @@ -0,0 +1,44 @@
-> +/* SPDX-License-Identifier: GPL-2.0-only */
-> +
-> +#include <linux/linkage.h>
-> +#include <linux/const.h>
-> +#include <asm/assembler.h>
-> +#include <asm/page.h>
-> +#include <asm/cpufeature.h>
-> +#include <asm/alternative.h>
-> +#include <asm/asm-extable.h>
-> +#include <asm/asm-uaccess.h>
-> +
-> +/*
-> + * Copy a page from src to dest (both are page aligned) with memory error safe
-> + *
-> + * Parameters:
-> + *	x0 - dest
-> + *	x1 - src
-> + * Returns:
-> + * 	x0 - Return 0 if copy success, or -EFAULT if anything goes wrong
-> + *	     while copying.
-> + */
-> +	.macro ldp1 reg1, reg2, ptr, val
-> +	KERNEL_MEM_ERR(9998f, ldp \reg1, \reg2, [\ptr, \val])
-> +	.endm
-> +
-> +	.macro cpy1 dst, src, count
-> +	.arch_extension mops
-> +	USER_CPY(9998f, 0, cpyfprt [\dst]!, [\src]!, \count!)
-> +	USER_CPY(9998f, 0, cpyfmrt [\dst]!, [\src]!, \count!)
-> +	USER_CPY(9998f, 0, cpyfert [\dst]!, [\src]!, \count!)
-> +	.endm
-> +
-> +SYM_FUNC_START(__pi_copy_mc_page)
-> +#include "copy_page_template.S"
-> +
-> +	mov x0, #0
-> +	ret
-> +
-> +9998:	mov x0, #-EFAULT
-> +	ret
-> +
-> +SYM_FUNC_END(__pi_copy_mc_page)
-> +SYM_FUNC_ALIAS(copy_mc_page, __pi_copy_mc_page)
-> +EXPORT_SYMBOL(copy_mc_page)
-> diff --git a/arch/arm64/lib/copy_page.S b/arch/arm64/lib/copy_page.S
-> index e6374e7e5511..d0186bbf99f1 100644
-> --- a/arch/arm64/lib/copy_page.S
-> +++ b/arch/arm64/lib/copy_page.S
-> @@ -17,65 +17,13 @@
->    *	x0 - dest
->    *	x1 - src
->    */
-> -SYM_FUNC_START(__pi_copy_page)
-> -#ifdef CONFIG_AS_HAS_MOPS
-> -	.arch_extension mops
-> -alternative_if_not ARM64_HAS_MOPS
-> -	b	.Lno_mops
-> -alternative_else_nop_endif
-> -
-> -	mov	x2, #PAGE_SIZE
-> -	cpypwn	[x0]!, [x1]!, x2!
-> -	cpymwn	[x0]!, [x1]!, x2!
-> -	cpyewn	[x0]!, [x1]!, x2!
-> -	ret
-> -.Lno_mops:
-> -#endif
-> -	ldp	x2, x3, [x1]
-> -	ldp	x4, x5, [x1, #16]
-> -	ldp	x6, x7, [x1, #32]
-> -	ldp	x8, x9, [x1, #48]
-> -	ldp	x10, x11, [x1, #64]
-> -	ldp	x12, x13, [x1, #80]
-> -	ldp	x14, x15, [x1, #96]
-> -	ldp	x16, x17, [x1, #112]
-> -
-> -	add	x0, x0, #256
-> -	add	x1, x1, #128
-> -1:
-> -	tst	x0, #(PAGE_SIZE - 1)
->   
-> -	stnp	x2, x3, [x0, #-256]
-> -	ldp	x2, x3, [x1]
-> -	stnp	x4, x5, [x0, #16 - 256]
-> -	ldp	x4, x5, [x1, #16]
-> -	stnp	x6, x7, [x0, #32 - 256]
-> -	ldp	x6, x7, [x1, #32]
-> -	stnp	x8, x9, [x0, #48 - 256]
-> -	ldp	x8, x9, [x1, #48]
-> -	stnp	x10, x11, [x0, #64 - 256]
-> -	ldp	x10, x11, [x1, #64]
-> -	stnp	x12, x13, [x0, #80 - 256]
-> -	ldp	x12, x13, [x1, #80]
-> -	stnp	x14, x15, [x0, #96 - 256]
-> -	ldp	x14, x15, [x1, #96]
-> -	stnp	x16, x17, [x0, #112 - 256]
-> -	ldp	x16, x17, [x1, #112]
-> -
-> -	add	x0, x0, #128
-> -	add	x1, x1, #128
-> -
-> -	b.ne	1b
-> -
-> -	stnp	x2, x3, [x0, #-256]
-> -	stnp	x4, x5, [x0, #16 - 256]
-> -	stnp	x6, x7, [x0, #32 - 256]
-> -	stnp	x8, x9, [x0, #48 - 256]
-> -	stnp	x10, x11, [x0, #64 - 256]
-> -	stnp	x12, x13, [x0, #80 - 256]
-> -	stnp	x14, x15, [x0, #96 - 256]
-> -	stnp	x16, x17, [x0, #112 - 256]
-> +	.macro ldp1 reg1, reg2, ptr, val
-> +	ldp \reg1, \reg2, [\ptr, \val]
-> +	.endm
->   
-> +SYM_FUNC_START(__pi_copy_page)
-> +#include "copy_page_template.S"
->   	ret
->   SYM_FUNC_END(__pi_copy_page)
->   SYM_FUNC_ALIAS(copy_page, __pi_copy_page)
-> diff --git a/arch/arm64/lib/copy_page_template.S b/arch/arm64/lib/copy_page_template.S
-> new file mode 100644
-> index 000000000000..d466b51c8ed9
-> --- /dev/null
-> +++ b/arch/arm64/lib/copy_page_template.S
-> @@ -0,0 +1,71 @@
-> +/* SPDX-License-Identifier: GPL-2.0-only */
-> +/*
-> + * Copyright (C) 2012 ARM Ltd.
-> + */
-> +
-> +/*
-> + * Copy a page from src to dest (both are page aligned)
-> + *
-> + * Parameters:
-> + *	x0 - dest
-> + *	x1 - src
-> + */
-> +dstin	.req	x0
-> +src	.req	x1
-> +
-> +#ifdef CONFIG_AS_HAS_MOPS
-> +	.arch_extension mops
-> +alternative_if_not ARM64_HAS_MOPS
-> +	b	.Lno_mops
-> +alternative_else_nop_endif
-> +	mov	x2, #PAGE_SIZE
-> +	cpy1	dst, src, x2
-
-copy_page_template.S now references the cpy1 macro inside the MOPS
-alternative:
-
-copy_page.S, however, only provides ldp1 -- no cpy1 -- so any
-toolchain with FEAT_MOPS support fails to assemble copy_page.S
-with "unknown mnemonic 'cpy1'".
-
-Trivial fix:
-
-        diff --git a/arch/arm64/lib/copy_page.S b/arch/arm64/lib/copy_page.S
-        @@
-             .macro ldp1 reg1, reg2, ptr, val
-             ldp \reg1, \reg2, [\ptr, \val]
-             .endm
-
-        +    .macro cpy1 dst, src, count
-        +    .arch_extension mops
-        +    cpyp [\dst]!, [\src]!, \count!
-        +    cpym [\dst]!, [\src]!, \count!
-        +    cpye [\dst]!, [\src]!, \count!
-        +    .endm
-        +
-         SYM_FUNC_START(__pi_copy_page)
-         #include "copy_page_template.S"
-
-
-> +	b	.Lexitfunc
-> +.Lno_mops:
-> +#endif
-> +
-> +	ldp1	x2, x3, x1, #0
-> +	ldp1	x4, x5, x1, #16
-> +	ldp1	x6, x7, x1, #32
-> +	ldp1	x8, x9, x1, #48
-> +	ldp1	x10, x11, x1, #64
-> +	ldp1	x12, x13, x1, #80
-> +	ldp1	x14, x15, x1, #96
-> +	ldp1	x16, x17, x1, #112
-> +
-> +	add	x0, x0, #256
-> +	add	x1, x1, #128
-> +1:
-> +	tst	x0, #(PAGE_SIZE - 1)
-> +
-> +	stnp	x2, x3, [x0, #-256]
-> +	ldp1	x2, x3, x1, #0
-> +	stnp	x4, x5, [x0, #16 - 256]
-> +	ldp1	x4, x5, x1, #16
-> +	stnp	x6, x7, [x0, #32 - 256]
-> +	ldp1	x6, x7, x1, #32
-> +	stnp	x8, x9, [x0, #48 - 256]
-> +	ldp1	x8, x9, x1, #48
-> +	stnp	x10, x11, [x0, #64 - 256]
-> +	ldp1	x10, x11, x1, #64
-> +	stnp	x12, x13, [x0, #80 - 256]
-> +	ldp1	x12, x13, x1, #80
-> +	stnp	x14, x15, [x0, #96 - 256]
-> +	ldp1	x14, x15, x1, #96
-> +	stnp	x16, x17, [x0, #112 - 256]
-> +	ldp1	x16, x17, x1, #112
-> +
-> +	add	x0, x0, #128
-> +	add	x1, x1, #128
-> +
-> +	b.ne	1b
-> +
-> +	stnp	x2, x3, [x0, #-256]
-> +	stnp	x4, x5, [x0, #16 - 256]
-> +	stnp	x6, x7, [x0, #32 - 256]
-> +	stnp	x8, x9, [x0, #48 - 256]
-> +	stnp	x10, x11, [x0, #64 - 256]
-> +	stnp	x12, x13, [x0, #80 - 256]
-> +	stnp	x14, x15, [x0, #96 - 256]
-> +	stnp	x16, x17, [x0, #112 - 256]
-> +.Lexitfunc:
-> diff --git a/arch/arm64/lib/mte.S b/arch/arm64/lib/mte.S
-> index 5018ac03b6bf..9d4eeb76a838 100644
-> --- a/arch/arm64/lib/mte.S
-> +++ b/arch/arm64/lib/mte.S
-> @@ -80,6 +80,35 @@ SYM_FUNC_START(mte_copy_page_tags)
->   	ret
->   SYM_FUNC_END(mte_copy_page_tags)
->   
-> +#ifdef CONFIG_ARCH_HAS_COPY_MC
-> +/*
-> + * Copy the tags from the source page to the destination one with memory error safe
-> + *   x0 - address of the destination page
-> + *   x1 - address of the source page
-> + * Returns:
-> + *   x0 - Return 0 if copy success, or
-> + *        -EFAULT if anything goes wrong while copying.
-> + */
-> +SYM_FUNC_START(mte_copy_mc_page_tags)
-> +	mov	x2, x0
-> +	mov	x3, x1
-> +	multitag_transfer_size x5, x6
-> +1:
-> +KERNEL_MEM_ERR(2f, ldgm	x4, [x3])
-> +	stgm	x4, [x2]
-> +	add	x2, x2, x5
-> +	add	x3, x3, x5
-> +	tst	x2, #(PAGE_SIZE - 1)
-> +	b.ne	1b
-> +
-> +	mov x0, #0
-> +	ret
-> +
-> +2:	mov x0, #-EFAULT
-> +	ret
-> +SYM_FUNC_END(mte_copy_mc_page_tags)
-> +#endif
-> +
->   /*
->    * Read tags from a user buffer (one tag per byte) and set the corresponding
->    * tags at the given kernel address. Used by PTRACE_POKEMTETAGS.
-> diff --git a/arch/arm64/mm/copypage.c b/arch/arm64/mm/copypage.c
-> index cd5912ba617b..9fd773baf17b 100644
-> --- a/arch/arm64/mm/copypage.c
-> +++ b/arch/arm64/mm/copypage.c
-> @@ -72,3 +72,78 @@ void copy_user_highpage(struct page *to, struct page *from,
->   	flush_dcache_page(to);
->   }
->   EXPORT_SYMBOL_GPL(copy_user_highpage);
-> +
-> +#ifdef CONFIG_ARCH_HAS_COPY_MC
-> +/*
-> + * Return -EFAULT if anything goes wrong while copying page or mte.
-> + */
-> +int copy_mc_highpage(struct page *to, struct page *from)
-> +{
-> +	void *kto = page_address(to);
-> +	void *kfrom = page_address(from);
-> +	struct folio *src = page_folio(from);
-> +	struct folio *dst = page_folio(to);
-> +	unsigned int i, nr_pages;
-> +	int ret;
-> +
-> +	ret = copy_mc_page(kto, kfrom);
-> +	if (ret)
-> +		return -EFAULT;
-
-
-The generic fallback in include/linux/highmem.h does:
-
-     ret = copy_mc_to_kernel(vto, vfrom, PAGE_SIZE);
-     ...
-     if (ret) memory_failure_queue(page_to_pfn(from), 0);
-
-The arm64 implementation in arch/arm64/mm/copypage.c does not call
-emory_failure_queue() on failure.  Please document it explicitly.
-
-
-Thanks.
-Shuai
 
