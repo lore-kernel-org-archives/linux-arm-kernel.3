@@ -4,89 +4,69 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 5615FCD5BC9
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 27 May 2026 10:05:18 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 7D14BCD4F54
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 27 May 2026 10:08:40 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	MIME-Version:Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-Type:
-	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
-	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
-	bh=G42y5I8R+7FiVelwxkSPiySmvc6XEZZzbq1j+Twey98=; b=q+UmWUbh1JkrP1pyU/cC01V/t0
-	RFYvmgrvOyCfGJmLyV/+YnmM+58qvH1liJhTjHLjbmEDtfWeE7fVM8/MaTcJALTCPehgkvuFnIsDb
-	YP6zrSWe1gP5yUS8XuUOk9ZMJlsYk/oUwsE7712d/Yywgh2t7CvyX92D/Kx/goK7pEjwnxhyQx+vK
-	QKA26pJJ0tN3YZFlwLK9EHz5vfZT0l6k58TtWKib+B9MTDgUXqQtAyUtjoWIqNUIly1NsSYFEEA50
-	lUWQih0hm4A5aGq/E87RV1WiVeEZG0/UkeCEpl4+ABNKfRFiaFNW9cgNSsWqaa4bnp8ePgfI7lHn9
-	r/LsBRcw==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=rIpiJo4iCvjtRLJCUK0kvO6KWTuUncctdjuI6Z6+PQ0=; b=YgehJEVPuhZYI+j441LXbwWxLy
+	2Z9Dbg5ZHxyNb4UPVxx8Icu7QqUmtX222pIy/NgEKUZ012Njgt+/AxVoRiLOHTXDe/1k7PbdwpcKK
+	WD+aC9Ph4O03gElI0gSqC8nHfSErI2sVnaxyA+XMreNae9XHmT0zIYwenYO+fE0+lr7xUjE1eJTII
+	rKbC5kxFCWPw2Fvg5i3EY44ey0e4U6UPKYpS4JfjZgQj5D6SrIbsk/NvuDGJtxNca2XOROpnbu2vQ
+	IPM3ureFFIzD9EJ4dZLsRMdk/1ZPQ1sZljWfl5MDP0Xdv3eUo6rHRQQcRh6C+IMhFRxj6XQfnb2VK
+	+5hZEK1g==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wSB8P-00000003iDl-2yCj;
-	Wed, 27 May 2026 10:05:09 +0000
-Received: from mail-pf1-x443.google.com ([2607:f8b0:4864:20::443])
+	id 1wSBBh-00000003ibb-0PpC;
+	Wed, 27 May 2026 10:08:33 +0000
+Received: from sea.source.kernel.org ([172.234.252.31])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wSB8N-00000003iCh-2th3
-	for linux-arm-kernel@lists.infradead.org;
-	Wed, 27 May 2026 10:05:08 +0000
-Received: by mail-pf1-x443.google.com with SMTP id d2e1a72fcca58-83975e992e1so4663032b3a.2
-        for <linux-arm-kernel@lists.infradead.org>; Wed, 27 May 2026 03:05:07 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20251104; t=1779876307; x=1780481107; darn=lists.infradead.org;
-        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
-         :to:from:from:to:cc:subject:date:message-id:reply-to;
-        bh=G42y5I8R+7FiVelwxkSPiySmvc6XEZZzbq1j+Twey98=;
-        b=ihYrRU9aPp9JRo1J70tOppgQjCHC41d7ReAjhQvBX9Pjc9mLGgakriH1GmqjkPncpJ
-         FpYL5AoLzlmkbCOrhuXYLmaw97TNFwhGkamNsWbbZwmOqdBwQeYStzRj/sWf3KBH9qEk
-         WymLyhFAXS4db8bCc2r6l+k8YgkG8dW+ObsTnpNQ15Y2/vB1RI0V/Q8wzmhS1ZjtxH8D
-         jQgcNvbc1wpq/7xOFBYeYMneEUiENPIklk3UdMg9reJEDn9I1TBdE4nPDcs3FOqD1kl8
-         iuEfFUY+SQ9+aHCtEE/RGbKzibCU1dhOoFkemQ7H0Icurwdp1LyEDSllc5/xAhZaXgxn
-         wE6A==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20251104; t=1779876307; x=1780481107;
-        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
-         :to:from:x-gm-gg:x-gm-message-state:from:to:cc:subject:date
-         :message-id:reply-to;
-        bh=G42y5I8R+7FiVelwxkSPiySmvc6XEZZzbq1j+Twey98=;
-        b=L7BT0W6GF0P9BVFWgfRxACeBGG7mAuGF6UPSqavIiWbjicNrEWvXvFl1DMQM6bc/j7
-         VyVZX3e3+QyLXi0Oh9j9pNvC0W+G0pAx6qHyeERsyj1Fd852MLDfGFD2PWhvY2SX3/cs
-         is5xxPBMWWmt8iwSl1GutXQiuC6NtzfmObdmFzheRlePxNu0oWXjLULfE9IkCuqHXsGt
-         zCsxbvFGzNngErBfXf20fEoa1CGRDWLSk6dqHk7bws4up1PACUws/5XcUQ6/679DoJJg
-         xQVJZEGEBH63p04RATKcGMIvuHIaaSkJBIRLGFsva7ZBm7TlyG8fzXjPfQpf3Pi8M7tG
-         oGXg==
-X-Forwarded-Encrypted: i=1; AFNElJ/fODGaln3KeQM60cefFQfDUV3340lEo/XAbHBnEv1eXj54u6K9I6gxfLil/KfHh/+wsQjfsN+oSmY94G5bSkEu@lists.infradead.org
-X-Gm-Message-State: AOJu0YxsjWNrhNaI27+EKA1vWf37k+qLyjg72gmgCdzAuZSUGH4J3zRP
-	aG2rzyd+kK1v0hyfUSgs/qvCNTokb7Cca1Q3jyt3fdAXljBIRLo3+gI=
-X-Gm-Gg: Acq92OFt4+r4EeSNY0glSfCv2fw6JP/AnOFC7jfRNlDW4EIYBGQi0zSANhtB2rR4Zrz
-	ZElD9Mmz16E9DkvPswne7xpAkznN34O6mF55cX9+c32oTN+JLbTPu5yOm/HoWP3Lpu0C2HY2Mfw
-	TSMzTZ1XvG28b2Wa3iEfhBuec1m8HIszVAnmcsm+7uzcVEDBt55/TNu/5twR7lRChKMiMQbUyDU
-	2cFz/f/y65rGGAOejsYJEeuzGoLXj7ZvHo1sKldD0oEdOBqGW7fRbP4rxS/ppmO29q957rvCLCd
-	fdqUQYlAB7yPlm91D2xCBaTHY3kHikIfq4CAAAOR3ZkGtHNnUs3aY2slJzEmuXGncJaWXKKMNdD
-	zdNxp46lNyCy+mS8TrqkNZWmXaquvDXidlPzj9Bc9DmuXwnuYzOXfWWPa8kn+DRHnsTSwkWCbx/
-	QRNCLF/77+UVIR+mA/nzknZuQqtJaRWl5WCz9ApQL+FNDSi6bERC3ppVPXfK+9t9Gi7g==
-X-Received: by 2002:a05:6a00:298f:b0:835:3d5e:1dd3 with SMTP id d2e1a72fcca58-8415f586b5bmr20394695b3a.42.1779876306515;
-        Wed, 27 May 2026 03:05:06 -0700 (PDT)
-Received: from localhost.localdomain ([211.196.223.197])
-        by smtp.gmail.com with ESMTPSA id d2e1a72fcca58-841d6e806c7sm1951266b3a.1.2026.05.27.03.05.04
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Wed, 27 May 2026 03:05:06 -0700 (PDT)
-From: Jinseok Kim <always.starving0@gmail.com>
-To: robh@kernel.org,
-	krzk+dt@kernel.org,
-	conor+dt@kernel.org,
-	florian.fainelli@broadcom.com
-Cc: bcm-kernel-feedback-list@broadcom.com,
-	devicetree@vger.kernel.org,
-	linux-rpi-kernel@lists.infradead.org,
+	id 1wSBBe-00000003ib0-2fms;
+	Wed, 27 May 2026 10:08:32 +0000
+Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
+	by sea.source.kernel.org (Postfix) with ESMTP id EF222405C4;
+	Wed, 27 May 2026 10:08:29 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id F07581F000E9;
+	Wed, 27 May 2026 10:08:26 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
+	s=k20260515; t=1779876509;
+	bh=rIpiJo4iCvjtRLJCUK0kvO6KWTuUncctdjuI6Z6+PQ0=;
+	h=Date:From:To:Cc:Subject:References:In-Reply-To;
+	b=KWf39RvxLmV0Nl+vilSfwl74YjQVWACxnTiCx26aUEnrVpysov1woI1ljZ4EzWiEj
+	 O77lDsCAYY4natY2LkN9j/GTMgByYhWJJVmkx313bM2kkmuoDwcdv0Cy0SDQaTnKwT
+	 FWqBcTOn94EmVWgTzreCduP7PpjwFiiDOAflX+ojBb8JFCvQDo40Wp343CI/zD9AVf
+	 VXZFU0Wx6T7z1y4YJ62BlNIJoRZARcpBPtONaseHqRAw1VyjweXf9nR8+rtsaSbT6D
+	 RYuQn1sgnH1Gr8QNc5c7CxtaWU3cGE/+GyehXFvY3X5d8oBb5F+8w3a6k6fS5ErlM1
+	 ILpuLr0yq0bCQ==
+Date: Wed, 27 May 2026 11:08:24 +0100
+From: Simon Horman <horms@kernel.org>
+To: Jihong Min <hurryman2212@gmail.com>
+Cc: Christian Marangi <ansuelsmth@gmail.com>,
+	Antoine Tenart <atenart@kernel.org>,
+	Herbert Xu <herbert@gondor.apana.org.au>,
+	"David S . Miller" <davem@davemloft.net>,
+	Lorenzo Bianconi <lorenzo@kernel.org>,
+	Andrew Lunn <andrew+netdev@lunn.ch>,
+	Eric Dumazet <edumazet@google.com>,
+	Jakub Kicinski <kuba@kernel.org>, Paolo Abeni <pabeni@redhat.com>,
+	Steffen Klassert <steffen.klassert@secunet.com>,
+	linux-kernel@vger.kernel.org, linux-crypto@vger.kernel.org,
 	linux-arm-kernel@lists.infradead.org,
-	linux-kernel@vger.kernel.org
-Subject: [PATCH] arm: dts: bcm2711: Fix typo in gpio-line-names
-Date: Wed, 27 May 2026 19:04:37 +0900
-Message-ID: <20260527100439.2507-1-always.starving0@gmail.com>
-X-Mailer: git-send-email 2.43.0
+	linux-mediatek@lists.infradead.org, netdev@vger.kernel.org
+Subject: Re: [PATCH 2/3] crypto: inside-secure: add EIP93 ESP packet backend
+Message-ID: <20260527100824.GJ2256768@horms.kernel.org>
+References: <20260523121522.3023992-1-hurryman2212@gmail.com>
+ <20260523121522.3023992-3-hurryman2212@gmail.com>
 MIME-Version: 1.0
-Content-Transfer-Encoding: 8bit
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+In-Reply-To: <20260523121522.3023992-3-hurryman2212@gmail.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260527_030507_730666_933B590E 
-X-CRM114-Status: GOOD (  11.54  )
+X-CRM114-CacheID: sfid-20260527_030830_694605_F5B816A6 
+X-CRM114-Status: GOOD (  14.05  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -101,26 +81,66 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Replace "RGMIO_MDC" with "RGMII_MDC" in gpio-line-names.
+On Sat, May 23, 2026 at 09:15:21PM +0900, Jihong Min wrote:
+> Expose an EIP93 packet-mode IPsec backend for netdev drivers that need
+> ESP encapsulation and decapsulation offload without advertising EIP93
+> itself as a netdev.
+> 
+> Add provider selection, capability reporting, SA lifecycle management,
+> IPsec request completion, and provider fault notification around the
+> existing EIP93 descriptor path.
+> 
+> Assisted-by: Codex:gpt-5.5
+> Signed-off-by: Jihong Min <hurryman2212@gmail.com>
 
-Signed-off-by: Jinseok Kim <always.starving0@gmail.com>
----
- arch/arm/boot/dts/broadcom/bcm2711-rpi-4-b.dts | 2 +-
- 1 file changed, 1 insertion(+), 1 deletion(-)
+...
 
-diff --git a/arch/arm/boot/dts/broadcom/bcm2711-rpi-4-b.dts b/arch/arm/boot/dts/broadcom/bcm2711-rpi-4-b.dts
-index 353bb50ce542..5469fa663526 100644
---- a/arch/arm/boot/dts/broadcom/bcm2711-rpi-4-b.dts
-+++ b/arch/arm/boot/dts/broadcom/bcm2711-rpi-4-b.dts
-@@ -110,7 +110,7 @@ &gpio {
- 			  "GPIO26",
- 			  "GPIO27",
- 			  "RGMII_MDIO",
--			  "RGMIO_MDC",
-+			  "RGMII_MDC",
- 			  /* Used by BT module */
- 			  "CTS0",		/* 30 */
- 			  "RTS0",
---
-2.43.0
+> diff --git a/drivers/crypto/inside-secure/eip93/eip93-ipsec.c b/drivers/crypto/inside-secure/eip93/eip93-ipsec.c
+
+...
+
+> +static void eip93_ipsec_abort_requests(struct eip93_ipsec *ipsec, int err)
+> +{
+> +	struct eip93_ipsec_sa *sa;
+> +
+> +	while (true) {
+> +		bool found = false;
+> +
+> +		spin_lock_bh(&ipsec->lock);
+> +		list_for_each_entry(sa, &ipsec->sa_list, node) {
+> +			spin_lock(&sa->lock);
+> +			if (sa->aborting) {
+> +				spin_unlock(&sa->lock);
+> +				continue;
+> +			}
+> +
+> +			sa->aborting = true;
+> +			found = refcount_inc_not_zero(&sa->refcnt);
+> +			spin_unlock(&sa->lock);
+> +			if (found)
+> +				break;
+> +		}
+> +		spin_unlock_bh(&ipsec->lock);
+> +		if (!found)
+> +			return;
+> +
+> +		eip93_ipsec_abort_sa(sa, err);
+> +		eip93_ipsec_sa_put(sa);
+
+sa is the iterator for the list_for_each_entry loop.
+However, here it is used outside of that context.
+
+	"If list_for_each_entry, etc complete a traversal of the list, the
+	iterator variable ends up pointing to an address at an offset from
+	the list head, and not a meaningful structure.  Thus this value
+	should not be used after the end of the iterator.
+
+	https://www.spinics.net/lists/linux-kernel-janitors/msg11994.html
+
+Flagged by Coccinelle.
+
+> +	}
+> +}
+
+...
 
