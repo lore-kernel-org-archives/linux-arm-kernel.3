@@ -4,145 +4,58 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id E350BCD4F54
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 27 May 2026 10:31:45 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 73240CD5BC9
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 27 May 2026 10:32:56 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:
-	Content-Transfer-Encoding:Content-Type:In-Reply-To:From:References:Cc:To:
-	Subject:Date:Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=GzwrvTLL0hSH7hKjArvURi26XXa0ZjR5zJ210CYpbwk=; b=VJUtarpFxuGAEy4rTd4qA7pcX3
-	ilVG/oXzKMhx32/HDX+YAh+X0cvK3X/uTrCkG0AoHXPw3d9wDxImGSlMrMu/wMQ4z0RmGxNobXe0t
-	QAPfreeKgmPhp+i/2tH3VYTtqt3MmQuXsNyuNeoYqZOl4aodg2x2tTIKmiESzB+G3jKHbAQCwkFO4
-	Bf1e5xt8/KJCIh61ogP+O7hSPIKsSOKuCRvFd/AZsgfuDdtGs8nkgjgCjLi6ZgR8fc/v/960xOdQe
-	taJaclpfEd63FRIFEgLiMJXPMIe7DJMeqn1EL2Bqc+G4GFOeKqqEm5dI8wG+AlCu+JbcAPj0kbhKO
-	09sZQ0dQ==;
+	bh=CUY3wO3AXoTGpLJpP08Nie3HTtt2sZoLXbNAigBBj80=; b=ZNhKwaieQ4m4dcftYkAbm3uW0l
+	PZ6a5+1gwEq0IVeyHscpPWpGaH9mfGCKbQaBZZ2i9spMXHQf7V9V7wuwbnMaTyDUSKIijmvXl3wtF
+	QHN5oIPRXoyIJMXyvTFkR9n/+bQrJab0o2T/EYc4C9NuHU+GxOfD6Bv38nSVDjbhWXiULPM25csCd
+	IiQAm/d5dwgVE8f01XErJLuhA1vvtg0pll5OaJjJzEsqCup6GRkzaaaccsE0OA8NCWdQLkni73Zdk
+	RATkQFWCNk8yuRZjfLTas8xOf8fJUFzUUQupHX6gx5defw1EV/MAyeW37MIhZ3dOJxvYGEBFr54Ir
+	vCkfqBOQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wSBY2-00000003uOs-1glR;
-	Wed, 27 May 2026 10:31:38 +0000
-Received: from mail-norwayeastazon11023142.outbound.protection.outlook.com ([40.107.159.142] helo=OSPPR02CU001.outbound.protection.outlook.com)
-	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wSBXy-00000003uLi-0AtD
+	id 1wSBZC-00000003v53-2Tl3;
+	Wed, 27 May 2026 10:32:50 +0000
+Received: from foss.arm.com ([217.140.110.172])
+	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
+	id 1wSBZ9-00000003v2K-3vST
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 27 May 2026 10:31:35 +0000
-ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
- b=eOcEHH0TK1CBFJVoZ+lGYCZoHj3AOT4E66oHBhkPX7zyPN6R6IopIw9ofV9d9DD9XX2UzWildapz684CAZ0iIY98xds5XHTCQLqapkgQO9IfYPKte029L87MXT8ksletC4r0FixjcWLKYzNYTBF0b6P3VarjjA3z7yNj6z1VtHbiUvVt0WOkSAZMJBSrIPs7cuH7FlFrOZA4qzEERIWnkO3fdpR8gYawooQYuZPnIOfI4eKMrZoCtUBCEfTa2w6utX7EJEmv3HEX3wOXNb6RDeZDqz5moMXkYPOojh8r1l5kNDuVOrIQUUFaehls4HMt0tfAODlDJVr1Tj3FRG/Vxg==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
- s=arcselector10001;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
- bh=GzwrvTLL0hSH7hKjArvURi26XXa0ZjR5zJ210CYpbwk=;
- b=lVFDvvPHbgxlLrBLr7NvIR0TQFTHvm2AT3J0iSUF7NhGNCQc7ObrGIUPbf7PgBQ3QWQJGY3h9Y0UqjtmQFz3GXsjja7c5bo7oi8KqnGrVDEXxdtg6DdoeDTZaEeP7K208ShGxMB/20yGZoRO5ShHb/GP7XRtM4+SNMtlHLRBLD0g6op9ELQlRyNDYlEi2UESU6ZqX3SjDiDU9bkheGZ8FTappsfkGN8gMcVNaLbsj17H0Fiayb29RaDHvQ2zUR/pRpyUwxEoEjmEjzAdMB3iA66DFuu8nNFMOFsm63ZJpMpM+mbC523BYNjj12wqQO0CMCLcUkizi5D1N5O/YPEnPA==
-ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
- smtp.mailfrom=kontron.de; dmarc=pass action=none header.from=kontron.de;
- dkim=pass header.d=kontron.de; arc=none
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kontron.de;
- s=selector1;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
- bh=GzwrvTLL0hSH7hKjArvURi26XXa0ZjR5zJ210CYpbwk=;
- b=txTkLAMdejqV5u3aDmulpcbAQLN2FEDHPn5vOpcL5X8afBK6jey4vd2tvLAWiR1qgxM6vEmPmEojs4xMqSl7ajq1dKdHSqDAyjr9Y4kl0/tRrvd/jqhwzGTp16CZw/A7SjlT0MRGuappE+mEEmAdOD1Qe4bnID7Nl8JuBcmZxNflYcmTHzki5PXof3BIGM03V20Axw8B31lfvYd0ISdZ2y0wsNHx5pz6B/7sT4fa14kDt0Yow6/SE69McnNPApPtSuI0d34SzrJoozHojdAtmfikhB2hlfvhncZjVaveXIa3DtXnwYBXi3WFkMz3JF1qy8eqljmaC2G/G1TNa1yQpA==
-Authentication-Results: dkim=none (message not signed)
- header.d=none;dmarc=none action=none header.from=kontron.de;
-Received: from AM9PR10MB4277.EURPRD10.PROD.OUTLOOK.COM (2603:10a6:20b:1fb::23)
- by AM8PR10MB4130.EURPRD10.PROD.OUTLOOK.COM (2603:10a6:20b:1ea::7) with
- Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.21.71.11; Wed, 27 May
- 2026 10:31:28 +0000
-Received: from AM9PR10MB4277.EURPRD10.PROD.OUTLOOK.COM
- ([fe80::a276:4ad7:962:da22]) by AM9PR10MB4277.EURPRD10.PROD.OUTLOOK.COM
- ([fe80::a276:4ad7:962:da22%3]) with mapi id 15.21.0071.011; Wed, 27 May 2026
- 10:31:28 +0000
-Message-ID: <6d24bedb-fff2-4854-9632-a7dc379f852b@kontron.de>
-Date: Wed, 27 May 2026 12:31:26 +0200
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH v2 2/2] drm: lcdif: Wait for vblank before disabling DMA
-To: Paul Kocialkowski <paulk@sys-base.io>, dri-devel@lists.freedesktop.org,
- imx@lists.linux.dev, linux-arm-kernel@lists.infradead.org,
- linux-kernel@vger.kernel.org
-Cc: Marek Vasut <marex@denx.de>, Stefan Agner <stefan@agner.ch>,
- Maarten Lankhorst <maarten.lankhorst@linux.intel.com>,
- Maxime Ripard <mripard@kernel.org>, Thomas Zimmermann <tzimmermann@suse.de>,
- David Airlie <airlied@gmail.com>, Simona Vetter <simona@ffwll.ch>,
- Frank Li <Frank.Li@nxp.com>, Sascha Hauer <s.hauer@pengutronix.de>,
- Pengutronix Kernel Team <kernel@pengutronix.de>,
- Fabio Estevam <festevam@gmail.com>, Lucas Stach <l.stach@pengutronix.de>,
- =?UTF-8?Q?Krzysztof_Ha=C5=82asa?= <khalasa@piap.pl>,
- Marco Felsch <m.felsch@pengutronix.de>, Liu Ying <victor.liu@nxp.com>
-References: <20260402183351.3281123-1-paulk@sys-base.io>
- <20260402183351.3281123-3-paulk@sys-base.io>
-Content-Language: en-US, de-DE
-From: Frieder Schrempf <frieder.schrempf@kontron.de>
-In-Reply-To: <20260402183351.3281123-3-paulk@sys-base.io>
-Content-Type: text/plain; charset=UTF-8
-Content-Transfer-Encoding: 7bit
-X-ClientProxiedBy: FR4P281CA0052.DEUP281.PROD.OUTLOOK.COM
- (2603:10a6:d10:cc::10) To AM9PR10MB4277.EURPRD10.PROD.OUTLOOK.COM
- (2603:10a6:20b:1fb::23)
+	Wed, 27 May 2026 10:32:49 +0000
+Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
+	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id 27B751595;
+	Wed, 27 May 2026 03:32:40 -0700 (PDT)
+Received: from J2N7QTR9R3 (usa-sjc-imap-foss1.foss.arm.com [10.121.207.14])
+	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id 98CEB3F7D8;
+	Wed, 27 May 2026 03:32:43 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=simple/simple; d=arm.com; s=foss;
+	t=1779877965; bh=0st74ItZiJDJHY//YKi9k3j5LAz4Sxki0o7s6Hb9c5s=;
+	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
+	b=JLiGXkxk0Fgkp4N/V0D32PUPj34yCyi7teBulpO88R+mFWUqu6IeJUKwO8I6RMgg4
+	 olOb0D10ygJCmOyRBDlt+6nGQU+prgNtRjpdkLDBhFs6V8bLFC9fCYZgLfnMB+9i9m
+	 2NLTXZ/Cy1rh7UFF1i8yww+vOhjVDTJYgVz5b/kA=
+Date: Wed, 27 May 2026 11:32:37 +0100
+From: Mark Rutland <mark.rutland@arm.com>
+To: Marc Zyngier <maz@kernel.org>, will@kernel.org, catalin.marinas@arm.com
+Cc: linux-arm-kernel@lists.infradead.org, kvmarm@lists.linux.dev,
+	broonie@kernel.org, james.morse@arm.com, oupton@kernel.org,
+	tabba@google.com
+Subject: Re: [PATCH 00/18] arm64+KVM: FPSIMD/SVE/SME cleanups
+Message-ID: <ahbIRe0jR95elM2L@J2N7QTR9R3>
+References: <20260521132556.584676-1-mark.rutland@arm.com>
+ <86se7duvgc.wl-maz@kernel.org>
 MIME-Version: 1.0
-X-MS-PublicTrafficType: Email
-X-MS-TrafficTypeDiagnostic: AM9PR10MB4277:EE_|AM8PR10MB4130:EE_
-X-MS-Office365-Filtering-Correlation-Id: 3de2e39e-be34-4231-f40c-08debbdb1c4a
-X-MS-Exchange-SenderADCheck: 1
-X-MS-Exchange-AntiSpam-Relay: 0
-X-Microsoft-Antispam: BCL:0;ARA:13230040|376014|366016|7416014|1800799024|22082099003|18002099003|56012099006|11063799006|6133799003|4143699003;
-X-Microsoft-Antispam-Message-Info: bykoqjKsEhg2vEt+hDyRPgEPPhVwguAQNP70psGi8VYt8vvoHoNWz0mjD8iVsOCPxP+QAr4a9tM4LV1Mxo7/McKnhfYFI/8N0/OwLqOg4ZL8TP6ttvDFX2YEX7fVDU3vSRE811N1F0Dj4B5dlT3YKSerEuPLQ6627yuj+5RiYQ9v5u9YqEv7izyIGOoptEhWEb/D1+Zvb7Xn/fvD8MtrceBe0jeXmBqWtnRJFMU3n0Z0ZLmxJZRcWr9bk2QzVVIOIFkZOJH5wsawr9Dc9gbKvLf0yGUtPmH/NBSBSU9WkXIIsulTPPWM2W2/zzXd1p8n9JUgjxeSZexbRJpKNBYcCsrLsDB1tTW1aFkgSasEuaB32UXbDg7jULva8QYzo2mFyLYoVo3H8ipUp1RzV9HL8Qax/Ppq4sTGEUkZ9P7QZ2DFzOnLA0G70TueZWH+YMYQ9tGs36DQf80zhV0sDa2jurZCHBMkGiEmLS5HYnv/2UYoRWaNIqeFFzOxGe533EeYruE9nLm5Lk6TBn9B16qsI5fhLZ8xSYZ/3deM3uyIfnxGl54TxuT906baX1vjNST9o1jwQRMoAI9JHdBqkmXqhv6jgytbYV9I9Mytbc6JD3lQeA0Jkv9gDh6MTCpYeJL9iURnGCSPFFHXLXV9UgF8n/UxHa1RdE+NCHcaRLBU44JrZ9XNzXX44VbD939Avwal
-X-Forefront-Antispam-Report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:AM9PR10MB4277.EURPRD10.PROD.OUTLOOK.COM;PTR:;CAT:NONE;SFS:(13230040)(376014)(366016)(7416014)(1800799024)(22082099003)(18002099003)(56012099006)(11063799006)(6133799003)(4143699003);DIR:OUT;SFP:1102;
-X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
-X-MS-Exchange-AntiSpam-MessageData-0: =?utf-8?B?MVhTczR4WTduZElZMEZUU2Vqakw2M1FnTzVHcHo0clRDTVhNQ0wrR2drZGVQ?=
- =?utf-8?B?dUU4OGZBNDVLczNSNnhVMks5TEFPYWowNC9GZU5NZnBITVlEMFNtcFc1aERG?=
- =?utf-8?B?UytKVC9uT3d3YXhUMENRQytlN1I2anduekhHQ1BvZjc3Y1k3Nzl5S3RmVTV0?=
- =?utf-8?B?WlpKTW9aSU1yUUNaMEdCWVp0K1ZpYUJSR0RjcVRZRi9Rc0pxRU1yQW9yOGxD?=
- =?utf-8?B?L0xKZ2NVdEx2bERvVG56YWUrRmpiMFlRaXpzbzgwdHVuZXUwOTBXb2VHVHYw?=
- =?utf-8?B?MDJTcTZkWk1QQUlNbXFsKzhDMVZ3d2NXejlaU24zUUtQbHAzQVM5ODJZTnIr?=
- =?utf-8?B?bm5qYjg1Mms1d2s3NEZTQTRDL0hBaGFmcW9xOVFGUm5UR3JtMW96cGUxOVIx?=
- =?utf-8?B?dW1hbG9CWmlqWWhIYTQ5a2xPOE1ROWcyS1p1Y0FKd1FtYXNmZURYU3JyaXFw?=
- =?utf-8?B?Rk52T0tteUxLcml5cndQS3prdjNKZ3ZTY0Z5QVNxUkxJTlpiSnlXQU96MkJK?=
- =?utf-8?B?bGM5TUMycmx0akVUQWlHbXFoQ0JPeWxNV28rcDJXSlR6VGhGaGFhNzZTbFg2?=
- =?utf-8?B?cGV5enpLbTlSUWhXN21FWDhLZnQwUmtxTDR3d2VkU0FONnJsaXg1cHNNSFdR?=
- =?utf-8?B?MG9wUDZIT2NFS2svT3YyQnpoUGFiU3dPK09BTGpRRW93YmsvdEdpRys1YTRu?=
- =?utf-8?B?YkJ1dGZZNlhjZ3F1eDZYNkVLcXRJSU92c0xaUzgwMGY4UXhkWUFXanhzUi9T?=
- =?utf-8?B?MjloZ25KQTh0RVpCK3JhaUF3OXRwUlRsN0pGRW9oaXhHNG16cXRSVFhta3hu?=
- =?utf-8?B?VW1mOS9LWmRzc1RtM0lvdWlPdUtrQlcrNjVtVGVhcmVKNGNsamFvM3RORGlz?=
- =?utf-8?B?d3B6Q3A2bmoyNUNxQVhtRVhYeEtnb0FpV09NR1ZUK1BDTHN3c3djMHowWmVv?=
- =?utf-8?B?SjZkWjB6dGk3TEkrcHNqZDB2bnRLZXdMcy9tUXNxUVptWTRPZGVwemYySTdr?=
- =?utf-8?B?cWdaaFExdkZzTENiaHlnS29JRG1sd1c2Sndad3NCMTRRSWlrRUluVXJXbWVy?=
- =?utf-8?B?NVdiY3pmeWJEWlBPSkdqTE5PakJ0ZllHNDhGeXlST3RLOUtFVGxhMG5tejgw?=
- =?utf-8?B?Zm56SDd5YTRKd1ZZbWtMYkJBR2d4WXVhcjZJMlZ2RlFCd3JIZHBmV0xmblN2?=
- =?utf-8?B?NnJ6aXVMY0FlSU9TWmtyeVBJaEpzaEJUSExqQ2krQ0YzbkRtZStJR0FvZjFn?=
- =?utf-8?B?Z1lGanBWemlSeEdsTkIwazMweGtUeUpJaEZ6eE1vWVdiQnVMUHhLT3VHZVl3?=
- =?utf-8?B?ZWo3ZFlIdXd0NUpNdlVZVWFKL0xwUnpodENvU2NPZDBWdWpoWDg1clNOSElp?=
- =?utf-8?B?K1pDVGh5bCtwenVQZ2xLY1hrRGltWExISTZIenZ6SjcwQ295RmdmNDJtaVFr?=
- =?utf-8?B?OUJzKzJFVSszM1BkN1lPZ29EeXRtVkpmNCtabFJhWTg4a1AwU1BZbEdZc0s3?=
- =?utf-8?B?LzMzd244ZzFHb1Vra1VEaXBtVzkvYWUwRnI3S0gxNVpQbktob3ExWlhPSXJs?=
- =?utf-8?B?NFl5b3BTaFJQdUc3N2ZSaFViRm9oUnRZWnJFall5enc2ZzZCUjlxK25TaStm?=
- =?utf-8?B?bGI0UUQzMXdQUkpDSDFsOVdCMEdmejVXRStzdWt0WXJyOFh3cEJyTDE0ODIv?=
- =?utf-8?B?b2ZGbi9iSUJPUFl5VWxDV1BYQkFrWTVBZWF2L0ZmU0R0RmZwaEptV2JhQ1JS?=
- =?utf-8?B?aWpsdnBPbnNYOXpYRzR2Q1kxUVk1K2ZXUS9GaUhGUUsxRERTZFhZZEhTTTdq?=
- =?utf-8?B?TkRFTFU3RFNiTEpMVkVhbVl5aXFPRlJUSnhuOWdhTThIUGNza2lLR0dlWEpB?=
- =?utf-8?B?Z0ZmV3ZDanJNMkY0Z1pBR2tSTWtvWTQrSHhCWVRETE40SGRQV2VLRC9SZjdI?=
- =?utf-8?B?bGt4WWg5UFE4Zlk1UkM4NUFBWHZMUHd6Vk10dkZmWlNGWlFhcFV0R3RJR1hu?=
- =?utf-8?B?N0VSVElxQytQMDRBS0trME9leFNzS1ZqT3JLY3RJT3hPVEROb2RMazRwV3Zk?=
- =?utf-8?B?a1E0L0R1VDN4UWJwVVdLM3RORnhxWGhNdTR0SVNreDNOUk5tcTJLKzZqQjhU?=
- =?utf-8?B?NDNncHdIWW1ucVhXZVlaUUZzUEhqeDdiTVNvU3FJSGxtcGkxT0EyQTNHM3ZQ?=
- =?utf-8?B?NUlrWWJUc0N2NWNNcGdPbkhoTXdHSVNLMG9UZlVSRkZKOWtYYnFDaG54eS9L?=
- =?utf-8?B?ejA5VTVoZ01CRjdleU5GZjcweXZ6TWpGVlkwSHhnK0lMNFJWKytIbHVCVjhO?=
- =?utf-8?B?ZFpSVStwaytXeXRMOUhuVXhHUzFheDgyVC94QU1Qd1NUTnIxNmxyTlRMZkpM?=
- =?utf-8?Q?6kKwhGbHJHuzbwb0=3D?=
-X-OriginatorOrg: kontron.de
-X-MS-Exchange-CrossTenant-Network-Message-Id: 3de2e39e-be34-4231-f40c-08debbdb1c4a
-X-MS-Exchange-CrossTenant-AuthSource: AM9PR10MB4277.EURPRD10.PROD.OUTLOOK.COM
-X-MS-Exchange-CrossTenant-AuthAs: Internal
-X-MS-Exchange-CrossTenant-OriginalArrivalTime: 27 May 2026 10:31:28.0858
- (UTC)
-X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
-X-MS-Exchange-CrossTenant-Id: 8c9d3c97-3fd9-41c8-a2b1-646f3942daf1
-X-MS-Exchange-CrossTenant-MailboxType: HOSTED
-X-MS-Exchange-CrossTenant-UserPrincipalName: JoNd/YjI6fIDRuYBRTK4psJFZSC5f7YfL4JrKQos08FqRBJ4edS0LgNiVUMrwPd6I565t0eVPIgxm8BGn/3ocQjmA1LhFJk3cmgaMGV2BY0=
-X-MS-Exchange-Transport-CrossTenantHeadersStamped: AM8PR10MB4130
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+In-Reply-To: <86se7duvgc.wl-maz@kernel.org>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260527_033134_094119_D6C0AF1E 
-X-CRM114-Status: GOOD (  22.34  )
+X-CRM114-CacheID: sfid-20260527_033248_014229_79090B43 
+X-CRM114-Status: GOOD (  15.43  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -157,63 +70,32 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On 02.04.26 20:33, Paul Kocialkowski wrote:
-> It is necessary to wait for the full frame to finish streaming
-> through the DMA engine before we can safely disable it by removing
-> the DISP_PARA_DISP_ON bit. Disabling it in-flight can leave the
-> hardware confused and unable to resume streaming for the next frame.
+On Wed, May 27, 2026 at 09:07:31AM +0100, Marc Zyngier wrote:
+> On Thu, 21 May 2026 14:25:38 +0100,
+> Mark Rutland <mark.rutland@arm.com> wrote:
+> > This series cleans up low-level FPSIMD/SVE/SME state management code,
+> > making it easier to maintain and extend (e.g. adding SME support to
+> > KVM), and enabling better debugging (e.g. by making SVE/SME save/restore
+> > visible to KASAN and KCSAN).
+> > 
+> > This is purely cleanup, there are NO bugs addressed by this series.
 > 
-> This causes the FIFO underrun and empty status bits to be set and
-> a single solid color to be shown on the display, coming from one of
-> the pixels of the previous frame. The issue occurs sporadically when
-> a new mode is set, which triggers the crtc disable and enable paths.
+> I had a look throughout, and couldn't see anything untoward other than
+> the couple of nits that were already pointed out. Killing the horrible
+> asm macros definitely brings a bit of fresh air to this code base.
 > 
-> Setting the shadow load bit and waiting for it to be cleared by the
-> DMA engine allows waiting for completion.
-> 
-> The NXP BSP driver addresses this issue with a hardcoded 25 ms sleep.
-> 
-> Fixes: 9db35bb349a0 ("drm: lcdif: Add support for i.MX8MP LCDIF variant")
-> Signed-off-by: Paul Kocialkowski <paulk@sys-base.io>
-> Co-developed-by: Lucas Stach <l.stach@pengutronix.de>
+> Given the sensitivity of the change, I'd like this to simmer in -next
+> for a bit. How do you want this to be merged? I'm happy to take the
+> whole thing in kvmarm, and share the branch with arm64.
 
-Reviewed-by: Frieder Schrempf <frieder.schrempf@kontron.de>
-Tested-by: Frieder Schrempf <frieder.schrempf@kontron.de>
+That works for me.
 
-> ---
->  drivers/gpu/drm/mxsfb/lcdif_kms.c | 15 ++++++++++++---
->  1 file changed, 12 insertions(+), 3 deletions(-)
-> 
-> diff --git a/drivers/gpu/drm/mxsfb/lcdif_kms.c b/drivers/gpu/drm/mxsfb/lcdif_kms.c
-> index a00c4f6d63f4..0d04a0028671 100644
-> --- a/drivers/gpu/drm/mxsfb/lcdif_kms.c
-> +++ b/drivers/gpu/drm/mxsfb/lcdif_kms.c
-> @@ -375,14 +375,23 @@ static void lcdif_disable_controller(struct lcdif_drm_private *lcdif)
->  	int ret;
->  
->  	reg = readl(lcdif->base + LCDC_V8_CTRLDESCL0_5);
-> +	/* Disable the layer for DMA. */
->  	reg &= ~CTRLDESCL0_5_EN;
-> +	/*
-> +	 * It is necessary to wait for the full frame to finish streaming
-> +	 * through the DMA engine before we can safely disable it by removing
-> +	 * the DISP_PARA_DISP_ON bit. Disabling it in-flight can leave the
-> +	 * hardware confused and unable to resume streaming for the next frame.
-> +	 */
-> +	reg |= CTRLDESCL0_5_SHADOW_LOAD_EN;
->  	writel(reg, lcdif->base + LCDC_V8_CTRLDESCL0_5);
->  
-> +	/* Wait for the frame to finish or timeout after 50 ms. */
->  	ret = readl_poll_timeout(lcdif->base + LCDC_V8_CTRLDESCL0_5,
-> -				 reg, !(reg & CTRLDESCL0_5_EN),
-> -				 0, 36000);	/* Wait ~2 frame times max */
-> +				 reg, !(reg & CTRLDESCL0_5_SHADOW_LOAD_EN),
-> +				 200, 50000);
->  	if (ret)
-> -		drm_err(lcdif->drm, "Failed to disable controller!\n");
-> +		drm_err(lcdif->drm, "Timed out waiting for final vblank!\n");
->  
->  	reg = readl(lcdif->base + LCDC_V8_DISP_PARA);
->  	reg &= ~DISP_PARA_DISP_ON;
+Catalin, Will, any preference?
 
+> I assume you'll post a v2 anyway?
+
+Yep; given the bits that need fixups, I'll send a v2 by the end of this
+week unless something explodes.
+
+Mark.
 
