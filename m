@@ -4,64 +4,61 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 41AECCD5BD5
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 27 May 2026 13:44:18 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 41249CD5BD5
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 27 May 2026 13:44:44 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
 	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
 	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=Qzhck0gw9pgwJJr+ZjjO323vwaaYqicFxNlPj8CzbAU=; b=OmA21Yyj/cp33CDrjHtAPDpI0g
-	34cXBd8XNGPJOq4E5uqT6SiiT8s0OkF0nOePUbu5sDfWmhJqV1gQCvcVOk+0JF932i/4BmsBV/2Wk
-	0xcK8RxrMLlK30tVIOX4NPGgfu8g0yXLfJYy4Pz7jhlrJvgoGpZ/X/JtWrNFOlnvsUksVrwOebKNB
-	UPEIHPg8rBl1KZxUPuKJdOrO9YlfxMVSshvoHnZ+XS3kCCsSTHbuSkYogg4Kgwc0VDwkztCSr4VWR
-	lip7b+6uZX6FphJil/OaZ3Z7Nhm4P37yGM7ydvWnZ5VAzMNOXrDRtywO3KnGzMhdpnOVHo5xIm+GV
-	113wqBrQ==;
+	bh=wBDNw67OfSFolH2WDb9pPw7/CW/q3p6N4lWl9LB86YQ=; b=ZNoBlb9LmDsYECA7Ro0texScpp
+	+kx0j6Rdftno//tJZ5lMLvAf3SCZj/Ta7n9kMNbwi9QZbAkQKgSurMrTBcf9OtIoWDstWCM1G/fp0
+	JLWYoyAf+RUMbGlbJn9dBlSruj8cUqZf66iGqKb5tSdG2DB2IKLh9W4VD4fyG4UGD/PUWAAT6d7qK
+	Ku1WtmviM3ppd0Rn6KTq3baqfQMpUPyQFdrlgRlYHBkoZbVodioBxhWtf4gTC+INPT9IkTsPFG+Qk
+	ValWF7ifAvqgu9soNb692bXu044Jsy+BrugxINYVWH9uk3wZXfCjEAop6QV6YeAUVs9g6CiHRq1di
+	eDtGz8GQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wSEYO-00000004E4d-0Xbr;
-	Wed, 27 May 2026 13:44:12 +0000
-Received: from out30-118.freemail.mail.aliyun.com ([115.124.30.118])
-	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wSEYH-00000004E3P-3qN9
+	id 1wSEYo-00000004EA9-11Qw;
+	Wed, 27 May 2026 13:44:38 +0000
+Received: from foss.arm.com ([217.140.110.172])
+	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
+	id 1wSEYl-00000004E98-3u1y
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 27 May 2026 13:44:10 +0000
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-	d=linux.alibaba.com; s=default;
-	t=1779889439; h=Message-ID:Date:MIME-Version:Subject:To:From:Content-Type;
-	bh=Qzhck0gw9pgwJJr+ZjjO323vwaaYqicFxNlPj8CzbAU=;
-	b=jW1Tm5jC9vRGaX/pQDf7yWqXUnnvzypjojAHC9XeBLiHjD+ZVefCJriMa4EYS/zVZa+/bfiuqKG17UYqPZYSJqaGaI3KHn8phHacsqkoxhAqS0UDJ0iX9xIK9dgA+KMrPDekR7VAEHohFKMD85CyUqaYZ/A0O+esONMTGBAj6Tk=
-X-Alimail-AntiSpam: AC=PASS;BC=-1|-1;BR=01201311R621e4;CH=green;DM=||false|;DS=||;FP=0|-1|-1|-1|0|-1|-1|-1;HT=maildocker-contentspam033032089153;MF=xueshuai@linux.alibaba.com;NM=1;PH=DS;RN=27;SR=0;TI=SMTPD_---0X3jnw6a_1779889436;
-Received: from 30.246.179.14(mailfrom:xueshuai@linux.alibaba.com fp:SMTPD_---0X3jnw6a_1779889436 cluster:ay36)
-          by smtp.aliyun-inc.com;
-          Wed, 27 May 2026 21:43:58 +0800
-Message-ID: <f75d7ff8-d965-4f17-8548-2525512a400a@linux.alibaba.com>
-Date: Wed, 27 May 2026 21:43:52 +0800
+	Wed, 27 May 2026 13:44:37 +0000
+Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
+	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id 68E032D97;
+	Wed, 27 May 2026 06:44:29 -0700 (PDT)
+Received: from [10.1.38.169] (e121487-lin.cambridge.arm.com [10.1.38.169])
+	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id 090723F632;
+	Wed, 27 May 2026 06:44:31 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=simple/simple; d=arm.com; s=foss;
+	t=1779889474; bh=mPjXi4LhesBvZE4cd7vOSI7kwkUuUC6HHN24sRqWEkA=;
+	h=Date:Subject:To:Cc:References:From:In-Reply-To:From;
+	b=DdhW0Zr2Gp1GlujweNMiId/y59QTF2IRQkiq4IX4NPF4LE6O1fN98hlKl6YpBiI6b
+	 K5np75C13KW1496eBzG2C57gDYBsn1gvG94w7ytJUEcRK6mlEWLvwD3lrJRK9eHhn5
+	 lFLTpbZXWgU/2PAw0hK4bhGfFqDB0OexQd6paahs=
+Message-ID: <45ccd712-4b46-45ca-b746-bbc5c7e8f7f9@arm.com>
+Date: Wed, 27 May 2026 14:44:29 +0100
 MIME-Version: 1.0
 User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH v14 6/8] lib/test: memcpy_kunit: add copy_page() and
- copy_mc_page() tests
-To: Ruidong Tian <tianruidong@linux.alibaba.com>, catalin.marinas@arm.com,
- will@kernel.org, rafael@kernel.org, tony.luck@intel.com,
- guohanjun@huawei.com, mchehab@kernel.org, tongtiangen@huawei.com,
- james.morse@arm.com, robin.murphy@arm.com, andreyknvl@gmail.com,
- dvyukov@google.com, vincenzo.frascino@arm.com, mpe@ellerman.id.au,
- npiggin@gmail.com, ryabinin.a.a@gmail.com, glider@google.com,
- christophe.leroy@csgroup.eu, aneesh.kumar@kernel.org,
- naveen.n.rao@linux.ibm.com, tglx@linutronix.de, mingo@redhat.com
-Cc: linux-arm-kernel@lists.infradead.org, linux-mm@kvack.org,
- linuxppc-dev@lists.ozlabs.org, linux-kernel@vger.kernel.org,
- kasan-dev@googlegroups.com
-References: <20260518084956.2538442-1-tianruidong@linux.alibaba.com>
- <20260518084956.2538442-7-tianruidong@linux.alibaba.com>
-From: Shuai Xue <xueshuai@linux.alibaba.com>
-In-Reply-To: <20260518084956.2538442-7-tianruidong@linux.alibaba.com>
-Content-Type: text/plain; charset=UTF-8; format=flowed
+Subject: Re: [PATCH 11/18] arm64: fpsimd: Split FPSR/FPCR from SVE
+ save/restore
+To: Mark Rutland <mark.rutland@arm.com>,
+ linux-arm-kernel@lists.infradead.org, kvmarm@lists.linux.dev
+Cc: broonie@kernel.org, catalin.marinas@arm.com, james.morse@arm.com,
+ maz@kernel.org, oupton@kernel.org, tabba@google.com, will@kernel.org
+References: <20260521132556.584676-1-mark.rutland@arm.com>
+ <20260521132556.584676-12-mark.rutland@arm.com>
+Content-Language: en-GB
+From: Vladimir Murzin <vladimir.murzin@arm.com>
+In-Reply-To: <20260521132556.584676-12-mark.rutland@arm.com>
+Content-Type: text/plain; charset=UTF-8
 Content-Transfer-Encoding: 7bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260527_064407_040596_84925CAC 
-X-CRM114-Status: GOOD (  19.09  )
+X-CRM114-CacheID: sfid-20260527_064436_066171_75B234C7 
+X-CRM114-Status: GOOD (  27.26  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -76,107 +73,274 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-
-
-On 5/18/26 4:49 PM, Ruidong Tian wrote:
-> Add KUnit tests for copy_page() and copy_mc_page(), modeled after
-> the existing memcpy_test() style: a static page-aligned src and a
-> two-page dst, filled with random bytes plus non-zero edges, then
-> verify byte-for-byte equality and that the adjacent page is
-> untouched. The copy_mc_page() case additionally checks the return
-> value is 0 on clean memory and is gated on CONFIG_ARCH_HAS_COPY_MC.
+On 5/21/26 14:25, Mark Rutland wrote:
+> Regardless of whether the vector registers are saved in FPSIMD or SVE
+> format, we store FPSR and FPCR in user_fpsimd_state::{fpsr,fpcr}.
 > 
-> Signed-off-by: Ruidong Tian <tianruidong@linux.alibaba.com>
+> For historical reasons, the functions which save/restore SVE context
+> take a pointer to user_fpsimd_state::fpsr, and use this to access both
+> user_fpsimd_state::fpsr and user_fpsimd_state::fpcr. This is
+> unnecessarily fragile.
+> 
+> Move the save/restore of FPSR and FPCR into separate helper functions
+> which take a pointer to user_fpsimd_state. I've used read_sysreg_s() and
+> write_sysreg_s() as contemporary versions of LLVM will refuse to
+> directly assemble accesses to FPCR or FPSR unless the "fp" arch
+> extension is enabled.
+> 
+> Note that the SVE assembly sequence for restoring FPCR uses an
+> unconditional write to FPCR. The plain FPSIMD assembly sequence has used
+> a conditional write to FPCR since 2014 in commit:
+> 
+>   5959e25729a5 ("arm64: fpsimd: avoid restoring fpcr if the contents haven't change")
+> 
+> ... but this was not followed for the SVE restore assembly implemented
+> in 2017 in commit:
+> 
+>   1fc5dce78ad1 ("arm64/sve: Low-level SVE architectural state manipulation functions")
+> 
+> ... so I've assumed that this doesn't actually matter in practice, and
+> implemented the C version matching the existing SVE assembly.
+> 
+> For the moment, fpsimd_save_state() and fpsimd_load_state() are left
+> as-is with their own logic to save/restore FPSR and FPCR. This will be
+> unified in subsequent patches.
+> 
+> Signed-off-by: Mark Rutland <mark.rutland@arm.com>
+> Cc: Catalin Marinas <catalin.marinas@arm.com>
+> Cc: Fuad Tabba <tabba@google.com>
+> Cc: James Morse <james.morse@arm.com>
+> Cc: Marc Zyngier <maz@kernel.org>
+> Cc: Mark Brown <broonie@kernel.org>
+> Cc: Oliver Upton <oupton@kernel.org>
+> Cc: Will Deacon <will@kernel.org>
 > ---
->   lib/tests/memcpy_kunit.c | 67 +++++++++++++++++++++++++++++++++++++++-
->   1 file changed, 66 insertions(+), 1 deletion(-)
+>  arch/arm64/include/asm/fpsimd.h         | 17 ++++++++++++++---
+>  arch/arm64/include/asm/fpsimdmacros.h   | 13 ++-----------
+>  arch/arm64/include/asm/kvm_hyp.h        |  4 ++--
+>  arch/arm64/kernel/entry-fpsimd.S        | 10 ++++------
+>  arch/arm64/kernel/fpsimd.c              |  5 +++--
+>  arch/arm64/kvm/hyp/fpsimd.S             |  4 ++--
+>  arch/arm64/kvm/hyp/include/hyp/switch.h |  4 ++--
+>  arch/arm64/kvm/hyp/nvhe/hyp-main.c      |  5 +++--
+>  8 files changed, 32 insertions(+), 30 deletions(-)
 > 
-> diff --git a/lib/tests/memcpy_kunit.c b/lib/tests/memcpy_kunit.c
-> index d36933554e46..85df53ccfb0c 100644
-> --- a/lib/tests/memcpy_kunit.c
-> +++ b/lib/tests/memcpy_kunit.c
-> @@ -493,6 +493,67 @@ static void memmove_overlap_test(struct kunit *test)
->   	}
->   }
->   
-> +/* --- Page-sized copy tests --- */
-> +
-> +static u8 page_src[PAGE_SIZE] __aligned(PAGE_SIZE);
-> +static u8 page_dst[PAGE_SIZE * 2] __aligned(PAGE_SIZE);
-> +static const u8 page_zero[PAGE_SIZE] __aligned(PAGE_SIZE);
-> +
-> +static void init_page(struct kunit *test)
+> diff --git a/arch/arm64/include/asm/fpsimd.h b/arch/arm64/include/asm/fpsimd.h
+> index 36cf528e64971..6fd5cdf5e5f17 100644
+> --- a/arch/arm64/include/asm/fpsimd.h
+> +++ b/arch/arm64/include/asm/fpsimd.h
+> @@ -74,6 +74,18 @@ static inline void cpacr_restore(unsigned long cpacr)
+>  
+>  struct task_struct;
+>  
+> +static inline void fpsimd_save_common(struct user_fpsimd_state *state)
 > +{
-> +	/* Get many bit patterns. */
-> +	get_random_bytes(page_src, PAGE_SIZE);
-> +
-> +	/* Make sure we have non-zero edges. */
-> +	set_random_nonzero(test, &page_src[0]);
-> +	set_random_nonzero(test, &page_src[PAGE_SIZE - 1]);
-> +
-> +	/* Explicitly zero the entire destination. */
-> +	memset(page_dst, 0, ARRAY_SIZE(page_dst));
-
-    init_page() memsets the entire two-page page_dst to zero, and the
-    test then asserts the second page is still zero. A buggy copy_page()
-    that overwrites the second page with bytes that happen to include a
-    zero byte would still pass.
-
-    Please fill page_dst with a non-zero sentinel (e.g. 0xA5) instead
-    of zero, and check the second half against that sentinel using
-    memchr_inv():
-
-        memset(page_dst, 0xA5, ARRAY_SIZE(page_dst));
-        ...
-        KUNIT_ASSERT_TRUE_MSG(test,
-            !memchr_inv(page_dst + PAGE_SIZE, 0xA5, PAGE_SIZE),
-            "copy_page overflow into adjacent page");
-
-    This also lets you delete page_zero[] entirely, which on
-    PAGE_SIZE=64K configs (arm64) saves a non-trivial amount of BSS.
-
-
+> +	state->fpsr = read_sysreg_s(SYS_FPSR);
+> +	state->fpcr = read_sysreg_s(SYS_FPCR);
 > +}
 > +
-> +static void copy_page_test(struct kunit *test)
+> +static inline void fpsimd_load_common(const struct user_fpsimd_state *state)
 > +{
-> +	init_page(test);
-> +
-> +	/* Copy. */
-> +	copy_page(page_dst, page_src);
-> +
-> +	/* Verify byte-for-byte exact. */
-> +	KUNIT_ASSERT_EQ_MSG(test,
-> +		memcmp(page_dst, page_src, PAGE_SIZE), 0,
-> +		"copy_page content mismatch with random data");
-> +
-> +	/* Verify no overflow into second page. */
-> +	KUNIT_ASSERT_EQ_MSG(test,
-> +		memcmp(page_dst + PAGE_SIZE, page_zero, PAGE_SIZE), 0,
-> +		"copy_page overflow into adjacent page");
+> +	write_sysreg_s(state->fpsr, SYS_FPSR);
+> +	write_sysreg_s(state->fpcr, SYS_FPCR);
 > +}
 > +
-> +#ifdef CONFIG_ARCH_HAS_COPY_MC
-> +static void copy_mc_page_test(struct kunit *test)
-> +{
-> +	int ret;
-> +
-> +	init_page(test);
-> +
-> +	/* Copy and check return value. */
-> +	ret = copy_mc_page(page_dst, page_src);
+>  extern void fpsimd_save_state(struct user_fpsimd_state *state);
+>  extern void fpsimd_load_state(struct user_fpsimd_state *state);
+>  
+> @@ -157,9 +169,8 @@ static inline unsigned int sve_get_vl(void)
+>  	return vl;
+>  }
+>  
+> -extern void sve_save_state(void *state, u32 *pfpsr, int save_ffr);
+> -extern void sve_load_state(void const *state, u32 const *pfpsr,
+> -			   int restore_ffr);
+> +extern void sve_save_state(void *state, int save_ffr);
+> +extern void sve_load_state(void const *state, int restore_ffr);
+>  extern void sve_flush_live(bool flush_ffr, unsigned long vq_minus_1);
+>  extern void sme_save_state(void *state, int zt);
+>  extern void sme_load_state(void const *state, int zt);
+> diff --git a/arch/arm64/include/asm/fpsimdmacros.h b/arch/arm64/include/asm/fpsimdmacros.h
+> index d75c9d4c9989b..c79ae7ec1ff05 100644
+> --- a/arch/arm64/include/asm/fpsimdmacros.h
+> +++ b/arch/arm64/include/asm/fpsimdmacros.h
+> @@ -235,7 +235,7 @@
+>  		_sve_wrffr	0
+>  .endm
+>  
+> -.macro sve_save nxbase, xpfpsr, save_ffr, nxtmp
+> +.macro sve_save nxbase, save_ffr
+>   _for n, 0, 31,	_sve_str_v	\n, \nxbase, \n - 34
+>   _for n, 0, 15,	_sve_str_p	\n, \nxbase, \n - 16
+>  		cbz		\save_ffr, 921f
+> @@ -246,24 +246,15 @@
+>  922:
+>  		_sve_str_p	0, \nxbase
+>  		_sve_ldr_p	0, \nxbase, -16
+> -		mrs		x\nxtmp, fpsr
+> -		str		w\nxtmp, [\xpfpsr]
+> -		mrs		x\nxtmp, fpcr
+> -		str		w\nxtmp, [\xpfpsr, #4]
+>  .endm
+>  
+> -.macro sve_load nxbase, xpfpsr, restore_ffr, nxtmp
+> +.macro sve_load nxbase, restore_ffr
+>   _for n, 0, 31,	_sve_ldr_v	\n, \nxbase, \n - 34
+>  		cbz		\restore_ffr, 921f
+>  		_sve_ldr_p	0, \nxbase
+>  		_sve_wrffr	0
+>  921:
+>   _for n, 0, 15,	_sve_ldr_p	\n, \nxbase, \n - 16
+> -
+> -		ldr		w\nxtmp, [\xpfpsr]
+> -		msr		fpsr, x\nxtmp
+> -		ldr		w\nxtmp, [\xpfpsr, #4]
+> -		msr		fpcr, x\nxtmp
+>  .endm
+>  
+>  .macro sme_save_za nxbase, xvl, nw
+> diff --git a/arch/arm64/include/asm/kvm_hyp.h b/arch/arm64/include/asm/kvm_hyp.h
+> index 8d06b62e7188c..0030cc1b52197 100644
+> --- a/arch/arm64/include/asm/kvm_hyp.h
+> +++ b/arch/arm64/include/asm/kvm_hyp.h
+> @@ -123,8 +123,8 @@ void __debug_restore_host_buffers_nvhe(struct kvm_vcpu *vcpu);
+>  
+>  void __fpsimd_save_state(struct user_fpsimd_state *fp_regs);
+>  void __fpsimd_restore_state(struct user_fpsimd_state *fp_regs);
+> -void __sve_save_state(void *sve_pffr, u32 *fpsr, int save_ffr);
+> -void __sve_restore_state(void *sve_pffr, u32 *fpsr, int restore_ffr);
+> +void __sve_save_state(void *sve, int save_ffr);
+> +void __sve_restore_state(void *sve, int restore_ffr);
+>  
+>  u64 __guest_enter(struct kvm_vcpu *vcpu);
+>  
+> diff --git a/arch/arm64/kernel/entry-fpsimd.S b/arch/arm64/kernel/entry-fpsimd.S
+> index 7f2d31dff8c17..83fe9c32bbd1c 100644
+> --- a/arch/arm64/kernel/entry-fpsimd.S
+> +++ b/arch/arm64/kernel/entry-fpsimd.S
+> @@ -37,11 +37,10 @@ SYM_FUNC_END(fpsimd_load_state)
+>   * Save the SVE state
+>   *
+>   * x0 - pointer to buffer for state
+> - * x1 - pointer to storage for FPSR
+> - * x2 - Save FFR if non-zero
+> + * x1 - Save FFR if non-zero
+>   */
+>  SYM_FUNC_START(sve_save_state)
+> -	sve_save 0, x1, x2, 3
+> +	sve_save 0, x1
+>  	ret
+>  SYM_FUNC_END(sve_save_state)
+>  
+> @@ -49,11 +48,10 @@ SYM_FUNC_END(sve_save_state)
+>   * Load the SVE state
+>   *
+>   * x0 - pointer to buffer for state
+> - * x1 - pointer to storage for FPSR
+> - * x2 - Restore FFR if non-zero
+> + * x1 - Restore FFR if non-zero
+>   */
+>  SYM_FUNC_START(sve_load_state)
+> -	sve_load 0, x1, x2, 4
+> +	sve_load 0, x1
+>  	ret
+>  SYM_FUNC_END(sve_load_state)
+>  
+> diff --git a/arch/arm64/kernel/fpsimd.c b/arch/arm64/kernel/fpsimd.c
+> index 2578c2372c89e..9806fea8fea7c 100644
+> --- a/arch/arm64/kernel/fpsimd.c
+> +++ b/arch/arm64/kernel/fpsimd.c
+> @@ -426,8 +426,8 @@ static void task_fpsimd_load(void)
+>  	if (restore_sve_regs) {
+>  		WARN_ON_ONCE(current->thread.fp_type != FP_STATE_SVE);
+>  		sve_load_state(sve_pffr(&current->thread),
+> -			       &current->thread.uw.fpsimd_state.fpsr,
+>  			       restore_ffr);
+> +		fpsimd_load_common(&current->thread.uw.fpsimd_state);
+>  	} else {
+>  		WARN_ON_ONCE(current->thread.fp_type != FP_STATE_FPSIMD);
+>  		fpsimd_load_state(&current->thread.uw.fpsimd_state);
+> @@ -509,7 +509,8 @@ static void fpsimd_save_user_state(void)
+>  
+>  		sve_save_state((char *)last->sve_state +
+>  					sve_ffr_offset(vl),
+> -			       &last->st->fpsr, save_ffr);
+> +			       save_ffr);
+> +		fpsimd_save_common(last->st);
+>  		*last->fp_type = FP_STATE_SVE;
+>  	} else {
+>  		fpsimd_save_state(last->st);
+> diff --git a/arch/arm64/kvm/hyp/fpsimd.S b/arch/arm64/kvm/hyp/fpsimd.S
+> index 6e16cbfc5df27..8575e32977d19 100644
+> --- a/arch/arm64/kvm/hyp/fpsimd.S
+> +++ b/arch/arm64/kvm/hyp/fpsimd.S
+> @@ -21,11 +21,11 @@ SYM_FUNC_START(__fpsimd_restore_state)
+>  SYM_FUNC_END(__fpsimd_restore_state)
+>  
+>  SYM_FUNC_START(__sve_restore_state)
+> -	sve_load 0, x1, x2, 3
+> +	sve_load 0, x1
+>  	ret
+>  SYM_FUNC_END(__sve_restore_state)
+>  
+>  SYM_FUNC_START(__sve_save_state)
+> -	sve_save 0, x1, x2, 3
+> +	sve_save 0, x1
+>  	ret
+>  SYM_FUNC_END(__sve_save_state)
+> diff --git a/arch/arm64/kvm/hyp/include/hyp/switch.h b/arch/arm64/kvm/hyp/include/hyp/switch.h
+> index 6512dd3f75ae4..eb76a863ebb84 100644
+> --- a/arch/arm64/kvm/hyp/include/hyp/switch.h
+> +++ b/arch/arm64/kvm/hyp/include/hyp/switch.h
+> @@ -468,8 +468,8 @@ static inline void __hyp_sve_restore_guest(struct kvm_vcpu *vcpu)
+>  	 */
+>  	sve_cond_update_zcr_vq(vcpu_sve_max_vq(vcpu) - 1, SYS_ZCR_EL2);
+>  	__sve_restore_state(vcpu_sve_pffr(vcpu),
+> -			    &vcpu->arch.ctxt.fp_regs.fpsr,
+>  			    true);
+> +	fpsimd_load_common(&vcpu->arch.ctxt.fp_regs);
+>  
+>  	/*
+>  	 * The effective VL for a VM could differ from the max VL when running a
+> @@ -490,8 +490,8 @@ static inline void __hyp_sve_save_host(void)
+>  	ctxt_sys_reg(hctxt, ZCR_EL1) = read_sysreg_el1(SYS_ZCR);
+>  	write_sysreg_s(sve_vq_from_vl(kvm_host_sve_max_vl) - 1, SYS_ZCR_EL2);
+>  	__sve_save_state(sve_regs + sve_ffr_offset(kvm_host_sve_max_vl),
+> -			 &hctxt->fp_regs.fpsr,
+>  			 true);
+> +	fpsimd_save_common(&hctxt->fp_regs);
+>  }
+>  
+>  static inline void fpsimd_lazy_switch_to_guest(struct kvm_vcpu *vcpu)
+> diff --git a/arch/arm64/kvm/hyp/nvhe/hyp-main.c b/arch/arm64/kvm/hyp/nvhe/hyp-main.c
+> index 04a6d2e0ea73f..0be4577a67e7b 100644
+> --- a/arch/arm64/kvm/hyp/nvhe/hyp-main.c
+> +++ b/arch/arm64/kvm/hyp/nvhe/hyp-main.c
+> @@ -35,7 +35,8 @@ static void __hyp_sve_save_guest(struct kvm_vcpu *vcpu)
+>  	 * on the VL, so use a consistent (i.e., the maximum) guest VL.
+>  	 */
+>  	sve_cond_update_zcr_vq(vcpu_sve_max_vq(vcpu) - 1, SYS_ZCR_EL2);
+> -	__sve_save_state(vcpu_sve_pffr(vcpu), &vcpu->arch.ctxt.fp_regs.fpsr, true);
+> +	__sve_save_state(vcpu_sve_pffr(vcpu), true);
+> +	fpsimd_save_common(&vcpu->arch.ctxt.fp_regs);
+>  	write_sysreg_s(sve_vq_from_vl(kvm_host_sve_max_vl) - 1, SYS_ZCR_EL2);
+>  }
+>  
+> @@ -55,8 +56,8 @@ static void __hyp_sve_restore_host(void)
+>  	 */
+>  	write_sysreg_s(sve_vq_from_vl(kvm_host_sve_max_vl) - 1, SYS_ZCR_EL2);
+>  	__sve_restore_state(sve_regs + sve_ffr_offset(kvm_host_sve_max_vl),
+> -			    &hctxt->fp_regs.fpsr,
+>  			    true);
+> +	fpsimd_load_common(&hctxt->fp_regs);
+>  	write_sysreg_el1(ctxt_sys_reg(hctxt, ZCR_EL1), SYS_ZCR);
+>  }
+>  
+> -- 2.30.2
+> 
 
- From sashiko:
+FWIW,
 
-Does this introduce a build regression on architectures like x86_64 or
-powerpc?
-The CONFIG_ARCH_HAS_COPY_MC flag is selected by multiple architectures,
-but copy_mc_page() is an arm64-specific API. Other architectures use the
-generic copy_mc_to_kernel() API instead.
-If the kernel is built with KUnit enabled on non-arm64 architectures, it
-appears copy_mc_page() would be an undeclared identifier.
+Reviewed-by: Vladimir Murzin <vladimir.murzin@arm.com>
 
-
-Thanks.
-Shuai
 
