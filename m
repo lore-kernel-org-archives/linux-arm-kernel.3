@@ -4,89 +4,61 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 23B47CD4F54
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 27 May 2026 10:42:44 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 811F7CD4F54
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 27 May 2026 10:44:59 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	MIME-Version:Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-Type:
-	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
-	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
-	bh=UHUfn8CsP06uZW2KYcWPd/uEBbB2UBx7qyNJnvj6SOA=; b=THoTOclyYB3CLxWGnLbDmJyfU4
-	JtqC06wSvSma+Sb09z4TSgJ0JaNjkbcGjBXHJnHLEuCj9jewARNp731Bl5qoDbyz43J1L2T8CfCPO
-	AftgHzl8FSpa9JQNTcaW3BnrWGNDlvWYWdVjDMw8Gr1cZC5RaS1rrL+2yb3/iR+++JOFhE0RkKyqw
-	i3WUl96tBFaBagqLJzGBMg1WvmUvdHRS7PJY96A57EvCXF+CAlCLzsdl15nmtOc/y4GGm2uT8qP3p
-	aZCwHHIAow3rYb+M7d+v/1vs3jCfmyiz2FlDXlvCN3qIW/l+NS2z2PhwEWTOoSu7rTE42nmN1VQfB
-	tYLinE2g==;
+	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
+	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=OXEyFTc/2H1C0ADf08yPkw0esu65/84A/IgbUGMmzxk=; b=TrMz+iRQXwtcVBg8pwvTGozqJP
+	o+VhZna83r7Ca2TUaHxSBAoLO5TmbN2G0+vddm6qjeLmUoLUO/xZD757GMCkPZp0R6Lv4AmFJYWNb
+	zWIEc9fHi7WOqhhBi6BEwgvKGPllTHUBMUfddPLuFIpG5yVVXvRs/hgoTkViQoJwSx2+MGkWECbKv
+	6iUzIaXDh5nND8MEh9bxQ1MFZM2M4mVyGhDzZkoFW2LYjnMU7RZQXwzcQkYuupU9Xf6Ev5MahFRBw
+	C7cS+aaj9xw8RdZzpWP7ie4/5SesdECa+IAsuGCKm59N+8zFqu413Ghbqlb44gl9U8jjEqjYWX/Ie
+	EWgjCCsw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wSBif-00000003wYh-4AfJ;
-	Wed, 27 May 2026 10:42:37 +0000
-Received: from mail-pj1-x1044.google.com ([2607:f8b0:4864:20::1044])
-	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wSBid-00000003wXm-3W2k
+	id 1wSBVq-00000003tAV-1M2i;
+	Wed, 27 May 2026 10:29:22 +0000
+Received: from foss.arm.com ([217.140.110.172])
+	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
+	id 1wSBVn-00000003t8T-1rRQ
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 27 May 2026 10:42:37 +0000
-Received: by mail-pj1-x1044.google.com with SMTP id 98e67ed59e1d1-3699cdeec05so5027438a91.3
-        for <linux-arm-kernel@lists.infradead.org>; Wed, 27 May 2026 03:42:35 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20251104; t=1779878555; x=1780483355; darn=lists.infradead.org;
-        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
-         :to:from:from:to:cc:subject:date:message-id:reply-to;
-        bh=UHUfn8CsP06uZW2KYcWPd/uEBbB2UBx7qyNJnvj6SOA=;
-        b=IcFYC6ayB/KcELyCPSQvlWd7J5ct524sqdlxKnX/w0TzEMQCVRz9grDj9BoEpy9DLm
-         mHwm7UZjpdhXnhMHJvH56mCLJxe2qgh+lvi7uLBy85x3Z3Fgmdn9G2gAcXVFSpsZE5Ux
-         /3ODYUi1ThkM/mRrRBxxxTOlZvBRw0xR8erAleZUghlver2M2N72bXOEwc3oEcOMR//K
-         OTdUMib95lUzyXW1L/b1B3GNywlS8CRrr3p1lpUutn5CWEM1+El3mdwgaop9VyAmOhJE
-         XFMTz4kl1RiPXpk2P0sFfAasaCtGEGK3ML9vkVGzszdyOS7UnQ+bR9NmZDiYn4PcE5lQ
-         gTog==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20251104; t=1779878555; x=1780483355;
-        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
-         :to:from:x-gm-gg:x-gm-message-state:from:to:cc:subject:date
-         :message-id:reply-to;
-        bh=UHUfn8CsP06uZW2KYcWPd/uEBbB2UBx7qyNJnvj6SOA=;
-        b=SSKEdebhKP0SDZZDqXZKLjsUAO1W26s6pugLCgPBA0YOBQpGwlSI6NzPBvAs4wlrXF
-         79OLx7l/U2ZTb9XKhgdX1pCQ+fYo4s/8uCfHVKI8JcCJ2X+by3paNHaDSuEW/hGyhzsO
-         DFIG5LYwz9h0EYlpUxoYFJWVt4sODHA0j4MCKTHmlXyOLzSBgOb/hON0ono0ZE/q8YZE
-         fCYoXgaxUyh9ZPkMigtx6fj2zR45fqXH66blnJYTBeVopSqDBE9QdMvb3xO3qF10lO96
-         UDfKFyn+8kn+EiM04Q80C9nTDzuu/Rfuw2ESfwlJmCxVnFDSijAdNo20efJcVJfLE4cd
-         yFjw==
-X-Forwarded-Encrypted: i=1; AFNElJ/pGJCaGgC0P5DXzZKKXiiwzgtAH3xSdzUTamEMBopM2X2986UDU+r54uvBPgpbT/q//RneasNDMPNNrnytbJy5@lists.infradead.org
-X-Gm-Message-State: AOJu0Yy6GVycA10V8c9ggm4em5xaazasVVGKDbgDP4PZtAnzc8bsO+7R
-	sIG9sZ7YGPeosz52VfX4PQ4ipOE5MP1dFYrJdKFBlhW/TbWlLKIUvU8=
-X-Gm-Gg: Acq92OGRdzP4rBe44+wAP7sKUsSxX5hVg+0zqgKmiC17htLGUiX/+SNHxdw9VL9+vsk
-	s7+KtRX4RB4ZH4sdmnCdK2I5O+WFN4pTjgOj3B8/vBz/I5WgdUFrW2B08ZxQOJdor9qdm4ZVGD5
-	cTSxyV0y2nFT1AEq4+5zJi5Ieuh+p2K6Ta6FET/uYlLGtNb3CjDzE41nvQS19iSR4YIj/l6O27X
-	hDyD8hrAJ8/juzD0hm6ixpKzeftuCbQuhTDuvRFt2iyo/w+ROms/FXzdPrl2tN331IxdCGEj7rH
-	3ZUNJIy5HvUd2Wd3VinoA/IO57MA7yhypO65YQWUUeHCoYf/yZIBVZ+yvr4KQnsC2vOXxBfpjmM
-	kg+qgb08F3cJF3rZkFGsosd8oNgXYss9UkAAcWKAQ+pPvDiQkYxFNa5tZFGIvUpcy9fKXm3Y9o2
-	9CL+Q2AIc8NiRiWxJ0fMGe6wof1wwzN2yupUnNS2n7s4+N
-X-Received: by 2002:a17:902:d48e:b0:2ba:5a20:1d94 with SMTP id d9443c01a7336-2beb059944cmr252757165ad.13.1779878554858;
-        Wed, 27 May 2026 03:42:34 -0700 (PDT)
-Received: from localhost.localdomain ([211.196.223.197])
-        by smtp.gmail.com with ESMTPSA id d9443c01a7336-2beb58ff106sm141099865ad.74.2026.05.27.03.42.32
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Wed, 27 May 2026 03:42:34 -0700 (PDT)
-From: Jinseok Kim <always.starving0@gmail.com>
-To: robh@kernel.org,
-	krzk+dt@kernel.org,
-	conor+dt@kernel.org,
-	florian.fainelli@broadcom.com
-Cc: bcm-kernel-feedback-list@broadcom.com,
-	devicetree@vger.kernel.org,
-	linux-rpi-kernel@lists.infradead.org,
-	linux-arm-kernel@lists.infradead.org,
-	linux-kernel@vger.kernel.org
-Subject: [PATCH v2] arm: dts: bcm2711: Fix typo in gpio-line-names
-Date: Wed, 27 May 2026 19:39:26 +0900
-Message-ID: <20260527103930.2973-1-always.starving0@gmail.com>
-X-Mailer: git-send-email 2.43.0
+	Wed, 27 May 2026 10:29:20 +0000
+Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
+	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id BBE1627DC;
+	Wed, 27 May 2026 03:29:11 -0700 (PDT)
+Received: from [10.1.38.169] (e121487-lin.cambridge.arm.com [10.1.38.169])
+	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id 0DD3D3F7D8;
+	Wed, 27 May 2026 03:29:14 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=simple/simple; d=arm.com; s=foss;
+	t=1779877756; bh=an1VQauBa3szYuSoR/rxPEfAwyMNialOgqaQAspDRoQ=;
+	h=Date:Subject:To:Cc:References:From:In-Reply-To:From;
+	b=Bx0tmwktToJeqRF85d4stZeigUBKhqoc7xzH29pq110Thz+G7ni05fWtvPHYTcH4W
+	 +1f3juWp3XQxxyXaApID43L1+IPB//KqKarm1znOMWAPEfReAf/JoP0se2UXa3BGRB
+	 b2cpYIY/Yq4pMOR1W7IeXbDW+6jq7kBIwDcMQ4m4=
+Message-ID: <75b2d87f-b609-4c17-9aac-df20bea73ee8@arm.com>
+Date: Wed, 27 May 2026 11:29:12 +0100
 MIME-Version: 1.0
-Content-Transfer-Encoding: 8bit
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH 03/18] KVM: arm64: pkvm: Save host FPMR in host cpu
+ context
+To: Mark Rutland <mark.rutland@arm.com>,
+ linux-arm-kernel@lists.infradead.org, kvmarm@lists.linux.dev
+Cc: broonie@kernel.org, catalin.marinas@arm.com, james.morse@arm.com,
+ maz@kernel.org, oupton@kernel.org, tabba@google.com, will@kernel.org
+References: <20260521132556.584676-1-mark.rutland@arm.com>
+ <20260521132556.584676-4-mark.rutland@arm.com>
+Content-Language: en-GB
+From: Vladimir Murzin <vladimir.murzin@arm.com>
+In-Reply-To: <20260521132556.584676-4-mark.rutland@arm.com>
+Content-Type: text/plain; charset=UTF-8
+Content-Transfer-Encoding: 7bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260527_034235_880393_8FBE2453 
-X-CRM114-Status: GOOD (  13.12  )
+X-CRM114-CacheID: sfid-20260527_032919_573072_BFEBADCF 
+X-CRM114-Status: GOOD (  19.28  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -101,44 +73,99 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Replace "RGMIO_MDC" with "RGMII_MDC" in gpio-line-names.
+On 5/21/26 14:25, Mark Rutland wrote:
+> Protected KVM stores most of the host's system register state in
+> kvm_host_data::host_ctxt, which is an instance of struct
+> kvm_cpu_context. As kvm_cpu_context::sys_regs[] has a slot for FPMR, we
+> can store the host's FPMR there.
+> 
+> Do so, and remove kvm_host_data::fpmr.
+> 
+> Signed-off-by: Mark Rutland <mark.rutland@arm.com>
+> Cc: Catalin Marinas <catalin.marinas@arm.com>
+> Cc: Fuad Tabba <tabba@google.com>
+> Cc: James Morse <james.morse@arm.com>
+> Cc: Marc Zyngier <maz@kernel.org>
+> Cc: Mark Brown <broonie@kernel.org>
+> Cc: Oliver Upton <oupton@kernel.org>
+> Cc: Will Deacon <will@kernel.org>
+> ---
+>  arch/arm64/include/asm/kvm_host.h       | 3 ---
+>  arch/arm64/kvm/hyp/include/hyp/switch.h | 6 ++++--
+>  arch/arm64/kvm/hyp/nvhe/hyp-main.c      | 5 +++--
+>  3 files changed, 7 insertions(+), 7 deletions(-)
+> 
+> diff --git a/arch/arm64/include/asm/kvm_host.h b/arch/arm64/include/asm/kvm_host.h
+> index 65eead8362e0b..42b1c4764a4bf 100644
+> --- a/arch/arm64/include/asm/kvm_host.h
+> +++ b/arch/arm64/include/asm/kvm_host.h
+> @@ -775,9 +775,6 @@ struct kvm_host_data {
+>  	 */
+>  	struct cpu_sve_state *sve_state;
+>  
+> -	/* Used by pKVM only. */
+> -	u64	fpmr;
+> -
+>  	/* Ownership of the FP regs */
+>  	enum {
+>  		FP_STATE_FREE,
+> diff --git a/arch/arm64/kvm/hyp/include/hyp/switch.h b/arch/arm64/kvm/hyp/include/hyp/switch.h
+> index 98b2976837b11..cc4d011a2b380 100644
+> --- a/arch/arm64/kvm/hyp/include/hyp/switch.h
+> +++ b/arch/arm64/kvm/hyp/include/hyp/switch.h
+> @@ -554,6 +554,8 @@ static inline void fpsimd_lazy_switch_to_host(struct kvm_vcpu *vcpu)
+>  
+>  static void kvm_hyp_save_fpsimd_host(struct kvm_vcpu *vcpu)
+>  {
+> +	struct kvm_cpu_context *hctxt = host_data_ptr(host_ctxt);
+> +
+>  	/*
+>  	 * Non-protected kvm relies on the host restoring its sve state.
+>  	 * Protected kvm restores the host's sve state as not to reveal that
+> @@ -562,11 +564,11 @@ static void kvm_hyp_save_fpsimd_host(struct kvm_vcpu *vcpu)
+>  	if (system_supports_sve()) {
+>  		__hyp_sve_save_host();
+>  	} else {
+> -		__fpsimd_save_state(host_data_ptr(host_ctxt.fp_regs));
+> +		__fpsimd_save_state(&hctxt->fp_regs);
+>  	}
+>  
+>  	if (kvm_has_fpmr(kern_hyp_va(vcpu->kvm)))
+> -		*host_data_ptr(fpmr) = read_sysreg_s(SYS_FPMR);
+> +		ctxt_sys_reg(hctxt, FPMR) = read_sysreg_s(SYS_FPMR);
+>  }
+>  
+>  
+> diff --git a/arch/arm64/kvm/hyp/nvhe/hyp-main.c b/arch/arm64/kvm/hyp/nvhe/hyp-main.c
+> index 06db299c37a89..db60f770060e5 100644
+> --- a/arch/arm64/kvm/hyp/nvhe/hyp-main.c
+> +++ b/arch/arm64/kvm/hyp/nvhe/hyp-main.c
+> @@ -66,6 +66,7 @@ static void fpsimd_sve_flush(void)
+>  
+>  static void fpsimd_sve_sync(struct kvm_vcpu *vcpu)
+>  {
+> +	struct kvm_cpu_context *hctxt = host_data_ptr(host_ctxt);
+>  	bool has_fpmr;
+>  
+>  	if (!guest_owns_fp_regs())
+> @@ -89,10 +90,10 @@ static void fpsimd_sve_sync(struct kvm_vcpu *vcpu)
+>  	if (system_supports_sve())
+>  		__hyp_sve_restore_host();
+>  	else
+> -		__fpsimd_restore_state(host_data_ptr(host_ctxt.fp_regs));
+> +		__fpsimd_restore_state(&hctxt->fp_regs);
+>  
+>  	if (has_fpmr)
+> -		write_sysreg_s(*host_data_ptr(fpmr), SYS_FPMR);
+> +		write_sysreg_s(ctxt_sys_reg(hctxt, FPMR), SYS_FPMR);
+>  
+>  	*host_data_ptr(fp_owner) = FP_STATE_HOST_OWNED;
+>  }
+> -- 2.30.2
+> 
 
-Signed-off-by: Jinseok Kim <always.starving0@gmail.com>
----
-Changes in v2:
-- Fix the same typo in bcm2711-rpi-cm4-io.dts
-- Link to v1: https://lore.kernel.org/all/20260527100439.2507-1-always.starving0@gmail.com
----
- arch/arm/boot/dts/broadcom/bcm2711-rpi-4-b.dts    | 2 +-
- arch/arm/boot/dts/broadcom/bcm2711-rpi-cm4-io.dts | 2 +-
- 2 files changed, 2 insertions(+), 2 deletions(-)
+FWIW,
 
-diff --git a/arch/arm/boot/dts/broadcom/bcm2711-rpi-4-b.dts b/arch/arm/boot/dts/broadcom/bcm2711-rpi-4-b.dts
-index 353bb50ce542..5469fa663526 100644
---- a/arch/arm/boot/dts/broadcom/bcm2711-rpi-4-b.dts
-+++ b/arch/arm/boot/dts/broadcom/bcm2711-rpi-4-b.dts
-@@ -110,7 +110,7 @@ &gpio {
- 			  "GPIO26",
- 			  "GPIO27",
- 			  "RGMII_MDIO",
--			  "RGMIO_MDC",
-+			  "RGMII_MDC",
- 			  /* Used by BT module */
- 			  "CTS0",		/* 30 */
- 			  "RTS0",
-diff --git a/arch/arm/boot/dts/broadcom/bcm2711-rpi-cm4-io.dts b/arch/arm/boot/dts/broadcom/bcm2711-rpi-cm4-io.dts
-index 6bc77dd48c0d..1f4ebec68370 100644
---- a/arch/arm/boot/dts/broadcom/bcm2711-rpi-cm4-io.dts
-+++ b/arch/arm/boot/dts/broadcom/bcm2711-rpi-cm4-io.dts
-@@ -56,7 +56,7 @@ &gpio {
- 			  "GPIO26",
- 			  "GPIO27",
- 			  "RGMII_MDIO",
--			  "RGMIO_MDC",
-+			  "RGMII_MDC",
- 			  /* Used by BT module */
- 			  "CTS0",
- 			  "RTS0",
---
-2.43.0
+Reviewed-by: Vladimir Murzin <vladimir.murzin@arm.com>
+
 
