@@ -4,69 +4,85 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id CD341CD5BC9
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 27 May 2026 10:49:18 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id CD6CDCD4F54
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 27 May 2026 10:52:07 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	MIME-Version:Message-Id:Date:Subject:Cc:To:From:Reply-To:Content-Type:
-	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
-	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
-	bh=rxn79rRWFkOsvt0uAh9qiqooovxAPMWtweZ2D3vKONg=; b=xgnhN+/R11Ik/l36LkjxZYR/Fo
-	ZGq/EN4pej8jySW+/KyKIBMQkVSbA3kJPDfau02Q0qTdWQOkgQM7OWmBIUW33yQA0I87lDF3V4uLl
-	tr89ArVjHW60IwWJVfVeuFk3cfacBFNRm29e3QZg114qp/RCqvURSrVHT9vfTXKZMutOSe6/cp9xv
-	9ubXUHqeRrHULBTBiC9cKcPGZuM/YMYADtJstA+DyS18a8myLZjDLjyzaR2uwMoNu1zHDOSd2WMHg
-	MoY6DGxYikHBwpiqkpPd447UK10WT7yVyFSGWJyh39W9XlHfhr1kOFANbBF2jH/R5UrJD5LSp9QNv
-	VKo4ECzQ==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:MIME-Version:
+	References:In-Reply-To:Subject:Cc:To:From:Message-ID:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=4XE3jVKRLJiqOr507V6y6IObkBgPaGSpBZ4Jf9AwYyU=; b=AROJ2Hp6nEdEwqBbGfLSOB7Wju
+	R8jCcfaHBl8knogEEpMQEssFqMM8f9w25ZqMTXOIT1S/Fn8+Hu7B6HH1gsIuCdU0MILlVDPA0jALe
+	pdVvso3nJM1okwpbp2HNGerq5M+ZUi3o9v/ckH3vDP0cRhGfeP2/yGFoCJmnPmm/tDmcw1I79+EqB
+	u76uUh7ehImMYbj8B3ygMEh34eEtvXLZZu9c+Ooq6cOUGkwYsK0Kw3yn2+B0B2mXYlJuqX1UCi6Pa
+	pp6dKm5BQm3HzI14Fjdf2cEK+RzL8kMNPAJCUsuJGSvkRvuOAp3p71LNTIpDRdd9QpQnwLZ+bCB4G
+	CzgJqWIA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wSBp1-00000003xkk-3Qka;
-	Wed, 27 May 2026 10:49:11 +0000
-Received: from smtp25.cstnet.cn ([159.226.251.25] helo=cstnet.cn)
+	id 1wSBrk-00000003y0y-0r7V;
+	Wed, 27 May 2026 10:52:00 +0000
+Received: from sea.source.kernel.org ([172.234.252.31])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wSBox-00000003xjh-3YlC
+	id 1wSBrf-00000003y0V-3hYL
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 27 May 2026 10:49:09 +0000
-Received: from dfae2b116770.home.arpa (unknown [36.110.52.3])
-	by APP-05 (Coremail) with SMTP id zQCowAAntQggzBZq9QuMEQ--.34S2;
-	Wed, 27 May 2026 18:49:04 +0800 (CST)
-From: Wentao Liang <vulab@iscas.ac.cn>
-To: Sudeep Holla <sudeep.holla@kernel.org>,
-	Liam Girdwood <lgirdwood@gmail.com>,
-	Mark Brown <broonie@kernel.org>
-Cc: Cristian Marussi <cristian.marussi@arm.com>,
-	arm-scmi@vger.kernel.org,
-	linux-arm-kernel@lists.infradead.org,
-	linux-kernel@vger.kernel.org,
-	Wentao Liang <vulab@iscas.ac.cn>,
-	stable@vger.kernel.org
-Subject: [PATCH v2] regulator: scmi: fix of_node refcount leak in scmi_regulator_probe()
-Date: Wed, 27 May 2026 10:48:50 +0000
-Message-Id: <20260527104850.872415-1-vulab@iscas.ac.cn>
-X-Mailer: git-send-email 2.34.1
-MIME-Version: 1.0
-Content-Transfer-Encoding: 8bit
-X-CM-TRANSID: zQCowAAntQggzBZq9QuMEQ--.34S2
-X-Coremail-Antispam: 1UD129KBjvdXoW7GryrZF47Xr18Cw1UAw1UJrb_yoWkKrg_Gr
-	yfW3W7XrZF9r409rs7XFZ0qr9Ikw1qgayIvFs2kFWakw1Yv3WDJa47Xr93A3y8Z3yUtr9r
-	Ww4DCrW8Aw4a9jkaLaAFLSUrUUUUjb8apTn2vfkv8UJUUUU8Yxn0WfASr-VFAUDa7-sFnT
-	9fnUUIcSsGvfJTRUUUbcAFF20E14v26r4j6ryUM7CY07I20VC2zVCF04k26cxKx2IYs7xG
-	6rWj6s0DM7CIcVAFz4kK6r1j6r18M28lY4IEw2IIxxk0rwA2F7IY1VAKz4vEj48ve4kI8w
-	A2z4x0Y4vE2Ix0cI8IcVAFwI0_Gr0_Xr1l84ACjcxK6xIIjxv20xvEc7CjxVAFwI0_Gr0_
-	Cr1l84ACjcxK6I8E87Iv67AKxVW0oVCq3wA2z4x0Y4vEx4A2jsIEc7CjxVAFwI0_GcCE3s
-	1le2I262IYc4CY6c8Ij28IcVAaY2xG8wAqx4xG64xvF2IEw4CE5I8CrVC2j2WlYx0E2Ix0
-	cI8IcVAFwI0_JrI_JrylYx0Ex4A2jsIE14v26r4j6F4UMcvjeVCFs4IE7xkEbVWUJVW8Jw
-	ACjcxG0xvY0x0EwIxGrwACjI8F5VA0II8E6IAqYI8I648v4I1lc7CjxVAaw2AFwI0_Jw0_
-	GFyl42xK82IYc2Ij64vIr41l4I8I3I0E4IkC6x0Yz7v_Jr0_Gr1lx2IqxVAqx4xG67AKxV
-	WUJVWUGwC20s026x8GjcxK67AKxVWUGVWUWwC2zVAF1VAY17CE14v26r1q6r43MIIYrxkI
-	7VAKI48JMIIF0xvE2Ix0cI8IcVAFwI0_Jr0_JF4lIxAIcVC0I7IYx2IY6xkF7I0E14v26r
-	4j6F4UMIIF0xvE42xK8VAvwI8IcIk0rVWUJVWUCwCI42IY6I8E87Iv67AKxVWUJVW8JwCI
-	42IY6I8E87Iv6xkF7I0E14v26r4j6r4UJbIYCTnIWIevJa73UjIFyTuYvjfUOlkVUUUUU
-X-Originating-IP: [36.110.52.3]
-X-CM-SenderInfo: pyxotu46lvutnvoduhdfq/1tbiCREAA2oWibzwYQACsB
+	Wed, 27 May 2026 10:51:59 +0000
+Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
+	by sea.source.kernel.org (Postfix) with ESMTP id 97AEA40294;
+	Wed, 27 May 2026 10:51:55 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 796531F000E9;
+	Wed, 27 May 2026 10:51:55 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
+	s=k20260515; t=1779879115;
+	bh=4XE3jVKRLJiqOr507V6y6IObkBgPaGSpBZ4Jf9AwYyU=;
+	h=Date:From:To:Cc:Subject:In-Reply-To:References;
+	b=VuZl16DhMrRvTzEXlDbYmB30nnzXbHxJEr9wgHJfAV54MODXeJtHyvOnxlfTCzNHh
+	 I+Znw4UR2Csu6hPkQ94IfX3sFW/3hja2r9YeCgr8bPdeOT5QCPyO7dTjH5327lo/AY
+	 9mzgZXNqX8LhHaoP4HWJb/fu3vLBLoxN01pkT5L2HCkB/+20wPveXcaFukzzqSjLVd
+	 i33wQxVnk6OY8RC8Acp7OVZyNi6l3B7FN/kUcf4KMS3pTPR7cLSCN6XXDyrY6/UfsR
+	 q8D9s1Q4a/Qf1qSjj7ycN0McjNLFKoB6EZgzaUbS1wOABED05E5pR3sNGKZsneUqWH
+	 k+T+n6uuMv0RA==
+Received: from sofa.misterjones.org ([185.219.108.64] helo=goblin-girl.misterjones.org)
+	by disco-boy.misterjones.org with esmtpsa  (TLS1.3) tls TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384
+	(Exim 4.98.2)
+	(envelope-from <maz@kernel.org>)
+	id 1wSBrd-00000006dx0-2PbV;
+	Wed, 27 May 2026 10:51:53 +0000
+Date: Wed, 27 May 2026 11:51:53 +0100
+Message-ID: <86mrxlunue.wl-maz@kernel.org>
+From: Marc Zyngier <maz@kernel.org>
+To: Sascha Bischoff <Sascha.Bischoff@arm.com>
+Cc: "linux-arm-kernel@lists.infradead.org"
+	<linux-arm-kernel@lists.infradead.org>,
+	"kvmarm@lists.linux.dev"
+	<kvmarm@lists.linux.dev>,
+	"kvm@vger.kernel.org" <kvm@vger.kernel.org>,
+	nd <nd@arm.com>,
+	"oliver.upton@linux.dev" <oliver.upton@linux.dev>,
+	Joey Gouly
+	<Joey.Gouly@arm.com>,
+	Suzuki Poulose <Suzuki.Poulose@arm.com>,
+	"yuzenghui@huawei.com" <yuzenghui@huawei.com>,
+	"peter.maydell@linaro.org"
+	<peter.maydell@linaro.org>,
+	"lpieralisi@kernel.org" <lpieralisi@kernel.org>,
+	Timothy Hayes <Timothy.Hayes@arm.com>
+Subject: Re: [PATCH v2 03/39] irqchip/gic-v5: Setup gic_kvm_info on ACPI hosts
+In-Reply-To: <20260521144846.1899475-4-sascha.bischoff@arm.com>
+References: <20260521144846.1899475-1-sascha.bischoff@arm.com>
+	<20260521144846.1899475-4-sascha.bischoff@arm.com>
+User-Agent: Wanderlust/2.15.9 (Almost Unreal) SEMI-EPG/1.14.7 (Harue)
+ FLIM-LB/1.14.9 (=?UTF-8?B?R29qxY0=?=) APEL-LB/10.8 EasyPG/1.0.0 Emacs/30.1
+ (aarch64-unknown-linux-gnu) MULE/6.0 (HANACHIRUSATO)
+MIME-Version: 1.0 (generated by SEMI-EPG 1.14.7 - "Harue")
+Content-Type: text/plain; charset=US-ASCII
+X-SA-Exim-Connect-IP: 185.219.108.64
+X-SA-Exim-Rcpt-To: Sascha.Bischoff@arm.com, linux-arm-kernel@lists.infradead.org, kvmarm@lists.linux.dev, kvm@vger.kernel.org, nd@arm.com, oliver.upton@linux.dev, Joey.Gouly@arm.com, Suzuki.Poulose@arm.com, yuzenghui@huawei.com, peter.maydell@linaro.org, lpieralisi@kernel.org, Timothy.Hayes@arm.com
+X-SA-Exim-Mail-From: maz@kernel.org
+X-SA-Exim-Scanned: No (on disco-boy.misterjones.org); SAEximRunCond expanded to false
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260527_034908_255971_9C79CA41 
-X-CRM114-Status: GOOD (  11.22  )
+X-CRM114-CacheID: sfid-20260527_035155_964098_83FE02AF 
+X-CRM114-Status: GOOD (  32.85  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -81,42 +97,154 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-scmi_regulator_probe() calls of_find_node_by_name() which takes a
-reference on the returned device node. On the error path where
-process_scmi_regulator_of_node() fails, the function returns without
-calling of_node_put() on the child node, leaking the reference.
+On Thu, 21 May 2026 15:50:09 +0100,
+Sascha Bischoff <Sascha.Bischoff@arm.com> wrote:
+> 
+> Device-tree based GICv5 probing already passes the IRS details and
+> maintenance interrupt to KVM, but the ACPI path only initialises the
+> irqchip and installs the ACPI IRQ model. As a result, KVM never sees
+> the GICv5 host information required to probe the vGIC on ACPI systems.
+> 
+> Add the ACPI equivalent of the DT KVM setup. Parse the MADT GICC
+> entries for the maintenance interrupt, require all relevant entries to
+> agree, register the interrupt as a GICv5 PPI-encoded GSI, and pass the
+> resulting IRQ together with the IRS base and coherency information to
+> KVM. Native GICv5 does not require a maintenance interrupt unless the
+> legacy GICv3-compatible CPU interface is present, so preserve the
+> existing no-maintenance-IRQ handling for that case.
+> 
+> Signed-off-by: Sascha Bischoff <sascha.bischoff@arm.com>
+> ---
+>  drivers/irqchip/irq-gic-v5.c | 103 +++++++++++++++++++++++++++++++++--
+>  1 file changed, 98 insertions(+), 5 deletions(-)
+> 
+> diff --git a/drivers/irqchip/irq-gic-v5.c b/drivers/irqchip/irq-gic-v5.c
+> index 707deabbf2f63..ccd1ec69a6ab2 100644
+> --- a/drivers/irqchip/irq-gic-v5.c
+> +++ b/drivers/irqchip/irq-gic-v5.c
+> @@ -1126,7 +1126,7 @@ static void gicv5_set_cpuif_idbits(void)
+>  #ifdef CONFIG_KVM
+>  static struct gic_kvm_info gic_v5_kvm_info __initdata;
+>  
+> -static void __init gic_of_setup_kvm_info(struct device_node *node)
+> +static void __init gic_setup_kvm_info(unsigned int maint_irq)
+>  {
+>  	struct gicv5_irs_chip_data *irs_data = gicv5_irs_get_chip_data();
+>  
+> @@ -1140,13 +1140,14 @@ static void __init gic_of_setup_kvm_info(struct device_node *node)
+>  		return;
+>  	}
+>  
+> -	gic_v5_kvm_info.type = GIC_V5;
+> +	if (WARN_ON(!irs_data))
+> +		return;
+>  
+> +	gic_v5_kvm_info.type = GIC_V5;
+>  	gic_v5_kvm_info.gicv5_irs.base = irs_data->irs_base;
+>  	gic_v5_kvm_info.gicv5_irs.non_coherent = !!(irs_data->flags & IRS_FLAGS_NON_COHERENT);
+> -
+> -	/* GIC Virtual CPU interface maintenance interrupt */
+> -	gic_v5_kvm_info.maint_irq = irq_of_parse_and_map(node, 0);
+> +	gic_v5_kvm_info.maint_irq = maint_irq;
+> +	gic_v5_kvm_info.no_maint_irq_mask = false;
 
-Add of_node_put(np) on the error path to properly release the
-reference.
 
-Cc: stable@vger.kernel.org
-Fixes: 0fbeae70ee7c ("regulator: add SCMI driver")
-Signed-off-by: Wentao Liang <vulab@iscas.ac.cn>
+You remove this last line from patch #1, and reintroduce it here. My
+gut feeling is that it should never be removed the first place.
 
----
-Change in v2:
-- fix typo in code
----
- drivers/regulator/scmi-regulator.c | 4 +++-
- 1 file changed, 3 insertions(+), 1 deletion(-)
+>
+>  	/*
+>  	 * We require an MI if we have legacy support, but don't, otherwise.
+> @@ -1162,10 +1163,101 @@ static void __init gic_of_setup_kvm_info(struct device_node *node)
+>  
+>  	vgic_set_kvm_info(&gic_v5_kvm_info);
+>  }
+> +
+> +static void __init gic_of_setup_kvm_info(struct device_node *node)
+> +{
+> +	/* GIC Virtual CPU interface maintenance interrupt */
+> +	gic_setup_kvm_info(irq_of_parse_and_map(node, 0));
+> +}
+> +
+> +#ifdef CONFIG_ACPI
+> +struct gicv5_acpi_kvm_info {
+> +	u32 maint_irq;
+> +	int maint_irq_mode;
+> +};
+> +
+> +static struct gicv5_acpi_kvm_info acpi_v5_kvm_info __initdata;
+> +
+> +static int __init gic_acpi_parse_virt_madt_gicc(union acpi_subtable_headers *header,
+> +						const unsigned long end)
+> +{
+> +	struct acpi_madt_generic_interrupt *gicc =
+> +		(struct acpi_madt_generic_interrupt *)header;
+> +	static int first_madt = true;
+> +	int maint_irq_mode;
+> +
+> +	if (!(gicc->flags &
+> +	      (ACPI_MADT_ENABLED | ACPI_MADT_GICC_ONLINE_CAPABLE)))
+> +		return 0;
+> +
+> +	maint_irq_mode = (gicc->flags & ACPI_MADT_VGIC_IRQ_MODE) ?
+> +			 ACPI_EDGE_SENSITIVE : ACPI_LEVEL_SENSITIVE;
+> +
+> +	if (first_madt) {
+> +		first_madt = false;
+> +
+> +		acpi_v5_kvm_info.maint_irq = gicc->vgic_interrupt;
+> +		acpi_v5_kvm_info.maint_irq_mode = maint_irq_mode;
+> +		return 0;
+> +	}
+> +
+> +	/* The maintenance interrupt must be the same for every GICC entry. */
+> +	if (acpi_v5_kvm_info.maint_irq != gicc->vgic_interrupt ||
+> +	    acpi_v5_kvm_info.maint_irq_mode != maint_irq_mode)
+> +		return -EINVAL;
+> +
+> +	return 0;
+> +}
+> +
+> +static bool __init gic_acpi_collect_virt_info(void)
+> +{
+> +	int count;
+> +
+> +	acpi_v5_kvm_info.maint_irq = 0;
+> +	acpi_v5_kvm_info.maint_irq_mode = 0;
+> +
+> +	count = acpi_table_parse_madt(ACPI_MADT_TYPE_GENERIC_INTERRUPT,
+> +				      gic_acpi_parse_virt_madt_gicc, 0);
+> +
+> +	return count > 0;
+> +}
+> +
+> +static void __init gic_acpi_setup_kvm_info(void)
+> +{
+> +	unsigned int maint_irq = 0;
+> +	int irq;
+> +
+> +	if (!gic_acpi_collect_virt_info()) {
+> +		pr_warn("Unable to get hardware information used for virtualization\n");
+> +		return;
+> +	}
+> +
+> +	if (acpi_v5_kvm_info.maint_irq) {
+> +		u32 gsi = FIELD_PREP(GICV5_HWIRQ_TYPE, GICV5_HWIRQ_TYPE_PPI) |
+> +			  FIELD_PREP(GICV5_HWIRQ_ID, acpi_v5_kvm_info.maint_irq);
+> +
+> +		irq = acpi_register_gsi(NULL, gsi,
+> +					acpi_v5_kvm_info.maint_irq_mode,
+> +					ACPI_ACTIVE_HIGH);
+> +		if (irq <= 0)
+> +			return;
 
-diff --git a/drivers/regulator/scmi-regulator.c b/drivers/regulator/scmi-regulator.c
-index 6d609c42e479..c005e65ba0ec 100644
---- a/drivers/regulator/scmi-regulator.c
-+++ b/drivers/regulator/scmi-regulator.c
-@@ -345,8 +345,10 @@ static int scmi_regulator_probe(struct scmi_device *sdev)
- 	for_each_child_of_node_scoped(np, child) {
- 		ret = process_scmi_regulator_of_node(sdev, ph, child, rinfo);
- 		/* abort on any mem issue */
--		if (ret == -ENOMEM)
-+		if (ret == -ENOMEM) {
-+			of_node_put(np);
- 			return ret;
-+		}
- 	}
- 	of_node_put(np);
- 	/*
+This probably deserves a bit of a warning. And maybe not completely
+fail the registration with KVM?
+
+Thanks,
+
+	M.
+
 -- 
-2.34.1
-
+Without deviation from the norm, progress is not possible.
 
