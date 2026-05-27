@@ -4,62 +4,62 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 93AC8CD4F54
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 27 May 2026 16:13:59 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 3CD87CD5BD0
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 27 May 2026 16:14:04 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=mXnUomiTnspBvqbztmPMYi4UgZJHZ57DR3HqyE7ktJ0=; b=HsQQyJSZAK8D/Um5A+zkg0Cs8n
-	nL8tQmArgjQ9hFQvv4Fvc6FjvnTRsl7E8GJdzTO2ZkI5Y/lxZwl0MbImZKL6cOrDJFWv1HJuYSDlJ
-	lMZocDTHlJOdwo2wuqsqZLPX0WQx+vVNIhuMh24yVlQGtvsk6LeDMpP0AGyXo510VJzr5zbTeTe9l
-	dtRDTDJ3074W0g9+55KkvP+I91uzYAzOvdP41drJIl0otsw3UowXiIL+twonnCITn73eBz/SydS7t
-	XJx6/Mo1ZsLwYiD+atZTjAKCB3p8r2bZeGWDcaa47outEn+5zz4FtzcOVEOfPkghV5lIHYUoxRr4+
-	xxRqwiYw==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
+	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=ewO88t8oiKnkHzpp93w0DVjCHmd01DJLUhrpWit9A9E=; b=pXdAxbROBlWmDRrNDuJhCiFCnV
+	O+7QTxtAYQbCwJROD3OUZSx3fwXoVXSLcmorultBUuOlR/elx8PZMQB2Oj9FI+CbLMT9hCk1FO4Il
+	FrCnv4XrNzir1KO+Q4qRg7R124IZ0c2xUvQWbH0jvtJZv025qKTvto2p6dYVkQPIXYF9gyteAveb6
+	eCUYGWKBVIA7WSL8BTkVyQhRGtLkygoxR84IBVo5of635MbE5PNmTr6oRE4GdKXph2CBeb94swhUX
+	rotzuynNTMBy1sxCuwxaD0xjUWOmJeCrQ0UTU02UqHIMt0QeTSJT00ui9aEyc8P/bpUaB1O5sfs2u
+	DQpRRcYA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wSGtC-00000004TwA-3feW;
-	Wed, 27 May 2026 16:13:50 +0000
+	id 1wSGtK-00000004TxZ-03kC;
+	Wed, 27 May 2026 16:13:58 +0000
 Received: from foss.arm.com ([217.140.110.172])
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wSGt9-00000004TvD-0oik
+	id 1wSGtB-00000004Tvh-0Oz5
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 27 May 2026 16:13:49 +0000
+	Wed, 27 May 2026 16:13:50 +0000
 Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
-	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id E2B8D35B9;
-	Wed, 27 May 2026 09:13:40 -0700 (PDT)
-Received: from J2N7QTR9R3.cambridge.arm.com (usa-sjc-imap-foss1.foss.arm.com [10.121.207.14])
-	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id 719913F905;
-	Wed, 27 May 2026 09:13:44 -0700 (PDT)
+	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id 91F6335BF;
+	Wed, 27 May 2026 09:13:43 -0700 (PDT)
+Received: from [10.1.38.169] (e121487-lin.cambridge.arm.com [10.1.38.169])
+	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id 816A93F905;
+	Wed, 27 May 2026 09:13:46 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=simple/simple; d=arm.com; s=foss;
-	t=1779898425; bh=H9lAPC4b+Y0olzRKTrAlbPR95IUAy5LD5nO5i4HFf+A=;
-	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
-	b=Ne8/SXk9dA3bVjW4sOSS5wevxc2rbEEbjiW5FFi5VZfREXfhXKbyxELDJH7EhGr/F
-	 nEp7gZwyZmXXVCxrMz/+5gK6NtAHbiZWkT5SGuc+mLBxCh2Eh44Sxvdg/GGwGZdORg
-	 B02N+98cWrDIcxrB/dbaYB5LToMV8v3OMaflbuGE=
-Date: Wed, 27 May 2026 17:13:42 +0100
-From: Mark Rutland <mark.rutland@arm.com>
-To: Mark Brown <broonie@kernel.org>
-Cc: linux-arm-kernel@lists.infradead.org, kvmarm@lists.linux.dev,
-	catalin.marinas@arm.com, james.morse@arm.com, maz@kernel.org,
-	oupton@kernel.org, tabba@google.com, will@kernel.org
-Subject: Re: [PATCH 11/18] arm64: fpsimd: Split FPSR/FPCR from SVE
- save/restore
-Message-ID: <ahcYNp1e0Mj_vRt2@J2N7QTR9R3.cambridge.arm.com>
-References: <20260521132556.584676-1-mark.rutland@arm.com>
- <20260521132556.584676-12-mark.rutland@arm.com>
- <0b72df66-2914-4537-811e-2080e0a7ce6c@sirena.org.uk>
- <ahb20fXkdWI7SljE@J2N7QTR9R3.cambridge.arm.com>
- <4bcf4ec4-6c82-4dc2-b96a-a3a76340ecfe@sirena.org.uk>
+	t=1779898428; bh=gUye9Grka3ECEK41ZIpIsjGn/j1fZ7FW/nQvY+4jS+0=;
+	h=Date:Subject:To:Cc:References:From:In-Reply-To:From;
+	b=Qrn1fhCIhiS+r0p3Rq7KFOQiLwbSmb11xIlWxhOL4iedcV8fbohZD/08yRLAJ87em
+	 mFvqQedFp5S2LhFzaHIwu9ZRz6SS1tYI5yTf3uIP0/OICrl8nZLratQo91TJrM383N
+	 ZYlBeLiOrvlKKHx6xkjAxigyu6/aYj5B96BH1/Tg=
+Message-ID: <9b7bf255-bf37-4372-9908-d595e20648e9@arm.com>
+Date: Wed, 27 May 2026 17:13:44 +0100
 MIME-Version: 1.0
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-In-Reply-To: <4bcf4ec4-6c82-4dc2-b96a-a3a76340ecfe@sirena.org.uk>
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH 12/18] arm64: fpsimd: Move fpsimd save/restore inline
+To: Mark Rutland <mark.rutland@arm.com>
+Cc: linux-arm-kernel@lists.infradead.org, kvmarm@lists.linux.dev,
+ broonie@kernel.org, catalin.marinas@arm.com, james.morse@arm.com,
+ maz@kernel.org, oupton@kernel.org, tabba@google.com, will@kernel.org
+References: <20260521132556.584676-1-mark.rutland@arm.com>
+ <20260521132556.584676-13-mark.rutland@arm.com>
+ <c5ba3af9-08b2-4be2-b9f5-58a925f0b050@arm.com>
+ <ahcPITrHKBgAHGkP@J2N7QTR9R3.cambridge.arm.com>
+Content-Language: en-GB
+From: Vladimir Murzin <vladimir.murzin@arm.com>
+In-Reply-To: <ahcPITrHKBgAHGkP@J2N7QTR9R3.cambridge.arm.com>
+Content-Type: text/plain; charset=UTF-8
+Content-Transfer-Encoding: 7bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260527_091347_327998_A19E8812 
-X-CRM114-Status: GOOD (  33.65  )
+X-CRM114-CacheID: sfid-20260527_091349_221231_87369E51 
+X-CRM114-Status: GOOD (  21.01  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -74,54 +74,103 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Wed, May 27, 2026 at 03:13:04PM +0100, Mark Brown wrote:
-> On Wed, May 27, 2026 at 02:51:13PM +0100, Mark Rutland wrote:
-> > On Tue, May 26, 2026 at 05:28:21PM +0100, Mark Brown wrote:
-> > > On Thu, May 21, 2026 at 02:25:49PM +0100, Mark Rutland wrote:
+On 5/27/26 16:34, Mark Rutland wrote:
+> On Wed, May 27, 2026 at 03:49:18PM +0100, Vladimir Murzin wrote:
+>> On 5/21/26 14:25, Mark Rutland wrote:
+>>> +static inline void fpsimd_save_vregs(struct user_fpsimd_state *state)
+>>> +{
+>>> +	instrument_write(state->vregs, sizeof(state->vregs));
+>>> +	asm volatile(
+>>> +	__FPSIMD_PREAMBLE
+>>> +	"	stp	q0,  q1,  [%[vregs], #16 * 0]\n"
+>>> +	"	stp	q2,  q3,  [%[vregs], #16 * 2]\n"
+>>> +	"	stp	q4,  q5,  [%[vregs], #16 * 4]\n"
+>>> +	"	stp	q6,  q7,  [%[vregs], #16 * 6]\n"
+>>> +	"	stp	q8,  q9,  [%[vregs], #16 * 8]\n"
+>>> +	"	stp	q10, q11, [%[vregs], #16 * 10]\n"
+>>> +	"	stp	q12, q13, [%[vregs], #16 * 12]\n"
+>>> +	"	stp	q14, q15, [%[vregs], #16 * 14]\n"
+>>> +	"	stp	q16, q17, [%[vregs], #16 * 16]\n"
+>>> +	"	stp	q18, q19, [%[vregs], #16 * 18]\n"
+>>> +	"	stp	q20, q21, [%[vregs], #16 * 20]\n"
+>>> +	"	stp	q22, q23, [%[vregs], #16 * 22]\n"
+>>> +	"	stp	q24, q25, [%[vregs], #16 * 24]\n"
+>>> +	"	stp	q26, q27, [%[vregs], #16 * 26]\n"
+>>> +	"	stp	q28, q29, [%[vregs], #16 * 28]\n"
+>>> +	"	stp	q30, q31, [%[vregs], #16 * 30]\n"
+>>> +	: "=Q" (state->vregs)
+>>> +	: [vregs] "r" (state->vregs)
+>> Missing "memory" clobber here?
+> Here the "=Q" constraint is sufficient.
 > 
-> > > > ... so I've assumed that this doesn't actually matter in practice, and
-> > > > implemented the C version matching the existing SVE assembly.
+> The "=Q" output constraint describes that the operand is written to but
+> the old value is not read. It behaves like an "=m" constraint, but
+> places the base address in a single register without any offset (and no
+> writeback addressing mode). Here it applies to the entirety of the
+> vregs array.
 > 
-> > > There is a possibility that it only matters for older, FPSIMD only CPUs
-> > > or just that nobody got round to benchmarking this on physical CPUs with
-> > > SVE and in fact a similar optimisation is also useful there.
+> See https://gcc.gnu.org/onlinedocs/gcc/Machine-Constraints.html :
 > 
-> > All of that might be true, but that doesn't change my assessment that
-> > this doesn't seem to matter in practice, and given that the overall goal
-> > of this series is to *simplify* things, I'd much rather err towards that
-> > than hypothetical performance concerns.
+> |  Q
+> |     A memory address which uses a single base register with no offset
 > 
-> This could do with more clarification in the commit log, right now it
-> just points to us not having done this for SVE but that's running on a
-> rather shiner set of CPUs (and likely written without any physical
-> implementation available) so that's a rather large jump.
+> We generally prefer to use "Q" constraints rather than memory clobbers
+> where possible, since it gives the compiler more freedom (e.g. due to
+> *not* clobbering unrelated memory locations). 
 > 
-> > > I'm a bit wary of dropping the optimisation without any verification
-> > > of the performance impact, but equally I'm not aware of a specific
-> > > benchmark that showed the impact or even if there was one in the first
-> > > place.  The changelog sounds like the optimisation might've been
-> > > written based on inspection alone, I don't know if anyone will
-> > > remember more than a decade later.
+> The "Q" constraint causes the output to be formatted as a memory address
+> (e.g. "[x0]"), so to be able to apply an offset we need a separate "r"
+> constraint to get the base register. It doesn't matter whether the
+> compiler happens to use a different register for that (and in practice
+> compilers realise they can use the register allocated for the "Q"
+> conrstraint).
 > 
-> > From what I remember, the changes in commit 5959e25729a5 were made based
-> > on intuition, inspired by a contemporary retrospective change to the
-> > architecture that made FPCR self-synchronizing. Previously the
-> > architecture required a context synchronization event for the write to
-> > take effect, but implementations happened to be stronger.
+> Unfortunately we can't use "Q" for the scalable registers, since the
+> size isn't known at compile time, and the simplest option for those is
+> to use a memory clobber.
 > 
-> > The conditional write isn't necessarily a win, because the cost of
-> > recovering from a branch mispredict can be much larger than the cost of
-> > micro-architectural mechanisms to ensure that FPCR is
-> > self-synchronizing.
-> 
-> That seems likely from my read of the commit log there, it smells like
-> something done from inspection rather than because there's an observed
-> performance change.  It'd be good to put something like the above in the
-> commit log since it's a much more relevant analysis than the comparison
-> with the SVE path.
 
-For now I'm going to delete that from this commit message, and leave the
-next commit saying I've erred in favour of the simpler sequence.
+That's quite interesting bit of information, thanks for explanation!
 
-Mark.
+> [...]
+> 
+>>> +static inline void fpsimd_load_vregs(const struct user_fpsimd_state *state)
+>>> +{
+>>> +	instrument_read(state->vregs, sizeof(state->vregs));
+>>> +	asm volatile(
+>>> +	__FPSIMD_PREAMBLE
+>>> +	"	ldp	q0,  q1,  [%[vregs], #16 * 0]\n"
+>>> +	"	ldp	q2,  q3,  [%[vregs], #16 * 2]\n"
+>>> +	"	ldp	q4,  q5,  [%[vregs], #16 * 4]\n"
+>>> +	"	ldp	q6,  q7,  [%[vregs], #16 * 6]\n"
+>>> +	"	ldp	q8,  q9,  [%[vregs], #16 * 8]\n"
+>>> +	"	ldp	q10, q11, [%[vregs], #16 * 10]\n"
+>>> +	"	ldp	q12, q13, [%[vregs], #16 * 12]\n"
+>>> +	"	ldp	q14, q15, [%[vregs], #16 * 14]\n"
+>>> +	"	ldp	q16, q17, [%[vregs], #16 * 16]\n"
+>>> +	"	ldp	q18, q19, [%[vregs], #16 * 18]\n"
+>>> +	"	ldp	q20, q21, [%[vregs], #16 * 20]\n"
+>>> +	"	ldp	q22, q23, [%[vregs], #16 * 22]\n"
+>>> +	"	ldp	q24, q25, [%[vregs], #16 * 24]\n"
+>>> +	"	ldp	q26, q27, [%[vregs], #16 * 26]\n"
+>>> +	"	ldp	q28, q29, [%[vregs], #16 * 28]\n"
+>>> +	"	ldp	q30, q31, [%[vregs], #16 * 30]\n"
+>>> +	:
+>>> +	: "Q" (state->vregs),
+>>> +	  [vregs] "r" (state->vregs)
+>> Missing "memory" clobber here?
+> Same story as for fpsimd_save_vregs() above, except that here the "Q"
+> input constraint describes that the entirety of the operand is read from
+> but not written to.
+> 
+
+I'd be surprised if it was different :)
+
+Cheers
+Vladimir
+
+
+> Mark.
+> 
+
 
