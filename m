@@ -4,92 +4,98 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id B7DFACD4F54
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 27 May 2026 18:00:00 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 79734CD4F54
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 27 May 2026 18:18:31 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:
-	To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=erbsC0Vg9mtqhwjoL7B+eBOB5DX7r/gCOj4pQxWk2VI=; b=vdC5+TIVeHsosaEgqwPlvB+MKn
-	gZCUgRIxDV8frC48maxlklUxbNQFKR2NXFQoZdy70jjLXubavxfQiU3Q//+r8HafXzpIG21YAdysq
-	BFa0KzIRUamUkY7tLbt/GD3M1dOflD3otfpUc9uU8GKc7bU78eddOTnN89AUZMH2DIhyvwiH/vGie
-	GtgTLLCJNbp+mK67gTFnjxW9e0SYtAadgd8au5tQtvzUKM1XKj55PRLXWd5kQZwR+0gMneJsOV0cF
-	+hgMZhlehCYhmLRkFrkTz8j1Hx/7bQb2YIv3u8CBADWC4CsSjKC3H9YoLYN+VAmjYEz37fc12fchC
-	fXwDlGvA==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:Cc:To:From:
+	Subject:Message-ID:Mime-Version:Date:Reply-To:Content-Transfer-Encoding:
+	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
+	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=aYuyafSbZ4rVnjRaui8xS+rYrPMJVSn6qkIJmqMYC34=; b=ff4wdsOqvENlNI2wZlcNA9hWOe
+	LJsWrnnHL4F4N1BJAu1iTqrAvz+5UMw9vjfEq5kYO/QLKM0wGKdCwXr+hn9RhMeOwmQATwnyuot1J
+	SptyWxsM8pmtzWjKKGn4BBFJ6lVq3ITAO9S5kFV2rxcjCtHoy9ivNe5olq6Vrgnxwo4tHrYWvE1yM
+	yPNTiYxrDDVGCECuMWhGk7J8eE+5rRD2r+OCEfSe3c7DNfxbVa/JUwgEcM85tiAtvHYsSPdIFDXPD
+	nNDDqC1N9BLt87cFm8wuM5U5Ve2wNpdolsi7ABup6NgW5CSYRq1+rbC0X/3+jG2YuJKl7qcjhIMZI
+	XeAGtC/g==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wSIXp-00000004cED-0ldO;
-	Wed, 27 May 2026 17:59:53 +0000
-Received: from mail-pl1-x631.google.com ([2607:f8b0:4864:20::631])
+	id 1wSIpj-00000004cqL-2rZa;
+	Wed, 27 May 2026 18:18:23 +0000
+Received: from mail-wm1-x349.google.com ([2a00:1450:4864:20::349])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wSIXm-00000004cDm-2PZU
+	id 1wSIpg-00000004cpn-18WW
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 27 May 2026 17:59:51 +0000
-Received: by mail-pl1-x631.google.com with SMTP id d9443c01a7336-2b4583f0a1aso87936635ad.3
-        for <linux-arm-kernel@lists.infradead.org>; Wed, 27 May 2026 10:59:49 -0700 (PDT)
+	Wed, 27 May 2026 18:18:22 +0000
+Received: by mail-wm1-x349.google.com with SMTP id 5b1f17b1804b1-49045243094so78191445e9.2
+        for <linux-arm-kernel@lists.infradead.org>; Wed, 27 May 2026 11:18:18 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20251104; t=1779904789; x=1780509589; darn=lists.infradead.org;
-        h=content-transfer-encoding:mime-version:references:in-reply-to
-         :message-id:date:subject:cc:to:from:from:to:cc:subject:date
-         :message-id:reply-to;
-        bh=erbsC0Vg9mtqhwjoL7B+eBOB5DX7r/gCOj4pQxWk2VI=;
-        b=EE/n8WWEnDx8Z2e6oemrCBzpJVld3ResRKsliuIf7vXy1s2c/Mi9qvCtMlydbJ0P4V
-         OkpdTLS1xKxo/mzTuaakMEF3NCTyvYFtMgVUGvLXWULggc8pMr/NjO9zK8nGWzhYjllw
-         ltNPndy+aN4HNjK2m9heGXzNueKoMwGCH30rak0ghU377BUQn2POuPPiwGtUIAUDkc6b
-         02mSzwwWBTFsLwfLURhgwDXnTmTOrPBQqrWv1q0FhuEE9B1c3fg07zgMXei/EtF5/NWv
-         GiiBJaWmze21a2PJwcNfUV/HtCRol6ZoeS/f17nbgI0g59oKS5shhsV4GECwCUE5Kv5A
-         alhA==
+        d=google.com; s=20251104; t=1779905897; x=1780510697; darn=lists.infradead.org;
+        h=cc:to:from:subject:message-id:mime-version:date:from:to:cc:subject
+         :date:message-id:reply-to;
+        bh=aYuyafSbZ4rVnjRaui8xS+rYrPMJVSn6qkIJmqMYC34=;
+        b=Z4R3cLDP9wXZgiDSrIZaOIkDqelUooRe4nVquhEv5ygmBALBqLCwhbDHK2K4N4W1xT
+         J/7Lhib6pFTvr/R6KNtJ1mLYrjOgrnUsx0qXLhscvLQAOqLafCA8sHmuzGZPqDDwkkdY
+         B0sezFl/18OnfpRordPITZvoYI8k8sPv7TBBYFBkr4jCV/u1guYQE9XSuqJMEBZN13Rd
+         VzqCG6Oehq6ysIgRjwaFpbn5JRfRHou9V+uYZq2ZjsF56BH+BadvqpVOwH+boqBjDb6i
+         r1gq0ejrPdsTgILjdUCoiIxcNpbBgxo0JWQB7q7dn/xGbq10seEpguFA2jb8D0ABe6ok
+         BTdw==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20251104; t=1779904789; x=1780509589;
-        h=content-transfer-encoding:mime-version:references:in-reply-to
-         :message-id:date:subject:cc:to:from:x-gm-gg:x-gm-message-state:from
-         :to:cc:subject:date:message-id:reply-to;
-        bh=erbsC0Vg9mtqhwjoL7B+eBOB5DX7r/gCOj4pQxWk2VI=;
-        b=DCdRJKX5CNHVSrQBCqOc2BtWjJOGfbyu0V5A2uRGbaJIowKUiKQ/A8hRGth9E7HjM2
-         3hSdrlegZoQCwbaP0bmowrJJxcixJLHhzq3mdnFQTmdBZGWTe4CInRR66vM6HSJWMPF/
-         d3hOH+OJ56jemJHiRgbIaZDp5vhRkUWYLv7rwBegq8wL3GXn0qQD8zdemzA9fBFwGtil
-         Zscg5mSnnGwPWNRKkK0JA1PP3VygElr05T4m75QYLVFWYUvPIEx1uuIHr3Ejshvhyrpf
-         Q4wRFZtSR6VzWehv5lS5p42QmSxSdta8QG2CJuW1lNXxFd6pgaLNU9Bz1zOKSJSLAfAI
-         S0Mg==
-X-Forwarded-Encrypted: i=1; AFNElJ8Kxm0XFz8yOzz6c0xPVdIV96ym1xVtM22dT9YRQlh6WJEmIGRzgTvlRYxUggKChPfCppDw0JvILaC1UHAslElq@lists.infradead.org
-X-Gm-Message-State: AOJu0YzHLbGeRzm/C8H8aWW99SXxyOmef6Zdft47Bej4QacHCdAgsh4m
-	yGjgCPo1dixWpdg9yFeJlGd/pfhue57ctYeshjwLR9OdMZtPdMe1WJ1M
-X-Gm-Gg: Acq92OGKzcvweLtrE2swidg1Ds3uv/PAHKr8o4GuUyjQ+0gPmz1wKz8U9+WPca0vcZu
-	XrH2Vx58pFtmtMX0lVtj93mUOfbCzoVpAcBsReyrxAKzba8E/t5/D2xfsArY+O9Fg8xbKQAQAsE
-	RFlhtOc1TG3m9EtHJGodCdbexQWkt/v+HnvPVK0mwi+fcNxdVy5VyBBHT/Ed5uxipeVZ4La1sv7
-	5ly3YVWKemYTA5zcII62iLPtTKGGeVJR80499D0+6JwtdcQ6P3uNMSMliebrhR73xO6eNUPCpEz
-	XqnMLki0ldSzATtgwK6K2/IyNNid2DjQzhGcr8MgavgB78qne5sZ9mYiKAmCIad3lIrUznYl/wX
-	xoIyJxkYZnE5OCcVpfIDa1lhNBSI9eQ0m64y0mzNXRBXhMHqAIeWaQsCxTHLbvDHTzUkJ72qVbI
-	AQoj+FbXC2piAUd288BWYpLYI6iLOqsAtGJVUA7i9I01yUq4EhnG/+Pgc=
-X-Received: by 2002:a17:903:46c8:b0:2be:fe68:a1c with SMTP id d9443c01a7336-2befe680ebamr8852645ad.39.1779904788724;
-        Wed, 27 May 2026 10:59:48 -0700 (PDT)
-Received: from LAPTOP-97G9G880.domain.name ([106.222.201.80])
-        by smtp.gmail.com with ESMTPSA id d9443c01a7336-2beb5695f05sm204648005ad.6.2026.05.27.10.59.44
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Wed, 27 May 2026 10:59:48 -0700 (PDT)
-From: Karthikeyan KS <karthiproffesional@gmail.com>
-To: andrew@codeconstruct.com.au
-Cc: joel@jms.id.au,
-	andrew@aj.id.au,
-	linux-arm-kernel@lists.infradead.org,
-	linux-aspeed@lists.ozlabs.org,
-	linux-kernel@vger.kernel.org,
-	Karthikeyan KS <karthiproffesional@gmail.com>,
-	stable@vger.kernel.org
-Subject: [PATCH v3] soc: aspeed: lpc-snoop: Fix usercopy overflow in snoop_file_read
-Date: Wed, 27 May 2026 17:59:38 +0000
-Message-ID: <20260527175939.2939714-1-karthiproffesional@gmail.com>
-X-Mailer: git-send-email 2.43.0
-In-Reply-To: <53952f011f2c57ad28d6f864317054a2a34922e5.camel@codeconstruct.com.au>
-References: <53952f011f2c57ad28d6f864317054a2a34922e5.camel@codeconstruct.com.au>
-MIME-Version: 1.0
-Content-Type: text/plain; charset=UTF-8
-Content-Transfer-Encoding: 8bit
+        d=1e100.net; s=20251104; t=1779905897; x=1780510697;
+        h=cc:to:from:subject:message-id:mime-version:date:x-gm-message-state
+         :from:to:cc:subject:date:message-id:reply-to;
+        bh=aYuyafSbZ4rVnjRaui8xS+rYrPMJVSn6qkIJmqMYC34=;
+        b=QStiUGmP35THqXjD20EM6V4tahqRjOjF7NSpmq3KUjv0i8DEPqEaa07KjpMyTnpiCw
+         4DXjfUTVFrPwD5ptFcPmMzR20JF9EUo0wvEc5z51PTWjF1OeJlz/5QRblh0NrrH3AbSu
+         trKg7TJYPElfgeK8uWhcAGDZcD8lr0N4e1nzV0eePAO5B/6VPuAMVdaE08sT7U92iQRx
+         Y6x/dmFVVR/h305HJ72uQOsPLiSvi9VncQkSSrLP/aQ0aFyPzvA5MjK2tb/CWUB7iIJR
+         gxTJlwmJxVOLctu0SkhDhwSQkvzbtLEYbobvLwMOLpDZsPXPD0fg98WKifLrnusBQK9X
+         kgqw==
+X-Gm-Message-State: AOJu0YxQknJ+MnsTkVqShedRxeXlo+SauZcZLq6DpPIIznEYqsja+iFa
+	CApIFlLicKiA0T/iF1ACH0bAS5SPGwttxMyfpZdO4Omhk/KGhN+GPs0yO7VlhqkdqaXU/wr42+7
+	d6jR/IESSlSokW4AtzA==
+X-Received: from wmsk24-n2.prod.google.com ([2002:a05:600d:8498:20b0:488:81f0:1a27])
+ (user=aliceryhl job=prod-delivery.src-stubby-dispatcher) by
+ 2002:a05:600c:4592:b0:490:6237:5212 with SMTP id 5b1f17b1804b1-4906237533fmr237671675e9.9.1779905896526;
+ Wed, 27 May 2026 11:18:16 -0700 (PDT)
+Date: Wed, 27 May 2026 18:18:07 +0000
+Mime-Version: 1.0
+X-B4-Tracking: v=1; b=H4sIAF81F2oC/x2MSwqAIBQAryJvnWCCSV0lWmg97UE/NCuQ7p60G
+ mYxkyFiIIzQsQwBL4q0b0XqisE4m80jp6k4SCEboaTm6T6NXZCv+5QK3GI8b4xQrbJOYKuhlEd AR89/7Yf3/QAohpNwZQAAAA==
+X-Change-Id: 20260527-uwtable-module-flag-6a0595bf0e97
+X-Developer-Key: i=aliceryhl@google.com; a=openpgp; fpr=49F6C1FAA74960F43A5B86A1EE7A392FDE96209F
+X-Developer-Signature: v=1; a=openpgp-sha256; l=2354; i=aliceryhl@google.com;
+ h=from:subject:message-id; bh=A1hu78OBhTmmHM5EGvEyajNzJfF6krcevjHiRkrrgeE=;
+ b=owEBbQKS/ZANAwAKAQRYvu5YxjlGAcsmYgBqFzVi3kskmzo8hxmO7mr/pbdeQYSEplX95V4tq
+ 4KaJnwxD3eJAjMEAAEKAB0WIQSDkqKUTWQHCvFIvbIEWL7uWMY5RgUCahc1YgAKCRAEWL7uWMY5
+ RnybD/9o0kTvgXkQWWk/GJHZZCLOLzFKaeecdlVjCAPFYR53Dcqn84/yAo7HVigvXUUcnW0gyLn
+ uXFqu08Z02Avg1LUUeKaQULe2uSOlv8rIw+lz7IkmAdC9Nad5Im7V8a8ydQzZMMNAdTPcr3KAvR
+ 1kx0f7WXBSO8DHJwf5G7P4Ja0+vBhdDY5m9gy7+V5Sel+doifDGaKUC0z7XzbC3j03y+v6qEsW+
+ yW+KRxivNzyU16EHSLPIpvbxjTpChWMBTjMo9Y/quuFxFTZoCamc81u/F3A4wMs750r7ktNwgQv
+ +Ek/azMy1gvdCowz4gcnEmGzeik9YLhCvtPJxNzdPMWeDwEiCGQBkk3bVYTrFewrUzxvrJmVNQj
+ GnU8T5uy2Uws79QK7PFp8DWHtU2xUaLAuBKroF/SqxD8LgXJzjOMeI462U/Oc81GAw350m9kfwm
+ O1uwJmSY/xpZyIojZ96csOTUlEakjtWiuwMTi3d2R19bVQLnzXNjE7Tq7ZNuTmrGMBKMAbD8if4
+ Kv9AF92m34Ci1f5xqnnOyl8RXWxOeYA2B4OkS+TQta/8/RSi9nWxsr2qRPwFtNUx1BYsLIIk+Vz
+ vBunGSTkvWvH5S1yqoUyTZungaMF6+rFWuXgPSTHeCbpOgdtDOfauQG9uHGCghUrZ+loToGr46W DfVKYjs9T98PU8Q==
+X-Mailer: b4 0.14.3
+Message-ID: <20260527-uwtable-module-flag-v1-1-caa41342be4b@google.com>
+Subject: [PATCH] rust: arm64: set uwtable llvm module flag for CONFIG_UNWIND_TABLES
+From: Alice Ryhl <aliceryhl@google.com>
+To: Catalin Marinas <catalin.marinas@arm.com>, Will Deacon <will@kernel.org>, 
+	Miguel Ojeda <ojeda@kernel.org>, Boqun Feng <boqun@kernel.org>, Gary Guo <gary@garyguo.net>, 
+	"=?utf-8?q?Bj=C3=B6rn_Roy_Baron?=" <bjorn3_gh@protonmail.com>, Benno Lossin <lossin@kernel.org>, 
+	Andreas Hindborg <a.hindborg@kernel.org>, Trevor Gross <tmgross@umich.edu>, 
+	Danilo Krummrich <dakr@kernel.org>, Nathan Chancellor <nathan@kernel.org>, 
+	Nick Desaulniers <nick.desaulniers+lkml@gmail.com>, Bill Wendling <morbo@google.com>, 
+	Justin Stitt <justinstitt@google.com>
+Cc: linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org, 
+	rust-for-linux@vger.kernel.org, llvm@lists.linux.dev, stable@kernel.org, 
+	Bo Ye <bo.ye@mediatek.com>, Isaac Manjarres <isaacmanjarres@google.com>, 
+	Sami Tolvanen <samitolvanen@google.com>, Alice Ryhl <aliceryhl@google.com>
+Content-Type: text/plain; charset="utf-8"
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260527_105950_624356_1D56836D 
-X-CRM114-Status: GOOD (  17.01  )
+X-CRM114-CacheID: sfid-20260527_111820_330561_20343F6A 
+X-CRM114-Status: GOOD (  13.35  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -104,124 +110,62 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-put_fifo_with_discard() acts as both producer and consumer on the kfifo:
-it calls kfifo_skip() (advances out) and kfifo_put() (advances in) from
-the IRQ handler without synchronizing with snoop_file_read(), which also
-consumes via kfifo_to_user(). On SMP systems this concurrent access can
-leave (in - out) larger than the ring buffer, so __kfifo_to_user()'s clamp
-to (in - out) is ineffective and kfifo_copy_to_user() can attempt a
-copy_to_user() past the kmalloc-2k backing store:
+Due to a rustc bug [1] the -Cforce-unwind-tables=y flag only emits the
+uwtable annotation for functions, but not for the module. This means
+that compiler-generated functions such as 'asan.module_ctor' do not
+receive the uwtable annotation.
 
-  usercopy: Kernel memory exposure attempt detected from SLUB object
-  'kmalloc-2k' (offset 0, size 2049)!
-  kernel BUG at mm/usercopy.c:99!
-  Call trace:
-   usercopy_abort
-   __check_heap_object
-   __check_object_size
-   kfifo_copy_to_user
-   __kfifo_to_user
-   snoop_file_read
-   vfs_read
+When CONFIG_UNWIND_PATCH_PAC_INTO_SCS is enabled, this leads to boot
+failures because the dwarf information emitted for the kasan
+constructors is wrong, which causes the SCS boot patching code to
+patch the constructor in an illegal manner. Specifically, the paciasp
+instruction is patched, but the autiasp instruction is not. This
+mismatch leads to a crash when the constructor is called during boot.
 
-Reproduced on ast2600-evb (dual-core ARM Cortex-A7) when the host floods
-POST codes while userspace reads /dev/aspeed-lpc-snoop0.
+	==================================================================
+	BUG: KASAN: global-out-of-bounds in do_basic_setup+0x4c/0x90
+	Read of size 8 at addr ffffffe3cc7eb488 by task swapper/0/1
 
-Serialize kfifo access with a per-channel spinlock: use spin_lock()/
-spin_unlock() in put_fifo_with_discard() (hardirq only) and
-spin_lock_irq()/spin_unlock_irq() around kfifo_to_user() in
-snoop_file_read().
+Specifically the faulting instruction is the (*fn)() to invoke the
+constructor in do_ctors() of the init/main.c file.
 
-Fixes: 3772e5da4454 ("drivers/misc: Aspeed LPC snoop output using misc chardev")
-Cc: stable@vger.kernel.org
-Signed-off-by: Karthikeyan KS <karthiproffesional@gmail.com>
+Once the fix lands in rustc, this flag can be made conditional on the
+rustc version. Note that passing the flag on a rustc with the fix
+present has no effect.
+
+Fixes: d077242d68a3 ("rust: support for shadow call stack sanitizer")
+Cc: stable@kernel.org
+Link: https://github.com/rust-lang/rust/pull/156980 [1]
+Reported-by: Bo Ye <bo.ye@mediatek.com>
+Debugged-by: Isaac Manjarres <isaacmanjarres@google.com>
+Debugged-by: Sami Tolvanen <samitolvanen@google.com>
+Tested-by: Isaac Manjarres <isaacmanjarres@google.com>
+Signed-off-by: Alice Ryhl <aliceryhl@google.com>
 ---
-Andrew,
+ arch/arm64/Makefile | 3 +++
+ 1 file changed, 3 insertions(+)
 
-Thanks for the review.
-
-> The AST2500 has a (single-core) ARM1176JZS
-
-Corrected in v3.
-
-> Don't double-account for the bug
-
-Agreed — the spinlock eliminates the unsynchronized window that
-produces the inconsistent pointer state. Clamp removed.
-
-> _irqsave isn't wrong
-
-Changed to spin_lock_irq — fops callbacks always enter with
-interrupts enabled.
-
-> Can you provide more details? The 2500 is single-core
-
-The issue was observed on physical AST2600 (dual-core Cortex-A7)
-in production under heavy POST code traffic during concurrent
-userspace reads. Since the x86 host does not model ARM weak memory
-ordering, the race cannot be reproduced naturally in QEMU. The test
-module adjusts kfifo pointers to reproduce the post-race state for
-deterministic validation.
-
-> AST2600 has a dual-core Cortex-A7, so your bug makes more sense there
-
-Yes, the issue is intermittently observed on production AST2600.
-
-Changes since v2:
-- Dropped count clamp
-- spin_lock_irqsave -> spin_lock_irq in snoop_file_read
-- Fixed platform: AST2600 (dual-core Cortex-A7)
-- Trimmed backtrace
-- Added Fixes tag
-
- drivers/soc/aspeed/aspeed-lpc-snoop.c | 8 ++++++++
- 1 file changed, 8 insertions(+)
-
-diff --git a/drivers/soc/aspeed/aspeed-lpc-snoop.c b/drivers/soc/aspeed/aspeed-lpc-snoop.c
-index eceeaf8df..ef6697a42 100644
---- a/drivers/soc/aspeed/aspeed-lpc-snoop.c
-+++ b/drivers/soc/aspeed/aspeed-lpc-snoop.c
-@@ -60,6 +60,7 @@ struct aspeed_lpc_snoop_model_data {
+diff --git a/arch/arm64/Makefile b/arch/arm64/Makefile
+index 73a10f65ce8b..5b21941b5c8d 100644
+--- a/arch/arm64/Makefile
++++ b/arch/arm64/Makefile
+@@ -63,6 +63,9 @@ else
+ KBUILD_CFLAGS	+= -fasynchronous-unwind-tables
+ KBUILD_AFLAGS	+= -fasynchronous-unwind-tables
+ KBUILD_RUSTFLAGS += -Cforce-unwind-tables=y -Zuse-sync-unwind=n
++# Work around rustc bug on compilers without below change:
++# https://github.com/rust-lang/rust/pull/156973
++KBUILD_RUSTFLAGS += -Zllvm_module_flag=uwtable:u32:2:max
+ endif
  
- struct aspeed_lpc_snoop_channel {
- 	struct kfifo		fifo;
-+	spinlock_t		lock;
- 	wait_queue_head_t	wq;
- 	struct miscdevice	miscdev;
- };
-@@ -93,7 +94,11 @@ static ssize_t snoop_file_read(struct file *file, char __user *buffer,
- 		if (ret == -ERESTARTSYS)
- 			return -EINTR;
- 	}
-+
-+	spin_lock_irq(&chan->lock);
- 	ret = kfifo_to_user(&chan->fifo, buffer, count, &copied);
-+	spin_unlock_irq(&chan->lock);
-+
- 	if (ret)
- 		return ret;
- 
-@@ -121,9 +126,11 @@ static void put_fifo_with_discard(struct aspeed_lpc_snoop_channel *chan, u8 val)
- {
- 	if (!kfifo_initialized(&chan->fifo))
- 		return;
-+	spin_lock(&chan->lock);
- 	if (kfifo_is_full(&chan->fifo))
- 		kfifo_skip(&chan->fifo);
- 	kfifo_put(&chan->fifo, val);
-+	spin_unlock(&chan->lock);
- 	wake_up_interruptible(&chan->wq);
- }
- 
-@@ -192,6 +199,7 @@ static int aspeed_lpc_enable_snoop(struct aspeed_lpc_snoop *lpc_snoop,
- 		of_device_get_match_data(dev);
- 
- 	init_waitqueue_head(&lpc_snoop->chan[channel].wq);
-+	spin_lock_init(&lpc_snoop->chan[channel].lock);
- 	/* Create FIFO datastructure */
- 	rc = kfifo_alloc(&lpc_snoop->chan[channel].fifo,
- 			 SNOOP_FIFO_SIZE, GFP_KERNEL);
+ ifeq ($(CONFIG_STACKPROTECTOR_PER_TASK),y)
+
+---
+base-commit: 7fd2df204f342fc17d1a0bfcd474b24232fb0f32
+change-id: 20260527-uwtable-module-flag-6a0595bf0e97
+
+Best regards,
 -- 
-2.43.0
+Alice Ryhl <aliceryhl@google.com>
 
 
