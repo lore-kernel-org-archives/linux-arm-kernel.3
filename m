@@ -4,70 +4,64 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id C28DBCD5BD0
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 27 May 2026 13:24:20 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id A9850CD5BD5
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 27 May 2026 13:33:17 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:Cc:To:Subject:Message-ID:Date:From:In-Reply-To:References:
-	MIME-Version:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
+	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=ynx0YVdRpScOcVOUl3nY0Y9gWTKj9Ts8mNFO+WkHlNc=; b=c4fthpwl8RY1iXWX+4uMrI0Nf5
-	iaH71KLNAOuWBF6as6kJtDY+QqXTNzEEgyQnu0R+B/bzPYlsWBvvqBIYZsIkjZbLcnxWucG7bbhEL
-	wqhSImN24T5eC+LZ+PrhvLMbwU0ZL/m3Zf8mQWiIrpElwlTxIQ6b19oUDlgEIB/4qEsuc1FrS9r5u
-	NQ089JUbdpqCrqKUa+iUYGstCwoZJhSMT7JTUmAoVMYnsgtbYo1Nf0v88KgEro6bpoBoVAWs2UT0T
-	wdB/SHAnWS2ULrvqN9KeaTVWbZyOIDBb1LfLGLO1NRI3L03iGFMZ8eft2bTYfRiMtuyuAZ4+rMUBR
-	BrmuenCA==;
+	bh=rmb4mYY/tR6wAzo9c72UaF10jDbWAFm5WdiypbDuAek=; b=HE3OkIIgsguAgp/ttzdtBbe4yS
+	7SUkf8LwZ8dAlfPMf1wxbbEGHyP8/DZ7s173t+2J2r3vDrGFGwQQUJoWOHQIcJp4TM6DyCBYNe9dv
+	HwagyMq/zKQ3hZ4GlWRPMMwY75PjO7Jxs8diptjrIz//ODLNDrPOSf0frt+CylmYOvPvdvDjACSub
+	mRtSgbBXSMlItWBzwlmXSFs7vk39r/gciqviLisqzOZHO2CON+EDd73+4MrNP1gyQzLPA/xr2WG6B
+	+IbTNY4byt4lfWVYTtUaVGVJuEULFu+PQkWGMYaZ4zU+qQFfFya2XQsi+TNyP9LxlcIZ2f2LgerPk
+	AdWbKP0Q==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wSEF2-00000004BSu-0be5;
-	Wed, 27 May 2026 13:24:12 +0000
-Received: from tor.source.kernel.org ([172.105.4.254])
-	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wSEF1-00000004BSk-2Kxe
+	id 1wSENh-00000004CUU-41MU;
+	Wed, 27 May 2026 13:33:09 +0000
+Received: from foss.arm.com ([217.140.110.172])
+	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
+	id 1wSENf-00000004CTT-104Q
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 27 May 2026 13:24:11 +0000
-Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
-	by tor.source.kernel.org (Postfix) with ESMTP id 0282D6022D
-	for <linux-arm-kernel@lists.infradead.org>; Wed, 27 May 2026 13:24:11 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id AEF061F01558
-	for <linux-arm-kernel@lists.infradead.org>; Wed, 27 May 2026 13:24:10 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1779888250;
-	bh=ynx0YVdRpScOcVOUl3nY0Y9gWTKj9Ts8mNFO+WkHlNc=;
-	h=References:In-Reply-To:From:Date:Subject:To:Cc;
-	b=M4ZoD6+JXZamGLbvvzX/8mFPVFodp59z3BYZHOJ1maZT37ITWJ1ws8ONO9jIbUftd
-	 LhBznDJJWgJ/U3q/e786ivP8rwVQtbr3RJRmy6qBsz0ICUZOKF6QS/jIpX3pL85Hki
-	 SBmpqnhbtAvifobPfoWvZGlHFvxvtwHbn014qxWtP3eC7ft5ucRqNyM7sDgcHxJLzZ
-	 CjuHGcMnd1dOC7Ya72IC7X4enemClLRXmDi8GBQi7DjBa5i3d4hQ/BgtcnHmfcskwr
-	 iSmD9SSLkwPopili/8IrKg0QYxQQW1DIGqW3wIH4gZu6D00pC5ZOrV7RLY/I77dU83
-	 JWF0LkIvryJTQ==
-Received: by mail-lf1-f47.google.com with SMTP id 2adb3069b0e04-5a40b2bc96dso6376120e87.3
-        for <linux-arm-kernel@lists.infradead.org>; Wed, 27 May 2026 06:24:10 -0700 (PDT)
-X-Forwarded-Encrypted: i=1; AFNElJ+D1BOC6YwxFdoCa8W28f+09umGUhAScWdc/zyDih3uvqhtH5AT75jV62GP74fGxs6OPABrB7kVfOyooQYweAsV@lists.infradead.org
-X-Gm-Message-State: AOJu0Yxf7U3kQ4lwpsff+BsIguNlIwvMgNkPr91HRSCOJwHXZpMTmfma
-	rCNT8NG2mMYdiZvz/dyex3MfJmHKVHhX0PV31geoYWPghRh/4P3LCo1SEZoh36+sb4QaOHE+Z+N
-	rgqigBkmRvjtuX06w3PMExoSO9qygvd4=
-X-Received: by 2002:a05:6512:31c4:b0:5a8:7317:5417 with SMTP id
- 2adb3069b0e04-5aa32369f4amr7061708e87.9.1779888249425; Wed, 27 May 2026
- 06:24:09 -0700 (PDT)
+	Wed, 27 May 2026 13:33:08 +0000
+Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
+	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id ABFD62D97;
+	Wed, 27 May 2026 06:33:00 -0700 (PDT)
+Received: from [10.164.19.7] (unknown [10.164.19.7])
+	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id B50A13F7D8;
+	Wed, 27 May 2026 06:32:58 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=simple/simple; d=arm.com; s=foss;
+	t=1779888785; bh=3ivWgqiUQpM5lpUukOrYmMpxiPpqwEREWe2J1ceJJyQ=;
+	h=Date:Subject:To:Cc:References:From:In-Reply-To:From;
+	b=DS09TTNr6G4NjbjAXlLHBx2vUIEabRA7TZV/BDCQgkCNcsiYvXLIIen3LoIszH4I0
+	 I+o57N2wxdUw2rfue4Qw03PT2fcV9LWeRF3FGViXYm0CyHoOnqTkHvkS7PdSPgZKNy
+	 V2AHs3nRZMnVjFppu6E4/k3ZV1W8cH28sq13xowo=
+Message-ID: <e5a59b25-d8ce-4d78-aec3-ee1b6efccfed@arm.com>
+Date: Wed, 27 May 2026 19:02:55 +0530
 MIME-Version: 1.0
-References: <20260508184626.15938-1-manishbaing2789@gmail.com>
-In-Reply-To: <20260508184626.15938-1-manishbaing2789@gmail.com>
-From: Linus Walleij <linusw@kernel.org>
-Date: Wed, 27 May 2026 15:23:56 +0200
-X-Gmail-Original-Message-ID: <CAD++jLk0QWoTCXEqZbm_ECV2YQdL6PBZp2+EMSVH6DrmPx=dKw@mail.gmail.com>
-X-Gm-Features: AVHnY4LJ4ZgmIO12q-22xaSmmAdfwCpy1pxkuhOelzvqfy6Ynt81zGPLoHbXLKo
-Message-ID: <CAD++jLk0QWoTCXEqZbm_ECV2YQdL6PBZp2+EMSVH6DrmPx=dKw@mail.gmail.com>
-Subject: Re: [PATCH v2] dt-bindings: pwm: stmpe: drop legacy binding
-To: Manish Baing <manishbaing2789@gmail.com>
-Cc: ukleinek@kernel.org, thierry.reding@gmail.com, robh@kernel.org, 
-	krzk+dt@kernel.org, conor+dt@kernel.org, mcoquelin.stm32@gmail.com, 
-	alexandre.torgue@foss.st.com, linux-pwm@vger.kernel.org, 
-	devicetree@vger.kernel.org, linux-stm32@st-md-mailman.stormreply.com, 
-	linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org
-Content-Type: text/plain; charset="UTF-8"
-Content-Transfer-Encoding: quoted-printable
+User-Agent: Mozilla Thunderbird
+Subject: Re: [RFC PATCH 1/3] mm: make persistent huge zero folio read-only
+To: Xueyuan chen <xueyuan.chen21@gmail.com>, akpm@linux-foundation.org,
+ linux-mm@kvack.org
+Cc: linux-kernel@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
+ x86@kernel.org, catalin.marinas@arm.com, will@kernel.org, tglx@kernel.org,
+ mingo@redhat.com, bp@alien8.de, dave.hansen@linux.intel.com, hpa@zytor.com,
+ david@kernel.org, ljs@kernel.org, ziy@nvidia.com,
+ baolin.wang@linux.alibaba.com, ryan.roberts@arm.com, lance.yang@linux.dev,
+ yang@os.amperecomputing.com, jannh@google.com
+References: <20260527035607.14919-1-xueyuan.chen21@gmail.com>
+ <20260527035607.14919-2-xueyuan.chen21@gmail.com>
+Content-Language: en-US
+From: Dev Jain <dev.jain@arm.com>
+In-Reply-To: <20260527035607.14919-2-xueyuan.chen21@gmail.com>
+Content-Type: text/plain; charset=UTF-8
+Content-Transfer-Encoding: 7bit
+X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
+X-CRM114-CacheID: sfid-20260527_063307_382307_1C35BEFB 
+X-CRM114-Status: GOOD (  29.55  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -82,19 +76,156 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Fri, May 8, 2026 at 8:46=E2=80=AFPM Manish Baing <manishbaing2789@gmail.=
-com> wrote:
 
-> The st,stmpe-pwm binding is already covered by the MFD schema
-> Documentation/devicetree/bindings/mfd/st,stmpe.yaml. Remove the
-> obsolete and redundant text binding file.
->
-> Signed-off-by: Manish Baing <manishbaing2789@gmail.com>
 
-Reviewed-by: Linus Walleij <linusw@kernel.org>
+On 27/05/26 9:26 am, Xueyuan chen wrote:
+> From: Xueyuan Chen <xueyuan.chen21@gmail.com>
+> 
+> The huge zero folio is shared globally, and its contents should never
+> change after initialization. As Jann Horn pointed out[1], the kernel has
+> had bugs, including security bugs, where read-only pages were later written
+> to. If the huge zero folio is read-only in the direct map, such writes
+> fault instead of silently corrupting shared zero contents.
+> 
+> For the persistent huge zero folio, set this up once after the folio is
+> allocated at boot.
+> 
+> The permission change is best-effort. If the architecture cannot safely
+> make the direct map read-only, keep using the writable persistent huge zero
+> folio.
+> 
+> While at it, mark the huge_zero_folio pointer itself __ro_after_init.
+> READONLY_HUGE_ZERO_FOLIO depends on PERSISTENT_HUGE_ZERO_FOLIO, so the
+> pointer is initialized during boot and never replaced.
+> 
+> This was inspired by Jann Horn's read-only zero page work[1] and follow-up
+> discussion[2] with Yang Shi.
+> 
+> [1] https://lore.kernel.org/linux-mm/20260508-ro-zeropage-v1-1-9808abc20b49@google.com/
+> [2] https://lore.kernel.org/linux-mm/CAHbLzkrXXe7r3n3jXgDKtwZhRqj=jDx9E6dLOULohnhBguvi9A@mail.gmail.com/
+> 
+> Co-developed-by: Lance Yang <lance.yang@linux.dev>
+> Signed-off-by: Lance Yang <lance.yang@linux.dev>
+> Signed-off-by: Xueyuan Chen <xueyuan.chen21@gmail.com>
+> ---
+>  include/linux/huge_mm.h |  5 +++++
+>  mm/Kconfig              | 17 +++++++++++++++++
+>  mm/huge_memory.c        | 25 ++++++++++++++++++++++++-
+>  3 files changed, 46 insertions(+), 1 deletion(-)
+> 
+> diff --git a/include/linux/huge_mm.h b/include/linux/huge_mm.h
+> index edece3e26985..45d1352619d1 100644
+> --- a/include/linux/huge_mm.h
+> +++ b/include/linux/huge_mm.h
+> @@ -5,6 +5,7 @@
+>  #include <linux/mm_types.h>
+>  
+>  #include <linux/fs.h> /* only for vma_is_dax() */
+> +#include <linux/init.h>
+>  #include <linux/kobject.h>
+>  
+>  vm_fault_t do_huge_pmd_anonymous_page(struct vm_fault *vmf);
+> @@ -554,6 +555,10 @@ static inline bool is_huge_zero_pmd(pmd_t pmd)
+>  struct folio *mm_get_huge_zero_folio(struct mm_struct *mm);
+>  void mm_put_huge_zero_folio(struct mm_struct *mm);
+>  
+> +#ifdef CONFIG_READONLY_HUGE_ZERO_FOLIO
+> +bool __init arch_make_huge_zero_folio_readonly(struct folio *folio);
+> +#endif
+> +
+>  static inline struct folio *get_persistent_huge_zero_folio(void)
+>  {
+>  	if (!IS_ENABLED(CONFIG_PERSISTENT_HUGE_ZERO_FOLIO))
+> diff --git a/mm/Kconfig b/mm/Kconfig
+> index 776b67c66e82..f31200816646 100644
+> --- a/mm/Kconfig
+> +++ b/mm/Kconfig
+> @@ -787,6 +787,23 @@ config PERSISTENT_HUGE_ZERO_FOLIO
+>  	  Say Y if your system has lots of memory. Say N if you are
+>  	  memory constrained.
+>  
+> +config ARCH_HAS_READONLY_HUGE_ZERO_FOLIO
+> +	bool
+> +
+> +config READONLY_HUGE_ZERO_FOLIO
+> +	bool "Map the huge zero folio read-only in the direct map"
+> +	depends on PERSISTENT_HUGE_ZERO_FOLIO
+> +	depends on ARCH_HAS_READONLY_HUGE_ZERO_FOLIO
+> +	help
+> +	  The persistent huge zero folio is shared globally, and nothing
+> +	  should ever change its contents after initialization.
+> +
+> +	  When supported, mark the folio read-only in the direct map so such
+> +	  writes trigger a fault instead of silently corrupting the zero contents.
+> +
+> +	  If the permission change is not supported, the kernel keeps using
+> +	  the writable persistent huge zero folio.
+> +
+>  config MM_ID
+>  	def_bool n
+>  
+> diff --git a/mm/huge_memory.c b/mm/huge_memory.c
+> index bf9b480bb3b0..c568755dd58e 100644
+> --- a/mm/huge_memory.c
+> +++ b/mm/huge_memory.c
+> @@ -75,7 +75,11 @@ static unsigned long deferred_split_scan(struct shrinker *shrink,
+>  static bool split_underused_thp = true;
+>  
+>  static atomic_t huge_zero_refcount;
+> +#ifdef CONFIG_READONLY_HUGE_ZERO_FOLIO
+> +struct folio *huge_zero_folio __ro_after_init;
 
-If the PWM maintainer is busy maybe Rob can queue this patch?
 
-Yours,
-Linus Walleij
+Can we guard this with CONFIG_PERSISTENT_HUGE_ZERO_FOLIO? Since
+in that case too the pointer is never written after init.
+
+> +#else
+>  struct folio *huge_zero_folio __read_mostly;
+> +#endif
+>  unsigned long huge_zero_pfn __read_mostly = ~0UL;
+>  unsigned long huge_anon_orders_always __read_mostly;
+>  unsigned long huge_anon_orders_madvise __read_mostly;
+> @@ -305,6 +309,18 @@ static unsigned long shrink_huge_zero_folio_scan(struct shrinker *shrink,
+>  	return 0;
+>  }
+>  
+> +#ifdef CONFIG_READONLY_HUGE_ZERO_FOLIO
+> +static bool __init make_huge_zero_folio_readonly(void)
+> +{
+> +	return arch_make_huge_zero_folio_readonly(READ_ONCE(huge_zero_folio));
+
+
+I think READ_ONCE is not required since no one is going to change the
+pointer after allocation?
+
+
+> +}
+> +#else
+> +static bool __init make_huge_zero_folio_readonly(void)
+> +{
+> +	return false;
+> +}
+> +#endif
+> +
+>  static struct shrinker *huge_zero_folio_shrinker;
+>  
+>  #ifdef CONFIG_SYSFS
+> @@ -965,8 +981,15 @@ static int __init thp_shrinker_init(void)
+>  		 * that get_huge_zero_folio() will most likely not fail as
+>  		 * thp_shrinker_init() is invoked early on during boot.
+>  		 */
+> -		if (!get_huge_zero_folio())
+> +		if (!get_huge_zero_folio()) {
+>  			pr_warn("Allocating persistent huge zero folio failed\n");
+> +			return 0;
+> +		}
+> +
+> +		if (IS_ENABLED(CONFIG_READONLY_HUGE_ZERO_FOLIO) &&
+> +		    !make_huge_zero_folio_readonly())
+> +			pr_warn("Making persistent huge zero folio read-only failed\n");
+> +
+>  		return 0;
+>  	}
+>  
+
 
