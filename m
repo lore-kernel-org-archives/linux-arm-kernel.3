@@ -4,61 +4,63 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id E0E44CD4F54
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 27 May 2026 12:05:47 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id E9EADCD4F54
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 27 May 2026 12:11:49 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
 	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
 	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=uqzEaQO/OXBNWswLNnk2hw+0c7BzSHgekUOP8OXwRVs=; b=iGTFEQspmhZv99TT5qHdrmIiSS
-	fscds5ITyy29OqLH0mlrjMbRpnwJoHEDmL6xQjpTb5NLrYMEah/WmdOlLZrnkFx7EdvVskJIvhFaW
-	wziHJwtJ+sYyYJl2qESLxZ7IuzrNgjiFqykG+27VbJOU/e7mm3NIKcfUlBoyjq+9eepiNLxiuPDjt
-	HDV4UeUvdutoOPXesFZZ15wz0LSIZi9On8K71cEW9mWr63H4lXcIQhJJKimFSKjlKdCoZdJojkJ7H
-	Nl4aleKHsjcxlu6UU/kgfv30vz5vkDzcQAuUnFq4QrlmsLUqajPWX94ijhqdkO4RN6s2v506IiUxV
-	KgOe2XtQ==;
+	bh=Xwqbmiv0R32lR8BuocOfuqeBrCq/zaUsqLAFm0txiGU=; b=pu7Dcsv4AG2+BWv44kdUX/Y9Ep
+	WR+kBkHi+Pkqd5go/ZUxqvgPxFDBwQryXhlO754Lwntih1zQo7TpKOfrsylDHf8Qg1XroK0nj1GgB
+	0xhEEubKapiVVAHSTX7LA7IbriMbwvBAMZaxNeEiujdkfnJHTs19zCh6gZORkVR/bTx6aZSpEp51I
+	b0vKliRIE3YML+32wQjj55/m1hqBwEPXr/WzSh1ONbie3h7+ruL42AbYVdRCZlVxlPbV5TA8+NNxR
+	LwxpI8i42QlQpwDxtSetAkA6TkQKL8DtdeZhgjxBJqPHQi5EY668DRjAvBb8bU03qFT8QnOyXUw+b
+	43rieDQw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wSD11-000000042zW-3ipk;
-	Wed, 27 May 2026 12:05:39 +0000
-Received: from foss.arm.com ([217.140.110.172])
-	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wSD0z-000000042zB-1bxK
+	id 1wSD6q-000000043FC-2C1W;
+	Wed, 27 May 2026 12:11:40 +0000
+Received: from out30-112.freemail.mail.aliyun.com ([115.124.30.112])
+	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
+	id 1wSD6i-000000043EE-2Zos
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 27 May 2026 12:05:38 +0000
-Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
-	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id BA7D72880;
-	Wed, 27 May 2026 05:05:29 -0700 (PDT)
-Received: from [10.1.38.169] (e121487-lin.cambridge.arm.com [10.1.38.169])
-	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id A51CE3F7D8;
-	Wed, 27 May 2026 05:05:32 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=simple/simple; d=arm.com; s=foss;
-	t=1779883534; bh=Zbxpqn4Jt/9J9sZFTsb4lQB+ojGhadpcsY1uxX/YM5w=;
-	h=Date:Subject:To:Cc:References:From:In-Reply-To:From;
-	b=QbFKB+7jVYsFzfC6CZJ1pOS71mhTMwWoUMCsHUiIvQtsA9VyylaEke2RIanwkvzCy
-	 7DQh3WmNbyA2JaQqEg+dnLLA4AUkTebzIIvEE+Fpw4FYjUhagVYcQ8gy6cL1Vlx1AP
-	 /VGoSX53cvFwGJkyY8cUdSK5lzoH74BPk/jrTVtA=
-Message-ID: <7cca038b-f5bc-4dba-97cd-a77c5d5cf804@arm.com>
-Date: Wed, 27 May 2026 13:05:30 +0100
+	Wed, 27 May 2026 12:11:38 +0000
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+	d=linux.alibaba.com; s=default;
+	t=1779883887; h=Message-ID:Date:MIME-Version:Subject:To:From:Content-Type;
+	bh=Xwqbmiv0R32lR8BuocOfuqeBrCq/zaUsqLAFm0txiGU=;
+	b=OD4FUxgTpVaWcs+LIbTn/Cs7U7gPHJ4tE1syzpH4AIWDvBg4cjIBLdXjq6+D9OYfxcbRfSwXH2LkairXHTHF7q/xXxz+lnfwaOLbkUhc45cbrv6lrz/2Le+tV4kZkFeOSlom9BWTn+qRNN3gb/7cOQJtI+LXSyLh9AV8WW4LpPY=
+X-Alimail-AntiSpam: AC=PASS;BC=-1|-1;BR=01201311R821e4;CH=green;DM=||false|;DS=||;FP=0|-1|-1|-1|0|-1|-1|-1;HT=maildocker-contentspam033032089153;MF=xueshuai@linux.alibaba.com;NM=1;PH=DS;RN=27;SR=0;TI=SMTPD_---0X3jgBSf_1779883878;
+Received: from 30.246.179.14(mailfrom:xueshuai@linux.alibaba.com fp:SMTPD_---0X3jgBSf_1779883878 cluster:ay36)
+          by smtp.aliyun-inc.com;
+          Wed, 27 May 2026 20:11:19 +0800
+Message-ID: <037abe53-860e-4a87-afd8-8abfd3f6093a@linux.alibaba.com>
+Date: Wed, 27 May 2026 20:11:13 +0800
 MIME-Version: 1.0
 User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH 05/18] arm64: fpsimd: Fold sve_init_regs() into
- do_sve_acc()
-To: Mark Rutland <mark.rutland@arm.com>,
- linux-arm-kernel@lists.infradead.org, kvmarm@lists.linux.dev
-Cc: broonie@kernel.org, catalin.marinas@arm.com, james.morse@arm.com,
- maz@kernel.org, oupton@kernel.org, tabba@google.com, will@kernel.org
-References: <20260521132556.584676-1-mark.rutland@arm.com>
- <20260521132556.584676-6-mark.rutland@arm.com>
-Content-Language: en-GB
-From: Vladimir Murzin <vladimir.murzin@arm.com>
-In-Reply-To: <20260521132556.584676-6-mark.rutland@arm.com>
-Content-Type: text/plain; charset=UTF-8
+Subject: Re: [PATCH v14 5/8] arm64: support copy_mc_[user]_highpage()
+To: Ruidong Tian <tianruidong@linux.alibaba.com>, catalin.marinas@arm.com,
+ will@kernel.org, rafael@kernel.org, tony.luck@intel.com,
+ guohanjun@huawei.com, mchehab@kernel.org, tongtiangen@huawei.com,
+ james.morse@arm.com, robin.murphy@arm.com, andreyknvl@gmail.com,
+ dvyukov@google.com, vincenzo.frascino@arm.com, mpe@ellerman.id.au,
+ npiggin@gmail.com, ryabinin.a.a@gmail.com, glider@google.com,
+ christophe.leroy@csgroup.eu, aneesh.kumar@kernel.org,
+ naveen.n.rao@linux.ibm.com, tglx@linutronix.de, mingo@redhat.com
+Cc: linux-arm-kernel@lists.infradead.org, linux-mm@kvack.org,
+ linuxppc-dev@lists.ozlabs.org, linux-kernel@vger.kernel.org,
+ kasan-dev@googlegroups.com
+References: <20260518084956.2538442-1-tianruidong@linux.alibaba.com>
+ <20260518084956.2538442-6-tianruidong@linux.alibaba.com>
+From: Shuai Xue <xueshuai@linux.alibaba.com>
+In-Reply-To: <20260518084956.2538442-6-tianruidong@linux.alibaba.com>
+Content-Type: text/plain; charset=UTF-8; format=flowed
 Content-Transfer-Encoding: 7bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260527_050537_529570_B36CAD5C 
-X-CRM114-Status: GOOD (  28.50  )
+X-CRM114-CacheID: sfid-20260527_051133_510881_9DA060A1 
+X-CRM114-Status: GOOD (  32.15  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -73,102 +75,437 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On 5/21/26 14:25, Mark Rutland wrote:
-> For historical reasons, do_sve_acc() is structurally different from
-> do_sme_acc(), and the logic to convert the task from FPSIMD to SVE is
-> out-of-line in sve_init_regs(). We only use sve_init_regs() within
-> do_sme_acc(), so it's not necessary for this to be a separate function.
+
+
+On 5/18/26 4:49 PM, Ruidong Tian wrote:
+> From: Tong Tiangen <tongtiangen@huawei.com>
 > 
-> Fold sve_init_regs() into do_sve_acc(), and simplify the associated
-> comments. This makes do_sve_acc() structurally similar to do_sme_acc(),
-> making it easier to see similarities and differences.
+> Currently, many scenarios that can tolerate memory errors when copying page
+> have been supported in the kernel[1~5], all of which are implemented by
+> copy_mc_[user]_highpage(). arm64 should also support this mechanism.
 > 
-> There should be no functional change as a result of this patch.
+> Due to mte, arm64 needs to have its own copy_mc_[user]_highpage()
+> architecture implementation, macros __HAVE_ARCH_COPY_MC_HIGHPAGE and
+> __HAVE_ARCH_COPY_MC_USER_HIGHPAGE have been added to control it.
 > 
-> Signed-off-by: Mark Rutland <mark.rutland@arm.com>
-> Cc: Catalin Marinas <catalin.marinas@arm.com>
-> Cc: Fuad Tabba <tabba@google.com>
-> Cc: James Morse <james.morse@arm.com>
-> Cc: Marc Zyngier <maz@kernel.org>
-> Cc: Mark Brown <broonie@kernel.org>
-> Cc: Oliver Upton <oupton@kernel.org>
-> Cc: Will Deacon <will@kernel.org>
+> Add new helper copy_mc_page() which provide a page copy implementation with
+> hardware memory error safe. The code logic of copy_mc_page() is the same as
+> copy_page(), the main difference is that the ldp insn of copy_mc_page()
+> contains the fixup type EX_TYPE_KACCESS_ERR_ZERO_MEM_ERR, therefore, the
+> main logic is extracted to copy_page_template.S. In addition, the fixup of
+> MOPS insn is not considered at present.
+> 
+> [Ruidong: add FEAT_MOPS support]
+
+
+    copy_page_template.S now references the cpy1 macro inside the MOPS
+    alternative:
+
+        #ifdef CONFIG_AS_HAS_MOPS
+        alternative_if_not ARM64_HAS_MOPS
+            b   .Lno_mops
+        alternative_else_nop_endif
+            mov x2, #PAGE_SIZE
+            cpy1    dst, src, x2
+            b   .Lexitfunc
+        .Lno_mops:
+        #endif
+
+    copy_mc_page.S provides cpy1 (using cpyfp/m/ert + USER_CPY).
+    copy_page.S, however, only provides ldp1 -- no cpy1 -- so any
+    toolchain with FEAT_MOPS support fails to assemble copy_page.S
+    with "unknown mnemonic 'cpy1'".
+
+> 
+> [1] commit d302c2398ba2 ("mm, hwpoison: when copy-on-write hits poison, take page offline")
+> [2] commit 1cb9dc4b475c ("mm: hwpoison: support recovery from HugePage copy-on-write faults")
+> [3] commit 6b970599e807 ("mm: hwpoison: support recovery from ksm_might_need_to_copy()")
+> [4] commit 98c76c9f1ef7 ("mm/khugepaged: recover from poisoned anonymous memory")
+> [5] commit 12904d953364 ("mm/khugepaged: recover from poisoned file-backed memory")
+> 
+> Signed-off-by: Tong Tiangen <tongtiangen@huawei.com>
+> Signed-off-by: Ruidong Tian <tianruidong@linux.alibaba.com>
 > ---
->  arch/arm64/kernel/fpsimd.c | 48 ++++++++++++++------------------------
->  1 file changed, 17 insertions(+), 31 deletions(-)
+>   arch/arm64/include/asm/mte.h        |  9 ++++
+>   arch/arm64/include/asm/page.h       | 10 ++++
+>   arch/arm64/lib/Makefile             |  2 +
+>   arch/arm64/lib/copy_mc_page.S       | 44 +++++++++++++++++
+>   arch/arm64/lib/copy_page.S          | 62 ++----------------------
+>   arch/arm64/lib/copy_page_template.S | 71 +++++++++++++++++++++++++++
+>   arch/arm64/lib/mte.S                | 29 +++++++++++
+>   arch/arm64/mm/copypage.c            | 75 +++++++++++++++++++++++++++++
+>   include/linux/highmem.h             |  8 +++
+>   9 files changed, 253 insertions(+), 57 deletions(-)
+>   create mode 100644 arch/arm64/lib/copy_mc_page.S
+>   create mode 100644 arch/arm64/lib/copy_page_template.S
 > 
-> diff --git a/arch/arm64/kernel/fpsimd.c b/arch/arm64/kernel/fpsimd.c
-> index 60a45d600b460..a8395cb303344 100644
-> --- a/arch/arm64/kernel/fpsimd.c
-> +++ b/arch/arm64/kernel/fpsimd.c
-> @@ -1293,31 +1293,6 @@ void sme_suspend_exit(void)
->  
->  #endif /* CONFIG_ARM64_SME */
->  
-> -static void sve_init_regs(void)
-> -{
-> -	/*
-> -	 * Convert the FPSIMD state to SVE, zeroing all the state that
-> -	 * is not shared with FPSIMD. If (as is likely) the current
-> -	 * state is live in the registers then do this there and
-> -	 * update our metadata for the current task including
-> -	 * disabling the trap, otherwise update our in-memory copy.
-> -	 * We are guaranteed to not be in streaming mode, we can only
-> -	 * take a SVE trap when not in streaming mode and we can't be
-> -	 * in streaming mode when taking a SME trap.
-> -	 */
-> -	if (!test_thread_flag(TIF_FOREIGN_FPSTATE)) {
-> -		unsigned long vq_minus_one =
-> -			sve_vq_from_vl(task_get_sve_vl(current)) - 1;
-> -		sve_set_vq(vq_minus_one);
-> -		sve_flush_live(true, vq_minus_one);
-> -		fpsimd_bind_task_to_cpu();
-> -	} else {
-> -		fpsimd_to_sve(current);
-> -		current->thread.fp_type = FP_STATE_SVE;
-> -		fpsimd_flush_task_state(current);
-> -	}
-> -}
+> diff --git a/arch/arm64/include/asm/mte.h b/arch/arm64/include/asm/mte.h
+> index 7f7b97e09996..a0b1757f4847 100644
+> --- a/arch/arm64/include/asm/mte.h
+> +++ b/arch/arm64/include/asm/mte.h
+> @@ -98,6 +98,11 @@ static inline bool try_page_mte_tagging(struct page *page)
+>   void mte_zero_clear_page_tags(void *addr);
+>   void mte_sync_tags(pte_t pte, unsigned int nr_pages);
+>   void mte_copy_page_tags(void *kto, const void *kfrom);
+> +
+> +#ifdef CONFIG_ARCH_HAS_COPY_MC
+> +int mte_copy_mc_page_tags(void *kto, const void *kfrom);
+> +#endif
+> +
+>   void mte_thread_init_user(void);
+>   void mte_thread_switch(struct task_struct *next);
+>   void mte_cpu_setup(void);
+> @@ -134,6 +139,10 @@ static inline void mte_sync_tags(pte_t pte, unsigned int nr_pages)
+>   static inline void mte_copy_page_tags(void *kto, const void *kfrom)
+>   {
+>   }
+> +static inline int mte_copy_mc_page_tags(void *kto, const void *kfrom)
+> +{
+> +	return 0;
+> +}
+>   static inline void mte_thread_init_user(void)
+>   {
+>   }
+> diff --git a/arch/arm64/include/asm/page.h b/arch/arm64/include/asm/page.h
+> index e25d0d18f6d7..f65818ee614a 100644
+> --- a/arch/arm64/include/asm/page.h
+> +++ b/arch/arm64/include/asm/page.h
+> @@ -29,6 +29,16 @@ void copy_user_highpage(struct page *to, struct page *from,
+>   void copy_highpage(struct page *to, struct page *from);
+>   #define __HAVE_ARCH_COPY_HIGHPAGE
+>   
+> +#ifdef CONFIG_ARCH_HAS_COPY_MC
+> +int copy_mc_page(void *to, const void *from);
+> +int copy_mc_highpage(struct page *to, struct page *from);
+> +#define __HAVE_ARCH_COPY_MC_HIGHPAGE
+> +
+> +int copy_mc_user_highpage(struct page *to, struct page *from,
+> +		unsigned long vaddr, struct vm_area_struct *vma);
+> +#define __HAVE_ARCH_COPY_MC_USER_HIGHPAGE
+> +#endif
+> +
+>   struct folio *vma_alloc_zeroed_movable_folio(struct vm_area_struct *vma,
+>   						unsigned long vaddr);
+>   #define vma_alloc_zeroed_movable_folio vma_alloc_zeroed_movable_folio
+> diff --git a/arch/arm64/lib/Makefile b/arch/arm64/lib/Makefile
+> index 448c917494f3..1f4c3f743a20 100644
+> --- a/arch/arm64/lib/Makefile
+> +++ b/arch/arm64/lib/Makefile
+> @@ -7,6 +7,8 @@ lib-y		:= clear_user.o delay.o copy_from_user.o		\
+>   
+>   lib-$(CONFIG_ARCH_HAS_UACCESS_FLUSHCACHE) += uaccess_flushcache.o
+>   
+> +lib-$(CONFIG_ARCH_HAS_COPY_MC) += copy_mc_page.o
+> +
+>   obj-$(CONFIG_FUNCTION_ERROR_INJECTION) += error-inject.o
+>   
+>   obj-$(CONFIG_ARM64_MTE) += mte.o
+> diff --git a/arch/arm64/lib/copy_mc_page.S b/arch/arm64/lib/copy_mc_page.S
+> new file mode 100644
+> index 000000000000..ad1371e9e687
+> --- /dev/null
+> +++ b/arch/arm64/lib/copy_mc_page.S
+> @@ -0,0 +1,44 @@
+> +/* SPDX-License-Identifier: GPL-2.0-only */
+> +
+> +#include <linux/linkage.h>
+> +#include <linux/const.h>
+> +#include <asm/assembler.h>
+> +#include <asm/page.h>
+> +#include <asm/cpufeature.h>
+> +#include <asm/alternative.h>
+> +#include <asm/asm-extable.h>
+> +#include <asm/asm-uaccess.h>
+> +
+> +/*
+> + * Copy a page from src to dest (both are page aligned) with memory error safe
+> + *
+> + * Parameters:
+> + *	x0 - dest
+> + *	x1 - src
+> + * Returns:
+> + * 	x0 - Return 0 if copy success, or -EFAULT if anything goes wrong
+> + *	     while copying.
+> + */
+> +	.macro ldp1 reg1, reg2, ptr, val
+> +	KERNEL_MEM_ERR(9998f, ldp \reg1, \reg2, [\ptr, \val])
+> +	.endm
+> +
+> +	.macro cpy1 dst, src, count
+> +	.arch_extension mops
+> +	USER_CPY(9998f, 0, cpyfprt [\dst]!, [\src]!, \count!)
+> +	USER_CPY(9998f, 0, cpyfmrt [\dst]!, [\src]!, \count!)
+> +	USER_CPY(9998f, 0, cpyfert [\dst]!, [\src]!, \count!)
+> +	.endm
+> +
+> +SYM_FUNC_START(__pi_copy_mc_page)
+> +#include "copy_page_template.S"
+> +
+> +	mov x0, #0
+> +	ret
+> +
+> +9998:	mov x0, #-EFAULT
+> +	ret
+> +
+> +SYM_FUNC_END(__pi_copy_mc_page)
+> +SYM_FUNC_ALIAS(copy_mc_page, __pi_copy_mc_page)
+> +EXPORT_SYMBOL(copy_mc_page)
+> diff --git a/arch/arm64/lib/copy_page.S b/arch/arm64/lib/copy_page.S
+> index e6374e7e5511..d0186bbf99f1 100644
+> --- a/arch/arm64/lib/copy_page.S
+> +++ b/arch/arm64/lib/copy_page.S
+> @@ -17,65 +17,13 @@
+>    *	x0 - dest
+>    *	x1 - src
+>    */
+> -SYM_FUNC_START(__pi_copy_page)
+> -#ifdef CONFIG_AS_HAS_MOPS
+> -	.arch_extension mops
+> -alternative_if_not ARM64_HAS_MOPS
+> -	b	.Lno_mops
+> -alternative_else_nop_endif
 > -
->  /*
->   * Trapped SVE access
->   *
-> @@ -1349,13 +1324,24 @@ void do_sve_acc(unsigned long esr, struct pt_regs *regs)
->  		WARN_ON(1); /* SVE access shouldn't have trapped */
->  
->  	/*
-> -	 * Even if the task can have used streaming mode we can only
-> -	 * generate SVE access traps in normal SVE mode and
-> -	 * transitioning out of streaming mode may discard any
-> -	 * streaming mode state.  Always clear the high bits to avoid
-> -	 * any potential errors tracking what is properly initialised.
-> +	 * Convert the FPSIMD state to SVE. Stale SVE state can be present in
-> +	 * registers or memory, so we must zero all state that is not shared
-> +	 * with FPSIMD.
-> +	 *
-> +	 * SVE traps cannot be taken from streaming mode, so there cannot be
-> +	 * any effective streaming mode SVE state.
->  	 */
-> -	sve_init_regs();
-> +	if (!test_thread_flag(TIF_FOREIGN_FPSTATE)) {
-> +		unsigned long vq_minus_one =
-> +			sve_vq_from_vl(task_get_sve_vl(current)) - 1;
-> +		sve_set_vq(vq_minus_one);
-> +		sve_flush_live(true, vq_minus_one);
-> +		fpsimd_bind_task_to_cpu();
-> +	} else {
-> +		fpsimd_to_sve(current);
-> +		current->thread.fp_type = FP_STATE_SVE;
-> +		fpsimd_flush_task_state(current);
-> +	}
->  
->  	put_cpu_fpsimd_context();
->  }
-> -- 2.30.2
-> 
+> -	mov	x2, #PAGE_SIZE
+> -	cpypwn	[x0]!, [x1]!, x2!
+> -	cpymwn	[x0]!, [x1]!, x2!
+> -	cpyewn	[x0]!, [x1]!, x2!
+> -	ret
+> -.Lno_mops:
+> -#endif
+> -	ldp	x2, x3, [x1]
+> -	ldp	x4, x5, [x1, #16]
+> -	ldp	x6, x7, [x1, #32]
+> -	ldp	x8, x9, [x1, #48]
+> -	ldp	x10, x11, [x1, #64]
+> -	ldp	x12, x13, [x1, #80]
+> -	ldp	x14, x15, [x1, #96]
+> -	ldp	x16, x17, [x1, #112]
+> -
+> -	add	x0, x0, #256
+> -	add	x1, x1, #128
+> -1:
+> -	tst	x0, #(PAGE_SIZE - 1)
+>   
+> -	stnp	x2, x3, [x0, #-256]
+> -	ldp	x2, x3, [x1]
+> -	stnp	x4, x5, [x0, #16 - 256]
+> -	ldp	x4, x5, [x1, #16]
+> -	stnp	x6, x7, [x0, #32 - 256]
+> -	ldp	x6, x7, [x1, #32]
+> -	stnp	x8, x9, [x0, #48 - 256]
+> -	ldp	x8, x9, [x1, #48]
+> -	stnp	x10, x11, [x0, #64 - 256]
+> -	ldp	x10, x11, [x1, #64]
+> -	stnp	x12, x13, [x0, #80 - 256]
+> -	ldp	x12, x13, [x1, #80]
+> -	stnp	x14, x15, [x0, #96 - 256]
+> -	ldp	x14, x15, [x1, #96]
+> -	stnp	x16, x17, [x0, #112 - 256]
+> -	ldp	x16, x17, [x1, #112]
+> -
+> -	add	x0, x0, #128
+> -	add	x1, x1, #128
+> -
+> -	b.ne	1b
+> -
+> -	stnp	x2, x3, [x0, #-256]
+> -	stnp	x4, x5, [x0, #16 - 256]
+> -	stnp	x6, x7, [x0, #32 - 256]
+> -	stnp	x8, x9, [x0, #48 - 256]
+> -	stnp	x10, x11, [x0, #64 - 256]
+> -	stnp	x12, x13, [x0, #80 - 256]
+> -	stnp	x14, x15, [x0, #96 - 256]
+> -	stnp	x16, x17, [x0, #112 - 256]
+> +	.macro ldp1 reg1, reg2, ptr, val
+> +	ldp \reg1, \reg2, [\ptr, \val]
+> +	.endm
+>   
+> +SYM_FUNC_START(__pi_copy_page)
+> +#include "copy_page_template.S"
+>   	ret
+>   SYM_FUNC_END(__pi_copy_page)
+>   SYM_FUNC_ALIAS(copy_page, __pi_copy_page)
+> diff --git a/arch/arm64/lib/copy_page_template.S b/arch/arm64/lib/copy_page_template.S
+> new file mode 100644
+> index 000000000000..d466b51c8ed9
+> --- /dev/null
+> +++ b/arch/arm64/lib/copy_page_template.S
+> @@ -0,0 +1,71 @@
+> +/* SPDX-License-Identifier: GPL-2.0-only */
+> +/*
+> + * Copyright (C) 2012 ARM Ltd.
+> + */
+> +
+> +/*
+> + * Copy a page from src to dest (both are page aligned)
+> + *
+> + * Parameters:
+> + *	x0 - dest
+> + *	x1 - src
+> + */
+> +dstin	.req	x0
+> +src	.req	x1
+> +
+> +#ifdef CONFIG_AS_HAS_MOPS
+> +	.arch_extension mops
+> +alternative_if_not ARM64_HAS_MOPS
+> +	b	.Lno_mops
+> +alternative_else_nop_endif
+> +	mov	x2, #PAGE_SIZE
+> +	cpy1	dst, src, x2
 
-FWIW,
+copy_page_template.S now references the cpy1 macro inside the MOPS
+alternative:
 
-Reviewed-by: Vladimir Murzin <vladimir.murzin@arm.com>
+copy_page.S, however, only provides ldp1 -- no cpy1 -- so any
+toolchain with FEAT_MOPS support fails to assemble copy_page.S
+with "unknown mnemonic 'cpy1'".
 
+Trivial fix:
+
+        diff --git a/arch/arm64/lib/copy_page.S b/arch/arm64/lib/copy_page.S
+        @@
+             .macro ldp1 reg1, reg2, ptr, val
+             ldp \reg1, \reg2, [\ptr, \val]
+             .endm
+
+        +    .macro cpy1 dst, src, count
+        +    .arch_extension mops
+        +    cpyp [\dst]!, [\src]!, \count!
+        +    cpym [\dst]!, [\src]!, \count!
+        +    cpye [\dst]!, [\src]!, \count!
+        +    .endm
+        +
+         SYM_FUNC_START(__pi_copy_page)
+         #include "copy_page_template.S"
+
+
+> +	b	.Lexitfunc
+> +.Lno_mops:
+> +#endif
+> +
+> +	ldp1	x2, x3, x1, #0
+> +	ldp1	x4, x5, x1, #16
+> +	ldp1	x6, x7, x1, #32
+> +	ldp1	x8, x9, x1, #48
+> +	ldp1	x10, x11, x1, #64
+> +	ldp1	x12, x13, x1, #80
+> +	ldp1	x14, x15, x1, #96
+> +	ldp1	x16, x17, x1, #112
+> +
+> +	add	x0, x0, #256
+> +	add	x1, x1, #128
+> +1:
+> +	tst	x0, #(PAGE_SIZE - 1)
+> +
+> +	stnp	x2, x3, [x0, #-256]
+> +	ldp1	x2, x3, x1, #0
+> +	stnp	x4, x5, [x0, #16 - 256]
+> +	ldp1	x4, x5, x1, #16
+> +	stnp	x6, x7, [x0, #32 - 256]
+> +	ldp1	x6, x7, x1, #32
+> +	stnp	x8, x9, [x0, #48 - 256]
+> +	ldp1	x8, x9, x1, #48
+> +	stnp	x10, x11, [x0, #64 - 256]
+> +	ldp1	x10, x11, x1, #64
+> +	stnp	x12, x13, [x0, #80 - 256]
+> +	ldp1	x12, x13, x1, #80
+> +	stnp	x14, x15, [x0, #96 - 256]
+> +	ldp1	x14, x15, x1, #96
+> +	stnp	x16, x17, [x0, #112 - 256]
+> +	ldp1	x16, x17, x1, #112
+> +
+> +	add	x0, x0, #128
+> +	add	x1, x1, #128
+> +
+> +	b.ne	1b
+> +
+> +	stnp	x2, x3, [x0, #-256]
+> +	stnp	x4, x5, [x0, #16 - 256]
+> +	stnp	x6, x7, [x0, #32 - 256]
+> +	stnp	x8, x9, [x0, #48 - 256]
+> +	stnp	x10, x11, [x0, #64 - 256]
+> +	stnp	x12, x13, [x0, #80 - 256]
+> +	stnp	x14, x15, [x0, #96 - 256]
+> +	stnp	x16, x17, [x0, #112 - 256]
+> +.Lexitfunc:
+> diff --git a/arch/arm64/lib/mte.S b/arch/arm64/lib/mte.S
+> index 5018ac03b6bf..9d4eeb76a838 100644
+> --- a/arch/arm64/lib/mte.S
+> +++ b/arch/arm64/lib/mte.S
+> @@ -80,6 +80,35 @@ SYM_FUNC_START(mte_copy_page_tags)
+>   	ret
+>   SYM_FUNC_END(mte_copy_page_tags)
+>   
+> +#ifdef CONFIG_ARCH_HAS_COPY_MC
+> +/*
+> + * Copy the tags from the source page to the destination one with memory error safe
+> + *   x0 - address of the destination page
+> + *   x1 - address of the source page
+> + * Returns:
+> + *   x0 - Return 0 if copy success, or
+> + *        -EFAULT if anything goes wrong while copying.
+> + */
+> +SYM_FUNC_START(mte_copy_mc_page_tags)
+> +	mov	x2, x0
+> +	mov	x3, x1
+> +	multitag_transfer_size x5, x6
+> +1:
+> +KERNEL_MEM_ERR(2f, ldgm	x4, [x3])
+> +	stgm	x4, [x2]
+> +	add	x2, x2, x5
+> +	add	x3, x3, x5
+> +	tst	x2, #(PAGE_SIZE - 1)
+> +	b.ne	1b
+> +
+> +	mov x0, #0
+> +	ret
+> +
+> +2:	mov x0, #-EFAULT
+> +	ret
+> +SYM_FUNC_END(mte_copy_mc_page_tags)
+> +#endif
+> +
+>   /*
+>    * Read tags from a user buffer (one tag per byte) and set the corresponding
+>    * tags at the given kernel address. Used by PTRACE_POKEMTETAGS.
+> diff --git a/arch/arm64/mm/copypage.c b/arch/arm64/mm/copypage.c
+> index cd5912ba617b..9fd773baf17b 100644
+> --- a/arch/arm64/mm/copypage.c
+> +++ b/arch/arm64/mm/copypage.c
+> @@ -72,3 +72,78 @@ void copy_user_highpage(struct page *to, struct page *from,
+>   	flush_dcache_page(to);
+>   }
+>   EXPORT_SYMBOL_GPL(copy_user_highpage);
+> +
+> +#ifdef CONFIG_ARCH_HAS_COPY_MC
+> +/*
+> + * Return -EFAULT if anything goes wrong while copying page or mte.
+> + */
+> +int copy_mc_highpage(struct page *to, struct page *from)
+> +{
+> +	void *kto = page_address(to);
+> +	void *kfrom = page_address(from);
+> +	struct folio *src = page_folio(from);
+> +	struct folio *dst = page_folio(to);
+> +	unsigned int i, nr_pages;
+> +	int ret;
+> +
+> +	ret = copy_mc_page(kto, kfrom);
+> +	if (ret)
+> +		return -EFAULT;
+
+
+The generic fallback in include/linux/highmem.h does:
+
+     ret = copy_mc_to_kernel(vto, vfrom, PAGE_SIZE);
+     ...
+     if (ret) memory_failure_queue(page_to_pfn(from), 0);
+
+The arm64 implementation in arch/arm64/mm/copypage.c does not call
+emory_failure_queue() on failure.  Please document it explicitly.
+
+
+Thanks.
+Shuai
 
