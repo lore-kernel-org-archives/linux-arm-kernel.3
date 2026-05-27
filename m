@@ -4,62 +4,53 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 3CD87CD5BD0
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 27 May 2026 16:14:04 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 5B5C1CD5BD0
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 27 May 2026 16:16:20 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
-	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=ewO88t8oiKnkHzpp93w0DVjCHmd01DJLUhrpWit9A9E=; b=pXdAxbROBlWmDRrNDuJhCiFCnV
-	O+7QTxtAYQbCwJROD3OUZSx3fwXoVXSLcmorultBUuOlR/elx8PZMQB2Oj9FI+CbLMT9hCk1FO4Il
-	FrCnv4XrNzir1KO+Q4qRg7R124IZ0c2xUvQWbH0jvtJZv025qKTvto2p6dYVkQPIXYF9gyteAveb6
-	eCUYGWKBVIA7WSL8BTkVyQhRGtLkygoxR84IBVo5of635MbE5PNmTr6oRE4GdKXph2CBeb94swhUX
-	rotzuynNTMBy1sxCuwxaD0xjUWOmJeCrQ0UTU02UqHIMt0QeTSJT00ui9aEyc8P/bpUaB1O5sfs2u
-	DQpRRcYA==;
+	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Cc:List-Subscribe:
+	List-Help:List-Post:List-Archive:List-Unsubscribe:List-Id:
+	Content-Transfer-Encoding:MIME-Version:Message-ID:Date:Subject:To:From:
+	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:
+	List-Owner; bh=a+tv5OHvSrWehvQxjL3ZqCHT1d5+lnZ2bKVY0r5kGck=; b=fgbAttFLuKzxOz
+	O/Y9JiP5C4A/jizM7wVsGWVJhJ3AAK2FXKPTgYoJKT+T8iyrJeLIMmxKZrNNaoWdx//NqD7awZBmk
+	TZY6DYcZiAycK6WagHa+x3VdeBTninxqO5MuD2J5gB+1z/h69UGtlM9Nxo7Y9PpqUNx5XVWMlSZ6J
+	i0HPq11I1g3zrdlRE6ksBtxSmJS08Vtte9c7Bkw1wSo9+AJ23ygbid/8Lx7CmEevvoo5gnVcD+jz3
+	YCTKcDTq7IEFgK2ic638faHDXD+LHzoKQ+J9shAO1PlKrPR+GabBHvTYmlPrxvH+cCKJ2ht/lkwQP
+	h6l8RHxqsJifiZJOeghg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wSGtK-00000004TxZ-03kC;
-	Wed, 27 May 2026 16:13:58 +0000
+	id 1wSGvV-00000004UBe-2Ms5;
+	Wed, 27 May 2026 16:16:13 +0000
 Received: from foss.arm.com ([217.140.110.172])
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wSGtB-00000004Tvh-0Oz5
+	id 1wSGvR-00000004UAb-2R4j
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 27 May 2026 16:13:50 +0000
+	Wed, 27 May 2026 16:16:12 +0000
 Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
-	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id 91F6335BF;
-	Wed, 27 May 2026 09:13:43 -0700 (PDT)
-Received: from [10.1.38.169] (e121487-lin.cambridge.arm.com [10.1.38.169])
-	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id 816A93F905;
-	Wed, 27 May 2026 09:13:46 -0700 (PDT)
+	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id 63A6D35B9;
+	Wed, 27 May 2026 09:16:01 -0700 (PDT)
+Received: from e137867.cambridge.arm.com (e137867.arm.com [10.1.28.175])
+	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPA id CFC983F905;
+	Wed, 27 May 2026 09:16:04 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=simple/simple; d=arm.com; s=foss;
-	t=1779898428; bh=gUye9Grka3ECEK41ZIpIsjGn/j1fZ7FW/nQvY+4jS+0=;
-	h=Date:Subject:To:Cc:References:From:In-Reply-To:From;
-	b=Qrn1fhCIhiS+r0p3Rq7KFOQiLwbSmb11xIlWxhOL4iedcV8fbohZD/08yRLAJ87em
-	 mFvqQedFp5S2LhFzaHIwu9ZRz6SS1tYI5yTf3uIP0/OICrl8nZLratQo91TJrM383N
-	 ZYlBeLiOrvlKKHx6xkjAxigyu6/aYj5B96BH1/Tg=
-Message-ID: <9b7bf255-bf37-4372-9908-d595e20648e9@arm.com>
-Date: Wed, 27 May 2026 17:13:44 +0100
+	t=1779898566; bh=wpBP5C7GduCZxr69u7h55i3GbDiEMdcFYcDDRpt8B+w=;
+	h=From:To:Cc:Subject:Date:From;
+	b=Y+X3aTeNmK/97VxNDzz/6X2Vuny+pyxBZ0nilU2ijy5Zf8UWFfNJn/8oKbYDQNIUc
+	 5jUR6moQfD0BsXfOn8sGnZSz3aK1ModtTy5iyKvc/yp/UtW3gmH/Lfudp6u/qP8BAp
+	 xJ2oMipUj8g425L6mut2rMAR8IsNFV3loYY5EhbM=
+From: Ada Couprie Diaz <ada.coupriediaz@arm.com>
+To: linux-arm-kernel@lists.infradead.org
+Subject: [PATCH 0/2] arm64/debug: clean up some HW BP edge cases
+Date: Wed, 27 May 2026 17:15:51 +0100
+Message-ID: <20260527161553.97676-1-ada.coupriediaz@arm.com>
+X-Mailer: git-send-email 2.43.0
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH 12/18] arm64: fpsimd: Move fpsimd save/restore inline
-To: Mark Rutland <mark.rutland@arm.com>
-Cc: linux-arm-kernel@lists.infradead.org, kvmarm@lists.linux.dev,
- broonie@kernel.org, catalin.marinas@arm.com, james.morse@arm.com,
- maz@kernel.org, oupton@kernel.org, tabba@google.com, will@kernel.org
-References: <20260521132556.584676-1-mark.rutland@arm.com>
- <20260521132556.584676-13-mark.rutland@arm.com>
- <c5ba3af9-08b2-4be2-b9f5-58a925f0b050@arm.com>
- <ahcPITrHKBgAHGkP@J2N7QTR9R3.cambridge.arm.com>
-Content-Language: en-GB
-From: Vladimir Murzin <vladimir.murzin@arm.com>
-In-Reply-To: <ahcPITrHKBgAHGkP@J2N7QTR9R3.cambridge.arm.com>
-Content-Type: text/plain; charset=UTF-8
-Content-Transfer-Encoding: 7bit
+Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260527_091349_221231_87369E51 
-X-CRM114-Status: GOOD (  21.01  )
+X-CRM114-CacheID: sfid-20260527_091609_665558_7A136B71 
+X-CRM114-Status: UNSURE (   8.08  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -71,106 +62,47 @@ List-Post: <mailto:linux-arm-kernel@lists.infradead.org>
 List-Help: <mailto:linux-arm-kernel-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
  <mailto:linux-arm-kernel-request@lists.infradead.org?subject=subscribe>
+Cc: Mark Rutland <mark.rutland@arm.com>, Rob Herring <robh@kernel.org>, Anshuman Khandual <anshuman.khandual@arm.com>, Catalin Marinas <catalin.marinas@arm.com>, Will Deacon <will@kernel.org>
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On 5/27/26 16:34, Mark Rutland wrote:
-> On Wed, May 27, 2026 at 03:49:18PM +0100, Vladimir Murzin wrote:
->> On 5/21/26 14:25, Mark Rutland wrote:
->>> +static inline void fpsimd_save_vregs(struct user_fpsimd_state *state)
->>> +{
->>> +	instrument_write(state->vregs, sizeof(state->vregs));
->>> +	asm volatile(
->>> +	__FPSIMD_PREAMBLE
->>> +	"	stp	q0,  q1,  [%[vregs], #16 * 0]\n"
->>> +	"	stp	q2,  q3,  [%[vregs], #16 * 2]\n"
->>> +	"	stp	q4,  q5,  [%[vregs], #16 * 4]\n"
->>> +	"	stp	q6,  q7,  [%[vregs], #16 * 6]\n"
->>> +	"	stp	q8,  q9,  [%[vregs], #16 * 8]\n"
->>> +	"	stp	q10, q11, [%[vregs], #16 * 10]\n"
->>> +	"	stp	q12, q13, [%[vregs], #16 * 12]\n"
->>> +	"	stp	q14, q15, [%[vregs], #16 * 14]\n"
->>> +	"	stp	q16, q17, [%[vregs], #16 * 16]\n"
->>> +	"	stp	q18, q19, [%[vregs], #16 * 18]\n"
->>> +	"	stp	q20, q21, [%[vregs], #16 * 20]\n"
->>> +	"	stp	q22, q23, [%[vregs], #16 * 22]\n"
->>> +	"	stp	q24, q25, [%[vregs], #16 * 24]\n"
->>> +	"	stp	q26, q27, [%[vregs], #16 * 26]\n"
->>> +	"	stp	q28, q29, [%[vregs], #16 * 28]\n"
->>> +	"	stp	q30, q31, [%[vregs], #16 * 30]\n"
->>> +	: "=Q" (state->vregs)
->>> +	: [vregs] "r" (state->vregs)
->> Missing "memory" clobber here?
-> Here the "=Q" constraint is sufficient.
-> 
-> The "=Q" output constraint describes that the operand is written to but
-> the old value is not read. It behaves like an "=m" constraint, but
-> places the base address in a single register without any offset (and no
-> writeback addressing mode). Here it applies to the entirety of the
-> vregs array.
-> 
-> See https://gcc.gnu.org/onlinedocs/gcc/Machine-Constraints.html :
-> 
-> |  Q
-> |     A memory address which uses a single base register with no offset
-> 
-> We generally prefer to use "Q" constraints rather than memory clobbers
-> where possible, since it gives the compiler more freedom (e.g. due to
-> *not* clobbering unrelated memory locations). 
-> 
-> The "Q" constraint causes the output to be formatted as a memory address
-> (e.g. "[x0]"), so to be able to apply an offset we need a separate "r"
-> constraint to get the base register. It doesn't matter whether the
-> compiler happens to use a different register for that (and in practice
-> compilers realise they can use the register allocated for the "Q"
-> conrstraint).
-> 
-> Unfortunately we can't use "Q" for the scalable registers, since the
-> size isn't known at compile time, and the simplest option for those is
-> to use a memory clobber.
-> 
+Hi,
 
-That's quite interesting bit of information, thanks for explanation!
+This is a small series focused on fixing some unsoundess and edge case
+related to hardware breakpoints and watchpoints.
 
-> [...]
-> 
->>> +static inline void fpsimd_load_vregs(const struct user_fpsimd_state *state)
->>> +{
->>> +	instrument_read(state->vregs, sizeof(state->vregs));
->>> +	asm volatile(
->>> +	__FPSIMD_PREAMBLE
->>> +	"	ldp	q0,  q1,  [%[vregs], #16 * 0]\n"
->>> +	"	ldp	q2,  q3,  [%[vregs], #16 * 2]\n"
->>> +	"	ldp	q4,  q5,  [%[vregs], #16 * 4]\n"
->>> +	"	ldp	q6,  q7,  [%[vregs], #16 * 6]\n"
->>> +	"	ldp	q8,  q9,  [%[vregs], #16 * 8]\n"
->>> +	"	ldp	q10, q11, [%[vregs], #16 * 10]\n"
->>> +	"	ldp	q12, q13, [%[vregs], #16 * 12]\n"
->>> +	"	ldp	q14, q15, [%[vregs], #16 * 14]\n"
->>> +	"	ldp	q16, q17, [%[vregs], #16 * 16]\n"
->>> +	"	ldp	q18, q19, [%[vregs], #16 * 18]\n"
->>> +	"	ldp	q20, q21, [%[vregs], #16 * 20]\n"
->>> +	"	ldp	q22, q23, [%[vregs], #16 * 22]\n"
->>> +	"	ldp	q24, q25, [%[vregs], #16 * 24]\n"
->>> +	"	ldp	q26, q27, [%[vregs], #16 * 26]\n"
->>> +	"	ldp	q28, q29, [%[vregs], #16 * 28]\n"
->>> +	"	ldp	q30, q31, [%[vregs], #16 * 30]\n"
->>> +	:
->>> +	: "Q" (state->vregs),
->>> +	  [vregs] "r" (state->vregs)
->> Missing "memory" clobber here?
-> Same story as for fpsimd_save_vregs() above, except that here the "Q"
-> input constraint describes that the entirety of the operand is read from
-> but not written to.
-> 
+It is motivated in part by the recent discussion on the
+FEAT_Debugv8p6 series[0][1] regarding unclear guarantees on interruptions.
 
-I'd be surprised if it was different :)
+It doesn't address the issue of instrumentation, as NO_KPROBE is not
+sufficient to prevent it (specifically ftrace) and would require a pass
+over the whole debug handling code.
 
-Cheers
-Vladimir
+The bugs themselves are very much of the self-inflicted
+"you should not be doing this" kind and not urgent, but it does solve
+some of the questions on the FEAT_Dbugv8p6 series.
+
+Most of the raw additions are comments trying to give more context to
+understand `hw_breakpoint_thread_switch()`.
+
+Thanks in advance !
+Ada
+
+Based on v7.1-rc5
+
+[0]: https://lore.kernel.org/linux-arm-kernel/20241216040831.2448257-1-anshuman.khandual@arm.com/
+[1]: https://lore.kernel.org/linux-arm-kernel/adeE4MD0RgapI8aL@J2N7QTR9R3/
+
+Ada Couprie Diaz (2):
+  arm64/debug: update perf slots in sync with BP registers
+  arm64/debug: mask exceptions when switching cpu-bound watchpoints
+
+ arch/arm64/kernel/hw_breakpoint.c | 52 +++++++++++++++++++++----------
+ 1 file changed, 36 insertions(+), 16 deletions(-)
 
 
-> Mark.
-> 
+base-commit: e7ae89a0c97ce2b68b0983cd01eda67cf373517d
+-- 
+2.43.0
 
 
