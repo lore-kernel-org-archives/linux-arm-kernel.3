@@ -4,75 +4,66 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 35921CD5BD5
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 27 May 2026 14:53:39 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id E2424CD5BD0
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 27 May 2026 14:54:17 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:
-	Content-Transfer-Encoding:Content-Type:MIME-Version:References:Message-ID:
-	Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=pyf2NIpQI//sA77LnOBsyuhGhNwx3LA0tHEq3fc0Cnw=; b=D8G/2dDYhql8h9giSIGaUqNzZA
-	k58qRvNGjQ8+JszoNI97T+xltAjVIHImy+Tsu7j2IAlVakYvJ0Tu93PfkTqljVRZMdiPn93zlMfa5
-	GTj6+GVLPaa6TOLpbRkw+Eo+iznzgBgInba8MHP/Z3JczuU6WlTqsIE1YkDVvlS4qv3KTdHE1w1Lm
-	4odCseA0DG4tZOhFmWrhfnf3YLOdX0Eq5qiT++0gmoXB9IrvD6JOsMsIyO+HM/Y9rzLIcWGQ5oyAO
-	JUep6Ij8baD4HT6wuP03MKK5pxXu1nz+A5O3PfASs6+F3axdjH8UPywPvXnwrLWchDmWw6KaYaZDI
-	hBOwqhOg==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
+	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=E4wdLrpiCjEgu+KO+JmXvna4qmcu9v9cbyQCXWTfVDw=; b=kyvVucT0HlMAHipQwoN6pbW1NQ
+	CagqaGIz6V88FMqkhW5uWtx7E1BwOV/0aIq2/mcxiUsjjdrvcdwn3XocJ4kJeKck+ZytjJYNjuwDB
+	jOMfZwNiaRqhDaFH+BtcRDZThMYM7vtmEmKbBOlBTUBpGulBudrF9kY1JYL4ycj6l5HrOtFI/JjET
+	lNNRjvMuYQkoJDhib9cdnWDiEnc2uIj9BxCLSogFnWiBnNFSTOYDqjIsDlgiEwSk6E7QqKEOhImvU
+	KpK2E5wnfL6/1JLWX2Xq1v+utlE0q1fgtnamJlIC6VP8d2W0kAvJSP5hnKFYQo4pFVPO1y1R8q3YM
+	imTj0ytw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wSFdU-00000004KjU-2XgL;
-	Wed, 27 May 2026 14:53:32 +0000
-Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
-	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wSFdR-00000004Kin-3poZ;
-	Wed, 27 May 2026 14:53:31 +0000
-Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
-	by sea.source.kernel.org (Postfix) with ESMTP id BC0EE4139A;
-	Wed, 27 May 2026 14:53:28 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 7F3C91F000E9;
-	Wed, 27 May 2026 14:53:24 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1779893608;
-	bh=pyf2NIpQI//sA77LnOBsyuhGhNwx3LA0tHEq3fc0Cnw=;
-	h=Date:From:To:Cc:Subject:References:In-Reply-To;
-	b=VoIEw7RD3XzhIH6CMzyv/4bAiKKqttFdvHyvdPiNZ0XkyrOXT+9Ut7v0DYrKUDIZg
-	 aGIMCpZrnzU0AZ3GLCOtd1YTcFqxWmnSMc+pe3lta0BO+PdA4uZ0VNaJidzUS1t+z2
-	 yDa86/jmSP5R7mGXnTWa5uByMrwyvmrxHT83fafDJLE6yDACXiXOpA8UvHBy+tYJkm
-	 MdJMUgpr7I4NEA/Cph01WFoxTig42ryn2ezkpx2JZLVneAo+eLyDcyvaU/oIjARMzJ
-	 MKg4ZWLOB5V06IYewhhM4QBlRhy8rf8stprH11ulOXV79MO+r925AZ1GttQ2jXfkUo
-	 /CfTaiX8vpPJQ==
-Date: Wed, 27 May 2026 15:53:22 +0100
-From: Lee Jones <lee@kernel.org>
-To: linux-kernel-dev@aliel.fr
-Cc: Neil Armstrong <neil.armstrong@linaro.org>,
-	Rob Herring <robh@kernel.org>,
-	Krzysztof Kozlowski <krzk+dt@kernel.org>,
-	Conor Dooley <conor+dt@kernel.org>,
-	Andi Shyti <andi.shyti@kernel.org>,
-	Kevin Hilman <khilman@baylibre.com>,
-	Jerome Brunet <jbrunet@baylibre.com>,
-	Martin Blumenstingl <martin.blumenstingl@googlemail.com>,
-	Beniamino Galvani <b.galvani@gmail.com>,
-	"Rafael J. Wysocki" <rafael@kernel.org>,
-	Daniel Lezcano <daniel.lezcano@kernel.org>,
-	Zhang Rui <rui.zhang@intel.com>, Lukasz Luba <lukasz.luba@arm.com>,
-	Liam Girdwood <lgirdwood@gmail.com>,
-	Mark Brown <broonie@kernel.org>, linux-amlogic@lists.infradead.org,
-	devicetree@vger.kernel.org, linux-kernel@vger.kernel.org,
-	linux-i2c@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
-	linux-pm@vger.kernel.org
-Subject: Re: [PATCH v6 4/8] mfd: khadas-mcu: Add support for VIM4 MCU variant
-Message-ID: <20260527145322.GB671544@google.com>
-References: <20260516-add-mcu-fan-khadas-vim4-v6-0-cccc9b61f465@aliel.fr>
- <20260516-add-mcu-fan-khadas-vim4-v6-4-cccc9b61f465@aliel.fr>
+	id 1wSFe7-00000004KqK-37Ll;
+	Wed, 27 May 2026 14:54:11 +0000
+Received: from foss.arm.com ([217.140.110.172])
+	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
+	id 1wSFe4-00000004KpT-1H7P
+	for linux-arm-kernel@lists.infradead.org;
+	Wed, 27 May 2026 14:54:09 +0000
+Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
+	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id C6F4627DC;
+	Wed, 27 May 2026 07:54:01 -0700 (PDT)
+Received: from [10.1.36.149] (XHFQ2J9959.cambridge.arm.com [10.1.36.149])
+	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id 0B3453F905;
+	Wed, 27 May 2026 07:54:04 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=simple/simple; d=arm.com; s=foss;
+	t=1779893646; bh=FPpaB/bLT9HuCRyNwnW7iiTEEPVrJ3wAY7ymG+V94NY=;
+	h=Date:Subject:To:Cc:References:From:In-Reply-To:From;
+	b=gKpGlBYf5D+6ZnGd0IphcfeWlZOICtOdw2JhvropWaVo0dvAsjhpf0Ge1c71HGFfo
+	 Dv6s0c8h2RrOnVaLj0fNnlwubtQjoadz5LWBDTzMZ81IpdSpoP+tQ/Fs+q2KNxsfDL
+	 0NbYsOSqx4GI4fQ5vyRhBLTXqbY7c4uen29YcmxQ=
+Message-ID: <6330f618-c3e1-4e44-9b3c-6607bae1ae5e@arm.com>
+Date: Wed, 27 May 2026 15:54:03 +0100
 MIME-Version: 1.0
-Content-Type: text/plain; charset=utf-8
-Content-Disposition: inline
-Content-Transfer-Encoding: 8bit
-In-Reply-To: <20260516-add-mcu-fan-khadas-vim4-v6-4-cccc9b61f465@aliel.fr>
+User-Agent: Mozilla Thunderbird
+Subject: Re: [RFC V2 14/14] arm64/mm: Add initial support for FEAT_D128 page
+ tables
+Content-Language: en-GB
+To: Anshuman Khandual <anshuman.khandual@arm.com>,
+ linux-arm-kernel@lists.infradead.org
+Cc: Catalin Marinas <catalin.marinas@arm.com>, Will Deacon <will@kernel.org>,
+ Mark Rutland <mark.rutland@arm.com>,
+ Lorenzo Stoakes <lorenzo.stoakes@oracle.com>,
+ Andrew Morton <akpm@linux-foundation.org>,
+ David Hildenbrand <david@kernel.org>, Mike Rapoport <rppt@kernel.org>,
+ Linu Cherian <linu.cherian@arm.com>, Usama Arif <usama.arif@linux.dev>,
+ linux-kernel@vger.kernel.org, linux-mm@kvack.org
+References: <20260513044547.4128549-1-anshuman.khandual@arm.com>
+ <20260513044547.4128549-15-anshuman.khandual@arm.com>
+From: Ryan Roberts <ryan.roberts@arm.com>
+In-Reply-To: <20260513044547.4128549-15-anshuman.khandual@arm.com>
+Content-Type: text/plain; charset=UTF-8
+Content-Transfer-Encoding: 7bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260527_075329_998679_F38BB858 
-X-CRM114-Status: GOOD (  23.35  )
+X-CRM114-CacheID: sfid-20260527_075408_438637_F18EC7DE 
+X-CRM114-Status: GOOD (  29.95  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -87,199 +78,219 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Sat, 16 May 2026, Ronald Claveau via B4 Relay wrote:
-
-> From: Ronald Claveau <linux-kernel-dev@aliel.fr>
+On 13/05/2026 05:45, Anshuman Khandual wrote:
+> Add build time support for FEAT_D128 page tables with a new Kconfig option
+> i.e CONFIG_ARM64_D128. When selected, PTE types become 128 bits wide and
+> PTE bits are mapped to their new locations. Besides the basic page table
+> geometry is also updated since each table page now holds half the number
+> of entries (aka PTRS_PER_PXX) as it did previously.
 > 
-> Refactor probe() to use per-variant khadas_mcu_data
-> instead of hardcoded globals.
+> Since FEAT_D128 exclusively supports the permission indirection style for
+> page table entry permission management, given kernel compiled for FEAT_D128
+> requires both FEAT_S1PIE and FEAT_D128. If these architecture features are
+> not present at boot, the kernel panics just like it does when there is a
+> granule size mismatch.
 > 
-> Add dedicated regmap configuration and device data for the VIM4 MCU,
-> with its own volatile/writeable registers.
+> TTBR0/1_EL1 and PAR_EL1 registers become 128 bit wide when D128 is enabled,
+> thus requiring MSRR/MRRS instructions for their updates. Because PA_BITS is
+> still capped at 52 bits, MRS/MSR instructions are currently sufficient for
+> the register accesses that basically operate on the lower 64 bits. Although
+> entire 128 bits for these registers get cleared during boot via MSRR.
 > 
-> Add the fan control register
-> (0–100 levels vs 0–3 for previous supported boards).
+> Add support for TLBIP instruction for TLB flush macros with level hint and
+> address range operations. Although existing TLBI based TLB flush would have
+> been sufficient given PA_BITS is still capped at 52, but then it would have
+> lacked both level hint and range support.
 > 
-> Add a new compatible string "khadas,vim4-mcu".
+> This enables support for all granule size, VA_BITS and PA_BITS combination.
 > 
-> Reviewed-by: Neil Armstrong <neil.armstrong@linaro.org>
-> Signed-off-by: Ronald Claveau <linux-kernel-dev@aliel.fr>
+> Cc: Catalin Marinas <catalin.marinas@arm.com>
+> Cc: Will Deacon <will@kernel.org>
+> Cc: Ryan Roberts <ryan.roberts@arm.com>
+> Cc: Mark Rutland <mark.rutland@arm.com>
+> Cc: linux-arm-kernel@lists.infradead.org
+> Cc: linux-kernel@vger.kernel.org
+> Signed-off-by: Linu Cherian <linu.cherian@arm.com> (TLBIP instructions)
+> Signed-off-by: Anshuman Khandual <anshuman.khandual@arm.com>
 > ---
->  drivers/mfd/khadas-mcu.c | 119 +++++++++++++++++++++++++++++++++++++++++------
->  1 file changed, 104 insertions(+), 15 deletions(-)
+> Changes in RFC V2:
 > 
-> diff --git a/drivers/mfd/khadas-mcu.c b/drivers/mfd/khadas-mcu.c
-> index ba981a7886921..7bc538232a445 100644
-> --- a/drivers/mfd/khadas-mcu.c
-> +++ b/drivers/mfd/khadas-mcu.c
-> @@ -75,15 +75,91 @@ static const struct regmap_config khadas_mcu_regmap_config = {
->  	.cache_type	= REGCACHE_MAPLE,
->  };
->  
-> -static struct mfd_cell khadas_mcu_fan_cells[] = {
-> +static const struct khadas_mcu_fan_pdata khadas_mcu_fan_pdata = {
-> +	.fan_reg	= KHADAS_MCU_CMD_FAN_STATUS_CTRL_REG,
-> +	.max_level	= 3, /* Fan speed: 0 = off, 1 = low, 2 = medium, 3 = high */
-> +};
-> +
-> +static const struct mfd_cell khadas_mcu_fan_cells[] = {
->  	/* VIM1/2 Rev13+ and VIM3 only */
-> -	{ .name = "khadas-mcu-fan-ctrl", },
-> +	{
-> +		.name = "khadas-mcu-fan-ctrl",
-> +		.platform_data = &khadas_mcu_fan_pdata,
-> +		.pdata_size    = sizeof(khadas_mcu_fan_pdata),
-> +	},
->  };
->  
-> -static struct mfd_cell khadas_mcu_cells[] = {
-> +static const struct mfd_cell khadas_mcu_cells[] = {
->  	{ .name = "khadas-mcu-user-mem", },
->  };
->  
-> +static const struct khadas_mcu_data khadas_mcu_data = {
-> +	.regmap_config	= &khadas_mcu_regmap_config,
-> +	.cells		= khadas_mcu_cells,
-> +	.ncells		= ARRAY_SIZE(khadas_mcu_cells),
-> +	.fan_cells	= khadas_mcu_fan_cells,
-> +	.nfan_cells	= ARRAY_SIZE(khadas_mcu_fan_cells),
-> +};
+> - Updated ARM64_CONT_[PTE|PMD]_SHIFT both for 16K and 64K base pages
+> - Adopted TLBIP implementation to recent TLB flush changes
+> - Renamed __PRIpte as __PRIpxx per David
+> - Renamed all ptdesc_ instances as pxxval_ instead
+> 
+>  arch/arm64/Kconfig                     |  51 ++++++++-
+>  arch/arm64/Makefile                    |   4 +
+>  arch/arm64/include/asm/assembler.h     |   4 +-
+>  arch/arm64/include/asm/el2_setup.h     |   9 ++
+>  arch/arm64/include/asm/pgtable-hwdef.h | 137 +++++++++++++++++++++++++
+>  arch/arm64/include/asm/pgtable-prot.h  |  18 +++-
+>  arch/arm64/include/asm/pgtable-types.h |   9 ++
+>  arch/arm64/include/asm/pgtable.h       |  56 +++++++++-
+>  arch/arm64/include/asm/smp.h           |   1 +
+>  arch/arm64/include/asm/tlbflush.h      |  68 ++++++++++--
+>  arch/arm64/kernel/head.S               |  12 +++
+>  arch/arm64/mm/proc.S                   |  25 ++++-
+>  12 files changed, 374 insertions(+), 20 deletions(-)
+> 
 
-Let's not over-complicate things please.
+[...]
 
-You can do all of this with local variables inside khadas_mcu_probe()
-and omit the terribly named khadas_mcu_data structure entirely.
+Some comments on tlbflush.h only:
 
-> +static bool khadas_mcu_vim4_reg_volatile(struct device *dev, unsigned int reg)
-> +{
-> +	switch (reg) {
-> +	case KHADAS_MCU_PWR_OFF_CMD_REG:
-> +	case KHADAS_MCU_VIM4_REST_CONF_REG:
-> +	case KHADAS_MCU_WOL_INIT_START_REG:
-> +	case KHADAS_MCU_VIM4_LED_ON_RAM_REG:
-> +	case KHADAS_MCU_VIM4_FAN_CTRL_REG:
-> +	case KHADAS_MCU_VIM4_WDT_EN_REG:
-> +	case KHADAS_MCU_VIM4_SYS_RST_REG:
-> +		return true;
-> +	default:
-> +		return false;
-> +	}
-> +}
+> diff --git a/arch/arm64/include/asm/tlbflush.h b/arch/arm64/include/asm/tlbflush.h
+> index 361d74ef8016..7831759b98e1 100644
+> --- a/arch/arm64/include/asm/tlbflush.h
+> +++ b/arch/arm64/include/asm/tlbflush.h
+> @@ -41,6 +41,25 @@
+>  
+>  #define __tlbi(op, ...)		__TLBI_N(op, ##__VA_ARGS__, 1, 0)
+>  
+> +#ifdef CONFIG_ARM64_D128
+> +#define __tlbip(op, arg) do {		\
+> +	asm (ARM64_ASM_PREAMBLE		\
+> +	".arch_extension d128\n\t"	\
+> +	"tlbip " #op ", %0, %H0\n"	\
+> +	: : "r" (arg.full));		\
+> +} while (0)
 > +
-> +static bool khadas_mcu_vim4_reg_writeable(struct device *dev, unsigned int reg)
-> +{
-> +	switch (reg) {
-> +	case KHADAS_MCU_VERSION_0_REG:
-> +	case KHADAS_MCU_VERSION_1_REG:
-> +	case KHADAS_MCU_SHUTDOWN_NORMAL_STATUS_REG:
-> +		return false;
-> +	default:
-> +		return true;
-> +	}
-> +}
+> +#define __tlbip_user(op, arg) do {		\
+> +	if (arm64_kernel_unmapped_at_el0()) {	\
+> +		arg.low |= USER_ASID_FLAG;	\
+> +		__tlbip(op, (arg));		\
+> +	}					\
+> +} while (0)
 > +
-> +static const struct regmap_config khadas_mcu_vim4_regmap_config = {
-> +	.reg_bits	= 8,
-> +	.reg_stride	= 1,
-> +	.val_bits	= 8,
-> +	.max_register	= KHADAS_MCU_VIM4_SYS_RST_REG,
-> +	.volatile_reg	= khadas_mcu_vim4_reg_volatile,
-> +	.writeable_reg	= khadas_mcu_vim4_reg_writeable,
-> +	.cache_type	= REGCACHE_MAPLE,
-> +};
+> +#endif
 > +
-> +static const struct khadas_mcu_fan_pdata khadas_vim4_fan_pdata = {
-> +	.fan_reg	= KHADAS_MCU_VIM4_FAN_CTRL_REG,
-> +	.max_level	= 0x64,
-> +};
+> +#define TLBI_ASID_MASK		GENMASK_ULL(63, 48)
 > +
-> +static const struct mfd_cell khadas_mcu_vim4_cells[] = {
-> +	{
-> +		.name		= "khadas-mcu-fan-ctrl",
-> +		.platform_data	= &khadas_vim4_fan_pdata,
-> +		.pdata_size	= sizeof(khadas_vim4_fan_pdata),
-> +	},
-> +};
-> +
-> +static const struct khadas_mcu_data khadas_vim4_mcu_data = {
-> +	.regmap_config	= &khadas_mcu_vim4_regmap_config,
-> +	.cells		= NULL,
-> +	.ncells		= 0,
-> +	.fan_cells	= khadas_mcu_vim4_cells,
-> +	.nfan_cells	= ARRAY_SIZE(khadas_mcu_vim4_cells),
-> +};
-> +
->  static int khadas_mcu_probe(struct i2c_client *client)
+>  #define __tlbi_user(op, arg) do {						\
+>  	if (arm64_kernel_unmapped_at_el0())					\
+>  		__tlbi(op, (arg) | USER_ASID_FLAG);				\
+> @@ -162,9 +181,15 @@ static inline void sme_dvmsync_batch(struct arch_tlbflush_unmap_batch *batch)
+>  
+>  #define TLBI_TTL_UNKNOWN	INT_MAX
+>  
+> +#ifdef CONFIG_ARM64_D128
+> +typedef union __u128_halves tlbi_args_t;
+
+I wonder if you could just define this as u128? That would make things a bit
+neater I think? - You should be able to do normal bit twiddling I think?
+
+> +#define __tlbi_wrapper(op, arg)		__tlbip(op, arg)
+> +#define __tlbi_user_wrapper(op, arg)	__tlbip_user(op, arg)
+> +#else
+>  typedef u64 tlbi_args_t;
+>  #define __tlbi_wrapper(op, arg)		__tlbi(op, arg)
+>  #define __tlbi_user_wrapper(op, arg)	__tlbi_user(op, arg)
+> +#endif
+>  
+>  typedef void (*tlbi_op)(tlbi_args_t arg);
+>  
+> @@ -211,17 +236,28 @@ static __always_inline void ipas2e1is(tlbi_args_t arg)
+>  	__tlbi_wrapper(ipas2e1is, arg);
+>  }
+>  
+> -static __always_inline void __tlbi_level_asid(tlbi_op op, u64 addr, u32 level,
+> -					      u16 asid)
+> +static __always_inline void __tlbi_update_level(u32 level, u64 *arg)
 >  {
->  	struct device *dev = &client->dev;
-> @@ -94,28 +170,40 @@ static int khadas_mcu_probe(struct i2c_client *client)
->  	if (!ddata)
->  		return -ENOMEM;
+> -	u64 arg = __TLBI_VADDR(addr, asid);
+> -
+>  	if (alternative_has_cap_unlikely(ARM64_HAS_ARMv8_4_TTL) && level <= 3) {
+>  		u64 ttl = level | (get_trans_granule() << 2);
 >  
-> +	switch ((uintptr_t)i2c_get_match_data(client)) {
-> +	case KHADAS_MCU_GENERIC:
-> +		ddata->data = &khadas_mcu_data;
-> +		break;
-> +	case KHADAS_MCU_VIM4:
-> +		ddata->data = &khadas_vim4_mcu_data;
-> +		break;
-> +	default:
-> +		return -ENODEV;
-> +	}
-> +
->  	i2c_set_clientdata(client, ddata);
->  
->  	ddata->dev = dev;
->  
-> -	ddata->regmap = devm_regmap_init_i2c(client, &khadas_mcu_regmap_config);
-> +	ddata->regmap = devm_regmap_init_i2c(client, ddata->data->regmap_config);
->  	if (IS_ERR(ddata->regmap)) {
->  		ret = PTR_ERR(ddata->regmap);
-> -		dev_err(dev, "Failed to allocate register map: %d\n", ret);
-> -		return ret;
-> +		return dev_err_probe(dev, ret, "Failed to allocate register map\n");
+> -		FIELD_MODIFY(TLBI_TTL_MASK, &arg, ttl);
+> +		FIELD_MODIFY(TLBI_TTL_MASK, arg, ttl);
 >  	}
+> +}
+> +
+> +static __always_inline void __tlbi_level_asid(tlbi_op op, u64 addr, u32 level, u16 asid)
+> +{
+> +#ifdef CONFIG_ARM64_D128
+> +	union __u128_halves arg;
+> +
+> +	arg.low = FIELD_PREP(TLBI_ASID_MASK, asid);
+> +	__tlbi_update_level(level, &arg.low);
+> +	arg.high = addr >> 12;
+> +#else
+> +	u64 arg = __TLBI_VADDR(addr, asid);
 >  
-> -	ret = devm_mfd_add_devices(dev, PLATFORM_DEVID_NONE,
-> -				   khadas_mcu_cells,
-> -				   ARRAY_SIZE(khadas_mcu_cells),
-> -				   NULL, 0, NULL);
-> -	if (ret)
-> -		return ret;
-> +	if (ddata->data->cells && ddata->data->ncells) {
-> +		ret = devm_mfd_add_devices(dev, PLATFORM_DEVID_NONE,
-> +					   ddata->data->cells,
-> +					   ddata->data->ncells,
-> +					   NULL, 0, NULL);
-> +		if (ret)
-> +			return ret;
-> +	}
->  
->  	if (of_property_present(dev->of_node, "#cooling-cells"))
->  		return devm_mfd_add_devices(dev, PLATFORM_DEVID_NONE,
-> -					    khadas_mcu_fan_cells,
-> -					    ARRAY_SIZE(khadas_mcu_fan_cells),
-> +					    ddata->data->fan_cells,
-> +					    ddata->data->nfan_cells,
->  					    NULL, 0, NULL);
->  
->  	return 0;
-> @@ -123,7 +211,8 @@ static int khadas_mcu_probe(struct i2c_client *client)
->  
->  #ifdef CONFIG_OF
->  static const struct of_device_id khadas_mcu_of_match[] = {
-> -	{ .compatible = "khadas,mcu", },
-> +	{ .compatible = "khadas,mcu", .data = (void *)KHADAS_MCU_GENERIC },
-> +	{ .compatible = "khadas,vim4-mcu", .data = (void *)KHADAS_MCU_VIM4 },
->  	{},
->  };
->  MODULE_DEVICE_TABLE(of, khadas_mcu_of_match);
-> 
-> -- 
-> 2.49.0
-> 
-> 
+> +	__tlbi_update_level(level, &arg);
+> +#endif
+>  	op(arg);
+>  }
 
--- 
-Lee Jones
+It would be a neater change if you could get away with something like this. If
+you typedef tlbi_arg_t as u128, will FIELD_MODIFY() work? Not sure...
+
+
+static __always_inline void __tlbi_level_asid(tlbi_op op, u64 addr, u32 level,
+					      u16 asid)
+{
+	tlbi_arg_t arg;
+
+#ifdef CONFIG_ARM64_D128
+	arg = FIELD_PREP(TLBI_ASID_MASK, asid);
+	arg |= (addr >> 12) << 64;
+#else
+	arg = __TLBI_VADDR(addr, asid);
+#endif
+
+	if (alternative_has_cap_unlikely(ARM64_HAS_ARMv8_4_TTL) && level <= 3) {
+		u64 ttl = level | (get_trans_granule() << 2);
+
+		FIELD_MODIFY(TLBI_TTL_MASK, &arg, ttl);
+	}
+
+	op(arg);
+}
+
+
+>  
+> @@ -507,19 +543,33 @@ static __always_inline void ripas2e1is(tlbi_args_t arg)
+>  	__tlbi_wrapper(ripas2e1is, arg);
+>  }
+>  
+> -static __always_inline void __tlbi_range(tlbi_op op, u64 addr,
+> -					 u16 asid, int scale, int num,
+> -					 u32 level, bool lpa2)
+> +static __always_inline u64 __tlbi_range_args_encode_comm(u16 asid, int scale, int num, u32 level)
+>  {
+>  	u64 arg = 0;
+>  
+> -	arg |= FIELD_PREP(TLBIR_BADDR_MASK, addr >> (lpa2 ? 16 : PAGE_SHIFT));
+>  	arg |= FIELD_PREP(TLBIR_TTL_MASK, level > 3 ? 0 : level);
+>  	arg |= FIELD_PREP(TLBIR_NUM_MASK, num);
+>  	arg |= FIELD_PREP(TLBIR_SCALE_MASK, scale);
+>  	arg |= FIELD_PREP(TLBIR_TG_MASK, get_trans_granule());
+>  	arg |= FIELD_PREP(TLBIR_ASID_MASK, asid);
+>  
+> +	return arg;
+> +}
+> +
+> +static __always_inline void __tlbi_range(tlbi_op op, u64 addr,
+> +					 u16 asid, int scale, int num,
+> +					 u32 level, bool lpa2)
+> +{
+> +#ifdef CONFIG_ARM64_D128
+> +	union __u128_halves arg;
+> +
+> +	arg.low = __tlbi_range_args_encode_comm(asid, scale, num, level);
+> +	arg.high = addr >> 12;
+> +#else
+> +	u64 arg = __tlbi_range_args_encode_comm(asid, scale, num, level);
+> +
+> +	arg |= FIELD_PREP(TLBIR_BADDR_MASK, addr >> (lpa2 ? 16 : PAGE_SHIFT));
+> +#endif
+>  	op(arg);
+>  }
+
+And you could do the same thing here, keeping a single function with only a
+minimal diff.
+
+[...]
+
 
