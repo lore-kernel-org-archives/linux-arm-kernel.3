@@ -4,31 +4,31 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 59332CD5BDE
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 27 May 2026 02:44:59 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 6F5F1CD6E43
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 27 May 2026 02:45:08 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
 	MIME-Version:References:In-Reply-To:Message-Id:Date:Subject:Cc:To:From:
 	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=8wZdWrZcctCV9qTZxW4lLYgtdTAhgCemqTuoXrbEqzM=; b=nwMdZ/bsqh2+KSdrYjla7sOYMB
-	DQjoeodHp8hBLV2L9S/zxVagos+Wgi3H3Y3FkWxp7W9CGpHd4i8fi+ZXOXCA7qzCTJ7XYE4+zuxNd
-	FyGVpqJVMbVdNzg/u0got3WPwlkaLT00fi29UH4o5+me6VZcx8hJDU1g9MlS1+pU0I7+YCRqprR+7
-	cFTWAQv8nMgiRbvYe54KrB0xeGTikkmGVwwcDPHMqbD3ybgdF709moE6MeiP4USNnzN28URttFrnW
-	ugJ4LdbSLPFJcyEtE/7uSn9IrnIoU5GBiagi/clMMIJ48TsY7ENjy0ONa1KPfZUqCfn6Hv7vtWaAt
-	EA5wYN4g==;
+	bh=FSnd82QhzgsTc9VLihugRZhMWxwKpTg7Bj65m7IRRDM=; b=OMJs2E4oguifKx/HQ4QICrttUm
+	kAwo+3JI+o90i4UkW6A32/fbn2o2KfEaPJ/Hv31ZwDgLQkSXb0+dEH4z3px+g/tY0/4HDHTO54ZAR
+	YO0/vm8G+F/fXCwq5kfTCC8lU9Sof7Bhxtz4F3h5MGUkHJ9CjDeBAdN0vqJOCPBuTV2leqdAf+kbT
+	1MenNw7gqMatqi0ptjmQNqgWe+E9MgTeM107uKzj3roha1Bn1A6FTCPsmUhZR5E1G5Nb0B/CZFsHp
+	tezdQsMrM5QOfKwiRyAxTTd6oni+oia9zenOLVdQw73TZ/sHOzFOmb6yJa5kyLl7czheQ+6CUkGzg
+	ZqgdjBVw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wS4GK-00000003BZx-1ZvO;
-	Wed, 27 May 2026 02:44:52 +0000
-Received: from mail-m83100.xmail.ntesmail.com ([156.224.83.100])
+	id 1wS4GT-00000003BjH-2vsR;
+	Wed, 27 May 2026 02:45:01 +0000
+Received: from mail-m1284.netease.com ([103.209.128.4])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wS4G4-00000003BNm-3CUY;
+	id 1wS4G6-00000003BNt-14hZ;
 	Wed, 27 May 2026 02:44:40 +0000
 Received: from zyb-HP-ProDesk-680-G2-MT.. (unknown [61.154.14.86])
-	by smtp.qiye.163.com (Hmail) with ESMTP id 3ff559aa3;
-	Wed, 27 May 2026 10:44:30 +0800 (GMT+08:00)
+	by smtp.qiye.163.com (Hmail) with ESMTP id 3ff559ac4;
+	Wed, 27 May 2026 10:44:33 +0800 (GMT+08:00)
 From: Damon Ding <damon.ding@rock-chips.com>
 To: hjc@rock-chips.com,
 	heiko@sntech.de,
@@ -59,29 +59,28 @@ Cc: Laurent.pinchart@ideasonboard.com,
 	linux-arm-kernel@lists.infradead.org,
 	linux-rockchip@lists.infradead.org,
 	linux-kernel@vger.kernel.org,
-	Damon Ding <damon.ding@rock-chips.com>,
-	Conor Dooley <conor.dooley@microchip.com>
-Subject: [PATCH v9 02/10] dt-bindings: display: rockchip: analogix-dp: Add per-clock descriptions
-Date: Wed, 27 May 2026 10:43:28 +0800
-Message-Id: <20260527024336.191433-3-damon.ding@rock-chips.com>
+	Damon Ding <damon.ding@rock-chips.com>
+Subject: [PATCH v9 04/10] arm64: dts: rockchip: Add missing hclk for RK3588 eDP1
+Date: Wed, 27 May 2026 10:43:30 +0800
+Message-Id: <20260527024336.191433-5-damon.ding@rock-chips.com>
 X-Mailer: git-send-email 2.34.1
 In-Reply-To: <20260527024336.191433-1-damon.ding@rock-chips.com>
 References: <20260527024336.191433-1-damon.ding@rock-chips.com>
 MIME-Version: 1.0
 Content-Transfer-Encoding: 8bit
-X-HM-Tid: 0a9e6751be5303a8kunm8053ce91bced8e
+X-HM-Tid: 0a9e6751c95603a8kunm8053ce91bcedb7
 X-HM-MType: 1
 X-HM-Spam-Status: e1kfGhgUHx5ZQUpXWQgPGg8OCBgUHx5ZQUlOS1dZFg8aDwILHllBWSg2Ly
-	tZV1koWUFITzdXWRgWCB1ZQUpXWS1ZQUlXWQ8JGhUIEh9ZQVkZSU9IVkpPTU9LSU9MQ0gdSlYVFA
+	tZV1koWUFITzdXWRgWCB1ZQUpXWS1ZQUlXWQ8JGhUIEh9ZQVkaThlOVhoYQxoZHR0YT0pLT1YVFA
 	kWGhdVEwETFhoSFyQUDg9ZV1kYEgtZQVlNSlVKTk9VSk9VQ01ZV1kWGg8SFR0UWUFZT0tIVUpLSE
 	pKQk1VSktLVUpCWQY+
 DKIM-Signature: a=rsa-sha256;
-	b=MDPoRqeN87zMRHfhG53G5kv+ctCCBq2F+zToVjNnThHfTQ7MjWug22ocNJ61bERf7t50ciuQH88liyFga2KKbASDwu141TGprThOhBp38nkzhswKTvIBgPP46aNhmKkR3gu6wnPAgbvpw3HMUc5ii1dkBPEN1IxUIW6Y9/7lsk4=; c=relaxed/relaxed; s=default; d=rock-chips.com; v=1;
-	bh=8wZdWrZcctCV9qTZxW4lLYgtdTAhgCemqTuoXrbEqzM=;
+	b=K5Rb8grmQSk+Fn8zr/EUAS36eqi3JW21gK41vF4tA3ftg1LkaZgRDmwqAqYP+tFQTtUaK63IjeeofXKaPMD06qNrZbRzB74gt5IttczqaFRZKT6btG2rWAx0ukJwg+TvT89u0shhERvtiGubS3K7d6nGqx8eTrd1V9rwlK8p0tE=; c=relaxed/relaxed; s=default; d=rock-chips.com; v=1;
+	bh=FSnd82QhzgsTc9VLihugRZhMWxwKpTg7Bj65m7IRRDM=;
 	h=date:mime-version:subject:message-id:from;
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260526_194437_071965_5CDBE27D 
-X-CRM114-Status: UNSURE (   8.13  )
+X-CRM114-CacheID: sfid-20260526_194438_506848_B2F74FD8 
+X-CRM114-Status: UNSURE (   9.53  )
 X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
@@ -97,40 +96,39 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Supplement dedicated description for each clock in the clocks
-property, clarifying the function of each clock input for the
-Analogix DP controller binding.
+Add the required HCLK_VO1 bus clock to RK3588 eDP1 node with
+corresponding clock-name "hclk". This clock is necessary for
+the eDP controller to access video output GRF and work properly.
 
-Acked-by: Conor Dooley <conor.dooley@microchip.com>
+Previously the clock was enabled implicitly via GRF phandle
+reference. Add it explicitly now to align with updated binding.
+
+Fixes: a481bb0b1ad9 ("arm64: dts: rockchip: Add eDP1 dt node for rk3588")
 Signed-off-by: Damon Ding <damon.ding@rock-chips.com>
 
 ---
 
 Changes in v4:
 - Modify the commit msg.
-
-Changes in v5:
-- Add Acked-by tag.
 ---
- .../bindings/display/rockchip/rockchip,analogix-dp.yaml      | 5 ++++-
- 1 file changed, 4 insertions(+), 1 deletion(-)
+ arch/arm64/boot/dts/rockchip/rk3588-extra.dtsi | 4 ++--
+ 1 file changed, 2 insertions(+), 2 deletions(-)
 
-diff --git a/Documentation/devicetree/bindings/display/rockchip/rockchip,analogix-dp.yaml b/Documentation/devicetree/bindings/display/rockchip/rockchip,analogix-dp.yaml
-index 6643889f2a9c..1ef1d56ef6e2 100644
---- a/Documentation/devicetree/bindings/display/rockchip/rockchip,analogix-dp.yaml
-+++ b/Documentation/devicetree/bindings/display/rockchip/rockchip,analogix-dp.yaml
-@@ -19,7 +19,10 @@ properties:
- 
-   clocks:
-     minItems: 2
--    maxItems: 3
-+    items:
-+      - description: Reference clock
-+      - description: APB bus clock
-+      - description: GRF or AHB bus clock
- 
-   clock-names:
-     minItems: 2
+diff --git a/arch/arm64/boot/dts/rockchip/rk3588-extra.dtsi b/arch/arm64/boot/dts/rockchip/rk3588-extra.dtsi
+index a2640014ee04..b251bb129cdb 100644
+--- a/arch/arm64/boot/dts/rockchip/rk3588-extra.dtsi
++++ b/arch/arm64/boot/dts/rockchip/rk3588-extra.dtsi
+@@ -285,8 +285,8 @@ hdmi1_out: port@1 {
+ 	edp1: edp@fded0000 {
+ 		compatible = "rockchip,rk3588-edp";
+ 		reg = <0x0 0xfded0000 0x0 0x1000>;
+-		clocks = <&cru CLK_EDP1_24M>, <&cru PCLK_EDP1>;
+-		clock-names = "dp", "pclk";
++		clocks = <&cru CLK_EDP1_24M>, <&cru PCLK_EDP1>, <&cru HCLK_VO1>;
++		clock-names = "dp", "pclk", "hclk";
+ 		interrupts = <GIC_SPI 164 IRQ_TYPE_LEVEL_HIGH 0>;
+ 		phys = <&hdptxphy1>;
+ 		phy-names = "dp";
 -- 
 2.34.1
 
