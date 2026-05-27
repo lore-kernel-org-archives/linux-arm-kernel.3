@@ -4,60 +4,57 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 87000CD5BD5
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 27 May 2026 12:58:26 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 145A3CD5BD0
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 27 May 2026 13:01:11 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
-	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=ipiFfn8iA5nQscUWZrwhNZCK18cGy+BiBbDI+4JXgFs=; b=DS7nIs6jvJJ49LTrv3rg/FoYpa
-	j8+vPmf0B/QEa1/Iloj37YflgE0xWaTZ8y2HT6hyJ9K9Y1GOMwLmSau1k9yN47fMYIbAJSuD9a2qj
-	kM06fLEavOsiJpCIx77zq95Pv50dyDnIZKIXyf/7Fovss2S/ZTL05LQ2r1jaOY5ivehf8FlmJJcyG
-	sFvl0TQkksnN9fGcCJVH5FfTetAiaYgaSnIJBaVOPeMVxxEJOSguzufwL4iBQLlaYRLaMnJSQwbBg
-	nfYSqTJ4k7q4tDLF+RfI95lrSy1IAt+BpmIpmR96t7md51lvjd2dejKMw08enxxkSAyCEGdE9imUk
-	9Hrd3sCg==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Date:Cc:To:From:Subject:
+	References:In-Reply-To:Message-Id:MIME-Version:Content-Type:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=Y49yKLCcUdOoPfuJLpPT3hWr1AHwnP3o2LT5mHHv2+o=; b=EnmqJiYXubVQMRhI81qKCrH04+
+	S0ZpQmU0+6LIFyopNvnBulSTZTv5qnRDDhHdBvwVZlZrz+3ADAEPTGC6tYuiKVoadiFjEf4wUd9Bm
+	I8P5HtYPUgBydLm+PUIINxIAZ51STsu/yUdcAsrN9K9UmusPSAlHCZ8fz4MDy6wemJsWyRMjJJo09
+	yPI5l3gp1cq0MnnLjICQYgdcOX2aFDZuVONt3mUjKgUrC+wJdNPkuBd7xs+rnk2FjlqRh3kYEVsI1
+	DaY82kSaP4oJcZxPdQXnS8PpU05WN/3h/GdM+SRGLwT9wjOXkxdFUXJnHfH2DctNvqu0XZBPxmLt5
+	dpuIZ0yA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wSDpy-000000048la-37rc;
-	Wed, 27 May 2026 12:58:18 +0000
-Received: from foss.arm.com ([217.140.110.172])
-	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wSDpw-000000048kv-2A4u
+	id 1wSDsd-000000048zF-13dY;
+	Wed, 27 May 2026 13:01:03 +0000
+Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
+	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
+	id 1wSDsa-000000048y3-1qH1
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 27 May 2026 12:58:17 +0000
-Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
-	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id 9DEEA2880;
-	Wed, 27 May 2026 05:58:08 -0700 (PDT)
-Received: from [10.1.38.169] (e121487-lin.cambridge.arm.com [10.1.38.169])
-	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id B6A1E3F7D8;
-	Wed, 27 May 2026 05:58:11 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=simple/simple; d=arm.com; s=foss;
-	t=1779886693; bh=zQQrzsmFJ7jMfax/fmWt/EiwGPfzxNJTM4orn2gv248=;
-	h=Date:Subject:To:Cc:References:From:In-Reply-To:From;
-	b=tJkdiaBSLoUZv1P0XYLtyz27hk/5G6pKPd3hXE0cuLK6O07xaLpcKM2AO3Shr71eZ
-	 I+jxDIqPUSWdWnS/Y4LyL5fuN78E98kMrsQPZCt4h0Q7IDJ1u6D4Smgd4Y+OlXzhUf
-	 q7QXSKx5e6Ye9zyQ61aG+U5eB3HQUpJUpTUN31E8=
-Message-ID: <46c5ae49-e59c-4014-91d3-f00124897d20@arm.com>
-Date: Wed, 27 May 2026 13:58:09 +0100
+	Wed, 27 May 2026 13:01:01 +0000
+Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
+	by sea.source.kernel.org (Postfix) with ESMTP id 30CBC442C8;
+	Wed, 27 May 2026 13:00:59 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 8B04E1F000E9;
+	Wed, 27 May 2026 13:00:58 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
+	s=k20260515; t=1779886859;
+	bh=Y49yKLCcUdOoPfuJLpPT3hWr1AHwnP3o2LT5mHHv2+o=;
+	h=In-Reply-To:References:Subject:From:To:Cc:Date;
+	b=iUUlIxD5zKEkXPE9ZMfaoUy+x4nykjkWV7nZM1MFpvc+pMmlTn4fcZJWfETdYNttm
+	 IGyd340RlAqTs2vyhTDP0SnHMcaY/hSCbcmwJ1EgAUB3Nvik6yP6cBQh/gDsyEEgp0
+	 +jGTWZt99xk32pDMY0RXW3sL4EjqYdxFsPmsl0CucgM5QdCkBIZLw7XL60bNdRmLdR
+	 bAEZ1FZlLB00aHNwznFc5CS0sunq8xOvAh5OC8hmOSYbN97g1bjp76iJsMZVUY9Ejl
+	 yTZaBEnxXPztXhEWuFgE3U0KdzNMtaPh1qannEzAZ2xWDmPfhWLjH5DppNZJtPdO6G
+	 lQNO2vNASlkNg==
+Content-Type: multipart/mixed; boundary="===============4572472540278009869=="
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH 07/18] arm64: fpsimd: Use assembler for SVE instructions
-To: Mark Rutland <mark.rutland@arm.com>,
- linux-arm-kernel@lists.infradead.org, kvmarm@lists.linux.dev
-Cc: broonie@kernel.org, catalin.marinas@arm.com, james.morse@arm.com,
- maz@kernel.org, oupton@kernel.org, tabba@google.com, will@kernel.org
-References: <20260521132556.584676-1-mark.rutland@arm.com>
- <20260521132556.584676-8-mark.rutland@arm.com>
-Content-Language: en-GB
-From: Vladimir Murzin <vladimir.murzin@arm.com>
-In-Reply-To: <20260521132556.584676-8-mark.rutland@arm.com>
-Content-Type: text/plain; charset=UTF-8
-Content-Transfer-Encoding: 7bit
+Message-Id: <c76146b9af70845f55114d28e59d8a94a15e9365aecc7f28d42f08b157f10065@mail.kernel.org>
+In-Reply-To: <20260527121207.2312181-3-puranjay@kernel.org>
+References: <20260527121207.2312181-3-puranjay@kernel.org>
+Subject: Re: [PATCH v4 2/4] perf: Use a union to clear branch entry bitfields
+From: bot+bpf-ci@kernel.org
+To: puranjay@kernel.org,bpf@vger.kernel.org
+Cc: puranjay@kernel.org,puranjay12@gmail.com,ast@kernel.org,daniel@iogearbox.net,john.fastabend@gmail.com,andrii@kernel.org,martin.lau@linux.dev,eddyz87@gmail.com,song@kernel.org,yonghong.song@linux.dev,will@kernel.org,mark.rutland@arm.com,catalin.marinas@arm.com,leo.yan@arm.com,robh@kernel.org,peterz@infradead.org,mingo@redhat.com,acme@kernel.org,namhyung@kernel.org,james.clark@linaro.org,irogers@google.com,adrian.hunter@intel.com,shuah@kernel.org,leitao@debian.org,ravi.bangoria@amd.com,eranian@google.com,memxor@gmail.com,usama.arif@linux.dev,linux-arm-kernel@lists.infradead.org,linux-perf-users@vger.kernel.org,linux-kselftest@vger.kernel.org,linux-kernel@vger.kernel.org,kernel-team@meta.com,ast@kernel.org,andrii@kernel.org,daniel@iogearbox.net,martin.lau@kernel.org,eddyz87@gmail.com,yonghong.song@linux.dev,clm@meta.com,ihor.solodrai@linux.dev
+Date: Wed, 27 May 2026 13:00:58 +0000 (UTC)
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260527_055816_651220_62A22F3D 
-X-CRM114-Status: GOOD (  17.62  )
+X-CRM114-CacheID: sfid-20260527_060100_519577_207C0C1C 
+X-CRM114-Status: GOOD (  20.11  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -72,152 +69,134 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hi Mark,
+--===============4572472540278009869==
+Content-Type: text/plain; charset="us-ascii"
+MIME-Version: 1.0
+Content-Transfer-Encoding: 7bit
 
-On 5/21/26 14:25, Mark Rutland wrote:
-> Historically we supported assemblers which could not assemble SVE
-> instructions. We dropped support for such assemblers in commit:
-> 
->   118c40b7b503 ("kbuild: require gcc-8 and binutils-2.30")
-> 
-> Since that commit, all supported assemblers (binutils and LLVM) are
-> capable of assembling SVE instructions, and there's no need for us to
-> manually encode SVE instructions.
-> 
-> Rely on the assembler to encode SVE instructions, and remove the manual
-> encoding. The various _sve_<insn> macros are kept for now, and will be
-> cleaned up in subsequent patches.
-> 
-> There should be no functional change as a result of this patch.
-> 
-> Signed-off-by: Mark Rutland <mark.rutland@arm.com>
-> Cc: Catalin Marinas <catalin.marinas@arm.com>
-> Cc: Fuad Tabba <tabba@google.com>
-> Cc: James Morse <james.morse@arm.com>
-> Cc: Marc Zyngier <maz@kernel.org>
-> Cc: Mark Brown <broonie@kernel.org>
-> Cc: Oliver Upton <oupton@kernel.org>
-> Cc: Will Deacon <will@kernel.org>
-> ---
->  arch/arm64/include/asm/fpsimdmacros.h | 64 +++++++--------------------
->  1 file changed, 16 insertions(+), 48 deletions(-)
-> 
-> diff --git a/arch/arm64/include/asm/fpsimdmacros.h b/arch/arm64/include/asm/fpsimdmacros.h
-> index adf33d2da40c3..1122eea6daacf 100644
-> --- a/arch/arm64/include/asm/fpsimdmacros.h
-> +++ b/arch/arm64/include/asm/fpsimdmacros.h
-> @@ -99,85 +99,53 @@
->  	.endif
->  .endm
->  
-> -/* SVE instruction encodings for non-SVE-capable assemblers */
-> -/* (pre binutils 2.28, all kernel capable clang versions support SVE) */
-> +/* Deprecated macros for SVE instructions */
->  
->  /* STR (vector): STR Z\nz, [X\nxbase, #\offset, MUL VL] */
+>     perf: Use a union to clear branch entry bitfields
+>
+>     perf_clear_branch_entry_bitfields() zeroes individual bitfields of struct
+>     perf_branch_entry but has repeatedly fallen out of sync when new fields
+>     were added (new_type and priv were missed).
+>
+>     Wrap the bitfields in an anonymous struct inside a union with a u64
+>     bitfields member, and clear them all with a single assignment. This
+>     avoids having to update the clearing function every time a new bitfield
+>     is added.
+>
+>     Fixes: bfe4daf850f4 ("perf/core: Add perf_clear_branch_entry_bitfields() helper")
+>     Signed-off-by: Puranjay Mohan <puranjay@kernel.org>
 
-Nitpick:
+The Fixes tag points to commit bfe4daf850f4 which introduced the
+perf_clear_branch_entry_bitfields() helper, but that commit was correct
+at the time.
 
-all these comments now redundant and just repeat the code... I know they are gone by
-the end of the series :)
+The actual bug was introduced by commit b190bc4ac9e6 which added the
+'new_type' field without updating the clearing function. Commit
+5402d25aa571 also added the 'priv' field with the same issue.
 
->  .macro _sve_str_v nz, nxbase, offset=0
-> -	_sve_check_zreg \nz
-> -	_check_general_reg \nxbase
-> -	_check_num (\offset), -0x100, 0xff
-> -	.inst	0xe5804000			\
-> -		| (\nz)				\
-> -		| ((\nxbase) << 5)		\
-> -		| (((\offset) & 7) << 10)	\
-> -		| (((\offset) & 0x1f8) << 13)
-> +	.arch_extension sve
-> +	str	z\nz, [X\nxbase, #\offset, MUL VL]
->  .endm
->  
->  /* LDR (vector): LDR Z\nz, [X\nxbase, #\offset, MUL VL] */
->  .macro _sve_ldr_v nz, nxbase, offset=0
-> -	_sve_check_zreg \nz
-> -	_check_general_reg \nxbase
-> -	_check_num (\offset), -0x100, 0xff
-> -	.inst	0x85804000			\
-> -		| (\nz)				\
-> -		| ((\nxbase) << 5)		\
-> -		| (((\offset) & 7) << 10)	\
-> -		| (((\offset) & 0x1f8) << 13)
-> +	.arch_extension sve
-> +	ldr	z\nz, [X\nxbase, #\offset, MUL VL]
->  .endm
->  
->  /* STR (predicate): STR P\np, [X\nxbase, #\offset, MUL VL] */
->  .macro _sve_str_p np, nxbase, offset=0
-> -	_sve_check_preg \np
-> -	_check_general_reg \nxbase
-> -	_check_num (\offset), -0x100, 0xff
-> -	.inst	0xe5800000			\
-> -		| (\np)				\
-> -		| ((\nxbase) << 5)		\
-> -		| (((\offset) & 7) << 10)	\
-> -		| (((\offset) & 0x1f8) << 13)
-> +	.arch_extension sve
-> +	str	p\np, [X\nxbase, #\offset, MUL VL]
->  .endm
->  
->  /* LDR (predicate): LDR P\np, [X\nxbase, #\offset, MUL VL] */
->  .macro _sve_ldr_p np, nxbase, offset=0
-> -	_sve_check_preg \np
-> -	_check_general_reg \nxbase
-> -	_check_num (\offset), -0x100, 0xff
-> -	.inst	0x85800000			\
-> -		| (\np)				\
-> -		| ((\nxbase) << 5)		\
-> -		| (((\offset) & 7) << 10)	\
-> -		| (((\offset) & 0x1f8) << 13)
-> +	.arch_extension sve
-> +	ldr p\np, [x\nxbase, #\offset, MUL VL]
->  .endm
->  
->  /* RDVL X\nx, #\imm */
->  .macro _sve_rdvl nx, imm
-> -	_check_general_reg \nx
-> -	_check_num (\imm), -0x20, 0x1f
-> -	.inst	0x04bf5000			\
-> -		| (\nx)				\
-> -		| (((\imm) & 0x3f) << 5)
-> +	.arch_extension sve
-> +	rdvl x\nx, #\imm
->  .endm
->  
->  /* RDFFR (unpredicated): RDFFR P\np.B */
->  .macro _sve_rdffr np
-> -	_sve_check_preg \np
-> -	.inst	0x2519f000			\
-> -		| (\np)
-> +	.arch_extension sve
-> +	rdffr p\np\().b
->  .endm
->  
->  /* WRFFR P\np.B */
->  .macro _sve_wrffr np
-> -	_sve_check_preg \np
-> -	.inst	0x25289000			\
-> -		| ((\np) << 5)
+Should the Fixes tag be:
 
-Missing ".arch_extension sve"?
+  Fixes: b190bc4ac9e6 ("perf: Extend branch type classification")
 
-> +	wrffr p\np\().b
->  .endm
->  
->  /* PFALSE P\np.B */
->  .macro _sve_pfalse np
-> -	_sve_check_preg \np
-> -	.inst	0x2518e400			\
-> -		| (\np)
-> +	.arch_extension sve
-> +	pfalse	p\np\().b
->  .endm
->  
->  /* SME instruction encodings for non-SME-capable assemblers */
-> -- 2.30.2
-> 
+> diff --git a/include/linux/perf_event.h b/include/linux/perf_event.h
+> index 48d851fbd8ea..f7360c43f902 100644
+> --- a/include/linux/perf_event.h
+> +++ b/include/linux/perf_event.h
+> @@ -1474,14 +1474,7 @@ static inline u32 perf_sample_data_size(struct perf_sample_data *data,
+>   */
+>  static inline void perf_clear_branch_entry_bitfields(struct perf_branch_entry *br)
+>  {
+> -	br->mispred	= 0;
+> -	br->predicted	= 0;
+> -	br->in_tx	= 0;
+> -	br->abort	= 0;
+> -	br->cycles	= 0;
+> -	br->type	= 0;
+> -	br->spec	= PERF_BR_SPEC_NA;
+> -	br->reserved	= 0;
+> +	br->bitfields = 0;
+>  }
+>
+>  extern void perf_output_sample(struct perf_output_handle *handle,
+> diff --git a/include/uapi/linux/perf_event.h b/include/uapi/linux/perf_event.h
+> index fd10aa8d697f..c2e7b1b1c4fa 100644
+> --- a/include/uapi/linux/perf_event.h
+> +++ b/include/uapi/linux/perf_event.h
+> @@ -1491,16 +1491,21 @@ union perf_mem_data_src {
+>  struct perf_branch_entry {
+>  	__u64	from;
+>  	__u64	to;
+> -	__u64	mispred   :  1, /* target mispredicted */
+> -		predicted :  1, /* target predicted */
+> -		in_tx     :  1, /* in transaction */
+> -		abort     :  1, /* transaction abort */
+> -		cycles    : 16, /* cycle count to last branch */
+> -		type      :  4, /* branch type */
+> -		spec      :  2, /* branch speculation info */
+> -		new_type  :  4, /* additional branch type */
+> -		priv      :  3, /* privilege level */
+> -		reserved  : 31;
+> +	union {
+> +		struct {
+> +			__u64	mispred   :  1, /* target mispredicted */
+> +				predicted :  1, /* target predicted */
+> +				in_tx     :  1, /* in transaction */
+> +				abort     :  1, /* transaction abort */
+> +				cycles    : 16, /* cycle count to last branch */
+> +				type      :  4, /* branch type */
+> +				spec      :  2, /* branch speculation info */
+> +				new_type  :  4, /* additional branch type */
+> +				priv      :  3, /* privilege level */
+> +				reserved  : 31;
+> +		};
+> +		__u64	bitfields;
+> +	};
+>  };
+>
+>  /* Size of used info bits in struct perf_branch_entry */
+> diff --git a/tools/include/uapi/linux/perf_event.h b/tools/include/uapi/linux/perf_event.h
+> index fd10aa8d697f..c2e7b1b1c4fa 100644
+> --- a/tools/include/uapi/linux/perf_event.h
+> +++ b/tools/include/uapi/linux/perf_event.h
+> @@ -1491,16 +1491,21 @@ union perf_mem_data_src {
+>  struct perf_branch_entry {
+>  	__u64	from;
+>  	__u64	to;
+> -	__u64	mispred   :  1, /* target mispredicted */
+> -		predicted :  1, /* target predicted */
+> -		in_tx     :  1, /* in transaction */
+> -		abort     :  1, /* transaction abort */
+> -		cycles    : 16, /* cycle count to last branch */
+> -		type      :  4, /* branch type */
+> -		spec      :  2, /* branch speculation info */
+> -		new_type  :  4, /* additional branch type */
+> -		priv      :  3, /* privilege level */
+> -		reserved  : 31;
+> +	union {
+> +		struct {
+> +			__u64	mispred   :  1, /* target mispredicted */
+> +				predicted :  1, /* target predicted */
+> +				in_tx     :  1, /* in transaction */
+> +				abort     :  1, /* transaction abort */
+> +				cycles    : 16, /* cycle count to last branch */
+> +				type      :  4, /* branch type */
+> +				spec      :  2, /* branch speculation info */
+> +				new_type  :  4, /* additional branch type */
+> +				priv      :  3, /* privilege level */
+> +				reserved  : 31;
+> +		};
+> +		__u64	bitfields;
+> +	};
+>  };
+>
+>  /* Size of used info bits in struct perf_branch_entry */
 
+---
+AI reviewed your patch. Please fix the bug or email reply why it's not a bug.
+See: https://github.com/kernel-patches/vmtest/blob/master/ci/claude/README.md
+
+CI run summary: https://github.com/kernel-patches/bpf/actions/runs/26510917353
+--===============4572472540278009869==--
 
