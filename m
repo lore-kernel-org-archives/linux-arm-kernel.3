@@ -4,107 +4,60 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 75B8FCD5BD0
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 27 May 2026 16:04:13 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 35197CD5BD0
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 27 May 2026 16:10:54 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:
-	To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=0DofwycJUztzv8ieqZ6Ro3L+aNfF27V1vkVEXRjl8To=; b=LJn3h2+jUDWmYSA3awDFlXs0BG
-	+Fq66qNFVEW8oE+tAuW4+58A36l6KhAdBp4Nf9e7NdSQ+L1VZjcNCI8UA33mVSorYsnCEwrQunksQ
-	s+xt3C/b4xju8BWL1UbQKJq9BP9S2xn2QygY3Nc2VDaqzpwob+OxL0aJpcZn1LW3G7zYyQq/OqorW
-	tQF2p+mJRp3W4xBZOooLhulL+/gEsn6LK3eM+bcgjqSNvKerpsidiktDkjHSSzVMa82+oLbR4tJzB
-	CtnazLxovgr0YnskbarunTWD3pu/BWR2cfM8QpvBD3fg0yAedBfpwhNnVzYsc7YeOKZg1VFQ53lg4
-	JTFSr5eg==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=wyJX7Gue7jTmQgrHmAmUJXWeCl83H7hC9whtHsXhlpM=; b=X8YUDeQLrrbM65nPdvTZhybzMt
+	Qu/gCdZL2Y11qI2nsDMqwM3IQiwMunt7YJiKMlnsEqsZcBD5Gp1sOe0zOhurdzqNwRJQJo9mGZgDY
+	PCeki5lA/YTEgneg3wXMQm6qV/gmKKKpRX54BE/CyZCHK7ZXqa5hQ1nPp9V5vbDbRdGvdGGLVTOKL
+	mZyXzP0R+6azmel4tD1a+Vf6nAuiouT/bTsROPwrNfLhTwiw7XcHPqvU1Iw6ZOALkGA9UTzXFD66a
+	VZT996CCOGar6OrtNevNN9v4z801z4JXK8IBYQNAqtP4WdZvIVVC196HunvsUdOm0curDoqlgfDbq
+	XNNrT1Dw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wSGjl-00000004T1e-3IwY;
-	Wed, 27 May 2026 16:04:05 +0000
-Received: from mail-pf1-x42e.google.com ([2607:f8b0:4864:20::42e])
-	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wSGjj-00000004T1G-1i68
+	id 1wSGqE-00000004TTz-1Xri;
+	Wed, 27 May 2026 16:10:46 +0000
+Received: from foss.arm.com ([217.140.110.172])
+	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
+	id 1wSGqB-00000004TTZ-3YuK
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 27 May 2026 16:04:04 +0000
-Received: by mail-pf1-x42e.google.com with SMTP id d2e1a72fcca58-841ad134423so214612b3a.0
-        for <linux-arm-kernel@lists.infradead.org>; Wed, 27 May 2026 09:04:03 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20251104; t=1779897842; x=1780502642; darn=lists.infradead.org;
-        h=content-transfer-encoding:mime-version:references:in-reply-to
-         :message-id:date:subject:cc:to:from:from:to:cc:subject:date
-         :message-id:reply-to;
-        bh=0DofwycJUztzv8ieqZ6Ro3L+aNfF27V1vkVEXRjl8To=;
-        b=QB64eh762eBcWrIvbhdkItk+8x1gC4AgvHFf3CSF4YNoGSIV/dPzGpVj26XXkI+A00
-         1Rn7/t26iIxU3ha0jBLRTt2HTkhuFyEoOWNjF7NxVKLMMVpkp2RK2JfJaZ+N1pGL0+3c
-         R0Sl5/HyBvu7HX6QbiamPE0iv0SBVG87z+gvQKHsban7Tu5CNZWxvM9U207Cwyi0ym8H
-         60fJ/pU4V4PrAePjTYJcnPNQvsV37SgHPuiF4okRW7JYnodmI/oL2mW3naINpJWN1yVa
-         ulTFbx0FoOSKTlR+hrgLRx4f/gdyKzrtjgf318g1p7ijkjjew/c/Ntyfmoh8zO31Anyx
-         Nk1Q==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20251104; t=1779897842; x=1780502642;
-        h=content-transfer-encoding:mime-version:references:in-reply-to
-         :message-id:date:subject:cc:to:from:x-gm-gg:x-gm-message-state:from
-         :to:cc:subject:date:message-id:reply-to;
-        bh=0DofwycJUztzv8ieqZ6Ro3L+aNfF27V1vkVEXRjl8To=;
-        b=mI+Q9/bsM8ydjGmOAFnwkEEJsyCv8iF6nDn/eCqrwCEvLZVndEQ8rGBJu6gVgfkNGD
-         Ec+ajkxxsNvJ24mgSHgT4nn1RjODRXF2Of5RKYEOSSB5YokXHaako+agpGT2mw+iblIA
-         kbHpnjvRU9MZNnpNohuH2SHwuqX6wqxzvo08Bews7WO/Ljju8qtu7DX3gvih8sNHeH5E
-         GU0KXb5ForTm4HWrGa5rCiDew+UoCezSRhntj23Tx3Diu4CqjnIy5qrugROz8BnPptd3
-         7n57GihJUu+GORDQMpxxz8zve7bCEHm+opAHCSICKDhnB9msQRN7mI/Kfqk+FyhD4/CD
-         hrxA==
-X-Forwarded-Encrypted: i=1; AFNElJ9u2e9DXhZ34ls7USQCk2lxRIranX9/KHNi4mLQwtIW9EmCLMbmzIOETmaKcn2FpP/OeqDuvy4Uc5NAI3j9nrzK@lists.infradead.org
-X-Gm-Message-State: AOJu0YxD7J2u1bm+7d1DIhiRkdfugWso4z1ahniXg2jghh+mpww7StB6
-	sXmTsMl+vPz/XLFhe/o/4ruCLULZ1du1LPFCqBQ7QfOB3+FXx17YwvfU
-X-Gm-Gg: Acq92OH7SqGR9m8uEG0HL3wsAeI0hxwtCPzvyp8iq+rT4xOOhMZvoUM9edOJfast6jL
-	zpj7+uFnMld6h5b83FyxZP0aaaVMkrDTVh5YLEQxRnHQdN2oS5SLnlc8pDlENpbgo4Aefryp0jm
-	lPaeRtSznOckySeoRc/eNVw2QESlyRSVXtI/CnRDr4fh0xXqeuz3FySugf0fw2EwsUdJUyqkZ+i
-	cNFHQhHaQuruYrExHIPrdPvrXyQFnhq1ofxTNl2qhiQ0hpTZ3bJDd3Otol9dSC204Wkl1y6EaJ6
-	Rs+coeKFgGpTECRgrHaOSxmdhAcQKJKkWWhCAOKXFQGnpL9FNJWwLQtpfOwEkLSqGkZ6wFuEZRx
-	E49BKsPZsc4BKRadhlBStIQNVIaCzdrkGqEjarBqHlxJKMpl84PAoopEGNI9hgcCqPDqyoDrBPg
-	bucmbdwuZjk9SkVo+Xbo2ieqBvUzqeML79Ie0KNJQg4WwIJ+c4mU1YUNQRfoQ+PVkF5ppZasNNS
-	zPmCvbfJCmHSlvfiogNc1o=
-X-Received: by 2002:a05:6a00:3923:b0:82f:21ee:270d with SMTP id d2e1a72fcca58-8415f0d7e75mr12854029b3a.1.1779897841590;
-        Wed, 27 May 2026 09:04:01 -0700 (PDT)
-Received: from fedora ([38.244.149.186])
-        by smtp.gmail.com with ESMTPSA id d2e1a72fcca58-841d70e07fcsm2510447b3a.40.2026.05.27.09.03.53
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Wed, 27 May 2026 09:04:01 -0700 (PDT)
-From: Xueyuan Chen <xueyuan.chen21@gmail.com>
-To: dev.jain@arm.com
-Cc: xueyuan.chen21@gmail.com,
-	akpm@linux-foundation.org,
-	linux-mm@kvack.org,
-	linux-kernel@vger.kernel.org,
-	linux-arm-kernel@lists.infradead.org,
-	x86@kernel.org,
-	catalin.marinas@arm.com,
-	will@kernel.org,
-	tglx@kernel.org,
-	mingo@redhat.com,
-	bp@alien8.de,
-	dave.hansen@linux.intel.com,
-	hpa@zytor.com,
-	david@kernel.org,
-	ljs@kernel.org,
-	ziy@nvidia.com,
-	baolin.wang@linux.alibaba.com,
-	ryan.roberts@arm.com,
-	lance.yang@linux.dev,
-	yang@os.amperecomputing.com,
-	jannh@google.com
-Subject: Re: [RFC PATCH 1/3] mm: make persistent huge zero folio read-only
-Date: Thu, 28 May 2026 07:03:14 +0800
-Message-ID: <20260527230314.572571-1-xueyuan.chen21@gmail.com>
-X-Mailer: git-send-email 2.54.0
-In-Reply-To: <e5a59b25-d8ce-4d78-aec3-ee1b6efccfed@arm.com>
-References: <e5a59b25-d8ce-4d78-aec3-ee1b6efccfed@arm.com>
+	Wed, 27 May 2026 16:10:44 +0000
+Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
+	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id 4444F35B9;
+	Wed, 27 May 2026 09:10:36 -0700 (PDT)
+Received: from J2N7QTR9R3.cambridge.arm.com (usa-sjc-imap-foss1.foss.arm.com [10.121.207.14])
+	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id 9C90B3F905;
+	Wed, 27 May 2026 09:10:39 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=simple/simple; d=arm.com; s=foss;
+	t=1779898241; bh=CRZjbl06fUz+NEERLDHhxVn2KAs7qXdskL38TVAJirw=;
+	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
+	b=PGZmsNrOA98FCZxR4M/Nfxq5JQKZUjFgUqgKWOBdjYTN+JCSVc3kJ37C/3BIwZl8i
+	 Z6ZtIxLysZX6bFhsMFGagWewz0gJUh5bNQl4OCGJMF15q8iH5G68vef/w9stOrq673
+	 wPutH8J/D6XWO5ZOwWD4Wcs+OQxaWP6XLGav0A8s=
+Date: Wed, 27 May 2026 17:10:37 +0100
+From: Mark Rutland <mark.rutland@arm.com>
+To: Vladimir Murzin <vladimir.murzin@arm.com>
+Cc: linux-arm-kernel@lists.infradead.org, kvmarm@lists.linux.dev,
+	broonie@kernel.org, catalin.marinas@arm.com, james.morse@arm.com,
+	maz@kernel.org, oupton@kernel.org, tabba@google.com,
+	will@kernel.org
+Subject: Re: [PATCH 07/18] arm64: fpsimd: Use assembler for SVE instructions
+Message-ID: <ahcXfSz7pNugiWjj@J2N7QTR9R3.cambridge.arm.com>
+References: <20260521132556.584676-1-mark.rutland@arm.com>
+ <20260521132556.584676-8-mark.rutland@arm.com>
+ <46c5ae49-e59c-4014-91d3-f00124897d20@arm.com>
 MIME-Version: 1.0
-Content-Type: text/plain; charset=UTF-8
-Content-Transfer-Encoding: 8bit
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+In-Reply-To: <46c5ae49-e59c-4014-91d3-f00124897d20@arm.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260527_090403_446790_CC38E923 
-X-CRM114-Status: GOOD (  11.17  )
+X-CRM114-CacheID: sfid-20260527_091043_934527_57A19EA1 
+X-CRM114-Status: GOOD (  10.11  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -119,35 +72,44 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
+On Wed, May 27, 2026 at 01:58:09PM +0100, Vladimir Murzin wrote:
+> On 5/21/26 14:25, Mark Rutland wrote:
+> >  /* STR (vector): STR Z\nz, [X\nxbase, #\offset, MUL VL] */
+> 
+> Nitpick:
+> 
+> all these comments now redundant and just repeat the code... I know they are gone by
+> the end of the series :)
 
-On Wed, May 27, 2026 at 07:02:55PM +0530, Dev Jain wrote:
+Yep; if I weren't deleting them later I'd remove them here.
+
+> >  .macro _sve_str_v nz, nxbase, offset=0
+> > -	_sve_check_zreg \nz
+> > -	_check_general_reg \nxbase
+> > -	_check_num (\offset), -0x100, 0xff
+> > -	.inst	0xe5804000			\
+> > -		| (\nz)				\
+> > -		| ((\nxbase) << 5)		\
+> > -		| (((\offset) & 7) << 10)	\
+> > -		| (((\offset) & 0x1f8) << 13)
+> > +	.arch_extension sve
+> > +	str	z\nz, [X\nxbase, #\offset, MUL VL]
+> >  .endm
 
 [...]
->>  static atomic_t huge_zero_refcount;
->> +#ifdef CONFIG_READONLY_HUGE_ZERO_FOLIO
->> +struct folio *huge_zero_folio __ro_after_init;
->
->
->Can we guard this with CONFIG_PERSISTENT_HUGE_ZERO_FOLIO? Since
->in that case too the pointer is never written after init.
->
 
-Yes, that makes sense. The pointer lifetime is tied to
-CONFIG_PERSISTENT_HUGE_ZERO_FOLIO. I'll fix this in v2.
+> >  /* WRFFR P\np.B */
+> >  .macro _sve_wrffr np
+> > -	_sve_check_preg \np
+> > -	.inst	0x25289000			\
+> > -		| ((\np) << 5)
+> 
+> Missing ".arch_extension sve"?
+> 
+> > +	wrffr p\np\().b
+> >  .endm
 
->>  
->> +#ifdef CONFIG_READONLY_HUGE_ZERO_FOLIO
->> +static bool __init make_huge_zero_folio_readonly(void)
->> +{
->> +	return arch_make_huge_zero_folio_readonly(READ_ONCE(huge_zero_folio));
->
->
->I think READ_ONCE is not required since no one is going to change the
->pointer after allocation?
->
+Sorry about that; fixed now.
 
-Agreed, READ_ONCE is not needed here. I'll drop it in v2.
-
-Thanks,
-Xueyuan
+Mark.
 
