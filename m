@@ -4,172 +4,62 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 2BAD6CD5BDE
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 27 May 2026 08:53:12 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id BCC7FCD4F54
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 27 May 2026 09:00:52 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
 	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
 	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=fHr5XrSud6pNgAeA10u5f9+hSZqjuGHLz/WCO58vfJs=; b=1NZ0x9LM7b8m57Wr0heLl21BGt
-	xoLsVeteAck4U0QE0VeVgFCTLiVgGrIs3+D9KSYM5T93z4s8mymAVZ/NAcz2EBSPNEZJKM7dakGi0
-	dWS9cVfEDnMgJdWq7EqZPYlt0jjlNPhyc3cRTvb11cTBMOAh6JibJZ6709XjqS13AhzNVWZHu7AKF
-	w0Ekkdwk4oNPUHjWOBHM56Ple8AC0EbxcyxXrp5+5FNomZXqOhHsvbBmAVn/Ug3yBKnbC+RvdRXo1
-	1dxhNkVNmw7HNGub3VskHzvhASvML2ZUHmw2G72NIILxNi4gcoyDv23nmoe+WUSM5OqsSjaPjkb1o
-	0ncykrlA==;
+	bh=eDJULsuP/gHYifJ5PztoTGg9igy9jUm7lmSVjatqAsE=; b=F5t0020A3rs1t4i3bsmTwJFFXJ
+	i3wASIODHC6GsYXaZ2Fi1f8V2vDdfCJvqLXd2C9tdezZXmCoLVYG/Lw8FEBfdJn2ktU+fZ01Bj8J6
+	OGI9FpUK9jcdM70DR+l8y76t/6BbBsuR20AmyDRPiLPGLY+Um87EnNbnbcKJBABnSyYAm3gV+LPTM
+	+wCbZdhT6vQ975mOvUw7pSc86YxEtZPN2yOPIyBli0D7Cir3WfjT45K9nBLISfJmwnq0fo0A8kU3d
+	6+IH2Tmq4TT463XZjWAtBVVVMJkFS3TAANEw58641WMpogzm7i6desweX1IGXEXbPdwBVbTjqKEip
+	bDAD1RoQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wSA0g-00000003Zwp-04F8;
-	Wed, 27 May 2026 08:53:06 +0000
-Received: from smtp-out1.suse.de ([2a07:de40:b251:101:10:150:64:1])
-	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wSA0d-00000003ZwT-3PUa
+	id 1wSA85-00000003aVI-1UEf;
+	Wed, 27 May 2026 09:00:45 +0000
+Received: from foss.arm.com ([217.140.110.172])
+	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
+	id 1wSA82-00000003aUZ-3odv
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 27 May 2026 08:53:05 +0000
-Received: from imap1.dmz-prg2.suse.org (unknown [10.150.64.97])
-	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
-	 key-exchange X25519 server-signature RSA-PSS (4096 bits) server-digest SHA256)
-	(No client certificate requested)
-	by smtp-out1.suse.de (Postfix) with ESMTPS id C12FD6A806;
-	Wed, 27 May 2026 08:53:01 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=suse.de; s=susede2_rsa;
-	t=1779871981; h=from:from:reply-to:date:date:message-id:message-id:to:to:cc:cc:
-	 mime-version:mime-version:content-type:content-type:
-	 content-transfer-encoding:content-transfer-encoding:
-	 in-reply-to:in-reply-to:references:references:autocrypt:autocrypt;
-	bh=fHr5XrSud6pNgAeA10u5f9+hSZqjuGHLz/WCO58vfJs=;
-	b=wrTu4DF1GXjglPhGleOwGYGEnxgqYF8TkJIOmSWNecFqF15B+8gaAZt5jF8vPmpacfGD8g
-	5CzeQl4lSdNYeHIKXLHBWm+YA8SBx9zQsftG/OoNdsDNKRfP36cAcn3EQ3FHS9iYB0YWTW
-	DbwSLUoCTGx1tiRl/sZCYjwl36caYls=
-DKIM-Signature: v=1; a=ed25519-sha256; c=relaxed/relaxed; d=suse.de;
-	s=susede2_ed25519; t=1779871981;
-	h=from:from:reply-to:date:date:message-id:message-id:to:to:cc:cc:
-	 mime-version:mime-version:content-type:content-type:
-	 content-transfer-encoding:content-transfer-encoding:
-	 in-reply-to:in-reply-to:references:references:autocrypt:autocrypt;
-	bh=fHr5XrSud6pNgAeA10u5f9+hSZqjuGHLz/WCO58vfJs=;
-	b=LjJ2spsMrhtxXDiFCcdM23trVrGzubvJbyHSkmMVeRBlwZol82YzZnlRsea0XsOZaxgGyA
-	jVQmCfyci6GeWyCg==
-Authentication-Results: smtp-out1.suse.de;
-	none
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=suse.de; s=susede2_rsa;
-	t=1779871981; h=from:from:reply-to:date:date:message-id:message-id:to:to:cc:cc:
-	 mime-version:mime-version:content-type:content-type:
-	 content-transfer-encoding:content-transfer-encoding:
-	 in-reply-to:in-reply-to:references:references:autocrypt:autocrypt;
-	bh=fHr5XrSud6pNgAeA10u5f9+hSZqjuGHLz/WCO58vfJs=;
-	b=wrTu4DF1GXjglPhGleOwGYGEnxgqYF8TkJIOmSWNecFqF15B+8gaAZt5jF8vPmpacfGD8g
-	5CzeQl4lSdNYeHIKXLHBWm+YA8SBx9zQsftG/OoNdsDNKRfP36cAcn3EQ3FHS9iYB0YWTW
-	DbwSLUoCTGx1tiRl/sZCYjwl36caYls=
-DKIM-Signature: v=1; a=ed25519-sha256; c=relaxed/relaxed; d=suse.de;
-	s=susede2_ed25519; t=1779871981;
-	h=from:from:reply-to:date:date:message-id:message-id:to:to:cc:cc:
-	 mime-version:mime-version:content-type:content-type:
-	 content-transfer-encoding:content-transfer-encoding:
-	 in-reply-to:in-reply-to:references:references:autocrypt:autocrypt;
-	bh=fHr5XrSud6pNgAeA10u5f9+hSZqjuGHLz/WCO58vfJs=;
-	b=LjJ2spsMrhtxXDiFCcdM23trVrGzubvJbyHSkmMVeRBlwZol82YzZnlRsea0XsOZaxgGyA
-	jVQmCfyci6GeWyCg==
-Received: from imap1.dmz-prg2.suse.org (localhost [127.0.0.1])
-	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
-	 key-exchange X25519 server-signature RSA-PSS (4096 bits) server-digest SHA256)
-	(No client certificate requested)
-	by imap1.dmz-prg2.suse.org (Postfix) with ESMTPS id BC7065A747;
-	Wed, 27 May 2026 08:53:00 +0000 (UTC)
-Received: from dovecot-director2.suse.de ([2a07:de40:b281:106:10:150:64:167])
-	by imap1.dmz-prg2.suse.org with ESMTPSA
-	id xXhJLOywFmqMDAAAD6G6ig
-	(envelope-from <tzimmermann@suse.de>); Wed, 27 May 2026 08:53:00 +0000
-Message-ID: <ec0fcc2e-b767-4509-b9ae-174c9941796e@suse.de>
-Date: Wed, 27 May 2026 10:53:00 +0200
+	Wed, 27 May 2026 09:00:44 +0000
+Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
+	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id 037472880;
+	Wed, 27 May 2026 02:00:36 -0700 (PDT)
+Received: from [10.1.38.169] (e121487-lin.cambridge.arm.com [10.1.38.169])
+	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id C16D33F7D8;
+	Wed, 27 May 2026 02:00:38 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=simple/simple; d=arm.com; s=foss;
+	t=1779872441; bh=tRoXISS8LqgyRvm7afnry9qEeeiga3paY5y9AgjongA=;
+	h=Date:Subject:To:Cc:References:From:In-Reply-To:From;
+	b=rfrcOrtP/3cT5qGwxJLVURcm6NBchGq4gfy6U73co9K59/f2xh/rt2XfV6FJr1AHL
+	 EOGBjTCbF2vuBx77kiL3qbe+ye3zK7oZSX21o3hKFjqcqYmNXNIvh3IkoD+J7TnoD+
+	 ilZv4lAFCL+pngMZqcmtuq4yMygWJBeG4FNEzGyo=
+Message-ID: <ff52c7e7-3ff7-46df-a6ea-3be7fe7e8248@arm.com>
+Date: Wed, 27 May 2026 10:00:36 +0100
 MIME-Version: 1.0
 User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH v6 01/19] drm/atomic: Document atomic commit lifetime
-To: Maxime Ripard <mripard@kernel.org>,
- Maarten Lankhorst <maarten.lankhorst@linux.intel.com>,
- David Airlie <airlied@gmail.com>, Simona Vetter <simona@ffwll.ch>,
- Jonathan Corbet <corbet@lwn.net>, Shuah Khan <skhan@linuxfoundation.org>,
- Dmitry Baryshkov <dmitry.baryshkov@oss.qualcomm.com>,
- Jyri Sarha <jyri.sarha@iki.fi>,
- Tomi Valkeinen <tomi.valkeinen@ideasonboard.com>,
- Andrzej Hajda <andrzej.hajda@intel.com>,
- Neil Armstrong <neil.armstrong@linaro.org>, Robert Foss <rfoss@kernel.org>,
- Laurent Pinchart <Laurent.pinchart@ideasonboard.com>,
- Jonas Karlman <jonas@kwiboo.se>, Jernej Skrabec <jernej.skrabec@gmail.com>,
- Simon Ser <contact@emersion.fr>, Harry Wentland <harry.wentland@amd.com>,
- Melissa Wen <mwen@igalia.com>, Sebastian Wick <sebastian.wick@redhat.com>,
- Alex Hung <alex.hung@amd.com>, Jani Nikula <jani.nikula@linux.intel.com>,
- Rodrigo Vivi <rodrigo.vivi@intel.com>,
- Joonas Lahtinen <joonas.lahtinen@linux.intel.com>,
- Tvrtko Ursulin <tursulin@ursulin.net>, Chen-Yu Tsai <wens@kernel.org>,
- Samuel Holland <samuel@sholland.org>,
- Dave Stevenson <dave.stevenson@raspberrypi.com>,
- =?UTF-8?Q?Ma=C3=ADra_Canal?= <mcanal@igalia.com>,
- Raspberry Pi Kernel Maintenance <kernel-list@raspberrypi.com>
-Cc: dri-devel@lists.freedesktop.org, linux-doc@vger.kernel.org,
- linux-kernel@vger.kernel.org, Daniel Stone <daniels@collabora.com>,
- intel-gfx@lists.freedesktop.org, intel-xe@lists.freedesktop.org,
- linux-arm-kernel@lists.infradead.org, linux-sunxi@lists.linux.dev,
- Laurent Pinchart <laurent.pinchart+renesas@ideasonboard.com>
-References: <20260526-drm-mode-config-init-v6-0-852346394200@kernel.org>
- <20260526-drm-mode-config-init-v6-1-852346394200@kernel.org>
-Content-Language: en-US
-From: Thomas Zimmermann <tzimmermann@suse.de>
-Autocrypt: addr=tzimmermann@suse.de; keydata=
- xsBNBFs50uABCADEHPidWt974CaxBVbrIBwqcq/WURinJ3+2WlIrKWspiP83vfZKaXhFYsdg
- XH47fDVbPPj+d6tQrw5lPQCyqjwrCPYnq3WlIBnGPJ4/jreTL6V+qfKRDlGLWFjZcsrPJGE0
- BeB5BbqP5erN1qylK9i3gPoQjXGhpBpQYwRrEyQyjuvk+Ev0K1Jc5tVDeJAuau3TGNgah4Yc
- hdHm3bkPjz9EErV85RwvImQ1dptvx6s7xzwXTgGAsaYZsL8WCwDaTuqFa1d1jjlaxg6+tZsB
- 9GluwvIhSezPgnEmimZDkGnZRRSFiGP8yjqTjjWuf0bSj5rUnTGiyLyRZRNGcXmu6hjlABEB
- AAHNJ1Rob21hcyBaaW1tZXJtYW5uIDx0emltbWVybWFubkBzdXNlLmRlPsLAjgQTAQgAOAIb
- AwULCQgHAgYVCgkICwIEFgIDAQIeAQIXgBYhBHIX+6yM6c9jRKFo5WgNwR1TC3ojBQJftODH
- AAoJEGgNwR1TC3ojx1wH/0hKGWugiqDgLNXLRD/4TfHBEKmxIrmfu9Z5t7vwUKfwhFL6hqvo
- lXPJJKQpQ2z8+X2vZm/slsLn7J1yjrOsoJhKABDi+3QWWSGkaGwRJAdPVVyJMfJRNNNIKwVb
- U6B1BkX2XDKDGffF4TxlOpSQzdtNI/9gleOoUA8+jy8knnDYzjBNOZqLG2FuTdicBXblz0Mf
- vg41gd9kCwYXDnD91rJU8tzylXv03E75NCaTxTM+FBXPmsAVYQ4GYhhgFt8S2UWMoaaABLDe
- 7l5FdnLdDEcbmd8uLU2CaG4W2cLrUaI4jz2XbkcPQkqTQ3EB67hYkjiEE6Zy3ggOitiQGcqp
- j//OwE0EWznS4AEIAMYmP4M/V+T5RY5at/g7rUdNsLhWv1APYrh9RQefODYHrNRHUE9eosYb
- T6XMryR9hT8XlGOYRwKWwiQBoWSDiTMo/Xi29jUnn4BXfI2px2DTXwc22LKtLAgTRjP+qbU6
- 3Y0xnQN29UGDbYgyyK51DW3H0If2a3JNsheAAK+Xc9baj0LGIc8T9uiEWHBnCH+RdhgATnWW
- GKdDegUR5BkDfDg5O/FISymJBHx2Dyoklv5g4BzkgqTqwmaYzsl8UxZKvbaxq0zbehDda8lv
- hFXodNFMAgTLJlLuDYOGLK2AwbrS3Sp0AEbkpdJBb44qVlGm5bApZouHeJ/+n+7r12+lqdsA
- EQEAAcLAdgQYAQgAIAIbDBYhBHIX+6yM6c9jRKFo5WgNwR1TC3ojBQJftOH6AAoJEGgNwR1T
- C3ojVSkIALpAPkIJPQoURPb1VWjh34l0HlglmYHvZszJWTXYwavHR8+k6Baa6H7ufXNQtThR
- yIxJrQLW6rV5lm7TjhffEhxVCn37+cg0zZ3j7zIsSS0rx/aMwi6VhFJA5hfn3T0TtrijKP4A
- SAQO9xD1Zk9/61JWk8OysuIh7MXkl0fxbRKWE93XeQBhIJHQfnc+YBLprdnxR446Sh8Wn/2D
- Ya8cavuWf2zrB6cZurs048xe0UbSW5AOSo4V9M0jzYI4nZqTmPxYyXbm30Kvmz0rYVRaitYJ
- 4kyYYMhuULvrJDMjZRvaNe52tkKAvMevcGdt38H4KSVXAylqyQOW5zvPc4/sq9c=
-In-Reply-To: <20260526-drm-mode-config-init-v6-1-852346394200@kernel.org>
-Content-Type: text/plain; charset=UTF-8; format=flowed
-Content-Transfer-Encoding: 8bit
-X-Spamd-Result: default: False [-2.80 / 50.00];
-	BAYES_HAM(-3.00)[100.00%];
-	SUSPICIOUS_RECIPS(1.50)[];
-	NEURAL_HAM_LONG(-1.00)[-1.000];
-	NEURAL_HAM_SHORT(-0.20)[-1.000];
-	MIME_GOOD(-0.10)[text/plain];
-	MIME_TRACE(0.00)[0:+];
-	FUZZY_RATELIMITED(0.00)[rspamd.com];
-	RCVD_VIA_SMTP_AUTH(0.00)[];
-	ARC_NA(0.00)[];
-	TAGGED_RCPT(0.00)[renesas];
-	RCPT_COUNT_TWELVE(0.00)[38];
-	TO_DN_SOME(0.00)[];
-	FREEMAIL_TO(0.00)[kernel.org,linux.intel.com,gmail.com,ffwll.ch,lwn.net,linuxfoundation.org,oss.qualcomm.com,iki.fi,ideasonboard.com,intel.com,linaro.org,kwiboo.se,emersion.fr,amd.com,igalia.com,redhat.com,ursulin.net,sholland.org,raspberrypi.com];
-	FREEMAIL_ENVRCPT(0.00)[gmail.com];
-	MID_RHS_MATCH_FROM(0.00)[];
-	FROM_EQ_ENVFROM(0.00)[];
-	FROM_HAS_DN(0.00)[];
-	R_RATELIMIT(0.00)[to_ip_from(RLyhjdboxbrjk5hnijtjs4kbm6)];
-	RCVD_TLS_ALL(0.00)[];
-	RCVD_COUNT_TWO(0.00)[2];
-	TO_MATCH_ENVRCPT_SOME(0.00)[];
-	DKIM_SIGNED(0.00)[suse.de:s=susede2_rsa,suse.de:s=susede2_ed25519];
-	DBL_BLOCKED_OPENRESOLVER(0.00)[suse.de:email,suse.de:mid,imap1.dmz-prg2.suse.org:helo,suse.com:url]
+Subject: Re: [PATCH 17/18] arm64: fpsimd: Move SME save/restore inline
+To: Mark Rutland <mark.rutland@arm.com>
+Cc: linux-arm-kernel@lists.infradead.org, kvmarm@lists.linux.dev,
+ broonie@kernel.org, catalin.marinas@arm.com, james.morse@arm.com,
+ maz@kernel.org, oupton@kernel.org, tabba@google.com, will@kernel.org
+References: <20260521132556.584676-1-mark.rutland@arm.com>
+ <20260521132556.584676-18-mark.rutland@arm.com> <ahWpST4K3rbMbjWK@J2N7QTR9R3>
+ <08e5ce52-be74-4fc5-a0b2-8f405a5eff99@arm.com> <ahW8Eba3SNqfVDdk@J2N7QTR9R3>
+ <ahXMkPEpgaZQf_Nk@J2N7QTR9R3>
+Content-Language: en-GB
+From: Vladimir Murzin <vladimir.murzin@arm.com>
+In-Reply-To: <ahXMkPEpgaZQf_Nk@J2N7QTR9R3>
+Content-Type: text/plain; charset=UTF-8
+Content-Transfer-Encoding: 7bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260527_015304_145143_DD21AA3C 
-X-CRM114-Status: GOOD (  35.49  )
+X-CRM114-CacheID: sfid-20260527_020043_131285_E7973ABE 
+X-CRM114-Status: GOOD (  22.38  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -184,139 +74,71 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
+Hi Mark,
 
+On 5/26/26 17:38, Mark Rutland wrote:
+> On Tue, May 26, 2026 at 04:28:17PM +0100, Mark Rutland wrote:
+>> On Tue, May 26, 2026 at 03:39:56PM +0100, Vladimir Murzin wrote:
+>>> Hi Mark,
+>>>
+>>> On 5/26/26 15:08, Mark Rutland wrote:
+>>>> On Thu, May 21, 2026 at 02:25:55PM +0100, Mark Rutland wrote:
+>>>>> +static inline void __sme_save_za(struct sme_state *state, unsigned long svl)
+>>>>> +{
+>>>>> +	/* The <Wv> argument to STR (array vector) can only encode W12-W15 */
+>>>>> +	register unsigned long v asm ("12");
+>>>> Sorry, I had meant to put "x12" here, but evidently GCC and LLVM accept
+>>>> "12" on its own.
+>>>>
+>>>> For clarity (e.g. to match the comment) I'll change that to "w12" and
+>>>> make the type unsigned int. Likewise in __sme_load_za().
+>>> I suspect you are intentionally not using "Ucj" constrain to limit register allocator,
+>>> if so I'm wondering why?
+>> Thanks for the suggestion; that was ignorance rather than intent.
+>>
+>> I was not aware of "Ucj" as it doesn't appear on the public GCC
+>> documentation:
+>>
+>>   https://gcc.gnu.org/onlinedocs/gcc/Machine-Constraints.html
+>>
+>> Looking at the machine description file, that's marked with '@internal',
+>> so IIUC GCC folk don't seem to expect/want people to use it. That said,
+>> LLVM seems to support it.
+>>
+>> I'll go check that all relevant toolchains support this, and poke GCC
+>> folk to see if they're happy to promote that to a public constraint.
+> GCC folk seem happy to make this public, which is great! I'll cross-link
+> a thread here if/when patches appear.
+> 
+> In the short term, using "Ucj" would require bumping our minimum
+> supported toolchain necessary for SME:
+> 
+> * GCC gained "Ucj" in 14.1.0, tagged on 7 May 2024.
+> 
+> * LLVM gained "Ucj" in 18.1.0, tagged on 27 Feb 2024.
+> 
+> ... so using that would require adding a dependency on a newer
+> toolchain, e.g. via a CC_HAS_UCJ_CONSTRAINT to match the existing
+> CC_HAS_K_CONSTRAINT.
+> 
+> Aligned with the rationale on patch 8, v6.16 (tagged 27 July 2025) was
+> contemporary with GCC 15.1.0 (tagged 25 April 2025) and LLVM 20.1.0
+> (tagged 4 March 2025), both of which supported "Ucj".
+> 
+>> If that's all good, I'll move over to "Ucj". If not, I'll update the
+>> commit message and/or comments to explain why.
+> If Will and Catalin are happy to depend on a toolchain as above, I'll go
+> add the necessary CC_HAS_UCJ_CONSTRAINT Kconfig logic.
+> 
+> Otherwise I'll go note the above in a comment, and stick with the
+> register variable for now.
+> 
+> Mark.
+> 
 
-Am 26.05.26 um 18:46 schrieb Maxime Ripard:
-> How drm_atomic_commit and the various entity structures are allocated
-> and freed isn't really trivial. Document it.
->
-> Reviewed-by: Laurent Pinchart <laurent.pinchart+renesas@ideasonboard.com>
-> Signed-off-by: Maxime Ripard <mripard@kernel.org>
+Wow, I had no intention for generating this amount of work for
+you - thanks for digging into that! FWIW, either way works for me :)
 
-Reviewed-by: Thomas Zimmermann <tzimmermann@suse.de>
-
-> ---
->   Documentation/gpu/drm-kms.rst |  6 ++++
->   drivers/gpu/drm/drm_atomic.c  | 72 +++++++++++++++++++++++++++++++++++++++++++
->   2 files changed, 78 insertions(+)
->
-> diff --git a/Documentation/gpu/drm-kms.rst b/Documentation/gpu/drm-kms.rst
-> index d22817fdf9aa..36d76e391074 100644
-> --- a/Documentation/gpu/drm-kms.rst
-> +++ b/Documentation/gpu/drm-kms.rst
-> @@ -282,10 +282,16 @@ structure, ordering of committing state changes to hardware is sequenced using
->   :c:type:`struct drm_crtc_commit <drm_crtc_commit>`.
->   
->   Read on in this chapter, and also in :ref:`drm_atomic_helper` for more detailed
->   coverage of specific topics.
->   
-> +Atomic State Lifetime
-> +---------------------
-> +
-> +.. kernel-doc:: drivers/gpu/drm/drm_atomic.c
-> +   :doc: state lifetime
-> +
->   Handling Driver Private State
->   -----------------------------
->   
->   .. kernel-doc:: drivers/gpu/drm/drm_atomic.c
->      :doc: handling driver private state
-> diff --git a/drivers/gpu/drm/drm_atomic.c b/drivers/gpu/drm/drm_atomic.c
-> index 170de30c28ae..3c5714481ad2 100644
-> --- a/drivers/gpu/drm/drm_atomic.c
-> +++ b/drivers/gpu/drm/drm_atomic.c
-> @@ -45,10 +45,82 @@
->   #include <drm/drm_colorop.h>
->   
->   #include "drm_crtc_internal.h"
->   #include "drm_internal.h"
->   
-> +/**
-> + * DOC: state lifetime
-> + *
-> + * &drm_atomic_commit represents an update to modeset pipeline state.
-> + * It's a transient object that holds a state update as a collection of
-> + * pointers to individual objects' states. &struct drm_atomic_commit has
-> + * a much shorter lifetime than the objects' states, since it's only
-> + * allocated while preparing, checking or committing the update, while
-> + * object states are allocated when preparing the update and kept alive
-> + * as long as they are active in the device.
-> + *
-> + * Their respective lifetimes are:
-> + *
-> + * - at reset time, the object reset implementation allocates a new
-> + *   default state and stores it in the object state pointer.
-> + *
-> + * - whenever a new update is needed:
-> + *
-> + *   + drm_atomic_commit_alloc() allocates a new &drm_atomic_commit
-> + *     instance.
-> + *
-> + *   + The code triggering the commit (ioctl, client modeset,
-> + *     drm_atomic_helper_reset_crtc(), etc.) copies the current active
-> + *     state of all entities affected by the update into this new
-> + *     &drm_atomic_commit using drm_atomic_get_plane_state(),
-> + *     drm_atomic_get_crtc_state(), drm_atomic_get_connector_state(), or
-> + *     drm_atomic_get_private_obj_state(). This new state can then be
-> + *     modified.
-> + *
-> + *     At that point, &drm_atomic_commit stores three state pointers for
-> + *     any affected entity: the "old" and "new" states, and
-> + *     state_to_destroy. The old state is the state currently active in
-> + *     the hardware, which is either the one initialized by reset() or a
-> + *     newer one if a commit has been made. The new state is the state
-> + *     we just allocated and we might eventually commit to the hardware.
-> + *     The state_to_destroy points to the state we'll eventually have to
-> + *     free when the drm_atomic_commit will be destroyed, and points to
-> + *     the new state for now since the old state is still the active
-> + *     state.
-> + *
-> + *   + After the calling code populated the commit with the entities
-> + *     states, it updates the new states with the new values we need to
-> + *     commit. The new commit instance is now ready.
-> + *
-> + *   + Then we have two branches depending on the calling code intent:
-> + *
-> + *     - If the calling code only wants to check that the commit would
-> + *       work (for example because of the DRM_MODE_ATOMIC_TEST_ONLY
-> + *       flag). It calls drm_atomic_check_only(), which in turn checks
-> + *       all these states by invoking atomic_check on all affected
-> + *       pipeline stages.
-> + *
-> + *     - If the calling code actually wants to trigger a commit, it
-> + *       calls drm_atomic_commit(). The first stage is the check
-> + *       mentioned above, and if the check is successful, it performs
-> + *       the commit. Part of the commit is a call to
-> + *       drm_atomic_helper_swap_state() which turns the new states into
-> + *       the active states. After swapping states, each object's state
-> + *       pointer now refers to the formerly new state. The
-> + *       state_to_destroy now refers to the formerly old state.
-> + *
-> + *   + Once done, and when the last refererence to our &struct
-> + *     drm_atomic_commit is given up through drm_atomic_commit_put(), it
-> + *     calls __drm_atomic_commit_free(). In turn,
-> + *     __drm_atomic_commit_free() calls drm_atomic_commit_clear() that
-> + *     will free all state_to_destroy (ie. old states), and it finally
-> + *     frees &drm_atomic_commit instance.
-> + *
-> + *   + Now, we don't have any active &drm_atomic_commit anymore, and
-> + *     only the entity active states remain allocated.
-> + */
-> +
->   void __drm_crtc_commit_free(struct kref *kref)
->   {
->   	struct drm_crtc_commit *commit =
->   		container_of(kref, struct drm_crtc_commit, ref);
->   
->
-
--- 
---
-Thomas Zimmermann
-Graphics Driver Developer
-SUSE Software Solutions Germany GmbH
-Frankenstr. 146, 90461 Nürnberg, Germany, www.suse.com
-GF: Jochen Jaser, Andrew McDonald, Werner Knoblich, (HRB 36809, AG Nürnberg)
-
-
+Cheers
+Vladimir
 
