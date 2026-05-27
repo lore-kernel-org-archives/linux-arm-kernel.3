@@ -4,134 +4,77 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 0D6A3CD5BDE
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 27 May 2026 08:17:59 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id D6EC8CD6E45
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 27 May 2026 08:24:35 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:
-	To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
+	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=VlDTUSZSL9yEYzzXWBCrB8EeTzg12q8rDn+nYTVfQ90=; b=n1cRcnqObs0KN/kyIKJYWHzM84
-	4BP3kOdAIfNzgnpLT73fpCJbZucP8PBhOxPO0DiNckdfkbm2mve1kycDiysV30P5V8hfoZHiQglCR
-	bIeT9DDK2mwYZWqOXzDVHMaf1rJGOSfYoSD4lwFFCMpmFhY/v4HyGzS/Ef940gfRRj54dDpLGAd19
-	zxMnMjDzAAiX9d9dEEtUwVcugYBLuv5Wszmm3BRR2ty8GSTPX+aNmVkteCEEywaMZPK9wZCM+QJIi
-	sRsTHkoxfWhGc7Fy6TB+80D+b+pdyW+vwZraYsLYShepqPGXRzrqWoSaIIoUV8lmcGFkndA/VaARm
-	2AsOpMHg==;
+	bh=sv59KgmPS9YwACthNWBPKz9+XMUx70b0VSrwo1dUH0g=; b=0J5U+DpiftltKb1xAZ4LB6QT42
+	PW3qKilCvsVm7ze3tKzlZFruoqqtwCTm2RyUfg+pxDGj7hGz1DVdEIxeqfrfeQQSCauFxbjTaP0lS
+	tzkw5yZtpa7eJE0tYSzxxvUcPcd7xoE1TIUbywItkqoFdHMzeMXfYj1IDnocfMDKw7zXXs1rXuzVf
+	QY0fRlDyaE8FWoxkHdYkQKZolZoRmczvCQSlZKthYl56/TOxEByjaiD1uQjdzguZRCl5jyLzJyNVY
+	0qrcHrMWCgmjNYVU0wYr0H4iTJjywzs3etm7XdTyveG0Uw7q1w5uAX+cwI0y0fLLfjy3njtwz3Q6b
+	CgFJrZQA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wS9SZ-00000003WxY-2Ot1;
-	Wed, 27 May 2026 08:17:51 +0000
-Received: from mx0b-0031df01.pphosted.com ([205.220.180.131])
-	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wS9SW-00000003Wwh-1EJa
+	id 1wS9Yy-00000003XVb-1Aqm;
+	Wed, 27 May 2026 08:24:28 +0000
+Received: from foss.arm.com ([217.140.110.172])
+	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
+	id 1wS9Yv-00000003XVE-1YK1
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 27 May 2026 08:17:50 +0000
-Received: from pps.filterd (m0279872.ppops.net [127.0.0.1])
-	by mx0a-0031df01.pphosted.com (8.18.1.11/8.18.1.11) with ESMTP id 64R2X6UF505006
-	for <linux-arm-kernel@lists.infradead.org>; Wed, 27 May 2026 08:17:47 GMT
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=qualcomm.com; h=
-	cc:content-transfer-encoding:content-type:date:from:in-reply-to
-	:message-id:mime-version:references:subject:to; s=qcppdkim1; bh=
-	VlDTUSZSL9yEYzzXWBCrB8EeTzg12q8rDn+nYTVfQ90=; b=Aex/DVH7ew19a7yk
-	wurAUeH3Z/oh4Bo4Yyb45HQqBXrRxanPWx6IuePC3tMxxxmjX0/uTsjhl51TYbih
-	O9XHAL6G6uqKQwmrTtAOk1KRVwGfBUMhQPVuOEJ8MAVU8bhoMZmVN8xzgCZ73n4a
-	Ywc5N3YkmJoWZUUlHAkJUYEjGqP+fANeQNQ1kS39Rvx+zps6BrviafLvpFPrwSmw
-	TWvNQCeeFjs2+9NgCfTvcPBQFHzQbsVQuWWZqfC1A7SY5Bw2pA9nm7mtYwVfZxXk
-	aU+xrOC4fpXWFl9jfpG9eeUuTBMV2lrfcF3RB3j3b6v5f3RLRPyIBvVz3q4VeCQp
-	z3twjA==
-Received: from mail-qt1-f198.google.com (mail-qt1-f198.google.com [209.85.160.198])
-	by mx0a-0031df01.pphosted.com (PPS) with ESMTPS id 4edentk2jg-1
-	(version=TLSv1.3 cipher=TLS_AES_128_GCM_SHA256 bits=128 verify=NOT)
-	for <linux-arm-kernel@lists.infradead.org>; Wed, 27 May 2026 08:17:46 +0000 (GMT)
-Received: by mail-qt1-f198.google.com with SMTP id d75a77b69052e-50edf01172bso155360791cf.2
-        for <linux-arm-kernel@lists.infradead.org>; Wed, 27 May 2026 01:17:46 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=oss.qualcomm.com; s=google; t=1779869866; x=1780474666; darn=lists.infradead.org;
-        h=content-transfer-encoding:mime-version:references:in-reply-to
-         :message-id:date:subject:cc:to:from:from:to:cc:subject:date
-         :message-id:reply-to;
-        bh=VlDTUSZSL9yEYzzXWBCrB8EeTzg12q8rDn+nYTVfQ90=;
-        b=LIGrNNzRld34NXnL6jU+laSVo8vC7ClzUfxL53oEI6hx28seJdjmURdUgVpvSs9XGz
-         p5X9DLtRDgK3jqyhICuhLQMuGgTfWAX921or4/1ZlJXqpL7n4zFlnn3n4ziD3sN4Ke9d
-         Ms84jdSbizxQJ3hbAamu0+F8s/FgeLiovw53s9X59WhfLokPhc6GHWN1b0WvOpDPXUcn
-         LinCUS84slLlq/JfEb3tiGbw/RD1sdsfQoIzNNXI9aILlOHF9RsRTa6LYUeC2YowYLrr
-         vv42/vgqRM/tKCDBvQNRE104b3bttL2z1a5UoZkTMWamk+JG0052Irmx7bOvPYZuifLu
-         +Ggg==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20251104; t=1779869866; x=1780474666;
-        h=content-transfer-encoding:mime-version:references:in-reply-to
-         :message-id:date:subject:cc:to:from:x-gm-gg:x-gm-message-state:from
-         :to:cc:subject:date:message-id:reply-to;
-        bh=VlDTUSZSL9yEYzzXWBCrB8EeTzg12q8rDn+nYTVfQ90=;
-        b=RXrtrr6YPdA0X/8LdC64INfy/YD2Yz4QMf5ISo8Wf+atHfFYh9FwuVSVH6bAunm5Um
-         h/emBtwQ/8QYiSjK8OL7Tc45HxhuubVnIS13N9ALEZcTgeJua6Yg+9eOy1Toy4ZEteal
-         B9cerzEl++v7D/vKXfpGURv0XDmHicpCdAsrS4PKO0T3DxiGHf1Od17idwoQ+/Tjxgaq
-         kcOMFRaTkt6gYU8+sb4qBJ2J34eT9WhOq+fOrEDe3VMGf3+983BHT04/RQQb5q3QyR5V
-         vorNg2nFamjKe78nj4V5tJFSGeb2LXGz6uaKd78yNu0zO97yNCudK8wDI48oSO0kQOn/
-         zInA==
-X-Forwarded-Encrypted: i=1; AFNElJ89YCxqNvSiRwiF9j3ckbVBC6brCR8SnYw51YXEPlGC/LBafHhPELnxB7n6onCOR3R2eDCMb65Hlr+J5exlijzT@lists.infradead.org
-X-Gm-Message-State: AOJu0YzUWy5Cz404gzVg5AWjcYDnVRqY0PuKFFgoZ+WBgFgpuvWUjBFv
-	rwofTzFj1GInqr/LcAobDsYdt8l89mLmXoidPCpKDIvQLRc3TC9vyG5Gh0TUmCJoy7ICoFNBogt
-	tg2DXuqL1vQOPVLsS3FUu/iqidJ3gKa+LShdkbhmvkJq7B1svHJrvKVGWKqOmmFdWEedt24SJm3
-	dOrg==
-X-Gm-Gg: Acq92OE1dBoz9OCMiUysx6mjMnCzvz9CWJ6N7eNT8P/Hfw4RVbWiTaZKMKGZ8wiVqEF
-	c33GRf/QMIBGr8UzOdCxVZpT370MLBs8pXdgAJ9LqkSeoeF/j3AfbcK90InnZJER8ZQK+LZLCJd
-	A1dXXWl05TNQ3gf5FSMUSN0Aj1juSIAeXF1vtPUw0dPrmGwBgIzTTmWx+YZYRLhiFTaPfKq//oA
-	grzKeDMEzecwzvqkmAKhWUi/0FjmVrhZqGiHDvqot5x3/ONS3+w+67C+o9lqYx8Cj14hYnR9CE+
-	DjfqDK7Vh4RhGHNl5/H5cBp4QicDCH+conZJBnjTJCwpvqcX4JouMg9u5SVBeD7EXKr3aoW1j8Z
-	DEBUEG+hW1zL2HJjHdzHfUYHwTV5/Vwsz3UU7G7RxqE+JYgWEn3kj0/Ynioxve0q0G4ye8Jiuoc
-	c0Gtmg+63QilMjczaT96PKWU3FtCRfkw1Z0kx75X4=
-X-Received: by 2002:a05:622a:8588:b0:50f:de06:45e2 with SMTP id d75a77b69052e-516d436f402mr240966601cf.31.1779869866327;
-        Wed, 27 May 2026 01:17:46 -0700 (PDT)
-X-Received: by 2002:a05:622a:8588:b0:50f:de06:45e2 with SMTP id d75a77b69052e-516d436f402mr240966461cf.31.1779869865924;
-        Wed, 27 May 2026 01:17:45 -0700 (PDT)
-Received: from brgl-qcom.local (2a02-8440-e500-3194-8c70-1be9-4d87-8bf7.rev.sfr.net. [2a02:8440:e500:3194:8c70:1be9:4d87:8bf7])
-        by smtp.gmail.com with ESMTPSA id 5b1f17b1804b1-4904561f682sm403458845e9.13.2026.05.27.01.17.43
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Wed, 27 May 2026 01:17:44 -0700 (PDT)
-From: Bartosz Golaszewski <bartosz.golaszewski@oss.qualcomm.com>
-To: brgl@kernel.org, Marco Scardovi <scardracs@disroot.org>
-Cc: Bartosz Golaszewski <bartosz.golaszewski@oss.qualcomm.com>,
-        heiko@sntech.de, linusw@kernel.org,
-        linux-arm-kernel@lists.infradead.org, linux-gpio@vger.kernel.org,
-        linux-kernel@vger.kernel.org, linux-rockchip@lists.infradead.org
-Subject: Re: [PATCH v2 0/2] gpio: rockchip: fix resource leaks and teardown bugs
-Date: Wed, 27 May 2026 10:17:42 +0200
-Message-ID: <177986985872.16795.8547602828633072606.b4-ty@oss.qualcomm.com>
-X-Mailer: git-send-email 2.47.3
-In-Reply-To: <20260526171050.12785-1-scardracs@disroot.org>
-References: <CAMRc=Mfk9tP091DN=5kjb8fvFhj1=MiBZSq4NJ7+k5LNCVy9bw@mail.gmail.com> <20260526171050.12785-1-scardracs@disroot.org>
+	Wed, 27 May 2026 08:24:26 +0000
+Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
+	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id BBA6B2880;
+	Wed, 27 May 2026 01:24:16 -0700 (PDT)
+Received: from [10.57.93.47] (unknown [10.57.93.47])
+	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id 4EE113F7D8;
+	Wed, 27 May 2026 01:24:10 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=simple/simple; d=arm.com; s=foss;
+	t=1779870261; bh=bL0SGvpJMA0jKAYtYfSGI2V/YyddodRJo0fhchnToSo=;
+	h=Date:Subject:To:Cc:References:From:In-Reply-To:From;
+	b=kfnU3J8365dlkSur+Ghyy3KcliIFgbIFf/gzBx99N+i08GclVyKtMVVzUswqs3S9H
+	 BbFy3b02pCkmlZFcMYymisrIST9qibyRe//b/zxYjemYcHtRq1ZAzuRlvchaO3WnEr
+	 CFON8PFlu+HITiEmjXFYRSAySy6bNgRNL0wPH9wg=
+Message-ID: <b4eb4ea8-f4d6-4be2-81b1-4a8a46abe94e@arm.com>
+Date: Wed, 27 May 2026 10:24:02 +0200
 MIME-Version: 1.0
-Content-Type: text/plain; charset="utf-8"
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH RFC v8 01/24] mm: Introduce kpkeys
+To: Linus Walleij <linusw@kernel.org>
+Cc: linux-hardening@vger.kernel.org, Andrew Morton
+ <akpm@linux-foundation.org>, Andy Lutomirski <luto@kernel.org>,
+ Catalin Marinas <catalin.marinas@arm.com>,
+ Dave Hansen <dave.hansen@linux.intel.com>,
+ "David Hildenbrand (Arm)" <david@kernel.org>, Ira Weiny
+ <ira.weiny@intel.com>, Jann Horn <jannh@google.com>,
+ Jeff Xu <jeffxu@chromium.org>, Joey Gouly <joey.gouly@arm.com>,
+ Kees Cook <kees@kernel.org>, Marc Zyngier <maz@kernel.org>,
+ Mark Brown <broonie@kernel.org>, Matthew Wilcox <willy@infradead.org>,
+ Maxwell Bland <mbland@motorola.com>, "Mike Rapoport (IBM)"
+ <rppt@kernel.org>, Peter Zijlstra <peterz@infradead.org>,
+ Pierre Langlois <pierre.langlois@arm.com>,
+ Quentin Perret <qperret@google.com>,
+ Rick Edgecombe <rick.p.edgecombe@intel.com>,
+ Ryan Roberts <ryan.roberts@arm.com>, Vlastimil Babka <vbabka@kernel.org>,
+ Will Deacon <will@kernel.org>, Yang Shi <yang@os.amperecomputing.com>,
+ Yeoreum Yun <yeoreum.yun@arm.com>, linux-arm-kernel@lists.infradead.org,
+ linux-mm@kvack.org, x86@kernel.org, Lorenzo Stoakes <ljs@kernel.org>,
+ Thomas Gleixner <tglx@kernel.org>
+References: <20260526-kpkeys-v8-0-eaaacdacc67c@arm.com>
+ <20260526-kpkeys-v8-1-eaaacdacc67c@arm.com>
+ <CAD++jLnURXzgAgkWCcYX0dLOLqHQw+gn96V1dzDa_0Aoi3430Q@mail.gmail.com>
+From: Kevin Brodsky <kevin.brodsky@arm.com>
+Content-Language: en-GB
+In-Reply-To: <CAD++jLnURXzgAgkWCcYX0dLOLqHQw+gn96V1dzDa_0Aoi3430Q@mail.gmail.com>
+Content-Type: text/plain; charset=UTF-8
 Content-Transfer-Encoding: 8bit
-X-Authority-Analysis: v=2.4 cv=Ja+Ma0KV c=1 sm=1 tr=0 ts=6a16a8ab cx=c_pps
- a=mPf7EqFMSY9/WdsSgAYMbA==:117 a=xqWC_Br6kY4A:10 a=IkcTkHD0fZMA:10
- a=NGcC8JguVDcA:10 a=s4-Qcg_JpJYA:10 a=VkNPw1HP01LnGYTKEx00:22
- a=u7WPNUs3qKkmUXheDGA7:22 a=yx91gb_oNiZeI1HMLzn7:22 a=VwQbUJbxAAAA:8
- a=EUspDBNiAAAA:8 a=-TlZYsTrXPYVLYuQEvMA:9 a=QEXdDO2ut3YA:10
- a=dawVfQjAaf238kedN5IG:22
-X-Proofpoint-ORIG-GUID: 1-nd9z5i1s02PvXfZNEh0QLaDLRNP_Op
-X-Proofpoint-Spam-Details-Enc: AW1haW4tMjYwNTI3MDA3OSBTYWx0ZWRfX/U0v3rPG7K2U
- 300B9q/ExyLO7Jj5nXYoh0kZQt3svqs4e51ZU9GKaGL2HEWpyS6GYUbp4LfBg5oXrMFoKsQSAzW
- mTfqJzSjprKcO2x0T/PolVrPfSHQJiLyiDJoj47j0K8Jaux0LaTvILC2P3NU4LKYrsMXi64Elsj
- AAjP1cKfmCMJoPEHdyh+rIGnJaSs20OiChj+e5re16Ef7q/RjPvQG/hsd/zHvlw3lxZ5WTSld5x
- HwEd1hWWoEP9/M3sBDGm5nPHH+mGtjnQVgcI5z5n26t+yq8MOMsaL9rDoLbCZ30pkWLS3nCMTld
- 3llIeCvpTCDLy99o0dXf6CktQMSKAOcrgYmSr6+E1Q3NS5Xgw3wGsiOhi9kSLCSd60fhFWyQIvP
- 6qt/oPm8HugfKcyXLuHTIL4LnRWaXjdxhCYDhccupF9vE18BlfJfKvb6w89h1vlkharA/WuF+W0
- asS+ZTyEBEJ6wtGm1VQ==
-X-Proofpoint-GUID: 1-nd9z5i1s02PvXfZNEh0QLaDLRNP_Op
-X-Proofpoint-Virus-Version: vendor=baseguard
- engine=ICAP:2.0.293,Aquarius:18.0.1143,Hydra:6.1.125,FMLib:17.12.100.49
- definitions=2026-05-26_05,2026-05-26_03,2025-10-01_01
-X-Proofpoint-Spam-Details: rule=outbound_notspam policy=outbound score=0
- adultscore=0 clxscore=1015 bulkscore=0 priorityscore=1501 lowpriorityscore=0
- malwarescore=0 phishscore=0 impostorscore=0 spamscore=0 suspectscore=0
- classifier=typeunknown authscore=0 authtc= authcc= route=outbound adjust=0
- reason=mlx scancount=1 engine=8.22.0-2605130000 definitions=main-2605270079
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260527_011748_439203_954888E9 
-X-CRM114-Status: GOOD (  13.38  )
+X-CRM114-CacheID: sfid-20260527_012425_499176_7E63166F 
+X-CRM114-Status: GOOD (  30.94  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -146,26 +89,113 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
+On 26/05/2026 15:17, Linus Walleij wrote:
+> Hi Kevin,
+>
+> here is just a few drive-by review comments pertaining to the
+> API which will be used for all architectures wanting to use
+> pkeys.
 
-On Tue, 26 May 2026 19:02:44 +0200, Marco Scardovi wrote:
-> thank you for the review on the first version of this series.
-> 
-> TL;DR: There's no clock-names property in the DTBs for the GPIO banks,
->        and they don't expose a separate debounce clock in hardware.
-> 
-> Regarding your question: existing DTBs currently do not provide clock-names
-> for these GPIO nodes and instead rely on positional clock ordering.
-> 
+Appreciated, thanks!
+
 > [...]
+>
+>> Because each architecture implementing pkeys uses a different
+>> representation for the pkey register, and may reserve certain pkeys
+>> for specific uses, support for kpkeys must be explicitly indicated
+>> by selecting ARCH_HAS_KPKEYS and defining the following functions in
+>> <asm/kpkeys.h>, in addition to the macros provided in
+>> <asm-generic/kpkeys.h>:
+>>
+>> - arch_kpkeys_set_context()
+>> - arch_kpkeys_restore_pkey_reg()
+>> - arch_supports_kpkeys()
+>>
+>> Signed-off-by: Kevin Brodsky <kevin.brodsky@arm.com>
+> I'm following so far.
+>
+> Is there no need for something like
+>
+> ctx = arch_kpkeys_request_context(KEY_TYPE) ?
+>
+> I'm just thinking of the scenario that e.g. two architectures want
+> to request the same type of key for some generic resource, but
+> the underlying implementation is vastly different for the two
+> architectures, so relying on hard-coded arch-specific constants
+> may not work. I'm also thinking about archs supporting different
+> versions/types of kpkeys in a multi-platform executable kernel
+> that may execute on several different silicon with the same ISA.
 
-Applied, thanks!
+I'm not sure I understand what potential limitations this is trying to
+address. The only thing that is imposed by the framework is the value of
+KPKEYS_CTX_*, which is purely symbolic. Everything else is up to the
+architecture, including the value of each key (which could be determined
+at runtime if needed) and the permissions associated to each context.
 
-[1/2] gpio: rockchip: convert bank->clk to devm_clk_get_enabled()
-      https://git.kernel.org/brgl/c/d4573b270d934c35eb77fc348866384fcb4e8eeb
-[2/2] gpio: rockchip: teardown bugs and resource leaks
-      https://git.kernel.org/brgl/c/9c95f4b920e15c183ebbb15b0a011ba32fcb6d59
+Conceptually a context is a set of permission overlays for all existing
+keys, it doesn't have to be tied to just one key.
 
-Best regards,
--- 
-Bartosz Golaszewski <bartosz.golaszewski@oss.qualcomm.com>
+> Maybe this is too much upfront design, I understand it needs to
+> be kept simple.
+>
+>> +#ifndef KPKEYS_PKEY_DEFAULT
+>> +#define KPKEYS_PKEY_DEFAULT    0
+>> +#endif
+> (...)
+>> +#define KPKEYS_CTX_DEFAULT     0
+>> +
+>> +#define KPKEYS_CTX_MIN         KPKEYS_CTX_DEFAULT
+>> +#define KPKEYS_CTX_MAX         KPKEYS_CTX_DEFAULT
+> I was thinking an enum:
+>
+> enum kpkey_type {
+>     KPKEY_DEFAULT = 0,
+>     KPKEY_MMU_TABLE = 1,
+>    ....
+> };
+>
+> since this is what is used later.
+>
+>> +/**
+>> + * kpkeys_set_context() - switch kpkeys context
+>> + * @ctx: the context to switch to
+>> + *
+>> + * Switches to specified kpkeys context. @ctx must be a compile-time
+>> + * constant. The arch-specific pkey register will be updated accordingly, and
+>> + * the original value returned.
+>> + *
+>> + * Return: the original pkey register value if the register was written to, or
+>> + *         KPKEYS_PKEY_REG_INVAL otherwise (no write to the register was
+>> + *         required).
+>> + */
+>> +static __always_inline u64 kpkeys_set_context(int ctx)
+> Should ctx be unsigned here? I'm nor sure what a negativ context
+> would mean.
+> kpkeys_set_context(unsigned int ctx)
+
+That's a good point, now that we say "context" and not "level" an enum
+would be a better representation. I would directly use:
+
+    u64 kpkeys_set_context(enum kpkeys_ctx ctx);
+
+... unless we really need another layer of abstraction.
+
+- Kevin
+
+> And then I was thinking:
+>
+> unsigned int kpkeys_request_context(enum kpkey_type type) {}...
+>
+> + arch_ -prefixed version of the same.
+>
+> unsigned int ctx;
+> ctx = kpkeys_request_context(KPKEY_MMU_TABLE);
+> (...)
+>
+> Constant sinking in the compiler will optimize the arch
+> function to a constant in the object code so it will still
+> be fast just a bit more talkative in source form.
+>
+> Yours,
+> Linus Walleij
 
