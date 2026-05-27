@@ -4,92 +4,63 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 6E478CD5BD5
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 27 May 2026 05:55:25 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id E006CCD5BDE
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 27 May 2026 05:59:14 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=c50mz8/OMleInqbX4ArLESamRXgTiGj9hU87miF2NLk=; b=Ux8pypQSynFC3nRjlIHuHrDWD9
-	WMlV3TGjbHNu8CYaicmIkT52dZfKGpQbnkQp4sDmNVP2m1+sV+TksTAy5MBMLVRjvBGJnXX6SQjYU
-	Q7hcZTapHfxHQ93RP1FgJvFa9XZ/8M9ITSZyxkPOfw4leaVx5QukVFEeWALB6623fQKe+MV0X8bn+
-	jRfJ3xa9E0XBBZonvDHPpQd8vnMnMIen0Fm+4cQ333q5Sbwd6uhj/lKIS9yiAVJrIiy8LVQPjiFNh
-	gMYbbv4TcIaWAY+HRvwzrngFEFjxNillB9JaImDqyhJZJhjveu2O29M1Zgl9Ar+6FPB92VuHCLfxF
-	JtsbmllQ==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
+	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=oF+njrVX5zGJh0L+DY2lRBtM2reP8iV7YozZT/RvrYo=; b=2n5xxu8lmIlnxQ92DGq14DMcMY
+	FS3YclXQIgXys009vZGdKC6+cX2YXrq3lXXqvAu3fl7849GXWxG/jqksE++Uwz9x035mx1/IOhNF5
+	rI6D15Grn3PcUycVp/2QvDiElCqzy9PL9KiC3m79SpRLOT9Rv/eaykr52x7ozlKYs2XbKv7Y6SFc0
+	hCyG+1YN4jswKYQyasp4bneIKxCkmJwv0trOvmPw00tf0hNqhJbp+OYxqgyQYU1AFLsQRspQz3bcL
+	+nyskzluxYXo8bJUFdwj4bHxQBV0IzftOih/ypGNC09jeUxiVjr36bNULlspKQiufci7dLLA9iDr1
+	whEZYQew==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wS7Ec-00000003NFe-3QWA;
-	Wed, 27 May 2026 05:55:18 +0000
-Received: from mail-wm1-x331.google.com ([2a00:1450:4864:20::331])
-	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wS7EZ-00000003NEg-3hOb
+	id 1wS7IK-00000003NTo-2DNC;
+	Wed, 27 May 2026 05:59:08 +0000
+Received: from foss.arm.com ([217.140.110.172])
+	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
+	id 1wS7IH-00000003NTS-37cQ
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 27 May 2026 05:55:17 +0000
-Received: by mail-wm1-x331.google.com with SMTP id 5b1f17b1804b1-4891e5b9c1fso97150365e9.2
-        for <linux-arm-kernel@lists.infradead.org>; Tue, 26 May 2026 22:55:15 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=baylibre.com; s=google; t=1779861314; x=1780466114; darn=lists.infradead.org;
-        h=in-reply-to:content-disposition:mime-version:references:message-id
-         :subject:cc:to:from:date:from:to:cc:subject:date:message-id:reply-to;
-        bh=c50mz8/OMleInqbX4ArLESamRXgTiGj9hU87miF2NLk=;
-        b=gooMPzC4JpI4wTK+COHX08nrjhJwpmg23G+xsIbV0oX6CU1mjTOBPF8ohT1as/bBlv
-         1fRctc7l8yZWSWQIEHU1vfHNeWL0cxvvhrzcxuGcTCElDXsXNIvVhUSQYW5jCmMn1EIr
-         pMsFjhMqRD4q3s4+uwr+IvL2rd3L3wcLO5Pt3Jpe/F3X3xKLIEVMgEN3v+y/MNkYijOJ
-         tHjAWEyNAaXLOnqI0p1QO/P9wZ3DpMtxnSMNBnWhE5EeCywWecU1htZCcMqeE9MWuOIL
-         cbSfyF7qnMMuLrIDOEL2BVhdAm+4xE9U7pEzIvdn5TibEmim2H8gjQYDgpnFYOcoEFVe
-         29RQ==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20251104; t=1779861314; x=1780466114;
-        h=in-reply-to:content-disposition:mime-version:references:message-id
-         :subject:cc:to:from:date:x-gm-gg:x-gm-message-state:from:to:cc
-         :subject:date:message-id:reply-to;
-        bh=c50mz8/OMleInqbX4ArLESamRXgTiGj9hU87miF2NLk=;
-        b=YLhjgbG+dFVDuJCabUz/g2A7kQnVOZTXx/ygWzEwPxeWMA3GsnKkYZWzdXpFtG+/OH
-         R84Mv92YCT5f7m3CErppMXHKvIB+023lqyppVE0+E74VwbFTWJHfD0pcTVqmC5Qpk7rf
-         BCmG6oMgmhR4L/1eW8UlSh6qFVKpOjqreQHWUBDz+PbUjwtFPYh4fveOQdCydlxnyMk5
-         hNGd3t5D9eRXclvXdZEXiRM7KzfHt1eW7kKQc7VZ08U7KjCw5p+9YxmRY1XhriyjVpqT
-         1uLwTdmffEBV9YAXdmOpOSyqlgfal4DwcUtjxeN4XVeIVFpbrvwvSS+QFcb+e3+Igstc
-         raWw==
-X-Forwarded-Encrypted: i=1; AFNElJ98aKfgUK9bN1D9KAgoK3cQmlq1E0Nke5BHWm7zrAS2zx13+ljds0OdTtmBfbQb1KLk66IjCEG7YTZAjpeXhvRB@lists.infradead.org
-X-Gm-Message-State: AOJu0YyY/+LF5ncQaA1AHECLLH8WQmrMe72Zwstb46+fVbvflxxdk/H3
-	dp7m8S7QKFh1nHWGBhQW7DfIVtdQeHDv1wmBVoK2BXgJCA5mtT4e8tKG9XzqJwoWBkY=
-X-Gm-Gg: Acq92OG5OeErWPxA6zYv8EQl7Tq/z1/zB3ortCkH3BsVPRPp/4i5lrQc3auzsElf8lW
-	g1q7XyQJ1Z0JO/JE9WQlIUYDFWdx2S25/dQX/qkvRkiDcr5UZESuVR9sP3WkROvJ4UZUoKxMJba
-	g15UO7waKtg7WeBd/4MSVvxeZLeMsuEEfAfAjWse6WQzTrUF4WyobLfSPo7f8AZ9sA+rctdpPIY
-	PfeBjs8o0rwdHd7Q/HKJ3c17UKQQ0DP3HtuC0HddRKzdLseafFW9qr92z+6d6/sN/nMo+1CgKLe
-	d+r/jFV5Sxx2UIo8A8vu96SQVfPYgDOBNVFNpsvAsVbrvUx6uhwuShoELfzsg8CyLeBoKjOPKL0
-	ShcsOFmNjsvbgOWDDociqgBrayNfjythzPcsKA59GYoArqvgZ3UCgwVMqyV1cmZ91tlRtujA7Ih
-	2HZ2VeM36jHD2SWEX5Z3l0U3AOcgzHQnP45pjsfs1yDlLgtGJGal5cNH0oePWFfklpSjcJEW7Ao
-	0g5n1h68I2vjgI=
-X-Received: by 2002:a05:600c:8599:b0:485:9a50:3370 with SMTP id 5b1f17b1804b1-490424acb4cmr286306315e9.8.1779861313464;
-        Tue, 26 May 2026 22:55:13 -0700 (PDT)
-Received: from localhost (p200300f65f47db041edccd9970843bb8.dip0.t-ipconnect.de. [2003:f6:5f47:db04:1edc:cd99:7084:3bb8])
-        by smtp.gmail.com with UTF8SMTPSA id 5b1f17b1804b1-4907e69dc39sm11042195e9.4.2026.05.26.22.55.12
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Tue, 26 May 2026 22:55:12 -0700 (PDT)
-Date: Wed, 27 May 2026 07:55:11 +0200
-From: Uwe =?utf-8?Q?Kleine-K=C3=B6nig?= <u.kleine-koenig@baylibre.com>
-To: Chen-Yu Tsai <wenst@chromium.org>
-Cc: Inki Dae <inki.dae@samsung.com>, 
-	Seung-Woo Kim <sw0312.kim@samsung.com>, Kyungmin Park <kyungmin.park@samsung.com>, 
-	Krzysztof Kozlowski <krzk@kernel.org>, Alim Akhtar <alim.akhtar@samsung.com>, 
-	David Airlie <airlied@gmail.com>, Simona Vetter <simona@ffwll.ch>, dri-devel@lists.freedesktop.org, 
-	linux-samsung-soc@vger.kernel.org, linux-arm-kernel@lists.infradead.org, 
-	linux-kernel@vger.kernel.org, kernel test robot <lkp@intel.com>
-Subject: Re: [PATCH] drm/exynos/gem: Fix printk specifier for gem_object.size
- and dma_addr
-Message-ID: <ahaGfhW81fcW7h2u@monoceros>
-References: <20260408064936.1342321-1-wenst@chromium.org>
+	Wed, 27 May 2026 05:59:07 +0000
+Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
+	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id 84A3616F2;
+	Tue, 26 May 2026 22:58:58 -0700 (PDT)
+Received: from [10.164.19.7] (unknown [10.164.19.7])
+	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id 95A003F632;
+	Tue, 26 May 2026 22:58:58 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=simple/simple; d=arm.com; s=foss;
+	t=1779861543; bh=ouSFEB5JSyxfV8CdG4ob7/ZqkwxxEzp2bArEI1XtNEw=;
+	h=Date:Subject:To:Cc:References:From:In-Reply-To:From;
+	b=d2/4xwkHi/rrZvxRu4hDCdxSAU5SxTUdtgVX+1V0pDhGBkT0h9kG+l+RXSh1cpfKG
+	 Xlat8gq3hwPNWvd/iFhHO5U68tFwryMc4yBD/JeTsBIi1FsakSeaVDr68BT8Pe4+q/
+	 Fqj2xTuMqZchX/LHfzZMCywT632O3Bjh7rSk2oNo=
+Message-ID: <46b0f2a7-3c0d-4372-a45d-946d8259d410@arm.com>
+Date: Wed, 27 May 2026 11:28:55 +0530
 MIME-Version: 1.0
-Content-Type: multipart/signed; micalg=pgp-sha512;
-	protocol="application/pgp-signature"; boundary="matup4lkrscj23am"
-Content-Disposition: inline
-In-Reply-To: <20260408064936.1342321-1-wenst@chromium.org>
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH v3 4/6] mm/vmalloc: Extend page table walk to support
+ larger page_shift sizes and eliminate page table rewalk
+To: Wen Jiang <jiangwenxiaomi@gmail.com>, linux-mm@kvack.org,
+ linux-arm-kernel@lists.infradead.org, catalin.marinas@arm.com,
+ will@kernel.org, akpm@linux-foundation.org, urezki@gmail.com
+Cc: baohua@kernel.org, Xueyuan.chen21@gmail.com, rppt@kernel.org,
+ david@kernel.org, ryan.roberts@arm.com, anshuman.khandual@arm.com,
+ ajd@linux.ibm.com, linux-kernel@vger.kernel.org, jiangwen6@xiaomi.com
+References: <20260522053146.83209-1-jiangwenxiaomi@gmail.com>
+ <20260522053146.83209-5-jiangwenxiaomi@gmail.com>
+Content-Language: en-US
+From: Dev Jain <dev.jain@arm.com>
+In-Reply-To: <20260522053146.83209-5-jiangwenxiaomi@gmail.com>
+Content-Type: text/plain; charset=UTF-8
+Content-Transfer-Encoding: 7bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260526_225515_949481_F32BC426 
-X-CRM114-Status: GOOD (  25.72  )
+X-CRM114-CacheID: sfid-20260526_225905_882855_C235D2A1 
+X-CRM114-Status: GOOD (  26.48  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -105,94 +76,200 @@ Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
 
---matup4lkrscj23am
-Content-Type: text/plain; protected-headers=v1; charset=iso-8859-1
-Content-Disposition: inline
-Content-Transfer-Encoding: quoted-printable
-Subject: Re: [PATCH] drm/exynos/gem: Fix printk specifier for gem_object.size
- and dma_addr
-MIME-Version: 1.0
 
-On Wed, Apr 08, 2026 at 02:49:34PM +0800, Chen-Yu Tsai wrote:
-> In the recent change to use the GEM base object's size field instead of
-> the exynos_gem object's additional field, the printk format was not
-> adjusted for the change to size_t type. This causes a new warning on
-> platforms on which size_t is not unsigned long.
->=20
-> Fix this by using the correct "%zx" type.
->=20
-> While at it, fix the specifier for dma_addr so that the cast to unsigned
-> long is not longer needed.
->=20
-> Reported-by: kernel test robot <lkp@intel.com>
-> Closes: https://lore.kernel.org/oe-kbuild-all/202604081331.jSJQSVmg-lkp@i=
-ntel.com/
-> Fixes: 11e898373fba ("drm/exynos: Drop exynos_drm_gem.size field")
-> Signed-off-by: Chen-Yu Tsai <wenst@chromium.org>
+On 22/05/26 11:01 am, Wen Jiang wrote:
+> From: "Barry Song (Xiaomi)" <baohua@kernel.org>
+> 
+> vmap_pages_range_noflush_walk() (formerly vmap_small_pages_range_noflush())
+> provides a clean interface by taking struct page **pages and mapping them
+> via direct PTE iteration. This avoids the page table rewalk seen when
+> using vmap_range_noflush() for page_shift values other than PAGE_SHIFT.
+> 
+> Extend it to support larger page_shift values, and add PMD- and
+> contiguous-PTE mappings as well. Rename it to vmap_pages_range_noflush_walk()
+> since it now handles more than just small pages.
+> 
+> For vmalloc() allocations with VM_ALLOW_HUGE_VMAP, we no longer need to
+> iterate over pages one by one via vmap_range_noflush(), which would
+> otherwise lead to page table rewalk. The code is now unified with the
+> PAGE_SHIFT case by simply calling vmap_pages_range_noflush_walk().
+> 
+> Signed-off-by: Barry Song (Xiaomi) <baohua@kernel.org>
+> Signed-off-by: Wen Jiang <jiangwen6@xiaomi.com>
+> Tested-by: Xueyuan Chen <xueyuan.chen21@gmail.com>
 > ---
-> This is only compile tested. Build for ARM 32-bit confirms the warning
-> is fixed. Sorry for the noise.
->=20
-> The commit hash used in the Fixes tag is the current one seen in
-> exynos-drm-next.
-> ---
->  drivers/gpu/drm/exynos/exynos_drm_gem.c | 8 ++++----
->  1 file changed, 4 insertions(+), 4 deletions(-)
->=20
-> diff --git a/drivers/gpu/drm/exynos/exynos_drm_gem.c b/drivers/gpu/drm/ex=
-ynos/exynos_drm_gem.c
-> index d9d42809a1a9..f264e170bc26 100644
-> --- a/drivers/gpu/drm/exynos/exynos_drm_gem.c
-> +++ b/drivers/gpu/drm/exynos/exynos_drm_gem.c
-> @@ -66,8 +66,8 @@ static int exynos_drm_alloc_buf(struct exynos_drm_gem *=
-exynos_gem, bool kvmap)
->  	if (kvmap)
->  		exynos_gem->kvaddr =3D exynos_gem->cookie;
-> =20
-> -	DRM_DEV_DEBUG_KMS(drm_dev_dma_dev(dev), "dma_addr(0x%lx), size(0x%lx)\n=
-",
-> -			(unsigned long)exynos_gem->dma_addr, exynos_gem->base.size);
-> +	DRM_DEV_DEBUG_KMS(drm_dev_dma_dev(dev), "dma_addr(%pad), size(0x%zx)\n",
-> +			  &exynos_gem->dma_addr, exynos_gem->base.size);
+>  mm/vmalloc.c | 71 +++++++++++++++++++++++++++++-----------------------
+>  1 file changed, 40 insertions(+), 31 deletions(-)
+> 
+> diff --git a/mm/vmalloc.c b/mm/vmalloc.c
+> index 53fd4ee460ea4..deb764abc0571 100644
+> --- a/mm/vmalloc.c
+> +++ b/mm/vmalloc.c
+> @@ -543,8 +543,10 @@ void vunmap_range(unsigned long addr, unsigned long end)
+>  
+>  static int vmap_pages_pte_range(pmd_t *pmd, unsigned long addr,
+>  		unsigned long end, pgprot_t prot, struct page **pages, int *nr,
+> -		pgtbl_mod_mask *mask)
+> +		pgtbl_mod_mask *mask, unsigned int shift)
+>  {
+> +	unsigned long pfn, size;
+> +	unsigned int steps;
+>  	int err = 0;
+>  	pte_t *pte;
+>  
+> @@ -575,9 +577,10 @@ static int vmap_pages_pte_range(pmd_t *pmd, unsigned long addr,
+>  			break;
+>  		}
+>  
+> -		set_pte_at(&init_mm, addr, pte, mk_pte(page, prot));
+> -		(*nr)++;
+> -	} while (pte++, addr += PAGE_SIZE, addr != end);
+> +		pfn = page_to_pfn(page);
+> +		size = vmap_set_ptes(pte, addr, end, pfn, prot, shift);
+> +		steps = PFN_DOWN(size);
+> +	} while (pte += steps, *nr += steps, addr += size, addr != end);
+>  
+>  	lazy_mmu_mode_disable();
+>  	*mask |= PGTBL_PTE_MODIFIED;
+> @@ -587,7 +590,7 @@ static int vmap_pages_pte_range(pmd_t *pmd, unsigned long addr,
+>  
+>  static int vmap_pages_pmd_range(pud_t *pud, unsigned long addr,
+>  		unsigned long end, pgprot_t prot, struct page **pages, int *nr,
+> -		pgtbl_mod_mask *mask)
+> +		pgtbl_mod_mask *mask, unsigned int shift)
+>  {
+>  	pmd_t *pmd;
+>  	unsigned long next;
+> @@ -597,7 +600,27 @@ static int vmap_pages_pmd_range(pud_t *pud, unsigned long addr,
+>  		return -ENOMEM;
+>  	do {
+>  		next = pmd_addr_end(addr, end);
+> -		if (vmap_pages_pte_range(pmd, addr, next, prot, pages, nr, mask))
+> +
+> +		if (shift == PMD_SHIFT) {
+> +			struct page *page = pages[*nr];
+> +			phys_addr_t phys_addr;
+> +
+> +			if (WARN_ON(!page))
+> +				return -ENOMEM;
+> +			if (WARN_ON(!pfn_valid(page_to_pfn(page))))
+> +				return -EINVAL;
+
+
+So I know these !page and !pfn_valid checks have been copied from vmap_pages_pte_range,
+but do they mean anything?
+
+I think pfn_valid() makes sense in that someone may take a random VA/PA, convert it into a struct
+page and pass to vmap layer. But I don't see how anyone would pass page == NULL? At the
+very least, returning ENOMEM does not make sense because the pages are not being
+allocated by vmap() but have already been allocated.
+
+> +
+> +			phys_addr = page_to_phys(page);
+> +
+> +			if (vmap_try_huge_pmd(pmd, addr, next, phys_addr, prot,
+> +						shift)) {
+> +				*mask |= PGTBL_PMD_MODIFIED;
+> +				*nr += 1 << (shift - PAGE_SHIFT);
+> +				continue;
+> +			}
+> +		}
+> +
+> +		if (vmap_pages_pte_range(pmd, addr, next, prot, pages, nr, mask, shift))
+>  			return -ENOMEM;
+>  	} while (pmd++, addr = next, addr != end);
+>  	return 0;
+> @@ -605,7 +628,7 @@ static int vmap_pages_pmd_range(pud_t *pud, unsigned long addr,
+>  
+>  static int vmap_pages_pud_range(p4d_t *p4d, unsigned long addr,
+>  		unsigned long end, pgprot_t prot, struct page **pages, int *nr,
+> -		pgtbl_mod_mask *mask)
+> +		pgtbl_mod_mask *mask, unsigned int shift)
+>  {
+>  	pud_t *pud;
+>  	unsigned long next;
+> @@ -615,7 +638,7 @@ static int vmap_pages_pud_range(p4d_t *p4d, unsigned long addr,
+>  		return -ENOMEM;
+>  	do {
+>  		next = pud_addr_end(addr, end);
+> -		if (vmap_pages_pmd_range(pud, addr, next, prot, pages, nr, mask))
+> +		if (vmap_pages_pmd_range(pud, addr, next, prot, pages, nr, mask, shift))
+>  			return -ENOMEM;
+>  	} while (pud++, addr = next, addr != end);
+>  	return 0;
+> @@ -623,7 +646,7 @@ static int vmap_pages_pud_range(p4d_t *p4d, unsigned long addr,
+>  
+>  static int vmap_pages_p4d_range(pgd_t *pgd, unsigned long addr,
+>  		unsigned long end, pgprot_t prot, struct page **pages, int *nr,
+> -		pgtbl_mod_mask *mask)
+> +		pgtbl_mod_mask *mask, unsigned int shift)
+>  {
+>  	p4d_t *p4d;
+>  	unsigned long next;
+> @@ -633,14 +656,14 @@ static int vmap_pages_p4d_range(pgd_t *pgd, unsigned long addr,
+>  		return -ENOMEM;
+>  	do {
+>  		next = p4d_addr_end(addr, end);
+> -		if (vmap_pages_pud_range(p4d, addr, next, prot, pages, nr, mask))
+> +		if (vmap_pages_pud_range(p4d, addr, next, prot, pages, nr, mask, shift))
+>  			return -ENOMEM;
+>  	} while (p4d++, addr = next, addr != end);
 >  	return 0;
 >  }
-> =20
-> @@ -80,8 +80,8 @@ static void exynos_drm_free_buf(struct exynos_drm_gem *=
-exynos_gem)
->  		return;
->  	}
-> =20
-> -	DRM_DEV_DEBUG_KMS(dev->dev, "dma_addr(0x%lx), size(0x%lx)\n",
-> -			(unsigned long)exynos_gem->dma_addr, exynos_gem->base.size);
-> +	DRM_DEV_DEBUG_KMS(dev->dev, "dma_addr(%pad), size(0x%zx)\n",
-> +			  &exynos_gem->dma_addr, exynos_gem->base.size);
-> =20
->  	dma_free_attrs(drm_dev_dma_dev(dev), exynos_gem->base.size, exynos_gem-=
->cookie,
->  			(dma_addr_t)exynos_gem->dma_addr,
+>  
+> -static int vmap_small_pages_range_noflush(unsigned long addr, unsigned long end,
+> -		pgprot_t prot, struct page **pages)
+> +static int vmap_pages_range_noflush_walk(unsigned long addr, unsigned long end,
+> +		pgprot_t prot, struct page **pages, unsigned int shift)
+>  {
+>  	unsigned long start = addr;
+>  	pgd_t *pgd;
+> @@ -655,7 +678,7 @@ static int vmap_small_pages_range_noflush(unsigned long addr, unsigned long end,
+>  		next = pgd_addr_end(addr, end);
+>  		if (pgd_bad(*pgd))
+>  			mask |= PGTBL_PGD_MODIFIED;
+> -		err = vmap_pages_p4d_range(pgd, addr, next, prot, pages, &nr, &mask);
+> +		err = vmap_pages_p4d_range(pgd, addr, next, prot, pages, &nr, &mask, shift);
+>  		if (err)
+>  			break;
+>  	} while (pgd++, addr = next, addr != end);
+> @@ -678,27 +701,13 @@ static int vmap_small_pages_range_noflush(unsigned long addr, unsigned long end,
+>  int __vmap_pages_range_noflush(unsigned long addr, unsigned long end,
+>  		pgprot_t prot, struct page **pages, unsigned int page_shift)
+>  {
+> -	unsigned int i, nr = (end - addr) >> PAGE_SHIFT;
+> -
+>  	WARN_ON(page_shift < PAGE_SHIFT);
+>  
+> -	if (!IS_ENABLED(CONFIG_HAVE_ARCH_HUGE_VMALLOC) ||
+> -			page_shift == PAGE_SHIFT)
+> -		return vmap_small_pages_range_noflush(addr, end, prot, pages);
+> +	if (!IS_ENABLED(CONFIG_HAVE_ARCH_HUGE_VMALLOC))
+> +		page_shift = PAGE_SHIFT;
+>  
+> -	for (i = 0; i < nr; i += 1U << (page_shift - PAGE_SHIFT)) {
+> -		int err;
+> -
+> -		err = vmap_range_noflush(addr, addr + (1UL << page_shift),
+> -					page_to_phys(pages[i]), prot,
+> -					page_shift);
+> -		if (err)
+> -			return err;
+> -
+> -		addr += 1UL << page_shift;
+> -	}
+> -
+> -	return 0;
+> +	return vmap_pages_range_noflush_walk(addr, end, prot, pages,
+> +			min(page_shift, PMD_SHIFT));
 
-Tested-by: Uwe Kleine-K=F6nig <u.kleine-koenig@baylibre.com>
 
-Still fixes a build warning in s390 allmodconfig builds as of
-next-20260527. I can haz this patch applied please?
+We can easily extend to PUD huge mappings right? Not sure whether we
+should keep everything symmetric to how vmap_range_noflush() operates
+right now, since P4D mappings don't exist, but PUD looks worthwhile.
 
-Best regards
-Uwe
+>  }
+>  
+>  int vmap_pages_range_noflush(unsigned long addr, unsigned long end,
 
---matup4lkrscj23am
-Content-Type: application/pgp-signature; name="signature.asc"
-
------BEGIN PGP SIGNATURE-----
-
-iQEzBAABCgAdFiEEP4GsaTp6HlmJrf7Tj4D7WH0S/k4FAmoWhzwACgkQj4D7WH0S
-/k4YJAf/Sa0klbijQQ3e2afYyNHdRBpeOnuHnt7DkXbXMETQbXPOVvHKTlQXDYOk
-j8FttwSGQyKq70nn3di59M5IaFgKtvg4ZH+9ZdN86PBdvz1vYjE8YOKpPQo1NvaU
-u71+tkIZr10dm4lqwrFQOLz9wKtVpGWcwLOJOx35dE4AhqDZ2t7d4qF9aX2E+M5K
-nSCcuxYGYW9PQ3JOqjhP2DYAkFspPYKTF8ekZiEoPBxYQI8AQtzanH5urgTL5yPD
-MMLOIYjAeD1LxDUfUx6uxATzDvYTSAA0ZG8iuOIAALaYa5j3M0GlQGeOZotyr9Pi
-NWZH725YiRLgpEpNRqbc5hhIji3Eaw==
-=AuW5
------END PGP SIGNATURE-----
-
---matup4lkrscj23am--
 
