@@ -4,60 +4,86 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 2F5D5CD5BD0
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 27 May 2026 15:35:25 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 5C796CD4F54
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 27 May 2026 15:41:46 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=KiyIYx3OeHBRTtKu69Onq9r0k6+FUjLoCIWtpjQKHz8=; b=h8UP8UFMI7fb8C5+kYYZgP4Csy
-	vKg1t0QD/JsICaynx9CKcK/UWLBxJSioPXR/Qe7uomRn9n2ScpXJB87dI8yiUrp8goYk5ivtdSepS
-	bQ6Tif8y8r4Jr8ngNKEkZtwewK6LpjNZ6qTBvS4JpuvMqeqANTJcldxd+EO+Wza++qbTmr2RWFBfV
-	T+speq7AXGeD12F/H6ZWLM3aqqz4VkG6Eq4TZh+j6hHPFOUAlLXL0UCjgdCUfRySMltFzuOGKwDDl
-	1ZKlVurklq+wmqUTYqHZ6qgGoJjXkl1hzZORqABAI9lP8O6iWjbZCumtgfuwAOCx62rokAWOB9P9S
-	1zL6bFIQ==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:MIME-Version:
+	Message-ID:Date:Subject:CC:To:From:Reply-To:Content-Transfer-Encoding:
+	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
+	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=m+yW0YI9v+aTDr43rbPKu5hLCh2aj79A80qAF73oHAs=; b=CvmpKw56lOyiqou011t16W14Wu
+	ptmWeHzuFxk7C+PMYnBdwcSrv6c9t8DOoGTBIqXy/k2ew7gtEVOOYnMAq0Ro4XkLfNSXWH5BbFZQ+
+	XTBY4Z8da3TfxQSMgcGGyZ0o60kP9xLNcUMQVsLGl5HuULe3/Y8Qt3G/lyRtibdcmJYzkJ5I9spe8
+	KTZCbt4XnZMICP67NB6U4ktVZCaB7WCfN258WsBzjcFjoK1amws6zQKq/TbeC2HFe7HqfUiU2+sXq
+	psHIvWw4CdrmwW3GQex8MDl7N8Ubn8BWjFwqLe/0eRNeoYu2J/T8EciWp5Xku2tOV9BkAuC6Rn9T1
+	8YFczGjg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wSGHq-00000004Pod-2TtP;
-	Wed, 27 May 2026 15:35:14 +0000
-Received: from foss.arm.com ([217.140.110.172])
-	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wSGHo-00000004Po1-2Upo
+	id 1wSGO2-00000004QLY-28AJ;
+	Wed, 27 May 2026 15:41:38 +0000
+Received: from mx0b-0016f401.pphosted.com ([67.231.156.173])
+	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
+	id 1wSGO0-00000004QKx-1S6n
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 27 May 2026 15:35:14 +0000
-Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
-	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id 7673C35AC;
-	Wed, 27 May 2026 08:35:05 -0700 (PDT)
-Received: from J2N7QTR9R3.cambridge.arm.com (usa-sjc-imap-foss1.foss.arm.com [10.121.207.14])
-	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id 949B53F632;
-	Wed, 27 May 2026 08:35:08 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=simple/simple; d=arm.com; s=foss;
-	t=1779896110; bh=RupPVhysoIRPyqEypw5MRUxq+nTP845Zq+S/6pv9BZg=;
-	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
-	b=ZApS8zZpD0EnnrOVhSRb12w6Z5BM5IIh+AuI1z/40PO2BvR7YCOqkl4fJ7Up1m9ii
-	 lgMVyjnFLCYKF4rWQFl6FU/sL2ogdzza1p5WAalZa6ljxh9o5J5NF1mmFZG0fXJofo
-	 xizqTIWSZ3/qXgzbh21zeplufuF+BUDzmlbv/AQw=
-Date: Wed, 27 May 2026 16:34:57 +0100
-From: Mark Rutland <mark.rutland@arm.com>
-To: Vladimir Murzin <vladimir.murzin@arm.com>
-Cc: linux-arm-kernel@lists.infradead.org, kvmarm@lists.linux.dev,
-	broonie@kernel.org, catalin.marinas@arm.com, james.morse@arm.com,
-	maz@kernel.org, oupton@kernel.org, tabba@google.com,
-	will@kernel.org
-Subject: Re: [PATCH 12/18] arm64: fpsimd: Move fpsimd save/restore inline
-Message-ID: <ahcPITrHKBgAHGkP@J2N7QTR9R3.cambridge.arm.com>
-References: <20260521132556.584676-1-mark.rutland@arm.com>
- <20260521132556.584676-13-mark.rutland@arm.com>
- <c5ba3af9-08b2-4be2-b9f5-58a925f0b050@arm.com>
+	Wed, 27 May 2026 15:41:37 +0000
+Received: from pps.filterd (m0431383.ppops.net [127.0.0.1])
+	by mx0b-0016f401.pphosted.com (8.18.1.11/8.18.1.11) with ESMTP id 64RAKMKB3852642;
+	Wed, 27 May 2026 08:41:23 -0700
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=marvell.com; h=
+	cc:content-type:date:from:message-id:mime-version:subject:to; s=
+	pfpt0220; bh=m+yW0YI9v+aTDr43rbPKu5hLCh2aj79A80qAF73oHAs=; b=lZU
+	3yPf2x/lE0hS7gfM7dRE7cqjuhy/LGdQX85MUyvkmCOZUvs4K53gDgvvEo8FB8kl
+	nTch6+LUCwbgvxmMRzjDa+JmlEz937vzH0AOAHtFm7lUdmEsbDan8Y9zN/MHtYSJ
+	UJ/0EgljTdVemj3FwgQ4MxTi1LeqQpulrUafNoS8nFfN/JWbJbYWt282/n1EdWFx
+	fmW02Vp5ewPgWGAyghylIF0Tc4QqCyF7aa4XDCfrTGjVciT+fNWAZaBpWWoPK8Ky
+	1jlpcHhFHhsejc2mm5fZKjfuYH1bJeiHR2F5X1cXbEd9za4J4JjpBFadjcNofva9
+	Hwmc68O7Auv9VD2StgQ==
+Received: from dc6wp-exch02.marvell.com ([4.21.29.225])
+	by mx0b-0016f401.pphosted.com (PPS) with ESMTPS id 4edxs6guec-1
+	(version=TLSv1.2 cipher=ECDHE-RSA-AES256-GCM-SHA384 bits=256 verify=NOT);
+	Wed, 27 May 2026 08:41:23 -0700 (PDT)
+Received: from DC6WP-EXCH02.marvell.com (10.76.176.209) by
+ DC6WP-EXCH02.marvell.com (10.76.176.209) with Microsoft SMTP Server
+ (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
+ 15.2.1544.25; Wed, 27 May 2026 08:41:22 -0700
+Received: from maili.marvell.com (10.69.176.80) by DC6WP-EXCH02.marvell.com
+ (10.76.176.209) with Microsoft SMTP Server id 15.2.1544.25 via Frontend
+ Transport; Wed, 27 May 2026 08:41:22 -0700
+Received: from hyd1soter3.marvell.com (unknown [10.29.37.12])
+	by maili.marvell.com (Postfix) with ESMTP id C65E13F7057;
+	Wed, 27 May 2026 08:41:19 -0700 (PDT)
+From: Geetha sowjanya <gakula@marvell.com>
+To: <linux-perf-users@vger.kernel.org>, <linux-kernel@vger.kernel.org>,
+        <linux-arm-kernel@lists.infradead.org>, <devicetree@vger.kernel.org>
+CC: <mark.rutland@arm.com>, <will@kernel.org>, <krzk+dt@kernel.org>
+Subject: [PATCH v7 0/2] perf: marvell: Add CN20K DDR PMU support
+Date: Wed, 27 May 2026 21:11:16 +0530
+Message-ID: <20260527154118.12884-1-gakula@marvell.com>
+X-Mailer: git-send-email 2.17.1
 MIME-Version: 1.0
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-In-Reply-To: <c5ba3af9-08b2-4be2-b9f5-58a925f0b050@arm.com>
+Content-Type: text/plain
+X-Proofpoint-GUID: CM2n0PRux09vVVSnWfI5_ZLtwPOU0Ifj
+X-Authority-Analysis: v=2.4 cv=ScjHsPRu c=1 sm=1 tr=0 ts=6a1710a3 cx=c_pps
+ a=gIfcoYsirJbf48DBMSPrZA==:117 a=gIfcoYsirJbf48DBMSPrZA==:17
+ a=NGcC8JguVDcA:10 a=VkNPw1HP01LnGYTKEx00:22 a=l0iWHRpgs5sLHlkKQ1IR:22
+ a=qit2iCtTFQkLgVSMPQTB:22 a=M5GUcnROAAAA:8 a=jmD4vOC-WGh-49o7kLYA:9
+ a=OBjm3rFKGHvpk9ecZwUJ:22
+X-Proofpoint-ORIG-GUID: CM2n0PRux09vVVSnWfI5_ZLtwPOU0Ifj
+X-Proofpoint-Spam-Details-Enc: AW1haW4tMjYwNTI3MDE1NyBTYWx0ZWRfXz7qxPUUXYa87
+ OlJKIHqs7pMYq9fN7QgbmcoV+g3ht5RDTJJoKfk6SUesj6n5Aqhp8vPNQfzP+ecwsYcgXzeYz3h
+ v5zjX61YhKscJMYshgpNfRoD49eEvHWeCKvdAhxi3LhhCTITtzF4inkgEjHHVoGt799JvPes88u
+ 5PQCvMQ/1+BSxzgKH5e7gj/Uk756Tksx2gbfMYUOA05XV5V+9l30K6pY8zMRmPXNmfAMNLDMo4C
+ FzCRL9o+6EMEQh5kCKJGsrFw4N4w2yvZGYwy/j0HxX4x1NXCd8ZG7DS8lV0NuDcqAaEDjsGzp1E
+ 3ILF+ynvXqQ97XQRdVo2pCok6nGqmGBih6jsW/T+Cn2ZnJx8CY6AQS7qhFNAWhi9DcMEf/+sYDz
+ usr1HTz5mbIrPiwtQoRpB17T2vjw/Nod10TWANrk9HdLkFw0N5qB3c/0yKhbULsvklfec+75Cig
+ E5Y3jSAoFdKafyyjzog==
+X-Proofpoint-Virus-Version: vendor=baseguard
+ engine=ICAP:2.0.293,Aquarius:18.0.1143,Hydra:6.1.125,FMLib:17.12.100.49
+ definitions=2026-05-27_02,2026-05-26_03,2025-10-01_01
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260527_083512_742320_80BBFEC4 
-X-CRM114-Status: GOOD (  14.66  )
+X-CRM114-CacheID: sfid-20260527_084136_508797_E498FB7C 
+X-CRM114-Status: GOOD (  15.57  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -72,94 +98,76 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Wed, May 27, 2026 at 03:49:18PM +0100, Vladimir Murzin wrote:
-> On 5/21/26 14:25, Mark Rutland wrote:
-> > +static inline void fpsimd_save_vregs(struct user_fpsimd_state *state)
-> > +{
-> > +	instrument_write(state->vregs, sizeof(state->vregs));
-> > +	asm volatile(
-> > +	__FPSIMD_PREAMBLE
-> > +	"	stp	q0,  q1,  [%[vregs], #16 * 0]\n"
-> > +	"	stp	q2,  q3,  [%[vregs], #16 * 2]\n"
-> > +	"	stp	q4,  q5,  [%[vregs], #16 * 4]\n"
-> > +	"	stp	q6,  q7,  [%[vregs], #16 * 6]\n"
-> > +	"	stp	q8,  q9,  [%[vregs], #16 * 8]\n"
-> > +	"	stp	q10, q11, [%[vregs], #16 * 10]\n"
-> > +	"	stp	q12, q13, [%[vregs], #16 * 12]\n"
-> > +	"	stp	q14, q15, [%[vregs], #16 * 14]\n"
-> > +	"	stp	q16, q17, [%[vregs], #16 * 16]\n"
-> > +	"	stp	q18, q19, [%[vregs], #16 * 18]\n"
-> > +	"	stp	q20, q21, [%[vregs], #16 * 20]\n"
-> > +	"	stp	q22, q23, [%[vregs], #16 * 22]\n"
-> > +	"	stp	q24, q25, [%[vregs], #16 * 24]\n"
-> > +	"	stp	q26, q27, [%[vregs], #16 * 26]\n"
-> > +	"	stp	q28, q29, [%[vregs], #16 * 28]\n"
-> > +	"	stp	q30, q31, [%[vregs], #16 * 30]\n"
-> > +	: "=Q" (state->vregs)
-> > +	: [vregs] "r" (state->vregs)
-> 
-> Missing "memory" clobber here?
+This series adds support for the DDR Performance Monitoring Unit (PMU)
+present in Marvell CN20K SoCs.
 
-Here the "=Q" constraint is sufficient.
+The DDR PMU is part of the DRAM Subsystem (DSS) and provides hardware
+counters to monitor DDR traffic and performance events. The block
+implements eight programmable counters and two fixed-function counters
+tracking DDR read and write activity, and is accessed via a dedicated
+MMIO region.
 
-The "=Q" output constraint describes that the operand is written to but
-the old value is not read. It behaves like an "=m" constraint, but
-places the base address in a single register without any offset (and no
-writeback addressing mode). Here it applies to the entirety of the
-vregs array.
+CN20K is the successor to CN10K, and the DDR PMU hardware is functionally
+equivalent to the CN10K implementation, with only minor differences in
+register offsets and event mappings. To allow software to distinguish
+between the two silicon variants, this series introduces a specific
+"marvell,cn20k-ddr-pmu" compatible and extends the existing
+marvell_cn10k_ddr_pmu driver to handle CN20K via variant-specific data.
 
-See https://gcc.gnu.org/onlinedocs/gcc/Machine-Constraints.html :
+Changes in v7:
+- dt-bindings: dropped the CN20K DeviceTree example.
+- perf: Handle ZQ sysfs IDs (62/63) in a dedicated switch case before the
+  DFI range so GCC does not see overlapping case labels and Odyssey IDs
+  58-61 no longer fall through into ZQ handling.
+- perf: Resolve shared numeric IDs 58-61 inside the DFI case for CN20K vs
+  Odyssey (identical bitmap); extend programmable-event coverage to CAS
+  events (36-38) for CN20K sysfs.
+- perf: On event_add failure from ddr_perf_get_event_bitmap, cancel the
+  hrtimer if needed and free the counter slot instead of returning with
+  partial setup.
+- perf: For CN20K, zero CFG0 before writing ZQ to CFG1 and zero CFG1
+  before non-ZQ CFG0 so stale masks do not combine across banks.
 
-|  Q
-|     A memory address which uses a single base register with no offset
+Changes in v6:
+- dt-bindings: Document CN20K in the existing marvell-cn10k-ddr.yaml;
+  add maintainer, description, compatible enum entry, and a CN20K example
+  with unit-address aligned to reg.
+- perf: Route CN20K ZQ events via dedicated sysfs IDs (62/63) and CFG1
+  programming; use (eventid - 42) for CFG1 bit positions and reject those IDs
+  on non-CN20K silicon.
+- perf: Disambiguate CN20K perf width events (58-61) from Odyssey DFI events
+  at the same numeric IDs using an early CN20K branch and fallthrough into the
+  existing DFI + programmable-event path on Odyssey.
+- perf: Run CN20K programmable counters through the same manual-mode / start
+  sequence as Odyssey.
 
-We generally prefer to use "Q" constraints rather than memory clobbers
-where possible, since it gives the compiler more freedom (e.g. due to
-*not* clobbering unrelated memory locations). 
+Changes in v4:
+- Fixed document file name.
 
-The "Q" constraint causes the output to be formatted as a memory address
-(e.g. "[x0]"), so to be able to apply an offset we need a separate "r"
-constraint to get the base register. It doesn't matter whether the
-compiler happens to use a different register for that (and in practice
-compilers realise they can use the register allocated for the "Q"
-conrstraint).
+Changes in v3:
+- Expanded cover letter and commit message to better describe the DDR PMU
+  hardware and its relationship to CN10K
+- Fixed the file name.
 
-Unfortunately we can't use "Q" for the scalable registers, since the
-size isn't known at compile time, and the simplest option for those is
-to use a memory clobber.
+Changes in v2:
+- Fixed YAML syntax error triggered by a tab character in the examples
+  section, which caused dt_binding_check to fail.
 
-[...]
+Changes in v1:
+- Added a description field to the binding.
+- Simplified the compatible property using 'const' instead of 'items/enum'.
+- Updated the example node name to include a unit-address matching the reg base.
 
-> > +static inline void fpsimd_load_vregs(const struct user_fpsimd_state *state)
-> > +{
-> > +	instrument_read(state->vregs, sizeof(state->vregs));
-> > +	asm volatile(
-> > +	__FPSIMD_PREAMBLE
-> > +	"	ldp	q0,  q1,  [%[vregs], #16 * 0]\n"
-> > +	"	ldp	q2,  q3,  [%[vregs], #16 * 2]\n"
-> > +	"	ldp	q4,  q5,  [%[vregs], #16 * 4]\n"
-> > +	"	ldp	q6,  q7,  [%[vregs], #16 * 6]\n"
-> > +	"	ldp	q8,  q9,  [%[vregs], #16 * 8]\n"
-> > +	"	ldp	q10, q11, [%[vregs], #16 * 10]\n"
-> > +	"	ldp	q12, q13, [%[vregs], #16 * 12]\n"
-> > +	"	ldp	q14, q15, [%[vregs], #16 * 14]\n"
-> > +	"	ldp	q16, q17, [%[vregs], #16 * 16]\n"
-> > +	"	ldp	q18, q19, [%[vregs], #16 * 18]\n"
-> > +	"	ldp	q20, q21, [%[vregs], #16 * 20]\n"
-> > +	"	ldp	q22, q23, [%[vregs], #16 * 22]\n"
-> > +	"	ldp	q24, q25, [%[vregs], #16 * 24]\n"
-> > +	"	ldp	q26, q27, [%[vregs], #16 * 26]\n"
-> > +	"	ldp	q28, q29, [%[vregs], #16 * 28]\n"
-> > +	"	ldp	q30, q31, [%[vregs], #16 * 30]\n"
-> > +	:
-> > +	: "Q" (state->vregs),
-> > +	  [vregs] "r" (state->vregs)
-> 
-> Missing "memory" clobber here?
+Signed-off-by: Geetha sowjanya <gakula@marvell.com>
 
-Same story as for fpsimd_save_vregs() above, except that here the "Q"
-input constraint describes that the entirety of the operand is read from
-but not written to.
+Geetha sowjanya (2):
+  dt-bindings: perf: marvell: Extend CN10K DDR PMU binding for CN20K
+  perf: marvell: Add CN20K DDR PMU support
 
-Mark.
+ .../bindings/perf/marvell-cn10k-ddr.yaml      |  18 +-
+ drivers/perf/marvell_cn10k_ddr_pmu.c          | 197 ++++++++++++++++--
+ 2 files changed, 200 insertions(+), 15 deletions(-)
+
+-- 
+2.25.1
 
