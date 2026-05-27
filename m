@@ -4,68 +4,68 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 914E5CD5BD0
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 27 May 2026 22:15:01 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 155FBCD6E44
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 27 May 2026 22:15:04 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:Cc:To:From:
 	Subject:Message-ID:References:Mime-Version:In-Reply-To:Date:Reply-To:
 	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=T07o4hh9zR51SydtMD40p8DCo5Ke4YN7hyk+lpGq+iI=; b=BSu6fXwRDVp0WEbDDBXUoj+RTH
-	uAfVrqCfYYosXUDIy0+M/k9Xrxca9rO+5/oQrTxQUq2dcNjXweX+TRXYWNHMbc9y+iCk+eDBW7iKi
-	AEfkjDlQSr0nJByiKeLqvoWNfiJzKcIvVMZ7b94jilIs599y1RO/Y44VM83UP86W0tKsZMvboKAXQ
-	jwkM7lvk48pxL8HxooJkbohBkAK3Y44uhirmB7gJswWVfRSXJfOBJFoA+szLZkKNfRT8eD+SD7d9A
-	nDsq7F9XM/raq21suUoXra9FqkhO755+LNx1FahcrT476ADxAe7Cajjund3CjT4ouLssvVjTcycyQ
-	/018y+Lg==;
+	bh=S7BBhgFZ8Ma4OIokkNAhr8EAGinTewemkDEloxmI0Rw=; b=McBQ9T0eVkWfbE3+M9uttNdILk
+	nucjQNrmzFBqzKUBboyuFFJDCuX8I+kzU2gbIJEHEpXg6pOYiN6mrQIm2FRAxsSKK+nbbgxV/0D27
+	ZkyllmkmUAU06vDwUMGurnhPRs7SDMUaE71hXOAi6x2iEBbhf/hK2m8lH1ltZyoa4h6eIYaCJVk0f
+	iFCweapCyDyAVXqZRyhFPziVp1Vz/RKJXEqxLGB1hIucYa18rclDjuodot5G3oWe/3RtLV7gWE8gv
+	jUSQMiTzZSZiMm3E++z0/1x2mVQUR5GzTSw1Ipf1t2X+AEmL+F2dSJSttTM2fM7fU5q6A3QFsIXK5
+	XawZnmTQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wSMWd-00000004mkk-21X2;
+	id 1wSMWd-00000004mlE-2ZSN;
 	Wed, 27 May 2026 22:14:55 +0000
-Received: from mail-pl1-x649.google.com ([2607:f8b0:4864:20::649])
+Received: from mail-pj1-x1049.google.com ([2607:f8b0:4864:20::1049])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wSMWK-00000004mX6-48lZ
+	id 1wSMWN-00000004mZV-2UXv
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 27 May 2026 22:14:38 +0000
-Received: by mail-pl1-x649.google.com with SMTP id d9443c01a7336-2bc763c7256so257665845ad.3
-        for <linux-arm-kernel@lists.infradead.org>; Wed, 27 May 2026 15:14:36 -0700 (PDT)
+	Wed, 27 May 2026 22:14:40 +0000
+Received: by mail-pj1-x1049.google.com with SMTP id 98e67ed59e1d1-36781927b4dso5842777a91.0
+        for <linux-arm-kernel@lists.infradead.org>; Wed, 27 May 2026 15:14:38 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=google.com; s=20251104; t=1779920076; x=1780524876; darn=lists.infradead.org;
+        d=google.com; s=20251104; t=1779920078; x=1780524878; darn=lists.infradead.org;
         h=cc:to:from:subject:message-id:references:mime-version:in-reply-to
          :date:from:to:cc:subject:date:message-id:reply-to;
-        bh=T07o4hh9zR51SydtMD40p8DCo5Ke4YN7hyk+lpGq+iI=;
-        b=TxZTG50pLuzZT9Jmhxz7Q6OtLCjUTfikF26TRU8M93S4EOWmMJYUjuz98cvkEkl1zp
-         DAboOWG7ipo6UJCT2HWzI5FHwSRwY4WhJ9JA4jBrbRas5sySk0S3aguYJuNi2wpxad/X
-         JeWsNKJdvOKzSjWpIa0J9QnGLFmtZ3ouQ13vL7Z7Exq7j3Ca0XQEDaZLnW7YQZhIM3mQ
-         24I7l17H3KlesvIIy3Ze59wrl9w7yQ35qNR8QB/olWnwFz0opg0WEsKmUnj6cT9CyrjC
-         odjgvBmiF6CXxzBTMXMfhX7XFvtQbYCV9O4KjogwGFhtnilfxyJc6VX4M/Go2cX3P+8o
-         r8FQ==
+        bh=S7BBhgFZ8Ma4OIokkNAhr8EAGinTewemkDEloxmI0Rw=;
+        b=aPsw3ph3S70x8oHEROT2gileI0wMQu3AuyBwYCQkx7By0DpPx3Cj+Is5DSgdWecdOH
+         7WwRLKH6HbEF7GhV6rgSxrHBThrDPCtmUoTutj6YiiRoZqxHqd/fuor5XdRL9TyJw/J5
+         MJPvNIqpR1VWZyjHnttIFefGs0+wRDgK5hCVR/T3DTX2OimvB7HYaXDtS2RdsV78vlUk
+         T72hkvuD866hfUaP88f9Tat51F4TfcGSb7Zieqp20NcI/qo9MBlebnsb5oZ2ZNoi7GVV
+         w5dJa8SA4/lWFHYQCRGgIQV3XTgjMN5W/x1Itay2wQlvlZzOGopc6l1hqOuasL3hcaTM
+         jo4g==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20251104; t=1779920076; x=1780524876;
+        d=1e100.net; s=20251104; t=1779920078; x=1780524878;
         h=cc:to:from:subject:message-id:references:mime-version:in-reply-to
          :date:x-gm-message-state:from:to:cc:subject:date:message-id:reply-to;
-        bh=T07o4hh9zR51SydtMD40p8DCo5Ke4YN7hyk+lpGq+iI=;
-        b=gw2uFzZiK9jeV/rsu+SfKluLGQgNcdO3kLUHEpHAatKGy4k2f5mn4MJVhgWAMXSGgw
-         S6ZnEj2K3xXygwc0w18f6Da90y481FFfl6/GsZOm6HvEytbIyVAJYFzM87xWXNQwHmym
-         XBIWigxpBU09ZsAUzMyRkLQzFqT/uzhqZh3rmrVIuGXnGE6a5QS4MAsCVeJX9cbDT8g/
-         yEZ3KhWUWMBrx5Nsdh0P5G1c7EJ3KqAWfNOzhBk5JSNE16rwhf6LRH1U3w5v/iBUT8Ac
-         ifjpRNtWZCwcnzqWYv58yEhl6q4AipHnnkz6Y9vrXkPWa+bRYUvESQ/8pGl2T+DLyIA2
-         R7TA==
-X-Forwarded-Encrypted: i=1; AFNElJ8B4gY9/7YkBxLDhIvLftUiEoQEqKj/dKoW9MIpbg+hD5ScvJxHS7mPbnAeALbVeYW6s8F+9vDZYAKRCRU45mfR@lists.infradead.org
-X-Gm-Message-State: AOJu0YyBqAzft01gTBvT42TYc/NCU0X3AKMUXdEsLWsQ3aAeftw0FdBh
-	jCUEpD8Uv4XKg/o+wdUaGshmQHtMu8DoAEIEQviiULXn/4QCz8DWK0qMs0ntIv2qyoyxyNcnpR0
-	/Gw==
-X-Received: from plbky11.prod.google.com ([2002:a17:902:f98b:b0:2b2:a6ef:8235])
- (user=praan job=prod-delivery.src-stubby-dispatcher) by 2002:a17:903:1a07:b0:2b0:52b7:e82
- with SMTP id d9443c01a7336-2beb0699574mr288251695ad.16.1779920075729; Wed, 27
- May 2026 15:14:35 -0700 (PDT)
-Date: Wed, 27 May 2026 22:14:06 +0000
+        bh=S7BBhgFZ8Ma4OIokkNAhr8EAGinTewemkDEloxmI0Rw=;
+        b=tRyFcDoQxytdHGBREVzVDczlFgSO9aF4I3h7fS0sJqFouWI2XJQAsvAOXP7kViRPdD
+         usXberANxCU8VhxHGi3oVAJ3+CfRO4X6a7csptk1+CvkU6wan9JwwjraNQ7/eF+Inpsj
+         N/1Pd0xV3VRHjGAVtsjx+2jqcWuM49lWRRm/d4aAFCR7XDvT+izQ+c/VOkGAqqrs/z6f
+         IEk9LX7foWn16d+pQrQhA5oI3yGsLtIpeY0NR9aaa46YqhM0YCm69dRDXqCf+gzjhba8
+         MRvqo8zmacjPNRVaTkXlUQ5yTn9ZPgHWiJ+0jRz1mk1nacjNAZtda4mS1MQllVMwmN8U
+         8JrA==
+X-Forwarded-Encrypted: i=1; AFNElJ9ncQ4Lhyrrj7+ocQCgzCfxzIYlZieSeUQyrKJu5xZNC4ZHEBsmOUYU/J3VBcqdu4KOc8wzcfur4cbgMFaBD2N1@lists.infradead.org
+X-Gm-Message-State: AOJu0YzTjCRQzJ3vaNzf0BivhQb7n3v0xZfOu5C9LnXQeHl46Daluja0
+	eBrxg1aZ41zKlI8vjbuqxguIdKG484+uU5dpY6glTkRDap1vUNJeUuukX8jtBLyMe3TwwYXZTDq
+	PUA==
+X-Received: from pjbgz7.prod.google.com ([2002:a17:90b:ec7:b0:366:3a03:b66d])
+ (user=praan job=prod-delivery.src-stubby-dispatcher) by 2002:a17:90b:3882:b0:366:132:fda7
+ with SMTP id 98e67ed59e1d1-36a6771a702mr25194976a91.10.1779920078032; Wed, 27
+ May 2026 15:14:38 -0700 (PDT)
+Date: Wed, 27 May 2026 22:14:07 +0000
 In-Reply-To: <20260527221407.1756491-1-praan@google.com>
 Mime-Version: 1.0
 References: <20260527221407.1756491-1-praan@google.com>
 X-Mailer: git-send-email 2.54.0.794.g4f17f83d09-goog
-Message-ID: <20260527221407.1756491-11-praan@google.com>
-Subject: [PATCH v7 10/11] iommu/arm-smmu-v3: Invoke pm_runtime before hw access
+Message-ID: <20260527221407.1756491-12-praan@google.com>
+Subject: [PATCH v7 11/11] iommu/arm-smmu-v3: Add KUnit unit tests for Runtime PM
 From: Pranjal Shrivastava <praan@google.com>
 To: iommu@lists.linux.dev
 Cc: Will Deacon <will@kernel.org>, Joerg Roedel <joro@8bytes.org>, 
@@ -75,8 +75,8 @@ Cc: Will Deacon <will@kernel.org>, Joerg Roedel <joro@8bytes.org>,
 	Pranjal Shrivastava <praan@google.com>
 Content-Type: text/plain; charset="UTF-8"
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260527_151437_050451_E785FA04 
-X-CRM114-Status: GOOD (  29.38  )
+X-CRM114-CacheID: sfid-20260527_151439_648188_AF6871A0 
+X-CRM114-Status: GOOD (  20.98  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -91,341 +91,199 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Invoke the pm_runtime helpers at all places before accessing the hw.
-The idea is to invoke runtime_pm helpers at common points which are used
-by exposed ops or interrupt handlers. TLB and CFG invalidations are
-elided if the SMMU is suspended by observing the CMDQ_PROD_STOP_FLAG via
-the arm_smmu_can_elide() helper.
+Introduce a kunit selftests to verify the Runtime PM elision gating,
+post-suspend elisions and progress on resumption under active
+invalidation load. Simulate concurrent HW suspension using a timer.
+Mock all HW registers and CMDQ buffers by allocating them on RAM.
+Make the mock CMDQ self-consuming to avoid hitting queue_full scenarios.
 
 Signed-off-by: Pranjal Shrivastava <praan@google.com>
 ---
- .../arm/arm-smmu-v3/arm-smmu-v3-iommufd.c     |  15 ++-
- drivers/iommu/arm/arm-smmu-v3/arm-smmu-v3.c   | 115 ++++++++++++++++--
- drivers/iommu/arm/arm-smmu-v3/arm-smmu-v3.h   |   3 +
- 3 files changed, 123 insertions(+), 10 deletions(-)
+ .../iommu/arm/arm-smmu-v3/arm-smmu-v3-test.c  | 150 ++++++++++++++++++
+ drivers/iommu/arm/arm-smmu-v3/arm-smmu-v3.c   |   1 +
+ 2 files changed, 151 insertions(+)
 
-diff --git a/drivers/iommu/arm/arm-smmu-v3/arm-smmu-v3-iommufd.c b/drivers/iommu/arm/arm-smmu-v3/arm-smmu-v3-iommufd.c
-index 1e9f7d2de344..c10de7aaf399 100644
---- a/drivers/iommu/arm/arm-smmu-v3/arm-smmu-v3-iommufd.c
-+++ b/drivers/iommu/arm/arm-smmu-v3/arm-smmu-v3-iommufd.c
-@@ -15,6 +15,11 @@ void *arm_smmu_hw_info(struct device *dev, u32 *length,
- 	struct iommu_hw_info_arm_smmuv3 *info;
- 	u32 __iomem *base_idr;
- 	unsigned int i;
-+	int ret;
-+
-+	ret = arm_smmu_rpm_get(master->smmu);
-+	if (ret < 0)
-+		return ERR_PTR(-EIO);
+diff --git a/drivers/iommu/arm/arm-smmu-v3/arm-smmu-v3-test.c b/drivers/iommu/arm/arm-smmu-v3/arm-smmu-v3-test.c
+index add671363c82..ef9a17343ed8 100644
+--- a/drivers/iommu/arm/arm-smmu-v3/arm-smmu-v3-test.c
++++ b/drivers/iommu/arm/arm-smmu-v3/arm-smmu-v3-test.c
+@@ -3,6 +3,10 @@
+  * Copyright 2024 Google LLC.
+  */
+ #include <kunit/test.h>
++#include <linux/delay.h>
++#include <linux/kthread.h>
++#include <linux/sched.h>
++#include <linux/timer.h>
+ #include <linux/io-pgtable.h>
  
- 	if (*type != IOMMU_HW_INFO_TYPE_DEFAULT &&
- 	    *type != IOMMU_HW_INFO_TYPE_ARM_SMMUV3) {
-@@ -24,8 +29,10 @@ void *arm_smmu_hw_info(struct device *dev, u32 *length,
- 	}
- 
- 	info = kzalloc_obj(*info);
--	if (!info)
-+	if (!info) {
-+		arm_smmu_rpm_put(master->smmu);
- 		return ERR_PTR(-ENOMEM);
-+	}
- 
- 	base_idr = master->smmu->base + ARM_SMMU_IDR0;
- 	for (i = 0; i <= 5; i++)
-@@ -36,6 +43,7 @@ void *arm_smmu_hw_info(struct device *dev, u32 *length,
- 	*length = sizeof(*info);
- 	*type = IOMMU_HW_INFO_TYPE_ARM_SMMUV3;
- 
-+	arm_smmu_rpm_put(master->smmu);
- 	return info;
+ #include "arm-smmu-v3.h"
+@@ -771,7 +775,153 @@ static void arm_smmu_v3_invs_test(struct kunit *test)
+ 	kfree(test_b);
  }
  
-@@ -386,8 +394,9 @@ int arm_vsmmu_cache_invalidate(struct iommufd_viommu *viommu,
- 			continue;
- 
- 		/* FIXME always uses the main cmdq rather than trying to group by type */
--		ret = arm_smmu_cmdq_issue_cmdlist(smmu, &smmu->cmdq, &last->cmd,
--						  cur - last, true);
-+		if (!arm_smmu_can_elide(smmu))
-+			ret = arm_smmu_cmdq_issue_cmdlist(smmu, &smmu->cmdq, &last->cmd,
-+							  cur - last, true);
- 		if (ret) {
- 			cur--;
- 			goto out;
++struct arm_smmu_test_pm_context {
++	u32 *mock_prod_reg;
++	u64 *mock_base;
++	unsigned long *mock_valid_map;
++};
++
++/*
++ * Shared helper to allocate and map a fully functional, self-consuming mock
++ * CMDQ. By redirecting both prod_reg and cons_reg to the same memory location,
++ * every producer write is instantly reflected as a consumer completion.
++ */
++static struct arm_smmu_test_pm_context *
++arm_smmu_v3_test_init_mock_cmdq(struct kunit *test, struct arm_smmu_device *smmu)
++{
++	struct arm_smmu_test_pm_context *ctx;
++	struct arm_smmu_cmdq *cmdq = &smmu->cmdq;
++
++	ctx = kunit_kzalloc(test, sizeof(*ctx), GFP_KERNEL);
++	KUNIT_ASSERT_NOT_NULL(test, ctx);
++
++	/* Use a standard 1024-entry queue for safe word bitmask alignment */
++	ctx->mock_prod_reg = kunit_kzalloc(test, sizeof(u32), GFP_KERNEL);
++	ctx->mock_base = kunit_kzalloc(test, 1024 * 16, GFP_KERNEL);
++	ctx->mock_valid_map = kunit_kzalloc(test, BITS_TO_LONGS(1024) * sizeof(long), GFP_KERNEL);
++
++	KUNIT_ASSERT_NOT_NULL(test, ctx->mock_prod_reg);
++	KUNIT_ASSERT_NOT_NULL(test, ctx->mock_base);
++	KUNIT_ASSERT_NOT_NULL(test, ctx->mock_valid_map);
++
++	smmu->features = 0;
++	/* 1024 entries */
++	cmdq->q.llq.max_n_shift = 10;
++	/* SMMUv3 commands are 2 dwords (16 bytes) */
++	cmdq->q.ent_dwords = 2;
++	cmdq->q.base = (__le64 *)ctx->mock_base;
++	cmdq->valid_map = (atomic_long_t *)ctx->mock_valid_map;
++
++	/* Self-Consuming, prod == cons always ensures queue empty */
++	cmdq->q.prod_reg = (__force u32 __iomem *)ctx->mock_prod_reg;
++	cmdq->q.cons_reg = (__force u32 __iomem *)ctx->mock_prod_reg;
++
++	/* Initialize memory indices */
++	atomic_set(&cmdq->q.llq.atomic.prod, 0);
++	atomic_set(&cmdq->q.llq.atomic.cons, 0);
++	atomic_set(&cmdq->owner_prod, 0);
++	*ctx->mock_prod_reg = 0;
++
++	return ctx;
++}
++
++struct arm_smmu_test_timer_context {
++	struct kunit *test;
++	struct arm_smmu_device *smmu;
++	struct arm_smmu_test_pm_context *pm_ctx;
++	struct timer_list timer;
++	bool stopped;
++};
++
++/* Asynchronous timer callback running in softirq context */
++static void arm_smmu_v3_test_rpm_timer_callback(struct timer_list *t)
++{
++	struct arm_smmu_test_timer_context *ctx =
++		timer_container_of(ctx, t, timer);
++	struct arm_smmu_cmdq *cmdq = &ctx->smmu->cmdq;
++
++	/*
++	 * Asynchronously set the STOP_FLAG (Close the gate).
++	 * Simulate a concurrent runtime suspend event interrupting
++	 * the invalidations happening under active load.
++	 */
++	atomic_or(CMDQ_PROD_STOP_FLAG, &cmdq->q.llq.atomic.prod);
++
++	/* Signal to the main storm loop that suspend has triggered */
++	WRITE_ONCE(ctx->stopped, true);
++}
++
++/*
++ * Verify SMMU PM Runtime gating, elision, and post-suspend resumption
++ * safety sequentially under active stress.
++ */
++static void arm_smmu_v3_test_rpm_stress_race(struct kunit *test)
++{
++	struct arm_smmu_device *smmu = kunit_kzalloc(test, sizeof(*smmu), GFP_KERNEL);
++	struct arm_smmu_test_pm_context *pm_ctx;
++	struct arm_smmu_test_timer_context *timer_ctx;
++	struct arm_smmu_cmdq *cmdq = &smmu->cmdq;
++	struct arm_smmu_cmd cmd = arm_smmu_make_cmd_cfgi_all();
++	u32 stopped_prod;
++	int i, ret;
++
++	KUNIT_ASSERT_NOT_NULL(test, smmu);
++	pm_ctx = arm_smmu_v3_test_init_mock_cmdq(test, smmu);
++
++	timer_ctx = kunit_kmalloc(test, sizeof(*timer_ctx), GFP_KERNEL);
++	KUNIT_ASSERT_NOT_NULL(test, timer_ctx);
++	timer_ctx->test = test;
++	timer_ctx->smmu = smmu;
++	timer_ctx->pm_ctx = pm_ctx;
++	timer_ctx->stopped = false;
++
++	/* Setup the kernel software timer */
++	timer_setup(&timer_ctx->timer, arm_smmu_v3_test_rpm_timer_callback, 0);
++
++	/* Start the timer to fire in 10 jiffies */
++	mod_timer(&timer_ctx->timer, jiffies + msecs_to_jiffies(10));
++
++	/* Execute the unmap storm until the timer triggers */
++	while (!READ_ONCE(timer_ctx->stopped)) {
++		ret = arm_smmu_cmdq_issue_cmdlist(smmu, cmdq, &cmd, 1, false);
++		if (ret != 0) {
++			KUNIT_FAIL(test, "Unmap Storm loop failed to submit cmd list: %d\n", ret);
++			break;
++		}
++
++		usleep_range(50, 100);
++	}
++
++	timer_delete_sync(&timer_ctx->timer);
++
++	/* Establish the globally stable, post-storm register baseline index */
++	stopped_prod = *pm_ctx->mock_prod_reg;
++
++	/*
++	 * Attempt multiple unmaps while the SMMU is disabled (STOP_GATE is set)
++	 * Every single invalidation must be instantly elided, returning 0
++	 * immediately and leaving the mock MMIO register completely frozen.
++	 */
++	for (i = 0; i < 1000; i++) {
++		ret = arm_smmu_cmdq_issue_cmdlist(smmu, cmdq, &cmd, 1, false);
++		if (ret != 0) {
++			KUNIT_FAIL(test, "Gated storm loop failed at iteration %d: %d\n", i, ret);
++			break;
++		}
++	}
++	KUNIT_EXPECT_EQ(test, stopped_prod, *pm_ctx->mock_prod_reg);
++
++	/*
++	 * Clear the STOP_FLAG (resume SMMU). A new invalidation must now
++	 * successfully commit, moving the prod_reg by exactly 1 slot
++	 */
++	atomic_andnot(CMDQ_PROD_STOP_FLAG, &cmdq->q.llq.atomic.prod);
++	KUNIT_EXPECT_EQ(test, 0, arm_smmu_cmdq_issue_cmdlist(smmu, cmdq, &cmd, 1, false));
++	KUNIT_EXPECT_EQ(test, stopped_prod + 1, *pm_ctx->mock_prod_reg);
++}
++
+ static struct kunit_case arm_smmu_v3_test_cases[] = {
++	KUNIT_CASE(arm_smmu_v3_test_rpm_stress_race),
+ 	KUNIT_CASE(arm_smmu_v3_write_ste_test_bypass_to_abort),
+ 	KUNIT_CASE(arm_smmu_v3_write_ste_test_abort_to_bypass),
+ 	KUNIT_CASE(arm_smmu_v3_write_ste_test_cdtable_to_abort),
 diff --git a/drivers/iommu/arm/arm-smmu-v3/arm-smmu-v3.c b/drivers/iommu/arm/arm-smmu-v3/arm-smmu-v3.c
-index 34e249656ab4..d42f78777571 100644
+index d42f78777571..dd7cfd3c16f4 100644
 --- a/drivers/iommu/arm/arm-smmu-v3/arm-smmu-v3.c
 +++ b/drivers/iommu/arm/arm-smmu-v3/arm-smmu-v3.c
-@@ -112,7 +112,7 @@ static int arm_smmu_alloc_cd_tables(struct arm_smmu_master *master);
- static bool arm_smmu_ats_supported(struct arm_smmu_master *master);
- 
- /* Runtime PM helpers */
--__maybe_unused static int arm_smmu_rpm_get(struct arm_smmu_device *smmu)
-+int arm_smmu_rpm_get(struct arm_smmu_device *smmu)
- {
- 	int ret;
- 
-@@ -127,7 +127,7 @@ __maybe_unused static int arm_smmu_rpm_get(struct arm_smmu_device *smmu)
- 	return 0;
+@@ -871,6 +871,7 @@ int arm_smmu_cmdq_issue_cmdlist(struct arm_smmu_device *smmu,
+ 	local_irq_restore(flags);
+ 	return ret;
  }
++EXPORT_SYMBOL_IF_KUNIT(arm_smmu_cmdq_issue_cmdlist);
  
--__maybe_unused static void arm_smmu_rpm_put(struct arm_smmu_device *smmu)
-+void arm_smmu_rpm_put(struct arm_smmu_device *smmu)
- {
- 	int ret;
- 
-@@ -981,7 +981,9 @@ static void arm_smmu_page_response(struct device *dev, struct iopf_fault *unused
- 				   struct iommu_page_response *resp)
- {
- 	struct arm_smmu_master *master = dev_iommu_priv_get(dev);
-+	struct arm_smmu_device *smmu = master->smmu;
- 	u8 resume_resp;
-+	int ret;
- 
- 	if (WARN_ON(!master->stall_enabled))
- 		return;
-@@ -999,6 +1001,25 @@ static void arm_smmu_page_response(struct device *dev, struct iopf_fault *unused
- 		break;
- 	}
- 
-+	/*
-+	 * The SMMU is guaranteed to be active via device_link if any master is
-+	 * active. Furthermore, on suspend we set GBPA to abort, flushing any
-+	 * pending stalled transactions.
-+	 *
-+	 * Receiving a page fault while suspended implies a bug in the power
-+	 * dependency chain or a stale event. Since the SMMU is powered down
-+	 * and the command queue is inaccessible, we cannot issue the
-+	 * RESUME command and must drop it.
-+	 */
-+	if (arm_smmu_can_elide(smmu)) {
-+		dev_err(smmu->dev, "Ignoring page fault while suspended\n");
-+		return;
-+	}
-+
-+	ret = arm_smmu_rpm_get(smmu);
-+	if (ret < 0)
-+		return;
-+
- 	arm_smmu_cmdq_issue_cmd(master->smmu,
- 				arm_smmu_make_cmd_resume(master->streams[0].id,
- 							 resp->grpid,
-@@ -1009,6 +1030,7 @@ static void arm_smmu_page_response(struct device *dev, struct iopf_fault *unused
- 	 * terminated... at some point in the future. PRI_RESP is fire and
- 	 * forget.
- 	 */
-+	arm_smmu_rpm_put(smmu);
- }
- 
- /* Invalidation array manipulation functions */
-@@ -1528,13 +1550,15 @@ static void arm_smmu_sync_cd(struct arm_smmu_master *master,
- 	struct arm_smmu_device *smmu = master->smmu;
- 	struct arm_smmu_cmd cmd = arm_smmu_make_cmd_cfgi_cd(0, ssid, leaf);
- 
-+	if (arm_smmu_can_elide(smmu))
-+		return;
-+
- 	arm_smmu_cmdq_batch_init_cmd(smmu, &cmds, &cmd);
- 	for (i = 0; i < master->num_streams; i++)
- 		arm_smmu_cmdq_batch_add_cmd(
- 			smmu, &cmds,
- 			arm_smmu_make_cmd_cfgi_cd(master->streams[i].id, ssid,
- 						  leaf));
--
- 	arm_smmu_cmdq_batch_submit(smmu, &cmds);
- }
- 
-@@ -1826,9 +1850,12 @@ static void arm_smmu_ste_writer_sync_entry(struct arm_smmu_entry_writer *writer)
- {
- 	struct arm_smmu_ste_writer *ste_writer =
- 		container_of(writer, struct arm_smmu_ste_writer, writer);
-+	struct arm_smmu_device *smmu = writer->master->smmu;
- 
--	arm_smmu_cmdq_issue_cmd_with_sync(
--		writer->master->smmu,
-+	if (arm_smmu_can_elide(smmu))
-+		return;
-+
-+	arm_smmu_cmdq_issue_cmd_with_sync(smmu,
- 		arm_smmu_make_cmd_cfgi_ste(ste_writer->sid, true));
- }
- 
-@@ -2228,6 +2255,7 @@ static void arm_smmu_dump_event(struct arm_smmu_device *smmu, u64 *raw,
- 
- static irqreturn_t arm_smmu_evtq_thread(int irq, void *dev)
- {
-+	int ret;
- 	u64 evt[EVTQ_ENT_DWORDS];
- 	struct arm_smmu_event event = {0};
- 	struct arm_smmu_device *smmu = dev;
-@@ -2236,6 +2264,10 @@ static irqreturn_t arm_smmu_evtq_thread(int irq, void *dev)
- 	static DEFINE_RATELIMIT_STATE(rs, DEFAULT_RATELIMIT_INTERVAL,
- 				      DEFAULT_RATELIMIT_BURST);
- 
-+	ret = arm_smmu_rpm_get(smmu);
-+	if (ret < 0)
-+		return IRQ_NONE;
-+
- 	do {
- 		while (!queue_remove_raw(q, evt)) {
- 			arm_smmu_decode_event(smmu, evt, &event);
-@@ -2256,6 +2288,7 @@ static irqreturn_t arm_smmu_evtq_thread(int irq, void *dev)
- 
- 	/* Sync our overflow flag, as we believe we're up to speed */
- 	queue_sync_cons_ovf(q);
-+	arm_smmu_rpm_put(smmu);
- 	return IRQ_HANDLED;
- }
- 
-@@ -2293,6 +2326,11 @@ static irqreturn_t arm_smmu_priq_thread(int irq, void *dev)
- 	struct arm_smmu_queue *q = &smmu->priq.q;
- 	struct arm_smmu_ll_queue *llq = &q->llq;
- 	u64 evt[PRIQ_ENT_DWORDS];
-+	int ret;
-+
-+	ret = arm_smmu_rpm_get(smmu);
-+	if (ret < 0)
-+		return IRQ_NONE;
- 
- 	do {
- 		while (!queue_remove_raw(q, evt))
-@@ -2304,6 +2342,7 @@ static irqreturn_t arm_smmu_priq_thread(int irq, void *dev)
- 
- 	/* Sync our overflow flag, as we believe we're up to speed */
- 	queue_sync_cons_ovf(q);
-+	arm_smmu_rpm_put(smmu);
- 	return IRQ_HANDLED;
- }
- 
-@@ -2358,8 +2397,33 @@ static irqreturn_t arm_smmu_handle_gerror(struct arm_smmu_device *smmu)
- static irqreturn_t arm_smmu_gerror_handler(int irq, void *dev)
- {
- 	struct arm_smmu_device *smmu = dev;
-+	irqreturn_t ret;
-+
-+	/*
-+	 * Global Errors are only processed if the SMMU is active.
-+	 *
-+	 * If the STOP_FLAG is set (can_elide == true), the hardware is
-+	 * either already disabled or in the process of being disabled.
-+	 * Any errors captured during the quiesce/drain phase will be
-+	 * handled by the explicit arm_smmu_handle_gerror() call at the
-+	 * end of arm_smmu_runtime_suspend() callback. On resume, the
-+	 * STOP_FLAG is cleared before interrupts are re-enabled, ensuring
-+	 * no valid errors are missed.
-+	 *
-+	 * A lockless check is favoured here over a dynamic PM core check
-+	 * since the runtime_pm_get_if_active would return false during
-+	 * transient states like RPM_RESUMING & ignore level-triggered
-+	 * interrupts.
-+	 */
-+	if (arm_smmu_can_elide(smmu)) {
-+		dev_err(smmu->dev,
-+			"Ignoring gerror interrupt because the SMMU is suspended\n");
-+		return IRQ_NONE;
-+	}
-+
-+	ret = arm_smmu_handle_gerror(smmu);
- 
--	return arm_smmu_handle_gerror(smmu);
-+	return ret;
- }
- 
- static irqreturn_t arm_smmu_combined_irq_thread(int irq, void *dev)
-@@ -2442,6 +2506,10 @@ static int arm_smmu_atc_inv_master(struct arm_smmu_master *master,
- 	struct arm_smmu_cmd cmd;
- 	struct arm_smmu_cmdq_batch cmds;
- 
-+	/* Shouldn't be elided if there's no devlink inconsistency */
-+	if (WARN_ON_ONCE(arm_smmu_can_elide(master->smmu)))
-+		return 0;
-+
- 	cmd = arm_smmu_make_cmd_atc_inv_all(0, IOMMU_NO_PASID);
- 	arm_smmu_cmdq_batch_init_cmd(master->smmu, &cmds, &cmd);
- 	for (i = 0; i < master->num_streams; i++)
-@@ -2687,7 +2755,22 @@ static void __arm_smmu_domain_inv_range(struct arm_smmu_invs *invs,
- 
- 		if (cmds.num &&
- 		    (next == end || arm_smmu_invs_end_batch(cur, next))) {
--			arm_smmu_cmdq_batch_submit(smmu, &cmds);
-+
-+			/*
-+			 * Concurrent suspend races are benign: the cmdq allocation cmpxchg
-+			 * loop acts as the serialization point to safely drop the batch
-+			 * without MMIO accesses. Concurrent resume is caught by the HW
-+			 * reset cache invalidation, ensuring state consistency.
-+			 */
-+			bool elide = arm_smmu_can_elide(smmu);
-+
-+			if (arm_smmu_inv_is_ats(cur))
-+				WARN_ON_ONCE(elide);
-+
-+			if (!elide)
-+				arm_smmu_cmdq_batch_submit(smmu, &cmds);
-+
-+			/* Drop this batch to ensure the next one's fresh */
- 			cmds.num = 0;
- 		}
- 		cur = next;
-@@ -3404,6 +3487,9 @@ arm_smmu_install_new_domain_invs(struct arm_smmu_attach_state *state)
- 
- static void arm_smmu_inv_flush_iotlb_tag(struct arm_smmu_inv *inv)
- {
-+	if (arm_smmu_can_elide(inv->smmu))
-+		return;
-+
- 	switch (inv->type) {
- 	case INV_TYPE_S1_ASID:
- 		arm_smmu_cmdq_issue_cmd_with_sync(
-@@ -5630,10 +5716,19 @@ static int arm_smmu_device_probe(struct platform_device *pdev)
- static void arm_smmu_device_remove(struct platform_device *pdev)
- {
- 	struct arm_smmu_device *smmu = platform_get_drvdata(pdev);
-+	int ret;
- 
- 	iommu_device_unregister(&smmu->iommu);
- 	iommu_device_sysfs_remove(&smmu->iommu);
-+
-+	ret = arm_smmu_rpm_get(smmu);
-+	if (ret <  0)
-+		goto free_iopf;
-+
- 	arm_smmu_device_disable(smmu);
-+	arm_smmu_rpm_put(smmu);
-+
-+free_iopf:
- 	iopf_queue_free(smmu->evtq.iopf);
- 	ida_destroy(&smmu->vmid_map);
- }
-@@ -5641,8 +5736,14 @@ static void arm_smmu_device_remove(struct platform_device *pdev)
- static void arm_smmu_device_shutdown(struct platform_device *pdev)
- {
- 	struct arm_smmu_device *smmu = platform_get_drvdata(pdev);
-+	int ret;
-+
-+	ret = arm_smmu_rpm_get(smmu);
-+	if (ret < 0)
-+		return;
- 
- 	arm_smmu_device_disable(smmu);
-+	arm_smmu_rpm_put(smmu);
- }
- 
- static int __maybe_unused arm_smmu_runtime_suspend(struct device *dev)
-diff --git a/drivers/iommu/arm/arm-smmu-v3/arm-smmu-v3.h b/drivers/iommu/arm/arm-smmu-v3/arm-smmu-v3.h
-index 97ec9d9caffe..39fb26552e57 100644
---- a/drivers/iommu/arm/arm-smmu-v3/arm-smmu-v3.h
-+++ b/drivers/iommu/arm/arm-smmu-v3/arm-smmu-v3.h
-@@ -1235,6 +1235,9 @@ static inline bool arm_smmu_can_elide(struct arm_smmu_device *smmu)
- 	return !!Q_STOP(READ_ONCE(smmu->cmdq.q.llq.prod));
- }
- 
-+int arm_smmu_rpm_get(struct arm_smmu_device *smmu);
-+void arm_smmu_rpm_put(struct arm_smmu_device *smmu);
-+
- #ifdef CONFIG_ARM_SMMU_V3_SVA
- bool arm_smmu_sva_supported(struct arm_smmu_device *smmu);
- void arm_smmu_sva_notifier_synchronize(void);
+ static int arm_smmu_cmdq_issue_cmd_p(struct arm_smmu_device *smmu,
+ 				     struct arm_smmu_cmd *cmd, bool sync)
 -- 
 2.54.0.794.g4f17f83d09-goog
 
