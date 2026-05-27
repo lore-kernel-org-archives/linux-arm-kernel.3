@@ -4,94 +4,75 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 61680CD5BD5
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 27 May 2026 14:52:19 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 35921CD5BD5
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 27 May 2026 14:53:39 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:
+	Content-Transfer-Encoding:Content-Type:MIME-Version:References:Message-ID:
+	Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=GysSj+xcxKb96SCtQcauT9ZCA24G3J8cy9Fr5XJtfec=; b=VcDO2keUuEELHlI1PzNrdp4gMG
-	K4+Za29F1R9S1q5Rq6y/UYrJX3dwUogxRZr8fB+MR62Sa7koXRfcukZ4E1n1DeSV9TaeTNNSwLsp8
-	P4W9DHZ0A9FdzNtlc9weDOsadqP5bdah2ZGqYqXrDRJzzq/hTdYZb/QMWUz5SwT8wSOLXikV3Yy3+
-	ADEGOvLzg1E/vFocXAgf/UfpvJoJVnadtrT/70ohBQjHiJIwkOy13s/RGAeOzCQT+Y25dS0CRVVFx
-	zIA2yO1nEkVG1adF6TRb9PebE211RbxxXUwHqFg/LbPYimcpQlU4K3GDnIrPt254enp8dE3rUYqNE
-	MRHfKlIg==;
+	bh=pyf2NIpQI//sA77LnOBsyuhGhNwx3LA0tHEq3fc0Cnw=; b=D8G/2dDYhql8h9giSIGaUqNzZA
+	k58qRvNGjQ8+JszoNI97T+xltAjVIHImy+Tsu7j2IAlVakYvJ0Tu93PfkTqljVRZMdiPn93zlMfa5
+	GTj6+GVLPaa6TOLpbRkw+Eo+iznzgBgInba8MHP/Z3JczuU6WlTqsIE1YkDVvlS4qv3KTdHE1w1Lm
+	4odCseA0DG4tZOhFmWrhfnf3YLOdX0Eq5qiT++0gmoXB9IrvD6JOsMsIyO+HM/Y9rzLIcWGQ5oyAO
+	JUep6Ij8baD4HT6wuP03MKK5pxXu1nz+A5O3PfASs6+F3axdjH8UPywPvXnwrLWchDmWw6KaYaZDI
+	hBOwqhOg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wSFcD-00000004KX4-1VhR;
-	Wed, 27 May 2026 14:52:13 +0000
-Received: from mail-pj1-x102e.google.com ([2607:f8b0:4864:20::102e])
+	id 1wSFdU-00000004KjU-2XgL;
+	Wed, 27 May 2026 14:53:32 +0000
+Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wSFcA-00000004KW2-33q3
-	for linux-arm-kernel@lists.infradead.org;
-	Wed, 27 May 2026 14:52:12 +0000
-Received: by mail-pj1-x102e.google.com with SMTP id 98e67ed59e1d1-3664df32e91so13514235a91.3
-        for <linux-arm-kernel@lists.infradead.org>; Wed, 27 May 2026 07:52:10 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=linaro.org; s=google; t=1779893530; x=1780498330; darn=lists.infradead.org;
-        h=in-reply-to:content-disposition:mime-version:references:message-id
-         :subject:cc:to:from:date:from:to:cc:subject:date:message-id:reply-to;
-        bh=GysSj+xcxKb96SCtQcauT9ZCA24G3J8cy9Fr5XJtfec=;
-        b=vVuJiTq+HuIB6Nu61qFfzqLZr/QIxVOk+KcT2024/riWD45ToVch69vfT3m83HLDvJ
-         1Xg53V2UUcVGeo5EhL8b7c6v380jVyfAcWQt+hDNCOOa87nrHQCPLvlyVQnRPMxxfrwR
-         aBAwtc0PeqVO7/pYmnHL8aOz2XUcpFtd4VBYYMa++f4IuKwACi0BHMS9Kff5QMxyUKVW
-         ux2avj01tHUPgvKLvik9Cs0hFaXM3wEFdqi8npZBcFHS1zTRO90NRO2n0BQhyabHwBZj
-         We0BmYHpOm4RmiZSO73znjEGZp11TKvCObtIG+WrrtJIWb/4iL88smpy+B3opIxeY/AX
-         wRcw==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20251104; t=1779893530; x=1780498330;
-        h=in-reply-to:content-disposition:mime-version:references:message-id
-         :subject:cc:to:from:date:x-gm-gg:x-gm-message-state:from:to:cc
-         :subject:date:message-id:reply-to;
-        bh=GysSj+xcxKb96SCtQcauT9ZCA24G3J8cy9Fr5XJtfec=;
-        b=LOPIA1d7JS89Kj9zBsZO63EzyxBXj++DXHlSd9hNxzz2FR6NZCCb2Dn+gNngW46Q/I
-         C6pS3fR7GV/2uf519uoDcrOF09Y6avxZceqKEjBPKdEdf5o479ZamLWnb3W0tQO9y4UQ
-         /IeFKM4T1AnJnvRHGRDdP2GZ1ffjz1xmaV+Jp+LRjkmt7g5SEo4hXhT2EQhCW/qmReUo
-         p0Wqs0CohJjBhJnwjMfzuu7mK0Q9YSOIlY7bPiMSvO7YODbbvT8oYOemzFeQjHWDv1py
-         R/ta0ZRNxdV+Fzx5i+hLRUnMpmrV2Q903137zaeptIY7EO5zj+WtmCFcaNeIKpelJiWk
-         Xy1A==
-X-Forwarded-Encrypted: i=1; AFNElJ9ZthIpl1xZhprLqryMTeCfOSv7Jh9GGrBr3DWPUxG1RsD3oCqcedzgIqTjIksqgt8unUReSscF9+Ap21uFkCFY@lists.infradead.org
-X-Gm-Message-State: AOJu0YyqrXIPKvRiA0mdxvO1YOqXz104PMz6mfmx0VNPjI3KWA7L2ykt
-	jjSHI5TxVl3JfkW0YsDjeD4jErOihEzX8bA7zBNxCqE08jZbljtWKdrPVp98eZRcO2Q=
-X-Gm-Gg: Acq92OECNmF/M/2zqvjeXy98D48+LaSiQO6am5pXMkLcQBO6qgsjduXSy5ZqSL7j+x7
-	7HT3eOiL+7MBz0GtpuQpji7zRf8KuiOa8Dr4uFQ+eTxzJlEIl89fx++0P4KWmSfRwz0NBP2qZ1u
-	Q57OTvVxloGWbt0nawk4Q6MvF5iyX/gEs9/D4iKdvgROV+mde9veyL6zArMxngeg5PkvUg0DxEv
-	TpQoF3nvi0+iAJN5a2AgqdsDh4PGg+/z7htdOHTt0Azm+GW50gwkwyfHE7YA7TGaz1mAtm3K04p
-	wC626CPw44wYnRR85qpscY+VrsTSYZPUFI7kWqfqA/VS4GWKTzLXAfqj64rGMOUxYBGI5eVNiQV
-	5+kj80/TcIyMYSvyV3fvv73Mn5omZLdAWD7AIb9YEurYpQtzaoRBSxv8AeZNUwORZHfs8YSimhv
-	1zZ48J6m5rmld7rz+XYLKfRkzmLuh0baJ9vtmiNw==
-X-Received: by 2002:a17:90b:3fcb:b0:367:c442:3f20 with SMTP id 98e67ed59e1d1-36a6762cebdmr25100604a91.19.1779893529666;
-        Wed, 27 May 2026 07:52:09 -0700 (PDT)
-Received: from p14s ([2604:3d09:148c:c800:9466:b49b:cd0e:2dac])
-        by smtp.gmail.com with ESMTPSA id 98e67ed59e1d1-36a721c7baasm19906738a91.9.2026.05.27.07.52.07
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Wed, 27 May 2026 07:52:08 -0700 (PDT)
-Date: Wed, 27 May 2026 08:52:06 -0600
-From: Mathieu Poirier <mathieu.poirier@linaro.org>
-To: Ben Levinsky <ben.levinsky@amd.com>
-Cc: andersson@kernel.org, linux-remoteproc@vger.kernel.org,
-	Frank.Li@nxp.com, s.hauer@pengutronix.de, kernel@pengutronix.de,
-	festevam@gmail.com, geert+renesas@glider.be, magnus.damm@gmail.com,
-	patrice.chotard@foss.st.com, mcoquelin.stm32@gmail.com,
-	alexandre.torgue@foss.st.com, arnaud.pouliquen@foss.st.com,
-	daniel.baluta@nxp.com, tanmay.shah@amd.com, imx@lists.linux.dev,
-	linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org,
-	linux-renesas-soc@vger.kernel.org,
-	linux-stm32@st-md-mailman.stormreply.com
-Subject: Re: [PATCH v2 2/5] remoteproc: switch exact-match drivers to
- wc-ioremap callbacks
-Message-ID: <ahcFFkc2b0Pq9icR@p14s>
-References: <20260514162129.1504162-1-ben.levinsky@amd.com>
- <20260514162129.1504162-3-ben.levinsky@amd.com>
+	id 1wSFdR-00000004Kin-3poZ;
+	Wed, 27 May 2026 14:53:31 +0000
+Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
+	by sea.source.kernel.org (Postfix) with ESMTP id BC0EE4139A;
+	Wed, 27 May 2026 14:53:28 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 7F3C91F000E9;
+	Wed, 27 May 2026 14:53:24 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
+	s=k20260515; t=1779893608;
+	bh=pyf2NIpQI//sA77LnOBsyuhGhNwx3LA0tHEq3fc0Cnw=;
+	h=Date:From:To:Cc:Subject:References:In-Reply-To;
+	b=VoIEw7RD3XzhIH6CMzyv/4bAiKKqttFdvHyvdPiNZ0XkyrOXT+9Ut7v0DYrKUDIZg
+	 aGIMCpZrnzU0AZ3GLCOtd1YTcFqxWmnSMc+pe3lta0BO+PdA4uZ0VNaJidzUS1t+z2
+	 yDa86/jmSP5R7mGXnTWa5uByMrwyvmrxHT83fafDJLE6yDACXiXOpA8UvHBy+tYJkm
+	 MdJMUgpr7I4NEA/Cph01WFoxTig42ryn2ezkpx2JZLVneAo+eLyDcyvaU/oIjARMzJ
+	 MKg4ZWLOB5V06IYewhhM4QBlRhy8rf8stprH11ulOXV79MO+r925AZ1GttQ2jXfkUo
+	 /CfTaiX8vpPJQ==
+Date: Wed, 27 May 2026 15:53:22 +0100
+From: Lee Jones <lee@kernel.org>
+To: linux-kernel-dev@aliel.fr
+Cc: Neil Armstrong <neil.armstrong@linaro.org>,
+	Rob Herring <robh@kernel.org>,
+	Krzysztof Kozlowski <krzk+dt@kernel.org>,
+	Conor Dooley <conor+dt@kernel.org>,
+	Andi Shyti <andi.shyti@kernel.org>,
+	Kevin Hilman <khilman@baylibre.com>,
+	Jerome Brunet <jbrunet@baylibre.com>,
+	Martin Blumenstingl <martin.blumenstingl@googlemail.com>,
+	Beniamino Galvani <b.galvani@gmail.com>,
+	"Rafael J. Wysocki" <rafael@kernel.org>,
+	Daniel Lezcano <daniel.lezcano@kernel.org>,
+	Zhang Rui <rui.zhang@intel.com>, Lukasz Luba <lukasz.luba@arm.com>,
+	Liam Girdwood <lgirdwood@gmail.com>,
+	Mark Brown <broonie@kernel.org>, linux-amlogic@lists.infradead.org,
+	devicetree@vger.kernel.org, linux-kernel@vger.kernel.org,
+	linux-i2c@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
+	linux-pm@vger.kernel.org
+Subject: Re: [PATCH v6 4/8] mfd: khadas-mcu: Add support for VIM4 MCU variant
+Message-ID: <20260527145322.GB671544@google.com>
+References: <20260516-add-mcu-fan-khadas-vim4-v6-0-cccc9b61f465@aliel.fr>
+ <20260516-add-mcu-fan-khadas-vim4-v6-4-cccc9b61f465@aliel.fr>
 MIME-Version: 1.0
-Content-Type: text/plain; charset=us-ascii
+Content-Type: text/plain; charset=utf-8
 Content-Disposition: inline
-In-Reply-To: <20260514162129.1504162-3-ben.levinsky@amd.com>
+Content-Transfer-Encoding: 8bit
+In-Reply-To: <20260516-add-mcu-fan-khadas-vim4-v6-4-cccc9b61f465@aliel.fr>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260527_075210_788567_513EB7CD 
-X-CRM114-Status: GOOD (  23.74  )
+X-CRM114-CacheID: sfid-20260527_075329_998679_F38BB858 
+X-CRM114-Status: GOOD (  23.35  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -106,370 +87,199 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Thu, May 14, 2026 at 09:21:26AM -0700, Ben Levinsky wrote:
-> Replace the exact-match carveout map and unmap callbacks in the
-> existing remoteproc drivers with the common wc-ioremap helpers. This
-> covers xlnx_r5_remoteproc, rcar_rproc, st_remoteproc, stm32_rproc,
-> imx_rproc, and imx_dsp_rproc.
+On Sat, 16 May 2026, Ronald Claveau via B4 Relay wrote:
+
+> From: Ronald Claveau <linux-kernel-dev@aliel.fr>
 > 
-> Leave the zynqmp R5 TCM callbacks alone because they also clear the
-> mapped memory and are therefore not exact matches for the shared
-> helpers.
+> Refactor probe() to use per-variant khadas_mcu_data
+> instead of hardcoded globals.
 > 
-> Signed-off-by: Ben Levinsky <ben.levinsky@amd.com>
-> Reviewed-by: Geert Uytterhoeven <geert+renesas@glider.be> # renesas
+> Add dedicated regmap configuration and device data for the VIM4 MCU,
+> with its own volatile/writeable registers.
+> 
+> Add the fan control register
+> (0–100 levels vs 0–3 for previous supported boards).
+> 
+> Add a new compatible string "khadas,vim4-mcu".
+> 
+> Reviewed-by: Neil Armstrong <neil.armstrong@linaro.org>
+> Signed-off-by: Ronald Claveau <linux-kernel-dev@aliel.fr>
 > ---
->  drivers/remoteproc/imx_dsp_rproc.c      | 36 ++++---------------
->  drivers/remoteproc/imx_rproc.c          | 32 ++---------------
->  drivers/remoteproc/rcar_rproc.c         | 33 ++---------------
->  drivers/remoteproc/st_remoteproc.c      | 31 ++--------------
->  drivers/remoteproc/stm32_rproc.c        | 34 ++----------------
->  drivers/remoteproc/xlnx_r5_remoteproc.c | 47 +++----------------------
->  6 files changed, 18 insertions(+), 195 deletions(-)
+>  drivers/mfd/khadas-mcu.c | 119 +++++++++++++++++++++++++++++++++++++++++------
+>  1 file changed, 104 insertions(+), 15 deletions(-)
 > 
-> diff --git a/drivers/remoteproc/imx_dsp_rproc.c b/drivers/remoteproc/imx_dsp_rproc.c
-> index 008741af9f11..2d9f14fbef1d 100644
-> --- a/drivers/remoteproc/imx_dsp_rproc.c
-> +++ b/drivers/remoteproc/imx_dsp_rproc.c
-> @@ -644,32 +644,6 @@ static void imx_dsp_rproc_free_mbox(struct imx_dsp_rproc *priv)
->  	mbox_free_channel(priv->rxdb_ch);
->  }
->  
-> -static int imx_dsp_rproc_mem_alloc(struct rproc *rproc,
-> -				   struct rproc_mem_entry *mem)
-> -{
-> -	struct device *dev = rproc->dev.parent;
-> -	void *va;
-> -
-> -	va = ioremap_wc(mem->dma, mem->len);
-> -	if (!va) {
-> -		dev_err(dev, "Unable to map memory region: %pa+%zx\n",
-> -			&mem->dma, mem->len);
-> -		return -ENOMEM;
-> -	}
-> -
-> -	mem->va = va;
-> -
-> -	return 0;
-> -}
-> -
-> -static int imx_dsp_rproc_mem_release(struct rproc *rproc,
-> -				     struct rproc_mem_entry *mem)
-> -{
-> -	iounmap(mem->va);
-> -
-> -	return 0;
-> -}
-> -
->  /**
->   * imx_dsp_rproc_add_carveout() - request mailbox channels
->   * @priv: private data pointer
-> @@ -700,8 +674,10 @@ static int imx_dsp_rproc_add_carveout(struct imx_dsp_rproc *priv)
->  
->  		/* Register memory region */
->  		mem = rproc_mem_entry_init(dev, NULL, (dma_addr_t)att->sa,
-> -					   att->size, da, imx_dsp_rproc_mem_alloc,
-> -					   imx_dsp_rproc_mem_release, "dsp_mem");
-> +					   att->size, da,
-> +					   rproc_mem_entry_ioremap_wc,
-> +					   rproc_mem_entry_iounmap,
-> +					   "dsp_mem");
->  
->  		if (mem)
->  			rproc_coredump_add_segment(rproc, da, att->size);
-> @@ -732,8 +708,8 @@ static int imx_dsp_rproc_add_carveout(struct imx_dsp_rproc *priv)
->  		/* Register memory region */
->  		mem = rproc_mem_entry_init(dev, NULL, (dma_addr_t)res.start,
->  					   resource_size(&res), da,
-> -					    imx_dsp_rproc_mem_alloc,
-> -					    imx_dsp_rproc_mem_release,
-> +					   rproc_mem_entry_ioremap_wc,
-> +					   rproc_mem_entry_iounmap,
->  					   "%.*s", strchrnul(res.name, '@') - res.name, res.name);
->  		if (!mem)
->  			return -ENOMEM;
-> diff --git a/drivers/remoteproc/imx_rproc.c b/drivers/remoteproc/imx_rproc.c
-> index 7f54322244ac..6249815b54d8 100644
-> --- a/drivers/remoteproc/imx_rproc.c
-> +++ b/drivers/remoteproc/imx_rproc.c
-> @@ -600,35 +600,6 @@ static void *imx_rproc_da_to_va(struct rproc *rproc, u64 da, size_t len, bool *i
->  	return va;
->  }
->  
-> -static int imx_rproc_mem_alloc(struct rproc *rproc,
-> -			       struct rproc_mem_entry *mem)
-> -{
-> -	struct device *dev = rproc->dev.parent;
-> -	void *va;
-> -
-> -	dev_dbg(dev, "map memory: %p+%zx\n", &mem->dma, mem->len);
-> -	va = ioremap_wc(mem->dma, mem->len);
-> -	if (IS_ERR_OR_NULL(va)) {
-> -		dev_err(dev, "Unable to map memory region: %p+%zx\n",
-> -			&mem->dma, mem->len);
-> -		return -ENOMEM;
-> -	}
-> -
-> -	/* Update memory entry va */
-> -	mem->va = va;
-> -
-> -	return 0;
-> -}
-> -
-> -static int imx_rproc_mem_release(struct rproc *rproc,
-> -				 struct rproc_mem_entry *mem)
-> -{
-> -	dev_dbg(rproc->dev.parent, "unmap memory: %pa\n", &mem->dma);
-> -	iounmap(mem->va);
-> -
-> -	return 0;
-> -}
-> -
->  static int imx_rproc_sm_lmm_prepare(struct rproc *rproc)
->  {
->  	struct imx_rproc *priv = rproc->priv;
-> @@ -692,7 +663,8 @@ static int imx_rproc_prepare(struct rproc *rproc)
->  		/* Register memory region */
->  		mem = rproc_mem_entry_init(priv->dev, NULL, (dma_addr_t)res.start,
->  					   resource_size(&res), da,
-> -					   imx_rproc_mem_alloc, imx_rproc_mem_release,
-> +					   rproc_mem_entry_ioremap_wc,
-> +					   rproc_mem_entry_iounmap,
->  					   "%.*s", strchrnul(res.name, '@') - res.name,
->  					   res.name);
->  		if (!mem)
-> diff --git a/drivers/remoteproc/rcar_rproc.c b/drivers/remoteproc/rcar_rproc.c
-> index 3c25625f966d..e3121fadd292 100644
-> --- a/drivers/remoteproc/rcar_rproc.c
-> +++ b/drivers/remoteproc/rcar_rproc.c
-> @@ -19,35 +19,6 @@ struct rcar_rproc {
->  	struct reset_control *rst;
+> diff --git a/drivers/mfd/khadas-mcu.c b/drivers/mfd/khadas-mcu.c
+> index ba981a7886921..7bc538232a445 100644
+> --- a/drivers/mfd/khadas-mcu.c
+> +++ b/drivers/mfd/khadas-mcu.c
+> @@ -75,15 +75,91 @@ static const struct regmap_config khadas_mcu_regmap_config = {
+>  	.cache_type	= REGCACHE_MAPLE,
 >  };
 >  
-> -static int rcar_rproc_mem_alloc(struct rproc *rproc,
-> -				 struct rproc_mem_entry *mem)
-> -{
-> -	struct device *dev = &rproc->dev;
-> -	void *va;
-> -
-> -	dev_dbg(dev, "map memory: %pa+%zx\n", &mem->dma, mem->len);
-> -	va = ioremap_wc(mem->dma, mem->len);
-> -	if (!va) {
-> -		dev_err(dev, "Unable to map memory region: %pa+%zx\n",
-> -			&mem->dma, mem->len);
-> -		return -ENOMEM;
-> -	}
-> -
-> -	/* Update memory entry va */
-> -	mem->va = va;
-> -
-> -	return 0;
-> -}
-> -
-> -static int rcar_rproc_mem_release(struct rproc *rproc,
-> -				   struct rproc_mem_entry *mem)
-> -{
-> -	dev_dbg(&rproc->dev, "unmap memory: %pa\n", &mem->dma);
-> -	iounmap(mem->va);
-> -
-> -	return 0;
-> -}
-> -
->  static int rcar_rproc_prepare(struct rproc *rproc)
->  {
->  	struct device *dev = rproc->dev.parent;
-> @@ -73,8 +44,8 @@ static int rcar_rproc_prepare(struct rproc *rproc)
->  		mem = rproc_mem_entry_init(dev, NULL,
->  					   res.start,
->  					   resource_size(&res), da,
-> -					   rcar_rproc_mem_alloc,
-> -					   rcar_rproc_mem_release,
-> +					   rproc_mem_entry_ioremap_wc,
-> +					   rproc_mem_entry_iounmap,
->  					   res.name);
+> -static struct mfd_cell khadas_mcu_fan_cells[] = {
+> +static const struct khadas_mcu_fan_pdata khadas_mcu_fan_pdata = {
+> +	.fan_reg	= KHADAS_MCU_CMD_FAN_STATUS_CTRL_REG,
+> +	.max_level	= 3, /* Fan speed: 0 = off, 1 = low, 2 = medium, 3 = high */
+> +};
+> +
+> +static const struct mfd_cell khadas_mcu_fan_cells[] = {
+>  	/* VIM1/2 Rev13+ and VIM3 only */
+> -	{ .name = "khadas-mcu-fan-ctrl", },
+> +	{
+> +		.name = "khadas-mcu-fan-ctrl",
+> +		.platform_data = &khadas_mcu_fan_pdata,
+> +		.pdata_size    = sizeof(khadas_mcu_fan_pdata),
+> +	},
+>  };
 >  
->  		if (!mem)
-> diff --git a/drivers/remoteproc/st_remoteproc.c b/drivers/remoteproc/st_remoteproc.c
-> index a07edf7217d2..486180cdccb4 100644
-> --- a/drivers/remoteproc/st_remoteproc.c
-> +++ b/drivers/remoteproc/st_remoteproc.c
-> @@ -88,33 +88,6 @@ static void st_rproc_kick(struct rproc *rproc, int vqid)
->  		dev_err(dev, "failed to send message via mbox: %d\n", ret);
->  }
+> -static struct mfd_cell khadas_mcu_cells[] = {
+> +static const struct mfd_cell khadas_mcu_cells[] = {
+>  	{ .name = "khadas-mcu-user-mem", },
+>  };
 >  
-> -static int st_rproc_mem_alloc(struct rproc *rproc,
-> -			      struct rproc_mem_entry *mem)
-> -{
-> -	struct device *dev = rproc->dev.parent;
-> -	void *va;
-> -
-> -	va = ioremap_wc(mem->dma, mem->len);
-> -	if (!va) {
-> -		dev_err(dev, "Unable to map memory region: %pa+%zx\n",
-> -			&mem->dma, mem->len);
-> -		return -ENOMEM;
-> -	}
-> -
-> -	/* Update memory entry va */
-> -	mem->va = va;
-> -
-> -	return 0;
-> -}
-> -
-> -static int st_rproc_mem_release(struct rproc *rproc,
-> -				struct rproc_mem_entry *mem)
-> -{
-> -	iounmap(mem->va);
-> -
-> -	return 0;
-> -}
-> -
->  static int st_rproc_parse_fw(struct rproc *rproc, const struct firmware *fw)
->  {
->  	struct device *dev = rproc->dev.parent;
-> @@ -138,8 +111,8 @@ static int st_rproc_parse_fw(struct rproc *rproc, const struct firmware *fw)
->  			mem = rproc_mem_entry_init(dev, NULL,
->  						   (dma_addr_t)res.start,
->  						   resource_size(&res), res.start,
-> -						   st_rproc_mem_alloc,
-> -						   st_rproc_mem_release,
-> +						   rproc_mem_entry_ioremap_wc,
-> +						   rproc_mem_entry_iounmap,
->  						   "%.*s",
->  						   strchrnul(res.name, '@') - res.name,
->  						   res.name);
-> diff --git a/drivers/remoteproc/stm32_rproc.c b/drivers/remoteproc/stm32_rproc.c
-> index 632614013dc6..7ac8265b60ac 100644
-> --- a/drivers/remoteproc/stm32_rproc.c
-> +++ b/drivers/remoteproc/stm32_rproc.c
-> @@ -113,35 +113,6 @@ static int stm32_rproc_pa_to_da(struct rproc *rproc, phys_addr_t pa, u64 *da)
->  	return -EINVAL;
->  }
->  
-> -static int stm32_rproc_mem_alloc(struct rproc *rproc,
-> -				 struct rproc_mem_entry *mem)
-> -{
-> -	struct device *dev = rproc->dev.parent;
-> -	void *va;
-> -
-> -	dev_dbg(dev, "map memory: %pad+%zx\n", &mem->dma, mem->len);
-> -	va = (__force void *)ioremap_wc(mem->dma, mem->len);
-> -	if (IS_ERR_OR_NULL(va)) {
-> -		dev_err(dev, "Unable to map memory region: %pad+0x%zx\n",
-> -			&mem->dma, mem->len);
-> -		return -ENOMEM;
-> -	}
-> -
-> -	/* Update memory entry va */
-> -	mem->va = va;
-> -
-> -	return 0;
-> -}
-> -
-> -static int stm32_rproc_mem_release(struct rproc *rproc,
-> -				   struct rproc_mem_entry *mem)
-> -{
-> -	dev_dbg(rproc->dev.parent, "unmap memory: %pa\n", &mem->dma);
-> -	iounmap((__force __iomem void *)mem->va);
-> -
-> -	return 0;
-> -}
-> -
->  static int stm32_rproc_of_memory_translations(struct platform_device *pdev,
->  					      struct stm32_rproc *ddata)
->  {
-> @@ -237,8 +208,8 @@ static int stm32_rproc_prepare(struct rproc *rproc)
->  			mem = rproc_mem_entry_init(dev, NULL,
->  						   (dma_addr_t)res.start,
->  						   resource_size(&res), da,
-> -						   stm32_rproc_mem_alloc,
-> -						   stm32_rproc_mem_release,
-> +						   rproc_mem_entry_ioremap_wc,
-> +						   rproc_mem_entry_iounmap,
->  						   "%.*s", strchrnul(res.name, '@') - res.name,
->  						   res.name);
->  			if (mem)
-> @@ -957,4 +928,3 @@ MODULE_DESCRIPTION("STM32 Remote Processor Control Driver");
->  MODULE_AUTHOR("Ludovic Barre <ludovic.barre@st.com>");
->  MODULE_AUTHOR("Fabien Dessenne <fabien.dessenne@st.com>");
->  MODULE_LICENSE("GPL v2");
-> -
+> +static const struct khadas_mcu_data khadas_mcu_data = {
+> +	.regmap_config	= &khadas_mcu_regmap_config,
+> +	.cells		= khadas_mcu_cells,
+> +	.ncells		= ARRAY_SIZE(khadas_mcu_cells),
+> +	.fan_cells	= khadas_mcu_fan_cells,
+> +	.nfan_cells	= ARRAY_SIZE(khadas_mcu_fan_cells),
+> +};
 
-Spurious change.
+Let's not over-complicate things please.
 
-> diff --git a/drivers/remoteproc/xlnx_r5_remoteproc.c b/drivers/remoteproc/xlnx_r5_remoteproc.c
-> index 45a62cb98072..e5d1903c9636 100644
-> --- a/drivers/remoteproc/xlnx_r5_remoteproc.c
-> +++ b/drivers/remoteproc/xlnx_r5_remoteproc.c
-> @@ -447,45 +447,6 @@ static int zynqmp_r5_rproc_stop(struct rproc *rproc)
->  	return ret;
->  }
+You can do all of this with local variables inside khadas_mcu_probe()
+and omit the terribly named khadas_mcu_data structure entirely.
+
+> +static bool khadas_mcu_vim4_reg_volatile(struct device *dev, unsigned int reg)
+> +{
+> +	switch (reg) {
+> +	case KHADAS_MCU_PWR_OFF_CMD_REG:
+> +	case KHADAS_MCU_VIM4_REST_CONF_REG:
+> +	case KHADAS_MCU_WOL_INIT_START_REG:
+> +	case KHADAS_MCU_VIM4_LED_ON_RAM_REG:
+> +	case KHADAS_MCU_VIM4_FAN_CTRL_REG:
+> +	case KHADAS_MCU_VIM4_WDT_EN_REG:
+> +	case KHADAS_MCU_VIM4_SYS_RST_REG:
+> +		return true;
+> +	default:
+> +		return false;
+> +	}
+> +}
+> +
+> +static bool khadas_mcu_vim4_reg_writeable(struct device *dev, unsigned int reg)
+> +{
+> +	switch (reg) {
+> +	case KHADAS_MCU_VERSION_0_REG:
+> +	case KHADAS_MCU_VERSION_1_REG:
+> +	case KHADAS_MCU_SHUTDOWN_NORMAL_STATUS_REG:
+> +		return false;
+> +	default:
+> +		return true;
+> +	}
+> +}
+> +
+> +static const struct regmap_config khadas_mcu_vim4_regmap_config = {
+> +	.reg_bits	= 8,
+> +	.reg_stride	= 1,
+> +	.val_bits	= 8,
+> +	.max_register	= KHADAS_MCU_VIM4_SYS_RST_REG,
+> +	.volatile_reg	= khadas_mcu_vim4_reg_volatile,
+> +	.writeable_reg	= khadas_mcu_vim4_reg_writeable,
+> +	.cache_type	= REGCACHE_MAPLE,
+> +};
+> +
+> +static const struct khadas_mcu_fan_pdata khadas_vim4_fan_pdata = {
+> +	.fan_reg	= KHADAS_MCU_VIM4_FAN_CTRL_REG,
+> +	.max_level	= 0x64,
+> +};
+> +
+> +static const struct mfd_cell khadas_mcu_vim4_cells[] = {
+> +	{
+> +		.name		= "khadas-mcu-fan-ctrl",
+> +		.platform_data	= &khadas_vim4_fan_pdata,
+> +		.pdata_size	= sizeof(khadas_vim4_fan_pdata),
+> +	},
+> +};
+> +
+> +static const struct khadas_mcu_data khadas_vim4_mcu_data = {
+> +	.regmap_config	= &khadas_mcu_vim4_regmap_config,
+> +	.cells		= NULL,
+> +	.ncells		= 0,
+> +	.fan_cells	= khadas_mcu_vim4_cells,
+> +	.nfan_cells	= ARRAY_SIZE(khadas_mcu_vim4_cells),
+> +};
+> +
+>  static int khadas_mcu_probe(struct i2c_client *client)
+>  {
+>  	struct device *dev = &client->dev;
+> @@ -94,28 +170,40 @@ static int khadas_mcu_probe(struct i2c_client *client)
+>  	if (!ddata)
+>  		return -ENOMEM;
 >  
-> -/*
-> - * zynqmp_r5_mem_region_map()
-> - * @rproc: single R5 core's corresponding rproc instance
-> - * @mem: mem descriptor to map reserved memory-regions
-> - *
-> - * Callback to map va for memory-region's carveout.
-> - *
-> - * return 0 on success, otherwise non-zero value on failure
-> - */
-> -static int zynqmp_r5_mem_region_map(struct rproc *rproc,
-> -				    struct rproc_mem_entry *mem)
-> -{
-> -	void __iomem *va;
-> -
-> -	va = ioremap_wc(mem->dma, mem->len);
-> -	if (IS_ERR_OR_NULL(va))
-> -		return -ENOMEM;
-> -
-> -	mem->va = (void *)va;
-> -
-> -	return 0;
-> -}
-> -
-> -/*
-> - * zynqmp_r5_rproc_mem_unmap
-> - * @rproc: single R5 core's corresponding rproc instance
-> - * @mem: mem entry to unmap
-> - *
-> - * Unmap memory-region carveout
-> - *
-> - * return: always returns 0
-> - */
-> -static int zynqmp_r5_mem_region_unmap(struct rproc *rproc,
-> -				      struct rproc_mem_entry *mem)
-> -{
-> -	iounmap((void __iomem *)mem->va);
-> -	return 0;
-> -}
-> -
->  /*
->   * add_mem_regions_carveout()
->   * @rproc: single R5 core's corresponding rproc instance
-> @@ -522,8 +483,8 @@ static int add_mem_regions_carveout(struct rproc *rproc)
->  			rproc_mem = rproc_mem_entry_init(&rproc->dev, NULL,
->  							 (dma_addr_t)res.start,
->  							 resource_size(&res), res.start,
-> -							 zynqmp_r5_mem_region_map,
-> -							 zynqmp_r5_mem_region_unmap,
-> +							 rproc_mem_entry_ioremap_wc,
-> +							 rproc_mem_entry_iounmap,
->  							 "%.*s",
->  							 strchrnul(res.name, '@') - res.name,
->  							 res.name);
-> @@ -560,8 +521,8 @@ static int add_sram_carveouts(struct rproc *rproc)
->  		rproc_mem = rproc_mem_entry_init(&rproc->dev, NULL,
->  						 dma_addr,
->  						 len, da,
-> -						 zynqmp_r5_mem_region_map,
-> -						 zynqmp_r5_mem_region_unmap,
-> +						 rproc_mem_entry_ioremap_wc,
-> +						 rproc_mem_entry_iounmap,
->  						 sram->sram_res.name);
->  		if (!rproc_mem) {
->  			dev_err(&rproc->dev, "failed to add sram %s da=0x%x, size=0x%lx",
-> -- 
-> 2.34.1
+> +	switch ((uintptr_t)i2c_get_match_data(client)) {
+> +	case KHADAS_MCU_GENERIC:
+> +		ddata->data = &khadas_mcu_data;
+> +		break;
+> +	case KHADAS_MCU_VIM4:
+> +		ddata->data = &khadas_vim4_mcu_data;
+> +		break;
+> +	default:
+> +		return -ENODEV;
+> +	}
+> +
+>  	i2c_set_clientdata(client, ddata);
+>  
+>  	ddata->dev = dev;
+>  
+> -	ddata->regmap = devm_regmap_init_i2c(client, &khadas_mcu_regmap_config);
+> +	ddata->regmap = devm_regmap_init_i2c(client, ddata->data->regmap_config);
+>  	if (IS_ERR(ddata->regmap)) {
+>  		ret = PTR_ERR(ddata->regmap);
+> -		dev_err(dev, "Failed to allocate register map: %d\n", ret);
+> -		return ret;
+> +		return dev_err_probe(dev, ret, "Failed to allocate register map\n");
+>  	}
+>  
+> -	ret = devm_mfd_add_devices(dev, PLATFORM_DEVID_NONE,
+> -				   khadas_mcu_cells,
+> -				   ARRAY_SIZE(khadas_mcu_cells),
+> -				   NULL, 0, NULL);
+> -	if (ret)
+> -		return ret;
+> +	if (ddata->data->cells && ddata->data->ncells) {
+> +		ret = devm_mfd_add_devices(dev, PLATFORM_DEVID_NONE,
+> +					   ddata->data->cells,
+> +					   ddata->data->ncells,
+> +					   NULL, 0, NULL);
+> +		if (ret)
+> +			return ret;
+> +	}
+>  
+>  	if (of_property_present(dev->of_node, "#cooling-cells"))
+>  		return devm_mfd_add_devices(dev, PLATFORM_DEVID_NONE,
+> -					    khadas_mcu_fan_cells,
+> -					    ARRAY_SIZE(khadas_mcu_fan_cells),
+> +					    ddata->data->fan_cells,
+> +					    ddata->data->nfan_cells,
+>  					    NULL, 0, NULL);
+>  
+>  	return 0;
+> @@ -123,7 +211,8 @@ static int khadas_mcu_probe(struct i2c_client *client)
+>  
+>  #ifdef CONFIG_OF
+>  static const struct of_device_id khadas_mcu_of_match[] = {
+> -	{ .compatible = "khadas,mcu", },
+> +	{ .compatible = "khadas,mcu", .data = (void *)KHADAS_MCU_GENERIC },
+> +	{ .compatible = "khadas,vim4-mcu", .data = (void *)KHADAS_MCU_VIM4 },
+>  	{},
+>  };
+>  MODULE_DEVICE_TABLE(of, khadas_mcu_of_match);
 > 
+> -- 
+> 2.49.0
+> 
+> 
+
+-- 
+Lee Jones
 
