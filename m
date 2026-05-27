@@ -4,74 +4,69 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 6A57BCD5BD0
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 27 May 2026 12:15:26 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id B2EE8CD4F54
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 27 May 2026 12:18:13 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:MIME-Version:Date:Message-Id:Subject:References:In-Reply-To:Cc:
-	To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Content-Type:Cc:To:Subject:Message-ID:Date:From:In-Reply-To:References:
+	MIME-Version:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=vA1rZLkXAAX0deJgLbaiD7Ggpc9NMMGcRExXvihSAhY=; b=AcBZLzO5hrR/wf8MHU4iluOLZ0
-	qXB29vxVjxS4yKdrng04auvn6KrBt/DZQFOhI4sgI8tO5Q9n+gQrcRX2oLBMPYNR0NvXF+gRWVq9I
-	lsP0B+cx1nMfpVd5UXOP9PyMpAs7LnaIL4sGiUWS6U4nUKMG7qrvJyC70qHpSf6gTdReQ9rwOuBXD
-	l3Bu+bO4MGzQfr4TiTyWG3yjdVQYW69QnlOKdodP61kdgPg3MptGU/ybCb3yVvcR64Gxx3VcELqdA
-	fIPthJAbjGjjMiu61AN5Db0FdmGrEHVHcJ9BseOgZaDPV28F8BTgV7rscfKhG8sryAgTqG0YDWNMk
-	LRN6+rsw==;
+	bh=v0UV+UoiQ0o1JqhjRmQwXCX/FhB7NdaVFJa0JmT2ZO8=; b=E7JBcMg5EuEzZKYdb4lDE810fl
+	EDhRWUa9BFJNuQxNEOeHkpeqkrp3ZxPldHAxzrcmuc9YEQbDACDa5IAUydPz1O4SploN8iXwPcNTU
+	OlOUc3fUaVC4Ah/TYmlIOs6sHvX3iZtufAcvVewxM7RE5teqjLPA/P0coOGxd9mCXeP4FL+N5MgTB
+	QKoJ59JOnsrV89D/lph3HVG2867qbO+2p5ix8sA3Y1pAPTRtjGyCfGI9dT3o7LEuXQll6MMZOaZC1
+	BK20KuVjiZ0MWrNPOS75og0/nKmvCkwVFjO90GY4JLdNIpD4qvV+38nFXZL2QhVdyEgzx0WP+ebCR
+	1S0cDBGQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wSDAN-000000043z8-0v07;
-	Wed, 27 May 2026 12:15:19 +0000
-Received: from sea.source.kernel.org ([172.234.252.31])
+	id 1wSDD5-000000044Ro-1GaY;
+	Wed, 27 May 2026 12:18:07 +0000
+Received: from tor.source.kernel.org ([2600:3c04:e001:324:0:1991:8:25])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wSDAI-000000043xm-1rfD;
-	Wed, 27 May 2026 12:15:16 +0000
+	id 1wSDD3-000000044Qv-39Ek
+	for linux-arm-kernel@lists.infradead.org;
+	Wed, 27 May 2026 12:18:05 +0000
 Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
-	by sea.source.kernel.org (Postfix) with ESMTP id 05488442B6;
-	Wed, 27 May 2026 12:15:14 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 2D2471F000E9;
-	Wed, 27 May 2026 12:15:12 +0000 (UTC)
+	by tor.source.kernel.org (Postfix) with ESMTP id ED6AD60145
+	for <linux-arm-kernel@lists.infradead.org>; Wed, 27 May 2026 12:18:04 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id A466C1F00A3C
+	for <linux-arm-kernel@lists.infradead.org>; Wed, 27 May 2026 12:18:04 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1779884113;
-	bh=vA1rZLkXAAX0deJgLbaiD7Ggpc9NMMGcRExXvihSAhY=;
-	h=From:To:Cc:In-Reply-To:References:Subject:Date;
-	b=R16+bl7pxvaUtXS6kBTKrtg1x7C4+06iji7wWiXYOQNX2KFsl5EGCz4rTSjCswlGI
-	 iQZ+1xIVT0du9EO6mmReIUWw+aEBXeMAZfZgRjzmZfz/kG00Qw5XHy4ui4Xsj3c6kc
-	 stEjZjzQJQdvYCUWBKFkzlbre4wamN/qFoDkemJFHn25RivVgBVqC2T8eWxgVv2yQW
-	 fDxVU4HFWAhfsIZIxv/gvijH2BNZNuG28Zx+QIdcE1+/Si6lRStQDkr5NloCuXurVY
-	 KZuAvxyBqi36fha73rLI5RQ5Z+v+UtyBUTSnsu2QRtSzuz5f1SXaJJokYHVH/83fq5
-	 tt/DDYcz2dHug==
-From: Mark Brown <broonie@kernel.org>
-To: linux-sound@vger.kernel.org, Rosen Penev <rosenp@gmail.com>
-Cc: Liam Girdwood <lgirdwood@gmail.com>, Jaroslav Kysela <perex@perex.cz>, 
- Takashi Iwai <tiwai@suse.com>, Matthias Brugger <matthias.bgg@gmail.com>, 
- AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>, 
- linux-kernel@vger.kernel.org, linux-arm-kernel@lists.infradead.org, 
- linux-mediatek@lists.infradead.org
-In-Reply-To: <20260519010413.629214-1-rosenp@gmail.com>
-References: <20260519010413.629214-1-rosenp@gmail.com>
-Subject: Re: [PATCH] ASoC: mediatek: mt2701: allocate i2s_path with priv
-Message-Id: <177987681143.868420.277392491342387583.b4-ty@b4>
-Date: Wed, 27 May 2026 11:13:31 +0100
+	s=k20260515; t=1779884284;
+	bh=v0UV+UoiQ0o1JqhjRmQwXCX/FhB7NdaVFJa0JmT2ZO8=;
+	h=References:In-Reply-To:From:Date:Subject:To:Cc;
+	b=SwwCvXS4QScB+BDLZZdsUxD+eygE8kIj1OX7jbwPUwjvSDxFvspG2Mh9CmAu/WdPb
+	 2tEoWhRI+nYz73tZJoXhQV8fuH+iMyD2q9vhwhykdCScxX8K2GUC+vdorEn/afKe44
+	 1JzBoBxmRSeinU48k6+nxudKGsHN7ClR+iH9snR7SVXs4q/eRUrMcZnUZI5TlcbLm4
+	 voatQV4xfGvi1Ny4dGvfYMJ//PY7kBFQYXGToBVV1kzMKubDDvjVRtCfIfagEbiy0C
+	 pTzd0zhGqf1qM27QMarVVcdfwgKYdU92L3Tn79LdyBWYdUhO9vcVN3NXGoI8ZhRTm6
+	 S1LtHi+/v55OQ==
+Received: by mail-lf1-f53.google.com with SMTP id 2adb3069b0e04-5a8891febd2so15410856e87.1
+        for <linux-arm-kernel@lists.infradead.org>; Wed, 27 May 2026 05:18:04 -0700 (PDT)
+X-Forwarded-Encrypted: i=1; AFNElJ9v4PoFzEUWwvwu+9Yehq4JEXvhbYbgKlUGiiWbDpYvvBXrU1/6nylsGys8Na5Cb83qPzEfhDbVhI9ZoD0yErEu@lists.infradead.org
+X-Gm-Message-State: AOJu0YxiRXb4qv3Y9EfYm0WeJ4gBJFv1Qd5itAV5/MUSMjVOcFYOMJoe
+	Bqtd23ciSUBzCRxgdaRb/Rnvd2YCjeKaCcsNIHh2F8SCYtJ9z9TYEGTBYvyrrLYlhQdU5icOIhU
+	OBZ5g6kGr9MthmkQpgAq/h7ao00xPzgE=
+X-Received: by 2002:a05:6512:1286:b0:5a8:e5b2:c81f with SMTP id
+ 2adb3069b0e04-5aa323bc3a2mr7731477e87.27.1779884283417; Wed, 27 May 2026
+ 05:18:03 -0700 (PDT)
 MIME-Version: 1.0
-Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: 7bit
-X-Mailer: b4 0.16-dev
-X-Developer-Signature: v=1; a=openpgp-sha256; l=1119; i=broonie@kernel.org;
- h=from:subject:message-id; bh=GEJQ74VP+zDsUk4K7l8UoIfmlmd7AsGJBB8X3r9TPUM=;
- b=owEBbQGS/pANAwAKASTWi3JdVIfQAcsmYgBqFuBPQmpnL9F7Di0mzPQARB0JONWViTPk/pM10
- T9kunVwRbuJATMEAAEKAB0WIQSt5miqZ1cYtZ/in+ok1otyXVSH0AUCahbgTwAKCRAk1otyXVSH
- 0I3gB/sEVdabjNdhlOJyFPr0tlVBlRrpxxtpUlK8B7sUt0VoRA+3jXqFSJFNT62IwLG1MCUXcCP
- +YALgMzSqE7lwLe5OeWp6OZzxtcuLumzl5d3uoMmfsDy9voNWkyVq/L+1AOivbUFgNQwZSJTD72
- eDo+ZhkIi+UWIfnu4xAJhDKarQwtKRPVTSX5h4Kwwq7ptS66MtJx9iHZqbprTKVa+QvjkcRtinN
- Oygk4gRPqPNvGn+4RibqXpRTQZDIaY2RZ9tporOkIk3+YR2yqitLI46/BtKeAZLrILpcUtAYVaT
- rz3EWsamwXn2+ORk7JHfaAid09NuLVdkOVoWocujBWAJArxN
-X-Developer-Key: i=broonie@kernel.org; a=openpgp;
- fpr=3F2568AAC26998F9E813A1C5C3F436CA30F5D8EB
-X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260527_051515_375035_1A0D4BBA 
-X-CRM114-Status: UNSURE (   9.20  )
-X-CRM114-Notice: Please train this message.
+References: <20260511031749.32643-1-a0987203069@gmail.com> <20260511031749.32643-2-a0987203069@gmail.com>
+In-Reply-To: <20260511031749.32643-2-a0987203069@gmail.com>
+From: Linus Walleij <linusw@kernel.org>
+Date: Wed, 27 May 2026 14:17:50 +0200
+X-Gmail-Original-Message-ID: <CAD++jLkob7uLjSvZ+sMJo-Ry7hqE+4oivNErUtccrHZ279ORnw@mail.gmail.com>
+X-Gm-Features: AVHnY4L2ohXmrKtTGIZ9dDWTgI6k7yLz_jdtjFDJEj-XWm489h4BZKcPHEY-P9g
+Message-ID: <CAD++jLkob7uLjSvZ+sMJo-Ry7hqE+4oivNErUtccrHZ279ORnw@mail.gmail.com>
+Subject: Re: [PATCH 1/1] pinctrl: nuvoton: ma35d1: fix MFP register offset and
+ pin table
+To: Joey Lu <a0987203069@gmail.com>
+Cc: ychuang3@nuvoton.com, schung@nuvoton.com, yclu4@nuvoton.com, 
+	linux-arm-kernel@lists.infradead.org, linux-gpio@vger.kernel.org, 
+	linux-kernel@vger.kernel.org
+Content-Type: text/plain; charset="UTF-8"
+Content-Transfer-Encoding: quoted-printable
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -86,35 +81,25 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Mon, 18 May 2026 18:04:13 -0700, Rosen Penev wrote:
-> ASoC: mediatek: mt2701: allocate i2s_path with priv
+On Mon, May 11, 2026 at 5:18=E2=80=AFAM Joey Lu <a0987203069@gmail.com> wro=
+te:
 
-Applied to
+> Each GPIO bank has two 32-bit MFP registers: MFPL covering pins 0-7
+> at the bank base offset, and MFPH covering pins 8-15 at base offset+4.
+> ma35_pinctrl_parse_groups() computed the register address without
+> accounting for this split, so any pin with an index >=3D 8 within its
+> bank was written to the wrong register.
+>
+> Also fix the pin descriptor table in pinctrl-ma35d1.c: switch from
+> sequential to 16-per-bank pin numbering, add missing PC8-PC11 pins
+> and their mux options, and remove the duplicate PN10-PN15 entries.
+>
+> Fixes: f805e356313b ("pinctrl: nuvoton: Add ma35d1 pinctrl and GPIO drive=
+r")
+> Signed-off-by: Joey Lu <a0987203069@gmail.com>
 
-   https://git.kernel.org/pub/scm/linux/kernel/git/broonie/sound.git for-7.2
+No reaction from reviewers so patch applied!
 
-Thanks!
-
-[1/1] ASoC: mediatek: mt2701: allocate i2s_path with priv
-      https://git.kernel.org/broonie/sound/c/344a4c96b292
-
-All being well this means that it will be integrated into the linux-next
-tree (usually sometime in the next 24 hours) and sent to Linus during
-the next merge window (or sooner if it is a bug fix), however if
-problems are discovered then the patch may be dropped or reverted.
-
-You may get further e-mails resulting from automated or manual testing
-and review of the tree, please engage with people reporting problems and
-send followup patches addressing any issues that are reported if needed.
-
-If any updates are required or you are submitting further changes they
-should be sent as incremental updates against current git, existing
-patches will not be replaced.
-
-Please add any relevant lists and maintainers to the CCs when replying
-to this mail.
-
-Thanks,
-Mark
-
+Yours,
+Linus Walleij
 
