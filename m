@@ -4,63 +4,173 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 319C6CD5BD5
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 27 May 2026 14:13:17 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 72F82CD5BD0
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 27 May 2026 14:15:13 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:
+	Content-Transfer-Encoding:Content-Type:In-Reply-To:From:References:CC:To:
+	Subject:Date:Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=cJPJU4tbAYEX1ukh2P+hlLCnXB/TI8A9zswFtwRlV/Y=; b=IYwLf+Ge8xZ8bQlSmRwBM07+zv
-	y5V+lbIpLPcROK/6LCM0F36QeHsygGrlPCKbozpFAnqHr5FOWhbpdF8VImAJdYCSDKczAXqkZTvuq
-	JU5pEvQD+udYpN5wlzRsMIl/33nrB/8CeqE7wEJxb5AzdYXGuwGZIHJJyH6rCCMGX4T08mgvmea3Q
-	WEYXCd7KHqORYfErpNi2FczIV9Pxf1aD513p/5uuwNAcj9TNBjpWqVunL6E5Nc5XT2vvrpWZBWLSw
-	re3n5vGJ/DOoeGOu9aSwqMrknSnC0Y8XfHixugs9mKYdsaf2famWcQ2jZsfcZ0PGxXx5KBoCe9bE2
-	Ze/QceyA==;
+	bh=/MtzeVQiG96x03Ta7Oa/mWcAqGRj2qovx/I8haJMDKk=; b=2fldjI0KzPk5+cxUCbXQAdYbnD
+	sFZan2wisNjhERSziD73rNkgEyN+uf3z+V7br1FnnVMveffKRwVwA0kjQ0xo/dNNC9u7puokBTA0C
+	F/S2CTC2fKDk0VPPxOrDjlqK5GYIobD+bsgx8leq8iC15lHGH2GDLwpGYAEUbAZLlWprMvzdUcdxT
+	n/bH19hIWDDcQ0jGARd/DnwplEUi3CZpnv7OkJ1R7ZEXoWP40rpgW8jfO32XdH6RQeQqQ3HPMPVce
+	9qj4W0LW9iI1xXwzAIi26u4vSM+lOD++XRZ99y+wxMoCms6yMniREFvO07KrUaPIO+bLpDehQFAHB
+	Vxlos8Lg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wSF0R-00000004GjM-15zt;
-	Wed, 27 May 2026 14:13:11 +0000
-Received: from tor.source.kernel.org ([2600:3c04:e001:324:0:1991:8:25])
+	id 1wSF2I-00000004Gw1-2Fav;
+	Wed, 27 May 2026 14:15:06 +0000
+Received: from mgamail.intel.com ([198.175.65.9])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wSF0P-00000004Gid-1DBa
-	for linux-arm-kernel@lists.infradead.org;
-	Wed, 27 May 2026 14:13:09 +0000
-Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
-	by tor.source.kernel.org (Postfix) with ESMTP id 9EC35601E6;
-	Wed, 27 May 2026 14:13:08 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 857B91F00A3D;
-	Wed, 27 May 2026 14:13:06 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1779891188;
-	bh=cJPJU4tbAYEX1ukh2P+hlLCnXB/TI8A9zswFtwRlV/Y=;
-	h=Date:From:To:Cc:Subject:References:In-Reply-To;
-	b=aY21OfGrasXmEYj9vQYyvhDko6du7jdhVAjAr8Qo420sBhRgRDmU+HusuvFqczNMq
-	 xPGCr/TrC5G9KgZPdj9xgDtThoWBg6RFMJDERsJLgf+kO7ehYxtGtsJxM2ZWzMiVeq
-	 ebistdsym/hPqAerfJoZssQXZHSNOzvoqvTShYYNWz//p/4hjeQCb4N9RFAwKW5Fe1
-	 ZmFXUa9r78Y5g9vMy8T5bESjhm9uQlqow9jdJiLj+AEXylSF++SSD2QPjQI2Z52vA4
-	 yf1hhnNS/NkUYsCbnJrhchbEXBCSUTBATxfac+RHbhvEJ0dWtjaEcL0z/Wl8avz5xl
-	 lBu1CtRHhmBRw==
-Date: Wed, 27 May 2026 15:13:04 +0100
-From: Mark Brown <broonie@kernel.org>
-To: Mark Rutland <mark.rutland@arm.com>
-Cc: linux-arm-kernel@lists.infradead.org, kvmarm@lists.linux.dev,
-	catalin.marinas@arm.com, james.morse@arm.com, maz@kernel.org,
-	oupton@kernel.org, tabba@google.com, will@kernel.org
-Subject: Re: [PATCH 11/18] arm64: fpsimd: Split FPSR/FPCR from SVE
- save/restore
-Message-ID: <4bcf4ec4-6c82-4dc2-b96a-a3a76340ecfe@sirena.org.uk>
-References: <20260521132556.584676-1-mark.rutland@arm.com>
- <20260521132556.584676-12-mark.rutland@arm.com>
- <0b72df66-2914-4537-811e-2080e0a7ce6c@sirena.org.uk>
- <ahb20fXkdWI7SljE@J2N7QTR9R3.cambridge.arm.com>
+	id 1wSF2F-00000004GhX-1Z6H;
+	Wed, 27 May 2026 14:15:05 +0000
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple;
+  d=intel.com; i=@intel.com; q=dns/txt; s=Intel;
+  t=1779891303; x=1811427303;
+  h=message-id:date:subject:to:cc:references:from:
+   in-reply-to:content-transfer-encoding:mime-version;
+  bh=Jm+QY7f55WE2JHHD8Og/49wUZ+DL3NXDgzdymLMMKvU=;
+  b=n2sHcrdHRfn1vBj2tdwA5w439Vz93wsmqnNnytYOkzxbXbrjnHme00MK
+   wKJtIA2SdNtz/d0Z4xqUTXye5qM9BxpY24RwrGyEvGSljLm3GkTmwD4J3
+   d056drTJ3rEYjnC9OF41Trzt79nS8fKuUA6Exd61NUdpv70h1nLBY2QKV
+   4bPrA0zQNf0dCItXT14yg8n3q8CO4vbk3FJTKv9j4czRXUus9mmuqQoKs
+   HRbfjTMFz9S4V4Mpn7lA1/oFOvb5/H3yKXVDJInsaL5z8O2MuYKi1s0c2
+   51KuLepqwSjYqaLprhB7h0QGFexIg/pvOZLoARfJxlFsHANyJwCKwAkIe
+   g==;
+X-CSE-ConnectionGUID: sTWQOQFkScSJ6QhgDf7Azg==
+X-CSE-MsgGUID: G2OrfzagSeixoRtF0y3D0w==
+X-IronPort-AV: E=McAfee;i="6800,10657,11799"; a="103395627"
+X-IronPort-AV: E=Sophos;i="6.24,171,1774335600"; 
+   d="scan'208";a="103395627"
+Received: from orviesa003.jf.intel.com ([10.64.159.143])
+  by orvoesa101.jf.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 27 May 2026 07:13:01 -0700
+X-CSE-ConnectionGUID: vzOIZhQTTnioogRfIL8nIg==
+X-CSE-MsgGUID: u6x2GJCaSIGBPqcUCIZL7Q==
+X-ExtLoop1: 1
+X-IronPort-AV: E=Sophos;i="6.24,171,1774335600"; 
+   d="scan'208";a="246280099"
+Received: from fmsmsx901.amr.corp.intel.com ([10.18.126.90])
+  by orviesa003.jf.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 27 May 2026 07:13:00 -0700
+Received: from FMSMSX902.amr.corp.intel.com (10.18.126.91) by
+ fmsmsx901.amr.corp.intel.com (10.18.126.90) with Microsoft SMTP Server
+ (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
+ 15.2.2562.37; Wed, 27 May 2026 07:12:59 -0700
+Received: from fmsedg901.ED.cps.intel.com (10.1.192.143) by
+ FMSMSX902.amr.corp.intel.com (10.18.126.91) with Microsoft SMTP Server
+ (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
+ 15.2.2562.37 via Frontend Transport; Wed, 27 May 2026 07:12:59 -0700
+Received: from CY7PR03CU001.outbound.protection.outlook.com (40.93.198.68) by
+ edgegateway.intel.com (192.55.55.81) with Microsoft SMTP Server
+ (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
+ 15.2.2562.37; Wed, 27 May 2026 07:12:57 -0700
+ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
+ b=MBYLj2/487QtSdNvbQduKH2twMjQM9cZ/4gLi4q9C9fw0p5F6o4h0nE+pS4sm9i9ub9qeoqtdmCJQPuVgvTtU96hLeuBnhTQF6iZ7VRXYfBcvBvqgjpC7FRh4DHc0QSidFHH4vR+hBjL03dqpce2Peo9EjdcNnkE6pmI2vFrcmUj+pWuzxAaOxQbnEfAL2NjkZCyKoZUBFzpmh3tENO3c9Lgqwn4nmbzejg36HhLrREHUOR7lIhKAiUZrOIeXXhWvcAGmM/wibUwwiSX7uXdW58DVoZVMZnlsl90Nwvqq9gb0SGN7Q2xxOIDNm1sPeQ6x8N45N3sdysAoU5m7PltGg==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
+ s=arcselector10001;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
+ bh=/MtzeVQiG96x03Ta7Oa/mWcAqGRj2qovx/I8haJMDKk=;
+ b=fYgrwnqGUrD8Q/gfuOgLyv8w1vYrukEMGMnGPREd+vFKkqycXYteZjkUtXAAGcaJSDzrp7+wiw5keS8lmuX5mftepi0G9tAg4Vi3/xZGjW0iFNcPNr9zUqZOjdiecO5xdL0tAH94n+R9LYIwI6Yib5FJLoX25pCiV9bDZy54Jowys/eRVMm3p9VijhXVhpQDMBrD07uqURY8AwZp0cXDeNgGsLMH2pSaUpYDi4OWZ+OVz8G1gXhLDgQ9hoWLNTJqhIxf/Vk2DquKGH8yiXSPGT0B1wR2rsZj3I/0JJXjU/GqL3bSAjpjfqfPqBO7rLReig6Dx+CfAe0P0fx78fw2vw==
+ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
+ smtp.mailfrom=intel.com; dmarc=pass action=none header.from=intel.com;
+ dkim=pass header.d=intel.com; arc=none
+Authentication-Results: dkim=none (message not signed)
+ header.d=none;dmarc=none action=none header.from=intel.com;
+Received: from DS0PR11MB8718.namprd11.prod.outlook.com (2603:10b6:8:1b9::20)
+ by LV3PR11MB8508.namprd11.prod.outlook.com (2603:10b6:408:1b4::8) with
+ Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.21.71.11; Wed, 27 May
+ 2026 14:12:53 +0000
+Received: from DS0PR11MB8718.namprd11.prod.outlook.com
+ ([fe80::6aa:411d:4bfa:619c]) by DS0PR11MB8718.namprd11.prod.outlook.com
+ ([fe80::6aa:411d:4bfa:619c%5]) with mapi id 15.21.0071.011; Wed, 27 May 2026
+ 14:12:53 +0000
+Message-ID: <ddeb02d4-27f4-4c81-85b5-928f2b5cc95e@intel.com>
+Date: Wed, 27 May 2026 16:12:47 +0200
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH RFC net-next v2] net: airoha: Add TCP LRO support
+To: Lorenzo Bianconi <lorenzo@kernel.org>
+CC: Andrew Lunn <andrew+netdev@lunn.ch>, "David S. Miller"
+	<davem@davemloft.net>, Eric Dumazet <edumazet@google.com>, Jakub Kicinski
+	<kuba@kernel.org>, Paolo Abeni <pabeni@redhat.com>,
+	<linux-arm-kernel@lists.infradead.org>, <linux-mediatek@lists.infradead.org>,
+	<netdev@vger.kernel.org>, Madhur Agrawal <madhur.agrawal@airoha.com>
+References: <20260526-airoha-eth-lro-v2-1-24e2a9e7a397@kernel.org>
+ <7473204e-2ccd-44d8-b703-5a5dbcb29b61@intel.com> <ahYLvlIYH60cvkWB@lore-desk>
+Content-Language: en-US
+From: Alexander Lobakin <aleksander.lobakin@intel.com>
+In-Reply-To: <ahYLvlIYH60cvkWB@lore-desk>
+Content-Type: text/plain; charset="UTF-8"
+Content-Transfer-Encoding: 7bit
+X-ClientProxiedBy: VI1PR03CA0058.eurprd03.prod.outlook.com
+ (2603:10a6:803:50::29) To DS0PR11MB8718.namprd11.prod.outlook.com
+ (2603:10b6:8:1b9::20)
 MIME-Version: 1.0
-Content-Type: multipart/signed; micalg=pgp-sha512;
-	protocol="application/pgp-signature"; boundary="8ouGmEJHyeUZhv0D"
-Content-Disposition: inline
-In-Reply-To: <ahb20fXkdWI7SljE@J2N7QTR9R3.cambridge.arm.com>
-X-Cookie: You are fairminded, just and loving.
+X-MS-PublicTrafficType: Email
+X-MS-TrafficTypeDiagnostic: DS0PR11MB8718:EE_|LV3PR11MB8508:EE_
+X-MS-Office365-Filtering-Correlation-Id: f1cefa8f-fc05-4e4b-db1b-08debbfa0acf
+X-MS-Exchange-SenderADCheck: 1
+X-MS-Exchange-AntiSpam-Relay: 0
+X-Microsoft-Antispam: BCL:0;ARA:13230040|366016|1800799024|7416014|376014|22082099003|18002099003|56012099006|11063799006|4143699003;
+X-Microsoft-Antispam-Message-Info: gI+gXpnCZnMidlNaZdiCvh+WQyQihSxLoxfKB3Y93KHak0FqEazw55BWB1KC8UWk0ZamJE2XS3zgc/GUhaT9vrS3OSiC6PqqNtdWFesz0wB7ze2Ed1iOXZBegiR26CG4sTEkJg5H+hMnRfrLR3w3GRp0rpCzCy1nr5KVgYmKd6xabQqdzcrYgXiIt4+QOVomSWYTxh+hVQIHNczm2yhlhoyzq9aGeZ4WB1KWSGLggqAHnCuDmmJb4bbVTDv5kA+mMGIMXTWPBS1Ed+YJtvbAj1zkM+tPgGONB7yCDCmxtuylDJ/EFFoG6161dFEu0MvrcnQhxf2MC4qux7X8VaPQiixvleuEjKLEN/6zRR8Q0DEi2BwpM91JHwVV/oALc9MHUm+owXkyPftyPs9gGjMZrGmqw3izre5hh5wjyeGWufkEolH1zwT+2QJtTkhpoXXdpz+3jAMX3vkHDrj7R+B6HgvC1Q21/s89dDIs25iQ1XfFEZJj0IGDqurG7Fi4DgCcN+mXfUHl4mg9j2ofMCo0fXb1hbuPeQTxNRNac4M0//C+ULtqZ/Bxsd443/EwuiCGxgF7BYt0Hgo5ghV22m9mTZgMqC+R1kzCRfKGvlKbfz/RiGCYX1BEPsA+1vkWO9FXO1kYrRAUi9q2kBUstdLDtGzm32cisIVZOr4EZNJ5kpgYeDzI8vvI2j3mwhbQmSWcmF//YZM4VSzoh0+//QmSaw==
+X-Forefront-Antispam-Report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:DS0PR11MB8718.namprd11.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(366016)(1800799024)(7416014)(376014)(22082099003)(18002099003)(56012099006)(11063799006)(4143699003);DIR:OUT;SFP:1101;
+X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
+X-MS-Exchange-AntiSpam-MessageData-0: =?utf-8?B?QjgwOU1zSW56SldwbE81dTZrL2JianB4UzdaYmlzMXhnVS9YRkZDUGs5UlVV?=
+ =?utf-8?B?QjlFcWNueSsrZ3JzbC9RRk9LT1RRTHA2NjdnOS9mZUFDckFHVEEzcmp6YjU0?=
+ =?utf-8?B?M1g0aUYvbTJ0b1pvMFdsdzNiYTJHME5SditnUFVNTjU2cnpYQzJ3MWtkVTdh?=
+ =?utf-8?B?VjV1V0grZ0FWazlkOVpzekEzK2NmbmgvazR0dy9tRlNFSG9qY1BwcUVuankz?=
+ =?utf-8?B?dUVMaUl0ZDJYczVEUFFpY2h1Zk9sV3RkUXJrOENNRHZ6eXFVQ29uOWFTYVRB?=
+ =?utf-8?B?cmY4RmxGQzhnN1lTYVlvdUtPZ1hPamk0LzVhM21QTHY0ZVFTUUtrWDgrZll4?=
+ =?utf-8?B?SktTL0V5V3NNeDZVQVR3YklWNk5EQzdNc3I3dUhISHdWZHlEVkFRS0VvdTY4?=
+ =?utf-8?B?NXJuSi9FWjJTRlBNbGZBWlMzaThzaGszY0ZPMCtreEJHcTgxekZnd1ZzTU5y?=
+ =?utf-8?B?V3Q2Q3VsTnBYSEpBcEFjS2dRN0JpZUpxeEd3SlB1cUdKNlZxdndsaWhNRm1j?=
+ =?utf-8?B?dDdZVXg3N3kwS3BBZHFkZnJVemc5bDNUcEVUTXJCaC84eEZSdkZVYmlYMXpi?=
+ =?utf-8?B?bHc5RitHYWpmb1BrcFlmSnQrY01xL09lWHZxczY3dUI4enFKdm92ODJQdWd6?=
+ =?utf-8?B?OGYrdS9nSDZrNmV4M0NheHZsZmNxb09pWXh1NlArdnVCMXFoTnVwbGd4NUdz?=
+ =?utf-8?B?S3FXMDdSL254QXk2VE1OVTNsWnR6ZUk4YmJJc2VodW12Lyt6Nm1jaUhFcnBv?=
+ =?utf-8?B?RmoxVzVzd2tscFdNZzBtWS8yT2dJdzhlRjNjZzVaMnk5L3p1WUxPeXdxejI0?=
+ =?utf-8?B?NXZUOEM0QlpLR1U1eEs1UWM4NUhaSHhNR21hUjl4eTdVWGt4RDF2eFhxSTJ0?=
+ =?utf-8?B?RXlWcXRtSzFRUHpGUkxiOXpoczg3VmRDQlluajIyS1hpbHVVcFhqenA0bFFV?=
+ =?utf-8?B?aGU1d1JnMkFVQ25pUFRMaFNtUjAyeElQYzYyejlxcjZ5ZUgzUm1CaVVnQ3JI?=
+ =?utf-8?B?RzNOUzNqQU5CajFtVm1JTjRjbnZPVFhiNkpPTnF3ZFZROXhQSEt6SjVWNFVP?=
+ =?utf-8?B?WEdJbC95TjNvd0RLMWdPNFI5YWxybTZqTWtQd2tyOFQ0M3paT3BncTAxRkxY?=
+ =?utf-8?B?WGo5OEhPcWVnWXc0VURyQUowZEhsaTlZTEdQTzZVREtxQXhRbTBVZktsSzh6?=
+ =?utf-8?B?Y2xSSmM3NGVtcVBKOUNveXZkVHVMTSs4R2NyTmFOMnA1RUJpbDBtZ1BqL0lm?=
+ =?utf-8?B?MEpBMlY2NXRtdWlPTXo1c2M0dGFkV1NPMGxqdTNBRWlDZXUyQllWb1F5MEwy?=
+ =?utf-8?B?d0pMb3VVRVplWGJOOFBMcS91cC9uV1MzbndQSFhmWHdzRlV1dmc4bWxTdEdn?=
+ =?utf-8?B?UVptYXJOdENUTkYvY0dCOU1LWmlkUHVLS0V2ZGV5QmR1Z0wra0I1UElNSm05?=
+ =?utf-8?B?WnQwMnUrdVpaNldZUHp6S2xSamp1dmx4NnRucmpYL01UcDBySXg3M2VIdHpw?=
+ =?utf-8?B?WENVVlRoSkZxSHdTOVVsWXU0bnlNUHBIMGdDdDIxV0tSNmhyN0M3U2kvUWFH?=
+ =?utf-8?B?TWFDcVFVYWRrTVRZWFNmSTl0NnpuK0tyUnNxZWhPM2d2dnBtTHhOZFlVeE1s?=
+ =?utf-8?B?OVRpS1BhNjJKVGNjRGFWaEFTRFhKKzIzMlp4RUFoUUZGbGZWVmlCMHRoak5M?=
+ =?utf-8?B?THdjTTBRTWVOYVFOTDRrMElpcXVGQnVwck43MWg4WTg1L3FHbXZUeWd5cExj?=
+ =?utf-8?B?TGE2NUdnblFWWVE0enF6eVh5ZnpWekdESWxrcDA4cVA0L21iMkFDSkNhSE81?=
+ =?utf-8?B?L3hUM1k5RmhGVW1iM1FmYS9qdGgyWC9RVU5peVg3WmtZVnljNzA0RTYzRFU2?=
+ =?utf-8?B?THptc2U1NEdRWWJxblJrSm4wUFYwa3Q5dUFMQXRXcUNUTEVXT0g0WXVLamRw?=
+ =?utf-8?B?bzA0Um1GbDkrZjZPYVU0T1FoT0hQMi9IT2tiRGVFa3dPVVc4aFFaUlR1c3NG?=
+ =?utf-8?B?NG5pdlp1cXc3cWNST0UyenFoMFFHbVY1SDRIamJQWkp5ZHhZK3hxL1UydjFU?=
+ =?utf-8?B?a0FkUm9RREhjTk1tYzdTK2kwYUlDUk8yWUxKdG1TVXpvaEthcWpSU0pVamZy?=
+ =?utf-8?B?K245S1FZdTFmd1YwM29odFlOOXJQdFVCbHlRcTJMeVhUTitHaVI3d29icS8w?=
+ =?utf-8?B?YjluT3NYaGFCRW9kRXhWRFVwZCtkcVZyUzlWd25XQWEvVkMrSmZMaEJENjBD?=
+ =?utf-8?B?cWNkVzVKSEFiWDZPVHRXRnFpcnd2QzMvTVlraUFIaVZ2Y3RVYjlTM3RlbnZr?=
+ =?utf-8?B?OERIZ0YzK3g3SVdNTDFaK3hScm1URlptd3hveVBQVGNQR1FJUHpHMVNrUkFw?=
+ =?utf-8?Q?hhp/r+BI+seaUeCE=3D?=
+X-Exchange-RoutingPolicyChecked: FkH2c90xqT5JmdJmkk1cxIFmz+2ZRMQQnBfFPmxmyh3YxcYI7riNnyEcq8tjSTet8VfveYDh656b7xV2p5QxQGsv8zYKkFa8bpRX6vYJcAXZ2OokHrJFaTBWDhOr9omPtq3ybPvz+quHUkoc1jiCcjsY/QGARLhwKmTPpNazJFcCCKTyaXeY+ALqWkf7NPInmSVOy3BoxMqJ0PI50HkykhBi1J99L6nHAjB1IGvCdf1WC6/3Rf6PjQvcchjS0LXqmsBdTz2dcPBvskXpnkw3icF7Oo6FqFBdDHKPx7+oRz89lIbxLsfKWT+snSo7qYqqvdTOdi0icPvJpzwjJyFCNQ==
+X-MS-Exchange-CrossTenant-Network-Message-Id: f1cefa8f-fc05-4e4b-db1b-08debbfa0acf
+X-MS-Exchange-CrossTenant-AuthSource: DS0PR11MB8718.namprd11.prod.outlook.com
+X-MS-Exchange-CrossTenant-AuthAs: Internal
+X-MS-Exchange-CrossTenant-OriginalArrivalTime: 27 May 2026 14:12:53.3680
+ (UTC)
+X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
+X-MS-Exchange-CrossTenant-Id: 46c98d88-e344-4ed4-8496-4ed7712e255d
+X-MS-Exchange-CrossTenant-MailboxType: HOSTED
+X-MS-Exchange-CrossTenant-UserPrincipalName: VaDpmulW/349Ex+mSRIwVQmlfR2XluqkJ7ro1598IzXd9z+DbG1/erD/vseae5OhKRbJmTXdcUPFK4qqfvG/mSvzoZ1KIGkAAhfsRtxvKh4=
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: LV3PR11MB8508
+X-OriginatorOrg: intel.com
+X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
+X-CRM114-CacheID: sfid-20260527_071503_748144_49FDD0FC 
+X-CRM114-Status: GOOD (  13.62  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -75,70 +185,57 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
+From: Lorenzo Bianconi <lorenzo@kernel.org>
+Date: Tue, 26 May 2026 23:08:14 +0200
 
---8ouGmEJHyeUZhv0D
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
+>> From: Lorenzo Bianconi <lorenzo@kernel.org>
+>> Date: Tue, 26 May 2026 08:58:05 +0200
 
-On Wed, May 27, 2026 at 02:51:13PM +0100, Mark Rutland wrote:
-> On Tue, May 26, 2026 at 05:28:21PM +0100, Mark Brown wrote:
-> > On Thu, May 21, 2026 at 02:25:49PM +0100, Mark Rutland wrote:
+[...]
 
-> > > ... so I've assumed that this doesn't actually matter in practice, and
-> > > implemented the C version matching the existing SVE assembly.
+>>> @@ -587,6 +630,85 @@ static int airoha_qdma_get_gdm_port(struct airoha_eth *eth,
+>>>  	return port >= ARRAY_SIZE(eth->ports) ? -EINVAL : port;
+>>>  }
+>>>  
+>>> +static int airoha_qdma_lro_rx_process(struct airoha_queue *q,
+>>> +				      struct airoha_qdma_desc *desc)
+>>> +{
+>>> +	u32 desc_ctrl = le32_to_cpu(READ_ONCE(desc->ctrl));
+>>> +	u32 msg1 = le32_to_cpu(READ_ONCE(desc->msg1));
+>>> +	u32 msg2 = le32_to_cpu(READ_ONCE(desc->msg2));
+>>> +	u32 msg3 = le32_to_cpu(READ_ONCE(desc->msg3));
+>>
+>> Why are these READ_ONCE()s needed? Does desc come from the HW (sorry I
+>> didn't follow the whole code flow) or...?
+> 
+> Correct, ctrl, msg1, msg2 and msg3 are subfields of the DMA descriptor read by
+> airoha_qdma_rx_process() from the NIC. I guess here we have a similar issue as
+> the one fixed in [0]
+> 
+> [0] https://git.kernel.org/pub/scm/linux/kernel/git/netdev/net.git/commit/?id=4ae0604a0673e11e2075b178387151fcad5111b5
 
-> > There is a possibility that it only matters for older, FPSIMD only CPUs
-> > or just that nobody got round to benchmarking this on physical CPUs with
-> > SVE and in fact a similar optimisation is also useful there.
+Hmm, I never believed that we need READ_ONCE()s when reading HW
+descriptors, I always thought dma_alloc_coherent() is enough.
+But maybe I've been mistaking...
 
-> All of that might be true, but that doesn't change my assessment that
-> this doesn't seem to matter in practice, and given that the overall goal
-> of this series is to *simplify* things, I'd much rather err towards that
-> than hypothetical performance concerns.
+[...]
+>>> +
+>>> +		if (*topt == cpu_to_be32((TCPOPT_NOP << 24) |
+>>
+>> Shouldn't this be `((u32)TCPOPT_NOP) << 24` to avoid sign issues?
+> 
+> I guess this is same approach used in [1]. Am I missing something?
+> 
+> [1] https://github.com/torvalds/linux/blob/master/net/ipv4/tcp_ipv4.c#L823
 
-This could do with more clarification in the commit log, right now it
-just points to us not having done this for SVE but that's running on a
-rather shiner set of CPUs (and likely written without any physical
-implementation available) so that's a rather large jump.
+Yeah I also notice this in one more patch when scrolling netdev
+yesterday. I guess it's okay here since TCPOPT_NOP is small and
+constant and doesn't reach bit 31.
 
-> > I'm a bit wary of dropping the optimisation without any verification
-> > of the performance impact, but equally I'm not aware of a specific
-> > benchmark that showed the impact or even if there was one in the first
-> > place.  The changelog sounds like the optimisation might've been
-> > written based on inspection alone, I don't know if anyone will
-> > remember more than a decade later.
+> 
+> Regards,
+> Lorenzo
 
-> From what I remember, the changes in commit 5959e25729a5 were made based
-> on intuition, inspired by a contemporary retrospective change to the
-> architecture that made FPCR self-synchronizing. Previously the
-> architecture required a context synchronization event for the write to
-> take effect, but implementations happened to be stronger.
-
-> The conditional write isn't necessarily a win, because the cost of
-> recovering from a branch mispredict can be much larger than the cost of
-> micro-architectural mechanisms to ensure that FPCR is
-> self-synchronizing.
-
-That seems likely from my read of the commit log there, it smells like
-something done from inspection rather than because there's an observed
-performance change.  It'd be good to put something like the above in the
-commit log since it's a much more relevant analysis than the comparison
-with the SVE path.
-
---8ouGmEJHyeUZhv0D
-Content-Type: application/pgp-signature; name="signature.asc"
-
------BEGIN PGP SIGNATURE-----
-
-iQEzBAABCgAdFiEEreZoqmdXGLWf4p/qJNaLcl1Uh9AFAmoW++8ACgkQJNaLcl1U
-h9DgHwf/URmveagI56O1UH0OmT2rDV24+jtw1D49QQ/kZxghFUzyrJw9gM8j0zfo
-zj/LlzpJF8Xnuuyp7bh0BC3IieJn7L5etrlhVVsJfI52cYVF0YbU26EfUFEGmJzt
-kVogO+l3ZUPJrxr9KnY3PpGwmLl7+4ldzOZMTuuyqFicp39hw+57L/rrJl850XwE
-2C9lIafie6XpxoxwCFtDSrOIu7CVW6y8mWo4fPYMv77O1l5e+t5+PmBWBOzrPxnm
-95WnMKl5XrYXxdu5bBiv2dnJibYoumtOpnKVBRldTbVa3aAEAaf4Pugd+v6949F1
-ZGmuTVn7m0mnDdH87bdm9T6PdiBgLA==
-=2zVn
------END PGP SIGNATURE-----
-
---8ouGmEJHyeUZhv0D--
+Thanks,
+Olek
 
