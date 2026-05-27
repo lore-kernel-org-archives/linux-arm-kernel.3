@@ -4,66 +4,69 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id E84EECD5BD0
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 27 May 2026 21:45:26 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 1D7D0CD5BD5
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 27 May 2026 21:45:28 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:Cc:To:From:
-	Subject:Message-ID:Mime-Version:Date:Reply-To:Content-Transfer-Encoding:
-	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
-	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
-	bh=Ab2hzOOXCyIXPSNyeDp9OO3k2d2oxbauwxi1JxymGkw=; b=sW0k7wpQjQ2VMKK2NEXDbN+SQz
-	zWx3Maw6h4uvuhTZ7Vmw2XzfrbJHYntwQkOz4R2RHdaPZgiu81ofw+YQ8hRac7GYnrx+FRQ+3KL0H
-	eQSADyUOZR3bdMYwVk8eMl/370vENvEpV7M8v5brTOjP76dMSvQW4H2Qmi+K4gSrUvWs2mWeEvZTE
-	I3xGPU5W9FHZvQiceE0D6t/b0DbKboTAg0HtrgW/FNAseKKFFuRcPPoYVkl6f4vf5sMNTtWVbSHsV
-	D7qXzxWk7guh4kWtlVTwCKczWMJAW02lWd3ibONa1a9W/wbrBXjIe/Sy+AOSLb8N86EAaJu5KgeWD
-	HrQ3b85Q==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:Cc:To:From:Subject:Message-ID:References:Mime-Version:
+	In-Reply-To:Date:Reply-To:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=6mrvQD6GgPgoo9WdJOzGFB8vI+DJYjKJmIgf8+ynX7Y=; b=p+scXHFt+o7wVCHx6VPyhdWLGG
+	S7u+8ijjxWNVJ1bv3vnTxabx71ElJiH4TZFB890M0NuVCCSVHAhfWkRhGMQgRHWMmzTWkDgELXnXU
+	h33pZQooAVR7r0Uth6bSIB+L5GA4Z5AhliFUD8pDs8xuyBkE7j35lwmG+5X6AAzLnP/jeVO370HFP
+	uaak78XK1fCRehObQsF5+mdjNfdKf6hmdSdgZCrrLfPff6TX2vSMf2rmFYPfMRvZeNn1DJghT9yj3
+	J5Trg4LrnoOMwdI/oLE62Kntin5yWvcrEVBAmx9wcW2qZOjaG4as4A4SaYoKq45sgdQh21s2wlYNy
+	sR22/ayQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wSM3w-00000004leG-3wWX;
-	Wed, 27 May 2026 21:45:16 +0000
-Received: from mail-dy1-x1349.google.com ([2607:f8b0:4864:20::1349])
+	id 1wSM42-00000004lex-0Aye;
+	Wed, 27 May 2026 21:45:22 +0000
+Received: from mail-dy1-x134a.google.com ([2607:f8b0:4864:20::134a])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wSM3t-00000004ld9-3LbQ
+	id 1wSM3v-00000004ldY-0aZZ
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 27 May 2026 21:45:14 +0000
-Received: by mail-dy1-x1349.google.com with SMTP id 5a478bee46e88-2fe1cf409a1so1666061eec.1
-        for <linux-arm-kernel@lists.infradead.org>; Wed, 27 May 2026 14:45:13 -0700 (PDT)
+	Wed, 27 May 2026 21:45:16 +0000
+Received: by mail-dy1-x134a.google.com with SMTP id 5a478bee46e88-304448ab58cso6418934eec.1
+        for <linux-arm-kernel@lists.infradead.org>; Wed, 27 May 2026 14:45:14 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=google.com; s=20251104; t=1779918312; x=1780523112; darn=lists.infradead.org;
-        h=cc:to:from:subject:message-id:mime-version:date:from:to:cc:subject
-         :date:message-id:reply-to;
-        bh=Ab2hzOOXCyIXPSNyeDp9OO3k2d2oxbauwxi1JxymGkw=;
-        b=k0QtJUx0m1hng9XefVLuwfovNAnqELNr9s3kdr6FQCy535kW/sVegRRkkAfD4iO+wg
-         Xli3Yr/0KggPDdPW6hwisEUDvltM+WGrC/Mq0jFOGE6gzkgIkf0F32+rIJjDTxSk+bqD
-         8AlWwEEDXCJxLF7YZzMdY4h1XJxwsMPBlMyJb0n4riei16aqLTo997D1d5V9x63xoh7R
-         2FESrGxuD26UmvE/QqHj1gmEYoOOy4Eu4zElsKItLp2yC1n/sU8iFbJJ6x9pOl87j142
-         BQyHwSTQ2JLjNMNW9QDOvKmiEAD0XPFfbPiXAsJcwkV+S27L17zgcpdHapgQmyqHNDyD
-         F+BQ==
+        d=google.com; s=20251104; t=1779918314; x=1780523114; darn=lists.infradead.org;
+        h=content-transfer-encoding:cc:to:from:subject:message-id:references
+         :mime-version:in-reply-to:date:from:to:cc:subject:date:message-id
+         :reply-to;
+        bh=6mrvQD6GgPgoo9WdJOzGFB8vI+DJYjKJmIgf8+ynX7Y=;
+        b=eYuxy1yCbZ7q8+2ashCR4MsQyy0HMWe5tteLIPU10fAoutp4/mfX3EI5ofG6x3kvI0
+         4SSPKxEPRQGx2gIb2DV7/Tl60LH64pkBtq+7RoxXe1SVTrQ51Qam+E/1VnfDHYZInCZb
+         nw7Rxt5+haQjuxybMRQUhgv1TbHE0i+J0FWpAMJJhVvrsZHTxG87X++S7bpghYly+yh9
+         V7Ubh9ykgpPy2/eXpvwVYHFRuQar1t0Jaku/5Z+dczYKw5bt3FN3Bd9rhKWcuqeQ3YHO
+         85KolG8fk8/nWk6qlg4rGqdpLn03IDh/plv5wNx6r2+EVFyl6eUvGdthIM8az3hbfQyB
+         satA==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20251104; t=1779918312; x=1780523112;
-        h=cc:to:from:subject:message-id:mime-version:date:x-gm-message-state
-         :from:to:cc:subject:date:message-id:reply-to;
-        bh=Ab2hzOOXCyIXPSNyeDp9OO3k2d2oxbauwxi1JxymGkw=;
-        b=fkV8CbFllcc8q3K5cJ4eI+rX83tDVIybiSA+CAO7j32IhD0Q0IGk6XUJY0Xu8cp5FE
-         dBL3sA9XA4ITGAN4eEeRtG4IH9Rs8LGYXWqB2gjaKJS/ckbuNKIT85ZLlH64sRCzP6nx
-         r21yNtsdiVN6mkwcna7t+yHEjOrwp7dnAipxXUUA20auB3eFgagUm1TGRf9NrSmd8g8v
-         3RaD/AS55TehhDMPinIGaxJEYL0TFm+LBpPzMcYI2ohUxSM4WAoULLkvd+dtfJAbnJ3I
-         KKgTk4rnvOKjl9S/V5jdcg+w+smd5UsUVlTIwxsE0lRnZ/YtyYaMlqVtON9duBVsX0Gz
-         rBaA==
-X-Forwarded-Encrypted: i=1; AFNElJ+uKbqny2X/utUUGRRIvA74lFrHkPnOT8Y3bm0aQLhpiy3AM+VKcnMZT6p3DJ04ymPCALwQteVi8KrK7p2UxZjZ@lists.infradead.org
-X-Gm-Message-State: AOJu0Yx4ByjNcPYKMky1HiFHQbX9XXufsBNUp+wiWCMIvOyXcCkpwKsW
-	R95/C2JMAvjFM2Q5jSraVpdqkvaiSOqEPuQQXtLOC8aLKy+H6uozR1F/rSgRWv7Z9NcRJA==
-X-Received: from dyz12.prod.google.com ([2002:a05:693c:408c:b0:304:59b1:e122])
- (user=xur job=prod-delivery.src-stubby-dispatcher) by 2002:a05:7301:6096:b0:2ed:2942:34ab
- with SMTP id 5a478bee46e88-3044904df37mr10961903eec.3.1779918312233; Wed, 27
- May 2026 14:45:12 -0700 (PDT)
-Date: Wed, 27 May 2026 14:45:06 -0700
+        d=1e100.net; s=20251104; t=1779918314; x=1780523114;
+        h=content-transfer-encoding:cc:to:from:subject:message-id:references
+         :mime-version:in-reply-to:date:x-gm-message-state:from:to:cc:subject
+         :date:message-id:reply-to;
+        bh=6mrvQD6GgPgoo9WdJOzGFB8vI+DJYjKJmIgf8+ynX7Y=;
+        b=aLKNa+lLWASNndamUbTasQtKnB4WE5bP/Sii0IVP44ZXtv3XKkoaExjqGlNuEy8Jx3
+         kEO0OPR+MVy5sknW9eZOBxr1DEP3hX9bebPjvBUnxsRaCSxR3k1jXCVK1u2bSbCdT2sX
+         VRuVlUn0+5U27505BjwdBoVij3niC9XHPZnIetrPykfIQFjqFRwxPVT/l4WxKZz/2yFE
+         b6ah5nPd+gH/+83phiupjoL9xixVMc79yq2AQ9djfIC9iMyopSYEH7Ux7t0FvYlI5BQP
+         ytz015ilHledSbMBeR/1TTUkvfHO6BfiMZjQ0ZW3rimDvGY38Zw0S7/NcPK8eVapXRvr
+         czfg==
+X-Forwarded-Encrypted: i=1; AFNElJ9Ym2A7UFMGfMkxV5XUMoKO/NdvwbxmtKkWcMNottAo5nZPVrcOrvcE5il6yOV2fLFX23QfFUsAJ1u082fb8TVp@lists.infradead.org
+X-Gm-Message-State: AOJu0Yx4R9BzQVWcBF9XjJpe3fa4E79JWHDqj6qkUlv1Fa5mNvAEpEZJ
+	rtGcopUCtgKYwAtBYyDbDsgSRGK/nWlWX49yF/FhwZQO4mFb2D+1gUWwB/xWRTFhtsmO1g==
+X-Received: from dyvs21.prod.google.com ([2002:a05:693c:42d5:b0:2f7:767f:edc0])
+ (user=xur job=prod-delivery.src-stubby-dispatcher) by 2002:a05:7300:6417:b0:2ed:7e1:975
+ with SMTP id 5a478bee46e88-3044903799bmr12307194eec.1.1779918313261; Wed, 27
+ May 2026 14:45:13 -0700 (PDT)
+Date: Wed, 27 May 2026 14:45:07 -0700
+In-Reply-To: <20260527214510.3907973-1-xur@google.com>
 Mime-Version: 1.0
+References: <20260527214510.3907973-1-xur@google.com>
 X-Mailer: git-send-email 2.54.0.794.g4f17f83d09-goog
-Message-ID: <20260527214510.3907973-1-xur@google.com>
-Subject: [PATCH v3 0/2] kconfig: Remove the architecture specific config for
- AutoFDO and Propeller
+Message-ID: <20260527214510.3907973-2-xur@google.com>
+Subject: [PATCH v3 1/2] kconfig: Remove the architecture specific config for AutoFDO
 From: xur@google.com
 To: Yabin Cui <yabinc@google.com>, Will Deacon <will@kernel.org>, Han Shen <shenhan@google.com>, 
 	Thomas Gleixner <tglx@linutronix.de>, Ingo Molnar <mingo@redhat.com>, Borislav Petkov <bp@alien8.de>, 
@@ -79,9 +82,10 @@ To: Yabin Cui <yabinc@google.com>, Will Deacon <will@kernel.org>, Han Shen <shen
 	Alice Ryhl <aliceryhl@google.com>
 Cc: x86@kernel.org, linux-arm-kernel@lists.infradead.org
 Content-Type: text/plain; charset="UTF-8"
+Content-Transfer-Encoding: quoted-printable
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260527_144513_844316_E8BCFE2B 
-X-CRM114-Status: GOOD (  10.51  )
+X-CRM114-CacheID: sfid-20260527_144515_181718_1EDC3F14 
+X-CRM114-Status: GOOD (  12.01  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -98,25 +102,52 @@ Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.i
 
 From: Rong Xu <xur@google.com>
 
-Resend this patch:
+The CONFIG_AUTOFDO_CLANG option currently depends on
+ARCH_SUPPORTS_AUTOFDO_CLANG, but this dependency seems unnecessary.
 
-ChangeLog:
-  V3: (1) updated the base;
-      (2) changed vmlinux.lds.S for arm64 to avoid the warnings
-          from .llvm_bb_addr_map. 
+Remove ARCH_SUPPORTS_AUTOFDO_CLANG and allow users to control AutoFDO
+builds solely through CONFIG_AUTOFDO_CLANG. This simplifies the kconfig
+and avoids potential confusion.
 
-Rong Xu (2):
-  kconfig: Remove the architecture specific config for AutoFDO
-  kconfig: Remove the architecture specific config for Propeller
+Signed-off-by: Rong Xu <xur@google.com>
+Suggested-by: Will Deacon <will@kernel.org>
+Tested-by: Yabin Cui <yabinc@google.com>
+Reviewed-by: Kees Cook <kees@kernel.org>
+---
+ arch/Kconfig     | 4 ----
+ arch/x86/Kconfig | 1 -
+ 2 files changed, 5 deletions(-)
 
- arch/Kconfig                    | 8 --------
- arch/arm64/kernel/vmlinux.lds.S | 3 +++
- arch/x86/Kconfig                | 2 --
- 3 files changed, 3 insertions(+), 10 deletions(-)
-
-
-base-commit: 2c31897a17e55a6da529b4e797e98c6febc60fd2
--- 
+diff --git a/arch/Kconfig b/arch/Kconfig
+index e86880045158..e510c585ea84 100644
+--- a/arch/Kconfig
++++ b/arch/Kconfig
+@@ -863,12 +863,8 @@ config LTO_CLANG_THIN
+ 	  If unsure, say Y.
+ endchoice
+=20
+-config ARCH_SUPPORTS_AUTOFDO_CLANG
+-	bool
+-
+ config AUTOFDO_CLANG
+ 	bool "Enable Clang's AutoFDO build (EXPERIMENTAL)"
+-	depends on ARCH_SUPPORTS_AUTOFDO_CLANG
+ 	depends on CC_IS_CLANG && CLANG_VERSION >=3D 170000
+ 	help
+ 	  This option enables Clang=E2=80=99s AutoFDO build. When
+diff --git a/arch/x86/Kconfig b/arch/x86/Kconfig
+index f3f7cb01d69d..10bf3984102e 100644
+--- a/arch/x86/Kconfig
++++ b/arch/x86/Kconfig
+@@ -130,7 +130,6 @@ config X86
+ 	select ARCH_SUPPORTS_LTO_CLANG
+ 	select ARCH_SUPPORTS_LTO_CLANG_THIN
+ 	select ARCH_SUPPORTS_RT
+-	select ARCH_SUPPORTS_AUTOFDO_CLANG
+ 	select ARCH_SUPPORTS_PROPELLER_CLANG    if X86_64
+ 	select ARCH_USE_BUILTIN_BSWAP
+ 	select ARCH_USE_CMPXCHG_LOCKREF		if X86_CX8
+--=20
 2.54.0.794.g4f17f83d09-goog
 
 
