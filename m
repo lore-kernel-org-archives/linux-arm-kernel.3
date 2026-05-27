@@ -4,69 +4,146 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id C55ACCD5BC9
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 27 May 2026 10:27:01 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 1014FCD6E44
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 27 May 2026 10:31:23 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	MIME-Version:Message-Id:Date:Subject:Cc:To:From:Reply-To:Content-Type:
-	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
-	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
-	bh=kBCvcOAUjSaqdFqgGwlFMO/k+lLQoKOhHvL0oo61Cy8=; b=B++dz3fvksZ/j+GKLFw5/Vbzr5
-	pP+RVyrm7pHCscMDqejh3x/6nALL26Psi7HV3eD74C7xKjnlsQKtBBHI44pPYuma8DdxoyWV+12E0
-	eP/iscZz9XTH5w6BLBMmnsRvJT0Q89C7Ho3O+pintDvDti+IId5tMyS+MWc0DuSfnppv6Ec/eJwJS
-	FqZlv5t0co8oE2EgvHaE/xwYq5U11B7Fs8b+YwSmpBGtTWvU3PO8uE2VKj0DfHUnT6WYUjy9LCWp9
-	wFf/pyYSEbYRkp0iZ3DOXtqHFQUdpBG8LHYACf8AD7aTt109CmpfmPbga757XsxPI3fnK22qHTiaG
-	uAu0z26A==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:
+	Content-Transfer-Encoding:Content-Type:In-Reply-To:From:References:Cc:To:
+	Subject:Date:Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=214qW9XVUv45c5SbNVET6TCf9qd0hoAYzAwNkzNm07o=; b=fjeERnZuEIOrVrRgW0uNOk5iTF
+	DwiN1ye10CgmZ8lkh9LljiMwERntAdTV0NvX2dhfSR17Jk3HvnXTdCQFBmhDAtNUuaWQII9B5WXYY
+	yJsOkSMY092H0FSJhRyeUKuK4z43ejTOJIV9vd6lizVQlPEBa8gsDQyWG1vYgq5ju3VMkmv/3qBBr
+	yTAf65gCNiU7/Boks2eXtOEMQCqDeLna3Jup+vfLSrS8/kXNUU8X7DHnxGY8NV1O7llHjwcZcpeBl
+	HG0V192F/mQc0UK3D8fWEuYuunnVrmbTwxQBixwl9dxsQtdOoEF3D5133Lij8RDfP3oeqU0FYqzXm
+	gBePRaTg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wSAWF-00000003dVa-0u08;
-	Wed, 27 May 2026 09:25:43 +0000
-Received: from smtp25.cstnet.cn ([159.226.251.25] helo=cstnet.cn)
+	id 1wSBXf-00000003uBV-1CtZ;
+	Wed, 27 May 2026 10:31:15 +0000
+Received: from mail-northeuropeazlp170120005.outbound.protection.outlook.com ([2a01:111:f403:c200::5] helo=DUZPR83CU001.outbound.protection.outlook.com)
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wSAWA-00000003dV6-2ppe
+	id 1wSBXc-00000003u84-38r7
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 27 May 2026 09:25:42 +0000
-Received: from dfae2b116770.home.arpa (unknown [36.110.52.3])
-	by APP-05 (Coremail) with SMTP id zQCowAC3F9uPuBZqxN6KEQ--.1418S2;
-	Wed, 27 May 2026 17:25:36 +0800 (CST)
-From: Wentao Liang <vulab@iscas.ac.cn>
-To: Sudeep Holla <sudeep.holla@kernel.org>,
-	Liam Girdwood <lgirdwood@gmail.com>,
-	Mark Brown <broonie@kernel.org>
-Cc: Cristian Marussi <cristian.marussi@arm.com>,
-	arm-scmi@vger.kernel.org,
-	linux-arm-kernel@lists.infradead.org,
-	linux-kernel@vger.kernel.org,
-	Wentao Liang <vulab@iscas.ac.cn>,
-	stable@vger.kernel.org
-Subject: [PATCH] regulator: scmi: fix of_node refcount leak in scmi_regulator_probe()
-Date: Wed, 27 May 2026 09:25:21 +0000
-Message-Id: <20260527092521.866310-1-vulab@iscas.ac.cn>
-X-Mailer: git-send-email 2.34.1
+	Wed, 27 May 2026 10:31:14 +0000
+ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
+ b=h6tHQG54xL6ZwBW/zc1mEG7M+An3LJXWta+xGpSnzjyq+1+41+dvYM6U/2BtlU8uzSYxwhza2PF9ZP8IQRDmRweqxtFLyxwhjEdRFO2C5s7+4ez+FwRKiuwOKm1rPZqRqCE6swUxaPlcIW9kM9rXqZEnRAzvTLPkv0y9BDxPqDOSBLGm5bDwfqxph/QoZSt7TOLM2u4mh+5+Db2RlEJ48Xmi7rOTuurVOQjsyUD85geK8D5JGk1esyTR8J+C3AboXPKVEl9yTu8LuqFdUgwaZ2IHp79dgi29JbM73M5aq8X9AGokZut6RHgzzGYsdLh9mJrnBBsnkJhaPrvM/CET5Q==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
+ s=arcselector10001;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
+ bh=214qW9XVUv45c5SbNVET6TCf9qd0hoAYzAwNkzNm07o=;
+ b=uFjNJzB1zmguobWzKYPSTEEIMOh2jGQVRUULgn9rlYxNaYx5b2BNBa54NG5yoL8czIBDw1UHJiZvaCY8OnNOD/ecpXj8kwW4ymQ42ak20L7GVpqidKCNkgtmGiFCUPd/JBU+b7gK56jx+4qrNk/VMbn4cWv3ZUnjQVYjvsLbZGHuApEbJalxUm8q+DP01DK3kcNnbQvTRASDkhCijYI/Tid/IbMAPV1kRYrx5AkPzstyA7y6hVGivC8nNkp1i3FieLaDtubDyVgWDItuNtKsRE3E/iSbmx1+/TvapSl2wPkrIomfSb7bPssEznxJxRYadWM2hLEsiFFHKwxPIytzkg==
+ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
+ smtp.mailfrom=kontron.de; dmarc=pass action=none header.from=kontron.de;
+ dkim=pass header.d=kontron.de; arc=none
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kontron.de;
+ s=selector1;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
+ bh=214qW9XVUv45c5SbNVET6TCf9qd0hoAYzAwNkzNm07o=;
+ b=tIuKCk5j1w8rAuHw+xhydI2wj7f4VWtqj1vknaCnaVe7zydQP/v+MFLhBPWBCMJPaW/TyYeaog3/DenBJaI3Diau9LCwyMW1f/WHU2QQShBKVirEk96EUfCDfp6In8EDmrkSldFVlswbAKbRQ828KoPGjudV4qCbZQpCHIZ1WippfKHdaK2J6+kQyZiZ/um2Vcy9ag5D1l7W+OVgWn6vaHYsTFfTQlUmO37r1i8TQFhoHRwDrxBU4Ri31MVBRZ7GO8A/BZxsJkuWCaZOWAo9rjCD/2TVCCeyM1khDchKhjNSKaWrXBqLAx0p1EpcWcW4mux8lpYNKYsjdCo00ypYvw==
+Authentication-Results: dkim=none (message not signed)
+ header.d=none;dmarc=none action=none header.from=kontron.de;
+Received: from AM9PR10MB4277.EURPRD10.PROD.OUTLOOK.COM (2603:10a6:20b:1fb::23)
+ by AM8PR10MB4130.EURPRD10.PROD.OUTLOOK.COM (2603:10a6:20b:1ea::7) with
+ Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.21.71.11; Wed, 27 May
+ 2026 10:31:04 +0000
+Received: from AM9PR10MB4277.EURPRD10.PROD.OUTLOOK.COM
+ ([fe80::a276:4ad7:962:da22]) by AM9PR10MB4277.EURPRD10.PROD.OUTLOOK.COM
+ ([fe80::a276:4ad7:962:da22%3]) with mapi id 15.21.0071.011; Wed, 27 May 2026
+ 10:31:03 +0000
+Message-ID: <b821c94d-655f-4154-b4b8-4310138bbcbf@kontron.de>
+Date: Wed, 27 May 2026 12:31:01 +0200
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH v2 1/2] drm: lcdif: Set undocumented bit to clear FIFO at
+ vsync
+To: Paul Kocialkowski <paulk@sys-base.io>, dri-devel@lists.freedesktop.org,
+ imx@lists.linux.dev, linux-arm-kernel@lists.infradead.org,
+ linux-kernel@vger.kernel.org
+Cc: Marek Vasut <marex@denx.de>, Stefan Agner <stefan@agner.ch>,
+ Maarten Lankhorst <maarten.lankhorst@linux.intel.com>,
+ Maxime Ripard <mripard@kernel.org>, Thomas Zimmermann <tzimmermann@suse.de>,
+ David Airlie <airlied@gmail.com>, Simona Vetter <simona@ffwll.ch>,
+ Frank Li <Frank.Li@nxp.com>, Sascha Hauer <s.hauer@pengutronix.de>,
+ Pengutronix Kernel Team <kernel@pengutronix.de>,
+ Fabio Estevam <festevam@gmail.com>, Lucas Stach <l.stach@pengutronix.de>,
+ =?UTF-8?Q?Krzysztof_Ha=C5=82asa?= <khalasa@piap.pl>,
+ Marco Felsch <m.felsch@pengutronix.de>, Liu Ying <victor.liu@nxp.com>
+References: <20260402183351.3281123-1-paulk@sys-base.io>
+ <20260402183351.3281123-2-paulk@sys-base.io>
+Content-Language: en-US, de-DE
+From: Frieder Schrempf <frieder.schrempf@kontron.de>
+In-Reply-To: <20260402183351.3281123-2-paulk@sys-base.io>
+Content-Type: text/plain; charset=UTF-8
+Content-Transfer-Encoding: 7bit
+X-ClientProxiedBy: FR4P281CA0060.DEUP281.PROD.OUTLOOK.COM
+ (2603:10a6:d10:cc::20) To AM9PR10MB4277.EURPRD10.PROD.OUTLOOK.COM
+ (2603:10a6:20b:1fb::23)
 MIME-Version: 1.0
-Content-Transfer-Encoding: 8bit
-X-CM-TRANSID: zQCowAC3F9uPuBZqxN6KEQ--.1418S2
-X-Coremail-Antispam: 1UD129KBjvdXoW7GryrZF47Xr18Cw1UAw1UJrb_yoWkZFc_Gr
-	yfW3W7JrWDur48Wrn7XFZ0vr9xKr1qgayxZF4IkFW3Cw1Yv3WDJa43Xr9xArW8Z3y8Jr9r
-	WwsrArW8Aw43ujkaLaAFLSUrUUUUjb8apTn2vfkv8UJUUUU8Yxn0WfASr-VFAUDa7-sFnT
-	9fnUUIcSsGvfJTRUUUbcAFF20E14v26r4j6ryUM7CY07I20VC2zVCF04k26cxKx2IYs7xG
-	6rWj6s0DM7CIcVAFz4kK6r1j6r18M28lY4IEw2IIxxk0rwA2F7IY1VAKz4vEj48ve4kI8w
-	A2z4x0Y4vE2Ix0cI8IcVAFwI0_Xr0_Ar1l84ACjcxK6xIIjxv20xvEc7CjxVAFwI0_Gr0_
-	Cr1l84ACjcxK6I8E87Iv67AKxVW0oVCq3wA2z4x0Y4vEx4A2jsIEc7CjxVAFwI0_GcCE3s
-	1le2I262IYc4CY6c8Ij28IcVAaY2xG8wAqx4xG64xvF2IEw4CE5I8CrVC2j2WlYx0E2Ix0
-	cI8IcVAFwI0_Jr0_Jr4lYx0Ex4A2jsIE14v26r4j6F4UMcvjeVCFs4IE7xkEbVWUJVW8Jw
-	ACjcxG0xvY0x0EwIxGrwACjI8F5VA0II8E6IAqYI8I648v4I1lc7CjxVAaw2AFwI0_Jw0_
-	GFyl42xK82IYc2Ij64vIr41l4I8I3I0E4IkC6x0Yz7v_Jr0_Gr1lx2IqxVAqx4xG67AKxV
-	WUJVWUGwC20s026x8GjcxK67AKxVWUGVWUWwC2zVAF1VAY17CE14v26r1q6r43MIIYrxkI
-	7VAKI48JMIIF0xvE2Ix0cI8IcVAFwI0_Jr0_JF4lIxAIcVC0I7IYx2IY6xkF7I0E14v26r
-	1j6r4UMIIF0xvE42xK8VAvwI8IcIk0rVWUJVWUCwCI42IY6I8E87Iv67AKxVWUJVW8JwCI
-	42IY6I8E87Iv6xkF7I0E14v26r4j6r4UJbIYCTnIWIevJa73UjIFyTuYvjfU52NtDUUUU
-X-Originating-IP: [36.110.52.3]
-X-CM-SenderInfo: pyxotu46lvutnvoduhdfq/1tbiDAcAA2oWidms9QABs8
+X-MS-PublicTrafficType: Email
+X-MS-TrafficTypeDiagnostic: AM9PR10MB4277:EE_|AM8PR10MB4130:EE_
+X-MS-Office365-Filtering-Correlation-Id: 442f48ca-95da-41f2-6a7b-08debbdb0d98
+X-MS-Exchange-SenderADCheck: 1
+X-MS-Exchange-AntiSpam-Relay: 0
+X-Microsoft-Antispam: BCL:0;ARA:13230040|376014|366016|7416014|1800799024|22082099003|18002099003|56012099006|11063799006|6133799003|4143699003;
+X-Microsoft-Antispam-Message-Info: 9VLxAQKXGn1sycTqcilz/ZAKOqg4nFCZ5RM1dbBaBp4Kf554RelHLsPXGzf+TbbUjEhgLuESJbfBW/4BcZm3i6M1TIpRtC1V1ae7Km6TI+tCXZirsbNfn+rbZhQ5RP1Bo2uusaCoIjcXO90N4Etoli4Pzgr+gE+YuqxRpkUUdmvv7QRDcIIsV03nZ66Fuh7hQKtmyX5AIdqkJpUzfJlU1yu5JdNRQEhbrndVQxFqR6409qgK2LMsYKKHcs1D1uDt3zIhR1Q1cJCU7De5P3VUM4HfoRv4fD3nRcIbyaowHqvkw3vNMlvi9RAJUgwzVQSvGGv5vPbZt0HjxT7AY/D2x/qsIq6aKscns2z7JjUffjsuUFGcirz+u6/39pER3vRwdjSSpGIytOfTgnzmIbPCsQBICNRiPYmshU+aZMDgbpFzd8pYPlhvsq7kKoBmBpgaqvl3GRrhiky2U64xiJ6kq9+URG+YR+5J4ZK//K3eRL/d3AxfcQiHniv6GYLiBsZ8/wUQfbIjEoGKjpWPwVmKzdN0ozAf8SlFn5P+jxtjggQl+oketPN1HZfixLrsW6GEOBbiRo2hZ9Q3GA0VoJPaujnWPfZC4syWYOh63ml8Wy7FBnPiITm6g832SW4Yvg6oxYz8M7QeLdx6pNW/drzHjWy2wDq3k+qK7QFuj8Ft5f9CZKYMVSrW8qPOb3I+GM1P
+X-Forefront-Antispam-Report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:AM9PR10MB4277.EURPRD10.PROD.OUTLOOK.COM;PTR:;CAT:NONE;SFS:(13230040)(376014)(366016)(7416014)(1800799024)(22082099003)(18002099003)(56012099006)(11063799006)(6133799003)(4143699003);DIR:OUT;SFP:1102;
+X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
+X-MS-Exchange-AntiSpam-MessageData-0: =?utf-8?B?NDV4T2hBdHpWcldjNG9yS2MzWUpVMlZSenVwY01RUXBQSWIxc29tYkpHUnhN?=
+ =?utf-8?B?LzNDaGlMc0RWcGt4dm1jQ29DL01TSTFXbTUwd0htZysrMEtSczhJcFVhNlhQ?=
+ =?utf-8?B?KytEUjFQZ2lEOHFkdDEyVVJDdFJyNlN4S0VFSk4xSThBbWN2b3FYQ0JxdEhD?=
+ =?utf-8?B?SEd0eVJmTjBtRFY4SzZRKzIyYTdBQ0paUnNLazk4eExkOFNFWXhFUTFRbUgx?=
+ =?utf-8?B?VHRoUEZLd2NKcFhiUSsrV0E3amZJakJNWWNxR0FuNXUra3RwdzB1SFZqQmZx?=
+ =?utf-8?B?dTJZbGZ2cFBMdHJOMkpqMEZxY3lxOXd6WkFwWHNDSGh1S0szbUx1emhrczBD?=
+ =?utf-8?B?Si9abWdCWFc1bDFRU28yQ1d0UkdHQStraVJMSjdMZG1TQ2FFdXA0TXJ6WEVG?=
+ =?utf-8?B?MGI0L29GVUVMSHBiUDRiNVk3NDhmK3M4SXUrVzRxK2czbkRnak5zK2QrY2pG?=
+ =?utf-8?B?VWRRYlIrL0pCeEZseUJYUWZ4ajNDZ2gzRkNKeE1HcmduMVZ0czh6ZmNpQ2Q5?=
+ =?utf-8?B?dWl0MFp0T3JZY0pzOG4xWmJUTm9yb0MvamdjZkdCdm85NGVlV25kVHNkSVlQ?=
+ =?utf-8?B?N0NmY0poUEJTaDdwQk44YUdseHV5RWJQRmR5TkZXNlhjRmR2eDIyb0xKWXIy?=
+ =?utf-8?B?ZHJnTndlcEJTSkJPeWdwajl3TWRFaWJOVzBJaHZlVnFxbG1EMGRSc2RxS3Nk?=
+ =?utf-8?B?UFd6YmpqZ1VhQmYwbjdMWWRhOTd4VDlVRVRrRFlMSGp5UHNWemUyZzRqaHNn?=
+ =?utf-8?B?czlLRCtDVmsyZTRCc2V2Q0NnU2ZLN1hMTVNQenNtTGl3NDVRWjdSYnMxSWFJ?=
+ =?utf-8?B?N2lOQlpzSThKMlRFRzVQRlJlRURJeE1NRGlnL3BhVTBOZ29VZlQ1TmI4Z3kz?=
+ =?utf-8?B?N0Y2UFBtNWZtcW9pWHRzU3ptUWtWUCtaMjJiNU9ETC9ZSUQ2WlhGbVplVFNG?=
+ =?utf-8?B?VnBNSTBKVmxuRlMwNHNVeVVsYnNMTGlMOWp4NkxYM0N3ZGlnQkFTNVdRa0Vv?=
+ =?utf-8?B?eDRxU25RYjhWZHFiazFxZmJxZFNxWTQwVTR0ZlMxdUxiVzNwa0JiencyYWlu?=
+ =?utf-8?B?WDFJdXlOTndZcy9CWU9KZEt1dUFXZW8wRWxYcEs5b0Jwb3hlVUgvK3NoM2xn?=
+ =?utf-8?B?azB6YzRsMkFLMU83OFJRVDR5bms2Ukw3VUd1OEtEY2JHM0ZNTUVUdU1qU3ln?=
+ =?utf-8?B?UmJkWlp4Uk9ORE5GN1BQQkkvL1ZVMTgyM0FYRThoUXFaTys3OFdBV0Z2RFE3?=
+ =?utf-8?B?ZlFDb0phNkdpYXJSOXNxekFkMkdLeDd5a2NIN3pIeEhqS3UrdE9ucWpXLzhL?=
+ =?utf-8?B?S0t2ekJtT1RYNURBdW9XT0JFamRpMzFDRS81Q3NiT1M4RlRKUXVMTjc5SURK?=
+ =?utf-8?B?V053NEhYRkRyZHdONWNObWliRFhnTjF0ZlYwc0MvcUN0ZzdSTGVYMWxhd0ly?=
+ =?utf-8?B?NXB1bURDS2ppTkcxa2FqcWxncXFBa0FSSDlZc1AxNFp1WjRiUS9UdWtrV05p?=
+ =?utf-8?B?UWlPMXgvU05hdDYzNFRRUEdYcGdSeFBLNENiV25OYWFTQUo1N1Q5QVV6TGlP?=
+ =?utf-8?B?dVJBZndEYXBhell3S1hZTERDaXlOeU1YSHdQRW40eVhZQ1B2YktkOTNLb2xU?=
+ =?utf-8?B?LzJrWVlJZHdTL2p2Ym4yRER5dlE0OGRwMUhsYVZweUlscWw2TEE1djdhN1dU?=
+ =?utf-8?B?Q1lKYmlpNGliWnEwOE5DT3dDMU41WU5aOUxQcGxQbXQxUktpUlh0dVhpb0Fu?=
+ =?utf-8?B?eGpRNlAyMGQvU3I0S1lyeXBjeS9POUVwNmVEQkY5Mm5ndjIxODBHamVSY3V0?=
+ =?utf-8?B?bGI3SDJmSXc5c1l6WnZkQ1FZT0VzWTV5WjI0KzJTVkkyNy9EZUVJaTVOeWdv?=
+ =?utf-8?B?NjRENjRCaEQ4bjJJTlQ5bzBpWlZoeEhKdGhna2gySFBoOFZDbHZMdkduY2o4?=
+ =?utf-8?B?YWdQSlc3WW04c3FUcEJnRHNLZHg1SHU5V1RscUhGTFVmZ01yTVBWdHpGeVhC?=
+ =?utf-8?B?N21zR2VVKzJ1ZW82UElNbzRoWTkvNTRBYUxSc2pEN2k1VlNRblpWTC9HT2Ni?=
+ =?utf-8?B?Vi9GVTNLOURldXFIQVA0SzJhNCtuVzl0dDRzOFlKelhpdWpyeVFkTmYzN3g5?=
+ =?utf-8?B?cnNUV0Z4WUZNRTNkTnBONGVBellOTHdOSVFVb25FL1k0ZWZMNk55NkZhakVv?=
+ =?utf-8?B?Z2h0VFppL3NyTW9RcXZuMXNKaGNyaDRCcmxibHAycDhKVTYwcGJoMy9Xd0VX?=
+ =?utf-8?B?R0ZLVC9DUVl6M3FJWXpRUVc2aE41RjNVS3MxZnVSTENlcUI4MUQvbTZBdWt1?=
+ =?utf-8?B?Rm9EMnNZdWJpcHBKaXFjSXdjYjluWEFlM3V3Zm8rM3N4aCt6Rk1yaG53Zm1P?=
+ =?utf-8?Q?WjAOs5HQNJO9XDjk=3D?=
+X-OriginatorOrg: kontron.de
+X-MS-Exchange-CrossTenant-Network-Message-Id: 442f48ca-95da-41f2-6a7b-08debbdb0d98
+X-MS-Exchange-CrossTenant-AuthSource: AM9PR10MB4277.EURPRD10.PROD.OUTLOOK.COM
+X-MS-Exchange-CrossTenant-AuthAs: Internal
+X-MS-Exchange-CrossTenant-OriginalArrivalTime: 27 May 2026 10:31:03.5222
+ (UTC)
+X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
+X-MS-Exchange-CrossTenant-Id: 8c9d3c97-3fd9-41c8-a2b1-646f3942daf1
+X-MS-Exchange-CrossTenant-MailboxType: HOSTED
+X-MS-Exchange-CrossTenant-UserPrincipalName: H8yuHx6s8cTCoZJbfHl7q0lXyAiNAjl4ag+tYmYUUdgaw6BPX3efRTU2zZKGwArbzfa+RVcD1RAoKYHz3Z3qJGS61kJc1x+KiqSQduIrPfQ=
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: AM8PR10MB4130
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260527_022539_089911_86F3B2C8 
-X-CRM114-Status: GOOD (  10.57  )
+X-CRM114-CacheID: sfid-20260527_033113_099497_AE5FDB54 
+X-CRM114-Status: GOOD (  17.43  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -81,38 +158,47 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-scmi_regulator_probe() calls of_find_node_by_name() which takes a
-reference on the returned device node. On the error path where
-process_scmi_regulator_of_node() fails, the function returns without
-calling of_node_put() on the child node, leaking the reference.
+On 02.04.26 20:33, Paul Kocialkowski wrote:
+> There is an undocumented bit used in the NXP BSP to clear the FIFO
+> systematically at vsync. In normal operation, the FIFO should already
+> be empty but it doesn't hurt to add it as an extra safety measure.
+> 
+> Signed-off-by: Paul Kocialkowski <paulk@sys-base.io>
+> Reviewed-by: Lucas Stach <l.stach@pengutronix.de>
 
-Add of_node_put(np) on the error path to properly release the
-reference.
+Reviewed-by: Frieder Schrempf <frieder.schrempf@kontron.de>
+Tested-by: Frieder Schrempf <frieder.schrempf@kontron.de>
 
-Cc: stable@vger.kernel.org
-Fixes: 0fbeae70ee7c ("regulator: add SCMI driver")
-Signed-off-by: Wentao Liang <vulab@iscas.ac.cn>
----
- drivers/regulator/scmi-regulator.c | 4 +++-
- 1 file changed, 3 insertions(+), 1 deletion(-)
-
-diff --git a/drivers/regulator/scmi-regulator.c b/drivers/regulator/scmi-regulator.c
-index 6d609c42e479..f1fe20b0fd76 100644
---- a/drivers/regulator/scmi-regulator.c
-+++ b/drivers/regulator/scmi-regulator.c
-@@ -345,8 +345,10 @@ static int scmi_regulator_probe(struct scmi_device *sdev)
- 	for_each_child_of_node_scoped(np, child) {
- 		ret = process_scmi_regulator_of_node(sdev, ph, child, rinfo);
- 		/* abort on any mem issue */
--		if (ret == -ENOMEM)
-+		if (ret == -ENOMEM) {
-+			rof_node_put(np);
- 			return ret;
-+		}
- 	}
- 	of_node_put(np);
- 	/*
--- 
-2.34.1
+> ---
+>  drivers/gpu/drm/mxsfb/lcdif_kms.c  | 3 ++-
+>  drivers/gpu/drm/mxsfb/lcdif_regs.h | 1 +
+>  2 files changed, 3 insertions(+), 1 deletion(-)
+> 
+> diff --git a/drivers/gpu/drm/mxsfb/lcdif_kms.c b/drivers/gpu/drm/mxsfb/lcdif_kms.c
+> index ef3250a5c54f..a00c4f6d63f4 100644
+> --- a/drivers/gpu/drm/mxsfb/lcdif_kms.c
+> +++ b/drivers/gpu/drm/mxsfb/lcdif_kms.c
+> @@ -338,7 +338,8 @@ static void lcdif_set_mode(struct lcdif_drm_private *lcdif, u32 bus_flags)
+>  	 * Downstream set it to 256B burst size to improve the memory
+>  	 * efficiency so set it here too.
+>  	 */
+> -	ctrl = CTRLDESCL0_3_P_SIZE(2) | CTRLDESCL0_3_T_SIZE(2) |
+> +	ctrl = CTRLDESCL0_3_STATE_CLEAR_VSYNC |
+> +	       CTRLDESCL0_3_P_SIZE(2) | CTRLDESCL0_3_T_SIZE(2) |
+>  	       CTRLDESCL0_3_PITCH(lcdif->crtc.primary->state->fb->pitches[0]);
+>  	writel(ctrl, lcdif->base + LCDC_V8_CTRLDESCL0_3);
+>  }
+> diff --git a/drivers/gpu/drm/mxsfb/lcdif_regs.h b/drivers/gpu/drm/mxsfb/lcdif_regs.h
+> index c55dfb236c1d..17882c593d27 100644
+> --- a/drivers/gpu/drm/mxsfb/lcdif_regs.h
+> +++ b/drivers/gpu/drm/mxsfb/lcdif_regs.h
+> @@ -190,6 +190,7 @@
+>  #define CTRLDESCL0_1_WIDTH(n)		((n) & 0xffff)
+>  #define CTRLDESCL0_1_WIDTH_MASK		GENMASK(15, 0)
+>  
+> +#define CTRLDESCL0_3_STATE_CLEAR_VSYNC	BIT(23)
+>  #define CTRLDESCL0_3_P_SIZE(n)		(((n) << 20) & CTRLDESCL0_3_P_SIZE_MASK)
+>  #define CTRLDESCL0_3_P_SIZE_MASK	GENMASK(22, 20)
+>  #define CTRLDESCL0_3_T_SIZE(n)		(((n) << 16) & CTRLDESCL0_3_T_SIZE_MASK)
 
 
