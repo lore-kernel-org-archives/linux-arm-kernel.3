@@ -4,61 +4,77 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 98D42CD5BD0
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 27 May 2026 13:06:15 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id D4C36CD5BD5
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 27 May 2026 13:13:20 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
-	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Content-Type:MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:
+	To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=3VoPvHluQuwyIP2S8wFsK/kRbLmAnx/2Td6fLU5aAis=; b=KEG4An/YR+sXWz81LS8qeJSmjL
-	kXOZdi6rMRc441vaIj77p/rcZ7EXadcsJCseXtjTCS3Wzzh444DHh34bD1CIW9vxRUlI+Nw5liipP
-	t8WIFbhU2Mf7u91fKpesRbV4YuF1wjgpvdD6SguXagBsEq6vU2zCNcDR72t4fa7LHWYmjEI4geAze
-	nE+K2pdlja+/R23Np0gh6iUfBSl39avPmHNBWWysTSNQSWWOZ9cVyROJL6YXjWkYrlGKj7cg4vt7t
-	OoC+YYPWfIbL1pXTbz3lyySBQmBg1A138pM7HImg7e7iY8xQJRgc9HTjeOwPMyIs4fMPEYB9Huark
-	Q0KhDJpA==;
+	bh=Niw++E/3HBnaCkx4o+VI5DBHvskXLqB6ZBKTyJpxMkM=; b=1JsdjxvZah+dnlwTi46P5oU8S/
+	RJTTuJeNsA8uJQpg1kbV5Wg510/sectbo82gmB5q7fXV67r52WOHURZQXBeK9g8vr5aYDgEnLHqc7
+	CFb2YJrRZ+yJ+vqU01joCs7mRvTIZD1zZJIkvQa5TIfht4Uv2hlgVNdkPUtoUDz24GfKS/YbchvsA
+	8xcxE8MNBrnY5D4kChlWhiC4Zu5pi7Hc7UDubE9yB2tu5iKiIhn8FNZxHudwrmKUz3ye/n89IOxz0
+	xRph0yEKLuuTJtEbeYbsCgQNNLw6f7hv3SKn0QD7UGIZJD5cwZCF/zjZdx4KVHoIxrXAevjzzXTok
+	wOYm96Qg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wSDxZ-000000049Xc-27I6;
-	Wed, 27 May 2026 13:06:09 +0000
-Received: from foss.arm.com ([217.140.110.172])
-	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wSDxW-000000049XF-2pAY
+	id 1wSE4P-00000004AB4-2t1R;
+	Wed, 27 May 2026 13:13:13 +0000
+Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
+	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
+	id 1wSE4M-00000004AAW-23j9
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 27 May 2026 13:06:08 +0000
-Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
-	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id A8EFD26AC;
-	Wed, 27 May 2026 06:05:59 -0700 (PDT)
-Received: from [10.1.38.169] (e121487-lin.cambridge.arm.com [10.1.38.169])
-	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id B61743F632;
-	Wed, 27 May 2026 06:06:02 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=simple/simple; d=arm.com; s=foss;
-	t=1779887164; bh=+Jmd8FdsttIL4C0+iErorLC9Q8DG1wkQLz9MK4rBsWI=;
-	h=Date:Subject:To:Cc:References:From:In-Reply-To:From;
-	b=p4ZNy6oVX8zHp1XsJ4yojF499gnLFm5jw2zGuh2ZNe//HzrMS4xgChgy+1e49Gotk
-	 4zg2WmodpWp3E+sUiERrKW/318DZb0m1SYZ92jfkRVpxV1uvcQN+jPDPn6ac9KzBw/
-	 uSCE7xd8tjBvPzAuX+qUwT0x1GHzuat/xZp7+/Ig=
-Message-ID: <5261a835-2b61-419c-9305-b8e651842dff@arm.com>
-Date: Wed, 27 May 2026 14:06:00 +0100
+	Wed, 27 May 2026 13:13:12 +0000
+Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
+	by sea.source.kernel.org (Postfix) with ESMTP id 015A844602;
+	Wed, 27 May 2026 13:13:10 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id D79391F000E9;
+	Wed, 27 May 2026 13:13:09 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
+	s=k20260515; t=1779887589;
+	bh=Niw++E/3HBnaCkx4o+VI5DBHvskXLqB6ZBKTyJpxMkM=;
+	h=From:To:Cc:Subject:Date:In-Reply-To:References;
+	b=KNHyq9kTC8JAbquYl7oHKMIvHVW4edX68G1uinaEO/07PW05DZJujqWyMY5a/xNom
+	 e7APg4VDv2Oj1v62z19f+YT/V6B+nFji/fQ4pvIHZvmZqy+2nhyrdD9Rz4fsF+qpwC
+	 i/MgrU+gzfDzaHScBAle62TavDqwepSYsucfNLGILYZ6OYllcktjc1I/oMVYzcafzO
+	 arzs3uXLzXRh17Xk95yu3GGgsv/Zldj/pcOZIlG+PFcjnaZsRW1TsitQKVU+EbUjaU
+	 qY2hm53TDVyJf4v6XHDHYbA1eL8lwhT/pXN07JDFpqoA7w+GMhNnQkZTX+PvUur0BL
+	 VgAiXViBZlKXA==
+Received: from sofa.misterjones.org ([185.219.108.64] helo=valley-girl.lan)
+	by disco-boy.misterjones.org with esmtpsa  (TLS1.3) tls TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384
+	(Exim 4.98.2)
+	(envelope-from <maz@kernel.org>)
+	id 1wSE4J-00000006gdv-4AQ9;
+	Wed, 27 May 2026 13:13:08 +0000
+From: Marc Zyngier <maz@kernel.org>
+To: joey.gouly@arm.com,
+	suzuki.poulose@arm.com,
+	yuzenghui@huawei.com,
+	catalin.marinas@arm.com,
+	will@kernel.org,
+	Oliver Upton <oupton@kernel.org>,
+	Vincent Donnefort <vdonnefort@google.com>
+Cc: linux-arm-kernel@lists.infradead.org,
+	kvmarm@lists.linux.dev,
+	kernel-team@android.com
+Subject: Re: [PATCH v2 0/3] Fixes for hyp_trace.c
+Date: Wed, 27 May 2026 14:13:05 +0100
+Message-ID: <177988756841.1513623.7911406206293058821.b4-ty@kernel.org>
+X-Mailer: git-send-email 2.47.3
+In-Reply-To: <20260521124613.911067-1-vdonnefort@google.com>
+References: <20260521124613.911067-1-vdonnefort@google.com>
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH 08/18] arm64: fpsimd: Use assembler for baseline SME
- instructions
-To: Mark Rutland <mark.rutland@arm.com>,
- linux-arm-kernel@lists.infradead.org, kvmarm@lists.linux.dev
-Cc: broonie@kernel.org, catalin.marinas@arm.com, james.morse@arm.com,
- maz@kernel.org, oupton@kernel.org, tabba@google.com, will@kernel.org
-References: <20260521132556.584676-1-mark.rutland@arm.com>
- <20260521132556.584676-9-mark.rutland@arm.com>
-Content-Language: en-GB
-From: Vladimir Murzin <vladimir.murzin@arm.com>
-In-Reply-To: <20260521132556.584676-9-mark.rutland@arm.com>
-Content-Type: text/plain; charset=UTF-8
-Content-Transfer-Encoding: 7bit
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: 8bit
+X-SA-Exim-Connect-IP: 185.219.108.64
+X-SA-Exim-Rcpt-To: joey.gouly@arm.com, suzuki.poulose@arm.com, yuzenghui@huawei.com, catalin.marinas@arm.com, will@kernel.org, oupton@kernel.org, vdonnefort@google.com, linux-arm-kernel@lists.infradead.org, kvmarm@lists.linux.dev, kernel-team@android.com
+X-SA-Exim-Mail-From: maz@kernel.org
+X-SA-Exim-Scanned: No (on disco-boy.misterjones.org); SAEximRunCond expanded to false
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260527_060606_893948_A6059AF1 
-X-CRM114-Status: GOOD (  27.59  )
+X-CRM114-CacheID: sfid-20260527_061311_300279_074FF9B9 
+X-CRM114-Status: GOOD (  10.31  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -73,150 +89,32 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On 5/21/26 14:25, Mark Rutland wrote:
-> We currently support assemblers which do not support SME instructions,
-> and have macros to manually encode SME instructions. This was
-> necessary historically as SME support was developed before assembler
-> support was widely available, but things have changed:
+On Thu, 21 May 2026 13:46:10 +0100, Vincent Donnefort wrote:
+> While reviewing my v1, Sashiko found a couple of issues with the error path and
+> more annoyingly a memory leak which I originally missed as the allocated
+> decriptor isn't tracked by kmemleak.
 > 
-> * All currently supported versions of LLVM support baseline SME
->   instructions. Building the kernel requires LLVM 15+, while LLVM 13+
->   supports SME.
+> Changes since v2:
 > 
-> * GNU binutils has supported baseline SME instructions since 2.38, which
->   was released on 09 February 2022. Toolchains using this or later are
->   widely available. For example Debian 12 (released on 10 June 2023)
->   provides binutils 2.40. Toolchains provided kernel.org provide
->   binutils 2.38+ since the GCC 12.1.0 release (released between 06 May
->   2022 and 17 August 2022).
+>   - Fix rollback in hyp_trace_buffer_share_hyp()
+>   - Fix memory leak in hyp_trace_unload()
 > 
-> * For various reasons, SME support was marked as BROKEN, and re-enabled
->   in v6.16 (released on 27 July 2025). The earliest support LTS kernel
->   with SME support is v6.18.y, v6.18 was tagged on 30 November 2025, and
->   contemporary toolchains (GCC 15.2 and binutils 2.45) supported
->   baseline SME instructions.
-> 
-> * Any distribution which intends to support SME will presumably have a
->   toolchain that supports baseline SME instructions such that userspace
->   can be built.
-> 
-> Considering the above, there's no practical benefit to allowing SME to
-> be built when the toolchain doesn't support baseline SME instructions.
-> 
-> Make CONFIG_ARM64_SME depend on assembler support for SME, and remove
-> the manual encoding of SME instructions. The various _sme_<insn> macros
-> are kept for now, and will be cleaned up in subsequent patches.
-> 
-> A couple of SME2 instructions require a more recent toolchain, and are
-> left as-is for now. I've looked through releases of binutils and LLVM to
-> find when support was added, and noted this in a comment.
-> 
-> Signed-off-by: Mark Rutland <mark.rutland@arm.com>
-> Cc: Catalin Marinas <catalin.marinas@arm.com>
-> Cc: Fuad Tabba <tabba@google.com>
-> Cc: James Morse <james.morse@arm.com>
-> Cc: Marc Zyngier <maz@kernel.org>
-> Cc: Mark Brown <broonie@kernel.org>
-> Cc: Oliver Upton <oupton@kernel.org>
-> Cc: Will Deacon <will@kernel.org>
-> ---
->  arch/arm64/Kconfig                    |  5 ++++
->  arch/arm64/include/asm/fpsimdmacros.h | 38 +++++++++++----------------
->  2 files changed, 20 insertions(+), 23 deletions(-)
-> 
-> diff --git a/arch/arm64/Kconfig b/arch/arm64/Kconfig
-> index fe60738e5943b..378e50fef247a 100644
-> --- a/arch/arm64/Kconfig
-> +++ b/arch/arm64/Kconfig
-> @@ -2247,10 +2247,15 @@ config ARM64_SVE
->  	  booting the kernel.  If unsure and you are not observing these
->  	  symptoms, you should assume that it is safe to say Y.
->  
-> +config AS_HAS_SME
-> +	# Supported by LLVM 13+ and binutils 2.38+
-> +	def_bool $(as-instr,.arch_extension sme)
-> +
->  config ARM64_SME
->  	bool "ARM Scalable Matrix Extension support"
->  	default y
->  	depends on ARM64_SVE
-> +	depends on AS_HAS_SME
->  	help
->  	  The Scalable Matrix Extension (SME) is an extension to the AArch64
->  	  execution state which utilises a substantial subset of the SVE
-> diff --git a/arch/arm64/include/asm/fpsimdmacros.h b/arch/arm64/include/asm/fpsimdmacros.h
-> index 1122eea6daacf..d0bdbbf2d44ad 100644
-> --- a/arch/arm64/include/asm/fpsimdmacros.h
-> +++ b/arch/arm64/include/asm/fpsimdmacros.h
-> @@ -148,46 +148,38 @@
->  	pfalse	p\np\().b
->  .endm
->  
-> -/* SME instruction encodings for non-SME-capable assemblers */
-> -/* (pre binutils 2.38/LLVM 13) */
-> +/* Deprecated macros for SME instructions */
->  
->  /* RDSVL X\nx, #\imm */
->  .macro _sme_rdsvl nx, imm
-> -	_check_general_reg \nx
-> -	_check_num (\imm), -0x20, 0x1f
-> -	.inst	0x04bf5800			\
-> -		| (\nx)				\
-> -		| (((\imm) & 0x3f) << 5)
-> +	.arch_extension sme
-> +	rdsvl x\nx, #\imm
->  .endm
->  
->  /*
->   * STR (vector from ZA array):
-> - *	STR ZA[\nw, #\offset], [X\nxbase, #\offset, MUL VL]
-> + *	STR ZA[W\nw, #\offset], [X\nxbase, #\offset, MUL VL]
->   */
->  .macro _sme_str_zav nw, nxbase, offset=0
-> -	_sme_check_wv \nw
-> -	_check_general_reg \nxbase
-> -	_check_num (\offset), -0x100, 0xff
-> -	.inst	0xe1200000			\
-> -		| (((\nw) & 3) << 13)		\
-> -		| ((\nxbase) << 5)		\
-> -		| ((\offset) & 7)
-> +	.arch_extension sme
-> +	str	za[w\nw, #\offset], [x\nxbase, #\offset, MUL VL]
->  .endm
->  
->  /*
->   * LDR (vector to ZA array):
-> - *	LDR ZA[\nw, #\offset], [X\nxbase, #\offset, MUL VL]
-> + *	LDR ZA[w\nw, #\offset], [X\nxbase, #\offset, MUL VL]
->   */
->  .macro _sme_ldr_zav nw, nxbase, offset=0
-> -	_sme_check_wv \nw
-> -	_check_general_reg \nxbase
-> -	_check_num (\offset), -0x100, 0xff
-> -	.inst	0xe1000000			\
-> -		| (((\nw) & 3) << 13)		\
-> -		| ((\nxbase) << 5)		\
-> -		| ((\offset) & 7)
-> +	.arch_extension sme
-> +	ldr	za[w\nw, #\offset], [x\nxbase, #\offset, MUL VL]
->  .endm
->  
-> +/*
-> + * SME2 instruction encodings for older assemblers.
-> + * Supported by binutils 2.41+.
-> + * Supported by LLVM 16+
-> + */
-> +
->  /*
->   * LDR (ZT0)
->   *
-> -- 2.30.2
-> 
+> [...]
 
-Same nitpick about redundancy of instruction comments, but I assume you want to keep them :)
+Applied to fixes, thanks!
 
-FWIW,
+[1/3] KVM: arm64: Fix meta-page unsharing in pKVM hyp tracing
+      commit: 0f7abb6eaa3c3965f925e231c18409dac4f5a0c1
+[2/3] KVM: arm64: Fix rollback in hyp_trace_buffer_share_hyp()
+      commit: a23780ea9db3f3cadbb52ff6151384bff89d95d2
+[3/3] KVM: arm64: Fix memory leak in hyp_trace_unload()
+      commit: adae9996c04fea3b1791099b6d79e1df76d50849
 
-Reviewed-by: Vladimir Murzin <vladimir.murzin@arm.com>
+Cheers,
+
+	M.
+-- 
+Without deviation from the norm, progress is not possible.
+
 
 
