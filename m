@@ -4,74 +4,94 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 086A3CD5BD5
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 27 May 2026 15:15:56 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id EC579CD5BD5
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 27 May 2026 15:21:44 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	MIME-Version:Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-Type:
-	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
-	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
-	bh=7UzLdiOi5LZpZjDmxVBQL0dGr7IdV3ZJ62uiej/iPEw=; b=B2T4YoQD1/SAEUn3JSP1uMZtcq
-	KCLNDhzQI5nPKClsde2o4x62bxXbu6bVbjbDonhutsGVLWXACWCQ490sm4zhaQOOefN/jY2g0bJGJ
-	Os/LfLGr/UmTghHeKUD29BP6cKVmn4RLIUUnvzQahTCcieYdWipNiKkaRAS6MBJVnb6UGdlmw+j0l
-	saN0H1nOKW3lI48AMHiFMEjBK7iaEME00YPEx6wnrJmKd21FEHbQ4TIxNes2LUkTgOzMTI11jOjGS
-	n8A2mRUtTU6J8YpnjNUenTJLYBoQVOB66KbVexzuS3/l2vGuDOSM7Whx7h5KLq2AiAgSLrQ5WpqYr
-	aRh9puxg==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:MIME-Version:
+	References:In-Reply-To:Subject:Cc:To:From:Message-ID:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=zfzKYqdLKqLou2xyyPcBQZmXad6Js16rghPX85JNlC8=; b=gX50KWXA2VB4A/msIpzq/poFoR
+	GuR6YeFeAI0y7YwbgsBqWpdMc0fOQqExWv8PalGW2/Ci5N9FeOvvjop0ZMRw58eDAwNowPYSAIQp2
+	wLhx9ErBEpvwJpGjJIzGd1pM2YwJETEIFcnfz2qYO0kDfLVu7nAbmuU5P83kjSv7TEKwESa/CcaDl
+	vDH1BLAvybzNSbj7MYFQB86PUDrNTARPjZyqh0L2GmxjgZZ2J8UyAGM0merhfu8K+0fPD9zp084XF
+	WcvnYenewV3e+PT31f9wkfD/z/D0fIQhoyIlwHhkvafoJM/8YrzMyRfvNMnGe2d3D1jCUhIN0Qz0K
+	IzrVgBFw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wSFz2-00000004O5a-1SFr;
-	Wed, 27 May 2026 15:15:48 +0000
-Received: from mout.gmx.net ([212.227.15.19])
+	id 1wSG4g-00000004OnI-1DZC;
+	Wed, 27 May 2026 15:21:38 +0000
+Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wSFyz-00000004O5G-1QT4
+	id 1wSG4d-00000004OmZ-40vk
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 27 May 2026 15:15:46 +0000
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=gmx.net;
-	s=s31663417; t=1779894888; x=1780499688; i=wahrenst@gmx.net;
-	bh=7UzLdiOi5LZpZjDmxVBQL0dGr7IdV3ZJ62uiej/iPEw=;
-	h=X-UI-Sender-Class:From:To:Cc:Subject:Date:Message-ID:
-	 MIME-Version:Content-Transfer-Encoding:cc:
-	 content-transfer-encoding:content-type:date:from:message-id:
-	 mime-version:reply-to:subject:to;
-	b=rVxUllNSyfGx2eGhn4EPNFe4EXxTFadBxmz4jrBYcTuITAo+D0pnkD2Iz3Y2Zyfp
-	 SSu1i0JA/3oneO+HTi2+4nCCGkXHZU0EEoFHls2rUBqqIgmp0enz48loakrNxYlwJ
-	 0MEJn0CW4cwjPiNxuwfVVHGuWLDXxVECnmvyEkpmQXHv1e3JA5Sf4hZFAMlHoTQHB
-	 em2MvmOMPM/6kOF6pXJMLeP5eblhLpeQ+at506Byrb+vluvMEB/R844y59/pP08r8
-	 H5S6No99bgip72TGSj+mPDldUOfoM4qib2pgO6z7Gx7pS/Hi+wToenImBJJ53c8zu
-	 qNyuNVkoUyQRSn8Nqg==
-X-UI-Sender-Class: 724b4f7f-cbec-4199-ad4e-598c01a50d3a
-Received: from client.hidden.invalid by mail.gmx.net (mrgmx004
- [212.227.17.190]) with ESMTPSA (Nemesis) id 1Mw9Q6-1xIAEW2EEu-00vSxl; Wed, 27
- May 2026 17:14:48 +0200
-From: Stefan Wahren <wahrenst@gmx.net>
-To: Catalin Marinas <catalin.marinas@arm.com>,
+	Wed, 27 May 2026 15:21:37 +0000
+Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
+	by sea.source.kernel.org (Postfix) with ESMTP id 6D18F43D84;
+	Wed, 27 May 2026 15:21:35 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 4C3C11F000E9;
+	Wed, 27 May 2026 15:21:35 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
+	s=k20260515; t=1779895295;
+	bh=zfzKYqdLKqLou2xyyPcBQZmXad6Js16rghPX85JNlC8=;
+	h=Date:From:To:Cc:Subject:In-Reply-To:References;
+	b=bqKm/KIx9SZiNFvg+rRpM9FW+apfluy74behCm+gNm7zPh7TFNXNfkZcXFxlFkUXR
+	 75HJ325gNQJZ3eAVBm06XNdT8uXEB5lo5l2yZMiAJhfqKU9jiqvn1S2mECrepBDhHC
+	 QFdJee5SKkaZ6Htu401Go8q+AP0zROI8I94tc4MTUoD8brfWJrjzkVetrh52AHHaqS
+	 4e5uGQ5LFWCoFKYw7idtizfjriz5gVd2E/MVjBTFKsunebdNF0tWw7mbnDuzkWPAHn
+	 0cohXt53o9ybwk6hc0rS00bSwBp+8dMNOroAMfW1ENaVFhYu1QzSUb6Qbc2lVq0jB9
+	 /syB2Qilfkk1A==
+Received: from sofa.misterjones.org ([185.219.108.64] helo=goblin-girl.misterjones.org)
+	by disco-boy.misterjones.org with esmtpsa  (TLS1.3) tls TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384
+	(Exim 4.98.2)
+	(envelope-from <maz@kernel.org>)
+	id 1wSG4b-00000006jaR-1Cqt;
+	Wed, 27 May 2026 15:21:33 +0000
+Date: Wed, 27 May 2026 16:21:32 +0100
+Message-ID: <86jysovpxf.wl-maz@kernel.org>
+From: Marc Zyngier <maz@kernel.org>
+To: Steven Price <steven.price@arm.com>
+Cc: kvm@vger.kernel.org,
+	kvmarm@lists.linux.dev,
+	Catalin Marinas <catalin.marinas@arm.com>,
 	Will Deacon <will@kernel.org>,
-	Alexandre Belloni <alexandre.belloni@bootlin.com>,
-	Linus Walleij <linusw@kernel.org>,
-	Arnd Bergmann <arnd@arndb.de>,
-	Frank Li <Frank.Li@nxp.com>
-Cc: Christoph Stoidner <c.stoidner@phytec.de>,
-	Primoz Fiser <primoz.fiser@norik.com>,
+	James Morse <james.morse@arm.com>,
+	Oliver Upton <oliver.upton@linux.dev>,
+	Suzuki K Poulose <suzuki.poulose@arm.com>,
+	Zenghui Yu <yuzenghui@huawei.com>,
 	linux-arm-kernel@lists.infradead.org,
-	Stefan Wahren <wahrenst@gmx.net>,
-	Krzysztof Kozlowski <krzysztof.kozlowski@oss.qualcomm.com>
-Subject: [PATCH V2] arm64: defconfig: Enable DP83822 PHY driver
-Date: Wed, 27 May 2026 17:14:14 +0200
-Message-ID: <20260527151414.184823-1-wahrenst@gmx.net>
-X-Mailer: git-send-email 2.43.0
-MIME-Version: 1.0
-Content-Transfer-Encoding: quoted-printable
-X-Provags-ID: V03:K1:EueO/6D1vIc5/h6rH87/1PWK/73E98lUz1LyLJp5YTeHKY9T+MA
- MM8z2brehktsat3byJtEGRd26YGW1kgr3umFhuriVMjwc5RD57Y9kyA5+fhgjI+EXTHJg0B
- JGLUr2u8I/fd/GGGCCY5FG5JVwWE7/xE5+612M6OMpIcuaQZLy0QPRtVfezvWQSAbLdH1Zr
- /aDoH4Ub4/UFywxA25CvQ==
-UI-OutboundReport: notjunk:1;M01:P0:cPdR1c0HO4w=;D3XGFIi/qgzP2gnKDmDnhonjUab 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
+	linux-kernel@vger.kernel.org,
+	Joey Gouly <joey.gouly@arm.com>,
+	Alexandru Elisei <alexandru.elisei@arm.com>,
+	Christoffer Dall <christoffer.dall@arm.com>,
+	Fuad Tabba <tabba@google.com>,
+	linux-coco@lists.linux.dev,
+	Ganapatrao Kulkarni <gankulkarni@os.amperecomputing.com>,
+	Gavin Shan <gshan@redhat.com>,
+	Shanker Donthineni <sdonthineni@nvidia.com>,
+	Alper Gun <alpergun@google.com>,
+	"Aneesh Kumar K . V" <aneesh.kumar@kernel.org>,
+	Emi Kisanuki <fj0570is@fujitsu.com>,
+	Vishal Annapurve <vannapurve@google.com>,
+	WeiLin.Chang@arm.com,
+	Lorenzo.Pieralisi2@arm.com
+Subject: Re: [PATCH v14 13/44] arm64: RMI: Define the user ABI
+In-Reply-To: <20260513131757.116630-14-steven.price@arm.com>
+References: <20260513131757.116630-1-steven.price@arm.com>
+	<20260513131757.116630-14-steven.price@arm.com>
+User-Agent: Wanderlust/2.15.9 (Almost Unreal) SEMI-EPG/1.14.7 (Harue)
+ FLIM-LB/1.14.9 (=?UTF-8?B?R29qxY0=?=) APEL-LB/10.8 EasyPG/1.0.0 Emacs/30.1
+ (aarch64-unknown-linux-gnu) MULE/6.0 (HANACHIRUSATO)
+MIME-Version: 1.0 (generated by SEMI-EPG 1.14.7 - "Harue")
+Content-Type: text/plain; charset=US-ASCII
+X-SA-Exim-Connect-IP: 185.219.108.64
+X-SA-Exim-Rcpt-To: steven.price@arm.com, kvm@vger.kernel.org, kvmarm@lists.linux.dev, catalin.marinas@arm.com, will@kernel.org, james.morse@arm.com, oliver.upton@linux.dev, suzuki.poulose@arm.com, yuzenghui@huawei.com, linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org, joey.gouly@arm.com, alexandru.elisei@arm.com, christoffer.dall@arm.com, tabba@google.com, linux-coco@lists.linux.dev, gankulkarni@os.amperecomputing.com, gshan@redhat.com, sdonthineni@nvidia.com, alpergun@google.com, aneesh.kumar@kernel.org, fj0570is@fujitsu.com, vannapurve@google.com, WeiLin.Chang@arm.com, Lorenzo.Pieralisi2@arm.com
+X-SA-Exim-Mail-From: maz@kernel.org
+X-SA-Exim-Scanned: No (on disco-boy.misterjones.org); SAEximRunCond expanded to false
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260527_081545_665725_8E2E90DE 
-X-CRM114-Status: UNSURE (   8.78  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20260527_082136_037740_339435A5 
+X-CRM114-Status: GOOD (  37.60  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -86,33 +106,156 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Enable DP83822 PHY driver as a module to support the Ethernet PHY,
-which is placed on phyCORE-i.MX93 SOM.
+On Wed, 13 May 2026 14:17:21 +0100,
+Steven Price <steven.price@arm.com> wrote:
+> 
+> There is one CAP which identified the presence of CCA, and one ioctl.
+> The ioctl is used to populate memory during creation of the realm as
+> this requires the RMM to copy data from an unprotected address to the
+> protected memory - CCA does not support memory conversion where the
+> memory contents is preserved as this is incompatible with memory
+> encryption.
+>
+> Signed-off-by: Steven Price <steven.price@arm.com>
+> ---
+> Changes since v13:
+>  * KVM_ARM_VCPU_RMI_PSCI_COMPLETE removed.
+>  * KVM_ARM_RMI_POPULATE documentation updated to reflect that the
+>    structure is written by the kernel.
+>  * CAP number bumped.
+> Changes since v12:
+>  * Change KVM_ARM_RMI_POPULATE to update the structure with the amount
+>    that has been progressed rather than return the number of bytes
+>    populated.
+>  * Describe the flag KVM_ARM_RMI_POPULATE_FLAGS_MEASURE.
+>  * CAP number is bumped.
+>  * NOTE: The PSCI ioctl may be removed in a future spec release.
+> Changes since v11:
+>  * Completely reworked to be more implicit. Rather than having explicit
+>    CAP operations to progress the realm construction these operations
+>    are done when needed (on populating and on first vCPU run).
+>  * Populate and PSCI complete are promoted to proper ioctls.
+> Changes since v10:
+>  * Rename symbols from RME to RMI.
+> Changes since v9:
+>  * Improvements to documentation.
+>  * Bump the magic number for KVM_CAP_ARM_RME to avoid conflicts.
+> Changes since v8:
+>  * Minor improvements to documentation following review.
+>  * Bump the magic numbers to avoid conflicts.
+> Changes since v7:
+>  * Add documentation of new ioctls
+>  * Bump the magic numbers to avoid conflicts
+> Changes since v6:
+>  * Rename some of the symbols to make their usage clearer and avoid
+>    repetition.
+> Changes from v5:
+>  * Actually expose the new VCPU capability (KVM_ARM_VCPU_REC) by bumping
+>    KVM_VCPU_MAX_FEATURES - note this also exposes KVM_ARM_VCPU_HAS_EL2!
+> ---
+>  Documentation/virt/kvm/api.rst | 40 ++++++++++++++++++++++++++++++++++
+>  include/uapi/linux/kvm.h       | 13 +++++++++++
+>  2 files changed, 53 insertions(+)
 
-Reviewed-by: Krzysztof Kozlowski <krzysztof.kozlowski@oss.qualcomm.com>
-Signed-off-by: Stefan Wahren <wahrenst@gmx.net>
-=2D--
+$SUBJECT looks wrong. This is a KVM change, not an RMI change.
 
-Changes in V2:
-- rebase patch
-- add Krzysztof's Reviewed-by
+>
+> diff --git a/Documentation/virt/kvm/api.rst b/Documentation/virt/kvm/api.rst
+> index 52bbbb553ce1..ca68aae7faa2 100644
+> --- a/Documentation/virt/kvm/api.rst
+> +++ b/Documentation/virt/kvm/api.rst
+> @@ -6553,6 +6553,37 @@ KVM_S390_KEYOP_SSKE
+>    Sets the storage key for the guest address ``guest_addr`` to the key
+>    specified in ``key``, returning the previous value in ``key``.
+>  
+> +4.145 KVM_ARM_RMI_POPULATE
+> +--------------------------
+> +
+> +:Capability: KVM_CAP_ARM_RMI
+> +:Architectures: arm64
+> +:Type: vm ioctl
+> +:Parameters: struct kvm_arm_rmi_populate (in/out)
+> +:Returns: 0 on success, < 0 on error
+> +
+> +::
+> +
+> +  struct kvm_arm_rmi_populate {
+> +	__u64 base;
+> +	__u64 size;
+> +	__u64 source_uaddr;
+> +	__u32 flags;
+> +	__u32 reserved;
+> +  };
+> +
+> +Populate a region of protected address space by copying the data from the
+> +(non-protected) user space pointer provided into a protected region (backed by
+> +guestmem_fd). It implicitly sets the destination region to RIPAS RAM. This is
+> +only valid before any VCPUs have been run. The ioctl might not populate the
+> +entire region and in this case the kernel updates the fields `base`, `size` and
+> +`source_uaddr`. User space may have to repeatedly call it until `size` is 0 to
+> +populate the entire region.
+> +
+> +`flags` can be set to `KVM_ARM_RMI_POPULATE_FLAGS_MEASURE` to request that the
+> +populated data is hashed and added to the guest's Realm Initial Measurement
+> +(RIM).
 
- arch/arm64/configs/defconfig | 1 +
- 1 file changed, 1 insertion(+)
+Where is that measurement stored? And retrieved? At least a pointer to
+that would help.
 
-diff --git a/arch/arm64/configs/defconfig b/arch/arm64/configs/defconfig
-index d905a0777f93..20bbbd310d2f 100644
-=2D-- a/arch/arm64/configs/defconfig
-+++ b/arch/arm64/configs/defconfig
-@@ -421,6 +421,7 @@ CONFIG_AT803X_PHY=3Dy
- CONFIG_QCA808X_PHY=3Dm
- CONFIG_REALTEK_PHY=3Dy
- CONFIG_ROCKCHIP_PHY=3Dy
-+CONFIG_DP83822_PHY=3Dm
- CONFIG_DP83867_PHY=3Dy
- CONFIG_DP83869_PHY=3Dm
- CONFIG_DP83TG720_PHY=3Dm
-=2D-=20
-2.43.0
+> +
+>  .. _kvm_run:
+>  
+>  5. The kvm_run structure
+> @@ -8904,6 +8935,15 @@ helpful if user space wants to emulate instructions which are not
+>  This capability can be enabled dynamically even if VCPUs were already
+>  created and are running.
+>  
+> +7.47 KVM_CAP_ARM_RMI
+> +--------------------
+> +
+> +:Architectures: arm64
+> +:Target: VM
+> +:Parameters: None
+> +
+> +This capability indicates that support for CCA realms is available.
+> +
+>  8. Other capabilities.
+>  ======================
+>  
+> diff --git a/include/uapi/linux/kvm.h b/include/uapi/linux/kvm.h
+> index 6c8afa2047bf..b8cff0938041 100644
+> --- a/include/uapi/linux/kvm.h
+> +++ b/include/uapi/linux/kvm.h
+> @@ -996,6 +996,7 @@ struct kvm_enable_cap {
+>  #define KVM_CAP_S390_USER_OPEREXEC 246
+>  #define KVM_CAP_S390_KEYOP 247
+>  #define KVM_CAP_S390_VSIE_ESAMODE 248
+> +#define KVM_CAP_ARM_RMI 249
+>  
+>  struct kvm_irq_routing_irqchip {
+>  	__u32 irqchip;
+> @@ -1669,4 +1670,16 @@ struct kvm_pre_fault_memory {
+>  	__u64 padding[5];
+>  };
+>  
+> +/* Available with KVM_CAP_ARM_RMI, only for VMs with KVM_VM_TYPE_ARM_REALM */
+> +#define KVM_ARM_RMI_POPULATE	_IOWR(KVMIO, 0xd7, struct kvm_arm_rmi_populate)
+> +#define KVM_ARM_RMI_POPULATE_FLAGS_MEASURE	(1 << 0)
+> +
+> +struct kvm_arm_rmi_populate {
+> +	__u64 base;
+> +	__u64 size;
+> +	__u64 source_uaddr;
+> +	__u32 flags;
+> +	__u32 reserved;
+> +};
+> +
+>  #endif /* __LINUX_KVM_H */
 
+Thanks,
+
+	M.
+
+-- 
+Without deviation from the norm, progress is not possible.
 
