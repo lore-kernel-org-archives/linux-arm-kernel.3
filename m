@@ -4,88 +4,122 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id C287CCD5BD0
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 27 May 2026 15:41:50 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 61979CD4F54
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 27 May 2026 15:57:55 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:MIME-Version:
-	References:In-Reply-To:Message-ID:Date:Subject:CC:To:From:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=tVfcv9pmJ2XYcQ33bLkDgO5t96BPNldPT0cgWOVUZJM=; b=4zX19QrtaYnOeASgQq2DeCPT36
-	kn/le2jxkp9BOyaqwg3I65YqLDme0LwWHNPPOTHZSevDFTkNPdKRBGhUXTYuRZZY4JlZQI9ABuZvY
-	RR9mYIQLxJDigrUVDC4DU1m3kRkHGdqm6Gp5WvJYb1FJcHGisq40EZOCQSFk5DoXH6xzC/8zbPA1o
-	rWydBTP5T0QEoeKSVjwgCUVmIUJ+RH18tv7Twy4N526ytm13lFLhQW2pObsnflHQoiGcO4pWYs6gx
-	zA75GUbZnqntWgma4NmWjycb3qQdkni0KtUyKGaEBFFNjT2JISwqplpHKjfBoqJPXWScsCjPcpZoK
-	2Yng0OnQ==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
+	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=ruse92HxVZF3tg/3Ui5GdXdiuEAzTNq7ogLAZFLqaO8=; b=iAklIRWXiAJrP7HfuagvCkyO0Z
+	26RNzAayt1F/YqO/ghlLY6wJznK5GAOvnrKdc2Mn3Z7wY1fuQdnDh+d9RecnINzL784eqF1L37SIQ
+	eKcHLexlsJ0GAzEL4/zGZJ5G2huXoTF7Kbenyu7ODeUKRsECmpE6PVfbQszX5g0UbPSKjSUUS4e8h
+	mnjQLubap/sTFG1CFJTXwD8b8k2xZmX42VceH5EsQYiUckxixBz4gL1gHGkiwhBYI/s2De4cKb+6A
+	0Oj327TYMhH5AgonIwyBM0Jybk9YW/uNw0Maa+7dnWzaaEOZ85IRWsrA6DKIxRK8pTjaZDI0qAwGo
+	1h2aBxYA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wSGO7-00000004QNF-2vF8;
-	Wed, 27 May 2026 15:41:43 +0000
-Received: from mx0a-0016f401.pphosted.com ([67.231.148.174] helo=mx0b-0016f401.pphosted.com)
+	id 1wSGdg-00000004SN4-2GCr;
+	Wed, 27 May 2026 15:57:48 +0000
+Received: from mgamail.intel.com ([198.175.65.12])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wSGO5-00000004QMB-2dkF
+	id 1wSGdd-00000004SDs-0Owi
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 27 May 2026 15:41:43 +0000
-Received: from pps.filterd (m0045849.ppops.net [127.0.0.1])
-	by mx0a-0016f401.pphosted.com (8.18.1.11/8.18.1.11) with ESMTP id 64R919aN505766;
-	Wed, 27 May 2026 08:41:30 -0700
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=marvell.com; h=
-	cc:content-type:date:from:in-reply-to:message-id:mime-version
-	:references:subject:to; s=pfpt0220; bh=tVfcv9pmJ2XYcQ33bLkDgO5t9
-	6BPNldPT0cgWOVUZJM=; b=gufkJ26CSpn8NNSdacdBKkXXO0FrCukEZ6xCTudNW
-	oUmt9zID0JgRu3VT2FvbEbrqjJIpuxJTUmtfp/CDOrD2zIXqkw/TGlqjMaNlO+TW
-	D5tolrewscp/CWpwLSO1R5cVO5KGv4bfZ8QdZkIV0SO7J8IiBrN654C/AdewZc81
-	d1thoCvsz5AwwzbFkH/7CK22xnDOVydI7w1gV2uHEWAcQEa7CQeGG9KfY+EvuvdB
-	akmV668SN4PTwYHbG2b0acOzW6kNajh60CwaVmd+kTPvAvhY1WOTxbGL11GlO/5G
-	sfcF8NAkzWVXC42IkSYVRAV+3w2dEVsT0GbzoYCpc5bIA==
-Received: from dc6wp-exch02.marvell.com ([4.21.29.225])
-	by mx0a-0016f401.pphosted.com (PPS) with ESMTPS id 4edncfjdpe-1
-	(version=TLSv1.2 cipher=ECDHE-RSA-AES256-GCM-SHA384 bits=256 verify=NOT);
-	Wed, 27 May 2026 08:41:29 -0700 (PDT)
-Received: from DC6WP-EXCH02.marvell.com (10.76.176.209) by
- DC6WP-EXCH02.marvell.com (10.76.176.209) with Microsoft SMTP Server
- (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
- 15.2.1544.25; Wed, 27 May 2026 08:41:28 -0700
-Received: from maili.marvell.com (10.69.176.80) by DC6WP-EXCH02.marvell.com
- (10.76.176.209) with Microsoft SMTP Server id 15.2.1544.25 via Frontend
- Transport; Wed, 27 May 2026 08:41:28 -0700
-Received: from hyd1soter3.marvell.com (unknown [10.29.37.12])
-	by maili.marvell.com (Postfix) with ESMTP id 928D73F7057;
-	Wed, 27 May 2026 08:41:25 -0700 (PDT)
-From: Geetha sowjanya <gakula@marvell.com>
-To: <linux-perf-users@vger.kernel.org>, <linux-kernel@vger.kernel.org>,
-        <linux-arm-kernel@lists.infradead.org>, <devicetree@vger.kernel.org>
-CC: <mark.rutland@arm.com>, <will@kernel.org>, <krzk+dt@kernel.org>
-Subject: [PATCH v7 2/2] perf: marvell: Add CN20K DDR PMU support
-Date: Wed, 27 May 2026 21:11:18 +0530
-Message-ID: <20260527154118.12884-3-gakula@marvell.com>
-X-Mailer: git-send-email 2.17.1
-In-Reply-To: <20260527154118.12884-1-gakula@marvell.com>
-References: <20260527154118.12884-1-gakula@marvell.com>
+	Wed, 27 May 2026 15:57:46 +0000
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple;
+  d=intel.com; i=@intel.com; q=dns/txt; s=Intel;
+  t=1779897465; x=1811433465;
+  h=message-id:date:mime-version:subject:to:cc:references:
+   from:in-reply-to:content-transfer-encoding;
+  bh=Jyha0Bmo39q8I4y5hQNOBsElC+nbgVzd3+V4v9r6FLM=;
+  b=mHaBSAsqJ/h9lCuX/VIqfvO+WLaHH1LiaZwEzOudHilNbsr8Fyr6SYVX
+   JIhZwOALuTd2Wa/v/QqfZEittZOB541nUGM7y8XUc+qnF2xza/71k8gn0
+   6MdmhyK20dAahy5Cg6/AJqatj+SUnx9gq3g8Si7wmpFJmCz4SReGkd+gd
+   vLugZZV9LT78n/sR223Z6sGFYudDEVWXI/Li6xlJtmmyui23pABy/VOEk
+   ElXshmtuCRRq3mr+CWPdLCxoLtX83dQ3VFcD5S8Dfl0boV31UwgZlG8kS
+   LBKlFxyMi1zDkN3CROfjkFlnn1qjdEilOsQnkKVUr02GNvYeOg2YrM9Cv
+   w==;
+X-CSE-ConnectionGUID: nxtYMbv7QVS1fLOzaf3d7w==
+X-CSE-MsgGUID: mje/92VCT1GA5sXQ6l3IQg==
+X-IronPort-AV: E=McAfee;i="6800,10657,11799"; a="92206956"
+X-IronPort-AV: E=Sophos;i="6.24,171,1774335600"; 
+   d="scan'208";a="92206956"
+Received: from orviesa010.jf.intel.com ([10.64.159.150])
+  by orvoesa104.jf.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 27 May 2026 08:55:43 -0700
+X-CSE-ConnectionGUID: 7m+ylDAET0a9fVsYihiZMw==
+X-CSE-MsgGUID: UAoPuixzRUyLGu7nrdfhxg==
+X-ExtLoop1: 1
+X-IronPort-AV: E=Sophos;i="6.24,171,1774335600"; 
+   d="scan'208";a="241441695"
+Received: from sghuge-mobl2.amr.corp.intel.com (HELO [10.125.111.27]) ([10.125.111.27])
+  by orviesa010-auth.jf.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 27 May 2026 08:55:41 -0700
+Message-ID: <4e0696ee-895c-486d-aacc-71146f0e9047@intel.com>
+Date: Wed, 27 May 2026 08:55:08 -0700
 MIME-Version: 1.0
-Content-Type: text/plain
-X-Proofpoint-Spam-Details-Enc: AW1haW4tMjYwNTI3MDE1NyBTYWx0ZWRfX+x6vWxqV2hcK
- w3g6Lu4XVJEFHNJYwk3s1VDUe47rdu9bDC+pYRmvI1MTPE7ZNNIKGCZIHPO4D14Sqj9IhrMSu+n
- RhAvPp7baagadw1YWxlRx6tSFCGRUcy6ZPHbtaK3kLVWDUSdCkmgXa6+w/Eb3keWviDfmbLkAu/
- tiIW4pZWQHqlcKzvIQlH8qpdWbtBygeN5Bb7y/xRf3ZGgq9hyolf1kGrc4JRe6Ber8p6VSRKrcJ
- VfBsCDk0UToQcpmg2O5xgffiTw8X8eYIY6hCZyjCUzjLpkZoYByIAivw4o3kqA+Qd6eqb2/Y2au
- QWCofOufVbOERKvm2/X2MTWA/dYHtub4YDcPm5qMZM/jxAD1Ff1vVbCe/DIP7ZfEBrRoKW5fe0u
- wDTN51v3xc+gmlXQ/UVTiw+dq2HVzlJ7PjaCiQrj2o6IrdZuhy/z1EI9iJaStYHKT4eE0mrZ2Kl
- DixtCEaRdmYa58kQihw==
-X-Proofpoint-GUID: bkJIeip7MfAW8uiqmnn5sC4_NqQuAZ_l
-X-Proofpoint-ORIG-GUID: bkJIeip7MfAW8uiqmnn5sC4_NqQuAZ_l
-X-Authority-Analysis: v=2.4 cv=C6vZDwP+ c=1 sm=1 tr=0 ts=6a1710a9 cx=c_pps
- a=gIfcoYsirJbf48DBMSPrZA==:117 a=gIfcoYsirJbf48DBMSPrZA==:17
- a=NGcC8JguVDcA:10 a=VkNPw1HP01LnGYTKEx00:22 a=l0iWHRpgs5sLHlkKQ1IR:22
- a=EAYMVhzMl8SCOHhVQcBL:22 a=M5GUcnROAAAA:8 a=BJRxBllVUPrzxzeLE8QA:9
- a=OBjm3rFKGHvpk9ecZwUJ:22
-X-Proofpoint-Virus-Version: vendor=baseguard
- engine=ICAP:2.0.293,Aquarius:18.0.1143,Hydra:6.1.125,FMLib:17.12.100.49
- definitions=2026-05-27_02,2026-05-26_03,2025-10-01_01
+User-Agent: Mozilla Thunderbird
+Subject: Re: [RFC PATCH 1/3] mm: make persistent huge zero folio read-only
+To: Xueyuan chen <xueyuan.chen21@gmail.com>, akpm@linux-foundation.org,
+ linux-mm@kvack.org
+Cc: linux-kernel@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
+ x86@kernel.org, catalin.marinas@arm.com, will@kernel.org, tglx@kernel.org,
+ mingo@redhat.com, bp@alien8.de, dave.hansen@linux.intel.com, hpa@zytor.com,
+ david@kernel.org, ljs@kernel.org, ziy@nvidia.com,
+ baolin.wang@linux.alibaba.com, ryan.roberts@arm.com, dev.jain@arm.com,
+ lance.yang@linux.dev, yang@os.amperecomputing.com, jannh@google.com
+References: <20260527035607.14919-1-xueyuan.chen21@gmail.com>
+ <20260527035607.14919-2-xueyuan.chen21@gmail.com>
+From: Dave Hansen <dave.hansen@intel.com>
+Content-Language: en-US
+Autocrypt: addr=dave.hansen@intel.com; keydata=
+ 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
+In-Reply-To: <20260527035607.14919-2-xueyuan.chen21@gmail.com>
+Content-Type: text/plain; charset=UTF-8
+Content-Transfer-Encoding: 7bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260527_084141_685308_3899EEDB 
-X-CRM114-Status: GOOD (  24.61  )
+X-CRM114-CacheID: sfid-20260527_085745_184651_A5861187 
+X-CRM114-Status: GOOD (  24.87  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -100,447 +134,117 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-The CN20K DRAM Subsystem exposes eight programmable
-performance counters and two fixed counters for DDR
-read and write traffic.  Software selects events for
-the programmable counters from traffic at the DDR PHY
-interface, the CHI interconnect, or inside the DDR controller.
+On 5/26/26 20:56, Xueyuan chen wrote:> +#ifdef
+CONFIG_READONLY_HUGE_ZERO_FOLIO
+> +bool __init arch_make_huge_zero_folio_readonly(struct folio *folio);
+> +#endif
 
-Add CN20K register offsets, event maps, and sysfs attributes;
-match the device via OF (marvell,cn20k-ddr-pmu) and ACPI (MRVL000B).
-Represent the SoC variant in platform data with bit flags so
-CN20K can reuse the CN10K PMU code path where appropriate.
+All of the #ifdeffery needs to die, IMNHO.
 
-Signed-off-by: Geetha sowjanya <gakula@marvell.com>
----
+This function is also a bad idea. There is nothing "huge zero" specific
+about it. It takes any old folio and tries to make it read only.
 
-Changes in v7:
-- perf: Add ZQ case (62/63) before the DFI switch range; handle shared IDs
-  58-61 only inside the DFI branch (fixes overlapping cases and Odyssey
-  EINVAL for perf-width events).
-- perf: Widen programmable-event case to EVENT_OP_IS_CAS_WS through
-  EVENT_OP_IS_ZQLATCH so CAS sysfs events (36-38) map in
-  ddr_perf_get_event_bitmap.
-- perf: On event_add failure from ddr_perf_get_event_bitmap, cancel timer
-  if needed and free the counter slot instead of returning with partial
-  setup.
-- perf: For CN20K, zero CFG0 before writing ZQ to CFG1 and zero CFG1
-  before non-ZQ CFG0 so stale masks do not combine across banks.
+Just make it:
 
- drivers/perf/marvell_cn10k_ddr_pmu.c | 230 +++++++++++++++++++++++++--
- 1 file changed, 214 insertions(+), 16 deletions(-)
+	bool __init arch_make_folio_readonly(struct folio *folio)
 
-diff --git a/drivers/perf/marvell_cn10k_ddr_pmu.c b/drivers/perf/marvell_cn10k_ddr_pmu.c
-index 72ac17efd846..6f638dfe829b 100644
---- a/drivers/perf/marvell_cn10k_ddr_pmu.c
-+++ b/drivers/perf/marvell_cn10k_ddr_pmu.c
-@@ -13,31 +13,43 @@
- #include <linux/hrtimer.h>
- #include <linux/acpi.h>
- #include <linux/platform_device.h>
-+#include <linux/bits.h>
-+
-+/* SoC variant flags for struct ddr_pmu_platform_data (mutually exclusive in pdata) */
-+#define IS_CN10K	BIT(0)
-+#define IS_ODY		BIT(1)
-+#define IS_CN20K	BIT(2)
- 
- /* Performance Counters Operating Mode Control Registers */
- #define CN10K_DDRC_PERF_CNT_OP_MODE_CTRL	0x8020
- #define ODY_DDRC_PERF_CNT_OP_MODE_CTRL		0x20020
-+#define CN20K_DDRC_PERF_CNT_OP_MODE_CTRL	0x20000
- #define OP_MODE_CTRL_VAL_MANUAL	0x1
- 
- /* Performance Counters Start Operation Control Registers */
- #define CN10K_DDRC_PERF_CNT_START_OP_CTRL	0x8028
- #define ODY_DDRC_PERF_CNT_START_OP_CTRL		0x200A0
-+#define CN20K_DDRC_PERF_CNT_START_OP_CTRL	0x20080
- #define START_OP_CTRL_VAL_START		0x1ULL
- #define START_OP_CTRL_VAL_ACTIVE	0x2
- 
- /* Performance Counters End Operation Control Registers */
- #define CN10K_DDRC_PERF_CNT_END_OP_CTRL	0x8030
- #define ODY_DDRC_PERF_CNT_END_OP_CTRL	0x200E0
-+#define CN20K_DDRC_PERF_CNT_END_OP_CTRL	0x200C0
- #define END_OP_CTRL_VAL_END		0x1ULL
- 
- /* Performance Counters End Status Registers */
- #define CN10K_DDRC_PERF_CNT_END_STATUS		0x8038
- #define ODY_DDRC_PERF_CNT_END_STATUS		0x20120
-+#define CN20K_DDRC_PERF_CNT_END_STATUS		0x20100
- #define END_STATUS_VAL_END_TIMER_MODE_END	0x1
- 
- /* Performance Counters Configuration Registers */
- #define CN10K_DDRC_PERF_CFG_BASE		0x8040
- #define ODY_DDRC_PERF_CFG_BASE			0x20160
-+#define CN20K_DDRC_PERF_CFG_BASE		0x20140
-+#define CN20K_DDRC_PERF_CFG1_BASE		0x20180
- 
- /* 8 Generic event counter + 2 fixed event counters */
- #define DDRC_PERF_NUM_GEN_COUNTERS	8
-@@ -61,6 +73,24 @@
-  * DO NOT change these event-id numbers, they are used to
-  * program event bitmap in h/w.
-  */
-+
-+/* CN20K specific events */
-+#define EVENT_PERF_OP_IS_RD16			61
-+#define EVENT_PERF_OP_IS_RD32			60
-+#define EVENT_PERF_OP_IS_WR16			59
-+#define EVENT_PERF_OP_IS_WR32			58
-+#define EVENT_OP_IS_ENTER_DSM			44
-+#define EVENT_OP_IS_RFM				43
-+
-+
-+#define EVENT_CN20K_OP_IS_ZQLATCH			62
-+#define EVENT_CN20K_OP_IS_ZQSTART			63
-+#define EVENT_CN20K_OP_IS_TCR_MRR			50
-+#define EVENT_CN20K_OP_IS_DQSOSC_MRR			49
-+#define EVENT_CN20K_OP_IS_DQSOSC_MPC			48
-+#define EVENT_CN20K_VISIBLE_WIN_LIMIT_REACHED_WR	47
-+#define EVENT_CN20K_VISIBLE_WIN_LIMIT_REACHED_RD	46
-+
- #define EVENT_DFI_CMD_IS_RETRY			61
- #define EVENT_RD_UC_ECC_ERROR			60
- #define EVENT_RD_CRC_ERROR			59
-@@ -87,6 +117,9 @@
- #define EVENT_OP_IS_SPEC_REF			41
- #define EVENT_OP_IS_CRIT_REF			40
- #define EVENT_OP_IS_REFRESH			39
-+#define EVENT_OP_IS_CAS_WCK_SUS			38
-+#define EVENT_OP_IS_CAS_WS_OFF			37
-+#define EVENT_OP_IS_CAS_WS			36
- #define EVENT_OP_IS_ENTER_MPSM			35
- #define EVENT_OP_IS_ENTER_POWERDOWN		31
- #define EVENT_OP_IS_ENTER_SELFREF		27
-@@ -183,8 +216,8 @@ struct ddr_pmu_platform_data {
- 	u64 cnt_freerun_clr;
- 	u64 cnt_value_wr_op;
- 	u64 cnt_value_rd_op;
--	bool is_cn10k;
--	bool is_ody;
-+	u64 cfg1_base;
-+	unsigned int silicon_flags; /* IS_CN10K, IS_ODY, or IS_CN20K */
- };
- 
- static ssize_t cn10k_ddr_pmu_event_show(struct device *dev,
-@@ -336,6 +369,80 @@ static struct attribute *odyssey_ddr_perf_events_attrs[] = {
- 	NULL
- };
- 
-+static struct attribute *cn20k_ddr_perf_events_attrs[] = {
-+	/* Programmable */
-+	CN10K_DDR_PMU_EVENT_ATTR(ddr_hif_rd_or_wr_access, EVENT_HIF_RD_OR_WR),
-+	CN10K_DDR_PMU_EVENT_ATTR(ddr_hif_wr_access, EVENT_HIF_WR),
-+	CN10K_DDR_PMU_EVENT_ATTR(ddr_hif_rd_access, EVENT_HIF_RD),
-+	CN10K_DDR_PMU_EVENT_ATTR(ddr_hif_rmw_access, EVENT_HIF_RMW),
-+	CN10K_DDR_PMU_EVENT_ATTR(ddr_hif_pri_rdaccess, EVENT_HIF_HI_PRI_RD),
-+	CN10K_DDR_PMU_EVENT_ATTR(ddr_rd_bypass_access, EVENT_READ_BYPASS),
-+	CN10K_DDR_PMU_EVENT_ATTR(ddr_act_bypass_access, EVENT_ACT_BYPASS),
-+	CN10K_DDR_PMU_EVENT_ATTR(ddr_dfi_wr_data_access,
-+				 EVENT_DFI_WR_DATA_CYCLES),
-+	CN10K_DDR_PMU_EVENT_ATTR(ddr_dfi_rd_data_access,
-+				 EVENT_DFI_RD_DATA_CYCLES),
-+	CN10K_DDR_PMU_EVENT_ATTR(ddr_hpri_sched_rd_crit_access,
-+				 EVENT_HPR_XACT_WHEN_CRITICAL),
-+	CN10K_DDR_PMU_EVENT_ATTR(ddr_lpri_sched_rd_crit_access,
-+				 EVENT_LPR_XACT_WHEN_CRITICAL),
-+	CN10K_DDR_PMU_EVENT_ATTR(ddr_wr_trxn_crit_access,
-+				 EVENT_WR_XACT_WHEN_CRITICAL),
-+	CN10K_DDR_PMU_EVENT_ATTR(ddr_cam_active_access, EVENT_OP_IS_ACTIVATE),
-+	CN10K_DDR_PMU_EVENT_ATTR(ddr_cam_rd_or_wr_access,
-+				 EVENT_OP_IS_RD_OR_WR),
-+	CN10K_DDR_PMU_EVENT_ATTR(ddr_cam_rd_active_access,
-+				 EVENT_OP_IS_RD_ACTIVATE),
-+	CN10K_DDR_PMU_EVENT_ATTR(ddr_cam_read, EVENT_OP_IS_RD),
-+	CN10K_DDR_PMU_EVENT_ATTR(ddr_cam_write, EVENT_OP_IS_WR),
-+	CN10K_DDR_PMU_EVENT_ATTR(ddr_cam_mwr, EVENT_OP_IS_MWR),
-+	CN10K_DDR_PMU_EVENT_ATTR(ddr_precharge, EVENT_OP_IS_PRECHARGE),
-+	CN10K_DDR_PMU_EVENT_ATTR(ddr_precharge_for_rdwr,
-+				 EVENT_PRECHARGE_FOR_RDWR),
-+	CN10K_DDR_PMU_EVENT_ATTR(ddr_precharge_for_other,
-+				 EVENT_PRECHARGE_FOR_OTHER),
-+	CN10K_DDR_PMU_EVENT_ATTR(ddr_rdwr_transitions, EVENT_RDWR_TRANSITIONS),
-+	CN10K_DDR_PMU_EVENT_ATTR(ddr_write_combine, EVENT_WRITE_COMBINE),
-+	CN10K_DDR_PMU_EVENT_ATTR(ddr_war_hazard, EVENT_WAR_HAZARD),
-+	CN10K_DDR_PMU_EVENT_ATTR(ddr_raw_hazard, EVENT_RAW_HAZARD),
-+	CN10K_DDR_PMU_EVENT_ATTR(ddr_waw_hazard, EVENT_WAW_HAZARD),
-+	CN10K_DDR_PMU_EVENT_ATTR(ddr_enter_selfref, EVENT_OP_IS_ENTER_SELFREF),
-+	CN10K_DDR_PMU_EVENT_ATTR(ddr_enter_powerdown,
-+				 EVENT_OP_IS_ENTER_POWERDOWN),
-+	CN10K_DDR_PMU_EVENT_ATTR(ddr_cas_ws, EVENT_OP_IS_CAS_WS),
-+	CN10K_DDR_PMU_EVENT_ATTR(ddr_cas_ws_off, EVENT_OP_IS_CAS_WS_OFF),
-+	CN10K_DDR_PMU_EVENT_ATTR(ddr_cas_wck_sus, EVENT_OP_IS_CAS_WCK_SUS),
-+	CN10K_DDR_PMU_EVENT_ATTR(ddr_refresh, EVENT_OP_IS_REFRESH),
-+	CN10K_DDR_PMU_EVENT_ATTR(ddr_crit_ref, EVENT_OP_IS_CRIT_REF),
-+	CN10K_DDR_PMU_EVENT_ATTR(ddr_spec_ref, EVENT_OP_IS_SPEC_REF),
-+	CN10K_DDR_PMU_EVENT_ATTR(ddr_load_mode, EVENT_OP_IS_LOAD_MODE),
-+	CN10K_DDR_PMU_EVENT_ATTR(ddr_rfm, EVENT_OP_IS_RFM),
-+	CN10K_DDR_PMU_EVENT_ATTR(ddr_enter_dsm, EVENT_OP_IS_ENTER_DSM),
-+	CN10K_DDR_PMU_EVENT_ATTR(ddr_dfi_cycles, EVENT_DFI_CYCLES),
-+	CN10K_DDR_PMU_EVENT_ATTR(ddr_win_limit_reached_rd,
-+				 EVENT_CN20K_VISIBLE_WIN_LIMIT_REACHED_RD),
-+	CN10K_DDR_PMU_EVENT_ATTR(ddr_win_limit_reached_wr,
-+				 EVENT_CN20K_VISIBLE_WIN_LIMIT_REACHED_WR),
-+	CN10K_DDR_PMU_EVENT_ATTR(ddr_dqsosc_mpc, EVENT_CN20K_OP_IS_DQSOSC_MPC),
-+	CN10K_DDR_PMU_EVENT_ATTR(ddr_dqsosc_mrr, EVENT_CN20K_OP_IS_DQSOSC_MRR),
-+	CN10K_DDR_PMU_EVENT_ATTR(ddr_tcr_mrr, EVENT_CN20K_OP_IS_TCR_MRR),
-+	CN10K_DDR_PMU_EVENT_ATTR(ddr_zqstart, EVENT_CN20K_OP_IS_ZQSTART),
-+	CN10K_DDR_PMU_EVENT_ATTR(ddr_zqlatch, EVENT_CN20K_OP_IS_ZQLATCH),
-+	CN10K_DDR_PMU_EVENT_ATTR(ddr_read16, EVENT_PERF_OP_IS_RD16),
-+	CN10K_DDR_PMU_EVENT_ATTR(ddr_read32, EVENT_PERF_OP_IS_RD32),
-+	CN10K_DDR_PMU_EVENT_ATTR(ddr_write16, EVENT_PERF_OP_IS_WR16),
-+	CN10K_DDR_PMU_EVENT_ATTR(ddr_write32, EVENT_PERF_OP_IS_WR32),
-+	/* Free run event counters */
-+	CN10K_DDR_PMU_EVENT_ATTR(ddr_ddr_reads, EVENT_DDR_READS),
-+	CN10K_DDR_PMU_EVENT_ATTR(ddr_ddr_writes, EVENT_DDR_WRITES),
-+	NULL
-+};
-+
-+static struct attribute_group cn20k_ddr_perf_events_attr_group = {
-+	.name = "events",
-+	.attrs = cn20k_ddr_perf_events_attrs,
-+};
-+
- static struct attribute_group odyssey_ddr_perf_events_attr_group = {
- 	.name = "events",
- 	.attrs = odyssey_ddr_perf_events_attrs,
-@@ -393,6 +500,13 @@ static const struct attribute_group *odyssey_attr_groups[] = {
- 	NULL
- };
- 
-+static const struct attribute_group *cn20k_attr_groups[] = {
-+	&cn20k_ddr_perf_events_attr_group,
-+	&cn10k_ddr_perf_format_attr_group,
-+	&cn10k_ddr_perf_cpumask_attr_group,
-+	NULL
-+};
-+
- /* Default poll timeout is 100 sec, which is very sufficient for
-  * 48 bit counter incremented max at 5.6 GT/s, which may take many
-  * hours to overflow.
-@@ -411,14 +525,38 @@ static int ddr_perf_get_event_bitmap(int eventid, u64 *event_bitmap,
- 	int err = 0;
- 
- 	switch (eventid) {
-+	case EVENT_CN20K_OP_IS_ZQLATCH ... EVENT_CN20K_OP_IS_ZQSTART:
-+		if (ddr_pmu->p_data->silicon_flags & IS_CN20K) {
-+			*event_bitmap = (1ULL << (eventid - 42));
-+			break;
-+		}
-+		err = -EINVAL;
-+		break;
- 	case EVENT_DFI_PARITY_POISON ...EVENT_DFI_CMD_IS_RETRY:
--		if (!ddr_pmu->p_data->is_ody) {
-+		/*
-+		 * 58..61: CN20K perf width events share numeric IDs with Odyssey
-+		 * DFI events; same 1ULL << (eventid - 1) bitmap on both paths.
-+		 */
-+		if (eventid >= EVENT_PERF_OP_IS_WR32 &&
-+		    eventid <= EVENT_PERF_OP_IS_RD16) {
-+			if (ddr_pmu->p_data->silicon_flags & IS_CN20K) {
-+				*event_bitmap = (1ULL << (eventid - 1));
-+				break;
-+			}
-+			if (!(ddr_pmu->p_data->silicon_flags & IS_ODY)) {
-+				err = -EINVAL;
-+				break;
-+			}
-+			*event_bitmap = (1ULL << (eventid - 1));
-+			break;
-+		}
-+		if (!(ddr_pmu->p_data->silicon_flags & IS_ODY)) {
- 			err = -EINVAL;
- 			break;
- 		}
- 		fallthrough;
- 	case EVENT_HIF_RD_OR_WR ... EVENT_WAW_HAZARD:
--	case EVENT_OP_IS_REFRESH ... EVENT_OP_IS_ZQLATCH:
-+	case EVENT_OP_IS_CAS_WS ... EVENT_OP_IS_ZQLATCH:
- 		*event_bitmap = (1ULL << (eventid - 1));
- 		break;
- 	case EVENT_OP_IS_ENTER_SELFREF:
-@@ -524,9 +662,9 @@ static void cn10k_ddr_perf_counter_enable(struct cn10k_ddr_pmu *pmu,
- 					  int counter, bool enable)
- {
- 	const struct ddr_pmu_platform_data *p_data = pmu->p_data;
-+	unsigned int silicon_flags = pmu->p_data->silicon_flags;
- 	u64 ctrl_reg = pmu->p_data->cnt_op_mode_ctrl;
- 	const struct ddr_pmu_ops *ops = pmu->ops;
--	bool is_ody = pmu->p_data->is_ody;
- 	u32 reg;
- 	u64 val;
- 
-@@ -546,7 +684,7 @@ static void cn10k_ddr_perf_counter_enable(struct cn10k_ddr_pmu *pmu,
- 
- 		writeq_relaxed(val, pmu->base + reg);
- 
--		if (is_ody) {
-+		if ((silicon_flags & IS_ODY) || (silicon_flags & IS_CN20K)) {
- 			if (enable) {
- 				/*
- 				 * Setup the PMU counter to work in
-@@ -621,6 +759,7 @@ static int cn10k_ddr_perf_event_add(struct perf_event *event, int flags)
- {
- 	struct cn10k_ddr_pmu *pmu = to_cn10k_ddr_pmu(event->pmu);
- 	const struct ddr_pmu_platform_data *p_data = pmu->p_data;
-+	unsigned int silicon_flags = pmu->p_data->silicon_flags;
- 	const struct ddr_pmu_ops *ops = pmu->ops;
- 	struct hw_perf_event *hwc = &event->hw;
- 	u8 config = event->attr.config;
-@@ -642,10 +781,27 @@ static int cn10k_ddr_perf_event_add(struct perf_event *event, int flags)
- 	if (counter < DDRC_PERF_NUM_GEN_COUNTERS) {
- 		/* Generic counters, configure event id */
- 		reg_offset = DDRC_PERF_CFG(p_data->cfg_base, counter);
-+
- 		ret = ddr_perf_get_event_bitmap(config, &val, pmu);
- 		if (ret)
--			return ret;
--
-+			goto err_free_counter;
-+
-+		if (silicon_flags & IS_CN20K) {
-+			if (config == EVENT_CN20K_OP_IS_ZQSTART ||
-+			    config == EVENT_CN20K_OP_IS_ZQLATCH) {
-+				/* ZQ lives in CFG1; clear stale event mask in CFG0 */
-+				writeq_relaxed(0, pmu->base +
-+					       DDRC_PERF_CFG(p_data->cfg_base,
-+							     counter));
-+				reg_offset = DDRC_PERF_CFG(p_data->cfg1_base,
-+							   counter);
-+			} else {
-+				/* Clear CFG1 so a prior ZQ select cannot linger */
-+				writeq_relaxed(0, pmu->base +
-+					       DDRC_PERF_CFG(p_data->cfg1_base,
-+							     counter));
-+			}
-+		}
- 		writeq_relaxed(val, pmu->base + reg_offset);
- 	} else {
- 		/* fixed event counter, clear counter value */
-@@ -661,6 +817,14 @@ static int cn10k_ddr_perf_event_add(struct perf_event *event, int flags)
- 		cn10k_ddr_perf_event_start(event, flags);
- 
- 	return 0;
-+
-+err_free_counter:
-+	if (pmu->active_events == 1)
-+		hrtimer_cancel(&pmu->hrtimer);
-+	pmu->active_events--;
-+	cn10k_ddr_perf_free_counter(pmu, counter);
-+	hwc->idx = -1;
-+	return ret;
- }
- 
- static void cn10k_ddr_perf_event_stop(struct perf_event *event, int flags)
-@@ -952,7 +1116,25 @@ static const struct ddr_pmu_platform_data cn10k_ddr_pmu_pdata = {
- 	.cnt_freerun_clr = 0,
- 	.cnt_value_wr_op = CN10K_DDRC_PERF_CNT_VALUE_WR_OP,
- 	.cnt_value_rd_op = CN10K_DDRC_PERF_CNT_VALUE_RD_OP,
--	.is_cn10k = TRUE,
-+	.silicon_flags = IS_CN10K,
-+};
-+
-+static const struct ddr_pmu_platform_data cn20k_ddr_pmu_pdata = {
-+	.counter_overflow_val = 0,
-+	.counter_max_val = GENMASK_ULL(63, 0),
-+	.cnt_base = ODY_DDRC_PERF_CNT_VALUE_BASE,
-+	.cfg_base = CN20K_DDRC_PERF_CFG_BASE,
-+	.cfg1_base = CN20K_DDRC_PERF_CFG1_BASE,
-+	.cnt_op_mode_ctrl = CN20K_DDRC_PERF_CNT_OP_MODE_CTRL,
-+	.cnt_start_op_ctrl = CN20K_DDRC_PERF_CNT_START_OP_CTRL,
-+	.cnt_end_op_ctrl = CN20K_DDRC_PERF_CNT_END_OP_CTRL,
-+	.cnt_end_status = CN20K_DDRC_PERF_CNT_END_STATUS,
-+	.cnt_freerun_en = 0,
-+	.cnt_freerun_ctrl = ODY_DDRC_PERF_CNT_FREERUN_CTRL,
-+	.cnt_freerun_clr = ODY_DDRC_PERF_CNT_FREERUN_CLR,
-+	.cnt_value_wr_op = ODY_DDRC_PERF_CNT_VALUE_WR_OP,
-+	.cnt_value_rd_op = ODY_DDRC_PERF_CNT_VALUE_RD_OP,
-+	.silicon_flags = IS_CN20K,
- };
- #endif
- 
-@@ -979,7 +1161,7 @@ static const struct ddr_pmu_platform_data odyssey_ddr_pmu_pdata = {
- 	.cnt_freerun_clr = ODY_DDRC_PERF_CNT_FREERUN_CLR,
- 	.cnt_value_wr_op = ODY_DDRC_PERF_CNT_VALUE_WR_OP,
- 	.cnt_value_rd_op = ODY_DDRC_PERF_CNT_VALUE_RD_OP,
--	.is_ody = TRUE,
-+	.silicon_flags = IS_ODY,
- };
- #endif
- 
-@@ -989,8 +1171,7 @@ static int cn10k_ddr_perf_probe(struct platform_device *pdev)
- 	struct cn10k_ddr_pmu *ddr_pmu;
- 	struct resource *res;
- 	void __iomem *base;
--	bool is_cn10k;
--	bool is_ody;
-+	unsigned int silicon_flags;
- 	char *name;
- 	int ret;
- 
-@@ -1014,10 +1195,9 @@ static int cn10k_ddr_perf_probe(struct platform_device *pdev)
- 	ddr_pmu->base = base;
- 
- 	ddr_pmu->p_data = dev_data;
--	is_cn10k = ddr_pmu->p_data->is_cn10k;
--	is_ody = ddr_pmu->p_data->is_ody;
-+	silicon_flags = ddr_pmu->p_data->silicon_flags;
- 
--	if (is_cn10k) {
-+	if (silicon_flags & IS_CN10K) {
- 		ddr_pmu->ops = &ddr_pmu_ops;
- 		/* Setup the PMU counter to work in manual mode */
- 		writeq_relaxed(OP_MODE_CTRL_VAL_MANUAL, ddr_pmu->base +
-@@ -1039,7 +1219,7 @@ static int cn10k_ddr_perf_probe(struct platform_device *pdev)
- 		};
- 	}
- 
--	if (is_ody) {
-+	if (silicon_flags & IS_ODY) {
- 		ddr_pmu->ops = &ddr_pmu_ody_ops;
- 
- 		ddr_pmu->pmu = (struct pmu) {
-@@ -1056,6 +1236,22 @@ static int cn10k_ddr_perf_probe(struct platform_device *pdev)
- 		};
- 	}
- 
-+	if (silicon_flags & IS_CN20K) {
-+		ddr_pmu->ops = &ddr_pmu_ody_ops;
-+
-+		ddr_pmu->pmu = (struct pmu) {
-+			.module       = THIS_MODULE,
-+			.capabilities = PERF_PMU_CAP_NO_EXCLUDE,
-+			.task_ctx_nr = perf_invalid_context,
-+			.attr_groups = cn20k_attr_groups,
-+			.event_init  = cn10k_ddr_perf_event_init,
-+			.add         = cn10k_ddr_perf_event_add,
-+			.del         = cn10k_ddr_perf_event_del,
-+			.start       = cn10k_ddr_perf_event_start,
-+			.stop        = cn10k_ddr_perf_event_stop,
-+			.read        = cn10k_ddr_perf_event_update,
-+		};
-+	}
- 	/* Choose this cpu to collect perf data */
- 	ddr_pmu->cpu = raw_smp_processor_id();
- 
-@@ -1098,6 +1294,7 @@ static void cn10k_ddr_perf_remove(struct platform_device *pdev)
- #ifdef CONFIG_OF
- static const struct of_device_id cn10k_ddr_pmu_of_match[] = {
- 	{ .compatible = "marvell,cn10k-ddr-pmu", .data = &cn10k_ddr_pmu_pdata },
-+	{ .compatible = "marvell,cn20k-ddr-pmu", .data = &cn20k_ddr_pmu_pdata },
- 	{ },
- };
- MODULE_DEVICE_TABLE(of, cn10k_ddr_pmu_of_match);
-@@ -1107,6 +1304,7 @@ MODULE_DEVICE_TABLE(of, cn10k_ddr_pmu_of_match);
- static const struct acpi_device_id cn10k_ddr_pmu_acpi_match[] = {
- 	{"MRVL000A", (kernel_ulong_t)&cn10k_ddr_pmu_pdata },
- 	{"MRVL000C", (kernel_ulong_t)&odyssey_ddr_pmu_pdata},
-+	{"MRVL000B", (kernel_ulong_t)&cn20k_ddr_pmu_pdata},
- 	{},
- };
- MODULE_DEVICE_TABLE(acpi, cn10k_ddr_pmu_acpi_match);
--- 
-2.25.1
+Make it a weak symbol with a stub in some mm/foo.c file, and then the
+architectures can override it if they want.
 
+>  static inline struct folio *get_persistent_huge_zero_folio(void)
+>  {
+>  	if (!IS_ENABLED(CONFIG_PERSISTENT_HUGE_ZERO_FOLIO))
+> diff --git a/mm/Kconfig b/mm/Kconfig
+> index 776b67c66e82..f31200816646 100644
+> --- a/mm/Kconfig
+> +++ b/mm/Kconfig
+> @@ -787,6 +787,23 @@ config PERSISTENT_HUGE_ZERO_FOLIO
+>  	  Say Y if your system has lots of memory. Say N if you are
+>  	  memory constrained.
+>  
+> +config ARCH_HAS_READONLY_HUGE_ZERO_FOLIO
+> +	bool
+> +
+> +config READONLY_HUGE_ZERO_FOLIO
+> +	bool "Map the huge zero folio read-only in the direct map"
+> +	depends on PERSISTENT_HUGE_ZERO_FOLIO
+> +	depends on ARCH_HAS_READONLY_HUGE_ZERO_FOLIO
+> +	help
+> +	  The persistent huge zero folio is shared globally, and nothing
+> +	  should ever change its contents after initialization.
+> +
+> +	  When supported, mark the folio read-only in the direct map so such
+> +	  writes trigger a fault instead of silently corrupting the zero contents.
+> +
+> +	  If the permission change is not supported, the kernel keeps using
+> +	  the writable persistent huge zero folio.
+
+I vote for no Kconfig options here. Why? This adds "security" with
+_basically_ no extra runtime cost. The runtime cost is, what, usually
+one kernel TLB invalidation during boot?
+
+If you desperately need one, you can add it without a prompt so folks
+need to edit .config files to change the values.
+
+> diff --git a/mm/huge_memory.c b/mm/huge_memory.c
+> index bf9b480bb3b0..c568755dd58e 100644
+> --- a/mm/huge_memory.c
+> +++ b/mm/huge_memory.c
+> @@ -75,7 +75,11 @@ static unsigned long deferred_split_scan(struct shrinker *shrink,
+>  static bool split_underused_thp = true;
+>  
+>  static atomic_t huge_zero_refcount;
+> +#ifdef CONFIG_READONLY_HUGE_ZERO_FOLIO
+> +struct folio *huge_zero_folio __ro_after_init;
+> +#else
+>  struct folio *huge_zero_folio __read_mostly;
+> +#endif
+
+#ifdefs bad. Bad. Bad. Bad. ;)
+
+Seriously, just pick one. Lowest common denominator is more important
+that being precisely correct all the time.
+
+>  unsigned long huge_zero_pfn __read_mostly = ~0UL;
+>  unsigned long huge_anon_orders_always __read_mostly;
+>  unsigned long huge_anon_orders_madvise __read_mostly;
+> @@ -305,6 +309,18 @@ static unsigned long shrink_huge_zero_folio_scan(struct shrinker *shrink,
+>  	return 0;
+>  }
+>  
+> +#ifdef CONFIG_READONLY_HUGE_ZERO_FOLIO
+> +static bool __init make_huge_zero_folio_readonly(void)
+> +{
+> +	return arch_make_huge_zero_folio_readonly(READ_ONCE(huge_zero_folio));
+> +}
+> +#else
+> +static bool __init make_huge_zero_folio_readonly(void)
+> +{
+> +	return false;
+> +}
+> +#endif
+> +
+>  static struct shrinker *huge_zero_folio_shrinker;
+>  
+>  #ifdef CONFIG_SYSFS
+> @@ -965,8 +981,15 @@ static int __init thp_shrinker_init(void)
+>  		 * that get_huge_zero_folio() will most likely not fail as
+>  		 * thp_shrinker_init() is invoked early on during boot.
+>  		 */
+> -		if (!get_huge_zero_folio())
+> +		if (!get_huge_zero_folio()) {
+>  			pr_warn("Allocating persistent huge zero folio failed\n");
+> +			return 0;
+> +		}
+> +
+> +		if (IS_ENABLED(CONFIG_READONLY_HUGE_ZERO_FOLIO) &&
+> +		    !make_huge_zero_folio_readonly())
+> +			pr_warn("Making persistent huge zero folio read-only failed\n");
+> +
+>  		return 0;
+
+The IS_ENABLED() doesn't do anything from what I can tell. This is all
+in one .c file. The compiler can see that
+make_huge_zero_folio_readonly() is always false. It should optimize out
+the pr_warn() for you.
 
