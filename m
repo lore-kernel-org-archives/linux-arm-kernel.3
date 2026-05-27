@@ -4,80 +4,80 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 1BE0CCD5BD5
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 27 May 2026 13:58:30 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id CBA56CD6E41
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 27 May 2026 13:58:38 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:References
 	:Message-Id:Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:
 	From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=sbmScUewxy69yzIsUCuE8aXgVmgMHcoBqHlMt7xLKm8=; b=cQ+mAP6rAB8KyqCSeiK1oj4yFr
-	6Gs5u5uxp6Qus/PoA+eLifpFnaUtqx/MGNZj0uPag4rl1G9L2CaW4hA5sHVRFj9I1XVAFr5Or5NS6
-	UM9tJjKEPJEHFKbD08k/E6I9pcTeSK9t7vIfu1h7HdKHeWBahWVc9t7TR5Qp1STWCGE0FDdfUP2oo
-	RDRHkTW4rqvyZoAcu8KoBpICUPbpsGLecIKbtLIJCCQJm6PusEaQJNS+R6uffuyOjtDfcX7n3mzxN
-	1Tg7V3WRbDSCD62BqWM3oqQe4jH/4KxDEZrPwFwD0xHL7cL5te3YUc2+02hqyULwkm7BZ8tvXxuef
-	CBJN3M6g==;
+	bh=Qqn/GhtdZ2zHm2dhsjmzQoC4+5EN3BPsb9xc1JJYgSU=; b=s/Yo+YLv5rLkW4uhYQO0PKYd0z
+	me/u85ugQGBMXqhkv2tW/cLCXt+vE1M86Hsl3PDcw80rMfg3ctljeqGQpdVoPDVlU2hh3nsODRvYn
+	hKDhz8K0KH48Fxq62DEudPcpG4Vt6fTqhqY0MlztfReM/vZ26RAbfSBzsOg1MfdsRnT1F57SkiEgg
+	Z08db8irAP31BzFKEalWe0bkdVIX0dCxAQbYPrQWE3rIIjUy+pM/ocdf3ciTd3hreRVSVXj+6HXra
+	ZoHSqftfffUadKXLD+SDXzCR8NTzPq/Qa0CzMgzLNTpH8Xg2zVp/TGc/oYLur7+Gjf+aw7CtXmEao
+	TUz7ylFQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wSEm8-00000004FVD-1ALz;
-	Wed, 27 May 2026 13:58:24 +0000
-Received: from mail-dy1-x132d.google.com ([2607:f8b0:4864:20::132d])
+	id 1wSEmF-00000004FZx-1knV;
+	Wed, 27 May 2026 13:58:31 +0000
+Received: from mail-dl1-x1232.google.com ([2607:f8b0:4864:20::1232])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wSEm5-00000004FSN-2IDK
+	id 1wSEmB-00000004FXN-0opK
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 27 May 2026 13:58:23 +0000
-Received: by mail-dy1-x132d.google.com with SMTP id 5a478bee46e88-304b8ced372so1128069eec.0
-        for <linux-arm-kernel@lists.infradead.org>; Wed, 27 May 2026 06:58:21 -0700 (PDT)
+	Wed, 27 May 2026 13:58:29 +0000
+Received: by mail-dl1-x1232.google.com with SMTP id a92af1059eb24-134fe980658so13407147c88.1
+        for <linux-arm-kernel@lists.infradead.org>; Wed, 27 May 2026 06:58:26 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20251104; t=1779890301; x=1780495101; darn=lists.infradead.org;
+        d=gmail.com; s=20251104; t=1779890306; x=1780495106; darn=lists.infradead.org;
         h=cc:to:in-reply-to:references:message-id:content-transfer-encoding
          :mime-version:subject:date:from:from:to:cc:subject:date:message-id
          :reply-to;
-        bh=sbmScUewxy69yzIsUCuE8aXgVmgMHcoBqHlMt7xLKm8=;
-        b=f9FlvD9XCb+UGTf+CSO+M/lRUbcifG49MOskYICWZUbvM0RitFhLGOLq+MRzPwbe3U
-         Z/h+yqSU7uKZp5LRAnfBXN6yPVMR2HmdAfjv0d1HZSIWbhru+2B4+NdRLkkTJ8da+SVC
-         eBu+hF/PBaedswOJDiG1YjU33rB50mWzSXnOCnv4txhBdpBEVYBuzzX9NZIihA7egni3
-         WFLcbyVfDdvZqUE3/0VZqKC2Ccwc9TwXr9eaRnwT7esObLsCk42n1hooW2AD4oqArOum
-         ZaW7YLohdzr6C6YgiZvOkvOkZLLcEf48BsMAkvMElBuRngg5vdhmJufJPBe2T7iW9Pex
-         Y1Ng==
+        bh=Qqn/GhtdZ2zHm2dhsjmzQoC4+5EN3BPsb9xc1JJYgSU=;
+        b=meyKPQwTdsYYfzpS1JLjVRAjkYFQMFCXRjKDpi5xO/0hnTElCt5Cyl/LhwLjd3fUqZ
+         1nJLdXdom5eqd/9Qtbgc+GzAL0v7F6Y8JQeL6OtSvY8w68zeXLoxcNv+HxEXrZbUWIAo
+         LqtTunlDx0M5IAT8xyyDC3fDaCr5wYbaNY9XAOuM624UrdWzKn0LQHrfZrpM2eV7tuzG
+         KMv3MHlZeYlR/uYFQg96TguuorCoFZNytMi5RoDJLXEHVE29tIX2kCCMYOrMXnaP9qOB
+         upowk6eN0EBJtLqjOhhnEUY9nC4G+AdKMn5SwftvHjBnf+o1vUT7IXssmneZhM9acriF
+         ONqw==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20251104; t=1779890301; x=1780495101;
+        d=1e100.net; s=20251104; t=1779890306; x=1780495106;
         h=cc:to:in-reply-to:references:message-id:content-transfer-encoding
          :mime-version:subject:date:from:x-gm-gg:x-gm-message-state:from:to
          :cc:subject:date:message-id:reply-to;
-        bh=sbmScUewxy69yzIsUCuE8aXgVmgMHcoBqHlMt7xLKm8=;
-        b=Y57GOIydzvbxlnB74rEcU/JHE+XtuofJFvIOLz9A2b1wJ7HZoRGsZthkX4ja9K68mL
-         lxg9Gj0ODzu5ekWxqLauMgimqIyw5utZMomDWSL1b8nPKILDeuUQccBJ35sxexEm0T5M
-         jZVEGyEoGZte7f5UDbx83z8p3yXBu+pnQHU/9t+qmxgFGAVTtUyQw9/F9UIJImCqCzvx
-         Ox+0JWvldFG0A2Q/5hoJ2hDbD/pYKQWrNsB+rBkw85rItUIkIeupsNpVlGWOjcNqlGN2
-         oY2r1qz04VWErfvF47Jy11cAH9aVKwddbQ/QvjcZN2aIhGMA8meLh71htB/LUhkneYYE
-         jiNA==
-X-Forwarded-Encrypted: i=1; AFNElJ9Mpp2KPtD8bSbTGlfy7kx0R/5G+2jUkgWyxzalkEP+v0unTIHo61VNGREAH/mvHy7vAM7mRQBOlCBjqaWal2p/@lists.infradead.org
-X-Gm-Message-State: AOJu0YyhyBFtyzaaXir27GbdO8/SzU7261czqqGUSrY1uTwwWiDPCu4U
-	GMok19dIL93omA+ce3GnyZ/zM73AGgs22coye9GTPq0/5KlxAkqYjqWs
-X-Gm-Gg: Acq92OEjhmY0el1OlmJMZgZ3/UB0dAUChjgKwtT408W2hwBNBlKH14IOScjH2UzyZQm
-	RN8ox7szL81PPjdYeuYmDTREMX/3OA3cVLawfPu6rQPP/09OIW+mm0T+tnLdEx7eyXezGESv/jn
-	8dY7I8Wacc6L/SLkBvGnXwEyffBvppWk0tL+2hTJpmxNHtlnCIfFIuAYDIJvG1XeoZ7a+bahOzA
-	6u+HeqLxHoAdRxv7rixdX+VyxYy+/BHyMeD24yfLU2L3Y5l169Mxqnz6Hf6HXWkMC8qzMUNVwEa
-	2XQXCKz+UXq8jW+ALHbz8bwct18kjnbwPMHzcIETCW2mpwHM3wrdf0qUT5AP0FfmDSlWuTC6XG1
-	1foWihdNg4KSYgBsJh3mIii4QK/N1DmYxdssA/xLfotgDMcmwTIaFbDAnAUdW6RPXtZxM5zzHKH
-	tNhoqHsnCKxZTssNevZk7lzemsyTxGqXBS3bUy210C08Mj1NuS5aDiAoDHtaNOspujDUkS2KcVu
-	g==
-X-Received: by 2002:a05:7301:37ca:b0:2ed:e14:7f5b with SMTP id 5a478bee46e88-3044922a4d1mr10566374eec.31.1779890300526;
-        Wed, 27 May 2026 06:58:20 -0700 (PDT)
+        bh=Qqn/GhtdZ2zHm2dhsjmzQoC4+5EN3BPsb9xc1JJYgSU=;
+        b=IyOlTTrenOovQlAeyDh+LTkK7alSf7b0uTu++ek/YACEIEW2blYPF4Lh5Ifl08SBBr
+         i+wlCkC45oKSDHVWBrVRVzEkFXeN/evNOwVQDKzbZOZ1uSYmZoZ+3pYSardh/DL4qWPN
+         47g4f7zR1TSP7Lyvb9OFiKzb3f33VEB0ZflFknj7hLToqrAym2aMbD9/4oql6Kpus/DA
+         bqHsOHS13iWx/ST57udY0CuskJJuq+wXCWBl9NDBOXCPCWbGESrflKQ466HUnJJ+MN0w
+         1CycHfnv/nbrWVXb6ymv1f1xhePkN1gnISujshk6MYgvdlQmX/SYuNF6hVwR6wDjPpEY
+         YzNg==
+X-Forwarded-Encrypted: i=1; AFNElJ8XnwbFd8B+7Fzwd4fHXjxzhYGlvxkk+6uio8SR811rjc6dXD1ZD/UUwpW8QujFhpjK+INNdQ5Sd3lbgMGV5zXV@lists.infradead.org
+X-Gm-Message-State: AOJu0YwPn6xKgoST6q5JCZ40iHAwu16mlFIIMbW64Ayq7GWuCTUqHEsd
+	3Y7n7PbJXE1u6AcuvmpumAoONR9CNnYw8LCBmDMvbhG9lJ1WImQwfi2I
+X-Gm-Gg: Acq92OHB1cKIOz6XmNxhiRxmeGcJgr4CAjYd3ad6Vti9kcSfddM7jdnNbQKhRC6RAFn
+	Kt3ATZoG9y5YOfQRf2EojoHH5t0NmIzzi1WdbQAs3LkZJnwTaMmc+T+zdj4dC/jplLZGZ2teMzH
+	FSH9J0m7TN9VWQSpkd0pVAtqLgJqps1ez+Gg3ZkM008gMO5Ty52KDLcGw0eI/ErZY3jz2l5LsRT
+	TScCpvMT0o8DFv4fJ9biCpuuZxvfXOD7V6CQB5k3OPQRFaOQ1q1Qu6el2SHiOq5/3UFpY4SjRUH
+	HYc6o1bGkCdWy0h0yqW/EBzWo9Je0rzz+gMZ/5iaTKjSF3p6uo6bS8/JxxKOUWT7C9OeMPZS0no
+	OP4leI6YvocPxP4loaVhwYaE87TOh9YSo0ZP0xowksg+BD/91dQWsrdNSIXqN5dptddeGGq/5Ke
+	E9JVV1fqUYwQEWl/+Ca2ifvSt2Py/Nu7YqonlEA8wIemHavTSyOLKPHPdacvgb1xLcBZbNiAChu
+	uu58ZeNqV9s
+X-Received: by 2002:a05:7022:62a6:b0:12d:de3e:86b9 with SMTP id a92af1059eb24-1365fc6932bmr8295204c88.41.1779890306165;
+        Wed, 27 May 2026 06:58:26 -0700 (PDT)
 Received: from [192.168.1.18] (177-4-162-74.user3p.v-tal.net.br. [177.4.162.74])
-        by smtp.gmail.com with ESMTPSA id a92af1059eb24-1366aba2b9asm13013788c88.15.2026.05.27.06.58.15
+        by smtp.gmail.com with ESMTPSA id a92af1059eb24-1366aba2b9asm13013788c88.15.2026.05.27.06.58.20
         (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Wed, 27 May 2026 06:58:20 -0700 (PDT)
+        Wed, 27 May 2026 06:58:25 -0700 (PDT)
 From: =?utf-8?q?C=C3=A1ssio_Gabriel?= <cassiogabrielcontato@gmail.com>
-Date: Wed, 27 May 2026 10:55:46 -0300
-Subject: [PATCH 1/2] ASoC: mediatek: mt8192: Release reserved memory on
- cleanup
+Date: Wed, 27 May 2026 10:55:47 -0300
+Subject: [PATCH 2/2] ASoC: mediatek: mt8192: Check runtime resume during
+ probe
 MIME-Version: 1.0
 Content-Type: text/plain; charset="utf-8"
 Content-Transfer-Encoding: 8bit
-Message-Id: <20260527-asoc-mt8192-probe-cleanup-v1-1-1bb834d05b72@gmail.com>
+Message-Id: <20260527-asoc-mt8192-probe-cleanup-v1-2-1bb834d05b72@gmail.com>
 References: <20260527-asoc-mt8192-probe-cleanup-v1-0-1bb834d05b72@gmail.com>
 In-Reply-To: <20260527-asoc-mt8192-probe-cleanup-v1-0-1bb834d05b72@gmail.com>
 To: Mark Brown <broonie@kernel.org>, Liam Girdwood <lgirdwood@gmail.com>, 
@@ -91,18 +91,18 @@ Cc: linux-sound@vger.kernel.org, linux-kernel@vger.kernel.org,
  =?utf-8?q?C=C3=A1ssio_Gabriel?= <cassiogabrielcontato@gmail.com>, 
  stable@vger.kernel.org
 X-Mailer: b4 0.15.2
-X-Developer-Signature: v=1; a=openpgp-sha256; l=1634;
+X-Developer-Signature: v=1; a=openpgp-sha256; l=2026;
  i=cassiogabrielcontato@gmail.com; h=from:subject:message-id;
- bh=r0AY6balmI5LK5cBrk9Sz6C0q7ffejwvtR4gMM36msY=;
- b=owGbwMvMwCV2IdZeKur/u2bG02pJDFliP4oslk4/pFEex7tum9+WL9wiE02MQh9tun/h9d0vl
- 5K52bNOdJSyMIhxMciKKbKsTlpkuafrwdX6uBUeMHNYmUCGMHBxCsBEKvQZGX72MgtpmK0vun6+
- dHdfYPiNXz9mzhP3TzR6l2byzE41Jo6R4USD2QwLlhkTnNbLPbDZfPBamp/jK2bTFyt3WDx+vts
- rnhsA
+ bh=AiWKUJ6pcaS+s2EMRR0lpjZ6dv0VklPnVPvbjxXu/dY=;
+ b=owGbwMvMwCV2IdZeKur/u2bG02pJDFliP4pklll4m/lM4s7ZEHO7aHXznfQp56/39sv0p7Ap3
+ 3zr9uJQRykLgxgXg6yYIsvqpEWWe7oeXK2PW+EBM4eVCWQIAxenAEzkyDZGhqXrhb+oauy39J/t
+ 8NiuduspzslHDBLFfp62j3380CxR4xbDXyHxP0ruxx7puPtlON8wPb8vSjhoa8qtDba7ZzC/XBL
+ rwQAA
 X-Developer-Key: i=cassiogabrielcontato@gmail.com; a=openpgp;
  fpr=AB62A239BC8AE0D57F5EA848D05D3F1A5AFFEE83
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260527_065821_644949_D27B8854 
-X-CRM114-Status: GOOD (  12.62  )
+X-CRM114-CacheID: sfid-20260527_065828_258802_28A24859 
+X-CRM114-Status: GOOD (  13.56  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -117,49 +117,54 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-The MT8192 AFE probe calls of_reserved_mem_device_init() and falls
-back to preallocated buffers when no reserved memory region is
-available. When the reserved memory assignment succeeds, however, the
-driver never releases it.
+The MT8192 AFE probe enables runtime PM temporarily while reinitializing
+the regmap cache from hardware, but it uses pm_runtime_get_sync()
+without checking the return value. If runtime resume fails, probe keeps
+going without the device necessarily being accessible, and
+pm_runtime_get_sync() may leave the PM usage count incremented.
 
-Register a devm cleanup action after a successful reserved-memory
-assignment so the assignment is released on probe failure and driver
-unbind.
+The regmap_reinit_cache() failure path also returns before dropping the
+temporary PM reference and before clearing pm_runtime_bypass_reg_ctl.
 
-Fixes: ec4a10ca4a68 ("ASoC: mediatek: use reserved memory or enable buffer pre-allocation")
+Use pm_runtime_resume_and_get() so resume failures do not leak a usage
+count, and clear the temporary bypass flag after dropping the probe PM
+reference on all regmap_reinit_cache() outcomes.
+
+Fixes: 125ab5d588b0 ("ASoC: mediatek: mt8192: add platform driver")
 Cc: stable@vger.kernel.org
 Signed-off-by: Cássio Gabriel <cassiogabrielcontato@gmail.com>
 ---
- sound/soc/mediatek/mt8192/mt8192-afe-pcm.c | 9 +++++++++
- 1 file changed, 9 insertions(+)
+ sound/soc/mediatek/mt8192/mt8192-afe-pcm.c | 12 ++++++++----
+ 1 file changed, 8 insertions(+), 4 deletions(-)
 
 diff --git a/sound/soc/mediatek/mt8192/mt8192-afe-pcm.c b/sound/soc/mediatek/mt8192/mt8192-afe-pcm.c
-index 3d32fe46118e..9f5057eeeff9 100644
+index 9f5057eeeff9..db0ae44a86af 100644
 --- a/sound/soc/mediatek/mt8192/mt8192-afe-pcm.c
 +++ b/sound/soc/mediatek/mt8192/mt8192-afe-pcm.c
-@@ -2155,6 +2155,11 @@ static const dai_register_cb dai_register_cbs[] = {
- 	mt8192_dai_memif_register,
- };
+@@ -2227,15 +2227,19 @@ static int mt8192_afe_pcm_dev_probe(struct platform_device *pdev)
  
-+static void mt8192_afe_release_reserved_mem(void *data)
-+{
-+	of_reserved_mem_device_release(data);
-+}
+ 	/* enable clock for regcache get default value from hw */
+ 	afe_priv->pm_runtime_bypass_reg_ctl = true;
+-	pm_runtime_get_sync(dev);
++	ret = pm_runtime_resume_and_get(dev);
++	if (ret) {
++		afe_priv->pm_runtime_bypass_reg_ctl = false;
++		return dev_err_probe(dev, ret, "failed to resume device\n");
++	}
+ 
+ 	ret = regmap_reinit_cache(afe->regmap, &mt8192_afe_regmap_config);
+-	if (ret)
+-		return dev_err_probe(dev, ret, "regmap_reinit_cache fail\n");
+-
+ 	pm_runtime_put_sync(dev);
+ 	afe_priv->pm_runtime_bypass_reg_ctl = false;
+ 
++	if (ret)
++		return dev_err_probe(dev, ret, "regmap_reinit_cache fail\n");
 +
- static int mt8192_afe_pcm_dev_probe(struct platform_device *pdev)
- {
- 	struct mtk_base_afe *afe;
-@@ -2184,6 +2189,10 @@ static int mt8192_afe_pcm_dev_probe(struct platform_device *pdev)
- 	if (ret) {
- 		dev_info(dev, "no reserved memory found, pre-allocating buffers instead\n");
- 		afe->preallocate_buffers = true;
-+	} else {
-+		ret = devm_add_action_or_reset(dev, mt8192_afe_release_reserved_mem, dev);
-+		if (ret)
-+			return ret;
- 	}
+ 	regcache_cache_only(afe->regmap, true);
+ 	regcache_mark_dirty(afe->regmap);
  
- 	/* init audio related clock */
 
 -- 
 2.54.0
