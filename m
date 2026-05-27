@@ -4,68 +4,68 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 155FBCD6E44
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 27 May 2026 22:15:04 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id D5C49CD6E45
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 27 May 2026 22:15:02 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:Cc:To:From:
 	Subject:Message-ID:References:Mime-Version:In-Reply-To:Date:Reply-To:
 	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=S7BBhgFZ8Ma4OIokkNAhr8EAGinTewemkDEloxmI0Rw=; b=McBQ9T0eVkWfbE3+M9uttNdILk
-	nucjQNrmzFBqzKUBboyuFFJDCuX8I+kzU2gbIJEHEpXg6pOYiN6mrQIm2FRAxsSKK+nbbgxV/0D27
-	ZkyllmkmUAU06vDwUMGurnhPRs7SDMUaE71hXOAi6x2iEBbhf/hK2m8lH1ltZyoa4h6eIYaCJVk0f
-	iFCweapCyDyAVXqZRyhFPziVp1Vz/RKJXEqxLGB1hIucYa18rclDjuodot5G3oWe/3RtLV7gWE8gv
-	jUSQMiTzZSZiMm3E++z0/1x2mVQUR5GzTSw1Ipf1t2X+AEmL+F2dSJSttTM2fM7fU5q6A3QFsIXK5
-	XawZnmTQ==;
+	bh=daz08EfrJ4p/ZHyn7R6Z/1LWdy6ghXZSAUnbV6ql+LU=; b=qp8DTUrnYjnmxW4dgZFmyCNHJ+
+	3Vl6usLEFw7/r6jz/FQMpqx66nQ1uWqnaKPWfg/B8qJw+C15BSrKqhnze8lnp5t28DmqbraeQvSwE
+	2p4OjZOrtEkX7PCHpdwBiQTTzM9Cl977JgsMijw25AYtjB3g8Hbt+A5N/eap836kc2dFeGgAQI56t
+	20mPQlTcB3+706g9w8/rLgqt7CiwvC2Y3RjbPtYGUDvEZVs2ybdL34QpnQAJ1wdMoOciWspbSaRaZ
+	kyGZKOMpGvxqz+fRkcMkHKmKgZcSIwvZ9PHYHy1jps1rrZ6EL4KPdI8UpJK6ukN8+gOsRN+AIjJAj
+	b6qMmDCA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wSMWd-00000004mlE-2ZSN;
+	id 1wSMWd-00000004mka-1YCs;
 	Wed, 27 May 2026 22:14:55 +0000
-Received: from mail-pj1-x1049.google.com ([2607:f8b0:4864:20::1049])
+Received: from mail-pl1-x649.google.com ([2607:f8b0:4864:20::649])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wSMWN-00000004mZV-2UXv
+	id 1wSMWJ-00000004mUS-07Gz
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 27 May 2026 22:14:40 +0000
-Received: by mail-pj1-x1049.google.com with SMTP id 98e67ed59e1d1-36781927b4dso5842777a91.0
-        for <linux-arm-kernel@lists.infradead.org>; Wed, 27 May 2026 15:14:38 -0700 (PDT)
+	Wed, 27 May 2026 22:14:36 +0000
+Received: by mail-pl1-x649.google.com with SMTP id d9443c01a7336-2ba718173d1so72587725ad.0
+        for <linux-arm-kernel@lists.infradead.org>; Wed, 27 May 2026 15:14:34 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=google.com; s=20251104; t=1779920078; x=1780524878; darn=lists.infradead.org;
+        d=google.com; s=20251104; t=1779920074; x=1780524874; darn=lists.infradead.org;
         h=cc:to:from:subject:message-id:references:mime-version:in-reply-to
          :date:from:to:cc:subject:date:message-id:reply-to;
-        bh=S7BBhgFZ8Ma4OIokkNAhr8EAGinTewemkDEloxmI0Rw=;
-        b=aPsw3ph3S70x8oHEROT2gileI0wMQu3AuyBwYCQkx7By0DpPx3Cj+Is5DSgdWecdOH
-         7WwRLKH6HbEF7GhV6rgSxrHBThrDPCtmUoTutj6YiiRoZqxHqd/fuor5XdRL9TyJw/J5
-         MJPvNIqpR1VWZyjHnttIFefGs0+wRDgK5hCVR/T3DTX2OimvB7HYaXDtS2RdsV78vlUk
-         T72hkvuD866hfUaP88f9Tat51F4TfcGSb7Zieqp20NcI/qo9MBlebnsb5oZ2ZNoi7GVV
-         w5dJa8SA4/lWFHYQCRGgIQV3XTgjMN5W/x1Itay2wQlvlZzOGopc6l1hqOuasL3hcaTM
-         jo4g==
+        bh=daz08EfrJ4p/ZHyn7R6Z/1LWdy6ghXZSAUnbV6ql+LU=;
+        b=hX7MG8qM8m2Sn1kcPhS247sOKcI94ruvErso4+/PFikCYqI32BQ7CW3g5M1i3Jm0o/
+         MgTQXbt3ZmOBa4j96KTAehrFXNpquiifQSIOD6PjtDJMMUDvEkTBXJyKLBfg0Y+oGHvG
+         vl29QPx75tHhpXEOIHyURLKWzVJv8Qtb8HGXvCegPP1lQRQOLxT8Y24yy9f9865BAc64
+         joZvb50YBnqER5P8MXLcbRaNmlg5KU9pZJJgRY4ydlz1q2ayr8tzWMYR23ObsYX6j8EO
+         I9u4RbqSKYchEpxCFE1Fwqqdg5FRF15hpw3E15/Wyn7qE+H6WvxOo8mU+niC8JgpGrT2
+         VTTw==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20251104; t=1779920078; x=1780524878;
+        d=1e100.net; s=20251104; t=1779920074; x=1780524874;
         h=cc:to:from:subject:message-id:references:mime-version:in-reply-to
          :date:x-gm-message-state:from:to:cc:subject:date:message-id:reply-to;
-        bh=S7BBhgFZ8Ma4OIokkNAhr8EAGinTewemkDEloxmI0Rw=;
-        b=tRyFcDoQxytdHGBREVzVDczlFgSO9aF4I3h7fS0sJqFouWI2XJQAsvAOXP7kViRPdD
-         usXberANxCU8VhxHGi3oVAJ3+CfRO4X6a7csptk1+CvkU6wan9JwwjraNQ7/eF+Inpsj
-         N/1Pd0xV3VRHjGAVtsjx+2jqcWuM49lWRRm/d4aAFCR7XDvT+izQ+c/VOkGAqqrs/z6f
-         IEk9LX7foWn16d+pQrQhA5oI3yGsLtIpeY0NR9aaa46YqhM0YCm69dRDXqCf+gzjhba8
-         MRvqo8zmacjPNRVaTkXlUQ5yTn9ZPgHWiJ+0jRz1mk1nacjNAZtda4mS1MQllVMwmN8U
-         8JrA==
-X-Forwarded-Encrypted: i=1; AFNElJ9ncQ4Lhyrrj7+ocQCgzCfxzIYlZieSeUQyrKJu5xZNC4ZHEBsmOUYU/J3VBcqdu4KOc8wzcfur4cbgMFaBD2N1@lists.infradead.org
-X-Gm-Message-State: AOJu0YzTjCRQzJ3vaNzf0BivhQb7n3v0xZfOu5C9LnXQeHl46Daluja0
-	eBrxg1aZ41zKlI8vjbuqxguIdKG484+uU5dpY6glTkRDap1vUNJeUuukX8jtBLyMe3TwwYXZTDq
-	PUA==
-X-Received: from pjbgz7.prod.google.com ([2002:a17:90b:ec7:b0:366:3a03:b66d])
- (user=praan job=prod-delivery.src-stubby-dispatcher) by 2002:a17:90b:3882:b0:366:132:fda7
- with SMTP id 98e67ed59e1d1-36a6771a702mr25194976a91.10.1779920078032; Wed, 27
- May 2026 15:14:38 -0700 (PDT)
-Date: Wed, 27 May 2026 22:14:07 +0000
+        bh=daz08EfrJ4p/ZHyn7R6Z/1LWdy6ghXZSAUnbV6ql+LU=;
+        b=D4uTYveTax1StP18UEgUPnDhAvVN51VO3TWaZ0sFb0hUPAEMEAPcLTO5ze1pNfI4cT
+         b5rm6wC2iNJZNdxeOPnzepgifkoLLi5ddlOsW+Kpo7FT6QxrRDx5aOmhYYzOg8DqH2LE
+         xwUJDo9tCF0BA/jofgdJeiGKeCsRPsmG203GacVp2//ImktKcB5VCQMMZ/fko6lC12lc
+         qU/188Brtyg/J/5GkNO9pNnxU/fRCy4wITUusDOltAiGvLIfo9IWh5+tug80pVeNQxZq
+         uh7YjOSNI+nAU/uNNstvAuqxqcpe0J0iCpXaupPhjzViUXF0CjtWdHaPHitkq0QWQsvD
+         Xyfg==
+X-Forwarded-Encrypted: i=1; AFNElJ/ipVS3UVpKpfC9X3Enrv7lrvrNRWmKt4R8sFjgEBb+3UPMreFxZhaLkyktq57ELwbMw5y51WOwO6f3i87mLOHt@lists.infradead.org
+X-Gm-Message-State: AOJu0Yx6hsSd+89xP7zPXDKoBzWh/r53IHUmszZ2so+fZ99/17GyM6v5
+	3SqVwMCXGtTpjk6qwwNZPZgSfbmaBecfTWXGTVfvlxzgyJgb9FwEj/19iY/FbkzfRhwUFIvvGoF
+	FKg==
+X-Received: from plpe3.prod.google.com ([2002:a17:903:3c23:b0:2bf:106:cced])
+ (user=praan job=prod-delivery.src-stubby-dispatcher) by 2002:a17:903:1a2b:b0:2bd:ef12:14d6
+ with SMTP id d9443c01a7336-2beb06cfc33mr275251325ad.34.1779920073336; Wed, 27
+ May 2026 15:14:33 -0700 (PDT)
+Date: Wed, 27 May 2026 22:14:05 +0000
 In-Reply-To: <20260527221407.1756491-1-praan@google.com>
 Mime-Version: 1.0
 References: <20260527221407.1756491-1-praan@google.com>
 X-Mailer: git-send-email 2.54.0.794.g4f17f83d09-goog
-Message-ID: <20260527221407.1756491-12-praan@google.com>
-Subject: [PATCH v7 11/11] iommu/arm-smmu-v3: Add KUnit unit tests for Runtime PM
+Message-ID: <20260527221407.1756491-10-praan@google.com>
+Subject: [PATCH v7 09/11] iommu/arm-smmu-v3: Enable pm_runtime and setup devlinks
 From: Pranjal Shrivastava <praan@google.com>
 To: iommu@lists.linux.dev
 Cc: Will Deacon <will@kernel.org>, Joerg Roedel <joro@8bytes.org>, 
@@ -75,8 +75,8 @@ Cc: Will Deacon <will@kernel.org>, Joerg Roedel <joro@8bytes.org>,
 	Pranjal Shrivastava <praan@google.com>
 Content-Type: text/plain; charset="UTF-8"
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260527_151439_648188_AF6871A0 
-X-CRM114-Status: GOOD (  20.98  )
+X-CRM114-CacheID: sfid-20260527_151435_066762_CA961574 
+X-CRM114-Status: GOOD (  12.51  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -91,199 +91,59 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Introduce a kunit selftests to verify the Runtime PM elision gating,
-post-suspend elisions and progress on resumption under active
-invalidation load. Simulate concurrent HW suspension using a timer.
-Mock all HW registers and CMDQ buffers by allocating them on RAM.
-Make the mock CMDQ self-consuming to avoid hitting queue_full scenarios.
+Enable PM runtime for SMMUs having a power-domain during smmu probe.
+Add a devlink between the clients and SMMU device. The absence of a
+power domain effectively disables runtime power management.
 
+Reviewed-by: Mostafa Saleh <smostafa@google.com>
 Signed-off-by: Pranjal Shrivastava <praan@google.com>
 ---
- .../iommu/arm/arm-smmu-v3/arm-smmu-v3-test.c  | 150 ++++++++++++++++++
- drivers/iommu/arm/arm-smmu-v3/arm-smmu-v3.c   |   1 +
- 2 files changed, 151 insertions(+)
+ drivers/iommu/arm/arm-smmu-v3/arm-smmu-v3.c | 14 +++++++++++++-
+ 1 file changed, 13 insertions(+), 1 deletion(-)
 
-diff --git a/drivers/iommu/arm/arm-smmu-v3/arm-smmu-v3-test.c b/drivers/iommu/arm/arm-smmu-v3/arm-smmu-v3-test.c
-index add671363c82..ef9a17343ed8 100644
---- a/drivers/iommu/arm/arm-smmu-v3/arm-smmu-v3-test.c
-+++ b/drivers/iommu/arm/arm-smmu-v3/arm-smmu-v3-test.c
-@@ -3,6 +3,10 @@
-  * Copyright 2024 Google LLC.
-  */
- #include <kunit/test.h>
-+#include <linux/delay.h>
-+#include <linux/kthread.h>
-+#include <linux/sched.h>
-+#include <linux/timer.h>
- #include <linux/io-pgtable.h>
- 
- #include "arm-smmu-v3.h"
-@@ -771,7 +775,153 @@ static void arm_smmu_v3_invs_test(struct kunit *test)
- 	kfree(test_b);
- }
- 
-+struct arm_smmu_test_pm_context {
-+	u32 *mock_prod_reg;
-+	u64 *mock_base;
-+	unsigned long *mock_valid_map;
-+};
-+
-+/*
-+ * Shared helper to allocate and map a fully functional, self-consuming mock
-+ * CMDQ. By redirecting both prod_reg and cons_reg to the same memory location,
-+ * every producer write is instantly reflected as a consumer completion.
-+ */
-+static struct arm_smmu_test_pm_context *
-+arm_smmu_v3_test_init_mock_cmdq(struct kunit *test, struct arm_smmu_device *smmu)
-+{
-+	struct arm_smmu_test_pm_context *ctx;
-+	struct arm_smmu_cmdq *cmdq = &smmu->cmdq;
-+
-+	ctx = kunit_kzalloc(test, sizeof(*ctx), GFP_KERNEL);
-+	KUNIT_ASSERT_NOT_NULL(test, ctx);
-+
-+	/* Use a standard 1024-entry queue for safe word bitmask alignment */
-+	ctx->mock_prod_reg = kunit_kzalloc(test, sizeof(u32), GFP_KERNEL);
-+	ctx->mock_base = kunit_kzalloc(test, 1024 * 16, GFP_KERNEL);
-+	ctx->mock_valid_map = kunit_kzalloc(test, BITS_TO_LONGS(1024) * sizeof(long), GFP_KERNEL);
-+
-+	KUNIT_ASSERT_NOT_NULL(test, ctx->mock_prod_reg);
-+	KUNIT_ASSERT_NOT_NULL(test, ctx->mock_base);
-+	KUNIT_ASSERT_NOT_NULL(test, ctx->mock_valid_map);
-+
-+	smmu->features = 0;
-+	/* 1024 entries */
-+	cmdq->q.llq.max_n_shift = 10;
-+	/* SMMUv3 commands are 2 dwords (16 bytes) */
-+	cmdq->q.ent_dwords = 2;
-+	cmdq->q.base = (__le64 *)ctx->mock_base;
-+	cmdq->valid_map = (atomic_long_t *)ctx->mock_valid_map;
-+
-+	/* Self-Consuming, prod == cons always ensures queue empty */
-+	cmdq->q.prod_reg = (__force u32 __iomem *)ctx->mock_prod_reg;
-+	cmdq->q.cons_reg = (__force u32 __iomem *)ctx->mock_prod_reg;
-+
-+	/* Initialize memory indices */
-+	atomic_set(&cmdq->q.llq.atomic.prod, 0);
-+	atomic_set(&cmdq->q.llq.atomic.cons, 0);
-+	atomic_set(&cmdq->owner_prod, 0);
-+	*ctx->mock_prod_reg = 0;
-+
-+	return ctx;
-+}
-+
-+struct arm_smmu_test_timer_context {
-+	struct kunit *test;
-+	struct arm_smmu_device *smmu;
-+	struct arm_smmu_test_pm_context *pm_ctx;
-+	struct timer_list timer;
-+	bool stopped;
-+};
-+
-+/* Asynchronous timer callback running in softirq context */
-+static void arm_smmu_v3_test_rpm_timer_callback(struct timer_list *t)
-+{
-+	struct arm_smmu_test_timer_context *ctx =
-+		timer_container_of(ctx, t, timer);
-+	struct arm_smmu_cmdq *cmdq = &ctx->smmu->cmdq;
-+
-+	/*
-+	 * Asynchronously set the STOP_FLAG (Close the gate).
-+	 * Simulate a concurrent runtime suspend event interrupting
-+	 * the invalidations happening under active load.
-+	 */
-+	atomic_or(CMDQ_PROD_STOP_FLAG, &cmdq->q.llq.atomic.prod);
-+
-+	/* Signal to the main storm loop that suspend has triggered */
-+	WRITE_ONCE(ctx->stopped, true);
-+}
-+
-+/*
-+ * Verify SMMU PM Runtime gating, elision, and post-suspend resumption
-+ * safety sequentially under active stress.
-+ */
-+static void arm_smmu_v3_test_rpm_stress_race(struct kunit *test)
-+{
-+	struct arm_smmu_device *smmu = kunit_kzalloc(test, sizeof(*smmu), GFP_KERNEL);
-+	struct arm_smmu_test_pm_context *pm_ctx;
-+	struct arm_smmu_test_timer_context *timer_ctx;
-+	struct arm_smmu_cmdq *cmdq = &smmu->cmdq;
-+	struct arm_smmu_cmd cmd = arm_smmu_make_cmd_cfgi_all();
-+	u32 stopped_prod;
-+	int i, ret;
-+
-+	KUNIT_ASSERT_NOT_NULL(test, smmu);
-+	pm_ctx = arm_smmu_v3_test_init_mock_cmdq(test, smmu);
-+
-+	timer_ctx = kunit_kmalloc(test, sizeof(*timer_ctx), GFP_KERNEL);
-+	KUNIT_ASSERT_NOT_NULL(test, timer_ctx);
-+	timer_ctx->test = test;
-+	timer_ctx->smmu = smmu;
-+	timer_ctx->pm_ctx = pm_ctx;
-+	timer_ctx->stopped = false;
-+
-+	/* Setup the kernel software timer */
-+	timer_setup(&timer_ctx->timer, arm_smmu_v3_test_rpm_timer_callback, 0);
-+
-+	/* Start the timer to fire in 10 jiffies */
-+	mod_timer(&timer_ctx->timer, jiffies + msecs_to_jiffies(10));
-+
-+	/* Execute the unmap storm until the timer triggers */
-+	while (!READ_ONCE(timer_ctx->stopped)) {
-+		ret = arm_smmu_cmdq_issue_cmdlist(smmu, cmdq, &cmd, 1, false);
-+		if (ret != 0) {
-+			KUNIT_FAIL(test, "Unmap Storm loop failed to submit cmd list: %d\n", ret);
-+			break;
-+		}
-+
-+		usleep_range(50, 100);
-+	}
-+
-+	timer_delete_sync(&timer_ctx->timer);
-+
-+	/* Establish the globally stable, post-storm register baseline index */
-+	stopped_prod = *pm_ctx->mock_prod_reg;
-+
-+	/*
-+	 * Attempt multiple unmaps while the SMMU is disabled (STOP_GATE is set)
-+	 * Every single invalidation must be instantly elided, returning 0
-+	 * immediately and leaving the mock MMIO register completely frozen.
-+	 */
-+	for (i = 0; i < 1000; i++) {
-+		ret = arm_smmu_cmdq_issue_cmdlist(smmu, cmdq, &cmd, 1, false);
-+		if (ret != 0) {
-+			KUNIT_FAIL(test, "Gated storm loop failed at iteration %d: %d\n", i, ret);
-+			break;
-+		}
-+	}
-+	KUNIT_EXPECT_EQ(test, stopped_prod, *pm_ctx->mock_prod_reg);
-+
-+	/*
-+	 * Clear the STOP_FLAG (resume SMMU). A new invalidation must now
-+	 * successfully commit, moving the prod_reg by exactly 1 slot
-+	 */
-+	atomic_andnot(CMDQ_PROD_STOP_FLAG, &cmdq->q.llq.atomic.prod);
-+	KUNIT_EXPECT_EQ(test, 0, arm_smmu_cmdq_issue_cmdlist(smmu, cmdq, &cmd, 1, false));
-+	KUNIT_EXPECT_EQ(test, stopped_prod + 1, *pm_ctx->mock_prod_reg);
-+}
-+
- static struct kunit_case arm_smmu_v3_test_cases[] = {
-+	KUNIT_CASE(arm_smmu_v3_test_rpm_stress_race),
- 	KUNIT_CASE(arm_smmu_v3_write_ste_test_bypass_to_abort),
- 	KUNIT_CASE(arm_smmu_v3_write_ste_test_abort_to_bypass),
- 	KUNIT_CASE(arm_smmu_v3_write_ste_test_cdtable_to_abort),
 diff --git a/drivers/iommu/arm/arm-smmu-v3/arm-smmu-v3.c b/drivers/iommu/arm/arm-smmu-v3/arm-smmu-v3.c
-index d42f78777571..dd7cfd3c16f4 100644
+index 6cbb1724b377..34e249656ab4 100644
 --- a/drivers/iommu/arm/arm-smmu-v3/arm-smmu-v3.c
 +++ b/drivers/iommu/arm/arm-smmu-v3/arm-smmu-v3.c
-@@ -871,6 +871,7 @@ int arm_smmu_cmdq_issue_cmdlist(struct arm_smmu_device *smmu,
- 	local_irq_restore(flags);
- 	return ret;
- }
-+EXPORT_SYMBOL_IF_KUNIT(arm_smmu_cmdq_issue_cmdlist);
+@@ -4240,6 +4240,9 @@ static struct iommu_device *arm_smmu_probe_device(struct device *dev)
+ 		pci_prepare_ats(to_pci_dev(dev), stu);
+ 	}
  
- static int arm_smmu_cmdq_issue_cmd_p(struct arm_smmu_device *smmu,
- 				     struct arm_smmu_cmd *cmd, bool sync)
++	device_link_add(dev, smmu->dev,
++			DL_FLAG_PM_RUNTIME | DL_FLAG_AUTOREMOVE_SUPPLIER);
++
+ 	return &smmu->iommu;
+ 
+ err_free_master:
+@@ -5592,11 +5595,18 @@ static int arm_smmu_device_probe(struct platform_device *pdev)
+ 	if (ret)
+ 		goto err_disable;
+ 
++	if (dev->pm_domain) {
++		pm_runtime_set_active(dev);
++		pm_runtime_use_autosuspend(dev);
++		pm_runtime_set_autosuspend_delay(dev, RPM_AUTOSUSPEND_DELAY_MS);
++		pm_runtime_enable(dev);
++	}
++
+ 	/* And we're up. Go go go! */
+ 	ret = iommu_device_sysfs_add(&smmu->iommu, dev, NULL,
+ 				     "smmu3.%pa", &ioaddr);
+ 	if (ret)
+-		goto err_disable;
++		goto err_rpm_disable;
+ 
+ 	ret = iommu_device_register(&smmu->iommu, &arm_smmu_ops, dev);
+ 	if (ret) {
+@@ -5608,6 +5618,8 @@ static int arm_smmu_device_probe(struct platform_device *pdev)
+ 
+ err_free_sysfs:
+ 	iommu_device_sysfs_remove(&smmu->iommu);
++err_rpm_disable:
++	pm_runtime_disable(dev);
+ err_disable:
+ 	arm_smmu_device_disable(smmu);
+ err_free_iopf:
 -- 
 2.54.0.794.g4f17f83d09-goog
 
