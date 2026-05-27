@@ -4,139 +4,83 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 87F30CD5BD0
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 27 May 2026 14:40:07 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 4D579CD5BD5
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 27 May 2026 14:44:10 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:
-	Content-Transfer-Encoding:Content-Type:In-Reply-To:From:References:Cc:To:
-	Subject:Date:Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=9RLUTTsaZAnX5l+marMsgs4mEHG763Qh//huNcgH3C4=; b=10ndpX4aZa4OM1TSmtpeJT14QB
-	Df+e7504FPwJFhtOGBWeeKIcUHuEULVuckxDhM1Pr4SfJs6hqfHqMgszKHMKyWKzVG/KsKpi1nMAa
-	TzCDt2L8W3yRE1tdEwpzik61+h10BfghyaW2yO1o99hpz/NvUrXVrxnVS1/uGeXCFImP+Px6vhe0H
-	7/5i6TGltERlrEZbmKtA1RI4AKoWE3xSilKhAtKs+zgyigoV9Ej9ZHU3umiPEed8NQ0+DeGRviRso
-	fJpE+cGESCw0OEA+izRn76JBCf5E5JTqR7qcISHo/3qez33u/rCd2ZbF87MoxxiIvZ4LS12YSbcGn
-	eXSVg51A==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
+	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=87egiPaTb6TEc6vvvCGBQXU6+oy7c7NXrivB4XpIy3E=; b=JfBKVrYhpwSLHticueTguCQxv5
+	dmKpsSxCNl+4vbYOivRms05xiURLx2J5f0Y6uBAGfZ+Hz4aX6pWrV7SujwXTZ7lj97km1SFJnQ4oG
+	4yfXVvhbbPYVS+zZEEhrGxJuRb00BMI8+y14x8gvo+zxTJLnadx23Zkl8Dx1W64Wzab3puKLQapxL
+	Ix1F7/nkxIdUpI6bXdFg1ZbLxyN0C20SNhD+9kHKckxWWbxn+hByrNEMv3nWMCvjSV7A8GuXksfLW
+	R3LS105SdWwVXDF14FPntBuSbTuXS/IIyz7TpeDmQKZY13paenuD3/OtYDdR9oYnwtVD5x5XTKt1m
+	MghfzNBQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wSFQN-00000004JRM-1ewJ;
-	Wed, 27 May 2026 14:39:59 +0000
-Received: from mail-southcentralusazon11021107.outbound.protection.outlook.com ([40.93.194.107] helo=SN4PR0501CU005.outbound.protection.outlook.com)
+	id 1wSFUI-00000004JgJ-46Sy;
+	Wed, 27 May 2026 14:44:02 +0000
+Received: from mout.gmx.net ([212.227.15.19])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wSFQK-00000004JR0-0hps
+	id 1wSFUF-00000004Jfu-3o6i
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 27 May 2026 14:39:57 +0000
-ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
- b=Y4fdAuJc9zTs6oUQqu3vt9BxeKbaIXvMKNW0kdgFQm4erlTJoz78spi5R7SE1VEhRou3/pGdDs3WHeCuAJ/jUFZuvZ5uAug0mb5Bzb+dpIg03l12ZLhHol3kRXlxu9IyzfpaMpgzA2vu7FlPBn/gh4PoHr+wkF0OHfPlX2/VsL5nV6A/MvB3dDX8T3a8bz3hzEZ5uwEeaaulriCUXGiBHFZoSVMa/UexJpdDiazZWx9QpV9PueySgHERtMSkJtKZrhH+044IpoE+EkhqDOjQjDVdTmAcBEa5pp8RzyzPAcgfidNpIJAuKWYKnmCO6MStOMW9s8vmu7aYP6VLd/AGmA==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
- s=arcselector10001;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
- bh=9RLUTTsaZAnX5l+marMsgs4mEHG763Qh//huNcgH3C4=;
- b=x7XlojM5EqX6J12KvDrCTdOTvENHtmnLM+Ddhif1uTKPtDYg66XW59L197no10pNHNtVTFRIW5K9DzpNa611xkVyl+lE5k0Jx9YSwhGYjypSV0Q4T4gNDm9/9wDDO/PeUa6NNZlifYBNRziZgVFeWIwkehW+ufh9P7ozDO3YvGh9osAeY3zkDizqdxbUV9Xm9X+hVlq8PLFIRk4wds51VU7a0yozu7se6GoROtaZR+5p435kdZdmbi+gouoTPem8G6OZgMNAHdYonXw4bZjhZi+3Y2PW0gT6rlCSx1J0EaaMMdLtQaQe7Gi30voodHyK+xvgeqc+uW7XKTf93Aqlvw==
-ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
- smtp.mailfrom=axiado.com; dmarc=pass action=none header.from=axiado.com;
- dkim=pass header.d=axiado.com; arc=none
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=axiado.com;
- s=selector1;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
- bh=9RLUTTsaZAnX5l+marMsgs4mEHG763Qh//huNcgH3C4=;
- b=oYYPgCf+hKyJmyt+A51WvacNFmkUWcCluCGgTgUcYvj0myiYE8vFkNk9qATqAFkhrt8u+kEMf32ZxKhxKHs4iY7eeyk1h8/Uz0PvfJ+1nWSBHtGCPg/zvqXfb54jbkPScotrrdL8t5e6HQXm9Vkit6cPZC75XWZDsZ3ADfgGogwgjkuK8QMErMi8KPBzIVXiVrPYcc3YtWiP0hn4H/Wp1KfDG067SCndX0uqVOTzRhyTvQtTQ8Bi6v5DX+afKm4UQZFuNGYj3jaJ/xsbMwDb9o4IdydUtdmIlvP3vb5VEm6ABn6EaFejHdCLZpM2wqSXBpehQ2/qqXVshL3vAAZSgw==
-Authentication-Results: dkim=none (message not signed)
- header.d=none;dmarc=none action=none header.from=axiado.com;
-Received: from PH0PR18MB4558.namprd18.prod.outlook.com (2603:10b6:510:ac::13)
- by SA1PR18MB6018.namprd18.prod.outlook.com (2603:10b6:806:3ea::13) with
- Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.21.71.12; Wed, 27 May
- 2026 14:39:47 +0000
-Received: from PH0PR18MB4558.namprd18.prod.outlook.com
- ([fe80::ba9:422:da8:b963]) by PH0PR18MB4558.namprd18.prod.outlook.com
- ([fe80::ba9:422:da8:b963%6]) with mapi id 15.20.9870.023; Wed, 27 May 2026
- 14:39:46 +0000
-Message-ID: <efdd84e3-98b8-459d-90be-0ac2c107403f@axiado.com>
-Date: Wed, 27 May 2026 22:39:40 +0800
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH v6] MAINTAINERS: Add Axiado reviewer and Maintainers
-To: Karthikeyan Mitran <kmitran@axiado.com>, Arnd Bergmann <arnd@arndb.de>,
- Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>,
- Conor Dooley <conor+dt@kernel.org>, Prasad Bolisetty <pbolisetty@axiado.com>
-Cc: devicetree@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
- linux-kernel@vger.kernel.org,
- Alexandre Belloni <alexandre.belloni@bootlin.com>,
- Drew Fustini <fustini@kernel.org>, Linus Walleij <linusw@kernel.org>,
- Harshit Shah <hshah@axiado.com>
-References: <20260527-maintainers-addition-and-axiado-ax3000_dtsi-update-v6-1-bdfdad4fed91@axiado.com>
-Content-Language: en-US
-From: Tzu-Hao Wei <twei@axiado.com>
-In-Reply-To: <20260527-maintainers-addition-and-axiado-ax3000_dtsi-update-v6-1-bdfdad4fed91@axiado.com>
-Content-Type: text/plain; charset=UTF-8
-Content-Transfer-Encoding: 7bit
-X-ClientProxiedBy: TP0P295CA0008.TWNP295.PROD.OUTLOOK.COM
- (2603:1096:910:2::20) To PH0PR18MB4558.namprd18.prod.outlook.com
- (2603:10b6:510:ac::13)
+	Wed, 27 May 2026 14:44:01 +0000
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=gmx.net;
+	s=s31663417; t=1779893029; x=1780497829; i=wahrenst@gmx.net;
+	bh=87egiPaTb6TEc6vvvCGBQXU6+oy7c7NXrivB4XpIy3E=;
+	h=X-UI-Sender-Class:Message-ID:Date:MIME-Version:Subject:To:Cc:
+	 References:From:In-Reply-To:Content-Type:
+	 Content-Transfer-Encoding:cc:content-transfer-encoding:
+	 content-type:date:from:message-id:mime-version:reply-to:subject:
+	 to;
+	b=V9Jo9/j0CeXXaYvyta5v8PKUHn1lcsMIi4eBybaUGCo/ds/Pated8ZQjiuROsrD7
+	 HBgwpwO+LAz6T/irGeC+K6xqAhD8b9iTBpb/uiUC3O4Q1WQBpHM4Yzj+sSN2D+RYR
+	 4akB00GTXMRybhGeJ0exw/Sw8XLCQAz3TL4WNv7I5g+g9yE97UAQqtwGQ7fsX/00X
+	 NrH2M9bnLz+9GeTttxpQCTDsMWLF+C2VzFd2tg9h9NbdQAQuvnyhelaPAbmc+iusP
+	 3/jmCdABjuIzfpqfGo+9mfXF/S2UiSFv6qCiGz9V4NaoaAm2OCSdUdK3AvSLI+IdE
+	 2dVvsdns+3hJHxbUQw==
+X-UI-Sender-Class: 724b4f7f-cbec-4199-ad4e-598c01a50d3a
+Received: from client.hidden.invalid by mail.gmx.net (mrgmx005
+ [212.227.17.190]) with ESMTPSA (Nemesis) id 1Mi2Jn-1wwvTQ0zyL-00m1Wz; Wed, 27
+ May 2026 16:43:49 +0200
+Message-ID: <0f467da4-944c-4648-8690-b84153bb6555@gmx.net>
+Date: Wed, 27 May 2026 16:43:47 +0200
 MIME-Version: 1.0
-X-MS-PublicTrafficType: Email
-X-MS-TrafficTypeDiagnostic: PH0PR18MB4558:EE_|SA1PR18MB6018:EE_
-X-MS-Office365-Filtering-Correlation-Id: af734f06-f470-47ec-8251-08debbfdcc96
-X-MS-Exchange-SenderADCheck: 1
-X-MS-Exchange-AntiSpam-Relay: 0
-X-Microsoft-Antispam: BCL:0;ARA:13230040|7416014|376014|42112799006|1800799024|366016|56012099006|18002099003|22082099003;
-X-Microsoft-Antispam-Message-Info: S0VMxWP3LymBdiTzEP917uEwO92vFkuwkGjKF2CLc4pZb02QFB9LUCIozp1NAHpqgX7f1sBly068z4uy8y/eBLeH8ZrXCuQRvf4lRfIBDVdh8fu4xwM65kPLszkxNoKyQbHWYVgxypKnwhNn/IgaJdWEUe564LzZTOAbw3QodUcqvojRTf52AwGbS3g2735MFYaQoxfvM7O/O4IuMo7SYwiQz53i4+E+wkeg7DZ6LqbSPKoLOMyiFka8DCO/SjLsJTSpjdX5mkjaFJxkCmtXK7r3U8cIEUqM/4YfL1IL4axhNMeHxWAnipFOHGrQZxlSFoaN95zY7G0vmymCOFtJk3abXistF4uW9NCGewfD6XpTSmambU7HPtfeN4H0gHplnm6as0v4Tf1TnM+MLiFi4ChkzG88Rt3bVdyY2TpCawzu/Ct3381lyhrnKn3ZpV8Ncqy/XChuyTPNGTAqt7VrmsC79AMTeAZSemJf0wIpVW4HYSO4j8QF0UQpyRcZ6TIwjQ7UN7wRLznsTX90+N0WUIYPgI+rKgg6PAYylaU9p09Bvv68C0WRurVUK8/LInhbjOsrpYajYPtr627U9NQchbDY0G8wSLjBdDLnCRih5Z4aKKPv8kev/duLCmlU3zTdASrq6e7VrYNYN4hqZdHKAacDhELF7EPdaayH7gwZO5u/0t4kXJqy711h3TCWJkIX8xWWbPr2+Abbv9/4Y+peeg==
-X-Forefront-Antispam-Report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:PH0PR18MB4558.namprd18.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(7416014)(376014)(42112799006)(1800799024)(366016)(56012099006)(18002099003)(22082099003);DIR:OUT;SFP:1102;
-X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
-X-MS-Exchange-AntiSpam-MessageData-0: =?utf-8?B?T2lINGoxc0s0S1dXQnVPNG5lSVpIemlFOG0zZVJtTVB6YnFiNXp6WmIyOFV3?=
- =?utf-8?B?dHJZaWZ0WjEvY2s1dEZSSWlIajE4ZTF3WE5NNmNIaUVJZUpCQWZvb2xnVjVo?=
- =?utf-8?B?NWtLMnd3SHlkVkpzT0IzYW5wLys5OWt6MUlPNWltZURPRjVxSXNYNDZNNGFn?=
- =?utf-8?B?d0dRTTVDakhIY1ljZGFaZ0I1MEJiZkU2a1Y0WTQveHlBWEFBUHQ1UzBjOXRN?=
- =?utf-8?B?L2NWRVFna09YNjdhczFWNlkrRThPMWJvazdod1RBVzZTVDY3RjBJaUpraTZS?=
- =?utf-8?B?SHJmZWhSczVaOVNyYVdLOHAvL2V2WndMR2RNRXZGbTlwMm1ZNzhBdEViNXB0?=
- =?utf-8?B?dm1MZFpUSmhKZ1dORzZmK2NEcVl2WGtuVjVNalRJaFc5V25tTi92TDVPcXU1?=
- =?utf-8?B?WjZiRVdTckRsN2lJRkdBbHMyYWRESUZYVHQwdWV4RWlkTjZFOVh2QW5UUE9y?=
- =?utf-8?B?c0RYTGUxeGh2VkpROC91WjhTUGlrZldXYVlUazFMZm5PVXNqb25oS1cweFNX?=
- =?utf-8?B?UWVrUW9ISmJFeVBxWmNhM21aZGp4dkpvZjdnbGlrYVlCOWUwNStKTUllVTlS?=
- =?utf-8?B?akV6SlA4SEZ2WGdiSWhvaXRFQnVmQlpzSERPOXdkWVdjK05nTjBGN0pRRFUx?=
- =?utf-8?B?NC84clRPYy9XZGRnNWVsQTVENW80V2JVSG1rWWIrTEFKcmF4UG5MUjFnQm1n?=
- =?utf-8?B?dmV2bHgxZi9Nc29WU1lEeFhEb0tjNlN4R3d0ekI2TWM5ZWdneUExYjFkSDF1?=
- =?utf-8?B?UHhpUTQwZUNLamJwZ3F3WnhLRWVYbFRPSzdHNTMzRllzbnkxNzh4dThEQXBt?=
- =?utf-8?B?ck54OEtGUHFVN0UzTnBMNy9JVWQ3K0RZVlNEWDBJd3I0djFpTVRLcVhhK2tR?=
- =?utf-8?B?WGFiNmJCTXloS01QUERnV2xuQU12ZklNTXdUMTA2b3p0YWJ2aytZRVRuNCtr?=
- =?utf-8?B?OXk1ekN3MWFYbUJTMGlxY1hBSlRhL0cyUk9ZZHk1N2k1TXp2NGl5a2kxZUs4?=
- =?utf-8?B?UlB1aGpETW8zS3hNTTVkN2hZRmpncEYwRE9sOW5vVmp0b0E0bGhvQ2NEdWhH?=
- =?utf-8?B?S0JRS25WS2Z0TFRoZ1h3VldPZnVNT2ZFdERuL2NFdktVTXppN0dkLzNVUC9S?=
- =?utf-8?B?WEZpMWN5MUdoZkIzcW92cktmajExRkg3Z1dGZWlNcjdta3JhZEk1OVpRS01K?=
- =?utf-8?B?c2JPeExCOFA2b2FlRHlhejRKVmJaM2l0QlBkQk0ydGt1eVB0UXF3UmQyQ1py?=
- =?utf-8?B?YTBQWXpYZTVNUnlXMnZUMVI3MmNuSGFRZ3F6WEpmTmVtb0RDNWtoQmo1VjVF?=
- =?utf-8?B?amxmckhtTkpIczlVZVpLZWdHVVA5Sk5SWjYvOE5teElVUEVob0U3RHd5Qzh4?=
- =?utf-8?B?S3VTZnUrWHVvRk1vQlJzL0JHS09lMzBtYXRFeFMwMjFXU3lBamVaZHFaK1lU?=
- =?utf-8?B?S1ZZalNJWndLWlRxMVNYaXdHRlRKNHgyalV1M1hrMnZodmZVWFZsMy9wZGVM?=
- =?utf-8?B?aHdEckVzUnUySHJsT2oxUFR3TDV1TG9BaGl6TFlsaUsxSXMwM2EycFRkb1Rr?=
- =?utf-8?B?NnFxVVZxanBua1BDMUdhR2tlYld0Yk00Q21hNDdhSzFMY1N0c1k2TG5NOGph?=
- =?utf-8?B?Y3VHWW1OZU04MUZnSm1mdFdVNm5UZVBJNjZabGFPSjdLRkpHWVFyTkZtZGxI?=
- =?utf-8?B?RWdWZnpMTGNJc05RUE1tM3dsN09WR2RjZ3BuUzVTdlpXNHcxTVNXY1pMUExE?=
- =?utf-8?B?bDJpcG54VXZUY0xqdjJhL0s1YVdJOWppZUE2d01zSDNJeWs3bTBzYzJvbjha?=
- =?utf-8?B?RnZ6Q3pwdk1DNVBmOWExQnAwTlpsT3NNc2t4TUdDcUtUc3pSL09PQkE1WjFr?=
- =?utf-8?B?enJpb3BXOTIrMm9GMk9zN0wvcDk4aE9WQmQ0ckg5WjgrNmZ3Rm9QWHJCRzNw?=
- =?utf-8?B?K2J4QmR3R1Q3TitEem5oZmtadUdaZytuNng0aGtIaVYxOWtRdmJaM1J5ck5B?=
- =?utf-8?B?VElIMm9uYmIrMVhjMUxITWlubkswd1lNeFpZVDRiUWxyVTFwRjFMVXphVytw?=
- =?utf-8?B?L05Ob1loZjd0OFJFUktTUnRTZnZJOWJoNm1nSm5nR0FnWUJuZkVMY1oyMVBO?=
- =?utf-8?B?NUVvWFhieDk0SEVETzlSRTduUnBEeEJVRDEzSkdqK1VJNHpRRjYxdE1HQ2NH?=
- =?utf-8?B?ZE92ZkZOR1JjZm0xY2lBSi9zRVZnTUNlUkxsMGZlOGVCNW5GTlAzVmRqUFZ2?=
- =?utf-8?B?NFFwOGFTQjNJMGQyRmt1TDVYWFBpTk5BMitTMEx5UGd2WlFSeWtYNDNadE1S?=
- =?utf-8?B?ejJrcTd1WkdZMHBuY2xPbkdQcU4vWVp1ajlyUUNvdjI1MkhHZVBXUT09?=
-X-OriginatorOrg: axiado.com
-X-MS-Exchange-CrossTenant-Network-Message-Id: af734f06-f470-47ec-8251-08debbfdcc96
-X-MS-Exchange-CrossTenant-AuthSource: PH0PR18MB4558.namprd18.prod.outlook.com
-X-MS-Exchange-CrossTenant-AuthAs: Internal
-X-MS-Exchange-CrossTenant-OriginalArrivalTime: 27 May 2026 14:39:46.8021
- (UTC)
-X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
-X-MS-Exchange-CrossTenant-Id: ff2db17c-4338-408e-9036-2dee8e3e17d7
-X-MS-Exchange-CrossTenant-MailboxType: HOSTED
-X-MS-Exchange-CrossTenant-UserPrincipalName: DEJLQJbLGgXo9RYlxzs1diylJ4uOsUjkM9YnrDNcuaQtBujhZRh0VZVcpxaRTJMk
-X-MS-Exchange-Transport-CrossTenantHeadersStamped: SA1PR18MB6018
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH] arm64: defconfig: Enable DP83822 PHY driver
+To: Catalin Marinas <catalin.marinas@arm.com>, Will Deacon <will@kernel.org>,
+ Krzysztof Kozlowski <krzk@kernel.org>,
+ Alexandre Belloni <alexandre.belloni@bootlin.com>,
+ Linus Walleij <linusw@kernel.org>, Drew Fustini <fustini@kernel.org>,
+ Arnd Bergmann <arnd@arndb.de>, Shawn Guo <shawnguo@kernel.org>
+Cc: Christoph Stoidner <c.stoidner@phytec.de>,
+ Primoz Fiser <primoz.fiser@norik.com>, linux-arm-kernel@lists.infradead.org
+References: <20260502124312.6660-1-wahrenst@gmx.net>
+Content-Language: en-US
+From: Stefan Wahren <wahrenst@gmx.net>
+Autocrypt: addr=wahrenst@gmx.net; keydata=
+ xjMEZ1dOJBYJKwYBBAHaRw8BAQdA7H2MMG3q8FV7kAPko5vOAeaa4UA1I0hMgga1j5iYTTvN
+ IFN0ZWZhbiBXYWhyZW4gPHdhaHJlbnN0QGdteC5uZXQ+wo8EExYIADcWIQT3FXg+ApsOhPDN
+ NNFuwvLLwiAwigUCZ1dOJAUJB4TOAAIbAwQLCQgHBRUICQoLBRYCAwEAAAoJEG7C8svCIDCK
+ JQ4BAP4Y9uuHAxbAhHSQf6UZ+hl5BDznsZVBJvH8cZe2dSZ6AQCNgoc1Lxw1tvPscuC1Jd1C
+ TZomrGfQI47OiiJ3vGktBc44BGdXTiQSCisGAQQBl1UBBQEBB0B5M0B2E2XxySUQhU6emMYx
+ f5QR/BrEK0hs3bLT6Hb9WgMBCAfCfgQYFggAJhYhBPcVeD4Cmw6E8M000W7C8svCIDCKBQJn
+ V04kBQkHhM4AAhsMAAoJEG7C8svCIDCKJxoA/i+kqD5bphZEucrJHw77ujnOQbiKY2rLb0pE
+ aHMQoiECAQDVbj827W1Yai/0XEABIr8Ci6a+/qZ8Vz6MZzL5GJosAA==
+In-Reply-To: <20260502124312.6660-1-wahrenst@gmx.net>
+Content-Type: text/plain; charset=UTF-8; format=flowed
+Content-Transfer-Encoding: 7bit
+X-Provags-ID: V03:K1:eqH+us07+JQJ56icU6QwUrX4cnRJXrMs81snZeFBPAPmpA8cMW5
+ wHCDxxksxmpDON//F0t5aj50HCh2vl8RuPnWTcgmsYs3JXACT8HuNS6c1ZRQRbkYw5ymNQ1
+ AZlY/QLVuHRE2l4vObsYql2lEbqRin5kw4Rev2rAuIaija/k+jscoBAS5g9QAkddRZkLSAb
+ RBZKemihWA9AkyvQj9saQ==
+UI-OutboundReport: notjunk:1;M01:P0:mysmGcfJh4c=;u1cGd64tfzx+N4isKE2PI45N+RH 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 hsQoVPpdokl9bLZsVoA8aM3hxys=
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260527_073956_221033_54EB6F27 
-X-CRM114-Status: GOOD (  19.09  )
+X-CRM114-CacheID: sfid-20260527_074400_236962_4B37EE5E 
+X-CRM114-Status: GOOD (  12.89  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -151,62 +95,31 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On 5/27/2026 9:56 PM, Karthikeyan Mitran wrote:
-> From: Prasad Bolisetty <pbolisetty@axiado.com>
-> 
-> Adding 3 new maintainers Prasad,Tzu-Hao, and Karthikeyan
-> Removed previous maintainer as the previous maintainer moved from project
-> 
-> Signed-off-by: Prasad Bolisetty <pbolisetty@axiado.com>
-> Acked-by: Harshit Shah <hshah@axiado.com>
-> Signed-off-by: Tzu-Hao Wei <twei@axiado.com>
-> Signed-off-by: Karthikeyan Mitran <kmitran@axiado.com>
-> ---
-> ----
-> This patch removes a Axiado SoC maintainer and adds 3 more.
-> 
-> A maintainer has moved on from the project, so we are adding three new maintainers (Prasad, Tzu-Hao, and Karthikeyan). also commit message amended to have the same.
-> 
-> Patch 1: Removed one and added 3 new maintainers
-> 
-> Changes since v5:
-> - Removed review mail-list R:Axiado Reviewers <linux-maintainer@axiado.com>
-> - Link to v5: https://lore.kernel.org/r/20260326-maintainers-addition-and-axiado-ax3000_dtsi-update-v5-1-648dfe9bff29@axiado.com
-> 
-> Changes in v4:
-> - Updated commit message to clarify maintainer removal and additions
-> - v4: https://lore.kernel.org/linux-devicetree/20260302-maintainers-addition-and-axiado-ax3000_dtsi-update-v4-0-84a5c9df6689@axiado.com/
-> 
-> Changes in v3:
-> - Updated commit message
-> - v3: https://lore.kernel.org/linux-devicetree/20260226-maintainers-addition-and-axiado-ax3000_dtsi-update-v3-0-a3b095989823@axiado.com/
-> ---
-> 
-> ---
->  MAINTAINERS | 4 +++-
->  1 file changed, 3 insertions(+), 1 deletion(-)
-> 
-> diff --git a/MAINTAINERS b/MAINTAINERS
-> index 55af015174a5..b1349bd178cf 100644
-> --- a/MAINTAINERS
-> +++ b/MAINTAINERS
-> @@ -2605,7 +2605,9 @@ F:	arch/arm/mach-aspeed/
->  N:	aspeed
->  
->  ARM/AXIADO ARCHITECTURE
-> -M:	Harshit Shah <hshah@axiado.com>
-> +M:	Prasad Bolisetty <pbolisetty@axiado.com>
-> +M:	Tzu-Hao Wei <twei@axiado.com>
-> +M:	Karthikeyan Mitran <kmitran@axiado.com>
->  L:	linux-arm-kernel@lists.infradead.org (moderated for non-subscribers)
->  S:	Maintained
->  F:	Documentation/devicetree/bindings/arm/axiado.yaml
-> 
-> ---
-> base-commit: 6de23f81a5e08be8fbf5e8d7e9febc72a5b5f27f
-> change-id: 20260226-maintainers-addition-and-axiado-ax3000_dtsi-update-2f37e16b9053
-> 
-> Best regards,
+Hi,
 
-Acked-by: Tzu-Hao Wei <twei@axiado.com>
+Am 02.05.26 um 14:43 schrieb Stefan Wahren:
+> Enable DP83822 PHY driver as a module to support the Ethernet PHY,
+> which is placed on phyCORE-i.MX93 SOM.
+>
+> Signed-off-by: Stefan Wahren <wahrenst@gmx.net>
+Krzysztof send a Reviewed-by, but it isn't applied yet. Should I resend?
+
+Best regards
+> ---
+>   arch/arm64/configs/defconfig | 1 +
+>   1 file changed, 1 insertion(+)
+>
+> diff --git a/arch/arm64/configs/defconfig b/arch/arm64/configs/defconfig
+> index dd1ac01ee29b..cea96ed9a945 100644
+> --- a/arch/arm64/configs/defconfig
+> +++ b/arch/arm64/configs/defconfig
+> @@ -422,6 +422,7 @@ CONFIG_AT803X_PHY=y
+>   CONFIG_QCA808X_PHY=m
+>   CONFIG_REALTEK_PHY=y
+>   CONFIG_ROCKCHIP_PHY=y
+> +CONFIG_DP83822_PHY=m
+>   CONFIG_DP83867_PHY=y
+>   CONFIG_DP83869_PHY=m
+>   CONFIG_DP83TG720_PHY=m
+
 
