@@ -4,65 +4,62 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 99AC8CD4F54
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 27 May 2026 09:16:42 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 1A945CD5BDE
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 27 May 2026 09:16:50 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
-	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Content-Type:MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:
+	To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=sBtVQtrG2D+f9Z/sho+DSeJtMa0aOiwSm/AF9v+I85o=; b=FjeeNCOHp0oCfCO1W1qB+RTsc4
-	XIMHJhgGHSyzKzRkmy0+3Sbpr1MNby7AAB5Ir3kkNiaXN0lcsGM9hflPSAKH2hjCQ8K317Sn7mzkh
-	0IXkFml85f1icIWZSsclPjYRIy09nBhEbNmYrcDrJ2+f55l3qGZaDLdmMbGN6iPh/x54ZYFNk/bWo
-	ilyYv0knTN6O6xDVu9WwNtp105JRh532IRR0BgtAqWhmvTR1+HF/a4f/vTq+69Ql4mdVZRGnAR15D
-	9Q2ytBWO2K98DQhQMY4nOLIHCWpT9xwYuWA0IkaE+NvVPbUry4+gzfVfwCa/WTB221P1Nr4RMSvdC
-	cOLSRc9g==;
+	bh=FW1o8Mstfz7HtwERoCbtrhXZitn0SCyLL8f980TymDc=; b=gNl60NJPU125ODAlxtCzJ6w/JP
+	DSsWUKaSpB9D+hriRtlSeBgcxnKAH/4qLd5YTFAbj2BH+iPPSqOys0OtsXAmA5GDrZWHNr9a8iBn/
+	OML+g9WXuEouuRjYPbVjmVblJI+t2nD+T6Uji6LmdaQTzqfiikalUJChzz+xr0055/CT6pmas17k/
+	i32/Ufp2REB3sK9Ji09gYxoGI31Gn1TFJx2fQkwz6kkHAcgAyqnPnALVdcQzNgTaPjr2TS4ScbrLl
+	4Gvgn8Z+vz6X6muAvmuh2/UPrQkdHZoqVuPnXFvMSK8ZAS9k0FADRxDR0CXGfddDMJhM2II4z68y6
+	6+crwQXg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wSANO-00000003c7P-3qA5;
-	Wed, 27 May 2026 09:16:34 +0000
-Received: from out30-99.freemail.mail.aliyun.com ([115.124.30.99])
+	id 1wSANY-00000003c9w-0Mgs;
+	Wed, 27 May 2026 09:16:44 +0000
+Received: from tor.source.kernel.org ([172.105.4.254])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wSANJ-00000003c5w-41PB
+	id 1wSANS-00000003c8f-1AXy
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 27 May 2026 09:16:33 +0000
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-	d=linux.alibaba.com; s=default;
-	t=1779873383; h=Message-ID:Date:MIME-Version:Subject:To:From:Content-Type;
-	bh=sBtVQtrG2D+f9Z/sho+DSeJtMa0aOiwSm/AF9v+I85o=;
-	b=Ca+fO0k3wSiKcac6DMzYaE3yJ5dcTSM/Nko6QY44XiZb4pwoCKcTy5aV4QXjRFqcUGHouPs8PiAccUDgfy+nNflhpZDdDc2MEkggsquC9zEmBE/J9qCXNlfFRhKDMNRgdtmAENy4j+VKqpkB7jkF5ZbTUxjRfb9WaSUPRR1dXIQ=
-X-Alimail-AntiSpam: AC=PASS;BC=-1|-1;BR=01201311R111e4;CH=green;DM=||false|;DS=||;FP=0|-1|-1|-1|0|-1|-1|-1;HT=maildocker-contentspam011083073210;MF=xueshuai@linux.alibaba.com;NM=1;PH=DS;RN=29;SR=0;TI=SMTPD_---0X3jFQTK_1779873377;
-Received: from 30.246.179.14(mailfrom:xueshuai@linux.alibaba.com fp:SMTPD_---0X3jFQTK_1779873377 cluster:ay36)
-          by smtp.aliyun-inc.com;
-          Wed, 27 May 2026 17:16:19 +0800
-Message-ID: <1cc534eb-b323-4cf3-9301-77e3925c613b@linux.alibaba.com>
-Date: Wed, 27 May 2026 17:16:14 +0800
+	Wed, 27 May 2026 09:16:38 +0000
+Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
+	by tor.source.kernel.org (Postfix) with ESMTP id 6C4E3600BB;
+	Wed, 27 May 2026 09:16:37 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 971881F000E9;
+	Wed, 27 May 2026 09:16:35 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
+	s=k20260515; t=1779873397;
+	bh=FW1o8Mstfz7HtwERoCbtrhXZitn0SCyLL8f980TymDc=;
+	h=From:To:Cc:Subject:Date:In-Reply-To:References;
+	b=DIeSzj7mkAHQZrvnz4x3l4UQ5fpwG5PV0VOHWqVw/CeQs2ZgxTRqTrOB6lULCpp5F
+	 BRM51npMY17KAJ+qaf99ur/O9rebdSLSnTDO3B4xUP1y0qRWjENP5dEvoTgPYUsHxE
+	 eO/a9frK1eq7YSfrAyvYD4T9eKK2tglmeH2XyZnowVx/Edt/s3oNP/d2MN8jwxV6MY
+	 Uqbp3c7cW7epfXTiXrgaMrBPLjsYentJwdsYfwKzKOACdFaNR+gd0nH3DHp4pRtohp
+	 HRNyPNH+IWB3uTUjNhV83+IfJmSalz+BMVi9hMVjsUn4IsCehrTYChnqOR9b7hkbDB
+	 TZFELXj9tdh5w==
+From: Sudeep Holla <sudeep.holla@kernel.org>
+To: linux-security-module@vger.kernel.org,
+	linux-kernel@vger.kernel.org,
+	linux-integrity@vger.kernel.org,
+	linux-arm-kernel@lists.infradead.org,
+	kvmarm@lists.linux.dev,
+	Sudeep Holla <sudeep.holla@kernel.org>
+Cc: Yeoreum Yun <yeoreum.yun@arm.com>,
+	Nathan Chancellor <nathan@kernel.org>
+Subject: Re: [PATCH] firmware: arm_ffa: Treat missing FF-A feature on a platform as a probe miss
+Date: Wed, 27 May 2026 10:16:24 +0100
+Message-ID: <177987332790.276916.3167298896223560976.b4-ty@b4>
+X-Mailer: git-send-email 2.43.0
+In-Reply-To: <20260526103649.5684-1-sudeep.holla@kernel.org>
+References: <20260526103649.5684-1-sudeep.holla@kernel.org>
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH v14 1/8] uaccess: add generic fallback version of
- copy_mc_to_user()
-To: Ruidong Tian <tianruidong@linux.alibaba.com>, catalin.marinas@arm.com,
- will@kernel.org, rafael@kernel.org, tony.luck@intel.com,
- guohanjun@huawei.com, mchehab@kernel.org, tongtiangen@huawei.com,
- james.morse@arm.com, robin.murphy@arm.com, andreyknvl@gmail.com,
- dvyukov@google.com, vincenzo.frascino@arm.com, mpe@ellerman.id.au,
- npiggin@gmail.com, ryabinin.a.a@gmail.com, glider@google.com,
- christophe.leroy@csgroup.eu, aneesh.kumar@kernel.org,
- naveen.n.rao@linux.ibm.com, tglx@linutronix.de, mingo@redhat.com
-Cc: linux-arm-kernel@lists.infradead.org, linux-mm@kvack.org,
- linuxppc-dev@lists.ozlabs.org, linux-kernel@vger.kernel.org,
- kasan-dev@googlegroups.com, Mauro Carvalho Chehab
- <mchehab+huawei@kernel.org>, Jonathan Cameron <Jonathan.Cameron@huawei.com>
-References: <20260518084956.2538442-1-tianruidong@linux.alibaba.com>
- <20260518084956.2538442-2-tianruidong@linux.alibaba.com>
-From: Shuai Xue <xueshuai@linux.alibaba.com>
-In-Reply-To: <20260518084956.2538442-2-tianruidong@linux.alibaba.com>
-Content-Type: text/plain; charset=UTF-8; format=flowed
-Content-Transfer-Encoding: 7bit
-X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260527_021630_170243_2D2440DB 
-X-CRM114-Status: GOOD (  15.15  )
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: 8bit
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -77,108 +74,23 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-
-
-On 5/18/26 4:49 PM, Ruidong Tian wrote:
-> From: Tong Tiangen <tongtiangen@huawei.com>
+On Tue, 26 May 2026 11:36:49 +0100, Sudeep Holla wrote:
+> When FF-A initialisation is driven from a platform device probe, systems
+> that do not implement FF-A can return -EOPNOTSUPP from the early transport
+> or version discovery paths. Driver core treats that as a matched probe
+> failure and prints:
 > 
-> x86/powerpc has it's implementation of copy_mc_to_user(), we add generic
-> fallback in include/linux/uaccess.h prepare for other architechures to
-> enable CONFIG_ARCH_HAS_COPY_MC.
+>   |  arm-ffa arm-ffa: probe with driver arm-ffa failed with error -95
 > 
-> Signed-off-by: Tong Tiangen <tongtiangen@huawei.com>
-> Acked-by: Michael Ellerman <mpe@ellerman.id.au>
-> Reviewed-by: Mauro Carvalho Chehab <mchehab+huawei@kernel.org>
-> Reviewed-by: Jonathan Cameron <Jonathan.Cameron@huawei.com>
-> ---
->   arch/powerpc/include/asm/uaccess.h | 1 +
->   arch/x86/include/asm/uaccess.h     | 1 +
->   include/linux/uaccess.h            | 8 ++++++++
->   3 files changed, 10 insertions(+)
-> 
-> diff --git a/arch/powerpc/include/asm/uaccess.h b/arch/powerpc/include/asm/uaccess.h
-> index e98c628e3899..073de098d45a 100644
-> --- a/arch/powerpc/include/asm/uaccess.h
-> +++ b/arch/powerpc/include/asm/uaccess.h
-> @@ -432,6 +432,7 @@ copy_mc_to_user(void __user *to, const void *from, unsigned long n)
->   
->   	return n;
->   }
-> +#define copy_mc_to_user copy_mc_to_user
->   #endif
->   
->   extern size_t copy_from_user_flushcache(void *dst, const void __user *src, size_t size);
-> diff --git a/arch/x86/include/asm/uaccess.h b/arch/x86/include/asm/uaccess.h
-> index 3a0dd3c2b233..308b0854d1d5 100644
-> --- a/arch/x86/include/asm/uaccess.h
-> +++ b/arch/x86/include/asm/uaccess.h
-> @@ -496,6 +496,7 @@ copy_mc_to_kernel(void *to, const void *from, unsigned len);
->   
->   unsigned long __must_check
->   copy_mc_to_user(void __user *to, const void *from, unsigned len);
-> +#define copy_mc_to_user copy_mc_to_user
->   #endif
->   
->   /*
-> diff --git a/include/linux/uaccess.h b/include/linux/uaccess.h
-> index 56328601218c..c53a65394f80 100644
-> --- a/include/linux/uaccess.h
-> +++ b/include/linux/uaccess.h
-> @@ -250,6 +250,14 @@ copy_mc_to_kernel(void *dst, const void *src, size_t cnt)
->   }
->   #endif
->   
-> +#ifndef copy_mc_to_user
-> +static inline unsigned long __must_check
-> +copy_mc_to_user(void *dst, const void *src, size_t cnt)
-> +{
-The prototype of this generic fallback diverges from both copy_to_user()
-and the existing arch implementations of copy_mc_to_user() in two
-non-trivial ways:
+> [...]
 
-   1. The destination pointer drops the __user annotation.
+Applied to sudeep.holla/linux (for-next/ffa/updates), thanks!
 
-      copy_to_user() is declared as:
+[1/1] firmware: arm_ffa: Treat missing FF-A feature on a platform as a probe miss
+      https://git.kernel.org/sudeep.holla/c/18706ea68fc4
 
-          unsigned long copy_to_user(void __user *to,
-                                     const void *from,
-                                     unsigned long n);
+--
+Regards,
+Sudeep
 
-      and arch/x86/include/asm/uaccess.h declares the arch version as:
-
-          unsigned long copy_mc_to_user(void __user *to,
-                                        const void *from,
-                                        unsigned long len);
-
-      With this fallback typed as 'void *dst', sparse will silently
-      accept a kernel pointer being passed in, and the address-space
-      check is effectively lost for any architecture that ends up using
-      the fallback. The annotation is the whole point of __user; please
-      keep it.
-
-   2. The size parameter is 'size_t cnt' instead of 'unsigned long n'.
-
-      copy_to_user() and the x86/ppc copy_mc_to_user() implementations
-      all use 'unsigned long'. On all supported arches this happens to
-      be the same width as size_t, so it is not a functional bug, but
-      the inconsistent signature is a foot-gun: when an arch later
-      switches from the fallback to its own implementation, every
-      caller signature has to be re-checked.
-
-Please align the fallback prototype exactly with the arch versions:
-
-     #ifndef copy_mc_to_user
-     static inline unsigned long __must_check
-     copy_mc_to_user(void __user *dst, const void *src, unsigned long cnt)
-     {
-         return copy_to_user(dst, src, cnt);
-     }
-     #endif
-
-With that fixed:
-
-Reviewed-by: Shuai Xue <xueshuai@linux.alibaba.com>
-
-Thanks.
-Shuai
 
