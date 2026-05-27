@@ -4,106 +4,113 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 31C27CD5BD0
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 27 May 2026 21:05:25 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 9BFE4CD4F54
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 27 May 2026 21:09:09 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:Cc:To:Subject:Message-ID:Date:From:In-Reply-To:References:
-	MIME-Version:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=klhpPa38J0whnw5RO/BZGOXxuOqg7LvqNeDQIX9ReEM=; b=pNwjsGP1XJAq7G877b3QTH3n40
-	Hfh/A/Fe1Ah0CT0jEssglEGEeABWoY155MDKz0k0Xt0bJFTF05YSfzlNxvaEbWppheqtib+R7yoJ2
-	THzr8LUxlFB52iXSlNkI3OSB9qvZdcmNs3sQ5mi00iaZuf3XiqfBv9P5IZ/5xsMTId5EtOm+p7XrY
-	yR5jx+hs6MgSaVSeD46fzoTuQfoFcOHHNGRXDY4iePIGMLWYH42NiR65q/JP+JVAenow9RqsDPCCQ
-	ABY73aMOPR0o00EwZ9ZzBHcmTJK4M0wpeukqSWyKgZ/OBSD3LjDeye2txvub2Gx/iid4zdp4vcGo3
-	2nQNmMAA==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:Message-Id:
+	Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:From:
+	Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender
+	:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=xwGOVfYvO201sEUuE8/pQvxXnipLjm8iFFFY82DZt50=; b=lQ6h2iGXSEncyp2DppmH+H1Ds5
+	/QJFOGObGCndgbNMGdK5OQx0HQf/G1JXxDYiGh3bMEDD7JEhd72KLPOITwNTtGIJJNjCrxkBlcOc2
+	JHlaBhWNLIu28oYo+agmefH8HCxVAw9UBSBj4kg/aZTT7jpvFS7BHOmjYqXm8zd+vk96OV+1wMLit
+	pVLtgScpSBRHLhguXvNfIbiiSfb1QzUshbCtVAAMdo/Bt5eQgcVayYkOdetrpbxHx99EiZC5qPKNO
+	FI/HdPGVZ25RhXx6H3Yo8v7c711svLFSv1M7VDkSMWY4Op5Lo9+7M/pTD1rOjuKze+SpMrs3MkVKc
+	hA9Hcv3A==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wSLRE-00000004kDE-1Lg2;
-	Wed, 27 May 2026 21:05:16 +0000
-Received: from mail-lf1-x131.google.com ([2a00:1450:4864:20::131])
+	id 1wSLUr-00000004kOa-3qDW;
+	Wed, 27 May 2026 21:09:01 +0000
+Received: from mail-wm1-x330.google.com ([2a00:1450:4864:20::330])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wSLRB-00000004kCs-3VQl
+	id 1wSLUp-00000004kOB-2I65
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 27 May 2026 21:05:14 +0000
-Received: by mail-lf1-x131.google.com with SMTP id 2adb3069b0e04-5aa21fa024cso10344607e87.2
-        for <linux-arm-kernel@lists.infradead.org>; Wed, 27 May 2026 14:05:13 -0700 (PDT)
-ARC-Seal: i=1; a=rsa-sha256; t=1779915911; cv=none;
-        d=google.com; s=arc-20240605;
-        b=F7acOI50Iv7e7juMy+e/eVwSU+ltNC7Qa9D9PCuC7CvfdGYOoUNg3o787RmFnSruj6
-         nYu4srG2DvxYdL8/r0ZOtilWqedv+ON4BCscINdMNdf7d1MhFhkQjqswqLyowwHACZoT
-         BqG88SpReo/3QkDCNVIsURWIPxVDmOEOthSz8GninWp8MQQZ4E66DR5FVmAf2dQzYGK+
-         EllFMx8fA+hMP2zSxN8A90JXmSkcM65yAQOCITV8j07cRJesUuIAw+hwY7n07uBbVy38
-         fH7e9/HV8GlXXGSZM0+dRKu6KtgDwqRj3D5SVt5iwvXTr/FpIe0m3P44quGTK3HFa6lm
-         fQVw==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20240605;
-        h=content-transfer-encoding:cc:to:subject:message-id:date:from
-         :in-reply-to:references:mime-version:dkim-signature;
-        bh=klhpPa38J0whnw5RO/BZGOXxuOqg7LvqNeDQIX9ReEM=;
-        fh=hNgRrAtmrIdPU71Xpw4c4Q0hbNLB5QHOh8i/srdFykA=;
-        b=VywO9iP8J7kvVaYmgByYJ+WtLrxXN5UD9vMOiPGSPX8fmsoBz8tE+a5p3dgeBz6S4v
-         ieQN3i5Jv8fvo/hzisjyAG9ZDRU1nZXSp7oVZ1eelM0qTs1PSAQcu26tURs5dxGTtmM0
-         qEhgUQGAosxPMpHtDXXNewkG/MIEHHn9JygYhvHvZlU9X5P+XgZ8P3iPIYXkVYUcO7gi
-         Rm+BpoLxB6oi5FIjohAA19xfTgyMR/GBfBdR4R6tORtxuwgH/9dXIjGFG5xXY08WK3wB
-         i1osjPAYB8XGCNgOWWSQcJAUExJdfL5o4PqsWJQScDZQysxejY0BYPimgt2g9dkLkHJN
-         Y8NQ==;
-        darn=lists.infradead.org
-ARC-Authentication-Results: i=1; mx.google.com; arc=none
+	Wed, 27 May 2026 21:09:00 +0000
+Received: by mail-wm1-x330.google.com with SMTP id 5b1f17b1804b1-4891b0786beso80878215e9.1
+        for <linux-arm-kernel@lists.infradead.org>; Wed, 27 May 2026 14:08:58 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=chromium.org; s=google; t=1779915911; x=1780520711; darn=lists.infradead.org;
-        h=content-transfer-encoding:cc:to:subject:message-id:date:from
-         :in-reply-to:references:mime-version:from:to:cc:subject:date
-         :message-id:reply-to;
-        bh=klhpPa38J0whnw5RO/BZGOXxuOqg7LvqNeDQIX9ReEM=;
-        b=JSOnrcGO6J2ZNewIEvnG31y0XCwXBLeuOCofyGDbRrBNRcxlZde3WvVx/Z0nHH+a5+
-         diF5KZ2e1lXEVJARt5AYMeE+GuzuWBw4TTGl+8LxXcNw/yQKfjr3x7xtUnQK6x4yogyY
-         qNYyR9oDfytiGyAkPkHf7fIjeqr2SCbtUuijg=
+        d=linaro.org; s=google; t=1779916137; x=1780520937; darn=lists.infradead.org;
+        h=cc:to:message-id:content-transfer-encoding:mime-version:subject
+         :date:from:from:to:cc:subject:date:message-id:reply-to;
+        bh=xwGOVfYvO201sEUuE8/pQvxXnipLjm8iFFFY82DZt50=;
+        b=u8kvc3FluWZDWCs6iLfsUbKM7aWvo6VH8Gqb2y1rTElDqBLbtiTHKO+ELvNQf4ggNR
+         xXspBzznjFwDEpXMI8NHP5z+RxuLE01ocofrjk/BOwxrIu/Tgt33XnEsqbkXYPJWCKcj
+         KvodxALkWIbBqfazdNJC59K+82BSIGV69X/fTZ9Zv+cogk2k+7GeIC4rAMZG3oKXojMw
+         HI72UzZKOlxc6Dwa2XhU2vaB2iSFlNsAC03Rj4hXEYwZNF1hjC/FAmbwyUnbeBkQoXM7
+         p0czw5Bx2XipmmFDNpHcdBDdhxjTxZ8cOufsktGcCHXPE3AgbMGJ7OwKKNIHl1XMisag
+         P7Ug==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20251104; t=1779915911; x=1780520711;
-        h=content-transfer-encoding:cc:to:subject:message-id:date:from
-         :in-reply-to:references:mime-version:x-gm-gg:x-gm-message-state:from
-         :to:cc:subject:date:message-id:reply-to;
-        bh=klhpPa38J0whnw5RO/BZGOXxuOqg7LvqNeDQIX9ReEM=;
-        b=CpzKcqZ3lzcHCAAfI1wXS4/78wLi+egQJFHvMREP/j5B7zxy2S6aT3XI644TSLQKl1
-         EYulkCXv1+URrhF8m2hI79DIowTg82BjuJJMqDifi0+OoxnKQ+c8Fw7C8/IuExNkrj9a
-         pc4NQOIBMDAMuaRxsxkWbqgRIzI3leODtSrSHkTMXaQ/SM0hLuaPptzzi9zbWzsLLskv
-         0/f/2uSSCISMFEOzHs3fXa+KvlDZtQFnre+u0PhNo/QAe46+1M1W5pJGb9a22MOY5mq3
-         ZnaPLH5fHB+B2o0D2u62USyNo6Dq04Im2+rxbBcQZv8IM9fnWlgRDZK6jG/Cgo/M/LsI
-         J7OA==
-X-Forwarded-Encrypted: i=1; AFNElJ+LVW03G8ZMGUybwBaTVxkWkPMLLYhPATt+tl6aJUAni0REvc46FxEvIIBdt5RaN2weqMjSenGGrxFT3v+NbquT@lists.infradead.org
-X-Gm-Message-State: AOJu0Yxw+sLtQXtgEyPVPOmp46O62xeLMPkIXAsk13Qqjk66RsdO1Nb7
-	PlZ+KsegUUtxjRKveY8TsbuhHnyUWIPn6ZAYRzPKYQ5F4O7kFpA8dg3ur/hG6JF74Zp8xdrzxCu
-	FDV+pnCWnAUpiGJpFVaLuOCkoQdmBRAckh0VVkNrd
-X-Gm-Gg: Acq92OExYAcrkC4Mx4t5EIhDZA2orbYGmvpgBJe2ewxcSZ7jH/ppvwXIY3Oj0N7U5Lt
-	GGskqbxZF8MzoU4EsLNCYximwlkpf/w/N6hv/K7Zv109CjeYm7SSCIZnZ8EmXI34HXmQOouqMfc
-	16y1sr4jweRb5FXMLDYlq5qQzACwICr5URL402E6PKuaXe/dRUEvaILV0XNcC2zK7xXnoJQpEem
-	2Dt3vWpZzWnoghp99+SBLZ/Hy6wiE76Ped+HFmNRQmbCxQp5d/mOVOUkUYUtLBYZXJiymSp1uGI
-	YXe8r5mgiKenIev3eg==
-X-Received: by 2002:a05:6512:65dc:10b0:5a4:1902:3d17 with SMTP id
- 2adb3069b0e04-5aa3239b51emr5764637e87.12.1779915911516; Wed, 27 May 2026
- 14:05:11 -0700 (PDT)
+        d=1e100.net; s=20251104; t=1779916137; x=1780520937;
+        h=cc:to:message-id:content-transfer-encoding:mime-version:subject
+         :date:from:x-gm-gg:x-gm-message-state:from:to:cc:subject:date
+         :message-id:reply-to;
+        bh=xwGOVfYvO201sEUuE8/pQvxXnipLjm8iFFFY82DZt50=;
+        b=absuzNu93wG/TVgxAdp/VrJB5klPBm1jpeDs58YX/lLorPeDxSJojkUF8moHLKDwqG
+         TS0sN9/C8nUfv/dijFcJ/JXgYLHKlb9fuZOE0mlMlfDRKLCpr2trn+5UV6nX/v0exqvb
+         Zv4FrzptG/L1uHb0f/qMoyL0az+LEnl4zUthytNUuYslfFjtpQJSLGFAzr7W4BQyqq0r
+         j1fi+IFTjhmBq+nV7OYBc+oFdVK0LZ//CPc+QpyHIaLyCkxi6VxNggjhPf6dBwUViUBH
+         p0B+sgFT4mjUIx8GbWPZ+pmsJumdAmscP982Tek8IMF9wl9X1vUqkmY3kYuJtfwwpKwq
+         t9MA==
+X-Forwarded-Encrypted: i=1; AFNElJ+zhDT0RUQGvZnfATMqFJSIHM5auNMMinbLXwDreha/lZ1JeXdx8allUV+YuC94eVmJHYpQ2wecvdotPfwLeoee@lists.infradead.org
+X-Gm-Message-State: AOJu0YzHc56PfegG9RPhLXVCQkzMPiLwNCp2MCR7wDzmi9YGnYZTAENj
+	H+L0VY2T5A/TcV8kWqnDaNFnUmwxmEKdhEto+pwtNmVNLPAxmOcLvV9GayALcmVRctw=
+X-Gm-Gg: Acq92OH9JV0Zrj0Yd2hi/7oDGzbubgI6o5xMZeeh2+RIsUQTQh1Oxlg8j8BcCU+lJWb
+	WP6oMBV3fVjOg4cYqM6/JiorOcvvBhZf3uVuma51iqDFI+qBkOKiaTKkq75PLcX5SrgcrMYJJD1
+	1ZLmOcPzhDX8hzDop1QIAPonSIRt2REr1YUEuNLvRBGk7+2xQjALK6TlDP/8nYjVCcvkk/IVCLy
+	DKCT//Btarnd151RD3x/sDyR0mtqeqmfUNIJJWuS7LprW2T5JoiOcaX/qDEw/SV8ehbiAXgz5d2
+	WQoUyvFDQTLuzJO8upcr9QloT/0jH/7wIgdHf3GTEIK/LjP9Zpcg5TCGMZ4vsC1RSavyeOXGv1v
+	OmiFmYOM45F7RHG8NpNgBmOEpB/ZthUvPhK2FU4P1GcXpc0xPjsG8JqPzW1ZMg2zYYnB6X4k0Sw
+	zSbT2wDtAcHxFTHiWy7MNbQcobTsGbkkfn7NgKCuBaXcMJS7pwlPGtSlyayglzBBOjDNTZ+vilg
+	W0smg==
+X-Received: by 2002:a05:600c:4f53:b0:490:7136:ad05 with SMTP id 5b1f17b1804b1-4907136ae08mr166302985e9.31.1779916137581;
+        Wed, 27 May 2026 14:08:57 -0700 (PDT)
+Received: from gpeter-l.roam.corp.google.com ([2a00:23c7:3124:1301:985d:3d5a:fde7:e337])
+        by smtp.gmail.com with ESMTPSA id ffacd0b85a97d-45edb5a2a7esm8894393f8f.20.2026.05.27.14.08.56
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Wed, 27 May 2026 14:08:57 -0700 (PDT)
+From: Peter Griffin <peter.griffin@linaro.org>
+Date: Wed, 27 May 2026 22:08:45 +0100
+Subject: [PATCH] MAINTAINERS: add myself as co-maintainer for Samsung
+ pinctrl drivers
 MIME-Version: 1.0
-References: <20260326094308.1161335-1-wenst@chromium.org> <20260326094308.1161335-4-wenst@chromium.org>
- <fa11e295-c3a2-4baf-a7d6-a290a4255ca6@sirena.org.uk>
-In-Reply-To: <fa11e295-c3a2-4baf-a7d6-a290a4255ca6@sirena.org.uk>
-From: Chen-Yu Tsai <wenst@chromium.org>
-Date: Wed, 27 May 2026 23:04:59 +0200
-X-Gm-Features: AVHnY4LEGpZKQecMkzAfBGdO7O4dM-_0AAlkjrus41LuLxUrwJWQv5-AV3HxcEY
-Message-ID: <CAGXv+5GC_fxarWMgsAyZ2553codJg4U9A7KChjZpmiQp2NGSjQ@mail.gmail.com>
-Subject: Re: [PATCH 3/4] drm/exynos: Drop exynos_drm_gem.size field
-To: Mark Brown <broonie@kernel.org>, Inki Dae <inki.dae@samsung.com>
-Cc: Seung-Woo Kim <sw0312.kim@samsung.com>, Kyungmin Park <kyungmin.park@samsung.com>, 
-	Krzysztof Kozlowski <krzk@kernel.org>, Alim Akhtar <alim.akhtar@samsung.com>, 
-	David Airlie <airlied@gmail.com>, Simona Vetter <simona@ffwll.ch>, dri-devel@lists.freedesktop.org, 
-	linux-samsung-soc@vger.kernel.org, linux-arm-kernel@lists.infradead.org, 
-	linux-kernel@vger.kernel.org, Aishwarya.TCV@arm.com, 
-	Arnd Bergmann <arnd@kernel.org>
-Content-Type: text/plain; charset="UTF-8"
-Content-Transfer-Encoding: quoted-printable
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: 7bit
+Message-Id: <20260527-samsung-pinctrl-maintainer-v1-1-bcebada27279@linaro.org>
+X-B4-Tracking: v=1; b=H4sIAF1dF2oC/x3MQQqDQAxA0atI1g3YOCr0KtLFqFEDGiWxRRDv7
+ uDiL97mn+Bswg6f7ATjv7ismvB+ZdBNUUdG6ZOBcqrykmr0uPhPR9xEu91mXKLonmJDClwThRC
+ GtoA02IwHOZ55872uG8KlVnBsAAAA
+X-Change-ID: 20260527-samsung-pinctrl-maintainer-24e722444fb3
+To: Linus Walleij <linusw@kernel.org>, 
+ Krzysztof Kozlowski <krzk@kernel.org>, 
+ Sylwester Nawrocki <s.nawrocki@samsung.com>, 
+ Alim Akhtar <alim.akhtar@samsung.com>, 
+ =?utf-8?q?Andr=C3=A9_Draszik?= <andre.draszik@linaro.org>, 
+ Tudor Ambarus <tudor.ambarus@linaro.org>
+Cc: linux-kernel@vger.kernel.org, linux-arm-kernel@lists.infradead.org, 
+ linux-samsung-soc@vger.kernel.org, linux-gpio@vger.kernel.org, 
+ Peter Griffin <peter.griffin@linaro.org>
+X-Mailer: b4 0.14.3
+X-Developer-Signature: v=1; a=openpgp-sha256; l=1074;
+ i=peter.griffin@linaro.org; h=from:subject:message-id;
+ bh=j6wFuV9ThpOiYYv2+F20SQy9uhrC4cWysfOvCPDsdn8=;
+ b=owEBbQKS/ZANAwAKAc7ouNYCNHK6AcsmYgBqF11oeZy9qBNJRm/bBBlN5oqdTNhD+u/OcJlpE
+ 7nz7tJGHqqJAjMEAAEKAB0WIQQO/I5vVXh1DVa1SfzO6LjWAjRyugUCahddaAAKCRDO6LjWAjRy
+ uiezD/9RiQ+SU3hWpIFufpXvMquOn7fTgIPsWh1qTpvzmvn//E2LOCyUwHfpvOvpeTwe08c+H/H
+ s3L8f/MrClZ7biqYXvxf8uWRfjL8Nc7ww8pcGc82wc4e2pSXumJsjiZl4hFcFaLxVVTB94Kovko
+ GRqVBSSb+UtAA8dFfw47sguk9M5t90T7F/ixhn1mkAIXBy2RnQVV2QEXOu6wwkgzOp6faciW61J
+ N9ATjWPukTOci3t0IdgF/tN2p44ilGsBTyqgJTqRXJ2wXZ+huHT6VNLj0YFYL3wdAXThAsO1e07
+ iC/aVY6FtSJ7GGV3GkL5hPu7dhdx2pL6Jej7xOwhyFHEgrfH7Gq3Ye56XHyNkGkKPbkGlM2yTjN
+ lP1bGjKwgDUbtwpxJu/awzKYN4lQWXcFuxZ9TScje0CAZECK2AamqT7M5RWCRfhJLMoT4Y6UMYg
+ mdRmns+ysMHYcHG95Qw7q6VJh0s0/H0cRJVYJjakrU51S1zPVez5f+iyed4Gr4GwtNbGsjG4vZi
+ b2IJfG+w+ABeakd9GrFWdNSx/raKFbLg+KdrvumftVEwpuG/DlVcUEmzZwQRH+nBaZt7n0XLtZz
+ sabWY12UGFj49Bsk7+nfI4S9g2NHieiSeJkgntWWiFp/6Bgy6uVjRLALxLP/Qo1ujL+/Ms2PrQX
+ g5yRRYdlL4yBTFQ==
+X-Developer-Key: i=peter.griffin@linaro.org; a=openpgp;
+ fpr=0EFC8E6F5578750D56B549FCCEE8B8D6023472BA
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260527_140513_919194_6DFC3AB4 
-X-CRM114-Status: GOOD (  21.22  )
+X-CRM114-CacheID: sfid-20260527_140859_617102_D009D2F4 
+X-CRM114-Status: GOOD (  11.02  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -118,109 +125,37 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Wed, May 27, 2026 at 7:19=E2=80=AFPM Mark Brown <broonie@kernel.org> wro=
-te:
->
-> On Thu, Mar 26, 2026 at 05:43:05PM +0800, Chen-Yu Tsai wrote:
-> > A size field is already included in the base GEM object, and is
-> > initialized through drm_gem_object_init() with the same value.
-> >
-> > Drop the field in the subclass to save some space. More changes to
-> > make exynos_drm_gem a subclass of drm_gem_dma_object will follow.
->
-> I'm seeing warnings on arm multi_v7_defconfig which also show up in
-> other CI which seem to be due to this commit, the type of the size field
-> is different so the format specifiers need updating or casts adding:
+As Google Tensor gs101 is based off a Samsung Exynos design I've been
+working on the Samsung pinctrl drivers and have an interest in helping
+maintain this code.
 
-I posted a fix for this one and a half months ago when the culprit
-patch was queued up and I got a report about this from the bots.
+Signed-off-by: Peter Griffin <peter.griffin@linaro.org>
+---
+This follows discussions with Krzysztof about expanding the Samsung SoC
+maintenance team in the kernel.
+---
+ MAINTAINERS | 1 +
+ 1 file changed, 1 insertion(+)
 
-Inki hasn't picked up my fix yet. Arnd posted the same fix today.
+diff --git a/MAINTAINERS b/MAINTAINERS
+index 4087b67bbc69..69ad1913a9f3 100644
+--- a/MAINTAINERS
++++ b/MAINTAINERS
+@@ -21298,6 +21298,7 @@ F:	drivers/pinctrl/renesas/
+ PIN CONTROLLER - SAMSUNG
+ M:	Krzysztof Kozlowski <krzk@kernel.org>
+ M:	Sylwester Nawrocki <s.nawrocki@samsung.com>
++M:	Peter Griffin <peter.griffin@linaro.org>
+ R:	Alim Akhtar <alim.akhtar@samsung.com>
+ L:	linux-arm-kernel@lists.infradead.org (moderated for non-subscribers)
+ L:	linux-samsung-soc@vger.kernel.org
 
-And it seems the exynos-drm-next stuff was only merged into drm-next
-yesterday, now causing the warnings to pop up all over.
+---
+base-commit: e7e28506af98ce4e1059e5ec59334b335c00a246
+change-id: 20260527-samsung-pinctrl-maintainer-24e722444fb3
 
+Best regards,
+-- 
+Peter Griffin <peter.griffin@linaro.org>
 
-ChenYu
-
-
-
-> CC [M]  drivers/gpu/drm/exynos/exynos_drm_gem.o
-> CC [M]  drivers/gpu/drm/nouveau/nvkm/subdev/acr/ga102.o
-> In file included from ../drivers/gpu/drm/exynos/exynos_drm_gem.c:16:
-> ../drivers/gpu/drm/exynos/exynos_drm_gem.c: In function 'exynos_drm_alloc=
-_buf':
-> ../drivers/gpu/drm/exynos/exynos_drm_gem.c:69:49: warning: format '%lx' e=
-xpects argument of type 'long unsigned int', but argument 6 has type 'size_=
-t' {aka 'unsigned int'} [-Wformat=3D]
-> 69 |         DRM_DEV_DEBUG_KMS(drm_dev_dma_dev(dev), "dma_addr(0x%lx), si=
-ze(0x%lx)\n",
->       |                                                 ^~~~~~~~~~~~~~~~~=
-~~~~~~~~~~~~~~~
-> 70 |                         (unsigned long)exynos_gem->dma_addr, exynos_=
-gem->base.size);
->       |                                                              ~~~~=
-~~~~~~~~~~~~~~~~~
->       |                                                                  =
-            |
->       |                                                                  =
-            size_t {aka unsigned int}
-> ../include/drm/drm_print.h:563:39: note: in definition of macro 'drm_dev_=
-dbg'
-> 563 |         __drm_dev_dbg(NULL, dev, cat, fmt, ##__VA_ARGS__)
->       |                                       ^~~
-> ../drivers/gpu/drm/exynos/exynos_drm_gem.c:69:9: note: in expansion of ma=
-cro 'DRM_DEV_DEBUG_KMS'
-> 69 |         DRM_DEV_DEBUG_KMS(drm_dev_dma_dev(dev), "dma_addr(0x%lx), si=
-ze(0x%lx)\n",
->       |         ^~~~~~~~~~~~~~~~~
-> ../drivers/gpu/drm/exynos/exynos_drm_gem.c:69:76: note: format string is =
-defined here
-> 69 |         DRM_DEV_DEBUG_KMS(drm_dev_dma_dev(dev), "dma_addr(0x%lx), si=
-ze(0x%lx)\n",
->       |                                                                  =
-        ~~^
->       |                                                                  =
-          |
->       |                                                                  =
-          long unsigned int
->       |                                                                  =
-        %x
-> ../drivers/gpu/drm/exynos/exynos_drm_gem.c: In function 'exynos_drm_free_=
-buf':
-> ../drivers/gpu/drm/exynos/exynos_drm_gem.c:83:37: warning: format '%lx' e=
-xpects argument of type 'long unsigned int', but argument 6 has type 'size_=
-t' {aka 'unsigned int'} [-Wformat=3D]
-> 83 |         DRM_DEV_DEBUG_KMS(dev->dev, "dma_addr(0x%lx), size(0x%lx)\n"=
-,
->       |                                     ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~=
-~~~
-> 84 |                         (unsigned long)exynos_gem->dma_addr, exynos_=
-gem->base.size);
->       |                                                              ~~~~=
-~~~~~~~~~~~~~~~~~
->       |                                                                  =
-            |
->       |                                                                  =
-            size_t {aka unsigned int}
-> ../include/drm/drm_print.h:563:39: note: in definition of macro 'drm_dev_=
-dbg'
-> 563 |         __drm_dev_dbg(NULL, dev, cat, fmt, ##__VA_ARGS__)
->       |                                       ^~~
-> ../drivers/gpu/drm/exynos/exynos_drm_gem.c:83:9: note: in expansion of ma=
-cro 'DRM_DEV_DEBUG_KMS'
-> 83 |         DRM_DEV_DEBUG_KMS(dev->dev, "dma_addr(0x%lx), size(0x%lx)\n"=
-,
->       |         ^~~~~~~~~~~~~~~~~
-> ../drivers/gpu/drm/exynos/exynos_drm_gem.c:83:64: note: format string is =
-defined here
-> 83 |         DRM_DEV_DEBUG_KMS(dev->dev, "dma_addr(0x%lx), size(0x%lx)\n"=
-,
->       |                                                              ~~^
->       |                                                                |
->       |                                                                lo=
-ng unsigned int
->       |                                                              %x
-> CC [M]  drivers/gpu/drm/rockchip/rockchip_drm_vop.o
-> CC [M]  drivers/gpu/drm/exynos/exynos_drm_plane.o
 
