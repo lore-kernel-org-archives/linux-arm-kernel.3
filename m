@@ -4,105 +4,106 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id D4A72CD4F54
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 27 May 2026 21:03:26 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 31C27CD5BD0
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 27 May 2026 21:05:25 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
 	Content-Type:Cc:To:Subject:Message-ID:Date:From:In-Reply-To:References:
 	MIME-Version:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=VM4t7RohIYKOVlucu8IYIFbInmIydQz2ONIivwoDCeU=; b=1c7RyjovqtSa1+nUyQkI7Xqa8G
-	gyszRJPq7vcEyrxxT4IDO/jcdTz43qVnjHUg38IkHibmyGfndByYYTU+q8QecnPYfScyryw2wuBRS
-	rFATXXceKtuf4L5owhkG7YUN694m0N6NUah412iUZfCMzyZMFxc6gpv79o9ERsDoJxGt9SO98Q66k
-	Je+mLQ5cS0rT3dwTcG4i4THTyT/4U1vhDgr0qzHuTOXZdTIZ17J+LVfCZOp0VnZZSIQen0MclE1Pq
-	S9iw1LkRz1Lu+FmKIKCqr6Ho/3M/F6+jhzPj2b6JDVKm2KJYOZgUpPNsNzgYvgTqre8q9XPy2haIx
-	4MR/gydw==;
+	bh=klhpPa38J0whnw5RO/BZGOXxuOqg7LvqNeDQIX9ReEM=; b=pNwjsGP1XJAq7G877b3QTH3n40
+	Hfh/A/Fe1Ah0CT0jEssglEGEeABWoY155MDKz0k0Xt0bJFTF05YSfzlNxvaEbWppheqtib+R7yoJ2
+	THzr8LUxlFB52iXSlNkI3OSB9qvZdcmNs3sQ5mi00iaZuf3XiqfBv9P5IZ/5xsMTId5EtOm+p7XrY
+	yR5jx+hs6MgSaVSeD46fzoTuQfoFcOHHNGRXDY4iePIGMLWYH42NiR65q/JP+JVAenow9RqsDPCCQ
+	ABY73aMOPR0o00EwZ9ZzBHcmTJK4M0wpeukqSWyKgZ/OBSD3LjDeye2txvub2Gx/iid4zdp4vcGo3
+	2nQNmMAA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wSLPL-00000004k45-0SNx;
-	Wed, 27 May 2026 21:03:19 +0000
-Received: from mail-lf1-x136.google.com ([2a00:1450:4864:20::136])
+	id 1wSLRE-00000004kDE-1Lg2;
+	Wed, 27 May 2026 21:05:16 +0000
+Received: from mail-lf1-x131.google.com ([2a00:1450:4864:20::131])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wSLPI-00000004k3h-2jbR
+	id 1wSLRB-00000004kCs-3VQl
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 27 May 2026 21:03:18 +0000
-Received: by mail-lf1-x136.google.com with SMTP id 2adb3069b0e04-5a87782588cso6010208e87.3
-        for <linux-arm-kernel@lists.infradead.org>; Wed, 27 May 2026 14:03:16 -0700 (PDT)
-ARC-Seal: i=1; a=rsa-sha256; t=1779915794; cv=none;
+	Wed, 27 May 2026 21:05:14 +0000
+Received: by mail-lf1-x131.google.com with SMTP id 2adb3069b0e04-5aa21fa024cso10344607e87.2
+        for <linux-arm-kernel@lists.infradead.org>; Wed, 27 May 2026 14:05:13 -0700 (PDT)
+ARC-Seal: i=1; a=rsa-sha256; t=1779915911; cv=none;
         d=google.com; s=arc-20240605;
-        b=YvleNinYySYcCUWV7ASKZfNWrh9ZKGruLcCJua8NC7RrWhxmERWi/WHdp1xen7yGot
-         ctp2rhX4RS4zT03CU0fhEaxppMBiLYbX/FjlxOG54seLhqDsZlRx+iNYqTdnAUCwDpIz
-         8zPBuS4/lTqJiXWY17Ao3nuwEtIx3Psz5WqN28e8wm296wkgTVjHtQU0YVXwIZD/4glZ
-         wSpdu3wSf120vtrg4CjQVmCNcXZP8W8Ut+cxEPar7bEqVxhcZ06BHG5s5W2oKum1capr
-         TxI7PVZ0KHzo+4Cz8+1Kbg1vExsF2nj522ZBzgcj8QYCLTeuy5bfK1VuReGNkkxuxZ/v
-         XVvQ==
+        b=F7acOI50Iv7e7juMy+e/eVwSU+ltNC7Qa9D9PCuC7CvfdGYOoUNg3o787RmFnSruj6
+         nYu4srG2DvxYdL8/r0ZOtilWqedv+ON4BCscINdMNdf7d1MhFhkQjqswqLyowwHACZoT
+         BqG88SpReo/3QkDCNVIsURWIPxVDmOEOthSz8GninWp8MQQZ4E66DR5FVmAf2dQzYGK+
+         EllFMx8fA+hMP2zSxN8A90JXmSkcM65yAQOCITV8j07cRJesUuIAw+hwY7n07uBbVy38
+         fH7e9/HV8GlXXGSZM0+dRKu6KtgDwqRj3D5SVt5iwvXTr/FpIe0m3P44quGTK3HFa6lm
+         fQVw==
 ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20240605;
         h=content-transfer-encoding:cc:to:subject:message-id:date:from
          :in-reply-to:references:mime-version:dkim-signature;
-        bh=VM4t7RohIYKOVlucu8IYIFbInmIydQz2ONIivwoDCeU=;
-        fh=sFQbNfPNad5BUJ/ec8Q6iJHrmflNmSLtQheRtBYXQzs=;
-        b=cqWt18ymbXzkGKHnPL+eit/6m0ohFRZqVClYeG4wiUEV8+3ixO7rLnvfG4D1lHG0Du
-         sIRqhzRfUFhA7cjAjNwebSit4udMfLEL7zpzwhAYuawop2JSFBKWLcoTWj5cKFZYmbCN
-         qkyOxpwvGUMmpkhOmafJjlG+Ec/Y3Tzw67BWSrU2BPlOOnP59x7AgL2cJ6jhz8YkGNSb
-         O+cyyrYTgX5P6tyvlqd7om76fOLOiUixtRQjcrxpqZIDIYdRZ8CssGdehXU6QjTB+Gmf
-         TOh9qR9BJDpFTvh87ibeZdW6PYeG0wcYF0UWKz1AI06wr8mVWJt7nunRAc717X2EmWk5
-         pihg==;
+        bh=klhpPa38J0whnw5RO/BZGOXxuOqg7LvqNeDQIX9ReEM=;
+        fh=hNgRrAtmrIdPU71Xpw4c4Q0hbNLB5QHOh8i/srdFykA=;
+        b=VywO9iP8J7kvVaYmgByYJ+WtLrxXN5UD9vMOiPGSPX8fmsoBz8tE+a5p3dgeBz6S4v
+         ieQN3i5Jv8fvo/hzisjyAG9ZDRU1nZXSp7oVZ1eelM0qTs1PSAQcu26tURs5dxGTtmM0
+         qEhgUQGAosxPMpHtDXXNewkG/MIEHHn9JygYhvHvZlU9X5P+XgZ8P3iPIYXkVYUcO7gi
+         Rm+BpoLxB6oi5FIjohAA19xfTgyMR/GBfBdR4R6tORtxuwgH/9dXIjGFG5xXY08WK3wB
+         i1osjPAYB8XGCNgOWWSQcJAUExJdfL5o4PqsWJQScDZQysxejY0BYPimgt2g9dkLkHJN
+         Y8NQ==;
         darn=lists.infradead.org
 ARC-Authentication-Results: i=1; mx.google.com; arc=none
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=chromium.org; s=google; t=1779915794; x=1780520594; darn=lists.infradead.org;
+        d=chromium.org; s=google; t=1779915911; x=1780520711; darn=lists.infradead.org;
         h=content-transfer-encoding:cc:to:subject:message-id:date:from
          :in-reply-to:references:mime-version:from:to:cc:subject:date
          :message-id:reply-to;
-        bh=VM4t7RohIYKOVlucu8IYIFbInmIydQz2ONIivwoDCeU=;
-        b=AiHE1t9QZ9Qxr3h1ZtT+NESQPqS3jGdOgItSfORBkweS9hV8fTuQzZKZehDplwBFXz
-         n2602sWhCoWANUuT6HfxUX/9leni5nputygkQWCZ1gOSdgOHbZNllKDMB7kBF9lspOhH
-         ehk2W/IK8DRF/dvsITB+QLdmAivJl423FUwzs=
+        bh=klhpPa38J0whnw5RO/BZGOXxuOqg7LvqNeDQIX9ReEM=;
+        b=JSOnrcGO6J2ZNewIEvnG31y0XCwXBLeuOCofyGDbRrBNRcxlZde3WvVx/Z0nHH+a5+
+         diF5KZ2e1lXEVJARt5AYMeE+GuzuWBw4TTGl+8LxXcNw/yQKfjr3x7xtUnQK6x4yogyY
+         qNYyR9oDfytiGyAkPkHf7fIjeqr2SCbtUuijg=
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20251104; t=1779915794; x=1780520594;
+        d=1e100.net; s=20251104; t=1779915911; x=1780520711;
         h=content-transfer-encoding:cc:to:subject:message-id:date:from
          :in-reply-to:references:mime-version:x-gm-gg:x-gm-message-state:from
          :to:cc:subject:date:message-id:reply-to;
-        bh=VM4t7RohIYKOVlucu8IYIFbInmIydQz2ONIivwoDCeU=;
-        b=ikF5visRp46yCazubUWOt1mwlDEbNHv6l0GDq4Y7CzmZ/vfU5jMewMCde5Z190Rw9M
-         aPEhwqAnkUHGIDMQGMCuumFU0J2WQ5Iq1PxIRET3B/10u9ylZIi6U3rw3jw040Lu4Dzd
-         zTZbvEH0lCcYrc21vVc0bgXW2MAIt0u1pgGK4TAiwYwcPNXOdory6KUVMlho7tJw9XCd
-         nuusGxsPUq3o0hkJdzPNKKQoe1mHd8uRrlj9ouWMYq9QSEHjvBVysrX2sIcOgWs2LRxr
-         9rcMtpUQ60pYM9Y0jtUKjdlTnRx1Zgswe0QbwTucisk9heEijFRSW9n3FZhDhzWSfNic
-         1KXA==
-X-Forwarded-Encrypted: i=1; AFNElJ+zZA7sPigndp1FX65UConzceEbb2LhIUjStmXGhNbdJwdtc9OajYjORR4JZFLoCqhKlVff9Gf26e+z3FFs+Srr@lists.infradead.org
-X-Gm-Message-State: AOJu0YyQQ3akmTaEcmEuqJe/M0m5VmVOGM3i/5n83pa97Ics7pt14KFM
-	CZ3SBmbZNt++asVjgKFWXRR3co/gH6zch3gOejiFo98TLybQMAeDs9KdTNfEw8RzMI7elX41CtN
-	062tLFARvnm9s1+hDXN5xXu5eychQXhZgmFK04j4X
-X-Gm-Gg: Acq92OEtRNSrCJVXUK6Q7DGYFte2+afelXqzEoFdryAQf9tFahHSGCRxqCn9w1HQZFq
-	927rLi6hwRDIk/GyNaXihEMgrQybXIq4o7S5Kp4BdJAFlbGlj3j43wgS40k2mCLBf0QyxigeqX4
-	OSsgNBXBn1OT/BR05sw74nc+WilYbvuwUMBVaKcRSb0Db1Q4i/SIFkAoib+R0BjBPJdKON3mLPh
-	Lj5RVfUpVQIm8Ep+QSfwfPEh6nTZpVLc53OL7nhENgiD9ON0lPcWYL21y39Lp7HFdvGHUx/+yos
-	ylq0C/1tEPCKHQXC0Q==
-X-Received: by 2002:a05:6512:1243:b0:5aa:116c:4127 with SMTP id
- 2adb3069b0e04-5aa323a9065mr8608773e87.41.1779915794436; Wed, 27 May 2026
- 14:03:14 -0700 (PDT)
+        bh=klhpPa38J0whnw5RO/BZGOXxuOqg7LvqNeDQIX9ReEM=;
+        b=CpzKcqZ3lzcHCAAfI1wXS4/78wLi+egQJFHvMREP/j5B7zxy2S6aT3XI644TSLQKl1
+         EYulkCXv1+URrhF8m2hI79DIowTg82BjuJJMqDifi0+OoxnKQ+c8Fw7C8/IuExNkrj9a
+         pc4NQOIBMDAMuaRxsxkWbqgRIzI3leODtSrSHkTMXaQ/SM0hLuaPptzzi9zbWzsLLskv
+         0/f/2uSSCISMFEOzHs3fXa+KvlDZtQFnre+u0PhNo/QAe46+1M1W5pJGb9a22MOY5mq3
+         ZnaPLH5fHB+B2o0D2u62USyNo6Dq04Im2+rxbBcQZv8IM9fnWlgRDZK6jG/Cgo/M/LsI
+         J7OA==
+X-Forwarded-Encrypted: i=1; AFNElJ+LVW03G8ZMGUybwBaTVxkWkPMLLYhPATt+tl6aJUAni0REvc46FxEvIIBdt5RaN2weqMjSenGGrxFT3v+NbquT@lists.infradead.org
+X-Gm-Message-State: AOJu0Yxw+sLtQXtgEyPVPOmp46O62xeLMPkIXAsk13Qqjk66RsdO1Nb7
+	PlZ+KsegUUtxjRKveY8TsbuhHnyUWIPn6ZAYRzPKYQ5F4O7kFpA8dg3ur/hG6JF74Zp8xdrzxCu
+	FDV+pnCWnAUpiGJpFVaLuOCkoQdmBRAckh0VVkNrd
+X-Gm-Gg: Acq92OExYAcrkC4Mx4t5EIhDZA2orbYGmvpgBJe2ewxcSZ7jH/ppvwXIY3Oj0N7U5Lt
+	GGskqbxZF8MzoU4EsLNCYximwlkpf/w/N6hv/K7Zv109CjeYm7SSCIZnZ8EmXI34HXmQOouqMfc
+	16y1sr4jweRb5FXMLDYlq5qQzACwICr5URL402E6PKuaXe/dRUEvaILV0XNcC2zK7xXnoJQpEem
+	2Dt3vWpZzWnoghp99+SBLZ/Hy6wiE76Ped+HFmNRQmbCxQp5d/mOVOUkUYUtLBYZXJiymSp1uGI
+	YXe8r5mgiKenIev3eg==
+X-Received: by 2002:a05:6512:65dc:10b0:5a4:1902:3d17 with SMTP id
+ 2adb3069b0e04-5aa3239b51emr5764637e87.12.1779915911516; Wed, 27 May 2026
+ 14:05:11 -0700 (PDT)
 MIME-Version: 1.0
-References: <20260527194525.45762-1-arnd@kernel.org>
-In-Reply-To: <20260527194525.45762-1-arnd@kernel.org>
+References: <20260326094308.1161335-1-wenst@chromium.org> <20260326094308.1161335-4-wenst@chromium.org>
+ <fa11e295-c3a2-4baf-a7d6-a290a4255ca6@sirena.org.uk>
+In-Reply-To: <fa11e295-c3a2-4baf-a7d6-a290a4255ca6@sirena.org.uk>
 From: Chen-Yu Tsai <wenst@chromium.org>
-Date: Wed, 27 May 2026 23:03:03 +0200
-X-Gm-Features: AVHnY4LRzDDBlNjN91IVgQeLtIl2oIQHuVQ0PjzTLkjbwtceKRBrVHRW4l0ArGU
-Message-ID: <CAGXv+5HvJiTkLJMZ13w0OHwgp+nPBftGAC-15nhJ3R=vOPWpUg@mail.gmail.com>
-Subject: Re: [PATCH] drm/exynos: fix size_t format string
-To: Arnd Bergmann <arnd@kernel.org>, Inki Dae <inki.dae@samsung.com>
+Date: Wed, 27 May 2026 23:04:59 +0200
+X-Gm-Features: AVHnY4LEGpZKQecMkzAfBGdO7O4dM-_0AAlkjrus41LuLxUrwJWQv5-AV3HxcEY
+Message-ID: <CAGXv+5GC_fxarWMgsAyZ2553codJg4U9A7KChjZpmiQp2NGSjQ@mail.gmail.com>
+Subject: Re: [PATCH 3/4] drm/exynos: Drop exynos_drm_gem.size field
+To: Mark Brown <broonie@kernel.org>, Inki Dae <inki.dae@samsung.com>
 Cc: Seung-Woo Kim <sw0312.kim@samsung.com>, Kyungmin Park <kyungmin.park@samsung.com>, 
-	David Airlie <airlied@gmail.com>, Simona Vetter <simona@ffwll.ch>, 
-	Krzysztof Kozlowski <krzk@kernel.org>, Marek Szyprowski <m.szyprowski@samsung.com>, 
-	Arnd Bergmann <arnd@arndb.de>, Alim Akhtar <alim.akhtar@samsung.com>, dri-devel@lists.freedesktop.org, 
-	linux-arm-kernel@lists.infradead.org, linux-samsung-soc@vger.kernel.org, 
-	linux-kernel@vger.kernel.org
+	Krzysztof Kozlowski <krzk@kernel.org>, Alim Akhtar <alim.akhtar@samsung.com>, 
+	David Airlie <airlied@gmail.com>, Simona Vetter <simona@ffwll.ch>, dri-devel@lists.freedesktop.org, 
+	linux-samsung-soc@vger.kernel.org, linux-arm-kernel@lists.infradead.org, 
+	linux-kernel@vger.kernel.org, Aishwarya.TCV@arm.com, 
+	Arnd Bergmann <arnd@kernel.org>
 Content-Type: text/plain; charset="UTF-8"
 Content-Transfer-Encoding: quoted-printable
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260527_140316_748737_48788253 
-X-CRM114-Status: GOOD (  22.97  )
+X-CRM114-CacheID: sfid-20260527_140513_919194_6DFC3AB4 
+X-CRM114-Status: GOOD (  21.22  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -117,92 +118,109 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Wed, May 27, 2026 at 9:45=E2=80=AFPM Arnd Bergmann <arnd@kernel.org> wro=
+On Wed, May 27, 2026 at 7:19=E2=80=AFPM Mark Brown <broonie@kernel.org> wro=
 te:
 >
-> From: Arnd Bergmann <arnd@arndb.de>
+> On Thu, Mar 26, 2026 at 05:43:05PM +0800, Chen-Yu Tsai wrote:
+> > A size field is already included in the base GEM object, and is
+> > initialized through drm_gem_object_init() with the same value.
+> >
+> > Drop the field in the subclass to save some space. More changes to
+> > make exynos_drm_gem a subclass of drm_gem_dma_object will follow.
 >
-> The exynos_gem->base.size argument is a size_t rather than an
-> unsigned long, so adapt the printk() format string accordingly:
->
-> In file included from drivers/gpu/drm/exynos/exynos_drm_gem.c:16:
-> drivers/gpu/drm/exynos/exynos_drm_gem.c: In function 'exynos_drm_alloc_bu=
-f':
-> drivers/gpu/drm/exynos/exynos_drm_gem.c:69:49: error: format '%lx' expect=
-s argument of type 'long unsigned int', but argument 6 has type 'size_t' {a=
-ka 'unsigned int'} [-Werror=3Dformat=3D]
->    69 |         DRM_DEV_DEBUG_KMS(drm_dev_dma_dev(dev), "dma_addr(0x%lx),=
- size(0x%lx)\n",
+> I'm seeing warnings on arm multi_v7_defconfig which also show up in
+> other CI which seem to be due to this commit, the type of the size field
+> is different so the format specifiers need updating or casts adding:
+
+I posted a fix for this one and a half months ago when the culprit
+patch was queued up and I got a report about this from the bots.
+
+Inki hasn't picked up my fix yet. Arnd posted the same fix today.
+
+And it seems the exynos-drm-next stuff was only merged into drm-next
+yesterday, now causing the warnings to pop up all over.
+
+
+ChenYu
+
+
+
+> CC [M]  drivers/gpu/drm/exynos/exynos_drm_gem.o
+> CC [M]  drivers/gpu/drm/nouveau/nvkm/subdev/acr/ga102.o
+> In file included from ../drivers/gpu/drm/exynos/exynos_drm_gem.c:16:
+> ../drivers/gpu/drm/exynos/exynos_drm_gem.c: In function 'exynos_drm_alloc=
+_buf':
+> ../drivers/gpu/drm/exynos/exynos_drm_gem.c:69:49: warning: format '%lx' e=
+xpects argument of type 'long unsigned int', but argument 6 has type 'size_=
+t' {aka 'unsigned int'} [-Wformat=3D]
+> 69 |         DRM_DEV_DEBUG_KMS(drm_dev_dma_dev(dev), "dma_addr(0x%lx), si=
+ze(0x%lx)\n",
 >       |                                                 ^~~~~~~~~~~~~~~~~=
 ~~~~~~~~~~~~~~~
->    70 |                         (unsigned long)exynos_gem->dma_addr, exyn=
-os_gem->base.size);
+> 70 |                         (unsigned long)exynos_gem->dma_addr, exynos_=
+gem->base.size);
 >       |                                                              ~~~~=
 ~~~~~~~~~~~~~~~~~
 >       |                                                                  =
             |
 >       |                                                                  =
             size_t {aka unsigned int}
->
-> The dma_addr in the same line is already printed using a cast
-> to unsigned long, so change that similarly to use the correct
-> %pad format.
->
-> Fixes: 11e898373fba ("drm/exynos: Drop exynos_drm_gem.size field")
-> Signed-off-by: Arnd Bergmann <arnd@arndb.de>
-
-I posted the same patch [1] one and a half months ago when the culprit
-patch was queued up and I got a report about this from the bots.
-
-Inki hasn't picked up my fix yet.
-
-And it seems the exynos-drm-next stuff was only merged into drm-next
-yesterday, now causing the warnings to pop up all over.
-
-ChenYu
-
-[1] https://lore.kernel.org/all/20260408064936.1342321-1-wenst@chromium.org=
-/
-
-> ---
->  drivers/gpu/drm/exynos/exynos_drm_gem.c | 8 ++++----
->  1 file changed, 4 insertions(+), 4 deletions(-)
->
-> diff --git a/drivers/gpu/drm/exynos/exynos_drm_gem.c b/drivers/gpu/drm/ex=
-ynos/exynos_drm_gem.c
-> index 297a93b087cd..8e357f2beb9e 100644
-> --- a/drivers/gpu/drm/exynos/exynos_drm_gem.c
-> +++ b/drivers/gpu/drm/exynos/exynos_drm_gem.c
-> @@ -66,8 +66,8 @@ static int exynos_drm_alloc_buf(struct exynos_drm_gem *=
-exynos_gem, bool kvmap)
->         if (kvmap)
->                 exynos_gem->kvaddr =3D exynos_gem->cookie;
->
-> -       DRM_DEV_DEBUG_KMS(drm_dev_dma_dev(dev), "dma_addr(0x%lx), size(0x=
-%lx)\n",
-> -                       (unsigned long)exynos_gem->dma_addr, exynos_gem->=
-base.size);
-> +       DRM_DEV_DEBUG_KMS(drm_dev_dma_dev(dev), "dma_addr(%pad), size(0x%=
-zx)\n",
-> +                         &exynos_gem->dma_addr, exynos_gem->base.size);
->         return 0;
->  }
->
-> @@ -80,8 +80,8 @@ static void exynos_drm_free_buf(struct exynos_drm_gem *=
-exynos_gem)
->                 return;
->         }
->
-> -       DRM_DEV_DEBUG_KMS(dev->dev, "dma_addr(0x%lx), size(0x%lx)\n",
-> -                       (unsigned long)exynos_gem->dma_addr, exynos_gem->=
-base.size);
-> +       DRM_DEV_DEBUG_KMS(dev->dev, "dma_addr(0x%pad), size(0x%zx)\n",
-> +                         &exynos_gem->dma_addr, exynos_gem->base.size);
->
->         dma_free_attrs(drm_dev_dma_dev(dev), exynos_gem->base.size, exyno=
-s_gem->cookie,
->                         (dma_addr_t)exynos_gem->dma_addr,
-> --
-> 2.39.5
->
+> ../include/drm/drm_print.h:563:39: note: in definition of macro 'drm_dev_=
+dbg'
+> 563 |         __drm_dev_dbg(NULL, dev, cat, fmt, ##__VA_ARGS__)
+>       |                                       ^~~
+> ../drivers/gpu/drm/exynos/exynos_drm_gem.c:69:9: note: in expansion of ma=
+cro 'DRM_DEV_DEBUG_KMS'
+> 69 |         DRM_DEV_DEBUG_KMS(drm_dev_dma_dev(dev), "dma_addr(0x%lx), si=
+ze(0x%lx)\n",
+>       |         ^~~~~~~~~~~~~~~~~
+> ../drivers/gpu/drm/exynos/exynos_drm_gem.c:69:76: note: format string is =
+defined here
+> 69 |         DRM_DEV_DEBUG_KMS(drm_dev_dma_dev(dev), "dma_addr(0x%lx), si=
+ze(0x%lx)\n",
+>       |                                                                  =
+        ~~^
+>       |                                                                  =
+          |
+>       |                                                                  =
+          long unsigned int
+>       |                                                                  =
+        %x
+> ../drivers/gpu/drm/exynos/exynos_drm_gem.c: In function 'exynos_drm_free_=
+buf':
+> ../drivers/gpu/drm/exynos/exynos_drm_gem.c:83:37: warning: format '%lx' e=
+xpects argument of type 'long unsigned int', but argument 6 has type 'size_=
+t' {aka 'unsigned int'} [-Wformat=3D]
+> 83 |         DRM_DEV_DEBUG_KMS(dev->dev, "dma_addr(0x%lx), size(0x%lx)\n"=
+,
+>       |                                     ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~=
+~~~
+> 84 |                         (unsigned long)exynos_gem->dma_addr, exynos_=
+gem->base.size);
+>       |                                                              ~~~~=
+~~~~~~~~~~~~~~~~~
+>       |                                                                  =
+            |
+>       |                                                                  =
+            size_t {aka unsigned int}
+> ../include/drm/drm_print.h:563:39: note: in definition of macro 'drm_dev_=
+dbg'
+> 563 |         __drm_dev_dbg(NULL, dev, cat, fmt, ##__VA_ARGS__)
+>       |                                       ^~~
+> ../drivers/gpu/drm/exynos/exynos_drm_gem.c:83:9: note: in expansion of ma=
+cro 'DRM_DEV_DEBUG_KMS'
+> 83 |         DRM_DEV_DEBUG_KMS(dev->dev, "dma_addr(0x%lx), size(0x%lx)\n"=
+,
+>       |         ^~~~~~~~~~~~~~~~~
+> ../drivers/gpu/drm/exynos/exynos_drm_gem.c:83:64: note: format string is =
+defined here
+> 83 |         DRM_DEV_DEBUG_KMS(dev->dev, "dma_addr(0x%lx), size(0x%lx)\n"=
+,
+>       |                                                              ~~^
+>       |                                                                |
+>       |                                                                lo=
+ng unsigned int
+>       |                                                              %x
+> CC [M]  drivers/gpu/drm/rockchip/rockchip_drm_vop.o
+> CC [M]  drivers/gpu/drm/exynos/exynos_drm_plane.o
 
