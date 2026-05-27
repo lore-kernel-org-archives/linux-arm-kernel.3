@@ -4,64 +4,118 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id B9EE7CD5BD0
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 27 May 2026 12:29:39 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 60202CD5BD5
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 27 May 2026 12:37:06 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=P6Giflfvchb6NZjulgUz4DhbUjIv9lOhcRLxlAXMESs=; b=5ALPqlULyTgle/oXqFMwt5SCx5
-	cmnmOraYzX+E2caJe+o1PNJJEISGiM0jY4gk1ftaJlKswSERkf3nyCNe/S17WHaOmfas78fAeef6m
-	H5nqesRJ9Egx26f07PmuhQwC2NCHvJrtgEk0PbEp2SiR1DwcEeGzwfvbGwISj3m2GNAB6qh58FSFZ
-	AXpYR85/Qie717kCRCPQsJFdNKJ1aKpU+MfgbZ76Pji8ICx1LD4znTNnEBum4boeR4pFlZaRBSTVP
-	+mNV3uJ96DxZshlFWmI2XU5xb3qC8gbolQjYm4tyoaqjxijoAPJSFp7ImsvDJo9qY3kFNul+NApls
-	T7p5FeBA==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:Cc:To:Subject:Message-ID:Date:From:In-Reply-To:References:
+	MIME-Version:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=4CjmzQC2/ekjhmlU5sPsEceZ/rSuZIxXTtnWoWGfZ+8=; b=XlVV2Np86pGYHnZ1TFkVBwkqcX
+	uacyK453EPqkdNXbAKfr1MZeD8lSp9q4H6Iw/T8lfJ5Qr7FmKEjxaOOlq/3LSU9A+nJ2lWhjvJB1u
+	TOsHN+liYHONtvWVwD2OckTObfQzgnfaMWjcyvSRIY4pPOwxXvZ5RoJYoNNe/qDmX0PwayyvUKmrw
+	OirYB79pZu0Nnf6jKBftbBU+iQ5zxPO9+5yL1W+mVP6IrMBSBDcvMRgetvUc6L4zix3drUFGYCXUd
+	vM54IwYSSKHMGxZ5xD/taX8gEGN3mcFrjIiixlqRoA0/QuwzzVc5BixGzZnnj6OwdG2TNO/Z9cXW6
+	AvhADiog==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wSDO5-000000045ZX-0PJI;
-	Wed, 27 May 2026 12:29:29 +0000
-Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
+	id 1wSDVJ-000000046ho-1g4W;
+	Wed, 27 May 2026 12:36:57 +0000
+Received: from casper.infradead.org ([2001:8b0:10b:1236::1])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wSDO2-000000045Z3-2uIa
+	id 1wSDVH-000000046gq-2Slz
+	for linux-arm-kernel@bombadil.infradead.org;
+	Wed, 27 May 2026 12:36:55 +0000
+DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
+	d=infradead.org; s=casper.20170209; h=Content-Transfer-Encoding:Content-Type:
+	Cc:To:Subject:Message-ID:Date:From:In-Reply-To:References:MIME-Version:Sender
+	:Reply-To:Content-ID:Content-Description;
+	bh=4CjmzQC2/ekjhmlU5sPsEceZ/rSuZIxXTtnWoWGfZ+8=; b=A4mbyDUuFo8rbDz+GeNUkgvW6R
+	GzlCilRQMvDWBJibSU1iflc2ghXyYS9yAH2ZAoPt3NBV3tfKyyFRZpu2k8kFkXZhhUjrjSw2T2kaO
+	O49ms5EGpUbrusexwZck2QOUWuixqFuUGH7EBzw9x1deQnNVe+HygiRoxBFuUdLE4+6aUdrvV1NYi
+	TsOLk/CfJK26idGdJHfjR5QN4vqCr2gGCkxe/d9b0mfG/n+YhlIsu3cEYLEXj5M6zR/lqKMasBMVj
+	0pLZfWkzsR7FGrpnr0amQpw5kAmj7sUG0MpPze98IdmWCy3ivB40v9QiMbT57ybmtUHJxAC7WKKyi
+	Oh5jAmDA==;
+Received: from mail-yx1-xb129.google.com ([2607:f8b0:4864:20::b129])
+	by casper.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
+	id 1wSDVE-00000002MQh-3ELW
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 27 May 2026 12:29:27 +0000
-Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
-	by sea.source.kernel.org (Postfix) with ESMTP id 649D643E22;
-	Wed, 27 May 2026 12:29:25 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 69EBE1F000E9;
-	Wed, 27 May 2026 12:29:23 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1779884965;
-	bh=P6Giflfvchb6NZjulgUz4DhbUjIv9lOhcRLxlAXMESs=;
-	h=Date:From:To:Cc:Subject:References:In-Reply-To;
-	b=otkztzJEHgXu9dGNuOG43MBJN2ozTwV96u/a9ImZ+tzsmlLNahdOG5xIzU0Blr+ua
-	 RS6n1DMooVRU67ILnIelJdUdWXy6VYKMZVF/FA1bRACsoHPR7+sx+4OXY77+d/7RPU
-	 fenMFusxgicdrHfg4YfQ37PptQbL91ptZGyvvfPR35wKM4tNB8C6reAejmI8uWB0jI
-	 Vs1pRhIAUEj/+3gpd/ewyi8yPyGAz+zhvDsGEj3PbkbsSSnRJ6zcN2rsCcAb3RQO9v
-	 NepcK4n34ty4f4day/BL0I4FVub2Ep+ClZMArb+cfY3YB8/mEqMqXQvwmj/dtelbBf
-	 JeOZuvM/S2cYg==
-Date: Wed, 27 May 2026 13:29:20 +0100
-From: Mark Brown <broonie@kernel.org>
-To: Mark Rutland <mark.rutland@arm.com>
-Cc: linux-arm-kernel@lists.infradead.org, kvmarm@lists.linux.dev,
-	catalin.marinas@arm.com, james.morse@arm.com, maz@kernel.org,
-	oupton@kernel.org, tabba@google.com, will@kernel.org
-Subject: Re: [PATCH 15/18] arm64: fpsimd: Move SVE save/restore inline
-Message-ID: <bf4fda69-c387-496a-aa7b-60ddb48e74aa@sirena.org.uk>
-References: <20260521132556.584676-1-mark.rutland@arm.com>
- <20260521132556.584676-16-mark.rutland@arm.com>
+	Wed, 27 May 2026 12:36:54 +0000
+Received: by mail-yx1-xb129.google.com with SMTP id 956f58d0204a3-65c305f381eso12521597d50.3
+        for <linux-arm-kernel@lists.infradead.org>; Wed, 27 May 2026 05:36:51 -0700 (PDT)
+ARC-Seal: i=1; a=rsa-sha256; t=1779885409; cv=none;
+        d=google.com; s=arc-20240605;
+        b=TPk69SqUFF5popzW7LjA+yWn22w2QC24Wz9j2NiguMidzfsxkUUqwPTGBjGf2HjDyp
+         I3hTMCJRTmFZLJlchY6rsneNTVxh+80yeJeXz4vtBkXv90xQ0i+cQ/hKaIydiaUYW9lO
+         qiuyCDgsGHIXfDonRj6FirO8ew5PKd7eu5D75YcU1lZzd+U7UwEsmaoKM7HLwDtePkm5
+         GgHlOhY8RHIaKzkQ2TGbnnQtrJxCQSGVD+9q/nx6vloNYzbGi9Sr3NhN4kg8cyNajzsh
+         WqpS2O3nuMxseRSN0HcMP1FPJxrmYUtZBQkSbC+CbJIlwRZze9PXP8lSy5nyNcWxPqC5
+         aZLw==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20240605;
+        h=content-transfer-encoding:cc:to:subject:message-id:date:from
+         :in-reply-to:references:mime-version:dkim-signature;
+        bh=4CjmzQC2/ekjhmlU5sPsEceZ/rSuZIxXTtnWoWGfZ+8=;
+        fh=sIg/v2vvWSXG6OqRdyRPnsUZ9wbPGDGlqmPTk6nO8Wc=;
+        b=HMxNIGjiZ/hu9eoh0kVBzk2VVwtU33EWkzsVk+/aMCEjfqH+2IvjnGfwP1FHI5t1Fq
+         SgBc+pSNpF3drfKZkyNn6mE5O0GGZQZPhoomZoXKxX7Ij+jLV792tJfLLtiRf2dmY3/a
+         UFMHq5zHSHvaK7hUIyRSjovuvWsuYHqamdNS5kvAt5CKCskM89tqpNVBneDGoKb3geHa
+         VQC630rOb6tEAwQdYd571PF19Now2rl8UJcK2NhhpawIVewRENJeVnd63PaZ8UaOxz/F
+         rQ0J5dK02T2992ybdlG1TRtebPW6o2kBzXe2EcP8dt/iM4COoKA6WYWEPJ4L4MJRlhsV
+         TNYw==;
+        darn=lists.infradead.org
+ARC-Authentication-Results: i=1; mx.google.com; arc=none
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=gmail.com; s=20251104; t=1779885409; x=1780490209; darn=lists.infradead.org;
+        h=content-transfer-encoding:cc:to:subject:message-id:date:from
+         :in-reply-to:references:mime-version:from:to:cc:subject:date
+         :message-id:reply-to;
+        bh=4CjmzQC2/ekjhmlU5sPsEceZ/rSuZIxXTtnWoWGfZ+8=;
+        b=WwgRIf//Q6qVZKABAP6vFG95A31gSVNk3kDD9dT57WE5Np8TcDtqSXjrAD/qCrR1dG
+         fVVYM231rSUNGHVBb2DCZulWVwQBThlJj0TWVrdOfuQ3R5/30arrup3d8NQFdOUFUefb
+         n/JdKfMK0U0/ZLqXBD06NUhiSp4jVmDk/jshJ4R6hi3lC+X0GdY2DrDPJrb9XkDSmlXH
+         RKu06T4KC4JsbFJ3O9Xf7cCvTSxGlW9VZZaUKDmHEkrgjmyk3hPDGU0HJtAkZT5c5P0s
+         My7uXlC10JgtP7e4m5v9K2mdSLaraquBLluuwqFA/A7R4K5s/n1V65RdmV9mlm6CxLZP
+         aGLg==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20251104; t=1779885409; x=1780490209;
+        h=content-transfer-encoding:cc:to:subject:message-id:date:from
+         :in-reply-to:references:mime-version:x-gm-gg:x-gm-message-state:from
+         :to:cc:subject:date:message-id:reply-to;
+        bh=4CjmzQC2/ekjhmlU5sPsEceZ/rSuZIxXTtnWoWGfZ+8=;
+        b=ewkCv6FnlEvXi+McQfA9/0+LKjxEh18sf3cFJlmO5Ivam5mMFs921ncLZ2aNRVUxmS
+         5wYPTiZbEqjMGVjwB3+VfP1KqObFijOQDuAomZ8MU4SOuQtBQ5t2xFdbJvWQMH9rwWBX
+         Mt40Imyz9wV495RcCuLu4RliqLD97FrtNZPPK3hQqPnyT/VMw5QeNy/DbVs0CmGVLkR9
+         8CKBTBi3JlIJh+o7+VCfRg/plVI2ajtS6UTIfUMo2qeoA+UDIAIMcfLGRrT3Wte/TEUM
+         ybq7zV1AiCiGYRd5JJNB2gB7suKoQ4EkawbDTTCiHKP8VtGcgmI5qZSt+7kP+DxZNqVq
+         OOsA==
+X-Forwarded-Encrypted: i=1; AFNElJ9NkeNGZXfvTmT1XaNGn+VuC+nYCDU16dt1KNJPP2eoLTedr7YGeAkU4qLTEaci0NSq2ueEIcwRp5f7JHg9u66T@lists.infradead.org
+X-Gm-Message-State: AOJu0Yw5Zu7hldxWEgDQoxws0DfrJK18Qk+oSvdXWX/msiDzhGXQCjZV
+	QWGPw8C+zO6QC6m4/8Qu76IMrcAWGPlQAo8bOBfsCG3yiNRKdLnx/K13AyqAnkV1vFYVykM7CiZ
+	7eeXj3Rzdn+uJqHDzJkL9qhVq/h7etWg=
+X-Gm-Gg: Acq92OFcv/XfPZic+eqyLsChC/77AchGhfl6aLUyLSKjDutvszpMkkCN7LccXTssrTj
+	zeKZGF3ynUzjaIUn9uYug1IHMmbkOIm7BVmi6C9xaPuW/yJp8qVPc8a8FD2+w9dcP1trvy9Q7P9
+	S5IsyM50bhG3C1XLoq3LBBhE1I1m59gdX8tsgQ3Qm9u36axe0ciDoNCVpjEApXjRN0i+ZIXG5oO
+	Tj1xCwUoqcCS4vJ0+uMesUrVzA0huPXcO1Q0mOsdgEJRZC/4JbDCKl0n6jJo+V9TjObrz72MsPx
+	WoIWppyWGN9WcW4=
+X-Received: by 2002:a05:690c:660c:b0:7d1:dd7b:b71f with SMTP id
+ 00721157ae682-7d3379ab714mr246354317b3.29.1779885409421; Wed, 27 May 2026
+ 05:36:49 -0700 (PDT)
 MIME-Version: 1.0
-Content-Type: multipart/signed; micalg=pgp-sha512;
-	protocol="application/pgp-signature"; boundary="ya5TE6wnOBYzJmoP"
-Content-Disposition: inline
-In-Reply-To: <20260521132556.584676-16-mark.rutland@arm.com>
-X-Cookie: You are fairminded, just and loving.
+References: <20260513170101.1858213-1-ekffu200098@gmail.com> <ahXtGL7QI82ZHPDO@arm.com>
+In-Reply-To: <ahXtGL7QI82ZHPDO@arm.com>
+From: Sang-Heon Jeon <ekffu200098@gmail.com>
+Date: Wed, 27 May 2026 21:36:38 +0900
+X-Gm-Features: AVHnY4K--4Sq9xnSydn9ULXkOvlOwJQebPvgzgugYfFeA-qVG9WcPRErEy_k_9I
+Message-ID: <CABFDxMFhGqf6uVWgwiVyFjhKJGg=p5ZgxjuyVYraVFmr=ZjDvQ@mail.gmail.com>
+Subject: Re: [PATCH] arm64: mm: drop redundant remap of FDT first page
+To: Catalin Marinas <catalin.marinas@arm.com>
+Cc: will@kernel.org, linux-arm-kernel@lists.infradead.org
+Content-Type: text/plain; charset="UTF-8"
+Content-Transfer-Encoding: quoted-printable
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260527_052926_760924_C8B1FAC6 
-X-CRM114-Status: UNSURE (   8.98  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20260527_133652_847292_D40EAA73 
+X-CRM114-Status: GOOD (  19.66  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -76,34 +130,52 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
+On Wed, May 27, 2026 at 3:57=E2=80=AFAM Catalin Marinas <catalin.marinas@ar=
+m.com> wrote:
+>
+> On Thu, May 14, 2026 at 02:01:01AM +0900, Sang-Heon Jeon wrote:
+> > fixmap_remap_fdt() calls create_mapping_noalloc() to map the first
+> > page of the FDT to read its magic and totalsize from the header. If
+> > the FDT does not fit in a single page, it calls create_mapping_noalloc(=
+)
+> > again to map the rest.
+> >
+> > The second mapping redundantly covers the first page that was just
+> > mapped by the first mapping.
+> >
+> > Start the second mapping at dt_phys_base + PAGE_SIZE so it only covers
+> > the pages that have not been mapped yet. No functional change.
+> >
+> > Signed-off-by: Sang-Heon Jeon <ekffu200098@gmail.com>
+> [...]
+> > diff --git a/arch/arm64/mm/fixmap.c b/arch/arm64/mm/fixmap.c
+> > index c5c5425791da..f8aea5572f7c 100644
+> > --- a/arch/arm64/mm/fixmap.c
+> > +++ b/arch/arm64/mm/fixmap.c
+> > @@ -167,8 +167,9 @@ void *__init fixmap_remap_fdt(phys_addr_t dt_phys, =
+int *size, pgprot_t prot)
+> >               return NULL;
+> >
+> >       if (offset + *size > PAGE_SIZE) {
+> > -             create_mapping_noalloc(dt_phys_base, dt_virt_base,
+> > -                                    offset + *size, prot);
+> > +             create_mapping_noalloc(dt_phys_base + PAGE_SIZE,
+> > +                     dt_virt_base + PAGE_SIZE,
+> > +                     offset + *size - PAGE_SIZE, prot);
+> >       }
+>
+> Is it actually worth it? It's not that we allocate memory here or take a
+> noticeable time to reach the first pte. I find the current easier to
+> read.
 
---ya5TE6wnOBYzJmoP
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
+Fair point. This is just a minor cleanup on my side.
+If you feel the original reads better, happy to drop this patch.
 
-On Thu, May 21, 2026 at 02:25:53PM +0100, Mark Rutland wrote:
+Thanks for reviewing, Catalin.
 
-> To handle the above, move the SVE register save/restore sequences
-> to inline assembly.
+Best Regards
+Sang-Heon Jeon
 
-That's a lot nicer than the macros:
-
-Reviewed-by: Mark Brown <broonie@kernel.org>
-
---ya5TE6wnOBYzJmoP
-Content-Type: application/pgp-signature; name="signature.asc"
-
------BEGIN PGP SIGNATURE-----
-
-iQEzBAABCgAdFiEEreZoqmdXGLWf4p/qJNaLcl1Uh9AFAmoW46AACgkQJNaLcl1U
-h9DSlAf+Pd+HyrNo7yd3QuYwJqQIVpP1gqWq92C8uv2n+lYBNthOz8jPZ5Kzqr8T
-k3p51EhEuC942QtVHS6ZCgsyL5MI0x26lLRgzRQbh2zljubYTVvBLovXbiUnRyTy
-JDBoIu/Ra/DmxqSDsPYouV5UFduCEiOopr7BI5A4vlSHbIYkED85eWU/jSmJHBTL
-8mhyMwAFT79rTMkdgxr68snAQh0LICAlufv66tFTyd5x0Marl4G0WHEOetb8+QqX
-8JM1xVIvFSUs6x5PIhVKivQ16Qq+hxtgnLv9KYEXWKVaXNR7NWUVGFDlbscKUkSn
-svCUnf89m3L9pIY6acmXYDk3yzfmvw==
-=lDv6
------END PGP SIGNATURE-----
-
---ya5TE6wnOBYzJmoP--
+> --
+> Catalin
 
