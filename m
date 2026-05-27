@@ -4,66 +4,73 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id D1A09CD5BDE
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 27 May 2026 07:36:05 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id CCD19CD5BDE
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 27 May 2026 07:39:20 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
-	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=LPGqASysxQ9lW9Lpvsz70pXUSRn6+VAlLH7uoaKEAbI=; b=O94HNPxIrXMk1LJtauRY2dCjcT
-	ZfpkDqyGx4Ipt89txD4TW5g5K+1me5F/4892CZBvPLOOgI20ycXuON3PteQ2TfoYeDc3X42Y4VhS0
-	UdbIDE82gWJrKwO4yqp9Cusy5d1IvoZKxFV0FzdMKhoaF8RWkHMqA3Kxo2+CMFQJTRhILzh0TMNJC
-	8cxbRUp+hZOzZiAhGpQ8wH7WRpTk6uo3h2zwbtnAkvgUYhOdpx96mQ1gew6G75fhhH1UfGuM9InoE
-	FwGj6ZIftKeqQUprmLayKKcWAEZDmDBpR8Z7c+GNmeCINf7qw2+kf9dcjXF0Gh5pDOhuX+Sw/5L8z
-	LNfB4nSQ==;
+	MIME-Version:Message-Id:Date:Subject:Cc:To:From:Reply-To:Content-Type:
+	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
+	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=j+XHGe1v1dktSqQKYvJkTMmxPDN2DIzwFXUvVXH/zss=; b=XzO8zvQAL5kx+sq15kHO0BAMIi
+	s6B8H4xdL0WAbNZUKi5yJZWnNCKoHHK1YXTjc+j5m3J+fpOYOz+IC65aoOL1tYnek9RJIcviTTsWr
+	7bIBg9YXmMNxWH9SLUSfMiL2h/lAhx9hk467ocUp0ni/ealKL1RZEmDtML6e5VBeVqQVXgyYBh8J2
+	WlXKcMU1azFChuXA8pdIGcm+vYOpWPZMPufxplKua/KO62rt45/8gE2bottksz/FXuaYSNyzkydHK
+	J3hsUF1DIEqMZ2/iVaEn37KqD9UpaAzHdVEIti1sUndxpdoQ9jRki1hSI6D0F89Bg6ZKnH8QXMzDe
+	TavBkATw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wS8o3-00000003TbH-0icj;
-	Wed, 27 May 2026 07:35:59 +0000
-Received: from foss.arm.com ([217.140.110.172])
-	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wS8o0-00000003TaY-3Kam
+	id 1wS8rB-00000003TwU-3hNc;
+	Wed, 27 May 2026 07:39:13 +0000
+Received: from smtp81.cstnet.cn ([159.226.251.81] helo=cstnet.cn)
+	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
+	id 1wS8r7-00000003Tv4-3wid
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 27 May 2026 07:35:58 +0000
-Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
-	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id 8FF8027DC;
-	Wed, 27 May 2026 00:35:50 -0700 (PDT)
-Received: from [10.57.93.47] (unknown [10.57.93.47])
-	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id 616C73F632;
-	Wed, 27 May 2026 00:35:53 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=simple/simple; d=arm.com; s=foss;
-	t=1779867355; bh=PdNASjHzMFcTuvj2O7glLeKGsNZHbnvtXnjzn6isxgQ=;
-	h=Date:Subject:To:Cc:References:From:In-Reply-To:From;
-	b=e8mQOnEn2+oYphGx+uDlYnYs9VLRpw312YQn0n6jfNrmHENZB5GLwydumToXyGc+M
-	 fs4ywuXgUPm+W9ui68dzf6q+eitrm/9SlD45ExCS+KUh0ulqDpc62NGqrAeQUKDemZ
-	 aA9u3+ZbfAXqJdsCwQUVOPcq/KLO2WVJl5clNdDQ=
-Message-ID: <423a2656-e1a3-473e-abeb-5e301c6f7c2a@arm.com>
-Date: Wed, 27 May 2026 09:35:50 +0200
+	Wed, 27 May 2026 07:39:12 +0000
+Received: from localhost.localdomain (unknown [36.112.3.223])
+	by APP-03 (Coremail) with SMTP id rQCowABXcdiQnxZqJcWHEg--.56S2;
+	Wed, 27 May 2026 15:38:56 +0800 (CST)
+From: Haoxiang Li <lihaoxiang@isrc.iscas.ac.cn>
+To: andrew+netdev@lunn.ch,
+	edumazet@google.com,
+	davem@davemloft.net,
+	kuba@kernel.org,
+	pabeni@redhat.com,
+	Steen.Hegelund@microchip.com,
+	daniel.machon@microchip.com,
+	UNGLinuxDriver@microchip.com
+Cc: netdev@vger.kernel.org,
+	linux-arm-kernel@lists.infradead.org,
+	linux-kernel@vger.kernel.org,
+	Haoxiang Li <lihaoxiang@isrc.iscas.ac.cn>
+Subject: [PATCH] net: microchip: sparx5: clean up PSFP resources on flower setup failure
+Date: Wed, 27 May 2026 15:38:55 +0800
+Message-Id: <20260527073855.2334001-1-lihaoxiang@isrc.iscas.ac.cn>
+X-Mailer: git-send-email 2.25.1
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH] arm64: mm: call pagetable dtor when freeing hot-removed
- page tables
-To: Will Deacon <will@kernel.org>
-Cc: Vishal Moola <vishal.moola@gmail.com>,
- Catalin Marinas <catalin.marinas@arm.com>,
- Andrew Morton <akpm@linux-foundation.org>,
- Alistair Popple <apopple@nvidia.com>, linux-arm-kernel@lists.infradead.org,
- linux-kernel@vger.kernel.org, linux-mm@kvack.org, david@kernel.org
-References: <20260521032730.2104017-1-apopple@nvidia.com>
- <20260521153130.d7d5cd060f7522f894252333@linux-foundation.org>
- <ahACfQ6kCfONqz5h@arm.com> <ahAjudlB32VbkKbG@fedora>
- <92450154-e1ab-46e4-b23d-eaa59c9cdd3b@arm.com>
- <ahW3QYiYjjVB4Knv@willie-the-truck>
-From: Kevin Brodsky <kevin.brodsky@arm.com>
-Content-Language: en-GB
-In-Reply-To: <ahW3QYiYjjVB4Knv@willie-the-truck>
-Content-Type: text/plain; charset=UTF-8
-Content-Transfer-Encoding: 7bit
+Content-Transfer-Encoding: 8bit
+X-CM-TRANSID: rQCowABXcdiQnxZqJcWHEg--.56S2
+X-Coremail-Antispam: 1UD129KBjvJXoW7Kw1UWw48Cr4Duw43JrWkZwb_yoW8Zr4DpF
+	WDAr9xCr18Gr4rCF18tr40vFn8Z34FqrWxWF4fK345Ar15CF4vkFn8t3W8Kr1YgryUXF93
+	ZF4UAF4Uu3ZxGwUanT9S1TB71UUUUU7qnTZGkaVYY2UrUUUUjbIjqfuFe4nvWSU5nxnvy2
+	9KBjDU0xBIdaVrnRJUUU9014x267AKxVW8JVW5JwAFc2x0x2IEx4CE42xK8VAvwI8IcIk0
+	rVWrJVCq3wAFIxvE14AKwVWUJVWUGwA2ocxC64kIII0Yj41l84x0c7CEw4AK67xGY2AK02
+	1l84ACjcxK6xIIjxv20xvE14v26r1j6r1xM28EF7xvwVC0I7IYx2IY6xkF7I0E14v26r4j
+	6F4UM28EF7xvwVC2z280aVAFwI0_Gr0_Cr1l84ACjcxK6I8E87Iv6xkF7I0E14v26r4j6r
+	4UJwAS0I0E0xvYzxvE52x082IY62kv0487Mc02F40EFcxC0VAKzVAqx4xG6I80ewAv7VC0
+	I7IYx2IY67AKxVWUJVWUGwAv7VC2z280aVAFwI0_Jr0_Gr1lOx8S6xCaFVCjc4AY6r1j6r
+	4UM4x0Y48IcxkI7VAKI48JM4x0x7Aq67IIx4CEVc8vx2IErcIFxwACI402YVCY1x02628v
+	n2kIc2xKxwCY1x0262kKe7AKxVWUtVW8ZwCF04k20xvY0x0EwIxGrwCFx2IqxVCFs4IE7x
+	kEbVWUJVW8JwC20s026c02F40E14v26r1j6r18MI8I3I0E7480Y4vE14v26r106r1rMI8E
+	67AF67kF1VAFwI0_Jw0_GFylIxkGc2Ij64vIr41lIxAIcVC0I7IYx2IY67AKxVWUJVWUCw
+	CI42IY6xIIjxv20xvEc7CjxVAFwI0_Gr0_Cr1lIxAIcVCF04k26cxKx2IYs7xG6r1j6r1x
+	MIIF0xvEx4A2jsIE14v26r1j6r4UMIIF0xvEx4A2jsIEc7CjxVAFwI0_Gr0_Gr1UYxBIda
+	VFxhVjvjDU0xZFpf9x0JUd-B_UUUUU=
+X-Originating-IP: [36.112.3.223]
+X-CM-SenderInfo: 5olkt0x0ld0ww6lv2u4olvutnvoduhdfq/1tbiBwsAE2oWirpdsAAAs+
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260527_003556_885250_3E306B2C 
-X-CRM114-Status: GOOD (  18.91  )
+X-CRM114-CacheID: sfid-20260527_003910_341775_04F47BF7 
+X-CRM114-Status: GOOD (  10.43  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -78,55 +85,63 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On 26/05/2026 17:07, Will Deacon wrote:
-> On Tue, May 26, 2026 at 01:54:00PM +0200, Kevin Brodsky wrote:
->> On 22/05/2026 11:36, Vishal Moola wrote:
->>>> diff --git a/arch/arm64/mm/mmu.c b/arch/arm64/mm/mmu.c
->>>> index 4c8959153ac4..9d42cbddce27 100644
->>>> --- a/arch/arm64/mm/mmu.c
->>>> +++ b/arch/arm64/mm/mmu.c
->>>> @@ -1441,6 +1441,9 @@ static void free_hotplug_page_range(struct page *page, size_t size,
->>>>  
->>>>  static void free_hotplug_pgtable_page(struct page *page)
->>>>  {
->>>> +	if (folio_test_pgtable(page_folio(page)))
->>> This should work.
->>>
->>>> +		pagetable_dtor(page_ptdesc(page));
->>>> +
->>>>  	free_hotplug_page_range(page, PAGE_SIZE, NULL);
->>> In the case we presumably have a page table page (ptdesc) at this
->>> point, we should really be freeing it with pagetable_free() as well.
->> Agreed, I think this is the right thing to do, something like:
->>
->> if (folio_test_pgtable(page_folio(page)))
->> pagetable_dtor_free(page_ptdesc(page)); else
->> free_hotplug_page_range(page, PAGE_SIZE, NULL);
->>
->>
->> Strangely enough x86 calls pagetable_free() in both cases.
->>
->> My series protecting page tables with pkeys has a patch [1] to get
->> vmemmap to allocate page tables with pagetable_alloc(). The diff above
->> will require pagetable_*_ctor() to be called as well, but I think that's
->> the right thing to do anyway. That could be posted as a separate series,
->> but I'm hesitant due to the lack of NUMA awareness in pagetable_alloc().
-> I agree that calling the ctor()/dtor() functions consistently is the
-> cleanest approach and that will need something like your patch to call
-> the constructor from vmemmap_alloc_block_zero(). Trying to elide these
-> calls for the page-table pages used to map the altmap just feels odd to
-> me, as there isn't anything particularly special about them afaik.
+Add error handling paths to unwind the PSFP resources that have already
+been allocated before returning the error.
 
-I don't think they're really special either, most likely they just got
-missed/ignored for the purpose of ctor/dtor like many other kernel page
-tables (until recently).
+Signed-off-by: Haoxiang Li <lihaoxiang@isrc.iscas.ac.cn>
+---
+ .../microchip/sparx5/sparx5_tc_flower.c        | 18 ++++++++++++++----
+ 1 file changed, 14 insertions(+), 4 deletions(-)
 
-I'll prepare a series refactoring that code then - that will also
-require changing most arch implementations of vmemmap_free() to call
-pagetable_dtor_free().
+diff --git a/drivers/net/ethernet/microchip/sparx5/sparx5_tc_flower.c b/drivers/net/ethernet/microchip/sparx5/sparx5_tc_flower.c
+index 4dc1ebd5d510..e5022d783ee6 100644
+--- a/drivers/net/ethernet/microchip/sparx5/sparx5_tc_flower.c
++++ b/drivers/net/ethernet/microchip/sparx5/sparx5_tc_flower.c
+@@ -807,7 +807,7 @@ static int sparx5_tc_flower_psfp_setup(struct sparx5 *sparx5,
+ 		/* Add new flow-meter */
+ 		ret = sparx5_psfp_fm_add(sparx5, pol_idx, fm, &psfp_fmid);
+ 		if (ret < 0)
+-			return ret;
++			goto err_sg_del;
+ 	}
+ 
+ 	/* Map stream filter to stream gate */
+@@ -816,7 +816,7 @@ static int sparx5_tc_flower_psfp_setup(struct sparx5 *sparx5,
+ 	/* Add new stream-filter and map it to a steam gate */
+ 	ret = sparx5_psfp_sf_add(sparx5, sf, &psfp_sfid);
+ 	if (ret < 0)
+-		return ret;
++		goto err_fm_del;
+ 
+ 	/* Streams are classified by ISDX - map ISDX 1:1 to sfid for now. */
+ 	sparx5_isdx_conf_set(sparx5, psfp_sfid, psfp_sfid, psfp_fmid);
+@@ -824,13 +824,23 @@ static int sparx5_tc_flower_psfp_setup(struct sparx5 *sparx5,
+ 	ret = vcap_rule_add_action_bit(vrule, VCAP_AF_ISDX_ADD_REPLACE_SEL,
+ 				       VCAP_BIT_1);
+ 	if (ret)
+-		return ret;
++		goto err_sf_del;
+ 
+ 	ret = vcap_rule_add_action_u32(vrule, VCAP_AF_ISDX_VAL, psfp_sfid);
+ 	if (ret)
+-		return ret;
++		goto err_sf_del;
+ 
+ 	return 0;
++
++err_sf_del:
++	sparx5_isdx_conf_set(sparx5, psfp_sfid, 0, 0);
++	sparx5_psfp_sf_del(sparx5, psfp_sfid);
++err_fm_del:
++	if (pol_idx >= 0)
++		sparx5_psfp_fm_del(sparx5, psfp_fmid);
++err_sg_del:
++	sparx5_psfp_sg_del(sparx5, psfp_sgid);
++	return ret;
+ }
+ 
+ /* Handle the action trap for a VCAP rule */
+-- 
+2.25.1
 
-In the meantime we should probably use the logic above to avoid the BUG
-that Alistair reported.
-
-- Kevin
 
