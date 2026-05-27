@@ -4,65 +4,69 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 3FE33CD4F54
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 27 May 2026 11:45:11 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 9FC87CD4F54
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 27 May 2026 11:45:20 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
-	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=oUB0kHUhBy3ng5DetQ30N4vUPE1VonqsLOG2jbmUYA0=; b=qZW8YWV14e5XGBudO5n6SW/G2c
-	fi7WRKaLwDlcLOKoDc/Q8uNfw8mvVuaRmVUpVI2WBsVTJUhwhm5qmbWChpvlsyGlIR2rbdWbHAAcy
-	x1wk0mmXja5xMT+Nehi+zmo6bhqwaiEfQ8pZYMxBz4Ncdit64Q/YGC1aHj9CV07FAWUaKeHyageDr
-	454c65AKhihrxVjy+1ZH+2EzsWMrMpNbAJ1Yo17CErkeQYlgYJ9UoegBtmmhJUHbyBAfsl6FuPSea
-	kf2F6kH15BvdZf9RKVQJLzTeEOUoxt6YZ+B0BNb0Ymsv6hgbmd0lyCeAh+OjRpVR6Ri+wPTo9G/mV
-	WYVGpZEQ==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=kbu7eIqkyk+q9nunKGOeIBPnQ9KXYFo7sIXPPUFEK1Y=; b=haDOCDN65ZRt508/xnc1TmOO4b
+	tjUMBqO+8BSjc345RWs+74n5uxfIYAOQhe6DMD8lFDdu4TziBoykTztyVxub88tYNEUmjZRWTPrbp
+	WVJ0FJxiZgJjev3cQUWHuz0npmxDVz1Wr3YtXKfb0Q0+sdEO7bWXZjIcQIwMDm72ThRnx2IiPeWFP
+	8ACO1ASwoHIKpk97ILYVBmcdtgpZXgrBFHRoGTF+4l6ZkXaS7vhBi6K7QR5whGRUxkaD7aIFWdU3N
+	K1j+LzMDF/hqlxvw1ar7SajCqMMk/Tizs+oq1egHkjfjlDGOKNnSthR+XKXtC/kg+jt6liW9gQH9L
+	wYWx+YdQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wSCh3-000000041gQ-1STT;
-	Wed, 27 May 2026 11:45:01 +0000
-Received: from out30-119.freemail.mail.aliyun.com ([115.124.30.119])
+	id 1wSChF-000000041je-22ry;
+	Wed, 27 May 2026 11:45:13 +0000
+Received: from perceval.ideasonboard.com ([213.167.242.64])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wSCh0-000000041f2-2Wlm
+	id 1wSChC-000000041hY-2QUv
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 27 May 2026 11:44:59 +0000
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-	d=linux.alibaba.com; s=default;
-	t=1779882295; h=Message-ID:Date:MIME-Version:Subject:To:From:Content-Type;
-	bh=oUB0kHUhBy3ng5DetQ30N4vUPE1VonqsLOG2jbmUYA0=;
-	b=KWwKGZreojKOhur/byN710zgQUAeEcVHDS8delAwewiY17gUqIbgVdKuZ98YzDUtOdwp3dV8xQxOf1ITwYMy7Y19hdO8/NlTtECJ/uaHDRRyOGBycEe6lKsLFTbkCIw6vUxFd96TnHj2bw8aLpL1f3upJ7+qUtsssjISHYRYua0=
-X-Alimail-AntiSpam: AC=PASS;BC=-1|-1;BR=01201311R201e4;CH=green;DM=||false|;DS=||;FP=0|-1|-1|-1|0|-1|-1|-1;HT=maildocker-contentspam011083073210;MF=xueshuai@linux.alibaba.com;NM=1;PH=DS;RN=29;SR=0;TI=SMTPD_---0X3jezDI_1779882292;
-Received: from 30.246.179.14(mailfrom:xueshuai@linux.alibaba.com fp:SMTPD_---0X3jezDI_1779882292 cluster:ay36)
-          by smtp.aliyun-inc.com;
-          Wed, 27 May 2026 19:44:53 +0800
-Message-ID: <8ebf43de-16c1-4798-8d48-c93390ab6df0@linux.alibaba.com>
-Date: Wed, 27 May 2026 19:44:47 +0800
+	Wed, 27 May 2026 11:45:12 +0000
+Received: from killaraus.ideasonboard.com (62-193-63-110.as16211.net [62.193.63.110])
+	by perceval.ideasonboard.com (Postfix) with ESMTPSA id DAB949D1;
+	Wed, 27 May 2026 13:44:46 +0200 (CEST)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=ideasonboard.com;
+	s=mail; t=1779882287;
+	bh=J8HWEnOlJ6Qs7xGG5VUasoHKKzXrTRjUX3pcyYjgeGo=;
+	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
+	b=O2gawcK4KnOj/A1H7gp8aanPxKgY9q8qdqLlmxYux04Nd/DsE69P7E95cc6zzdxeZ
+	 B3c0LXeUS2T6iPXD82DZl0ED04r96Jtz0bPQlFxhYHDnwDELgyIDlYFpcEg1jgkg9h
+	 9hPM1x19a0H7cMLV6xLy8UULktx7vc8VrCu91Fxc=
+Date: Wed, 27 May 2026 13:45:04 +0200
+From: Laurent Pinchart <laurent.pinchart@ideasonboard.com>
+To: Krzysztof Kozlowski <krzk@kernel.org>
+Cc: Guoniu Zhou <guoniu.zhou@oss.nxp.com>,
+	Mauro Carvalho Chehab <mchehab@kernel.org>,
+	Rob Herring <robh@kernel.org>,
+	Krzysztof Kozlowski <krzk+dt@kernel.org>,
+	Conor Dooley <conor+dt@kernel.org>, Shawn Guo <shawnguo@kernel.org>,
+	Sascha Hauer <s.hauer@pengutronix.de>,
+	Pengutronix Kernel Team <kernel@pengutronix.de>,
+	Fabio Estevam <festevam@gmail.com>, Frank Li <frank.li@nxp.com>,
+	imx@lists.linux.dev, linux-media@vger.kernel.org,
+	devicetree@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
+	linux-kernel@vger.kernel.org, Guoniu Zhou <guoniu.zhou@nxp.com>,
+	Krzysztof Kozlowski <krzysztof.kozlowski@oss.qualcomm.com>
+Subject: Re: [PATCH v8 1/2] media: dt-bindings: Add CSI Pixel Formatter DT
+ bindings
+Message-ID: <20260527114504.GA480025@killaraus.ideasonboard.com>
+References: <20260525-csi_formatter-v8-0-6b646231224b@oss.nxp.com>
+ <20260525-csi_formatter-v8-1-6b646231224b@oss.nxp.com>
+ <20260526-towering-essential-civet-19a5ad@quoll>
+ <20260526094438.GE228394@killaraus.ideasonboard.com>
+ <14f9923e-ae0a-4e69-b3b9-a7353b84b9f8@kernel.org>
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH v14 4/8] mm/hwpoison: return -EFAULT when copy fail in
- copy_mc_[user]_highpage()
-To: Ruidong Tian <tianruidong@linux.alibaba.com>, catalin.marinas@arm.com,
- will@kernel.org, rafael@kernel.org, tony.luck@intel.com,
- guohanjun@huawei.com, mchehab@kernel.org, tongtiangen@huawei.com,
- james.morse@arm.com, robin.murphy@arm.com, andreyknvl@gmail.com,
- dvyukov@google.com, vincenzo.frascino@arm.com, mpe@ellerman.id.au,
- npiggin@gmail.com, ryabinin.a.a@gmail.com, glider@google.com,
- christophe.leroy@csgroup.eu, aneesh.kumar@kernel.org,
- naveen.n.rao@linux.ibm.com, tglx@linutronix.de, mingo@redhat.com
-Cc: linux-arm-kernel@lists.infradead.org, linux-mm@kvack.org,
- linuxppc-dev@lists.ozlabs.org, linux-kernel@vger.kernel.org,
- kasan-dev@googlegroups.com, Jonathan Cameron <Jonathan.Cameron@huawei.com>,
- Mauro Carvalho Chehab <mchehab+huawei@kernel.org>
-References: <20260518084956.2538442-1-tianruidong@linux.alibaba.com>
- <20260518084956.2538442-5-tianruidong@linux.alibaba.com>
-From: Shuai Xue <xueshuai@linux.alibaba.com>
-In-Reply-To: <20260518084956.2538442-5-tianruidong@linux.alibaba.com>
-Content-Type: text/plain; charset=UTF-8; format=flowed
-Content-Transfer-Encoding: 7bit
+Content-Type: text/plain; charset=utf-8
+Content-Disposition: inline
+In-Reply-To: <14f9923e-ae0a-4e69-b3b9-a7353b84b9f8@kernel.org>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260527_044458_815612_38E47BD7 
-X-CRM114-Status: GOOD (  10.92  )
+X-CRM114-CacheID: sfid-20260527_044510_800165_CE92C275 
+X-CRM114-Status: GOOD (  16.48  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -77,30 +81,38 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
+On Wed, May 27, 2026 at 11:37:34AM +0200, Krzysztof Kozlowski wrote:
+> On 26/05/2026 11:44, Laurent Pinchart wrote:
+> >>> +  - |
+> >>> +    #include <dt-bindings/clock/nxp,imx95-clock.h>
+> >>> +
+> >>> +    syscon@4ac10000 {
+> >>> +        compatible = "nxp,imx95-camera-csr", "syscon";
+> >>
+> >> Drop entire node, not relevant. Or actually this example could be in the
+> >> parent binding example.
+> > 
+> > I asked for this in the review of a previous version. The example only
+> > stated "formatter@20" and it was not mentioned anywhere that the device
+> > was supposed to be a child node of a syscon. The driver reads the reg
+> 
+> Binding does not have to state that. Parent's device binding will state
+> that.
+> 
+> > property and uses it as an offset to the regmap of the syscon, I wanted
+> > to see where/how the node was meant to be integrated in DT.
+> 
+> Sure, parent's device schema should have complete example. But we never
+> add the parent compatibles to the child schema - that's leading to
+> additional work later with no real benefits (that's only example, so no
+> real code except maintenance effort).
 
+OK. There was no mention of the child in the parent's bindings in the
+previous version. Now that it's being fixed, we can drop the parent
+here.
 
-On 5/18/26 4:49 PM, Ruidong Tian wrote:
-> From: Tong Tiangen <tongtiangen@huawei.com>
-> 
-> Currently, copy_mc_[user]_highpage() returns zero on success, or in case
-> of failures, the number of bytes that weren't copied.
-> 
-> While tracking the number of not copied works fine for x86 and PPC, There
-> are some difficulties in doing the same thing on ARM64 because there is no
-> available caller-saved register in copy_page()(lib/copy_page.S) to save
-> "bytes not copied", and the following copy_mc_page() will also encounter
-> the same problem.
-> 
-> Consider the caller of copy_mc_[user]_highpage() cannot do any processing
-> on the remaining data(The page has hardware errors), they only check if
-> copy was succeeded or not, make the interface more generic by using an
-> error code when copy fails (-EFAULT) or return zero on success.
-> 
-> Signed-off-by: Tong Tiangen <tongtiangen@huawei.com>
-> Reviewed-by: Jonathan Cameron <Jonathan.Cameron@huawei.com>
-> Reviewed-by: Mauro Carvalho Chehab <mchehab+huawei@kernel.org>
+-- 
+Regards,
 
-Reviewed-by: Shuai Xue <xueshuai@linux.alibaba.com>
-Thanks.
-Shuai
+Laurent Pinchart
 
