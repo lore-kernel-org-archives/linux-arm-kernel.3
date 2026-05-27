@@ -4,101 +4,82 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id D57E6CD5BDE
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 27 May 2026 07:05:59 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id D3B09CD4F54
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 27 May 2026 07:09:26 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:MIME-Version:References:In-Reply-To:Subject:Cc:To:From:
-	Message-ID:Date:Reply-To:Content-ID:Content-Description:Resent-Date:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:Cc:To:Subject:
+	Message-ID:Date:From:In-Reply-To:References:MIME-Version:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=oRExL8R0TDTPZxJJpPqHUXVby4f6YAO2qb7hjquP+p8=; b=gCJnB/pc4NpHAlqy5QpCF2b576
-	87TDkdaTWnsXu2dH2OsdjTAuoWdWfAAePccPs3s4kNJJZUAMckNkAMznVaCwubApqDTvmBrtm19Vs
-	gkS8KmJNEHzZamCg/pyixgcsqln/HZ8jN+qFCYc2WsuwzlxO73j7it3j36/2r+qt5bd6iJQThGxRT
-	8ZLmuFoNlJ2xDR1hE12Q6WdkKwhMlwv3m5zDamsuDan4b1VKF64Al+1zE6QQ/4n/yRs3y/mKsW8/x
-	ucLMT/3EB5lK+TGThiCCO9ad+BarPVF7FCN4LxeKor0PpaBCcANJKJAgG9lZSI7Mai/HBiaDACEtG
-	swGtce5w==;
+	bh=BOmm8R3Cq+WYMZhLsp0nlZk+GIal/aJfbZcGuqrg9gM=; b=reg6ke+9j/1TgGwEZo4l6r2Y1l
+	0aZvUYqAvgpaB483BygYr3BXuxHSjeufRN3vIY2WDohpJLssh3Ppz/lXdY/qDLuP5v6NkdUd/aJUl
+	ObOrUJbzpJRI2eGoLX6Pspt+gdWB7VqAu5JJM+tGtbONDGEXxhxKK9ftjD5VfKlHj4jjke+nn7/zI
+	asbW+VLemKD7aVqgd8RBvb/GoIs/7D/ownZa+RZ6jZFU2N3ob2e8mqfbfOm3EJSg7LLzJgFpdNn/d
+	dZTxx+Mb3m05WIBviSEUUBIzKozHc5CKNjkJJU91Yg8NidTI/cO/pZf7sNtGAnJJsJYiJ/Z5km0V6
+	xAMneeMg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wS8Kv-00000003RED-0Nxq;
-	Wed, 27 May 2026 07:05:53 +0000
-Received: from tor.source.kernel.org ([172.105.4.254])
+	id 1wS8OF-00000003RTM-27tM;
+	Wed, 27 May 2026 07:09:19 +0000
+Received: from mail-ua1-f46.google.com ([209.85.222.46])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wS8Kt-00000003RE5-2gni
+	id 1wS8OB-00000003RSh-2qFw
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 27 May 2026 07:05:51 +0000
-Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
-	by tor.source.kernel.org (Postfix) with ESMTP id E014F600AB;
-	Wed, 27 May 2026 07:05:50 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 884AE1F000E9;
-	Wed, 27 May 2026 07:05:50 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1779865550;
-	bh=oRExL8R0TDTPZxJJpPqHUXVby4f6YAO2qb7hjquP+p8=;
-	h=Date:From:To:Cc:Subject:In-Reply-To:References;
-	b=YVqCMYTjN4Kox1nNd46c71wRvFF8zrujxrCB8TVd3N+Eziybit+gOrLgjrkps811s
-	 mQq2yh4z5MmvoM0jSyYYXe17MJM7Oieu5HQquF6K4RdlZQMkLs1OmJ0i4JMAKHhTIQ
-	 4ouLpKjNBpRzju2+FmEHCxKQi/50WGOr3T8xYa3K1ax3OQLtYrPf4keaXrGuSV3HIL
-	 1bARg1krjZ542hrl0dznJwrFSFzKIcKBdrbxBrypYQdHOlaqMSZairU758KsOUC0ay
-	 clGsEG6pzeyVyrhI8q7wAG/2QC6F8xbvqjX85BF1w9l501TyZEmP54YtDaiI8RrFiz
-	 I0m3LXNfWbgmA==
-Received: from sofa.misterjones.org ([185.219.108.64] helo=goblin-girl.misterjones.org)
-	by disco-boy.misterjones.org with esmtpsa  (TLS1.3) tls TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384
-	(Exim 4.98.2)
-	(envelope-from <maz@kernel.org>)
-	id 1wS8Kp-00000006Z4t-3NSY;
-	Wed, 27 May 2026 07:05:47 +0000
-Date: Wed, 27 May 2026 08:05:46 +0100
-Message-ID: <86tsrtuyb9.wl-maz@kernel.org>
-From: Marc Zyngier <maz@kernel.org>
-To: =?UTF-8?B?Ill1LUNodW4gTGluIFvmnpfnpZDlkJtdIg==?=
- <eleanor.lin@realtek.com>
-Cc: "linux-arm-kernel@lists.infradead.org"
- <linux-arm-kernel@lists.infradead.org>,	"linux-acpi@vger.kernel.org"
- <linux-acpi@vger.kernel.org>,	"linux-kernel@vger.kernel.org"
- <linux-kernel@vger.kernel.org>,	"devicetree@vger.kernel.org"
- <devicetree@vger.kernel.org>,	Lorenzo Pieralisi <lpieralisi@kernel.org>,
-	Hanjun Guo <guohanjun@huawei.com>,	Sudeep Holla <sudeep.holla@kernel.org>,
-	"Catalin\ Marinas" <catalin.marinas@arm.com>,	Will Deacon
- <will@kernel.org>,	"Rafael J.\ Wysocki" <rafael@kernel.org>,	Mark Rutland
- <mark.rutland@arm.com>,	"Daniel\ Lezcano" <daniel.lezcano@kernel.org>,
-	Thomas Gleixner <tglx@kernel.org>,	"Rob\ Herring" <robh@kernel.org>,
-	Krzysztof Kozlowski <krzk+dt@kernel.org>,	"Conor\ Dooley"
- <conor+dt@kernel.org>,	Chen-Yu Tsai <wens@kernel.org>,	Jernej Skrabec
- <jernej.skrabec@gmail.com>,	Samuel Holland <samuel@sholland.org>,
-	"Neil\ Armstrong" <neil.armstrong@linaro.org>,	Kevin Hilman
- <khilman@baylibre.com>,	Jerome Brunet <jbrunet@baylibre.com>,	Martin
- Blumenstingl <martin.blumenstingl@googlemail.com>,	Ge Gordon
- <gordon.ge@bst.ai>,	"BST\ Linux Kernel Upstream Group"
- <bst-upstream@bstai.top>,	Jesper Nilsson <jesper.nilsson@axis.com>,	Lars
- Persson <lars.persson@axis.com>,	Alim Akhtar <alim.akhtar@samsung.com>,
-	Ivaylo Ivanov <ivo.ivanov.ivanov1@gmail.com>,	Frank Li <Frank.Li@nxp.com>,
-	Sascha Hauer <s.hauer@pengutronix.de>,	Pengutronix Kernel Team
- <kernel@pengutronix.de>,	Fabio Estevam <festevam@gmail.com>,	Dinh Nguyen
- <dinguyen@kernel.org>,	Matthias Brugger <matthias.bgg@gmail.com>,
-	AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>,
-	Thierry Reding <thierry.reding@kernel.org>,	Jonathan Hunter
- <jonathanh@nvidia.com>,	"Bjorn\ Andersson" <andersson@kernel.org>,	Konrad
- Dybcio <konradybcio@kernel.org>,	Andreas =?UTF-8?B?RsOkcmJlcg==?=
- <afaerber@suse.de>,	Heiko Stuebner <heiko@sntech.de>,	Shawn Lin
- <shawn.lin@rock-chips.com>,	Orson Zhai <orsonzhai@gmail.com>,	Baolin Wang
- <baolin.wang@linux.alibaba.com>,	"Michal\ Simek" <michal.simek@amd.com>
-Subject: Re: [PATCH v3 14/17] arm64: dts: realtek: Add EL2 virtual timer interrupt
-In-Reply-To: <6fe3e828f8724424bc6aef818ae0aa0f@realtek.com>
-References: <20260523140242.586031-1-maz@kernel.org>
-	<20260523140242.586031-15-maz@kernel.org>
-	<6fe3e828f8724424bc6aef818ae0aa0f@realtek.com>
-User-Agent: Wanderlust/2.15.9 (Almost Unreal) SEMI-EPG/1.14.7 (Harue)
- FLIM-LB/1.14.9 (=?UTF-8?B?R29qxY0=?=) APEL-LB/10.8 EasyPG/1.0.0 Emacs/30.1
- (aarch64-unknown-linux-gnu) MULE/6.0 (HANACHIRUSATO)
-MIME-Version: 1.0 (generated by SEMI-EPG 1.14.7 - "Harue")
-Content-Type: text/plain; charset=UTF-8
-Content-Transfer-Encoding: quoted-printable
-X-SA-Exim-Connect-IP: 185.219.108.64
-X-SA-Exim-Rcpt-To: eleanor.lin@realtek.com, linux-arm-kernel@lists.infradead.org, linux-acpi@vger.kernel.org, linux-kernel@vger.kernel.org, devicetree@vger.kernel.org, lpieralisi@kernel.org, guohanjun@huawei.com, sudeep.holla@kernel.org, catalin.marinas@arm.com, will@kernel.org, rafael@kernel.org, mark.rutland@arm.com, daniel.lezcano@kernel.org, tglx@kernel.org, robh@kernel.org, krzk+dt@kernel.org, conor+dt@kernel.org, wens@kernel.org, jernej.skrabec@gmail.com, samuel@sholland.org, neil.armstrong@linaro.org, khilman@baylibre.com, jbrunet@baylibre.com, martin.blumenstingl@googlemail.com, gordon.ge@bst.ai, bst-upstream@bstai.top, jesper.nilsson@axis.com, lars.persson@axis.com, alim.akhtar@samsung.com, ivo.ivanov.ivanov1@gmail.com, Frank.Li@nxp.com, s.hauer@pengutronix.de, kernel@pengutronix.de, festevam@gmail.com, dinguyen@kernel.org, matthias.bgg@gmail.com, angelogioacchino.delregno@collabora.com, thierry.reding@kernel.org, jonathanh@nvidia.com, andersson@kernel.org, konradybcio@kerne
- l.org, afaerber@suse.de, heiko@sntech.de, shawn.lin@rock-chips.com, orsonzhai@gmail.com, baolin.wang@linux.alibaba.com, michal.simek@amd.com
-X-SA-Exim-Mail-From: maz@kernel.org
-X-SA-Exim-Scanned: No (on disco-boy.misterjones.org); SAEximRunCond expanded to false
+	Wed, 27 May 2026 07:09:17 +0000
+Received: by mail-ua1-f46.google.com with SMTP id a1e0cc1a2514c-9568bae58f7so7628836241.3
+        for <linux-arm-kernel@lists.infradead.org>; Wed, 27 May 2026 00:09:14 -0700 (PDT)
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20251104; t=1779865754; x=1780470554;
+        h=cc:to:subject:message-id:date:from:in-reply-to:references
+         :mime-version:x-gm-gg:x-gm-message-state:from:to:cc:subject:date
+         :message-id:reply-to;
+        bh=BOmm8R3Cq+WYMZhLsp0nlZk+GIal/aJfbZcGuqrg9gM=;
+        b=Vsrx7tvHfkB9zLC4f5hdbBFtEHCaT5AvKGHItjGfLX+o4mDd4xBaST/2Xohc4A+A2U
+         Oq1OPCwVjUT4+4Vtj3iydqVpYrWKyqFD9ZfJ0h21U45ou7rp8mmKNetRxlhRBK4DkKlY
+         paEfWm4w5+waCd7QBMN0LST7hzRvaFS6w4uDQxgxKiDhtWY5xi2VVAucVIujjuDd+H36
+         BaDwNSmbWhykLMHIzpqujYkFmBv7QcxdEXwE5M25OZmR6xLR+rytKdEIdAgcMJeQrEWr
+         xkShdu92vS5Y1+MmpUIg04WL6PA0zM/n8bcb57L1qPSAbHVB1rX0f/n4IlGijFG4Qnx+
+         XM4g==
+X-Gm-Message-State: AOJu0YwCNVYuWdn256KoP0pDGt3ZCD7nhl/EwVCRIBz3OpWpJmPj40Sz
+	yR8165f4oude2LYkjAqmrNeLeBIMocjBUuH/YJu4hPLAccESGJdycXTnakpW3btEO6g=
+X-Gm-Gg: Acq92OHFRb6xdTRloof2TOTK5v+v5dqvAeM6SWb11UkqJdhug50vXG5lBJt7IwYD2u/
+	pq8yPWoA0Wq2t7YFfxWNBxoAuQEa6/6QkTGtehgdwBi14ak61/ilBnERgSorPHL7KAVUPWa1BGM
+	9JFLkelcBj8mOc/xa0V43oRHpQKoKjXkBVViXCe3XcMtQ0WiIONtqaWg7oKTgBMoXGZbGw8d/Cg
+	uMWK9ivOpVqQyLHQojnJdRca15jB3PBYs1eMNMaP6k31mFOuwKRLUFn7PAnXJfX3xki1ba2+sS5
+	E571macrFriifIW6M52gg7pZAQnj3heBwPPvrK24KaX3jbhtnkfNWz5FWBiL0v+BcYTUd7uJ9F2
+	qv9IKVV/r9TvUWKKts+7mfE52IrN41ghLz76rqM+ELC8iu7+FrRs1/9FInSXONRQ3wzGcARVEWs
+	y1lejx0ixfVM2C7gyR5D14hSoabkB67GbQjrBBgLMyLP7s5u/r2zo9TfcQXZhQu8UB237BYdE=
+X-Received: by 2002:a05:6102:15a1:b0:631:d3e4:efcc with SMTP id ada2fe7eead31-67c8cba81fcmr11815572137.28.1779865753876;
+        Wed, 27 May 2026 00:09:13 -0700 (PDT)
+Received: from mail-vs1-f43.google.com (mail-vs1-f43.google.com. [209.85.217.43])
+        by smtp.gmail.com with ESMTPSA id a1e0cc1a2514c-96173842ed1sm15714393241.6.2026.05.27.00.09.13
+        for <linux-arm-kernel@lists.infradead.org>
+        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
+        Wed, 27 May 2026 00:09:13 -0700 (PDT)
+Received: by mail-vs1-f43.google.com with SMTP id ada2fe7eead31-6314c3818baso8897856137.1
+        for <linux-arm-kernel@lists.infradead.org>; Wed, 27 May 2026 00:09:13 -0700 (PDT)
+X-Received: by 2002:a05:6102:8009:b0:632:137d:3ab with SMTP id
+ ada2fe7eead31-67c8e2c996emr10450851137.31.1779865752913; Wed, 27 May 2026
+ 00:09:12 -0700 (PDT)
+MIME-Version: 1.0
+References: <20260513225037.49803-1-marek.vasut+renesas@mailbox.org>
+In-Reply-To: <20260513225037.49803-1-marek.vasut+renesas@mailbox.org>
+From: Geert Uytterhoeven <geert@linux-m68k.org>
+Date: Wed, 27 May 2026 09:09:01 +0200
+X-Gmail-Original-Message-ID: <CAMuHMdWy4HDUDCT=UeKLJt5S6gYW4Mgtkx13zpyQgSych7ByZg@mail.gmail.com>
+X-Gm-Features: AVHnY4I0JbQSZqWOxsG_K3k-o_DCUSP-T9m5VNAB8LF4AI_MR_0R3ag34vx9oc8
+Message-ID: <CAMuHMdWy4HDUDCT=UeKLJt5S6gYW4Mgtkx13zpyQgSych7ByZg@mail.gmail.com>
+Subject: Re: [PATCH] arm64: dts: renesas: r8a78000: Add PSCI node
+To: Marek Vasut <marek.vasut+renesas@mailbox.org>
+Cc: linux-arm-kernel@lists.infradead.org, Conor Dooley <conor+dt@kernel.org>, 
+	Krzysztof Kozlowski <krzk+dt@kernel.org>, Kuninori Morimoto <kuninori.morimoto.gx@renesas.com>, 
+	Magnus Damm <magnus.damm@gmail.com>, Rob Herring <robh@kernel.org>, devicetree@vger.kernel.org, 
+	linux-renesas-soc@vger.kernel.org
+Content-Type: text/plain; charset="UTF-8"
+X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
+X-CRM114-CacheID: sfid-20260527_000915_719008_35902832 
+X-CRM114-Status: GOOD (  17.30  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -113,59 +94,25 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Wed, 27 May 2026 07:36:18 +0100,
-"Yu-Chun Lin [=E6=9E=97=E7=A5=90=E5=90=9B]" <eleanor.lin@realtek.com> wrote:
->=20
-> > Subject: [PATCH v3 14/17] arm64: dts: realtek: Add EL2 virtual timer in=
-terrupt
-> >=20
-> > The ARMv8.2 based CPUs used in a number of Realtek SoCs are missing the
-> > EL2 virtual timer interrupt. Add it.
-> >=20
-> > Furthermore, the "kent" platform appears to assign PPI9 to both the
-> > EL2 virtual timer and the GIC Maintenance Interrupt, which can't be rig=
-ht.
-> > Attempt a fix by setting the former to PPI12, as PPI9 is traditionally =
-wired to
-> > the GIC itself.
-> >=20
-> > Signed-off-by: Marc Zyngier <maz@kernel.org>
-> > ---
-> >  arch/arm64/boot/dts/realtek/kent.dtsi    | 2 +-
-> >  arch/arm64/boot/dts/realtek/rtd16xx.dtsi | 3 ++-
-> >  2 files changed, 3 insertions(+), 2 deletions(-)
-> >=20
-> > diff --git a/arch/arm64/boot/dts/realtek/kent.dtsi
-> > b/arch/arm64/boot/dts/realtek/kent.dtsi
-> > index ae006ce244205..4147e4269247a 100644
-> > --- a/arch/arm64/boot/dts/realtek/kent.dtsi
-> > +++ b/arch/arm64/boot/dts/realtek/kent.dtsi
-> > @@ -23,7 +23,7 @@ timer {
-> >                              <GIC_PPI 14 IRQ_TYPE_LEVEL_LOW>,
-> >                              <GIC_PPI 11 IRQ_TYPE_LEVEL_LOW>,
-> >                              <GIC_PPI 10 IRQ_TYPE_LEVEL_LOW>,
-> > -                            <GIC_PPI  9 IRQ_TYPE_LEVEL_HIGH>;
-> > +                            <GIC_PPI 12 IRQ_TYPE_LEVEL_HIGH>;
->=20
-> Thanks for this patch. However, the 5th interrupt should be
->=20
-> <GIC_PPI 12 IRQ_TYPE_LEVEL_LOW>;
+On Thu, 14 May 2026 at 00:50, Marek Vasut
+<marek.vasut+renesas@mailbox.org> wrote:
+> Describe SMC based PSCI access in SoC DT. The system can interact
+> with TFA BL31 PSCI provider running on the Cortex-A cores via SMC
+> calls.
+>
+> Signed-off-by: Marek Vasut <marek.vasut+renesas@mailbox.org>
 
-I suspected as much, but it was hard to know exactly how wrong the
-original descriptor was, so I decided to change as little as
-possible. It has no material impact on the interrupt, as the GIC has
-no way to distinguish LEVEL_HIGH from LEVEL_LOW (it only distinguishes
-between LEVEL and EDGE). So this only serves as documentation.
+Reviewed-by: Geert Uytterhoeven <geert+renesas@glider.be>
+i.e. will queue in renesas-devel for v7.2.
 
->=20
-> If you are ok with it, I will amend it when applying.
+Gr{oetje,eeting}s,
 
-Please go ahead.
+                        Geert
 
-Thanks,
+-- 
+Geert Uytterhoeven -- There's lots of Linux beyond ia32 -- geert@linux-m68k.org
 
-	M.
-
---=20
-Without deviation from the norm, progress is not possible.
+In personal conversations with technical people, I call myself a hacker. But
+when I'm talking to journalists I just say "programmer" or something like that.
+                                -- Linus Torvalds
 
