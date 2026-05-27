@@ -4,75 +4,89 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id A3F82CD5BD0
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 27 May 2026 13:51:37 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id C5A1ECD5BD5
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 27 May 2026 13:57:10 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=cEXnNHs5dg8Xzjf1xUM5GsxBu1PIUT1eTAauIbJ0Ydg=; b=kJg85s3GPH+R6X9lYiVu+nxGcJ
-	kdVtaDC5QN6CD5iCBJP9pG1EGmcL4r4MOoITUtoGwEpFi3+P/gMk/ZKjyEOntaiWKrO1rRS5IJEKb
-	/jqu/X1zs7QF07DWki1U/1GZzudrKYX8H8JHqdBAeltGecsZ9gjWv+5eGJufxBynXe1Upi93ZAy74
-	nTNrqSrcrmKAMz5ZuTt2xqWBclQtgHts/Ix/uGNlwdvw9PWv1YVGshHIgBmJEAAN4r55VMMn72P0W
-	rJfsjYc6sy7erIEXFVtOe4e4fzJKDw002xFP1ADzpIk4U6hr61168+nQjs/UkLo/qwOQ4C18FlQxx
-	xVIUiRKw==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
+	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=59sMnJ3WmBKmP7+U/VE0TCKfElxn4eLOccLPPt8sWcI=; b=wud3lcPGcFdFAqeAvF/5okP5rd
+	2j9rNN05IcyuPs9dUH0+EJ/rgh/qINYVf1Wqb+LrYOwAXa7/aKBf2zJbxeE9O8HhRUFN5GwErKl3q
+	1zwycWHvq5ga0y7XbODGhkugVEfJTzK4WRT1jOmnrdtZ8OxkhvRi0HZBSgwIxUTF6/dGx6kWCDSAh
+	IINCfi5H48qJGouJi4F+LaMh4lCOdmOukW4e1hG7WCMlhOO3NwVvjqVRO/W1iNX8VaSb3dv/Z75ms
+	t2Wo6TdNU84hx56fCH9ZRe8pTY5c0+sZXUGzspO2q7O8CVmfdR8Z8tJe//VJbkUobFC+OdDh5gWSJ
+	V3PsNRBg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wSEfS-00000004Eo6-1lAj;
-	Wed, 27 May 2026 13:51:30 +0000
-Received: from desiato.infradead.org ([2001:8b0:10b:1:d65d:64ff:fe57:4e05])
+	id 1wSEkp-00000004FE4-2YvD;
+	Wed, 27 May 2026 13:57:03 +0000
+Received: from nbd.name ([46.4.11.11])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wSEfQ-00000004Eo0-2soj
-	for linux-arm-kernel@bombadil.infradead.org;
-	Wed, 27 May 2026 13:51:28 +0000
-DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=infradead.org; s=desiato.20200630; h=In-Reply-To:Content-Type:MIME-Version:
-	References:Message-ID:Subject:Cc:To:From:Date:Sender:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description;
-	bh=cEXnNHs5dg8Xzjf1xUM5GsxBu1PIUT1eTAauIbJ0Ydg=; b=ayAi8KMZOW0cXCg2xKg5jlPHAy
-	gdgC2Yse2ojLRD6uDKPyX9unok4r7Gs86FpdrLChi4XCLn2pDLwwaya1hOxJm0vsfqsb8Z9p7BOdZ
-	yHEuOfE3/YNOltj5PBmzBrpWcmwKuY5km51IZ9krVJS2b45dd/VRD2Rvfegc/HtcVp9Oo2aXJxiVt
-	xUiQz1JHzFHLb+u8R7E8IQeYsUyU4WURpf3ft8wsmphJZ+iXNyxxSdrKrRGJGbgMpqW1vf2hWv2fi
-	XLk6Z/uSOICzA+ywvTL8sFwWURFSNlxcym+HhukB6N1TaoJoJt0RD3JKtBPs0yTkrDwvFmOlt58Wu
-	8cCXAOEg==;
-Received: from foss.arm.com ([217.140.110.172])
-	by desiato.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wSEfM-0000000E6BC-2hqH
-	for linux-arm-kernel@lists.infradead.org;
-	Wed, 27 May 2026 13:51:27 +0000
-Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
-	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id ED6BD1476;
-	Wed, 27 May 2026 06:51:16 -0700 (PDT)
-Received: from J2N7QTR9R3.cambridge.arm.com (usa-sjc-imap-foss1.foss.arm.com [10.121.207.14])
-	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id BF79E3F632;
-	Wed, 27 May 2026 06:51:20 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=simple/simple; d=arm.com; s=foss;
-	t=1779889882; bh=V3HB6iLMVHAA7gn4GBr6f7/tZojBIfmMAzZbcfC/w9g=;
-	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
-	b=Vwat4lPYs2jzHm7qrJLrAOOcOPT/JD6y2gRKek1AMOL1wD2IajIQ4O+CjkLHy6bbK
-	 cg9RbjgvugQ5N7hZZ3ZHH8DOekk/cGr3eqc9eMe97umlJmaU9JxKg2maTZAzcO/lFw
-	 A2LgmLjExxkKEq12p7lSSWjpyeYjC9ILi8WGER3Y=
-Date: Wed, 27 May 2026 14:51:13 +0100
-From: Mark Rutland <mark.rutland@arm.com>
-To: Mark Brown <broonie@kernel.org>
-Cc: linux-arm-kernel@lists.infradead.org, kvmarm@lists.linux.dev,
-	catalin.marinas@arm.com, james.morse@arm.com, maz@kernel.org,
-	oupton@kernel.org, tabba@google.com, will@kernel.org
-Subject: Re: [PATCH 11/18] arm64: fpsimd: Split FPSR/FPCR from SVE
- save/restore
-Message-ID: <ahb20fXkdWI7SljE@J2N7QTR9R3.cambridge.arm.com>
-References: <20260521132556.584676-1-mark.rutland@arm.com>
- <20260521132556.584676-12-mark.rutland@arm.com>
- <0b72df66-2914-4537-811e-2080e0a7ce6c@sirena.org.uk>
+	id 1wSEkm-00000004FDV-1qQb;
+	Wed, 27 May 2026 13:57:01 +0000
+DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed; d=nbd.name;
+	s=20160729; h=Content-Transfer-Encoding:Content-Type:In-Reply-To:From:
+	References:Cc:To:Subject:MIME-Version:Date:Message-ID:Sender:Reply-To:
+	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
+	Resent-To:Resent-Cc:Resent-Message-ID:List-Id:List-Help:List-Unsubscribe:
+	List-Subscribe:List-Post:List-Owner:List-Archive;
+	bh=59sMnJ3WmBKmP7+U/VE0TCKfElxn4eLOccLPPt8sWcI=; b=nrutu0GXMRBhbCHOJuxubl41V5
+	0mQVbSwgoTIU7qpw1TY3MVQpq6Wu1KB6/ZNuERxEMKQgJwnOVIbRPlyWCMhnFRcQ5BKovcC+r6u/8
+	CO/sFu6jP/a4KApL8eWC6xw/2pcPiYa00EHmxVc3r4BuoxHZTsNRf4EOp97UhWUiijbY=;
+Received: from [2a01:599:10e:48be:48a2:ca22:1c65:c46a] (helo=nf.local)
+	by ds12 with esmtpsa  (TLS1.3) tls TLS_ECDHE_RSA_WITH_AES_128_GCM_SHA256
+	(Exim 4.96)
+	(envelope-from <nbd@nbd.name>)
+	id 1wSEkQ-001Y8L-24;
+	Wed, 27 May 2026 15:56:38 +0200
+Message-ID: <a83c9aca-da9e-4a5e-a364-382910388a68@nbd.name>
+Date: Wed, 27 May 2026 15:56:37 +0200
 MIME-Version: 1.0
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-In-Reply-To: <0b72df66-2914-4537-811e-2080e0a7ce6c@sirena.org.uk>
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH mt76] wifi: mt76: mt7915: configure noise floor reporting
+ on reset
+To: David Bauer <mail@david-bauer.net>, Lorenzo Bianconi
+ <lorenzo@kernel.org>, Ryder Lee <ryder.lee@mediatek.com>,
+ Shayne Chen <shayne.chen@mediatek.com>, Sean Wang <sean.wang@mediatek.com>,
+ Matthias Brugger <matthias.bgg@gmail.com>,
+ AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>
+Cc: linux-wireless@vger.kernel.org, linux-kernel@vger.kernel.org,
+ linux-arm-kernel@lists.infradead.org, linux-mediatek@lists.infradead.org
+References: <20260516144944.2574053-1-mail@david-bauer.net>
+Content-Language: en-US
+From: Felix Fietkau <nbd@nbd.name>
+Autocrypt: addr=nbd@nbd.name; keydata=
+ xsDiBEah5CcRBADIY7pu4LIv3jBlyQ/2u87iIZGe6f0f8pyB4UjzfJNXhJb8JylYYRzIOSxh
+ ExKsdLCnJqsG1PY1mqTtoG8sONpwsHr2oJ4itjcGHfn5NJSUGTbtbbxLro13tHkGFCoCr4Z5
+ Pv+XRgiANSpYlIigiMbOkide6wbggQK32tC20QxUIwCg4k6dtV/4kwEeiOUfErq00TVqIiEE
+ AKcUi4taOuh/PQWx/Ujjl/P1LfJXqLKRPa8PwD4j2yjoc9l+7LptSxJThL9KSu6gtXQjcoR2
+ vCK0OeYJhgO4kYMI78h1TSaxmtImEAnjFPYJYVsxrhay92jisYc7z5R/76AaELfF6RCjjGeP
+ wdalulG+erWju710Bif7E1yjYVWeA/9Wd1lsOmx6uwwYgNqoFtcAunDaMKi9xVQW18FsUusM
+ TdRvTZLBpoUAy+MajAL+R73TwLq3LnKpIcCwftyQXK5pEDKq57OhxJVv1Q8XkA9Dn1SBOjNB
+ l25vJDFAT9ntp9THeDD2fv15yk4EKpWhu4H00/YX8KkhFsrtUs69+vZQwc0cRmVsaXggRmll
+ dGthdSA8bmJkQG5iZC5uYW1lPsJgBBMRAgAgBQJGoeQnAhsjBgsJCAcDAgQVAggDBBYCAwEC
+ HgECF4AACgkQ130UHQKnbvXsvgCgjsAIIOsY7xZ8VcSm7NABpi91yTMAniMMmH7FRenEAYMa
+ VrwYTIThkTlQzsFNBEah5FQQCACMIep/hTzgPZ9HbCTKm9xN4bZX0JjrqjFem1Nxf3MBM5vN
+ CYGBn8F4sGIzPmLhl4xFeq3k5irVg/YvxSDbQN6NJv8o+tP6zsMeWX2JjtV0P4aDIN1pK2/w
+ VxcicArw0VYdv2ZCarccFBgH2a6GjswqlCqVM3gNIMI8ikzenKcso8YErGGiKYeMEZLwHaxE
+ Y7mTPuOTrWL8uWWRL5mVjhZEVvDez6em/OYvzBwbkhImrryF29e3Po2cfY2n7EKjjr3/141K
+ DHBBdgXlPNfDwROnA5ugjjEBjwkwBQqPpDA7AYPvpHh5vLbZnVGu5CwG7NAsrb2isRmjYoqk
+ wu++3117AAMFB/9S0Sj7qFFQcD4laADVsabTpNNpaV4wAgVTRHKV/kC9luItzwDnUcsZUPdQ
+ f3MueRJ3jIHU0UmRBG3uQftqbZJj3ikhnfvyLmkCNe+/hXhPu9sGvXyi2D4vszICvc1KL4RD
+ aLSrOsROx22eZ26KqcW4ny7+va2FnvjsZgI8h4sDmaLzKczVRIiLITiMpLFEU/VoSv0m1F4B
+ FtRgoiyjFzigWG0MsTdAN6FJzGh4mWWGIlE7o5JraNhnTd+yTUIPtw3ym6l8P+gbvfoZida0
+ TspgwBWLnXQvP5EDvlZnNaKa/3oBes6z0QdaSOwZCRA3QSLHBwtgUsrT6RxRSweLrcabwkkE
+ GBECAAkFAkah5FQCGwwACgkQ130UHQKnbvW2GgCeMncXpbbWNT2AtoAYICrKyX5R3iMAoMhw
+ cL98efvrjdstUfTCP2pfetyN
+In-Reply-To: <20260516144944.2574053-1-mail@david-bauer.net>
+Content-Type: text/plain; charset=UTF-8; format=flowed
+Content-Transfer-Encoding: 7bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260527_145125_539993_9A30DC91 
-X-CRM114-Status: GOOD (  28.77  )
+X-CRM114-CacheID: sfid-20260527_065700_560034_01080976 
+X-CRM114-Status: UNSURE (   7.75  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -87,69 +101,20 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Tue, May 26, 2026 at 05:28:21PM +0100, Mark Brown wrote:
-> On Thu, May 21, 2026 at 02:25:49PM +0100, Mark Rutland wrote:
-> > Regardless of whether the vector registers are saved in FPSIMD or SVE
-> > format, we store FPSR and FPCR in user_fpsimd_state::{fpsr,fpcr}.
+On 16.05.26 16:49, David Bauer wrote:
+> When performing a full system recovery of the MCU on a dual-phy
+> platform, band 0 (usually 2.4GHz) stops reading correct noise floor
+> data.
 > 
-> ...
+> This is due to noise floor reporting only being configured correctly
+> for the second device PHY.
 > 
-> > Note that the SVE assembly sequence for restoring FPCR uses an
-> > unconditional write to FPCR. The plain FPSIMD assembly sequence has used
-> > a conditional write to FPCR since 2014 in commit:
+> Configure the respective registers correctly after restarting the MCU
+> firmware to fix reported noise-floor values.
 > 
-> >   5959e25729a5 ("arm64: fpsimd: avoid restoring fpcr if the contents haven't change")
-> 
-> > ... but this was not followed for the SVE restore assembly implemented
-> > in 2017 in commit:
-> 
-> >   1fc5dce78ad1 ("arm64/sve: Low-level SVE architectural state manipulation functions")
-> 
-> > ... so I've assumed that this doesn't actually matter in practice, and
-> > implemented the C version matching the existing SVE assembly.
-> 
-> > For the moment, fpsimd_save_state() and fpsimd_load_state() are left
-> > as-is with their own logic to save/restore FPSR and FPCR. This will be
-> > unified in subsequent patches.
-> 
-> There is a possibility that it only matters for older, FPSIMD only CPUs
-> or just that nobody got round to benchmarking this on physical CPUs with
-> SVE and in fact a similar optimisation is also useful there.
+> Signed-off-by: David Bauer <mail@david-bauer.net>
+Have you considered clearing MT76_STATE_RUNNING in mt7915_mac_restart 
+instead?
 
-All of that might be true, but that doesn't change my assessment that
-this doesn't seem to matter in practice, and given that the overall goal
-of this series is to *simplify* things, I'd much rather err towards that
-than hypothetical performance concerns.
-
-> I'm a bit wary of dropping the optimisation without any verification
-> of the performance impact, but equally I'm not aware of a specific
-> benchmark that showed the impact or even if there was one in the first
-> place.  The changelog sounds like the optimisation might've been
-> written based on inspection alone, I don't know if anyone will
-> remember more than a decade later.
-
-From what I remember, the changes in commit 5959e25729a5 were made based
-on intuition, inspired by a contemporary retrospective change to the
-architecture that made FPCR self-synchronizing. Previously the
-architecture required a context synchronization event for the write to
-take effect, but implementations happened to be stronger.
-
-The conditional write isn't necessarily a win, because the cost of
-recovering from a branch mispredict can be much larger than the cost of
-micro-architectural mechanisms to ensure that FPCR is
-self-synchronizing.
-
-> Having said all that given that a conditional update is simple to
-> implement in C it seems safer to add one in the SVE path than to drop
-> it from the FPSIMD path.
-
-I agree that if we need to, it would be simple to add this.
-
-For now I'm going to leave this as-is given the rationale I originally
-provided. This patch specifically doesn't change the existing behaviour.
-I don't think this matters in practice, we haven't consistently applied
-this approach to FPCR (or other similar registers), and omitting this
-makes the code simpler.
-
-Mark.
+- Felix
 
