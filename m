@@ -4,79 +4,88 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id D5C49CD6E45
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 27 May 2026 22:15:02 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 896B3CD4F54
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 27 May 2026 22:39:17 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:Cc:To:From:
-	Subject:Message-ID:References:Mime-Version:In-Reply-To:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=daz08EfrJ4p/ZHyn7R6Z/1LWdy6ghXZSAUnbV6ql+LU=; b=qp8DTUrnYjnmxW4dgZFmyCNHJ+
-	3Vl6usLEFw7/r6jz/FQMpqx66nQ1uWqnaKPWfg/B8qJw+C15BSrKqhnze8lnp5t28DmqbraeQvSwE
-	2p4OjZOrtEkX7PCHpdwBiQTTzM9Cl977JgsMijw25AYtjB3g8Hbt+A5N/eap836kc2dFeGgAQI56t
-	20mPQlTcB3+706g9w8/rLgqt7CiwvC2Y3RjbPtYGUDvEZVs2ybdL34QpnQAJ1wdMoOciWspbSaRaZ
-	kyGZKOMpGvxqz+fRkcMkHKmKgZcSIwvZ9PHYHy1jps1rrZ6EL4KPdI8UpJK6ukN8+gOsRN+AIjJAj
-	b6qMmDCA==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	MIME-Version:Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-Type:
+	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
+	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=JVybf3MGGtEv6SObEhz8sgYocMl2B9mPaPK11udoxs0=; b=DAxeryX2bgHeE/04qZ/HQh/q+c
+	tAwXZSQFr8+4E6Z26POn8d/Lt4cenbF0pVhcvxCiFX0vnCozZRFE3Xq2Qyih4PNw1ZM2I35axBZ7C
+	z/y2YPZ5XWxQ8N54oNja669vuuq3JSx9kU7hE0FvEKuRwlodqX43At3Si2VXvlU19vdM65NkVrCYO
+	NLf1/+yk9WcTlCuDZ/yT7StZNXmgjX3hUIxW1x7OmEKfJG8RnF3HUy6Q9v0O/HfgYJJhn09C7sEMs
+	D20qoPFiCjhbS0bOZDT7IL9puCfl1IuURRyg94nbtavhC5NREfo+MNC5wyVBTbB/pJMAmLamjkMVc
+	TD6rvsqg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wSMWd-00000004mka-1YCs;
-	Wed, 27 May 2026 22:14:55 +0000
-Received: from mail-pl1-x649.google.com ([2607:f8b0:4864:20::649])
+	id 1wSMu6-00000004odv-38Ji;
+	Wed, 27 May 2026 22:39:10 +0000
+Received: from mail-pl1-x635.google.com ([2607:f8b0:4864:20::635])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wSMWJ-00000004mUS-07Gz
+	id 1wSMu3-00000004odA-41t2
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 27 May 2026 22:14:36 +0000
-Received: by mail-pl1-x649.google.com with SMTP id d9443c01a7336-2ba718173d1so72587725ad.0
-        for <linux-arm-kernel@lists.infradead.org>; Wed, 27 May 2026 15:14:34 -0700 (PDT)
+	Wed, 27 May 2026 22:39:09 +0000
+Received: by mail-pl1-x635.google.com with SMTP id d9443c01a7336-2b458ca2296so91856905ad.0
+        for <linux-arm-kernel@lists.infradead.org>; Wed, 27 May 2026 15:39:07 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=google.com; s=20251104; t=1779920074; x=1780524874; darn=lists.infradead.org;
-        h=cc:to:from:subject:message-id:references:mime-version:in-reply-to
-         :date:from:to:cc:subject:date:message-id:reply-to;
-        bh=daz08EfrJ4p/ZHyn7R6Z/1LWdy6ghXZSAUnbV6ql+LU=;
-        b=hX7MG8qM8m2Sn1kcPhS247sOKcI94ruvErso4+/PFikCYqI32BQ7CW3g5M1i3Jm0o/
-         MgTQXbt3ZmOBa4j96KTAehrFXNpquiifQSIOD6PjtDJMMUDvEkTBXJyKLBfg0Y+oGHvG
-         vl29QPx75tHhpXEOIHyURLKWzVJv8Qtb8HGXvCegPP1lQRQOLxT8Y24yy9f9865BAc64
-         joZvb50YBnqER5P8MXLcbRaNmlg5KU9pZJJgRY4ydlz1q2ayr8tzWMYR23ObsYX6j8EO
-         I9u4RbqSKYchEpxCFE1Fwqqdg5FRF15hpw3E15/Wyn7qE+H6WvxOo8mU+niC8JgpGrT2
-         VTTw==
+        d=gmail.com; s=20251104; t=1779921547; x=1780526347; darn=lists.infradead.org;
+        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
+         :to:from:from:to:cc:subject:date:message-id:reply-to;
+        bh=JVybf3MGGtEv6SObEhz8sgYocMl2B9mPaPK11udoxs0=;
+        b=TMgQ+14Adcax8xBPPlWg5xeARPJ/phZ/QmVS5cdh858qAhD8kyPzTNTqKd3n2NwE28
+         oukDE48s0l5sU0U2Dw8n0emG/2peucIo3p9sji5/HCJZt58mRr6IBSEfnuJocOlVX9/K
+         /llgQWdEvdtRmzyHl6yGjF5rgDXGHfuQU6NtQVh5X2CJdZH+WdHk1uQ7cNviB/UBMYT1
+         5HTll3pyiydrUW+GJf7zbzEvAHY6DsmPcNqDI34oi2qhHtiODHdBg5XvjgD0dznCLsC3
+         ZChrB4YMDje5D7e2rYuwbEj5YUngp69PlLiqxQ8k+49MSYHTiv/rGORfKgFAcZUyEQbd
+         BjiA==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20251104; t=1779920074; x=1780524874;
-        h=cc:to:from:subject:message-id:references:mime-version:in-reply-to
-         :date:x-gm-message-state:from:to:cc:subject:date:message-id:reply-to;
-        bh=daz08EfrJ4p/ZHyn7R6Z/1LWdy6ghXZSAUnbV6ql+LU=;
-        b=D4uTYveTax1StP18UEgUPnDhAvVN51VO3TWaZ0sFb0hUPAEMEAPcLTO5ze1pNfI4cT
-         b5rm6wC2iNJZNdxeOPnzepgifkoLLi5ddlOsW+Kpo7FT6QxrRDx5aOmhYYzOg8DqH2LE
-         xwUJDo9tCF0BA/jofgdJeiGKeCsRPsmG203GacVp2//ImktKcB5VCQMMZ/fko6lC12lc
-         qU/188Brtyg/J/5GkNO9pNnxU/fRCy4wITUusDOltAiGvLIfo9IWh5+tug80pVeNQxZq
-         uh7YjOSNI+nAU/uNNstvAuqxqcpe0J0iCpXaupPhjzViUXF0CjtWdHaPHitkq0QWQsvD
-         Xyfg==
-X-Forwarded-Encrypted: i=1; AFNElJ/ipVS3UVpKpfC9X3Enrv7lrvrNRWmKt4R8sFjgEBb+3UPMreFxZhaLkyktq57ELwbMw5y51WOwO6f3i87mLOHt@lists.infradead.org
-X-Gm-Message-State: AOJu0Yx6hsSd+89xP7zPXDKoBzWh/r53IHUmszZ2so+fZ99/17GyM6v5
-	3SqVwMCXGtTpjk6qwwNZPZgSfbmaBecfTWXGTVfvlxzgyJgb9FwEj/19iY/FbkzfRhwUFIvvGoF
-	FKg==
-X-Received: from plpe3.prod.google.com ([2002:a17:903:3c23:b0:2bf:106:cced])
- (user=praan job=prod-delivery.src-stubby-dispatcher) by 2002:a17:903:1a2b:b0:2bd:ef12:14d6
- with SMTP id d9443c01a7336-2beb06cfc33mr275251325ad.34.1779920073336; Wed, 27
- May 2026 15:14:33 -0700 (PDT)
-Date: Wed, 27 May 2026 22:14:05 +0000
-In-Reply-To: <20260527221407.1756491-1-praan@google.com>
-Mime-Version: 1.0
-References: <20260527221407.1756491-1-praan@google.com>
-X-Mailer: git-send-email 2.54.0.794.g4f17f83d09-goog
-Message-ID: <20260527221407.1756491-10-praan@google.com>
-Subject: [PATCH v7 09/11] iommu/arm-smmu-v3: Enable pm_runtime and setup devlinks
-From: Pranjal Shrivastava <praan@google.com>
-To: iommu@lists.linux.dev
-Cc: Will Deacon <will@kernel.org>, Joerg Roedel <joro@8bytes.org>, 
-	Robin Murphy <robin.murphy@arm.com>, Jason Gunthorpe <jgg@ziepe.ca>, Mostafa Saleh <smostafa@google.com>, 
-	Nicolin Chen <nicolinc@nvidia.com>, Daniel Mentz <danielmentz@google.com>, 
-	Ashish Mhetre <amhetre@nvidia.com>, linux-arm-kernel@lists.infradead.org, 
-	Pranjal Shrivastava <praan@google.com>
-Content-Type: text/plain; charset="UTF-8"
+        d=1e100.net; s=20251104; t=1779921547; x=1780526347;
+        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
+         :to:from:x-gm-gg:x-gm-message-state:from:to:cc:subject:date
+         :message-id:reply-to;
+        bh=JVybf3MGGtEv6SObEhz8sgYocMl2B9mPaPK11udoxs0=;
+        b=AkEwkgVjcSosB40PFF7ywdPi9sEdLfzPQLvYfsh0xzocmkscQz8ho3R4cXWd0OnuZS
+         wQ2XIfpFj25jU2VMBkQJwyOESLE4eBdJF2r14v800/6/R19twXsecskUZVRRhErtb1lG
+         GkB7uJnDw1n3hakaDyOWXnRF6OJIQGOZGkn/GnFvg4ZV6yQ9uEWVZOz7fcG6kivse54O
+         iNZstoBZxHDemhW96aI8bbL7lHRNzUq9mCCAadl5oCfW16Jcyra8SZ4m9IJGdqVFDlv7
+         IgBOAfV8zH5ehyUv5LpMbA9Nk6Y9AyqRRc1jhLeLkR6VH6uCHvWNytsbtmMs3fKc7/BT
+         T9Zw==
+X-Forwarded-Encrypted: i=1; AFNElJ/udFM1NECrSBnzDmJUEEdZOIge3J7YUGaz5+mdrRQuBQo4PtnN5DJuZ/Nayb9Io3K2DeXDBoutufFSrfIjhj16@lists.infradead.org
+X-Gm-Message-State: AOJu0YyL10kxp5Tksn8W58qh28o3N1HvXFppfil0gFqdilkBOyMYjTpC
+	i85agY9ehB/5go3Y+AgyvRo+7FT8SEXzj6IVm+a6OpVyS0D8AfbBtWXa
+X-Gm-Gg: Acq92OGPExvBh0jdN13T3ATHe77KDMSAod0NnAdBotrF2QVbvyI3FlNzn9ODA43HzrQ
+	n6Bt6mBe/5l+ZVuh/lHYeS8lZ1agi9cDn9QXWKemRgaDnHDrAW2bNbCC2izfO8oucD+8ouBXNKh
+	+/7SuV2LjjbOtkfbbSlNeqXBl1DOiu16V0i06tbAQi3VdyQ/BmryqcJnHAX/C0qfq6PJbNI7+wj
+	y+q9YM0DKPILoNf1IuC5v1JhPsi1GBo6MrjBxkpoVoatdIk+SFibFCCDE0EBe5sBQaQSKdnu+qd
+	ajQlYG/trp4/aVyQhqkl6xbqcdwrsn8wTpKp4bxmR3GsF3pOg04UnchK3v+Pd1XnLWqoMcvF9vn
+	FWoQjkffHdiBRXnqw/abK8RTUEYCqXz1WJhV3RoMRy+d4ufHet0RYEw+t9OB00yj6nPNWuyGvm0
+	GBcAQXawJLjlnxmFT+pciQuVKE87HS/SCQRooECrhsIUOYL2eXVzY4aQjKW66FbJxtZOQ4x/oCE
+	6ZGorYqY4zR57Z0TKEO6SvLEbX897jZNd7OEaWmjbk0LA==
+X-Received: by 2002:a17:903:4405:b0:2bd:8822:d8c2 with SMTP id d9443c01a7336-2beb06bc0a9mr260255915ad.36.1779921546975;
+        Wed, 27 May 2026 15:39:06 -0700 (PDT)
+Received: from ryzen ([2601:644:8000:5b5d:7285:c2ff:fe45:8a32])
+        by smtp.gmail.com with ESMTPSA id d9443c01a7336-2beb56b51aesm211397955ad.19.2026.05.27.15.39.05
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Wed, 27 May 2026 15:39:06 -0700 (PDT)
+From: Rosen Penev <rosenp@gmail.com>
+To: linux-input@vger.kernel.org
+Cc: Dmitry Torokhov <dmitry.torokhov@gmail.com>,
+	Matthias Brugger <matthias.bgg@gmail.com>,
+	AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>,
+	linux-kernel@vger.kernel.org (open list:ARM/Mediatek SoC support),
+	linux-arm-kernel@lists.infradead.org (moderated list:ARM/Mediatek SoC support),
+	linux-mediatek@lists.infradead.org (moderated list:ARM/Mediatek SoC support)
+Subject: [PATCH] Input: mtk-pmic-keys: Use flexible array member for keys
+Date: Wed, 27 May 2026 15:38:49 -0700
+Message-ID: <20260527223849.25139-1-rosenp@gmail.com>
+X-Mailer: git-send-email 2.54.0
+MIME-Version: 1.0
+Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260527_151435_066762_CA961574 
-X-CRM114-Status: GOOD (  12.51  )
+X-CRM114-CacheID: sfid-20260527_153908_008174_780EA617 
+X-CRM114-Status: GOOD (  17.04  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -91,60 +100,142 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Enable PM runtime for SMMUs having a power-domain during smmu probe.
-Add a devlink between the clients and SMMU device. The absence of a
-power domain effectively disables runtime power management.
+Convert the fixed-size keys array to a flexible array member and use
+struct_size() for allocation. Move the key count validation before
+allocation and use for_each_available_child_of_node_scoped() to iterate
+only over available child nodes as the allocation uses
+of_get_available_child_count.
 
-Reviewed-by: Mostafa Saleh <smostafa@google.com>
-Signed-off-by: Pranjal Shrivastava <praan@google.com>
+Also use a key variable in the loop for clarity.
+
+Use of_device_get_match_data() to fetch the PMIC key register data directly
+instead of open-coding an of_match_device() lookup.
+
+This also lets the driver drop the of_device.h include.
+
+Remove platform_set_drvdata. Unused anywhere.
+
+Assisted-by: OpenCode:BigPickle
+Signed-off-by: Rosen Penev <rosenp@gmail.com>
 ---
- drivers/iommu/arm/arm-smmu-v3/arm-smmu-v3.c | 14 +++++++++++++-
- 1 file changed, 13 insertions(+), 1 deletion(-)
+ drivers/input/keyboard/mtk-pmic-keys.c | 55 ++++++++++++--------------
+ 1 file changed, 25 insertions(+), 30 deletions(-)
 
-diff --git a/drivers/iommu/arm/arm-smmu-v3/arm-smmu-v3.c b/drivers/iommu/arm/arm-smmu-v3/arm-smmu-v3.c
-index 6cbb1724b377..34e249656ab4 100644
---- a/drivers/iommu/arm/arm-smmu-v3/arm-smmu-v3.c
-+++ b/drivers/iommu/arm/arm-smmu-v3/arm-smmu-v3.c
-@@ -4240,6 +4240,9 @@ static struct iommu_device *arm_smmu_probe_device(struct device *dev)
- 		pci_prepare_ats(to_pci_dev(dev), stu);
- 	}
+diff --git a/drivers/input/keyboard/mtk-pmic-keys.c b/drivers/input/keyboard/mtk-pmic-keys.c
+index c78d9f6d97c4..5b8650f46105 100644
+--- a/drivers/input/keyboard/mtk-pmic-keys.c
++++ b/drivers/input/keyboard/mtk-pmic-keys.c
+@@ -16,7 +16,6 @@
+ #include <linux/mfd/mt6397/core.h>
+ #include <linux/mfd/mt6397/registers.h>
+ #include <linux/module.h>
+-#include <linux/of_device.h>
+ #include <linux/of.h>
+ #include <linux/platform_device.h>
+ #include <linux/regmap.h>
+@@ -147,7 +146,7 @@ struct mtk_pmic_keys {
+ 	struct input_dev *input_dev;
+ 	struct device *dev;
+ 	struct regmap *regmap;
+-	struct mtk_pmic_keys_info keys[MTK_PMIC_MAX_KEY_COUNT];
++	struct mtk_pmic_keys_info keys[];
+ };
  
-+	device_link_add(dev, smmu->dev,
-+			DL_FLAG_PM_RUNTIME | DL_FLAG_AUTOREMOVE_SUPPLIER);
-+
- 	return &smmu->iommu;
+ enum mtk_pmic_keys_lp_mode {
+@@ -332,17 +331,25 @@ static int mtk_pmic_keys_probe(struct platform_device *pdev)
+ 	static const char *const irqnames_r[] = { "powerkey_r", "homekey_r" };
+ 	struct mtk_pmic_keys *keys;
+ 	const struct mtk_pmic_regs *mtk_pmic_regs;
++	struct mtk_pmic_keys_info *key;
+ 	struct input_dev *input_dev;
+-	const struct of_device_id *of_id =
+-		of_match_device(of_mtk_pmic_keys_match_tbl, &pdev->dev);
  
- err_free_master:
-@@ -5592,11 +5595,18 @@ static int arm_smmu_device_probe(struct platform_device *pdev)
- 	if (ret)
- 		goto err_disable;
- 
-+	if (dev->pm_domain) {
-+		pm_runtime_set_active(dev);
-+		pm_runtime_use_autosuspend(dev);
-+		pm_runtime_set_autosuspend_delay(dev, RPM_AUTOSUSPEND_DELAY_MS);
-+		pm_runtime_enable(dev);
+-	keys = devm_kzalloc(&pdev->dev, sizeof(*keys), GFP_KERNEL);
++	keycount = of_get_available_child_count(node);
++	if (keycount > MTK_PMIC_MAX_KEY_COUNT ||
++	    keycount > ARRAY_SIZE(irqnames)) {
++		dev_err(&pdev->dev, "too many keys defined (%d)\n", keycount);
++		return -EINVAL;
 +	}
 +
- 	/* And we're up. Go go go! */
- 	ret = iommu_device_sysfs_add(&smmu->iommu, dev, NULL,
- 				     "smmu3.%pa", &ioaddr);
- 	if (ret)
--		goto err_disable;
-+		goto err_rpm_disable;
++	keys = devm_kzalloc(&pdev->dev, struct_size(keys, keys, keycount), GFP_KERNEL);
+ 	if (!keys)
+ 		return -ENOMEM;
  
- 	ret = iommu_device_register(&smmu->iommu, &arm_smmu_ops, dev);
- 	if (ret) {
-@@ -5608,6 +5618,8 @@ static int arm_smmu_device_probe(struct platform_device *pdev)
+ 	keys->dev = &pdev->dev;
+ 	keys->regmap = pmic_chip->regmap;
+-	mtk_pmic_regs = of_id->data;
++	mtk_pmic_regs = of_device_get_match_data(&pdev->dev);
++	if (!mtk_pmic_regs)
++		return -EINVAL;
  
- err_free_sysfs:
- 	iommu_device_sysfs_remove(&smmu->iommu);
-+err_rpm_disable:
-+	pm_runtime_disable(dev);
- err_disable:
- 	arm_smmu_device_disable(smmu);
- err_free_iopf:
+ 	keys->input_dev = input_dev = devm_input_allocate_device(keys->dev);
+ 	if (!input_dev) {
+@@ -356,31 +363,21 @@ static int mtk_pmic_keys_probe(struct platform_device *pdev)
+ 	input_dev->id.product = 0x0001;
+ 	input_dev->id.version = 0x0001;
+ 
+-	keycount = of_get_available_child_count(node);
+-	if (keycount > MTK_PMIC_MAX_KEY_COUNT ||
+-	    keycount > ARRAY_SIZE(irqnames)) {
+-		dev_err(keys->dev, "too many keys defined (%d)\n", keycount);
+-		return -EINVAL;
+-	}
++	for_each_available_child_of_node_scoped(node, child) {
++		key = &keys->keys[index];
++		key->regs = &mtk_pmic_regs->keys_regs[index];
+ 
+-	for_each_child_of_node_scoped(node, child) {
+-		keys->keys[index].regs = &mtk_pmic_regs->keys_regs[index];
+-
+-		keys->keys[index].irq =
+-			platform_get_irq_byname(pdev, irqnames[index]);
+-		if (keys->keys[index].irq < 0)
+-			return keys->keys[index].irq;
++		key->irq = platform_get_irq_byname(pdev, irqnames[index]);
++		if (key->irq < 0)
++			return key->irq;
+ 
+ 		if (mtk_pmic_regs->key_release_irq) {
+-			keys->keys[index].irq_r = platform_get_irq_byname(pdev,
+-									  irqnames_r[index]);
+-
+-			if (keys->keys[index].irq_r < 0)
+-				return keys->keys[index].irq_r;
++			key->irq_r = platform_get_irq_byname(pdev, irqnames_r[index]);
++			if (key->irq_r < 0)
++				return key->irq_r;
+ 		}
+ 
+-		error = of_property_read_u32(child,
+-			"linux,keycodes", &keys->keys[index].keycode);
++		error = of_property_read_u32(child, "linux,keycodes", &key->keycode);
+ 		if (error) {
+ 			dev_err(keys->dev,
+ 				"failed to read key:%d linux,keycode property: %d\n",
+@@ -389,9 +386,9 @@ static int mtk_pmic_keys_probe(struct platform_device *pdev)
+ 		}
+ 
+ 		if (of_property_read_bool(child, "wakeup-source"))
+-			keys->keys[index].wakeup = true;
++			key->wakeup = true;
+ 
+-		error = mtk_pmic_key_setup(keys, &keys->keys[index]);
++		error = mtk_pmic_key_setup(keys, key);
+ 		if (error)
+ 			return error;
+ 
+@@ -407,8 +404,6 @@ static int mtk_pmic_keys_probe(struct platform_device *pdev)
+ 
+ 	mtk_pmic_keys_lp_reset_setup(keys, mtk_pmic_regs);
+ 
+-	platform_set_drvdata(pdev, keys);
+-
+ 	return 0;
+ }
+ 
 -- 
-2.54.0.794.g4f17f83d09-goog
+2.54.0
 
 
