@@ -4,73 +4,83 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 5EDCECD5BD5
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 27 May 2026 14:33:08 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id A1E1DCD5BD0
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 27 May 2026 14:36:27 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:
-	To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
+	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=CTIptt7XS14MsYfI5r7PxXNAc/CDaEraJlZvDtwwujE=; b=gaIWyNlYZySutU9xabYwXpoE/1
-	uEuA1vrb2N9TQWMTQuUP4jvwAO8BZZ9YJaMpP+iDVyKvybf2KxPoCmpLoyjXVVZCxGOt8PnXDoOAg
-	S2iiOfOq36emZ2OHIpOnwAXX6OeWlGIMijsvus7eFhzBqzhnjp6h2QuvT9rIE6+j6+mcVpX2JtX3g
-	cZxqo0nzW0pyaOaHsGwhEp3ClZz+OaLCrH317fQMZrav/OacRk0YKpIAK0JQ9RqdPOexPtfwgAhZI
-	st33WOc2NcW6E5qZ/jFtESL40rOf1zH07wkRomMvVsPRY8qqHP4uO6fA1ITr2fGZev9/ljwIZgnkB
-	Sa30n4rQ==;
+	bh=aXg+TwApvHyBfHN1Mn6tknXlZkUAZ4R3cFUijN8XpUk=; b=HkQXWvw2H67w4+UEHNxYb91RUq
+	fbeWigP65melDLRhGfXPkXnq+zrSD5KLXe7nf+tqO0soI6noZUNsVWUmpUfLhf+Siu7DuTnBkop0r
+	skg8+cdsdXTTyLTGJz6Ac3A3sHFELqdAXfRpOLE/V3k2O+dLZblYR+eZ4+Ra9haObunRXuewWcFdc
+	Ww3VRCaK9aMBD6mMzn68VGUgMGEdLJEC72Ff6exLbavtM7sgARwxhGZZJcfiJTybjylGlBuEs47LK
+	Rhl8EtYQQ0m89wzsHeq2Zd4D9erPGkN3iGeRolcICo2B2uG6dCgpiRi+7A9pXcL1cmpG1dA7683Sp
+	akhEDMBA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wSFJd-00000004Imz-1Mur;
-	Wed, 27 May 2026 14:33:01 +0000
-Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
-	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wSFJb-00000004ImV-0osh
+	id 1wSFMp-00000004J9W-3NBl;
+	Wed, 27 May 2026 14:36:19 +0000
+Received: from foss.arm.com ([217.140.110.172])
+	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
+	id 1wSFMn-00000004J97-45Gi
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 27 May 2026 14:33:00 +0000
-Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
-	by sea.source.kernel.org (Postfix) with ESMTP id 5E42F40A69;
-	Wed, 27 May 2026 14:32:58 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 3FDDE1F000E9;
-	Wed, 27 May 2026 14:32:58 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1779892378;
-	bh=CTIptt7XS14MsYfI5r7PxXNAc/CDaEraJlZvDtwwujE=;
-	h=From:To:Cc:Subject:Date:In-Reply-To:References;
-	b=L2EtctAwbFGwBqyKO8MYKINqGVrUo633C9zq/bNzkWZ3GtdNX52VxNvkoYKQnYipd
-	 jBonxge68TkMJqZVteDxUQuaZF3F0Izje54wFy7Yj9xsEYsCN11rPFFgHD2lNZf6QB
-	 XJNxfKJmshxJIdHbRLWcboQWgXwIdHaSDvB/JjDq5ubcBPXDz0so9Qwe23oNyCTV9O
-	 D4kVfgXS0IvM+TWZCFGjgET3HaalRuY8bzorTQ2LOBlsORjtAEb2zZD9Bq43jeVSd/
-	 Fs9UXwibr25cw6RjxFocLiRGOMLo8jNcbqMRJQ/I+1AbgZh8sPp174RFWGV1C6skOs
-	 uvG3Wyd6Eyfww==
-Received: from sofa.misterjones.org ([185.219.108.64] helo=valley-girl.lan)
-	by disco-boy.misterjones.org with esmtpsa  (TLS1.3) tls TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384
-	(Exim 4.98.2)
-	(envelope-from <maz@kernel.org>)
-	id 1wSFJY-00000006iFU-1t0D;
-	Wed, 27 May 2026 14:32:56 +0000
-From: Marc Zyngier <maz@kernel.org>
-To: kvmarm@lists.linux.dev,
-	Will Deacon <will@kernel.org>
-Cc: linux-arm-kernel@lists.infradead.org,
-	Oliver Upton <oupton@kernel.org>,
-	Catalin Marinas <catalin.marinas@arm.com>,
-	Mark Rutland <mark.rutland@arm.com>
-Subject: Re: [PATCH v2] KVM: arm64: Don't populate TPIDR_EL2 in finalise_el2()
-Date: Wed, 27 May 2026 15:32:50 +0100
-Message-ID: <177989236079.1515680.15500441600167629178.b4-ty@kernel.org>
-X-Mailer: git-send-email 2.47.3
-In-Reply-To: <20260518153127.6078-1-will@kernel.org>
-References: <20260518153127.6078-1-will@kernel.org>
+	Wed, 27 May 2026 14:36:19 +0000
+Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
+	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id 5B05927B5;
+	Wed, 27 May 2026 07:36:08 -0700 (PDT)
+Received: from [10.1.196.46] (e134344.arm.com [10.1.196.46])
+	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id E65CB3F905;
+	Wed, 27 May 2026 07:36:09 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=simple/simple; d=arm.com; s=foss;
+	t=1779892573; bh=xPhjRaRIDlDtchGeq0oSyyauxla1xE+J7bpPOmlvIsA=;
+	h=Date:Subject:To:Cc:References:From:In-Reply-To:From;
+	b=SWa++N69DNj7YGWaoja3eXI2S8aaoAmN5Udt019tOc2rUf6+WDpWGOv7r8mwoqn9D
+	 i0UVjaSBQIhhI4iaA+L7/rvQKvvOISdjgUdt3YCH5HPP1K51PVhMAB/5A4t2ZV0CRQ
+	 n7Mf1zoHu0ELyC3VRNKa2UzaSBQ4XODlsbqq/TaQ=
+Message-ID: <4ee7c3a5-0104-42bf-907a-d822784ac3c2@arm.com>
+Date: Wed, 27 May 2026 15:36:02 +0100
 MIME-Version: 1.0
-Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: 8bit
-X-SA-Exim-Connect-IP: 185.219.108.64
-X-SA-Exim-Rcpt-To: kvmarm@lists.linux.dev, will@kernel.org, linux-arm-kernel@lists.infradead.org, oupton@kernel.org, catalin.marinas@arm.com, mark.rutland@arm.com
-X-SA-Exim-Mail-From: maz@kernel.org
-X-SA-Exim-Scanned: No (on disco-boy.misterjones.org); SAEximRunCond expanded to false
+User-Agent: Thunderbird Daily
+Subject: Re: [PATCH v4 0/5] arm_mpam: resctrl: Counter Assignment (ABMC)
+To: "Shaopeng Tan (Fujitsu)" <tan.shaopeng@fujitsu.com>
+Cc: "amitsinght@marvell.com" <amitsinght@marvell.com>,
+ "baisheng.gao@unisoc.com" <baisheng.gao@unisoc.com>,
+ "baolin.wang@linux.alibaba.com" <baolin.wang@linux.alibaba.com>,
+ "carl@os.amperecomputing.com" <carl@os.amperecomputing.com>,
+ "dave.martin@arm.com" <dave.martin@arm.com>,
+ "david@kernel.org" <david@kernel.org>,
+ "dfustini@baylibre.com" <dfustini@baylibre.com>,
+ "fenghuay@nvidia.com" <fenghuay@nvidia.com>,
+ "gshan@redhat.com" <gshan@redhat.com>,
+ "james.morse@arm.com" <james.morse@arm.com>,
+ "jic23@kernel.org" <jic23@kernel.org>, "kobak@nvidia.com"
+ <kobak@nvidia.com>, "lcherian@marvell.com" <lcherian@marvell.com>,
+ "linux-arm-kernel@lists.infradead.org"
+ <linux-arm-kernel@lists.infradead.org>,
+ "linux-kernel@vger.kernel.org" <linux-kernel@vger.kernel.org>,
+ "peternewman@google.com" <peternewman@google.com>,
+ "punit.agrawal@oss.qualcomm.com" <punit.agrawal@oss.qualcomm.com>,
+ "quic_jiles@quicinc.com" <quic_jiles@quicinc.com>,
+ "reinette.chatre@intel.com" <reinette.chatre@intel.com>,
+ "rohit.mathew@arm.com" <rohit.mathew@arm.com>,
+ "scott@os.amperecomputing.com" <scott@os.amperecomputing.com>,
+ "sdonthineni@nvidia.com" <sdonthineni@nvidia.com>,
+ "xhao@linux.alibaba.com" <xhao@linux.alibaba.com>,
+ "zengheng4@huawei.com" <zengheng4@huawei.com>,
+ "x86@kernel.org" <x86@kernel.org>
+References: <20260520212458.1797221-1-ben.horgan@arm.com>
+ <TY4PR01MB16930EBC1FFCB5C020D3969AE8B082@TY4PR01MB16930.jpnprd01.prod.outlook.com>
+Content-Language: en-US
+From: Ben Horgan <ben.horgan@arm.com>
+In-Reply-To: <TY4PR01MB16930EBC1FFCB5C020D3969AE8B082@TY4PR01MB16930.jpnprd01.prod.outlook.com>
+Content-Type: text/plain; charset=UTF-8
+Content-Transfer-Encoding: 7bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260527_073259_262948_23DEF29E 
-X-CRM114-Status: GOOD (  12.45  )
+X-CRM114-CacheID: sfid-20260527_073618_064693_5AFFC4F2 
+X-CRM114-Status: UNSURE (   8.77  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -85,30 +95,21 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Mon, 18 May 2026 16:31:26 +0100, Will Deacon wrote:
-> Currently, it is not necessary for __finalise_el2() to configure
-> TPIDR_EL2:
+
+
+On 5/27/26 01:42, Shaopeng Tan (Fujitsu) wrote:
+> Hello Ben,
 > 
-> * The hyp stub code does not consume the value of TPIDR_EL2.
+> It looks fine to me.
+> I retested this patch series and there is no problem.
 > 
-> * On the boot cpu, TPIDR_EL1 is used for the percpu offset until the
->   ARM64_HAS_VIRT_HOST_EXTN cpucap is detected and boot alternatives
->   are patched. Before boot alternatives are patched,
->   cpu_copy_el2regs() will copy TPIDR_EL1 into TPIDR_EL2. It is not
->   necessary for __finalise_el2() to initialise TPIDR_EL2 before this.
+> Reviewed-by: Shaopeng Tan <tan.shaopeng@jp.fujitsu.com>
+> Tested-by: Shaopeng Tan <tan.shaopeng@jp.fujitsu.com>
+
+Thanks for testing!
+
 > 
-> [...]
-
-Applied to next, thanks!
-
-[1/1] KVM: arm64: Don't populate TPIDR_EL2 in finalise_el2()
-      commit: 4cceeb8da363ac5127b147ee7345104743f53e9d
-
-Cheers,
-
-	M.
--- 
-Without deviation from the norm, progress is not possible.
-
+> Best regards,
+> Shaopeng TAN
 
 
