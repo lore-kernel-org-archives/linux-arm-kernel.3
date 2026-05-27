@@ -4,64 +4,97 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 5974DCD5BDE
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 27 May 2026 09:28:20 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 0023DCD6E41
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 27 May 2026 09:30:57 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
 	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
 	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=qQFWPVB0zEZe7oBOEOpZ/iZToN7Noppw3P3NRqtvS1c=; b=0RR58c2GXZGeu5kn961UbMl7Kw
-	ej+CuFMu+xaCUUfdlqFKSv7JpSLQfPlmOFMHXyZQjj72u+zHYurG6S3pwkr1/OGd2xq+9xoeQsbuL
-	MEF3wuqCg81aXqgOagUrE3mFCsyDIvX7dWf6y9PR1/DJAj0QUaZoUmSoL0E954x1umlXVUAZbR/xy
-	u3C3v2dKJyr7/ettHor2fEWlnU60hAQo+/5oRS/K1Q7UNSpddrmSW+pdjiJsd9ntd7evYXIl8krXR
-	1c4K2qdXgLiW6NgdTKKyhZUCy+pOw0xFFwWzjPZqzJDVgn5u33XGWptrV/YNomJxbwssvAJqZRptv
-	JJUHFuYw==;
+	bh=UeNp5zNgXhh9w9gen/mqg7KXpKPshnm2ZyOIypYk7Gw=; b=mdCk0vrlsCiU8ZxrUf77xsrZZ1
+	t1YTlKp9y/8guSzmotDhkKGGJhIFpraTJmqTugqlhOrlcHqrau/KBoaiYc8asEH5Pu9ScsUr4Asbn
+	r5+3puKMuf9Yepx6ppo57LdO6zKk/mX4Rt9A47AnQQ+U3nsNNXbeXFZGXdNKgHxkgFBtNLmIItoVU
+	QUy1fpKejNJnjbQ+UeGj1cHWEFfNHMOvOp3lLym9975e+SVA3wgEb88rIm4/sh0y8y1QwTLVMWkQP
+	DXIJabhZPJL7qfP6hdWUF6SLaA1SSg3yqp8C/QMwyyQnffXTCNbJ//IsS2yPHlNn9mJjOWXEeI4Dp
+	yI2lf5WA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wS9B2-00000003VKV-3Czj;
-	Wed, 27 May 2026 07:59:44 +0000
-Received: from leonov.paulk.fr ([185.233.101.22])
+	id 1wSAbD-00000003e0n-3hBn;
+	Wed, 27 May 2026 09:30:51 +0000
+Received: from mail-wm1-x32a.google.com ([2a00:1450:4864:20::32a])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wS9Ay-00000003VJw-2d0f
+	id 1wSAbA-00000003dzx-1M0v
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 27 May 2026 07:59:43 +0000
-Received: from laika.paulk.fr (12.234.24.109.rev.sfr.net [109.24.234.12])
-	by leonov.paulk.fr (Postfix) with ESMTPS id AA7FD37002E2
-	for <linux-arm-kernel@lists.infradead.org>; Wed, 27 May 2026 07:59:33 +0000 (UTC)
-Received: by laika.paulk.fr (Postfix, from userid 65534)
-	id 0A297B40913; Wed, 27 May 2026 07:59:31 +0000 (UTC)
-Received: from shepard (unknown [37.167.96.158])
-	by laika.paulk.fr (Postfix) with ESMTPSA id A8A93B4090D;
-	Wed, 27 May 2026 07:59:29 +0000 (UTC)
-Date: Wed, 27 May 2026 09:59:18 +0200
-From: Paul Kocialkowski <paulk@sys-base.io>
-To: arash golgol <arash.golgol@gmail.com>
-Cc: linux-media@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
-	linux-sunxi@lists.linux.dev, linux-kernel@vger.kernel.org,
-	linux-staging@lists.linux.dev,
-	Mauro Carvalho Chehab <mchehab@kernel.org>,
-	Chen-Yu Tsai <wens@kernel.org>,
-	Jernej Skrabec <jernej.skrabec@gmail.com>,
-	Samuel Holland <samuel@sholland.org>,
-	Greg Kroah-Hartman <gregkh@linuxfoundation.org>,
-	Laurent Pinchart <laurent.pinchart@ideasonboard.com>,
-	Nicolas Dufresne <nicolas.dufresne@collabora.com>
-Subject: Re: [PATCH 10/16] media: sun6i-csi: Add support for MC-centric
- format enumeration
-Message-ID: <ahakVq7Fv78ODicG@shepard>
-References: <20260518102451.417971-1-paulk@sys-base.io>
- <20260518102451.417971-11-paulk@sys-base.io>
- <CAMxPZkiKBFsPA5x6KpBajGqO5xqxD5AOd26j3uwqnQko1VzknQ@mail.gmail.com>
+	Wed, 27 May 2026 09:30:50 +0000
+Received: by mail-wm1-x32a.google.com with SMTP id 5b1f17b1804b1-4891e86fabeso19418115e9.1
+        for <linux-arm-kernel@lists.infradead.org>; Wed, 27 May 2026 02:30:47 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=gmail.com; s=20251104; t=1779874246; x=1780479046; darn=lists.infradead.org;
+        h=in-reply-to:content-disposition:mime-version:references:message-id
+         :subject:cc:to:from:date:from:to:cc:subject:date:message-id:reply-to;
+        bh=UeNp5zNgXhh9w9gen/mqg7KXpKPshnm2ZyOIypYk7Gw=;
+        b=WkpyFcqu4uj5VVc7wTkuggLRbFC45l7AI2AFOMjTCiRTVo7oXa8FgkGeh0sO3JU5CL
+         JjcR232r/iF54ReVv3HV+gkm5tmH/pYOs4r4i4IG6SEdevQhf2UCP0dj1xWzApCNZ7F2
+         jtsE8PDwRBxqkPSQhAKJpOJIhIz5qL8gojaC3HmGwcuxeGlpB8l7goQn/YXCKToQMG1W
+         yrXeGsLPM41x5caPnHXdExGGpnoquQnhSd+a0e//qj9j+3johoh6wtCjzszzbR8y0qzb
+         G1p7hUUgn9uxoTZSOC5/7xb5/5kfjgc1KaKKQS5EbuCPKI1ZYYu5nDC3H33kcmC/pyN8
+         k0mw==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20251104; t=1779874246; x=1780479046;
+        h=in-reply-to:content-disposition:mime-version:references:message-id
+         :subject:cc:to:from:date:x-gm-gg:x-gm-message-state:from:to:cc
+         :subject:date:message-id:reply-to;
+        bh=UeNp5zNgXhh9w9gen/mqg7KXpKPshnm2ZyOIypYk7Gw=;
+        b=PFGMBoAxcB6OHscsQPteoNEufSeIkEJvX/exv8wDrI5EYwlkpNFDVMl77CwgJBKlgN
+         8JdX7SBl8dn3DbZs0UH/DfMKhG1bN+EOjgAq708lCoselIu6HoBW6f9a9UmJvYfDJ20g
+         nJcCBjPWW8AzJkeMsgfzpb1jO+Q+GRnycb/7S8jbf3eu85felFJgMgzPEsm6ZrRbZbZB
+         ieg70CDjV1YpusgT3IT22W80ABQfkSH3FkacgGX9mjzzgg6z30cIDwLnIS3G6FbaWgqj
+         Wa6xhDTCYgaVHfoFrTUAGBen6gbZ9aSqsD4DDsKW1qTAcx43AegT4H5UaxPs85I5Xhv5
+         d5Mg==
+X-Forwarded-Encrypted: i=1; AFNElJ843Pt/o7r+9rKUVauQq0j8ErTtjib3BvDaarfUH56ABH8p84LQJLdy7SuEhnlmt3wrrRrlAfIE72or29ON5lW2@lists.infradead.org
+X-Gm-Message-State: AOJu0YyVcbNmYpVMk8YNhc9OrJ7J44Kl83V5Cd93abOxsdoEaIUwJhw0
+	xoy+StCf8UxRPb11h8qPrAH9t06tRHH/Yl3SY8cRy8fnVAFtxuqqVg/H
+X-Gm-Gg: Acq92OE/9pIAUazlGzoeDwP5o5I2rWoZ7XIkBbXjWlL2dAUPzBUbsaEqqKiQyMBXkRE
+	6ru71XMyP2XFxqy9OviBqnBMCH05cplTSjCuj/eC0RQZuouAKY59Nl6RrzhYYljiDCNoCPQlGlg
+	vG4YjQl3o3q06lNqbzYCxM9/YQy8kZKPg+bhEd77Aj7Apcwt75ITHzxCuu+XNwxzOH5wlKSXnkJ
+	7o5phlZ3C5mUBrzz9R4msipc0DMWR4xQMQHfOpQQ4cW8i2wmUBhikBLvZU5uBfpxB3bT9JOmcEo
+	Nxo+eH4SJrf8naLlbT/0v9Vr8B+RTJr/SDuqJYuT7W5O6dp8GJOnahQ0UxfM9/UJBUMg6k59Fnr
+	9qywJ1NZEN8Ewt2RLLGPXgg4dRYu8IoU86pkNXjVCZ72TnGnDusTeD6LbSjuPUlkRfeI6/YodKI
+	Ne95eDAqlyLv4iWDn9F6jdhIYAIN74V8qSHhzI4PybODKi5oJqbF3pFxsb50Tdxy7IH0FZHlj2T
+	cVPdxmcsFjHPNFmDJdJ2u8Bu6lVlhK/8A==
+X-Received: by 2002:a05:600c:8b23:b0:48f:d5b2:7c1a with SMTP id 5b1f17b1804b1-490425aa7a4mr390195565e9.13.1779874246051;
+        Wed, 27 May 2026 02:30:46 -0700 (PDT)
+Received: from fedora (cpc92878-cmbg18-2-0-cust539.5-4.cable.virginm.net. [86.16.54.28])
+        by smtp.gmail.com with ESMTPSA id 5b1f17b1804b1-49045282201sm427410665e9.8.2026.05.27.02.30.44
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Wed, 27 May 2026 02:30:45 -0700 (PDT)
+Date: Wed, 27 May 2026 10:30:43 +0100
+From: Vishal Moola <vishal.moola@gmail.com>
+To: Kevin Brodsky <kevin.brodsky@arm.com>
+Cc: Will Deacon <will@kernel.org>,
+	Catalin Marinas <catalin.marinas@arm.com>,
+	Andrew Morton <akpm@linux-foundation.org>,
+	Alistair Popple <apopple@nvidia.com>,
+	linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org,
+	linux-mm@kvack.org, david@kernel.org
+Subject: Re: [PATCH] arm64: mm: call pagetable dtor when freeing hot-removed
+ page tables
+Message-ID: <aha5w_WRTmtb6O-B@fedora>
+References: <20260521032730.2104017-1-apopple@nvidia.com>
+ <20260521153130.d7d5cd060f7522f894252333@linux-foundation.org>
+ <ahACfQ6kCfONqz5h@arm.com>
+ <ahAjudlB32VbkKbG@fedora>
+ <92450154-e1ab-46e4-b23d-eaa59c9cdd3b@arm.com>
+ <ahW3QYiYjjVB4Knv@willie-the-truck>
+ <423a2656-e1a3-473e-abeb-5e301c6f7c2a@arm.com>
 MIME-Version: 1.0
-Content-Type: multipart/signed; micalg=pgp-sha512;
-	protocol="application/pgp-signature"; boundary="VM0xxLJ6muTXhGz3"
+Content-Type: text/plain; charset=us-ascii
 Content-Disposition: inline
-In-Reply-To: <CAMxPZkiKBFsPA5x6KpBajGqO5xqxD5AOd26j3uwqnQko1VzknQ@mail.gmail.com>
+In-Reply-To: <423a2656-e1a3-473e-abeb-5e301c6f7c2a@arm.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260527_005940_992869_8D28BCD3 
-X-CRM114-Status: GOOD (  40.87  )
+X-CRM114-CacheID: sfid-20260527_023048_384740_E07E9A10 
+X-CRM114-Status: GOOD (  29.67  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -76,185 +109,62 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
+On Wed, May 27, 2026 at 09:35:50AM +0200, Kevin Brodsky wrote:
+> On 26/05/2026 17:07, Will Deacon wrote:
+> > On Tue, May 26, 2026 at 01:54:00PM +0200, Kevin Brodsky wrote:
+> >> On 22/05/2026 11:36, Vishal Moola wrote:
+> >>>> diff --git a/arch/arm64/mm/mmu.c b/arch/arm64/mm/mmu.c
+> >>>> index 4c8959153ac4..9d42cbddce27 100644
+> >>>> --- a/arch/arm64/mm/mmu.c
+> >>>> +++ b/arch/arm64/mm/mmu.c
+> >>>> @@ -1441,6 +1441,9 @@ static void free_hotplug_page_range(struct page *page, size_t size,
+> >>>>  
+> >>>>  static void free_hotplug_pgtable_page(struct page *page)
+> >>>>  {
+> >>>> +	if (folio_test_pgtable(page_folio(page)))
+> >>> This should work.
+> >>>
+> >>>> +		pagetable_dtor(page_ptdesc(page));
+> >>>> +
+> >>>>  	free_hotplug_page_range(page, PAGE_SIZE, NULL);
+> >>> In the case we presumably have a page table page (ptdesc) at this
+> >>> point, we should really be freeing it with pagetable_free() as well.
+> >> Agreed, I think this is the right thing to do, something like:
+> >>
+> >> if (folio_test_pgtable(page_folio(page)))
+> >> pagetable_dtor_free(page_ptdesc(page)); else
+> >> free_hotplug_page_range(page, PAGE_SIZE, NULL);
+> >>
+> >>
+> >> Strangely enough x86 calls pagetable_free() in both cases.
+> >>
+> >> My series protecting page tables with pkeys has a patch [1] to get
+> >> vmemmap to allocate page tables with pagetable_alloc(). The diff above
+> >> will require pagetable_*_ctor() to be called as well, but I think that's
+> >> the right thing to do anyway. That could be posted as a separate series,
+> >> but I'm hesitant due to the lack of NUMA awareness in pagetable_alloc().
+> > I agree that calling the ctor()/dtor() functions consistently is the
+> > cleanest approach and that will need something like your patch to call
+> > the constructor from vmemmap_alloc_block_zero(). Trying to elide these
+> > calls for the page-table pages used to map the altmap just feels odd to
+> > me, as there isn't anything particularly special about them afaik.
+> 
+> I don't think they're really special either, most likely they just got
+> missed/ignored for the purpose of ctor/dtor like many other kernel page
+> tables (until recently).
+>
+> I'll prepare a series refactoring that code then - that will also
+> require changing most arch implementations of vmemmap_free() to call
+> pagetable_dtor_free().
 
---VM0xxLJ6muTXhGz3
-Content-Type: text/plain; charset=utf-8
-Content-Disposition: inline
-Content-Transfer-Encoding: quoted-printable
+Take a look at Matthew's series[1]. I think thats the ideal approach for
+page table accounting. He hasn't had time to iterate on it though. I
+doubt he'd mind if someone picked it up.
 
-Hi Arash,
+> In the meantime we should probably use the logic above to avoid the BUG
+> that Alistair reported.
 
-On Wed 27 May 26, 09:20, arash golgol wrote:
-> On Mon, May 18, 2026 at 2:00=E2=80=AFPM Paul Kocialkowski <paulk@sys-base=
-=2Eio> wrote:
-> >
-> > Use the dedicated helper to check possible pixelformats against the
-> > provided mbus code in order to support MC-centric format enumeration.
-> >
-> > Note that multiple pixelformats may be returned for a given mbus code.
-> >
-> > Signed-off-by: Paul Kocialkowski <paulk@sys-base.io>
-> > ---
-> >  .../sunxi/sun6i-csi/sun6i_csi_capture.c       | 38 +++++++++++++++++--
-> >  1 file changed, 34 insertions(+), 4 deletions(-)
-> >
-> > diff --git a/drivers/media/platform/sunxi/sun6i-csi/sun6i_csi_capture.c=
- b/drivers/media/platform/sunxi/sun6i-csi/sun6i_csi_capture.c
-> > index a836fa7f081a..409c28621093 100644
-> > --- a/drivers/media/platform/sunxi/sun6i-csi/sun6i_csi_capture.c
-> > +++ b/drivers/media/platform/sunxi/sun6i-csi/sun6i_csi_capture.c
-> > @@ -773,14 +773,43 @@ static int sun6i_csi_capture_querycap(struct file=
- *file, void *priv,
-> >  static int sun6i_csi_capture_enum_fmt(struct file *file, void *priv,
-> >                                       struct v4l2_fmtdesc *fmtdesc)
-> >  {
-> > +       const struct sun6i_csi_capture_format *capture_format;
-> > +       const struct sun6i_csi_bridge_format *bridge_format;
-> > +       u32 mbus_code =3D fmtdesc->mbus_code;
-> >         u32 index =3D fmtdesc->index;
-> > +       unsigned int index_valid =3D 0;
-> > +       unsigned int i;
-> > +
-> > +       /* Video-node-centric enumeration. */
-> > +       if (!mbus_code) {
-> > +               if (index >=3D ARRAY_SIZE(sun6i_csi_capture_formats))
-> > +                       return -EINVAL;
-> > +
-> > +               fmtdesc->pixelformat =3D
-> > +                       sun6i_csi_capture_formats[index].pixelformat;
-> > +               return 0;
-> > +       }
-> >
-> > -       if (index >=3D ARRAY_SIZE(sun6i_csi_capture_formats))
-> > +       bridge_format =3D sun6i_csi_bridge_format_find(mbus_code);
-> > +       if (!bridge_format)
-> >                 return -EINVAL;
-> >
-> > -       fmtdesc->pixelformat =3D sun6i_csi_capture_formats[index].pixel=
-format;
-> > +       for (i =3D 0; i < ARRAY_SIZE(sun6i_csi_capture_formats); i++) {
-> > +               capture_format =3D &sun6i_csi_capture_formats[i];
-> >
-> > -       return 0;
-> > +               if (!sun6i_csi_capture_format_check(capture_format,
-> > +                                                   bridge_format))
-> > +                       continue;
-> > +
-> > +               if (index_valid =3D=3D index) {
-> > +                       fmtdesc->pixelformat =3D capture_format->pixelf=
-ormat;
-> > +                       return 0;
-> > +               }
-> > +
-> > +               index_valid++;
-> > +       }
-> > +
-> > +       return -EINVAL;
-> >  }
-> >
-> >  static int sun6i_csi_capture_enum_framesize(struct file *file, void *f=
-h,
-> > @@ -1076,7 +1105,8 @@ int sun6i_csi_capture_setup(struct sun6i_csi_devi=
-ce *csi_dev)
-> >
-> >         strscpy(video_dev->name, SUN6I_CSI_CAPTURE_NAME,
-> >                 sizeof(video_dev->name));
-> > -       video_dev->device_caps =3D V4L2_CAP_VIDEO_CAPTURE | V4L2_CAP_ST=
-REAMING;
-> > +       video_dev->device_caps =3D V4L2_CAP_VIDEO_CAPTURE | V4L2_CAP_ST=
-REAMING |
-> > +                                V4L2_CAP_IO_MC;
-> >         video_dev->vfl_dir =3D VFL_DIR_RX;
-> >         video_dev->release =3D video_device_release_empty;
-> >         video_dev->fops =3D &sun6i_csi_capture_fops;
-> > --
-> > 2.54.0
-> >
->=20
-> Tested on a LicheePi Zero Dock (V3s) with the following pipeline:
->=20
-> ov7670 -> sun6i-csi-bridge -> sun6i-csi-capture
->=20
-> I verified that mbus-code-based format enumeration works correctly
-> from userspace and that the reported capture formats change according
-> to the selected media bus format.
->=20
-> I could also successfully start streaming with several of the
-> enumerated capture formats (e.g. YUYV and BA81)
+Agreed.
 
-Excellent, thank-you very much for testing this!
-
-> However, I could not fully validate actual format conversion behavior
-> (e.g. MEDIA_BUS_FMT_YUYV8_2X8 to NV12) because my OV7670 setup
-> currently has non-functional test patterns except for 'shifting-1'
-> mode.
-
-That's fine. I don't think I have tested it recently either.
-
-> Tested-by: Arash Golgol <arash.golgol@gmail.com>
->=20
-> PS:
->=20
-> While testing this patch I also noticed that
-> VIDIOC_SUBDEV_ENUM_MBUS_CODE reports duplicate entries for:
->  - MEDIA_BUS_FMT_UYVY8_2X8
->  - MEDIA_BUS_FMT_UYVY8_1X16
-> on sun6i-csi-bridge.
-
-I just had a look and you are definitely right, the entries are clearly
-duplicates and at the same time all the relevant formats are included, so t=
-hey
-are not taking the place of another format that was forgotten.
-
-You're welcome to submit a patch to remove these entries if you'd like,
-or I could do it otherwise.
-
-By the way would you be interested in testing the H.264 encoder support for
-V3/V3s once I send a first version for it? I had written initial support for
-it a while ago (did not send it to the list) and now that my work on the V4=
-L2
-stateless uAPI has reached a point of usability I will probably try to upda=
-te
-my rework of the cedrus driver to use it.
-
-All the best,
-
-Paul
-
-> This appears to come from duplicate format entries being exposed by
-> the bridge driver.
->=20
-> --=20
-> Regards,
-> Arash Golgol
-
---=20
-Paul Kocialkowski,
-
-Independent contractor - sys-base - https://www.sys-base.io/
-Free software developer - https://www.paulk.fr/
-
-Expert in multimedia, graphics and embedded hardware support with Linux.
-
---VM0xxLJ6muTXhGz3
-Content-Type: application/pgp-signature; name=signature.asc
-
------BEGIN PGP SIGNATURE-----
-
-iQIzBAEBCgAdFiEEAbcMXZQMtj1fphLChP3B6o/ulQwFAmoWpFYACgkQhP3B6o/u
-lQxhLQ//UIWt6mBSslymh22RIUaC6Ssr3TIPM+Sa5Ik1yWHnmejqqtwsxJB+oAnr
-jY32nQFq3RCmrrYqTmPGnKT5GwzKfkLXpdmrCGfE5GWIMKUVGaDvUwGLs+NCdaHZ
-RR7Yye5eWXPnFuReDK94PJobjvM2SAfedOatfBdL9e4QWU3Oy2d43spUe1uvjtrY
-CbMsddSpG5CJt/QtfiaTf850AJIkzqIaSrRNhuspnNrVIGy6V/w+HUSODSJmivGt
-m1+s1MowdYEboSN1U6eFfT+Icg5pKtU81lNgY+YZBtZlmAQmumDnq1KZSj4RUhAI
-YHIuK8A+8nro002WFKuepuT7TTj6V49sNt6GG6Muko+BhSXMm9SRF43w6aTY7de0
-TW+JX5fzd0tDPMqV+DRiiRUEkIiKwb4FvX+601aTRlYTXcRbOdtL/jGoIVyvVmet
-B2tXadzbZ4bxhsSqfrLwLmwuMgoT7gZboI6kqk3ztei4v2ZTcE5j2iT7RU6HRRWl
-MHsq2GeRqpnH2Y/anQDRXIq0U5S1xkG4syfG+uA8PweftAqO/tusvUVRqODdPfAL
-X9wfdXCS0usJyCfNB4lTyiAJnEcs3/s35plcFIsQsAJDdqj2Gnb3N5bTMSMfgS9s
-FN5U8zy9gSslrokVVy6IsQ/+K5/K2PGuvqE0gVwDDMKeS0UQOs8=
-=Li0w
------END PGP SIGNATURE-----
-
---VM0xxLJ6muTXhGz3--
+[1] https://lore.kernel.org/linux-mm/20251113140448.1814860-4-willy@infradead.org/
 
