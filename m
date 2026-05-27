@@ -4,60 +4,59 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 8A07FCD5BDE
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 27 May 2026 08:41:51 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 86C98CD5BDE
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 27 May 2026 08:45:31 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	MIME-Version:Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-Type:
-	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
-	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
-	bh=7EaBwtsdPlRjQeziiV/37Nfopb7lDpqCDauSU1czjKs=; b=KQFpBCKH6CtMmvqrCNKxxqjWd/
-	NOze+9mDsCCa06su+b91RslMXAXomJPk7jcRJDr8YFEqwice0GGSwUp3vaPqIHTVFuSiLU1oPGGvz
-	sNFjwpn4DJhKcajYjN9YZBTPEEgmONkp76VW1nrYtyvy/4LpVMhmyUb1PT694gUwnYxJfuKpc0zTN
-	NC9h8Q7TDCLRE01w2pYyU+MYCcDz/+3k/aTChXffz0OdYqQuhZH8l38MrkSGaZEXD+fxc8CifFGJq
-	K0mK3fmqUUAKHyN5Y6oHyRZEJzBev3Nj20g8nV7lnz05yKyFqVCeRJ3hqxES56DJStLk3TgZWeMIA
-	KnRzkEaQ==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=4fwiisoH+O10cDKs9SXUnzu9+RWmKRkE9L4Uzj4ctHI=; b=W8IPr5m1wC7aLd0X9zYAtxopUs
+	pe/0ZGMz9ogEjBxE+1eUsG3b+4s9hi1eNLj5KwQG7Z/sU3meJLAS3jd4RaGHdL7JXCht6DQo36dNQ
+	hpcxxuzUN7Iu9yBTIIUDDfrW1p+DxbO+NIePYnE7f+RrZ1ZODhsay27j7hZm2aA2TI+hL4vLVKYLk
+	XE/7EB++9gepT1IslPfMtzjhVEgOFwxtwoJzi8jDYR4olF5Upxaj4oeOOfWSnJYy6WED5e4qyncoj
+	9imcKXIs1EPd7nTyIQF5k9dUT7Ai/eNx/luxMLxwarkF8Jtx8Yf97mRTZKPtHWFiNJubffk5LvnQZ
+	On9GDBAA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wS9pg-00000003YnH-1Od3;
-	Wed, 27 May 2026 08:41:44 +0000
+	id 1wS9tD-00000003Z7O-3Euu;
+	Wed, 27 May 2026 08:45:23 +0000
 Received: from tor.source.kernel.org ([172.105.4.254])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wS9pf-00000003Yn7-0LQ1
+	id 1wS9tC-00000003Z7I-188b
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 27 May 2026 08:41:43 +0000
+	Wed, 27 May 2026 08:45:22 +0000
 Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
-	by tor.source.kernel.org (Postfix) with ESMTP id 2DAC2600AB;
-	Wed, 27 May 2026 08:41:42 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 59F4A1F000E9;
-	Wed, 27 May 2026 08:41:41 +0000 (UTC)
+	by tor.source.kernel.org (Postfix) with ESMTP id 7960E60215;
+	Wed, 27 May 2026 08:45:20 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 546901F00ADE;
+	Wed, 27 May 2026 08:45:19 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1779871301;
-	bh=7EaBwtsdPlRjQeziiV/37Nfopb7lDpqCDauSU1czjKs=;
-	h=From:To:Cc:Subject:Date;
-	b=ooUVImLnvoEmd4oKrq7Xs+/PE6JbyaHP8zWBqKFTUtaIAL6RoL0wSFSHY5X9OEeDG
-	 lLQqZsvD6kufLytQ5MfWForiZ/svMqQdlRowcMUrD1H9pJ+Z7CycTeZRMyZKvirRCt
-	 C0XF5yvxy8sTZoENfHmM8FUl0jiw3iNNWbMROvV7YZVubS2lqYmCV5ta/SZ4U6rXOz
-	 sTbeXdR7GYOdwrG4dU+ASQ7dgGDrEXeD8xyjQQa561P6Lp+HLgurm7Se0cYhKIDljX
-	 K768ho+aGbwHtqxu8ecxOIIgrALzZdAHviuIrppgBkqlbBRZhgsVFIDD2d32jto5bx
-	 8R6uRSgr0E5yg==
-From: Maxime Ripard <mripard@kernel.org>
-To: Arnd Bergmann <arnd@arndb.de>,
-	Krzysztof Kozlowski <krzk@kernel.org>,
-	Alexandre Belloni <alexandre.belloni@bootlin.com>,
-	Linus Walleij <linusw@kernel.org>
-Cc: Drew Fustini <fustini@kernel.org>,
-	linux-arm-kernel@lists.infradead.org,
-	soc@lists.linux.dev,
-	Maxime Ripard <mripard@kernel.org>,
-	Andrew Davis <afd@ti.com>
-Subject: [PATCH] ARM: multi_v7_defconfig: Enable dma-buf heaps
-Date: Wed, 27 May 2026 10:41:35 +0200
-Message-ID: <20260527084135.842736-1-mripard@kernel.org>
-X-Mailer: git-send-email 2.54.0
+	s=k20260515; t=1779871520;
+	bh=4fwiisoH+O10cDKs9SXUnzu9+RWmKRkE9L4Uzj4ctHI=;
+	h=Date:From:To:Cc:Subject:References:In-Reply-To;
+	b=HQOC9cFuUcgCMXNBo6VkwORPXpnIugUKP/csgboHOPNzfgseAadNARfktDGu04yVj
+	 DYV2JlKt5GvM3gS5zbgt0O2Xo+UAcgDgsrQLtG9MUWQSo+S6yzmhrCuzD0N44HWq89
+	 fdcJaHjeFGnnzZChGdZxBjy0Umt0KZ56DJUN9coeOVUag+xs/pSXi0DP4/4G/1qqod
+	 DiA0jN2ZepWFKzBDhTBIWRezNqSorYSnjSiQMs246enKuPcIW0s4uUoVQfRZWiVSzd
+	 Z9SIADgHxI18lB64dN++7w9iWu0xtTG1GHO0ky6122YxD6ZG+ZeV5UbvpUcI+XrVUM
+	 tRj/44c1eMJXw==
+Date: Wed, 27 May 2026 10:45:16 +0200
+From: Krzysztof Kozlowski <krzk@kernel.org>
+To: Geetha sowjanya <gakula@marvell.com>
+Cc: linux-perf-users@vger.kernel.org, linux-kernel@vger.kernel.org, 
+	linux-arm-kernel@lists.infradead.org, devicetree@vger.kernel.org, mark.rutland@arm.com, 
+	will@kernel.org, krzk+dt@kernel.org
+Subject: Re: [PATCH v6 1/2] dt-bindings: perf: marvell: Extend CN10K DDR PMU
+ binding for CN20K
+Message-ID: <20260527-wise-cobra-of-feminism-2720a6@quoll>
+References: <20260526164330.23878-1-gakula@marvell.com>
+ <20260526164330.23878-2-gakula@marvell.com>
 MIME-Version: 1.0
-Content-Transfer-Encoding: 8bit
+Content-Type: text/plain; charset=utf-8
+Content-Disposition: inline
+In-Reply-To: <20260526164330.23878-2-gakula@marvell.com>
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -72,34 +71,72 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Now that the system and CMA heaps can be built as modules, enable both
-as modules in the arm multi_v7_defconfig.
+On Tue, May 26, 2026 at 10:13:29PM +0530, Geetha sowjanya wrote:
+> Marvell CN20K SoCs integrate a DDR Performance Monitoring Unit (PMU)
+> associated with the DDR controller. The block provides hardware counters
+> to monitor DDR traffic and performance events and is accessed via a
+> dedicated MMIO region.
+> 
+> The CN20K DDR PMU is functionally equivalent to the CN10K DDR PMU, with
+> minor register offset differences.
+> 
+> Changes in v6:
+> - dt-bindings: Document CN20K in the existing marvell-cn10k-ddr.yaml;
+>   add maintainer, description, compatible enum entry, and a CN20K example
+>   with unit-address aligned to reg.
 
-Suggested-by: Andrew Davis <afd@ti.com>
-Signed-off-by: Maxime Ripard <mripard@kernel.org>
----
- arch/arm/configs/multi_v7_defconfig | 3 +++
- 1 file changed, 3 insertions(+)
+Changelog is not part of commit msg, but changelog area, so after ---.
 
-diff --git a/arch/arm/configs/multi_v7_defconfig b/arch/arm/configs/multi_v7_defconfig
-index 2891eeba9032..3345a8eb8422 100644
---- a/arch/arm/configs/multi_v7_defconfig
-+++ b/arch/arm/configs/multi_v7_defconfig
-@@ -1073,10 +1073,13 @@ CONFIG_RZN1_DMAMUX=m
- CONFIG_RCAR_DMAC=y
- CONFIG_RENESAS_USB_DMAC=m
- CONFIG_STM32_DMA=y
- CONFIG_STM32_DMAMUX=y
- CONFIG_STM32_MDMA=y
-+CONFIG_DMABUF_HEAPS=y
-+CONFIG_DMABUF_HEAPS_SYSTEM=m
-+CONFIG_DMABUF_HEAPS_CMA=m
- CONFIG_VIRTIO_PCI=y
- CONFIG_VIRTIO_MMIO=y
- CONFIG_STAGING=y
- CONFIG_MFD_NVEC=y
- CONFIG_KEYBOARD_NVEC=y
--- 
-2.54.0
+> 
+> Signed-off-by: Geetha sowjanya <gakula@marvell.com>
+> ---
+>  .../bindings/perf/marvell-cn10k-ddr.yaml       | 18 +++++++++++++++++-
+>  1 file changed, 17 insertions(+), 1 deletion(-)
+> 
+> diff --git a/Documentation/devicetree/bindings/perf/marvell-cn10k-ddr.yaml b/Documentation/devicetree/bindings/perf/marvell-cn10k-ddr.yaml
+> index a18dd0a8c43a..79fae9fdb6f1 100644
+> --- a/Documentation/devicetree/bindings/perf/marvell-cn10k-ddr.yaml
+> +++ b/Documentation/devicetree/bindings/perf/marvell-cn10k-ddr.yaml
+> @@ -4,16 +4,22 @@
+>  $id: http://devicetree.org/schemas/perf/marvell-cn10k-ddr.yaml#
+>  $schema: http://devicetree.org/meta-schemas/core.yaml#
+>  
+> -title: Marvell CN10K DDR performance monitor
+> +title: Marvell CN10K / CN20K DDR performance monitor
+> +
+> +description:
+> +  Performance Monitoring Unit (PMU) for the DDR controller on Marvell
+> +  CN10K and CN20K SoCs. The block is accessed via a dedicated MMIO region.
+>  
+>  maintainers:
+>    - Bharat Bhushan <bbhushan2@marvell.com>
+> +  - Geetha sowjanya <gakula@marvell.com>
+>  
+>  properties:
+>    compatible:
+>      items:
+>        - enum:
+>            - marvell,cn10k-ddr-pmu
+> +          - marvell,cn20k-ddr-pmu
+>  
+>    reg:
+>      maxItems: 1
+> @@ -35,3 +41,13 @@ examples:
+>              reg = <0x87e1 0xc0000000 0x0 0x10000>;
+>          };
+>      };
+> +  - |
+> +    bus {
+> +        #address-cells = <2>;
+> +        #size-cells = <2>;
+> +
+> +        pmu@c20000000000 {
+> +            compatible = "marvell,cn20k-ddr-pmu";
+> +            reg = <0xc200 0x00000000 0x0 0x100000>;
+
+No need for a new example.
+
+Best regards,
+Krzysztof
 
 
