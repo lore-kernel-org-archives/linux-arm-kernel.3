@@ -4,92 +4,86 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id EAB5ECD5BD0
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 27 May 2026 16:46:00 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 315CACD5BD0
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 27 May 2026 17:05:24 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:Subject:References:In-Reply-To:Message-Id:Cc:To:From:Date:
-	MIME-Version:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
+	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=KQeaqW1+PAxLRkQR+E6xlA/aozp/Xw69MJj1v5/LkC4=; b=U4CxcYH0MoHmSMkWtSAF6iJN3H
-	w5h6bHeKlh5rsa0CuVHP1Vu8EYxgSiDO9IjDHcoRL69IQ6OVq3WXsS0K539o6A6+oWrUdhhp0dg38
-	RZBYbr/8zbyE1cBNCqNFVHeo4snwqYxyRgrTyUIqK+VjRz3a55credsyAKEgiavTlONHaK++F0Ii8
-	5fqV23xdb+5R+AYu8KJGpJAENnK8i/4MuJhGI90hxltnwZnKPq+9pFcJy3XFkdWDWLhpVqP+jrQ2A
-	uwlRz/hFzHGqkshhzWcZe4ksPp3Y1GDm2OJT8Q1PyewSlZyGS0UEKbLdK410fXmhlPjLHebG6UjFQ
-	B+SBk43w==;
+	bh=8S3OkwC+qKI+yIddqXjqOelntUQdzQNfeovup2Cv5Y8=; b=YJ29hzy/ztfQiS8eyIVVSGkyxq
+	StqGDNoWcPGCJ7LaBVLPE0LBJt9ZbG13HbViL6mRdHrACZQXDS4hLU+5C0Puf/i4DKEfjUZg3zfSL
+	oC6KvT2tsGlzidLih39yT1E0yprxNOL4PTB5jHdOSuUlRnM1TrgWE/hfgHXycSwMU7ffbHI8zFoT+
+	vKJb8J9wzEid3Pk3P3ZhtJhndOb3C8ozFdvRumoDsSl6Ar/Y+mToBO5udP+Mh+HkgHjA5KKkVuG4H
+	iaglpM2NKxoJGFfvPpz1i5gC/U/Ojzeo2/rh5zU6m6CDglw/VquHhN5AlX9cCY4RFVMtORvyZXUMq
+	Y4LQgXZw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wSGPQ-00000004Qnq-0sJ8;
-	Wed, 27 May 2026 15:43:04 +0000
-Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
+	id 1wSHgz-00000004YvR-3Kio;
+	Wed, 27 May 2026 17:05:17 +0000
+Received: from mailgate02.uberspace.is ([185.26.156.114])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wSGPN-00000004QnF-0oDZ
+	id 1wSHgw-00000004Ytu-3TTl
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 27 May 2026 15:43:02 +0000
-Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
-	by sea.source.kernel.org (Postfix) with ESMTP id 060E544535;
-	Wed, 27 May 2026 15:42:59 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 9169B1F000E9;
-	Wed, 27 May 2026 15:42:58 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1779896578;
-	bh=KQeaqW1+PAxLRkQR+E6xlA/aozp/Xw69MJj1v5/LkC4=;
-	h=Date:From:To:Cc:In-Reply-To:References:Subject;
-	b=ndBR25q6q7st0Qvnc+uNw5sdJKl7URqJw7i4E/N9IoVzrPerkayXj3fRCJzXs3Dyw
-	 +j5kMU3+LBdQZBcZQHW6PAQq18LcdoUSdRFq7eFDMsT21+DKa0LH6rckjoR9Lsr6Xb
-	 tQhRByjYkFNp27NdaZnNDyTBN5QAvcGSpW0U8v3zmIpw+dblBDdOKgQAlQ8Jl1yz/O
-	 kn+AU+ml7+hsSSt/UJwmhxv9NAr87s9D3l0vynrzywoJGqqsR1ROmeMhFeHEqbwSQy
-	 q2nBDKms8p/eE0kTi83rMQgUj/a1Qskb/O1jIF/C+TUKCEGexyE1ViRQU6Ueg+ImxF
-	 kNLG1cfCrKoiQ==
-Received: from phl-compute-01.internal (phl-compute-01.internal [10.202.2.41])
-	by mailfauth.phl.internal (Postfix) with ESMTP id BDD82F40076;
-	Wed, 27 May 2026 11:42:57 -0400 (EDT)
-Received: from phl-imap-05 ([10.202.2.95])
-  by phl-compute-01.internal (MEProxy); Wed, 27 May 2026 11:42:57 -0400
-X-ME-Sender: <xms:AREXaoSI_p6MhV985PW_wnOupdQuItqMXUu5b4oHXNrwPdVEW9Edkg>
-    <xme:AREXagmMRY7U3rT6dv6B-js5z5_6N9vxep6xjPvq8SL0em7QWhCGhHOIy6mqFlDCT
-    NKmU1W62fn3V3ljLnOxGp3x0kNuNlHJw90YmCydAlEq61VvRITzxsI>
-X-ME-Proxy-Cause: dmFkZTEhymfpeOVTwNQAvYsfWvZQF5DpQe1q8xYhnt+2bWmmC+4lU/6dDjTWC4SiAIlF4s
-    0IRV5gi0tK0Oo5LJ2FOrbozPQclpv2H5/pCfhN1czgPZBqcO6i7bIg6ddq49zWDADCqcjz
-    TnnmqZM9RxdFZF3aS+0ehDM89TBKA4fITpBXQOI/8UJWjoJbbgYPp0lwwiLJAB4r486+jq
-    9DpAKJQKSJEqRRlaoMpD9yRQNB+1+lFoTQR1jjlhUXXQdzkVDIXk24IrCbiyymplWWUqJB
-    W6iLWuuYYP0h0StXS66s3zUvGbqEPpN9yORvLQIIoilaITZuDnlVwjEVe3B12LMl7kDbUm
-    A9qS6Oo860prPkD9aurWfTyX31DyKRsTq+MvtZPlJxroJ0VhGX56DoWUdHOtTuj5oc0kts
-    qNW8ASovQ9M6SDQA9NAhFYi/C7oLGWy6GnNjmGcjufxnCSEgd6MtGgMron3E42zCCWju0E
-    9St93KSpPr6kSDxaeroe3tXhoFbQaBngcYC7wiRFmkqgVmvWP+OOytOOqKexIn3mS781Bd
-    /fvHUzBZ+dpqeRqBXYegIQcVogBdGsTfCylY0odK+yK6eXLeTWTKyr21zUlLwyCqR8l7ok
-    A1Fi3O5EWYmhfH264GlmyN9cdkd3ciMn3hVIDUOTHhIfCht/R6lm2npbV+PQ
-X-ME-Proxy: <xmx:AREXaqPNYQ3ehPYiUSJhMpYJrahq7EFfTV48yu1f8x2T9sya3JTRfQ>
-    <xmx:AREXat61NYt0NrtPVptOh2Lw4Q_JgWvtp_QkdoawRss8PyzIXN8HkQ>
-    <xmx:AREXalgTbDVZKjvmD5SAygCe7TuB1S8ISQ3H3Hgb_Ia1s7kb2cFLBg>
-    <xmx:AREXaqcCJw8w1f2EKTFL74hzi2KmVZU5lPD_FGhh2mQJP4IBQdcKdQ>
-    <xmx:AREXalwn-YzFSeOZHPzeegFMfslQ3DR_dNCmbCvnhb2wFmQUoIAgUiSq>
-Feedback-ID: ice86485a:Fastmail
-Received: by mailuser.phl.internal (Postfix, from userid 501)
-	id A0D851820082; Wed, 27 May 2026 11:42:57 -0400 (EDT)
-X-Mailer: MessagingEngine.com Webmail Interface
+	Wed, 27 May 2026 17:05:16 +0000
+Received: from perseus.uberspace.de (perseus.uberspace.de [95.143.172.134])
+	by mailgate02.uberspace.is (Postfix) with ESMTPS id A5DE9180252
+	for <linux-arm-kernel@lists.infradead.org>; Wed, 27 May 2026 19:05:03 +0200 (CEST)
+Received: (qmail 28769 invoked by uid 988); 27 May 2026 17:05:03 -0000
+Authentication-Results: perseus.uberspace.de;
+	auth=pass (plain)
+Received: from unknown (HELO unknown) (::1)
+	by perseus.uberspace.de (Haraka/3.1.1) with ESMTPSA; Wed, 27 May 2026 19:05:02 +0200
+Message-ID: <370e76e3-1d41-469b-8e50-8ace6b5622d2@david-bauer.net>
+Date: Wed, 27 May 2026 19:05:00 +0200
 MIME-Version: 1.0
-Date: Wed, 27 May 2026 17:42:37 +0200
-From: "Ard Biesheuvel" <ardb@kernel.org>
-To: "Eric Biggers" <ebiggers@kernel.org>, "Christoph Hellwig" <hch@lst.de>
-Cc: "Ard Biesheuvel" <ardb+git@google.com>,
- linux-arm-kernel@lists.infradead.org, linux-crypto@vger.kernel.org,
- linux-raid@vger.kernel.org, "Russell King" <linux@armlinux.org.uk>,
- "Arnd Bergmann" <arnd@arndb.de>
-Message-Id: <83ee320a-972e-4f1b-b3bf-8ede24013505@app.fastmail.com>
-In-Reply-To: <20260527015754.GA13078@sol>
-References: <20260422171655.3437334-10-ardb+git@google.com>
- <20260422171655.3437334-17-ardb+git@google.com>
- <20260423074712.GC31018@lst.de> <20260509202354.GD11883@quark>
- <20260527015754.GA13078@sol>
-Subject: Re: [PATCH 7/8] lib/raid6: Include asm/neon-intrinsics.h rather than
- arm_neon.h
-Content-Type: text/plain
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH mt76] wifi: mt76: mt7915: configure noise floor reporting
+ on reset
+To: Felix Fietkau <nbd@nbd.name>, Lorenzo Bianconi <lorenzo@kernel.org>,
+ Ryder Lee <ryder.lee@mediatek.com>, Shayne Chen <shayne.chen@mediatek.com>,
+ Sean Wang <sean.wang@mediatek.com>, Matthias Brugger
+ <matthias.bgg@gmail.com>,
+ AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>
+Cc: linux-wireless@vger.kernel.org, linux-kernel@vger.kernel.org,
+ linux-arm-kernel@lists.infradead.org, linux-mediatek@lists.infradead.org
+References: <20260516144944.2574053-1-mail@david-bauer.net>
+ <a83c9aca-da9e-4a5e-a364-382910388a68@nbd.name>
+Content-Language: en-US
+From: David Bauer <mail@david-bauer.net>
+Autocrypt: addr=mail@david-bauer.net; keydata=
+ xjMEZgynMBYJKwYBBAHaRw8BAQdA+32xE63/l6uaRAU+fPDToCtlZtYJhzI/dt3I6VxixXnN
+ IkRhdmlkIEJhdWVyIDxtYWlsQGRhdmlkLWJhdWVyLm5ldD7CjwQTFggANxYhBLPGu7DmE/84
+ Uyu0uW0x5c9UngunBQJmDKcwBQkFo5qAAhsDBAsJCAcFFQgJCgsFFgIDAQAACgkQbTHlz1Se
+ C6eKAwEA8B6TGkUMw8X7Kv3JdBIoDqJG9+fZuuwlmFsRrdyDyHkBAPtLydDdancCVWNucImJ
+ GSk+M80qzgemqIBjFXW0CZYPzjgEZgynMBIKKwYBBAGXVQEFAQEHQPIm0qo7519c7VUOTAUD
+ 4OR6mZJXFJDJBprBfnXZUlY4AwEIB8J+BBgWCAAmFiEEs8a7sOYT/zhTK7S5bTHlz1SeC6cF
+ AmYMpzAFCQWjmoACGwwACgkQbTHlz1SeC6fP2AD8CduoErEo6JePUdZXwZ1e58+lAeXOLLvC
+ 2kj1OiLjqK4BANoZuHf/ku8ARYjUdIEgfgOzMX/OdYvn0HiaoEfMg7oB
+In-Reply-To: <a83c9aca-da9e-4a5e-a364-382910388a68@nbd.name>
+Content-Type: text/plain; charset=UTF-8; format=flowed
 Content-Transfer-Encoding: 7bit
+X-Rspamd-Bar: /
+X-Rspamd-Report: SUSPICIOUS_RECIPS(1.5) BAYES_HAM(-2.227727) XM_UA_NO_VERSION(0.01) MIME_GOOD(-0.1)
+X-Rspamd-Score: -0.817727
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple;
+	d=david-bauer.net; s=uberspace;
+	h=from:to:cc:subject:date;
+	bh=AHwrOyMcjOU+TKZ/ei9ohjaLiam4EHbLaLXCi9V69LQ=;
+	b=qcIFRMu42+I0Ni21+8xZaHHyCeHpIE4Cf8Fq5BOPMT269ZD3lmB/68KUY92pSII+pL/ntO/NyQ
+	Ae/mxFx+6nnOFcBydRVvDfKlH4vyEQeToFhY5Xbujjp+Ww+50DyB30XSEIbwyE9b/ehtnsSuBSNN
+	dozEZ75VrWANephLvAODrR0qasgpf+r1m+TIthC3S2pmxGDNjv36VPbTLuVMn3sxGvJrNvS1Q7Vi
+	3CgmEcFbwgJjr/OR/sxmtEiHBraMLiOKy0XNB9N06YglHqpd3W+1lCzY6jxVrVJpa3WJ6A4T19kA
+	IbygySrlpJ+/K0HgZSqjQ3RuA75HhQaJpuzZdvS88TS5WmqKl4AVzgzJCdw+BEf3nKp5KCV/lP5/
+	PrX9wx6ijo+CT6XU7PjL4MM0kaBRBYkVrm7zN0G5tL7AdNQf9UD60hGXq7JUgXNcTEsyy5o7hW1b
+	2U4bKIVCIhxaEuY6MJ00bFOsJykWYDHM+GPEukmPxNENVzAd0ibJ8aNh65YY4JA17Ifpq7kgBU83
+	dLfwWDJtS6+EkikEvgQPkd7WGTYf8hcN1BJtZ1Iz4ddov0rUmVv/qEb3VZRvKfVCY5yjtA6mjZOv
+	bZFMbVX+976dLOMsmHPuhTrMP5TLBMRDucr19hmJaXt8WhTMIp7ALFXsl1KzrxEhIDfIV2SNqavl
+	U=
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260527_084301_280018_9DCF3CFA 
-X-CRM114-Status: GOOD (  20.88  )
+X-CRM114-CacheID: sfid-20260527_100515_283708_0FCCAA73 
+X-CRM114-Status: GOOD (  11.44  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -104,32 +98,39 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
+Hi Felix,
 
-On Wed, 27 May 2026, at 03:57, Eric Biggers wrote:
-> On Sat, May 09, 2026 at 01:23:54PM -0700, Eric Biggers wrote:
->> On Thu, Apr 23, 2026 at 09:47:12AM +0200, Christoph Hellwig wrote:
->> > On Wed, Apr 22, 2026 at 07:17:03PM +0200, Ard Biesheuvel wrote:
->> > > From: Ard Biesheuvel <ardb@kernel.org>
->> > > 
->> > > arm_neon.h is a compiler header which needs some scaffolding to work
->> > > correctly in the linux context, and so it is better not to include it
->> > > directly. Both ARM and arm64 now provide asm/neon-intrinsics.h which
->> > > takes care of this.
->> > 
->> > 
->> > This could potentially clash with the raid6 library rework I'm doing
->> > for 7.2. Although git has become pretty good about renamed files, so
->> > maybe it won't be so bad.
->> > 
->> 
->> I think this patch also breaks the userspace build of lib/raid6/.  Which
->> is going away in Christoph's series anyway, but maybe it would make
->> sense to drop this patch (and patch 8 which depends on this, I think)
->> from this series for now?  That would make it a bit easier to take the
->> rest through crc-next.
->
-> Ard, are you okay with me applying just patches 1-6 to crc-next?
+On 5/27/26 15:56, Felix Fietkau wrote:
+> On 16.05.26 16:49, David Bauer wrote:
+>> When performing a full system recovery of the MCU on a dual-phy
+>> platform, band 0 (usually 2.4GHz) stops reading correct noise floor
+>> data.
+>>
+>> This is due to noise floor reporting only being configured correctly
+>> for the second device PHY.
+>>
+>> Configure the respective registers correctly after restarting the MCU
+>> firmware to fix reported noise-floor values.
+>>
+>> Signed-off-by: David Bauer <mail@david-bauer.net>
+> Have you considered clearing MT76_STATE_RUNNING in mt7915_mac_restart instead?
 
+The call to mt7915_run is guarded by MT76_STATE_RUNNING being set per-phy.
 
-Yes that's fine - thanks.
+I think this is to not start the second PHY in case it was never started due to
+it not being present. We could in theory remove this check for the primary PHY
+and clear the flag prior calling mt7915_run.
+
+This seems a bit more hacky to me. Alternatively I can also refactor the entire
+mechanism to make it easier to understand and resolve this indirection in the
+process.
+
+What do you think?
+
+Best
+David
+
+> 
+> - Felix
+
 
