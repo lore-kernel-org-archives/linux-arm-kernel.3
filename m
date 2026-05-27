@@ -4,59 +4,77 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 86C98CD5BDE
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 27 May 2026 08:45:31 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 5C054CD5BDE
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 27 May 2026 08:49:23 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
 	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
 	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=4fwiisoH+O10cDKs9SXUnzu9+RWmKRkE9L4Uzj4ctHI=; b=W8IPr5m1wC7aLd0X9zYAtxopUs
-	pe/0ZGMz9ogEjBxE+1eUsG3b+4s9hi1eNLj5KwQG7Z/sU3meJLAS3jd4RaGHdL7JXCht6DQo36dNQ
-	hpcxxuzUN7Iu9yBTIIUDDfrW1p+DxbO+NIePYnE7f+RrZ1ZODhsay27j7hZm2aA2TI+hL4vLVKYLk
-	XE/7EB++9gepT1IslPfMtzjhVEgOFwxtwoJzi8jDYR4olF5Upxaj4oeOOfWSnJYy6WED5e4qyncoj
-	9imcKXIs1EPd7nTyIQF5k9dUT7Ai/eNx/luxMLxwarkF8Jtx8Yf97mRTZKPtHWFiNJubffk5LvnQZ
-	On9GDBAA==;
+	bh=vnMFODbc+LljT7eUBEEQawLt47/OgLwD8JHdSRnnDAI=; b=s9kYmQBRVdKHE8FgH2bM3lZO0r
+	dKQ/PRNG41WHxx4qP2+dZ7elkV8D4/a9rqX0WVSxmwXh4ggvMNj27rdM2xag0jm7ZP6ynB9ZDU7OA
+	4K9rzT8xfnPHi4SecvT005mPovaTXAqwltAgh2ohTQk4s0N8v7zUe+dSWfFifaKgq6UyTjYe4kVT4
+	XHEIPi9N/q9jDz5C/A18yVhr2pOndhutsrBhpkve9JUjGNiPOF4BZAflfLrvcG5lpiOdNyAWciTrp
+	7Q6hKfR81e6KHf+3E2JhrGb7UdY34Cc9xzimWW10TRZbVrBSUt1x1KkcaWTX6ksD1URV/xfNSiro6
+	qkUBFv4A==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wS9tD-00000003Z7O-3Euu;
-	Wed, 27 May 2026 08:45:23 +0000
-Received: from tor.source.kernel.org ([172.105.4.254])
+	id 1wS9wz-00000003ZPS-1ZzV;
+	Wed, 27 May 2026 08:49:17 +0000
+Received: from sea.source.kernel.org ([172.234.252.31])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wS9tC-00000003Z7I-188b
-	for linux-arm-kernel@lists.infradead.org;
-	Wed, 27 May 2026 08:45:22 +0000
+	id 1wS9ww-00000003ZOz-1Zc7;
+	Wed, 27 May 2026 08:49:15 +0000
 Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
-	by tor.source.kernel.org (Postfix) with ESMTP id 7960E60215;
-	Wed, 27 May 2026 08:45:20 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 546901F00ADE;
-	Wed, 27 May 2026 08:45:19 +0000 (UTC)
+	by sea.source.kernel.org (Postfix) with ESMTP id 3AE4843916;
+	Wed, 27 May 2026 08:49:13 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 2BEDC1F000E9;
+	Wed, 27 May 2026 08:49:09 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1779871520;
-	bh=4fwiisoH+O10cDKs9SXUnzu9+RWmKRkE9L4Uzj4ctHI=;
+	s=k20260515; t=1779871753;
+	bh=vnMFODbc+LljT7eUBEEQawLt47/OgLwD8JHdSRnnDAI=;
 	h=Date:From:To:Cc:Subject:References:In-Reply-To;
-	b=HQOC9cFuUcgCMXNBo6VkwORPXpnIugUKP/csgboHOPNzfgseAadNARfktDGu04yVj
-	 DYV2JlKt5GvM3gS5zbgt0O2Xo+UAcgDgsrQLtG9MUWQSo+S6yzmhrCuzD0N44HWq89
-	 fdcJaHjeFGnnzZChGdZxBjy0Umt0KZ56DJUN9coeOVUag+xs/pSXi0DP4/4G/1qqod
-	 DiA0jN2ZepWFKzBDhTBIWRezNqSorYSnjSiQMs246enKuPcIW0s4uUoVQfRZWiVSzd
-	 Z9SIADgHxI18lB64dN++7w9iWu0xtTG1GHO0ky6122YxD6ZG+ZeV5UbvpUcI+XrVUM
-	 tRj/44c1eMJXw==
-Date: Wed, 27 May 2026 10:45:16 +0200
-From: Krzysztof Kozlowski <krzk@kernel.org>
-To: Geetha sowjanya <gakula@marvell.com>
-Cc: linux-perf-users@vger.kernel.org, linux-kernel@vger.kernel.org, 
-	linux-arm-kernel@lists.infradead.org, devicetree@vger.kernel.org, mark.rutland@arm.com, 
-	will@kernel.org, krzk+dt@kernel.org
-Subject: Re: [PATCH v6 1/2] dt-bindings: perf: marvell: Extend CN10K DDR PMU
- binding for CN20K
-Message-ID: <20260527-wise-cobra-of-feminism-2720a6@quoll>
-References: <20260526164330.23878-1-gakula@marvell.com>
- <20260526164330.23878-2-gakula@marvell.com>
+	b=aS/Y3c/2krAHC8mOb1Mcxes6m5FDVlOQc6VRTrd4yb0jWg0E+fTAIr9V8KuSqacM9
+	 SIbKkCn1wvlJlDFUj5AU0W7QFUSMx4r5jxxVIDwcmTK4z/7y4ySTtfMkftCqbjjQ/R
+	 iw6WbgDW39eVcstSBGH1axuFDeW8urSBPHp7PEsHFNeQ4DS8kRG8UsGyG5+Vbzxlp1
+	 1NHOkope50m9rEbE1J86KoQu0JBkgf8WCTF9fIc0fUbBpCcY6vApcQEIEUFpJRxlYZ
+	 OSBSZxMHdKZTsy62UXtsvYlY+tmvCEULoPU9XtGMu8zXdEQf0IS+WN28HliJ/U7RQx
+	 OhrLGfwNO4nQw==
+Date: Wed, 27 May 2026 09:49:06 +0100
+From: Conor Dooley <conor@kernel.org>
+To: Michael Riesch <michael.riesch@collabora.com>
+Cc: Mehdi Djait <mehdi.djait@linux.intel.com>,
+	Laurent Pinchart <laurent.pinchart@ideasonboard.com>,
+	Mauro Carvalho Chehab <mchehab@kernel.org>,
+	Rob Herring <robh@kernel.org>,
+	Krzysztof Kozlowski <krzk+dt@kernel.org>,
+	Conor Dooley <conor+dt@kernel.org>,
+	Heiko Stuebner <heiko@sntech.de>,
+	Kever Yang <kever.yang@rock-chips.com>,
+	Jagan Teki <jagan@amarulasolutions.com>,
+	=?utf-8?B?0JrRg9C30L3QtdGG0L7QsiDQnNC40YXQsNC40Ls=?= <mai.kuznetsov.misha@gmail.com>,
+	Charalampos Mitrodimas <charmitro@posteo.net>,
+	Sebastian Reichel <sebastian.reichel@collabora.com>,
+	Nicolas Dufresne <nicolas.dufresne@collabora.com>,
+	Collabora Kernel Team <kernel@collabora.com>,
+	Sakari Ailus <sakari.ailus@linux.intel.com>,
+	linux-media@vger.kernel.org, devicetree@vger.kernel.org,
+	linux-arm-kernel@lists.infradead.org,
+	linux-rockchip@lists.infradead.org, linux-kernel@vger.kernel.org,
+	Conor Dooley <conor.dooley@microchip.com>
+Subject: Re: [PATCH v5 2/8] media: dt-bindings: add rockchip rk3588 vicap
+Message-ID: <20260527-grimace-plausibly-c620ea58f197@spud>
+References: <20260522-rk3588-vicap-v5-0-d1d1f5265c56@collabora.com>
+ <20260522-rk3588-vicap-v5-2-d1d1f5265c56@collabora.com>
 MIME-Version: 1.0
-Content-Type: text/plain; charset=utf-8
+Content-Type: multipart/signed; micalg=pgp-sha512;
+	protocol="application/pgp-signature"; boundary="mp0q5jdAdl2wMqsR"
 Content-Disposition: inline
-In-Reply-To: <20260526164330.23878-2-gakula@marvell.com>
+In-Reply-To: <20260522-rk3588-vicap-v5-2-d1d1f5265c56@collabora.com>
+X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
+X-CRM114-CacheID: sfid-20260527_014914_438879_3DF9ABCD 
+X-CRM114-Status: GOOD (  10.27  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -71,72 +89,36 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Tue, May 26, 2026 at 10:13:29PM +0530, Geetha sowjanya wrote:
-> Marvell CN20K SoCs integrate a DDR Performance Monitoring Unit (PMU)
-> associated with the DDR controller. The block provides hardware counters
-> to monitor DDR traffic and performance events and is accessed via a
-> dedicated MMIO region.
-> 
-> The CN20K DDR PMU is functionally equivalent to the CN10K DDR PMU, with
-> minor register offset differences.
-> 
-> Changes in v6:
-> - dt-bindings: Document CN20K in the existing marvell-cn10k-ddr.yaml;
->   add maintainer, description, compatible enum entry, and a CN20K example
->   with unit-address aligned to reg.
 
-Changelog is not part of commit msg, but changelog area, so after ---.
+--mp0q5jdAdl2wMqsR
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+Content-Transfer-Encoding: quoted-printable
 
-> 
-> Signed-off-by: Geetha sowjanya <gakula@marvell.com>
-> ---
->  .../bindings/perf/marvell-cn10k-ddr.yaml       | 18 +++++++++++++++++-
->  1 file changed, 17 insertions(+), 1 deletion(-)
-> 
-> diff --git a/Documentation/devicetree/bindings/perf/marvell-cn10k-ddr.yaml b/Documentation/devicetree/bindings/perf/marvell-cn10k-ddr.yaml
-> index a18dd0a8c43a..79fae9fdb6f1 100644
-> --- a/Documentation/devicetree/bindings/perf/marvell-cn10k-ddr.yaml
-> +++ b/Documentation/devicetree/bindings/perf/marvell-cn10k-ddr.yaml
-> @@ -4,16 +4,22 @@
->  $id: http://devicetree.org/schemas/perf/marvell-cn10k-ddr.yaml#
->  $schema: http://devicetree.org/meta-schemas/core.yaml#
->  
-> -title: Marvell CN10K DDR performance monitor
-> +title: Marvell CN10K / CN20K DDR performance monitor
-> +
-> +description:
-> +  Performance Monitoring Unit (PMU) for the DDR controller on Marvell
-> +  CN10K and CN20K SoCs. The block is accessed via a dedicated MMIO region.
->  
->  maintainers:
->    - Bharat Bhushan <bbhushan2@marvell.com>
-> +  - Geetha sowjanya <gakula@marvell.com>
->  
->  properties:
->    compatible:
->      items:
->        - enum:
->            - marvell,cn10k-ddr-pmu
-> +          - marvell,cn20k-ddr-pmu
->  
->    reg:
->      maxItems: 1
-> @@ -35,3 +41,13 @@ examples:
->              reg = <0x87e1 0xc0000000 0x0 0x10000>;
->          };
->      };
-> +  - |
-> +    bus {
-> +        #address-cells = <2>;
-> +        #size-cells = <2>;
-> +
-> +        pmu@c20000000000 {
-> +            compatible = "marvell,cn20k-ddr-pmu";
-> +            reg = <0xc200 0x00000000 0x0 0x100000>;
+On Fri, May 22, 2026 at 11:23:08PM +0200, Michael Riesch wrote:
+> Add documentation for the Rockchip RK3588 Video Capture (VICAP) unit. To
+> that end, make the existing rockchip,rk3568-vicap documentation more
+> general and introduce variant specific constraints.
+>=20
+> Acked-by: Conor Dooley <conor.dooley@microchip.com>
+> Signed-off-by: Michael Riesch <michael.riesch@collabora.com>
 
-No need for a new example.
+Ah right I remember what Rob wanted changed now.
+Acked-by: Conor Dooley <conor.dooley@microchip.com>
 
-Best regards,
-Krzysztof
+Cheers,
+Conor.
 
+--mp0q5jdAdl2wMqsR
+Content-Type: application/pgp-signature; name="signature.asc"
+
+-----BEGIN PGP SIGNATURE-----
+
+iHUEABYKAB0WIQRh246EGq/8RLhDjO14tDGHoIJi0gUCahawAgAKCRB4tDGHoIJi
+0oypAQDd8ds975P1XLz5OPsVbwIIl4FFnLtrrNNKezd22scM1wEA0cwWA/v8lM9Y
+tspAlrkx0Tv3bx0mhY4ZOay8xpcbbgY=
+=8xBO
+-----END PGP SIGNATURE-----
+
+--mp0q5jdAdl2wMqsR--
 
