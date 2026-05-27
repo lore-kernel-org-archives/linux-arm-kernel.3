@@ -4,65 +4,69 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id E9568CD5BD0
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 27 May 2026 17:26:28 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 64488CD4F54
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 27 May 2026 17:42:33 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:
+	Content-Transfer-Encoding:Content-Type:MIME-Version:References:Message-ID:
+	Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=1Y/th8zoNj6rDDjmoKVmswiGR4GLgTy3vGzdUV8hSSI=; b=klHeMXKkynSkqM0e/WSUy/jwCa
-	kSQi4BpBGWHNSGQe4m7m3p/IawKNzoPI6ONYlSZj1dMwXZX3Dxryl+cd2CCl68jF5B1Y/guOR/sYG
-	YnGhePgkL0T9EcQT9jNZ//bjvPLp3pThYjyB7QLVz2pLATBUA99NSuqFD1AmXpA/0WtvDwSEKUL0O
-	+R1o2CerRkWO46niSnRsyyJVnmXCqXvbZ2rht7uboilxxCJrnFLa6fYHcm6dsL7DTHFcg1hOjIlKh
-	sSm4IK8J5sNIrF91AbM6aXUkcu7VMOi5zHbwB+/gMoKQUs5keHBT0gOCkE9zjr9kAFvTnT2l6EqYh
-	BEtvtR6w==;
+	bh=IKN54VPAXWs5sF6ceJNmuHYcIYkUxjL/vSmM5J5IU/k=; b=uW18sAN9UqTA9taHAcMzTCQwxH
+	M5eo121Dl2tYbeZ9iQPkV8NKhJx8nadeNESMdt/iyvWEncR999zLtoclhjCEuBGutVp+VRuRfgZVs
+	pl7NRjqcFAr58hRhra9Sp4PhO4DUZmN+OmbWPJVoJDWxkx7uFfrMt0Msg/lElCAGyFC0UvTv42L4J
+	OoCg0eIvEFbQj2HnW+uX8ITcWKg7pGP652gxoRBU0HtX5Yh/06+q9GbibyEIK3tdDFbvqhAohsjZc
+	hqkA4wfvuJgaOrCR2BRs4jXDSLzGDpHl0pKPDbVlOitoAaLA6nZc436p8RKtexuya7/X1K5U/GyzL
+	IvyMYgFg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wSHuK-00000004ZWR-1Xau;
-	Wed, 27 May 2026 17:19:04 +0000
-Received: from tor.source.kernel.org ([2600:3c04:e001:324:0:1991:8:25])
+	id 1wSIGv-00000004aoJ-1ksF;
+	Wed, 27 May 2026 17:42:25 +0000
+Received: from sea.source.kernel.org ([172.234.252.31])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wSHuJ-00000004ZWL-0WLs
-	for linux-arm-kernel@lists.infradead.org;
-	Wed, 27 May 2026 17:19:03 +0000
+	id 1wSIGt-00000004ann-1iYN;
+	Wed, 27 May 2026 17:42:24 +0000
 Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
-	by tor.source.kernel.org (Postfix) with ESMTP id 3B29660210;
-	Wed, 27 May 2026 17:19:02 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 800291F000E9;
-	Wed, 27 May 2026 17:18:59 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1779902341;
-	bh=1Y/th8zoNj6rDDjmoKVmswiGR4GLgTy3vGzdUV8hSSI=;
+	by sea.source.kernel.org (Postfix) with ESMTP id 63BF8429E4;
+	Wed, 27 May 2026 17:42:22 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id BEB471F000E9;
+	Wed, 27 May 2026 17:42:21 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=linuxfoundation.org;
+	s=korg; t=1779903742;
+	bh=IKN54VPAXWs5sF6ceJNmuHYcIYkUxjL/vSmM5J5IU/k=;
 	h=Date:From:To:Cc:Subject:References:In-Reply-To;
-	b=UsFywr+zYfFvYSi+eAfMneG/jA8t9qrKZ82pOhiqoQE/21H2nLqFj/jWRbZ3lugQ3
-	 JtUeWC8DhkI5BcIgJUC8/abiNlA2zRN9MotNEa8yRPHbAlTM8Urk5s3nW91vIppw2d
-	 Vf1UzgklTxdT8m9vme5ui4hwoFVy1a7ABXwORXm/njPVQDd2IZFt72rLJAXNTU167t
-	 j6eqVmywhkhkIPYP/HiIaPCz17E4uHjfqdu726eufBdNQkBll5yVsSAZnmV8znr2oM
-	 Vc344tEhcMDb8XsRA4WS5pNJaK6l4pJZGuOi27u7oGWyX+0+9QUIZk6zjHJOJqMcA8
-	 EbPLjLBhjETvQ==
-Date: Wed, 27 May 2026 18:18:56 +0100
-From: Mark Brown <broonie@kernel.org>
+	b=YWwcELU9M4r41zdQPC6qERI7NXdLXgr43PuuvlJcUNR9EPObjH4P4FEO0GXC13nqf
+	 EzW0fD89RHfmeyJv3YySA0EDrhdDg3r+qQzqjaTJePNY2hdPMeGI63sx7hxPEHBoyv
+	 YES0VYGMOKF159sxKYnb1U1f/CZRlf++oHgyXNGo=
+Date: Wed, 27 May 2026 19:41:30 +0200
+From: Greg Kroah-Hartman <gregkh@linuxfoundation.org>
 To: Chen-Yu Tsai <wenst@chromium.org>
-Cc: Inki Dae <inki.dae@samsung.com>, Seung-Woo Kim <sw0312.kim@samsung.com>,
-	Kyungmin Park <kyungmin.park@samsung.com>,
-	Krzysztof Kozlowski <krzk@kernel.org>,
-	Alim Akhtar <alim.akhtar@samsung.com>,
-	David Airlie <airlied@gmail.com>, Simona Vetter <simona@ffwll.ch>,
-	dri-devel@lists.freedesktop.org, linux-samsung-soc@vger.kernel.org,
-	linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org,
-	Aishwarya.TCV@arm.com
-Subject: Re: [PATCH 3/4] drm/exynos: Drop exynos_drm_gem.size field
-Message-ID: <fa11e295-c3a2-4baf-a7d6-a290a4255ca6@sirena.org.uk>
-References: <20260326094308.1161335-1-wenst@chromium.org>
- <20260326094308.1161335-4-wenst@chromium.org>
+Cc: Bartosz Golaszewski <brgl@kernel.org>,
+	Manivannan Sadhasivam <mani@kernel.org>,
+	Rob Herring <robh@kernel.org>,
+	Krzysztof Kozlowski <krzk+dt@kernel.org>,
+	Conor Dooley <conor+dt@kernel.org>,
+	Matthias Brugger <matthias.bgg@gmail.com>,
+	AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>,
+	linux-pm@vger.kernel.org, linux-usb@vger.kernel.org,
+	devicetree@vger.kernel.org, linux-mediatek@lists.infradead.org,
+	linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org
+Subject: Re: [PATCH RFC 00/12] arm64: mediatek: Add M.2 E-key slot on
+ Chromebooks
+Message-ID: <2026052710-flagship-unsmooth-ce82@gregkh>
+References: <20260515090149.3169406-1-wenst@chromium.org>
+ <CAMRc=MdnjRRMVzxPkkrPhQ4dz7rsK8-HKUp9cQ0z11apL3escQ@mail.gmail.com>
+ <CAGXv+5HC3dqgcE3KnKzakHHWFHB6m_X42orOkNUvZvp=SL_O8g@mail.gmail.com>
+ <CAMRc=Med-_0GSYzoFBRiwFzBCK0DZqJD8_SEBxi+zwR20GS-HA@mail.gmail.com>
+ <CAGXv+5GbW0bx3nKdZt2+tHuHyQ-J-1-Z79nMzHAwjmEPGKT02A@mail.gmail.com>
 MIME-Version: 1.0
-Content-Type: multipart/signed; micalg=pgp-sha512;
-	protocol="application/pgp-signature"; boundary="H5kRiO6up3bnEQ+8"
+Content-Type: text/plain; charset=utf-8
 Content-Disposition: inline
-In-Reply-To: <20260326094308.1161335-4-wenst@chromium.org>
-X-Cookie: 15% gratuity added for parties over 8.
+Content-Transfer-Encoding: 8bit
+In-Reply-To: <CAGXv+5GbW0bx3nKdZt2+tHuHyQ-J-1-Z79nMzHAwjmEPGKT02A@mail.gmail.com>
+X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
+X-CRM114-CacheID: sfid-20260527_104223_580775_E288BB55 
+X-CRM114-Status: GOOD (  45.11  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -77,112 +81,81 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
+On Wed, May 27, 2026 at 06:21:00PM +0200, Chen-Yu Tsai wrote:
+> On Tue, May 26, 2026 at 11:48 AM Bartosz Golaszewski <brgl@kernel.org> wrote:
+> >
+> > On Sun, May 24, 2026 at 10:06 AM Chen-Yu Tsai <wenst@chromium.org> wrote:
+> > >
+> > > > >
+> > > > > I expect some discussion on this patch, because a) it adds some
+> > > > > OF-specific code into an otherwise generic (core) driver, and
+> > > > > b) it doesn't yet handle USB 2.0 / 3.x shared ports; it ends up powering
+> > > > > on the port twice, which negates the port reset part.
+> > > > >
+> > > >
+> > > > I understand that you do this because the port device has no OF node
+> > > > assigned. If we wanted to call pwrseq_get() for the port device, is
+> > > > there really no other way to associate it with the correct pwrseq
+> > > > provider?
+> > >
+> > > I suppose we could tie the "port@X" node to the usb port device, but
+> > > AFAIK no other subsystem does this so we would be introducing a new
+> > > pattern.
+> > >
+> > > In the M.2 pwrseq driver, we would have to match by port node instead
+> > > of its parent device node. We may end up with different behavior for
+> > > the USB target vs the other targets.
+> > >
+> >
+> > I imagine, we can check the bus type of the parent device to know if
+> > this is USB?
+> 
+> The "bus type" type is probably not exported. However since the DT binding
+> explicitly says which port on the M.2 slot is for which connection type,
+> I think the matching can do a special case check for the USB port.
+> The next obstacle is that the target string is not given to the provider
+> match function.
+> 
+> > > Also, the "port@X" nodes only exist for the OF graph connections to
+> > > connectors and/or muxes (this series doesn't deal with the latter).
+> > > For directly connected devices, there is a "device@X" child node
+> > > directly under the USB hub node. That node is what gets tied to the
+> > > the USB device.
+> > >
+> >
+> > Is this a problem? I don't think I understand what you're saying here.
+> 
+> It shouldn't be. I'm just saying there would be different behavior on
+> the USB side for connectors vs onboard devices (like hubs) device nodes.
+> 
+> I talked to Greg earlier, and he said not to touch the hub driver; the
+> hub driver should only deal with features from the USB spec. The
+> "onboard USB devices" driver is what should be used. And this would
+> be a proper case of adding an auxiliary device to the M.2 slot driver.
+> 
+> However this seems to completely decouple the power sequencing from the
+> USB core. Take the USB A connector for example, it was recently added to
+> the onboard USB devices driver. However the connector has a device node
+> that is not a child node of any USB host controller or hub; it is connected
+> through OF graph. At the same time, since it typically sits at the top
+> level of the device tree, a platform device is directly created and the
+> driver subsequently binds to that device. This is totally different from
+> how the hub and other directly connected onboard USB devices work. In
+> the onboard device case, the device node is a child node of the USB hub
+> or controller, and the corresponding platform device only gets created
+> when the USB hub driver probes, thereby sort of tying it into the USB
+> device topology.
 
---H5kRiO6up3bnEQ+8
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-Content-Transfer-Encoding: quoted-printable
+Hm, did we mess this up?  If so, we can always change it if you think
+this should be done differently.
 
-On Thu, Mar 26, 2026 at 05:43:05PM +0800, Chen-Yu Tsai wrote:
-> A size field is already included in the base GEM object, and is
-> initialized through drm_gem_object_init() with the same value.
->=20
-> Drop the field in the subclass to save some space. More changes to
-> make exynos_drm_gem a subclass of drm_gem_dma_object will follow.
+Hubs should be dealing with the power issues for their ports, so maybe
+rethinking this might be wise.  I'm just loath to add hardware-specific
+hacks to the hub common code for obvious reasons.  Anything we can do to
+pull it out to a separate driver is best so it doesn't affect the 99% of
+the users that don't have that crazy hardware :)
 
-I'm seeing warnings on arm multi_v7_defconfig which also show up in
-other CI which seem to be due to this commit, the type of the size field
-is different so the format specifiers need updating or casts adding:
+thanks,
 
-CC [M]  drivers/gpu/drm/exynos/exynos_drm_gem.o
-CC [M]  drivers/gpu/drm/nouveau/nvkm/subdev/acr/ga102.o
-In file included from ../drivers/gpu/drm/exynos/exynos_drm_gem.c:16:
-=2E./drivers/gpu/drm/exynos/exynos_drm_gem.c: In function 'exynos_drm_alloc=
-_buf':
-=2E./drivers/gpu/drm/exynos/exynos_drm_gem.c:69:49: warning: format '%lx' e=
-xpects argument of type 'long unsigned int', but argument 6 has type 'size_=
-t' {aka 'unsigned int'} [-Wformat=3D]
-69 |         DRM_DEV_DEBUG_KMS(drm_dev_dma_dev(dev), "dma_addr(0x%lx), size=
-(0x%lx)\n",
-      |                                                 ^~~~~~~~~~~~~~~~~~~=
-~~~~~~~~~~~~~
-70 |                         (unsigned long)exynos_gem->dma_addr, exynos_ge=
-m->base.size);
-      |                                                              ~~~~~~=
-~~~~~~~~~~~~~~~
-      |                                                                    =
-          |
-      |                                                                    =
-          size_t {aka unsigned int}
-=2E./include/drm/drm_print.h:563:39: note: in definition of macro 'drm_dev_=
-dbg'
-563 |         __drm_dev_dbg(NULL, dev, cat, fmt, ##__VA_ARGS__)
-      |                                       ^~~
-=2E./drivers/gpu/drm/exynos/exynos_drm_gem.c:69:9: note: in expansion of ma=
-cro 'DRM_DEV_DEBUG_KMS'
-69 |         DRM_DEV_DEBUG_KMS(drm_dev_dma_dev(dev), "dma_addr(0x%lx), size=
-(0x%lx)\n",
-      |         ^~~~~~~~~~~~~~~~~
-=2E./drivers/gpu/drm/exynos/exynos_drm_gem.c:69:76: note: format string is =
-defined here
-69 |         DRM_DEV_DEBUG_KMS(drm_dev_dma_dev(dev), "dma_addr(0x%lx), size=
-(0x%lx)\n",
-      |                                                                    =
-      ~~^
-      |                                                                    =
-        |
-      |                                                                    =
-        long unsigned int
-      |                                                                    =
-      %x
-=2E./drivers/gpu/drm/exynos/exynos_drm_gem.c: In function 'exynos_drm_free_=
-buf':
-=2E./drivers/gpu/drm/exynos/exynos_drm_gem.c:83:37: warning: format '%lx' e=
-xpects argument of type 'long unsigned int', but argument 6 has type 'size_=
-t' {aka 'unsigned int'} [-Wformat=3D]
-83 |         DRM_DEV_DEBUG_KMS(dev->dev, "dma_addr(0x%lx), size(0x%lx)\n",
-      |                                     ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-84 |                         (unsigned long)exynos_gem->dma_addr, exynos_ge=
-m->base.size);
-      |                                                              ~~~~~~=
-~~~~~~~~~~~~~~~
-      |                                                                    =
-          |
-      |                                                                    =
-          size_t {aka unsigned int}
-=2E./include/drm/drm_print.h:563:39: note: in definition of macro 'drm_dev_=
-dbg'
-563 |         __drm_dev_dbg(NULL, dev, cat, fmt, ##__VA_ARGS__)
-      |                                       ^~~
-=2E./drivers/gpu/drm/exynos/exynos_drm_gem.c:83:9: note: in expansion of ma=
-cro 'DRM_DEV_DEBUG_KMS'
-83 |         DRM_DEV_DEBUG_KMS(dev->dev, "dma_addr(0x%lx), size(0x%lx)\n",
-      |         ^~~~~~~~~~~~~~~~~
-=2E./drivers/gpu/drm/exynos/exynos_drm_gem.c:83:64: note: format string is =
-defined here
-83 |         DRM_DEV_DEBUG_KMS(dev->dev, "dma_addr(0x%lx), size(0x%lx)\n",
-      |                                                              ~~^
-      |                                                                |
-      |                                                                long=
- unsigned int
-      |                                                              %x
-CC [M]  drivers/gpu/drm/rockchip/rockchip_drm_vop.o
-CC [M]  drivers/gpu/drm/exynos/exynos_drm_plane.o
-
---H5kRiO6up3bnEQ+8
-Content-Type: application/pgp-signature; name="signature.asc"
-
------BEGIN PGP SIGNATURE-----
-
-iQEzBAABCgAdFiEEreZoqmdXGLWf4p/qJNaLcl1Uh9AFAmoXJ38ACgkQJNaLcl1U
-h9CAnQf7BRgsOk0q3qJLrYyRq+VnGlA2pf380qcMBSxg8Rd6FSfV9P0815cHXvyK
-sh40YySY84XHxzWFmJx8gahCRdFTW5OSy1kKNJIP1ckIlkshNigy8ISuzd2YTQLX
-l+SeFpbHozlFX/zVUNBWy2wSxiMq25Z5w1xztazu3C5oedRvHEERML5x7dIa2/S2
-W5q0/A4bxhJXZqzATeSdLF0j2j+88gCCffXxfvu5yfMEa7/Z1UN74/R6g7IElima
-7bbBhbaOTMTMJpxBbVTOdetF1CiBYvygGUWJcywTqnxdyLI1cOE3qJ81O2CYDOKB
-EJYrH+c2+ZMZ/lmonzqlPwsthWCYuw==
-=him5
------END PGP SIGNATURE-----
-
---H5kRiO6up3bnEQ+8--
+greg k-h
 
