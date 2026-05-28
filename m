@@ -4,71 +4,98 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id DEE36CD5BD5
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 28 May 2026 06:44:26 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id A538BCD5BD5
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 28 May 2026 06:48:40 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=8uOQcDGbXZlb6q8u3GvJiWkXjn3EaSa5gllpC9TQbrU=; b=jYo9PUrsmlXQY5h+URhBdSfbrn
-	Ahk4EmyNhzT5L8SbXFmyZOUpcrTAF2rtuX2JAv9G6VHl5V2LWKi93C7n9JArsr3K1CJ6SW5RNZgXI
-	asdBMuniAidKpcGrolSpLIecH2jooEuOj2xsf7N/I4uuQiFucV7w01gKmI50kDMpuUyG8sS6caPXk
-	T1eCtCO22jA+3vBuuCd6nv8Q13RBAlt/z6Fa5wqr5JOFIHL7PYS3ZkyGm+UHIZJ1/56S+cH6arFE/
-	arpuMEDM8TG35FpKkJfcsVxXaUROzSHJaUA3dHCfIj8EBsZXRdrtjYZJcjgvt0tn9+Lek1eCaFsa1
-	/9DNcxKg==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:MIME-Version:Message-ID:Date:Subject:Cc:To:From:Reply-To:
+	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
+	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=ImRGRn+Fhpb0WqEiONhradFoxfKocbbhNboCMBAjm1U=; b=h6awjeNWS+/x9qdBM8/Wbmt/BH
+	0ovA803C1F2x107yW3Yuy4cw/Fi6l8ZTDKZwn6rOXKccbQJlEvi0307NXdwYLCCFg6/5CJ92wi8cp
+	6AAHMmsslDIAdn4wUsYKuab+/8bGn4c0NKrsB5lFscSAB9j8EzJJyBMTjQ4XE+pPX7aFauQpk0lt8
+	pbKl7lqhZkdFSV/6eWutUSOT7jAX5MEalHjN3/86xcvo5yaPSZqVBAqMwB8wMP79Eh3zMjPDIviNb
+	w33t59p/yojUqt/c/FRrDkgbDwWeuiKZp5gZp60Ff+QQf5VX9gAnAjx6xa6e5AC1Ebc4+ngSRPdBx
+	YpzrfyoQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wSUTc-00000005DGu-3npe;
-	Thu, 28 May 2026 06:44:20 +0000
-Received: from tor.source.kernel.org ([2600:3c04:e001:324:0:1991:8:25])
+	id 1wSUXi-00000005Dpo-2RM0;
+	Thu, 28 May 2026 06:48:34 +0000
+Received: from mail-wm1-x329.google.com ([2a00:1450:4864:20::329])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wSUTT-00000005DCQ-3IB0
+	id 1wSUXf-00000005Dp4-2opI
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 28 May 2026 06:44:11 +0000
-Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
-	by tor.source.kernel.org (Postfix) with ESMTP id 17565605DC;
-	Thu, 28 May 2026 06:44:11 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 3B14A1F00A3A;
-	Thu, 28 May 2026 06:44:10 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1779950650;
-	bh=8uOQcDGbXZlb6q8u3GvJiWkXjn3EaSa5gllpC9TQbrU=;
-	h=Date:From:To:Cc:Subject:References:In-Reply-To;
-	b=DMf+bZHrQTcd9uXj5YaqJ2NMKllNWB6er4xNsT03rFDsQLoZ/iEIAYctOP1m4jqhp
-	 Cp1mby8xWctFOfyvR/sLyQugVI1nbSEOPIYlnLcNqgnEos7+ymmVccpbPl75Mns///
-	 9GVqaoiK5KY7cJy8ON7ZUGyJR47SQoRcIKt4GvDfy0cbfp/8jGRbyQz2GRGD7NCdms
-	 Lu8UkXAG7SAVhN+ZHb2df7AjXVXzmgiPqKXeVjlCB9/ijtB9DtTLSB9XUdkKzL806h
-	 1KVouHE54G5rUEvNLIAQ2vf8UyV7AuT3uX/km/qBCRdx3umAiCYj2ztZ0uiZJ2fRor
-	 7TQu1CQzBGjKQ==
-Date: Thu, 28 May 2026 08:44:07 +0200
-From: Thierry Reding <thierry.reding@kernel.org>
-To: Lukas Wunner <lukas@wunner.de>
-Cc: Thierry Reding <thierry.reding@gmail.com>, 
-	Bjorn Helgaas <bhelgaas@google.com>, Lorenzo Pieralisi <lpieralisi@kernel.org>, 
-	Krzysztof Wilczy??ski <kwilczynski@kernel.org>, Manivannan Sadhasivam <mani@kernel.org>, 
-	Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>, 
-	Conor Dooley <conor+dt@kernel.org>, Jonathan Hunter <jonathanh@nvidia.com>, 
-	Karthikeyan Mitran <m.karthikeyan@mobiveil.co.in>, Hou Zhiqiang <Zhiqiang.Hou@nxp.com>, 
-	Thomas Petazzoni <thomas.petazzoni@bootlin.com>, Pali =?utf-8?B?Um9ow6Fy?= <pali@kernel.org>, 
-	Michal Simek <michal.simek@amd.com>, Kevin Xie <kevin.xie@starfivetech.com>, 
-	Aksh Garg <a-garg7@ti.com>, linux-pci@vger.kernel.org, devicetree@vger.kernel.org, 
-	linux-tegra@vger.kernel.org, linux-kernel@vger.kernel.org, 
-	linux-arm-kernel@lists.infradead.org, Thierry Reding <treding@nvidia.com>
-Subject: Re: [PATCH v5 2/4] PCI: Use standard wait times for PCIe link
- monitoring
-Message-ID: <ahfj-uhNTlk-byvU@orome>
-References: <20260526-tegra264-pcie-v5-0-84a813b979d7@nvidia.com>
- <20260526-tegra264-pcie-v5-2-84a813b979d7@nvidia.com>
- <ahV_r6NJWnmJptT2@wunner.de>
- <ahanoZgDwq3v6x8M@orome>
- <ahcob7HMbyGvFgxc@wunner.de>
+	Thu, 28 May 2026 06:48:33 +0000
+Received: by mail-wm1-x329.google.com with SMTP id 5b1f17b1804b1-4908b92904fso5179705e9.0
+        for <linux-arm-kernel@lists.infradead.org>; Wed, 27 May 2026 23:48:31 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=baylibre.com; s=google; t=1779950910; x=1780555710; darn=lists.infradead.org;
+        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
+         :to:from:from:to:cc:subject:date:message-id:reply-to;
+        bh=ImRGRn+Fhpb0WqEiONhradFoxfKocbbhNboCMBAjm1U=;
+        b=houxzhfr2/KqR+P3d8QLC8fZV194ovuRAcziZqmanIgiEaCNvdSY64TGdoPjffGQX1
+         JNgNJZT1uePmQX+YGYGVeyUyPz+0lcLDAdOHtl3GPF2BWMJazY6uoTS7FNjwBH837p3V
+         9TCC5NlO2XQzqnyTWP/jxJtuuphEpDPbyXHdvA2JcD5uyibmVEJPmrbGyliQF57NPnxG
+         TcWJEtpo2oJDPTyz2EgYUkyOt8EY+Hg79C2aKsxDWB38VERuggUkTfmY7be03TCYPnHC
+         iaXWnKcpAiHXjz9aOdIgT/5W4SW63vyDgfwQthtrDeXWE8gWtQc/b44orO7S8EAEYF2x
+         HN+Q==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20251104; t=1779950910; x=1780555710;
+        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
+         :to:from:x-gm-gg:x-gm-message-state:from:to:cc:subject:date
+         :message-id:reply-to;
+        bh=ImRGRn+Fhpb0WqEiONhradFoxfKocbbhNboCMBAjm1U=;
+        b=DZXx1pCd0LLo2oLa2WoXHh7BDEsXbCCw2OY3PKwTguC1TzGajidK05Ihoj2k6pPOGi
+         Yr3Ycqddr1e9gleYLk5eRS+ApPT813l0R2jQvoF0l173mIfQz0zbgO1xa9oZYoEhQ1bu
+         c//VxnrZmvMVpjXF7O94zWIGyo/76QnptW67vfVM3e3uKALCRVdbFqRdpX53oYHZmTGU
+         8LTuh/MTvffM9EVEh9SB7Yx4PA8l49T/sH8ki1tqtNA94eIxgJ7tCYk2zUYkqlM/fx2a
+         dbrndp7R+nzD9olFUkAy8lscr+xL1QDcoWe7Efex8iMw9hlg5TFFiGt5OVO7CReodi/v
+         dchQ==
+X-Forwarded-Encrypted: i=1; AFNElJ/kZgmYscxIb7k+BvU9fAwvphui4gLNUdwJw+zJULveOvA1fkZmnrk3bm3BRTG+AMqeF/CbncxcslNjVl2moleL@lists.infradead.org
+X-Gm-Message-State: AOJu0YxfSOZZL1CuEexpCyc2F6x+9NFtgzdeG1WykxGAkej0IqN7bbNo
+	mcpXYug4FouIYLLhaDvUERcb13aHCku6tc7Yn0Bw0K9fCqtgX0LBsqnb9AgufmtE1wE=
+X-Gm-Gg: Acq92OEQrKQBwx1H297YRkkbGjvE0GxoCTvh3hRTsf0BnHLlw7Cy72EXtVs2WCV6cI0
+	HVbSvbWxRy1RPy5Zu1u284eO0rcSB/S3CszpQ8IQWvBL0/wB8rvTDxqhi9IrzsrWXnCm42iej+X
+	yu2zikv20cxYv6XQLGm9mMHltJnM5dn3zcW1K7NLkJGpXlTJqfA4S70aLpBJ177pUOg8JHJTgzT
+	CpPDHaySjUWKdJUu8q5AT2cRGZ8bd3EYG70HZ90jUpU3YYq5GO/yNMPc4MHKjnXM48HHvlR3POK
+	gukzdOjvHECiLTdaQHOHaVmm6ENZo0XP8AMDrip3m9JWa/DxR9TTUxTGlxMQgWm1NY2OsrDUiJ3
+	mszpjjM/AigIGggsY066aeTzgFK3FQrUDG862yeNYFAkmNLadClIlc/5GavrTHjAlAVI4ksLsly
+	Uew1O3o5J3v8GOaGrfiLrtqoLiV5M3cCEjsnbY/p46xbhcmsrje+PVYCmIUNlyoJhO1JYJsnW9q
+	DYy4Wjs0+Z9a8Ibv8bEhSGtYQ==
+X-Received: by 2002:a05:600c:6995:b0:490:482c:4384 with SMTP id 5b1f17b1804b1-490482c44ddmr429872215e9.24.1779950909709;
+        Wed, 27 May 2026 23:48:29 -0700 (PDT)
+Received: from localhost (p200300f65f47db04e95e43453a0d1648.dip0.t-ipconnect.de. [2003:f6:5f47:db04:e95e:4345:3a0d:1648])
+        by smtp.gmail.com with UTF8SMTPSA id 5b1f17b1804b1-4908d80952asm13777795e9.1.2026.05.27.23.48.28
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Wed, 27 May 2026 23:48:29 -0700 (PDT)
+From: =?UTF-8?q?Uwe=20Kleine-K=C3=B6nig=20=28The=20Capable=20Hub=29?= <u.kleine-koenig@baylibre.com>
+To: Alexandre Belloni <alexandre.belloni@bootlin.com>
+Cc: Benson Leung <bleung@chromium.org>,
+	Guenter Roeck <groeck@chromium.org>,
+	linux-rtc@vger.kernel.org,
+	chrome-platform@lists.linux.dev,
+	linux-kernel@vger.kernel.org,
+	Linus Walleij <linusw@kernel.org>,
+	linux-arm-kernel@lists.infradead.org,
+	Karel Balej <balejk@matfyz.cz>,
+	Matti Vaittinen <mazziesaccount@gmail.com>,
+	Chanwoo Choi <cw00.choi@samsung.com>,
+	Krzysztof Kozlowski <krzk@kernel.org>,
+	=?utf-8?q?Andr=C3=A9_Draszik?= <andre.draszik@linaro.org>,
+	linux-samsung-soc@vger.kernel.org
+Subject: [PATCH v1 0/3] rtc: Use named initializers for platform_device_id arrays
+Date: Thu, 28 May 2026 08:48:09 +0200
+Message-ID: <cover.1779950275.git.u.kleine-koenig@baylibre.com>
+X-Mailer: git-send-email 2.47.3
 MIME-Version: 1.0
-Content-Type: multipart/signed; micalg=pgp-sha512;
-	protocol="application/pgp-signature"; boundary="uc3lgg4pj4krpin7"
-Content-Disposition: inline
-In-Reply-To: <ahcob7HMbyGvFgxc@wunner.de>
+Content-Type: text/plain; charset=UTF-8
+X-Developer-Signature: v=1; a=openpgp-sha256; l=2956; i=u.kleine-koenig@baylibre.com; h=from:subject:message-id; bh=ctSZqEB1mlU+XvYe9FpEXZw3i6PMNlg9mOrPLqs/9M4=; b=owEBbQGS/pANAwAKAY+A+1h9Ev5OAcsmYgBqF+Up8pYbtZoUCw3r8+fOJGekG5PZPwptdY0eL tFdqigjF+OJATMEAAEKAB0WIQQ/gaxpOnoeWYmt/tOPgPtYfRL+TgUCahflKQAKCRCPgPtYfRL+ TjgYCAChrHD2kpobkQDS/kOb03ZK4sw2ENh4cFJRBLYOasAIuMF3//D2JUL2ZbhP6+lWhluNIn0 ezNtZga4/I3VHz4htYqJ88jImRuMyg8IiWCGrVoEESkPCftK4VlmnStBfSm5b5mBjSdOz9YTcqm ucxuQ548hWFvNdEw9T2W/1NND6t3KJbrRntNSQMDvkOM6Z2kpas4+wLMBWN0xK6IX1mkWUV1zNP wucjVeqV3zSbA1ROQEw1dSTomgIW6qg6vXbkKx66Yl9O+Ew6aBOPnYbET8HgyuX7pRy6s57sbjC WUAPAlIvVPAhOrsmeSO8svYa2NisfNk0lzzlqth0+Tm4g7Iz
+X-Developer-Key: i=u.kleine-koenig@baylibre.com; a=openpgp; fpr=0D2511F322BFAB1C1580266BE2DCDD9132669BD6
+Content-Transfer-Encoding: 8bit
+X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
+X-CRM114-CacheID: sfid-20260527_234831_736630_E804A64D 
+X-CRM114-Status: GOOD (  17.94  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -83,80 +110,84 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
+Hello,
 
---uc3lgg4pj4krpin7
-Content-Type: text/plain; protected-headers=v1; charset=us-ascii
-Content-Disposition: inline
-Content-Transfer-Encoding: quoted-printable
-Subject: Re: [PATCH v5 2/4] PCI: Use standard wait times for PCIe link
- monitoring
-MIME-Version: 1.0
+this series targets to use named initializers for platform_device_id
+arrays. In general these are better readable for humans and more robust
+to changes in the respective struct definition.
 
-On Wed, May 27, 2026 at 07:22:55PM +0200, Lukas Wunner wrote:
-> On Wed, May 27, 2026 at 10:28:51AM +0200, Thierry Reding wrote:
-> > On Tue, May 26, 2026 at 01:10:39PM +0200, Lukas Wunner wrote:
-> > > On Tue, May 26, 2026 at 10:53:11AM +0200, Thierry Reding wrote:
-> > > > Instead of defining the wait values for each driver, use common val=
-ues
-> > > > defined in the core pci.h header file. Note that most drivers don't=
- use
-> > > > the millisecond waits, but rather usleep_range(), so add these comm=
-only
-> > > > used values to the header so that all drivers can use them.
-> > >=20
-> > > Hm, why not just replace usleep_range() with msleep() and use the exi=
-sting
-> > > macro instead of defining new ones?
-> >=20
-> > I'm trying to somewhat unify the implementations across drivers without
-> > changing behaviour. I don't have a way of testing any of these drivers,
-> > so keeping the existing implementation and just switching out the symbol
-> > seemed like a good compromise.
->=20
-> It looks like the code was copy-pasted from one driver to the next
-> and I applaud every effort to deduplicate, unify and simplify things.
->=20
-> I don't quite see how using msleep() instead of usleep_range()
-> should result in breakage.  The drivers are just polling for
-> link up for an amount of time and as long as you're not decreasing
-> that amount, everything ought to be fine.  Moving to msleep()
-> should never decrease the amount.
->=20
-> > Then again, I count 2 drivers (in linux-next) that use the existing
-> > PCIE_LINK_WAIT_SLEEP_MS, one of which multiplies by MILLI to get at the
-> > US version (so it could easily be converted to the US_MIN version). Only
-> > pcie-designware.c uses msleep() with PCIE_LINK_WAIT_SLEEP_MS, so it is
-> > clearly the outlier.
->=20
-> Konrad Dybcio went ahead and replaced usleep_range() with msleep()
-> in that driver, kudos to him.  Cf. b262518262f5 ("PCI: dwc: Use msleep()
-> in dw_pcie_wait_for_link()").  If you could just carry over that change
-> to the other drivers that would be great.
+This robustness is needed as I want to do
 
-Alright, I see you really don't like usleep_range(), so msleep() it'll
-be.
+	diff --git a/include/linux/mod_devicetable.h b/include/linux/mod_devicetable.h
+	--- a/include/linux/mod_devicetable.h
+	+++ b/include/linux/mod_devicetable.h
+	@@ -610,4 +610,7 @@ struct dmi_system_id {
+	 struct platform_device_id {
+		char name[PLATFORM_NAME_SIZE];
+	-	kernel_ulong_t driver_data;
+	+	union {
+	+		kernel_ulong_t driver_data;
+	+		const void *driver_data_ptr;
+	+	};
+	 };
 
-Thierry
+which allows dropping several casts and eases porting CHERI to mainline
+linux. A possible follow-up change is the following example:
 
---uc3lgg4pj4krpin7
-Content-Type: application/pgp-signature; name="signature.asc"
+	diff --git a/drivers/rtc/rtc-max77686.c b/drivers/rtc/rtc-max77686.c
+	index 375565a3bddf..31b641bd8962 100644
+	--- a/drivers/rtc/rtc-max77686.c
+	+++ b/drivers/rtc/rtc-max77686.c
+	@@ -760,8 +760,7 @@ static int max77686_rtc_probe(struct platform_device *pdev)
+	 
+		mutex_init(&info->lock);
+		info->dev = &pdev->dev;
+	-	info->drv_data = (const struct max77686_rtc_driver_data *)
+	-		id->driver_data;
+	+	info->drv_data = id->driver_data_ptr;
+	 
+		ret = max77686_init_rtc_regmap(info);
+		if (ret < 0)
+	@@ -866,10 +865,10 @@ static SIMPLE_DEV_PM_OPS(max77686_rtc_pm_ops,
+				 max77686_rtc_suspend, max77686_rtc_resume);
+	 
+	 static const struct platform_device_id rtc_id[] = {
+	-	{ .name = "max77686-rtc", .driver_data = (kernel_ulong_t)&max77686_drv_data },
+	-	{ .name = "max77802-rtc", .driver_data = (kernel_ulong_t)&max77802_drv_data },
+	-	{ .name = "max77620-rtc", .driver_data = (kernel_ulong_t)&max77620_drv_data },
+	-	{ .name = "max77714-rtc", .driver_data = (kernel_ulong_t)&max77714_drv_data },
+	+	{ .name = "max77686-rtc", .driver_data_ptr = &max77686_drv_data },
+	+	{ .name = "max77802-rtc", .driver_data_ptr = &max77802_drv_data },
+	+	{ .name = "max77620-rtc", .driver_data_ptr = &max77620_drv_data },
+	+	{ .name = "max77714-rtc", .driver_data_ptr = &max77714_drv_data },
+		{ }
+	 };
+	 MODULE_DEVICE_TABLE(platform, rtc_id);
 
------BEGIN PGP SIGNATURE-----
+increasing readability due to less casting which also improves type safety.
 
-iQIzBAABCgAdFiEEiOrDCAFJzPfAjcif3SOs138+s6EFAmoX5DcACgkQ3SOs138+
-s6H9qQ/9FvVWlaICBU/gs8tDIB7XU9zULjHm6whhbpBn3uuDB6PqFKfGbFmLL5ch
-lDezqyqIUjvskd88UahBE3f5AnEFDrqK9AstxY2VQn8/Iu60WsLlU578H2vGxshG
-nCDRQZW2pQ5d85TaWhYZwOnSM0rFCbmhlPeiI1EiSuGyPDp/7IpIi3p2LC/IERee
-LCmtj4bW6zQMPU6kXjJI8SfGcD67YkJHmTKPmuhcqeG6ni27BPXEJ/kzz2BfQ+1c
-OdCJElFdOUtLONNLUeK5gEetp9VV1SOeZ4urDMJLG12RkP8++ql3rs/jvl8wlkGK
-RFbCzXsV91mi11beDpSR8MSNew80qXMZ+qZO+VTqGv5fcRCqmoKo2t4GzQ+AB1zj
-nRxWk6QeB0+yzVUyetGjuSzMMo7pzgEOcBQ0UgJam58kk7Sgz9dej1VR2//8GLbR
-bkZw5uvmRtdJ0MGsQyDxgnGpZUaFLqxvomlRt3rMF9d43fU+viuHUHe0qAMLV4O0
-EXnwmEjVqZMOqi9gbEt38d8lk5AhgC9RilRlG8/gzQNF4agL6U1S4cD5WVzrLzjV
-TTMydaK+xfTTcCrHsSrrq0c3AzQng0TR12M5DzPGNq1gENxVYL2VQ5W3zBPMKiSl
-X06TvyKmS6rpAK8F7Bm+4BG44Bd7QrqbKbtixgWNN33xe45+td8=
-=0mcj
------END PGP SIGNATURE-----
+Best regards
+Uwe
 
---uc3lgg4pj4krpin7--
+Uwe Kleine-König (The Capable Hub) (3):
+  rtc: Drop unused assignment of platform_device_id driver data
+  rtc: ab8500: Simplify driver_data handling
+  rtc: Use named initializers for platform_device_id arrays
+
+ drivers/rtc/rtc-88pm886.c  |  2 +-
+ drivers/rtc/rtc-ab8500.c   |  5 ++---
+ drivers/rtc/rtc-bd70528.c  |  8 ++++----
+ drivers/rtc/rtc-cros-ec.c  |  4 ++--
+ drivers/rtc/rtc-max77686.c | 10 +++++-----
+ drivers/rtc/rtc-max8997.c  |  4 ++--
+ drivers/rtc/rtc-max8998.c  |  4 ++--
+ drivers/rtc/rtc-s5m.c      | 12 ++++++------
+ drivers/rtc/rtc-tps6594.c  |  4 ++--
+ 9 files changed, 26 insertions(+), 27 deletions(-)
+
+
+base-commit: e7d700e14934e68f86338c5610cf2ae76798b663
+-- 
+2.47.3
+
 
