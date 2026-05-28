@@ -4,74 +4,103 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id D7441CD5BD5
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 28 May 2026 05:46:24 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 089AACD5BD5
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 28 May 2026 05:47:42 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=95SOoqGn6jyE0UfkDK15/NBpH9CmgAfhjJteJqSZdCE=; b=dbdVh6fOUG5kDTJ/RFNql6Qi0z
-	7SUgsYZGMPVGK2gqKte0tmIWsP9oInG45KeZ9tivXKzn4+3vZvK5erBS1kbkurq+i+tAbHTiCuZcq
-	YQvovJ5Q+urEF8SxG+202yhmRS8ffrjaaxkv4zdxpfFJDXqbAf2mWGIYEywNndU8CGXQiVG4qfR1V
-	cGDXoJXFFsBg5dnkEp2lZT63mjaZ6ifLFdFZBmbbxMH1k3dWACAXz/IiHejVjlzMkFEHdYtdwPZ41
-	Aup7t3y7tBNJerhdgdcoi9EspstPXBzqtv2lOluWlkRiew/d00/uGcRIqBWYGxPRBvxe8Zjd2tiDj
-	uF6U7acg==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:Mime-Version:Subject:References:In-Reply-To:Message-ID:Cc:To:
+	From:Date:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=DK6yOv4xVJ9/sneezKNDMIziZQjzaXiJRFbqLkrGSqc=; b=qViZcNBo0dJq/GlooevLRA9FDK
+	EBNfmuodWJ+mLq/M/QKjYySsCaoZ+gaw9ebpFV6Ok2qfLNIVbyA8/qj6ZUKGQ0SgPmkkecnOuvDyd
+	VbTMjoYLvkRyvD9jo0VtR+Mh6kzuz1W9Eq+NFaD0IZ5tIMjAvfmy3yAos7r0yallVlaMquC0JFSPB
+	U0zeXK4tsbBOVpapt3Qj++zNEcqDQAlL1fr3hK36gGNt36NXmvYMfFDnrO23s2OoxKifDq52gn1sB
+	3DJx9Ro6970zkDn71H0KzfRtq/Wo9D/ud5CKPGqYp6GDjrfvCRI2QkgCsZVUmefKOo3rhKdwkR/UA
+	lo2guGPA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wSTZS-000000059zZ-2pge;
-	Thu, 28 May 2026 05:46:18 +0000
+	id 1wSTai-00000005A9K-3vkG;
+	Thu, 28 May 2026 05:47:36 +0000
 Received: from sea.source.kernel.org ([172.234.252.31])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wSTZP-000000059z4-3mw4
+	id 1wSTaf-00000005A8p-43uR
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 28 May 2026 05:46:17 +0000
+	Thu, 28 May 2026 05:47:35 +0000
 Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
-	by sea.source.kernel.org (Postfix) with ESMTP id 3794C407A8;
-	Thu, 28 May 2026 05:46:14 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id AAA4C1F000E9;
-	Thu, 28 May 2026 05:46:07 +0000 (UTC)
+	by sea.source.kernel.org (Postfix) with ESMTP id 4B850434FE;
+	Thu, 28 May 2026 05:47:33 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 8340F1F000E9;
+	Thu, 28 May 2026 05:47:32 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1779947174;
-	bh=95SOoqGn6jyE0UfkDK15/NBpH9CmgAfhjJteJqSZdCE=;
-	h=Date:From:To:Cc:Subject:References:In-Reply-To;
-	b=USTJwMyGvWXoMbf/S3Hkuw/RAJZlgHz1wf6Rv3/jmc2THf0cyKGDOtGKt9FmAlIO2
-	 bEzFbeCt0rnDn/8rlPAlmhLya/lie2fE7s0Ml45wXgkLiE48k3nYrM5tUD//wtZoUe
-	 Or1W+w7erYiqub4kaHP0qkQb3RECfdmHprx1Vj3YKxor8X2FJMM9b4kv+OtRUUTLhY
-	 dmdFE+f1EYTQmxHd5kFze5j7kVMcZ/PDIzwqvicbpyNpYnweMPLgb8vUH92a7Ecsu/
-	 AQ6G7A7Ro/8u63LF4IMK8XJnfB3/MXr6DrdO23eJ8HfBnbe96tH4zBoN13i1Sk2LFH
-	 iU1t+RcUX53pg==
-Date: Thu, 28 May 2026 08:46:04 +0300
-From: Mike Rapoport <rppt@kernel.org>
-To: Ard Biesheuvel <ardb+git@google.com>
-Cc: linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org,
-	will@kernel.org, catalin.marinas@arm.com, mark.rutland@arm.com,
-	Ard Biesheuvel <ardb@kernel.org>,
-	Ryan Roberts <ryan.roberts@arm.com>,
-	Anshuman Khandual <anshuman.khandual@arm.com>,
-	Liz Prucka <lizprucka@google.com>,
-	Seth Jenkins <sethjenkins@google.com>, Kees Cook <kees@kernel.org>,
-	David Hildenbrand <david@kernel.org>,
-	Andrew Morton <akpm@linux-foundation.org>,
-	Jann Horn <jannh@google.com>, linux-mm@kvack.org,
-	linux-hardening@vger.kernel.org, linuxppc-dev@lists.ozlabs.org,
-	linux-sh@vger.kernel.org,
-	Yoshinori Sato <ysato@users.sourceforge.jp>,
-	Rich Felker <dalias@libc.org>,
-	John Paul Adrian Glaubitz <glaubitz@physik.fu-berlin.de>
-Subject: Re: [PATCH v6 13/15] sh: cast away constness from the zero page when
- flushing it from the cache
-Message-ID: <ahfWnLIwZXJvbvNg@kernel.org>
-References: <20260526175846.2694125-17-ardb+git@google.com>
- <20260526175846.2694125-30-ardb+git@google.com>
-MIME-Version: 1.0
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-In-Reply-To: <20260526175846.2694125-30-ardb+git@google.com>
+	s=k20260515; t=1779947253;
+	bh=DK6yOv4xVJ9/sneezKNDMIziZQjzaXiJRFbqLkrGSqc=;
+	h=Date:From:To:Cc:In-Reply-To:References:Subject;
+	b=IB7CpqgU2u2YJAiU1xZv/XoLZ3n2HaxjA7TG14kYYDqg2elX/EGGqB8LJyJOx32OZ
+	 ylZL6szg/Z3PLgRDEjDBMnZSTxb5q1tNF66Uon8PHFNZu31cWIAcrtH32xu4+DOSIW
+	 uvxaYonJE3c2cL7UMi+Zf1v6nGEDOxzY7FBrpQ22UfSpOkA5VPmkDz52vOyzc/jYt+
+	 4xgu5FOn0SM7YPwGhUzOOx1JT/Yxer3/4b0b5DnttJ883CSWuAC/KSGxk1Kxv8CbG1
+	 Oy8K66kwQycOOQvMn3qxL5v2wq2yZWBsAGG5GWO+23TGkqbCZtnnjvwDBzEvSq5Wte
+	 rJeo6ci/SNvWg==
+Received: from phl-compute-09.internal (phl-compute-09.internal [10.202.2.49])
+	by mailfauth.phl.internal (Postfix) with ESMTP id A9096F4006C;
+	Thu, 28 May 2026 01:47:31 -0400 (EDT)
+Received: from phl-frontend-03 ([10.202.2.162])
+  by phl-compute-09.internal (MEProxy); Thu, 28 May 2026 01:47:31 -0400
+X-ME-Sender: <xms:89YXamHwIhO2-DK_eX2bOskcf21oK0bJwYhPB43mQPLpxuVB-cLQaw>
+    <xme:89YXajQ-iIrWPH87J7IF0CbG8KnhkBp0RR8zHnme_t_zQ2j8RKmj2pzIGo_jII5RM
+    kEzaUv1lV2l3iRZo9uBB30qE04HnWXpLpKp4aI_hWu1DCYgdiqhuPI>
+X-ME-Received: <xmr:89YXamTQtpaWnK5UCTLZ7-b9eYy8dkmgZzsEEp4TWfP2UfkWIRM3RnqhUjROM_tMqyqNZrCkJqg8ZYCwySgs3IMU9emCdPm3DPI>
+X-ME-Proxy-Cause: dmFkZTFmXmnPUHBlXPEK4FO4blsX5JSlZandmPSXAd6sisIa25T738qOMv8vIvRtp8+Gfi
+    kkf5MFJ/TlcuCSx6EbZublixxFqyZrQyhUsYzuuStoGOA0r55OFFemjxQCK7Vyj3RBs0tg
+    43Zsu1ApoTCk/fyNdxkqBok1DfImK8KzMGcBlVo4Eq56QJ8QpBgbEfR06tuNwxjV1IzyTs
+    bNgK9089KeZPQYq7QlLAAxnPqnoX+5IacmXXiQ3R7EV2whsTMmjlO316QnTmXmooip4XXc
+    k5Y1964dU+bdg8zThNP1aHBJAEXcc6aMIbc+9LNp+WikJx0Ye9P+fKqq0pfg0ESEorroOz
+    ymajd1CY8h9gOuU+4GoHA9X8re4ZOKTtm01mV+FgWU0SstdACkHYIk8OgKEDfXLslmj+gs
+    J1ios7bHGxhV8x/nKTHrOCxZKG+5YUVgIcophJTykeGdnFibXCyzs4lzXCNZjd8HPX16DE
+    O0RNwkBQshONJDsSc3yTkxPOqKcNSlEBzTN1bWrfZpZHeDA1mOweToYFoPWEMzWzGV2FTF
+    Gk8vGEfChl1pt/bPPiiKWaatIAHenqYb3X1+U1NAC3ge/jxJoCaShamQH4DPW/JpgIo0DE
+    mxukymeW0NMVElViFDBeayF6WjBVulDjSOm6o3RbJ50V6h1vMiphgGE+PAfA
+X-ME-Proxy: <xmx:89YXamdr5mG4v_h_Vb4izNDk9TUVmxpxdNKIBRM5wmrH6F_e3cMbeA>
+    <xmx:89YXaqf3TRVr2MjmhtDiUHFGtlB_-AYPvLgypAGFGAZcUKxFd7iZEA>
+    <xmx:89YXas8Xz9vpo5EgSYmp6RhUnhtK5XrjS8YcOEvBpVbDhdBWykw1ew>
+    <xmx:89YXaqM8BGbgkimRsvJVubk-we0T44jdadPoMfVRcghOgc3qG9EGPw>
+    <xmx:89YXaqXapuCpmqupvBRIQ0-s-NaFxX9PhKQmmkAahRyvsfKWaRnSsnxk>
+Feedback-ID: i67ae4b3e:Fastmail
+Received: by mail.messagingengine.com (Postfix) with ESMTPA; Thu,
+ 28 May 2026 01:47:30 -0400 (EDT)
+Date: Wed, 27 May 2026 22:47:29 -0700
+From: "Dan Williams (nvidia)" <djbw@kernel.org>
+To: "Aneesh Kumar K.V (Arm)" <aneesh.kumar@kernel.org>, 
+ linux-coco@lists.linux.dev, 
+ kvmarm@lists.linux.dev, 
+ linux-arm-kernel@lists.infradead.org, 
+ linux-kernel@vger.kernel.org
+Cc: "Aneesh Kumar K.V (Arm)" <aneesh.kumar@kernel.org>, 
+ Alexey Kardashevskiy <aik@amd.com>, 
+ Catalin Marinas <catalin.marinas@arm.com>, 
+ Dan Williams <dan.j.williams@intel.com>, 
+ Jason Gunthorpe <jgg@ziepe.ca>, 
+ Jonathan Cameron <jic23@kernel.org>, 
+ Marc Zyngier <maz@kernel.org>, 
+ Samuel Ortiz <sameo@rivosinc.com>, 
+ Steven Price <steven.price@arm.com>, 
+ Suzuki K Poulose <Suzuki.Poulose@arm.com>, 
+ Will Deacon <will@kernel.org>, 
+ Xu Yilun <yilun.xu@linux.intel.com>
+Message-ID: <6a17d6f1d6371_2b1fb710057@djbw-dev.notmuch>
+In-Reply-To: <20260427065121.916615-2-aneesh.kumar@kernel.org>
+References: <20260427065121.916615-1-aneesh.kumar@kernel.org>
+ <20260427065121.916615-2-aneesh.kumar@kernel.org>
+Subject: Re: [RFC PATCH v4 01/14] coco: host: arm64: Add host TSM callback and
+ IDE stream allocation support
+Mime-Version: 1.0
+Content-Type: text/plain;
+ charset=utf-8
+Content-Transfer-Encoding: 7bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260527_224616_046277_63A74922 
-X-CRM114-Status: GOOD (  20.85  )
+X-CRM114-CacheID: sfid-20260527_224734_061675_8E487496 
+X-CRM114-Status: GOOD (  34.48  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -86,57 +115,262 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Tue, May 26, 2026 at 07:59:00PM +0200, Ard Biesheuvel wrote:
-> From: Ard Biesheuvel <ardb@kernel.org>
+Aneesh Kumar K.V (Arm) wrote:
+> Register the TSM callback when the DA feature is supported by KVM.
 > 
-> SH performs cache maintenance on the zero page during boot, presumably
-> to ensure that any clearing of BSS that has occurred at startup is
-> visible to other CPUs and DMA devices.
-
-It flushes the cache there because before 6215d9f4470f ("arch, mm:
-consolidate empty_zero_page") empty_zero_page used was for boot parameters
-at the very early boot.
-
-I removed memset(empty_zero_page, 0, PAGE_SIZE) that was a line above but
-missed the cache flush. 
-
-This whole "clear zero-page" can be removed IMO.
- 
-> The __flush_wback_region() function takes a void* argument, which is
-> conceptually sound, but given that empty_zero_page[] must never be
-> modified, it is being repainted as const, making it incompatible with a
-> void* formal parameter.
+> This driver handles IDE stream setup for both the root port and PCIe
+> endpoints. Root port IDE stream enablement itself is managed by RMM.
 > 
-> Given the above, and the fact that __flush_wback_region() is in fact a
-> function pointer variable with multiple implementations, take the easy
-> way out, and cast away the constness in this particular invocation.
-> 
-> Cc: Yoshinori Sato <ysato@users.sourceforge.jp>
-> Cc: Rich Felker <dalias@libc.org>
-> Cc: John Paul Adrian Glaubitz <glaubitz@physik.fu-berlin.de>
-> Signed-off-by: Ard Biesheuvel <ardb@kernel.org>
+> In addition, the driver registers pci_tsm_ops with the TSM subsystem.
+
+Do you want to call out that this is an infrastructure / scaffolding
+patch that only handles the PCI-TSM skeleton. The CCA meat comes later,
+in particular IDE key management. Tell a bit more of the story 
+
+Otherwise, mostly looks good.
+
+Minor comments below...
+
+> Signed-off-by: Aneesh Kumar K.V (Arm) <aneesh.kumar@kernel.org>
 > ---
->  arch/sh/mm/init.c | 2 +-
->  1 file changed, 1 insertion(+), 1 deletion(-)
+>  arch/arm64/include/asm/rmi_smc.h         |   2 +
+>  drivers/firmware/smccc/rmm.c             |  12 ++
+>  drivers/firmware/smccc/rmm.h             |   8 +
+>  drivers/firmware/smccc/smccc.c           |   1 +
+>  drivers/virt/coco/Kconfig                |   2 +
+>  drivers/virt/coco/Makefile               |   1 +
+>  drivers/virt/coco/arm-cca-host/Kconfig   |  19 ++
+>  drivers/virt/coco/arm-cca-host/Makefile  |   5 +
+>  drivers/virt/coco/arm-cca-host/arm-cca.c | 225 +++++++++++++++++++++++
+>  drivers/virt/coco/arm-cca-host/rmi-da.h  |  46 +++++
+>  10 files changed, 321 insertions(+)
+>  create mode 100644 drivers/virt/coco/arm-cca-host/Kconfig
+>  create mode 100644 drivers/virt/coco/arm-cca-host/Makefile
+>  create mode 100644 drivers/virt/coco/arm-cca-host/arm-cca.c
+>  create mode 100644 drivers/virt/coco/arm-cca-host/rmi-da.h
 > 
-> diff --git a/arch/sh/mm/init.c b/arch/sh/mm/init.c
-> index 4e40d5e96be9..acbb481cdbfe 100644
-> --- a/arch/sh/mm/init.c
-> +++ b/arch/sh/mm/init.c
-> @@ -332,7 +332,7 @@ void __init mem_init(void)
->  	cpu_cache_init();
->  
->  	/* clear the zero-page */
-> -	__flush_wback_region(empty_zero_page, PAGE_SIZE);
-> +	__flush_wback_region((void *)empty_zero_page, PAGE_SIZE);
->  
->  	vsyscall_init();
->  
-> -- 
-> 2.54.0.794.g4f17f83d09-goog
-> 
+> diff --git a/arch/arm64/include/asm/rmi_smc.h b/arch/arm64/include/asm/rmi_smc.h
+> index fa23818e1b4c..109d6cc6ef37 100644
+> --- a/arch/arm64/include/asm/rmi_smc.h
+> +++ b/arch/arm64/include/asm/rmi_smc.h
+[..]
+> diff --git a/drivers/firmware/smccc/rmm.c b/drivers/firmware/smccc/rmm.c
+> index 2a6187df3285..7444cc3a588c 100644
+> --- a/drivers/firmware/smccc/rmm.c
+> +++ b/drivers/firmware/smccc/rmm.c
+[..]
+> diff --git a/drivers/firmware/smccc/rmm.h b/drivers/firmware/smccc/rmm.h
+> index a47a650d4f51..37d0d95a099e 100644
+> --- a/drivers/firmware/smccc/rmm.h
+> +++ b/drivers/firmware/smccc/rmm.h
+[..]
+> diff --git a/drivers/firmware/smccc/smccc.c b/drivers/firmware/smccc/smccc.c
+> index fc9b44b7c687..2bf2d59e686d 100644
+> --- a/drivers/firmware/smccc/smccc.c
+> +++ b/drivers/firmware/smccc/smccc.c
+> @@ -97,6 +97,7 @@ static int __init smccc_devices_init(void)
+>  		 * the required SMCCC function IDs at a supported revision.
+>  		 */
+>  		register_rsi_device(pdev);
+> +		register_rmi_device(pdev);
+>  	}
 
--- 
-Sincerely yours,
-Mike.
+Would splitting the above three hunks make this series stand on its own
+relative to the base CCA series? I assume likely not as soon as we get
+to patch2.
+
+Otherwise, just curious what your intended merge strategy is for this,
+tsm.git or arm.git, and what help this needs?
+
+[..]
+snip code that looks good.
+
+> diff --git a/drivers/virt/coco/arm-cca-host/Makefile b/drivers/virt/coco/arm-cca-host/Makefile
+> new file mode 100644
+> index 000000000000..c236827f002c
+> --- /dev/null
+> +++ b/drivers/virt/coco/arm-cca-host/Makefile
+> @@ -0,0 +1,5 @@
+> +# SPDX-License-Identifier: GPL-2.0-only
+> +#
+> +obj-$(CONFIG_ARM_CCA_HOST) += arm-cca-host.o
+> +
+> +arm-cca-host-y	+=  arm-cca.o
+> diff --git a/drivers/virt/coco/arm-cca-host/arm-cca.c b/drivers/virt/coco/arm-cca-host/arm-cca.c
+> new file mode 100644
+> index 000000000000..67f7e80106e8
+> --- /dev/null
+> +++ b/drivers/virt/coco/arm-cca-host/arm-cca.c
+> @@ -0,0 +1,225 @@
+> +// SPDX-License-Identifier: GPL-2.0-only
+> +/*
+> + * Copyright (C) 2026 ARM Ltd.
+> + */
+> +
+> +#include <linux/auxiliary_bus.h>
+> +#include <linux/pci-tsm.h>
+> +#include <linux/pci-ide.h>
+> +#include <linux/module.h>
+> +#include <linux/pci.h>
+> +#include <linux/tsm.h>
+> +#include <linux/vmalloc.h>
+> +#include <linux/cleanup.h>
+> +
+> +#include "rmi-da.h"
+> +
+> +/* Total number of stream id supported at root port level */
+> +#define MAX_STREAM_ID	256
+> +
+> +static struct pci_tsm *cca_tsm_pci_probe(struct tsm_dev *tsm_dev, struct pci_dev *pdev)
+> +{
+> +	int ret;
+> +
+> +	if (!is_pci_tsm_pf0(pdev)) {
+> +		struct cca_host_fn_dsc *fn_dsc __free(kfree) =
+> +			kzalloc(sizeof(*fn_dsc), GFP_KERNEL);
+
+kzalloc_obj(*fn_dsc)
+
+> +
+> +		if (!fn_dsc)
+> +			return NULL;
+> +
+> +		ret = pci_tsm_link_constructor(pdev, &fn_dsc->pci, tsm_dev);
+> +		if (ret)
+> +			return NULL;
+> +
+> +		return &no_free_ptr(fn_dsc)->pci;
+> +	}
+> +
+> +	if (!pdev->ide_cap)
+> +		return NULL;
+
+Bailing early?
+
+Maybe the RMM knows something about this device not needing IDE? I have
+a similar question in patch2 around trusted sources for whether a device
+is internal or not. 
+
+> +
+> +	struct cca_host_pf0_ep_dsc *pf0_ep_dsc __free(kfree) =
+> +		kzalloc(sizeof(*pf0_ep_dsc), GFP_KERNEL);
+> +	if (!pf0_ep_dsc)
+> +		return NULL;
+> +
+> +	ret = pci_tsm_pf0_constructor(pdev, &pf0_ep_dsc->pci, tsm_dev);
+> +	if (ret)
+> +		return NULL;
+> +
+> +	pci_dbg(pdev, "tsm enabled\n");
+> +	return &no_free_ptr(pf0_ep_dsc)->pci.base_tsm;
+> +}
+> +
+> +static void cca_tsm_pci_remove(struct pci_tsm *tsm)
+> +{
+> +	struct pci_dev *pdev = tsm->pdev;
+> +
+> +	if (is_pci_tsm_pf0(pdev)) {
+> +		struct cca_host_pf0_ep_dsc *pf0_ep_dsc = to_cca_pf0_ep_dsc(pdev);
+> +
+> +		pci_tsm_pf0_destructor(&pf0_ep_dsc->pci);
+> +		kfree(pf0_ep_dsc);
+> +	} else {
+> +		kfree(to_cca_fn_dsc(pdev));
+> +	}
+> +}
+> +
+> +/* For now global for simplicity. Protected by pci_tsm_rwsem */
+> +static DECLARE_BITMAP(cca_stream_ids, MAX_STREAM_ID);
+> +static int alloc_stream_id(struct pci_host_bridge *hb)
+> +{
+> +	int stream_id;
+> +
+> +redo_alloc:
+> +	stream_id = find_first_zero_bit(cca_stream_ids, MAX_STREAM_ID);
+> +	if (stream_id == MAX_STREAM_ID)
+> +		return stream_id;
+> +
+> +	if (ida_exists(&hb->ide_stream_ids_ida, stream_id)) {
+> +		/* mark the stream allocated in the global bitmap. */
+> +		set_bit(stream_id, cca_stream_ids);
+> +		goto redo_alloc;
+> +	}
+> +	return stream_id;
+
+Is 256 total an RMM limit, and/or does it require globally unique
+stream-ids? If not you could do what SEV-TIO does and just set stream-id
+== stream-index.
+
+> +}
+> +
+> +static inline bool cca_pdev_need_sel_ide_streams(struct pci_dev *pdev)
+> +{
+> +	return pci_pcie_type(pdev) == PCI_EXP_TYPE_ENDPOINT;
+> +}
+> +
+> +static int cca_tsm_connect(struct pci_dev *pdev)
+> +{
+> +	struct pci_dev *rp = pcie_find_root_port(pdev);
+> +	struct cca_host_pf0_ep_dsc *pf0_ep_dsc;
+> +	struct pci_ide *ide;
+> +	int ret, stream_id = 0;
+> +
+> +	/* Only function 0 supports connect in host */
+> +	if (WARN_ON(!is_pci_tsm_pf0(pdev)))
+> +		return -EIO;
+> +
+> +	pf0_ep_dsc = to_cca_pf0_ep_dsc(pdev);
+> +	if (cca_pdev_need_sel_ide_streams(pdev)) {
+> +		/* Allocate stream id */
+> +		stream_id = alloc_stream_id(pci_find_host_bridge(pdev->bus));
+> +		if (stream_id == MAX_STREAM_ID)
+> +			return -EBUSY;
+> +		set_bit(stream_id, cca_stream_ids);
+> +
+> +		ide = pci_ide_stream_alloc(pdev);
+> +		if (!ide) {
+> +			ret = -ENOMEM;
+> +			goto err_stream_alloc;
+> +		}
+> +
+> +		pf0_ep_dsc->sel_stream = ide;
+> +		ide->stream_id = stream_id;
+> +		ret = pci_ide_stream_register(ide);
+> +		if (ret)
+> +			goto err_stream;
+> +		/*
+> +		 * Configure IDE capability for target device
+> +		 *
+> +		 * Some test devices work only with DEFAULT_STREAM enabled.
+> +		 * For simplicity, enable DEFAULT_STREAM for all devices. A
+> +		 * future decent solution may be to have a quirk table to
+> +		 * specify which devices need DEFAULT_STREAM.
+> +		 */
+> +		ide->partner[PCI_IDE_EP].default_stream = 1;
+> +		pci_ide_stream_setup(pdev, ide);
+> +		pci_ide_stream_setup(rp, ide);
+> +
+> +		ret = tsm_ide_stream_register(ide);
+> +		if (ret)
+> +			goto err_tsm;
+> +
+> +		/*
+> +		 * Once ide is setup, enable the stream at the endpoint
+> +		 * Root port will be done by RMM
+> +		 */
+> +		pci_ide_stream_enable(pdev, ide);
+
+The end point of these patches follows the spec recommendation of
+delaying enable until after key programming.
+
+> +	}
+> +	return 0;
+
+Should this be making security claims to userspace without taking any
+action for non-endpoint devices that happen to be passed in?
+
+Thinking about a bisection case this should either fail here, print a
+message that is removed in the final enabling patch, or do the
+__maybe_unused arrangement to land all the CCA bits first and then do
+this hookup. Up to you.
 
