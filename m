@@ -4,131 +4,64 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 79DE7CD4F54
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 28 May 2026 16:48:19 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id E3225CD4F54
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 28 May 2026 16:52:38 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:In-Reply-To:
-	Content-Type:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=K7kuEma4W81oHAHAiB4h5hXLGdkxTRcszUrM2yzn+Rc=; b=Q5QhcKAhMFWveqLlHfgsbs3R+5
-	kbZOZklO2mtIKw6CV1zPZ7eIgQhRvMbqabJYdRE+7EwvAPhkdNAd6kwjmvE+rvIPNi8M6OAzHx/TD
-	dI6Da0pvz2YEwL2wRySngGkmLXPZYoZhbB0el6JEHiPXmWtEqdp7XoMpD0ufQ7iaVQ+IoIaF3X6ur
-	D5XmwJiQDLMIS/N51Sj9Sm557p7e9eriLSU3K51ftYnJK6rP9gkGW5aL4WCy39Mfqpb5JieKuq5Wx
-	6ykFjuUKuFg258fUUIEXTj/obVPcwX/XjzB9tfOrg2XHV6YRnNCTpHar1iOqys6FNxC/MHMnhxlWF
-	H9hdQjWQ==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	MIME-Version:Message-Id:Date:Subject:Cc:To:From:Reply-To:Content-Type:
+	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
+	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=VqpF95Me50rWFEF/pPooatQSHRrhpris1NlOAFjPDf8=; b=S3s2hCRp6FC7WO8f6ziloxEKhi
+	1xJXoWiv1r8MiFWznDUs8Fr70w8RYRM48n/vJ7FrEWeaaePB5/zCnNMy5G5A6+Ph6Rx+4atGDujgA
+	iaMNO24S7r4kWkq5f6sNzr5SkbhXyoeeZTeKLJLV6KQQ0brblxgvXiTYHK1dfg5d+dXoRW/LBDwri
+	F6CpivLTrnTAwWy+dHZODzeZeBtiNo9kX7wa65MLvWjn+YGGGrD0zKardx/rOvHhYRihipj1/YnDp
+	Dx0lxTVhjD6741lGZcy2hvPup3yj1wiufyRNS2X2Myb/4YHpVYHYtE2IPtARyty+BT3b30uB9rVni
+	IWE+TSTQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wSdty-000000061nO-0fyR;
-	Thu, 28 May 2026 16:48:10 +0000
-Received: from mail-northeuropeazlp170110003.outbound.protection.outlook.com ([2a01:111:f403:c200::3] helo=DU2PR03CU002.outbound.protection.outlook.com)
+	id 1wSdyA-0000000621Y-2bmw;
+	Thu, 28 May 2026 16:52:30 +0000
+Received: from mail-m128189.netease.com ([103.209.128.189])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wSdtv-000000061n4-3rVl
+	id 1wSdy6-0000000620u-3WkG
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 28 May 2026 16:48:08 +0000
-ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
- b=JBWv7hnQWZnGfF0jR03RS8SLwdUHllR6iGr9ZCh58ZlJOogMGKo4JHmtqAIDMVAOwDj6k8LYLxOwCSajTJjRKNo+6QWMWjUovWXjZnvzdWz9lMaP9WVst3t0DgVTBeFF9Z4hp+Bc65LoijXtPjetoKHNmpHnYSgcV7CTpv6IBc2Pia3HR7Zf4KndIn+L79naPCQp1KDo7X6sUXe6NIOlhGjKyZvun2yTATUiL2XXZNr92Il/eT6JSOyCak2Jv1Q3IwDgnipvxmxV6KmkPIdEz8Njq+AcyS+GoNDFtzLl6c0BgI8HZucQQVyZjfbRyARqlrMdx2sbM9dukSazTQDpOg==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
- s=arcselector10001;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
- bh=K7kuEma4W81oHAHAiB4h5hXLGdkxTRcszUrM2yzn+Rc=;
- b=Q7AYxZiZz29fA8pyBZWAk6oqx2O2kINr/uebT/JyfCdf9ygVFPWjlBn7UA7VDdL1DlxHNBNZgvqE/dZQbxIqlFeH5kf3vdX1rC4felsyXRkyke03qIT7GXFbnJ3R+7Ti0kMEC6++QolhjhrG2JGBuiKla5UoPvSztTBTLMYVBG/lNMm7jncgVp8s++CQfEUslGHDrH/Ux5ldn28Qst9zCJ7YnRl3FD4/t9nyQTeH4vTdSKrs16FHKebAPI4q29X8lmm4vTIP8hLdyJPf9CYDHToCvNQdHqlyYq+AkllN3HtwXbOImudIImoTQXFgFgt7NaBchFcFsgd3cPCrlHO91A==
-ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
- smtp.mailfrom=nxp.com; dmarc=pass action=none header.from=nxp.com; dkim=pass
- header.d=nxp.com; arc=none
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=nxp.com; s=selector1;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
- bh=K7kuEma4W81oHAHAiB4h5hXLGdkxTRcszUrM2yzn+Rc=;
- b=SD/er8uJZN9/VomYMlzsbVW1OavVCWMKKE1D/3zUobxgGXRF/td7eEUG0kTsUY1e9z76ZeICcO9qPVHJdhh31rS8HiuMlRDS8nBTnFo1SqMGY8qvExAuwkMh9JuUu+qSbT+Rnl5qwITM0r/C6DBQgXrCc/z0Mvnhr0pXr8rwOdH7YRMvDokSJkFqfgUIvpWIJ9D6nE9Cikk5BsCN5YCI6IdEgVxFTHP0+yFP7vLTfTDkTwX8/xibPLJDBi+4dYEcIXY1zScglwAUb828npR4aFH7hN38R26g0RvBXG+BN43gwcRLXyUSid9Ej+HqMDAtTtFZcyA9o0RqiLQY0UVs5w==
-Authentication-Results: dkim=none (message not signed)
- header.d=none;dmarc=none action=none header.from=nxp.com;
-Received: from PA4PR04MB9366.eurprd04.prod.outlook.com (2603:10a6:102:2a9::8)
- by GV2PR04MB11740.eurprd04.prod.outlook.com (2603:10a6:150:2cd::13) with
- Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.21.71.13; Thu, 28 May
- 2026 16:47:59 +0000
-Received: from PA4PR04MB9366.eurprd04.prod.outlook.com
- ([fe80::75e4:8143:ddbc:6588]) by PA4PR04MB9366.eurprd04.prod.outlook.com
- ([fe80::75e4:8143:ddbc:6588%3]) with mapi id 15.21.0071.011; Thu, 28 May 2026
- 16:47:58 +0000
-Date: Thu, 28 May 2026 12:47:51 -0400
-From: Frank Li <Frank.li@nxp.com>
-To: Thorsten Leemhuis <regressions@leemhuis.info>
-Cc: Sascha Hauer <s.hauer@pengutronix.de>,
-	Pengutronix Kernel Team <kernel@pengutronix.de>,
-	Fabio Estevam <festevam@gmail.com>,
-	Greg Kroah-Hartman <gregkh@linuxfoundation.org>,
-	"Rob Herring (Arm)" <robh@kernel.org>,
-	Bartosz Golaszewski <bartosz.golaszewski@oss.qualcomm.com>,
-	"Peng Fan (OSS)" <peng.fan@oss.nxp.com>, imx@lists.linux.dev,
-	linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org,
-	Peng Fan <peng.fan@nxp.com>,
-	Linux kernel regressions list <regressions@lists.linux.dev>
-Subject: Re: [PATCH] soc: imx8m: Fix match data lookup for soc device
-Message-ID: <ahhxtz94pX9ujv25@lizhi-Precision-Tower-5810>
-References: <20260427-soc-imx8m-fix-v1-1-1fe5b43d8090@nxp.com>
- <177816879666.299775.3947960528231798400.b4-ty@nxp.com>
- <3cc57464-a10f-4b8c-9080-8d6f65a0d42f@leemhuis.info>
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-In-Reply-To: <3cc57464-a10f-4b8c-9080-8d6f65a0d42f@leemhuis.info>
-X-ClientProxiedBy: SA9PR10CA0013.namprd10.prod.outlook.com
- (2603:10b6:806:a7::18) To PA4PR04MB9366.eurprd04.prod.outlook.com
- (2603:10a6:102:2a9::8)
+	Thu, 28 May 2026 16:52:28 +0000
+Received: from PC-202605011814.localdomain (unknown [IPV6:2409:8924:2013:1a6b:50af:214a:ea2b:7da2])
+	by smtp.qiye.163.com (Hmail) with ESMTP id 403594fc0;
+	Fri, 29 May 2026 00:52:10 +0800 (GMT+08:00)
+From: Runyu Xiao <runyu.xiao@seu.edu.cn>
+To: suzuki.poulose@arm.com,
+	alexander.shishkin@linux.intel.com
+Cc: mike.leach@linaro.org,
+	james.clark@linaro.org,
+	mathieu.poirier@linaro.org,
+	gregkh@linuxfoundation.org,
+	coresight@lists.linaro.org,
+	linux-arm-kernel@lists.infradead.org,
+	linux-kernel@vger.kernel.org,
+	runyu.xiao@seu.edu.cn,
+	jianhao.xu@seu.edu.cn,
+	stable@vger.kernel.org
+Subject: [PATCH] coresight: etb10: restore atomic_t for shared reading state
+Date: Fri, 29 May 2026 00:52:01 +0800
+Message-Id: <20260528165201.319452-1-runyu.xiao@seu.edu.cn>
+X-Mailer: git-send-email 2.34.1
 MIME-Version: 1.0
-X-MS-PublicTrafficType: Email
-X-MS-TrafficTypeDiagnostic: PA4PR04MB9366:EE_|GV2PR04MB11740:EE_
-X-MS-Office365-Filtering-Correlation-Id: 18de5d5d-a4fc-4148-eeb3-08debcd8dfc4
-X-MS-Exchange-SenderADCheck: 1
-X-MS-Exchange-AntiSpam-Relay: 0
-X-Microsoft-Antispam: BCL:0;ARA:13230040|1800799024|366016|7416014|52116014|376014|19092799006|22082099003|18002099003|38350700014|11063799006|4143699003|56012099006;
-X-Microsoft-Antispam-Message-Info: 9iGT5DdbWO5OQI0Bcv2Ms3fB88KQyWV7RXgMiGFCbADbQITCELYaV8jYjv20uwPbMqGRG94xY8qU/Vnnwomp71Q5p5SC2nQ25n1yUBCRpw56cz5bgGrmr1rO7/CZZefWDn5qcIsI3p2+o/YuBKE6odv/fXynx9E1YqWmPoqhwjIHYmAifElX8LzOEuWwDQtCSSzNWsZ90NTE/BHtKi0ClGsXFLGLPSfKuiz/H5rfxGieXJJ6N0eSnur6Pom1klYjKK50imRBggP+YR3laig8POE/wtkIrZ41zsyPKh7Ea7WsCsOYsvAwFD+Ri2PJhXjtSscNntaj9YvfE5G1Prz4wyDf8eOh7k5tuV+9hqP8Y/4BIU0HvIpARn9RWKkQgrUZGfmDYEYlyddc0Rycs15bsAeuESTRqGmrxG4m3NPPHaoPBRerLwsuBx4uVcFnDi5ncZFxU620wGp20PxSqZytmmenUrAoAZVRCoA9CZMct2pk+LzZCZlZ9nfq9PLriD8yV0wXp7E1W4Pm4KZtHI4XgAA52gOGjoBVYAMMPO6m7haYwDV/ldZEn6nVedsvo3ddKDd6skSwKDLUmQ7KwPyUvqLuJRBJGBWdvHL0haQ2NuyVye8VPGRBlAYB5yUzYKOe5dI5HUKy1Cp1Db0tJWX+9RdoQtPGO1MXEuL8I7jk2DEU4qyHHrXAlF8JXj78b2FMoFrQpm6tgNOCYqoVReYPK9ew5hsbANZhWwchSJdw7uj8WvBJt+r2fYwmYR2EN71w
-X-Forefront-Antispam-Report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:PA4PR04MB9366.eurprd04.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(1800799024)(366016)(7416014)(52116014)(376014)(19092799006)(22082099003)(18002099003)(38350700014)(11063799006)(4143699003)(56012099006);DIR:OUT;SFP:1101;
-X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
-X-MS-Exchange-AntiSpam-MessageData-0: =?us-ascii?Q?OPAKcnqp2unjDRAakbWm8qhYr2Y3Vm3k9vj/fQ9xy80EwBh+x4KC+pPV/akd?=
- =?us-ascii?Q?2h2eNHHMGKqtwU74DwEvDiqcsQhptl8XhlxSPc8+JpVHkQpxf+T2QZ8XugVY?=
- =?us-ascii?Q?cdesPEhMxjIeotZ5M6KF8naXZgHsWMDOXY/gPfb2A+pXwqIbJNXwsud9yNjt?=
- =?us-ascii?Q?a3SlOTawyw/doVpibV6S0QgwPPKV+08PYQe5+O4mK5j4uCzojgKuubQOEqOs?=
- =?us-ascii?Q?l8uDYUAQhCn8L6kY+xeZym/Q8LaxiC+73Ouxeg+sdnG/IudDb3T/6O/O//tL?=
- =?us-ascii?Q?xBQgwva7LrgLVm80X9SNoE/V8kqnP/WOz0SCDSKpZNwEIsf9iWlSvY/SIP6r?=
- =?us-ascii?Q?AXqV9FzM9gx0EFK1DhJBnktkP27xYYj1aSo2ma3Fb15en18UDabTE/t37/GO?=
- =?us-ascii?Q?PIHzZi7UlCXTZkG3vs5ITBwD3w+tcuryGygGWXq2458Rr8gnGxXzSHwiiUER?=
- =?us-ascii?Q?KerNtEmRYbkDZj4at9FOpNHtmrdBfHfr6KeTv3PYBVEllV6G/T98ilfmrFTu?=
- =?us-ascii?Q?/uvUl1clf1YjKqH23wR99eLKCvl0I0Hu5ECfdrAneNqzaVsV2+Bi+dZ1jCpL?=
- =?us-ascii?Q?f9Yw9RIw7peTnvO/4dj45PCqsO2ofXYtm+0mK9dzxJLdywFSc+GzINl6ExmJ?=
- =?us-ascii?Q?trfcaioxSe/mqFZ4G6TwReVPXXI7XLX1I+7f4joiIKawFjpD8YtwaAoObDwT?=
- =?us-ascii?Q?QUocsjjyTfuvGu28ga2ZRjq5i3TbFD7s9COYuFDk8rWCGF3wuqIwLY+1d0kB?=
- =?us-ascii?Q?5u9XelcLVYR++Q5LA4ECt1WJHHvHUg0DfcMzkwFaPh7PvmGVusPkM06SVvxU?=
- =?us-ascii?Q?N5FA0OPjy3bRMcbvBs54Zz3gYxqmu1MLcFbOtmVoei8ZyyoTk+sDq5rUEC03?=
- =?us-ascii?Q?ZkZ+y7SzSKVvnf59qCzdwk40rSMKKsKWHJg7VGuMRbilmQR1Vx2M+rKaeAvH?=
- =?us-ascii?Q?sJ4hY/ioQl3ghOmeYQ4Ll4JI05s3Gvx269h6LuZOZZR0atMbBopVeIamHM3+?=
- =?us-ascii?Q?lbWLJ/3l7fNv1W832mPGanDFSweO22ybB0NwLL7TnSyEYNzWGGUmnan1qaO6?=
- =?us-ascii?Q?D9D0tVxAQJVFP1kzAxiSR9l0miKvcsgptORPMyPo9UAcOhak0QkdlNiN1EXl?=
- =?us-ascii?Q?yrQpbmJVTsfHsvx+HJywRB0xqHIxGzZPage6iqf8L82KyEpJmu3r+SY4InGs?=
- =?us-ascii?Q?Mzee8HPP3VvBrkknfieDhYuWooxVGo0j3y9VNKL4+d0QCsQ5HmIu61XjvjBF?=
- =?us-ascii?Q?8hyC/P4BHROtLw//N/ozbz/tIfmWtF6iPXrbBTecP9SGMLqMlg4rGTGSLTWA?=
- =?us-ascii?Q?WT1Wi48o5KjD5WOQX/2eVmyriCdvH4kf9eUEeecF4xu3BvoE0SSvwKiQu3FO?=
- =?us-ascii?Q?OHJeEBzCF0Keo4WEzcT7/IFI8bktbDP1a/igeqLRmJH3yqUs9u4kPl4HFMJC?=
- =?us-ascii?Q?nlzgQlpyjFlliAqUW2C5KKCHshMy3YC5iruJFSAJBTK0WkWVWjYW+/AJnnYh?=
- =?us-ascii?Q?3apWJzwXdhGCvr/9P5XQyAvS4Ba/SQAfaRCiyQ1iYCqtV54cOSmCvqsL0GSp?=
- =?us-ascii?Q?cdcQtAIk3yhXoxYxxwxEVBrLmhVG0nAwJImnEzC3hD/zRPKEzl3IVk3thT0C?=
- =?us-ascii?Q?LVRSi5YMCbVbRGRmwBb+AQYHvSJHcl7uGl44jUpkhj3cqw7FqJqcvIZGVgZQ?=
- =?us-ascii?Q?GrAeKVgw+mPh9HSvO4WdMzt7A3y0g/w5z6OZfLRabpr//WSA?=
-X-OriginatorOrg: nxp.com
-X-MS-Exchange-CrossTenant-Network-Message-Id: 18de5d5d-a4fc-4148-eeb3-08debcd8dfc4
-X-MS-Exchange-CrossTenant-AuthSource: PA4PR04MB9366.eurprd04.prod.outlook.com
-X-MS-Exchange-CrossTenant-AuthAs: Internal
-X-MS-Exchange-CrossTenant-OriginalArrivalTime: 28 May 2026 16:47:58.7671
- (UTC)
-X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
-X-MS-Exchange-CrossTenant-Id: 686ea1d3-bc2b-4c6f-a92c-d99c5c301635
-X-MS-Exchange-CrossTenant-MailboxType: HOSTED
-X-MS-Exchange-CrossTenant-UserPrincipalName: l1R3Pk25Gj/3/45/2bG9pA+D9h1TRahF2ROfY4HohvS82/BnoDvUg3GlENqKu1vMpqrEG/XFp7BwjYfeQjwLog==
-X-MS-Exchange-Transport-CrossTenantHeadersStamped: GV2PR04MB11740
+Content-Transfer-Encoding: 8bit
+X-HM-Tid: 0a9e6f8028ff03a1kunm2f79b8526ba12
+X-HM-MType: 10
+X-HM-Spam-Status: e1kfGhgUHx5ZQUpXWQgPGg8OCBgUHx5ZQUlOS1dZFg8aDwILHllBWSg2Ly
+	tZV1koWUFITzdXWRgWCB1ZQUpXWS1ZQUlXWQ8JGhUIEh9ZQVkZHhpJVh9NTE1PHU0YTUsZS1YeHw
+	5VEwETFhoSFyQUDg9ZV1kYEgtZQVlJT0tCQUNCSU9BSUtKSEFKGk0ZQU5LGh1BSUpPGkEeGkkZQU
+	wfGklZV1kWGg8SFR0UWUFZT0tIVUpLSUhOQ0NVSktLVUtZBg++
+DKIM-Signature: a=rsa-sha256;
+	b=WW05eevjZQMJAhFhF9ztJLnsUyl5H1/yh18GhU7JzlaRniiQ6KXLE2Nia81lzO7qdhzh6Bp7UeX/357JhOfycisZiGkixs6pFrvWCf9KyQAYYx+dMr96SZC7ai2hLVzH1jQhj9MrGDrsnA6yK77grpufcnBldI5wBiEWXQfKPwo=; c=relaxed/relaxed; s=default; d=seu.edu.cn; v=1;
+	bh=VqpF95Me50rWFEF/pPooatQSHRrhpris1NlOAFjPDf8=;
+	h=date:mime-version:subject:message-id:from;
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260528_094807_989656_9D613F4A 
-X-CRM114-Status: GOOD (  20.24  )
+X-CRM114-CacheID: sfid-20260528_095227_137748_CC711D80 
+X-CRM114-Status: GOOD (  13.59  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -143,38 +76,114 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Thu, May 28, 2026 at 12:55:34PM +0200, Thorsten Leemhuis wrote:
-> On 5/7/26 17:46, Frank Li wrote:
-> >
-> > On Mon, 27 Apr 2026 09:01:48 +0800, Peng Fan (OSS) wrote:
-> >> The i.MX8M soc device is registered via platform_device_register_simple(),
-> >> so it is not associated with a Device Tree node and the imx8m_soc_driver
-> >> has no of_match_table.
-> >>
-> >> As a result, device_get_match_data() always returns NULL when probing
-> >> the soc device.
-> >>
-> >> [...]
-> >
-> > Applied, thanks!
-> >
-> > [1/1] soc: imx8m: Fix match data lookup for soc device
-> >       commit: 2c6821657ce3b3c85f92719ea81ec9f9ff27df11
->
-> Just wondering: are you planning to sent this towards mainline this
-> cycle? The regression this fixes was introduced this cycle, so I guess
-> it's something that should be merged before -rc6, as that's when Linus
-> wants all known regression ideally fixed. But from the name of the
-> branch it sounds more like this is scheduled to be merged in the next
-> merge window (but I might easily mistaken there -- if I am: sorry!)
+The etb10 miscdevice uses drvdata->reading as a shared exclusivity gate
+for userspace buffer access. etb_open() claims that gate with
+local_cmpxchg(), and etb_release() clears it with local_set().
 
-Thanks reminders. I intent to send for 7.1. But second look, not sure any
-big impact although it is regression.
+That gate is shared per-device state rather than CPU-local state. A
+running system can reach it whenever /dev/<etb> is opened, closed, and
+reopened by different tasks while the device remains registered, so the
+same drvdata->reading variable may be claimed on one CPU and later
+cleared on another.
 
-commmit message have not show what impact. I checked code, look like only
-missed some soc informaiton. Let me know if I am wrong.
+This code used to use atomic_t for the same gate, but commit
+27b10da8fff2 ("coresight: etb10: moving to local atomic operations")
+changed it to local_t even though the access pattern remained cross-task
+and cross-CPU. Restore atomic_t together with atomic_cmpxchg() and
+atomic_set() so the exclusivity gate again uses a primitive intended
+for shared state.
 
-Frank
->
-> Ciao, Thorsten
+The issue was found on Linux v6.18.21 by our static analysis tool while
+scanning surviving local_t-on-shared-state sites, and then manually
+reviewed against the live etb10 file-op path.
+
+It was runtime-validated with a reproducible QEMU no-device KCSAN PoC
+that kept the same report-local contract:
+
+  1. use one shared struct etb_drvdata carrier and its
+     drvdata->reading gate;
+  2. call etb_open() and etb_release() sequentially on that gate to
+     confirm the original claim/clear path;
+  3. bind the open side to CPU0 and the release side to CPU1 for the
+     same gate to show cross-CPU ownership;
+  4. run bound workers that repeatedly race etb_open() and
+     etb_release() on the same gate until KCSAN reports a target hit.
+
+The harness recorded:
+
+  L1 passed open=1 release=1
+  reading_after_open=1 reading_after_release=0
+  L2 passed open_cpu=0 release_cpu=1
+  cross_cpu_release=1 reading_after=0 open_ret=0
+
+Representative KCSAN excerpt from the no-device validation run:
+
+  BUG: KCSAN: data-race in etb_open.constprop.0.isra.0 [vuln_msv]
+
+  write to 0xffffffffc0003810 of 4 bytes by task 216 on cpu 1:
+   etb_open.constprop.0.isra.0+0x38/0x80 [vuln_msv]
+   l3_worker_thread_fn+0x4f/0xf0 [vuln_msv]
+   kthread+0x17e/0x1c0
+   ret_from_fork+0x22/0x30
+
+  read to 0xffffffffc0003810 of 4 bytes by task 215 on cpu 0:
+   etb_open.constprop.0.isra.0+0x18/0x80 [vuln_msv]
+   l3_worker_thread_fn+0x4f/0xf0 [vuln_msv]
+   kthread+0x17e/0x1c0
+   ret_from_fork+0x22/0x30
+
+  value changed: 0x00000000 -> 0x00000001
+
+  Reported by Kernel Concurrency Sanitizer on:
+  CPU: 0 PID: 215 Comm: etb10_l3_a Tainted: G           O       6.1.66 #2
+
+This no-device harness is not a real ETB10 hardware end-to-end run, but
+it preserves the same shared drvdata->reading gate and the same
+etb_open()/etb_release() claim/clear contract. No real ETB10 hardware
+was available for runtime testing.
+
+Build-tested with:
+  make olddefconfig
+  make -j"$(nproc)" drivers/hwtracing/coresight/coresight-etb10.o
+
+Fixes: 27b10da8fff2 ("coresight: etb10: moving to local atomic operations")
+Cc: stable@vger.kernel.org
+Signed-off-by: Runyu Xiao <runyu.xiao@seu.edu.cn>
+---
+ drivers/hwtracing/coresight/coresight-etb10.c | 6 +++---
+ 1 file changed, 3 insertions(+), 3 deletions(-)
+
+diff --git a/drivers/hwtracing/coresight/coresight-etb10.c b/drivers/hwtracing/coresight/coresight-etb10.c
+index 35db1b6093d1..98269ea6f7ae 100644
+--- a/drivers/hwtracing/coresight/coresight-etb10.c
++++ b/drivers/hwtracing/coresight/coresight-etb10.c
+@@ -85,7 +85,7 @@ struct etb_drvdata {
+ 	struct coresight_device	*csdev;
+ 	struct miscdevice	miscdev;
+ 	raw_spinlock_t		spinlock;
+-	local_t			reading;
++	atomic_t		reading;
+ 	pid_t			pid;
+ 	u8			*buf;
+ 	u32			buffer_depth;
+@@ -603,7 +603,7 @@ static int etb_open(struct inode *inode, struct file *file)
+ 	struct etb_drvdata *drvdata = container_of(file->private_data,
+ 						   struct etb_drvdata, miscdev);
+ 
+-	if (local_cmpxchg(&drvdata->reading, 0, 1))
++	if (atomic_cmpxchg(&drvdata->reading, 0, 1))
+ 		return -EBUSY;
+ 
+ 	dev_dbg(&drvdata->csdev->dev, "%s: successfully opened\n", __func__);
+@@ -641,7 +641,7 @@ static int etb_release(struct inode *inode, struct file *file)
+ {
+ 	struct etb_drvdata *drvdata = container_of(file->private_data,
+ 						   struct etb_drvdata, miscdev);
+-	local_set(&drvdata->reading, 0);
++	atomic_set(&drvdata->reading, 0);
+ 
+ 	dev_dbg(&drvdata->csdev->dev, "%s: released\n", __func__);
+ 	return 0;
+-- 
+2.34.1
 
