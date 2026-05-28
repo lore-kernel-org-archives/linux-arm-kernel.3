@@ -4,92 +4,65 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id D6932CD6E44
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 28 May 2026 12:44:20 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 4207ECD6E44
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 28 May 2026 12:49:26 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
-	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=JOsam8NjoAr1MmJMyDY/LLfJ9CvvvTbgnZHck1lUMzM=; b=lOF+e1VKT10Q4bekyt34ULTIjc
-	VEmou/Mui4cZYM1ebkM3LR1UB2dJBdbx5FNUU6q1RnwsfmlZfz6jexnlKO2xFxmILZrM1rn2nVQOj
-	w6d4NbELJU6oZ0E9zbDC2eywtv/p9/Bf7pa0O4uCy9lhoYnrDf0v9QtrL0FtKSsJKwMGJt26ufCGP
-	oahpSjpnMHE0rStveqVmSoy5wdCs41Ifa21yYiqS6yq7ru1EgwhbeCLjIebVAjBmr75qS5NnzQg7y
-	MOraUz1Z2AtpkhQET26U3Bm2UCRJfaxDUj4+onYXOHvYB2/I6yCAlNfkHmgPpRAuIIol2iisKoVQV
-	cd8trEBA==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=BdTf/XL83BO5DVn2I2t8yIIiGexfhR/e5m10V8sBCrU=; b=H1hiJy3I2t7yw+Vl1lTis/c1uO
+	lgl3MLRl/jyA8F0eyn7m4VzfR6C7A80FF46P2Q+zXcYwZvkfXiYQtn8zQcV7Pwe7iFpDeoHLk8DfO
+	MXeNKiZmsCU19NIjKKbW/iVN1JleSqxmeaYQ0M5PtoAsFMBagHRWDlYl7vraZgez8Mk/Zi3fgZMyn
+	+shqZAIkgwKw4mCbHdyac4P9AdFNntt4EHWMXlxbWqE+XOMkwXOm6hgb8FhfHikxqf22KY3jSJEXT
+	Ua2HcrY8XyBZ5vSe+DKeR1BDpig2eDDBNUi06L3lfWYcwbezfa25YKLNIgTBFeypdQ3EVVdDe9KHi
+	AzvRJSBw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wSa5s-00000005jXn-1Bek;
-	Thu, 28 May 2026 12:44:12 +0000
-Received: from mail-wm1-x343.google.com ([2a00:1450:4864:20::343])
+	id 1wSaAp-00000005jrw-3qaL;
+	Thu, 28 May 2026 12:49:19 +0000
+Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wSa5p-00000005jXQ-1Qvb
-	for linux-arm-kernel@lists.infradead.org;
-	Thu, 28 May 2026 12:44:11 +0000
-Received: by mail-wm1-x343.google.com with SMTP id 5b1f17b1804b1-4905529b933so43652015e9.0
-        for <linux-arm-kernel@lists.infradead.org>; Thu, 28 May 2026 05:44:08 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=suse.com; s=google; t=1779972246; x=1780577046; darn=lists.infradead.org;
-        h=content-transfer-encoding:in-reply-to:from:content-language
-         :references:cc:to:subject:user-agent:mime-version:date:message-id
-         :from:to:cc:subject:date:message-id:reply-to;
-        bh=JOsam8NjoAr1MmJMyDY/LLfJ9CvvvTbgnZHck1lUMzM=;
-        b=K3eQKrcio90baPJtpDewscS1CD2cgqOzJoARl9QheHIoW36pcuEdFQ6KQICktbukJg
-         NMS7ObzFHGd4LXauPC2cPNKqxgUClUACan5Rz9vHoVMUJGovEbkgW1L91J5+yjvbMXET
-         ObDLlkcG6lTeJujpTVKUtaAWtS0rrd0KpkodUtS60cTQY/ZTPUyWyeU2Q4RLrJbumAr0
-         vpM5YEHrBwSsd++3jHldaTYKSy6jNVroEdEYQxb9TAC9YwzHFv6LgAvzXZRCiGvAWQsR
-         SpXXnS0wqSdnQJJGJ0swTUOCsFodTb0l2c5azVrL+ZNfGUoy1PB92BV85O/avGWep3Ap
-         St8Q==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20251104; t=1779972246; x=1780577046;
-        h=content-transfer-encoding:in-reply-to:from:content-language
-         :references:cc:to:subject:user-agent:mime-version:date:message-id
-         :x-gm-gg:x-gm-message-state:from:to:cc:subject:date:message-id
-         :reply-to;
-        bh=JOsam8NjoAr1MmJMyDY/LLfJ9CvvvTbgnZHck1lUMzM=;
-        b=Z+9HupxjzLIDuXhZ5OKXc5zAyAEFvHhKbAz49pJC0HxO+kGlEYxW86DkbF8rloL2pI
-         Fe9rgh0pDNgS4F4JxcpY3qnuT7d2Zq7FAO36TIXaZjh4/aImRONnux1AG0SDR16nfiBm
-         68VK565MBE7bBMT8iAZ51d7bRihAzG5ZJsUzADXvuw2MXwCEaRu7F3glpFv8r9re/PX4
-         btzXL+V9lMssf2Kd362itwj1v45AYzSz9SFUeDOpeWQi9iFKJT0CUB8P65gL5YZ1oh7u
-         mh4gyGHwIWc2D0YmivH34H/AsFUVIB53TqcPzIzbRKWPW8KxzAZWaKBaJawTp3XsAdwT
-         d8zQ==
-X-Forwarded-Encrypted: i=1; AFNElJ/zCNPDWXBqKzMV9jCC6rsoOkvFftBkf80qXX5GSng9YINH1dpQS4TjZnrHpNBua/n5jG/QvxIAGJUOvLISwlcK@lists.infradead.org
-X-Gm-Message-State: AOJu0YyjtpWitWneZfnuvHkCyGK7BJHrEXWUXr0FQvD1O32chb4OceYv
-	RXdctUqBMYS+X/1qY5J9XzkXyfCVzV5bb3dExpIs+cMB9Aaf9ibspywLSc3P7J+o+bI=
-X-Gm-Gg: Acq92OHolFiJrlzq2lY34QtXrqmoNex66+qKDTgoC2Ipb4oSK17U4qO2Cxg5DvVuphk
-	XG+YLRZGaTGMpB2cy/00dBRYV33aPGcsTf11p+YeraztzNdpLlVb1HsSLLVOlbsrgWz6n+4SPrV
-	3I/r+hxEIRXue9HQLhgo0HrmBWus9YZae9kVUwVV0NPhhHx4pJ03TQjGfm2GFR/OdAC8nl9FF0j
-	Me7tue4PNqKrOUGOHxdml+Jmp4+AnOUIOO4RkzSXGsYzlX/M4OROUjzSrYx1plxRgIn1znjCwos
-	E3fG9+j9iHq7wGwHRoN0ydI4+YzrGFR86WlJ+MWKoRQh+9FOKWDZFNOw+tXXH9ielVAuIbU2J9i
-	P4E+++07zacqXkcYPgfuNeYMoroKkV082+mjQLdlALUNmip3OSl+KZgUvndGoFiq0QohKVWYKDV
-	GHHyDGt9kwDyZqLDfLPAx56i6l84Q1IjZRmgmogAk8GDDhi4jrHhrX6leAJHFtSeQLyQ==
-X-Received: by 2002:a05:600d:8444:20b0:48f:e230:2a21 with SMTP id 5b1f17b1804b1-490428ee28emr338403185e9.32.1779972246309;
-        Thu, 28 May 2026 05:44:06 -0700 (PDT)
-Received: from [192.168.42.79] (nat2.prg.suse.com. [195.250.132.146])
-        by smtp.gmail.com with ESMTPSA id ffacd0b85a97d-45edb5579b8sm13618311f8f.9.2026.05.28.05.44.05
-        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
-        Thu, 28 May 2026 05:44:05 -0700 (PDT)
-Message-ID: <a1bd5c1f-bf45-4eb1-a790-936fa13bc8b8@suse.com>
-Date: Thu, 28 May 2026 14:44:04 +0200
+	id 1wSaAn-00000005jrV-1rOf;
+	Thu, 28 May 2026 12:49:18 +0000
+Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
+	by sea.source.kernel.org (Postfix) with ESMTP id A1942435BD;
+	Thu, 28 May 2026 12:49:16 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 07EC91F000E9;
+	Thu, 28 May 2026 12:49:15 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
+	s=k20260515; t=1779972556;
+	bh=BdTf/XL83BO5DVn2I2t8yIIiGexfhR/e5m10V8sBCrU=;
+	h=Date:From:To:Cc:Subject:References:In-Reply-To;
+	b=gEN4v5kOi4MVsq2iPw8fvNqKlquhfthjM1NUH26HV1XQWvwUfdNASDTufaQQpL58r
+	 f5GjvQY1g3K9lrokpQ+LlkTdweaBvb2KDHCmQeaFgt6M87lU4xQiPapp6LqOk5GvgH
+	 AcOp5B0BzT5BarJzJnYe8qXHAcMdQsC4H2vLZ2W0O03SRqwTalEh/zWJhRV74RPYwp
+	 8tXEUAPPLV2/xbtgD8arRi6a5oEjCZsaFBJ+CuJKUL6lKGNB8jqyM/B+UMEbmhDNhn
+	 OlQt9pmqO+0mFRTr54cfX+gtvRRXHZzJKMGy3Uyh3bNHTMWettBEyQfrNo/K7hyqdt
+	 Fx/yXkIpmGShA==
+Date: Thu, 28 May 2026 14:49:14 +0200
+From: Lorenzo Bianconi <lorenzo@kernel.org>
+To: Andrew Lunn <andrew+netdev@lunn.ch>,
+	"David S. Miller" <davem@davemloft.net>,
+	Eric Dumazet <edumazet@google.com>,
+	Jakub Kicinski <kuba@kernel.org>, Paolo Abeni <pabeni@redhat.com>
+Cc: Simon Horman <horms@kernel.org>, linux-arm-kernel@lists.infradead.org,
+	linux-mediatek@lists.infradead.org, netdev@vger.kernel.org,
+	Xuegang Lu <xuegang.lu@airoha.com>
+Subject: Re: [PATCH net-next 4/6] net: airoha: Move qos_sq_bmap in
+ airoha_gdm_dev struct
+Message-ID: <ahg5ykQLOng5muio@lore-desk>
+References: <20260527-airoha-eth-multi-serdes-preliminary-v1-0-ec6ed73ef7fc@kernel.org>
+ <20260527-airoha-eth-multi-serdes-preliminary-v1-4-ec6ed73ef7fc@kernel.org>
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH] ARM: module.lds: fix unwind metadata for merged .text
- sections
-To: Egg12138 <egg12138@foxmail.com>
-Cc: Russell King <linux@armlinux.org.uk>, Josh Poimboeuf
- <jpoimboe@kernel.org>, Petr Mladek <pmladek@suse.com>,
- linux-arm-kernel@lists.infradead.org, linux-modules@vger.kernel.org,
- linux-kernel@vger.kernel.org
-References: <tencent_69DC6E2A5B77E4D567CA4F552DD3A835590A@qq.com>
-Content-Language: en-US
-From: Petr Pavlu <petr.pavlu@suse.com>
-In-Reply-To: <tencent_69DC6E2A5B77E4D567CA4F552DD3A835590A@qq.com>
-Content-Type: text/plain; charset=UTF-8
-Content-Transfer-Encoding: 7bit
+Content-Type: multipart/signed; micalg=pgp-sha512;
+	protocol="application/pgp-signature"; boundary="TMO1IBn/tLXifO32"
+Content-Disposition: inline
+In-Reply-To: <20260527-airoha-eth-multi-serdes-preliminary-v1-4-ec6ed73ef7fc@kernel.org>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260528_054409_404386_336DA210 
-X-CRM114-Status: GOOD (  22.69  )
+X-CRM114-CacheID: sfid-20260528_054917_549690_608D34A5 
+X-CRM114-Status: GOOD (  28.72  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -104,73 +77,245 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On 5/21/26 5:57 PM, Egg12138 wrote:
-> Commit 1ba9f8979426 ("vmlinux.lds: Unify TEXT_MAIN, DATA_MAIN,
-> and related macros") made scripts/module.lds.S merge module input
-> .text.* sections into the output .text section.
-> 
-> On ARM, the paired unwind input sections keep their original names.  A
-> module can therefore contain .ARM.exidx.text.unlikely with sh_link
-> pointing at .text, while .text.unlikely no longer exists.
-> 
-> This is a valid ELF relationship, but ARM module_finalize() does not use
-> sh_link when registering module unwind tables.  It derives the target
-> text section from the exidx section name instead:
-> 
->   .ARM.exidx.text.unlikely -> .text.unlikely
-> 
-> The lookup fails and the unwind table is not registered for the actual
-> .text range.  This can make module stack unwinding fail with:
-> 
->   unwind: Index not found
-> 
-> Keep the ARM module unwind output names in sync with the text sections
-> that scripts/module.lds.S now produces.  Coalesce the .ARM.exidx/.ARM.extab
-> sections associated with .text.*, into the
-> stable output names expected by the existing ARM module unwind code.
-> 
-> Fixes: 1ba9f8979426 ("vmlinux.lds: Unify TEXT_MAIN, DATA_MAIN, and related macros")
-> Signed-off-by: Egg12138 <egg12138@foxmail.com>
 
-A Signed-off-by tag should use a known identity, see
-Documentation/process/submitting-patches.rst, Developer's Certificate of
-Origin 1.1 [1].
+--TMO1IBn/tLXifO32
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+Content-Transfer-Encoding: quoted-printable
 
+> Since now multiple net_devices connected to different QDMA blocks can
+> share the same GDM port, qos_sq_bmap field can be overwritten with the
+> configuration obtained from a net_device connected to a different QDMA
+> block. In order to fix the issue move qos_sq_bmap field from
+> airoha_gdm_port struct to airoha_gdm_dev one.
+> Add qos_channel_map bitmap in airoha_qdma struct to track if a shared
+> QDMA channel is already in use by another net_device.
+>=20
+> Tested-by: Xuegang Lu <xuegang.lu@airoha.com>
+> Signed-off-by: Lorenzo Bianconi <lorenzo@kernel.org>
 > ---
->  arch/arm/include/asm/module.lds.h | 8 ++++++++
->  1 file changed, 8 insertions(+)
-> 
-> diff --git a/arch/arm/include/asm/module.lds.h b/arch/arm/include/asm/module.lds.h
-> index 0e7cb4e314b4..dc9adf8fa50e 100644
-> --- a/arch/arm/include/asm/module.lds.h
-> +++ b/arch/arm/include/asm/module.lds.h
-> @@ -1,4 +1,12 @@
->  /* SPDX-License-Identifier: GPL-2.0 */
-> +
-> +#ifndef CONFIG_ARCH_WANTS_MODULES_TEXT_SECTIONS
-
-The Arm architecture support doesn't select
-CONFIG_ARCH_WANTS_MODULES_TEXT_SECTIONS, so this #ifndef is not really
-necessary. I suggest leaving these linker definitions unconditional, or
-alternatively use '#ifdef CONFIG_ARM_UNWIND'.
-
-> +SECTIONS {
-> +	.ARM.extab		0 : { *(.ARM.extab .ARM.extab.text .ARM.extab.text.[0-9a-zA-Z_]*) }
-> +	.ARM.exidx		0 : { *(.ARM.exidx .ARM.exidx.text .ARM.exidx.text.[0-9a-zA-Z_]*) }
+>  drivers/net/ethernet/airoha/airoha_eth.c | 58 ++++++++++++++++++++------=
+------
+>  drivers/net/ethernet/airoha/airoha_eth.h |  6 ++--
+>  2 files changed, 40 insertions(+), 24 deletions(-)
+>=20
+> diff --git a/drivers/net/ethernet/airoha/airoha_eth.c b/drivers/net/ether=
+net/airoha/airoha_eth.c
+> index c5d25f7640ac..4f77a0c22162 100644
+> --- a/drivers/net/ethernet/airoha/airoha_eth.c
+> +++ b/drivers/net/ethernet/airoha/airoha_eth.c
+> @@ -2602,30 +2602,40 @@ static int airoha_qdma_set_tx_rate_limit(struct n=
+et_device *netdev,
+>  	return 0;
+>  }
+> =20
+> -static int airoha_tc_htb_alloc_leaf_queue(struct net_device *netdev,
+> -					  struct tc_htb_qopt_offload *opt)
+> +static int airoha_tc_htb_modify_queue(struct net_device *dev,
+> +				      struct tc_htb_qopt_offload *opt)
+>  {
+>  	u32 channel =3D TC_H_MIN(opt->classid) % AIROHA_NUM_QOS_CHANNELS;
+>  	u32 rate =3D div_u64(opt->rate, 1000) << 3; /* kbps */
+> -	int err, num_tx_queues =3D netdev->real_num_tx_queues;
+> -	struct airoha_gdm_dev *dev =3D netdev_priv(netdev);
+> -	struct airoha_gdm_port *port =3D dev->port;
+> =20
+>  	if (opt->parent_classid !=3D TC_HTB_CLASSID_ROOT) {
+>  		NL_SET_ERR_MSG_MOD(opt->extack, "invalid parent classid");
+>  		return -EINVAL;
+>  	}
+> =20
+> -	err =3D airoha_qdma_set_tx_rate_limit(netdev, channel, rate,
+> -					    opt->quantum);
+> -	if (err) {
+> +	return airoha_qdma_set_tx_rate_limit(dev, channel, rate, opt->quantum);
 > +}
-> +#endif
 > +
->  #ifdef CONFIG_ARM_MODULE_PLTS
->  SECTIONS {
->  	.plt : { BYTE(0) }
+> +static int airoha_tc_htb_alloc_leaf_queue(struct net_device *netdev,
+> +					  struct tc_htb_qopt_offload *opt)
+> +{
+> +	u32 channel =3D TC_H_MIN(opt->classid) % AIROHA_NUM_QOS_CHANNELS;
+> +	int err, num_tx_queues =3D netdev->real_num_tx_queues;
+> +	struct airoha_gdm_dev *dev =3D netdev_priv(netdev);
+> +	struct airoha_qdma *qdma =3D dev->qdma;
+> +
+> +	/* Here we need to check the requested QDMA channel is not already
+> +	 * in use by another net_device running on the same QDMA block.
+> +	 */
+> +	if (test_and_set_bit(channel, qdma->qos_channel_map)) {
+>  		NL_SET_ERR_MSG_MOD(opt->extack,
+> -				   "failed configuring htb offload");
+> -		return err;
+> +				   "qdma qos channel already in use");
+> +		return -EBUSY;
+>  	}
+> =20
+> -	if (opt->command =3D=3D TC_HTB_NODE_MODIFY)
+> -		return 0;
+> +	err =3D airoha_tc_htb_modify_queue(netdev, opt);
+> +	if (err)
+> +		goto error;
+> =20
+>  	err =3D netif_set_real_num_tx_queues(netdev, num_tx_queues + 1);
+>  	if (err) {
+> @@ -2633,13 +2643,17 @@ static int airoha_tc_htb_alloc_leaf_queue(struct =
+net_device *netdev,
+>  					      opt->quantum);
+>  		NL_SET_ERR_MSG_MOD(opt->extack,
+>  				   "failed setting real_num_tx_queues");
+> -		return err;
+> +		goto error;
+>  	}
+> =20
+> -	set_bit(channel, port->qos_sq_bmap);
+> +	set_bit(channel, dev->qos_sq_bmap);
+>  	opt->qid =3D AIROHA_NUM_TX_RING + channel;
+> =20
+>  	return 0;
+> +error:
+> +	clear_bit(channel, qdma->qos_channel_map);
+> +
+> +	return err;
+>  }
+> =20
+>  static int airoha_qdma_set_rx_meter(struct airoha_gdm_dev *dev,
+> @@ -2820,11 +2834,13 @@ static int airoha_dev_setup_tc_block(struct net_d=
+evice *dev,
+>  static void airoha_tc_remove_htb_queue(struct net_device *netdev, int qu=
+eue)
+>  {
+>  	struct airoha_gdm_dev *dev =3D netdev_priv(netdev);
+> -	struct airoha_gdm_port *port =3D dev->port;
+> +	struct airoha_qdma *qdma =3D dev->qdma;
+> =20
+>  	netif_set_real_num_tx_queues(netdev, netdev->real_num_tx_queues - 1);
+>  	airoha_qdma_set_tx_rate_limit(netdev, queue + 1, 0, 0);
+> -	clear_bit(queue, port->qos_sq_bmap);
+> +
+> +	clear_bit(queue, qdma->qos_channel_map);
+> +	clear_bit(queue, dev->qos_sq_bmap);
+>  }
+> =20
+>  static int airoha_tc_htb_delete_leaf_queue(struct net_device *netdev,
+> @@ -2832,9 +2848,8 @@ static int airoha_tc_htb_delete_leaf_queue(struct n=
+et_device *netdev,
+>  {
+>  	u32 channel =3D TC_H_MIN(opt->classid) % AIROHA_NUM_QOS_CHANNELS;
+>  	struct airoha_gdm_dev *dev =3D netdev_priv(netdev);
+> -	struct airoha_gdm_port *port =3D dev->port;
+> =20
+> -	if (!test_bit(channel, port->qos_sq_bmap)) {
+> +	if (!test_bit(channel, dev->qos_sq_bmap)) {
+>  		NL_SET_ERR_MSG_MOD(opt->extack, "invalid queue id");
+>  		return -EINVAL;
+>  	}
+> @@ -2847,10 +2862,9 @@ static int airoha_tc_htb_delete_leaf_queue(struct =
+net_device *netdev,
+>  static int airoha_tc_htb_destroy(struct net_device *netdev)
+>  {
+>  	struct airoha_gdm_dev *dev =3D netdev_priv(netdev);
+> -	struct airoha_gdm_port *port =3D dev->port;
+>  	int q;
+> =20
+> -	for_each_set_bit(q, port->qos_sq_bmap, AIROHA_NUM_QOS_CHANNELS)
+> +	for_each_set_bit(q, dev->qos_sq_bmap, AIROHA_NUM_QOS_CHANNELS)
+>  		airoha_tc_remove_htb_queue(netdev, q);
+> =20
+>  	return 0;
+> @@ -2861,9 +2875,8 @@ static int airoha_tc_get_htb_get_leaf_queue(struct =
+net_device *netdev,
+>  {
+>  	u32 channel =3D TC_H_MIN(opt->classid) % AIROHA_NUM_QOS_CHANNELS;
+>  	struct airoha_gdm_dev *dev =3D netdev_priv(netdev);
+> -	struct airoha_gdm_port *port =3D dev->port;
+> =20
+> -	if (!test_bit(channel, port->qos_sq_bmap)) {
+> +	if (!test_bit(channel, dev->qos_sq_bmap)) {
+>  		NL_SET_ERR_MSG_MOD(opt->extack, "invalid queue id");
+>  		return -EINVAL;
+>  	}
+> @@ -2882,6 +2895,7 @@ static int airoha_tc_setup_qdisc_htb(struct net_dev=
+ice *dev,
+>  	case TC_HTB_DESTROY:
+>  		return airoha_tc_htb_destroy(dev);
+>  	case TC_HTB_NODE_MODIFY:
+> +		return airoha_tc_htb_modify_queue(dev, opt);
+>  	case TC_HTB_LEAF_ALLOC_QUEUE:
+>  		return airoha_tc_htb_alloc_leaf_queue(dev, opt);
+>  	case TC_HTB_LEAF_DEL:
+> diff --git a/drivers/net/ethernet/airoha/airoha_eth.h b/drivers/net/ether=
+net/airoha/airoha_eth.h
+> index f6f59d25abd9..a308a770116b 100644
+> --- a/drivers/net/ethernet/airoha/airoha_eth.h
+> +++ b/drivers/net/ethernet/airoha/airoha_eth.h
+> @@ -533,6 +533,8 @@ struct airoha_qdma {
+> =20
+>  	struct airoha_queue q_tx[AIROHA_NUM_TX_RING];
+>  	struct airoha_queue q_rx[AIROHA_NUM_RX_RING];
+> +
+> +	DECLARE_BITMAP(qos_channel_map, AIROHA_NUM_QOS_CHANNELS);
+>  };
+> =20
+>  struct airoha_gdm_dev {
+> @@ -540,6 +542,8 @@ struct airoha_gdm_dev {
+>  	struct airoha_qdma *qdma;
+>  	struct net_device *dev;
+>  	struct airoha_eth *eth;
+> +
+> +	DECLARE_BITMAP(qos_sq_bmap, AIROHA_NUM_QOS_CHANNELS);
+>  };
+> =20
+>  struct airoha_gdm_port {
+> @@ -549,8 +553,6 @@ struct airoha_gdm_port {
+> =20
+>  	struct airoha_hw_stats stats;
+> =20
+> -	DECLARE_BITMAP(qos_sq_bmap, AIROHA_NUM_QOS_CHANNELS);
+> -
+>  	/* qos stats counters */
+>  	u64 cpu_tx_packets;
+>  	u64 fwd_tx_packets;
+>=20
+> --=20
+> 2.54.0
+>=20
 
-Besides the above nits, the patch looks ok to me. Please don't forget to
-put it in Russell's patch tracker [2].
+commenting on sashiko's report:
+https://sashiko.dev/#/patchset/20260527-airoha-eth-multi-serdes-preliminary=
+-v1-0-ec6ed73ef7fc%40kernel.org
+- This isn't a bug introduced by this patch, but does this modify operation
+  skip verifying if the requesting net_device actually owns the channel?
+  - Since this issue has not been itroduced by this patch, I will fix it wi=
+th a
+    dedicated patch.
 
-[1] https://github.com/torvalds/linux/blob/v7.1-rc5/Documentation/process/submitting-patches.rst#developers-certificate-of-origin-11
-[2] https://www.arm.linux.org.uk/developer/patches/
+- This is a pre-existing issue, but does this manage real_num_tx_queues as =
+an
+  active queue counter rather than a bounding limit?
+  - Since this issue has not been itroduced by this patch, I will fix it wi=
+th a
+    dedicated patch.
 
--- 
-Thanks,
-Petr
+- This isn't a bug introduced by this patch, but is there an off-by-one err=
+or
+  when clearing the TX rate limit for the removed queue?
+  - Since this issue has not been itroduced by this patch, I will fix it wi=
+th a
+    dedicated patch.
+
+Regards,
+Lorenzo
+
+--TMO1IBn/tLXifO32
+Content-Type: application/pgp-signature; name=signature.asc
+
+-----BEGIN PGP SIGNATURE-----
+
+iHUEABYKAB0WIQTquNwa3Txd3rGGn7Y6cBh0uS2trAUCahg5ygAKCRA6cBh0uS2t
+rCMNAQDKEnq+mPIApGyg/eAzCagvKa/9cU3MiYuMNdpto75U8QD+N8D5hY8B0IRa
+hQCcDndPJZLjewOZ98m1EYGcJpAxtQo=
+=9A/b
+-----END PGP SIGNATURE-----
+
+--TMO1IBn/tLXifO32--
 
