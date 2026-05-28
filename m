@@ -4,60 +4,124 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 07E60CD5BD1
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 28 May 2026 10:49:43 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 81CF3CD5BD1
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 28 May 2026 10:52:23 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
+	Content-Type:In-Reply-To:From:References:CC:To:Subject:MIME-Version:Date:
 	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=TzfRgmAmDbYNdlkUWdaD9vHLM7kJgMlcmxEVlcnNJJg=; b=44mRAH9fMN58xJ72r5y9A+rxxF
-	muAqIWK+NrjcTd9DvZQz4Hz3Au0I2jcKJK6YqGvBWakeFt2TuRMvQvvIGKpAcnsJau/n5gI/EwRii
-	vBpr2NtVy3HEvLm6qchDq3xLuYzwinVCyK8NxOkbNf6RYubp3tqwiHKM48Qe148I//NcRirt69HHZ
-	tOh10RbR1E9OG7nVg/Bl4S1rwUeLgDXaTzUroXZ9uTkPhl+J3mbmZFm37LfbBYaPqOf0atODYz75X
-	t9Pv+65NMqaJJuI2buo5+WTZhVxsRSVXCmKEzJ/xTipmFWzj3TBac1bz/VOusl1P74+OxEfn3p4L0
-	sODzUxxA==;
+	bh=ARpKZrYXmTFsOnM7JxHpKmreJeHryubba/2L7K3DvVQ=; b=xCXu976+zsO1BQ3bnq9cGpplX8
+	+VVYvb1NR+9MerCpt5kgW50R1isKd/dYv92PkaRejv3BGLQeIDRKidb51+PiY2fJc67lgTvaBEQPg
+	IAoUapEje71wrBfX567mBt+m0SJOd89Quv2XddaZTt+yxuhVyQptiD0BlYjNyt6KG3e5/PkIsPblB
+	0P9IH2EUv35ruh32oM8WCOeLJJRKLRPPIUWyX2PlWek0QgbhupXXNUP7ErjW9v7Ep3uKbG1A6acFm
+	BSHiBm8i6HD4gJhoaGbma21LYbBhH9D7OE8YSjpUfJyGQFQGj8hV9nA4o2mLUmRhzo5f0FkaEWLsi
+	XLU4dpsA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wSYIx-00000005c18-0RaS;
-	Thu, 28 May 2026 10:49:35 +0000
-Received: from foss.arm.com ([217.140.110.172])
-	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wSYIu-00000005c0m-2nAj
+	id 1wSYLZ-00000005cC1-1mWz;
+	Thu, 28 May 2026 10:52:17 +0000
+Received: from mail-westus3azon11011024.outbound.protection.outlook.com ([40.107.208.24] helo=PH0PR06CU001.outbound.protection.outlook.com)
+	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
+	id 1wSYLV-00000005cBT-3tI4
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 28 May 2026 10:49:34 +0000
-Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
-	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id EB9AF43F7;
-	Thu, 28 May 2026 03:49:24 -0700 (PDT)
-Received: from [10.1.28.164] (unknown [10.1.28.164])
-	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id DF6933F905;
-	Thu, 28 May 2026 03:49:27 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=simple/simple; d=arm.com; s=foss;
-	t=1779965370; bh=CT8N+WiwZXFDidMTyeq2SrC2hbXteujE+eLmeEr0Z0U=;
-	h=Date:Subject:To:Cc:References:From:In-Reply-To:From;
-	b=unja8kmmdmmutnNm5kym0sv3/d2F9aBwuk6NNJZBRMtWpKlR8nnoZib7pQfQoMakp
-	 e0oGd8ZoLCB0oUotOAIpmSXsZHHZFs2SIGyfeJuEpuyh25EPVC0JzD47wnge+lfNmK
-	 TQrKa7oBMzQUxXaz45Iui8DFxMGIOBfH/fysP5FY=
-Message-ID: <45832143-f257-4661-9019-28d2722e23a5@arm.com>
-Date: Thu, 28 May 2026 11:49:25 +0100
+	Thu, 28 May 2026 10:52:15 +0000
+ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
+ b=r5eEuIgX0JPaf8W+S4lHC7MLAkJwRUh4bb73biEajKfvlWf7d+y2zU2xZRP+hcZqNgwEdli7DUB7hYEB2XDtW/6d9if0k3WlipVX9Hk3Ss/w+JW/f8+uLlz+5HRs5BeGietfpQqGSnfnlVH999JBlMErC4qCfIpq/AvpPpaf5r5zwKqB5qmAwYschI04+UPtzSSWB4VJpq9G8t9RJWNE2nSsmJc/HRzf4AkuYrHz0bRToFvgse4SPqGsvfyx1EghWaRHLh2D47/RVTWj3oG3+pY2k4cctrHCufOsPmUFCDzULkawlRSXNDCowKqg91wXUL98YqU7IvkIRFXBJFSTEg==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
+ s=arcselector10001;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
+ bh=ARpKZrYXmTFsOnM7JxHpKmreJeHryubba/2L7K3DvVQ=;
+ b=Njc34OY+564hnk6zDqZ6+ULgaU3wTDyboz+hhCacb33OiDd0F+Ha/fFRzWRhgbR2CR14T8dLVaFlYOC/TYMxf2iKcOqDB49PtXNKblO21jJOswxr1FXAiVwoo0JED9RsVGrGXvLM/J5aBNwgqMyqw5mrSsZE1JokGGCfJlA2HCEq2bJCpEgzVs7/ROgB0Ehxv7H6efZMl8aSA1WB/e/aKJ+85fk+3Yl7maoX5FcVWNlBJnPzgLnT/AnPgoaZBfxgSaEY3zm36c1WQzRU+EuVOSdbb+VQiCOgEA7Q47YE0YZ82S3x9mmfwv3XbpGn2gfBGDu4geiPBcHQFslwZPJf/Q==
+ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass (sender ip is
+ 198.47.23.195) smtp.rcpttodomain=microchip.com smtp.mailfrom=ti.com;
+ dmarc=pass (p=quarantine sp=none pct=100) action=none header.from=ti.com;
+ dkim=none (message not signed); arc=none (0)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=ti.com; s=selector1;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
+ bh=ARpKZrYXmTFsOnM7JxHpKmreJeHryubba/2L7K3DvVQ=;
+ b=nyNhVKOm72Firtr8TQeJsnGDB0qLctgrc5EmTfQrRY6qlK1XbknOaXlTxYOxvDYtA/Gas2Rd8wp/ZoUxroHrLIM1LxBm1RFZpQzYr3sNblXh4keo2UEjnUMYcMZRiXWzFSUkn3eeTGMUVUZ1XdEP5+9S6ZkvIcTBTZXl9JSHCbg=
+Received: from SA0PR11CA0114.namprd11.prod.outlook.com (2603:10b6:806:d1::29)
+ by DM4PR10MB7403.namprd10.prod.outlook.com (2603:10b6:8:184::13) with
+ Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.21.71.12; Thu, 28 May
+ 2026 10:52:07 +0000
+Received: from SN1PEPF00036F3D.namprd05.prod.outlook.com
+ (2603:10b6:806:d1:cafe::46) by SA0PR11CA0114.outlook.office365.com
+ (2603:10b6:806:d1::29) with Microsoft SMTP Server (version=TLS1_3,
+ cipher=TLS_AES_256_GCM_SHA384) id 15.21.71.13 via Frontend Transport; Thu, 28
+ May 2026 10:52:07 +0000
+X-MS-Exchange-Authentication-Results: spf=pass (sender IP is 198.47.23.195)
+ smtp.mailfrom=ti.com; dkim=none (message not signed) header.d=none;dmarc=pass
+ action=none header.from=ti.com;
+Received-SPF: Pass (protection.outlook.com: domain of ti.com designates
+ 198.47.23.195 as permitted sender) receiver=protection.outlook.com;
+ client-ip=198.47.23.195; helo=lewvzet201.ext.ti.com; pr=C
+Received: from lewvzet201.ext.ti.com (198.47.23.195) by
+ SN1PEPF00036F3D.mail.protection.outlook.com (10.167.248.21) with Microsoft
+ SMTP Server (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
+ 15.21.71.7 via Frontend Transport; Thu, 28 May 2026 10:52:07 +0000
+Received: from DLEE215.ent.ti.com (157.170.170.118) by lewvzet201.ext.ti.com
+ (10.4.14.104) with Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.2.2562.37; Thu, 28 May
+ 2026 05:52:06 -0500
+Received: from DLEE202.ent.ti.com (157.170.170.77) by DLEE215.ent.ti.com
+ (157.170.170.118) with Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.2.2562.37; Thu, 28 May
+ 2026 05:52:06 -0500
+Received: from lelvem-mr05.itg.ti.com (10.180.75.9) by DLEE202.ent.ti.com
+ (157.170.170.77) with Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.2.2562.37 via Frontend
+ Transport; Thu, 28 May 2026 05:52:06 -0500
+Received: from [172.24.233.103] (uda0132425.dhcp.ti.com [172.24.233.103])
+	by lelvem-mr05.itg.ti.com (8.18.1/8.18.1) with ESMTP id 64SAq1Jt1901707;
+	Thu, 28 May 2026 05:52:02 -0500
+Message-ID: <26a43b26-b7d4-4c5d-a286-4ac1869e2d42@ti.com>
+Date: Thu, 28 May 2026 16:22:01 +0530
 MIME-Version: 1.0
 User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH 16/18] arm64: fpsimd: Move sve_flush_live() inline
-To: Mark Rutland <mark.rutland@arm.com>,
- linux-arm-kernel@lists.infradead.org, kvmarm@lists.linux.dev
-Cc: broonie@kernel.org, catalin.marinas@arm.com, james.morse@arm.com,
- maz@kernel.org, oupton@kernel.org, tabba@google.com, will@kernel.org
-References: <20260521132556.584676-1-mark.rutland@arm.com>
- <20260521132556.584676-17-mark.rutland@arm.com>
-Content-Language: en-GB
-From: Vladimir Murzin <vladimir.murzin@arm.com>
-In-Reply-To: <20260521132556.584676-17-mark.rutland@arm.com>
-Content-Type: text/plain; charset=UTF-8
+Subject: Re: [PATCH v5 2/3] arm64: dts: ti: Add k3-am62l3-beaglebadge
+To: Judith Mendez <jm@ti.com>, Nishanth Menon <nm@ti.com>
+CC: Tero Kristo <kristo@kernel.org>, Rob Herring <robh@kernel.org>, "Krzysztof
+ Kozlowski" <krzk+dt@kernel.org>, Conor Dooley <conor+dt@kernel.org>,
+	<linux-arm-kernel@lists.infradead.org>, <devicetree@vger.kernel.org>,
+	<linux-kernel@vger.kernel.org>, Andrew Davis <afd@ti.com>, Bryan Brattlof
+	<bb@ti.com>, Jason Kridner <jkridner@gmail.com>, Robert Nelson
+	<robertcnelson@gmail.com>, Conor Dooley <conor.dooley@microchip.com>
+References: <20260526235417.1326187-1-jm@ti.com>
+ <20260526235417.1326187-3-jm@ti.com>
+From: Vignesh Raghavendra <vigneshr@ti.com>
+Content-Language: en-US
+In-Reply-To: <20260526235417.1326187-3-jm@ti.com>
+Content-Type: text/plain; charset="UTF-8"
 Content-Transfer-Encoding: 7bit
+X-C2ProcessedOrg: 333ef613-75bf-4e12-a4b1-8e3623f5dcea
+X-EOPAttributedMessage: 0
+X-MS-PublicTrafficType: Email
+X-MS-TrafficTypeDiagnostic: SN1PEPF00036F3D:EE_|DM4PR10MB7403:EE_
+X-MS-Office365-Filtering-Correlation-Id: 9132ebc8-756c-4329-5c86-08debca72953
+X-LD-Processed: e5b49634-450b-4709-8abb-1e2b19b982b7,ExtAddr
+X-MS-Exchange-SenderADCheck: 1
+X-MS-Exchange-AntiSpam-Relay: 0
+X-Microsoft-Antispam: BCL:0;ARA:13230040|1800799024|36860700016|82310400026|376014|7416014|22082099003|18002099003|3023799007|4143699003|56012099006;
+X-Microsoft-Antispam-Message-Info: lck/sJ5e7+WeVVA+H7SWCFphx7UzOA4Wqwomu4dglF46ULWyFEDwOBGLjw72OPMP4c4nMDha3yVdWbw76R4GdWpMbkTwekFUbWSbLtLVYJNVCyzeBWVDCT5Q0FDPgkW3gnGYRxMZW9CG6VAJcnb9NuwZME/0uaXYktQySw8Oj3TPlnK/KUuzOPmpJ4cGCysVHSXNViNNyk9e6Oc4E3ICk1x9FE0pThjAJZnMqsSGGRK5X9DvPai0GTLV8BOjI5Np5AdzvD+d1XnS1nz7pWjetkkCb2LEOyVFieLlr8shDQDfHRRKgvXbWnMZjqn2MaWc3XJ1sfxC8bTxCf/+rnXOjxlRtDwsQm9Dns0iPcwIBWZJ1FvAGmqupupOkUIs7yfmWcWH6rHh5fVcrfQi1v7/00AHgZ9aZ6Vt5hly5Ri59uULc045dfyXpOGdzbZBgbxRF9ar1+IhNVEVyqVljOx/kjt1hncQvo/ep1I80bkHq8wmtFn/VTPFG9VvGYg7iBA9WMo8N3vGJAHbTMDAvDJqEnFNtF0rTT/p9tKOaljQ0Hc/DowUJX65+qKIhNted5vKhjdliIM/Gu9khc4GxYJ6ce70LFg1G/x99od7s7luAE1svClszixADHUoqTaZUAUetuPVgJ5efHYNAYqn145/yiM+OBZmRnddY0roBzDWn3gsQ9Y4H+HFFCZSipTMGO34
+X-Forefront-Antispam-Report: CIP:198.47.23.195;CTRY:US;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:lewvzet201.ext.ti.com;PTR:InfoDomainNonexistent;CAT:NONE;SFS:(13230040)(1800799024)(36860700016)(82310400026)(376014)(7416014)(22082099003)(18002099003)(3023799007)(4143699003)(56012099006);DIR:OUT;SFP:1101;
+X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
+X-MS-Exchange-AntiSpam-MessageData-0: kyzPudUcjqH3kOg+/iatP6EECwAAL5s7KcYi82n1lvsVuIaAEDjxot6b0DKp3WJfHdlBOFAu7/g1Sf7NZxLDjkC1t5xjrgHWF6Ib4v9fucXA3iPI5X4FrQOtxmf4hVPra9ybYMxOw3+xRlGvFgj5Q3uDNLgdQIVROuz7rfEcAIiA3+nv5Whcui1+ZwM6Xq1ZdpW8pSbBavK/5iFeQSaf6idFLEUSqnjyG8BzwKx3+aB+794V0fEFgHFXS3oB6vULvMjt5jIqe9FxQn/w16PJ/4QbIuSLx5q3sB8jJpscLy/uw8SpJ7G/GC0YleTET1OcdHJt22GJC79bFxdZf5DfRfQGyrfNX7/q5RNONBeROIBdrLN+GyyGbpxDCROAe7vi6TkOG4cyYF5ImeXU/4YnNgchG1zzpzcqldosLJYpHfITX9GI6fwbsE5SFksE8121
+X-OriginatorOrg: ti.com
+X-MS-Exchange-CrossTenant-OriginalArrivalTime: 28 May 2026 10:52:07.1736
+ (UTC)
+X-MS-Exchange-CrossTenant-Network-Message-Id: 9132ebc8-756c-4329-5c86-08debca72953
+X-MS-Exchange-CrossTenant-Id: e5b49634-450b-4709-8abb-1e2b19b982b7
+X-MS-Exchange-CrossTenant-OriginalAttributedTenantConnectingIp: TenantId=e5b49634-450b-4709-8abb-1e2b19b982b7;Ip=[198.47.23.195];Helo=[lewvzet201.ext.ti.com]
+X-MS-Exchange-CrossTenant-AuthSource: SN1PEPF00036F3D.namprd05.prod.outlook.com
+X-MS-Exchange-CrossTenant-AuthAs: Anonymous
+X-MS-Exchange-CrossTenant-FromEntityHeader: HybridOnPrem
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: DM4PR10MB7403
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260528_034932_811664_FC9C391F 
-X-CRM114-Status: GOOD (  26.34  )
+X-CRM114-CacheID: sfid-20260528_035214_065912_9B3E8BCE 
+X-CRM114-Status: GOOD (  14.41  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -72,193 +136,67 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On 5/21/26 14:25, Mark Rutland wrote:
-> Currently sve_flush_live() is written in out-of-line assembly. It would
-> be nice if we could move it inline such that control flow can be written
-> more clearly in C, and to permit the removal of otherwise unused
-> assembly macros.
+
+
+On 27/05/26 05:24, Judith Mendez wrote:
+> BeagleBoard.org BeagleBadge is a compact, affordable open source
+> hardware single board computer based on the Texas Instruments AM62L3
+> SoC designed for IoT and embedded applications with low power
+> consumption. Expansion is provided over open standards based headers
+> including QWIIC and GPIO interfaces.
 > 
-> The 'flush_ffr' argument is redundant as sve_flush_live() is always
-> called from non-streaming mode, and all callers pass 'true'. Remove the
-> argument and make it a requirement that the function is called from
-> non-streaming mode.
+> https://www.beagleboard.org/boards/beaglebadge
 > 
-> The 'vq_minus_1' argument is unnecessary, as sve_flush_live() can read
-> the live VL directly using the RDVL instruction (wrapped by the
-> sve_get_vl() helper function).
-> 
-> Move the function to C, with the simplifications above.
-> 
-> Signed-off-by: Mark Rutland <mark.rutland@arm.com>
-> Cc: Catalin Marinas <catalin.marinas@arm.com>
-> Cc: Fuad Tabba <tabba@google.com>
-> Cc: James Morse <james.morse@arm.com>
-> Cc: Marc Zyngier <maz@kernel.org>
-> Cc: Mark Brown <broonie@kernel.org>
-> Cc: Oliver Upton <oupton@kernel.org>
-> Cc: Will Deacon <will@kernel.org>
+> Co-developed-by: Andrew Davis <afd@ti.com>
+> Signed-off-by: Andrew Davis <afd@ti.com>
+> Signed-off-by: Judith Mendez <jm@ti.com>
 > ---
->  arch/arm64/include/asm/fpsimd.h       | 26 +++++++++++++++++++++++-
->  arch/arm64/include/asm/fpsimdmacros.h | 29 ---------------------------
->  arch/arm64/kernel/entry-common.c      |  8 ++------
->  arch/arm64/kernel/entry-fpsimd.S      | 22 --------------------
->  arch/arm64/kernel/fpsimd.c            |  2 +-
->  5 files changed, 28 insertions(+), 59 deletions(-)
+> Changelog since v4:
+> - Canonical URL fixed
+> - Switch gpio -> gpios in voltage regulator nodes
+> - Regulator-always-on removed in sensor_3v3
+> - Add bootph-all on pinmux nodes
+> - Fix gpio-line-names formatting
+> - Nodes: sdhci2, wlan_en regulator, & pinmux removed
+> - USB aliases removed
+> ---
+>  arch/arm64/boot/dts/ti/Makefile               |   1 +
+>  .../boot/dts/ti/k3-am62l3-beaglebadge.dts     | 658 ++++++++++++++++++
+>  2 files changed, 659 insertions(+)
+>  create mode 100644 arch/arm64/boot/dts/ti/k3-am62l3-beaglebadge.dts
 > 
-> diff --git a/arch/arm64/include/asm/fpsimd.h b/arch/arm64/include/asm/fpsimd.h
-> index d005324bbcf3e..550987b36206a 100644
-> --- a/arch/arm64/include/asm/fpsimd.h
-> +++ b/arch/arm64/include/asm/fpsimd.h
-> @@ -332,7 +332,31 @@ static inline void sve_load_state(const struct sve_state *state, bool ffr)
->  	__sve_load_p(state, vl, ffr);
->  }
+> diff --git a/arch/arm64/boot/dts/ti/Makefile b/arch/arm64/boot/dts/ti/Makefile
+> index 5269c9619b65c..4e377ca011cd8 100644
+> --- a/arch/arm64/boot/dts/ti/Makefile
+> +++ b/arch/arm64/boot/dts/ti/Makefile
+> @@ -41,6 +41,7 @@ dtb-$(CONFIG_ARCH_K3) += k3-am62d2-evm.dtb
 >  
-> -extern void sve_flush_live(bool flush_ffr, unsigned long vq_minus_1);
-> +
-> +/*
-> + * Zero all SVE registers except for the first 128 bits of each vector.
-> + *
-> + * The caller must ensure that the VL has been configured and the CPU must be
-> + * in non-streaming mode.
-> + */
-> +static inline void sve_flush_live(void)
-> +{
-> +	unsigned long vl = sve_get_vl();
-> +
-> +	if (vl > sizeof(__uint128_t)) {
-> +		asm volatile(
-> +		__FPSIMD_PREAMBLE
-> +		FOR_EACH_Z_REG("n", "mov	v\\n\\().16b, v\\n\\().16b")
-> +		);
-> +	}
-> +
-> +	asm volatile(
-> +	__SVE_PREAMBLE
-> +	FOR_EACH_P_REG("n", "pfalse	p\\n\\().b")
-> +	"	wrffr	p0.b\n"
-> +	);
-> +}
-> +
->  extern void sme_save_state(struct sme_state *state, int zt);
->  extern void sme_load_state(const struct sme_state *state, int zt);
->  
-> diff --git a/arch/arm64/include/asm/fpsimdmacros.h b/arch/arm64/include/asm/fpsimdmacros.h
-> index ebf8b47313e90..9e352b5c6b764 100644
-> --- a/arch/arm64/include/asm/fpsimdmacros.h
-> +++ b/arch/arm64/include/asm/fpsimdmacros.h
-> @@ -40,19 +40,6 @@
->  	.endif
->  .endm
->  
-> -/* Deprecated macros for SVE instructions */
-> -
-> -/* WRFFR P\np.B */
-> -.macro _sve_wrffr np
-> -	wrffr p\np\().b
-> -.endm
-> -
-> -/* PFALSE P\np.B */
-> -.macro _sve_pfalse np
-> -	.arch_extension sve
-> -	pfalse	p\np\().b
-> -.endm
-> -
->  /* Deprecated macros for SME instructions */
->  
->  /* RDSVL X\nx, #\imm */
-> @@ -130,22 +117,6 @@
->  	.purgem _for__body
->  .endm
->  
-> -/* Preserve the first 128-bits of Znz and zero the rest. */
-> -.macro _sve_flush_z nz
-> -	_sve_check_zreg \nz
-> -	mov	v\nz\().16b, v\nz\().16b
-> -.endm
-> -
-> -.macro sve_flush_z
-> - _for n, 0, 31, _sve_flush_z	\n
-> -.endm
-> -.macro sve_flush_p
-> - _for n, 0, 15, _sve_pfalse	\n
-> -.endm
-> -.macro sve_flush_ffr
-> -		_sve_wrffr	0
-> -.endm
-> -
->  .macro sme_save_za nxbase, xvl, nw
->  	mov	w\nw, #0
->  
-> diff --git a/arch/arm64/kernel/entry-common.c b/arch/arm64/kernel/entry-common.c
-> index cb54335465f66..2352297330e12 100644
-> --- a/arch/arm64/kernel/entry-common.c
-> +++ b/arch/arm64/kernel/entry-common.c
-> @@ -237,12 +237,8 @@ static inline void fpsimd_syscall_enter(void)
->  	if (!system_supports_sve())
->  		return;
->  
-> -	if (test_thread_flag(TIF_SVE)) {
-> -		unsigned int sve_vq_minus_one;
-> -
-> -		sve_vq_minus_one = sve_vq_from_vl(task_get_sve_vl(current)) - 1;
-> -		sve_flush_live(true, sve_vq_minus_one);
-> -	}
-> +	if (test_thread_flag(TIF_SVE))
-> +		sve_flush_live();
->  
->  	/*
->  	 * Any live non-FPSIMD SVE state has been zeroed. Allow
-> diff --git a/arch/arm64/kernel/entry-fpsimd.S b/arch/arm64/kernel/entry-fpsimd.S
-> index 0575d90e6dffb..bff941eea9566 100644
-> --- a/arch/arm64/kernel/entry-fpsimd.S
-> +++ b/arch/arm64/kernel/entry-fpsimd.S
-> @@ -11,28 +11,6 @@
->  #include <asm/assembler.h>
->  #include <asm/fpsimdmacros.h>
->  
-> -#ifdef CONFIG_ARM64_SVE
-> -
-> -/*
-> - * Zero all SVE registers but the first 128-bits of each vector
-> - *
-> - * VQ must already be configured by caller, any further updates of VQ
-> - * will need to ensure that the register state remains valid.
-> - *
-> - * x0 = include FFR?
-> - * x1 = VQ - 1
-> - */
-> -SYM_FUNC_START(sve_flush_live)
-> -	cbz		x1, 1f	// A VQ-1 of 0 is 128 bits so no extra Z state
-> -	sve_flush_z
-> -1:	sve_flush_p
-> -	tbz		x0, #0, 2f
-> -	sve_flush_ffr
-> -2:	ret
-> -SYM_FUNC_END(sve_flush_live)
-> -
-> -#endif /* CONFIG_ARM64_SVE */
-> -
->  #ifdef CONFIG_ARM64_SME
->  
->  /*
-> diff --git a/arch/arm64/kernel/fpsimd.c b/arch/arm64/kernel/fpsimd.c
-> index f9b3eeacf130d..42177b439b3c7 100644
-> --- a/arch/arm64/kernel/fpsimd.c
-> +++ b/arch/arm64/kernel/fpsimd.c
-> @@ -1338,7 +1338,7 @@ void do_sve_acc(unsigned long esr, struct pt_regs *regs)
->  	if (!test_thread_flag(TIF_FOREIGN_FPSTATE)) {
->  		unsigned long vq = sve_vq_from_vl(task_get_sve_vl(current));
->  		sysreg_clear_set_s(SYS_ZCR_EL1, ZCR_ELx_LEN, vq - 1);
-> -		sve_flush_live(true, vq - 1);
-> +		sve_flush_live();
->  		fpsimd_bind_task_to_cpu();
->  	} else {
->  		fpsimd_to_sve(current);
-> -- 2.30.2
-> 
+>  # Boards with AM62Lx SoCs
+>  dtb-$(CONFIG_ARCH_K3) += k3-am62l3-evm.dtb
+> +dtb-$(CONFIG_ARCH_K3) += k3-am62l3-beaglebadge.dtb
 
-FWIW,
+Sort this alphabetically please
 
-Reviewed-by: Vladimir Murzin <vladimir.murzin@arm.com>
+>  
+>  # Boards with AM62Px SoC
+>  dtb-$(CONFIG_ARCH_K3) += k3-am62p5-sk.dtb
+> diff --git a/arch/arm64/boot/dts/ti/k3-am62l3-beaglebadge.dts b/arch/arm64/boot/dts/ti/k3-am62l3-beaglebadge.dts
+> new file mode 100644
+> index 0000000000000..8e816d21a586f
+> --- /dev/null
+> +++ b/arch/arm64/boot/dts/ti/k3-am62l3-beaglebadge.dts
+> @@ -0,0 +1,658 @@
+> +// SPDX-License-Identifier: GPL-2.0
+
+Dual license this like other files
+
+// SPDX-License-Identifier: GPL-2.0-only or MIT
+
+[...]
+
+-- 
+Regards
+Vignesh
+https://ti.com/opensource
 
 
