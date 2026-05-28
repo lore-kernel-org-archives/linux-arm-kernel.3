@@ -4,100 +4,119 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 101BACD5BD5
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 28 May 2026 20:09:21 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 499B9CD4F54
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 28 May 2026 20:14:23 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:Message-Id:
-	Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:From:
-	Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender
-	:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
-	bh=yeYHRA7Uvd+ApWb0mxYDuX05x09Ixiae7OYtaETUCZ4=; b=H35AukLKePPD67XxLLzOHqYKOy
-	Zuk13RVLuYnbtrAvMW0Dj8LUodZhWyLzmTZ60aC53YBCzsRSdz4mY2sH74n5rTA72XwLcVG0YEvWK
-	P505whlToodP5n/EU6GWxWL8AUUKrmRmqZw0+mHi3Z+0Istm6OVSmkdYnZ4xGlv80/U8UnecGWkGT
-	oUN1f/tEditkny732oxx/2Xv/keMJiyFIOQbfBnPAcLsFbKLsiwVQrVQp6AW/dazHEc9mNbJCNqLN
-	L9FTd66XoBK/hyZjBh2Z94/sB/Ob14t6sc1l1vudiJguC+sTqpttMVevYho38cSXneBedB2BkDZc3
-	A0/SeGgg==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:CC:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=G3n86wRe9IZSAMbgPy0NJ7zrk274LUDm0lOSKaYmRLw=; b=tUEph6U+oshCbgOOVU2iGqR/BC
+	ZnNZiln0mnAzr6V8aKlNOVBGcKFKHL9cYKLXKA4kVEv0gyff7Euuf2JoZQxygW8tCLe4XF/XG4POU
+	s0YO1/t80k5JL+QniseRKB88uwg2Lxy+TZeox9OvsmuNOfEhmaWkStbuMQ0HA0TmxI/CmFlDJADT/
+	CgHTiluhJjZgbf3wIPP66i5Vuq3HBzHfsqnAhCEee9lSiozchiRtcSrxiGQeasnMUiAs4JhHaxD+n
+	etZnHNesi5uWGuuxrnR+X426AaharyYwZDhxH9jyeYSaflmL2KcODelWDF8gXUQY0rdanT+3cSOn+
+	JN1Py3JA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wSh2X-00000006JSa-06yt;
-	Thu, 28 May 2026 20:09:13 +0000
-Received: from mail-vs1-xe33.google.com ([2607:f8b0:4864:20::e33])
+	id 1wSh7O-00000006JnE-3LJb;
+	Thu, 28 May 2026 20:14:14 +0000
+Received: from mail-westus2azlp170120002.outbound.protection.outlook.com ([2a01:111:f403:c007::2] helo=MW6PR02CU001.outbound.protection.outlook.com)
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wSh2U-00000006JRk-14AF
+	id 1wSh7M-00000006Jms-1Ra3
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 28 May 2026 20:09:11 +0000
-Received: by mail-vs1-xe33.google.com with SMTP id ada2fe7eead31-63133de7abcso4296177137.1
-        for <linux-arm-kernel@lists.infradead.org>; Thu, 28 May 2026 13:09:09 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20251104; t=1779998948; x=1780603748; darn=lists.infradead.org;
-        h=cc:to:message-id:content-transfer-encoding:mime-version:subject
-         :date:from:from:to:cc:subject:date:message-id:reply-to;
-        bh=yeYHRA7Uvd+ApWb0mxYDuX05x09Ixiae7OYtaETUCZ4=;
-        b=gtjtDKlDNUTFegvxndQVaAphItthQIDYJU9uvpwJepxEtHMj925sJcH3P/71dlOHHS
-         PXPNMgSbb+JOU/XpZu8xIId+ay0hRfXBbWsgtuBFrHH6iRggJMzgDmmSoC3W3l2DhB7s
-         jNDcM/IGE01z2GH58NA/X/t5xrOOGpcT6n3Tm87q52+3HASNIvqIKfPbU7OobuHTmGjV
-         3juc/OzIvtpKN48a1dIolHm1fMdbVgyN5bhR0X/MRN6m4jWaQBO5TSGgchAW1j0CdpUx
-         Sao6VG2jSIxkrjxG3dImkEAonFqWlACDrEoSg25E4uij4fo7abzjTgLm5MaH66OTecjd
-         X5nw==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20251104; t=1779998948; x=1780603748;
-        h=cc:to:message-id:content-transfer-encoding:mime-version:subject
-         :date:from:x-gm-gg:x-gm-message-state:from:to:cc:subject:date
-         :message-id:reply-to;
-        bh=yeYHRA7Uvd+ApWb0mxYDuX05x09Ixiae7OYtaETUCZ4=;
-        b=pnqRxxzImwe5H3J9Caj23IUiPt5UcGrb3I0xs9UyubCmBvuDo0hje+pvk2gjGGGByH
-         FcafBf7JEZXvXZIjYphvVg0cBezvX3TNCdpYXZPlq04XSkno7Xn/Ciko7yotXXxgKtle
-         wYlXaYmlDs/WRLuR+39m9IZZphsNjT29A7GlXwoQyuztsvirEJZY8K9F3shWG+V8rwEw
-         LigctgcqPK7Xk+PvTTgTFlfxAfL5gB8AhHLNBieEqHG2oI/cIbUKwlXesEFqcEbu1ut7
-         i0m5WkUtku3ypNVu8kuTz8aKM+MyCdrac+jMejhWYndLQQVDaXFjLaRty9z7xj2+zUKZ
-         4H6Q==
-X-Forwarded-Encrypted: i=1; AFNElJ/wxVbIEzxPr0+NAAQSXU+p74ysAfksHISb4W4keCQOtfpZq/veaMUfHxGJ3QkNDBN2wIRLOgnHFGkUgJoy+1DN@lists.infradead.org
-X-Gm-Message-State: AOJu0YytNbcoEpUMn/MHj5+H1YAERngq6w9u7meXysps5njcPILrs0z0
-	ehBs8beUtBIWXbgoAVpbY2SALiEJ+ZbN4E1GXnvk5seozIRhceBJHcsK
-X-Gm-Gg: Acq92OF+rlh2yzfYsa9Z7xmhX/aL5zAipaJ/6OZyY7B2sjLIlv4HTqlq6Yc0Jje5oax
-	ZNwyxRCeb5v0dsgCmBxuBGupK9kVYDjLb3zkX5nxtSg8rKuX9kGEH990rR8V2Pn2NSZCuETrph/
-	MFnbNJTP4IEx7vhmXBdt61Dk/jVIUqu/jTqXC7JBJ3YjXtb1rzVpmleZ241yDnpsJ57zapYqLx+
-	crPbNCGgbaBQu8PFenTjKgLQ7NwkZy0AnF7+YF/bSdwUwv3xOInNZ+ZoXTndjrjdL6+PQDcWwjk
-	qZ05BS8mI2y5oWIsucITXXqdkVioG33A6uYQFA+Ey4JmQuLuHa4mfO61bMA80uLcDSbgySXt5S/
-	WsATeS/wz2XcoTLZfu4sRSiizXDbJE7l0+BYi/zrmjx+A2I95S4ZvNlvMh3L9qpupCHE1IoHUSd
-	YTwzm4XuIOBJxA1PQkCIKFN2E=
-X-Received: by 2002:a05:6102:b01:b0:631:ea6b:23dc with SMTP id ada2fe7eead31-6be0521eca7mr179806137.2.1779998948250;
-        Thu, 28 May 2026 13:09:08 -0700 (PDT)
-Received: from [127.0.0.1] ([2a02:6ea0:5505:7199::29])
-        by smtp.gmail.com with ESMTPSA id ada2fe7eead31-6beb8652221sm212137.2.2026.05.28.13.09.04
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Thu, 28 May 2026 13:09:07 -0700 (PDT)
-From: Denzeel Oliva <wachiturroxd150@gmail.com>
-Date: Thu, 28 May 2026 15:09:01 -0500
-Subject: [PATCH] clk: samsung: exynos990: Fix PERIC0/1 USI clock types
+	Thu, 28 May 2026 20:14:13 +0000
+ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
+ b=NVbWeMXZ1nmJ91qfMtxbwYFnekhGNcpEIi/kU0M6stH+CGQKsGtw531d+SG1r0oLbnHmw1y6Y5M9z86f7e8nSiQmPlVJjT/mu3w6L/cOnSolzoAeMssh5bDHI9kO9j7zWzj4SE2V6TFhpsPpAzulBiUdt87W1nuMLCVPiO/KBp0hnf1+RjUX8QqSMGkffRWejQ7PTU20IVkZ9zuyYUp3h66Ww5AcTjrjxoATzO0Ibx1ky2FF41tDnefPfr0Le0Gypc2R/Rd4zNR/NKEqjTiRzkScgXhfCUxiH4RKvK69VNtkpnir+q1j2H9e4oNCtRuBaSCcL8X/+bpi3psY9NAsIQ==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
+ s=arcselector10001;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
+ bh=G3n86wRe9IZSAMbgPy0NJ7zrk274LUDm0lOSKaYmRLw=;
+ b=LPuiPteRPmVvOr/a3iYUeocz+Go/r274one5v5h1tNgCBVQFogFoz6Kb6hNYmjMbmqFCua+Rl9eKzyBjYhyD3Y7hvitFiJxjJxQn6VUgtfwumTgZ868fBwOWX45Mg2f5gZrY0QLiV3M6qvbAH7heJU0mBuL6HpufIJJzouDYaC8VkGN5hneMIbP3RglclrzTE5Enbs3LC3ofY/mUoQzCkujO3sFLUO5NfU6N1Wydt5dRMIdWqe8lX0gcB97V2aR1DwqSt70LzlktaZrq9IDdvR/6NuW59m0P3WdzKYzf7OzAufMU3I/BHjnWYbz3ajotBwmhPSwL1VBzvGevzcG24Q==
+ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass (sender ip is
+ 216.228.117.161) smtp.rcpttodomain=google.com smtp.mailfrom=nvidia.com;
+ dmarc=pass (p=reject sp=reject pct=100) action=none header.from=nvidia.com;
+ dkim=none (message not signed); arc=none (0)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=Nvidia.com;
+ s=selector2;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
+ bh=G3n86wRe9IZSAMbgPy0NJ7zrk274LUDm0lOSKaYmRLw=;
+ b=pquasIDrH2OJDMv4vTxd8pmWRXGrW57ArMQVMfGl7lv61fn4TM2c49cy1j9rZw431nKLATpO65JWS0C/h4Mz/XzV8NGO4SrIpd45GbFEvuEOzSBVi/jR4+JBZM6LFhvsCdtKUQgCWP/xranUv0NhVrWVv9ydcV2I0hbwaT7D7BdaEqn2aCfzO7VPeNKZgoZirrLYxmLe/dgeKTY1lgcDG0i/TSxsObzcuF5+RGX+Szd1vpRjHruvHuPDxFAxlSFW4PTTSBFxnQn83bmmd/2lroYkERQLdf+LIaHeDNqsMVDHFLFPnmp/y0Qu1oIBhHviusv6XMjU31Lfdlt5SfoaYg==
+Received: from CH2PR10CA0001.namprd10.prod.outlook.com (2603:10b6:610:4c::11)
+ by IA0PPF0A63E7557.namprd12.prod.outlook.com (2603:10b6:20f:fc04::bc6) with
+ Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.21.71.12; Thu, 28 May
+ 2026 20:14:02 +0000
+Received: from DS3PEPF000099DC.namprd04.prod.outlook.com
+ (2603:10b6:610:4c:cafe::9a) by CH2PR10CA0001.outlook.office365.com
+ (2603:10b6:610:4c::11) with Microsoft SMTP Server (version=TLS1_3,
+ cipher=TLS_AES_256_GCM_SHA384) id 15.21.71.13 via Frontend Transport; Thu, 28
+ May 2026 20:14:02 +0000
+X-MS-Exchange-Authentication-Results: spf=pass (sender IP is 216.228.117.161)
+ smtp.mailfrom=nvidia.com; dkim=none (message not signed)
+ header.d=none;dmarc=pass action=none header.from=nvidia.com;
+Received-SPF: Pass (protection.outlook.com: domain of nvidia.com designates
+ 216.228.117.161 as permitted sender) receiver=protection.outlook.com;
+ client-ip=216.228.117.161; helo=mail.nvidia.com; pr=C
+Received: from mail.nvidia.com (216.228.117.161) by
+ DS3PEPF000099DC.mail.protection.outlook.com (10.167.17.198) with Microsoft
+ SMTP Server (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
+ 15.21.92.5 via Frontend Transport; Thu, 28 May 2026 20:14:02 +0000
+Received: from rnnvmail203.nvidia.com (10.129.68.9) by mail.nvidia.com
+ (10.129.200.67) with Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.2.2562.20; Thu, 28 May
+ 2026 13:13:42 -0700
+Received: from rnnvmail205.nvidia.com (10.129.68.10) by rnnvmail203.nvidia.com
+ (10.129.68.9) with Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.2.2562.20; Thu, 28 May
+ 2026 13:13:42 -0700
+Received: from Asurada-Nvidia (10.127.8.13) by mail.nvidia.com (10.129.68.10)
+ with Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.2.2562.20 via Frontend
+ Transport; Thu, 28 May 2026 13:13:41 -0700
+Date: Thu, 28 May 2026 13:13:40 -0700
+From: Nicolin Chen <nicolinc@nvidia.com>
+To: Pranjal Shrivastava <praan@google.com>
+CC: <iommu@lists.linux.dev>, Will Deacon <will@kernel.org>, Joerg Roedel
+	<joro@8bytes.org>, Robin Murphy <robin.murphy@arm.com>, Jason Gunthorpe
+	<jgg@ziepe.ca>, Mostafa Saleh <smostafa@google.com>, Daniel Mentz
+	<danielmentz@google.com>, Ashish Mhetre <amhetre@nvidia.com>,
+	<linux-arm-kernel@lists.infradead.org>
+Subject: Re: [PATCH v7 09/11] iommu/arm-smmu-v3: Enable pm_runtime and setup
+ devlinks
+Message-ID: <ahih9IQ9jPS34mZX@Asurada-Nvidia>
+References: <20260527221407.1756491-1-praan@google.com>
+ <20260527221407.1756491-10-praan@google.com>
 MIME-Version: 1.0
-Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: 7bit
-Message-Id: <20260528-perics-usi-v1-1-13a6ee4d1a6f@gmail.com>
-X-B4-Tracking: v=1; b=H4sIANygGGoC/yXMQQqAIBCF4avErBNM0KKrRAuzqaaFiVMRSHfPa
- vnBe38CxkjI0BYJIp7EtPmMqizALdbPKGjMBiWVkVo1IuS9Y3EwCaNtPaEyg5QW8iFEnOj6Yl3
- /m49hRbe/BbjvB0Y4lwNuAAAA
-X-Change-ID: 20260528-perics-usi-65a7fe26b00a
-To: Krzysztof Kozlowski <krzk@kernel.org>, 
- Sylwester Nawrocki <s.nawrocki@samsung.com>, 
- Chanwoo Choi <cw00.choi@samsung.com>, Alim Akhtar <alim.akhtar@samsung.com>, 
- Michael Turquette <mturquette@baylibre.com>, 
- Stephen Boyd <sboyd@kernel.org>, Brian Masney <bmasney@redhat.com>
-Cc: linux-samsung-soc@vger.kernel.org, linux-clk@vger.kernel.org, 
- linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org, 
- Denzeel Oliva <wachiturroxd150@gmail.com>
-X-Mailer: b4 0.15.1
-X-Developer-Signature: v=1; a=ed25519-sha256; t=1779998944; l=17919;
- i=wachiturroxd150@gmail.com; s=20250819; h=from:subject:message-id;
- bh=iAJ7LjzKcdgIeRWt2hA/3B6ahxBFHWqAM4FQXrRQpkc=;
- b=eWjfjJZw6dk5bzHIaUlaClQjekGGOARa9Il7gVRF0yx9ZSNWF/f5Y8e9IIlxl5jXoGnhFHIZu
- iVTXquUCWEUB6driQUJnXWz2BiM1beNGct99sl4tiYtfCENHBrWU11C
-X-Developer-Key: i=wachiturroxd150@gmail.com; a=ed25519;
- pk=qNvcL0Ehm3chrW9jFA2JaPVgubN5mHH//uriMxR/DlI=
+Content-Type: text/plain; charset="us-ascii"
+Content-Disposition: inline
+In-Reply-To: <20260527221407.1756491-10-praan@google.com>
+X-NV-OnPremToCloud: ExternallySecured
+X-EOPAttributedMessage: 0
+X-MS-PublicTrafficType: Email
+X-MS-TrafficTypeDiagnostic: DS3PEPF000099DC:EE_|IA0PPF0A63E7557:EE_
+X-MS-Office365-Filtering-Correlation-Id: d1f945aa-fb0a-4ff3-7134-08debcf5a901
+X-MS-Exchange-SenderADCheck: 1
+X-MS-Exchange-AntiSpam-Relay: 0
+X-Microsoft-Antispam: BCL:0;ARA:13230040|36860700016|1800799024|376014|82310400026|4143699003|11063799006|22082099003|18002099003|56012099006;
+X-Microsoft-Antispam-Message-Info: KRWwL1pIf8PsFgrn5yfjYLTbE7SxkzDWHyhpPfM06Xc9eDgU+7aOwxWo8+j6RlGSdz0D4pN/wCxdlOCiGfn0Q9MuJ4QYTCKhFtCBuxhc/+UlnaWwy/HDliVhsqMyqhn823pHv190LO/hiUP2X112fr9Omw1xCGNHYHkr8wpo4yqQNn2AW7JiwL+aIRKwJ+/4O94q+9rKOF2xvZlDs1XChN4ml3WIbgcNeQHYSH7dDICOXtSaEqqZa6I2oWhirYS50yW+pTsKV7HIO8MZBrlq4hVN2T3yLXZUreiVRdaBDizVgIcRm8nAkBsw72WzgEQd4S7lJPLfvJPtB7FZ/hQrTnbdd1cH5xn1Fuk44bor32VdEjsSgcprhJoVp5tRFJvheaWmO5DFq7/T0fyInEpdjohTvufSckdqEHOETMv3jYTOdi6RimbAHijM4myot3c0lbktUuaHsDEOT9yF1Nsulf6QcX0QnF3i/53cfd49WeMt1YZDybByD7wVGcGjbOt5N+subrTgCdy09eUGIBH5G6U9IUM/Na3FP3ZMBrvN3URz4wZmRb3pz/howhAaGDVpuz1Qe1s6Tgk6CwqBQT/lrW3fGn2TPtOdO+PcssYN/xqtvtc3dWXj/EoY30ROHg597rlr1kQxHgJ6mM4793bj7cuJT8ZojScdI5WEDzCtR15Qr0DBFEgI5TMrXXhRkI2Uns1etjd6QsInxmMTh3Bv4p3Al0mOsPynmuICobiEGwQ=
+X-Forefront-Antispam-Report: CIP:216.228.117.161;CTRY:US;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:mail.nvidia.com;PTR:dc6edge2.nvidia.com;CAT:NONE;SFS:(13230040)(36860700016)(1800799024)(376014)(82310400026)(4143699003)(11063799006)(22082099003)(18002099003)(56012099006);DIR:OUT;SFP:1101;
+X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
+X-MS-Exchange-AntiSpam-MessageData-0: xnnDRO8ZKJtWTQp4enNVdKl7AamQZcb4GYGccBzle++iv9u5ieXP+VbpOgtDXJxLZF62pApbkNdmV4ty/QkNvM/ZAbyX4aQ7qA7Eai76UJxXRzBhU80DhjRbiRl9y4UjgWAYKbevWyy+HOu19DFV3P91yYwwCiWndORxIuMMZCcpOixgA48p13Wxknp71qCkYvvyP3z94fAq0i6ZyPGOhfrCjbHOFmS1tCGTUcAZNu/YroWl1WRL9XY+WkXUSBphAr/8zMJQepZ7rjtcIMFGRSTrpC2JhkIktX7W0pVvMb6sHtoSKKWLgVELbztPfHlLmwn7fdtpcS3mL5I037SRU/yQAXHf2M3tMcxK3txgJlxQIxdFaCs6vAK6UzsymIIDEHhyy8vFgPVXS6itpvBiv67V/AqtYZpLjqy0gydRAorqvYEmIxhu736lfBbHvnaP
+X-OriginatorOrg: Nvidia.com
+X-MS-Exchange-CrossTenant-OriginalArrivalTime: 28 May 2026 20:14:02.0198
+ (UTC)
+X-MS-Exchange-CrossTenant-Network-Message-Id: d1f945aa-fb0a-4ff3-7134-08debcf5a901
+X-MS-Exchange-CrossTenant-Id: 43083d15-7273-40c1-b7db-39efd9ccc17a
+X-MS-Exchange-CrossTenant-OriginalAttributedTenantConnectingIp: TenantId=43083d15-7273-40c1-b7db-39efd9ccc17a;Ip=[216.228.117.161];Helo=[mail.nvidia.com]
+X-MS-Exchange-CrossTenant-AuthSource: DS3PEPF000099DC.namprd04.prod.outlook.com
+X-MS-Exchange-CrossTenant-AuthAs: Anonymous
+X-MS-Exchange-CrossTenant-FromEntityHeader: HybridOnPrem
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: IA0PPF0A63E7557
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260528_130910_397245_7C49B6E7 
-X-CRM114-Status: GOOD (  10.76  )
+X-CRM114-CacheID: sfid-20260528_131412_407481_5C880EA7 
+X-CRM114-Status: GOOD (  11.80  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -112,377 +131,33 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Use nMUX() for USI and UART user muxes to allow reparenting between
-OSC and CMU IP output when changing rates, and use DIV_F() with
-CLK_SET_RATE_PARENT on their dividers and gates so rate requests
-propagate upward.
+On Wed, May 27, 2026 at 10:14:05PM +0000, Pranjal Shrivastava wrote:
+> @@ -5592,11 +5595,18 @@ static int arm_smmu_device_probe(struct platform_device *pdev)
+>  	if (ret)
+>  		goto err_disable;
+>  
+> +	if (dev->pm_domain) {
+> +		pm_runtime_set_active(dev);
+> +		pm_runtime_use_autosuspend(dev);
+> +		pm_runtime_set_autosuspend_delay(dev, RPM_AUTOSUSPEND_DELAY_MS);
+> +		pm_runtime_enable(dev);
+> +	}
+> +
+>  	/* And we're up. Go go go! */
+>  	ret = iommu_device_sysfs_add(&smmu->iommu, dev, NULL,
+>  				     "smmu3.%pa", &ioaddr);
+>  	if (ret)
+> -		goto err_disable;
+> +		goto err_rpm_disable;
+>  
+>  	ret = iommu_device_register(&smmu->iommu, &arm_smmu_ops, dev);
+>  	if (ret) {
 
-Consolidate identical USI parent arrays into shared
-mout_peric0_nonbususer_p and mout_peric1_nonbususer_p.
+Can we move the entire pm_runtime_* piece at the end of this probe
+function, like arm-smmu v2 driver does?
 
-Signed-off-by: Denzeel Oliva <wachiturroxd150@gmail.com>
----
- drivers/clk/samsung/clk-exynos990.c | 307 +++++++++++++++++++++++++++++++++++---------------------------------------
- 1 file changed, 143 insertions(+), 164 deletions(-)
+It is no-fail, so we wouldn't need to add the revert path.
 
-diff --git a/drivers/clk/samsung/clk-exynos990.c b/drivers/clk/samsung/clk-exynos990.c
-index 6277dd557..4385c3b76 100644
---- a/drivers/clk/samsung/clk-exynos990.c
-+++ b/drivers/clk/samsung/clk-exynos990.c
-@@ -1546,54 +1546,44 @@ static const unsigned long peric0_clk_regs[] __initconst = {
- 
- /* Parent clock list for CMU_PERIC0 muxes */
- PNAME(mout_peric0_bus_user_p) = { "oscclk", "dout_cmu_peric0_bus" };
--PNAME(mout_peric0_uart_dbg_p) = { "oscclk", "dout_cmu_peric0_ip" };
--PNAME(mout_peric0_usi00_user_p) = { "oscclk", "dout_cmu_peric0_ip" };
--PNAME(mout_peric0_usi01_user_p) = { "oscclk", "dout_cmu_peric0_ip" };
--PNAME(mout_peric0_usi02_user_p) = { "oscclk", "dout_cmu_peric0_ip" };
--PNAME(mout_peric0_usi03_user_p) = { "oscclk", "dout_cmu_peric0_ip" };
--PNAME(mout_peric0_usi04_user_p) = { "oscclk", "dout_cmu_peric0_ip" };
--PNAME(mout_peric0_usi05_user_p) = { "oscclk", "dout_cmu_peric0_ip" };
--PNAME(mout_peric0_usi13_user_p) = { "oscclk", "dout_cmu_peric0_ip" };
--PNAME(mout_peric0_usi14_user_p) = { "oscclk", "dout_cmu_peric0_ip" };
--PNAME(mout_peric0_usi15_user_p) = { "oscclk", "dout_cmu_peric0_ip" };
--PNAME(mout_peric0_usi_i2c_user_p) = { "oscclk", "dout_cmu_peric0_ip" };
-+PNAME(mout_peric0_nonbususer_p) = { "oscclk", "dout_cmu_peric0_ip" };
- 
- static const struct samsung_mux_clock peric0_mux_clks[] __initconst = {
- 	MUX(CLK_MOUT_PERIC0_BUS_USER, "mout_peric0_bus_user",
- 	    mout_peric0_bus_user_p, PLL_CON0_MUX_CLKCMU_PERIC0_BUS_USER,
- 	    4, 1),
--	MUX(CLK_MOUT_PERIC0_UART_DBG, "mout_peric0_uart_dbg",
--	    mout_peric0_uart_dbg_p, PLL_CON0_MUX_CLKCMU_PERIC0_UART_DBG,
--	    4, 1),
--	MUX(CLK_MOUT_PERIC0_USI00_USI_USER, "mout_peric0_usi00_usi_user",
--	    mout_peric0_usi00_user_p, PLL_CON0_MUX_CLKCMU_PERIC0_USI00_USI_USER,
--	    4, 1),
--	MUX(CLK_MOUT_PERIC0_USI01_USI_USER, "mout_peric0_usi01_usi_user",
--	    mout_peric0_usi01_user_p, PLL_CON0_MUX_CLKCMU_PERIC0_USI01_USI_USER,
--	    4, 1),
--	MUX(CLK_MOUT_PERIC0_USI02_USI_USER, "mout_peric0_usi02_usi_user",
--	    mout_peric0_usi02_user_p, PLL_CON0_MUX_CLKCMU_PERIC0_USI02_USI_USER,
--	    4, 1),
--	MUX(CLK_MOUT_PERIC0_USI03_USI_USER, "mout_peric0_usi03_usi_user",
--	    mout_peric0_usi03_user_p, PLL_CON0_MUX_CLKCMU_PERIC0_USI03_USI_USER,
--	    4, 1),
--	MUX(CLK_MOUT_PERIC0_USI04_USI_USER, "mout_peric0_usi04_usi_user",
--	    mout_peric0_usi04_user_p, PLL_CON0_MUX_CLKCMU_PERIC0_USI04_USI_USER,
--	    4, 1),
--	MUX(CLK_MOUT_PERIC0_USI05_USI_USER, "mout_peric0_usi05_usi_user",
--	    mout_peric0_usi05_user_p, PLL_CON0_MUX_CLKCMU_PERIC0_USI05_USI_USER,
--	    4, 1),
--	MUX(CLK_MOUT_PERIC0_USI13_USI_USER, "mout_peric0_usi13_usi_user",
--	    mout_peric0_usi13_user_p, PLL_CON0_MUX_CLKCMU_PERIC0_USI13_USI_USER,
--	    4, 1),
--	MUX(CLK_MOUT_PERIC0_USI14_USI_USER, "mout_peric0_usi14_usi_user",
--	    mout_peric0_usi14_user_p, PLL_CON0_MUX_CLKCMU_PERIC0_USI14_USI_USER,
--	    4, 1),
--	MUX(CLK_MOUT_PERIC0_USI15_USI_USER, "mout_peric0_usi15_usi_user",
--	    mout_peric0_usi15_user_p, PLL_CON0_MUX_CLKCMU_PERIC0_USI15_USI_USER,
--	    4, 1),
-+	nMUX(CLK_MOUT_PERIC0_UART_DBG, "mout_peric0_uart_dbg",
-+	     mout_peric0_nonbususer_p, PLL_CON0_MUX_CLKCMU_PERIC0_UART_DBG,
-+	     4, 1),
-+	nMUX(CLK_MOUT_PERIC0_USI00_USI_USER, "mout_peric0_usi00_usi_user",
-+	     mout_peric0_nonbususer_p, PLL_CON0_MUX_CLKCMU_PERIC0_USI00_USI_USER,
-+	     4, 1),
-+	nMUX(CLK_MOUT_PERIC0_USI01_USI_USER, "mout_peric0_usi01_usi_user",
-+	     mout_peric0_nonbususer_p, PLL_CON0_MUX_CLKCMU_PERIC0_USI01_USI_USER,
-+	     4, 1),
-+	nMUX(CLK_MOUT_PERIC0_USI02_USI_USER, "mout_peric0_usi02_usi_user",
-+	     mout_peric0_nonbususer_p, PLL_CON0_MUX_CLKCMU_PERIC0_USI02_USI_USER,
-+	     4, 1),
-+	nMUX(CLK_MOUT_PERIC0_USI03_USI_USER, "mout_peric0_usi03_usi_user",
-+	     mout_peric0_nonbususer_p, PLL_CON0_MUX_CLKCMU_PERIC0_USI03_USI_USER,
-+	     4, 1),
-+	nMUX(CLK_MOUT_PERIC0_USI04_USI_USER, "mout_peric0_usi04_usi_user",
-+	     mout_peric0_nonbususer_p, PLL_CON0_MUX_CLKCMU_PERIC0_USI04_USI_USER,
-+	     4, 1),
-+	nMUX(CLK_MOUT_PERIC0_USI05_USI_USER, "mout_peric0_usi05_usi_user",
-+	     mout_peric0_nonbususer_p, PLL_CON0_MUX_CLKCMU_PERIC0_USI05_USI_USER,
-+	     4, 1),
-+	nMUX(CLK_MOUT_PERIC0_USI13_USI_USER, "mout_peric0_usi13_usi_user",
-+	     mout_peric0_nonbususer_p, PLL_CON0_MUX_CLKCMU_PERIC0_USI13_USI_USER,
-+	     4, 1),
-+	nMUX(CLK_MOUT_PERIC0_USI14_USI_USER, "mout_peric0_usi14_usi_user",
-+	     mout_peric0_nonbususer_p, PLL_CON0_MUX_CLKCMU_PERIC0_USI14_USI_USER,
-+	     4, 1),
-+	nMUX(CLK_MOUT_PERIC0_USI15_USI_USER, "mout_peric0_usi15_usi_user",
-+	     mout_peric0_nonbususer_p, PLL_CON0_MUX_CLKCMU_PERIC0_USI15_USI_USER,
-+	     4, 1),
- 	MUX(CLK_MOUT_PERIC0_USI_I2C_USER, "mout_peric0_usi_i2c_user",
--	    mout_peric0_usi_i2c_user_p, PLL_CON0_MUX_CLKCMU_PERIC0_USI_I2C_USER,
-+	    mout_peric0_nonbususer_p, PLL_CON0_MUX_CLKCMU_PERIC0_USI_I2C_USER,
- 	    4, 1),
- };
- 
-@@ -1602,42 +1592,42 @@ static const struct samsung_div_clock peric0_div_clks[] __initconst = {
- 	    "mout_peric0_uart_dbg",
- 	    CLK_CON_DIV_DIV_CLK_PERIC0_UART_DBG,
- 	    0, 4),
--	DIV(CLK_DOUT_PERIC0_USI00_USI, "dout_peric0_usi00_usi",
--	    "mout_peric0_usi00_usi_user",
--	    CLK_CON_DIV_DIV_CLK_PERIC0_USI00_USI,
--	    0, 4),
--	DIV(CLK_DOUT_PERIC0_USI01_USI, "dout_peric0_usi01_usi",
--	    "mout_peric0_usi01_usi_user",
--	    CLK_CON_DIV_DIV_CLK_PERIC0_USI01_USI,
--	    0, 4),
--	DIV(CLK_DOUT_PERIC0_USI02_USI, "dout_peric0_usi02_usi",
--	    "mout_peric0_usi02_usi_user",
--	    CLK_CON_DIV_DIV_CLK_PERIC0_USI02_USI,
--	    0, 4),
--	DIV(CLK_DOUT_PERIC0_USI03_USI, "dout_peric0_usi03_usi",
--	    "mout_peric0_usi03_usi_user",
--	    CLK_CON_DIV_DIV_CLK_PERIC0_USI03_USI,
--	    0, 4),
--	DIV(CLK_DOUT_PERIC0_USI04_USI, "dout_peric0_usi04_usi",
--	    "mout_peric0_usi04_usi_user",
--	    CLK_CON_DIV_DIV_CLK_PERIC0_USI04_USI,
--	    0, 4),
--	DIV(CLK_DOUT_PERIC0_USI05_USI, "dout_peric0_usi05_usi",
--	    "mout_peric0_usi05_usi_user",
--	    CLK_CON_DIV_DIV_CLK_PERIC0_USI05_USI,
--	    0, 4),
--	DIV(CLK_DOUT_PERIC0_USI13_USI, "dout_peric0_usi13_usi",
--	    "mout_peric0_usi13_usi_user",
--	    CLK_CON_DIV_DIV_CLK_PERIC0_USI13_USI,
--	    0, 4),
--	DIV(CLK_DOUT_PERIC0_USI14_USI, "dout_peric0_usi14_usi",
--	    "mout_peric0_usi14_usi_user",
--	    CLK_CON_DIV_DIV_CLK_PERIC0_USI14_USI,
--	    0, 4),
--	DIV(CLK_DOUT_PERIC0_USI15_USI, "dout_peric0_usi15_usi",
--	    "mout_peric0_usi15_usi_user",
--	    CLK_CON_DIV_DIV_CLK_PERIC0_USI15_USI,
--	    0, 4),
-+	DIV_F(CLK_DOUT_PERIC0_USI00_USI, "dout_peric0_usi00_usi",
-+	      "mout_peric0_usi00_usi_user",
-+	      CLK_CON_DIV_DIV_CLK_PERIC0_USI00_USI, 0, 4,
-+	      CLK_SET_RATE_PARENT, 0),
-+	DIV_F(CLK_DOUT_PERIC0_USI01_USI, "dout_peric0_usi01_usi",
-+	      "mout_peric0_usi01_usi_user",
-+	      CLK_CON_DIV_DIV_CLK_PERIC0_USI01_USI, 0, 4,
-+	      CLK_SET_RATE_PARENT, 0),
-+	DIV_F(CLK_DOUT_PERIC0_USI02_USI, "dout_peric0_usi02_usi",
-+	      "mout_peric0_usi02_usi_user",
-+	      CLK_CON_DIV_DIV_CLK_PERIC0_USI02_USI, 0, 4,
-+	      CLK_SET_RATE_PARENT, 0),
-+	DIV_F(CLK_DOUT_PERIC0_USI03_USI, "dout_peric0_usi03_usi",
-+	      "mout_peric0_usi03_usi_user",
-+	      CLK_CON_DIV_DIV_CLK_PERIC0_USI03_USI, 0, 4,
-+	      CLK_SET_RATE_PARENT, 0),
-+	DIV_F(CLK_DOUT_PERIC0_USI04_USI, "dout_peric0_usi04_usi",
-+	      "mout_peric0_usi04_usi_user",
-+	      CLK_CON_DIV_DIV_CLK_PERIC0_USI04_USI, 0, 4,
-+	      CLK_SET_RATE_PARENT, 0),
-+	DIV_F(CLK_DOUT_PERIC0_USI05_USI, "dout_peric0_usi05_usi",
-+	      "mout_peric0_usi05_usi_user",
-+	      CLK_CON_DIV_DIV_CLK_PERIC0_USI05_USI, 0, 4,
-+	      CLK_SET_RATE_PARENT, 0),
-+	DIV_F(CLK_DOUT_PERIC0_USI13_USI, "dout_peric0_usi13_usi",
-+	      "mout_peric0_usi13_usi_user",
-+	      CLK_CON_DIV_DIV_CLK_PERIC0_USI13_USI, 0, 4,
-+	      CLK_SET_RATE_PARENT, 0),
-+	DIV_F(CLK_DOUT_PERIC0_USI14_USI, "dout_peric0_usi14_usi",
-+	      "mout_peric0_usi14_usi_user",
-+	      CLK_CON_DIV_DIV_CLK_PERIC0_USI14_USI, 0, 4,
-+	      CLK_SET_RATE_PARENT, 0),
-+	DIV_F(CLK_DOUT_PERIC0_USI15_USI, "dout_peric0_usi15_usi",
-+	      "mout_peric0_usi15_usi_user",
-+	      CLK_CON_DIV_DIV_CLK_PERIC0_USI15_USI, 0, 4,
-+	      CLK_SET_RATE_PARENT, 0),
- 	DIV(CLK_DOUT_PERIC0_USI_I2C, "dout_peric0_usi_i2c",
- 	    "mout_peric0_usi_i2c_user",
- 	    CLK_CON_DIV_DIV_CLK_PERIC0_USI_I2C,
-@@ -2107,58 +2097,47 @@ static const unsigned long peric1_clk_regs[] __initconst = {
- 
- /* Parent clock list for CMU_PERIC1 muxes */
- PNAME(mout_peric1_bus_user_p)  = { "oscclk", "dout_cmu_peric1_bus" };
--PNAME(mout_peric1_uart_bt_user_p) = { "oscclk", "dout_cmu_peric1_ip" };
--PNAME(mout_peric1_usi06_user_p)  = { "oscclk", "dout_cmu_peric1_ip" };
--PNAME(mout_peric1_usi07_user_p)  = { "oscclk", "dout_cmu_peric1_ip" };
--PNAME(mout_peric1_usi08_user_p)  = { "oscclk", "dout_cmu_peric1_ip" };
--PNAME(mout_peric1_usi09_user_p)  = { "oscclk", "dout_cmu_peric1_ip" };
--PNAME(mout_peric1_usi10_user_p)  = { "oscclk", "dout_cmu_peric1_ip" };
--PNAME(mout_peric1_usi11_user_p)  = { "oscclk", "dout_cmu_peric1_ip" };
--PNAME(mout_peric1_usi12_user_p)  = { "oscclk", "dout_cmu_peric1_ip" };
--PNAME(mout_peric1_usi18_user_p)  = { "oscclk", "dout_cmu_peric1_ip" };
--PNAME(mout_peric1_usi16_user_p)  = { "oscclk", "dout_cmu_peric1_ip" };
--PNAME(mout_peric1_usi17_user_p)  = { "oscclk", "dout_cmu_peric1_ip" };
--PNAME(mout_peric1_usi_i2c_user_p) = { "oscclk", "dout_cmu_peric1_ip" };
-+PNAME(mout_peric1_nonbususer_p) = { "oscclk", "dout_cmu_peric1_ip" };
- 
- static const struct samsung_mux_clock peric1_mux_clks[] __initconst = {
- 	MUX(CLK_MOUT_PERIC1_BUS_USER, "mout_peric1_bus_user",
- 	    mout_peric1_bus_user_p, PLL_CON0_MUX_CLKCMU_PERIC1_BUS_USER,
- 	    4, 1),
--	MUX(CLK_MOUT_PERIC1_UART_BT_USER, "mout_peric1_uart_bt_user",
--	    mout_peric1_uart_bt_user_p, PLL_CON0_MUX_CLKCMU_PERIC1_UART_BT_USER,
--	    4, 1),
--	MUX(CLK_MOUT_PERIC1_USI06_USI_USER, "mout_peric1_usi06_usi_user",
--	    mout_peric1_usi06_user_p, PLL_CON0_MUX_CLKCMU_PERIC1_USI06_USI_USER,
--	    4, 1),
--	MUX(CLK_MOUT_PERIC1_USI07_USI_USER, "mout_peric1_usi07_usi_user",
--	    mout_peric1_usi07_user_p, PLL_CON0_MUX_CLKCMU_PERIC1_USI07_USI_USER,
--	    4, 1),
--	MUX(CLK_MOUT_PERIC1_USI08_USI_USER, "mout_peric1_usi08_usi_user",
--	    mout_peric1_usi08_user_p, PLL_CON0_MUX_CLKCMU_PERIC1_USI08_USI_USER,
--	    4, 1),
--	MUX(CLK_MOUT_PERIC1_USI09_USI_USER, "mout_peric1_usi09_usi_user",
--	    mout_peric1_usi09_user_p, PLL_CON0_MUX_CLKCMU_PERIC1_USI09_USI_USER,
--	    4, 1),
--	MUX(CLK_MOUT_PERIC1_USI10_USI_USER, "mout_peric1_usi10_usi_user",
--	    mout_peric1_usi10_user_p, PLL_CON0_MUX_CLKCMU_PERIC1_USI10_USI_USER,
--	    4, 1),
--	MUX(CLK_MOUT_PERIC1_USI11_USI_USER, "mout_peric1_usi11_usi_user",
--	    mout_peric1_usi11_user_p, PLL_CON0_MUX_CLKCMU_PERIC1_USI11_USI_USER,
--	    4, 1),
--	MUX(CLK_MOUT_PERIC1_USI12_USI_USER, "mout_peric1_usi12_usi_user",
--	    mout_peric1_usi12_user_p, PLL_CON0_MUX_CLKCMU_PERIC1_USI12_USI_USER,
--	    4, 1),
--	MUX(CLK_MOUT_PERIC1_USI18_USI_USER, "mout_peric1_usi18_usi_user",
--	    mout_peric1_usi18_user_p, PLL_CON0_MUX_CLKCMU_PERIC1_USI18_USI_USER,
--	    4, 1),
--	MUX(CLK_MOUT_PERIC1_USI16_USI_USER, "mout_peric1_usi16_usi_user",
--	    mout_peric1_usi16_user_p, PLL_CON0_MUX_CLKCMU_PERIC1_USI16_USI_USER,
--	    4, 1),
--	MUX(CLK_MOUT_PERIC1_USI17_USI_USER, "mout_peric1_usi17_usi_user",
--	    mout_peric1_usi17_user_p, PLL_CON0_MUX_CLKCMU_PERIC1_USI17_USI_USER,
--	    4, 1),
-+	nMUX(CLK_MOUT_PERIC1_UART_BT_USER, "mout_peric1_uart_bt_user",
-+	     mout_peric1_nonbususer_p, PLL_CON0_MUX_CLKCMU_PERIC1_UART_BT_USER,
-+	     4, 1),
-+	nMUX(CLK_MOUT_PERIC1_USI06_USI_USER, "mout_peric1_usi06_usi_user",
-+	     mout_peric1_nonbususer_p, PLL_CON0_MUX_CLKCMU_PERIC1_USI06_USI_USER,
-+	     4, 1),
-+	nMUX(CLK_MOUT_PERIC1_USI07_USI_USER, "mout_peric1_usi07_usi_user",
-+	     mout_peric1_nonbususer_p, PLL_CON0_MUX_CLKCMU_PERIC1_USI07_USI_USER,
-+	     4, 1),
-+	nMUX(CLK_MOUT_PERIC1_USI08_USI_USER, "mout_peric1_usi08_usi_user",
-+	     mout_peric1_nonbususer_p, PLL_CON0_MUX_CLKCMU_PERIC1_USI08_USI_USER,
-+	     4, 1),
-+	nMUX(CLK_MOUT_PERIC1_USI09_USI_USER, "mout_peric1_usi09_usi_user",
-+	     mout_peric1_nonbususer_p, PLL_CON0_MUX_CLKCMU_PERIC1_USI09_USI_USER,
-+	     4, 1),
-+	nMUX(CLK_MOUT_PERIC1_USI10_USI_USER, "mout_peric1_usi10_usi_user",
-+	     mout_peric1_nonbususer_p, PLL_CON0_MUX_CLKCMU_PERIC1_USI10_USI_USER,
-+	     4, 1),
-+	nMUX(CLK_MOUT_PERIC1_USI11_USI_USER, "mout_peric1_usi11_usi_user",
-+	     mout_peric1_nonbususer_p, PLL_CON0_MUX_CLKCMU_PERIC1_USI11_USI_USER,
-+	     4, 1),
-+	nMUX(CLK_MOUT_PERIC1_USI12_USI_USER, "mout_peric1_usi12_usi_user",
-+	     mout_peric1_nonbususer_p, PLL_CON0_MUX_CLKCMU_PERIC1_USI12_USI_USER,
-+	     4, 1),
-+	nMUX(CLK_MOUT_PERIC1_USI18_USI_USER, "mout_peric1_usi18_usi_user",
-+	     mout_peric1_nonbususer_p, PLL_CON0_MUX_CLKCMU_PERIC1_USI18_USI_USER,
-+	     4, 1),
-+	nMUX(CLK_MOUT_PERIC1_USI16_USI_USER, "mout_peric1_usi16_usi_user",
-+	     mout_peric1_nonbususer_p, PLL_CON0_MUX_CLKCMU_PERIC1_USI16_USI_USER,
-+	     4, 1),
-+	nMUX(CLK_MOUT_PERIC1_USI17_USI_USER, "mout_peric1_usi17_usi_user",
-+	     mout_peric1_nonbususer_p, PLL_CON0_MUX_CLKCMU_PERIC1_USI17_USI_USER,
-+	     4, 1),
- 	MUX(CLK_MOUT_PERIC1_USI_I2C_USER, "mout_peric1_usi_i2c_user",
--	    mout_peric1_usi_i2c_user_p, PLL_CON0_MUX_CLKCMU_PERIC1_USI_I2C_USER,
-+	    mout_peric1_nonbususer_p, PLL_CON0_MUX_CLKCMU_PERIC1_USI_I2C_USER,
- 	    4, 1),
- };
- 
-@@ -2167,46 +2146,46 @@ static const struct samsung_div_clock peric1_div_clks[] __initconst = {
- 	    "mout_peric1_uart_bt_user",
- 	    CLK_CON_DIV_DIV_CLK_PERIC1_UART_BT,
- 	    0, 4),
--	DIV(CLK_DOUT_PERIC1_USI06_USI, "dout_peric1_usi06_usi",
--	    "mout_peric1_usi06_usi_user",
--	    CLK_CON_DIV_DIV_CLK_PERIC1_USI06_USI,
--	    0, 4),
--	DIV(CLK_DOUT_PERIC1_USI07_USI, "dout_peric1_usi07_usi",
--	    "mout_peric1_usi07_usi_user",
--	    CLK_CON_DIV_DIV_CLK_PERIC1_USI07_USI,
--	    0, 4),
--	DIV(CLK_DOUT_PERIC1_USI08_USI, "dout_peric1_usi08_usi",
--	    "mout_peric1_usi08_usi_user",
--	    CLK_CON_DIV_DIV_CLK_PERIC1_USI08_USI,
--	    0, 4),
--	DIV(CLK_DOUT_PERIC1_USI18_USI, "dout_peric1_usi18_usi",
--	    "mout_peric1_usi18_usi_user",
--	    CLK_CON_DIV_DIV_CLK_PERIC1_USI18_USI,
--	    0, 4),
--	DIV(CLK_DOUT_PERIC1_USI12_USI, "dout_peric1_usi12_usi",
--	    "mout_peric1_usi12_usi_user",
--	    CLK_CON_DIV_DIV_CLK_PERIC1_USI12_USI,
--	    0, 4),
--	DIV(CLK_DOUT_PERIC1_USI09_USI, "dout_peric1_usi09_usi",
--	    "mout_peric1_usi09_usi_user",
--	    CLK_CON_DIV_DIV_CLK_PERIC1_USI09_USI,
--	    0, 4),
--	DIV(CLK_DOUT_PERIC1_USI10_USI, "dout_peric1_usi10_usi",
--	    "mout_peric1_usi10_usi_user",
--	    CLK_CON_DIV_DIV_CLK_PERIC1_USI10_USI,
--	    0, 4),
--	DIV(CLK_DOUT_PERIC1_USI11_USI, "dout_peric1_usi11_usi",
--	    "mout_peric1_usi11_usi_user",
--	    CLK_CON_DIV_DIV_CLK_PERIC1_USI11_USI,
--	    0, 4),
--	DIV(CLK_DOUT_PERIC1_USI16_USI, "dout_peric1_usi16_usi",
--	    "mout_peric1_usi16_usi_user",
--	    CLK_CON_DIV_DIV_CLK_PERIC1_USI16_USI,
--	    0, 4),
--	DIV(CLK_DOUT_PERIC1_USI17_USI, "dout_peric1_usi17_usi",
--	    "mout_peric1_usi17_usi_user",
--	    CLK_CON_DIV_DIV_CLK_PERIC1_USI17_USI,
--	    0, 4),
-+	DIV_F(CLK_DOUT_PERIC1_USI06_USI, "dout_peric1_usi06_usi",
-+	      "mout_peric1_usi06_usi_user",
-+	      CLK_CON_DIV_DIV_CLK_PERIC1_USI06_USI, 0, 4,
-+	      CLK_SET_RATE_PARENT, 0),
-+	DIV_F(CLK_DOUT_PERIC1_USI07_USI, "dout_peric1_usi07_usi",
-+	      "mout_peric1_usi07_usi_user",
-+	      CLK_CON_DIV_DIV_CLK_PERIC1_USI07_USI, 0, 4,
-+	      CLK_SET_RATE_PARENT, 0),
-+	DIV_F(CLK_DOUT_PERIC1_USI08_USI, "dout_peric1_usi08_usi",
-+	      "mout_peric1_usi08_usi_user",
-+	      CLK_CON_DIV_DIV_CLK_PERIC1_USI08_USI, 0, 4,
-+	      CLK_SET_RATE_PARENT, 0),
-+	DIV_F(CLK_DOUT_PERIC1_USI18_USI, "dout_peric1_usi18_usi",
-+	      "mout_peric1_usi18_usi_user",
-+	      CLK_CON_DIV_DIV_CLK_PERIC1_USI18_USI, 0, 4,
-+	      CLK_SET_RATE_PARENT, 0),
-+	DIV_F(CLK_DOUT_PERIC1_USI12_USI, "dout_peric1_usi12_usi",
-+	      "mout_peric1_usi12_usi_user",
-+	      CLK_CON_DIV_DIV_CLK_PERIC1_USI12_USI, 0, 4,
-+	      CLK_SET_RATE_PARENT, 0),
-+	DIV_F(CLK_DOUT_PERIC1_USI09_USI, "dout_peric1_usi09_usi",
-+	      "mout_peric1_usi09_usi_user",
-+	      CLK_CON_DIV_DIV_CLK_PERIC1_USI09_USI, 0, 4,
-+	      CLK_SET_RATE_PARENT, 0),
-+	DIV_F(CLK_DOUT_PERIC1_USI10_USI, "dout_peric1_usi10_usi",
-+	      "mout_peric1_usi10_usi_user",
-+	      CLK_CON_DIV_DIV_CLK_PERIC1_USI10_USI, 0, 4,
-+	      CLK_SET_RATE_PARENT, 0),
-+	DIV_F(CLK_DOUT_PERIC1_USI11_USI, "dout_peric1_usi11_usi",
-+	      "mout_peric1_usi11_usi_user",
-+	      CLK_CON_DIV_DIV_CLK_PERIC1_USI11_USI, 0, 4,
-+	      CLK_SET_RATE_PARENT, 0),
-+	DIV_F(CLK_DOUT_PERIC1_USI16_USI, "dout_peric1_usi16_usi",
-+	      "mout_peric1_usi16_usi_user",
-+	      CLK_CON_DIV_DIV_CLK_PERIC1_USI16_USI, 0, 4,
-+	      CLK_SET_RATE_PARENT, 0),
-+	DIV_F(CLK_DOUT_PERIC1_USI17_USI, "dout_peric1_usi17_usi",
-+	      "mout_peric1_usi17_usi_user",
-+	      CLK_CON_DIV_DIV_CLK_PERIC1_USI17_USI, 0, 4,
-+	      CLK_SET_RATE_PARENT, 0),
- 	DIV(CLK_DOUT_PERIC1_USI_I2C, "dout_peric1_usi_i2c",
- 	    "mout_peric1_usi_i2c_user",
- 	    CLK_CON_DIV_DIV_CLK_PERIC1_USI_I2C,
-
----
-base-commit: e7d700e14934e68f86338c5610cf2ae76798b663
-change-id: 20260528-perics-usi-65a7fe26b00a
-
-Best regards,
---  
-Denzeel Oliva <wachiturroxd150@gmail.com>
-
+Otherwise,
+Reviewed-by: Nicolin Chen <nicolinc@nvidia.com>
 
