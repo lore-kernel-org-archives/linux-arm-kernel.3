@@ -4,91 +4,83 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 49BC2CD4F54
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 28 May 2026 20:30:44 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id A2BD2CD5BD5
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 28 May 2026 20:35:10 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	MIME-Version:Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-Type:
-	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
-	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
-	bh=yDIXwe3ooO105k5CTV06eh6doyUKsBOeZuBsSpw25Kg=; b=Esdzre+adxE8GNZ6w5qrXkrikD
-	smBwZhVJWZYZqlteISeT3I44liqUtsyF04G8LDM6yRB1QrSthMU1Ohbcfk5qQOs732FLswCSZrbng
-	TEZSvJx83quziFvAS/QA8M5eG/L3jZwAgzvFM6TLOy7zjiwnY9LysbIcmjDKvRS8nAdFeO5IgOylg
-	0/ToaGgNCQBchgnS+Uh1O02NVAzZPtwwLhogeUW9J/e8zLN5kcTkYl3Gc4lcAtZQhEFW11ru8QNOv
-	Tyys4KAvVEJ6gUeKgAwTWo+J8ybeY6CzSBPgURYKzx/Hf83kuRbKD+1KQ7M9lropwU4N9xHPiR7m/
-	GKpaPmJw==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:Cc:To:From:
+	Subject:Message-ID:References:Mime-Version:In-Reply-To:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=xF2OaZLydlq8fssyfbqW+m3pz8p9r7jLJNQQhoc0Wjc=; b=qgJJKptaB6Inv4hAMRuXi1w0Oo
+	zTCgp5gvABxY+Dpo7TGpiK5w7Nb/GzSWoPUZF3qSOI8u5MhA/lHe7G32PUhMH4N6Pyv2rD+zOPhRV
+	ITOGIS/B/kfMEQvBOJGJeKoAqjetRmm1xvyrl16ViPKm+WczqNm3JvZUOX8RAJvhZHECqv+wSdOYe
+	uZYaE8n0ktC95JDRI+BGGSTrCUNzpjAk+xkOWe8XDoSpzodMBf1ZWf+gELW23k2ONHg8wmTxqvr33
+	cVSoYpkYi/u/O4NE+e9QhqUHbfdN7M8C+97Qf3GbiBIJGoj7QCOHuLBf+VREAh1Sx3gzEeaPJOozR
+	PTYN6Okg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wShNE-00000006M5M-2qdP;
-	Thu, 28 May 2026 20:30:36 +0000
-Received: from mail-pl1-x636.google.com ([2607:f8b0:4864:20::636])
+	id 1wShH7-00000006Kyk-1Gqr;
+	Thu, 28 May 2026 20:24:17 +0000
+Received: from mail-pl1-x64a.google.com ([2607:f8b0:4864:20::64a])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wShN9-00000006M4k-3edb
+	id 1wShGt-00000006KsS-32mt
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 28 May 2026 20:30:35 +0000
-Received: by mail-pl1-x636.google.com with SMTP id d9443c01a7336-2bf02708e8fso8931345ad.2
-        for <linux-arm-kernel@lists.infradead.org>; Thu, 28 May 2026 13:30:31 -0700 (PDT)
+	Thu, 28 May 2026 20:24:05 +0000
+Received: by mail-pl1-x64a.google.com with SMTP id d9443c01a7336-2bf0607b5f5so15076905ad.0
+        for <linux-arm-kernel@lists.infradead.org>; Thu, 28 May 2026 13:24:02 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20251104; t=1780000231; x=1780605031; darn=lists.infradead.org;
-        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
-         :to:from:from:to:cc:subject:date:message-id:reply-to;
-        bh=yDIXwe3ooO105k5CTV06eh6doyUKsBOeZuBsSpw25Kg=;
-        b=baOdDa1xDcXcMoge1f8K8evD00gfLtyN/q7yKquBadGXyAWmHrC8ZluwYTeve/Kiqh
-         5RTPDlxNceKE8k3HjkhO4aVWz8hhUmnQ1RtCul6rZyXDtG5Lhz7f868DutR2V2dHBQGq
-         xXDsPWeiPVFK0trkD6l+FX5212jLc3KGtaeOXutE1xd/DbtFuxWD2YyfsSvgTIBWYfRX
-         I4QJ/jQfb3i5+yTf5BreT5mEoh5jtoUxCXRq5CTIXuv/5ubu5zJV9+kYvyyCzIM4hHVm
-         vV9PCkGWSrBmwGkd9KjZHDh1sUFQhoOBRddiJCtPDXiyQGS+njbMNArHw/iPEcYQe2NZ
-         w9Kg==
+        d=google.com; s=20251104; t=1779999842; x=1780604642; darn=lists.infradead.org;
+        h=cc:to:from:subject:message-id:references:mime-version:in-reply-to
+         :date:from:to:cc:subject:date:message-id:reply-to;
+        bh=xF2OaZLydlq8fssyfbqW+m3pz8p9r7jLJNQQhoc0Wjc=;
+        b=RUfB+ZmDRZgEIkEMAjA8Hxp0AAzBlUXFuKPtovVt24eDn7kyq3V7kcj1TqpGbyLMdI
+         TLnSnK1Li34+v11t8aFVpcfbaBEObs0ossbOUG31erV7KkTYp9xO4wi+jYWFbNzEc/R7
+         cmJlbZdB2m/C9KE83vvpOC130NYbZ0BwFjs8VNtmGxWsHw/AHfg81f/s3fX/Cwhh4hjJ
+         a/jDLKB6718RJP67wFKg2aoN5QHaGJpqvLhZ/GmsrVfvdv9HNvUSAtNHmnT2enM0+X8Q
+         K5sPO442A3FB+/v5efBBZQZ7lBCVkZIV4cQqREBG3fewttr0JS5Q00YhhrcsAzNZqlgb
+         HJ8A==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20251104; t=1780000231; x=1780605031;
-        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
-         :to:from:x-gm-gg:x-gm-message-state:from:to:cc:subject:date
-         :message-id:reply-to;
-        bh=yDIXwe3ooO105k5CTV06eh6doyUKsBOeZuBsSpw25Kg=;
-        b=kyGnKOYh9HVxw8yINqgOOdS4FHt/3xk/GLGOMS449U5M3gRkgr9ER2M99esNp5uP20
-         NPThrHOfeQgIEkNlNqUFoU0QtcLLR5Vn1+mD43mLJ2MRBwTmBTi9w9XOrtMOvBtFeh95
-         /UP/m+57ANtQ8RvgEcfprW1HfXmzTnWT7oAzYMqux+vWyJS82BZBF8sdh9c5lwemkBOC
-         e0JQmIK5fYC3olTTCkyNcdFLjMwRIYzO/dCkCLo2SxJQIftxmMxsSbFS7ohok0NXQAKu
-         NLramZWWPPDXTB43T7ucStlTWM4R+jl9uvVkgWYqkABceGrIJuJWkPX/shbMJ2r/1knt
-         XECg==
-X-Forwarded-Encrypted: i=1; AFNElJ8uCQbXPp2Md3TTGePXv2l/hKGbJpZw1FJ3O8yYJPD9z6OX9LNl7DNWx7fV1Mpg3zcmhsP0lunn1hAUGi4oNiZR@lists.infradead.org
-X-Gm-Message-State: AOJu0Yyb3fFcCGudxusFrPPlDqzXHOCf/lkWjcTgGaCEcEvxM+tnLmdY
-	4RqeKzZtCnMVGlA7aS/DbKkisdan+qz1QwSC5c6Jl9OdaGV3G8uXYY5d
-X-Gm-Gg: Acq92OHsZ4o7yuvgPEr54mn9o1EA9IoRrFUDgnDi2s2P2/olV0zdk99exnO5ipc6NIs
-	vJe4Ni/7EvJ2HYRzSmm35Al+4K23jGLeqoTjbCW2tp1syquRHcpTaYuemC4BBYL8VrPALV4IMOK
-	rbypVTWHYbQBiUWXX9qJp3kgu6eKoORXoK5HlobuoGv3QS+yRW8szHxaDLylVfHOwaX1OKcjS6T
-	pVn8PhyR1o9IFSrcm+CqHB+Jm9cFctlB1dvYa4fSbIz0WI9kZtajVQAnZgSuNTkX5QIzTqpydVV
-	rAGpAtXJfxw7ta2C7vd0eZJ++CXgf10dHxzBnuWd+GCVL+3w4Hzt7ETzxIZW+xBn3yi/v+O2knM
-	SAbVO27rDnVB+NYveiCtGP/VmcH8/z0EBhLO8Xc+BrMPaZuUO79OW9OD80aeRIbZPRIfzG6kyVl
-	c0cfQGFCSl4kdmcTaAZug/R5cF9Kgca7WL61E2HmR84nC9AFJld9AZSAtdbfYWl5YIbm5cIZ3E2
-	J8/xvSY49CdVTCCIcO/j8gVeQLJWZSwn6bDoHuwS1/Nvw==
-X-Received: by 2002:a17:903:2347:b0:2bc:d1ec:9f09 with SMTP id d9443c01a7336-2bf1ed5e4bamr3535035ad.40.1780000231091;
-        Thu, 28 May 2026 13:30:31 -0700 (PDT)
-Received: from ryzen ([2601:644:8000:5b5d:7285:c2ff:fe45:8a32])
-        by smtp.gmail.com with ESMTPSA id d9443c01a7336-2bf1e604dbesm1786475ad.25.2026.05.28.13.30.27
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Thu, 28 May 2026 13:30:30 -0700 (PDT)
-From: Rosen Penev <rosenp@gmail.com>
-To: linux-serial@vger.kernel.org
-Cc: Greg Kroah-Hartman <gregkh@linuxfoundation.org>,
-	Jiri Slaby <jirislaby@kernel.org>,
-	Frank Li <Frank.Li@nxp.com>,
-	Sascha Hauer <s.hauer@pengutronix.de>,
-	Pengutronix Kernel Team <kernel@pengutronix.de>,
-	Fabio Estevam <festevam@gmail.com>,
-	linux-kernel@vger.kernel.org (open list:TTY LAYER AND SERIAL DRIVERS),
-	imx@lists.linux.dev (open list:ARM/FREESCALE IMX / MXC ARM ARCHITECTURE),
-	linux-arm-kernel@lists.infradead.org (moderated list:ARM/FREESCALE IMX / MXC ARM ARCHITECTURE)
-Subject: [PATCH] serial: mxs-auart: fix 64-bit cast in probe
-Date: Thu, 28 May 2026 13:30:11 -0700
-Message-ID: <20260528203011.137338-1-rosenp@gmail.com>
-X-Mailer: git-send-email 2.54.0
-MIME-Version: 1.0
-Content-Transfer-Encoding: 8bit
+        d=1e100.net; s=20251104; t=1779999842; x=1780604642;
+        h=cc:to:from:subject:message-id:references:mime-version:in-reply-to
+         :date:x-gm-message-state:from:to:cc:subject:date:message-id:reply-to;
+        bh=xF2OaZLydlq8fssyfbqW+m3pz8p9r7jLJNQQhoc0Wjc=;
+        b=i2HCjFiMOmI2zmO76e9IOE4TvJ1pGjrKkzH1uwQsKORzV8Vd6vQT7GAAJ/ki9FZlFY
+         HqCDZQHQKI+h1nec1vhjuO2fmOcFOCJdiyebzlhox41FOJqRh5KpFQljNCUzB9gLzwFi
+         iH+ZcZJpEVsssiPneswWZ3XC/Xn8IjfgQMWEily1J4TdOYu73Yz0CFQnie82aMF09ZYB
+         GQPTC6n98RaycmnftyTdKISyh1Ab2CLVW08UITZplvqMCbZNUHjw9NNoqbFC+rxHDe9b
+         vyJqjUqWW2ZxE7xOtNNNPnEFJ9Y+uiWwp+nBR4fgJTK/TN4XfkN1skWVpH2S4FKqB2Ke
+         W8Hw==
+X-Forwarded-Encrypted: i=1; AFNElJ8wBkWH7LNbVYl0H6Ll6ui7mn0UMJscG6ZUTULlVEJIvTYJ3HT3Va/GJVk9pA8HKAg7BM45F5+CsjL6Krvodn7/@lists.infradead.org
+X-Gm-Message-State: AOJu0YyoFe5xNuAeFP5vCLS6f6lTKu/2AqxbPWX1pk8Z1ggL9QkXt5t7
+	HFBBCD2wkm8jnd6nOd0mgUuhLogvPpkNMui2GPqXElxO/3R0KbdGS7jYh+8WPzOdT3sKAfBHrom
+	Q9g==
+X-Received: from plhe2.prod.google.com ([2002:a17:903:1c2:b0:2ae:5d79:a153])
+ (user=praan job=prod-delivery.src-stubby-dispatcher) by 2002:a17:902:f601:b0:2b4:696b:7bb7
+ with SMTP id d9443c01a7336-2bf1eb7c31cmr3931325ad.15.1779999841997; Thu, 28
+ May 2026 13:24:01 -0700 (PDT)
+Date: Thu, 28 May 2026 20:23:49 +0000
+In-Reply-To: <20260528202353.3422206-1-praan@google.com>
+Mime-Version: 1.0
+References: <20260528202353.3422206-1-praan@google.com>
+X-Mailer: git-send-email 2.54.0.823.g6e5bcc1fc9-goog
+Message-ID: <20260528202353.3422206-4-praan@google.com>
+Subject: [PATCH v5 3/7] PCI/ATS: Decouple pci_ats_supported() from pci_prepare_ats()
+From: Pranjal Shrivastava <praan@google.com>
+To: iommu@lists.linux.dev, linux-pci@vger.kernel.org, 
+	linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org
+Cc: Joerg Roedel <joro@8bytes.org>, Will Deacon <will@kernel.org>, 
+	Bjorn Helgaas <bhelgaas@google.com>, David Woodhouse <dwmw2@infradead.org>, 
+	Lu Baolu <baolu.lu@linux.intel.com>, Robin Murphy <robin.murphy@arm.com>, 
+	Suravee Suthikulpanit <suravee.suthikulpanit@amd.com>, Jason Gunthorpe <jgg@ziepe.ca>, 
+	Nicolin Chen <nicolinc@nvidia.com>, David Matlack <dmatlack@google.com>, 
+	Samiullah Khawaja <skhawaja@google.com>, Daniel Mentz <danielmentz@google.com>, 
+	Pasha Tatashin <pasha.tatashin@soleen.com>, Mostafa Saleh <smostafa@google.com>, 
+	Pranjal Shrivastava <praan@google.com>
+Content-Type: text/plain; charset="UTF-8"
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260528_133031_905564_DFC78EB2 
-X-CRM114-Status: GOOD (  12.23  )
+X-CRM114-CacheID: sfid-20260528_132403_767059_23ED8BC2 
+X-CRM114-Status: GOOD (  14.43  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -103,31 +95,49 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-of_device_get_match_data() returns a pointer. Casting it directly to
-enum truncates on 64-bit platforms. Cast to unsigned long instead.
+Currently, pci_prepare_ats() internally calls pci_ats_supported() and
+returns -EINVAL if the device does not support ATS. While this provides
+a safety check, it conflates support detection with configuration.
 
-Fixes compilation with W=1.
+Update pci_prepare_ats() to remove the internal support check. This
+decouples support verification from the configuration phase, ensuring
+that drivers can distinguish between a device that does not support ATS
+and one that has a true configuration error (e.g. STU mismatch).
 
-Assisted-by: Opencode:Big-pickle
-Signed-off-by: Rosen Penev <rosenp@gmail.com>
+Update the function documentation to mandate that callers must verify
+ATS support (via pci_ats_supported()) before calling pci_prepare_ats().
+
+Signed-off-by: Pranjal Shrivastava <praan@google.com>
 ---
- drivers/tty/serial/mxs-auart.c | 2 +-
- 1 file changed, 1 insertion(+), 1 deletion(-)
+ drivers/pci/ats.c | 7 +++----
+ 1 file changed, 3 insertions(+), 4 deletions(-)
 
-diff --git a/drivers/tty/serial/mxs-auart.c b/drivers/tty/serial/mxs-auart.c
-index 697318dbb146..de97c0f74e7d 100644
---- a/drivers/tty/serial/mxs-auart.c
-+++ b/drivers/tty/serial/mxs-auart.c
-@@ -1598,7 +1598,7 @@ static int mxs_auart_probe(struct platform_device *pdev)
- 		return -EINVAL;
- 	}
-
--	s->devtype = (enum mxs_auart_type)of_device_get_match_data(&pdev->dev);
-+	s->devtype = (unsigned long)of_device_get_match_data(&pdev->dev);
-
- 	ret = mxs_get_clks(s, pdev);
- 	if (ret)
---
-2.54.0
+diff --git a/drivers/pci/ats.c b/drivers/pci/ats.c
+index 8057c24b0469..92c2a6bc2dcc 100644
+--- a/drivers/pci/ats.c
++++ b/drivers/pci/ats.c
+@@ -56,7 +56,9 @@ EXPORT_SYMBOL_GPL(pci_ats_supported);
+  * @ps: the IOMMU page shift
+  *
+  * This must be done by the IOMMU driver on the PF before any VFs are created to
+- * ensure that the VF can have ATS enabled.
++ * ensure that the VF can have ATS enabled. Callers must verify that ATS is
++ * supported by the device (e.g. via pci_ats_supported()) before calling this
++ * function.
+  *
+  * Returns 0 on success, or negative on failure.
+  */
+@@ -64,9 +66,6 @@ int pci_prepare_ats(struct pci_dev *dev, int ps)
+ {
+ 	u16 ctrl;
+ 
+-	if (!pci_ats_supported(dev))
+-		return -EINVAL;
+-
+ 	if (WARN_ON(dev->ats_enabled))
+ 		return -EBUSY;
+ 
+-- 
+2.54.0.823.g6e5bcc1fc9-goog
 
 
