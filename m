@@ -4,59 +4,65 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 0E9F5CD5BD1
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 28 May 2026 09:31:01 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 1A519CD6E44
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 28 May 2026 09:45:03 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	MIME-Version:Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-Type:
-	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
-	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
-	bh=hUXazZYkDyhdjiv+bN79OJcCKaYJV/N7hpLsUqRQUIA=; b=g1zAVesmcYOWY8jxOsbIFj4fqs
-	Fx1K2Ouedgm+uTMxYrCYNRkJVzL5WmQzEtQZeS68WoRHsu5WQx2dZORz5M/m7pzMIekiU/6Kn/3gP
-	ucMx8jrVxZ+9omL23/z/oCTdTe34dvGeZzosDtfnSUTPAmPmXweZwUdRUljZYm+1xRrCeXVMbOkTl
-	REb9Rd9KILRCwzLc/WCXax2A3CNOsVyXdQL4jd3KYSAaN+ToEPvtRFZwRN1x6uVp0oqp/7H4BQphq
-	stUpl0WJTD4V2LQdZ6AT+xKk65M3J29PhuPa+P52/zGAs3pI5vtUFujz6hj2FLgaV2K3RX4BUVI5H
-	LCHjUitw==;
+	Content-Type:MIME-Version:References:In-Reply-To:Message-ID:Subject:Cc:To:
+	From:Date:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=ZmDykwHmbDlHGt8sWJeNhUg4XHecBNonkDjK5kc+x1I=; b=joRNLSTLmNmv7f26KoWaSH/yVO
+	iRNAoJ2a+PwPMqyI1G52jDnpe2VbfVGuPjAhERqXw0/DOYfFW0WWupembBikIt4gLp2d6LF6sJX8c
+	Wq+AenQgY6mCbQ+nI4O/PuOMNBFGBaaZ2Yuvny3Qp42sQqo8802WrZqpTe7Tv5bD5HxhEUrMv/ABo
+	X/DU0WqGxfqguCus3G530Aj+psy4AOH1rzfjJGZ/Qc4cMVcyNAIK8RdVSVjWsihVYXPf4ZC55YzF/
+	WKxc+vOyKpgwFOkSVUN7X32cP+xTYKpYRNXVkQfk+Rizg+23s34YGwD8e8Ivv9rKzSfPeSRz5yhXL
+	wYbB/feg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wSX4o-00000005VcC-1Hwp;
-	Thu, 28 May 2026 09:30:54 +0000
-Received: from mail.mdapi.ch ([31.3.128.54])
+	id 1wSXIO-00000005XFT-1RS3;
+	Thu, 28 May 2026 09:44:56 +0000
+Received: from tor.source.kernel.org ([2600:3c04:e001:324:0:1991:8:25])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wSX4k-00000005Vbp-0xtN;
-	Thu, 28 May 2026 09:30:52 +0000
-From: Martino Dell'Ambrogio <tillo@tillo.ch>
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=tillo.ch; s=mail202603;
-	t=1779960647;
-	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
-	 to:to:cc:cc:mime-version:mime-version:
-	 content-transfer-encoding:content-transfer-encoding;
-	bh=hUXazZYkDyhdjiv+bN79OJcCKaYJV/N7hpLsUqRQUIA=;
-	b=T9zY7Nxniq8Bcglfp9Uib7EYGmBkAbg2EGy7g44w7F7A3+WDk3M0bb1PAka8lMcWxuZwbd
-	OLxFzTkNr5KFb+ZdjL9tcDLKTiF3NXrWbij2/QMx+RYxM/frEplj69NA8m1qWof4iuO/0z
-	5SyJGOnpZnpRhvSH1GDznMz/oqxy3GzNAFJ3Yq9x4JVf/++z3/yXRdmhnNMnXmSz4dsuF+
-	/n6xuSU4hg/Q7RbSOGEkqP5fOIffTrHVa99WXkKyfreA7okzfwQgtigjtj+0m8qA+Y8EzU
-	moAM5lndFPPa7ZUZ/UV81T9fLCuX9h/StE++r8fMbKzIN5qEo1gph6fUXlE5Iw==
-To: matthias.bgg@gmail.com,
-	angelogioacchino.delregno@collabora.com
-Cc: kees@kernel.org,
-	tony.luck@intel.com,
-	gpiccoli@igalia.com,
-	linux-mediatek@lists.infradead.org,
-	linux-arm-kernel@lists.infradead.org,
-	devicetree@vger.kernel.org,
-	linux-kernel@vger.kernel.org,
-	Martino Dell'Ambrogio <tillo@tillo.ch>
-Subject: [PATCH] arm64: dts: mediatek: mt7986a-bananapi-bpi-r3: add ramoops region
-Date: Thu, 28 May 2026 11:30:38 +0200
-Message-ID: <20260528093038.1945245-1-tillo@tillo.ch>
+	id 1wSXIM-00000005XEq-2BMK
+	for linux-arm-kernel@lists.infradead.org;
+	Thu, 28 May 2026 09:44:54 +0000
+Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
+	by tor.source.kernel.org (Postfix) with ESMTP id 91AA26057B;
+	Thu, 28 May 2026 09:44:53 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id CB3B21F000E9;
+	Thu, 28 May 2026 09:44:47 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
+	s=k20260515; t=1779961493;
+	bh=ZmDykwHmbDlHGt8sWJeNhUg4XHecBNonkDjK5kc+x1I=;
+	h=Date:From:To:Cc:Subject:In-Reply-To:References;
+	b=nrP/wgSOkm3QXCEtw3KIexhzlfoETf2ZoGPjYvxpmZQa1yZy5FBBXS24xhQMYupbG
+	 2Uwuuapyg50LBvgcHALEBCaQJZQPyE9QP8H+cwKFPQ63eV0nxIcUI47ohyTlNduvx1
+	 DFTJiIb+9+n/SKKlJSRJ3OjKUWVeEE9J0OfEeSse+o0OpG9Fn7Xaj2SqMY87IGTDow
+	 9L+7ecZSuUmThBBQFWx33bK+EYk9sVnzl3DFf0oe4e6Rxmh5jn5Ynk+tbGcJI4NSSk
+	 xsFkB21kLxsc6iA5ZFUqCuYqtq3+7H1IQ6XXOPrLoJQRRN3GBIaFaiDr1tpWVyIuT9
+	 +Uu/V9NYYHJEw==
+Date: Thu, 28 May 2026 10:44:42 +0100
+From: Jonathan Cameron <jic23@kernel.org>
+To: Joshua Crofts <joshua.crofts1@gmail.com>
+Cc: Petar Stepanovic <pstepanovic@axiado.com>, Akhila Kavi
+ <akavi@axiado.com>, Prasad Bolisetty <pbolisetty@axiado.com>, David Lechner
+ <dlechner@baylibre.com>, Nuno =?UTF-8?B?U8Oh?= <nuno.sa@analog.com>, Andy
+ Shevchenko <andy@kernel.org>, Rob Herring <robh@kernel.org>, Krzysztof
+ Kozlowski <krzk+dt@kernel.org>, Conor Dooley <conor+dt@kernel.org>, Harshit
+ Shah <hshah@axiado.com>, linux-iio@vger.kernel.org,
+ devicetree@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
+ linux-kernel@vger.kernel.org
+Subject: Re: [PATCH 2/3] iio: adc: add Axiado SARADC driver
+Message-ID: <20260528104442.428cce3f@jic23-huawei>
+In-Reply-To: <CALoEA-yfqYky=Un0r5K8QBc_H8DVziuiKuLap7ArAQOmaLKnZw@mail.gmail.com>
+References: <20260528-axiado-ax3000-ax3005-saradc-v1-0-345dd5f6608a@axiado.com>
+	<20260528-axiado-ax3000-ax3005-saradc-v1-2-345dd5f6608a@axiado.com>
+	<CALoEA-yfqYky=Un0r5K8QBc_H8DVziuiKuLap7ArAQOmaLKnZw@mail.gmail.com>
+X-Mailer: Claws Mail 4.4.0 (GTK 3.24.52; x86_64-pc-linux-gnu)
 MIME-Version: 1.0
-Content-Transfer-Encoding: 8bit
-X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260528_023050_438198_69D1A6D1 
-X-CRM114-Status: UNSURE (   8.46  )
-X-CRM114-Notice: Please train this message.
+Content-Type: text/plain; charset=US-ASCII
+Content-Transfer-Encoding: 7bit
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -71,55 +77,413 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Reserve 64 KiB of RAM just below the ARM Trusted Firmware secmon region
-(0x42ff0000-0x43000000) for persistent kernel log storage via pstore/ramoops,
-allowing post-panic console output and oops dumps to be recovered after a
-warm reset. Without it, kernel crash logs on this board are lost when the
-SoC reboots.
+On Thu, 28 May 2026 11:02:05 +0200
+Joshua Crofts <joshua.crofts1@gmail.com> wrote:
 
-The carve-out is divided into 8 KiB kmsg records, a 32 KiB rolling console,
-8 KiB ftrace, and 8 KiB pmsg, leaving the remainder for the per-record
-Reed-Solomon ECC parity (ecc-size=16) which significantly improves dump
-readability when the panic path truncates writes mid-record.
+> On Thu, 28 May 2026 at 10:11, Petar Stepanovic <pstepanovic@axiado.com> wrote:
+> >
+> > Add support for the SARADC controller found on Axiado AX3000 and
+> > AX3005 SoCs.
+> >
+> > The driver supports single-shot voltage reads through the IIO
+> > subsystem. The number of available input channels is selected from
+> > the SoC match data, allowing AX3000 and AX3005 variants to use the
+> > same driver.
+> >
+> > Signed-off-by: Petar Stepanovic <pstepanovic@axiado.com>
+> > ---  
+> 
+> Hi Petar, a few comments inline. Additionally, Sashiko came back
+> with a few issues:
+> https://sashiko.dev/#/patchset/20260528-axiado-ax3000-ax3005-saradc-v1-0-345dd5f6608a%40axiado.com.
 
-The region sits immediately below the ATF block already declared at
-0x43000000 in mt7986a.dtsi, so no other reserved-memory child is moved or
-resized. BPI-R3 ships with 2 GiB of DRAM starting at 0x40000000, well above
-0x43000000, so the region is always within installed memory.
+I'll review on top given it's a short driver so Joshua hasn't cropped anything.
 
-For the carve-out to actually preserve content across a reset, the boot
-loader must avoid touching this region on warm reset; on standard BPI-R3
-boards with the stock OpenWrt U-Boot fork this already holds.
+Mind you seems like Joshua's email client has replaced tabs with spaces
+which briefly made me wonder if the patches were corrupted!
 
-Signed-off-by: Martino Dell'Ambrogio <tillo@tillo.ch>
----
- .../boot/dts/mediatek/mt7986a-bananapi-bpi-r3.dts    | 12 ++++++++++++
- 1 file changed, 12 insertions(+)
+Joshua caught most of the larger things, so mostly formatting and similar
+from me.
 
-diff --git a/arch/arm64/boot/dts/mediatek/mt7986a-bananapi-bpi-r3.dts b/arch/arm64/boot/dts/mediatek/mt7986a-bananapi-bpi-r3.dts
-index 19f538d..31ee189 100644
---- a/arch/arm64/boot/dts/mediatek/mt7986a-bananapi-bpi-r3.dts
-+++ b/arch/arm64/boot/dts/mediatek/mt7986a-bananapi-bpi-r3.dts
-@@ -140,6 +140,18 @@ sfp2: sfp-2 {
- 	};
- };
- 
-+&{/reserved-memory} {
-+	ramoops@42ff0000 {
-+		compatible = "ramoops";
-+		reg = <0 0x42ff0000 0 0x10000>;
-+		record-size = <0x2000>;
-+		console-size = <0x8000>;
-+		ftrace-size = <0x2000>;
-+		pmsg-size = <0x2000>;
-+		ecc-size = <16>;
-+	};
-+};
-+
- &cpu_thermal {
- 	cooling-maps {
- 		map-cpu-active-high {
--- 
-2.47.3
+Note that convention is to leave a new series on list for around a week before
+posting an update. That lets more reviewers have the opportunity to take a look
+and cuts down on how many revisions we end up with.
+I'd soften that a little in this case as it is a relative small driver but wait
+until next week before sending a v2.
+
+Jonathan
+
+> 
+> > +++ b/drivers/iio/adc/axiado_saradc.c
+> > @@ -0,0 +1,218 @@
+> > +// SPDX-License-Identifier: GPL-2.0-or-later
+> > +/*
+> > + * Copyright (c) 2021-2026 Axiado Corporation
+> > + */
+> > +
+> > +#include <linux/bitfield.h>
+> > +#include <linux/clk.h>
+> > +#include <linux/delay.h>
+> > +#include <linux/device.h>
+> > +#include <linux/iio/iio.h>  
+> 
+> IIO specific headers should follow the generic <linux/*> headers and
+> be grouped separately.
+> 
+> > +#include <linux/io.h>
+> > +#include <linux/kernel.h>  
+> 
+> Don't use kernel.h when adding a new driver. The existing drivers in IIO
+> are currently being moved away from kernel.h, as it is a catch-all header.
+> You should include what you use manually (there is a tool for this, it's
+> called iwyu-tool).
+> 
+> > +#include <linux/mod_devicetable.h>
+> > +#include <linux/module.h>
+> > +#include <linux/mutex.h>
+> > +#include <linux/platform_device.h>
+> > +#include <linux/property.h>
+> > +#include <linux/regulator/consumer.h>
+> > +
+> > +/* Register offsets */
+If you name them to imply they are registers then it will
+be easier to spot if they end up in the wrong place in calls.
+AX_SARADC_GLOBAL_CTRL_REG
+etc
+
+> > +#define AX_SARADC_GLOBAL_CTRL 0x0004
+> > +#define AX_SARADC_MANUAL_CTRL 0x0008
+> > +#define AX_SARADC_DOUT 0x001C
+> > +
+> > +/* GLOBAL_CTRL fields */
+Include enough of the register in the name to ensure that
+is obvious.
+
+AX_SARADC_GLOBAL_CTRL_CH_EN_MASK
+etc
+
+> > +#define AX_SARADC_CH_EN_MASK GENMASK(31, 16)
+> > +#define AX_SARADC_SAMPLE_MASK GENMASK(6, 5)
+> > +#define AX_SARADC_MODE_MASK GENMASK(4, 3)
+> > +#define AX_SARADC_PD BIT(2)
+> > +#define AX_SARADC_ENABLE BIT(0)
+> > +
+> > +/* GLOBAL_CTRL values */
+> > +#define AX_SARADC_SAMPLE_16 FIELD_PREP(AX_SARADC_SAMPLE_MASK, 0)
+> > +#define AX_SARADC_MODE FIELD_PREP(AX_SARADC_MODE_MASK, 1)
+> > +
+> > +#define AX_SARADC_MANUAL_CTRL_EN(n) (BIT(0) | ((n) << 1))
+
+Add a define for that BIT(0) to give us a little more info
+on what it is. Also a mask for that field you are writing (n) into
+and use FIELD_PREP() for that rather than a shift.
+Doing all that will be a little more code, but will act as documentation
+of what is int eh register.
+
+
+> > +#define AX_RESOLUTION_BITS 10
+> > +#define AX_SARADC_CONV_CYCLES 13
+> > +
+> > +struct axiado_saradc {
+> > +       void __iomem *regs;
+> > +       struct clk *clk;
+> > +       unsigned long clk_rate;
+> > +       int vref_uv;
+> > +       struct mutex lock; /* Serializes ADC conversions. */
+> > +};
+> > +
+> > +static int axiado_saradc_conversion(struct axiado_saradc *info,
+> > +                                   struct iio_chan_spec const *chan, int *val)
+> > +{
+> > +       unsigned long usecs;
+
+Blank line between declarations and code.
+
+As below I'd have
+
+	guard(mutex)(&info->lock);
+
+in here rather than at caller.  Simpler scope and makes the association with
+adc conversion more obvious.
+
+
+> > +       /* Select the channel to be used and trigger conversion */
+> > +       iowrite32(AX_SARADC_MANUAL_CTRL_EN(chan->channel),
+> > +                 info->regs + AX_SARADC_MANUAL_CTRL);
+> > +
+> > +       /* Hardware requires 13 conversion cycles at clk_rate */
+> > +       usecs = DIV_ROUND_UP(AX_SARADC_CONV_CYCLES * 1000000, info->clk_rate);
+> > +       usleep_range(usecs, usecs + 10);  
+> 
+> fsleep() is preferred over usleep_range(), it selects the optimal
+> sleep function while guaranteeing a sleep of at least usecs time.
+> 
+> > +
+> > +       *val = ioread32(info->regs + AX_SARADC_DOUT) &
+> > +              GENMASK(AX_RESOLUTION_BITS - 1, 0);
+> > +
+> > +       /* Stop manual conversion */
+> > +       iowrite32(0, info->regs + AX_SARADC_MANUAL_CTRL);
+
+Blank line here.  Always nice to separate 'simple returns' like this
+so the eye sees them more easily when reading code.
+
+> > +       return 0;
+> > +}
+> > +
+> > +static int axiado_saradc_read_raw(struct iio_dev *indio_dev,
+> > +                                 struct iio_chan_spec const *chan, int *val,  
+> 
+> Small nit, but I'd move int * val onto the line along with val2 and mask
+> so it's logically separated.
+> 
+> > +                                 int *val2, long mask)
+> > +{
+> > +       struct axiado_saradc *info = iio_priv(indio_dev);
+> > +       int ret;
+> > +
+> > +       switch (mask) {
+> > +       case IIO_CHAN_INFO_RAW:
+> > +               mutex_lock(&info->lock);  
+> 
+> I wanted to recommend using the guard(mutex) macro, but you're
+> only using a mutex once, so up to you.
+
+I'd move it into the axiado_saradc_conversion();
++ use guard() in there as that already has nicely defined scope.
+
+> 
+> > +               ret = axiado_saradc_conversion(info, chan, val);
+> > +               mutex_unlock(&info->lock);
+> > +               return ret ? ret : IIO_VAL_INT;
+> > +       case IIO_CHAN_INFO_SCALE:
+> > +               *val = info->vref_uv / 1000;
+> > +               *val2 = AX_RESOLUTION_BITS;
+> > +               return IIO_VAL_FRACTIONAL_LOG2;
+> > +
+> > +       default:
+> > +               return -EINVAL;
+> > +       }
+> > +}
+> > +
+> > +static const struct iio_info axiado_saradc_iio_info = {
+> > +       .read_raw = axiado_saradc_read_raw,
+> > +};
+> > +
+> > +struct axiado_saradc_soc_data {
+> > +       unsigned int num_channels;
+> > +};
+> > +
+> > +static const struct axiado_saradc_soc_data ax3000_saradc_data = {
+> > +       .num_channels = 16,
+> > +};
+> > +
+> > +static const struct axiado_saradc_soc_data ax3005_saradc_data = {
+> > +       .num_channels = 8,
+As below, add a name to these so that we can report the part number
+via sysfs name attribute. Something like "ax3005_saradc"
+> > +};
+> > +
+> > +#define AX_SARADC_CH(_index, _id)                                       \
+> > +       {                                                               \
+> > +               .type = IIO_VOLTAGE, .indexed = 1, .channel = (_index), \
+
+Go with 1 per line as it will be a bit longer but easier to read.
+
+> > +               .info_mask_separate = BIT(IIO_CHAN_INFO_RAW),           \
+> > +               .info_mask_shared_by_type = BIT(IIO_CHAN_INFO_SCALE),   \
+> > +               .datasheet_name = (_id), .scan_index = -1,              \
+> > +               .scan_type = {                                          \
+> > +                       .sign = 'u',                                    \
+> > +                       .realbits = AX_RESOLUTION_BITS,                 \
+> > +                       .storagebits = 16,                              \
+> > +                       .endianness = IIO_CPU,                          \
+
+You aren't yet doing buffered capture so don't introduce scan_type yet. It's
+just unused data so leave it as 0s (c default) to avoid implication it's used.
+Same for scan_index. 
+
+> > +               },                                                      \
+> > +       }
+> > +
+> > +static const struct iio_chan_spec axiado_saradc_iio_channels[] = {
+> > +       AX_SARADC_CH(0, "adc0"),   AX_SARADC_CH(1, "adc1"),
+> > +       AX_SARADC_CH(2, "adc2"),   AX_SARADC_CH(3, "adc3"),
+> > +       AX_SARADC_CH(4, "adc4"),   AX_SARADC_CH(5, "adc5"),
+> > +       AX_SARADC_CH(6, "adc6"),   AX_SARADC_CH(7, "adc7"),
+> > +       AX_SARADC_CH(8, "adc8"),   AX_SARADC_CH(9, "adc9"),
+> > +       AX_SARADC_CH(10, "adc10"), AX_SARADC_CH(11, "adc11"),
+> > +       AX_SARADC_CH(12, "adc12"), AX_SARADC_CH(13, "adc13"),
+> > +       AX_SARADC_CH(14, "adc14"), AX_SARADC_CH(15, "adc15"),
+> > +};
+> > +
+> > +static int axiado_saradc_probe(struct platform_device *pdev)
+> > +{
+> > +       struct axiado_saradc *info;
+> > +       const struct axiado_saradc_soc_data *soc_data;  
+> 
+> Use reverse christmas tree order.
+> 
+> > +       struct iio_dev *indio_dev;
+> > +       int ret;
+> > +       u32 reg;  
+> 
+> Reg isn't a really good name, regval would be better.
+
+Agreed - people sometimes use reg for the address, regval avoids
+that possible confusion.
+
+> 
+> > +
+> > +       indio_dev = devm_iio_device_alloc(&pdev->dev, sizeof(*info));
+A common IIO convention is to have the device used by devm calls , dev_err
+etc in a local variable.
+
+	struct device *dev = &pdev->dev;
+Shortens all the lines a little and we shouldn't have code directly
+touching the dev inside the iio_dev (see below!)
+
+> > +       if (!indio_dev)
+> > +               return -ENOMEM;
+> > +
+> > +       info = iio_priv(indio_dev);
+> > +
+> > +       info->regs = devm_platform_ioremap_resource(pdev, 0);
+> > +       if (IS_ERR(info->regs))
+> > +               return PTR_ERR(info->regs);
+> > +
+> > +       info->clk = devm_clk_get_enabled(&pdev->dev, NULL);
+> > +       if (IS_ERR(info->clk))
+> > +               return PTR_ERR(info->clk);
+> > +
+> > +       info->clk_rate = clk_get_rate(info->clk);
+> > +       if (!info->clk_rate)
+> > +               return dev_err_probe(&pdev->dev, -EINVAL,
+> > +                                    "invalid clock rate\n");
+		return dev_err_probe(dev, -EINVAL, "invalid clock rate\n");
+Is a good example of where using local dev shortens things enough that
+we save on line wrapping. As below - I'm fine if for some of the others they
+go a little over 80 chars.
+
+> > +
+> > +       info->vref_uv = devm_regulator_get_enable_read_voltage(&pdev->dev,
+> > +                                                              "vref");
+
+For IIO we tend to be a little flexible on line length when we get someting
+that would  be a lot nicer if we went slightly over 80 chars.  So put this one
+on one line.
+
+> > +       if (info->vref_uv < 0)
+> > +               return dev_err_probe(&pdev->dev, info->vref_uv,
+> > +                                    "failed to get vref voltage\n");
+> > +
+> > +       soc_data = device_get_match_data(&pdev->dev);
+> > +       if (!soc_data)
+> > +               return dev_err_probe(&pdev->dev, -EINVAL,
+> > +                                    "failed to get match data\n");
+> > +
+> > +       mutex_init(&info->lock);  
+> 
+> Use devm_mutex_init since everything else is devm.
+> 
+> > +       reg = FIELD_PREP(AX_SARADC_CH_EN_MASK,
+> > +                        GENMASK(soc_data->num_channels - 1, 0)) |
+> > +             AX_SARADC_SAMPLE_16 | AX_SARADC_MODE | AX_SARADC_ENABLE;
+> > +
+> > +       iowrite32(AX_SARADC_PD, info->regs + AX_SARADC_GLOBAL_CTRL);  
+> 
+> Sashiko notes to add a small delay here to prevent a zero width pulse.
+
+That would be true if an external signal. For internal SoC signals everything
+should be fine without or documented.  So just check to see if there is a documented
+reset hold time. If not this is fine I think. Sashiko is seeing a lot of gpio
+style resets where that feedback would be valid.
+
+> 
+> > +       iowrite32(reg, info->regs + AX_SARADC_GLOBAL_CTRL);
+> > +       indio_dev->name = dev_name(&pdev->dev);  
+> 
+> Hmm, Sashiko may have a point here, this could break the ABI.
+> The name member is usually assigned a hardcoded string and
+> it shouldn't contain whitespace, dots or dashes, which dev_name()
+> could return.
+
+All true, but critical bit is this is the part number, not something
+originating in the kernel device naming schemes.  Given two supported
+parts, ideal would be to provide the number for each.  Just put a
+string in your soc_data and use that.
+
+
+> 
+> > +       indio_dev->dev.parent = &pdev->dev;
+
+There should be no need to do this - it's done inside
+devm_iio_device_alloc().  Shout if that doesn't work for some reason or
+I'm missing that you have an unusual parent and need to override the default.
+
+> > +       indio_dev->info = &axiado_saradc_iio_info;
+> > +       indio_dev->modes = INDIO_DIRECT_MODE;
+> > +       indio_dev->channels = axiado_saradc_iio_channels;
+> > +       indio_dev->num_channels = soc_data->num_channels;
+> > +
+> > +       ret = devm_iio_device_register(&pdev->dev, indio_dev);
+> > +       if (ret)
+> > +               return dev_err_probe(&pdev->dev, ret,
+> > +                                    "failed to register IIO device\n");  
+> 
+> You can just do `return devm_iio_device_register`.
+Sometime we should do an audit of that function to make sure all the
+plausible error paths (i.e. wrong config data etc) definitely print.
+They should - so it should only be -ENOMEM that gets here without
+providing info, but more than possible one is missing.
+
+Anyhow not a question for this driver!
+
+> 
+> > +       return 0;
+> > +}
+> > +  
+> 
+> I don't see any kind of cleanup procedure, like a remove() function
+> or devm_add_action_or_reset callback, is this intentional?
+> 
+> > +static const struct of_device_id axiado_saradc_match[] = {
+> > +       {
+> > +               .compatible = "axiado,ax3000-saradc",
+> > +               .data = &ax3000_saradc_data,
+> > +       },
+> > +       {
+> > +               .compatible = "axiado,ax3005-saradc",
+> > +               .data = &ax3005_saradc_data,
+> > +       },
+> > +       {},
+	{ }
+
+For that terminating entry.
+No comma as it always needs to be the last one; the spacing is an IIO
+convention in the interests of consistency across drivers.
+
+> > +};
+> > +MODULE_DEVICE_TABLE(of, axiado_saradc_match);
+> > +
+> > +static struct platform_driver axiado_saradc_driver = {
+> > +       .driver = {
+> > +               .name = KBUILD_MODNAME,
+> > +               .of_match_table = axiado_saradc_match,
+> > +       },
+> > +       .probe = axiado_saradc_probe,
+> > +};
+> > +
+> > +module_platform_driver(axiado_saradc_driver);
+> > +
+> > +MODULE_AUTHOR("AXIADO CORPORATION");
+> > +MODULE_DESCRIPTION("AXIADO SARADC driver");
+> > +MODULE_LICENSE("GPL");
+> >
+> > --
+> > 2.34.1
+> >
+> >  
+> 
 
 
