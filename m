@@ -4,41 +4,41 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 8CA82CD6E4A
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 28 May 2026 16:55:11 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 98D61CD4F54
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 28 May 2026 16:55:12 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
 	MIME-Version:References:In-Reply-To:Message-Id:Date:Subject:Cc:To:From:
 	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=nCdZV5oSM8iN4oPYZEtVbuI2FYCg3eMdGqZinPkyIW8=; b=o3lEy2AvEoSV+ncaDvoia25okq
-	PaUVKTFLQxn5oFTNLhRXRH83qjdWaFqtX2GZ0uHi5V3uddV+tdanwMiDEceT/gW51cW0+ONxYFX9/
-	i9tzWlWkrcS67/v1Pmr3NzAka8zAfj3OJildAEze8ckaiUvEubFinthSGC/vuQjR866bw/Bz7qyEl
-	kV6B9Gs9l3YE82cGBnHgAMlKfkz/vg+dUW1nsms8TaiH/f7fZ5mLQ0sggerKC6sz0SwGO/ALKC8dE
-	5wQHry4oZQ/FLAVCLlbhzsISV+Gda6wX3MShVlQIIRTUiycjDe6rtDquajMPPFXI/MrI1Pzc49HXI
-	UFy3xtUQ==;
+	bh=ctYYcUeCsQ5pW5peJuICK0FffAldKuE69L7jux1elXc=; b=liV1AI/kfX+uZXXMCazLuBlk+H
+	WnoKlHMOI0ALXA+6p0obTzWyrT5c0iUdAIOsuL0VNq8NaLqEr1iORz5N82W9xX4PNCdoTPqfxfcfS
+	C/dDDEmIZ/WCuqNOvqruVidWTDlSGuNf5y+nPeQ7Kd1BYsRC/tDKjrBsGcgQRaIXpE8P1KGnBF1Vw
+	W2SRGMfeI1ZWCM5/7D/a3GVyIlkOu1LmTIp7CvU21lxc8WgMNA8M5Q+0abxdaAhRJTxGDTdcw3m5C
+	l9xkx1X6A9asY5aP3q0V65G5aRteeb8irhLit/ShawbqUA/C4poDvLCcODZS5Eqvp376FO/PoGxLM
+	TDPR+Mvg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wSe0f-000000062G4-21wC;
+	id 1wSe0f-000000062GP-2bFP;
 	Thu, 28 May 2026 16:55:05 +0000
 Received: from foss.arm.com ([217.140.110.172])
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wSe0a-000000062Dt-3m2L
+	id 1wSe0d-000000062Eu-0qcC
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 28 May 2026 16:55:02 +0000
+	Thu, 28 May 2026 16:55:04 +0000
 Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
-	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id 04A98460D;
-	Thu, 28 May 2026 09:54:54 -0700 (PDT)
+	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id 1AA1B22EE;
+	Thu, 28 May 2026 09:54:56 -0700 (PDT)
 Received: from lakrids.cambridge.arm.com (usa-sjc-imap-foss1.foss.arm.com [10.121.207.14])
-	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPA id AAC5B3F905;
-	Thu, 28 May 2026 09:54:57 -0700 (PDT)
+	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPA id BBA343F905;
+	Thu, 28 May 2026 09:54:59 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=simple/simple; d=arm.com; s=foss;
-	t=1779987299; bh=NmloSGFdxE4dsknEfJbF1zvVAVislJhqreJbtnq1bWs=;
+	t=1779987301; bh=gQVxDLObpHw6ZNtfscQf7cTegZZAwSB0BoSq1y5HiHA=;
 	h=From:To:Cc:Subject:Date:In-Reply-To:References:From;
-	b=PQ9+Sllcc9MrbNxiBYaGPHnzqpwAXgz6Gd47VIlLTYrCty5dJqUWUIwVymZ/qVlwa
-	 a8OdH6GyChaa4K3YgBdMpFvvBmLvDVHpGQJpoRmOokp3YpjAr6cKCVPbfyh4aJJryF
-	 JKGGjXT5I5+PXX+yny6Uod4+JP4wlzVJX4RbDKfA=
+	b=M3R8YGxYvuGGoCRxXevIjF2GM53s9+rEgLSnHYZtwwG+lrZwXFAg75dZcyIS1BhAT
+	 43M0rpD94OfSur05UvG7dRRFwu2xWt1LS9ttawTKZ9cax2Os8vNfr31Vmj80Zz0ltM
+	 aKTUX1cLfE87qsnm+DhfcQPIIw+nF6+G1O55HY7Y=
 From: Mark Rutland <mark.rutland@arm.com>
 To: linux-arm-kernel@lists.infradead.org,
 	kvmarm@lists.linux.dev
@@ -51,17 +51,17 @@ Cc: broonie@kernel.org,
 	tabba@google.com,
 	vladimir.murzin@arm.com,
 	will@kernel.org
-Subject: [PATCH v2 02/18] KVM: arm64: Don't override FFR save/restore argument
-Date: Thu, 28 May 2026 17:54:30 +0100
-Message-Id: <20260528165446.701944-3-mark.rutland@arm.com>
+Subject: [PATCH v2 03/18] KVM: arm64: pkvm: Save host FPMR in host cpu context
+Date: Thu, 28 May 2026 17:54:31 +0100
+Message-Id: <20260528165446.701944-4-mark.rutland@arm.com>
 X-Mailer: git-send-email 2.30.2
 In-Reply-To: <20260528165446.701944-1-mark.rutland@arm.com>
 References: <20260528165446.701944-1-mark.rutland@arm.com>
 MIME-Version: 1.0
 Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260528_095501_257061_729636BE 
-X-CRM114-Status: GOOD (  11.46  )
+X-CRM114-CacheID: sfid-20260528_095503_324428_F2FBF2CF 
+X-CRM114-Status: GOOD (  13.17  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -76,66 +76,94 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-The __sve_save_state() and __sve_restore_state() functions take a
-parameter describing whether to save/restore the FFR, but both functions
-silently override this with '1'. This has always been benign (and
-callers have all passed 'true' since the parameter was introduced), but
-clearly this is not intentional.
+Protected KVM stores most of the host's system register state in
+kvm_host_data::host_ctxt, which is an instance of struct
+kvm_cpu_context. As kvm_cpu_context::sys_regs[] has a slot for FPMR, we
+can store the host's FPMR there.
 
-Historically, the functions always saved/restored the FFR, and there was
-no parameter to control this.
-
-In v5.16, the sve_save and sve_load assembly macros used by
-__sve_save_state() and __sve_restore_state() were changed to make
-saving/restoring FFR optional. The implementations of __sve_save_state()
-and __sve_restore_state() were changed to pass '1' to their respective
-macros, and the prototypes of __sve_save_state() and
-__sve_restore_state() were unchanged. See commit:
-
-  9f5848665788 ("arm64/sve: Make access to FFR optional")
-
-In v6.10, the prototypes of __sve_save_state() and __sve_restore_state()
-were changed to add 'save_ffr' and 'restore_ffr' parameters
-respectively, but the implementations were not changed to stop passing 1
-to their respective macros. All callers were changed to pass 'true' to
-__sve_save_state() and __sve_restore_state(). See commit:
-
-  45f4ea9bcfe9 ("KVM: arm64: Fix prototype for __sve_save_state/__sve_restore_state")
-
-This is all benign, but clearly unintentional, and it gets in the way of
-cleaning up the FPSIMD/SVE/SME code. Remove the unnecessary overriding.
+Do so, and remove kvm_host_data::fpmr.
 
 Signed-off-by: Mark Rutland <mark.rutland@arm.com>
-Reviewed-by: Mark Brown <broonie@kernel.org>
 Reviewed-by: Vladimir Murzin <vladimir.murzin@arm.com>
 Cc: Catalin Marinas <catalin.marinas@arm.com>
 Cc: Fuad Tabba <tabba@google.com>
 Cc: James Morse <james.morse@arm.com>
 Cc: Marc Zyngier <maz@kernel.org>
+Cc: Mark Brown <broonie@kernel.org>
 Cc: Oliver Upton <oupton@kernel.org>
 Cc: Will Deacon <will@kernel.org>
 ---
- arch/arm64/kvm/hyp/fpsimd.S | 2 --
- 1 file changed, 2 deletions(-)
+ arch/arm64/include/asm/kvm_host.h       | 3 ---
+ arch/arm64/kvm/hyp/include/hyp/switch.h | 6 ++++--
+ arch/arm64/kvm/hyp/nvhe/hyp-main.c      | 5 +++--
+ 3 files changed, 7 insertions(+), 7 deletions(-)
 
-diff --git a/arch/arm64/kvm/hyp/fpsimd.S b/arch/arm64/kvm/hyp/fpsimd.S
-index e950875e31cee..6e16cbfc5df27 100644
---- a/arch/arm64/kvm/hyp/fpsimd.S
-+++ b/arch/arm64/kvm/hyp/fpsimd.S
-@@ -21,13 +21,11 @@ SYM_FUNC_START(__fpsimd_restore_state)
- SYM_FUNC_END(__fpsimd_restore_state)
+diff --git a/arch/arm64/include/asm/kvm_host.h b/arch/arm64/include/asm/kvm_host.h
+index 65eead8362e0b..42b1c4764a4bf 100644
+--- a/arch/arm64/include/asm/kvm_host.h
++++ b/arch/arm64/include/asm/kvm_host.h
+@@ -775,9 +775,6 @@ struct kvm_host_data {
+ 	 */
+ 	struct cpu_sve_state *sve_state;
  
- SYM_FUNC_START(__sve_restore_state)
--	mov	x2, #1
- 	sve_load 0, x1, x2, 3
- 	ret
- SYM_FUNC_END(__sve_restore_state)
+-	/* Used by pKVM only. */
+-	u64	fpmr;
+-
+ 	/* Ownership of the FP regs */
+ 	enum {
+ 		FP_STATE_FREE,
+diff --git a/arch/arm64/kvm/hyp/include/hyp/switch.h b/arch/arm64/kvm/hyp/include/hyp/switch.h
+index 98b2976837b11..cc4d011a2b380 100644
+--- a/arch/arm64/kvm/hyp/include/hyp/switch.h
++++ b/arch/arm64/kvm/hyp/include/hyp/switch.h
+@@ -554,6 +554,8 @@ static inline void fpsimd_lazy_switch_to_host(struct kvm_vcpu *vcpu)
  
- SYM_FUNC_START(__sve_save_state)
--	mov	x2, #1
- 	sve_save 0, x1, x2, 3
- 	ret
- SYM_FUNC_END(__sve_save_state)
+ static void kvm_hyp_save_fpsimd_host(struct kvm_vcpu *vcpu)
+ {
++	struct kvm_cpu_context *hctxt = host_data_ptr(host_ctxt);
++
+ 	/*
+ 	 * Non-protected kvm relies on the host restoring its sve state.
+ 	 * Protected kvm restores the host's sve state as not to reveal that
+@@ -562,11 +564,11 @@ static void kvm_hyp_save_fpsimd_host(struct kvm_vcpu *vcpu)
+ 	if (system_supports_sve()) {
+ 		__hyp_sve_save_host();
+ 	} else {
+-		__fpsimd_save_state(host_data_ptr(host_ctxt.fp_regs));
++		__fpsimd_save_state(&hctxt->fp_regs);
+ 	}
+ 
+ 	if (kvm_has_fpmr(kern_hyp_va(vcpu->kvm)))
+-		*host_data_ptr(fpmr) = read_sysreg_s(SYS_FPMR);
++		ctxt_sys_reg(hctxt, FPMR) = read_sysreg_s(SYS_FPMR);
+ }
+ 
+ 
+diff --git a/arch/arm64/kvm/hyp/nvhe/hyp-main.c b/arch/arm64/kvm/hyp/nvhe/hyp-main.c
+index 06db299c37a89..db60f770060e5 100644
+--- a/arch/arm64/kvm/hyp/nvhe/hyp-main.c
++++ b/arch/arm64/kvm/hyp/nvhe/hyp-main.c
+@@ -66,6 +66,7 @@ static void fpsimd_sve_flush(void)
+ 
+ static void fpsimd_sve_sync(struct kvm_vcpu *vcpu)
+ {
++	struct kvm_cpu_context *hctxt = host_data_ptr(host_ctxt);
+ 	bool has_fpmr;
+ 
+ 	if (!guest_owns_fp_regs())
+@@ -89,10 +90,10 @@ static void fpsimd_sve_sync(struct kvm_vcpu *vcpu)
+ 	if (system_supports_sve())
+ 		__hyp_sve_restore_host();
+ 	else
+-		__fpsimd_restore_state(host_data_ptr(host_ctxt.fp_regs));
++		__fpsimd_restore_state(&hctxt->fp_regs);
+ 
+ 	if (has_fpmr)
+-		write_sysreg_s(*host_data_ptr(fpmr), SYS_FPMR);
++		write_sysreg_s(ctxt_sys_reg(hctxt, FPMR), SYS_FPMR);
+ 
+ 	*host_data_ptr(fp_owner) = FP_STATE_HOST_OWNED;
+ }
 -- 
 2.30.2
 
