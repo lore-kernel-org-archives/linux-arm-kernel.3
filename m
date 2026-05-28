@@ -4,66 +4,68 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id DCB2ECD5BD5
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 28 May 2026 20:24:07 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id CA2FACD4F54
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 28 May 2026 20:24:11 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:Cc:To:From:
-	Subject:Message-ID:Mime-Version:Date:Reply-To:Content-Transfer-Encoding:
-	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
-	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
-	bh=OCRry7rxw58KzBu/2DpFLzdj5hBkFn2md8kzREbSj6E=; b=O2OGexMknaH3K1OZiaU7/V0fuO
-	BLKgCI6oo+tuVpv5n+pNPodzAEdr6Bw+Od2pjcBoNZkB9M2Js1Gkfye50FrVbSQAjeuYM8bTi6CYe
-	PL9C/OwejE0PEP1DqPMoDZ6lN1nySeP69voyUp5O4q57Yvm+x+UHsGf3nNn2gIO9kYe4P0vD96BwG
-	l9iQ6GiG27kBETAuXj7ZfpRN+d5DIYfpGETK2Mva7vlb7iWHkJJpjZbTPqL534kHwJ++qiseYmM/U
-	9pBrrkNdwt5j2VhwN1+/VRV55m4WVPxF6VGYMcsvfuxgoDBI9rMMcLHrsjUPwAOgEPfA1YEoG7/Bl
-	ejfQVkWA==;
+	Subject:Message-ID:References:Mime-Version:In-Reply-To:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=xwbylVdF+O+8AihJparLUGU02SRqGSrn4Cd3mbYF5r4=; b=zUTwBwjsmdb5R3GLLkbOQeYrMI
+	I4+fAlpDIB1EvUefGe+9ivVcPuJFdz+HuXn69rwkus+EzyNd3piOMIwaRSYPzZOT6CdLPUwdKwAtW
+	8iXeMJ9iofmGz9U6Y4q2OBMNSYPdLYWmBApQL58RGWhFKTbgqjSAN6Aw0uckFNPM11H5yafCrCqeu
+	jq5C0cyE3mHwUcwzyhO3LRm7LTLXKeMWUfQxPzXH/yU/RI8Wa+yPkKUD/9b3mzX4lpJ3hnPe7gJSX
+	uBVW0CBAejQgcLsBUM5tejvOC4iOKN5ODVFlMFNL3yfXc77xawm2w0zDXTgo0HSCEBxKABBgzV9QC
+	uWNS+PaA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wShGp-00000006KrQ-4BQ9;
-	Thu, 28 May 2026 20:24:00 +0000
-Received: from mail-pg1-x54a.google.com ([2607:f8b0:4864:20::54a])
+	id 1wShGv-00000006Kt6-0UVZ;
+	Thu, 28 May 2026 20:24:05 +0000
+Received: from mail-pj1-x104a.google.com ([2607:f8b0:4864:20::104a])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wShGn-00000006KqW-3hjz
+	id 1wShGp-00000006Kqp-2nAR
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 28 May 2026 20:23:59 +0000
-Received: by mail-pg1-x54a.google.com with SMTP id 41be03b00d2f7-c82894155ceso16389820a12.1
-        for <linux-arm-kernel@lists.infradead.org>; Thu, 28 May 2026 13:23:56 -0700 (PDT)
+	Thu, 28 May 2026 20:24:00 +0000
+Received: by mail-pj1-x104a.google.com with SMTP id 98e67ed59e1d1-36bb6c41341so344240a91.3
+        for <linux-arm-kernel@lists.infradead.org>; Thu, 28 May 2026 13:23:58 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=google.com; s=20251104; t=1779999836; x=1780604636; darn=lists.infradead.org;
-        h=cc:to:from:subject:message-id:mime-version:date:from:to:cc:subject
-         :date:message-id:reply-to;
-        bh=OCRry7rxw58KzBu/2DpFLzdj5hBkFn2md8kzREbSj6E=;
-        b=SuC8dJVN9QEJJwuMCXTA42TTBhBZSxl3sHMW1v125o/LRkZG7ikCBhsXSMxr9xqNGr
-         0YUs0yimZZjM4Xe26pGK5pUx0C5dC9msp5sskLVGwUZyySYVG+xgAPf/nouQhInvMJNQ
-         8HPCm61np6+xa5QFR1yeVTWxBgQtPkUQP2wPXwfwywKJ2pLUxL1HnelcjrFtNvSNBRz8
-         WT7STjxyNdamjlkyPfGEE082E4R873mhut8ky0/rcSOBcFND6GFkUmaogxORHtH0sPlR
-         OIdYmgNFc3DVhs0Z5KBmIGSPoaLFazlqHTAQYHltC7BrKuqL8SVW++OCuVw8jB882lJe
-         ER1A==
+        d=google.com; s=20251104; t=1779999838; x=1780604638; darn=lists.infradead.org;
+        h=cc:to:from:subject:message-id:references:mime-version:in-reply-to
+         :date:from:to:cc:subject:date:message-id:reply-to;
+        bh=xwbylVdF+O+8AihJparLUGU02SRqGSrn4Cd3mbYF5r4=;
+        b=q2Pky6MtsxX4HWF3i7KvZX03ta6nJqO6aVnN7n/GZmoHlY9w/dGV3iUK83RMcxHOEZ
+         Zwv7jGeg4xxmOddDKEnzrmV+yhY5o86Ka5oY9N9AcP9MnoVnzHolxwv6gi6ge83pyAUA
+         CCfdguN6uHT2S8tch4BuLXD00L5X3n7bQo7I8/Q73x64S1ERjaqCU/h7sg+cycfnzKnW
+         pFptUpypPDxueLY4dEbNit3i7PW8DnblFseysZzM+dA+6SFoYozAlVzxo1zCAQuC4nie
+         j7Ll+mct0IbYdGimSSMJXMpmLmO+I1ZulPyMzwpLE5FSYwHRv93PlGh+yxi8+m6ThKhW
+         qjog==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20251104; t=1779999836; x=1780604636;
-        h=cc:to:from:subject:message-id:mime-version:date:x-gm-message-state
-         :from:to:cc:subject:date:message-id:reply-to;
-        bh=OCRry7rxw58KzBu/2DpFLzdj5hBkFn2md8kzREbSj6E=;
-        b=oK9Mg+xJTIgbnjsn72+JdSCOfk9eo4CqdiPQqv/0IWod79zgD9rcK0xwviHVJLefpP
-         SWPCF/+q/kKLJiEaW9qQiXvADYabg5Df2N5yfEloIMc3t7+r3Mtv5bR/C0/sXP1EL04Q
-         /4uKFfImEm3sTt04VN3MsUS960TimzYptvWIKlK9mLXllM6tZqFFqZXjAB8OaVJ09pNH
-         BwKdSEkNj5vGpOcfCMT0t3FTH50+U2NRCzIY1VFAsL945eRywJW5ynVMq5tBtCMjSSNb
-         R2oahL+Z7EFk4/AWGlBZDMqzAcnu4VlDM0Ffge0wY23DMy2mgZk9AalJuYFms7PaZmzJ
-         ExRA==
-X-Forwarded-Encrypted: i=1; AFNElJ8roonay/pinDwL/LqnFH6BIf6Jkd3SvFmMISeicn29DVkdsNlmpD05TN79Flm+QVzeTGhZp58ox3AY51aqM+nT@lists.infradead.org
-X-Gm-Message-State: AOJu0YyYtXPEmHgIRh8zGvVDoJwhkDT+fV2McIpE+tb1/yabZu6mtiyv
-	3dQO/cssD1F9BIwiFwB8PHDnlySyQ2kmy+4Aec/n5VK7kUk6Q9UuhVn7zOt40OcEeAY7QubYRqx
-	biw==
-X-Received: from pgbo29.prod.google.com ([2002:a63:5a1d:0:b0:c82:2e5b:8f33])
- (user=praan job=prod-delivery.src-stubby-dispatcher) by 2002:a05:6a20:6a1a:b0:3b2:924f:70af
- with SMTP id adf61e73a8af0-3b40e648375mr280209637.45.1779999835891; Thu, 28
- May 2026 13:23:55 -0700 (PDT)
-Date: Thu, 28 May 2026 20:23:46 +0000
+        d=1e100.net; s=20251104; t=1779999838; x=1780604638;
+        h=cc:to:from:subject:message-id:references:mime-version:in-reply-to
+         :date:x-gm-message-state:from:to:cc:subject:date:message-id:reply-to;
+        bh=xwbylVdF+O+8AihJparLUGU02SRqGSrn4Cd3mbYF5r4=;
+        b=GqIjAbSwaOa3ferukstZG7x5FzFUtkFNMz5siFX7tfko6XPDrTLlIs/zHI0NBEcfNG
+         RhQRpDetjTExM0Q2hB0f8FmfiWUvWpwFCq/DQZOkjthFX1xXfbwp6a6U1FoqDyd4ENpG
+         ZUf7b33PBoIz4hqs3DEk5kcbnFCmkbnZISrxO/hTcCUU8T6Yk6Emx+SD4fSHNYNCdMe3
+         rV9snciryZ/ocS76elhef3k8sQIN4RskyC0R9lwbC49NeHAOHsRJNvSEKK1iIFNV00zO
+         +TgbsV71tPy969gT4MaHY2DtqScAYCFGzclA4bcLNfUxMzIFzNP7d7XJGjSp1mgwexVP
+         663w==
+X-Forwarded-Encrypted: i=1; AFNElJ8RyugCzYDpf7pHCy+OT/0Xr4PKE+by7V8kBsYoYCiESvnmVbeUKsx/8xymL7Uk+Y00hcWGOzVYG3E1rHs8v45Z@lists.infradead.org
+X-Gm-Message-State: AOJu0YwABNKK/W+zk3O07URqTl1YtAk5OduwCP6f1O7+wI4zyZaeXl39
+	38JmHcqXd6xow5OmtMzZ6on7+vPxtLnkCWcp3HRrQZqymPTQ1dYaP99Mu8uZ08oSYxrGsxcN1r0
+	ZGA==
+X-Received: from pjbcu14.prod.google.com ([2002:a17:90a:fa8e:b0:369:9cde:eaa0])
+ (user=praan job=prod-delivery.src-stubby-dispatcher) by 2002:a17:90a:e7c9:b0:368:1088:bb1d
+ with SMTP id 98e67ed59e1d1-36bbcfd9807mr90130a91.15.1779999837989; Thu, 28
+ May 2026 13:23:57 -0700 (PDT)
+Date: Thu, 28 May 2026 20:23:47 +0000
+In-Reply-To: <20260528202353.3422206-1-praan@google.com>
 Mime-Version: 1.0
+References: <20260528202353.3422206-1-praan@google.com>
 X-Mailer: git-send-email 2.54.0.823.g6e5bcc1fc9-goog
-Message-ID: <20260528202353.3422206-1-praan@google.com>
-Subject: [PATCH v5 0/7] iommu: Standardize ATS robustness and state tracking
+Message-ID: <20260528202353.3422206-2-praan@google.com>
+Subject: [PATCH v5 1/7] PCI/ATS: Ensure pci_ats_supported() is PF-aware for VFs
 From: Pranjal Shrivastava <praan@google.com>
 To: iommu@lists.linux.dev, linux-pci@vger.kernel.org, 
 	linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org
@@ -74,11 +76,11 @@ Cc: Joerg Roedel <joro@8bytes.org>, Will Deacon <will@kernel.org>,
 	Nicolin Chen <nicolinc@nvidia.com>, David Matlack <dmatlack@google.com>, 
 	Samiullah Khawaja <skhawaja@google.com>, Daniel Mentz <danielmentz@google.com>, 
 	Pasha Tatashin <pasha.tatashin@soleen.com>, Mostafa Saleh <smostafa@google.com>, 
-	Pranjal Shrivastava <praan@google.com>
+	Pranjal Shrivastava <praan@google.com>, Jason Gunthorpe <jgg@nvidia.com>
 Content-Type: text/plain; charset="UTF-8"
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260528_132357_921827_34E92B0F 
-X-CRM114-Status: GOOD (  10.59  )
+X-CRM114-CacheID: sfid-20260528_132359_704101_F6165F63 
+X-CRM114-Status: GOOD (  11.28  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -93,64 +95,40 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-The primary motivation for this series is an ATS state mismatch observed
-under heavy load (via iova_stress). A failure in pci_enable_ats() leaves
-IOMMU drivers like arm-smmu-v3 with inconsistent state leading to PCI core
-warnings during device detach.
+Update pci_ats_supported() to additionally check the associated PF's
+status when called on a VF. This ensures that PF-level quirks and
+untrusted status are correctly propagated to VFs, providing a robust
+support check that aligns with the kernel's PF-centric ATS configuration
+model and is immune to the timing of VF-specific fixups.
 
-While David's recent work [1] addressed a discovery race for specific
-quirked devices by moving them to the HEADER phase, gaps remained
-regarding how Virtual Functions (VFs) inherit state from their Physical
-Functions (PFs). Specifically, pci_ats_supported() did not account for
-PF-level quirked status, and pci_prepare_ats() lacked STU validation for
-VFs.
+Reviewed-by: Jason Gunthorpe <jgg@nvidia.com>
+Reviewed-by: Samiullah Khawaja <skhawaja@google.com>
+Reviewed-by: Nicolin Chen <nicolinc@nvidia.com>
+Signed-off-by: Pranjal Shrivastava <praan@google.com>
+---
+ drivers/pci/ats.c | 7 +++++--
+ 1 file changed, 5 insertions(+), 2 deletions(-)
 
-Based on discussion with Jason in v3 it was decided that IOMMU drivers 
-should explicitly check pci_ats_supported before calling pci_prepare_ats
-To facilitate this, pci_prepare_ats() has been decoupled from the internal
-support check. Furthermore, the device probe should fail if pci_prepare_ats()
-fails. Since these early gates preclude software configuration errors,
-any remaining failure during pci_enable_ats() is treated as a kernel bug
-
-This series standardizes this pattern across ARM SMMUv3, Intel VT-d, &
-AMD IOMMU drivers, while also hardening the latter two against pre-existing
-issues found by Sashiko in their probe error paths identified during review.
-
-[1] https://lore.kernel.org/linux-pci/20260403222750.1215002-1-dmatlack@google.com/
-
-[v5]
- - Decoupled pci_ats_supported() from pci_prepare_ats() in the PCI core.
- - Rebased SMMUv3 support on top of Nicolin's "Always-On ATS" series.
- - Fixed pre-existing RB-tree corruption in VT-d probe (Baolu/Sashiko).
- - Addressed the pre-existing UAF in AMD IOMMU probe suggested by Sashiko
- - Collected R-b tags from Nicolin.
-
-[v4]
- - https://lore.kernel.org/all/20260525184347.4059549-1-praan@google.com/
- - Standardized the pattern across Intel VT-d and AMD IOMMU drivers.
- - Replaced the SMMUv3 ats_prepared gate with a fatal probe-fail logic.
- - Utilized WARN() macros for runtime enablement failures in all drivers.
- - Collected R-b tags from Jason and Sami.
-
-[v3] https://lore.kernel.org/all/20260519135323.1558777-1-praan@google.com/
-[v2] https://lore.kernel.org/all/20260504163842.2692314-1-praan@google.com/
-
-
-Pranjal Shrivastava (7):
-  PCI/ATS: Ensure pci_ats_supported() is PF-aware for VFs
-  PCI/ATS: Validate STU for VFs in pci_prepare_ats()
-  PCI/ATS: Decouple pci_ats_supported() from pci_prepare_ats()
-  iommu/arm-smmu-v3: Standardize ATS enablement failure reporting
-  iommu/vt-d: Fix RB-tree corruption and Use-After-Free in probe
-  iommu/vt-d: Fail probe on ATS configuration failure
-  iommu/amd: Fail probe on ATS configuration failure
-
- drivers/iommu/amd/iommu.c                   | 30 ++++++++++++++++-----
- drivers/iommu/arm/arm-smmu-v3/arm-smmu-v3.c | 10 +++++--
- drivers/iommu/intel/iommu.c                 | 22 ++++++++++++---
- drivers/pci/ats.c                           | 21 ++++++++++-----
- 4 files changed, 64 insertions(+), 19 deletions(-)
-
+diff --git a/drivers/pci/ats.c b/drivers/pci/ats.c
+index 96efa00d9743..679a3c3c1d54 100644
+--- a/drivers/pci/ats.c
++++ b/drivers/pci/ats.c
+@@ -40,10 +40,13 @@ void pci_ats_init(struct pci_dev *dev)
+  */
+ bool pci_ats_supported(struct pci_dev *dev)
+ {
+-	if (!dev->ats_cap)
++	if (!dev->ats_cap || dev->untrusted)
+ 		return false;
+ 
+-	return (dev->untrusted == 0);
++	if (dev->is_virtfn)
++		return pci_ats_supported(pci_physfn(dev));
++
++	return true;
+ }
+ EXPORT_SYMBOL_GPL(pci_ats_supported);
+ 
 -- 
 2.54.0.823.g6e5bcc1fc9-goog
 
