@@ -4,64 +4,62 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id E3225CD4F54
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 28 May 2026 16:52:38 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id DA13DCD4F54
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 28 May 2026 16:55:08 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
 	MIME-Version:Message-Id:Date:Subject:Cc:To:From:Reply-To:Content-Type:
 	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
 	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
-	bh=VqpF95Me50rWFEF/pPooatQSHRrhpris1NlOAFjPDf8=; b=S3s2hCRp6FC7WO8f6ziloxEKhi
-	1xJXoWiv1r8MiFWznDUs8Fr70w8RYRM48n/vJ7FrEWeaaePB5/zCnNMy5G5A6+Ph6Rx+4atGDujgA
-	iaMNO24S7r4kWkq5f6sNzr5SkbhXyoeeZTeKLJLV6KQQ0brblxgvXiTYHK1dfg5d+dXoRW/LBDwri
-	F6CpivLTrnTAwWy+dHZODzeZeBtiNo9kX7wa65MLvWjn+YGGGrD0zKardx/rOvHhYRihipj1/YnDp
-	Dx0lxTVhjD6741lGZcy2hvPup3yj1wiufyRNS2X2Myb/4YHpVYHYtE2IPtARyty+BT3b30uB9rVni
-	IWE+TSTQ==;
+	bh=QkpLWwgTdMLpySAbZdiJAa4qLP9ychms34Ix+j2GIpc=; b=f5giLu0p604WHW4JpYwHTXdPwx
+	LDgKKb4NcGCBYwDuVvhUoI3WBGNxBvjv24eDiZW3sx+Mj+zuZCHXgO8o3A4eNyDhqt4cMb5U6UHc2
+	XGxON3Pdzo6rqIUHMEKRARn5K9Upyh88ofaKwCYy4q6EyG8WRWzBj6QBs6JS5cZLxhefBEMb3XLR3
+	bYN5mw0dMvhhQ9lPABeAoFgOkznK8djdh6Uw5gs2rqEi1WRsxa6+U23XpmDdPl3GjlVj9p7gPsdgm
+	Y3rH0H3Blf4PACPXY7jroe2gUMc3T3unsMjAhR+/suO6RGe3kBLiRtKKl4+jMbWjzDFhNJ9fMoV+d
+	s6YI7T0A==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wSdyA-0000000621Y-2bmw;
-	Thu, 28 May 2026 16:52:30 +0000
-Received: from mail-m128189.netease.com ([103.209.128.189])
-	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wSdy6-0000000620u-3WkG
+	id 1wSe0a-000000062Dg-1Qs1;
+	Thu, 28 May 2026 16:55:01 +0000
+Received: from foss.arm.com ([217.140.110.172])
+	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
+	id 1wSe0X-000000062D0-3kFh
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 28 May 2026 16:52:28 +0000
-Received: from PC-202605011814.localdomain (unknown [IPV6:2409:8924:2013:1a6b:50af:214a:ea2b:7da2])
-	by smtp.qiye.163.com (Hmail) with ESMTP id 403594fc0;
-	Fri, 29 May 2026 00:52:10 +0800 (GMT+08:00)
-From: Runyu Xiao <runyu.xiao@seu.edu.cn>
-To: suzuki.poulose@arm.com,
-	alexander.shishkin@linux.intel.com
-Cc: mike.leach@linaro.org,
-	james.clark@linaro.org,
-	mathieu.poirier@linaro.org,
-	gregkh@linuxfoundation.org,
-	coresight@lists.linaro.org,
-	linux-arm-kernel@lists.infradead.org,
-	linux-kernel@vger.kernel.org,
-	runyu.xiao@seu.edu.cn,
-	jianhao.xu@seu.edu.cn,
-	stable@vger.kernel.org
-Subject: [PATCH] coresight: etb10: restore atomic_t for shared reading state
-Date: Fri, 29 May 2026 00:52:01 +0800
-Message-Id: <20260528165201.319452-1-runyu.xiao@seu.edu.cn>
-X-Mailer: git-send-email 2.34.1
+	Thu, 28 May 2026 16:54:59 +0000
+Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
+	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id E0DA122EE;
+	Thu, 28 May 2026 09:54:48 -0700 (PDT)
+Received: from lakrids.cambridge.arm.com (usa-sjc-imap-foss1.foss.arm.com [10.121.207.14])
+	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPA id 8CCA43F905;
+	Thu, 28 May 2026 09:54:52 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=simple/simple; d=arm.com; s=foss;
+	t=1779987293; bh=6X8nmnvLUqtEfHpr/ZtUPQbOdLP7CKJJFBGomLqBhSA=;
+	h=From:To:Cc:Subject:Date:From;
+	b=pSFfpjOcTyHTRHvYtNY12yPNnUVhhqksAQ11b1FfV2YuOI0wq7q+/DinnxzMV2MHg
+	 9LqOCc0mvDUe8tZaxpw66IVdw4Zo5yUduotTBCDoKOwq5DnHQzNOkl9sgBbANFnFvX
+	 FligaKREpj1CYsqaCuRgSdhGy30e6S/fbTx2jbbY=
+From: Mark Rutland <mark.rutland@arm.com>
+To: linux-arm-kernel@lists.infradead.org,
+	kvmarm@lists.linux.dev
+Cc: broonie@kernel.org,
+	catalin.marinas@arm.com,
+	james.morse@arm.com,
+	mark.rutland@arm.com,
+	maz@kernel.org,
+	oupton@kernel.org,
+	tabba@google.com,
+	vladimir.murzin@arm.com,
+	will@kernel.org
+Subject: [PATCH v2 00/18] arm64+KVM: FPSIMD/SVE/SME cleanups
+Date: Thu, 28 May 2026 17:54:28 +0100
+Message-Id: <20260528165446.701944-1-mark.rutland@arm.com>
+X-Mailer: git-send-email 2.30.2
 MIME-Version: 1.0
 Content-Transfer-Encoding: 8bit
-X-HM-Tid: 0a9e6f8028ff03a1kunm2f79b8526ba12
-X-HM-MType: 10
-X-HM-Spam-Status: e1kfGhgUHx5ZQUpXWQgPGg8OCBgUHx5ZQUlOS1dZFg8aDwILHllBWSg2Ly
-	tZV1koWUFITzdXWRgWCB1ZQUpXWS1ZQUlXWQ8JGhUIEh9ZQVkZHhpJVh9NTE1PHU0YTUsZS1YeHw
-	5VEwETFhoSFyQUDg9ZV1kYEgtZQVlJT0tCQUNCSU9BSUtKSEFKGk0ZQU5LGh1BSUpPGkEeGkkZQU
-	wfGklZV1kWGg8SFR0UWUFZT0tIVUpLSUhOQ0NVSktLVUtZBg++
-DKIM-Signature: a=rsa-sha256;
-	b=WW05eevjZQMJAhFhF9ztJLnsUyl5H1/yh18GhU7JzlaRniiQ6KXLE2Nia81lzO7qdhzh6Bp7UeX/357JhOfycisZiGkixs6pFrvWCf9KyQAYYx+dMr96SZC7ai2hLVzH1jQhj9MrGDrsnA6yK77grpufcnBldI5wBiEWXQfKPwo=; c=relaxed/relaxed; s=default; d=seu.edu.cn; v=1;
-	bh=VqpF95Me50rWFEF/pPooatQSHRrhpris1NlOAFjPDf8=;
-	h=date:mime-version:subject:message-id:from;
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260528_095227_137748_CC711D80 
-X-CRM114-Status: GOOD (  13.59  )
+X-CRM114-CacheID: sfid-20260528_095458_043438_5551DD7E 
+X-CRM114-Status: GOOD (  15.59  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -76,114 +74,129 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-The etb10 miscdevice uses drvdata->reading as a shared exclusivity gate
-for userspace buffer access. etb_open() claims that gate with
-local_cmpxchg(), and etb_release() clears it with local_set().
+Hi.
 
-That gate is shared per-device state rather than CPU-local state. A
-running system can reach it whenever /dev/<etb> is opened, closed, and
-reopened by different tasks while the device remains registered, so the
-same drvdata->reading variable may be claimed on one CPU and later
-cleared on another.
+This series cleans up low-level FPSIMD/SVE/SME state management code,
+making it easier to maintain and extend (e.g. adding SME support to
+KVM), and enabling better debugging (e.g. by making SVE/SME save/restore
+visible to KASAN and KCSAN).
 
-This code used to use atomic_t for the same gate, but commit
-27b10da8fff2 ("coresight: etb10: moving to local atomic operations")
-changed it to local_t even though the access pattern remained cross-task
-and cross-CPU. Restore atomic_t together with atomic_cmpxchg() and
-atomic_set() so the exclusivity gate again uses a primitive intended
-for shared state.
+This is purely cleanup, there are NO bugs addressed by this series.
 
-The issue was found on Linux v6.18.21 by our static analysis tool while
-scanning surviving local_t-on-shared-state sites, and then manually
-reviewed against the live etb10 file-op path.
+The series aims to do a few key things:
 
-It was runtime-validated with a reproducible QEMU no-device KCSAN PoC
-that kept the same report-local contract:
+* Make it harder to mis-manage in-memory SVE state and SME state. These
+  are given opaque types (struct sve_state and struct sme_state), and
+  the (awkward) calling convention for saving/restoring SVE state is
+  simplified to take a pointer to the base of the state rather than a
+  pointer to the FFR within the state.
 
-  1. use one shared struct etb_drvdata carrier and its
-     drvdata->reading gate;
-  2. call etb_open() and etb_release() sequentially on that gate to
-     confirm the original claim/clear path;
-  3. bind the open side to CPU0 and the release side to CPU1 for the
-     same gate to show cross-CPU ownership;
-  4. run bound workers that repeatedly race etb_open() and
-     etb_release() on the same gate until KCSAN reports a target hit.
+* Minimize duplications between KVM and the rest of the kernel. The
+  FPSIMD/SVE/SME routines are moved to inline assembly such that the
+  same helper functions can be used everywhere, without the need to wrap
+  assembly macros.
 
-The harness recorded:
+* Make the code easier to follow. Assembly sequences are minimized to
+  avoid address generation and control-flow that can be written more
+  clearly in C. Awkward assembly macros are removed where possible.
 
-  L1 passed open=1 release=1
-  reading_after_open=1 reading_after_release=0
-  L2 passed open_cpu=0 release_cpu=1
-  cross_cpu_release=1 reading_after=0 open_ret=0
+* Make it easier to debug state management. Explicit instrumentation is
+  added to the save/restore functions so that KASAN and KCSAN can detect
+  memory safety issues and concurrency issues.
 
-Representative KCSAN excerpt from the no-device validation run:
+  This instrumentation is inhibited for nVHE hyp objects, and does not
+  adversely affect KVM. I've confirmed by looking at compiler flags
+  during the build, and disassembling the relevant object files.
 
-  BUG: KCSAN: data-race in etb_open.constprop.0.isra.0 [vuln_msv]
+* Remove unnecessary code. By relying on assembler support for SVE and
+  SME we can remove awkward assembly macros, making the code
+  significantly simpler and easier to read.
 
-  write to 0xffffffffc0003810 of 4 bytes by task 216 on cpu 1:
-   etb_open.constprop.0.isra.0+0x38/0x80 [vuln_msv]
-   l3_worker_thread_fn+0x4f/0xf0 [vuln_msv]
-   kthread+0x17e/0x1c0
-   ret_from_fork+0x22/0x30
+I've compile-tested this with a variety of toolchains:
 
-  read to 0xffffffffc0003810 of 4 bytes by task 215 on cpu 0:
-   etb_open.constprop.0.isra.0+0x18/0x80 [vuln_msv]
-   l3_worker_thread_fn+0x4f/0xf0 [vuln_msv]
-   kthread+0x17e/0x1c0
-   ret_from_fork+0x22/0x30
+* GCC  8.1.0 + binutils 2.30
+* GCC 11.1.0 + binutils 2.36.1
+* GCC 12.1.0 + binutils 2.38
+* GCC 15.2.0 + binutils 2.45
+* LLVM 15.0.7
+* LLVM 21.1.8
 
-  value changed: 0x00000000 -> 0x00000001
+I've boot-tested on an SVE+SME capable model, both with KASAN enabled
+and without KASAN enabled. All the FPSIMD/SVE/SME kselftests passed in
+both configurations, without any KASAN splats. Unfortunately, with KCSAN
+enabled, some tests hit timeouts (without any KCSAN splat), which I
+believe is simply due to the overhead of KCSAN rather than some adverse
+functional effect.
 
-  Reported by Kernel Concurrency Sanitizer on:
-  CPU: 0 PID: 215 Comm: etb10_l3_a Tainted: G           O       6.1.66 #2
+I've boot-tested on an SVE+SME capable model, booting with KVM in each
+of:
 
-This no-device harness is not a real ETB10 hardware end-to-end run, but
-it preserves the same shared drvdata->reading gate and the same
-etb_open()/etb_release() claim/clear contract. No real ETB10 hardware
-was available for runtime testing.
+* VHE mode
+* hVHE mode
+* Protected mode
 
-Build-tested with:
-  make olddefconfig
-  make -j"$(nproc)" drivers/hwtracing/coresight/coresight-etb10.o
+In each case I've boot-tested a v7.0 defconfig guest, both with SVE and
+without SVE.
 
-Fixes: 27b10da8fff2 ("coresight: etb10: moving to local atomic operations")
-Cc: stable@vger.kernel.org
-Signed-off-by: Runyu Xiao <runyu.xiao@seu.edu.cn>
----
- drivers/hwtracing/coresight/coresight-etb10.c | 6 +++---
- 1 file changed, 3 insertions(+), 3 deletions(-)
+Since v1 [1]:
+* Add missing '.arch_extension sve' in asm.
+* Fix FPCR.Z field name.
+* Note the 'Ucj' constraint, and why we don't use it (yet).
+* Add missing 'const' usage.
+* Updates to commit messages.
+* Add tags from Mark Brown and Vladimir Murzin.
 
-diff --git a/drivers/hwtracing/coresight/coresight-etb10.c b/drivers/hwtracing/coresight/coresight-etb10.c
-index 35db1b6093d1..98269ea6f7ae 100644
---- a/drivers/hwtracing/coresight/coresight-etb10.c
-+++ b/drivers/hwtracing/coresight/coresight-etb10.c
-@@ -85,7 +85,7 @@ struct etb_drvdata {
- 	struct coresight_device	*csdev;
- 	struct miscdevice	miscdev;
- 	raw_spinlock_t		spinlock;
--	local_t			reading;
-+	atomic_t		reading;
- 	pid_t			pid;
- 	u8			*buf;
- 	u32			buffer_depth;
-@@ -603,7 +603,7 @@ static int etb_open(struct inode *inode, struct file *file)
- 	struct etb_drvdata *drvdata = container_of(file->private_data,
- 						   struct etb_drvdata, miscdev);
- 
--	if (local_cmpxchg(&drvdata->reading, 0, 1))
-+	if (atomic_cmpxchg(&drvdata->reading, 0, 1))
- 		return -EBUSY;
- 
- 	dev_dbg(&drvdata->csdev->dev, "%s: successfully opened\n", __func__);
-@@ -641,7 +641,7 @@ static int etb_release(struct inode *inode, struct file *file)
- {
- 	struct etb_drvdata *drvdata = container_of(file->private_data,
- 						   struct etb_drvdata, miscdev);
--	local_set(&drvdata->reading, 0);
-+	atomic_set(&drvdata->reading, 0);
- 
- 	dev_dbg(&drvdata->csdev->dev, "%s: released\n", __func__);
- 	return 0;
+[1] https://lore.kernel.org/linux-arm-kernel/20260521132556.584676-1-mark.rutland@arm.com/
+
+Mark.
+
+Mark Rutland (18):
+  KVM: arm64: Don't include <asm/fpsimdmacros.h>
+  KVM: arm64: Don't override FFR save/restore argument
+  KVM: arm64: pkvm: Save host FPMR in host cpu context
+  KVM: arm64: pkvm: Remove struct cpu_sve_state
+  arm64: fpsimd: Fold sve_init_regs() into do_sve_acc()
+  arm64: fpsimd: Remove sve_set_vq() and sme_set_vq()
+  arm64: fpsimd: Use assembler for SVE instructions
+  arm64: fpsimd: Use assembler for baseline SME instructions
+  arm64: fpsimd: Move sve_get_vl() and sme_get_vl() inline
+  arm64: sysreg: Add FPCR and FPSR
+  arm64: fpsimd: Split FPSR/FPCR from SVE save/restore
+  arm64: fpsimd: Move fpsimd save/restore inline
+  arm64: fpsimd: Use opaque type for SVE state
+  arm64: fpsimd: Use opaque type for SME state
+  arm64: fpsimd: Move SVE save/restore inline
+  arm64: fpsimd: Move sve_flush_live() inline
+  arm64: fpsimd: Move SME save/restore inline
+  arm64: fpsimd: Remove <asm/fpsimdmacros.h>
+
+ arch/arm64/Kconfig                      |   5 +
+ arch/arm64/include/asm/fpsimd.h         | 375 ++++++++++++++++++++++--
+ arch/arm64/include/asm/fpsimdmacros.h   | 357 ----------------------
+ arch/arm64/include/asm/kvm_host.h       |  27 +-
+ arch/arm64/include/asm/kvm_hyp.h        |   5 -
+ arch/arm64/include/asm/kvm_pkvm.h       |   3 +-
+ arch/arm64/include/asm/processor.h      |   7 +-
+ arch/arm64/kernel/Makefile              |   2 +-
+ arch/arm64/kernel/entry-common.c        |   8 +-
+ arch/arm64/kernel/entry-fpsimd.S        | 134 ---------
+ arch/arm64/kernel/fpsimd.c              |  90 +++---
+ arch/arm64/kvm/arm.c                    |  16 +-
+ arch/arm64/kvm/guest.c                  |   4 +-
+ arch/arm64/kvm/hyp/entry.S              |   1 -
+ arch/arm64/kvm/hyp/fpsimd.S             |  33 ---
+ arch/arm64/kvm/hyp/include/hyp/switch.h |  23 +-
+ arch/arm64/kvm/hyp/nvhe/Makefile        |   2 +-
+ arch/arm64/kvm/hyp/nvhe/hyp-main.c      |  20 +-
+ arch/arm64/kvm/hyp/nvhe/setup.c         |   4 +-
+ arch/arm64/kvm/hyp/vhe/Makefile         |   2 +-
+ arch/arm64/tools/sysreg                 |  45 +++
+ 21 files changed, 486 insertions(+), 677 deletions(-)
+ delete mode 100644 arch/arm64/include/asm/fpsimdmacros.h
+ delete mode 100644 arch/arm64/kernel/entry-fpsimd.S
+ delete mode 100644 arch/arm64/kvm/hyp/fpsimd.S
+
 -- 
-2.34.1
+2.30.2
+
 
