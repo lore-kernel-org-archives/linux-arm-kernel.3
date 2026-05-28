@@ -4,7 +4,7 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 977DFCD6E44
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 40070CD5BD0
 	for <linux-arm-kernel@archiver.kernel.org>; Thu, 28 May 2026 00:43:23 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
@@ -12,30 +12,30 @@ DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:
 	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=Cj1bXneZ/55tRiLo5BAzxpY6ql7Nf0vxqaPwBTnufbI=; b=1SsVAcvoWOvG/UwavQXoSKq7kQ
-	NvuW0sq9dD1ILl1AkT6ZWUcAjTvP9l0YF8VAVKABlClr2Yne0tSD+9X6gEPpCitIJsD20Z2LwYHg2
-	RaaWYiRsXfeeNYKNUoEW3WvMKeTqO6Ex3m9NAbiQkmD8dHmNSmAFQk2ZEVGAsgYsRNIG6XwuZ5r1k
-	qaHwQFFhAQgO8fHHK6nXqEA1C1JvLwkaJlQMemaBdd/ka6mR9znxuW+MEDeGidpUNYDtYz2kJfDJg
-	clV7OO9ZyjWkwPhVfE9yupBpWYJRbMn5W0nUY3v8whC/MZyw3FOK6E/LBkoSafO1foWRi5oNymaAc
-	slrGE/LA==;
+	bh=XmiM0zp4RpwFxnSgF35nU0/vhB3kyRAcJWx3icQ9ch4=; b=st5aoKlG0kJZuiE7GdSsEwschj
+	uLsf74neMTjwSJS0noH0JPzesqI32nAW7EIKKK8ndEC7y8ZZYha001cPCBv4soMMNt4eAN2BY2zZF
+	TeDrISBZA3sXvVF4MLUWMq0rPHRAb31qP8yQ6mpCR4rhxK+UVvytZMgdLDAlq88CA9w0JXk7C2dgm
+	+LPU6CfuzK94MAVLKSOC/63m4YBQ/wL5yWGhe2DtbMv1r3uTlDTEpCMoAn+soT3dGu/FZTkkbohqF
+	gnAnQVGYVuNyvo0kn3nW6AUdMdSqqNed5DCOxH7H+H0W5jUcrfy+VkGGQO8eaCQYVyzNYqpk15nxF
+	gNZvUYeA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wSOq3-00000004smX-34Yw;
-	Thu, 28 May 2026 00:43:07 +0000
+	id 1wSOq5-00000004sr1-0Fgj;
+	Thu, 28 May 2026 00:43:09 +0000
 Received: from linux.microsoft.com ([13.77.154.182])
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wSOpS-00000004s1t-0KXr;
-	Thu, 28 May 2026 00:42:31 +0000
+	id 1wSOpU-00000004s53-1dzs;
+	Thu, 28 May 2026 00:42:33 +0000
 Received: by linux.microsoft.com (Postfix, from userid 1241)
-	id 64DB520B716C; Wed, 27 May 2026 17:42:19 -0700 (PDT)
-DKIM-Filter: OpenDKIM Filter v2.11.0 linux.microsoft.com 64DB520B716C
+	id 34DCB20B7179; Wed, 27 May 2026 17:42:21 -0700 (PDT)
+DKIM-Filter: OpenDKIM Filter v2.11.0 linux.microsoft.com 34DCB20B7179
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=linux.microsoft.com;
-	s=default; t=1779928939;
-	bh=Cj1bXneZ/55tRiLo5BAzxpY6ql7Nf0vxqaPwBTnufbI=;
+	s=default; t=1779928941;
+	bh=XmiM0zp4RpwFxnSgF35nU0/vhB3kyRAcJWx3icQ9ch4=;
 	h=From:To:Cc:Subject:Date:In-Reply-To:References:From;
-	b=TVD5iDMuv1UMsOEX1EG/iFjlf91oQMKN2LoYjUOo5nEjdyljMNqJgNV7wWGJ/8Qo6
-	 5jP/DnRsCNWlUzVNF0PNicBBpFHThFLyoOnlrxBrSEzFz7uMGjvNku8H40fMJG2Hjp
-	 BTlo58HNqDBNYl99jnK6sq2MEYieIsoPsIEgiGk8=
+	b=nT1WAQhYVhGyQcrpwbh+CUuDn4l7hSwQ+9uxGmhB3nC0ccpLqDneLzA5HOAC4gcP0
+	 XE/P6+XloPaQe44ldBRelsVosfdKGOxFV4YKTqHcQyjrMNZBuBDzpNthSEaExCfyPe
+	 xuDZ/6yBo8hPaZmgKUYioRILvs5pkRdZegB9bmO0=
 From: Jork Loeser <jloeser@linux.microsoft.com>
 To: linux-hyperv@vger.kernel.org,
 	linux-mm@kvack.org,
@@ -74,17 +74,17 @@ Cc: "K. Y. Srinivasan" <kys@microsoft.com>,
 	linux-kernel@vger.kernel.org,
 	Michael Kelley <mhklinux@outlook.com>,
 	Jork Loeser <jloeser@linux.microsoft.com>
-Subject: [RFC PATCH 11/20] kho: return virtual address of mem_map
-Date: Wed, 27 May 2026 17:41:53 -0700
-Message-ID: <20260528004204.1484584-12-jloeser@linux.microsoft.com>
+Subject: [RFC PATCH 13/20] kho: add radix tree freeze and del_key() error reporting
+Date: Wed, 27 May 2026 17:41:55 -0700
+Message-ID: <20260528004204.1484584-14-jloeser@linux.microsoft.com>
 X-Mailer: git-send-email 2.43.7
 In-Reply-To: <20260528004204.1484584-1-jloeser@linux.microsoft.com>
 References: <20260528004204.1484584-1-jloeser@linux.microsoft.com>
 MIME-Version: 1.0
 Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260527_174230_145904_32671A75 
-X-CRM114-Status: GOOD (  15.04  )
+X-CRM114-CacheID: sfid-20260527_174232_458195_FAD892A7 
+X-CRM114-Status: GOOD (  25.56  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -99,104 +99,218 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-From: "Pratyush Yadav (Google)" <pratyush@kernel.org>
+Add kho_radix_tree_freeze() to prevent further modifications to a
+KHO radix tree. After freezing, kho_radix_add_key() and
+kho_radix_del_key() return -EBUSY. This is used by the MSHV page
+preservation code to lock the tree before serializing it for kexec.
 
-There are currently 3 callers of kho_get_mem_map_phys(). Two of them,
-kho_mem_retrieve() and kho_extend_scratch() need the virtual address.
-The third, kho_populate() doesn't care. Make things simpler by
-directly returning the virtual address. Rename kho_get_mem_map_phys() to
-kho_get_mem_map() to accurately reflect what it returns.
+Also change kho_radix_del_key() from void to int so it can report
+-EBUSY (frozen) and -ENOENT (key not present).
 
-Signed-off-by: Pratyush Yadav (Google) <pratyush@kernel.org>
 Signed-off-by: Jork Loeser <jloeser@linux.microsoft.com>
 ---
- kernel/liveupdate/kexec_handover.c | 28 +++++++++++++++-------------
- 1 file changed, 15 insertions(+), 13 deletions(-)
+ include/linux/kho_radix_tree.h     | 24 ++++++++++----
+ kernel/liveupdate/kexec_handover.c | 51 +++++++++++++++++++++++-------
+ 2 files changed, 57 insertions(+), 18 deletions(-)
 
+diff --git a/include/linux/kho_radix_tree.h b/include/linux/kho_radix_tree.h
+index c0840ecb230c..4fe2238e1e30 100644
+--- a/include/linux/kho_radix_tree.h
++++ b/include/linux/kho_radix_tree.h
+@@ -21,10 +21,10 @@
+  * scheme. Each key is an unsigned long that combines a page's physical
+  * address and its order.
+  *
+- * Client code is responsible for allocating the root node of the tree,
+- * initializing the mutex lock, and managing its lifecycle. It must use the
+- * tree data structures defined in the KHO ABI,
+- * `include/linux/kho/abi/kexec_handover.h`.
++ * Client code must initialize the tree using kho_radix_tree_init(). Pass
++ * a physical address to restore a tree preserved across kexec, or 0 to
++ * allocate a fresh empty tree. The tree uses data structures defined in
++ * the KHO ABI, `include/linux/kho/abi/kexec_handover.h`.
+  */
+ 
+ struct kho_radix_node;
+@@ -32,6 +32,7 @@ struct kho_radix_node;
+ struct kho_radix_tree {
+ 	struct kho_radix_node *root;
+ 	struct mutex lock; /* protects the tree's structure and root pointer */
++	bool frozen;
+ };
+ 
+ /**
+@@ -51,11 +52,12 @@ struct kho_radix_walk_cb {
+ #ifdef CONFIG_KEXEC_HANDOVER
+ 
+ int kho_radix_add_key(struct kho_radix_tree *tree, unsigned long key);
+-void kho_radix_del_key(struct kho_radix_tree *tree, unsigned long key);
++int kho_radix_del_key(struct kho_radix_tree *tree, unsigned long key);
+ int kho_radix_walk_tree(struct kho_radix_tree *tree,
+ 			const struct kho_radix_walk_cb *cb, void *data);
+ int kho_radix_init_tree(struct kho_radix_tree *tree, struct kho_radix_node *root);
+ void kho_radix_destroy_tree(struct kho_radix_tree *tree);
++int kho_radix_tree_freeze(struct kho_radix_tree *tree);
+ 
+ #else  /* #ifdef CONFIG_KEXEC_HANDOVER */
+ 
+@@ -64,8 +66,11 @@ static inline int kho_radix_add_key(struct kho_radix_tree *tree, unsigned long k
+ 	return -EOPNOTSUPP;
+ }
+ 
+-static inline void kho_radix_del_key(struct kho_radix_tree *tree,
+-				     unsigned long key) { }
++static inline int kho_radix_del_key(struct kho_radix_tree *tree,
++				     unsigned long key)
++{
++	return -EOPNOTSUPP;
++}
+ 
+ static inline int kho_radix_walk_tree(struct kho_radix_tree *tree,
+ 				      const struct kho_radix_walk_cb *cb, void *data)
+@@ -81,6 +86,11 @@ static inline int kho_radix_init_tree(struct kho_radix_tree *tree,
+ 
+ static inline void kho_radix_destroy_tree(struct kho_radix_tree *tree) { }
+ 
++static inline int kho_radix_tree_freeze(struct kho_radix_tree *tree)
++{
++	return -EOPNOTSUPP;
++}
++
+ #endif /* #ifdef CONFIG_KEXEC_HANDOVER */
+ 
+ #endif	/* _LINUX_KHO_RADIX_TREE_H */
 diff --git a/kernel/liveupdate/kexec_handover.c b/kernel/liveupdate/kexec_handover.c
-index a006a883ee94..797ec285b698 100644
+index 797ec285b698..2e2b4e73f00d 100644
 --- a/kernel/liveupdate/kexec_handover.c
 +++ b/kernel/liveupdate/kexec_handover.c
-@@ -610,10 +610,11 @@ static int __init kho_preserved_memory_reserve(unsigned long key, void *data)
+@@ -79,9 +79,6 @@ struct kho_out {
+ 
+ static struct kho_out kho_out = {
+ 	.lock = __MUTEX_INITIALIZER(kho_out.lock),
+-	.radix_tree = {
+-		.lock = __MUTEX_INITIALIZER(kho_out.radix_tree.lock),
+-	},
+ };
+ 
+ struct kho_in {
+@@ -180,6 +177,28 @@ static void __ref kho_radix_free_node(struct kho_radix_node *node)
+ 		memblock_free(node, PAGE_SIZE);
+ }
+ 
++/**
++ * kho_radix_tree_freeze - Freeze the tree, preventing further modifications.
++ * @tree: The KHO radix tree to freeze.
++ *
++ * After freezing, kho_radix_add_key() and kho_radix_del_key() will return
++ * -EBUSY. The check is performed under the tree's mutex, so there is no
++ * race between a concurrent add/del and the freeze.
++ *
++ * Return: 0 on success, -EBUSY if the tree is already frozen.
++ */
++int kho_radix_tree_freeze(struct kho_radix_tree *tree)
++{
++	guard(mutex)(&tree->lock);
++
++	if (tree->frozen)
++		return -EBUSY;
++
++	tree->frozen = true;
++	return 0;
++}
++EXPORT_SYMBOL_GPL(kho_radix_tree_freeze);
++
+ /**
+  * kho_radix_add_key - Add a key to the radix tree.
+  * @tree: The KHO radix tree.
+@@ -210,6 +229,9 @@ int kho_radix_add_key(struct kho_radix_tree *tree, unsigned long key)
+ 
+ 	guard(mutex)(&tree->lock);
+ 
++	if (tree->frozen)
++		return -EBUSY;
++
+ 	/* Go from high levels to low levels */
+ 	for (i = KHO_TREE_MAX_DEPTH - 1; i > 0; i--) {
+ 		idx = kho_radix_get_table_index(key, i);
+@@ -268,20 +290,26 @@ EXPORT_SYMBOL_GPL(kho_radix_add_key);
+  * This function traverses the radix tree and clears the bit corresponding to
+  * the key, effectively removing it from the tree. It does not free the tree's
+  * intermediate nodes, even if they become empty.
++ *
++ * Return: 0 on success, -EINVAL if the tree is uninitialized, -EBUSY if
++ *         frozen, -ENOENT if the key was not present.
+  */
+-void kho_radix_del_key(struct kho_radix_tree *tree, unsigned long key)
++int kho_radix_del_key(struct kho_radix_tree *tree, unsigned long key)
+ {
+ 	struct kho_radix_node *node = tree->root;
+ 	struct kho_radix_leaf *leaf;
+ 	unsigned int i, idx;
+ 
+ 	if (WARN_ON_ONCE(!tree->root))
+-		return;
++		return -EINVAL;
+ 
+ 	might_sleep();
+ 
+ 	guard(mutex)(&tree->lock);
+ 
++	if (WARN_ON_ONCE(tree->frozen))
++		return -EBUSY;
++
+ 	/* Go from high levels to low levels */
+ 	for (i = KHO_TREE_MAX_DEPTH - 1; i > 0; i--) {
+ 		idx = kho_radix_get_table_index(key, i);
+@@ -291,7 +319,7 @@ void kho_radix_del_key(struct kho_radix_tree *tree, unsigned long key)
+ 		 * return with a warning.
+ 		 */
+ 		if (WARN_ON(!node->table[idx]))
+-			return;
++			return -ENOENT;
+ 
+ 		node = phys_to_virt(node->table[idx]);
+ 	}
+@@ -300,6 +328,8 @@ void kho_radix_del_key(struct kho_radix_tree *tree, unsigned long key)
+ 	leaf = (struct kho_radix_leaf *)node;
+ 	idx = kho_radix_get_bitmap_index(key);
+ 	__clear_bit(idx, leaf->bitmap);
++
++	return 0;
+ }
+ EXPORT_SYMBOL_GPL(kho_radix_del_key);
+ 
+@@ -346,6 +376,7 @@ int kho_radix_init_tree(struct kho_radix_tree *tree, struct kho_radix_node *root
+ 
+ 	tree->root = root;
+ 	mutex_init(&tree->lock);
++	tree->frozen = false;
  	return 0;
  }
- 
--/* Returns physical address of the preserved memory map from FDT */
--static phys_addr_t __init kho_get_mem_map_phys(const void *fdt)
-+/* Returns virtual address of the preserved memory map from FDT */
-+static __init void *kho_get_mem_map(const void *fdt)
- {
- 	const void *mem_ptr;
-+	phys_addr_t mem_map_phys;
- 	int len;
- 
- 	mem_ptr = fdt_getprop(fdt, 0, KHO_FDT_MEMORY_MAP_PROP_NAME, &len);
-@@ -622,7 +623,11 @@ static phys_addr_t __init kho_get_mem_map_phys(const void *fdt)
+ EXPORT_SYMBOL_GPL(kho_radix_init_tree);
+@@ -1746,11 +1777,9 @@ static __init int kho_init(void)
+ 	if (!kho_enable)
  		return 0;
- 	}
  
--	return get_unaligned((const u64 *)mem_ptr);
-+	mem_map_phys = get_unaligned((const u64 *)mem_ptr);
-+	if (!mem_map_phys)
-+		return NULL;
-+
-+	return phys_to_virt(mem_map_phys);
- }
+-	tree->root = kzalloc(PAGE_SIZE, GFP_KERNEL);
+-	if (!tree->root) {
+-		err = -ENOMEM;
++	err = kho_radix_init_tree(tree, NULL);
++	if (err)
+ 		goto err_free_scratch;
+-	}
  
- /*
-@@ -917,15 +922,15 @@ void __init kho_extend_scratch(void)
- 		.key = kho_ext_mark_scratch,
- 	};
- 	struct kho_radix_tree radix;
--	phys_addr_t prev_end = 0, mem_map_phys;
-+	phys_addr_t prev_end = 0;
- 	int err = 0;
- 
- 	if (!is_kho_boot())
- 		return;
- 
- 	/* Make sure the KHO radix tree is initialized. */
--	mem_map_phys = kho_get_mem_map_phys(kho_get_fdt());
--	err = kho_radix_init_tree(&kho_in.radix_tree, phys_to_virt(mem_map_phys));
-+	err = kho_radix_init_tree(&kho_in.radix_tree,
-+				  kho_get_mem_map(kho_get_fdt()));
- 	if (err)
- 		goto print;
- 
-@@ -1609,11 +1614,9 @@ static int __init kho_mem_retrieve(const void *fdt)
- 	const struct kho_radix_walk_cb cb = {
- 		.key = kho_preserved_memory_reserve,
- 	};
--	phys_addr_t mem_map_phys;
- 	int err;
- 
--	mem_map_phys = kho_get_mem_map_phys(fdt);
--	err = kho_radix_init_tree(&kho_in.radix_tree, phys_to_virt(mem_map_phys));
-+	err = kho_radix_init_tree(&kho_in.radix_tree, kho_get_mem_map(fdt));
- 	if (err)
- 		return err;
- 
-@@ -1838,8 +1841,7 @@ void __init kho_populate(phys_addr_t fdt_phys, u64 fdt_len,
- {
- 	unsigned int scratch_cnt = scratch_len / sizeof(*kho_scratch);
- 	struct kho_scratch *scratch = NULL;
--	phys_addr_t mem_map_phys;
--	void *fdt = NULL;
-+	void *fdt = NULL, *mem_map;
- 	bool populated = false;
- 	int err;
- 
-@@ -1862,8 +1864,8 @@ void __init kho_populate(phys_addr_t fdt_phys, u64 fdt_len,
- 		goto unmap_fdt;
- 	}
- 
--	mem_map_phys = kho_get_mem_map_phys(fdt);
--	if (!mem_map_phys)
-+	mem_map = kho_get_mem_map(fdt);
-+	if (!mem_map)
- 		goto unmap_fdt;
- 
- 	scratch = early_memremap(scratch_phys, scratch_len);
+ 	kho_out.fdt = kho_alloc_preserve(PAGE_SIZE);
+ 	if (IS_ERR(kho_out.fdt)) {
+@@ -1807,7 +1836,7 @@ static __init int kho_init(void)
+ err_free_fdt:
+ 	kho_unpreserve_free(kho_out.fdt);
+ err_free_kho_radix_tree_root:
+-	kfree(tree->root);
++	free_page((unsigned long)tree->root);
+ 	tree->root = NULL;
+ err_free_scratch:
+ 	kho_out.fdt = NULL;
 -- 
 2.43.0
 
