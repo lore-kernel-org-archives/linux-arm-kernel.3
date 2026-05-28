@@ -4,118 +4,62 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id F269BCD5BD5
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 28 May 2026 18:54:30 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id F4203CD5BD5
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 28 May 2026 18:58:59 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:CC:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=8hLNyO1bqDGOGV20/0yRxrLNEmB7HFf9ACWIq7dIA2E=; b=pakTdgUAV92XC8E7gASiS7pxxm
-	yqgbY+xL8Pyxv6i/6YuhtgHEu7UkCJZvJJixtM+17g1FHVwNYdWEAEUP42lmrIu9A/18LpHwl+v5t
-	C3ywc7QjHGY4l5RAzsHoFd4zz2KaJUXQ5L6N4AvVrhmz5ntLbY53Bwv+6nMSE29zA+aZGCuGlDrAB
-	8TwAZLFwjIWHye4xfrefvagUOWw37IGMTlTiA49fOf/iD7rLDOSybNj/7o8XwzAMHVOaOx6NZlghg
-	nnU0JwrgCpKZqZLwH0f6KrnbpJEcxVz9erNU3sC2WVhAPwoGb1ETZEhI/knGMh2DPI1JZxnh8rx8Q
-	Yio0cxVw==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	MIME-Version:Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-Type:
+	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
+	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=dDl9WiRVkFnZ4KGhUiamMsE2H6ZfjTwqBgTNaY1yr7U=; b=Hj+6DUXOSobqJgaI0KhyHcaDyJ
+	2p8BfeEg/MOVLds7U/WH8/kgDvwK099qlYcbngfTV5xNkwRLIZ7SzkuIFxMZcexXkW9oigrms2ZYW
+	y+xSthTP3jpSjEsTxzW7DnUD6ZmaVsnlYKub9sk6YQ+qfTSP6J59UuVwUHyX6hCc+pXZEmb4Kc+4Q
+	9ELh1KPhmD21CWbTSzMAYugc/mzTkkSl1MoYHj9KMTitpvZQ1J9+k7GfyHoGiJLWqh7Lg2B9uG5tl
+	ySOW6tVlpWlPu76+NzzvCcgFM9qSoX7cwj2zNEt7sbLjXCAMGnKwfq9kkG8bt5FFc/ZYDgVKZQEEO
+	3wvRlYmQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wSfs6-00000006EXn-0Sun;
-	Thu, 28 May 2026 18:54:22 +0000
-Received: from mail-westcentralusazon11013005.outbound.protection.outlook.com ([40.93.201.5] helo=CY3PR05CU001.outbound.protection.outlook.com)
+	id 1wSfwS-00000006Er2-2ca5;
+	Thu, 28 May 2026 18:58:52 +0000
+Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wSfs3-00000006EX0-0QWE
+	id 1wSfwQ-00000006Eqe-3Kqb
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 28 May 2026 18:54:20 +0000
-ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
- b=UDa3wm7PWL07ya0/jkTBdMDPEdugUAcFhcM6YNMitrG5cZpEths3FGTg6xKcgmVGXJznoM0MQPlKa6W02CCxW9jH1Gx8LbkFVZlMYjM4ohLU1zjU4qdkaBA0EHcLij7i7/9VU3edFWDO1ImNhb+BCMxdTaFOEtIikDL7dmfkxHw1hKqYE3CMLAyDdH9aizUsOVdFYH5MwoQsyv+5Ix5RaPAFrHUrJ3FRrr1E7N4u+gzt+UdiN+uurDascgF5aGMotnntrUPRfB9xF1tnM0FUV8I9ZX9k+J8XRMUrLwJ87JdfSBwVVOQ35eKc+RSrQPJTA0rsPfyJaIlL9md5sftEYg==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
- s=arcselector10001;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
- bh=8hLNyO1bqDGOGV20/0yRxrLNEmB7HFf9ACWIq7dIA2E=;
- b=IS9nLlrNBl+sytIDbfoGg7RogDhNYvpTfZef8O0r1OnQFO6IAFdXgUZe9LCKRmNdS1yXydkMbTXqpcGtXosakLZYelUG9LESEAvNv7nmpm73TZPCmtCKwxnR4pxVqgxJ+cuZjFrC9FpT8jtjPlCCoWU7z//V+mmWR3ZbHkEhn/C3RO1nAtmVQilxgSojC0A81K82qhernIRX/0I3O1qTFir3jpbOXPSS+JW6m6CT8rGdOaPKJXKfQEvDRk1cbYAXG8IQNz0M9biHnILHzGqmDnSeJ41aubj/ZNT2avWK8kZBXTfSYscJJgChmlLEfYXYI86ZL8uC4dHodzQv+3Abjw==
-ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass (sender ip is
- 216.228.117.161) smtp.rcpttodomain=google.com smtp.mailfrom=nvidia.com;
- dmarc=pass (p=reject sp=reject pct=100) action=none header.from=nvidia.com;
- dkim=none (message not signed); arc=none (0)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=Nvidia.com;
- s=selector2;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
- bh=8hLNyO1bqDGOGV20/0yRxrLNEmB7HFf9ACWIq7dIA2E=;
- b=VyAoRvU05YpcZRlCveVmnjmAGYKubZEhm8rd5DaRvvl/jN4D/EhTo25sl+hGawhUQbAnMa4zKBRGshJax6y6TO58cTt/s3/TWGpmbLJtRlRbfn94CScLBqKvWsgXVCG0wV9AXsqxt0yhn/nBjhBGt21TF8bzVppYYtT4tvKmrwFnq4Gqxl4IAGs0lLgSi8XfMyjrUz2FRSyk1s2RomlAR1YGfRXlRbPkoBBPHfUClcXp/q7KOYJ8itvnfTNk6VibQ8bH/NRVhR0FDSe3qU968XGtAnAlHx+PrXG812cc4iuzNGf/pHZ8KOvS++RAcCVzNze5NOJmXJOAZPVScbV/bg==
-Received: from SA1P222CA0143.NAMP222.PROD.OUTLOOK.COM (2603:10b6:806:3c2::19)
- by MN0PR12MB6173.namprd12.prod.outlook.com (2603:10b6:208:3c6::16) with
- Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.21.48.19; Thu, 28 May
- 2026 18:54:07 +0000
-Received: from SN1PEPF000252A2.namprd05.prod.outlook.com
- (2603:10b6:806:3c2:cafe::60) by SA1P222CA0143.outlook.office365.com
- (2603:10b6:806:3c2::19) with Microsoft SMTP Server (version=TLS1_3,
- cipher=TLS_AES_256_GCM_SHA384) id 15.21.71.13 via Frontend Transport; Thu, 28
- May 2026 18:54:07 +0000
-X-MS-Exchange-Authentication-Results: spf=pass (sender IP is 216.228.117.161)
- smtp.mailfrom=nvidia.com; dkim=none (message not signed)
- header.d=none;dmarc=pass action=none header.from=nvidia.com;
-Received-SPF: Pass (protection.outlook.com: domain of nvidia.com designates
- 216.228.117.161 as permitted sender) receiver=protection.outlook.com;
- client-ip=216.228.117.161; helo=mail.nvidia.com; pr=C
-Received: from mail.nvidia.com (216.228.117.161) by
- SN1PEPF000252A2.mail.protection.outlook.com (10.167.242.9) with Microsoft
- SMTP Server (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
- 15.21.71.7 via Frontend Transport; Thu, 28 May 2026 18:54:07 +0000
-Received: from rnnvmail203.nvidia.com (10.129.68.9) by mail.nvidia.com
- (10.129.200.67) with Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.2.2562.20; Thu, 28 May
- 2026 11:53:45 -0700
-Received: from rnnvmail201.nvidia.com (10.129.68.8) by rnnvmail203.nvidia.com
- (10.129.68.9) with Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.2.2562.20; Thu, 28 May
- 2026 11:53:44 -0700
-Received: from Asurada-Nvidia (10.127.8.13) by mail.nvidia.com (10.129.68.8)
- with Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.2.2562.20 via Frontend
- Transport; Thu, 28 May 2026 11:53:44 -0700
-Date: Thu, 28 May 2026 11:53:42 -0700
-From: Nicolin Chen <nicolinc@nvidia.com>
-To: Pranjal Shrivastava <praan@google.com>
-CC: <iommu@lists.linux.dev>, Will Deacon <will@kernel.org>, Joerg Roedel
-	<joro@8bytes.org>, Robin Murphy <robin.murphy@arm.com>, Jason Gunthorpe
-	<jgg@ziepe.ca>, Mostafa Saleh <smostafa@google.com>, Daniel Mentz
-	<danielmentz@google.com>, Ashish Mhetre <amhetre@nvidia.com>,
-	<linux-arm-kernel@lists.infradead.org>, Jason Gunthorpe <jgg@nvidia.com>
-Subject: Re: [PATCH v7 06/11] iommu/arm-smmu-v3: Handle gerror during suspend
-Message-ID: <ahiPNqKhC186BHPl@Asurada-Nvidia>
-References: <20260527221407.1756491-1-praan@google.com>
- <20260527221407.1756491-7-praan@google.com>
+	Thu, 28 May 2026 18:58:52 +0000
+Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
+	by sea.source.kernel.org (Postfix) with ESMTP id B584D43861;
+	Thu, 28 May 2026 18:58:49 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 617171F00A3A;
+	Thu, 28 May 2026 18:58:48 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
+	s=k20260515; t=1779994729;
+	bh=dDl9WiRVkFnZ4KGhUiamMsE2H6ZfjTwqBgTNaY1yr7U=;
+	h=From:To:Cc:Subject:Date;
+	b=V+XmSXXCwcFoSJLN0hohvGp86TLcp1ewIHOc90trTleZoLNe7H8Cp6uqk7ujSjlR3
+	 Z0Z9XHOml16LfD0G+ulUMz3It+B8WYEQzfSjj1Uc9vcJimt9fApdzT+TxipEFf2eO7
+	 b9PZWyG/EcOelMGiC3Cht0WiLpEyiuU00Vw3TIVJh0kq3JOKWVdOhRS5QB1O/E0d33
+	 Q3JlnkqQO2OqZ+Loe5BkegBKfbI6J4a24vKM7PQf2xpOD8vIZyabUln6xENT7GSTsF
+	 FLurdNIPMLutZAOom3dAQEtdN/iHHze7+2gxPdZxR1mx3xmwWBpqzlFw2rnsLfjFx9
+	 aJqm1JwqhlD2w==
+From: Sudeep Holla <sudeep.holla@kernel.org>
+To: ARM SoC Team <arm@kernel.org>,
+	SoC Team <soc@kernel.org>,
+	arm-scmi@vger.kernel.org,
+	ALKML <linux-arm-kernel@lists.infradead.org>
+Cc: Sudeep Holla <sudeep.holla@kernel.org>,
+	Arnd Bergmann <arnd@kernel.org>,
+	Cristian Marussi <cristian.marussi@arm.com>
+Subject: [GIT PULL] firmware: arm_scmi: Updates for v7.2
+Date: Thu, 28 May 2026 19:58:26 +0100
+Message-ID: <20260528185827.776851-1-sudeep.holla@kernel.org>
+X-Mailer: git-send-email 2.43.0
 MIME-Version: 1.0
-Content-Type: text/plain; charset="us-ascii"
-Content-Disposition: inline
-In-Reply-To: <20260527221407.1756491-7-praan@google.com>
-X-NV-OnPremToCloud: ExternallySecured
-X-EOPAttributedMessage: 0
-X-MS-PublicTrafficType: Email
-X-MS-TrafficTypeDiagnostic: SN1PEPF000252A2:EE_|MN0PR12MB6173:EE_
-X-MS-Office365-Filtering-Correlation-Id: d96049bb-45c9-4324-572d-08debcea7f01
-X-MS-Exchange-SenderADCheck: 1
-X-MS-Exchange-AntiSpam-Relay: 0
-X-Microsoft-Antispam: BCL:0;ARA:13230040|36860700016|1800799024|82310400026|376014|4143699003|56012099006|18002099003|22082099003|11063799006;
-X-Microsoft-Antispam-Message-Info: UHPehXuiws2GKUTDFDosJTIwY1Q80mXYJdVg71N9s4RPTP0Llmvlztw8o8DGmXYjKsnTIYYX6q0Z7B9jcceVgW4S/JMuqknjzyHiGVZGDcy+UJnvpbTqoHH1iYbXcvSdXVyW+xpmN9ApZe7sJzjFP0fjZts0/VoA2r4wHLJsMLtI2T6EtRdJj8LQKe8Qc1RpX0r3Tzl0pODUDe/oSEuu2lReYUTKbHgq+wIeJZX3Bn2N7C3AnBimn0WsBmZL37rmlBYprWLj7VU4tybZWa+84Hunjysd8AGhQWywCgXwKiGLBILDJC7L0ZwcLheHBb6/4GOgYDmd4829xdaZR8TRIBZD3AOmSxxuW0CRhmTGC8ZDKK8jWUUQXvxFjW4nkXRIy6sSjk9/vI8fudBhMwlAuf1a+oOzi4HkToPiKIqK5H0fVlCMFLLUxhJfjBs9ihyF/6hst+vh0zIJRPDr0LTXEK0bNTEqrZHJUkLnUNIg6rVCdwZKqsDz8hG0UwFdcl+sLdUImm1UtUiqVN1NlNTw7JLnl1JvQ7rY2IUgkIyjqKS3HM8Po490cOxFQwfYRIYyo1Gq1+9q6eO8TYU0lCfDWB3yjdoux5zT5XKSUOctKLXdQ53a9wCeuakxrkiy0D2zYtYGq1rQCf3UDadT9tjgfZWlx5xDUxlMVbNJsFgM6G1rK++xPMLm35WetJJyQ/sr6T93d+679UlZT4HmGY7OjNBRH38fzl9XbyizTcx8T7I=
-X-Forefront-Antispam-Report: CIP:216.228.117.161;CTRY:US;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:mail.nvidia.com;PTR:dc6edge2.nvidia.com;CAT:NONE;SFS:(13230040)(36860700016)(1800799024)(82310400026)(376014)(4143699003)(56012099006)(18002099003)(22082099003)(11063799006);DIR:OUT;SFP:1101;
-X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
-X-MS-Exchange-AntiSpam-MessageData-0: /SoaD04gCkoiPU1oVqOO1k8Zta1ZhX1onZ9cR+tnHCcJ9Wf8N72bOyEidgXa6mBqGwjyIIySLRcsVsV5NNF4SoA3B7iAZRoTBPigRfHryyI69JHB8KxIeId/ZdVuQv0BOk2j2Hc/5Oil3MHsry2OQbDRw7KRt8LZji2bv5mZzJSRh5OA3uh+6obw6xyDkMFr2w1lbfWbz/yDL7oFJIjD6uKpGM6cqxicBvmcGLH+DN830LSwi8IMcHey06e5kbh1A+pyP+lD6FCpLKTggIDoi9/4m3pPq3fj4cGrYLfLAZWvwU59fSTbPitGQHJqDtNx4NWWaaqbkuH411FY97GLwVbDSmfI9lA0X0bN88BOiCXL7ll6GbHyj3/2lEZgn2Jpu6oAdQm2g1uNzwEQUIG9faUTvRMiJwAGssc8GKnF+XVmZDwZ3nxsZexN7mo3ol9z
-X-OriginatorOrg: Nvidia.com
-X-MS-Exchange-CrossTenant-OriginalArrivalTime: 28 May 2026 18:54:07.0895
- (UTC)
-X-MS-Exchange-CrossTenant-Network-Message-Id: d96049bb-45c9-4324-572d-08debcea7f01
-X-MS-Exchange-CrossTenant-Id: 43083d15-7273-40c1-b7db-39efd9ccc17a
-X-MS-Exchange-CrossTenant-OriginalAttributedTenantConnectingIp: TenantId=43083d15-7273-40c1-b7db-39efd9ccc17a;Ip=[216.228.117.161];Helo=[mail.nvidia.com]
-X-MS-Exchange-CrossTenant-AuthSource: SN1PEPF000252A2.namprd05.prod.outlook.com
-X-MS-Exchange-CrossTenant-AuthAs: Anonymous
-X-MS-Exchange-CrossTenant-FromEntityHeader: HybridOnPrem
-X-MS-Exchange-Transport-CrossTenantHeadersStamped: MN0PR12MB6173
+Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260528_115419_300220_26B0B3D1 
-X-CRM114-Status: GOOD (  11.27  )
+X-CRM114-CacheID: sfid-20260528_115850_879736_D9F9EBAA 
+X-CRM114-Status: UNSURE (   9.19  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -130,23 +74,112 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Wed, May 27, 2026 at 10:14:02PM +0000, Pranjal Shrivastava wrote:
-> diff --git a/drivers/iommu/arm/arm-smmu-v3/arm-smmu-v3.c b/drivers/iommu/arm/arm-smmu-v3/arm-smmu-v3.c
-> index 93cee32f6c99..191b5b5b805c 100644
-> --- a/drivers/iommu/arm/arm-smmu-v3/arm-smmu-v3.c
-> +++ b/drivers/iommu/arm/arm-smmu-v3/arm-smmu-v3.c
-> @@ -2257,10 +2257,9 @@ static irqreturn_t arm_smmu_priq_thread(int irq, void *dev)
->  
->  static int arm_smmu_device_disable(struct arm_smmu_device *smmu);
->  
-> -static irqreturn_t arm_smmu_gerror_handler(int irq, void *dev)
-> +static irqreturn_t arm_smmu_handle_gerror(struct arm_smmu_device *smmu)
+Hi ARM SoC Team,
 
-We don't need a lock because the new caller would disable the IRQ.
+Please pull !
 
-Yet, maybe add a line of comments:
-/* Lockless; must ensure that there are no concurrent callers */
+Regards,
+Sudeep
 
-Otherwise,
-Reviewed-by: Nicolin Chen <nicolinc@nvidia.com>
+-->8
+The following changes since commit 254f49634ee16a731174d2ae34bc50bd5f45e731:
+
+  Linux 7.1-rc1 (2026-04-26 14:19:00 -0700)
+
+are available in the Git repository at:
+
+  git://git.kernel.org/pub/scm/linux/kernel/git/sudeep.holla/linux.git tags/scmi-updates-7.2
+
+for you to fetch changes up to 524abd2fa6907ebe2762342be339afcc5b227dc4:
+
+  firmware: arm_scmi: optee: Rework transport probe sequence (2026-05-21 17:31:51 +0100)
+
+----------------------------------------------------------------
+Arm SCMI updates for v7.2
+
+1. Improve SCMI clock handling with a protocol-level determine_rate operation,
+   simplified per-clock rate properties, dynamic rate allocation, bounded
+   iterator support, lazy full-rate discovery, and hardened parent/rate
+   enumeration.
+
+2. Fix several SCMI bounds and payload validation issues, including clock rate
+   discovery OOB handling, power domain name lookup, Powercap domain state
+   access, BASE_ERROR_EVENT and SENSOR_UPDATE payload sizing, and sensor config
+   width handling.
+
+3. Rework SCMI transport probing for virtio and OP-TEE using per-instance
+   transport handles and a generic transport supplier, removing the need to
+   register SCMI core drivers from transport probe paths.
+
+4. Add i.MX SCMI MISC reset reason support and print i.MX95 boot/shutdown
+   reasons via the System Manager interface.
+
+5. Clean up SCMI core internals, including base-info naming, quirk parsing and
+   table iteration, and list iteration.
+
+6. Fix SCPI clock provider removal so child clock providers are unregistered
+   using the same DT nodes used at registration time.
+
+----------------------------------------------------------------
+Cristian Marussi (16):
+      clk: scmi: Fix clock rate rounding
+      firmware: arm_scmi: Add clock determine_rate operation
+      clk: scmi: Use new determine_rate clock operation
+      firmware: arm_scmi: Simplify clock rates exposed interface
+      clk: scmi: Use new simplified per-clock rate properties
+      firmware: arm_scmi: Drop unused clock rate interfaces
+      firmware: arm_scmi: Make clock rates allocation dynamic
+      firmware: arm_scmi: Harden clock parents discovery
+      firmware: arm_scmi: Refactor iterators internal allocation
+      firmware: arm_scmi: Add bound iterators support
+      firmware: arm_scmi: Use bound iterators to minimize discovered rates
+      firmware: arm_scmi: Introduce all_rates_get clock operation
+      firmware: arm_scmi: Add transport instance handles
+      firmware: arm_scmi: Add a generic transport supplier
+      firmware: arm_scmi: virtio: Rework transport probe sequence
+      firmware: arm_scmi: optee: Rework transport probe sequence
+
+Geert Uytterhoeven (7):
+      firmware: arm_scmi: quirk: Improve quirk range parsing
+      firmware: arm_scmi: quirk: Simplify quirk table iteration
+      firmware: arm_scmi: Convert to list_for_each_entry()
+      firmware: arm_scmi: Fix bound iterators returning too many items
+      firmware: arm_scmi: Use proper iter_response_bound_cleanup() name
+      firmware: arm_scmi: Fix OOB in scmi_clock_describe_rates_get_lazy()
+      firmware: arm_scmi: Fix OOB in scmi_power_name_get()
+
+Marek Vasut (1):
+      firmware: arm_scmi: Rename struct scmi_revision_info to scmi_base_info
+
+Peng Fan (2):
+      firmware: arm_scmi: imx: Support getting reset reason of MISC protocol
+      firmware: imx: sm-misc: Print boot/shutdown reasons
+
+Stepan Ionichev (1):
+      clk: scpi: Unregister child clock providers on remove
+
+Sudeep Holla (4):
+      firmware: arm_scmi: Read sensor config as 32-bit value
+      firmware: arm_scmi: Validate BASE_ERROR_EVENT payload size
+      firmware: arm_scmi: Validate SENSOR_UPDATE payload size
+      firmware: arm_scmi: Validate Powercap domains before state access
+
+ drivers/clk/clk-scmi.c                             |  48 +---
+ drivers/clk/clk-scpi.c                             |   2 +-
+ drivers/firmware/arm_scmi/base.c                   |  25 +-
+ drivers/firmware/arm_scmi/clock.c                  | 301 ++++++++++++++++-----
+ drivers/firmware/arm_scmi/common.h                 | 165 ++++++++++-
+ drivers/firmware/arm_scmi/driver.c                 |  98 ++++---
+ drivers/firmware/arm_scmi/power.c                  |   6 +-
+ drivers/firmware/arm_scmi/powercap.c               |  18 +-
+ drivers/firmware/arm_scmi/protocols.h              |  13 +-
+ drivers/firmware/arm_scmi/quirks.c                 |  17 +-
+ drivers/firmware/arm_scmi/sensors.c                |  12 +-
+ drivers/firmware/arm_scmi/transports/optee.c       |  46 +++-
+ drivers/firmware/arm_scmi/transports/virtio.c      |  52 +++-
+ .../firmware/arm_scmi/vendors/imx/imx-sm-misc.c    |  86 ++++++
+ drivers/firmware/imx/sm-misc.c                     |  73 +++++
+ include/linux/scmi_imx_protocol.h                  |  14 +
+ include/linux/scmi_protocol.h                      |  36 +--
+ 17 files changed, 802 insertions(+), 210 deletions(-)
 
