@@ -4,48 +4,48 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 17353CD4F54
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 28 May 2026 22:21:50 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id C54BFCD5BD5
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 28 May 2026 22:23:05 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Message-Id:Date:References:
 	In-Reply-To:Cc:To:From:Subject:Content-Transfer-Encoding:Content-Type:
 	MIME-Version:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=mZmARthFPXCAyxYUsxgldu6mzFwjs58vao40Hr/sGrU=; b=zVzX+YKhthjEqSJ8D+UP8OyyEA
-	0i6rNIMgwDnJyhyZO7K9bLSFxPZQvrirD3DHVt7QySOUZmWwUz2BY7FRGdHUoAUPOcDnoPaBlyemi
-	oJ9xeqrP44kRq87GbGgEJCZ0BV6b9i2lJCezVnW5LvLN573h5uv9R6sNu3d2zm292P2Xz/r8AsMR+
-	rkj68MMIN9Pi3qOJSdmHWaZwlxIFoPoniqvrOmmymNVaCOMoGZ1RGQJNz41LTCU03ythS1mLGnsFm
-	uhgqao8bSQcAHzZoRfKDNjswB0HPpAkEmM2GT+hHOajV9nldkOPkrfbRgBpiuQTmdQ5qDuLcUg3ZB
-	SllK2kdQ==;
+	bh=RHSzqIqjJsdmncrj5+nLVXghkdnqP0I1kuHt//29DIQ=; b=D07gdvlH1IU51P7KQIr4BuOLJ/
+	MMshqAu2ZrYfOqxujCt4gB1KtuyWLSpu4uc1EyNCyPrEUpdjLnZmWL9dvmshm2lW+pJRi7hY6dFqm
+	9R14NHERXYz6N/OqLnw74D0FfOUxElawHuRaB8KGvVfzvRJpyTYIaZtqVb0GFk4dWwH2jLmcglxt8
+	qm5Rm7dCzaB2Qd1rPuqJiYAJYHZpQI4KPB+LcrIs6t9k82aC8c5DGZa2MJ5M/PWtfKNXfX1j3f4Mv
+	ZvROh5W1ZEH0BFI0WThvTkkmzVOxiPQMGQcfhhhFM4eIkFG4vmIDaoa3l5T2U/3IyB6+4wfHyev8F
+	y8gTr4Hg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wSj6k-00000006TAI-2rEf;
-	Thu, 28 May 2026 22:21:42 +0000
-Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
+	id 1wSj7x-00000006TFB-3cHl;
+	Thu, 28 May 2026 22:22:57 +0000
+Received: from sea.source.kernel.org ([172.234.252.31])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wSj6i-00000006T9l-1y98
+	id 1wSj7v-00000006TEe-2i5d
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 28 May 2026 22:21:41 +0000
+	Thu, 28 May 2026 22:22:56 +0000
 Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
-	by sea.source.kernel.org (Postfix) with ESMTP id AE7AC442B5;
-	Thu, 28 May 2026 22:21:39 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id DA3F11F000E9;
-	Thu, 28 May 2026 22:21:33 +0000 (UTC)
+	by sea.source.kernel.org (Postfix) with ESMTP id E5035418C3;
+	Thu, 28 May 2026 22:22:54 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 540051F000E9;
+	Thu, 28 May 2026 22:22:49 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1780006899;
-	bh=mZmARthFPXCAyxYUsxgldu6mzFwjs58vao40Hr/sGrU=;
+	s=k20260515; t=1780006974;
+	bh=RHSzqIqjJsdmncrj5+nLVXghkdnqP0I1kuHt//29DIQ=;
 	h=Subject:From:To:Cc:In-Reply-To:References:Date;
-	b=oVDCIb11pBEckiH0eMeGLTs3Ia2XRJ32VOv1TFeRIohYt3LQ3Xkn6cxTjZx4U3Qfk
-	 Bysq1aE3ULxHL1IY4wF5QFO9cL9MgS/M2CYzXue08ySxGlvLRIY0wktVq6KvUupWoU
-	 kUoctmhG4iqqYx2HQkLfMM6dk2AOCv5iODIqDnT9IzT7LL+da1Qk3PKsKgMvFqGGzA
-	 24NF90JvYx5xGhJO2gTXfASez5fMbhbPANqKbuaeF5upRAfLoVJPj7zBTcdjHz5Cbu
-	 Silfhy48If6qmd/1Pg6GTRB88rPkbJYy5C3OER/R2GeHNaCZnjIOiwYnNQkV/z17Ey
-	 nNRauk22KuAVg==
+	b=nVgaA6GhqQWHoPjY0v/NiT3IMO2/7KPnFvSgdITi1dPzUo79rlzT9FHZ/l3HbtCYW
+	 xJW62FEtUESmyQeIPuri1GSKbzxKL6qm60RP9n1LttYOBkuArHT+o8o6zmhVGw1Zel
+	 hQPM5tBYxDT6i7GNHULAfsXN9BMJjl69UIun6ztBIvxBfee/SQyO59rk8jGEJ8TUxP
+	 GnqSpE8U1a0p+h8fvmeK5TJ8imCwB6dup7SskV8a661m4CvZmpukMGfbRV60XBOejs
+	 qzQVZFmN4O/ckd2K5cz7ywHqQEVO8YtI3a+ZXZlZfyxC5fWkgP6pH9RmcQq5GQawI1
+	 v3SWgfK5l29uw==
 MIME-Version: 1.0
 Content-Type: text/plain; charset="utf-8"
 Content-Transfer-Encoding: 7bit
-Subject: Re: [PATCH 4/8] arm64: dts: qcom: shikra: Add CAMSS node
+Subject: Re: [PATCH 5/8] arm64: dts: qcom: shikra: Add CCI definitions
 From: bod@kernel.org
 To: Nihal Kumar Gupta <nihal.gupta@oss.qualcomm.com>
 Cc: Bryan O'Donoghue <bod@kernel.org>, 
@@ -66,31 +66,31 @@ Cc: Bryan O'Donoghue <bod@kernel.org>,
  imx@lists.linux.dev, linux-arm-kernel@lists.infradead.org, 
  Suresh Vankadara <quic_svankada@quicinc.com>, 
  Vikram Sharma <vikram.sharma@oss.qualcomm.com>
-In-Reply-To: <20260526-shikra-camss-review-v1-4-645d2c8c75a7@qti.qualcomm.com>
+In-Reply-To: <20260526-shikra-camss-review-v1-5-645d2c8c75a7@qti.qualcomm.com>
 References: <20260526-shikra-camss-review-v1-0-645d2c8c75a7@qti.qualcomm.com>
- <20260526-shikra-camss-review-v1-4-645d2c8c75a7@qti.qualcomm.com>
-Date: Thu, 28 May 2026 23:21:31 +0100
-Message-Id: <178000689150.4557.11759359941436928903.b4-reply@b4>
+ <20260526-shikra-camss-review-v1-5-645d2c8c75a7@qti.qualcomm.com>
+Date: Thu, 28 May 2026 23:22:47 +0100
+Message-Id: <178000696709.4557.9615154244947019683.b4-reply@b4>
 X-Mailer: b4 0.16-dev-d5d98
-X-Developer-Signature: v=1; a=openpgp-sha256; l=4068; i=bod@kernel.org;
- h=from:subject:message-id; bh=Mz63/CkyFYep9DnMMJtYFqQR/TTuUo9JhtPAEXop1E4=;
- b=owEBbQKS/ZANAwAKASJxO7Ohjcg6AcsmYgBqGL/tatFRK0PAVLSvVheUTY08eMxxcBtAGbDsh
- plxVRE24JuJAjMEAAEKAB0WIQTmk/sqq6Nt4Rerb7QicTuzoY3IOgUCahi/7QAKCRAicTuzoY3I
- OkdaEACdNsKvRUMFoJhIfD/HZ1qJRzzcz/1y5eumxiCBhWLQJR/21fZt4iBCqN27QjZ42TXDbmj
- EmtJw43/xp84I6xI9Xv8wRlii/0LJVOr8r5JxhFc/BqPzNxfT77cNqCXLuQCBgkWXAnEo4YvBsq
- AKOeYCX7rUZ25HWKg6l6PxkP/Ghda9xPtT2/s0rDN4o+JEtD/AGhw219HeGBY/zN279/xUTnIWL
- 4v3sChtOCKesNWldKfKc3aF9z3SLR6cUdrEMWNbMxids93dlpay+8ef84wPmqg9zZMQn+JyGuKf
- HzwYg0kKg1uxw4QwDLvhvL9SRNeQWC5yjaxWrJbrN8X+HihUm5jA/uEksIZ5S8RCYmx29CbY3N8
- OR/oVNjc6jMNVx8CN2oAdLfPUhFsxexBwya1zrrUnpNcZbxsVdVEZKyvo1mwwpB02sAHszgX8A0
- 5km82psvANdxR+mD1/+J7Qitsvk8o7mZp5DksWMQEmNfUiqOKMKlrJZQqnhVfG5+QCyecDHUfrF
- O1PmQs/LAoHcpssGfS3JXrV8S6zuecwtsifKUnfWJ0Dz3j23kzzITEaqzK0325dVqxylpxlNgB9
- slGz78LUm1mgePoZxZYiuI42TydUKEsiUjC7qOS8Kc7rnkMxJehdPgRSvA2EsR2nfn/wjfSpQT7
- 9mJcIikSqxLOzgQ==
+X-Developer-Signature: v=1; a=openpgp-sha256; l=2875; i=bod@kernel.org;
+ h=from:subject:message-id; bh=kEhjhFBbf9yHTndAWDllWLthNat8T3zEDzSysbLs4MY=;
+ b=owEBbQKS/ZANAwAKASJxO7Ohjcg6AcsmYgBqGMA4iwNfXyN4aARCEBFcT1PxnJkHtlNStRrwA
+ z+q8OWIN1WJAjMEAAEKAB0WIQTmk/sqq6Nt4Rerb7QicTuzoY3IOgUCahjAOAAKCRAicTuzoY3I
+ OrTKEAC+gqvWdwgp+bXrpElnt7SkR5L1LYcLcYuL1uhfnY3Uh6GfaFJWApUv3rQeP7ZzaNPhCzd
+ etCtIf5dnwuGsO7ADpWuGa/5lErNXqfDRcU9PTPXnnBsuIFqfx5HpQvnwt+K5qyaKXdgsJkMMUn
+ W5cTGniouOHij9uwqK/ggf6uRT/rqRE9qUyUBAjA5BopEvLVSIDSJgIfRIwbMrIbiB6Wo961+6Y
+ 7uoJMoyQ4ed+gTm/Ckw5vA1A+GmH7vYx7/m9q68TTVYd7EW09azPxIR7CVqQLnFqNXcwC54M+aR
+ 3SfCWY/p+hA8LdoNrraXvQcKI9rSPMTmM2HjXjyG/5fjmtJhJENHlWRu1c4N89cMOisbbuvXsj3
+ Xp3BWwksxhaXBMIfbyAGSpm18NdIp+Wa9sWo/NoG7J+0aWI5VjBNpIYnRDr+8QlB9roYXI0hTO7
+ RGst6d9rEjaISqeyIaYEnePD+ITk2MtJGGJdSAHqDCPe7RCxkuXHac1RL5/NZ6MJ1JEZPYoahkX
+ jzbRV6Nl0eJuSpfsC3D7wTizu69iufhc3XNBytMiZlgyj7cwd7XyiaC20qFbx0TqLDoBcU7gx6H
+ tI5pFb5hP/4oadddKkgUKfe+psW4IUmOhbmTN0lFMQQRO8AoMPI4JxKwjQxK9LXKeM/y5e79KYN
+ u5v1PXbpgyIcnIQ==
 X-Developer-Key: i=bod@kernel.org; a=openpgp;
  fpr=E693FB2AABA36DE117AB6FB422713BB3A18DC83A
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260528_152140_552503_FBF4193A 
-X-CRM114-Status: GOOD (  14.83  )
+X-CRM114-CacheID: sfid-20260528_152255_731785_E9A1524B 
+X-CRM114-Status: GOOD (  12.79  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -106,121 +106,109 @@ Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
 On 2026-05-26 22:42 +0530, Nihal Kumar Gupta wrote:
-> Add node for the Shikra camera subsystem.
+> Qualcomm Shikra SoC has one Camera Control Interface (CCI)
+> containing two I2C hosts.
 > 
-> Co-developed-by: Vikram Sharma <vikram.sharma@oss.qualcomm.com>
-> Signed-off-by: Vikram Sharma <vikram.sharma@oss.qualcomm.com>
 > Signed-off-by: Nihal Kumar Gupta <nihal.gupta@oss.qualcomm.com>
 > ---
->  arch/arm64/boot/dts/qcom/shikra.dtsi | 99 ++++++++++++++++++++++++++++++++++++
->  1 file changed, 99 insertions(+)
+>  arch/arm64/boot/dts/qcom/shikra.dtsi | 70 ++++++++++++++++++++++++++++++++++++
+>  1 file changed, 70 insertions(+)
 > 
 > diff --git a/arch/arm64/boot/dts/qcom/shikra.dtsi b/arch/arm64/boot/dts/qcom/shikra.dtsi
-> index a4334d99c1f35ee851ca8266ec37d4a200a07ee5..6c47cf2a7ef26b4bb7d7f642a240b435cf5208d8 100644
+> index 6c47cf2a7ef26b4bb7d7f642a240b435cf5208d8..46de35971f629ded990827ebd76134e652758ce3 100644
 > --- a/arch/arm64/boot/dts/qcom/shikra.dtsi
 > +++ b/arch/arm64/boot/dts/qcom/shikra.dtsi
-> @@ -604,6 +604,105 @@ opp-384000000 {
+> @@ -348,6 +348,38 @@ tlmm: pinctrl@500000 {
+>  			gpio-ranges = <&tlmm 0 0 165>;
+>  			wakeup-parent = <&mpm>;
+>  
+> +			cci_i2c0_default: cci-i2c0-default-state {
+> +				/* SDA, SCL */
+> +				pins = "gpio36", "gpio37";
+> +				function = "cci_i2c0";
+> +				drive-strength = <2>;
+> +				bias-pull-up;
+> +			};
+> +
+> +			cci_i2c0_sleep: cci-i2c0-sleep-state {
+> +				/* SDA, SCL */
+> +				pins = "gpio36", "gpio37";
+> +				function = "cci_i2c0";
+> +				drive-strength = <2>;
+> +				bias-pull-down;
+> +			};
+> +
+> +			cci_i2c1_default: cci-i2c1-default-state {
+> +				/* SDA, SCL */
+> +				pins = "gpio41", "gpio42";
+> +				function = "cci_i2c1";
+> +				drive-strength = <2>;
+> +				bias-pull-up;
+> +			};
+> +
+> +			cci_i2c1_sleep: cci-i2c1-sleep-state {
+> +				/* SDA, SCL */
+> +				pins = "gpio41", "gpio42";
+> +				function = "cci_i2c1";
+> +				drive-strength = <2>;
+> +				bias-pull-down;
+> +			};
+> +
+>  			qup_uart0_default: qup-uart0-default-state {
+>  				pins = "gpio0", "gpio1";
+>  				function = "qup0_se0";
+> @@ -701,6 +733,44 @@ port@1 {
+>  					reg = <1>;
+>  				};
 >  			};
+> +
+> +		};
+> +
+> +		cci: cci@5c1b000 {
+> +			compatible = "qcom,shikra-cci", "qcom,msm8996-cci";
+> +			reg = <0x0 0x05c1b000 0x0 0x1000>;
+> +
+> +			interrupts = <GIC_SPI 206 IRQ_TYPE_EDGE_RISING 0>;
+> +
+> +			clocks = <&gcc GCC_CAMSS_TOP_AHB_CLK>,
+> +				 <&gcc GCC_CAMSS_CCI_0_CLK>;
+> +			clock-names = "ahb",
+> +				      "cci";
+> +
+> +			power-domains = <&gcc GCC_CAMSS_TOP_GDSC>;
+> +
+> +			pinctrl-0 = <&cci_i2c0_default &cci_i2c1_default>;
+> +			pinctrl-1 = <&cci_i2c0_sleep &cci_i2c1_sleep>;
+> +			pinctrl-names = "default", "sleep";
+> +
+> +			#address-cells = <1>;
+> +			#size-cells = <0>;
+> +
+> +			status = "disabled";
+> +
+> +			cci_i2c0: i2c-bus@0 {
+> +				reg = <0>;
+> +				clock-frequency = <400000>;
+> +				#address-cells = <1>;
+> +				#size-cells = <0>;
+> +			};
+> +
+> +			cci_i2c1: i2c-bus@1 {
+> +				reg = <1>;
+> +				clock-frequency = <400000>;
+> +				#address-cells = <1>;
+> +				#size-cells = <0>;
+> +			};
 >  		};
 >  
-> +		camss: camss@5c11000 {
-> +			compatible = "qcom,shikra-camss";
-> +
-> +			reg = <0x0 0x05c11000 0x0 0x1000>,
-> +			      <0x0 0x05c6e000 0x0 0x1000>,
-> +			      <0x0 0x05c75000 0x0 0x1000>,
-> +			      <0x0 0x05c52000 0x0 0x1000>,
-> +			      <0x0 0x05c53000 0x0 0x1000>,
-> +			      <0x0 0x05c66000 0x0 0x400>,
-> +			      <0x0 0x05c68000 0x0 0x400>,
-> +			      <0x0 0x05c6f000 0x0 0x4000>,
-> +			      <0x0 0x05c76000 0x0 0x4000>;
-> +			reg-names = "top",
-> +				    "csid0",
-> +				    "csid1",
-> +				    "csiphy0",
-> +				    "csiphy1",
-> +				    "csitpg0",
-> +				    "csitpg1",
-> +				    "vfe0",
-> +				    "vfe1";
-> +
-> +			clocks = <&gcc GCC_CAMERA_AHB_CLK>,
-> +				 <&gcc GCC_CAMSS_AXI_CLK>,
-> +				 <&gcc GCC_CAMSS_NRT_AXI_CLK>,
-> +				 <&gcc GCC_CAMSS_RT_AXI_CLK>,
-> +				 <&gcc GCC_CAMSS_TFE_0_CSID_CLK>,
-> +				 <&gcc GCC_CAMSS_TFE_1_CSID_CLK>,
-> +				 <&gcc GCC_CAMSS_CPHY_0_CLK>,
-> +				 <&gcc GCC_CAMSS_CSI0PHYTIMER_CLK>,
-> +				 <&gcc GCC_CAMSS_CPHY_1_CLK>,
-> +				 <&gcc GCC_CAMSS_CSI1PHYTIMER_CLK>,
-> +				 <&gcc GCC_CAMSS_TOP_AHB_CLK>,
-> +				 <&gcc GCC_CAMSS_TFE_0_CLK>,
-> +				 <&gcc GCC_CAMSS_TFE_0_CPHY_RX_CLK>,
-> +				 <&gcc GCC_CAMSS_TFE_1_CLK>,
-> +				 <&gcc GCC_CAMSS_TFE_1_CPHY_RX_CLK>;
-> +			clock-names = "ahb",
-> +				      "axi",
-> +				      "camnoc_nrt_axi",
-> +				      "camnoc_rt_axi",
-> +				      "csi0",
-> +				      "csi1",
-> +				      "csiphy0",
-> +				      "csiphy0_timer",
-> +				      "csiphy1",
-> +				      "csiphy1_timer",
-> +				      "top_ahb",
-> +				      "vfe0",
-> +				      "vfe0_cphy_rx",
-> +				      "vfe1",
-> +				      "vfe1_cphy_rx";
-> +
-> +			interrupts = <GIC_SPI 210 IRQ_TYPE_EDGE_RISING 0>,
-> +				     <GIC_SPI 212 IRQ_TYPE_EDGE_RISING 0>,
-> +				     <GIC_SPI 72 IRQ_TYPE_EDGE_RISING 0>,
-> +				     <GIC_SPI 73 IRQ_TYPE_EDGE_RISING 0>,
-> +				     <GIC_SPI 309 IRQ_TYPE_EDGE_RISING 0>,
-> +				     <GIC_SPI 310 IRQ_TYPE_EDGE_RISING 0>,
-> +				     <GIC_SPI 211 IRQ_TYPE_EDGE_RISING 0>,
-> +				     <GIC_SPI 213 IRQ_TYPE_EDGE_RISING 0>;
-> +			interrupt-names = "csid0",
-> +					  "csid1",
-> +					  "csiphy0",
-> +					  "csiphy1",
-> +					  "csitpg0",
-> +					  "csitpg1",
-> +					  "vfe0",
-> +					  "vfe1";
-> +
-> +			interconnects = <&mem_noc MASTER_AMPSS_M0 RPM_ACTIVE_TAG
-> +					 &config_noc SLAVE_CAMERA_CFG RPM_ACTIVE_TAG>,
-> +					<&mmrt_virt MASTER_CAMNOC_HF RPM_ALWAYS_TAG
-> +					 &mc_virt SLAVE_EBI_CH0 RPM_ALWAYS_TAG>,
-> +					<&mmnrt_virt MASTER_CAMNOC_SF RPM_ALWAYS_TAG
-> +					 &mc_virt SLAVE_EBI_CH0 RPM_ALWAYS_TAG>;
-> +			interconnect-names = "ahb",
-> +					     "hf_mnoc",
-> +					     "sf_mnoc";
-> +
-> +			iommus = <&apps_smmu 0x400 0x0>;
+>  		qupv3_0: geniqup@4ac0000 {
+> 
+> -- 
+> 2.34.1
+> 
+> 
 
-So I'm suspicious of this IOMMU.
-
-We should list the full range of IFE SIDs here not a subset. Since we are
-register compatible with Agatti that implies to me we should also be IOMMU
-compatible.
-
-Please list in your next submission commit log the IOMMU SIDs - comment in
-the DTS is fine too.
-
-Ideally list the IOMMus for Agatti/2290 and then explain why the singleton
-you have enumerated here is the only required one.
-
-Right now my suspicion radar is high that either the Agatti binding is
-wrong or the Shikra binding is.
-
-Possibly both.
+Reviewed-by: Bryan O'Donoghue <bryan.odonoghue@linaro.org>
 
 ---
 bod
