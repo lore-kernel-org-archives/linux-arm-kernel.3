@@ -4,38 +4,38 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 21126CD6E45
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 28 May 2026 00:43:18 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 90BB6CD6E48
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 28 May 2026 00:43:20 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
 	MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:
 	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=UVWiM4xIUXWQ8VX4lQw/ZW4DJ6yNUs4CT4NEYGNtMTc=; b=IJKgM4rxdmI6JkV6AeH3PRnsR7
-	brSOXkQI1TtxUlPSVWjM1wQjB4d+mjf4cBCc5odKf0QcWDnOPNmCGh/ccOO0IyseuezaNy/IWPrtR
-	BVO6O4nI1mzA8f2pAuvaKW9uyMuOZFX5Y2zpjSNubR/l8fZnZMoDxoLYepivYumbY9OUanXzfuKbx
-	pK9Ps2e26SBs5SpqOctn/nolOUi+HJCAA2X71auYRGXh6tOw6I/W8jQ0U7ouCybiYe00Rv++RoJu2
-	n/fWcqe8+DZrZQKSf6wLSAw9TEMayRuGv0Knx2UY2ozWS4G9nj/raayyZuxeNgdVGdq4QTHvbyyMw
-	CAvEZEBg==;
+	bh=lTYSobW1vcaiuFaW/ih0lOZTdJfa7tMYIcB/6JUObEE=; b=ofa0GG/uEW+9enY8wEdu2i18e+
+	h0aRkDpsacz6RuZgGhUd8izIJOGauIJ969lotDrM1/2xTuxtNQDrk3LMVdqMCA1tn0NkbrYzQmYhT
+	JB9xGQ3lDT9KuqhrnrV0fhqSZl9CUKYzrbXdkRY+v6m0FLPrRt/+nTXyc4zZOrq+jyqNtAZvOm+J/
+	qSSAPa8Pb0wlZPaaN13+Ec49Y2i6DbSyYtFJ2PsfxAMK/N74+pZwcqaWFkitWFXzJjl994wXcu9QO
+	npNX67EieBHWNMheDTYeKNOOVE7u0t7w1Wfq3ncIqgYguZEIeeWUJlkAr+mtiI320W4ROp3sF6kbD
+	bZMMkhUg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wSOq0-00000004sgO-3JQI;
-	Thu, 28 May 2026 00:43:04 +0000
+	id 1wSOq7-00000004sx0-0DZs;
+	Thu, 28 May 2026 00:43:11 +0000
 Received: from linux.microsoft.com ([13.77.154.182])
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wSOpQ-00000004s4F-29ub;
-	Thu, 28 May 2026 00:42:29 +0000
+	id 1wSOpW-00000004s4F-36ag;
+	Thu, 28 May 2026 00:42:36 +0000
 Received: by linux.microsoft.com (Postfix, from userid 1241)
-	id D9FB720B716A; Wed, 27 May 2026 17:42:16 -0700 (PDT)
-DKIM-Filter: OpenDKIM Filter v2.11.0 linux.microsoft.com D9FB720B716A
+	id EC17820B717A; Wed, 27 May 2026 17:42:23 -0700 (PDT)
+DKIM-Filter: OpenDKIM Filter v2.11.0 linux.microsoft.com EC17820B717A
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=linux.microsoft.com;
-	s=default; t=1779928936;
-	bh=UVWiM4xIUXWQ8VX4lQw/ZW4DJ6yNUs4CT4NEYGNtMTc=;
+	s=default; t=1779928943;
+	bh=lTYSobW1vcaiuFaW/ih0lOZTdJfa7tMYIcB/6JUObEE=;
 	h=From:To:Cc:Subject:Date:In-Reply-To:References:From;
-	b=CZTqfsUmcLLXJT7YbU5UN7KLqaA6BUVha/oeK47UmZZXNYo/M9YmHZPL+JhzXFPDl
-	 RWF8g92V93FnpwT+SmnnZeHh/vF+yOyFDUxwz1pmiBwtOYjGVvrjhDig9SvmrS9iOD
-	 5izCOplWYR99E1vx1VZ1orE4q8bJcRWFlJ9ijylo=
+	b=bds+T53YSwua67KRic1D3xTDVI8g2FG5kFyh9yUH+NKfBwH0s5MxGdFticf7R97vc
+	 C6Xh5MCYze42oBrgNFWnDpyid/h5MQYDeNPF/7cyO0UVqYZALjK7f4naGCfMw8KflQ
+	 CRrvEG5Kw9ij3UM6KLbWJBmrvJ8vse+aL8vwqdDw=
 From: Jork Loeser <jloeser@linux.microsoft.com>
 To: linux-hyperv@vger.kernel.org,
 	linux-mm@kvack.org,
@@ -74,17 +74,17 @@ Cc: "K. Y. Srinivasan" <kys@microsoft.com>,
 	linux-kernel@vger.kernel.org,
 	Michael Kelley <mhklinux@outlook.com>,
 	Jork Loeser <jloeser@linux.microsoft.com>
-Subject: [RFC PATCH 08/20] kho: add kho_radix_init_tree()
-Date: Wed, 27 May 2026 17:41:50 -0700
-Message-ID: <20260528004204.1484584-9-jloeser@linux.microsoft.com>
+Subject: [RFC PATCH 16/20] mshv: Add debugfs interface to page tracker
+Date: Wed, 27 May 2026 17:41:58 -0700
+Message-ID: <20260528004204.1484584-17-jloeser@linux.microsoft.com>
 X-Mailer: git-send-email 2.43.7
 In-Reply-To: <20260528004204.1484584-1-jloeser@linux.microsoft.com>
 References: <20260528004204.1484584-1-jloeser@linux.microsoft.com>
 MIME-Version: 1.0
 Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260527_174228_592980_FF23CF40 
-X-CRM114-Status: GOOD (  16.79  )
+X-CRM114-CacheID: sfid-20260527_174234_816370_81DADC4E 
+X-CRM114-Status: GOOD (  18.34  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -99,101 +99,217 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-From: "Pratyush Yadav (Google)" <pratyush@kernel.org>
+- expose stats (page-counts for data & metadata)
+- expose tracked pages
+- expose scheduler type
+- add mshv_iterate_preserved() API for walking the radix tree
 
-Move the initialization logic of the radix tree into
-kho_radix_init_tree() instead of having users open-code it. Makes the
-boundaries cleaner and reduces code duplication when a new user of the
-radix tree will be added in a future commit.
-
-Signed-off-by: Pratyush Yadav (Google) <pratyush@kernel.org>
 Signed-off-by: Jork Loeser <jloeser@linux.microsoft.com>
 ---
- include/linux/kho_radix_tree.h     |  7 ++++++
- kernel/liveupdate/kexec_handover.c | 37 ++++++++++++++++++++++++++++--
- 2 files changed, 42 insertions(+), 2 deletions(-)
+ drivers/hv/mshv_debugfs.c       | 99 +++++++++++++++++++++++++++++++++
+ drivers/hv/mshv_page_preserve.c | 13 +++++
+ drivers/hv/mshv_page_preserve.h |  3 +
+ drivers/hv/mshv_root.h          |  2 +
+ drivers/hv/mshv_root_main.c     |  2 +-
+ 5 files changed, 118 insertions(+), 1 deletion(-)
 
-diff --git a/include/linux/kho_radix_tree.h b/include/linux/kho_radix_tree.h
-index 617395a6647a..c0840ecb230c 100644
---- a/include/linux/kho_radix_tree.h
-+++ b/include/linux/kho_radix_tree.h
-@@ -54,6 +54,7 @@ int kho_radix_add_key(struct kho_radix_tree *tree, unsigned long key);
- void kho_radix_del_key(struct kho_radix_tree *tree, unsigned long key);
- int kho_radix_walk_tree(struct kho_radix_tree *tree,
- 			const struct kho_radix_walk_cb *cb, void *data);
-+int kho_radix_init_tree(struct kho_radix_tree *tree, struct kho_radix_node *root);
- void kho_radix_destroy_tree(struct kho_radix_tree *tree);
+diff --git a/drivers/hv/mshv_debugfs.c b/drivers/hv/mshv_debugfs.c
+index 3c3e02237ae9..d79898e21b36 100644
+--- a/drivers/hv/mshv_debugfs.c
++++ b/drivers/hv/mshv_debugfs.c
+@@ -33,11 +33,18 @@ static struct dentry *mshv_debugfs;
+ static struct dentry *mshv_debugfs_partition;
+ static struct dentry *mshv_debugfs_lp;
+ static struct dentry **parent_vp_stats;
++
+ static struct dentry *parent_partition_stats;
  
- #else  /* #ifdef CONFIG_KEXEC_HANDOVER */
-@@ -72,6 +73,12 @@ static inline int kho_radix_walk_tree(struct kho_radix_tree *tree,
- 	return -EOPNOTSUPP;
+ static u64 mshv_lps_count;
+ static struct hv_stats_page **mshv_lps_stats;
+ 
++struct mshv_pt_stats {
++	unsigned long count_data;
++	unsigned long count_meta;
++	struct seq_file *stat_file;
++};
++
+ static int lp_stats_show(struct seq_file *m, void *v)
+ {
+ 	const struct hv_stats_page *stats = m->private;
+@@ -668,8 +675,89 @@ void mshv_debugfs_partition_remove(struct mshv_partition *partition)
+ 				 partition->pt_stats_dentry);
  }
  
-+static inline int kho_radix_init_tree(struct kho_radix_tree *tree,
-+				      struct kho_radix_node *root)
++static int pt_count_data_cb(unsigned long key __maybe_unused, void *stats)
 +{
++	((struct mshv_pt_stats *)stats)->count_data++;
 +	return 0;
 +}
 +
- static inline void kho_radix_destroy_tree(struct kho_radix_tree *tree) { }
++static int pt_count_meta_cb(phys_addr_t phys __maybe_unused, void *stats)
++{
++	((struct mshv_pt_stats *)stats)->count_meta++;
++	return 0;
++}
++
++static int pt_stats_show(struct seq_file *m, void *v)
++{
++	const struct kho_radix_walk_cb cb = {
++		.key = pt_count_data_cb,
++		.table = pt_count_meta_cb,
++	};
++
++	struct mshv_pt_stats pt_stats = {0};
++
++	mshv_iterate_preserved(&cb, &pt_stats);
++	seq_printf(m, "Data pages: %lu\n", pt_stats.count_data);
++	seq_printf(m, "Meta pages: %lu\n", pt_stats.count_meta);
++	return 0;
++}
++DEFINE_SHOW_ATTRIBUTE(pt_stats);
++
++static int pt_tree_data_cb(unsigned long key, void *stats)
++{
++	seq_printf(((struct mshv_pt_stats *)stats)->stat_file,
++		   "data pfn: %#lx\n", key);
++	return 0;
++}
++
++static int pt_tree_meta_cb(phys_addr_t phys, void *stats)
++{
++	seq_printf(((struct mshv_pt_stats *)stats)->stat_file,
++		   "meta pfn: %#llx\n",
++		   (unsigned long long)(phys >> PAGE_SHIFT));
++	return 0;
++}
++
++static int pt_tree_show(struct seq_file *m, void *v)
++{
++	const struct kho_radix_walk_cb cb = {
++		.key = pt_tree_data_cb,
++		.table = pt_tree_meta_cb,
++	};
++
++	struct mshv_pt_stats pt_stats = {.stat_file = m};
++
++	mshv_iterate_preserved(&cb, &pt_stats);
++	return 0;
++}
++DEFINE_SHOW_ATTRIBUTE(pt_tree);
++
++static int __init mshv_debugfs_pt_create(struct dentry *parent)
++{
++	struct dentry *d;
++
++	d = debugfs_create_file("pt_stats", 0400, parent, NULL, &pt_stats_fops);
++	if (IS_ERR(d))
++		return PTR_ERR(d);
++
++	d = debugfs_create_file("pt_tree", 0400, parent, NULL, &pt_tree_fops);
++	if (IS_ERR(d))
++		return PTR_ERR(d);
++
++	return 0;
++}
++
++static int scheduler_info_show(struct seq_file *m, void *v)
++{
++	seq_printf(m, "Scheduler type: %s (%d)\n",
++		   scheduler_type_to_string(hv_scheduler_type), hv_scheduler_type);
++	return 0;
++}
++DEFINE_SHOW_ATTRIBUTE(scheduler_info);
++
+ int __init mshv_debugfs_init(void)
+ {
++	struct dentry *d;
+ 	int err;
  
- #endif /* #ifdef CONFIG_KEXEC_HANDOVER */
-diff --git a/kernel/liveupdate/kexec_handover.c b/kernel/liveupdate/kexec_handover.c
-index 3f3ea71baa1a..b2d1572808eb 100644
---- a/kernel/liveupdate/kexec_handover.c
-+++ b/kernel/liveupdate/kexec_handover.c
-@@ -305,6 +305,34 @@ static void __kho_radix_destroy_tree(struct kho_radix_node *root,
- 	kho_radix_free_node(root);
+ 	mshv_debugfs = debugfs_create_dir("mshv", NULL);
+@@ -694,6 +782,17 @@ int __init mshv_debugfs_init(void)
+ 	if (err)
+ 		goto unmap_lp_stats;
+ 
++	err = mshv_debugfs_pt_create(mshv_debugfs);
++	if (err)
++		goto unmap_lp_stats;
++
++	d = debugfs_create_file("scheduler_info", 0400, mshv_debugfs, NULL,
++				&scheduler_info_fops);
++	if (IS_ERR(d)) {
++		err = PTR_ERR(d);
++		goto unmap_lp_stats;
++	}
++
+ 	return 0;
+ 
+ unmap_lp_stats:
+diff --git a/drivers/hv/mshv_page_preserve.c b/drivers/hv/mshv_page_preserve.c
+index a79725a74663..bc3a3a688f5b 100644
+--- a/drivers/hv/mshv_page_preserve.c
++++ b/drivers/hv/mshv_page_preserve.c
+@@ -52,6 +52,19 @@ int mshv_unregister_preserve_page(struct page *pg)
  }
+ EXPORT_SYMBOL_GPL(mshv_unregister_preserve_page);
  
 +/**
-+ * kho_radix_init_tree - initialize the radix tree.
-+ * @tree:   the tree to initialize.
-+ * @root:   root table of the radix tree.
-+ *
-+ * Initialize the radix tree with the given root node. If root is %NULL, an
-+ * empty root table is allocated. If root is not %NULL, it is the caller's
-+ * responsibility to make sure the root is valid and in the correct format.
++ * mshv_iterate_preserved() - Walk all preserved pages
++ * @cb: callbacks invoked for each key/table entry
++ * @data: opaque data passed to callbacks
 + *
 + * Return: 0 on success, -errno on failure.
 + */
-+int kho_radix_init_tree(struct kho_radix_tree *tree, struct kho_radix_node *root)
++int mshv_iterate_preserved(const struct kho_radix_walk_cb *cb, void *data)
 +{
-+	/* Already initialized. */
-+	if (tree->root)
-+		return 0;
-+
-+	if (!root)
-+		root = kho_radix_alloc_node();
-+	if (!root)
-+		return -ENOMEM;
-+
-+	tree->root = root;
-+	mutex_init(&tree->lock);
-+	return 0;
++	return kho_radix_walk_tree(&preserved_pages_tree, cb, data);
 +}
-+EXPORT_SYMBOL_GPL(kho_radix_init_tree);
++EXPORT_SYMBOL_GPL(mshv_iterate_preserved);
 +
- /**
-  * kho_radix_destroy_tree - Destroy the radix tree
-  * @tree: The radix tree to destroy
-@@ -1467,9 +1495,14 @@ static int __init kho_mem_retrieve(const void *fdt)
- 	const struct kho_radix_walk_cb cb = {
- 		.key = kho_preserved_memory_reserve,
- 	};
-+	phys_addr_t mem_map_phys;
-+	int err;
+ /* Preserve a single page identified by its PFN key with KHO */
+ static int preserve_key_cb(unsigned long key, void *data)
+ {
+diff --git a/drivers/hv/mshv_page_preserve.h b/drivers/hv/mshv_page_preserve.h
+index 0609002e5f1d..ac99b4e33285 100644
+--- a/drivers/hv/mshv_page_preserve.h
++++ b/drivers/hv/mshv_page_preserve.h
+@@ -6,10 +6,13 @@
+ #ifndef _MSHV_PAGE_PRESERVE_H
+ #define _MSHV_PAGE_PRESERVE_H
+ 
++#include <linux/kho_radix_tree.h>
 +
-+	mem_map_phys = kho_get_mem_map_phys(fdt);
-+	err = kho_radix_init_tree(&kho_in.radix_tree, phys_to_virt(mem_map_phys));
-+	if (err)
-+		return err;
+ struct page;
  
--	kho_in.radix_tree.root = phys_to_virt(kho_get_mem_map_phys(fdt));
--	mutex_init(&kho_in.radix_tree.lock);
- 	return kho_radix_walk_tree(&kho_in.radix_tree, &cb, NULL);
- }
+ int mshv_preserve_init(void);
+ int mshv_register_preserve_page(struct page *pg);
+ int mshv_unregister_preserve_page(struct page *pg);
++int mshv_iterate_preserved(const struct kho_radix_walk_cb *cb, void *data);
  
+ #endif /* _MSHV_PAGE_PRESERVE_H */
+diff --git a/drivers/hv/mshv_root.h b/drivers/hv/mshv_root.h
+index 362768786c17..216053f8e0ab 100644
+--- a/drivers/hv/mshv_root.h
++++ b/drivers/hv/mshv_root.h
+@@ -379,4 +379,6 @@ bool mshv_region_handle_gfn_fault(struct mshv_mem_region *region, u64 gfn);
+ void mshv_region_movable_fini(struct mshv_mem_region *region);
+ bool mshv_region_movable_init(struct mshv_mem_region *region);
+ 
++const char *scheduler_type_to_string(enum hv_scheduler_type type);
++
+ #endif /* _MSHV_ROOT_H_ */
+diff --git a/drivers/hv/mshv_root_main.c b/drivers/hv/mshv_root_main.c
+index bd1359eb58dd..5fbd01c12ab8 100644
+--- a/drivers/hv/mshv_root_main.c
++++ b/drivers/hv/mshv_root_main.c
+@@ -2134,7 +2134,7 @@ mshv_dev_release(struct inode *inode, struct file *filp)
+ 
+ static int mshv_root_sched_online;
+ 
+-static const char *scheduler_type_to_string(enum hv_scheduler_type type)
++const char *scheduler_type_to_string(enum hv_scheduler_type type)
+ {
+ 	switch (type) {
+ 	case HV_SCHEDULER_TYPE_LP:
 -- 
 2.43.0
 
