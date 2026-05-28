@@ -4,103 +4,100 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 7D634CD5BD5
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 28 May 2026 17:44:56 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 6FC1DCD4F54
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 28 May 2026 17:49:06 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:Subject:References:In-Reply-To:Message-Id:Cc:To:From:Date:
-	MIME-Version:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=Tv0GvQR9LdZ5J0jYYwa7d5Uyc3AKXGH4YOdKXhneO1E=; b=Oye+CkrdtinpmtH4aP2WYOZRsI
-	+w4eTW+a9ve6LVatI2XhbOyu4H9eLC/HClwjkgoGculb9cXivk3ZTPh09srbIyYF3ZcxDmIhptxcQ
-	joGNNIMoi/i6lpNfHW9HLW5yk6kI7q86lff5tv1ugrTR8oJmatIIgf9MaSkptUsQub4zcRdLou30A
-	MjlvlP1f++nhr8a4iMQAbW6gUQimWH2UkDPiLdvHu5V4BZWryjXR8M8X/ZF/xOtu7gDW/8y+ij7fl
-	t1sLFktgSBh3Z2TxKSv8DXOLkzpls6yy2xb0va/LxUwvrL5RY8KaImtqmpzmO1+Xi2OSUgT53dpuA
-	eFVTm0gw==;
+	MIME-Version:Message-ID:Date:Subject:To:From:Reply-To:Cc:Content-Type:
+	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
+	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=RIzWyKMXWGotWIEyO41ggWsKGrt3q5HiBatwgBfE//8=; b=aOgpUR4yHB6RQgH7tgecD81iNU
+	ArHtow/klCNNOGitFx/bJBMimsOiPHq0RSp0WRdhJyascLlDa/kF+w81F0abVfveyfSOH+YEA/UQQ
+	FaqJoQj1XhTUy6mZKH/rpaoEBCsr7BYS1x97LJmGu999jWvIWGGUssJpqNViMxZdzue9BNx4HKLif
+	YYlQAZsQzKTRhOE3ZAaKDkSPDZ4NuEMYq7YVt3Q7sT3J6XN7vx9AgyAPB87bK3wY0eO6XSLUjmfdI
+	WJf6scJ7+0F9HhsSdL7ElTEPAjSgaEbG8xnIfsXOuSEB9xzJRX0nRnnaUM2v7CMhtQzBC1MUUgjWk
+	tXa3npLA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wSemj-000000067jk-3U8N;
-	Thu, 28 May 2026 17:44:45 +0000
-Received: from fout-b3-smtp.messagingengine.com ([202.12.124.146])
+	id 1wSeqm-00000006899-0itw;
+	Thu, 28 May 2026 17:48:56 +0000
+Received: from mail-wm1-x333.google.com ([2a00:1450:4864:20::333])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wSemg-000000067ir-48Rx
+	id 1wSeqi-00000006876-42WW
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 28 May 2026 17:44:44 +0000
-Received: from phl-compute-04.internal (phl-compute-04.internal [10.202.2.44])
-	by mailfout.stl.internal (Postfix) with ESMTP id 263D31D000CD;
-	Thu, 28 May 2026 13:44:39 -0400 (EDT)
-Received: from phl-imap-05 ([10.202.2.95])
-  by phl-compute-04.internal (MEProxy); Thu, 28 May 2026 13:44:39 -0400
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=arndb.de; h=cc
-	:cc:content-transfer-encoding:content-type:content-type:date
-	:date:from:from:in-reply-to:in-reply-to:message-id:mime-version
-	:references:reply-to:subject:subject:to:to; s=fm3; t=1779990278;
-	 x=1780076678; bh=Tv0GvQR9LdZ5J0jYYwa7d5Uyc3AKXGH4YOdKXhneO1E=; b=
-	VMjSVWPL8CUZrqTgfYcdXq0OhW1qOrR7LGZ0yymaQR/b6wnZvPfCcaxMs+tTofKH
-	+6mktGBcwvopUmyKalcWWWnho7cK2c1CMnIHN62lteDcIwwYy+58KIPg4k+UZjQq
-	vXQOcB134YHNp3ARtK/9ruo2UJLtdAXbY8TiaffBqzlfrPBd4QgzaoJ/GnQrkX9t
-	2k5M5tYzX5jpkWgyxnfrwFQnfbO1gCvpEzK4RQ8fM+5pKDK6X79On7DIzrmAboHI
-	oTGG35a7FcN32YLGYrPGrIzZupJsRSTk4BC1DL7nSdV4NMQXwH+bwcafiUsI/sFU
-	H0Oi6y2qavKt2nmOyAWGGg==
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=
-	messagingengine.com; h=cc:cc:content-transfer-encoding
-	:content-type:content-type:date:date:feedback-id:feedback-id
-	:from:from:in-reply-to:in-reply-to:message-id:mime-version
-	:references:reply-to:subject:subject:to:to:x-me-proxy
-	:x-me-sender:x-me-sender:x-sasl-enc; s=fm3; t=1779990278; x=
-	1780076678; bh=Tv0GvQR9LdZ5J0jYYwa7d5Uyc3AKXGH4YOdKXhneO1E=; b=O
-	nYHJ+HEBGfLSfgR9faVDKYA8WIGs9nU/m/0xvz7zotzmDQXMc1ARN9fAePngamQR
-	28vmC1ViYoV2/om90T5XGjig8gFIOOaGzcUwVcq0FuripuVOyuwzzqZoVvEmSZDH
-	1JD0cF3zVW8B9DTmE+L0b9N0xbpq8HxzBl2FPVSXFaxyZwIFvz9WMq5WhnXYbZuV
-	96/WqJiDKYHWSAdMrL6ulE9q97ZzlBtAqkTQCkkFiY0SHbwhVeEb+SUWdzycPvN8
-	8IjvLGQS8BNJE72+mhcj/AQzwTMe+OhZoz5YO94JEgISdLg+8BZuOIGkCM8hn0Ch
-	N/k8SG8RlvpIT9a9F5duA==
-X-ME-Sender: <xms:BX8YasIjzB6KaaZdxw9LUYG7v3wzUEDo7VuOxxeXOtN0PGtUGW8gJA>
-    <xme:BX8Yam9ZcpMLau2S9VvEv6L3k-6SMc3eODzZCRUqM54fuHb6sTFxEzuMtDGgsDgiX
-    7MlmNa5Lf4UA0oBWCcYRoiutSMkA028W3Z8nAxGZcT5DVM9cMsMDQ>
-X-ME-Proxy-Cause: dmFkZTF15I2exDPtkrKztTne1NwFdgpQPX5RZHaMMfMA6gF6Y5BggLL1zRpelnKTMY3yBh
-    R4wK9fwRoM7FrpSRvU2kUe/PJ8DEF0RJTiCet1Z3XZOzfJlAmAGguJwZ3Y4LdKWe5Ra1yt
-    9Ank0wim2jQFH2IFOytzTNjNHGkn/Ae5k6iQRP/tXLhPqbG8hKldvfnu/5P4vgFmVlmTMS
-    BLtSPVuZTPKbPlWJ9cLE8wplnT3mnotXJHkmv1+aPYsyy7a4tAyjiqHt+HVE0kLYH4AZ6C
-    DNvtXHbwrbMim+efkocyZJvr+xOlXiy/azm8os8X9/hZer9SH/YJGVQBkADn5xfDHxnJQp
-    wJbURRQfherRUAUXf6wVRJ3WwV9FbzJVFfZ5Oi+cIxTVkeKBQyd6BgZkFuuI28mvWfQryr
-    YGa9xvBG7hJYWjUxRyb1ubjL1A/k+dlMbcS/cbIvnM1lVXSInksjQtr+P2X+apzPUbZTr/
-    n2+clI183YNFxm9WcrZTH/p+5lDRsmgn36EWEuyvlKsUnO8oOcqECQwPNmWn91gnoW9fUH
-    gN+yhtIPSMfvYV7PZ4LqqwYpvMkEG6Z2j/1goh8mHe3vMuvSXNLnnH3PxZ0CxbFQNo0jtF
-    W7FUHfNKhUlQ2eAXdkMiECxHvTc0sHzdXmPWgFPVJMudAkKb99TH0ATU5nSg
-X-ME-Proxy: <xmx:BX8YaitXoGv-ZZWow7DNa4wJSssqKd9hxZ8Kt0EeZWYeTLNwZAKuEg>
-    <xmx:BX8YapD857mxD0bNTG9yFGDr_4EswW0hL6ukkwFYli7cxEZ6gbs6eg>
-    <xmx:BX8YatB_-o-aj2Jt4p9laqnWNyjpMJp6UrdisKEHTWBjeBEQA0BK9w>
-    <xmx:BX8YajodPLvCsEJrEAzYFDDZFCVvcDzzBYbLXdmE3dA6naFcSj7mIA>
-    <xmx:Bn8YasNTWmvzM6wFwlhtzIQhrUiK3Ip3ud0OXdwgZBvctZSd8x0XW6Jb>
-Feedback-ID: i56a14606:Fastmail
-Received: by mailuser.phl.internal (Postfix, from userid 501)
-	id 98AE6182007A; Thu, 28 May 2026 13:44:37 -0400 (EDT)
-X-Mailer: MessagingEngine.com Webmail Interface
+	Thu, 28 May 2026 17:48:54 +0000
+Received: by mail-wm1-x333.google.com with SMTP id 5b1f17b1804b1-490388fd0dbso74346095e9.0
+        for <linux-arm-kernel@lists.infradead.org>; Thu, 28 May 2026 10:48:52 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=gmail.com; s=20251104; t=1779990531; x=1780595331; darn=lists.infradead.org;
+        h=content-transfer-encoding:mime-version:message-id:date:subject:to
+         :from:from:to:cc:subject:date:message-id:reply-to;
+        bh=RIzWyKMXWGotWIEyO41ggWsKGrt3q5HiBatwgBfE//8=;
+        b=d0cjBfMo1W7aDk4PnByCMbqH2YTAa2AckFLkHwuFU8QjVcaspwd1f3ZvPIxuPCy9K+
+         uGsibCFfPRihP/bNsqYRRcFvp4ZSvPX/WqAfjCZPQlLCuutS9727CHQ1ZL40/b/44PnE
+         xZTE0t8rs9JTvQ4XQWwaMoiEiaMtCUPWmTjTZ1pGfmpHOAu+PRmrbc4Tra/otjnrWz6W
+         qJw7IlgGLg0fT4G4KWQx8z9kZ7vU03Pf6QuWEkr+Bnjr/g9BDN7DOsI9QqJm1cqm/oZp
+         xF1H87MGhzm/4N5bowxvooh/XvqxQoRNKzckg9It0BKTlXWtKT389CJNbWxxEGMbN2gJ
+         ECQg==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20251104; t=1779990531; x=1780595331;
+        h=content-transfer-encoding:mime-version:message-id:date:subject:to
+         :from:x-gm-gg:x-gm-message-state:from:to:cc:subject:date:message-id
+         :reply-to;
+        bh=RIzWyKMXWGotWIEyO41ggWsKGrt3q5HiBatwgBfE//8=;
+        b=tHc9Vn6I51yV8AuCY3FgZuGhK0IKDaM9+in3QiQ7W5V6AvUNbmOR8Bi0e2Au2EgLX1
+         uNfgV65OrITJ0auZEq/vAvIASkZn6Tcu06Rfyh2hUtE5c2nyHjk0/9R8ygxMxspp+Jc1
+         GqfeFi/m0lJ+X4XJHPxDph6OuakK69+jJSCUEmCb7tDQLRCuMCY1ZRyeVt8FLWcBh7Fe
+         OxI7VyYWbgPzwIM7uOUITbh9hVkiQKfy1IGDYkhqpRvpudzP01by570GkiewOrvgFRnp
+         KrPFAY1aNaZu6IwfODyuuiQyw9q9WyRH/x42JMGUnhEprdZjMCr1LicV84HYbTTFn/qI
+         TMrA==
+X-Forwarded-Encrypted: i=1; AFNElJ/XGAvxq2FesGr6K7WSbWukjbmJAaGXVljkjCPhF2jK+hZwnF0ylKt8YMWSCdo0REOBjQ/hGcpZ6l57OKWpDKNm@lists.infradead.org
+X-Gm-Message-State: AOJu0Yz7MwqUzk5gAjNIhh0BmyC7q7Ulpa6XRmJkN++ZFe7KWne9h76f
+	MKqZbDqY10HXWWIEVwK3xKwWGn/vP1SGBTzVzm8T/9P6RzazOapL4oQL
+X-Gm-Gg: Acq92OGE8JPNG1hiyKsMsm9nlf3txVqrtGbZJ2iG/IYbtyuvJOmdLjke4NZminbN9yx
+	rb/bY8F8RrtifOpIx+tlFXq/pZbTcvyzfzqUUrByOqhCDmpE/lY8G/TRhotf2l1Z1Eu/h2Z92/T
+	fROjEsADvw5QlXA2H+K0712s5jQfoKFSfAMBLf4gkj/7ES139AzponL/C+8pSlUDRcjyqY1Wh8C
+	FA5KieXFwog+1geHA+EsmHxNZis6SLMrPSW5tvEdXBhtUbovlX8RpTmGE1huA6gn/ydn0frnD7m
+	93RKJESESXCpAbdN+wgli/d5Z57ksmthWB2XgcAJiqoz2a01+04HoeBd0ZcfKKJYk+j6KOtSstI
+	mKMeRxdyyeDy8xsEQC8OO8tnLXwm7loVkhMx5/TO+MdsERZ0zXQZPLk3AjdBTh+Y60VeXx+M3TU
+	k/Up3HEJcL5ZlmBXXqCB3A5j3Bl5J9u1N4/olChyAtiTTGRn+ZG2pzjmY0arOk0vRlLufJEdfRs
+	MAPS1lUa8Gq84CR6Q==
+X-Received: by 2002:a05:600c:1f8b:b0:490:6869:9601 with SMTP id 5b1f17b1804b1-490686997b7mr266156675e9.6.1779990530436;
+        Thu, 28 May 2026 10:48:50 -0700 (PDT)
+Received: from Ansuel-XPS24 (host-79-42-252-49.retail.telecomitalia.it. [79.42.252.49])
+        by smtp.googlemail.com with ESMTPSA id 5b1f17b1804b1-4909235d4e5sm75342625e9.2.2026.05.28.10.48.48
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Thu, 28 May 2026 10:48:50 -0700 (PDT)
+From: Christian Marangi <ansuelsmth@gmail.com>
+To: Christian Marangi <ansuelsmth@gmail.com>,
+	Liam Girdwood <lgirdwood@gmail.com>,
+	Mark Brown <broonie@kernel.org>,
+	Rob Herring <robh@kernel.org>,
+	Krzysztof Kozlowski <krzk+dt@kernel.org>,
+	Conor Dooley <conor+dt@kernel.org>,
+	Jaroslav Kysela <perex@perex.cz>,
+	Takashi Iwai <tiwai@suse.com>,
+	Matthias Brugger <matthias.bgg@gmail.com>,
+	AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>,
+	Philipp Zabel <p.zabel@pengutronix.de>,
+	Cyril Chao <Cyril.Chao@mediatek.com>,
+	Kuninori Morimoto <kuninori.morimoto.gx@renesas.com>,
+	Chen-Yu Tsai <wenst@chromium.org>,
+	linux-sound@vger.kernel.org,
+	devicetree@vger.kernel.org,
+	linux-kernel@vger.kernel.org,
+	linux-arm-kernel@lists.infradead.org,
+	linux-mediatek@lists.infradead.org
+Subject: [PATCH v3 0/4] ASoC: Add support for Airoha AN7581
+Date: Thu, 28 May 2026 19:48:28 +0200
+Message-ID: <20260528174840.28644-1-ansuelsmth@gmail.com>
+X-Mailer: git-send-email 2.53.0
 MIME-Version: 1.0
-X-ThreadId: AR8ZB97ino5k
-Date: Thu, 28 May 2026 19:44:17 +0200
-From: "Arnd Bergmann" <arnd@arndb.de>
-To: "Tudor Ambarus" <tudor.ambarus@linaro.org>,
- "Krzysztof Kozlowski" <krzk@kernel.org>,
- "Alim Akhtar" <alim.akhtar@samsung.com>
-Cc: linux-kernel@vger.kernel.org, linux-samsung-soc@vger.kernel.org,
- linux-arm-kernel@lists.infradead.org,
- "Peter Griffin" <peter.griffin@linaro.org>,
- =?UTF-8?Q?Andr=C3=A9_Draszik?= <andre.draszik@linaro.org>,
- jyescas@google.com, kernel-team@android.com, stable@vger.kernel.org
-Message-Id: <a1629d9d-0357-42a3-aef8-c8d1cfa5ad39@app.fastmail.com>
-In-Reply-To: <20260505-acpm-fixes-sashiko-reports-v5-4-43b5ee7f1674@linaro.org>
-References: <20260505-acpm-fixes-sashiko-reports-v5-0-43b5ee7f1674@linaro.org>
- <20260505-acpm-fixes-sashiko-reports-v5-4-43b5ee7f1674@linaro.org>
-Subject: Re: [PATCH v5 4/7] firmware: samsung: acpm: Add memory barrier before
- advancing RX pointer
-Content-Type: text/plain
-Content-Transfer-Encoding: 7bit
+Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260528_104443_469618_A8CBC968 
-X-CRM114-Status: GOOD (  16.59  )
+X-CRM114-CacheID: sfid-20260528_104853_011870_B91548AA 
+X-CRM114-Status: GOOD (  16.70  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -115,48 +112,51 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Tue, May 5, 2026, at 15:13, Tudor Ambarus wrote:
-> Sashiko identified a silent data corruption in [1].
->
-> In acpm_get_rx(), the driver reads the response payload from SRAM using
-> __ioread32_copy() and subsequently updates the hardware RX rear pointer
-> via writel().
->
-> On weakly ordered architectures like ARM64, writel() provides a write
-> memory barrier (wmb()), which strictly orders prior writes against
-> subsequent writes. However, it does not order prior reads against
-> subsequent writes. Consequently, the CPU is permitted to reorder the
-> writel() store to become globally visible before the payload reads
-> have completed.
+Add all the patch and documentation to support Airoha AN7581
+sound driver.
 
-I am very confused by this after seeing it in the Exynos fixes pull
-request. How would anything get reordered here? What I see is that
+The card follows similar implementation with Mediatek with
+the codec present on i2c but with a simplified implementation
+register wise and additional frequency supported.
 
-- The SRAM is device memory, so any access to it is architecturally
-  ordered against other accesses to the same device. Even on
-  architectures that don't guarantee this, Linux I/O accessors
-  do.
+Changes v3:
+- Major fix to the ETDM code
+- Add duplex support
+- Improve Kconfig setup
+- Rework and improve YAML schema
+Changes v2:
+- Fix wrong edit in MAINTAINERS file
 
-- The __ioread32_copy() writes data from MMIO into main memory,
-  and the store into main memory is guaranteed to be both before
-  the final writel() (because of the implied __iowmb()) and
-  after the read (because of the data dependency).
+Christian Marangi (4):
+  ASoC: dt-bindings: Add Airoha AN7581 AFE Sound card.
+  ASoC: dt-bindings: Add Airoha AN7581 AFE with WM8960 Codec schema
+  ASoC: mediatek: common: permit to provide dedicated regmap for irq
+  ASoC: airoha: Add AFE and machine driver for Airoha AN7581
 
-- The smp_store_release() in addition orders the write into
-  rx_data->completed after the previous memory asccesses and
-  before the writel().
+ .../bindings/sound/airoha,an7581-afe.yaml     |  41 ++
+ .../bindings/sound/airoha,an7581-wm8960.yaml  |  71 +++
+ MAINTAINERS                                   |   8 +
+ sound/soc/mediatek/Kconfig                    |  27 +-
+ sound/soc/mediatek/Makefile                   |   1 +
+ sound/soc/mediatek/an7581/Makefile            |   9 +
+ sound/soc/mediatek/an7581/an7581-afe-common.h |  48 ++
+ sound/soc/mediatek/an7581/an7581-afe-pcm.c    | 529 ++++++++++++++++++
+ sound/soc/mediatek/an7581/an7581-dai-etdm.c   | 453 +++++++++++++++
+ sound/soc/mediatek/an7581/an7581-reg.h        | 114 ++++
+ sound/soc/mediatek/an7581/an7581-wm8960.c     | 156 ++++++
+ sound/soc/mediatek/common/mtk-afe-fe-dai.c    |  14 +-
+ sound/soc/mediatek/common/mtk-base-afe.h      |   2 +
+ 13 files changed, 1467 insertions(+), 6 deletions(-)
+ create mode 100644 Documentation/devicetree/bindings/sound/airoha,an7581-afe.yaml
+ create mode 100644 Documentation/devicetree/bindings/sound/airoha,an7581-wm8960.yaml
+ create mode 100644 sound/soc/mediatek/an7581/Makefile
+ create mode 100644 sound/soc/mediatek/an7581/an7581-afe-common.h
+ create mode 100644 sound/soc/mediatek/an7581/an7581-afe-pcm.c
+ create mode 100644 sound/soc/mediatek/an7581/an7581-dai-etdm.c
+ create mode 100644 sound/soc/mediatek/an7581/an7581-reg.h
+ create mode 100644 sound/soc/mediatek/an7581/an7581-wm8960.c
 
-> If this reordering occurs, the firmware may observe the updated rear
-> pointer, assume the queue slot is available, and overwrite the SRAM
-> payload while the kernel is still actively reading from it, leading
-> to silent data corruption.
+-- 
+2.53.0
 
-It is possible that I'm still missing the point here, but it
-very much sounds like you trusted a chatbot over trying to
-understand what is actually going on. Can you explain a
-sceneario where the barrier actually makes a difference,
-and what the corresponding barrier operation on the other
-side is?
-
-     Arnd
 
