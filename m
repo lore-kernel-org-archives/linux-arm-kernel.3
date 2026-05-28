@@ -4,140 +4,70 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id DE5BDCD5BD0
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 28 May 2026 02:08:47 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id AE09BCD5BC9
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 28 May 2026 02:34:33 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:Content-Type:
-	Content-Transfer-Encoding:References:In-Reply-To:Message-ID:Date:Subject:Cc:
-	To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:In-Reply-To:From:References:To:Subject:CC:MIME-Version:Date:
+	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=4SDq07b3tX0vuqUHK7mPjoFBpiD/RbMSMi1Nv/hScHI=; b=GL8ocWwKOd3R/DkVtAHwwarh+3
-	OP39drGiBsNMa7XbhYSFdfgBtriZAG34pgxNUYQnu7F6txkwYtScrohOMy3ZiSX0IpKO5lDdgFFC0
-	wGDIVwEdo6/XREst43++XJmhZUBJKnV546BmDC1khgTw3osl5mIB2BYZ1ueuROH+TcAziPkRJfOFu
-	4uMsozPHiEx20KIbbt9ncyRLmfq1OYQvvUwrRJN6+QpwQUtyzogqf3gHVxiuB6TN49CC4J+CLLV8K
-	JmltJd/feY2WUGosFQSIA6tp1GAHm4hlqvZD5egDfGS3EIB6kr+6zy5g4649rR3T0hwUnJgofsCU7
-	8PACnO7g==;
+	bh=45Oce1pquAJ/ph1CD+IV4tnCpI3/A8JF18u5iSlgQ6E=; b=DlQ2lgLBEEUUO4RqcNIIhD99BN
+	6hxhqSzKZkONWOW08tBCNLSf4n6Qh/tzZkAXxmYdWT/0HRQ6VSFxbJVICb9gGeFOUCO/TID60yn+8
+	gDzufbjrvTbOW9gd37+wU8a9z/73Ls5RojCIS5vNkGb/UikKb33OiobWwssgKTK4BbF9ZFFIJ1DFH
+	cKTNQ+MLnlZZxC6zNqhGZ6ofCn4BKAkkChGcftm0pue2I62DmkszejPYcXJXd/O/QM6+5xT/R+YIT
+	Hin7c+7aSvuXjkpn37W0BWbnkOck2e3vgTCyYvh8c2yFDgwb/ThoD/7J+UtllIDix4eDSNggIdFn7
+	lGPcrA6w==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wSQAr-00000004ynk-1j2X;
-	Thu, 28 May 2026 02:08:41 +0000
-Received: from mail-northeuropeazlp170110003.outbound.protection.outlook.com ([2a01:111:f403:c200::3] helo=DU2PR03CU002.outbound.protection.outlook.com)
+	id 1wSPrr-00000004xhv-1SlD;
+	Thu, 28 May 2026 01:49:03 +0000
+Received: from canpmsgout11.his.huawei.com ([113.46.200.226])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wSQAk-00000004ykE-466e
+	id 1wSPrn-00000004xgj-43f3
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 28 May 2026 02:08:36 +0000
-ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
- b=nhyelSBe2Nw8VwqsvLx0BPqpdfQsrwaEsvsfzNH0G5Nq130BQhZ7sRAzCwRalppaZUXAK68xGKBRZo0swdPcSHp2vN5veIbt7qaj07WuwUvqGcZNsFSsVCMdWzizKMrs3LQqH6dCaH5fdzcZ0byzcsZ6O8vpOKpNJzB0P59YMiVJMtCFh7CDXv1hAi+Zf5055UPgj9rf713b6bn6oIDNrRSbGkG1F912iUCfJTQkrBltSULqBN0hdqMoc0i26ytsDxfCvD6bVIUzSNWNn3BpQL9N+QnJRi+1k1hpkwEJ321TUYxqo4zIejb2esIiXmaXow5BbXJj2VD+rCEIIS7EXQ==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
- s=arcselector10001;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
- bh=4SDq07b3tX0vuqUHK7mPjoFBpiD/RbMSMi1Nv/hScHI=;
- b=JipLZLc9cAh7N0v64VfT+fNyumKvut+sID831+mddLkdlZGmb+jvxtxQmqaz3uOn01DRTabI/N91liznX/Y880pzBQeXhrV7AocrnzAgPi196Iu95zqkKwEWbomf5JBLjnIs0NobudJMxYmyKXbb3CKGM1BZN9EsD4cGavCTaEzAUecGDqmJoy6Rb89+9agwu3xqPtK4wocYcZaECz6S609xvG/TXz4+XWfDkdMgDz5xEpAxPfivUH3IUIZfWHQpoBFzdoHTbLmv1kor7m058ar1d7C1SfUD5F7olOq/rFJUrM0az8yx2l2CyJTXTP2u/CEdhBlIfPah0rvOAuThgA==
-ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
- smtp.mailfrom=nxp.com; dmarc=pass action=none header.from=nxp.com; dkim=pass
- header.d=nxp.com; arc=none
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=nxp.com; s=selector1;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
- bh=4SDq07b3tX0vuqUHK7mPjoFBpiD/RbMSMi1Nv/hScHI=;
- b=MHfQVk868wYhi1dghwmIu+ThTysRHDBYJLu89KdZ10w2eMkRAmVz5RunuLzKgZ+cmqNCSbn41b4v2tqroE3S7uVEKegBE08CP3QkESD2ldtUVCrxQyzssOV+sVQjU7O+Wr3gSL0RRzq5iKsFlrLgLMCTZnf/CssSpgLXubBUC4mecdXi4ys5AnLL89RJtpV/1mrgmFUR4WbJFVd79YTyv4TGmbxlCl639Ea6BO27x5JYZW4vlTJP1yfwGBwUJBVkzOWgHSDIlBAmLaSIVvo6RrM0BhF/N9Inf5VQjJHHZHBUpr4bWlotdDKHft5fPlDCJw7gocIQhMlA7kVkuc3HWA==
-Authentication-Results: dkim=none (message not signed)
- header.d=none;dmarc=none action=none header.from=nxp.com;
-Received: from AM9PR04MB8353.eurprd04.prod.outlook.com (2603:10a6:20b:3ef::22)
- by PA1PR04MB10985.eurprd04.prod.outlook.com (2603:10a6:102:48a::8) with
- Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.21.71.12; Thu, 28 May
- 2026 02:08:31 +0000
-Received: from AM9PR04MB8353.eurprd04.prod.outlook.com
- ([fe80::46ae:f774:f04c:a1bc]) by AM9PR04MB8353.eurprd04.prod.outlook.com
- ([fe80::46ae:f774:f04c:a1bc%5]) with mapi id 15.20.9870.023; Thu, 28 May 2026
- 02:08:31 +0000
-From: Chancel Liu <chancel.liu@nxp.com>
-To: broonie@kernel.org,
-	lgirdwood@gmail.com,
-	robh@kernel.org,
-	krzk+dt@kernel.org,
-	conor+dt@kernel.org
-Cc: shengjiu.wang@nxp.com,
-	shengjiu.wang@gmail.com,
-	Xiubo.Lee@gmail.com,
-	festevam@gmail.com,
-	nicoleotsuka@gmail.com,
-	perex@perex.cz,
-	tiwai@suse.com,
-	Frank.Li@nxp.com,
-	s.hauer@pengutronix.de,
-	linux-sound@vger.kernel.org,
-	devicetree@vger.kernel.org,
-	linux-arm-kernel@lists.infradead.org,
-	imx@lists.linux.dev,
-	linux-kernel@vger.kernel.org
-Subject: [PATCH v2 3/3] ASoC: imx-rpmsg: Set driver_name for snd_soc_card
-Date: Thu, 28 May 2026 11:07:25 +0900
-Message-ID: <20260528020725.2265321-4-chancel.liu@nxp.com>
-X-Mailer: git-send-email 2.50.1
-In-Reply-To: <20260528020725.2265321-1-chancel.liu@nxp.com>
-References: <20260526053815.140008-1-chancel.liu@nxp.com>
- <20260528020725.2265321-1-chancel.liu@nxp.com>
-Content-Transfer-Encoding: 8bit
-Content-Type: text/plain
-X-ClientProxiedBy: SE2P216CA0122.KORP216.PROD.OUTLOOK.COM
- (2603:1096:101:2c9::9) To AM9PR04MB8353.eurprd04.prod.outlook.com
- (2603:10a6:20b:3ef::22)
+	Thu, 28 May 2026 01:49:02 +0000
+dkim-signature: v=1; a=rsa-sha256; d=huawei.com; s=dkim;
+	c=relaxed/relaxed; q=dns/txt;
+	h=From;
+	bh=45Oce1pquAJ/ph1CD+IV4tnCpI3/A8JF18u5iSlgQ6E=;
+	b=P5Aj2Foka2SXI/yWFmcQVzF1p22oxugSORQnKUOEP2x/dor1NhdJJ2UqHztZg+IzD5lNnLkD7
+	5iAOY8EZvz3CY7St37xpVMSCCQbk4aBRWwKUpA6Q83biZWzrZZsG2hUVYFKd1vk51mhoNjSqyP9
+	SJTzAkrZV3rzV1MmnO2piEg=
+Received: from mail.maildlp.com (unknown [172.19.163.15])
+	by canpmsgout11.his.huawei.com (SkyGuard) with ESMTPS id 4gQq2N5whqzKm98;
+	Thu, 28 May 2026 09:41:00 +0800 (CST)
+Received: from kwepemj100016.china.huawei.com (unknown [7.202.194.10])
+	by mail.maildlp.com (Postfix) with ESMTPS id 5C43E40571;
+	Thu, 28 May 2026 09:48:49 +0800 (CST)
+Received: from [10.174.177.15] (10.174.177.15) by
+ kwepemj100016.china.huawei.com (7.202.194.10) with Microsoft SMTP Server
+ (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
+ 15.2.1544.36; Thu, 28 May 2026 09:48:48 +0800
+Message-ID: <e9a85c2f-d720-40a7-90f8-e999e4f0dc22@huawei.com>
+Date: Thu, 28 May 2026 09:48:47 +0800
 MIME-Version: 1.0
-X-MS-PublicTrafficType: Email
-X-MS-TrafficTypeDiagnostic: AM9PR04MB8353:EE_|PA1PR04MB10985:EE_
-X-MS-Office365-Filtering-Correlation-Id: 0d8edf52-d5b2-4769-3070-08debc5e03f2
-X-MS-Exchange-SenderADCheck: 1
-X-MS-Exchange-AntiSpam-Relay: 0
-X-Microsoft-Antispam: BCL:0;ARA:13230040|1800799024|366016|7416014|376014|19092799006|52116014|11063799006|6133799003|18002099003|22082099003|4143699003|38350700014|56012099006;
-X-Microsoft-Antispam-Message-Info: vyr6BGX9vFNo75Ia65Sy9PhLt+l4dAffWew7puIlhQWt+6P5agmmfAL74E6P9+7UfMIZdLM1EQ3AhPGFlyTKVzwVB8zkrtKwd5BXiDZtV1Qob1N1R/7haRVb8UVaR4nmW1JhNOc4a0KUpy2yaBphUhWrzkT2AR1fPMoM8ZuXw2VaEjOCLK1HrxdFUTB/UFPQ9+zplBFsn2AG4sliScjmvzaTFnEMBFMMYPlHwVSaK/uc1BeAfRuXr0hyz92j2Ro25Vt+7cZAwE0BRfOZsxnSYn8cNEC8rL4bRs4/Tl6ZerAZcND8Mash9FMsYpwDCveaVrm1L0f8mie7I4TWE4eVH3PY5JrxKbA3LCZ1TGsWPC8uVbx0LwLv1z4CDD3T/crmQBie67bUp6g/DZ1h6SIyoE45h/BMPOgurkMRfA7Y4VtIT4UBX4YH0cS8gpJHn2r5aipHkJXKGl9r+YNf5k8U8LYuQ7i5aCP4GD85zJdwO4zZ1MySeQn2LjAIq0fvMDDV8qztG+VaQZyE+1t2b13fUSknU6fbOo/2A098H/yNkjFMI1/z3ikzfNvGgQUSlU6RPwpKykN0PXfruCbwvsmOzp18Wy5llPR67o6H83Ll5DHjfftQEv0rGtnbb7OJhFnO/nrUq6HJm58v/v3YT5n6/eW4Q6cCC861nh2OUSdMvCYcgsflybQ/SwgK76Sz3ZeOVx2vCEN29Rz93nW5I24eFL1H2HjGa2w5XLEZCSYVvFEfB57wg7bB9SY1dHWZQRvR
-X-Forefront-Antispam-Report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:AM9PR04MB8353.eurprd04.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(1800799024)(366016)(7416014)(376014)(19092799006)(52116014)(11063799006)(6133799003)(18002099003)(22082099003)(4143699003)(38350700014)(56012099006);DIR:OUT;SFP:1101;
-X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
-X-MS-Exchange-AntiSpam-MessageData-0: =?us-ascii?Q?R/jLYIbe+WaznGg0BWAVUzumTQ1OQtL/NSpI5hg7ItTEtEda+VCK0cPFnWqd?=
- =?us-ascii?Q?oQMMCKhGPDDvW2x5HfS+TzJ/NcrHUFyzN+55rmaImiBFD1LAA9ePN5w1AyvN?=
- =?us-ascii?Q?kjo4bXo8tTx7o456faM685F3dphBLFtEB4pYh8e/7phi0MlR2e9PINrCU6Bi?=
- =?us-ascii?Q?Vzeo3YHFPWjMEin9kKJLN+4xeOfoeSUg0OXt94BNcgbSo1WOwGmu9RUPS8rZ?=
- =?us-ascii?Q?L9xg7EyN52MbUBqr15dcano3aUTkMcnbs4V4ihFCvO0vr9fqRtwpxEX5pUmV?=
- =?us-ascii?Q?ms4oxcrn1WGhz9j1fjhDHYL4ABwPmS1Pjc1VfdZQmgByVQ9qF3yTZ62BgWeW?=
- =?us-ascii?Q?sZiZd880xjIiGKPgOKwSAthUjSbvv7t30mY7sLb/ZOa9EIR7shhJMbK94+Z8?=
- =?us-ascii?Q?PPMfevsdmDIiS2XVeMGuHLPhposdTjfuflhvmHvsCjXXAw94s6e/mVngI232?=
- =?us-ascii?Q?EN4gx3JUPwG8IBJAp/UzsMS3Wz3Ej21CmjcImSdCJrFK4YEQayDV0XhL0fau?=
- =?us-ascii?Q?W7dtCwFapTE0YwvKD0zwWR6niXySnOosYD5U4dGYLaxdPFehQB8ntP4Laq/y?=
- =?us-ascii?Q?uPjbziEXc/XShFEXyqIENRGSMNFmtuoWTZ01HQ0atnR3JVTVzwlfgQDxAExF?=
- =?us-ascii?Q?NRY9GsRd2TP6cSDcgkAv45VME0F5qzkaBrnIeaoSiKGirlp80JfXkyupTCjM?=
- =?us-ascii?Q?MnF4ingOIQvCfqeDOFlOEE4D7tj/DBSA1iZugIa+sD/oMeXBO9KXT1DzlxJT?=
- =?us-ascii?Q?fWQmouzFueFtFUvfPDmO9BNRlfI7k6t/R/V4eG4ijW83WVSW1bqHJNhmTA0U?=
- =?us-ascii?Q?xmLG5KOCCGr7z17/vTMI1PsXH1sdXOIipJeM4vL2plxEhhyHhmqZk+S1U7rF?=
- =?us-ascii?Q?iw0KEjm41VIImdL1EgqpaHp5LZcIYN4VNkzPIfpDbPL+Bd6vE+OW0ililnzY?=
- =?us-ascii?Q?JONBX6JU/zJWjVEAvgkxF+HOR2LCB1MlZXOxIN+3Xaj61F0Pu0ejpqhQaEch?=
- =?us-ascii?Q?z7p86dP0dTtjp+kv2fXWRH91nV57DzTVGgeyg1jU5jTLMWfA3lMksXi6Dj0I?=
- =?us-ascii?Q?wk6XWN2LQggrR/mbBUKzMmbBhEocdiy49KOO/a30ARGiD4FR4+K8c9qP+COw?=
- =?us-ascii?Q?hC598mrx6TX3PEnUom7Bt+P+P/+nwfS/ZPGt/rKAyPTA/nRDlgPjVfb7FkWV?=
- =?us-ascii?Q?iXIVXAfgvEpnNluBu+NjUBQr+gXIbLc3R8+HAKVXoSO+lIHVztC9gSdi55x4?=
- =?us-ascii?Q?mxHwfgkZIbM2wHi5aZmBU1a+rSHTMy2WI4x5RwloQRVG6+WMihy4rZs/7rU4?=
- =?us-ascii?Q?H2SURHUeofn9AQ9TFVXj1tTIZnnHKGPRyWI+T0JqYO+VgUyYKua9Y8lPcRs1?=
- =?us-ascii?Q?cmXRm8zHDUlysrPErk+hKWyHdOrh33RoiB3X+hUjHqtbVpdK1e0yNvsx2zsY?=
- =?us-ascii?Q?GP/Ik+xWSuU2To/wp/ipIjvm/EbBP+a5esqorvB9+7gwKWffovyiNP5W6J1N?=
- =?us-ascii?Q?wE7gaCEybSlNt4Wcl/nkIPPwz8l1kJ1jVMdIdYmcd9ydbticNxTBM4TmImoZ?=
- =?us-ascii?Q?F8S/7bHpdbKeV7AVWEg+Cr65sPItTdk4sEjGWpB4hSd1hQQ42cYxqypvK0fo?=
- =?us-ascii?Q?9bRlK11jXuIGnLYTaOTWUJKfUe2pmiR01hfjaD30icgBE9KupncGb+HtS/5h?=
- =?us-ascii?Q?MFXDJ/8OKDirQaphXYCE3pHjGg5wdAevir1lw+QnpKUagFmi6yb8DwXfoq0A?=
- =?us-ascii?Q?wGcCGmtpPQ=3D=3D?=
-X-OriginatorOrg: nxp.com
-X-MS-Exchange-CrossTenant-Network-Message-Id: 0d8edf52-d5b2-4769-3070-08debc5e03f2
-X-MS-Exchange-CrossTenant-AuthSource: AM9PR04MB8353.eurprd04.prod.outlook.com
-X-MS-Exchange-CrossTenant-AuthAs: Internal
-X-MS-Exchange-CrossTenant-OriginalArrivalTime: 28 May 2026 02:08:31.6231
- (UTC)
-X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
-X-MS-Exchange-CrossTenant-Id: 686ea1d3-bc2b-4c6f-a92c-d99c5c301635
-X-MS-Exchange-CrossTenant-MailboxType: HOSTED
-X-MS-Exchange-CrossTenant-UserPrincipalName: WsSFzo2Z9qIBJSrob65oTxD6p1p9kZEOpeRg4kCgN3DuVCxnwwV5DH/uZ6lNIChDhxrJ6heElsD0pYItfBsjiw==
-X-MS-Exchange-Transport-CrossTenantHeadersStamped: PA1PR04MB10985
+User-Agent: Mozilla Thunderbird
+CC: <mawupeng1@huawei.com>, <bp@alien8.de>, <linux-acpi@vger.kernel.org>,
+	<linux-arm-kernel@lists.infradead.org>, <linux-kernel@vger.kernel.org>,
+	<linux-edac@vger.kernel.org>, <tanxiaofei@huawei.com>, <linuxarm@huawei.com>,
+	<liuyonglong@huawei.com>
+Subject: Re: [PATCH v2] ACPI: APEI: Handle repeated SEA error storms
+To: <hejunhao3@h-partners.com>, <rafael@kernel.org>, <tony.luck@intel.com>,
+	<guohanjun@huawei.com>, <mchehab@kernel.org>, <xueshuai@linux.alibaba.com>,
+	<jarkko@kernel.org>, <yazen.ghannam@amd.com>, <jane.chu@oracle.com>,
+	<lenb@kernel.org>, <linmiaohe@huawei.com>
+References: <20260527082707.2013499-1-hejunhao3@h-partners.com>
+From: mawupeng <mawupeng1@huawei.com>
+In-Reply-To: <20260527082707.2013499-1-hejunhao3@h-partners.com>
+Content-Type: text/plain; charset="UTF-8"
+Content-Transfer-Encoding: 8bit
+X-Originating-IP: [10.174.177.15]
+X-ClientProxiedBy: kwepems500002.china.huawei.com (7.221.188.17) To
+ kwepemj100016.china.huawei.com (7.202.194.10)
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260527_190835_018730_4A8EC32B 
-X-CRM114-Status: GOOD (  11.86  )
+X-CRM114-CacheID: sfid-20260527_184900_612238_92F86A7A 
+X-CRM114-Status: GOOD (  13.68  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -152,29 +82,67 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Set driver_name to "imx-audio-rpmsg" for the i.MX RPMSG sound card.
-This allows userspace audio configuration tools (e.g., UCM) to match
-the card by driver name independently of the card name, which may vary
-across board configurations.
 
-Signed-off-by: Chancel Liu <chancel.liu@nxp.com>
----
- sound/soc/fsl/imx-rpmsg.c | 1 +
- 1 file changed, 1 insertion(+)
 
-diff --git a/sound/soc/fsl/imx-rpmsg.c b/sound/soc/fsl/imx-rpmsg.c
-index 48fe471499ba..5f1af258caf2 100644
---- a/sound/soc/fsl/imx-rpmsg.c
-+++ b/sound/soc/fsl/imx-rpmsg.c
-@@ -250,6 +250,7 @@ static int imx_rpmsg_probe(struct platform_device *pdev)
- 	data->card.dapm_widgets = imx_rpmsg_dapm_widgets;
- 	data->card.num_dapm_widgets = ARRAY_SIZE(imx_rpmsg_dapm_widgets);
- 	data->card.late_probe = imx_rpmsg_late_probe;
-+	data->card.driver_name = "imx-audio-rpmsg";
- 	/*
- 	 * Inoder to use common api to get card name and audio routing.
- 	 * Use parent of_node for this device, revert it after finishing using
--- 
-2.50.1
+On 周三 2026-5-27 16:27, Junhao He wrote:
+> When hardware memory corruption occurs and a user process accesses the
+> corrupted page, the CPU triggers a Synchronous External Abort (SEA).
+> The kernel invokes do_sea() to handle the exception, which calls
+> memory_failure() to handle the faulty page.
+> 
+> Scenario 1: Memory Error Interrupt First, then SEA
+> The page is already poisoned by the memory error interrupt path. The
+> subsequent SEA handler sends a SIGBUS to the task, which accesses the
+> poisoned page. This flow is correct.
+> 
+> Scenario 2: SEA first, then memory error interrupt (problematic scenario)
+> If a user task directly accesses corrupted memory through a PFNMAP-style
+> mapping (e.g., devmem), the page may still be in the free-buddy state when
+> SEA is handled. In this case, memory_failure() will poison the page without
+> invoking kill_accessing_process(), and then takes the free-buddy recovery
+> path.
+> 
+> After the CPU returns to the task context, the task re-enters the SEA
+> handler due to the same access. However, ghes_estatus_cached() suppresses
+> all subsequent entries during the 10-second window, preventing
+> ghes_do_proc() from being called. This suppression blocks the
+> MF_ACTION_REQUIRED-based SIGBUS delivery, causing the kernel to fail to
+> kill the task immediately. Consequently, the process keeps re-entering
+> the SEA handler, leading to an SEA storm. Later, the memory error
+> interrupt path also cannot kill the task, leaving the system stuck in
+> this repeated loop.
+> 
+> The following error logs are explained using the devmem process:
+>   NOTICE:  SEA Handle
+>   [Hardware Error]: Hardware error from APEI Generic Hardware Error Source: 9
+>   [Hardware Error]: event severity: recoverable
+>   [Hardware Error]:   section_type: ARM processor error
+>   [Hardware Error]:    physical fault address: 0x0000001000093c00
+>   [T54990] Memory failure: 0x1000093: recovery action for free buddy page: Recovered
+>   [ T9955] EDAC MC0: 1 UE Multi-bit ECC on unknown memory
+>            (page:0x1000093 offset:0xc00 grain:1 - APEI location: ...)
+>   NOTICE:  SEA Handle
+>   NOTICE:  SEA Handle
+>   ...
+>   ...        ---> SEA storm
+>   ...
+>   NOTICE:  SEA Handle
+>   [ T9955] Memory failure: 0x1000093: already hardware poisoned
+>   ghes_print_estatus: 1 callbacks suppressed
+>   [Hardware Error]: Hardware error from APEI Generic Hardware Error Source: 9
+>   [Hardware Error]: event severity: recoverable
+>   [Hardware Error]:   section_type: ARM processor error
+>   [Hardware Error]:    physical fault address: 0x0000001000093c00
+>   [T54990] Memory failure: 0x1000093: already hardware poisoned
+>   [T54990] 0x1000093: Sending SIGBUS to devmem:54990 due to hardware memory corruption
+> 
+> To resolve this, return an error when encountering the same SEA again.
+> The subsequent SEA handler invocation uses arm64_notify_die() to send a
+> SIGBUS signal to the task, which terminates the process and prevents it
+> from re-entering the handler loop.
+> 
+> Signed-off-by: Junhao He <hejunhao3@h-partners.com>
+
+Reviewed-by: Wupeng Ma <mawupeng1@huawei.com>
 
 
