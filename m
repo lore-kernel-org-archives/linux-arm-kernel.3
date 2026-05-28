@@ -4,7 +4,7 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 340CACD6E4A
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 21126CD6E45
 	for <linux-arm-kernel@archiver.kernel.org>; Thu, 28 May 2026 00:43:18 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
@@ -12,30 +12,30 @@ DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:
 	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=NBsrZvFZCaB+Y/+qvoDfxB0s8ldAO6L08kiidL6oEeI=; b=nvlnges40Km6XBohWjI7qd8V6Z
-	l0ohjiXBmp7RfsZczXcEv5YWjW1CwMbvKl5q+zuvhn6FZTKIag4pYsdfNYasAFF2X4cmbfBomog/x
-	3rhkORFpLenIIF4uIz6eb7pJB09+Lv5fq82V5OvfzJ3p74eTn8aTKZ2MnE1iwVjdfYVontyangHLE
-	VSjizdD+oJEizYLsxBK8Py8vC6WF59uPGbXkXiGzXTJX9M8xSWfGyC0TdUBHhB7DbOyj56Wytlp4t
-	xPiMOB6gJn0FzSMVWzdtnbsxsPW6ws9CqZLesUfVWnH+lo2ML5hFG5WkcC3r6+STybEBKabkiK7qF
-	hlDeg6Eg==;
+	bh=UVWiM4xIUXWQ8VX4lQw/ZW4DJ6yNUs4CT4NEYGNtMTc=; b=IJKgM4rxdmI6JkV6AeH3PRnsR7
+	brSOXkQI1TtxUlPSVWjM1wQjB4d+mjf4cBCc5odKf0QcWDnOPNmCGh/ccOO0IyseuezaNy/IWPrtR
+	BVO6O4nI1mzA8f2pAuvaKW9uyMuOZFX5Y2zpjSNubR/l8fZnZMoDxoLYepivYumbY9OUanXzfuKbx
+	pK9Ps2e26SBs5SpqOctn/nolOUi+HJCAA2X71auYRGXh6tOw6I/W8jQ0U7ouCybiYe00Rv++RoJu2
+	n/fWcqe8+DZrZQKSf6wLSAw9TEMayRuGv0Knx2UY2ozWS4G9nj/raayyZuxeNgdVGdq4QTHvbyyMw
+	CAvEZEBg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wSOq2-00000004sjJ-1KgX;
-	Thu, 28 May 2026 00:43:06 +0000
+	id 1wSOq0-00000004sgO-3JQI;
+	Thu, 28 May 2026 00:43:04 +0000
 Received: from linux.microsoft.com ([13.77.154.182])
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wSOpQ-00000004s7y-35MK;
-	Thu, 28 May 2026 00:42:30 +0000
+	id 1wSOpQ-00000004s4F-29ub;
+	Thu, 28 May 2026 00:42:29 +0000
 Received: by linux.microsoft.com (Postfix, from userid 1241)
-	id BFE2E20B7178; Wed, 27 May 2026 17:42:17 -0700 (PDT)
-DKIM-Filter: OpenDKIM Filter v2.11.0 linux.microsoft.com BFE2E20B7178
+	id D9FB720B716A; Wed, 27 May 2026 17:42:16 -0700 (PDT)
+DKIM-Filter: OpenDKIM Filter v2.11.0 linux.microsoft.com D9FB720B716A
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=linux.microsoft.com;
-	s=default; t=1779928937;
-	bh=NBsrZvFZCaB+Y/+qvoDfxB0s8ldAO6L08kiidL6oEeI=;
+	s=default; t=1779928936;
+	bh=UVWiM4xIUXWQ8VX4lQw/ZW4DJ6yNUs4CT4NEYGNtMTc=;
 	h=From:To:Cc:Subject:Date:In-Reply-To:References:From;
-	b=aVvvYYwHjeNot3eIR3oUp6o7Upqmt3WV5LdKAduXaKrJZexICOXvtNvgktsWgX+ZJ
-	 utUu36E7dKfzILCi+VELYR8r9Y7mkHMJnwV6BpykT51jf7MOoVXaWiKQy5lyD6ieUx
-	 VPZSQEMPfAb90pLP1EyYWFvDqYR2cqaK/TPWiS+I=
+	b=CZTqfsUmcLLXJT7YbU5UN7KLqaA6BUVha/oeK47UmZZXNYo/M9YmHZPL+JhzXFPDl
+	 RWF8g92V93FnpwT+SmnnZeHh/vF+yOyFDUxwz1pmiBwtOYjGVvrjhDig9SvmrS9iOD
+	 5izCOplWYR99E1vx1VZ1orE4q8bJcRWFlJ9ijylo=
 From: Jork Loeser <jloeser@linux.microsoft.com>
 To: linux-hyperv@vger.kernel.org,
 	linux-mm@kvack.org,
@@ -74,17 +74,17 @@ Cc: "K. Y. Srinivasan" <kys@microsoft.com>,
 	linux-kernel@vger.kernel.org,
 	Michael Kelley <mhklinux@outlook.com>,
 	Jork Loeser <jloeser@linux.microsoft.com>
-Subject: [RFC PATCH 09/20] memblock: introduce MEMBLOCK_KHO_SCRATCH_EXT
-Date: Wed, 27 May 2026 17:41:51 -0700
-Message-ID: <20260528004204.1484584-10-jloeser@linux.microsoft.com>
+Subject: [RFC PATCH 08/20] kho: add kho_radix_init_tree()
+Date: Wed, 27 May 2026 17:41:50 -0700
+Message-ID: <20260528004204.1484584-9-jloeser@linux.microsoft.com>
 X-Mailer: git-send-email 2.43.7
 In-Reply-To: <20260528004204.1484584-1-jloeser@linux.microsoft.com>
 References: <20260528004204.1484584-1-jloeser@linux.microsoft.com>
 MIME-Version: 1.0
 Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260527_174228_827096_96B2CEF8 
-X-CRM114-Status: GOOD (  20.27  )
+X-CRM114-CacheID: sfid-20260527_174228_592980_FF23CF40 
+X-CRM114-Status: GOOD (  16.79  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -101,145 +101,99 @@ Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.i
 
 From: "Pratyush Yadav (Google)" <pratyush@kernel.org>
 
-In the upcoming commits, the KHO will learn how to discover free blocks
-of memory by walking the KHO radix tree. It will then mark those regions
-as scratch to allow memory allocation in case scratch runs low.
-
-To differentiate the extended scratch areas from the main scratch areas,
-introduce MEMBLOCK_KHO_SCRATCH_EXT. Use it when choosing memblock flags
-for allocations during scratch-only. Teach should_skip_region() to check
-for both flags before deciding if the region should be skipped.
+Move the initialization logic of the radix tree into
+kho_radix_init_tree() instead of having users open-code it. Makes the
+boundaries cleaner and reduces code duplication when a new user of the
+radix tree will be added in a future commit.
 
 Signed-off-by: Pratyush Yadav (Google) <pratyush@kernel.org>
 Signed-off-by: Jork Loeser <jloeser@linux.microsoft.com>
 ---
- include/linux/memblock.h | 10 ++++++++++
- mm/memblock.c            | 41 ++++++++++++++++++++++++++++++++++------
- 2 files changed, 45 insertions(+), 6 deletions(-)
+ include/linux/kho_radix_tree.h     |  7 ++++++
+ kernel/liveupdate/kexec_handover.c | 37 ++++++++++++++++++++++++++++--
+ 2 files changed, 42 insertions(+), 2 deletions(-)
 
-diff --git a/include/linux/memblock.h b/include/linux/memblock.h
-index 5afcd99aa8c1..4f535ca4947a 100644
---- a/include/linux/memblock.h
-+++ b/include/linux/memblock.h
-@@ -51,6 +51,9 @@ extern unsigned long long max_possible_pfn;
-  * memory reservations yet, so we get scratch memory from the previous
-  * kernel that we know is good to use. It is the only memory that
-  * allocations may happen from in this phase.
-+ * @MEMBLOCK_KHO_SCRATCH_EXT: same as MEMBLOCK_KHO_SCRATCH but was discovered at
-+ * boot time by finding gaps in preserved memory instead of being passed from
-+ * previous kernel. Does not get passed to the next kernel.
-  */
- enum memblock_flags {
- 	MEMBLOCK_NONE		= 0x0,	/* No special request */
-@@ -61,6 +64,7 @@ enum memblock_flags {
- 	MEMBLOCK_RSRV_NOINIT	= 0x10,	/* don't initialize struct pages */
- 	MEMBLOCK_RSRV_KERN	= 0x20,	/* memory reserved for kernel use */
- 	MEMBLOCK_KHO_SCRATCH	= 0x40,	/* scratch memory for kexec handover */
-+	MEMBLOCK_KHO_SCRATCH_EXT= 0x80, /* extended scratch memory for KHO */
- };
+diff --git a/include/linux/kho_radix_tree.h b/include/linux/kho_radix_tree.h
+index 617395a6647a..c0840ecb230c 100644
+--- a/include/linux/kho_radix_tree.h
++++ b/include/linux/kho_radix_tree.h
+@@ -54,6 +54,7 @@ int kho_radix_add_key(struct kho_radix_tree *tree, unsigned long key);
+ void kho_radix_del_key(struct kho_radix_tree *tree, unsigned long key);
+ int kho_radix_walk_tree(struct kho_radix_tree *tree,
+ 			const struct kho_radix_walk_cb *cb, void *data);
++int kho_radix_init_tree(struct kho_radix_tree *tree, struct kho_radix_node *root);
+ void kho_radix_destroy_tree(struct kho_radix_tree *tree);
  
- /**
-@@ -157,6 +161,7 @@ int memblock_clear_nomap(phys_addr_t base, phys_addr_t size);
- int memblock_reserved_mark_noinit(phys_addr_t base, phys_addr_t size);
- int memblock_reserved_mark_kern(phys_addr_t base, phys_addr_t size);
- int memblock_mark_kho_scratch(phys_addr_t base, phys_addr_t size);
-+int memblock_mark_kho_scratch_ext(phys_addr_t base, phys_addr_t size);
- int memblock_clear_kho_scratch(phys_addr_t base, phys_addr_t size);
- 
- void memblock_free(void *ptr, size_t size);
-@@ -304,6 +309,11 @@ static inline bool memblock_is_kho_scratch(struct memblock_region *m)
- 	return m->flags & MEMBLOCK_KHO_SCRATCH;
+ #else  /* #ifdef CONFIG_KEXEC_HANDOVER */
+@@ -72,6 +73,12 @@ static inline int kho_radix_walk_tree(struct kho_radix_tree *tree,
+ 	return -EOPNOTSUPP;
  }
  
-+static inline bool memblock_is_kho_scratch_ext(struct memblock_region *m)
++static inline int kho_radix_init_tree(struct kho_radix_tree *tree,
++				      struct kho_radix_node *root)
 +{
-+	return m->flags & MEMBLOCK_KHO_SCRATCH_EXT;
++	return 0;
 +}
 +
- int memblock_search_pfn_nid(unsigned long pfn, unsigned long *start_pfn,
- 			    unsigned long  *end_pfn);
- void __next_mem_pfn_range(int *idx, int nid, unsigned long *out_start_pfn,
-diff --git a/mm/memblock.c b/mm/memblock.c
-index 6349c48154f4..6f76a6bb96d6 100644
---- a/mm/memblock.c
-+++ b/mm/memblock.c
-@@ -182,7 +182,7 @@ static enum memblock_flags __init_memblock choose_memblock_flags(void)
- {
- 	/* skip non-scratch memory for kho early boot allocations */
- 	if (kho_scratch_only)
--		return MEMBLOCK_KHO_SCRATCH;
-+		return MEMBLOCK_KHO_SCRATCH | MEMBLOCK_KHO_SCRATCH_EXT;
+ static inline void kho_radix_destroy_tree(struct kho_radix_tree *tree) { }
  
- 	return system_has_some_mirror ? MEMBLOCK_MIRROR : MEMBLOCK_NONE;
- }
-@@ -1180,8 +1180,9 @@ int __init_memblock memblock_reserved_mark_kern(phys_addr_t base, phys_addr_t si
-  * @base: the base phys addr of the region
-  * @size: the size of the region
-  *
-- * Only memory regions marked with %MEMBLOCK_KHO_SCRATCH will be considered
-- * for allocations during early boot with kexec handover.
-+ * Only memory regions marked with %MEMBLOCK_KHO_SCRATCH or
-+ * %MEMBLOCK_KHO_SCRATCH_EXT will be considered for allocations during early
-+ * boot with kexec handover.
-  *
-  * Return: 0 on success, -errno on failure.
-  */
-@@ -1205,6 +1206,23 @@ __init int memblock_clear_kho_scratch(phys_addr_t base, phys_addr_t size)
- 				    MEMBLOCK_KHO_SCRATCH);
+ #endif /* #ifdef CONFIG_KEXEC_HANDOVER */
+diff --git a/kernel/liveupdate/kexec_handover.c b/kernel/liveupdate/kexec_handover.c
+index 3f3ea71baa1a..b2d1572808eb 100644
+--- a/kernel/liveupdate/kexec_handover.c
++++ b/kernel/liveupdate/kexec_handover.c
+@@ -305,6 +305,34 @@ static void __kho_radix_destroy_tree(struct kho_radix_node *root,
+ 	kho_radix_free_node(root);
  }
  
 +/**
-+ * memblock_mark_kho_scratch_ext - Mark a memory region as MEMBLOCK_KHO_SCRATCH_EXT.
-+ * @base: the base phys addr of the region
-+ * @size: the size of the region
++ * kho_radix_init_tree - initialize the radix tree.
++ * @tree:   the tree to initialize.
++ * @root:   root table of the radix tree.
 + *
-+ * Only memory regions marked with %MEMBLOCK_KHO_SCRATCH or
-+ * %MEMBLOCK_KHO_SCRATCH_EXT will be considered for allocations during early
-+ * boot with kexec handover.
++ * Initialize the radix tree with the given root node. If root is %NULL, an
++ * empty root table is allocated. If root is not %NULL, it is the caller's
++ * responsibility to make sure the root is valid and in the correct format.
 + *
 + * Return: 0 on success, -errno on failure.
 + */
-+__init int memblock_mark_kho_scratch_ext(phys_addr_t base, phys_addr_t size)
++int kho_radix_init_tree(struct kho_radix_tree *tree, struct kho_radix_node *root)
 +{
-+	return memblock_setclr_flag(&memblock.memory, base, size, 1,
-+				    MEMBLOCK_KHO_SCRATCH_EXT);
++	/* Already initialized. */
++	if (tree->root)
++		return 0;
++
++	if (!root)
++		root = kho_radix_alloc_node();
++	if (!root)
++		return -ENOMEM;
++
++	tree->root = root;
++	mutex_init(&tree->lock);
++	return 0;
 +}
++EXPORT_SYMBOL_GPL(kho_radix_init_tree);
 +
- static bool should_skip_region(struct memblock_type *type,
- 			       struct memblock_region *m,
- 			       int nid, int flags)
-@@ -1238,10 +1256,20 @@ static bool should_skip_region(struct memblock_type *type,
+ /**
+  * kho_radix_destroy_tree - Destroy the radix tree
+  * @tree: The radix tree to destroy
+@@ -1467,9 +1495,14 @@ static int __init kho_mem_retrieve(const void *fdt)
+ 	const struct kho_radix_walk_cb cb = {
+ 		.key = kho_preserved_memory_reserve,
+ 	};
++	phys_addr_t mem_map_phys;
++	int err;
++
++	mem_map_phys = kho_get_mem_map_phys(fdt);
++	err = kho_radix_init_tree(&kho_in.radix_tree, phys_to_virt(mem_map_phys));
++	if (err)
++		return err;
  
- 	/*
- 	 * In early alloc during kexec handover, we can only consider
--	 * MEMBLOCK_KHO_SCRATCH regions for the allocations
-+	 * MEMBLOCK_KHO_SCRATCH or MEMBLOCK_KHO_SCRATCH_EXT regions for the
-+	 * allocations.
- 	 */
--	if ((flags & MEMBLOCK_KHO_SCRATCH) && !memblock_is_kho_scratch(m))
--		return true;
-+	if (flags & (MEMBLOCK_KHO_SCRATCH | MEMBLOCK_KHO_SCRATCH_EXT)) {
-+		bool skip = true;
-+
-+		if ((flags & MEMBLOCK_KHO_SCRATCH) && memblock_is_kho_scratch(m))
-+			skip = false;
-+
-+		if ((flags & MEMBLOCK_KHO_SCRATCH_EXT) && memblock_is_kho_scratch_ext(m))
-+			skip = false;
-+
-+		return skip;
-+	}
- 
- 	return false;
+-	kho_in.radix_tree.root = phys_to_virt(kho_get_mem_map_phys(fdt));
+-	mutex_init(&kho_in.radix_tree.lock);
+ 	return kho_radix_walk_tree(&kho_in.radix_tree, &cb, NULL);
  }
-@@ -2801,6 +2829,7 @@ static const char * const flagname[] = {
- 	[ilog2(MEMBLOCK_RSRV_NOINIT)] = "RSV_NIT",
- 	[ilog2(MEMBLOCK_RSRV_KERN)] = "RSV_KERN",
- 	[ilog2(MEMBLOCK_KHO_SCRATCH)] = "KHO_SCRATCH",
-+	[ilog2(MEMBLOCK_KHO_SCRATCH_EXT)] = "KHO_SCRATCH_EXT",
- };
  
- static int memblock_debug_show(struct seq_file *m, void *private)
 -- 
 2.43.0
 
