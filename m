@@ -4,65 +4,79 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 108C0CD5BD1
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 28 May 2026 08:48:36 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 76F6ECD5BD5
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 28 May 2026 08:51:59 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:Cc:To:Subject:
-	Message-ID:Date:From:MIME-Version:Reply-To:Content-Transfer-Encoding:
-	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
-	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
-	bh=6+phZfXHAAOWSe43jY4iEDeIVY0auY/gXg2dprHrXHY=; b=KSKqSFddzV7nHhyY9dkDnGWu8D
-	1FWQVAhMtRws/SUpPcVGVFq6DRlZXkIDnYLZnUG4kJe6Vfxj7gppN60IbZHowQDP5EmiMWTaZAftA
-	MeHJxIPlcEqIEs3sSd3r1ba39Q3bwlkqHm8DaeJf7cJy16uLHKm2Eex0Z18ml8xve/4QbikqMRbtN
-	K1Zrn8ACJRk1jLMtWahUmAlkUHjfAXl1kUBS0iAqIKlcH20KxjraQBR01MQaY7S/ImpC5H5uEucRV
-	iyoBTUJa6IBufXVyNCEDNah8i5f8CGu1yG5qOi4IPqOEnal1bUSPZIcFRHQSAAotFTdEL1HvEu9DG
-	LNZgV8Zg==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:MIME-Version:
+	References:In-Reply-To:Subject:Cc:To:From:Message-ID:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=jtA7CtKuvIPW/2LursUOlRH+RzRBQMToNNL0YDkvMoM=; b=cGQO2PcAofljlKs4271vOw2dU4
+	uS2nP5qCFs3gmd++lwPY4LV7TSY9Q8c/RreOW2/2fhA6nIwOG4VJHLSYytDL9ZDSgfL+vndpHeKQ4
+	NAQIFCs5Ty/tgjgdmqdofUoLAWRp7jsOnNSefdIjVUagHdwq77bGCqMlepVPVl6uqlp+u7s6WSXax
+	MPewDJBbcHhL11DUStWZrV7NHQN2aeXzt+pbM7q4gHV71lZe4IPsEmUC4CKH0Uh1i4gAY4jEnL+XD
+	ZCPqguzUEmJh3I3/wnJoR8l50O76kvhLDEEW/pQ8g7peyD0mNSbfcw0H/llr1IzQFn7dA9WdTWYmZ
+	/N+vOGNw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wSWPk-00000005R1d-3FKD;
-	Thu, 28 May 2026 08:48:28 +0000
-Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
+	id 1wSWT2-00000005RHF-0vxH;
+	Thu, 28 May 2026 08:51:52 +0000
+Received: from sea.source.kernel.org ([172.234.252.31])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wSWPh-00000005R0p-3kr2
+	id 1wSWT0-00000005RGe-1V9A
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 28 May 2026 08:48:27 +0000
+	Thu, 28 May 2026 08:51:51 +0000
 Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
-	by sea.source.kernel.org (Postfix) with ESMTP id 43045403C1
-	for <linux-arm-kernel@lists.infradead.org>; Thu, 28 May 2026 08:48:25 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 27D761F000E9
-	for <linux-arm-kernel@lists.infradead.org>; Thu, 28 May 2026 08:48:25 +0000 (UTC)
+	by sea.source.kernel.org (Postfix) with ESMTP id 34B9F4168C;
+	Thu, 28 May 2026 08:51:49 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id ED8D51F000E9;
+	Thu, 28 May 2026 08:51:48 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1779958105;
-	bh=6+phZfXHAAOWSe43jY4iEDeIVY0auY/gXg2dprHrXHY=;
-	h=From:Date:Subject:To:Cc;
-	b=QdMpBHCgV3zBSc4CYi0AvkmqhfL5trfwzCVmnb+gReek/lD/Q87OfHeiOhSRvNDu1
-	 Ht03cZGnYqH8kqFZe+kC8HJ+m6aeU/9CjqJpaCtHoSYDZSKHrETHQOtIXHos9rPe6K
-	 P80y/jcsReNrqKMfV3ALdfi/L+RqYu4XZu2aqSXRA+2wKgNEqoQv/JgUJaTBmkiKWz
-	 8dCh7mqAgVbx4ENNUBvD+9iZdQrOiBEdtw3XK7ARVod6IVM2Xo5tQobAleVHM9uzIM
-	 IfBCBHpSAfZoR9wD4szhG+Uw/7sc+HWFP7Ji/E2le6/0ZesTAuqNFNpzCHL8PSmo2L
-	 xj4zTAbL6yrSg==
-Received: by mail-lf1-f49.google.com with SMTP id 2adb3069b0e04-5aa2691db86so12980735e87.3
-        for <linux-arm-kernel@lists.infradead.org>; Thu, 28 May 2026 01:48:25 -0700 (PDT)
-X-Gm-Message-State: AOJu0YxJGHJtFjUtsnWO497JGand8OyYVARec5wWAnI6Ml8fTE765Ijf
-	mS+4jJV5PxNuCZLaffYnhEt/K6usRZdZqeIN3bPBk/Ols5qvw6TFWGYY00bNXBTwk/NDsgRzKXl
-	KxRRAClPHsD/qRZ347/h3S2m5zi9iwrM=
-X-Received: by 2002:a05:6512:159b:b0:5aa:2a6b:c0ed with SMTP id
- 2adb3069b0e04-5aa3237096emr7698159e87.10.1779958103957; Thu, 28 May 2026
- 01:48:23 -0700 (PDT)
-MIME-Version: 1.0
-From: Linus Walleij <linusw@kernel.org>
-Date: Thu, 28 May 2026 10:48:11 +0200
-X-Gmail-Original-Message-ID: <CAD++jLkQ8FEFL4fbOgt+pbT3orGm90Xt1bFeGCKyB-Th=qOrjw@mail.gmail.com>
-X-Gm-Features: AVHnY4LYV0NVvQ3b1yFPz2ZhtORvQzKWhrCgwYSUKdkOvBfUgossOMgOPO5x4Vk
-Message-ID: <CAD++jLkQ8FEFL4fbOgt+pbT3orGm90Xt1bFeGCKyB-Th=qOrjw@mail.gmail.com>
-Subject: [GIT PULL] Gemini DTS updates for v7.2
-To: soc@kernel.org
-Cc: Linux ARM <linux-arm-kernel@lists.infradead.org>
-Content-Type: text/plain; charset="UTF-8"
+	s=k20260515; t=1779958309;
+	bh=jtA7CtKuvIPW/2LursUOlRH+RzRBQMToNNL0YDkvMoM=;
+	h=Date:From:To:Cc:Subject:In-Reply-To:References;
+	b=UTi6CorCLX5OSx006uONjInj1rChglfKJKvzdNTliRP0W/Wfmf1UDRdlaoD93q4Eh
+	 WV6v1Ed9+512/WkQ+cJnXe7CFlmQAn9SZqAWbC9FHNVTR41KooOX+INgI0WGkMz3/X
+	 g+Rgu7Obdw+TQZyaq2A6gEbkh6iY764y0Oan3M69o8mydE8yceVcfPSGV+Vmijrwim
+	 ng6VrsJA87mBrCGplTAdXHy43lYMnS54iSG9cg4hs5ydUGcF2Ubr/v7/smeHIXI7hp
+	 1CKRk2glYLa67W76OhEiVxVZJ9Zbg6Mz9mN3mmhYtGKYR9jmN/Srif3RO3v7JXyz2y
+	 mfNvQDEIds9RA==
+Received: from sofa.misterjones.org ([185.219.108.64] helo=goblin-girl.misterjones.org)
+	by disco-boy.misterjones.org with esmtpsa  (TLS1.3) tls TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384
+	(Exim 4.98.2)
+	(envelope-from <maz@kernel.org>)
+	id 1wSWSw-00000006xuj-3GuI;
+	Thu, 28 May 2026 08:51:46 +0000
+Date: Thu, 28 May 2026 09:51:46 +0100
+Message-ID: <86h5nrvrvh.wl-maz@kernel.org>
+From: Marc Zyngier <maz@kernel.org>
+To: Wei-Lin Chang <weilin.chang@arm.com>
+Cc: linux-arm-kernel@lists.infradead.org,
+	kvmarm@lists.linux.dev,
+	linux-kernel@vger.kernel.org,
+	Oliver Upton <oupton@kernel.org>,
+	Joey Gouly <joey.gouly@arm.com>,
+	Suzuki K Poulose <suzuki.poulose@arm.com>,
+	Zenghui Yu <yuzenghui@huawei.com>,
+	Catalin Marinas <catalin.marinas@arm.com>,
+	Will Deacon <will@kernel.org>
+Subject: Re: [PATCH v2 4/4] KVM: arm64: Fallback to a supported value for unsupported guest TGx
+In-Reply-To: <20260414000334.3947257-5-weilin.chang@arm.com>
+References: <20260414000334.3947257-1-weilin.chang@arm.com>
+	<20260414000334.3947257-5-weilin.chang@arm.com>
+User-Agent: Wanderlust/2.15.9 (Almost Unreal) SEMI-EPG/1.14.7 (Harue)
+ FLIM-LB/1.14.9 (=?UTF-8?B?R29qxY0=?=) APEL-LB/10.8 EasyPG/1.0.0 Emacs/30.1
+ (aarch64-unknown-linux-gnu) MULE/6.0 (HANACHIRUSATO)
+MIME-Version: 1.0 (generated by SEMI-EPG 1.14.7 - "Harue")
+Content-Type: text/plain; charset=US-ASCII
+X-SA-Exim-Connect-IP: 185.219.108.64
+X-SA-Exim-Rcpt-To: weilin.chang@arm.com, linux-arm-kernel@lists.infradead.org, kvmarm@lists.linux.dev, linux-kernel@vger.kernel.org, oupton@kernel.org, joey.gouly@arm.com, suzuki.poulose@arm.com, yuzenghui@huawei.com, catalin.marinas@arm.com, will@kernel.org
+X-SA-Exim-Mail-From: maz@kernel.org
+X-SA-Exim-Scanned: No (on disco-boy.misterjones.org); SAEximRunCond expanded to false
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260528_014825_976051_0F97A483 
-X-CRM114-Status: GOOD (  14.45  )
+X-CRM114-CacheID: sfid-20260528_015150_468387_210D42F4 
+X-CRM114-Status: GOOD (  31.22  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -77,69 +91,286 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hi SoC folks,
+On Tue, 14 Apr 2026 01:03:34 +0100,
+Wei-Lin Chang <weilin.chang@arm.com> wrote:
+> 
+> When KVM derives the translation granule for emulated stage-1 and
+> stage-2 walks, it decodes TCR/VTCR.TGx and treats the granule as-is.
+> This is wrong when the guest programs a granule size that is not
+> advertised in the guest's ID_AA64MMFR0_EL1.TGRAN* fields.
+> Architecturally, such a value must be treated as an implemented granule
+> size. Choose an available one while prioritizing PAGE_SIZE.
+> 
+> Signed-off-by: Wei-Lin Chang <weilin.chang@arm.com>
+> ---
+>  arch/arm64/kvm/at.c     | 52 +++++++++++++++++++++-
+>  arch/arm64/kvm/nested.c | 98 +++++++++++++++++++++++++++++------------
+>  2 files changed, 121 insertions(+), 29 deletions(-)
+> 
+> diff --git a/arch/arm64/kvm/at.c b/arch/arm64/kvm/at.c
+> index 927226266081..702ce531afd5 100644
+> --- a/arch/arm64/kvm/at.c
+> +++ b/arch/arm64/kvm/at.c
+> @@ -135,6 +135,30 @@ static void compute_s1poe(struct kvm_vcpu *vcpu, struct s1_walk_info *wi)
+>  	wi->e0poe = (wi->regime != TR_EL2) && (val & TCR2_EL1_E0POE);
+>  }
+>  
+> +#define _has_tgran(__r, __sz)					\
+> +	({							\
+> +		u64 _s1, _mmfr0 = __r;				\
+> +								\
+> +		_s1 = SYS_FIELD_GET(ID_AA64MMFR0_EL1,		\
+> +				    TGRAN##__sz, _mmfr0);	\
+> +								\
+> +		_s1 != ID_AA64MMFR0_EL1_TGRAN##__sz##_NI;	\
+> +	})
+> +
+> +static bool has_tgran(u64 mmfr0, unsigned int shift)
+> +{
+> +	switch (shift) {
+> +	case 12:
+> +		return _has_tgran(mmfr0, 4);
+> +	case 14:
+> +		return _has_tgran(mmfr0, 16);
+> +	case 16:
+> +		return _has_tgran(mmfr0, 64);
+> +	default:
+> +		BUG();
+> +	}
+> +}
+> +
+>  static unsigned int tcr_to_tg0_pgshift(u64 tcr)
+>  {
+>  	u64 tg0 = tcr & TCR_TG0_MASK;
+> @@ -165,8 +189,23 @@ static unsigned int tcr_to_tg1_pgshift(u64 tcr)
+>  	}
+>  }
+>  
+> -static unsigned int tcr_tg_pgshift(u64 tcr, bool upper_range)
+> +static unsigned int fallback_tgran_shift(u64 mmfr0)
+> +{
+> +	if (has_tgran(mmfr0, PAGE_SHIFT))
+> +		return PAGE_SHIFT;
+> +	else if (has_tgran(mmfr0, 12))
+> +		return 12;
+> +	else if (has_tgran(mmfr0, 14))
+> +		return 14;
+> +	else if (has_tgran(mmfr0, 16))
+> +		return 16;
+> +	else
+> +		return PAGE_SHIFT;
 
-sorry for late pull request for these DTS changes. Had too much to do.
+nit: surely that last 'else' is effectively unreachable, right?
 
-The changes were posted to LAKML here:
-https://lore.kernel.org/linux-arm-kernel/20260228-gemini-dts-fixes-v1-0-0c6f6d0fb4bd@kernel.org/
+> +}
+> +
+> +static unsigned int tcr_tg_pgshift(struct kvm *kvm, u64 tcr, bool upper_range)
+>  {
+> +	u64 mmfr0 = kvm_read_vm_id_reg(kvm, SYS_ID_AA64MMFR0_EL1);
+>  	unsigned int shift;
+>  
+>  	/* Someone was silly enough to encode TG0/TG1 differently */
+> @@ -175,6 +214,15 @@ static unsigned int tcr_tg_pgshift(u64 tcr, bool upper_range)
+>  	else
+>  		shift = tcr_to_tg0_pgshift(tcr);
+>  
+> +	/*
+> +	 * If TGx is programmed to an unimplemented value (not advertised in
+> +	 * ID_AA64MMFR0_EL1), we should treat it as if an implemented value is
+> +	 * written, as per the architecture. Choose an available one while
+> +	 * prioritizing PAGE_SIZE.
+> +	 */
+> +	if (!has_tgran(mmfr0, shift))
+> +		return fallback_tgran_shift(mmfr0);
+> +
+>  	return shift;
+>  }
+>  
+> @@ -222,7 +270,7 @@ static int setup_s1_walk(struct kvm_vcpu *vcpu, struct s1_walk_info *wi,
+>  	else
+>  		wi->txsz = FIELD_GET(TCR_T0SZ_MASK, tcr);
+>  
+> -	wi->pgshift = tcr_tg_pgshift(tcr, upper_range);
+> +	wi->pgshift = tcr_tg_pgshift(vcpu->kvm, tcr, upper_range);
+>  	wi->pa52bit = has_52bit_pa(vcpu, wi, tcr);
+>  
+>  	ia_bits = get_ia_size(wi);
+> diff --git a/arch/arm64/kvm/nested.c b/arch/arm64/kvm/nested.c
+> index a732d7b0bd5d..327a6aaa45db 100644
+> --- a/arch/arm64/kvm/nested.c
+> +++ b/arch/arm64/kvm/nested.c
+> @@ -378,25 +378,83 @@ static int walk_nested_s2_pgd(struct kvm_vcpu *vcpu, phys_addr_t ipa,
+>  	return 0;
+>  }
+>  
+> +#define _has_tgran_2(__r, __sz)						\
+> +	({								\
+> +		u64 _s1, _s2, _mmfr0 = __r;				\
+> +									\
+> +		_s2 = SYS_FIELD_GET(ID_AA64MMFR0_EL1,			\
+> +				    TGRAN##__sz##_2, _mmfr0);		\
+> +									\
+> +		_s1 = SYS_FIELD_GET(ID_AA64MMFR0_EL1,			\
+> +				    TGRAN##__sz, _mmfr0);		\
+> +									\
+> +		((_s2 != ID_AA64MMFR0_EL1_TGRAN##__sz##_2_NI &&		\
+> +		  _s2 != ID_AA64MMFR0_EL1_TGRAN##__sz##_2_TGRAN##__sz) || \
+> +		 (_s2 == ID_AA64MMFR0_EL1_TGRAN##__sz##_2_TGRAN##__sz && \
+> +		  _s1 != ID_AA64MMFR0_EL1_TGRAN##__sz##_NI));		\
+> +	})
+> +
+> +static bool has_tgran_2(u64 mmfr0, unsigned int shift)
+> +{
+> +	switch (shift) {
+> +	case 12:
+> +		return _has_tgran_2(mmfr0, 4);
+> +	case 14:
+> +		return _has_tgran_2(mmfr0, 16);
+> +	case 16:
+> +		return _has_tgran_2(mmfr0, 64);
+> +	default:
+> +		BUG();
+> +	}
+> +}
+> +
+> +static unsigned int fallback_tgran2_shift(u64 mmfr0)
+> +{
+> +	if (has_tgran_2(mmfr0, PAGE_SHIFT))
+> +		return PAGE_SHIFT;
+> +	else if (has_tgran_2(mmfr0, 12))
+> +		return 12;
+> +	else if (has_tgran_2(mmfr0, 14))
+> +		return 14;
+> +	else if (has_tgran_2(mmfr0, 16))
+> +		return 16;
+> +	else
+> +		return PAGE_SHIFT;
+> +}
+>  
+> -static unsigned int vtcr_to_tg0_pgshift(u64 vtcr)
+> +static unsigned int vtcr_to_tg0_pgshift(struct kvm *kvm, u64 vtcr)
+>  {
+>  	u64 tg0 = FIELD_GET(VTCR_EL2_TG0_MASK, vtcr);
+> +	u64 mmfr0 = kvm_read_vm_id_reg(kvm, SYS_ID_AA64MMFR0_EL1);
+> +	unsigned int shift;
+>  
+>  	switch (tg0) {
+>  	case VTCR_EL2_TG0_4K:
+> -		return 12;
+> +		shift = 12;
+> +		break;
+>  	case VTCR_EL2_TG0_16K:
+> -		return 14;
+> +		shift = 14;
+> +		break;
+>  	case VTCR_EL2_TG0_64K:
+>  	default:	/* IMPDEF: treat any other value as 64k */
+> -		return 16;
+> +		shift = 16;
 
-This pull request is rebased on v7.1-rc1 and ACKs picked up,
-otherwise it's the same patches.
+The comment here becomes a bit misleading. The default isn't 64k, but
+whatever will come out of the fallback with 64k as an input.
 
-Please pull it in.
+>  	}
+> +
+> +	/*
+> +	 * If TGx is programmed to an unimplemented value (not advertised in
+> +	 * ID_AA64MMFR0_EL1), we should treat it as if an implemented value is
+> +	 * written, as per the architecture. Choose an available one while
+> +	 * prioritizing PAGE_SIZE.
+> +	 */
+> +	if (!has_tgran_2(mmfr0, shift))
+> +		return fallback_tgran2_shift(mmfr0);
+> +
+> +	return shift;
+>  }
+>  
+> -static size_t vtcr_to_tg0_pgsize(u64 vtcr)
+> +static size_t vtcr_to_tg0_pgsize(struct kvm *kvm, u64 vtcr)
+>  {
+> -	return BIT(vtcr_to_tg0_pgshift(vtcr));
+> +	return BIT(vtcr_to_tg0_pgshift(kvm, vtcr));
+>  }
+>  
+>  static void setup_s2_walk(struct kvm_vcpu *vcpu, struct s2_walk_info *wi)
+> @@ -405,7 +463,7 @@ static void setup_s2_walk(struct kvm_vcpu *vcpu, struct s2_walk_info *wi)
+>  
+>  	wi->baddr = vcpu_read_sys_reg(vcpu, VTTBR_EL2);
+>  	wi->t0sz = vtcr & VTCR_EL2_T0SZ_MASK;
+> -	wi->pgshift = vtcr_to_tg0_pgshift(vtcr);
+> +	wi->pgshift = vtcr_to_tg0_pgshift(vcpu->kvm, vtcr);
+>  	wi->sl = FIELD_GET(VTCR_EL2_SL0_MASK, vtcr);
+>  	/* Global limit for now, should eventually be per-VM */
+>  	wi->max_oa_bits = min(get_kvm_ipa_limit(),
+> @@ -524,7 +582,8 @@ static u8 get_guest_mapping_ttl(struct kvm_s2_mmu *mmu, u64 addr)
+>  	u64 tmp, sz = 0;
+>  	kvm_pte_t pte;
+>  	u8 ttl, level;
+> -	size_t tg0_size = vtcr_to_tg0_pgsize(mmu->tlb_vtcr);
+> +	struct kvm *kvm = kvm_s2_mmu_to_kvm(mmu);
+> +	size_t tg0_size = vtcr_to_tg0_pgsize(kvm, mmu->tlb_vtcr);
 
-Yours,
-Linus Walleij
+nit: it would be more readable to have these long statements at the
+top of the declaration block (think reverse xmas tree when possible).
 
-The following changes since commit 254f49634ee16a731174d2ae34bc50bd5f45e731:
+>  
+>  	lockdep_assert_held_write(&kvm_s2_mmu_to_kvm(mmu)->mmu_lock);
+>  
+> @@ -608,7 +667,7 @@ unsigned long compute_tlb_inval_range(struct kvm_s2_mmu *mmu, u64 val)
+>  
+>  	if (!max_size) {
+>  		/* Compute the maximum extent of the invalidation */
+> -		switch (vtcr_to_tg0_pgsize(mmu->tlb_vtcr)) {
+> +		switch (vtcr_to_tg0_pgsize(kvm, mmu->tlb_vtcr)) {
+>  		case SZ_4K:
+>  			max_size = SZ_1G;
+>  			break;
+> @@ -1504,21 +1563,6 @@ static void kvm_map_l1_vncr(struct kvm_vcpu *vcpu)
+>  	}
+>  }
+>  
+> -#define has_tgran_2(__r, __sz)						\
+> -	({								\
+> -		u64 _s1, _s2, _mmfr0 = __r;				\
+> -									\
+> -		_s2 = SYS_FIELD_GET(ID_AA64MMFR0_EL1,			\
+> -				    TGRAN##__sz##_2, _mmfr0);		\
+> -									\
+> -		_s1 = SYS_FIELD_GET(ID_AA64MMFR0_EL1,			\
+> -				    TGRAN##__sz, _mmfr0);		\
+> -									\
+> -		((_s2 != ID_AA64MMFR0_EL1_TGRAN##__sz##_2_NI &&		\
+> -		  _s2 != ID_AA64MMFR0_EL1_TGRAN##__sz##_2_TGRAN##__sz) || \
+> -		 (_s2 == ID_AA64MMFR0_EL1_TGRAN##__sz##_2_TGRAN##__sz && \
+> -		  _s1 != ID_AA64MMFR0_EL1_TGRAN##__sz##_NI));		\
+> -	})
+>  /*
+>   * Our emulated CPU doesn't support all the possible features. For the
+>   * sake of simplicity (and probably mental sanity), wipe out a number
+> @@ -1600,15 +1644,15 @@ u64 limit_nv_id_reg(struct kvm *kvm, u32 reg, u64 val)
+>  		 */
+>  		switch (PAGE_SIZE) {
+>  		case SZ_4K:
+> -			if (has_tgran_2(orig_val, 4))
+> +			if (_has_tgran_2(orig_val, 4))
+>  				val |= SYS_FIELD_PREP_ENUM(ID_AA64MMFR0_EL1, TGRAN4_2, IMP);
+>  			fallthrough;
+>  		case SZ_16K:
+> -			if (has_tgran_2(orig_val, 16))
+> +			if (_has_tgran_2(orig_val, 16))
+>  				val |= SYS_FIELD_PREP_ENUM(ID_AA64MMFR0_EL1, TGRAN16_2, IMP);
+>  			fallthrough;
+>  		case SZ_64K:
+> -			if (has_tgran_2(orig_val, 64))
+> +			if (_has_tgran_2(orig_val, 64))
+>  				val |= SYS_FIELD_PREP_ENUM(ID_AA64MMFR0_EL1, TGRAN64_2, IMP);
+>  			break;
+>  		}
 
-  Linux 7.1-rc1 (2026-04-26 14:19:00 -0700)
+Other that the couple of nits here, this looks good to me.
 
-are available in the Git repository at:
+	M.
 
-  git://git.kernel.org/pub/scm/linux/kernel/git/linusw/linux-integrator.git
-tags/gemini-for-v7.2
-
-for you to fetch changes up to dce8e0cb88fb12d068459b75f299ff2242172257:
-
-  ARM: dts: gemini: Correct the RUT1xx (2026-05-28 10:38:45 +0200)
-
-----------------------------------------------------------------
-Gemini device tree updates:
-
-- Add two new devices: the Verbatim Gigabit NAS and the
-  Raidsonic IB-4210-B, including ACKed binding updates.
-
-- Fix up boot device for the SQ201.
-
-- Use the right LED trigger for disk activity.
-
-- Add the SSP/SPI block to the SoC.
-
-- Fix up the RUT1xx device tree.
-
-----------------------------------------------------------------
-Linus Walleij (8):
-      ARM: dts: gemini: iTian SQ201 need to boot from mtdblock3
-      ARM: dts: gemini: Tag disk led for disk-activity
-      ARM: dts: gemini: Add SSP/SPI block
-      dt-bindings: vendor-prefixes: Add Verbatim Corporation
-      dt-bindings: arm: Add two missing Gemini devices
-      ARM: dts: Add a Verbatim Gigabit NAS DTS
-      ARM: dts: Add a Raidsonic IB-4210-B DTS
-      ARM: dts: gemini: Correct the RUT1xx
-
- Documentation/devicetree/bindings/arm/gemini.yaml  |  10 +
- .../devicetree/bindings/vendor-prefixes.yaml       |   2 +
- arch/arm/boot/dts/gemini/Makefile                  |   2 +
- arch/arm/boot/dts/gemini/gemini-nas4210b.dts       | 205 +++++++++++++++++++
- arch/arm/boot/dts/gemini/gemini-nas4220b.dts       |   1 +
- arch/arm/boot/dts/gemini/gemini-rut1xx.dts         |  18 +-
- arch/arm/boot/dts/gemini/gemini-sq201.dts          |   2 +-
- .../dts/gemini/gemini-verbatim-s08v1901-d1.dts     | 225 +++++++++++++++++++++
- arch/arm/boot/dts/gemini/gemini.dtsi               |  17 ++
- 9 files changed, 470 insertions(+), 12 deletions(-)
- create mode 100644 arch/arm/boot/dts/gemini/gemini-nas4210b.dts
- create mode 100644 arch/arm/boot/dts/gemini/gemini-verbatim-s08v1901-d1.dts
+-- 
+Without deviation from the norm, progress is not possible.
 
