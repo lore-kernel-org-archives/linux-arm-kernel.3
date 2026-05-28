@@ -4,79 +4,93 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 7DD8BCD6E43
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 28 May 2026 23:08:11 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 2B0F6CD6E43
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 28 May 2026 23:11:07 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:Message-Id:
-	Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:From:
-	Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender
-	:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
-	bh=m8wKs5HNoGHP0jSxnKSD1ZlK+t0QNPM64QnFvO48QdY=; b=SFIWAaO26nceevPguRCHBrM2Th
-	I2GKw9whzLT/uRhQfxhr9Xa/bCdqtLO8zFh3M8zsci2y1G9vRfERxmUyRU+bV5g+0OwI/qCoETjSM
-	YFmZbUfKzR1aIYpB5R71DjnbUMymtrIxJbaCFdDWW80KXkyjOr6GqzYgo3DOyKVVVxHQgXSriVKQK
-	wV9MwLYrrsth2KWxCGoBfGA7rXgxbZyZ2w6e0XksQjv1ha9NUKc9laxP2jAJDkTH4DEfpa6nM2F14
-	gV2aFawn8HBx2Wg5edEP/HyrhZBZUNKKEA1b7pm63Rqo64rL7mk5wa9HIYB2Z8GCAaLDTG0GQyFr+
-	g0EovGQg==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=etZpU7Yp9Hm6cYfSBeTGXh+SR9t2+n6rYsabbI1Ed3U=; b=xakbqGELEt91xjYB93Yxl2kaLD
+	+2lN9fy29/8KAKxrBQftorwYDRA5re8VXAA+Sc8KhKzQEPBOIJdONrscYFGUoMT/thsCVnN8/YOTM
+	AMk3Op9k+Z/vzCvwcw1cDPBvwPnh9cgBVZaxGRTw5VGGAzquiRQB1ogfZGw5N5nI7TlnK3mR2oi55
+	SjDf+uGl6WN8DZ+7qYU5ia8mBVEywWj6PLGL3SXeUq4Bi9D5+5A+2E5z0Bnu0vvqxWZKOkY583dio
+	TO1damL6h1zAReKsPzZEwtX6CL2TWIrxlx/kDq9uDqM+q3lA4TC5tavnAWHzoGVOy4TWeUE2KRJ8g
+	JUF1aN7g==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wSjpa-00000006VuW-35CW;
-	Thu, 28 May 2026 23:08:02 +0000
-Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
+	id 1wSjsS-00000006W0N-0Rxv;
+	Thu, 28 May 2026 23:11:00 +0000
+Received: from mail-pl1-x62c.google.com ([2607:f8b0:4864:20::62c])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wSjpX-00000006VuC-2qWe
+	id 1wSjsQ-00000006W00-0gYJ
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 28 May 2026 23:08:01 +0000
-Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
-	by sea.source.kernel.org (Postfix) with ESMTP id D942440D79;
-	Thu, 28 May 2026 23:07:58 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 60B721F000E9;
-	Thu, 28 May 2026 23:07:56 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1780009678;
-	bh=m8wKs5HNoGHP0jSxnKSD1ZlK+t0QNPM64QnFvO48QdY=;
-	h=From:Date:Subject:To:Cc;
-	b=NFBv6NmdOiXWzG22Avv21qAqoaRn04aTbZYWsUqbo/Q4rrUflkw+tUFADPcuzTJpD
-	 2iOUKp01XZxrl3g7P8bg6IeUTF0weSZhkCGbTajcLiwgDPUpQJNJB2SJSDc7p1QX9z
-	 NH/TZ15ZJHeCzBLiki4Wfn5anzg3fUw1aAXGqo3kdDAMQh9mXefq7v7EHtWlE9M8AB
-	 vOGTcBLshh/NVX8er5R7MzE8ZLf6ujYguLqZ+udyzWoyu4Y7COtldTjTX+Vzyq/l5d
-	 beuJHcSGHfiCps0Q1WZs11b/uKVoP/vhsoFL7fEgS4Gv/xmE6UtKoGwccaHZ5N7Q2r
-	 xp1Mw47ELhapA==
-From: Mark Brown <broonie@kernel.org>
-Date: Fri, 29 May 2026 00:01:44 +0100
-Subject: [PATCH v2] KVM: arm64: Preserve all guest ZCR_EL2.LEN values
+	Thu, 28 May 2026 23:10:59 +0000
+Received: by mail-pl1-x62c.google.com with SMTP id d9443c01a7336-2b46da8c48eso1995ad.1
+        for <linux-arm-kernel@lists.infradead.org>; Thu, 28 May 2026 16:10:57 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=google.com; s=20251104; t=1780009857; x=1780614657; darn=lists.infradead.org;
+        h=in-reply-to:content-disposition:mime-version:references:message-id
+         :subject:cc:to:from:date:from:to:cc:subject:date:message-id:reply-to;
+        bh=etZpU7Yp9Hm6cYfSBeTGXh+SR9t2+n6rYsabbI1Ed3U=;
+        b=BiqoJu60Uap8GyaQUm7r3aB1NiZMjwhNTuGWPWPia7wyVjQ6dOHZir9nTwqXaVw+Ye
+         mceY/JpmVzm+sn//jc3AZJgbE+wIq8gpE6W7BSiXza6tXvd9sg/sST/Nm5rxS3vK95w+
+         HPN73X4B2ua60GmbRcvKUqIQPpQM9QP6ftQRxBtSYKXicJuJ9rf/sAOxZJBZiComGJ/W
+         lhDb8hJweGZ4wlwdLYP1yopCrQChEubT+GwH5we/wpA7Z76f+p+f/9C5jxD5yJYn4/AA
+         vykeN3q1BlQFydppjg0OMZuPjzj91e+LnxywuFn8tgFYhFwV14hyy3keBTzZRuyJPKwx
+         NiRA==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20251104; t=1780009857; x=1780614657;
+        h=in-reply-to:content-disposition:mime-version:references:message-id
+         :subject:cc:to:from:date:x-gm-gg:x-gm-message-state:from:to:cc
+         :subject:date:message-id:reply-to;
+        bh=etZpU7Yp9Hm6cYfSBeTGXh+SR9t2+n6rYsabbI1Ed3U=;
+        b=YlXqOba9A4zri05TlUX2x6viCJe37ykFqjNP4ZaY3kSS6FIWW5eud3Lw+bnwmRLlqI
+         IcKsuxQkcX2bHMgpnjFkkH+MFIjSht62MSZpBxXwvE1KBaKr1/6G0FyhPKl0gCTilcz0
+         vupRheBnhZbfANxSLvskpwpvb/F0Xbl8a+ssuQc61ggjn3YydVXz4sp0QxEpSbNQ9+vK
+         Oar0VroYRCs14kTsM+9mJ2Z/45UlvmxfMNHfw492VWWQBzSCd7Cua7/yfCBSJNf8oVGw
+         niUUabyDRMmsnIIkY24YpI5GxAPmQcsJZk4TQbI3yCkwNsh95BhG9JDwoTxnJqtV/LZ9
+         e1kA==
+X-Forwarded-Encrypted: i=1; AFNElJ+XLhXbm6Q0sVNcDS3jCUIuH59WaxbUEQ8Xh07QUsznreTDqoYtPR2CTDHX070a8pkJjAKr/RwAYrJCQd3/Cfg9@lists.infradead.org
+X-Gm-Message-State: AOJu0YyIONeTlM3PvwsqwOQNy9m/9GYoS4iudYztXqUjGLQLqzz7ihc5
+	1G+qwKsUuBQk0b/HsMCWhiGMMdAZLgU1dNdXTbdh6SWQlV9EJxccU1AC1Jsmpom2aA==
+X-Gm-Gg: Acq92OELEfJcUL1iZMa3aRiPLE3Ck3B3VLYOwdKAsZoBN4agzgkAxFw3bK2P1ZkDMZi
+	msUlausTPeIPcHo+LdyWObEtY1FvpfNWanSELZ7yRZ6yxEQrGbw7DbOGt1GIIB3ZkM7i2pmK2D2
+	+Xkso4ZFi2O4PQ9GJKEIFknTrwdOkuFy06iZxy9TlAZ4jacL/h8VzaJuVJV2FttiQId1kLQv1oi
+	qCKZqKaFN9FcA9h8kMktNoSjRVm3gzxeCXzA/Vs8tMH04Ax6axt6zgcb6KFJ1SPakMEQ5cPhS+0
+	zm/9YxBTFxs4yj7cywsZRwBPPuQv1o8YwxLAfdFd1vNl9rQe1Ryqd3kc2s2Smu5l8Tdl459SNn1
+	czcfbAayP3WA0ylevFWNfO0DN7NNobkX9tx8dWefj8oRagHlVbxeDBjBF48ZNpOR4XU7VJlxzlY
+	YuK6X7sw5sn4xJg8Fx0zgwHfimiIetIAxZ4vxCHSbLkGyGxzNYFvQMmFb0V/Vxyhu0rMtd88jCp
+	itZH8c=
+X-Received: by 2002:a17:903:2409:b0:2ba:6518:e4d8 with SMTP id d9443c01a7336-2bf20d124a0mr536595ad.20.1780009856790;
+        Thu, 28 May 2026 16:10:56 -0700 (PDT)
+Received: from google.com (44.234.124.34.bc.googleusercontent.com. [34.124.234.44])
+        by smtp.gmail.com with ESMTPSA id 41be03b00d2f7-c8575b7bd15sm94187a12.15.2026.05.28.16.10.54
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Thu, 28 May 2026 16:10:56 -0700 (PDT)
+Date: Thu, 28 May 2026 23:10:50 +0000
+From: Pranjal Shrivastava <praan@google.com>
+To: Nicolin Chen <nicolinc@nvidia.com>
+Cc: iommu@lists.linux.dev, Will Deacon <will@kernel.org>,
+	Joerg Roedel <joro@8bytes.org>, Robin Murphy <robin.murphy@arm.com>,
+	Jason Gunthorpe <jgg@ziepe.ca>, Mostafa Saleh <smostafa@google.com>,
+	Daniel Mentz <danielmentz@google.com>,
+	Ashish Mhetre <amhetre@nvidia.com>,
+	linux-arm-kernel@lists.infradead.org
+Subject: Re: [PATCH v7 11/11] iommu/arm-smmu-v3: Add KUnit unit tests for
+ Runtime PM
+Message-ID: <ahjLeryndiVuTULP@google.com>
+References: <20260527221407.1756491-1-praan@google.com>
+ <20260527221407.1756491-12-praan@google.com>
+ <ahi3HYssUY9mjjbg@Asurada-Nvidia>
 MIME-Version: 1.0
-Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: 7bit
-Message-Id: <20260529-kvm-arm64-fix-zcr-len-nv-v2-1-86cad51992bd@kernel.org>
-X-B4-Tracking: v=1; b=H4sIAFfJGGoC/3WNyw6CMBBFf4V07Zi24WFd8R+GRakDVKCYKTYq4
- d8t6NblSc69Z2EeyaJn52RhhMF6O7kI8pAw02nXIthrZCa5zHkmFPRhBE1jnkJjn/A2BAM6cAE
- UKixqjVxIzeL8ThiN/fpSfdk/6huaefvbjM76eaLX3g5i834ZKf9nggABaGSWouLFyTRlj+RwO
- E7Usmpd1w8OIs500wAAAA==
-X-Change-ID: 20260519-kvm-arm64-fix-zcr-len-nv-9e9e7bae012a
-To: Marc Zyngier <maz@kernel.org>, Oliver Upton <oupton@kernel.org>, 
- Joey Gouly <joey.gouly@arm.com>, Steffen Eiden <seiden@linux.ibm.com>, 
- Suzuki K Poulose <suzuki.poulose@arm.com>, 
- Catalin Marinas <catalin.marinas@arm.com>, Will Deacon <will@kernel.org>
-Cc: Mark Rutland <mark.rutland@arm.com>, 
- linux-arm-kernel@lists.infradead.org, kvmarm@lists.linux.dev, 
- linux-kernel@vger.kernel.org, Mark Brown <broonie@kernel.org>, 
- stable@vger.kernel.org
-X-Mailer: b4 0.16-dev
-X-Developer-Signature: v=1; a=openpgp-sha256; l=7113; i=broonie@kernel.org;
- h=from:subject:message-id; bh=/PiKYJWz9gvmc4Ax3o+7W5qhwU6FgIEJncOBBReKn3U=;
- b=owEBbQGS/pANAwAKASTWi3JdVIfQAcsmYgBqGMrL6RTPvvntCgQnm5ff91NvugCqQe8i393fp
- x/5ncnA0yOJATMEAAEKAB0WIQSt5miqZ1cYtZ/in+ok1otyXVSH0AUCahjKywAKCRAk1otyXVSH
- 0NgMB/kBTUgZGRmtJouc2XSSAfGbkO9NNO+WZcXaVZIT+wpXcGtupf8q3oX2y+uQiOsainGcvM0
- tbfluFjC56h/pb90Wjfx97nnmicXYwY779uvs+NvbyYAiYfcweFU3eSvehWW4SFNYPBAXPLictr
- LiNPmDlkv2rD49lsv0sSQRmxM1JiwhCaLUezLTsWYrONLHfpoDaCkebYFYTD4SqIGfUZ8ku/B2L
- TdUZs2YBLVUAAo9hJYXkwTCiQ19h+RSLlkasEPHCWFH1tVpTULIhW1obmlCo/30MP9br6MXRDf/
- H93bnKaPaWafv8ZnEvaC9Sacx8HNXr7fvCeP6YpL/QInC1LA
-X-Developer-Key: i=broonie@kernel.org; a=openpgp;
- fpr=3F2568AAC26998F9E813A1C5C3F436CA30F5D8EB
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+In-Reply-To: <ahi3HYssUY9mjjbg@Asurada-Nvidia>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260528_160759_784148_CA66F193 
-X-CRM114-Status: GOOD (  22.39  )
+X-CRM114-CacheID: sfid-20260528_161058_223352_BA6706CA 
+X-CRM114-Status: GOOD (  16.58  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -91,174 +105,33 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Since commit b3d29a823099 ("KVM: arm64: nv: Handle ZCR_EL2 traps") when
-guests write to ZCR_EL2 we have clamped the value of ZCR_EL2.LEN to be
-at most that configuring the maximum guest VL when accessed directly as
-ZCR_EL2. This is not clearly the behaviour the architecture documents
-for ZCR_EL2.LEN, while things are a little ambiguous currently there is
-a fairly direct reading that suggests values will be read as written.
-Further, the documented procedure for enumerating vector lengths means
-that it is expected that values larger than the largest supported vector
-length will be written in practice.
+On Thu, May 28, 2026 at 02:43:57PM -0700, Nicolin Chen wrote:
+> On Wed, May 27, 2026 at 10:14:07PM +0000, Pranjal Shrivastava wrote:
+> > Introduce a kunit selftests to verify the Runtime PM elision gating,
+> > post-suspend elisions and progress on resumption under active
+> > invalidation load. Simulate concurrent HW suspension using a timer.
+> > Mock all HW registers and CMDQ buffers by allocating them on RAM.
+> > Make the mock CMDQ self-consuming to avoid hitting queue_full scenarios.
+> > 
+> > Signed-off-by: Pranjal Shrivastava <praan@google.com>
+> 
+> Maybe I am wrong, yet this reads like an entirely AI-generated code.
+> So, should it have an Assisted-by?
+> 
 
-The reasoning for the current behaviour is not specifically articulated, my
-best guess is that it is intended to ensure that the guest can not see an
-effective VL greater than the maximum that has been configured, though
-this will be ineffective when a VHE guest uses the ZCR_EL1 accessor.
-The VL can instead be constrained by configuring ZCR_EL2 when loading
-L2 guest state:
+Agh, It appears I made an error during the final send and mistakenly
+posted an old WIP version of this patch! I created a patch file before
+committing the final changes. This has remnants of older experiments and 
+lacks severals other cleanups!
 
- - When the L2 guest is running in EL1 or EL0 state configure
-   ZCR_EL2.LEN to the minimum of the guest ZCR_EL2.LEN and
-   vcpu_sve_max_vq(vcpu)-1.
- - When the L2 guest is running at EL2 configure the maximum VL for
-   the guest in ZCR_EL2.LEN like we do for L1 guests and load the
-   guest ZCR_EL2 into ZCR_EL1.
+I'm aware of the AI usage guidelines. However, this is not an entirely AI
+generated patch, it's a pre-cleanup snapshot of a WIP version where I had
+multiple rpm tests (an attempt to use kthreads to simulate races) that
+were using shared functions like the mock_cmdq etc. remnants of which 
+are seen in this patch. *FACEPALM*.
 
-This will ensure that the effective VL seen by the guest is always
-constrained by all of the maximum VL configured by the VMM and the
-ZCR_ELx values in effect.
+I'll send out a v8 soon!
 
-With the above implemented we can simplify the emulation for trapped
-writes to ZCR_EL2 to store LEN configured by the guest directly,
-matching the handling for ZCR_EL1. We still need to sanitise the values
-written to ensure no unsupported fields are written, do this by adding
-the register to our generic sanitisation infrastructure. This register
-is a bit unusual in that as an unnamed field at bits 8:4 which is
-RAZ/WI, for the purposes of sanitisation treat these bits as though they
-were RES0.
-
-Fixes: b3d29a823099 ("KVM: arm64: nv: Handle ZCR_EL2 traps")
-Signed-off-by: Mark Brown <broonie@kernel.org>
-Cc: stable@vger.kernel.org
----
-Changes in v2:
-- Use generic santisation infrastructure.
-- Remove redundant !is_hyp_ctxt() check.
-- Also fix ZCR_EL2 configuration in __hyp_sve_restore_guest().
-- Commit message clarifications.
-- Link to v1: https://patch.msgid.link/20260522-kvm-arm64-fix-zcr-len-nv-v1-1-ec254e9078cf@kernel.org
----
- arch/arm64/include/asm/kvm_host.h       |  2 +-
- arch/arm64/kvm/hyp/include/hyp/switch.h | 16 ++++++++++------
- arch/arm64/kvm/nested.c                 |  5 +++++
- arch/arm64/kvm/sys_regs.c               |  6 +-----
- 4 files changed, 17 insertions(+), 12 deletions(-)
-
-diff --git a/arch/arm64/include/asm/kvm_host.h b/arch/arm64/include/asm/kvm_host.h
-index 65eead8362e0..a49042bfa801 100644
---- a/arch/arm64/include/asm/kvm_host.h
-+++ b/arch/arm64/include/asm/kvm_host.h
-@@ -511,7 +511,6 @@ enum vcpu_sysreg {
- 	ACTLR_EL2,	/* Auxiliary Control Register (EL2) */
- 	CPTR_EL2,	/* Architectural Feature Trap Register (EL2) */
- 	HACR_EL2,	/* Hypervisor Auxiliary Control Register */
--	ZCR_EL2,	/* SVE Control Register (EL2) */
- 	TTBR0_EL2,	/* Translation Table Base Register 0 (EL2) */
- 	TTBR1_EL2,	/* Translation Table Base Register 1 (EL2) */
- 	TCR_EL2,	/* Translation Control Register (EL2) */
-@@ -543,6 +542,7 @@ enum vcpu_sysreg {
- 	SCTLR2_EL2,	/* System Control Register 2 (EL2) */
- 	MDCR_EL2,	/* Monitor Debug Configuration Register (EL2) */
- 	CNTHCTL_EL2,	/* Counter-timer Hypervisor Control register */
-+	ZCR_EL2,	/* SVE Control Register (EL2) */
- 
- 	/* Any VNCR-capable reg goes after this point */
- 	MARKER(__VNCR_START__),
-diff --git a/arch/arm64/kvm/hyp/include/hyp/switch.h b/arch/arm64/kvm/hyp/include/hyp/switch.h
-index bf0eb5e43427..320cd45d49c5 100644
---- a/arch/arm64/kvm/hyp/include/hyp/switch.h
-+++ b/arch/arm64/kvm/hyp/include/hyp/switch.h
-@@ -462,11 +462,13 @@ static inline bool kvm_hyp_handle_mops(struct kvm_vcpu *vcpu, u64 *exit_code)
- 
- static inline void __hyp_sve_restore_guest(struct kvm_vcpu *vcpu)
- {
-+	u64 zcr_el2 = vcpu_sve_max_vq(vcpu) - 1;
-+
- 	/*
- 	 * The vCPU's saved SVE state layout always matches the max VL of the
- 	 * vCPU. Start off with the max VL so we can load the SVE state.
- 	 */
--	sve_cond_update_zcr_vq(vcpu_sve_max_vq(vcpu) - 1, SYS_ZCR_EL2);
-+	sve_cond_update_zcr_vq(zcr_el2, SYS_ZCR_EL2);
- 	__sve_restore_state(vcpu_sve_pffr(vcpu),
- 			    &vcpu->arch.ctxt.fp_regs.fpsr,
- 			    true);
-@@ -476,8 +478,10 @@ static inline void __hyp_sve_restore_guest(struct kvm_vcpu *vcpu)
- 	 * nested guest, as the guest hypervisor could select a smaller VL. Slap
- 	 * that into hardware before wrapping up.
- 	 */
--	if (is_nested_ctxt(vcpu))
--		sve_cond_update_zcr_vq(__vcpu_sys_reg(vcpu, ZCR_EL2), SYS_ZCR_EL2);
-+	if (is_nested_ctxt(vcpu)) {
-+		zcr_el2 = min(zcr_el2, __vcpu_sys_reg(vcpu, ZCR_EL2));
-+		sve_cond_update_zcr_vq(zcr_el2, SYS_ZCR_EL2);
-+	}
- 
- 	write_sysreg_el1(__vcpu_sys_reg(vcpu, vcpu_sve_zcr_elx(vcpu)), SYS_ZCR);
- }
-@@ -501,11 +505,11 @@ static inline void fpsimd_lazy_switch_to_guest(struct kvm_vcpu *vcpu)
- 		return;
- 
- 	if (vcpu_has_sve(vcpu)) {
-+		zcr_el2 = vcpu_sve_max_vq(vcpu) - 1;
-+
- 		/* A guest hypervisor may restrict the effective max VL. */
- 		if (is_nested_ctxt(vcpu))
--			zcr_el2 = __vcpu_sys_reg(vcpu, ZCR_EL2);
--		else
--			zcr_el2 = vcpu_sve_max_vq(vcpu) - 1;
-+			zcr_el2 = min(zcr_el2, __vcpu_sys_reg(vcpu, ZCR_EL2));
- 
- 		write_sysreg_el2(zcr_el2, SYS_ZCR);
- 
-diff --git a/arch/arm64/kvm/nested.c b/arch/arm64/kvm/nested.c
-index 883b6c1008fb..38f672e94087 100644
---- a/arch/arm64/kvm/nested.c
-+++ b/arch/arm64/kvm/nested.c
-@@ -1834,6 +1834,11 @@ int kvm_init_nv_sysregs(struct kvm_vcpu *vcpu)
- 	resx.res1 = VNCR_EL2_RES1;
- 	set_sysreg_masks(kvm, VNCR_EL2, resx);
- 
-+	/* ZCR_EL2 - bits 8:4 are RAZ/WI so treat them as RES0 */
-+	resx.res0 = ZCR_ELx_RES0 | GENMASK_ULL(8, 4);
-+	resx.res1 = ZCR_ELx_RES1;
-+	set_sysreg_masks(kvm, ZCR_EL2, resx);
-+
- out:
- 	for (enum vcpu_sysreg sr = __SANITISED_REG_START__; sr < NR_SYS_REGS; sr++)
- 		__vcpu_rmw_sys_reg(vcpu, sr, |=, 0);
-diff --git a/arch/arm64/kvm/sys_regs.c b/arch/arm64/kvm/sys_regs.c
-index 148fc3400ea8..77e1b5d223c6 100644
---- a/arch/arm64/kvm/sys_regs.c
-+++ b/arch/arm64/kvm/sys_regs.c
-@@ -2862,8 +2862,6 @@ static bool access_zcr_el2(struct kvm_vcpu *vcpu,
- 			   struct sys_reg_params *p,
- 			   const struct sys_reg_desc *r)
- {
--	unsigned int vq;
--
- 	if (guest_hyp_sve_traps_enabled(vcpu)) {
- 		kvm_inject_nested_sve_trap(vcpu);
- 		return false;
-@@ -2874,9 +2872,7 @@ static bool access_zcr_el2(struct kvm_vcpu *vcpu,
- 		return true;
- 	}
- 
--	vq = SYS_FIELD_GET(ZCR_ELx, LEN, p->regval) + 1;
--	vq = min(vq, vcpu_sve_max_vq(vcpu));
--	__vcpu_assign_sys_reg(vcpu, ZCR_EL2, vq - 1);
-+	__vcpu_assign_sys_reg(vcpu, ZCR_EL2, p->regval);
- 	return true;
- }
- 
-
----
-base-commit: 5200f5f493f79f14bbdc349e402a40dfb32f23c8
-change-id: 20260519-kvm-arm64-fix-zcr-len-nv-9e9e7bae012a
-
-Best regards,
---  
-Mark Brown <broonie@kernel.org>
-
+Thanks!
+Praan
 
