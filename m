@@ -4,105 +4,94 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 1A1F5CD5BD5
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 28 May 2026 07:09:27 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 475A1CD5BD5
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 28 May 2026 07:10:21 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	MIME-Version:Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-Type:
-	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
-	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
-	bh=AyhxEIcTaJ0tE2zF05eMkIwg9pnZjsy1bH02V+XNbGM=; b=M9FLzksDRSTe46ozWRDM2NwUf0
-	j3lSWyI4Hwzwvpa8cL1VTqMYykeHMPKPeQK9ipg2vBZY4H2H86SUazM6mf/tW8zZuJHX4EUEUisG1
-	sEHo1VtfsTfHkkgejlstSEziZtk+c+YKAdsKZLlbcjld5b7fSNWTQaRtSOhtoqpzkrN2HuGMLYMoG
-	BDnSuHMBrJDsUltb9JqnjOLmJGIxkY5PcP9WESk0A+h0rkiyhMHXY00gmEetIG8bKJKRn2hUzboD9
-	oxEkKL2oFF7hYHkwSPnhYjcUh9qNt9y8XHj60fgsKm7Zs+VyWbapJm/AINAT3PvaEOKy985zTW2Vz
-	TWODzN6A==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:MIME-Version:
+	References:In-Reply-To:Subject:Cc:To:From:Message-ID:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=SvXuriDeNbgZhPyvChSTkGY/sR1ke22dPfxwqkQBu2Y=; b=25DG/cS6nv9lzSu8jbUYLEP648
+	tTgrnqIhw/jYRaW0Fa9nJ15ThJEsTcy6jdUqjRQ56CdfLLryasl4oZxlKJyfitx0MrCWR5qW4zzHB
+	EVPtl7i/x9ERkN2QGJ6iJF4uoH3/x14eyG+kml67R7+eAf+oJOcF9zKc3zmA4XVf4xD6d9ZON9bMd
+	VSZZFwIsPhdvcYkSLVlPUT1JlctdcJPOlcpvtkjw3sOW5+QHzrYn4if0Bb86vYvG2idsI9nj6XGTs
+	egRzz3o3o1+i+SPYYv+Ay4F1P5Ia4u2RALtQQjSrW4KHiq+M5/Ufd46V64VfLDyHaAa+O6poFcvFd
+	Ys1Ii6kQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wSUrn-00000005Ezg-12j2;
-	Thu, 28 May 2026 07:09:19 +0000
-Received: from mail-wr1-x42c.google.com ([2a00:1450:4864:20::42c])
+	id 1wSUsf-00000005F6b-1vAu;
+	Thu, 28 May 2026 07:10:13 +0000
+Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wSUrl-00000005Eyx-1rKk
+	id 1wSUsd-00000005F5m-0wqs
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 28 May 2026 07:09:18 +0000
-Received: by mail-wr1-x42c.google.com with SMTP id ffacd0b85a97d-45e8a834cc2so7419740f8f.1
-        for <linux-arm-kernel@lists.infradead.org>; Thu, 28 May 2026 00:09:16 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20251104; t=1779952155; x=1780556955; darn=lists.infradead.org;
-        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
-         :to:from:from:to:cc:subject:date:message-id:reply-to;
-        bh=AyhxEIcTaJ0tE2zF05eMkIwg9pnZjsy1bH02V+XNbGM=;
-        b=SbEfggh85rkPx8ev2XlFttNB+BAjs2w7htNUmZ7lwcRsXOtawJv+6AhF/1OF/2EFZG
-         x0sFLSdxUzWsntdhN0wgyokRRTbn2IAFKI8cdBN7y9tJ3h2Qj55C8V/fTMy8b7gFha09
-         xkSUs6/S1Ko9lPgbL4yt219Jsxg8b+y/BDpMWU4ewZ01LVIfqsKDZF1L6VJPUaB5ooku
-         xvch9oJMdR8xTFaDbiIt5xv4Epunm1C+iw3rn2afh/62qrQsektscQMergOzCwY1mcYh
-         bIbtGHy2aIeikxd2m18AeV7fwbXMZT2fMwJ9qYj6B0Cm+eWnOeSbvGokliRl/bW7ZoeJ
-         uEyQ==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20251104; t=1779952155; x=1780556955;
-        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
-         :to:from:x-gm-gg:x-gm-message-state:from:to:cc:subject:date
-         :message-id:reply-to;
-        bh=AyhxEIcTaJ0tE2zF05eMkIwg9pnZjsy1bH02V+XNbGM=;
-        b=BW/hN7Amd/jFDzlIBbdUONH0AtNTLIbc3rDKDpYX/iGO44DN302o2ElxJfThx2TP0w
-         jfekoIZowxfsN7++KFykwbg4CS5erojCPaICd9WLcoXS2irajT/JEXu3970tjD679aYq
-         z1wJnVHYs89712+7gayMeb1Ic+tqfsA1+Rb6G0ALITcqgTHtFLRNScW41wjsD78jfQES
-         pf4XzdvNJftXdwC2qP5DpOrFT/EIcATfGtDJ/bKt+JUkAfeFJ5co8C3SjfNWTZkToGPd
-         3JLHJ1mLERiQBM9KZtkNlzV7LsMJQUpq3kH0QmGaA6iHAmvEYcb1xUGdFINv71QXjHWo
-         vjfQ==
-X-Forwarded-Encrypted: i=1; AFNElJ9oHT8CM5mVjJ9rw8FhJhuqbduXUR2ax4S4/AhMmO2WGQV3Z8T363gPKE4SdBpE8zbNkcl9oJuPnmBJSCYeBmf8@lists.infradead.org
-X-Gm-Message-State: AOJu0YzTNMpZP7ncFyCjfPl8gKj6lLYVvCgXk2FcC8A/jtHM9HitXkp+
-	9md+yndBsmFhk0XahWOoDUDKM/bIjyvrrmOAaif23D1LvZIwy6PIznPs
-X-Gm-Gg: Acq92OFA/1pYcIb9mACuRUYuOshrYk/ArxeWd+ntMweKDz4pKzLkSC1nzYbHw3/Fvko
-	K4Djz99g0xXV7sF2oBD6akdEPfQzdJGeu3rRSIsyAvfDEVY9LDEtM1xFh1Du1ceLub6yeiLiV6h
-	JqdVrHtaM+zRiQyXuhQ6AJ/aBRZuf4qDcmzlAhbf20rXm2sai0KvHziHOYYyE0x+8+9JjTBFU+A
-	suAm9DmiaITXfJIdXJeP45bryVdmUxnyg41gE8+OxjxCaxC3292ObTzmLUI6WndZM0cfg/XdQib
-	omttZva9K/RrNjRKKoU4peBW6HBbyWaQ/tFbOJIBc2KcJ1IMfktUjCfCHE1/RmUVmXaJdxnxD63
-	mY68SJ6EMsMHLIqlP16iwmoLslroqqn1JPEPBqmVQTdoCHcohz7WHvNQt8rklLcvIxFiCAxa0DJ
-	w2wL88ANOPndyEl+6WsKNf5tOl0Myoda25ydVFVF0qhfXFgxR8mIriSKyaFMnVJXhCkALRfbOI1
-	FfvMSRJuoA1WpJ4fYi51HmbI24g
-X-Received: by 2002:a5d:5846:0:b0:45e:e5d1:8a74 with SMTP id ffacd0b85a97d-45ee5d18b41mr2471256f8f.14.1779952155005;
-        Thu, 28 May 2026 00:09:15 -0700 (PDT)
-Received: from localhost.localdomain ([188.27.64.216])
-        by smtp.gmail.com with ESMTPSA id ffacd0b85a97d-45ee91c34bfsm2722402f8f.2.2026.05.28.00.09.13
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Thu, 28 May 2026 00:09:14 -0700 (PDT)
-From: Adrian Bente <adibente@gmail.com>
-To: pablo@netfilter.org,
-	kadlec@netfilter.org,
-	fw@strlen.de,
-	netfilter-devel@vger.kernel.org
-Cc: phil@nwl.cc,
-	davem@davemloft.net,
-	edumazet@google.com,
-	kuba@kernel.org,
-	pabeni@redhat.com,
-	horms@kernel.org,
-	nbd@nbd.name,
-	sean.wang@mediatek.com,
-	lorenzo@kernel.org,
-	andrew+netdev@lunn.ch,
-	matthias.bgg@gmail.com,
-	angelogioacchino.delregno@collabora.com,
-	daniel@makrotopia.org,
-	coreteam@netfilter.org,
-	netdev@vger.kernel.org,
-	linux-kernel@vger.kernel.org,
+	Thu, 28 May 2026 07:10:12 +0000
+Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
+	by sea.source.kernel.org (Postfix) with ESMTP id 7DE87405D4;
+	Thu, 28 May 2026 07:10:10 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 41CA61F000E9;
+	Thu, 28 May 2026 07:10:10 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
+	s=k20260515; t=1779952210;
+	bh=SvXuriDeNbgZhPyvChSTkGY/sR1ke22dPfxwqkQBu2Y=;
+	h=Date:From:To:Cc:Subject:In-Reply-To:References;
+	b=OFUpqUxJw/C8LA0dZLOacCklCNOXbKU/gPuuURxKq4cNQn/TFR9UzCh9myYcVEAJj
+	 RkOHxEjEg3SbMLTDRqLO5ZsaGHaxpOEeKwMCWF6x+g1w9JG5o+IU279AIrYuLioASa
+	 gf/9NjOL7xTdKiq1JyEcQUz94LRcFhmiF1TFqvuxJkQCopWatlJa/wlNamJlRoK8o/
+	 TyyWEke1FRsfvW2nyTTbj3a1gXTPCbNjWI8RdUDcGSojRPngyMLa8Uhrs6qnUObNd1
+	 3mc63Wej7xnwUgmNiEVMKZKZVtei9ZGVVWBJMYPjHRN/vuUYpcKxMWSUzw/7JG0ZN7
+	 ZDZXqHvxz5Mbg==
+Received: from sofa.misterjones.org ([185.219.108.64] helo=goblin-girl.misterjones.org)
+	by disco-boy.misterjones.org with esmtpsa  (TLS1.3) tls TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384
+	(Exim 4.98.2)
+	(envelope-from <maz@kernel.org>)
+	id 1wSUsZ-00000006vnj-3Nvk;
+	Thu, 28 May 2026 07:10:07 +0000
+Date: Thu, 28 May 2026 08:10:07 +0100
+Message-ID: <86ik88ui0g.wl-maz@kernel.org>
+From: Marc Zyngier <maz@kernel.org>
+To: Steven Price <steven.price@arm.com>
+Cc: kvm@vger.kernel.org,
+	kvmarm@lists.linux.dev,
+	Catalin Marinas <catalin.marinas@arm.com>,
+	Will Deacon <will@kernel.org>,
+	James Morse <james.morse@arm.com>,
+	Oliver Upton <oliver.upton@linux.dev>,
+	Suzuki K Poulose <suzuki.poulose@arm.com>,
+	Zenghui Yu <yuzenghui@huawei.com>,
 	linux-arm-kernel@lists.infradead.org,
-	linux-mediatek@lists.infradead.org,
-	Adrian Bente <adibente@gmail.com>,
-	stable@vger.kernel.org
-Subject: [PATCH v2 net] netfilter: flowtable: fix offloaded ct timeout never being extended
-Date: Thu, 28 May 2026 10:08:51 +0300
-Message-ID: <20260528070851.3913-1-adibente@gmail.com>
-X-Mailer: git-send-email 2.43.0
-MIME-Version: 1.0
-Content-Transfer-Encoding: 8bit
+	linux-kernel@vger.kernel.org,
+	Joey Gouly <joey.gouly@arm.com>,
+	Alexandru Elisei <alexandru.elisei@arm.com>,
+	Christoffer Dall <christoffer.dall@arm.com>,
+	Fuad Tabba <tabba@google.com>,
+	linux-coco@lists.linux.dev,
+	Ganapatrao Kulkarni <gankulkarni@os.amperecomputing.com>,
+	Gavin Shan <gshan@redhat.com>,
+	Shanker Donthineni <sdonthineni@nvidia.com>,
+	Alper Gun <alpergun@google.com>,
+	"Aneesh Kumar K . V" <aneesh.kumar@kernel.org>,
+	Emi Kisanuki <fj0570is@fujitsu.com>,
+	Vishal Annapurve <vannapurve@google.com>,
+	WeiLin.Chang@arm.com,
+	Lorenzo.Pieralisi2@arm.com
+Subject: Re: [PATCH v14 14/44] arm64: RMI: Basic infrastructure for creating a realm.
+In-Reply-To: <20260513131757.116630-15-steven.price@arm.com>
+References: <20260513131757.116630-1-steven.price@arm.com>
+	<20260513131757.116630-15-steven.price@arm.com>
+User-Agent: Wanderlust/2.15.9 (Almost Unreal) SEMI-EPG/1.14.7 (Harue)
+ FLIM-LB/1.14.9 (=?UTF-8?B?R29qxY0=?=) APEL-LB/10.8 EasyPG/1.0.0 Emacs/30.1
+ (aarch64-unknown-linux-gnu) MULE/6.0 (HANACHIRUSATO)
+MIME-Version: 1.0 (generated by SEMI-EPG 1.14.7 - "Harue")
+Content-Type: text/plain; charset=US-ASCII
+X-SA-Exim-Connect-IP: 185.219.108.64
+X-SA-Exim-Rcpt-To: steven.price@arm.com, kvm@vger.kernel.org, kvmarm@lists.linux.dev, catalin.marinas@arm.com, will@kernel.org, james.morse@arm.com, oliver.upton@linux.dev, suzuki.poulose@arm.com, yuzenghui@huawei.com, linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org, joey.gouly@arm.com, alexandru.elisei@arm.com, christoffer.dall@arm.com, tabba@google.com, linux-coco@lists.linux.dev, gankulkarni@os.amperecomputing.com, gshan@redhat.com, sdonthineni@nvidia.com, alpergun@google.com, aneesh.kumar@kernel.org, fj0570is@fujitsu.com, vannapurve@google.com, WeiLin.Chang@arm.com, Lorenzo.Pieralisi2@arm.com
+X-SA-Exim-Mail-From: maz@kernel.org
+X-SA-Exim-Scanned: No (on disco-boy.misterjones.org); SAEximRunCond expanded to false
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260528_000917_495204_D866D349 
-X-CRM114-Status: GOOD (  14.61  )
+X-CRM114-CacheID: sfid-20260528_001011_316135_9DB3B3D2 
+X-CRM114-Status: GOOD (  49.18  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -117,85 +106,358 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-OpenWrt has recently migrated many platforms to kernel 6.18. On the
-MediaTek platform, which supports hardware network offloading, WiFi
-connections accelerated via the WED path were observed to drop after
-roughly 300 seconds.
+On Wed, 13 May 2026 14:17:22 +0100,
+Steven Price <steven.price@arm.com> wrote:
+> 
+> Introduce the skeleton functions for creating and destroying a realm.
+> The IPA size requested is checked against what the RMM supports.
+> 
+> The actual work of constructing the realm will be added in future
+> patches.
 
-After several debugging sessions, assisted by the Claude LLM, the
-problem was narrowed down as follows:
+Again, $SUBJECT doesn't reflect that this is purely a KVM patch.
 
-nf_flow_table_extend_ct_timeout() extends ct->timeout for offloaded
-flows using:
+> 
+> Signed-off-by: Steven Price <steven.price@arm.com>
+> ---
+> Changes since v13:
+>  * Rebased and updated to RMM-v2.0-bet1.
+>  * Auxiliary granules have been removed in RMM-v2.0-bet1
+> Changes since v12:
+>  * Drop the RMM_PAGE_{SHIFT,SIZE} defines - the RMM is now configured to
+>    be the same as the host's page size.
+>  * Rework delegate/undelegate functions to use the new RMI range based
+>    operations.
+> Changes since v11:
+>  * Major rework to drop the realm configuration and make the
+>    construction of realms implicit rather than driven by the VMM
+>    directly.
+>  * The code to create RDs, handle VMIDs etc is moved to later patches.
+> Changes since v10:
+>  * Rename from RME to RMI.
+>  * Move the stage2 cleanup to a later patch.
+> Changes since v9:
+>  * Avoid walking the stage 2 page tables when destroying the realm -
+>    the real ones are not accessible to the non-secure world, and the RMM
+>    may leave junk in the physical pages when returning them.
+>  * Fix an error path in realm_create_rd() to actually return an error value.
+> Changes since v8:
+>  * Fix free_delegated_granule() to not call kvm_account_pgtable_pages();
+>    a separate wrapper will be introduced in a later patch to deal with
+>    RTTs.
+>  * Minor code cleanups following review.
+> Changes since v7:
+>  * Minor code cleanup following Gavin's review.
+> Changes since v6:
+>  * Separate RMM RTT calculations from host PAGE_SIZE. This allows the
+>    host page size to be larger than 4k while still communicating with an
+>    RMM which uses 4k granules.
+> Changes since v5:
+>  * Introduce free_delegated_granule() to replace many
+>    undelegate/free_page() instances and centralise the comment on
+>    leaking when the undelegate fails.
+>  * Several other minor improvements suggested by reviews - thanks for
+>    the feedback!
+> Changes since v2:
+>  * Improved commit description.
+>  * Improved return failures for rmi_check_version().
+>  * Clear contents of PGD after it has been undelegated in case the RMM
+>    left stale data.
+>  * Minor changes to reflect changes in previous patches.
+> ---
+>  arch/arm64/include/asm/kvm_emulate.h | 29 ++++++++++++++
+>  arch/arm64/include/asm/kvm_rmi.h     | 51 +++++++++++++++++++++++++
+>  arch/arm64/kvm/arm.c                 | 12 ++++++
+>  arch/arm64/kvm/mmu.c                 | 12 +++++-
+>  arch/arm64/kvm/rmi.c                 | 57 ++++++++++++++++++++++++++++
+>  5 files changed, 159 insertions(+), 2 deletions(-)
+> 
+> diff --git a/arch/arm64/include/asm/kvm_emulate.h b/arch/arm64/include/asm/kvm_emulate.h
+> index 5bf3d7e1d92c..82fd777bd9bb 100644
+> --- a/arch/arm64/include/asm/kvm_emulate.h
+> +++ b/arch/arm64/include/asm/kvm_emulate.h
+> @@ -688,4 +688,33 @@ static inline void vcpu_set_hcrx(struct kvm_vcpu *vcpu)
+>  			vcpu->arch.hcrx_el2 |= HCRX_EL2_EnASR;
+>  	}
+>  }
+> +
+> +static inline bool kvm_is_realm(struct kvm *kvm)
+> +{
+> +	if (static_branch_unlikely(&kvm_rmi_is_available))
+> +		return kvm->arch.is_realm;
+> +	return false;
+> +}
+> +
+> +static inline enum realm_state kvm_realm_state(struct kvm *kvm)
+> +{
+> +	return READ_ONCE(kvm->arch.realm.state);
+> +}
+> +
+> +static inline void kvm_set_realm_state(struct kvm *kvm,
+> +				       enum realm_state new_state)
+> +{
+> +	WRITE_ONCE(kvm->arch.realm.state, new_state);
+> +}
+> +
+> +static inline bool kvm_realm_is_created(struct kvm *kvm)
+> +{
+> +	return kvm_is_realm(kvm) && kvm_realm_state(kvm) != REALM_STATE_NONE;
+> +}
+> +
+> +static inline bool vcpu_is_rec(const struct kvm_vcpu *vcpu)
+> +{
+> +	return false;
+> +}
+> +
+>  #endif /* __ARM64_KVM_EMULATE_H__ */
+> diff --git a/arch/arm64/include/asm/kvm_rmi.h b/arch/arm64/include/asm/kvm_rmi.h
+> index 4936007947fd..9de34983ee52 100644
+> --- a/arch/arm64/include/asm/kvm_rmi.h
+> +++ b/arch/arm64/include/asm/kvm_rmi.h
+> @@ -6,12 +6,63 @@
+>  #ifndef __ASM_KVM_RMI_H
+>  #define __ASM_KVM_RMI_H
+>  
+> +#include <asm/rmi_smc.h>
+> +
+> +/**
+> + * enum realm_state - State of a Realm
+> + */
+> +enum realm_state {
+> +	/**
+> +	 * @REALM_STATE_NONE:
+> +	 *      Realm has not yet been created. rmi_realm_create() has not
+> +	 *      yet been called.
+> +	 */
+> +	REALM_STATE_NONE,
+> +	/**
+> +	 * @REALM_STATE_NEW:
+> +	 *      Realm is under construction, rmi_realm_create() has been
+> +	 *      called, but it is not yet activated. Pages may be populated.
+> +	 */
+> +	REALM_STATE_NEW,
+> +	/**
+> +	 * @REALM_STATE_ACTIVE:
+> +	 *      Realm has been created and is eligible for execution with
+> +	 *      rmi_rec_enter(). Pages may no longer be populated with
+> +	 *      rmi_data_create().
+> +	 */
+> +	REALM_STATE_ACTIVE,
+> +	/**
+> +	 * @REALM_STATE_DYING:
+> +	 *      Realm is in the process of being destroyed or has already been
+> +	 *      destroyed.
+> +	 */
+> +	REALM_STATE_DYING,
+> +	/**
+> +	 * @REALM_STATE_DEAD:
+> +	 *      Realm has been destroyed.
+> +	 */
+> +	REALM_STATE_DEAD
+> +};
 
-	cmpxchg(&ct->timeout, expires, new_timeout);
+What is the ABI status of this state? Is it purely internal to KVM? Or
+is it something that the RMM actively tracks?
 
-'expires' comes from nf_ct_expires(ct) and is a relative value, while
-ct->timeout holds an absolute timestamp. The two are never equal, so
-the cmpxchg always fails and the timeout is never extended.
+> +
+>  /**
+>   * struct realm - Additional per VM data for a Realm
+> + *
+> + * @state: The lifetime state machine for the realm
+> + * @rd: Kernel mapping of the Realm Descriptor (RD)
+> + * @params: Parameters for the RMI_REALM_CREATE command
+> + * @ia_bits: Number of valid Input Address bits in the IPA
+>   */
+>  struct realm {
+> +	enum realm_state state;
+> +	void *rd;
 
-This goes unnoticed for most flows, but a long-lived hardware (WED)
-offloaded flow on MediaTek MT7986 eventually has ct->timeout decay to
-zero, the conntrack entry is reaped and the connection breaks.
+Why is this void? Doesn't it have a proper type?
 
-Open-code the relative value from a single READ_ONCE(ct->timeout)
-snapshot and compare against that same absolute snapshot in the
-cmpxchg, so the timeout extension actually takes effect while the
-datapath remains authoritative if it updates ct->timeout concurrently.
+> +	struct realm_params *params;
+> +	unsigned int ia_bits;
 
-Suggested-by: Florian Westphal <fw@strlen.de>
-Fixes: 03428ca5cee9 ("netfilter: conntrack: rework offload nf_conn timeout extension logic")
-Cc: stable@vger.kernel.org
-Signed-off-by: Adrian Bente <adibente@gmail.com>
----
-v2:
-  - open-code expires from an absolute READ_ONCE(ct->timeout) snapshot
-    instead of the relative nf_ct_expires() value (Florian Westphal)
-  - change min_timeout to s32 to keep the comparison signed
-  - initialise new_timeout to 1 instead of true
+Consider reordering this structure to avoid holes.
 
- net/netfilter/nf_flow_table_core.c | 13 +++++++++----
- 1 file changed, 9 insertions(+), 4 deletions(-)
+>  };
+>  
+>  void kvm_init_rmi(void);
+> +u32 kvm_realm_ipa_limit(void);
 
-diff --git a/net/netfilter/nf_flow_table_core.c b/net/netfilter/nf_flow_table_core.c
-index 3313f82..a2d08e5 100644
---- a/net/netfilter/nf_flow_table_core.c
-+++ b/net/netfilter/nf_flow_table_core.c
-@@ -500,8 +500,13 @@
-  */
- static void nf_flow_table_extend_ct_timeout(struct nf_conn *ct)
- {
--	static const u32 min_timeout = 5 * 60 * HZ;
--	u32 expires = nf_ct_expires(ct);
-+	static const s32 min_timeout = 5 * 60 * HZ;
-+	u32 ct_timeout = READ_ONCE(ct->timeout);
-+	s32 expires;
-+
-+	expires = ct_timeout - nfct_time_stamp;
-+	if (expires <= 0) /* already expired */
-+		return;
- 
- 	/* normal case: large enough timeout, nothing to do. */
- 	if (likely(expires >= min_timeout))
-@@ -519,7 +524,7 @@ static void nf_flow_table_extend_ct_timeout(struct nf_conn *ct)
- 	if (nf_ct_is_confirmed(ct) &&
- 	    test_bit(IPS_OFFLOAD_BIT, &ct->status)) {
- 		u8 l4proto = nf_ct_protonum(ct);
--		u32 new_timeout = true;
-+		u32 new_timeout = 1;
- 
- 		switch (l4proto) {
- 		case IPPROTO_UDP:
-@@ -544,7 +549,7 @@ static void nf_flow_table_extend_ct_timeout(struct nf_conn *ct)
- 		 */
- 		if (new_timeout) {
- 			new_timeout += nfct_time_stamp;
--			cmpxchg(&ct->timeout, expires, new_timeout);
-+			cmpxchg(&ct->timeout, ct_timeout, new_timeout);
- 		}
- 	}
- 
+The use of 'realm' is confusing. This is not a per-realm property, but
+something global. I'd rather reserve the term 'realm' for CCA VMs (cue
+the two prototypes below).
+
+> +
+> +int kvm_init_realm(struct kvm *kvm);
+> +void kvm_destroy_realm(struct kvm *kvm);
+>  
+>  #endif /* __ASM_KVM_RMI_H */
+> diff --git a/arch/arm64/kvm/arm.c b/arch/arm64/kvm/arm.c
+> index 247e03b33035..18251e561524 100644
+> --- a/arch/arm64/kvm/arm.c
+> +++ b/arch/arm64/kvm/arm.c
+> @@ -264,6 +264,13 @@ int kvm_arch_init_vm(struct kvm *kvm, unsigned long type)
+>  
+>  	bitmap_zero(kvm->arch.vcpu_features, KVM_VCPU_MAX_FEATURES);
+>  
+> +	/* Initialise the realm bits after the generic bits are enabled */
+> +	if (kvm_is_realm(kvm)) {
+> +		ret = kvm_init_realm(kvm);
+> +		if (ret)
+> +			goto err_uninit_mmu;
+> +	}
+> +
+>  	return 0;
+>  
+>  err_uninit_mmu:
+> @@ -326,6 +333,8 @@ void kvm_arch_destroy_vm(struct kvm *kvm)
+>  	kvm_unshare_hyp(kvm, kvm + 1);
+>  
+>  	kvm_arm_teardown_hypercalls(kvm);
+> +	if (kvm_is_realm(kvm))
+> +		kvm_destroy_realm(kvm);
+>  }
+>  
+>  static bool kvm_has_full_ptr_auth(void)
+> @@ -486,6 +495,9 @@ int kvm_vm_ioctl_check_extension(struct kvm *kvm, long ext)
+>  		else
+>  			r = kvm_supports_cacheable_pfnmap();
+>  		break;
+> +	case KVM_CAP_ARM_RMI:
+> +		r = static_key_enabled(&kvm_rmi_is_available);
+> +		break;
+>  
+>  	default:
+>  		r = 0;
+> diff --git a/arch/arm64/kvm/mmu.c b/arch/arm64/kvm/mmu.c
+> index d089c107d9b7..ba8286472286 100644
+> --- a/arch/arm64/kvm/mmu.c
+> +++ b/arch/arm64/kvm/mmu.c
+> @@ -877,10 +877,14 @@ static struct kvm_pgtable_mm_ops kvm_s2_mm_ops = {
+>  
+>  static int kvm_init_ipa_range(struct kvm_s2_mmu *mmu, unsigned long type)
+>  {
+> +	struct kvm *kvm = kvm_s2_mmu_to_kvm(mmu);
+>  	u32 kvm_ipa_limit = get_kvm_ipa_limit();
+>  	u64 mmfr0, mmfr1;
+>  	u32 phys_shift;
+>  
+> +	if (kvm_is_realm(kvm))
+> +		kvm_ipa_limit = kvm_realm_ipa_limit();
+> +
+>  	phys_shift = KVM_VM_TYPE_ARM_IPA_SIZE(type);
+>  	if (is_protected_kvm_enabled()) {
+>  		phys_shift = kvm_ipa_limit;
+> @@ -974,6 +978,8 @@ int kvm_init_stage2_mmu(struct kvm *kvm, struct kvm_s2_mmu *mmu, unsigned long t
+>  		return -EINVAL;
+>  	}
+>  
+> +	mmu->arch = &kvm->arch;
+> +
+>  	err = kvm_init_ipa_range(mmu, type);
+>  	if (err)
+>  		return err;
+> @@ -982,7 +988,6 @@ int kvm_init_stage2_mmu(struct kvm *kvm, struct kvm_s2_mmu *mmu, unsigned long t
+>  	if (!pgt)
+>  		return -ENOMEM;
+>  
+> -	mmu->arch = &kvm->arch;
+
+Why moving this init?
+
+>  	err = KVM_PGT_FN(kvm_pgtable_stage2_init)(pgt, mmu, &kvm_s2_mm_ops);
+>  	if (err)
+>  		goto out_free_pgtable;
+> @@ -1114,7 +1119,10 @@ void kvm_free_stage2_pgd(struct kvm_s2_mmu *mmu)
+>  	write_unlock(&kvm->mmu_lock);
+>  
+>  	if (pgt) {
+> -		kvm_stage2_destroy(pgt);
+> +		if (!kvm_is_realm(kvm))
+> +			kvm_stage2_destroy(pgt);
+> +		else
+> +			kvm_pgtable_stage2_destroy_pgd(pgt);
+
+Why can't you make kvm_stage2_destroy() do the right thing? Surely the
+PTs have to be reclaimed one way or another.
+
+>  		kfree(pgt);
+>  	}
+>  }
+> diff --git a/arch/arm64/kvm/rmi.c b/arch/arm64/kvm/rmi.c
+> index 6e28b669ded2..f51ec667445e 100644
+> --- a/arch/arm64/kvm/rmi.c
+> +++ b/arch/arm64/kvm/rmi.c
+> @@ -5,6 +5,8 @@
+>  
+>  #include <linux/kvm_host.h>
+>  
+> +#include <asm/kvm_emulate.h>
+> +#include <asm/kvm_mmu.h>
+>  #include <asm/kvm_pgtable.h>
+>  #include <asm/rmi_cmds.h>
+>  #include <asm/virt.h>
+> @@ -14,6 +16,61 @@ static bool rmi_has_feature(unsigned long feature)
+>  	return !!u64_get_bits(rmm_feat_reg0, feature);
+>  }
+>  
+> +u32 kvm_realm_ipa_limit(void)
+> +{
+> +	return u64_get_bits(rmm_feat_reg0, RMI_FEATURE_REGISTER_0_S2SZ);
+> +}
+> +
+> +void kvm_destroy_realm(struct kvm *kvm)
+> +{
+> +	struct realm *realm = &kvm->arch.realm;
+> +	size_t pgd_size = kvm_pgtable_stage2_pgd_size(kvm->arch.mmu.vtcr);
+> +
+> +	if (realm->params) {
+> +		free_page((unsigned long)realm->params);
+> +		realm->params = NULL;
+> +	}
+> +
+> +	if (!kvm_realm_is_created(kvm))
+> +		return;
+> +
+> +	kvm_set_realm_state(kvm, REALM_STATE_DYING);
+> +
+> +	write_lock(&kvm->mmu_lock);
+> +	kvm_stage2_unmap_range(&kvm->arch.mmu, 0,
+> +			       BIT(realm->ia_bits - 1), true);
+> +	write_unlock(&kvm->mmu_lock);
+> +
+> +	if (realm->rd) {
+> +		phys_addr_t rd_phys = virt_to_phys(realm->rd);
+> +
+> +		if (WARN_ON(rmi_realm_terminate(rd_phys)))
+> +			return;
+> +
+> +		if (WARN_ON(rmi_realm_destroy(rd_phys)))
+> +			return;
+> +		free_delegated_page(rd_phys);
+> +		realm->rd = NULL;
+> +	}
+> +
+> +	if (WARN_ON(rmi_undelegate_range(kvm->arch.mmu.pgd_phys, pgd_size)))
+> +		return;
+> +
+> +	kvm_set_realm_state(kvm, REALM_STATE_DEAD);
+> +
+> +	/* Now that the Realm is destroyed, free the entry level RTTs */
+> +	kvm_free_stage2_pgd(&kvm->arch.mmu);
+> +}
+
+This really needs documentation: what happens at each stage? What
+memory is reclaimed when?
+
+But even more importantly, why is this built in a completely parallel
+way, potentially deviating from the existing KVM S2 management?
+
+Thanks,
+
+	M.
+
 -- 
-2.43.0
-
+Without deviation from the norm, progress is not possible.
 
