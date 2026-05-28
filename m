@@ -4,70 +4,60 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id C9BBCCD4F54
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 28 May 2026 13:10:07 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id B498BCD6E49
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 28 May 2026 13:10:54 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:MIME-Version:References:In-Reply-To:Message-ID:Subject:Cc:To:
-	From:Date:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
+	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=r0QrpkQCV7e0TWVW6fG/E9wzE1TJ4SiymmotkEZ+8oA=; b=yjKAFRGB6hewAY+OXtZZu6DgeM
-	cjpu0TmmKaYTLgqzUOX0B3TDqscpOr3w1pFfdHTnSDUxcwuHJj7+kRFa3JS0DFeL+dtX/V4PFwzNK
-	fKQLeWucl4R4ngT2vZziHK4ghNByWzU5e34MaYyWao96ppBOwk4dB0aMEx3/wd46nRLwR2NuCsQOX
-	E7UeuFqefQYQSmT30TSAQApzgsew3JgxfTssK9KA3mzAUPBNPdtr5zSk0Bz32JpAV/oEpfppz2RM0
-	n+59+wqTNGsnjwems/T87IkiMi4CgCaZ/ylvyIPbwlxQrBI5/wduh1YSNYhJyGLkfEs/Go8KwFaqS
-	znw39HOQ==;
+	bh=ZAi73Mqob0bgaiFGpV5uEk1XYugbydh8hdX0JB/yPSE=; b=B1X/c9+VUrGQs1CTmpLj+ee2xN
+	o51c/2SQ+Rr8RjWdXqLKtfGe4SrrwU7fo3a+s5Tl5WGfx42RVBWa9o5alUsxO6i1PHQrBWTkEk6rY
+	04jD0unxN6ReZH+fdTM4djgFHDVSZB8x+zclhNfmfG2HF8uuwuH0RO4YwI0ZP4zRs2fYASbAxZrfS
+	MaYmkX/sRoKbKLu7oipOxhvSmN8bHrK3asJ4D+DkF263aEX5MriNyGHw+A6ZcVT3MqIP0A2zhB4/S
+	T6XPXHn90gucENJHnaym8REUhXZ/BsaQz/eXqgGwgNS6G84p7n4EaHa3QZPp897zOzgrBDZOiSy3y
+	8fcntboQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wSaUr-00000005lU3-30vs;
-	Thu, 28 May 2026 13:10:01 +0000
-Received: from sea.source.kernel.org ([172.234.252.31])
-	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wSaUp-00000005lTN-1dfj
+	id 1wSaVc-00000005lZY-3goK;
+	Thu, 28 May 2026 13:10:48 +0000
+Received: from foss.arm.com ([217.140.110.172])
+	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
+	id 1wSaVb-00000005lYX-04ci
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 28 May 2026 13:10:00 +0000
-Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
-	by sea.source.kernel.org (Postfix) with ESMTP id A0AAC446C6;
-	Thu, 28 May 2026 13:09:58 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 21A771F000E9;
-	Thu, 28 May 2026 13:09:51 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1779973798;
-	bh=r0QrpkQCV7e0TWVW6fG/E9wzE1TJ4SiymmotkEZ+8oA=;
-	h=Date:From:To:Cc:Subject:In-Reply-To:References;
-	b=FScYaL+nQtn59lt3XFAAA9o4Yg6kEl4brpFw1LEWS7IHxDUz4mtHZtTtzkom60O/I
-	 CkE+aQiTiJHwB3PdgrJ3kjmvauHOSobrvqXYrhhhhXyK7BA+MkznIG/BU2DyQtkFKR
-	 Lr3Y8UgujM5kp9B11rrCi5LFCc+kWInO+/aNjtG5B2Aa7xo7HyNgXnEwbxFJn4SEnS
-	 x31KCBgSewijLLjX6s4w2feHYNefrNyuvrdKt1sntsxdpMpZYXUpgPDDrqVfW55S0B
-	 r6eF+hFt6UGOJqgXbtviEa1MkTylc8TVYTV+kTRSYpzYCirZM9pbLqd5MBhHhNC7g8
-	 qAonuPStPCxVA==
-Date: Thu, 28 May 2026 14:09:47 +0100
-From: Jonathan Cameron <jic23@kernel.org>
-To: kernel test robot <lkp@intel.com>
-Cc: David Lechner <dlechner@baylibre.com>, Jyoti Bhayana
- <jbhayana@google.com>, Nuno =?UTF-8?B?U8Oh?= <nuno.sa@analog.com>, Andy
- Shevchenko <andy@kernel.org>, Nicolas Ferre <nicolas.ferre@microchip.com>,
- Alexandre Belloni <alexandre.belloni@bootlin.com>, Claudiu Beznea
- <claudiu.beznea@tuxon.dev>, Maxime Coquelin <mcoquelin.stm32@gmail.com>,
- Alexandre Torgue <alexandre.torgue@foss.st.com>, Benson Leung
- <bleung@chromium.org>, Guenter Roeck <groeck@chromium.org>,
- oe-kbuild-all@lists.linux.dev, linux-iio@vger.kernel.org,
- linux-kernel@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
- linux-stm32@st-md-mailman.stormreply.com, chrome-platform@lists.linux.dev
-Subject: Re: [PATCH] iio: pressure: cros_ec_baro: simplify timestamp channel
- definition
-Message-ID: <20260528140947.12c73152@jic23-huawei>
-In-Reply-To: <202605281432.a64fe4iY-lkp@intel.com>
-References: <20260525014654.2399354-1-dlechner@baylibre.com>
-	<202605281432.a64fe4iY-lkp@intel.com>
-X-Mailer: Claws Mail 4.4.0 (GTK 3.24.52; x86_64-pc-linux-gnu)
+	Thu, 28 May 2026 13:10:48 +0000
+Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
+	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id D33894402;
+	Thu, 28 May 2026 06:10:36 -0700 (PDT)
+Received: from [10.1.28.164] (unknown [10.1.28.164])
+	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id 284773F632;
+	Thu, 28 May 2026 06:10:38 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=simple/simple; d=arm.com; s=foss;
+	t=1779973841; bh=Jnt9KuLkWsuC6eedPcxmoBMiPXplBzGlOfT17H7n1LM=;
+	h=Date:Subject:To:Cc:References:From:In-Reply-To:From;
+	b=dzScRJIw6z6dqFSw/alsZGKm9XCM3JEeBgdW4TX3T2n1qvhE0Ym/MbhsoJMrBtahc
+	 E610HSZPjokTNSjkGNC+BmJ2ORn01+gvBNCestwL+Xsz1gOgUawkIV1xC/RfqC083v
+	 BnQyeUqT6X0hrUq7IuZN3SIVUDTEoI3799vQbFTk=
+Message-ID: <6f03bcd0-f46c-4cc7-b08e-85fb6a81e9a3@arm.com>
+Date: Thu, 28 May 2026 14:10:36 +0100
 MIME-Version: 1.0
-Content-Type: text/plain; charset=US-ASCII
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH 18/18] arm64: fpsimd: Remove <asm/fpsimdmacros.h>
+To: Mark Rutland <mark.rutland@arm.com>,
+ linux-arm-kernel@lists.infradead.org, kvmarm@lists.linux.dev
+Cc: broonie@kernel.org, catalin.marinas@arm.com, james.morse@arm.com,
+ maz@kernel.org, oupton@kernel.org, tabba@google.com, will@kernel.org
+References: <20260521132556.584676-1-mark.rutland@arm.com>
+ <20260521132556.584676-19-mark.rutland@arm.com>
+Content-Language: en-GB
+From: Vladimir Murzin <vladimir.murzin@arm.com>
+In-Reply-To: <20260521132556.584676-19-mark.rutland@arm.com>
+Content-Type: text/plain; charset=UTF-8
 Content-Transfer-Encoding: 7bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260528_060959_483532_CBD2C888 
-X-CRM114-Status: GOOD (  18.29  )
+X-CRM114-CacheID: sfid-20260528_061047_217240_FB48DD9F 
+X-CRM114-Status: GOOD (  13.01  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -82,66 +72,99 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Thu, 28 May 2026 14:40:51 +0800
-kernel test robot <lkp@intel.com> wrote:
+On 5/21/26 14:25, Mark Rutland wrote:
+> We no longer need any of the remaining macros in <asm/fpsimdmacros.h>.
+> 
+> Remove all of it.
+> 
+> Signed-off-by: Mark Rutland <mark.rutland@arm.com>
+> Cc: Catalin Marinas <catalin.marinas@arm.com>
+> Cc: Fuad Tabba <tabba@google.com>
+> Cc: James Morse <james.morse@arm.com>
+> Cc: Marc Zyngier <maz@kernel.org>
+> Cc: Mark Brown <broonie@kernel.org>
+> Cc: Oliver Upton <oupton@kernel.org>
+> Cc: Will Deacon <will@kernel.org>
+> ---
+>  arch/arm64/include/asm/fpsimdmacros.h | 64 ---------------------------
+>  1 file changed, 64 deletions(-)
+>  delete mode 100644 arch/arm64/include/asm/fpsimdmacros.h
+> 
+> diff --git a/arch/arm64/include/asm/fpsimdmacros.h b/arch/arm64/include/asm/fpsimdmacros.h
+> deleted file mode 100644
+> index a763fd03ffef3..0000000000000
+> --- a/arch/arm64/include/asm/fpsimdmacros.h
+> +++ /dev/null
+> @@ -1,64 +0,0 @@
+> -/* SPDX-License-Identifier: GPL-2.0-only */
+> -/*
+> - * FP/SIMD state saving and restoring macros
+> - *
+> - * Copyright (C) 2012 ARM Ltd.
+> - * Author: Catalin Marinas <catalin.marinas@arm.com>
+> - */
+> -
+> -#include <asm/assembler.h>
+> -
+> -/* Sanity-check macros to help avoid encoding garbage instructions */
+> -
+> -.macro _check_general_reg nr
+> -	.if (\nr) < 0 || (\nr) > 30
+> -		.error "Bad register number \nr."
+> -	.endif
+> -.endm
+> -
+> -.macro _sve_check_zreg znr
+> -	.if (\znr) < 0 || (\znr) > 31
+> -		.error "Bad Scalable Vector Extension vector register number \znr."
+> -	.endif
+> -.endm
+> -
+> -.macro _sve_check_preg pnr
+> -	.if (\pnr) < 0 || (\pnr) > 15
+> -		.error "Bad Scalable Vector Extension predicate register number \pnr."
+> -	.endif
+> -.endm
+> -
+> -.macro _check_num n, min, max
+> -	.if (\n) < (\min) || (\n) > (\max)
+> -		.error "Number \n out of range [\min,\max]"
+> -	.endif
+> -.endm
+> -
+> -.macro _sme_check_wv v
+> -	.if (\v) < 12 || (\v) > 15
+> -		.error "Bad vector select register \v."
+> -	.endif
+> -.endm
+> -
+> -.macro __for from:req, to:req
+> -	.if (\from) == (\to)
+> -		_for__body %\from
+> -	.else
+> -		__for %\from, %((\from) + ((\to) - (\from)) / 2)
+> -		__for %((\from) + ((\to) - (\from)) / 2 + 1), %\to
+> -	.endif
+> -.endm
+> -
+> -.macro _for var:req, from:req, to:req, insn:vararg
+> -	.macro _for__body \var:req
+> -		.noaltmacro
+> -		\insn
+> -		.altmacro
+> -	.endm
+> -
+> -	.altmacro
+> -	__for \from, \to
+> -	.noaltmacro
+> -
+> -	.purgem _for__body
+> -.endm
+> -- 2.30.2
+> 
 
-> Hi David,
-> 
-> kernel test robot noticed the following build errors:
-> 
-For the record, this is a side effect of some email trouble David had.
-It's meant to be in a series with the patch that makes that macro
-a compound literal.
+FWIW,
 
-> [auto build test ERROR on jic23-iio/togreg]
-> [also build test ERROR on linus/master v7.1-rc5 next-20260527]
-> [If your patch is applied to the wrong git tree, kindly drop us a note.
-> And when submitting patch, we suggest to use '--base' as documented in
-> https://git-scm.com/docs/git-format-patch#_base_tree_information]
-> 
-> url:    https://github.com/intel-lab-lkp/linux/commits/David-Lechner/iio-pressure-cros_ec_baro-simplify-timestamp-channel-definition/20260525-134550
-> base:   https://git.kernel.org/pub/scm/linux/kernel/git/jic23/iio.git togreg
-> patch link:    https://lore.kernel.org/r/20260525014654.2399354-1-dlechner%40baylibre.com
-> patch subject: [PATCH] iio: pressure: cros_ec_baro: simplify timestamp channel definition
-> config: m68k-allyesconfig (https://download.01.org/0day-ci/archive/20260528/202605281432.a64fe4iY-lkp@intel.com/config)
-> compiler: m68k-linux-gcc (GCC) 15.2.0
-> reproduce (this is a W=1 build): (https://download.01.org/0day-ci/archive/20260528/202605281432.a64fe4iY-lkp@intel.com/reproduce)
-> 
-> If you fix the issue in a separate patch/commit (i.e. not just a new version of
-> the same patch/commit), kindly add following tags
-> | Reported-by: kernel test robot <lkp@intel.com>
-> | Closes: https://lore.kernel.org/oe-kbuild-all/202605281432.a64fe4iY-lkp@intel.com/
-> 
-> All errors (new ones prefixed by >>):
-> 
->    In file included from include/linux/iio/buffer.h:10,
->                     from drivers/iio/pressure/cros_ec_baro.c:9:
->    drivers/iio/pressure/cros_ec_baro.c: In function 'cros_ec_baro_probe':
-> >> include/linux/iio/iio.h:356:38: error: expected expression before '{' token  
->      356 | #define IIO_CHAN_SOFT_TIMESTAMP(_si) {                                  \
->          |                                      ^
->    drivers/iio/pressure/cros_ec_baro.c:174:20: note: in expansion of macro 'IIO_CHAN_SOFT_TIMESTAMP'
->      174 |         *channel = IIO_CHAN_SOFT_TIMESTAMP(1);
->          |                    ^~~~~~~~~~~~~~~~~~~~~~~
-> 
-> 
-> vim +356 include/linux/iio/iio.h
-> 
-> 00c5f80c2fad53 include/linux/iio/iio.h   Peter Rosin      2016-11-08  355  
-> 07d4655b410a4d include/linux/iio/iio.h   Jonathan Cameron 2013-11-12 @356  #define IIO_CHAN_SOFT_TIMESTAMP(_si) {					\
-> 07d4655b410a4d include/linux/iio/iio.h   Jonathan Cameron 2013-11-12  357  	.type = IIO_TIMESTAMP,						\
-> 07d4655b410a4d include/linux/iio/iio.h   Jonathan Cameron 2013-11-12  358  	.channel = -1,							\
-> 07d4655b410a4d include/linux/iio/iio.h   Jonathan Cameron 2013-11-12  359  	.scan_index = _si,						\
-> 07d4655b410a4d include/linux/iio/iio.h   Jonathan Cameron 2013-11-12  360  	.scan_type = {							\
-> 07d4655b410a4d include/linux/iio/iio.h   Jonathan Cameron 2013-11-12  361  		.sign = 's',						\
-> 07d4655b410a4d include/linux/iio/iio.h   Jonathan Cameron 2013-11-12  362  		.realbits = 64,					\
-> 07d4655b410a4d include/linux/iio/iio.h   Jonathan Cameron 2013-11-12  363  		.storagebits = 64,					\
-> 07d4655b410a4d include/linux/iio/iio.h   Jonathan Cameron 2013-11-12  364  		},							\
-> 07d4655b410a4d include/linux/iio/iio.h   Jonathan Cameron 2013-11-12  365  }
-> 1d892719e70e47 drivers/staging/iio/iio.h Jonathan Cameron 2011-05-18  366  
-> 
-> --
-> 0-DAY CI Kernel Test Service
-> https://github.com/intel/lkp-tests/wiki
+Reviewed-by: Vladimir Murzin <vladimir.murzin@arm.com>
 
 
