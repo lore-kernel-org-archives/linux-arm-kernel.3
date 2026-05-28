@@ -4,61 +4,110 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 7E435CD6E44
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 28 May 2026 14:27:11 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id C61A3CD6E44
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 28 May 2026 14:29:29 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=pFJ/ywYor2WZCvHkqATZq9QUDDlj9d/3ElvsUofMQxU=; b=Hfw3iWtala/P4iaQD4Qljill8y
-	aU9d5nvNnlEEO3bi94V6P5u+qTRJWeFY0xNshDdMvWmUm2id+Xml01X+AAYWjudkRsz1+Oj1qQPKH
-	LxXdpD5+YTB39G+RsgWJyv17OqxCixeR8gjL76i7GAQBlA7MaICXaXogP9Ga6bW6zWEItKrg8XP0l
-	U/XrxEhefjJeXQAYX0BJ3nya4Za55Y2mH+f9dJJdgY5diyBoULhpK7hAwI+3mD0DmIN88ULwG3BzG
-	Fwn45Ns7gvLlC3D8GE1kV+7ZffkvqfjGyw1BrLR8p5YrCom0QUN9MQhKrnvR9SXCwrBQAAuSvgikM
-	O4qdK94A==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:Cc:To:Subject:Message-ID:Date:From:In-Reply-To:References:
+	MIME-Version:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=tcS4djirQ7jCuPbZgRdCiKvbNxNqGGa9ynUDWxizWQY=; b=Xf+ppIJS3KXMOBGVoUQtoqUz8O
+	+rHLLLHi3E9dAziEmHAunMU7wQbOypE6Q9IO+pcUTDN3rU2LhX3StKPKabXh3mePiZ7G4wehCaAY3
+	sbSyL+ZrDfIknen0+Ipb6GF0/XKJ1W+r9OJw0UfsBe1J2KL1MAQ17NmZ6ps4cujtqMMBpcdA7GwEv
+	rE2lQAw5RLzyju9qRgOpnvG7lR9ujHv7MugMHW3ZodA6K9rku/mjSHSugRW9PjM4huaSgRYGOHv8r
+	D42A4MJ4XLVQH+DL6FVsOUM2+EKilVfM2PRdVRfsp75ta74CZMismJOeQ46mqvyV+zZ2blEqFSLH7
+	ZSzsYz5Q==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wSbhR-00000005qbz-0w3k;
-	Thu, 28 May 2026 14:27:05 +0000
-Received: from foss.arm.com ([217.140.110.172])
-	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wSbhO-00000005qbU-27p0
+	id 1wSbjf-00000005qvQ-3IEu;
+	Thu, 28 May 2026 14:29:23 +0000
+Received: from mail-ed1-x52b.google.com ([2a00:1450:4864:20::52b])
+	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
+	id 1wSbjd-00000005quL-2cbN
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 28 May 2026 14:27:03 +0000
-Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
-	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id DDCF044A7;
-	Thu, 28 May 2026 07:26:55 -0700 (PDT)
-Received: from e129823.arm.com (e129823.arm.com [10.1.197.6])
-	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id B77A43F905;
-	Thu, 28 May 2026 07:26:59 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=simple/simple; d=arm.com; s=foss;
-	t=1779978420; bh=s6F2Efxk2WV9Dt67rZc51h8FcFWKXsHu+eFkbXrErJs=;
-	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
-	b=qAY5l++byfOwPF2u3LBdI3Vpw6JqqF+VELGxkF674kpeuPxiUrIAbUNXip44z7JIW
-	 He0cqJKpU96XY6tTQeLAvDb51AZtfHxigE3YMQBu/k6XqOtLAEjzWrI7WxgLiq7v97
-	 Zht9Muub4O6+O2aNnpmHN8c87ARJhH2iB1p6lFQ4=
-Date: Thu, 28 May 2026 15:26:57 +0100
-From: Yeoreum Yun <yeoreum.yun@arm.com>
-To: Leo Yan <leo.yan@arm.com>
-Cc: coresight@lists.linaro.org, linux-arm-kernel@lists.infradead.org,
-	linux-kernel@vger.kernel.org, suzuki.poulose@arm.com,
-	mike.leach@arm.com, james.clark@linaro.org,
-	alexander.shishkin@linux.intel.com, jie.gan@oss.qualcomm.com
-Subject: Re: [PATCH v7 08/13] coresight: etm4x: fix inconsistencies with
- sysfs configuration
-Message-ID: <ahhQsTNok65e6K0F@e129823.arm.com>
-References: <20260519154812.254884-1-yeoreum.yun@arm.com>
- <20260519154812.254884-9-yeoreum.yun@arm.com>
- <20260528140943.GE101133@e132581.arm.com>
+	Thu, 28 May 2026 14:29:22 +0000
+Received: by mail-ed1-x52b.google.com with SMTP id 4fb4d7f45d1cf-67c9616b4feso20087934a12.1
+        for <linux-arm-kernel@lists.infradead.org>; Thu, 28 May 2026 07:29:21 -0700 (PDT)
+ARC-Seal: i=1; a=rsa-sha256; t=1779978560; cv=none;
+        d=google.com; s=arc-20240605;
+        b=gk2fr0x0KWBaoQRjkLHcSE9fdrcb85uJKIFV2Ko7yfo4zQyX72pLdPSpYiOlY3gY/G
+         up1PDT3PPCA36DfvoBU6COPQGwtQdE6BtqtiRAeuIwRwZwhu8ww2zB7IPBE0DFdSvo67
+         oH6RKQ7g6S4Gscz4L8q5f+oh7MtAsq+Ooh3VtFEYR+31eDpl6pALw5Q+ttIKitawHQhj
+         mE334XWErO4CkDg7UdVEJ2f0pgj4yqOSC9v4I6K4f35gQrf96GzSP9fFmquE2XDocBlg
+         Zs/15YkLCGPI1/2KMp8dJMvHDvpZbhGokD8Cn96djDBu4R5/q3GbqJHKIxai00dwj5T6
+         LL/A==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20240605;
+        h=content-transfer-encoding:cc:to:subject:message-id:date:from
+         :in-reply-to:references:mime-version:dkim-signature;
+        bh=tcS4djirQ7jCuPbZgRdCiKvbNxNqGGa9ynUDWxizWQY=;
+        fh=gwnJ3emC+HUdfDF4A8BKxEA9ZTkCtp4FK0vWVp1Mq1M=;
+        b=ZWjkgp/tbx62QxfLMbVhiWwQ23qBvy/O4fbXJmddrVIFUrHsJB7UumpsynX0a7qqsa
+         ssi92ZgCslYzGzC6PYNSduibD6zphAN53dU/LtdH8Z6XNaVrBed+CwiWJ8abHpeE+rZ5
+         5AM3qo/3X2KrAh/DEu9x6qsD0sg95E1MMV7h40eBbLqbMZxaL8gjMbZMtk+0vgY51uux
+         r5fRXJ8pp9nwkrod+Vc8Rlcg0Ymu+NmuzcA3BVEALmZgRAncQe0pXXtNToCEhJKPn2QV
+         zLwjKOdeFjNscQCn2jRTAfrHJQQI6uNKP8bWqtiOECi8M7/voBCU1EUQROoHE8ugiJX6
+         v34g==;
+        darn=lists.infradead.org
+ARC-Authentication-Results: i=1; mx.google.com; arc=none
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=gmail.com; s=20251104; t=1779978560; x=1780583360; darn=lists.infradead.org;
+        h=content-transfer-encoding:cc:to:subject:message-id:date:from
+         :in-reply-to:references:mime-version:from:to:cc:subject:date
+         :message-id:reply-to;
+        bh=tcS4djirQ7jCuPbZgRdCiKvbNxNqGGa9ynUDWxizWQY=;
+        b=HhxHw7NiqD+hBQCtswdbr/K+h+hJrOR4YF9n0b+w0rgxHGS7g4HhMnXJeBQLtufvv7
+         /CQ6WWNIl77J/E8rBhabPvvHZysEeCom/XQQG7lCNqstL0M7KOr6IXJV7xWTAKughxyN
+         X2dP/zG+Q5hv6iSCeedcvpz+Y2MyhuvXqa57RPNfem+V9+9z2FjBvTAqS7ANK6UgqL9q
+         L0yKshYZuLWontxAFE9pLqyksh1rEa2n/EZugxXaNH67OfANygIlCvWAemwH0LvMeGmd
+         Ygi0w58TwFcuNod6VW5Lt4QwAqvmrinGvxV210OvMJyL0x3X0IAj1K7+bVv1M6mtzZ7w
+         AQ8Q==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20251104; t=1779978560; x=1780583360;
+        h=content-transfer-encoding:cc:to:subject:message-id:date:from
+         :in-reply-to:references:mime-version:x-gm-gg:x-gm-message-state:from
+         :to:cc:subject:date:message-id:reply-to;
+        bh=tcS4djirQ7jCuPbZgRdCiKvbNxNqGGa9ynUDWxizWQY=;
+        b=lSpMM73bEB/tmyTyBuMgdA+w/h/6p6Ol41EqcjFlfTaB7C7/LvbVhx+L+r+I3fuGeG
+         nPUXld/D6WyOdYd9g1mRAD7EL+9wcdqB2eKhEEdOiIB0Nc/eOi+EOXZxfgFx7U/xP+eO
+         ZyAjEZWwak950y8z6oEIRaC//irfWWRN9kMpBvduy4OAL5X8Hk6Mve0JqB+btLBLJ20H
+         KhwJILrQo0JSvCdUYZgeih4cVvLGJR28gTcWeYYAG/6M4l3xhkVKOKNKMxEsPevuK2Qf
+         PSU1v9peLaajkEI7nC+sJsW37nJMoWeiFo4TYt7A9ScFqEF3664yY1d6UZvIg6dPDNAH
+         HQSw==
+X-Forwarded-Encrypted: i=1; AFNElJ+yIXjk58BqMK7YAATxPMopgbPdUaadPVlPVN/XERKY3/m/kvQa+J1FRZA0t389wweWLoOM9Yhld7QaJrikldcJ@lists.infradead.org
+X-Gm-Message-State: AOJu0YzduELNeKfC0CSNEJIb++Hk8W1uXOzYIwSuvMlUV3VXRvBUomKy
+	1Df1lDLpe/2JlGvzdlYXorXAFn5g/ViHlN/5j+8PrF3LMveqfeQ15wUUqdoS8c0nq0TrYmTfopD
+	rbRC7726gZ7EvO7qMem6E7WrGcafJn4Q=
+X-Gm-Gg: Acq92OF/6T1TL6uvzEy6boDOxk1oGSZfAigFwZLEfVVFkvvUoublEn71X0j05eWQr2I
+	ZpZDA0TLpoN4u56gVLtFjvDsY9jYNjgcKzS9mrWOLc7mKHasB07LCL6RJmt615dqT7CuYeOmQPr
+	0RA03dhahumB+R2LVmYSrj6I1IEC6LyofDQpRYRLCIrv2QgaxGOJ9GJRNSlWCTvO/121cxxa/as
+	FP0LvZBuV+nSaaTDX68pnQQH572/M42ghaI6bsI0WX6m9cARw1j7DeqCmz2V0thK/WEWPp2A2g6
+	S0TEYx/5bpcAf8vSTkWfCA6wNN7nrLYVQg==
+X-Received: by 2002:a05:6402:5245:b0:683:5589:4317 with SMTP id
+ 4fb4d7f45d1cf-6889c43f438mr16097714a12.11.1779978559466; Thu, 28 May 2026
+ 07:29:19 -0700 (PDT)
 MIME-Version: 1.0
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-In-Reply-To: <20260528140943.GE101133@e132581.arm.com>
+References: <20260427234801.2104511-1-puranjay@kernel.org> <20260427234801.2104511-4-puranjay@kernel.org>
+ <ahhGVf3RSWuMk0ph@willie-the-truck>
+In-Reply-To: <ahhGVf3RSWuMk0ph@willie-the-truck>
+From: Puranjay Mohan <puranjay12@gmail.com>
+Date: Thu, 28 May 2026 15:29:06 +0100
+X-Gm-Features: AVHnY4IxAMzVUf7Klr6RFJQ7T-EB9G9CeanOxKaT9tIv-dLEfZRdJbL6TplpLhw
+Message-ID: <CANk7y0hMXmGuu9SrgXTaTHt5c460d6_PMxOLf_K=k90_9yU0ew@mail.gmail.com>
+Subject: Re: [PATCH bpf-next v2 3/3] selftests/bpf: Enable stack argument
+ tests for arm64
+To: Will Deacon <will@kernel.org>
+Cc: bpf@vger.kernel.org, Yonghong Song <yonghong.song@linux.dev>, 
+	Alexei Starovoitov <ast@kernel.org>, Daniel Borkmann <daniel@iogearbox.net>, 
+	Andrii Nakryiko <andrii@kernel.org>, Martin KaFai Lau <martin.lau@linux.dev>, 
+	Eduard Zingerman <eddyz87@gmail.com>, Kumar Kartikeya Dwivedi <memxor@gmail.com>, Song Liu <song@kernel.org>, 
+	Xu Kuohai <xukuohai@huaweicloud.com>, Catalin Marinas <catalin.marinas@arm.com>, 
+	linux-arm-kernel@lists.infradead.org
+Content-Type: text/plain; charset="UTF-8"
+Content-Transfer-Encoding: quoted-printable
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260528_072702_630383_3686ED0F 
-X-CRM114-Status: GOOD (  39.80  )
+X-CRM114-CacheID: sfid-20260528_072921_678300_779EF54A 
+X-CRM114-Status: GOOD (  13.81  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -73,307 +122,33 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hi Leo,
-
-> On Tue, May 19, 2026 at 04:48:07PM +0100, Yeoreum Yun wrote:
-> 
-> [...]
-> 
-> > --- a/drivers/hwtracing/coresight/coresight-etm4x-cfg.c
-> > +++ b/drivers/hwtracing/coresight/coresight-etm4x-cfg.c
-> > @@ -47,7 +47,7 @@ static int etm4_cfg_map_reg_offset(struct etmv4_drvdata *drvdata,
-> >  				   struct cscfg_regval_csdev *reg_csdev, u32 offset)
-> >  {
-> >  	int err = -EINVAL, idx;
-> > -	struct etmv4_config *drvcfg = &drvdata->config;
-> > +	struct etmv4_config *drvcfg = &drvdata->active_config;
-> 
-> Wouldn't it make more sense to keep using drvdata->config for cfgfs?
-> This would avoid cfgfs updating the active configuration while a session
-> is enabled.
+On Thu, May 28, 2026 at 2:42=E2=80=AFPM Will Deacon <will@kernel.org> wrote=
+:
 >
-> My understanding is after refactoring cfgfs, we will never expose
-> active_config or config anymore so this should not an issue. Before
-> that, maybe we just keep to use config so can avoid mess.
+> On Mon, Apr 27, 2026 at 04:48:00PM -0700, Puranjay Mohan wrote:
+> > Now that arm64 supports stack arguments, enable the existing stack_arg,
+> > stack_arg_kfunc and verifier_stack_arg tests for __TARGET_ARCH_arm64.
+> >
+> > Signed-off-by: Yonghong Song <yonghong.song@linux.dev>
+> > Signed-off-by: Puranjay Mohan <puranjay@kernel.org>
+> > ---
+> >  tools/testing/selftests/bpf/progs/btf__stack_arg_precision.c | 3 ++-
+> >  tools/testing/selftests/bpf/progs/stack_arg.c                | 3 ++-
+> >  tools/testing/selftests/bpf/progs/stack_arg_kfunc.c          | 3 ++-
+> >  tools/testing/selftests/bpf/progs/stack_arg_precision.c      | 3 ++-
+> >  tools/testing/selftests/bpf/progs/verifier_stack_arg.c       | 3 ++-
+> >  5 files changed, 10 insertions(+), 5 deletions(-)
+>
+> Do any of these tests pass more than eight parameters? If not, then
+> they're not touching any of the stack stuff you added for arm64.
 
-I don't think so. since the cfgfs's config is updated right before
-enable and in this patchset, It's applied after "take the mode".
+The test "test_two_callees" has ret +=3D foo2(a, b, c, d, e, a + 5, a +
+6, a + 7, a + 8, a + 9);
+so, 10 arguments are tested.
 
-If we do it into drvdta->config, then contention would be increased
-with the access of sysfs and that nullifies almost this patch purpose
-and because of we use "one config" this makes a corruption with perf
-and sysfs.
+But you are right, I will send a patch to increase all these tests to
+pass 10 arguments so it increases test coverage on arm64.
 
-Therefore, It might be right to remain this as it is.
-and let's remove it at the time of refactorying.
-
-> 
-> >  	u32 off_mask;
-> >  
-> >  	if (((offset >= TRCEVENTCTL0R) && (offset <= TRCVIPCSSCTLR)) ||
-> > diff --git a/drivers/hwtracing/coresight/coresight-etm4x-core.c b/drivers/hwtracing/coresight/coresight-etm4x-core.c
-> > index 9b477b36b432..f0a9f2ef4b27 100644
-> > --- a/drivers/hwtracing/coresight/coresight-etm4x-core.c
-> > +++ b/drivers/hwtracing/coresight/coresight-etm4x-core.c
-> > @@ -243,6 +243,7 @@ void etm4_release_trace_id(struct etmv4_drvdata *drvdata)
-> >  struct etm4_enable_arg {
-> >  	struct etmv4_drvdata *drvdata;
-> >  	struct coresight_path *path;
-> > +	struct etmv4_config config;
-> >  	int rc;
-> >  };
-> >  
-> > @@ -268,10 +269,11 @@ static void etm4x_prohibit_trace(struct etmv4_drvdata *drvdata)
-> >  static u64 etm4x_get_kern_user_filter(struct etmv4_drvdata *drvdata)
-> >  {
-> >  	u64 trfcr = drvdata->trfcr;
-> > +	struct etmv4_config *config = &drvdata->active_config;
-> >  
-> > -	if (drvdata->config.mode & ETM_MODE_EXCL_KERN)
-> > +	if (config->mode & ETM_MODE_EXCL_KERN)
-> >  		trfcr &= ~TRFCR_EL1_ExTRE;
-> > -	if (drvdata->config.mode & ETM_MODE_EXCL_USER)
-> > +	if (config->mode & ETM_MODE_EXCL_USER)
-> >  		trfcr &= ~TRFCR_EL1_E0TRE;
-> >  
-> >  	return trfcr;
-> > @@ -279,7 +281,7 @@ static u64 etm4x_get_kern_user_filter(struct etmv4_drvdata *drvdata)
-> >  
-> >  /*
-> >   * etm4x_allow_trace - Allow CPU tracing in the respective ELs,
-> > - * as configured by the drvdata->config.mode for the current
-> > + * as configured by the drvdata->active_config.mode for the current
-> >   * session. Even though we have TRCVICTLR bits to filter the
-> >   * trace in the ELs, it doesn't prevent the ETM from generating
-> >   * a packet (e.g, TraceInfo) that might contain the addresses from
-> > @@ -290,12 +292,13 @@ static u64 etm4x_get_kern_user_filter(struct etmv4_drvdata *drvdata)
-> >  static void etm4x_allow_trace(struct etmv4_drvdata *drvdata)
-> >  {
-> >  	u64 trfcr, guest_trfcr;
-> > +	struct etmv4_config *config = &drvdata->active_config;
-> >  
-> >  	/* If the CPU doesn't support FEAT_TRF, nothing to do */
-> >  	if (!drvdata->trfcr)
-> >  		return;
-> >  
-> > -	if (drvdata->config.mode & ETM_MODE_EXCL_HOST)
-> > +	if (config->mode & ETM_MODE_EXCL_HOST)
-> >  		trfcr = drvdata->trfcr & ~(TRFCR_EL1_ExTRE | TRFCR_EL1_E0TRE);
-> >  	else
-> >  		trfcr = etm4x_get_kern_user_filter(drvdata);
-> > @@ -303,7 +306,7 @@ static void etm4x_allow_trace(struct etmv4_drvdata *drvdata)
-> >  	write_trfcr(trfcr);
-> >  
-> >  	/* Set filters for guests and pass to KVM */
-> > -	if (drvdata->config.mode & ETM_MODE_EXCL_GUEST)
-> > +	if (config->mode & ETM_MODE_EXCL_GUEST)
-> >  		guest_trfcr = drvdata->trfcr & ~(TRFCR_EL1_ExTRE | TRFCR_EL1_E0TRE);
-> >  	else
-> >  		guest_trfcr = etm4x_get_kern_user_filter(drvdata);
-> > @@ -497,7 +500,7 @@ static int etm4_enable_hw(struct etmv4_drvdata *drvdata)
-> >  {
-> >  	int i, rc;
-> >  	const struct etmv4_caps *caps = &drvdata->caps;
-> > -	struct etmv4_config *config = &drvdata->config;
-> > +	struct etmv4_config *config = &drvdata->active_config;
-> >  	struct coresight_device *csdev = drvdata->csdev;
-> >  	struct device *etm_dev = &csdev->dev;
-> >  	struct csdev_access *csa = &csdev->access;
-> > @@ -618,27 +621,53 @@ static int etm4_enable_hw(struct etmv4_drvdata *drvdata)
-> >  static void etm4_enable_sysfs_smp_call(void *info)
-> >  {
-> >  	struct etm4_enable_arg *arg = info;
-> > +	struct etmv4_drvdata *drvdata;
-> >  	struct coresight_device *csdev;
-> > +	unsigned long cfg_hash;
-> > +	int preset;
-> >  
-> >  	if (WARN_ON(!arg))
-> >  		return;
-> >  
-> > -	csdev = arg->drvdata->csdev;
-> > +	drvdata = arg->drvdata;
-> > +	csdev = drvdata->csdev;
-> >  	if (!coresight_take_mode(csdev, CS_MODE_SYSFS)) {
-> >  		/* Someone is already using the tracer */
-> >  		arg->rc = -EBUSY;
-> >  		return;
-> >  	}
-> >  
-> > -	arg->rc = etm4_enable_hw(arg->drvdata);
-> > +	/* enable any config activated by configfs */
-> > +	cscfg_config_sysfs_get_active_cfg(&cfg_hash, &preset);
-> >  
-> > -	/* The tracer didn't start */
-> > +	drvdata->active_config = arg->config;
-> 
-> Can move this down to just before drvdata->trcid assignment so cscfg
-> operations can be put together?
-
-No. Copy the arg->config must be before cscfg_csdev_enable_active_config().
-If that's after, it overrides the "preset" and this is different from
-the former behavior.
-
-> 
-> > +
-> > +	if (cfg_hash) {
-> > +		arg->rc = cscfg_csdev_enable_active_config(csdev,
-> > +							   cfg_hash,
-> > +							   preset);
-> > +		if (arg->rc)
-> > +			goto err;
-> > +	}
-> > +
-> > +	drvdata->trcid = arg->path->trace_id;
-> > +
-> > +	/* Tracer will never be paused in sysfs mode */
-> > +	drvdata->paused = false;
-> > +
-> > +	arg->rc = etm4_enable_hw(drvdata);
-> >  	if (arg->rc) {
-> > -		coresight_set_mode(csdev, CS_MODE_DISABLED);
-> > -		return;
-> > +		cscfg_csdev_disable_active_config(csdev);
-> > +		goto err;
-> 
-> Add a new goto tag (like err_enable_hw) for the disable_active_config
-> rollback?
-
-This is only place where cscfg_csdev_disable_active_config().
-Why do we need to goto for cleanup where there is no duplication?
-
-> 
-> >  	}
-> >  
-> > +	drvdata->sticky_enable = true;
-> >  	csdev->path = arg->path;
-> > +
-> > +	return;
-> > +err:
-> > +	/* The tracer didn't start */
-> > +	coresight_set_mode(csdev, CS_MODE_DISABLED);
-> >  }
-> >  
-> >  /*
-> > @@ -676,7 +705,7 @@ static int etm4_config_timestamp_event(struct etmv4_drvdata *drvdata,
-> >  	int ctridx;
-> >  	int rselector;
-> >  	const struct etmv4_caps *caps = &drvdata->caps;
-> > -	struct etmv4_config *config = &drvdata->config;
-> > +	struct etmv4_config *config = &drvdata->active_config;
-> >  
-> >  	/* No point in trying if we don't have at least one counter */
-> >  	if (!caps->nr_cntr)
-> > @@ -760,7 +789,7 @@ static int etm4_parse_event_config(struct coresight_device *csdev,
-> >  	int ret = 0;
-> >  	struct etmv4_drvdata *drvdata = dev_get_drvdata(csdev->dev.parent);
-> >  	const struct etmv4_caps *caps = &drvdata->caps;
-> > -	struct etmv4_config *config = &drvdata->config;
-> > +	struct etmv4_config *config = &drvdata->active_config;
-> >  	struct perf_event_attr max_timestamp = {
-> >  		.ATTR_CFG_FLD_timestamp_CFG = U64_MAX,
-> >  	};
-> > @@ -922,25 +951,7 @@ static int etm4_enable_sysfs(struct coresight_device *csdev, struct coresight_pa
-> >  {
-> >  	struct etmv4_drvdata *drvdata = dev_get_drvdata(csdev->dev.parent);
-> >  	struct etm4_enable_arg arg = { };
-> > -	unsigned long cfg_hash;
-> > -	int ret, preset;
-> > -
-> > -	/* enable any config activated by configfs */
-> > -	cscfg_config_sysfs_get_active_cfg(&cfg_hash, &preset);
-> > -	if (cfg_hash) {
-> > -		ret = cscfg_csdev_enable_active_config(csdev, cfg_hash, preset);
-> > -		if (ret) {
-> > -			etm4_release_trace_id(drvdata);
-> > -			return ret;
-> > -		}
-> > -	}
-> > -
-> > -	raw_spin_lock(&drvdata->spinlock);
-> > -
-> > -	drvdata->trcid = path->trace_id;
-> > -
-> > -	/* Tracer will never be paused in sysfs mode */
-> > -	drvdata->paused = false;
-> > +	int ret;
-> >  
-> >  	/*
-> >  	 * Executing etm4_enable_hw on the cpu whose ETM is being enabled
-> > @@ -948,20 +959,20 @@ static int etm4_enable_sysfs(struct coresight_device *csdev, struct coresight_pa
-> >  	 */
-> >  	arg.drvdata = drvdata;
-> >  	arg.path = path;
-> > +
-> > +	raw_spin_lock(&drvdata->spinlock);
-> > +	arg.config = drvdata->config;
-> > +	raw_spin_unlock(&drvdata->spinlock);
-> > +
-> >  	ret = smp_call_function_single(drvdata->cpu,
-> >  				       etm4_enable_sysfs_smp_call, &arg, 1);
-> >  	if (!ret)
-> >  		ret = arg.rc;
-> >  	if (!ret)
-> > -		drvdata->sticky_enable = true;
-> > -
-> > -	if (ret)
-> > +		dev_dbg(&csdev->dev, "ETM tracing enabled\n");
-> > +	else
-> >  		etm4_release_trace_id(drvdata);
-> >  
-> > -	raw_spin_unlock(&drvdata->spinlock);
-> > -
-> > -	if (!ret)
-> > -		dev_dbg(&csdev->dev, "ETM tracing enabled\n");
-> >  	return ret;
-> >  }
-> >  
-> > @@ -1048,7 +1059,7 @@ static void etm4_disable_hw(struct etmv4_drvdata *drvdata)
-> >  {
-> >  	u32 control;
-> >  	const struct etmv4_caps *caps = &drvdata->caps;
-> > -	struct etmv4_config *config = &drvdata->config;
-> > +	struct etmv4_config *config = &drvdata->active_config;
-> >  	struct coresight_device *csdev = drvdata->csdev;
-> >  	struct csdev_access *csa = &csdev->access;
-> >  	int i;
-> > @@ -1091,6 +1102,8 @@ static void etm4_disable_sysfs_smp_call(void *info)
-> >  	etm4_disable_hw(drvdata);
-> >  
-> >  	drvdata->csdev->path = NULL;
-> > +	cscfg_csdev_disable_active_config(drvdata->csdev);
-> 
-> Move cscfg_csdev_disable_active_config() just after etm4_disable_hw() so
-> the sequence is consistent with perf mode.
-
-Fair enough. I'll do that.
-
-> 
-> [...]
-> 
-> > @@ -1449,7 +1458,7 @@ static void etm4_init_arch_data(void *info)
-> >  
-> >  	/* EXLEVEL_S, bits[19:16] Secure state instruction tracing */
-> >  	caps->s_ex_level = FIELD_GET(TRCIDR3_EXLEVEL_S_MASK, etmidr3);
-> > -	drvdata->config.s_ex_level = caps->s_ex_level;
-> > +	config->s_ex_level = caps->s_ex_level;
-> 
-> config->s_ex_level is redundant and not really a configuration item.
-> We should use caps->s_ex_level instead of config->s_ex_level wherever
-> it is used.
-
-Agree, but this includes it should change the omse function
-declations to pass "caps" argument:
-  - etm4_set_comparator_filter()
-  - etm4_set_start_stop_filter()
-
-If that's okay, I'll respin with it.
-
-> 
-> Thanks,
-> Leo
-
--- 
-Sincerely,
-Yeoreum Yun
+Thanks,
+Puranjay
 
