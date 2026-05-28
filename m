@@ -4,55 +4,95 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 9CF29CD4F54
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 28 May 2026 23:27:18 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id C362DCD4F54
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 28 May 2026 23:30:46 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:
-	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=yDcx6lW5aytrLTXfKmWILbstBnIgvrFkJjC3wzo813A=; b=cD0VNbSuvQqHLsEhB/K0XFdaVq
-	+HeRItvbHtxZov3m9wCRb4wQk7oS7Sc1GrwBZQHkMy84ifclTJB0nLLwrtHUt1EIf8UdSAkHbenNz
-	fVsZDlTWL2cR2r+W2Q6X4YOenLSnsES3DIWS/M9MrCxo5U/sLvXHhRKz+4em6jSy50da8ZXgJr34X
-	q14E8x5KtH6j4M38oYVfGUk55qE8cM2KAyJ60HmaoJNONRXVnfdreqOwQ+qpmjWJ5jRnlSWAEPoTC
-	fpHlA4NsNXHJt7hzi4ryvb7QGnWUXoLKXoLzsm+1fVoIZbl61WdkZFw0jKaKjZeGo1f8foHuSkEiK
-	FDlqbpQA==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=/NX5Pfy5zkSh9pOkTgi7qD1BFUzeZBn6TE9LTClbQbA=; b=bn8LApGxHwMIAsoANl+WEu0q9A
+	KHI41SCYZPAaETu2au70EwSE/gEm6i8UlHtnTqEoQnyTTnWmCGvMTKG+hMbFGeT2ByGCa7lnU/X2p
+	aI5xsEOEQQX5HnZXHuPXfLmUm3eBnfr9misGSMQfgqk+ex4tHYCEm9SUZMTJq39SeXlOT6h6wMsVX
+	KR8Nd81PYWFhH61BplpRuHIiIuLm9jvSONAoafxwteho6hEM0bFNimlkXBomAyNYqNZw+yh/mSd0g
+	JFrILHeEWOpp2Gbo7FFX+/FzjhlXw/jM9+OPKSEfLaOnNBvKpjPfni/lox4/HBj3Ar0N/KVM3tMqK
+	uUz92UzQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wSk5c-00000006WrU-19SB;
-	Thu, 28 May 2026 23:24:36 +0000
-Received: from gloria.sntech.de ([185.11.138.130])
+	id 1wSkBS-00000006Xbd-0XxZ;
+	Thu, 28 May 2026 23:30:38 +0000
+Received: from mail-pl1-x636.google.com ([2607:f8b0:4864:20::636])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wSk5Q-00000006Wdc-1eBu;
-	Thu, 28 May 2026 23:24:25 +0000
-DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed; d=sntech.de;
-	s=gloria202408; h=Content-Transfer-Encoding:MIME-Version:References:
-	In-Reply-To:Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-Type;
-	bh=yDcx6lW5aytrLTXfKmWILbstBnIgvrFkJjC3wzo813A=; b=tnl1vefNE0jodkLw2SQoJyDOBM
-	OFqs+VmF6Ub81ecu8Ny64Gc9nL4ys834kBr0IhQbd57OSkzIHN4f27lhRlzd5xw6WwZtFMnhcLF1q
-	SPoak313OlyowApb9ySRuFJsgHGD/7k+QgrGQ0rDdcrNRBSG+6jUq0+J1db87J62a3PwGpmhHZ+fV
-	54BPt3oBqAquZZjvMa2rp5DFKw+jVHZtELppv/GxX0uyo3KwJc1SOWm6xg+uWJimuWduaLhwWxvNu
-	U8iSUtRWyM/QKJo4weE80r1sChPR5ksWv5kQ+qJHA6LJVjYzcM4GSUaffKrsRIrU7NRs1UZJZSzs5
-	Iuu0DDlw==;
-From: Heiko Stuebner <heiko@sntech.de>
-To: heiko@sntech.de
-Cc: linux-rockchip@lists.infradead.org,
-	linux-arm-kernel@lists.infradead.org,
-	linux-kernel@vger.kernel.org,
-	amadeus@jmu.edu.cn,
-	jonas@kwiboo.se
-Subject: [PATCH v3 1/5] arm64: dts: rockchip: Add USB nodes for RK3528
-Date: Fri, 29 May 2026 01:23:54 +0200
-Message-ID: <20260528232358.4054610-2-heiko@sntech.de>
-X-Mailer: git-send-email 2.47.3
-In-Reply-To: <20260528232358.4054610-1-heiko@sntech.de>
-References: <20260528232358.4054610-1-heiko@sntech.de>
+	id 1wSkBQ-00000006Xb9-1vXQ
+	for linux-arm-kernel@lists.infradead.org;
+	Thu, 28 May 2026 23:30:37 +0000
+Received: by mail-pl1-x636.google.com with SMTP id d9443c01a7336-2bf22c18ad3so35ad.0
+        for <linux-arm-kernel@lists.infradead.org>; Thu, 28 May 2026 16:30:36 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=google.com; s=20251104; t=1780011035; x=1780615835; darn=lists.infradead.org;
+        h=in-reply-to:content-disposition:mime-version:references:message-id
+         :subject:cc:to:from:date:from:to:cc:subject:date:message-id:reply-to;
+        bh=/NX5Pfy5zkSh9pOkTgi7qD1BFUzeZBn6TE9LTClbQbA=;
+        b=P03L+4kueToo2cHuMEXgDnimqDCPS85Jym7VdeZlQ2PRczjvNy+uE7K/zu59cvoMU8
+         aK1r9D0z3X4w7GeLIF90uCX4cYfFLqQv36Gm3smK6QROQsPdeNXT51itULBO7nKkEt0/
+         R+df3Y2rJ99Vu9M6b4okpccm3GONu7dT5DIC0xkQrg3JiTQlSvoiNWggWxzCVwSCYdHB
+         ySUubtitgj4jFCrJn8H9oZr8QiqsjJWIbqZghJWvdSu5ukeh6EM6M4+igz+pSN10DG2k
+         j6bFKoN6Jh1Nx79jaQeSLUmMt+lFi4fjk0xJZDYpxW3OBHrkUMZOjEFM71055FUB2wOH
+         olbg==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20251104; t=1780011035; x=1780615835;
+        h=in-reply-to:content-disposition:mime-version:references:message-id
+         :subject:cc:to:from:date:x-gm-gg:x-gm-message-state:from:to:cc
+         :subject:date:message-id:reply-to;
+        bh=/NX5Pfy5zkSh9pOkTgi7qD1BFUzeZBn6TE9LTClbQbA=;
+        b=GbxViPTAbTvGaYhYdH/yqfJyxYWD+6ZytuCdJSx2pGdcEqQszpo4swhPXk3xtvmrjg
+         /kR5zUA+bAiEY06lX3rQ4bNQcxp+5atYsPmzGKiY+l6mVeq82DuOJ+mhG2VaV62k7FPv
+         8Ly2oMZG6JOFt1GWDOileHp8y4BKHnd8tdCWeTRoEVq4Vjf2uHypXEcj8kVquSynDy2p
+         PBIOqaNIUs03LukfmwGasFOgcdD8vX64P+9ZhbthK1+d2HxadbbgDvFF4fTpcApJklyF
+         FICipFR0byg1nrYE1BvoTWfrHesOuX1HU9xolkIWdYb2xYolSCV5h2D3pLHhsJmvkn9f
+         akOg==
+X-Forwarded-Encrypted: i=1; AFNElJ++bHrU963r9w8+0ZoPcL4Xmdtk6jqCyaoRnygw22bjCj6WqV2izj2F8gwfA1nqewr65neXZefFunwVOM/CFiv6@lists.infradead.org
+X-Gm-Message-State: AOJu0YxJ7x2JLBknkuyaZGo9gGzBhgfg4PaloRyiYVFJMiqNNspAVBUp
+	hWicd2xBzqqZqDsf9UaMvqKRhd4zaHX8UYrd9unF6BB9+b8T3VBvogCWOwpOXdgu2y683RNO80g
+	5HdIJBg==
+X-Gm-Gg: Acq92OELWTgQ5qiVKWaeYutz+NN9V1R01VtOExGGHZ5ELFg+SGVnieuLA4QAK3hKXcZ
+	ImhpsJO3HxIosufd3Gc961IkwzYQlX3CSGLNx8X59o7FWAE1os3Dw/t4abUGovsIvXZdVk1LDqZ
+	iMoq13a9ce1DAfKgH+6ijk2elfLdBt08pBHg4WQJdbv+iZmJiKY2VM9bqQgIGIpwztH3BzUbpkm
+	ZMnO8DDlj1CMIHQyf6KM5eQXSGR2BJ8Hk782b8EqiO1A9iLxlOBoy71IkPvEZAAOIHy+FWy/Vik
+	qwJ0KzoEYqrRn+aiTRIl5YUUSkvyadAYL1/dPetA21t7LmfH4KrBuw+uOoydWR4T3YAmA62AS5C
+	LMG8tMTXjy831vzLqTzMVnbI3JJLmkOX+8WHptT35JaqqXJ364kpcQwbqh1hXmC3tODb3Tt5Y1Z
+	Kgn1tyim/xt9DP0v8u8h2SNmVv7IFtEyn3XPWTWigXibtxYIEnjDifO7A8uxcxU4fB3kaF
+X-Received: by 2002:a17:903:2a8f:b0:2bd:6727:d689 with SMTP id d9443c01a7336-2bf20bc476amr580475ad.12.1780011034865;
+        Thu, 28 May 2026 16:30:34 -0700 (PDT)
+Received: from google.com (44.234.124.34.bc.googleusercontent.com. [34.124.234.44])
+        by smtp.gmail.com with ESMTPSA id d9443c01a7336-2bf216425b9sm1617985ad.1.2026.05.28.16.30.31
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Thu, 28 May 2026 16:30:33 -0700 (PDT)
+Date: Thu, 28 May 2026 23:30:28 +0000
+From: Pranjal Shrivastava <praan@google.com>
+To: Nicolin Chen <nicolinc@nvidia.com>
+Cc: iommu@lists.linux.dev, Will Deacon <will@kernel.org>,
+	Joerg Roedel <joro@8bytes.org>, Robin Murphy <robin.murphy@arm.com>,
+	Jason Gunthorpe <jgg@ziepe.ca>, Mostafa Saleh <smostafa@google.com>,
+	Daniel Mentz <danielmentz@google.com>,
+	Ashish Mhetre <amhetre@nvidia.com>,
+	linux-arm-kernel@lists.infradead.org
+Subject: Re: [PATCH v7 08/11] iommu/arm-smmu-v3: Implement pm_runtime &
+ system sleep ops
+Message-ID: <ahjQFDvCYdCmV8Lr@google.com>
+References: <20260527221407.1756491-1-praan@google.com>
+ <20260527221407.1756491-9-praan@google.com>
+ <ahiaApzK1/nBwr2R@Asurada-Nvidia>
+ <ahix0vUm03lxDwAC@google.com>
+ <ahi+HFgBDYmByAtb@Asurada-Nvidia>
 MIME-Version: 1.0
-Content-Transfer-Encoding: 8bit
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+In-Reply-To: <ahi+HFgBDYmByAtb@Asurada-Nvidia>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260528_162424_456295_8EA5C2E9 
-X-CRM114-Status: GOOD (  11.29  )
+X-CRM114-CacheID: sfid-20260528_163036_500353_054BC9C8 
+X-CRM114-Status: GOOD (  26.05  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -67,127 +107,58 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-From: Jonas Karlman <jonas@kwiboo.se>
+On Thu, May 28, 2026 at 03:13:48PM -0700, Nicolin Chen wrote:
+> On Thu, May 28, 2026 at 09:21:22PM +0000, Pranjal Shrivastava wrote:
+> > On Thu, May 28, 2026 at 12:39:46PM -0700, Nicolin Chen wrote:
+> > > On Wed, May 27, 2026 at 10:14:04PM +0000, Pranjal Shrivastava wrote:
+> > > > @@ -789,7 +822,8 @@ int arm_smmu_cmdq_issue_cmdlist(struct arm_smmu_device *smmu,
+> > > >  		/* b. Stop gathering work by clearing the owned flag */
+> > > >  		prod = atomic_fetch_andnot_relaxed(CMDQ_PROD_OWNED_FLAG,
+> > > >  						   &cmdq->q.llq.atomic.prod);
+> > > > -		prod &= ~CMDQ_PROD_OWNED_FLAG;
+> > > > +		/* Strip all metadata flags */
+> > > > +		prod &= CMDQ_PROD_IDX_MASK;
+> > > 
+> > > Should its prior atomic_fetch_andnot_relaxed() call do something
+> > > about the CMDQ_PROD_STOP_FLAG as well?
+> > 
+> > Umm.. No, the atomic_fetch_andnot_relaxed() call must leave the STOP_FLAG.
+> > This block is the owner-publish phase, which occurs *after* the Point of
+> > Commitment. If a submission successfully reserved its indices before the
+> > gate closed, it shall be allowed to finish.
+> > 
+> > If the owner thread cleared the STOP_FLAG here in the global memory, it
+> > would prematurely re-open the gate, allowing new racing submissions to 
+> > leak in during the suspend sequence. 
+> > 
+> > The algorithm works mainly because the RPM callbacks are the only ones
+> > that are allowed to manipulate this flag.
+> 
+> That reads plausible to me. It would be nicer to leave a brief note
+> inline.
 
-Rockchip RK3528 has one USB 3.0 DWC3 controller and oneUSB 2.0 EHCI/OHCI
-controller and uses an Innosilicon-USB2PHY for USB 2.0. The DWC3
-controller additionally uses the Naneng Combo PHY for USB3.
+Ack.
 
-Add device tree nodes to describe these USB controllers along with the
-USB 2.0 PHYs.
+> 
+> > > Should it handle a secondary_cmdq?
+> > 
+> > No, I don't think we need to check secondary queues here. The STOP_FLAG
+> > being set on the primary CMDQ during the suspend should suffice to 
+> > indicate the entire SMMU's power state. That's why the function takes in
+> > the smmu ptr and not the cmdq.
+> 
+> But if we don't set STOP flag to the secondary_cmdq, wouldn't the
+> drain() timeout on the secondary_cmdq that does not elide?
 
-Signed-off-by: Jonas Karlman <jonas@kwiboo.se>
-Signed-off-by: Heiko Stuebner <heiko@sntech.de>
----
- arch/arm64/boot/dts/rockchip/rk3528.dtsi | 80 ++++++++++++++++++++++++
- 1 file changed, 80 insertions(+)
+I believe you're right..
 
-diff --git a/arch/arm64/boot/dts/rockchip/rk3528.dtsi b/arch/arm64/boot/dts/rockchip/rk3528.dtsi
-index 77d314716b43..03cd00f88dbb 100644
---- a/arch/arm64/boot/dts/rockchip/rk3528.dtsi
-+++ b/arch/arm64/boot/dts/rockchip/rk3528.dtsi
-@@ -336,6 +336,33 @@ pcie_intc: legacy-interrupt-controller {
- 			};
- 		};
- 
-+		usb_host0_xhci: usb@fe500000 {
-+			compatible = "rockchip,rk3528-dwc3", "snps,dwc3";
-+			reg = <0x0 0xfe500000 0x0 0x400000>;
-+			clocks = <&cru CLK_REF_USB3OTG>,
-+				 <&cru CLK_SUSPEND_USB3OTG>,
-+				 <&cru ACLK_USB3OTG>;
-+			clock-names = "ref_clk", "suspend_clk", "bus_clk";
-+			interrupts = <GIC_SPI 152 IRQ_TYPE_LEVEL_HIGH>;
-+			power-domains = <&power RK3528_PD_VPU>;
-+			resets = <&cru SRST_A_USB3OTG>;
-+			dr_mode = "otg";
-+			phys = <&usb2phy_otg>, <&combphy PHY_TYPE_USB3>;
-+			phy-names = "usb2-phy", "usb3-phy";
-+			phy_type = "utmi_wide";
-+			snps,dis_enblslpm_quirk;
-+			snps,dis_rxdet_inp3_quirk;
-+			snps,dis-del-phy-power-chg-quirk;
-+			snps,dis-tx-ipgap-linecheck-quirk;
-+			snps,dis-u1-entry-quirk;
-+			snps,dis-u2-entry-quirk;
-+			snps,dis-u2-freeclk-exists-quirk;
-+			snps,dis_u2_susphy_quirk;
-+			snps,parkmode-disable-hs-quirk;
-+			snps,parkmode-disable-ss-quirk;
-+			status = "disabled";
-+		};
-+
- 		gic: interrupt-controller@fed01000 {
- 			compatible = "arm,gic-400";
- 			reg = <0x0 0xfed01000 0 0x1000>,
-@@ -349,6 +376,30 @@ gic: interrupt-controller@fed01000 {
- 			#interrupt-cells = <3>;
- 		};
- 
-+		usb_host0_ehci: usb@ff100000 {
-+			compatible = "generic-ehci";
-+			reg = <0x0 0xff100000 0x0 0x40000>;
-+			clocks = <&cru HCLK_USBHOST>, <&cru HCLK_USBHOST_ARB>,
-+				 <&usb2phy>;
-+			interrupts = <GIC_SPI 143 IRQ_TYPE_LEVEL_HIGH>;
-+			phys = <&usb2phy_host>;
-+			phy-names = "usb";
-+			power-domains = <&power RK3528_PD_VO>;
-+			status = "disabled";
-+		};
-+
-+		usb_host0_ohci: usb@ff140000 {
-+			compatible = "generic-ohci";
-+			reg = <0x0 0xff140000 0x0 0x40000>;
-+			clocks = <&cru HCLK_USBHOST>, <&cru HCLK_USBHOST_ARB>,
-+				 <&usb2phy>;
-+			interrupts = <GIC_SPI 144 IRQ_TYPE_LEVEL_HIGH>;
-+			phys = <&usb2phy_host>;
-+			phy-names = "usb";
-+			power-domains = <&power RK3528_PD_VO>;
-+			status = "disabled";
-+		};
-+
- 		qos_crypto_a: qos@ff200000 {
- 			compatible = "rockchip,rk3528-qos", "syscon";
- 			reg = <0x0 0xff200000 0x0 0x20>;
-@@ -1281,6 +1332,35 @@ combphy: phy@ffdc0000 {
- 			rockchip,pipe-phy-grf = <&pipe_phy_grf>;
- 			status = "disabled";
- 		};
-+
-+		usb2phy: usb2phy@ffdf0000 {
-+			compatible = "rockchip,rk3528-usb2phy";
-+			reg = <0x0 0xffdf0000 0x0 0x10000>;
-+			clocks = <&cru CLK_REF_USBPHY>, <&cru PCLK_USBPHY>;
-+			clock-names = "phyclk", "pclk";
-+			#clock-cells = <0>;
-+			clock-output-names = "clk_usbphy_480m";
-+			power-domains = <&power RK3528_PD_VO>;
-+			rockchip,usbgrf = <&vo_grf>;
-+			status = "disabled";
-+
-+			usb2phy_otg: otg-port {
-+				interrupts = <GIC_SPI 146 IRQ_TYPE_LEVEL_HIGH>,
-+					     <GIC_SPI 147 IRQ_TYPE_LEVEL_HIGH>,
-+					     <GIC_SPI 148 IRQ_TYPE_LEVEL_HIGH>;
-+				interrupt-names = "otg-bvalid", "otg-id",
-+						  "linestate";
-+				#phy-cells = <0>;
-+				status = "disabled";
-+			};
-+
-+			usb2phy_host: host-port {
-+				interrupts = <GIC_SPI 150 IRQ_TYPE_LEVEL_HIGH>;
-+				interrupt-names = "linestate";
-+				#phy-cells = <0>;
-+				status = "disabled";
-+			};
-+		};
- 	};
- };
- 
--- 
-2.47.3
+I was banking on the fact that the ellision would work based on the
+primary queue alone as we check the call-sites *before* the cmdq is
+chosen. However, I see the need for setting the STOP_FLAG to secondary
+CMDQs too (especially when we remove the check from the call-sites).
 
+I'll add setting the FLAG on secondary queues too!
+
+Thanks,
+Praan
 
