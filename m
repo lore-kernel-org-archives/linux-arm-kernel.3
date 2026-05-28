@@ -4,58 +4,99 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 2865CCD4F54
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 28 May 2026 20:35:18 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 15A5DCD4F54
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 28 May 2026 20:39:30 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
 	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
 	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=HdR59bdOLxfad3MlDdWkNtt/Xj++SWYyaF4AAiiPNOc=; b=35hPRW0dxXTU8vHPcIGnWfTgkd
-	3vJbwPy4UjDWc4TkLVwqZ0cvzb1Bs66ihj9mux8i6yFrol1O/buYFwWrA8DYVvnSwaslbAqISgCVf
-	m61euc9xON3qJzVyLGB7bqMCRqR6dZbFKB44bjUc8oo7AKj3bO5DEM37hQMEVv4xuEsbcLhjIb8tM
-	iUA4fbclhHU8SxA6OOuLmz//z714XXF/asnkBFh0+tWKMpaR0HghQ21gjVgk1iex+G3doVs5Rje37
-	+FrkL1QyLr3CxS3gwlxhc1k6oen8n3ZK8iMdJOfBddf89vX4gNlQ5Sln6hnVKAz/ANozDeKnFtGD1
-	EzDGGwCQ==;
+	bh=meonzuuyclWLVGJV9U6aQdhritntP0vgCuzICbgArsQ=; b=ByitD0mbwKGS5fhVtzctyzBsfE
+	65KxbdOLKhEajPGSyeb6cCKrSedjqK5LWb+htberx560NMwekhIMJnYonTb3cou/MWZm0Gg1Nhm7a
+	qtIRN2LKaEUJpiLqIwdl9xkBlK2399yFAJwPyvQcOYzY+rGInKYARpDyXDTqdpC8hx2EiKidHb6x2
+	IcMjfrSWilt0M4VdaSV6de5ggwnGZRUcd/HTCV7ppIXpKpOz5Py3BS016/BZU5j7CJLtW/QnrnGse
+	LGPTEi9tkH1IfbKrDB3WBM9RUg5opBm4nrciVZ+aJJRE2ch9i1s2C/dcgNwBlMUFGAEM42j1gavDn
+	BUsbmaMA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wShRg-00000006MWY-0V1k;
-	Thu, 28 May 2026 20:35:12 +0000
-Received: from tor.source.kernel.org ([2600:3c04:e001:324:0:1991:8:25])
+	id 1wShVj-00000006MrQ-2I7z;
+	Thu, 28 May 2026 20:39:23 +0000
+Received: from mail-pl1-x634.google.com ([2607:f8b0:4864:20::634])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wShRf-00000006MWO-2X2B
+	id 1wShVg-00000006Mr5-1X4l
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 28 May 2026 20:35:11 +0000
-Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
-	by tor.source.kernel.org (Postfix) with ESMTP id B35C56020A;
-	Thu, 28 May 2026 20:35:10 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 345F61F00A3A;
-	Thu, 28 May 2026 20:35:10 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1780000510;
-	bh=HdR59bdOLxfad3MlDdWkNtt/Xj++SWYyaF4AAiiPNOc=;
-	h=Date:From:To:Cc:Subject:References:In-Reply-To;
-	b=jxckgX6IuzS/15UM3yoi8wUw31sv5pTRwPf89lOLv7YAmOWqO7Y6l4UUIXYmD26Bi
-	 5/D1Y5q8jASex0Bx+2bPrFvEO53T8Kf2a8FL7UTTAEXU/dlplF21UzqJZrOrPLNIzf
-	 3BEty7OmJMnTZLQ20t6N9v8jZJfzG+uWtUVtXmD+50ggMTe7kaV62YEH1ybmMWBExd
-	 Qiw3LWsak9AEq6XkDxz6IuIW65bCqlwjc0WPYGFf9+KszGLwP3DWNpO3zR8JuwUmDR
-	 YjxEkcT90DeMfcbTYGYv6tXtfQWO9XnAGFkuQNiRoIdOqgLg6l6HIsengSTBj/6A/q
-	 I7ZAXSyOuswtA==
-Date: Thu, 28 May 2026 13:35:08 -0700
-From: Eric Biggers <ebiggers@kernel.org>
-To: Ard Biesheuvel <ardb+git@google.com>
-Cc: linux-arm-kernel@lists.infradead.org, linux-crypto@vger.kernel.org,
-	linux-raid@vger.kernel.org, Ard Biesheuvel <ardb@kernel.org>,
-	Christoph Hellwig <hch@lst.de>,
-	Russell King <linux@armlinux.org.uk>, Arnd Bergmann <arnd@arndb.de>
-Subject: Re: [PATCH 0/8] ARM crc64 and XOR using NEON intrinsics
-Message-ID: <20260528203508.GA2054@quark>
-References: <20260422171655.3437334-10-ardb+git@google.com>
+	Thu, 28 May 2026 20:39:21 +0000
+Received: by mail-pl1-x634.google.com with SMTP id d9443c01a7336-2ba3b9bcf69so1115ad.0
+        for <linux-arm-kernel@lists.infradead.org>; Thu, 28 May 2026 13:39:20 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=google.com; s=20251104; t=1780000759; x=1780605559; darn=lists.infradead.org;
+        h=in-reply-to:content-disposition:mime-version:references:message-id
+         :subject:cc:to:from:date:from:to:cc:subject:date:message-id:reply-to;
+        bh=meonzuuyclWLVGJV9U6aQdhritntP0vgCuzICbgArsQ=;
+        b=bTS5ULRl97QNk6iu9ZNjQG//AlQoza1VgWriaspjgxzr5DxG6pT+/cbEwytJxWoS/x
+         Ef48/1E8w3yoOphQgfXgoIITSzXlfG7nFKel6NUKECyYSY/OQb5MKBKAESC2NkKIbjf6
+         eZinxun8P4Kuifw5KXeEjYUnOTW3oIowAIl7jnxagi7unixTQp+T6jPnJqHITQWyl4l4
+         JycKcKmto1kiXSWCNHCtL93lmYkvL8LJpYH168tqrsjsSfgPRagVZyvETvr15QiTQEnD
+         XAqCDMpiJOr4yktFke0sHWokNJpVUbyVwZ90V45SSq1bNOIfEEXKiq+Zj70p31ndvfYX
+         n0gA==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20251104; t=1780000759; x=1780605559;
+        h=in-reply-to:content-disposition:mime-version:references:message-id
+         :subject:cc:to:from:date:x-gm-gg:x-gm-message-state:from:to:cc
+         :subject:date:message-id:reply-to;
+        bh=meonzuuyclWLVGJV9U6aQdhritntP0vgCuzICbgArsQ=;
+        b=k6sKCPks/xvGnAW1HJ0K/qvxey2K5FJnscZr3FeKdIJbjfdjcft2oCPuFJByBLYk8M
+         ysoqBOQIi+vAr0OwSPJUreqL+MojCUhir8yBZglM6y+MXaEy7zUqC3j9pzusx7P/JWQ5
+         K0Y//WZG+J3qdJxIZ0hin3hpqOQBZ7PBDpFw/3j1Xo1ONw63LOW0iMIyaCPL2dYcXss/
+         hrSqch02Iy2JjXiXYWT2ryp4kudW7PEJVKmPMNNH2FJRLKjLABiYwaIkkhb4EyXfyopV
+         9l9HRw4F6PvS1gpy2UqCEhdmafor8q/jRD5BDieS0ggDTbtKvLthlwVcokuweZ7c+h2N
+         nsWg==
+X-Forwarded-Encrypted: i=1; AFNElJ+W8UVjjBuBT+Ycqu5Xn6EubW+Q0NRn9OoFUYWAM+54zz4EZPKeE3KlRiq//SH2q7eWD+9m+UoT8l3MuJEGnG2j@lists.infradead.org
+X-Gm-Message-State: AOJu0Yw5/2PZBtWGyvNvYyeOjkxCGHYXEpYBpGCIvPpPdYT7PnpRJ2HE
+	Ey2oDYZgsGuHp2EXYHcjWqOwGERuJfUkvWu4ZYlj4Nc3kvr2FzlY5dCb6tD71vjBmw==
+X-Gm-Gg: Acq92OHxCgay+8oL2bgBNTyhkzfn4+lQnaUHRKxt3WAqulPtTIz82Yu8jU5Mlo0pfZr
+	/Z65wZydCIBEhJxfIWskD3VBnkBxZBK1ahhhbQaKMnGo+L9zZtSIpuSaagU0rP+HXcxMPMtOmf6
+	n8vuoOWsgL+e2EZPdJZRxumD/DyFSGBQwJmc8HwyIcMP570lqWoi/FnkXGiqrMoUy/QoSESzN18
+	LBMBbEpB1gsePG38NJ+V8mCVKR0p6iQUdE9u6VoJjI7r1sCAA265UuJyRp4mXvbqbksY8iMLKpE
+	k3EuZB5y1LrMOkd/I7krw4qmc9FsSUvdi01aMSLNyZI3MIlEzSQWzhBLnZhznPaaGTKyOeSJs6X
+	mcRkGcY8+UPyMEYQ7nRNwJTj10JoB7VBIT6uLlzsEfqkGxIvi/1YTUtLGDrXCq3Tp7/OVzELRNP
+	/SNxF4OkA7rbVNOdhrKGivScJOpX1wCmpaHOXwOk/PP62AfL7sMBe2sJ6GmZ9nEcFIS9Z9
+X-Received: by 2002:a17:903:1a67:b0:2bd:6dad:3dfb with SMTP id d9443c01a7336-2bf2046519bmr79225ad.25.1780000759071;
+        Thu, 28 May 2026 13:39:19 -0700 (PDT)
+Received: from google.com (44.234.124.34.bc.googleusercontent.com. [34.124.234.44])
+        by smtp.gmail.com with ESMTPSA id d9443c01a7336-2bf1e609a0asm1939385ad.26.2026.05.28.13.39.14
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Thu, 28 May 2026 13:39:18 -0700 (PDT)
+Date: Thu, 28 May 2026 20:39:11 +0000
+From: Pranjal Shrivastava <praan@google.com>
+To: Jason Gunthorpe <jgg@nvidia.com>
+Cc: Nicolin Chen <nicolinc@nvidia.com>, will@kernel.org,
+	robin.murphy@arm.com, joro@8bytes.org, bhelgaas@google.com,
+	baolu.lu@linux.intel.com, kevin.tian@intel.com,
+	miko.lenczewski@arm.com, linux-arm-kernel@lists.infradead.org,
+	iommu@lists.linux.dev, linux-kernel@vger.kernel.org,
+	linux-pci@vger.kernel.org, dan.j.williams@intel.com,
+	jonathan.cameron@huawei.com, vsethi@nvidia.com,
+	linux-cxl@vger.kernel.org, nirmoyd@nvidia.com
+Subject: Re: [PATCH v6 3/3] iommu/arm-smmu-v3: Allow ATS to be always on
+Message-ID: <ahin734hJ0CSSepe@google.com>
+References: <cover.1779392420.git.nicolinc@nvidia.com>
+ <18bb6f421b3be891caa8f1fb50f3a4d56b52d5be.1779392420.git.nicolinc@nvidia.com>
+ <ahheOF8L0aGMttcI@google.com>
+ <20260528152930.GA3195266@nvidia.com>
+ <ahhuFw3ZJpy48xkH@google.com>
+ <20260528180018.GB3195266@nvidia.com>
+ <ahiGIUDG2uvA6usM@google.com>
+ <ahiHc3y4wAxxtpLT@Asurada-Nvidia>
+ <20260528200450.GC3195266@nvidia.com>
 MIME-Version: 1.0
 Content-Type: text/plain; charset=us-ascii
 Content-Disposition: inline
-In-Reply-To: <20260422171655.3437334-10-ardb+git@google.com>
+In-Reply-To: <20260528200450.GC3195266@nvidia.com>
+X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
+X-CRM114-CacheID: sfid-20260528_133920_404793_75D9B3DB 
+X-CRM114-Status: GOOD (  26.46  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -70,51 +111,53 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Wed, Apr 22, 2026 at 07:16:56PM +0200, Ard Biesheuvel wrote:
-> From: Ard Biesheuvel <ardb@kernel.org>
+On Thu, May 28, 2026 at 05:04:50PM -0300, Jason Gunthorpe wrote:
+> On Thu, May 28, 2026 at 11:20:35AM -0700, Nicolin Chen wrote:
+> > On Thu, May 28, 2026 at 06:14:57PM +0000, Pranjal Shrivastava wrote:
+> > > On Thu, May 28, 2026 at 03:00:18PM -0300, Jason Gunthorpe wrote:
+> > > > On Thu, May 28, 2026 at 04:32:23PM +0000, Pranjal Shrivastava wrote:
+> > > > > On Thu, May 28, 2026 at 12:29:30PM -0300, Jason Gunthorpe wrote:
+> > > > > > On Thu, May 28, 2026 at 03:24:40PM +0000, Pranjal Shrivastava wrote:
+> > > > > > 
+> > > > > > > > +	master->ats_always_on = true;
+> > > > > > > > +
+> > > > > > > > +	return arm_smmu_alloc_cd_tables(master);
+> > > > > > > 
+> > > > > > > Nit: I'm not sure if I'm getting this right, are we saying we *need* to
+> > > > > > > allocate CDs for CXL.cache cases in the probe itself because STE.EATS
+> > > > > > > requires Config=Translate with S1DSS in bypass?
+> > > > > > 
+> > > > > > Yeah, basically.
+> > > > > > 
+> > > > > > Effectively the ARM rules for enabling ATS and Bypass together require
+> > > > > > a valid CD table pointer.
+> > > > > 
+> > > > > Ack. But do we expect transactions before attach_dev? What'd happen if
+> > > > > we don't allocate CDs here?
+> > > > 
+> > > > It can be done at any point before a non-abort STE is formed.
+> > > > 
+> > > > The core code pretty much does this immediately after probe so there
+> > > > isn't much point in moving it later.
+> > > > 
+> > > 
+> > > Right.. that's what I'm not understanding clearly, if the STE is Abort
+> > > anyway during probe, why are we breaking the alloc-at-attach convention? 
+> > > Usually, we allocate CD tables in the first attach_dev call. Why does
+> > > that not work here?
+> > 
+> > It would work in attach_dev(). I just felt cleaner to have it in
+> > probe(), paired with arm_smmu_free_cd_tables() in the release().
 > 
-> This is a follow-up to both [0] and [1], both of which included patch #1
-> of this series, which introduces the asm/neon-intrinsics.h header on
-> 32-bit ARM. The remaining changes rely on this.
-> 
-> The purpose of this series is to streamline / clean up the use of NEON
-> intrinsics on 32-bit ARM, by sharing more code, clean up Make rules and
-> finally, getting rid of the hacked up types.h header, which does some
-> nasty things that are only needed when building NEON intrinsics code.
-> 
-> Patches #2 and #3 replace the ARM autovectorized XOR implementation with
-> the NEON intrinsics version used by arm64.
-> 
-> Patches #4 and #5 enable the arm64 NEON intrinsics implementation of
-> crc64 on 32-bit ARM.
-> 
-> Patches #6 and #7 drop the direct includes of <arm_neon.h> and perform
-> some additional cleanup to reduce the delta between ARM and arm64 code
-> and Make rules.
-> 
-> It would probably be easiest to take all these changes through a single
-> tree, and the CRC tree seems like a suitable candidate, if Eric agrees.
-> 
-> Cc: Christoph Hellwig <hch@lst.de>
-> Cc: Russell King <linux@armlinux.org.uk>
-> Cc: Arnd Bergmann <arnd@arndb.de>
-> Cc: Eric Biggers <ebiggers@kernel.org>
-> 
-> [0] https://lore.kernel.org/all/20260331074940.55502-7-ardb+git@google.com/
-> [1] https://lore.kernel.org/all/20260330144630.33026-7-ardb@kernel.org/
-> 
-> Ard Biesheuvel (8):
->   ARM: Add a neon-intrinsics.h header like on arm64
->   xor/arm: Replace vectorized implementation with arm64's intrinsics
->   xor/arm64: Use shared NEON intrinsics implementation from 32-bit ARM
->   lib/crc: Turn NEON intrinsics crc64 implementation into common code
->   lib/crc: arm: Enable arm64's NEON intrinsics implementation of crc64
->   crypto: aegis128 - Use neon-intrinsics.h on ARM too
->   lib/raid6: Include asm/neon-intrinsics.h rather than arm_neon.h
->   ARM: Remove hacked-up asm/types.h header
+> I thought it was like this because we don't have an alloc on attach
+> flow for the identity domain, so add it there or add it here..
 
-Applied patches 1-6 to
-https://git.kernel.org/pub/scm/linux/kernel/git/ebiggers/linux.git/log/?h=crc-next
+Right, doing it in attach would've been cleaner, but I don't mind the
+existing way too (since it's merged anyway)
 
-- Eric
+I went down this hole since the reason for the convention change wasn't
+immediately clear.
+
+Thanks for the clarification!
+Praan
 
