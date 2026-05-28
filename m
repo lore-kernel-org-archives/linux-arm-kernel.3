@@ -4,74 +4,64 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 13C86CD4F54
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 28 May 2026 17:56:53 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id DBEFBCD5BD5
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 28 May 2026 17:57:22 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:
-	To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	MIME-Version:References:In-Reply-To:Message-Id:Date:Subject:Cc:To:From:
+	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=Naf3wXJ2EyrFvHMdJcyKV7tDwmuIz0pC4n157xSFJ8g=; b=gNEpFf21r30pxwXppopDM1z/+R
-	ATyvFmzLdjtTOI+yCa2it6UcFa/aOi6yhXeCfRoRDZnKH2Ue2T+wa7hfQR1F+iVJ7bQ2kgaKtLtzm
-	4rhPqApseDNTDZq0evqUfvgBiE1cs9bKwSiusExy/WuAL2P6sE54DhY0+aJy8a2K7Cf98u9mnBpXM
-	WTN5HIhbUEJTEXkEpBdiLlX2kWTN3YHNtlrgmQP/7KrvA5P73KA17HVUg2p6Fh+FowBxECTjHuy4h
-	tQIxPyVQGpOCjBmC9lGeDti+7j/Z9XmFQJu7Y+kbqK9w2i2q7Fji/w2IBuAj4/VLDo8Rf0EiFGjN3
-	++0UYqig==;
+	bh=nsGSAEIhyXSnMxVJnQct9jlsNQCNwc3MX87Io0Friyg=; b=pZyxNjEXWO6E8Ti34RU55f8PHV
+	wXDJxaC1oLPbwx/uKqrU4Us3HifgMC1xmSDps/1waYUp6Op5Pn8b8kq3CL9oXDHp7nwqWolEhug2B
+	AmA67ay6KwX5FaK5TsJ7/8px47IbeL8n9U2oPYdWzdrFHkQQ8KrtdUvjWIb2xVc7vUO6jL8ucTW4S
+	OQ2d/5jSni4FbZVR7EhYrsXJYSzRNLkt6vgdHwvwfrwy6gCw3by9NuSkGcTfL8xL2hB4YfFtsC3ut
+	1zq8RV30W7YYPMzMxkn57KV2uqmlY++i62d4322XqAKFUWsvUZ9FNYjyvvFiUT6cd99FGjyRSvs9r
+	e6aZrPaA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wSeyM-000000069CA-23Z8;
-	Thu, 28 May 2026 17:56:46 +0000
-Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
-	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wSeyJ-000000069Bh-3TSR
+	id 1wSe0y-000000062Sw-0rLi;
+	Thu, 28 May 2026 16:55:24 +0000
+Received: from foss.arm.com ([217.140.110.172])
+	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
+	id 1wSe0o-000000062LM-2n4x
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 28 May 2026 17:56:45 +0000
-Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
-	by sea.source.kernel.org (Postfix) with ESMTP id BD0CE407C2;
-	Thu, 28 May 2026 17:56:41 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 9EE021F000E9;
-	Thu, 28 May 2026 17:56:41 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1779991001;
-	bh=Naf3wXJ2EyrFvHMdJcyKV7tDwmuIz0pC4n157xSFJ8g=;
-	h=From:To:Cc:Subject:Date:In-Reply-To:References;
-	b=P5G+Eix9YABB7wMgZVO5Q+vMS6tFX7oY1PkD91PWXzwGDKrxzk8yq/hGqjlWft94I
-	 Rmvue2+hRRsCFPGEMjvOb3HNA1nNoYN08zMxhBXUVZ1GIiUVXZzXIq5Aa0p7FCNyjK
-	 PkcRwfotYhLN5g3i/K7wPhLU9WR61Z8kqlE+w479jk/FM62TEutBgN98GmVzH4s/jm
-	 aPZhid8JeLGhb5WKwaum52RyaaWbxDpJG0+dfgzfTtuvPpCUWFbkUQ/chFdnzYNW+K
-	 e/17gq/5sBjf7Z8lwMfwxqWoPDBPR5UVyFnaPuakGWFwjhzays9hs4LR+cwf8pG6d7
-	 dyd6mx1j0DuUQ==
-Received: from sofa.misterjones.org ([185.219.108.64] helo=valley-girl.lan)
-	by disco-boy.misterjones.org with esmtpsa  (TLS1.3) tls TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384
-	(Exim 4.98.2)
-	(envelope-from <maz@kernel.org>)
-	id 1wSeyF-000000078lE-1sfq;
-	Thu, 28 May 2026 17:56:39 +0000
-From: Marc Zyngier <maz@kernel.org>
-To: kvmarm@lists.linux.dev,
-	linux-arm-kernel@lists.infradead.org,
-	Zenghui Yu <zenghui.yu@linux.dev>
-Cc: oupton@kernel.org,
-	joey.gouly@arm.com,
-	suzuki.poulose@arm.com
-Subject: Re: [PATCH] KVM: arm64: Remove @arch from __load_stage2()
-Date: Thu, 28 May 2026 18:56:36 +0100
-Message-ID: <177999096482.1739911.18058733022037753764.b4-ty@kernel.org>
-X-Mailer: git-send-email 2.47.3
-In-Reply-To: <20260318144305.56831-1-zenghui.yu@linux.dev>
-References: <20260318144305.56831-1-zenghui.yu@linux.dev>
+	Thu, 28 May 2026 16:55:15 +0000
+Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
+	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id 5A245460D;
+	Thu, 28 May 2026 09:55:08 -0700 (PDT)
+Received: from lakrids.cambridge.arm.com (usa-sjc-imap-foss1.foss.arm.com [10.121.207.14])
+	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPA id 075753F905;
+	Thu, 28 May 2026 09:55:11 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=simple/simple; d=arm.com; s=foss;
+	t=1779987313; bh=AGrOd3maVfHw9KqMwfvglX6A7MxlCueuD5iraJcfrUE=;
+	h=From:To:Cc:Subject:Date:In-Reply-To:References:From;
+	b=VQe/DsSeDWifdu3qam3AubJ1kghECc4gwfKiztxKo64pDA5+BzYOYleCL9QJF1o60
+	 wj8KT0OEC35ree5kRyFxui9adJxj/6migQzmKMvAHVsGR4/CbFAVoyjuH0X3ZTxOki
+	 h//GJX1eC+2ADoqVH7vEB6ZNuhnlNqrazOUXiyb0=
+From: Mark Rutland <mark.rutland@arm.com>
+To: linux-arm-kernel@lists.infradead.org,
+	kvmarm@lists.linux.dev
+Cc: broonie@kernel.org,
+	catalin.marinas@arm.com,
+	james.morse@arm.com,
+	mark.rutland@arm.com,
+	maz@kernel.org,
+	oupton@kernel.org,
+	tabba@google.com,
+	vladimir.murzin@arm.com,
+	will@kernel.org
+Subject: [PATCH v2 09/18] arm64: fpsimd: Move sve_get_vl() and sme_get_vl() inline
+Date: Thu, 28 May 2026 17:54:37 +0100
+Message-Id: <20260528165446.701944-10-mark.rutland@arm.com>
+X-Mailer: git-send-email 2.30.2
+In-Reply-To: <20260528165446.701944-1-mark.rutland@arm.com>
+References: <20260528165446.701944-1-mark.rutland@arm.com>
 MIME-Version: 1.0
-Content-Type: text/plain; charset="utf-8"
 Content-Transfer-Encoding: 8bit
-X-SA-Exim-Connect-IP: 185.219.108.64
-X-SA-Exim-Rcpt-To: kvmarm@lists.linux.dev, linux-arm-kernel@lists.infradead.org, zenghui.yu@linux.dev, oupton@kernel.org, joey.gouly@arm.com, suzuki.poulose@arm.com
-X-SA-Exim-Mail-From: maz@kernel.org
-X-SA-Exim-Scanned: No (on disco-boy.misterjones.org); SAEximRunCond expanded to false
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260528_105643_884799_9BF94A74 
-X-CRM114-Status: UNSURE (   7.89  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20260528_095514_782637_D0514222 
+X-CRM114-Status: GOOD (  12.44  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -86,23 +76,139 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Wed, 18 Mar 2026 22:43:05 +0800, Zenghui Yu wrote:
-> Since commit fe49fd940e22 ("KVM: arm64: Move VTCR_EL2 into struct s2_mmu"),
-> @arch is no longer required to obtain the per-kvm_s2_mmu vtcr and can be
-> removed from __load_stage2().
-> 
-> 
+The sve_get_vl() and sme_get_vl() functions are wrappers for the RDVL
+and RDSVL instructions respectively. There's no need for those to be
+out-of-line.
 
-Applied to next, thanks!
+Replace the out-of-line assembly functions with equivalent inline
+functions.
 
-[1/1] KVM: arm64: Remove @arch from __load_stage2()
-      commit: e72b425f617edebf6f374fa39f2c763c9b3696ec
+The _sve_rdvl assembly macro is unused, and so it is removed. The
+_sme_rdsvl assembly macro is still used elsewhere, and so is kept for
+now.
 
-Cheers,
+Signed-off-by: Mark Rutland <mark.rutland@arm.com>
+Reviewed-by: Mark Brown <broonie@kernel.org>
+Reviewed-by: Vladimir Murzin <vladimir.murzin@arm.com>
+Cc: Catalin Marinas <catalin.marinas@arm.com>
+Cc: Fuad Tabba <tabba@google.com>
+Cc: James Morse <james.morse@arm.com>
+Cc: Marc Zyngier <maz@kernel.org>
+Cc: Oliver Upton <oupton@kernel.org>
+Cc: Will Deacon <will@kernel.org>
+---
+ arch/arm64/include/asm/fpsimd.h       | 31 +++++++++++++++++++++++++--
+ arch/arm64/include/asm/fpsimdmacros.h |  6 ------
+ arch/arm64/kernel/entry-fpsimd.S      | 10 ---------
+ 3 files changed, 29 insertions(+), 18 deletions(-)
 
-	M.
+diff --git a/arch/arm64/include/asm/fpsimd.h b/arch/arm64/include/asm/fpsimd.h
+index 8efa3c0402a7a..36cf528e64971 100644
+--- a/arch/arm64/include/asm/fpsimd.h
++++ b/arch/arm64/include/asm/fpsimd.h
+@@ -22,6 +22,9 @@
+ #include <linux/stddef.h>
+ #include <linux/types.h>
+ 
++#define __SVE_PREAMBLE		".arch_extension sve\n"
++#define __SME_PREAMBLE		".arch_extension sme\n"
++
+ /* Masks for extracting the FPSR and FPCR from the FPSCR */
+ #define VFP_FPSCR_STAT_MASK	0xf800009f
+ #define VFP_FPSCR_CTRL_MASK	0x07f79f00
+@@ -141,11 +144,23 @@ static inline void *thread_zt_state(struct thread_struct *thread)
+ 	return thread->sme_state + ZA_SIG_REGS_SIZE(sme_vq);
+ }
+ 
++static inline unsigned int sve_get_vl(void)
++{
++	unsigned int vl;
++
++	asm volatile(
++	__SVE_PREAMBLE
++	"	rdvl %x[vl], #1\n"
++	: [vl] "=r" (vl)
++	);
++
++	return vl;
++}
++
+ extern void sve_save_state(void *state, u32 *pfpsr, int save_ffr);
+ extern void sve_load_state(void const *state, u32 const *pfpsr,
+ 			   int restore_ffr);
+ extern void sve_flush_live(bool flush_ffr, unsigned long vq_minus_1);
+-extern unsigned int sve_get_vl(void);
+ extern void sme_save_state(void *state, int zt);
+ extern void sme_load_state(void const *state, int zt);
+ 
+@@ -400,8 +415,20 @@ static inline int sme_max_virtualisable_vl(void)
+ 	return vec_max_virtualisable_vl(ARM64_VEC_SME);
+ }
+ 
++static inline unsigned int sme_get_vl(void)
++{
++	unsigned int vl;
++
++	asm volatile(
++	__SME_PREAMBLE
++	"	rdsvl %x[vl], #1\n"
++	: [vl] "=r" (vl)
++	);
++
++	return vl;
++}
++
+ extern void sme_alloc(struct task_struct *task, bool flush);
+-extern unsigned int sme_get_vl(void);
+ extern int sme_set_current_vl(unsigned long arg);
+ extern int sme_get_current_vl(void);
+ extern void sme_suspend_exit(void);
+diff --git a/arch/arm64/include/asm/fpsimdmacros.h b/arch/arm64/include/asm/fpsimdmacros.h
+index 4a9bf46e52913..c724fcad7ee02 100644
+--- a/arch/arm64/include/asm/fpsimdmacros.h
++++ b/arch/arm64/include/asm/fpsimdmacros.h
+@@ -125,12 +125,6 @@
+ 	ldr p\np, [x\nxbase, #\offset, MUL VL]
+ .endm
+ 
+-/* RDVL X\nx, #\imm */
+-.macro _sve_rdvl nx, imm
+-	.arch_extension sve
+-	rdvl x\nx, #\imm
+-.endm
+-
+ /* RDFFR (unpredicated): RDFFR P\np.B */
+ .macro _sve_rdffr np
+ 	.arch_extension sve
+diff --git a/arch/arm64/kernel/entry-fpsimd.S b/arch/arm64/kernel/entry-fpsimd.S
+index 88c555745b584..7f2d31dff8c17 100644
+--- a/arch/arm64/kernel/entry-fpsimd.S
++++ b/arch/arm64/kernel/entry-fpsimd.S
+@@ -57,11 +57,6 @@ SYM_FUNC_START(sve_load_state)
+ 	ret
+ SYM_FUNC_END(sve_load_state)
+ 
+-SYM_FUNC_START(sve_get_vl)
+-	_sve_rdvl	0, 1
+-	ret
+-SYM_FUNC_END(sve_get_vl)
+-
+ /*
+  * Zero all SVE registers but the first 128-bits of each vector
+  *
+@@ -84,11 +79,6 @@ SYM_FUNC_END(sve_flush_live)
+ 
+ #ifdef CONFIG_ARM64_SME
+ 
+-SYM_FUNC_START(sme_get_vl)
+-	_sme_rdsvl	0, 1
+-	ret
+-SYM_FUNC_END(sme_get_vl)
+-
+ /*
+  * Save the ZA and ZT state
+  *
 -- 
-Without deviation from the norm, progress is not possible.
-
+2.30.2
 
 
