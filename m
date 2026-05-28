@@ -4,62 +4,81 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 3F4C6CD4F54
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 28 May 2026 14:56:53 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 0A7DCCD6E44
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 28 May 2026 14:58:01 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:References:Content-Type:
+	In-Reply-To:MIME-Version:Message-ID:Subject:Cc:To:From:Date:Reply-To:
 	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=X4VNCDP4pWCJrDen//V3q6LUGxbKnjS9bsz0lWmLz30=; b=ebnsHxyenqsmO2uluVxRfHqBBT
-	OheIyQyzG+v/ygLyvjSAqRh3dh1fNGAsNC7thEX3W+uniTLOlN1z/aKVdO93LYoqRwL+OgL9JxRld
-	y98nKa2tRNcSHQx9IapUNFe517cFtxBE1x2zyrXiOEw5rGKS6fgbM/DoD+5kClG1Q/si9JbDdHf6/
-	ckSICJj7MmvS1cYWXp6udViIVWbkZ8ocRyiOh8BRiZkY1Vhy8+sIqTntKGe6GgRbU8g+VwWWryl4y
-	Yzxnu0wxjZ4AzxhfXDqJhEkGQ3UWH7AlXRQnyKqQkJrJzd6sB0onHyq9Be24LXr2uYHwlaozQ25qv
-	J4ryfwKQ==;
+	bh=r8mIV8ufMduGj/medyNOciSStQq0smXmRTboOYXyU58=; b=CaLPMYfMjz1ulYX21iobe+HIPE
+	Cxr94MChIrq+ZdZaL8iPPFU77/ehEJBK+KlzMyFm5dw+fl8j3r8vIHrB1tDGnd7t14ztXjQPStN1i
+	49/cClgevDWT+4Whq4oJGyOeDuUWB5AqiSVWoUbvrN4dt7EqNR3tsVdjPuvYEqsfyjZ733iUsQjt9
+	GKfsmkpzQoDLPOECxHVG45ei8/pTZb7SxHAcCPbHjrCHucqmr7oEwMQqsAW/fXmNZl2B8qpSmb/EH
+	VmgRs/ChvIGus8XoWIqKABymdqJsEP8xaLjPXOWqKe8F3IHMgX1aMv2hj5GZzOBaDAuBw+0RqHVKW
+	kLc6V0cA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wScAA-00000005t32-1esr;
-	Thu, 28 May 2026 14:56:46 +0000
-Received: from foss.arm.com ([217.140.110.172])
-	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wScA7-00000005t2X-1zmJ
+	id 1wScBE-00000005t8o-2RSF;
+	Thu, 28 May 2026 14:57:52 +0000
+Received: from mailout2.w1.samsung.com ([210.118.77.12])
+	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
+	id 1wScBA-00000005t83-1qp6
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 28 May 2026 14:56:44 +0000
-Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
-	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id 1E4CD22EE;
-	Thu, 28 May 2026 07:56:35 -0700 (PDT)
-Received: from localhost (e132581.arm.com [10.1.196.87])
-	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id A428E3F905;
-	Thu, 28 May 2026 07:56:39 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=simple/simple; d=arm.com; s=foss;
-	t=1779980200; bh=XVP2Gi7G4tEsptxsYNuSM55GDS2HDDrgsvrixrhKPuU=;
-	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
-	b=eMghMG9NrTN19JsFStvSh4Yl05mYSxcACFBHJVy2WUNp8YhtTvWkE0aRsJcHbHGf+
-	 dIlq8W6pc7wwm1q76aJZ3Np3xAHk3SHkCSaqiz07UGGIVqG0IhUX6MU5Q/IXFXY1t/
-	 DazVTwlSP/NX68rogS97+HiMQprkpOlyE5g6mtg4=
-Date: Thu, 28 May 2026 15:56:37 +0100
-From: Leo Yan <leo.yan@arm.com>
-To: Yeoreum Yun <yeoreum.yun@arm.com>
-Cc: coresight@lists.linaro.org, linux-arm-kernel@lists.infradead.org,
-	linux-kernel@vger.kernel.org, suzuki.poulose@arm.com,
-	mike.leach@arm.com, james.clark@linaro.org,
-	alexander.shishkin@linux.intel.com, jie.gan@oss.qualcomm.com
-Subject: Re: [PATCH v7 08/13] coresight: etm4x: fix inconsistencies with
- sysfs configuration
-Message-ID: <20260528145637.GG101133@e132581.arm.com>
-References: <20260519154812.254884-1-yeoreum.yun@arm.com>
- <20260519154812.254884-9-yeoreum.yun@arm.com>
- <20260528140943.GE101133@e132581.arm.com>
- <ahhQsTNok65e6K0F@e129823.arm.com>
+	Thu, 28 May 2026 14:57:51 +0000
+Received: from eucas1p2.samsung.com (unknown [182.198.249.207])
+	by mailout2.w1.samsung.com (KnoxPortal) with ESMTP id 20260528145743euoutp020ab43a5e63862f61b92a0e9e8043268e~zwp5VTZ460115401154euoutp02j
+	for <linux-arm-kernel@lists.infradead.org>; Thu, 28 May 2026 14:57:43 +0000 (GMT)
+DKIM-Filter: OpenDKIM Filter v2.11.0 mailout2.w1.samsung.com 20260528145743euoutp020ab43a5e63862f61b92a0e9e8043268e~zwp5VTZ460115401154euoutp02j
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=samsung.com;
+	s=mail20170921; t=1779980263;
+	bh=r8mIV8ufMduGj/medyNOciSStQq0smXmRTboOYXyU58=;
+	h=Date:From:To:Cc:Subject:In-Reply-To:References:From;
+	b=HDHcRRS+zBXh2RyGK8RBYXremq7uAMsJQPT3ALuD+w8siSGtXzjDaQ3bhWruX197O
+	 xyC4J3YkYQMuit/XJ4C+eTuvlS2dPdLil4iPMY3wYKrFX5Qxb36g/cyBUghhkZPUZC
+	 6QX0MguYU47hlos0PTUkTPeJfHoX/iLbe0+stZdg=
+Received: from eusmtip2.samsung.com (unknown [203.254.199.222]) by
+	eucas1p2.samsung.com (KnoxPortal) with ESMTPA id
+	20260528145742eucas1p25c5d23dd93d0946689a8867fd95c5db7~zwp5GPv8W2557225572eucas1p2s;
+	Thu, 28 May 2026 14:57:42 +0000 (GMT)
+Received: from AMDC4622.eu.corp.samsungelectronics.net (unknown
+	[106.120.77.34]) by eusmtip2.samsung.com (KnoxPortal) with ESMTPA id
+	20260528145741eusmtip2de8ddf36bc1db3efa926a8877ed46464~zwp4P6Aw61359913599eusmtip2b;
+	Thu, 28 May 2026 14:57:41 +0000 (GMT)
+Date: Thu, 28 May 2026 16:57:38 +0200
+From: Jakub Raczynski <j.raczynski@samsung.com>
+To: Ding Hui <dinghui1111@163.com>
+Cc: andrew@lunn.ch, Andrew Lunn <andrew+netdev@lunn.ch>, "David S. Miller"
+	<davem@davemloft.net>, Eric Dumazet <edumazet@google.com>, Jakub Kicinski
+	<kuba@kernel.org>, Paolo Abeni <pabeni@redhat.com>, Maxime Coquelin
+	<mcoquelin.stm32@gmail.com>, Alexandre Torgue
+	<alexandre.torgue@foss.st.com>, "Russell King (Oracle)"
+	<rmk+kernel@armlinux.org.uk>, Maxime Chevallier
+	<maxime.chevallier@bootlin.com>, Ding Hui <dinghui@lixiang.com>, "open
+ list:STMMAC ETHERNET DRIVER" <netdev@vger.kernel.org>, "moderated
+ list:ARM/STM32 ARCHITECTURE" <linux-stm32@st-md-mailman.stormreply.com>,
+	"moderated list:ARM/STM32 ARCHITECTURE"
+	<linux-arm-kernel@lists.infradead.org>, open list
+	<linux-kernel@vger.kernel.org>, xiasanbo@lixiang.com,
+	yangchen11@lixiang.com, liuxuanjun@lixiang.com
+Subject: Re: [PATCH v2] net: stmmac: fix fatal bus error on resume by
+ reinitializing RX buffers
+Message-ID: <ahhX4lIpHwhVekMc@AMDC4622.eu.corp.samsungelectronics.net>
 MIME-Version: 1.0
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-In-Reply-To: <ahhQsTNok65e6K0F@e129823.arm.com>
+In-Reply-To: <20260526022620.501229-1-dinghui1111@163.com>
+X-CMS-MailID: 20260528145742eucas1p25c5d23dd93d0946689a8867fd95c5db7
+X-Msg-Generator: CA
+Content-Type: multipart/mixed;
+	boundary="-----ovPTPTVSqDshbadlcck0r4M7-N_rZ7qlFcbt45lvJNOWX_g=_b9169_"
+X-RootMTR: 20260528145742eucas1p25c5d23dd93d0946689a8867fd95c5db7
+X-EPHeader: CA
+X-CMS-RootMailID: 20260528145742eucas1p25c5d23dd93d0946689a8867fd95c5db7
+References: <20260526022620.501229-1-dinghui1111@163.com>
+	<CGME20260528145742eucas1p25c5d23dd93d0946689a8867fd95c5db7@eucas1p2.samsung.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260528_075643_593228_DCF3D622 
-X-CRM114-Status: GOOD (  35.48  )
+X-CRM114-CacheID: sfid-20260528_075749_071076_B9DFC572 
+X-CRM114-Status: GOOD (  15.95  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -74,112 +93,48 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Thu, May 28, 2026 at 03:26:57PM +0100, Yeoreum Yun wrote:
+-------ovPTPTVSqDshbadlcck0r4M7-N_rZ7qlFcbt45lvJNOWX_g=_b9169_
+Content-Type: text/plain; charset="us-ascii"
+Content-Disposition: inline
 
-[...]
+On Tue, May 26, 2026 at 10:26:17AM +0800, Ding Hui wrote:
+> From: Ding Hui <dinghui@lixiang.com>
+> +		} else {
+> +			/* Theoretically unreachable: napi_disable() in
+> +			 * stmmac_suspend() ensures all initialized slots
+> +			 * have a valid page before we get here.
+> +			 * Defensive check only.
+> +			 */
+> +			if (!buf->page)
+> +				continue;
+> +
+> +			stmmac_set_desc_addr(priv, p, buf->addr);
+> +			stmmac_set_desc_sec_addr(priv, p, buf->sec_addr,
+> +						 priv->sph_active &&
+> +						 buf->sec_page);
 
-> > > @@ -47,7 +47,7 @@ static int etm4_cfg_map_reg_offset(struct etmv4_drvdata *drvdata,
-> > >  				   struct cscfg_regval_csdev *reg_csdev, u32 offset)
-> > >  {
-> > >  	int err = -EINVAL, idx;
-> > > -	struct etmv4_config *drvcfg = &drvdata->config;
-> > > +	struct etmv4_config *drvcfg = &drvdata->active_config;
-> > 
-> > Wouldn't it make more sense to keep using drvdata->config for cfgfs?
-> > This would avoid cfgfs updating the active configuration while a session
-> > is enabled.
-> >
-> > My understanding is after refactoring cfgfs, we will never expose
-> > active_config or config anymore so this should not an issue. Before
-> > that, maybe we just keep to use config so can avoid mess.
-> 
-> I don't think so. since the cfgfs's config is updated right before
-> enable and in this patchset, It's applied after "take the mode".
-> 
-> If we do it into drvdta->config, then contention would be increased
-> with the access of sysfs and that nullifies almost this patch purpose
-> and because of we use "one config" this makes a corruption with perf
-> and sysfs.
+It this generally sufficient?  Or, in fact, isn't that overkill?
+stmmac_rx_refill() generally does a bit more preparation of descriptors.
+The issue seems to be that during suspend there is mismatch,
+caused by writeback format, between rx_dirty and rx_cur pointers and
+there is bad handling of this case, since there is no verification
+of leftover stuff and there will be leftover bad address crashing platform.
+So stmmac needs to refill/reinit descriptors that were consumed but not
+refilled. So isn't going through whole dma_rx_size overkill?
+Wouldn't it be better to iterate over buffer from cur_rx as long as descriptors
+are 0 and only apply refill to those corrupted?
 
-Here have two different contention: the contention between sysfs and
-cfgfs, and the contention between cfgfs and a runtime config (active
-config). My suggestion is to avoid the later contention, which is the
-main idea in this series that avoid the runtime config is modified in
-the middle of a session.
+Could you paste panic that occurs during this issue?
+You mention "fatal bus error" which I would assume is system panic?
 
-That said, I have no strong opinion.
+Thanks
 
-> > >  static void etm4_enable_sysfs_smp_call(void *info)
-> > >  {
-> > >  	struct etm4_enable_arg *arg = info;
-> > > +	struct etmv4_drvdata *drvdata;
-> > >  	struct coresight_device *csdev;
-> > > +	unsigned long cfg_hash;
-> > > +	int preset;
-> > >  
-> > >  	if (WARN_ON(!arg))
-> > >  		return;
-> > >  
-> > > -	csdev = arg->drvdata->csdev;
-> > > +	drvdata = arg->drvdata;
-> > > +	csdev = drvdata->csdev;
-> > >  	if (!coresight_take_mode(csdev, CS_MODE_SYSFS)) {
-> > >  		/* Someone is already using the tracer */
-> > >  		arg->rc = -EBUSY;
-> > >  		return;
-> > >  	}
-> > >  
-> > > -	arg->rc = etm4_enable_hw(arg->drvdata);
-> > > +	/* enable any config activated by configfs */
-> > > +	cscfg_config_sysfs_get_active_cfg(&cfg_hash, &preset);
-> > >  
-> > > -	/* The tracer didn't start */
-> > > +	drvdata->active_config = arg->config;
-> > 
-> > Can move this down to just before drvdata->trcid assignment so cscfg
-> > operations can be put together?
-> 
-> No. Copy the arg->config must be before cscfg_csdev_enable_active_config().
-> If that's after, it overrides the "preset" and this is different from
-> the former behavior.
+BR
+Jakub Raczynski
 
-Please copy config first, then do cscfg stuffs.
+-------ovPTPTVSqDshbadlcck0r4M7-N_rZ7qlFcbt45lvJNOWX_g=_b9169_
+Content-Type: text/plain; charset="utf-8"
 
-> > > +	arg->rc = etm4_enable_hw(drvdata);
-> > >  	if (arg->rc) {
-> > > -		coresight_set_mode(csdev, CS_MODE_DISABLED);
-> > > -		return;
-> > > +		cscfg_csdev_disable_active_config(csdev);
-> > > +		goto err;
-> > 
-> > Add a new goto tag (like err_enable_hw) for the disable_active_config
-> > rollback?
-> 
-> This is only place where cscfg_csdev_disable_active_config().
-> Why do we need to goto for cleanup where there is no duplication?
 
-It is about to use a central place for handling errors.
-
-> > > @@ -1449,7 +1458,7 @@ static void etm4_init_arch_data(void *info)
-> > >  
-> > >  	/* EXLEVEL_S, bits[19:16] Secure state instruction tracing */
-> > >  	caps->s_ex_level = FIELD_GET(TRCIDR3_EXLEVEL_S_MASK, etmidr3);
-> > > -	drvdata->config.s_ex_level = caps->s_ex_level;
-> > > +	config->s_ex_level = caps->s_ex_level;
-> > 
-> > config->s_ex_level is redundant and not really a configuration item.
-> > We should use caps->s_ex_level instead of config->s_ex_level wherever
-> > it is used.
-> 
-> Agree, but this includes it should change the omse function
-> declations to pass "caps" argument:
->   - etm4_set_comparator_filter()
->   - etm4_set_start_stop_filter()
-> 
-> If that's okay, I'll respin with it.
-
-This is fine for me.
-
-Thanks,
-Leo
+-------ovPTPTVSqDshbadlcck0r4M7-N_rZ7qlFcbt45lvJNOWX_g=_b9169_--
 
