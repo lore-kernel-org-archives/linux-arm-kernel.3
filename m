@@ -4,107 +4,61 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 00ADCCD6E44
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 28 May 2026 14:23:57 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 7E435CD6E44
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 28 May 2026 14:27:11 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:Cc:To:Subject:
-	Message-ID:Date:From:In-Reply-To:References:MIME-Version:Reply-To:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
 	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=123Sb8xW7IFMcJuJcw7GfUYEiZQJLjxktTy++FJHDN8=; b=o38gkJQTTPPmgNZY6zzcSt6mRD
-	SAZJtGbNWvaacUeKpjhmnM8g5Zg/WUUjuoOwUAMi049ttf0pdO7plqwrcfLCb4Oo9c49O+YUMn+2R
-	AbvqG1injH5FEfQEznLpTYYIGX4VH1z7Yphl65ALDAB9ZbbciEzfOxQpF4Q+Dvo4beE7BGO7hkhU9
-	LwsjALJMoHz95LDN0O+NI6abI4pbuu+058lMf5HpBemgGORHJXf5zgK22/FiMSWHa9Jnp6BJ+3OBg
-	ePhagqLQkjb6Rzr/faSx2ibkgHGCZYsv+4Om1CgM1zCpthvR7/zfJtitpVns4qJWm2xbXkLB6DwLL
-	NeCyL8zw==;
+	bh=pFJ/ywYor2WZCvHkqATZq9QUDDlj9d/3ElvsUofMQxU=; b=Hfw3iWtala/P4iaQD4Qljill8y
+	aU9d5nvNnlEEO3bi94V6P5u+qTRJWeFY0xNshDdMvWmUm2id+Xml01X+AAYWjudkRsz1+Oj1qQPKH
+	LxXdpD5+YTB39G+RsgWJyv17OqxCixeR8gjL76i7GAQBlA7MaICXaXogP9Ga6bW6zWEItKrg8XP0l
+	U/XrxEhefjJeXQAYX0BJ3nya4Za55Y2mH+f9dJJdgY5diyBoULhpK7hAwI+3mD0DmIN88ULwG3BzG
+	Fwn45Ns7gvLlC3D8GE1kV+7ZffkvqfjGyw1BrLR8p5YrCom0QUN9MQhKrnvR9SXCwrBQAAuSvgikM
+	O4qdK94A==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wSbeJ-00000005qIa-3YnT;
-	Thu, 28 May 2026 14:23:51 +0000
-Received: from mail-ed1-x535.google.com ([2a00:1450:4864:20::535])
-	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wSbeG-00000005qHw-3Dyx
+	id 1wSbhR-00000005qbz-0w3k;
+	Thu, 28 May 2026 14:27:05 +0000
+Received: from foss.arm.com ([217.140.110.172])
+	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
+	id 1wSbhO-00000005qbU-27p0
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 28 May 2026 14:23:50 +0000
-Received: by mail-ed1-x535.google.com with SMTP id 4fb4d7f45d1cf-68b2229b48eso1053316a12.2
-        for <linux-arm-kernel@lists.infradead.org>; Thu, 28 May 2026 07:23:47 -0700 (PDT)
-ARC-Seal: i=1; a=rsa-sha256; t=1779978226; cv=none;
-        d=google.com; s=arc-20240605;
-        b=QjVeiJdTMENyXWzX9QZqr/ZVpprG3o7TJDtz/Sf4hK7kZZhjT8Nf9DHlIp8LQ7LMwx
-         vY1bEn88Jba7vFmCCLLl28x0Dk8jKlDcBnL8A3gikygYZnnYbIChveFrA76NyMlexiGV
-         xVjvSf25HMqB3UrwZKktO8ewpnR92DFqdzs1Vj80HeZVWxChUU4nYzIspt2ZziUnNTzU
-         n6QNpqGPrGCEHqEHxBvFwKjHypfDgVPbvIPJX1NGSsIxfEKnTgfH1uQD+TmQ2p8bgWCQ
-         2nwfceqbFsjYyVNoXdCko8GDK/+UIIiiZiJB6WPlc/5io9lYQCRQNoYKQVkmaWhzv79C
-         Wq1w==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20240605;
-        h=cc:to:subject:message-id:date:from:in-reply-to:references
-         :mime-version:dkim-signature;
-        bh=123Sb8xW7IFMcJuJcw7GfUYEiZQJLjxktTy++FJHDN8=;
-        fh=JPEWLwp70TsEla43rbYw7jwQTcKyYOfWcIBUmacw24k=;
-        b=ZfTk5vGXEp7drkYkf0+S9MRjl7EJgfL09ilGf0uEoevhMNwq0PWQSEaXr0lQRDMlNX
-         49COJogQgF+mgLcgzYDpNRQ4dOREoHxASUC0AsCYqtKvqDNjvkeeDPhvA3F6YeEVF/9Z
-         7indNO2cY+I6gsio5bSPPS+51/c1+x2YL9J2Mt5SmwU7DN4KUGVhfFKMz0c4PwuqAQQd
-         qVOmUrrhtjvXlyH1iNwFlCdKLh1+8WFiN3jsjn5kgllgUfEeQTTx2nGIVvH4gzCm/TJi
-         jeYHHcUxDab5StO+PewiR44N8P/FqiI0YrjYCtueGNJJ8MXtdFCq3QQ9PD4z7OKanaYH
-         ELIw==;
-        darn=lists.infradead.org
-ARC-Authentication-Results: i=1; mx.google.com; arc=none
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20251104; t=1779978226; x=1780583026; darn=lists.infradead.org;
-        h=cc:to:subject:message-id:date:from:in-reply-to:references
-         :mime-version:from:to:cc:subject:date:message-id:reply-to;
-        bh=123Sb8xW7IFMcJuJcw7GfUYEiZQJLjxktTy++FJHDN8=;
-        b=hOQzKJjtKLq2AILkatYRLVDk8OtVACptmj0NMgPcaMXaRo7lA4qxpzY1MKeW6vAqoC
-         LZGMNARgg33TzhBbN0auE5yLW2i9Z9APK2gafQsA0ZTPuIcSc7QwZv7wyd94m7y05vYE
-         LRVX74XEk3l/mQ5wolVN+hm6tyBDoKxcCHRg/Miku7ioD1uGxnG9SMThW0FrNZKiIyGf
-         HM7Pw4sSAcHQcratR5IN6bDI2uAeLvVmQmPG13VVyJIiL7+8o2KKw3rEdhhsOgG0YMYm
-         caz1SeY5Nzcsw67IJiXYMPdtmgqBLWUiekaopJlTBraiVjxnGoFaWWm/gDDdxnDEApHd
-         WHfw==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20251104; t=1779978226; x=1780583026;
-        h=cc:to:subject:message-id:date:from:in-reply-to:references
-         :mime-version:x-gm-gg:x-gm-message-state:from:to:cc:subject:date
-         :message-id:reply-to;
-        bh=123Sb8xW7IFMcJuJcw7GfUYEiZQJLjxktTy++FJHDN8=;
-        b=KDCZ1cbJMYQ95ORn5zD0HaFX0+cayHX7MMNjcWUc0/tuHfI7UXepF7cysTIUlvXp3h
-         N7o+A9l+8GyvbSffFL32HeHEpApafGIjeXm+WeRcHZ7JOyYAhCfVJ4cqLUye9xvTEYce
-         AIMXmMsw6F+xqvGg30tGyIMTfxiFXvzC1D57gPwotufFn7tUYFdERwrFLSDflvhkCWw/
-         6//BPMi5yfj6iVM8phUjVaWPoMwMrm9zouyxkaVMe5SxSMllrdiB4LXCo2/Nc1GLLVMF
-         vZGBsOyzjxyUTQvx1TfA5epoN8NR+nznx2+cX7uvRaIzrVVu8kDDIE9At+0rfCszdJur
-         5ydg==
-X-Forwarded-Encrypted: i=1; AFNElJ9HzGRpTjH0rRdotBuOpZg6jvf6GfRmiw5zUsPCJbwXz8cXoMP+mtdGYGybZkBGCiUW18/f29qKN2vwPVqwrqLT@lists.infradead.org
-X-Gm-Message-State: AOJu0Yw52CYVDjCc/rH/Q36gPUK2LgfHhPjJghLe1z3GU82RyMPwenRf
-	Drl9pbgDU0OHiPs9EkHaMTnxiU+sfBAhlTjajcMmwP2RuWri//S7IBgoJ04xR6ACeoGgZwMlGBU
-	kCVrbNcZ/ljf1pcA8SE9y1Z7fq1gvBlM=
-X-Gm-Gg: Acq92OEUHAnnmmbSZEMoy8Y7ycGy/SCLTpqrytiOK1KDPSwIjyI5YVDZaTvPx4j+YAE
-	4fZVVT6OMxzYjHEpiD9sZgUF2IHs5xhWa1Axj1TLf+0DcDxwhjIVZjuu/kXBPSWya4Mk0ZpGtK9
-	vqXSTHTRKhy8VWgt2AgqkLWUdnabk7hzf7l50FbnPWFn6/X/xvRrFE2iEiTEzBj1MJTbY8Rn9Sl
-	XuLWyYYVN6pJSs2EG/pA3HBgL4Sfz/ObjkUm5baQ6Q6rilvOZR33Uj/uIsAUQF0yZRmgn+F3nro
-	jZwLgD8qoDK6POoXGuHA9vuNQJe3R19KxSwMZEvxg4Tz
-X-Received: by 2002:a05:6402:320f:b0:688:1697:ab72 with SMTP id
- 4fb4d7f45d1cf-6889cc66198mr15216309a12.26.1779978226023; Thu, 28 May 2026
- 07:23:46 -0700 (PDT)
+	Thu, 28 May 2026 14:27:03 +0000
+Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
+	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id DDCF044A7;
+	Thu, 28 May 2026 07:26:55 -0700 (PDT)
+Received: from e129823.arm.com (e129823.arm.com [10.1.197.6])
+	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id B77A43F905;
+	Thu, 28 May 2026 07:26:59 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=simple/simple; d=arm.com; s=foss;
+	t=1779978420; bh=s6F2Efxk2WV9Dt67rZc51h8FcFWKXsHu+eFkbXrErJs=;
+	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
+	b=qAY5l++byfOwPF2u3LBdI3Vpw6JqqF+VELGxkF674kpeuPxiUrIAbUNXip44z7JIW
+	 He0cqJKpU96XY6tTQeLAvDb51AZtfHxigE3YMQBu/k6XqOtLAEjzWrI7WxgLiq7v97
+	 Zht9Muub4O6+O2aNnpmHN8c87ARJhH2iB1p6lFQ4=
+Date: Thu, 28 May 2026 15:26:57 +0100
+From: Yeoreum Yun <yeoreum.yun@arm.com>
+To: Leo Yan <leo.yan@arm.com>
+Cc: coresight@lists.linaro.org, linux-arm-kernel@lists.infradead.org,
+	linux-kernel@vger.kernel.org, suzuki.poulose@arm.com,
+	mike.leach@arm.com, james.clark@linaro.org,
+	alexander.shishkin@linux.intel.com, jie.gan@oss.qualcomm.com
+Subject: Re: [PATCH v7 08/13] coresight: etm4x: fix inconsistencies with
+ sysfs configuration
+Message-ID: <ahhQsTNok65e6K0F@e129823.arm.com>
+References: <20260519154812.254884-1-yeoreum.yun@arm.com>
+ <20260519154812.254884-9-yeoreum.yun@arm.com>
+ <20260528140943.GE101133@e132581.arm.com>
 MIME-Version: 1.0
-References: <20260427234801.2104511-1-puranjay@kernel.org> <20260427234801.2104511-3-puranjay@kernel.org>
- <ahhGbFY_4Dai1NjR@willie-the-truck>
-In-Reply-To: <ahhGbFY_4Dai1NjR@willie-the-truck>
-From: Puranjay Mohan <puranjay12@gmail.com>
-Date: Thu, 28 May 2026 15:23:32 +0100
-X-Gm-Features: AVHnY4LMDXcfZ1LqI3sJaif56UHbwagykFTXGHoWIwt3IHTuM31YvK58EmfPoYk
-Message-ID: <CANk7y0j6JecSuJVZg1phn2tSHrcHPDqqmoaDBy1LdnMo-1qsFg@mail.gmail.com>
-Subject: Re: [PATCH bpf-next v2 2/3] bpf, arm64: Add JIT support for stack arguments
-To: Will Deacon <will@kernel.org>
-Cc: bpf@vger.kernel.org, Yonghong Song <yonghong.song@linux.dev>, 
-	Alexei Starovoitov <ast@kernel.org>, Daniel Borkmann <daniel@iogearbox.net>, 
-	Andrii Nakryiko <andrii@kernel.org>, Martin KaFai Lau <martin.lau@linux.dev>, 
-	Eduard Zingerman <eddyz87@gmail.com>, Kumar Kartikeya Dwivedi <memxor@gmail.com>, Song Liu <song@kernel.org>, 
-	Xu Kuohai <xukuohai@huaweicloud.com>, Catalin Marinas <catalin.marinas@arm.com>, 
-	linux-arm-kernel@lists.infradead.org
-Content-Type: text/plain; charset="UTF-8"
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+In-Reply-To: <20260528140943.GE101133@e132581.arm.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260528_072348_846609_2556C67D 
-X-CRM114-Status: GOOD (  37.65  )
+X-CRM114-CacheID: sfid-20260528_072702_630383_3686ED0F 
+X-CRM114-Status: GOOD (  39.80  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -119,168 +73,307 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hi Will,
+Hi Leo,
 
-Thanks for your review.
-These patches have already landed in bpf-next tree as a part of this
-series: https://lore.kernel.org/all/20260513044949.2382019-1-yonghong.song@linux.dev/
-
-I will take all your feedback and send fixes for all the required changes.
-
-> How does that work with kfuncs? I think the PCS means that they will
-> expect to pick the stack arguments starting at [SP+0]. Or are you
-> saying that SP == FP+16 on entry to the callee? It's hard to reconcile
-> that with the ASCII art in build_prologue() because neither "current
-> A64_FP" nor "BPF_FP" point below A64_SP and it's not clear which of them
-> you're referring to when you refer to "FP" on its own.
-
-At entry to kfunc the arguments are starting at [SP+0] like a normal C
-callee function would expect.
-
-The line "callee reads them from [FP+16], [FP+24]" is for a BPF callee
-which always emits a frame record.
-So the caller puts the arguments at SP+0, SP+8, .. and then the callee
-creates the frame record in the prologue which means the first
-argument is at FP+16, ....
-This is just an implementation detail about how the JITed BPF callee
-programs can read stack arguments from FP+16, ... easily.
-
+> On Tue, May 19, 2026 at 04:48:07PM +0100, Yeoreum Yun wrote:
+> 
+> [...]
+> 
+> > --- a/drivers/hwtracing/coresight/coresight-etm4x-cfg.c
+> > +++ b/drivers/hwtracing/coresight/coresight-etm4x-cfg.c
+> > @@ -47,7 +47,7 @@ static int etm4_cfg_map_reg_offset(struct etmv4_drvdata *drvdata,
+> >  				   struct cscfg_regval_csdev *reg_csdev, u32 offset)
+> >  {
+> >  	int err = -EINVAL, idx;
+> > -	struct etmv4_config *drvcfg = &drvdata->config;
+> > +	struct etmv4_config *drvcfg = &drvdata->active_config;
+> 
+> Wouldn't it make more sense to keep using drvdata->config for cfgfs?
+> This would avoid cfgfs updating the active configuration while a session
+> is enabled.
 >
-> > BPF convention uses fixed offsets from BPF_REG_PARAMS (r11): off=-8 is
-> > always arg 6, off=-16 arg 7, etc. The verifier invalidates all outgoing
-> > stack arg slots after each call, so the compiler must re-store before
-> > every call. This means x5-x7 don't need to be saved on stack.
-> >
-> > Signed-off-by: Yonghong Song <yonghong.song@linux.dev>
-> > Signed-off-by: Puranjay Mohan <puranjay@kernel.org>
-> > ---
-> >  arch/arm64/net/bpf_jit_comp.c | 87 ++++++++++++++++++++++++++++++++++-
-> >  1 file changed, 86 insertions(+), 1 deletion(-)
-> >
-> > diff --git a/arch/arm64/net/bpf_jit_comp.c b/arch/arm64/net/bpf_jit_comp.c
-> > index 085e650662e3..cd8279880795 100644
-> > --- a/arch/arm64/net/bpf_jit_comp.c
-> > +++ b/arch/arm64/net/bpf_jit_comp.c
-> > @@ -86,6 +86,7 @@ struct jit_ctx {
-> >       __le32 *image;
-> >       __le32 *ro_image;
-> >       u32 stack_size;
-> > +     u16 stack_arg_size;
-> >       u64 user_vm_start;
-> >       u64 arena_vm_start;
-> >       bool fp_used;
-> > @@ -533,13 +534,19 @@ static int build_prologue(struct jit_ctx *ctx, bool ebpf_from_cbpf)
-> >        *                        |     |
-> >        *                        +-----+ <= (BPF_FP - prog->aux->stack_depth)
-> >        *                        |RSVD | padding
-> > -      * current A64_SP =>      +-----+ <= (BPF_FP - ctx->stack_size)
-> > +      *                        +-----+ <= (BPF_FP - ctx->stack_size)
-> > +      *                        |     |
-> > +      *                        | ... | outgoing stack args (9+, if any)
-> > +      *                        |     |
-> > +      * current A64_SP =>      +-----+
-> >        *                        |     |
-> >        *                        | ... | Function call stack
-> >        *                        |     |
-> >        *                        +-----+
-> >        *                          low
-> >        *
-> > +      * Stack args 6-8 are passed in x5-x7, args 9+ at [SP].
-> > +      * Incoming args 9+ are at [FP + 16], [FP + 24], ...
-> >        */
->
-> I assume the arguments being passed are all <= 64-bit scalar types? If
-> we ever want to pass anything with > 64-bit alignment or to a varargs
-> function, then the rules for allocation get a little hairy.
+> My understanding is after refactoring cfgfs, we will never expose
+> active_config or config anymore so this should not an issue. Before
+> that, maybe we just keep to use config so can avoid mess.
 
-Yes, right now only 64-bit scalars are supported.
+I don't think so. since the cfgfs's config is updated right before
+enable and in this patchset, It's applied after "take the mode".
 
->
-> >       emit_kcfi(is_main_prog ? cfi_bpf_hash : cfi_bpf_subprog_hash, ctx);
-> > @@ -613,6 +620,9 @@ static int build_prologue(struct jit_ctx *ctx, bool ebpf_from_cbpf)
-> >       if (ctx->stack_size && !ctx->priv_sp_used)
-> >               emit(A64_SUB_I(1, A64_SP, A64_SP, ctx->stack_size), ctx);
-> >
-> > +     if (ctx->stack_arg_size)
-> > +             emit(A64_SUB_I(1, A64_SP, A64_SP, ctx->stack_arg_size), ctx);
->
-> How do you ensure that the stack pointer is always 16-byte aligned? We
-> run with SP alignment checking enabled, so you need to take care of that.
+If we do it into drvdta->config, then contention would be increased
+with the access of sysfs and that nullifies almost this patch purpose
+and because of we use "one config" this makes a corruption with perf
+and sysfs.
 
-Down below as you have already found, stack_arg_size is always aligned.
+Therefore, It might be right to remain this as it is.
+and let's remove it at the time of refactorying.
 
->
-> > @@ -1191,6 +1207,41 @@ static int add_exception_handler(const struct bpf_insn *insn,
-> >       return 0;
+> 
+> >  	u32 off_mask;
+> >  
+> >  	if (((offset >= TRCEVENTCTL0R) && (offset <= TRCVIPCSSCTLR)) ||
+> > diff --git a/drivers/hwtracing/coresight/coresight-etm4x-core.c b/drivers/hwtracing/coresight/coresight-etm4x-core.c
+> > index 9b477b36b432..f0a9f2ef4b27 100644
+> > --- a/drivers/hwtracing/coresight/coresight-etm4x-core.c
+> > +++ b/drivers/hwtracing/coresight/coresight-etm4x-core.c
+> > @@ -243,6 +243,7 @@ void etm4_release_trace_id(struct etmv4_drvdata *drvdata)
+> >  struct etm4_enable_arg {
+> >  	struct etmv4_drvdata *drvdata;
+> >  	struct coresight_path *path;
+> > +	struct etmv4_config config;
+> >  	int rc;
+> >  };
+> >  
+> > @@ -268,10 +269,11 @@ static void etm4x_prohibit_trace(struct etmv4_drvdata *drvdata)
+> >  static u64 etm4x_get_kern_user_filter(struct etmv4_drvdata *drvdata)
+> >  {
+> >  	u64 trfcr = drvdata->trfcr;
+> > +	struct etmv4_config *config = &drvdata->active_config;
+> >  
+> > -	if (drvdata->config.mode & ETM_MODE_EXCL_KERN)
+> > +	if (config->mode & ETM_MODE_EXCL_KERN)
+> >  		trfcr &= ~TRFCR_EL1_ExTRE;
+> > -	if (drvdata->config.mode & ETM_MODE_EXCL_USER)
+> > +	if (config->mode & ETM_MODE_EXCL_USER)
+> >  		trfcr &= ~TRFCR_EL1_E0TRE;
+> >  
+> >  	return trfcr;
+> > @@ -279,7 +281,7 @@ static u64 etm4x_get_kern_user_filter(struct etmv4_drvdata *drvdata)
+> >  
+> >  /*
+> >   * etm4x_allow_trace - Allow CPU tracing in the respective ELs,
+> > - * as configured by the drvdata->config.mode for the current
+> > + * as configured by the drvdata->active_config.mode for the current
+> >   * session. Even though we have TRCVICTLR bits to filter the
+> >   * trace in the ELs, it doesn't prevent the ETM from generating
+> >   * a packet (e.g, TraceInfo) that might contain the addresses from
+> > @@ -290,12 +292,13 @@ static u64 etm4x_get_kern_user_filter(struct etmv4_drvdata *drvdata)
+> >  static void etm4x_allow_trace(struct etmv4_drvdata *drvdata)
+> >  {
+> >  	u64 trfcr, guest_trfcr;
+> > +	struct etmv4_config *config = &drvdata->active_config;
+> >  
+> >  	/* If the CPU doesn't support FEAT_TRF, nothing to do */
+> >  	if (!drvdata->trfcr)
+> >  		return;
+> >  
+> > -	if (drvdata->config.mode & ETM_MODE_EXCL_HOST)
+> > +	if (config->mode & ETM_MODE_EXCL_HOST)
+> >  		trfcr = drvdata->trfcr & ~(TRFCR_EL1_ExTRE | TRFCR_EL1_E0TRE);
+> >  	else
+> >  		trfcr = etm4x_get_kern_user_filter(drvdata);
+> > @@ -303,7 +306,7 @@ static void etm4x_allow_trace(struct etmv4_drvdata *drvdata)
+> >  	write_trfcr(trfcr);
+> >  
+> >  	/* Set filters for guests and pass to KVM */
+> > -	if (drvdata->config.mode & ETM_MODE_EXCL_GUEST)
+> > +	if (config->mode & ETM_MODE_EXCL_GUEST)
+> >  		guest_trfcr = drvdata->trfcr & ~(TRFCR_EL1_ExTRE | TRFCR_EL1_E0TRE);
+> >  	else
+> >  		guest_trfcr = etm4x_get_kern_user_filter(drvdata);
+> > @@ -497,7 +500,7 @@ static int etm4_enable_hw(struct etmv4_drvdata *drvdata)
+> >  {
+> >  	int i, rc;
+> >  	const struct etmv4_caps *caps = &drvdata->caps;
+> > -	struct etmv4_config *config = &drvdata->config;
+> > +	struct etmv4_config *config = &drvdata->active_config;
+> >  	struct coresight_device *csdev = drvdata->csdev;
+> >  	struct device *etm_dev = &csdev->dev;
+> >  	struct csdev_access *csa = &csdev->access;
+> > @@ -618,27 +621,53 @@ static int etm4_enable_hw(struct etmv4_drvdata *drvdata)
+> >  static void etm4_enable_sysfs_smp_call(void *info)
+> >  {
+> >  	struct etm4_enable_arg *arg = info;
+> > +	struct etmv4_drvdata *drvdata;
+> >  	struct coresight_device *csdev;
+> > +	unsigned long cfg_hash;
+> > +	int preset;
+> >  
+> >  	if (WARN_ON(!arg))
+> >  		return;
+> >  
+> > -	csdev = arg->drvdata->csdev;
+> > +	drvdata = arg->drvdata;
+> > +	csdev = drvdata->csdev;
+> >  	if (!coresight_take_mode(csdev, CS_MODE_SYSFS)) {
+> >  		/* Someone is already using the tracer */
+> >  		arg->rc = -EBUSY;
+> >  		return;
+> >  	}
+> >  
+> > -	arg->rc = etm4_enable_hw(arg->drvdata);
+> > +	/* enable any config activated by configfs */
+> > +	cscfg_config_sysfs_get_active_cfg(&cfg_hash, &preset);
+> >  
+> > -	/* The tracer didn't start */
+> > +	drvdata->active_config = arg->config;
+> 
+> Can move this down to just before drvdata->trcid assignment so cscfg
+> operations can be put together?
+
+No. Copy the arg->config must be before cscfg_csdev_enable_active_config().
+If that's after, it overrides the "preset" and this is different from
+the former behavior.
+
+> 
+> > +
+> > +	if (cfg_hash) {
+> > +		arg->rc = cscfg_csdev_enable_active_config(csdev,
+> > +							   cfg_hash,
+> > +							   preset);
+> > +		if (arg->rc)
+> > +			goto err;
+> > +	}
+> > +
+> > +	drvdata->trcid = arg->path->trace_id;
+> > +
+> > +	/* Tracer will never be paused in sysfs mode */
+> > +	drvdata->paused = false;
+> > +
+> > +	arg->rc = etm4_enable_hw(drvdata);
+> >  	if (arg->rc) {
+> > -		coresight_set_mode(csdev, CS_MODE_DISABLED);
+> > -		return;
+> > +		cscfg_csdev_disable_active_config(csdev);
+> > +		goto err;
+> 
+> Add a new goto tag (like err_enable_hw) for the disable_active_config
+> rollback?
+
+This is only place where cscfg_csdev_disable_active_config().
+Why do we need to goto for cleanup where there is no duplication?
+
+> 
+> >  	}
+> >  
+> > +	drvdata->sticky_enable = true;
+> >  	csdev->path = arg->path;
+> > +
+> > +	return;
+> > +err:
+> > +	/* The tracer didn't start */
+> > +	coresight_set_mode(csdev, CS_MODE_DISABLED);
 > >  }
-> >
-> > +static const u8 stack_arg_reg[] = { A64_R(5), A64_R(6), A64_R(7) };
+> >  
+> >  /*
+> > @@ -676,7 +705,7 @@ static int etm4_config_timestamp_event(struct etmv4_drvdata *drvdata,
+> >  	int ctridx;
+> >  	int rselector;
+> >  	const struct etmv4_caps *caps = &drvdata->caps;
+> > -	struct etmv4_config *config = &drvdata->config;
+> > +	struct etmv4_config *config = &drvdata->active_config;
+> >  
+> >  	/* No point in trying if we don't have at least one counter */
+> >  	if (!caps->nr_cntr)
+> > @@ -760,7 +789,7 @@ static int etm4_parse_event_config(struct coresight_device *csdev,
+> >  	int ret = 0;
+> >  	struct etmv4_drvdata *drvdata = dev_get_drvdata(csdev->dev.parent);
+> >  	const struct etmv4_caps *caps = &drvdata->caps;
+> > -	struct etmv4_config *config = &drvdata->config;
+> > +	struct etmv4_config *config = &drvdata->active_config;
+> >  	struct perf_event_attr max_timestamp = {
+> >  		.ATTR_CFG_FLD_timestamp_CFG = U64_MAX,
+> >  	};
+> > @@ -922,25 +951,7 @@ static int etm4_enable_sysfs(struct coresight_device *csdev, struct coresight_pa
+> >  {
+> >  	struct etmv4_drvdata *drvdata = dev_get_drvdata(csdev->dev.parent);
+> >  	struct etm4_enable_arg arg = { };
+> > -	unsigned long cfg_hash;
+> > -	int ret, preset;
+> > -
+> > -	/* enable any config activated by configfs */
+> > -	cscfg_config_sysfs_get_active_cfg(&cfg_hash, &preset);
+> > -	if (cfg_hash) {
+> > -		ret = cscfg_csdev_enable_active_config(csdev, cfg_hash, preset);
+> > -		if (ret) {
+> > -			etm4_release_trace_id(drvdata);
+> > -			return ret;
+> > -		}
+> > -	}
+> > -
+> > -	raw_spin_lock(&drvdata->spinlock);
+> > -
+> > -	drvdata->trcid = path->trace_id;
+> > -
+> > -	/* Tracer will never be paused in sysfs mode */
+> > -	drvdata->paused = false;
+> > +	int ret;
+> >  
+> >  	/*
+> >  	 * Executing etm4_enable_hw on the cpu whose ETM is being enabled
+> > @@ -948,20 +959,20 @@ static int etm4_enable_sysfs(struct coresight_device *csdev, struct coresight_pa
+> >  	 */
+> >  	arg.drvdata = drvdata;
+> >  	arg.path = path;
 > > +
-> > +#define NR_STACK_ARG_REGS    ARRAY_SIZE(stack_arg_reg)
+> > +	raw_spin_lock(&drvdata->spinlock);
+> > +	arg.config = drvdata->config;
+> > +	raw_spin_unlock(&drvdata->spinlock);
 > > +
-> > +static void emit_stack_arg_load(u8 dst, s16 bpf_off, struct jit_ctx *ctx)
-> > +{
-> > +     int idx = bpf_off / sizeof(u64) - 1;
-> > +
-> > +     if (idx < NR_STACK_ARG_REGS)
-> > +             emit(A64_MOV(1, dst, stack_arg_reg[idx]), ctx);
-> > +     else
-> > +             emit(A64_LDR64I(dst, A64_FP, (idx - NR_STACK_ARG_REGS) * sizeof(u64) + 16), ctx);
-> > +}
->
-> Is it worth asserting that bpf_off >= 8 here or can we rely on that? I
-> struggled to find any details about how bpf passes arguments on the
-> stack (beyond what you describe in the commit message) and grepping for
-> BPF_REG_PARAMS didn't help either.
+> >  	ret = smp_call_function_single(drvdata->cpu,
+> >  				       etm4_enable_sysfs_smp_call, &arg, 1);
+> >  	if (!ret)
+> >  		ret = arg.rc;
+> >  	if (!ret)
+> > -		drvdata->sticky_enable = true;
+> > -
+> > -	if (ret)
+> > +		dev_dbg(&csdev->dev, "ETM tracing enabled\n");
+> > +	else
+> >  		etm4_release_trace_id(drvdata);
+> >  
+> > -	raw_spin_unlock(&drvdata->spinlock);
+> > -
+> > -	if (!ret)
+> > -		dev_dbg(&csdev->dev, "ETM tracing enabled\n");
+> >  	return ret;
+> >  }
+> >  
+> > @@ -1048,7 +1059,7 @@ static void etm4_disable_hw(struct etmv4_drvdata *drvdata)
+> >  {
+> >  	u32 control;
+> >  	const struct etmv4_caps *caps = &drvdata->caps;
+> > -	struct etmv4_config *config = &drvdata->config;
+> > +	struct etmv4_config *config = &drvdata->active_config;
+> >  	struct coresight_device *csdev = drvdata->csdev;
+> >  	struct csdev_access *csa = &csdev->access;
+> >  	int i;
+> > @@ -1091,6 +1102,8 @@ static void etm4_disable_sysfs_smp_call(void *info)
+> >  	etm4_disable_hw(drvdata);
+> >  
+> >  	drvdata->csdev->path = NULL;
+> > +	cscfg_csdev_disable_active_config(drvdata->csdev);
+> 
+> Move cscfg_csdev_disable_active_config() just after etm4_disable_hw() so
+> the sequence is consistent with perf mode.
 
-This and other patches in this set has more information about this:
-https://lore.kernel.org/all/20260513045015.2385013-1-yonghong.song@linux.dev/
+Fair enough. I'll do that.
 
->
-> > +static void emit_stack_arg_store(u8 src_a64, s16 bpf_off, struct jit_ctx *ctx)
-> > +{
-> > +     int idx = -bpf_off / sizeof(u64) - 1;
-> > +
-> > +     if (idx < NR_STACK_ARG_REGS)
-> > +             emit(A64_MOV(1, stack_arg_reg[idx], src_a64), ctx);
-> > +     else
-> > +             emit(A64_STR64I(src_a64, A64_SP, (idx - NR_STACK_ARG_REGS) * sizeof(u64)), ctx);
-> > +}
-> > +
-> > +static void emit_stack_arg_store_imm(s32 imm, s16 bpf_off, const u8 tmp, struct jit_ctx *ctx)
-> > +{
-> > +     int idx = -bpf_off / sizeof(u64) - 1;
-> > +
-> > +     emit_a64_mov_i(1, tmp, imm, ctx);
-> > +     if (idx < NR_STACK_ARG_REGS)
-> > +             emit(A64_MOV(1, stack_arg_reg[idx], tmp), ctx);
->
-> nit: You seem to have redundant MOVs here.
+> 
+> [...]
+> 
+> > @@ -1449,7 +1458,7 @@ static void etm4_init_arch_data(void *info)
+> >  
+> >  	/* EXLEVEL_S, bits[19:16] Secure state instruction tracing */
+> >  	caps->s_ex_level = FIELD_GET(TRCIDR3_EXLEVEL_S_MASK, etmidr3);
+> > -	drvdata->config.s_ex_level = caps->s_ex_level;
+> > +	config->s_ex_level = caps->s_ex_level;
+> 
+> config->s_ex_level is redundant and not really a configuration item.
+> We should use caps->s_ex_level instead of config->s_ex_level wherever
+> it is used.
 
-Ack, will fix this.
+Agree, but this includes it should change the omse function
+declations to pass "caps" argument:
+  - etm4_set_comparator_filter()
+  - etm4_set_start_stop_filter()
 
->
-> > @@ -2065,6 +2137,14 @@ struct bpf_prog *bpf_int_jit_compile(struct bpf_verifier_env *env, struct bpf_pr
-> >       ctx.user_vm_start = bpf_arena_get_user_vm_start(prog->aux->arena);
-> >       ctx.arena_vm_start = bpf_arena_get_kern_vm_start(prog->aux->arena);
-> >
-> > +     if (prog->aux->stack_arg_depth > prog->aux->incoming_stack_arg_depth) {
-> > +             u16 outgoing = prog->aux->stack_arg_depth - prog->aux->incoming_stack_arg_depth;
-> > +             int nr_on_stack = outgoing / sizeof(u64) - NR_STACK_ARG_REGS;
-> > +
-> > +             if (nr_on_stack > 0)
-> > +                     ctx.stack_arg_size = round_up(nr_on_stack * sizeof(u64), 16);
-> > +     }
->
-> ah, that's presumably where you handle the SP alignment. I think a
-> comment would really help folks here... In fact, how does this interact
-> with the same sort of SP adjustment that already exists in build_prologue()?
-> Can we avoid the pointless re-alignment?
+If that's okay, I'll respin with it.
 
-Yeah, you are right, if ctx->stack_size + ctx-> stack_arg_size is
-aligned then we don't need to separately align these two, I can move
-this from here and consolidate it in the build_prologue() function and
-also add a comment there.
+> 
+> Thanks,
+> Leo
 
-> Will
+-- 
+Sincerely,
+Yeoreum Yun
 
