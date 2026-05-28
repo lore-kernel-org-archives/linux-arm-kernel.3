@@ -4,64 +4,59 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id ABE0ACD4F54
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 28 May 2026 16:09:14 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 4C6F0CD5BD5
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 28 May 2026 16:15:32 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
 	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
 	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=h9g24AMvHPC82wp8alB06zIO1bChAGUywmcXHfgLSzg=; b=xXNlklwKMsBlIHK/AiJoeVSV2h
-	4Z3x5eruURXWohRZDCgug7qUz39+hY3CLIpX4nmXRHUFx4sMuV8yUkS4NxWnGzsiGjE3BKyo/ruNp
-	KUr3GV8ztZQQzSZFGl7a319Vjb77WwDCc4VVEDxn48RXYN9p8/qy4CQT0ljXxWz+jT6FxwPx7jlWv
-	Zu7M0JhGdJo367u3XhQhEUfWw03xlhcp4aLBxQjSfsb9Vv3MeglzQI189avlSRJUJgOIoTM90+ySR
-	Vl2sf+vN3pUIT8rufj9rhPzonRWlIWYoNv4jxaJtxTiZSd0y6jk+beeYxlL9AfEu1uR0pCd4MS8Ac
-	1h1ZGJsQ==;
+	bh=XjqN4ueRqZqexMd/UC2F91JaRbtcP5EFWGVnLCd5ohg=; b=F9OxazA66jrrVOr7FQs3EQkS7t
+	VeszF2eRdZ2glK6xc4ZKClz/bvpYyklz+L84qgH5EmkBvjJC93L+QSUEDGe4Sht+kfPHJiHOGo/tz
+	BFGtmk/lVZ3CE70j06TX155JbeXbCqMNwzUYvB9f1XxqQLSYnV+2+sV9z8jkVMbT+BmXOmhAQJPkm
+	aqrlTKoRly98nwD70BSDmHz09QuHP4IjwU3dA6y738Kge17vEMDQSr2cAPp1IssIaTs2QZsY8jDU/
+	ogJbmnq9ECmsxiOVWuOdM1t9NQ2Ay/+Pg+u42ZmXGcXDfbs5DGrdrYhMh9I77khu8OSO9DaVZAPuq
+	wVagrVuw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wSdIB-00000005yEz-1D9j;
-	Thu, 28 May 2026 16:09:07 +0000
-Received: from tor.source.kernel.org ([2600:3c04:e001:324:0:1991:8:25])
-	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wSdIA-00000005yEn-0Qga;
-	Thu, 28 May 2026 16:09:06 +0000
-Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
-	by tor.source.kernel.org (Postfix) with ESMTP id 343AF6014B;
-	Thu, 28 May 2026 16:09:05 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 61A811F000E9;
-	Thu, 28 May 2026 16:09:04 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1779984544;
-	bh=h9g24AMvHPC82wp8alB06zIO1bChAGUywmcXHfgLSzg=;
-	h=Date:From:To:Cc:Subject:References:In-Reply-To;
-	b=aJmerr5Yu9DJXjrB1+R/OUCZIzguGkJ/2WMfRBhgFoxct9tb2XG91s3oB39rcM2m0
-	 YtEKW/mkJqXUq4NRZeuTrt4+3AlJT+iG53E6oRjTiCkkQVDg/LT3NHtoJd77RTeu8K
-	 8AMi1+Kffv391i74QGAdoDZ/h4imuM9BmBk8r4HYv7MIDAJV5A8EJ6QOmvRgUSh+YI
-	 BowZSjMQZLGe2qx3zO74GvLfPJjQywX4Q/Rw16zMj0iJ86Ah6yT8O+u8jZnVymUC2m
-	 jXt4EF4W5+Qhjo7xcjqaM9GJncHXHKaTFyo6sqZu8oz64/dVfKzNIiz9NhvbOmMDuv
-	 18Pqv/t9U1tbg==
-Date: Thu, 28 May 2026 18:09:02 +0200
-From: Lorenzo Bianconi <lorenzo@kernel.org>
-To: Alexander Lobakin <aleksander.lobakin@intel.com>
-Cc: Andrew Lunn <andrew+netdev@lunn.ch>,
-	"David S. Miller" <davem@davemloft.net>,
-	Eric Dumazet <edumazet@google.com>,
-	Jakub Kicinski <kuba@kernel.org>, Paolo Abeni <pabeni@redhat.com>,
-	Simon Horman <horms@kernel.org>,
-	linux-arm-kernel@lists.infradead.org,
-	linux-mediatek@lists.infradead.org, netdev@vger.kernel.org,
-	Xuegang Lu <xuegang.lu@airoha.com>
-Subject: Re: [PATCH net-next 1/6] net: airoha: Introduce airoha_gdm_dev struct
-Message-ID: <ahhonoI-oJ6gJqZ0@lore-desk>
-References: <20260527-airoha-eth-multi-serdes-preliminary-v1-0-ec6ed73ef7fc@kernel.org>
- <20260527-airoha-eth-multi-serdes-preliminary-v1-1-ec6ed73ef7fc@kernel.org>
- <433b9d9a-bd7c-44ad-b387-a789b326488e@intel.com>
+	id 1wSdOG-00000005yfH-3yGp;
+	Thu, 28 May 2026 16:15:24 +0000
+Received: from foss.arm.com ([217.140.110.172])
+	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
+	id 1wSdOE-00000005yes-3B63
+	for linux-arm-kernel@lists.infradead.org;
+	Thu, 28 May 2026 16:15:24 +0000
+Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
+	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id EC59922EE;
+	Thu, 28 May 2026 09:15:15 -0700 (PDT)
+Received: from J2N7QTR9R3.cambridge.arm.com (usa-sjc-imap-foss1.foss.arm.com [10.121.207.14])
+	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id B71573F905;
+	Thu, 28 May 2026 09:15:19 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=simple/simple; d=arm.com; s=foss;
+	t=1779984921; bh=OyK3X5e+Jhr/rucK+64U5W5SFILTwa7dTGV6a4I+o/s=;
+	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
+	b=XguVli3rvLsVZObkksEwKLQr02pz/cMuUFg9r1ZA9V0cnJB3PmSaT1RNe/gKuyFgQ
+	 p329VRvop7Hpl+R3GmJzoXO0jbHAWMSoLtm/pbTbVEwzCYLPSW5QNz+Kv+JN4B3J1D
+	 seMMN7903aclPs8IRFc8OpcGRWDCZMkC/4RWr8p8=
+Date: Thu, 28 May 2026 17:15:14 +0100
+From: Mark Rutland <mark.rutland@arm.com>
+To: Mark Brown <broonie@kernel.org>
+Cc: linux-arm-kernel@lists.infradead.org, kvmarm@lists.linux.dev,
+	catalin.marinas@arm.com, james.morse@arm.com, maz@kernel.org,
+	oupton@kernel.org, tabba@google.com, will@kernel.org
+Subject: Re: [PATCH 12/18] arm64: fpsimd: Move fpsimd save/restore inline
+Message-ID: <ahhqEs1DhShRpgXF@J2N7QTR9R3.cambridge.arm.com>
+References: <20260521132556.584676-1-mark.rutland@arm.com>
+ <20260521132556.584676-13-mark.rutland@arm.com>
+ <0f666889-fabe-4cdd-9fd2-d87808329dbd@sirena.org.uk>
 MIME-Version: 1.0
-Content-Type: multipart/signed; micalg=pgp-sha512;
-	protocol="application/pgp-signature"; boundary="Nb9J8kMZwq4Zf3k2"
+Content-Type: text/plain; charset=us-ascii
 Content-Disposition: inline
-In-Reply-To: <433b9d9a-bd7c-44ad-b387-a789b326488e@intel.com>
+In-Reply-To: <0f666889-fabe-4cdd-9fd2-d87808329dbd@sirena.org.uk>
+X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
+X-CRM114-CacheID: sfid-20260528_091522_834675_BAD6B2CB 
+X-CRM114-Status: GOOD (  20.52  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -76,84 +71,49 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
+On Tue, May 26, 2026 at 05:44:26PM +0100, Mark Brown wrote:
+> On Thu, May 21, 2026 at 02:25:50PM +0100, Mark Rutland wrote:
+> 
+> > Note that I've used the SVE sequence for restoring FPCR, which uses an
+> > unconditional write to FPCR. The plain FPSIMD assembly sequence used a
+> > conditional write to FPCR since 2014 in commit:
+> 
+> >   5959e25729a5 ("arm64: fpsimd: avoid restoring fpcr if the contents haven't change")
+> 
+> > ... but this was not followed for the SVE assembly implemented in 2017
+> > in commit:
+> 
+> >   1fc5dce78ad1 ("arm64/sve: Low-level SVE architectural state manipulation functions")
+> 
+> > ... so I've assumed that this doesn't actually matter in practice, and
+> > I've erred in favour of the simpler sequence.
+> 
+> As I said on the earlier patch I'm a bit nervous about assuming this
+> doesn't matter for anyone without verifying (though I wouldn't be
+> surprised if that turned out to be the case) but that's internal to that
+> patch and this is obviously a great improvement so:
+> 
+> Reviewed-by: Mark Brown <broonie@kernel.org>
 
---Nb9J8kMZwq4Zf3k2
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-Content-Transfer-Encoding: quoted-printable
+Based on that discussion on the last patch, I've updated the commit
+message for this patch say:
 
-On May 28, Alexander Lobakin wrote:
-> From: Lorenzo Bianconi <lorenzo@kernel.org>
-> Date: Wed, 27 May 2026 12:21:15 +0200
->=20
-> > EN7581 and AN7583 SoCs support connecting multiple external SerDes to G=
-DM3
-> > or GDM4 ports via a hw arbiter that manages the traffic in a TDM manner.
-> > As a result multiple net_devices can connect to the same GDM{3,4} port
-> > and there is a theoretical "1:n" relation between GDM port and
-> > net_devices.
-> > Introduce airoha_gdm_dev struct to collect net_device related info (e.g.
-> > net_device and external phy pointer). Please note this is just a
-> > preliminary patch and we are still supporting a single net_device for
-> > each GDM port. Subsequent patches will add support for multiple net_dev=
-ices
-> > connected to the same GDM port.
-> >=20
-> > Tested-by: Xuegang Lu <xuegang.lu@airoha.com>
-> > Signed-off-by: Lorenzo Bianconi <lorenzo@kernel.org>
->=20
-> [...]
->=20
-> > diff --git a/drivers/net/ethernet/airoha/airoha_eth.h b/drivers/net/eth=
-ernet/airoha/airoha_eth.h
-> > index d3781103abb5..c78cabbec753 100644
-> > --- a/drivers/net/ethernet/airoha/airoha_eth.h
-> > +++ b/drivers/net/ethernet/airoha/airoha_eth.h
-> > @@ -535,10 +535,15 @@ struct airoha_qdma {
-> >  	struct airoha_queue q_rx[AIROHA_NUM_RX_RING];
-> >  };
-> > =20
-> > +struct airoha_gdm_dev {
-> > +	struct airoha_gdm_port *port;
-> > +	struct net_device *dev;
->=20
-> Nit: we now have priv_to_netdev() (I hope I remember its name
-> correctly), so that we no longer need to store a netdev backpointer in
-> netdev_priv structures.
-> Just an option, up to you.
+  I've used the SVE sequence for restoring FPCR, which uses an
+  unconditional write to FPCR, rather than the conditional write used by
+  the FPSIMD assembly sequence. I believe that in practice, this doesn't
+  matter to a real workload, and given it's possible for the
+  mis-predicted branch to cost more than the necessary
+  micro-architectural synchronization, I strongly suspect any
+  performance impact is within the noise. 
+  
+  Looking at the history, the FPSIMD assembly sequence was changed to
+  use a conditional write to FPCR since 2014 in commit:
+  
+    5959e25729a5 ("arm64: fpsimd: avoid restoring fpcr if the contents haven't change")
+  
+  ... as described in the commit message, this was based on an
+  expectation of implementation style, and was not based on
+  benchmarking.
 
-I think you mean netdev_from_priv(), right?
-I guess I can fix if I need to repost, otherwise I will fix with with a
-dedicated patch. Agree?
-
-Regards,
-Lorenzo
-
->=20
-> > +	struct airoha_eth *eth;
-> > +};
-> > +
-> >  struct airoha_gdm_port {
-> >  	struct airoha_qdma *qdma;
-> > -	struct airoha_eth *eth;
-> > -	struct net_device *dev;
-> > +	struct airoha_gdm_dev *dev;
-> >  	int id;
-> >  	int nbq;
-> > =20
-> Thanks,
-> Olek
-
---Nb9J8kMZwq4Zf3k2
-Content-Type: application/pgp-signature; name=signature.asc
-
------BEGIN PGP SIGNATURE-----
-
-iHUEABYKAB0WIQTquNwa3Txd3rGGn7Y6cBh0uS2trAUCahhongAKCRA6cBh0uS2t
-rCn3AP9L3HrDZO+dHLvad0WYopiz4hGx0009SRdHy+w2Kx7BBAEAjqX2Bemdw09X
-zNug8X2AKnTJnbKmtQJzquIA+MePbAw=
-=Fj6G
------END PGP SIGNATURE-----
-
---Nb9J8kMZwq4Zf3k2--
+Mark.
 
