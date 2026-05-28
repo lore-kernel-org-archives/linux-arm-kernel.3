@@ -4,123 +4,91 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 99EDDCD4F54
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 28 May 2026 22:59:54 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 63425CD4F54
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 28 May 2026 23:06:46 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:From:References:CC:To:Subject:MIME-Version:Date:
-	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=pl4ZuR/uAzULRR6ywozuD/ZT47QzI8yCZ2q+kPawkCE=; b=t+r0E9DMnrMcptppPhzSNnkq8W
-	i73Q1VgM9A6cSFhTmEEKmg+GTg9nRo1Hy9BQfEGQp+NRsfk07vg1z5gE1UmA1McJnne3xppBtNj7A
-	Sl6qLPGE12syU1jD1lB5dGaN2RTCXfIDxh4DQZaLRhW6wTFNnejUfXmBoQfOzdkyAiNy0OC9bGk7I
-	JOVUfo+omHhKHkDvlxFJ62IY0KfxBKCZ+wIiLAiHfpbR+cBXDDJ+LuyUR0MiON3RQwS/w3POOsWLO
-	yj4X8KztVMeSOQzhPGcC/rfw7rNazdq+PE74bF3orGPu0/jvnSRtmDsR4d6WKvB17T1Th6/JQghMf
-	G+za8iLg==;
+	MIME-Version:Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-Type:
+	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
+	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=OLSjl6CXuzR38T343RTt9SyGP7hxMKOqUC5yJePUlLg=; b=JKI14TD1MwTY/L+ntPWEVsm+hR
+	HnldhnjyLNvEAd0koWnf/PUPsmWN+2gc4o6RQNLcK7D46uitUrsNGM4B537hL/9Ec9HLGsa17+/gZ
+	+lWS4LXPc9AUwr79GDsGwqFOeuwva9J8qNCwtm2lGYJCJILIFf7yx+7PERMbKf8m8274iM4I40mFC
+	OrZWvSMGcSRGF9YrJWrmVq79HlpIpiVLduU5GMzQhW+XkyA7mfOLyNeHXvOcXYNWgRK5v1B76ZcMr
+	5Zq7k9GtAOA3JM+oxhsPXHRKcO/8J0tOM5LnZXu7stZ4fpZ1p1MoLHwx6wRpLEoATxiy4Qa5VYSNA
+	oH+9CDYw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wSjhZ-00000006VaA-3JFZ;
-	Thu, 28 May 2026 22:59:45 +0000
-Received: from mail-eastusazlp170120007.outbound.protection.outlook.com ([2a01:111:f403:c101::7] helo=BL0PR03CU003.outbound.protection.outlook.com)
+	id 1wSjoE-00000006VpW-2FLa;
+	Thu, 28 May 2026 23:06:38 +0000
+Received: from mail-dy1-x132f.google.com ([2607:f8b0:4864:20::132f])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wSjhW-00000006VZp-3mLB
+	id 1wSjoB-00000006Vow-3d5F
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 28 May 2026 22:59:44 +0000
-ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
- b=gboZDGrSkCMt1+3Gvesi3d6EnbMgIVWLbx0I+pO/ly1+7GnaynTema3dt9Du41j9M+IsYuYgL5r2Na+SZ+omA90RXNw0x7Ko/zgdxyY3hWRJD9qdiMWskddCSDjRZ+Bo8fFUXrPAnXem2E+NvugIYRdRS0m3nixDgHp6Fp2HK8aRM0XqZypFxhuxsgzwNb8jL86m3U2l+NmChH6tC7hhHznWqjcx/MMuutbxqva6wIs1AKbeKISLb0akyEhkiliPceAjqOctGcrN7uxLbf+lOzQ1zqyNd5B5x4z3tO5nuCIh4hnUzeJLTt56gSVYKPDs3Kvh+FqI+tfVAw3qoIHP9Q==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
- s=arcselector10001;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
- bh=pl4ZuR/uAzULRR6ywozuD/ZT47QzI8yCZ2q+kPawkCE=;
- b=AnGWvIfqNrHzV0MzmxQkMZw1RJLYX7Nyq/uDzZVaHbNvIyUTb/syrgHiQKBGHQWNeUuR5o5JWN07DQTUJ0Y2m3ITzcGAjy2UE82s1p618JISgc1Za8SRBBxlDABi/uyLy4EcCRXk1ipAb+CobWf1BAlJtMxlxZvXDTvtzdQQjF2yhq+O3HhFocP3j2QklaU38GaBArV2MYd0qiYicKH3tdn6iWLmaKGPvZzvOfQeNeQ7AZRP1ipanwJROiuHfuaiHQa8ZndWukQ3resRBQCaiZGvWpRwg+rGj3KQQ81i2s2A0ifns5y6X6nK1UE4W5oRkyE6hyrtyKM98qLyAHrvJw==
-ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass (sender ip is
- 198.47.23.194) smtp.rcpttodomain=vger.kernel.org smtp.mailfrom=ti.com;
- dmarc=pass (p=quarantine sp=none pct=100) action=none header.from=ti.com;
- dkim=none (message not signed); arc=none (0)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=ti.com; s=selector1;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
- bh=pl4ZuR/uAzULRR6ywozuD/ZT47QzI8yCZ2q+kPawkCE=;
- b=QAsSEgf9SAbCJCiice99hJ67bIL+/x7Muk+Dmb+mfPmMmy3aK5ZUOCtYOXVlZACxUvQOtimJo8znwcAjNP94Q89HAm3CWWNnN/ZsP59S5MJ3lqT4/LLK73Q3rWEbCfGvai+hHHJxLCpuU82bPZVy4MQXvixyUsl1zZ10Ei+WLRU=
-Received: from DM6PR02CA0110.namprd02.prod.outlook.com (2603:10b6:5:1b4::12)
- by MW4PR10MB5810.namprd10.prod.outlook.com (2603:10b6:303:186::18) with
- Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.21.71.13; Thu, 28 May
- 2026 22:59:36 +0000
-Received: from DS2PEPF000061C6.namprd02.prod.outlook.com
- (2603:10b6:5:1b4:cafe::92) by DM6PR02CA0110.outlook.office365.com
- (2603:10b6:5:1b4::12) with Microsoft SMTP Server (version=TLS1_3,
- cipher=TLS_AES_256_GCM_SHA384) id 15.21.71.13 via Frontend Transport; Thu, 28
- May 2026 22:59:35 +0000
-X-MS-Exchange-Authentication-Results: spf=pass (sender IP is 198.47.23.194)
- smtp.mailfrom=ti.com; dkim=none (message not signed) header.d=none;dmarc=pass
- action=none header.from=ti.com;
-Received-SPF: Pass (protection.outlook.com: domain of ti.com designates
- 198.47.23.194 as permitted sender) receiver=protection.outlook.com;
- client-ip=198.47.23.194; helo=lewvzet200.ext.ti.com; pr=C
-Received: from lewvzet200.ext.ti.com (198.47.23.194) by
- DS2PEPF000061C6.mail.protection.outlook.com (10.167.23.73) with Microsoft
- SMTP Server (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
- 15.21.92.5 via Frontend Transport; Thu, 28 May 2026 22:59:35 +0000
-Received: from DLEE206.ent.ti.com (157.170.170.90) by lewvzet200.ext.ti.com
- (10.4.14.103) with Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.2.2562.37; Thu, 28 May
- 2026 17:59:35 -0500
-Received: from DLEE205.ent.ti.com (157.170.170.85) by DLEE206.ent.ti.com
- (157.170.170.90) with Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.2.2562.37; Thu, 28 May
- 2026 17:59:35 -0500
-Received: from lelvem-mr06.itg.ti.com (10.180.75.8) by DLEE205.ent.ti.com
- (157.170.170.85) with Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.2.2562.37 via Frontend
- Transport; Thu, 28 May 2026 17:59:35 -0500
-Received: from [10.249.42.149] ([10.249.42.149])
-	by lelvem-mr06.itg.ti.com (8.18.1/8.18.1) with ESMTP id 64SMxYgV2429021;
-	Thu, 28 May 2026 17:59:34 -0500
-Message-ID: <29c9bd27-df32-4c56-8df2-987722d02b9a@ti.com>
-Date: Thu, 28 May 2026 17:59:34 -0500
+	Thu, 28 May 2026 23:06:37 +0000
+Received: by mail-dy1-x132f.google.com with SMTP id 5a478bee46e88-2f0ad52830cso17247066eec.1
+        for <linux-arm-kernel@lists.infradead.org>; Thu, 28 May 2026 16:06:35 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=gmail.com; s=20251104; t=1780009595; x=1780614395; darn=lists.infradead.org;
+        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
+         :to:from:from:to:cc:subject:date:message-id:reply-to;
+        bh=OLSjl6CXuzR38T343RTt9SyGP7hxMKOqUC5yJePUlLg=;
+        b=cuF3pVCXAj2TGI30PcLBCeDm523HZTuQoG0a4nCRQiT4IHi+GS6YapeD5+S9t2qwzX
+         PvGfc9wtyNxI1SWvmbACJnqduhGedeacWz8iyPHnl8K1pgh9t4U0WSMOw7fmNbrsytVb
+         sjhVaMBGpqqpqxCfMTSkpRDC8lIgRrdAQZNyfH/YljIZPsbd+6yFtCBf5ru992JfJ7Fa
+         awNNmzQYGiB2GKDqLnTK8MDUmpTnVE7bauv8YZ6sMSAcTv2pZ6zLLqG3cf1KbPFm5xyI
+         vM+9H/yrExzc9RICdr59M/uzO15S/8zHffAGV1OL9Yw0vnx8uSG3nuJTuwEGPeTDZGs2
+         K+dQ==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20251104; t=1780009595; x=1780614395;
+        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
+         :to:from:x-gm-gg:x-gm-message-state:from:to:cc:subject:date
+         :message-id:reply-to;
+        bh=OLSjl6CXuzR38T343RTt9SyGP7hxMKOqUC5yJePUlLg=;
+        b=p8RjqazY0feYo5QyyWlqoNElXtXyMf5eizIHqxn+3OkJwWpLFHHEzEUpCD2ais7U8/
+         D64QCCBYRjkKgBPIu/Fs8Heif21+s/oDtX9RGSo8L8tA9uZ4WSNInS9rYwpzcF+giH3d
+         LVWpsC0Af4LlM/TVuPXQi7rVI3pqt0+bfV0MkrxqF/JhtxQ2w3uPc7T5gMjE9RkUTNXk
+         67FFUnWO6cp5UT9a1tIIQWrhbZj7BjxvaEE1ljiYy4+526s1nnXMdtV2RGfkzzO84EnP
+         xQn+WaMAs2c3a35P2eGfBubYFcsv6bP3gqNmiDHalNW0gL7ARJbqosDdy/lPy636IWiZ
+         sfUA==
+X-Forwarded-Encrypted: i=1; AFNElJ+agZ4fRIZXGVALUau/qnAoFhVPFAEpfgLTxVtEEdaIbD1v0/PXwPsbTKHLR7bocw7J0f+P4T1ht/1Fvwcg31PK@lists.infradead.org
+X-Gm-Message-State: AOJu0Yya/g5h1aD8SPKoTVa69kcDCrr1kPLiGc4DeV1gOO3NXX6I1a1g
+	bkRuZL2cBrTkF8TziYnMrewKxNv6Oqs1T6CaoYfdkF9mf0N8U58e69W5
+X-Gm-Gg: Acq92OHgoHgUp070/9RCwyxc/t0OQ1kZTnTioQc5Qhtu/Fsv1bwZPJlx43RxNfNH846
+	aTCrV+N87nqUIVMqjhKZnglxkNOqxsHBus85u/A0qC3NCim+hhHZM5VIjIH9xQAzJXdOhP4Jve0
+	kNZUnMAGQkH08e0keKFgct9jIT4Aq8vYhivLvUOGyMLQFw5OPundztuIFU6TjK959S33+LogioE
+	Faw7LSaVplll8KA3f1EhzUrNOz3/P60SGBBJydlxm115XJCj4sGrVs4P6UaGPdhkNtWmFAlM8HM
+	0ltCwwJG24szmJ+wNL/DEaoByeopHbZE0s9AOQqDEOKCqOOznKrWStzAEbLwE347ay4Rhdmu0J/
+	+b2eAkdmM9NFINFd/1CkJ2KjtKR8coNmqVJ5M8JCs94Mb3h2aB+7pJEN8Ityk4QYmtgBqqXrFwq
+	n/+t/7MtzUslJd4kmiY5ohVhHXwhKQ5Ef973MD33b+fOowJS2ewnfN5WIRg/n0XYGeF2dbSqtzl
+	iKcp+oGRbfaO+LBVT3or7qGWsBQJ8Oz1nqlWTXWnCpBeg==
+X-Received: by 2002:a05:7300:cd97:b0:2ea:b975:3db1 with SMTP id 5a478bee46e88-304eb0f8bdemr260267eec.23.1780009594548;
+        Thu, 28 May 2026 16:06:34 -0700 (PDT)
+Received: from ryzen ([2601:644:8000:5b5d:7285:c2ff:fe45:8a32])
+        by smtp.gmail.com with ESMTPSA id 5a478bee46e88-304ebcc8016sm223109eec.23.2026.05.28.16.06.33
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Thu, 28 May 2026 16:06:33 -0700 (PDT)
+From: Rosen Penev <rosenp@gmail.com>
+To: linux-serial@vger.kernel.org
+Cc: Greg Kroah-Hartman <gregkh@linuxfoundation.org>,
+	Jiri Slaby <jirislaby@kernel.org>,
+	Frank Li <Frank.Li@nxp.com>,
+	Sascha Hauer <s.hauer@pengutronix.de>,
+	Pengutronix Kernel Team <kernel@pengutronix.de>,
+	Fabio Estevam <festevam@gmail.com>,
+	linux-kernel@vger.kernel.org (open list:TTY LAYER AND SERIAL DRIVERS),
+	imx@lists.linux.dev (open list:ARM/FREESCALE IMX / MXC ARM ARCHITECTURE),
+	linux-arm-kernel@lists.infradead.org (moderated list:ARM/FREESCALE IMX / MXC ARM ARCHITECTURE)
+Subject: [PATCH] serial: mxs-auart: fix probe error paths and clock handling
+Date: Thu, 28 May 2026 16:06:16 -0700
+Message-ID: <20260528230616.186792-1-rosenp@gmail.com>
+X-Mailer: git-send-email 2.54.0
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH 0/6] arm64: ti: Use syscon for the Control Module
-To: Tomi Valkeinen <tomi.valkeinen@ideasonboard.com>, Nishanth Menon
-	<nm@ti.com>, Vignesh Raghavendra <vigneshr@ti.com>, Tero Kristo
-	<kristo@kernel.org>, Rob Herring <robh@kernel.org>, Krzysztof Kozlowski
-	<krzk+dt@kernel.org>, Conor Dooley <conor+dt@kernel.org>, Abraham I
-	<kishon@kernel.org>, Roger Quadros <rogerq@kernel.org>, Devarsh Thakkar
-	<devarsht@ti.com>, Swamil Jain <s-jain1@ti.com>
-CC: <linux-arm-kernel@lists.infradead.org>, <devicetree@vger.kernel.org>,
-	<linux-kernel@vger.kernel.org>
-References: <20260528-ti-main-conf-v1-0-a54ac5c8d081@ideasonboard.com>
-Content-Language: en-US
-From: Andrew Davis <afd@ti.com>
-In-Reply-To: <20260528-ti-main-conf-v1-0-a54ac5c8d081@ideasonboard.com>
-Content-Type: text/plain; charset="UTF-8"; format=flowed
-Content-Transfer-Encoding: 7bit
-X-C2ProcessedOrg: 333ef613-75bf-4e12-a4b1-8e3623f5dcea
-X-EOPAttributedMessage: 0
-X-MS-PublicTrafficType: Email
-X-MS-TrafficTypeDiagnostic: DS2PEPF000061C6:EE_|MW4PR10MB5810:EE_
-X-MS-Office365-Filtering-Correlation-Id: 2cc2ae6d-ec6d-451c-c5a7-08debd0cc9f7
-X-MS-Exchange-SenderADCheck: 1
-X-MS-Exchange-AntiSpam-Relay: 0
-X-Microsoft-Antispam: BCL:0;ARA:13230040|36860700016|82310400026|7416014|376014|1800799024|921020|22082099003|56012099006|18002099003;
-X-Microsoft-Antispam-Message-Info: XxXrqc+IPFRb4I9BQtS3lj8paAwSwaVmifcpfkVKZfLaJ3zJP+TRrIneuexVTQx+em3q7u8YxR0Tb5hg4sdiKRW+c68KJ0qxTG9/vMVjo/MpnNepgrhM1HatterRptayEq4NayZZxYFjDq+8zdhmC648tDzCFpbEWdVJK2/pejOZJ8kMLEzXWgSFX4rfI3qNKT5wAVkWBG5RhuL3HsKZtvwgyCzBLQRLadhYc4KM+PYJPYzy3ZRtiQTDDnsjIIX8vRpifN3V2Mp9JfYMwghBhKfgPGnygra8qkZfQv32qG6xeJpvEKERNKq8iLknd/r725F7bqTRH7KQqnp/xCjOYxQgjGXtQHDUrJuvsd3D8mucSwKKV4/N5zN5Gs4jcWqSq8ABQjbc0A75GrMendoA8xYIVMtP6QctMdrbTyb3UIDWimfBjRzmfyS6IyabaHGnqTGSnLNkpjXcCYyfe3dVibcMV8qSovmmoBhCG3/esOzTnSe0DsvY10Kc6kck973tUxVpCEvNpoVL0wlwS+cfmnbyKzeIVXxPNnuqNKcKtRqanQ3er1k7aaXIlVo/b7aqZTBSvc5k/qKalHTzFpdgXvTgv/OoEjgNpYnYxYM7kXR+wfY6ANIRhYhE/Q3Qp/yI2QPUkiCTI9RP4N6ceQNd9fs91tOT0yua+92DSUxVfAev2PXCNAdQcbCJMInRKM2kyfxtnDdkFLLLPw/KOQq+e5cr/yJJ4TmGay4DTCiimDKqDk6UYJ2Ky/mL9Tp8XLJ/ZjNVDxcT7dSwjfrsyGoENA==
-X-Forefront-Antispam-Report: CIP:198.47.23.194;CTRY:US;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:lewvzet200.ext.ti.com;PTR:InfoDomainNonexistent;CAT:NONE;SFS:(13230040)(36860700016)(82310400026)(7416014)(376014)(1800799024)(921020)(22082099003)(56012099006)(18002099003);DIR:OUT;SFP:1101;
-X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
-X-MS-Exchange-AntiSpam-MessageData-0: JpWOVXQmS4xmm4iVDvCVEsazLx6UGkH+ZWVykQ8MFNWakkjiLuAHF+QnL7At0OjESx9wBlLuhcxfJ/ntaWJOFjiIxSGgGnzwCSPzgdM6tG3vvGkol/VL0DrxH3pPWtXUi5ZFmf6e0/mq5tGlhdqJyxo3XHoamJboB8NIyAS4CxPP1Nb/BHf3DgOAXsjYC4LJC1iW/pZ+JZrzEwGPWddznXhpn5dtHC3ca+FVOQUwIi+SMKxzpNeGwd5N998WJ28A1CbXuKuotZnJYrbAojsAo7LveTf1BpHpTgr79LzlgZtcBCUMQzpq1RoOIt5cbjR+nOe1BahqC2uiC4UyH5ehCcnQOIJlYFfUnmE2gAIN+wE6M5r7ufwqHGVi05LhV+cVvPFaH0fJUbeSs3+p5mhQ9xUh7+2BflJVZvrMdVw4R12Ile2bk7qmtiTb+byQURei
-X-OriginatorOrg: ti.com
-X-MS-Exchange-CrossTenant-OriginalArrivalTime: 28 May 2026 22:59:35.7816
- (UTC)
-X-MS-Exchange-CrossTenant-Network-Message-Id: 2cc2ae6d-ec6d-451c-c5a7-08debd0cc9f7
-X-MS-Exchange-CrossTenant-Id: e5b49634-450b-4709-8abb-1e2b19b982b7
-X-MS-Exchange-CrossTenant-OriginalAttributedTenantConnectingIp: TenantId=e5b49634-450b-4709-8abb-1e2b19b982b7;Ip=[198.47.23.194];Helo=[lewvzet200.ext.ti.com]
-X-MS-Exchange-CrossTenant-AuthSource: DS2PEPF000061C6.namprd02.prod.outlook.com
-X-MS-Exchange-CrossTenant-AuthAs: Anonymous
-X-MS-Exchange-CrossTenant-FromEntityHeader: HybridOnPrem
-X-MS-Exchange-Transport-CrossTenantHeadersStamped: MW4PR10MB5810
+Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260528_155942_955018_95F8FC2C 
-X-CRM114-Status: GOOD (  24.66  )
+X-CRM114-CacheID: sfid-20260528_160635_915177_4B38C376 
+X-CRM114-Status: GOOD (  21.48  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -135,74 +103,243 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On 5/28/26 7:53 AM, Tomi Valkeinen wrote:
-> I have been trying to get BeagleY-AI display support to upstream:
-> 
-> 20260513-beagley-ai-display-v2-0-9e9bcefde6bc@ideasonboard.com
-> 
-> One difficulty has been the handling of the Control Module region, as
-> we need access to a single in that region, surrounded by registers for
-> other subsystems. In my series I made the related node a syscon, thus
-> allowing versatile access to the registers:
-> 
-> https://lore.kernel.org/all/20260513-beagley-ai-display-v2-14-9e9bcefde6bc@ideasonboard.com/
-> 
-> However, that's not a correct way to handle it. I realized we already
-> have ti,j721e-system-controller.yaml binding for older SoCs, which has
-> syscon but it's not used for the newer TI SoCs. This series takes the
-> same binding into use for the newer SoCs.
-> 
+Sashiko reported three pre-existing bugs in the mxs-auart driver:
 
-We moved away from this system-controller thing because it was always
-a hack to allow us to poke into random control registers from nodes
-throughout the DT. This was a mess and also caused issues with multiple
-mappings to the same registers (some sub nodes inside the control space
-also make their own mappings). If you need access to registers then make
-a node with those registers in the `reg` property.
+- For non-ASM9260 variants, mxs_get_clks() obtained the clock but never
+  prepared/enabled it, leaving register accesses in probe at risk of
+  faulting if the bootloader had gated the clock.
+- The error path and remove function used pdev->id instead of
+  s->port.line to clear the auart_port[] slot.  For DT-probed devices
+  pdev->id is -1, causing an out-of-bounds write and leaving a dangling
+  pointer in the array.
+- The probe error path called iounmap() while the IRQ was still
+  registered. An interrupt during that window would dereference the
+  unmapped membase.
 
-The only reason we didn't get rid of `ti,j721e-system-controller.yaml`
-completely from the older SoCs was we were told it would be an ABI
-break to correct those DT files. Let's not spread that problem to
-new SoCs.
+All of this is a consequence of using mixed devm and non devm. Instead
+of working around these issues, go full devm so that everything can be
+cleaned up properly.
 
-Andrew
+devm_clk_get_enabled allows removing clk_prepare_enable.
 
-> I think this is an ABI change, but I also think this is not an ABI
-> break. I hope people with more expertise in this area can confirm my
-> thoughts.
-> 
-> I believe we could drop the renaming patches, and just adjust the
-> ti,j721e-system-controller.yaml a bit more to accommodate the "wrong"
-> node names. But if there's no downside to the renames, I think it's nice
-> to have a more consistent naming.
-> 
->   Tomi
-> 
-> Signed-off-by: Tomi Valkeinen <tomi.valkeinen@ideasonboard.com>
-> ---
-> Tomi Valkeinen (6):
->        arm64: dts: ti: j784s4/j742s2: Rename pcieN-ctrl nodes to pcie-ctrl
->        arm64: dts: ti: k3-am62*: Rename 'clock-controller' to 'clock'
->        arm64: dts: ti: k3-am62-main: Rename 'oldi-io-controller' to 'dss-oldi-io-ctrl'
->        dt-bindings: soc: ti: ti,j721e-system-controller: Relax the bindings
->        dt-bindings: soc: ti: ti,j721e-system-controller: Add more compatibles
->        arm64: dts: ti: Use syscon and simple-mfd for the main conf region
-> 
->   .../devicetree/bindings/soc/ti/ti,j721e-system-controller.yaml | 10 ++++++----
->   arch/arm64/boot/dts/ti/k3-am62-main.dtsi                       |  9 +++++----
->   arch/arm64/boot/dts/ti/k3-am62a-main.dtsi                      |  7 ++++---
->   arch/arm64/boot/dts/ti/k3-am62p-j722s-common-main.dtsi         |  6 +++---
->   arch/arm64/boot/dts/ti/k3-j784s4-j742s2-main-common.dtsi       |  6 +++---
->   arch/arm64/boot/dts/ti/k3-j784s4-main.dtsi                     |  4 ++--
->   6 files changed, 23 insertions(+), 19 deletions(-)
-> ---
-> base-commit: e7ae89a0c97ce2b68b0983cd01eda67cf373517d
-> change-id: 20260528-ti-main-conf-d75aea5e5c2b
-> 
-> Best regards,
-> --
-> Tomi Valkeinen <tomi.valkeinen@ideasonboard.com>
-> 
-> 
+devm_platform_get_and_ioremap_resource is a bit worrying as it calls
+request_mem_region. Manual review of the dts files shows no overlapping
+memory regions, so should be good to go.
+
+Use devm in mxs_auart_request_gpio_irq as devm is used in probe.
+
+Assisted-by: Opencode:Big-pickle
+Signed-off-by: Rosen Penev <rosenp@gmail.com>
+---
+ drivers/tty/serial/mxs-auart.c | 110 ++++++---------------------------
+ 1 file changed, 20 insertions(+), 90 deletions(-)
+
+diff --git a/drivers/tty/serial/mxs-auart.c b/drivers/tty/serial/mxs-auart.c
+index 697318dbb146..8b6463df11b3 100644
+--- a/drivers/tty/serial/mxs-auart.c
++++ b/drivers/tty/serial/mxs-auart.c
+@@ -1457,48 +1457,24 @@ static void mxs_init_regs(struct mxs_auart_port *s)
+ static int mxs_get_clks(struct mxs_auart_port *s,
+ 			struct platform_device *pdev)
+ {
+-	int err;
+-
+ 	if (!is_asm9260_auart(s)) {
+-		s->clk = devm_clk_get(&pdev->dev, NULL);
++		s->clk = devm_clk_get_enabled(&pdev->dev, NULL);
+ 		return PTR_ERR_OR_ZERO(s->clk);
+ 	}
+ 
+-	s->clk = devm_clk_get(s->dev, "mod");
++	s->clk = devm_clk_get_enabled(s->dev, "mod");
+ 	if (IS_ERR(s->clk)) {
+ 		dev_err(s->dev, "Failed to get \"mod\" clk\n");
+ 		return PTR_ERR(s->clk);
+ 	}
+ 
+-	s->clk_ahb = devm_clk_get(s->dev, "ahb");
++	s->clk_ahb = devm_clk_get_enabled(s->dev, "ahb");
+ 	if (IS_ERR(s->clk_ahb)) {
+ 		dev_err(s->dev, "Failed to get \"ahb\" clk\n");
+ 		return PTR_ERR(s->clk_ahb);
+ 	}
+ 
+-	err = clk_prepare_enable(s->clk_ahb);
+-	if (err) {
+-		dev_err(s->dev, "Failed to enable ahb_clk!\n");
+-		return err;
+-	}
+-
+-	err = clk_set_rate(s->clk, clk_get_rate(s->clk_ahb));
+-	if (err) {
+-		dev_err(s->dev, "Failed to set rate!\n");
+-		goto disable_clk_ahb;
+-	}
+-
+-	err = clk_prepare_enable(s->clk);
+-	if (err) {
+-		dev_err(s->dev, "Failed to enable clk!\n");
+-		goto disable_clk_ahb;
+-	}
+-
+-	return 0;
+-
+-disable_clk_ahb:
+-	clk_disable_unprepare(s->clk_ahb);
+-	return err;
++	return clk_set_rate(s->clk, clk_get_rate(s->clk_ahb));
+ }
+ 
+ static int mxs_auart_init_gpios(struct mxs_auart_port *s, struct device *dev)
+@@ -1529,15 +1505,6 @@ static int mxs_auart_init_gpios(struct mxs_auart_port *s, struct device *dev)
+ 	return 0;
+ }
+ 
+-static void mxs_auart_free_gpio_irq(struct mxs_auart_port *s)
+-{
+-	enum mctrl_gpio_idx i;
+-
+-	for (i = 0; i < UART_GPIO_MAX; i++)
+-		if (s->gpio_irq[i] >= 0)
+-			free_irq(s->gpio_irq[i], s);
+-}
+-
+ static int mxs_auart_request_gpio_irq(struct mxs_auart_port *s)
+ {
+ 	int *irq = s->gpio_irq;
+@@ -1549,21 +1516,13 @@ static int mxs_auart_request_gpio_irq(struct mxs_auart_port *s)
+ 			continue;
+ 
+ 		irq_set_status_flags(irq[i], IRQ_NOAUTOEN);
+-		err = request_irq(irq[i], mxs_auart_irq_handle,
+-				IRQ_TYPE_EDGE_BOTH, dev_name(s->dev), s);
++		err = devm_request_irq(s->dev, irq[i], mxs_auart_irq_handle, IRQ_TYPE_EDGE_BOTH,
++				       dev_name(s->dev), s);
+ 		if (err)
+ 			dev_err(s->dev, "%s - Can't get %d irq\n",
+ 				__func__, irq[i]);
+ 	}
+ 
+-	/*
+-	 * If something went wrong, rollback.
+-	 * Be careful: i may be unsigned.
+-	 */
+-	while (err && (i-- > 0))
+-		if (irq[i] >= 0)
+-			free_irq(irq[i], s);
+-
+ 	return err;
+ }
+ 
+@@ -1604,18 +1563,10 @@ static int mxs_auart_probe(struct platform_device *pdev)
+ 	if (ret)
+ 		return ret;
+ 
+-	r = platform_get_resource(pdev, IORESOURCE_MEM, 0);
+-	if (!r) {
+-		ret = -ENXIO;
+-		goto out_disable_clks;
+-	}
+-
++	s->port.membase = devm_platform_get_and_ioremap_resource(pdev, 0, &r);
++	if (IS_ERR(s->port.membase))
++		return PTR_ERR(s->port.membase);
+ 	s->port.mapbase = r->start;
+-	s->port.membase = ioremap(r->start, resource_size(r));
+-	if (!s->port.membase) {
+-		ret = -ENOMEM;
+-		goto out_disable_clks;
+-	}
+ 	s->port.ops = &mxs_auart_ops;
+ 	s->port.iotype = UPIO_MEM;
+ 	s->port.fifosize = MXS_AUART_FIFO_SIZE;
+@@ -1628,23 +1579,20 @@ static int mxs_auart_probe(struct platform_device *pdev)
+ 	s->mctrl_prev = 0;
+ 
+ 	irq = platform_get_irq(pdev, 0);
+-	if (irq < 0) {
+-		ret = irq;
+-		goto out_iounmap;
+-	}
++	if (irq < 0)
++		return irq;
+ 
+ 	s->port.irq = irq;
+-	ret = devm_request_irq(&pdev->dev, irq, mxs_auart_irq_handle, 0,
+-			       dev_name(&pdev->dev), s);
++	ret = devm_request_irq(&pdev->dev, irq, mxs_auart_irq_handle, 0, dev_name(&pdev->dev), s);
+ 	if (ret)
+-		goto out_iounmap;
++		return ret;
+ 
+ 	platform_set_drvdata(pdev, s);
+ 
+ 	ret = mxs_auart_init_gpios(s, &pdev->dev);
+ 	if (ret) {
+ 		dev_err(&pdev->dev, "Failed to initialize GPIOs.\n");
+-		goto out_iounmap;
++		return ret;
+ 	}
+ 
+ 	/*
+@@ -1652,15 +1600,17 @@ static int mxs_auart_probe(struct platform_device *pdev)
+ 	 */
+ 	ret = mxs_auart_request_gpio_irq(s);
+ 	if (ret)
+-		goto out_iounmap;
++		return ret;
+ 
+ 	auart_port[s->port.line] = s;
+ 
+ 	mxs_auart_reset_deassert(s);
+ 
+ 	ret = uart_add_one_port(&auart_driver, &s->port);
+-	if (ret)
+-		goto out_free_qpio_irq;
++	if (ret) {
++		auart_port[s->port.line] = NULL;
++		return ret;
++	}
+ 
+ 	/* ASM9260 don't have version reg */
+ 	if (is_asm9260_auart(s)) {
+@@ -1673,20 +1623,6 @@ static int mxs_auart_probe(struct platform_device *pdev)
+ 	}
+ 
+ 	return 0;
+-
+-out_free_qpio_irq:
+-	mxs_auart_free_gpio_irq(s);
+-	auart_port[pdev->id] = NULL;
+-
+-out_iounmap:
+-	iounmap(s->port.membase);
+-
+-out_disable_clks:
+-	if (is_asm9260_auart(s)) {
+-		clk_disable_unprepare(s->clk);
+-		clk_disable_unprepare(s->clk_ahb);
+-	}
+-	return ret;
+ }
+ 
+ static void mxs_auart_remove(struct platform_device *pdev)
+@@ -1694,13 +1630,7 @@ static void mxs_auart_remove(struct platform_device *pdev)
+ 	struct mxs_auart_port *s = platform_get_drvdata(pdev);
+ 
+ 	uart_remove_one_port(&auart_driver, &s->port);
+-	auart_port[pdev->id] = NULL;
+-	mxs_auart_free_gpio_irq(s);
+-	iounmap(s->port.membase);
+-	if (is_asm9260_auart(s)) {
+-		clk_disable_unprepare(s->clk);
+-		clk_disable_unprepare(s->clk_ahb);
+-	}
++	auart_port[s->port.line] = NULL;
+ }
+ 
+ static struct platform_driver mxs_auart_driver = {
+-- 
+2.54.0
 
 
