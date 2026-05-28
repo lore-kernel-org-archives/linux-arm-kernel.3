@@ -4,65 +4,108 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 72FB5CD5BD5
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 28 May 2026 08:01:35 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id CDF04CD5BD5
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 28 May 2026 08:02:46 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
-	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=4BqU1KULHNpKd+dvxOvwz5A4nP7Cq63wMOTMOE8f41c=; b=aCBPe4HK0LtXO+V/u8/0VvaB0C
-	s8APZ+W4ya9npZXdE5WUNcut0uDrm08YNHNtW8NcY8xIb/zUtpFjggwDCZKmiy123DpbVcRK9k64Q
-	Cs2wUSzHHA22jt8SiYYsS5n3eG7GiPDK03ReaAT8De7vH3MUSVgIBmN72685D6I8pt2yGzyA7N3qg
-	Uu9pXGh/L9QN+UpUV8z+6zkvjks2VBunDQX+sftpCh/A1I/0RepccVtZEX6SZkScrMc7UBO0eNfq5
-	THmAQVK6QQD2vfdRAOL+8yfcz/VIt9JeDCm4CZ2lJIZaIkCQYbCK2ShT6RO3ODGamqc0pdzTBGAgT
-	nYuSip2g==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:Cc:To:Subject:
+	Message-ID:Date:From:In-Reply-To:References:MIME-Version:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=YYtDazt9U95VcVF6VWujIonGGFD/naB0M81vsxEng7Y=; b=asGRLYa7omDULfxN04HujZhnKx
+	zvUcSAddICPctfYj+hua9pX9SCZ12TklkcUJTRzAUE7XICb7Mdnbhx31gMHpzRugwkDtp62LC9qy9
+	xHYfz1PUBRtTxaRl5kkgTjawnsVzlOY5FZ++KmpBB9b9TevDSTf0iflqLsMUkhPWQYYwXNBma1Fv3
+	sNq5wlKWAeQo4x+AIUrBOENP7wdfWQZvCUt8gs/nZJCkn77dZGuP3TusDk5vMSiGF+/TgEtLBaBu9
+	doJlmk/bd6ifoUjbopJFqaOZpaaPWN3Qhg3BQaqUXKa8877Wd7WIR5x7eIWsNzxAGw91JuseimxGi
+	3zAetRRw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wSVgF-00000005KTN-3dKI;
-	Thu, 28 May 2026 08:01:27 +0000
-Received: from out-179.mta1.migadu.com ([95.215.58.179])
+	id 1wSVhQ-00000005KyX-0mpD;
+	Thu, 28 May 2026 08:02:40 +0000
+Received: from mail-ed1-x536.google.com ([2a00:1450:4864:20::536])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wSVg7-00000005KMw-1gZ7
+	id 1wSVhN-00000005KxG-44uf
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 28 May 2026 08:01:21 +0000
-Message-ID: <9189701d-168e-1e63-8a6c-f6926029c336@linux.dev>
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=linux.dev; s=key1;
-	t=1779955275;
-	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
-	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
-	 content-transfer-encoding:content-transfer-encoding:
-	 in-reply-to:in-reply-to:references:references;
-	bh=4BqU1KULHNpKd+dvxOvwz5A4nP7Cq63wMOTMOE8f41c=;
-	b=sigEYBE9VG+Z7WKjCq6mMqJ6An2dyD6r9Lrla0s3BB0zMiKJHdpR3N+nLodLHJ+C5XkfeO
-	Di2f0oyz2YX9JdWcKHiX+SyjMdr12qfPYBbptiY4A19UMS9A86esUUFaKuFuL/C+oO0Tdc
-	Sbn3/wI0m2vOEP9/ScSKCwsqmq4+IO8=
-Date: Thu, 28 May 2026 04:00:53 -0400
+	Thu, 28 May 2026 08:02:39 +0000
+Received: by mail-ed1-x536.google.com with SMTP id 4fb4d7f45d1cf-687e7edaafeso10197495a12.1
+        for <linux-arm-kernel@lists.infradead.org>; Thu, 28 May 2026 01:02:37 -0700 (PDT)
+ARC-Seal: i=1; a=rsa-sha256; t=1779955356; cv=none;
+        d=google.com; s=arc-20240605;
+        b=j9mQcaoxAqTgJ0zJ6g/jDWgrC3C+TY4aYKwO8xjmQzaBmkUsXHIKmq/3yVscW61AnP
+         wawhpETNehfQ+sOQh1s1eUm9CLhey/79xAamf7VNarrlTx90bDfWqLOMVEoqic9rzApX
+         mZhUdTEd4i4eY6b8gKo/wivO1uvs2E1bRlH3U+eWF7oTrvu3EnTyvZO7Nq5kx3lX6RfS
+         cUFc+O6N4j/g33dH6bxq7CzAp81XMTr3ndFXSLv7gEJ5opKtPd/hDufBVEKd5roG1Eek
+         9DHcBpLZEOABAHg+e8qc+59pSLbUcmymOrCBJjoqwsEcjMe6da9qVUE9XAPUWdhleHwj
+         FW5w==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20240605;
+        h=cc:to:subject:message-id:date:from:in-reply-to:references
+         :mime-version:dkim-signature;
+        bh=YYtDazt9U95VcVF6VWujIonGGFD/naB0M81vsxEng7Y=;
+        fh=hL5SIM2m8wNex5hgiiGCHA5fgal3Q8cnQsrSELep1ag=;
+        b=c7xUGXz4J/IAgQLZykN7uouiU2P7ucKwQ2v2knpg7OyIUSwQZEoHFHstejSH+t1e99
+         q7v4Dww3l8vk2RI6PtpYP1/oXhK8yX11Ei4zMGONNKKSMkENWQk7RNhXDP0kL+Y+187Y
+         5omQ47vAKipz9EKWI1FH9vNb8zwrApkxtMNUQ7eF5R8hfZRs88dKxjXftSGChY2DbIre
+         V676o3sZKZKMNmWfCH99J930fFkGt0Tl0DFvQbFRJMFEcCqX3xjh4UUf3SG2Sfcj02tQ
+         5gzr54yNrOLT6McnQ6ye39277jQmVslZy8AHiwlxnNZqsKri2cwKQ6TmTnB6aLZNBvFU
+         HE4Q==;
+        darn=lists.infradead.org
+ARC-Authentication-Results: i=1; mx.google.com; arc=none
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=linaro.org; s=google; t=1779955356; x=1780560156; darn=lists.infradead.org;
+        h=cc:to:subject:message-id:date:from:in-reply-to:references
+         :mime-version:from:to:cc:subject:date:message-id:reply-to;
+        bh=YYtDazt9U95VcVF6VWujIonGGFD/naB0M81vsxEng7Y=;
+        b=OdjjS/T9HU57/wFptK0lwxCmXSF27yNLpZBWQglRN9qjVP9E/SoP0jomJo18sDl6CC
+         P1UsWJaFSFp7hjUl2paqlayd/hz92R8INbFrGKNJVaTSqqgQR4L1quFaiP4/orqZrPVl
+         mHRI4IqfZqDPmX6n3smaP4ybGUBctmjbqQfrNfagDrNF/NKoK3PNMGvsQwHFUhuImoZS
+         w0qo2IVM8mQa9OKC/1Vf/B8cX55Bn5gGMX//HqYV70TjgHD45VL/GO85f5xeQaU7jLn6
+         oxaXXw19HdE0lNW9DQHOwhZCqeHxqE/VYfPkW5J3EgFA6/xzhXyqu8bxEOsYS+rS5QsW
+         2fpA==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20251104; t=1779955356; x=1780560156;
+        h=cc:to:subject:message-id:date:from:in-reply-to:references
+         :mime-version:x-gm-gg:x-gm-message-state:from:to:cc:subject:date
+         :message-id:reply-to;
+        bh=YYtDazt9U95VcVF6VWujIonGGFD/naB0M81vsxEng7Y=;
+        b=eTFCLm+bFlJqzrmrolkOB7+CcjHpp7g8e1LoeHmqcfbwjCIBQkhmLLDT4qlLphBvVL
+         c/qop3iKmjnLn6ZskehwPbxYCivrnI8A8WyrQtHlXI82oRcYM3tTKy4k7Wy70uc0c0Eh
+         icV8lUf/7lGfdrKr2yIORLjgzud1r99rKnMgidYSNGHnCVfPj7dwuuyeuP/xlzaunM7m
+         AmzHY6n0RBe30R9aZbLfX+LU8jvUaK8YPey8IxSoGhkboNaTVkdWMxIpwdgjO2G2HYfl
+         u1HdhZEs92eZaexfmHk0q5GCbDojQbZ8yp18VQb/T594VpTbvhy9WM4B2ZUDwFRWr9Ke
+         OnRg==
+X-Forwarded-Encrypted: i=1; AFNElJ9EJvS4LobLpEiP3P+LorO7Tv3KiZWoZP13IyqsIGwaJXQ6LJasY/iHpv13OLAgtf7zIy7IwkuwImeNbSv3h4hV@lists.infradead.org
+X-Gm-Message-State: AOJu0YyuHahgj/vz93swqqpD2uLhwhZ77LsOb7kDaRI+4ANmIZQODGid
+	VVSEF2lsm51iXOxQ3ON1eE2BiG/1O1Hc1gHTNJj+QH53oCoQUWU0rp+zrtpQyNftklsP7tFpha3
+	0V8DnuhbyAi4+v54tvyb9aWyTsT4yBiWRtt8WzJ1CgQ==
+X-Gm-Gg: Acq92OHSmCkvJ60OZ+DOoWWm6zlh2cecmh6DofyxAxa6TajOIfbJpwgK1tebW2uVyoW
+	9nE4gGAZw3eykpUHIcgE1Fwiz2sPmDpL76hsWyv8sJ2pttlCxPSkzFFGkNiY7iYXN2UONr9l2gI
+	2tY45UTF4y2QTDjZCOdRTH7DTwApJDTcQ3L+iO72gsEs2vvto08zmvitLqWFv7jXLns9JptLQzx
+	4CF1imaX526B7cUSN+kvP4d0j1WRu0WtC8vX2hO4uP+HtGFj7hnmns9C4zxV4Ui+bVOJkzb30F0
+	1LxrTrxVd1cGAhtdH+z2EgRoIMYQkqYv5gqXb/++g6Yk85SCbsGp
+X-Received: by 2002:a05:6402:458e:b0:683:f485:c63c with SMTP id
+ 4fb4d7f45d1cf-6889c4321c4mr13969121a12.1.1779955355656; Thu, 28 May 2026
+ 01:02:35 -0700 (PDT)
 MIME-Version: 1.0
-Subject: Re: [PATCH] drm: zynqmp_dp: Fix uninitialized variable in debugfs()
-Content-Language: en-US
-To: Dan Carpenter <error27@gmail.com>
-Cc: Laurent Pinchart <laurent.pinchart@ideasonboard.com>,
- Tomi Valkeinen <tomi.valkeinen@ideasonboard.com>,
- Maarten Lankhorst <maarten.lankhorst@linux.intel.com>,
- Maxime Ripard <mripard@kernel.org>, Thomas Zimmermann <tzimmermann@suse.de>,
- David Airlie <airlied@gmail.com>, Simona Vetter <simona@ffwll.ch>,
- Michal Simek <michal.simek@amd.com>, dri-devel@lists.freedesktop.org,
- linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org,
- kernel-janitors@vger.kernel.org
-References: <ahP3Xagt1LJrhmFl@stanley.mountain>
- <935aaec5-5417-3cde-f944-3c04ffbd3458@linux.dev>
- <ahfeOh091V3BuuaB@stanley.mountain>
-X-Report-Abuse: Please report any abuse attempt to abuse@migadu.com and include these headers.
-From: Sean Anderson <sean.anderson@linux.dev>
-In-Reply-To: <ahfeOh091V3BuuaB@stanley.mountain>
-Content-Type: text/plain; charset=UTF-8; format=flowed
-Content-Transfer-Encoding: 7bit
-X-Migadu-Flow: FLOW_OUT
+References: <20260526061321.6123-1-grandmaster@al2klimov.de>
+In-Reply-To: <20260526061321.6123-1-grandmaster@al2klimov.de>
+From: Peter Griffin <peter.griffin@linaro.org>
+Date: Thu, 28 May 2026 09:02:22 +0100
+X-Gm-Features: AVHnY4IF4snH_x_Zty3iJL9-gZoieI2TfzLBtrQPLtenatLAkZtKV7qhQYKta-8
+Message-ID: <CADrjBPrsynS5qfJrrVAFwY5kzoM4VcesMC0z0-aKcH-vaGL+PQ@mail.gmail.com>
+Subject: Re: [PATCH] clk: samsung: exynos5410: fix refcount leak
+To: "Alexander A. Klimov" <grandmaster@al2klimov.de>
+Cc: Krzysztof Kozlowski <krzk@kernel.org>, Sylwester Nawrocki <s.nawrocki@samsung.com>, 
+	Chanwoo Choi <cw00.choi@samsung.com>, Alim Akhtar <alim.akhtar@samsung.com>, 
+	Michael Turquette <mturquette@baylibre.com>, Stephen Boyd <sboyd@kernel.org>, 
+	Brian Masney <bmasney@redhat.com>, 
+	"open list:SAMSUNG SOC CLOCK DRIVERS" <linux-samsung-soc@vger.kernel.org>, 
+	"open list:COMMON CLK FRAMEWORK" <linux-clk@vger.kernel.org>, 
+	"moderated list:ARM/SAMSUNG S3C, S5P AND EXYNOS ARM ARCHITECTURES" <linux-arm-kernel@lists.infradead.org>, 
+	open list <linux-kernel@vger.kernel.org>
+Content-Type: text/plain; charset="UTF-8"
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260528_010120_186125_DBC117EE 
-X-CRM114-Status: GOOD (  14.79  )
+X-CRM114-CacheID: sfid-20260528_010238_049303_ED2FC4BA 
+X-CRM114-Status: GOOD (  18.62  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -77,36 +120,42 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On 5/28/26 02:18, Dan Carpenter wrote:
-> On Wed, May 27, 2026 at 08:31:59PM -0400, Sean Anderson wrote:
->> On 5/25/26 03:16, Dan Carpenter wrote:
->>> If the *ppos is non-zero then simple_write_to_buffer() will not
->>> initialize the start of the buf[] buffer.  It doesn't really make sense
->>> to allow non-zero values for *ppos, so check for that at the start and
->>> return -EINVAL.
->>
->> non-zero ppos seems to be handled properly by simple_write_to_buffer.
->>
-> 
-> It's not an overflow bug, it's an uninitialized variable bug.
-> 
-> The simple_write_to_buffer() is designed to handle partial writes so it
-> leaves the first "written" (scare quotes) part of the string as is.  But
-> in this case, we can't handle a partial write and the first part of
-> buf[] is left uninitialized.
-> 
-> https://staticthinking.wordpress.com/2026/05/23/simple_write_to_buffer-is-complicated/
+On Tue, 26 May 2026 at 07:13, Alexander A. Klimov
+<grandmaster@al2klimov.de> wrote:
+>
+> Every value returned from of_clk_get() is supposed to be cleaned up
+> via clk_put() once not needed anymore.
+>
+> Fixes: be95d2c7d918 ("clk: samsung: Add support for EPLL on exynos5410")
+> Signed-off-by: Alexander A. Klimov <grandmaster@al2klimov.de>
+> ---
 
-OK, that's a bit strange. Can you add this to the doc comment? I certainly
-missed it when looking around for appropriate functions.
+Reviewed-by: Peter Griffin <peter.griffin@linaro.org>
 
-And I like the explicit copy_from_user variant better, especially since
-we are setting the nul-terminator anyway.
-
-> Also this appears to be dead code since fops_zynqmp_dp_pattern is never
-> used.
-
-It's of course used in zynqmp_dp_bridge_debugfs_init.
-
---Sean
+>  drivers/clk/samsung/clk-exynos5410.c | 8 ++++++--
+>  1 file changed, 6 insertions(+), 2 deletions(-)
+>
+> diff --git a/drivers/clk/samsung/clk-exynos5410.c b/drivers/clk/samsung/clk-exynos5410.c
+> index baa9988c7bb7..0cd9b0392cf5 100644
+> --- a/drivers/clk/samsung/clk-exynos5410.c
+> +++ b/drivers/clk/samsung/clk-exynos5410.c
+> @@ -269,8 +269,12 @@ static void __init exynos5410_clk_init(struct device_node *np)
+>  {
+>         struct clk *xxti = of_clk_get(np, 0);
+>
+> -       if (!IS_ERR(xxti) && clk_get_rate(xxti) == 24 * MHZ)
+> -               exynos5410_plls[epll].rate_table = exynos5410_pll2550x_24mhz_tbl;
+> +       if (!IS_ERR(xxti)) {
+> +               if (clk_get_rate(xxti) == 24 * MHZ)
+> +                       exynos5410_plls[epll].rate_table =
+> +                               exynos5410_pll2550x_24mhz_tbl;
+> +               clk_put(xxti);
+> +       }
+>
+>         samsung_cmu_register_one(np, &cmu);
+>
+> --
+> 2.54.0
+>
+>
 
