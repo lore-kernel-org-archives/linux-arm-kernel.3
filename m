@@ -4,61 +4,65 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 833ADCD4F54
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 28 May 2026 14:40:14 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 219CBCD6E44
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 28 May 2026 14:42:10 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
 	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
 	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=ytYEFhaLN6HaLt0gL6T4lILTXFZlEypnvkeXVfXpShA=; b=N8rOKig0MmoAJME9Dg9/3Wz2VX
-	EG/EnuSYXC3WoQCOttHl8P05fX7HUncust5q/5puVCjH6ac1zkYHG2n9pUv5LJqCSCt8I/onBv2kl
-	/qQKg2UQGSEjg/j6eZgorblMIvFBkG9NyH182EXlBJCrJryP4sfh1TcfDjFAIc8vdsNi8W1KN1yf3
-	k8rDMnHOI0TVA4xCrB2clH4drAz0kbaTjumwrS76m3cQryaZ8fMe0fMplemmWGj31JH6NfX0gM0Bi
-	11Jz0z95rePmT3Ueqcgtp4prpy85LIwWF2MlFs4xJa8EkmWjTCvhYoiArytvXbaVcL++Zp0fkQVUA
-	iM059qgw==;
+	bh=DMSgQFDN59OnpjSybTfSdSUQ8w7FM10W/DqXpKQK7Fs=; b=e1wHqMXjWanE2EnolblF6t3J1s
+	Jz7yM3hXaqLCmpU3rAPOcqu9dRDJyWzpsxOSCvz4unGxyNSzgMS5p6WNd60IcFfn2ZNZI7UPUEiPt
+	84CXdkFYfWdZ+En84qwjbZbtKYMJqfKMd3c+vVCAOxXeytIr1lAfY0b5kS1vreDKAVEQ6SWbGdMNA
+	YUYEj1FSv7qSNbs/1as+o0YaJEofUJJG2FlKf3RXOr/CEBLxsJaudvJUKwyV4l7y/K5ytpoDSYgIi
+	NeEa8qFLibY6M8O5ph5A1RpS3RxXDANPq50OPGZGoHwITDF3UiaR/uLFhqFfoUm4awMSCLiObTeW4
+	DEmd2PvA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wSbu1-00000005ryX-3V7S;
-	Thu, 28 May 2026 14:40:05 +0000
-Received: from foss.arm.com ([217.140.110.172])
-	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wSbtz-00000005ry2-43Io
+	id 1wSbvv-00000005s6Q-09qD;
+	Thu, 28 May 2026 14:42:03 +0000
+Received: from vps0.lunn.ch ([156.67.10.101])
+	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
+	id 1wSbvs-00000005s65-120m
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 28 May 2026 14:40:05 +0000
-Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
-	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id A149C22BE;
-	Thu, 28 May 2026 07:39:55 -0700 (PDT)
-Received: from J2N7QTR9R3.cambridge.arm.com (usa-sjc-imap-foss1.foss.arm.com [10.121.207.14])
-	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id 0AEAA3F905;
-	Thu, 28 May 2026 07:39:58 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=simple/simple; d=arm.com; s=foss;
-	t=1779979200; bh=FPxL+Y4CDV+4Xb+Gsr7Kh4lp4ilrQJ5GQvNmdDy2MJg=;
-	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
-	b=IFMN3XxQ1OYeUKhOpN0qN/tjsPh+ECPdeOrPsG/e1OJT2Az0vjnKh+vSZIT5pdiAy
-	 fjdTwIP/FM1jJmGkrLBhdvH4f+Wj0t1+OlxqLY5KoWxQuTkgSiRrHNU42xCZ06sXrO
-	 5B/ECxbjB9WZxCVcIrhCX4J4Ak958quTDmPB39MU=
-Date: Thu, 28 May 2026 15:39:54 +0100
-From: Mark Rutland <mark.rutland@arm.com>
-To: Vladimir Murzin <vladimir.murzin@arm.com>
-Cc: linux-arm-kernel@lists.infradead.org, kvmarm@lists.linux.dev,
-	broonie@kernel.org, catalin.marinas@arm.com, james.morse@arm.com,
-	maz@kernel.org, oupton@kernel.org, tabba@google.com,
-	will@kernel.org
-Subject: Re: [PATCH 17/18] arm64: fpsimd: Move SME save/restore inline
-Message-ID: <ahhTunyXYeU8gjEO@J2N7QTR9R3.cambridge.arm.com>
-References: <20260521132556.584676-1-mark.rutland@arm.com>
- <20260521132556.584676-18-mark.rutland@arm.com>
- <eea3a8de-c9b0-4cb4-9364-b3f9659f5278@arm.com>
+	Thu, 28 May 2026 14:42:01 +0000
+DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed; d=lunn.ch;
+	s=20171124; h=In-Reply-To:Content-Disposition:Content-Type:MIME-Version:
+	References:Message-ID:Subject:Cc:To:From:Date:From:Sender:Reply-To:Subject:
+	Date:Message-ID:To:Cc:MIME-Version:Content-Type:Content-Transfer-Encoding:
+	Content-ID:Content-Description:Content-Disposition:In-Reply-To:References;
+	bh=DMSgQFDN59OnpjSybTfSdSUQ8w7FM10W/DqXpKQK7Fs=; b=V+DexVSxdBVP2L4GwlIiZvG3/k
+	IhZpDotv5a20dhf6BumLCEKwhQN43ZSG8w7xG134ZfI0H0iO+UDIaMWluVI46OZXf85m+/WWg6jh7
+	jdUea2eFAD13fxJiCWFim+ZJrWv7KARaZeDqX+5x8WP+XhbO4dHgeXYXiShKO8sR+o8A=;
+Received: from andrew by vps0.lunn.ch with local (Exim 4.94.2)
+	(envelope-from <andrew@lunn.ch>)
+	id 1wSbvl-004uk4-98; Thu, 28 May 2026 16:41:53 +0200
+Date: Thu, 28 May 2026 16:41:53 +0200
+From: Andrew Lunn <andrew@lunn.ch>
+To: Mark Brown <broonie@kernel.org>
+Cc: Chancel Liu <chancel.liu@nxp.com>, lgirdwood@gmail.com, robh@kernel.org,
+	krzk+dt@kernel.org, conor+dt@kernel.org, shengjiu.wang@nxp.com,
+	shengjiu.wang@gmail.com, Xiubo.Lee@gmail.com, festevam@gmail.com,
+	nicoleotsuka@gmail.com, perex@perex.cz, tiwai@suse.com,
+	Frank.Li@nxp.com, s.hauer@pengutronix.de,
+	linux-sound@vger.kernel.org, devicetree@vger.kernel.org,
+	linux-arm-kernel@lists.infradead.org, imx@lists.linux.dev,
+	linux-kernel@vger.kernel.org
+Subject: Re: [PATCH v2 0/3] ASoC: imx-rpmsg: Add headphone jack detection and
+ driver_name support
+Message-ID: <04994ebd-fb13-4d5e-8e1b-f93c504c88ae@lunn.ch>
+References: <20260526053815.140008-1-chancel.liu@nxp.com>
+ <20260528020725.2265321-1-chancel.liu@nxp.com>
+ <37324dcf-5214-432f-9aea-90bcff5fec32@lunn.ch>
+ <5314b232-9688-4f59-a57f-4cca044c9e44@sirena.org.uk>
 MIME-Version: 1.0
 Content-Type: text/plain; charset=us-ascii
 Content-Disposition: inline
-In-Reply-To: <eea3a8de-c9b0-4cb4-9364-b3f9659f5278@arm.com>
+In-Reply-To: <5314b232-9688-4f59-a57f-4cca044c9e44@sirena.org.uk>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260528_074004_068302_789BC48D 
-X-CRM114-Status: UNSURE (   6.89  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20260528_074200_306355_DA3ADD10 
+X-CRM114-Status: GOOD (  17.90  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -73,20 +77,31 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Thu, May 28, 2026 at 01:30:27PM +0100, Vladimir Murzin wrote:
-> On 5/21/26 14:25, Mark Rutland wrote:
+On Thu, May 28, 2026 at 03:18:05PM +0100, Mark Brown wrote:
+> On Thu, May 28, 2026 at 04:12:58PM +0200, Andrew Lunn wrote:
+> > On Thu, May 28, 2026 at 11:07:22AM +0900, Chancel Liu wrote:
+> 
+> > > This series adds two features to the i.MX RPMSG ASoC card:
+> > > 1. Headphone jack detection via GPIO: Introduce the "hp-det-gpios"
+> > >    device tree property and use simple_util_init_jack() to
+> > >    register a headphone jack with GPIO-based insertion detection.
+> 
+> > I'm not familiar with ASoC, but have been in a long discussion about
+> > RPMSG and GPIO....
+> 
+> > I just want to confirm the GPIO you are talking about is a local GPIO?
+> > You are not tunnelling the GPIO over RPMSG using some vendor protocol?
+> 
+> This is a GPIO accessed via gpiolib, the driver is for an audio
+> subsystem accessed via rpmsg.
 
-> > +static inline void __sme_load_za(struct sme_state *state, unsigned long svl)
->                                     ^
->                              Should it be const?
+Great, thanks.
 
-> > +static inline void sme_load_state(struct sme_state *state, bool zt)
->                                      ^
->                              Should it be const?
+When we eventually get GPIO over RPMSG, it should also just look like
+a standard gpiolib GPIO. But we are not there yet, defining the one
+protocol that all vendors must use, rather than each vendor doing
+their own thing.
 
-Yes in both cases!
+  Andrew
 
-Sorry about that; fixed locally now.
-
-Mark.
 
