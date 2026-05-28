@@ -4,59 +4,67 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 9DD5DCD4F54
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 28 May 2026 13:22:09 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id B31AACD4F54
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 28 May 2026 13:22:45 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
-	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Content-Type:Cc:To:Subject:Message-ID:Date:From:In-Reply-To:References:
+	MIME-Version:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=4wXWea5rCBnFjSSCY/v9JQJQl5SAPrMPcz7pvtLMNFc=; b=tPf0pL4d9UbX0EUTGhzR7NlrSR
-	r44Vme8TCWC0BgZPmc/bd6bCS0u4qh+N1rRpmBEucU5WCQOnwT9fR5QhbbDTUDAyfa98sg3LWBl/r
-	h9esuK9tyvkGViZUA6T/Hwd9F2h0nh0jCZNUJOB9ML5bAUPW1CFyWaF5F2JCgO+Pg/2gKM40c3aR6
-	ZKWJ1uYZRnoyHcVD8If4PGrBdib9t/SI7XQO0vFNaHBA5ab/K9cKXpqzue+OgxLFFg1uHi7dgvghJ
-	qnPnUxqDjvWMfvwrl2QQqg+QTWDrZ9o/ujnBGVu1oLDDzzNiqLZZBhZGaAduWnfkqkGA0aQL0VW5x
-	4W7o/XKQ==;
+	bh=14hM8KxFWjFayLbwQs4aNnXIF3yZXa0JAkdcIaa33gI=; b=hG2huhLk2FwoXOrJYnxJzXRDFv
+	uKs1Q36ax/lIM4FLpWV9qwGgF5HixuuSUorlGoEiqiq6nEZrxVvU97W9E8ck14NjNCVUfg4b/gctv
+	J2deQWvU/W8iZQ0MHAHUfvp4Tib+pSTrbSTVN/0XD3RYqFYjBa159LGudEqVg3xSU6YJn1h8j4MlR
+	W6WCVnaViize3BlHUwiN973IfejnVSGkjS99Y0kkEswSs/t/ghgUPFpW0mgeAXX8I4KJY+eKNlJzU
+	nTpEt55gZHw1Fpm6TorE/c9HI+6wC3rHxNu94cejlfgjQVPaQnIK5UGSkVzasorRqQq6ayKizn8og
+	JGCMJKDw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wSagU-00000005m2w-0rD1;
-	Thu, 28 May 2026 13:22:02 +0000
-Received: from foss.arm.com ([217.140.110.172])
-	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wSagR-00000005m2V-3CjL
+	id 1wSah5-00000005m8q-1qrW;
+	Thu, 28 May 2026 13:22:39 +0000
+Received: from tor.source.kernel.org ([2600:3c04:e001:324:0:1991:8:25])
+	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
+	id 1wSah4-00000005m8M-1BhH
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 28 May 2026 13:22:01 +0000
-Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
-	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id 4D1074402;
-	Thu, 28 May 2026 06:21:52 -0700 (PDT)
-Received: from [10.1.28.164] (unknown [10.1.28.164])
-	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id 3334E3F632;
-	Thu, 28 May 2026 06:21:55 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=simple/simple; d=arm.com; s=foss;
-	t=1779974517; bh=xeNTUjxCAp37gut1KA/qb/JTq4+uyS8+/YlvClklkhk=;
-	h=Date:Subject:To:Cc:References:From:In-Reply-To:From;
-	b=tp5WdJrWMzxPnuLH/8BmIm8mZfCzIhvMfaEyjZNMQHpWUZN0VFY2cpAcGyCLaseqX
-	 JQZ6Sv+LGShXrg8MzVwHG71av1nMP1oeoUWaTJelqVoFQsu7tCjDVBX2QGl5lpfw4h
-	 W3jynD8NJ1gUlC8+vi997pt0VpEAulwJrtfl4dm8=
-Message-ID: <9f95f8df-8c28-4c8c-b13e-87bc366f43a8@arm.com>
-Date: Thu, 28 May 2026 14:21:52 +0100
+	Thu, 28 May 2026 13:22:38 +0000
+Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
+	by tor.source.kernel.org (Postfix) with ESMTP id DDACD60515
+	for <linux-arm-kernel@lists.infradead.org>; Thu, 28 May 2026 13:22:36 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 959221F00A3A
+	for <linux-arm-kernel@lists.infradead.org>; Thu, 28 May 2026 13:22:36 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
+	s=k20260515; t=1779974556;
+	bh=14hM8KxFWjFayLbwQs4aNnXIF3yZXa0JAkdcIaa33gI=;
+	h=References:In-Reply-To:From:Date:Subject:To:Cc;
+	b=U6iuwG9sGH8cO3r+Nn/tL25qTkBHumd+0nhoNiPF8lDexhURU5YTYHTjJJ99dU8ey
+	 ipExtdl/1mO/AWQRRsVC34KmEobHLhIkuv9uLxX6xXiHFEWVRCxWml2Lq0D93rUtJO
+	 P6auQRDcYxyWyw2Na4X9g9i7/25PSGVx5KYmoZ0BYTaf0LlqTQfFFFn/bEePDENdZw
+	 5BihZfwEWazwhfGj+QEsZTKkpK0tKa9B5W9WP5P/Oj5jCj30Nz3Tq6PDPMGFCavwyZ
+	 ZPnbxLLt0+7QuHNLuLWP6fBaiOrlL2hKfJ/qVGLBSzUAcb3Jwd7sF4gq2M+S/x7SHR
+	 voTZwzw0plh6Q==
+Received: by mail-lf1-f43.google.com with SMTP id 2adb3069b0e04-5a40d02b58bso8762047e87.3
+        for <linux-arm-kernel@lists.infradead.org>; Thu, 28 May 2026 06:22:36 -0700 (PDT)
+X-Forwarded-Encrypted: i=1; AFNElJ8gjpouIrbukeaeKGBmP52gtftOFlxEL57mdHQhAKoCpeFHgPncUWZm95QbwExR7eBVsq/8jg9XDzEYX235BSTB@lists.infradead.org
+X-Gm-Message-State: AOJu0YxR/wsCFJONCCW8Xhn5KY0agceuPCmNUqBEXKwxTrFHaq/kfcY3
+	oQGFx7yDnDzs52Dk5gjunphBmLpaDPwLfihoNv6TOR1oBhZtSet0yFpfAWXopiQo8IY7B5f+NNb
+	hkGOsGTO82azswyMhsI99WGA7rvYpE/8=
+X-Received: by 2002:a05:6512:1152:b0:5a8:6f3d:6cfc with SMTP id
+ 2adb3069b0e04-5aa32396b09mr9091774e87.41.1779974555411; Thu, 28 May 2026
+ 06:22:35 -0700 (PDT)
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH 00/18] arm64+KVM: FPSIMD/SVE/SME cleanups
-To: Mark Rutland <mark.rutland@arm.com>,
- linux-arm-kernel@lists.infradead.org, kvmarm@lists.linux.dev
-Cc: broonie@kernel.org, catalin.marinas@arm.com, james.morse@arm.com,
- maz@kernel.org, oupton@kernel.org, tabba@google.com, will@kernel.org
-References: <20260521132556.584676-1-mark.rutland@arm.com>
-Content-Language: en-GB
-From: Vladimir Murzin <vladimir.murzin@arm.com>
-In-Reply-To: <20260521132556.584676-1-mark.rutland@arm.com>
-Content-Type: text/plain; charset=UTF-8
-Content-Transfer-Encoding: 7bit
-X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260528_062159_909108_FF422ADA 
-X-CRM114-Status: GOOD (  24.85  )
+References: <cover.1779950275.git.u.kleine-koenig@baylibre.com> <a909d3c59d00756130ac16051ceedbec0ce9cec7.1779950275.git.u.kleine-koenig@baylibre.com>
+In-Reply-To: <a909d3c59d00756130ac16051ceedbec0ce9cec7.1779950275.git.u.kleine-koenig@baylibre.com>
+From: Linus Walleij <linusw@kernel.org>
+Date: Thu, 28 May 2026 15:22:22 +0200
+X-Gmail-Original-Message-ID: <CAD++jLkA1uQRCYyOYWBakwL1Poqt4xabbgBMz4WACqjCwv1hEw@mail.gmail.com>
+X-Gm-Features: AVHnY4Jmb-2WCFIffZopygt2IA1H06egzEjWCuwLGLILjgUi_KzmLJfMf4CtuxY
+Message-ID: <CAD++jLkA1uQRCYyOYWBakwL1Poqt4xabbgBMz4WACqjCwv1hEw@mail.gmail.com>
+Subject: Re: [PATCH v1 2/3] rtc: ab8500: Simplify driver_data handling
+To: =?UTF-8?Q?Uwe_Kleine=2DK=C3=B6nig_=28The_Capable_Hub=29?= <u.kleine-koenig@baylibre.com>
+Cc: Alexandre Belloni <alexandre.belloni@bootlin.com>, linux-arm-kernel@lists.infradead.org, 
+	linux-rtc@vger.kernel.org, linux-kernel@vger.kernel.org
+Content-Type: text/plain; charset="UTF-8"
+Content-Transfer-Encoding: quoted-printable
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -71,129 +79,20 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hi Mark,
+On Thu, May 28, 2026 at 8:48=E2=80=AFAM Uwe Kleine-K=C3=B6nig (The Capable =
+Hub)
+<u.kleine-koenig@baylibre.com> wrote:
 
-On 5/21/26 14:25, Mark Rutland wrote:
-> Hi.
-> 
-> This series cleans up low-level FPSIMD/SVE/SME state management code,
-> making it easier to maintain and extend (e.g. adding SME support to
-> KVM), and enabling better debugging (e.g. by making SVE/SME save/restore
-> visible to KASAN and KCSAN).
-> 
-> This is purely cleanup, there are NO bugs addressed by this series.
-> 
-> The series aims to do a few key things:
-> 
-> * Make it harder to mis-manage in-memory SVE state and SME state. These
->   are given opaque types (struct sve_state and struct sme_state), and
->   the (awkward) calling convention for saving/restoring SVE state is
->   simplified to take a pointer to the base of the state rather than a
->   pointer to the FFR within the state.
-> 
-> * Minimize duplications between KVM and the rest of the kernel. The
->   FPSIMD/SVE/SME routines are moved to inline assembly such that the
->   same helper functions can be used everywhere, without the need to wrap
->   assembly macros.
-> 
-> * Make the code easier to follow. Assembly sequences are minimized to
->   avoid address generation and control-flow that can be written more
->   clearly in C. Awkward assembly macros are removed where possible.
-> 
-> * Make it easier to debug state management. Explicit instrumentation is
->   added to the save/restore functions so that KASAN and KCSAN can detect
->   memory safety issues and concurrency issues.
-> 
->   This instrumentation is inhibited for nVHE hyp objects, and does not
->   adversely affect KVM. I've confirmed by looking at compiler flags
->   during the build, and disassembling the relevant object files.
-> 
-> * Remove unnecessary code. By relying on assembler support for SVE and
->   SME we can remove awkward assembly macros, making the code
->   significantly simpler and easier to read.
-> 
-> I've compile-tested this with a variety of toolchains:
-> 
-> * GCC  8.1.0 + binutils 2.30
-> * GCC 11.1.0 + binutils 2.36.1
-> * GCC 12.1.0 + binutils 2.38
-> * GCC 15.2.0 + binutils 2.45
-> * LLVM 15.0.7
-> * LLVM 21.1.8
-> 
-> I've boot-tested on an SVE+SME capable model, both with KASAN enabled
-> and without KASAN enabled. All the FPSIMD/SVE/SME kselftests passed in
-> both configurations, without any KASAN splats. Unfortunately, with KCSAN
-> enabled, some tests hit timeouts (without any KCSAN splat), which I
-> believe is simply due to the overhead of KCSAN rather than some adverse
-> functional effect.
-> 
-> I've boot-tested on an SVE+SME capable model, booting with KVM in each
-> of:
-> 
-> * VHE mode
-> * hVHE mode
-> * Protected mode
-> 
-> In each case I've boot-tested a v7.0 defconfig guest, both with SVE and
-> without SVE.
-> 
-> Mark.
-> 
-> Mark Rutland (18):
->   KVM: arm64: Don't include <asm/fpsimdmacros.h>
->   KVM: arm64: Don't override FFR save/restore argument
->   KVM: arm64: pkvm: Save host FPMR in host cpu context
->   KVM: arm64: pkvm: Remove struct cpu_sve_state
->   arm64: fpsimd: Fold sve_init_regs() into do_sve_acc()
->   arm64: fpsimd: Remove sve_set_vq() and sme_set_vq()
+> Instead of hiding the rtc ops for the only supported device behind an
+> abstraction for multi-device support, hardcode the used ops which gets ri=
+d
+> of the need to call platform_get_device_id and two casts.
+>
+> Signed-off-by: Uwe Kleine-K=C3=B6nig (The Capable Hub) <u.kleine-koenig@b=
+aylibre.com>
 
-This may be out of scope for the series, but I noticed that
-write_vl() and sve_cond_update_zcr_vq() might similarly benefit
-from using sysreg_clear_set_s()
+Reviewed-by: Linus Walleij <linusw@kernel.org>
 
->   arm64: fpsimd: Use assembler for SVE instructions
->   arm64: fpsimd: Use assembler for baseline SME instructions
->   arm64: fpsimd: Move sve_get_vl() and sme_get_vl() inline
->   arm64: sysreg: Add FPCR and FPSR
->   arm64: fpsimd: Split FPSR/FPCR from SVE save/restore
->   arm64: fpsimd: Move fpsimd save/restore inline
->   arm64: fpsimd: Use opaque type for SVE state
->   arm64: fpsimd: Use opaque type for SME state
->   arm64: fpsimd: Move SVE save/restore inline
->   arm64: fpsimd: Move sve_flush_live() inline
->   arm64: fpsimd: Move SME save/restore inline
->   arm64: fpsimd: Remove <asm/fpsimdmacros.h>
-> 
->  arch/arm64/Kconfig                      |   5 +
->  arch/arm64/include/asm/fpsimd.h         | 369 ++++++++++++++++++++++--
->  arch/arm64/include/asm/fpsimdmacros.h   | 357 -----------------------
->  arch/arm64/include/asm/kvm_host.h       |  27 +-
->  arch/arm64/include/asm/kvm_hyp.h        |   5 -
->  arch/arm64/include/asm/kvm_pkvm.h       |   3 +-
->  arch/arm64/include/asm/processor.h      |   7 +-
->  arch/arm64/kernel/Makefile              |   2 +-
->  arch/arm64/kernel/entry-common.c        |   8 +-
->  arch/arm64/kernel/entry-fpsimd.S        | 134 ---------
->  arch/arm64/kernel/fpsimd.c              |  90 +++---
->  arch/arm64/kvm/arm.c                    |  16 +-
->  arch/arm64/kvm/guest.c                  |   4 +-
->  arch/arm64/kvm/hyp/entry.S              |   1 -
->  arch/arm64/kvm/hyp/fpsimd.S             |  33 ---
->  arch/arm64/kvm/hyp/include/hyp/switch.h |  23 +-
->  arch/arm64/kvm/hyp/nvhe/Makefile        |   2 +-
->  arch/arm64/kvm/hyp/nvhe/hyp-main.c      |  20 +-
->  arch/arm64/kvm/hyp/nvhe/setup.c         |   4 +-
->  arch/arm64/kvm/hyp/vhe/Makefile         |   2 +-
->  arch/arm64/tools/sysreg                 |  45 +++
->  21 files changed, 480 insertions(+), 677 deletions(-)
->  delete mode 100644 arch/arm64/include/asm/fpsimdmacros.h
->  delete mode 100644 arch/arm64/kernel/entry-fpsimd.S
->  delete mode 100644 arch/arm64/kvm/hyp/fpsimd.S
-> 
-> -- 2.30.2
-> 
-
-Cheers
-Vladimir
+Yours,
+Linus Walleij
 
