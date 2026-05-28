@@ -4,89 +4,136 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 03291CD6E44
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 28 May 2026 12:02:39 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 9E463CD4F54
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 28 May 2026 12:03:44 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:
-	To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=FwpPKrXQ70T1twLFwNf8lR/i2OUb1jZoS9ZO8mh+Lqw=; b=HfJkUjjOtZ7gNAZmoWo6g7zpIS
-	qSupYEGx1oJ9QysoNle136rZzzxahXNMd+9LhEv/5uO3g+OnzMi29aHh4fhepN5D0VB+QUPNYSnBG
-	0xou2HmBV5/l6fy8u1BNespKM/Kba5PzEsNIYznFFbu+clbFBK3372BrHAMcSGYPsJSF4AcefVo1G
-	7AI3k59XLcZmft/FWENIJk7WqkrPwazVcmNw72meHtOCTgGM/jesONcntTKVBKrY5KJELMVGu6zXY
-	Cu5mxukIobM3F4UmQjRoNcJYPoxPKBGdh8AQwEEEzYCEcU1Xd+OFD19+AXpe0/+pFuzN76TBK0idl
-	a3x4SrIQ==;
+	MIME-Version:Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-Type:
+	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
+	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=lRDh1Gsgwo/+sLiCfxMrEEDL44ENfFOMWpCPwzY9U1A=; b=x7tH9YF8UA3lba+FXGIdNRIoMF
+	6iySIfpkEd5zGqDO0fK+dxRVYWOHnMenz1I9jqesMHvFDPjg0QUJf+PERgT6aNHkIkozMiMkuk1Th
+	JbqPzMjSsZ129GzLSIsWcxxIDs3qo6bLrzAYawg9b3WbLokAyEpkrRZ2pqZcB4seROMas/GkPdLmD
+	1KjR1LHmZrPA6/eTOU3PAKRFE2cMmPSSb/HI+kkTJ5IQPRVz52lFajVNM3Dgnxi8FS5FuwbGP41X5
+	yAyWixfLlAfrEvei2nG7Ty9fxaQq58Z+zCwguhbwv1tKCHPG5tX2Xk8bhRwvN2ws8Btl4YDKLKiMN
+	5kP9XxxQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wSZRY-00000005hI9-07fz;
-	Thu, 28 May 2026 12:02:32 +0000
-Received: from us-smtp-delivery-124.mimecast.com ([170.10.129.124])
+	id 1wSZSb-00000005hNQ-1A96;
+	Thu, 28 May 2026 12:03:37 +0000
+Received: from mx0b-0031df01.pphosted.com ([205.220.180.131])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wSZRU-00000005hHo-3gHV
+	id 1wSZSY-00000005hMq-0aAn
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 28 May 2026 12:02:30 +0000
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=redhat.com;
-	s=mimecast20190719; t=1779969746;
-	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
-	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
-	 content-transfer-encoding:content-transfer-encoding:
-	 in-reply-to:in-reply-to:references:references;
-	bh=FwpPKrXQ70T1twLFwNf8lR/i2OUb1jZoS9ZO8mh+Lqw=;
-	b=YdXshZD7ghfe2iKHnaIZbAlar8hN8YQ6RKOtSfx3HCgZTLpJn0ECoylXb9INDhlTqIOiPN
-	aT447vYGfns53PEStrlzisFVz77sWvJ5vmq4ZSaQw73zt6RDeKhh6FDeiY46qH4dfTjMXF
-	1aMfZOd+M1P9FkpxEvO8gyJSbjgJuho=
-Received: from mx-prod-mc-01.mail-002.prod.us-west-2.aws.redhat.com
- (ec2-54-186-198-63.us-west-2.compute.amazonaws.com [54.186.198.63]) by
- relay.mimecast.com with ESMTP with STARTTLS (version=TLSv1.3,
- cipher=TLS_AES_256_GCM_SHA384) id us-mta-351-pl0e5186NvS9R3RHH2gBjg-1; Thu,
- 28 May 2026 08:02:20 -0400
-X-MC-Unique: pl0e5186NvS9R3RHH2gBjg-1
-X-Mimecast-MFC-AGG-ID: pl0e5186NvS9R3RHH2gBjg_1779969738
-Received: from mx-prod-int-05.mail-002.prod.us-west-2.aws.redhat.com (mx-prod-int-05.mail-002.prod.us-west-2.aws.redhat.com [10.30.177.17])
-	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
-	 key-exchange X25519 server-signature RSA-PSS (2048 bits) server-digest SHA256)
-	(No client certificate requested)
-	by mx-prod-mc-01.mail-002.prod.us-west-2.aws.redhat.com (Postfix) with ESMTPS id 5A8B819560B1;
-	Thu, 28 May 2026 12:02:17 +0000 (UTC)
-Received: from gerbillo.redhat.com (unknown [10.44.32.235])
-	by mx-prod-int-05.mail-002.prod.us-west-2.aws.redhat.com (Postfix) with ESMTP id B990219560AB;
-	Thu, 28 May 2026 12:02:09 +0000 (UTC)
-From: Paolo Abeni <pabeni@redhat.com>
-To: dinghui1111@163.com
-Cc: andrew@lunn.ch,
-	andrew+netdev@lunn.ch,
-	davem@davemloft.net,
-	edumazet@google.com,
-	kuba@kernel.org,
-	pabeni@redhat.com,
-	mcoquelin.stm32@gmail.com,
-	alexandre.torgue@foss.st.com,
-	rmk+kernel@armlinux.org.uk,
-	maxime.chevallier@bootlin.com,
-	dinghui@lixiang.com,
-	netdev@vger.kernel.org,
-	linux-stm32@st-md-mailman.stormreply.com,
-	linux-arm-kernel@lists.infradead.org,
-	linux-kernel@vger.kernel.org,
-	xiasanbo@lixiang.com,
-	yangchen11@lixiang.com,
-	liuxuanjun@lixiang.com
-Subject: Re: [PATCH v2] net: stmmac: fix fatal bus error on resume by reinitializing RX buffers
-Date: Thu, 28 May 2026 14:02:02 +0200
-Message-ID: <20260528120203.245762-1-pabeni@redhat.com>
-In-Reply-To: <20260526022620.501229-1-dinghui1111@163.com>
-References: <20260526022620.501229-1-dinghui1111@163.com>
+	Thu, 28 May 2026 12:03:35 +0000
+Received: from pps.filterd (m0279870.ppops.net [127.0.0.1])
+	by mx0a-0031df01.pphosted.com (8.18.1.11/8.18.1.11) with ESMTP id 64S8vSR34184457
+	for <linux-arm-kernel@lists.infradead.org>; Thu, 28 May 2026 12:03:33 GMT
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=qualcomm.com; h=
+	cc:content-transfer-encoding:date:from:message-id:mime-version
+	:subject:to; s=qcppdkim1; bh=lRDh1Gsgwo/+sLiCfxMrEEDL44ENfFOMWpC
+	PwzY9U1A=; b=XKxdT2ZxyET/kRwmmco/ZMp5hTn96amBXkrujkbW72W0YNHe1EH
+	nhOIM4bMhT2NGdVjwGz8l1Zj4duffd6plFgnjM0xkxySoiTFfgA6370wKZmL09ek
+	FM3H/vg8mpW2weJGjJkAPHVgB9rL29RyKUgAZCh6JjJne0sR4MyZGpzjVDupZT4q
+	d7wRvPmP11H4rE7YJSJJAXP3G1qPrBlsnZwTh6EPjj8xlvrqRqkW7MeQlj/ESQRj
+	IJnIUqn213P+7sxrpgB4xUX1Hhy01BqKVsbQA0EBQruY3v5XtNr/DSEK3r5wv6VD
+	KNLXROP2k7l93zKFSoHrEs3VAbbV8anImbQ==
+Received: from mail-oo1-f69.google.com (mail-oo1-f69.google.com [209.85.161.69])
+	by mx0a-0031df01.pphosted.com (PPS) with ESMTPS id 4ee7yf2n0h-1
+	(version=TLSv1.3 cipher=TLS_AES_128_GCM_SHA256 bits=128 verify=NOT)
+	for <linux-arm-kernel@lists.infradead.org>; Thu, 28 May 2026 12:03:32 +0000 (GMT)
+Received: by mail-oo1-f69.google.com with SMTP id 006d021491bc7-69dac65fd9bso2857265eaf.1
+        for <linux-arm-kernel@lists.infradead.org>; Thu, 28 May 2026 05:03:32 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=oss.qualcomm.com; s=google; t=1779969812; x=1780574612; darn=lists.infradead.org;
+        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
+         :to:from:from:to:cc:subject:date:message-id:reply-to;
+        bh=lRDh1Gsgwo/+sLiCfxMrEEDL44ENfFOMWpCPwzY9U1A=;
+        b=g1nH/QH+o7BmoXIygsHAI7Q2YsBpDGC/yzO9jaA8ufKuTk3X7Ana/GYB3po8d2TzIj
+         xrFfugb5+xpUzVahxDhstfMGvMAD816mB+KYQQMK/Rkr2iusGN0T2Tg80hJb+eSo9+ko
+         XzNMdgey0104k9UXq5p9AYhuxFFBH/t6bqx/DwzPEisv93nTZ1v9/gpj3rhJcKbrz1re
+         cat58is1nsBuEc53d9DZ2e8J+dp7OluwHfCyKUkCw+Q1OqRMi99xwDIIARYtNotm/FKh
+         ylW5OnBbGtXMvLVtpD9MjfFsNTI4tfKDdEYyH4LduM+sLM4SNrlWJAlAd7D+xSNNHvml
+         l/mg==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20251104; t=1779969812; x=1780574612;
+        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
+         :to:from:x-gm-gg:x-gm-message-state:from:to:cc:subject:date
+         :message-id:reply-to;
+        bh=lRDh1Gsgwo/+sLiCfxMrEEDL44ENfFOMWpCPwzY9U1A=;
+        b=ZvKNS2a2t6VRkc4KZftJLTCUoWo4itZxL1sckc9vbOcHBJQCTfN7QDaYCqdBVk+uVm
+         RR/r6M9QOb7GBbp5Img/C45fatlE7Itqbl+J60Ra4NK1X5Bn/VBcXP+CsNpis7mmwTuo
+         h25GzC2oTbfUX+V/nS2a/ht0pz62dV4L7gkcltGM/kCC2R1WZOshyO5t2bD9VZSQi8RO
+         zACGu+TDTog0Df2GRdyVwTVN7rTidW7UzW2rBn4+d7/bC97oFFPLn7wJHqR7ItzSbJi6
+         U7blNg/GX4W4hBxipxSTwOYf3GP5k/xLksXQa1RU8mOWTPSxQdMS9bQSYplYnDMm6FOY
+         haxQ==
+X-Forwarded-Encrypted: i=1; AFNElJ9qMf8SPmownVTvcNyV6owtx+mRJJZz1+g6G7L9eWYZW0o989NnvH3nM4gOgleLdaKwiBmI2lcIYgGE9bEPg52c@lists.infradead.org
+X-Gm-Message-State: AOJu0YxIXmwPsqVAfIFemkjm7UpqK+S5lGPyZ2BVXg1fmt6XU6c4vWHR
+	USYgTeVdVqYhGfqBPfeVp3ZrQbJBY4zojMIPzhfEPkim2N03Cm8NWYFBrllIACMXe5jFm+rMiGS
+	z9xnNT8lgH5cW6/uANbz99JRJNAXBXtOBAubyvfURCm497vhJ4RJaoPt9xR7xbSukRmgX87Vf6l
+	Gw8Q==
+X-Gm-Gg: Acq92OEL1hzEMudIv0sYCXxXonD7JzTGye0PxSwy686ThHyQJ/lH3UJlP1tJX5BEsWM
+	tRPjShpWouTzTd/KDvOeF86eUXg9QVsjhqdyOUoY2/tDssryc3baUVGeEHodrmYYUA3Em/49s8W
+	7Yu1JJWbIBth5fN0idhUjif2W9Jfc2COJhohexblLoDPkmkPthmXdQKUGDVXkVscosqDAHCVmmp
+	PEPOdMXSe5TmN+THonB3jsHzcCl2h8or99gfvnG9LbP2CW9kzAFnXiz15J6dfDpohY/ckpEHtSx
+	Yb3JN4DlKYguJISUtaYhgHolwJfs/dY9IzgACLUi16qQSkWeJeYIDTgr4nwCRoKKDOo6v1e7+jF
+	4Z6AavaKX3ma/PpnW5igmVn8l2j/mQIT84U5uSXo1eUOUMA==
+X-Received: by 2002:a05:6820:2222:b0:69d:e8de:7578 with SMTP id 006d021491bc7-69de8de7d2bmr3066729eaf.17.1779969812196;
+        Thu, 28 May 2026 05:03:32 -0700 (PDT)
+X-Received: by 2002:a05:6820:2222:b0:69d:e8de:7578 with SMTP id 006d021491bc7-69de8de7d2bmr3066668eaf.17.1779969811575;
+        Thu, 28 May 2026 05:03:31 -0700 (PDT)
+Received: from quoll ([83.144.38.174])
+        by smtp.gmail.com with ESMTPSA id 5b1f17b1804b1-4908dcf850fsm21035695e9.4.2026.05.28.05.03.29
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Thu, 28 May 2026 05:03:30 -0700 (PDT)
+From: Krzysztof Kozlowski <krzysztof.kozlowski@oss.qualcomm.com>
+To: Chester Lin <chester62515@gmail.com>, Matthias Brugger <mbrugger@suse.com>,
+        Ghennadi Procopciuc <ghennadi.procopciuc@oss.nxp.com>,
+        NXP S32 Linux Team <s32@nxp.com>, Frank Li <Frank.Li@nxp.com>,
+        Sascha Hauer <s.hauer@pengutronix.de>,
+        Pengutronix Kernel Team <kernel@pengutronix.de>,
+        Fabio Estevam <festevam@gmail.com>, Rob Herring <robh@kernel.org>,
+        Krzysztof Kozlowski <krzk+dt@kernel.org>,
+        Conor Dooley <conor+dt@kernel.org>,
+        Daniel Lezcano <daniel.lezcano@kernel.org>,
+        Shawn Guo <shawnguo@kernel.org>, linux-arm-kernel@lists.infradead.org,
+        imx@lists.linux.dev, devicetree@vger.kernel.org,
+        linux-kernel@vger.kernel.org
+Cc: Krzysztof Kozlowski <krzysztof.kozlowski@oss.qualcomm.com>,
+        stable@vger.kernel.org
+Subject: [PATCH] arm64: dts: s32g3: Fix SWT8 watchdog address
+Date: Thu, 28 May 2026 14:03:24 +0200
+Message-ID: <20260528120323.46287-2-krzysztof.kozlowski@oss.qualcomm.com>
+X-Mailer: git-send-email 2.53.0
 MIME-Version: 1.0
-X-Scanned-By: MIMEDefang 3.0 on 10.30.177.17
-X-Mimecast-MFC-PROC-ID: sO_spsEPiwWoUqqvdYLR1IzWHe66EV8PnL1tb8Ez2kg_1779969738
-X-Mimecast-Originator: redhat.com
-Content-Type: text/plain; charset=UTF-8
 Content-Transfer-Encoding: 8bit
+X-Proofpoint-GUID: cEmybGRQQvbIH6RlGMiNk1umA_KoAOyc
+X-Proofpoint-Spam-Details-Enc: AW1haW4tMjYwNTI4MDEyMiBTYWx0ZWRfX3BshWsnWSz/M
+ OwArLtCiwKyceLzP8a2F6IaFabp5zyQZQ0EZlaQ/w5x4FFboUOk18TaeGJxUAjtuvBCTmesshK3
+ o8pn5X2488MgQ5M/PAa7t+0/RZYmIcy8lk1MDtbmPMwYQsKvLQ8IJ1VCbVjtnBKQsvh+9TW8oFX
+ gm5Sw29QFxioYIgrNkbxb+qPwTYw1v3VzMj4ke7kqi6soXydS53wRmstZ8V8nktcciqJYaWqe2c
+ b1v6EsZFUuXp5QY0/4x3O1SGaq0iUSQhEGs9wejoeEvlBnsFBJcYWIgvQKbtd+2CXG0NyWFmzNB
+ CXLjqMedrbslTW8MaST/olRCCH7QUvYC1IyNmgPpb0GQOXWefJGibgOV2OTZnplxIX8OVD71raI
+ vxg+wIAw4awfWxcXeq2Hwv7pbAcJxAmhgkdVscmQ0PoT1xHmc4e27wAfUyU4iWth+smZc8RnJik
+ Ag/e2NwCkYSc93nB6NA==
+X-Proofpoint-ORIG-GUID: cEmybGRQQvbIH6RlGMiNk1umA_KoAOyc
+X-Authority-Analysis: v=2.4 cv=G8gs1dk5 c=1 sm=1 tr=0 ts=6a182f14 cx=c_pps
+ a=lVi5GcDxkcJcfCmEjVJoaw==:117 a=gYaODGAG9naNOzoQWaDNdQ==:17
+ a=NGcC8JguVDcA:10 a=s4-Qcg_JpJYA:10 a=VkNPw1HP01LnGYTKEx00:22
+ a=u7WPNUs3qKkmUXheDGA7:22 a=gowsoOTTUOVcmtlkKump:22 a=VwQbUJbxAAAA:8
+ a=EUspDBNiAAAA:8 a=W4yJvGHheH2QdBhsH34A:9 a=rBiNkAWo9uy_4UTK5NWh:22
+X-Proofpoint-Virus-Version: vendor=baseguard
+ engine=ICAP:2.0.293,Aquarius:18.0.1143,Hydra:6.1.125,FMLib:17.12.100.49
+ definitions=2026-05-28_03,2026-05-28_02,2025-10-01_01
+X-Proofpoint-Spam-Details: rule=outbound_notspam policy=outbound score=0
+ suspectscore=0 spamscore=0 priorityscore=1501 clxscore=1015 adultscore=0
+ impostorscore=0 malwarescore=0 phishscore=0 bulkscore=0 lowpriorityscore=0
+ classifier=typeunknown authscore=0 authtc= authcc= route=outbound adjust=0
+ reason=mlx scancount=1 engine=8.22.0-2605210000 definitions=main-2605280122
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260528_050229_007880_140B1ECC 
-X-CRM114-Status: GOOD (  24.70  )
+X-CRM114-CacheID: sfid-20260528_050334_292754_CF09071C 
+X-CRM114-Status: GOOD (  14.45  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -101,138 +148,37 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-From: AI Reviewer <ai@example.com>
+Add missing hex annotation to fix the SWT8 watchdog address in 'reg'
+property, as reported by dtc W=1:
 
-This is an AI-generated review of your patch. The human sending this
-email has considered the AI review valid, or at least plausible.
-Full review at: https://netdev-ai.bots.linux.dev/sashiko/
+  s32g3.dtsi:863.27-869.5: Warning (simple_bus_reg): /soc@0/watchdog@40500000: simple-bus unit address format error, expected "269fb20"
+
+Lack of hex '0x' meant address would be interpreted as decimal thus
+completely different value used as this device MMIO.  If device was
+enabled this could lead to corruption of other device address space and
+broken boot.
+
+Cc: <stable@vger.kernel.org>
+Fixes: 6db84f042745 ("arm64: dts: s32g3: Add the Software Timer Watchdog (SWT) nodes")
+Signed-off-by: Krzysztof Kozlowski <krzysztof.kozlowski@oss.qualcomm.com>
 ---
-net: stmmac: fix fatal bus error on resume by reinitializing RX buffers
+ arch/arm64/boot/dts/freescale/s32g3.dtsi | 2 +-
+ 1 file changed, 1 insertion(+), 1 deletion(-)
 
-This patch adds stmmac_reinit_rx_descriptors() and calls it from
-stmmac_resume() before stmmac_clear_descriptors() to re-program the RX
-descriptor buffer-address fields from buffers that survived across the
-PM transition, avoiding any allocation in the resume path.
-
-> diff --git a/drivers/net/ethernet/stmicro/stmmac/stmmac_main.c b/drivers/net/ethernet/stmicro/stmmac/stmmac_main.c
-> index 3591755ea30b..0dc27d8c66a0 100644
-> --- a/drivers/net/ethernet/stmicro/stmmac/stmmac_main.c
-> +++ b/drivers/net/ethernet/stmicro/stmmac/stmmac_main.c
-> @@ -1642,6 +1642,79 @@ static void stmmac_clear_descriptors(struct stmmac_priv *priv,
->  		stmmac_clear_tx_descriptors(priv, dma_conf, queue);
->  }
->  
-> +/**
-> + * stmmac_reinit_rx_descriptors - re-program RX descriptors from existing
-> + *				   buffers (allocation-free)
-
-[ ... ]
-
-> +static void stmmac_reinit_rx_descriptors(struct stmmac_priv *priv,
-> +					 struct stmmac_dma_conf *dma_conf,
-> +					 u32 queue)
-> +{
-> +	struct stmmac_rx_queue *rx_q = &dma_conf->rx_queue[queue];
-> +	int i;
-> +
-> +	for (i = 0; i < dma_conf->dma_rx_size; i++) {
-> +		struct stmmac_rx_buffer *buf = &rx_q->buf_pool[i];
-> +		struct dma_desc *p = stmmac_get_rx_desc(priv, rx_q, i);
-> +
-> +		if (rx_q->xsk_pool) {
-> +			dma_addr_t dma_addr;
-> +
-> +			/* The XSK pool may not be fully populated (e.g.
-> +			 * xdpsock TX-only); skip empty slots.
-> +			 */
-> +			if (!buf->xdp)
-> +				continue;
-
-[High]
-Does the continue here regress to the same fatal bus error this patch
-sets out to fix?
-
-When the slot is skipped, its descriptor address fields keep whatever
-HW writeback left behind. Then stmmac_clear_descriptors() runs right
-after stmmac_reinit_rx_descriptors() in stmmac_resume() and unconditionally
-re-arms OWN on every slot. For dwmac4 that is dwmac4_set_rx_owner():
-
-	p->des3 |= cpu_to_le32(RDES3_OWN | RDES3_BUFFER1_VALID_ADDR |
-			       RDES3_INT_ON_COMPLETION_EN);
-
-and for enh_desc / ndesc the equivalent OR of RDES0_OWN / RDES1 fields.
-None of these clear the address fields.
-
-When stmmac_hw_setup() restarts the DMA, the controller sees an owned
-descriptor with VALID_ADDR set and a stale address — the exact failure
-mode the commit message describes. Could the skipped slots be cleared
-(stmmac_clear_desc() or zeroing des0/des1/des2) instead of left intact,
-or arranged so clear_descriptors() does not arm OWN on them?
-
-> +
-> +			dma_addr = xsk_buff_xdp_get_dma(buf->xdp);
-> +			stmmac_set_desc_addr(priv, p, dma_addr);
-> +			stmmac_set_desc_sec_addr(priv, p, 0, false);
-> +		} else {
-> +			/* Theoretically unreachable: napi_disable() in
-> +			 * stmmac_suspend() ensures all initialized slots
-> +			 * have a valid page before we get here.
-> +			 * Defensive check only.
-> +			 */
-> +			if (!buf->page)
-> +				continue;
-
-[High]
-Is the comment "Theoretically unreachable: napi_disable() in
-stmmac_suspend() ensures all initialized slots have a valid page"
-accurate?
-
-stmmac_rx() assigns buf->page = NULL at multiple points when handing the
-page on to the stack or to XDP, for example:
-
-	buf->page = NULL;
-
-in stmmac_rx() after the page has been consumed.
-
-stmmac_rx_refill() allocates with GFP_ATOMIC | __GFP_NOWARN and breaks
-on allocation failure without advancing dirty_rx, leaving the failing
-slot (and any subsequent slots) with buf->page == NULL:
-
-	if (!buf->page) {
-		buf->page = page_pool_alloc_pages(rx_q->page_pool, gfp);
-		if (!buf->page)
-			break;
-		...
-	}
-
-stmmac_disable_all_queues() only does synchronize_rcu() and
-napi_disable() — it does not retry refills. Under the memory-pressure
-scenario this patch is explicitly designed to make safe, a prior
-GFP_ATOMIC failure can leave the ring with NULL-page slots at the
-moment suspend happens.
-
-If such a slot is then skipped here, the same OWN-with-stale-address
-condition described above applies on resume. Should the page_pool path
-also clear the descriptor for skipped slots, or allocate a replacement
-buffer rather than leave a stale-address descriptor for
-stmmac_clear_descriptors() to arm?
-
-> +
-> +			stmmac_set_desc_addr(priv, p, buf->addr);
-> +			stmmac_set_desc_sec_addr(priv, p, buf->sec_addr,
-> +						 priv->sph_active &&
-> +						 buf->sec_page);
-> +
-> +			if (dma_conf->dma_buf_sz == BUF_SIZE_16KiB)
-> +				stmmac_init_desc3(priv, p);
-> +		}
-> +	}
-
-[ ... ]
-
-> +}
-> +
+diff --git a/arch/arm64/boot/dts/freescale/s32g3.dtsi b/arch/arm64/boot/dts/freescale/s32g3.dtsi
+index e314f3c7d61d..7e28dff53a86 100644
+--- a/arch/arm64/boot/dts/freescale/s32g3.dtsi
++++ b/arch/arm64/boot/dts/freescale/s32g3.dtsi
+@@ -862,7 +862,7 @@ gmac0mdio: mdio {
+ 
+ 		swt8: watchdog@40500000 {
+ 			compatible = "nxp,s32g3-swt", "nxp,s32g2-swt";
+-			reg = <40500000 0x1000>;
++			reg = <0x40500000 0x1000>;
+ 			clocks = <&clks 0x3a>, <&clks 0x3b>, <&clks 0x3b>;
+ 			clock-names = "counter", "module", "register";
+ 			status = "disabled";
 -- 
-This is an AI-generated review.
+2.53.0
 
 
