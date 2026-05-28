@@ -4,64 +4,118 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id BDA4DCD4F54
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 28 May 2026 18:01:42 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id B4986CD4F54
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 28 May 2026 18:06:27 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	MIME-Version:References:Message-ID:Subject:CC:To:From:Date:Reply-To:
 	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=hD2Z6wqk6w2a1UgnCrMYTDZU+8UOETAKV7OKas5np+Q=; b=X2PpJpzfIBvnjpc5NofCDrM5P2
-	IaXgqDeQdBqnTSa8KafXzw2PnOjhFgGco3esRdxbFbv6Onf/fQg0g0JAV1QBRZY6hoAEnEgSdvTOl
-	nt431g7PeDtJiNglZDR1GYrJFlDXD2bFrxTpJn9pk4rr+95yhi6SacRRh+mYLSXwMjQRxrOnTBJG6
-	s0tBW68S/yti0BvbLeXVcvr8EMx9mZGqM2bjGu1QTPZwx+Mg+WK8OIJ4NrZTadlvDkhCyvQJ/6SQ/
-	i/KMfwRrTety+Ltm5ghshfbvzvkbdBQZ+SKG+xRVGPWpuptl8Y4QkEB6bio0pWmEYCNq1rCCoUZN2
-	/oJAhFJQ==;
+	bh=jt7Mm5djX32rWYBrd+ccvl5cRx1eOBQ7obgUGvFboW8=; b=W5oKP9KKEWvZ8kvKcHFxNiw15B
+	n+5S3Fuk70RxHyI7lJ5cO7/OT/ga/jo5Ptv2+RVLwUImPa+y9USnOso7Dx/kuJUnQ75Ow5mfo2oG9
+	NAToqwmJ9ONz7kkFS6ytt3YjZXSpuFpYDPohu1jTeV/Hj25Kp+eN5YFMtJLC/BnO7Tk0lWVoN5Tke
+	1bUokTsff097eU1CRpuijQi2Zd2EKSugXwPTJh5D1X3R8s3wk2CG7m7OX5KQQMtJz5hWX+PiEunOn
+	atdUFSu+toDkQPYEVUfTpahhT/P+jc92JOPekNvz0D2s3z6QWA4hcchlZojXaAqgqXl0FVgVgJQYP
+	ZSnL+uWA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wSf32-000000069iO-0DgR;
-	Thu, 28 May 2026 18:01:36 +0000
-Received: from foss.arm.com ([217.140.110.172])
-	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wSf2z-000000069i1-24XP
+	id 1wSf7c-000000069vT-2NyW;
+	Thu, 28 May 2026 18:06:20 +0000
+Received: from mail-westus3azlp170110003.outbound.protection.outlook.com ([2a01:111:f403:c107::3] helo=PH0PR06CU001.outbound.protection.outlook.com)
+	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
+	id 1wSf7Y-000000069v5-0UhQ
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 28 May 2026 18:01:34 +0000
-Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
-	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id 0E07A22C8;
-	Thu, 28 May 2026 11:01:27 -0700 (PDT)
-Received: from localhost (e132581.arm.com [10.1.196.87])
-	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id A61043F632;
-	Thu, 28 May 2026 11:01:31 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=simple/simple; d=arm.com; s=foss;
-	t=1779991292; bh=y36QqDCCRxFgAritP62khWPWor0UF35crmcLFibL7iQ=;
-	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
-	b=iOg36/k7zSaeOW5PVb7Uxmwxz4ZiPGmRKjNNt0ewIbINCWRHrwEpoznt+aX2/9nks
-	 v9F8zQdmm/3oEzcXO8LtkdiUwQi53Ap20DNGlI6o9/AsyqK7QDL3c4Ig1X8JCIxiQT
-	 0TO12Yw/kzwLocebq0HrHUqCUT+VnZ29HtlzOeOY=
-Date: Thu, 28 May 2026 19:01:29 +0100
-From: Leo Yan <leo.yan@arm.com>
-To: Yingchao Deng <yingchao.deng@oss.qualcomm.com>
-Cc: Suzuki K Poulose <suzuki.poulose@arm.com>,
-	Mike Leach <mike.leach@arm.com>,
-	James Clark <james.clark@linaro.org>,
-	Alexander Shishkin <alexander.shishkin@linux.intel.com>,
-	coresight@lists.linaro.org, linux-arm-kernel@lists.infradead.org,
-	linux-kernel@vger.kernel.org, linux-arm-msm@vger.kernel.org,
-	jinlong.mao@oss.qualcomm.com, quic_yingdeng@quicinc.com,
-	tingwei.zhang@oss.qualcomm.com, jie.gan@oss.qualcomm.com
-Subject: Re: [PATCH v9 1/4] coresight: cti: Convert trigger usage fields to
- dynamic
-Message-ID: <20260528180129.GJ101133@e132581.arm.com>
-References: <20260521-extended_cti-v9-0-d21f4f92c51e@oss.qualcomm.com>
- <20260521-extended_cti-v9-1-d21f4f92c51e@oss.qualcomm.com>
+	Thu, 28 May 2026 18:06:19 +0000
+ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
+ b=mQ9ercHV/kUtVFedaJ3vPsnpeZgxpEPsA1Ryyuk8YipKvIPrpT0OsfQVKKaoEeAbrwOqWRoDPQTmxpFQZ3MPOir5z1I31kGHRSlI1FWaSxqKlyJYc6/gsLUjhAk5nEwuz86A6RYf0bDveb6y/LtgjBKanmCimE/ToptOQz/+ycmV3emREurqmHydAEwo6rENbErGcSCYiTc5sSNJlKigo0hdaKnpxyUTjoKBBTpeRO5dwoNFdydPDOiI5bHAspothzALih4e8wfVgfG3mjVLDzKwQJPrYJJNvk54v84Ug9/A/6+5aJHrs86wKpnsZd4Abqy0CPezh1BRt9lc+3qXOA==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
+ s=arcselector10001;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
+ bh=jt7Mm5djX32rWYBrd+ccvl5cRx1eOBQ7obgUGvFboW8=;
+ b=LSDSFrKP2Shzx70Zpe0EkUjzq3Czg834Em8YvMt9MqIhqbvZSDlOGyPx+n4f0cuoR5nK1i3KNieSK9hvdWGmO6KKDcOTQpMhkvchL6hneAo+zNGO6grqu0fh4HG63m6zc6MTJiNxZV4822Kq66KsBEW4dcQQYZLOuJn2r3+3y1WGw0DR3SY8ol3dorceBqr9A5212GwNCfVeYMkRgh0DbIuuvcLp7Mza+/ISTuh8PDMTwZdkV3sNQSBshiDjqhXs4t45wHJWPe1KyEMuBURIDGkt9PGt8u4JqqaQ96XpUJUNd2KDKbJLyWyp1GziwDHLDMGHzaOrnYjfQbCDUfTzxw==
+ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass (sender ip is
+ 216.228.117.161) smtp.rcpttodomain=google.com smtp.mailfrom=nvidia.com;
+ dmarc=pass (p=reject sp=reject pct=100) action=none header.from=nvidia.com;
+ dkim=none (message not signed); arc=none (0)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=Nvidia.com;
+ s=selector2;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
+ bh=jt7Mm5djX32rWYBrd+ccvl5cRx1eOBQ7obgUGvFboW8=;
+ b=gSyBGsXdZrlonNFD66xA9ibO4E21RpirEW8ceykPjaI/C9xewEwiUcnB5mq1z8p0ekVrs8bOD/NA1W5rSEHRpwCyODxIfFHTVXiDUjQfwpex3ZgV34nGjNyoH02/vZ41sDxVEV5P+SVsKZxJfSRIrB70q+Lpq8AqTbU1WibtCnbcpJaHZVLLao1oKaaGrYYt84VM+px+VbynGizainT1hy3Jt56f/ZZTO9+4PSAD7j5aCJ/UsUsNe/I/0aicEIH/wqWdsq1A7UBIzPfPkf35ajgmqPWmdtwFMnZ8uIWeiVFgJ8qeRIbjY5UXOHiI5ZImGclUnsB5IDhLsH0DQEeWYw==
+Received: from SJ0PR13CA0147.namprd13.prod.outlook.com (2603:10b6:a03:2c6::32)
+ by IA1PR12MB7590.namprd12.prod.outlook.com (2603:10b6:208:42a::5) with
+ Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.21.71.12; Thu, 28 May
+ 2026 18:06:05 +0000
+Received: from SJ5PEPF000001D4.namprd05.prod.outlook.com
+ (2603:10b6:a03:2c6:cafe::75) by SJ0PR13CA0147.outlook.office365.com
+ (2603:10b6:a03:2c6::32) with Microsoft SMTP Server (version=TLS1_3,
+ cipher=TLS_AES_256_GCM_SHA384) id 15.21.92.5 via Frontend Transport; Thu, 28
+ May 2026 18:06:05 +0000
+X-MS-Exchange-Authentication-Results: spf=pass (sender IP is 216.228.117.161)
+ smtp.mailfrom=nvidia.com; dkim=none (message not signed)
+ header.d=none;dmarc=pass action=none header.from=nvidia.com;
+Received-SPF: Pass (protection.outlook.com: domain of nvidia.com designates
+ 216.228.117.161 as permitted sender) receiver=protection.outlook.com;
+ client-ip=216.228.117.161; helo=mail.nvidia.com; pr=C
+Received: from mail.nvidia.com (216.228.117.161) by
+ SJ5PEPF000001D4.mail.protection.outlook.com (10.167.242.56) with Microsoft
+ SMTP Server (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
+ 15.21.92.5 via Frontend Transport; Thu, 28 May 2026 18:06:05 +0000
+Received: from rnnvmail201.nvidia.com (10.129.68.8) by mail.nvidia.com
+ (10.129.200.67) with Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.2.2562.20; Thu, 28 May
+ 2026 11:05:46 -0700
+Received: from rnnvmail205.nvidia.com (10.129.68.10) by rnnvmail201.nvidia.com
+ (10.129.68.8) with Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.2.2562.20; Thu, 28 May
+ 2026 11:05:46 -0700
+Received: from Asurada-Nvidia (10.127.8.13) by mail.nvidia.com (10.129.68.10)
+ with Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.2.2562.20 via Frontend
+ Transport; Thu, 28 May 2026 11:05:45 -0700
+Date: Thu, 28 May 2026 11:05:43 -0700
+From: Nicolin Chen <nicolinc@nvidia.com>
+To: Pranjal Shrivastava <praan@google.com>
+CC: <iommu@lists.linux.dev>, Will Deacon <will@kernel.org>, Joerg Roedel
+	<joro@8bytes.org>, Robin Murphy <robin.murphy@arm.com>, Jason Gunthorpe
+	<jgg@ziepe.ca>, Mostafa Saleh <smostafa@google.com>, Daniel Mentz
+	<danielmentz@google.com>, Ashish Mhetre <amhetre@nvidia.com>,
+	<linux-arm-kernel@lists.infradead.org>
+Subject: Re: [PATCH v7 00/11] iommu/arm-smmu-v3: Implement Runtime/System
+ Sleep ops
+Message-ID: <ahiD9+mOTp8MHrUs@Asurada-Nvidia>
+References: <20260527221407.1756491-1-praan@google.com>
 MIME-Version: 1.0
-Content-Type: text/plain; charset=us-ascii
+Content-Type: text/plain; charset="us-ascii"
 Content-Disposition: inline
-In-Reply-To: <20260521-extended_cti-v9-1-d21f4f92c51e@oss.qualcomm.com>
+In-Reply-To: <20260527221407.1756491-1-praan@google.com>
+X-NV-OnPremToCloud: ExternallySecured
+X-EOPAttributedMessage: 0
+X-MS-PublicTrafficType: Email
+X-MS-TrafficTypeDiagnostic: SJ5PEPF000001D4:EE_|IA1PR12MB7590:EE_
+X-MS-Office365-Filtering-Correlation-Id: 9bdb8f56-cd7e-49f1-2419-08debce3c933
+X-MS-Exchange-SenderADCheck: 1
+X-MS-Exchange-AntiSpam-Relay: 0
+X-Microsoft-Antispam: BCL:0;ARA:13230040|376014|36860700016|1800799024|82310400026|11063799006|18002099003|22082099003|56012099006;
+X-Microsoft-Antispam-Message-Info: bubW6jdWcNA9ViBQ8nqJMXOS48/r3hmsUeBo134BFOiRa35IJ6kD4q6a4vPRUkmZc4CmX9LJDHEZGFZrSWEiorYM3Urxcj6DjsP27mfpZu4dFVFtzAfjR1nQ79qM2bNlnWdTDwj3KNqJiqun4R1frgiyJFFubAXCgfXC/hFjApjjVzcECJxJsUieNRQvq4r0K6yKwPwgVj2OCcBxD2aDF79nMPymVZcr8rC89ad/XAeRbNPejuqMt6DbDhdRKPU05oq2mCEVS5xnapA4+CbJh1HApzxFWb5rdqm8/awNUYa6UbNVQflA1c+a2B4nP2RqNjU6D0J1trSZ0/pXelOQNudfEOm8sPLg9Xmx/4JpB/WonVEpTjvhSFvnl1k647dlBCa9bnMK/PX56xYKTZCqGqt3nce1yGH5qpFkcoSgp2D0T/bgL7UoJ7Shf0hW4plQsTZ2hoNX0swZj7a+FtX9rKkSMlrWrAXatdCha8LI1AbWpnYvsrlnoQrfUNBmPhYRn2C4EVzqgXS85ZAZ2J05gpRTS+uSyJAk1sBSI3aMdTPmeKGQSihkNQWmz+qpZtTH6/+UeL7XQvAOvEf/A3BBaFvdsNMt+oH/SFW91Ejsxvj9nX+JvFZCunqqEb3wKaTzGZUUarLYQuKEcxO2Xx8MQJVVS+TPVgs5miktkM9wtR3+u3IexmZTbQucvqrzVcjpggIWK5D23KySNuHtRKPKtOTcMzgMu7y4pXbe+ywPCmM=
+X-Forefront-Antispam-Report: CIP:216.228.117.161;CTRY:US;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:mail.nvidia.com;PTR:dc6edge2.nvidia.com;CAT:NONE;SFS:(13230040)(376014)(36860700016)(1800799024)(82310400026)(11063799006)(18002099003)(22082099003)(56012099006);DIR:OUT;SFP:1101;
+X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
+X-MS-Exchange-AntiSpam-MessageData-0: Vwbmot1OzVBP4zBFUSDBFWMt6rWPFIRAwttwSVFkS6ZO+TV8AQwSOYk4541d2sUKeWHdCZOaLcgeShjg5X7cAQsuKVo/sDcN4JJZCQcYXlVRn7zQhpo6QxyTyNxmuMBZq6fYsyqVQ3AKAJxp0RJ6qA0fCE/Kpo+VxTtxLZWmifpebuIYPSdBP41FoW75GnLQ9MufBlKkxBffsW8TyKPktRD+8NdL8xdANA9a8wVvMPPm6H7yUKgJEni0FvHfWq2LyKmEgR7LrurkCxbk2+DZ9QyIK7L/yGcyZCqAysXRVlPCXGrMoThJqXj1OQ1vZKFsmsEDqAidPSucGKhNhoQfcfP2VyHCWvjz8bWpWLq9yOqPPWcLvcoZMCoqH2X97Bihb1GZfXE1oFynWLXAes/FM59kWZ26zaTs4XngNbni8uXCzJfMQyavXY6MowPOMsqN
+X-OriginatorOrg: Nvidia.com
+X-MS-Exchange-CrossTenant-OriginalArrivalTime: 28 May 2026 18:06:05.1919
+ (UTC)
+X-MS-Exchange-CrossTenant-Network-Message-Id: 9bdb8f56-cd7e-49f1-2419-08debce3c933
+X-MS-Exchange-CrossTenant-Id: 43083d15-7273-40c1-b7db-39efd9ccc17a
+X-MS-Exchange-CrossTenant-OriginalAttributedTenantConnectingIp: TenantId=43083d15-7273-40c1-b7db-39efd9ccc17a;Ip=[216.228.117.161];Helo=[mail.nvidia.com]
+X-MS-Exchange-CrossTenant-AuthSource: SJ5PEPF000001D4.namprd05.prod.outlook.com
+X-MS-Exchange-CrossTenant-AuthAs: Anonymous
+X-MS-Exchange-CrossTenant-FromEntityHeader: HybridOnPrem
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: IA1PR12MB7590
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260528_110133_593780_30E07C15 
-X-CRM114-Status: UNSURE (   9.46  )
+X-CRM114-CacheID: sfid-20260528_110618_085414_C3CD0E05 
+X-CRM114-Status: UNSURE (   9.20  )
 X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
@@ -77,33 +131,15 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Thu, May 21, 2026 at 08:16:27PM +0800, Yingchao Deng wrote:
+On Wed, May 27, 2026 at 10:13:56PM +0000, Pranjal Shrivastava wrote:
+> [v7]
+>  - Rebased on the latest arm/smmu/updates branch (which has the removal of
+>    struct arm_smmu_cmdq_ent merged)
 
-[...]
+Sashiko failed to apply:
+https://sashiko.dev/#/patchset/20260527221407.1756491-1-praan%40google.com
 
-> @@ -231,6 +254,8 @@ struct cti_trig_con *cti_allocate_trig_con(struct device *dev, int in_sigs,
->  {
->  	struct cti_trig_con *tc = NULL;
->  	struct cti_trig_grp *in = NULL, *out = NULL;
-> +	struct cti_drvdata *drvdata = dev_get_drvdata(dev);
-> +	int n_trigs = drvdata->config.nr_trig_max;
+Let's add a base-commit to the series and see if it would work?
 
-I don't mind it allocates bitmask with nr_trig_max, but AI review
-suggests that when in_sigs / out_sigs bigger than nr_trig_max, it might
-access memory out-of-boundary (see cti_plat_read_trig_group()).
-
-It is good to add a check:
-
-    if (in_sigs > n_trigs || out_sigs > n_trigs) {
-        dev_err(dev, "trigger signal is out of range: in=%d out=%d nr_max=%d\n",
-                in_sigs, out_sigs, n_trigs\n");
-        return NULL;
-    }
-
-With this:
-
-Reviewed-by: Leo Yan <leo.yan@arm.com>
-
-BTW, I have given my review tag on v8, please remember to update
-patches with review / ack tags.
+Nicolin
 
