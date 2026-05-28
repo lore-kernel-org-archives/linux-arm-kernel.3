@@ -4,92 +4,102 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 055D1CD5BD5
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 28 May 2026 21:21:41 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id A63D3CD4F54
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 28 May 2026 21:30:44 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=C15T9rUB0bBkSab054WlEa7OUctxw0eLHuncdw99Sw4=; b=grd0J6SLXevb528PX4E9tAqkZq
-	ylcfVMsV+dnKi0EgGIg2wsHnu+1uVTh9vw5056m5MBrQk6AQZJW63kPXyDvFN79IcpFAt2q8o1fWL
-	upuVQJ24VeMvLMAjqg+2y29rhsZH2WDEW7dbnpZb5bcROXBFRJQMf+vj3In1jvr9FVMZ2sC6lYSqG
-	uj+1fQnNAb97iFjEUlTAWdfnbMOZkJtUk4n6ojHU3iH72rZlqvCE3DTjBv5DVF/ZwL3b+kzwzlCai
-	jo1RkbB8IrKfhjQHgtggoCON0mi4GsP6ocCmFSzWewvQ0hP8YnlDbRjd8NotfNTQeCLxHGJYofOCe
-	Zc+t5rkw==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:References:
+	Subject:Cc:To:From:Message-Id:Date:Content-Type:Content-Transfer-Encoding:
+	Mime-Version:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=wpHrgIeXXcvDfmuKsXXjHhEfFrUsBGF9Cp2mPrCFg1E=; b=ZI3B9u5oH80PeOi4wVWLT0BLT1
+	UW2zTkIm+iWc278nqpH5z3Bn8FIayH0e7xSByfYecx5UopbgZv3PtOZ42fvdlyFVbwbsW7WEp7Yvr
+	+8AFudUgpWXA4xUTvxCDno4zHX6Y4+koxikJxbl2o4cne5UDGogPNaLCY//RYwxauWzSEIyDyZM79
+	I/5umotU8riSZ7w5n8c4laHky4pCFPOxluiJbNO8IzOcm/XWo4ryqFMX12Cj6AF19+wCtOyT0eM3W
+	eeqQHbJer1XSe3AQihm1T7KVxwcB1W9/taQ8JMFcNc/PK5RENQIPTskuYaepg9eKiMqxOtZK/R3gh
+	VBGte3Lg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wSiAX-00000006Odn-0HdY;
-	Thu, 28 May 2026 21:21:33 +0000
-Received: from mail-pl1-x632.google.com ([2607:f8b0:4864:20::632])
+	id 1wSiJH-00000006PBc-3yOV;
+	Thu, 28 May 2026 21:30:35 +0000
+Received: from mail-ot1-x333.google.com ([2607:f8b0:4864:20::333])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wSiAU-00000006Od9-0XQT
+	id 1wSiJE-00000006PAp-2FdR
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 28 May 2026 21:21:31 +0000
-Received: by mail-pl1-x632.google.com with SMTP id d9443c01a7336-2ba180a022dso1375ad.1
-        for <linux-arm-kernel@lists.infradead.org>; Thu, 28 May 2026 14:21:29 -0700 (PDT)
+	Thu, 28 May 2026 21:30:33 +0000
+Received: by mail-ot1-x333.google.com with SMTP id 46e09a7af769-7de4a9cb8eeso11831863a34.0
+        for <linux-arm-kernel@lists.infradead.org>; Thu, 28 May 2026 14:30:31 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=google.com; s=20251104; t=1780003289; x=1780608089; darn=lists.infradead.org;
-        h=in-reply-to:content-disposition:mime-version:references:message-id
-         :subject:cc:to:from:date:from:to:cc:subject:date:message-id:reply-to;
-        bh=C15T9rUB0bBkSab054WlEa7OUctxw0eLHuncdw99Sw4=;
-        b=DutgsoywnN0MVcl8XE7EW5qYp7ucZBg2C0dnNY8ITeJzvpFG1vh2zP4CRYqKU2HTvn
-         9p+r3OR0fXQiAEuLZukJEuGcJu+muSQdZ4g58A2bgt02vNv7xDFmIPEn3Opob1k9+yZo
-         cKfsW3uElniAU0ktwMF79CT5Y7DsTot2wcOoHQZh0x7Osdbe4VnlnV0S2AcptgJi2XoK
-         JdNgD4oqnD2mZ+yaS7gCp0qsSa8Nd20esLSvaNoWRF79WLLtN2nb6qD3hexhV+3xBpTl
-         ag+mSgANNdNMkG6tINpGm1DpcfjaXFfuUC72YMZrtqnrWht3U9dnxoMgnf9jjY4vvxMF
-         6djQ==
+        d=gmail.com; s=20251104; t=1780003831; x=1780608631; darn=lists.infradead.org;
+        h=in-reply-to:references:subject:cc:to:from:message-id:date
+         :content-transfer-encoding:mime-version:from:to:cc:subject:date
+         :message-id:reply-to;
+        bh=wpHrgIeXXcvDfmuKsXXjHhEfFrUsBGF9Cp2mPrCFg1E=;
+        b=g95+4ZfQnKmDFdfEN2fc/wJe3Mz9EQISThuu0GEKbTB9ZqYNvlZYsFllNUstmqX911
+         Dxz3fsbb0uEugwKXCrz69rl4Y/yEud7mv9VJz7g/FNFusk3yJsqgoqc4dA8mXvvzJH2Q
+         levp12qSqnuWbn49DKSLt1UEnu1TXBzmDMqazykru9hAYQJVuZe7Y+dCASV/W6grJNKi
+         YACfVnKF0i+z8aUyUFReN0vk1a3KPHjTlQfNX7XbvEAPWismwdhcWbz4SQX3Z51CtODZ
+         Vmux/qYmqF06HyNG3BpYEUEmXYtIW2ytjZ8ON72kcRCdNexqDawUWnRqvDJNhr87Xt+t
+         LW6g==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20251104; t=1780003289; x=1780608089;
-        h=in-reply-to:content-disposition:mime-version:references:message-id
-         :subject:cc:to:from:date:x-gm-gg:x-gm-message-state:from:to:cc
-         :subject:date:message-id:reply-to;
-        bh=C15T9rUB0bBkSab054WlEa7OUctxw0eLHuncdw99Sw4=;
-        b=FYoKVI6yfmrqu6Rk8Z4rIntuldMbzWuMxXKzduXDBhznsw6KV29rFLwUeE9eI2NAXG
-         ChdYyi7ayLOpVs45cel0CUg3ImPiDFfTYv7UoiHdI0JjcEpHHcXc9JiUCa5Jj3cpyOh9
-         ZVJ0XVnJN7OHrhtuqYrpcZBeRRXBr4oe8qZChwgPFFG2WnVEyVPcm8M/G6QtbFiMYIXh
-         pWxXkPJBbdlWZ8qGFWESD7axHLPw5wAWrkcdvQ2ATWFrnbt4KTiLck+thUXpPQ4D32is
-         dzJ+AGYZbHnv00cpbVgC87sQfRdOhHh6GqPDzp90Dug1s287FzOpmtJA6+3e+5LPNKvk
-         UOsA==
-X-Forwarded-Encrypted: i=1; AFNElJ/+EDTW352wBpUTBsF+B7DkDFXROfDXmxBJKffAXvsJe/TMJJW6e6QUvptQG2BSqrRPtfzjJJm+RT4nBVEw+Irr@lists.infradead.org
-X-Gm-Message-State: AOJu0YypFcNmdz7BLX7xA5B/i3Z3SuPd893p+pvDXpduei+y4TucyJBH
-	ikFjzG1gnY3urP1daVxLb4YTh2ZBSremVPCzdy9s89GkL+pMZjg4tIZB2vYu+XilMw==
-X-Gm-Gg: Acq92OF+TdxyhE5ZztwhlqkjyXlKVIxP4cVLaAOjqj8/ymGk8ifAas8Nh7vBTCNS++S
-	BwOcO1W+ANIcXKoHHGqnd1eIZ94oNDU0+dJz6DpJij0z4aNumzTkjIuUoqt9/meaIjqyzsKYG8v
-	ALpKOypqFXEBoQ2eiA2TOLJq5KWaJfW19tZ/hqXWTKuslGBXAGbTyq/uFX1bfRJN/lUZJddANxQ
-	achF2g9yIqzYGschuV/vyyu7WkwtyBan16/X0uC8WHN9UlutW6i2NOTk5y3PkHggmelZZXf+hOt
-	KTg1g10hKMKFXhSMhPvgi+Zq58aFOi0bxFh67HCI7MHI7sDPjquJ3hdBrVwzDk5u+XEPrim2jYg
-	1GbbRKY0mHr+bCLI2Bvp5Vv3hugf3zCijNbFPVuN1RAghsg/av2MeOrpYMzdLHQ74eclAFWFKjP
-	+w1DOQgdUD6Cf7+FNAG1gfvZYsrE821ta7zEEeSa4Bs6BpviNsSHOz3cm/j8e2PwrHDgAe
-X-Received: by 2002:a17:902:db02:b0:2bf:1153:54a0 with SMTP id d9443c01a7336-2bf20d4f08dmr142715ad.23.1780003288783;
-        Thu, 28 May 2026 14:21:28 -0700 (PDT)
-Received: from google.com (44.234.124.34.bc.googleusercontent.com. [34.124.234.44])
-        by smtp.gmail.com with ESMTPSA id d9443c01a7336-2bf1e7e3d93sm2247895ad.39.2026.05.28.14.21.25
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Thu, 28 May 2026 14:21:28 -0700 (PDT)
-Date: Thu, 28 May 2026 21:21:22 +0000
-From: Pranjal Shrivastava <praan@google.com>
-To: Nicolin Chen <nicolinc@nvidia.com>
-Cc: iommu@lists.linux.dev, Will Deacon <will@kernel.org>,
-	Joerg Roedel <joro@8bytes.org>, Robin Murphy <robin.murphy@arm.com>,
-	Jason Gunthorpe <jgg@ziepe.ca>, Mostafa Saleh <smostafa@google.com>,
-	Daniel Mentz <danielmentz@google.com>,
-	Ashish Mhetre <amhetre@nvidia.com>,
-	linux-arm-kernel@lists.infradead.org
-Subject: Re: [PATCH v7 08/11] iommu/arm-smmu-v3: Implement pm_runtime &
- system sleep ops
-Message-ID: <ahix0vUm03lxDwAC@google.com>
-References: <20260527221407.1756491-1-praan@google.com>
- <20260527221407.1756491-9-praan@google.com>
- <ahiaApzK1/nBwr2R@Asurada-Nvidia>
-MIME-Version: 1.0
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-In-Reply-To: <ahiaApzK1/nBwr2R@Asurada-Nvidia>
+        d=1e100.net; s=20251104; t=1780003831; x=1780608631;
+        h=in-reply-to:references:subject:cc:to:from:message-id:date
+         :content-transfer-encoding:mime-version:x-gm-gg:x-gm-message-state
+         :from:to:cc:subject:date:message-id:reply-to;
+        bh=wpHrgIeXXcvDfmuKsXXjHhEfFrUsBGF9Cp2mPrCFg1E=;
+        b=UUyHbOLdzjMQpNCLo2lC++0uGxlh7f7AIbbsWyazkUpioMETqs8eSEIBk8cu7SI1Lb
+         qob7jZsW7i+tBvdQwkqqVpY+e+oU3m68sUvOTYHk73xcyxOp23e+t4ggQX01B12811cI
+         nf5d235cVRAyiwe2/i2Zif0jAa7KrBV8q0rLAT5lfnqddklj3kH+VOWz8DuLClPR/rUE
+         IDGqCE5DO/Ao35t7bOgzWL3S3RvOudf5kMGx/M+/w2T37HhDgt2FKjmXnepEaCbOCL5G
+         93q0JY+o010DeEve2vycLxJ01Y9RrNmNRjvelo1ZIiVTF1oiaZag/rWJNAsqDSSw5aiF
+         aWhg==
+X-Forwarded-Encrypted: i=1; AFNElJ8D/mkOOkvv+/AlG7RUyjucTtGsk0V1zB0r9E6CzhMXFjQ1Kewhd69XYoEt2g4SiB+51LAFTtUnXW85p2XdN6oG@lists.infradead.org
+X-Gm-Message-State: AOJu0Yzhfh9coLqoWSiv0bzjYSru+yD4LHu/G6VcIqwoqEOuD1wlJstA
+	/v3zcjR3YzBwlfMsoyN5o6NqSbpvR3NjhJzGXmRiER08KrdOxCU9gmMq
+X-Gm-Gg: Acq92OHM0YAChpZljRNQaaBy12sujqeGr+BNoQazHkBcodj/Lib7HmlJ01/9lypoHxS
+	RY1kFZvQhBwIIDmyZGFsmQl3FYt2bRzyiGVBOxfFTo8wz6uItbFq09LpCS0MfG1ua0qhE+M85Gk
+	YTwcLT6LcXEBstVPZO5/q0vAR4Q6VMS4l2LQclMpYjgCcxcJVteIgsuqPEhcaUeseekpDSnKBWx
+	yFm8STQWRmGQJDicjXcN4emwtnSk4KpvW0y73l8iWXX1FQrmhd3/G3djZDkizDLokAO0EJOyM2n
+	cpFUw4Ja2COJ0DK5OnCKBbkxJnXnGYfpedwYXzz1u/LbdHqWvQ74N3NqJ10rBIN+ad09d/mCBWQ
+	MiDK8GvWK+2JcznjMA+c17yI5mRk0WH6wxEBjpj500J9bJ6i+yiEOqF7vwd4PC07hvs1xQbb4Ou
+	rGrn/nQ5ZF5UZrL5+oPOafcXB2JacZ9UOF58Bcpr/rODWDwAb1gmp47c6/joyLLllUqoAKspr51
+	B96xRqJg8uTTezTUg9jNFK+d3G0
+X-Received: by 2002:a05:6830:81e9:b0:7d7:570b:6800 with SMTP id 46e09a7af769-7e694e30aa5mr218271a34.23.1780003830565;
+        Thu, 28 May 2026 14:30:30 -0700 (PDT)
+Received: from localhost ([2a03:2880:10ff:47::])
+        by smtp.gmail.com with ESMTPSA id 46e09a7af769-7e695212f9asm129362a34.13.2026.05.28.14.30.29
+        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
+        Thu, 28 May 2026 14:30:30 -0700 (PDT)
+Mime-Version: 1.0
+Content-Transfer-Encoding: quoted-printable
+Content-Type: text/plain; charset=UTF-8
+Date: Thu, 28 May 2026 14:30:28 -0700
+Message-Id: <DIUMP21RASZI.2VNQV45RIL209@gmail.com>
+From: "Alexei Starovoitov" <alexei.starovoitov@gmail.com>
+To: "David Hildenbrand (Arm)" <david@kernel.org>, "Tejun Heo"
+ <tj@kernel.org>, "David Vernet" <void@manifault.com>, "Andrea Righi"
+ <arighi@nvidia.com>, "Changwoo Min" <changwoo@igalia.com>, "Alexei
+ Starovoitov" <ast@kernel.org>, "Andrii Nakryiko" <andrii@kernel.org>,
+ "Daniel Borkmann" <daniel@iogearbox.net>, "Martin KaFai Lau"
+ <martin.lau@linux.dev>, "Kumar Kartikeya Dwivedi" <memxor@gmail.com>
+Cc: "Peter Zijlstra" <peterz@infradead.org>, "Catalin Marinas"
+ <catalin.marinas@arm.com>, "Will Deacon" <will@kernel.org>, "Thomas
+ Gleixner" <tglx@kernel.org>, "Ingo Molnar" <mingo@redhat.com>, "Borislav
+ Petkov" <bp@alien8.de>, "Dave Hansen" <dave.hansen@linux.intel.com>,
+ "Andrew Morton" <akpm@linux-foundation.org>, "Mike Rapoport"
+ <rppt@kernel.org>, "Emil Tsalapatis" <emil@etsalapatis.com>,
+ <sched-ext@lists.linux.dev>, <bpf@vger.kernel.org>, <x86@kernel.org>,
+ <linux-arm-kernel@lists.infradead.org>, <linux-mm@kvack.org>,
+ <linux-kernel@vger.kernel.org>
+Subject: Re: [PATCH 2/8] bpf: Recover arena kernel faults with scratch page
+X-Mailer: aerc
+References: <20260522172219.1423324-1-tj@kernel.org>
+ <20260522172219.1423324-3-tj@kernel.org>
+ <7fd673df-22f3-4d70-a779-ea0b878188b3@kernel.org>
+In-Reply-To: <7fd673df-22f3-4d70-a779-ea0b878188b3@kernel.org>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260528_142130_170947_8B6391AC 
-X-CRM114-Status: GOOD (  28.02  )
+X-CRM114-CacheID: sfid-20260528_143032_582950_6342613B 
+X-CRM114-Status: GOOD (  20.45  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -104,113 +114,74 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Thu, May 28, 2026 at 12:39:46PM -0700, Nicolin Chen wrote:
-> On Wed, May 27, 2026 at 10:14:04PM +0000, Pranjal Shrivastava wrote:
-> > +/* Runtime PM helpers */
-> > +__maybe_unused static int arm_smmu_rpm_get(struct arm_smmu_device *smmu)
-> > +{
-> > +	int ret;
-> > +
-> > +	if (pm_runtime_enabled(smmu->dev)) {
-> > +		ret = pm_runtime_resume_and_get(smmu->dev);
-> > +		if (ret < 0) {
-> > +			dev_err(smmu->dev, "failed to resume device: %d\n", ret);
-> > +			return ret;
-> > +		}
-> > +	}
-> > +
-> > +	return 0;
-> 
-> Nit: ret is used within the first if.
-> 
-> Yet, I wouldn't like it to move. So, maybe do an early return:
-> 
-> 	if (!pm_runtime_enabled(smmu->dev))
-> 		return 0;
-> 
+On Tue May 26, 2026 at 5:45 AM PDT, David Hildenbrand (Arm) wrote:
+>
+> There is still the chance that apply_range_set_cb() could race with scrat=
+ch
+> insertion, right?
 
-Ack. I'll add an early return.
+yes, it can race, but the fix is to remove only:
 
-> > +__maybe_unused static void arm_smmu_rpm_put(struct arm_smmu_device *smmu)
-> > +{
-> > +	int ret;
-> > +
-> > +	if (pm_runtime_enabled(smmu->dev)) {
-> > +		ret = pm_runtime_put_autosuspend(smmu->dev);
-> > +		if (ret < 0)
-> > +			dev_err(smmu->dev, "failed to suspend device: %d\n", ret);
-> > +	}
-> > +}
-> 
-> Ditto
-> 
+-       /* sanity check */
+-       if (unlikely(!pte_none(ptep_get(pte))))
+-               return -EBUSY;
 
-Same here.
+It was sanity check, now it's simply in the way.
+It should do set_pte_at() unconditionally.
+It's totally fine to set it to proper page instead of scratch or empty.
 
-> > +
-> > +static inline u32 arm_smmu_cmdq_owner_prod_idx(struct arm_smmu_cmdq *cmdq)
-> > +{
-> > +	return atomic_read(&cmdq->owner_prod) & CMDQ_PROD_IDX_MASK;
-> > +}
-> > +
-> >  static void parse_driver_options(struct arm_smmu_device *smmu)
-> >  {
-> >  	int i = 0;
-> > @@ -789,7 +822,8 @@ int arm_smmu_cmdq_issue_cmdlist(struct arm_smmu_device *smmu,
-> >  		/* b. Stop gathering work by clearing the owned flag */
-> >  		prod = atomic_fetch_andnot_relaxed(CMDQ_PROD_OWNED_FLAG,
-> >  						   &cmdq->q.llq.atomic.prod);
-> > -		prod &= ~CMDQ_PROD_OWNED_FLAG;
-> > +		/* Strip all metadata flags */
-> > +		prod &= CMDQ_PROD_IDX_MASK;
-> 
-> Should its prior atomic_fetch_andnot_relaxed() call do something
-> about the CMDQ_PROD_STOP_FLAG as well?
+Tejun,
+do you mind sending a patch to remove these 3 lines or should I do it?
 
-Umm.. No, the atomic_fetch_andnot_relaxed() call must leave the STOP_FLAG.
-This block is the owner-publish phase, which occurs *after* the Point of
-Commitment. If a submission successfully reserved its indices before the
-gate closed, it shall be allowed to finish.
+Changing topic. re: zap_vma_range() issue.
+It's not forgotten, just complicated, since we can't just take
+mmap_read_lock under arena->lock, since arena_vm_close()=20
+is called with mmap_write_lock held and it takes arena->lock.
+Will figure something out.
 
-If the owner thread cleared the STOP_FLAG here in the global memory, it
-would prematurely re-open the gate, allowing new racing submissions to 
-leak in during the suspend sequence. 
+> Shouldn't we also be using ptep_try_set() there?
+>
+> The nasty thing is handling whether ptep_try_set() actually works.
+>
+> Something like the following on top, maybe?
+>
+>
+> diff --git a/kernel/bpf/arena.c b/kernel/bpf/arena.c
+> index 49a8f7b1beef5..086bea3f3698e 100644
+> --- a/kernel/bpf/arena.c
+> +++ b/kernel/bpf/arena.c
+> @@ -122,19 +122,27 @@ static int apply_range_set_cb(pte_t *pte, unsigned =
+long
+> addr, void *data)
+>  {
+>         struct apply_range_data *d =3D data;
+>         struct page *page;
+> +       pte_t pteval;
+>
+>         if (!data)
+>                 return 0;
+> -       /* sanity check */
+> -       if (unlikely(!pte_none(ptep_get(pte))))
+> -               return -EBUSY;
+>
+>         page =3D d->pages[d->i];
+>         /* paranoia, similar to vmap_pages_pte_range() */
+>         if (WARN_ON_ONCE(!pfn_valid(page_to_pfn(page))))
+>                 return -EINVAL;
+>
+> -       set_pte_at(&init_mm, addr, pte, mk_pte(page, PAGE_KERNEL));
+> +       pteval =3D mk_pte(page, PAGE_KERNEL);
+> +#ifdef ptep_try_set
+> +       if (unlikely(!ptep_try_set(pte, pteval)))
+> +               return -EBUSY;
+> +#else
+> +       if (unlikely(!pte_none(ptep_get(pte))))
+> +               return -EBUSY;
+> +
+> +       set_pte_at(&init_mm, addr, pte, pteval);
+> +#endif
+>         d->i++;
+>         return 0;
+>  }
 
-The algorithm works mainly because the RPM callbacks are the only ones
-that are allowed to manipulate this flag.
-
-> 
-> > +/*
-> > + * Lockless pre-check to elide invalidations if SMMU is suspended.
-> > + * Races with concurrent suspend are benign: the cmpxchg loop in
-> > + * arm_smmu_cmdq_issue_cmdlist() acts as the true commit point.
-> > + * If we lose the race, that loop observes Q_STOP == 1 and safely
-> > + * drops the command. If we win, the suspend thread waits for us.
-> > + */
-> > +static inline bool arm_smmu_can_elide(struct arm_smmu_device *smmu)
-> > +{
-> > +	return !!Q_STOP(READ_ONCE(smmu->cmdq.q.llq.prod));
-> > +}
-> 
-> arm_smmu_cmdq_can_elide()
-
-Nice name! I'll update it.
-
-> 
-> Should it handle a secondary_cmdq?
-
-No, I don't think we need to check secondary queues here. The STOP_FLAG
-being set on the primary CMDQ during the suspend should suffice to 
-indicate the entire SMMU's power state. That's why the function takes in
-the smmu ptr and not the cmdq.
-
-Altough, thanks for discussing this, I noticed that while rebasing I
-missed the elision check at one place: arm_smmu_write_ste()
-I'll take add a check in that too in the next version.
-
-Did you have another scenario / use-case in mind where this might not
-work?
-
-Thanks,
-Praan
 
