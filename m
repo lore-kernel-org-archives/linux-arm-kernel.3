@@ -4,65 +4,131 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 29FAFCD4F54
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 28 May 2026 16:40:00 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 79DE7CD4F54
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 28 May 2026 16:48:19 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:In-Reply-To:
+	Content-Type:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
 	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=Mm4lTGbp5AhLO9VmKrf8pXms0KjfqVinspNjmknVf1Y=; b=Oz5xsaE94wJuDZRMGNaOC3tPv8
-	6xd1L7FY8Hcq56HhEkoFSSRYlbCOFNnI3Y3YclDnPE8piJfePJVDpuM0jAZfh+UB5OCZmymWMPQfz
-	3KuQnXZ8+PeSR0H4xU7ut2SFOWxWcHNLTjZ+cVTaZqifnyZ3xlNj1aDA/r1s6xtkXQyqWuckj5lPL
-	+y3Sl9TXpB6oCWrOX8Ec39sW4CRLaaRlrzQkiRh3C9MbKurl6GGyliZINcmb2ywUkUx7NhwIUxXTw
-	rvSKm9F7ubBAEm5Wa81E3JSY+haGD93eSCJYS9K050aHYyz6YPav93JJh9fkD4m+UNuVxpK6d6s9D
-	Nx9860nQ==;
+	bh=K7kuEma4W81oHAHAiB4h5hXLGdkxTRcszUrM2yzn+Rc=; b=Q5QhcKAhMFWveqLlHfgsbs3R+5
+	kbZOZklO2mtIKw6CV1zPZ7eIgQhRvMbqabJYdRE+7EwvAPhkdNAd6kwjmvE+rvIPNi8M6OAzHx/TD
+	dI6Da0pvz2YEwL2wRySngGkmLXPZYoZhbB0el6JEHiPXmWtEqdp7XoMpD0ufQ7iaVQ+IoIaF3X6ur
+	D5XmwJiQDLMIS/N51Sj9Sm557p7e9eriLSU3K51ftYnJK6rP9gkGW5aL4WCy39Mfqpb5JieKuq5Wx
+	6ykFjuUKuFg258fUUIEXTj/obVPcwX/XjzB9tfOrg2XHV6YRnNCTpHar1iOqys6FNxC/MHMnhxlWF
+	H9hdQjWQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wSdlx-0000000618t-0Etc;
-	Thu, 28 May 2026 16:39:53 +0000
-Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
+	id 1wSdty-000000061nO-0fyR;
+	Thu, 28 May 2026 16:48:10 +0000
+Received: from mail-northeuropeazlp170110003.outbound.protection.outlook.com ([2a01:111:f403:c200::3] helo=DU2PR03CU002.outbound.protection.outlook.com)
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wSdlv-0000000618V-1cDq
+	id 1wSdtv-000000061n4-3rVl
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 28 May 2026 16:39:52 +0000
-Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
-	by sea.source.kernel.org (Postfix) with ESMTP id 9A55E43DEB;
-	Thu, 28 May 2026 16:39:50 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id C02621F000E9;
-	Thu, 28 May 2026 16:39:48 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1779986390;
-	bh=Mm4lTGbp5AhLO9VmKrf8pXms0KjfqVinspNjmknVf1Y=;
-	h=Date:From:To:Cc:Subject:References:In-Reply-To;
-	b=HbDyuYsncZxpMLAQ20zyEh2HM6EmHABuhMvF8xaXXpS8YnjWj6pY6gwPd4q87DRcr
-	 nG26ufiEsDC+oDij6IWocPXYP+sSL1IHhRHPtpNliI+bk/3oqLSjihaXaMyR61AW5Y
-	 UJz6Yo1aBajl4sRdRcC7ItkZUWjyxEz4mjSRksAWqb6i41JqvLpOj+boh+VdkyriJz
-	 2FTZR5uROYa6F142xOtgll/h74SJYKHf1pVtmQtjf18XBiekIG9D59DcdlZXmMVG6F
-	 nDE8hlkHQldT5g8vwHCBDib75nH7ykUYBIZ6k0oyTZ/6lnAkPfu2xPa4KjbSzG3nhW
-	 oiRxoVfMIN/7Q==
-Date: Thu, 28 May 2026 17:39:46 +0100
-From: Mark Brown <broonie@kernel.org>
-To: Mark Rutland <mark.rutland@arm.com>
-Cc: linux-arm-kernel@lists.infradead.org, kvmarm@lists.linux.dev,
-	catalin.marinas@arm.com, james.morse@arm.com, maz@kernel.org,
-	oupton@kernel.org, tabba@google.com, will@kernel.org
-Subject: Re: [PATCH 12/18] arm64: fpsimd: Move fpsimd save/restore inline
-Message-ID: <2ac4035c-75e3-4a62-bfd8-7b4179d030db@sirena.org.uk>
-References: <20260521132556.584676-1-mark.rutland@arm.com>
- <20260521132556.584676-13-mark.rutland@arm.com>
- <0f666889-fabe-4cdd-9fd2-d87808329dbd@sirena.org.uk>
- <ahhqEs1DhShRpgXF@J2N7QTR9R3.cambridge.arm.com>
-MIME-Version: 1.0
-Content-Type: multipart/signed; micalg=pgp-sha512;
-	protocol="application/pgp-signature"; boundary="36wiTHak1laAI5AT"
+	Thu, 28 May 2026 16:48:08 +0000
+ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
+ b=JBWv7hnQWZnGfF0jR03RS8SLwdUHllR6iGr9ZCh58ZlJOogMGKo4JHmtqAIDMVAOwDj6k8LYLxOwCSajTJjRKNo+6QWMWjUovWXjZnvzdWz9lMaP9WVst3t0DgVTBeFF9Z4hp+Bc65LoijXtPjetoKHNmpHnYSgcV7CTpv6IBc2Pia3HR7Zf4KndIn+L79naPCQp1KDo7X6sUXe6NIOlhGjKyZvun2yTATUiL2XXZNr92Il/eT6JSOyCak2Jv1Q3IwDgnipvxmxV6KmkPIdEz8Njq+AcyS+GoNDFtzLl6c0BgI8HZucQQVyZjfbRyARqlrMdx2sbM9dukSazTQDpOg==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
+ s=arcselector10001;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
+ bh=K7kuEma4W81oHAHAiB4h5hXLGdkxTRcszUrM2yzn+Rc=;
+ b=Q7AYxZiZz29fA8pyBZWAk6oqx2O2kINr/uebT/JyfCdf9ygVFPWjlBn7UA7VDdL1DlxHNBNZgvqE/dZQbxIqlFeH5kf3vdX1rC4felsyXRkyke03qIT7GXFbnJ3R+7Ti0kMEC6++QolhjhrG2JGBuiKla5UoPvSztTBTLMYVBG/lNMm7jncgVp8s++CQfEUslGHDrH/Ux5ldn28Qst9zCJ7YnRl3FD4/t9nyQTeH4vTdSKrs16FHKebAPI4q29X8lmm4vTIP8hLdyJPf9CYDHToCvNQdHqlyYq+AkllN3HtwXbOImudIImoTQXFgFgt7NaBchFcFsgd3cPCrlHO91A==
+ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
+ smtp.mailfrom=nxp.com; dmarc=pass action=none header.from=nxp.com; dkim=pass
+ header.d=nxp.com; arc=none
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=nxp.com; s=selector1;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
+ bh=K7kuEma4W81oHAHAiB4h5hXLGdkxTRcszUrM2yzn+Rc=;
+ b=SD/er8uJZN9/VomYMlzsbVW1OavVCWMKKE1D/3zUobxgGXRF/td7eEUG0kTsUY1e9z76ZeICcO9qPVHJdhh31rS8HiuMlRDS8nBTnFo1SqMGY8qvExAuwkMh9JuUu+qSbT+Rnl5qwITM0r/C6DBQgXrCc/z0Mvnhr0pXr8rwOdH7YRMvDokSJkFqfgUIvpWIJ9D6nE9Cikk5BsCN5YCI6IdEgVxFTHP0+yFP7vLTfTDkTwX8/xibPLJDBi+4dYEcIXY1zScglwAUb828npR4aFH7hN38R26g0RvBXG+BN43gwcRLXyUSid9Ej+HqMDAtTtFZcyA9o0RqiLQY0UVs5w==
+Authentication-Results: dkim=none (message not signed)
+ header.d=none;dmarc=none action=none header.from=nxp.com;
+Received: from PA4PR04MB9366.eurprd04.prod.outlook.com (2603:10a6:102:2a9::8)
+ by GV2PR04MB11740.eurprd04.prod.outlook.com (2603:10a6:150:2cd::13) with
+ Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.21.71.13; Thu, 28 May
+ 2026 16:47:59 +0000
+Received: from PA4PR04MB9366.eurprd04.prod.outlook.com
+ ([fe80::75e4:8143:ddbc:6588]) by PA4PR04MB9366.eurprd04.prod.outlook.com
+ ([fe80::75e4:8143:ddbc:6588%3]) with mapi id 15.21.0071.011; Thu, 28 May 2026
+ 16:47:58 +0000
+Date: Thu, 28 May 2026 12:47:51 -0400
+From: Frank Li <Frank.li@nxp.com>
+To: Thorsten Leemhuis <regressions@leemhuis.info>
+Cc: Sascha Hauer <s.hauer@pengutronix.de>,
+	Pengutronix Kernel Team <kernel@pengutronix.de>,
+	Fabio Estevam <festevam@gmail.com>,
+	Greg Kroah-Hartman <gregkh@linuxfoundation.org>,
+	"Rob Herring (Arm)" <robh@kernel.org>,
+	Bartosz Golaszewski <bartosz.golaszewski@oss.qualcomm.com>,
+	"Peng Fan (OSS)" <peng.fan@oss.nxp.com>, imx@lists.linux.dev,
+	linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org,
+	Peng Fan <peng.fan@nxp.com>,
+	Linux kernel regressions list <regressions@lists.linux.dev>
+Subject: Re: [PATCH] soc: imx8m: Fix match data lookup for soc device
+Message-ID: <ahhxtz94pX9ujv25@lizhi-Precision-Tower-5810>
+References: <20260427-soc-imx8m-fix-v1-1-1fe5b43d8090@nxp.com>
+ <177816879666.299775.3947960528231798400.b4-ty@nxp.com>
+ <3cc57464-a10f-4b8c-9080-8d6f65a0d42f@leemhuis.info>
+Content-Type: text/plain; charset=us-ascii
 Content-Disposition: inline
-In-Reply-To: <ahhqEs1DhShRpgXF@J2N7QTR9R3.cambridge.arm.com>
-X-Cookie: Someone is speaking well of you.
+In-Reply-To: <3cc57464-a10f-4b8c-9080-8d6f65a0d42f@leemhuis.info>
+X-ClientProxiedBy: SA9PR10CA0013.namprd10.prod.outlook.com
+ (2603:10b6:806:a7::18) To PA4PR04MB9366.eurprd04.prod.outlook.com
+ (2603:10a6:102:2a9::8)
+MIME-Version: 1.0
+X-MS-PublicTrafficType: Email
+X-MS-TrafficTypeDiagnostic: PA4PR04MB9366:EE_|GV2PR04MB11740:EE_
+X-MS-Office365-Filtering-Correlation-Id: 18de5d5d-a4fc-4148-eeb3-08debcd8dfc4
+X-MS-Exchange-SenderADCheck: 1
+X-MS-Exchange-AntiSpam-Relay: 0
+X-Microsoft-Antispam: BCL:0;ARA:13230040|1800799024|366016|7416014|52116014|376014|19092799006|22082099003|18002099003|38350700014|11063799006|4143699003|56012099006;
+X-Microsoft-Antispam-Message-Info: 9iGT5DdbWO5OQI0Bcv2Ms3fB88KQyWV7RXgMiGFCbADbQITCELYaV8jYjv20uwPbMqGRG94xY8qU/Vnnwomp71Q5p5SC2nQ25n1yUBCRpw56cz5bgGrmr1rO7/CZZefWDn5qcIsI3p2+o/YuBKE6odv/fXynx9E1YqWmPoqhwjIHYmAifElX8LzOEuWwDQtCSSzNWsZ90NTE/BHtKi0ClGsXFLGLPSfKuiz/H5rfxGieXJJ6N0eSnur6Pom1klYjKK50imRBggP+YR3laig8POE/wtkIrZ41zsyPKh7Ea7WsCsOYsvAwFD+Ri2PJhXjtSscNntaj9YvfE5G1Prz4wyDf8eOh7k5tuV+9hqP8Y/4BIU0HvIpARn9RWKkQgrUZGfmDYEYlyddc0Rycs15bsAeuESTRqGmrxG4m3NPPHaoPBRerLwsuBx4uVcFnDi5ncZFxU620wGp20PxSqZytmmenUrAoAZVRCoA9CZMct2pk+LzZCZlZ9nfq9PLriD8yV0wXp7E1W4Pm4KZtHI4XgAA52gOGjoBVYAMMPO6m7haYwDV/ldZEn6nVedsvo3ddKDd6skSwKDLUmQ7KwPyUvqLuJRBJGBWdvHL0haQ2NuyVye8VPGRBlAYB5yUzYKOe5dI5HUKy1Cp1Db0tJWX+9RdoQtPGO1MXEuL8I7jk2DEU4qyHHrXAlF8JXj78b2FMoFrQpm6tgNOCYqoVReYPK9ew5hsbANZhWwchSJdw7uj8WvBJt+r2fYwmYR2EN71w
+X-Forefront-Antispam-Report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:PA4PR04MB9366.eurprd04.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(1800799024)(366016)(7416014)(52116014)(376014)(19092799006)(22082099003)(18002099003)(38350700014)(11063799006)(4143699003)(56012099006);DIR:OUT;SFP:1101;
+X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
+X-MS-Exchange-AntiSpam-MessageData-0: =?us-ascii?Q?OPAKcnqp2unjDRAakbWm8qhYr2Y3Vm3k9vj/fQ9xy80EwBh+x4KC+pPV/akd?=
+ =?us-ascii?Q?2h2eNHHMGKqtwU74DwEvDiqcsQhptl8XhlxSPc8+JpVHkQpxf+T2QZ8XugVY?=
+ =?us-ascii?Q?cdesPEhMxjIeotZ5M6KF8naXZgHsWMDOXY/gPfb2A+pXwqIbJNXwsud9yNjt?=
+ =?us-ascii?Q?a3SlOTawyw/doVpibV6S0QgwPPKV+08PYQe5+O4mK5j4uCzojgKuubQOEqOs?=
+ =?us-ascii?Q?l8uDYUAQhCn8L6kY+xeZym/Q8LaxiC+73Ouxeg+sdnG/IudDb3T/6O/O//tL?=
+ =?us-ascii?Q?xBQgwva7LrgLVm80X9SNoE/V8kqnP/WOz0SCDSKpZNwEIsf9iWlSvY/SIP6r?=
+ =?us-ascii?Q?AXqV9FzM9gx0EFK1DhJBnktkP27xYYj1aSo2ma3Fb15en18UDabTE/t37/GO?=
+ =?us-ascii?Q?PIHzZi7UlCXTZkG3vs5ITBwD3w+tcuryGygGWXq2458Rr8gnGxXzSHwiiUER?=
+ =?us-ascii?Q?KerNtEmRYbkDZj4at9FOpNHtmrdBfHfr6KeTv3PYBVEllV6G/T98ilfmrFTu?=
+ =?us-ascii?Q?/uvUl1clf1YjKqH23wR99eLKCvl0I0Hu5ECfdrAneNqzaVsV2+Bi+dZ1jCpL?=
+ =?us-ascii?Q?f9Yw9RIw7peTnvO/4dj45PCqsO2ofXYtm+0mK9dzxJLdywFSc+GzINl6ExmJ?=
+ =?us-ascii?Q?trfcaioxSe/mqFZ4G6TwReVPXXI7XLX1I+7f4joiIKawFjpD8YtwaAoObDwT?=
+ =?us-ascii?Q?QUocsjjyTfuvGu28ga2ZRjq5i3TbFD7s9COYuFDk8rWCGF3wuqIwLY+1d0kB?=
+ =?us-ascii?Q?5u9XelcLVYR++Q5LA4ECt1WJHHvHUg0DfcMzkwFaPh7PvmGVusPkM06SVvxU?=
+ =?us-ascii?Q?N5FA0OPjy3bRMcbvBs54Zz3gYxqmu1MLcFbOtmVoei8ZyyoTk+sDq5rUEC03?=
+ =?us-ascii?Q?ZkZ+y7SzSKVvnf59qCzdwk40rSMKKsKWHJg7VGuMRbilmQR1Vx2M+rKaeAvH?=
+ =?us-ascii?Q?sJ4hY/ioQl3ghOmeYQ4Ll4JI05s3Gvx269h6LuZOZZR0atMbBopVeIamHM3+?=
+ =?us-ascii?Q?lbWLJ/3l7fNv1W832mPGanDFSweO22ybB0NwLL7TnSyEYNzWGGUmnan1qaO6?=
+ =?us-ascii?Q?D9D0tVxAQJVFP1kzAxiSR9l0miKvcsgptORPMyPo9UAcOhak0QkdlNiN1EXl?=
+ =?us-ascii?Q?yrQpbmJVTsfHsvx+HJywRB0xqHIxGzZPage6iqf8L82KyEpJmu3r+SY4InGs?=
+ =?us-ascii?Q?Mzee8HPP3VvBrkknfieDhYuWooxVGo0j3y9VNKL4+d0QCsQ5HmIu61XjvjBF?=
+ =?us-ascii?Q?8hyC/P4BHROtLw//N/ozbz/tIfmWtF6iPXrbBTecP9SGMLqMlg4rGTGSLTWA?=
+ =?us-ascii?Q?WT1Wi48o5KjD5WOQX/2eVmyriCdvH4kf9eUEeecF4xu3BvoE0SSvwKiQu3FO?=
+ =?us-ascii?Q?OHJeEBzCF0Keo4WEzcT7/IFI8bktbDP1a/igeqLRmJH3yqUs9u4kPl4HFMJC?=
+ =?us-ascii?Q?nlzgQlpyjFlliAqUW2C5KKCHshMy3YC5iruJFSAJBTK0WkWVWjYW+/AJnnYh?=
+ =?us-ascii?Q?3apWJzwXdhGCvr/9P5XQyAvS4Ba/SQAfaRCiyQ1iYCqtV54cOSmCvqsL0GSp?=
+ =?us-ascii?Q?cdcQtAIk3yhXoxYxxwxEVBrLmhVG0nAwJImnEzC3hD/zRPKEzl3IVk3thT0C?=
+ =?us-ascii?Q?LVRSi5YMCbVbRGRmwBb+AQYHvSJHcl7uGl44jUpkhj3cqw7FqJqcvIZGVgZQ?=
+ =?us-ascii?Q?GrAeKVgw+mPh9HSvO4WdMzt7A3y0g/w5z6OZfLRabpr//WSA?=
+X-OriginatorOrg: nxp.com
+X-MS-Exchange-CrossTenant-Network-Message-Id: 18de5d5d-a4fc-4148-eeb3-08debcd8dfc4
+X-MS-Exchange-CrossTenant-AuthSource: PA4PR04MB9366.eurprd04.prod.outlook.com
+X-MS-Exchange-CrossTenant-AuthAs: Internal
+X-MS-Exchange-CrossTenant-OriginalArrivalTime: 28 May 2026 16:47:58.7671
+ (UTC)
+X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
+X-MS-Exchange-CrossTenant-Id: 686ea1d3-bc2b-4c6f-a92c-d99c5c301635
+X-MS-Exchange-CrossTenant-MailboxType: HOSTED
+X-MS-Exchange-CrossTenant-UserPrincipalName: l1R3Pk25Gj/3/45/2bG9pA+D9h1TRahF2ROfY4HohvS82/BnoDvUg3GlENqKu1vMpqrEG/XFp7BwjYfeQjwLog==
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: GV2PR04MB11740
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260528_093951_438530_57C40D95 
-X-CRM114-Status: GOOD (  16.86  )
+X-CRM114-CacheID: sfid-20260528_094807_989656_9D613F4A 
+X-CRM114-Status: GOOD (  20.24  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -77,51 +143,38 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
+On Thu, May 28, 2026 at 12:55:34PM +0200, Thorsten Leemhuis wrote:
+> On 5/7/26 17:46, Frank Li wrote:
+> >
+> > On Mon, 27 Apr 2026 09:01:48 +0800, Peng Fan (OSS) wrote:
+> >> The i.MX8M soc device is registered via platform_device_register_simple(),
+> >> so it is not associated with a Device Tree node and the imx8m_soc_driver
+> >> has no of_match_table.
+> >>
+> >> As a result, device_get_match_data() always returns NULL when probing
+> >> the soc device.
+> >>
+> >> [...]
+> >
+> > Applied, thanks!
+> >
+> > [1/1] soc: imx8m: Fix match data lookup for soc device
+> >       commit: 2c6821657ce3b3c85f92719ea81ec9f9ff27df11
+>
+> Just wondering: are you planning to sent this towards mainline this
+> cycle? The regression this fixes was introduced this cycle, so I guess
+> it's something that should be merged before -rc6, as that's when Linus
+> wants all known regression ideally fixed. But from the name of the
+> branch it sounds more like this is scheduled to be merged in the next
+> merge window (but I might easily mistaken there -- if I am: sorry!)
 
---36wiTHak1laAI5AT
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-Content-Transfer-Encoding: quoted-printable
+Thanks reminders. I intent to send for 7.1. But second look, not sure any
+big impact although it is regression.
 
-On Thu, May 28, 2026 at 05:15:14PM +0100, Mark Rutland wrote:
+commmit message have not show what impact. I checked code, look like only
+missed some soc informaiton. Let me know if I am wrong.
 
-> Based on that discussion on the last patch, I've updated the commit
-> message for this patch say:
-
->   I've used the SVE sequence for restoring FPCR, which uses an
->   unconditional write to FPCR, rather than the conditional write used by
->   the FPSIMD assembly sequence. I believe that in practice, this doesn't
->   matter to a real workload, and given it's possible for the
->   mis-predicted branch to cost more than the necessary
->   micro-architectural synchronization, I strongly suspect any
->   performance impact is within the noise.=20
-
->   Looking at the history, the FPSIMD assembly sequence was changed to
->   use a conditional write to FPCR since 2014 in commit:
-
->     5959e25729a5 ("arm64: fpsimd: avoid restoring fpcr if the contents ha=
-ven't change")
-
->   ... as described in the commit message, this was based on an
->   expectation of implementation style, and was not based on
->   benchmarking.
-
-Thanks, that clarifies the issues and addresses all the concerns I had.
-
---36wiTHak1laAI5AT
-Content-Type: application/pgp-signature; name="signature.asc"
-
------BEGIN PGP SIGNATURE-----
-
-iQEzBAABCgAdFiEEreZoqmdXGLWf4p/qJNaLcl1Uh9AFAmoYb9EACgkQJNaLcl1U
-h9Dpfgf8CAJOiRw31sAIWe8H3yaZEXezd/x30puODL3sR2Ozk0mtgYr2ut7fx1at
-PuC7RVIxZGxqjh2ctdUzYHUNR7E94pevOCx9AJ6I/mi08fM1UvgKknCd+auE+n0b
-RVjUPEuLL6z/LKOi/G+xMJ4/B0AhRmnr378P+xhqmUixJan/c/F5+XO0rAdWKZhp
-m0t26y6HEpe8qmwzntExQZns/jtZbba/3vdcWAgrhBZlCdjHTfujCKa4ubGi40CY
-yMm+R0LYRHBEgxzkxS2NzXqZ3IJjq+QxviI1k/X9QREw42ZgjbxLqiLdPk+Fjkv5
-qTjIXIuVn9S/iOg4xzmq5VrcE0Eo/w==
-=7o2Z
------END PGP SIGNATURE-----
-
---36wiTHak1laAI5AT--
+Frank
+>
+> Ciao, Thorsten
 
