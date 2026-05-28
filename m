@@ -4,110 +4,123 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 3F1B0CD4F54
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 28 May 2026 22:40:17 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 99EDDCD4F54
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 28 May 2026 22:59:54 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:References
-	:Message-Id:Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:
-	From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:In-Reply-To:From:References:CC:To:Subject:MIME-Version:Date:
+	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=eUyxjFC+AVWv6DcQ33VYTF/nj3i1vMmIuuMKgQ010aI=; b=YD7xmr8PMi6ARiD73BMpL2eDx6
-	olB4ZcOvJWeV40aO9abohednqro6S0hp3MlcBXaOCysv7cv4rH29VXgiFAr9Q1Xy8EUsYOMXKEGYx
-	zAa0lQKtbLmZWaJgc84OonkL0V44FCt7rQbS8fhXK7SKz5K98jc8+XroQ5Ai516le5JFmHK038DFo
-	rOxck621jPXap3bQqy7o0bkGu54bNKvB+KIXQ5z8V8OMsEUuwXtLjfpgN7F2bqztq1nwNzKXshZks
-	P5a+MP24vVzst7wWiE2azGYdxpOcMNb4KS8tq63LuVs+8aqTH5J7aMm2Zm7GbREvN1JnTkHbZi+h7
-	aRrMzcrg==;
+	bh=pl4ZuR/uAzULRR6ywozuD/ZT47QzI8yCZ2q+kPawkCE=; b=t+r0E9DMnrMcptppPhzSNnkq8W
+	i73Q1VgM9A6cSFhTmEEKmg+GTg9nRo1Hy9BQfEGQp+NRsfk07vg1z5gE1UmA1McJnne3xppBtNj7A
+	Sl6qLPGE12syU1jD1lB5dGaN2RTCXfIDxh4DQZaLRhW6wTFNnejUfXmBoQfOzdkyAiNy0OC9bGk7I
+	JOVUfo+omHhKHkDvlxFJ62IY0KfxBKCZ+wIiLAiHfpbR+cBXDDJ+LuyUR0MiON3RQwS/w3POOsWLO
+	yj4X8KztVMeSOQzhPGcC/rfw7rNazdq+PE74bF3orGPu0/jvnSRtmDsR4d6WKvB17T1Th6/JQghMf
+	G+za8iLg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wSih3-00000006Qhi-30d6;
-	Thu, 28 May 2026 21:55:09 +0000
-Received: from mail-wm1-x335.google.com ([2a00:1450:4864:20::335])
+	id 1wSjhZ-00000006VaA-3JFZ;
+	Thu, 28 May 2026 22:59:45 +0000
+Received: from mail-eastusazlp170120007.outbound.protection.outlook.com ([2a01:111:f403:c101::7] helo=BL0PR03CU003.outbound.protection.outlook.com)
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wSigz-00000006Qfb-0LWr
+	id 1wSjhW-00000006VZp-3mLB
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 28 May 2026 21:55:07 +0000
-Received: by mail-wm1-x335.google.com with SMTP id 5b1f17b1804b1-4903f7a90d1so62190775e9.2
-        for <linux-arm-kernel@lists.infradead.org>; Thu, 28 May 2026 14:55:04 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20251104; t=1780005303; x=1780610103; darn=lists.infradead.org;
-        h=cc:to:in-reply-to:references:message-id:content-transfer-encoding
-         :mime-version:subject:date:from:from:to:cc:subject:date:message-id
-         :reply-to;
-        bh=eUyxjFC+AVWv6DcQ33VYTF/nj3i1vMmIuuMKgQ010aI=;
-        b=AHG+hc0FrH5VqpN8UVlDN1sPJOM78GqgobOy9TghfGyP3z6li0zhOb0nLphTxLXV/d
-         ioqlIkAqKK72Oz7Dn/xI+xR36s7hHlD0L1rIkzIW+dZtkk7omn6Lj/wRRN9dd2MGSUqH
-         v/4ID5RBnbJTsL2EEAQhFpJ1lZt3pxwLTlLZT6Vu4woTftLLL0od6breMK/SW6Xv1lrc
-         EkbiIW7nFgwLSJa32ITOoOS4hTNPGpmhS0n1iSfm9qxKfweOt+QiSLcCDjzwqCePRVBE
-         yhIfwgqVEoSGyRm+aIN1na2DJEmaxNLjn/7jRGkw2Ah+eIjUNAU/vrYBj7w34XCv8nr4
-         y+qw==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20251104; t=1780005303; x=1780610103;
-        h=cc:to:in-reply-to:references:message-id:content-transfer-encoding
-         :mime-version:subject:date:from:x-gm-gg:x-gm-message-state:from:to
-         :cc:subject:date:message-id:reply-to;
-        bh=eUyxjFC+AVWv6DcQ33VYTF/nj3i1vMmIuuMKgQ010aI=;
-        b=X9N4BTO+eeeFHtsB5IREAJkkCbXtIGBoSHW0nwVw61fZ/NBE5AC7aa26ixs+Jr2fiY
-         4lLjkwphwuDlhHwup5ki0nLQNmMUZYUCe4gwaTC8JQ9xhYVPRwJH/jP08SG6gRjTUzMn
-         U6SX6fhL7cPo1UDFlZ8dxKbY+bUEizjyrhB+uOXl4sQm41S503oXsY7rVZXFP8ZLXKxN
-         nSK0a0NyaZsL9YUVcynxI34CuqFWcy0cKwrOSFWCQGuza+KceCZqRZq48jUIg67jVhp1
-         CtD6iNPsFb5WbU9yrfREmu0A+ryB/MugdZVuwg0cXSt8ID1YKBGxub17sQhAftmtvCOv
-         UDVA==
-X-Forwarded-Encrypted: i=1; AFNElJ/X33QgtTKSPa9ZRLU02Z2cDhzTxT6eb6OkZEj9eCEffqAP1SYyhdIb3Twh4S84A26MQMC84X/QCQO41hdMXPUX@lists.infradead.org
-X-Gm-Message-State: AOJu0YwfvLBvNLclkQXCXwzv4a6siuQzchUDJAQ5EhiRkvr10sTWL9qF
-	ybRzUzzqF+FeZ0Id9NR0MIifP26+IITcH8uIoLocx0f4B2JASGaI6jvGKBjTm4qxZMaCsA==
-X-Gm-Gg: Acq92OEmADzX++kGONlI1BCvwrHJPCu/NhhzjrTYENCZ1wecHpugBaOgmR3A0RbUAm7
-	sYUNJu88Y13cG3sV/thyTBjoa8h2F/O2e8JbHtTesyKI8422KcqtagfAwki95hczTzRauJJdSAa
-	nKagKJF/S2VtD03QaUwpmhz1fFLaO500CI7KZpYruIE2rCq+lCgq7zgpvO39bRxH2MyFbECoez9
-	sI2j31aSOCnKtxypmL919tWjD5yzYnuCdUppAZ+r/08EdotUFo50jdQA4/qxVQt4SGkDdNE1t7l
-	si4BY/JleBRvYD8iYFILdIetBOnN/TS+eBWi99ql+iMhznwDaNWg5MfmGwolo0hsAGqDYXdqVPl
-	oavs/jVDpu8/kjx+49JeVpIue1wY5p0nxQAk+3ONmP9fPe4IxMchWLjEEiaNcL7ufvcuV0iV0v+
-	N2f+degmiKrFy+mYaEXNSZGrU7gD5WsExV9ZFPmEDnMBjx
-X-Received: by 2002:a05:600d:8486:10b0:490:3d45:48d7 with SMTP id 5b1f17b1804b1-4909c080a27mr3071855e9.6.1780005303122;
-        Thu, 28 May 2026 14:55:03 -0700 (PDT)
-Received: from [192.168.0.2] ([197.250.51.223])
-        by smtp.gmail.com with ESMTPSA id 5b1f17b1804b1-4909c967c6csm1191085e9.2.2026.05.28.14.54.59
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Thu, 28 May 2026 14:55:02 -0700 (PDT)
-From: =?utf-8?q?Stefan_D=C3=B6singer?= <stefandoesinger@gmail.com>
-Date: Fri, 29 May 2026 00:52:59 +0300
-Subject: [PATCH RFC v3 2/5] dt-bindings: clk: zte: Add zx297520v3 LSP clock
- and reset bindings.
+	Thu, 28 May 2026 22:59:44 +0000
+ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
+ b=gboZDGrSkCMt1+3Gvesi3d6EnbMgIVWLbx0I+pO/ly1+7GnaynTema3dt9Du41j9M+IsYuYgL5r2Na+SZ+omA90RXNw0x7Ko/zgdxyY3hWRJD9qdiMWskddCSDjRZ+Bo8fFUXrPAnXem2E+NvugIYRdRS0m3nixDgHp6Fp2HK8aRM0XqZypFxhuxsgzwNb8jL86m3U2l+NmChH6tC7hhHznWqjcx/MMuutbxqva6wIs1AKbeKISLb0akyEhkiliPceAjqOctGcrN7uxLbf+lOzQ1zqyNd5B5x4z3tO5nuCIh4hnUzeJLTt56gSVYKPDs3Kvh+FqI+tfVAw3qoIHP9Q==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
+ s=arcselector10001;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
+ bh=pl4ZuR/uAzULRR6ywozuD/ZT47QzI8yCZ2q+kPawkCE=;
+ b=AnGWvIfqNrHzV0MzmxQkMZw1RJLYX7Nyq/uDzZVaHbNvIyUTb/syrgHiQKBGHQWNeUuR5o5JWN07DQTUJ0Y2m3ITzcGAjy2UE82s1p618JISgc1Za8SRBBxlDABi/uyLy4EcCRXk1ipAb+CobWf1BAlJtMxlxZvXDTvtzdQQjF2yhq+O3HhFocP3j2QklaU38GaBArV2MYd0qiYicKH3tdn6iWLmaKGPvZzvOfQeNeQ7AZRP1ipanwJROiuHfuaiHQa8ZndWukQ3resRBQCaiZGvWpRwg+rGj3KQQ81i2s2A0ifns5y6X6nK1UE4W5oRkyE6hyrtyKM98qLyAHrvJw==
+ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass (sender ip is
+ 198.47.23.194) smtp.rcpttodomain=vger.kernel.org smtp.mailfrom=ti.com;
+ dmarc=pass (p=quarantine sp=none pct=100) action=none header.from=ti.com;
+ dkim=none (message not signed); arc=none (0)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=ti.com; s=selector1;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
+ bh=pl4ZuR/uAzULRR6ywozuD/ZT47QzI8yCZ2q+kPawkCE=;
+ b=QAsSEgf9SAbCJCiice99hJ67bIL+/x7Muk+Dmb+mfPmMmy3aK5ZUOCtYOXVlZACxUvQOtimJo8znwcAjNP94Q89HAm3CWWNnN/ZsP59S5MJ3lqT4/LLK73Q3rWEbCfGvai+hHHJxLCpuU82bPZVy4MQXvixyUsl1zZ10Ei+WLRU=
+Received: from DM6PR02CA0110.namprd02.prod.outlook.com (2603:10b6:5:1b4::12)
+ by MW4PR10MB5810.namprd10.prod.outlook.com (2603:10b6:303:186::18) with
+ Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.21.71.13; Thu, 28 May
+ 2026 22:59:36 +0000
+Received: from DS2PEPF000061C6.namprd02.prod.outlook.com
+ (2603:10b6:5:1b4:cafe::92) by DM6PR02CA0110.outlook.office365.com
+ (2603:10b6:5:1b4::12) with Microsoft SMTP Server (version=TLS1_3,
+ cipher=TLS_AES_256_GCM_SHA384) id 15.21.71.13 via Frontend Transport; Thu, 28
+ May 2026 22:59:35 +0000
+X-MS-Exchange-Authentication-Results: spf=pass (sender IP is 198.47.23.194)
+ smtp.mailfrom=ti.com; dkim=none (message not signed) header.d=none;dmarc=pass
+ action=none header.from=ti.com;
+Received-SPF: Pass (protection.outlook.com: domain of ti.com designates
+ 198.47.23.194 as permitted sender) receiver=protection.outlook.com;
+ client-ip=198.47.23.194; helo=lewvzet200.ext.ti.com; pr=C
+Received: from lewvzet200.ext.ti.com (198.47.23.194) by
+ DS2PEPF000061C6.mail.protection.outlook.com (10.167.23.73) with Microsoft
+ SMTP Server (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
+ 15.21.92.5 via Frontend Transport; Thu, 28 May 2026 22:59:35 +0000
+Received: from DLEE206.ent.ti.com (157.170.170.90) by lewvzet200.ext.ti.com
+ (10.4.14.103) with Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.2.2562.37; Thu, 28 May
+ 2026 17:59:35 -0500
+Received: from DLEE205.ent.ti.com (157.170.170.85) by DLEE206.ent.ti.com
+ (157.170.170.90) with Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.2.2562.37; Thu, 28 May
+ 2026 17:59:35 -0500
+Received: from lelvem-mr06.itg.ti.com (10.180.75.8) by DLEE205.ent.ti.com
+ (157.170.170.85) with Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.2.2562.37 via Frontend
+ Transport; Thu, 28 May 2026 17:59:35 -0500
+Received: from [10.249.42.149] ([10.249.42.149])
+	by lelvem-mr06.itg.ti.com (8.18.1/8.18.1) with ESMTP id 64SMxYgV2429021;
+	Thu, 28 May 2026 17:59:34 -0500
+Message-ID: <29c9bd27-df32-4c56-8df2-987722d02b9a@ti.com>
+Date: Thu, 28 May 2026 17:59:34 -0500
 MIME-Version: 1.0
-Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: 8bit
-Message-Id: <20260529-zx29clk-v3-2-c7fe54ea388f@gmail.com>
-References: <20260529-zx29clk-v3-0-c7fe54ea388f@gmail.com>
-In-Reply-To: <20260529-zx29clk-v3-0-c7fe54ea388f@gmail.com>
-To: Michael Turquette <mturquette@baylibre.com>, 
- Stephen Boyd <sboyd@kernel.org>, Rob Herring <robh@kernel.org>, 
- Krzysztof Kozlowski <krzk+dt@kernel.org>, 
- Conor Dooley <conor+dt@kernel.org>, Philipp Zabel <p.zabel@pengutronix.de>, 
- Brian Masney <bmasney@redhat.com>
-Cc: linux-clk@vger.kernel.org, devicetree@vger.kernel.org, 
- linux-kernel@vger.kernel.org, linux-arm-kernel@lists.infradead.org, 
- =?utf-8?q?Stefan_D=C3=B6singer?= <stefandoesinger@gmail.com>
-X-Mailer: b4 0.14.3
-X-Developer-Signature: v=1; a=openpgp-sha256; l=7298;
- i=stefandoesinger@gmail.com; h=from:subject:message-id;
- bh=vr13qCo1Z4urs64TigR5t4iRfx+iJfof5p91YFBaIKI=;
- b=owEBiQJ2/ZANAwAIAT0TvMhUTxoiAcsmYgBqGLmoLTbh1SJ5vFdLjU9/XR3vX1Cv6I7aYZsQB
- E/ku8D9EqyJAk8EAAEIADkWIQRDFvS2qgVbJ5UyXWw9E7zIVE8aIgUCahi5qBsUgAAAAAAEAA5t
- YW51MiwyLjUrMS4xMiwyLDIACgkQPRO8yFRPGiLZhQ//e8cAqHfB9uyHXY6yqNXCDvbERSrzuLA
- arLGyljoZ1tXX6dH8yQH9DX4O+PFFfbjCoFVeOjSc9pYGdh3+Pxigtof/9p2K86+rel0rgjJ58W
- Or9w9ZABO3KWJEHCGvLbkNfLYnImLKjFpGucJnXM08piL88dIAiUyONBs4Nam9FKkYfA7Qnttye
- 1djJqJweXfhFivbUE8eA/NtWXDwZs3e1XCmrOwEdx7YgjbTihG5rY+6zLe9hNApY3cUzK4D8cz2
- W85uhcofmXLWxdNHIILOrdhDzBsPX1d5b5YoHPeHHsnIYX9F+HGfsAP9yjJFZ8gXGAR/0hdzc9m
- SYede274khPLqvrLcpmvXJx+2+jckf7sUukRrG7O/p3Cqq3sKavAIzUI6oqHIBS9CDxQYFn8174
- iyc/P0vMXSXCDwtZEarnETvXEO8/PhcfkU5eEA5WlI8jWcM75xkJ7A/A2M4QCN08/smXQLbcMA8
- O6xo/bd1Waj96u7pdMT4Ra0sEzGQhc/qbBMdzEVvLW/j7lMKfTvwcYJmpDqAmbja1CnS6bWo4K2
- A2GWb9TNhUOVHA/2MoM0ktMCoFjSEhd/ho1CjC9Stm7XY78NgzgFABLhcUaVScMtwXZjcCxnyyb
- 94gMSsB6fgJJREZ88BOx5HPwIIKH6bGWVryMcu87Xr2Og6N8roKg=
-X-Developer-Key: i=stefandoesinger@gmail.com; a=openpgp;
- fpr=4F9C2C8728019633893EBBB98CB81F9A72BBA155
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH 0/6] arm64: ti: Use syscon for the Control Module
+To: Tomi Valkeinen <tomi.valkeinen@ideasonboard.com>, Nishanth Menon
+	<nm@ti.com>, Vignesh Raghavendra <vigneshr@ti.com>, Tero Kristo
+	<kristo@kernel.org>, Rob Herring <robh@kernel.org>, Krzysztof Kozlowski
+	<krzk+dt@kernel.org>, Conor Dooley <conor+dt@kernel.org>, Abraham I
+	<kishon@kernel.org>, Roger Quadros <rogerq@kernel.org>, Devarsh Thakkar
+	<devarsht@ti.com>, Swamil Jain <s-jain1@ti.com>
+CC: <linux-arm-kernel@lists.infradead.org>, <devicetree@vger.kernel.org>,
+	<linux-kernel@vger.kernel.org>
+References: <20260528-ti-main-conf-v1-0-a54ac5c8d081@ideasonboard.com>
+Content-Language: en-US
+From: Andrew Davis <afd@ti.com>
+In-Reply-To: <20260528-ti-main-conf-v1-0-a54ac5c8d081@ideasonboard.com>
+Content-Type: text/plain; charset="UTF-8"; format=flowed
+Content-Transfer-Encoding: 7bit
+X-C2ProcessedOrg: 333ef613-75bf-4e12-a4b1-8e3623f5dcea
+X-EOPAttributedMessage: 0
+X-MS-PublicTrafficType: Email
+X-MS-TrafficTypeDiagnostic: DS2PEPF000061C6:EE_|MW4PR10MB5810:EE_
+X-MS-Office365-Filtering-Correlation-Id: 2cc2ae6d-ec6d-451c-c5a7-08debd0cc9f7
+X-MS-Exchange-SenderADCheck: 1
+X-MS-Exchange-AntiSpam-Relay: 0
+X-Microsoft-Antispam: BCL:0;ARA:13230040|36860700016|82310400026|7416014|376014|1800799024|921020|22082099003|56012099006|18002099003;
+X-Microsoft-Antispam-Message-Info: XxXrqc+IPFRb4I9BQtS3lj8paAwSwaVmifcpfkVKZfLaJ3zJP+TRrIneuexVTQx+em3q7u8YxR0Tb5hg4sdiKRW+c68KJ0qxTG9/vMVjo/MpnNepgrhM1HatterRptayEq4NayZZxYFjDq+8zdhmC648tDzCFpbEWdVJK2/pejOZJ8kMLEzXWgSFX4rfI3qNKT5wAVkWBG5RhuL3HsKZtvwgyCzBLQRLadhYc4KM+PYJPYzy3ZRtiQTDDnsjIIX8vRpifN3V2Mp9JfYMwghBhKfgPGnygra8qkZfQv32qG6xeJpvEKERNKq8iLknd/r725F7bqTRH7KQqnp/xCjOYxQgjGXtQHDUrJuvsd3D8mucSwKKV4/N5zN5Gs4jcWqSq8ABQjbc0A75GrMendoA8xYIVMtP6QctMdrbTyb3UIDWimfBjRzmfyS6IyabaHGnqTGSnLNkpjXcCYyfe3dVibcMV8qSovmmoBhCG3/esOzTnSe0DsvY10Kc6kck973tUxVpCEvNpoVL0wlwS+cfmnbyKzeIVXxPNnuqNKcKtRqanQ3er1k7aaXIlVo/b7aqZTBSvc5k/qKalHTzFpdgXvTgv/OoEjgNpYnYxYM7kXR+wfY6ANIRhYhE/Q3Qp/yI2QPUkiCTI9RP4N6ceQNd9fs91tOT0yua+92DSUxVfAev2PXCNAdQcbCJMInRKM2kyfxtnDdkFLLLPw/KOQq+e5cr/yJJ4TmGay4DTCiimDKqDk6UYJ2Ky/mL9Tp8XLJ/ZjNVDxcT7dSwjfrsyGoENA==
+X-Forefront-Antispam-Report: CIP:198.47.23.194;CTRY:US;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:lewvzet200.ext.ti.com;PTR:InfoDomainNonexistent;CAT:NONE;SFS:(13230040)(36860700016)(82310400026)(7416014)(376014)(1800799024)(921020)(22082099003)(56012099006)(18002099003);DIR:OUT;SFP:1101;
+X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
+X-MS-Exchange-AntiSpam-MessageData-0: JpWOVXQmS4xmm4iVDvCVEsazLx6UGkH+ZWVykQ8MFNWakkjiLuAHF+QnL7At0OjESx9wBlLuhcxfJ/ntaWJOFjiIxSGgGnzwCSPzgdM6tG3vvGkol/VL0DrxH3pPWtXUi5ZFmf6e0/mq5tGlhdqJyxo3XHoamJboB8NIyAS4CxPP1Nb/BHf3DgOAXsjYC4LJC1iW/pZ+JZrzEwGPWddznXhpn5dtHC3ca+FVOQUwIi+SMKxzpNeGwd5N998WJ28A1CbXuKuotZnJYrbAojsAo7LveTf1BpHpTgr79LzlgZtcBCUMQzpq1RoOIt5cbjR+nOe1BahqC2uiC4UyH5ehCcnQOIJlYFfUnmE2gAIN+wE6M5r7ufwqHGVi05LhV+cVvPFaH0fJUbeSs3+p5mhQ9xUh7+2BflJVZvrMdVw4R12Ile2bk7qmtiTb+byQURei
+X-OriginatorOrg: ti.com
+X-MS-Exchange-CrossTenant-OriginalArrivalTime: 28 May 2026 22:59:35.7816
+ (UTC)
+X-MS-Exchange-CrossTenant-Network-Message-Id: 2cc2ae6d-ec6d-451c-c5a7-08debd0cc9f7
+X-MS-Exchange-CrossTenant-Id: e5b49634-450b-4709-8abb-1e2b19b982b7
+X-MS-Exchange-CrossTenant-OriginalAttributedTenantConnectingIp: TenantId=e5b49634-450b-4709-8abb-1e2b19b982b7;Ip=[198.47.23.194];Helo=[lewvzet200.ext.ti.com]
+X-MS-Exchange-CrossTenant-AuthSource: DS2PEPF000061C6.namprd02.prod.outlook.com
+X-MS-Exchange-CrossTenant-AuthAs: Anonymous
+X-MS-Exchange-CrossTenant-FromEntityHeader: HybridOnPrem
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: MW4PR10MB5810
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260528_145505_909332_9EA294CC 
-X-CRM114-Status: GOOD (  16.56  )
+X-CRM114-CacheID: sfid-20260528_155942_955018_95F8FC2C 
+X-CRM114-Status: GOOD (  24.66  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -122,214 +135,74 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-The clock controller of the Low Speed Peripherals is relatively clean.
-One register per device with gates, muxes and resets and for some
-devices a divider. There are even bits in the top controller to control
-propagation of clock lines down to LSP.
+On 5/28/26 7:53 AM, Tomi Valkeinen wrote:
+> I have been trying to get BeagleY-AI display support to upstream:
+> 
+> 20260513-beagley-ai-display-v2-0-9e9bcefde6bc@ideasonboard.com
+> 
+> One difficulty has been the handling of the Control Module region, as
+> we need access to a single in that region, surrounded by registers for
+> other subsystems. In my series I made the related node a syscon, thus
+> allowing versatile access to the registers:
+> 
+> https://lore.kernel.org/all/20260513-beagley-ai-display-v2-14-9e9bcefde6bc@ideasonboard.com/
+> 
+> However, that's not a correct way to handle it. I realized we already
+> have ti,j721e-system-controller.yaml binding for older SoCs, which has
+> syscon but it's not used for the newer TI SoCs. This series takes the
+> same binding into use for the newer SoCs.
+> 
 
-The clocks are sorted by register address and I am convinced that the
-list is complete.
+We moved away from this system-controller thing because it was always
+a hack to allow us to poke into random control registers from nodes
+throughout the DT. This was a mess and also caused issues with multiple
+mappings to the same registers (some sub nodes inside the control space
+also make their own mappings). If you need access to registers then make
+a node with those registers in the `reg` property.
 
-Signed-off-by: Stefan Dösinger <stefandoesinger@gmail.com>
----
- .../bindings/clock/zte,zx297520v3-lspclk.yaml      | 119 +++++++++++++++++++++
- include/dt-bindings/clock/zte,zx297520v3-clk.h     |  58 ++++++++++
- 2 files changed, 177 insertions(+)
+The only reason we didn't get rid of `ti,j721e-system-controller.yaml`
+completely from the older SoCs was we were told it would be an ABI
+break to correct those DT files. Let's not spread that problem to
+new SoCs.
 
-diff --git a/Documentation/devicetree/bindings/clock/zte,zx297520v3-lspclk.yaml b/Documentation/devicetree/bindings/clock/zte,zx297520v3-lspclk.yaml
-new file mode 100644
-index 000000000000..e4d50d40e834
---- /dev/null
-+++ b/Documentation/devicetree/bindings/clock/zte,zx297520v3-lspclk.yaml
-@@ -0,0 +1,119 @@
-+# SPDX-License-Identifier: (GPL-2.0-only OR BSD-2-Clause)
-+%YAML 1.2
-+---
-+$id: http://devicetree.org/schemas/clock/zte,zx297520v3-lspclk.yaml#
-+$schema: http://devicetree.org/meta-schemas/core.yaml#
-+
-+title: ZTE zx297520v3 SoC LSP clock and reset controller
-+
-+maintainers:
-+  - Stefan Dösinger <stefandoesinger@gmail.com>
-+
-+description: |
-+  This clock and reset controller controls low speed peripherals on the board.
-+  This is a relatively isolated subsystem containing UART, I2C, I2S and SPI
-+  devices. The clock controller is responsible for bringing the devices out of
-+  reset and enabling their clocks as needed.
-+
-+  The controller receives its clock signal from the top controller and need to
-+  be declared as clock inputs.
-+
-+  All available clocks are defined as preprocessor macros in the
-+  'dt-bindings/clock/zte,zx297520v3-clk.h' header.
-+
-+properties:
-+  compatible:
-+    const: zte,zx297520v3-lspclk
-+
-+  clocks:
-+    items:
-+      - description: Main PLL divided by 5 output from topclk (124.8 MHz)
-+      - description: Main PLL divided by 4 output from topclk (156 MHz)
-+      - description: Main PLL divided by 6 output from topclk (104 MHz)
-+      - description: Main PLL divided by 8 output from topclk (78 MHz)
-+      - description: Main PLL divided by 12 output from topclk (52 MHz)
-+      - description: Main oscillator output from topclk (26 MHz)
-+      - description: Timer oscillator output from topclk (32 KHz)
-+      - description: LSP pclk output from topclk (26 MHz)
-+      - description: TDM wclk mux output from topclk
-+      - description: DPLL divided by 4 output from topclk (122.88 MHz)
-+
-+  clock-names:
-+    items:
-+      - const: mpll_d5
-+      - const: mpll_d4
-+      - const: mpll_d6
-+      - const: mpll_d8
-+      - const: mpll_d12
-+      - const: osc26m
-+      - const: osc32k
-+      - const: pclk
-+      - const: tdm_wclk
-+      - const: dpll_d4
-+
-+  "#clock-cells":
-+    const: 1
-+
-+  "#reset-cells":
-+    const: 1
-+
-+  reg:
-+    items:
-+      - description: IO memory region of the LSP controller
-+
-+required:
-+  - compatible
-+  - reg
-+  - clocks
-+  - clock-names
-+  - '#clock-cells'
-+  - '#reset-cells'
-+
-+additionalProperties: false
-+
-+examples:
-+  - |
-+    #include <dt-bindings/clock/zte,zx297520v3-clk.h>
-+
-+    osc26m: osc26m {
-+      compatible = "fixed-clock";
-+      clock-frequency = <26000000>;
-+      #clock-cells = <0>;
-+    };
-+
-+    osc32k: osc32k {
-+      compatible = "fixed-clock";
-+      clock-frequency = <32768>;
-+      #clock-cells = <0>;
-+    };
-+
-+    topclk: clk@13b000 {
-+        compatible = "zte,zx297520v3-topclk";
-+        reg = <0x0013b000 0x400>,
-+              <0x01306000 0x400>;
-+        reg-names = "top", "matrix";
-+        #clock-cells = <1>;
-+        #reset-cells = <1>;
-+        clocks = <&osc26m>, <&osc32k>;
-+        clock-names = "osc26m", "osc32k";
-+    };
-+
-+    lspclk: lspclk@1400000 {
-+        compatible = "zte,zx297520v3-lspclk";
-+        reg = <0x01400000 0x100>;
-+        #clock-cells = <1>;
-+        #reset-cells = <1>;
-+
-+        clocks = <&topclk ZX297520V3_LSP_MPLL_D5_WCLK>,
-+                 <&topclk ZX297520V3_LSP_MPLL_D4_WCLK>,
-+                 <&topclk ZX297520V3_LSP_MPLL_D6_WCLK>,
-+                 <&topclk ZX297520V3_LSP_MPLL_D8_WCLK>,
-+                 <&topclk ZX297520V3_LSP_MPLL_D12_WCLK>,
-+                 <&topclk ZX297520V3_LSP_OSC26M_WCLK>,
-+                 <&topclk ZX297520V3_LSP_OSC32K_WCLK>,
-+                 <&topclk ZX297520V3_LSP_PCLK>,
-+                 <&topclk ZX297520V3_LSP_TDM_WCLK>,
-+                 <&topclk ZX297520V3_LSP_DPLL_D4_WCLK>;
-+        clock-names = "mpll_d5", "mpll_d4", "mpll_d6", "mpll_d8", "mpll_d12",
-+                      "osc26m", "osc32k", "pclk", "tdm_wclk", "dpll_d4";
-+    };
-diff --git a/include/dt-bindings/clock/zte,zx297520v3-clk.h b/include/dt-bindings/clock/zte,zx297520v3-clk.h
-index 4d85251a0ce5..144a3b064d49 100644
---- a/include/dt-bindings/clock/zte,zx297520v3-clk.h
-+++ b/include/dt-bindings/clock/zte,zx297520v3-clk.h
-@@ -118,4 +118,62 @@
- #define ZX297520V3_DMA_RESET			28
- #define ZX297520V3_TOPRST_END			29
- 
-+#define ZX297520V3_TIMER_L1_WCLK		0
-+#define ZX297520V3_TIMER_L1_PCLK		1
-+#define ZX297520V3_WDT_L2_WCLK			2
-+#define ZX297520V3_WDT_L2_PCLK			3
-+#define ZX297520V3_WDT_L3_WCLK			4
-+#define ZX297520V3_WDT_L3_PCLK			5
-+#define ZX297520V3_I2C1_WCLK			6
-+#define ZX297520V3_I2C1_PCLK			7
-+#define ZX297520V3_I2S0_WCLK			8
-+#define ZX297520V3_I2S0_PCLK			9
-+#define ZX297520V3_I2S1_WCLK			10
-+#define ZX297520V3_I2S1_PCLK			11
-+#define ZX297520V3_QSPI_WCLK			12
-+#define ZX297520V3_QSPI_PCLK			13
-+#define ZX297520V3_UART1_WCLK			14
-+#define ZX297520V3_UART1_PCLK			15
-+#define ZX297520V3_I2C2_WCLK			16
-+#define ZX297520V3_I2C2_PCLK			17
-+#define ZX297520V3_SPI0_WCLK			18
-+#define ZX297520V3_SPI0_PCLK			19
-+#define ZX297520V3_TIMER_LB_WCLK		20
-+#define ZX297520V3_TIMER_LB_PCLK		21
-+#define ZX297520V3_TIMER_LC_WCLK		22
-+#define ZX297520V3_TIMER_LC_PCLK		23
-+#define ZX297520V3_UART2_WCLK			24
-+#define ZX297520V3_UART2_PCLK			25
-+#define ZX297520V3_WDT_LE_WCLK			26
-+#define ZX297520V3_WDT_LE_PCLK			27
-+#define ZX297520V3_TIMER_LF_WCLK		28
-+#define ZX297520V3_TIMER_LF_PCLK		29
-+#define ZX297520V3_SPI1_WCLK			30
-+#define ZX297520V3_SPI1_PCLK			31
-+#define ZX297520V3_TIMER_L11_WCLK		32
-+#define ZX297520V3_TIMER_L11_PCLK		33
-+#define ZX297520V3_TDM_WCLK			34
-+#define ZX297520V3_TDM_PCLK			35
-+#define ZX297520V3_LSPCLK_END			36
-+
-+#define ZX297520V3_TIMER_L1_RESET		0
-+#define ZX297520V3_WDT_L2_RESET			1
-+#define ZX297520V3_WDT_L3_RESET			2
-+#define ZX297520V3_I2C1_RESET			3
-+#define ZX297520V3_I2S0_RESET			4
-+#define ZX297520V3_I2S1_RESET			5
-+#define ZX297520V3_QSPI_RESET			6
-+#define ZX297520V3_UART1_RESET			7
-+#define ZX297520V3_I2C2_RESET			8
-+#define ZX297520V3_SPI0_RESET			9
-+#define ZX297520V3_TIMER_LB_RESET		10
-+#define ZX297520V3_TIMER_LC_RESET		11
-+#define ZX297520V3_UART2_RESET			12
-+#define ZX297520V3_WDT_LE_RESET			13
-+#define ZX297520V3_TIMER_LF_RESET		14
-+#define ZX297520V3_SPI1_RESET			15
-+#define ZX297520V3_TIMER_L11_RESET		16
-+#define ZX297520V3_TDM_RESET			17
-+#define ZX297520V3_LSPRST_END			18
-+
- #endif /* __DT_BINDINGS_CLOCK_ZX297520V3_H */
+Andrew
 
--- 
-2.53.0
+> I think this is an ABI change, but I also think this is not an ABI
+> break. I hope people with more expertise in this area can confirm my
+> thoughts.
+> 
+> I believe we could drop the renaming patches, and just adjust the
+> ti,j721e-system-controller.yaml a bit more to accommodate the "wrong"
+> node names. But if there's no downside to the renames, I think it's nice
+> to have a more consistent naming.
+> 
+>   Tomi
+> 
+> Signed-off-by: Tomi Valkeinen <tomi.valkeinen@ideasonboard.com>
+> ---
+> Tomi Valkeinen (6):
+>        arm64: dts: ti: j784s4/j742s2: Rename pcieN-ctrl nodes to pcie-ctrl
+>        arm64: dts: ti: k3-am62*: Rename 'clock-controller' to 'clock'
+>        arm64: dts: ti: k3-am62-main: Rename 'oldi-io-controller' to 'dss-oldi-io-ctrl'
+>        dt-bindings: soc: ti: ti,j721e-system-controller: Relax the bindings
+>        dt-bindings: soc: ti: ti,j721e-system-controller: Add more compatibles
+>        arm64: dts: ti: Use syscon and simple-mfd for the main conf region
+> 
+>   .../devicetree/bindings/soc/ti/ti,j721e-system-controller.yaml | 10 ++++++----
+>   arch/arm64/boot/dts/ti/k3-am62-main.dtsi                       |  9 +++++----
+>   arch/arm64/boot/dts/ti/k3-am62a-main.dtsi                      |  7 ++++---
+>   arch/arm64/boot/dts/ti/k3-am62p-j722s-common-main.dtsi         |  6 +++---
+>   arch/arm64/boot/dts/ti/k3-j784s4-j742s2-main-common.dtsi       |  6 +++---
+>   arch/arm64/boot/dts/ti/k3-j784s4-main.dtsi                     |  4 ++--
+>   6 files changed, 23 insertions(+), 19 deletions(-)
+> ---
+> base-commit: e7ae89a0c97ce2b68b0983cd01eda67cf373517d
+> change-id: 20260528-ti-main-conf-d75aea5e5c2b
+> 
+> Best regards,
+> --
+> Tomi Valkeinen <tomi.valkeinen@ideasonboard.com>
+> 
+> 
 
 
