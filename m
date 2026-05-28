@@ -4,113 +4,54 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 12078CD6E45
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 28 May 2026 05:56:44 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 0E7D9CD5BD1
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 28 May 2026 05:58:11 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:Cc:To:Subject:Message-ID:Date:From:In-Reply-To:References:
-	MIME-Version:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=9/tAvDfBZY4caNpdNLD3RtS2Pph9k/Hgin/a4k+F0Cw=; b=0yKvZqp/oTPfAksUddpNsMeU28
-	9FehmVvFJpzCOD52pU6XHuVsuM8Q7W7t3Z1r/PLqoQLF5atlnP2Geg2xl7ALrkwVHQ9Ke3z4iBDxv
-	43yVacP2e8IS+83kDwmlnAopql4LWXkiMUx4djgxvYVFcp+0GNrqYGWIrVkqBCwDjUpVrsMEU+yHK
-	L+52YyrQWwr3eOsUvpoRjc7Zuz710H+XzRJ+jpOXucUXphhxYrHaXf9WXGEiHaUnQh5OHLhXj0u1q
-	rUwyIKkN3FZtghumu3bK2E4ABaUiYsq8YpfwscQzGtkjDMPNSYUmf1v2sQyTMRyMuIn6n+ctpd6Ih
-	YJEsNj0w==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:
+	Content-Transfer-Encoding:MIME-Version:References:In-Reply-To:Message-ID:Date
+	:Subject:Cc:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=Fd80mj/3IKoqWLM74yrIKUbYLZKNJTRnbWUqqZcHbKs=; b=H0u/6T1WrLffbBxAvtIDMK1cZh
+	50l933qg9ZCtPumnZYRqeR1wPDuL8S0956j7Jv1GYF1vgivXjS9xN3pT03saSJalBsb6wEuzin9FK
+	8CNGmqUjgToySxF2Wt0UBdM/g5l/7RfWaiIEmUQzwvda2PHsvJVrmNzwOWz2QsO64JSJqW4UxjKKh
+	goFvrwBIVbo3WO0VaCX6PJErTa8tmjBInVnbG8TZVOEWWy1HjJ6Rq60SCQflWJ1NP6IcmcyX+CV6u
+	ZvHrELe1lg8mb+lBKdg5Iz/2g7TTmxJOQmNC9aMDR2DXy7PL4JKOhOYLZ6rOLprAippxO88wFDaUU
+	PLTvp/Vg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wSTjN-00000005AjK-377t;
-	Thu, 28 May 2026 05:56:33 +0000
-Received: from mail-dy1-x1334.google.com ([2607:f8b0:4864:20::1334])
+	id 1wSTkr-00000005Auo-1Ory;
+	Thu, 28 May 2026 05:58:05 +0000
+Received: from gloria.sntech.de ([185.11.138.130])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wSTjK-00000005Aim-2tUu
-	for linux-arm-kernel@lists.infradead.org;
-	Thu, 28 May 2026 05:56:32 +0000
-Received: by mail-dy1-x1334.google.com with SMTP id 5a478bee46e88-304ddfcf72cso8422eec.0
-        for <linux-arm-kernel@lists.infradead.org>; Wed, 27 May 2026 22:56:30 -0700 (PDT)
-ARC-Seal: i=1; a=rsa-sha256; t=1779947790; cv=none;
-        d=google.com; s=arc-20240605;
-        b=NWKDPAokqXTip5FtW3o/AD0bss3aYicCNBqIKiB55KmVfvUZdaYAQYLxWP/1HTfhhT
-         LkGrRwQfbO+Npz7aavpFVU/t1+PzZmvJFEe8a58sDPDe7r/YIy0XojLTAGg3wqB+wojf
-         dM8T6yOSvLgU2vNsu4SkpcRC/GP6aPb/Nuy2GuAKgJ3PsrMbFE6/c2DlegGmsJAub+M0
-         fkX9h1tu/ULB3bgaPXJti4gvcaYcpBNQ5ntRvTUME5yUSxYxC95tM8wE5Fb0o92hjgyW
-         A6u12maFyo1VOuwIOJh4z9quNkTOxd4IbIXFLviueUt2AWGmiszLvXO5IGUpP3apYO3y
-         aB/A==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20240605;
-        h=content-transfer-encoding:cc:to:subject:message-id:date:from
-         :in-reply-to:references:mime-version:dkim-signature;
-        bh=9/tAvDfBZY4caNpdNLD3RtS2Pph9k/Hgin/a4k+F0Cw=;
-        fh=fTvYmew2SbdVLOyM2rwB3sJpIon4YnxmFW6uT9x59/k=;
-        b=iZ9OYM3g6pmfJv7ixwPdP8vkbOvrWtUPzVzFAyOI4wxGcdt9WxwjsnhonptM98PV7H
-         EXizSVsI3ruo2hJOj8wISGGdlLk0Wm7zhHteILst6vE//9fiMdgsrUwvSf8wjgL5Q9Q3
-         upmEsfy0/noDbhw/1QpZUFSeRCwHWipdXzbClDmOj/MbpSmjnClkdfNqZlzHPETd3GsW
-         8QWffOVVLiGNL19EPZ973HUrXqB1G4QboMhzSJSFW014b6nNpUaMzznOswpZDra4Nekl
-         PIPWjAfurMTp92irabGcKT5DMgfNLO+L9xScOttlH4Q0DEbe1gwYR29gcHSgERbsLEfq
-         yJGw==;
-        darn=lists.infradead.org
-ARC-Authentication-Results: i=1; mx.google.com; arc=none
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=google.com; s=20251104; t=1779947790; x=1780552590; darn=lists.infradead.org;
-        h=content-transfer-encoding:cc:to:subject:message-id:date:from
-         :in-reply-to:references:mime-version:from:to:cc:subject:date
-         :message-id:reply-to;
-        bh=9/tAvDfBZY4caNpdNLD3RtS2Pph9k/Hgin/a4k+F0Cw=;
-        b=WTjHvfhgg9RrFEIBQWl2/DjyMId+QIvGU7GyAMnOdT4NmCyoUMDTz1/HIMDlmB1QFf
-         fkts+16DkQ+7GTCiHavKUFWplx6C6fCEjDJT+oyZkTMqt2G5XjvuRTmq3OGrYxz8vPnW
-         UjZCWpt/vDeSZq6IQq9GUvVwvhQ7kbVr1t2YCpthJCbOfqJTVJqfA7JUoWgvix0GiZh5
-         R88JZ1KxQOLylS07bSF3wYWJqHPTNnrx8I3ZVmbMEEpRzTlrTecNEzmtGvlVjnfXyXAy
-         lnBTiIhVkb1tfCoeCKIxet5gkLbGUkTA+u67Jk1ffi/r6Qf7uMgfWG7Iy5n8lXsTri04
-         aHBA==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20251104; t=1779947790; x=1780552590;
-        h=content-transfer-encoding:cc:to:subject:message-id:date:from
-         :in-reply-to:references:mime-version:x-gm-gg:x-gm-message-state:from
-         :to:cc:subject:date:message-id:reply-to;
-        bh=9/tAvDfBZY4caNpdNLD3RtS2Pph9k/Hgin/a4k+F0Cw=;
-        b=l6N0ECWNvKUeFL3ddR91eFZvDn3HluDi5jB779KRMMv9otOSvcYF0g8kdOrp5epBGe
-         IYVMBlE2mtodBzIXMwNupT38TDEu/NhlpzYhasLTlbWcArX6LtrWK/+AFJHOBGGxsPlA
-         c0dcuHkKi5Zqib82xiuOT0FwvsGIqupS8s4Ftr4zXzdbhaDA4lLmJygoZ28ISNHMosbV
-         qFDJhhbLsZbuhRCzf6U/ohaHxAXX9Uc6ZJw2Ch5irfiTaxflDMCrqB0TfdPauV88Gu74
-         9xeekRbG3QLa5qB0GuWgJhcgbs/ZCP5SzGnHWRF0/vLBLos1kwv5dgJ4lj1bihAX8R28
-         i9UQ==
-X-Forwarded-Encrypted: i=1; AFNElJ+cQ643hcQHEGCqT1tHFkA4I4iqe1qnZAW7uHh9aP9GZYveyKWfjZgVuIhP4dSZOCnOqzYDAluM6rhZwaivvJhs@lists.infradead.org
-X-Gm-Message-State: AOJu0YyYe9OjIak/gCJQteaJ1FsAl0zRA/ILNTZzGaFrx5IkuRxnW2AA
-	k8TsmFdQUZZp3gjEuAlewu+fLTPSrq/sj1IAmY55+UIRQoE/rPSYkk3GRGkXvmBXlcbmsfCYtgX
-	JiUcaSDMTG1UUNTSK1NMCPjQaj5t2QyLGYODyacjR
-X-Gm-Gg: Acq92OElvUMIpyINHucyQsGq+a6E6v90r9e1x7ur/4Fr6pVxygMDbsFpxNp4yXBlZr6
-	sTVkzsVxrhmUqADUTOJbIdkG0zc0Kt1DjzVUj8jb5Bfd5TPtWIJWcqOYgJcNDWN4XJSvZMSsPoJ
-	/mmbcAP/10JYJtPfK9vPyZ0XZb/w1r9bkoiyFkVGKqGewbb+UzrCxGDYgWk1Gu/JCeUTtVqpSl8
-	iQlRVapR/r/rSHzkw1R5qq0wbtuQIHn0qnnHeGuM/YcA+pMP1kIltN/2hFazBug8w9fQk3RPhq4
-	6MLeXWesi+QeMmvxHag0Q9ww9udEwNd56omH294y3o4dOjWR
-X-Received: by 2002:a05:7300:2389:b0:2ea:b975:3db1 with SMTP id
- 5a478bee46e88-304491d7957mr12069640eec.23.1779947789049; Wed, 27 May 2026
- 22:56:29 -0700 (PDT)
+	id 1wSTkp-00000005Au8-1bLb;
+	Thu, 28 May 2026 05:58:04 +0000
+DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed; d=sntech.de;
+	s=gloria202408; h=Content-Type:Content-Transfer-Encoding:MIME-Version:
+	References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:Reply-To;
+	bh=Fd80mj/3IKoqWLM74yrIKUbYLZKNJTRnbWUqqZcHbKs=; b=QlVv0Qrk0PyeAuUmNgfjl8R7/Z
+	NeoTZdlSlxqRCcZHYA3bn1vb/T2z1+qwkDd5Tuk/9oOQn/Ssn+BK2wkx+yWy4wCPL6GKPzoNoXN1t
+	idv4b5jx5aE37qz6gYEnEYQgrnXv0qLTZZtqdffUdf51mQ4D3D2n3P3Dpy7pTE90V3CEplSN+dWDG
+	/NgcjdBvzy7d+ekKG67XLwOPF7FUhyGgmhPSyhd817TSXP3RklXa5YZT2d4IPLE4ueTld9QojvTkJ
+	FMbVbPwc9PncJ4ocnWF03PXJK7njzwB2Mn0Qg+x306NgieTKIfOo0StcAtoTb6uGAVD6Xm9sTzAkG
+	tX3oGzrg==;
+From: Heiko Stuebner <heiko@sntech.de>
+To: Chukun Pan <amadeus@jmu.edu.cn>
+Cc: jonas@kwiboo.se, linux-arm-kernel@lists.infradead.org,
+ linux-kernel@vger.kernel.org, linux-rockchip@lists.infradead.org,
+ Chukun Pan <amadeus@jmu.edu.cn>
+Subject: Re: [PATCH v2 2/5] arm64: dts: rockchip: Enable USB 2.0 ports on Radxa E20C
+Date: Thu, 28 May 2026 07:57:45 +0200
+Message-ID: <3879225.zToM8qfIzz@phil>
+In-Reply-To: <20260525065005.1056845-1-amadeus@jmu.edu.cn>
+References: <20260505171208.3267387-3-heiko@sntech.de>
+ <20260525065005.1056845-1-amadeus@jmu.edu.cn>
 MIME-Version: 1.0
-References: <20260527-uwtable-module-flag-v1-1-caa41342be4b@google.com> <CANiq72mCYOXrWM7_3jby_ZvYmspXsYVzRqhTgQiBF0bdDLAaEg@mail.gmail.com>
-In-Reply-To: <CANiq72mCYOXrWM7_3jby_ZvYmspXsYVzRqhTgQiBF0bdDLAaEg@mail.gmail.com>
-From: Alice Ryhl <aliceryhl@google.com>
-Date: Thu, 28 May 2026 07:56:11 +0200
-X-Gm-Features: AVHnY4Ie_gpq2EI8eezCf2IRezAi1N80vE8gyBvflGswgtsI7hjNkqwxua2zqnE
-Message-ID: <CAH5fLghSe9tV+CJkqp5CkUPfugZ7hvMN0XHsh5kY3vs=3uQ2FQ@mail.gmail.com>
-Subject: Re: [PATCH] rust: arm64: set uwtable llvm module flag for CONFIG_UNWIND_TABLES
-To: Miguel Ojeda <miguel.ojeda.sandonis@gmail.com>
-Cc: Catalin Marinas <catalin.marinas@arm.com>, Will Deacon <will@kernel.org>, 
-	Miguel Ojeda <ojeda@kernel.org>, Boqun Feng <boqun@kernel.org>, Gary Guo <gary@garyguo.net>, 
-	=?UTF-8?Q?Bj=C3=B6rn_Roy_Baron?= <bjorn3_gh@protonmail.com>, 
-	Benno Lossin <lossin@kernel.org>, Andreas Hindborg <a.hindborg@kernel.org>, 
-	Trevor Gross <tmgross@umich.edu>, Danilo Krummrich <dakr@kernel.org>, 
-	Nathan Chancellor <nathan@kernel.org>, Nick Desaulniers <nick.desaulniers+lkml@gmail.com>, 
-	Bill Wendling <morbo@google.com>, Justin Stitt <justinstitt@google.com>, 
-	linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org, 
-	rust-for-linux@vger.kernel.org, llvm@lists.linux.dev, stable@kernel.org, 
-	Bo Ye <bo.ye@mediatek.com>, Isaac Manjarres <isaacmanjarres@google.com>, 
-	Sami Tolvanen <samitolvanen@google.com>
-Content-Type: text/plain; charset="UTF-8"
 Content-Transfer-Encoding: quoted-printable
+Content-Type: text/plain; charset="utf-8"
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260527_225630_761717_6EEAF400 
-X-CRM114-Status: GOOD (  18.48  )
+X-CRM114-CacheID: sfid-20260527_225803_601033_1B01E650 
+X-CRM114-Status: GOOD (  11.84  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -125,39 +66,48 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Thu, May 28, 2026 at 7:26=E2=80=AFAM Miguel Ojeda
-<miguel.ojeda.sandonis@gmail.com> wrote:
->
-> On Wed, May 27, 2026 at 8:18=E2=80=AFPM Alice Ryhl <aliceryhl@google.com>=
- wrote:
-> >
-> > Once the fix lands in rustc, this flag can be made conditional on the
-> > rustc version. Note that passing the flag on a rustc with the fix
-> > present has no effect.
->
-> Already landed now, so if the uwtable one is enough, we could already
-> do that since it will be 1.98. But since it has no effect, we can keep
-> the fix as-is and do that on top too.
+Hi,
 
-Ah, yes, let's just add the version check.
+Am Montag, 25. Mai 2026, 08:50:05 Mitteleurop=C3=A4ische Sommerzeit schrieb=
+ Chukun Pan:
+> > +&usb_host0_xhci {
+> > +	extcon =3D <&usb2phy>;
+> > +	maximum-speed =3D "high-speed";
+> > +	phys =3D <&usb2phy_otg>;
+> > +	phy-names =3D "usb2-phy";
+>=20
+> I received this warning for this otg port:
+> [    0.163307] dwc3 fe500000.usb: Configuration mismatch. dr_mode forced =
+to host
 
-With regards to the frame-pointer one, it's probably a good idea to do
-the same for that one. It's not necessary to fix the boot crash I
-encountered, but may help with other issues such as backtraces of
-ftrace.
+Interesting, because if I read the schematics correctly, this is the
+controller labeled "usb2.0 otg0" .
+It even has a vbus-detect line.
 
-> Added and linked both issues (i.e. `uwtable` and the `frame-pointer` one)=
- to:
->
->   https://github.com/Rust-for-Linux/linux/issues/355
->
-> I have to send a fixes PR in the coming days, so I can pick this one
-> up, but if arm64 will do so then:
->
-> Acked-by: Miguel Ojeda <ojeda@kernel.org>
->
-> Thanks!
->
-> Cheers,
-> Miguel
+If I understand the schematics and product page correctly, this
+actually is an outward facing type-c-port, making the device a
+peripheral?
+
+usb_host0_xhci -> port1 of FE1.1s_QFN (device1 connected to the hub)
+uart0 -> ch340 -> port2 of FE1.1s_QFN (device2 connected to the hub)
+
+=46E1.1s_QFN host dm+dp going to the type-c port of the board.
+
+So if anything, that controller should probably have dr_mode=3Dperipheral
+I think?
+
+
+>=20
+> > +	snps,dis_u2_susphy_quirk;
+>=20
+> This property is missing in the sige1 patch. Since this property
+> is related to phy vbus detection, can we move it to rk3528.dtsi?
+
+yeah, that sounds sensible ... looking at the other socs using that
+quirk, it really seems to be a property of the controller.
+
+
+Heiko
+
+
 
