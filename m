@@ -4,130 +4,109 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 4337CCD6E44
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 28 May 2026 11:37:44 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 5B12DCD6E44
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 28 May 2026 11:40:12 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
-	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:References
+	:Message-Id:Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:
+	From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=rlsvGO2fSrYg/DA7HKLziRTOHUvYRhgURVnLUtStEi8=; b=A7XObSWAfPIG95Ws3x0Rf7imco
-	7FuMzw2p1kA5CKRNlOgY/ciKwG0lbtwz0+Piz7icPGbAuSFNnZ6rjTw6X6Vv7Bwu6M7UJLewI9E3P
-	3ZGOcjaqsBnZI+8fIHOk6lQTTQJWTE/lbjgXTUxiBfBOQnQMSLiyAHIvZMmiyMcjCKJAjHVfdUKEY
-	9qbI3+YFULgDkmWw/qXCv3lg0fsA0/HM76Vhg0fznk8raTc7pZUNhhj4b5UTkuHIDHLXXEHgIAbPa
-	WMMF/ePJOaIFtltazvveM4+S9Tblv7aO2mdHGnXIHkhu81aG3e21S+DMcGG7ATBfVCSvyrE8ufubF
-	wQnm93XQ==;
+	bh=+wPmuRvkf+zzfvANKYGi8/K1eKEL3CEATmGnhv/3KRU=; b=UfTmnZoIP+SzoHtQruim3NOKlz
+	sAoSYZssjAaz1rXorrln91hRopS5N6AfvlaMSUGleFpZBN5VMMiZboMHt9Rs50gfmXbirm9qGVlCJ
+	SoPCRxsj7qN6RDgS1B6cR1Um6CaVpvX2yhny2soxPxqqSOY9rgvfcN3O8b8sD+b+Ufy2QjNiJDBQg
+	byQLRxlDnyUt8dH97BCSrnPIKpZ310f0KFDB3zLKH7fL5R07ppknwuWZkDbPjXsjLAY0fZPcuK/Di
+	vgrPTOPnl/MB8fHBDxWAlKjevTVnNo95XWFBpaTQh4vnpBfU36h2z+THvlJEHPRQqh4jD8lm81yHV
+	2LHH7cnw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wSYQJ-00000005cZ5-0tUN;
-	Thu, 28 May 2026 10:57:11 +0000
-Received: from relay.yourmailgateway.de ([185.244.194.184])
+	id 1wSZ2R-00000005fO4-3ZC1;
+	Thu, 28 May 2026 11:36:35 +0000
+Received: from mail-wm1-x331.google.com ([2a00:1450:4864:20::331])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wSYQF-00000005cXI-0NMr
+	id 1wSZ2G-00000005fKo-0peh
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 28 May 2026 10:57:09 +0000
-Received: from relay01-mors.netcup.net (localhost [127.0.0.1])
-	by relay01-mors.netcup.net (Postfix) with ESMTPS id 4gR3Mw3VFNz93ms;
-	Thu, 28 May 2026 12:57:00 +0200 (CEST)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=leemhuis.info;
-	s=key2; t=1779965820;
-	bh=G0KapeKXmvQX/sgfK8epwRg6t7LWI1FB4ylibSq8TAM=;
-	h=Date:Subject:To:Cc:References:From:In-Reply-To:From;
-	b=hBAttNoCv0VKT8PUqfDK1OuzlkocyztP+jLFhQYe+oQ/l4VioIhiGfhTvm6nP3uJM
-	 CmUe8udWAbiKjkK4rnFsyOHa+BvJv14toby3vQg2gjxsvy3k33Ep2KBBNjSAPZu4al
-	 qSvhUU04JhEpXwD7vjoNiYmg+IAgD5sdSHVWYwMicm3eN17uUCSHtXucEJpvbiwOoJ
-	 6mWEmdwQ0L8kwaWT0DL3Qf+mOMXXG3nagDFGWAVRjDsBzuARWv9gcK2RPpzrEKGyJD
-	 hyMcUbVxn4ZurJ0jnZJdsuOq7iq0Zg/ltck0jXgaQ+2z5HVkbcC0ybX5Q60BHNdyCD
-	 kduw6NQQU2e7A==
-Received: from policy02-mors.netcup.net (unknown [46.38.225.35])
-	by relay01-mors.netcup.net (Postfix) with ESMTPS id 4gR3LL6JXXz7xkT;
-	Thu, 28 May 2026 12:55:38 +0200 (CEST)
-Received: from mxe9fb.netcup.net (unknown [10.243.12.53])
-	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
-	 key-exchange ECDHE (P-256) server-signature RSA-PSS (2048 bits) server-digest SHA256)
-	(No client certificate requested)
-	by policy02-mors.netcup.net (Postfix) with ESMTPS id 4gR3LK22P8z8sgw;
-	Thu, 28 May 2026 12:55:37 +0200 (CEST)
-Received: from [IPV6:2a02:8108:8984:1d00:a0cf:1912:4be:477f] (unknown [IPv6:2a02:8108:8984:1d00:a0cf:1912:4be:477f])
-	by mxe9fb.netcup.net (Postfix) with ESMTPSA id 1F02761805;
-	Thu, 28 May 2026 12:55:36 +0200 (CEST)
-Authentication-Results: mxe9fb;
-        spf=pass (sender IP is 2a02:8108:8984:1d00:a0cf:1912:4be:477f) smtp.mailfrom=regressions@leemhuis.info smtp.helo=[IPV6:2a02:8108:8984:1d00:a0cf:1912:4be:477f]
-Received-SPF: pass (mxe9fb: connection is authenticated)
-Message-ID: <3cc57464-a10f-4b8c-9080-8d6f65a0d42f@leemhuis.info>
-Date: Thu, 28 May 2026 12:55:34 +0200
+	Thu, 28 May 2026 11:36:26 +0000
+Received: by mail-wm1-x331.google.com with SMTP id 5b1f17b1804b1-4904fd4f6aeso49500375e9.2
+        for <linux-arm-kernel@lists.infradead.org>; Thu, 28 May 2026 04:36:23 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=linaro.org; s=google; t=1779968182; x=1780572982; darn=lists.infradead.org;
+        h=cc:to:in-reply-to:references:message-id:content-transfer-encoding
+         :mime-version:subject:date:from:from:to:cc:subject:date:message-id
+         :reply-to;
+        bh=+wPmuRvkf+zzfvANKYGi8/K1eKEL3CEATmGnhv/3KRU=;
+        b=R88QmMRIIdt/qvSw/uqUwX5YOt9gGcMbRdqEJe/CN9esMeHnBBoa3/xZ+y5iEgw+Cf
+         w4NKfUl98CgMQPOryZ0wi6qgIj+IW8EzaWXU6FvsfVPF13oiF7B1OjRbogiA45IRWCtA
+         tXDG32+qqXEGLAbBo/KsmgQPmkip+m8u5JZz4PzFhVc07E8jv6NEMJ1AfH8ipms4FsWU
+         Od4Mm2xmtSPTBYmSXe0SXcBrlcxuhXvy21voFyPfYogLLfPEqopTgg7EAlkVRMI2TBNl
+         otAE6WhIG3c6C6LOvlyr4GztR+6LbZIKwXhbqB1OSOu/DvlBG7dckcifKmc3vlII49v3
+         SOOg==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20251104; t=1779968182; x=1780572982;
+        h=cc:to:in-reply-to:references:message-id:content-transfer-encoding
+         :mime-version:subject:date:from:x-gm-gg:x-gm-message-state:from:to
+         :cc:subject:date:message-id:reply-to;
+        bh=+wPmuRvkf+zzfvANKYGi8/K1eKEL3CEATmGnhv/3KRU=;
+        b=Vpq4ocJVeD30nawwo4C3DVHKbxBqECO+k8j98k4lD+VSF8YLGUixtxzsK1QIP2Ab5e
+         b+ZEpNZw3qY/PFZ0sqbt/fRG89cysI46nXQE+DS88N0/YlYiS7MxxTr7IkV1zsmD1D/v
+         vFeY9MMNM3q16Q3dB5b2/YUvMkIdM+UQZ/HIpxtXtvlf/nJxS7N/iS0o6xPFdHgEY6PR
+         BHASBXAZ+YOtLHv/k/nO8k3ySNU5JuJ4mWVNjgXqjoP7iWSHzm2+Zb2JTUrmRc4/gBZA
+         LyIlF4xNIMbtfJlWD5MsciqvJ69fpKc7ul0Ifupjk25WDoatYKrvwA5HvJBo13nKVWms
+         yXaA==
+X-Forwarded-Encrypted: i=1; AFNElJ96q+QeZ92vjDysoa+ccBTyYJrY71aAuEdsUrmY22N4IthYwERgPWAYtwKzf4TSryCJZ1T/aVHnYSqNYJrktkhX@lists.infradead.org
+X-Gm-Message-State: AOJu0YywivYwlVt2NkyI5jQt/dtDDtuHjC1AXpMAC1Kj3DohAgGx6b4k
+	IGn5GuXGlJxOnK1GOqP5Q9ftcCpD4sgs3HXD5GISXbbKf3KI+q77FojZ6ek3ffThcjY=
+X-Gm-Gg: Acq92OHrEx/kf73M7xZPlQmDtpHAXgYklGprtQ9llKPLPOaiNTq7+iQSQlLXBtZfPq9
+	hhT2OTD07uvT3MFguK69s/DPGGsPcCGI16fgUmv3ETmNXwrWhaUhl+Z+tCTwSKw/MI2u/OB/ykz
+	G6mrHOEj/Gu9y2HHlQ5O4GL4QJqGACmcYQqbJNq/yd/1LWB/uRTQO7UD6mN5xQcnxEzalE7cNRJ
+	hnHzcreZHw3rmmjbU5gY10g3LKWljBTlc1X/4H7/RG/3/eJovaw1rPakoT01Bb+fj0ymjvWanMe
+	Xk10hBElDszFG8E9OcRSy2TSHz+D5ETtuNvqPhkZHDQLldcaJkKax6LFats73tJpXK/pOI1WJpk
+	LCpeFlWd27ctXkQKCHUnp+pMb8A+089NPv4SM7wP4cJKKhCftXT5FDmjb07Y/ruHyfupy+r9z33
+	XMlhajITEUNkfzbmVT7hLP1FjBMawFbCnFzM4j6TJBxJU03YT2/xeEgN8LaBzVauPsGHYSOdc15
+	98xf9z2eDNEXfoilg==
+X-Received: by 2002:a05:600c:474d:b0:490:467e:a3d7 with SMTP id 5b1f17b1804b1-490467ea4a4mr413960935e9.30.1779968181918;
+        Thu, 28 May 2026 04:36:21 -0700 (PDT)
+Received: from ta2.c.googlers.com (231.141.38.34.bc.googleusercontent.com. [34.38.141.231])
+        by smtp.gmail.com with ESMTPSA id 5b1f17b1804b1-49092a902bfsm60385715e9.12.2026.05.28.04.36.21
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Thu, 28 May 2026 04:36:21 -0700 (PDT)
+From: Tudor Ambarus <tudor.ambarus@linaro.org>
+Date: Thu, 28 May 2026 11:36:15 +0000
+Subject: [PATCH v6 2/5] thermal: samsung: Add Exynos ACPM TMU driver GS101
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH] soc: imx8m: Fix match data lookup for soc device
-To: Frank Li <Frank.Li@nxp.com>, Sascha Hauer <s.hauer@pengutronix.de>,
- Pengutronix Kernel Team <kernel@pengutronix.de>,
- Fabio Estevam <festevam@gmail.com>,
- Greg Kroah-Hartman <gregkh@linuxfoundation.org>,
- "Rob Herring (Arm)" <robh@kernel.org>,
- Bartosz Golaszewski <bartosz.golaszewski@oss.qualcomm.com>,
- "Peng Fan (OSS)" <peng.fan@oss.nxp.com>
-Cc: imx@lists.linux.dev, linux-arm-kernel@lists.infradead.org,
- linux-kernel@vger.kernel.org, Peng Fan <peng.fan@nxp.com>,
- Linux kernel regressions list <regressions@lists.linux.dev>
-References: <20260427-soc-imx8m-fix-v1-1-1fe5b43d8090@nxp.com>
- <177816879666.299775.3947960528231798400.b4-ty@nxp.com>
-From: Thorsten Leemhuis <regressions@leemhuis.info>
-Content-Language: de-DE, en-US
-X-Enigmail-Draft-Status: N11222
-Autocrypt: addr=linux@leemhuis.info; keydata=
- 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 MEK4
-In-Reply-To: <177816879666.299775.3947960528231798400.b4-ty@nxp.com>
-Content-Type: text/plain; charset=UTF-8
+Content-Type: text/plain; charset="utf-8"
 Content-Transfer-Encoding: 7bit
-X-PPP-Message-ID: <177996573663.3727056.7438450775576394687@mxe9fb.netcup.net>
-X-Rspamd-Server: rspamd-worker-8404
-X-Rspamd-Queue-Id: 1F02761805
-X-NC-CID: +7uTo/v0kmeWSu5vm1gUOBG1dT1AsJ+WtuCKIWOmreW9xLGlKjQ=
+Message-Id: <20260528-acpm-tmu-v6-2-b4d7ce57594b@linaro.org>
+References: <20260528-acpm-tmu-v6-0-b4d7ce57594b@linaro.org>
+In-Reply-To: <20260528-acpm-tmu-v6-0-b4d7ce57594b@linaro.org>
+To: "Rafael J. Wysocki" <rafael@kernel.org>, 
+ Daniel Lezcano <daniel.lezcano@kernel.org>, Zhang Rui <rui.zhang@intel.com>, 
+ Lukasz Luba <lukasz.luba@arm.com>, Rob Herring <robh@kernel.org>, 
+ Krzysztof Kozlowski <krzk+dt@kernel.org>, 
+ Conor Dooley <conor+dt@kernel.org>, 
+ Bartlomiej Zolnierkiewicz <bzolnier@gmail.com>, 
+ Krzysztof Kozlowski <krzk@kernel.org>, Kees Cook <kees@kernel.org>, 
+ "Gustavo A. R. Silva" <gustavoars@kernel.org>, 
+ Peter Griffin <peter.griffin@linaro.org>, 
+ =?utf-8?q?Andr=C3=A9_Draszik?= <andre.draszik@linaro.org>, 
+ Alim Akhtar <alim.akhtar@samsung.com>
+Cc: jyescas@google.com, linux-kernel@vger.kernel.org, 
+ linux-samsung-soc@vger.kernel.org, linux-pm@vger.kernel.org, 
+ devicetree@vger.kernel.org, linux-hardening@vger.kernel.org, 
+ linux-arm-kernel@lists.infradead.org, 
+ Tudor Ambarus <tudor.ambarus@linaro.org>, 
+ Krzysztof Kozlowski <krzysztof.kozlowski@oss.qualcomm.com>
+X-Mailer: b4 0.14.3
+X-Developer-Signature: v=1; a=ed25519-sha256; t=1779968180; l=18267;
+ i=tudor.ambarus@linaro.org; s=20241212; h=from:subject:message-id;
+ bh=iXQqXA4zn1HJGzSp/hVf9/UfdsqmSFFSHnsvgO7vS2Y=;
+ b=P0oDFv6mjs2ffzUgoeF5gAc7iY0ND71j6XKUcgWQxJlJrAFvdnViIR7FHQfOhe22KkHPL+Lq7
+ t2fnH6hyA3lC2QZpmMtbCkrd/e29iepwC/57tRiqPf1g5zlBFvBT5Dr
+X-Developer-Key: i=tudor.ambarus@linaro.org; a=ed25519;
+ pk=uQzE0NXo3dIjeowMTOPCpIiPHEz12IA/MbyzrZVh9WI=
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260528_035707_835888_71B8343C 
-X-CRM114-Status: GOOD (  10.94  )
+X-CRM114-CacheID: sfid-20260528_043624_410638_051EC98F 
+X-CRM114-Status: GOOD (  25.18  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -142,29 +121,641 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On 5/7/26 17:46, Frank Li wrote:
-> 
-> On Mon, 27 Apr 2026 09:01:48 +0800, Peng Fan (OSS) wrote:
->> The i.MX8M soc device is registered via platform_device_register_simple(),
->> so it is not associated with a Device Tree node and the imx8m_soc_driver
->> has no of_match_table.
->>
->> As a result, device_get_match_data() always returns NULL when probing
->> the soc device.
->>
->> [...]
-> 
-> Applied, thanks!
-> 
-> [1/1] soc: imx8m: Fix match data lookup for soc device
->       commit: 2c6821657ce3b3c85f92719ea81ec9f9ff27df11
+Add driver for the Thermal Management Unit (TMU) managed via the Alive
+Clock and Power Manager (ACPM), found on Samsung Exynos SoCs such as
+Google GS101 (and Exynos850, autov920, etc.).
 
-Just wondering: are you planning to sent this towards mainline this
-cycle? The regression this fixes was introduced this cycle, so I guess
-it's something that should be merged before -rc6, as that's when Linus
-wants all known regression ideally fixed. But from the name of the
-branch it sounds more like this is scheduled to be merged in the next
-merge window (but I might easily mistaken there -- if I am: sorry!)
+The TMU on utilizes a hybrid management model shared between the
+Application Processor (AP) and the ACPM firmware. The driver maintains
+direct memory-mapped access to the TMU interrupt pending registers to
+identify thermal events, while delegating functional tasks - such as
+sensor initialization, threshold configuration, and temperature
+acquisition - to the ACPM firmware via the ACPM IPC protocol.
 
-Ciao, Thorsten
+Signed-off-by: Tudor Ambarus <tudor.ambarus@linaro.org>
+Acked-by: Krzysztof Kozlowski <krzysztof.kozlowski@oss.qualcomm.com>
+---
+ drivers/thermal/samsung/Kconfig    |  19 ++
+ drivers/thermal/samsung/Makefile   |   2 +
+ drivers/thermal/samsung/acpm-tmu.c | 571 +++++++++++++++++++++++++++++++++++++
+ 3 files changed, 592 insertions(+)
+
+diff --git a/drivers/thermal/samsung/Kconfig b/drivers/thermal/samsung/Kconfig
+index f4eff5a41a84..383ae3f56cbb 100644
+--- a/drivers/thermal/samsung/Kconfig
++++ b/drivers/thermal/samsung/Kconfig
+@@ -9,3 +9,22 @@ config EXYNOS_THERMAL
+ 	  the TMU, reports temperature and handles cooling action if defined.
+ 	  This driver uses the Exynos core thermal APIs and TMU configuration
+ 	  data from the supported SoCs.
++
++config EXYNOS_ACPM_THERMAL
++	tristate "Exynos ACPM thermal management unit driver"
++	depends on THERMAL_OF
++	depends on HAS_IOMEM
++	depends on EXYNOS_ACPM_PROTOCOL || (COMPILE_TEST && !EXYNOS_ACPM_PROTOCOL)
++	default ARCH_EXYNOS
++	help
++	  Support for the Thermal Management Unit (TMU) on Samsung Exynos SoCs
++	  (such as Google GS101 and Exynos850).
++
++	  The TMU on these platforms is managed through a hybrid architecture.
++	  This driver handles direct register access for thermal interrupt status
++	  monitoring and communicates with the Alive Clock and Power Manager
++	  (ACPM) firmware via the ACPM IPC protocol for functional sensor control
++	  and configuration.
++
++	  Select this if you want to monitor device temperature and enable
++	  thermal mitigation on Samsung Exynos ACPM based devices.
+diff --git a/drivers/thermal/samsung/Makefile b/drivers/thermal/samsung/Makefile
+index f139407150d2..daed80647c34 100644
+--- a/drivers/thermal/samsung/Makefile
++++ b/drivers/thermal/samsung/Makefile
+@@ -4,3 +4,5 @@
+ #
+ obj-$(CONFIG_EXYNOS_THERMAL)			+= exynos_thermal.o
+ exynos_thermal-y				:= exynos_tmu.o
++obj-$(CONFIG_EXYNOS_ACPM_THERMAL)		+= exynos_acpm_thermal.o
++exynos_acpm_thermal-y				:= acpm-tmu.o
+diff --git a/drivers/thermal/samsung/acpm-tmu.c b/drivers/thermal/samsung/acpm-tmu.c
+new file mode 100644
+index 000000000000..b56869c9fc3b
+--- /dev/null
++++ b/drivers/thermal/samsung/acpm-tmu.c
+@@ -0,0 +1,571 @@
++// SPDX-License-Identifier: GPL-2.0-only
++/*
++ * Copyright 2019 Samsung Electronics Co., Ltd.
++ * Copyright 2025 Google LLC.
++ * Copyright 2026 Linaro Ltd.
++ */
++
++#include <linux/cleanup.h>
++#include <linux/clk.h>
++#include <linux/device/devres.h>
++#include <linux/err.h>
++#include <linux/firmware/samsung/exynos-acpm-protocol.h>
++#include <linux/interrupt.h>
++#include <linux/minmax.h>
++#include <linux/mod_devicetable.h>
++#include <linux/module.h>
++#include <linux/of.h>
++#include <linux/platform_device.h>
++#include <linux/pm_runtime.h>
++#include <linux/regmap.h>
++#include <linux/thermal.h>
++#include <linux/units.h>
++
++#include "../thermal_hwmon.h"
++
++#define EXYNOS_TMU_SENSOR(i)		BIT(i)
++#define EXYNOS_TMU_SENSORS_MAX_COUNT	16
++
++#define GS101_CPUCL2_SENSOR_MASK (EXYNOS_TMU_SENSOR(0) |	\
++				  EXYNOS_TMU_SENSOR(6) |	\
++				  EXYNOS_TMU_SENSOR(7) |	\
++				  EXYNOS_TMU_SENSOR(8) |	\
++				  EXYNOS_TMU_SENSOR(9))
++#define GS101_CPUCL1_SENSOR_MASK (EXYNOS_TMU_SENSOR(4) |	\
++				  EXYNOS_TMU_SENSOR(5))
++#define GS101_CPUCL0_SENSOR_MASK (EXYNOS_TMU_SENSOR(1) |	\
++				  EXYNOS_TMU_SENSOR(2))
++
++#define GS101_REG_INTPEND(i)		((i) * 0x50 + 0xf8)
++
++enum {
++	P0_INTPEND,
++	P1_INTPEND,
++	P2_INTPEND,
++	P3_INTPEND,
++	P4_INTPEND,
++	P5_INTPEND,
++	P6_INTPEND,
++	P7_INTPEND,
++	P8_INTPEND,
++	P9_INTPEND,
++	P10_INTPEND,
++	P11_INTPEND,
++	P12_INTPEND,
++	P13_INTPEND,
++	P14_INTPEND,
++	P15_INTPEND,
++	REG_INTPEND_COUNT,
++};
++
++struct acpm_tmu_sensor_group {
++	u16 mask;
++	u8 id;
++};
++
++struct acpm_tmu_sensor {
++	const struct acpm_tmu_sensor_group *group;
++	struct thermal_zone_device *tzd;
++	struct acpm_tmu_priv *priv;
++	struct mutex lock; /* protects sensor state */
++	bool enabled;
++};
++
++struct acpm_tmu_priv {
++	struct regmap_field *regmap_fields[REG_INTPEND_COUNT];
++	struct acpm_handle *handle;
++	struct device *dev;
++	struct clk *clk;
++	unsigned int mbox_chan_id;
++	unsigned int num_sensors;
++	int irq;
++	struct acpm_tmu_sensor sensors[] __counted_by(num_sensors);
++};
++
++struct acpm_tmu_driver_data {
++	const struct reg_field *reg_fields;
++	const struct acpm_tmu_sensor_group *sensor_groups;
++	unsigned int num_sensor_groups;
++	unsigned int mbox_chan_id;
++};
++
++#define ACPM_TMU_SENSOR_GROUP(_mask, _id)		\
++	{					\
++		.mask	= _mask,		\
++		.id	= _id,			\
++	}
++
++static const struct acpm_tmu_sensor_group gs101_sensor_groups[] = {
++	ACPM_TMU_SENSOR_GROUP(GS101_CPUCL2_SENSOR_MASK, 0),
++	ACPM_TMU_SENSOR_GROUP(GS101_CPUCL1_SENSOR_MASK, 1),
++	ACPM_TMU_SENSOR_GROUP(GS101_CPUCL0_SENSOR_MASK, 2),
++};
++
++static const struct reg_field gs101_reg_fields[REG_INTPEND_COUNT] = {
++	[P0_INTPEND] = REG_FIELD(GS101_REG_INTPEND(0), 0, 31),
++	[P1_INTPEND] = REG_FIELD(GS101_REG_INTPEND(1), 0, 31),
++	[P2_INTPEND] = REG_FIELD(GS101_REG_INTPEND(2), 0, 31),
++	[P3_INTPEND] = REG_FIELD(GS101_REG_INTPEND(3), 0, 31),
++	[P4_INTPEND] = REG_FIELD(GS101_REG_INTPEND(4), 0, 31),
++	[P5_INTPEND] = REG_FIELD(GS101_REG_INTPEND(5), 0, 31),
++	[P6_INTPEND] = REG_FIELD(GS101_REG_INTPEND(6), 0, 31),
++	[P7_INTPEND] = REG_FIELD(GS101_REG_INTPEND(7), 0, 31),
++	[P8_INTPEND] = REG_FIELD(GS101_REG_INTPEND(8), 0, 31),
++	[P9_INTPEND] = REG_FIELD(GS101_REG_INTPEND(9), 0, 31),
++	[P10_INTPEND] = REG_FIELD(GS101_REG_INTPEND(10), 0, 31),
++	[P11_INTPEND] = REG_FIELD(GS101_REG_INTPEND(11), 0, 31),
++	[P12_INTPEND] = REG_FIELD(GS101_REG_INTPEND(12), 0, 31),
++	[P13_INTPEND] = REG_FIELD(GS101_REG_INTPEND(13), 0, 31),
++	[P14_INTPEND] = REG_FIELD(GS101_REG_INTPEND(14), 0, 31),
++	[P15_INTPEND] = REG_FIELD(GS101_REG_INTPEND(15), 0, 31),
++};
++
++static const struct regmap_config gs101_regmap_config = {
++	.reg_bits = 32,
++	.reg_stride = 4,
++	.val_bits = 32,
++	.use_relaxed_mmio = true,
++	.max_register = GS101_REG_INTPEND(15),
++};
++
++static const struct acpm_tmu_driver_data acpm_tmu_gs101 = {
++	.reg_fields = gs101_reg_fields,
++	.sensor_groups = gs101_sensor_groups,
++	.num_sensor_groups = ARRAY_SIZE(gs101_sensor_groups),
++	.mbox_chan_id = 9,
++};
++
++static int acpm_tmu_op_tz_control(struct acpm_tmu_sensor *sensor, bool on)
++{
++	struct acpm_tmu_priv *priv = sensor->priv;
++	struct acpm_handle *handle = priv->handle;
++	const struct acpm_tmu_ops *ops = &handle->ops->tmu;
++	int ret;
++
++	ret = ops->tz_control(handle, priv->mbox_chan_id, sensor->group->id,
++			      on);
++	if (ret)
++		return ret;
++
++	sensor->enabled = on;
++
++	return 0;
++}
++
++static int acpm_tmu_control(struct acpm_tmu_priv *priv, bool on)
++{
++	struct device *dev = priv->dev;
++	int i, ret, err = 0;
++
++	ret = pm_runtime_resume_and_get(dev);
++	if (ret < 0)
++		return ret;
++
++	for (i = 0; i < priv->num_sensors; i++) {
++		struct acpm_tmu_sensor *sensor = &priv->sensors[i];
++
++		/* Skip sensors that weren't found in DT */
++		if (!sensor->tzd)
++			continue;
++
++		mutex_lock(&sensor->lock);
++		ret = acpm_tmu_op_tz_control(sensor, on);
++		mutex_unlock(&sensor->lock);
++		if (ret) {
++			if (!err)
++				err = ret;
++
++			/* On enable, stop on first error. On disable, keep going */
++			if (on)
++				break;
++		}
++	}
++
++	pm_runtime_put_sync(dev);
++	return err;
++}
++
++static int acpm_tmu_get_temp(struct thermal_zone_device *tz, int *temp)
++{
++	struct acpm_tmu_sensor *sensor = thermal_zone_device_priv(tz);
++	struct acpm_tmu_priv *priv = sensor->priv;
++	struct acpm_handle *handle = priv->handle;
++	const struct acpm_tmu_ops *ops = &handle->ops->tmu;
++	struct device *dev = priv->dev;
++	int acpm_temp = 0, ret;
++
++	if (!sensor->enabled)
++		return -EAGAIN;
++
++	ret = pm_runtime_resume_and_get(dev);
++	if (ret < 0)
++		return ret;
++
++	scoped_guard(mutex, &sensor->lock) {
++		ret = ops->read_temp(handle, priv->mbox_chan_id,
++				     sensor->group->id, &acpm_temp);
++	}
++
++	pm_runtime_put_autosuspend(dev);
++
++	if (ret)
++		return ret;
++
++	*temp = acpm_temp * MILLIDEGREE_PER_DEGREE;
++
++	return 0;
++}
++
++static int acpm_tmu_update_thresholds(struct acpm_tmu_sensor *sensor,
++				      u8 thresholds[2], u8 inten)
++{
++	struct acpm_tmu_priv *priv = sensor->priv;
++	struct acpm_handle *handle = priv->handle;
++	const struct acpm_tmu_ops *ops = &handle->ops->tmu;
++	unsigned int mbox_chan_id = priv->mbox_chan_id;
++	u8 acpm_sensor_id = sensor->group->id;
++	bool was_enabled;
++	int ret, restore_ret;
++
++	guard(mutex)(&sensor->lock);
++
++	was_enabled = sensor->enabled;
++
++	if (was_enabled) {
++		ret = acpm_tmu_op_tz_control(sensor, false);
++		if (ret)
++			return ret;
++	}
++
++	ret = ops->set_threshold(handle, mbox_chan_id, acpm_sensor_id,
++				 thresholds, 2);
++	if (ret)
++		goto err_restore;
++
++	ret = ops->set_interrupt_enable(handle, mbox_chan_id, acpm_sensor_id,
++					inten);
++	if (ret)
++		goto err_restore;
++
++	/* Restore based on cached state. */
++	if (was_enabled)
++		ret = acpm_tmu_op_tz_control(sensor, true);
++
++	return ret;
++
++err_restore:
++	if (was_enabled) {
++		restore_ret = acpm_tmu_op_tz_control(sensor, true);
++
++		if (restore_ret)
++			dev_err(priv->dev, "Failed to restore sensor state: %d\n",
++				restore_ret);
++	}
++
++	return ret;
++}
++
++static int acpm_tmu_set_trips(struct thermal_zone_device *tz, int low, int high)
++{
++	struct acpm_tmu_sensor *sensor = thermal_zone_device_priv(tz);
++	struct acpm_tmu_priv *priv = sensor->priv;
++	struct device *dev = priv->dev;
++	u8 thresholds[2] = {};
++	u8 inten = 0;
++	int ret;
++
++	/* If a valid lower bound exists, set the threshold and enable its interrupt */
++	if (low > -INT_MAX) {
++		thresholds[0] = clamp_val(low / MILLIDEGREE_PER_DEGREE, 0, 255);
++		inten |= BIT(0);
++	}
++
++	/* If a valid upper bound exists, set the threshold and enable its interrupt */
++	if (high < INT_MAX) {
++		thresholds[1] = clamp_val(high / MILLIDEGREE_PER_DEGREE, 0, 255);
++		inten |= BIT(1);
++	}
++
++	ret = pm_runtime_resume_and_get(dev);
++	if (ret)
++		return ret;
++
++	ret = acpm_tmu_update_thresholds(sensor, thresholds, inten);
++
++	pm_runtime_put_autosuspend(dev);
++
++	return ret;
++}
++
++static const struct thermal_zone_device_ops acpm_tmu_sensor_ops = {
++	.get_temp = acpm_tmu_get_temp,
++	.set_trips = acpm_tmu_set_trips,
++};
++
++static int acpm_tmu_has_pending_irq(struct acpm_tmu_sensor *sensor,
++				    bool *pending_irq)
++{
++	struct acpm_tmu_priv *priv = sensor->priv;
++	unsigned long mask = sensor->group->mask;
++	int i, ret;
++	u32 val;
++
++	guard(mutex)(&sensor->lock);
++
++	for_each_set_bit(i, &mask, EXYNOS_TMU_SENSORS_MAX_COUNT) {
++		ret = regmap_field_read(priv->regmap_fields[i], &val);
++		if (ret)
++			return ret;
++
++		if (val) {
++			*pending_irq = true;
++			break;
++		}
++	}
++
++	return 0;
++}
++
++static irqreturn_t acpm_tmu_thread_fn(int irq, void *id)
++{
++	struct acpm_tmu_priv *priv = id;
++	struct acpm_handle *handle = priv->handle;
++	const struct acpm_tmu_ops *ops = &handle->ops->tmu;
++	struct device *dev = priv->dev;
++	bool handled = false;
++	int i, ret;
++
++	ret = pm_runtime_resume_and_get(dev);
++	if (ret) {
++		dev_err(dev, "Failed to resume: %d\n", ret);
++		return IRQ_NONE;
++	}
++
++	for (i = 0; i < priv->num_sensors; i++) {
++		struct acpm_tmu_sensor *sensor = &priv->sensors[i];
++		bool pending_irq = false;
++
++		if (!sensor->tzd)
++			continue;
++
++		ret = acpm_tmu_has_pending_irq(sensor, &pending_irq);
++		if (ret || !pending_irq)
++			continue;
++
++		handled = true;
++
++		thermal_zone_device_update(sensor->tzd,
++					   THERMAL_EVENT_UNSPECIFIED);
++
++		scoped_guard(mutex, &sensor->lock) {
++			ret = ops->clear_tz_irq(handle, priv->mbox_chan_id,
++						sensor->group->id);
++			if (ret)
++				dev_err(priv->dev, "Sensor %d: failed to clear IRQ (%d)\n",
++					i, ret);
++		}
++	}
++
++	pm_runtime_put_autosuspend(dev);
++
++	return handled ? IRQ_HANDLED : IRQ_NONE;
++}
++
++static const struct of_device_id acpm_tmu_match[] = {
++	{ .compatible = "google,gs101-tmu-top" },
++	{ /* sentinel */ },
++};
++MODULE_DEVICE_TABLE(of, acpm_tmu_match);
++
++static int acpm_tmu_probe(struct platform_device *pdev)
++{
++	const struct acpm_tmu_driver_data *data = &acpm_tmu_gs101;
++	struct acpm_handle *acpm_handle;
++	struct device *dev = &pdev->dev;
++	struct acpm_tmu_priv *priv;
++	struct regmap *regmap;
++	void __iomem *base;
++	int i, ret;
++
++	acpm_handle = devm_acpm_get_by_phandle(dev);
++	if (IS_ERR(acpm_handle))
++		return dev_err_probe(dev, PTR_ERR(acpm_handle),
++				     "Failed to get ACPM handle\n");
++
++	priv = devm_kzalloc(dev,
++			    struct_size(priv, sensors, data->num_sensor_groups),
++			    GFP_KERNEL);
++	if (!priv)
++		return -ENOMEM;
++
++	priv->dev = dev;
++	priv->handle = acpm_handle;
++	priv->mbox_chan_id = data->mbox_chan_id;
++	priv->num_sensors = data->num_sensor_groups;
++
++	platform_set_drvdata(pdev, priv);
++
++	base = devm_platform_ioremap_resource(pdev, 0);
++	if (IS_ERR(base))
++		return dev_err_probe(dev, PTR_ERR(base), "Failed to ioremap resource\n");
++
++	regmap = devm_regmap_init_mmio(dev, base, &gs101_regmap_config);
++	if (IS_ERR(regmap))
++		return dev_err_probe(dev, PTR_ERR(regmap), "Failed to init regmap\n");
++
++	ret = devm_regmap_field_bulk_alloc(dev, regmap, priv->regmap_fields,
++					   data->reg_fields, REG_INTPEND_COUNT);
++	if (ret)
++		return dev_err_probe(dev, ret,
++				     "Unable to map syscon registers\n");
++
++	priv->clk = devm_clk_get(dev, NULL);
++	if (IS_ERR(priv->clk))
++		return dev_err_probe(dev, PTR_ERR(priv->clk),
++				     "Failed to get the clock\n");
++
++	priv->irq = platform_get_irq(pdev, 0);
++	if (priv->irq < 0)
++		return dev_err_probe(dev, priv->irq, "Failed to get irq\n");
++
++	pm_runtime_set_autosuspend_delay(dev, 100);
++	pm_runtime_use_autosuspend(dev);
++
++	ret = devm_pm_runtime_enable(dev);
++	if (ret)
++		return dev_err_probe(dev, ret, "Failed to enable runtime PM\n");
++
++	ret = pm_runtime_resume_and_get(dev);
++	if (ret < 0)
++		return dev_err_probe(dev, ret, "Failed to resume device\n");
++
++	ret = acpm_handle->ops->tmu.init(acpm_handle, priv->mbox_chan_id);
++	if (ret) {
++		ret = dev_err_probe(dev, ret, "Failed to init TMU\n");
++		goto err_pm_put;
++	}
++
++	for (i = 0; i < priv->num_sensors; i++) {
++		struct acpm_tmu_sensor *sensor = &priv->sensors[i];
++
++		mutex_init(&sensor->lock);
++		sensor->group = &data->sensor_groups[i];
++		sensor->priv = priv;
++
++		sensor->tzd = devm_thermal_of_zone_register(dev, i, sensor,
++							    &acpm_tmu_sensor_ops);
++		if (IS_ERR(sensor->tzd)) {
++			ret = PTR_ERR(sensor->tzd);
++			if (ret == -ENODEV) {
++				sensor->tzd = NULL;
++				dev_dbg(dev, "Sensor %d not used in DT, skipping\n", i);
++				continue;
++			}
++
++			ret = dev_err_probe(dev, ret, "Failed to register sensor %d\n", i);
++			goto err_pm_put;
++		}
++
++		ret = devm_thermal_add_hwmon_sysfs(dev, sensor->tzd);
++		if (ret)
++			dev_warn(dev, "Failed to add hwmon sysfs!\n");
++	}
++
++	ret = devm_request_threaded_irq(dev, priv->irq, NULL,
++					acpm_tmu_thread_fn, IRQF_ONESHOT,
++					dev_name(dev), priv);
++	if (ret) {
++		ret = dev_err_probe(dev, ret, "Failed to request irq\n");
++		goto err_pm_put;
++	}
++
++	ret = acpm_tmu_control(priv, true);
++	if (ret) {
++		ret = dev_err_probe(dev, ret, "Failed to enable TMU\n");
++		goto err_pm_put;
++	}
++
++	pm_runtime_put_autosuspend(dev);
++
++	return 0;
++
++err_pm_put:
++	pm_runtime_put_sync(dev);
++	return ret;
++}
++
++static void acpm_tmu_remove(struct platform_device *pdev)
++{
++	struct acpm_tmu_priv *priv = platform_get_drvdata(pdev);
++
++	/* Stop IRQ first to prevent race with thread_fn */
++	disable_irq(priv->irq);
++
++	acpm_tmu_control(priv, false);
++}
++
++static int acpm_tmu_suspend(struct device *dev)
++{
++	struct acpm_tmu_priv *priv = dev_get_drvdata(dev);
++	struct acpm_handle *handle = priv->handle;
++	const struct acpm_tmu_ops *ops = &handle->ops->tmu;
++	int ret;
++
++	ret = acpm_tmu_control(priv, false);
++	if (ret)
++		return ret;
++
++	/* APB clock not required for this specific msg */
++	return ops->suspend(handle, priv->mbox_chan_id);
++}
++
++static int acpm_tmu_resume(struct device *dev)
++{
++	struct acpm_tmu_priv *priv = dev_get_drvdata(dev);
++	struct acpm_handle *handle = priv->handle;
++	const struct acpm_tmu_ops *ops = &handle->ops->tmu;
++	int ret;
++
++	/* APB clock not required for this specific msg */
++	ret = ops->resume(handle, priv->mbox_chan_id);
++	if (ret)
++		return ret;
++
++	return acpm_tmu_control(priv, true);
++}
++
++static int acpm_tmu_runtime_suspend(struct device *dev)
++{
++	struct acpm_tmu_priv *priv = dev_get_drvdata(dev);
++
++	clk_disable_unprepare(priv->clk);
++
++	return 0;
++}
++
++static int acpm_tmu_runtime_resume(struct device *dev)
++{
++	struct acpm_tmu_priv *priv = dev_get_drvdata(dev);
++
++	return clk_prepare_enable(priv->clk);
++}
++
++static const struct dev_pm_ops acpm_tmu_pm_ops = {
++	SYSTEM_SLEEP_PM_OPS(acpm_tmu_suspend, acpm_tmu_resume)
++	RUNTIME_PM_OPS(acpm_tmu_runtime_suspend, acpm_tmu_runtime_resume, NULL)
++};
++
++static struct platform_driver acpm_tmu_driver = {
++	.driver = {
++		.name   = "gs-tmu",
++		.pm     = pm_ptr(&acpm_tmu_pm_ops),
++		.of_match_table = acpm_tmu_match,
++	},
++	.probe = acpm_tmu_probe,
++	.remove = acpm_tmu_remove,
++};
++module_platform_driver(acpm_tmu_driver);
++
++MODULE_AUTHOR("Tudor Ambarus <tudor.ambarus@linaro.org>");
++MODULE_DESCRIPTION("Samsung Exynos ACPM TMU Driver");
++MODULE_LICENSE("GPL");
+
+-- 
+2.54.0.794.g4f17f83d09-goog
+
 
