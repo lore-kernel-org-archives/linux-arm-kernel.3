@@ -4,94 +4,108 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 53FE3CD5BD5
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 28 May 2026 06:42:04 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 12075CD6E45
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 28 May 2026 06:44:09 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	MIME-Version:Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-Type:
-	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
-	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
-	bh=eyGymNqbhiXLlzQIXinZjQ2T/+xHy6TN3+8MZhwVUx4=; b=S3sssZYXuzBnXgDs5OVSaV8OgH
-	LTE9Ri3IPvDHFVIOGDtbgopVVFVNsrjkuYeRNwfO0csJ73mC8QrncBQrJsyOxdASntjnfEAtOZEFg
-	bLbxKQbQx4VTlNlm8rGGw7EVcYVbfsPB5OUP5VjANE/ew6SZLWNueaysT/Etcj8kWfjYIaOMAY7NK
-	9QQMIMJfDaNLdUIDrGWfn/RO7623KWhN1ThxMUxKs69QQ6kQB8YFb/i9obAR8JgIPhtfZEpxlml8l
-	Ns1iuVcILdI0AyfVvjt2qPM/hQoLx6sJo5M5A3/5HgN+oV6td7Cz+nvF8W86U8XD+jetb7H5uLxXM
-	Cc2sti8w==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:
+	Content-Transfer-Encoding:MIME-Version:Message-ID:Date:Subject:CC:To:From:
+	Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender
+	:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=p9EIArNmMyS04CIw5SL3x57oTVsqVHlRauIbz+PreHs=; b=fgqhY17HXNz17QoXmMe97b5tAm
+	5DuZA5E8JIKgHCEgbM11Bla32s4UGbeSQlMYqkwbM2MrOpnrlOil37i3zz/czYpgsov0GBIzL0dNa
+	vc4rR/2kQ8HgL6IzqcfY6J4c37G8yvAMPM0r7NAJMQuN0sUPyAyJ7OKvkEPEoFi5beQrzfdzio3NG
+	kGa3Xb35HQthBD4hRdU2jum5ckKyP4XTaJ4QEr2Zg9VgwTELdByngZ3kzLWgPoRlIvpGPqRtBwQ/c
+	O4+54W0rhIoPfpJKQFDsqsgrVjKTC6yT3Ay368SLle+l+EQiphm/MN+FxmfIn2pTI3sl0tSMo9a4S
+	hbyomhKA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wSURI-00000005CxQ-4B3j;
-	Thu, 28 May 2026 06:41:56 +0000
-Received: from mail-pg1-x530.google.com ([2607:f8b0:4864:20::530])
+	id 1wSUTJ-00000005D7z-1b2V;
+	Thu, 28 May 2026 06:44:01 +0000
+Received: from mail-northcentralusazlp170100001.outbound.protection.outlook.com ([2a01:111:f403:c105::1] helo=CH1PR05CU001.outbound.protection.outlook.com)
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wSURF-00000005CwA-297u
+	id 1wSUTG-00000005D6o-0v3Q
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 28 May 2026 06:41:55 +0000
-Received: by mail-pg1-x530.google.com with SMTP id 41be03b00d2f7-c802803ac17so5190357a12.1
-        for <linux-arm-kernel@lists.infradead.org>; Wed, 27 May 2026 23:41:52 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20251104; t=1779950512; x=1780555312; darn=lists.infradead.org;
-        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
-         :to:from:from:to:cc:subject:date:message-id:reply-to;
-        bh=eyGymNqbhiXLlzQIXinZjQ2T/+xHy6TN3+8MZhwVUx4=;
-        b=itAX+fe58TyxwUX+vf1r36WMLK6xuIgs8Ecg/C1a09t+iViyHmQ8YAUBKSMeB0Fz4w
-         WPpLc0/8G5wTQuodbHMLooH9PcYfg5CiM6O4c/IyAv+6rmC2xc0UKa9WBNsNUmzgwGEl
-         IquJT+ANfjzhFk9O+s1scCC7V0CXSoZ0+2WYnoUWGW9ZpcY8LYJu6n4O9IAgpOss+4jb
-         SGW72OJIrpX6lVXh/erlKXDl7fVsm/6yQUlXnzQdMLsonRCt+3zAAd7gxnFnTlCLLkcP
-         hzUk4MNz0ZqwpDAPRJoPz/OGW6MPMjfFGZ4S4fL3EStdmmVnJeM2dqWw9mfSoYhVUS9U
-         xm5A==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20251104; t=1779950512; x=1780555312;
-        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
-         :to:from:x-gm-gg:x-gm-message-state:from:to:cc:subject:date
-         :message-id:reply-to;
-        bh=eyGymNqbhiXLlzQIXinZjQ2T/+xHy6TN3+8MZhwVUx4=;
-        b=pEWpdhbw+Ksve7j5sVAxxxlG2X/0yrQo1u+qOiLUgKGu029oNkKwrfDqC4YVj4W38j
-         k7CVrRIA5z9lz/VbdX1wVtxld4McFp0TKJiaZdDzqYiKglxz1KAZYL3UOeg7eQ/1Ea+h
-         ebs7wDhg7Qvj6IMW9gyBDzimMvB7bAzhLzfcjzvlNvZJc+B8LsmDMKjlLtc2n4jn2lYk
-         VdHT1M2i8+QEg+t0wSJ+Qa3ufdFDwOPbr85hEv5ilNeJyt2qgs7Dja9oihKV3r3WP+14
-         MiCuGFBtnA/eaK4T2fNo7pi+RUA7qjzBQPC3rzfqeCUYz0nV5Wm5DOBG5E7OPVBwHzSg
-         bOTw==
-X-Forwarded-Encrypted: i=1; AFNElJ+3hiyONPgczjgcG5qRH/pvpdldg47ohCZKJvBi4mULvmMbNiYiM/upMjT+ucvk8xOYSQzvrctklnd5DQhPLXxy@lists.infradead.org
-X-Gm-Message-State: AOJu0YwZ3nbfsFV2udVWquKUul0j/Qhlf/iCfpOEB46HF5msKMYwSBW7
-	cAkvRXOrUfZdqAKzJvpqL//Mwvju7mKnlcKfnGvDSFilIKpDXOr2x/JH
-X-Gm-Gg: Acq92OEP+L6FyuSiQfxA9bz5Q+AOkj95DS2OJM8jgt7fGLG9/UDTCWPgaiVV5xVuRaC
-	x+F/u3NYEPli0IQQUWm84NPvbwU3DJvkwVJV3IwSgIyQOr+yQB9LlVP/TZZboJlIfVdxyG/a5TO
-	n8uI1KTOUyOYAfl4i8vCZBp2NZZAtT+/1JyYvLRep7AV0Ca4bJUjHuNJ3vtD8GNZE46JJLK4TeR
-	JIpEPJEn4cPPM6FAn/pg3l2p2Z6yv/OQ13lpC3RWTNyej5hI0NGuHZ46NdMF3auiHayTH9x4OU3
-	ExgHArRLtywEERqPs6Lq5TctvJUlLbvsd6zlH7+SIolDi/g4fpwY0w/nH3CyclqEGU+JA8oQexs
-	DANTj6zc+rN+32C32qo8zxMTdGIkQ9FBlg4oQvxyBvdMjf95oFYYb862QBq53qC+/+kGTCyrjRB
-	01/aLzpg7sFW1Vw7gVh3nC2GSYeD4IBjCtLNGi0wDgdozk3WAa3vWBrSCfIeMhWg1JbQ==
-X-Received: by 2002:a05:6a21:9d91:b0:39f:9eb3:1d09 with SMTP id adf61e73a8af0-3b328ee2e52mr27362688637.37.1779950512300;
-        Wed, 27 May 2026 23:41:52 -0700 (PDT)
-Received: from oslab.. (n058152075021.netvigator.com. [58.152.75.21])
-        by smtp.gmail.com with ESMTPSA id 41be03b00d2f7-c852056db34sm14417515a12.27.2026.05.27.23.41.44
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Wed, 27 May 2026 23:41:51 -0700 (PDT)
-From: Tuo Li <islituo@gmail.com>
-To: lgirdwood@gmail.com,
-	broonie@kernel.org,
-	perex@perex.cz,
-	tiwai@suse.com,
-	matthias.bgg@gmail.com,
-	angelogioacchino.delregno@collabora.com,
-	kuninori.morimoto.gx@renesas.com,
-	ckeepax@opensource.cirrus.com,
-	vulab@iscas.ac.cn
-Cc: linux-sound@vger.kernel.org,
-	linux-kernel@vger.kernel.org,
-	linux-arm-kernel@lists.infradead.org,
-	linux-mediatek@lists.infradead.org,
-	Tuo Li <islituo@gmail.com>
-Subject: [PATCH] ASoC: mediatek: mt8365-afe-pcm: fix possible NULL-pointer dereferences in mt8365_afe_suspend()
-Date: Thu, 28 May 2026 14:41:06 +0800
-Message-ID: <20260528064107.470824-1-islituo@gmail.com>
-X-Mailer: git-send-email 2.43.0
+	Thu, 28 May 2026 06:44:00 +0000
+ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
+ b=dflEqtFXBSzQYO2WRwAmC6i6mq5lmrhEaYUG09jcMe36lu/s5E91QSs22zK3Qdu1cMZBcL6rf7XPgoCElys4o93DyKIsRCvlFQ9o+QF3uw8EhiNH11Pioza/O8uKBNEOkJ+Niv1Lu0I9pIz16HEwYiWVOLyIstlZ+H4e7zLZ846lOSb6576/5Du9BJedzsY3DYsXZJrvpxXNVDv8B9YfkxJTH67qoMnkzoMEGOCLW1mNb/rHL+frQ15xRlJlNiSNLT+9ss9GbxJoNC8Stfrdm8WOdAgcNbcYu1/2udbRDKTiDuuYbc6yfWXh8dqtUZn4B/Ex09vpZGen2mAhP6LYGg==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
+ s=arcselector10001;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
+ bh=p9EIArNmMyS04CIw5SL3x57oTVsqVHlRauIbz+PreHs=;
+ b=Cyz4478ZIf8qqENWoKNW1Ipv8IGYmU7G29wS51EIfOwhZIL37PzDL4O9NA0xgDHPZDvC+SySz30+NO7+e5R5AF5J5hse5RtxwALTl9kOz+WtK3kCg5pG3f/Y9W6H6miqHvK9fUNbA16F5Jj/RATGs3jiTqn8fpsCAU8oTDDnMP8t/LmqzMjSs2gJUSOdG+UlQjg4t19Wa4IoP1tP7J+qHoB26oeoTqU7ENHRSYHAw7/TqzuZP1Zi5i82yyMNjKkuG+s7+A37zGzPZctfPRg7fxgDz12P9fhY/d7pSsmuFPU2Lgszc3fwZxmd2H/09quc/TFi289nGD1UnRvk9StR1g==
+ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass (sender ip is
+ 165.204.84.17) smtp.rcpttodomain=kernel.org smtp.mailfrom=amd.com; dmarc=pass
+ (p=quarantine sp=quarantine pct=100) action=none header.from=amd.com;
+ dkim=none (message not signed); arc=none (0)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=amd.com; s=selector1;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
+ bh=p9EIArNmMyS04CIw5SL3x57oTVsqVHlRauIbz+PreHs=;
+ b=cuqHaYCkyZNO86BVb6oIDuhsONsaSTHHrPvkRtXgoCfm6UvP5CT9cu4PeXKylUOdJWA4oouDHIzoHBP77pTmhkjmlF7l8ZVb1SGmRCEtZt37imNXSRNLrbo8C4NyVUFXCcnkuowg2Ptl3CkJTEURXiCL9gORuBKWwhnnHirraPA=
+Received: from CH2PR14CA0005.namprd14.prod.outlook.com (2603:10b6:610:60::15)
+ by BN5PR12MB9462.namprd12.prod.outlook.com (2603:10b6:408:2ac::14) with
+ Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.21.71.14; Thu, 28 May
+ 2026 06:43:49 +0000
+Received: from CH2PEPF0000013B.namprd02.prod.outlook.com
+ (2603:10b6:610:60:cafe::8) by CH2PR14CA0005.outlook.office365.com
+ (2603:10b6:610:60::15) with Microsoft SMTP Server (version=TLS1_3,
+ cipher=TLS_AES_256_GCM_SHA384) id 15.21.71.13 via Frontend Transport; Thu, 28
+ May 2026 06:43:49 +0000
+X-MS-Exchange-Authentication-Results: spf=pass (sender IP is 165.204.84.17)
+ smtp.mailfrom=amd.com; dkim=none (message not signed)
+ header.d=none;dmarc=pass action=none header.from=amd.com;
+Received-SPF: Pass (protection.outlook.com: domain of amd.com designates
+ 165.204.84.17 as permitted sender) receiver=protection.outlook.com;
+ client-ip=165.204.84.17; helo=satlexmb08.amd.com; pr=C
+Received: from satlexmb08.amd.com (165.204.84.17) by
+ CH2PEPF0000013B.mail.protection.outlook.com (10.167.244.68) with Microsoft
+ SMTP Server (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
+ 15.21.71.7 via Frontend Transport; Thu, 28 May 2026 06:43:49 +0000
+Received: from satlexmb08.amd.com (10.181.42.217) by satlexmb08.amd.com
+ (10.181.42.217) with Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.2.2562.41; Thu, 28 May
+ 2026 01:43:48 -0500
+Received: from xhdharshj40.xilinx.com (10.180.168.240) by satlexmb08.amd.com
+ (10.181.42.217) with Microsoft SMTP Server id 15.2.2562.41 via Frontend
+ Transport; Thu, 28 May 2026 01:43:46 -0500
+From: Harsh Jain <h.jain@amd.com>
+To: <srini@kernel.org>, <linux-arm-kernel@lists.infradead.org>,
+	<michal.simek@amd.com>, <sarat.chand.savitala@amd.com>,
+	<harish.ediga@amd.com>
+CC: Harsh Jain <h.jain@amd.com>
+Subject: [PATCH 0/3]nvmem: zynqmp_nvmem: Cleanup and bug fixes
+Date: Thu, 28 May 2026 12:13:20 +0530
+Message-ID: <20260528064323.596195-1-h.jain@amd.com>
+X-Mailer: git-send-email 2.34.1
 MIME-Version: 1.0
 Content-Transfer-Encoding: 8bit
+Content-Type: text/plain
+X-EOPAttributedMessage: 0
+X-MS-PublicTrafficType: Email
+X-MS-TrafficTypeDiagnostic: CH2PEPF0000013B:EE_|BN5PR12MB9462:EE_
+X-MS-Office365-Filtering-Correlation-Id: 74e6a57c-38b9-4af4-9fca-08debc847976
+X-MS-Exchange-SenderADCheck: 1
+X-MS-Exchange-AntiSpam-Relay: 0
+X-Microsoft-Antispam: BCL:0;ARA:13230040|36860700016|376014|82310400026|1800799024|56012099006|11063799006|18002099003;
+X-Microsoft-Antispam-Message-Info: Nkw7OogXdVfLKaxfbD24ghiD2k6QKY6LAWiiFmL4yu5f4caEt6jo2IT53bCOmjMYVraPYeodQ0PnDeKh7u+vbiOlEvqhH90cAyRa/R20awYC/nWfFYBLbxJY+3l13YYjO0ehAdhmZP2M1jPi9mhdi161SolrYw+MHRNtjQFd1m0WyBhsUfkmLoEktGataIuIQPPemfbDah/1+0FVZn5uWn/k7q1SQws2FDmX+A0GYwm1XrV4ZOxtS+XGM8pgT5oIlxUbEI0hRYXklQb5kzETVpElcy6gl4pFhF9IMMczN4KX/3/JSY7GT3NXIIRCjknBig6MMwnMaitXzItijEv+uPgMW1frdMt+VV5GxJsvOaM2bvnd6EozKDT1t6QA2v9uk38N0tvicdueXl5W9f8NGm2TaRS50mkJ+lSwi4ILiHrx1hwCH8/Zd3JQNfwsb5d5j4+I+PrbVjtOYLw+PrJI2o0FKpovEr7Ekw586xVBv7gcm8CGnZoq7sOFHfQxjSWTpZyW/EUabsaYw9XIygHiiY6/vtPL5aNgXLpZerMeromLck6e0bTM0UWU7N8JwZH7PT4eJ8U72qh6fkoTi4CecJBx45bXpCc9NwDPpNOLqthzZKFpme033hH4ZhSo9urSz0w8M0EErhe8y+nzGBPm/Oi2xPZqEysWqUomMeyU8LMC2prn7ROQseEzAatxqT+DORsGWa36Th3ws+/qI4mhUGqCQP1Rv71qLISbi3OUmwQ=
+X-Forefront-Antispam-Report: CIP:165.204.84.17;CTRY:US;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:satlexmb08.amd.com;PTR:InfoDomainNonexistent;CAT:NONE;SFS:(13230040)(36860700016)(376014)(82310400026)(1800799024)(56012099006)(11063799006)(18002099003);DIR:OUT;SFP:1101;
+X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
+X-MS-Exchange-AntiSpam-MessageData-0: 9W0d8ekBy4x6PWtjln7CxwDHcKqC0RF+8ibCZTqVjG30BgS4f9dJdaFlGqsOduCUfk5miMZmC0TvIIaQGzRqV3tvQTEp/8dUmmogUF2VPa5uWKYKcuLwWbwGCmPjMpaAMjU/DMFBY2tTEigSs9ewPrgXOT9LRIy9tldp/HcRdXYKGJoimUp6eRSVe3PD4FTAOaxffZ//p/YM8l+7/koyBSoP4RL0zIG8dZLyUJZSz92FfKqox3CgHBkbppoKXqSbH8wmR9FvnkZcPSB9DZXbSZIHvFRNqn5bDrCcC1pD8PcVeOa4eN8I/HRAkIzlCRDgIMWFB/8R7r0Dk3WYC5jKcRaZoHILNbR00Dxg4LyZn90+Vv8kMIZcy7SPKRfnXwMz6rEVVQj1hOBEKasm6l2S+g8YwUiU8jSTuD/Xf+pFtPFHEXAXalBStyTqWz3pZ6D6
+X-OriginatorOrg: amd.com
+X-MS-Exchange-CrossTenant-OriginalArrivalTime: 28 May 2026 06:43:49.1433
+ (UTC)
+X-MS-Exchange-CrossTenant-Network-Message-Id: 74e6a57c-38b9-4af4-9fca-08debc847976
+X-MS-Exchange-CrossTenant-Id: 3dd8961f-e488-4e60-8e11-a82d994e183d
+X-MS-Exchange-CrossTenant-OriginalAttributedTenantConnectingIp: TenantId=3dd8961f-e488-4e60-8e11-a82d994e183d;Ip=[165.204.84.17];Helo=[satlexmb08.amd.com]
+X-MS-Exchange-CrossTenant-AuthSource: CH2PEPF0000013B.namprd02.prod.outlook.com
+X-MS-Exchange-CrossTenant-AuthAs: Anonymous
+X-MS-Exchange-CrossTenant-FromEntityHeader: HybridOnPrem
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: BN5PR12MB9462
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260527_234153_554827_B49FFEAA 
-X-CRM114-Status: GOOD (  16.78  )
+X-CRM114-CacheID: sfid-20260527_234358_417094_777985CA 
+X-CRM114-Status: UNSURE (   7.49  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -106,62 +120,17 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-mt8365_afe_suspend() allocates the register backup buffer with
-devm_kcalloc(), but does not check for allocation failure before using the
-returned pointer. This may lead to a NULL pointer dereference when
-accessing afe->reg_back_up[i].
+It include bug fixes for zynqmp_nvmem driver.
 
-Add the missing NULL check and return -ENOMEM on allocation failure after
-disabling the main clock.
+Harish Ediga (3):
+  nvmem: zynqmp_nvmem: Correct error message for PUF user fuse
+  nvmem: zynqmp_nvmem: Use streaming DMA with single kmalloc block
+  nvmem: zynqmp_nvmem: Drop add_legacy_fixed_of_cells flag
 
-Also propagate the return value of mt8365_afe_suspend() in
-mt8365_afe_dev_runtime_suspend() so that the suspended state is not updated
-when suspend fails.
+ drivers/nvmem/zynqmp_nvmem.c | 37 ++++++++++++++++++------------------
+ 1 file changed, 19 insertions(+), 18 deletions(-)
 
-Signed-off-by: Tuo Li <islituo@gmail.com>
----
- sound/soc/mediatek/mt8365/mt8365-afe-pcm.c | 13 +++++++++++--
- 1 file changed, 11 insertions(+), 2 deletions(-)
-
-diff --git a/sound/soc/mediatek/mt8365/mt8365-afe-pcm.c b/sound/soc/mediatek/mt8365/mt8365-afe-pcm.c
-index d01793394f22..5966ca18c7c9 100644
---- a/sound/soc/mediatek/mt8365/mt8365-afe-pcm.c
-+++ b/sound/soc/mediatek/mt8365/mt8365-afe-pcm.c
-@@ -1974,10 +1974,15 @@ static int mt8365_afe_suspend(struct device *dev)
- 
- 	mt8365_afe_enable_main_clk(afe);
- 
--	if (!afe->reg_back_up)
-+	if (!afe->reg_back_up) {
- 		afe->reg_back_up =
- 			devm_kcalloc(dev, afe->reg_back_up_list_num,
- 				     sizeof(unsigned int), GFP_KERNEL);
-+		if (!afe->reg_back_up) {
-+			mt8365_afe_disable_main_clk(afe);
-+			return -ENOMEM;
-+		}
-+	}
- 
- 	for (i = 0; i < afe->reg_back_up_list_num; i++)
- 		regmap_read(regmap, afe->reg_back_up_list[i],
-@@ -2011,11 +2016,15 @@ static int mt8365_afe_resume(struct device *dev)
- static int mt8365_afe_dev_runtime_suspend(struct device *dev)
- {
- 	struct mtk_base_afe *afe = dev_get_drvdata(dev);
-+	int ret;
- 
- 	if (pm_runtime_status_suspended(dev) || afe->suspended)
- 		return 0;
- 
--	mt8365_afe_suspend(dev);
-+	ret = mt8365_afe_suspend(dev);
-+	if (ret)
-+		return ret;
-+
- 	afe->suspended = true;
- 	return 0;
- }
 -- 
-2.43.0
+2.34.1
 
 
