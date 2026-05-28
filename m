@@ -4,88 +4,118 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id EC879CD5BD0
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 28 May 2026 00:43:31 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 6B0D2CD5BD0
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 28 May 2026 00:48:22 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:
-	To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=O/QO0IpAqcokJA6roh58O/Dw9JAaJxaD1pnU8pzdaMY=; b=HGtZoYNzRt0wQVoYF4qwv7yb6d
-	ORVkCP0DoD4R455qFccuLOElrFATBrdspzypFmRhBlV361B4P6vgZUyz1VgxNcQB0RuqY/C0z05qU
-	QGWS7np8D3HW50U0wad97xhrukPbPySN8thfNQrnK+UZC3O4gNDEjSQh5hvbajdSMifwo4hEK1bQ2
-	BuixdV4kaGEGnJo9d1HD/X+x1/fqJGZl8UM0DLm+qKI+/Wh5sCw3EUeWYv1dWDmRt+noanhVSP9H2
-	t76J7JXGQTovDDpi5rHx1ybuduARdlpmxKnRhf2D/DMW9eXqsNTPAVXJ9wRAVaV8loaPl2cgYPLv1
-	q6/luY5w==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:Date:
+	Content-Type:Subject:From:To:Message-ID:Reply-To:Cc:Content-Transfer-Encoding
+	:Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
+	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=nJRoI6vd+GWjBm+kuz7FsG7tPPUaCwRmY8isYqBKH0g=; b=lsrSwVyg1EFF+DpbfrSwCpnsM7
+	fdqFESfZ0Pj3FOIHFcfg9UdXPdb5gGppreTInQq4Kw7lT1T4OkeODyiL26/Y2+iO7cmgoJXmXlXKH
+	H0BGNrZAWqOQuGEmrAtKKOASBWVzRYKHcEtxN2cwNWhIPdwbVCr6k2Dv4BpR7LOnnZKbpf3ombtV9
+	6KODXOjtBdc39fLs89XTT+o1FOMCLjQSdbs2KlgCGKvcnx5ztpqLR7t6W0G4FCyDlzKfn2sRXzjeW
+	x076oPjtczNog5SpBf/FJUAXQEJyfngqJQxx8h9j+c9tSdXciZY1pW3vmhS2Dc2kkpm4auY98D1vG
+	TNgicuCw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wSOqI-00000004tKb-3Haq;
-	Thu, 28 May 2026 00:43:22 +0000
-Received: from linux.microsoft.com ([13.77.154.182])
-	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wSOpb-00000004sLm-3VoV;
-	Thu, 28 May 2026 00:42:51 +0000
-Received: by linux.microsoft.com (Postfix, from userid 1241)
-	id 0D42720B7188; Wed, 27 May 2026 17:42:29 -0700 (PDT)
-DKIM-Filter: OpenDKIM Filter v2.11.0 linux.microsoft.com 0D42720B7188
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=linux.microsoft.com;
-	s=default; t=1779928949;
-	bh=O/QO0IpAqcokJA6roh58O/Dw9JAaJxaD1pnU8pzdaMY=;
-	h=From:To:Cc:Subject:Date:In-Reply-To:References:From;
-	b=RNhNwfkYgRd2z9VAjNzOknS7yjNRlafAg2Sr4b+cJtD9q5C2zRLIhO4C4LynVYtHk
-	 4Ry6qcr50ntQnVAhBXFA6Bx1CCL383brJc5waKn3rYwtXRwPqmg4nSufrnA2bub7f0
-	 D0sEXD6vVJl8WPuGxUp2NavOwL2Cxl8OiG6reNzk=
-From: Jork Loeser <jloeser@linux.microsoft.com>
-To: linux-hyperv@vger.kernel.org,
-	linux-mm@kvack.org,
-	kexec@lists.infradead.org
-Cc: "K. Y. Srinivasan" <kys@microsoft.com>,
-	Haiyang Zhang <haiyangz@microsoft.com>,
-	Wei Liu <wei.liu@kernel.org>,
-	Dexuan Cui <decui@microsoft.com>,
-	Long Li <longli@microsoft.com>,
-	Mike Rapoport <rppt@kernel.org>,
-	Pasha Tatashin <pasha.tatashin@soleen.com>,
-	Pratyush Yadav <pratyush@kernel.org>,
-	Alexander Graf <graf@amazon.com>,
-	Jason Miu <jasonmiu@google.com>,
-	Andrew Morton <akpm@linux-foundation.org>,
-	David Hildenbrand <david@kernel.org>,
-	Muchun Song <muchun.song@linux.dev>,
-	Oscar Salvador <osalvador@suse.de>,
-	Baoquan He <bhe@redhat.com>,
-	Catalin Marinas <catalin.marinas@arm.com>,
-	Will Deacon <will@kernel.org>,
-	Thomas Gleixner <tglx@kernel.org>,
-	Ingo Molnar <mingo@redhat.com>,
-	Borislav Petkov <bp@alien8.de>,
-	Dave Hansen <dave.hansen@linux.intel.com>,
-	"H. Peter Anvin" <hpa@zytor.com>,
-	Kees Cook <kees@kernel.org>,
-	Ran Xiaokai <ran.xiaokai@zte.com.cn>,
-	Justinien Bouron <jbouron@amazon.com>,
-	Sourabh Jain <sourabhjain@linux.ibm.com>,
-	Pingfan Liu <piliu@redhat.com>,
-	"Rafael J. Wysocki" <rafael.j.wysocki@intel.com>,
-	Mario Limonciello <mario.limonciello@amd.com>,
-	linux-arm-kernel@lists.infradead.org,
-	x86@kernel.org,
-	linux-kernel@vger.kernel.org,
-	Michael Kelley <mhklinux@outlook.com>,
-	Jork Loeser <jloeser@linux.microsoft.com>
-Subject: [RFC PATCH 20/20] mshv: freeze and vacuum partitions across kexec
-Date: Wed, 27 May 2026 17:42:02 -0700
-Message-ID: <20260528004204.1484584-21-jloeser@linux.microsoft.com>
-X-Mailer: git-send-email 2.43.7
-In-Reply-To: <20260528004204.1484584-1-jloeser@linux.microsoft.com>
-References: <20260528004204.1484584-1-jloeser@linux.microsoft.com>
+	id 1wSOv0-00000004uhj-0OAL;
+	Thu, 28 May 2026 00:48:14 +0000
+Received: from mail-japanwestazon11010068.outbound.protection.outlook.com ([52.101.228.68] helo=OS0P286CU011.outbound.protection.outlook.com)
+	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
+	id 1wSOuw-00000004uhA-34bK
+	for linux-arm-kernel@lists.infradead.org;
+	Thu, 28 May 2026 00:48:12 +0000
+ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
+ b=xLuEenWAiCetrwwGmp6YRlwtLtVn8Dlp7ABhqFhglt8hRSU5YTtVCubigP/xvba2IVsK6Co8lDNqfXGQ9pdUtVWtbfcJXGOhva4yNl8ju4M8MTIvSOC/1eUJiSkuhzBQA43Fra8CmfxFp8ZNAnn1Nz5eSALf0VbU3oGaDxyqbCuS4wSXsBvtjvj8RAV5/hrjqN9GxGQIREh6x1lbi0+hlZjMMvD9+MPuaz/ed2Yun3wKxXh72BSKaoOu1/tqHQbEi3Zx12ogyDHAFZr2nVIyLgqsRZGA5XGuonJbs/F8qeHR1Bpk0zzCBRNYgbEFFlPSk0qT5A18jqXPMkEcY2kUvA==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
+ s=arcselector10001;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
+ bh=nJRoI6vd+GWjBm+kuz7FsG7tPPUaCwRmY8isYqBKH0g=;
+ b=hd4qXipYmEI/ImoOlPENtaQimrcdByqYWMWJHUbjeDYp0L5S8yu9ari9Aw+fz5wTi9tA17yPbCl1fb9it5Y7Qu7c8eRYtqyG6WFP1TgetBauduYKLuIZ//eD20NgOflJu5N9G4fGp3mzGlKKlu1y9kI7jEmzLJH2S74E8JRp9o+ZeHmxEV/KaUkuXLClpsbPEa1BYhCURSV4MC9Q6LOIwBkm0FgTRc/MzsKLZco7kiUfmYlchUd80IhneYi7dsMorYig5EDtApGTRH7uc8wZLlQTn96Jyfw3I2Gwmmo1wqISH3qryvbXz6rDerg+gxEGC3bE2ndIy8CqIFo+GxzMaQ==
+ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
+ smtp.mailfrom=renesas.com; dmarc=pass action=none header.from=renesas.com;
+ dkim=pass header.d=renesas.com; arc=none
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=renesas.com;
+ s=selector1;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
+ bh=nJRoI6vd+GWjBm+kuz7FsG7tPPUaCwRmY8isYqBKH0g=;
+ b=In5+70EC0Ybs2h61BBofJwAuqTvzlL7ZVUya8EsY8eFGepTDx9P6eBmZ9G3ahTVdhwE7jOLg4atFPSz5x7ocnpWIUFUHFXWLaI/O3OTqPQN01Yaa6xWsThigwQBYwnMDnNHk2lW7JeUEdkksMqeawVmIs4NF+JhUOHTJgge0Jak=
+Authentication-Results: dkim=none (message not signed)
+ header.d=none;dmarc=none action=none header.from=renesas.com;
+Received: from TY3PR01MB11797.jpnprd01.prod.outlook.com (2603:1096:400:373::8)
+ by OSZPR01MB9298.jpnprd01.prod.outlook.com (2603:1096:604:1d9::11) with
+ Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.21.71.13; Thu, 28 May
+ 2026 00:48:03 +0000
+Received: from TY3PR01MB11797.jpnprd01.prod.outlook.com
+ ([fe80::1868:c915:c230:a383]) by TY3PR01MB11797.jpnprd01.prod.outlook.com
+ ([fe80::1868:c915:c230:a383%5]) with mapi id 15.21.0071.011; Thu, 28 May 2026
+ 00:48:01 +0000
+Message-ID: <878q942wce.wl-kuninori.morimoto.gx@renesas.com>
+To: AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>, Bard Liao <yung-chuan.liao@linux.intel.com>, Chen-Yu Tsai <wenst@chromium.org>, Daniel Baluta <daniel.baluta@nxp.com>, Jaroslav Kysela <perex@perex.cz>, Kai Vehmanen <kai.vehmanen@linux.intel.com>, Liam Girdwood <lgirdwood@gmail.com>, Mark Brown <broonie@kernel.org>, Matthias Brugger <matthias.bgg@gmail.com>, Peter Ujfalusi <peter.ujfalusi@linux.intel.com>, Pierre-Louis Bossart <pierre-louis.bossart@linux.dev>, Takashi Iwai <tiwai@suse.com>, linux-arm-kernel@lists.infradead.org, linux-sound@vger.kernel.org
+From: Kuninori Morimoto <kuninori.morimoto.gx@renesas.com>
+Subject: [PATCH v2] ASoC: soc-card: add snd_soc_card_set_topology_name()
+Content-Type: text/plain; charset=US-ASCII
+Date: Thu, 28 May 2026 00:48:01 +0000
+X-ClientProxiedBy: TY4P286CA0117.JPNP286.PROD.OUTLOOK.COM
+ (2603:1096:405:37c::17) To TY3PR01MB11797.jpnprd01.prod.outlook.com
+ (2603:1096:400:373::8)
 MIME-Version: 1.0
-Content-Type: text/plain; charset=UTF-8
-Content-Transfer-Encoding: 8bit
+X-MS-PublicTrafficType: Email
+X-MS-TrafficTypeDiagnostic: TY3PR01MB11797:EE_|OSZPR01MB9298:EE_
+X-MS-Office365-Filtering-Correlation-Id: 4e357fee-3cae-4445-f285-08debc52c55a
+X-MS-Exchange-SenderADCheck: 1
+X-MS-Exchange-AntiSpam-Relay: 0
+X-Microsoft-Antispam: BCL:0;ARA:13230040|366016|52116014|7416014|376014|1800799024|11063799006|56012099006|18002099003|38350700014|921020;
+X-Microsoft-Antispam-Message-Info: dHqQBuTj57Wom+R/kibIhdiZiCGaLY1+BHaJ5zfKbH5rf1tUsvtyi6FUY5Am4GzFc9MBy6Xa9IAfyIZrDs7y6ZS0b8FtcoQU2E8s2j3ZPk84KcB4ILK+Wol9JTLsnTyY84WjIxlYhzsNg8/x7w7chshbM//h8x9usd0MPYeN4cawzsAt3381C6hgNhsFtf8tJcKQPfYY/Tz1d7x5K6B9oXyoQ4IAoSbzojG93u8LvT1yHZVwCLPoN7ZwBJ8aW4jCrZfHmTLaSIVdajaVH61CPo7X4dTAJGJszVChbCeHWOFK7wY5PGC1cyyTpdrvjDkTGEjYOBfGRDMN5qT/MSKSdVzNK1/mlsg+5DCAd18p/SEWLsH71k8rOq7wV4Tk8/pRRbobOl9W9BqGkKoS46afdRGcOcwgkBFw3V2cSeyfpu5n03/TrTUZOG9YHfG/33z0G8eW4gjNtwYNlThL2jGzoXvnQyARNASNJIRYgDR8yiOUpxidBtoxGsNUjc+oTGYH9pwYqUhcdKwPuHRYpHTkJBl5UmEpRiZBDEOTLdHHA5wXhOOhc9Dcj6CpaK813JjWtcTRiwPxCcb6x9cZYi2x3W3cA7xCLMzs8AFwdzI13j+DjkLsf1NB1B/U7ZOgbA8t89llLl1QQLHqUM7GSwXpNS7ToUFDHJsYLd1Z5z4Cam9S8CwwJ0SSpgAzF5YzJcjkOT6VcMeFt8kVzK+X+cMp8kn60K/fRO4qhcE7oYtW68jckiV1KmZ3/Uh3kbzJAcmS89G4Wp961jGyWsFlHtCqzg==
+X-Forefront-Antispam-Report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:TY3PR01MB11797.jpnprd01.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(366016)(52116014)(7416014)(376014)(1800799024)(11063799006)(56012099006)(18002099003)(38350700014)(921020);DIR:OUT;SFP:1101;
+X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
+X-MS-Exchange-AntiSpam-MessageData-0: =?us-ascii?Q?IOrD9Q91odYrebM6oo2Rofco3cMkRcGUzrhHkMv+XkPWe7rmlgKX48UkeXTq?=
+ =?us-ascii?Q?7MMgWa2EtAMCYOP2BejacwZ5f1DxNiPE1LefyWJrQlW3/UjTT1OQU9mD0MEj?=
+ =?us-ascii?Q?UFT/iEC2IOB6vMxncIkclImMcxeEMja6RXrlLVcVeKy87R6Mm920/ptkATKd?=
+ =?us-ascii?Q?MqIxG3ghYXQsD2pu1BixFpBbxL516MqNcB1DKHCXxFeaMF0wnTNY0qt/roS3?=
+ =?us-ascii?Q?PnNsjaeilsjulh+1PAEcsqY7m2UL8ptTm/iYdipgD08h8ZvNVQhcqFUz5dCb?=
+ =?us-ascii?Q?akN6ZwxM4smyg/J44I5n30b8yOvtlz17iReU8pjjlry/ErUyT1UMIu8/rqnu?=
+ =?us-ascii?Q?m+3zNVfPSAk5GNEV7cEpPTkmx9FVM5bgTqVc0ReLnvViK4BEMlZ9wwsLE4Qa?=
+ =?us-ascii?Q?D4QEU5uCyD+NlOqQllv8bBsEQR3JWDgjqtqgBYQvpmYLvDz+FbTJpM64HTOJ?=
+ =?us-ascii?Q?uijUu7Ol1P0CPTFFYmInJZAIBICaqin5pkVGybfXGvUAJ1DPLicA6Wfwxic6?=
+ =?us-ascii?Q?bMrdhUJrSgyBX7isu10Anzt/ajKSBkb0CopJE+KGNdjwpL4eRgbEFMXOaRPf?=
+ =?us-ascii?Q?a8VjkAKduuoMFtcklRnmVb64oG3nQ4D2L78HaCQLjeqtD9joC2vpJPH0k1x0?=
+ =?us-ascii?Q?ou5i/r9C0yaPec0qEcp90l1qVMp+p+IwdoSS0xD0hPKSPLRWnw/ksSb2i61Q?=
+ =?us-ascii?Q?ak5bp32PXKfKjpH9jhZekGcnAj/EjO8ZqN45Ajd0D9fEsfJNpXYWe7yij2ff?=
+ =?us-ascii?Q?/1T5O0Zt4sdEEwVVG2I8r03OlwSo9l5YbBuGVR44iqUMU3LMcA1TPEabrqaz?=
+ =?us-ascii?Q?AYPHEt08SMloISyKgPAR7IIOVGyFmUQ9ov26mLshfNMDowT+qcFmpiTwE19x?=
+ =?us-ascii?Q?5XXWmxfVtJLaOPRVyq+i+MGhn014syCh81gqlOkh60O3qsfsA2IVTRIsm7Rs?=
+ =?us-ascii?Q?k16WepegHcj7xpJet+CJEaI4CLXx2GXaXPxOtgBq5nj6viwkNgySxdj8q5gD?=
+ =?us-ascii?Q?OlqcYsF4XRRHiMUH3IVpt8C764u0VkpFKSbwHYl4vncyqabfpYOHIspUuvwp?=
+ =?us-ascii?Q?/ZdlmfkH4Ilx0Pfr8Ip4MMznmuCIhwpRbXPgwWCcKUZaq23cjByzAOGRtEpm?=
+ =?us-ascii?Q?4nbTs0rRwvGToCvPoX9Ej7cMbJfcCV0F8DLmC2T25JE+D3kFBhehNHHDS7xV?=
+ =?us-ascii?Q?STvUqoojGkML+BcgyEV3F+3YXhsAILz+bZOPbnfs5CePDqPdxhO0EnHsVD7y?=
+ =?us-ascii?Q?qggMd6CHdZSj9qInuhcruNUEZ/0Y9bYvWgulNVoFR2aUsGT9PGgwCgTqghIc?=
+ =?us-ascii?Q?0+cFxBTdFq1aEHsdrGcmhXiHnw+OQi6yRqCylveV2gtRz7N3LK6nroYhZudv?=
+ =?us-ascii?Q?EFtE4x6jHzUnKsYfAUG3+V8T7rFH5ZcSg1ziyB7ZuBQVa8m1W7LXiQpPGtiy?=
+ =?us-ascii?Q?Aswek+LWUDOBzc4FAjQ38WJJeZzOOEo9PWy21MHAcIqdVUTbkmojqtCHbl7I?=
+ =?us-ascii?Q?FQ/jOJcZ2n+RDajCHN0B4Edg7NLapw9JKpUgB+gX6toyhYQuWPCIcRkccioH?=
+ =?us-ascii?Q?g9MLM4yWDkJnkkOqqPBIPgZHKxu/IudHIOfKHAgMQIPbnYkWfCW+1HvrmKhc?=
+ =?us-ascii?Q?DyQscraH7SvWNFyh1n1yB+NdsgveWhmPPWecmucc3csDbys4KdFWm0E2npAu?=
+ =?us-ascii?Q?oQ3CoCdlN9NI3la2E2jdltJ7EEt8pmFFMngNioPn5/dBX5xzXoKpYmU3Vloo?=
+ =?us-ascii?Q?E04qWABDfj0E8caL2cPDkRxhxh+ipn0FToXEEbkAo8NCX2fAU2dG?=
+X-OriginatorOrg: renesas.com
+X-MS-Exchange-CrossTenant-Network-Message-Id: 4e357fee-3cae-4445-f285-08debc52c55a
+X-MS-Exchange-CrossTenant-AuthSource: TY3PR01MB11797.jpnprd01.prod.outlook.com
+X-MS-Exchange-CrossTenant-AuthAs: Internal
+X-MS-Exchange-CrossTenant-OriginalArrivalTime: 28 May 2026 00:48:01.9123
+ (UTC)
+X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
+X-MS-Exchange-CrossTenant-Id: 53d82571-da19-47e4-9cb4-625a166a4a2a
+X-MS-Exchange-CrossTenant-MailboxType: HOSTED
+X-MS-Exchange-CrossTenant-UserPrincipalName: MVRFqM87i+sqpqs8cFgwOazyW2kqs84xQ7wSAXaiNAvOymKlc9sZF0HMheAfd7F78UotXtVi/7DFrrCjvh3t76vhTqXgiVssda+A8a8OF8QLU3iyOUf9FQmwDh9vV/EY
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: OSZPR01MB9298
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260527_174241_991589_29A7B36E 
-X-CRM114-Status: GOOD (  33.74  )
+X-CRM114-CacheID: sfid-20260527_174810_797213_EE7B9344 
+X-CRM114-Status: GOOD (  18.19  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -100,702 +130,159 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Before kexec the kernel must ensure no VMs are actively running so that
-no VP modifies VM-memory that Linux will re-use post-kexec, and record
-the partition IDs so the next kernel can clean them up.
+Some drivers want to use topology name, but currently each drivers are
+setting it by own method.
+This patch adds new snd_soc_card_set_topology_name() and do it by
+same method.
 
-Add mshv_freeze_and_get_partition_ids() which:
-- Sets a global frozen flag to block new partition and VP creation
-- Prevents (re-)dispatching of existing VPs
-- Kicks all VPs to exit their dispatch loops, then waits for each to
-  finish by acquiring its mutex
-- Tears down doorbell ports owned by the parent partition, which
-  otherwise survive kexec and cause port ID collisions in the new kernel
-- Collects all partition IDs into a kho_alloc_preserve()'d array
+Almost all driver doesn't set topology name, let's remove fixed name
+array, and use devm_kasprintf() instead.
 
-The freeze is triggered from the reboot notifier callback. The ID
-array is serialized into the KHO FDT so the next kernel can retrieve
-it via mshv_retrieve_frozen_partition_ids().
-
-After kexec the previous kernel's partitions are still alive in the
-hypervisor. vacuum_stale_partitions() retrieves their IDs from the
-KHO-preserved FDT and tears each one down (finalize, withdraw
-deposited memory, delete) so the pages become available to the new
-kernel.
-
-Signed-off-by: Jork Loeser <jloeser@linux.microsoft.com>
+Signed-off-by: Kuninori Morimoto <kuninori.morimoto.gx@renesas.com>
 ---
- drivers/hv/mshv_page_preserve.c | 100 +++++++++-
- drivers/hv/mshv_page_preserve.h |   3 +
- drivers/hv/mshv_root.h          |   2 +
- drivers/hv/mshv_root_main.c     | 339 +++++++++++++++++++++++++++++---
- 4 files changed, 417 insertions(+), 27 deletions(-)
+v1 -> v2
+	- snd_soc_card_set_topology_name() checks prefix, too
 
-diff --git a/drivers/hv/mshv_page_preserve.c b/drivers/hv/mshv_page_preserve.c
-index e16fb946790d..dba7975ab058 100644
---- a/drivers/hv/mshv_page_preserve.c
-+++ b/drivers/hv/mshv_page_preserve.c
-@@ -24,6 +24,8 @@
+ include/sound/soc-card.h                        |  2 ++
+ include/sound/soc.h                             |  3 +--
+ .../soc/mediatek/common/mtk-soundcard-driver.c  |  7 ++-----
+ sound/soc/soc-card.c                            | 13 +++++++++++++
+ sound/soc/soc-core.c                            | 17 +----------------
+ sound/soc/sof/nocodec.c                         |  4 ++--
+ 6 files changed, 21 insertions(+), 25 deletions(-)
+
+diff --git a/include/sound/soc-card.h b/include/sound/soc-card.h
+index ecc02e955279f..1f1e7d45f5533 100644
+--- a/include/sound/soc-card.h
++++ b/include/sound/soc-card.h
+@@ -47,6 +47,8 @@ int snd_soc_card_late_probe(struct snd_soc_card *card);
+ void snd_soc_card_fixup_controls(struct snd_soc_card *card);
+ int snd_soc_card_remove(struct snd_soc_card *card);
  
- static void *fdt_page;
- static struct kho_radix_tree preserved_pages_tree;
-+static u64 *frozen_partition_ids;
-+static unsigned int nr_frozen_partition_ids;
- 
- /**
-  * mshv_register_preserve_page() - Register a page to be preserved by KHO
-@@ -78,7 +80,7 @@ static int preserve_table_cb(phys_addr_t phys, void *data)
- 	return kho_preserve_pages(phys_to_page(phys), 1);
- }
- 
--static int create_fdt(void)
-+static int create_fdt(u64 *partition_ids, unsigned int nr_partition_ids)
- {
- 	int err;
- 	void *fdt;
-@@ -106,6 +108,19 @@ static int create_fdt(void)
- 	err = fdt_property(fdt, "root_table", &root_table, sizeof(root_table));
- 	if (err)
- 		return err;
-+	if (nr_partition_ids) {
-+		phys_addr_t ids_pa = virt_to_phys(partition_ids);
-+		u32 count = nr_partition_ids;
++void snd_soc_card_set_topology_name(struct snd_soc_card *card, const char *preifx);
 +
-+		err = fdt_property(fdt, "partition_ids", &ids_pa,
-+				   sizeof(ids_pa));
-+		if (err)
-+			return err;
-+		err = fdt_property(fdt, "nr_partition_ids", &count,
-+				   sizeof(count));
-+		if (err)
-+			return err;
-+	}
- 	err = fdt_end_node(fdt);
- 	if (err)
- 		return err;
-@@ -118,6 +133,8 @@ static int create_fdt(void)
+ int snd_soc_card_set_bias_level(struct snd_soc_card *card,
+ 				struct snd_soc_dapm_context *dapm,
+ 				enum snd_soc_bias_level level);
+diff --git a/include/sound/soc.h b/include/sound/soc.h
+index 8681dd3f4252f..10ad80f930c2e 100644
+--- a/include/sound/soc.h
++++ b/include/sound/soc.h
+@@ -987,7 +987,7 @@ struct snd_soc_card {
+ 	bool pci_subsystem_set;
+ #endif /* CONFIG_PCI */
  
- /**
-  * preserve_tree() - Preserve pages owned by Microsoft Hypervisor
-+ * @partition_ids: array of frozen partition IDs to serialize, or NULL
-+ * @nr_partition_ids: number of entries in @partition_ids
-  *
-  * This gets called prior to kexec and is our signal to finally preserve the
-  * pages with KHO, and create & register the named FDT. We also need to freeze
-@@ -125,7 +142,7 @@ static int create_fdt(void)
-  *
-  * Return: 0 on success, -errno on error.
-  */
--static int preserve_tree(void)
-+static int preserve_tree(u64 *partition_ids, unsigned int nr_partition_ids)
- {
- 	const struct kho_radix_walk_cb preserve_cb = {
- 		.key = preserve_key_cb,
-@@ -141,7 +158,7 @@ static int preserve_tree(void)
+-	char topology_shortname[32];
++	char *topology_shortname;
+ 
+ 	struct device *dev;
+ 	struct snd_card *snd_card;
+@@ -1084,7 +1084,6 @@ struct snd_soc_card {
+ #endif
+ 	/* bit field */
+ 	unsigned int instantiated:1;
+-	unsigned int topology_shortname_created:1;
+ 	unsigned int fully_routed:1;
+ 	unsigned int probed:1;
+ 	unsigned int component_chaining:1;
+diff --git a/sound/soc/mediatek/common/mtk-soundcard-driver.c b/sound/soc/mediatek/common/mtk-soundcard-driver.c
+index a2a30a87a359f..cdff7322426a9 100644
+--- a/sound/soc/mediatek/common/mtk-soundcard-driver.c
++++ b/sound/soc/mediatek/common/mtk-soundcard-driver.c
+@@ -289,11 +289,8 @@ int mtk_soundcard_common_probe(struct platform_device *pdev)
+ 		soc_card_data->sof_priv = pdata->sof_priv;
+ 		card->probe = mtk_sof_card_probe;
+ 		card->late_probe = mtk_sof_card_late_probe;
+-		if (!card->topology_shortname_created) {
+-			snprintf(card->topology_shortname, 32, "sof-%s", card->name);
+-			card->topology_shortname_created = true;
+-		}
+-		card->name = card->topology_shortname;
++
++		snd_soc_card_set_topology_name(card, "sof");
  	}
- 
- 	/* Populate the pre-allocated FDT page with current tree state */
--	err = create_fdt();
-+	err = create_fdt(partition_ids, nr_partition_ids);
- 	if (err) {
- 		pr_warn("%s() - create_fdt() failed: %d\n", __func__, err);
- 		return err;
-@@ -177,6 +194,11 @@ static int preserve_tree(void)
- /*
-  * Reboot-callback triggering page preservation prior to kexec. Other reboots
-  * need no KHO preservation.
-+ *
-+ * The mshv_root module's higher-priority reboot notifier freezes all VPs
-+ * and hands off partition IDs via mshv_set_frozen_partition_ids() before
-+ * this callback runs. If the module is not loaded, no partitions exist
-+ * and the tree is preserved without partition IDs.
-  */
- static int reboot_cb(struct notifier_block *nb, unsigned long action,
- 		     void *data)
-@@ -185,9 +207,9 @@ static int reboot_cb(struct notifier_block *nb, unsigned long action,
- 	if (kexec_in_progress) {
- 		int err;
- 
--		/* Finalize handover: write KHO descriptors, flush metadata */
- 		pr_debug("%s() - KHO-preserving page tree\n", __func__);
--		err = preserve_tree();
-+		err = preserve_tree(frozen_partition_ids,
-+				    nr_frozen_partition_ids);
- 		if (err)
- 			panic("preserve_tree() failed - must not kexec: %d\n",
- 			      err);
-@@ -260,6 +282,74 @@ static int __init restore_tree(void)
- 	return 0;
- }
- 
-+/**
-+ * mshv_set_frozen_partition_ids() - Hand off frozen partition IDs for KHO
-+ * @ids: kho_alloc_preserve()'d array of partition IDs, or NULL
-+ * @nr: number of entries in @ids
-+ *
-+ * Called by the mshv_root module's reboot notifier (which runs at higher
-+ * priority) to pass the frozen partition ID list to the built-in page
-+ * preservation code before it serializes the KHO FDT.
-+ */
-+void mshv_set_frozen_partition_ids(u64 *ids, unsigned int nr)
-+{
-+	frozen_partition_ids = ids;
-+	nr_frozen_partition_ids = nr;
-+}
-+EXPORT_SYMBOL_GPL(mshv_set_frozen_partition_ids);
-+
-+/**
-+ * mshv_retrieve_frozen_partition_ids() - Retrieve frozen partition IDs
-+ * @partition_ids: receives pointer to the preserved ID array, or NULL
-+ * @nr_ids: receives the number of entries, or 0
-+ *
-+ * Counterpart to mshv_freeze_and_get_partition_ids(). Reads the partition
-+ * ID list from the KHO-preserved FDT. The returned pointer (if non-NULL)
-+ * refers to kho_alloc_preserve()'d memory from the previous kernel.
-+ *
-+ * Return: 0 on success (including when no IDs are found), negative errno on
-+ *  error.
-+ */
-+int mshv_retrieve_frozen_partition_ids(u64 **partition_ids,
-+				       unsigned int *nr_ids)
-+{
-+	int node, len;
-+	const phys_addr_t *ids_pa;
-+	const u32 *count_prop;
-+
-+	*partition_ids = NULL;
-+	*nr_ids = 0;
-+
-+	if (!fdt_page)
-+		return 0;
-+
-+	node = fdt_path_offset(fdt_page, "/");
-+	if (node < 0)
-+		return 0;
-+
-+	ids_pa = fdt_getprop(fdt_page, node, "partition_ids", &len);
-+	if (!ids_pa)
-+		return 0;
-+
-+	if (len != sizeof(*ids_pa)) {
-+		pr_err("Malformed preserved FDT: invalid partition_ids property.\n");
-+		return -EINVAL;
-+	}
-+
-+	count_prop = fdt_getprop(fdt_page, node, "nr_partition_ids", &len);
-+	if (!count_prop || len != sizeof(*count_prop)) {
-+		pr_err("Malformed preserved FDT: invalid nr_partition_ids property.\n");
-+		return -EINVAL;
-+	}
-+
-+	*partition_ids = phys_to_virt(*ids_pa);
-+	*nr_ids = *count_prop;
-+
-+	pr_info("Retrieved %u frozen partition ID(s) from KHO\n", *nr_ids);
-+	return 0;
-+}
-+EXPORT_SYMBOL_GPL(mshv_retrieve_frozen_partition_ids);
-+
- /*
-  * Restore individual pages using KHO's helper during boot.
-  *
-diff --git a/drivers/hv/mshv_page_preserve.h b/drivers/hv/mshv_page_preserve.h
-index ac99b4e33285..4625d59a3070 100644
---- a/drivers/hv/mshv_page_preserve.h
-+++ b/drivers/hv/mshv_page_preserve.h
-@@ -14,5 +14,8 @@ int mshv_preserve_init(void);
- int mshv_register_preserve_page(struct page *pg);
- int mshv_unregister_preserve_page(struct page *pg);
- int mshv_iterate_preserved(const struct kho_radix_walk_cb *cb, void *data);
-+void mshv_set_frozen_partition_ids(u64 *ids, unsigned int nr);
-+int mshv_retrieve_frozen_partition_ids(u64 **partition_ids,
-+				       unsigned int *nr_ids);
- 
- #endif /* _MSHV_PAGE_PRESERVE_H */
-diff --git a/drivers/hv/mshv_root.h b/drivers/hv/mshv_root.h
-index 216053f8e0ab..7476398d3b47 100644
---- a/drivers/hv/mshv_root.h
-+++ b/drivers/hv/mshv_root.h
-@@ -195,6 +195,7 @@ struct mshv_root {
- 	spinlock_t pt_ht_lock;
- 	DECLARE_HASHTABLE(pt_htable, MSHV_PARTITIONS_HASH_BITS);
- 	struct hv_partition_property_vmm_capabilities vmm_caps;
-+	bool frozen;
- };
- 
- /*
-@@ -364,6 +365,7 @@ static inline void mshv_debugfs_vp_remove(struct mshv_vp *vp) { }
- 
- extern struct mshv_root mshv_root;
- extern enum hv_scheduler_type hv_scheduler_type;
-+
- extern u8 * __percpu *hv_synic_eventring_tail;
- 
- struct mshv_mem_region *mshv_region_create(u64 guest_pfn, u64 nr_pages,
-diff --git a/drivers/hv/mshv_root_main.c b/drivers/hv/mshv_root_main.c
-index 5fbd01c12ab8..e95abf4698f8 100644
---- a/drivers/hv/mshv_root_main.c
-+++ b/drivers/hv/mshv_root_main.c
-@@ -18,6 +18,7 @@
- #include <linux/anon_inodes.h>
- #include <linux/mm.h>
- #include <linux/io.h>
-+#include <linux/cleanup.h>
- #include <linux/cpuhotplug.h>
- #include <linux/random.h>
- #include <asm/mshyperv.h>
-@@ -27,6 +28,7 @@
- #include <linux/kexec.h>
- #include <linux/page-flags.h>
- #include <linux/crash_dump.h>
-+#include <linux/kexec_handover.h>
- #include <linux/panic_notifier.h>
- #include <linux/vmalloc.h>
- #include <linux/rseq.h>
-@@ -359,6 +361,7 @@ mshv_suspend_vp(const struct mshv_vp *vp, bool *message_in_flight)
-  */
- static long mshv_run_vp_with_hyp_scheduler(struct mshv_vp *vp)
- {
-+	bool message_in_flight;
- 	long ret;
- 	struct hv_register_assoc suspend_regs[2] = {
- 			{ .name = HV_REGISTER_INTERCEPT_SUSPEND },
-@@ -375,32 +378,40 @@ static long mshv_run_vp_with_hyp_scheduler(struct mshv_vp *vp)
- 	}
- 
- 	ret = wait_event_interruptible(vp->run.vp_suspend_queue,
--				       vp->run.kicked_by_hv == 1);
--	if (ret) {
--		bool message_in_flight;
-+				       vp->run.kicked_by_hv == 1 ||
-+				       READ_ONCE(mshv_root.frozen));
- 
--		/*
--		 * Otherwise the waiting was interrupted by a signal: suspend
--		 * the vCPU explicitly and copy message in flight (if any).
--		 */
--		ret = mshv_suspend_vp(vp, &message_in_flight);
--		if (ret)
--			return ret;
-+	/* Normal wakeup: intercept arrived */
-+	if (!ret && !READ_ONCE(mshv_root.frozen)) {
-+		vp->run.kicked_by_hv = 0;
-+		return 0;
-+	}
- 
--		/* Return if no message in flight */
--		if (!message_in_flight)
--			return -EINTR;
-+	/*
-+	 * Signal or frozen: VP was resumed above and may still be
-+	 * running in the hypervisor. Suspend it before returning.
-+	 */
-+	ret = mshv_suspend_vp(vp, &message_in_flight);
-+	if (ret)
-+		return ret;
- 
--		/* Wait for the message in flight. */
--		wait_event(vp->run.vp_suspend_queue, vp->run.kicked_by_hv == 1);
--	}
-+	/* No in-flight message or frozen — nothing to deliver */
-+	if (!message_in_flight || READ_ONCE(mshv_root.frozen))
-+		return -EINTR;
-+
-+	/* Signal case: wait for the in-flight intercept message */
-+	wait_event(vp->run.vp_suspend_queue,
-+		   vp->run.kicked_by_hv == 1 ||
-+		   READ_ONCE(mshv_root.frozen));
-+
-+	if (READ_ONCE(mshv_root.frozen))
-+		return -EINTR;
  
  	/*
- 	 * Reset the flag to make the wait_event call above work
- 	 * next time.
- 	 */
- 	vp->run.kicked_by_hv = 0;
--
- 	return 0;
+diff --git a/sound/soc/soc-card.c b/sound/soc/soc-card.c
+index 235427d690617..282d666dae9ec 100644
+--- a/sound/soc/soc-card.c
++++ b/sound/soc/soc-card.c
+@@ -246,3 +246,16 @@ void snd_soc_card_remove_dai_link(struct snd_soc_card *card,
+ 		card->remove_dai_link(card, dai_link);
  }
- 
-@@ -503,7 +514,8 @@ mshv_vp_wait_for_hv_kick(struct mshv_vp *vp)
- 	ret = wait_event_interruptible(vp->run.vp_suspend_queue,
- 				       (vp->run.kicked_by_hv == 1 &&
- 					!mshv_vp_dispatch_thread_blocked(vp)) ||
--				       mshv_vp_interrupt_pending(vp));
-+				       mshv_vp_interrupt_pending(vp) ||
-+				       READ_ONCE(mshv_root.frozen));
- 	if (ret)
- 		return -EINTR;
- 
-@@ -513,6 +525,9 @@ mshv_vp_wait_for_hv_kick(struct mshv_vp *vp)
- 				       mshv_vp_dispatch_thread_blocked(vp),
- 				       mshv_vp_interrupt_pending(vp));
- 
-+	if (READ_ONCE(mshv_root.frozen))
-+		return -EBUSY;
+ EXPORT_SYMBOL_GPL(snd_soc_card_remove_dai_link);
 +
- 	vp->run.flags.root_sched_blocked = 0;
- 	vp->run.kicked_by_hv = 0;
- 
-@@ -539,6 +554,11 @@ static long mshv_run_vp_with_root_scheduler(struct mshv_vp *vp)
- 		u32 flags = 0;
- 		struct hv_output_dispatch_vp output;
- 
-+		if (READ_ONCE(mshv_root.frozen)) {
-+			ret = -EBUSY;
-+			break;
-+		}
++void snd_soc_card_set_topology_name(struct snd_soc_card *card, const char *prefix)
++{
++	if (!prefix || !card->name)
++		return;
 +
- 		if (__xfer_to_guest_mode_work_pending()) {
- 			ret = xfer_to_guest_mode_handle_work();
- 
-@@ -712,6 +732,11 @@ static long mshv_vp_ioctl_run_vp(struct mshv_vp *vp, void __user *ret_msg)
- 	trace_mshv_run_vp_entry(vp->vp_partition->pt_id, vp->vp_index);
- 
- 	do {
-+		if (READ_ONCE(mshv_root.frozen)) {
-+			rc = -EBUSY;
-+			break;
-+		}
++	if (!card->topology_shortname)
++		card->topology_shortname = devm_kasprintf(card->dev, GFP_KERNEL,
++							  "%s-%s", prefix, card->name);
 +
- 		if (hv_scheduler_type == HV_SCHEDULER_TYPE_ROOT)
- 			rc = mshv_run_vp_with_root_scheduler(vp);
- 		else
-@@ -1074,6 +1099,9 @@ mshv_partition_ioctl_create_vp(struct mshv_partition *partition,
- 	struct hv_stats_page *stats_pages[2];
- 	long ret;
++	card->name = card->topology_shortname;
++}
++EXPORT_SYMBOL_GPL(snd_soc_card_set_topology_name);
+diff --git a/sound/soc/soc-core.c b/sound/soc/soc-core.c
+index 55130eea04544..e96dd4a3f46c7 100644
+--- a/sound/soc/soc-core.c
++++ b/sound/soc/soc-core.c
+@@ -1990,7 +1990,6 @@ static inline int snd_soc_set_dmi_name(struct snd_soc_card *card)
+ static void soc_check_tplg_fes(struct snd_soc_card *card)
+ {
+ 	struct snd_soc_component *component;
+-	const struct snd_soc_component_driver *comp_drv;
+ 	struct snd_soc_dai_link *dai_link;
+ 	int i;
  
-+	if (READ_ONCE(mshv_root.frozen))
-+		return -EBUSY;
-+
- 	if (copy_from_user(&args, arg, sizeof(args)))
- 		return -EFAULT;
+@@ -2051,21 +2050,7 @@ static void soc_check_tplg_fes(struct snd_soc_card *card)
+ 		}
  
-@@ -1762,6 +1790,201 @@ static void drain_all_vps(const struct mshv_partition *partition)
+ 		/* Inform userspace we are using alternate topology */
+-		if (component->driver->topology_name_prefix) {
+-
+-			/* topology shortname created? */
+-			if (!card->topology_shortname_created) {
+-				comp_drv = component->driver;
+-
+-				snprintf(card->topology_shortname, 32, "%s-%s",
+-					 comp_drv->topology_name_prefix,
+-					 card->name);
+-				card->topology_shortname_created = true;
+-			}
+-
+-			/* use topology shortname */
+-			card->name = card->topology_shortname;
+-		}
++		snd_soc_card_set_topology_name(card, component->driver->topology_name_prefix);
  	}
  }
  
-+/**
-+ * mshv_freeze_and_get_partition_ids() - Freeze all partitions and collect IDs
-+ * @partition_ids: on success, receives a kho_alloc_preserve()'d array of
-+ *      partition IDs; set to NULL on failure or when no partitions exist
-+ * @nr_ids: on success, receives the number of entries in @partition_ids; set to
-+ *      0 on failure or when no partitions exist
-+ *
-+ * Sets the global frozen flag to prevent creation of new partitions and
-+ * (re-)dispatching of VPs. Kicks all VPs so they exit their dispatch loops,
-+ * then waits for each VP to actually finish by acquiring its mutex.
-+ *
-+ * Must be called before kexec to ensure no VP modifies VM-memory that Linux
-+ * will re-use post-kexec.
-+ *
-+ * Return: 0 on success, negative errno on failure. On failure, partitions
-+ *  and VPs are left in an undefined state — the caller must not proceed
-+ *  with kexec and should panic.
-+ */
-+static int
-+mshv_freeze_and_get_partition_ids(u64 **partition_ids, unsigned int *nr_ids)
-+{
-+	unsigned int nr_alloc = 0, nr_ref = 0, nr_noref = 0;
-+	struct mshv_partition *partition;
-+	struct mshv_vp *vp;
-+	int bkt, i;
-+	u64 *ids;
-+
-+	*partition_ids = NULL;
-+	*nr_ids = 0;
-+
-+	scoped_guard(spinlock, &mshv_root.pt_ht_lock)
-+		mshv_root.frozen = true;
-+
-+	/*
-+	 * Count partitions to size the ID array. Frozen prevents new additions,
-+	 * so this is an upper bound.
-+	 */
-+	scoped_guard(rcu)
-+		hash_for_each_rcu(mshv_root.pt_htable, bkt, partition, pt_hnode)
-+			nr_alloc++;
-+
-+	if (!nr_alloc) {
-+		pr_info("Frozen 0 partition(s) for kexec\n");
-+		return 0;
-+	}
-+
-+	ids = kho_alloc_preserve(nr_alloc * sizeof(*ids));
-+	if (IS_ERR(ids)) {
-+		pr_err("Failed to allocate partition ID array for freeze\n");
-+		return PTR_ERR(ids);
-+	}
-+
-+	/*
-+	 * Record every partition's ID and obtain a reference for later use.
-+	 *
-+	 * Zero-refcount partitions (destroy_partition() in progress) still get
-+	 * their ID recorded — destruction may not complete before kexec, and
-+	 * the next kernel must clean them up. Their IDs are stored at the back
-+	 * of the array so the kick/drain phase can iterate only the ref'd
-+	 * prefix ids[0..nr_ref).
-+	 *
-+	 * VP kicking is deferred to the next phase where it happens under
-+	 * pt_mutex, which serializes against mshv_partition_ioctl_create_vp().
-+	 */
-+	rcu_read_lock();
-+	hash_for_each_rcu(mshv_root.pt_htable, bkt, partition, pt_hnode) {
-+		if (!mshv_partition_get(partition)) {
-+			/*
-+			 * Zero refcount — destroy_partition() is in progress.
-+			 * All fds are closed so no VP ioctl can be running.
-+			 * Store at the back; skip VP kicking.
-+			 */
-+			ids[nr_alloc - 1 - nr_noref++] = partition->pt_id;
-+			continue;
-+		}
-+
-+		ids[nr_ref++] = partition->pt_id;
-+	}
-+	rcu_read_unlock();
-+
-+	/*
-+	 * For each ref'd partition, acquire and release pt_mutex as a barrier
-+	 * against any in-flight create_vp. After this, the frozen flag
-+	 * prevents new VPs from being created, so pt_vp_array is stable.
-+	 * Then kick all VPs and drain by acquiring each vp_mutex.
-+	 *
-+	 * Root scheduler: disable_vp_dispatch() sets
-+	 * HV_REGISTER_DISPATCH_SUSPEND, which causes any in-progress dispatch
-+	 * hypercall to return. This is safe regardless of VP state because the
-+	 * VP only executes while the kernel thread's dispatch hypercall is
-+	 * active — once it returns, the VP cannot run until re-dispatched,
-+	 * which the frozen check prevents.
-+	 *
-+	 * Hyp scheduler: the VP runs independently in the hypervisor and must
-+	 * be explicitly suspended from within its dispatch loop (via
-+	 * mshv_suspend_vp()) when the kernel thread detects the frozen flag.
-+	 * wake_up_all() unblocks the kernel thread so it can do so.
-+	 */
-+	for (i = 0; i < nr_ref; i++) {
-+		/* Ref held; partition stays in hash and alive outside RCU */
-+		scoped_guard(rcu)
-+			partition = mshv_partition_find(ids[i]);
-+
-+		/* Barrier: wait for any in-flight create_vp to complete */
-+		scoped_guard(mutex, &partition->pt_mutex) {}
-+
-+		for (bkt = 0; bkt < MSHV_MAX_VPS; bkt++) {
-+			vp = partition->pt_vp_array[bkt];
-+			if (!vp)
-+				continue;
-+
-+			if (hv_scheduler_type == HV_SCHEDULER_TYPE_ROOT)
-+				disable_vp_dispatch(vp);
-+
-+			wake_up_all(&vp->run.vp_suspend_queue);
-+		}
-+
-+		/*
-+		 * Wait for every VP to finish its current ioctl. Taking the VP
-+		 * mutex proves the VP is no longer inside run_vp.
-+		 *
-+		 * On Hyp-scheduler, prior mshv_suspend_vp() might have failed.
-+		 * Since it's idempotent, we can safely re-issue and fail kexec
-+		 * if suspend fails again. In this case, the caller is expected
-+		 * to panic, so cleanup is unnecessary.
-+		 */
-+		for (bkt = 0; bkt < MSHV_MAX_VPS; bkt++) {
-+			vp = partition->pt_vp_array[bkt];
-+			if (!vp)
-+				continue;
-+
-+			scoped_guard(mutex, &vp->vp_mutex) {
-+				if (hv_scheduler_type != HV_SCHEDULER_TYPE_ROOT) {
-+					bool mif;
-+					int ret;
-+
-+					ret = mshv_suspend_vp(vp, &mif);
-+					if (ret)
-+						return ret;
-+				}
-+			}
-+		}
-+
-+		/*
-+		 * Tear down doorbell ports owned by the parent partition.
-+		 * These survive child partition deletion and kexec, so the
-+		 * new kernel would collide on port IDs if we leave them.
-+		 */
-+		mshv_eventfd_release(partition);
-+
-+		mshv_partition_put(partition);
-+	}
-+
-+	/* Move non-ref'd IDs next to ref'd IDs to form a contiguous array */
-+	if (nr_noref) {
-+		memmove(&ids[nr_ref], &ids[nr_alloc - nr_noref],
-+			nr_noref * sizeof(*ids));
-+	}
-+
-+	*partition_ids = ids;
-+	*nr_ids = nr_ref + nr_noref;
-+
-+	pr_info("Frozen %u partition(s) for kexec\n", nr_ref + nr_noref);
-+	return 0;
-+}
-+
-+/*
-+ * Reboot notifier for the mshv_root module. Runs at higher priority than
-+ * the built-in page-preservation notifier so that all VPs are frozen and
-+ * partition IDs are handed off before the tree is serialized.
-+ */
-+static int mshv_root_reboot_cb(struct notifier_block *nb, unsigned long action,
-+			       void *data)
-+{
-+	if (kexec_in_progress) {
-+		u64 *partition_ids;
-+		unsigned int nr_partition_ids;
-+		int err;
-+
-+		err = mshv_freeze_and_get_partition_ids(&partition_ids,
-+							&nr_partition_ids);
-+		if (err)
-+			panic("mshv_freeze_and_get_partition_ids() failed - must not kexec: %d\n",
-+			      err);
-+
-+		mshv_set_frozen_partition_ids(partition_ids, nr_partition_ids);
-+	}
-+	return NOTIFY_OK;
-+}
-+
-+static struct notifier_block mshv_root_reboot_notifier = {
-+	.notifier_call = mshv_root_reboot_cb,
-+	.priority = 1, /* higher than the built-in preserve notifier (0) */
-+};
-+
- static void
- remove_partition(struct mshv_partition *partition)
- {
-@@ -1911,13 +2134,27 @@ mshv_partition_release(struct inode *inode, struct file *filp)
- static int
- add_partition(struct mshv_partition *partition)
- {
--	spin_lock(&mshv_root.pt_ht_lock);
-+	guard(spinlock)(&mshv_root.pt_ht_lock);
-+
-+	/*
-+	 * Reject new partitions once frozen. Note: there is a small window
-+	 * where a concurrent create-ioctl has already called
-+	 * hv_call_create_partition() but not yet reached here. If kexec fires
-+	 * during that window, the caller's error-path
-+	 * hv_call_delete_partition() may never execute and the empty partition
-+	 * leaks in the hypervisor.
-+	 *
-+	 * No pages are deposited at that point, so only the hypervisor-internal
-+	 * tracking is lost. Closing this fully would require reworking the
-+	 * entire mshv-locking logic so that the frozen check and the hypervisor
-+	 * create call happen atomically.
-+	 */
-+	if (mshv_root.frozen)
-+		return -EBUSY;
+diff --git a/sound/soc/sof/nocodec.c b/sound/soc/sof/nocodec.c
+index c0c906a78ebae..11a95dba3c9cf 100644
+--- a/sound/soc/sof/nocodec.c
++++ b/sound/soc/sof/nocodec.c
+@@ -15,7 +15,6 @@
  
- 	hash_add_rcu(mshv_root.pt_htable, &partition->pt_hnode,
- 		     partition->pt_id);
+ static struct snd_soc_card sof_nocodec_card = {
+ 	.name = "nocodec", /* the sof- prefix is added by the core */
+-	.topology_shortname = "sof-nocodec",
+ 	.owner = THIS_MODULE
+ };
  
--	spin_unlock(&mshv_root.pt_ht_lock);
--
- 	return 0;
- }
- 
-@@ -2316,6 +2553,55 @@ root_scheduler_deinit(void)
- 	free_percpu(root_scheduler_output);
- }
- 
-+/**
-+ * vacuum_stale_partitions() - Tear down partitions left by a prior kernel.
-+ * @dev: device for logging
-+ *
-+ * After kexec the previous kernel's partitions are still alive in the
-+ * hypervisor. Retrieve their IDs from the KHO-preserved FDT and finalize,
-+ * withdraw, and delete each one so the deposited pages return to the free pool.
-+ */
-+static void __init vacuum_stale_partitions(struct device *dev)
-+{
-+	u64 *ids;
-+	unsigned int nr;
-+	int i, err;
-+
-+	err = mshv_retrieve_frozen_partition_ids(&ids, &nr);
-+	if (err) {
-+		dev_err(dev, "Failed to retrieve stale partition IDs: %d\n",
-+			err);
-+		return;
-+	}
-+
-+	for (i = 0; i < nr; i++) {
-+		dev_info(dev, "Cleaning up stale partition %llu\n",
-+			 ids[i]);
-+
-+		err = hv_call_finalize_partition(ids[i]);
-+		if (err == -EINVAL) {
-+			dev_info(dev, "partition %llu already gone\n",
-+				 ids[i]);
-+			continue;
-+		}
-+		if (err)
-+			dev_warn(dev, "finalize partition %llu failed: %d\n",
-+				 ids[i], err);
-+
-+		err = hv_call_withdraw_memory(U64_MAX, NUMA_NO_NODE, ids[i]);
-+		if (err)
-+			dev_warn(dev, "withdraw memory %llu failed: %d\n",
-+				 ids[i], err);
-+
-+		err = hv_call_delete_partition(ids[i]);
-+		if (err)
-+			dev_warn(dev, "delete partition %llu failed: %d\n",
-+				 ids[i], err);
-+	}
-+
-+	kho_restore_free(ids);
-+}
-+
- static int __init mshv_init_vmm_caps(struct device *dev)
- {
+@@ -89,9 +88,10 @@ static int sof_nocodec_probe(struct platform_device *pdev)
  	int ret;
-@@ -2372,10 +2658,16 @@ static int __init mshv_parent_partition_init(void)
- 	if (ret)
- 		goto synic_cleanup;
  
--	ret = root_scheduler_init(dev);
-+	vacuum_stale_partitions(dev);
+ 	card->dev = &pdev->dev;
+-	card->topology_shortname_created = true;
+ 	mach = pdev->dev.platform_data;
+ 
++	snd_soc_card_set_topology_name(card, "sof");
 +
-+	ret = register_reboot_notifier(&mshv_root_reboot_notifier);
- 	if (ret)
- 		goto synic_cleanup;
- 
-+	ret = root_scheduler_init(dev);
-+	if (ret)
-+		goto unregister_reboot;
-+
- 	ret = mshv_debugfs_init();
- 	if (ret)
- 		goto deinit_root_scheduler;
-@@ -2395,6 +2687,8 @@ static int __init mshv_parent_partition_init(void)
- 	mshv_debugfs_exit();
- deinit_root_scheduler:
- 	root_scheduler_deinit();
-+unregister_reboot:
-+	unregister_reboot_notifier(&mshv_root_reboot_notifier);
- synic_cleanup:
- 	mshv_synic_exit();
- device_deregister:
-@@ -2410,6 +2704,7 @@ static void __exit mshv_parent_partition_exit(void)
- 	misc_deregister(&mshv_dev);
- 	mshv_irqfd_wq_cleanup();
- 	root_scheduler_deinit();
-+	unregister_reboot_notifier(&mshv_root_reboot_notifier);
- 	mshv_synic_exit();
- }
- 
+ 	ret = sof_nocodec_setup(card->dev, mach->mach_params.num_dai_drivers,
+ 				mach->mach_params.dai_drivers);
+ 	if (ret < 0)
 -- 
 2.43.0
 
