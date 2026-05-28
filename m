@@ -4,60 +4,116 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id F2F8BCD5BD1
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 28 May 2026 09:55:54 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 14BEECD6E4A
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 28 May 2026 10:16:53 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=YEoKUOwM51PPh6FV7fZqXSWft8vzV8AsvmeGrZqg534=; b=Cbm3+QmItKH87HL4Ijw7KTOaMe
-	oUTTkDoCvwYtCH/vcE7xyIXbnya5dxDHzyWfZAzdKlj/4I4F8Mojp7wFrVACGf3BN+Esh7y1ECJP0
-	mVhf1bTuCuDdlQ4y+HR5b4KDbouVzbgnwIv35kb1n3iz4PFDC02ORjNx+8yfCWZgqupKtLjkEYQPo
-	3kHuSQc5I3Omg/7VlSyg6A6o2vAsByvVU8beAw/RWQGp2sOzR9YwMkw+GqBbXa+OrC39Wyj/xON4o
-	A5dYsNQSOqqc3316r2oMhyp8BzfVomwjRMTafmZlmtJyKrW3mNF2bZskC+lwKAiFvCwBw8n/Qb2DW
-	QRQHQf+w==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:
+	Content-Transfer-Encoding:MIME-Version:Message-ID:Date:Subject:CC:To:From:
+	Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender
+	:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=e6wvbE/nA66altJoo2zmfFBj2wnQ0zAAnQBK1sa/6gs=; b=bYE6xnmdLOH25ilDBn7RzfazCS
+	SOVtNrL/C2bdhZ+Enm1ZRaYY+aSlUZnlaBL99Z8TdFLfu9kj7rhBiGIEb1WFcdTzZgz21ez8xsUzp
+	ImQyqtzcKPTf2VPtvNJds8Yec4R473se+VhzL8V1Cq0XFWU26IsYElaRk4t+z4Zf1IcUMaPB0iWaG
+	G1cXyrORjSVuSCtR2c0aAv4029Ht5If1mZZzrIwip0RFB48fxqtMJapW++RdSEiZmLhGsol7v0bjD
+	+E1DDy57jYtwnXTo2GSalO+p85XPI4IKkooU7us+UAyu2LxLv//PCxqsMgqJsznQCOA9JwBSc1jrm
+	yVG8MQDw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wSXSu-00000005YBh-2bNN;
-	Thu, 28 May 2026 09:55:48 +0000
-Received: from foss.arm.com ([217.140.110.172])
-	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wSXSs-00000005YBJ-3V0l
+	id 1wSXnB-00000005ZmN-0cns;
+	Thu, 28 May 2026 10:16:45 +0000
+Received: from mail-westus3azlp170110003.outbound.protection.outlook.com ([2a01:111:f403:c107::3] helo=PH0PR06CU001.outbound.protection.outlook.com)
+	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
+	id 1wSXn8-00000005Zlt-2vEt
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 28 May 2026 09:55:47 +0000
-Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
-	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id A7BE443F7;
-	Thu, 28 May 2026 02:55:40 -0700 (PDT)
-Received: from thinkpad-e142931.arm.com (usa-sjc-imap-foss1.foss.arm.com [10.121.207.14])
-	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id B76AA3F632;
-	Thu, 28 May 2026 02:55:43 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=simple/simple; d=arm.com; s=foss;
-	t=1779962145; bh=+1wVAqRlhKf3c7sqkfh3JBpBe6PeJ2dRxvJY09h7QHQ=;
-	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
-	b=TTlk7cJDqHd0sZQpXVRVYcD8hxsY6lBkBhBkA+r5F0517v337AbDj6Qob2Uun5d7/
-	 +BrBqlc5JPktWsiJejt+fw8ZV98X970/iuDUw9V69xjxreNfvu0kcmuzwTA/e06Py9
-	 TMROGBUZVEZn/yeCGvnszzxxS2oR0vLKbNfFjb9s=
-Date: Thu, 28 May 2026 10:55:32 +0100
-From: Wei-Lin Chang <weilin.chang@arm.com>
-To: Marc Zyngier <maz@kernel.org>, linux-arm-kernel@lists.infradead.org, 
-	kvmarm@lists.linux.dev, linux-kernel@vger.kernel.org
-Cc: Oliver Upton <oupton@kernel.org>, Joey Gouly <joey.gouly@arm.com>, 
-	Suzuki K Poulose <suzuki.poulose@arm.com>, Zenghui Yu <yuzenghui@huawei.com>, 
-	Catalin Marinas <catalin.marinas@arm.com>, Will Deacon <will@kernel.org>
-Subject: Re: [PATCH v2 0/4] KVM: arm64: Handle unsupported guest translation
- granule sizes
-Message-ID: <iyfrjjhqej65nrfwmkws7kknpdcqr4uyzdtte3exlgf3ghfhux@pdi2wbnyyzcx>
-References: <20260414000334.3947257-1-weilin.chang@arm.com>
- <177996023466.1525303.2108207515102273832.b4-ty@kernel.org>
+	Thu, 28 May 2026 10:16:44 +0000
+ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
+ b=cR8j9HycHgG0o8v+avzE7++6I/TEO6Q9nzLCMdvLZmLa22TPMHp2ISjJIYfTS7WBQHTE0xwLUXSOqR2KT1LGi8x/fHKBd8JZPbADlLeXZMZ+XCulGx7HkKsTIm9iauiOp384NJ0HQ0OiyrhIdwMgZGReLlsWwP4XMSs4bt9VMjx7GHypw/yJ/lC8ajMgHF8LfHPI9ns7IA2OobeWAj2jIWj5KXG+kLa6qCPUCUUXrgZFq5oMqtPzSv3PltmvdHBVwF+e0BEy2u38kR09boWAlCj6Y2529k8CfDu4zKRglr/X9QtlElyriEI6QqKbssu5SDlIZ0f2H70VCf/VPTWOEQ==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
+ s=arcselector10001;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
+ bh=e6wvbE/nA66altJoo2zmfFBj2wnQ0zAAnQBK1sa/6gs=;
+ b=TO9K8usveuGDAJzFaRyyojqR8btYvheGYwEm+J3ohdC6uBPFwZWfTMLej4oh0si7o4BpPK8rkG5TJopkV9KWfvvRjtsjfry+s4Z+oJnH3fsq5RVZDXRA1dekzkUBZnfdzfqf+ONQL3KdVrWf9Qt+90hxcFjPcUZKQqcwjS2PfWl+M5cu3V9gY7NaolKKlnZoTRTF9biShQDMPvcKtlRXWk5JKknAZ/LEq3LelUWvB0KXtIce8LtBXcVlrETw14EwMukiFe9NZ43IfvwLu3h3nQQSw2w2B147xAU17Zi0A5Z1frzJNBeyzroKRS5sF7cH8ecxbbbBFR/H8l5hAzUymg==
+ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass (sender ip is
+ 216.228.118.232) smtp.rcpttodomain=kernel.org smtp.mailfrom=nvidia.com;
+ dmarc=pass (p=reject sp=reject pct=100) action=none header.from=nvidia.com;
+ dkim=none (message not signed); arc=none (0)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=Nvidia.com;
+ s=selector2;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
+ bh=e6wvbE/nA66altJoo2zmfFBj2wnQ0zAAnQBK1sa/6gs=;
+ b=RMG7szN1fBFSQ32BPouM8+h5oIWwbxfQLIHYAMYpqzT7GSex0EWHErdyfBeQVQgQOYrk7zIcZqQb7gVbtX9hBpipl+G0pygL+CvsWdRq4WCS/MhhyAL7U5X5B78rRUSz4hDQjoG2/PvJHFrAoZ3uQzqWlJ+WaJDd/TT/ZFRZEKAQzK7w1FZQekRU7Dn585vt37zykHxAK4uip5xtFILO7IRiF7EHC9Y+byu50OE6NZTe8JEo+OWYMqIyWd/TfWo4AxNjaLMfhOAi/aQ6yhSz6XwI7QQk94OQP+SBJn1uL9e0oV/GwzAm5iU2HEzhakQfP5pQ27VGhqJ8Vtsw5xKwLw==
+Received: from SJ0PR03CA0208.namprd03.prod.outlook.com (2603:10b6:a03:2ef::33)
+ by BY5PR12MB4210.namprd12.prod.outlook.com (2603:10b6:a03:203::8) with
+ Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.21.71.14; Thu, 28 May
+ 2026 10:16:36 +0000
+Received: from MWH0EPF000A6730.namprd04.prod.outlook.com
+ (2603:10b6:a03:2ef:cafe::58) by SJ0PR03CA0208.outlook.office365.com
+ (2603:10b6:a03:2ef::33) with Microsoft SMTP Server (version=TLS1_3,
+ cipher=TLS_AES_256_GCM_SHA384) id 15.21.71.13 via Frontend Transport; Thu, 28
+ May 2026 10:16:36 +0000
+X-MS-Exchange-Authentication-Results: spf=pass (sender IP is 216.228.118.232)
+ smtp.mailfrom=nvidia.com; dkim=none (message not signed)
+ header.d=none;dmarc=pass action=none header.from=nvidia.com;
+Received-SPF: Pass (protection.outlook.com: domain of nvidia.com designates
+ 216.228.118.232 as permitted sender) receiver=protection.outlook.com;
+ client-ip=216.228.118.232; helo=mail.nvidia.com; pr=C
+Received: from mail.nvidia.com (216.228.118.232) by
+ MWH0EPF000A6730.mail.protection.outlook.com (10.167.249.22) with Microsoft
+ SMTP Server (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
+ 15.21.71.7 via Frontend Transport; Thu, 28 May 2026 10:16:36 +0000
+Received: from drhqmail201.nvidia.com (10.126.190.180) by mail.nvidia.com
+ (10.127.129.5) with Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.2.2562.20; Thu, 28 May
+ 2026 03:16:24 -0700
+Received: from drhqmail202.nvidia.com (10.126.190.181) by
+ drhqmail201.nvidia.com (10.126.190.180) with Microsoft SMTP Server
+ (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
+ 15.2.2562.20; Thu, 28 May 2026 03:16:23 -0700
+Received: from build-amhetre-focal-20250829.internal (10.127.8.12) by
+ mail.nvidia.com (10.126.190.181) with Microsoft SMTP Server id 15.2.2562.20
+ via Frontend Transport; Thu, 28 May 2026 03:16:23 -0700
+From: Ashish Mhetre <amhetre@nvidia.com>
+To: <will@kernel.org>, <robin.murphy@arm.com>, <joro@8bytes.org>,
+	<jgg@ziepe.ca>, <nicolinc@nvidia.com>
+CC: <linux-arm-kernel@lists.infradead.org>, <iommu@lists.linux.dev>,
+	<linux-kernel@vger.kernel.org>, <linux-tegra@vger.kernel.org>, Ashish Mhetre
+	<amhetre@nvidia.com>
+Subject: [PATCH 0/2] iommu/arm-smmu-v3: Tegra264 invalidation workaround
+Date: Thu, 28 May 2026 10:16:15 +0000
+Message-ID: <20260528101617.4068249-1-amhetre@nvidia.com>
+X-Mailer: git-send-email 2.50.1
 MIME-Version: 1.0
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-In-Reply-To: <177996023466.1525303.2108207515102273832.b4-ty@kernel.org>
+X-NVConfidentiality: public
+Content-Transfer-Encoding: 8bit
+Content-Type: text/plain
+X-NV-OnPremToCloud: ExternallySecured
+X-EOPAttributedMessage: 0
+X-MS-PublicTrafficType: Email
+X-MS-TrafficTypeDiagnostic: MWH0EPF000A6730:EE_|BY5PR12MB4210:EE_
+X-MS-Office365-Filtering-Correlation-Id: afbfecdd-42fc-40ac-18cd-08debca2331e
+X-MS-Exchange-SenderADCheck: 1
+X-MS-Exchange-AntiSpam-Relay: 0
+X-Microsoft-Antispam: BCL:0;ARA:13230040|36860700016|1800799024|376014|82310400026|18002099003|11063799006|6133799003|56012099006;
+X-Microsoft-Antispam-Message-Info: 6zsAtW1vk/N2TLIwSc0x8uu+fZb19+z2xr23wB1AqLH6bk3/d4Sq90VnyCdDxmmH5lc5TnafqUPh6funw5IMVNeqlPBE4bdQxEojI7nPL+4kHhsT3mTCoIz3RAnzPbu0VhxaAd8Z2eDU5Rk0RygkCEKFFuNIX1vHTZ61pcJ/epz1AIoN9leLKMBxa+nPsz+fnPUdGh3qZCG8W/VSOdgdlJE+23g6e/7PpHs2c3RPLNIpAaVAwfLQEkKHAJ21u4LZgsP9dmAY3G/y3uYVy7yrKSlffYeB6+wNy8KDX+SUSzuyEHAX7WMdqAs1kiGx3k9ik1uQKmuC2L9VCEKush4veHIltLGVajpiwNi48OANyB/GrK3BM1BJvP9KAC2o25MJUn5ftePxfL3WBD5OvO6ZS+yjYh03NN27ftJG75zouvnuf7YwB4ghWnt1UMg+K1YEghN5ggcFkAIg8zG1/P0WoDtg/R48juiyAWeWZIABDT31jVuzTTcRV94GMpJeiSrsPN/wgL8awLyt9r08JeaNWMESLU4EsqSLgHNTGG+tfXwOr9AjoaSBxiwmYpS+KdwrT3QYLFJPk75e73T8tnEewaf0I0nQT+XF7VOMANZeOEjviZtlef4hX+yM2XIUCTx9+kNEbif69SHOwBM1e+WkTL1lBem578zgCT95pQMPkISo6Q512Nu2J0bw2ZFuVsZhf4/Sdjehz+p3QCw3mdZL8ISZsOzgMNPlfXz/rjhyBaQ=
+X-Forefront-Antispam-Report: CIP:216.228.118.232;CTRY:US;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:mail.nvidia.com;PTR:dc7edge1.nvidia.com;CAT:NONE;SFS:(13230040)(36860700016)(1800799024)(376014)(82310400026)(18002099003)(11063799006)(6133799003)(56012099006);DIR:OUT;SFP:1101;
+X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
+X-MS-Exchange-AntiSpam-MessageData-0: o6UnSxBvzti8tExDXZ9FNfiCfdryEyfQrpC0ZOA0Hg25jO5xUwKnq61nihLRQ8uymIHqw9aWdQNtM4ZG3hTzPiR4qcUBu7+AY2YmtdqcZI6PZ+RD9YJSFdw5ERSiRuEgzemoWnWkeRHYDag6Afqoo9nCGErUSXqChcPfnkhRVrD+mi/ybJ9ijSKDYGURlClo1XJGI8/xhchqKbLfUccKvm1/WBy7D9V6gywY8E+FtUTb/A3r7ebuJzh1d1e9u6QY3rMkWM9hmTs9Yoe/GP0Gv1l1ebn06tXQWZt1G4FRSYMEf6WTBPVQDYMOeseXJrdo2to69qqptHf3v2DtoYErFKc2n+XpLV/oRiuYjIOZklw6/zNzGDcZ7Uzv/VtOmO7O1NKOLH97TBlWno7/opLqe9BGqS3bGKbuidDT5UW1T/Yf4o5IH/OOwk2Ec2YWLV3c
+X-OriginatorOrg: Nvidia.com
+X-MS-Exchange-CrossTenant-OriginalArrivalTime: 28 May 2026 10:16:36.1016
+ (UTC)
+X-MS-Exchange-CrossTenant-Network-Message-Id: afbfecdd-42fc-40ac-18cd-08debca2331e
+X-MS-Exchange-CrossTenant-Id: 43083d15-7273-40c1-b7db-39efd9ccc17a
+X-MS-Exchange-CrossTenant-OriginalAttributedTenantConnectingIp: TenantId=43083d15-7273-40c1-b7db-39efd9ccc17a;Ip=[216.228.118.232];Helo=[mail.nvidia.com]
+X-MS-Exchange-CrossTenant-AuthSource: MWH0EPF000A6730.namprd04.prod.outlook.com
+X-MS-Exchange-CrossTenant-AuthAs: Anonymous
+X-MS-Exchange-CrossTenant-FromEntityHeader: HybridOnPrem
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: BY5PR12MB4210
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260528_025546_936195_3BBFD496 
-X-CRM114-Status: GOOD (  12.63  )
+X-CRM114-CacheID: sfid-20260528_031642_738596_19B20CD1 
+X-CRM114-Status: UNSURE (   8.44  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -72,38 +128,38 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Thu, May 28, 2026 at 10:24:01AM +0100, Marc Zyngier wrote:
-> On Tue, 14 Apr 2026 01:03:30 +0100, Wei-Lin Chang wrote:
-> > This is v2 of fixing the granule size selection for software stage-1
-> > and stage-2 walks. Thanks to Marc for the feedback on v1 ([1]).
-> > 
-> > * Changes from v1:
-> > 
-> >   - Take the entire (v)tcr value for TGx decode helpers.
-> > 
-> > [...]
-> 
-> Applied to next, thanks!
-> 
-> [1/4] KVM: arm64: nv: Rename vtcr_to_walk_info() to setup_s2_walk()
->       commit: a878096e0e86b44e758aafc6b26af97e8f548673
-> [2/4] KVM: arm64: Factor out TG0/1 decoding of VTCR and TCR
->       commit: d7768b4f718503e79e7c626d29e9131b747148ee
-> [3/4] KVM: arm64: nv: Use literal granule size in TLBI range calculation
->       commit: b154da8288add1f6fb958797d0b3462800f9fc77
-> [4/4] KVM: arm64: Fallback to a supported value for unsupported guest TGx
->       commit: 8853566dfbab1a255ae72676ab5ec43e1631ddb7
+Nvidia Tegra264 SMMUs are affected by an erratum where a TLB entry can
+survive an invalidation that races with concurrent traffic targeting
+the same entry. The hardware-recommended software workaround is to
+issue every CFGI/TLBI command (each followed by CMD_SYNC) twice. The
+second issue must execute only after the first issue's CMD_SYNC has
+completed, giving the sequence:
 
-Thanks for fixing the small issues!
+    TLBI/CFGI ... CMD_SYNC TLBI/CFGI ... CMD_SYNC
 
-Wei-Lin Chang
+This series implements the workaround by hooking the duplication into
+the single chokepoint that every synchronous submission flows through
+arm_smmu_cmdq_issue_cmdlist().
 
-> 
-> Cheers,
-> 
-> 	M.
-> -- 
-> Without deviation from the norm, progress is not possible.
-> 
-> 
+Patch 1 detects affected instances using the existing
+"nvidia,tegra264-smmu" compatible string and exposes the condition
+via a new ARM_SMMU_OPT_TLBI_TWICE option bit.
+
+Patch 2 wires the option into the CMDQ submission path which is used to
+re-issue the cmdlist when @sync is true and the first command is a
+CFGI/TLBI.
+
+Ashish Mhetre (2):
+  iommu/arm-smmu-v3: Detect Tegra264 erratum
+  iommu/arm-smmu-v3: Issue CFGI/TLBI twice on Tegra264
+
+ drivers/iommu/arm/arm-smmu-v3/arm-smmu-v3.c | 70 +++++++++++++++++++--
+ drivers/iommu/arm/arm-smmu-v3/arm-smmu-v3.h |  8 +++
+ 2 files changed, 72 insertions(+), 6 deletions(-)
+
+
+base-commit: f86b1ac9a67321419fec095ecb27584b2f77e339
+-- 
+2.50.1
+
 
