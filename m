@@ -4,137 +4,64 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 62FDACD4F54
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 28 May 2026 16:07:13 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id ABE0ACD4F54
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 28 May 2026 16:09:14 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:
-	Content-Transfer-Encoding:Content-Type:In-Reply-To:From:References:Cc:To:
-	Subject:Date:Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=DvjAQL7iCr9FAHVnlfylXlZtwi97p6dK/ANh8lXRvhs=; b=t8swK4p0mq+ibGLz80nF/tQhdX
-	/syj+ze5UKlguQk8EDfyzzCxZOb3+vy64Mt/R6xPOGcS/epKN9tOzaOeAxe1KmdNLSqeHEIeETnld
-	Fkb6f+/TAl9nbgdwHWZ2jnuIZav0B1n5PXffQQEIdzrLkUp044B0ipauHf5Yk0QkX/dCw80W0ep/V
-	odnH+t9mI4qtv1xNziO89YQJoJOabDuDrTDEEo87AbQw08VCxQuSpfZa0pxhJHSJqsiVQoCjUOpZf
-	WT4O8XLulLY8mrdQlus1Z3pDjmnLTCdKj8dp+isJ7ATaeDCQ39piCgFLRpxtOkP2WsHMyVxXuSEjf
-	k8+V5Z+Q==;
+	bh=h9g24AMvHPC82wp8alB06zIO1bChAGUywmcXHfgLSzg=; b=xXNlklwKMsBlIHK/AiJoeVSV2h
+	4Z3x5eruURXWohRZDCgug7qUz39+hY3CLIpX4nmXRHUFx4sMuV8yUkS4NxWnGzsiGjE3BKyo/ruNp
+	KUr3GV8ztZQQzSZFGl7a319Vjb77WwDCc4VVEDxn48RXYN9p8/qy4CQT0ljXxWz+jT6FxwPx7jlWv
+	Zu7M0JhGdJo367u3XhQhEUfWw03xlhcp4aLBxQjSfsb9Vv3MeglzQI189avlSRJUJgOIoTM90+ySR
+	Vl2sf+vN3pUIT8rufj9rhPzonRWlIWYoNv4jxaJtxTiZSd0y6jk+beeYxlL9AfEu1uR0pCd4MS8Ac
+	1h1ZGJsQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wSdGE-00000005y4V-44er;
-	Thu, 28 May 2026 16:07:06 +0000
-Received: from mail-westus2azon11010062.outbound.protection.outlook.com ([52.101.46.62] helo=CO1PR03CU002.outbound.protection.outlook.com)
+	id 1wSdIB-00000005yEz-1D9j;
+	Thu, 28 May 2026 16:09:07 +0000
+Received: from tor.source.kernel.org ([2600:3c04:e001:324:0:1991:8:25])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wSdFx-00000005y1h-3H3z
-	for linux-arm-kernel@lists.infradead.org;
-	Thu, 28 May 2026 16:06:51 +0000
-ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
- b=MnxhxWBjSyb3Lifx21EeWY3+ZI+9HOsqXbeBW+UdywyYZWSzibUdUps65OUQE60HqVBEQZtuf7/kCmU4HNPmP+sMPvbelVk9SakkFN+Ei9FCanVSHo9dS/moJam9s3cf5Y/S/pwFersxMw2D1W7TDJO2lTPjTQVLRltmzkpA3O91OLvIaKpLiG7EHPqcUj4xxlmVT21zpaFXtd5O57VgiI4ZVuKeRrAk8Fetd0Gcn9z0L5fUv0REzinnBT/4et/h9PPoo5LquOj1vrwmjmCSCBztIXHhM+CTaLYI7uxET2Kw0VR3oENnku8BAFXXe36ScH8n7OCQDwLMCSu0rjTsUw==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
- s=arcselector10001;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
- bh=DvjAQL7iCr9FAHVnlfylXlZtwi97p6dK/ANh8lXRvhs=;
- b=coFSjzy5vZNi5g2LUfs/aE3S1pHmvyQ4C4j0XeSPKLgm0fqAUsDF6aHoodeZQ936CajVLu6CFjceW1ivBa1L4hFoRl3PeJ5JbDoZ3Ej7fZ41PanV050sTIJ9Dmk70khd1p75U9QbtrnlaR7+5Mu+MD6pagOlzZnikMZnjHk2Akua9W2isQkg/0MhPVbyhbFD50duJUWRFik9TwOyz4Sh+zEDofF8JFYJ8ysNFrmxNMnhRU/IDI3zHncjYhwAy+FIpDYvdTexj6ELzRH3abci3xwzgkDPnFs30Bzen95RC5L5T4bGugLGB35DGZ1JILq85ABUSY+kTQ511FrwPK8wrw==
-ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
- smtp.mailfrom=nvidia.com; dmarc=pass action=none header.from=nvidia.com;
- dkim=pass header.d=nvidia.com; arc=none
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=Nvidia.com;
- s=selector2;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
- bh=DvjAQL7iCr9FAHVnlfylXlZtwi97p6dK/ANh8lXRvhs=;
- b=gdgfoVpOBzXBIXTEkR4lYnRDl9k/BHa9mawGK0G1u7Y4aztqXpZvFAaFAFjT85n/o4B0gULK7g5eFHM1ZRNkgQhL/T9i9ZQtuIjGYmnvsekvFZHvDUfZfh49XYOc/3UbzNlPt6hH/27ZeatBqqJosQjKsRpsQ8X0n+QJ3gUPT5xSafZzrQMDG1uvG2qdgv8wgOqleX7qWaLJXMG5V9aobg3AQLfyvTJ8iteET2ixK60gO5Q4ue8SjrkF58ZBPjUsONVufTXpehL9+WPGtFb+S/gozvCZr+SFE+SHl4g5sUfwA16nvMG9oot8IfuFz8Lo34HJSIBy5SOSheufTjzwcg==
-Authentication-Results: dkim=none (message not signed)
- header.d=none;dmarc=none action=none header.from=nvidia.com;
-Received: from BN5PR12MB9511.namprd12.prod.outlook.com (2603:10b6:408:2a9::14)
- by SJ0PR12MB6967.namprd12.prod.outlook.com (2603:10b6:a03:44b::6) with
- Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.21.71.13; Thu, 28 May
- 2026 16:06:41 +0000
-Received: from BN5PR12MB9511.namprd12.prod.outlook.com
- ([fe80::4d8d:5f91:6c3c:dc8c]) by BN5PR12MB9511.namprd12.prod.outlook.com
- ([fe80::4d8d:5f91:6c3c:dc8c%4]) with mapi id 15.21.0071.011; Thu, 28 May 2026
- 16:06:41 +0000
-Message-ID: <c9390279-24d9-46d4-a644-797395c2eb2c@nvidia.com>
-Date: Thu, 28 May 2026 21:36:34 +0530
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH 1/2] iommu/arm-smmu-v3: Detect Tegra264 erratum
-To: Robin Murphy <robin.murphy@arm.com>, will@kernel.org, joro@8bytes.org,
- jgg@ziepe.ca, nicolinc@nvidia.com
-Cc: linux-arm-kernel@lists.infradead.org, iommu@lists.linux.dev,
- linux-kernel@vger.kernel.org, linux-tegra@vger.kernel.org
-References: <20260528101617.4068249-1-amhetre@nvidia.com>
- <20260528101617.4068249-2-amhetre@nvidia.com>
- <f25b769a-d89f-46c6-a3d2-9fa35882b848@arm.com>
-Content-Language: en-US
-From: Ashish Mhetre <amhetre@nvidia.com>
-In-Reply-To: <f25b769a-d89f-46c6-a3d2-9fa35882b848@arm.com>
-Content-Type: text/plain; charset=UTF-8; format=flowed
-Content-Transfer-Encoding: 7bit
-X-ClientProxiedBy: MA5PR01CA0170.INDPRD01.PROD.OUTLOOK.COM
- (2603:1096:a01:1cf::19) To BN5PR12MB9511.namprd12.prod.outlook.com
- (2603:10b6:408:2a9::14)
+	id 1wSdIA-00000005yEn-0Qga;
+	Thu, 28 May 2026 16:09:06 +0000
+Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
+	by tor.source.kernel.org (Postfix) with ESMTP id 343AF6014B;
+	Thu, 28 May 2026 16:09:05 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 61A811F000E9;
+	Thu, 28 May 2026 16:09:04 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
+	s=k20260515; t=1779984544;
+	bh=h9g24AMvHPC82wp8alB06zIO1bChAGUywmcXHfgLSzg=;
+	h=Date:From:To:Cc:Subject:References:In-Reply-To;
+	b=aJmerr5Yu9DJXjrB1+R/OUCZIzguGkJ/2WMfRBhgFoxct9tb2XG91s3oB39rcM2m0
+	 YtEKW/mkJqXUq4NRZeuTrt4+3AlJT+iG53E6oRjTiCkkQVDg/LT3NHtoJd77RTeu8K
+	 8AMi1+Kffv391i74QGAdoDZ/h4imuM9BmBk8r4HYv7MIDAJV5A8EJ6QOmvRgUSh+YI
+	 BowZSjMQZLGe2qx3zO74GvLfPJjQywX4Q/Rw16zMj0iJ86Ah6yT8O+u8jZnVymUC2m
+	 jXt4EF4W5+Qhjo7xcjqaM9GJncHXHKaTFyo6sqZu8oz64/dVfKzNIiz9NhvbOmMDuv
+	 18Pqv/t9U1tbg==
+Date: Thu, 28 May 2026 18:09:02 +0200
+From: Lorenzo Bianconi <lorenzo@kernel.org>
+To: Alexander Lobakin <aleksander.lobakin@intel.com>
+Cc: Andrew Lunn <andrew+netdev@lunn.ch>,
+	"David S. Miller" <davem@davemloft.net>,
+	Eric Dumazet <edumazet@google.com>,
+	Jakub Kicinski <kuba@kernel.org>, Paolo Abeni <pabeni@redhat.com>,
+	Simon Horman <horms@kernel.org>,
+	linux-arm-kernel@lists.infradead.org,
+	linux-mediatek@lists.infradead.org, netdev@vger.kernel.org,
+	Xuegang Lu <xuegang.lu@airoha.com>
+Subject: Re: [PATCH net-next 1/6] net: airoha: Introduce airoha_gdm_dev struct
+Message-ID: <ahhonoI-oJ6gJqZ0@lore-desk>
+References: <20260527-airoha-eth-multi-serdes-preliminary-v1-0-ec6ed73ef7fc@kernel.org>
+ <20260527-airoha-eth-multi-serdes-preliminary-v1-1-ec6ed73ef7fc@kernel.org>
+ <433b9d9a-bd7c-44ad-b387-a789b326488e@intel.com>
 MIME-Version: 1.0
-X-MS-PublicTrafficType: Email
-X-MS-TrafficTypeDiagnostic: BN5PR12MB9511:EE_|SJ0PR12MB6967:EE_
-X-MS-Office365-Filtering-Correlation-Id: cd937fc9-1b05-4881-6a12-08debcd31b17
-X-MS-Exchange-SenderADCheck: 1
-X-MS-Exchange-AntiSpam-Relay: 0
-X-Microsoft-Antispam: BCL:0;ARA:13230040|1800799024|376014|366016|56012099006|4143699003|11063799006|18002099003|22082099003;
-X-Microsoft-Antispam-Message-Info: BtnebXoQW0LyQtR8AeszJHt5mxCytPgsJWflw73spkXfaELEREi1kqgBuClt1kLfqap7wECMUGNUZxIU3o1WQXXeonXoBBwOjtZwMguHgD0Dq67Iqwez9HoMOrA2xJMMKdqqK8DY0lMSS72gIBOYeVtWwa2K+M2A7VObLcUwJNZl1Bhffrcl8tIwgfjPB3gMhqjuhTx9DRJPOZe1EeF4qrBE+wbkNnmC1+9amLzdze4nq1VRsyCNRtRjHk/2D5jpqnBVPcYjXZzq+J2+m7wxTzLvo5+xkIFJin800Wpj0CIvn1KVZmtkASVNMqzTkD4EC3CONFQjB+RhRt95ndzwCQiVXA0T7mebbgkHE9HCBPLQRTdecBQm8RAnJuJbs0jx+otn0Gjxcy4gX2wU1veQ6sj11F0XDMlG0pj5ldKTJrbkh2vDASuRBlbpdQb+hIiNNvZUEGbP79kuhubVZsD4RExH3vJrrTrFonv4/3P146XAn6UsWiFfAuuoeFVcu6aEpfuGWNfkGjPoo+jXf02xaAKeqZBGe7bGP73LyMtlN+FOE6/r+CAZNQ5Tywy3COKO2uJX+wQYRg4l/EkJPcx/eeyIYdmgS9na29OW2y1JDamUBPAaLzEDEtXN5Y24XxJC6NYi9a8jMkSsD5UvPgJzObj2iBkqGI9QqE8U5VoG75PL0LPXbjF3fxXxl+BSTBjn
-X-Forefront-Antispam-Report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:BN5PR12MB9511.namprd12.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(1800799024)(376014)(366016)(56012099006)(4143699003)(11063799006)(18002099003)(22082099003);DIR:OUT;SFP:1101;
-X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
-X-MS-Exchange-AntiSpam-MessageData-0: =?utf-8?B?RVFDaisxS0tyN3JOckUvbkRqaDlNYVZpQzJ6dVBkWVlpNStYd25MekJwOS9I?=
- =?utf-8?B?Ti9rOGpPYUlDWXQxWXN3dWh6WDZUNWNhTGJSaDZpZDgzNWo4UGZTWnBwMXFK?=
- =?utf-8?B?SVFXSTMrVTUxVDZWY29WT0ZhZEI2WnJML2VSVmh4TXgxaTNXSU5Da0l0WmRC?=
- =?utf-8?B?QTZFdTl6enYvSE5wcnJZbEt6Y3JJOGQ4bzlybWxreWx2bk4xc2duSDI4SU9w?=
- =?utf-8?B?TEhiSmxjaStxa3ZjRDhScVpKRlozdkNxT1BQdVZWTzdsdEtsNzRxcHkxMWVs?=
- =?utf-8?B?NWxQekx0VVIrc3ZWenBIbzNmSllZY2FtOHpUUFJsSlNUNXhjSG9jb01UaTBB?=
- =?utf-8?B?MGFjMk10WGN1UVFIci9MNVo4dmtkQnpXSmtyQi9KNjhUcDVjTndSSnZlb2I2?=
- =?utf-8?B?OFk2QkR5eGtDam1Oa2VSVndMY21VUndYMDdOWGZGdmhGMnpoU2ZRbnZsTjhw?=
- =?utf-8?B?NHV0UisweVlhejdNK1VST3lZWVBnZjhyK2xhV1ZwUVFSWDBUem5QUSs3aTVh?=
- =?utf-8?B?RXpGV2ZJRjNWek95bEZaZ3huUWVLYlJCUU9MRkhXczE5SzFrTERGSzFqQklF?=
- =?utf-8?B?WXdZRDhUVHNJRWp2R2VBYTJ0SWcrdGZxMmtBNUorV0xHWXFBYjkxUXBtdzQ1?=
- =?utf-8?B?L2diWnhmc25UWW1xcW15ZnRPU3lCWG5wR3MxK2JrN2ZwVDhjaTR3VzlldDEx?=
- =?utf-8?B?ZmxBc0NvVXgvbTJTZlQzM216SVdQZFM4ZnQ4eURKM3pPVTMwenhHRExKWHhP?=
- =?utf-8?B?ak01eDlSVkJlTXU1Ni9mK1lCS0FIbWlTWkNPUmw0Y1hVK3A0aWdrUm5Hc0lP?=
- =?utf-8?B?NnRySWVoOURYNzFjbndGVHJ2SjJZdW00NXBQNUZRd3ZQbU11SThxMUppc3pr?=
- =?utf-8?B?d1RZMEZtYW1xZVpkZm9TM1Z5U0RzMU8xcDV2OUNJQzdHaE5MMHA3dThWYUty?=
- =?utf-8?B?KzlFb2dJWlVyMXFkbU1aZnhuZkx5bU0yY2ZveGo0RWU0ZWdJTEp2K1NmYjF5?=
- =?utf-8?B?aW9qdzFHcHFEbVBKcWNvUVFXWmcwNnVCSU5YZ01GN1pzSGZnNEk0RVZ5MTBD?=
- =?utf-8?B?LzFkM3I3VE9sRUkvTWFJTjVWUnJLb2kwZXl6TklCcUJkWjJ1UUpLb1BkT1hV?=
- =?utf-8?B?VXd0MVRybTUvZ1ExaG8ydjBHUnJWTDFTTGFaSjNyWG1hRW1FYXVTMUJCWDly?=
- =?utf-8?B?Vk90K2JGQ0lRRWtNRVZFcml4Y01jVGhaR1J2RnY1ejVsUjllOHdlcENxOEkw?=
- =?utf-8?B?d0dtMnFKYU45K3ZiRitidFhxK2lTUnlxOFNWWTNhSUJOWkU5Q2hOQVoxRWlm?=
- =?utf-8?B?N0RRZjE4MCtabTBabzJEZ2RBOEQ0dmI1eWg3UllqMFNuT2RGRzZxS2lvS0Rp?=
- =?utf-8?B?QzE0YVBZbmh3bGxlZ2NBeXN5S2crdUR3UlZObVJBSlhUV1lQVGxUa3FiQnA3?=
- =?utf-8?B?Nlg2V1VldFRaQXBCcnIvdkl6Y21zeC9mRGU1SkVhMGRlSGRIVkJpQWdQd043?=
- =?utf-8?B?MmxRYlRsUnpPMUNyOTFSZ294YlJTWFlrclE3cXA2Nlgyd3pQRGlvTnJlTnp4?=
- =?utf-8?B?QVZBU1YwWGN4cnVzbVgzMjdraFJmOUVEejNUYklyaDM1bkxmU2R6c3NGVEJV?=
- =?utf-8?B?NGpKRmZNQ2ZpQ1N6cCtpb3hsQWo0aTZYaGM5eDlMWDlodTJrWVAvUXZzV0ZI?=
- =?utf-8?B?UC9LY1RSTjdaeVFGNVI5UHBxbi9PbTFUMHdDdHZVUG5vSGlWdGZGdG1ackk1?=
- =?utf-8?B?eFNmTlJUU1JjSnlVeGRVT1RJMm1TOUJNK2VrU3A3ZkMzalk4OVp5WDdyWVps?=
- =?utf-8?B?amRLUC96d2kvWkMraGc1WG8vTG5PY1IzMlFiR1gxZzNic2pTdnNJdkwyRW9u?=
- =?utf-8?B?TlBTWnFDOHV1c1FTaWszR3BVRWlDa1VLOXkxaHVjelRoY2hYeEg2dDBhTHQv?=
- =?utf-8?B?clZTYjl0TnFtRmlUcFd3ak93Nmw0K0RwL3VKekw4QW84S0s1dUJKRWFPR1Bv?=
- =?utf-8?B?ZWtIOElOcXpRNHN0RkhVSGhpZUcwb2d4VkhNWEI3N0RGMStVVUtYNnVDWjd0?=
- =?utf-8?B?U01ZMUhHSXdVcm45eEJpZEdHaHh5WWMrTVVzWXhhUDhPYUVFd1A2b2NZQlF2?=
- =?utf-8?B?ZXhnSkppRElRZ00yTlJ4S1NkTnJuRkhudWtrNlBQN2lGTXRTbkduSE9hU0h1?=
- =?utf-8?B?SnoremNRYVdaalJSWFpOTkpNTDZqcmtuT3RRejdtYUMrWlNSN2pFRVNvRkRH?=
- =?utf-8?B?SUhkMDdhblYwNVBHcjRJaDZlOFNrK3hCSitqYzM2RWN5eEpoVU14UEUyeDdv?=
- =?utf-8?B?RWpQMWZhWE5iQlRreWM5K0ZRdVNBZkkxWGx6aGF5TENpZWlDZkZBZz09?=
-X-OriginatorOrg: Nvidia.com
-X-MS-Exchange-CrossTenant-Network-Message-Id: cd937fc9-1b05-4881-6a12-08debcd31b17
-X-MS-Exchange-CrossTenant-AuthSource: BN5PR12MB9511.namprd12.prod.outlook.com
-X-MS-Exchange-CrossTenant-AuthAs: Internal
-X-MS-Exchange-CrossTenant-OriginalArrivalTime: 28 May 2026 16:06:41.3774
- (UTC)
-X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
-X-MS-Exchange-CrossTenant-Id: 43083d15-7273-40c1-b7db-39efd9ccc17a
-X-MS-Exchange-CrossTenant-MailboxType: HOSTED
-X-MS-Exchange-CrossTenant-UserPrincipalName: 3zow4x3H80CS667vB1V4StP2g8uUsMYempOqPcKQLdGqXJIRYwE0QfCK3AxSqbQmXwfFUupHISyX5jYk9DTbaQ==
-X-MS-Exchange-Transport-CrossTenantHeadersStamped: SJ0PR12MB6967
-X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260528_090650_009197_D3914A05 
-X-CRM114-Status: GOOD (  12.10  )
+Content-Type: multipart/signed; micalg=pgp-sha512;
+	protocol="application/pgp-signature"; boundary="Nb9J8kMZwq4Zf3k2"
+Content-Disposition: inline
+In-Reply-To: <433b9d9a-bd7c-44ad-b387-a789b326488e@intel.com>
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -150,29 +77,83 @@ Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
 
+--Nb9J8kMZwq4Zf3k2
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+Content-Transfer-Encoding: quoted-printable
 
-On 5/28/2026 4:04 PM, Robin Murphy wrote:
-> On 2026-05-28 11:16 am, Ashish Mhetre wrote:
->> Tegra264 SMMU is affected by erratum where a TLB entry can survive an
->> invalidation that races with concurrent traffic targeting the same
->> entry. The hardware-recommended software workaround is to issue every
->> CFGI/TLBI command (each followed by CMD_SYNC) twice. The second issue is
->> guaranteed to evict the entry. ATC_INV is not affected and must not be
->> doubled.
->>
->> Add the ARM_SMMU_OPT_TLBI_TWICE option and set it on instances matching
->> the existing "nvidia,tegra264-smmu" compatible. No callers consume the
->> option yet, next patch wires the workaround into the CMDQ issue paths.
->
-> Can you not detect this implementation from IIDR like for our other
-> workarounds? Otherwise what about ACPI? 
+On May 28, Alexander Lobakin wrote:
+> From: Lorenzo Bianconi <lorenzo@kernel.org>
+> Date: Wed, 27 May 2026 12:21:15 +0200
+>=20
+> > EN7581 and AN7583 SoCs support connecting multiple external SerDes to G=
+DM3
+> > or GDM4 ports via a hw arbiter that manages the traffic in a TDM manner.
+> > As a result multiple net_devices can connect to the same GDM{3,4} port
+> > and there is a theoretical "1:n" relation between GDM port and
+> > net_devices.
+> > Introduce airoha_gdm_dev struct to collect net_device related info (e.g.
+> > net_device and external phy pointer). Please note this is just a
+> > preliminary patch and we are still supporting a single net_device for
+> > each GDM port. Subsequent patches will add support for multiple net_dev=
+ices
+> > connected to the same GDM port.
+> >=20
+> > Tested-by: Xuegang Lu <xuegang.lu@airoha.com>
+> > Signed-off-by: Lorenzo Bianconi <lorenzo@kernel.org>
+>=20
+> [...]
+>=20
+> > diff --git a/drivers/net/ethernet/airoha/airoha_eth.h b/drivers/net/eth=
+ernet/airoha/airoha_eth.h
+> > index d3781103abb5..c78cabbec753 100644
+> > --- a/drivers/net/ethernet/airoha/airoha_eth.h
+> > +++ b/drivers/net/ethernet/airoha/airoha_eth.h
+> > @@ -535,10 +535,15 @@ struct airoha_qdma {
+> >  	struct airoha_queue q_rx[AIROHA_NUM_RX_RING];
+> >  };
+> > =20
+> > +struct airoha_gdm_dev {
+> > +	struct airoha_gdm_port *port;
+> > +	struct net_device *dev;
+>=20
+> Nit: we now have priv_to_netdev() (I hope I remember its name
+> correctly), so that we no longer need to store a netdev backpointer in
+> netdev_priv structures.
+> Just an option, up to you.
 
-Neither IDR nor IIDR flags this Tegra264-specific bug. We cannot
-detect it from any HW register, so we have to rely on the Tegra264
-device tree.
-Regarding ACPI, the bug is in Tegra264 only, and Tegra264 is
-device-tree-only. It doesn't support ACPI/IORT as of now.
+I think you mean netdev_from_priv(), right?
+I guess I can fix if I need to repost, otherwise I will fix with with a
+dedicated patch. Agree?
 
-Thanks,
-Ashish Mhetre
+Regards,
+Lorenzo
+
+>=20
+> > +	struct airoha_eth *eth;
+> > +};
+> > +
+> >  struct airoha_gdm_port {
+> >  	struct airoha_qdma *qdma;
+> > -	struct airoha_eth *eth;
+> > -	struct net_device *dev;
+> > +	struct airoha_gdm_dev *dev;
+> >  	int id;
+> >  	int nbq;
+> > =20
+> Thanks,
+> Olek
+
+--Nb9J8kMZwq4Zf3k2
+Content-Type: application/pgp-signature; name=signature.asc
+
+-----BEGIN PGP SIGNATURE-----
+
+iHUEABYKAB0WIQTquNwa3Txd3rGGn7Y6cBh0uS2trAUCahhongAKCRA6cBh0uS2t
+rCn3AP9L3HrDZO+dHLvad0WYopiz4hGx0009SRdHy+w2Kx7BBAEAjqX2Bemdw09X
+zNug8X2AKnTJnbKmtQJzquIA+MePbAw=
+=Fj6G
+-----END PGP SIGNATURE-----
+
+--Nb9J8kMZwq4Zf3k2--
 
