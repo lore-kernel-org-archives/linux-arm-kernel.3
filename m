@@ -4,50 +4,49 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 7EB1BCD4F54
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 28 May 2026 12:54:28 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 8A4FECD6E44
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 28 May 2026 12:54:36 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:
-	Content-Transfer-Encoding:Content-Type:MIME-Version:Message-Id:Date:Subject:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:References
+	:Message-Id:Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:
 	From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:
-	List-Owner; bh=E8bRF7jr1RMYjp3I72/T6/gbj6lCOTFQ+FqykOFnW60=; b=ncy/EjtipCqiLn
-	M1A24g9Cz82lh7xl3/2GI7fu8k4Ml0EwDj+C05sdzcJgo0H1Xy5ztmH0GUZnFrFcncmUag21hYXcX
-	2hhIOKx5tZsiHOnJSANrOobAhUg0oHaxvaWaT7P3AwEauY0Y9YGsAGomwHSgb/Nq7tFOcjHBEEIl1
-	cj8EeIIoHTe2iFhzKltWZQXHbLYDmB7dLu52MK+7WEyV4rSwGwHIFQw2CLA3nnRY0zr9U5O9SXLty
-	AtGysIjXWZqmPr1T0GkIpglvtXZ0jjkM+piAp/JS5DV3qHPTcYBR5x42KtQZ4Gl3yYGTjN3y87j8V
-	AeqHU48iMZloTt2b+lqw==;
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=FHNBcfJMcJ3ZKl1i01/oPW7Q+AvyTAwOeBXjepY6MK4=; b=RYbQSJzenqbCs6acDUaT3BpAwI
+	OW9Lh+vVteQSKJmytq6t/hzBcptz69NPG27beHsMOYyU/d4Ed3QsiVQu1fLGAGXrAXhYT/rKurO2F
+	/zg8pKGanLiR9OPuBDlO3mJNlL25Yx1ow5jL6xwcEn93t92w+95JTBdb/FYXwe0xgNE4k4Tpqmuvs
+	0HRHUhyJruAfA8rOe2PuVoCBSaFgYYoXZ673/aO4IhJvsPjR0DI0zoTIgtwtHBiydwQjSrxQ9SSNW
+	Sd0Ba+PxM/Mp0AEUEaBAhaaSwkc/CAegUcJSmP/8BMtJEuvMWiuKLOJB0woqdYP03dPxqAQJ55VHG
+	9TN00EYQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wSaFg-00000005kAa-3eU4;
-	Thu, 28 May 2026 12:54:20 +0000
+	id 1wSaFq-00000005kDS-0KS8;
+	Thu, 28 May 2026 12:54:30 +0000
 Received: from perceval.ideasonboard.com ([213.167.242.64])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wSaFd-00000005k8O-1nIc
+	id 1wSaFd-00000005k8P-2JWN
 	for linux-arm-kernel@lists.infradead.org;
 	Thu, 28 May 2026 12:54:19 +0000
 Received: from [127.0.1.1] (91-158-153-178.elisa-laajakaista.fi [91.158.153.178])
-	by perceval.ideasonboard.com (Postfix) with ESMTPSA id BBCA6219;
-	Thu, 28 May 2026 14:53:51 +0200 (CEST)
+	by perceval.ideasonboard.com (Postfix) with ESMTPSA id 741918E0;
+	Thu, 28 May 2026 14:53:53 +0200 (CEST)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=ideasonboard.com;
-	s=mail; t=1779972832;
-	bh=YGqYq1zCs6c65Z17EJux0XY2xXKRUPj6sgfWNswnMB4=;
-	h=From:Subject:Date:To:Cc:From;
-	b=DbnOc5cZ/Z3yKpSROKqQfNrD4JQR9q+4GG005OxesxgXlfcz+Eis9m6yEOA+ZPCnx
-	 fQ/ocrwkfi8cyzjiLEB4C0xZIY/3LTgP74mVMrgZc8PFZE5H1scSIVD4oQuqHK9hGW
-	 OXzOx60RkdnXOSk9od+Vm+FyJ32kKJNCuEr60J8I=
+	s=mail; t=1779972834;
+	bh=N8Ms7YOn2QGbjugFPA+v2r5GXvn1LfJmcXoB+uWICwg=;
+	h=From:Date:Subject:References:In-Reply-To:To:Cc:From;
+	b=iF7PR6ZQ8QJn8Hu3ZZAWmfFaFjSCLiL6APBTb7cwWTlmYORcvTeUwwxT5Erg7CHj8
+	 mNa9t3qXgJqlyt8/iQD11ubJD7mJ30nKmSG1HOIzjTE+tMCIpHtpHm2dv11UONWanm
+	 4enypFlR3vS0BhYMxjAn8S18iITTOvcIMOD/k7Ps=
 From: Tomi Valkeinen <tomi.valkeinen@ideasonboard.com>
-Subject: [PATCH 0/6] arm64: ti: Use syscon for the Control Module
-Date: Thu, 28 May 2026 15:53:41 +0300
-Message-Id: <20260528-ti-main-conf-v1-0-a54ac5c8d081@ideasonboard.com>
+Date: Thu, 28 May 2026 15:53:43 +0300
+Subject: [PATCH 2/6] arm64: dts: ti: k3-am62*: Rename 'clock-controller' to
+ 'clock'
 MIME-Version: 1.0
 Content-Type: text/plain; charset="utf-8"
 Content-Transfer-Encoding: 7bit
-X-B4-Tracking: v=1; b=H4sIANY6GGoC/yXMQQ5AMBBA0avIrE1STYq4ili0NRiJkhaRSO+uW
- L7F/zcE8kwBmuwGTycHXl1CkWdgJ+1GQu6TQQpZCiVr3BkXzQ7t6gbsK6VJK1JWGkjJ5mng69u
- 13e9wmJns/j4gxgfT7yzScAAAAA==
-X-Change-ID: 20260528-ti-main-conf-d75aea5e5c2b
+Message-Id: <20260528-ti-main-conf-v1-2-a54ac5c8d081@ideasonboard.com>
+References: <20260528-ti-main-conf-v1-0-a54ac5c8d081@ideasonboard.com>
+In-Reply-To: <20260528-ti-main-conf-v1-0-a54ac5c8d081@ideasonboard.com>
 To: Nishanth Menon <nm@ti.com>, Vignesh Raghavendra <vigneshr@ti.com>, 
  Tero Kristo <kristo@kernel.org>, Rob Herring <robh@kernel.org>, 
  Krzysztof Kozlowski <krzk+dt@kernel.org>, 
@@ -58,26 +57,26 @@ Cc: linux-arm-kernel@lists.infradead.org, devicetree@vger.kernel.org,
  linux-kernel@vger.kernel.org, 
  Tomi Valkeinen <tomi.valkeinen@ideasonboard.com>
 X-Mailer: b4 0.15.2
-X-Developer-Signature: v=1; a=openpgp-sha256; l=2414;
+X-Developer-Signature: v=1; a=openpgp-sha256; l=2881;
  i=tomi.valkeinen@ideasonboard.com; h=from:subject:message-id;
- bh=YGqYq1zCs6c65Z17EJux0XY2xXKRUPj6sgfWNswnMB4=;
- b=owEBbQKS/ZANAwAIAfo9qoy8lh71AcsmYgBqGDrtzgSORPitjGkgu/5SekfDB5+pVvwmodPx0
- pGGk2HxtlmJAjMEAAEIAB0WIQTEOAw+ll79gQef86f6PaqMvJYe9QUCahg67QAKCRD6PaqMvJYe
- 9YG3D/9zAR8fKE3k7TinXOe9fczZ6+1Wru4FurrjQqJZEOnwgON0dnxn2yLl720nBP/rzwIUHIy
- 7rmlfaOi1dtYRURDBfIFSndgdgtJY+OIkIabSZ1VEXCjS4jrmEFkhjwdz9CIYXPHVVbYyD/aL76
- obrrq+ECikG3rVQvpuzDotsultdKGff37gtjpQGbTcdQgJgFlclp/IFzjMV3qr8y1kaDeuChZfF
- ByuUAPDkVb5C/0M2N14l1SlSjQi8nknX3LGnlMuKkqDgAN9DDnHNY18zg69PoKjJkiSMCxGB5YP
- eNINTsE/cmvyMq5UFy7BtDpnRq/5qGe2sl7/yL/2Q8zHoZa32wvUEROf/hYwgrYgyzxQZu8lHhq
- ABloqGfoxLp7LvvxDTo2Qw5BiVBM9dQOXOyOAP4jWHtknpPTLpTVTA2tJVnQxAoGw220LPbmUwS
- ktCLDmpBhpXl3lGLxi+Q/0lzhBgveOvwUby/wHEwDAuCaGuyJZIdlDoYdjdS7t61J4WEVT6u6Gd
- 3GPnz4mujGx/+gIe5IUlEsV8ErruOzFWUgvezX/RhB6/biBis/FczOj3kOXXq8rP1W4c5TC89Hv
- ZoX8ZzHptdXjsJHzmfpY7uk7DjxVqaQpxM3PEKfur/I+6WVLOUiDks/WUQI/P08Caxtda7fzp6E
- 7q+B4DoSih0EHaw==
+ bh=N8Ms7YOn2QGbjugFPA+v2r5GXvn1LfJmcXoB+uWICwg=;
+ b=owEBbQKS/ZANAwAIAfo9qoy8lh71AcsmYgBqGDrxycB6BmSQ73NfGywRkMJaWPk95dIft+pl0
+ pC3j6SSW3CJAjMEAAEIAB0WIQTEOAw+ll79gQef86f6PaqMvJYe9QUCahg68QAKCRD6PaqMvJYe
+ 9S57D/41uTXC6qUiMePqkwVikrfRbAWayLx4/hlL1jjsnHqPWf5jtuFBB7RGmpb67dfu9eNrowO
+ JQVZ0M8Ru6vcwdmggb3Kzc3saLgWRUmfwwUoqfxGwSusXp55BwUs87h8LQybFE3der5/RmD5Ekg
+ l/hNikkF5Q/VaWtWWjmcwVFqby3gv16fWwfcJOLzQppsJ08ZegKgwFkrm2pfdc9BlvtPXhqCUd5
+ kJQkBuN8SDfJ1fsFPOLAEcZZiovQ3sO8XoPCVfb89KhYwHzU8R3uXpSaihqw6OJWgmMhbxIDT8b
+ 2tiWKvUq4m1vZ5qje38Y0bVTBcrGIUKHpINvQFw+vPtbohPEHJpQ2R+t3tGaHQloimVLyBWFKQZ
+ eOTXwUJUWEZJKCVpuq3qLLnRrOB+kozfzA+B/AB8Ikd4yvuG3MJ+x0TJcFnTHh5NO4720+iA8v2
+ v1gplCnM9t3WRqBgUHpFPSBetPc/stl5WDGHu3PXu1Mo81pVxJojFolgFc05deC8OKeK7NnIFeq
+ aWyNOR6OT52eDzN6h3AnYXAUAqDVo8RgZnPlSh4WkjyIdVqhNqNqUTjrAghRIWj6S410M+i1fUa
+ bp3qJNHuR36cGy/icGjPLttMb4eelGV0mrYIayPsQTvZAhiIt7EW/A92pN7K789wr0ao8VH7gxL
+ bX65LPwyI3ib8Eg==
 X-Developer-Key: i=tomi.valkeinen@ideasonboard.com; a=openpgp;
  fpr=C4380C3E965EFD81079FF3A7FA3DAA8CBC961EF5
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260528_055417_621732_0D259CC3 
-X-CRM114-Status: GOOD (  12.18  )
+X-CRM114-CacheID: sfid-20260528_055417_745636_2EC03EFD 
+X-CRM114-Status: GOOD (  10.12  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -92,56 +91,85 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-I have been trying to get BeagleY-AI display support to upstream:
-
-20260513-beagley-ai-display-v2-0-9e9bcefde6bc@ideasonboard.com
-
-One difficulty has been the handling of the Control Module region, as
-we need access to a single in that region, surrounded by registers for
-other subsystems. In my series I made the related node a syscon, thus
-allowing versatile access to the registers:
-
-https://lore.kernel.org/all/20260513-beagley-ai-display-v2-14-9e9bcefde6bc@ideasonboard.com/
-
-However, that's not a correct way to handle it. I realized we already
-have ti,j721e-system-controller.yaml binding for older SoCs, which has
-syscon but it's not used for the newer TI SoCs. This series takes the
-same binding into use for the newer SoCs.
-
-I think this is an ABI change, but I also think this is not an ABI
-break. I hope people with more expertise in this area can confirm my
-thoughts.
-
-I believe we could drop the renaming patches, and just adjust the
-ti,j721e-system-controller.yaml a bit more to accommodate the "wrong"
-node names. But if there's no downside to the renames, I think it's nice
-to have a more consistent naming.
-
- Tomi
+Multiple dtsi files have clock nodes with 'clock-controller' names.
+Rename them to 'clock' to be more in line with the fact that it's just a
+single clock.
 
 Signed-off-by: Tomi Valkeinen <tomi.valkeinen@ideasonboard.com>
 ---
-Tomi Valkeinen (6):
-      arm64: dts: ti: j784s4/j742s2: Rename pcieN-ctrl nodes to pcie-ctrl
-      arm64: dts: ti: k3-am62*: Rename 'clock-controller' to 'clock'
-      arm64: dts: ti: k3-am62-main: Rename 'oldi-io-controller' to 'dss-oldi-io-ctrl'
-      dt-bindings: soc: ti: ti,j721e-system-controller: Relax the bindings
-      dt-bindings: soc: ti: ti,j721e-system-controller: Add more compatibles
-      arm64: dts: ti: Use syscon and simple-mfd for the main conf region
+ arch/arm64/boot/dts/ti/k3-am62-main.dtsi               | 4 ++--
+ arch/arm64/boot/dts/ti/k3-am62a-main.dtsi              | 4 ++--
+ arch/arm64/boot/dts/ti/k3-am62p-j722s-common-main.dtsi | 4 ++--
+ 3 files changed, 6 insertions(+), 6 deletions(-)
 
- .../devicetree/bindings/soc/ti/ti,j721e-system-controller.yaml | 10 ++++++----
- arch/arm64/boot/dts/ti/k3-am62-main.dtsi                       |  9 +++++----
- arch/arm64/boot/dts/ti/k3-am62a-main.dtsi                      |  7 ++++---
- arch/arm64/boot/dts/ti/k3-am62p-j722s-common-main.dtsi         |  6 +++---
- arch/arm64/boot/dts/ti/k3-j784s4-j742s2-main-common.dtsi       |  6 +++---
- arch/arm64/boot/dts/ti/k3-j784s4-main.dtsi                     |  4 ++--
- 6 files changed, 23 insertions(+), 19 deletions(-)
----
-base-commit: e7ae89a0c97ce2b68b0983cd01eda67cf373517d
-change-id: 20260528-ti-main-conf-d75aea5e5c2b
+diff --git a/arch/arm64/boot/dts/ti/k3-am62-main.dtsi b/arch/arm64/boot/dts/ti/k3-am62-main.dtsi
+index c5ee263d34a6..228f8c3e8bf6 100644
+--- a/arch/arm64/boot/dts/ti/k3-am62-main.dtsi
++++ b/arch/arm64/boot/dts/ti/k3-am62-main.dtsi
+@@ -59,7 +59,7 @@ epwm_tbclk: clock-controller@4130 {
+ 			#clock-cells = <1>;
+ 		};
+ 
+-		audio_refclk0: clock-controller@82e0 {
++		audio_refclk0: clock@82e0 {
+ 			compatible = "ti,am62-audio-refclk";
+ 			reg = <0x82e0 0x4>;
+ 			clocks = <&k3_clks 157 0>;
+@@ -68,7 +68,7 @@ audio_refclk0: clock-controller@82e0 {
+ 			#clock-cells = <0>;
+ 		};
+ 
+-		audio_refclk1: clock-controller@82e4 {
++		audio_refclk1: clock@82e4 {
+ 			compatible = "ti,am62-audio-refclk";
+ 			reg = <0x82e4 0x4>;
+ 			clocks = <&k3_clks 157 10>;
+diff --git a/arch/arm64/boot/dts/ti/k3-am62a-main.dtsi b/arch/arm64/boot/dts/ti/k3-am62a-main.dtsi
+index 9e5b75a4e88e..9287d7be7cc8 100644
+--- a/arch/arm64/boot/dts/ti/k3-am62a-main.dtsi
++++ b/arch/arm64/boot/dts/ti/k3-am62a-main.dtsi
+@@ -60,7 +60,7 @@ epwm_tbclk: clock-controller@4130 {
+ 			#clock-cells = <1>;
+ 		};
+ 
+-		audio_refclk0: clock-controller@82e0 {
++		audio_refclk0: clock@82e0 {
+ 			compatible = "ti,am62-audio-refclk";
+ 			reg = <0x82e0 0x4>;
+ 			clocks = <&k3_clks 157 0>;
+@@ -69,7 +69,7 @@ audio_refclk0: clock-controller@82e0 {
+ 			#clock-cells = <0>;
+ 		};
+ 
+-		audio_refclk1: clock-controller@82e4 {
++		audio_refclk1: clock@82e4 {
+ 			compatible = "ti,am62-audio-refclk";
+ 			reg = <0x82e4 0x4>;
+ 			clocks = <&k3_clks 157 10>;
+diff --git a/arch/arm64/boot/dts/ti/k3-am62p-j722s-common-main.dtsi b/arch/arm64/boot/dts/ti/k3-am62p-j722s-common-main.dtsi
+index f130c7cb998d..7c2f03780885 100644
+--- a/arch/arm64/boot/dts/ti/k3-am62p-j722s-common-main.dtsi
++++ b/arch/arm64/boot/dts/ti/k3-am62p-j722s-common-main.dtsi
+@@ -46,7 +46,7 @@ main_conf: bus@100000 {
+ 		#size-cells = <1>;
+ 		ranges = <0x00 0x00 0x00100000 0x20000>;
+ 
+-		audio_refclk0: clock-controller@82e0 {
++		audio_refclk0: clock@82e0 {
+ 			compatible = "ti,am62-audio-refclk";
+ 			reg = <0x82e0 0x4>;
+ 			clocks = <&k3_clks 157 0>;
+@@ -55,7 +55,7 @@ audio_refclk0: clock-controller@82e0 {
+ 			#clock-cells = <0>;
+ 		};
+ 
+-		audio_refclk1: clock-controller@82e4 {
++		audio_refclk1: clock@82e4 {
+ 			compatible = "ti,am62-audio-refclk";
+ 			reg = <0x82e4 0x4>;
+ 			clocks = <&k3_clks 157 18>;
 
-Best regards,
---  
-Tomi Valkeinen <tomi.valkeinen@ideasonboard.com>
+-- 
+2.43.0
 
 
