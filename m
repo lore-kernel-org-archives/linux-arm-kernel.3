@@ -4,96 +4,72 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 7C80ACD5BD5
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 28 May 2026 08:34:04 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 21762CD5BD5
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 28 May 2026 08:34:31 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:Cc:To:Subject:Message-ID:Date:References:MIME-Version:
-	In-Reply-To:From:Reply-To:Content-ID:Content-Description:Resent-Date:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:
+	Content-Transfer-Encoding:Content-Type:MIME-Version:References:Message-ID:
+	Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=3UE1ukep6rVlGvZk5YzSNt1eDdxkKrWNxxGuKxbk0mA=; b=SqQiTBoKkgck8pbLd0HVn+utN8
-	FJaMt/h2A7Gf+dqgZjJiYKpG9U1UhV/EmTBo37V27A+PCCkANZhrop7wfnEL0np4PQ0ed0IndbN6C
-	f4WZmbj+f4Wr9BGnLJlbc2s29wFHZXPvZhSfFhgwyuEh6lK0O9BEgNFMHz2lvlP3KJlbl7zh3Aiqr
-	dud1OavtMdPNNcWhDKVUPKHv0VGQmLhj3Nn7g2/zjgy7BlBBMZ1nqemlMwC5kRYmMM9beG2ajLZOW
-	ezAA6MGquMIxvbfEEJLSZgV1JcVeWIGT2Zzr8DPlb0k/w1LheHRDmaEdLgcWrVD7qcCLeI0+2eMH/
-	zJaU+4KA==;
+	bh=TfdtxbM/G6Jj5iHu60KzrFB+6duR9vo0YlX85yid0cI=; b=aMQ4hmZdp7AKa4SD8UVV/Cirwg
+	0flxV2dD/KxXoiH2BJKWLBmVlcF+sCLvamFve7I7hiomJC38InHKVfEzE/omesfCWFxvdNrjedIAN
+	wFPdk/AFpn7888PLr4aoeLnLk/46AMY8wGIsUsyVeSGL1I9VrIn31T4rt9efeh9XNDyZNdWEFHlax
+	Aa1byG+WH1M8CPutcWQ7V8SqSxnsvs0hOyLvXh/+ryOfaMKUS864zZh0po8TzT+4HkroqmsSfq9ZS
+	zyXZqMnOia3XfjYIGYoIJLeICGVPXmNRZbheGX47EMoOjZFWS5uFVwWP4C8psGwaX67J6ju4HWpmR
+	60RpfbPw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wSWBh-00000005Osg-0AMB;
-	Thu, 28 May 2026 08:33:57 +0000
-Received: from desiato.infradead.org ([2001:8b0:10b:1:d65d:64ff:fe57:4e05])
+	id 1wSWC7-00000005Ox2-1MYG;
+	Thu, 28 May 2026 08:34:23 +0000
+Received: from tor.source.kernel.org ([2600:3c04:e001:324:0:1991:8:25])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wSWBf-00000005OsK-3vFt
-	for linux-arm-kernel@bombadil.infradead.org;
-	Thu, 28 May 2026 08:33:56 +0000
-DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=infradead.org; s=desiato.20200630; h=Content-Transfer-Encoding:Content-Type
-	:Cc:To:Subject:Message-ID:Date:References:MIME-Version:In-Reply-To:From:
-	Sender:Reply-To:Content-ID:Content-Description;
-	bh=3UE1ukep6rVlGvZk5YzSNt1eDdxkKrWNxxGuKxbk0mA=; b=j/rjnUO22Ku31uofuCx7uyO1AG
-	64BoZLeYrCE+2wlONuvIkiDeWL2sbadnA21HnBAPLWr0rA7CKcROi/B33xHWxmwm0wsLT2utGiazz
-	IqTgrXj1Z2KBlgh/nplK7CXd4DK1hkVWOZHc87ZTBacmGvx+FZuIrPc6af8TKUd8TTsrSvzuUE61b
-	9FjWiHbt3XThVCcFC0kqk2sa+Sq9aiUDEQdcHtWIJFRgUMkiLjfh3j3Po85QkNnOpXYCs2+tgZc1G
-	RSHEtAv0jaUNP6u9wImtzo/LY6sO3nScUTvOii0rF1yQ1B6TBMweg1KJ1La2p4T4TmNTw8f9p5/55
-	KgO4Pw0w==;
-Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
-	by desiato.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wSWBb-0000000FqNx-2qMh
+	id 1wSWC3-00000005Own-2Icy
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 28 May 2026 08:33:54 +0000
+	Thu, 28 May 2026 08:34:19 +0000
 Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
-	by sea.source.kernel.org (Postfix) with ESMTP id B2DF24437B
-	for <linux-arm-kernel@lists.infradead.org>; Thu, 28 May 2026 08:33:47 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 97C931F000E9
-	for <linux-arm-kernel@lists.infradead.org>; Thu, 28 May 2026 08:33:47 +0000 (UTC)
+	by tor.source.kernel.org (Postfix) with ESMTP id E2D3B605D5;
+	Thu, 28 May 2026 08:34:18 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 361241F00A3D;
+	Thu, 28 May 2026 08:34:14 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1779957227;
-	bh=3UE1ukep6rVlGvZk5YzSNt1eDdxkKrWNxxGuKxbk0mA=;
-	h=From:In-Reply-To:References:Date:Subject:To:Cc;
-	b=BTt3A5I5n0ay2ZpJFPy9zqNZYf0SojnpzrK4eah8mJc1JrtcSKBdyXfYnZKqB7v+1
-	 cJLNn4UDEiXORzdYWVSkX4eeLYPzPhaNMqjEvax1BVzK7L1cz0DqXz/UOa8EV+Z6rN
-	 yTdE4+WdcYo+gaOQOmxVVacAmQ5q9Gp+5uix2RG02SVi7+pp6OgsiNhZA1+rK74r33
-	 JTqMlW5PU0iF2M+895YI9bhzwpqDxkIHY+ZUpczOuSVAnAER159bipf1NKIRzHLe0y
-	 fdJJU2LIm6esC8gOEkfQ5MEqX3JovcoLJRyklBoj+9Gg3BWdgsJaGszzzrB4YZ2s97
-	 5Ha7lPil6GKPw==
-Received: by mail-lj1-f173.google.com with SMTP id 38308e7fff4ca-393c93a0166so116024231fa.2
-        for <linux-arm-kernel@lists.infradead.org>; Thu, 28 May 2026 01:33:47 -0700 (PDT)
-X-Forwarded-Encrypted: i=1; AFNElJ+WnXCpbHud3MO8AVDvT23v8D1JSfRLIZZp3siJyU9QB8rea1LFVknfKh64zEfJUHCW3tFg3ZBRiYS0XbCigcBP@lists.infradead.org
-X-Gm-Message-State: AOJu0YzvYb+Uf5UE3szd/2dLl1jN1a/++rZbQ3oLUFvV8SKx7nMpeNAO
-	/U+3a7NpeIxXtlXIVrngHyTkRh4h4oaZLT+h8oDcN4YJkgjBYohyi8sVvGZYqnLmqeUQXrbLHuU
-	ifNdHcnM/vEjyVXsiTVK/sJeDKFbtf18kW0ZVWWzblQ==
-X-Received: by 2002:a2e:8957:0:b0:38d:e220:8dc2 with SMTP id
- 38308e7fff4ca-395d8cef4abmr68081351fa.20.1779957226354; Thu, 28 May 2026
- 01:33:46 -0700 (PDT)
-Received: from 969154062570 named unknown by gmailapi.google.com with
- HTTPREST; Thu, 28 May 2026 04:33:44 -0400
-Received: from 969154062570 named unknown by gmailapi.google.com with
- HTTPREST; Thu, 28 May 2026 04:33:44 -0400
-From: Bartosz Golaszewski <brgl@kernel.org>
-In-Reply-To: <CAGXv+5GbW0bx3nKdZt2+tHuHyQ-J-1-Z79nMzHAwjmEPGKT02A@mail.gmail.com>
+	s=k20260515; t=1779957258;
+	bh=TfdtxbM/G6Jj5iHu60KzrFB+6duR9vo0YlX85yid0cI=;
+	h=Date:From:To:Cc:Subject:References:In-Reply-To;
+	b=WTapeyanxDujFpy/LRvlwNgX7EtdyQvTEBfTJAL9WwNP22PsBGDvkmzBnqxtKMNuW
+	 mev/eUGSPgA/zonqekF9IG+td3Rvc/q363V7pv0ICgY06D8qqOycadhwbzGUrIPhOO
+	 ZXsPNVqli4x2ocJ6huy9gkwJXHrE8yqFFsU/EeVYCp+h+XXGOgtQu3K1xoJdnTHZGo
+	 e++8UrC+bwo4Z+pNqOzER2BWdEkAIN+O3UchB/seRURYYo5+eMJ6TERtQzMz4D0B6O
+	 ezoTL/9GrlCZ7nlG3r8iSx6ktl+aA2GQiyW2RUBXgPQ/tDHPT6E+9iQZZD66dBS6nS
+	 fmb0XRQ8zzPZg==
+Date: Thu, 28 May 2026 10:34:11 +0200
+From: Manivannan Sadhasivam <mani@kernel.org>
+To: Thierry Reding <thierry.reding@kernel.org>
+Cc: Lukas Wunner <lukas@wunner.de>, 
+	Thierry Reding <thierry.reding@gmail.com>, Bjorn Helgaas <bhelgaas@google.com>, 
+	Lorenzo Pieralisi <lpieralisi@kernel.org>, Krzysztof Wilczy??ski <kwilczynski@kernel.org>, 
+	Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>, 
+	Conor Dooley <conor+dt@kernel.org>, Jonathan Hunter <jonathanh@nvidia.com>, 
+	Karthikeyan Mitran <m.karthikeyan@mobiveil.co.in>, Hou Zhiqiang <Zhiqiang.Hou@nxp.com>, 
+	Thomas Petazzoni <thomas.petazzoni@bootlin.com>, Pali =?utf-8?B?Um9ow6Fy?= <pali@kernel.org>, 
+	Michal Simek <michal.simek@amd.com>, Kevin Xie <kevin.xie@starfivetech.com>, 
+	Aksh Garg <a-garg7@ti.com>, linux-pci@vger.kernel.org, devicetree@vger.kernel.org, 
+	linux-tegra@vger.kernel.org, linux-kernel@vger.kernel.org, 
+	linux-arm-kernel@lists.infradead.org, Thierry Reding <treding@nvidia.com>
+Subject: Re: [PATCH v5 2/4] PCI: Use standard wait times for PCIe link
+ monitoring
+Message-ID: <hhf6aj4fwpwqczqsa7q76bcdtqdrpluk62mcivioivuiizc557@z543yluxnow6>
+References: <20260526-tegra264-pcie-v5-0-84a813b979d7@nvidia.com>
+ <20260526-tegra264-pcie-v5-2-84a813b979d7@nvidia.com>
+ <ahV_r6NJWnmJptT2@wunner.de>
+ <ahanoZgDwq3v6x8M@orome>
+ <ahcob7HMbyGvFgxc@wunner.de>
+ <ahfj-uhNTlk-byvU@orome>
 MIME-Version: 1.0
-References: <20260515090149.3169406-1-wenst@chromium.org> <CAMRc=MdnjRRMVzxPkkrPhQ4dz7rsK8-HKUp9cQ0z11apL3escQ@mail.gmail.com>
- <CAGXv+5HC3dqgcE3KnKzakHHWFHB6m_X42orOkNUvZvp=SL_O8g@mail.gmail.com>
- <CAMRc=Med-_0GSYzoFBRiwFzBCK0DZqJD8_SEBxi+zwR20GS-HA@mail.gmail.com> <CAGXv+5GbW0bx3nKdZt2+tHuHyQ-J-1-Z79nMzHAwjmEPGKT02A@mail.gmail.com>
-Date: Thu, 28 May 2026 04:33:44 -0400
-X-Gmail-Original-Message-ID: <CAMRc=McADm0F4bwhj5qoigfUT-AV6CVpo+FAaqoBnZ3PrjBc7Q@mail.gmail.com>
-X-Gm-Features: AVHnY4JaLBmctUhYgIAJpJojKGEMDv_BBPh6vAfJvyQAFJsp1fEnomeZ5fRkbMM
-Message-ID: <CAMRc=McADm0F4bwhj5qoigfUT-AV6CVpo+FAaqoBnZ3PrjBc7Q@mail.gmail.com>
-Subject: Re: [PATCH RFC 00/12] arm64: mediatek: Add M.2 E-key slot on Chromebooks
-To: Chen-Yu Tsai <wenst@chromium.org>
-Cc: Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>, 
-	Conor Dooley <conor+dt@kernel.org>, Matthias Brugger <matthias.bgg@gmail.com>, 
-	AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>, linux-pm@vger.kernel.org, 
-	linux-usb@vger.kernel.org, devicetree@vger.kernel.org, 
-	linux-mediatek@lists.infradead.org, linux-arm-kernel@lists.infradead.org, 
-	linux-kernel@vger.kernel.org, Bartosz Golaszewski <brgl@kernel.org>, 
-	Greg Kroah-Hartman <gregkh@linuxfoundation.org>, Manivannan Sadhasivam <mani@kernel.org>
-Content-Type: text/plain; charset="UTF-8"
-Content-Transfer-Encoding: quoted-printable
-X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260528_093352_703603_05238256 
-X-CRM114-Status: GOOD (  40.95  )
+Content-Type: text/plain; charset=utf-8
+Content-Disposition: inline
+Content-Transfer-Encoding: 8bit
+In-Reply-To: <ahfj-uhNTlk-byvU@orome>
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -108,92 +84,56 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Wed, 27 May 2026 18:21:00 +0200, Chen-Yu Tsai <wenst@chromium.org> said:
-> On Tue, May 26, 2026 at 11:48=E2=80=AFAM Bartosz Golaszewski <brgl@kernel=
-.org> wrote:
->>
->> On Sun, May 24, 2026 at 10:06=E2=80=AFAM Chen-Yu Tsai <wenst@chromium.or=
-g> wrote:
->> >
->> > > >
->> > > > I expect some discussion on this patch, because a) it adds some
->> > > > OF-specific code into an otherwise generic (core) driver, and
->> > > > b) it doesn't yet handle USB 2.0 / 3.x shared ports; it ends up po=
-wering
->> > > > on the port twice, which negates the port reset part.
->> > > >
->> > >
->> > > I understand that you do this because the port device has no OF node
->> > > assigned. If we wanted to call pwrseq_get() for the port device, is
->> > > there really no other way to associate it with the correct pwrseq
->> > > provider?
->> >
->> > I suppose we could tie the "port@X" node to the usb port device, but
->> > AFAIK no other subsystem does this so we would be introducing a new
->> > pattern.
->> >
->> > In the M.2 pwrseq driver, we would have to match by port node instead
->> > of its parent device node. We may end up with different behavior for
->> > the USB target vs the other targets.
->> >
->>
->> I imagine, we can check the bus type of the parent device to know if
->> this is USB?
->
-> The "bus type" type is probably not exported. However since the DT bindin=
-g
-> explicitly says which port on the M.2 slot is for which connection type,
-> I think the matching can do a special case check for the USB port.
-> The next obstacle is that the target string is not given to the provider
-> match function.
->
->> > Also, the "port@X" nodes only exist for the OF graph connections to
->> > connectors and/or muxes (this series doesn't deal with the latter).
->> > For directly connected devices, there is a "device@X" child node
->> > directly under the USB hub node. That node is what gets tied to the
->> > the USB device.
->> >
->>
->> Is this a problem? I don't think I understand what you're saying here.
->
-> It shouldn't be. I'm just saying there would be different behavior on
-> the USB side for connectors vs onboard devices (like hubs) device nodes.
->
-> I talked to Greg earlier, and he said not to touch the hub driver; the
-> hub driver should only deal with features from the USB spec. The
-> "onboard USB devices" driver is what should be used. And this would
-> be a proper case of adding an auxiliary device to the M.2 slot driver.
->
+On Thu, May 28, 2026 at 08:44:07AM +0200, Thierry Reding wrote:
+> On Wed, May 27, 2026 at 07:22:55PM +0200, Lukas Wunner wrote:
+> > On Wed, May 27, 2026 at 10:28:51AM +0200, Thierry Reding wrote:
+> > > On Tue, May 26, 2026 at 01:10:39PM +0200, Lukas Wunner wrote:
+> > > > On Tue, May 26, 2026 at 10:53:11AM +0200, Thierry Reding wrote:
+> > > > > Instead of defining the wait values for each driver, use common values
+> > > > > defined in the core pci.h header file. Note that most drivers don't use
+> > > > > the millisecond waits, but rather usleep_range(), so add these commonly
+> > > > > used values to the header so that all drivers can use them.
+> > > > 
+> > > > Hm, why not just replace usleep_range() with msleep() and use the existing
+> > > > macro instead of defining new ones?
+> > > 
+> > > I'm trying to somewhat unify the implementations across drivers without
+> > > changing behaviour. I don't have a way of testing any of these drivers,
+> > > so keeping the existing implementation and just switching out the symbol
+> > > seemed like a good compromise.
+> > 
+> > It looks like the code was copy-pasted from one driver to the next
+> > and I applaud every effort to deduplicate, unify and simplify things.
+> > 
+> > I don't quite see how using msleep() instead of usleep_range()
+> > should result in breakage.  The drivers are just polling for
+> > link up for an amount of time and as long as you're not decreasing
+> > that amount, everything ought to be fine.  Moving to msleep()
+> > should never decrease the amount.
+> > 
+> > > Then again, I count 2 drivers (in linux-next) that use the existing
+> > > PCIE_LINK_WAIT_SLEEP_MS, one of which multiplies by MILLI to get at the
+> > > US version (so it could easily be converted to the US_MIN version). Only
+> > > pcie-designware.c uses msleep() with PCIE_LINK_WAIT_SLEEP_MS, so it is
+> > > clearly the outlier.
+> > 
+> > Konrad Dybcio went ahead and replaced usleep_range() with msleep()
+> > in that driver, kudos to him.  Cf. b262518262f5 ("PCI: dwc: Use msleep()
+> > in dw_pcie_wait_for_link()").  If you could just carry over that change
+> > to the other drivers that would be great.
+> 
+> Alright, I see you really don't like usleep_range(), so msleep() it'll
+> be.
+> 
 
-The onboard USB device is what initially inspired the PCI pwrctl code so it
-doesn't surprise me we circle back to it.
+The rationale behind commit b262518262f5 was to comply with the documentation
+that recommends using msleep() for delay larger than 10ms:
+https://www.kernel.org/doc/html/next/timers/timers-howto.html
 
-> However this seems to completely decouple the power sequencing from the
-> USB core. Take the USB A connector for example, it was recently added to
-> the onboard USB devices driver. However the connector has a device node
-> that is not a child node of any USB host controller or hub; it is connect=
-ed
-> through OF graph. At the same time, since it typically sits at the top
-> level of the device tree, a platform device is directly created and the
-> driver subsequently binds to that device. This is totally different from
-> how the hub and other directly connected onboard USB devices work. In
-> the onboard device case, the device node is a child node of the USB hub
-> or controller, and the corresponding platform device only gets created
-> when the USB hub driver probes, thereby sort of tying it into the USB
-> device topology.
->
+So I would also recommend going with msleep().
 
-Which is precisely what we do for PCI pwrctl. Though I'm not sure how we co=
-uld
-replicate this behavior without touching the hub driver.
+- Mani
 
-> If the power sequencing ends up not connected to the USB subsystem, then
-> maybe the M.2 slot driver could just check if the USB port (port@3) was
-> used, and just enable the USB / BT pwrseq target at probe time? That
-> would mean less changes needed.
->
-
-That sounds sane to me.
-
-Bartosz
+-- 
+மணிவண்ணன் சதாசிவம்
 
