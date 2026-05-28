@@ -4,65 +4,59 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id E956ACD5BD0
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 28 May 2026 01:50:20 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id D6452CD5BC9
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 28 May 2026 01:58:44 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:References
-	:Date:Message-Id:From:Subject:Content-Transfer-Encoding:MIME-Version:
-	Content-Type:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=uOox2uRaVHzcxzDbkU1ncr7dwdyroKxjIXuOl3sptoA=; b=3qkvAaBtfOk9PJ7+ylpEYnValF
-	98JJfSMERTmINqWT8aWDjKsb1hwXckk4/1eValRFu/WuLkUknCd0yTiBQz9P6uLyBinQ0s0cWJy8k
-	nloAbQZ4fCbwkuCU8MnOu4kRZ4C24uN4C52rfO2uqXPZFDuOg9B6PM/fSgLHb57/QTgPk04SwKD5/
-	JBfmqEbNU5DI2m5p387Nv9YZQl16FuJ+Oe2MGlzu8idc6ZlG9ARxbJge/INDYCS5Tm3MaJ4KCMYJR
-	us1NJ6UwZ7jcRqCbjwHYXdX35pn6tkcxgrUM880QxRxUgYkPqsPd+F2zDdWLuxyVCHBHDLNJ4ROvn
-	p+I4UarA==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=F5xpMV+AO1CKUrIiHxmrwoh1nrbemlBJIcVD/F1YUvI=; b=KW3gkAurjrY3phBsRj1rbN3riB
+	+d5qSHRk8fcek4tiSpcK4mKqrbjH8BcBs8hdBhC9F/PDGo60DzRSHy6sMoShuIxKLcHJIKr7Rjvh/
+	0ImePsEnTQ6w/4Y98MqIpeH8Q6AU5zcJ9jOOYVFm3yjQcPbG59Z10o7mcKm5bVVfkjicVmz/J6idk
+	LYkJlxZRZbMTf/Aulevy+TA7izW+NvaahcVYRQoRf3M/uhYFjm1A1o4czsIZsNRtU9dH87YhpsY5v
+	Wj6AhuTCt1XAKGcY5w6lNAJo98TI6P+kaDCJBrGdKagkXcJTtN/sko+eTbQqqKONa8612lbg0aKxV
+	lCmH7MCw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wSPsz-00000004xou-2Aqk;
-	Thu, 28 May 2026 01:50:13 +0000
-Received: from tor.source.kernel.org ([2600:3c04:e001:324:0:1991:8:25])
+	id 1wSQ18-00000004yEQ-1RKu;
+	Thu, 28 May 2026 01:58:38 +0000
+Received: from vps0.lunn.ch ([156.67.10.101])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wSPsy-00000004xob-19t2;
-	Thu, 28 May 2026 01:50:12 +0000
-Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
-	by tor.source.kernel.org (Postfix) with ESMTP id 4593160572;
-	Thu, 28 May 2026 01:50:11 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id EBDD51F000E9;
-	Thu, 28 May 2026 01:50:10 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1779933011;
-	bh=uOox2uRaVHzcxzDbkU1ncr7dwdyroKxjIXuOl3sptoA=;
-	h=Subject:From:Date:References:In-Reply-To:To:Cc;
-	b=oZX/DTnc5s5KY+hnrBUXkHaGKUTcrVSXOrneobeG6+kpyp5DlCoKLblCcDIXfwxpr
-	 OcclAJvDXsKKTqcCyL5GYOFn9iWXzb5MyCZaA6Z6jxUFRzqH+dob0X4vbdHS31CyU9
-	 EnNE1fakLRMFjDnk7tD2tTBMZlLN6wYSKHtaOSgTxVFW8Om1iJ6u299CJ+WQ2Uzdx0
-	 nz8OqqFIAKUbUPbMJEhqsus+6jp8oQXUSCgm9xzb2rlie8Eql9fOoowbJH7BIlmtMX
-	 XSt86LNjLEfBOe//QMZR2gpGQEq/0MbqyudmaNZYRLlwVu6iW2TIBWC/hOGK/b729o
-	 MjVc6ZgWNvIXw==
-Received: from [10.30.226.235] (localhost [IPv6:::1])
-	by aws-us-west-2-korg-oddjob-rhel9-1.codeaurora.org (Postfix) with ESMTP id 19BB5380CFEF;
-	Thu, 28 May 2026 01:50:17 +0000 (UTC)
-Content-Type: text/plain; charset="utf-8"
+	id 1wSQ16-00000004yE4-1IIW
+	for linux-arm-kernel@lists.infradead.org;
+	Thu, 28 May 2026 01:58:37 +0000
+DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed; d=lunn.ch;
+	s=20171124; h=In-Reply-To:Content-Disposition:Content-Type:MIME-Version:
+	References:Message-ID:Subject:Cc:To:From:Date:From:Sender:Reply-To:Subject:
+	Date:Message-ID:To:Cc:MIME-Version:Content-Type:Content-Transfer-Encoding:
+	Content-ID:Content-Description:Content-Disposition:In-Reply-To:References;
+	bh=F5xpMV+AO1CKUrIiHxmrwoh1nrbemlBJIcVD/F1YUvI=; b=UJv8Nm5WktK8TNlR51sdYFfnq4
+	U5X45/lWKA9m5eQxfTd1jDw9F7MY4tI7XFQgWdqBgz/ZBUIJVdIWGGmsS6CtSdhZGYLLD9fEYcGyO
+	D+7758T0EZKkB8iUO+KgIq15euwfq2ei8TlvkBGqAvjp+5P7Wkm4zK0EVXk3LalpOO6s=;
+Received: from andrew by vps0.lunn.ch with local (Exim 4.94.2)
+	(envelope-from <andrew@lunn.ch>)
+	id 1wSQ0u-004q8p-CU; Thu, 28 May 2026 03:58:24 +0200
+Date: Thu, 28 May 2026 03:58:24 +0200
+From: Andrew Lunn <andrew@lunn.ch>
+To: muhammad.nazim.amirul.nazle.asmade@altera.com
+Cc: netdev@vger.kernel.org, andrew+netdev@lunn.ch, davem@davemloft.net,
+	edumazet@google.com, kuba@kernel.org, pabeni@redhat.com,
+	mcoquelin.stm32@gmail.com, alexandre.torgue@foss.st.com,
+	rmk+kernel@armlinux.org.uk, maxime.chevallier@bootlin.com,
+	linux-stm32@st-md-mailman.stormreply.com,
+	linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org
+Subject: Re: [PATCH v2] net: stmmac: Improve Tx timer arm logic further
+Message-ID: <a0cdbac8-c7b2-4dc2-b08c-7fae99a73e93@lunn.ch>
+References: <20260527023359.18876-1-muhammad.nazim.amirul.nazle.asmade@altera.com>
 MIME-Version: 1.0
-Content-Transfer-Encoding: 8bit
-Subject: Re: [PATCH net-next v5 0/6] Introduce Airoha AN8801R series Gigabit
- Ethernet PHY driver
-From: patchwork-bot+netdevbpf@kernel.org
-Message-Id: <177993301589.711996.780315750455117859.git-patchwork-notify@kernel.org>
-Date: Thu, 28 May 2026 01:50:15 +0000
-References: <20260526-add-airoha-an8801-support-v5-0-01aea8dee69b@collabora.com>
-In-Reply-To: <20260526-add-airoha-an8801-support-v5-0-01aea8dee69b@collabora.com>
-To: Louis-Alexis Eyraud <louisalexis.eyraud@collabora.com>
-Cc: andrew+netdev@lunn.ch, davem@davemloft.net, edumazet@google.com,
- kuba@kernel.org, pabeni@redhat.com, robh@kernel.org, krzk+dt@kernel.org,
- conor+dt@kernel.org, angelogioacchino.delregno@collabora.com, andrew@lunn.ch,
- hkallweit1@gmail.com, linux@armlinux.org.uk, kevin-kw.huang@airoha.com,
- macpaul.lin@mediatek.com, matthias.bgg@gmail.com, kernel@collabora.com,
- netdev@vger.kernel.org, devicetree@vger.kernel.org,
- linux-arm-kernel@lists.infradead.org, linux-mediatek@lists.infradead.org,
- linux-kernel@vger.kernel.org
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+In-Reply-To: <20260527023359.18876-1-muhammad.nazim.amirul.nazle.asmade@altera.com>
+X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
+X-CRM114-CacheID: sfid-20260527_185836_354316_7FB4130E 
+X-CRM114-Status: GOOD (  15.62  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -77,48 +71,44 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hello:
+> pre-patch behaviour. The meaning of tx_coal_timer is unchanged.
 
-This series was applied to netdev/net-next.git (main)
-by Jakub Kicinski <kuba@kernel.org>:
+> diff --git a/drivers/net/ethernet/stmicro/stmmac/stmmac_main.c b/drivers/net/ethernet/stmicro/stmmac/stmmac_main.c
+> index 3591755ea30b..35da51c26248 100644
+> --- a/drivers/net/ethernet/stmicro/stmmac/stmmac_main.c
+> +++ b/drivers/net/ethernet/stmicro/stmmac/stmmac_main.c
+> @@ -3341,12 +3341,14 @@ static void stmmac_tx_timer_arm(struct stmmac_priv *priv, u32 queue)
+>  	 * Try to cancel any timer if napi is scheduled, timer will be armed
+>  	 * again in the next scheduled napi.
+>  	 */
+> -	if (unlikely(!napi_is_scheduled(napi)))
+> -		hrtimer_start(&tx_q->txtimer,
+> -			      STMMAC_COAL_TIMER(tx_coal_timer),
+> -			      HRTIMER_MODE_REL);
+> -	else
 
-On Tue, 26 May 2026 16:58:05 +0200 you wrote:
-> This series introduces the Airoha AN8801R Gigabit Ethernet PHY initial
-> support.
-> 
-> The Airoha AN8801R is a low power single-port Ethernet PHY Transceiver
-> with Single-port serdes interface for 1000Base-X/RGMII.
-> This chip is compliant with 10Base-T, 100Base-TX and 1000Base-T IEEE
-> 802.3(u,ab) and supports:
->   - Energy Efficient Ethernet (802.3az)
->   - Full Duplex Control Flow (802.3x)
->   - auto-negotiation
->   - crossover detect and autocorrection,
->   - Wake-on-LAN with Magic Packet
->   - Jumbo Frame up to 9 Kilobytes.
-> This PHY also supports up to three user-configurable LEDs, which are
-> usually used for LAN Activity, 100M, 1000M indication.
-> 
-> [...]
-
-Here is the summary with links:
-  - [net-next,v5,1/6] dt-bindings: net: Add support for Airoha AN8801R GbE PHY
-    https://git.kernel.org/netdev/net-next/c/ed28bd094db3
-  - [net-next,v5,2/6] net: phy: Add Airoha phy library for shared code
-    https://git.kernel.org/netdev/net-next/c/dddfadd75197
-  - [net-next,v5,3/6] net: phy: air_phy_lib: Factorize BuckPBus register accessors
-    https://git.kernel.org/netdev/net-next/c/5226bb6634cd
-  - [net-next,v5,4/6] net: phy: Rename Airoha common BuckPBus register accessors
-    https://git.kernel.org/netdev/net-next/c/e08f0ea6daf2
-  - [net-next,v5,5/6] net: phy: Introduce Airoha AN8801R Gigabit Ethernet PHY driver
-    https://git.kernel.org/netdev/net-next/c/fdb9bf7f1658
-  - [net-next,v5,6/6] net: phy: air_an8801: ensure maximum available speed link use
-    https://git.kernel.org/netdev/net-next/c/f6465e36353f
-
-You are awesome, thank you!
--- 
-Deet-doot-dot, I am a bot.
-https://korg.docs.kernel.org/patchwork/pwbot.html
+With this code, the timer is always tx_coal_timer in the future.
 
 
+> +	if (unlikely(!napi_is_scheduled(napi))) {
+> +		if (unlikely(!(hrtimer_active(&tx_q->txtimer))))
+> +			hrtimer_start(&tx_q->txtimer,
+> +				      STMMAC_COAL_TIMER(tx_coal_timer),
+> +				      HRTIMER_MODE_REL);
+
+If the timer is not active, it is set to tx_coal_timer in the
+future. However, if the timer is active, meaning it is already
+counting down, it is left alone, so is less than tx_coal_timer in the
+future.
+
+Do i have this right?
+
+Doesn't that change the meaning of the timer. It now actually goes off
+sooner?
+
+This is somewhat academic. The point of coalescence is to reduce
+overheads. The increase in performance shows that this change does
+reduce overheads.
+
+	Andrew
 
