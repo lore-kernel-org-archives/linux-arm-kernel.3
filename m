@@ -4,64 +4,64 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 10818CD4F54
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 28 May 2026 17:11:29 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 53E05CD5BD5
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 28 May 2026 17:11:31 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
 	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
 	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=ESUcyV5xX+vb21rsW2egvTcS59htvpVkM14wkZr1uQg=; b=OIxSDX8ek3xraLvNQUKNWs/MAR
-	EG/V9W0RlGxYNJpexhl2xxL3Nev5gdkN0eNUp2vYlhc9yBtiMvol/z/yOacBmMio/g4DhYGRYghgG
-	PBzTPs1OLOoyrxSPLga7CgMIHz+q8fy03q/v4YZ8C57uDP97gq64egSwsN83q0IgwlLzQOASUTPnk
-	cky6IM/UeMjXgpARb9DtUnaXc6QGVJkBcW8ZE0eTfL2grqWGF8klTbEfO3n+V3+08USVCq8y4rwzN
-	QuIxQrTaAuRsdycIU15dCLtF9ri3SlcVG/Bl91ddbmHsBLmLn9kdJ551tO+iUc5Jj4K8K/fL7z9z8
-	tszfWfgA==;
+	bh=ne5NblxnXMQF8yPQxOSuFHig/XO1ZCxwk3uYECriioU=; b=1wItz/B35dQCpBNuNLmtRJ1slr
+	fJxsgLIIW3EcCqbWYqayWf92Xz06S2pwIMdo7WjxtSHQXMBByOkS0w7rE2DeQmDp6GvLwDxKh3Bgc
+	2ugw53QqceTdxYV3IncxZyv8HCTloYRqVhq5oDABE6q/rs8mYDqI02Dd/uBp7pa1VmEV1NUb0ed6K
+	OdlzcpuDhSvDgk1Q5JB35GJDMFgT7lX42hW6PMJ4DK3j+8MFJIFDctrYy6DoKRReFM8OXiJg2PEwM
+	/wPyvZ9bbkFxlXqJrm9pc78GM2zaK1WQqkIrgyStB/OHQTdW+g8x2QiKbpI8ecO+DOkCoR7Vt8FHH
+	mWqRma/Q==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wSeGJ-000000064Kr-0Y3f;
-	Thu, 28 May 2026 17:11:15 +0000
-Received: from foss.arm.com ([217.140.110.172])
-	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wSeGH-000000064KQ-03UW
+	id 1wSeGS-000000064N5-10l8;
+	Thu, 28 May 2026 17:11:24 +0000
+Received: from sea.source.kernel.org ([172.234.252.31])
+	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
+	id 1wSeGM-000000064LG-120B
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 28 May 2026 17:11:14 +0000
-Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
-	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id 46A3A4617;
-	Thu, 28 May 2026 10:11:06 -0700 (PDT)
-Received: from localhost (e132581.arm.com [10.1.196.87])
-	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id CE2213F632;
-	Thu, 28 May 2026 10:11:10 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=simple/simple; d=arm.com; s=foss;
-	t=1779988271; bh=n4tNgwyatQTQbGW3S3TfLyFi3VbFJIQEFLRlL5eOTs8=;
-	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
-	b=bwW14eWzh64FMcKAN7Zcl33EPwg88MkcPsfGUleJH935xNACX1Jt4r6KKr4FrYh7Q
-	 nIbaDIIRw1khb+iL5/lLvAMA4+GkHiVpHc5wmNJk+ZzxXLclFYnHZPG+b0+M/hhFBa
-	 okv3UQ9AmmrlgWuJEAN7vNWeyGcimtShxMeQDM5w=
-Date: Thu, 28 May 2026 18:11:08 +0100
-From: Leo Yan <leo.yan@arm.com>
-To: Yingchao Deng <yingchao.deng@oss.qualcomm.com>
-Cc: Suzuki K Poulose <suzuki.poulose@arm.com>,
-	Mike Leach <mike.leach@arm.com>,
-	James Clark <james.clark@linaro.org>,
-	Alexander Shishkin <alexander.shishkin@linux.intel.com>,
-	coresight@lists.linaro.org, linux-arm-kernel@lists.infradead.org,
-	linux-kernel@vger.kernel.org, linux-arm-msm@vger.kernel.org,
-	jinlong.mao@oss.qualcomm.com, quic_yingdeng@quicinc.com,
-	tingwei.zhang@oss.qualcomm.com, jie.gan@oss.qualcomm.com
-Subject: Re: [PATCH v9 3/4] coresight: cti: add Qualcomm extended CTI
- identification and quirks
-Message-ID: <20260528171108.GI101133@e132581.arm.com>
-References: <20260521-extended_cti-v9-0-d21f4f92c51e@oss.qualcomm.com>
- <20260521-extended_cti-v9-3-d21f4f92c51e@oss.qualcomm.com>
+	Thu, 28 May 2026 17:11:19 +0000
+Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
+	by sea.source.kernel.org (Postfix) with ESMTP id 9049140A8E;
+	Thu, 28 May 2026 17:11:17 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 6B0871F00A3A;
+	Thu, 28 May 2026 17:11:15 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
+	s=k20260515; t=1779988277;
+	bh=ne5NblxnXMQF8yPQxOSuFHig/XO1ZCxwk3uYECriioU=;
+	h=Date:From:To:Cc:Subject:References:In-Reply-To;
+	b=b/FC5NrdWC9MLl/ASS2+MzfpKvX1AqwxI3c5dpfglMleMzAv/TXM1dAj75EWMdR5R
+	 Qvp+Um/0Jew3XNaVRU1dUHtm8ZuRqNXN0BY7McgL3Ib83/HoOwR8Ti9QFJ6gy0r4Ki
+	 iI9gGaOOPISdMTgXipgfWWuzrqxhpkA1slv7uWiR37kVgq8xc1pTacgm7Lw/oScKmE
+	 2HLxgt3MHOxYALOk87hn6wSGExp18CSf4J2A38/sZP8Au46Nkw3saE/0puK/1z6ArA
+	 HwCqp01dDW2gJw/oVe8Aq2RzCxu2RMnbLOULCfIYyzEO8elkUA5xxi8deVYguGRM58
+	 uoYqGFNQ+OLGg==
+Date: Thu, 28 May 2026 18:11:12 +0100
+From: Mark Brown <broonie@kernel.org>
+To: Mark Rutland <mark.rutland@arm.com>
+Cc: linux-arm-kernel@lists.infradead.org, kvmarm@lists.linux.dev,
+	catalin.marinas@arm.com, james.morse@arm.com, maz@kernel.org,
+	oupton@kernel.org, tabba@google.com, vladimir.murzin@arm.com,
+	will@kernel.org
+Subject: Re: [PATCH v2 10/18] arm64: sysreg: Add FPCR and FPSR
+Message-ID: <aada8195-de39-485a-94bc-648afbfb4931@sirena.org.uk>
+References: <20260528165446.701944-1-mark.rutland@arm.com>
+ <20260528165446.701944-11-mark.rutland@arm.com>
 MIME-Version: 1.0
-Content-Type: text/plain; charset=us-ascii
+Content-Type: multipart/signed; micalg=pgp-sha512;
+	protocol="application/pgp-signature"; boundary="yRfI9XPzratqbfwV"
 Content-Disposition: inline
-In-Reply-To: <20260521-extended_cti-v9-3-d21f4f92c51e@oss.qualcomm.com>
+In-Reply-To: <20260528165446.701944-11-mark.rutland@arm.com>
+X-Cookie: Someone is speaking well of you.
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260528_101113_098402_F4C6875F 
-X-CRM114-Status: GOOD (  14.89  )
+X-CRM114-CacheID: sfid-20260528_101118_307999_9EBF9936 
+X-CRM114-Status: GOOD (  11.60  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -76,74 +76,49 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Thu, May 21, 2026 at 08:16:29PM +0800, Yingchao Deng wrote:
 
-[...]
+--yRfI9XPzratqbfwV
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+Content-Transfer-Encoding: quoted-printable
 
-> Qualcomm implements an extended variant of the ARM CoreSight CTI with a
-> different register layout and vendor-specific behavior. While the
-> programming model remains largely compatible, the register offsets differ
-> from the standard ARM CTI and require explicit handling.
+On Thu, May 28, 2026 at 05:54:38PM +0100, Mark Rutland wrote:
+> Add sysreg definitions for FPCR and FPSR.
+>=20
+> Some versions of LLVM will refuse to assemble accesses to FPCR and FPSR
+> unless the "fp" arch extension is enabled, which we don't currently do
+> for read_sysreg() and write_sysreg(). In general, handling feature
+> dependencies would complicate read_sysreg() and write_sysreg(), and it's
+> simpler to use read_sysreg_s() and write_sysreg_s() instead, requiring
+> sysreg definitions.
 
-I cannot apply this patch successfuly. Please rebase on the latest
-coresight-next branch.
+> The values used can be found in ARM ARM issue M.b:
 
-> @@ -726,6 +734,22 @@ static int cti_probe(struct amba_device *adev, const struct amba_id *id)
->  
->  	raw_spin_lock_init(&drvdata->spinlock);
->  
-> +	devarch = readl_relaxed(drvdata->base + CORESIGHT_DEVARCH);
-> +	if (CTI_DEVARCH_ARCHITECT(devarch) == ARCHITECT_QCOM) {
-> +		drvdata->is_qcom_cti = true;
-> +		/*
-> +		 * QCOM CTI does not implement Claimtag functionality as
-> +		 * per CoreSight specification, but its CLAIMSET register
-> +		 * is incorrectly initialized to 0xF. This can mislead
-> +		 * tools or drivers into thinking the component is claimed.
-> +		 *
-> +		 * Reset CLAIMSET to 0 to reflect that no claims are active.
-> +		 */
-> +		CS_UNLOCK(drvdata->base);
-> +		writel_relaxed(0, drvdata->base + CORESIGHT_CLAIMSET);
-> +		CS_LOCK(drvdata->base);
+>   https://developer.arm.com/documentation/ddi0487/mb/
 
-Sorry I missed this piece before.
+> ... in sections:
 
-Can you move this quirk into firmware? I don't think the CTI driver
-should clear the external claim bit as this totally break the protocol
-defined in PSCI. A clean way would clear the bits in firmware and then
-CTI driver can use the CLAIM registers.
+> * C5.2.8 ("FPCR, Floating-point Control Register")
+> * C5.2.10 ("FPSR, Floating-point Status Register")
 
-Or, another option is to create several helpers to bypass claim
-operations for Qcom CTI:
+Reviewed-by: Mark Brown <broonie@kernel.org>
 
-  static void cti_clear_self_claim_tag(cti_drvdata *drvdata,
-                                      struct csdev_access *csa)
-  {
-      if (drvdata->is_qcom_cti)
-          return;
+Cross checked against DDI0601 2026-03.
 
-      coresight_clear_self_claim_tag(csa);
-  }
+--yRfI9XPzratqbfwV
+Content-Type: application/pgp-signature; name="signature.asc"
 
-  static int cti_claim_device(cti_drvdata *drvdata)
-  {
-      if (drvdata->is_qcom_cti)
-          return 0;
+-----BEGIN PGP SIGNATURE-----
 
-      return coresight_claim_device(drvdata->csdev);
-  }
+iQEzBAABCgAdFiEEreZoqmdXGLWf4p/qJNaLcl1Uh9AFAmoYdzAACgkQJNaLcl1U
+h9COEQf/eRwk0q4UjwVJrb1mp6Y3QxTFbvULmcWoihp8EiU7fDNRCgGYHyUEVnYg
+lrBErvxKaWGQwTAYuG/BDno22J3KN3dI4UKxa/j6A1zfWNl22oFzI9vwFQN4h6J6
+472Bh8hanustZc2osrYnFRW15IGKWjoWbjfmPp5vnm688hI4XHxssT0sSC7W1SIw
+TaL0CQziQ9xMyYH2CoGIbMfVvY15srg8qaLLxGi87Qc3sztbZnV44/FCn2P+cjTe
+w9rVY09/7nJumbTWAVzgfTzSeeOmwrn7LFYya3GZ0TpWvfoxZ3zQCD8gwLHJyM8p
+lnEQdiTJknn3wKzoSLU9iG7kKUW/cQ==
+=Pbbn
+-----END PGP SIGNATURE-----
 
-  static void cti_unclaim_device_unlocked(cti_drvdata *drvdata)
-  {
-      if (drvdata->is_qcom_cti)
-          return;
-
-      return coresight_disclaim_device_unlocked(drvdata->csdev);
-  }
-
-Otherwise, this patch is fine for me.
-
-Thanks,
-Leo
+--yRfI9XPzratqbfwV--
 
