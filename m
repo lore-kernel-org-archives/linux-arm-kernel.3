@@ -4,54 +4,94 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 0E7D9CD5BD1
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 28 May 2026 05:58:11 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 8C086CD5BD1
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 28 May 2026 06:18:50 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:
-	Content-Transfer-Encoding:MIME-Version:References:In-Reply-To:Message-ID:Date
-	:Subject:Cc:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=Fd80mj/3IKoqWLM74yrIKUbYLZKNJTRnbWUqqZcHbKs=; b=H0u/6T1WrLffbBxAvtIDMK1cZh
-	50l933qg9ZCtPumnZYRqeR1wPDuL8S0956j7Jv1GYF1vgivXjS9xN3pT03saSJalBsb6wEuzin9FK
-	8CNGmqUjgToySxF2Wt0UBdM/g5l/7RfWaiIEmUQzwvda2PHsvJVrmNzwOWz2QsO64JSJqW4UxjKKh
-	goFvrwBIVbo3WO0VaCX6PJErTa8tmjBInVnbG8TZVOEWWy1HjJ6Rq60SCQflWJ1NP6IcmcyX+CV6u
-	ZvHrELe1lg8mb+lBKdg5Iz/2g7TTmxJOQmNC9aMDR2DXy7PL4JKOhOYLZ6rOLprAippxO88wFDaUU
-	PLTvp/Vg==;
+	bh=eDowC+J9NkAkNKGl2xFdM++bofz3BCUgA7OJQhuHtSY=; b=1bGXjcJPunp0EXwf74id7C0cEZ
+	10w9+VpmNv6SukMOFXfnlpqKCBjCxIk99vzGfRIepIvQziatvaA0GcHnIHxM7cCaMFl9mYaRwlDeN
+	92TBTI9VnsQvr3qzPsddMvreakqI4YAmdTPtNa5I9u4LPVWIpHGUTuzM4BGX99hJZfmWXdR0tNNAz
+	NYhPGUk+xj7vZxjTWxq4XFtHnKQkVJMq/H3p/xM7GpMxJjoyVvoBQ6NqzjHarnIDa5LhwDMRSgS57
+	dZ72Iqv1WHTkQD7hug+fkhvm+njsLdcznD9fyxFBk1fHDA03zbeHhxfZ+Ferf7+Og8lN6sGwGaW6u
+	dkEhDbew==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wSTkr-00000005Auo-1Ory;
-	Thu, 28 May 2026 05:58:05 +0000
-Received: from gloria.sntech.de ([185.11.138.130])
+	id 1wSU4q-00000005Bb7-0BII;
+	Thu, 28 May 2026 06:18:44 +0000
+Received: from mail-wr1-x432.google.com ([2a00:1450:4864:20::432])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wSTkp-00000005Au8-1bLb;
-	Thu, 28 May 2026 05:58:04 +0000
-DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed; d=sntech.de;
-	s=gloria202408; h=Content-Type:Content-Transfer-Encoding:MIME-Version:
-	References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:Reply-To;
-	bh=Fd80mj/3IKoqWLM74yrIKUbYLZKNJTRnbWUqqZcHbKs=; b=QlVv0Qrk0PyeAuUmNgfjl8R7/Z
-	NeoTZdlSlxqRCcZHYA3bn1vb/T2z1+qwkDd5Tuk/9oOQn/Ssn+BK2wkx+yWy4wCPL6GKPzoNoXN1t
-	idv4b5jx5aE37qz6gYEnEYQgrnXv0qLTZZtqdffUdf51mQ4D3D2n3P3Dpy7pTE90V3CEplSN+dWDG
-	/NgcjdBvzy7d+ekKG67XLwOPF7FUhyGgmhPSyhd817TSXP3RklXa5YZT2d4IPLE4ueTld9QojvTkJ
-	FMbVbPwc9PncJ4ocnWF03PXJK7njzwB2Mn0Qg+x306NgieTKIfOo0StcAtoTb6uGAVD6Xm9sTzAkG
-	tX3oGzrg==;
-From: Heiko Stuebner <heiko@sntech.de>
-To: Chukun Pan <amadeus@jmu.edu.cn>
-Cc: jonas@kwiboo.se, linux-arm-kernel@lists.infradead.org,
- linux-kernel@vger.kernel.org, linux-rockchip@lists.infradead.org,
- Chukun Pan <amadeus@jmu.edu.cn>
-Subject: Re: [PATCH v2 2/5] arm64: dts: rockchip: Enable USB 2.0 ports on Radxa E20C
-Date: Thu, 28 May 2026 07:57:45 +0200
-Message-ID: <3879225.zToM8qfIzz@phil>
-In-Reply-To: <20260525065005.1056845-1-amadeus@jmu.edu.cn>
-References: <20260505171208.3267387-3-heiko@sntech.de>
- <20260525065005.1056845-1-amadeus@jmu.edu.cn>
+	id 1wSU4m-00000005Bak-2dgi
+	for linux-arm-kernel@lists.infradead.org;
+	Thu, 28 May 2026 06:18:42 +0000
+Received: by mail-wr1-x432.google.com with SMTP id ffacd0b85a97d-45ebafde87cso3782987f8f.3
+        for <linux-arm-kernel@lists.infradead.org>; Wed, 27 May 2026 23:18:39 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=gmail.com; s=20251104; t=1779949118; x=1780553918; darn=lists.infradead.org;
+        h=in-reply-to:content-disposition:mime-version:references:message-id
+         :subject:cc:to:from:date:from:to:cc:subject:date:message-id:reply-to;
+        bh=eDowC+J9NkAkNKGl2xFdM++bofz3BCUgA7OJQhuHtSY=;
+        b=Z+kTB5jQFaLIjDedRaCrhDLXnyjO/g8LUx2/npTFusGKnmp7dF5MyKo+wfUQrPitH6
+         lcW9Ssm+xaS/R4gccPaUHQ/k9+IX7lOvVOFPUe4EBHES2lNdNS0vxeflJOB7gDR8nsN+
+         HHzRoohd1WfB2Pk5FQCxwDjVfuT1y6DLtHjya1NDdn7JHhZn385Gsauh0G8u6hBMyPni
+         9JucEPYRCG1U/+NMHzRzN7pPFQddBI8xMSYbKfKWgXe9EswXx31/IhmS/psFayVBE9Cs
+         v7lhrnzHgEP6MCPLFcejWVvO1OwWs/PliwPIbCcCQFSekLUWHFJNbErb0f6FjYwISYkA
+         2BVQ==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20251104; t=1779949118; x=1780553918;
+        h=in-reply-to:content-disposition:mime-version:references:message-id
+         :subject:cc:to:from:date:x-gm-gg:x-gm-message-state:from:to:cc
+         :subject:date:message-id:reply-to;
+        bh=eDowC+J9NkAkNKGl2xFdM++bofz3BCUgA7OJQhuHtSY=;
+        b=gg+IAyY9iHRdaD9kAltnk5T/vwHmrD+0KcDi/9mlU7OZsEqRqZLxn8U3OHWvWEb/qV
+         c15Evbr9Qd6Rljr30PcR9bJkIcr+emubSkR4B/Gd+tjlYS1EmchUt0iHS9CbGZpaVHxN
+         usxkKwK4jBLQIqQFJH7LeQ+Z8azIWi1m2j4IOwhazzO7aOi6HVTjXGw/J9iNcwvh5tIp
+         pRij4t8r9UKTuTKmqcrbHmyUjNno/UywqNVP5iXAr/Xt5742RrYNvZVza9ND6N7YmF65
+         zwABR30fYUm4AFkGqs1Q3zJBP+tqTt4UjS17XGZTXn0r50iKQwJ+VunXxHfeyeqWXTay
+         M8TA==
+X-Forwarded-Encrypted: i=1; AFNElJ9U9LMLM+MI/sqqsM82ye9hD1lrxN0ukh14ZUVD5Wu+aWsNqpF+qVtG7FwDs49a+PlB88swW+XCjXLyxAlX1mYe@lists.infradead.org
+X-Gm-Message-State: AOJu0YzXGQFUvBjs8kYduUdiVU89xopuw1ODkKIyeouPLD7g/SzKawee
+	MghITggdwFsxpOY2E0HcEmu5jv1/AR1JUbJBfm+7nw+eEwgkJ4e2DKW8FMb1EQ==
+X-Gm-Gg: Acq92OHVYF5bLQacluvOhlzOL1a45S3olYoEkKgK6SXbtnzczKsrIImYC7dekQPIQCU
+	qeLbMZG/8f3P3p1qBD5oHHFgZQhMpP/d/Ie1PVo7JcPZi3onPH2VjoMn3zfVI1WgaL//cVrwQiw
+	Xuhj1HVBuXKZanEDNtNaW1lTDf9qssi6JFhOIK19HElUOigklwNVPDBsqhmoQaqhe6rAG9Yl+bI
+	fHGBjk59YK22zEDU+pdMGEzaV+CHqtccBsPOPvkzLBH3DNoYS39O1B01uzEsvNiCpSzEmg/De2W
+	u0NhSH7WIB5/JRH9KS+YZa7QgDFlAzR5Bl8PgWDlaMV/DHbG/bifIsmWMuy+VlzPfOLtnrpTwJh
+	0kTmMNwGV029jvlX91vexACq9C6dndTAQr2uPAA3YCyLHeb+dIrHeUJbg+CEBqbOFqo+tVlhNLs
+	fFlGCAt09S3gtm9F6W/YTp8+2UbKmNKZZ4qQ==
+X-Received: by 2002:a05:6000:480f:b0:43f:e43a:f4a6 with SMTP id ffacd0b85a97d-45eb3691f71mr43798818f8f.6.1779949118000;
+        Wed, 27 May 2026 23:18:38 -0700 (PDT)
+Received: from localhost ([196.207.164.177])
+        by smtp.gmail.com with ESMTPSA id ffacd0b85a97d-45edb5a281dsm10925489f8f.24.2026.05.27.23.18.36
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Wed, 27 May 2026 23:18:37 -0700 (PDT)
+Date: Thu, 28 May 2026 09:18:34 +0300
+From: Dan Carpenter <error27@gmail.com>
+To: Sean Anderson <sean.anderson@linux.dev>
+Cc: Laurent Pinchart <laurent.pinchart@ideasonboard.com>,
+	Tomi Valkeinen <tomi.valkeinen@ideasonboard.com>,
+	Maarten Lankhorst <maarten.lankhorst@linux.intel.com>,
+	Maxime Ripard <mripard@kernel.org>,
+	Thomas Zimmermann <tzimmermann@suse.de>,
+	David Airlie <airlied@gmail.com>, Simona Vetter <simona@ffwll.ch>,
+	Michal Simek <michal.simek@amd.com>,
+	dri-devel@lists.freedesktop.org,
+	linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org,
+	kernel-janitors@vger.kernel.org
+Subject: Re: [PATCH] drm: zynqmp_dp: Fix uninitialized variable in debugfs()
+Message-ID: <ahfeOh091V3BuuaB@stanley.mountain>
+References: <ahP3Xagt1LJrhmFl@stanley.mountain>
+ <935aaec5-5417-3cde-f944-3c04ffbd3458@linux.dev>
 MIME-Version: 1.0
-Content-Transfer-Encoding: quoted-printable
-Content-Type: text/plain; charset="utf-8"
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+In-Reply-To: <935aaec5-5417-3cde-f944-3c04ffbd3458@linux.dev>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260527_225803_601033_1B01E650 
-X-CRM114-Status: GOOD (  11.84  )
+X-CRM114-CacheID: sfid-20260527_231840_696125_BA7FCF8F 
+X-CRM114-Status: GOOD (  14.59  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -66,48 +106,29 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hi,
+On Wed, May 27, 2026 at 08:31:59PM -0400, Sean Anderson wrote:
+> On 5/25/26 03:16, Dan Carpenter wrote:
+> > If the *ppos is non-zero then simple_write_to_buffer() will not
+> > initialize the start of the buf[] buffer.  It doesn't really make sense
+> > to allow non-zero values for *ppos, so check for that at the start and
+> > return -EINVAL.
+> 
+> non-zero ppos seems to be handled properly by simple_write_to_buffer.
+> 
 
-Am Montag, 25. Mai 2026, 08:50:05 Mitteleurop=C3=A4ische Sommerzeit schrieb=
- Chukun Pan:
-> > +&usb_host0_xhci {
-> > +	extcon =3D <&usb2phy>;
-> > +	maximum-speed =3D "high-speed";
-> > +	phys =3D <&usb2phy_otg>;
-> > +	phy-names =3D "usb2-phy";
->=20
-> I received this warning for this otg port:
-> [    0.163307] dwc3 fe500000.usb: Configuration mismatch. dr_mode forced =
-to host
+It's not an overflow bug, it's an uninitialized variable bug.
 
-Interesting, because if I read the schematics correctly, this is the
-controller labeled "usb2.0 otg0" .
-It even has a vbus-detect line.
+The simple_write_to_buffer() is designed to handle partial writes so it
+leaves the first "written" (scare quotes) part of the string as is.  But
+in this case, we can't handle a partial write and the first part of
+buf[] is left uninitialized.
 
-If I understand the schematics and product page correctly, this
-actually is an outward facing type-c-port, making the device a
-peripheral?
+https://staticthinking.wordpress.com/2026/05/23/simple_write_to_buffer-is-complicated/
 
-usb_host0_xhci -> port1 of FE1.1s_QFN (device1 connected to the hub)
-uart0 -> ch340 -> port2 of FE1.1s_QFN (device2 connected to the hub)
+Also this appears to be dead code since fops_zynqmp_dp_pattern is never
+used.
 
-=46E1.1s_QFN host dm+dp going to the type-c port of the board.
-
-So if anything, that controller should probably have dr_mode=3Dperipheral
-I think?
-
-
->=20
-> > +	snps,dis_u2_susphy_quirk;
->=20
-> This property is missing in the sige1 patch. Since this property
-> is related to phy vbus detection, can we move it to rk3528.dtsi?
-
-yeah, that sounds sensible ... looking at the other socs using that
-quirk, it really seems to be a property of the controller.
-
-
-Heiko
-
+regards,
+dan carpenter
 
 
