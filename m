@@ -4,45 +4,45 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id D678ACD4F54
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 28 May 2026 13:42:48 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id A3BD8CD6E44
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 28 May 2026 13:43:00 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
 	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
 	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=5iz8ds4uZ2EdfTix40+LNtvuVP+Qe5SJurgkLudTtf8=; b=oj3q49LgxZfHckpQA1jRtwqo+a
-	XMt+acciiPBbOnTWX31bFyUeWEZoLtu0lAVepnJ+4dvZ+QQNfYN9FIWoQmsKSzVTWl/X42G6wH6mT
-	4fGz+Wwsn3uEluVqR++w7yR3mgGAGMsexMTzn9nGMeBFjeq4wkNpvw8LRSQPqHqQ1g3H11foNyIUD
-	w86bY+NsHrbn2qYYlbeMZPBWjy9FV9UerHIdq0dlcXnSF8iCD1zViPiqPwhnauAt+sA8Y2cmsqqx1
-	BMo/JO2KhZcSK6ivOoywALHJuyrSGjqomDqxbJGpSqdkUafKJKSA2Wc6Sws6j+jJHgQMuefSkUPCw
-	ml8D2evA==;
+	bh=xB83MMQJtgx4blW20grTGAuXYxlz2Qs+h6trlIglCbE=; b=T66dEuRWnCP1KZRSHaCiFfZjoy
+	9IjdMBrT9AaXzIqZ/qnHBAXqA7SHqAPJbZ6PynUZpSuF6xDbjtUwkYDCev68OHtx63F1L27ND+5A3
+	4Tv8/eung0w+sX1jjdXBw/mjzZFmPeAuIAxP6kB+1WlLK7Un9Q1QAxeLAaRwa0dczERdvqZF69kAt
+	8RSw56+GLBZIcx+/VVrsUKdCVp0X0ugp+22PF9T1q+A3QKG0ViVCZOtXljGU48FrB64XHyxGPgSxH
+	KCUNkVDnOFqMOMHntayqij6EOv0wKTDGGZuTYBb26AFHg5H5zZ7osjLeX4HkSHO0JZQLPJxM6cY4f
+	YzUkcj1g==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wSb0U-00000005ndo-1him;
-	Thu, 28 May 2026 13:42:42 +0000
-Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
+	id 1wSb0g-00000005niN-29fE;
+	Thu, 28 May 2026 13:42:54 +0000
+Received: from sea.source.kernel.org ([172.234.252.31])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wSb0N-00000005nay-295R
+	id 1wSb0d-00000005nhU-37Vr
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 28 May 2026 13:42:36 +0000
+	Thu, 28 May 2026 13:42:52 +0000
 Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
-	by sea.source.kernel.org (Postfix) with ESMTP id 9B50C40E27;
-	Thu, 28 May 2026 13:42:34 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 02F1B1F000E9;
-	Thu, 28 May 2026 13:42:31 +0000 (UTC)
+	by sea.source.kernel.org (Postfix) with ESMTP id 08F9444714;
+	Thu, 28 May 2026 13:42:51 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 6A28D1F000E9;
+	Thu, 28 May 2026 13:42:48 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1779975754;
-	bh=5iz8ds4uZ2EdfTix40+LNtvuVP+Qe5SJurgkLudTtf8=;
+	s=k20260515; t=1779975770;
+	bh=xB83MMQJtgx4blW20grTGAuXYxlz2Qs+h6trlIglCbE=;
 	h=Date:From:To:Cc:Subject:References:In-Reply-To;
-	b=S/eOirRtRg+k9VxeW6cpoCGScVER7L0A1GqHjWMZGjObpzAi7rvaHZZBu9euEosWN
-	 elg3rKSSMkJFV7O5icFbkbAV6pYAglZGtL/5TphWk1AN0VdOKt9dBxJs5jXtU5RbAG
-	 TyOB7x92Fv4C3N6UKBJxYmCQhCCqBNJwd9YuvN6gGSED3+5/Bz5BpkLuiEZwi+mQAl
-	 8xCRUKrQAbvujN/wzDQi0WtjiZxDnxJtGMixV9lW2FJ509ux3aJTvMx/a3p2L01sTj
-	 C9rrf7EHngjvrhtbTb0h+GvxlEk5o5SYNMF2HV019QRcpjTFvBGcV5F6LSR3Q12vtY
-	 lRbK4SVBt8nqQ==
-Date: Thu, 28 May 2026 14:42:28 +0100
+	b=jWvZy6tTmXv4uK2QplcSaUgWUJIz92z+wKhi/zAmihpjBB2KWHqGf0DEnVSVk86uq
+	 r5QWeFDoBUFGX134RmM8ZrZqzSq5O+xqC3oSwjHcwiCuGknN2M2Ei+7GuQmYezX51O
+	 ZMbnL31fhJM+I5/7JGBFWMA4I1wTvooBYYUBPOCJyY1ftNzU5p8Aw8ndPOKE8P9h9F
+	 HrxVYcEdsWly+3Os4Az8KFMGTTmMylXV+WAUPWh/f2IZy0YC/DptI4AjBY/wmRpYb7
+	 j7glSISlhcmTvsI3G0e2JzzFARtcEgq80GfqjV3Ln1BI/NNEkJpbI+S3jhxiSodW1A
+	 X9gq3AzK6tBhg==
+Date: Thu, 28 May 2026 14:42:45 +0100
 From: Will Deacon <will@kernel.org>
 To: Puranjay Mohan <puranjay@kernel.org>
 Cc: bpf@vger.kernel.org, Yonghong Song <yonghong.song@linux.dev>,
@@ -55,18 +55,19 @@ Cc: bpf@vger.kernel.org, Yonghong Song <yonghong.song@linux.dev>,
 	Song Liu <song@kernel.org>, Xu Kuohai <xukuohai@huaweicloud.com>,
 	Catalin Marinas <catalin.marinas@arm.com>,
 	linux-arm-kernel@lists.infradead.org
-Subject: Re: [PATCH bpf-next v2 1/3] bpf, arm64: Map BPF_REG_0 to x8 instead
- of x7
-Message-ID: <ahhGRE1efWfKsvZW@willie-the-truck>
+Subject: Re: [PATCH bpf-next v2 3/3] selftests/bpf: Enable stack argument
+ tests for arm64
+Message-ID: <ahhGVf3RSWuMk0ph@willie-the-truck>
 References: <20260427234801.2104511-1-puranjay@kernel.org>
- <20260427234801.2104511-2-puranjay@kernel.org>
+ <20260427234801.2104511-4-puranjay@kernel.org>
 MIME-Version: 1.0
 Content-Type: text/plain; charset=us-ascii
 Content-Disposition: inline
-In-Reply-To: <20260427234801.2104511-2-puranjay@kernel.org>
+In-Reply-To: <20260427234801.2104511-4-puranjay@kernel.org>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260528_064235_589414_EBA22EE0 
-X-CRM114-Status: GOOD (  13.76  )
+X-CRM114-CacheID: sfid-20260528_064251_805435_42B119AC 
+X-CRM114-Status: UNSURE (   9.88  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -81,29 +82,22 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Mon, Apr 27, 2026 at 04:47:58PM -0700, Puranjay Mohan wrote:
-> Move the BPF return value register from x7 to x8, freeing x7 for use
-> as an argument register. AAPCS64 designates x8 as the indirect result
-> location register; it is caller-saved and not used for argument
-> passing, making it a suitable home for BPF_REG_0.
-> 
-> This is a prerequisite for stack argument support, which needs x5-x7
-> to pass arguments 6-8 to native kfuncs following the AAPCS64 calling
-> convention.
+On Mon, Apr 27, 2026 at 04:48:00PM -0700, Puranjay Mohan wrote:
+> Now that arm64 supports stack arguments, enable the existing stack_arg,
+> stack_arg_kfunc and verifier_stack_arg tests for __TARGET_ARCH_arm64.
 > 
 > Signed-off-by: Yonghong Song <yonghong.song@linux.dev>
 > Signed-off-by: Puranjay Mohan <puranjay@kernel.org>
 > ---
->  arch/arm64/net/bpf_jit_comp.c                          |  4 ++--
->  arch/arm64/net/bpf_timed_may_goto.S                    |  8 ++++----
->  .../testing/selftests/bpf/progs/verifier_jit_inline.c  |  2 +-
->  tools/testing/selftests/bpf/progs/verifier_ldsx.c      |  6 +++---
->  .../selftests/bpf/progs/verifier_private_stack.c       | 10 +++++-----
->  5 files changed, 15 insertions(+), 15 deletions(-)
+>  tools/testing/selftests/bpf/progs/btf__stack_arg_precision.c | 3 ++-
+>  tools/testing/selftests/bpf/progs/stack_arg.c                | 3 ++-
+>  tools/testing/selftests/bpf/progs/stack_arg_kfunc.c          | 3 ++-
+>  tools/testing/selftests/bpf/progs/stack_arg_precision.c      | 3 ++-
+>  tools/testing/selftests/bpf/progs/verifier_stack_arg.c       | 3 ++-
+>  5 files changed, 10 insertions(+), 5 deletions(-)
 
-Makes sense to me:
-
-Acked-by: Will Deacon <will@kernel.org>
+Do any of these tests pass more than eight parameters? If not, then
+they're not touching any of the stack stuff you added for arm64.
 
 Will
 
