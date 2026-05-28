@@ -4,76 +4,70 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 2A95CCD6E44
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 28 May 2026 12:59:23 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id C9BBCCD4F54
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 28 May 2026 13:10:07 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:MIME-Version:
-	References:In-Reply-To:Subject:Cc:To:From:Message-ID:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=La+pI3REn4i976l671Fn67snPn3X5VJDxRHtlpGo6Ls=; b=T9YvqHAcrXpKkUg0xAArxK2gvs
-	DKdSQhqzF1cUU09MgSng/miIT4LeBs/3WvR7aE2FFhfAv3MN/nAg7kHMXiOna1QY6WQjNmHaWLc68
-	pst3dyB7ZTjCdqmmZiprxSUG1i16RHPL11LQvTU8E2QzvMt3X89CXYFX5l6o6FLwpADzlBRKM6cbf
-	izL9a5bZ1obvNAlF5E/kgp5pKs59x2jizPIixoR5K1uEBwz+6PsfcddYClM1+c3jHgUBXxzroERva
-	b35cch6Phl9YQHU4o6ds2n68LFh9md3FnkN1JspqqYtfgszmpipZzF8CwLrAX4hTSJ+9ijiaLOk67
-	FXoPmlgQ==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:MIME-Version:References:In-Reply-To:Message-ID:Subject:Cc:To:
+	From:Date:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=r0QrpkQCV7e0TWVW6fG/E9wzE1TJ4SiymmotkEZ+8oA=; b=yjKAFRGB6hewAY+OXtZZu6DgeM
+	cjpu0TmmKaYTLgqzUOX0B3TDqscpOr3w1pFfdHTnSDUxcwuHJj7+kRFa3JS0DFeL+dtX/V4PFwzNK
+	fKQLeWucl4R4ngT2vZziHK4ghNByWzU5e34MaYyWao96ppBOwk4dB0aMEx3/wd46nRLwR2NuCsQOX
+	E7UeuFqefQYQSmT30TSAQApzgsew3JgxfTssK9KA3mzAUPBNPdtr5zSk0Bz32JpAV/oEpfppz2RM0
+	n+59+wqTNGsnjwems/T87IkiMi4CgCaZ/ylvyIPbwlxQrBI5/wduh1YSNYhJyGLkfEs/Go8KwFaqS
+	znw39HOQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wSaKS-00000005kuT-21Pb;
-	Thu, 28 May 2026 12:59:16 +0000
-Received: from tor.source.kernel.org ([2600:3c04:e001:324:0:1991:8:25])
+	id 1wSaUr-00000005lU3-30vs;
+	Thu, 28 May 2026 13:10:01 +0000
+Received: from sea.source.kernel.org ([172.234.252.31])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wSaKR-00000005kuN-1wy2
+	id 1wSaUp-00000005lTN-1dfj
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 28 May 2026 12:59:15 +0000
+	Thu, 28 May 2026 13:10:00 +0000
 Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
-	by tor.source.kernel.org (Postfix) with ESMTP id D66AA60547;
-	Thu, 28 May 2026 12:59:14 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 441CC1F00A3A;
-	Thu, 28 May 2026 12:59:14 +0000 (UTC)
+	by sea.source.kernel.org (Postfix) with ESMTP id A0AAC446C6;
+	Thu, 28 May 2026 13:09:58 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 21A771F000E9;
+	Thu, 28 May 2026 13:09:51 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1779973154;
-	bh=La+pI3REn4i976l671Fn67snPn3X5VJDxRHtlpGo6Ls=;
+	s=k20260515; t=1779973798;
+	bh=r0QrpkQCV7e0TWVW6fG/E9wzE1TJ4SiymmotkEZ+8oA=;
 	h=Date:From:To:Cc:Subject:In-Reply-To:References;
-	b=jgf1i3mvMArk4I2X9WsUPQWeKZcSZ2bCjUsHwMNOP6kVoEARCAtpaYHDP2ozNxTgx
-	 3JEbSFq+aGVUpGMDPM8wCEyfxD1vyf91bTgIhPFYVj5ajhqUKCMy2OSFTWz+Y9m8Bl
-	 jgK9Qjy8fzwSL3wYh4lKCN80r5Viy9VaDnlg5QEyjTcHXqckuqPAqPVD10ZUVnrwt/
-	 sAeon5XLpp7DD+44yjscCr8DAnTAvDTx4VCt4QlTeTNvFuBWYfqTDEegThqvrTdVPc
-	 MyoRqOw93VVkn260tI3tA6KGauHCxCExEahkQ8o80THj+wdnOPY3/jWOO99LuzOyRp
-	 8cVC4xrT3fwxA==
-Received: from sofa.misterjones.org ([185.219.108.64] helo=goblin-girl.misterjones.org)
-	by disco-boy.misterjones.org with esmtpsa  (TLS1.3) tls TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384
-	(Exim 4.98.2)
-	(envelope-from <maz@kernel.org>)
-	id 1wSaKO-000000072cn-0OiD;
-	Thu, 28 May 2026 12:59:12 +0000
-Date: Thu, 28 May 2026 13:59:11 +0100
-Message-ID: <86cxyfvgf4.wl-maz@kernel.org>
-From: Marc Zyngier <maz@kernel.org>
-To: Wei-Lin Chang <weilin.chang@arm.com>
-Cc: linux-arm-kernel@lists.infradead.org,
-	kvmarm@lists.linux.dev,
-	linux-kernel@vger.kernel.org,
-	Oliver Upton <oupton@kernel.org>,
-	Joey Gouly <joey.gouly@arm.com>,
-	Suzuki K Poulose <suzuki.poulose@arm.com>,
-	Zenghui Yu <yuzenghui@huawei.com>,
-	Catalin Marinas <catalin.marinas@arm.com>,
-	Will Deacon <will@kernel.org>
-Subject: Re: [PATCH v3 3/5] KVM: arm64: nv: Avoid full shadow s2 unmap
-In-Reply-To: <20260510145338.322962-4-weilin.chang@arm.com>
-References: <20260510145338.322962-1-weilin.chang@arm.com>
-	<20260510145338.322962-4-weilin.chang@arm.com>
-User-Agent: Wanderlust/2.15.9 (Almost Unreal) SEMI-EPG/1.14.7 (Harue)
- FLIM-LB/1.14.9 (=?UTF-8?B?R29qxY0=?=) APEL-LB/10.8 EasyPG/1.0.0 Emacs/30.1
- (aarch64-unknown-linux-gnu) MULE/6.0 (HANACHIRUSATO)
-MIME-Version: 1.0 (generated by SEMI-EPG 1.14.7 - "Harue")
+	b=FScYaL+nQtn59lt3XFAAA9o4Yg6kEl4brpFw1LEWS7IHxDUz4mtHZtTtzkom60O/I
+	 CkE+aQiTiJHwB3PdgrJ3kjmvauHOSobrvqXYrhhhhXyK7BA+MkznIG/BU2DyQtkFKR
+	 Lr3Y8UgujM5kp9B11rrCi5LFCc+kWInO+/aNjtG5B2Aa7xo7HyNgXnEwbxFJn4SEnS
+	 x31KCBgSewijLLjX6s4w2feHYNefrNyuvrdKt1sntsxdpMpZYXUpgPDDrqVfW55S0B
+	 r6eF+hFt6UGOJqgXbtviEa1MkTylc8TVYTV+kTRSYpzYCirZM9pbLqd5MBhHhNC7g8
+	 qAonuPStPCxVA==
+Date: Thu, 28 May 2026 14:09:47 +0100
+From: Jonathan Cameron <jic23@kernel.org>
+To: kernel test robot <lkp@intel.com>
+Cc: David Lechner <dlechner@baylibre.com>, Jyoti Bhayana
+ <jbhayana@google.com>, Nuno =?UTF-8?B?U8Oh?= <nuno.sa@analog.com>, Andy
+ Shevchenko <andy@kernel.org>, Nicolas Ferre <nicolas.ferre@microchip.com>,
+ Alexandre Belloni <alexandre.belloni@bootlin.com>, Claudiu Beznea
+ <claudiu.beznea@tuxon.dev>, Maxime Coquelin <mcoquelin.stm32@gmail.com>,
+ Alexandre Torgue <alexandre.torgue@foss.st.com>, Benson Leung
+ <bleung@chromium.org>, Guenter Roeck <groeck@chromium.org>,
+ oe-kbuild-all@lists.linux.dev, linux-iio@vger.kernel.org,
+ linux-kernel@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
+ linux-stm32@st-md-mailman.stormreply.com, chrome-platform@lists.linux.dev
+Subject: Re: [PATCH] iio: pressure: cros_ec_baro: simplify timestamp channel
+ definition
+Message-ID: <20260528140947.12c73152@jic23-huawei>
+In-Reply-To: <202605281432.a64fe4iY-lkp@intel.com>
+References: <20260525014654.2399354-1-dlechner@baylibre.com>
+	<202605281432.a64fe4iY-lkp@intel.com>
+X-Mailer: Claws Mail 4.4.0 (GTK 3.24.52; x86_64-pc-linux-gnu)
+MIME-Version: 1.0
 Content-Type: text/plain; charset=US-ASCII
-X-SA-Exim-Connect-IP: 185.219.108.64
-X-SA-Exim-Rcpt-To: weilin.chang@arm.com, linux-arm-kernel@lists.infradead.org, kvmarm@lists.linux.dev, linux-kernel@vger.kernel.org, oupton@kernel.org, joey.gouly@arm.com, suzuki.poulose@arm.com, yuzenghui@huawei.com, catalin.marinas@arm.com, will@kernel.org
-X-SA-Exim-Mail-From: maz@kernel.org
-X-SA-Exim-Scanned: No (on disco-boy.misterjones.org); SAEximRunCond expanded to false
+Content-Transfer-Encoding: 7bit
+X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
+X-CRM114-CacheID: sfid-20260528_060959_483532_CBD2C888 
+X-CRM114-Status: GOOD (  18.29  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -88,406 +82,66 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Sun, 10 May 2026 15:53:36 +0100,
-Wei-Lin Chang <weilin.chang@arm.com> wrote:
+On Thu, 28 May 2026 14:40:51 +0800
+kernel test robot <lkp@intel.com> wrote:
+
+> Hi David,
 > 
-> Currently we are forced to fully unmap all shadow stage-2 for a VM when
-> unmapping a page from the canonical stage-2, for example during an MMU
-> notifier call. This is because we are not tracking what canonical IPA
-> are mapped in the shadow stage-2 page tables hence there is no way to
-> know what to unmap.
+> kernel test robot noticed the following build errors:
 > 
-> Create a per kvm_s2_mmu maple tree to track canonical IPA range ->
-> nested IPA range, so that it is possible to partially unmap shadow
-> stage-2 when a canonical IPA range is unmapped. The algorithm is simple
-> and conservative:
+For the record, this is a side effect of some email trouble David had.
+It's meant to be in a series with the patch that makes that macro
+a compound literal.
+
+> [auto build test ERROR on jic23-iio/togreg]
+> [also build test ERROR on linus/master v7.1-rc5 next-20260527]
+> [If your patch is applied to the wrong git tree, kindly drop us a note.
+> And when submitting patch, we suggest to use '--base' as documented in
+> https://git-scm.com/docs/git-format-patch#_base_tree_information]
 > 
-> At each shadow stage-2 map, insert the nested IPA range into the maple
-> tree, with the canonical IPA range as the key. If the canonical IPA
-> range doesn't overlap with existing ranges in the tree, insert as is,
-> and a reverse mapping for this range is established. But if the
-> canonical IPA range overlaps with any existing ranges in the tree,
-> create a new range that spans all the overlapping ranges including the
-> input range and replace those existing ranges. In the mean time, mark
-> this new spanning canonical IPA range with an "UNKNOWN_IPA" bit,
-> indicating we give up tracking the nested IPA ranges that map to this
-> canonical IPA range.
+> url:    https://github.com/intel-lab-lkp/linux/commits/David-Lechner/iio-pressure-cros_ec_baro-simplify-timestamp-channel-definition/20260525-134550
+> base:   https://git.kernel.org/pub/scm/linux/kernel/git/jic23/iio.git togreg
+> patch link:    https://lore.kernel.org/r/20260525014654.2399354-1-dlechner%40baylibre.com
+> patch subject: [PATCH] iio: pressure: cros_ec_baro: simplify timestamp channel definition
+> config: m68k-allyesconfig (https://download.01.org/0day-ci/archive/20260528/202605281432.a64fe4iY-lkp@intel.com/config)
+> compiler: m68k-linux-gcc (GCC) 15.2.0
+> reproduce (this is a W=1 build): (https://download.01.org/0day-ci/archive/20260528/202605281432.a64fe4iY-lkp@intel.com/reproduce)
 > 
-> The maple tree's 64 bit entry is enough to store the nested IPA and
-> the UNKNOWN_IPA status, therefore besides maple tree's internal
-> operation, memory allocation is avoided.
+> If you fix the issue in a separate patch/commit (i.e. not just a new version of
+> the same patch/commit), kindly add following tags
+> | Reported-by: kernel test robot <lkp@intel.com>
+> | Closes: https://lore.kernel.org/oe-kbuild-all/202605281432.a64fe4iY-lkp@intel.com/
 > 
-> Example:
-> |||| means existing range, ---- means empty range
+> All errors (new ones prefixed by >>):
 > 
-> input:            $$$$$$$$$$$$$$$$$$$$$$$$$$
-> tree:  --||||-----|||||||---------||||||||||-----------
+>    In file included from include/linux/iio/buffer.h:10,
+>                     from drivers/iio/pressure/cros_ec_baro.c:9:
+>    drivers/iio/pressure/cros_ec_baro.c: In function 'cros_ec_baro_probe':
+> >> include/linux/iio/iio.h:356:38: error: expected expression before '{' token  
+>      356 | #define IIO_CHAN_SOFT_TIMESTAMP(_si) {                                  \
+>          |                                      ^
+>    drivers/iio/pressure/cros_ec_baro.c:174:20: note: in expansion of macro 'IIO_CHAN_SOFT_TIMESTAMP'
+>      174 |         *channel = IIO_CHAN_SOFT_TIMESTAMP(1);
+>          |                    ^~~~~~~~~~~~~~~~~~~~~~~
 > 
-> insert spanning range and replace overlapping ones:
->        --||||-----||||||||||||||||||||||||||-----------
->                   ^^^^marked UNKNOWN_IPA^^^^
 > 
-> With the reverse map created, when a canonical IPA range gets unmapped,
-> look into each s2 mmu's maple tree and look for canonical IPA ranges
-> affected, and base on their UNKNOWN_IPA status:
+> vim +356 include/linux/iio/iio.h
 > 
-> UNKNOWN_IPA     -> fall back and fully unmap the current shadow
->                    stage-2, also clear the tree
+> 00c5f80c2fad53 include/linux/iio/iio.h   Peter Rosin      2016-11-08  355  
+> 07d4655b410a4d include/linux/iio/iio.h   Jonathan Cameron 2013-11-12 @356  #define IIO_CHAN_SOFT_TIMESTAMP(_si) {					\
+> 07d4655b410a4d include/linux/iio/iio.h   Jonathan Cameron 2013-11-12  357  	.type = IIO_TIMESTAMP,						\
+> 07d4655b410a4d include/linux/iio/iio.h   Jonathan Cameron 2013-11-12  358  	.channel = -1,							\
+> 07d4655b410a4d include/linux/iio/iio.h   Jonathan Cameron 2013-11-12  359  	.scan_index = _si,						\
+> 07d4655b410a4d include/linux/iio/iio.h   Jonathan Cameron 2013-11-12  360  	.scan_type = {							\
+> 07d4655b410a4d include/linux/iio/iio.h   Jonathan Cameron 2013-11-12  361  		.sign = 's',						\
+> 07d4655b410a4d include/linux/iio/iio.h   Jonathan Cameron 2013-11-12  362  		.realbits = 64,					\
+> 07d4655b410a4d include/linux/iio/iio.h   Jonathan Cameron 2013-11-12  363  		.storagebits = 64,					\
+> 07d4655b410a4d include/linux/iio/iio.h   Jonathan Cameron 2013-11-12  364  		},							\
+> 07d4655b410a4d include/linux/iio/iio.h   Jonathan Cameron 2013-11-12  365  }
+> 1d892719e70e47 drivers/staging/iio/iio.h Jonathan Cameron 2011-05-18  366  
 > 
-> not UNKNOWN_IPA -> unmap the nested IPA range, and remove the reverse
->                    map entry
-> 
-> Suggested-by: Marc Zyngier <maz@kernel.org>
-> Signed-off-by: Wei-Lin Chang <weilin.chang@arm.com>
-> ---
->  arch/arm64/include/asm/kvm_host.h   |   4 +
->  arch/arm64/include/asm/kvm_nested.h |   4 +
->  arch/arm64/kvm/mmu.c                |  27 ++++--
->  arch/arm64/kvm/nested.c             | 140 +++++++++++++++++++++++++++-
->  4 files changed, 167 insertions(+), 8 deletions(-)
-> 
-> diff --git a/arch/arm64/include/asm/kvm_host.h b/arch/arm64/include/asm/kvm_host.h
-> index 1a56d137df10..dc4c0bce1bbb 100644
-> --- a/arch/arm64/include/asm/kvm_host.h
-> +++ b/arch/arm64/include/asm/kvm_host.h
-> @@ -223,6 +223,10 @@ struct kvm_s2_mmu {
->  	 */
->  	bool	pending_unmap;
->  
-> +	bool	nested_revmap_broken;
-> +	/* canonical IPA to nested IPA range lookup */
-> +	struct maple_tree nested_revmap_mt;
-> +
->  #ifdef CONFIG_PTDUMP_STAGE2_DEBUGFS
->  	struct dentry *shadow_pt_debugfs_dentry;
->  #endif
-> diff --git a/arch/arm64/include/asm/kvm_nested.h b/arch/arm64/include/asm/kvm_nested.h
-> index 091544e6af44..5cbf78dfc685 100644
-> --- a/arch/arm64/include/asm/kvm_nested.h
-> +++ b/arch/arm64/include/asm/kvm_nested.h
-> @@ -76,6 +76,8 @@ extern void kvm_s2_mmu_iterate_by_vmid(struct kvm *kvm, u16 vmid,
->  				       const union tlbi_info *info,
->  				       void (*)(struct kvm_s2_mmu *,
->  						const union tlbi_info *));
-> +extern void kvm_record_nested_revmap(gpa_t gpa, struct kvm_s2_mmu *mmu,
-> +				     gpa_t fault_ipa, size_t map_size);
->  extern void kvm_vcpu_load_hw_mmu(struct kvm_vcpu *vcpu);
->  extern void kvm_vcpu_put_hw_mmu(struct kvm_vcpu *vcpu);
->  
-> @@ -164,6 +166,8 @@ extern int kvm_s2_handle_perm_fault(struct kvm_vcpu *vcpu,
->  				    struct kvm_s2_trans *trans);
->  extern int kvm_inject_s2_fault(struct kvm_vcpu *vcpu, u64 esr_el2);
->  extern void kvm_nested_s2_wp(struct kvm *kvm);
-> +extern void kvm_unmap_gfn_range_nested(struct kvm *kvm, gpa_t gpa, size_t size,
-> +				       bool may_block);
->  extern void kvm_nested_s2_unmap(struct kvm *kvm, bool may_block);
->  extern void kvm_nested_s2_flush(struct kvm *kvm);
->  
-> diff --git a/arch/arm64/kvm/mmu.c b/arch/arm64/kvm/mmu.c
-> index e4becd5cdf36..ce0bd88cd3c1 100644
-> --- a/arch/arm64/kvm/mmu.c
-> +++ b/arch/arm64/kvm/mmu.c
-> @@ -5,6 +5,7 @@
->   */
->  
->  #include <linux/acpi.h>
-> +#include <linux/maple_tree.h>
->  #include <linux/mman.h>
->  #include <linux/kvm_host.h>
->  #include <linux/io.h>
-> @@ -1099,6 +1100,7 @@ void kvm_free_stage2_pgd(struct kvm_s2_mmu *mmu)
->  {
->  	struct kvm *kvm = kvm_s2_mmu_to_kvm(mmu);
->  	struct kvm_pgtable *pgt = NULL;
-> +	struct maple_tree *revmap_mt = &mmu->nested_revmap_mt;
->  
->  	write_lock(&kvm->mmu_lock);
->  	pgt = mmu->pgt;
-> @@ -1108,8 +1110,11 @@ void kvm_free_stage2_pgd(struct kvm_s2_mmu *mmu)
->  		free_percpu(mmu->last_vcpu_ran);
->  	}
->  
-> -	if (kvm_is_nested_s2_mmu(kvm, mmu))
-> +	if (kvm_is_nested_s2_mmu(kvm, mmu)) {
-> +		if (!mtree_empty(revmap_mt))
-> +			mtree_destroy(revmap_mt);
->  		kvm_init_nested_s2_mmu(mmu);
-> +	}
->  
->  	write_unlock(&kvm->mmu_lock);
->  
-> @@ -1631,6 +1636,10 @@ static int gmem_abort(const struct kvm_s2_fault_desc *s2fd)
->  		goto out_unlock;
->  	}
->  
-> +	if (s2fd->nested)
-> +		kvm_record_nested_revmap(gfn << PAGE_SHIFT, pgt->mmu,
-> +					 s2fd->fault_ipa, PAGE_SIZE);
-> +
->  	ret = KVM_PGT_FN(kvm_pgtable_stage2_map)(pgt, s2fd->fault_ipa, PAGE_SIZE,
->  						 __pfn_to_phys(pfn), prot,
->  						 memcache, flags);
-> @@ -2034,6 +2043,10 @@ static int kvm_s2_fault_map(const struct kvm_s2_fault_desc *s2fd,
->  		ret = KVM_PGT_FN(kvm_pgtable_stage2_relax_perms)(pgt, gfn_to_gpa(gfn),
->  								 prot, flags);
->  	} else {
-> +		if (s2fd->nested)
-> +			kvm_record_nested_revmap(canonical_gpa, pgt->mmu,
-> +						 gfn_to_gpa(gfn), mapping_size);
-> +
->  		ret = KVM_PGT_FN(kvm_pgtable_stage2_map)(pgt, gfn_to_gpa(gfn), mapping_size,
->  							 __pfn_to_phys(pfn), prot,
->  							 memcache, flags);
-> @@ -2389,14 +2402,16 @@ int kvm_handle_guest_abort(struct kvm_vcpu *vcpu)
->  
->  bool kvm_unmap_gfn_range(struct kvm *kvm, struct kvm_gfn_range *range)
->  {
-> +	gpa_t gpa = range->start << PAGE_SHIFT;
-> +	size_t size = (range->end - range->start) << PAGE_SHIFT;
-> +	bool may_block = range->may_block;
-> +
->  	if (!kvm->arch.mmu.pgt || kvm_vm_is_protected(kvm))
->  		return false;
->  
-> -	__unmap_stage2_range(&kvm->arch.mmu, range->start << PAGE_SHIFT,
-> -			     (range->end - range->start) << PAGE_SHIFT,
-> -			     range->may_block);
-> +	__unmap_stage2_range(&kvm->arch.mmu, gpa, size, may_block);
+> --
+> 0-DAY CI Kernel Test Service
+> https://github.com/intel/lkp-tests/wiki
 
-This sort of cleanups could be in a separate patch.
-
-> +	kvm_unmap_gfn_range_nested(kvm, gpa, size, may_block);
->  
-> -	kvm_nested_s2_unmap(kvm, range->may_block);
->  	return false;
->  }
->  
-> @@ -2674,7 +2689,7 @@ void kvm_arch_flush_shadow_memslot(struct kvm *kvm,
->  
->  	write_lock(&kvm->mmu_lock);
->  	kvm_stage2_unmap_range(&kvm->arch.mmu, gpa, size, true);
-> -	kvm_nested_s2_unmap(kvm, true);
-> +	kvm_unmap_gfn_range_nested(kvm, gpa, size, true);
->  	write_unlock(&kvm->mmu_lock);
->  }
->  
-> diff --git a/arch/arm64/kvm/nested.c b/arch/arm64/kvm/nested.c
-> index 883b6c1008fb..35b5d5f21a23 100644
-> --- a/arch/arm64/kvm/nested.c
-> +++ b/arch/arm64/kvm/nested.c
-> @@ -7,6 +7,7 @@
->  #include <linux/bitfield.h>
->  #include <linux/kvm.h>
->  #include <linux/kvm_host.h>
-> +#include <linux/maple_tree.h>
->  
->  #include <asm/fixmap.h>
->  #include <asm/kvm_arm.h>
-> @@ -43,6 +44,20 @@ struct vncr_tlb {
->   */
->  #define S2_MMU_PER_VCPU		2
->  
-> +/*
-> + * Per shadow S2 reverse map (IPA -> nested IPA range) maple tree payload
-> + * layout:
-> + *
-> + * bit  62:     valid, prevents the case where the nested IPA is 0 and turning
-> + *              the whole value to 0
-> + * bits 55-12:  nested IPA bits 55-12
-> + * bit  0:      UNKNOWN_IPA bit, 1 indicates we give up on tracking what nested
-> + *              IPA maps to this canonical IPA in the shadow stage-2
-> + */
-> +#define VALID_ENTRY		BIT(62)
-> +#define ADDR_MASK		GENMASK_ULL(55, 12)
-> +#define UNKNOWN_IPA		BIT(0)
-> +
->  void kvm_init_nested(struct kvm *kvm)
->  {
->  	kvm->arch.nested_mmus = NULL;
-> @@ -769,12 +784,57 @@ static struct kvm_s2_mmu *get_s2_mmu_nested(struct kvm_vcpu *vcpu)
->  	return s2_mmu;
->  }
->  
-> +void kvm_record_nested_revmap(gpa_t ipa, struct kvm_s2_mmu *mmu,
-> +			      gpa_t fault_ipa, size_t map_size)
-
-The name fault_ipa doesn't really make sense here. This is the IPA as
-seen from L1 (the input to the L1 S2 tables). We indeed obtain it from
-a fault, but that should not influence the naming here.
-
-Similarly, 'ipa' should be qualified a bit better to reflect that this
-is the L0 IPA.
-
-> +{
-> +	struct maple_tree *revmap_mt = &mmu->nested_revmap_mt;
-> +	gpa_t ipa_end = ipa + map_size - 1;
-
-Are you always guaranteed that ipa is aligned on map_size?
-
-> +	u64 entry, new_entry = 0;
-> +	MA_STATE(mas_rev, revmap_mt, ipa, ipa_end);
-> +
-> +	if (mmu->nested_revmap_broken)
-> +		return;
-> +
-> +	mtree_lock(revmap_mt);
-> +	entry = xa_to_value(mas_find_range(&mas_rev, ipa_end));
-> +
-> +	if (entry) {
-> +		/* maybe just a perm update... */
-> +		if (!(entry & UNKNOWN_IPA) && mas_rev.index == ipa &&
-
-Shouldn't you check that VALID_ENTRY is set? Is the index guaranteed
-to match the L0 IPA?
-
-> +		    mas_rev.last == ipa_end &&
-> +		    fault_ipa == (entry & ADDR_MASK))
-
-Again, I think there is a potential alignment issue here.
-
-> +			goto unlock;
-> +		/*
-> +		 * Create a "UNKNOWN_IPA" range that spans all the overlapping
-> +		 * ranges and store it.
-> +		 */
-> +		while (entry && mas_rev.index <= ipa_end) {
-> +			ipa = min(mas_rev.index, ipa);
-> +			ipa_end = max(mas_rev.last, ipa_end);
-> +			entry = xa_to_value(mas_find_range(&mas_rev, ipa_end));
-> +		}
-> +		new_entry |= UNKNOWN_IPA;
-> +	} else {
-> +		new_entry |= fault_ipa;
-> +		new_entry |= VALID_ENTRY;
-> +	}
-> +
-> +	mas_set_range(&mas_rev, ipa, ipa_end);
-> +	if (mas_store_gfp(&mas_rev, xa_mk_value(new_entry),
-> +			  GFP_NOWAIT | __GFP_ACCOUNT))
-> +		mmu->nested_revmap_broken = true;
-
-I really think we ought to track this event happening. Maybe a trace
-point.
-
-> +unlock:
-> +	mtree_unlock(revmap_mt);
-> +}
-> +
->  void kvm_init_nested_s2_mmu(struct kvm_s2_mmu *mmu)
->  {
->  	/* CnP being set denotes an invalid entry */
->  	mmu->tlb_vttbr = VTTBR_CNP_BIT;
->  	mmu->nested_stage2_enabled = false;
->  	atomic_set(&mmu->refcnt, 0);
-> +	mt_init(&mmu->nested_revmap_mt);
-> +	mmu->nested_revmap_broken = false;
->  }
->  
->  void kvm_vcpu_load_hw_mmu(struct kvm_vcpu *vcpu)
-> @@ -1150,6 +1210,82 @@ void kvm_nested_s2_wp(struct kvm *kvm)
->  	kvm_invalidate_vncr_ipa(kvm, 0, BIT(kvm->arch.mmu.pgt->ia_bits));
->  }
->  
-> +static void reset_revmap_and_unmap(struct kvm_s2_mmu *mmu, bool may_block)
-> +{
-> +	mtree_destroy(&mmu->nested_revmap_mt);
-> +	mmu->nested_revmap_broken = false;
-> +	kvm_stage2_unmap_range(mmu, 0, kvm_phys_size(mmu), may_block);
-> +}
-> +
-> +static void unmap_mmu_ipa_range(struct kvm_s2_mmu *mmu, gpa_t gpa,
-> +				  size_t unmap_size, bool may_block)
-
-Same comment as above about the nature of 'gpa'. I *think* this is the
-L0 IPA, but please clarify.
-
-> +{
-> +	struct maple_tree *revmap_mt = &mmu->nested_revmap_mt;
-> +	gpa_t ipa = gpa;
-> +	gpa_t ipa_end = gpa + unmap_size - 1;
-
-Similar concerns about alignments.
-
-> +	u64 entry;
-> +	size_t entry_size;
-> +	MA_STATE(mas_rev, revmap_mt, gpa, ipa_end);
-> +
-> +	if (mmu->nested_revmap_broken) {
-> +		reset_revmap_and_unmap(mmu, may_block);
-> +		return;
-> +	}
-> +
-> +	mtree_lock(revmap_mt);
-> +	entry = xa_to_value(mas_find_range(&mas_rev, ipa_end));
-> +
-> +	while (entry && mas_rev.index <= ipa_end) {
-
-I'm again concerned that the VALID bit is never checked.
-
-> +		ipa = mas_rev.last + 1;
-> +		entry_size = mas_rev.last - mas_rev.index + 1;
-> +		/*
-> +		 * Give up and invalidate this s2 mmu if the unmap range
-> +		 * touches any UNKNOWN_IPA range.
-> +		 */
-> +		if (entry & UNKNOWN_IPA) {
-> +			mtree_unlock(revmap_mt);
-> +			reset_revmap_and_unmap(mmu, may_block);
-> +			return;
-> +		}
-> +
-> +		/*
-> +		 * Ignore result, it is okay if a reverse mapping erase
-> +		 * fails.
-> +		 */
-> +		mas_store_gfp(&mas_rev, NULL, GFP_NOWAIT | __GFP_ACCOUNT);
-> +
-> +		mtree_unlock(revmap_mt);
-> +		kvm_stage2_unmap_range(mmu, entry & ADDR_MASK, entry_size,
-> +				       may_block);
-> +		mtree_lock(revmap_mt);
-> +		/*
-> +		 * Other maple tree operations during preemption could render
-> +		 * this ma_state invalid, so reset it.
-> +		 */
-> +		mas_set_range(&mas_rev, ipa, ipa_end);
-> +		entry = xa_to_value(mas_find_range(&mas_rev, ipa_end));
-> +	}
-> +	mtree_unlock(revmap_mt);
-> +}
-> +
-> +void kvm_unmap_gfn_range_nested(struct kvm *kvm, gpa_t gpa, size_t size,
-> +				bool may_block)
-> +{
-> +	int i;
-> +
-> +	if (!kvm->arch.nested_mmus_size)
-> +		return;
-> +
-> +	for (i = 0; i < kvm->arch.nested_mmus_size; i++) {
-> +		struct kvm_s2_mmu *mmu = &kvm->arch.nested_mmus[i];
-> +
-> +		if (kvm_s2_mmu_valid(mmu))
-> +			unmap_mmu_ipa_range(mmu, gpa, size, may_block);
-> +	}
-> +
-> +	kvm_invalidate_vncr_ipa(kvm, gpa, gpa + size);
-
-I'm not overly fond of propagating the VNCR invalidation in all the S2
-manipulations. I understand why you are doing it here, but I think we
-need to have a better solution.
-
-Fundamentally, VNCR invalidation has nothing to do with S2. This
-really is a EL2 S1 thing. And given that you have a reverse map per
-s2_mmu, it would be easy enough to track VNCR TLBs through that.
-
-It doesn't have to be part of this patch, but that would be a good
-thing to disentangle as a subsequent patch.
-
-Thanks,
-
-	M.
-
--- 
-Without deviation from the norm, progress is not possible.
 
