@@ -4,62 +4,59 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id F4203CD5BD5
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 28 May 2026 18:58:59 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 6642DCD5BD5
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 28 May 2026 18:59:21 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
 	MIME-Version:Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-Type:
 	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
 	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
-	bh=dDl9WiRVkFnZ4KGhUiamMsE2H6ZfjTwqBgTNaY1yr7U=; b=Hj+6DUXOSobqJgaI0KhyHcaDyJ
-	2p8BfeEg/MOVLds7U/WH8/kgDvwK099qlYcbngfTV5xNkwRLIZ7SzkuIFxMZcexXkW9oigrms2ZYW
-	y+xSthTP3jpSjEsTxzW7DnUD6ZmaVsnlYKub9sk6YQ+qfTSP6J59UuVwUHyX6hCc+pXZEmb4Kc+4Q
-	9ELh1KPhmD21CWbTSzMAYugc/mzTkkSl1MoYHj9KMTitpvZQ1J9+k7GfyHoGiJLWqh7Lg2B9uG5tl
-	ySOW6tVlpWlPu76+NzzvCcgFM9qSoX7cwj2zNEt7sbLjXCAMGnKwfq9kkG8bt5FFc/ZYDgVKZQEEO
-	3wvRlYmQ==;
+	bh=kVbwVV58HXkR8RkEhw6MU26AYDa34tbTeUacWmMzKjg=; b=05kAKfr4zqIcDoByBMwsZXkd+F
+	3R430XJRCRxKqg2dGw0Vb1uHqTWFzRy6MoqRFKliVEJz56DjX/KkTCzVC6owwH14qdo5Y+nrxDiLa
+	VcRtHE0KcyIDpvAd770c9dLU6j6oqivmoPSmw0PHxNovcPi/SUE/kQkGzPXjEdou+hVPefy/0xzdB
+	iQBaxmOeq5Rv0/pY1sLYHsIJOS2sC8mbgeq8oHGUmp6CjHblKchI7fwXqKRiO4Wc9FAQJioZ5xLaq
+	rtC8sxh5TpJFDxZXPWvhzpPWOBkrFYafU5YNgB7aFhxq530f6u8yasplGJoWlRsAd4YJ0wPx+6yoe
+	Hhkh9G9w==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wSfwS-00000006Er2-2ca5;
-	Thu, 28 May 2026 18:58:52 +0000
-Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
+	id 1wSfwn-00000006Eup-39g7;
+	Thu, 28 May 2026 18:59:13 +0000
+Received: from sea.source.kernel.org ([172.234.252.31])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wSfwQ-00000006Eqe-3Kqb
+	id 1wSfwl-00000006EuD-2ndU
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 28 May 2026 18:58:52 +0000
+	Thu, 28 May 2026 18:59:12 +0000
 Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
-	by sea.source.kernel.org (Postfix) with ESMTP id B584D43861;
-	Thu, 28 May 2026 18:58:49 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 617171F00A3A;
-	Thu, 28 May 2026 18:58:48 +0000 (UTC)
+	by sea.source.kernel.org (Postfix) with ESMTP id 207CD437AD
+	for <linux-arm-kernel@lists.infradead.org>; Thu, 28 May 2026 18:59:11 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 082D51F000E9;
+	Thu, 28 May 2026 18:59:09 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1779994729;
-	bh=dDl9WiRVkFnZ4KGhUiamMsE2H6ZfjTwqBgTNaY1yr7U=;
+	s=k20260515; t=1779994751;
+	bh=kVbwVV58HXkR8RkEhw6MU26AYDa34tbTeUacWmMzKjg=;
 	h=From:To:Cc:Subject:Date;
-	b=V+XmSXXCwcFoSJLN0hohvGp86TLcp1ewIHOc90trTleZoLNe7H8Cp6uqk7ujSjlR3
-	 Z0Z9XHOml16LfD0G+ulUMz3It+B8WYEQzfSjj1Uc9vcJimt9fApdzT+TxipEFf2eO7
-	 b9PZWyG/EcOelMGiC3Cht0WiLpEyiuU00Vw3TIVJh0kq3JOKWVdOhRS5QB1O/E0d33
-	 Q3JlnkqQO2OqZ+Loe5BkegBKfbI6J4a24vKM7PQf2xpOD8vIZyabUln6xENT7GSTsF
-	 FLurdNIPMLutZAOom3dAQEtdN/iHHze7+2gxPdZxR1mx3xmwWBpqzlFw2rnsLfjFx9
-	 aJqm1JwqhlD2w==
+	b=JAJMdreRzmLpPJyDjwvjHkrmdzTCIxjIHsqnl8YP521Glslnu0YNQOPo+CMB+GJpo
+	 NskVtZRDMifFbbE6KSMEw+gHG98/pHlCvWolD8OyrLGxAwm0EkDR6Qvw0hWx4XoJNk
+	 drpKuo7Qz1cZAiobUX+hwC5oq8m/z8DGBMr/adzqtThGMLbvJlZcZyxFU97khRqP9W
+	 BoIghHfv19cgWzPFLn+wrVibWoinmDuAKpFTAi7gNwwJ94twXMTYum5i/iYP+R2HBZ
+	 0+HQHcQn153soonjnQn359D/5TN020Dqs8hHuqnP+K7zGPrCjNe/wTGBVHUgrD3p87
+	 hIcJQxZErDIMg==
 From: Sudeep Holla <sudeep.holla@kernel.org>
 To: ARM SoC Team <arm@kernel.org>,
 	SoC Team <soc@kernel.org>,
-	arm-scmi@vger.kernel.org,
 	ALKML <linux-arm-kernel@lists.infradead.org>
 Cc: Sudeep Holla <sudeep.holla@kernel.org>,
-	Arnd Bergmann <arnd@kernel.org>,
-	Cristian Marussi <cristian.marussi@arm.com>
-Subject: [GIT PULL] firmware: arm_scmi: Updates for v7.2
-Date: Thu, 28 May 2026 19:58:26 +0100
-Message-ID: <20260528185827.776851-1-sudeep.holla@kernel.org>
+	Arnd Bergmann <arnd@kernel.org>
+Subject: [GIT PULL] firmware: arm_ffa: Updates for v7.2
+Date: Thu, 28 May 2026 19:58:55 +0100
+Message-ID: <20260528185856.777407-1-sudeep.holla@kernel.org>
 X-Mailer: git-send-email 2.43.0
 MIME-Version: 1.0
 Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260528_115850_879736_D9F9EBAA 
-X-CRM114-Status: UNSURE (   9.19  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20260528_115911_727982_FBCF8137 
+X-CRM114-Status: GOOD (  11.78  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -82,104 +79,62 @@ Regards,
 Sudeep
 
 -->8
-The following changes since commit 254f49634ee16a731174d2ae34bc50bd5f45e731:
+The following changes since commit a6848a50404eefb6f0b131c21881a2d8d21b31a9:
 
-  Linux 7.1-rc1 (2026-04-26 14:19:00 -0700)
+  firmware: arm_ffa: Fix sched-recv callback partition lookup (2026-05-05 16:42:49 +0100)
 
 are available in the Git repository at:
 
-  git://git.kernel.org/pub/scm/linux/kernel/git/sudeep.holla/linux.git tags/scmi-updates-7.2
+  git://git.kernel.org/pub/scm/linux/kernel/git/sudeep.holla/linux.git tags/ffa-updates-7.2
 
-for you to fetch changes up to 524abd2fa6907ebe2762342be339afcc5b227dc4:
+for you to fetch changes up to 18706ea68fc4344049bf693b702cb311a7c27ca7:
 
-  firmware: arm_scmi: optee: Rework transport probe sequence (2026-05-21 17:31:51 +0100)
-
-----------------------------------------------------------------
-Arm SCMI updates for v7.2
-
-1. Improve SCMI clock handling with a protocol-level determine_rate operation,
-   simplified per-clock rate properties, dynamic rate allocation, bounded
-   iterator support, lazy full-rate discovery, and hardened parent/rate
-   enumeration.
-
-2. Fix several SCMI bounds and payload validation issues, including clock rate
-   discovery OOB handling, power domain name lookup, Powercap domain state
-   access, BASE_ERROR_EVENT and SENSOR_UPDATE payload sizing, and sensor config
-   width handling.
-
-3. Rework SCMI transport probing for virtio and OP-TEE using per-instance
-   transport handles and a generic transport supplier, removing the need to
-   register SCMI core drivers from transport probe paths.
-
-4. Add i.MX SCMI MISC reset reason support and print i.MX95 boot/shutdown
-   reasons via the System Manager interface.
-
-5. Clean up SCMI core internals, including base-info naming, quirk parsing and
-   table iteration, and list iteration.
-
-6. Fix SCPI clock provider removal so child clock providers are unregistered
-   using the same DT nodes used at registration time.
+  firmware: arm_ffa: Treat missing FF-A feature on a platform as a probe miss (2026-05-27 10:14:23 +0100)
 
 ----------------------------------------------------------------
-Cristian Marussi (16):
-      clk: scmi: Fix clock rate rounding
-      firmware: arm_scmi: Add clock determine_rate operation
-      clk: scmi: Use new determine_rate clock operation
-      firmware: arm_scmi: Simplify clock rates exposed interface
-      clk: scmi: Use new simplified per-clock rate properties
-      firmware: arm_scmi: Drop unused clock rate interfaces
-      firmware: arm_scmi: Make clock rates allocation dynamic
-      firmware: arm_scmi: Harden clock parents discovery
-      firmware: arm_scmi: Refactor iterators internal allocation
-      firmware: arm_scmi: Add bound iterators support
-      firmware: arm_scmi: Use bound iterators to minimize discovered rates
-      firmware: arm_scmi: Introduce all_rates_get clock operation
-      firmware: arm_scmi: Add transport instance handles
-      firmware: arm_scmi: Add a generic transport supplier
-      firmware: arm_scmi: virtio: Rework transport probe sequence
-      firmware: arm_scmi: optee: Rework transport probe sequence
+Arm FF-A + SMCCC updates for v7.2
 
-Geert Uytterhoeven (7):
-      firmware: arm_scmi: quirk: Improve quirk range parsing
-      firmware: arm_scmi: quirk: Simplify quirk table iteration
-      firmware: arm_scmi: Convert to list_for_each_entry()
-      firmware: arm_scmi: Fix bound iterators returning too many items
-      firmware: arm_scmi: Use proper iter_response_bound_cleanup() name
-      firmware: arm_scmi: Fix OOB in scmi_clock_describe_rates_get_lazy()
-      firmware: arm_scmi: Fix OOB in scmi_power_name_get()
+1. The FF-A core is moved onto the driver model by reverting the earlier
+   rootfs initcall change and registering the core as a platform driver with
+   a synthetic arm-ffa platform device. Enumerated FF-A devices are now
+   parented below the FF-A core device, and probing is deferred until pKVM
+   has completed its FF-A proxy initialisation.
 
-Marek Vasut (1):
-      firmware: arm_scmi: Rename struct scmi_revision_info to scmi_base_info
+2. The platform-driver conversion is also adjusted so systems without FF-A
+   support treat early unsupported transport/version discovery as a quiet
+   probe miss rather than a failed matched probe.
 
-Peng Fan (2):
-      firmware: arm_scmi: imx: Support getting reset reason of MISC protocol
-      firmware: imx: sm-misc: Print boot/shutdown reasons
+3. The register-based partition discovery path now honors the descriptor
+   size reported by FFA_PARTITION_INFO_GET_REGS. This keeps parsing aligned
+   for newer FF-A descriptor layouts while still copying only the fields the
+   driver understands.
 
-Stepan Ionichev (1):
-      clk: scpi: Unregister child clock providers on remove
+4. Also included is an Arm SMCCC fix for the optional SOC_ID name call: the
+   name query now uses the SMC64 function ID required for returning eight
+   characters per register.
+
+----------------------------------------------------------------
+Andre Przywara (1):
+      firmware: smccc: Fix Arm SMCCC SOC_ID name call
+
+Jamie Nguyen (1):
+      firmware: arm_ffa: Honor partition info descriptor size
 
 Sudeep Holla (4):
-      firmware: arm_scmi: Read sensor config as 32-bit value
-      firmware: arm_scmi: Validate BASE_ERROR_EVENT payload size
-      firmware: arm_scmi: Validate SENSOR_UPDATE payload size
-      firmware: arm_scmi: Validate Powercap domains before state access
+      firmware: arm_ffa: Register core as a platform driver
+      firmware: arm_ffa: Set the core device as FF-A device parent
+      firmware: arm_ffa: Defer probe until pKVM is initialized
+      firmware: arm_ffa: Treat missing FF-A feature on a platform as a probe miss
 
- drivers/clk/clk-scmi.c                             |  48 +---
- drivers/clk/clk-scpi.c                             |   2 +-
- drivers/firmware/arm_scmi/base.c                   |  25 +-
- drivers/firmware/arm_scmi/clock.c                  | 301 ++++++++++++++++-----
- drivers/firmware/arm_scmi/common.h                 | 165 ++++++++++-
- drivers/firmware/arm_scmi/driver.c                 |  98 ++++---
- drivers/firmware/arm_scmi/power.c                  |   6 +-
- drivers/firmware/arm_scmi/powercap.c               |  18 +-
- drivers/firmware/arm_scmi/protocols.h              |  13 +-
- drivers/firmware/arm_scmi/quirks.c                 |  17 +-
- drivers/firmware/arm_scmi/sensors.c                |  12 +-
- drivers/firmware/arm_scmi/transports/optee.c       |  46 +++-
- drivers/firmware/arm_scmi/transports/virtio.c      |  52 +++-
- .../firmware/arm_scmi/vendors/imx/imx-sm-misc.c    |  86 ++++++
- drivers/firmware/imx/sm-misc.c                     |  73 +++++
- include/linux/scmi_imx_protocol.h                  |  14 +
- include/linux/scmi_protocol.h                      |  36 +--
- 17 files changed, 802 insertions(+), 210 deletions(-)
+Yeoreum Yun (1):
+      Revert "firmware: arm_ffa: Change initcall level of ffa_init() to rootfs_initcall"
+
+ drivers/firmware/arm_ffa/bus.c    |  3 +-
+ drivers/firmware/arm_ffa/common.h |  4 +-
+ drivers/firmware/arm_ffa/driver.c | 98 ++++++++++++++++++++++++++++++---------
+ drivers/firmware/arm_ffa/smccc.c  |  2 +-
+ drivers/firmware/smccc/soc_id.c   |  2 +-
+ include/linux/arm-smccc.h         |  5 ++
+ include/linux/arm_ffa.h           |  4 +-
+ 7 files changed, 90 insertions(+), 28 deletions(-)
 
