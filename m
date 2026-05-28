@@ -4,60 +4,92 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 5E71ECD5BD1
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 28 May 2026 10:34:33 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id C1239CD6E49
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 28 May 2026 10:35:05 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
-	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=VM1VW/zkZHLxqKgr8Iky1pd1e17D2JOBbhsQH1ksfGE=; b=E9MOno43z+lru4tIMkSS3Jz825
-	+XeLl0ukBHCw8pW4ihZkEpC2Vo+Zmix28WXlfp8i8bIS17cnVmGHMVoxTQLG0zjBdemywV8g/5nTv
-	vgK9N77UF8qKm/04aYJeWxtWx1/R1DO8oGjMJR51VLDPGuDc7kaD3DvpK5qMWfmk2YAIDy+QfhC6h
-	E8JblgVnwbMoNNkHZRVL0hT2Bp9yzXgctF5exEGEtQ8pCO++3+znFaDAj7lmgxuWLmFEa//47uKlw
-	+1b55t74R5NpT7A1RRF25gMqxOIpT0X5Nlxco843NkQ+84iH736mRhLNCOaJ7ee7upZ4Lq8tco3PO
-	LgrsLwOA==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=XRHY8TjgLXlayczNGHNxnYXWUTLClhWO+MAQeAavDGw=; b=O8GOW6NcNc4C+ZsOZMjI0p9P6/
+	j105bALA6cSPElaVqviaBSYqJ82Dy1FgLE+5N2oelhEmq8synpzDfd6MM8oSL/PHIn7sN6VT6zGXp
+	qxgsJme0OruxTIkYZL7ZAdXitKOw3aQ+eKDsVPPvfVWnEwz7ikDnwQpmY5G9ABgc5PKWobtYYHlqK
+	xFxWhT2gB0xNVQy1m4B0SXim5tmiVikUy/AfL8kXpcTsgdZKOHDntXlu8Q41+5EmqpIZJyG6rgZ1j
+	3UuNJcsha81W6tKuTHvmf78F+bZ82ZEHg9al6yxXOywoc6OpETKNL9NYhDgVSJhWayDOxqRlWqy74
+	vIBMDwhg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wSY4H-00000005bJ4-1sNg;
-	Thu, 28 May 2026 10:34:25 +0000
-Received: from foss.arm.com ([217.140.110.172])
-	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wSY4E-00000005bIW-3uhg
+	id 1wSY4p-00000005bOa-2MGs;
+	Thu, 28 May 2026 10:34:59 +0000
+Received: from mail-pl1-x635.google.com ([2607:f8b0:4864:20::635])
+	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
+	id 1wSY4n-00000005bNr-1BCv
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 28 May 2026 10:34:24 +0000
-Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
-	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id BAFAD43F7;
-	Thu, 28 May 2026 03:34:14 -0700 (PDT)
-Received: from [10.57.35.233] (unknown [10.57.35.233])
-	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id 4C1123F905;
-	Thu, 28 May 2026 03:34:18 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=simple/simple; d=arm.com; s=foss;
-	t=1779964459; bh=6I0RUYpIm1S2IYch2bSU9bcVtz94N5mghp4kUJjkPBI=;
-	h=Date:Subject:To:Cc:References:From:In-Reply-To:From;
-	b=fElDc5KOCPdHu1JH6xL0iLFoL2GSUtcpQ5G7tZHxS+n6xgSwmPgDMoZju9bqm6xJL
-	 nZLdKUmw5HuNLp7MC7K8rFye2kdV6qiqh56+Qv2qpFtcLdmx5TYE1qzRuNt6CPxSdZ
-	 Gwoywn5rNPUO5jmEzjHQxH5DXc5vygZIQ1mTH32E=
-Message-ID: <f25b769a-d89f-46c6-a3d2-9fa35882b848@arm.com>
-Date: Thu, 28 May 2026 11:34:10 +0100
+	Thu, 28 May 2026 10:34:58 +0000
+Received: by mail-pl1-x635.google.com with SMTP id d9443c01a7336-2ba180a022dso4365ad.1
+        for <linux-arm-kernel@lists.infradead.org>; Thu, 28 May 2026 03:34:56 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=google.com; s=20251104; t=1779964496; x=1780569296; darn=lists.infradead.org;
+        h=in-reply-to:content-disposition:mime-version:references:message-id
+         :subject:cc:to:from:date:from:to:cc:subject:date:message-id:reply-to;
+        bh=XRHY8TjgLXlayczNGHNxnYXWUTLClhWO+MAQeAavDGw=;
+        b=Iq653w2+1ovummBgMgc7NW34t9HX+/bXAcpR6KdvtOJdwWIaXsGbclgt1/ftVQyiB5
+         Ug7tjYN7N5q3ki57MlF4D1jdMa4/9AbmOouAWA5KamTJ6izPp5mvGPvyQJWEMIrfNFXR
+         53pr8nTh0rRqBBzq72/L8PkH5Aw7cgOzp850Mm+EvFmrcm1pYMjPCpsmHvcg/F9/5pk6
+         ZaBKwiFL4rM0z2OvMZvSP+/WpppJTBvsNgw80W2pYedaljszpFiYLwSsbNaXdk146tk3
+         gWD4PvQYwyV28aPUxbAJaA3ol/0yFCRCH5yE1TX3nQd1FoFY1brTPaS5ykGifi6mvd8f
+         Q6xQ==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20251104; t=1779964496; x=1780569296;
+        h=in-reply-to:content-disposition:mime-version:references:message-id
+         :subject:cc:to:from:date:x-gm-gg:x-gm-message-state:from:to:cc
+         :subject:date:message-id:reply-to;
+        bh=XRHY8TjgLXlayczNGHNxnYXWUTLClhWO+MAQeAavDGw=;
+        b=sEkTjKrlIyrWXrlo2nlpM0SSFE3uQ+RjuhW0ferd0xC+2jpL+a55mgtT83yt9Fxs6c
+         vdU6xQObQ/B4XaP/nT3kTBhk8TwZ8K0zNHbyt462xK/FdZuLiZbAc8ox52yyWMLAMhjT
+         0PH6OhX/goMxw3kqPn4UQ0lLVoaRn4v41Yg/L6t0OP7EqP6scQsNPLS8RuAGtxgUqgQM
+         Ysk+7eN622CsVYsV1lGonMifCY12QbB1y5hINwBtkLMa9IUxxctxllR/osKxmL7nvgQQ
+         DJYI26Cvv5PWWczEeRgZ3adPPoJaA4+VxBx5S+mcwVqh7VxfAQ+hEAU/OR8mHjcMPnG1
+         T5dg==
+X-Forwarded-Encrypted: i=1; AFNElJ9bE/HuoXkD5FLIFpyoyRUZeRXtvoD0VMKnHmCk6R0CMWdR5LTochYTJ+4Z7yybtVvaPTN5WCZiw4sCOun7egWB@lists.infradead.org
+X-Gm-Message-State: AOJu0YxhLbPK6dyNo+VodgbMjqfDSLzhgUFCdGYAMdZmRiaHbGUAzD1F
+	hx4edoiQlP9u8p74KZoHLMbPK3Imu67759W4SrBfyujyzld5MpfQGJ8LCUhLfQK7nA==
+X-Gm-Gg: Acq92OFOc0FfFtBawLYYUkAn+sR1xKQdqtel8i5qN6vJ6LjBRUNzPgCNvEMvUNUs1YN
+	uDmgtQwdsNMlL0NOaCXhWGYCtGv/A3fcqXisGGmshx4HHdNZNrXFFP8ilXOvTzw5LRJOWqqGnuG
+	89gjpkGFIWDhbbmfhPlfHbzwnxFyyE2qPAJzvFr195lpjtV09V1osNTDQWJBy/OtZb+ystBG1dk
+	BJU/0Qypu0GxgFZ43yj/NUcFyPQsBvmGwIJQ6UqLtpe88BwoFDhFEIlVaMZx+O9fyTLp2LiO/71
+	w/Damxszk3kTF3f9gUDeESEcSqfWL6ghgs5o7KvbXYRedocnwSwk7E+suYR/ToWEU5cGA9wCjf6
+	R3B4VwQAMvdp7j99yxghZmcntKEWUuerBS6AJOuDQ+XwC6267zv/rdnX15dcTzgJqO2JkyD5qPc
+	E3tF4qkdv1dmA2/++fHvaIg7c1OH7nvR/c8HLWUs5erNwuWhKMdALp3IxrKp6zoSS7oBwA
+X-Received: by 2002:a17:902:ea03:b0:2bf:28d:87ad with SMTP id d9443c01a7336-2bf0bb751admr924255ad.0.1779964495169;
+        Thu, 28 May 2026 03:34:55 -0700 (PDT)
+Received: from google.com (44.234.124.34.bc.googleusercontent.com. [34.124.234.44])
+        by smtp.gmail.com with ESMTPSA id d2e1a72fcca58-841d6e80246sm5742507b3a.12.2026.05.28.03.34.51
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Thu, 28 May 2026 03:34:54 -0700 (PDT)
+Date: Thu, 28 May 2026 10:34:42 +0000
+From: Pranjal Shrivastava <praan@google.com>
+To: Nicolin Chen <nicolinc@nvidia.com>
+Cc: iommu@lists.linux.dev, Will Deacon <will@kernel.org>,
+	Joerg Roedel <joro@8bytes.org>, Robin Murphy <robin.murphy@arm.com>,
+	Jason Gunthorpe <jgg@ziepe.ca>, Mostafa Saleh <smostafa@google.com>,
+	Daniel Mentz <danielmentz@google.com>,
+	Ashish Mhetre <amhetre@nvidia.com>,
+	linux-arm-kernel@lists.infradead.org
+Subject: Re: [PATCH v7 02/11] iommu/arm-smmu-v3: Add a helper to drain cmd
+ queues
+Message-ID: <ahgaQm5y_9mISKg0@google.com>
+References: <20260527221407.1756491-1-praan@google.com>
+ <20260527221407.1756491-3-praan@google.com>
+ <aheb/OLd9AQO6rD8@Asurada-Nvidia>
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH 1/2] iommu/arm-smmu-v3: Detect Tegra264 erratum
-To: Ashish Mhetre <amhetre@nvidia.com>, will@kernel.org, joro@8bytes.org,
- jgg@ziepe.ca, nicolinc@nvidia.com
-Cc: linux-arm-kernel@lists.infradead.org, iommu@lists.linux.dev,
- linux-kernel@vger.kernel.org, linux-tegra@vger.kernel.org
-References: <20260528101617.4068249-1-amhetre@nvidia.com>
- <20260528101617.4068249-2-amhetre@nvidia.com>
-From: Robin Murphy <robin.murphy@arm.com>
-Content-Language: en-GB
-In-Reply-To: <20260528101617.4068249-2-amhetre@nvidia.com>
-Content-Type: text/plain; charset=UTF-8; format=flowed
-Content-Transfer-Encoding: 7bit
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+In-Reply-To: <aheb/OLd9AQO6rD8@Asurada-Nvidia>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260528_033423_051460_9E09E2FE 
-X-CRM114-Status: GOOD (  21.48  )
+X-CRM114-CacheID: sfid-20260528_033457_351566_55820AEF 
+X-CRM114-Status: GOOD (  15.99  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -72,64 +104,31 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On 2026-05-28 11:16 am, Ashish Mhetre wrote:
-> Tegra264 SMMU is affected by erratum where a TLB entry can survive an
-> invalidation that races with concurrent traffic targeting the same
-> entry. The hardware-recommended software workaround is to issue every
-> CFGI/TLBI command (each followed by CMD_SYNC) twice. The second issue is
-> guaranteed to evict the entry. ATC_INV is not affected and must not be
-> doubled.
+On Wed, May 27, 2026 at 06:35:56PM -0700, Nicolin Chen wrote:
+> On Wed, May 27, 2026 at 10:13:58PM +0000, Pranjal Shrivastava wrote:
+> > +static int arm_smmu_drain_queues(struct arm_smmu_device *smmu)
 > 
-> Add the ARM_SMMU_OPT_TLBI_TWICE option and set it on instances matching
-> the existing "nvidia,tegra264-smmu" compatible. No callers consume the
-> option yet, next patch wires the workaround into the CMDQ issue paths.
+> So, this function has a very generic name for queues but its use
+> case is limited to cmdq in a suspend context, and might not work
+> for other queues.
+> 
+> I am adding another helper for in-flight evetq and priq:
+>  - Drain a queue for a detaching master; other attached masters
+>    might still advance the prod, so queue wouldn't be empty.
+>  - evtq and priq sets wfe=false.
+> 
+> So, there is a naming conflict here.
+> 
+> Maybe:
+>   arm_smmu_drain_queue_for_cmdq()
+>   arm_smmu_drain_queue_for_iopf()
+> ?
 
-Can you not detect this implementation from IIDR like for our other 
-workarounds? Otherwise what about ACPI?
+Ack. Sorry about that, the earlier versions were draining the other
+queues too but that has changed from the last few versions.
+
+I'm planning to rename it to arm_smmu_drain_cmdq(), sounds good?
 
 Thanks,
-Robin.
-
-> Signed-off-by: Ashish Mhetre <amhetre@nvidia.com>
-> ---
->   drivers/iommu/arm/arm-smmu-v3/arm-smmu-v3.c | 4 +++-
->   drivers/iommu/arm/arm-smmu-v3/arm-smmu-v3.h | 8 ++++++++
->   2 files changed, 11 insertions(+), 1 deletion(-)
-> 
-> diff --git a/drivers/iommu/arm/arm-smmu-v3/arm-smmu-v3.c b/drivers/iommu/arm/arm-smmu-v3/arm-smmu-v3.c
-> index 9be589d14a3b..88296c0a5337 100644
-> --- a/drivers/iommu/arm/arm-smmu-v3/arm-smmu-v3.c
-> +++ b/drivers/iommu/arm/arm-smmu-v3/arm-smmu-v3.c
-> @@ -5229,8 +5229,10 @@ static int arm_smmu_device_dt_probe(struct platform_device *pdev,
->   	if (of_dma_is_coherent(dev->of_node))
->   		smmu->features |= ARM_SMMU_FEAT_COHERENCY;
->   
-> -	if (of_device_is_compatible(dev->of_node, "nvidia,tegra264-smmu"))
-> +	if (of_device_is_compatible(dev->of_node, "nvidia,tegra264-smmu")) {
->   		tegra_cmdqv_dt_probe(dev->of_node, smmu);
-> +		smmu->options |= ARM_SMMU_OPT_TLBI_TWICE;
-> +	}
->   
->   	return ret;
->   }
-> diff --git a/drivers/iommu/arm/arm-smmu-v3/arm-smmu-v3.h b/drivers/iommu/arm/arm-smmu-v3/arm-smmu-v3.h
-> index 16353596e08a..08d1abaf31ae 100644
-> --- a/drivers/iommu/arm/arm-smmu-v3/arm-smmu-v3.h
-> +++ b/drivers/iommu/arm/arm-smmu-v3/arm-smmu-v3.h
-> @@ -928,6 +928,14 @@ struct arm_smmu_device {
->   #define ARM_SMMU_OPT_MSIPOLL		(1 << 2)
->   #define ARM_SMMU_OPT_CMDQ_FORCE_SYNC	(1 << 3)
->   #define ARM_SMMU_OPT_TEGRA241_CMDQV	(1 << 4)
-> +/*
-> + * Tegra264 erratum: a TLB entry can survive an invalidation that races
-> + * with concurrent traffic targeting the same entry. The software
-> + * workaround is to issue every CFGI/TLBI command twice, each followed
-> + * by CMD_SYNC. The second issue is guaranteed to evict the entry.
-> + * ATC_INV commands are not affected and must not be doubled.
-> + */
-> +#define ARM_SMMU_OPT_TLBI_TWICE		(1 << 5)
->   	u32				options;
->   
->   	struct arm_smmu_cmdq		cmdq;
-
+Praan
 
