@@ -4,91 +4,126 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id E7361CD4F54
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 28 May 2026 18:17:14 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 9FC63CD5BD5
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 28 May 2026 18:21:27 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
-	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=IE52KGrgCtZ+VyZpOT6fUbWJKD3AmdItFb/k2R+Kr3c=; b=Yhj2iOqWpp+l1vwPf8FFZyG2W5
-	9/bZ3O/nFhrhLSNRV+UEv/J5qy2QdmD58roMEFvV8B5/zWr8tiNom6AnvOYb5i0j5L987o79QhWjH
-	HHN4zYSAmyo1J65Kz6f+L4J1Wy23IUs8M0PuO3rZAdVMoxgn9gktCFB0TwECZUuJERRTnyDIJlePb
-	DLq5Wz+nME0iJJ40F+Q1/M1SFN579ZzyeSHmA8ZtOwfF7sifrqlQQu42ctx75GmlTYiZgj7y+/0De
-	NrapSv7IQMAOaVk6H/C7jgHBo19+YfTct7w+1333C0O88kuXPUVpF07q7PhIwrX8adJMXp5vpXWgR
-	HLhw8o0g==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:CC:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=GWb/dQpfJMTzYdikbDeUrMlB+zDobwsHdBiQ4z/wWKA=; b=YB8sSLhKpvOEbjVLbdmWiOWMkf
+	K9JFLAZz6HurJLiB6n5EGRSLN/S7Rz8p2WuBEawJQXmX0DgB2wbG8WllKR+pvx3n/uFqw3HcwnCgt
+	VyqwoFY7AHICZ6YG/XbR+bmlsgs+XH2sBL1BKyNtWl/z4undmJDFXpzYgzl9NprKHTLBZCG8n3sSb
+	hhR5SEyizSuSUuY64MbL6Gbx81YvAj9HjxlSTgLWlrj2Ula9qrQHBZVSMiwFypeaT3I80m0GvWbWS
+	3IIlZQrv/ixpymNw29cd5tdbAzJ1YJlBstdLU5Jq3IL8W6+bhWCKpe/4VoEBIMbJ7ELP088n3rNgd
+	7Wc+GjlQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wSfI3-00000006AgL-0UJA;
-	Thu, 28 May 2026 18:17:07 +0000
-Received: from relay.yourmailgateway.de ([185.244.194.184])
+	id 1wSfM7-00000006B2i-3MhW;
+	Thu, 28 May 2026 18:21:19 +0000
+Received: from mail-westus3azlp170100009.outbound.protection.outlook.com ([2a01:111:f403:c107::9] helo=PH7PR06CU001.outbound.protection.outlook.com)
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wSfI0-00000006Afu-14Ny
+	id 1wSfM4-00000006B2G-3hVk
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 28 May 2026 18:17:05 +0000
-Received: from relay01-mors.netcup.net (localhost [127.0.0.1])
-	by relay01-mors.netcup.net (Postfix) with ESMTPS id 4gRF7c5vs3z92gv;
-	Thu, 28 May 2026 20:17:00 +0200 (CEST)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=leemhuis.info;
-	s=key2; t=1779992220;
-	bh=XvHoutqyoCvvmHbt31I71MjafoJIIZtNHSPVtBcA8v8=;
-	h=Date:Subject:To:Cc:References:From:In-Reply-To:From;
-	b=fsc93otjfd0OcAJXZLmGXWIyrX7eR2rDBGgSEmjkDND35p571vc+ev0q4nCm98djW
-	 iFU6u0sJ/wH5gXgQZa8rikVJD8+bMY+P9rdEAA5Ya0w9J+tFmYkJG/fhk8vjyVA/yb
-	 FYkgdbs7fDyXqeqn04ZCDEoxhJXoNiZOxJQO2E+wU3fl8oexuwlubnRBgzcA7AQx8+
-	 BODFYQdUQndmSOlHblKJwgvQnqPtUtS2jXCqIo9e+eqRk+QmSe+p3mVS+SWIPhQDnB
-	 JQJ5xH+er4Wm16E6kAnj4KxvnwOrjdD8602QP2ahiDSqvWLiVDbEpMW49GKEPuN1q+
-	 4TnSc7LzyWDZw==
-Received: from policy02-mors.netcup.net (unknown [46.38.225.35])
-	by relay01-mors.netcup.net (Postfix) with ESMTPS id 4gRF7N36Vkz7ylg;
-	Thu, 28 May 2026 20:16:48 +0200 (CEST)
-Received: from mxe9fb.netcup.net (unknown [10.243.12.53])
-	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
-	 key-exchange ECDHE (P-256) server-signature RSA-PSS (2048 bits) server-digest SHA256)
-	(No client certificate requested)
-	by policy02-mors.netcup.net (Postfix) with ESMTPS id 4gRF7L2Mz3z8sZP;
-	Thu, 28 May 2026 20:16:46 +0200 (CEST)
-Received: from [IPV6:2a02:8108:8984:1d00:a0cf:1912:4be:477f] (unknown [IPv6:2a02:8108:8984:1d00:a0cf:1912:4be:477f])
-	by mxe9fb.netcup.net (Postfix) with ESMTPSA id 58E586173B;
-	Thu, 28 May 2026 20:16:45 +0200 (CEST)
-Authentication-Results: mxe9fb;
-        spf=pass (sender IP is 2a02:8108:8984:1d00:a0cf:1912:4be:477f) smtp.mailfrom=regressions@leemhuis.info smtp.helo=[IPV6:2a02:8108:8984:1d00:a0cf:1912:4be:477f]
-Received-SPF: pass (mxe9fb: connection is authenticated)
-Message-ID: <021fb6d9-fb2a-42ac-9e50-06471fa76383@leemhuis.info>
-Date: Thu, 28 May 2026 20:16:44 +0200
+	Thu, 28 May 2026 18:21:18 +0000
+ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
+ b=wXo356IzJKN+Qo2KhBBNQlsvlqTxuQOFmKTQhwyTfFpDMTP21I8fVJwCqKoEnm42FIgKEH4Nd+LQO7DTpfSh7VStf5O2deBZRe6xEvq0ro4orcrOp6v6mjJgNURjoPrut9LXMtfgmu5TbZshfKdgOgNu1rE8Lr27/nE3zYxJmWguh+WimcKyFyqNY3zozn/+/FEns8jP/RgTceQf8n9jYU1upCIfz5XGZaUdIMEkJB+5B64azUaklFVXwLc8QsY9k3Fq4BKBY/m4gG8KdYCtcbCyPUrQ5vL00IiCbMAZZrzzBDc9Mm4lKwbI7A1LR0XxZtcWYo+qs+SZKaMDM+amhw==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
+ s=arcselector10001;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
+ bh=GWb/dQpfJMTzYdikbDeUrMlB+zDobwsHdBiQ4z/wWKA=;
+ b=Na1vBDwT3/sL2RCxExjk3nsQqbSQ+wze5NTZbIL0GlKAZvCYP9yCg5ugzsW+pnw1Y5v/JhzKhckGIcoNwRnRWb0GK8NnYnUDKpWEdTQzHFnS77mjSSbWDChMg7vGPMRItaob4YnniT2fN1RfOsHHzFN3lORsaLc0+Lkm60DKMePQN5LBEpKfcKkSw7PFxFwpuXkqXiJl5S/qfDrMyljRZcOOOKgrCAz9aQR85UFtOjm+0u0pUYTP+9ZWhCYMxs09YpPYsYbvBZjUbWHiZ32sJ64/okA69ZLOkJu+pU4zozbpY4Ht5zNONys07BvuQ2dj1fzgfLrYmf5M6ZO3iuFwLA==
+ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass (sender ip is
+ 216.228.118.232) smtp.rcpttodomain=google.com smtp.mailfrom=nvidia.com;
+ dmarc=pass (p=reject sp=reject pct=100) action=none header.from=nvidia.com;
+ dkim=none (message not signed); arc=none (0)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=Nvidia.com;
+ s=selector2;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
+ bh=GWb/dQpfJMTzYdikbDeUrMlB+zDobwsHdBiQ4z/wWKA=;
+ b=tfFIUR7OHpatwFJKx29cp4iAVrv3FEJOSrbB1cE4k7cev3nWNA37Ax37/I2vkC5BNyNWIm+5GPYHHDjPeFDSlOuWi3H1p8pRhTxqqJu33oRo3oPZDCWcALIP8GLU5/BMAy3vhG9dFQ3ZznUOnfp9/Qg6Y18B2VE5Ye/CBXKzgiIPqmApwsLcMYtL0GoFCHtB6TP9Ye3rSF0c+uK2PL/3tJRK4pniJa/WvlAvJwtMKu2JQ7eT6t0TBu2A71k33qnbb73kyhd6X9KL20/FQd2o3L47OsYMC+ngLKNpkxSQOiVt+w8yZnrfXzBuwhqybrQsXPRlX88E7UA6E0bK6OtOfw==
+Received: from MW4PR04CA0299.namprd04.prod.outlook.com (2603:10b6:303:89::34)
+ by DS0PR12MB8813.namprd12.prod.outlook.com (2603:10b6:8:14e::11) with
+ Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.21.48.17; Thu, 28 May
+ 2026 18:21:04 +0000
+Received: from MW1PEPF0001615C.namprd21.prod.outlook.com
+ (2603:10b6:303:89:cafe::56) by MW4PR04CA0299.outlook.office365.com
+ (2603:10b6:303:89::34) with Microsoft SMTP Server (version=TLS1_3,
+ cipher=TLS_AES_256_GCM_SHA384) id 15.21.71.13 via Frontend Transport; Thu, 28
+ May 2026 18:21:04 +0000
+X-MS-Exchange-Authentication-Results: spf=pass (sender IP is 216.228.118.232)
+ smtp.mailfrom=nvidia.com; dkim=none (message not signed)
+ header.d=none;dmarc=pass action=none header.from=nvidia.com;
+Received-SPF: Pass (protection.outlook.com: domain of nvidia.com designates
+ 216.228.118.232 as permitted sender) receiver=protection.outlook.com;
+ client-ip=216.228.118.232; helo=mail.nvidia.com; pr=C
+Received: from mail.nvidia.com (216.228.118.232) by
+ MW1PEPF0001615C.mail.protection.outlook.com (10.167.249.87) with Microsoft
+ SMTP Server (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
+ 15.21.92.0 via Frontend Transport; Thu, 28 May 2026 18:21:04 +0000
+Received: from drhqmail201.nvidia.com (10.126.190.180) by mail.nvidia.com
+ (10.127.129.5) with Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.2.2562.20; Thu, 28 May
+ 2026 11:20:38 -0700
+Received: from drhqmail201.nvidia.com (10.126.190.180) by
+ drhqmail201.nvidia.com (10.126.190.180) with Microsoft SMTP Server
+ (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
+ 15.2.2562.20; Thu, 28 May 2026 11:20:38 -0700
+Received: from Asurada-Nvidia (10.127.8.13) by mail.nvidia.com
+ (10.126.190.180) with Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.2.2562.20 via Frontend
+ Transport; Thu, 28 May 2026 11:20:37 -0700
+Date: Thu, 28 May 2026 11:20:35 -0700
+From: Nicolin Chen <nicolinc@nvidia.com>
+To: Pranjal Shrivastava <praan@google.com>
+CC: Jason Gunthorpe <jgg@nvidia.com>, <will@kernel.org>,
+	<robin.murphy@arm.com>, <joro@8bytes.org>, <bhelgaas@google.com>,
+	<baolu.lu@linux.intel.com>, <kevin.tian@intel.com>,
+	<miko.lenczewski@arm.com>, <linux-arm-kernel@lists.infradead.org>,
+	<iommu@lists.linux.dev>, <linux-kernel@vger.kernel.org>,
+	<linux-pci@vger.kernel.org>, <dan.j.williams@intel.com>,
+	<jonathan.cameron@huawei.com>, <vsethi@nvidia.com>,
+	<linux-cxl@vger.kernel.org>, <nirmoyd@nvidia.com>
+Subject: Re: [PATCH v6 3/3] iommu/arm-smmu-v3: Allow ATS to be always on
+Message-ID: <ahiHc3y4wAxxtpLT@Asurada-Nvidia>
+References: <cover.1779392420.git.nicolinc@nvidia.com>
+ <18bb6f421b3be891caa8f1fb50f3a4d56b52d5be.1779392420.git.nicolinc@nvidia.com>
+ <ahheOF8L0aGMttcI@google.com>
+ <20260528152930.GA3195266@nvidia.com>
+ <ahhuFw3ZJpy48xkH@google.com>
+ <20260528180018.GB3195266@nvidia.com>
+ <ahiGIUDG2uvA6usM@google.com>
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH] soc: imx8m: Fix match data lookup for soc device
-To: Frank Li <Frank.li@nxp.com>,
- Alexander Stein <alexander.stein@ew.tq-group.com>,
- Francesco Dolcini <francesco@dolcini.it>
-Cc: Sascha Hauer <s.hauer@pengutronix.de>,
- Pengutronix Kernel Team <kernel@pengutronix.de>,
- Fabio Estevam <festevam@gmail.com>,
- Greg Kroah-Hartman <gregkh@linuxfoundation.org>,
- "Rob Herring (Arm)" <robh@kernel.org>,
- Bartosz Golaszewski <bartosz.golaszewski@oss.qualcomm.com>,
- "Peng Fan (OSS)" <peng.fan@oss.nxp.com>, imx@lists.linux.dev,
- linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org,
- Peng Fan <peng.fan@nxp.com>,
- Linux kernel regressions list <regressions@lists.linux.dev>
-References: <20260427-soc-imx8m-fix-v1-1-1fe5b43d8090@nxp.com>
- <177816879666.299775.3947960528231798400.b4-ty@nxp.com>
- <3cc57464-a10f-4b8c-9080-8d6f65a0d42f@leemhuis.info>
- <ahhxtz94pX9ujv25@lizhi-Precision-Tower-5810>
-From: Thorsten Leemhuis <regressions@leemhuis.info>
-Content-Language: de-DE, en-US
-In-Reply-To: <ahhxtz94pX9ujv25@lizhi-Precision-Tower-5810>
-Content-Type: text/plain; charset=UTF-8
-Content-Transfer-Encoding: 7bit
-X-PPP-Message-ID: <177999220591.1352586.10954214462288242738@mxe9fb.netcup.net>
-X-Rspamd-Server: rspamd-worker-8404
-X-Rspamd-Queue-Id: 58E586173B
-X-NC-CID: Sgv4i8IrLrGndGPNw8vK7slwLPYMtNLjy/L9JFtz4eDsqIYAq1I=
+Content-Type: text/plain; charset="us-ascii"
+Content-Disposition: inline
+In-Reply-To: <ahiGIUDG2uvA6usM@google.com>
+X-NV-OnPremToCloud: ExternallySecured
+X-EOPAttributedMessage: 0
+X-MS-PublicTrafficType: Email
+X-MS-TrafficTypeDiagnostic: MW1PEPF0001615C:EE_|DS0PR12MB8813:EE_
+X-MS-Office365-Filtering-Correlation-Id: acdaf9aa-a51b-4918-5f7f-08debce5e163
+X-MS-Exchange-SenderADCheck: 1
+X-MS-Exchange-AntiSpam-Relay: 0
+X-Microsoft-Antispam: BCL:0;ARA:13230040|7416014|36860700016|82310400026|376014|1800799024|18002099003|4143699003|11063799006|56012099006|22082099003;
+X-Microsoft-Antispam-Message-Info: avc0d5lCWgxgP3yf1xZ1520kIIrYo/yFNWScXWHBEOGB+SKF5Gi4U3E8qCvbBTtOK9M5lTXKsQGO0kYCfiB4bo9KTxdUUREeuLP6mztC2Mb0StB3vKZGGEES6VJsX/MooL5T2I8caYawA01Vw9VJ+rqdFuUJH7nn5g206dd0VvK/en1FcoUfzI33+EVJo7h/Nzy2FelYfMO9fXSrIjiaHvKCwS4euyeEN8mVPUk5OydPC/VTHb779gGPlN2QDF6iAF8gmqwneUcTkz7LXvrOrQsEssMDtB/hopkjyn9c6hgfKubZ6frScQsbHqSStXlOkk/CCu0C1Jl8zyXlGrMd2/H4EuYz5rZ12E/pY+rDU7ievaAFUlXQQz1BuHQc2xh3KXiIFQ2jSDHSOUVsEx/9rsroIqN4JwwBmlArs3jh0TH8KNBsK/RC6cx8ZZAe6gbE3cN4gaKDqkYmdRwU60SluCGD5W9eN7AYUTqxNd1Mxfu4EhblC7k06h1AJxtRCFEQWuO5WefJZoKAmeEe8umvbX62xxHHzqijckMBCHzV8S/Sh4XkzDvFPlBIH59K5hf9QoZb0O8oyPP/J+iNy4EIeq5bWNHI+K+9Cd13PRfIKfvAl8hH689w0epjN+RIPkcv2sa0EkmRO2BaUYWA1SQ3IK1x8ex5azblkpld/kK2QE3i0lczr7lWTDyFLgIyTWH8ubNpL3Hk1h7y8lKdugowsJU0tJRxeqOteYr8JRKsPic=
+X-Forefront-Antispam-Report: CIP:216.228.118.232;CTRY:US;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:mail.nvidia.com;PTR:dc7edge1.nvidia.com;CAT:NONE;SFS:(13230040)(7416014)(36860700016)(82310400026)(376014)(1800799024)(18002099003)(4143699003)(11063799006)(56012099006)(22082099003);DIR:OUT;SFP:1101;
+X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
+X-MS-Exchange-AntiSpam-MessageData-0: icrxFBdifWINmP7ws2swmy03QeU8GgpesuMQ/LRGuN1G2oi98GBcDz9Q2NfObQfz2ifc/oBc/tXd2geoWMQUznQPZ1xVrmhy0okA3Hiv2wy7SsgFPpD06SYvejsrD08KOmU1IP7Q6WQBD/aID/lFkd1vm8fEc9eZCfZC7f/YUOn6eQ8sMCfM4Wk2NNVH6V35MQAwPPv6df3AWnoIYKAz8Fzxw56ipMA8VI0zUGDPkVLWfCqBdzDvEO5nGHBKwyBwgtwlEoQzCb2mjgc2pZPWpD8j1eQf1AK0qkid+Eol/uk2nP+vfDQ+HNXtDVS3E/3a+U7PJboAoxnf3SxIS1atT6KT20gWEP4QS959PvhVOSbFXb4GA2wTBK+YoltVs+WJdlCowwZUpZgaB6ZaUzPGmy2XV93H18Sp3xTD9KG/MdqMxf1mTGcNRpQjsTf+cO3O
+X-OriginatorOrg: Nvidia.com
+X-MS-Exchange-CrossTenant-OriginalArrivalTime: 28 May 2026 18:21:04.7117
+ (UTC)
+X-MS-Exchange-CrossTenant-Network-Message-Id: acdaf9aa-a51b-4918-5f7f-08debce5e163
+X-MS-Exchange-CrossTenant-Id: 43083d15-7273-40c1-b7db-39efd9ccc17a
+X-MS-Exchange-CrossTenant-OriginalAttributedTenantConnectingIp: TenantId=43083d15-7273-40c1-b7db-39efd9ccc17a;Ip=[216.228.118.232];Helo=[mail.nvidia.com]
+X-MS-Exchange-CrossTenant-AuthSource: MW1PEPF0001615C.namprd21.prod.outlook.com
+X-MS-Exchange-CrossTenant-AuthAs: Anonymous
+X-MS-Exchange-CrossTenant-FromEntityHeader: HybridOnPrem
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: DS0PR12MB8813
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260528_111704_559703_024A8E39 
-X-CRM114-Status: GOOD (  16.92  )
+X-CRM114-CacheID: sfid-20260528_112116_925275_8B8E3508 
+X-CRM114-Status: GOOD (  20.14  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -103,56 +138,42 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-[+Alexander +Francesco]
-
-On 5/28/26 18:47, Frank Li wrote:
-> On Thu, May 28, 2026 at 12:55:34PM +0200, Thorsten Leemhuis wrote:
->> On 5/7/26 17:46, Frank Li wrote:
->>>
->>> On Mon, 27 Apr 2026 09:01:48 +0800, Peng Fan (OSS) wrote:
->>>> The i.MX8M soc device is registered via platform_device_register_simple(),
->>>> so it is not associated with a Device Tree node and the imx8m_soc_driver
->>>> has no of_match_table.
->>>>
->>>> As a result, device_get_match_data() always returns NULL when probing
->>>> the soc device.
->>>>
->>>> [...]
->>>
->>> Applied, thanks!
->>>
->>> [1/1] soc: imx8m: Fix match data lookup for soc device
->>>       commit: 2c6821657ce3b3c85f92719ea81ec9f9ff27df11
->>
->> Just wondering: are you planning to sent this towards mainline this
->> cycle? The regression this fixes was introduced this cycle, so I guess
->> it's something that should be merged before -rc6, as that's when Linus
->> wants all known regression ideally fixed. But from the name of the
->> branch it sounds more like this is scheduled to be merged in the next
->> merge window (but I might easily mistaken there -- if I am: sorry!)
+On Thu, May 28, 2026 at 06:14:57PM +0000, Pranjal Shrivastava wrote:
+> On Thu, May 28, 2026 at 03:00:18PM -0300, Jason Gunthorpe wrote:
+> > On Thu, May 28, 2026 at 04:32:23PM +0000, Pranjal Shrivastava wrote:
+> > > On Thu, May 28, 2026 at 12:29:30PM -0300, Jason Gunthorpe wrote:
+> > > > On Thu, May 28, 2026 at 03:24:40PM +0000, Pranjal Shrivastava wrote:
+> > > > 
+> > > > > > +	master->ats_always_on = true;
+> > > > > > +
+> > > > > > +	return arm_smmu_alloc_cd_tables(master);
+> > > > > 
+> > > > > Nit: I'm not sure if I'm getting this right, are we saying we *need* to
+> > > > > allocate CDs for CXL.cache cases in the probe itself because STE.EATS
+> > > > > requires Config=Translate with S1DSS in bypass?
+> > > > 
+> > > > Yeah, basically.
+> > > > 
+> > > > Effectively the ARM rules for enabling ATS and Bypass together require
+> > > > a valid CD table pointer.
+> > > 
+> > > Ack. But do we expect transactions before attach_dev? What'd happen if
+> > > we don't allocate CDs here?
+> > 
+> > It can be done at any point before a non-abort STE is formed.
+> > 
+> > The core code pretty much does this immediately after probe so there
+> > isn't much point in moving it later.
+> > 
 > 
-> Thanks reminders. I intent to send for 7.1. But second look, not sure any
-> big impact although it is regression.
-> 
-> commmit message have not show what impact.
+> Right.. that's what I'm not understanding clearly, if the STE is Abort
+> anyway during probe, why are we breaking the alloc-at-attach convention? 
+> Usually, we allocate CD tables in the first attach_dev call. Why does
+> that not work here?
 
-Yup, there ideally should have been Link: tags to the problem reports,
-as explained by our docs. At least if that patch fixes the problems
-linked to below (looks like it, but I'm not totally sure):
+It would work in attach_dev(). I just felt cleaner to have it in
+probe(), paired with arm_smmu_free_cd_tables() in the release().
 
-> I checked code, look like only
-> missed some soc informaiton. Let me know if I am wrong.
-
-Alexander reported problems here:
-https://lore.kernel.org/lkml/6593091.DvuYhMxLoT@steina-w/
-That mentions a warning and problems with soc_id and serial_number
-
-Francesco jumped in a little later:
-https://lore.kernel.org/lkml/20260427064704.GA17710@francesco-nb/
-This mentions "CAAM is not working"
-
-Not sure what the impact is, but from the outside it looks a bit like
-"better fix this now to ensure those problems never enter a proper release"
-
-Ciao, Thorsten
+Thanks
+Nicolin
 
