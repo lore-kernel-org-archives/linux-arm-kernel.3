@@ -4,67 +4,60 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 3AB48CD4F54
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 28 May 2026 16:18:27 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 65F2ECD4F54
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 28 May 2026 16:25:44 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:
-	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=npHcmLNnsW0+nboeAvgt/kd2kfrQJD7UmVURB8ZbN6A=; b=qze+2ssk68NYL8y8KQ25mc1QGK
-	HeyM7B9JWo8/B2Q0atLrAPW2BR00unLMMIhVdOwVyPufYGnPf2S1NOIod3kObjQOuuV40LXTuLRas
-	4Z+g+ZMo95pkBIZ58vHnef+Dk1SQP0OvtDHPZFN1FpP+EZb7wd/mLx5rzHl83XOv2vn2dLVIMcuQV
-	aXeAc+Gj7OLDZH1cIo7xcDGlT75ndAknzIsuK/ZkjpgA93RVzvI0+fPmpZiBoGQrdtL4ekowB0In8
-	V0yi48K2fcgndIQVyLhIY0QRIJ9fEvRmIMbfQlgH4m8KcM/+k9gIytD0VzFm5rAml64xZ778Vi3Hq
-	uoRCagbw==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=N1zLt52KaXa8LDTOo23h0G0wFhop7E1a4kOv5Yi+tlY=; b=rXKjQkABJlm26MhRMy6EXqJ/+S
+	HV98p5tAK0MfM5jH0xhYfIIcJtTjoS8FQeWwuwNFnb6cCHt8fzw/iL/wVmlhza2bysIio+NTWFUl+
+	u//YZdO3Pe2Pwmx62//l4n4/2ZhY/srbaGtxyOzYKijq/yJf78Y92QcFRhAnt2EL6zbsnQbRYWO7a
+	YhOypgX7D06smMbzwF/0tvb3Vf3j/W7CcGxdbCoSHeBhJDdAnqeKK5QTTqsFzhj/L5bz4MOAWaG0R
+	lwOfa0Co+UwuwvTzXXuhwTttPcl/bMFJRCjha4rqHO0hZr0YGwI1LlFBePdHDpvrIue5aDxVgJ03J
+	gvFWhgKQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wSdR6-00000005ywp-25p8;
-	Thu, 28 May 2026 16:18:20 +0000
-Received: from tor.source.kernel.org ([2600:3c04:e001:324:0:1991:8:25])
-	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wSdR1-00000005yvE-3f2c
+	id 1wSdY8-0000000603c-2DwD;
+	Thu, 28 May 2026 16:25:36 +0000
+Received: from foss.arm.com ([217.140.110.172])
+	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
+	id 1wSdY6-0000000603F-19Vm
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 28 May 2026 16:18:15 +0000
-Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
-	by tor.source.kernel.org (Postfix) with ESMTP id 054486014B;
-	Thu, 28 May 2026 16:18:15 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 70FC11F000E9;
-	Thu, 28 May 2026 16:18:14 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1779985094;
-	bh=npHcmLNnsW0+nboeAvgt/kd2kfrQJD7UmVURB8ZbN6A=;
-	h=From:To:Cc:Subject:Date:In-Reply-To:References;
-	b=DJlVXd9F6fVzViVbS4qli7c0jUGk2RnUeZEop6yUE/fLAPIrLYUYt5JW14Fsd1ekx
-	 lhOox2bcu0VrIDsjVPECfaubSVmn6CT3J7PWRL7ymQW8dZak3GFyrjvwrj+cc4RkGf
-	 Ivd7CrjMBlgiQW3ZjJcx1pka3La4s0F0ZKTCI79u9SUviSzcu04lmS/4iMQoj7juMq
-	 DQRtiXaMoKidw6/f3viChkolmU0GDr3bFskEsmWmbgdr4NoR3ZH60r3CXcbCLhXfJj
-	 gJR7LYnhBvEoMS5+Gt9mP9cf3bk8V7jMwTJfA5+ktPt2+zdphGBNrFB7aru7G6RJUb
-	 A9mlnoX7kF96A==
-From: Puranjay Mohan <puranjay@kernel.org>
-To: bpf@vger.kernel.org,
-	"Yonghong Song" <yonghong.song@linux.dev>
-Cc: Puranjay Mohan <puranjay@kernel.org>,
-	"Alexei Starovoitov" <ast@kernel.org>,
-	"Daniel Borkmann" <daniel@iogearbox.net>,
-	"Andrii Nakryiko" <andrii@kernel.org>,
-	"Martin KaFai Lau" <martin.lau@linux.dev>,
-	"Eduard Zingerman" <eddyz87@gmail.com>,
-	"Kumar Kartikeya Dwivedi" <memxor@gmail.com>,
-	"Song Liu" <song@kernel.org>,
-	"Xu Kuohai" <xukuohai@huaweicloud.com>,
-	"Catalin Marinas" <catalin.marinas@arm.com>,
-	"Will Deacon" <will@kernel.org>,
-	linux-arm-kernel@lists.infradead.org
-Subject: [PATCH bpf-next 2/2] selftests/bpf: Use at least 10 args in stack argument tests
-Date: Thu, 28 May 2026 09:17:48 -0700
-Message-ID: <20260528161750.1900674-3-puranjay@kernel.org>
-X-Mailer: git-send-email 2.52.0
-In-Reply-To: <20260528161750.1900674-1-puranjay@kernel.org>
-References: <20260528161750.1900674-1-puranjay@kernel.org>
+	Thu, 28 May 2026 16:25:35 +0000
+Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
+	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id 2C1421EA6;
+	Thu, 28 May 2026 09:25:28 -0700 (PDT)
+Received: from J2N7QTR9R3.cambridge.arm.com (usa-sjc-imap-foss1.foss.arm.com [10.121.207.14])
+	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id 8B8B33F905;
+	Thu, 28 May 2026 09:25:31 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=simple/simple; d=arm.com; s=foss;
+	t=1779985533; bh=4qVVxVlLrFwja/fGOheikl2q8R1303Pa8aphqsMP7dE=;
+	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
+	b=W5F3ALW+y0jmAvpkAxf42xmDyUgQ9WsBf9lxdFJtM2gNmp2/5bs/7lZO09KVj3gSa
+	 u+8WGP8dtkgGZzkCt+i2p8gu1Fl2bqnrD/yFPIN84xa3hfrDMtnTr2YjQdPW9NeAqD
+	 vbLaDZuCSZLXxpK+2O15RFZRcodvBrX5qFZU9XsE=
+Date: Thu, 28 May 2026 17:25:29 +0100
+From: Mark Rutland <mark.rutland@arm.com>
+To: Vladimir Murzin <vladimir.murzin@arm.com>
+Cc: linux-arm-kernel@lists.infradead.org, kvmarm@lists.linux.dev,
+	broonie@kernel.org, catalin.marinas@arm.com, james.morse@arm.com,
+	maz@kernel.org, oupton@kernel.org, tabba@google.com,
+	will@kernel.org
+Subject: Re: [PATCH 13/18] arm64: fpsimd: Use opaque type for SVE state
+Message-ID: <ahhseaoJD9hdBrMx@J2N7QTR9R3.cambridge.arm.com>
+References: <20260521132556.584676-1-mark.rutland@arm.com>
+ <20260521132556.584676-14-mark.rutland@arm.com>
+ <362fe07b-70d5-4933-96d3-6445242f9077@arm.com>
 MIME-Version: 1.0
-Content-Transfer-Encoding: 8bit
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+In-Reply-To: <362fe07b-70d5-4933-96d3-6445242f9077@arm.com>
+X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
+X-CRM114-CacheID: sfid-20260528_092534_409270_B46E0EC8 
+X-CRM114-Status: GOOD (  16.78  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -79,497 +72,34 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On arm64, the first 8 arguments are passed in registers (x0-x7), so
-tests with 8 or fewer arguments never exercise the native stack argument
-path in the JIT. Increase argument counts to at least 10 across all
-BPF-to-BPF subprog and kfunc stack argument tests so that at least 2
-arguments land on the arm64 stack.
+On Thu, May 28, 2026 at 10:45:25AM +0100, Vladimir Murzin wrote:
+> On 5/21/26 14:25, Mark Rutland wrote:
+> > diff --git a/arch/arm64/kernel/fpsimd.c b/arch/arm64/kernel/fpsimd.c
+> > index 9806fea8fea7c..66d880d081671 100644
+> > --- a/arch/arm64/kernel/fpsimd.c
+> > +++ b/arch/arm64/kernel/fpsimd.c
+> > @@ -425,8 +425,7 @@ static void task_fpsimd_load(void)
+> >  
+> >  	if (restore_sve_regs) {
+> >  		WARN_ON_ONCE(current->thread.fp_type != FP_STATE_SVE);
+> > -		sve_load_state(sve_pffr(&current->thread),
+> > -			       restore_ffr);
+> > +		sve_load_state(current->thread.sve_state, restore_ffr);
+> 
+> I do not know much about this code, I assume that live VL matches to current
+> but having some logic to check that assumption would be handy...
 
-For the two-callees test, bump foo1 from 8 to 10 and foo2 from 10 to 12
-args to preserve the different-stack-depth flavor of the test.
+At this point in task_fpsimd_load(), the NSVL and/or SVL have been
+configured by earlier writes to ZCR_EL1 and SMCR_EL1 respectively.
 
-The bpf_kfunc_call_stack_arg_mem kfunc is left unchanged at 7 args to
-avoid breaking the precision backtracking test which relies on hardcoded
-verifier log instruction indices.
+I agree it might be good to add a check here, but it's less of a concern
+than in fpsimd_save_user_state(), where the check is there to detect
+cases where ZCR_EL1 and/or SMCR_EL1 were clobbered since the state
+was bound (e.g. since historically there was the potential for KVM to
+clobber the host state).
 
-Suggested-by: Will Deacon <will@kernel.org>
-Signed-off-by: Puranjay Mohan <puranjay@kernel.org>
----
- .../selftests/bpf/prog_tests/stack_arg.c      | 30 +++----
- tools/testing/selftests/bpf/progs/stack_arg.c | 90 +++++++++++--------
- .../selftests/bpf/progs/stack_arg_kfunc.c     | 24 ++---
- .../selftests/bpf/test_kmods/bpf_testmod.c    | 25 ++++--
- .../bpf/test_kmods/bpf_testmod_kfunc.h        | 11 ++-
- 5 files changed, 108 insertions(+), 72 deletions(-)
+For now I'm not going to add that, but I'll see if it makes sense to do
+that as part of any further rework.
 
-diff --git a/tools/testing/selftests/bpf/prog_tests/stack_arg.c b/tools/testing/selftests/bpf/prog_tests/stack_arg.c
-index d61bac33f809..57193543f260 100644
---- a/tools/testing/selftests/bpf/prog_tests/stack_arg.c
-+++ b/tools/testing/selftests/bpf/prog_tests/stack_arg.c
-@@ -37,7 +37,7 @@ static void test_global_many(void)
- 	if (!ASSERT_OK(stack_arg__load(skel), "load"))
- 		goto out;
- 
--	run_subtest(skel->progs.test_global_many_args, 36);
-+	run_subtest(skel->progs.test_global_many_args, 55);
- 
- out:
- 	stack_arg__destroy(skel);
-@@ -62,10 +62,10 @@ static void test_async_cb_many(void)
- 	run_subtest(skel->progs.test_async_cb_many_args, 0);
- 
- 	/* Wait for the timer callback to fire and verify the result.
--	 * 10+20+30+40+50+60+70+80 = 360
-+	 * 10+20+30+40+50+60+70+80+90+100 = 550
- 	 */
- 	usleep(50);
--	ASSERT_EQ(skel->bss->timer_result, 360, "timer_result");
-+	ASSERT_EQ(skel->bss->timer_result, 550, "timer_result");
- 
- out:
- 	stack_arg__destroy(skel);
-@@ -87,11 +87,11 @@ static void test_bpf2bpf(void)
- 	if (!ASSERT_OK(stack_arg__load(skel), "load"))
- 		goto out;
- 
--	run_subtest(skel->progs.test_bpf2bpf_ptr_stack_arg, 45);
--	run_subtest(skel->progs.test_bpf2bpf_mix_stack_args, 51);
--	run_subtest(skel->progs.test_bpf2bpf_nesting_stack_arg, 50);
--	run_subtest(skel->progs.test_bpf2bpf_dynptr_stack_arg, 69);
--	run_subtest(skel->progs.test_two_callees, 91);
-+	run_subtest(skel->progs.test_bpf2bpf_ptr_stack_arg, 75);
-+	run_subtest(skel->progs.test_bpf2bpf_mix_stack_args, 66);
-+	run_subtest(skel->progs.test_bpf2bpf_nesting_stack_arg, 84);
-+	run_subtest(skel->progs.test_bpf2bpf_dynptr_stack_arg, 99);
-+	run_subtest(skel->progs.test_two_callees, 133);
- 
- out:
- 	stack_arg__destroy(skel);
-@@ -113,14 +113,14 @@ static void test_kfunc(void)
- 	if (!ASSERT_OK(stack_arg_kfunc__load(skel), "load"))
- 		goto out;
- 
--	run_subtest(skel->progs.test_stack_arg_scalar, 36);
--	run_subtest(skel->progs.test_stack_arg_ptr, 45);
--	run_subtest(skel->progs.test_stack_arg_mix, 51);
--	run_subtest(skel->progs.test_stack_arg_dynptr, 69);
-+	run_subtest(skel->progs.test_stack_arg_scalar, 55);
-+	run_subtest(skel->progs.test_stack_arg_ptr, 75);
-+	run_subtest(skel->progs.test_stack_arg_mix, 66);
-+	run_subtest(skel->progs.test_stack_arg_dynptr, 99);
- 	run_subtest(skel->progs.test_stack_arg_mem, 151);
--	run_subtest(skel->progs.test_stack_arg_iter, 115);
--	run_subtest(skel->progs.test_stack_arg_const_str, 15);
--	run_subtest(skel->progs.test_stack_arg_timer, 15);
-+	run_subtest(skel->progs.test_stack_arg_iter, 145);
-+	run_subtest(skel->progs.test_stack_arg_const_str, 45);
-+	run_subtest(skel->progs.test_stack_arg_timer, 45);
- 
- out:
- 	stack_arg_kfunc__destroy(skel);
-diff --git a/tools/testing/selftests/bpf/progs/stack_arg.c b/tools/testing/selftests/bpf/progs/stack_arg.c
-index b5e9929a4d63..944e3bb603e7 100644
---- a/tools/testing/selftests/bpf/progs/stack_arg.c
-+++ b/tools/testing/selftests/bpf/progs/stack_arg.c
-@@ -27,14 +27,16 @@ int timer_result;
- const volatile bool has_stack_arg = true;
- 
- __noinline static int static_func_many_args(int a, int b, int c, int d,
--					    int e, int f, int g, int h)
-+					    int e, int f, int g, int h,
-+					    int i, int j)
- {
--	return a + b + c + d + e + f + g + h;
-+	return a + b + c + d + e + f + g + h + i + j;
- }
- 
- __noinline int global_calls_many_args(int a, int b, int c)
- {
--	return static_func_many_args(a, b, c, 4, 5, 6, 7, 8);
-+	return static_func_many_args(a, b, c, a + 3, a + 4, a + 5, a + 6,
-+				     a + 7, a + 8, a + 9);
- }
- 
- SEC("tc")
-@@ -48,18 +50,20 @@ struct test_data {
- 	long y;
- };
- 
--/* 1 + 2 + 3 + 4 + 5 + 10 + 20 = 45 */
-+/* 1+2+3+4+5+6+7+8+9+10+20 = 75 */
- __noinline static long func_with_ptr_stack_arg(long a, long b, long c, long d,
--					       long e, struct test_data *p)
-+					       long e, long f, long g, long h,
-+					       long i, struct test_data *p)
- {
--	return a + b + c + d + e + p->x + p->y;
-+	return a + b + c + d + e + f + g + h + i + p->x + p->y;
- }
- 
- __noinline long global_ptr_stack_arg(long a, long b, long c, long d, long e)
- {
- 	struct test_data data = { .x = 10, .y = 20 };
- 
--	return func_with_ptr_stack_arg(a, b, c, d, e, &data);
-+	return func_with_ptr_stack_arg(a, b, c, d, e, a + 5, a + 6, a + 7,
-+				      a + 8, &data);
- }
- 
- SEC("tc")
-@@ -68,12 +72,13 @@ int test_bpf2bpf_ptr_stack_arg(void)
- 	return global_ptr_stack_arg(1, 2, 3, 4, 5);
- }
- 
--/* 1 + 2 + 3 + 4 + 5 + 10 + 6 + 20 = 51 */
-+/* 1+2+3+4+5+6+7+10+8+20 = 66 */
- __noinline static long func_with_mix_stack_args(long a, long b, long c, long d,
--						long e, struct test_data *p,
--						long f, struct test_data *q)
-+						long e, long f, long g,
-+						struct test_data *p,
-+						long h, struct test_data *q)
- {
--	return a + b + c + d + e + p->x + f + q->y;
-+	return a + b + c + d + e + f + g + p->x + h + q->y;
- }
- 
- __noinline long global_mix_stack_args(long a, long b, long c, long d, long e)
-@@ -81,7 +86,8 @@ __noinline long global_mix_stack_args(long a, long b, long c, long d, long e)
- 	struct test_data p = { .x = 10 };
- 	struct test_data q = { .y = 20 };
- 
--	return func_with_mix_stack_args(a, b, c, d, e, &p, e + 1, &q);
-+	return func_with_mix_stack_args(a, b, c, d, e, e + 1, e + 2, &p,
-+					e + 3, &q);
- }
- 
- SEC("tc")
-@@ -94,26 +100,30 @@ int test_bpf2bpf_mix_stack_args(void)
-  * Nesting test: func_outer calls func_inner, both with struct pointer
-  * as stack arg.
-  *
-- * func_inner: (a+1) + (b+1) + (c+1) + (d+1) + (e+1) + p->x + p->y
-- *           = 2 + 3 + 4 + 5 + 6 + 10 + 20 = 50
-+ * func_inner: (a+1)+...+(i+1) + p->x + p->y
-+ *           = 2+3+4+5+6+7+8+9+10+10+20 = 84
-  */
- __noinline static long func_inner_ptr(long a, long b, long c, long d,
--				      long e, struct test_data *p)
-+				      long e, long f, long g, long h,
-+				      long i, struct test_data *p)
- {
--	return a + b + c + d + e + p->x + p->y;
-+	return a + b + c + d + e + f + g + h + i + p->x + p->y;
- }
- 
- __noinline static long func_outer_ptr(long a, long b, long c, long d,
--				      long e, struct test_data *p)
-+				      long e, long f, long g, long h,
-+				      long i, struct test_data *p)
- {
--	return func_inner_ptr(a + 1, b + 1, c + 1, d + 1, e + 1, p);
-+	return func_inner_ptr(a + 1, b + 1, c + 1, d + 1, e + 1,
-+			      f + 1, g + 1, h + 1, i + 1, p);
- }
- 
- __noinline long global_nesting_ptr(long a, long b, long c, long d, long e)
- {
- 	struct test_data data = { .x = 10, .y = 20 };
- 
--	return func_outer_ptr(a, b, c, d, e, &data);
-+	return func_outer_ptr(a, b, c, d, e, a + 5, a + 6, a + 7, a + 8,
-+			      &data);
- }
- 
- SEC("tc")
-@@ -122,11 +132,12 @@ int test_bpf2bpf_nesting_stack_arg(void)
- 	return global_nesting_ptr(1, 2, 3, 4, 5);
- }
- 
--/* 1 + 2 + 3 + 4 + 5 + sizeof(pkt_v4) = 15 + 54 = 69 */
-+/* 1+2+3+4+5+6+7+8+9+sizeof(pkt_v4) = 45+54 = 99 */
- __noinline static long func_with_dynptr(long a, long b, long c, long d,
--					long e, struct bpf_dynptr *ptr)
-+					long e, long f, long g, long h,
-+					long i, struct bpf_dynptr *ptr)
- {
--	return a + b + c + d + e + bpf_dynptr_size(ptr);
-+	return a + b + c + d + e + f + g + h + i + bpf_dynptr_size(ptr);
- }
- 
- __noinline long global_dynptr_stack_arg(void *ctx __arg_ctx, long a, long b,
-@@ -135,7 +146,8 @@ __noinline long global_dynptr_stack_arg(void *ctx __arg_ctx, long a, long b,
- 	struct bpf_dynptr ptr;
- 
- 	bpf_dynptr_from_skb(ctx, 0, &ptr);
--	return func_with_dynptr(a, b, c, d, d + 1, &ptr);
-+	return func_with_dynptr(a, b, c, d, d + 1, d + 2, d + 3, d + 4,
-+				d + 5, &ptr);
- }
- 
- SEC("tc")
-@@ -144,24 +156,25 @@ int test_bpf2bpf_dynptr_stack_arg(struct __sk_buff *skb)
- 	return global_dynptr_stack_arg(skb, 1, 2, 3, 4);
- }
- 
--/* foo1: a+b+c+d+e+f+g+h */
--__noinline static int foo1(int a, int b, int c, int d,
--			   int e, int f, int g, int h)
-+/* foo1: a+b+c+d+e+f+g+h+i+j */
-+__noinline static int foo1(int a, int b, int c, int d, int e,
-+			   int f, int g, int h, int i, int j)
- {
--	return a + b + c + d + e + f + g + h;
-+	return a + b + c + d + e + f + g + h + i + j;
- }
- 
--/* foo2: a+b+c+d+e+f+g+h+i+j */
-+/* foo2: a+b+c+d+e+f+g+h+i+j+k+l */
- __noinline static int foo2(int a, int b, int c, int d, int e,
--			   int f, int g, int h, int i, int j)
-+			   int f, int g, int h, int i, int j,
-+			   int k, int l)
- {
--	return a + b + c + d + e + f + g + h + i + j;
-+	return a + b + c + d + e + f + g + h + i + j + k + l;
- }
- 
--/* global_two_callees calls foo1 (3 stack args) and foo2 (5 stack args).
-+/* global_two_callees calls foo1 (5 stack args) and foo2 (7 stack args).
-  * The outgoing stack arg area is sized for foo2 (the larger callee).
-  * Stores for foo1 are a subset of the area used by foo2.
-- * Result: foo1(1,2,3,4,5,6,7,8) + foo2(1,2,3,4,5,6,7,8,9,10) = 36 + 55 = 91
-+ * Result: foo1(1..10) + foo2(1..12) = 55 + 78 = 133
-  *
-  * Pass a-e through so the compiler can't constant-fold the stack args away.
-  */
-@@ -169,8 +182,9 @@ __noinline int global_two_callees(int a, int b, int c, int d, int e)
- {
- 	int ret;
- 
--	ret = foo1(a, b, c, d, e, a + 5, a + 6, a + 7);
--	ret += foo2(a, b, c, d, e, a + 5, a + 6, a + 7, a + 8, a + 9);
-+	ret = foo1(a, b, c, d, e, a + 5, a + 6, a + 7, a + 8, a + 9);
-+	ret += foo2(a, b, c, d, e, a + 5, a + 6, a + 7, a + 8, a + 9,
-+		    a + 10, a + 11);
- 	return ret;
- }
- 
-@@ -180,9 +194,15 @@ int test_two_callees(void)
- 	return global_two_callees(1, 2, 3, 4, 5);
- }
- 
-+const volatile int timer_base = 10;
-+
- static int timer_cb_many_args(void *map, int *key, struct bpf_timer *timer)
- {
--	timer_result = static_func_many_args(10, 20, 30, 40, 50, 60, 70, 80);
-+	int v = timer_base;
-+
-+	timer_result = static_func_many_args(v, v * 2, v * 3, v * 4, v * 5,
-+					     v * 6, v * 7, v * 8, v * 9,
-+					     v * 10);
- 	return 0;
- }
- 
-diff --git a/tools/testing/selftests/bpf/progs/stack_arg_kfunc.c b/tools/testing/selftests/bpf/progs/stack_arg_kfunc.c
-index da0d4f91d273..345f2da2e361 100644
---- a/tools/testing/selftests/bpf/progs/stack_arg_kfunc.c
-+++ b/tools/testing/selftests/bpf/progs/stack_arg_kfunc.c
-@@ -33,7 +33,7 @@ struct {
- SEC("tc")
- int test_stack_arg_scalar(struct __sk_buff *skb)
- {
--	return bpf_kfunc_call_stack_arg(1, 2, 3, 4, 5, 6, 7, 8);
-+	return bpf_kfunc_call_stack_arg(1, 2, 3, 4, 5, 6, 7, 8, 9, 10);
- }
- 
- SEC("tc")
-@@ -41,7 +41,7 @@ int test_stack_arg_ptr(struct __sk_buff *skb)
- {
- 	struct prog_test_pass1 p = { .x0 = 10, .x1 = 20 };
- 
--	return bpf_kfunc_call_stack_arg_ptr(1, 2, 3, 4, 5, &p);
-+	return bpf_kfunc_call_stack_arg_ptr(1, 2, 3, 4, 5, 6, 7, 8, 9, &p);
- }
- 
- SEC("tc")
-@@ -50,17 +50,17 @@ int test_stack_arg_mix(struct __sk_buff *skb)
- 	struct prog_test_pass1 p = { .x0 = 10 };
- 	struct prog_test_pass1 q = { .x1 = 20 };
- 
--	return bpf_kfunc_call_stack_arg_mix(1, 2, 3, 4, 5, &p, 6, &q);
-+	return bpf_kfunc_call_stack_arg_mix(1, 2, 3, 4, 5, 6, 7, &p, 8, &q);
- }
- 
--/* 1 + 2 + 3 + 4 + 5 + sizeof(pkt_v4) = 15 + 54 = 69 */
-+/* 1+2+3+4+5+6+7+8+9+sizeof(pkt_v4) = 45+54 = 99 */
- SEC("tc")
- int test_stack_arg_dynptr(struct __sk_buff *skb)
- {
- 	struct bpf_dynptr ptr;
- 
- 	bpf_dynptr_from_skb(skb, 0, &ptr);
--	return bpf_kfunc_call_stack_arg_dynptr(1, 2, 3, 4, 5, &ptr);
-+	return bpf_kfunc_call_stack_arg_dynptr(1, 2, 3, 4, 5, 6, 7, 8, 9, &ptr);
- }
- 
- /* 1 + 2 + 3 + 4 + 5 + (1 + 2 + ... + 16) = 15 + 136 = 151 */
-@@ -72,7 +72,7 @@ int test_stack_arg_mem(struct __sk_buff *skb)
- 	return bpf_kfunc_call_stack_arg_mem(1, 2, 3, 4, 5, buf, sizeof(buf));
- }
- 
--/* 1 + 2 + 3 + 4 + 5 + 100 = 115 */
-+/* 1+2+3+4+5+6+7+8+9+100 = 145 */
- SEC("tc")
- int test_stack_arg_iter(struct __sk_buff *skb)
- {
-@@ -80,21 +80,22 @@ int test_stack_arg_iter(struct __sk_buff *skb)
- 	u64 ret;
- 
- 	bpf_iter_testmod_seq_new(&it, 100, 10);
--	ret = bpf_kfunc_call_stack_arg_iter(1, 2, 3, 4, 5, &it);
-+	ret = bpf_kfunc_call_stack_arg_iter(1, 2, 3, 4, 5, 6, 7, 8, 9, &it);
- 	bpf_iter_testmod_seq_destroy(&it);
- 	return ret;
- }
- 
- const char cstr[] = "hello";
- 
--/* 1 + 2 + 3 + 4 + 5 = 15 */
-+/* 1+2+3+4+5+6+7+8+9 = 45 */
- SEC("tc")
- int test_stack_arg_const_str(struct __sk_buff *skb)
- {
--	return bpf_kfunc_call_stack_arg_const_str(1, 2, 3, 4, 5, cstr);
-+	return bpf_kfunc_call_stack_arg_const_str(1, 2, 3, 4, 5, 6, 7, 8, 9,
-+						  cstr);
- }
- 
--/* 1 + 2 + 3 + 4 + 5 = 15 */
-+/* 1+2+3+4+5+6+7+8+9 = 45 */
- SEC("tc")
- int test_stack_arg_timer(struct __sk_buff *skb)
- {
-@@ -104,7 +105,8 @@ int test_stack_arg_timer(struct __sk_buff *skb)
- 	val = bpf_map_lookup_elem(&kfunc_timer_map, &key);
- 	if (!val)
- 		return 0;
--	return bpf_kfunc_call_stack_arg_timer(1, 2, 3, 4, 5, &val->timer);
-+	return bpf_kfunc_call_stack_arg_timer(1, 2, 3, 4, 5, 6, 7, 8, 9,
-+					      &val->timer);
- }
- 
- #else
-diff --git a/tools/testing/selftests/bpf/test_kmods/bpf_testmod.c b/tools/testing/selftests/bpf/test_kmods/bpf_testmod.c
-index 0be918fe3021..30f1cd23093c 100644
---- a/tools/testing/selftests/bpf/test_kmods/bpf_testmod.c
-+++ b/tools/testing/selftests/bpf/test_kmods/bpf_testmod.c
-@@ -826,30 +826,34 @@ __bpf_kfunc int bpf_kfunc_call_test5(u8 a, u16 b, u32 c)
- }
- 
- __bpf_kfunc u64 bpf_kfunc_call_stack_arg(u64 a, u64 b, u64 c, u64 d,
--					 u64 e, u64 f, u64 g, u64 h)
-+					 u64 e, u64 f, u64 g, u64 h,
-+					 u64 i, u64 j)
- {
--	return a + b + c + d + e + f + g + h;
-+	return a + b + c + d + e + f + g + h + i + j;
- }
- 
- __bpf_kfunc u64 bpf_kfunc_call_stack_arg_ptr(u64 a, u64 b, u64 c, u64 d, u64 e,
-+					     u64 f, u64 g, u64 h, u64 i,
- 					     struct prog_test_pass1 *p)
- {
--	return a + b + c + d + e + p->x0 + p->x1;
-+	return a + b + c + d + e + f + g + h + i + p->x0 + p->x1;
- }
- 
- __bpf_kfunc u64 bpf_kfunc_call_stack_arg_mix(u64 a, u64 b, u64 c, u64 d, u64 e,
--					     struct prog_test_pass1 *p, u64 f,
-+					     u64 f, u64 g,
-+					     struct prog_test_pass1 *p, u64 h,
- 					     struct prog_test_pass1 *q)
- {
--	return a + b + c + d + e + p->x0 + f + q->x1;
-+	return a + b + c + d + e + f + g + p->x0 + h + q->x1;
- }
- 
- __bpf_kfunc u64 bpf_kfunc_call_stack_arg_dynptr(u64 a, u64 b, u64 c, u64 d, u64 e,
-+					       u64 f, u64 g, u64 h, u64 i,
- 					       struct bpf_dynptr *ptr)
- {
- 	const struct bpf_dynptr_kern *kern_ptr = (void *)ptr;
- 
--	return a + b + c + d + e + (kern_ptr->size & 0xFFFFFF);
-+	return a + b + c + d + e + f + g + h + i + (kern_ptr->size & 0xFFFFFF);
- }
- 
- __bpf_kfunc u64 bpf_kfunc_call_stack_arg_mem(u64 a, u64 b, u64 c, u64 d, u64 e,
-@@ -865,21 +869,24 @@ __bpf_kfunc u64 bpf_kfunc_call_stack_arg_mem(u64 a, u64 b, u64 c, u64 d, u64 e,
- }
- 
- __bpf_kfunc u64 bpf_kfunc_call_stack_arg_iter(u64 a, u64 b, u64 c, u64 d, u64 e,
-+					      u64 f, u64 g, u64 h, u64 i,
- 					      struct bpf_iter_testmod_seq *it__iter)
- {
--	return a + b + c + d + e + it__iter->value;
-+	return a + b + c + d + e + f + g + h + i + it__iter->value;
- }
- 
- __bpf_kfunc u64 bpf_kfunc_call_stack_arg_const_str(u64 a, u64 b, u64 c, u64 d, u64 e,
-+						   u64 f, u64 g, u64 h, u64 i,
- 						   const char *str__str)
- {
--	return a + b + c + d + e;
-+	return a + b + c + d + e + f + g + h + i;
- }
- 
- __bpf_kfunc u64 bpf_kfunc_call_stack_arg_timer(u64 a, u64 b, u64 c, u64 d, u64 e,
-+					       u64 f, u64 g, u64 h, u64 i,
- 					       struct bpf_timer *timer)
- {
--	return a + b + c + d + e;
-+	return a + b + c + d + e + f + g + h + i;
- }
- 
- __bpf_kfunc u64 bpf_kfunc_call_stack_arg_big(u64 a, u64 b, u64 c, u64 d, u64 e,
-diff --git a/tools/testing/selftests/bpf/test_kmods/bpf_testmod_kfunc.h b/tools/testing/selftests/bpf/test_kmods/bpf_testmod_kfunc.h
-index 2edc36b66de9..c36bb911defa 100644
---- a/tools/testing/selftests/bpf/test_kmods/bpf_testmod_kfunc.h
-+++ b/tools/testing/selftests/bpf/test_kmods/bpf_testmod_kfunc.h
-@@ -119,21 +119,28 @@ struct sock *bpf_kfunc_call_test3(struct sock *sk) __ksym;
- long bpf_kfunc_call_test4(signed char a, short b, int c, long d) __ksym;
- int bpf_kfunc_call_test5(__u8 a, __u16 b, __u32 c) __ksym;
- __u64 bpf_kfunc_call_stack_arg(__u64 a, __u64 b, __u64 c, __u64 d,
--			       __u64 e, __u64 f, __u64 g, __u64 h) __ksym;
-+			       __u64 e, __u64 f, __u64 g, __u64 h,
-+			       __u64 i, __u64 j) __ksym;
- __u64 bpf_kfunc_call_stack_arg_ptr(__u64 a, __u64 b, __u64 c, __u64 d, __u64 e,
-+				   __u64 f, __u64 g, __u64 h, __u64 i,
- 				   struct prog_test_pass1 *p) __ksym;
- __u64 bpf_kfunc_call_stack_arg_mix(__u64 a, __u64 b, __u64 c, __u64 d, __u64 e,
--				   struct prog_test_pass1 *p, __u64 f,
-+				   __u64 f, __u64 g,
-+				   struct prog_test_pass1 *p, __u64 h,
- 				   struct prog_test_pass1 *q) __ksym;
- __u64 bpf_kfunc_call_stack_arg_dynptr(__u64 a, __u64 b, __u64 c, __u64 d, __u64 e,
-+				      __u64 f, __u64 g, __u64 h, __u64 i,
- 				      struct bpf_dynptr *ptr) __ksym;
- __u64 bpf_kfunc_call_stack_arg_mem(__u64 a, __u64 b, __u64 c, __u64 d, __u64 e,
- 				   void *mem, int mem__sz) __ksym;
- __u64 bpf_kfunc_call_stack_arg_iter(__u64 a, __u64 b, __u64 c, __u64 d, __u64 e,
-+				    __u64 f, __u64 g, __u64 h, __u64 i,
- 				    struct bpf_iter_testmod_seq *it__iter) __ksym;
- __u64 bpf_kfunc_call_stack_arg_const_str(__u64 a, __u64 b, __u64 c, __u64 d, __u64 e,
-+					 __u64 f, __u64 g, __u64 h, __u64 i,
- 					 const char *str__str) __ksym;
- __u64 bpf_kfunc_call_stack_arg_timer(__u64 a, __u64 b, __u64 c, __u64 d, __u64 e,
-+				     __u64 f, __u64 g, __u64 h, __u64 i,
- 				     struct bpf_timer *timer) __ksym;
- __u64 bpf_kfunc_call_stack_arg_big(__u64 a, __u64 b, __u64 c, __u64 d, __u64 e,
- 				   struct prog_test_big_arg s) __ksym;
--- 
-2.53.0-Meta
-
+Mark.
 
