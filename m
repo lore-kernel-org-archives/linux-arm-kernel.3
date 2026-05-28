@@ -4,163 +4,60 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 32A0FCD4F54
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 28 May 2026 12:25:30 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 6B97CCD6E44
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 28 May 2026 12:30:49 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:Cc:To:Subject:Message-ID:Date:From:In-Reply-To:References:
-	MIME-Version:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
+	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=d3417W+FQetIJ6t9E35gaP1Wyhl0UtZ7U9jN1sdRzUY=; b=sz5shfXCLhiTXBmGd/VXiZtVGj
-	+YbxUhgqgnZ8e3f+tyLAijXW1DjR4uALTkzdFc/3yCRxcpwzeFbdZoOXru193vJvFWXQ4nTV7PlDp
-	ERbwqcNklTylywGNyfb7WV89Yiqs4JAifXJ1qPj9LKSiwo7KK1d4KzyZfJLMiX5+5QJWiYlsiZJmy
-	ziD2FzYEcLIMq4Gey24/+NjAay9koc7r4hy/A9Qfqaz2+awU3GDPzKPzly55N7Ws6bPsG31C7wVao
-	t4s/IR32VTCyrcmpZaUuCdhN3CsFTy4V0IhMcc1kqb6+/6NxskV789HrBP8ppl6dgp/yKzyav8vH8
-	aKp1/Xbw==;
+	bh=Zq+jhOvyHQx8WgNhnwFstUB+AcA2RCHF0vL4Y9dwpTA=; b=k9omcsSKPQeoRs0Try9dyIb5ig
+	GJqOIqqw3qk1uA4B/ZoekDn2O6O2pNSjGPqk87ZNdIY1qUAVyGijTVCGgDY2XsJcjtxfvtjZ7i0By
+	poNBdFJuYUHCDONySQvOsEXWtoQC2WVWTzyqqYt+TGVVAAgNpzxT6LbhlKtvlGa78wkVHjsrFf+yY
+	D/290YbH3xCbjZzbIZSgvqmLmTpMahXRZy3XkHYitb37249EOt0ti7ESFceoeR4ioCUUCOJjtkiZR
+	rhmVquLWIT8MV9fggmt4kJc1KDkMY2a0iaHcW5d/7eYtBR4QZ84SZ+caeDyChAxKKFEy1fd8hX/YG
+	IL5yypsw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wSZnd-00000005iLp-2acG;
-	Thu, 28 May 2026 12:25:21 +0000
-Received: from mx0a-0031df01.pphosted.com ([205.220.168.131])
-	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wSZna-00000005iLU-487G
+	id 1wSZsm-00000005iab-1EVq;
+	Thu, 28 May 2026 12:30:40 +0000
+Received: from foss.arm.com ([217.140.110.172])
+	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
+	id 1wSZsj-00000005iZh-0fWF
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 28 May 2026 12:25:20 +0000
-Received: from pps.filterd (m0279863.ppops.net [127.0.0.1])
-	by mx0a-0031df01.pphosted.com (8.18.1.11/8.18.1.11) with ESMTP id 64S8vU7C3203244
-	for <linux-arm-kernel@lists.infradead.org>; Thu, 28 May 2026 12:25:18 GMT
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=qualcomm.com; h=
-	cc:content-transfer-encoding:content-type:date:from:in-reply-to
-	:message-id:mime-version:references:subject:to; s=qcppdkim1; bh=
-	d3417W+FQetIJ6t9E35gaP1Wyhl0UtZ7U9jN1sdRzUY=; b=prEfC2i4IyXES7BC
-	cmHulPI14uPbrVtMetN2T5yu4ICQO00WgaK+A6eXmgJI1v7hE9fii++rwodl+CgJ
-	mST0ZvEIHGyhietuMO6fYzSAJNAzRD8ppMDX5EdMynHhNRkTmvNeu5bXYvzPcKdB
-	rA6oIBqgnEmljP1Z0rxr7yVDRlNHKXT0pivyyFO5kR7FlVfxbwaHpqz5Ta0WTbp9
-	6BnOI1vOHCLXZDz//RqETpdeYe9/zaf6TLaJHqlz7Bdkrx1h3kD3pMG95XEDk2MC
-	DvpNyX4lbx3Im5Mx5bc6unNLyEB6lrMTHPd+XBXSQFjT+C1Wg9a7joPe0d9r3EBz
-	WzGJmQ==
-Received: from mail-qk1-f200.google.com (mail-qk1-f200.google.com [209.85.222.200])
-	by mx0a-0031df01.pphosted.com (PPS) with ESMTPS id 4ee7ynjpef-1
-	(version=TLSv1.3 cipher=TLS_AES_128_GCM_SHA256 bits=128 verify=NOT)
-	for <linux-arm-kernel@lists.infradead.org>; Thu, 28 May 2026 12:25:18 +0000 (GMT)
-Received: by mail-qk1-f200.google.com with SMTP id af79cd13be357-914b5249bc1so1013298585a.2
-        for <linux-arm-kernel@lists.infradead.org>; Thu, 28 May 2026 05:25:18 -0700 (PDT)
-ARC-Seal: i=1; a=rsa-sha256; t=1779971117; cv=none;
-        d=google.com; s=arc-20240605;
-        b=KvmTuLnz4nC42lXrz7apLTQLW82So/DshLnI/Y/ahNqwIr4XDOAQn+4E2m017e+BZb
-         6qitnflPqeWYp2fOcm8UEuNTr1GOLN0Zs7cNgf9HxrTVNsREMWDESaKRhyv4jSElW1jk
-         Sbex5igSJjb114GhE4aFykjcGNoKXUJNUCM+UAResIHBVur3fu1ccsRvduzbYdRXJ04d
-         wH6YF6UeSgB5uP8Jv3umpEk2sqORMf0y1Jk9Q+Ijwg9cxuPLzzxdX7jaj7OpzUuhHgT5
-         PZXFweBbNJo37IfkcbYxszx/mgKskHnCTgMQ6WoEb9uzjSwBaQPud/E8WH89lO5Hy17x
-         +adw==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20240605;
-        h=content-transfer-encoding:cc:to:subject:message-id:date:from
-         :in-reply-to:references:mime-version:dkim-signature;
-        bh=d3417W+FQetIJ6t9E35gaP1Wyhl0UtZ7U9jN1sdRzUY=;
-        fh=9o1vSC4lbfNuAXYfomDiY/RwHmGbXi1gmcUCgyDUIbw=;
-        b=PQCaUD7WcJTG2w+rRWI8q84AsBiFhfNKbJp9y2xNbDY772G5DCLDJR77RibD0aDs8o
-         G304N5yRNQOsrzxkHT7yHtKC5IuCqmBzcWt1pNnxtwhR+muF6qci4A9zK5myBkzmHKex
-         ybiRi3uxxljyyuWjN1CJ7yHWY9g4fLskK3mmXCUtE44wW3qRjyeU86vvGoUZ2wo+RaWv
-         e14OM/r7Zb3Q7ctR9da5PhlTIME1c0Hn3ju1e21hVcvqAfEwBPxhdVq5bkp1q5bjCE3x
-         jgLnZ7DzWC3ZNamFK8gVHrKMAf9UikyPVDdudHwiZFOaOztYqIvtYm9thZFR7APGOWLU
-         CRXA==;
-        darn=lists.infradead.org
-ARC-Authentication-Results: i=1; mx.google.com; arc=none
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=oss.qualcomm.com; s=google; t=1779971117; x=1780575917; darn=lists.infradead.org;
-        h=content-transfer-encoding:cc:to:subject:message-id:date:from
-         :in-reply-to:references:mime-version:from:to:cc:subject:date
-         :message-id:reply-to;
-        bh=d3417W+FQetIJ6t9E35gaP1Wyhl0UtZ7U9jN1sdRzUY=;
-        b=RPglHOjVE/+Od6o2HnQvziMuxaahT3UgbMdbNKFcMVRtsxWWzyLsdiP0v6kFsdVF08
-         iQfaW6uO9IfHT+7Pq+lu4bxgl+rG2e/luLe+gqX30zRH47DCAyEKqfMZ90VvQER6APhp
-         9yEMGAEeYzcilS/5uFCvKb9qNXxf7YvtCQrEhtE6JvMdyRgzWzrtVWllEHpfMLA3qzAM
-         flzupP56MD91EWZOd1S5FoRElYiu6CpNsYUB8T+WbPnnUAIg2haC5oNyhYUpYbnCxbkf
-         aJCMCo9fUE4i7/zd0p82pFwQ/QLNOwU0lo9tgRtqu4vNMV7RyZSjF8TMjYRJb6pg/vn6
-         2n/g==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20251104; t=1779971117; x=1780575917;
-        h=content-transfer-encoding:cc:to:subject:message-id:date:from
-         :in-reply-to:references:mime-version:x-gm-gg:x-gm-message-state:from
-         :to:cc:subject:date:message-id:reply-to;
-        bh=d3417W+FQetIJ6t9E35gaP1Wyhl0UtZ7U9jN1sdRzUY=;
-        b=QPCyFn6bVsUtAtBgoPLtFG/Yg3n50jsDqVdbjIHJNlWtAcYxK+0Hq0mD6zkeM+jcnu
-         GX3l7pbwBKX5BK8btWjmBLkO4PsFOnvImsiSjg/3MqKJziDsmwPeci+2N7Y8vFGRyTHG
-         NYWQZwcoir5VlyR7RsV+BdxbROe8ZVyjMTo8JlYQ/bwwIKK1A0s/aLnnJvk/ch9467sx
-         CAvgAbFmTuZfl82ix98pt/3ZogGdUy61ZoG4HzTTzyKbfJzE94rRh4RLHBnkRU9vZsYq
-         X9O+8ukCCNq8PmeYKy/Ca3uWebbu5xtNWmUCg7ujw+1ubE7o0lu9My2A7J9XTz+/dDiH
-         LsEQ==
-X-Forwarded-Encrypted: i=1; AFNElJ8WmfzEKNgqYCJQQqVUhMINQBsZ7ewnIN/rfV0IskQ+uGo1GlFOpdztMD7RZtKcWUL8m5Sru8AIN934jk/PrWJc@lists.infradead.org
-X-Gm-Message-State: AOJu0YycKs1Uso2AYXgz/xPxmDSLD6M5e2SpYFwQok9Gp+6DKlPYgnyA
-	nzpf6uHBVnwq/IIe8YEbDMpxcAJ8KpgeDbEDZuYMFs4+qQKhpLl+1IvWv92UEdqHE8PgFErCqbo
-	ra2bHnxVvwWd6TL4TDkEU8VblPS/ufVhqKzlewMXI7N5P6HYbfAewGACnjUzwZHMVNU0O5+Qk5s
-	atJIOZoVwogV1TwwafWMCZW7Y1npxOvnjPKrUvwFV/UaOATQWY2T5F
-X-Gm-Gg: Acq92OE8ai91xWeRcHz/FrRfr9Ajh0maunA8TFnGKVj96+batgIh5y5Dsi1ySZX9H1n
-	NaKOf+brmfcENE+4Vh90LXXC6Cuyk2UPPuo4sY4dOCgrpeaH8Ib9nZb2Q32Mz5ChZyPqHjcUAgd
-	fw08sh0XWb1biGnMMKwwHQNVmjsDp2qH4R6XJEnaNsfcFQyesINjnbUlsVqGiqcsW+LJREgxcsL
-	S8OtTGHlVeN5cRl3XkkIbkWMvdf6qEP9dT00ECh4GsrDUXC
-X-Received: by 2002:a05:620a:84c4:b0:914:c0bc:a7cd with SMTP id af79cd13be357-914c0bcaf11mr3886830385a.48.1779971117101;
-        Thu, 28 May 2026 05:25:17 -0700 (PDT)
-X-Received: by 2002:a05:620a:84c4:b0:914:c0bc:a7cd with SMTP id
- af79cd13be357-914c0bcaf11mr3886823885a.48.1779971116654; Thu, 28 May 2026
- 05:25:16 -0700 (PDT)
+	Thu, 28 May 2026 12:30:38 +0000
+Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
+	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id B7A694402;
+	Thu, 28 May 2026 05:30:27 -0700 (PDT)
+Received: from [10.1.28.164] (unknown [10.1.28.164])
+	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id 40F623F905;
+	Thu, 28 May 2026 05:30:30 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=simple/simple; d=arm.com; s=foss;
+	t=1779971432; bh=dy4eptvvFiezP2XzuafNJnNX2ayQeLvv2UTVrKFLKkk=;
+	h=Date:Subject:To:Cc:References:From:In-Reply-To:From;
+	b=TQSbCi0tS2LGBGosLdUGMR6tfzK3gO6G0RZccs9Nj7xBYyUUwM6uaYa6NYyCH84PC
+	 xzEN4CRiCvdTfdNmsQ7xZqRM2GpORM6EZ21qidsi+75pzPSPEj448MHotmYUbSUp/Q
+	 Dq48OIEgAt3J+pcHmxXL9gzSv/bmZHsdLERcM17s=
+Message-ID: <eea3a8de-c9b0-4cb4-9364-b3f9659f5278@arm.com>
+Date: Thu, 28 May 2026 13:30:27 +0100
 MIME-Version: 1.0
-References: <20260526-shikra-camss-review-v1-0-645d2c8c75a7@qti.qualcomm.com> <20260526-shikra-camss-review-v1-3-645d2c8c75a7@qti.qualcomm.com>
-In-Reply-To: <20260526-shikra-camss-review-v1-3-645d2c8c75a7@qti.qualcomm.com>
-From: Loic Poulain <loic.poulain@oss.qualcomm.com>
-Date: Thu, 28 May 2026 14:25:04 +0200
-X-Gm-Features: AVHnY4JO8P8GLceB0VuUyA9tvcNmn11LuhgjLHguxnzI4BEUk6ZkF0V4tx2XITE
-Message-ID: <CAFEp6-1VAW-S2d3q3uN2n1weMOoSPXtX_k_6msQ-K_5A5mZVLQ@mail.gmail.com>
-Subject: Re: [PATCH 3/8] media: qcom: camss: add support for QCM2390 camss
-To: Nihal Kumar Gupta <nihal.gupta@oss.qualcomm.com>
-Cc: "Bryan O'Donoghue" <bod@kernel.org>,
-        Vladimir Zapolskiy <vladimir.zapolskiy@linaro.org>,
-        Mauro Carvalho Chehab <mchehab@kernel.org>,
-        Rob Herring <robh@kernel.org>,
-        Krzysztof Kozlowski <krzk+dt@kernel.org>,
-        Conor Dooley <conor+dt@kernel.org>, Robert Foss <rfoss@kernel.org>,
-        Andi Shyti <andi.shyti@kernel.org>,
-        "Bryan O'Donoghue" <bryan.odonoghue@linaro.org>,
-        Bjorn Andersson <andersson@kernel.org>,
-        Konrad Dybcio <konradybcio@kernel.org>, Frank Li <Frank.Li@nxp.com>,
-        Sascha Hauer <s.hauer@pengutronix.de>,
-        Pengutronix Kernel Team <kernel@pengutronix.de>,
-        Fabio Estevam <festevam@gmail.com>, linux-arm-msm@vger.kernel.org,
-        linux-media@vger.kernel.org, devicetree@vger.kernel.org,
-        linux-kernel@vger.kernel.org, linux-i2c@vger.kernel.org,
-        imx@lists.linux.dev, linux-arm-kernel@lists.infradead.org,
-        Suresh Vankadara <quic_svankada@quicinc.com>,
-        Vikram Sharma <vikram.sharma@oss.qualcomm.com>,
-        Prashant Shrotriya <pshrotri@qti.qualcomm.com>
-Content-Type: text/plain; charset="UTF-8"
-Content-Transfer-Encoding: quoted-printable
-X-Proofpoint-Spam-Details-Enc: AW1haW4tMjYwNTI4MDEyNSBTYWx0ZWRfX/ClFJ/7PbseT
- ux7+D4DfupY4lAa0Ghv83CnxaKCWdV+gz155IaR2/gqBkp3AUsKuJNkZ6ryyTfnIR9slc6pyHep
- 6vDyBmiiJUfG04O//dSx++0NtiiHEpPwvMEFMfh5JkpurYh3t+vF6N+5pMBtcUzv/32Wbq0xbvr
- b9anI2Rl4IXUJ2CNC7YikYyhlrwgL4W8Pt+KrAA8WrAcN8qVmUdlPBEX3/ciAAG7hG4MFIWteD/
- q9hEju0AjAqccUgJt+k9D1Nxkj/QCKjljmPlz87RnKqwxQHHbfmkUTqTmY/C8Oudy6JlA5yogeT
- p9h8WjZELAljlOWa8I2BgrF2ZXPyQufaBbTE1eG08PVWd88++xudDP7drAP8nV66f1mkbEYTP6w
- 2urPRLeEFeWs24J/tuCZZgOKQSE0JG9PBXqlhdzgsfm2ey8qJKtsksT1a3j2Y/pYNZBruEXw7WS
- QwO8y05BNZuWNizETaA==
-X-Proofpoint-ORIG-GUID: sWCjGCiMgdXRyySkJmevJiUjpfnM241-
-X-Proofpoint-GUID: sWCjGCiMgdXRyySkJmevJiUjpfnM241-
-X-Authority-Analysis: v=2.4 cv=EdL4hvmC c=1 sm=1 tr=0 ts=6a18342e cx=c_pps
- a=hnmNkyzTK/kJ09Xio7VxxA==:117 a=IkcTkHD0fZMA:10 a=NGcC8JguVDcA:10
- a=s4-Qcg_JpJYA:10 a=VkNPw1HP01LnGYTKEx00:22 a=u7WPNUs3qKkmUXheDGA7:22
- a=yOCtJkima9RkubShWh1s:22 a=EUspDBNiAAAA:8 a=8qkcLw8Gk86Nxc3JiHYA:9
- a=QEXdDO2ut3YA:10 a=PEH46H7Ffwr30OY-TuGO:22
-X-Proofpoint-Virus-Version: vendor=baseguard
- engine=ICAP:2.0.293,Aquarius:18.0.1143,Hydra:6.1.125,FMLib:17.12.100.49
- definitions=2026-05-28_03,2026-05-28_02,2025-10-01_01
-X-Proofpoint-Spam-Details: rule=outbound_notspam policy=outbound score=0
- suspectscore=0 priorityscore=1501 phishscore=0 clxscore=1015 bulkscore=0
- spamscore=0 adultscore=0 malwarescore=0 impostorscore=0 lowpriorityscore=0
- classifier=typeunknown authscore=0 authtc= authcc= route=outbound adjust=0
- reason=mlx scancount=1 engine=8.22.0-2605210000 definitions=main-2605280125
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH 17/18] arm64: fpsimd: Move SME save/restore inline
+To: Mark Rutland <mark.rutland@arm.com>,
+ linux-arm-kernel@lists.infradead.org, kvmarm@lists.linux.dev
+Cc: broonie@kernel.org, catalin.marinas@arm.com, james.morse@arm.com,
+ maz@kernel.org, oupton@kernel.org, tabba@google.com, will@kernel.org
+References: <20260521132556.584676-1-mark.rutland@arm.com>
+ <20260521132556.584676-18-mark.rutland@arm.com>
+Content-Language: en-GB
+From: Vladimir Murzin <vladimir.murzin@arm.com>
+In-Reply-To: <20260521132556.584676-18-mark.rutland@arm.com>
+Content-Type: text/plain; charset=UTF-8
+Content-Transfer-Encoding: 7bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260528_052519_051005_25FC0B3E 
-X-CRM114-Status: GOOD (  22.09  )
+X-CRM114-CacheID: sfid-20260528_053037_411050_3EB64C8C 
+X-CRM114-Status: GOOD (  29.85  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -175,126 +72,343 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Tue, May 26, 2026 at 7:13=E2=80=AFPM Nihal Kumar Gupta
-<nihal.gupta@oss.qualcomm.com> wrote:
->
-> From: Prashant Shrotriya <pshrotri@qti.qualcomm.com>
->
-> Add CAMSS driver support for Shikra SoC. Add high level
-> resource definitions for 2 CSIPHY, 2 CSID and 2 VFE instances along
-> with the interconnect bandwidth votes for AHB, HF and SF MNOC paths.
->
-> Signed-off-by: Prashant Shrotriya <pshrotri@qti.qualcomm.com>
-> Signed-off-by: Nihal Kumar Gupta <nihal.gupta@oss.qualcomm.com>
+Hi Mark,
+
+On 5/21/26 14:25, Mark Rutland wrote:
+> Currently the SVE register save/restore sequences are written in
+> out-of-line assembly routines. While this works, it's somewhat painful:
+> 
+> * For KVM to use the sequences, portions of the logic will need to be
+>   duplicated in KVM hyp code. While the common logic can be shared in
+>   assembly macros, this is very likely to lead to unnecessary divergence
+>   and be a maintenance burden.
+> 
+> * For historical reasons, the assembly macros take some register
+>   arguments as numerical indices (e.g. "sme_save_za 0, x2, 12" uses x0, x1, and
+>   x12), which is simply confusing.
+> 
+> * Address generation and control flow are far clearer in C than in
+>   assembly.
+> 
+> * The assembly sequences can't be instrumented, and so it's harder than
+>   necessary to catch memory safety issues.
+> 
+> To handle the above, move the SME register save/restore sequences
+> to inline assembly.
+> 
+> Neither GCC nor LLVM instrument memory arguments to inline assembly, so
+> explicit instrumentation is added in the same manner as other assembly
+> routines. This instrumentation is implicitly disabled by Kbuild for nVHE
+> hyp code.
+> 
+> Signed-off-by: Mark Rutland <mark.rutland@arm.com>
+> Cc: Catalin Marinas <catalin.marinas@arm.com>
+> Cc: Fuad Tabba <tabba@google.com>
+> Cc: James Morse <james.morse@arm.com>
+> Cc: Marc Zyngier <maz@kernel.org>
+> Cc: Mark Brown <broonie@kernel.org>
+> Cc: Oliver Upton <oupton@kernel.org>
+> Cc: Will Deacon <will@kernel.org>
 > ---
->  drivers/media/platform/qcom/camss/camss-csiphy-3ph-1-0.c |  2 ++
->  drivers/media/platform/qcom/camss/camss-vfe.c            |  1 +
->  drivers/media/platform/qcom/camss/camss.c                | 13 ++++++++++=
-+++
->  drivers/media/platform/qcom/camss/camss.h                |  1 +
->  4 files changed, 17 insertions(+)
->
-> diff --git a/drivers/media/platform/qcom/camss/camss-csiphy-3ph-1-0.c b/d=
-rivers/media/platform/qcom/camss/camss-csiphy-3ph-1-0.c
-> index dac8d2ecf79957dc05c5524dc439791ce097c785..62208f5c4f17bd6c9a8fe5613=
-649920e6ee1a1f2 100644
-> --- a/drivers/media/platform/qcom/camss/camss-csiphy-3ph-1-0.c
-> +++ b/drivers/media/platform/qcom/camss/camss-csiphy-3ph-1-0.c
-> @@ -1130,6 +1130,7 @@ static bool csiphy_is_gen2(u32 version)
->
->         switch (version) {
->         case CAMSS_2290:
-> +       case CAMSS_2390:
->         case CAMSS_6150:
->         case CAMSS_6350:
->         case CAMSS_7280:
-> @@ -1222,6 +1223,7 @@ static int csiphy_init(struct csiphy_device *csiphy=
-)
->                 regs->lane_array_size =3D ARRAY_SIZE(lane_regs_sdm845);
->                 break;
->         case CAMSS_2290:
-> +       case CAMSS_2390:
->         case CAMSS_6150:
->                 regs->lane_regs =3D &lane_regs_qcm2290[0];
->                 regs->lane_array_size =3D ARRAY_SIZE(lane_regs_qcm2290);
-> diff --git a/drivers/media/platform/qcom/camss/camss-vfe.c b/drivers/medi=
-a/platform/qcom/camss/camss-vfe.c
-> index 319d191589884777bced456867e5a2a4211a2770..b152f8d48e003d8eeb0cf19ad=
-57419b25cdec087 100644
-> --- a/drivers/media/platform/qcom/camss/camss-vfe.c
-> +++ b/drivers/media/platform/qcom/camss/camss-vfe.c
-> @@ -342,6 +342,7 @@ static u32 vfe_src_pad_code(struct vfe_line *line, u3=
-2 sink_code,
->                 break;
->         case CAMSS_660:
->         case CAMSS_2290:
-> +       case CAMSS_2390:
->         case CAMSS_6150:
->         case CAMSS_6350:
->         case CAMSS_7280:
-> diff --git a/drivers/media/platform/qcom/camss/camss.c b/drivers/media/pl=
-atform/qcom/camss/camss.c
-> index 2123f6388e3d7eafe669efd6b033e22d8eb5cf79..f67ecff53f15bd213dc7736d4=
-e5fe880007d1ee7 100644
-> --- a/drivers/media/platform/qcom/camss/camss.c
-> +++ b/drivers/media/platform/qcom/camss/camss.c
-> @@ -5565,6 +5565,18 @@ static const struct camss_resources qcm2290_resour=
-ces =3D {
->         .vfe_num =3D ARRAY_SIZE(vfe_res_2290),
->  };
->
-> +static const struct camss_resources qcm2390_resources =3D {
-> +       .version =3D CAMSS_2390,
-> +       .csiphy_res =3D csiphy_res_2290,
-> +       .csid_res =3D csid_res_2290,
-> +       .vfe_res =3D vfe_res_2290,
-> +       .icc_res =3D icc_res_2290,
-> +       .icc_path_num =3D ARRAY_SIZE(icc_res_2290),
-> +       .csiphy_num =3D ARRAY_SIZE(csiphy_res_2290),
-> +       .csid_num =3D ARRAY_SIZE(csid_res_2290),
-> +       .vfe_num =3D ARRAY_SIZE(vfe_res_2290),
-
-So isn't it exactly the same as 2290? wouldn't it be easier to have
-the shikra simply fallback to qcm220 (via compatible string)?
-
-
-> +};
+>  arch/arm64/include/asm/fpsimd.h       | 100 +++++++++++++++++++++++++-
+>  arch/arm64/include/asm/fpsimdmacros.h |  76 --------------------
+>  arch/arm64/kernel/Makefile            |   2 +-
+>  arch/arm64/kernel/entry-fpsimd.S      |  48 -------------
+>  4 files changed, 98 insertions(+), 128 deletions(-)
+>  delete mode 100644 arch/arm64/kernel/entry-fpsimd.S
+> 
+> diff --git a/arch/arm64/include/asm/fpsimd.h b/arch/arm64/include/asm/fpsimd.h
+> index 550987b36206a..12f222f64b8d5 100644
+> --- a/arch/arm64/include/asm/fpsimd.h
+> +++ b/arch/arm64/include/asm/fpsimd.h
+> @@ -357,9 +357,6 @@ static inline void sve_flush_live(void)
+>  	);
+>  }
+>  
+> -extern void sme_save_state(struct sme_state *state, int zt);
+> -extern void sme_load_state(const struct sme_state *state, int zt);
+> -
+>  struct arm64_cpu_capabilities;
+>  extern void cpu_enable_fpsimd(const struct arm64_cpu_capabilities *__unused);
+>  extern void cpu_enable_sve(const struct arm64_cpu_capabilities *__unused);
+> @@ -639,6 +636,100 @@ static inline size_t __sme_state_size(unsigned int sme_vl)
+>  	return size;
+>  }
+>  
+> +static inline void __sme_save_za(struct sme_state *state, unsigned long svl)
+> +{
+> +	/* The <Wv> argument to STR (array vector) can only encode W12-W15 */
+> +	register unsigned long v asm ("12");
 > +
->  static const struct camss_resources qcs8300_resources =3D {
->         .version =3D CAMSS_8300,
->         .pd_name =3D "top",
-> @@ -5752,6 +5764,7 @@ static const struct of_device_id camss_dt_match[] =
-=3D {
->         { .compatible =3D "qcom,sdm660-camss", .data =3D &sdm660_resource=
-s },
->         { .compatible =3D "qcom,sdm670-camss", .data =3D &sdm670_resource=
-s },
->         { .compatible =3D "qcom,sdm845-camss", .data =3D &sdm845_resource=
-s },
-> +       { .compatible =3D "qcom,shikra-camss", .data =3D &qcm2390_resourc=
-es },
->         { .compatible =3D "qcom,sm6150-camss", .data =3D &sm6150_resource=
-s },
->         { .compatible =3D "qcom,sm6350-camss", .data =3D &sm6350_resource=
-s },
->         { .compatible =3D "qcom,sm8250-camss", .data =3D &sm8250_resource=
-s },
-> diff --git a/drivers/media/platform/qcom/camss/camss.h b/drivers/media/pl=
-atform/qcom/camss/camss.h
-> index 93d691c8ac63b2a47dbb234856b627d8911a1851..8ba8a38113dfc15849fa333d0=
-5b2c3853f3a7714 100644
-> --- a/drivers/media/platform/qcom/camss/camss.h
-> +++ b/drivers/media/platform/qcom/camss/camss.h
-> @@ -82,6 +82,7 @@ enum pm_domain {
->  enum camss_version {
->         CAMSS_660,
->         CAMSS_2290,
-> +       CAMSS_2390,
->         CAMSS_6150,
->         CAMSS_6350,
->         CAMSS_7280,
->
-> --
-> 2.34.1
->
+> +	instrument_write(state, svl * svl);
+> +	for (v = 0; v < svl; v++) {
+> +		void *pav = (void *)state + v * svl;
+> +
+> +		asm volatile(
+> +		__SME_PREAMBLE
+> +		"	str	za[%w[v], #0], [%[pav]]\n"
+> +		:
+> +		: [v] "r" (v),
+> +		  [pav] "r" (pav)
+> +		: "memory"
+> +		);
+> +	}
+> +}
+> +
+> +static inline void __sme_load_za(struct sme_state *state, unsigned long svl)
+                                    ^
+                             Should it be const?
+
+> +{
+> +	/* The <Wv> argument to LDR (array vector) can only encode W12-W15 */
+> +	register unsigned long v asm ("12");
+> +
+> +	instrument_read(state, svl * svl);
+> +	for (v = 0; v < svl; v++) {
+> +		void *pav = (void *)state + v * svl;
+> +
+> +		asm volatile(
+> +		__SME_PREAMBLE
+> +		"	ldr	za[%w[v], #0], [%[pav]]\n"
+> +		:
+> +		: [v] "r" (v),
+> +		  [pav] "r" (pav)
+> +		: "memory"
+> +		);
+> +	}
+> +}
+> +
+> +static inline void __sme_save_zt(struct sme_state *state, unsigned long svl)
+> +{
+> +	void *pzt = (void *)state + svl * svl;
+> +
+> +	instrument_write(pzt, svl);
+> +	asm volatile(
+> +	__DEFINE_ASM_GPR_NUMS
+> +	/*
+> +	 * STR ZT0, [<Xn|SP>]
+> +	 * Supported by binutils 2.41+.
+> +	 * Supported by LLVM 16+
+> +	 */
+> +	"	.inst	0xe13f8000 | ((.L__gpr_num_%[pzt]) << 5)\n"
+> +	:
+> +	: [pzt] "r" (pzt)
+> +	: "memory");
+> +}
+> +
+> +static inline void __sme_load_zt(const struct sme_state *state, unsigned long svl)
+> +{
+> +	void *pzt = (void *)state + svl * svl;
+> +
+> +	instrument_read(pzt, svl);
+> +	asm volatile(
+> +	__DEFINE_ASM_GPR_NUMS
+> +	/*
+> +	 * LDR ZT0, [<Xn|SP>]
+> +	 * Supported by binutils 2.41+.
+> +	 * Supported by LLVM 16+
+> +	 */
+> +	"	.inst	0xe11f8000 | ((.L__gpr_num_%[pzt]) << 5)\n"
+> +	:
+> +	: [pzt] "r" (pzt)
+> +	: "memory");
+> +}
+> +
+> +static inline void sme_save_state(struct sme_state *state, bool zt)
+> +{
+> +	unsigned long svl = sme_get_vl();
+> +
+> +	__sme_save_za(state, svl);
+> +	if (zt)
+> +		__sme_save_zt(state, svl);
+> +}
+> +
+> +static inline void sme_load_state(struct sme_state *state, bool zt)
+                                     ^
+                             Should it be const?
+
+> +{
+> +	unsigned long svl = sme_get_vl();
+> +
+> +	__sme_load_za(state, svl);
+> +	if (zt)
+> +		__sme_load_zt(state, svl);
+> +}
+> +
+>  /*
+>   * Return how many bytes of memory are required to store the full SME
+>   * specific state for task, given task's currently configured vector
+> @@ -695,6 +786,9 @@ static inline size_t sme_state_size(struct task_struct const *task)
+>  	return 0;
+>  }
+>  
+> +static inline void sme_save_state(struct sme_state *state, bool zt) { BUILD_BUG(); }
+> +static inline void sme_load_state(const struct sme_state *state, bool zt) { BUILD_BUG(); }
+> +
+>  static inline void sme_enter_from_user_mode(void) { }
+>  static inline void sme_exit_to_user_mode(void) { }
+>  
+> diff --git a/arch/arm64/include/asm/fpsimdmacros.h b/arch/arm64/include/asm/fpsimdmacros.h
+> index 9e352b5c6b764..a763fd03ffef3 100644
+> --- a/arch/arm64/include/asm/fpsimdmacros.h
+> +++ b/arch/arm64/include/asm/fpsimdmacros.h
+> @@ -40,60 +40,6 @@
+>  	.endif
+>  .endm
+>  
+> -/* Deprecated macros for SME instructions */
+> -
+> -/* RDSVL X\nx, #\imm */
+> -.macro _sme_rdsvl nx, imm
+> -	.arch_extension sme
+> -	rdsvl x\nx, #\imm
+> -.endm
+> -
+> -/*
+> - * STR (vector from ZA array):
+> - *	STR ZA[W\nw, #\offset], [X\nxbase, #\offset, MUL VL]
+> - */
+> -.macro _sme_str_zav nw, nxbase, offset=0
+> -	.arch_extension sme
+> -	str	za[w\nw, #\offset], [x\nxbase, #\offset, MUL VL]
+> -.endm
+> -
+> -/*
+> - * LDR (vector to ZA array):
+> - *	LDR ZA[w\nw, #\offset], [X\nxbase, #\offset, MUL VL]
+> - */
+> -.macro _sme_ldr_zav nw, nxbase, offset=0
+> -	.arch_extension sme
+> -	ldr	za[w\nw, #\offset], [x\nxbase, #\offset, MUL VL]
+> -.endm
+> -
+> -/*
+> - * SME2 instruction encodings for older assemblers.
+> - * Supported by binutils 2.41+.
+> - * Supported by LLVM 16+
+> - */
+> -
+> -/*
+> - * LDR (ZT0)
+> - *
+> - *	LDR ZT0, nx
+> - */
+> -.macro _ldr_zt nx
+> -	_check_general_reg \nx
+> -	.inst	0xe11f8000	\
+> -		 | (\nx << 5)
+> -.endm
+> -
+> -/*
+> - * STR (ZT0)
+> - *
+> - *	STR ZT0, nx
+> - */
+> -.macro _str_zt nx
+> -	_check_general_reg \nx
+> -	.inst	0xe13f8000		\
+> -		| (\nx << 5)
+> -.endm
+> -
+>  .macro __for from:req, to:req
+>  	.if (\from) == (\to)
+>  		_for__body %\from
+> @@ -116,25 +62,3 @@
+>  
+>  	.purgem _for__body
+>  .endm
+> -
+> -.macro sme_save_za nxbase, xvl, nw
+> -	mov	w\nw, #0
+> -
+> -423:
+> -	_sme_str_zav \nw, \nxbase
+> -	add	x\nxbase, x\nxbase, \xvl
+> -	add	x\nw, x\nw, #1
+> -	cmp	\xvl, x\nw
+> -	bne	423b
+> -.endm
+> -
+> -.macro sme_load_za nxbase, xvl, nw
+> -	mov	w\nw, #0
+> -
+> -423:
+> -	_sme_ldr_zav \nw, \nxbase
+> -	add	x\nxbase, x\nxbase, \xvl
+> -	add	x\nw, x\nw, #1
+> -	cmp	\xvl, x\nw
+> -	bne	423b
+> -.endm
+> diff --git a/arch/arm64/kernel/Makefile b/arch/arm64/kernel/Makefile
+> index 74b76bb704523..d2690c3ec5288 100644
+> --- a/arch/arm64/kernel/Makefile
+> +++ b/arch/arm64/kernel/Makefile
+> @@ -27,7 +27,7 @@ KCOV_INSTRUMENT_idle.o := n
+>  
+>  # Object file lists.
+>  obj-y			:= debug-monitors.o entry.o irq.o fpsimd.o		\
+> -			   entry-common.o entry-fpsimd.o process.o ptrace.o	\
+> +			   entry-common.o process.o ptrace.o			\
+>  			   setup.o signal.o sys.o stacktrace.o time.o traps.o	\
+>  			   io.o vdso.o hyp-stub.o psci.o cpu_ops.o		\
+>  			   return_address.o cpuinfo.o cpu_errata.o		\
+> diff --git a/arch/arm64/kernel/entry-fpsimd.S b/arch/arm64/kernel/entry-fpsimd.S
+> deleted file mode 100644
+> index bff941eea9566..0000000000000
+> --- a/arch/arm64/kernel/entry-fpsimd.S
+> +++ /dev/null
+> @@ -1,48 +0,0 @@
+> -/* SPDX-License-Identifier: GPL-2.0-only */
+> -/*
+> - * FP/SIMD state saving and restoring
+> - *
+> - * Copyright (C) 2012 ARM Ltd.
+> - * Author: Catalin Marinas <catalin.marinas@arm.com>
+> - */
+> -
+> -#include <linux/linkage.h>
+> -
+> -#include <asm/assembler.h>
+> -#include <asm/fpsimdmacros.h>
+> -
+> -#ifdef CONFIG_ARM64_SME
+> -
+> -/*
+> - * Save the ZA and ZT state
+> - *
+> - * x0 - pointer to buffer for state
+> - * x1 - number of ZT registers to save
+> - */
+> -SYM_FUNC_START(sme_save_state)
+> -	_sme_rdsvl	2, 1		// x2 = VL/8
+> -	sme_save_za 0, x2, 12		// Leaves x0 pointing to the end of ZA
+> -
+> -	cbz	x1, 1f
+> -	_str_zt 0
+> -1:
+> -	ret
+> -SYM_FUNC_END(sme_save_state)
+> -
+> -/*
+> - * Load the ZA and ZT state
+> - *
+> - * x0 - pointer to buffer for state
+> - * x1 - number of ZT registers to save
+> - */
+> -SYM_FUNC_START(sme_load_state)
+> -	_sme_rdsvl	2, 1		// x2 = VL/8
+> -	sme_load_za 0, x2, 12		// Leaves x0 pointing to the end of ZA
+> -
+> -	cbz	x1, 1f
+> -	_ldr_zt 0
+> -1:
+> -	ret
+> -SYM_FUNC_END(sme_load_state)
+> -
+> -#endif /* CONFIG_ARM64_SME */
+> -- 2.30.2
+> 
+
+Cheers
+Vladimir
 
