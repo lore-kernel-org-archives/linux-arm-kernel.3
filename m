@@ -4,69 +4,68 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id F34ECCD6E45
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 28 May 2026 20:24:23 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 833F7CD5BD5
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 28 May 2026 20:24:24 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:Cc:To:From:
 	Subject:Message-ID:References:Mime-Version:In-Reply-To:Date:Reply-To:
 	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=OQXNgdZN3cKQ+g08vXrIsLwNysE31EdhoJp0+kzR5Os=; b=l/FLb4Ws6FroUBWt/VRVjKeFg+
-	5U0DepsQl76bsPCIPKVvN0ruDylS2fDApo3XFpw4WzGiRX1bcNl5DA+AC16b4ekJgWW1XouzBqgQB
-	GMzZ2WJoXit/E5em1fMJYgf3NOnu18tGcpcccvZDk7vuZUseUiPaxVvKbreuVmxvuRip6iVG9QkT+
-	rXDzHGSGJyCzScVuE8YjkjshtI5VWHNCrkRygOlLXWWpi3WzJD4mL5mZX8Ijumu3OraP1XRTjCclE
-	K0L2LOpQ1kt4lL3/FFIBTVoqmnOO7rU4//54EwUMLWmb1Mms0OTPlfLwVEgBDDMoEvqubhrDFPm08
-	zjbD6fdQ==;
+	bh=junrNZ+TOSSnGGCt6IWg1rMtIZuzEOzNu3RMYtfyWkA=; b=10HpCRk5cw/GIcAJrLEl3U6L4O
+	RsPBkQG90WFbuWvpJWGaS/WS+Ep/JOdZIjOTtF5IyhY3aIqGZSSwwy4lxP+tlx5PofxtbqyC5XbBE
+	+VXlYboZTpNsANaW//OQhsQrUZ4hRVliOUAjwU3LJrSHPCb8RnvsORBdMVdZ/6xpoCwRjFiDvFnRb
+	Bt5jzPg1Q9LKKUt8TQWDLqptDJ+no3meYnQwaRh8Dm8X4chkpyTj49m0uwyl0qGL3xG/Wt/yVqnui
+	/U9ic2ZbMC6Agan8CKDHFTxPkMeL6IBO8ffyxhd4r3SIncicApTB1j7HQ+C7EksK8G+HeGJynNe6c
+	w48x4J1Q==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wShH7-00000006KzM-26N6;
+	id 1wShH7-00000006Kzx-38Zg;
 	Thu, 28 May 2026 20:24:17 +0000
-Received: from mail-pg1-x54a.google.com ([2607:f8b0:4864:20::54a])
+Received: from mail-pj1-x1049.google.com ([2607:f8b0:4864:20::1049])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wShGx-00000006Kua-31T5
+	id 1wShH1-00000006KwQ-2bcS
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 28 May 2026 20:24:08 +0000
-Received: by mail-pg1-x54a.google.com with SMTP id 41be03b00d2f7-c82ac893940so6598817a12.1
-        for <linux-arm-kernel@lists.infradead.org>; Thu, 28 May 2026 13:24:06 -0700 (PDT)
+	Thu, 28 May 2026 20:24:12 +0000
+Received: by mail-pj1-x1049.google.com with SMTP id 98e67ed59e1d1-36603ad6709so11129097a91.2
+        for <linux-arm-kernel@lists.infradead.org>; Thu, 28 May 2026 13:24:10 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=google.com; s=20251104; t=1779999846; x=1780604646; darn=lists.infradead.org;
+        d=google.com; s=20251104; t=1779999850; x=1780604650; darn=lists.infradead.org;
         h=cc:to:from:subject:message-id:references:mime-version:in-reply-to
          :date:from:to:cc:subject:date:message-id:reply-to;
-        bh=OQXNgdZN3cKQ+g08vXrIsLwNysE31EdhoJp0+kzR5Os=;
-        b=NyyliFD/BBewgrrbFic+0t1AVzbZopH89ghz0od8oj04CYZY+B/LMwuSBMPzUyZNEi
-         2ZoCWQFmm2b7KGXbB42kfrU2kH7hrJ0dq3+rNgNqnl8+AO/fpot20cJAAJNyoELy3UzT
-         aGVAXCAYlfYYncW3bnI0zH9239p+FdXmeXuWo/tJ5Q5wxWsBfR0oAo2L8H/ltJZn4biG
-         dIchQ5S9iVPBHbhDEWp6VlFlR/dxWJRc6dcZ9ki87lyxAeHIFdktTSZt0PTQsfNbiPf6
-         MOmS67Oz6IaHgcoL5n18PLJWZgegI9/kRwO789SMEBu635moqdmy/0YJ6u2I7V7asIqr
-         MY6g==
+        bh=junrNZ+TOSSnGGCt6IWg1rMtIZuzEOzNu3RMYtfyWkA=;
+        b=eoJAZBxQArYzU8QXPXzSjAWWidLe57DIrAKRFAWZST1Mp4PvcrXeAvB/Cj4mO4QLzL
+         fa4eaBXHeD18+suim2qHzh2ZdkuQ7FTAnQ88OSOQN0LGTx1HmirxVpY3m2BaxLvXkQGT
+         KB94s3PzCeLCCex8OcNDxqaFVfBqZ83BQUgfekGS2dQFGNe4ixLqATqDm5bpOMaM+y2z
+         Q+Q0rU5etsJCFtC9gXxSnESUGPTkZJhdNwkAGKOub3dr24vNQmXUX2V3FjYN5KDTywF6
+         rwvSgmARwgVQ4Pi6aj019df33RxoY49eAWtqoNqhSYzaWwKPm+qay4LocXvMcIfpkG2t
+         vRIA==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20251104; t=1779999846; x=1780604646;
+        d=1e100.net; s=20251104; t=1779999850; x=1780604650;
         h=cc:to:from:subject:message-id:references:mime-version:in-reply-to
          :date:x-gm-message-state:from:to:cc:subject:date:message-id:reply-to;
-        bh=OQXNgdZN3cKQ+g08vXrIsLwNysE31EdhoJp0+kzR5Os=;
-        b=pCPImQaFw9kSOrz7MMGJzzZhtFxMdk4l0fsGgO6W/UY8W4WezkQGqN4uJ2MfZMieiK
-         tLjEfLX/fquhant6BJ9kOEmCfB78c6NHDlUUj9TB6rSVLG1EVphuTIw602vtGAx7sEjS
-         acibOPRvjH7HKTVyA6gY1W0jL0Sx4qim9CkWibZ692HIiPPg4B+MULvg4Ln2lMlZltb6
-         hobJfxI0dHPSJSR5tKnWEOGS1/2+iG0CMdaxjxGS5PpFClxJiv/9mXKePVpTL35zok7g
-         anfg4St324QG+PM+w3JbQrY2PUw6haz0XRM+fvQn8PBjx0dPa200RQZOaQq8D3CTB4o+
-         utAA==
-X-Forwarded-Encrypted: i=1; AFNElJ+sTalqxIHBqngsjYuiczWwmPP0Eceyfopw5JMbcFyE3dXMhdxPxOrGcoAMOfEKCpWxfrfQ7RY6wVad1DbTzeym@lists.infradead.org
-X-Gm-Message-State: AOJu0YzYtoUQSwzPGxtCz5LMefS3Fu29FZ7VdgriLu7YKKwC9EYKPzuQ
-	vu3j5Z2n20hEeQruWH5KtOfVau7zY9oRFXZTWfNu1TfIQK/LUITghDNQelP8oNv9WZQhjpUl6dt
-	tKQ==
-X-Received: from pgce23.prod.google.com ([2002:a05:6a02:1d7:b0:c85:104d:a751])
- (user=praan job=prod-delivery.src-stubby-dispatcher) by 2002:a05:6a21:7a9c:b0:3b3:9815:3e8f
- with SMTP id adf61e73a8af0-3b40e578036mr320728637.24.1779999845986; Thu, 28
- May 2026 13:24:05 -0700 (PDT)
-Date: Thu, 28 May 2026 20:23:51 +0000
+        bh=junrNZ+TOSSnGGCt6IWg1rMtIZuzEOzNu3RMYtfyWkA=;
+        b=AfiUHBimnr4Xb9//y/9qim2MZBl575yRfS4Su20nCiNaSsBehrgnNruHgZjlw1RvZY
+         3EcxiGbvnDiw/B6DYkQz9+Q8thYJoilfwnARW861T0JvNhZ7SxAsMCe7pnR0DUciQIeh
+         F32VUSYewA+0SMwOIm7Hd0BcXe9JIBGbR8EZavz8UoE0q7wy4p5qoEAiaGn4NHR3m7BW
+         j6vaqrEceoU9t1AyD/Z3FNQBY7XcNSgaqmbx8sVaXyGcfgx78OhK2NINbU7xTZKXjgSM
+         X2lrxfE0bH6jThyoTYekh8TYd3D3kmNPLiImBYYbfl6XaMAJNDFUJJVnlEuIN5umSOMm
+         KjbA==
+X-Forwarded-Encrypted: i=1; AFNElJ8Rmyq9R3pqzp0SDpz9wXdVcGv5qgyAE3ZDVxaJE7bUq22TKwZb2EjO1N3myQQ7ZHXH+GiH10n0I916i5d4+sJT@lists.infradead.org
+X-Gm-Message-State: AOJu0YzbrV9HOUzKK97uVtW4Jg/Q6I3WRJQKpFtY2n27x8afl7K2xG9o
+	F7JdxS/TYWM8PjnG1PFYlc+Cn2e3O8iBX/zLQIh7ShHL6Ycc2NfHlZkUFWv3im6XcM6JjZjgVM4
+	tfg==
+X-Received: from pjbbb14.prod.google.com ([2002:a17:90b:8e:b0:36b:bdb2:1426])
+ (user=praan job=prod-delivery.src-stubby-dispatcher) by 2002:a17:90b:586b:b0:36b:abe2:bc82
+ with SMTP id 98e67ed59e1d1-36bbcc16bb4mr121972a91.1.1779999850016; Thu, 28
+ May 2026 13:24:10 -0700 (PDT)
+Date: Thu, 28 May 2026 20:23:53 +0000
 In-Reply-To: <20260528202353.3422206-1-praan@google.com>
 Mime-Version: 1.0
 References: <20260528202353.3422206-1-praan@google.com>
 X-Mailer: git-send-email 2.54.0.823.g6e5bcc1fc9-goog
-Message-ID: <20260528202353.3422206-6-praan@google.com>
-Subject: [PATCH v5 5/7] iommu/vt-d: Fix RB-tree corruption and Use-After-Free
- in probe
+Message-ID: <20260528202353.3422206-8-praan@google.com>
+Subject: [PATCH v5 7/7] iommu/amd: Fail probe on ATS configuration failure
 From: Pranjal Shrivastava <praan@google.com>
 To: iommu@lists.linux.dev, linux-pci@vger.kernel.org, 
 	linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org
@@ -77,11 +76,11 @@ Cc: Joerg Roedel <joro@8bytes.org>, Will Deacon <will@kernel.org>,
 	Nicolin Chen <nicolinc@nvidia.com>, David Matlack <dmatlack@google.com>, 
 	Samiullah Khawaja <skhawaja@google.com>, Daniel Mentz <danielmentz@google.com>, 
 	Pasha Tatashin <pasha.tatashin@soleen.com>, Mostafa Saleh <smostafa@google.com>, 
-	Pranjal Shrivastava <praan@google.com>, sashiko-bot@kernel.org
+	Pranjal Shrivastava <praan@google.com>
 Content-Type: text/plain; charset="UTF-8"
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260528_132407_762094_8DD6EDF1 
-X-CRM114-Status: GOOD (  15.29  )
+X-CRM114-CacheID: sfid-20260528_132411_661458_562AB633 
+X-CRM114-Status: GOOD (  15.88  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -96,63 +95,74 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-The intel_iommu_probe_device() function contains two pre-existing
-memory safety issues on its error path:
+Update the AMD IOMMU driver to handle ATS configuration and enablement
+more strictly. Specifically, update the device probe to fail if
+pci_prepare_ats() returns an error. This ensures that any ATS-capable
+master reaching the attach phase is guaranteed to have a valid config.
 
-1. The info->node RB-tree member is zero-initialized via kzalloc. If
-   a device does not support ATS, the device_rbtree_insert() call is
-   skipped. If a subsequent probe step fails, the error path jumps to
-   device_rbtree_remove(), which misinterprets the zeroed node as
-   a tree root and corrupts the device RB-tree.
+Additionally, update pdev_enable_cap_ats() to WARN_ON() if pci_enable_ats
+fails. Since earlier checks in the probe phase preclude config-related
+failures, any failure during hardware enablement is considered a kernel
+bug.
 
-2. The info structure is freed on failure, but the pointer remains
-   linked to the device via dev_iommu_priv_set(). This leads to a
-   Use-After-Free regression if the pointer is accessed later.
+Fix a pre-existing Use-After-Free risk by ensuring iommu_ignore_device()
+is called on all probe failures after iommu_init_device().
 
-Fix these by explicitly initializing the RB-node as empty and guarding
-its removal. Additionally, ensure dev_iommu_priv_set(dev, NULL) is
-called before freeing the info structure in the error path.
-
-Reported-by: sashiko-bot@kernel.org
-Closes: https://lore.kernel.org/all/20260525205628.CD4431F000E9@smtp.kernel.org/
-Suggested-by: Baolu Lu <baolu.lu@linux.intel.com>
 Signed-off-by: Pranjal Shrivastava <praan@google.com>
 ---
- drivers/iommu/intel/iommu.c | 7 ++++++-
- 1 file changed, 6 insertions(+), 1 deletion(-)
+ drivers/iommu/amd/iommu.c | 30 ++++++++++++++++++++++++------
+ 1 file changed, 24 insertions(+), 6 deletions(-)
 
-diff --git a/drivers/iommu/intel/iommu.c b/drivers/iommu/intel/iommu.c
-index 4d0e65bc131d..ed6d3a0203f5 100644
---- a/drivers/iommu/intel/iommu.c
-+++ b/drivers/iommu/intel/iommu.c
-@@ -157,7 +157,10 @@ static void device_rbtree_remove(struct device_domain_info *info)
- 	unsigned long flags;
+diff --git a/drivers/iommu/amd/iommu.c b/drivers/iommu/amd/iommu.c
+index 84cad43dc188..b74c4504bee3 100644
+--- a/drivers/iommu/amd/iommu.c
++++ b/drivers/iommu/amd/iommu.c
+@@ -570,10 +570,16 @@ static inline int pdev_enable_cap_ats(struct pci_dev *pdev)
+ 	if (amd_iommu_iotlb_sup &&
+ 	    (dev_data->flags & AMD_IOMMU_DEVICE_FLAG_ATS_SUP)) {
+ 		ret = pci_enable_ats(pdev, PAGE_SHIFT);
+-		if (!ret) {
+-			dev_data->ats_enabled = 1;
+-			dev_data->ats_qdep    = pci_ats_queue_depth(pdev);
+-		}
++		/*
++		 * pci_enable_ats() should not fail here because earlier checks
++		 * have already verified support and configuration.
++		 */
++		if (WARN_ON(ret))
++			return ret;
++
++		dev_data->ats_enabled = 1;
++		dev_data->ats_qdep    = pci_ats_queue_depth(pdev);
++		ret = 0;
+ 	}
  
- 	spin_lock_irqsave(&iommu->device_rbtree_lock, flags);
--	rb_erase(&info->node, &iommu->device_rbtree);
-+	if (!RB_EMPTY_NODE(&info->node)) {
-+		rb_erase(&info->node, &iommu->device_rbtree);
-+		RB_CLEAR_NODE(&info->node);
+ 	return ret;
+@@ -2502,10 +2508,22 @@ static struct iommu_device *amd_iommu_probe_device(struct device *dev)
+ 	else
+ 		dev_data->max_irqs = MAX_IRQS_PER_TABLE_512;
+ 
+-	if (dev_is_pci(dev))
+-		pci_prepare_ats(to_pci_dev(dev), PAGE_SHIFT);
++	if (dev_is_pci(dev)) {
++		struct pci_dev *pdev = to_pci_dev(dev);
++
++		if (pci_ats_supported(pdev)) {
++			ret = pci_prepare_ats(pdev, PAGE_SHIFT);
++			if (ret) {
++				iommu_dev = ERR_PTR(ret);
++				goto out_err;
++			}
++		}
 +	}
- 	spin_unlock_irqrestore(&iommu->device_rbtree_lock, flags);
+ 
+ out_err:
++	if (IS_ERR(iommu_dev))
++		iommu_ignore_device(iommu, dev);
++
+ 	return iommu_dev;
  }
  
-@@ -3254,6 +3257,7 @@ static struct iommu_device *intel_iommu_probe_device(struct device *dev)
- 
- 	info->dev = dev;
- 	info->iommu = iommu;
-+	RB_CLEAR_NODE(&info->node);
- 	if (dev_is_pci(dev)) {
- 		if (ecap_dev_iotlb_support(iommu->ecap) &&
- 		    pci_ats_supported(pdev) &&
-@@ -3316,6 +3320,7 @@ static struct iommu_device *intel_iommu_probe_device(struct device *dev)
- clear_rbtree:
- 	device_rbtree_remove(info);
- free:
-+	dev_iommu_priv_set(dev, NULL);
- 	kfree(info);
- 
- 	return ERR_PTR(ret);
 -- 
 2.54.0.823.g6e5bcc1fc9-goog
 
