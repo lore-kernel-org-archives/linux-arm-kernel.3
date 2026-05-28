@@ -4,121 +4,93 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 59A3ECD4F54
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 28 May 2026 22:14:41 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 17353CD4F54
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 28 May 2026 22:21:50 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:CC:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=PFcemdiuIEethHAaRtPGcR6AjPbwfGlp0P1zo4oyo2U=; b=lSAUjUXDJ+PP785B6UgNmglVgr
-	xfoUt4hrRdnMMgSGzrjUJC0OVSZqNqxJ7MC99lFoq5FYYpf1/jQU3suBSti4zyxuLZlBPInEwxblZ
-	RIoghaxOH0d49ABayKoju6GIEmO0IyKyWIDANfKSsEtT9IyxCTaz64sp03rF5aOPa9L53RopCpV7j
-	MIAVdkYkVl1b6LbS1SSgFB9ipq7b++N3JTsmwLXzSTrvWS2SDC3Xpay2u5O4pEM+1H8kN6osg9bAW
-	IgfIdBRbXSEMhfryBMfp8C2W9BzGXUJurymh9dg+PMbbBPHcX6LSXsC6evwrvoCoYm1zEvzmhdzVW
-	KdrNI/fw==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Message-Id:Date:References:
+	In-Reply-To:Cc:To:From:Subject:Content-Transfer-Encoding:Content-Type:
+	MIME-Version:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=mZmARthFPXCAyxYUsxgldu6mzFwjs58vao40Hr/sGrU=; b=zVzX+YKhthjEqSJ8D+UP8OyyEA
+	0i6rNIMgwDnJyhyZO7K9bLSFxPZQvrirD3DHVt7QySOUZmWwUz2BY7FRGdHUoAUPOcDnoPaBlyemi
+	oJ9xeqrP44kRq87GbGgEJCZ0BV6b9i2lJCezVnW5LvLN573h5uv9R6sNu3d2zm292P2Xz/r8AsMR+
+	rkj68MMIN9Pi3qOJSdmHWaZwlxIFoPoniqvrOmmymNVaCOMoGZ1RGQJNz41LTCU03ythS1mLGnsFm
+	uhgqao8bSQcAHzZoRfKDNjswB0HPpAkEmM2GT+hHOajV9nldkOPkrfbRgBpiuQTmdQ5qDuLcUg3ZB
+	SllK2kdQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wSizp-00000006Sqk-3dV7;
-	Thu, 28 May 2026 22:14:33 +0000
-Received: from mail-southcentralusazon11011011.outbound.protection.outlook.com ([40.93.194.11] helo=SN4PR0501CU005.outbound.protection.outlook.com)
+	id 1wSj6k-00000006TAI-2rEf;
+	Thu, 28 May 2026 22:21:42 +0000
+Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wSizc-00000006SnO-3wAI
+	id 1wSj6i-00000006T9l-1y98
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 28 May 2026 22:14:22 +0000
-ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
- b=bIyHsps/YZfl1M30Gy8Kxbgrpt0IfFp87XhrlfYLGVWqwE30u+E1mM3a46bfMgVUAqAQb+rgaKB20x7l/6SKk7mQJl5SnKa1ArdKWjMb9rHDmWJx89Xo7j/a0YeeS+gcgdR9FW9maATGi3eSDPXdAYZKMoyN+u0MjppW4MF1pJ6J2iaqQ4e95JqzflA7XVGcbcdcMnach4SlGYahwybqac3rr+yKrc+IVJDrMeuFt/6z0fh6FNYme1bH4EKaukRJngCFaGKENgd4zDw1XJsYo6XtRIR4RRLAzxaolHuXY5ljw2HB8ehoF/WbZMGG/6ofQY8oZU569Q5rYRSNtqbLSA==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
- s=arcselector10001;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
- bh=PFcemdiuIEethHAaRtPGcR6AjPbwfGlp0P1zo4oyo2U=;
- b=pfV5GoBwtMJg7RbrjzF6McQiIPcD8UwgwrKRHOGR2J+n1nPrKf+5PSKUFNznl/owhbUvPTq+l7jjHsNEffDGEdoUyoZRJ13New6g67x0hSrVeAM4XztEvtISWkOG52CdaHaYf93NlONJp8pqaQdj/Ex3IXWF7lbTUx19OgVCjKDsqFwbsuppM3kAVxRX2GygZPU3IoOoFGcr62P59dkM+wDGLMVfInsMOvKbJtsyESCVt+NFVbI5L+nsgtgXud0AJrB0OFOARTql8kqTGIVMpAq6BH+ZX9Ez8n4EBgx7726aEn3mGZfUMq+C5VT77javFTKp3cN/ZIhjrvH48wV7tg==
-ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass (sender ip is
- 216.228.117.161) smtp.rcpttodomain=google.com smtp.mailfrom=nvidia.com;
- dmarc=pass (p=reject sp=reject pct=100) action=none header.from=nvidia.com;
- dkim=none (message not signed); arc=none (0)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=Nvidia.com;
- s=selector2;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
- bh=PFcemdiuIEethHAaRtPGcR6AjPbwfGlp0P1zo4oyo2U=;
- b=V8cFD2fpcuGWPO7+srASP1UgCo1a6EZRNqrQoIpIFcQ6Q6brRu6q4SvxkAEUMN6qH/fgyBAwbw63Wlq2iw2694HVHSZlBVdulIjSZ4mXqSAeAA/JvFv3YPC9Q8d8S0DHVZ1uUapmBFuw4JSQDjw6ZjwYK1+NSIC9voowNUapC7tgGDxNzXdSAZML8hXnuaPWkf2MTKXCN66QYrPQ8JMNDbF606Tl+K5YkU2L8WWplI7bJXRNii4HBZaae5TOF3PEwwy0nMOIdE7SeSIj1mrJUDfssD+HTFzoqjZDoh1dzX1gOTeIpwerIuug2Lj2YInEgaaF9D7jCXrptX1aWjGvYA==
-Received: from PH8P222CA0028.NAMP222.PROD.OUTLOOK.COM (2603:10b6:510:2d7::9)
- by SN7PR12MB8770.namprd12.prod.outlook.com (2603:10b6:806:34b::21) with
- Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.21.48.17; Thu, 28 May
- 2026 22:14:12 +0000
-Received: from SN1PEPF000397B0.namprd05.prod.outlook.com
- (2603:10b6:510:2d7:cafe::54) by PH8P222CA0028.outlook.office365.com
- (2603:10b6:510:2d7::9) with Microsoft SMTP Server (version=TLS1_3,
- cipher=TLS_AES_256_GCM_SHA384) id 15.21.71.13 via Frontend Transport; Thu, 28
- May 2026 22:14:12 +0000
-X-MS-Exchange-Authentication-Results: spf=pass (sender IP is 216.228.117.161)
- smtp.mailfrom=nvidia.com; dkim=none (message not signed)
- header.d=none;dmarc=pass action=none header.from=nvidia.com;
-Received-SPF: Pass (protection.outlook.com: domain of nvidia.com designates
- 216.228.117.161 as permitted sender) receiver=protection.outlook.com;
- client-ip=216.228.117.161; helo=mail.nvidia.com; pr=C
-Received: from mail.nvidia.com (216.228.117.161) by
- SN1PEPF000397B0.mail.protection.outlook.com (10.167.248.54) with Microsoft
- SMTP Server (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
- 15.21.92.5 via Frontend Transport; Thu, 28 May 2026 22:14:12 +0000
-Received: from rnnvmail202.nvidia.com (10.129.68.7) by mail.nvidia.com
- (10.129.200.67) with Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.2.2562.20; Thu, 28 May
- 2026 15:13:51 -0700
-Received: from rnnvmail204.nvidia.com (10.129.68.6) by rnnvmail202.nvidia.com
- (10.129.68.7) with Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.2.2562.20; Thu, 28 May
- 2026 15:13:51 -0700
-Received: from Asurada-Nvidia (10.127.8.13) by mail.nvidia.com (10.129.68.6)
- with Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.2.2562.20 via Frontend
- Transport; Thu, 28 May 2026 15:13:50 -0700
-Date: Thu, 28 May 2026 15:13:48 -0700
-From: Nicolin Chen <nicolinc@nvidia.com>
-To: Pranjal Shrivastava <praan@google.com>
-CC: <iommu@lists.linux.dev>, Will Deacon <will@kernel.org>, Joerg Roedel
-	<joro@8bytes.org>, Robin Murphy <robin.murphy@arm.com>, Jason Gunthorpe
-	<jgg@ziepe.ca>, Mostafa Saleh <smostafa@google.com>, Daniel Mentz
-	<danielmentz@google.com>, Ashish Mhetre <amhetre@nvidia.com>,
-	<linux-arm-kernel@lists.infradead.org>
-Subject: Re: [PATCH v7 08/11] iommu/arm-smmu-v3: Implement pm_runtime &
- system sleep ops
-Message-ID: <ahi+HFgBDYmByAtb@Asurada-Nvidia>
-References: <20260527221407.1756491-1-praan@google.com>
- <20260527221407.1756491-9-praan@google.com>
- <ahiaApzK1/nBwr2R@Asurada-Nvidia>
- <ahix0vUm03lxDwAC@google.com>
+	Thu, 28 May 2026 22:21:41 +0000
+Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
+	by sea.source.kernel.org (Postfix) with ESMTP id AE7AC442B5;
+	Thu, 28 May 2026 22:21:39 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id DA3F11F000E9;
+	Thu, 28 May 2026 22:21:33 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
+	s=k20260515; t=1780006899;
+	bh=mZmARthFPXCAyxYUsxgldu6mzFwjs58vao40Hr/sGrU=;
+	h=Subject:From:To:Cc:In-Reply-To:References:Date;
+	b=oVDCIb11pBEckiH0eMeGLTs3Ia2XRJ32VOv1TFeRIohYt3LQ3Xkn6cxTjZx4U3Qfk
+	 Bysq1aE3ULxHL1IY4wF5QFO9cL9MgS/M2CYzXue08ySxGlvLRIY0wktVq6KvUupWoU
+	 kUoctmhG4iqqYx2HQkLfMM6dk2AOCv5iODIqDnT9IzT7LL+da1Qk3PKsKgMvFqGGzA
+	 24NF90JvYx5xGhJO2gTXfASez5fMbhbPANqKbuaeF5upRAfLoVJPj7zBTcdjHz5Cbu
+	 Silfhy48If6qmd/1Pg6GTRB88rPkbJYy5C3OER/R2GeHNaCZnjIOiwYnNQkV/z17Ey
+	 nNRauk22KuAVg==
 MIME-Version: 1.0
-Content-Type: text/plain; charset="us-ascii"
-Content-Disposition: inline
-In-Reply-To: <ahix0vUm03lxDwAC@google.com>
-X-NV-OnPremToCloud: ExternallySecured
-X-EOPAttributedMessage: 0
-X-MS-PublicTrafficType: Email
-X-MS-TrafficTypeDiagnostic: SN1PEPF000397B0:EE_|SN7PR12MB8770:EE_
-X-MS-Office365-Filtering-Correlation-Id: 2f3079a1-f67d-4818-271c-08debd067286
-X-MS-Exchange-SenderADCheck: 1
-X-MS-Exchange-AntiSpam-Relay: 0
-X-Microsoft-Antispam: BCL:0;ARA:13230040|1800799024|82310400026|376014|36860700016|18002099003|11063799006|4143699003|22082099003|56012099006;
-X-Microsoft-Antispam-Message-Info: DLvL9c6DKWHe+5wY+lIqzYSVQw5qAA1EZV98HajALyBFmPzT4jhW37Skhjp7g+nO2VOR/F/QVzN3w0OVuUgU1jPBkkl8ymXtLWy3I5c43HAXtuLnMUsrgK27MFg7DZ+VEzG1jBZvmlHp/FVfIHN3Gve+uXnJnN1BejwiN21KLpZM6jPL7T75SDCj7nr5O1yUi0s4t3w0Ju67rdm/O9HsT9Zsr8j/ptKtepMDg2cbN8nIvlcf3x4c/8CiA+VDGRVgcFl2yt4OIc0bXZdK+X8x5ji7TjR8dN84YDDf+YFZibvka5Jc+JE12BK9tD7msPp3A5Mn7KfBW/hK12DLqjMd71uec7LjWTgXLOxBBDIbVNycU87QEpvtWhtUU1fmZSYhVSTPFLBgODaAGU8DnaWamk29nOsW3mzNcIWMC4EE5pruH57rljBP8QfijkVcNiaxG2mRUT/fQyfif1Sg0UhZoAiimM1p2I3YXqe9giGLzzsE7y6hdtWjwgAaGdzJB42HBHNhlJUMyTVK8mGkgG/csF1do+jg84cqINKys9MKF9t/Bj3Fny8cPJ8zH9BgWdEmZXqUihHvcyWPyP7EGPc1gUza0znytBwzRuQhYb3HIISNKu42pci2UM3VXVo5N10wNvEY/MvK+KcLXN1+wp4bUqVg3kZObXPfSyMBXpiHXe6MnLxHeRfAQGYUji0Njm7OCg0eapH/FpwYdyonaH8OFenKAn6PQRry2sBcKQr1t6M=
-X-Forefront-Antispam-Report: CIP:216.228.117.161;CTRY:US;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:mail.nvidia.com;PTR:dc6edge2.nvidia.com;CAT:NONE;SFS:(13230040)(1800799024)(82310400026)(376014)(36860700016)(18002099003)(11063799006)(4143699003)(22082099003)(56012099006);DIR:OUT;SFP:1101;
-X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
-X-MS-Exchange-AntiSpam-MessageData-0: 1t1tq+PPZBHNDQDE15HxlwdXAfbopBEKkEUWvlHlK9l8YCyZ2HG6Co2LOpXCFmhRe2HdPg4iTOMQWBJ/pflWOHwnjXXlMoaG+0bWaWbEzZEVPTVj4p3f0mi4V64WjzApQTUFzF2su/4R35g7OlbIFCfQAFvKPr4Gu3prn7+JtsexPSRBU/Tno0Jwqws8XNT+HzfBUy7/6LKTySSaIwGVSuFHPHYSvO0qWyhMfNAvHuxFfbALEdcGT3ACVaNWMVZZJWGtGO1xXFQIUr2fC8IchggTxNnABAVDHD+fHFkg5fpDDzpqiMkSSIdXDpGUyU6cvEnA0j3IJSGkeMgkhyKrB4zq4PBqVAkiyiELQnp/Ce3+LGks1gLF2+IN19KR6YjAjLj8LyjepU3N/b26rzW/8Bj90agSWJd9bsayZxKJpSavpeqpmfJf4tQqL8tqy9k8
-X-OriginatorOrg: Nvidia.com
-X-MS-Exchange-CrossTenant-OriginalArrivalTime: 28 May 2026 22:14:12.0483
- (UTC)
-X-MS-Exchange-CrossTenant-Network-Message-Id: 2f3079a1-f67d-4818-271c-08debd067286
-X-MS-Exchange-CrossTenant-Id: 43083d15-7273-40c1-b7db-39efd9ccc17a
-X-MS-Exchange-CrossTenant-OriginalAttributedTenantConnectingIp: TenantId=43083d15-7273-40c1-b7db-39efd9ccc17a;Ip=[216.228.117.161];Helo=[mail.nvidia.com]
-X-MS-Exchange-CrossTenant-AuthSource: SN1PEPF000397B0.namprd05.prod.outlook.com
-X-MS-Exchange-CrossTenant-AuthAs: Anonymous
-X-MS-Exchange-CrossTenant-FromEntityHeader: HybridOnPrem
-X-MS-Exchange-Transport-CrossTenantHeadersStamped: SN7PR12MB8770
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: 7bit
+Subject: Re: [PATCH 4/8] arm64: dts: qcom: shikra: Add CAMSS node
+From: bod@kernel.org
+To: Nihal Kumar Gupta <nihal.gupta@oss.qualcomm.com>
+Cc: Bryan O'Donoghue <bod@kernel.org>, 
+ Vladimir Zapolskiy <vladimir.zapolskiy@linaro.org>, 
+ Loic Poulain <loic.poulain@oss.qualcomm.com>, 
+ Mauro Carvalho Chehab <mchehab@kernel.org>, Rob Herring <robh@kernel.org>, 
+ Krzysztof Kozlowski <krzk+dt@kernel.org>, 
+ Conor Dooley <conor+dt@kernel.org>, Robert Foss <rfoss@kernel.org>, 
+ Andi Shyti <andi.shyti@kernel.org>, 
+ Bryan O'Donoghue <bryan.odonoghue@linaro.org>, 
+ Bjorn Andersson <andersson@kernel.org>, 
+ Konrad Dybcio <konradybcio@kernel.org>, Frank Li <Frank.Li@nxp.com>, 
+ Sascha Hauer <s.hauer@pengutronix.de>, 
+ Pengutronix Kernel Team <kernel@pengutronix.de>, 
+ Fabio Estevam <festevam@gmail.com>, linux-arm-msm@vger.kernel.org, 
+ linux-media@vger.kernel.org, devicetree@vger.kernel.org, 
+ linux-kernel@vger.kernel.org, linux-i2c@vger.kernel.org, 
+ imx@lists.linux.dev, linux-arm-kernel@lists.infradead.org, 
+ Suresh Vankadara <quic_svankada@quicinc.com>, 
+ Vikram Sharma <vikram.sharma@oss.qualcomm.com>
+In-Reply-To: <20260526-shikra-camss-review-v1-4-645d2c8c75a7@qti.qualcomm.com>
+References: <20260526-shikra-camss-review-v1-0-645d2c8c75a7@qti.qualcomm.com>
+ <20260526-shikra-camss-review-v1-4-645d2c8c75a7@qti.qualcomm.com>
+Date: Thu, 28 May 2026 23:21:31 +0100
+Message-Id: <178000689150.4557.11759359941436928903.b4-reply@b4>
+X-Mailer: b4 0.16-dev-d5d98
+X-Developer-Signature: v=1; a=openpgp-sha256; l=4068; i=bod@kernel.org;
+ h=from:subject:message-id; bh=Mz63/CkyFYep9DnMMJtYFqQR/TTuUo9JhtPAEXop1E4=;
+ b=owEBbQKS/ZANAwAKASJxO7Ohjcg6AcsmYgBqGL/tatFRK0PAVLSvVheUTY08eMxxcBtAGbDsh
+ plxVRE24JuJAjMEAAEKAB0WIQTmk/sqq6Nt4Rerb7QicTuzoY3IOgUCahi/7QAKCRAicTuzoY3I
+ OkdaEACdNsKvRUMFoJhIfD/HZ1qJRzzcz/1y5eumxiCBhWLQJR/21fZt4iBCqN27QjZ42TXDbmj
+ EmtJw43/xp84I6xI9Xv8wRlii/0LJVOr8r5JxhFc/BqPzNxfT77cNqCXLuQCBgkWXAnEo4YvBsq
+ AKOeYCX7rUZ25HWKg6l6PxkP/Ghda9xPtT2/s0rDN4o+JEtD/AGhw219HeGBY/zN279/xUTnIWL
+ 4v3sChtOCKesNWldKfKc3aF9z3SLR6cUdrEMWNbMxids93dlpay+8ef84wPmqg9zZMQn+JyGuKf
+ HzwYg0kKg1uxw4QwDLvhvL9SRNeQWC5yjaxWrJbrN8X+HihUm5jA/uEksIZ5S8RCYmx29CbY3N8
+ OR/oVNjc6jMNVx8CN2oAdLfPUhFsxexBwya1zrrUnpNcZbxsVdVEZKyvo1mwwpB02sAHszgX8A0
+ 5km82psvANdxR+mD1/+J7Qitsvk8o7mZp5DksWMQEmNfUiqOKMKlrJZQqnhVfG5+QCyecDHUfrF
+ O1PmQs/LAoHcpssGfS3JXrV8S6zuecwtsifKUnfWJ0Dz3j23kzzITEaqzK0325dVqxylpxlNgB9
+ slGz78LUm1mgePoZxZYiuI42TydUKEsiUjC7qOS8Kc7rnkMxJehdPgRSvA2EsR2nfn/wjfSpQT7
+ 9mJcIikSqxLOzgQ==
+X-Developer-Key: i=bod@kernel.org; a=openpgp;
+ fpr=E693FB2AABA36DE117AB6FB422713BB3A18DC83A
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260528_151420_984571_B6DADAB0 
-X-CRM114-Status: GOOD (  20.56  )
+X-CRM114-CacheID: sfid-20260528_152140_552503_FBF4193A 
+X-CRM114-Status: GOOD (  14.83  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -133,44 +105,124 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Thu, May 28, 2026 at 09:21:22PM +0000, Pranjal Shrivastava wrote:
-> On Thu, May 28, 2026 at 12:39:46PM -0700, Nicolin Chen wrote:
-> > On Wed, May 27, 2026 at 10:14:04PM +0000, Pranjal Shrivastava wrote:
-> > > @@ -789,7 +822,8 @@ int arm_smmu_cmdq_issue_cmdlist(struct arm_smmu_device *smmu,
-> > >  		/* b. Stop gathering work by clearing the owned flag */
-> > >  		prod = atomic_fetch_andnot_relaxed(CMDQ_PROD_OWNED_FLAG,
-> > >  						   &cmdq->q.llq.atomic.prod);
-> > > -		prod &= ~CMDQ_PROD_OWNED_FLAG;
-> > > +		/* Strip all metadata flags */
-> > > +		prod &= CMDQ_PROD_IDX_MASK;
-> > 
-> > Should its prior atomic_fetch_andnot_relaxed() call do something
-> > about the CMDQ_PROD_STOP_FLAG as well?
+On 2026-05-26 22:42 +0530, Nihal Kumar Gupta wrote:
+> Add node for the Shikra camera subsystem.
 > 
-> Umm.. No, the atomic_fetch_andnot_relaxed() call must leave the STOP_FLAG.
-> This block is the owner-publish phase, which occurs *after* the Point of
-> Commitment. If a submission successfully reserved its indices before the
-> gate closed, it shall be allowed to finish.
+> Co-developed-by: Vikram Sharma <vikram.sharma@oss.qualcomm.com>
+> Signed-off-by: Vikram Sharma <vikram.sharma@oss.qualcomm.com>
+> Signed-off-by: Nihal Kumar Gupta <nihal.gupta@oss.qualcomm.com>
+> ---
+>  arch/arm64/boot/dts/qcom/shikra.dtsi | 99 ++++++++++++++++++++++++++++++++++++
+>  1 file changed, 99 insertions(+)
 > 
-> If the owner thread cleared the STOP_FLAG here in the global memory, it
-> would prematurely re-open the gate, allowing new racing submissions to 
-> leak in during the suspend sequence. 
-> 
-> The algorithm works mainly because the RPM callbacks are the only ones
-> that are allowed to manipulate this flag.
+> diff --git a/arch/arm64/boot/dts/qcom/shikra.dtsi b/arch/arm64/boot/dts/qcom/shikra.dtsi
+> index a4334d99c1f35ee851ca8266ec37d4a200a07ee5..6c47cf2a7ef26b4bb7d7f642a240b435cf5208d8 100644
+> --- a/arch/arm64/boot/dts/qcom/shikra.dtsi
+> +++ b/arch/arm64/boot/dts/qcom/shikra.dtsi
+> @@ -604,6 +604,105 @@ opp-384000000 {
+>  			};
+>  		};
+>  
+> +		camss: camss@5c11000 {
+> +			compatible = "qcom,shikra-camss";
+> +
+> +			reg = <0x0 0x05c11000 0x0 0x1000>,
+> +			      <0x0 0x05c6e000 0x0 0x1000>,
+> +			      <0x0 0x05c75000 0x0 0x1000>,
+> +			      <0x0 0x05c52000 0x0 0x1000>,
+> +			      <0x0 0x05c53000 0x0 0x1000>,
+> +			      <0x0 0x05c66000 0x0 0x400>,
+> +			      <0x0 0x05c68000 0x0 0x400>,
+> +			      <0x0 0x05c6f000 0x0 0x4000>,
+> +			      <0x0 0x05c76000 0x0 0x4000>;
+> +			reg-names = "top",
+> +				    "csid0",
+> +				    "csid1",
+> +				    "csiphy0",
+> +				    "csiphy1",
+> +				    "csitpg0",
+> +				    "csitpg1",
+> +				    "vfe0",
+> +				    "vfe1";
+> +
+> +			clocks = <&gcc GCC_CAMERA_AHB_CLK>,
+> +				 <&gcc GCC_CAMSS_AXI_CLK>,
+> +				 <&gcc GCC_CAMSS_NRT_AXI_CLK>,
+> +				 <&gcc GCC_CAMSS_RT_AXI_CLK>,
+> +				 <&gcc GCC_CAMSS_TFE_0_CSID_CLK>,
+> +				 <&gcc GCC_CAMSS_TFE_1_CSID_CLK>,
+> +				 <&gcc GCC_CAMSS_CPHY_0_CLK>,
+> +				 <&gcc GCC_CAMSS_CSI0PHYTIMER_CLK>,
+> +				 <&gcc GCC_CAMSS_CPHY_1_CLK>,
+> +				 <&gcc GCC_CAMSS_CSI1PHYTIMER_CLK>,
+> +				 <&gcc GCC_CAMSS_TOP_AHB_CLK>,
+> +				 <&gcc GCC_CAMSS_TFE_0_CLK>,
+> +				 <&gcc GCC_CAMSS_TFE_0_CPHY_RX_CLK>,
+> +				 <&gcc GCC_CAMSS_TFE_1_CLK>,
+> +				 <&gcc GCC_CAMSS_TFE_1_CPHY_RX_CLK>;
+> +			clock-names = "ahb",
+> +				      "axi",
+> +				      "camnoc_nrt_axi",
+> +				      "camnoc_rt_axi",
+> +				      "csi0",
+> +				      "csi1",
+> +				      "csiphy0",
+> +				      "csiphy0_timer",
+> +				      "csiphy1",
+> +				      "csiphy1_timer",
+> +				      "top_ahb",
+> +				      "vfe0",
+> +				      "vfe0_cphy_rx",
+> +				      "vfe1",
+> +				      "vfe1_cphy_rx";
+> +
+> +			interrupts = <GIC_SPI 210 IRQ_TYPE_EDGE_RISING 0>,
+> +				     <GIC_SPI 212 IRQ_TYPE_EDGE_RISING 0>,
+> +				     <GIC_SPI 72 IRQ_TYPE_EDGE_RISING 0>,
+> +				     <GIC_SPI 73 IRQ_TYPE_EDGE_RISING 0>,
+> +				     <GIC_SPI 309 IRQ_TYPE_EDGE_RISING 0>,
+> +				     <GIC_SPI 310 IRQ_TYPE_EDGE_RISING 0>,
+> +				     <GIC_SPI 211 IRQ_TYPE_EDGE_RISING 0>,
+> +				     <GIC_SPI 213 IRQ_TYPE_EDGE_RISING 0>;
+> +			interrupt-names = "csid0",
+> +					  "csid1",
+> +					  "csiphy0",
+> +					  "csiphy1",
+> +					  "csitpg0",
+> +					  "csitpg1",
+> +					  "vfe0",
+> +					  "vfe1";
+> +
+> +			interconnects = <&mem_noc MASTER_AMPSS_M0 RPM_ACTIVE_TAG
+> +					 &config_noc SLAVE_CAMERA_CFG RPM_ACTIVE_TAG>,
+> +					<&mmrt_virt MASTER_CAMNOC_HF RPM_ALWAYS_TAG
+> +					 &mc_virt SLAVE_EBI_CH0 RPM_ALWAYS_TAG>,
+> +					<&mmnrt_virt MASTER_CAMNOC_SF RPM_ALWAYS_TAG
+> +					 &mc_virt SLAVE_EBI_CH0 RPM_ALWAYS_TAG>;
+> +			interconnect-names = "ahb",
+> +					     "hf_mnoc",
+> +					     "sf_mnoc";
+> +
+> +			iommus = <&apps_smmu 0x400 0x0>;
 
-That reads plausible to me. It would be nicer to leave a brief note
-inline.
+So I'm suspicious of this IOMMU.
 
-> > Should it handle a secondary_cmdq?
-> 
-> No, I don't think we need to check secondary queues here. The STOP_FLAG
-> being set on the primary CMDQ during the suspend should suffice to 
-> indicate the entire SMMU's power state. That's why the function takes in
-> the smmu ptr and not the cmdq.
+We should list the full range of IFE SIDs here not a subset. Since we are
+register compatible with Agatti that implies to me we should also be IOMMU
+compatible.
 
-But if we don't set STOP flag to the secondary_cmdq, wouldn't the
-drain() timeout on the secondary_cmdq that does not elide?
+Please list in your next submission commit log the IOMMU SIDs - comment in
+the DTS is fine too.
 
-Nicolin
+Ideally list the IOMMus for Agatti/2290 and then explain why the singleton
+you have enumerated here is the only required one.
+
+Right now my suspicion radar is high that either the Agatti binding is
+wrong or the Shikra binding is.
+
+Possibly both.
+
+---
+bod
+
 
