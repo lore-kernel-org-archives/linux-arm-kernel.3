@@ -4,110 +4,114 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id E3184CD6E45
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 28 May 2026 03:42:28 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id C65EACD5BD1
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 28 May 2026 04:07:55 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:Cc:To:Subject:Message-ID:Date:From:In-Reply-To:References:
-	MIME-Version:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
+	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=mCjNWcFWR6sJCprx1waql78UPwtAbOc2aIj3hPZm7SU=; b=mUuo20KATy0Pgns+KPjNUBDvvE
-	aBiTjSAQ+QEAIksaqtfQjA32BiVz5A7ZIyHXydeG/l9xTETRZRYz/3sFvXWvXIJQEb8Cw7/HBGebd
-	QycgVUSE6ZqJ3reC05HoVnyI/B8NpaYSHqXNfDQ9TuiTO457QVKUUpE3C4U1P7SGBmEP16eOTikvm
-	k6FIhnpTIEUWrQw+IBmEPMPdAs7+Lqdre4+Ulb56Kz/VA6m0rWXFTasQ/Eg5DpkMBnPZyd94RxoS/
-	xVAOQynxpkT/vRl98qOv2bY0p6Pp211bQ+bYnkAGXC8GOY+2APucbbPk+iMNBYwQ7xNVZlE0DjjHW
-	icX+SW4A==;
+	bh=1I8KzNpXq63WE4CP85HoO7zZcc0AvIs01nVPYeq3DW0=; b=c7Ap6GWb2L9P1UDY3b1daduKOi
+	SYylqx5hKzf4tY9wBgaoGguLPaWimaCOTejUG1SlWVEmVqq5uWbUzHsD6G22af2FNroqU2hvThyFl
+	xtzKkInF1uBlOEbOWhLCzcTI2mmpXLe7+rOm9FVtWpQcaisT/Fc4wOeAoiK4YOPiXODR0sti7rVX3
+	DZlHZvXUzdlg6B85sHfLKFBXd5iRrxDbtjlAJolPR1h9qVPbB7J8my8C7Ut8bKhkANkHenUmlB7uh
+	a9uJKhJZY+1SSZP6a61nxxqoShCJXRzReRFHrP2l5jjd33r4ssutZS9igZp0BRDdy0c/iBfe+woJX
+	/VIVQeTw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wSRdV-000000054dt-3bd5;
-	Thu, 28 May 2026 03:42:21 +0000
-Received: from mail-wr1-x432.google.com ([2a00:1450:4864:20::432])
+	id 1wSS28-000000055eb-02G6;
+	Thu, 28 May 2026 04:07:48 +0000
+Received: from us-smtp-delivery-124.mimecast.com ([170.10.129.124])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wSRdT-000000054dJ-2eA0
+	id 1wSS24-000000055dV-3NqU
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 28 May 2026 03:42:20 +0000
-Received: by mail-wr1-x432.google.com with SMTP id ffacd0b85a97d-44509921fbcso7936110f8f.3
-        for <linux-arm-kernel@lists.infradead.org>; Wed, 27 May 2026 20:42:19 -0700 (PDT)
-ARC-Seal: i=1; a=rsa-sha256; t=1779939738; cv=none;
-        d=google.com; s=arc-20240605;
-        b=RiyC8HUFSSJX7A7Yvsz+3/PULi6lQN3Vub7AxJS5I4VrUSCmuo72I23bhWJb1AlFkU
-         96zN6qT7R2sX8Rq6JFnrYQzq4WsaeTuz5IEKeSidIhVYTXRYnHUr85AsZndZvbJwtqy1
-         n9Z5pbAjZtu3C4pVgle/9PV+P5y9ywd8acyYLuQHJC5bFt06+cyz/5KQH59cQl+hIlwW
-         UVX8e+z/q0/ACgC2IEHZu60YWcvRnKlhP/33LlGWZh5qkmlq2UhoO4QLmgfP0LCjg4YD
-         mJFzuKWwEwpxzmedOMJ5ybMZVIa0A2XLzOcmYNxkh4S1nmNmt1ONOi9u/dS+9igAskcn
-         MTVg==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20240605;
-        h=content-transfer-encoding:cc:to:subject:message-id:date:from
-         :in-reply-to:references:mime-version:dkim-signature;
-        bh=mCjNWcFWR6sJCprx1waql78UPwtAbOc2aIj3hPZm7SU=;
-        fh=zXN/3Uq6+0X8wR8jhp5IYsHYyExRGcK2fVnf2jqpLWQ=;
-        b=Hsxl9tpTPbkNVIaJVvv+Y+BK8aLkMDPbPd87oRicK5wQpZ+0rCiWBoEuiYvrwc2SPo
-         zameQAjVYcj5JrDgtdjFqYV/93w2RXBeKCRUyHDowI5iOGZq2HITg4t+o4sobzHAP1H+
-         oFMu4n84w2GqpfwwtNwSSt272QEZqJAPIS/16VQiWaWgb2x14pitTaUYDafc+CFaLPMY
-         els0HwQj+LLqXy1SNY9PIKslDY+3Adu/tHHQb5Mfu0Zhb4EDG5NWaxrC6zM9ADTZf+s5
-         D9ShGcrk6dMOX5gcKNtykTzDbH7KBS3MW9xp9DgfGQ97UHK3abbe8COVxP7n8doP4WR0
-         1tsQ==;
-        darn=lists.infradead.org
-ARC-Authentication-Results: i=1; mx.google.com; arc=none
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20251104; t=1779939738; x=1780544538; darn=lists.infradead.org;
-        h=content-transfer-encoding:cc:to:subject:message-id:date:from
-         :in-reply-to:references:mime-version:from:to:cc:subject:date
-         :message-id:reply-to;
-        bh=mCjNWcFWR6sJCprx1waql78UPwtAbOc2aIj3hPZm7SU=;
-        b=idpTe+GMAwPWyXr1dVAChcpQkAlNhL6Nrd/1HifK0gvZEo8FHDyqvI5xDpfdDpdke7
-         1kfVIg5ZD724PBrreGKfe587qDoaOrtmqKxky3UvfLg91ecoREBcTDr07j/xbGr97L7E
-         gtMGkRxOcnQ7ZY52HtPHNjn+8dn8amNyQ46smbjVI6waf/IG0zCQyHDnwtqgkAMFqjDz
-         TnKzMFKy4hZArESgyNQDkLpdtTErjDurEi5b7bjgceYAw1llEzhOYlGjX6LkUxodzJMO
-         zf58m1iXba183+qZT7mXV8h/k7ihxCm9pYhrTp/FOd2Vs8zEbuiRzhArKM7c31Ua2fTr
-         DR/w==
+	Thu, 28 May 2026 04:07:46 +0000
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=redhat.com;
+	s=mimecast20190719; t=1779941262;
+	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
+	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
+	 content-transfer-encoding:content-transfer-encoding:
+	 in-reply-to:in-reply-to:references:references;
+	bh=1I8KzNpXq63WE4CP85HoO7zZcc0AvIs01nVPYeq3DW0=;
+	b=ISMa+96ZeHZUdBNli90Ih7fKFQCb4SszJ8p6hebdcQ42XBqfiaY6gR2TfUBOqgIL8cCZAT
+	XBNuE4mMYKEDPFJNirGqmpuVbi8t+YFPjveB1uczM1drhjwbgFOY/b1vEzBe82aw/0cPF6
+	F3r6lKPzkM0FUFrbi7OdsYioh432xTM=
+Received: from mail-pg1-f200.google.com (mail-pg1-f200.google.com
+ [209.85.215.200]) by relay.mimecast.com with ESMTP with STARTTLS
+ (version=TLSv1.3, cipher=TLS_AES_256_GCM_SHA384) id
+ us-mta-633-6UE4X1QrOdO_gZM_GfWgWA-1; Thu, 28 May 2026 00:07:40 -0400
+X-MC-Unique: 6UE4X1QrOdO_gZM_GfWgWA-1
+X-Mimecast-MFC-AGG-ID: 6UE4X1QrOdO_gZM_GfWgWA_1779941259
+Received: by mail-pg1-f200.google.com with SMTP id 41be03b00d2f7-c829586e894so6701341a12.2
+        for <linux-arm-kernel@lists.infradead.org>; Wed, 27 May 2026 21:07:40 -0700 (PDT)
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20251104; t=1779939738; x=1780544538;
-        h=content-transfer-encoding:cc:to:subject:message-id:date:from
-         :in-reply-to:references:mime-version:x-gm-gg:x-gm-message-state:from
-         :to:cc:subject:date:message-id:reply-to;
-        bh=mCjNWcFWR6sJCprx1waql78UPwtAbOc2aIj3hPZm7SU=;
-        b=IRIkgmJ1fohy4+iE+j1EOKiNDCARM3ogm8HymapIHza+oVivIAiN0kHnzjM7QV9d2k
-         dgDlhrgOqyeW+4lRMBfxXpS3K06AcdK1b1L4KBsqdwrkmkBjzQ1vV7h93PbUMaIFt4lX
-         3sm9kSLTaVJRAuzkAdO6QdZwPTwrVCO0Q360juAVPI2FCHW2FfHtWX/35mhzQxDOPkQP
-         B8wjUm6Zo13mASg/tAYkkha531IDFnX1gNZO/iKua7LXd0NpQP30Iv92X9r+GeJVt3r2
-         RHShvrvkMf4e7oxCdlJR33qc9GHorVhoFXc7E5Yj0OyC/6YBFq8Uk5haKvvcZi6MTVbu
-         uXiw==
-X-Forwarded-Encrypted: i=1; AFNElJ//0t1hOWr+4IzkHdLLaW1znuRDOXYZShuwf3vY8gTjI84zBvZyxNaDYhNFq4ZrnnXlURy0xDMTNUaxW0PWgTN6@lists.infradead.org
-X-Gm-Message-State: AOJu0YyIvtaFpehdhUz+YTCKnfVF+xEmRiAM+q+jawkC4iihwWJXKbXs
-	eoOMQfzX4BsqTftYCwRqgeXYo3D7eX7UoF9Ye/zKGyFRRrIBQasiEz0CK5vu617I4blvnz00kUq
-	ib8sG23ErbYq+5nFQqj2vVMYdrbpt/5hVsGDORiE=
-X-Gm-Gg: Acq92OHpNEqKylc/60kT+J2yzXYqin8z3R5hKVJuQiOjU5240LSJgGopp7TKD/ke0Zy
-	k0n0ARMSzYRNHltIsrKcLZDByzQZBlRpDEqB26b+BqWX8PaKmh3ewnuZ8QwxuegE08IiaEZnF7W
-	UbPvDIJR8ThTZC25nIYuwvpt2okNJxl1X3NIrPod9r+Jyp9tRgbDP/nQFmYBvkDbjykbNC1Ih4H
-	UAJfSx+luPWox64MjGjsoebMrOXu/f3RSZi4oRjZCgG+NgOFH7YHk7oNDeqJyBS1oKKfoc5x4fT
-	92H7yQwX2Z8Mp7Q5nUI=
-X-Received: by 2002:a05:6000:2992:20b0:45e:c786:5cd4 with SMTP id
- ffacd0b85a97d-45ec7865d9amr22197007f8f.42.1779939737939; Wed, 27 May 2026
- 20:42:17 -0700 (PDT)
+        d=1e100.net; s=20251104; t=1779941259; x=1780546059;
+        h=content-transfer-encoding:in-reply-to:from:content-language
+         :references:cc:to:subject:user-agent:mime-version:date:message-id
+         :x-gm-gg:x-gm-message-state:from:to:cc:subject:date:message-id
+         :reply-to;
+        bh=1I8KzNpXq63WE4CP85HoO7zZcc0AvIs01nVPYeq3DW0=;
+        b=keO7iX6Ll0e4GOHKH1ECMvUAcD/0VAp6BQn6w6JOA35p9zGYkJKn7GRpnAFxn1ViKr
+         ZQ7N7KiuVXCgNj1EsK0lOI4v6jGa6Dt1ebwMEAVBtO0uyZey9LNqflfh99DRWNR4t9JD
+         how8E8BrzUZ2mwVAtK6GtLyUG9EYji/BY/hrsj7VNztLvm8v1YW70BbR1OhEDJ5K8CXD
+         6HQFuxsZGPPBAJND0aRBBSkmTdf3CcPAZ7KQttx/9OYGllK0lMIcL9mFbRGCNnnVNaXw
+         JN78eqkz024ieH4AQbVycWPvho+E5gHaJGZ6c0YmaYsBPkDIEja9F5jmC9I4e2hpO7x/
+         8axA==
+X-Forwarded-Encrypted: i=1; AFNElJ8crjTkCylaAfD9YqCJ6kVt5gVXlza+PV6RVG5spJogomXAeOhO4h62JcCn7KHJQw/wZncoaIJRMD1CrS7uGeYj@lists.infradead.org
+X-Gm-Message-State: AOJu0YxHRJrakGABaH3zi+n4LZfD9FnnFQEjgEfOcXwVRFAWD60vic7v
+	Rr3Mn7YyAsexJGlSQcQYTpxllcpfN46ZqZYtaBTrfdoNhAUcdwsC2ay+wmueAP6tHX9THsjbTDW
+	utZTPLzttmQNwOr3PlzuBqQbmAj1G/RopMgGxsJRm56ZLvvouiaaQuTFb7bq/zwsFmJhe3zphbt
+	Ck
+X-Gm-Gg: Acq92OHLuCzYSWM9I8UGUJ3VtZ3VL26HkUsBfLL8QVyDfWd2/HVX7pUGAsYTWVZCTL6
+	HXlQRzlBXJ3umtjIibBKzRwBtLV3o+Xlw4A++YpgGOEmRb7XF4zUUXfzLadn4YQf9qG04UjOUGg
+	1mO+697y6rExc3hMosLMRDoeqnmkKAMCp0p9WF8TsOfbQTvf7wqOb393gZiuR/+mCs6Nq8ojP5S
+	SrUZpJOfM8sLIQ9b0QnZgk7m3rAw3uBYyddB6fa6BzEOd22zizcYKkpAG/ckTBnBSgO55sLcNqs
+	gOyh1gb3hsUimgD3msdwiKzKhsuYkpH2LKCpb1rN8nnpK5NPOzkGyUzQCe44eWhalbpr4HnOOn9
+	OG/LScZffuTzbsmVYLzIk8o8P7COrNiRb2t+0haFSxMoDEflJ6MVoSqs6OjwlKSDmoNN4uuTlcc
+	U=
+X-Received: by 2002:a05:6a00:194f:b0:837:acd7:a78 with SMTP id d2e1a72fcca58-8415f329ac5mr24016475b3a.16.1779941259192;
+        Wed, 27 May 2026 21:07:39 -0700 (PDT)
+X-Received: by 2002:a05:6a00:194f:b0:837:acd7:a78 with SMTP id d2e1a72fcca58-8415f329ac5mr24016447b3a.16.1779941258714;
+        Wed, 27 May 2026 21:07:38 -0700 (PDT)
+Received: from [192.168.68.51] (n175-34-8-244.mrk21.qld.optusnet.com.au. [175.34.8.244])
+        by smtp.gmail.com with ESMTPSA id d2e1a72fcca58-841d7300ea4sm3790751b3a.56.2026.05.27.21.07.29
+        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
+        Wed, 27 May 2026 21:07:37 -0700 (PDT)
+Message-ID: <5ea74b6a-a51a-415e-b53f-5ece9829dee8@redhat.com>
+Date: Thu, 28 May 2026 14:07:27 +1000
 MIME-Version: 1.0
-References: <20260522053146.83209-1-jiangwenxiaomi@gmail.com>
- <20260522053146.83209-6-jiangwenxiaomi@gmail.com> <340c811e-2501-46c3-8a55-19e955c5ae8a@arm.com>
-In-Reply-To: <340c811e-2501-46c3-8a55-19e955c5ae8a@arm.com>
-From: Wen Jiang <jiangwenxiaomi@gmail.com>
-Date: Thu, 28 May 2026 11:42:06 +0800
-X-Gm-Features: AVHnY4KddDJ3QPES_Z3XlC4q6Bj_kB7V574_4-TqsJtLPivMCxYpwZ5XM5S6H0Q
-Message-ID: <CAHKocdHOT13DHdz+DsT2BaP0EJSKdoWU2NO-wjFwB9+--CqsHw@mail.gmail.com>
-Subject: Re: [PATCH v3 5/6] mm/vmalloc: map contiguous pages in batches for
- vmap() if possible
-To: Dev Jain <dev.jain@arm.com>
-Cc: linux-mm@kvack.org, linux-arm-kernel@lists.infradead.org, 
-	catalin.marinas@arm.com, will@kernel.org, akpm@linux-foundation.org, 
-	urezki@gmail.com, baohua@kernel.org, Xueyuan.chen21@gmail.com, 
-	rppt@kernel.org, david@kernel.org, ryan.roberts@arm.com, 
-	anshuman.khandual@arm.com, ajd@linux.ibm.com, linux-kernel@vger.kernel.org, 
-	jiangwen6@xiaomi.com
-Content-Type: text/plain; charset="UTF-8"
-Content-Transfer-Encoding: quoted-printable
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH v14 20/44] arm64: RMI: Support for the VGIC in realms
+To: Steven Price <steven.price@arm.com>, kvm@vger.kernel.org,
+ kvmarm@lists.linux.dev
+Cc: Catalin Marinas <catalin.marinas@arm.com>, Marc Zyngier <maz@kernel.org>,
+ Will Deacon <will@kernel.org>, James Morse <james.morse@arm.com>,
+ Oliver Upton <oliver.upton@linux.dev>,
+ Suzuki K Poulose <suzuki.poulose@arm.com>, Zenghui Yu
+ <yuzenghui@huawei.com>, linux-arm-kernel@lists.infradead.org,
+ linux-kernel@vger.kernel.org, Joey Gouly <joey.gouly@arm.com>,
+ Alexandru Elisei <alexandru.elisei@arm.com>,
+ Christoffer Dall <christoffer.dall@arm.com>, Fuad Tabba <tabba@google.com>,
+ linux-coco@lists.linux.dev,
+ Ganapatrao Kulkarni <gankulkarni@os.amperecomputing.com>,
+ Shanker Donthineni <sdonthineni@nvidia.com>, Alper Gun
+ <alpergun@google.com>, "Aneesh Kumar K . V" <aneesh.kumar@kernel.org>,
+ Emi Kisanuki <fj0570is@fujitsu.com>, Vishal Annapurve
+ <vannapurve@google.com>, WeiLin.Chang@arm.com, Lorenzo.Pieralisi2@arm.com
+References: <20260513131757.116630-1-steven.price@arm.com>
+ <20260513131757.116630-21-steven.price@arm.com>
+From: Gavin Shan <gshan@redhat.com>
+In-Reply-To: <20260513131757.116630-21-steven.price@arm.com>
+X-Mimecast-Spam-Score: 0
+X-Mimecast-MFC-PROC-ID: RZMlAOqYkn3wFle6xHV3Z8FTl7TJYBvN2_H-kqEwuoE_1779941259
+X-Mimecast-Originator: redhat.com
+Content-Language: en-US
+Content-Type: text/plain; charset=UTF-8; format=flowed
+Content-Transfer-Encoding: 7bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260527_204219_706380_2A88B302 
-X-CRM114-Status: GOOD (  32.18  )
+X-CRM114-CacheID: sfid-20260527_210744_929282_91EF8BEB 
+X-CRM114-Status: GOOD (  23.99  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -122,163 +126,89 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Wed, 27 May 2026 at 16:28, Dev Jain <dev.jain@arm.com> wrote:
->
->
->
-> On 22/05/26 11:01 am, Wen Jiang wrote:
-> > From: "Barry Song (Xiaomi)" <baohua@kernel.org>
-> >
-> > In many cases, the pages passed to vmap() may include high-order
-> > pages. For example, the systemheap often allocates pages in descending
-> > order: order 8, then 4, then 0. Currently, vmap() iterates over every
-> > page individually=E2=80=94even pages inside a high-order block are hand=
-led
-> > one by one.
-> >
-> > This patch detects physically contiguous pages (regardless of whether
-> > they are compound or non-compound) by scanning with
-> > num_pages_contiguous(), and maps them as a single contiguous block
-> > whenever possible. The first page's pfn must be aligned to the
-> > mapping order for the batched mapping to be used.
-> >
-> > Pages with the same page_shift are coalesced and mapped via
-> > vmap_pages_range_noflush_walk() to avoid page table rewalk.
-> >
-> > As users typically allocate memory in descending orders (e.g.
-> > 8 =E2=86=92 4 =E2=86=92 0), once an order-0 page is encountered, we sto=
-p scanning
-> > for contiguous pages since subsequent pages are likely order-0 as well.
-> >
-> > Signed-off-by: Barry Song (Xiaomi) <baohua@kernel.org>
-> > Co-developed-by: Dev Jain <dev.jain@arm.com>
-> > Signed-off-by: Dev Jain <dev.jain@arm.com>
-> > Signed-off-by: Wen Jiang <jiangwen6@xiaomi.com>
-> > Tested-by: Xueyuan Chen <xueyuan.chen21@gmail.com>
-> > ---
-> >  mm/vmalloc.c | 82 ++++++++++++++++++++++++++++++++++++++++++++++++++--
-> >  1 file changed, 80 insertions(+), 2 deletions(-)
-> >
-> > diff --git a/mm/vmalloc.c b/mm/vmalloc.c
-> > index deb764abc0571..50642246f4d40 100644
-> > --- a/mm/vmalloc.c
-> > +++ b/mm/vmalloc.c
-> > @@ -3542,6 +3542,84 @@ void vunmap(const void *addr)
-> >  }
-> >  EXPORT_SYMBOL(vunmap);
-> >
-> > +static inline int get_vmap_batch_order(struct page **pages,
-> > +             unsigned int max_steps, unsigned int idx)
-> > +{
-> > +     unsigned int nr_contig;
-> > +     int order;
-> > +
-> > +     if (!IS_ENABLED(CONFIG_HAVE_ARCH_HUGE_VMAP) ||
-> > +                     ioremap_max_page_shift =3D=3D PAGE_SHIFT)
->
->
-> Why bail out on ioremap_max_page_shift =3D=3D PAGE_SHIFT? The code
-> path for ioremap is different from vmap right?
->
->
+Hi Steve,
 
-ioremap_max_page_shift is under CONFIG_HAVE_ARCH_HUGE_VMAP which
-controls both ioremap and vmap huge mappings.
+On 5/13/26 11:17 PM, Steven Price wrote:
+> The RMM provides emulation of a VGIC to the realm guest. With RMM v2.0
+> the registers are passed in the system registers so this works similar
+> to a normal guest, but kvm_arch_vcpu_put() need reordering to early out,
+> and realm guests don't support GICv2 even if the host does.
+> 
+> Signed-off-by: Steven Price <steven.price@arm.com>
+> ---
+> Changes from v12:
+>   * GIC registers are now passed in the system registers rather than via
+>     rec_entry/rec_exit which removes most of the changes.
+> Changes from v11:
+>   * Minor changes to align with the previous patches. Note that the VGIC
+>     handling will change with RMM v2.0.
+> Changes from v10:
+>   * Make sure we sync the VGIC v4 state, and only populate valid lrs from
+>     the list.
+> Changes from v9:
+>   * Copy gicv3_vmcr from the RMM at the same time as gicv3_hcr rather
+>     than having to handle that as a special case.
+> Changes from v8:
+>   * Propagate gicv3_hcr to from the RMM.
+> Changes from v5:
+>   * Handle RMM providing fewer GIC LRs than the hardware supports.
+> ---
+>   arch/arm64/kvm/arm.c            | 11 ++++++++---
+>   arch/arm64/kvm/vgic/vgic-init.c |  2 +-
+>   2 files changed, 9 insertions(+), 4 deletions(-)
+> 
+> diff --git a/arch/arm64/kvm/arm.c b/arch/arm64/kvm/arm.c
+> index 93d34762db91..21d9dfdb1ea0 100644
+> --- a/arch/arm64/kvm/arm.c
+> +++ b/arch/arm64/kvm/arm.c
+> @@ -786,19 +786,24 @@ void kvm_arch_vcpu_put(struct kvm_vcpu *vcpu)
+>   		kvm_call_hyp_nvhe(__pkvm_vcpu_put);
+>   	}
+>   
+> +	kvm_timer_vcpu_put(vcpu);
+> +	kvm_vgic_put(vcpu);
+> +
+> +	vcpu->cpu = -1;
+> +
+> +	if (vcpu_is_rec(vcpu))
+> +		return;
+> +
 
-> > +             return 0;
-> > +
-> > +     nr_contig =3D num_pages_contiguous(&pages[idx], max_steps);
-> > +     if (nr_contig < 2)
-> > +             return 0;
-> > +
-> > +     order =3D fls(nr_contig) - 1;
-> > +
-> > +     if (arch_vmap_pte_supported_shift(PAGE_SIZE << order) =3D=3D PAGE=
-_SHIFT)
-> > +             return 0;
-> > +
-> > +     /* Ensure the first page's pfn is aligned to the order */
-> > +     if (!IS_ALIGNED(page_to_pfn(pages[idx]), 1 << order))
-> > +             return 0;
-> > +
-> > +     return order;
-> > +}
-> > +
-> > +static int vmap_batched(unsigned long addr, unsigned long end,
-> > +             pgprot_t prot, struct page **pages)
-> > +{
-> > +     unsigned int count =3D (end - addr) >> PAGE_SHIFT;
-> > +     unsigned int prev_shift =3D 0, idx =3D 0;
-> > +     unsigned long start =3D addr, map_addr =3D addr;
-> > +     int err;
-> > +
-> > +     err =3D kmsan_vmap_pages_range_noflush(addr, end, prot, pages,
-> > +                                             PAGE_SHIFT, GFP_KERNEL);
-> > +     if (err)
-> > +             goto out;
-> > +
-> > +     for (unsigned int i =3D 0; i < count; ) {
-> > +             unsigned int shift =3D PAGE_SHIFT +
-> > +                     get_vmap_batch_order(pages, count - i, i);
-> > +
-> > +             if (!i)
-> > +                     prev_shift =3D shift;
-> > +
-> > +             if (shift !=3D prev_shift) {
-> > +                     err =3D vmap_pages_range_noflush_walk(map_addr, a=
-ddr,
->
-> It would be worth documenting vmap_pages_range_noflush_walk() that
-> it can take an array of pages which are not all contiguous, but it
-> may have contiguous chunks, as hinted by page_shift.
->
-> Otherwise this looks good.
->
-> > +                                     prot, pages + idx,
-> > +                                     min(prev_shift, PMD_SHIFT));
-> > +                     if (err)
-> > +                             goto out;
-> > +                     prev_shift =3D shift;
-> > +                     map_addr =3D addr;
-> > +                     idx =3D i;
-> > +             }
-> > +
-> > +             /*
-> > +              * Once small pages are encountered, the remaining pages
-> > +              * are likely small as well.
-> > +              */
-> > +             if (shift =3D=3D PAGE_SHIFT)
-> > +                     break;
-> > +
-> > +             addr +=3D 1UL << shift;
-> > +             i +=3D 1U << (shift - PAGE_SHIFT);
-> > +     }
-> > +
-> > +     /* Remaining */
-> > +     if (map_addr < end)
-> > +             err =3D vmap_pages_range_noflush_walk(map_addr, end,
-> > +                             prot, pages + idx, min(prev_shift, PMD_SH=
-IFT));
-> > +
-> > +out:
-> > +     flush_cache_vmap(start, end);
-> > +     return err;
-> > +}
-> > +
-> >  /**
-> >   * vmap - map an array of pages into virtually contiguous space
-> >   * @pages: array of page pointers
-> > @@ -3585,8 +3663,8 @@ void *vmap(struct page **pages, unsigned int coun=
-t,
-> >               return NULL;
-> >
-> >       addr =3D (unsigned long)area->addr;
-> > -     if (vmap_pages_range(addr, addr + size, pgprot_nx(prot),
-> > -                             pages, PAGE_SHIFT) < 0) {
-> > +     if (vmap_batched(addr, addr + size, pgprot_nx(prot),
-> > +                             pages) < 0) {
-> >               vunmap(area->addr);
-> >               return NULL;
-> >       }
->
+For a REC, kvm_vcpu_{load, put}_debug() becomes unbalanced in kvm_arch_vcpu_{load, put}().
+kvm_vcpu_load_debug() is called in kvm_arch_vcpu_load(), but kvm_vcpu_put_debug() won't
+be called in kvm_arch_vcpu_put() after this whole series is applied.
+
+>   	kvm_vcpu_put_debug(vcpu);
+>   	kvm_arch_vcpu_put_fp(vcpu);
+>   	if (has_vhe())
+>   		kvm_vcpu_put_vhe(vcpu);
+> -	kvm_timer_vcpu_put(vcpu);
+> -	kvm_vgic_put(vcpu);
+>   	kvm_vcpu_pmu_restore_host(vcpu);
+>   	if (vcpu_has_nv(vcpu))
+>   		kvm_vcpu_put_hw_mmu(vcpu);
+>   	kvm_arm_vmid_clear_active();
+>   
+>   	vcpu_clear_on_unsupported_cpu(vcpu);
+> -	vcpu->cpu = -1;
+>   }
+>   
+>   static void __kvm_arm_vcpu_power_off(struct kvm_vcpu *vcpu)
+> diff --git a/arch/arm64/kvm/vgic/vgic-init.c b/arch/arm64/kvm/vgic/vgic-init.c
+> index 933983bb2005..a9db963dfd23 100644
+> --- a/arch/arm64/kvm/vgic/vgic-init.c
+> +++ b/arch/arm64/kvm/vgic/vgic-init.c
+> @@ -81,7 +81,7 @@ int kvm_vgic_create(struct kvm *kvm, u32 type)
+>   	 * the proper checks already.
+>   	 */
+>   	if (type == KVM_DEV_TYPE_ARM_VGIC_V2 &&
+> -		!kvm_vgic_global_state.can_emulate_gicv2)
+> +	    (!kvm_vgic_global_state.can_emulate_gicv2 || kvm_is_realm(kvm)))
+>   		return -ENODEV;
+>   
+>   	/*
+
+Thanks,
+Gavin
+
 
