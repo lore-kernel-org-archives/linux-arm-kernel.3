@@ -4,68 +4,64 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 28940CD4F54
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 28 May 2026 17:01:05 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 10818CD4F54
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 28 May 2026 17:11:29 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:
-	To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=4Znfjor+zJ70etFiFDbpb0jYMeDkXX1SFodOSy+D/Sw=; b=ImHyHXsoYCIeHZrweshIZlCI6/
-	iMoXl7nusiUI+4fgpDViu6K7uk6Al2F86+IpgBoHOfSvPR026BnzWMp9c4hJ1ACnCPBy9hLxO05Ai
-	EJIo3DexreCVXDANPmAnqiL25NBKh/87Z02MtN4ufkBZn85LeMdjFak8gi+kdwgucGXGQlkkKqeMQ
-	ITLsbYTG5+KF+/yrWUfZMjxyji3Sbak0kVaahIRqO7hpVxMNd794pa58IdWuWuNuQCOGASqygKLyO
-	JFOV453RYtpk9Lnv0E1UDJKhtdrlkU97JjSf+js+UizejoI7JCuKpt4L53apXX3niSk6AFFKPNNBY
-	VjVMSZmg==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=ESUcyV5xX+vb21rsW2egvTcS59htvpVkM14wkZr1uQg=; b=OIxSDX8ek3xraLvNQUKNWs/MAR
+	EG/V9W0RlGxYNJpexhl2xxL3Nev5gdkN0eNUp2vYlhc9yBtiMvol/z/yOacBmMio/g4DhYGRYghgG
+	PBzTPs1OLOoyrxSPLga7CgMIHz+q8fy03q/v4YZ8C57uDP97gq64egSwsN83q0IgwlLzQOASUTPnk
+	cky6IM/UeMjXgpARb9DtUnaXc6QGVJkBcW8ZE0eTfL2grqWGF8klTbEfO3n+V3+08USVCq8y4rwzN
+	QuIxQrTaAuRsdycIU15dCLtF9ri3SlcVG/Bl91ddbmHsBLmLn9kdJ551tO+iUc5Jj4K8K/fL7z9z8
+	tszfWfgA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wSe6L-000000063tU-0ygR;
-	Thu, 28 May 2026 17:00:57 +0000
+	id 1wSeGJ-000000064Kr-0Y3f;
+	Thu, 28 May 2026 17:11:15 +0000
 Received: from foss.arm.com ([217.140.110.172])
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wSe6I-000000063sh-19Rr
+	id 1wSeGH-000000064KQ-03UW
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 28 May 2026 17:00:55 +0000
+	Thu, 28 May 2026 17:11:14 +0000
 Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
-	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id 62CD14617;
-	Thu, 28 May 2026 10:00:47 -0700 (PDT)
-Received: from devkitleo.cambridge.arm.com (devkitleo.cambridge.arm.com [10.1.196.90])
-	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id 845303F905;
-	Thu, 28 May 2026 10:00:50 -0700 (PDT)
+	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id 46A3A4617;
+	Thu, 28 May 2026 10:11:06 -0700 (PDT)
+Received: from localhost (e132581.arm.com [10.1.196.87])
+	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id CE2213F632;
+	Thu, 28 May 2026 10:11:10 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=simple/simple; d=arm.com; s=foss;
-	t=1779987652; bh=CTP15c6ZTQAbPUo//xK8LqjektCEHBQDQm+RD2xFupM=;
-	h=From:To:Cc:Subject:Date:In-Reply-To:References:From;
-	b=pylq86ayT02MasE10PueW9vf56oVo+Exa5ofT6xhS0uiZ8K+FNNhPU7eYE7Y0ubja
-	 88FRnwjfHOPwRRPlUJrc5mgKuSn1mY6YrrGWkL2UPzyHuEUpHv8pd65cIsOQPqIfrb
-	 GajKq0iNr6IBPXKC2tsc2UuWgbovFAWWMwak9W98=
-From: Leonardo Bras <leo.bras@arm.com>
-To: Marc Zyngier <maz@kernel.org>
-Cc: Leonardo Bras <leo.bras@arm.com>,
-	Oliver Upton <oupton@kernel.org>,
-	Joey Gouly <joey.gouly@arm.com>,
-	Suzuki K Poulose <suzuki.poulose@arm.com>,
-	Zenghui Yu <yuzenghui@huawei.com>,
-	Catalin Marinas <catalin.marinas@arm.com>,
-	Will Deacon <will@kernel.org>,
-	Fuad Tabba <tabba@google.com>,
-	Raghavendra Rao Ananta <rananta@google.com>,
-	linux-arm-kernel@lists.infradead.org,
-	kvmarm@lists.linux.dev,
-	linux-kernel@vger.kernel.org
-Subject: Re: [RFC PATCH 0/2] Optimize S2 page splitting
-Date: Thu, 28 May 2026 18:00:48 +0100
-Message-ID: <ahh0wOamCIKbmQqp@devkitleo>
-X-Mailer: git-send-email 2.54.0
-In-Reply-To: <87o6ifaf5z.wl-maz@kernel.org>
-References: <20260515195904.2466381-1-leo.bras@arm.com> <87o6ifaf5z.wl-maz@kernel.org>
+	t=1779988271; bh=n4tNgwyatQTQbGW3S3TfLyFi3VbFJIQEFLRlL5eOTs8=;
+	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
+	b=bwW14eWzh64FMcKAN7Zcl33EPwg88MkcPsfGUleJH935xNACX1Jt4r6KKr4FrYh7Q
+	 nIbaDIIRw1khb+iL5/lLvAMA4+GkHiVpHc5wmNJk+ZzxXLclFYnHZPG+b0+M/hhFBa
+	 okv3UQ9AmmrlgWuJEAN7vNWeyGcimtShxMeQDM5w=
+Date: Thu, 28 May 2026 18:11:08 +0100
+From: Leo Yan <leo.yan@arm.com>
+To: Yingchao Deng <yingchao.deng@oss.qualcomm.com>
+Cc: Suzuki K Poulose <suzuki.poulose@arm.com>,
+	Mike Leach <mike.leach@arm.com>,
+	James Clark <james.clark@linaro.org>,
+	Alexander Shishkin <alexander.shishkin@linux.intel.com>,
+	coresight@lists.linaro.org, linux-arm-kernel@lists.infradead.org,
+	linux-kernel@vger.kernel.org, linux-arm-msm@vger.kernel.org,
+	jinlong.mao@oss.qualcomm.com, quic_yingdeng@quicinc.com,
+	tingwei.zhang@oss.qualcomm.com, jie.gan@oss.qualcomm.com
+Subject: Re: [PATCH v9 3/4] coresight: cti: add Qualcomm extended CTI
+ identification and quirks
+Message-ID: <20260528171108.GI101133@e132581.arm.com>
+References: <20260521-extended_cti-v9-0-d21f4f92c51e@oss.qualcomm.com>
+ <20260521-extended_cti-v9-3-d21f4f92c51e@oss.qualcomm.com>
 MIME-Version: 1.0
 Content-Type: text/plain; charset=us-ascii
 Content-Disposition: inline
-Content-Transfer-Encoding: 8bit
+In-Reply-To: <20260521-extended_cti-v9-3-d21f4f92c51e@oss.qualcomm.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260528_100054_393792_2E3BEC82 
-X-CRM114-Status: GOOD (  29.44  )
+X-CRM114-CacheID: sfid-20260528_101113_098402_F4C6875F 
+X-CRM114-Status: GOOD (  14.89  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -80,92 +76,74 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Sat, May 16, 2026 at 10:15:36AM +0100, Marc Zyngier wrote:
-> On Fri, 15 May 2026 20:59:01 +0100,
-> Leonardo Bras <leo.bras@arm.com> wrote:
-> > 
-> > While playing with dirty-bit tracking, I decided to take a look on how page
-> > splitting works. Found out all entries are walked, even though we can infer,
-> > for instance that:
-> > - If a level-3 entry is walked, it means the parent level-2 entry is split
-> > - If a split just succeeded in an table entry, it means all children nodes
-> >   are already split
-> > 
-> > So I tried to optimize it in a way that it does not break other users.
-> > 
-> > My main idea is to introduce positive return values that hint to the
-> > pagetable walking mechanism that either siblings or children can be 
-> > skipped. That should be contained to the visitor function, that returns
-> > zero if no error was detected.
-> > 
-> > Numbers on above optimization are promising:
-> > A 1GB VM, running on the model, splitting all at the beginning 
-> > (no manual protect):
-> > - Memory was already split (4k pages): 	-97.33% runtime (-172ms) - 20 runs
-> > - THP backed memory: 			-19.82% runtime (-153ms) - 10 runs
-> > - 1x1GB hugetlb memory:			-20.65% runtime (-150ms) - 10 runs
-> >
-> 
-> I haven't looked at the changes in details, but the methodology is
-> quite flawed. For a start, measuring anything on a software model
-> (QEMU or FVP) doesn't mean anything performance-wise. The trade-offs
-> are completely different from a HW implementation, and even the notion
-> of time is pretty inconsistent.
-> 
-> Please run this on actual HW. I'm sure your employer can give you
-> access to one of these mythical arm64 toys. Measure things from
-> userspace, not from the kernel, so that you have all the overheads.
-> Don't add console output, because that will make things far worse.
-> 
-> I'm sure you can hack one of the selftests for this purpose.
+On Thu, May 21, 2026 at 08:16:29PM +0800, Yingchao Deng wrote:
 
-Hello Marc,
+[...]
 
-I have ran some tests in real hardware (AmpereOne) and calling from 
-userspace as you suggested.
+> Qualcomm implements an extended variant of the ARM CoreSight CTI with a
+> different register layout and vendor-specific behavior. While the
+> programming model remains largely compatible, the register offsets differ
+> from the standard ARM CTI and require explicit handling.
 
-The tests create a 64GB VM, using either regular pages (no split needed), 
-THP backed memory or Hugetlb. 
+I cannot apply this patch successfuly. Please rebase on the latest
+coresight-next branch.
 
-Those tests measured the times for the whole syscall that happens to do
-eager page splitting, in this case,
-1 - Manual protect and init set: On every KVM_CLEAR_DIRTY_LOG, if the page
-    was requested to be cleaned, it is also split.
-2 - Otherwise, on dirty log enable (aka KVM_SET_USER_MEMORY_REGION2 with
-    KVM_MEM_LOG_DIRTY_PAGES set in flags), for the whole memslot is split
-    at once.
+> @@ -726,6 +734,22 @@ static int cti_probe(struct amba_device *adev, const struct amba_id *id)
+>  
+>  	raw_spin_lock_init(&drvdata->spinlock);
+>  
+> +	devarch = readl_relaxed(drvdata->base + CORESIGHT_DEVARCH);
+> +	if (CTI_DEVARCH_ARCHITECT(devarch) == ARCHITECT_QCOM) {
+> +		drvdata->is_qcom_cti = true;
+> +		/*
+> +		 * QCOM CTI does not implement Claimtag functionality as
+> +		 * per CoreSight specification, but its CLAIMSET register
+> +		 * is incorrectly initialized to 0xF. This can mislead
+> +		 * tools or drivers into thinking the component is claimed.
+> +		 *
+> +		 * Reset CLAIMSET to 0 to reflect that no claims are active.
+> +		 */
+> +		CS_UNLOCK(drvdata->base);
+> +		writel_relaxed(0, drvdata->base + CORESIGHT_CLAIMSET);
+> +		CS_LOCK(drvdata->base);
 
-Tests reflect new suggestions I got in this patchset: instead of using 
-return values, I am using flags to skip whole levels, or skipping children 
-nodes. I tested those 2 kernels, on top of vanilla:
-a - Skip levels
-b - Skip levels, and skip children node
+Sorry I missed this piece before.
 
-Results averaged across 4k, 16k and 64k pages, a percentage of time 
-saved, compared to vanilla kernel. More is better.
+Can you move this quirk into firmware? I don't think the CTI driver
+should clear the external claim bit as this totally break the protocol
+defined in PSCI. A clean way would clear the bits in firmware and then
+CTI driver can use the CLAIM registers.
 
-For (1), we have
-regular pages:	26.7% (a) and 25.3% (b)
-THP:		13.2% (a) and 11.9% (b)
-Hugetlb:	14.3% (a) and 13.2% (b)
+Or, another option is to create several helpers to bypass claim
+operations for Qcom CTI:
 
-For (2), we have:
-regular pages:	33.1% (a) and 35.0% (b)
-THP:		11.9% (a) and 10.7% (b)
-Hugetlb:	13.4% (a) and 13.2% (b)
+  static void cti_clear_self_claim_tag(cti_drvdata *drvdata,
+                                      struct csdev_access *csa)
+  {
+      if (drvdata->is_qcom_cti)
+          return;
 
-On above results, I could notice about 1% overhead showing that skipping 
-child nodes (testing flag) ends up being counter-productive compared to 
-just skipping levels. The only case this does not happen is (2a), but it's 
-not clear on why that happens.
+      coresight_clear_self_claim_tag(csa);
+  }
 
-Based on that, I plan to remove the skip_child patch, and send a v2 with a 
-flag-based mechanism, which results are shown above.
+  static int cti_claim_device(cti_drvdata *drvdata)
+  {
+      if (drvdata->is_qcom_cti)
+          return 0;
 
-Please let me know of any thoughts, suggestions or ideas you might have 
-about it.
+      return coresight_claim_device(drvdata->csdev);
+  }
 
-Thanks!
+  static void cti_unclaim_device_unlocked(cti_drvdata *drvdata)
+  {
+      if (drvdata->is_qcom_cti)
+          return;
+
+      return coresight_disclaim_device_unlocked(drvdata->csdev);
+  }
+
+Otherwise, this patch is fine for me.
+
+Thanks,
 Leo
-
 
