@@ -4,110 +4,70 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 58C6BCD5BD5
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 28 May 2026 07:35:58 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id B5DD6CD5BD5
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 28 May 2026 07:37:25 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:Cc:To:Subject:Message-ID:Date:From:In-Reply-To:References:
-	MIME-Version:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=T20GWQ7AAxX56WT8tx5xeyPGgn/3xota+hYuh6TNyvE=; b=d3cwYtAGQTxlNmKJOfBVfAt3VF
-	EgR7Ey0r+/R6EXzdzIUvoBLRPS7ZNu9Xv9kMAD9os5baEiJ7ABOCBClQJPLc0E2zLjFQIY7emIJBF
-	vd/05VIG6b/idAaA1mLPTSuc9ygjQYm6sGow2wrvurItsWQhAqbLKysWN/NuTDvocYGd5g7iG86SF
-	mGiS3IaN9jZ0Ts5/mVf5RTtoHHd1HF9Yj944SHleNCRTijfkAn7mx3Qlk4zmM3kXLgcwKLXBN4lYz
-	Pz1FpJQsUPpEBKT6Dr5Bq8rjdKO4bc5lPO0PCsdf260MKSTk1dGuLZ/4my3vPQVrJTLFN4A9fIOEm
-	82d8LZZQ==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=sjMCyOJicGcnsOK1p3JsmbDECVIS3LwVFxzgQoZgP/8=; b=uuJwV/VEBf0kKFjEUQ5j/1OnCH
+	yjmGXhZaUgnW54JxxbQcH92is3f3kx/0CPjYe0klLH0MxiDFZ6Zmeka7lwfZRNK08CISwOC0vBw2/
+	IWdCspyjPIEL5/xRnhCZFfRlYtvMNAUgIqm7222KEgPz/P/dfwsmeFZ1wZNrirxaIIYUQG07LoL3N
+	R7o3QD455j8cSuCV/YFCcYHBQlSMTRfOTGJ1AngKat7Oj57ozHktJQIkUGCoo5RSTyuA4EmmX5UoK
+	jehHYaehYJ2SLK3lTRXaMCoqiZl+C8XAxUiV/Wn3fIXG3bpW7DUCGhAs0TKvKqqOmvW+E9WS/zzCl
+	7YGbuN2w==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wSVHU-00000005Gjh-18Gn;
-	Thu, 28 May 2026 07:35:52 +0000
-Received: from mail-ot1-x32f.google.com ([2607:f8b0:4864:20::32f])
+	id 1wSVIt-00000005H1w-1IbB;
+	Thu, 28 May 2026 07:37:19 +0000
+Received: from tor.source.kernel.org ([172.105.4.254])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wSVHR-00000005GiX-2Wp4
-	for linux-arm-kernel@lists.infradead.org;
-	Thu, 28 May 2026 07:35:50 +0000
-Received: by mail-ot1-x32f.google.com with SMTP id 46e09a7af769-7e613b4f268so3570032a34.1
-        for <linux-arm-kernel@lists.infradead.org>; Thu, 28 May 2026 00:35:48 -0700 (PDT)
-ARC-Seal: i=1; a=rsa-sha256; t=1779953748; cv=none;
-        d=google.com; s=arc-20240605;
-        b=h5e99T7BwkA2f2umI4YK3LBeM2qZy11p7Zjq7jnvYzHxbQNQY6bUhjs64hHbU4g2KV
-         lEH62YPFR5C07W3rc666AgP8/L/p8K1g4tKx/Eh9P+X9Lv7TAm0Sl/Z+IJri8yr69obN
-         8aSuz0M0oq0omDscdpGhNH9pcm6T2NUGP0D1CXndd/qFc8fc+LTlqW/221A/Cuso0otS
-         9OS3YEKNTp16R6J2fK5aFL/1Qk4QtaMa46Ew2neJaAYvX0zi1MiOPhA1cxZh4oFvk6hX
-         QBLXqedifZssZFz3ESvXzWNQpF4TzPDMXxpVxDbOA5G4VrfTeC5yJxS1ciPSY7F8fD/z
-         yo9A==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20240605;
-        h=content-transfer-encoding:cc:to:subject:message-id:date:from
-         :in-reply-to:references:mime-version:dkim-signature;
-        bh=T20GWQ7AAxX56WT8tx5xeyPGgn/3xota+hYuh6TNyvE=;
-        fh=hDIvR5WvH4CnFC/Qd7hqstIARJV+BAv8FzAJ6LT1KmY=;
-        b=O1/Nr3hoEy0FnNNQ//WwwsldSdHqU7xWfYjddaAM0n3ptiaUcymTkXdctf3POraD3P
-         dQrPh8Cj7vip5zqNOnqQRJZDz4KhWT2gGr2SBQaBaIPnC81Wv21gcdXgKkK7QHi1D0xe
-         iultZY3wdsdXrylFPIm18YQ4k+ChYQmXuB3+Hm6PO67vBh8C+6aW6e4zTvZpOMpx24z0
-         J9uiIzefA1+QYgV9w1YTBLUjjvjQ4YYCND21KuEZmkhJrJ1Q//WBG/Fxui6A3sSA8sg2
-         LfkVbgitCuthuvw9Eys09wwHBjvLHfpK7eT2GPo1OEWLnAH41iZJVIZB8eUNE613Tzxz
-         0u4A==;
-        darn=lists.infradead.org
-ARC-Authentication-Results: i=1; mx.google.com; arc=none
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20251104; t=1779953748; x=1780558548; darn=lists.infradead.org;
-        h=content-transfer-encoding:cc:to:subject:message-id:date:from
-         :in-reply-to:references:mime-version:from:to:cc:subject:date
-         :message-id:reply-to;
-        bh=T20GWQ7AAxX56WT8tx5xeyPGgn/3xota+hYuh6TNyvE=;
-        b=flmfrsXvVlOU6qyyDiepLhPMpXKyc1CigO3hq5aLB9Q7+9SNh8zsHMXEfldhc/qDuO
-         BwdY+0svxrc4zfYBRXG4Q01QQHxhPfCycYb1K9F5OzAfD9XiPcezrp68yHSCemWqopDx
-         tkeKk+4oa6EOF9f9udQ5UkSmauRgLmL3Nzfe4CfsTtkTQY94AXGtLTbU3rArcvsvXDum
-         9s0BwajQUZYwc95/EmwlE+dIef610Pgeewu9zQrFMHAud78ZjCqdsUPzrbkxoca0qV+g
-         I1oeTkRzc+6AjF1GbWlhG3IlYyoKJmC601TG1yx6QzRI9mAkR9G+6vUC+ro8ZwwQri7O
-         gZwA==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20251104; t=1779953748; x=1780558548;
-        h=content-transfer-encoding:cc:to:subject:message-id:date:from
-         :in-reply-to:references:mime-version:x-gm-gg:x-gm-message-state:from
-         :to:cc:subject:date:message-id:reply-to;
-        bh=T20GWQ7AAxX56WT8tx5xeyPGgn/3xota+hYuh6TNyvE=;
-        b=T3eWkkafFE6TKQQ9gvFA0w/EI5VzWi0Ga2vE0XSfs0H6hWjCs3BBFk3dhK+adtk98p
-         qFitCn2lfsVVikqF1qKaR8xV/Ncz95V4L2Q4B1dmmfUEUUApeqzIm/d7bpsUDCdW8aUB
-         LAbb4TmsnHv0BUh1wLiRml0XKo0EcIjZHC7TioDjMWHRZRC9UGbZEqoQW9ZGCZJ3tRs/
-         M9RA604fw6MQTaAzQfyXZTvhJCAh2/qXdUqX7JsTmBwhg2EORPQf2rrdLBblg7CBV4eM
-         YCO1dtGGg8XVXAYdbcrXvrgryS7IHLwFgdaovB6tdo2SHYuqDSGmLvJmNSMk0HGmqnc6
-         15Qg==
-X-Forwarded-Encrypted: i=1; AFNElJ+8UKutk1gGX2u+v+QFNweaEnQbpCNmIfp+Y1v1MiDU5iT/Ao00dFljfGhvUgI26iAToU6A5bOvWbh3tv99cRCU@lists.infradead.org
-X-Gm-Message-State: AOJu0YzwY/H99qNp0AAW2znccSs3MB6F+xEnv+xlDGoBeEPYHY5rx/pk
-	5ugvZ8QTXkNbXCjprVR0j4l+D2HNACRr+4OK95QKOLRn7YiBve/5hZ2rkuOnz4jFYLq+Ml3i3zJ
-	4zKoXJWZRrNKuQbt4igp/RR96iind1fc=
-X-Gm-Gg: Acq92OEnt8FveGTYzXLSrtXY5QWj9NaFk9gB7RJSH5XOcLK2anN1WAVK5V1ppMggEXJ
-	46eXifwDcA64Yab39ZJuzwt1h52REu/RJ1/BUUI8tLNI3J01MirqGEj5bpDuTrOcIlY9LBAnShB
-	xUY8jT3oFqOnT+qkdSCUeeMVCEpR/93AMwxHxgrwYRFTviCYHABagrvjwSvUJKFJ8Yi8pHEU57g
-	b5qTEBvdmKruqFWEmfHB5APZHTv0ba4rXul0gSVw4D7TtY7TF38IjdLK0cmCar/5By5RRmZuy36
-	ccMvCxJGjSed1/Ez99S4ubgVbR3gjNEDznGayaxbNN3QcAZYP/8a5nYiR7+SIDFKlUirD3ZsD3f
-	J0Ys5
-X-Received: by 2002:a05:6820:1f12:b0:696:72e9:f92e with SMTP id
- 006d021491bc7-69dfa6b3709mr148717eaf.10.1779953748060; Thu, 28 May 2026
- 00:35:48 -0700 (PDT)
+	id 1wSVIs-00000005H1l-2Yec;
+	Thu, 28 May 2026 07:37:18 +0000
+Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
+	by tor.source.kernel.org (Postfix) with ESMTP id CCB83605D5;
+	Thu, 28 May 2026 07:37:17 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 720781F000E9;
+	Thu, 28 May 2026 07:37:16 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
+	s=k20260515; t=1779953837;
+	bh=sjMCyOJicGcnsOK1p3JsmbDECVIS3LwVFxzgQoZgP/8=;
+	h=Date:From:To:Cc:Subject:References:In-Reply-To;
+	b=IqZlZ0jZUWdyRo9TVikWIWSsxSzUCcde9CJs9ADiitZiyWPh+Myh3azKEFD7esWp3
+	 ZKOsVF6bKCuoUZSY+u+1/Bj4Lm9AG1WA5aRFhk4z3SKMTg/xjUB9lXC8pOQ7EOmSiS
+	 EYEszxyhtL0wcO/FOt1OTPDHdCwoPw0URBbak0gAsbFN3YqcOT/xLTx12Ch+kSAXLm
+	 G1k8Am2o9o/oqwVB61n00/NeSAiCN04vPqnZAO8S26D1MAjX37DQAb5ADQ7ogvEWvP
+	 h8IY3x4Ku1K5h4epJh5621y6jwHs+0GXRoLASvWi8VMek6/APjGK9gn9JcMY1htqai
+	 2Hs+lm+otW/jw==
+Date: Thu, 28 May 2026 09:37:14 +0200
+From: Krzysztof Kozlowski <krzk@kernel.org>
+To: Laurentiu Palcu <laurentiu.palcu@oss.nxp.com>
+Cc: Andrzej Hajda <andrzej.hajda@intel.com>, 
+	Neil Armstrong <neil.armstrong@linaro.org>, Robert Foss <rfoss@kernel.org>, 
+	Laurent Pinchart <Laurent.pinchart@ideasonboard.com>, Jonas Karlman <jonas@kwiboo.se>, 
+	Jernej Skrabec <jernej.skrabec@gmail.com>, Luca Ceresoli <luca.ceresoli@bootlin.com>, 
+	Maarten Lankhorst <maarten.lankhorst@linux.intel.com>, Maxime Ripard <mripard@kernel.org>, 
+	Thomas Zimmermann <tzimmermann@suse.de>, David Airlie <airlied@gmail.com>, 
+	Simona Vetter <simona@ffwll.ch>, Rob Herring <robh@kernel.org>, 
+	Krzysztof Kozlowski <krzk+dt@kernel.org>, Conor Dooley <conor+dt@kernel.org>, 
+	dri-devel@lists.freedesktop.org, devicetree@vger.kernel.org, linux-kernel@vger.kernel.org, 
+	linux-phy@lists.infradead.org, imx@lists.linux.dev, linux-arm-kernel@lists.infradead.org, 
+	linux@ew.tq-group.com, Alexander Stein <alexander.stein@ew.tq-group.com>, 
+	Ying Liu <victor.liu@nxp.com>
+Subject: Re: [PATCH v23 5/8] dt-bindings: display: bridge: Add Cadence
+ MHDP8501
+Message-ID: <20260528-watchful-nippy-toucanet-8ecf39@quoll>
+References: <20260519-dcss-hdmi-upstreaming-v23-0-5615524a9c63@oss.nxp.com>
+ <20260519-dcss-hdmi-upstreaming-v23-5-5615524a9c63@oss.nxp.com>
+ <20260526-golden-bobcat-of-aurora-fd1fef@quoll>
+ <2301c829-5203-47ea-bc26-09f9e3b459a4@kernel.org>
+ <6oub7yyy22dtrevw7oayaqkcncz6tmmddy6fb75gsn3z6yfe3r@zr5lehbaohof>
 MIME-Version: 1.0
-References: <20260518102451.417971-1-paulk@sys-base.io> <20260518102451.417971-16-paulk@sys-base.io>
-In-Reply-To: <20260518102451.417971-16-paulk@sys-base.io>
-From: arash golgol <arash.golgol@gmail.com>
-Date: Thu, 28 May 2026 11:05:17 +0330
-X-Gm-Features: AVHnY4IhmJJCXbj-tzl_ytWMhmyKPHjpmYamO2huuqsWLPnQ9-WnNbsuHTjiYbE
-Message-ID: <CAMxPZkjhxJQ3ST6HrcwudkMzqwtvtVizng-PkiZd=xU4rrSxeA@mail.gmail.com>
-Subject: Re: [PATCH 15/16] media: sun6i-isp: Add support for MC-centric format enumeration
-To: Paul Kocialkowski <paulk@sys-base.io>
-Cc: linux-media@vger.kernel.org, linux-arm-kernel@lists.infradead.org, 
-	linux-sunxi@lists.linux.dev, linux-kernel@vger.kernel.org, 
-	linux-staging@lists.linux.dev, Mauro Carvalho Chehab <mchehab@kernel.org>, 
-	Chen-Yu Tsai <wens@kernel.org>, Jernej Skrabec <jernej.skrabec@gmail.com>, 
-	Samuel Holland <samuel@sholland.org>, Greg Kroah-Hartman <gregkh@linuxfoundation.org>, 
-	Laurent Pinchart <laurent.pinchart@ideasonboard.com>, 
-	Nicolas Dufresne <nicolas.dufresne@collabora.com>
-Content-Type: text/plain; charset="UTF-8"
-Content-Transfer-Encoding: quoted-printable
-X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260528_003549_678687_2F1C36FC 
-X-CRM114-Status: GOOD (  21.27  )
+Content-Type: text/plain; charset=utf-8
+Content-Disposition: inline
+In-Reply-To: <6oub7yyy22dtrevw7oayaqkcncz6tmmddy6fb75gsn3z6yfe3r@zr5lehbaohof>
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -122,91 +82,97 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hi Paul,
+On Tue, May 26, 2026 at 09:44:53AM +0300, Laurentiu Palcu wrote:
+> Hi Krzysztof,
+> 
+> On Tue, May 26, 2026 at 08:10:43AM +0200, Krzysztof Kozlowski wrote:
+> > On 26/05/2026 08:08, Krzysztof Kozlowski wrote:
+> > > On Tue, May 19, 2026 at 02:42:28PM +0000, Laurentiu Palcu wrote:
+> > >> From: Sandor Yu <Sandor.yu@nxp.com>
+> > >>
+> > >> Add bindings for Cadence MHDP8501 DisplayPort/HDMI bridge.
+> > >>
+> > >> Signed-off-by: Sandor Yu <Sandor.yu@nxp.com>
+> > >> Signed-off-by: Laurentiu Palcu <laurentiu.palcu@oss.nxp.com>
+> > >> ---
+> > >>  .../bindings/display/bridge/cdns,mhdp8501.yaml     | 136 +++++++++++++++++++++
+> > >>  1 file changed, 136 insertions(+)
+> > >>
+> > >> diff --git a/Documentation/devicetree/bindings/display/bridge/cdns,mhdp8501.yaml b/Documentation/devicetree/bindings/display/bridge/cdns,mhdp8501.yaml
+> > >> new file mode 100644
+> > >> index 0000000000000..57e7e95199777
+> > >> --- /dev/null
+> > >> +++ b/Documentation/devicetree/bindings/display/bridge/cdns,mhdp8501.yaml
+> > 
+> > Filename must match compatible.
+> > 
+> > >> @@ -0,0 +1,136 @@
+> > >> +# SPDX-License-Identifier: (GPL-2.0 OR BSD-2-Clause)
+> > >> +%YAML 1.2
+> > >> +---
+> > >> +$id: http://devicetree.org/schemas/display/bridge/cdns,mhdp8501.yaml#
+> > >> +$schema: http://devicetree.org/meta-schemas/core.yaml#
+> > >> +
+> > >> +title: Cadence MHDP8501 DP/HDMI bridge
+> > >> +
+> > >> +maintainers:
+> > >> +  - Laurentiu Palcu <laurentiu.palcu@oss.nxp.com>
+> > >> +
+> > >> +description:
+> > >> +  Cadence MHDP8501 DisplayPort/HDMI interface.
+> > >> +
+> > >> +properties:
+> > >> +  compatible:
+> > >> +    enum:
+> > >> +      - fsl,imx8mq-mhdp8501-hdmi
+> > >> +      - fsl,imx8mq-mhdp8501-dp
+> > > 
+> > > We are at v23 and you will be getting the same questions till you
+> > > finally fix that commit msg.
+> > > 
+> > > Why bus/connector is part of the compatible? Device is exactly the same.
+> > > Please read writing bindings - it covers exactly this case.
+> 
+> The device is the same but, based on the FW, it can act as DP or HDMI
+> controller. For 8MQ, the FW is loaded by the ROM. I did look at the writing
+> bindings doc and I assume you're referring to this exact paragraph:
+> 
+>    - DON'T use bus suffixes to encode the type of interface device is using.
+>      The parent bus node already implies that interface.  DON'T add the type of
+>      device, if the device cannot be anything else.
+> 
+> I don't see how is this applicable in this particular case. The parent bus node
+> does not imply the interface and, as I explained previously, the device can be
+> either DP or HDMI.
 
-On Mon, May 18, 2026 at 2:02=E2=80=AFPM Paul Kocialkowski <paulk@sys-base.i=
-o> wrote:
->
-> Just make sure the provided mbus code is supported and carry on with the
-> existing implementation since the pixelformat is independent from the
-> mbus code.
->
-> The params video node only supports a single format and does not care
-> about the mbus format, but we can still report MC-centric support.
->
-> Signed-off-by: Paul Kocialkowski <paulk@sys-base.io>
-> ---
->  .../staging/media/sunxi/sun6i-isp/sun6i_isp_capture.c    | 9 ++++++++-
->  drivers/staging/media/sunxi/sun6i-isp/sun6i_isp_params.c | 3 ++-
->  2 files changed, 10 insertions(+), 2 deletions(-)
->
-> diff --git a/drivers/staging/media/sunxi/sun6i-isp/sun6i_isp_capture.c b/=
-drivers/staging/media/sunxi/sun6i-isp/sun6i_isp_capture.c
-> index 24e731bcabe9..372b9331bd6d 100644
-> --- a/drivers/staging/media/sunxi/sun6i-isp/sun6i_isp_capture.c
-> +++ b/drivers/staging/media/sunxi/sun6i-isp/sun6i_isp_capture.c
-> @@ -436,8 +436,14 @@ static int sun6i_isp_capture_querycap(struct file *f=
-ile, void *priv,
->  static int sun6i_isp_capture_enum_fmt(struct file *file, void *priv,
->                                       struct v4l2_fmtdesc *fmtdesc)
->  {
-> +       u32 mbus_code =3D fmtdesc->mbus_code;
->         u32 index =3D fmtdesc->index;
->
-> +       if (mbus_code && !sun6i_isp_proc_format_find(mbus_code))
-> +               return -EINVAL;
-> +
-> +       /* Capture format is independent from proc format. */
-> +
->         if (index >=3D ARRAY_SIZE(sun6i_isp_capture_formats))
->                 return -EINVAL;
->
-> @@ -697,7 +703,8 @@ int sun6i_isp_capture_setup(struct sun6i_isp_device *=
-isp_dev)
->
->         strscpy(video_dev->name, SUN6I_ISP_CAPTURE_NAME,
->                 sizeof(video_dev->name));
-> -       video_dev->device_caps =3D V4L2_CAP_VIDEO_CAPTURE | V4L2_CAP_STRE=
-AMING;
-> +       video_dev->device_caps =3D V4L2_CAP_VIDEO_CAPTURE | V4L2_CAP_STRE=
-AMING |
-> +                                V4L2_CAP_IO_MC;
->         video_dev->vfl_dir =3D VFL_DIR_RX;
->         video_dev->release =3D video_device_release_empty;
->         video_dev->fops =3D &sun6i_isp_capture_fops;
-> diff --git a/drivers/staging/media/sunxi/sun6i-isp/sun6i_isp_params.c b/d=
-rivers/staging/media/sunxi/sun6i-isp/sun6i_isp_params.c
-> index 0cc48e2bc8c6..2622e5a07817 100644
-> --- a/drivers/staging/media/sunxi/sun6i-isp/sun6i_isp_params.c
-> +++ b/drivers/staging/media/sunxi/sun6i-isp/sun6i_isp_params.c
-> @@ -531,7 +531,8 @@ int sun6i_isp_params_setup(struct sun6i_isp_device *i=
-sp_dev)
->
->         strscpy(video_dev->name, SUN6I_ISP_PARAMS_NAME,
->                 sizeof(video_dev->name));
-> -       video_dev->device_caps =3D V4L2_CAP_META_OUTPUT | V4L2_CAP_STREAM=
-ING;
-> +       video_dev->device_caps =3D V4L2_CAP_META_OUTPUT | V4L2_CAP_STREAM=
-ING |
-> +                                V4L2_CAP_IO_MC;
->         video_dev->vfl_dir =3D VFL_DIR_TX;
->         video_dev->release =3D video_device_release_empty;
->         video_dev->fops =3D &sun6i_isp_params_fops;
-> --
-> 2.54.0
->
+True, not parent bus node, but in your case still other nodes could define
+that this is HDMI via graph.
 
-Tested on a LicheePi Zero Dock (V3s) with the following pipeline:
+The problem is that device is the same thus you cannot have different
+copmatible. If you look at your driver (although that's not ultimate
+argument, just a hint), it clearly needs compatible only to tell if
+connection is HDMI or DP. So again: device is the same with the same
+programming interface.
 
-ov5647 -> sun6i-mipi-csi2 -> sun6i-csi-bridge -> sun6i-isp-proc ->
-sun6i-isp-capture
+Therefore same compatible.
 
-I verified MC-centric format enumeration on the ISP capture node with
-multiple mbus codes supported by sun6i-isp-proc.
+> 
+> > 
+> > And this was BTW completely different in previous version.
+> 
+> It was indeed. However, the problem is that there's no way to detect
+> from the controller's registers if we're in DP mode or HDMI. In v22 I
+> added a DT traversal function to detect the connector type from the last
+> node but it was suggested to me that having 2 compatibles would be a
+> much cleaner solution and I agree.
 
-Tested-by: Arash Golgol <arash.golgol@gmail.com>
+Well, you cannot have two compatibles.
 
---=20
-Regards,
-Arash Golgol
+Discover the end connector. Optionally phy argument can tell, although
+usually not that direction (the phy argument would tell the phy provider
+how to configure it, not phy consumer).
+
+Best regards,
+Krzysztof
+
 
