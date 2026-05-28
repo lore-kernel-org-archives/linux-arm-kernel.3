@@ -4,114 +4,114 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 2854BCD5BD5
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 28 May 2026 05:26:31 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 4552DCD5BD1
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 28 May 2026 05:30:45 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:Cc:To:Subject:Message-ID:Date:From:In-Reply-To:References:
-	MIME-Version:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
+	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=7ZPB+UbJ3xOm/x1ryseHShdbECkKLBZAc98p8FpEfJY=; b=tn/Iw79jCFe6bRiUUrl69eZcA4
-	xqrqvDVt7UcMzwFOLMr/S3zT4YgWgLcB6BeasUq5BUGE3mqKQVW+uRvsABJJ/W7nJbu2GlMRGLH/I
-	A1qVbt61nyaNDa7BIucqQPdd9Ux4xn+hornKpODzNhG5t5qn5FtOVNZEAaAAXwSuvhEIqKqrcMiBl
-	xldb1TiCdbutKMkKfmRPZGHQWzS4qnpbHoetAye76rHsFH0nZsYtclTbt9Pu1QwHaIASKJf7pwLBm
-	sAy14OfEQthMADgoQBXDMWctLLT2rs6w7lL6NqtBMh14WsRTpf8POiS26nm/CuMnYD7xy7Fj0H+LE
-	LC57QD1Q==;
+	bh=q73WX9HWItM842HL8te6BLbm9UQjrRb26yA0hD3pI7M=; b=ykkqER0UZzahaX/RWaJ2jLxELW
+	SI2hd+708PGBrqERPiEwQd92bbFui8A4F1sty0ElyyywJ7hbxlS+J9lewi1ln7UU/SgGzKxe4LIf2
+	NMEhndU8cIUaXdKQtCT9FRIM6EqOWlwCVbcTs4dK70EZ1cm4Dwfn2o05fh43ZWX3iDhCuMxP+2HaK
+	BaNTylgvllv7ZYbBUs7hkYX3Gh/3GzocpOaBNEL37sLr7li1UYsOmpP/f2QaRbv/D2qR6X79dYwvB
+	gwbqTOOEffrKL8+2h8/8DI5d2QNCkItyJL0ahIyiaOiOi3NzjnOwa21xxo0ihETplJSZjSJeNKtCo
+	ByY99Y2g==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wSTGB-000000058wi-0Uyv;
-	Thu, 28 May 2026 05:26:23 +0000
-Received: from mail-dy1-x132b.google.com ([2607:f8b0:4864:20::132b])
+	id 1wSTKI-000000059Gm-3dy6;
+	Thu, 28 May 2026 05:30:38 +0000
+Received: from us-smtp-delivery-124.mimecast.com ([170.10.129.124])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wSTG8-000000058wF-3rx7
+	id 1wSTKF-000000059GA-3QS8
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 28 May 2026 05:26:22 +0000
-Received: by mail-dy1-x132b.google.com with SMTP id 5a478bee46e88-304dc707bfbso5079eec.2
-        for <linux-arm-kernel@lists.infradead.org>; Wed, 27 May 2026 22:26:20 -0700 (PDT)
-ARC-Seal: i=1; a=rsa-sha256; t=1779945980; cv=none;
-        d=google.com; s=arc-20240605;
-        b=MGmrkMmmO5WW45CMwuVmSgHdAJT9oMfiPnVH9f54g9d/a8/uWC9SDcKSuHZwZoQ0Ox
-         U1x8nTbrzP06Sb6MRjZ1638dd/HGLaZybo12QD84BLr6ytCzUm+n5XtweRHUOj3JdtYT
-         /tT5uNJ1bhRX/nieEN87EpYoREeo3bHUG3JnokwdcNED7niNX1dC49OGPgbHhEcqn8Nq
-         KpXeZ36+28/JC/+nZnkwypEmdF94r1fwyUVjw0p/rBCGhs0y6I1c+Ynv2PQWLu7TNQu3
-         rZLebGh/EACgWvDxtsfqblO12MAlBgFxt/dD8cHGOApz/MvZ5FR4eVM6nUwGiJxRKUaB
-         xiVw==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20240605;
-        h=content-transfer-encoding:cc:to:subject:message-id:date:from
-         :in-reply-to:references:mime-version:dkim-signature;
-        bh=7ZPB+UbJ3xOm/x1ryseHShdbECkKLBZAc98p8FpEfJY=;
-        fh=3P+9SrD+BtYWLpGvPhoipq+GCktIHDUpI4+ILdoxfdo=;
-        b=GLZseG5txQJwr4haF9rKvzD0bty4ZvqFhnNHEp8QOwyQsK3cWpghquD4l/ay/yzYOh
-         HLgGJyOuwCtLqs9Xa1TIAwPov4psCedg2I4zH25TJFNRLsnMCKSSt2AAkXhAkPFwKkXd
-         kjfby+HB9Q1oOzBIXBM228o1d+XgOTPKKNogfw2g0CEJ0RirwI2ycBUkax/33NuArhFZ
-         SCnI/8V+RlZB0YNpipKDBYR3jCrgrd76yL38uCVTKQwOB6vrXqd9cJqH8a19auFlBYqf
-         r/dWxO3Zi0t5nN5OayLukqYa4CKZnqWAQ8KjVWZ3HP3Oe6Ax5jtkVjvPWdYvkDQ6XrFY
-         3ykQ==;
-        darn=lists.infradead.org
-ARC-Authentication-Results: i=1; mx.google.com; arc=none
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20251104; t=1779945980; x=1780550780; darn=lists.infradead.org;
-        h=content-transfer-encoding:cc:to:subject:message-id:date:from
-         :in-reply-to:references:mime-version:from:to:cc:subject:date
-         :message-id:reply-to;
-        bh=7ZPB+UbJ3xOm/x1ryseHShdbECkKLBZAc98p8FpEfJY=;
-        b=iWO43/IQc8zj1YacecQ4Bq1QugGzIOWIytWaYGpGlO5oqWvaoPNat5iVj8NaArRnYT
-         b90eRRGbvDaMWKS+ePzp2PnaBtJ928RM48FoxlqjIbTXkIf3rGS2cEeTo7MfSHOXNkYU
-         Z71m6irOozEI1XOK+9LjyRPybnDlQPnKq9p/KnKVTzz4HfOIHh/dEhs1SYnfW8ycWRoz
-         W1B/qk2Om/FsxSohE0h/sv8dEM4rAKLt1WrkK7XbvcOA5AE2cQhmTLlyYu3i5bsoPPJB
-         PCwfmdtPZSghnERGdKZcJaVfyW4lT3r8lCyvD/SAYeLeLbMaN9yuwfGv98QX99BIv/4k
-         n+Eg==
+	Thu, 28 May 2026 05:30:37 +0000
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=redhat.com;
+	s=mimecast20190719; t=1779946234;
+	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
+	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
+	 content-transfer-encoding:content-transfer-encoding:
+	 in-reply-to:in-reply-to:references:references;
+	bh=q73WX9HWItM842HL8te6BLbm9UQjrRb26yA0hD3pI7M=;
+	b=Qa6Gis8BG1wUGDSH62+t+2Tlwjygubw1RSeXwSNm5LryKxXY0WB95vzYad0xD3s8fSqzRb
+	ghLLKYGzhlndFD/dE0XT5m+EaanMLlyJil0Z/Gt6XpHgLNl2QhIg/006MIQ8vhiZrMx4Fh
+	054RR9oi7fjT9RrI0m2ukVAFXWz6oXY=
+Received: from mail-pl1-f198.google.com (mail-pl1-f198.google.com
+ [209.85.214.198]) by relay.mimecast.com with ESMTP with STARTTLS
+ (version=TLSv1.3, cipher=TLS_AES_256_GCM_SHA384) id
+ us-mta-577-DyRuiLnpM025lFgQyYXV_A-1; Thu, 28 May 2026 01:30:33 -0400
+X-MC-Unique: DyRuiLnpM025lFgQyYXV_A-1
+X-Mimecast-MFC-AGG-ID: DyRuiLnpM025lFgQyYXV_A_1779946232
+Received: by mail-pl1-f198.google.com with SMTP id d9443c01a7336-2b99eb06178so37068045ad.2
+        for <linux-arm-kernel@lists.infradead.org>; Wed, 27 May 2026 22:30:33 -0700 (PDT)
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20251104; t=1779945980; x=1780550780;
-        h=content-transfer-encoding:cc:to:subject:message-id:date:from
-         :in-reply-to:references:mime-version:x-gm-gg:x-gm-message-state:from
-         :to:cc:subject:date:message-id:reply-to;
-        bh=7ZPB+UbJ3xOm/x1ryseHShdbECkKLBZAc98p8FpEfJY=;
-        b=HkLVhpiNCGxAoBwjcjypbmmITkHR8us+kT6cKLMYhF1NGuvw1kS1jrCuJeLoJKGryV
-         qSdPsvrM5Q2dPJNr20Y8KRUTGrSzEPr/sR5X2N05xm2Qlpk0DkAi8AOp3P6DaYAdGORX
-         cKRQ7RUd9MyGi/sfQEwm7jRlhJD+CjcAKhayjLzWo1OAW6H/mnwjbTcn2+NV6MPwuMuh
-         uZEQea0fY9Btzii5CqQBFXnAL0Znf7jJtkNAsFA06feGE0Y3jA8K+vWkKaLCk8WQvqZT
-         S0IW1cVoHE8mRxJ6ANu3TAJekwk5eNmdjfYWS5YQvKjJvuhkeiMRx6jQ4SNHxGSzhLHI
-         HOHw==
-X-Forwarded-Encrypted: i=1; AFNElJ8VDzEZQt6F9Qts8Hzezsh6j6Y2bVfS5TeS7nIhF3rXczYPh3JtUDDTEIRB8TlkZt/OEZau9mGgfVnpMMnEuwiz@lists.infradead.org
-X-Gm-Message-State: AOJu0YyZTsyoMlFTyenZrC2ktlc4GauRfrQUY/nIOaRPx4UPtohBdq7f
-	rltc8G3AuG1fZf/ECtDfYizDT+xpcZmD5McV908Wjm9IfMuHx4WzP9nex7WQWlTqd5K2I1nSRp6
-	JYAyZVpfwcJE4/ZywwZeaxuB+nE2QaRE=
-X-Gm-Gg: Acq92OEQ3GgZNZFKH5H0RB1LfxYeB4q821MrSfgZKMi5uU9Aaf4bMSilh8J6Ccq7cN7
-	NOl/1vLu96RWzXm80yYjC7YFOuQwajlSg+wUpqR4Y8i6dDlqorYJtMW1GJUn814+HhxhSO20Og0
-	IOkFQm/Ew/W3tNCoIfeR/8uBNJftOrh0hLeR2bBxA4kyvEwPjovWP0fWBKiyn8hVfMv1vNjgUf2
-	6c3C6G/s7dtEj39euXItiWXzfDX0ROnNrWPcfMhnQX2H9UhqoPIWjoR6OXQsn4wKluznMH6Th4y
-	OB3qeuwQhm9fyyu2RauhmgjBhC9Eaxh8N5grwi5It5Y2flppMX7g5TM5l2W7NjmnGI5c34ggC4t
-	MF/IRmk015QUQ4y7h1K3lpohzyUiwN3M6iFLtjioxF8VT
-X-Received: by 2002:a05:7300:df44:b0:2e6:b55a:76c9 with SMTP id
- 5a478bee46e88-30448cf0ceamr5032661eec.0.1779945979977; Wed, 27 May 2026
- 22:26:19 -0700 (PDT)
+        d=1e100.net; s=20251104; t=1779946232; x=1780551032;
+        h=content-transfer-encoding:in-reply-to:from:content-language
+         :references:cc:to:subject:user-agent:mime-version:date:message-id
+         :x-gm-gg:x-gm-message-state:from:to:cc:subject:date:message-id
+         :reply-to;
+        bh=q73WX9HWItM842HL8te6BLbm9UQjrRb26yA0hD3pI7M=;
+        b=RaTLx6XaH4ixdJ4UeU/i5CM7xT30z8S9OlnCUzGfXbU7Lbx33UbVpaxlr7dGOKOoxU
+         P/URn9IbPx2huEqw1x/8GABnw47UwI3DXvgMY7MZTVNLgSUaZFa13UrrRG9CthwVVoJj
+         W0to0IR+gFY5KEyVjyFNKOQJ0fphxGV+eHVUzou6Ct6vMmwgvDjzoEP4x+7t+tk8uqow
+         ajph5J3lnwxO5TamZeOfCTM9iT3seAk7MuVzwmGYSdP+7ArDFWYIRU/OFC6AJIC+OU/a
+         jduQ5q4NW2MuldK0DbdhEctlTYRA1FqGasO/IcMAVel0YZObRchxdzO4HdT6ePYhBm5x
+         0Txg==
+X-Forwarded-Encrypted: i=1; AFNElJ9tu2Y0wQxr6R6XG42ptq2hebi/Zm7Q5DH5hKBqFqil+lgnZd8468Zal+c8RiDKlurMUrlg91jBdP2bT7hs8XpA@lists.infradead.org
+X-Gm-Message-State: AOJu0YxkHVAdz5kQesknBWrxXTEeqPkfF2ILpTMzb1U28UCiaVLPgfmD
+	YN+V5QRajltQiXPMmE0cOfP+hSLf9r7DRgI3f/EodLQ3ls3DlHMWRJIGB390l34Vi5wSj2wfhMq
+	20bV+oStHtPWfc+EBhMH5eitphr24wWjbwH1oxNl+D707P5J54d6p+ukFmQLYZdyfIzFkGPdq0z
+	X0
+X-Gm-Gg: Acq92OFp09t81th+lpV4eJIlm9S6tlaO1mSdMe593+t9PZXe3mEeWW172sMT3vCon4F
+	WrSNTIT1Z9iywxEP9uUqcIfIv/oO7HZYLSMqCCZWWAV67orpWDXfRhwMD7abkFSEs3OUoq7e1eo
+	eYwj/6MN8ehVUP0879w3EB8sstPt/uLPTSxM5Xc6eY0MmlGn/Vn8zYYI5PCbapZ/IQHtxFclKn8
+	cy9ZZqpw+sLRoyCUgoCZTAuszgRGRkQCJ5E+oJfPpheeOlqNPyVfTpSjo0B8YhSDgWWGvZL7NQ2
+	YMteJmNQG1coWwaAQoJtFcAtTqHpT87wKnYKZ/Vtk/R/2LdV2dCUe2I960EGFnKwFcmelgNvuvQ
+	gGnMu9dwkN7rp98Phkn4OXjlC8l+29AUI2fl5rP8aKkVAuIWq/OU+13X+vFHmz7Um/hBgTy/4E2
+	o=
+X-Received: by 2002:a17:903:4b07:b0:2bd:5b20:a5b5 with SMTP id d9443c01a7336-2beb066cd73mr260282125ad.37.1779946232108;
+        Wed, 27 May 2026 22:30:32 -0700 (PDT)
+X-Received: by 2002:a17:903:4b07:b0:2bd:5b20:a5b5 with SMTP id d9443c01a7336-2beb066cd73mr260281545ad.37.1779946231485;
+        Wed, 27 May 2026 22:30:31 -0700 (PDT)
+Received: from [192.168.68.51] (n175-34-8-244.mrk21.qld.optusnet.com.au. [175.34.8.244])
+        by smtp.gmail.com with ESMTPSA id d9443c01a7336-2beb56d2702sm173761155ad.31.2026.05.27.22.30.22
+        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
+        Wed, 27 May 2026 22:30:30 -0700 (PDT)
+Message-ID: <ea4be6c5-9506-4253-80c5-c76c9ac3b77d@redhat.com>
+Date: Thu, 28 May 2026 15:30:19 +1000
 MIME-Version: 1.0
-References: <20260527-uwtable-module-flag-v1-1-caa41342be4b@google.com>
-In-Reply-To: <20260527-uwtable-module-flag-v1-1-caa41342be4b@google.com>
-From: Miguel Ojeda <miguel.ojeda.sandonis@gmail.com>
-Date: Thu, 28 May 2026 07:26:07 +0200
-X-Gm-Features: AVHnY4LpfTWCciL-kun38xNZkmFlALMcz5bmeoJdgZ6qhFC5eHM3rUClaReGlc0
-Message-ID: <CANiq72mCYOXrWM7_3jby_ZvYmspXsYVzRqhTgQiBF0bdDLAaEg@mail.gmail.com>
-Subject: Re: [PATCH] rust: arm64: set uwtable llvm module flag for CONFIG_UNWIND_TABLES
-To: Alice Ryhl <aliceryhl@google.com>
-Cc: Catalin Marinas <catalin.marinas@arm.com>, Will Deacon <will@kernel.org>, 
-	Miguel Ojeda <ojeda@kernel.org>, Boqun Feng <boqun@kernel.org>, Gary Guo <gary@garyguo.net>, 
-	=?UTF-8?Q?Bj=C3=B6rn_Roy_Baron?= <bjorn3_gh@protonmail.com>, 
-	Benno Lossin <lossin@kernel.org>, Andreas Hindborg <a.hindborg@kernel.org>, 
-	Trevor Gross <tmgross@umich.edu>, Danilo Krummrich <dakr@kernel.org>, 
-	Nathan Chancellor <nathan@kernel.org>, Nick Desaulniers <nick.desaulniers+lkml@gmail.com>, 
-	Bill Wendling <morbo@google.com>, Justin Stitt <justinstitt@google.com>, 
-	linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org, 
-	rust-for-linux@vger.kernel.org, llvm@lists.linux.dev, stable@kernel.org, 
-	Bo Ye <bo.ye@mediatek.com>, Isaac Manjarres <isaacmanjarres@google.com>, 
-	Sami Tolvanen <samitolvanen@google.com>
-Content-Type: text/plain; charset="UTF-8"
-Content-Transfer-Encoding: quoted-printable
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH v14 26/44] arm64: RMI: Allow populating initial contents
+To: Steven Price <steven.price@arm.com>, kvm@vger.kernel.org,
+ kvmarm@lists.linux.dev
+Cc: Catalin Marinas <catalin.marinas@arm.com>, Marc Zyngier <maz@kernel.org>,
+ Will Deacon <will@kernel.org>, James Morse <james.morse@arm.com>,
+ Oliver Upton <oliver.upton@linux.dev>,
+ Suzuki K Poulose <suzuki.poulose@arm.com>, Zenghui Yu
+ <yuzenghui@huawei.com>, linux-arm-kernel@lists.infradead.org,
+ linux-kernel@vger.kernel.org, Joey Gouly <joey.gouly@arm.com>,
+ Alexandru Elisei <alexandru.elisei@arm.com>,
+ Christoffer Dall <christoffer.dall@arm.com>, Fuad Tabba <tabba@google.com>,
+ linux-coco@lists.linux.dev,
+ Ganapatrao Kulkarni <gankulkarni@os.amperecomputing.com>,
+ Shanker Donthineni <sdonthineni@nvidia.com>, Alper Gun
+ <alpergun@google.com>, "Aneesh Kumar K . V" <aneesh.kumar@kernel.org>,
+ Emi Kisanuki <fj0570is@fujitsu.com>, Vishal Annapurve
+ <vannapurve@google.com>, WeiLin.Chang@arm.com, Lorenzo.Pieralisi2@arm.com
+References: <20260513131757.116630-1-steven.price@arm.com>
+ <20260513131757.116630-27-steven.price@arm.com>
+From: Gavin Shan <gshan@redhat.com>
+In-Reply-To: <20260513131757.116630-27-steven.price@arm.com>
+X-Mimecast-Spam-Score: 0
+X-Mimecast-MFC-PROC-ID: RALcHGtZ1V8q7cKdtGU2UKMFHCfbMrtoM_ptJFtL5b8_1779946232
+X-Mimecast-Originator: redhat.com
+Content-Language: en-US
+Content-Type: text/plain; charset=UTF-8; format=flowed
+Content-Transfer-Encoding: 7bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260527_222620_964496_119744D5 
-X-CRM114-Status: GOOD (  11.29  )
+X-CRM114-CacheID: sfid-20260527_223035_937280_09AB0EB5 
+X-CRM114-Status: GOOD (  31.39  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -126,29 +126,245 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Wed, May 27, 2026 at 8:18=E2=80=AFPM Alice Ryhl <aliceryhl@google.com> w=
-rote:
->
-> Once the fix lands in rustc, this flag can be made conditional on the
-> rustc version. Note that passing the flag on a rustc with the fix
-> present has no effect.
+Hi Steve,
 
-Already landed now, so if the uwtable one is enough, we could already
-do that since it will be 1.98. But since it has no effect, we can keep
-the fix as-is and do that on top too.
+On 5/13/26 11:17 PM, Steven Price wrote:
+> The VMM needs to populate the realm with some data before starting (e.g.
+> a kernel and initrd). This is measured by the RMM and used as part of
+> the attestation later on.
+> 
+> Signed-off-by: Steven Price <steven.price@arm.com>
+> ---
+> Changes since v13:
+>   * Rename realm_create_protected_data_page() to realm_data_map_init().
+> Changes since v12:
+>   * The ioctl now updates the structure with the amount populated rather
+>     than returning this through the ioctl return code.
+>   * Use the new RMM v2.0 range based RMI calls.
+>   * Adapt to upstream changes in kvm_gmem_populate().
+> Changes since v11:
+>   * The multiplex CAP is gone and there's a new ioctl which makes use of
+>     the generic kvm_gmem_populate() functionality.
+> Changes since v7:
+>   * Improve the error codes.
+>   * Other minor changes from review.
+> Changes since v6:
+>   * Handle host potentially having a larger page size than the RMM
+>     granule.
+>   * Drop historic "par" (protected address range) from
+>     populate_par_region() - it doesn't exist within the current
+>     architecture.
+>   * Add a cond_resched() call in kvm_populate_realm().
+> Changes since v5:
+>   * Refactor to use PFNs rather than tracking struct page in
+>     realm_create_protected_data_page().
+>   * Pull changes from a later patch (in the v5 series) for accessing
+>     pages from a guest memfd.
+>   * Do the populate in chunks to avoid holding locks for too long and
+>     triggering RCU stall warnings.
+> ---
+>   arch/arm64/include/asm/kvm_rmi.h |   4 ++
+>   arch/arm64/kvm/Kconfig           |   1 +
+>   arch/arm64/kvm/arm.c             |  13 ++++
+>   arch/arm64/kvm/rmi.c             | 106 +++++++++++++++++++++++++++++++
+>   4 files changed, 124 insertions(+)
+> 
+> diff --git a/arch/arm64/include/asm/kvm_rmi.h b/arch/arm64/include/asm/kvm_rmi.h
+> index 007249a13dbc..a2b6bc412a22 100644
+> --- a/arch/arm64/include/asm/kvm_rmi.h
+> +++ b/arch/arm64/include/asm/kvm_rmi.h
+> @@ -88,6 +88,10 @@ int kvm_rec_enter(struct kvm_vcpu *vcpu);
+>   int kvm_rec_pre_enter(struct kvm_vcpu *vcpu);
+>   int handle_rec_exit(struct kvm_vcpu *vcpu, int rec_run_status);
+>   
+> +struct kvm_arm_rmi_populate;
+> +
+> +int kvm_arm_rmi_populate(struct kvm *kvm,
+> +			 struct kvm_arm_rmi_populate *arg);
+>   void kvm_realm_unmap_range(struct kvm *kvm,
+>   			   unsigned long ipa,
+>   			   unsigned long size,
+> diff --git a/arch/arm64/kvm/Kconfig b/arch/arm64/kvm/Kconfig
+> index 4e16719fda22..d0cd011cf672 100644
+> --- a/arch/arm64/kvm/Kconfig
+> +++ b/arch/arm64/kvm/Kconfig
+> @@ -38,6 +38,7 @@ menuconfig KVM
+>   	select GUEST_PERF_EVENTS if PERF_EVENTS
+>   	select KVM_GUEST_MEMFD
+>   	select KVM_GENERIC_MEMORY_ATTRIBUTES
+> +	select HAVE_KVM_ARCH_GMEM_POPULATE
+>   	help
+>   	  Support hosting virtualized guest machines.
+>   
+> diff --git a/arch/arm64/kvm/arm.c b/arch/arm64/kvm/arm.c
+> index ed88a203b892..073ba9181da9 100644
+> --- a/arch/arm64/kvm/arm.c
+> +++ b/arch/arm64/kvm/arm.c
+> @@ -2131,6 +2131,19 @@ int kvm_arch_vm_ioctl(struct file *filp, unsigned int ioctl, unsigned long arg)
+>   			return -EFAULT;
+>   		return kvm_vm_ioctl_get_reg_writable_masks(kvm, &range);
+>   	}
+> +	case KVM_ARM_RMI_POPULATE: {
+> +		struct kvm_arm_rmi_populate req;
+> +		int ret;
+> +
+> +		if (!kvm_is_realm(kvm))
+> +			return -ENXIO;
+> +		if (copy_from_user(&req, argp, sizeof(req)))
+> +			return -EFAULT;
+> +		ret = kvm_arm_rmi_populate(kvm, &req);
+> +		if (copy_to_user(argp, &req, sizeof(req)))
+> +			return -EFAULT;
+> +		return ret;
+> +	}
 
-Added and linked both issues (i.e. `uwtable` and the `frame-pointer` one) t=
-o:
+s/return ret/return 0; The variable 'ret' can be dropped.
 
-  https://github.com/Rust-for-Linux/linux/issues/355
+>   	default:
+>   		return -EINVAL;
+>   	}
+> diff --git a/arch/arm64/kvm/rmi.c b/arch/arm64/kvm/rmi.c
+> index a89873a5eb77..209087bcf399 100644
+> --- a/arch/arm64/kvm/rmi.c
+> +++ b/arch/arm64/kvm/rmi.c
+> @@ -486,6 +486,75 @@ void kvm_realm_unmap_range(struct kvm *kvm, unsigned long start,
+>   		realm_unmap_private_range(kvm, start, end, may_block);
+>   }
+>   
+> +static int realm_data_map_init(struct kvm *kvm, unsigned long ipa,
+> +			       kvm_pfn_t dst_pfn, kvm_pfn_t src_pfn,
+> +			       unsigned long flags)
+> +{
+> +	struct realm *realm = &kvm->arch.realm;
+> +	phys_addr_t rd = virt_to_phys(realm->rd);
+> +	phys_addr_t dst_phys, src_phys;
+> +	int ret;
+> +
+> +	dst_phys = __pfn_to_phys(dst_pfn);
+> +	src_phys = __pfn_to_phys(src_pfn);
+> +
+> +	if (rmi_delegate_page(dst_phys))
+> +		return -ENXIO;
+> +
+> +	ret = rmi_rtt_data_map_init(rd, dst_phys, ipa, src_phys, flags);
+> +	if (RMI_RETURN_STATUS(ret) == RMI_ERROR_RTT) {
+> +		/* Create missing RTTs and retry */
+> +		int level = RMI_RETURN_INDEX(ret);
+> +
+> +		KVM_BUG_ON(level == KVM_PGTABLE_LAST_LEVEL, kvm);
 
-I have to send a fixes PR in the coming days, so I can pick this one
-up, but if arm64 will do so then:
+		KVM_BUG_ON(level >= KVM_PGTABLE_LAST_LEVEL, kvm);> +
+> +		ret = realm_create_rtt_levels(realm, ipa, level,
+> +					      KVM_PGTABLE_LAST_LEVEL, NULL);
+> +		if (!ret) {
+> +			ret = rmi_rtt_data_map_init(rd, dst_phys, ipa, src_phys,
+> +						    flags);
+> +		}
+> +	}
+> +
+> +	if (ret) {
+> +		if (WARN_ON(rmi_undelegate_page(dst_phys))) {
+> +			/* Undelegate failed, so we leak the page */
+> +			get_page(pfn_to_page(dst_pfn));
+> +		}
+> +	}
+> +
 
-Acked-by: Miguel Ojeda <ojeda@kernel.org>
+	if (ret && WARN_ON(rmi_undelegate_page(dst_phys)) {
+		/* Leak the page that fails to be undelegated */
+		get_page(pfn_to_page(dst_pfn));
+	}
 
-Thanks!
+> +	return ret;
+> +}
+> +
+> +static int populate_region_cb(struct kvm *kvm, gfn_t gfn, kvm_pfn_t pfn,
+> +			      struct page *src_page, void *opaque)
+> +{
+> +	unsigned long data_flags = *(unsigned long *)opaque;
+> +	phys_addr_t ipa = gfn_to_gpa(gfn);
+> +
+> +	if (!src_page)
+> +		return -EOPNOTSUPP;
+> +
+> +	return realm_data_map_init(kvm, ipa, pfn, page_to_pfn(src_page),
+> +				   data_flags);
+> +}
+> +
+> +static long populate_region(struct kvm *kvm,
+> +			    gfn_t base_gfn,
+> +			    unsigned long pages,
+> +			    u64 uaddr,
+> +			    unsigned long data_flags)
+> +{
+> +	long ret = 0;
+> +
+> +	mutex_lock(&kvm->slots_lock);
+> +	ret = kvm_gmem_populate(kvm, base_gfn, u64_to_user_ptr(uaddr), pages,
+> +				populate_region_cb, &data_flags);
+> +	mutex_unlock(&kvm->slots_lock);
+> +
+> +	return ret;
+> +}
+> +
+>   enum ripas_action {
+>   	RIPAS_INIT,
+>   	RIPAS_SET,
+> @@ -574,6 +643,43 @@ static int realm_ensure_created(struct kvm *kvm)
+>   	return -ENXIO;
+>   }
+>   
+> +int kvm_arm_rmi_populate(struct kvm *kvm,
+> +			 struct kvm_arm_rmi_populate *args)
+> +{
+> +	unsigned long data_flags = 0;
+> +	unsigned long ipa_start = args->base;
+> +	unsigned long ipa_end = ipa_start + args->size;
+> +	long pages_populated;
+> +	int ret;
+> +
+> +	if (args->reserved ||
+> +	    (args->flags & ~KVM_ARM_RMI_POPULATE_FLAGS_MEASURE) ||
+> +	    !IS_ALIGNED(ipa_start, PAGE_SIZE) ||
+> +	    !IS_ALIGNED(ipa_end, PAGE_SIZE) ||
+> +	    !IS_ALIGNED(args->source_uaddr, PAGE_SIZE))
+> +		return -EINVAL;
+> +
 
-Cheers,
-Miguel
+There are more conditions missed here:
+
+	args->size == 0, return 0;
+	args->base + args->size < args->base, return -EINVAL;  // wrapped range
+
+> +	ret = realm_ensure_created(kvm);
+> +	if (ret)
+> +		return ret;
+> +
+> +	if (args->flags & KVM_ARM_RMI_POPULATE_FLAGS_MEASURE)
+> +		data_flags |= RMI_MEASURE_CONTENT;
+> +
+> +	pages_populated = populate_region(kvm, gpa_to_gfn(ipa_start),
+> +					  args->size >> PAGE_SHIFT,
+> +					  args->source_uaddr, data_flags);
+> +
+> +	if (pages_populated < 0)
+> +		return pages_populated;
+
+pages_populaged is 'unsigned long', this function returns a 'int' value.
+
+> +
+> +	args->size -= pages_populated << PAGE_SHIFT;
+> +	args->source_uaddr += pages_populated << PAGE_SHIFT;
+> +	args->base += pages_populated << PAGE_SHIFT;
+> +
+> +	return 0;
+> +}
+> +
+>   static void kvm_complete_ripas_change(struct kvm_vcpu *vcpu)
+>   {
+>   	struct kvm *kvm = vcpu->kvm;
+
+Thanks,
+Gavin
+
 
