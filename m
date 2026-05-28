@@ -4,95 +4,87 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 65CCACD5BC9
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 28 May 2026 01:15:52 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id DB2BECD5BC9
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 28 May 2026 01:23:24 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:References:To:
-	From:Subject:Message-Id:Date:Content-Type:Content-Transfer-Encoding:
-	Mime-Version:Reply-To:Cc:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=2voxwMi0ctbkvCbmI9saWaf7WWfi0CrEFmlwsKP+cUo=; b=2IOwmc7pWUTuoVa35xed78/RD0
-	3H7S+OGIHgoq5oHfHfNIYFwKlJaameViLvfq5Ze4+1t03T7PNlqoWohN5CNOb48gCYGki3a/aqjoP
-	zPXkk8WSvqU4eGLYlmqMq7LYcHAT4rBae387YUwGiKOPiJogXEmY6TsW1okfK8cl+a7ynooXrayRD
-	iK5ck1qB9DZOJnJTbeXoNM2/DZ5x9sMOrY8etC2C3BrxR8RWOCLCcvdItzxwbaUqSGMCvBGt7z7za
-	djUVcAkIu1+BnCrsjYnqC07flSAZ8HFKHuPrlL98tyPRSnDy5nQ0xHte4UJMAAi/F5gwIb+YeN65Y
-	jUIu2KLA==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:
+	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=Cpp3h87G8qknuAl35zSdpszjamPTiyZ/dw7XF2/OzTk=; b=qT2iAbvLBWEo8Ndl/hXTYTCtY5
+	c54rFgG2WPeAr8M48OUhS0Nx8CWDLcV+4X0Og64+fXy5n0p9Mf6z3zHeE9ElMULHBfIW5ePEbP6Hz
+	oC2jUpwdgMh0tQL2R6vDmRM1RjihSItOxkkMGJQN8JyIqyletXQAHlggGZ6rT2l+4yiMWEeXRfiTh
+	0l3oyohOBhLMdSG3Z+Tcyo9g3t0NIwgeOL0pAdbcljfsoxB1KoPe1HCXZb4Yn7iSOvKY0A1JqC+eb
+	020vJAo/NdDIqyo4rXUoyq6Yw/q9iKNEvfj0+nipXQ739Kh5vycJAgDMqLV0qHH8IHJdbfBhvQXaY
+	STu2T1hA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wSPLa-00000004vq5-1Vj2;
-	Thu, 28 May 2026 01:15:42 +0000
-Received: from mail-wm1-x335.google.com ([2a00:1450:4864:20::335])
-	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wSPLX-00000004vpl-3JFp
-	for linux-arm-kernel@lists.infradead.org;
-	Thu, 28 May 2026 01:15:41 +0000
-Received: by mail-wm1-x335.google.com with SMTP id 5b1f17b1804b1-4891e5b9c1fso105653985e9.2
-        for <linux-arm-kernel@lists.infradead.org>; Wed, 27 May 2026 18:15:38 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=linaro.org; s=google; t=1779930937; x=1780535737; darn=lists.infradead.org;
-        h=in-reply-to:references:to:from:subject:message-id:date
-         :content-transfer-encoding:mime-version:from:to:cc:subject:date
-         :message-id:reply-to;
-        bh=2voxwMi0ctbkvCbmI9saWaf7WWfi0CrEFmlwsKP+cUo=;
-        b=RK7+S9i31Iz3ofCehQgeSqbvfU2USK3Q+z/BR8jTYTQIDxfOmYrtaAo5mbJE6yxIWN
-         8hTdXL03bWT2qqUvyJWxemxKzJnvdOorDN7WBoxfyPcHWxuOr0bAl6n4mNKGhaOtdK5W
-         fW1cBT22JxBKa3gh3wtRhJ2L6LGS1MngnhEJUC7GcbVCrFJeUJyQU/CoaRRdy7a06X2p
-         bMYacR4jXcRGz4MSTYRKWptrdDUJIajetChmA9pKUcfQKOoKsHdz0bAWzfdKOFCHpqNT
-         VZJ/iUOeTIOrv2jbPLNcieUft3EV6mD1r3KZQnldAufseEoRLRrT/xs5NgjHwi1/jFPb
-         0Xtg==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20251104; t=1779930937; x=1780535737;
-        h=in-reply-to:references:to:from:subject:message-id:date
-         :content-transfer-encoding:mime-version:x-gm-gg:x-gm-message-state
-         :from:to:cc:subject:date:message-id:reply-to;
-        bh=2voxwMi0ctbkvCbmI9saWaf7WWfi0CrEFmlwsKP+cUo=;
-        b=ds0hXk9Kaz1DOL/zKwgH4q4/ig+PWNowUNr9yX9Zt2d1O+Osbj1+TmjLl5RIfZQMvN
-         XiLofGCn/ebfgwP0n7zxcwQJAYrgG56A82gelgV6RRcS9ISvQC3XAM9ChVba87iKdr+K
-         pyCaqBmQBMHw0MSk9crB+XXS9s+0+JrQZ+4qK+7r2R1pCvJccB/Pd1Osb8wo+U5ORyin
-         YPu/bkPuOyTvRD/4zynbJb6xlgbryBG9+eJNu9lO48XNfCDAXmIDzLyZUHfulYM0N2yx
-         Gk+uLThPQ52dOwCYNUTg9OxT19TSz1TpH3Loy2e7ZbybYUttFpv7pwivyTcOLpY8Hhwx
-         adpg==
-X-Forwarded-Encrypted: i=1; AFNElJ8oBobVRpS29Bvb3l4aosonwiOmoo0kcX67vGgz7T6xtGDKnEDN06pGEPyYYGBtaZj4ya9vKfI1o3Kd3/jgmaFZ@lists.infradead.org
-X-Gm-Message-State: AOJu0YxgjofSH5rtmHCdGWgGSA5n3DqCsAv4kzZL6SjGK290rTq2RPNo
-	hk+28eYyXL20pV3HiBialHe4wzwS0fN7PyGgCqDQ+Isaa2rQHZp3ebhX3Gx3aUGWGzM=
-X-Gm-Gg: Acq92OE94r2UQK8kkCj2BdhoeNW6Qpz8oMV7ahALfwZJovT3d7jCjvbcRjVJg7aVkkx
-	bXOBcGKYf2urrrjkp0zDvM25eQQ5VXciaZDOQ64Nif4YCii9WAg2vlK9TNYxUwVcnhGQa9PYMXF
-	JRl4DGJto7n3lRp42noo1aOqGonIJauml3acsS+LgwX8WmlX28RGAoNDS6h9FzUSoirHQkXNlWJ
-	ZJo9Wp8kORs7RMMY7yyQ13QqNLmNDNDkJrq3j/t/8qOEQ9djjBk2iKSdfJAMeWtXLr2D01fPGfs
-	FGYLDGNoD0K9WOSJ+Pa/pBQuU8GMFjfNneKzcGVPFFqRGEePbgLh/vqcHPuuJibFImIdKr7TZkx
-	S4HExYkQtrMsMgEamQoj3q65VgyZy/s0NtPPwS6Nq8cikrF7+pSqF+IoHKwKigh7DlG0/NgzU3e
-	0xWKRM+rlGHNQitYLij/bpVsIQfuLR3gt6QuidjMi37eTFmdXT98OCvws+YTxPF5KOwSffxhA9M
-	phoXgM4BhZ4aVCL59w+/7S1cylaSNsTooY=
-X-Received: by 2002:a05:600c:3d96:b0:490:5429:1513 with SMTP id 5b1f17b1804b1-49054291bbamr369303675e9.6.1779930936735;
-        Wed, 27 May 2026 18:15:36 -0700 (PDT)
-Received: from localhost ([94.4.195.193])
-        by smtp.gmail.com with ESMTPSA id ffacd0b85a97d-45edb5c44e4sm9654900f8f.36.2026.05.27.18.15.34
-        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
-        Wed, 27 May 2026 18:15:35 -0700 (PDT)
-Mime-Version: 1.0
-Content-Transfer-Encoding: quoted-printable
-Content-Type: text/plain; charset=UTF-8
-Date: Thu, 28 May 2026 02:15:33 +0100
-Message-Id: <DITWUUN7L160.5VKMP4HONZ4@linaro.org>
-Subject: Re: [PATCH] clk: samsung: exynos5410: fix refcount leak
-From: "Alexey Klimov" <alexey.klimov@linaro.org>
-To: "Alexander A. Klimov" <grandmaster@al2klimov.de>, "Krzysztof Kozlowski"
- <krzk@kernel.org>, "Sylwester Nawrocki" <s.nawrocki@samsung.com>, "Chanwoo
- Choi" <cw00.choi@samsung.com>, "Alim Akhtar" <alim.akhtar@samsung.com>,
- "Michael Turquette" <mturquette@baylibre.com>, "Stephen Boyd"
- <sboyd@kernel.org>, "Brian Masney" <bmasney@redhat.com>, "open list:SAMSUNG
- SOC CLOCK DRIVERS" <linux-samsung-soc@vger.kernel.org>, "open list:COMMON
- CLK FRAMEWORK" <linux-clk@vger.kernel.org>, "moderated list:ARM/SAMSUNG
- S3C, S5P AND EXYNOS ARM ARCHITECTURES"
- <linux-arm-kernel@lists.infradead.org>, "open list"
- <linux-kernel@vger.kernel.org>
-X-Mailer: aerc 0.21.0
-References: <20260526061321.6123-1-grandmaster@al2klimov.de>
-In-Reply-To: <20260526061321.6123-1-grandmaster@al2klimov.de>
+	id 1wSOqD-00000004t8W-3NE7;
+	Thu, 28 May 2026 00:43:17 +0000
+Received: from linux.microsoft.com ([13.77.154.182])
+	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
+	id 1wSOpX-00000004sGt-37Br;
+	Thu, 28 May 2026 00:42:37 +0000
+Received: by linux.microsoft.com (Postfix, from userid 1241)
+	id D7DDE20B7187; Wed, 27 May 2026 17:42:24 -0700 (PDT)
+DKIM-Filter: OpenDKIM Filter v2.11.0 linux.microsoft.com D7DDE20B7187
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=linux.microsoft.com;
+	s=default; t=1779928944;
+	bh=Cpp3h87G8qknuAl35zSdpszjamPTiyZ/dw7XF2/OzTk=;
+	h=From:To:Cc:Subject:Date:In-Reply-To:References:From;
+	b=PIEHqNECP5CTqhXoOkn4rDFNUhRk3G8ySSEWPLqOtUqj80vbwQHXMFlUQhyAXL6nk
+	 Lkhsmhg721K+zYQEUnUOCDla7QLptnzUdto/HtBqJ3+Y+YsgwYNi4ynRenpctewPNA
+	 Xaw+l3dqh3iNA2xMzdvnzv7XVsaBKTonUE6FHXyI=
+From: Jork Loeser <jloeser@linux.microsoft.com>
+To: linux-hyperv@vger.kernel.org,
+	linux-mm@kvack.org,
+	kexec@lists.infradead.org
+Cc: "K. Y. Srinivasan" <kys@microsoft.com>,
+	Haiyang Zhang <haiyangz@microsoft.com>,
+	Wei Liu <wei.liu@kernel.org>,
+	Dexuan Cui <decui@microsoft.com>,
+	Long Li <longli@microsoft.com>,
+	Mike Rapoport <rppt@kernel.org>,
+	Pasha Tatashin <pasha.tatashin@soleen.com>,
+	Pratyush Yadav <pratyush@kernel.org>,
+	Alexander Graf <graf@amazon.com>,
+	Jason Miu <jasonmiu@google.com>,
+	Andrew Morton <akpm@linux-foundation.org>,
+	David Hildenbrand <david@kernel.org>,
+	Muchun Song <muchun.song@linux.dev>,
+	Oscar Salvador <osalvador@suse.de>,
+	Baoquan He <bhe@redhat.com>,
+	Catalin Marinas <catalin.marinas@arm.com>,
+	Will Deacon <will@kernel.org>,
+	Thomas Gleixner <tglx@kernel.org>,
+	Ingo Molnar <mingo@redhat.com>,
+	Borislav Petkov <bp@alien8.de>,
+	Dave Hansen <dave.hansen@linux.intel.com>,
+	"H. Peter Anvin" <hpa@zytor.com>,
+	Kees Cook <kees@kernel.org>,
+	Ran Xiaokai <ran.xiaokai@zte.com.cn>,
+	Justinien Bouron <jbouron@amazon.com>,
+	Sourabh Jain <sourabhjain@linux.ibm.com>,
+	Pingfan Liu <piliu@redhat.com>,
+	"Rafael J. Wysocki" <rafael.j.wysocki@intel.com>,
+	Mario Limonciello <mario.limonciello@amd.com>,
+	linux-arm-kernel@lists.infradead.org,
+	x86@kernel.org,
+	linux-kernel@vger.kernel.org,
+	Michael Kelley <mhklinux@outlook.com>,
+	Jork Loeser <jloeser@linux.microsoft.com>
+Subject: [RFC PATCH 17/20] hyperv: Reserve crash MSR P2 for page preservation root PA
+Date: Wed, 27 May 2026 17:41:59 -0700
+Message-ID: <20260528004204.1484584-18-jloeser@linux.microsoft.com>
+X-Mailer: git-send-email 2.43.7
+In-Reply-To: <20260528004204.1484584-1-jloeser@linux.microsoft.com>
+References: <20260528004204.1484584-1-jloeser@linux.microsoft.com>
+MIME-Version: 1.0
+Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260527_181539_861715_B03BF6E7 
-X-CRM114-Status: GOOD (  16.30  )
+X-CRM114-CacheID: sfid-20260527_174235_835134_231479C9 
+X-CRM114-Status: GOOD (  13.21  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -107,41 +99,69 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Tue May 26, 2026 at 7:13 AM BST, Alexander A. Klimov wrote:
-> Every value returned from of_clk_get() is supposed to be cleaned up
-> via clk_put() once not needed anymore.
->
-> Fixes: be95d2c7d918 ("clk: samsung: Add support for EPLL on exynos5410")
-> Signed-off-by: Alexander A. Klimov <grandmaster@al2klimov.de>
+The crash MSRs have no formal semantics and nothing depends on their
+contents, so the register assignment can be reshuffled freely.
 
-Reviewed-by: Alexey Klimov <alexey.klimov@linaro.org>
+Reserve crash MSR P2 for passing the KHO radix tree root physical
+address to the crash kernel for MSHV page exclusion during dump
+collection. Stop overwriting it in the panic reporting paths.
 
-> ---
->  drivers/clk/samsung/clk-exynos5410.c | 8 ++++++--
->  1 file changed, 6 insertions(+), 2 deletions(-)
->
-> diff --git a/drivers/clk/samsung/clk-exynos5410.c b/drivers/clk/samsung/c=
-lk-exynos5410.c
-> index baa9988c7bb7..0cd9b0392cf5 100644
-> --- a/drivers/clk/samsung/clk-exynos5410.c
-> +++ b/drivers/clk/samsung/clk-exynos5410.c
-> @@ -269,8 +269,12 @@ static void __init exynos5410_clk_init(struct device=
-_node *np)
->  {
->  	struct clk *xxti =3D of_clk_get(np, 0);
-> =20
-> -	if (!IS_ERR(xxti) && clk_get_rate(xxti) =3D=3D 24 * MHZ)
-> -		exynos5410_plls[epll].rate_table =3D exynos5410_pll2550x_24mhz_tbl;
-> +	if (!IS_ERR(xxti)) {
-> +		if (clk_get_rate(xxti) =3D=3D 24 * MHZ)
-> +			exynos5410_plls[epll].rate_table =3D
-> +				exynos5410_pll2550x_24mhz_tbl;
-> +		clk_put(xxti);
-> +	}
-> =20
->  	samsung_cmu_register_one(np, &cmu);
+Move IP/PC to P3 and SP to P4 in hyperv_report_panic() on both x86
+and ARM64. Remove the P2 write from hv_kmsg_dump().
 
-Best regards,
-Alexey Klimov
+Signed-off-by: Jork Loeser <jloeser@linux.microsoft.com>
+---
+ arch/arm64/hyperv/hv_core.c | 6 +++---
+ arch/x86/hyperv/hv_init.c   | 4 ++--
+ drivers/hv/hv_common.c      | 2 +-
+ 3 files changed, 6 insertions(+), 6 deletions(-)
+
+diff --git a/arch/arm64/hyperv/hv_core.c b/arch/arm64/hyperv/hv_core.c
+index e33a9e3c366a..b75337c4892d 100644
+--- a/arch/arm64/hyperv/hv_core.c
++++ b/arch/arm64/hyperv/hv_core.c
+@@ -185,9 +185,9 @@ void hyperv_report_panic(struct pt_regs *regs, long err, bool in_die)
+ 	 */
+ 	hv_set_vpreg(HV_REGISTER_GUEST_CRASH_P0, err);
+ 	hv_set_vpreg(HV_REGISTER_GUEST_CRASH_P1, guest_id);
+-	hv_set_vpreg(HV_REGISTER_GUEST_CRASH_P2, regs->pc);
+-	hv_set_vpreg(HV_REGISTER_GUEST_CRASH_P3, regs->sp);
+-	hv_set_vpreg(HV_REGISTER_GUEST_CRASH_P4, 0);
++	/* P2 is reserved for the KHO preserved-pages tree root PA */
++	hv_set_vpreg(HV_REGISTER_GUEST_CRASH_P3, regs->pc);
++	hv_set_vpreg(HV_REGISTER_GUEST_CRASH_P4, regs->sp);
+ 
+ 	/*
+ 	 * Let Hyper-V know there is crash data available
+diff --git a/arch/x86/hyperv/hv_init.c b/arch/x86/hyperv/hv_init.c
+index 55a8b6de2865..cd75e2be19b2 100644
+--- a/arch/x86/hyperv/hv_init.c
++++ b/arch/x86/hyperv/hv_init.c
+@@ -675,8 +675,8 @@ void hyperv_report_panic(struct pt_regs *regs, long err, bool in_die)
+ 
+ 	wrmsrq(HV_X64_MSR_CRASH_P0, err);
+ 	wrmsrq(HV_X64_MSR_CRASH_P1, guest_id);
+-	wrmsrq(HV_X64_MSR_CRASH_P2, regs->ip);
+-	wrmsrq(HV_X64_MSR_CRASH_P3, regs->ax);
++	/* P2 is reserved for the KHO preserved-pages tree root PA */
++	wrmsrq(HV_X64_MSR_CRASH_P3, regs->ip);
+ 	wrmsrq(HV_X64_MSR_CRASH_P4, regs->sp);
+ 
+ 	/*
+diff --git a/drivers/hv/hv_common.c b/drivers/hv/hv_common.c
+index 8a593117e9b8..ae6415f42f25 100644
+--- a/drivers/hv/hv_common.c
++++ b/drivers/hv/hv_common.c
+@@ -212,7 +212,7 @@ static void hv_kmsg_dump(struct kmsg_dumper *dumper,
+ 	 */
+ 	hv_set_msr(HV_MSR_CRASH_P0, 0);
+ 	hv_set_msr(HV_MSR_CRASH_P1, 0);
+-	hv_set_msr(HV_MSR_CRASH_P2, 0);
++	/* P2 is reserved for the KHO preserved-pages tree root PA */
+ 	hv_set_msr(HV_MSR_CRASH_P3, bytes_written ? virt_to_phys(hv_panic_page) : 0);
+ 	hv_set_msr(HV_MSR_CRASH_P4, bytes_written);
+ 
+-- 
+2.43.0
 
 
