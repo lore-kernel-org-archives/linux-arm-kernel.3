@@ -4,128 +4,58 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id EA324CD4F54
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 28 May 2026 14:52:33 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id C7C4DCD4F54
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 28 May 2026 14:55:47 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
-	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=QMJii7gvq0c6HB6B+iqDA7DZ98i0s++5uU74WlVSq10=; b=Q8TPAjIOWhW+IohUSyc9eEf9Y4
-	gN0yHhSqDzYU6UhlqcXZJyqGtKsgX0uIAa+rXzaJifJJHFeIp3ZUTvEb++kbdK9wQpF0jWKAg5cM7
-	LZsZCBao9AvhoxQ+4xuqUO15IYcA2hXSRKFT70MjWIkJvwvJYVHNaiBVcRLCccbjEQ7jwqN+JWqgL
-	f54tjFqgrAtU+EzQOLA4g5JKuMEw5/dxbngTxt40iUNW0XGYzmjkGbWv4vjRVlYgo2IGGuWeU5UjQ
-	Sb410+oWdYRNSgL9cSvw5qlDHLd5bkcZByXrNN5ktbkzrvzr5ImhyFFGimJRHQGHmn3iinHhMB0sn
-	mTGcZINg==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:Subject:Message-ID:
+	From:Content-Transfer-Encoding:Content-Type:Date:MIME-Version:Reply-To:
+	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
+	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=BMaA7h5kGMRU9hf/QRuYJW/W07yAJ1I7bh7FabXITYU=; b=OfoMlUcMszJB4+nFdrXoJEkPd3
+	6X8afHCBOPQtis7r6EM/OrNcWmKixGvy4ix8IDkrhs6/l/KgGC4WacB1RtOq73K9Go/UpZhk/bHBn
+	MOwQ54uISl0jLEYRUS8hjkSxiINqfDpQNh4mD4YoKoYXFoHehGibR4ZjDZwLTtdam+VeTNpJtMttb
+	OZrWifr6siZpGba0t5Nip6C1XAEZDO76KI8z35Uz99zIL6Dkr4uw/bk68T/4ry+RhZs1TEcUe4c0A
+	+mGMdWZPuHMrhJdb30+fTMkGCB7XCqN9wYm4pMpXDEm72Wm+q7UnypNNUWrWDjEN6lgqJG3zlU80j
+	1oDqrVhw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wSc5z-00000005so0-2k1S;
-	Thu, 28 May 2026 14:52:27 +0000
-Received: from relay.yourmailgateway.de ([188.68.63.166])
+	id 1wSc97-00000005sxo-0d9k;
+	Thu, 28 May 2026 14:55:41 +0000
+Received: from out-185.mta0.migadu.com ([91.218.175.185])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wSc5w-00000005snW-2zw2;
-	Thu, 28 May 2026 14:52:26 +0000
-Received: from mors-relay-8202.netcup.net (localhost [127.0.0.1])
-	by mors-relay-8202.netcup.net (Postfix) with ESMTPS id 4gR8Qs3ycTz3v2k;
-	Thu, 28 May 2026 16:44:53 +0200 (CEST)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=leemhuis.info;
-	s=key2; t=1779979493;
-	bh=+bObBq6umQjUKIR3pjneCtStWldSJgwVKPiVN8yI9GA=;
-	h=Date:Subject:To:Cc:References:From:In-Reply-To:From;
-	b=ONEtuAJidQLoH7Y9ovFSOvNZHr+fqca7AEHiPpSnxvcKzVmNot6Eqi/RbdPVdBc9G
-	 tzUuwKycpqd1NiWRu+d97nUo8wup37f9RRC9iFj1ELtP/IAvZgq4Ef9frEfMlQoF3A
-	 Jgysk9HPJVxtoDWlHx1qkqhY7KBOCcRcuPgMcJX1xbNbsmEbQP1b9anA6NxxBmPIWk
-	 67AlmG9n9bCE5wwbzAd3jUIa5hPl/zemmLNVR8ucTgV5O8MDqLvTVkyZcdOkwPhbr+
-	 S1FYkDqExq/sWVmS3wZiPyiuiIfDABR4xb+JuS4Zy/lpNtTjHRTpoEENJhN4bPfwy0
-	 hqpwwKwj3ZNVw==
-Received: from policy01-mors.netcup.net (unknown [46.38.225.35])
-	by mors-relay-8202.netcup.net (Postfix) with ESMTPS id 4gR8Qs3CHCz3v2H;
-	Thu, 28 May 2026 16:44:53 +0200 (CEST)
-X-Virus-Scanned: Debian amavisd-new at policy01-mors.netcup.net
-Received: from mxe9fb.netcup.net (unknown [10.243.12.53])
-	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
-	 key-exchange ECDHE (P-256) server-signature RSA-PSS (2048 bits) server-digest SHA256)
-	(No client certificate requested)
-	by policy01-mors.netcup.net (Postfix) with ESMTPS id 4gR8Qq4vgmz8sbc;
-	Thu, 28 May 2026 16:44:51 +0200 (CEST)
-Received: from [IPV6:2a02:8108:8984:1d00:a0cf:1912:4be:477f] (unknown [IPv6:2a02:8108:8984:1d00:a0cf:1912:4be:477f])
-	by mxe9fb.netcup.net (Postfix) with ESMTPSA id D19D561884;
-	Thu, 28 May 2026 16:44:49 +0200 (CEST)
-Authentication-Results: mxe9fb;
-        spf=pass (sender IP is 2a02:8108:8984:1d00:a0cf:1912:4be:477f) smtp.mailfrom=regressions@leemhuis.info smtp.helo=[IPV6:2a02:8108:8984:1d00:a0cf:1912:4be:477f]
-Received-SPF: pass (mxe9fb: connection is authenticated)
-Message-ID: <a76e1b63-84cd-49c7-a69f-8b71522dd5e6@leemhuis.info>
-Date: Thu, 28 May 2026 16:44:49 +0200
+	id 1wSc93-00000005sud-2fjO
+	for linux-arm-kernel@lists.infradead.org;
+	Thu, 28 May 2026 14:55:39 +0000
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH] memory: atmel-ebi: Allow deferred probing
-To: Krzysztof Kozlowski <krzk@kernel.org>, linux-kernel@vger.kernel.org,
- Alexander Dahl <ada@thorsis.com>
-Cc: Miquel Raynal <miquel.raynal@bootlin.com>, linux-mtd@lists.infradead.org,
- stable@vger.kernel.org, Nicolas Ferre <nicolas.ferre@microchip.com>,
- Alexandre Belloni <alexandre.belloni@bootlin.com>,
- Claudiu Beznea <claudiu.beznea@tuxon.dev>,
- "Rob Herring (Arm)" <robh@kernel.org>, linux-arm-kernel@lists.infradead.org,
- Linux kernel regressions list <regressions@lists.linux.dev>
-References: <20260429125930.844790-1-ada@thorsis.com>
- <177791688430.723206.2269403194221624148.b4-ty@b4>
-From: Thorsten Leemhuis <regressions@leemhuis.info>
-Content-Language: de-DE, en-US
-X-Enigmail-Draft-Status: N11222
-Autocrypt: addr=linux@leemhuis.info; keydata=
- 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 MEK4
-In-Reply-To: <177791688430.723206.2269403194221624148.b4-ty@b4>
-Content-Type: text/plain; charset=UTF-8
-Content-Transfer-Encoding: 7bit
-X-PPP-Message-ID: <177997949041.1020144.5344286188940027184@mxe9fb.netcup.net>
-X-Rspamd-Server: rspamd-worker-8404
-X-Rspamd-Queue-Id: D19D561884
-X-NC-CID: LuDs7YKoDu0aVTeGgOVvghNjtwoxc8OmBXbsxIklV6mTdMrL6Qk=
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=linux.dev; s=key1;
+	t=1779980000;
+	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
+	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
+	 content-transfer-encoding:content-transfer-encoding;
+	bh=BMaA7h5kGMRU9hf/QRuYJW/W07yAJ1I7bh7FabXITYU=;
+	b=njfeg0aU996w3zpMP+2q1ucUGMIvYDZSs21CeNIOfUiL1ZrI0VSfYke6OkZz2zMRnjkD9j
+	OzS4sgXyyDAn5IBflYCdRtLbZwtsqaBKdQVzjCLPth+ha49m+0zG+Sdj6psnpFjZ5esy00
+	yLfOy1+rIG/JFMKekOtTFrmiKmtpp1U=
+Date: Thu, 28 May 2026 14:53:17 +0000
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: quoted-printable
+X-Report-Abuse: Please report any abuse attempt to abuse@migadu.com and include these headers.
+From: "Tianchu Chen" <tianchu.chen@linux.dev>
+Message-ID: <af749a8447bd7f0e9dd26ca6c87e9c6afecb09d9@linux.dev>
+TLS-Required: No
+Subject: [PATCH] crypto: sun4i-ss: restrict PRNG seed length to prevent heap
+ overflow
+To: clabbe.montjoie@gmail.com, herbert@gondor.apana.org.au,
+ davem@davemloft.net
+Cc: wens@kernel.org, jernej.skrabec@gmail.com, samuel@sholland.org,
+ linux-crypto@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
+ linux-sunxi@lists.linux.dev, linux-kernel@vger.kernel.org
+X-Migadu-Flow: FLOW_OUT
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260528_075225_070764_2AEF0104 
-X-CRM114-Status: GOOD (  13.72  )
+X-CRM114-CacheID: sfid-20260528_075537_913701_EC75570A 
+X-CRM114-Status: UNSURE (   7.79  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -140,32 +70,42 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On 5/4/26 19:48, Krzysztof Kozlowski wrote:
-> 
-> On Wed, 29 Apr 2026 14:59:30 +0200, Alexander Dahl wrote:
->> After removing of_platform_default_populate() calls the atmel-ebi driver
->> was affected by deferred probing.  platform_driver_probe() is
->> incompatible with deferred probing.  This led to atmel-ebi driver
->> eventually not being probed on at91 sam9x60-curiosity and other sam9x60
->> based boards.  Subsequently the nand-controller driver (nand-controller
->> being a child node of ebi) on that platform was not probed and thus raw
->> NAND flash was inaccessible, preventing devices to boot with rootfs on
->> raw NAND flash (e.g. with UBI/UBIFS).
->>
->> [...]
-> 
-> Applied, thanks!
-> 
-> [1/1] memory: atmel-ebi: Allow deferred probing
->       https://git.kernel.org/krzk/linux-mem-ctrl/c/754d60ad1c91895be0bc7d771fbf9fb3c9448640
+From: Tianchu Chen <flynnnchen@tencent.com>
 
-Lo! What's the status of this regression fix? It seems to be sitting in
-next for a while already. To me as an outsider it looks like this should
-be on track to get it merged for -rc6, as that's when Linus ideally
-wants all regressions fixed; but it looks a bit like this is destined to
-be merged in the next merge window. But I might be entirely wrong here
--- or I'm right and there are good reasons why the next merge window is
-better here.
+sun4i_ss_prng_seed() copies the user-supplied seed into ss->seed
+using the user-provided length with no bounds check. The crypto core
+does not enforce slen <=3D seedsize before calling into the driver, so a
+userspace caller via AF_ALG setsockopt(ALG_SET_KEY) can pass up to
+sysctl_optmem_max bytes, overflowing the fixed-size buffer and
+corrupting adjacent heap memory.
 
-Ciao, Thorsten
+Add a length check rejecting seeds larger than the buffer.
+
+Discovered by Atuin - Automated Vulnerability Discovery Engine.
+
+Fixes: 6298e948215f ("crypto: sunxi-ss - Add Allwinner Security System cr=
+ypto accelerator")
+Cc: stable@vger.kernel.org
+Signed-off-by: Tianchu Chen <flynnnchen@tencent.com>
+---
+ drivers/crypto/allwinner/sun4i-ss/sun4i-ss-prng.c | 2 ++
+ 1 file changed, 2 insertions(+)
+
+diff --git a/drivers/crypto/allwinner/sun4i-ss/sun4i-ss-prng.c b/drivers/=
+crypto/allwinner/sun4i-ss/sun4i-ss-prng.c
+index 491fcb7b8..010fa891c 100644
+--- a/drivers/crypto/allwinner/sun4i-ss/sun4i-ss-prng.c
++++ b/drivers/crypto/allwinner/sun4i-ss/sun4i-ss-prng.c
+@@ -8,6 +8,8 @@ int sun4i_ss_prng_seed(struct crypto_rng *tfm, const u8 *=
+seed,
+ 	struct rng_alg *alg =3D crypto_rng_alg(tfm);
+=20
+=20	algt =3D container_of(alg, struct sun4i_ss_alg_template, alg.rng);
++	if (slen > sizeof(algt->ss->seed))
++		return -EINVAL;
+ 	memcpy(algt->ss->seed, seed, slen);
+=20
+=20	return 0;
+--=20
+2.51.0
 
