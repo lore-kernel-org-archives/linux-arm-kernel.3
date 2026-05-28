@@ -4,68 +4,68 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id CA2FACD4F54
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 28 May 2026 20:24:11 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 9DF14CD6E45
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 28 May 2026 20:24:12 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:Cc:To:From:
 	Subject:Message-ID:References:Mime-Version:In-Reply-To:Date:Reply-To:
 	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=xwbylVdF+O+8AihJparLUGU02SRqGSrn4Cd3mbYF5r4=; b=zUTwBwjsmdb5R3GLLkbOQeYrMI
-	I4+fAlpDIB1EvUefGe+9ivVcPuJFdz+HuXn69rwkus+EzyNd3piOMIwaRSYPzZOT6CdLPUwdKwAtW
-	8iXeMJ9iofmGz9U6Y4q2OBMNSYPdLYWmBApQL58RGWhFKTbgqjSAN6Aw0uckFNPM11H5yafCrCqeu
-	jq5C0cyE3mHwUcwzyhO3LRm7LTLXKeMWUfQxPzXH/yU/RI8Wa+yPkKUD/9b3mzX4lpJ3hnPe7gJSX
-	uBVW0CBAejQgcLsBUM5tejvOC4iOKN5ODVFlMFNL3yfXc77xawm2w0zDXTgo0HSCEBxKABBgzV9QC
-	uWNS+PaA==;
+	bh=c6562tSqUW4FPLuBReRttsQP9VRgygDGjnIRvKk2fg8=; b=XribnlDYtAb1I1FUzBa99PUwJH
+	AY/S24CRVFfc9rlsjNUrIl02ojddVPrNM1law6cVjmCxPfHJKGVdBkC4+AnT7ltxYNld2etzYuE6U
+	NOVsoGcDsiGx6kFv71WvZxkjJOOwPa2LIdgDTmHtduF9mM4gcf5zNI/iR50H+diMTFH5TX2OJe5NG
+	NDXXpfwXZleNUpuWq+HDw24qsCVCSIwgvv1s2lrolNcABiZvffGpsP5H/C2uk8LZmqT0SK8iG+GS2
+	IAFJZD7p3hO6FRWcNuGwZlLvJn0jtrFJR9HhUS2H9HKGUzSx+O4qGwJGZtuVFCVjzw5Yu672nMLNL
+	BQaDT57w==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wShGv-00000006Kt6-0UVZ;
+	id 1wShGv-00000006KtP-0sPH;
 	Thu, 28 May 2026 20:24:05 +0000
-Received: from mail-pj1-x104a.google.com ([2607:f8b0:4864:20::104a])
+Received: from mail-pg1-x549.google.com ([2607:f8b0:4864:20::549])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wShGp-00000006Kqp-2nAR
+	id 1wShGr-00000006Krg-3Bez
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 28 May 2026 20:24:00 +0000
-Received: by mail-pj1-x104a.google.com with SMTP id 98e67ed59e1d1-36bb6c41341so344240a91.3
-        for <linux-arm-kernel@lists.infradead.org>; Thu, 28 May 2026 13:23:58 -0700 (PDT)
+	Thu, 28 May 2026 20:24:02 +0000
+Received: by mail-pg1-x549.google.com with SMTP id 41be03b00d2f7-c8279604464so16049210a12.1
+        for <linux-arm-kernel@lists.infradead.org>; Thu, 28 May 2026 13:24:00 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=google.com; s=20251104; t=1779999838; x=1780604638; darn=lists.infradead.org;
+        d=google.com; s=20251104; t=1779999840; x=1780604640; darn=lists.infradead.org;
         h=cc:to:from:subject:message-id:references:mime-version:in-reply-to
          :date:from:to:cc:subject:date:message-id:reply-to;
-        bh=xwbylVdF+O+8AihJparLUGU02SRqGSrn4Cd3mbYF5r4=;
-        b=q2Pky6MtsxX4HWF3i7KvZX03ta6nJqO6aVnN7n/GZmoHlY9w/dGV3iUK83RMcxHOEZ
-         Zwv7jGeg4xxmOddDKEnzrmV+yhY5o86Ka5oY9N9AcP9MnoVnzHolxwv6gi6ge83pyAUA
-         CCfdguN6uHT2S8tch4BuLXD00L5X3n7bQo7I8/Q73x64S1ERjaqCU/h7sg+cycfnzKnW
-         pFptUpypPDxueLY4dEbNit3i7PW8DnblFseysZzM+dA+6SFoYozAlVzxo1zCAQuC4nie
-         j7Ll+mct0IbYdGimSSMJXMpmLmO+I1ZulPyMzwpLE5FSYwHRv93PlGh+yxi8+m6ThKhW
-         qjog==
+        bh=c6562tSqUW4FPLuBReRttsQP9VRgygDGjnIRvKk2fg8=;
+        b=d7n9vUsXzPgJP2EJrsCDUa1d1bAZcBeN9fVf2ey80j3iF6LNevrF2XrPq6n0mWeMtr
+         hLgCdD2vrFWkBzzbaLUqk9Jc/SIGqn6E9Q2z9PLxFGKNlpDK91ADniELfV4SsZXw6PVM
+         KieSsQ8vDOt2i4OElHdTZdpNo/jNC1KPkRb+LfH8XjRb/MCpI5sqVUWfYjcOrMXuFae0
+         FXgUY0Mn60j9bJDoJJPMNWaInRnqJbbeLqyNhQllxxWO6Fw8CLb4QyREqq9yFPxojTqc
+         giPxSTEef70SzNrez2TD9cnefXLA3VBgGZHZ9hfhU7P9T/35qPVuG1s9Rn1QbTWGLFa+
+         Is7g==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20251104; t=1779999838; x=1780604638;
+        d=1e100.net; s=20251104; t=1779999840; x=1780604640;
         h=cc:to:from:subject:message-id:references:mime-version:in-reply-to
          :date:x-gm-message-state:from:to:cc:subject:date:message-id:reply-to;
-        bh=xwbylVdF+O+8AihJparLUGU02SRqGSrn4Cd3mbYF5r4=;
-        b=GqIjAbSwaOa3ferukstZG7x5FzFUtkFNMz5siFX7tfko6XPDrTLlIs/zHI0NBEcfNG
-         RhQRpDetjTExM0Q2hB0f8FmfiWUvWpwFCq/DQZOkjthFX1xXfbwp6a6U1FoqDyd4ENpG
-         ZUf7b33PBoIz4hqs3DEk5kcbnFCmkbnZISrxO/hTcCUU8T6Yk6Emx+SD4fSHNYNCdMe3
-         rV9snciryZ/ocS76elhef3k8sQIN4RskyC0R9lwbC49NeHAOHsRJNvSEKK1iIFNV00zO
-         +TgbsV71tPy969gT4MaHY2DtqScAYCFGzclA4bcLNfUxMzIFzNP7d7XJGjSp1mgwexVP
-         663w==
-X-Forwarded-Encrypted: i=1; AFNElJ8RyugCzYDpf7pHCy+OT/0Xr4PKE+by7V8kBsYoYCiESvnmVbeUKsx/8xymL7Uk+Y00hcWGOzVYG3E1rHs8v45Z@lists.infradead.org
-X-Gm-Message-State: AOJu0YwABNKK/W+zk3O07URqTl1YtAk5OduwCP6f1O7+wI4zyZaeXl39
-	38JmHcqXd6xow5OmtMzZ6on7+vPxtLnkCWcp3HRrQZqymPTQ1dYaP99Mu8uZ08oSYxrGsxcN1r0
-	ZGA==
-X-Received: from pjbcu14.prod.google.com ([2002:a17:90a:fa8e:b0:369:9cde:eaa0])
- (user=praan job=prod-delivery.src-stubby-dispatcher) by 2002:a17:90a:e7c9:b0:368:1088:bb1d
- with SMTP id 98e67ed59e1d1-36bbcfd9807mr90130a91.15.1779999837989; Thu, 28
- May 2026 13:23:57 -0700 (PDT)
-Date: Thu, 28 May 2026 20:23:47 +0000
+        bh=c6562tSqUW4FPLuBReRttsQP9VRgygDGjnIRvKk2fg8=;
+        b=kSTDQ7UHseQlApuXAntFDxELtbGrEX5CRLNGorrpeAN2H+N8YYj9vlfeNv4pbgBSIS
+         kQAN2oPJTwzqv1IZCCuSjwvFd41psdBfkfqLnTzd9X1GzdV76iwyfOZA/HxOaAheW1cL
+         C/mZfW/yDQzUz4ZnHQsoyH9exJcKwvhjfPDGZ6WTFnXJTek4kGMg2/Ddm/fh2nR6v22z
+         Zj3/DOGK6H2o+SqQAS+DSP5lQ9LfJd7Wj/93KE9gyCXVPE585Dqt9KPAk/BZ6MITI4xc
+         zpSzgxXAbngF1tKPUujghPrgnum56V2eEveSn/wxPWcSDdVqcaHvRH2dQT0muBquyMgb
+         LIIA==
+X-Forwarded-Encrypted: i=1; AFNElJ/TL+lF+vSlcYH0HNg08aO6XcESUtU9ase+PJAsXERJuUiJ+GcuSZtJ3oUGMerXliIaZcQFr1UDE49XqP2H2f7x@lists.infradead.org
+X-Gm-Message-State: AOJu0YyPm3w83qP/PM6X4EuD9LVBuryB2Wiilp70vv+15AV5xIUnNnpI
+	GIztzJrOIPyl07MvS8GGyG15Cea1mW5y8eDRyvbKVbKj3EE22mwnHhL8NILu+OG9uJRsnVfiEvS
+	fJw==
+X-Received: from pgk38.prod.google.com ([2002:a63:a26:0:b0:c76:9c2d:449b])
+ (user=praan job=prod-delivery.src-stubby-dispatcher) by 2002:a05:6a21:648f:b0:3ab:18cd:7da3
+ with SMTP id adf61e73a8af0-3b40e2c7eddmr314116637.1.1779999840003; Thu, 28
+ May 2026 13:24:00 -0700 (PDT)
+Date: Thu, 28 May 2026 20:23:48 +0000
 In-Reply-To: <20260528202353.3422206-1-praan@google.com>
 Mime-Version: 1.0
 References: <20260528202353.3422206-1-praan@google.com>
 X-Mailer: git-send-email 2.54.0.823.g6e5bcc1fc9-goog
-Message-ID: <20260528202353.3422206-2-praan@google.com>
-Subject: [PATCH v5 1/7] PCI/ATS: Ensure pci_ats_supported() is PF-aware for VFs
+Message-ID: <20260528202353.3422206-3-praan@google.com>
+Subject: [PATCH v5 2/7] PCI/ATS: Validate STU for VFs in pci_prepare_ats()
 From: Pranjal Shrivastava <praan@google.com>
 To: iommu@lists.linux.dev, linux-pci@vger.kernel.org, 
 	linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org
@@ -79,8 +79,8 @@ Cc: Joerg Roedel <joro@8bytes.org>, Will Deacon <will@kernel.org>,
 	Pranjal Shrivastava <praan@google.com>, Jason Gunthorpe <jgg@nvidia.com>
 Content-Type: text/plain; charset="UTF-8"
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260528_132359_704101_F6165F63 
-X-CRM114-Status: GOOD (  11.28  )
+X-CRM114-CacheID: sfid-20260528_132401_800140_2C08B799 
+X-CRM114-Status: GOOD (  14.73  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -95,40 +95,49 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Update pci_ats_supported() to additionally check the associated PF's
-status when called on a VF. This ensures that PF-level quirks and
-untrusted status are correctly propagated to VFs, providing a robust
-support check that aligns with the kernel's PF-centric ATS configuration
-model and is immune to the timing of VF-specific fixups.
+While every PCI Function that implements ATS has an independent ATS
+Extended Capability structure with a Read/Write Smallest Translation
+Unit (STU) field, the kernel manages SR-IOV ATS by requiring the IOMMU
+driver to configure the STU on the Physical Function (PF) before any
+any Virtual Functions (VFs) are created.
+
+Currently, pci_prepare_ats() bails out early for VFs, assuming that the
+PF has already been correctly prepared. However, this creates a potential
+mismatch if a VF is subsequently prepared with a different page shift.
+
+Update pci_prepare_ats() to validate that the requested page shift (ps)
+matches the STU already configured in the associated PF. This ensures
+early detection of incompatible configurations and maintains the kernel's
+policy of consistent STU sizing across all functions associated with a
+given SMMU.
 
 Reviewed-by: Jason Gunthorpe <jgg@nvidia.com>
 Reviewed-by: Samiullah Khawaja <skhawaja@google.com>
 Reviewed-by: Nicolin Chen <nicolinc@nvidia.com>
 Signed-off-by: Pranjal Shrivastava <praan@google.com>
 ---
- drivers/pci/ats.c | 7 +++++--
- 1 file changed, 5 insertions(+), 2 deletions(-)
+ drivers/pci/ats.c | 7 ++++++-
+ 1 file changed, 6 insertions(+), 1 deletion(-)
 
 diff --git a/drivers/pci/ats.c b/drivers/pci/ats.c
-index 96efa00d9743..679a3c3c1d54 100644
+index 679a3c3c1d54..8057c24b0469 100644
 --- a/drivers/pci/ats.c
 +++ b/drivers/pci/ats.c
-@@ -40,10 +40,13 @@ void pci_ats_init(struct pci_dev *dev)
-  */
- bool pci_ats_supported(struct pci_dev *dev)
- {
--	if (!dev->ats_cap)
-+	if (!dev->ats_cap || dev->untrusted)
- 		return false;
+@@ -73,8 +73,13 @@ int pci_prepare_ats(struct pci_dev *dev, int ps)
+ 	if (ps < PCI_ATS_MIN_STU)
+ 		return -EINVAL;
  
--	return (dev->untrusted == 0);
-+	if (dev->is_virtfn)
-+		return pci_ats_supported(pci_physfn(dev));
+-	if (dev->is_virtfn)
++	if (dev->is_virtfn) {
++		struct pci_dev *pdev = pci_physfn(dev);
 +
-+	return true;
- }
- EXPORT_SYMBOL_GPL(pci_ats_supported);
++		if (pdev->ats_stu != ps)
++			return -EINVAL;
+ 		return 0;
++	}
  
+ 	dev->ats_stu = ps;
+ 	ctrl = PCI_ATS_CTRL_STU(dev->ats_stu - PCI_ATS_MIN_STU);
 -- 
 2.54.0.823.g6e5bcc1fc9-goog
 
