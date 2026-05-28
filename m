@@ -4,65 +4,60 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 1A519CD6E44
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 28 May 2026 09:45:03 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 9F914CD6E44
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 28 May 2026 09:45:40 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:MIME-Version:References:In-Reply-To:Message-ID:Subject:Cc:To:
-	From:Date:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
+	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=ZmDykwHmbDlHGt8sWJeNhUg4XHecBNonkDjK5kc+x1I=; b=joRNLSTLmNmv7f26KoWaSH/yVO
-	iRNAoJ2a+PwPMqyI1G52jDnpe2VbfVGuPjAhERqXw0/DOYfFW0WWupembBikIt4gLp2d6LF6sJX8c
-	Wq+AenQgY6mCbQ+nI4O/PuOMNBFGBaaZ2Yuvny3Qp42sQqo8802WrZqpTe7Tv5bD5HxhEUrMv/ABo
-	X/DU0WqGxfqguCus3G530Aj+psy4AOH1rzfjJGZ/Qc4cMVcyNAIK8RdVSVjWsihVYXPf4ZC55YzF/
-	WKxc+vOyKpgwFOkSVUN7X32cP+xTYKpYRNXVkQfk+Rizg+23s34YGwD8e8Ivv9rKzSfPeSRz5yhXL
-	wYbB/feg==;
+	bh=mSHcE3JZNXEjqAqPYOLS5pDZlHeFKPXFSoMhDOipXPg=; b=JDImGJuwTvpgw8A42N1W1KXCfm
+	Fwf1y54028AdWnZ77EM3H3oWQaGpAF31wnJyeA4/oRCJeE41ltoiPf773SDa7roqKAWH9r7aRjbu+
+	CGzJHy0Y4+CbqNTZmKcDc50LOTFRmRhdYSBz7Vrmh1OGb9JFghTzlB9JznDVjNwJtqI/3ugiuCIUU
+	qQvaOfMjrD9dTjn6nUjKTH1I2tugy7KK1uwI8FvPtqkxOxzbKAHsVdhwRgUJwy/t3oBQOxsikA+z8
+	j3jRRluuAYPY5GCzz0SwruI7Zyuoh1LEz/pXi2Ml2PymLj6m+WukZT1lyY8U5wExnqDWKz4wsOEQ1
+	V1e730vQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wSXIO-00000005XFT-1RS3;
-	Thu, 28 May 2026 09:44:56 +0000
-Received: from tor.source.kernel.org ([2600:3c04:e001:324:0:1991:8:25])
-	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wSXIM-00000005XEq-2BMK
+	id 1wSXJ0-00000005XMo-23EV;
+	Thu, 28 May 2026 09:45:34 +0000
+Received: from foss.arm.com ([217.140.110.172])
+	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
+	id 1wSXIx-00000005XM0-1wjw
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 28 May 2026 09:44:54 +0000
-Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
-	by tor.source.kernel.org (Postfix) with ESMTP id 91AA26057B;
-	Thu, 28 May 2026 09:44:53 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id CB3B21F000E9;
-	Thu, 28 May 2026 09:44:47 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1779961493;
-	bh=ZmDykwHmbDlHGt8sWJeNhUg4XHecBNonkDjK5kc+x1I=;
-	h=Date:From:To:Cc:Subject:In-Reply-To:References;
-	b=nrP/wgSOkm3QXCEtw3KIexhzlfoETf2ZoGPjYvxpmZQa1yZy5FBBXS24xhQMYupbG
-	 2Uwuuapyg50LBvgcHALEBCaQJZQPyE9QP8H+cwKFPQ63eV0nxIcUI47ohyTlNduvx1
-	 DFTJiIb+9+n/SKKlJSRJ3OjKUWVeEE9J0OfEeSse+o0OpG9Fn7Xaj2SqMY87IGTDow
-	 9L+7ecZSuUmThBBQFWx33bK+EYk9sVnzl3DFf0oe4e6Rxmh5jn5Ynk+tbGcJI4NSSk
-	 xsFkB21kLxsc6iA5ZFUqCuYqtq3+7H1IQ6XXOPrLoJQRRN3GBIaFaiDr1tpWVyIuT9
-	 +Uu/V9NYYHJEw==
-Date: Thu, 28 May 2026 10:44:42 +0100
-From: Jonathan Cameron <jic23@kernel.org>
-To: Joshua Crofts <joshua.crofts1@gmail.com>
-Cc: Petar Stepanovic <pstepanovic@axiado.com>, Akhila Kavi
- <akavi@axiado.com>, Prasad Bolisetty <pbolisetty@axiado.com>, David Lechner
- <dlechner@baylibre.com>, Nuno =?UTF-8?B?U8Oh?= <nuno.sa@analog.com>, Andy
- Shevchenko <andy@kernel.org>, Rob Herring <robh@kernel.org>, Krzysztof
- Kozlowski <krzk+dt@kernel.org>, Conor Dooley <conor+dt@kernel.org>, Harshit
- Shah <hshah@axiado.com>, linux-iio@vger.kernel.org,
- devicetree@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
- linux-kernel@vger.kernel.org
-Subject: Re: [PATCH 2/3] iio: adc: add Axiado SARADC driver
-Message-ID: <20260528104442.428cce3f@jic23-huawei>
-In-Reply-To: <CALoEA-yfqYky=Un0r5K8QBc_H8DVziuiKuLap7ArAQOmaLKnZw@mail.gmail.com>
-References: <20260528-axiado-ax3000-ax3005-saradc-v1-0-345dd5f6608a@axiado.com>
-	<20260528-axiado-ax3000-ax3005-saradc-v1-2-345dd5f6608a@axiado.com>
-	<CALoEA-yfqYky=Un0r5K8QBc_H8DVziuiKuLap7ArAQOmaLKnZw@mail.gmail.com>
-X-Mailer: Claws Mail 4.4.0 (GTK 3.24.52; x86_64-pc-linux-gnu)
+	Thu, 28 May 2026 09:45:33 +0000
+Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
+	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id A2F0B4402;
+	Thu, 28 May 2026 02:45:24 -0700 (PDT)
+Received: from [10.1.28.164] (unknown [10.1.28.164])
+	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id 6F9EC3F632;
+	Thu, 28 May 2026 02:45:27 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=simple/simple; d=arm.com; s=foss;
+	t=1779961529; bh=P8Q1n7++KYGn6KjmLs/J8YX5MBe/FzQnONG5vdUEhPw=;
+	h=Date:Subject:To:Cc:References:From:In-Reply-To:From;
+	b=t5xshcoVa1aNijEr9lCBlTqTh/gSFG1u88ttAYpJ1PYVIaT60k+HNg9XbSGk6AqAy
+	 1/I1vM8LkmB+FSx5yVmi9eGWKuegR7sU6W8pjvE6svTwcOZYzY9VMb9LgiALAKHQFT
+	 xi3g0/ZqOBvTOLBVxF4H0ea1uWBkgRRXGyZEjojA=
+Message-ID: <362fe07b-70d5-4933-96d3-6445242f9077@arm.com>
+Date: Thu, 28 May 2026 10:45:25 +0100
 MIME-Version: 1.0
-Content-Type: text/plain; charset=US-ASCII
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH 13/18] arm64: fpsimd: Use opaque type for SVE state
+To: Mark Rutland <mark.rutland@arm.com>,
+ linux-arm-kernel@lists.infradead.org, kvmarm@lists.linux.dev
+Cc: broonie@kernel.org, catalin.marinas@arm.com, james.morse@arm.com,
+ maz@kernel.org, oupton@kernel.org, tabba@google.com, will@kernel.org
+References: <20260521132556.584676-1-mark.rutland@arm.com>
+ <20260521132556.584676-14-mark.rutland@arm.com>
+Content-Language: en-GB
+From: Vladimir Murzin <vladimir.murzin@arm.com>
+In-Reply-To: <20260521132556.584676-14-mark.rutland@arm.com>
+Content-Type: text/plain; charset=UTF-8
 Content-Transfer-Encoding: 7bit
+X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
+X-CRM114-CacheID: sfid-20260528_024531_589754_93DC47F5 
+X-CRM114-Status: GOOD (  37.91  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -77,413 +72,438 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Thu, 28 May 2026 11:02:05 +0200
-Joshua Crofts <joshua.crofts1@gmail.com> wrote:
-
-> On Thu, 28 May 2026 at 10:11, Petar Stepanovic <pstepanovic@axiado.com> wrote:
-> >
-> > Add support for the SARADC controller found on Axiado AX3000 and
-> > AX3005 SoCs.
-> >
-> > The driver supports single-shot voltage reads through the IIO
-> > subsystem. The number of available input channels is selected from
-> > the SoC match data, allowing AX3000 and AX3005 variants to use the
-> > same driver.
-> >
-> > Signed-off-by: Petar Stepanovic <pstepanovic@axiado.com>
-> > ---  
+On 5/21/26 14:25, Mark Rutland wrote:
+> As the SVE state size can vary at runtime, we don't have a concrete type
+> for the in-memory SVE state, and pass this around using a pointer to
+> void. The functions which save/restore the SVE state have a very unusual
+> calling convention, expecting a pointer to the FFR *in the middle of*
+> the in-memory SVE state, which is also passed as a pointer to void.
+> Passing a pointer to the FFR also requires that callers find the live VL
+> and perform some arithmetic, which callers implement differently.
 > 
-> Hi Petar, a few comments inline. Additionally, Sashiko came back
-> with a few issues:
-> https://sashiko.dev/#/patchset/20260528-axiado-ax3000-ax3005-saradc-v1-0-345dd5f6608a%40axiado.com.
-
-I'll review on top given it's a short driver so Joshua hasn't cropped anything.
-
-Mind you seems like Joshua's email client has replaced tabs with spaces
-which briefly made me wonder if the patches were corrupted!
-
-Joshua caught most of the larger things, so mostly formatting and similar
-from me.
-
-Note that convention is to leave a new series on list for around a week before
-posting an update. That lets more reviewers have the opportunity to take a look
-and cuts down on how many revisions we end up with.
-I'd soften that a little in this case as it is a relative small driver but wait
-until next week before sending a v2.
-
-Jonathan
-
+> Using pointer to void means that it's very easy to introduce errors that
+> cannot be caught by the compiler (e.g. as 'void **' can be assigned to
+> 'void *'). In general this is unnecessarily confusing and fragile.
 > 
-> > +++ b/drivers/iio/adc/axiado_saradc.c
-> > @@ -0,0 +1,218 @@
-> > +// SPDX-License-Identifier: GPL-2.0-or-later
-> > +/*
-> > + * Copyright (c) 2021-2026 Axiado Corporation
-> > + */
-> > +
-> > +#include <linux/bitfield.h>
-> > +#include <linux/clk.h>
-> > +#include <linux/delay.h>
-> > +#include <linux/device.h>
-> > +#include <linux/iio/iio.h>  
+> Improve this by adding an opaque 'struct sve_state', and consistently
+> passing a pointer to this, performing the necessary offsetting *within*
+> the save/restore functions.
 > 
-> IIO specific headers should follow the generic <linux/*> headers and
-> be grouped separately.
+> For the moment, the offsetting is performed in a new '_sve_pffr'
+> assembly macro, using the ADDVL and ADDPL instructions. These add a
+> multiple of the live vector length and predicate length respectively.
+> The ADDVL immediate range cannot encode 32, so this is split into two
+> increments of 16.
 > 
-> > +#include <linux/io.h>
-> > +#include <linux/kernel.h>  
+> Signed-off-by: Mark Rutland <mark.rutland@arm.com>
+> Cc: Catalin Marinas <catalin.marinas@arm.com>
+> Cc: Fuad Tabba <tabba@google.com>
+> Cc: James Morse <james.morse@arm.com>
+> Cc: Marc Zyngier <maz@kernel.org>
+> Cc: Mark Brown <broonie@kernel.org>
+> Cc: Oliver Upton <oupton@kernel.org>
+> Cc: Will Deacon <will@kernel.org>
+> ---
+>  arch/arm64/include/asm/fpsimd.h         | 24 +++---------------------
+>  arch/arm64/include/asm/fpsimdmacros.h   |  9 +++++++++
+>  arch/arm64/include/asm/kvm_host.h       |  8 ++------
+>  arch/arm64/include/asm/kvm_hyp.h        |  4 ++--
+>  arch/arm64/include/asm/processor.h      |  4 +++-
+>  arch/arm64/kernel/fpsimd.c              | 21 ++++++++++-----------
+>  arch/arm64/kvm/arm.c                    |  4 ++--
+>  arch/arm64/kvm/guest.c                  |  4 ++--
+>  arch/arm64/kvm/hyp/include/hyp/switch.h |  8 +++-----
+>  arch/arm64/kvm/hyp/nvhe/hyp-main.c      |  7 +++----
+>  arch/arm64/kvm/hyp/nvhe/setup.c         |  2 +-
+>  11 files changed, 40 insertions(+), 55 deletions(-)
 > 
-> Don't use kernel.h when adding a new driver. The existing drivers in IIO
-> are currently being moved away from kernel.h, as it is a catch-all header.
-> You should include what you use manually (there is a tool for this, it's
-> called iwyu-tool).
+> diff --git a/arch/arm64/include/asm/fpsimd.h b/arch/arm64/include/asm/fpsimd.h
+> index 19b373ad0ebf7..19e670ae67598 100644
+> --- a/arch/arm64/include/asm/fpsimd.h
+> +++ b/arch/arm64/include/asm/fpsimd.h
+> @@ -162,7 +162,7 @@ extern void fpsimd_update_current_state(struct user_fpsimd_state const *state);
+>  
+>  struct cpu_fp_state {
+>  	struct user_fpsimd_state *st;
+> -	void *sve_state;
+> +	struct sve_state *sve_state;
+>  	void *sme_state;
+>  	u64 *svcr;
+>  	u64 *fpmr;
+> @@ -195,24 +195,6 @@ extern void task_smstop_sm(struct task_struct *task);
+>  /* Maximum VL that SVE/SME VL-agnostic software can transparently support */
+>  #define VL_ARCH_MAX 0x100
+>  
+> -/* Offset of FFR in the SVE register dump */
+> -static inline size_t sve_ffr_offset(int vl)
+> -{
+> -	return SVE_SIG_FFR_OFFSET(sve_vq_from_vl(vl)) - SVE_SIG_REGS_OFFSET;
+> -}
+> -
+
+If my math is correct it would expand into 
+
+  __SVE_ZREGS_OFFSET + __SVE_ZREG_SIZE(vq) * 32 + __SVE_PREG_SIZE(vq) * 16
+
+or, given __SVE_ZREGS_OFFSET is 0, just
+
+  __SVE_ZREG_SIZE(vq) * 32 + __SVE_PREG_SIZE(vq) * 16
+
+
+> -static inline void *sve_pffr(struct thread_struct *thread)
+> -{
+> -	unsigned int vl;
+> -
+> -	if (system_supports_sme() && thread_sm_enabled(thread))
+> -		vl = thread_get_sme_vl(thread);
+> -	else
+> -		vl = thread_get_sve_vl(thread);
+> -
+> -	return (char *)thread->sve_state + sve_ffr_offset(vl);
+> -}
+> -
+>  static inline void *thread_zt_state(struct thread_struct *thread)
+>  {
+>  	/* The ZT register state is stored immediately after the ZA state */
+> @@ -233,8 +215,8 @@ static inline unsigned int sve_get_vl(void)
+>  	return vl;
+>  }
+>  
+> -extern void sve_save_state(void *state, int save_ffr);
+> -extern void sve_load_state(void const *state, int restore_ffr);
+> +extern void sve_save_state(struct sve_state *state, int save_ffr);
+> +extern void sve_load_state(const struct sve_state *state, int restore_ffr);
+>  extern void sve_flush_live(bool flush_ffr, unsigned long vq_minus_1);
+>  extern void sme_save_state(void *state, int zt);
+>  extern void sme_load_state(void const *state, int zt);
+> diff --git a/arch/arm64/include/asm/fpsimdmacros.h b/arch/arm64/include/asm/fpsimdmacros.h
+> index 01b5e6d51ba79..08f4863e67715 100644
+> --- a/arch/arm64/include/asm/fpsimdmacros.h
+> +++ b/arch/arm64/include/asm/fpsimdmacros.h
+> @@ -176,7 +176,15 @@
+>  		_sve_wrffr	0
+>  .endm
+>  
+> +.macro _sve_pffr ptr
+> +	.arch_extension sve
+> +	addvl	\ptr, \ptr, #16
+> +	addvl	\ptr, \ptr, #16
+> +	addpl	\ptr, \ptr, #16
+> +.endm
+> +
+
+This matches to the end result of sve_ffr_offset()
+
+>  .macro sve_save nxbase, save_ffr
+> +		_sve_pffr	x\nxbase
+>   _for n, 0, 31,	_sve_str_v	\n, \nxbase, \n - 34
+>   _for n, 0, 15,	_sve_str_p	\n, \nxbase, \n - 16
+>  		cbz		\save_ffr, 921f
+> @@ -190,6 +198,7 @@
+>  .endm
+>  
+>  .macro sve_load nxbase, restore_ffr
+> +		_sve_pffr	x\nxbase
+>   _for n, 0, 31,	_sve_ldr_v	\n, \nxbase, \n - 34
+>  		cbz		\restore_ffr, 921f
+>  		_sve_ldr_p	0, \nxbase
+> diff --git a/arch/arm64/include/asm/kvm_host.h b/arch/arm64/include/asm/kvm_host.h
+> index ae24617380b8f..a366509c5944e 100644
+> --- a/arch/arm64/include/asm/kvm_host.h
+> +++ b/arch/arm64/include/asm/kvm_host.h
+> @@ -759,7 +759,7 @@ struct kvm_host_data {
+>  	 * Hyp VA.
+>  	 * sve_regs is only used in pKVM and if system_supports_sve().
+>  	 */
+> -	u8	*sve_regs;
+> +	struct sve_state *sve_regs;
+>  
+>  	/* Ownership of the FP regs */
+>  	enum {
+> @@ -853,7 +853,7 @@ struct kvm_vcpu_arch {
+>  	 * floating point code saves the register state of a task it
+>  	 * records which view it saved in fp_type.
+>  	 */
+> -	void *sve_state;
+> +	struct sve_state *sve_state;
+>  	enum fp_type fp_type;
+>  	unsigned int sve_max_vl;
+>  
+> @@ -1097,10 +1097,6 @@ struct kvm_vcpu_arch {
+>  #define NESTED_SERROR_PENDING	__vcpu_single_flag(sflags, BIT(8))
+>  
+>  
+> -/* Pointer to the vcpu's SVE FFR for sve_{save,load}_state() */
+> -#define vcpu_sve_pffr(vcpu) (kern_hyp_va((vcpu)->arch.sve_state) +	\
+> -			     sve_ffr_offset((vcpu)->arch.sve_max_vl))
+> -
+>  #define vcpu_sve_max_vq(vcpu)	sve_vq_from_vl((vcpu)->arch.sve_max_vl)
+>  
+>  #define vcpu_sve_zcr_elx(vcpu)						\
+> diff --git a/arch/arm64/include/asm/kvm_hyp.h b/arch/arm64/include/asm/kvm_hyp.h
+> index 8c4602c8f4356..38356eee592ad 100644
+> --- a/arch/arm64/include/asm/kvm_hyp.h
+> +++ b/arch/arm64/include/asm/kvm_hyp.h
+> @@ -121,8 +121,8 @@ void __debug_save_host_buffers_nvhe(struct kvm_vcpu *vcpu);
+>  void __debug_restore_host_buffers_nvhe(struct kvm_vcpu *vcpu);
+>  #endif
+>  
+> -void __sve_save_state(void *sve, int save_ffr);
+> -void __sve_restore_state(void *sve, int restore_ffr);
+> +void __sve_save_state(struct sve_state *sve, int save_ffr);
+> +void __sve_restore_state(struct sve_state *sve, int restore_ffr);
+>  
+>  u64 __guest_enter(struct kvm_vcpu *vcpu);
+>  
+> diff --git a/arch/arm64/include/asm/processor.h b/arch/arm64/include/asm/processor.h
+> index e30c4c8e3a7a7..1c2ffd063baa8 100644
+> --- a/arch/arm64/include/asm/processor.h
+> +++ b/arch/arm64/include/asm/processor.h
+> @@ -130,6 +130,8 @@ enum fp_type {
+>  	FP_STATE_SVE,
+>  };
+>  
+> +struct sve_state;		/* Opaque type */
+> +
+>  struct cpu_context {
+>  	unsigned long x19;
+>  	unsigned long x20;
+> @@ -164,7 +166,7 @@ struct thread_struct {
+>  
+>  	enum fp_type		fp_type;	/* registers FPSIMD or SVE? */
+>  	unsigned int		fpsimd_cpu;
+> -	void			*sve_state;	/* SVE registers, if any */
+> +	struct sve_state	*sve_state;	/* SVE registers, if any */
+>  	void			*sme_state;	/* ZA and ZT state, if any */
+>  	unsigned int		vl[ARM64_VEC_MAX];	/* vector length */
+>  	unsigned int		vl_onexec[ARM64_VEC_MAX]; /* vl after next exec */
+> diff --git a/arch/arm64/kernel/fpsimd.c b/arch/arm64/kernel/fpsimd.c
+> index 9806fea8fea7c..66d880d081671 100644
+> --- a/arch/arm64/kernel/fpsimd.c
+> +++ b/arch/arm64/kernel/fpsimd.c
+> @@ -425,8 +425,7 @@ static void task_fpsimd_load(void)
+>  
+>  	if (restore_sve_regs) {
+>  		WARN_ON_ONCE(current->thread.fp_type != FP_STATE_SVE);
+> -		sve_load_state(sve_pffr(&current->thread),
+> -			       restore_ffr);
+> +		sve_load_state(current->thread.sve_state, restore_ffr);
+
+I do not know much about this code, I assume that live VL matches to current
+but having some logic to check that assumption would be handy...
+
+>  		fpsimd_load_common(&current->thread.uw.fpsimd_state);
+>  	} else {
+>  		WARN_ON_ONCE(current->thread.fp_type != FP_STATE_FPSIMD);
+> @@ -507,9 +506,7 @@ static void fpsimd_save_user_state(void)
+>  			return;
+>  		}
+>  
+> -		sve_save_state((char *)last->sve_state +
+> -					sve_ffr_offset(vl),
+> -			       save_ffr);
+> +		sve_save_state(last->sve_state, save_ffr);
+
+Few lines above we check that live VL matches our expectations 
+
+  WARN_ON(sve_get_vl() != vl)
+
+so we can rely on live VL value
+
+>  		fpsimd_save_common(last->st);
+>  		*last->fp_type = FP_STATE_SVE;
+>  	} else {
+> @@ -641,7 +638,8 @@ static __uint128_t arm64_cpu_to_le128(__uint128_t x)
+>  
+>  #define arm64_le128_to_cpu(x) arm64_cpu_to_le128(x)
+>  
+> -static void __fpsimd_to_sve(void *sst, struct user_fpsimd_state const *fst,
+> +static void __fpsimd_to_sve(struct sve_state *sst,
+> +			    struct user_fpsimd_state const *fst,
+>  			    unsigned int vq)
+>  {
+>  	unsigned int i;
+> @@ -668,7 +666,7 @@ static void __fpsimd_to_sve(void *sst, struct user_fpsimd_state const *fst,
+>  static inline void fpsimd_to_sve(struct task_struct *task)
+>  {
+>  	unsigned int vq;
+> -	void *sst = task->thread.sve_state;
+> +	struct sve_state *sst = task->thread.sve_state;
+>  	struct user_fpsimd_state const *fst = &task->thread.uw.fpsimd_state;
+>  
+>  	if (!system_supports_sve() && !system_supports_sme())
+> @@ -692,7 +690,7 @@ static inline void fpsimd_to_sve(struct task_struct *task)
+>  static inline void sve_to_fpsimd(struct task_struct *task)
+>  {
+>  	unsigned int vq, vl;
+> -	void const *sst = task->thread.sve_state;
+> +	const struct sve_state *sst = task->thread.sve_state;
+>  	struct user_fpsimd_state *fst = &task->thread.uw.fpsimd_state;
+>  	unsigned int i;
+>  	__uint128_t const *p;
+> @@ -791,7 +789,7 @@ void fpsimd_sync_from_effective_state(struct task_struct *task)
+>  void fpsimd_sync_to_effective_state_zeropad(struct task_struct *task)
+>  {
+>  	unsigned int vq;
+> -	void *sst = task->thread.sve_state;
+> +	struct sve_state *sst = task->thread.sve_state;
+>  	struct user_fpsimd_state const *fst = &task->thread.uw.fpsimd_state;
+>  
+>  	if (task->thread.fp_type != FP_STATE_SVE)
+> @@ -809,7 +807,8 @@ static int change_live_vector_length(struct task_struct *task,
+>  {
+>  	unsigned int sve_vl = task_get_sve_vl(task);
+>  	unsigned int sme_vl = task_get_sme_vl(task);
+> -	void *sve_state = NULL, *sme_state = NULL;
+> +	struct sve_state *sve_state = NULL;
+> +	void *sme_state = NULL;
+>  
+>  	if (type == ARM64_VEC_SME)
+>  		sme_vl = vl;
+> @@ -1645,7 +1644,7 @@ static void fpsimd_flush_thread_vl(enum vec_type type)
+>  
+>  void fpsimd_flush_thread(void)
+>  {
+> -	void *sve_state = NULL;
+> +	struct sve_state *sve_state = NULL;
+>  	void *sme_state = NULL;
+>  
+>  	if (!system_supports_fpsimd())
+> diff --git a/arch/arm64/kvm/arm.c b/arch/arm64/kvm/arm.c
+> index f9fc85a0344e1..7a3db4d7dcdef 100644
+> --- a/arch/arm64/kvm/arm.c
+> +++ b/arch/arm64/kvm/arm.c
+> @@ -2499,7 +2499,7 @@ static void __init teardown_hyp_mode(void)
+>  			continue;
+>  
+>  		if (free_sve) {
+> -			u8 *sve_regs;
+> +			struct sve_state *sve_regs;
+>  
+>  			sve_regs = per_cpu_ptr_nvhe_sym(kvm_host_data, cpu)->sve_regs;
+>  			free_pages((unsigned long) sve_regs, pkvm_host_sve_state_order());
+> @@ -2648,7 +2648,7 @@ static void finalize_init_hyp_mode(void)
+>  
+>  	if (system_supports_sve() && is_protected_kvm_enabled()) {
+>  		for_each_possible_cpu(cpu) {
+> -			u8 *sve_regs;
+> +			struct sve_state *sve_regs;
+>  
+>  			sve_regs = per_cpu_ptr_nvhe_sym(kvm_host_data, cpu)->sve_regs;
+>  			per_cpu_ptr_nvhe_sym(kvm_host_data, cpu)->sve_regs =
+> diff --git a/arch/arm64/kvm/guest.c b/arch/arm64/kvm/guest.c
+> index 332c453b87cf8..b01d6622b8720 100644
+> --- a/arch/arm64/kvm/guest.c
+> +++ b/arch/arm64/kvm/guest.c
+> @@ -500,7 +500,7 @@ static int get_sve_reg(struct kvm_vcpu *vcpu, const struct kvm_one_reg *reg)
+>  	if (!kvm_arm_vcpu_sve_finalized(vcpu))
+>  		return -EPERM;
+>  
+> -	if (copy_to_user(uptr, vcpu->arch.sve_state + region.koffset,
+> +	if (copy_to_user(uptr, (void *)vcpu->arch.sve_state + region.koffset,
+>  			 region.klen) ||
+>  	    clear_user(uptr + region.klen, region.upad))
+>  		return -EFAULT;
+> @@ -526,7 +526,7 @@ static int set_sve_reg(struct kvm_vcpu *vcpu, const struct kvm_one_reg *reg)
+>  	if (!kvm_arm_vcpu_sve_finalized(vcpu))
+>  		return -EPERM;
+>  
+> -	if (copy_from_user(vcpu->arch.sve_state + region.koffset, uptr,
+> +	if (copy_from_user((void *)vcpu->arch.sve_state + region.koffset, uptr,
+>  			   region.klen))
+>  		return -EFAULT;
+>  
+> diff --git a/arch/arm64/kvm/hyp/include/hyp/switch.h b/arch/arm64/kvm/hyp/include/hyp/switch.h
+> index aaa43554fd8e6..72e658255cda7 100644
+> --- a/arch/arm64/kvm/hyp/include/hyp/switch.h
+> +++ b/arch/arm64/kvm/hyp/include/hyp/switch.h
+> @@ -467,8 +467,7 @@ static inline void __hyp_sve_restore_guest(struct kvm_vcpu *vcpu)
+>  	 * vCPU. Start off with the max VL so we can load the SVE state.
+>  	 */
+>  	sve_cond_update_zcr_vq(vcpu_sve_max_vq(vcpu) - 1, SYS_ZCR_EL2);
+> -	__sve_restore_state(vcpu_sve_pffr(vcpu),
+> -			    true);
+> +	__sve_restore_state(kern_hyp_va(vcpu->arch.sve_state), true);
+
+We've just set live VL, so can rely on it
+
+>  	fpsimd_load_common(&vcpu->arch.ctxt.fp_regs);
+>  
+>  	/*
+> @@ -485,12 +484,11 @@ static inline void __hyp_sve_restore_guest(struct kvm_vcpu *vcpu)
+>  static inline void __hyp_sve_save_host(void)
+>  {
+>  	struct kvm_cpu_context *hctxt = host_data_ptr(host_ctxt);
+> -	u8 *sve_regs = *host_data_ptr(sve_regs);
+> +	struct sve_state *sve_regs = *host_data_ptr(sve_regs);
+>  
+>  	ctxt_sys_reg(hctxt, ZCR_EL1) = read_sysreg_el1(SYS_ZCR);
+>  	write_sysreg_s(sve_vq_from_vl(kvm_host_sve_max_vl) - 1, SYS_ZCR_EL2);
+> -	__sve_save_state(sve_regs + sve_ffr_offset(kvm_host_sve_max_vl),
+> -			 true);
+> +	__sve_save_state(sve_regs, true);
+
+We've just set live VL, so can rely on it
+
+>  	fpsimd_save_common(&hctxt->fp_regs);
+>  }
+>  
+> diff --git a/arch/arm64/kvm/hyp/nvhe/hyp-main.c b/arch/arm64/kvm/hyp/nvhe/hyp-main.c
+> index 627762ed7327f..72d025b2178a7 100644
+> --- a/arch/arm64/kvm/hyp/nvhe/hyp-main.c
+> +++ b/arch/arm64/kvm/hyp/nvhe/hyp-main.c
+> @@ -35,7 +35,7 @@ static void __hyp_sve_save_guest(struct kvm_vcpu *vcpu)
+>  	 * on the VL, so use a consistent (i.e., the maximum) guest VL.
+>  	 */
+>  	sve_cond_update_zcr_vq(vcpu_sve_max_vq(vcpu) - 1, SYS_ZCR_EL2);
+> -	__sve_save_state(vcpu_sve_pffr(vcpu), true);
+> +	__sve_save_state(kern_hyp_va(vcpu->arch.sve_state), true);
+
+We've just set live VL, so can rely on it
+
+>  	fpsimd_save_common(&vcpu->arch.ctxt.fp_regs);
+>  	write_sysreg_s(sve_vq_from_vl(kvm_host_sve_max_vl) - 1, SYS_ZCR_EL2);
+>  }
+> @@ -43,7 +43,7 @@ static void __hyp_sve_save_guest(struct kvm_vcpu *vcpu)
+>  static void __hyp_sve_restore_host(void)
+>  {
+>  	struct kvm_cpu_context *hctxt = host_data_ptr(host_ctxt);
+> -	u8 *sve_regs = *host_data_ptr(sve_regs);
+> +	struct sve_state *sve_regs = *host_data_ptr(sve_regs);
+>  
+>  	/*
+>  	 * On saving/restoring host sve state, always use the maximum VL for
+> @@ -55,8 +55,7 @@ static void __hyp_sve_restore_host(void)
+>  	 * need to be revisited.
+>  	 */
+>  	write_sysreg_s(sve_vq_from_vl(kvm_host_sve_max_vl) - 1, SYS_ZCR_EL2);
+> -	__sve_restore_state(sve_regs + sve_ffr_offset(kvm_host_sve_max_vl),
+> -			    true);
+> +	__sve_restore_state(sve_regs, true);
+
+We've just set live VL, so can rely on it
+
+>  	fpsimd_load_common(&hctxt->fp_regs);
+>  	write_sysreg_el1(ctxt_sys_reg(hctxt, ZCR_EL1), SYS_ZCR);
+>  }
+> diff --git a/arch/arm64/kvm/hyp/nvhe/setup.c b/arch/arm64/kvm/hyp/nvhe/setup.c
+> index cdaf53c833409..77dbcfed05486 100644
+> --- a/arch/arm64/kvm/hyp/nvhe/setup.c
+> +++ b/arch/arm64/kvm/hyp/nvhe/setup.c
+> @@ -82,7 +82,7 @@ static int pkvm_create_host_sve_mappings(void)
+>  
+>  	for (i = 0; i < hyp_nr_cpus; i++) {
+>  		struct kvm_host_data *host_data = per_cpu_ptr(&kvm_host_data, i);
+> -		u8 *sve_regs = host_data->sve_regs;
+> +		struct sve_state *sve_regs = host_data->sve_regs;
+>  
+>  		start = kern_hyp_va(sve_regs);
+>  		end = start + PAGE_ALIGN(pkvm_host_sve_state_size());
+> -- 2.30.2
 > 
-> > +#include <linux/mod_devicetable.h>
-> > +#include <linux/module.h>
-> > +#include <linux/mutex.h>
-> > +#include <linux/platform_device.h>
-> > +#include <linux/property.h>
-> > +#include <linux/regulator/consumer.h>
-> > +
-> > +/* Register offsets */
-If you name them to imply they are registers then it will
-be easier to spot if they end up in the wrong place in calls.
-AX_SARADC_GLOBAL_CTRL_REG
-etc
 
-> > +#define AX_SARADC_GLOBAL_CTRL 0x0004
-> > +#define AX_SARADC_MANUAL_CTRL 0x0008
-> > +#define AX_SARADC_DOUT 0x001C
-> > +
-> > +/* GLOBAL_CTRL fields */
-Include enough of the register in the name to ensure that
-is obvious.
+FWIW,
 
-AX_SARADC_GLOBAL_CTRL_CH_EN_MASK
-etc
-
-> > +#define AX_SARADC_CH_EN_MASK GENMASK(31, 16)
-> > +#define AX_SARADC_SAMPLE_MASK GENMASK(6, 5)
-> > +#define AX_SARADC_MODE_MASK GENMASK(4, 3)
-> > +#define AX_SARADC_PD BIT(2)
-> > +#define AX_SARADC_ENABLE BIT(0)
-> > +
-> > +/* GLOBAL_CTRL values */
-> > +#define AX_SARADC_SAMPLE_16 FIELD_PREP(AX_SARADC_SAMPLE_MASK, 0)
-> > +#define AX_SARADC_MODE FIELD_PREP(AX_SARADC_MODE_MASK, 1)
-> > +
-> > +#define AX_SARADC_MANUAL_CTRL_EN(n) (BIT(0) | ((n) << 1))
-
-Add a define for that BIT(0) to give us a little more info
-on what it is. Also a mask for that field you are writing (n) into
-and use FIELD_PREP() for that rather than a shift.
-Doing all that will be a little more code, but will act as documentation
-of what is int eh register.
-
-
-> > +#define AX_RESOLUTION_BITS 10
-> > +#define AX_SARADC_CONV_CYCLES 13
-> > +
-> > +struct axiado_saradc {
-> > +       void __iomem *regs;
-> > +       struct clk *clk;
-> > +       unsigned long clk_rate;
-> > +       int vref_uv;
-> > +       struct mutex lock; /* Serializes ADC conversions. */
-> > +};
-> > +
-> > +static int axiado_saradc_conversion(struct axiado_saradc *info,
-> > +                                   struct iio_chan_spec const *chan, int *val)
-> > +{
-> > +       unsigned long usecs;
-
-Blank line between declarations and code.
-
-As below I'd have
-
-	guard(mutex)(&info->lock);
-
-in here rather than at caller.  Simpler scope and makes the association with
-adc conversion more obvious.
-
-
-> > +       /* Select the channel to be used and trigger conversion */
-> > +       iowrite32(AX_SARADC_MANUAL_CTRL_EN(chan->channel),
-> > +                 info->regs + AX_SARADC_MANUAL_CTRL);
-> > +
-> > +       /* Hardware requires 13 conversion cycles at clk_rate */
-> > +       usecs = DIV_ROUND_UP(AX_SARADC_CONV_CYCLES * 1000000, info->clk_rate);
-> > +       usleep_range(usecs, usecs + 10);  
-> 
-> fsleep() is preferred over usleep_range(), it selects the optimal
-> sleep function while guaranteeing a sleep of at least usecs time.
-> 
-> > +
-> > +       *val = ioread32(info->regs + AX_SARADC_DOUT) &
-> > +              GENMASK(AX_RESOLUTION_BITS - 1, 0);
-> > +
-> > +       /* Stop manual conversion */
-> > +       iowrite32(0, info->regs + AX_SARADC_MANUAL_CTRL);
-
-Blank line here.  Always nice to separate 'simple returns' like this
-so the eye sees them more easily when reading code.
-
-> > +       return 0;
-> > +}
-> > +
-> > +static int axiado_saradc_read_raw(struct iio_dev *indio_dev,
-> > +                                 struct iio_chan_spec const *chan, int *val,  
-> 
-> Small nit, but I'd move int * val onto the line along with val2 and mask
-> so it's logically separated.
-> 
-> > +                                 int *val2, long mask)
-> > +{
-> > +       struct axiado_saradc *info = iio_priv(indio_dev);
-> > +       int ret;
-> > +
-> > +       switch (mask) {
-> > +       case IIO_CHAN_INFO_RAW:
-> > +               mutex_lock(&info->lock);  
-> 
-> I wanted to recommend using the guard(mutex) macro, but you're
-> only using a mutex once, so up to you.
-
-I'd move it into the axiado_saradc_conversion();
-+ use guard() in there as that already has nicely defined scope.
-
-> 
-> > +               ret = axiado_saradc_conversion(info, chan, val);
-> > +               mutex_unlock(&info->lock);
-> > +               return ret ? ret : IIO_VAL_INT;
-> > +       case IIO_CHAN_INFO_SCALE:
-> > +               *val = info->vref_uv / 1000;
-> > +               *val2 = AX_RESOLUTION_BITS;
-> > +               return IIO_VAL_FRACTIONAL_LOG2;
-> > +
-> > +       default:
-> > +               return -EINVAL;
-> > +       }
-> > +}
-> > +
-> > +static const struct iio_info axiado_saradc_iio_info = {
-> > +       .read_raw = axiado_saradc_read_raw,
-> > +};
-> > +
-> > +struct axiado_saradc_soc_data {
-> > +       unsigned int num_channels;
-> > +};
-> > +
-> > +static const struct axiado_saradc_soc_data ax3000_saradc_data = {
-> > +       .num_channels = 16,
-> > +};
-> > +
-> > +static const struct axiado_saradc_soc_data ax3005_saradc_data = {
-> > +       .num_channels = 8,
-As below, add a name to these so that we can report the part number
-via sysfs name attribute. Something like "ax3005_saradc"
-> > +};
-> > +
-> > +#define AX_SARADC_CH(_index, _id)                                       \
-> > +       {                                                               \
-> > +               .type = IIO_VOLTAGE, .indexed = 1, .channel = (_index), \
-
-Go with 1 per line as it will be a bit longer but easier to read.
-
-> > +               .info_mask_separate = BIT(IIO_CHAN_INFO_RAW),           \
-> > +               .info_mask_shared_by_type = BIT(IIO_CHAN_INFO_SCALE),   \
-> > +               .datasheet_name = (_id), .scan_index = -1,              \
-> > +               .scan_type = {                                          \
-> > +                       .sign = 'u',                                    \
-> > +                       .realbits = AX_RESOLUTION_BITS,                 \
-> > +                       .storagebits = 16,                              \
-> > +                       .endianness = IIO_CPU,                          \
-
-You aren't yet doing buffered capture so don't introduce scan_type yet. It's
-just unused data so leave it as 0s (c default) to avoid implication it's used.
-Same for scan_index. 
-
-> > +               },                                                      \
-> > +       }
-> > +
-> > +static const struct iio_chan_spec axiado_saradc_iio_channels[] = {
-> > +       AX_SARADC_CH(0, "adc0"),   AX_SARADC_CH(1, "adc1"),
-> > +       AX_SARADC_CH(2, "adc2"),   AX_SARADC_CH(3, "adc3"),
-> > +       AX_SARADC_CH(4, "adc4"),   AX_SARADC_CH(5, "adc5"),
-> > +       AX_SARADC_CH(6, "adc6"),   AX_SARADC_CH(7, "adc7"),
-> > +       AX_SARADC_CH(8, "adc8"),   AX_SARADC_CH(9, "adc9"),
-> > +       AX_SARADC_CH(10, "adc10"), AX_SARADC_CH(11, "adc11"),
-> > +       AX_SARADC_CH(12, "adc12"), AX_SARADC_CH(13, "adc13"),
-> > +       AX_SARADC_CH(14, "adc14"), AX_SARADC_CH(15, "adc15"),
-> > +};
-> > +
-> > +static int axiado_saradc_probe(struct platform_device *pdev)
-> > +{
-> > +       struct axiado_saradc *info;
-> > +       const struct axiado_saradc_soc_data *soc_data;  
-> 
-> Use reverse christmas tree order.
-> 
-> > +       struct iio_dev *indio_dev;
-> > +       int ret;
-> > +       u32 reg;  
-> 
-> Reg isn't a really good name, regval would be better.
-
-Agreed - people sometimes use reg for the address, regval avoids
-that possible confusion.
-
-> 
-> > +
-> > +       indio_dev = devm_iio_device_alloc(&pdev->dev, sizeof(*info));
-A common IIO convention is to have the device used by devm calls , dev_err
-etc in a local variable.
-
-	struct device *dev = &pdev->dev;
-Shortens all the lines a little and we shouldn't have code directly
-touching the dev inside the iio_dev (see below!)
-
-> > +       if (!indio_dev)
-> > +               return -ENOMEM;
-> > +
-> > +       info = iio_priv(indio_dev);
-> > +
-> > +       info->regs = devm_platform_ioremap_resource(pdev, 0);
-> > +       if (IS_ERR(info->regs))
-> > +               return PTR_ERR(info->regs);
-> > +
-> > +       info->clk = devm_clk_get_enabled(&pdev->dev, NULL);
-> > +       if (IS_ERR(info->clk))
-> > +               return PTR_ERR(info->clk);
-> > +
-> > +       info->clk_rate = clk_get_rate(info->clk);
-> > +       if (!info->clk_rate)
-> > +               return dev_err_probe(&pdev->dev, -EINVAL,
-> > +                                    "invalid clock rate\n");
-		return dev_err_probe(dev, -EINVAL, "invalid clock rate\n");
-Is a good example of where using local dev shortens things enough that
-we save on line wrapping. As below - I'm fine if for some of the others they
-go a little over 80 chars.
-
-> > +
-> > +       info->vref_uv = devm_regulator_get_enable_read_voltage(&pdev->dev,
-> > +                                                              "vref");
-
-For IIO we tend to be a little flexible on line length when we get someting
-that would  be a lot nicer if we went slightly over 80 chars.  So put this one
-on one line.
-
-> > +       if (info->vref_uv < 0)
-> > +               return dev_err_probe(&pdev->dev, info->vref_uv,
-> > +                                    "failed to get vref voltage\n");
-> > +
-> > +       soc_data = device_get_match_data(&pdev->dev);
-> > +       if (!soc_data)
-> > +               return dev_err_probe(&pdev->dev, -EINVAL,
-> > +                                    "failed to get match data\n");
-> > +
-> > +       mutex_init(&info->lock);  
-> 
-> Use devm_mutex_init since everything else is devm.
-> 
-> > +       reg = FIELD_PREP(AX_SARADC_CH_EN_MASK,
-> > +                        GENMASK(soc_data->num_channels - 1, 0)) |
-> > +             AX_SARADC_SAMPLE_16 | AX_SARADC_MODE | AX_SARADC_ENABLE;
-> > +
-> > +       iowrite32(AX_SARADC_PD, info->regs + AX_SARADC_GLOBAL_CTRL);  
-> 
-> Sashiko notes to add a small delay here to prevent a zero width pulse.
-
-That would be true if an external signal. For internal SoC signals everything
-should be fine without or documented.  So just check to see if there is a documented
-reset hold time. If not this is fine I think. Sashiko is seeing a lot of gpio
-style resets where that feedback would be valid.
-
-> 
-> > +       iowrite32(reg, info->regs + AX_SARADC_GLOBAL_CTRL);
-> > +       indio_dev->name = dev_name(&pdev->dev);  
-> 
-> Hmm, Sashiko may have a point here, this could break the ABI.
-> The name member is usually assigned a hardcoded string and
-> it shouldn't contain whitespace, dots or dashes, which dev_name()
-> could return.
-
-All true, but critical bit is this is the part number, not something
-originating in the kernel device naming schemes.  Given two supported
-parts, ideal would be to provide the number for each.  Just put a
-string in your soc_data and use that.
-
-
-> 
-> > +       indio_dev->dev.parent = &pdev->dev;
-
-There should be no need to do this - it's done inside
-devm_iio_device_alloc().  Shout if that doesn't work for some reason or
-I'm missing that you have an unusual parent and need to override the default.
-
-> > +       indio_dev->info = &axiado_saradc_iio_info;
-> > +       indio_dev->modes = INDIO_DIRECT_MODE;
-> > +       indio_dev->channels = axiado_saradc_iio_channels;
-> > +       indio_dev->num_channels = soc_data->num_channels;
-> > +
-> > +       ret = devm_iio_device_register(&pdev->dev, indio_dev);
-> > +       if (ret)
-> > +               return dev_err_probe(&pdev->dev, ret,
-> > +                                    "failed to register IIO device\n");  
-> 
-> You can just do `return devm_iio_device_register`.
-Sometime we should do an audit of that function to make sure all the
-plausible error paths (i.e. wrong config data etc) definitely print.
-They should - so it should only be -ENOMEM that gets here without
-providing info, but more than possible one is missing.
-
-Anyhow not a question for this driver!
-
-> 
-> > +       return 0;
-> > +}
-> > +  
-> 
-> I don't see any kind of cleanup procedure, like a remove() function
-> or devm_add_action_or_reset callback, is this intentional?
-> 
-> > +static const struct of_device_id axiado_saradc_match[] = {
-> > +       {
-> > +               .compatible = "axiado,ax3000-saradc",
-> > +               .data = &ax3000_saradc_data,
-> > +       },
-> > +       {
-> > +               .compatible = "axiado,ax3005-saradc",
-> > +               .data = &ax3005_saradc_data,
-> > +       },
-> > +       {},
-	{ }
-
-For that terminating entry.
-No comma as it always needs to be the last one; the spacing is an IIO
-convention in the interests of consistency across drivers.
-
-> > +};
-> > +MODULE_DEVICE_TABLE(of, axiado_saradc_match);
-> > +
-> > +static struct platform_driver axiado_saradc_driver = {
-> > +       .driver = {
-> > +               .name = KBUILD_MODNAME,
-> > +               .of_match_table = axiado_saradc_match,
-> > +       },
-> > +       .probe = axiado_saradc_probe,
-> > +};
-> > +
-> > +module_platform_driver(axiado_saradc_driver);
-> > +
-> > +MODULE_AUTHOR("AXIADO CORPORATION");
-> > +MODULE_DESCRIPTION("AXIADO SARADC driver");
-> > +MODULE_LICENSE("GPL");
-> >
-> > --
-> > 2.34.1
-> >
-> >  
-> 
+Reviewed-by: Vladimir Murzin <vladimir.murzin@arm.com>
 
 
