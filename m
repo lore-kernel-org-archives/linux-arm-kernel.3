@@ -4,65 +4,61 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 219CBCD6E44
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 28 May 2026 14:42:10 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id A3853CD4F54
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 28 May 2026 14:43:54 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
 	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
 	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=DMSgQFDN59OnpjSybTfSdSUQ8w7FM10W/DqXpKQK7Fs=; b=e1wHqMXjWanE2EnolblF6t3J1s
-	Jz7yM3hXaqLCmpU3rAPOcqu9dRDJyWzpsxOSCvz4unGxyNSzgMS5p6WNd60IcFfn2ZNZI7UPUEiPt
-	84CXdkFYfWdZ+En84qwjbZbtKYMJqfKMd3c+vVCAOxXeytIr1lAfY0b5kS1vreDKAVEQ6SWbGdMNA
-	YUYEj1FSv7qSNbs/1as+o0YaJEofUJJG2FlKf3RXOr/CEBLxsJaudvJUKwyV4l7y/K5ytpoDSYgIi
-	NeEa8qFLibY6M8O5ph5A1RpS3RxXDANPq50OPGZGoHwITDF3UiaR/uLFhqFfoUm4awMSCLiObTeW4
-	DEmd2PvA==;
+	bh=BoJCIs+BumcnDS6tSfe22Cpk52o4jWKDT1eCLGyeN7I=; b=H2BpbfL0AymR7lC0BE8Rz6E1im
+	oCFem5PWQ3t0Han+oa4VKM0MKANXoXW7td91kAZQ32haw2W0JUtKS2hH/F+ygRVi/oLcR5mMIuJbF
+	bzRT8m3eQX1MBVLtDVaUNoONy2RAnYetVOERvcF9FJpe8vaGDwkmbpv1pXCAFGn5VZYnuV7Pv5myg
+	T7iYuehAFOX9SyaWzui1EkByKXV6oFiBoMOGNoIGAm0yO6KTX2uFCR6TxPjl8SPXVRYZeiubxxlXL
+	rJ07cNUcT9accLZIIDRJOH4EIfeJBDFDLZvt5zEmCxtJTluUPqsNOjpD0lq5xlk8b0onZtaJnKTMb
+	13MZsmdQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wSbvv-00000005s6Q-09qD;
-	Thu, 28 May 2026 14:42:03 +0000
-Received: from vps0.lunn.ch ([156.67.10.101])
-	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wSbvs-00000005s65-120m
+	id 1wSbxc-00000005sEW-0weY;
+	Thu, 28 May 2026 14:43:48 +0000
+Received: from foss.arm.com ([217.140.110.172])
+	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
+	id 1wSbxZ-00000005sE1-1ytd
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 28 May 2026 14:42:01 +0000
-DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed; d=lunn.ch;
-	s=20171124; h=In-Reply-To:Content-Disposition:Content-Type:MIME-Version:
-	References:Message-ID:Subject:Cc:To:From:Date:From:Sender:Reply-To:Subject:
-	Date:Message-ID:To:Cc:MIME-Version:Content-Type:Content-Transfer-Encoding:
-	Content-ID:Content-Description:Content-Disposition:In-Reply-To:References;
-	bh=DMSgQFDN59OnpjSybTfSdSUQ8w7FM10W/DqXpKQK7Fs=; b=V+DexVSxdBVP2L4GwlIiZvG3/k
-	IhZpDotv5a20dhf6BumLCEKwhQN43ZSG8w7xG134ZfI0H0iO+UDIaMWluVI46OZXf85m+/WWg6jh7
-	jdUea2eFAD13fxJiCWFim+ZJrWv7KARaZeDqX+5x8WP+XhbO4dHgeXYXiShKO8sR+o8A=;
-Received: from andrew by vps0.lunn.ch with local (Exim 4.94.2)
-	(envelope-from <andrew@lunn.ch>)
-	id 1wSbvl-004uk4-98; Thu, 28 May 2026 16:41:53 +0200
-Date: Thu, 28 May 2026 16:41:53 +0200
-From: Andrew Lunn <andrew@lunn.ch>
-To: Mark Brown <broonie@kernel.org>
-Cc: Chancel Liu <chancel.liu@nxp.com>, lgirdwood@gmail.com, robh@kernel.org,
-	krzk+dt@kernel.org, conor+dt@kernel.org, shengjiu.wang@nxp.com,
-	shengjiu.wang@gmail.com, Xiubo.Lee@gmail.com, festevam@gmail.com,
-	nicoleotsuka@gmail.com, perex@perex.cz, tiwai@suse.com,
-	Frank.Li@nxp.com, s.hauer@pengutronix.de,
-	linux-sound@vger.kernel.org, devicetree@vger.kernel.org,
-	linux-arm-kernel@lists.infradead.org, imx@lists.linux.dev,
-	linux-kernel@vger.kernel.org
-Subject: Re: [PATCH v2 0/3] ASoC: imx-rpmsg: Add headphone jack detection and
- driver_name support
-Message-ID: <04994ebd-fb13-4d5e-8e1b-f93c504c88ae@lunn.ch>
-References: <20260526053815.140008-1-chancel.liu@nxp.com>
- <20260528020725.2265321-1-chancel.liu@nxp.com>
- <37324dcf-5214-432f-9aea-90bcff5fec32@lunn.ch>
- <5314b232-9688-4f59-a57f-4cca044c9e44@sirena.org.uk>
+	Thu, 28 May 2026 14:43:46 +0000
+Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
+	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id 2547322BE;
+	Thu, 28 May 2026 07:43:39 -0700 (PDT)
+Received: from e129823.arm.com (e129823.arm.com [10.1.197.6])
+	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id C3F733F905;
+	Thu, 28 May 2026 07:43:42 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=simple/simple; d=arm.com; s=foss;
+	t=1779979424; bh=TA4DO2tutucSmnsPezj88rJH8VgrWEtDABxFp+R8U54=;
+	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
+	b=Qw/z2GHpbhVhhMELrrHLxE1NwtZBR9ALkpMzJrG0On1FMfpZ9QwfrXcaQOXxZVbfD
+	 JiDSZ6uWlv5HBtco0cbZM6z7VVbF/m/HxdFZH1rVxs5a8Jk74Z0kt0SND5NuqG4hsq
+	 q8T6xphiH9c8r+ll/KvnPvUkySjWhZR1qTs1aJM4=
+Date: Thu, 28 May 2026 15:43:40 +0100
+From: Yeoreum Yun <yeoreum.yun@arm.com>
+To: Leo Yan <leo.yan@arm.com>
+Cc: coresight@lists.linaro.org, linux-arm-kernel@lists.infradead.org,
+	linux-kernel@vger.kernel.org, suzuki.poulose@arm.com,
+	mike.leach@arm.com, james.clark@linaro.org,
+	alexander.shishkin@linux.intel.com, jie.gan@oss.qualcomm.com
+Subject: Re: [PATCH v7 09/13] coresight: etm4x: missing
+ cscfg_csdev_disable_active_config() in perf enable
+Message-ID: <ahhUnJSIvGabGbQe@e129823.arm.com>
+References: <20260519154812.254884-1-yeoreum.yun@arm.com>
+ <20260519154812.254884-10-yeoreum.yun@arm.com>
+ <20260528143358.GF101133@e132581.arm.com>
 MIME-Version: 1.0
 Content-Type: text/plain; charset=us-ascii
 Content-Disposition: inline
-In-Reply-To: <5314b232-9688-4f59-a57f-4cca044c9e44@sirena.org.uk>
+In-Reply-To: <20260528143358.GF101133@e132581.arm.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260528_074200_306355_DA3ADD10 
-X-CRM114-Status: GOOD (  17.90  )
+X-CRM114-CacheID: sfid-20260528_074345_594053_7CC5D1FB 
+X-CRM114-Status: GOOD (  32.91  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -77,31 +73,184 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Thu, May 28, 2026 at 03:18:05PM +0100, Mark Brown wrote:
-> On Thu, May 28, 2026 at 04:12:58PM +0200, Andrew Lunn wrote:
-> > On Thu, May 28, 2026 at 11:07:22AM +0900, Chancel Liu wrote:
-> 
-> > > This series adds two features to the i.MX RPMSG ASoC card:
-> > > 1. Headphone jack detection via GPIO: Introduce the "hp-det-gpios"
-> > >    device tree property and use simple_util_init_jack() to
-> > >    register a headphone jack with GPIO-based insertion detection.
-> 
-> > I'm not familiar with ASoC, but have been in a long discussion about
-> > RPMSG and GPIO....
-> 
-> > I just want to confirm the GPIO you are talking about is a local GPIO?
-> > You are not tunnelling the GPIO over RPMSG using some vendor protocol?
-> 
-> This is a GPIO accessed via gpiolib, the driver is for an audio
-> subsystem accessed via rpmsg.
+Hi Leo,
 
-Great, thanks.
+> On Tue, May 19, 2026 at 04:48:08PM +0100, Yeoreum Yun wrote:
+> > In the perf enable path, there are missing cases where
+> > cscfg_csdev_disable_active_config() is not called:
+> > 
+> >   - Branch broadcast is selected but not supported by the hardware
+> >   - etm4_enable_hw() fails
+> > 
+> > This can lead to a leak of config_desc->active_cnt.
+> > Fix this by properly calling cscfg_csdev_disable_active_config()
+> > in these error paths.
+> > 
+> > Fixes: 810ac401db1f ("coresight: etm4x: Add complex configuration handlers to etmv4")
+> > Signed-off-by: Yeoreum Yun <yeoreum.yun@arm.com>
+> > ---
+> >  .../hwtracing/coresight/coresight-etm4x-core.c | 18 ++++++++++++------
+> >  1 file changed, 12 insertions(+), 6 deletions(-)
+> > 
+> > diff --git a/drivers/hwtracing/coresight/coresight-etm4x-core.c b/drivers/hwtracing/coresight/coresight-etm4x-core.c
+> > index f0a9f2ef4b27..0889937811cb 100644
+> > --- a/drivers/hwtracing/coresight/coresight-etm4x-core.c
+> > +++ b/drivers/hwtracing/coresight/coresight-etm4x-core.c
+> > @@ -899,6 +899,8 @@ static int etm4_parse_event_config(struct coresight_device *csdev,
+> >  			 * Missing BB support could cause silent decode errors
+> >  			 * so fail to open if it's not supported.
+> >  			 */
+> > +			if (cfg_hash)
+> > +				cscfg_csdev_disable_active_config(csdev);
+> >  			ret = -EINVAL;
+> >  			goto out;
+> >  		} else {
+> > @@ -915,6 +917,7 @@ static int etm4_enable_perf(struct coresight_device *csdev,
+> >  			    struct coresight_path *path)
+> >  {
+> >  	struct etmv4_drvdata *drvdata = dev_get_drvdata(csdev->dev.parent);
+> > +	struct perf_event_attr *attr = &event->attr;
+> >  	int ret;
+> >  
+> >  	if (WARN_ON_ONCE(drvdata->cpu != smp_processor_id()))
+> > @@ -926,7 +929,7 @@ static int etm4_enable_perf(struct coresight_device *csdev,
+> >  	/* Configure the tracer based on the session's specifics */
+> >  	ret = etm4_parse_event_config(csdev, event);
+> >  	if (ret)
+> > -		goto out;
+> > +		goto err;
+> >  
+> >  	drvdata->trcid = path->trace_id;
+> >  
+> > @@ -935,16 +938,19 @@ static int etm4_enable_perf(struct coresight_device *csdev,
+> >  
+> >  	/* And enable it */
+> >  	ret = etm4_enable_hw(drvdata);
+> > -
+> > -out:
+> > -	/* Failed to start tracer; roll back to DISABLED mode */
+> >  	if (ret) {
+> > -		coresight_set_mode(csdev, CS_MODE_DISABLED);
+> > -		return ret;
+> > +		if (ATTR_CFG_GET_FLD(attr, configid))
+> > +			cscfg_csdev_disable_active_config(csdev);
+> > +		goto err;
+> >  	}
+> >  
+> >  	csdev->path = path;
+> >  	return 0;
+> > +
+> > +err:
+> > +	/* Failed to start tracer; roll back to DISABLED mode */
+> > +	coresight_set_mode(csdev, CS_MODE_DISABLED);
+> > +	return ret;
+> >  }
+> 
+> Seems to me, it is not readable if spread error handling into both child
+> and parent functions. I would like we can stick to use the same function
+> for resource allocation and rollback for failures.
+> 
+> How about below change (I did not verify it yet):
+> 
+> diff --git a/drivers/hwtracing/coresight/coresight-etm4x-core.c b/drivers/hwtracing/coresight/coresight-etm4x-core.c
+> index 0889937811cb..8347efb2069b 100644
+> --- a/drivers/hwtracing/coresight/coresight-etm4x-core.c
+> +++ b/drivers/hwtracing/coresight/coresight-etm4x-core.c
+> @@ -794,8 +794,7 @@ static int etm4_parse_event_config(struct coresight_device *csdev,
+>  		.ATTR_CFG_FLD_timestamp_CFG = U64_MAX,
+>  	};
+>  	struct perf_event_attr *attr = &event->attr;
+> -	unsigned long cfg_hash;
+> -	int preset, cc_threshold;
+> +	int cc_threshold;
+>  	u8 ts_level;
+>  
+>  	/* Clear configuration from previous run */
+> @@ -882,16 +881,6 @@ static int etm4_parse_event_config(struct coresight_device *csdev,
+>  		/* bit[12], Return stack enable bit */
+>  		config->cfg |= TRCCONFIGR_RS;
+>  
+> -	/*
+> -	 * Set any selected configuration and preset. A zero configid means no
+> -	 * configuration active, preset = 0 means no preset selected.
+> -	 */
+> -	cfg_hash = ATTR_CFG_GET_FLD(attr, configid);
+> -	if (cfg_hash) {
+> -		preset = ATTR_CFG_GET_FLD(attr, preset);
+> -		ret = cscfg_csdev_enable_active_config(csdev, cfg_hash, preset);
+> -	}
+> -
+>  	/* branch broadcast - enable if selected and supported */
+>  	if (ATTR_CFG_GET_FLD(attr, branch_broadcast)) {
+>  		if (!caps->trcbb) {
+> @@ -899,8 +888,6 @@ static int etm4_parse_event_config(struct coresight_device *csdev,
+>  			 * Missing BB support could cause silent decode errors
+>  			 * so fail to open if it's not supported.
+>  			 */
+> -			if (cfg_hash)
+> -				cscfg_csdev_disable_active_config(csdev);
+>  			ret = -EINVAL;
+>  			goto out;
+>  		} else {
+> @@ -918,7 +905,8 @@ static int etm4_enable_perf(struct coresight_device *csdev,
+>  {
+>  	struct etmv4_drvdata *drvdata = dev_get_drvdata(csdev->dev.parent);
+>  	struct perf_event_attr *attr = &event->attr;
+> -	int ret;
+> +	unsigned long cfg_hash;
+> +	int preset, ret;
+>  
+>  	if (WARN_ON_ONCE(drvdata->cpu != smp_processor_id()))
+>  		return -EINVAL;
+> @@ -931,6 +919,18 @@ static int etm4_enable_perf(struct coresight_device *csdev,
+>  	if (ret)
+>  		goto err;
+>  
+> +	/*
+> +	 * Set any selected configuration and preset. A zero configid means no
+> +	 * configuration active, preset = 0 means no preset selected.
+> +	 */
+> +	cfg_hash = ATTR_CFG_GET_FLD(attr, configid);
+> +	if (cfg_hash) {
+> +		preset = ATTR_CFG_GET_FLD(attr, preset);
+> +		ret = cscfg_csdev_enable_active_config(csdev, cfg_hash, preset);
+> +		if (ret)
+> +			goto err;
+> +	}
+> +
+>  	drvdata->trcid = path->trace_id;
+>  
+>  	/* Populate pause state */
+> @@ -938,15 +938,15 @@ static int etm4_enable_perf(struct coresight_device *csdev,
+>  
+>  	/* And enable it */
+>  	ret = etm4_enable_hw(drvdata);
+> -	if (ret) {
+> -		if (ATTR_CFG_GET_FLD(attr, configid))
+> -			cscfg_csdev_disable_active_config(csdev);
+> -		goto err;
+> -	}
+> +	if (ret)
+> +		goto err_enable_hw;
+>  
+>  	csdev->path = path;
+>  	return 0;
+>  
+> +err_enable_hw:
+> +	if (cfg_hash)
+> +		cscfg_csdev_disable_active_config(csdev);
+>  err:
+>  	/* Failed to start tracer; roll back to DISABLED mode */
+>  	coresight_set_mode(csdev, CS_MODE_DISABLED);
 
-When we eventually get GPIO over RPMSG, it should also just look like
-a standard gpiolib GPIO. But we are not there yet, defining the one
-protocol that all vendors must use, rather than each vendor doing
-their own thing.
+No. since preset overrides the "perf configuratoin" formerly but
+this code makes it vice versa. Also, cfg_hash and prest is also part of
+etm4_parse_event_config(), and it doesn't seem to good to separate
+cfgfs handling from that function.
 
-  Andrew
+IMHO, It would be better to keep this as it is.
 
+-- 
+Sincerely,
+Yeoreum Yun
 
