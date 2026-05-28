@@ -4,7 +4,7 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 0F7F0CD6E4A
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id D631FCD6E49
 	for <linux-arm-kernel@archiver.kernel.org>; Thu, 28 May 2026 12:54:36 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
@@ -12,39 +12,39 @@ DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	:Message-Id:Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:
 	From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=+EBV3X2CT5wvPPlNigyabRnWFm0Oa/W4TJ8EeegK3Yw=; b=bA2F8LRZFnPUhL5U5aUAvg6cjc
-	JesPQEgD6raIQMA9l4FKvr47N9SxUizGzNMw6y0aIeY2/o05ArcFjEEtSsQjUyGoP4P+AV11C8GSy
-	M5+fuL+e1SKIs06i5ZRZVVrBGyKV/UFwKepdxt3+HvxfzisXzREpb/mq0Kj2d54LPR2V6R3ZTTCVh
-	MyVDkag5wmNKfxp8P+qLt+e7O4hoqlJXW2jjL2+0BAytKBcxzKBcCJZtr+9EcWAiKt5yOh7BEQdjE
-	JlZXbFwGAn3vN4WwkB1DV8m+uxZIq3GLD2wJSjVZJWLK01vUHV4EIzkXmPreaHDyKbH4/MkF/2sZC
-	2uMMY7pA==;
+	bh=1DLpyZSc/PcRQavT/zMZWHTXgBSYOzj1saw62cjP6VI=; b=k1Wjd3ui82k3urm3osHJQbwt0A
+	kbV0L0DoleBOKmyAqae1PWCobArioUlYaDViDfZu97Z94GN88alZGnfHVLa3+fMXy5KTsNqVEmVSO
+	sVfKUJKBukNACjEklYSfnohOS4r5zJtBEkK7Bg18kvcgFX9D/sWjBiyD1QU0un7dRvyniQodRg/IH
+	Ur8tUc5eQ/oevQfw8vzu7bJgFqfsshcDuQrpNrIve13vmuSntC2HkbVwKcaSV4OBz4lwZ1hBIc7Al
+	XTzbbW8xHab3NHeddEkdtWL2fHyWh8RuXEC0F6/baw3UUO5ZGwsSMRz+SGp6Zgcvn7POfJwCC+b25
+	nWZWDbAw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wSaFq-00000005kEK-1sYr;
+	id 1wSaFq-00000005kE1-1FFn;
 	Thu, 28 May 2026 12:54:30 +0000
 Received: from perceval.ideasonboard.com ([213.167.242.64])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wSaFg-00000005k9n-1B0Q
+	id 1wSaFd-00000005k8S-470q
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 28 May 2026 12:54:21 +0000
+	Thu, 28 May 2026 12:54:20 +0000
 Received: from [127.0.1.1] (91-158-153-178.elisa-laajakaista.fi [91.158.153.178])
-	by perceval.ideasonboard.com (Postfix) with ESMTPSA id 0324419A2;
+	by perceval.ideasonboard.com (Postfix) with ESMTPSA id 295401283;
 	Thu, 28 May 2026 14:53:55 +0200 (CEST)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=ideasonboard.com;
-	s=mail; t=1779972836;
-	bh=SNa1gcsGI4/garWl0WBM8uVhsAHKPf8Z12h6Qt3Twro=;
+	s=mail; t=1779972835;
+	bh=q7VLBqimYzupbd2MCGzFG/BMVIanGwvIDsMTThkF/Lo=;
 	h=From:Date:Subject:References:In-Reply-To:To:Cc:From;
-	b=KBmKtHrPk5QelRbTn629gxRE1nuSEAVSCPADzPPvl5IlLI+7arwTzVLwFmrAiRuaW
-	 UX1PNUzXkDWbS+OEGTaFV8+/bfOW0NH7zZsyRrep9TMYBbxeVBhk+siPaVSVYM2PZT
-	 1bzPOVET57lF+Bg7xvoKzaw5jY/PehU/zjY0tuhc=
+	b=pGOcCjauRzmbMM5UnyCvl0hEwK6ZLq6sNHGkpUxdlVKWuTyKzHFhn4uxKBPP9bYgu
+	 MWJE+xdnvmb7TmgxsTUuPoJrLscSEEO+0NAE4HX6JqYVXLwrNEjXiG4OieGicBCGnG
+	 n+l/RBvYI/rEpKMwXZPFX6Y5fg/LFwSM4/x7ISt0=
 From: Tomi Valkeinen <tomi.valkeinen@ideasonboard.com>
-Date: Thu, 28 May 2026 15:53:46 +0300
-Subject: [PATCH 5/6] dt-bindings: soc: ti: ti,j721e-system-controller: Add
- more compatibles
+Date: Thu, 28 May 2026 15:53:45 +0300
+Subject: [PATCH 4/6] dt-bindings: soc: ti: ti,j721e-system-controller:
+ Relax the bindings
 MIME-Version: 1.0
 Content-Type: text/plain; charset="utf-8"
 Content-Transfer-Encoding: 7bit
-Message-Id: <20260528-ti-main-conf-v1-5-a54ac5c8d081@ideasonboard.com>
+Message-Id: <20260528-ti-main-conf-v1-4-a54ac5c8d081@ideasonboard.com>
 References: <20260528-ti-main-conf-v1-0-a54ac5c8d081@ideasonboard.com>
 In-Reply-To: <20260528-ti-main-conf-v1-0-a54ac5c8d081@ideasonboard.com>
 To: Nishanth Menon <nm@ti.com>, Vignesh Raghavendra <vigneshr@ti.com>, 
@@ -57,26 +57,26 @@ Cc: linux-arm-kernel@lists.infradead.org, devicetree@vger.kernel.org,
  linux-kernel@vger.kernel.org, 
  Tomi Valkeinen <tomi.valkeinen@ideasonboard.com>
 X-Mailer: b4 0.15.2
-X-Developer-Signature: v=1; a=openpgp-sha256; l=1254;
+X-Developer-Signature: v=1; a=openpgp-sha256; l=1569;
  i=tomi.valkeinen@ideasonboard.com; h=from:subject:message-id;
- bh=SNa1gcsGI4/garWl0WBM8uVhsAHKPf8Z12h6Qt3Twro=;
- b=owEBbQKS/ZANAwAIAfo9qoy8lh71AcsmYgBqGDryJQMr7/6KpHYnLiy2mQMWP1xfHbBG6GICR
- DVFsiCeGj+JAjMEAAEIAB0WIQTEOAw+ll79gQef86f6PaqMvJYe9QUCahg68gAKCRD6PaqMvJYe
- 9ULUD/4uue9IQGqeBFP/t4J/kUs5dCi7fahRaM+njJYOnWPqmAtkvn+XC12a8CBWPAY6dQgu+Hj
- 3O5PC9YZ06Fssa95R8NJjRpzp6WAOj1rlC5SXzjviUdGMg+cSBiK3RiMVo9PQAXSyDD5FsU2FY9
- X/wZ8VPn2V6CzoiOEQWz1VLSWp3p4y03R/2W+U/tTlertR9bo3Fv8HZPKQzm+HTnRAW6xaOB2CE
- whG7BHIZ5iaPzEXEt+R9DDgbab2vKf/312pS79IBZ9hp9cWT9lgTTbCoe0mAXrVPVB1OdbDY6o9
- yoqNmmEhJ+D7+/OLgIlKiwORlj0QSBAGbDa2u9laxuPQ30JPdqz/VZ55QPyN/v9VAKz7VQSUV7n
- nQiNl6+OBGVrPXNHUBHOZ+zTRgZoENG0NNlxzjBwbTJWmKZ0HEk6HGZF3byQsfrzq2p0I6kM4XZ
- JHp2cwRZiL+obPONe+0wx2dKUbyz8p8+VLwuG26kmb4Gs5S/ADya7Qfqx6VzlXqovYuXvRDCSS6
- Crp5HIQz5y5uvw1kXFDPR3+dWmsoNaKhHh0IQsC/KbFIlCsqZZcbuhtUYYoWzn+b2FI+PfDl37/
- uTjMSD1pxLIIDHAscn44nQNmS+drlJhXazKR8cm808UnGOkZsD3Kn7uDtUCBnRcmkN7wsOUbR17
- igesmJxen5APNYw==
+ bh=q7VLBqimYzupbd2MCGzFG/BMVIanGwvIDsMTThkF/Lo=;
+ b=owEBbQKS/ZANAwAIAfo9qoy8lh71AcsmYgBqGDrxldsV+KmIFHU15M0ukq6NnSYMhuhvVLNWj
+ h+KoBykuwKJAjMEAAEIAB0WIQTEOAw+ll79gQef86f6PaqMvJYe9QUCahg68QAKCRD6PaqMvJYe
+ 9QCYEACMzu26Uad8Lh+13ZCIDZupz+NWKdZpVaqilEyHzKDmklnAilfGBLt5rVwon+EtdhdTgXC
+ txs3lLCuxaVRzyNh3rdiby/TTV0zmzuorCkphEVxJS6cYruYRIvo8FWVOYxCgc6FgqG50r/g034
+ BGwnFc8Qi3sQl6Eg3dHTi6FBR+ZHtY3CVvUlidHcvLC4/DUhO8v3WKVhn9nOoRmGvnoQ79F9kQE
+ MkRWlLnXQL6RQn6BCt8RfoN7td9+cvNHQOzmkZnJjCat+82W2cW1lLrK1o5bQCamdAW043rbfxg
+ fpQ1AoJT1YggKNC330AdBAwyiEAaUeybHmdZxba1Dho4zd8/tSOmyOCJGUy/fA0trorxnCq9opk
+ 5gOa5MXD/gC8QUfUFUwgrLICDnZDS/SK/TMuaiGETMR6IJicftO9rq5Qy/x1XG94FeB6ML3X6iv
+ YfOVwib2VnIyFaSs6TiJg11P9lwMxGOcA2BmNBrNyTNiRw98xrABHPtfG9UycUnhzIRhlK4dCRV
+ TAFWDGwzXOj/mWbe9QyicdhpRAiI3fxFxqyZFnR6vqCwM/HlCepTTPxsVca+bSws8GPkpKQ/DkL
+ pK99beGb9tQ4ztMcMRNp9xW0gc/XzebbxnAY84/giGEHRJszaUKfSr9joCG/Np582ezb+0tEmee
+ TcxV64+DOp90rLg==
 X-Developer-Key: i=tomi.valkeinen@ideasonboard.com; a=openpgp;
  fpr=C4380C3E965EFD81079FF3A7FA3DAA8CBC961EF5
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260528_055420_464403_DBFF75D6 
-X-CRM114-Status: UNSURE (   7.57  )
+X-CRM114-CacheID: sfid-20260528_055418_161215_A0428276 
+X-CRM114-Status: UNSURE (   7.45  )
 X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
@@ -92,38 +92,45 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Add the following to the list of accepted compatibles so that we can use
-the same binding on these SoCs too:
+The ti,j721e-system-controller binding specifies a specific schema for
+each child node. For example, any clock node under the system controller
+node must be a ti,am654-serdes-ctrl.
 
-ti,am62-system-controller
-ti,am62a-system-controller
-ti,am62p-system-controller
-ti,j784s4-system-controller
+To be able to use the same system-controller binding for more SoCs,
+relax the bindings by making both clock-controller and clock accept any
+kind of child node.
 
 Signed-off-by: Tomi Valkeinen <tomi.valkeinen@ideasonboard.com>
 ---
- .../devicetree/bindings/soc/ti/ti,j721e-system-controller.yaml        | 4 ++++
- 1 file changed, 4 insertions(+)
+ .../devicetree/bindings/soc/ti/ti,j721e-system-controller.yaml      | 6 ++----
+ 1 file changed, 2 insertions(+), 4 deletions(-)
 
 diff --git a/Documentation/devicetree/bindings/soc/ti/ti,j721e-system-controller.yaml b/Documentation/devicetree/bindings/soc/ti/ti,j721e-system-controller.yaml
-index 56712ebdd01b..11365cb9fb0a 100644
+index f3bd0be3b279..56712ebdd01b 100644
 --- a/Documentation/devicetree/bindings/soc/ti/ti,j721e-system-controller.yaml
 +++ b/Documentation/devicetree/bindings/soc/ti/ti,j721e-system-controller.yaml
-@@ -26,10 +26,14 @@ properties:
-   compatible:
-     items:
-       - enum:
-+          - ti,am62-system-controller
-+          - ti,am62a-system-controller
-+          - ti,am62p-system-controller
-           - ti,am654-system-controller
-           - ti,j7200-system-controller
-           - ti,j721e-system-controller
-           - ti,j721s2-system-controller
-+          - ti,j784s4-system-controller
-       - const: syscon
-       - const: simple-mfd
+@@ -53,9 +53,8 @@ patternProperties:
  
+   "^clock-controller@[0-9a-f]+$":
+     type: object
+-    $ref: /schemas/clock/ti,am654-ehrpwm-tbclk.yaml#
+     description:
+-      Clock provider for TI EHRPWM nodes.
++      A clock controller with registers in the Control Module.
+ 
+   "phy@[0-9a-f]+$":
+     type: object
+@@ -76,9 +75,8 @@ patternProperties:
+ 
+   "^clock@[0-9a-f]+$":
+     type: object
+-    $ref: /schemas/soc/ti/ti,am654-serdes-ctrl.yaml#
+     description:
+-      This is the Serdes Control region.
++      A clock with registers in the Control Module.
+ 
+   "^dss-oldi-io-ctrl@[0-9a-f]+$":
+     type: object
 
 -- 
 2.43.0
