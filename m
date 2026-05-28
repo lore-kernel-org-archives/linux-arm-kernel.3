@@ -4,113 +4,71 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id D926BCD6E45
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 28 May 2026 06:44:13 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id DEE36CD5BD5
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 28 May 2026 06:44:26 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:
-	Content-Transfer-Encoding:MIME-Version:References:In-Reply-To:Message-ID:Date
-	:Subject:CC:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=O8zfLp14XNg7OEjiwbePuM7fQkjyheXMnhVTdmXLEdM=; b=Mk7wujUtmH4RWRXKu88lR9nXGC
-	ecJR3v0L2VwWTE34WKC2k9cyDk1YLBV8hj3P27yGFFfew0Gu8o6ZXGMEHmhfQ1Dg2oRMqpmpv2Aa5
-	WYnE60K5ORUib1SbbuRMWRPAuTypVVOapwBw191qZYnGqX/z1H+wJkFvRVmK4wIlHDHgAe8eEXEHf
-	YdCmnPexk+jG5uSMmJqTWEih0TPZBT2Y/zEDjh1uxdZF1kjxiFXqHj1uTRcjTOhXFKMh2A7fz2gLF
-	xI7iHRMQdYvjZxkaX77TrgsaxDqNaujt8mprxr7RmP9SlEsX+ByYbUVu+cwBnci/JjFY39gGwCQ9a
-	GhZktr1A==;
+	bh=8uOQcDGbXZlb6q8u3GvJiWkXjn3EaSa5gllpC9TQbrU=; b=jYo9PUrsmlXQY5h+URhBdSfbrn
+	Ahk4EmyNhzT5L8SbXFmyZOUpcrTAF2rtuX2JAv9G6VHl5V2LWKi93C7n9JArsr3K1CJ6SW5RNZgXI
+	asdBMuniAidKpcGrolSpLIecH2jooEuOj2xsf7N/I4uuQiFucV7w01gKmI50kDMpuUyG8sS6caPXk
+	T1eCtCO22jA+3vBuuCd6nv8Q13RBAlt/z6Fa5wqr5JOFIHL7PYS3ZkyGm+UHIZJ1/56S+cH6arFE/
+	arpuMEDM8TG35FpKkJfcsVxXaUROzSHJaUA3dHCfIj8EBsZXRdrtjYZJcjgvt0tn9+Lek1eCaFsa1
+	/9DNcxKg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wSUTO-00000005D9E-2ODH;
-	Thu, 28 May 2026 06:44:06 +0000
-Received: from mail-westus3azlp170110003.outbound.protection.outlook.com ([2a01:111:f403:c107::3] helo=PH0PR06CU001.outbound.protection.outlook.com)
+	id 1wSUTc-00000005DGu-3npe;
+	Thu, 28 May 2026 06:44:20 +0000
+Received: from tor.source.kernel.org ([2600:3c04:e001:324:0:1991:8:25])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wSUTI-00000005D75-0BXt
+	id 1wSUTT-00000005DCQ-3IB0
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 28 May 2026 06:44:01 +0000
-ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
- b=m4tnwVyQdp4ITiMGJMzpIBsUjmLkCpI+8j4kzEhPZ0MG/vQI8duGYXl+JAU3T2sFkcKlfnVnGT0DvcrURmN0XTPNekcNXI9c77XDaFUZzECYMs6DFggwgSoeBw5qnoCTiJfQYxFM/ToIyjhZvAciA/FmyXscGvT1rbiRZ7CLXerwLieAP99Xf8H9GqmXU7I/J0oeTN5wGQ1OC5RdTsg+JdgfP6vMuCYYKi7BjeM180EzTjtwANk3QWLgeAnxPtBKgiaSB3xWcMp4T3rhHO8gZMsCnGP+TA6+e1Sw4SlkGYkPehIvlG99D2ic6JRRoM8e1q/isDRGhL4X9wG+8GHpQg==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
- s=arcselector10001;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
- bh=O8zfLp14XNg7OEjiwbePuM7fQkjyheXMnhVTdmXLEdM=;
- b=FALqbZ8rE9rAPzVej6Py93TLf5yrLXDPzHzuxykrQeE+oVWhZJjKRgDf0CUI7QNVAH7cVcZftkkV7/IWZ2QXdkW/ae5yug9oTn1TdFiXJLiBXciiMM5mEgAiVxE0+gJwhbs/9dQpTtysJAfjfRb2PPRcE0ThaAS4DbMejJ6qHfMoX3wm1jUbU76mH8P61WqmtBcU2ZmRB4aZVLwrJpC+moEwreEd9dicm/vS9J0YE2Hax0XG3oKctDt37WgEjTRP/rHapKE6I1QOlqQ/IZcBl6Ei/anu7iV5TEng0o+yN3XiV/cFFAcxxBD+3z8q5X6y8+e5HPvQIXzcPzknqfQQYA==
-ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass (sender ip is
- 165.204.84.17) smtp.rcpttodomain=kernel.org smtp.mailfrom=amd.com; dmarc=pass
- (p=quarantine sp=quarantine pct=100) action=none header.from=amd.com;
- dkim=none (message not signed); arc=none (0)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=amd.com; s=selector1;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
- bh=O8zfLp14XNg7OEjiwbePuM7fQkjyheXMnhVTdmXLEdM=;
- b=my/wyXaimnUEMa9AOyyNghjHsesEaY0UcJICMUYn9XbDrcQLzSvyPdm8FtXhdzPLoX1IiZPpHRjrIFUQMSPQuFPDDeduEKL2XEN8BWTfYkpHcHlPJRjd4/ZH9BOPIraRw6+MdSMnaJuuClbdJIhcnX7G3ORrefapCE5FTVJqnEs=
-Received: from CY5PR15CA0145.namprd15.prod.outlook.com (2603:10b6:930:67::13)
- by DM4PR12MB6447.namprd12.prod.outlook.com (2603:10b6:8:bf::16) with
- Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.21.71.13; Thu, 28 May
- 2026 06:43:54 +0000
-Received: from CH2PEPF0000013D.namprd02.prod.outlook.com
- (2603:10b6:930:67:cafe::12) by CY5PR15CA0145.outlook.office365.com
- (2603:10b6:930:67::13) with Microsoft SMTP Server (version=TLS1_3,
- cipher=TLS_AES_256_GCM_SHA384) id 15.21.71.13 via Frontend Transport; Thu, 28
- May 2026 06:43:53 +0000
-X-MS-Exchange-Authentication-Results: spf=pass (sender IP is 165.204.84.17)
- smtp.mailfrom=amd.com; dkim=none (message not signed)
- header.d=none;dmarc=pass action=none header.from=amd.com;
-Received-SPF: Pass (protection.outlook.com: domain of amd.com designates
- 165.204.84.17 as permitted sender) receiver=protection.outlook.com;
- client-ip=165.204.84.17; helo=satlexmb08.amd.com; pr=C
-Received: from satlexmb08.amd.com (165.204.84.17) by
- CH2PEPF0000013D.mail.protection.outlook.com (10.167.244.69) with Microsoft
- SMTP Server (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
- 15.21.71.7 via Frontend Transport; Thu, 28 May 2026 06:43:53 +0000
-Received: from satlexmb10.amd.com (10.181.42.219) by satlexmb08.amd.com
- (10.181.42.217) with Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.2.2562.41; Thu, 28 May
- 2026 01:43:53 -0500
-Received: from satlexmb08.amd.com (10.181.42.217) by satlexmb10.amd.com
- (10.181.42.219) with Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.2.2562.41; Thu, 28 May
- 2026 01:43:52 -0500
-Received: from xhdharshj40.xilinx.com (10.180.168.240) by satlexmb08.amd.com
- (10.181.42.217) with Microsoft SMTP Server id 15.2.2562.41 via Frontend
- Transport; Thu, 28 May 2026 01:43:51 -0500
-From: Harsh Jain <h.jain@amd.com>
-To: <srini@kernel.org>, <linux-arm-kernel@lists.infradead.org>,
-	<michal.simek@amd.com>, <sarat.chand.savitala@amd.com>,
-	<harish.ediga@amd.com>
-CC: Harsh Jain <h.jain@amd.com>
-Subject: [PATCH 2/3] nvmem: zynqmp_nvmem: Use streaming DMA with single kmalloc block
-Date: Thu, 28 May 2026 12:13:22 +0530
-Message-ID: <20260528064323.596195-3-h.jain@amd.com>
-X-Mailer: git-send-email 2.34.1
-In-Reply-To: <20260528064323.596195-1-h.jain@amd.com>
-References: <20260528064323.596195-1-h.jain@amd.com>
+	Thu, 28 May 2026 06:44:11 +0000
+Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
+	by tor.source.kernel.org (Postfix) with ESMTP id 17565605DC;
+	Thu, 28 May 2026 06:44:11 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 3B14A1F00A3A;
+	Thu, 28 May 2026 06:44:10 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
+	s=k20260515; t=1779950650;
+	bh=8uOQcDGbXZlb6q8u3GvJiWkXjn3EaSa5gllpC9TQbrU=;
+	h=Date:From:To:Cc:Subject:References:In-Reply-To;
+	b=DMf+bZHrQTcd9uXj5YaqJ2NMKllNWB6er4xNsT03rFDsQLoZ/iEIAYctOP1m4jqhp
+	 Cp1mby8xWctFOfyvR/sLyQugVI1nbSEOPIYlnLcNqgnEos7+ymmVccpbPl75Mns///
+	 9GVqaoiK5KY7cJy8ON7ZUGyJR47SQoRcIKt4GvDfy0cbfp/8jGRbyQz2GRGD7NCdms
+	 Lu8UkXAG7SAVhN+ZHb2df7AjXVXzmgiPqKXeVjlCB9/ijtB9DtTLSB9XUdkKzL806h
+	 1KVouHE54G5rUEvNLIAQ2vf8UyV7AuT3uX/km/qBCRdx3umAiCYj2ztZ0uiZJ2fRor
+	 7TQu1CQzBGjKQ==
+Date: Thu, 28 May 2026 08:44:07 +0200
+From: Thierry Reding <thierry.reding@kernel.org>
+To: Lukas Wunner <lukas@wunner.de>
+Cc: Thierry Reding <thierry.reding@gmail.com>, 
+	Bjorn Helgaas <bhelgaas@google.com>, Lorenzo Pieralisi <lpieralisi@kernel.org>, 
+	Krzysztof Wilczy??ski <kwilczynski@kernel.org>, Manivannan Sadhasivam <mani@kernel.org>, 
+	Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>, 
+	Conor Dooley <conor+dt@kernel.org>, Jonathan Hunter <jonathanh@nvidia.com>, 
+	Karthikeyan Mitran <m.karthikeyan@mobiveil.co.in>, Hou Zhiqiang <Zhiqiang.Hou@nxp.com>, 
+	Thomas Petazzoni <thomas.petazzoni@bootlin.com>, Pali =?utf-8?B?Um9ow6Fy?= <pali@kernel.org>, 
+	Michal Simek <michal.simek@amd.com>, Kevin Xie <kevin.xie@starfivetech.com>, 
+	Aksh Garg <a-garg7@ti.com>, linux-pci@vger.kernel.org, devicetree@vger.kernel.org, 
+	linux-tegra@vger.kernel.org, linux-kernel@vger.kernel.org, 
+	linux-arm-kernel@lists.infradead.org, Thierry Reding <treding@nvidia.com>
+Subject: Re: [PATCH v5 2/4] PCI: Use standard wait times for PCIe link
+ monitoring
+Message-ID: <ahfj-uhNTlk-byvU@orome>
+References: <20260526-tegra264-pcie-v5-0-84a813b979d7@nvidia.com>
+ <20260526-tegra264-pcie-v5-2-84a813b979d7@nvidia.com>
+ <ahV_r6NJWnmJptT2@wunner.de>
+ <ahanoZgDwq3v6x8M@orome>
+ <ahcob7HMbyGvFgxc@wunner.de>
 MIME-Version: 1.0
-Content-Transfer-Encoding: 8bit
-Content-Type: text/plain
-X-EOPAttributedMessage: 0
-X-MS-PublicTrafficType: Email
-X-MS-TrafficTypeDiagnostic: CH2PEPF0000013D:EE_|DM4PR12MB6447:EE_
-X-MS-Office365-Filtering-Correlation-Id: 608a3839-749b-4a49-94a9-08debc847c16
-X-MS-Exchange-SenderADCheck: 1
-X-MS-Exchange-AntiSpam-Relay: 0
-X-Microsoft-Antispam: BCL:0;ARA:13230040|376014|36860700016|82310400026|1800799024|18002099003|22082099003|11063799006|56012099006;
-X-Microsoft-Antispam-Message-Info: 1bI+vU98WQgG3RSq4BeGeJkOfSrWYLsyqygHDvU7llOS2GDklPUzofHswfUnxaSBqyvwYKRHJB3Y/LXK7pI4p812am2UAfTJcZsDTPDWxuPKCUG6g+bpAcL1GWV9cTcF3PEXUXTDFb1dvOby37oL3CKNJtg2r+/xuDi5PC/ATJHFgdZyxQvc1ftHqBbfTowgyVgYulZ6EuF0nbFXTxMILlhHQgsh9sC2sBogezpd2OW7IYRcOox/B50ij4n2y/p5BWp03IOWt9Je/PekdA6Br90k0UBQPRh7/0RAfAt4kjyfrJ8qSeFjigYl75/3BjD+wW88t/Q8HqNW2B1GhUoiRiZ7uD2fkkGdhJbNYtKLXr/1qfI45LFRw7YrKYZKdUavu4W1X8xRgNfXJEt9Rzy1UnSZe3yiJmY1TyqZSw2DtKsWfEuDjHBNKWefvPtcNxHkGTvzy/P535MSaML7qjYbmyJkhpKfxYZLyYz/ErZTALE6mXdFk52m6t3zCLUXThSawtVgcqhf00r1+r6u2dL4VZeN7wbnGJvrwUr9vUT8rtJjenwbzrclBrC2hSpxC1xjJNmuorlrXbkZ2vIZTceBpXYTZRdShkrbAWfZHnHYtODKZOYIsT5fNl3yABN77hSGZIdKu5ET86SuO/aC+n64mpYGiK2Si2h4GqtiGn9uOqDxsPqT8tTO2keUQFmSFFfgPsqu02SDl+KISH11NlwnENNEdnKTnZFhCyh2HhA5L0g=
-X-Forefront-Antispam-Report: CIP:165.204.84.17;CTRY:US;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:satlexmb08.amd.com;PTR:InfoDomainNonexistent;CAT:NONE;SFS:(13230040)(376014)(36860700016)(82310400026)(1800799024)(18002099003)(22082099003)(11063799006)(56012099006);DIR:OUT;SFP:1101;
-X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
-X-MS-Exchange-AntiSpam-MessageData-0: Y69rAGKdBWczZHETu22FdgqsFcerq3Rv0XqG42uo06ys36MeL+cOQ2QZXfA/SEHBi/Ua0cVi5F5M1JB+HTs5EbaBGv2jrLnGlfhfKJFNznivOHsKbSGerDJgThzCtZDwzDH12ztEgxzbOfR9n3hQR9U2z+qhR4ie6ttmOLqYk9vNgV6QRmJl5yByPWP5xMIQ3aDoUpA+quSiPpSqR+j4HXf70ZqcUUlSrsrS6Aw903GrIW7XFo117U0z3dJm6Qk35xOV7VZW5qrEmVVgj0WIOwgqdkSfQyoir9rLC8NpzUydEezn9x4UAV0dnf8onvRonjIU/fXjiAERk9q83WjnXmgkcRZLW6eVeTZzYpgBG6cvJndtR5nroAng2zfSCypOoSIoMgMGxTfDCMocim+UPDSfjqSgMsXDaBhD+ZNyN9lk3DY5rm5/zcedRNS64iiE
-X-OriginatorOrg: amd.com
-X-MS-Exchange-CrossTenant-OriginalArrivalTime: 28 May 2026 06:43:53.6416
- (UTC)
-X-MS-Exchange-CrossTenant-Network-Message-Id: 608a3839-749b-4a49-94a9-08debc847c16
-X-MS-Exchange-CrossTenant-Id: 3dd8961f-e488-4e60-8e11-a82d994e183d
-X-MS-Exchange-CrossTenant-OriginalAttributedTenantConnectingIp: TenantId=3dd8961f-e488-4e60-8e11-a82d994e183d;Ip=[165.204.84.17];Helo=[satlexmb08.amd.com]
-X-MS-Exchange-CrossTenant-AuthSource: CH2PEPF0000013D.namprd02.prod.outlook.com
-X-MS-Exchange-CrossTenant-AuthAs: Anonymous
-X-MS-Exchange-CrossTenant-FromEntityHeader: HybridOnPrem
-X-MS-Exchange-Transport-CrossTenantHeadersStamped: DM4PR12MB6447
-X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260527_234400_089588_24DE764B 
-X-CRM114-Status: GOOD (  16.36  )
+Content-Type: multipart/signed; micalg=pgp-sha512;
+	protocol="application/pgp-signature"; boundary="uc3lgg4pj4krpin7"
+Content-Disposition: inline
+In-Reply-To: <ahcob7HMbyGvFgxc@wunner.de>
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -125,103 +83,80 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-From: Harish Ediga <harish.ediga@amd.com>
 
-Coherent buffers are required only when the device and host update
-memory in parallel, which is not the case here. Replace the coherent
-buffer with the streaming DMA API and combine the two allocations
-into a single kmalloc block.
+--uc3lgg4pj4krpin7
+Content-Type: text/plain; protected-headers=v1; charset=us-ascii
+Content-Disposition: inline
+Content-Transfer-Encoding: quoted-printable
+Subject: Re: [PATCH v5 2/4] PCI: Use standard wait times for PCIe link
+ monitoring
+MIME-Version: 1.0
 
-Signed-off-by: Harish Ediga <harish.ediga@amd.com>
-Co-developed-by: Harsh Jain <h.jain@amd.com>
-Signed-off-by: Harsh Jain <h.jain@amd.com>
----
- drivers/nvmem/zynqmp_nvmem.c | 34 ++++++++++++++++++----------------
- 1 file changed, 18 insertions(+), 16 deletions(-)
+On Wed, May 27, 2026 at 07:22:55PM +0200, Lukas Wunner wrote:
+> On Wed, May 27, 2026 at 10:28:51AM +0200, Thierry Reding wrote:
+> > On Tue, May 26, 2026 at 01:10:39PM +0200, Lukas Wunner wrote:
+> > > On Tue, May 26, 2026 at 10:53:11AM +0200, Thierry Reding wrote:
+> > > > Instead of defining the wait values for each driver, use common val=
+ues
+> > > > defined in the core pci.h header file. Note that most drivers don't=
+ use
+> > > > the millisecond waits, but rather usleep_range(), so add these comm=
+only
+> > > > used values to the header so that all drivers can use them.
+> > >=20
+> > > Hm, why not just replace usleep_range() with msleep() and use the exi=
+sting
+> > > macro instead of defining new ones?
+> >=20
+> > I'm trying to somewhat unify the implementations across drivers without
+> > changing behaviour. I don't have a way of testing any of these drivers,
+> > so keeping the existing implementation and just switching out the symbol
+> > seemed like a good compromise.
+>=20
+> It looks like the code was copy-pasted from one driver to the next
+> and I applaud every effort to deduplicate, unify and simplify things.
+>=20
+> I don't quite see how using msleep() instead of usleep_range()
+> should result in breakage.  The drivers are just polling for
+> link up for an amount of time and as long as you're not decreasing
+> that amount, everything ought to be fine.  Moving to msleep()
+> should never decrease the amount.
+>=20
+> > Then again, I count 2 drivers (in linux-next) that use the existing
+> > PCIE_LINK_WAIT_SLEEP_MS, one of which multiplies by MILLI to get at the
+> > US version (so it could easily be converted to the US_MIN version). Only
+> > pcie-designware.c uses msleep() with PCIE_LINK_WAIT_SLEEP_MS, so it is
+> > clearly the outlier.
+>=20
+> Konrad Dybcio went ahead and replaced usleep_range() with msleep()
+> in that driver, kudos to him.  Cf. b262518262f5 ("PCI: dwc: Use msleep()
+> in dw_pcie_wait_for_link()").  If you could just carry over that change
+> to the other drivers that would be great.
 
-diff --git a/drivers/nvmem/zynqmp_nvmem.c b/drivers/nvmem/zynqmp_nvmem.c
-index 6be00a2be9e4..e8ab4ce23fb9 100644
---- a/drivers/nvmem/zynqmp_nvmem.c
-+++ b/drivers/nvmem/zynqmp_nvmem.c
-@@ -60,14 +60,13 @@ static int zynqmp_efuse_access(void *context, unsigned int offset,
- 			       void *val, size_t bytes, enum efuse_access flag,
- 			       unsigned int pufflag)
- {
-+	size_t words = bytes / WORD_INBYTES;
- 	struct device *dev = context;
- 	struct xilinx_efuse *efuse;
- 	dma_addr_t dma_addr;
--	dma_addr_t dma_buf;
--	size_t words = bytes / WORD_INBYTES;
--	int ret;
- 	unsigned int value;
- 	char *data;
-+	int ret;
- 
- 	if (bytes % WORD_INBYTES != 0) {
- 		dev_err(dev, "Bytes requested should be word aligned\n");
-@@ -95,18 +94,18 @@ static int zynqmp_efuse_access(void *context, unsigned int offset,
- 		}
- 	}
- 
--	efuse = dma_alloc_coherent(dev, sizeof(struct xilinx_efuse),
--				   &dma_addr, GFP_KERNEL);
-+	efuse = kmalloc(sizeof(*efuse) + bytes, GFP_KERNEL);
- 	if (!efuse)
- 		return -ENOMEM;
- 
--	data = dma_alloc_coherent(dev, bytes,
--				  &dma_buf, GFP_KERNEL);
--	if (!data) {
--		ret = -ENOMEM;
--		goto efuse_data_fail;
-+	dma_addr = dma_map_single(dev, efuse, sizeof(*efuse) + bytes,
-+				  DMA_BIDIRECTIONAL);
-+	if (dma_mapping_error(dev, dma_addr)) {
-+		kfree(efuse);
-+		return -ENOMEM;
- 	}
- 
-+	data = (char *)efuse + sizeof(*efuse);
- 	if (flag == EFUSE_WRITE) {
- 		memcpy(data, val, bytes);
- 		efuse->flag = EFUSE_WRITE;
-@@ -114,12 +113,18 @@ static int zynqmp_efuse_access(void *context, unsigned int offset,
- 		efuse->flag = EFUSE_READ;
- 	}
- 
--	efuse->src = dma_buf;
-+	efuse->src = dma_addr + sizeof(*efuse);
- 	efuse->size = words;
- 	efuse->offset = offset;
- 	efuse->pufuserfuse = pufflag;
- 
-+	/* Sync DMA address updated after mapping*/
-+	dma_sync_single_for_device(dev, dma_addr, sizeof(*efuse) + bytes,
-+				   DMA_BIDIRECTIONAL);
- 	zynqmp_pm_efuse_access(dma_addr, (u32 *)&ret);
-+	dma_unmap_single(dev, dma_addr, sizeof(*efuse) + bytes,
-+			 DMA_BIDIRECTIONAL);
-+
- 	if (ret != 0) {
- 		if (ret == EFUSE_NOT_ENABLED) {
- 			dev_err(dev, "efuse access is not enabled\n");
-@@ -133,12 +138,9 @@ static int zynqmp_efuse_access(void *context, unsigned int offset,
- 
- 	if (flag == EFUSE_READ)
- 		memcpy(val, data, bytes);
-+
- efuse_access_err:
--	dma_free_coherent(dev, bytes,
--			  data, dma_buf);
--efuse_data_fail:
--	dma_free_coherent(dev, sizeof(struct xilinx_efuse),
--			  efuse, dma_addr);
-+	kfree(efuse);
- 
- 	return ret;
- }
--- 
-2.34.1
+Alright, I see you really don't like usleep_range(), so msleep() it'll
+be.
 
+Thierry
+
+--uc3lgg4pj4krpin7
+Content-Type: application/pgp-signature; name="signature.asc"
+
+-----BEGIN PGP SIGNATURE-----
+
+iQIzBAABCgAdFiEEiOrDCAFJzPfAjcif3SOs138+s6EFAmoX5DcACgkQ3SOs138+
+s6H9qQ/9FvVWlaICBU/gs8tDIB7XU9zULjHm6whhbpBn3uuDB6PqFKfGbFmLL5ch
+lDezqyqIUjvskd88UahBE3f5AnEFDrqK9AstxY2VQn8/Iu60WsLlU578H2vGxshG
+nCDRQZW2pQ5d85TaWhYZwOnSM0rFCbmhlPeiI1EiSuGyPDp/7IpIi3p2LC/IERee
+LCmtj4bW6zQMPU6kXjJI8SfGcD67YkJHmTKPmuhcqeG6ni27BPXEJ/kzz2BfQ+1c
+OdCJElFdOUtLONNLUeK5gEetp9VV1SOeZ4urDMJLG12RkP8++ql3rs/jvl8wlkGK
+RFbCzXsV91mi11beDpSR8MSNew80qXMZ+qZO+VTqGv5fcRCqmoKo2t4GzQ+AB1zj
+nRxWk6QeB0+yzVUyetGjuSzMMo7pzgEOcBQ0UgJam58kk7Sgz9dej1VR2//8GLbR
+bkZw5uvmRtdJ0MGsQyDxgnGpZUaFLqxvomlRt3rMF9d43fU+viuHUHe0qAMLV4O0
+EXnwmEjVqZMOqi9gbEt38d8lk5AhgC9RilRlG8/gzQNF4agL6U1S4cD5WVzrLzjV
+TTMydaK+xfTTcCrHsSrrq0c3AzQng0TR12M5DzPGNq1gENxVYL2VQ5W3zBPMKiSl
+X06TvyKmS6rpAK8F7Bm+4BG44Bd7QrqbKbtixgWNN33xe45+td8=
+=0mcj
+-----END PGP SIGNATURE-----
+
+--uc3lgg4pj4krpin7--
 
