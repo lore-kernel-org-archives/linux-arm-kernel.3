@@ -4,62 +4,131 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 0026ACD4F54
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 28 May 2026 15:26:47 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 6939ACD4F54
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 28 May 2026 15:29:56 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:In-Reply-To:
+	Content-Type:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
 	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=85TdOHfkwYp76deQGGO7QiR3AsS3WdnPJnJYgZqJ2Oo=; b=mPEtbl0w1uxffMGD80YVINbI1m
-	TdM+csmlLSWCFJ3O5X8aQXt+qUNYRHEK8z1F/IoJ+PlGFm0AhXQJK2S/s0uqEw7KmjlTJzykbg6m4
-	ytcQW4c+b68PRu5hj6qz9LaienOzfpY651Dbttadq4gVIQaqzErZWPpxWxDecMqDFcttiaLC1pulW
-	EK6ZINn9xuMwsWk629ZhacQQUrmU+uMq8E5VjJRaR8zmozTkxDZnevXcUrg/8yCVA8D5v/9HXqRtW
-	qI8vYEmVJj4cs+ZBHOkmdwsquQ+hSVpFWhm4XelBYSpIlyxpZfzLNlsquxvAQg7FHBG0Sn/LlCrWO
-	zPsKVZsA==;
+	bh=6dNFlFRiJS08tWuA2gJmanMlJh8nkQPLZ0xAGbsMpjY=; b=efLqy20N+jNWpmGTvSrHho6qec
+	pQkvyMlok8+QjcCRIuHHVbgLB0u1LvFlWAp2rBqHw1bwLPLPxUq6I5IdsM+l2z62qtyJDFM3Z92Ob
+	agPi7nHBdLKaNG628PrOS6m6LIfw6NRjB3YhVVHsQuR9RcWqcQ69VoRRkDQv0B4cY8f1ulMicHD0w
+	xQW2cD3X9y7I12SKzgZGwOEh+MybLRRlrIhx73qQOftUQmTeEj7bnKaE2HbOu5pZVAE67uX2z70EK
+	IoCKYzw/+p75nyRdZ01yJvT8q+rPhud3FJp3y4ExhNohxeXZG9z8Ly2w3CujgP83r6IVXO7wSYOZG
+	vjMNgYrQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wScd6-00000005v4A-1gaY;
-	Thu, 28 May 2026 15:26:40 +0000
-Received: from foss.arm.com ([217.140.110.172])
-	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wScd4-00000005v3f-26VN
+	id 1wScg8-00000005vKn-3bLA;
+	Thu, 28 May 2026 15:29:48 +0000
+Received: from mail-eastusazlp17011000f.outbound.protection.outlook.com ([2a01:111:f403:c100::f] helo=BL2PR02CU003.outbound.protection.outlook.com)
+	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
+	id 1wScg5-00000005vKC-3gOT
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 28 May 2026 15:26:39 +0000
-Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
-	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id 4F61B22D9;
-	Thu, 28 May 2026 08:26:31 -0700 (PDT)
-Received: from localhost (e132581.arm.com [10.1.196.87])
-	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id E637D3F632;
-	Thu, 28 May 2026 08:26:35 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=simple/simple; d=arm.com; s=foss;
-	t=1779981996; bh=s8GW/mZeIt7JoDJi9/DETg9JzUkQsLsTjYO7AoaS/fA=;
-	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
-	b=iBZDuQiOd4TFPNS6veuwmzzlPvcrWMGV9xmW7VHmtU6kLaWxrpeEGTZ9A+fprlv/p
-	 hcxeHgPmvw+TrsPCeC6EY5XYqa2LwDd3WMShH2oJa+fHtZ20OVpXgHBo4SSGmOcLuM
-	 DES29bVTW83M/tUdaH2RmSaN3FXQe56pDT298+8Q=
-Date: Thu, 28 May 2026 16:26:33 +0100
-From: Leo Yan <leo.yan@arm.com>
-To: Yeoreum Yun <yeoreum.yun@arm.com>
-Cc: coresight@lists.linaro.org, linux-arm-kernel@lists.infradead.org,
-	linux-kernel@vger.kernel.org, suzuki.poulose@arm.com,
-	mike.leach@arm.com, james.clark@linaro.org,
-	alexander.shishkin@linux.intel.com, jie.gan@oss.qualcomm.com
-Subject: Re: [PATCH v7 09/13] coresight: etm4x: missing
- cscfg_csdev_disable_active_config() in perf enable
-Message-ID: <20260528152633.GH101133@e132581.arm.com>
-References: <20260519154812.254884-1-yeoreum.yun@arm.com>
- <20260519154812.254884-10-yeoreum.yun@arm.com>
- <20260528143358.GF101133@e132581.arm.com>
- <ahhUnJSIvGabGbQe@e129823.arm.com>
-MIME-Version: 1.0
+	Thu, 28 May 2026 15:29:47 +0000
+ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
+ b=SgnYrgaJSAMbR/tKMh6InRzwA2R3OzQ/2EJa0pStXIYXsx9kP15nB+koDgJfTafJDc+/Tm86MYX0enf3YogZrT/jH62r5uODeLF2eyyzi0XW51iXNpXSvX7eekPJvY6QW2hzIxGdlWwyFMUpuHqDDpPRE7cKEF/aL19AtaYOJUdxzWIZsUfXZ374gtDqf3drjn8N3jvXCiFwY40LT7XkEhzkPOVkvrY0dgjEU3zIizXDudihPr4yhREowP2SYkjrotHG+MSajfCr4nH+dsnZc7TVo2hPBlLeSItwS3kXDV9AowcEe6tzj54wtM1svJGh2rki8ATxYgJBoaxA/Gjv1A==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
+ s=arcselector10001;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
+ bh=6dNFlFRiJS08tWuA2gJmanMlJh8nkQPLZ0xAGbsMpjY=;
+ b=JfM0O2Jzu0t40lLqIaenIG2qgrPdAjD8jITZcM4/joDEp/7m8+Rs1sWK+g1CLIv0u78Z1ndaT0vKCOx0ZdwuPDZCF6Ps+olcW5GEYqw438fHJUWoZ9HaG1T6niMHpHK24z5qpHY9cutROb0u1y1C861Jy5EeYmKYP6WY7zG/ntg+DEg9E8Bi0Rf3gJMxjCZDNSTSSPwzoqpvuKrjb0M6obOHiwr4mE4Eq2hYqaoNsofkupY58AaG6JGOHTH2B/25ccjnGodTHFbWELE5hNPr0MURgbi/MvNAqj7dh9Y2yLFwrXC34JcotU35qWj27JWsBrhypY+j4LVYAsWxT5TxEQ==
+ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
+ smtp.mailfrom=nvidia.com; dmarc=pass action=none header.from=nvidia.com;
+ dkim=pass header.d=nvidia.com; arc=none
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=Nvidia.com;
+ s=selector2;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
+ bh=6dNFlFRiJS08tWuA2gJmanMlJh8nkQPLZ0xAGbsMpjY=;
+ b=X95gSd/EiriVHlrggVujX8WUKxB2hR9Ed90jlt2+Z6q4lZU3oUsx5W/CnVAeUo1JmOknr1fyWHdxnd96vbQfWJd7pOlwo7QyPP/A0KFNNUxQmlXE1aPXeQeLpSAST8cCmz5svBCS64EHV8GBv48QXejye/TRuT1IMV3A5V1NfJn2p1gAcMYQM3TxnmtwDER/Ixm8uEVVcmY0Quupak0TaqLZNiecuGopT4DzHjrgxMnSG/hsyDLHtsRIGugco1A8iJJzNZpqef1nlfcgY4fX3JoiU0pfrPmmNg/UCzi7Tet30/A+0W898t9rlwewcCnsnQVB8klHR00AU86vnt4o1g==
+Authentication-Results: dkim=none (message not signed)
+ header.d=none;dmarc=none action=none header.from=nvidia.com;
+Received: from LV8PR12MB9620.namprd12.prod.outlook.com (2603:10b6:408:2a1::19)
+ by CH3PR12MB7499.namprd12.prod.outlook.com (2603:10b6:610:142::22) with
+ Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.21.71.13; Thu, 28 May
+ 2026 15:29:32 +0000
+Received: from LV8PR12MB9620.namprd12.prod.outlook.com
+ ([fe80::299d:f5e0:3550:1528]) by LV8PR12MB9620.namprd12.prod.outlook.com
+ ([fe80::299d:f5e0:3550:1528%4]) with mapi id 15.21.0071.011; Thu, 28 May 2026
+ 15:29:32 +0000
+Date: Thu, 28 May 2026 12:29:30 -0300
+From: Jason Gunthorpe <jgg@nvidia.com>
+To: Pranjal Shrivastava <praan@google.com>
+Cc: Nicolin Chen <nicolinc@nvidia.com>, will@kernel.org,
+	robin.murphy@arm.com, joro@8bytes.org, bhelgaas@google.com,
+	baolu.lu@linux.intel.com, kevin.tian@intel.com,
+	miko.lenczewski@arm.com, linux-arm-kernel@lists.infradead.org,
+	iommu@lists.linux.dev, linux-kernel@vger.kernel.org,
+	linux-pci@vger.kernel.org, dan.j.williams@intel.com,
+	jonathan.cameron@huawei.com, vsethi@nvidia.com,
+	linux-cxl@vger.kernel.org, nirmoyd@nvidia.com
+Subject: Re: [PATCH v6 3/3] iommu/arm-smmu-v3: Allow ATS to be always on
+Message-ID: <20260528152930.GA3195266@nvidia.com>
+References: <cover.1779392420.git.nicolinc@nvidia.com>
+ <18bb6f421b3be891caa8f1fb50f3a4d56b52d5be.1779392420.git.nicolinc@nvidia.com>
+ <ahheOF8L0aGMttcI@google.com>
 Content-Type: text/plain; charset=us-ascii
 Content-Disposition: inline
-In-Reply-To: <ahhUnJSIvGabGbQe@e129823.arm.com>
+In-Reply-To: <ahheOF8L0aGMttcI@google.com>
+X-ClientProxiedBy: YT4P288CA0046.CANP288.PROD.OUTLOOK.COM
+ (2603:10b6:b01:d3::28) To LV8PR12MB9620.namprd12.prod.outlook.com
+ (2603:10b6:408:2a1::19)
+MIME-Version: 1.0
+X-MS-PublicTrafficType: Email
+X-MS-TrafficTypeDiagnostic: LV8PR12MB9620:EE_|CH3PR12MB7499:EE_
+X-MS-Office365-Filtering-Correlation-Id: 68ac0a08-5e8f-47c6-291d-08debccdea57
+X-MS-Exchange-SenderADCheck: 1
+X-MS-Exchange-AntiSpam-Relay: 0
+X-Microsoft-Antispam: BCL:0;ARA:13230040|366016|7416014|376014|1800799024|22082099003|18002099003|11063799006|4143699003|56012099006;
+X-Microsoft-Antispam-Message-Info: EjYNhiPSEJESEEbICCrxPiJa1B0GZC8V28nH51ClKJKlrb9mx1oUWqkHX/u12zmsEV+7ZkCY70YAY1lZHNFHmNtu/OxH0Grt+cNm3+OoP7vOY74W329BcRj+FATN8PlvsJpOvDUdcrO85lEFjNTz0nMLlQlc0AFH1WMZvNg22YIBheGy6Y9cX2aw4it4I9osMIwh8H1ev6E/tQvQXvE8O0O/19j0Ctuw0DsTUMMLA3r8TWf1KnC++Gb+n+auB3Nl9D6CZ/1TUfZy8NF+B3mTMS4r4Ko5Q/e+s15Kj02qWp0hnTbOqe99rCo8CojkvabmOCqkilJxxGyewvFpx0tAQhbSGt3TNeNClPcTF/7o8vqtLTYQYGESOAc/hsCR5nboVPVyi+M8WIh7mzxx+/e9KCJOMpUDfamrBR5JOOQ0OCVhfmo9zxd57xqUgPkUGfqvTuPM40CbR+Fs1MnhQrcD6twq1Ob2ZcHkblTxZPT9zs+wIKFpZ1q9DI84htj+TDfXbGTyiG3p/2Uf3nlR9UgFzncjX5MBqigWkpTWrhs+M0yjVgW1LZjnmn0wJFUheJt0sxyAVJzJqj2vrkbzW+H6X8Hc4wnhFcKoOCrchYXw95NfgAtp9I8p7r0+XviCPq+uQeuoSLZnBhHHOmOm4rD4z2+HjDbQ11sD3NwH6GUnLsm1GZ8mK/1r4IQwAqHjTRDV
+X-Forefront-Antispam-Report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:LV8PR12MB9620.namprd12.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(366016)(7416014)(376014)(1800799024)(22082099003)(18002099003)(11063799006)(4143699003)(56012099006);DIR:OUT;SFP:1101;
+X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
+X-MS-Exchange-AntiSpam-MessageData-0: =?us-ascii?Q?SqG8gdqkMHewYb8CNGAOxDevcU168QTu97B+uEdBdCnnSWiOJ7Tn1GMX7iz4?=
+ =?us-ascii?Q?Uo+NQ7LsBDRB+rE4XsSAqagdlocqaz2D4utwttzzB57OUONvB1qAIddyRwb+?=
+ =?us-ascii?Q?AcBpqnjIc6C2FWoMKeYNQqdoSjNY+0XkWSgQCrasOHbwwB/pWneEmEv5+1vG?=
+ =?us-ascii?Q?4/lIa6fpRrCu4SW0zjPTM8prJ7vAeux2r4OsLonzGMMrjNXmT5EuasCDflrq?=
+ =?us-ascii?Q?UpmM+CzBQFak70uLHqystQrqe0yV1uSystDMueqg3Zn3ZZHHQT1+j8SVhFNs?=
+ =?us-ascii?Q?o3UX98NKRAjKskPBcXre9fF/nMH0ReLOFlRoJCBoAOlCGAsEbPBuvASob8Tx?=
+ =?us-ascii?Q?H9wWL0ZNcJMS8vLtS9HuHn2XYNVAoUkgsIei3v7Qfz8cAFfCINd7KqANyWBj?=
+ =?us-ascii?Q?1KKM/0fu+cloTXzh0jv7QixZMc1qboMVgQKiXMVHPJeMgWbvHAanZZd3Xuua?=
+ =?us-ascii?Q?JCqI5Suj/13ZHmaHT8ze+rTKElDInVmkUbpdzZWgAGlI6Hhe7KQibTctSaxA?=
+ =?us-ascii?Q?tl4p5NX5UX9qLRQrp1D8OmdHYX0PCojLeO+xp20TTTGT7p4n0DWdvpmabykw?=
+ =?us-ascii?Q?0b8oSScyQNcGnlSOuVf9UAp+TfdBnE00Dck0TdG1PrxKoVV+PS4hoWTCqvsJ?=
+ =?us-ascii?Q?aZvMZNUECbuYoM9b0vbz5nqX56rLAKphTW5V3A7IjSe6PcqS6nTyn8k30MBt?=
+ =?us-ascii?Q?Y2l+WiGaHDmuQMhzWxWfVZDUa/g2fw1O3P5cbxmzewtZVLlrqvLWESyU4SaD?=
+ =?us-ascii?Q?6MjbhnERauvSxOX6GnjgL4ujwvauu7TdaH7NVfWMFyCn7wtPg4yEkLSUCXAZ?=
+ =?us-ascii?Q?3YLer+PlMnIuf8L/zCSx9vr79oR708FKt/P2z/+6ZLHeUQkKev7T33KXgAe+?=
+ =?us-ascii?Q?WJ1eR8sxjQDBNENWgUAyibnznOvfZs4kjZrJ/WAg1WLEAp0tLIdXnPLL1C9O?=
+ =?us-ascii?Q?EGMMgg1uV1q4laug0t1LyeYZc9O/kD6ePIA/PDuDaZlg/RR4i6fKYUZb/o9k?=
+ =?us-ascii?Q?HuqyXxDObMydpfknDjlSfHmDGI17W4GJO1og4JqEYRgtljlZkvrLCJsDUa7P?=
+ =?us-ascii?Q?A8mEd8P3D2hz0mc//hIauGT1Tf4K6yAxBbx0hvNIaEJS7MC4bpxLuKppDZnx?=
+ =?us-ascii?Q?65M0oHs1TCC4ngXMOJlsaISQXJYZGTWidGPpldHg235CG3a181gXJUSLNLGd?=
+ =?us-ascii?Q?vDMmB/BzpaUh/OIJUDJx2khHdYS32rmWQfJP6hsUcnB3NU4Dr5fLldtBViuM?=
+ =?us-ascii?Q?zeeGrzNdnEBciDJ308fnlHMmaSZLfg4UgPsGhgRnKr0n4ORVI5q5xTw7GpYv?=
+ =?us-ascii?Q?SXPkVz4M94GrLQ/9kdVSyTZiSChqrYqthc5MszhgdGAn0jOu6oCHU3oVS0cQ?=
+ =?us-ascii?Q?AC2xoFzcNzKfWyBwC2V+tU9zck6GHuE+KFEXmBKSrtcsjhkxslYp9uu8mMvl?=
+ =?us-ascii?Q?aYuHRjiJG1TRL15jYgbHwHwfB2HqW/iXOSx9oYHF3jiZ8OJwlPji6hVNIDU4?=
+ =?us-ascii?Q?mV6yrM5XX+9KNkpeXxFhuav2s08T9SjZVZuBqHx+mOXzDV+0Ub8d+M8GBxCT?=
+ =?us-ascii?Q?zPcaw4gawOs5nM9xVnPUaYLV8iBCpvV/hbcED+PccSqJfQyI4f8XlXAGXc6U?=
+ =?us-ascii?Q?oMv1qEJR3uvP9U92vICjsDe9NllOSTfz+2vM2hgetw70rAoyCgZpDF09bP9F?=
+ =?us-ascii?Q?HVfM/KxLz3hyM14bzVjfiUuvGDohLcYcjz2urUHbxHRpBMrw?=
+X-OriginatorOrg: Nvidia.com
+X-MS-Exchange-CrossTenant-Network-Message-Id: 68ac0a08-5e8f-47c6-291d-08debccdea57
+X-MS-Exchange-CrossTenant-AuthSource: LV8PR12MB9620.namprd12.prod.outlook.com
+X-MS-Exchange-CrossTenant-AuthAs: Internal
+X-MS-Exchange-CrossTenant-OriginalArrivalTime: 28 May 2026 15:29:32.2490
+ (UTC)
+X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
+X-MS-Exchange-CrossTenant-Id: 43083d15-7273-40c1-b7db-39efd9ccc17a
+X-MS-Exchange-CrossTenant-MailboxType: HOSTED
+X-MS-Exchange-CrossTenant-UserPrincipalName: Nos9y5pj0Fiw+zH/MVwgZlYb8VfIfiX3N1d3UQiGQpD1hpOMzTsFRqEfZKvG+UR/
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: CH3PR12MB7499
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260528_082638_648795_E2B2C824 
-X-CRM114-Status: GOOD (  20.67  )
+X-CRM114-CacheID: sfid-20260528_082945_918729_62FFA5E9 
+X-CRM114-Status: UNSURE (   8.46  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -74,123 +143,20 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Thu, May 28, 2026 at 03:43:40PM +0100, Yeoreum Yun wrote:
+On Thu, May 28, 2026 at 03:24:40PM +0000, Pranjal Shrivastava wrote:
 
-[...]
-
-> > @@ -931,6 +919,18 @@ static int etm4_enable_perf(struct coresight_device *csdev,
-> >  	if (ret)
-> >  		goto err;
-> >  
-> > +	/*
-> > +	 * Set any selected configuration and preset. A zero configid means no
-> > +	 * configuration active, preset = 0 means no preset selected.
-> > +	 */
-> > +	cfg_hash = ATTR_CFG_GET_FLD(attr, configid);
-> > +	if (cfg_hash) {
-> > +		preset = ATTR_CFG_GET_FLD(attr, preset);
-> > +		ret = cscfg_csdev_enable_active_config(csdev, cfg_hash, preset);
-> > +		if (ret)
-> > +			goto err;
-> > +	}
+> > +	master->ats_always_on = true;
 > > +
-
-> No. since preset overrides the "perf configuratoin" formerly but
-> this code makes it vice versa.
-
-The above proposed change applies cfgfs after calling
-etm4_parse_event_config(). This is just use preset to override the
-config. Do I miss anything?
-
-> Also, cfg_hash and prest is also part of
-> etm4_parse_event_config(), and it doesn't seem to good to separate
-> cfgfs handling from that function.
+> > +	return arm_smmu_alloc_cd_tables(master);
 > 
-> IMHO, It would be better to keep this as it is.
+> Nit: I'm not sure if I'm getting this right, are we saying we *need* to
+> allocate CDs for CXL.cache cases in the probe itself because STE.EATS
+> requires Config=Translate with S1DSS in bypass?
 
-I have another version to give a try. I'd leave to you and maintainers
-to choose which is better.
+Yeah, basically.
 
-diff --git a/drivers/hwtracing/coresight/coresight-etm4x-core.c b/drivers/hwtracing/coresight/coresight-etm4x-core.c
-index 0889937811cb..471824234800 100644
---- a/drivers/hwtracing/coresight/coresight-etm4x-core.c
-+++ b/drivers/hwtracing/coresight/coresight-etm4x-core.c
-@@ -882,16 +882,6 @@ static int etm4_parse_event_config(struct coresight_device *csdev,
- 		/* bit[12], Return stack enable bit */
- 		config->cfg |= TRCCONFIGR_RS;
- 
--	/*
--	 * Set any selected configuration and preset. A zero configid means no
--	 * configuration active, preset = 0 means no preset selected.
--	 */
--	cfg_hash = ATTR_CFG_GET_FLD(attr, configid);
--	if (cfg_hash) {
--		preset = ATTR_CFG_GET_FLD(attr, preset);
--		ret = cscfg_csdev_enable_active_config(csdev, cfg_hash, preset);
--	}
--
- 	/* branch broadcast - enable if selected and supported */
- 	if (ATTR_CFG_GET_FLD(attr, branch_broadcast)) {
- 		if (!caps->trcbb) {
-@@ -899,8 +889,6 @@ static int etm4_parse_event_config(struct coresight_device *csdev,
- 			 * Missing BB support could cause silent decode errors
- 			 * so fail to open if it's not supported.
- 			 */
--			if (cfg_hash)
--				cscfg_csdev_disable_active_config(csdev);
- 			ret = -EINVAL;
- 			goto out;
- 		} else {
-@@ -908,10 +896,31 @@ static int etm4_parse_event_config(struct coresight_device *csdev,
- 		}
- 	}
- 
-+	/*
-+	 * Set any selected configuration and preset. A zero configid means no
-+	 * configuration active, preset = 0 means no preset selected.
-+	 */
-+	cfg_hash = ATTR_CFG_GET_FLD(attr, configid);
-+	if (cfg_hash) {
-+		preset = ATTR_CFG_GET_FLD(attr, preset);
-+		ret = cscfg_csdev_enable_active_config(csdev, cfg_hash, preset);
-+	}
-+
- out:
- 	return ret;
- }
- 
-+static void etm4_clean_event_config(struct coresight_device *csdev,
-+				    struct perf_event *event)
-+{
-+	struct perf_event_attr *attr = &event->attr;
-+	unsigned long cfg_hash;
-+
-+	cfg_hash = ATTR_CFG_GET_FLD(attr, configid);
-+	if (cfg_hash)
-+		cscfg_csdev_disable_active_config(csdev);
-+}
-+
- static int etm4_enable_perf(struct coresight_device *csdev,
- 			    struct perf_event *event,
- 			    struct coresight_path *path)
-@@ -938,15 +947,14 @@ static int etm4_enable_perf(struct coresight_device *csdev,
- 
- 	/* And enable it */
- 	ret = etm4_enable_hw(drvdata);
--	if (ret) {
--		if (ATTR_CFG_GET_FLD(attr, configid))
--			cscfg_csdev_disable_active_config(csdev);
--		goto err;
--	}
-+	if (ret)
-+		goto err_hw;
- 
- 	csdev->path = path;
- 	return 0;
- 
-+err_hw:
-+	etm4_clean_event_config(csdev, event);
- err:
- 	/* Failed to start tracer; roll back to DISABLED mode */
- 	coresight_set_mode(csdev, CS_MODE_DISABLED);
+Effectively the ARM rules for enabling ATS and Bypass together require
+a valid CD table pointer.
+
+Jason
 
