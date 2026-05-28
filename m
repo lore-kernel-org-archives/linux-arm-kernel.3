@@ -4,68 +4,56 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 8FD91CD5BD1
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 28 May 2026 07:42:11 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 0BD6ACD5BD5
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 28 May 2026 07:42:12 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:CC:To:In-Reply-To:References
-	:Message-ID:Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:
-	From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=s0W5IynKjZb9qrF9//+WtLwUT+g/PsxlXT4pC7Ev7e0=; b=LWGQ0Oc83X/gBO0ai1hds/She4
-	pN7yRIrE8Ivo93FNePHWyLJ4e59cAnFAgJNEiBhbUi7TszPGThyIiCsOEMPOcFbqrf+S0OFk95roK
-	ihIDhe6LKEkRvKmz2ul3h5qVEwMS826xLfDgZMt0JGGlHy+4rIhoNmy3IrYUxjOTCDNXCCRSvRUHd
-	an+09S45qlp9yckMhRxe3Zk4fjK/GVACtq48eTiuz7G1ReVaWcw3hGJ9uXIxySdT79nd7yYGRZf2f
-	F20N1N0AxlzvNmNz0/YrxTOfiJBg4OKpyw3kbVm5W/LxTQ34aWdR0Od/1xNnKOvibLTavqYzl2/3I
-	Gb1FMR1A==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=0H9OQ2AgnOfV0xPcZCWcjw22GxnxCaFaIlykjEiPVCc=; b=X+WY2HY9oDMqW8xp69IS9CQrxP
+	M3DmvfGgJx3McDXFnBjBZd9ddVrztSK1s9QMtO5eGamB5bvIjJ9OjxdEkFvH8Sx6/i8jqU08ouh3A
+	IeurECwxNtXtt032dn+XCx2jhlEUlfwGH6Bgare/udtwXa6WuE9X16Sg4NhRsrdMOb4xeOus/Q9Dw
+	O1NbuE9m8vhmCnDnRNQLPsq1NPIJZpqC+lz0kpygoY9ABHzXxbs7XwVO1RnVdHnCLCPRJoyUIOEaz
+	P9qspPS2YhvFVHM/f8uah1mbmOMsD8pBEr3J2KC/sPn4fCPPzgCBLmpme4N6MxwX3MhwoqOsiQOEx
+	KDd8KTVg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wSVNV-00000005HmY-0gaQ;
+	id 1wSVNV-00000005HnM-20o0;
 	Thu, 28 May 2026 07:42:05 +0000
-Received: from mail.aspeedtech.com ([211.20.114.72] helo=twmbx01.aspeedtech.com)
+Received: from leonov.paulk.fr ([185.233.101.22])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wSVNK-00000005He5-3Qeh
+	id 1wSVNO-00000005Hhi-0xkz
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 28 May 2026 07:41:55 +0000
-Received: from TWMBX01.aspeed.com (192.168.0.62) by TWMBX01.aspeed.com
- (192.168.0.62) with Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.2.1748.10; Thu, 28 May
- 2026 15:41:37 +0800
-Received: from [127.0.1.1] (192.168.10.13) by TWMBX01.aspeed.com
- (192.168.0.62) with Microsoft SMTP Server id 15.2.1748.10 via Frontend
- Transport; Thu, 28 May 2026 15:41:37 +0800
-From: Ryan Chen <ryan_chen@aspeedtech.com>
-Date: Thu, 28 May 2026 15:41:38 +0800
-Subject: [PATCH v30 3/5] dt-bindings: i2c: ast2600-i2c.yaml: Add
- global-regs properties
+	Thu, 28 May 2026 07:42:00 +0000
+Received: from laika.paulk.fr (12.234.24.109.rev.sfr.net [109.24.234.12])
+	by leonov.paulk.fr (Postfix) with ESMTPS id 4E47B37002E1
+	for <linux-arm-kernel@lists.infradead.org>; Thu, 28 May 2026 07:41:54 +0000 (UTC)
+Received: by laika.paulk.fr (Postfix, from userid 65534)
+	id 97D35B4093D; Thu, 28 May 2026 07:41:52 +0000 (UTC)
+Received: from shepard (unknown [37.167.6.153])
+	by laika.paulk.fr (Postfix) with ESMTPSA id 17379B40938;
+	Thu, 28 May 2026 07:41:48 +0000 (UTC)
+Date: Thu, 28 May 2026 09:41:38 +0200
+From: Paul Kocialkowski <paulk@sys-base.io>
+To: Arash Golgol <arash.golgol@gmail.com>
+Cc: linux-media@vger.kernel.org, yong.deng@magewell.com, mchehab@kernel.org,
+	wens@kernel.org, jernej.skrabec@gmail.com, samuel@sholland.org,
+	laurent.pinchart@ideasonboard.com,
+	linux-arm-kernel@lists.infradead.org, linux-sunxi@lists.linux.dev
+Subject: Re: [PATCH] media: sun6i-csi: bridge: Remove duplicate mbus format
+ entries
+Message-ID: <ahfxskMC340jUtbQ@shepard>
+References: <20260527124552.33815-1-arash.golgol@gmail.com>
 MIME-Version: 1.0
-Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: 7bit
-Message-ID: <20260528-upstream_i2c-v30-3-5d4f9adc3530@aspeedtech.com>
-References: <20260528-upstream_i2c-v30-0-5d4f9adc3530@aspeedtech.com>
-In-Reply-To: <20260528-upstream_i2c-v30-0-5d4f9adc3530@aspeedtech.com>
-To: <jk@codeconstruct.com.au>, <andriy.shevchenko@linux.intel.com>, Andi Shyti
-	<andi.shyti@kernel.org>, Rob Herring <robh@kernel.org>, Krzysztof Kozlowski
-	<krzk+dt@kernel.org>, Conor Dooley <conor+dt@kernel.org>, Joel Stanley
-	<joel@jms.id.au>, Andrew Jeffery <andrew@codeconstruct.com.au>, "Benjamin
- Herrenschmidt" <benh@kernel.crashing.org>, Rayn Chen
-	<rayn_chen@aspeedtech.com>, Philipp Zabel <p.zabel@pengutronix.de>
-CC: <linux-i2c@vger.kernel.org>, <devicetree@vger.kernel.org>,
-	<linux-arm-kernel@lists.infradead.org>, <linux-aspeed@lists.ozlabs.org>,
-	<linux-kernel@vger.kernel.org>, <openbmc@lists.ozlabs.org>, Ryan Chen
-	<ryan_chen@aspeedtech.com>, Conor Dooley <conor.dooley@microchip.com>
-X-Mailer: b4 0.14.3
-X-Developer-Signature: v=1; a=ed25519-sha256; t=1779954097; l=1769;
- i=ryan_chen@aspeedtech.com; s=20251126; h=from:subject:message-id;
- bh=P8FOm2OlqLJ/+F1CLt832mjsrW8d4pnBuooTxj2MoGw=;
- b=9RcsccAr7/LeQQf+xwQ/ed2Utjtd7clCzGfYU+c/I7tLJTs//0QE6LpQ0GM0HlRJ1nuRPxzyw
- livbGJaSY3nBo8Zm0IJgzxAirZdTsQMuuu8fmmImaN+lbwNWema46YS
-X-Developer-Key: i=ryan_chen@aspeedtech.com; a=ed25519;
- pk=Xe73xY6tcnkuRjjbVAB/oU30KdB3FvG4nuJuILj7ZVc=
+Content-Type: multipart/signed; micalg=pgp-sha512;
+	protocol="application/pgp-signature"; boundary="1y4O8A5/17eWGJgn"
+Content-Disposition: inline
+In-Reply-To: <20260527124552.33815-1-arash.golgol@gmail.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260528_004154_871696_5C7E7122 
-X-CRM114-Status: UNSURE (   8.05  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20260528_004158_458991_C3ED13A4 
+X-CRM114-Status: GOOD (  17.61  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -80,57 +68,99 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Add the aspeed,global-regs phandle to reference the AST2600 global
-registers syscon node, containing the SoC-common I2C register set.
 
-These properties apply only to the AST2600 binding. Legacy DTs remain
-unchanged.
+--1y4O8A5/17eWGJgn
+Content-Type: text/plain; charset=utf-8
+Content-Disposition: inline
+Content-Transfer-Encoding: quoted-printable
 
-Acked-by: Conor Dooley <conor.dooley@microchip.com>
-Reviewed-by: Rob Herring (Arm) <robh@kernel.org>
-Signed-off-by: Ryan Chen <ryan_chen@aspeedtech.com>
----
-Changes in v29:
-- remove aspeed,enable-dma properties.
+Hi Arash,
 
-Changes in v28:
-- update commit message correspond with aspeed,enable-dma.
-- remove aspeed,transfer-mode and add aspeed,enable-dma property and
-  description.
-- Fix aspeed,enable-dma description to reflect hardware capability rather
-  than software behavior
+On Wed 27 May 26, 16:15, Arash Golgol wrote:
+> The driver reports MEDIA_BUS_FMT_UYVY8_2X8 and
+> MEDIA_BUS_FMT_UYVY8_1X16 twice when enumerating supported media bus
+> codes.
+>=20
+> Remove the duplicated entries from sun6i_csi_bridge_formats[].
 
-Changes in v27:
-- change aspeed,transfer-mode to aspeed,enable-dma.
----
- Documentation/devicetree/bindings/i2c/aspeed,ast2600-i2c.yaml | 7 +++++++
- 1 file changed, 7 insertions(+)
+Looks good to me, thanks for taking care of this!
 
-diff --git a/Documentation/devicetree/bindings/i2c/aspeed,ast2600-i2c.yaml b/Documentation/devicetree/bindings/i2c/aspeed,ast2600-i2c.yaml
-index abc614315dff..21469715d845 100644
---- a/Documentation/devicetree/bindings/i2c/aspeed,ast2600-i2c.yaml
-+++ b/Documentation/devicetree/bindings/i2c/aspeed,ast2600-i2c.yaml
-@@ -48,6 +48,12 @@ properties:
-   resets:
-     maxItems: 1
- 
-+  aspeed,global-regs:
-+    $ref: /schemas/types.yaml#/definitions/phandle
-+    description:
-+      Phandle reference to the i2c global syscon node, containing the
-+      SoC-common i2c register set.
-+
- required:
-   - reg
-   - compatible
-@@ -70,4 +76,5 @@ examples:
-         resets = <&syscon ASPEED_RESET_I2C>;
-         clock-frequency = <100000>;
-         interrupts = <GIC_SPI 110 IRQ_TYPE_LEVEL_HIGH>;
-+        aspeed,global-regs = <&i2c_global>;
-     };
+> Signed-off-by: Arash Golgol <arash.golgol@gmail.com>
 
--- 
-2.34.1
+Reviewed-by: Paul Kocialkowski <paulk@sys-base.io>
 
+All the best,
+
+Paul
+
+> ---
+>  .../platform/sunxi/sun6i-csi/sun6i_csi_bridge.c      | 12 ------------
+>  1 file changed, 12 deletions(-)
+>=20
+> diff --git a/drivers/media/platform/sunxi/sun6i-csi/sun6i_csi_bridge.c b/=
+drivers/media/platform/sunxi/sun6i-csi/sun6i_csi_bridge.c
+> index d006d9dd0170..0bec0cd7620e 100644
+> --- a/drivers/media/platform/sunxi/sun6i-csi/sun6i_csi_bridge.c
+> +++ b/drivers/media/platform/sunxi/sun6i-csi/sun6i_csi_bridge.c
+> @@ -113,12 +113,6 @@ static const struct sun6i_csi_bridge_format sun6i_cs=
+i_bridge_formats[] =3D {
+>  		.input_yuv_seq		=3D SUN6I_CSI_INPUT_YUV_SEQ_YVYU,
+>  		.input_yuv_seq_invert	=3D SUN6I_CSI_INPUT_YUV_SEQ_YUYV,
+>  	},
+> -	{
+> -		.mbus_code		=3D MEDIA_BUS_FMT_UYVY8_2X8,
+> -		.input_format		=3D SUN6I_CSI_INPUT_FMT_YUV422,
+> -		.input_yuv_seq		=3D SUN6I_CSI_INPUT_YUV_SEQ_UYVY,
+> -		.input_yuv_seq_invert	=3D SUN6I_CSI_INPUT_YUV_SEQ_VYUY,
+> -	},
+>  	{
+>  		.mbus_code		=3D MEDIA_BUS_FMT_VYUY8_2X8,
+>  		.input_format		=3D SUN6I_CSI_INPUT_FMT_YUV422,
+> @@ -143,12 +137,6 @@ static const struct sun6i_csi_bridge_format sun6i_cs=
+i_bridge_formats[] =3D {
+>  		.input_yuv_seq		=3D SUN6I_CSI_INPUT_YUV_SEQ_YVYU,
+>  		.input_yuv_seq_invert	=3D SUN6I_CSI_INPUT_YUV_SEQ_YUYV,
+>  	},
+> -	{
+> -		.mbus_code		=3D MEDIA_BUS_FMT_UYVY8_1X16,
+> -		.input_format		=3D SUN6I_CSI_INPUT_FMT_YUV422,
+> -		.input_yuv_seq		=3D SUN6I_CSI_INPUT_YUV_SEQ_UYVY,
+> -		.input_yuv_seq_invert	=3D SUN6I_CSI_INPUT_YUV_SEQ_VYUY,
+> -	},
+>  	{
+>  		.mbus_code		=3D MEDIA_BUS_FMT_VYUY8_1X16,
+>  		.input_format		=3D SUN6I_CSI_INPUT_FMT_YUV422,
+> --=20
+> 2.34.1
+>=20
+
+--=20
+Paul Kocialkowski,
+
+Independent contractor - sys-base - https://www.sys-base.io/
+Free software developer - https://www.paulk.fr/
+
+Expert in multimedia, graphics and embedded hardware support with Linux.
+
+--1y4O8A5/17eWGJgn
+Content-Type: application/pgp-signature; name=signature.asc
+
+-----BEGIN PGP SIGNATURE-----
+
+iQIzBAEBCgAdFiEEAbcMXZQMtj1fphLChP3B6o/ulQwFAmoX8bIACgkQhP3B6o/u
+lQzU2Q//f7QdVsQ1gypsibBCePiIiVDTE55KY5tR06XO8JzvYp2WUJML1pa1ui3J
+b5hK2hHdAG1tyJpEk+1PUM0IUkCSO0JcrFN3eoSrveiIUQPQPW1W2wxqiiL3ObP/
+ZA/Nos/uppyMmwy/8xNWOYU/vTqe4bcXhfVGsZGuQK2NhTl7xpBu94y3HfCIuYLZ
+VCJwKqSuZlEmjj+TrAKf8beYKnIxKtnshcNTuPfg+HT9hKRZ8SAynzi2Cjes0sNX
+byb/ugVmjCVHZkQ8frjSAO1OoTAJo3pEsUtjNSiZepBwHlyOrT45z2J7nIfJmf6n
+F+lYRl3INteEVBxM2EBleo5Osj3Qx1dzixKx/F4KbTaALRVxFiBj+nPnnen2QBA4
+HSU9YcSJ2oqKp5gw2c3z1xlG9w4nWmHOhHOcNEs2+6K5YrzOPgZ+bROfSvQKKOvV
+eHGcWvauneSLhc5aXkMO3StdgiUDff4qySgIWu/ZC03DrJ33ydh3ISQKduA21Wao
+tf7GbgpBePN0KxgEV4UePBDc9NHXxou9si1MEpl85Gfn8dI339t/XQTWePzNQTOE
+6xdY2xXzBMcfmuCuk9vGdVdwfajxHGOk0WUbElDWHxPuYybA4/u3JOohdbk2AQ/9
+i1c3+pCSHSTngKi9Jjn0avU+Ir/Oq6D/+gujAMkOgQCZy9jx3Ko=
+=jm2v
+-----END PGP SIGNATURE-----
+
+--1y4O8A5/17eWGJgn--
 
