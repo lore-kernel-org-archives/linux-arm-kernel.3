@@ -4,67 +4,92 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 74AEBCD4F54
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 28 May 2026 21:34:32 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 16E45CD4F54
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 28 May 2026 21:37:17 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:Mime-Version:References:In-Reply-To:Message-Id:Subject:Cc:To:
-	From:Date:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=qbT0AxMHd2QIhEY5Y8KbM/8oDNJsPUw1xw7s/5tIMDk=; b=DbZn2aq2eZe8DZsp6sGYAEOnZv
-	7LRCYM1urA7c2o0GC6UexKxhEQXTK5F9faSRBVi0dMtV3Y83otRvcgiCt6zV/aRq7F61HxaMmO0/r
-	Qb9Oeniwa5nnuP+vC3CILwKNwNrnIVRmwrx14UGhbS92DK7O7vKkvSdkalNWa+ZSTPMoTI6XaRZNS
-	aHCotgsG6fP+9fWKe72qz06ZXzwBqax9Y+/EgrB2hBvNN4/pHFZ2GlUwv2BFSQXxp6RIlfcqUe/qr
-	9eHxYOifEHVi4mptREhnU/9+NSFJYv9Y7kyncTFbvDrcno7urP/R4YxajbVqicle+m5iH9fU6hMcl
-	udJo0qpg==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=pNxwchrCVk662oSbzWaO9dPKaw5cPiYbeEGKTdYgRqw=; b=k0AOQzZ70jxHILr6N459s2eE7q
+	ZFaPkTGFT44aRCkUo23KoQtU6RAoezGMH7ixI551QqJcomWo/4m1bLGiXirs+5ZXnJl2ZC7w5aDPy
+	vnX0xj4TzlmpDnDESNrnXWd8peKLEbvaY6PLc0UWkOJfDt8UT9RJQDvU2iY9tsQbZaK+il0ww2/z8
+	cOmgOwJAJD+9ccc1JQ6asWXvb35ypJlZjfH/whZjIfovQ1M4zSRLfisVd4Of1dmj0z95EsgUGoeGo
+	lVTdcf0/GjaMf+y5jsQ+FdOEfyWMSHRQjqwU+cgRJwIBHiCjplOIcHARfJYudCm9j6IH+JiD0sqy/
+	TyHi+TrQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wShKH-00000006LeB-01S7;
-	Thu, 28 May 2026 20:27:33 +0000
-Received: from tor.source.kernel.org ([2600:3c04:e001:324:0:1991:8:25])
+	id 1wSiPc-00000006PYV-2muD;
+	Thu, 28 May 2026 21:37:10 +0000
+Received: from mail-pl1-x632.google.com ([2607:f8b0:4864:20::632])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wShKF-00000006Le3-2BvH
+	id 1wSiPZ-00000006PY6-3T7x
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 28 May 2026 20:27:31 +0000
-Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
-	by tor.source.kernel.org (Postfix) with ESMTP id D1E7C6020A;
-	Thu, 28 May 2026 20:27:30 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 52CF81F00A3A;
-	Thu, 28 May 2026 20:27:29 +0000 (UTC)
+	Thu, 28 May 2026 21:37:07 +0000
+Received: by mail-pl1-x632.google.com with SMTP id d9443c01a7336-2b46da8c48eso1045ad.1
+        for <linux-arm-kernel@lists.infradead.org>; Thu, 28 May 2026 14:37:05 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-	d=linux-foundation.org; s=korg; t=1780000050;
-	bh=qbT0AxMHd2QIhEY5Y8KbM/8oDNJsPUw1xw7s/5tIMDk=;
-	h=Date:From:To:Cc:Subject:In-Reply-To:References;
-	b=1406wq47Wcf6v+Jomv5SSsDRc9sK3PYzAg2jEi/qCqCBwndSK+M0IH8esUQRaSajU
-	 IZjBlqJ0yuDguYb94FYgbWgCi2qWVBPpYjx+jDUO1JyPig1a59QYvPaCKh3e3bi5+e
-	 655V9UOtGqlAqlXZi7itKsgs72CgC0PU2LKyJMSw=
-Date: Thu, 28 May 2026 13:27:28 -0700
-From: Andrew Morton <akpm@linux-foundation.org>
-To: Usama Arif <usama.arif@linux.dev>
-Cc: david@kernel.org, willy@infradead.org, ryan.roberts@arm.com,
- linux-mm@kvack.org, r@hev.cc, jack@suse.cz, Andrew Donnellan
- <andrew+kernel@donnellan.id.au>, apopple@nvidia.com, baohua@kernel.org,
- baolin.wang@linux.alibaba.com, brauner@kernel.org, catalin.marinas@arm.com,
- dev.jain@arm.com, kees@kernel.org, kevin.brodsky@arm.com,
- lance.yang@linux.dev, Liam R.Howlett <liam@infradead.org>,
- linux-arm-kernel@lists.infradead.org, linux-fsdevel@vger.kernel.org,
- linux-kernel@vger.kernel.org, ljs@kernel.org, mhocko@suse.com,
- npache@redhat.com, pasha.tatashin@soleen.com, rmclure@linux.ibm.com,
- rppt@kernel.org, surenb@google.com, vbabka@kernel.org, Al Viro
- <viro@zeniv.linux.org.uk>, wilts.infradead.org@hp2.hsd1.ca.comcast.net,
- "linux-fsdevel@vger.kernel.l"@kernel.org, ziy@nvidia.com,
- hannes@cmpxchg.org, kas@kernel.org, shakeel.butt@linux.dev,
- kernel-team@meta.com
-Subject: Re: [PATCH v6 0/2] mm: improve large folio readahead for exec
- memory
-Message-Id: <20260528132728.c47a38e7506483d587f64eb7@linux-foundation.org>
-In-Reply-To: <20260528165635.2068012-1-usama.arif@linux.dev>
-References: <20260528165635.2068012-1-usama.arif@linux.dev>
-X-Mailer: Sylpheed 3.7.0 (GTK+ 2.24.33; x86_64-pc-linux-gnu)
-Mime-Version: 1.0
-Content-Type: text/plain; charset=US-ASCII
-Content-Transfer-Encoding: 7bit
+        d=google.com; s=20251104; t=1780004225; x=1780609025; darn=lists.infradead.org;
+        h=in-reply-to:content-disposition:mime-version:references:message-id
+         :subject:cc:to:from:date:from:to:cc:subject:date:message-id:reply-to;
+        bh=pNxwchrCVk662oSbzWaO9dPKaw5cPiYbeEGKTdYgRqw=;
+        b=adHZnYvurqqAuSXgG1ipOwh1/7Ap3CU98UZyflRBtSurw/fK8LYMF4021TqIl20Fpm
+         yARePiVz/bwBluTwOk6eDJdEGO2myZAkFC/ZItiIdZJgdH81lx+rfl+pHpxnc6fehUAc
+         CVJR+D+Bx/+ZiZ0huBFEwnfiUzK7gOFE2CXRbjXeJifvzEFXCrXgFKPTMCN69muNKTxc
+         sK6zyZpKVuWs6LhztvaAYrawu2EMw9+w1hlzxQXKGLswKKW6uWgVb1b9CFXYqH1d+JyE
+         tMKMqE0bqO8gtE3GbGvOMNj6xasCKdD2uDGIhsezSAksGs2s0kJaKEeNhQPnTmigJjQS
+         tE9w==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20251104; t=1780004225; x=1780609025;
+        h=in-reply-to:content-disposition:mime-version:references:message-id
+         :subject:cc:to:from:date:x-gm-gg:x-gm-message-state:from:to:cc
+         :subject:date:message-id:reply-to;
+        bh=pNxwchrCVk662oSbzWaO9dPKaw5cPiYbeEGKTdYgRqw=;
+        b=js74mwNGCVjoD7hyPKxPSnaB+UfxhpyXP5iVCQ5AcIzLmXaVWRYOrhNEENfx4MDsTF
+         X7qTvxUjnBPvOfhRkU3pCACqpZCUnF4+ESOwGySL6qKTT9qIYXf1MWNgQadQMUfmQ8LY
+         GTpPpmTZBRJXJiE3h2qWc3z3ywiO627mBNN2lyiQTxGHawAkBZXzXR6K31UhGVRB183B
+         s8AFhBcAB1Pnnf64feSRQHFfKQZWXvuo/vAOi9WvPnPKrBqpOwgTmgPJIQuyXGkl8oOO
+         wLrgFZogiS+4jOgPWLeo83ljpnBCPe4iYgeXm0wxcD3dWrEKX4zKgy1bMQojoP4sBBLa
+         dLCQ==
+X-Forwarded-Encrypted: i=1; AFNElJ/F3+uGxLME+b4tAQKpnH4LssawD25Oog6OKFZkpyQ1O1QBgBLwIazjXNiH+Iszt3AhKooVwkd7OexZG2clSNXd@lists.infradead.org
+X-Gm-Message-State: AOJu0YzLmPYulGnDoykcNAdWWfkk2xFjZVLDDw5xEsm5EFDmGXgtFAfL
+	W2nbkTL94kDg6nEx/E/ylyAQt2H7IAlRmeharFR2PxxPaLXYr4PCcpqmX2UIhozzJw==
+X-Gm-Gg: Acq92OGtLvNYkDyRzrqhbqxh/I0q7rjLiuRHvMjElNU9p4b835P9qeUYpA4d3iWvTpT
+	1nmSu+u93Y8t8pVrdIug0+iBtyl8axsdi3PBafKtgaoGE9EMCFAG3Q88Ybf6nl+qUkrMqcfCcUw
+	hOOK4kgVkHxxAltgN6Wf1ZfvzzgyPKkZA7mOP6NdWRL3Yvfk+HIbxtW1ggQhFw9IigCx3JcOwh/
+	uA2Z+35IcT4kKs8VTOGELeAaXKDxiqppYi40XaVHAq3SwgDg3LrBL1DIyRT68fxsj7bfnife+qQ
+	EuYLjFu/RH5GG/L5YC7HgA7rF9nAXNr6867CWA6CsouifQ/AMbk8BTkadShJDzaX8n5DJnSiKQn
+	2vic992NhPhyICZIc8nke2qI7TDEgtAw3U0btY26hZF0d0c+kpx+KI1mJcfcXm+Eg+B6dHNeiaj
+	XmryCqlLJxWjvs3W6PsntYje+yAAY+As7zICBHTgbSREobmeq1S8hd3WpP+TDo1etZjnVT
+X-Received: by 2002:a17:902:ccc7:b0:2bf:193b:a195 with SMTP id d9443c01a7336-2bf20d9490bmr96165ad.11.1780004224411;
+        Thu, 28 May 2026 14:37:04 -0700 (PDT)
+Received: from google.com (44.234.124.34.bc.googleusercontent.com. [34.124.234.44])
+        by smtp.gmail.com with ESMTPSA id d2e1a72fcca58-841ef4e9ec7sm2669092b3a.24.2026.05.28.14.37.01
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Thu, 28 May 2026 14:37:03 -0700 (PDT)
+Date: Thu, 28 May 2026 21:36:58 +0000
+From: Pranjal Shrivastava <praan@google.com>
+To: Nicolin Chen <nicolinc@nvidia.com>
+Cc: iommu@lists.linux.dev, Will Deacon <will@kernel.org>,
+	Joerg Roedel <joro@8bytes.org>, Robin Murphy <robin.murphy@arm.com>,
+	Jason Gunthorpe <jgg@ziepe.ca>, Mostafa Saleh <smostafa@google.com>,
+	Daniel Mentz <danielmentz@google.com>,
+	Ashish Mhetre <amhetre@nvidia.com>,
+	linux-arm-kernel@lists.infradead.org
+Subject: Re: [PATCH v7 09/11] iommu/arm-smmu-v3: Enable pm_runtime and setup
+ devlinks
+Message-ID: <ahi1er90buWo0mWk@google.com>
+References: <20260527221407.1756491-1-praan@google.com>
+ <20260527221407.1756491-10-praan@google.com>
+ <ahih9IQ9jPS34mZX@Asurada-Nvidia>
+MIME-Version: 1.0
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+In-Reply-To: <ahih9IQ9jPS34mZX@Asurada-Nvidia>
+X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
+X-CRM114-CacheID: sfid-20260528_143705_869836_3C3DF8E9 
+X-CRM114-Status: GOOD (  18.05  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -79,36 +104,45 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Thu, 28 May 2026 09:55:18 -0700 Usama Arif <usama.arif@linux.dev> wrote:
-
-> Two checks in do_sync_mmap_readahead() limit large-folio readahead:
+On Thu, May 28, 2026 at 01:13:40PM -0700, Nicolin Chen wrote:
+> On Wed, May 27, 2026 at 10:14:05PM +0000, Pranjal Shrivastava wrote:
+> > @@ -5592,11 +5595,18 @@ static int arm_smmu_device_probe(struct platform_device *pdev)
+> >  	if (ret)
+> >  		goto err_disable;
+> >  
+> > +	if (dev->pm_domain) {
+> > +		pm_runtime_set_active(dev);
+> > +		pm_runtime_use_autosuspend(dev);
+> > +		pm_runtime_set_autosuspend_delay(dev, RPM_AUTOSUSPEND_DELAY_MS);
+> > +		pm_runtime_enable(dev);
+> > +	}
+> > +
+> >  	/* And we're up. Go go go! */
+> >  	ret = iommu_device_sysfs_add(&smmu->iommu, dev, NULL,
+> >  				     "smmu3.%pa", &ioaddr);
+> >  	if (ret)
+> > -		goto err_disable;
+> > +		goto err_rpm_disable;
+> >  
+> >  	ret = iommu_device_register(&smmu->iommu, &arm_smmu_ops, dev);
+> >  	if (ret) {
 > 
->   1. The mmap_miss heuristic is meant to throttle wasteful speculative
->      readahead. It is currently also applied to the VM_EXEC readahead
->      path, which is targeted rather than speculative. Once mmap_miss exceeds
->      MMAP_LOTSAMISS, exec readahead - including the large-folio
->      order requested by exec_folio_order() - is disabled. On
->      configurations where the mmap_miss decrement paths are not
->      active (see patch 1) the counter only grows, so exec readahead
->      is permanently disabled after the first 100 faults.
+> Can we move the entire pm_runtime_* piece at the end of this probe
+> function, like arm-smmu v2 driver does?
 > 
->   2. The force_thp_readahead path is gated only on
->      HPAGE_PMD_ORDER <= MAX_PAGECACHE_ORDER and always drives the
->      readahead at HPAGE_PMD_ORDER. Configurations where
->      HPAGE_PMD_ORDER exceeds MAX_PAGECACHE_ORDER never reach this
->      path, even when the mapping itself supports usefully large
->      folios well below the cap.
+> It is no-fail, so we wouldn't need to add the revert path.
+
+Hmm.. I kept it earlier since I thought iommu_device_register starts the
+whole chain of probing masters, def_domain attach etc. but I guess it
+could work, the client devices can attach during the initial probe
+as pm_runtime remains disabled until registration is complete. 
+
+I'll just check if there are some weird edge cases here, just to be sure
+
 > 
-> Both issues are most visible on arm64 with a 64K base page size,
-> where HPAGE_PMD_ORDER is 13 (512MB) -- above MAX_PAGECACHE_ORDER
-> (11) -- and where fault_around_pages collapses to 1 disabling
-> should_fault_around() (one of the two mmap_miss decrement sites).
-> However the fixes are architecture-agnostic: patch 1 reflects the
-> nature of VM_EXEC readahead regardless of base page size, and
-> patch 2 generalises the gate so any mapping advertising a usefully
-> large maximum folio order can benefit.
+> Otherwise,
+> Reviewed-by: Nicolin Chen <nicolinc@nvidia.com>
 
-OK, thanks, it's getting late and [2/2] hasn't yet been reviewed.  I'll
-add it, just, because I'm a sucker for speedups.
-
+Thanks!
+Praan
 
