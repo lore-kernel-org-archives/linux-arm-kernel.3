@@ -4,59 +4,69 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 4C6F0CD5BD5
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 28 May 2026 16:15:32 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id CEC72CD5BD5
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 28 May 2026 16:18:17 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=XjqN4ueRqZqexMd/UC2F91JaRbtcP5EFWGVnLCd5ohg=; b=F9OxazA66jrrVOr7FQs3EQkS7t
-	VeszF2eRdZ2glK6xc4ZKClz/bvpYyklz+L84qgH5EmkBvjJC93L+QSUEDGe4Sht+kfPHJiHOGo/tz
-	BFGtmk/lVZ3CE70j06TX155JbeXbCqMNwzUYvB9f1XxqQLSYnV+2+sV9z8jkVMbT+BmXOmhAQJPkm
-	aqrlTKoRly98nwD70BSDmHz09QuHP4IjwU3dA6y738Kge17vEMDQSr2cAPp1IssIaTs2QZsY8jDU/
-	ogJbmnq9ECmsxiOVWuOdM1t9NQ2Ay/+Pg+u42ZmXGcXDfbs5DGrdrYhMh9I77khu8OSO9DaVZAPuq
-	wVagrVuw==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	MIME-Version:Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-Type:
+	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
+	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=uBkuRsS+rErMRAlS6K+s/SZuTdHmBlHVgvNB3VgULIE=; b=ED2/EsfPqylTxxJOm5vTqL0Nv4
+	MIS3l3Mye8nlJzHs5/F06Lf78lyLuLGntOV7ypUG6QWRarOnT4g2IZF++8tzsKIjcE+gTXjT9xCLv
+	0WOxpPQEZam3IroMy8UDOwfrr2GnqF7Q3krrO3yM5RvFlyzDoca2womZUSh979/Is57A2STmRTsGf
+	oLWR5vQSQ00pdC0gnmaQWVY1HtTiWJjAGrTpyulo5MwaEref0uo7y9X83cYSgkG/OssY8dTgWGPP/
+	AVqJyysdPGGqrgAB5HFWtoC0Ul54Qb3zYvn1PMmPWWCbdMoVNBE8lwf5XA6h/K5Yt7xUjHubQp5dU
+	UQH1PRyQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wSdOG-00000005yfH-3yGp;
-	Thu, 28 May 2026 16:15:24 +0000
-Received: from foss.arm.com ([217.140.110.172])
-	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wSdOE-00000005yes-3B63
+	id 1wSdQw-00000005yth-1Ayz;
+	Thu, 28 May 2026 16:18:10 +0000
+Received: from sea.source.kernel.org ([172.234.252.31])
+	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
+	id 1wSdQs-00000005yt9-1MBY
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 28 May 2026 16:15:24 +0000
-Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
-	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id EC59922EE;
-	Thu, 28 May 2026 09:15:15 -0700 (PDT)
-Received: from J2N7QTR9R3.cambridge.arm.com (usa-sjc-imap-foss1.foss.arm.com [10.121.207.14])
-	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id B71573F905;
-	Thu, 28 May 2026 09:15:19 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=simple/simple; d=arm.com; s=foss;
-	t=1779984921; bh=OyK3X5e+Jhr/rucK+64U5W5SFILTwa7dTGV6a4I+o/s=;
-	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
-	b=XguVli3rvLsVZObkksEwKLQr02pz/cMuUFg9r1ZA9V0cnJB3PmSaT1RNe/gKuyFgQ
-	 p329VRvop7Hpl+R3GmJzoXO0jbHAWMSoLtm/pbTbVEwzCYLPSW5QNz+Kv+JN4B3J1D
-	 seMMN7903aclPs8IRFc8OpcGRWDCZMkC/4RWr8p8=
-Date: Thu, 28 May 2026 17:15:14 +0100
-From: Mark Rutland <mark.rutland@arm.com>
-To: Mark Brown <broonie@kernel.org>
-Cc: linux-arm-kernel@lists.infradead.org, kvmarm@lists.linux.dev,
-	catalin.marinas@arm.com, james.morse@arm.com, maz@kernel.org,
-	oupton@kernel.org, tabba@google.com, will@kernel.org
-Subject: Re: [PATCH 12/18] arm64: fpsimd: Move fpsimd save/restore inline
-Message-ID: <ahhqEs1DhShRpgXF@J2N7QTR9R3.cambridge.arm.com>
-References: <20260521132556.584676-1-mark.rutland@arm.com>
- <20260521132556.584676-13-mark.rutland@arm.com>
- <0f666889-fabe-4cdd-9fd2-d87808329dbd@sirena.org.uk>
+	Thu, 28 May 2026 16:18:09 +0000
+Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
+	by sea.source.kernel.org (Postfix) with ESMTP id 3125643484;
+	Thu, 28 May 2026 16:18:05 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id E09C51F000E9;
+	Thu, 28 May 2026 16:18:04 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
+	s=k20260515; t=1779985085;
+	bh=uBkuRsS+rErMRAlS6K+s/SZuTdHmBlHVgvNB3VgULIE=;
+	h=From:To:Cc:Subject:Date;
+	b=PzCiPbSI+wQAsHCg5hnpbNRPphANWT6Bot+H8muCKNrpMiNln5SRsgTl4+kIWIaMp
+	 sXa5IGzXc0UP9m/ddpaQS3g8tiIrQ6riAhllFoBVFqJC5dUQSzPpWxVBM7pnevLdFX
+	 7+EmzORjZQchfX6UiIx29w9UDII16yuU48mjJO9TLUu5Lhb+HkTjaak9rkiJHdp4Ib
+	 G/JKNkXeXzrulnGavxLwTwwKbESS1oMopGKL4ENiWCyfxTAje7pZgkwZN8A/inK8Qw
+	 MKW0aWVm5M4aQkitU8mGtXV7R6JfNkxIANWoqyCCvkneGMMZKTE/LM+Y4cyqIE0BXW
+	 QYADqjoIl01FQ==
+From: Puranjay Mohan <puranjay@kernel.org>
+To: bpf@vger.kernel.org,
+	"Yonghong Song" <yonghong.song@linux.dev>
+Cc: Puranjay Mohan <puranjay@kernel.org>,
+	"Alexei Starovoitov" <ast@kernel.org>,
+	"Daniel Borkmann" <daniel@iogearbox.net>,
+	"Andrii Nakryiko" <andrii@kernel.org>,
+	"Martin KaFai Lau" <martin.lau@linux.dev>,
+	"Eduard Zingerman" <eddyz87@gmail.com>,
+	"Kumar Kartikeya Dwivedi" <memxor@gmail.com>,
+	"Song Liu" <song@kernel.org>,
+	"Xu Kuohai" <xukuohai@huaweicloud.com>,
+	"Catalin Marinas" <catalin.marinas@arm.com>,
+	"Will Deacon" <will@kernel.org>,
+	linux-arm-kernel@lists.infradead.org
+Subject: [PATCH bpf-next 0/2] bpf, arm64: Stack argument fixes
+Date: Thu, 28 May 2026 09:17:46 -0700
+Message-ID: <20260528161750.1900674-1-puranjay@kernel.org>
+X-Mailer: git-send-email 2.52.0
 MIME-Version: 1.0
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-In-Reply-To: <0f666889-fabe-4cdd-9fd2-d87808329dbd@sirena.org.uk>
+Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260528_091522_834675_BAD6B2CB 
-X-CRM114-Status: GOOD (  20.52  )
+X-CRM114-CacheID: sfid-20260528_091806_381175_6C75CB21 
+X-CRM114-Status: UNSURE (   7.02  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -71,49 +81,29 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Tue, May 26, 2026 at 05:44:26PM +0100, Mark Brown wrote:
-> On Thu, May 21, 2026 at 02:25:50PM +0100, Mark Rutland wrote:
-> 
-> > Note that I've used the SVE sequence for restoring FPCR, which uses an
-> > unconditional write to FPCR. The plain FPSIMD assembly sequence used a
-> > conditional write to FPCR since 2014 in commit:
-> 
-> >   5959e25729a5 ("arm64: fpsimd: avoid restoring fpcr if the contents haven't change")
-> 
-> > ... but this was not followed for the SVE assembly implemented in 2017
-> > in commit:
-> 
-> >   1fc5dce78ad1 ("arm64/sve: Low-level SVE architectural state manipulation functions")
-> 
-> > ... so I've assumed that this doesn't actually matter in practice, and
-> > I've erred in favour of the simpler sequence.
-> 
-> As I said on the earlier patch I'm a bit nervous about assuming this
-> doesn't matter for anyone without verifying (though I wouldn't be
-> surprised if that turned out to be the case) but that's internal to that
-> patch and this is obviously a great improvement so:
-> 
-> Reviewed-by: Mark Brown <broonie@kernel.org>
+Patch 1 fixes a redundant MOV in the arm64 JIT's
+emit_stack_arg_store_imm() and clarifies the stack layout comments. This
+is not a bug fix but an improvement.
 
-Based on that discussion on the last patch, I've updated the commit
-message for this patch say:
+Patch 2 bumps the stack argument tests from 6-8 args to at least 10 so
+they actually exercise the native stack on arm64, where x0-x7 cover the
+first 8 arguments.
 
-  I've used the SVE sequence for restoring FPCR, which uses an
-  unconditional write to FPCR, rather than the conditional write used by
-  the FPSIMD assembly sequence. I believe that in practice, this doesn't
-  matter to a real workload, and given it's possible for the
-  mis-predicted branch to cost more than the necessary
-  micro-architectural synchronization, I strongly suspect any
-  performance impact is within the noise. 
-  
-  Looking at the history, the FPSIMD assembly sequence was changed to
-  use a conditional write to FPCR since 2014 in commit:
-  
-    5959e25729a5 ("arm64: fpsimd: avoid restoring fpcr if the contents haven't change")
-  
-  ... as described in the commit message, this was based on an
-  expectation of implementation style, and was not based on
-  benchmarking.
+Puranjay Mohan (2):
+  bpf, arm64: Fix redundant MOV and clarify stack arg comments
+  selftests/bpf: Use at least 10 args in stack argument tests
 
-Mark.
+ arch/arm64/net/bpf_jit_comp.c                 | 12 +--
+ .../selftests/bpf/prog_tests/stack_arg.c      | 30 +++----
+ tools/testing/selftests/bpf/progs/stack_arg.c | 90 +++++++++++--------
+ .../selftests/bpf/progs/stack_arg_kfunc.c     | 24 ++---
+ .../selftests/bpf/test_kmods/bpf_testmod.c    | 25 ++++--
+ .../bpf/test_kmods/bpf_testmod_kfunc.h        | 11 ++-
+ 6 files changed, 115 insertions(+), 77 deletions(-)
+
+
+base-commit: e42e53ae23b7d41df22ccd7788192bf578f24da2
+-- 
+2.53.0-Meta
+
 
