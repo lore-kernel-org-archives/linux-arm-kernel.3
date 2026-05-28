@@ -4,83 +4,58 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id A2BD2CD5BD5
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 28 May 2026 20:35:10 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 2865CCD4F54
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 28 May 2026 20:35:18 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:Cc:To:From:
-	Subject:Message-ID:References:Mime-Version:In-Reply-To:Date:Reply-To:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
 	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=xF2OaZLydlq8fssyfbqW+m3pz8p9r7jLJNQQhoc0Wjc=; b=qgJJKptaB6Inv4hAMRuXi1w0Oo
-	zTCgp5gvABxY+Dpo7TGpiK5w7Nb/GzSWoPUZF3qSOI8u5MhA/lHe7G32PUhMH4N6Pyv2rD+zOPhRV
-	ITOGIS/B/kfMEQvBOJGJeKoAqjetRmm1xvyrl16ViPKm+WczqNm3JvZUOX8RAJvhZHECqv+wSdOYe
-	uZYaE8n0ktC95JDRI+BGGSTrCUNzpjAk+xkOWe8XDoSpzodMBf1ZWf+gELW23k2ONHg8wmTxqvr33
-	cVSoYpkYi/u/O4NE+e9QhqUHbfdN7M8C+97Qf3GbiBIJGoj7QCOHuLBf+VREAh1Sx3gzEeaPJOozR
-	PTYN6Okg==;
+	bh=HdR59bdOLxfad3MlDdWkNtt/Xj++SWYyaF4AAiiPNOc=; b=35hPRW0dxXTU8vHPcIGnWfTgkd
+	3vJbwPy4UjDWc4TkLVwqZ0cvzb1Bs66ihj9mux8i6yFrol1O/buYFwWrA8DYVvnSwaslbAqISgCVf
+	m61euc9xON3qJzVyLGB7bqMCRqR6dZbFKB44bjUc8oo7AKj3bO5DEM37hQMEVv4xuEsbcLhjIb8tM
+	iUA4fbclhHU8SxA6OOuLmz//z714XXF/asnkBFh0+tWKMpaR0HghQ21gjVgk1iex+G3doVs5Rje37
+	+FrkL1QyLr3CxS3gwlxhc1k6oen8n3ZK8iMdJOfBddf89vX4gNlQ5Sln6hnVKAz/ANozDeKnFtGD1
+	EzDGGwCQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wShH7-00000006Kyk-1Gqr;
-	Thu, 28 May 2026 20:24:17 +0000
-Received: from mail-pl1-x64a.google.com ([2607:f8b0:4864:20::64a])
+	id 1wShRg-00000006MWY-0V1k;
+	Thu, 28 May 2026 20:35:12 +0000
+Received: from tor.source.kernel.org ([2600:3c04:e001:324:0:1991:8:25])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wShGt-00000006KsS-32mt
+	id 1wShRf-00000006MWO-2X2B
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 28 May 2026 20:24:05 +0000
-Received: by mail-pl1-x64a.google.com with SMTP id d9443c01a7336-2bf0607b5f5so15076905ad.0
-        for <linux-arm-kernel@lists.infradead.org>; Thu, 28 May 2026 13:24:02 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=google.com; s=20251104; t=1779999842; x=1780604642; darn=lists.infradead.org;
-        h=cc:to:from:subject:message-id:references:mime-version:in-reply-to
-         :date:from:to:cc:subject:date:message-id:reply-to;
-        bh=xF2OaZLydlq8fssyfbqW+m3pz8p9r7jLJNQQhoc0Wjc=;
-        b=RUfB+ZmDRZgEIkEMAjA8Hxp0AAzBlUXFuKPtovVt24eDn7kyq3V7kcj1TqpGbyLMdI
-         TLnSnK1Li34+v11t8aFVpcfbaBEObs0ossbOUG31erV7KkTYp9xO4wi+jYWFbNzEc/R7
-         cmJlbZdB2m/C9KE83vvpOC130NYbZ0BwFjs8VNtmGxWsHw/AHfg81f/s3fX/Cwhh4hjJ
-         a/jDLKB6718RJP67wFKg2aoN5QHaGJpqvLhZ/GmsrVfvdv9HNvUSAtNHmnT2enM0+X8Q
-         K5sPO442A3FB+/v5efBBZQZ7lBCVkZIV4cQqREBG3fewttr0JS5Q00YhhrcsAzNZqlgb
-         HJ8A==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20251104; t=1779999842; x=1780604642;
-        h=cc:to:from:subject:message-id:references:mime-version:in-reply-to
-         :date:x-gm-message-state:from:to:cc:subject:date:message-id:reply-to;
-        bh=xF2OaZLydlq8fssyfbqW+m3pz8p9r7jLJNQQhoc0Wjc=;
-        b=i2HCjFiMOmI2zmO76e9IOE4TvJ1pGjrKkzH1uwQsKORzV8Vd6vQT7GAAJ/ki9FZlFY
-         HqCDZQHQKI+h1nec1vhjuO2fmOcFOCJdiyebzlhox41FOJqRh5KpFQljNCUzB9gLzwFi
-         iH+ZcZJpEVsssiPneswWZ3XC/Xn8IjfgQMWEily1J4TdOYu73Yz0CFQnie82aMF09ZYB
-         GQPTC6n98RaycmnftyTdKISyh1Ab2CLVW08UITZplvqMCbZNUHjw9NNoqbFC+rxHDe9b
-         vyJqjUqWW2ZxE7xOtNNNPnEFJ9Y+uiWwp+nBR4fgJTK/TN4XfkN1skWVpH2S4FKqB2Ke
-         W8Hw==
-X-Forwarded-Encrypted: i=1; AFNElJ8wBkWH7LNbVYl0H6Ll6ui7mn0UMJscG6ZUTULlVEJIvTYJ3HT3Va/GJVk9pA8HKAg7BM45F5+CsjL6Krvodn7/@lists.infradead.org
-X-Gm-Message-State: AOJu0YyoFe5xNuAeFP5vCLS6f6lTKu/2AqxbPWX1pk8Z1ggL9QkXt5t7
-	HFBBCD2wkm8jnd6nOd0mgUuhLogvPpkNMui2GPqXElxO/3R0KbdGS7jYh+8WPzOdT3sKAfBHrom
-	Q9g==
-X-Received: from plhe2.prod.google.com ([2002:a17:903:1c2:b0:2ae:5d79:a153])
- (user=praan job=prod-delivery.src-stubby-dispatcher) by 2002:a17:902:f601:b0:2b4:696b:7bb7
- with SMTP id d9443c01a7336-2bf1eb7c31cmr3931325ad.15.1779999841997; Thu, 28
- May 2026 13:24:01 -0700 (PDT)
-Date: Thu, 28 May 2026 20:23:49 +0000
-In-Reply-To: <20260528202353.3422206-1-praan@google.com>
-Mime-Version: 1.0
-References: <20260528202353.3422206-1-praan@google.com>
-X-Mailer: git-send-email 2.54.0.823.g6e5bcc1fc9-goog
-Message-ID: <20260528202353.3422206-4-praan@google.com>
-Subject: [PATCH v5 3/7] PCI/ATS: Decouple pci_ats_supported() from pci_prepare_ats()
-From: Pranjal Shrivastava <praan@google.com>
-To: iommu@lists.linux.dev, linux-pci@vger.kernel.org, 
-	linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org
-Cc: Joerg Roedel <joro@8bytes.org>, Will Deacon <will@kernel.org>, 
-	Bjorn Helgaas <bhelgaas@google.com>, David Woodhouse <dwmw2@infradead.org>, 
-	Lu Baolu <baolu.lu@linux.intel.com>, Robin Murphy <robin.murphy@arm.com>, 
-	Suravee Suthikulpanit <suravee.suthikulpanit@amd.com>, Jason Gunthorpe <jgg@ziepe.ca>, 
-	Nicolin Chen <nicolinc@nvidia.com>, David Matlack <dmatlack@google.com>, 
-	Samiullah Khawaja <skhawaja@google.com>, Daniel Mentz <danielmentz@google.com>, 
-	Pasha Tatashin <pasha.tatashin@soleen.com>, Mostafa Saleh <smostafa@google.com>, 
-	Pranjal Shrivastava <praan@google.com>
-Content-Type: text/plain; charset="UTF-8"
-X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260528_132403_767059_23ED8BC2 
-X-CRM114-Status: GOOD (  14.43  )
+	Thu, 28 May 2026 20:35:11 +0000
+Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
+	by tor.source.kernel.org (Postfix) with ESMTP id B35C56020A;
+	Thu, 28 May 2026 20:35:10 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 345F61F00A3A;
+	Thu, 28 May 2026 20:35:10 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
+	s=k20260515; t=1780000510;
+	bh=HdR59bdOLxfad3MlDdWkNtt/Xj++SWYyaF4AAiiPNOc=;
+	h=Date:From:To:Cc:Subject:References:In-Reply-To;
+	b=jxckgX6IuzS/15UM3yoi8wUw31sv5pTRwPf89lOLv7YAmOWqO7Y6l4UUIXYmD26Bi
+	 5/D1Y5q8jASex0Bx+2bPrFvEO53T8Kf2a8FL7UTTAEXU/dlplF21UzqJZrOrPLNIzf
+	 3BEty7OmJMnTZLQ20t6N9v8jZJfzG+uWtUVtXmD+50ggMTe7kaV62YEH1ybmMWBExd
+	 Qiw3LWsak9AEq6XkDxz6IuIW65bCqlwjc0WPYGFf9+KszGLwP3DWNpO3zR8JuwUmDR
+	 YjxEkcT90DeMfcbTYGYv6tXtfQWO9XnAGFkuQNiRoIdOqgLg6l6HIsengSTBj/6A/q
+	 I7ZAXSyOuswtA==
+Date: Thu, 28 May 2026 13:35:08 -0700
+From: Eric Biggers <ebiggers@kernel.org>
+To: Ard Biesheuvel <ardb+git@google.com>
+Cc: linux-arm-kernel@lists.infradead.org, linux-crypto@vger.kernel.org,
+	linux-raid@vger.kernel.org, Ard Biesheuvel <ardb@kernel.org>,
+	Christoph Hellwig <hch@lst.de>,
+	Russell King <linux@armlinux.org.uk>, Arnd Bergmann <arnd@arndb.de>
+Subject: Re: [PATCH 0/8] ARM crc64 and XOR using NEON intrinsics
+Message-ID: <20260528203508.GA2054@quark>
+References: <20260422171655.3437334-10-ardb+git@google.com>
+MIME-Version: 1.0
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+In-Reply-To: <20260422171655.3437334-10-ardb+git@google.com>
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -95,49 +70,51 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Currently, pci_prepare_ats() internally calls pci_ats_supported() and
-returns -EINVAL if the device does not support ATS. While this provides
-a safety check, it conflates support detection with configuration.
+On Wed, Apr 22, 2026 at 07:16:56PM +0200, Ard Biesheuvel wrote:
+> From: Ard Biesheuvel <ardb@kernel.org>
+> 
+> This is a follow-up to both [0] and [1], both of which included patch #1
+> of this series, which introduces the asm/neon-intrinsics.h header on
+> 32-bit ARM. The remaining changes rely on this.
+> 
+> The purpose of this series is to streamline / clean up the use of NEON
+> intrinsics on 32-bit ARM, by sharing more code, clean up Make rules and
+> finally, getting rid of the hacked up types.h header, which does some
+> nasty things that are only needed when building NEON intrinsics code.
+> 
+> Patches #2 and #3 replace the ARM autovectorized XOR implementation with
+> the NEON intrinsics version used by arm64.
+> 
+> Patches #4 and #5 enable the arm64 NEON intrinsics implementation of
+> crc64 on 32-bit ARM.
+> 
+> Patches #6 and #7 drop the direct includes of <arm_neon.h> and perform
+> some additional cleanup to reduce the delta between ARM and arm64 code
+> and Make rules.
+> 
+> It would probably be easiest to take all these changes through a single
+> tree, and the CRC tree seems like a suitable candidate, if Eric agrees.
+> 
+> Cc: Christoph Hellwig <hch@lst.de>
+> Cc: Russell King <linux@armlinux.org.uk>
+> Cc: Arnd Bergmann <arnd@arndb.de>
+> Cc: Eric Biggers <ebiggers@kernel.org>
+> 
+> [0] https://lore.kernel.org/all/20260331074940.55502-7-ardb+git@google.com/
+> [1] https://lore.kernel.org/all/20260330144630.33026-7-ardb@kernel.org/
+> 
+> Ard Biesheuvel (8):
+>   ARM: Add a neon-intrinsics.h header like on arm64
+>   xor/arm: Replace vectorized implementation with arm64's intrinsics
+>   xor/arm64: Use shared NEON intrinsics implementation from 32-bit ARM
+>   lib/crc: Turn NEON intrinsics crc64 implementation into common code
+>   lib/crc: arm: Enable arm64's NEON intrinsics implementation of crc64
+>   crypto: aegis128 - Use neon-intrinsics.h on ARM too
+>   lib/raid6: Include asm/neon-intrinsics.h rather than arm_neon.h
+>   ARM: Remove hacked-up asm/types.h header
 
-Update pci_prepare_ats() to remove the internal support check. This
-decouples support verification from the configuration phase, ensuring
-that drivers can distinguish between a device that does not support ATS
-and one that has a true configuration error (e.g. STU mismatch).
+Applied patches 1-6 to
+https://git.kernel.org/pub/scm/linux/kernel/git/ebiggers/linux.git/log/?h=crc-next
 
-Update the function documentation to mandate that callers must verify
-ATS support (via pci_ats_supported()) before calling pci_prepare_ats().
-
-Signed-off-by: Pranjal Shrivastava <praan@google.com>
----
- drivers/pci/ats.c | 7 +++----
- 1 file changed, 3 insertions(+), 4 deletions(-)
-
-diff --git a/drivers/pci/ats.c b/drivers/pci/ats.c
-index 8057c24b0469..92c2a6bc2dcc 100644
---- a/drivers/pci/ats.c
-+++ b/drivers/pci/ats.c
-@@ -56,7 +56,9 @@ EXPORT_SYMBOL_GPL(pci_ats_supported);
-  * @ps: the IOMMU page shift
-  *
-  * This must be done by the IOMMU driver on the PF before any VFs are created to
-- * ensure that the VF can have ATS enabled.
-+ * ensure that the VF can have ATS enabled. Callers must verify that ATS is
-+ * supported by the device (e.g. via pci_ats_supported()) before calling this
-+ * function.
-  *
-  * Returns 0 on success, or negative on failure.
-  */
-@@ -64,9 +66,6 @@ int pci_prepare_ats(struct pci_dev *dev, int ps)
- {
- 	u16 ctrl;
- 
--	if (!pci_ats_supported(dev))
--		return -EINVAL;
--
- 	if (WARN_ON(dev->ats_enabled))
- 		return -EBUSY;
- 
--- 
-2.54.0.823.g6e5bcc1fc9-goog
-
+- Eric
 
