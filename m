@@ -4,66 +4,64 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 2F86ACD5BD5
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 28 May 2026 17:17:55 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id B7B77CD6E4A
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 28 May 2026 17:24:26 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=JybsP6neEqqAoTM7Pmz67kz4XFEEsypjyO3C0cAT568=; b=Ld0L8E4Jk5RU1W3kgGZSpElhf5
-	Zmu6mPZGzHDgSTro31swHmE+1Wcj2Sye3u3MzVDnj8hmnJzH0R0s5xsoca83HKrNqjrSlHHJAWOr6
-	bI/7ywTwT0CT1KyHam1uMrwmtA2X060XnC6tShabVIzeZGOws1kv/0Kz5scM+ClHstRA8bPJuc1PR
-	PFMqRy0vGsS3US36z/1G4T0/Vrbeu/o1rqkRC3MyKRHYnxyLOf0bnguKVVBhhazAJLizeHbvGVIC5
-	h7MF/xnc35HayNnfWDeTuptcUfsfDYCN3gaK1sXdSUlwYjLdUKH7U/MA8aweqdbC2tZM7lS7NtsT3
-	tZbamxpg==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	MIME-Version:References:In-Reply-To:Message-Id:Date:Subject:Cc:To:From:
+	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=WLHYKcti6C4BYPai8NPQQVHFDPxJ5tVqbF0D14bohbM=; b=VV4ZUfe835XkG/RbZiHkaVJcNT
+	LkLQRnVLE5vLZEwmCgmGruqMOTsT8QoFOTPbVfcSNZqFqdV/KqiqQfYMzabldDAPrsnKkMjMHttFt
+	QEUUR1b1ZZNUphayXdrqj77i6AYrQeRwQF3DGVtYnh56twbGPaVzZxjE0mhqfk1IOr56xGneghz+o
+	VUIIpPqhcYki7Hj2LzJMpzhVdHeBkEcrygw0FLb5La+HQEpD+w794luVb7U7f1Sz5/7FRKBiQyxcT
+	kLk0cE7J/i5XZYv5XYQS+EX4bwzcZR/2hJrq0EH5khuazv1qwZ3fPPpwaht5UybemMXYkUmgzQ4hV
+	8q5fSUzA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wSeMd-000000064q6-47br;
-	Thu, 28 May 2026 17:17:48 +0000
-Received: from sea.source.kernel.org ([172.234.252.31])
-	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wSeMc-000000064pZ-1YRb
+	id 1wSe0w-000000062R1-38qn;
+	Thu, 28 May 2026 16:55:22 +0000
+Received: from foss.arm.com ([217.140.110.172])
+	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
+	id 1wSe0e-000000062FH-0Tyz
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 28 May 2026 17:17:47 +0000
-Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
-	by sea.source.kernel.org (Postfix) with ESMTP id 40374419AF;
-	Thu, 28 May 2026 17:17:45 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 37D671F000E9;
-	Thu, 28 May 2026 17:17:43 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1779988665;
-	bh=JybsP6neEqqAoTM7Pmz67kz4XFEEsypjyO3C0cAT568=;
-	h=Date:From:To:Cc:Subject:References:In-Reply-To;
-	b=FlKbuqVoxin9BLegA3sg3biseLmdaVMO1PnqCdx8LvD1f8DcBffox7650Yc260tK2
-	 gP0GEPhu5hN2/kkH+OQGQrDTMacga0OXZSzLs6laneERn1UyKrAAlbSkYOtpNKYvfA
-	 YFbIIHnYwezbCQSL7JVTfh3YB8QycgpfbP/RJ9wOgZOce37OBJeZ87FyFTTbqNhVlo
-	 /HAeLxd9QeHu9eLIBQC9wrIF5565tv8NkXkG+HXn76gqdFeAQUdby29tEKnWTFQEPC
-	 fG2ObPech+/o/yGAgMxM10GWvn0sBBTNKGCFBR+K2FvaLqLSjWaLjsQiZxNm5oKGXC
-	 eTuGNOLyq5TiQ==
-Date: Thu, 28 May 2026 18:17:40 +0100
-From: Mark Brown <broonie@kernel.org>
-To: Mark Rutland <mark.rutland@arm.com>
-Cc: linux-arm-kernel@lists.infradead.org, kvmarm@lists.linux.dev,
-	catalin.marinas@arm.com, james.morse@arm.com, maz@kernel.org,
-	oupton@kernel.org, tabba@google.com, vladimir.murzin@arm.com,
+	Thu, 28 May 2026 16:55:05 +0000
+Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
+	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id 340AA45DD;
+	Thu, 28 May 2026 09:54:58 -0700 (PDT)
+Received: from lakrids.cambridge.arm.com (usa-sjc-imap-foss1.foss.arm.com [10.121.207.14])
+	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPA id DB1823F905;
+	Thu, 28 May 2026 09:55:01 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=simple/simple; d=arm.com; s=foss;
+	t=1779987303; bh=dwKF6asnI4Nz/0NcbHxVhCnTbuO1SB5AwRyCRXRSQfM=;
+	h=From:To:Cc:Subject:Date:In-Reply-To:References:From;
+	b=r9zm+Xus1JGou0QThM/e1un2+rkWSZ8Bk0Tlc2Fcr0g80XNhrJPmxfeHxQmrrTYHq
+	 frpvWAN6nAYuraHqMkqtjRxdVt2vyhtb0VNbfH3CnKjdLNHlfhFOUlX42dKRTX791r
+	 FjSc8n9zM5zEHfD5BEvwzziWmKWiAfLS/3KwejRA=
+From: Mark Rutland <mark.rutland@arm.com>
+To: linux-arm-kernel@lists.infradead.org,
+	kvmarm@lists.linux.dev
+Cc: broonie@kernel.org,
+	catalin.marinas@arm.com,
+	james.morse@arm.com,
+	mark.rutland@arm.com,
+	maz@kernel.org,
+	oupton@kernel.org,
+	tabba@google.com,
+	vladimir.murzin@arm.com,
 	will@kernel.org
-Subject: Re: [PATCH v2 11/18] arm64: fpsimd: Split FPSR/FPCR from SVE
- save/restore
-Message-ID: <9259e443-6fa3-4ba3-9aac-42f78dc7e72e@sirena.org.uk>
+Subject: [PATCH v2 04/18] KVM: arm64: pkvm: Remove struct cpu_sve_state
+Date: Thu, 28 May 2026 17:54:32 +0100
+Message-Id: <20260528165446.701944-5-mark.rutland@arm.com>
+X-Mailer: git-send-email 2.30.2
+In-Reply-To: <20260528165446.701944-1-mark.rutland@arm.com>
 References: <20260528165446.701944-1-mark.rutland@arm.com>
- <20260528165446.701944-12-mark.rutland@arm.com>
 MIME-Version: 1.0
-Content-Type: multipart/signed; micalg=pgp-sha512;
-	protocol="application/pgp-signature"; boundary="Q8zKy3wNANHFD/wm"
-Content-Disposition: inline
-In-Reply-To: <20260528165446.701944-12-mark.rutland@arm.com>
-X-Cookie: Someone is speaking well of you.
+Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260528_101746_471881_BE86E05B 
-X-CRM114-Status: UNSURE (   8.93  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20260528_095504_263614_01B435F2 
+X-CRM114-Status: GOOD (  21.61  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -78,31 +76,216 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
+There's no need for struct cpu_sve_state. Code would be simpler and more
+robust without it, and removing it will simplify further cleanups (e.g.
+adding an opaque type for the sve register state).
 
---Q8zKy3wNANHFD/wm
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
+Protected KVM stores most of the host's system register state in
+kvm_host_data::host_ctxt, which is an instance of struct
+kvm_cpu_context. As kvm_cpu_context::sys_regs[] has a slot for ZCR_EL1,
+we can store the host's ZCR_EL1 there.
 
-On Thu, May 28, 2026 at 05:54:39PM +0100, Mark Rutland wrote:
-> Regardless of whether the vector registers are saved in FPSIMD or SVE
-> format, we store FPSR and FPCR in user_fpsimd_state::{fpsr,fpcr}.
+While kvm_cpu_context::sys_regs doesn't have slots for FPSR and FPCR,
+these are usually expected to be stored in struct user_fpsimd_state.
+For historical reasons, __sve_save_state and __sve_restore_state()
+expect a pointer to fpsr *within* struct user_fpsimd_state, assuming the
+fpcr will immediately follow, as per the order within struct
+user_fpsimd_state. We currently match this ordering in struct
+cpu_sve_state, but it would be simpler and more robust to use struct
+user_fpsimd_state directly.
 
-Reviewed-by: Mark Brown <broonie@kernel.org>
+After moving ZCR_EL1, FPSR, and FPCR out of struct cpu_sve_state, all
+that's left is sve_regs, which can be represented as a pointer without
+need for a container struct. This is kept as a pointer to u8 (matching
+the array type), as this permits the compiler to catch unbalanced
+referencing/dereferencing, which is not possible for pointers to void.
 
---Q8zKy3wNANHFD/wm
-Content-Type: application/pgp-signature; name="signature.asc"
+Apply the above changes, and remove cpu_sve_state.
 
------BEGIN PGP SIGNATURE-----
+I've dropped the comment regarding buffer alignment as AFAICT this was
+never necessary. The LDR/STR (vector) instructions only require this
+alignment when SCTLR_ELx.A==1, which is not the case for the kernel or
+hyp code. Nothing else depends on the alignment.
 
-iQEzBAABCgAdFiEEreZoqmdXGLWf4p/qJNaLcl1Uh9AFAmoYeLQACgkQJNaLcl1U
-h9DDEwf+J+W4JjW776kpG0Xg7vg+iA+6PmZWSrsUvZskElWJSW1cuu6mvBAsYJyT
-H6LykUmBu71WW0og4iNP+pmNr0KHfKZ/AhcQGtpHTbgHaykmBMqRO0msDWaFcdJD
-wzUs3JZUTcK89tSPKTMqTFNG8BafpifqpRn54Z0LZVz+LST2WF8Bf0WedhrMpwiL
-CW23BHGS8WQy8w1CCpcaJ43lsJe45yPl45mJfm+Rv37xuCZh/DZZsE6ywL0Lj8vH
-V3MTUyQ+zZR9g4tlED3/W/kmyU0Fc6bCeUwN7dxp1BjwMvHyPae1r7zj/4Zs/q95
-eh/0jEU3iOF4VGECfL0h3qnRHinzFA==
-=BXnO
------END PGP SIGNATURE-----
+Signed-off-by: Mark Rutland <mark.rutland@arm.com>
+Reviewed-by: Vladimir Murzin <vladimir.murzin@arm.com>
+Cc: Catalin Marinas <catalin.marinas@arm.com>
+Cc: Fuad Tabba <tabba@google.com>
+Cc: James Morse <james.morse@arm.com>
+Cc: Marc Zyngier <maz@kernel.org>
+Cc: Mark Brown <broonie@kernel.org>
+Cc: Oliver Upton <oupton@kernel.org>
+Cc: Will Deacon <will@kernel.org>
+---
+ arch/arm64/include/asm/kvm_host.h       | 18 ++----------------
+ arch/arm64/include/asm/kvm_pkvm.h       |  3 +--
+ arch/arm64/kvm/arm.c                    | 16 ++++++++--------
+ arch/arm64/kvm/hyp/include/hyp/switch.h |  9 +++++----
+ arch/arm64/kvm/hyp/nvhe/hyp-main.c      |  9 +++++----
+ arch/arm64/kvm/hyp/nvhe/setup.c         |  4 ++--
+ 6 files changed, 23 insertions(+), 36 deletions(-)
 
---Q8zKy3wNANHFD/wm--
+diff --git a/arch/arm64/include/asm/kvm_host.h b/arch/arm64/include/asm/kvm_host.h
+index 42b1c4764a4bf..ae24617380b8f 100644
+--- a/arch/arm64/include/asm/kvm_host.h
++++ b/arch/arm64/include/asm/kvm_host.h
+@@ -732,20 +732,6 @@ struct kvm_cpu_context {
+ 	u64 *vncr_array;
+ };
+ 
+-struct cpu_sve_state {
+-	__u64 zcr_el1;
+-
+-	/*
+-	 * Ordering is important since __sve_save_state/__sve_restore_state
+-	 * relies on it.
+-	 */
+-	__u32 fpsr;
+-	__u32 fpcr;
+-
+-	/* Must be SVE_VQ_BYTES (128 bit) aligned. */
+-	__u8 sve_regs[];
+-};
+-
+ /*
+  * This structure is instantiated on a per-CPU basis, and contains
+  * data that is:
+@@ -771,9 +757,9 @@ struct kvm_host_data {
+ 
+ 	/*
+ 	 * Hyp VA.
+-	 * sve_state is only used in pKVM and if system_supports_sve().
++	 * sve_regs is only used in pKVM and if system_supports_sve().
+ 	 */
+-	struct cpu_sve_state *sve_state;
++	u8	*sve_regs;
+ 
+ 	/* Ownership of the FP regs */
+ 	enum {
+diff --git a/arch/arm64/include/asm/kvm_pkvm.h b/arch/arm64/include/asm/kvm_pkvm.h
+index 2954b311128c7..74fedd9c5ff02 100644
+--- a/arch/arm64/include/asm/kvm_pkvm.h
++++ b/arch/arm64/include/asm/kvm_pkvm.h
+@@ -188,8 +188,7 @@ static inline size_t pkvm_host_sve_state_size(void)
+ 	if (!system_supports_sve())
+ 		return 0;
+ 
+-	return size_add(sizeof(struct cpu_sve_state),
+-			SVE_SIG_REGS_SIZE(sve_vq_from_vl(kvm_host_sve_max_vl)));
++	return SVE_SIG_REGS_SIZE(sve_vq_from_vl(kvm_host_sve_max_vl));
+ }
+ 
+ struct pkvm_mapping {
+diff --git a/arch/arm64/kvm/arm.c b/arch/arm64/kvm/arm.c
+index 8bb2c7422cc8b..f9fc85a0344e1 100644
+--- a/arch/arm64/kvm/arm.c
++++ b/arch/arm64/kvm/arm.c
+@@ -2499,10 +2499,10 @@ static void __init teardown_hyp_mode(void)
+ 			continue;
+ 
+ 		if (free_sve) {
+-			struct cpu_sve_state *sve_state;
++			u8 *sve_regs;
+ 
+-			sve_state = per_cpu_ptr_nvhe_sym(kvm_host_data, cpu)->sve_state;
+-			free_pages((unsigned long) sve_state, pkvm_host_sve_state_order());
++			sve_regs = per_cpu_ptr_nvhe_sym(kvm_host_data, cpu)->sve_regs;
++			free_pages((unsigned long) sve_regs, pkvm_host_sve_state_order());
+ 		}
+ 
+ 		free_pages(kvm_nvhe_sym(kvm_arm_hyp_percpu_base)[cpu], nvhe_percpu_order());
+@@ -2627,7 +2627,7 @@ static int init_pkvm_host_sve_state(void)
+ 		if (!page)
+ 			return -ENOMEM;
+ 
+-		per_cpu_ptr_nvhe_sym(kvm_host_data, cpu)->sve_state = page_address(page);
++		per_cpu_ptr_nvhe_sym(kvm_host_data, cpu)->sve_regs = page_address(page);
+ 	}
+ 
+ 	/*
+@@ -2648,11 +2648,11 @@ static void finalize_init_hyp_mode(void)
+ 
+ 	if (system_supports_sve() && is_protected_kvm_enabled()) {
+ 		for_each_possible_cpu(cpu) {
+-			struct cpu_sve_state *sve_state;
++			u8 *sve_regs;
+ 
+-			sve_state = per_cpu_ptr_nvhe_sym(kvm_host_data, cpu)->sve_state;
+-			per_cpu_ptr_nvhe_sym(kvm_host_data, cpu)->sve_state =
+-				kern_hyp_va(sve_state);
++			sve_regs = per_cpu_ptr_nvhe_sym(kvm_host_data, cpu)->sve_regs;
++			per_cpu_ptr_nvhe_sym(kvm_host_data, cpu)->sve_regs =
++				kern_hyp_va(sve_regs);
+ 		}
+ 	}
+ }
+diff --git a/arch/arm64/kvm/hyp/include/hyp/switch.h b/arch/arm64/kvm/hyp/include/hyp/switch.h
+index cc4d011a2b380..6512dd3f75ae4 100644
+--- a/arch/arm64/kvm/hyp/include/hyp/switch.h
++++ b/arch/arm64/kvm/hyp/include/hyp/switch.h
+@@ -484,12 +484,13 @@ static inline void __hyp_sve_restore_guest(struct kvm_vcpu *vcpu)
+ 
+ static inline void __hyp_sve_save_host(void)
+ {
+-	struct cpu_sve_state *sve_state = *host_data_ptr(sve_state);
++	struct kvm_cpu_context *hctxt = host_data_ptr(host_ctxt);
++	u8 *sve_regs = *host_data_ptr(sve_regs);
+ 
+-	sve_state->zcr_el1 = read_sysreg_el1(SYS_ZCR);
++	ctxt_sys_reg(hctxt, ZCR_EL1) = read_sysreg_el1(SYS_ZCR);
+ 	write_sysreg_s(sve_vq_from_vl(kvm_host_sve_max_vl) - 1, SYS_ZCR_EL2);
+-	__sve_save_state(sve_state->sve_regs + sve_ffr_offset(kvm_host_sve_max_vl),
+-			 &sve_state->fpsr,
++	__sve_save_state(sve_regs + sve_ffr_offset(kvm_host_sve_max_vl),
++			 &hctxt->fp_regs.fpsr,
+ 			 true);
+ }
+ 
+diff --git a/arch/arm64/kvm/hyp/nvhe/hyp-main.c b/arch/arm64/kvm/hyp/nvhe/hyp-main.c
+index db60f770060e5..04a6d2e0ea73f 100644
+--- a/arch/arm64/kvm/hyp/nvhe/hyp-main.c
++++ b/arch/arm64/kvm/hyp/nvhe/hyp-main.c
+@@ -41,7 +41,8 @@ static void __hyp_sve_save_guest(struct kvm_vcpu *vcpu)
+ 
+ static void __hyp_sve_restore_host(void)
+ {
+-	struct cpu_sve_state *sve_state = *host_data_ptr(sve_state);
++	struct kvm_cpu_context *hctxt = host_data_ptr(host_ctxt);
++	u8 *sve_regs = *host_data_ptr(sve_regs);
+ 
+ 	/*
+ 	 * On saving/restoring host sve state, always use the maximum VL for
+@@ -53,10 +54,10 @@ static void __hyp_sve_restore_host(void)
+ 	 * need to be revisited.
+ 	 */
+ 	write_sysreg_s(sve_vq_from_vl(kvm_host_sve_max_vl) - 1, SYS_ZCR_EL2);
+-	__sve_restore_state(sve_state->sve_regs + sve_ffr_offset(kvm_host_sve_max_vl),
+-			    &sve_state->fpsr,
++	__sve_restore_state(sve_regs + sve_ffr_offset(kvm_host_sve_max_vl),
++			    &hctxt->fp_regs.fpsr,
+ 			    true);
+-	write_sysreg_el1(sve_state->zcr_el1, SYS_ZCR);
++	write_sysreg_el1(ctxt_sys_reg(hctxt, ZCR_EL1), SYS_ZCR);
+ }
+ 
+ static void fpsimd_sve_flush(void)
+diff --git a/arch/arm64/kvm/hyp/nvhe/setup.c b/arch/arm64/kvm/hyp/nvhe/setup.c
+index d461981616d90..cdaf53c833409 100644
+--- a/arch/arm64/kvm/hyp/nvhe/setup.c
++++ b/arch/arm64/kvm/hyp/nvhe/setup.c
+@@ -82,9 +82,9 @@ static int pkvm_create_host_sve_mappings(void)
+ 
+ 	for (i = 0; i < hyp_nr_cpus; i++) {
+ 		struct kvm_host_data *host_data = per_cpu_ptr(&kvm_host_data, i);
+-		struct cpu_sve_state *sve_state = host_data->sve_state;
++		u8 *sve_regs = host_data->sve_regs;
+ 
+-		start = kern_hyp_va(sve_state);
++		start = kern_hyp_va(sve_regs);
+ 		end = start + PAGE_ALIGN(pkvm_host_sve_state_size());
+ 		ret = pkvm_create_mappings(start, end, PAGE_HYP);
+ 		if (ret)
+-- 
+2.30.2
+
 
