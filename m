@@ -4,124 +4,107 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 81CF3CD5BD1
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 28 May 2026 10:52:23 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 89C0ECD6E44
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 28 May 2026 10:55:52 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:From:References:CC:To:Subject:MIME-Version:Date:
-	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=ARpKZrYXmTFsOnM7JxHpKmreJeHryubba/2L7K3DvVQ=; b=xCXu976+zsO1BQ3bnq9cGpplX8
-	+VVYvb1NR+9MerCpt5kgW50R1isKd/dYv92PkaRejv3BGLQeIDRKidb51+PiY2fJc67lgTvaBEQPg
-	IAoUapEje71wrBfX567mBt+m0SJOd89Quv2XddaZTt+yxuhVyQptiD0BlYjNyt6KG3e5/PkIsPblB
-	0P9IH2EUv35ruh32oM8WCOeLJJRKLRPPIUWyX2PlWek0QgbhupXXNUP7ErjW9v7Ep3uKbG1A6acFm
-	BSHiBm8i6HD4gJhoaGbma21LYbBhH9D7OE8YSjpUfJyGQFQGj8hV9nA4o2mLUmRhzo5f0FkaEWLsi
-	XLU4dpsA==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:Cc:To:Subject:
+	Message-ID:Date:From:In-Reply-To:References:MIME-Version:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=d5uo6wkwn+JKE+tD6L/Er2v5SeX7iezWGUT0Vd+Sn2s=; b=Hrwm9yZF6+riUllKFZsZbWBKsj
+	W9NCFddzgRIkmCxGkGOAou+PwQ6LoeMXpymYgZdTt/2pmnsjq6MCnFN6ZRImFRMBaqFOPFyjznxze
+	W2SCK3a7gLOk5g93fr1M+9EZ5YejywssumDVxIldnpittyCcnJJHuh6pO3ZcddJB772LcdmWWy6TY
+	Cl+Bfm+BiJ3JcK8aRhoWoJm1VlMHgueiVQBxIQt7c22VjpjifSPv8QR0r9MMGv9cfG4ADomn/QEQg
+	/HXu2kkZMuV7cCgHoXzAXCmFvCiQc1EdnYeYmRDT87tPAFduD9dW15foW+80ejvuU3/YS9PTPSQQe
+	VXuX08eg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wSYLZ-00000005cC1-1mWz;
-	Thu, 28 May 2026 10:52:17 +0000
-Received: from mail-westus3azon11011024.outbound.protection.outlook.com ([40.107.208.24] helo=PH0PR06CU001.outbound.protection.outlook.com)
+	id 1wSYOv-00000005cLN-3ldM;
+	Thu, 28 May 2026 10:55:45 +0000
+Received: from mail-ed1-x535.google.com ([2a00:1450:4864:20::535])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wSYLV-00000005cBT-3tI4
+	id 1wSYOt-00000005cKt-24kc
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 28 May 2026 10:52:15 +0000
-ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
- b=r5eEuIgX0JPaf8W+S4lHC7MLAkJwRUh4bb73biEajKfvlWf7d+y2zU2xZRP+hcZqNgwEdli7DUB7hYEB2XDtW/6d9if0k3WlipVX9Hk3Ss/w+JW/f8+uLlz+5HRs5BeGietfpQqGSnfnlVH999JBlMErC4qCfIpq/AvpPpaf5r5zwKqB5qmAwYschI04+UPtzSSWB4VJpq9G8t9RJWNE2nSsmJc/HRzf4AkuYrHz0bRToFvgse4SPqGsvfyx1EghWaRHLh2D47/RVTWj3oG3+pY2k4cctrHCufOsPmUFCDzULkawlRSXNDCowKqg91wXUL98YqU7IvkIRFXBJFSTEg==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
- s=arcselector10001;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
- bh=ARpKZrYXmTFsOnM7JxHpKmreJeHryubba/2L7K3DvVQ=;
- b=Njc34OY+564hnk6zDqZ6+ULgaU3wTDyboz+hhCacb33OiDd0F+Ha/fFRzWRhgbR2CR14T8dLVaFlYOC/TYMxf2iKcOqDB49PtXNKblO21jJOswxr1FXAiVwoo0JED9RsVGrGXvLM/J5aBNwgqMyqw5mrSsZE1JokGGCfJlA2HCEq2bJCpEgzVs7/ROgB0Ehxv7H6efZMl8aSA1WB/e/aKJ+85fk+3Yl7maoX5FcVWNlBJnPzgLnT/AnPgoaZBfxgSaEY3zm36c1WQzRU+EuVOSdbb+VQiCOgEA7Q47YE0YZ82S3x9mmfwv3XbpGn2gfBGDu4geiPBcHQFslwZPJf/Q==
-ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass (sender ip is
- 198.47.23.195) smtp.rcpttodomain=microchip.com smtp.mailfrom=ti.com;
- dmarc=pass (p=quarantine sp=none pct=100) action=none header.from=ti.com;
- dkim=none (message not signed); arc=none (0)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=ti.com; s=selector1;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
- bh=ARpKZrYXmTFsOnM7JxHpKmreJeHryubba/2L7K3DvVQ=;
- b=nyNhVKOm72Firtr8TQeJsnGDB0qLctgrc5EmTfQrRY6qlK1XbknOaXlTxYOxvDYtA/Gas2Rd8wp/ZoUxroHrLIM1LxBm1RFZpQzYr3sNblXh4keo2UEjnUMYcMZRiXWzFSUkn3eeTGMUVUZ1XdEP5+9S6ZkvIcTBTZXl9JSHCbg=
-Received: from SA0PR11CA0114.namprd11.prod.outlook.com (2603:10b6:806:d1::29)
- by DM4PR10MB7403.namprd10.prod.outlook.com (2603:10b6:8:184::13) with
- Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.21.71.12; Thu, 28 May
- 2026 10:52:07 +0000
-Received: from SN1PEPF00036F3D.namprd05.prod.outlook.com
- (2603:10b6:806:d1:cafe::46) by SA0PR11CA0114.outlook.office365.com
- (2603:10b6:806:d1::29) with Microsoft SMTP Server (version=TLS1_3,
- cipher=TLS_AES_256_GCM_SHA384) id 15.21.71.13 via Frontend Transport; Thu, 28
- May 2026 10:52:07 +0000
-X-MS-Exchange-Authentication-Results: spf=pass (sender IP is 198.47.23.195)
- smtp.mailfrom=ti.com; dkim=none (message not signed) header.d=none;dmarc=pass
- action=none header.from=ti.com;
-Received-SPF: Pass (protection.outlook.com: domain of ti.com designates
- 198.47.23.195 as permitted sender) receiver=protection.outlook.com;
- client-ip=198.47.23.195; helo=lewvzet201.ext.ti.com; pr=C
-Received: from lewvzet201.ext.ti.com (198.47.23.195) by
- SN1PEPF00036F3D.mail.protection.outlook.com (10.167.248.21) with Microsoft
- SMTP Server (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
- 15.21.71.7 via Frontend Transport; Thu, 28 May 2026 10:52:07 +0000
-Received: from DLEE215.ent.ti.com (157.170.170.118) by lewvzet201.ext.ti.com
- (10.4.14.104) with Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.2.2562.37; Thu, 28 May
- 2026 05:52:06 -0500
-Received: from DLEE202.ent.ti.com (157.170.170.77) by DLEE215.ent.ti.com
- (157.170.170.118) with Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.2.2562.37; Thu, 28 May
- 2026 05:52:06 -0500
-Received: from lelvem-mr05.itg.ti.com (10.180.75.9) by DLEE202.ent.ti.com
- (157.170.170.77) with Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.2.2562.37 via Frontend
- Transport; Thu, 28 May 2026 05:52:06 -0500
-Received: from [172.24.233.103] (uda0132425.dhcp.ti.com [172.24.233.103])
-	by lelvem-mr05.itg.ti.com (8.18.1/8.18.1) with ESMTP id 64SAq1Jt1901707;
-	Thu, 28 May 2026 05:52:02 -0500
-Message-ID: <26a43b26-b7d4-4c5d-a286-4ac1869e2d42@ti.com>
-Date: Thu, 28 May 2026 16:22:01 +0530
+	Thu, 28 May 2026 10:55:44 +0000
+Received: by mail-ed1-x535.google.com with SMTP id 4fb4d7f45d1cf-67389cf78b0so9348214a12.2
+        for <linux-arm-kernel@lists.infradead.org>; Thu, 28 May 2026 03:55:42 -0700 (PDT)
+ARC-Seal: i=1; a=rsa-sha256; t=1779965741; cv=none;
+        d=google.com; s=arc-20240605;
+        b=dsLm+gqGUg6pMV5F9sLBiSAbMDBAPSHvdgflQFo86OJ9vYM/J5TaZFTrAzYwFREv8g
+         lOZrD3NmYdvimzk4XDVdzPJAhssPS7WTudSsw5r4GD3f1GnLb87F4oUGWJ5/TI21efXY
+         JCkEWRKP2BVcbcoGO1QiXZjco2t3eTqToZ2EmEGZp1XTiRVyqZBWASIMUiHZpMg18rnT
+         JWABoV9EZC4rR5/oIWD6aTdTnxf7umRtM2E0eR/HkZ444YL9/D3uUKPFoyONJFbzYI8N
+         WiyJegI36mO3WWGGQWikBKJ2LjvhTlqvEATy19ThDjlfUfnfLMn5LY/0e+45G8wBHJqg
+         5DLw==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20240605;
+        h=cc:to:subject:message-id:date:from:in-reply-to:references
+         :mime-version:dkim-signature;
+        bh=d5uo6wkwn+JKE+tD6L/Er2v5SeX7iezWGUT0Vd+Sn2s=;
+        fh=RMuyZ8Yr48RMJBS07XLU1OTlPd9PofZoikLQC4443oc=;
+        b=cE+5T34IteqzEdHGe789Ll+UxelJDa/0FC9GyXfDChehJkXPeZp3bjo6KlubzBy+FS
+         O0BzLX2rVQLIZ/mE6EKgXqHEudWkTCEOf05JCFDhiYaONlsrbfagsZVsUQDEh7DT/igB
+         g7QSJkx5OxThMG0I0/szNbOZwRkN17e+n1e9K7Fyvs69BKtqm5Q8T3nXTVy/1DGlqFZQ
+         Jo43F+2VuWZ1n4MwuglxtdoOLdlOpM8TzpXUf0AjVN5F0GvJl8CUl3BnW2d51uU5REox
+         kPm0LF43qMaIiYW9O1J/imzcf3eiAtyqlOG227aB2C8i2YctlGfQNK0zgVaeJga2SHDw
+         S5pA==;
+        darn=lists.infradead.org
+ARC-Authentication-Results: i=1; mx.google.com; arc=none
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=linaro.org; s=google; t=1779965741; x=1780570541; darn=lists.infradead.org;
+        h=cc:to:subject:message-id:date:from:in-reply-to:references
+         :mime-version:from:to:cc:subject:date:message-id:reply-to;
+        bh=d5uo6wkwn+JKE+tD6L/Er2v5SeX7iezWGUT0Vd+Sn2s=;
+        b=tgKHr/NLwqByMby8CKDw8KIjj8inei1dS0fJJFdrMDbOzsbITCCcbbZu+xI5R+YXHf
+         AbZRl7qsBgIV3yA+uMuAvnbAy4c64scn4HMvQTmm6xx7ZVKljBKR523KUq4jFj7XUdzZ
+         HL5vhseMpjIGkvPnJTeCg7E/6rAlJnqZsL96O/tqOjuhMIrpDJiuWDbUIhV1ck7BO8hd
+         qD5EFEcPG877i0tKKVS4mEXR2IBdY8e14iqD9naRM2t9h95ZoXjwf7aqWnhw4wxj0InB
+         H2lfuQuiXKS5lVd0hBePzKB0+McE0khPZICBrfX01JlRjQ9Gzv9UELqdPEVz5zvum5+A
+         TASQ==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20251104; t=1779965741; x=1780570541;
+        h=cc:to:subject:message-id:date:from:in-reply-to:references
+         :mime-version:x-gm-gg:x-gm-message-state:from:to:cc:subject:date
+         :message-id:reply-to;
+        bh=d5uo6wkwn+JKE+tD6L/Er2v5SeX7iezWGUT0Vd+Sn2s=;
+        b=Q1VN11vLPZ6dU3MP25m78VQZPqSkd3wrlunIXotC4OMVd7GeB6kXfMp5kBuo5PKEKj
+         PGWk2wUnPHFZ+VYH8+n1v4KU1YR3XG7PWGqcIKuvSGJyAzq0RDX1Gc3CxOqenR09sEVy
+         lTRJ4vjQ2IbUtlubGXCtTI+kgY1DpfCluWiXhUMipOVVShPn7h9fWjS9Iv6wHNbA8edb
+         pmzRTUN2Usn2sBDyVQsFA+VTxlXLj7zdYKn9wSF9WAK4z7AvWpnNZGk/bBdjRnC1EUx5
+         KCg/jJCZdcJeAKpagSyzmlDkFyd+vT4OmvrlwIKvMC9+1MgmYaGYArrJCMlyxfIzGpLN
+         9sBg==
+X-Forwarded-Encrypted: i=1; AFNElJ8jjsE0WaQa0HipoFJpVRod+02GnFTkAQBKVWCbtqN8dUdu+aaGa5S7wms3491sajgnDvcW64tNtuxbe+s0QSGq@lists.infradead.org
+X-Gm-Message-State: AOJu0YxvftRdvcm1ZYjJbGh1VaHSpnZTFIfypvHTXbKQKFM9z6XY7C7A
+	p72W+tN61kfT4RwluiRR2gbrjdP5HMSS/k++WkhmUpZag8jZKyHR+/OFG8wPmvJ2ZYbeGiWtPep
+	c5Yx4TJJAg3kljqPXfr2JGO9WAvlBlqJGBfwh1CIGPQ==
+X-Gm-Gg: Acq92OFposAIST+5vEwYnHZweUoPG0FrRcEM2HWGriGju1xbOg5ua/osHaGLQ7lGBlJ
+	MKKaZC6HL4Cg60JpTA+oxYOeVdYwvLpZrkkz0axQ2pluC0iPNALylAXDyCeRYsMC/6sHc5qFGNj
+	pSBp6yQhekD9xq3BZjBSbw0FHGcNV5saPKDI7nJxLULmgKMClMzdiz18DhDcZLxFKXFrQWp0DFp
+	Qjp35jlz/3jJrwq4XRh7gaU2ihyvZP+uujRkofIsN/7wcq3NV+NluIiLIGtGkTJgIVpAs0CXDSg
+	mNDPTwC6047kOXdzzeUrVjtOqwdJ6yVGfowL5/79PZ++WonRBEIy
+X-Received: by 2002:a05:6402:354c:b0:681:5b59:648a with SMTP id
+ 4fb4d7f45d1cf-6889c4412dcmr16690059a12.11.1779965741591; Thu, 28 May 2026
+ 03:55:41 -0700 (PDT)
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH v5 2/3] arm64: dts: ti: Add k3-am62l3-beaglebadge
-To: Judith Mendez <jm@ti.com>, Nishanth Menon <nm@ti.com>
-CC: Tero Kristo <kristo@kernel.org>, Rob Herring <robh@kernel.org>, "Krzysztof
- Kozlowski" <krzk+dt@kernel.org>, Conor Dooley <conor+dt@kernel.org>,
-	<linux-arm-kernel@lists.infradead.org>, <devicetree@vger.kernel.org>,
-	<linux-kernel@vger.kernel.org>, Andrew Davis <afd@ti.com>, Bryan Brattlof
-	<bb@ti.com>, Jason Kridner <jkridner@gmail.com>, Robert Nelson
-	<robertcnelson@gmail.com>, Conor Dooley <conor.dooley@microchip.com>
-References: <20260526235417.1326187-1-jm@ti.com>
- <20260526235417.1326187-3-jm@ti.com>
-From: Vignesh Raghavendra <vigneshr@ti.com>
-Content-Language: en-US
-In-Reply-To: <20260526235417.1326187-3-jm@ti.com>
+References: <20260527194525.45762-1-arnd@kernel.org>
+In-Reply-To: <20260527194525.45762-1-arnd@kernel.org>
+From: Peter Griffin <peter.griffin@linaro.org>
+Date: Thu, 28 May 2026 11:55:30 +0100
+X-Gm-Features: AVHnY4Ix0Hmm_eG6_V7iRj-xJ3NfAcKZMBspXlN6j33nPsnkEIVRn4_MuHlGmIA
+Message-ID: <CADrjBPp55hZmkJMa3Lz3h=K0ZOBS-k4BY1=EmgtSYfqeCbJg0g@mail.gmail.com>
+Subject: Re: [PATCH] drm/exynos: fix size_t format string
+To: Arnd Bergmann <arnd@kernel.org>
+Cc: Inki Dae <inki.dae@samsung.com>, Seung-Woo Kim <sw0312.kim@samsung.com>, 
+	Kyungmin Park <kyungmin.park@samsung.com>, David Airlie <airlied@gmail.com>, 
+	Simona Vetter <simona@ffwll.ch>, Krzysztof Kozlowski <krzk@kernel.org>, Chen-Yu Tsai <wenst@chromium.org>, 
+	Marek Szyprowski <m.szyprowski@samsung.com>, Arnd Bergmann <arnd@arndb.de>, 
+	Alim Akhtar <alim.akhtar@samsung.com>, dri-devel@lists.freedesktop.org, 
+	linux-arm-kernel@lists.infradead.org, linux-samsung-soc@vger.kernel.org, 
+	linux-kernel@vger.kernel.org
 Content-Type: text/plain; charset="UTF-8"
-Content-Transfer-Encoding: 7bit
-X-C2ProcessedOrg: 333ef613-75bf-4e12-a4b1-8e3623f5dcea
-X-EOPAttributedMessage: 0
-X-MS-PublicTrafficType: Email
-X-MS-TrafficTypeDiagnostic: SN1PEPF00036F3D:EE_|DM4PR10MB7403:EE_
-X-MS-Office365-Filtering-Correlation-Id: 9132ebc8-756c-4329-5c86-08debca72953
-X-LD-Processed: e5b49634-450b-4709-8abb-1e2b19b982b7,ExtAddr
-X-MS-Exchange-SenderADCheck: 1
-X-MS-Exchange-AntiSpam-Relay: 0
-X-Microsoft-Antispam: BCL:0;ARA:13230040|1800799024|36860700016|82310400026|376014|7416014|22082099003|18002099003|3023799007|4143699003|56012099006;
-X-Microsoft-Antispam-Message-Info: lck/sJ5e7+WeVVA+H7SWCFphx7UzOA4Wqwomu4dglF46ULWyFEDwOBGLjw72OPMP4c4nMDha3yVdWbw76R4GdWpMbkTwekFUbWSbLtLVYJNVCyzeBWVDCT5Q0FDPgkW3gnGYRxMZW9CG6VAJcnb9NuwZME/0uaXYktQySw8Oj3TPlnK/KUuzOPmpJ4cGCysVHSXNViNNyk9e6Oc4E3ICk1x9FE0pThjAJZnMqsSGGRK5X9DvPai0GTLV8BOjI5Np5AdzvD+d1XnS1nz7pWjetkkCb2LEOyVFieLlr8shDQDfHRRKgvXbWnMZjqn2MaWc3XJ1sfxC8bTxCf/+rnXOjxlRtDwsQm9Dns0iPcwIBWZJ1FvAGmqupupOkUIs7yfmWcWH6rHh5fVcrfQi1v7/00AHgZ9aZ6Vt5hly5Ri59uULc045dfyXpOGdzbZBgbxRF9ar1+IhNVEVyqVljOx/kjt1hncQvo/ep1I80bkHq8wmtFn/VTPFG9VvGYg7iBA9WMo8N3vGJAHbTMDAvDJqEnFNtF0rTT/p9tKOaljQ0Hc/DowUJX65+qKIhNted5vKhjdliIM/Gu9khc4GxYJ6ce70LFg1G/x99od7s7luAE1svClszixADHUoqTaZUAUetuPVgJ5efHYNAYqn145/yiM+OBZmRnddY0roBzDWn3gsQ9Y4H+HFFCZSipTMGO34
-X-Forefront-Antispam-Report: CIP:198.47.23.195;CTRY:US;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:lewvzet201.ext.ti.com;PTR:InfoDomainNonexistent;CAT:NONE;SFS:(13230040)(1800799024)(36860700016)(82310400026)(376014)(7416014)(22082099003)(18002099003)(3023799007)(4143699003)(56012099006);DIR:OUT;SFP:1101;
-X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
-X-MS-Exchange-AntiSpam-MessageData-0: kyzPudUcjqH3kOg+/iatP6EECwAAL5s7KcYi82n1lvsVuIaAEDjxot6b0DKp3WJfHdlBOFAu7/g1Sf7NZxLDjkC1t5xjrgHWF6Ib4v9fucXA3iPI5X4FrQOtxmf4hVPra9ybYMxOw3+xRlGvFgj5Q3uDNLgdQIVROuz7rfEcAIiA3+nv5Whcui1+ZwM6Xq1ZdpW8pSbBavK/5iFeQSaf6idFLEUSqnjyG8BzwKx3+aB+794V0fEFgHFXS3oB6vULvMjt5jIqe9FxQn/w16PJ/4QbIuSLx5q3sB8jJpscLy/uw8SpJ7G/GC0YleTET1OcdHJt22GJC79bFxdZf5DfRfQGyrfNX7/q5RNONBeROIBdrLN+GyyGbpxDCROAe7vi6TkOG4cyYF5ImeXU/4YnNgchG1zzpzcqldosLJYpHfITX9GI6fwbsE5SFksE8121
-X-OriginatorOrg: ti.com
-X-MS-Exchange-CrossTenant-OriginalArrivalTime: 28 May 2026 10:52:07.1736
- (UTC)
-X-MS-Exchange-CrossTenant-Network-Message-Id: 9132ebc8-756c-4329-5c86-08debca72953
-X-MS-Exchange-CrossTenant-Id: e5b49634-450b-4709-8abb-1e2b19b982b7
-X-MS-Exchange-CrossTenant-OriginalAttributedTenantConnectingIp: TenantId=e5b49634-450b-4709-8abb-1e2b19b982b7;Ip=[198.47.23.195];Helo=[lewvzet201.ext.ti.com]
-X-MS-Exchange-CrossTenant-AuthSource: SN1PEPF00036F3D.namprd05.prod.outlook.com
-X-MS-Exchange-CrossTenant-AuthAs: Anonymous
-X-MS-Exchange-CrossTenant-FromEntityHeader: HybridOnPrem
-X-MS-Exchange-Transport-CrossTenantHeadersStamped: DM4PR10MB7403
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260528_035214_065912_9B3E8BCE 
-X-CRM114-Status: GOOD (  14.41  )
+X-CRM114-CacheID: sfid-20260528_035543_561769_DB2070DD 
+X-CRM114-Status: GOOD (  13.70  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -136,67 +119,30 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-
-
-On 27/05/26 05:24, Judith Mendez wrote:
-> BeagleBoard.org BeagleBadge is a compact, affordable open source
-> hardware single board computer based on the Texas Instruments AM62L3
-> SoC designed for IoT and embedded applications with low power
-> consumption. Expansion is provided over open standards based headers
-> including QWIIC and GPIO interfaces.
-> 
-> https://www.beagleboard.org/boards/beaglebadge
-> 
-> Co-developed-by: Andrew Davis <afd@ti.com>
-> Signed-off-by: Andrew Davis <afd@ti.com>
-> Signed-off-by: Judith Mendez <jm@ti.com>
+On Wed, 27 May 2026 at 20:45, Arnd Bergmann <arnd@kernel.org> wrote:
+>
+> From: Arnd Bergmann <arnd@arndb.de>
+>
+> The exynos_gem->base.size argument is a size_t rather than an
+> unsigned long, so adapt the printk() format string accordingly:
+>
+> In file included from drivers/gpu/drm/exynos/exynos_drm_gem.c:16:
+> drivers/gpu/drm/exynos/exynos_drm_gem.c: In function 'exynos_drm_alloc_buf':
+> drivers/gpu/drm/exynos/exynos_drm_gem.c:69:49: error: format '%lx' expects argument of type 'long unsigned int', but argument 6 has type 'size_t' {aka 'unsigned int'} [-Werror=format=]
+>    69 |         DRM_DEV_DEBUG_KMS(drm_dev_dma_dev(dev), "dma_addr(0x%lx), size(0x%lx)\n",
+>       |                                                 ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+>    70 |                         (unsigned long)exynos_gem->dma_addr, exynos_gem->base.size);
+>       |                                                              ~~~~~~~~~~~~~~~~~~~~~
+>       |                                                                              |
+>       |                                                                              size_t {aka unsigned int}
+>
+> The dma_addr in the same line is already printed using a cast
+> to unsigned long, so change that similarly to use the correct
+> %pad format.
+>
+> Fixes: 11e898373fba ("drm/exynos: Drop exynos_drm_gem.size field")
+> Signed-off-by: Arnd Bergmann <arnd@arndb.de>
 > ---
-> Changelog since v4:
-> - Canonical URL fixed
-> - Switch gpio -> gpios in voltage regulator nodes
-> - Regulator-always-on removed in sensor_3v3
-> - Add bootph-all on pinmux nodes
-> - Fix gpio-line-names formatting
-> - Nodes: sdhci2, wlan_en regulator, & pinmux removed
-> - USB aliases removed
-> ---
->  arch/arm64/boot/dts/ti/Makefile               |   1 +
->  .../boot/dts/ti/k3-am62l3-beaglebadge.dts     | 658 ++++++++++++++++++
->  2 files changed, 659 insertions(+)
->  create mode 100644 arch/arm64/boot/dts/ti/k3-am62l3-beaglebadge.dts
-> 
-> diff --git a/arch/arm64/boot/dts/ti/Makefile b/arch/arm64/boot/dts/ti/Makefile
-> index 5269c9619b65c..4e377ca011cd8 100644
-> --- a/arch/arm64/boot/dts/ti/Makefile
-> +++ b/arch/arm64/boot/dts/ti/Makefile
-> @@ -41,6 +41,7 @@ dtb-$(CONFIG_ARCH_K3) += k3-am62d2-evm.dtb
->  
->  # Boards with AM62Lx SoCs
->  dtb-$(CONFIG_ARCH_K3) += k3-am62l3-evm.dtb
-> +dtb-$(CONFIG_ARCH_K3) += k3-am62l3-beaglebadge.dtb
 
-Sort this alphabetically please
-
->  
->  # Boards with AM62Px SoC
->  dtb-$(CONFIG_ARCH_K3) += k3-am62p5-sk.dtb
-> diff --git a/arch/arm64/boot/dts/ti/k3-am62l3-beaglebadge.dts b/arch/arm64/boot/dts/ti/k3-am62l3-beaglebadge.dts
-> new file mode 100644
-> index 0000000000000..8e816d21a586f
-> --- /dev/null
-> +++ b/arch/arm64/boot/dts/ti/k3-am62l3-beaglebadge.dts
-> @@ -0,0 +1,658 @@
-> +// SPDX-License-Identifier: GPL-2.0
-
-Dual license this like other files
-
-// SPDX-License-Identifier: GPL-2.0-only or MIT
-
-[...]
-
--- 
-Regards
-Vignesh
-https://ti.com/opensource
-
+Reviewed-by: Peter Griffin <peter.griffin@linaro.org>
 
