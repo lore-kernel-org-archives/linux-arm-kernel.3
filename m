@@ -4,64 +4,63 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 87AEBCD6E44
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 28 May 2026 15:12:28 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 00C31CD4F54
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 28 May 2026 15:22:47 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
-	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=NGzu6LymuNVeut4lTFZeELIEE1FsgN9m+ctwi3M1cpI=; b=zG/pz28kXK2KASq9/N/cYsGorV
-	j5DbIAbTgVWcCH4qOL8I40i/rwbYwYm/Qg17wL9XZVpsCeT/xXOL3kZSMociIjcVQPHXmLLx+Wmur
-	g/ihjYsBscZ2vwiYpiPBaH6O1MMgwDnM1tj/y4Q7WTByDFiGjosBLw47XAKxao4uQag77c87aqr7Q
-	Wvb74HqJ0RnlHwzduYX5k9tW0qsJBzaZmFgfikNTcdUgkwmaPiN6kFnqpbwJJzrMkXhPj72ZOv+1I
-	NrNmInqC617P9eq0D9pR/MONmVm/pbBbp+bpFfuFgIEQ3RRsL0dz6aVhCPZVrzzYHYQ5pEFM1BRIL
-	s8/Jsarg==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=vJwzo/AGfpS4moFag/iW48fQvSGj1r7NwQSxod1ym/g=; b=48qd0tWggKkc+rtOGxA2xHbnH7
+	/XcVjmBXH8C10GcaRStLEUjdJESmindptFgHx+RlRnXyVSSWe/DaRqHXaYze2nQ8lJt9Gai1pfk4t
+	fL4Z9oUMC7N12sUtUsVDvYJN0ahrsaPzmWPUTa58p3+ZH3FANFgKGZYtTG3v1UiOMb28OTM7Y1oqw
+	3dukucIXXSjFXRg249XwZ502x2rr03lV3Koq6SX57wJ4CjPIAp7GbkdCl5K5UrUR+eOVYvkUIO6Bz
+	gF4uiqQYmJUpmafzmw/y1EzlIIYg257HX6AtmNB+c7GmXI57HqDZGfUL2D0aT6LFiE1zaLYnC4GuJ
+	38RThY5A==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wScPF-00000005uGK-1vB8;
-	Thu, 28 May 2026 15:12:21 +0000
+	id 1wScZB-00000005uhJ-1sFA;
+	Thu, 28 May 2026 15:22:37 +0000
 Received: from foss.arm.com ([217.140.110.172])
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wScPC-00000005uFc-3F5Y
+	id 1wScZ8-00000005ugc-1m98
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 28 May 2026 15:12:19 +0000
+	Thu, 28 May 2026 15:22:35 +0000
 Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
-	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id D3DB822EE;
-	Thu, 28 May 2026 08:12:11 -0700 (PDT)
-Received: from [10.1.28.164] (unknown [10.1.28.164])
-	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id 9C0353F632;
-	Thu, 28 May 2026 08:12:14 -0700 (PDT)
+	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id 51AA01A25;
+	Thu, 28 May 2026 08:22:27 -0700 (PDT)
+Received: from e129823.arm.com (e129823.arm.com [10.1.197.6])
+	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id EF5653F632;
+	Thu, 28 May 2026 08:22:30 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=simple/simple; d=arm.com; s=foss;
-	t=1779981136; bh=8NF5sOfbYqdJ+Oi40pkak1BHMRDOWEn0PDRBCK7Y+3k=;
-	h=Date:Subject:To:Cc:References:From:In-Reply-To:From;
-	b=VoADWMMgkS3/wOGyrN0GnZr6E1eKpgfDw2zrAb2OVDTfqw0VFyXsxwikDRyFwAS+q
-	 tb1PPUuOPsScHjfpRQ1oABnQ0FJxfbOpEHkpkQcEVnC4jwXs7m9yRYkaEg6P9cZhAU
-	 WH4N+L9yufWTN0WxbgkVLVIEJL9CXiQWjnnEClrA=
-Message-ID: <518b2b2f-53c0-4082-b764-54c0e3bc2b92@arm.com>
-Date: Thu, 28 May 2026 16:12:12 +0100
+	t=1779981752; bh=FypxhkTWYbTSXhLXi1bjnSKfdeNXHx8/3J50RDdF4FY=;
+	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
+	b=NbOTV1aEjkoWkyK1T9MCXmw9jg6gpregAMBf6kHooiItJbenG7VhtBQ3BTVdaS3Wl
+	 hPl7LYgi4Y66mFUFhd7oim0TP8JOZ/w5BsnQL8IgSxh7GT8vIUHIKES9S/oRW7lK35
+	 sLU8FlmXA9OtxTETBNNBaPptwIkivFg5t5kEuYbA=
+Date: Thu, 28 May 2026 16:22:28 +0100
+From: Yeoreum Yun <yeoreum.yun@arm.com>
+To: Leo Yan <leo.yan@arm.com>
+Cc: coresight@lists.linaro.org, linux-arm-kernel@lists.infradead.org,
+	linux-kernel@vger.kernel.org, suzuki.poulose@arm.com,
+	mike.leach@arm.com, james.clark@linaro.org,
+	alexander.shishkin@linux.intel.com, jie.gan@oss.qualcomm.com
+Subject: Re: [PATCH v7 08/13] coresight: etm4x: fix inconsistencies with
+ sysfs configuration
+Message-ID: <ahhdtB2oUQvAcrr5@e129823.arm.com>
+References: <20260519154812.254884-1-yeoreum.yun@arm.com>
+ <20260519154812.254884-9-yeoreum.yun@arm.com>
+ <20260528140943.GE101133@e132581.arm.com>
+ <ahhQsTNok65e6K0F@e129823.arm.com>
+ <20260528145637.GG101133@e132581.arm.com>
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH 04/18] KVM: arm64: pkvm: Remove struct cpu_sve_state
-To: Mark Rutland <mark.rutland@arm.com>
-Cc: linux-arm-kernel@lists.infradead.org, kvmarm@lists.linux.dev,
- broonie@kernel.org, catalin.marinas@arm.com, james.morse@arm.com,
- maz@kernel.org, oupton@kernel.org, tabba@google.com, will@kernel.org
-References: <20260521132556.584676-1-mark.rutland@arm.com>
- <20260521132556.584676-5-mark.rutland@arm.com>
- <9670cf97-b844-4029-b77e-25ade600e024@arm.com>
- <ahcVsVGPtOmF0nIC@J2N7QTR9R3.cambridge.arm.com>
- <4e15c17e-06c0-414f-ae9d-210c70d1757f@arm.com>
- <ahhapwyfE7WrBCby@J2N7QTR9R3.cambridge.arm.com>
-Content-Language: en-GB
-From: Vladimir Murzin <vladimir.murzin@arm.com>
-In-Reply-To: <ahhapwyfE7WrBCby@J2N7QTR9R3.cambridge.arm.com>
-Content-Type: text/plain; charset=UTF-8
-Content-Transfer-Encoding: 7bit
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+In-Reply-To: <20260528145637.GG101133@e132581.arm.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260528_081218_892032_B5C990C8 
-X-CRM114-Status: GOOD (  14.62  )
+X-CRM114-CacheID: sfid-20260528_082234_549365_9A8C26D1 
+X-CRM114-Status: GOOD (  46.07  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -76,70 +75,155 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On 5/28/26 16:09, Mark Rutland wrote:
-> On Wed, May 27, 2026 at 05:11:26PM +0100, Vladimir Murzin wrote:
->> On 5/27/26 17:02, Mark Rutland wrote:
->>> On Wed, May 27, 2026 at 12:58:47PM +0100, Vladimir Murzin wrote:
->>>> On 5/21/26 14:25, Mark Rutland wrote:
->>>>> -struct cpu_sve_state {
->>>>> -	__u64 zcr_el1;
->>>>> -
->>>>> -	/*
->>>>> -	 * Ordering is important since __sve_save_state/__sve_restore_state
->>>>> -	 * relies on it.
->>>>> -	 */
->>>>> -	__u32 fpsr;
->>>>> -	__u32 fpcr;
->>>>> -
->>>>> -	/* Must be SVE_VQ_BYTES (128 bit) aligned. */
->>>>> -	__u8 sve_regs[];
->>>> It seems that the requirement (driven by SVE ldr/str) is
->>>> satisfied with the new sve_regs pointing to the start of the
->>>> page.
->>>>
->>>> I'm not sure whether we want to keep the comment (or perhaps
->>>> enforce this with explicit checks) so that future refactoring
->>>> doesn't lead to time spent debugging alignment faults...
->>> AFAICT alignment has never been functionally necessary. The LDR (vector)
->>> and STR (vector) instructions only mandate alignment when the relevant
->>> SCTLR_ELx has SCTLR_ELx.A==1. For kernel and hyp code we configure
->>> SCTLR_ELx.A==0, so there's no alignment requirement.
->>>
->>> Per ARM DDI 0487 M.b, section C8.2.437 "LDR (vector)":
->>>
->>>   The load is performed as contiguous byte accesses, with no endian
->>>   conversion and no guarantee of single-copy atomicity larger than a
->>>   byte. However, *if alignment is checked*, then the base register must be
->>>   aligned to 16 bytes.
->>>
->>> Per ARM DDI 0487 M.b, section C8.2.777 "STR (vector)":
->>>
->>>   The store is performed as contiguous byte accesses, with no endian
->>>   conversion and no guarantee of single-copy atomicity larger than a
->>>   byte. However, *if alignment is checked*, then the base register must be
->>>   aligned to 16 bytes.
->>>
->>> ... and in both cases the pseudocode shows that AlignmentEnforced()
->>> depends on the value of SCTLR_ELx.A.
->>>
->>> Given that, I don't think we need the comment.
->>>
->> Thanks for explanation! Maybe worth mentioning in commit message that it never was
->> a requirement? 
-> I've added the following to the commi message:
+> On Thu, May 28, 2026 at 03:26:57PM +0100, Yeoreum Yun wrote:
 > 
->   I've dropped the comment regarding buffer alignment as AFAICT this was
->   never necessary. The LDR/STR (vector) instructions only require this
->   alignment when SCTLR_ELx.A==1, which is not the case for the kernel or
->   hyp code. Nothing else depends on the alignment.
+> [...]
 > 
-
-Brilliant!
-
-Thanks
-Vladimir
-
-> Mark.
+> > > > @@ -47,7 +47,7 @@ static int etm4_cfg_map_reg_offset(struct etmv4_drvdata *drvdata,
+> > > >  				   struct cscfg_regval_csdev *reg_csdev, u32 offset)
+> > > >  {
+> > > >  	int err = -EINVAL, idx;
+> > > > -	struct etmv4_config *drvcfg = &drvdata->config;
+> > > > +	struct etmv4_config *drvcfg = &drvdata->active_config;
+> > > 
+> > > Wouldn't it make more sense to keep using drvdata->config for cfgfs?
+> > > This would avoid cfgfs updating the active configuration while a session
+> > > is enabled.
+> > >
+> > > My understanding is after refactoring cfgfs, we will never expose
+> > > active_config or config anymore so this should not an issue. Before
+> > > that, maybe we just keep to use config so can avoid mess.
+> > 
+> > I don't think so. since the cfgfs's config is updated right before
+> > enable and in this patchset, It's applied after "take the mode".
+> > 
+> > If we do it into drvdta->config, then contention would be increased
+> > with the access of sysfs and that nullifies almost this patch purpose
+> > and because of we use "one config" this makes a corruption with perf
+> > and sysfs.
 > 
+> Here have two different contention: the contention between sysfs and
+> cfgfs, and the contention between cfgfs and a runtime config (active
+> config). My suggestion is to avoid the later contention, which is the
+> main idea in this series that avoid the runtime config is modified in
+> the middle of a session.
 
+What I mean the *latter* contention is also pre-existed even in the
+former (Just think about the access via configfs to modify parameter
+while enabling the cfgfs configuration) and this is known issue
+and should be resolved with another patchset (might we can set a flag
+to disable store operation via conifgfs while "activation") and
+make drvdata->config for cscfg just increase the "contention" for lock.
+
+And this patch series main idea is not for contention between
+*cfgfs* and *runtime configuration* but the corruption for racebetween
+*sysfs and perf configuration* when it applies for the sharing one
+configuration.
+
+That's why this is different problem what you said and that is pre-exist
+one. except above case (configfs vs activate cfgfs config),
+I don't believe there is no contention to be modified *runtime* while
+applying the cscfg config into active config and above case might be
+reolved simply by some flag to prevent current value of each feat.
+
+What contention scenario do you mean?
+
+> > > >  static void etm4_enable_sysfs_smp_call(void *info)
+> > > >  {
+> > > >  	struct etm4_enable_arg *arg = info;
+> > > > +	struct etmv4_drvdata *drvdata;
+> > > >  	struct coresight_device *csdev;
+> > > > +	unsigned long cfg_hash;
+> > > > +	int preset;
+> > > >  
+> > > >  	if (WARN_ON(!arg))
+> > > >  		return;
+> > > >  
+> > > > -	csdev = arg->drvdata->csdev;
+> > > > +	drvdata = arg->drvdata;
+> > > > +	csdev = drvdata->csdev;
+> > > >  	if (!coresight_take_mode(csdev, CS_MODE_SYSFS)) {
+> > > >  		/* Someone is already using the tracer */
+> > > >  		arg->rc = -EBUSY;
+> > > >  		return;
+> > > >  	}
+> > > >  
+> > > > -	arg->rc = etm4_enable_hw(arg->drvdata);
+> > > > +	/* enable any config activated by configfs */
+> > > > +	cscfg_config_sysfs_get_active_cfg(&cfg_hash, &preset);
+> > > >  
+> > > > -	/* The tracer didn't start */
+> > > > +	drvdata->active_config = arg->config;
+> > > 
+> > > Can move this down to just before drvdata->trcid assignment so cscfg
+> > > operations can be put together?
+> > 
+> > No. Copy the arg->config must be before cscfg_csdev_enable_active_config().
+> > If that's after, it overrides the "preset" and this is different from
+> > the former behavior.
+> 
+> Please copy config first, then do cscfg stuffs.
+
+It's already did. the chuck of config is:
+  - cscfg_config_sysfs_get_active_cfg()
+  - drvdata->active_config copy
+  - cscfg_csdev_enable_active_config()
+
+Why do I need to seperate the copying the config though it's a part of
+"setting" configuration chunk?
+
+> 
+> > > > +	arg->rc = etm4_enable_hw(drvdata);
+> > > >  	if (arg->rc) {
+> > > > -		coresight_set_mode(csdev, CS_MODE_DISABLED);
+> > > > -		return;
+> > > > +		cscfg_csdev_disable_active_config(csdev);
+> > > > +		goto err;
+> > > 
+> > > Add a new goto tag (like err_enable_hw) for the disable_active_config
+> > > rollback?
+> > 
+> > This is only place where cscfg_csdev_disable_active_config().
+> > Why do we need to goto for cleanup where there is no duplication?
+> 
+> It is about to use a central place for handling errors.
+
+I don't think so. cscfg_csdev_disable_active_config() should be called
+when cscfg_csdev_enable_active_config() is succssed seem not to be
+called freely when cscfg_csdev_enable_active_config() isn't call.
+IOW, for the central place, it makes a another variable to differenciate
+each case and this seems more ugly.
+
+What the benefit for this?
+
+> 
+> > > > @@ -1449,7 +1458,7 @@ static void etm4_init_arch_data(void *info)
+> > > >  
+> > > >  	/* EXLEVEL_S, bits[19:16] Secure state instruction tracing */
+> > > >  	caps->s_ex_level = FIELD_GET(TRCIDR3_EXLEVEL_S_MASK, etmidr3);
+> > > > -	drvdata->config.s_ex_level = caps->s_ex_level;
+> > > > +	config->s_ex_level = caps->s_ex_level;
+> > > 
+> > > config->s_ex_level is redundant and not really a configuration item.
+> > > We should use caps->s_ex_level instead of config->s_ex_level wherever
+> > > it is used.
+> > 
+> > Agree, but this includes it should change the omse function
+> > declations to pass "caps" argument:
+> >   - etm4_set_comparator_filter()
+> >   - etm4_set_start_stop_filter()
+> > 
+> > If that's okay, I'll respin with it.
+> 
+> This is fine for me.
+
+Okay.
+
+> 
+> Thanks,
+> Leo
+
+-- 
+Sincerely,
+Yeoreum Yun
 
