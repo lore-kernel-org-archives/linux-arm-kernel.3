@@ -4,87 +4,69 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id EA2B9CD5BD5
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 28 May 2026 15:47:10 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id D0D1BCD4F54
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 28 May 2026 15:53:51 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:
-	Content-Transfer-Encoding:MIME-Version:References:In-Reply-To:Message-ID:Date
-	:Subject:Cc:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=TdX9/bZga6Qg6ao7lAnopeSLFZmhgNqsCFRMGQo40M0=; b=MnX30QYtcV5OPNwvkJxnvWCz74
-	XFtzcZC07iLDilP+D6+MvmRSNIbAT9RxvbMavN1edONz1Rc2MqboqjBop24K8mhUWIgCgtSlAxZKJ
-	irqgBQ03uhuS+wqarcJVVvq2VtdFGtiy2nNJ6zT5ak/IlneEABccMgxkjWLh7lHmvFd8O4h3qVH+9
-	xAg9N9H037WLNamDZ/C63BlE7q4EUxbN5XKEeHUEk3UnrhyVNEcyLux3bz/FYSdQEqfGNV6wjTYEm
-	GVopdfALeQ9GE+SKN1fYgOBaWK8sy3Q+8pXjf6Gg+j6Cx8RJxDw4MusxyMYrMfuUR8mp6ErqaFInC
-	uWP4A27w==;
+	bh=aqOl4KJ+POyxHhW5KeMjbKtaqry36nNsOelFZ1HL0ac=; b=3VeXdPguDpt2mVXBBVLHpgnsIW
+	rKmqT9maZDYzT9DivzAsbp7qEmZMQ65aNBvT7EjzetXkf/xpXO310yTzCQ4paQI0WMuhlBVrK70Ov
+	Jk2jgwOe62E+JekCkRrEhWGA/Cz6ZuRqK11/+/SommO8dWmaNs00oCWulVW1dcFmD333iTKk17HEm
+	kHv4Y0RQEkXEqOaZjqT7kNL2tqaon7hpn81MteCrL//5o7jO9BeGXOu7vyrxIJ3PUqitKVRangC25
+	xixQo7aqMua6myohY6bJ7CXQtF0a5GV3S0HvHtzB4BPxUMaRtYqMJ1FccDNyy7NWJ78sSoUFodD90
+	IZnAOh9A==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wScwp-00000005wOq-3v32;
-	Thu, 28 May 2026 15:47:03 +0000
-Received: from sender4-pp-f112.zoho.com ([136.143.188.112])
+	id 1wSd3H-00000005wfU-2toA;
+	Thu, 28 May 2026 15:53:43 +0000
+Received: from tor.source.kernel.org ([2600:3c04:e001:324:0:1991:8:25])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wScwn-00000005wO8-0Seb;
-	Thu, 28 May 2026 15:47:02 +0000
-ARC-Seal: i=1; a=rsa-sha256; t=1779983187; cv=none; 
-	d=zohomail.com; s=zohoarc; 
-	b=GHWMHdoWNcU15l0hvRveP46RyYdqPgCNIeJOJbgJI9JBobYiofMCMQDP9tkyRw47bS6196r8P9gujSO6cNJ9Ac5kv/bPGASHU7fkljblkRp5xGqhzxVFEPJvBplRIblIb4HnGhMU1zkIXRKyOlTy8syLsNSciYqlZYJrNnrZGdg=
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=zohomail.com; s=zohoarc; 
-	t=1779983187; h=Content-Type:Content-Transfer-Encoding:Cc:Cc:Date:Date:From:From:In-Reply-To:MIME-Version:Message-ID:References:Subject:Subject:To:To:Message-Id:Reply-To; 
-	bh=TdX9/bZga6Qg6ao7lAnopeSLFZmhgNqsCFRMGQo40M0=; 
-	b=hnRAzfqXviyjhZIjxpBSmwxqGkCfShiXtPnNYqedxGvcMfnf2fvfm9L00qulOPvmRbankDXGxKrmhNds05DPIqHJVOPhitigUxdoObfdeZRi2AXap80Tcxqq4s4Jgja7nsUTW8KIao9gayS/yaqATsbLz2nRRej1dIwvOkRhUcc=
-ARC-Authentication-Results: i=1; mx.zohomail.com;
-	dkim=pass  header.i=collabora.com;
-	spf=pass  smtp.mailfrom=nicolas.frattaroli@collabora.com;
-	dmarc=pass header.from=<nicolas.frattaroli@collabora.com>
-DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed; t=1779983187;
-	s=zohomail; d=collabora.com; i=nicolas.frattaroli@collabora.com;
-	h=From:From:To:To:Cc:Cc:Subject:Subject:Date:Date:Message-ID:In-Reply-To:References:MIME-Version:Content-Transfer-Encoding:Content-Type:Message-Id:Reply-To;
-	bh=TdX9/bZga6Qg6ao7lAnopeSLFZmhgNqsCFRMGQo40M0=;
-	b=R0mlm6TVO+9eUKq9MnKnKU3dLEa/hEkLVmVw68chR+YqDd8tvgRJEpMlFBM5I/5b
-	c6+TcHKMz7YIBp1eqtoYItnX8cbubTExtEOZ+GY+weuPi7GZAMLommCqfp7gb4Fd1hy
-	09jBTk09vbl4tp4nh1BvU45oHlAvHghEBJXyExbE=
-Received: by mx.zohomail.com with SMTPS id 1779983186292414.93444418879574;
-	Thu, 28 May 2026 08:46:26 -0700 (PDT)
-From: Nicolas Frattaroli <nicolas.frattaroli@collabora.com>
-To: Heikki Krogerus <heikki.krogerus@linux.intel.com>,
- Greg Kroah-Hartman <gregkh@linuxfoundation.org>,
- Dmitry Baryshkov <dmitry.baryshkov@oss.qualcomm.com>,
- Peter Chen <hzpeterchen@gmail.com>,
- Luca Ceresoli <luca.ceresoli@bootlin.com>, Rob Herring <robh@kernel.org>,
- Krzysztof Kozlowski <krzk+dt@kernel.org>, Conor Dooley <conor+dt@kernel.org>,
- Vinod Koul <vkoul@kernel.org>, Kishon Vijay Abraham I <kishon@kernel.org>,
- Heiko Stuebner <heiko@sntech.de>, Sandy Huang <hjc@rock-chips.com>,
- Andy Yan <andy.yan@rock-chips.com>,
- Yubing Zhang <yubing.zhang@rock-chips.com>,
- Frank Wang <frank.wang@rock-chips.com>,
- Andrzej Hajda <andrzej.hajda@intel.com>,
- Neil Armstrong <neil.armstrong@linaro.org>, Robert Foss <rfoss@kernel.org>,
- Laurent Pinchart <Laurent.pinchart@ideasonboard.com>,
- Jonas Karlman <jonas@kwiboo.se>, Jernej Skrabec <jernej.skrabec@gmail.com>,
- Maarten Lankhorst <maarten.lankhorst@linux.intel.com>,
- Maxime Ripard <mripard@kernel.org>, Thomas Zimmermann <tzimmermann@suse.de>,
- David Airlie <airlied@gmail.com>, Simona Vetter <simona@ffwll.ch>,
- Amit Sunil Dhamne <amitsd@google.com>, Dragan Simic <dsimic@manjaro.org>,
- Johan Jonker <jbx6244@gmail.com>, Diederik de Haas <didi.debian@cknow.org>,
- Peter Robinson <pbrobinson@gmail.com>, Hugh Cole-Baker <sigmaris@gmail.com>,
- dri-devel@lists.freedesktop.org, Chaoyi Chen <kernel@airkyi.com>
-Cc: linux-usb@vger.kernel.org, devicetree@vger.kernel.org,
- linux-kernel@vger.kernel.org, linux-phy@lists.infradead.org,
- linux-arm-kernel@lists.infradead.org, linux-rockchip@lists.infradead.org,
- dri-devel@lists.freedesktop.org, Chaoyi Chen <chaoyi.chen@rock-chips.com>
-Subject: Re: [PATCH v15 2/9] drm/bridge: aux: Add drm_aux_bridge_register_from_node()
-Date: Thu, 28 May 2026 17:46:15 +0200
-Message-ID: <zQEH3WYtRMCn07SWaZMzgQ@collabora.com>
-In-Reply-To: <20260304094152.92-3-kernel@airkyi.com>
-References: <20260304094152.92-1-kernel@airkyi.com>
- <20260304094152.92-3-kernel@airkyi.com>
+	id 1wSd3F-00000005wfG-2tDi;
+	Thu, 28 May 2026 15:53:41 +0000
+Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
+	by tor.source.kernel.org (Postfix) with ESMTP id D2CCD6014B;
+	Thu, 28 May 2026 15:53:40 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 319881F000E9;
+	Thu, 28 May 2026 15:53:38 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
+	s=k20260515; t=1779983620;
+	bh=aqOl4KJ+POyxHhW5KeMjbKtaqry36nNsOelFZ1HL0ac=;
+	h=Date:From:To:Cc:Subject:References:In-Reply-To;
+	b=DxhI0M0P7/GNtmHmDIp57e9c+ffTuUabCpKnKORQeXlGYCrvUPbtd0sq5ZKyWkIKw
+	 JKm3mnIuOvfB/cJfuoakhBuVwcEeijXIXT9HIDU098Oa1SkMa9/HCIXmTNWqI4NR6G
+	 uKW9UahepMUSIa6o4qRB1uHttXj066AWRLnpFxZJY/+hqUnd1PM4ec11Uc97p/PWWm
+	 +A7vaNixHBu54Www1A+iO3KWM3APVdM8CTFyc6Of3fIqJ2cOIcBkjyCkvwaEHOgLqS
+	 U0M/g4vJ1rDXRvFZUH7d5ZVtVsmE6Z9kU/meOODWz0N1ufbGB+yevcI0sA/GOkT0TG
+	 58CcjYxmPgmsw==
+Date: Thu, 28 May 2026 16:53:35 +0100
+From: Mark Brown <broonie@kernel.org>
+To: Valerio Setti <vsetti@baylibre.com>
+Cc: Jerome Brunet <jbrunet@baylibre.com>,
+	Liam Girdwood <lgirdwood@gmail.com>,
+	Jaroslav Kysela <perex@perex.cz>, Takashi Iwai <tiwai@suse.com>,
+	Neil Armstrong <neil.armstrong@linaro.org>,
+	Kevin Hilman <khilman@baylibre.com>,
+	Martin Blumenstingl <martin.blumenstingl@googlemail.com>,
+	linux-kernel@vger.kernel.org, linux-sound@vger.kernel.org,
+	linux-arm-kernel@lists.infradead.org,
+	linux-amlogic@lists.infradead.org
+Subject: Re: [PATCH 4/4] ASoC: meson: aiu: use aiu-formatter-i2s to format
+ I2S output data
+Message-ID: <512b2bb6-620f-428f-9724-73972e589c46@sirena.org.uk>
+References: <20260515-reshape-aiu-as-axg-v1-0-53b457784ff3@baylibre.com>
+ <20260515-reshape-aiu-as-axg-v1-4-53b457784ff3@baylibre.com>
+ <758a4ef9-1a3e-475a-ae1e-83523330d006@sirena.org.uk>
+ <891be10c-99f1-45b7-bd31-ec5080cfc780@baylibre.com>
+ <a5aa2965-3651-4927-acff-51eee2e4ab4a@baylibre.com>
 MIME-Version: 1.0
-Content-Transfer-Encoding: 7Bit
-Content-Type: text/plain; charset="utf-8"
-X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260528_084701_182861_1DCBC4CE 
-X-CRM114-Status: GOOD (  23.31  )
+Content-Type: multipart/signed; micalg=pgp-sha512;
+	protocol="application/pgp-signature"; boundary="19pjvJBHzpq/adui"
+Content-Disposition: inline
+In-Reply-To: <a5aa2965-3651-4927-acff-51eee2e4ab4a@baylibre.com>
+X-Cookie: Someone is speaking well of you.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -99,120 +81,41 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Wednesday, 4 March 2026 10:41:45 Central European Summer Time Chaoyi Chen wrote:
-> From: Chaoyi Chen <chaoyi.chen@rock-chips.com>
-> 
-> The drm_aux_bridge_register() uses the device->of_node as the
-> bridge->of_node.
-> 
-> This patch adds drm_aux_bridge_register_from_node() to allow
-> specifying the of_node corresponding to the bridge.
-> 
-> Signed-off-by: Chaoyi Chen <chaoyi.chen@rock-chips.com>
-> Reviewed-by: Neil Armstrong <neil.armstrong@linaro.org>
-> ---
-> 
-> (no changes since v11)
-> ---
-> 
->  drivers/gpu/drm/bridge/aux-bridge.c | 24 ++++++++++++++++++++++--
->  include/drm/bridge/aux-bridge.h     |  6 ++++++
->  2 files changed, 28 insertions(+), 2 deletions(-)
-> 
-> diff --git a/drivers/gpu/drm/bridge/aux-bridge.c b/drivers/gpu/drm/bridge/aux-bridge.c
-> index b3e4cdff61d6..52dff4601c2d 100644
-> --- a/drivers/gpu/drm/bridge/aux-bridge.c
-> +++ b/drivers/gpu/drm/bridge/aux-bridge.c
-> @@ -35,6 +35,7 @@ static void drm_aux_bridge_unregister_adev(void *_adev)
->  /**
->   * drm_aux_bridge_register - Create a simple bridge device to link the chain
 
-Function name needs to be changed here as well. You can validate
-kernel doc strings for a single file with:
+--19pjvJBHzpq/adui
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
 
-  ./tools/docs/kernel-doc -v -none drivers/gpu/drm/bridge/aux-bridge.c
+On Thu, May 28, 2026 at 05:01:59PM +0200, Valerio Setti wrote:
 
-With that fixed:
+> I have 2 alternative proposals for this:
 
-Reviewed-by: Nicolas Frattaroli <nicolas.frattaroli@collabora.com>
+> - Change the default value of "HDMI CTRL SRC" so that at boot it's set to
+> some working configuration (ex: "I2S"). This should be done somewhere in
+> "aiu-codec-ctrl" I think.
+> - Run the 'amixer' command above before running ALSA tests.
 
-Kind regards,
-Nicolas Frattaroli
+> Any suggestion on what's the best approach?
 
->   * @parent: device instance providing this bridge
-> + * @np: device node pointer corresponding to this bridge instance
->   *
->   * Creates a simple DRM bridge that doesn't implement any drm_bridge
->   * operations. Such bridges merely fill a place in the bridge chain linking
-> @@ -42,7 +43,7 @@ static void drm_aux_bridge_unregister_adev(void *_adev)
->   *
->   * Return: zero on success, negative error code on failure
->   */
-> -int drm_aux_bridge_register(struct device *parent)
-> +int drm_aux_bridge_register_from_node(struct device *parent, struct device_node *np)
->  {
->  	struct auxiliary_device *adev;
->  	int ret;
-> @@ -62,7 +63,10 @@ int drm_aux_bridge_register(struct device *parent)
->  	adev->dev.parent = parent;
->  	adev->dev.release = drm_aux_bridge_release;
->  
-> -	device_set_of_node_from_dev(&adev->dev, parent);
-> +	if (np)
-> +		device_set_node(&adev->dev, of_fwnode_handle(np));
-> +	else
-> +		device_set_of_node_from_dev(&adev->dev, parent);
->  
->  	ret = auxiliary_device_init(adev);
->  	if (ret) {
-> @@ -80,6 +84,22 @@ int drm_aux_bridge_register(struct device *parent)
->  
->  	return devm_add_action_or_reset(parent, drm_aux_bridge_unregister_adev, adev);
->  }
-> +EXPORT_SYMBOL_GPL(drm_aux_bridge_register_from_node);
-> +
-> +/**
-> + * drm_aux_bridge_register - Create a simple bridge device to link the chain
-> + * @parent: device instance providing this bridge
-> + *
-> + * Creates a simple DRM bridge that doesn't implement any drm_bridge
-> + * operations. Such bridges merely fill a place in the bridge chain linking
-> + * surrounding DRM bridges.
-> + *
-> + * Return: zero on success, negative error code on failure
-> + */
-> +int drm_aux_bridge_register(struct device *parent)
-> +{
-> +	return drm_aux_bridge_register_from_node(parent, NULL);
-> +}
->  EXPORT_SYMBOL_GPL(drm_aux_bridge_register);
->  
->  struct drm_aux_bridge_data {
-> diff --git a/include/drm/bridge/aux-bridge.h b/include/drm/bridge/aux-bridge.h
-> index c2f5a855512f..7dd1f17a1354 100644
-> --- a/include/drm/bridge/aux-bridge.h
-> +++ b/include/drm/bridge/aux-bridge.h
-> @@ -13,11 +13,17 @@ struct auxiliary_device;
->  
->  #if IS_ENABLED(CONFIG_DRM_AUX_BRIDGE)
->  int drm_aux_bridge_register(struct device *parent);
-> +int drm_aux_bridge_register_from_node(struct device *parent, struct device_node *np);
->  #else
->  static inline int drm_aux_bridge_register(struct device *parent)
->  {
->  	return 0;
->  }
-> +
-> +static inline int drm_aux_bridge_register_from_node(struct device *parent, struct device_node *np)
-> +{
-> +	return 0;
-> +}
->  #endif
->  
->  #if IS_ENABLED(CONFIG_DRM_AUX_HPD_BRIDGE)
-> 
+Having to set routing is usually fine, I do that for a bunch of my
+boards but not Potato.  The only issue with this is that if people
+upgrade the kernel they'll see audio break so ideally we'd have the same
+default behaviour as we had before.
 
+--19pjvJBHzpq/adui
+Content-Type: application/pgp-signature; name="signature.asc"
 
+-----BEGIN PGP SIGNATURE-----
 
+iQEzBAABCgAdFiEEreZoqmdXGLWf4p/qJNaLcl1Uh9AFAmoYZP4ACgkQJNaLcl1U
+h9Djiwf8DPaQRmX/EbpoL63XEFpABecPfcnnkx3fq7lRA3ljGP15t7UDi1OBbLKp
+qsBm1nynYHc6+rmSYN9WiEaVD02YDD8vQE2bz8gEwqsskC6fZKBM8t4ru/+epCqa
+PF9AWcGXca3zx6kTenw+CgxpX2qufynlE/Os6+3XDNbHXUAVgSY2U0aALKB92uHZ
+pHDS7XPT2nuWpuPollt7JUrxF6rUxhInQryAl7wt0EC2BelQ/AB9ozIOn3kG73Xg
+01WpDT+ql4AP9M5+PHFL6UAQme0RYN2rS6kzSN/eZbzR/sJGcInsW8PvII+o93+O
+SxxdCbgl792e+6v5xuSoQEzlwBM0dQ==
+=qkk7
+-----END PGP SIGNATURE-----
 
+--19pjvJBHzpq/adui--
 
