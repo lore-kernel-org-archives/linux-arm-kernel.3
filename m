@@ -4,110 +4,91 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 8BC5FCD6E49
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 28 May 2026 21:55:29 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id DAE12CD4F54
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 28 May 2026 21:57:21 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:References
-	:Message-Id:Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:
-	From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=CNQvp/eWwkD2QZuuf9D2poX/9RA0ShD7oqYYx3ps+FU=; b=d+ZfR9/vzso78VYJtrQ3PNGWGm
-	eqW/HNSOsKmO2W1cBK7d5fH16Gas0HxRwkYKkaqo2q952pGQ5Or9iVhv7eYlouFTf0LTzpqsG6OVo
-	SBP/xaCRfe0w8C41SoX8FZ6plIcBxLBbh+wphEs8mCJqUx14u3Sz3krSHZg3eHG5lGL3Gzjfpj5dy
-	V8gNiTvFETbqKnYV8Zk2ssZniczHnUBz9HVfAwK3cwQSeNxENZVu0bZzIb81UvW+KERykFNetxWAP
-	/oh6ZIYGdziD21hj4otUk+JU10++YASzy7GEs00GDiu+hYa4tnTI5Bt8CvQdUwjeF70Oawelhxq8J
-	dEurSDZQ==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=W2GShboWfCH+geXdhp6U7pMNHFToJXb2v7Io6huPy9A=; b=xNVqu/DtvctOqrxwc10bOktZRH
+	vY9y+AX6grgctDjDX3tJbnuIXX+OWlp2zp7kUVbHHSsuH9VQcJV5YRSt7y1FPYDxmxuR0xnPKCiIT
+	nGzshuHG8bG3jPa72tobIGuMtwU0hDLoNQksvevNtF3/DyhWP7DmQ5o8uGFaeYFJ1L7qBm4zAxgZV
+	HKdgqxmxXSarythqx46+r+nHhZttd1OCGiKmVBMb8s9il+xanmgIIniVB7fe1umG7V3UXSyLTBQID
+	ffAAEFJtzaybDUAxwRB9rIYqJ8E/uM5s9LSeAnRSmlEuqnULpIHM2/r7cBuiRAw+tAkcPcnr7TRHm
+	1NpduNqA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wSihH-00000006QqB-1lFT;
-	Thu, 28 May 2026 21:55:23 +0000
-Received: from mail-wm1-x32b.google.com ([2a00:1450:4864:20::32b])
+	id 1wSij4-00000006RFS-2iim;
+	Thu, 28 May 2026 21:57:14 +0000
+Received: from mail-pl1-x635.google.com ([2607:f8b0:4864:20::635])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wSihC-00000006QmH-0LtA
+	id 1wSij2-00000006REw-3eUW
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 28 May 2026 21:55:21 +0000
-Received: by mail-wm1-x32b.google.com with SMTP id 5b1f17b1804b1-49041fb8c23so55351735e9.0
-        for <linux-arm-kernel@lists.infradead.org>; Thu, 28 May 2026 14:55:17 -0700 (PDT)
+	Thu, 28 May 2026 21:57:13 +0000
+Received: by mail-pl1-x635.google.com with SMTP id d9443c01a7336-2ba180a022dso935ad.1
+        for <linux-arm-kernel@lists.infradead.org>; Thu, 28 May 2026 14:57:12 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20251104; t=1780005316; x=1780610116; darn=lists.infradead.org;
-        h=cc:to:in-reply-to:references:message-id:content-transfer-encoding
-         :mime-version:subject:date:from:from:to:cc:subject:date:message-id
-         :reply-to;
-        bh=CNQvp/eWwkD2QZuuf9D2poX/9RA0ShD7oqYYx3ps+FU=;
-        b=cF67GJy0c0Jd1eDETpvcInoI+9XoMgs9kglUP/+iIcMVH6r0EVKfW+S27YurN3Acn7
-         NEMnkoTk/ApKH29BbcMMoEnf9dqhpV6c54lPqu6Mib6BNBF5UItc+JzBWfjRw1cWH7af
-         KSM61HW48bR9xdinqRDTe0luO5YWNLtoKNFa5c5V5lsF0QNgAl6tb+F7/CoLzg8v2s6A
-         1PVaTXuNOViXTblQP0O1gYzGu3i5FM88RWRzgvtK7tX2SMpK93LdTbYvYFI6LLxoZ8TU
-         tFcm1Tuu2ribEJnNkGf8K/nzxafV5gtLrr/p8E1s+shebfd5FHm9PHp4pR56CQVIouFU
-         sl4Q==
+        d=google.com; s=20251104; t=1780005432; x=1780610232; darn=lists.infradead.org;
+        h=in-reply-to:content-disposition:mime-version:references:message-id
+         :subject:cc:to:from:date:from:to:cc:subject:date:message-id:reply-to;
+        bh=W2GShboWfCH+geXdhp6U7pMNHFToJXb2v7Io6huPy9A=;
+        b=tLKTE6Un/ZrH7xQwkQaMC4HQ8GGVCp/SKiSZZymsDsGgbXMPgE0jn6UmYt0tnqNuSw
+         /kg9e1KnEDYkWTtDMg6DOholXwAR76PP64veGBb70BJI/q2EggavtXM/RT0LPnkYvshd
+         N5aui7cioq0B96626Zte9ULw/8bzbxqKyN1vpheka2yz9hYhs4OgBO/p0yYglKIDPz1y
+         ETJ4Wmwfpx24JZOfP/898GS/g59UB6ezj7O6b/FfE6r9NTc56/ESv8uGzvq4vh368sWa
+         2w4TSImAE8rwlCT3iRaTfYHtu6jQ76uZBFP6p+PkEvMHjmNpfcMCMroj2jhBZXqsI/EY
+         RK5Q==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20251104; t=1780005316; x=1780610116;
-        h=cc:to:in-reply-to:references:message-id:content-transfer-encoding
-         :mime-version:subject:date:from:x-gm-gg:x-gm-message-state:from:to
-         :cc:subject:date:message-id:reply-to;
-        bh=CNQvp/eWwkD2QZuuf9D2poX/9RA0ShD7oqYYx3ps+FU=;
-        b=kvOg5CqGDorUZXdJikMdKziDnpIsZO5k3HbEqr0ohsMxYyoo4Z/+Uh3xnLCgteLQyA
-         DScfkPCmRaPSsxLjAfKTD6JPbzxx6e7ZAPOxzzXfKKQvzm/lDohbsQbD9uSHKVXg+04/
-         NCyrbvBhMo8NYkKErcXeRFOhnNtaMLUPLsp8RY5XuLr+wbRl+6ive+RSlZQMfc3sAN75
-         R/gzDmfk62DIfmVwJrmAl0M5RScuHVpSW8BjV6zJmRUgRPkw9jJd9Cq6UYQoB6BuwvkP
-         SBY/+zGaWbzSRFdwN9Cg8WtcEI6Wl0/+cTZ3OrQp2Q+hJUYRspqv06XLjLInZFxRaWym
-         8XIQ==
-X-Forwarded-Encrypted: i=1; AFNElJ9K5sKLPEN8nEcuCFfFiG6I2J9CbgvEpA0Uqtl27/iirb+49xiznfKhew1bFNBlN7j0+SBn4H7FoLVARwFxoa+5@lists.infradead.org
-X-Gm-Message-State: AOJu0YzfpqBaZhraUzculV3X7V5LNvIRnELACM0PgTxu4eAfBQJdXP1D
-	VEr1t9nTdiuXM26UXx9djp2aWrJAOaeRTYAnEGKXQxI9ZEmmG5cfv3y9YfdNUnfgpIfHYg==
-X-Gm-Gg: Acq92OFqYV11IeGEktPzzIuwvP1XkBu67FSHJ0mNGxvXXfvOZ1jq+yM6Nbb3HsYmohu
-	lZjmdq9b0cvgd128aBMEkQTtXW+zHdRV5KKtLfC36NfoHoERRT7TTXlX7rvZmMpX/1oZobH1vPL
-	M/pbQaNcw0aCciY+xBLe44SJutxmM+/k7P5QDIqYSbnDUUriVArYd7yakIvLsINiHV+lIfAfQom
-	49OMhwqlGIo2EKniQnKxj+gawO9zLThQ61SIltDAcGxw1IadaiDio5XiNuWe4UIqe5JNbHWSVHc
-	xZqXhhhXd9U4Y2u9mKRLAk+gCAnBRLci9XHtufHZc7NJNPD21h2CJwFIw5Me5Eywginu0eajLoq
-	58tH1aF9D326BQmOO6JckZbJlrzlFz2yHjn13UU1XTP0HMW84YSonPDJkM6rg3l8rJWzJpJz8jD
-	7b94UAHPMkPdpZQn4R1naokW1kxqHmRBOodp1TbvqJYHrf
-X-Received: by 2002:a05:600c:2113:b0:490:845e:3a6 with SMTP id 5b1f17b1804b1-4909c0b706amr2630715e9.25.1780005316082;
-        Thu, 28 May 2026 14:55:16 -0700 (PDT)
-Received: from [192.168.0.2] ([197.250.51.223])
-        by smtp.gmail.com with ESMTPSA id 5b1f17b1804b1-4909c967c6csm1191085e9.2.2026.05.28.14.55.12
+        d=1e100.net; s=20251104; t=1780005432; x=1780610232;
+        h=in-reply-to:content-disposition:mime-version:references:message-id
+         :subject:cc:to:from:date:x-gm-gg:x-gm-message-state:from:to:cc
+         :subject:date:message-id:reply-to;
+        bh=W2GShboWfCH+geXdhp6U7pMNHFToJXb2v7Io6huPy9A=;
+        b=isbdE9yh9AyGVozj3oeb/FObt7sNljaEY7dg5QKGJK1qaeJHUtIxXJ34soUwr/Yi22
+         BzKUnpDBRI8SJ2yYkxHw0E/+1xp6RzlQYA4+L1GuakuxbmQ5eichZqFEur08z7SMrv75
+         s1e6DzARc83YjYnuOMl6JiUic8TWNWDzq747LLu2UWYtU5BlZLx8Rvh6W59rNB3wNGHJ
+         rOL7pM3cqISvp2RfeZRBqve6UftfqsWQsSEQRdD07AzOrltGlEVMdOASVOij/QOTZTOP
+         j45pBZ/LInFBUlmhoSIFEFn/db5dHizrT9pKiVUE/mIWkkX1MZkf3ihR8WGIY1gh5Wts
+         96HQ==
+X-Forwarded-Encrypted: i=1; AFNElJ9sLzpdwMVzAIwXPfjJ6KsM9SZuOKgBtY7S/hGBQ/6hfiDkezzjmiOMrB3Ze3055dcfsEgqFT1fGyCPmPVc/POc@lists.infradead.org
+X-Gm-Message-State: AOJu0YxlcJw88P8Np0wFW4lvzZ8BXSOn8FJLLWWcGpBfcU8CbQJ25qvX
+	I+65aBbbCzZu9vjx5ne8buHJGz/qn5sFN0p2zX8egelwuVzvjr1sISe0IARKqisz9A==
+X-Gm-Gg: Acq92OG96KJ3CCS3/76cHA0Yzh0OqP6USvfMrWIQqj85/ePOjBjzOsiNJRr1l4/FV9W
+	V+u834O8XAsEkSjqkWKdjfaQIeqNNvHRooL48lRY6P/QVsCpV+cl8wNkQu0ibxAc4CK8Pni9sEj
+	7QNhHYGoPqLht336OXYYQnwh26NtpvE8CZkaOvf+XYCebc7ENaYI65o5FqBT4ibxoopQdiDzman
+	NeFwHnxMpLdhVeh7Ce3viDwkytDkxciyaZngc2b6MVMGEO/8ZqFPA4UI5rMRWi6TLY0PilMGg/G
+	lvJMk86+FCq3xXQmS1C517qk8aiz7zOdpVPcjKnYpPWBQ7CQGl5CZDWLLA6lFhFR2j0q8+zLY6q
+	61PgaIqPIGmg2z4FYsI8arsS0KkWomb1eE4/p/ScNMaiyKhr2k7Kzv/Gp5wxNl40IQ+cUFTRtmG
+	q4ItaTXnzyLUKE4ThnQ9h0tCwOlCmWyW8gYW8aB7Iy/EPIaTcDtTsl4wL4fZSQAfD5SRBx
+X-Received: by 2002:a17:902:e844:b0:2b0:7a9b:82f3 with SMTP id d9443c01a7336-2bf2097502dmr215445ad.8.1780005431489;
+        Thu, 28 May 2026 14:57:11 -0700 (PDT)
+Received: from google.com (44.234.124.34.bc.googleusercontent.com. [34.124.234.44])
+        by smtp.gmail.com with ESMTPSA id 98e67ed59e1d1-36bbe1f9377sm46400a91.13.2026.05.28.14.57.08
         (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Thu, 28 May 2026 14:55:15 -0700 (PDT)
-From: =?utf-8?q?Stefan_D=C3=B6singer?= <stefandoesinger@gmail.com>
-Date: Fri, 29 May 2026 00:53:02 +0300
-Subject: [PATCH RFC v3 5/5] ARM: dts: zte: Declare a zx297520v3 clock
- device nodes
+        Thu, 28 May 2026 14:57:10 -0700 (PDT)
+Date: Thu, 28 May 2026 21:57:04 +0000
+From: Pranjal Shrivastava <praan@google.com>
+To: Nicolin Chen <nicolinc@nvidia.com>
+Cc: iommu@lists.linux.dev, Will Deacon <will@kernel.org>,
+	Joerg Roedel <joro@8bytes.org>, Robin Murphy <robin.murphy@arm.com>,
+	Jason Gunthorpe <jgg@ziepe.ca>, Mostafa Saleh <smostafa@google.com>,
+	Daniel Mentz <danielmentz@google.com>,
+	Ashish Mhetre <amhetre@nvidia.com>,
+	linux-arm-kernel@lists.infradead.org
+Subject: Re: [PATCH v7 05/11] iommu/arm-smmu-v3: Cache and restore MSI config
+Message-ID: <ahi6MJaAene0ogY8@google.com>
+References: <20260527221407.1756491-1-praan@google.com>
+ <20260527221407.1756491-6-praan@google.com>
+ <ahiLFoRk4xaxr2vn@Asurada-Nvidia>
 MIME-Version: 1.0
-Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: 8bit
-Message-Id: <20260529-zx29clk-v3-5-c7fe54ea388f@gmail.com>
-References: <20260529-zx29clk-v3-0-c7fe54ea388f@gmail.com>
-In-Reply-To: <20260529-zx29clk-v3-0-c7fe54ea388f@gmail.com>
-To: Michael Turquette <mturquette@baylibre.com>, 
- Stephen Boyd <sboyd@kernel.org>, Rob Herring <robh@kernel.org>, 
- Krzysztof Kozlowski <krzk+dt@kernel.org>, 
- Conor Dooley <conor+dt@kernel.org>, Philipp Zabel <p.zabel@pengutronix.de>, 
- Brian Masney <bmasney@redhat.com>
-Cc: linux-clk@vger.kernel.org, devicetree@vger.kernel.org, 
- linux-kernel@vger.kernel.org, linux-arm-kernel@lists.infradead.org, 
- =?utf-8?q?Stefan_D=C3=B6singer?= <stefandoesinger@gmail.com>
-X-Mailer: b4 0.14.3
-X-Developer-Signature: v=1; a=openpgp-sha256; l=3665;
- i=stefandoesinger@gmail.com; h=from:subject:message-id;
- bh=eKCYysFcPuaXaoisFpLloAByZzjH3S4RlmU0j/f/7Ww=;
- b=owEBiQJ2/ZANAwAIAT0TvMhUTxoiAcsmYgBqGLmonB1gQW4rZ70oU0qgrlZbtOo5IBUL5cz8K
- uiR7j+xheuJAk8EAAEIADkWIQRDFvS2qgVbJ5UyXWw9E7zIVE8aIgUCahi5qBsUgAAAAAAEAA5t
- YW51MiwyLjUrMS4xMiwyLDIACgkQPRO8yFRPGiJ44Q/8CIR9L5lArAiX4KXK9TNo8gozsOA+QtY
- xAaPTNtdFAYbufZxCearH5SOwIkECPWNXkoOHUgsqUkovgW9ytiFBM69T8PQHAbwEMq7tVnYFt3
- aE8SIFT7ExX5DKfG6TXFphrQcBkMoE1u8uv2d01pjRgs61xruYaGHsyIfjTbXn+4LIYpkGbZZcC
- p7O9mFhIkdna1PVWHx089Iq6jxx/2FOzfG0BdXVeTSNWwNhPE35VbGcTXxAIoFUECuoJZti/X6F
- zpr6kW8MY/kQ+ei71gaXAu2qrAPkg/W0NvV7owyKZAMYwGTbcDEUyxjW1yEqZSU5cGh5lpXJWjp
- uHJlsPCQ9DRQrmK/FcNaXRhE2GEMn7vZyKrKv57N1UogMS4ujjEBixkth6UjbC58nX4QNxM16Yj
- u/ctOLfzxCs5yjjvLMaTquro6kYv/Knh29PqekhtBEHq02JtZVFWUEohnBrzazD7WshWfm9Ng2q
- t5ToJPcsNzljawo7O9fBuuwqMhYqDOGhy1GZ+Ldq/f7Ft+/R4hb6hTqRREizKKl8+HhgjJQKOuJ
- pfYymxTsmB4iiTbEn4DVHLIq9DXnAQuL7Pztxvrfiq/du+2hgn2JGjSTj3G9pCbakLYCmV+qVCD
- Qnt1VogpwWWBkC2wl4JZzSECG3uiiam134qXk8hCLGtPbIBK3P2c=
-X-Developer-Key: i=stefandoesinger@gmail.com; a=openpgp;
- fpr=4F9C2C8728019633893EBBB98CB81F9A72BBA155
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+In-Reply-To: <ahiLFoRk4xaxr2vn@Asurada-Nvidia>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260528_145518_149161_0CE1F70E 
-X-CRM114-Status: GOOD (  14.12  )
+X-CRM114-CacheID: sfid-20260528_145712_930137_5C8E71E0 
+X-CRM114-Status: GOOD (  22.30  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -122,121 +103,53 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-This makes use of the driver added in the previous patches. It wires up
-the uart clocks and resets and allows getting rid of the placeholder
-uartclk node.
+On Thu, May 28, 2026 at 11:36:06AM -0700, Nicolin Chen wrote:
+> On Wed, May 27, 2026 at 10:14:01PM +0000, Pranjal Shrivastava wrote:
+> > The SMMU's MSI configuration registers (*_IRQ_CFGn) containing target
+> > address, data and memory attributes lose their state when the SMMU is
+> > powered down. We'll need to cache and restore their contents to ensure
+> > that MSIs work after the system resumes.
+> > 
+> > To address this, cache the original `msi_msg` within the `msi_desc`
+> > when the configuration is first written by `arm_smmu_write_msi_msg`.
+> > This primarily includes the target address and data since the memory
+> > attributes are fixed.
+> > 
+> > Introduce a new helper `arm_smmu_resume_msis` which will later be called
+> > during the driver's resume callback. The helper would retrieve the
+> > cached MSI message for each relevant interrupt (evtq, gerr, priq) via
+> > get_cached_msi_msg & re-config the registers via arm_smmu_write_msi_msg.
+> > 
+> > Signed-off-by: Pranjal Shrivastava <praan@google.com>
+> 
+> Reviewed-by: Nicolin Chen <nicolinc@nvidia.com>
+> 
+> > +static void arm_smmu_resume_msi(struct arm_smmu_device *smmu,
+> > +				unsigned int irq, const char *name)
+> > +{
+> > +	struct msi_desc *desc;
+> > +	struct msi_msg msg;
+> > +
+> > +	if (!irq)
+> > +		return;
+> > +
+> > +	desc = irq_get_msi_desc(irq);
+> > +	if (!desc) {
+> > +		dev_err(smmu->dev, "Failed to resume msi: %s", name);
+> > +		return;
+> > +	}
+> > +
+> > +	get_cached_msi_msg(irq, &msg);
+> 
+> I wonder if we could use __get_cached_msi_msg() since we got desc?
 
-Signed-off-by: Stefan Dösinger <stefandoesinger@gmail.com>
----
- arch/arm/boot/dts/zte/zx297520v3.dtsi | 55 ++++++++++++++++++++++++++++++-----
- 1 file changed, 47 insertions(+), 8 deletions(-)
+We could've (and that's a nice suggestion), but unfortunately it 
+(__get_cached_msi_msg) is not exported via EXPORT_SYMBOL_GPL() :(
+We could break modular builds as CONFIG_ARM_SMMU_V3 is tristate.
 
-diff --git a/arch/arm/boot/dts/zte/zx297520v3.dtsi b/arch/arm/boot/dts/zte/zx297520v3.dtsi
-index a16c30a164bb..9d80740ccf8a 100644
---- a/arch/arm/boot/dts/zte/zx297520v3.dtsi
-+++ b/arch/arm/boot/dts/zte/zx297520v3.dtsi
-@@ -4,6 +4,7 @@
-  */
- 
- #include <dt-bindings/interrupt-controller/arm-gic.h>
-+#include <dt-bindings/clock/zte,zx297520v3-clk.h>
- 
- / {
- 	#address-cells = <1>;
-@@ -20,13 +21,16 @@ cpu@0 {
- 		};
- 	};
- 
--	/* Base bus clock and default for the UART. It will be replaced once a clock driver has
--	 * been added.
--	 */
--	uartclk: uartclk-26000000 {
--		#clock-cells = <0>;
-+	osc26m: osc26m {
- 		compatible = "fixed-clock";
- 		clock-frequency = <26000000>;
-+		#clock-cells = <0>;
-+	};
-+
-+	osc32k: osc32k {
-+		compatible = "fixed-clock";
-+		clock-frequency = <32768>;
-+		#clock-cells = <0>;
- 	};
- 
- 	timer {
-@@ -70,13 +74,46 @@ gic: interrupt-controller@f2000000 {
- 			      <0xf2040000 0x20000>;
- 		};
- 
-+
-+		topclk: clk@13b000 {
-+			compatible = "zte,zx297520v3-topclk";
-+			reg = <0x0013b000 0x400>,
-+			      <0x01306000 0x400>;
-+			reg-names = "top", "matrix";
-+			#clock-cells = <1>;
-+			#reset-cells = <1>;
-+			clocks = <&osc26m>, <&osc32k>;
-+			clock-names = "osc26m", "osc32k";
-+		};
-+
-+		lspclk: clk@1400000 {
-+			compatible = "zte,zx297520v3-lspclk";
-+			reg = <0x01400000 0x100>;
-+			#clock-cells = <1>;
-+			#reset-cells = <1>;
-+
-+			clocks = <&topclk ZX297520V3_LSP_MPLL_D5_WCLK>,
-+				 <&topclk ZX297520V3_LSP_MPLL_D4_WCLK>,
-+				 <&topclk ZX297520V3_LSP_MPLL_D6_WCLK>,
-+				 <&topclk ZX297520V3_LSP_MPLL_D8_WCLK>,
-+				 <&topclk ZX297520V3_LSP_MPLL_D12_WCLK>,
-+				 <&topclk ZX297520V3_LSP_OSC26M_WCLK>,
-+				 <&topclk ZX297520V3_LSP_OSC32K_WCLK>,
-+				 <&topclk ZX297520V3_LSP_PCLK>,
-+				 <&topclk ZX297520V3_LSP_TDM_WCLK>,
-+				 <&topclk ZX297520V3_LSP_DPLL_D4_WCLK>;
-+			clock-names = "mpll_d5", "mpll_d4", "mpll_d6", "mpll_d8", "mpll_d12",
-+				      "osc26m", "osc32k", "pclk", "tdm_wclk", "dpll_d4";
-+		};
-+
- 		uart0: serial@131000 {
- 			compatible = "arm,pl011", "arm,primecell";
- 			arm,primecell-periphid = <0x0018c011>;
- 			reg = <0x00131000 0x1000>;
- 			interrupts = <GIC_SPI 0 IRQ_TYPE_LEVEL_HIGH>;
--			clocks = <&uartclk>, <&uartclk>;
-+			clocks = <&topclk ZX297520V3_UART0_WCLK>, <&topclk ZX297520V3_UART0_PCLK>;
- 			clock-names = "uartclk", "apb_pclk";
-+			resets = <&topclk ZX297520V3_UART0_RESET>;
- 			status = "disabled";
- 		};
- 
-@@ -85,8 +122,9 @@ uart1: serial@1408000 {
- 			arm,primecell-periphid = <0x0018c011>;
- 			reg = <0x01408000 0x1000>;
- 			interrupts = <GIC_SPI 1 IRQ_TYPE_LEVEL_HIGH>;
--			clocks = <&uartclk>, <&uartclk>;
-+			clocks = <&lspclk ZX297520V3_UART1_WCLK>, <&lspclk ZX297520V3_UART1_PCLK>;
- 			clock-names = "uartclk", "apb_pclk";
-+			resets = <&lspclk ZX297520V3_UART1_RESET>;
- 			status = "disabled";
- 		};
- 
-@@ -95,8 +133,9 @@ uart2: serial@140d000 {
- 			arm,primecell-periphid = <0x0018c011>;
- 			reg = <0x0140d000 0x1000>;
- 			interrupts = <GIC_SPI 2 IRQ_TYPE_LEVEL_HIGH>;
--			clocks = <&uartclk>, <&uartclk>;
-+			clocks = <&lspclk ZX297520V3_UART2_WCLK>, <&lspclk ZX297520V3_UART2_PCLK>;
- 			clock-names = "uartclk", "apb_pclk";
-+			resets = <&lspclk ZX297520V3_UART2_RESET>;
- 			status = "disabled";
- 		};
- 	};
+Let me know if you have a strong preference about exporting it, we can
+add a patch in the next versions.
 
--- 
-2.53.0
-
+Thanks,
+Praan
 
