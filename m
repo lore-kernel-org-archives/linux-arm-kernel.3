@@ -4,152 +4,114 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 585EACD5BD5
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 28 May 2026 06:52:56 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 0B37FCD5BD1
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 28 May 2026 06:55:32 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:
-	Content-Transfer-Encoding:Content-Type:References:In-Reply-To:Message-Id:Date
-	:Subject:Cc:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=qObcuM4ItGMaZbAEuFq/nYOTBIP4xgtc6m4C2E9eJJ0=; b=m6tPiZNWY3gX0oGM4j+6/s/S1U
-	x6Gr90menC3BbCebT0fazs6EwaV7d+khxcjyVWltID4BHAhKwjGMknUv2nznxqrLciOgOadJv2Qcy
-	vAU7dZCuR1CEhbcOP8bX+ih69CBugLdQGBfVw8k2Veo5ns55GwVuauSx7Li3IPkI570O6Mq/wM6WS
-	7f0px8ZNWt6RV1Qqz93ER4Ga2EEXB0gHxLE5fZybEoidbonm17zjvOLO21FUSHLHfr3NfwmVwzQFM
-	q21ey6nvnD+4poVpu268sqCLHdSMiOzmprUcJVhvwoQ1H295H2k4uLBYMzIl/IyeBst9kdZqhy4e0
-	P2sdXwMQ==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
+	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=5mmDhoG17mw4NgiWZMgx23xHdUQBzuYviNZS63oMCAI=; b=40WvjpB/3+Z3cF5cWmOIV+UVPp
+	2Vtkncyc5aYAmAiRVG1y1ZHynzGvxo37iZF9DsbNf6UhKWW11U85NpDURn2/wehpMfmp70pKaXXgd
+	PfDcL9+PlMcUF9QpSH6iESwiC//y4L8XV6xb1VvMmnrpI6A5y4DiPrA8AGFSFef7E0M4p2OwdU0OO
+	amEJHWTEEX9qlXLl8xsVBKQdWz5p56EWvDYxIyrdLfncX4pSA+SHfO1/oTXEIWUORVJa5hO4EfGfu
+	ZIk5lSPYbl5LQJdnlQJSbREUqUyBMVlxvfKG45q0velV4VWfTBWL5SdyGhLJAYADbmq6wyZ0kYC84
+	L9K+RVNQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wSUbp-00000005ECi-1O6R;
-	Thu, 28 May 2026 06:52:49 +0000
-Received: from mail-westeuropeazlp170130006.outbound.protection.outlook.com ([2a01:111:f403:c201::6] helo=AM0PR02CU008.outbound.protection.outlook.com)
+	id 1wSUeL-00000005ERN-34Fi;
+	Thu, 28 May 2026 06:55:25 +0000
+Received: from us-smtp-delivery-124.mimecast.com ([170.10.129.124])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wSUbi-00000005EAJ-0fY2
+	id 1wSUeI-00000005EQr-408K
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 28 May 2026 06:52:43 +0000
-ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
- b=kTLwQt3IcTMTH8O4J+F57ml7+FXnThuaTzDMYjB9o74WE3GxFW45u8C/tYmLnfJWqBZfENfrIUO2zfmzaoRNhfapgwnc4yC0U6NGNU9R5E86NNWuamlNIRUhLHLhJj/DiaRZ1qDVg0inqyeliPbHblgjNKm2T+4k0Lm5ZF+65TOJkIKpdRYloJwFENg+NHdJgbt3u6j2IX0GnYXAwnlOuU8Q/1BK4MYYwA0/4NthCvxCw5xb8Q0ZndKDkz0cwS/et/4siM7a/FITVD04fR8hTSNVr721EnS5O493Sd7eCZjp5MmpmaKdv5eWgXVdiJiC7fwVggK1BEqvGFEB/oEGRg==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
- s=arcselector10001;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
- bh=qObcuM4ItGMaZbAEuFq/nYOTBIP4xgtc6m4C2E9eJJ0=;
- b=r+SAJc4VlZN+EXP5ezrDuF90Htg0jGWUGOklrZl8hh5tVoG/MDpEYmGrC49o6PtMGYluDIeN9gOh2IeXR1fDXfixrTGtOGRN5JUuteLQs9qk5DX+OlvWzN7SNvZl49TpC/PUaY1d2B7Vp5/ltugOh7UgsaKpvAtAExy99dYCGg6izWm2M4yM905KWJCbUJcSbknRlOOODeI+VNvDIkgkRqrfXRat1aMaOaaUST4DxDbBWg9IsfIlBJyBXKQOXUdJBx646yki+jCe7sm/EiJbUk3M4GxgAXF0UBDA8eVRNaexNfPjrWAgdi81VkBXkttGPS5/6LPZPAIMMSwl1DLvBA==
-ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
- smtp.mailfrom=oss.nxp.com; dmarc=pass action=none header.from=oss.nxp.com;
- dkim=pass header.d=oss.nxp.com; arc=none
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=NXP1.onmicrosoft.com;
- s=selector1-NXP1-onmicrosoft-com;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
- bh=qObcuM4ItGMaZbAEuFq/nYOTBIP4xgtc6m4C2E9eJJ0=;
- b=Wx4yEjKy1XpxBqYBnS94Cz/Ru/iiSIw7SdcaqMYmRR4A/w9o333i7tHEQRLArGc9EaZhAQVqhLX+OI3CrJRxvB6BOPvY1nGizmYUzP3nPdhKNzPirV3CXS4trl7ayMrL3LmIj05+gnshZAhCY8PtNT22WcqgaxXER4qedX1ruJ9Y1KP4gNR8yvzA5PV8OhaSaYG88PkJlfEWbn3xq90qBkM0cC8lcOZBCYH45fjIqjTZXqtsy2XsHS/W2a1UPJHmh6sb8BdsFl7FUp+41iACOuziJAxpBf7Q3ZGotsec016czuGMg6r3tnHSq5gdlCrAPN7MnJfb7ncDnpC1xl73Fw==
-Authentication-Results: dkim=none (message not signed)
- header.d=none;dmarc=none action=none header.from=oss.nxp.com;
-Received: from AM9PR04MB8179.eurprd04.prod.outlook.com (2603:10a6:20b:3b5::20)
- by DUYPR04MB12692.eurprd04.prod.outlook.com (2603:10a6:10:65d::20) with
- Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.21.71.13; Thu, 28 May
- 2026 06:52:37 +0000
-Received: from AM9PR04MB8179.eurprd04.prod.outlook.com
- ([fe80::a551:cde0:6730:1d85]) by AM9PR04MB8179.eurprd04.prod.outlook.com
- ([fe80::a551:cde0:6730:1d85%6]) with mapi id 15.21.0071.011; Thu, 28 May 2026
- 06:52:37 +0000
-From: Khristine Andreea Barbulescu <khristineandreea.barbulescu@oss.nxp.com>
-To: Chester Lin <chester62515@gmail.com>,
-	Matthias Brugger <mbrugger@suse.com>,
-	Ghennadi Procopciuc <ghennadi.procopciuc@oss.nxp.com>,
-	Frank Li <Frank.Li@nxp.com>,
-	Sascha Hauer <s.hauer@pengutronix.de>,
-	Fabio Estevam <festevam@gmail.com>,
-	Rob Herring <robh@kernel.org>,
-	Krzysztof Kozlowski <krzk+dt@kernel.org>,
-	Conor Dooley <conor+dt@kernel.org>
-Cc: Pengutronix Kernel Team <kernel@pengutronix.de>,
-	linux-arm-kernel@lists.infradead.org,
-	imx@lists.linux.dev,
-	devicetree@vger.kernel.org,
-	linux-kernel@vger.kernel.org,
-	NXP S32 Linux <s32@nxp.com>,
-	Christophe Lizzi <clizzi@redhat.com>,
-	Alberto Ruiz <aruizrui@redhat.com>,
-	Enric Balletbo <eballetb@redhat.com>
-Subject: [PATCH 1/1] arm64: dts: s32g: add PWM support for s32g2 and s32g3
-Date: Thu, 28 May 2026 08:52:28 +0200
-Message-Id: <20260528065228.1300779-2-khristineandreea.barbulescu@oss.nxp.com>
-X-Mailer: git-send-email 2.34.1
-In-Reply-To: <20260528065228.1300779-1-khristineandreea.barbulescu@oss.nxp.com>
-References: <20260528065228.1300779-1-khristineandreea.barbulescu@oss.nxp.com>
-Content-Type: text/plain; charset=UTF-8
-Content-Transfer-Encoding: 8bit
-X-ClientProxiedBy: FR4P281CA0147.DEUP281.PROD.OUTLOOK.COM
- (2603:10a6:d10:b8::7) To AM9PR04MB8179.eurprd04.prod.outlook.com
- (2603:10a6:20b:3b5::20)
+	Thu, 28 May 2026 06:55:24 +0000
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=redhat.com;
+	s=mimecast20190719; t=1779951321;
+	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
+	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
+	 content-transfer-encoding:content-transfer-encoding:
+	 in-reply-to:in-reply-to:references:references;
+	bh=5mmDhoG17mw4NgiWZMgx23xHdUQBzuYviNZS63oMCAI=;
+	b=KwLoRPhvQNGrBSFMTwsyRynXML2CBXGc+HacSxn2fxDFWLQbPN1zz8yHhWcE3/BFkwBveY
+	JDc/IGN+8XjIC2ogkCMHQoxVuRu9qbWc8+lkHavZ30IOdyGkpnEU7/GQmix0ZddiM60MJ5
+	vhLwR0XXbg7AXP9HeLrCt468hsxcRDw=
+Received: from mail-pg1-f197.google.com (mail-pg1-f197.google.com
+ [209.85.215.197]) by relay.mimecast.com with ESMTP with STARTTLS
+ (version=TLSv1.3, cipher=TLS_AES_256_GCM_SHA384) id
+ us-mta-627-uaU_ls0iPP6eut-t6NVKMQ-1; Thu, 28 May 2026 02:55:19 -0400
+X-MC-Unique: uaU_ls0iPP6eut-t6NVKMQ-1
+X-Mimecast-MFC-AGG-ID: uaU_ls0iPP6eut-t6NVKMQ_1779951319
+Received: by mail-pg1-f197.google.com with SMTP id 41be03b00d2f7-c829366cf25so16148076a12.0
+        for <linux-arm-kernel@lists.infradead.org>; Wed, 27 May 2026 23:55:19 -0700 (PDT)
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20251104; t=1779951318; x=1780556118;
+        h=content-transfer-encoding:in-reply-to:from:content-language
+         :references:cc:to:subject:user-agent:mime-version:date:message-id
+         :x-gm-gg:x-gm-message-state:from:to:cc:subject:date:message-id
+         :reply-to;
+        bh=5mmDhoG17mw4NgiWZMgx23xHdUQBzuYviNZS63oMCAI=;
+        b=cceSGwrRh76NKE34zYhC+vDqswpo8lWk+3I1SUQEa+dbmbLQ12fCAM3BoCSgSdQ5Nm
+         qvlqvBTC7Az/LjgYbq2gMe2/laTPBN9R3DbJypcpSp5/oJxWdK1f30AkvZ0CVo50rCWM
+         83RFT2QpuxeNk11qPVNgoNPJORXkZXQNeGT2d7pFjWdRFdjSAX/QibBRL0q6ONAiqEMc
+         Jbo80gXEG/XzusmIw9JcGeAn0wWO0ht3XgXdFVgfL/MS60PG8qtd5guI3wnft63NvWXg
+         +dseqmezhuz5Cz4PY3WgpHPIZkMx25C6byaeonHNs5qlYLt/4+XPpVyW8pDO0CdH5N5N
+         eYQA==
+X-Forwarded-Encrypted: i=1; AFNElJ8LWan6+wHQP2tN/EWyd2KVUmLSuSFMvxpHwgof/Nyto3TTLQgKV2hvJewVLx8NA7HEaANWcu4clIiQAvDN3Pue@lists.infradead.org
+X-Gm-Message-State: AOJu0YxC3dA/Slk+GD4UmSb5cenf+0mYXOZaRc3xzZ/g/ZF7GEBfKDRm
+	4zxRHtxVo8Z/2rUU0cXfDGQCcGwZC382lYVv8SKxF29121/9ZGGsOmg3BmYYlgvnlTHAEu6vVVY
+	+SSaZ4EVj4dPjjjaWNt+231/2qx9O29QAxOCkX7JTXc5CUv7XCfLIdJ1ygV/rnwdV3iYNVfKFO/
+	GN
+X-Gm-Gg: Acq92OFv6vnbH6YDLVRYojQ+QtFzv57YWjFk1bhNO1q/41HCsa9LUouEHct6UCki21p
+	1bf45d1ie5JRuv8iH5RvwV3/Wkp0w/4xzG7J+XgF6ETBBMowgB9rxyKGql/LZhtxZng69FqRQct
+	e7FbHd3OveJB88m/XqIut04jJ4oFrxNyEDactOulha4CnpuhPkEr8RIgB+2ypXOneyXhn4GeAnY
+	Dg1fqrlAQtT00YsewJB0oDf0IBMXKaZ3gYmdWSBpfKi9/ttWaUJnLNqhwHR+ItPXEF5T4ocSy5m
+	NGcwhu1YAFht1Vh5geL1iB8W7MKRv9NyiQcnXDrkOKUZHKTWjICXdQ17Qx6G4ZHUVP58uQEzDeA
+	df9f6i3yM0RPfrWWK5mZMZX9gnAwvrTYUer0dM3/3n5gL+Hky5Ym4gRhww8BJwps0FVjtE0QTKU
+	w=
+X-Received: by 2002:a05:6a00:13a5:b0:82f:6858:3f6 with SMTP id d2e1a72fcca58-8415ef53fd6mr25752355b3a.0.1779951318541;
+        Wed, 27 May 2026 23:55:18 -0700 (PDT)
+X-Received: by 2002:a05:6a00:13a5:b0:82f:6858:3f6 with SMTP id d2e1a72fcca58-8415ef53fd6mr25752335b3a.0.1779951318036;
+        Wed, 27 May 2026 23:55:18 -0700 (PDT)
+Received: from [192.168.68.51] (n175-34-8-244.mrk21.qld.optusnet.com.au. [175.34.8.244])
+        by smtp.gmail.com with ESMTPSA id d2e1a72fcca58-841d7301255sm4623141b3a.57.2026.05.27.23.55.08
+        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
+        Wed, 27 May 2026 23:55:17 -0700 (PDT)
+Message-ID: <775a0d29-4d92-4ecc-96dd-5b0eaeff1528@redhat.com>
+Date: Thu, 28 May 2026 16:55:06 +1000
 MIME-Version: 1.0
-X-MS-Exchange-MessageSentRepresentingType: 1
-X-MS-PublicTrafficType: Email
-X-MS-TrafficTypeDiagnostic: AM9PR04MB8179:EE_|DUYPR04MB12692:EE_
-X-MS-Office365-Filtering-Correlation-Id: b9373db0-f176-499a-69ce-08debc85b3de
-X-MS-Exchange-SharedMailbox-RoutingAgent-Processed: True
-X-LD-Processed: 686ea1d3-bc2b-4c6f-a92c-d99c5c301635,ExtAddr
-X-MS-Exchange-SenderADCheck: 1
-X-MS-Exchange-AntiSpam-Relay: 0
-X-Microsoft-Antispam: BCL:0;ARA:13230040|19092799006|376014|366016|1800799024|7416014|3023799007|18002099003|22082099003|56012099006|11063799006;
-X-Microsoft-Antispam-Message-Info: gIZuBMEcWsdzCqR0zW8o1T/hyssrstEcScLgFgGWMaLqPaFzV8cVauHi1ZFpg2h4tRvu9rIbC1vDooEPIsKt9AJjYCoyzrrGa0VHMtMzf64aaOLZpFjeuq1Sm3KvQjlM9tpU4bwt8UPKfTxjVtRJ4xfxFiXorpje03f0L3Sgqoz/xgVra/YgcZnLLkE+pJXLcehDq1kUbBhtZ0qTvkL2eEEOfz6VnwKs60OMdDtUbT7M8RX1dkmVKBIAh4IWM3K4XPvZ4N8X1HO4SyXlVincRyOw+dR9EHYThYq1Ebzj0SHNdMCrOVM+hCdpoC8KgYmByjXuQfFV78XMc8K0QNbOzlgdg8BYKW0QCUGTsx+dZEP9/V3PvSl1i/EzKhthO9vX6sKbFgDWQAKlnI7ZtYN8KTr7MHI5YHJOJ9R7MXIRQWYT+D6Zh0eKIEbGdprFvZbWZucgP3M/FmAwYvdJ2PAQGJPZqh/4rsUi5JoZhXROkkjL6qxTDUpmEUZRb9RlKhAacTW6bCg291ZzmH/J4GrsW/FBJkulveXuvYxfnZiMVaJSmdZ9KbCxVqPzkgPMa/LwMGJRkucaRpMzNxSOsA1FgqovyHmiNQrDK+G+eL37Cr/4xerREUWzBaUOGHzrj9utK012LJOAc7D0OMaEiwevXI+57JekJBIcmyVZKcTaNwH+jW44J2FkBp5K8Cpu3p64
-X-Forefront-Antispam-Report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:AM9PR04MB8179.eurprd04.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(19092799006)(376014)(366016)(1800799024)(7416014)(3023799007)(18002099003)(22082099003)(56012099006)(11063799006);DIR:OUT;SFP:1101;
-X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
-X-MS-Exchange-AntiSpam-MessageData-0: =?utf-8?B?RDlTWlBLRU5jQ3Fwd0lZdzhOOWQwY0E5SkVWdTcvVE9vbFUvcTM0OUpCcmt5?=
- =?utf-8?B?eGl0VHZmNXZXcTNuVG5UdFcrcHBwTVd2SFhIeE9RZVJDQVhVZTJJbkE1NkZT?=
- =?utf-8?B?RExpMjBHa0hqMHZVSjNIanZ4QTRzYmV4ZEh2SVRPcllncEsxeFQrUmFLWTBu?=
- =?utf-8?B?Y3JxYUVUcGdFSXFrNUF2a2ZHaysxMWFxRGtVRXk5OXFXamlJSno2R2YyeE41?=
- =?utf-8?B?NUN6aXU1RHpuT3B5azNJcy9ISE5wQUQ3NTVBbnh3VlBzc1luSERzcG5WdXp3?=
- =?utf-8?B?aGRtblNlRURGSmwxVDhUblB6cHpTODhuRW16M1lQWXFISDFQQiswR2owV2ZN?=
- =?utf-8?B?VmttUU1DTTE5YnY2OTFURS90YXpqV25LcDMwb1VUZHp6ZjJ3UlpsWUlNb2I2?=
- =?utf-8?B?MmlYVVZTUHAyZTNLMlgrVnVCVVVQOTRQSG1hR01STDZzdEdaTDIybzJmMmJM?=
- =?utf-8?B?QlNFRlRlV0xXMzZLOVl4TGhvNUZUdlpYaEM5cHFtN3Z2MmNpSEtVTEFKU3BJ?=
- =?utf-8?B?M3I0ZzRoL0hpQjJVMkd0Y1BNSGgzTEtKeDVmZmlDWWUwZDBVb0RCT1g0WHhw?=
- =?utf-8?B?L3h1cENwTFp4ZkZYeXJpZmpmSmxMNnNRbndlZDdQUFA4cEVIRTBlZk9TajJS?=
- =?utf-8?B?ZUVaSWwzMjlJMktOV3k2NW5ZaENUVjJFdlZyU2N2RURSYW5ZQThHZHZkc3pC?=
- =?utf-8?B?WlRjVUY4NThINDk4aUw3MGZYaEllK2lDbHJYU2J6ZnQrSmxwb0NudElCMnp1?=
- =?utf-8?B?Z1JCdDZhcW56QXlNazRNRVRaT0orYnlHdUljSEJiNlRENWE4YTAzMGh6bTQ3?=
- =?utf-8?B?SmxBSy8vMG1YZkJLTjI2aVFCZlpDcnNDYys1dWNqUzRLdlpOZFB3UGNub1ov?=
- =?utf-8?B?KzRxSWhmTEZNQU5KS0JidTkvSWF4VzhaRXF6a1RaQzBPUzlkczZlSnVtY0pG?=
- =?utf-8?B?NFluR2FWRjJ5bjRQcVA0S3dhaURwd0tyeUVJTXdBQ2czWVh4dlhvYVV2YUNE?=
- =?utf-8?B?cVF6dXFic1Fra0R0RDRmYk4yeUwxNlZScmtEOVF1RDE2ck9PZkxYcDBnZy92?=
- =?utf-8?B?U0w3eWo0Q0pIZ2w3RlZIRHpOOWJGYVNSZVFqWVBwZElaSkoxOFBCeDNCdk93?=
- =?utf-8?B?TEQwT2dVYU5wQ0tTQjZ1eGxJK0NOM3VwdkQ5cUZiNm9NWGlQYkZRSkdGcEoz?=
- =?utf-8?B?RHFTS2RVZGVvSHRraVAveHJJOHVaTGRUVnZFcVAxVjRqZzFGcDJOOFJqc1Jw?=
- =?utf-8?B?Z2ZubGs5bWdhY0p2Qmt6cWlQTTg2YkNFUFZZM0FTT3hCa1dXL3pOeW4rZ2Rz?=
- =?utf-8?B?TWhKQndYUXZwZEZNMkhxMUUwY1NMdkg4UjlIcURZUHlzTkpQSWFtYS9ZcWVh?=
- =?utf-8?B?T2duTFJaaUtsRHhQcFQ0QTZsbDF2TjdKc3ZERWZKOHRteFhYYjFuRlZwNjdP?=
- =?utf-8?B?NSt1Z3JvM0lqY0kyZFFqSXRoK3BFWXR0SS9rQzNYd2dmNmUzd3ZZZXV3ZXo0?=
- =?utf-8?B?aDJnYUZoWERoQ05uL0xlR2kyQ3NHQ1NIbE5FM2ZvU0ZiYXVTd2syOXhjU0M2?=
- =?utf-8?B?NnRKY0RyVnlnaWpJRFdVVHV4WmoxUVVoeE15THlQbktGV0VOWDllMi84YmVt?=
- =?utf-8?B?VmhXdTFzU2NaMXgvZ05PRXNpMVhFQTcveklVR014bU4yZllVK1ZmRzhIRWlu?=
- =?utf-8?B?cGJyWUJNeHNiTGxWNEE5dDkwWHdzekpYS3g3aUtMSjdKeExMSXp3NDdUZFRI?=
- =?utf-8?B?RHhRWlk2OUIzR2Npdys3WjMxMnhZUE5XWk1xWk1Ec3YrdUZuYmc2czJjTXhK?=
- =?utf-8?B?UnlUWmZvTUt5SmhkSUJ3bkprUUZ6bU9wOC9venZSTVQ4QmthS0JKMWVVWlpj?=
- =?utf-8?B?bm8vc3FpZ3daYktidjJCYmRpbzV3OTU5RjlBT00yd1VqanBIVDV6NFFJMzVy?=
- =?utf-8?B?Qk9ENmxuWjR6aWhaVmMzb05ub0xCS3puMDdTTmhCcFhjMVdJNGN1MDhxTUxL?=
- =?utf-8?B?ZW9HeGpKUFovWmZTZExJeGV4d2RVamRaWnNSUmFmMlZ6S1dBeFhab1hIZ3ZL?=
- =?utf-8?B?ZlhpcXlOL3NKdHdqanFOSllibGc4SE0ramJJcEVXclIxMWpGdGlPUzVpdG8z?=
- =?utf-8?B?RkpNaTAwNEpmYi84VmVNOFc2c2l2YjFIdTJVci9zZThvUy9IblRzbVBPWDZm?=
- =?utf-8?B?QStPdHpkSXduV2p1aTlrSkIybkpTam5oSnVtTktjdmtZdUtnMFh4MjNoNkIx?=
- =?utf-8?B?d0paUW9yYzh5ZXFHbHBOQ2NhTkRHMEE2TGJSczhRaFpmRGFxaGV0TEpFQi9I?=
- =?utf-8?B?VjhBcTFNQWk5QWs3cVloNkR5MzZrUGN2K1BwQ0M0NStwNG9ReTJkZFdiVGZH?=
- =?utf-8?Q?ZRZcJLij7U6sGQMr+JcOGOp5ERhjZwTGT30gk?=
-X-OriginatorOrg: oss.nxp.com
-X-MS-Exchange-CrossTenant-Network-Message-Id: b9373db0-f176-499a-69ce-08debc85b3de
-X-MS-Exchange-CrossTenant-AuthSource: AM9PR04MB8179.eurprd04.prod.outlook.com
-X-MS-Exchange-CrossTenant-AuthAs: Internal
-X-MS-Exchange-CrossTenant-OriginalArrivalTime: 28 May 2026 06:52:36.9592
- (UTC)
-X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
-X-MS-Exchange-CrossTenant-Id: 686ea1d3-bc2b-4c6f-a92c-d99c5c301635
-X-MS-Exchange-CrossTenant-MailboxType: HOSTED
-X-MS-Exchange-CrossTenant-UserPrincipalName: mZGNluL/uLH5IaW6H5Ibq3DKvxDeG6l9/t7g0k49Cj7fNavksD8BKPxPjSJYNxUprBFm7RVZoh/7FaDmItXhArnS/fqy7cb1GVPxi/23wSHMHghnN/cWhKKnXybSbshD
-X-MS-Exchange-Transport-CrossTenantHeadersStamped: DUYPR04MB12692
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH v14 32/44] KVM: arm64: Handle Realm PSCI requests
+To: Steven Price <steven.price@arm.com>, kvm@vger.kernel.org,
+ kvmarm@lists.linux.dev
+Cc: Catalin Marinas <catalin.marinas@arm.com>, Marc Zyngier <maz@kernel.org>,
+ Will Deacon <will@kernel.org>, James Morse <james.morse@arm.com>,
+ Oliver Upton <oliver.upton@linux.dev>,
+ Suzuki K Poulose <suzuki.poulose@arm.com>, Zenghui Yu
+ <yuzenghui@huawei.com>, linux-arm-kernel@lists.infradead.org,
+ linux-kernel@vger.kernel.org, Joey Gouly <joey.gouly@arm.com>,
+ Alexandru Elisei <alexandru.elisei@arm.com>,
+ Christoffer Dall <christoffer.dall@arm.com>, Fuad Tabba <tabba@google.com>,
+ linux-coco@lists.linux.dev,
+ Ganapatrao Kulkarni <gankulkarni@os.amperecomputing.com>,
+ Shanker Donthineni <sdonthineni@nvidia.com>, Alper Gun
+ <alpergun@google.com>, "Aneesh Kumar K . V" <aneesh.kumar@kernel.org>,
+ Emi Kisanuki <fj0570is@fujitsu.com>, Vishal Annapurve
+ <vannapurve@google.com>, WeiLin.Chang@arm.com, Lorenzo.Pieralisi2@arm.com
+References: <20260513131757.116630-1-steven.price@arm.com>
+ <20260513131757.116630-33-steven.price@arm.com>
+From: Gavin Shan <gshan@redhat.com>
+In-Reply-To: <20260513131757.116630-33-steven.price@arm.com>
+X-Mimecast-Spam-Score: 0
+X-Mimecast-MFC-PROC-ID: hQJTB85CSxacCPixXGx5mW1lFXZgy2_QZ8cZSA-8qJg_1779951319
+X-Mimecast-Originator: redhat.com
+Content-Language: en-US
+Content-Type: text/plain; charset=UTF-8; format=flowed
+Content-Transfer-Encoding: 7bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260527_235242_201611_9E3FC845 
-X-CRM114-Status: GOOD (  11.27  )
+X-CRM114-CacheID: sfid-20260527_235523_071862_5E089074 
+X-CRM114-Status: GOOD (  31.78  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -164,223 +126,182 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Add PWM0 and PWM1 for S32G2 and S32G3 SoCs
+Hi Steve,
 
-Issue: ALBSP-1959
-Signed-off-by: Khristine Andreea Barbulescu <khristineandreea.barbulescu@oss.nxp.com>
----
- arch/arm64/boot/dts/freescale/s32g2.dtsi      | 28 ++++++-
- arch/arm64/boot/dts/freescale/s32g3.dtsi      | 30 ++++++-
- .../boot/dts/freescale/s32gxxxa-evb.dtsi      | 78 ++++++++++++++++++-
- 3 files changed, 133 insertions(+), 3 deletions(-)
+On 5/13/26 11:17 PM, Steven Price wrote:
+> The RMM needs to be informed of the target REC when a PSCI call is made
+> with an MPIDR argument.
+> 
+> This requirement will be removed in a future release of the RMM 2.0
+> specification but is still required for v2.0-bet1.
+> 
+> Co-developed-by: Suzuki K Poulose <suzuki.poulose@arm.com>
+> Signed-off-by: Suzuki K Poulose <suzuki.poulose@arm.com>
+> Signed-off-by: Steven Price <steven.price@arm.com>
+> ---
+> Chanegs since v13:
+>   * The ioctl KVM_ARM_VCPU_RMI_PSCI_COMPLETE has gone. The RMI call is
+>     made automatically just before entering the REC again.
+> Changes since v12:
+>   * Chance return code for non-realms to -ENXIO to better represent that
+>     the ioctl is invalid for non-realms (checkpatch is insistent that
+>     "ENOSYS means 'invalid syscall nr' and nothing else").
+> Changes since v11:
+>   * RMM->RMI renaming.
+> Changes since v6:
+>   * Use vcpu_is_rec() rather than kvm_is_realm(vcpu->kvm).
+>   * Minor renaming/formatting fixes.
+> ---
+>   arch/arm64/include/asm/kvm_rmi.h |  3 ++
+>   arch/arm64/kvm/psci.c            | 15 ++++++++-
+>   arch/arm64/kvm/rmi.c             | 58 ++++++++++++++++++++++++++++++++
+>   3 files changed, 75 insertions(+), 1 deletion(-)
+> 
+> diff --git a/arch/arm64/include/asm/kvm_rmi.h b/arch/arm64/include/asm/kvm_rmi.h
+> index b65cfec10dee..eacf82a7467d 100644
+> --- a/arch/arm64/include/asm/kvm_rmi.h
+> +++ b/arch/arm64/include/asm/kvm_rmi.h
+> @@ -109,6 +109,9 @@ int realm_map_non_secure(struct realm *realm,
+>   			 unsigned long size,
+>   			 enum kvm_pgtable_prot prot,
+>   			 struct kvm_mmu_memory_cache *memcache);
+> +int realm_psci_complete(struct kvm_vcpu *source,
+> +			struct kvm_vcpu *target,
+> +			unsigned long status);
+>   
+>   static inline bool kvm_realm_is_private_address(struct realm *realm,
+>   						unsigned long addr)
+> diff --git a/arch/arm64/kvm/psci.c b/arch/arm64/kvm/psci.c
+> index 3b5dbe9a0a0e..a2cd55dc7b5b 100644
+> --- a/arch/arm64/kvm/psci.c
+> +++ b/arch/arm64/kvm/psci.c
+> @@ -103,7 +103,6 @@ static unsigned long kvm_psci_vcpu_on(struct kvm_vcpu *source_vcpu)
+>   
+>   	reset_state->reset = true;
+>   	kvm_make_request(KVM_REQ_VCPU_RESET, vcpu);
+> -
 
-diff --git a/arch/arm64/boot/dts/freescale/s32g2.dtsi b/arch/arm64/boot/dts/freescale/s32g2.dtsi
-index 51d00dac12de..9f5f18d54118 100644
---- a/arch/arm64/boot/dts/freescale/s32g2.dtsi
-+++ b/arch/arm64/boot/dts/freescale/s32g2.dtsi
-@@ -3,7 +3,7 @@
-  * NXP S32G2 SoC family
-  *
-  * Copyright (c) 2021 SUSE LLC
-- * Copyright 2017-2021, 2024-2025 NXP
-+ * Copyright 2017-2021, 2024-2026 NXP
-  */
- 
- #include <dt-bindings/interrupt-controller/arm-gic.h>
-@@ -554,6 +554,19 @@ i2c2: i2c@401ec000 {
- 			status = "disabled";
- 		};
- 
-+		pwm0: pwm@401f4000 {
-+			compatible = "nxp,s32g2-ftm-pwm";
-+			reg = <0x401f4000 0x1000>;
-+			#pwm-cells = <3>;
-+			clocks = <&clks 5>,
-+				 <&clks 6>,
-+				 <&clks 5>,
-+				 <&clks 5>;
-+			clock-names = "ftm_sys", "ftm_ext",
-+					  "ftm_fix", "ftm_cnt_clk_en";
-+			status = "disabled";
-+		};
-+
- 		swt4: watchdog@40200000 {
- 			compatible = "nxp,s32g2-swt";
- 			reg = <0x40200000 0x1000>;
-@@ -717,6 +730,19 @@ i2c4: i2c@402dc000 {
- 			status = "disabled";
- 		};
- 
-+		pwm1: pwm@402e4000 {
-+			compatible = "nxp,s32g2-ftm-pwm";
-+			reg = <0x402e4000 0x1000>;
-+			#pwm-cells = <3>;
-+			clocks = <&clks 7>,
-+				 <&clks 8>,
-+				 <&clks 7>,
-+				 <&clks 7>;
-+			clock-names = "ftm_sys", "ftm_ext",
-+				      "ftm_fix", "ftm_cnt_clk_en";
-+			status = "disabled";
-+		};
-+
- 		usdhc0: mmc@402f0000 {
- 			compatible = "nxp,s32g2-usdhc";
- 			reg = <0x402f0000 0x1000>;
-diff --git a/arch/arm64/boot/dts/freescale/s32g3.dtsi b/arch/arm64/boot/dts/freescale/s32g3.dtsi
-index e314f3c7d61d..408bf0b40734 100644
---- a/arch/arm64/boot/dts/freescale/s32g3.dtsi
-+++ b/arch/arm64/boot/dts/freescale/s32g3.dtsi
-@@ -1,6 +1,6 @@
- // SPDX-License-Identifier: (GPL-2.0+ OR BSD-3-Clause)
- /*
-- * Copyright 2021-2025 NXP
-+ * Copyright 2021-2026 NXP
-  *
-  * Authors: Ghennadi Procopciuc <ghennadi.procopciuc@nxp.com>
-  *          Ciprian Costea <ciprianmarian.costea@nxp.com>
-@@ -617,6 +617,20 @@ i2c2: i2c@401ec000 {
- 			status = "disabled";
- 		};
- 
-+		pwm0: pwm@401f4000 {
-+			compatible = "nxp,s32g3-ftm-pwm",
-+					 "nxp,s32g2-ftm-pwm";
-+			reg = <0x401f4000 0x1000>;
-+			#pwm-cells = <3>;
-+			clocks = <&clks 5>,
-+				 <&clks 6>,
-+				 <&clks 5>,
-+				 <&clks 5>;
-+			clock-names = "ftm_sys", "ftm_ext",
-+					  "ftm_fix", "ftm_cnt_clk_en";
-+			status = "disabled";
-+		};
-+
- 		swt4: watchdog@40200000 {
- 			compatible = "nxp,s32g3-swt", "nxp,s32g2-swt";
- 			reg = <0x40200000 0x1000>;
-@@ -792,6 +806,20 @@ i2c4: i2c@402dc000 {
- 			status = "disabled";
- 		};
- 
-+		pwm1: pwm@402e4000 {
-+			compatible = "nxp,s32g3-ftm-pwm",
-+					 "nxp,s32g2-ftm-pwm";
-+			reg = <0x402e4000 0x1000>;
-+			#pwm-cells = <3>;
-+			clocks = <&clks 7>,
-+				 <&clks 8>,
-+				 <&clks 7>,
-+				 <&clks 7>;
-+			clock-names = "ftm_sys", "ftm_ext",
-+				      "ftm_fix", "ftm_cnt_clk_en";
-+			status = "disabled";
-+		};
-+
- 		usdhc0: mmc@402f0000 {
- 			compatible = "nxp,s32g3-usdhc",
- 				     "nxp,s32g2-usdhc";
-diff --git a/arch/arm64/boot/dts/freescale/s32gxxxa-evb.dtsi b/arch/arm64/boot/dts/freescale/s32gxxxa-evb.dtsi
-index 803ff4531077..844d2c4fabf7 100644
---- a/arch/arm64/boot/dts/freescale/s32gxxxa-evb.dtsi
-+++ b/arch/arm64/boot/dts/freescale/s32gxxxa-evb.dtsi
-@@ -1,6 +1,6 @@
- // SPDX-License-Identifier: (GPL-2.0+ OR BSD-3-Clause)
- /*
-- * Copyright 2024 NXP
-+ * Copyright 2024, 2026 NXP
-  *
-  * Authors: Ciprian Marian Costea <ciprianmarian.costea@oss.nxp.com>
-  *          Ghennadi Procopciuc <ghennadi.procopciuc@oss.nxp.com>
-@@ -245,6 +245,70 @@ dspi5-grp4 {
- 			bias-pull-up;
- 		};
- 	};
-+
-+	ftm0_pins: ftm0_pins {
-+		ftm0_grp0 {
-+			pinmux = <0x2912>;
-+		};
-+
-+		ftm0_grp1 {
-+			pinmux = <0x122>,
-+				 <0xb42>;
-+			output-enable;
-+			input-enable;
-+		};
-+
-+		ftm0_grp2 {
-+			pinmux = <0xb13>,
-+				 <0xb53>;
-+			output-enable;
-+			input-enable;
-+		};
-+
-+		ftm0_grp3 {
-+			pinmux = <0x2904>;
-+		};
-+
-+		ftm0_grp4 {
-+			pinmux = <0x2925>;
-+		};
-+
-+		ftm0_grp5 {
-+			pinmux = <0x2936>;
-+		};
-+	};
-+
-+	ftm1_pins: ftm1_pins {
-+		ftm1_grp0 {
-+			pinmux = <0x1d3>;
-+			output-enable;
-+			input-enable;
-+		};
-+
-+		ftm1_grp1 {
-+			pinmux = <0x29b4>;
-+		};
-+
-+		ftm1_grp2 {
-+			pinmux = <0x29c3>;
-+		};
-+
-+		ftm1_grp3 {
-+			pinmux = <0x1f4>;
-+			output-enable;
-+			input-enable;
-+		};
-+
-+		ftm1_grp4 {
-+			pinmux = <0x202>;
-+			output-enable;
-+			input-enable;
-+		};
-+
-+		ftm1_grp5 {
-+			pinmux = <0x29d2>;
-+		};
-+	};
- };
- 
- &can0 {
-@@ -304,3 +368,15 @@ &spi5 {
- 	pinctrl-names = "default";
- 	status = "okay";
- };
-+
-+&pwm0 {
-+	pinctrl-names = "default";
-+	pinctrl-0 = <&ftm0_pins>;
-+	status = "okay";
-+};
-+
-+&pwm1 {
-+	pinctrl-names = "default";
-+	pinctrl-0 = <&ftm1_pins>;
-+	status = "okay";
-+};
--- 
-2.34.1
+This change isn't supposed to be part of this patch :-)
+
+>   	/*
+>   	 * Make sure the reset request is observed if the RUNNABLE mp_state is
+>   	 * observed.
+> @@ -142,6 +141,20 @@ static unsigned long kvm_psci_vcpu_affinity_info(struct kvm_vcpu *vcpu)
+>   	/* Ignore other bits of target affinity */
+>   	target_affinity &= target_affinity_mask;
+>   
+> +	if (vcpu_is_rec(vcpu)) {
+> +		struct kvm_vcpu *target_vcpu;
+> +
+> +		/* RMM supports only zero affinity level */
+> +		if (lowest_affinity_level != 0)
+> +			return PSCI_RET_INVALID_PARAMS;
+> +
+> +		target_vcpu = kvm_mpidr_to_vcpu(kvm, target_affinity);
+> +		if (!target_vcpu)
+> +			return PSCI_RET_INVALID_PARAMS;
+> +
+> +		return PSCI_RET_SUCCESS;
+> +	}
+> +
+>   	/*
+>   	 * If one or more VCPU matching target affinity are running
+>   	 * then ON else OFF
+> diff --git a/arch/arm64/kvm/rmi.c b/arch/arm64/kvm/rmi.c
+> index 761b38a4071c..2b03e962ee41 100644
+> --- a/arch/arm64/kvm/rmi.c
+> +++ b/arch/arm64/kvm/rmi.c
+> @@ -3,6 +3,7 @@
+>    * Copyright (C) 2023-2025 ARM Ltd.
+>    */
+>   
+> +#include <uapi/linux/psci.h>
+>   #include <linux/kvm_host.h>
+>   
+>   #include <asm/kvm_emulate.h>
+> @@ -127,6 +128,25 @@ static void free_rtt(phys_addr_t phys)
+>   	kvm_account_pgtable_pages(phys_to_virt(phys), -1);
+>   }
+>   
+> +int realm_psci_complete(struct kvm_vcpu *source, struct kvm_vcpu *target,
+> +			unsigned long status)
+> +{
+> +	int ret;
+> +
+> +	/*
+> +	 * XXX: RMM-v2.0 doesn't require the target REC address for completing
+> +	 * PSCI requests. Temporary hack until RMM implementation catches up
+> +	 * to the full spec.
+> +	 */
+> +	ret = rmi_psci_complete(virt_to_phys(source->arch.rec.rec_page),
+> +				virt_to_phys(target->arch.rec.rec_page),
+> +				status);
+> +	if (ret)
+> +		return -EINVAL;
+
+		return -ENXIO;
+
+> +
+> +	return 0;
+> +}
+> +
+>   static int realm_rtt_create(struct realm *realm,
+>   			    unsigned long addr,
+>   			    int level,
+> @@ -1004,6 +1024,41 @@ static void kvm_complete_ripas_change(struct kvm_vcpu *vcpu)
+>   	rec->run->exit.ripas_base = base;
+>   }
+>   
+> +static void kvm_rec_complete_psci(struct kvm_vcpu *vcpu)
+> +{
+> +	struct rec_run *run = vcpu->arch.rec.run;
+> +	unsigned long status = PSCI_RET_DENIED;
+> +	unsigned long ret = vcpu_get_reg(vcpu, 0);
+> +	struct kvm_vcpu *target;
+> +
+> +	switch (run->exit.gprs[0]) {
+> +	/*
+> +	 * XXX: RMM-v2.0 doesn't cause RMI_EXIT_PSCI for AFFINITY_INFO
+> +	 * Temporary hack until tf-RMM gets the REC to MPIDR mapping via
+> +	 * RD Auxiliary granules.
+> +	 * For now always report SUCCESS
+> +	 */
+> +	case PSCI_0_2_FN64_AFFINITY_INFO:
+> +		status = PSCI_RET_SUCCESS;
+> +		break;
+> +	case PSCI_0_2_FN64_CPU_ON: {
+> +		if (ret != PSCI_RET_SUCCESS &&
+> +		    ret != PSCI_RET_ALREADY_ON)
+> +			status = PSCI_RET_DENIED;
+> +		else
+> +			status = PSCI_RET_SUCCESS;
+> +		break;
+> +	}
+> +	default:
+> +		return;
+> +	}
+> +
+> +	target = kvm_mpidr_to_vcpu(vcpu->kvm, run->exit.gprs[1]);
+> +	/* RMM makes sure that we don't get RMI_EXIT_PSCI for invalid mpidrs */
+> +	if (target)
+> +		realm_psci_complete(vcpu, target, status);
+> +}
+> +
+>   /*
+>    * kvm_rec_pre_enter - Complete operations before entering a REC
+>    *
+> @@ -1028,6 +1083,9 @@ int kvm_rec_pre_enter(struct kvm_vcpu *vcpu)
+>   		for (int i = 0; i < REC_RUN_GPRS; i++)
+>   			rec->run->enter.gprs[i] = vcpu_get_reg(vcpu, i);
+>   		break;
+> +	case RMI_EXIT_PSCI:
+> +		kvm_rec_complete_psci(vcpu);
+> +		break;
+>   	case RMI_EXIT_RIPAS_CHANGE:
+>   		kvm_complete_ripas_change(vcpu);
+>   		break;
+
+Thanks,
+Gavin
 
 
