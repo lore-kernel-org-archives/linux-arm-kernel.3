@@ -4,76 +4,65 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 92AECCD5BD1
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 28 May 2026 08:47:27 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 108C0CD5BD1
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 28 May 2026 08:48:36 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:References:Content-Type:
-	Content-Transfer-Encoding:MIME-Version:Message-ID:Date:Subject:In-Reply-To:Cc
-	:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=NiUIzz2J4mK7mbZjU50iRpjfnP1Bj6jF4LC/ZLFwGZk=; b=cx6j2t3c7PWsl9Y9kuVsk44Br4
-	rEPbBeJhTje6X1XFpyJYEr8LMEWtdoUwtgzPT8BPqqbUtg/ItQYEx/hmHL+YIKbQDgw2vLIR5TJj/
-	dRUFSmHkK+/3meadPpNP4dAvdJ0mPDB4s5b10Y6pxDjmdwOdj4OBWQ+P0WZz+7Eqb51AhH2l9Q+Aj
-	U51gMEGKLW2x1p3RSPOumoJ/jG3zJgcz3dYtfqRWwUsQ4RnjNgbo9Rr+rTFZlOjU0/rEXO10loH7+
-	R32J4I64aaqGTVk93ogQ1j73I3Kg/Fm2MF5npOGjwQLDVAhWGZx70dY40ff6uMYfhf42Lfiii8spB
-	8x1jdMsw==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:Cc:To:Subject:
+	Message-ID:Date:From:MIME-Version:Reply-To:Content-Transfer-Encoding:
+	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
+	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=6+phZfXHAAOWSe43jY4iEDeIVY0auY/gXg2dprHrXHY=; b=KSKqSFddzV7nHhyY9dkDnGWu8D
+	1FWQVAhMtRws/SUpPcVGVFq6DRlZXkIDnYLZnUG4kJe6Vfxj7gppN60IbZHowQDP5EmiMWTaZAftA
+	MeHJxIPlcEqIEs3sSd3r1ba39Q3bwlkqHm8DaeJf7cJy16uLHKm2Eex0Z18ml8xve/4QbikqMRbtN
+	K1Zrn8ACJRk1jLMtWahUmAlkUHjfAXl1kUBS0iAqIKlcH20KxjraQBR01MQaY7S/ImpC5H5uEucRV
+	iyoBTUJa6IBufXVyNCEDNah8i5f8CGu1yG5qOi4IPqOEnal1bUSPZIcFRHQSAAotFTdEL1HvEu9DG
+	LNZgV8Zg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wSWOe-00000005QtV-2JlC;
-	Thu, 28 May 2026 08:47:20 +0000
-Received: from mailout1.w1.samsung.com ([210.118.77.11])
+	id 1wSWPk-00000005R1d-3FKD;
+	Thu, 28 May 2026 08:48:28 +0000
+Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wSWOb-00000005Qt3-0tn8
+	id 1wSWPh-00000005R0p-3kr2
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 28 May 2026 08:47:19 +0000
-Received: from eucas1p2.samsung.com (unknown [182.198.249.207])
-	by mailout1.w1.samsung.com (KnoxPortal) with ESMTP id 20260528084713euoutp0164a93ac1ee9af604752a3ce12bcfe390~zrmaoDB0z1383413834euoutp01n
-	for <linux-arm-kernel@lists.infradead.org>; Thu, 28 May 2026 08:47:13 +0000 (GMT)
-DKIM-Filter: OpenDKIM Filter v2.11.0 mailout1.w1.samsung.com 20260528084713euoutp0164a93ac1ee9af604752a3ce12bcfe390~zrmaoDB0z1383413834euoutp01n
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=samsung.com;
-	s=mail20170921; t=1779958033;
-	bh=NiUIzz2J4mK7mbZjU50iRpjfnP1Bj6jF4LC/ZLFwGZk=;
-	h=From:To:Cc:In-Reply-To:Subject:Date:References:From;
-	b=lXk7I5Q0jQmOD+6ZQRsJIigr0AAzUwJloV41D4rzZWnq69/Ps4zCX/SQNbVip9WNC
-	 dchsF/l3HfBFtas0kw/r1g6tUNqdn0P1NZqoj1EkM76DB4xp8QUKEMHJTGZeaZB5Mt
-	 z1yivN1LA4R0opi2WSs89Bv0Y67DwM9UOOKZBvg0=
-Received: from eusmtip2.samsung.com (unknown [203.254.199.222]) by
-	eucas1p2.samsung.com (KnoxPortal) with ESMTPA id
-	20260528084713eucas1p27b7c9bec1fd4c966be3666c74b4227b1~zrmafLrN62545125451eucas1p2g;
-	Thu, 28 May 2026 08:47:13 +0000 (GMT)
-Received: from AMDN5751 (unknown [106.210.134.141]) by eusmtip2.samsung.com
-	(KnoxPortal) with ESMTPA id
-	20260528084713eusmtip2e222380135653e043b49419fbba35dde~zrmaDLlLt2118521185eusmtip2J;
-	Thu, 28 May 2026 08:47:13 +0000 (GMT)
-From: "Sylwester Nawrocki" <s.nawrocki@samsung.com>
-To: "'Peter Griffin'" <peter.griffin@linaro.org>, "'Linus Walleij'"
-	<linusw@kernel.org>, "'Krzysztof Kozlowski'" <krzk@kernel.org>, "'Alim
- Akhtar'" <alim.akhtar@samsung.com>, =?UTF-8?Q?'Andr=C3=A9_Draszik'?=
-	<andre.draszik@linaro.org>, "'Tudor Ambarus'" <tudor.ambarus@linaro.org>
-Cc: <linux-kernel@vger.kernel.org>, <linux-arm-kernel@lists.infradead.org>,
-	<linux-samsung-soc@vger.kernel.org>, <linux-gpio@vger.kernel.org>
-In-Reply-To: <20260527-samsung-pinctrl-maintainer-v1-1-bcebada27279@linaro.org>
-Subject: RE: [PATCH] MAINTAINERS: add myself as co-maintainer for Samsung
- pinctrl drivers
-Date: Thu, 28 May 2026 10:47:13 +0200
-Message-ID: <001f01dcee7e$94730c50$bd5924f0$@samsung.com>
+	Thu, 28 May 2026 08:48:27 +0000
+Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
+	by sea.source.kernel.org (Postfix) with ESMTP id 43045403C1
+	for <linux-arm-kernel@lists.infradead.org>; Thu, 28 May 2026 08:48:25 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 27D761F000E9
+	for <linux-arm-kernel@lists.infradead.org>; Thu, 28 May 2026 08:48:25 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
+	s=k20260515; t=1779958105;
+	bh=6+phZfXHAAOWSe43jY4iEDeIVY0auY/gXg2dprHrXHY=;
+	h=From:Date:Subject:To:Cc;
+	b=QdMpBHCgV3zBSc4CYi0AvkmqhfL5trfwzCVmnb+gReek/lD/Q87OfHeiOhSRvNDu1
+	 Ht03cZGnYqH8kqFZe+kC8HJ+m6aeU/9CjqJpaCtHoSYDZSKHrETHQOtIXHos9rPe6K
+	 P80y/jcsReNrqKMfV3ALdfi/L+RqYu4XZu2aqSXRA+2wKgNEqoQv/JgUJaTBmkiKWz
+	 8dCh7mqAgVbx4ENNUBvD+9iZdQrOiBEdtw3XK7ARVod6IVM2Xo5tQobAleVHM9uzIM
+	 IfBCBHpSAfZoR9wD4szhG+Uw/7sc+HWFP7Ji/E2le6/0ZesTAuqNFNpzCHL8PSmo2L
+	 xj4zTAbL6yrSg==
+Received: by mail-lf1-f49.google.com with SMTP id 2adb3069b0e04-5aa2691db86so12980735e87.3
+        for <linux-arm-kernel@lists.infradead.org>; Thu, 28 May 2026 01:48:25 -0700 (PDT)
+X-Gm-Message-State: AOJu0YxJGHJtFjUtsnWO497JGand8OyYVARec5wWAnI6Ml8fTE765Ijf
+	mS+4jJV5PxNuCZLaffYnhEt/K6usRZdZqeIN3bPBk/Ols5qvw6TFWGYY00bNXBTwk/NDsgRzKXl
+	KxRRAClPHsD/qRZ347/h3S2m5zi9iwrM=
+X-Received: by 2002:a05:6512:159b:b0:5aa:2a6b:c0ed with SMTP id
+ 2adb3069b0e04-5aa3237096emr7698159e87.10.1779958103957; Thu, 28 May 2026
+ 01:48:23 -0700 (PDT)
 MIME-Version: 1.0
-Content-Transfer-Encoding: 7bit
-X-Mailer: Microsoft Outlook 16.0
-Thread-Index: AQHUkhLpbWZfxeh6MF+vd143+1Jt/wKaMwmyth8HM7A=
-Content-Language: pl
-X-CMS-MailID: 20260528084713eucas1p27b7c9bec1fd4c966be3666c74b4227b1
-X-Msg-Generator: CA
-Content-Type: text/plain; charset="utf-8"
-X-RootMTR: 20260527210902eucas1p124029ab58e08b006a54d0769c92e1d47
-X-EPHeader: CA
-X-CMS-RootMailID: 20260527210902eucas1p124029ab58e08b006a54d0769c92e1d47
-References: <CGME20260527210902eucas1p124029ab58e08b006a54d0769c92e1d47@eucas1p1.samsung.com>
-	<20260527-samsung-pinctrl-maintainer-v1-1-bcebada27279@linaro.org>
+From: Linus Walleij <linusw@kernel.org>
+Date: Thu, 28 May 2026 10:48:11 +0200
+X-Gmail-Original-Message-ID: <CAD++jLkQ8FEFL4fbOgt+pbT3orGm90Xt1bFeGCKyB-Th=qOrjw@mail.gmail.com>
+X-Gm-Features: AVHnY4LYV0NVvQ3b1yFPz2ZhtORvQzKWhrCgwYSUKdkOvBfUgossOMgOPO5x4Vk
+Message-ID: <CAD++jLkQ8FEFL4fbOgt+pbT3orGm90Xt1bFeGCKyB-Th=qOrjw@mail.gmail.com>
+Subject: [GIT PULL] Gemini DTS updates for v7.2
+To: soc@kernel.org
+Cc: Linux ARM <linux-arm-kernel@lists.infradead.org>
+Content-Type: text/plain; charset="UTF-8"
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260528_014717_390161_C40FA6E4 
-X-CRM114-Status: GOOD (  10.66  )
+X-CRM114-CacheID: sfid-20260528_014825_976051_0F97A483 
+X-CRM114-Status: GOOD (  14.45  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -88,21 +77,69 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-> -----Original Message-----
-> From: Peter Griffin <peter.griffin@linaro.org>
+Hi SoC folks,
 
-> Subject: [PATCH] MAINTAINERS: add myself as co-maintainer for Samsung
-> pinctrl drivers
-> 
-> As Google Tensor gs101 is based off a Samsung Exynos design I've been
-> working on the Samsung pinctrl drivers and have an interest in helping
-> maintain this code.
-> 
-> Signed-off-by: Peter Griffin <peter.griffin@linaro.org>
-> ---
-> This follows discussions with Krzysztof about expanding the Samsung SoC
-> maintenance team in the kernel.
+sorry for late pull request for these DTS changes. Had too much to do.
 
-Acked-by: Sylwester Nawrocki <s.nawrocki@samsung.com>
+The changes were posted to LAKML here:
+https://lore.kernel.org/linux-arm-kernel/20260228-gemini-dts-fixes-v1-0-0c6f6d0fb4bd@kernel.org/
 
+This pull request is rebased on v7.1-rc1 and ACKs picked up,
+otherwise it's the same patches.
+
+Please pull it in.
+
+Yours,
+Linus Walleij
+
+The following changes since commit 254f49634ee16a731174d2ae34bc50bd5f45e731:
+
+  Linux 7.1-rc1 (2026-04-26 14:19:00 -0700)
+
+are available in the Git repository at:
+
+  git://git.kernel.org/pub/scm/linux/kernel/git/linusw/linux-integrator.git
+tags/gemini-for-v7.2
+
+for you to fetch changes up to dce8e0cb88fb12d068459b75f299ff2242172257:
+
+  ARM: dts: gemini: Correct the RUT1xx (2026-05-28 10:38:45 +0200)
+
+----------------------------------------------------------------
+Gemini device tree updates:
+
+- Add two new devices: the Verbatim Gigabit NAS and the
+  Raidsonic IB-4210-B, including ACKed binding updates.
+
+- Fix up boot device for the SQ201.
+
+- Use the right LED trigger for disk activity.
+
+- Add the SSP/SPI block to the SoC.
+
+- Fix up the RUT1xx device tree.
+
+----------------------------------------------------------------
+Linus Walleij (8):
+      ARM: dts: gemini: iTian SQ201 need to boot from mtdblock3
+      ARM: dts: gemini: Tag disk led for disk-activity
+      ARM: dts: gemini: Add SSP/SPI block
+      dt-bindings: vendor-prefixes: Add Verbatim Corporation
+      dt-bindings: arm: Add two missing Gemini devices
+      ARM: dts: Add a Verbatim Gigabit NAS DTS
+      ARM: dts: Add a Raidsonic IB-4210-B DTS
+      ARM: dts: gemini: Correct the RUT1xx
+
+ Documentation/devicetree/bindings/arm/gemini.yaml  |  10 +
+ .../devicetree/bindings/vendor-prefixes.yaml       |   2 +
+ arch/arm/boot/dts/gemini/Makefile                  |   2 +
+ arch/arm/boot/dts/gemini/gemini-nas4210b.dts       | 205 +++++++++++++++++++
+ arch/arm/boot/dts/gemini/gemini-nas4220b.dts       |   1 +
+ arch/arm/boot/dts/gemini/gemini-rut1xx.dts         |  18 +-
+ arch/arm/boot/dts/gemini/gemini-sq201.dts          |   2 +-
+ .../dts/gemini/gemini-verbatim-s08v1901-d1.dts     | 225 +++++++++++++++++++++
+ arch/arm/boot/dts/gemini/gemini.dtsi               |  17 ++
+ 9 files changed, 470 insertions(+), 12 deletions(-)
+ create mode 100644 arch/arm/boot/dts/gemini/gemini-nas4210b.dts
+ create mode 100644 arch/arm/boot/dts/gemini/gemini-verbatim-s08v1901-d1.dts
 
