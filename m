@@ -4,91 +4,79 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 63425CD4F54
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 28 May 2026 23:06:46 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 7DD8BCD6E43
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 28 May 2026 23:08:11 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	MIME-Version:Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-Type:
-	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
-	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
-	bh=OLSjl6CXuzR38T343RTt9SyGP7hxMKOqUC5yJePUlLg=; b=JKI14TD1MwTY/L+ntPWEVsm+hR
-	HnldhnjyLNvEAd0koWnf/PUPsmWN+2gc4o6RQNLcK7D46uitUrsNGM4B537hL/9Ec9HLGsa17+/gZ
-	+lWS4LXPc9AUwr79GDsGwqFOeuwva9J8qNCwtm2lGYJCJILIFf7yx+7PERMbKf8m8274iM4I40mFC
-	OrZWvSMGcSRGF9YrJWrmVq79HlpIpiVLduU5GMzQhW+XkyA7mfOLyNeHXvOcXYNWgRK5v1B76ZcMr
-	5Zq7k9GtAOA3JM+oxhsPXHRKcO/8J0tOM5LnZXu7stZ4fpZ1p1MoLHwx6wRpLEoATxiy4Qa5VYSNA
-	oH+9CDYw==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:Message-Id:
+	Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:From:
+	Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender
+	:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=m8wKs5HNoGHP0jSxnKSD1ZlK+t0QNPM64QnFvO48QdY=; b=SFIWAaO26nceevPguRCHBrM2Th
+	I2GKw9whzLT/uRhQfxhr9Xa/bCdqtLO8zFh3M8zsci2y1G9vRfERxmUyRU+bV5g+0OwI/qCoETjSM
+	YFmZbUfKzR1aIYpB5R71DjnbUMymtrIxJbaCFdDWW80KXkyjOr6GqzYgo3DOyKVVVxHQgXSriVKQK
+	wV9MwLYrrsth2KWxCGoBfGA7rXgxbZyZ2w6e0XksQjv1ha9NUKc9laxP2jAJDkTH4DEfpa6nM2F14
+	gV2aFawn8HBx2Wg5edEP/HyrhZBZUNKKEA1b7pm63Rqo64rL7mk5wa9HIYB2Z8GCAaLDTG0GQyFr+
+	g0EovGQg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wSjoE-00000006VpW-2FLa;
-	Thu, 28 May 2026 23:06:38 +0000
-Received: from mail-dy1-x132f.google.com ([2607:f8b0:4864:20::132f])
+	id 1wSjpa-00000006VuW-35CW;
+	Thu, 28 May 2026 23:08:02 +0000
+Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wSjoB-00000006Vow-3d5F
+	id 1wSjpX-00000006VuC-2qWe
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 28 May 2026 23:06:37 +0000
-Received: by mail-dy1-x132f.google.com with SMTP id 5a478bee46e88-2f0ad52830cso17247066eec.1
-        for <linux-arm-kernel@lists.infradead.org>; Thu, 28 May 2026 16:06:35 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20251104; t=1780009595; x=1780614395; darn=lists.infradead.org;
-        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
-         :to:from:from:to:cc:subject:date:message-id:reply-to;
-        bh=OLSjl6CXuzR38T343RTt9SyGP7hxMKOqUC5yJePUlLg=;
-        b=cuF3pVCXAj2TGI30PcLBCeDm523HZTuQoG0a4nCRQiT4IHi+GS6YapeD5+S9t2qwzX
-         PvGfc9wtyNxI1SWvmbACJnqduhGedeacWz8iyPHnl8K1pgh9t4U0WSMOw7fmNbrsytVb
-         sjhVaMBGpqqpqxCfMTSkpRDC8lIgRrdAQZNyfH/YljIZPsbd+6yFtCBf5ru992JfJ7Fa
-         awNNmzQYGiB2GKDqLnTK8MDUmpTnVE7bauv8YZ6sMSAcTv2pZ6zLLqG3cf1KbPFm5xyI
-         vM+9H/yrExzc9RICdr59M/uzO15S/8zHffAGV1OL9Yw0vnx8uSG3nuJTuwEGPeTDZGs2
-         K+dQ==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20251104; t=1780009595; x=1780614395;
-        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
-         :to:from:x-gm-gg:x-gm-message-state:from:to:cc:subject:date
-         :message-id:reply-to;
-        bh=OLSjl6CXuzR38T343RTt9SyGP7hxMKOqUC5yJePUlLg=;
-        b=p8RjqazY0feYo5QyyWlqoNElXtXyMf5eizIHqxn+3OkJwWpLFHHEzEUpCD2ais7U8/
-         D64QCCBYRjkKgBPIu/Fs8Heif21+s/oDtX9RGSo8L8tA9uZ4WSNInS9rYwpzcF+giH3d
-         LVWpsC0Af4LlM/TVuPXQi7rVI3pqt0+bfV0MkrxqF/JhtxQ2w3uPc7T5gMjE9RkUTNXk
-         67FFUnWO6cp5UT9a1tIIQWrhbZj7BjxvaEE1ljiYy4+526s1nnXMdtV2RGfkzzO84EnP
-         xQn+WaMAs2c3a35P2eGfBubYFcsv6bP3gqNmiDHalNW0gL7ARJbqosDdy/lPy636IWiZ
-         sfUA==
-X-Forwarded-Encrypted: i=1; AFNElJ+agZ4fRIZXGVALUau/qnAoFhVPFAEpfgLTxVtEEdaIbD1v0/PXwPsbTKHLR7bocw7J0f+P4T1ht/1Fvwcg31PK@lists.infradead.org
-X-Gm-Message-State: AOJu0Yya/g5h1aD8SPKoTVa69kcDCrr1kPLiGc4DeV1gOO3NXX6I1a1g
-	bkRuZL2cBrTkF8TziYnMrewKxNv6Oqs1T6CaoYfdkF9mf0N8U58e69W5
-X-Gm-Gg: Acq92OHgoHgUp070/9RCwyxc/t0OQ1kZTnTioQc5Qhtu/Fsv1bwZPJlx43RxNfNH846
-	aTCrV+N87nqUIVMqjhKZnglxkNOqxsHBus85u/A0qC3NCim+hhHZM5VIjIH9xQAzJXdOhP4Jve0
-	kNZUnMAGQkH08e0keKFgct9jIT4Aq8vYhivLvUOGyMLQFw5OPundztuIFU6TjK959S33+LogioE
-	Faw7LSaVplll8KA3f1EhzUrNOz3/P60SGBBJydlxm115XJCj4sGrVs4P6UaGPdhkNtWmFAlM8HM
-	0ltCwwJG24szmJ+wNL/DEaoByeopHbZE0s9AOQqDEOKCqOOznKrWStzAEbLwE347ay4Rhdmu0J/
-	+b2eAkdmM9NFINFd/1CkJ2KjtKR8coNmqVJ5M8JCs94Mb3h2aB+7pJEN8Ityk4QYmtgBqqXrFwq
-	n/+t/7MtzUslJd4kmiY5ohVhHXwhKQ5Ef973MD33b+fOowJS2ewnfN5WIRg/n0XYGeF2dbSqtzl
-	iKcp+oGRbfaO+LBVT3or7qGWsBQJ8Oz1nqlWTXWnCpBeg==
-X-Received: by 2002:a05:7300:cd97:b0:2ea:b975:3db1 with SMTP id 5a478bee46e88-304eb0f8bdemr260267eec.23.1780009594548;
-        Thu, 28 May 2026 16:06:34 -0700 (PDT)
-Received: from ryzen ([2601:644:8000:5b5d:7285:c2ff:fe45:8a32])
-        by smtp.gmail.com with ESMTPSA id 5a478bee46e88-304ebcc8016sm223109eec.23.2026.05.28.16.06.33
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Thu, 28 May 2026 16:06:33 -0700 (PDT)
-From: Rosen Penev <rosenp@gmail.com>
-To: linux-serial@vger.kernel.org
-Cc: Greg Kroah-Hartman <gregkh@linuxfoundation.org>,
-	Jiri Slaby <jirislaby@kernel.org>,
-	Frank Li <Frank.Li@nxp.com>,
-	Sascha Hauer <s.hauer@pengutronix.de>,
-	Pengutronix Kernel Team <kernel@pengutronix.de>,
-	Fabio Estevam <festevam@gmail.com>,
-	linux-kernel@vger.kernel.org (open list:TTY LAYER AND SERIAL DRIVERS),
-	imx@lists.linux.dev (open list:ARM/FREESCALE IMX / MXC ARM ARCHITECTURE),
-	linux-arm-kernel@lists.infradead.org (moderated list:ARM/FREESCALE IMX / MXC ARM ARCHITECTURE)
-Subject: [PATCH] serial: mxs-auart: fix probe error paths and clock handling
-Date: Thu, 28 May 2026 16:06:16 -0700
-Message-ID: <20260528230616.186792-1-rosenp@gmail.com>
-X-Mailer: git-send-email 2.54.0
+	Thu, 28 May 2026 23:08:01 +0000
+Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
+	by sea.source.kernel.org (Postfix) with ESMTP id D942440D79;
+	Thu, 28 May 2026 23:07:58 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 60B721F000E9;
+	Thu, 28 May 2026 23:07:56 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
+	s=k20260515; t=1780009678;
+	bh=m8wKs5HNoGHP0jSxnKSD1ZlK+t0QNPM64QnFvO48QdY=;
+	h=From:Date:Subject:To:Cc;
+	b=NFBv6NmdOiXWzG22Avv21qAqoaRn04aTbZYWsUqbo/Q4rrUflkw+tUFADPcuzTJpD
+	 2iOUKp01XZxrl3g7P8bg6IeUTF0weSZhkCGbTajcLiwgDPUpQJNJB2SJSDc7p1QX9z
+	 NH/TZ15ZJHeCzBLiki4Wfn5anzg3fUw1aAXGqo3kdDAMQh9mXefq7v7EHtWlE9M8AB
+	 vOGTcBLshh/NVX8er5R7MzE8ZLf6ujYguLqZ+udyzWoyu4Y7COtldTjTX+Vzyq/l5d
+	 beuJHcSGHfiCps0Q1WZs11b/uKVoP/vhsoFL7fEgS4Gv/xmE6UtKoGwccaHZ5N7Q2r
+	 xp1Mw47ELhapA==
+From: Mark Brown <broonie@kernel.org>
+Date: Fri, 29 May 2026 00:01:44 +0100
+Subject: [PATCH v2] KVM: arm64: Preserve all guest ZCR_EL2.LEN values
 MIME-Version: 1.0
-Content-Transfer-Encoding: 8bit
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: 7bit
+Message-Id: <20260529-kvm-arm64-fix-zcr-len-nv-v2-1-86cad51992bd@kernel.org>
+X-B4-Tracking: v=1; b=H4sIAFfJGGoC/3WNyw6CMBBFf4V07Zi24WFd8R+GRakDVKCYKTYq4
+ d8t6NblSc69Z2EeyaJn52RhhMF6O7kI8pAw02nXIthrZCa5zHkmFPRhBE1jnkJjn/A2BAM6cAE
+ UKixqjVxIzeL8ThiN/fpSfdk/6huaefvbjM76eaLX3g5i834ZKf9nggABaGSWouLFyTRlj+RwO
+ E7Usmpd1w8OIs500wAAAA==
+X-Change-ID: 20260519-kvm-arm64-fix-zcr-len-nv-9e9e7bae012a
+To: Marc Zyngier <maz@kernel.org>, Oliver Upton <oupton@kernel.org>, 
+ Joey Gouly <joey.gouly@arm.com>, Steffen Eiden <seiden@linux.ibm.com>, 
+ Suzuki K Poulose <suzuki.poulose@arm.com>, 
+ Catalin Marinas <catalin.marinas@arm.com>, Will Deacon <will@kernel.org>
+Cc: Mark Rutland <mark.rutland@arm.com>, 
+ linux-arm-kernel@lists.infradead.org, kvmarm@lists.linux.dev, 
+ linux-kernel@vger.kernel.org, Mark Brown <broonie@kernel.org>, 
+ stable@vger.kernel.org
+X-Mailer: b4 0.16-dev
+X-Developer-Signature: v=1; a=openpgp-sha256; l=7113; i=broonie@kernel.org;
+ h=from:subject:message-id; bh=/PiKYJWz9gvmc4Ax3o+7W5qhwU6FgIEJncOBBReKn3U=;
+ b=owEBbQGS/pANAwAKASTWi3JdVIfQAcsmYgBqGMrL6RTPvvntCgQnm5ff91NvugCqQe8i393fp
+ x/5ncnA0yOJATMEAAEKAB0WIQSt5miqZ1cYtZ/in+ok1otyXVSH0AUCahjKywAKCRAk1otyXVSH
+ 0NgMB/kBTUgZGRmtJouc2XSSAfGbkO9NNO+WZcXaVZIT+wpXcGtupf8q3oX2y+uQiOsainGcvM0
+ tbfluFjC56h/pb90Wjfx97nnmicXYwY779uvs+NvbyYAiYfcweFU3eSvehWW4SFNYPBAXPLictr
+ LiNPmDlkv2rD49lsv0sSQRmxM1JiwhCaLUezLTsWYrONLHfpoDaCkebYFYTD4SqIGfUZ8ku/B2L
+ TdUZs2YBLVUAAo9hJYXkwTCiQ19h+RSLlkasEPHCWFH1tVpTULIhW1obmlCo/30MP9br6MXRDf/
+ H93bnKaPaWafv8ZnEvaC9Sacx8HNXr7fvCeP6YpL/QInC1LA
+X-Developer-Key: i=broonie@kernel.org; a=openpgp;
+ fpr=3F2568AAC26998F9E813A1C5C3F436CA30F5D8EB
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260528_160635_915177_4B38C376 
-X-CRM114-Status: GOOD (  21.48  )
+X-CRM114-CacheID: sfid-20260528_160759_784148_CA66F193 
+X-CRM114-Status: GOOD (  22.39  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -103,243 +91,174 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Sashiko reported three pre-existing bugs in the mxs-auart driver:
+Since commit b3d29a823099 ("KVM: arm64: nv: Handle ZCR_EL2 traps") when
+guests write to ZCR_EL2 we have clamped the value of ZCR_EL2.LEN to be
+at most that configuring the maximum guest VL when accessed directly as
+ZCR_EL2. This is not clearly the behaviour the architecture documents
+for ZCR_EL2.LEN, while things are a little ambiguous currently there is
+a fairly direct reading that suggests values will be read as written.
+Further, the documented procedure for enumerating vector lengths means
+that it is expected that values larger than the largest supported vector
+length will be written in practice.
 
-- For non-ASM9260 variants, mxs_get_clks() obtained the clock but never
-  prepared/enabled it, leaving register accesses in probe at risk of
-  faulting if the bootloader had gated the clock.
-- The error path and remove function used pdev->id instead of
-  s->port.line to clear the auart_port[] slot.  For DT-probed devices
-  pdev->id is -1, causing an out-of-bounds write and leaving a dangling
-  pointer in the array.
-- The probe error path called iounmap() while the IRQ was still
-  registered. An interrupt during that window would dereference the
-  unmapped membase.
+The reasoning for the current behaviour is not specifically articulated, my
+best guess is that it is intended to ensure that the guest can not see an
+effective VL greater than the maximum that has been configured, though
+this will be ineffective when a VHE guest uses the ZCR_EL1 accessor.
+The VL can instead be constrained by configuring ZCR_EL2 when loading
+L2 guest state:
 
-All of this is a consequence of using mixed devm and non devm. Instead
-of working around these issues, go full devm so that everything can be
-cleaned up properly.
+ - When the L2 guest is running in EL1 or EL0 state configure
+   ZCR_EL2.LEN to the minimum of the guest ZCR_EL2.LEN and
+   vcpu_sve_max_vq(vcpu)-1.
+ - When the L2 guest is running at EL2 configure the maximum VL for
+   the guest in ZCR_EL2.LEN like we do for L1 guests and load the
+   guest ZCR_EL2 into ZCR_EL1.
 
-devm_clk_get_enabled allows removing clk_prepare_enable.
+This will ensure that the effective VL seen by the guest is always
+constrained by all of the maximum VL configured by the VMM and the
+ZCR_ELx values in effect.
 
-devm_platform_get_and_ioremap_resource is a bit worrying as it calls
-request_mem_region. Manual review of the dts files shows no overlapping
-memory regions, so should be good to go.
+With the above implemented we can simplify the emulation for trapped
+writes to ZCR_EL2 to store LEN configured by the guest directly,
+matching the handling for ZCR_EL1. We still need to sanitise the values
+written to ensure no unsupported fields are written, do this by adding
+the register to our generic sanitisation infrastructure. This register
+is a bit unusual in that as an unnamed field at bits 8:4 which is
+RAZ/WI, for the purposes of sanitisation treat these bits as though they
+were RES0.
 
-Use devm in mxs_auart_request_gpio_irq as devm is used in probe.
-
-Assisted-by: Opencode:Big-pickle
-Signed-off-by: Rosen Penev <rosenp@gmail.com>
+Fixes: b3d29a823099 ("KVM: arm64: nv: Handle ZCR_EL2 traps")
+Signed-off-by: Mark Brown <broonie@kernel.org>
+Cc: stable@vger.kernel.org
 ---
- drivers/tty/serial/mxs-auart.c | 110 ++++++---------------------------
- 1 file changed, 20 insertions(+), 90 deletions(-)
+Changes in v2:
+- Use generic santisation infrastructure.
+- Remove redundant !is_hyp_ctxt() check.
+- Also fix ZCR_EL2 configuration in __hyp_sve_restore_guest().
+- Commit message clarifications.
+- Link to v1: https://patch.msgid.link/20260522-kvm-arm64-fix-zcr-len-nv-v1-1-ec254e9078cf@kernel.org
+---
+ arch/arm64/include/asm/kvm_host.h       |  2 +-
+ arch/arm64/kvm/hyp/include/hyp/switch.h | 16 ++++++++++------
+ arch/arm64/kvm/nested.c                 |  5 +++++
+ arch/arm64/kvm/sys_regs.c               |  6 +-----
+ 4 files changed, 17 insertions(+), 12 deletions(-)
 
-diff --git a/drivers/tty/serial/mxs-auart.c b/drivers/tty/serial/mxs-auart.c
-index 697318dbb146..8b6463df11b3 100644
---- a/drivers/tty/serial/mxs-auart.c
-+++ b/drivers/tty/serial/mxs-auart.c
-@@ -1457,48 +1457,24 @@ static void mxs_init_regs(struct mxs_auart_port *s)
- static int mxs_get_clks(struct mxs_auart_port *s,
- 			struct platform_device *pdev)
+diff --git a/arch/arm64/include/asm/kvm_host.h b/arch/arm64/include/asm/kvm_host.h
+index 65eead8362e0..a49042bfa801 100644
+--- a/arch/arm64/include/asm/kvm_host.h
++++ b/arch/arm64/include/asm/kvm_host.h
+@@ -511,7 +511,6 @@ enum vcpu_sysreg {
+ 	ACTLR_EL2,	/* Auxiliary Control Register (EL2) */
+ 	CPTR_EL2,	/* Architectural Feature Trap Register (EL2) */
+ 	HACR_EL2,	/* Hypervisor Auxiliary Control Register */
+-	ZCR_EL2,	/* SVE Control Register (EL2) */
+ 	TTBR0_EL2,	/* Translation Table Base Register 0 (EL2) */
+ 	TTBR1_EL2,	/* Translation Table Base Register 1 (EL2) */
+ 	TCR_EL2,	/* Translation Control Register (EL2) */
+@@ -543,6 +542,7 @@ enum vcpu_sysreg {
+ 	SCTLR2_EL2,	/* System Control Register 2 (EL2) */
+ 	MDCR_EL2,	/* Monitor Debug Configuration Register (EL2) */
+ 	CNTHCTL_EL2,	/* Counter-timer Hypervisor Control register */
++	ZCR_EL2,	/* SVE Control Register (EL2) */
+ 
+ 	/* Any VNCR-capable reg goes after this point */
+ 	MARKER(__VNCR_START__),
+diff --git a/arch/arm64/kvm/hyp/include/hyp/switch.h b/arch/arm64/kvm/hyp/include/hyp/switch.h
+index bf0eb5e43427..320cd45d49c5 100644
+--- a/arch/arm64/kvm/hyp/include/hyp/switch.h
++++ b/arch/arm64/kvm/hyp/include/hyp/switch.h
+@@ -462,11 +462,13 @@ static inline bool kvm_hyp_handle_mops(struct kvm_vcpu *vcpu, u64 *exit_code)
+ 
+ static inline void __hyp_sve_restore_guest(struct kvm_vcpu *vcpu)
  {
--	int err;
--
- 	if (!is_asm9260_auart(s)) {
--		s->clk = devm_clk_get(&pdev->dev, NULL);
-+		s->clk = devm_clk_get_enabled(&pdev->dev, NULL);
- 		return PTR_ERR_OR_ZERO(s->clk);
- 	}
- 
--	s->clk = devm_clk_get(s->dev, "mod");
-+	s->clk = devm_clk_get_enabled(s->dev, "mod");
- 	if (IS_ERR(s->clk)) {
- 		dev_err(s->dev, "Failed to get \"mod\" clk\n");
- 		return PTR_ERR(s->clk);
- 	}
- 
--	s->clk_ahb = devm_clk_get(s->dev, "ahb");
-+	s->clk_ahb = devm_clk_get_enabled(s->dev, "ahb");
- 	if (IS_ERR(s->clk_ahb)) {
- 		dev_err(s->dev, "Failed to get \"ahb\" clk\n");
- 		return PTR_ERR(s->clk_ahb);
- 	}
- 
--	err = clk_prepare_enable(s->clk_ahb);
--	if (err) {
--		dev_err(s->dev, "Failed to enable ahb_clk!\n");
--		return err;
--	}
--
--	err = clk_set_rate(s->clk, clk_get_rate(s->clk_ahb));
--	if (err) {
--		dev_err(s->dev, "Failed to set rate!\n");
--		goto disable_clk_ahb;
--	}
--
--	err = clk_prepare_enable(s->clk);
--	if (err) {
--		dev_err(s->dev, "Failed to enable clk!\n");
--		goto disable_clk_ahb;
--	}
--
--	return 0;
--
--disable_clk_ahb:
--	clk_disable_unprepare(s->clk_ahb);
--	return err;
-+	return clk_set_rate(s->clk, clk_get_rate(s->clk_ahb));
- }
- 
- static int mxs_auart_init_gpios(struct mxs_auart_port *s, struct device *dev)
-@@ -1529,15 +1505,6 @@ static int mxs_auart_init_gpios(struct mxs_auart_port *s, struct device *dev)
- 	return 0;
- }
- 
--static void mxs_auart_free_gpio_irq(struct mxs_auart_port *s)
--{
--	enum mctrl_gpio_idx i;
--
--	for (i = 0; i < UART_GPIO_MAX; i++)
--		if (s->gpio_irq[i] >= 0)
--			free_irq(s->gpio_irq[i], s);
--}
--
- static int mxs_auart_request_gpio_irq(struct mxs_auart_port *s)
- {
- 	int *irq = s->gpio_irq;
-@@ -1549,21 +1516,13 @@ static int mxs_auart_request_gpio_irq(struct mxs_auart_port *s)
- 			continue;
- 
- 		irq_set_status_flags(irq[i], IRQ_NOAUTOEN);
--		err = request_irq(irq[i], mxs_auart_irq_handle,
--				IRQ_TYPE_EDGE_BOTH, dev_name(s->dev), s);
-+		err = devm_request_irq(s->dev, irq[i], mxs_auart_irq_handle, IRQ_TYPE_EDGE_BOTH,
-+				       dev_name(s->dev), s);
- 		if (err)
- 			dev_err(s->dev, "%s - Can't get %d irq\n",
- 				__func__, irq[i]);
- 	}
- 
--	/*
--	 * If something went wrong, rollback.
--	 * Be careful: i may be unsigned.
--	 */
--	while (err && (i-- > 0))
--		if (irq[i] >= 0)
--			free_irq(irq[i], s);
--
- 	return err;
- }
- 
-@@ -1604,18 +1563,10 @@ static int mxs_auart_probe(struct platform_device *pdev)
- 	if (ret)
- 		return ret;
- 
--	r = platform_get_resource(pdev, IORESOURCE_MEM, 0);
--	if (!r) {
--		ret = -ENXIO;
--		goto out_disable_clks;
--	}
--
-+	s->port.membase = devm_platform_get_and_ioremap_resource(pdev, 0, &r);
-+	if (IS_ERR(s->port.membase))
-+		return PTR_ERR(s->port.membase);
- 	s->port.mapbase = r->start;
--	s->port.membase = ioremap(r->start, resource_size(r));
--	if (!s->port.membase) {
--		ret = -ENOMEM;
--		goto out_disable_clks;
--	}
- 	s->port.ops = &mxs_auart_ops;
- 	s->port.iotype = UPIO_MEM;
- 	s->port.fifosize = MXS_AUART_FIFO_SIZE;
-@@ -1628,23 +1579,20 @@ static int mxs_auart_probe(struct platform_device *pdev)
- 	s->mctrl_prev = 0;
- 
- 	irq = platform_get_irq(pdev, 0);
--	if (irq < 0) {
--		ret = irq;
--		goto out_iounmap;
--	}
-+	if (irq < 0)
-+		return irq;
- 
- 	s->port.irq = irq;
--	ret = devm_request_irq(&pdev->dev, irq, mxs_auart_irq_handle, 0,
--			       dev_name(&pdev->dev), s);
-+	ret = devm_request_irq(&pdev->dev, irq, mxs_auart_irq_handle, 0, dev_name(&pdev->dev), s);
- 	if (ret)
--		goto out_iounmap;
-+		return ret;
- 
- 	platform_set_drvdata(pdev, s);
- 
- 	ret = mxs_auart_init_gpios(s, &pdev->dev);
- 	if (ret) {
- 		dev_err(&pdev->dev, "Failed to initialize GPIOs.\n");
--		goto out_iounmap;
-+		return ret;
- 	}
- 
++	u64 zcr_el2 = vcpu_sve_max_vq(vcpu) - 1;
++
  	/*
-@@ -1652,15 +1600,17 @@ static int mxs_auart_probe(struct platform_device *pdev)
+ 	 * The vCPU's saved SVE state layout always matches the max VL of the
+ 	 * vCPU. Start off with the max VL so we can load the SVE state.
  	 */
- 	ret = mxs_auart_request_gpio_irq(s);
- 	if (ret)
--		goto out_iounmap;
-+		return ret;
- 
- 	auart_port[s->port.line] = s;
- 
- 	mxs_auart_reset_deassert(s);
- 
- 	ret = uart_add_one_port(&auart_driver, &s->port);
--	if (ret)
--		goto out_free_qpio_irq;
-+	if (ret) {
-+		auart_port[s->port.line] = NULL;
-+		return ret;
+-	sve_cond_update_zcr_vq(vcpu_sve_max_vq(vcpu) - 1, SYS_ZCR_EL2);
++	sve_cond_update_zcr_vq(zcr_el2, SYS_ZCR_EL2);
+ 	__sve_restore_state(vcpu_sve_pffr(vcpu),
+ 			    &vcpu->arch.ctxt.fp_regs.fpsr,
+ 			    true);
+@@ -476,8 +478,10 @@ static inline void __hyp_sve_restore_guest(struct kvm_vcpu *vcpu)
+ 	 * nested guest, as the guest hypervisor could select a smaller VL. Slap
+ 	 * that into hardware before wrapping up.
+ 	 */
+-	if (is_nested_ctxt(vcpu))
+-		sve_cond_update_zcr_vq(__vcpu_sys_reg(vcpu, ZCR_EL2), SYS_ZCR_EL2);
++	if (is_nested_ctxt(vcpu)) {
++		zcr_el2 = min(zcr_el2, __vcpu_sys_reg(vcpu, ZCR_EL2));
++		sve_cond_update_zcr_vq(zcr_el2, SYS_ZCR_EL2);
 +	}
  
- 	/* ASM9260 don't have version reg */
- 	if (is_asm9260_auart(s)) {
-@@ -1673,20 +1623,6 @@ static int mxs_auart_probe(struct platform_device *pdev)
+ 	write_sysreg_el1(__vcpu_sys_reg(vcpu, vcpu_sve_zcr_elx(vcpu)), SYS_ZCR);
+ }
+@@ -501,11 +505,11 @@ static inline void fpsimd_lazy_switch_to_guest(struct kvm_vcpu *vcpu)
+ 		return;
+ 
+ 	if (vcpu_has_sve(vcpu)) {
++		zcr_el2 = vcpu_sve_max_vq(vcpu) - 1;
++
+ 		/* A guest hypervisor may restrict the effective max VL. */
+ 		if (is_nested_ctxt(vcpu))
+-			zcr_el2 = __vcpu_sys_reg(vcpu, ZCR_EL2);
+-		else
+-			zcr_el2 = vcpu_sve_max_vq(vcpu) - 1;
++			zcr_el2 = min(zcr_el2, __vcpu_sys_reg(vcpu, ZCR_EL2));
+ 
+ 		write_sysreg_el2(zcr_el2, SYS_ZCR);
+ 
+diff --git a/arch/arm64/kvm/nested.c b/arch/arm64/kvm/nested.c
+index 883b6c1008fb..38f672e94087 100644
+--- a/arch/arm64/kvm/nested.c
++++ b/arch/arm64/kvm/nested.c
+@@ -1834,6 +1834,11 @@ int kvm_init_nv_sysregs(struct kvm_vcpu *vcpu)
+ 	resx.res1 = VNCR_EL2_RES1;
+ 	set_sysreg_masks(kvm, VNCR_EL2, resx);
+ 
++	/* ZCR_EL2 - bits 8:4 are RAZ/WI so treat them as RES0 */
++	resx.res0 = ZCR_ELx_RES0 | GENMASK_ULL(8, 4);
++	resx.res1 = ZCR_ELx_RES1;
++	set_sysreg_masks(kvm, ZCR_EL2, resx);
++
+ out:
+ 	for (enum vcpu_sysreg sr = __SANITISED_REG_START__; sr < NR_SYS_REGS; sr++)
+ 		__vcpu_rmw_sys_reg(vcpu, sr, |=, 0);
+diff --git a/arch/arm64/kvm/sys_regs.c b/arch/arm64/kvm/sys_regs.c
+index 148fc3400ea8..77e1b5d223c6 100644
+--- a/arch/arm64/kvm/sys_regs.c
++++ b/arch/arm64/kvm/sys_regs.c
+@@ -2862,8 +2862,6 @@ static bool access_zcr_el2(struct kvm_vcpu *vcpu,
+ 			   struct sys_reg_params *p,
+ 			   const struct sys_reg_desc *r)
+ {
+-	unsigned int vq;
+-
+ 	if (guest_hyp_sve_traps_enabled(vcpu)) {
+ 		kvm_inject_nested_sve_trap(vcpu);
+ 		return false;
+@@ -2874,9 +2872,7 @@ static bool access_zcr_el2(struct kvm_vcpu *vcpu,
+ 		return true;
  	}
  
- 	return 0;
--
--out_free_qpio_irq:
--	mxs_auart_free_gpio_irq(s);
--	auart_port[pdev->id] = NULL;
--
--out_iounmap:
--	iounmap(s->port.membase);
--
--out_disable_clks:
--	if (is_asm9260_auart(s)) {
--		clk_disable_unprepare(s->clk);
--		clk_disable_unprepare(s->clk_ahb);
--	}
--	return ret;
+-	vq = SYS_FIELD_GET(ZCR_ELx, LEN, p->regval) + 1;
+-	vq = min(vq, vcpu_sve_max_vq(vcpu));
+-	__vcpu_assign_sys_reg(vcpu, ZCR_EL2, vq - 1);
++	__vcpu_assign_sys_reg(vcpu, ZCR_EL2, p->regval);
+ 	return true;
  }
  
- static void mxs_auart_remove(struct platform_device *pdev)
-@@ -1694,13 +1630,7 @@ static void mxs_auart_remove(struct platform_device *pdev)
- 	struct mxs_auart_port *s = platform_get_drvdata(pdev);
- 
- 	uart_remove_one_port(&auart_driver, &s->port);
--	auart_port[pdev->id] = NULL;
--	mxs_auart_free_gpio_irq(s);
--	iounmap(s->port.membase);
--	if (is_asm9260_auart(s)) {
--		clk_disable_unprepare(s->clk);
--		clk_disable_unprepare(s->clk_ahb);
--	}
-+	auart_port[s->port.line] = NULL;
- }
- 
- static struct platform_driver mxs_auart_driver = {
--- 
-2.54.0
+
+---
+base-commit: 5200f5f493f79f14bbdc349e402a40dfb32f23c8
+change-id: 20260519-kvm-arm64-fix-zcr-len-nv-9e9e7bae012a
+
+Best regards,
+--  
+Mark Brown <broonie@kernel.org>
 
 
