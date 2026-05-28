@@ -4,64 +4,71 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 676D5CD6E4A
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 28 May 2026 16:56:43 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 0D24ACD4F54
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 28 May 2026 16:58:29 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	MIME-Version:References:In-Reply-To:Message-Id:Date:Subject:Cc:To:From:
-	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=rH9H5iiclZanQu4e+WzORv7hvTf6YJymh0uc1k6JeCg=; b=I40WyyzuBafFpJhb6btKaDVGAe
-	PXxWUq98xlMfyTgpFqyc8lm5qV+rJTh+ooRZCXdIigAmTtc2FqorHUpnmhmI8EuPkTkg5HRyBaGpD
-	XK8AevkquHImQTKq9LUqtlfVUylHoBQWngT9kC8S1UShii8LilifQe+Mls/hjtFZXAyQeIE3+Yun/
-	FikDP2FoHWzGJgw3aZYQGM67pt5nzM9f9ZEd4MG/TN82Y/LqzDEOLxsyjxHADLgFL0Ar3FbNKr7Ht
-	MBiw3eIEJt/OxYLdP+J67QAwDi2Wo+DUz7ZooecHOnNyD/vm+65pxFmaXDe32ZtFZ9CX5VWIy0NaO
-	OYB+R99Q==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=CV93Gs2E+7eZBdUXfjVjpaPPMzba/gMgpOXeOIaQgWY=; b=d4Ozn8TJSfv5siy/eNEcmVQHsq
+	2ohKxml/n15G/Fjlm4Eb6jUbXvBqz6hEv8xpN2r3HX4z2msSM3a6DJFg863C9f8oEHgWHifVzcFsL
+	BM+h7cL9j00/Z9WZsG5DNFodgjc2SxoBJDxKVlaE2xRWQ2QOxMQESP9U+GZ4wAvp8fQKNRc5cwk4h
+	3L+/Sk72zV+3j2LsXyU8STClu4XfqGmGfRVlKDRwAzFpODYwUHGp33K1nctb/Nm/sEISrQkjnPlBH
+	kFGuVGRkTb5PWqJ5YVfDhn9vKAD0Pu1BZ65vuUbakNnoHOaem+LsnY+MxhDGvNVFi2p0jWn/wA27p
+	ChihU4Nw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wSe1x-000000063Fw-02a2;
-	Thu, 28 May 2026 16:56:25 +0000
-Received: from foss.arm.com ([217.140.110.172])
-	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wSe0y-000000062NL-15aU
+	id 1wSe3p-000000063jA-3VoV;
+	Thu, 28 May 2026 16:58:21 +0000
+Received: from sea.source.kernel.org ([172.234.252.31])
+	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
+	id 1wSe3n-000000063in-1xwQ
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 28 May 2026 16:55:27 +0000
-Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
-	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id 2DE9D460F;
-	Thu, 28 May 2026 09:55:18 -0700 (PDT)
-Received: from lakrids.cambridge.arm.com (usa-sjc-imap-foss1.foss.arm.com [10.121.207.14])
-	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPA id D02583F905;
-	Thu, 28 May 2026 09:55:21 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=simple/simple; d=arm.com; s=foss;
-	t=1779987323; bh=c7An5lAo4HuXMFOJKLUznIROOJFvQoSCNuanC61OzUw=;
-	h=From:To:Cc:Subject:Date:In-Reply-To:References:From;
-	b=EzyoxYhGrzenN39Qe8xb8GY332hRbeEJWl9M9/J/Vo/f9siGmTyvHGsswLxyCzMlj
-	 adwOFEq94+oLvfctI2y1FwPolIp1EJlK2tHbTv4i8i99ck/hXaXllkKHQ/8qAW9piK
-	 PYjEVs63sy6mjWlM6R/ITdXTTgewszWJ3rGHajDw=
-From: Mark Rutland <mark.rutland@arm.com>
-To: linux-arm-kernel@lists.infradead.org,
-	kvmarm@lists.linux.dev
-Cc: broonie@kernel.org,
-	catalin.marinas@arm.com,
-	james.morse@arm.com,
-	mark.rutland@arm.com,
-	maz@kernel.org,
-	oupton@kernel.org,
-	tabba@google.com,
-	vladimir.murzin@arm.com,
-	will@kernel.org
-Subject: [PATCH v2 15/18] arm64: fpsimd: Move SVE save/restore inline
-Date: Thu, 28 May 2026 17:54:43 +0100
-Message-Id: <20260528165446.701944-16-mark.rutland@arm.com>
-X-Mailer: git-send-email 2.30.2
-In-Reply-To: <20260528165446.701944-1-mark.rutland@arm.com>
-References: <20260528165446.701944-1-mark.rutland@arm.com>
+	Thu, 28 May 2026 16:58:20 +0000
+Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
+	by sea.source.kernel.org (Postfix) with ESMTP id D0476437CC;
+	Thu, 28 May 2026 16:58:17 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id E4E051F000E9;
+	Thu, 28 May 2026 16:58:14 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
+	s=k20260515; t=1779987497;
+	bh=CV93Gs2E+7eZBdUXfjVjpaPPMzba/gMgpOXeOIaQgWY=;
+	h=Date:From:To:Cc:Subject:References:In-Reply-To;
+	b=iu5qWQfCq8RVzoag/agzz6AaZ1ZM+KV0qvqExW8JUegyT4lL2Mm/gMZMDrXfxh4nI
+	 SgroGxpyHGslplr0SIoFCVZmpjRmUR20R/6VTu6gqJaktunb0R15UescY1y4vJGfLS
+	 GkODt4oyIBYhJb12s/iqvpm5wp93AzRCqghBI1u802bKmFb+jE+W15AXh9uDCLbLoi
+	 igI1+5CSJJu1pX5W0tBXZe9nLQNTCLtnTt2VnIfwU+SlqikIcLaslaEN+Fye32Q/SO
+	 AQL5/PcmwJkLj04EMESXRxOg3Jsz/QTVndHK4m/clVJbYSLPz4N5t+cxQmMxqSIaCA
+	 6VUFmya5Vnw7A==
+Date: Thu, 28 May 2026 17:58:12 +0100
+From: Conor Dooley <conor@kernel.org>
+To: Petar Stepanovic <pstepanovic@axiado.com>
+Cc: Akhila Kavi <akavi@axiado.com>,
+	Prasad Bolisetty <pbolisetty@axiado.com>,
+	Jonathan Cameron <jic23@kernel.org>,
+	David Lechner <dlechner@baylibre.com>,
+	Nuno =?iso-8859-1?Q?S=E1?= <nuno.sa@analog.com>,
+	Andy Shevchenko <andy@kernel.org>, Rob Herring <robh@kernel.org>,
+	Krzysztof Kozlowski <krzk+dt@kernel.org>,
+	Conor Dooley <conor+dt@kernel.org>, Harshit Shah <hshah@axiado.com>,
+	linux-iio@vger.kernel.org, devicetree@vger.kernel.org,
+	linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org
+Subject: Re: [PATCH 1/3] dt-bindings: iio: adc: add Axiado AX3000/AX3005
+ SARADC
+Message-ID: <20260528-skirt-mahogany-426302fd462f@spud>
+References: <20260528-axiado-ax3000-ax3005-saradc-v1-0-345dd5f6608a@axiado.com>
+ <20260528-axiado-ax3000-ax3005-saradc-v1-1-345dd5f6608a@axiado.com>
 MIME-Version: 1.0
-Content-Transfer-Encoding: 8bit
+Content-Type: multipart/signed; micalg=pgp-sha512;
+	protocol="application/pgp-signature"; boundary="glY1jcPOWoMvQi2Z"
+Content-Disposition: inline
+In-Reply-To: <20260528-axiado-ax3000-ax3005-saradc-v1-1-345dd5f6608a@axiado.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260528_095524_406693_FF96E3E3 
-X-CRM114-Status: GOOD (  23.00  )
+X-CRM114-CacheID: sfid-20260528_095819_592570_212338F0 
+X-CRM114-Status: UNSURE (   9.28  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -76,416 +83,38 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Currently the SVE register save/restore sequences are written in
-out-of-line assembly routines. While this works, it's somewhat painful:
 
-* As KVM needs to be able to use the sequences in hyp code, separate
-  assembly files are used for the regular kernel and KVM code. While the
-  common logic is shared in assembly macros, this still requires some
-  duplication, and has lead to some trivial divergence.
+--glY1jcPOWoMvQi2Z
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+Content-Transfer-Encoding: quoted-printable
 
-* As the SVE LDR/STR instrucitons have limited addressing modes, the
-  assembly macros use an awkward pattern requiring negative offsets.
-  This could be written more clearly with addresses being generated in C
-  code.
+On Thu, May 28, 2026 at 01:10:23AM -0700, Petar Stepanovic wrote:
+> The Axiado AX3000 and AX3005 SoCs include a 10-bit SAR ADC controller.
+> AX3000 supports 16 input channels, while AX3005 supports 8 input
+> channels.
+>=20
+> Document the compatible strings, register region, clock, reference
+> voltage supply, and IIO channel cells.
+>=20
+> Signed-off-by: Petar Stepanovic <pstepanovic@axiado.com>
 
-* As the FFR does not always exist in streaming mode, some awkward
-  conditional branching has been written in assembly which could be
-  clearer in C (and would permit the compiler to optimize out
-  unnecessary branches in some cases).
+With Jonathan's correction:
+Acked-by: Conor Dooley <conor.dooley@microchip.com>
 
-* For historical reasons, the assembly macros take some register
-  arguments as numerical indices (e.g. "sve_save 0, x1" uses x0 and x1),
-  which is simply confusing.
+pw-bot: changes-requested
 
-* For historical reasons, the SVE save/restore code and FPSIMD
-  save/restore code have a distinct sequences for FPSR and FPCR. Ideally
-  this logic would be shared.
 
-* The assembly sequences can't be instrumented, and so it's harder than
-  necessary to catch memory safety issues.
+--glY1jcPOWoMvQi2Z
+Content-Type: application/pgp-signature; name="signature.asc"
 
-To handle the above, move the SVE register save/restore sequences
-to inline assembly.
+-----BEGIN PGP SIGNATURE-----
 
-Neither GCC nor LLVM instrument memory arguments to inline assembly, so
-explicit instrumentation is added in the same manner as other assembly
-routines. This instrumentation is implicitly disabled by Kbuild for nVHE
-hyp code.
+iHUEABYKAB0WIQRh246EGq/8RLhDjO14tDGHoIJi0gUCahh0JAAKCRB4tDGHoIJi
+0rtoAQCZC2aiWxZMTWZ3jWNXeFb7Fiudf+Cu7MtTU9w+jxaBMgD/SChuRYlmFBa5
+mP+H04la6HHMbSF+9EdYltYwv7m/LAI=
+=Ve2X
+-----END PGP SIGNATURE-----
 
-Signed-off-by: Mark Rutland <mark.rutland@arm.com>
-Reviewed-by: Mark Brown <broonie@kernel.org>
-Reviewed-by: Vladimir Murzin <vladimir.murzin@arm.com>
-Cc: Catalin Marinas <catalin.marinas@arm.com>
-Cc: Fuad Tabba <tabba@google.com>
-Cc: James Morse <james.morse@arm.com>
-Cc: Marc Zyngier <maz@kernel.org>
-Cc: Oliver Upton <oupton@kernel.org>
-Cc: Will Deacon <will@kernel.org>
----
- arch/arm64/include/asm/fpsimd.h         | 119 +++++++++++++++++++++++-
- arch/arm64/include/asm/fpsimdmacros.h   |  61 ------------
- arch/arm64/include/asm/kvm_hyp.h        |   3 -
- arch/arm64/kernel/entry-fpsimd.S        |  22 -----
- arch/arm64/kvm/hyp/fpsimd.S             |  21 -----
- arch/arm64/kvm/hyp/include/hyp/switch.h |   4 +-
- arch/arm64/kvm/hyp/nvhe/Makefile        |   2 +-
- arch/arm64/kvm/hyp/nvhe/hyp-main.c      |   4 +-
- arch/arm64/kvm/hyp/vhe/Makefile         |   2 +-
- 9 files changed, 123 insertions(+), 115 deletions(-)
- delete mode 100644 arch/arm64/kvm/hyp/fpsimd.S
-
-diff --git a/arch/arm64/include/asm/fpsimd.h b/arch/arm64/include/asm/fpsimd.h
-index 560814acc60c0..d005324bbcf3e 100644
---- a/arch/arm64/include/asm/fpsimd.h
-+++ b/arch/arm64/include/asm/fpsimd.h
-@@ -215,8 +215,123 @@ static inline unsigned int sve_get_vl(void)
- 	return vl;
- }
- 
--extern void sve_save_state(struct sve_state *state, int save_ffr);
--extern void sve_load_state(const struct sve_state *state, int restore_ffr);
-+#define FOR_EACH_Z_REG(idx_str, asm_str)											\
-+	"	.irp " idx_str ",0,1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17,18,19,20,21,22,23,24,25,26,27,28,29,30,31\n"	\
-+	asm_str	"\n"														\
-+	"	.endr\n"
-+
-+#define FOR_EACH_P_REG(idx_str, asm_str)											\
-+	"	.irp " idx_str ",0,1,2,3,4,5,6,7,8,9,10,11,12,13,14,15\n"	\
-+	asm_str	"\n"								\
-+	"	.endr\n"
-+
-+static inline void __sve_save_z(struct sve_state *state, unsigned long vl)
-+{
-+	instrument_write(state, SVE_NUM_ZREGS * vl);
-+	asm volatile(
-+	__SVE_PREAMBLE
-+	FOR_EACH_Z_REG("n", "str	z\\n, [%[zregs], #\\n, MUL VL]")
-+	:
-+	: [zregs] "r" (state)
-+	: "memory"
-+	);
-+}
-+
-+static inline void __sve_load_z(const struct sve_state *state, unsigned long vl)
-+{
-+	instrument_read(state, SVE_NUM_ZREGS * vl);
-+	asm volatile(
-+	__SVE_PREAMBLE
-+	FOR_EACH_Z_REG("n", "ldr	z\\n, [%[zregs], #\\n, MUL VL]")
-+	:
-+	: [zregs] "r" (state)
-+	: "memory"
-+	);
-+}
-+
-+static inline void __sve_save_p(struct sve_state *state, unsigned long vl, bool ffr)
-+{
-+	void *pregs = (void *)state + SVE_NUM_ZREGS * vl;
-+	unsigned long pl = vl / 8;
-+	void *pffr = pregs + SVE_NUM_PREGS * pl;
-+
-+	instrument_write(pregs, SVE_NUM_PREGS * pl);
-+	asm volatile(
-+	__SVE_PREAMBLE
-+	FOR_EACH_P_REG("n", "str	p\\n, [%[pregs], #\\n, MUL VL]\n")
-+	:
-+	: [pregs] "r" (pregs)
-+	: "memory"
-+	);
-+
-+	instrument_write(pffr, pl);
-+	if (ffr) {
-+		asm volatile(
-+		__SVE_PREAMBLE
-+		"	rdffr	p0.b\n"
-+		"	str	p0, [%[pffr]]\n"
-+		"	ldr	p0, [%[pregs]]\n"
-+		:
-+		: [pregs] "r" (pregs),
-+		  [pffr] "r" (pffr)
-+		: "memory"
-+		);
-+	} else {
-+		asm volatile(
-+		__SVE_PREAMBLE
-+		"	pfalse	p0.b\n"
-+		"	str	p0, [%[pffr]]\n"
-+		"	ldr	p0, [%[pregs]]\n"
-+		:
-+		: [pregs] "r" (pregs),
-+		  [pffr] "r" (pffr)
-+		: "memory"
-+		);
-+	}
-+}
-+
-+static inline void __sve_load_p(const struct sve_state *state, unsigned long vl, bool ffr)
-+{
-+	const void *pregs = (const void *)state + SVE_NUM_ZREGS * vl;
-+	unsigned long pl = vl / 8;
-+	const void *pffr = pregs + SVE_NUM_PREGS * pl;
-+
-+	if (ffr) {
-+		instrument_read(pffr, pl);
-+		asm volatile(
-+		__SVE_PREAMBLE
-+		"	ldr	p0, [%[pffr]]\n"
-+		"	wrffr	p0.b\n"
-+		:
-+		: [pffr] "r" (pffr)
-+		: "memory"
-+		);
-+	}
-+
-+	instrument_read(pregs, SVE_NUM_PREGS * pl);
-+	asm volatile(
-+	__SVE_PREAMBLE
-+	FOR_EACH_P_REG("n", "ldr	p\\n, [%[pregs], #\\n, MUL VL]\n")
-+	:
-+	: [pregs] "r" (pregs)
-+	: "memory"
-+	);
-+}
-+
-+static inline void sve_save_state(struct sve_state *state, bool ffr)
-+{
-+	unsigned long vl = sve_get_vl();
-+	__sve_save_z(state, vl);
-+	__sve_save_p(state, vl, ffr);
-+}
-+
-+static inline void sve_load_state(const struct sve_state *state, bool ffr)
-+{
-+	unsigned long vl = sve_get_vl();
-+	__sve_load_z(state, vl);
-+	__sve_load_p(state, vl, ffr);
-+}
-+
- extern void sve_flush_live(bool flush_ffr, unsigned long vq_minus_1);
- extern void sme_save_state(struct sme_state *state, int zt);
- extern void sme_load_state(const struct sme_state *state, int zt);
-diff --git a/arch/arm64/include/asm/fpsimdmacros.h b/arch/arm64/include/asm/fpsimdmacros.h
-index e613dc94dc357..5f03fe51d0bff 100644
---- a/arch/arm64/include/asm/fpsimdmacros.h
-+++ b/arch/arm64/include/asm/fpsimdmacros.h
-@@ -42,36 +42,6 @@
- 
- /* Deprecated macros for SVE instructions */
- 
--/* STR (vector): STR Z\nz, [X\nxbase, #\offset, MUL VL] */
--.macro _sve_str_v nz, nxbase, offset=0
--	.arch_extension sve
--	str	z\nz, [X\nxbase, #\offset, MUL VL]
--.endm
--
--/* LDR (vector): LDR Z\nz, [X\nxbase, #\offset, MUL VL] */
--.macro _sve_ldr_v nz, nxbase, offset=0
--	.arch_extension sve
--	ldr	z\nz, [X\nxbase, #\offset, MUL VL]
--.endm
--
--/* STR (predicate): STR P\np, [X\nxbase, #\offset, MUL VL] */
--.macro _sve_str_p np, nxbase, offset=0
--	.arch_extension sve
--	str	p\np, [X\nxbase, #\offset, MUL VL]
--.endm
--
--/* LDR (predicate): LDR P\np, [X\nxbase, #\offset, MUL VL] */
--.macro _sve_ldr_p np, nxbase, offset=0
--	.arch_extension sve
--	ldr p\np, [x\nxbase, #\offset, MUL VL]
--.endm
--
--/* RDFFR (unpredicated): RDFFR P\np.B */
--.macro _sve_rdffr np
--	.arch_extension sve
--	rdffr p\np\().b
--.endm
--
- /* WRFFR P\np.B */
- .macro _sve_wrffr np
- 	.arch_extension sve
-@@ -177,37 +147,6 @@
- 		_sve_wrffr	0
- .endm
- 
--.macro _sve_pffr ptr
--	.arch_extension sve
--	addvl	\ptr, \ptr, #16
--	addvl	\ptr, \ptr, #16
--	addpl	\ptr, \ptr, #16
--.endm
--
--.macro sve_save nxbase, save_ffr
--		_sve_pffr	x\nxbase
-- _for n, 0, 31,	_sve_str_v	\n, \nxbase, \n - 34
-- _for n, 0, 15,	_sve_str_p	\n, \nxbase, \n - 16
--		cbz		\save_ffr, 921f
--		_sve_rdffr	0
--		b		922f
--921:
--		_sve_pfalse	0			// Zero out FFR
--922:
--		_sve_str_p	0, \nxbase
--		_sve_ldr_p	0, \nxbase, -16
--.endm
--
--.macro sve_load nxbase, restore_ffr
--		_sve_pffr	x\nxbase
-- _for n, 0, 31,	_sve_ldr_v	\n, \nxbase, \n - 34
--		cbz		\restore_ffr, 921f
--		_sve_ldr_p	0, \nxbase
--		_sve_wrffr	0
--921:
-- _for n, 0, 15,	_sve_ldr_p	\n, \nxbase, \n - 16
--.endm
--
- .macro sme_save_za nxbase, xvl, nw
- 	mov	w\nw, #0
- 
-diff --git a/arch/arm64/include/asm/kvm_hyp.h b/arch/arm64/include/asm/kvm_hyp.h
-index 38356eee592ad..ad19de1d0654f 100644
---- a/arch/arm64/include/asm/kvm_hyp.h
-+++ b/arch/arm64/include/asm/kvm_hyp.h
-@@ -121,9 +121,6 @@ void __debug_save_host_buffers_nvhe(struct kvm_vcpu *vcpu);
- void __debug_restore_host_buffers_nvhe(struct kvm_vcpu *vcpu);
- #endif
- 
--void __sve_save_state(struct sve_state *sve, int save_ffr);
--void __sve_restore_state(struct sve_state *sve, int restore_ffr);
--
- u64 __guest_enter(struct kvm_vcpu *vcpu);
- 
- bool kvm_host_psci_handler(struct kvm_cpu_context *host_ctxt, u32 func_id);
-diff --git a/arch/arm64/kernel/entry-fpsimd.S b/arch/arm64/kernel/entry-fpsimd.S
-index 4fa00c94f28b7..0575d90e6dffb 100644
---- a/arch/arm64/kernel/entry-fpsimd.S
-+++ b/arch/arm64/kernel/entry-fpsimd.S
-@@ -13,28 +13,6 @@
- 
- #ifdef CONFIG_ARM64_SVE
- 
--/*
-- * Save the SVE state
-- *
-- * x0 - pointer to buffer for state
-- * x1 - Save FFR if non-zero
-- */
--SYM_FUNC_START(sve_save_state)
--	sve_save 0, x1
--	ret
--SYM_FUNC_END(sve_save_state)
--
--/*
-- * Load the SVE state
-- *
-- * x0 - pointer to buffer for state
-- * x1 - Restore FFR if non-zero
-- */
--SYM_FUNC_START(sve_load_state)
--	sve_load 0, x1
--	ret
--SYM_FUNC_END(sve_load_state)
--
- /*
-  * Zero all SVE registers but the first 128-bits of each vector
-  *
-diff --git a/arch/arm64/kvm/hyp/fpsimd.S b/arch/arm64/kvm/hyp/fpsimd.S
-deleted file mode 100644
-index beacec33b2541..0000000000000
---- a/arch/arm64/kvm/hyp/fpsimd.S
-+++ /dev/null
-@@ -1,21 +0,0 @@
--/* SPDX-License-Identifier: GPL-2.0-only */
--/*
-- * Copyright (C) 2015 - ARM Ltd
-- * Author: Marc Zyngier <marc.zyngier@arm.com>
-- */
--
--#include <linux/linkage.h>
--
--#include <asm/fpsimdmacros.h>
--
--	.text
--
--SYM_FUNC_START(__sve_restore_state)
--	sve_load 0, x1
--	ret
--SYM_FUNC_END(__sve_restore_state)
--
--SYM_FUNC_START(__sve_save_state)
--	sve_save 0, x1
--	ret
--SYM_FUNC_END(__sve_save_state)
-diff --git a/arch/arm64/kvm/hyp/include/hyp/switch.h b/arch/arm64/kvm/hyp/include/hyp/switch.h
-index 72e658255cda7..41c60c9eea423 100644
---- a/arch/arm64/kvm/hyp/include/hyp/switch.h
-+++ b/arch/arm64/kvm/hyp/include/hyp/switch.h
-@@ -467,7 +467,7 @@ static inline void __hyp_sve_restore_guest(struct kvm_vcpu *vcpu)
- 	 * vCPU. Start off with the max VL so we can load the SVE state.
- 	 */
- 	sve_cond_update_zcr_vq(vcpu_sve_max_vq(vcpu) - 1, SYS_ZCR_EL2);
--	__sve_restore_state(kern_hyp_va(vcpu->arch.sve_state), true);
-+	sve_load_state(kern_hyp_va(vcpu->arch.sve_state), true);
- 	fpsimd_load_common(&vcpu->arch.ctxt.fp_regs);
- 
- 	/*
-@@ -488,7 +488,7 @@ static inline void __hyp_sve_save_host(void)
- 
- 	ctxt_sys_reg(hctxt, ZCR_EL1) = read_sysreg_el1(SYS_ZCR);
- 	write_sysreg_s(sve_vq_from_vl(kvm_host_sve_max_vl) - 1, SYS_ZCR_EL2);
--	__sve_save_state(sve_regs, true);
-+	sve_save_state(sve_regs, true);
- 	fpsimd_save_common(&hctxt->fp_regs);
- }
- 
-diff --git a/arch/arm64/kvm/hyp/nvhe/Makefile b/arch/arm64/kvm/hyp/nvhe/Makefile
-index 62cdfbff75625..f57450ebcb498 100644
---- a/arch/arm64/kvm/hyp/nvhe/Makefile
-+++ b/arch/arm64/kvm/hyp/nvhe/Makefile
-@@ -26,7 +26,7 @@ hyp-obj-y := timer-sr.o sysreg-sr.o debug-sr.o switch.o tlb.o hyp-init.o host.o
- 	 hyp-main.o hyp-smp.o psci-relay.o early_alloc.o page_alloc.o \
- 	 cache.o setup.o mm.o mem_protect.o sys_regs.o pkvm.o stacktrace.o ffa.o
- hyp-obj-y += ../vgic-v3-sr.o ../aarch32.o ../vgic-v2-cpuif-proxy.o ../entry.o \
--	 ../fpsimd.o ../hyp-entry.o ../exception.o ../pgtable.o ../vgic-v5-sr.o
-+	 ../hyp-entry.o ../exception.o ../pgtable.o ../vgic-v5-sr.o
- hyp-obj-y += ../../../kernel/smccc-call.o
- hyp-obj-$(CONFIG_LIST_HARDENED) += list_debug.o
- hyp-obj-$(CONFIG_NVHE_EL2_TRACING) += clock.o trace.o events.o
-diff --git a/arch/arm64/kvm/hyp/nvhe/hyp-main.c b/arch/arm64/kvm/hyp/nvhe/hyp-main.c
-index 72d025b2178a7..5c43943f24380 100644
---- a/arch/arm64/kvm/hyp/nvhe/hyp-main.c
-+++ b/arch/arm64/kvm/hyp/nvhe/hyp-main.c
-@@ -35,7 +35,7 @@ static void __hyp_sve_save_guest(struct kvm_vcpu *vcpu)
- 	 * on the VL, so use a consistent (i.e., the maximum) guest VL.
- 	 */
- 	sve_cond_update_zcr_vq(vcpu_sve_max_vq(vcpu) - 1, SYS_ZCR_EL2);
--	__sve_save_state(kern_hyp_va(vcpu->arch.sve_state), true);
-+	sve_save_state(kern_hyp_va(vcpu->arch.sve_state), true);
- 	fpsimd_save_common(&vcpu->arch.ctxt.fp_regs);
- 	write_sysreg_s(sve_vq_from_vl(kvm_host_sve_max_vl) - 1, SYS_ZCR_EL2);
- }
-@@ -55,7 +55,7 @@ static void __hyp_sve_restore_host(void)
- 	 * need to be revisited.
- 	 */
- 	write_sysreg_s(sve_vq_from_vl(kvm_host_sve_max_vl) - 1, SYS_ZCR_EL2);
--	__sve_restore_state(sve_regs, true);
-+	sve_load_state(sve_regs, true);
- 	fpsimd_load_common(&hctxt->fp_regs);
- 	write_sysreg_el1(ctxt_sys_reg(hctxt, ZCR_EL1), SYS_ZCR);
- }
-diff --git a/arch/arm64/kvm/hyp/vhe/Makefile b/arch/arm64/kvm/hyp/vhe/Makefile
-index 9695328bbd96e..d6b3475145c0e 100644
---- a/arch/arm64/kvm/hyp/vhe/Makefile
-+++ b/arch/arm64/kvm/hyp/vhe/Makefile
-@@ -10,4 +10,4 @@ CFLAGS_switch.o += -Wno-override-init
- 
- obj-y := timer-sr.o sysreg-sr.o debug-sr.o switch.o tlb.o
- obj-y += ../vgic-v3-sr.o ../aarch32.o ../vgic-v2-cpuif-proxy.o ../entry.o \
--	 ../fpsimd.o ../hyp-entry.o ../exception.o ../vgic-v5-sr.o
-+	 ../hyp-entry.o ../exception.o ../vgic-v5-sr.o
--- 
-2.30.2
-
+--glY1jcPOWoMvQi2Z--
 
