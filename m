@@ -4,44 +4,44 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 1CFA4CD5BD5
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 28 May 2026 22:25:35 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 4E2C8CD5BD5
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 28 May 2026 22:28:53 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Message-Id:Date:References:
 	In-Reply-To:Cc:To:From:Subject:Content-Transfer-Encoding:Content-Type:
 	MIME-Version:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=u+S+Yw/FvBDEuMekXmuxXKfy0MCGy9lrvQ1qucBDeyA=; b=kkmgHG1F1YkKHztxi0KWQIYKPS
-	+xgIKjiVDVrFm/+tXyQb5DvaI2j3c5rzArrA5KnBsMJ9gtDlEjteU251XNdkLXh3eezONohdsWWSb
-	EsDy9FNwk4+RPKw7zSYILJKd8fsmx1FbLOFmp3zK3KV5cAQZamokN8uLk8E7BE6pBMPxsG1SuVP8z
-	gAgksdBPCQu+jcOu2E6Kan3lfBqRCxeaggMDqNuf41VdFnnj88ENjt7v6L7NhQ8qeAnIF/SuCBUjw
-	90DvByAnZohJvZNaa9A7BXFV54a3+HTd6oL08R8aerQScg3qZe2Qv7NV+TJgM12KrQ3+rEk0kf8SJ
-	PVBiHEAA==;
+	bh=8zRkG4RWbLH23sLBlro2Oe0wZiV1e2ovm9LtCDLaerI=; b=Lvv+RCv4iUbiszQxK3cxMLKS2a
+	s3MP44PGX4B39AbgPWZvlU3W26hizByWrzrB50KGkG9x42bEjtLQRMwvwbCtrvfcczmtfKB7q4p42
+	lLb0UIlVE64hITf/zmVPOdhz7JHeG62urMfkFD8kD7+ok49/2aaqIIRgnJ3Vu1/WDw0Eq08pyw8h3
+	MBxxXvefF3OJG+2JFGqM7fVZX/0F6Kl8IS1bvf61gMVr+78G+oucnKpklZqWDU9o6P6X27+O1vdpG
+	9Hlt3EUTDaPCsMSEBMj5RHb92l6n1eqspLIkJUHzLXSxbGv24R9ksdeDPsjE/2jJQc0tchXTCaj3G
+	cwS6QcRg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wSjAO-00000006TXZ-1P15;
-	Thu, 28 May 2026 22:25:28 +0000
-Received: from sea.source.kernel.org ([172.234.252.31])
+	id 1wSjDa-00000006TuS-3M1D;
+	Thu, 28 May 2026 22:28:46 +0000
+Received: from tor.source.kernel.org ([2600:3c04:e001:324:0:1991:8:25])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wSjAL-00000006TWP-0hX0
+	id 1wSjDZ-00000006TuE-2GaT
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 28 May 2026 22:25:26 +0000
+	Thu, 28 May 2026 22:28:45 +0000
 Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
-	by sea.source.kernel.org (Postfix) with ESMTP id B192442A51;
-	Thu, 28 May 2026 22:25:24 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id DF0771F000E9;
-	Thu, 28 May 2026 22:25:18 +0000 (UTC)
+	by tor.source.kernel.org (Postfix) with ESMTP id 8BF896020A;
+	Thu, 28 May 2026 22:28:44 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id DEBB51F000E9;
+	Thu, 28 May 2026 22:28:36 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1780007124;
-	bh=u+S+Yw/FvBDEuMekXmuxXKfy0MCGy9lrvQ1qucBDeyA=;
+	s=k20260515; t=1780007324;
+	bh=8zRkG4RWbLH23sLBlro2Oe0wZiV1e2ovm9LtCDLaerI=;
 	h=Subject:From:To:Cc:In-Reply-To:References:Date;
-	b=Hr6xEbzndESUoJ2wfNwLPbtLjwjy1LSVfRxO4DenF/pVNsATiZ8N/615LpS9bRajm
-	 i7+zUFSS2Eni7u8CHWGK6gnRlrfQH7m8MKlp3wr5qbnHuka1LRI98czPpq6MGKBZaS
-	 j9QJRzLrDX435uGaKN58pSbBKbG0xklta7wc2k4i1UmURZwhdM1BoH0dkN+/Rt9icR
-	 XhME9SEgzZOSjxNNeGR1wkqEypr9yIldL663jKKa4lCnYCjWwYBkfShxbpBuBUvKGQ
-	 xrOiE7WJHxYM4TQJ6FCSZxxEn+8pyKenTysg2L64K2Q/MILUwRzSJs43ugkXiIlBgK
-	 /8Vohh5YagjdA==
+	b=Ls/LjJfk9xOdQx8Pcfu7HU2S81bI0CWPlLgpyBTQs31isfLwgMacX51ilgQxktsyU
+	 9tqfQQPjROIX+qnn23Sw/PvIcTs3DSko+dworb6ylkbj8fptVjo61C6CFjAmWvS0lj
+	 /N+05viOUMn/CuWGH7+pJZFmjpsUVsb9JpbTgPR0DFTPNSUmGZh2Z0y85L2jvJLX7c
+	 VwVYBRnqP48thdefg5N/G75tTqsabhttbjND/AdsID/OvxCNEbSbRJDcJgvsuhGwaP
+	 1pSJMnJGa9IRyR9Eij69FBxftLLUY4CddBFhQlQR1Y5phDB/QMklnUWb9SaK+tVxl0
+	 yWpGyiD6STr9A==
 MIME-Version: 1.0
 Content-Type: text/plain; charset="utf-8"
 Content-Transfer-Encoding: 7bit
@@ -70,28 +70,25 @@ Cc: Bryan O'Donoghue <bod@kernel.org>,
 In-Reply-To: <20260526-shikra-camss-review-v1-7-645d2c8c75a7@qti.qualcomm.com>
 References: <20260526-shikra-camss-review-v1-0-645d2c8c75a7@qti.qualcomm.com>
  <20260526-shikra-camss-review-v1-7-645d2c8c75a7@qti.qualcomm.com>
-Date: Thu, 28 May 2026 23:25:16 +0100
-Message-Id: <178000711657.4557.3333046681736710601.b4-reply@b4>
+Date: Thu, 28 May 2026 23:28:34 +0100
+Message-Id: <178000731452.4557.8537369407478321842.b4-reply@b4>
 X-Mailer: b4 0.16-dev-d5d98
-X-Developer-Signature: v=1; a=openpgp-sha256; l=3426; i=bod@kernel.org;
- h=from:subject:message-id; bh=5pD1xzgytOv4lRY+9SSxjmule4gFpWNYwQRPX9KkAk8=;
- b=owEBbQKS/ZANAwAKASJxO7Ohjcg6AcsmYgBqGMDOag8iXwNmyvcvGG71GFVtzTBZ8GRrnrC8i
- UEmdhIWZfCJAjMEAAEKAB0WIQTmk/sqq6Nt4Rerb7QicTuzoY3IOgUCahjAzgAKCRAicTuzoY3I
- OuMdD/9r4e3j3hYm02Do01jRKhrrRPeFv7ECVA0AYGytgWknXX2fis2ruf8UwUzBTXbBnBt0nk0
- lSfZ9m6G64/tz/FSOONzGM9wh3k+uCNTd7lRUAZc9hpQmWJ+IdUPtWkEoP4NMK2RgYNL2pYfqxB
- uvmyS3aGx1qSRcmQxwbKRn1ycIOOpfhM/cUYk3lb2LDeZxypyG+fe3ZJFfJ9w1Evux9c322PuLC
- YkhS7yz9TLEO9ARrMT9/6Xw5hOjN673rV0iCed9BvZLTcxJK33wrq3tm/PbMZ7MF98P2AeAV4Tu
- N6HYPeqea9D6vOaUjCPXvrQXpN1rlAU/jTcz8qthwPQQtI1Pu2PEp3YQjSASZYn+U25n0yEbKOV
- V7m1z3yzMbTRQSzQUnJE6lBEVUU1DUJtnwjhvU/kSaquzyjwLxosIWxmrMBpxtBG6kZPa8YmOjz
- r2r+HD28+n9Pu1kt6QDpn+7B2LW28m4u3ZEJ9tuMyfIQaqz0Sfw2PpfBRXDSbH/4S8feB2XA3lm
- b0Dcu37Vo6Q7fEwENKyQzN+IqW8Y6GsUToBIU66ZTt2nLtO4VehG7GUP+uFAWG7IXp0qBcoXQFo
- b4kRFIzzvTANgfUlai+n+FchJ/mDr/LXLInNZ+GsVOUZOFdBt5I+QBYNARXyf11yr7GVL6UuS7h
- 5SmQWwQSJcEIt+g==
+X-Developer-Signature: v=1; a=openpgp-sha256; l=3539; i=bod@kernel.org;
+ h=from:subject:message-id; bh=Di+OD3usvgyX6rnjBSUb7kST4EupNSbpYTe/lTj/MJQ=;
+ b=owEBbQKS/ZANAwAKASJxO7Ohjcg6AcsmYgBqGMGURvRRH+JDAyHt5+IyRuwrQMKhRBg3Zmujp
+ PeTeiSWYqWJAjMEAAEKAB0WIQTmk/sqq6Nt4Rerb7QicTuzoY3IOgUCahjBlAAKCRAicTuzoY3I
+ Oq43EACMGAbdNqBuEQM4lsxknuCMZY+IqXEAEy14jJjKMeomeUWcDtoG8YhKYGi7iqvIZjegeIi
+ GOrwW9E4+SWXtz4D6I7NcLlQSFkDMlia1w3bXxCJcFzO2hdh2LfZOkiIyt8ATHPofuTPI66U4mC
+ XcUBt3afisxXjIdfBWh8L2tTVSLcHEgIo3zpTuCirhkwwqJyLfNVR05BES1ulmkhLYLNJDB6A1W
+ pTc1YymVOUOdAKm0PO0bpF6tLLNb3XMW9gE68CgwvbE8yHSnt3S3/Zg3g/x/BcPiFYKMruqoUp5
+ /Bs6byUMvwuqixMVEqAwSUbnAp4BdWUk24EZJd536bKuxf4Y4eY2upWheepyEaW9ctRO4J0MDn+
+ MIEtSZ2j5S/Xtn5H0qNTThJFpXyQ1yzZVRzJhDtUU0YJuWrOv6hLp4Wx0+PsPm6edJRFHGvyLnV
+ 2osJZC8gryJk7u5hC8L9gdGxsivttGrFWbWFGFdk8lxRV/bs/LK2jAzNSxSklSXxum9XxhJWeMs
+ 0ZWTFnJIXG5mDS5M5qiE+rN5yuWI4iyk1nFRa1JUt1eO41ImdgExpcQqX5oKn7gjWRzMnhjyxKC
+ dcEhi66sQrxHjY1DrM2QCyC3Y84Ak3CeUQdCaSQ4tLJx3Pyr4DfSyL3qMOoYhUS4xYyzjnqNZEv
+ KPp6CovBwHsvLTw==
 X-Developer-Key: i=bod@kernel.org; a=openpgp;
  fpr=E693FB2AABA36DE117AB6FB422713BB3A18DC83A
-X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260528_152525_259728_5A5446C7 
-X-CRM114-Status: GOOD (  16.69  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -212,7 +209,10 @@ On 2026-05-26 22:42 +0530, Nihal Kumar Gupta wrote:
 > 
 > 
 
-Reviewed-by: Bryan O'Donoghue <bryan.odonoghue@linaro.org>
+If the overlay is not specific to board then the overlay should have some
+kind of base name shikra-evk-imx577-camera.dtb
+
+This seems like a minor nit-pick and, it is :)
 
 ---
 bod
