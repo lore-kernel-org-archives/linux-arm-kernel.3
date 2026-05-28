@@ -4,93 +4,95 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id C54BFCD5BD5
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 28 May 2026 22:23:05 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id ED6CDCD5BD5
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 28 May 2026 22:25:28 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Message-Id:Date:References:
-	In-Reply-To:Cc:To:From:Subject:Content-Transfer-Encoding:Content-Type:
-	MIME-Version:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=RHSzqIqjJsdmncrj5+nLVXghkdnqP0I1kuHt//29DIQ=; b=D07gdvlH1IU51P7KQIr4BuOLJ/
-	MMshqAu2ZrYfOqxujCt4gB1KtuyWLSpu4uc1EyNCyPrEUpdjLnZmWL9dvmshm2lW+pJRi7hY6dFqm
-	9R14NHERXYz6N/OqLnw74D0FfOUxElawHuRaB8KGvVfzvRJpyTYIaZtqVb0GFk4dWwH2jLmcglxt8
-	qm5Rm7dCzaB2Qd1rPuqJiYAJYHZpQI4KPB+LcrIs6t9k82aC8c5DGZa2MJ5M/PWtfKNXfX1j3f4Mv
-	ZvROh5W1ZEH0BFI0WThvTkkmzVOxiPQMGQcfhhhFM4eIkFG4vmIDaoa3l5T2U/3IyB6+4wfHyev8F
-	y8gTr4Hg==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=K3lH3cjkzIHlx4Slw2VWW5sli+Rig7PDMVIlCqK59Mc=; b=Yk/E4l+haf5q/tFgxml/U8k87S
+	9udeO8MARHPvo8joBlTxb3e6Vjw95sudrTcHhdL5xgnLFo9GMpw/Dw9NCpnVgZSjiM0Dt2vD/VoDE
+	fd4vL4WUY5Ps5xp/UhL+t5lpafpP3RlMFOOYxFrzQW6AFkV6poTGenJYrOV1XF3yMS2wYBnAYspvM
+	HzS9QCNtN4Xqd8xZDAqfswtmC7TX18A8qOv17fo1KD9TnS5NVpPEne8LLWSdOBAx0+jCLpow3H+p7
+	61oIIYCWUjXvuf1huaCwdww+pFx7KozYZAvsSEFcMz5ceNfPMR1+L9U/y7cCZXX86tbNOUMon+Yv0
+	ITguO5rA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wSj7x-00000006TFB-3cHl;
-	Thu, 28 May 2026 22:22:57 +0000
-Received: from sea.source.kernel.org ([172.234.252.31])
+	id 1wSjAI-00000006TVc-0rJ6;
+	Thu, 28 May 2026 22:25:22 +0000
+Received: from mail-pl1-x636.google.com ([2607:f8b0:4864:20::636])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wSj7v-00000006TEe-2i5d
+	id 1wSjAF-00000006TV9-1lre
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 28 May 2026 22:22:56 +0000
-Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
-	by sea.source.kernel.org (Postfix) with ESMTP id E5035418C3;
-	Thu, 28 May 2026 22:22:54 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 540051F000E9;
-	Thu, 28 May 2026 22:22:49 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1780006974;
-	bh=RHSzqIqjJsdmncrj5+nLVXghkdnqP0I1kuHt//29DIQ=;
-	h=Subject:From:To:Cc:In-Reply-To:References:Date;
-	b=nVgaA6GhqQWHoPjY0v/NiT3IMO2/7KPnFvSgdITi1dPzUo79rlzT9FHZ/l3HbtCYW
-	 xJW62FEtUESmyQeIPuri1GSKbzxKL6qm60RP9n1LttYOBkuArHT+o8o6zmhVGw1Zel
-	 hQPM5tBYxDT6i7GNHULAfsXN9BMJjl69UIun6ztBIvxBfee/SQyO59rk8jGEJ8TUxP
-	 GnqSpE8U1a0p+h8fvmeK5TJ8imCwB6dup7SskV8a661m4CvZmpukMGfbRV60XBOejs
-	 qzQVZFmN4O/ckd2K5cz7ywHqQEVO8YtI3a+ZXZlZfyxC5fWkgP6pH9RmcQq5GQawI1
-	 v3SWgfK5l29uw==
+	Thu, 28 May 2026 22:25:20 +0000
+Received: by mail-pl1-x636.google.com with SMTP id d9443c01a7336-2b2e8b95bdbso575ad.0
+        for <linux-arm-kernel@lists.infradead.org>; Thu, 28 May 2026 15:25:19 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=google.com; s=20251104; t=1780007118; x=1780611918; darn=lists.infradead.org;
+        h=in-reply-to:content-disposition:mime-version:references:message-id
+         :subject:cc:to:from:date:from:to:cc:subject:date:message-id:reply-to;
+        bh=K3lH3cjkzIHlx4Slw2VWW5sli+Rig7PDMVIlCqK59Mc=;
+        b=LAk24cBiKaKwplDi75oI2l3m3nt8fNl/Je915abrjJ3HhJYKZ3axczBRmQmp3NREQc
+         h0sBm61GLWhCji9YjcpSkWjmhKlaXhRWVI/psg055ZCIm4IeszY1sGVpJe82NDApvn8k
+         mJpkr1eS1nDTvFsTHST4wTeDqkWsJ+unKWYPZ1fp2v06MlfTBryLEuYhL3n6vC2hxCZl
+         DhNRhEf4LMFRiEJdIYHwUhC9YytuTlWhxdANFSjQ8aGILoXRUV5Boy19r4zBh8O3PgbT
+         UAKIll8MMwDc7lAYhTJIiaHAjpoEHCreQpJ6sQRwtlwT47ofpo5X4nVCHeMk4YZBvLuo
+         Y6VQ==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20251104; t=1780007118; x=1780611918;
+        h=in-reply-to:content-disposition:mime-version:references:message-id
+         :subject:cc:to:from:date:x-gm-gg:x-gm-message-state:from:to:cc
+         :subject:date:message-id:reply-to;
+        bh=K3lH3cjkzIHlx4Slw2VWW5sli+Rig7PDMVIlCqK59Mc=;
+        b=A9i2J8WAWt9nNATcT6Gau09CIBgAaO3IRCRLkBDBUV3ZHjY7WAr/JS04/ydfV5i7K/
+         GhB6GGL7JcJC4I3epw02niBwqQVmOYxGx6H9e6Uf7ri/UG4OPM8QaWb8UPslullA45GG
+         9zfDgQ+LBfYLKlajxzzNwjMRPMn+39Va1WoIY/haR5yFj4y5IwyNXCzQalvDCQdtFgLY
+         cg+zoD+cUV7BHoz+Rmr+XJyxR+DM5rb/GuEAOp8mmKtcCoaNqETxVEMuN3uLbsm4Cz+P
+         jyw8OwGw4wfy+fQH4s43zJLclM7mTWPLZqvM9klnmyV3QmUVzMql9RGRlgVa0T5Wk0fP
+         h75w==
+X-Forwarded-Encrypted: i=1; AFNElJ9G7zu3j+VkXERShYGwF8RsPmGyyGm6tvqCTbgWyqsOzjl55ffqzOD+KZYNJcxIdHmo0j9Uu9LnfAviKaSN/FXw@lists.infradead.org
+X-Gm-Message-State: AOJu0YzCudnxfJ7b5U+FQ5s5F39LJs3hOvy4d+o/yfHu/I7orDlVc3D8
+	Lojn8edCrWeN14r4zR38oFJpfDvzHP8qPvBZ7lyD5heUq+fevaYikav554F0OJoVxg==
+X-Gm-Gg: Acq92OGv5cjhvDixDJtMqXdsFRcS2U1YzoLBRpXvSozg9sPR2KeSCJ++OoXG600crAg
+	Lc2TrVZScGd3VoTbQewU8g0NX0QcwOrLYGMUTlU8t3jYKKFi35qKQ81AV93NEoqe/Hy0NuzC9ZB
+	+olEkJJs++tMrc5tKhZQ6jLDnUBaql4K7jCuYyI0xWcdcfJyb3RzMrMIUQjwWFk8eMFW+8UAvlO
+	M96Kpu44IYE8e8uQ16mbmkuVTBRzGzQX8+LUAHcgROeSP8Z4k1s2uGQ5cwLAwcfOJWaY56cwkOH
+	WZGNEt7AOf4WoMl2GjbSxd/osX35js02bI5o8y9S0OzdohjcarlLU8qoCHoP8CyQVGf91/TIffF
+	bh7Xt8nXX1Vy9a+Q/cklAUJBxm7qyg3dSYy1ARRrgxzA+BtEpyJbD9Xet52ZlzUhQtu+5I9HoiQ
+	UPnJF+C2QZswkJb+gmsoFSbt0NmkCxc7n8J1A66gooqRqBE73UIrQSqZm20YKaPQyj5lXdNAmge
+	CDNv58=
+X-Received: by 2002:a17:902:e884:b0:2bf:28d:87ad with SMTP id d9443c01a7336-2bf204cdd20mr428735ad.0.1780007118059;
+        Thu, 28 May 2026 15:25:18 -0700 (PDT)
+Received: from google.com (44.234.124.34.bc.googleusercontent.com. [34.124.234.44])
+        by smtp.gmail.com with ESMTPSA id d9443c01a7336-2bf218530c0sm647205ad.20.2026.05.28.15.25.15
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Thu, 28 May 2026 15:25:17 -0700 (PDT)
+Date: Thu, 28 May 2026 22:25:11 +0000
+From: Pranjal Shrivastava <praan@google.com>
+To: Nicolin Chen <nicolinc@nvidia.com>
+Cc: iommu@lists.linux.dev, Will Deacon <will@kernel.org>,
+	Joerg Roedel <joro@8bytes.org>, Robin Murphy <robin.murphy@arm.com>,
+	Jason Gunthorpe <jgg@ziepe.ca>, Mostafa Saleh <smostafa@google.com>,
+	Daniel Mentz <danielmentz@google.com>,
+	Ashish Mhetre <amhetre@nvidia.com>,
+	linux-arm-kernel@lists.infradead.org
+Subject: Re: [PATCH v7 10/11] iommu/arm-smmu-v3: Invoke pm_runtime before hw
+ access
+Message-ID: <ahjAxx-cyww2va__@google.com>
+References: <20260527221407.1756491-1-praan@google.com>
+ <20260527221407.1756491-11-praan@google.com>
+ <ahilX8Za1NRCH3ik@Asurada-Nvidia>
+ <ahi3uY9YZZtR1Lq5@google.com>
+ <ahi7KWov1+GC3xVx@Asurada-Nvidia>
 MIME-Version: 1.0
-Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: 7bit
-Subject: Re: [PATCH 5/8] arm64: dts: qcom: shikra: Add CCI definitions
-From: bod@kernel.org
-To: Nihal Kumar Gupta <nihal.gupta@oss.qualcomm.com>
-Cc: Bryan O'Donoghue <bod@kernel.org>, 
- Vladimir Zapolskiy <vladimir.zapolskiy@linaro.org>, 
- Loic Poulain <loic.poulain@oss.qualcomm.com>, 
- Mauro Carvalho Chehab <mchehab@kernel.org>, Rob Herring <robh@kernel.org>, 
- Krzysztof Kozlowski <krzk+dt@kernel.org>, 
- Conor Dooley <conor+dt@kernel.org>, Robert Foss <rfoss@kernel.org>, 
- Andi Shyti <andi.shyti@kernel.org>, 
- Bryan O'Donoghue <bryan.odonoghue@linaro.org>, 
- Bjorn Andersson <andersson@kernel.org>, 
- Konrad Dybcio <konradybcio@kernel.org>, Frank Li <Frank.Li@nxp.com>, 
- Sascha Hauer <s.hauer@pengutronix.de>, 
- Pengutronix Kernel Team <kernel@pengutronix.de>, 
- Fabio Estevam <festevam@gmail.com>, linux-arm-msm@vger.kernel.org, 
- linux-media@vger.kernel.org, devicetree@vger.kernel.org, 
- linux-kernel@vger.kernel.org, linux-i2c@vger.kernel.org, 
- imx@lists.linux.dev, linux-arm-kernel@lists.infradead.org, 
- Suresh Vankadara <quic_svankada@quicinc.com>, 
- Vikram Sharma <vikram.sharma@oss.qualcomm.com>
-In-Reply-To: <20260526-shikra-camss-review-v1-5-645d2c8c75a7@qti.qualcomm.com>
-References: <20260526-shikra-camss-review-v1-0-645d2c8c75a7@qti.qualcomm.com>
- <20260526-shikra-camss-review-v1-5-645d2c8c75a7@qti.qualcomm.com>
-Date: Thu, 28 May 2026 23:22:47 +0100
-Message-Id: <178000696709.4557.9615154244947019683.b4-reply@b4>
-X-Mailer: b4 0.16-dev-d5d98
-X-Developer-Signature: v=1; a=openpgp-sha256; l=2875; i=bod@kernel.org;
- h=from:subject:message-id; bh=kEhjhFBbf9yHTndAWDllWLthNat8T3zEDzSysbLs4MY=;
- b=owEBbQKS/ZANAwAKASJxO7Ohjcg6AcsmYgBqGMA4iwNfXyN4aARCEBFcT1PxnJkHtlNStRrwA
- z+q8OWIN1WJAjMEAAEKAB0WIQTmk/sqq6Nt4Rerb7QicTuzoY3IOgUCahjAOAAKCRAicTuzoY3I
- OrTKEAC+gqvWdwgp+bXrpElnt7SkR5L1LYcLcYuL1uhfnY3Uh6GfaFJWApUv3rQeP7ZzaNPhCzd
- etCtIf5dnwuGsO7ADpWuGa/5lErNXqfDRcU9PTPXnnBsuIFqfx5HpQvnwt+K5qyaKXdgsJkMMUn
- W5cTGniouOHij9uwqK/ggf6uRT/rqRE9qUyUBAjA5BopEvLVSIDSJgIfRIwbMrIbiB6Wo961+6Y
- 7uoJMoyQ4ed+gTm/Ckw5vA1A+GmH7vYx7/m9q68TTVYd7EW09azPxIR7CVqQLnFqNXcwC54M+aR
- 3SfCWY/p+hA8LdoNrraXvQcKI9rSPMTmM2HjXjyG/5fjmtJhJENHlWRu1c4N89cMOisbbuvXsj3
- Xp3BWwksxhaXBMIfbyAGSpm18NdIp+Wa9sWo/NoG7J+0aWI5VjBNpIYnRDr+8QlB9roYXI0hTO7
- RGst6d9rEjaISqeyIaYEnePD+ITk2MtJGGJdSAHqDCPe7RCxkuXHac1RL5/NZ6MJ1JEZPYoahkX
- jzbRV6Nl0eJuSpfsC3D7wTizu69iufhc3XNBytMiZlgyj7cwd7XyiaC20qFbx0TqLDoBcU7gx6H
- tI5pFb5hP/4oadddKkgUKfe+psW4IUmOhbmTN0lFMQQRO8AoMPI4JxKwjQxK9LXKeM/y5e79KYN
- u5v1PXbpgyIcnIQ==
-X-Developer-Key: i=bod@kernel.org; a=openpgp;
- fpr=E693FB2AABA36DE117AB6FB422713BB3A18DC83A
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+In-Reply-To: <ahi7KWov1+GC3xVx@Asurada-Nvidia>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260528_152255_731785_E9A1524B 
-X-CRM114-Status: GOOD (  12.79  )
+X-CRM114-CacheID: sfid-20260528_152519_467227_9840F7A4 
+X-CRM114-Status: GOOD (  23.42  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -105,112 +107,47 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On 2026-05-26 22:42 +0530, Nihal Kumar Gupta wrote:
-> Qualcomm Shikra SoC has one Camera Control Interface (CCI)
-> containing two I2C hosts.
+On Thu, May 28, 2026 at 03:01:13PM -0700, Nicolin Chen wrote:
+> On Thu, May 28, 2026 at 09:46:33PM +0000, Pranjal Shrivastava wrote:
+> > On Thu, May 28, 2026 at 01:28:15PM -0700, Nicolin Chen wrote:
+> > > On Wed, May 27, 2026 at 10:14:06PM +0000, Pranjal Shrivastava wrote:
+> > > > TLB and CFG invalidations are
+> > > > elided if the SMMU is suspended by observing the CMDQ_PROD_STOP_FLAG via
+> > > > the arm_smmu_can_elide() helper.
+> > > 
+> > > All the arm_smmu_can_elide() call sites here would eventually elide
+> > > the commands in arm_smmu_cmdq_issue_cmdlist() that is already gated
+> > > by CMDQ_PROD_STOP_FLAG? It doesn't seem necessary to gate again?
+> > 
+> > While issue_cmdlist() would eventually elide these commands, the 
+> > can_elide() check is necessary to return early during suspension. 
+> > 
+> > This avoids unnecessary stack allocation, cmd building, and spinlock
+> > contention on the cmdq->lock for threads that are anyway about to be 
+> > elided. 
 > 
-> Signed-off-by: Nihal Kumar Gupta <nihal.gupta@oss.qualcomm.com>
-> ---
->  arch/arm64/boot/dts/qcom/shikra.dtsi | 70 ++++++++++++++++++++++++++++++++++++
->  1 file changed, 70 insertions(+)
+> We aren't in the perf sensitive path.. most of those aren't going
+> to be that bad.
 > 
-> diff --git a/arch/arm64/boot/dts/qcom/shikra.dtsi b/arch/arm64/boot/dts/qcom/shikra.dtsi
-> index 6c47cf2a7ef26b4bb7d7f642a240b435cf5208d8..46de35971f629ded990827ebd76134e652758ce3 100644
-> --- a/arch/arm64/boot/dts/qcom/shikra.dtsi
-> +++ b/arch/arm64/boot/dts/qcom/shikra.dtsi
-> @@ -348,6 +348,38 @@ tlmm: pinctrl@500000 {
->  			gpio-ranges = <&tlmm 0 0 165>;
->  			wakeup-parent = <&mpm>;
->  
-> +			cci_i2c0_default: cci-i2c0-default-state {
-> +				/* SDA, SCL */
-> +				pins = "gpio36", "gpio37";
-> +				function = "cci_i2c0";
-> +				drive-strength = <2>;
-> +				bias-pull-up;
-> +			};
-> +
-> +			cci_i2c0_sleep: cci-i2c0-sleep-state {
-> +				/* SDA, SCL */
-> +				pins = "gpio36", "gpio37";
-> +				function = "cci_i2c0";
-> +				drive-strength = <2>;
-> +				bias-pull-down;
-> +			};
-> +
-> +			cci_i2c1_default: cci-i2c1-default-state {
-> +				/* SDA, SCL */
-> +				pins = "gpio41", "gpio42";
-> +				function = "cci_i2c1";
-> +				drive-strength = <2>;
-> +				bias-pull-up;
-> +			};
-> +
-> +			cci_i2c1_sleep: cci-i2c1-sleep-state {
-> +				/* SDA, SCL */
-> +				pins = "gpio41", "gpio42";
-> +				function = "cci_i2c1";
-> +				drive-strength = <2>;
-> +				bias-pull-down;
-> +			};
-> +
->  			qup_uart0_default: qup-uart0-default-state {
->  				pins = "gpio0", "gpio1";
->  				function = "qup0_se0";
-> @@ -701,6 +733,44 @@ port@1 {
->  					reg = <1>;
->  				};
->  			};
-> +
-> +		};
-> +
-> +		cci: cci@5c1b000 {
-> +			compatible = "qcom,shikra-cci", "qcom,msm8996-cci";
-> +			reg = <0x0 0x05c1b000 0x0 0x1000>;
-> +
-> +			interrupts = <GIC_SPI 206 IRQ_TYPE_EDGE_RISING 0>;
-> +
-> +			clocks = <&gcc GCC_CAMSS_TOP_AHB_CLK>,
-> +				 <&gcc GCC_CAMSS_CCI_0_CLK>;
-> +			clock-names = "ahb",
-> +				      "cci";
-> +
-> +			power-domains = <&gcc GCC_CAMSS_TOP_GDSC>;
-> +
-> +			pinctrl-0 = <&cci_i2c0_default &cci_i2c1_default>;
-> +			pinctrl-1 = <&cci_i2c0_sleep &cci_i2c1_sleep>;
-> +			pinctrl-names = "default", "sleep";
-> +
-> +			#address-cells = <1>;
-> +			#size-cells = <0>;
-> +
-> +			status = "disabled";
-> +
-> +			cci_i2c0: i2c-bus@0 {
-> +				reg = <0>;
-> +				clock-frequency = <400000>;
-> +				#address-cells = <1>;
-> +				#size-cells = <0>;
-> +			};
-> +
-> +			cci_i2c1: i2c-bus@1 {
-> +				reg = <1>;
-> +				clock-frequency = <400000>;
-> +				#address-cells = <1>;
-> +				#size-cells = <0>;
-> +			};
->  		};
->  
->  		qupv3_0: geniqup@4ac0000 {
-> 
-> -- 
-> 2.34.1
-> 
-> 
+> arm_smmu_cmdq_shared_lock() on the other hand is taken at step 2,
+> and the STOP flag in the same function is gated at step 1?
 
-Reviewed-by: Bryan O'Donoghue <bryan.odonoghue@linaro.org>
+DMA unmaps frequently occur from atomic contexts, interrupt handlers etc
+Thee Step 1 check in issue_cmdlist() happens under local_irq_save().
+We may argue that it doesn't happen for long though..
+> 
+> > By dropping these requests immediately, we significantly reduce cacheline
+> > bouncing and contention during unmap storms.
+> 
+> How significantly, so as to justify invading every command issue()
+> call site, which would be difficult to maintain? If we really need
+> an early return, it would be nicer to have a common place at least.
 
----
-bod
+Eliding early is more of an early-exit from the DMA unmap paths really..
+If maintaining these high-level elision checks at 4 or 5 call sites is
+a maintenance burden, maybe we could move the logic into the issue_cmd
+macros? 
 
+Thanks,
+Praan
 
