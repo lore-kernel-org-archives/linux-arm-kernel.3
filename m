@@ -4,64 +4,74 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 96E09CD5BD5
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 28 May 2026 17:49:27 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 13C86CD4F54
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 28 May 2026 17:56:53 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	MIME-Version:References:In-Reply-To:Message-Id:Date:Subject:Cc:To:From:
-	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Content-Type:MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:
+	To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=bWZV/zhb9cKxMWRcNXAvQgGUZjavOUqc33cT55DOA2o=; b=gzJcpwOCUOFqy6lGocSYo2bVQZ
-	gzsEtg/9UWKrZnWhgVbkZ+6amYUU+Rw5b1VXx4nfIDsQz66VcoOJHEaItXucQ2Y2J5Uh6awTGAgo3
-	lNPqsD/3QrfagQUPdp7tVWKG5Q4TGyv6C8HC/a0ltQRQ5HdcoZ+AMYakIq22FNfIcplA+2FEfhqWQ
-	p2bRRJl1VcHlCJZj4yWK6G9B2pPlUBsQQDynXfP/2xhJXytyX6Zc22092+HR3Tznhw9tbmomt7RYG
-	4RDSU98aKqLUWDMD2WN6IOJG/jFI0tngOP4Rxz24sDig5h26k9jzgYFLkI6bWd/nrj/Kx/8w7dBKg
-	gMbyyZSQ==;
+	bh=Naf3wXJ2EyrFvHMdJcyKV7tDwmuIz0pC4n157xSFJ8g=; b=gNEpFf21r30pxwXppopDM1z/+R
+	ATyvFmzLdjtTOI+yCa2it6UcFa/aOi6yhXeCfRoRDZnKH2Ue2T+wa7hfQR1F+iVJ7bQ2kgaKtLtzm
+	4rhPqApseDNTDZq0evqUfvgBiE1cs9bKwSiusExy/WuAL2P6sE54DhY0+aJy8a2K7Cf98u9mnBpXM
+	WTN5HIhbUEJTEXkEpBdiLlX2kWTN3YHNtlrgmQP/7KrvA5P73KA17HVUg2p6Fh+FowBxECTjHuy4h
+	tQIxPyVQGpOCjBmC9lGeDti+7j/Z9XmFQJu7Y+kbqK9w2i2q7Fji/w2IBuAj4/VLDo8Rf0EiFGjN3
+	++0UYqig==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wSe0x-000000062RX-2RZM;
-	Thu, 28 May 2026 16:55:23 +0000
-Received: from foss.arm.com ([217.140.110.172])
-	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wSe0h-000000062Hf-1pJe
+	id 1wSeyM-000000069CA-23Z8;
+	Thu, 28 May 2026 17:56:46 +0000
+Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
+	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
+	id 1wSeyJ-000000069Bh-3TSR
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 28 May 2026 16:55:08 +0000
-Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
-	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id CA57922EE;
-	Thu, 28 May 2026 09:55:01 -0700 (PDT)
-Received: from lakrids.cambridge.arm.com (usa-sjc-imap-foss1.foss.arm.com [10.121.207.14])
-	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPA id 778543F905;
-	Thu, 28 May 2026 09:55:05 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=simple/simple; d=arm.com; s=foss;
-	t=1779987306; bh=0cKkA0JHO5JFay9A3wB67rvS6c6e4kJSsI9mQ5MyegU=;
-	h=From:To:Cc:Subject:Date:In-Reply-To:References:From;
-	b=XGUCAHZWIgQPWV4ThXqB8L465sNyeqjfXRrFeHkaJbnMri72jyA8RPja34c9hKGHF
-	 HgD2aahLdZzqQ7Vjr66p85Nmp21PrDB9UXkgo5/vVfllB4LA96NDXoT68vIZvF9pMG
-	 mEnewNdVWif3/CED/HqIf/pr5iYegWecpXbQjJOg=
-From: Mark Rutland <mark.rutland@arm.com>
-To: linux-arm-kernel@lists.infradead.org,
-	kvmarm@lists.linux.dev
-Cc: broonie@kernel.org,
-	catalin.marinas@arm.com,
-	james.morse@arm.com,
-	mark.rutland@arm.com,
-	maz@kernel.org,
-	oupton@kernel.org,
-	tabba@google.com,
-	vladimir.murzin@arm.com,
-	will@kernel.org
-Subject: [PATCH v2 05/18] arm64: fpsimd: Fold sve_init_regs() into do_sve_acc()
-Date: Thu, 28 May 2026 17:54:33 +0100
-Message-Id: <20260528165446.701944-6-mark.rutland@arm.com>
-X-Mailer: git-send-email 2.30.2
-In-Reply-To: <20260528165446.701944-1-mark.rutland@arm.com>
-References: <20260528165446.701944-1-mark.rutland@arm.com>
+	Thu, 28 May 2026 17:56:45 +0000
+Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
+	by sea.source.kernel.org (Postfix) with ESMTP id BD0CE407C2;
+	Thu, 28 May 2026 17:56:41 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 9EE021F000E9;
+	Thu, 28 May 2026 17:56:41 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
+	s=k20260515; t=1779991001;
+	bh=Naf3wXJ2EyrFvHMdJcyKV7tDwmuIz0pC4n157xSFJ8g=;
+	h=From:To:Cc:Subject:Date:In-Reply-To:References;
+	b=P5G+Eix9YABB7wMgZVO5Q+vMS6tFX7oY1PkD91PWXzwGDKrxzk8yq/hGqjlWft94I
+	 Rmvue2+hRRsCFPGEMjvOb3HNA1nNoYN08zMxhBXUVZ1GIiUVXZzXIq5Aa0p7FCNyjK
+	 PkcRwfotYhLN5g3i/K7wPhLU9WR61Z8kqlE+w479jk/FM62TEutBgN98GmVzH4s/jm
+	 aPZhid8JeLGhb5WKwaum52RyaaWbxDpJG0+dfgzfTtuvPpCUWFbkUQ/chFdnzYNW+K
+	 e/17gq/5sBjf7Z8lwMfwxqWoPDBPR5UVyFnaPuakGWFwjhzays9hs4LR+cwf8pG6d7
+	 dyd6mx1j0DuUQ==
+Received: from sofa.misterjones.org ([185.219.108.64] helo=valley-girl.lan)
+	by disco-boy.misterjones.org with esmtpsa  (TLS1.3) tls TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384
+	(Exim 4.98.2)
+	(envelope-from <maz@kernel.org>)
+	id 1wSeyF-000000078lE-1sfq;
+	Thu, 28 May 2026 17:56:39 +0000
+From: Marc Zyngier <maz@kernel.org>
+To: kvmarm@lists.linux.dev,
+	linux-arm-kernel@lists.infradead.org,
+	Zenghui Yu <zenghui.yu@linux.dev>
+Cc: oupton@kernel.org,
+	joey.gouly@arm.com,
+	suzuki.poulose@arm.com
+Subject: Re: [PATCH] KVM: arm64: Remove @arch from __load_stage2()
+Date: Thu, 28 May 2026 18:56:36 +0100
+Message-ID: <177999096482.1739911.18058733022037753764.b4-ty@kernel.org>
+X-Mailer: git-send-email 2.47.3
+In-Reply-To: <20260318144305.56831-1-zenghui.yu@linux.dev>
+References: <20260318144305.56831-1-zenghui.yu@linux.dev>
 MIME-Version: 1.0
+Content-Type: text/plain; charset="utf-8"
 Content-Transfer-Encoding: 8bit
+X-SA-Exim-Connect-IP: 185.219.108.64
+X-SA-Exim-Rcpt-To: kvmarm@lists.linux.dev, linux-arm-kernel@lists.infradead.org, zenghui.yu@linux.dev, oupton@kernel.org, joey.gouly@arm.com, suzuki.poulose@arm.com
+X-SA-Exim-Mail-From: maz@kernel.org
+X-SA-Exim-Scanned: No (on disco-boy.misterjones.org); SAEximRunCond expanded to false
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260528_095507_615569_235B3DB4 
-X-CRM114-Status: GOOD (  18.49  )
+X-CRM114-CacheID: sfid-20260528_105643_884799_9BF94A74 
+X-CRM114-Status: UNSURE (   7.89  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -76,98 +86,23 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-For historical reasons, do_sve_acc() is structurally different from
-do_sme_acc(), and the logic to convert the task from FPSIMD to SVE is
-out-of-line in sve_init_regs(). We only use sve_init_regs() within
-do_sme_acc(), so it's not necessary for this to be a separate function.
+On Wed, 18 Mar 2026 22:43:05 +0800, Zenghui Yu wrote:
+> Since commit fe49fd940e22 ("KVM: arm64: Move VTCR_EL2 into struct s2_mmu"),
+> @arch is no longer required to obtain the per-kvm_s2_mmu vtcr and can be
+> removed from __load_stage2().
+> 
+> 
 
-Fold sve_init_regs() into do_sve_acc(), and simplify the associated
-comments. This makes do_sve_acc() structurally similar to do_sme_acc(),
-making it easier to see similarities and differences.
+Applied to next, thanks!
 
-There should be no functional change as a result of this patch.
+[1/1] KVM: arm64: Remove @arch from __load_stage2()
+      commit: e72b425f617edebf6f374fa39f2c763c9b3696ec
 
-Signed-off-by: Mark Rutland <mark.rutland@arm.com>
-Reviewed-by: Mark Brown <broonie@kernel.org>
-Reviewed-by: Vladimir Murzin <vladimir.murzin@arm.com>
-Cc: Catalin Marinas <catalin.marinas@arm.com>
-Cc: Fuad Tabba <tabba@google.com>
-Cc: James Morse <james.morse@arm.com>
-Cc: Marc Zyngier <maz@kernel.org>
-Cc: Oliver Upton <oupton@kernel.org>
-Cc: Will Deacon <will@kernel.org>
----
- arch/arm64/kernel/fpsimd.c | 48 ++++++++++++++------------------------
- 1 file changed, 17 insertions(+), 31 deletions(-)
+Cheers,
 
-diff --git a/arch/arm64/kernel/fpsimd.c b/arch/arm64/kernel/fpsimd.c
-index 60a45d600b460..a8395cb303344 100644
---- a/arch/arm64/kernel/fpsimd.c
-+++ b/arch/arm64/kernel/fpsimd.c
-@@ -1293,31 +1293,6 @@ void sme_suspend_exit(void)
- 
- #endif /* CONFIG_ARM64_SME */
- 
--static void sve_init_regs(void)
--{
--	/*
--	 * Convert the FPSIMD state to SVE, zeroing all the state that
--	 * is not shared with FPSIMD. If (as is likely) the current
--	 * state is live in the registers then do this there and
--	 * update our metadata for the current task including
--	 * disabling the trap, otherwise update our in-memory copy.
--	 * We are guaranteed to not be in streaming mode, we can only
--	 * take a SVE trap when not in streaming mode and we can't be
--	 * in streaming mode when taking a SME trap.
--	 */
--	if (!test_thread_flag(TIF_FOREIGN_FPSTATE)) {
--		unsigned long vq_minus_one =
--			sve_vq_from_vl(task_get_sve_vl(current)) - 1;
--		sve_set_vq(vq_minus_one);
--		sve_flush_live(true, vq_minus_one);
--		fpsimd_bind_task_to_cpu();
--	} else {
--		fpsimd_to_sve(current);
--		current->thread.fp_type = FP_STATE_SVE;
--		fpsimd_flush_task_state(current);
--	}
--}
--
- /*
-  * Trapped SVE access
-  *
-@@ -1349,13 +1324,24 @@ void do_sve_acc(unsigned long esr, struct pt_regs *regs)
- 		WARN_ON(1); /* SVE access shouldn't have trapped */
- 
- 	/*
--	 * Even if the task can have used streaming mode we can only
--	 * generate SVE access traps in normal SVE mode and
--	 * transitioning out of streaming mode may discard any
--	 * streaming mode state.  Always clear the high bits to avoid
--	 * any potential errors tracking what is properly initialised.
-+	 * Convert the FPSIMD state to SVE. Stale SVE state can be present in
-+	 * registers or memory, so we must zero all state that is not shared
-+	 * with FPSIMD.
-+	 *
-+	 * SVE traps cannot be taken from streaming mode, so there cannot be
-+	 * any effective streaming mode SVE state.
- 	 */
--	sve_init_regs();
-+	if (!test_thread_flag(TIF_FOREIGN_FPSTATE)) {
-+		unsigned long vq_minus_one =
-+			sve_vq_from_vl(task_get_sve_vl(current)) - 1;
-+		sve_set_vq(vq_minus_one);
-+		sve_flush_live(true, vq_minus_one);
-+		fpsimd_bind_task_to_cpu();
-+	} else {
-+		fpsimd_to_sve(current);
-+		current->thread.fp_type = FP_STATE_SVE;
-+		fpsimd_flush_task_state(current);
-+	}
- 
- 	put_cpu_fpsimd_context();
- }
+	M.
 -- 
-2.30.2
+Without deviation from the norm, progress is not possible.
+
 
 
