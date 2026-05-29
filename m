@@ -4,124 +4,76 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id A4191CD4F54
-	for <linux-arm-kernel@archiver.kernel.org>; Fri, 29 May 2026 16:01:30 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 69394CD4F54
+	for <linux-arm-kernel@archiver.kernel.org>; Fri, 29 May 2026 16:01:35 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:
-	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Content-Type:MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:
+	To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=J4lB+fU5DdjjQ/QpMhV9CNZD0t3w/aRQR+zfaUlpeSE=; b=bY2SM1VcEnUZyLBRyw29MXyxdS
-	ElhgP0iXs5iZk89tIrhB5G/5XUd23HyyZllq0FN5pwFGnn1hdaSBKjlcUSO3XOIulUDcLW5Hz6Y6K
-	N3G97U+vrVPpgIyraCcLi1TZyG9XvK2PxQzADn/3hHlwEtwaMTBO15NA6jnWiL93Uan4UzrHtcelW
-	4W/+sGLnujOZScDCEJT0sfbuREw+ER0wMqgOqeApo6khlJETZpohmUaLij3qw4T4qH7pKPSVuasss
-	E6taGLgbTFImb8PR3PwPbc4wBVnHss1svoGMztlyph9ItY/kiEk4QOGd7lSX3HBq8v3q0kREjnUrI
-	DTuGl/AQ==;
+	bh=xbk0LhHU3FI6TwZ60a2NlsxM8sxLDgATpkmtk/XCjCc=; b=uB2wohd/jI0q1PPws8c+RJrSzu
+	ftFPUWY4Jux9SKf7Ve5PvEHfbYvaqWu/scgKhae7l+TnvynKLKzzgOvKiSzQ9eMEdNzb6Pemie3n5
+	lCR+vkPLt/VhniOH0XorzLl6ZHkNlnQSur5ATLzZ6Tf561sHTSSD4+kAzJyl+tYu9e1cXq7qFAUNf
+	vKjr09RT7fcPWs+gUfRQYnNHvXYDVYzfZwPz9pur2mIPUbxwQre4dYrTWuIlszGWkvQx2nqm1r8sy
+	+co7fqy7TFe/z0RK0jpCcSLtuyXBqh0tvb3swlmyeVwGy0J6BGK3nIbYR55XDTZo+Tk1IrKUxeyBi
+	WOSQj7nw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wSzeI-00000007oPj-3Rhb;
-	Fri, 29 May 2026 16:01:26 +0000
-Received: from mx0a-001b2d01.pphosted.com ([148.163.156.1])
+	id 1wSzeP-00000007oSz-1ZL4;
+	Fri, 29 May 2026 16:01:33 +0000
+Received: from galois.linutronix.de ([193.142.43.55])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wSzeG-00000007oNj-30M4
+	id 1wSzeG-00000007oNg-3CQh
 	for linux-arm-kernel@lists.infradead.org;
-	Fri, 29 May 2026 16:01:25 +0000
-Received: from pps.filterd (m0356517.ppops.net [127.0.0.1])
-	by mx0a-001b2d01.pphosted.com (8.18.1.11/8.18.1.11) with ESMTP id 64TFDh9g1467773;
-	Fri, 29 May 2026 15:56:14 GMT
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=ibm.com; h=cc
-	:content-transfer-encoding:date:from:in-reply-to:message-id
-	:mime-version:references:subject:to; s=pp1; bh=J4lB+fU5DdjjQ/QpM
-	hV9CNZD0t3w/aRQR+zfaUlpeSE=; b=kL1F6keG/qqmfuhVM3ACxkRQ6/oAiceJA
-	usauQSDAeEvlYyJPXNOB9tq83YKMRAepuwx45XfYOHesOqkaduurvCnQ68Rm6p/o
-	Pmh4XrNhIr7prw8pkUaStUIP+PszaRgGorGNaaKz/yOAmXf1tYM3IiDp/veCKoWx
-	NDrOQAjC40HYlNKcqnojiRrI8CLR3wxFJV5cbn+/9nr38jcc2IL2r3xuRV42uv7x
-	B7f/Ii9I63US33AwVqNGbmNxgA7hpJhqIQflO+97uKcXzKlB2d/8qEqvyg/U7YA9
-	/deYZAC6GjNjYXnnQiixx8X4ttPoUI/8BtO+lTCwRnPOgiu2CStqw==
-Received: from ppma23.wdc07v.mail.ibm.com (5d.69.3da9.ip4.static.sl-reverse.com [169.61.105.93])
-	by mx0a-001b2d01.pphosted.com (PPS) with ESMTPS id 4ee886mgg0-1
-	(version=TLSv1.2 cipher=ECDHE-RSA-AES256-GCM-SHA384 bits=256 verify=NOT);
-	Fri, 29 May 2026 15:56:13 +0000 (GMT)
-Received: from pps.filterd (ppma23.wdc07v.mail.ibm.com [127.0.0.1])
-	by ppma23.wdc07v.mail.ibm.com (8.18.1.7/8.18.1.7) with ESMTP id 64TFs7To027773;
-	Fri, 29 May 2026 15:56:12 GMT
-Received: from smtprelay02.fra02v.mail.ibm.com ([9.218.2.226])
-	by ppma23.wdc07v.mail.ibm.com (PPS) with ESMTPS id 4edjrc8jmd-1
-	(version=TLSv1.2 cipher=ECDHE-RSA-AES256-GCM-SHA384 bits=256 verify=NOT);
-	Fri, 29 May 2026 15:56:12 +0000 (GMT)
-Received: from smtpav07.fra02v.mail.ibm.com (smtpav07.fra02v.mail.ibm.com [10.20.54.106])
-	by smtprelay02.fra02v.mail.ibm.com (8.14.9/8.14.9/NCO v10.0) with ESMTP id 64TFu6gp36700646
-	(version=TLSv1/SSLv3 cipher=DHE-RSA-AES256-GCM-SHA384 bits=256 verify=OK);
-	Fri, 29 May 2026 15:56:06 GMT
-Received: from smtpav07.fra02v.mail.ibm.com (unknown [127.0.0.1])
-	by IMSVA (Postfix) with ESMTP id 5DBF120040;
-	Fri, 29 May 2026 15:56:06 +0000 (GMT)
-Received: from smtpav07.fra02v.mail.ibm.com (unknown [127.0.0.1])
-	by IMSVA (Postfix) with ESMTP id 115E92004D;
-	Fri, 29 May 2026 15:56:06 +0000 (GMT)
-Received: from tuxmaker.boeblingen.de.ibm.com (unknown [9.87.85.9])
-	by smtpav07.fra02v.mail.ibm.com (Postfix) with ESMTP;
-	Fri, 29 May 2026 15:56:06 +0000 (GMT)
-From: Steffen Eiden <seiden@linux.ibm.com>
-To: kvm@vger.kernel.org, kvmarm@lists.linux.dev,
-        linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org,
-        linux-s390@vger.kernel.org
-Cc: Alexander Gordeev <agordeev@linux.ibm.com>,
-        Andreas Grapentin <gra@linux.ibm.com>, Arnd Bergmann <arnd@arndb.de>,
-        Catalin Marinas <catalin.marinas@arm.com>,
-        Christian Borntraeger <borntraeger@linux.ibm.com>,
-        Claudio Imbrenda <imbrenda@linux.ibm.com>,
-        David Hildenbrand <david@kernel.org>,
-        Friedrich Welter <fritz@linux.ibm.com>,
-        Gautam Gala <ggala@linux.ibm.com>,
-        Hariharan Mari <hari55@linux.ibm.com>,
-        Heiko Carstens <hca@linux.ibm.com>,
-        Hendrik Brueckner <brueckner@linux.ibm.com>,
-        Ilya Leoshkevich <iii@linux.ibm.com>,
-        Janosch Frank <frankja@linux.ibm.com>, Joey Gouly <joey.gouly@arm.com>,
-        Marc Zyngier <maz@kernel.org>, Nico Boehr <nrb@linux.ibm.com>,
-        Nina Schoetterl-Glausch <oss@nina.schoetterlglausch.eu>,
-        Oliver Upton <oupton@kernel.org>, Paolo Bonzini <pbonzini@redhat.com>,
-        Suzuki K Poulose <suzuki.poulose@arm.com>,
-        Sven Schnelle <svens@linux.ibm.com>,
-        Ulrich Weigand <Ulrich.Weigand@de.ibm.com>,
-        Vasily Gorbik <gor@linux.ibm.com>, Will Deacon <will@kernel.org>,
-        Zenghui Yu <yuzenghui@huawei.com>
-Subject: [PATCH v1 11/26] KVM: arm64: Move definitions from sys_regs.c to sys_regs.h
-Date: Fri, 29 May 2026 17:55:44 +0200
-Message-ID: <20260529155601.2927240-12-seiden@linux.ibm.com>
-X-Mailer: git-send-email 2.53.0
-In-Reply-To: <20260529155601.2927240-1-seiden@linux.ibm.com>
-References: <20260529155601.2927240-1-seiden@linux.ibm.com>
+	Fri, 29 May 2026 16:01:26 +0000
+From: Sebastian Andrzej Siewior <bigeasy@linutronix.de>
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=linutronix.de;
+	s=2020; t=1780070481;
+	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
+	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
+	 content-transfer-encoding:content-transfer-encoding:
+	 in-reply-to:in-reply-to:references:references;
+	bh=xbk0LhHU3FI6TwZ60a2NlsxM8sxLDgATpkmtk/XCjCc=;
+	b=3QBQkZiWrZUR0d1OhlOregdwwb+MHKjNIFd74ioC4x4rlO6RatRWUMx46n1crVTnFZhP2i
+	tx0CUtSQHMhtgkSZyBzOHm+LugfmM6ZsPnek8ttu1K8BuqCN8E4xWDob25swQU2On7EBcg
+	4Y63OE29m3jv/Ao8lX0nRzg0vGDgunLLIRn8a+02/Ouaa1WIVjgBD4/RsMwGvYtPDlbGjK
+	cbe30JyNoLpvXRT+WUgdHqWcn7PQ/tpIDVXOc4TR3eznXPhusnnxoCOdz8fU9o1yb/z7PV
+	tWsB5FOOxjCltAyxIyV/FvNHEEGXXQidfsiop5nq0leAXr4grKRSBS1ShhNmPQ==
+DKIM-Signature: v=1; a=ed25519-sha256; c=relaxed/relaxed; d=linutronix.de;
+	s=2020e; t=1780070481;
+	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
+	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
+	 content-transfer-encoding:content-transfer-encoding:
+	 in-reply-to:in-reply-to:references:references;
+	bh=xbk0LhHU3FI6TwZ60a2NlsxM8sxLDgATpkmtk/XCjCc=;
+	b=GgoSB/eF/C4HZQeFpznvzh1NLr0RSGn7iGoCwRGr6s23AO9OTBk2zKLry2CA2WT45m1Y5b
+	YI1r/z2Z+eUpUNDA==
+To: linux-rt-devel@lists.linux.dev,
+	imx@lists.linux.dev,
+	linux-arm-kernel@lists.infradead.org,
+	linux-remoteproc@vger.kernel.org
+Cc: Sebastian Andrzej Siewior <bigeasy@linutronix.de>,
+	Bjorn Andersson <andersson@kernel.org>,
+	Clark Williams <clrkwllms@kernel.org>,
+	Fabio Estevam <festevam@gmail.com>,
+	Frank Li <Frank.Li@nxp.com>,
+	Jassi Brar <jassisinghbrar@gmail.com>,
+	Mathieu Poirier <mathieu.poirier@linaro.org>,
+	Pengutronix Kernel Team <kernel@pengutronix.de>,
+	Sascha Hauer <s.hauer@pengutronix.de>,
+	Steven Rostedt <rostedt@goodmis.org>
+Subject: [PATCH 3/5] mailbox: imx: Move the RXDB part of the mailbox into the threaded handler
+Date: Fri, 29 May 2026 18:01:05 +0200
+Message-ID: <20260529-imx_mbox_rproc-v1-3-b8ffc36e11e5@linutronix.de>
+In-Reply-To: <20260529-imx_mbox_rproc-v1-0-b8ffc36e11e5@linutronix.de>
+References: <20260529-imx_mbox_rproc-v1-0-b8ffc36e11e5@linutronix.de>
 MIME-Version: 1.0
-Content-Transfer-Encoding: 8bit
-X-TM-AS-GCONF: 00
-X-Proofpoint-GUID: UC2v4yac9XJv9onHFWDc9OYBfj2NePhe
-X-Authority-Analysis: v=2.4 cv=Z8Dc2nRA c=1 sm=1 tr=0 ts=6a19b71d cx=c_pps
- a=3Bg1Hr4SwmMryq2xdFQyZA==:117 a=3Bg1Hr4SwmMryq2xdFQyZA==:17
- a=NGcC8JguVDcA:10 a=VkNPw1HP01LnGYTKEx00:22 a=RnoormkPH1_aCDwRdu11:22
- a=U7nrCbtTmkRpXpFmAIza:22 a=VnNF1IyMAAAA:8 a=zJUOOSkNxElFdCtx_FUA:9
-X-Proofpoint-Spam-Details-Enc: AW1haW4tMjYwNTI5MDE1NiBTYWx0ZWRfX8/oZd7tugLX4
- VT1BjfXkRoZiX97FWd9xENgoBEOimXfjRSHnS4ASmTMGMpGduJ/02jpXxbpeEFwee07o2moF7s/
- 72lctKgbrzKFtic0CA7WNwrweU9zW+jO8B8kX8expd9rO6WoAANeefTVv67e9M7MnYTS3h0VRsQ
- RQE+HcfA1XHoInM25N7I4WEtz3MwMX8xnUzVF2AtdDSXE29RGOiob5glD3ByDwGAPwc9c/Ci5KK
- sJcJegVKO6vPsppxdRK6lzdVcZ0wcXLGleifHxJUS1DnRFMTiwQf/nIHxcmQbjrITwVrhNdEJLv
- XGu923W7/zKh6xVsNwn6dAt18w8VSyKWakOjgRUt8hAghGrzlHg4GftQiyb12Rf/l101U5ISOhi
- NxbmGF+asOiPRKI9ZTU8n9+ahODDZpICEDMKcEih6N212FCAm+z3qY9mPdRVyd3BrHY96fUEblZ
- jnObIFztGgWVZjFwmIw==
-X-Proofpoint-ORIG-GUID: UC2v4yac9XJv9onHFWDc9OYBfj2NePhe
-X-Proofpoint-Virus-Version: vendor=baseguard
- engine=ICAP:2.0.293,Aquarius:18.0.1143,Hydra:6.1.125,FMLib:17.12.100.49
- definitions=2026-05-29_04,2026-05-28_03,2025-10-01_01
-X-Proofpoint-Spam-Details: rule=outbound_notspam policy=outbound score=0
- clxscore=1015 spamscore=0 bulkscore=0 impostorscore=0 priorityscore=1501
- malwarescore=0 phishscore=0 suspectscore=0 adultscore=0 lowpriorityscore=0
- classifier=typeunknown authscore=0 authtc= authcc= route=outbound adjust=0
- reason=mlx scancount=1 engine=8.22.0-2605210000 definitions=main-2605290156
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: quoted-printable
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260529_090124_783154_2D890240 
-X-CRM114-Status: GOOD (  18.98  )
+X-CRM114-CacheID: sfid-20260529_090124_953916_B07F6563 
+X-CRM114-Status: GOOD (  10.84  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -136,166 +88,50 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Make kvm_sanitised_host_ftr_reg() and kvm_read_sanitised_id_reg()
-available to enable code sharing with s390. Move some helper and ID
-register macro definitions to the header file. No functional changes.
+Move RXDB callback handling into the threaded handler. This similar to
+the RX side except that we unmask it unconditionally in threaded
+handler.
 
-Signed-off-by: Steffen Eiden <seiden@linux.ibm.com>
+Move RXDB callback handling into the threaded handler.
+
+Signed-off-by: Sebastian Andrzej Siewior <bigeasy@linutronix.de>
 ---
- arch/arm64/kvm/sys_regs.c | 12 ++----
- arch/arm64/kvm/sys_regs.h | 87 +++++++++++++++++++++++++++++++++++++++
- 2 files changed, 90 insertions(+), 9 deletions(-)
+ drivers/mailbox/imx-mailbox.c | 10 +++++++++-
+ 1 file changed, 9 insertions(+), 1 deletion(-)
 
-diff --git a/arch/arm64/kvm/sys_regs.c b/arch/arm64/kvm/sys_regs.c
-index 6522f9302967..46b24529ec70 100644
---- a/arch/arm64/kvm/sys_regs.c
-+++ b/arch/arm64/kvm/sys_regs.c
-@@ -1852,7 +1852,7 @@ static u8 pmuver_to_perfmon(u8 pmuver)
- /*
-  * Sanitise based on the host implementation.
-  */
--static u64 kvm_sanitised_host_ftr_reg(u32 id)
-+u64 kvm_sanitised_host_ftr_reg(u32 id)
- {
- 	u64 val = read_sanitised_ftr_reg(id);
- 
-@@ -2039,8 +2039,8 @@ static u64 __kvm_read_sanitised_id_reg(const struct kvm_vcpu *vcpu,
- 	return val;
- }
- 
--static u64 kvm_read_sanitised_id_reg(struct kvm_vcpu *vcpu,
--				     const struct sys_reg_desc *r)
-+u64 kvm_read_sanitised_id_reg(struct kvm_vcpu *vcpu,
-+			      const struct sys_reg_desc *r)
- {
- 	return __kvm_read_sanitised_id_reg(vcpu, r);
- }
-@@ -2123,12 +2123,6 @@ static unsigned int aa32_id_visibility(const struct kvm_vcpu *vcpu,
- 	return id_visibility(vcpu, r);
- }
- 
--static unsigned int raz_visibility(const struct kvm_vcpu *vcpu,
--				   const struct sys_reg_desc *r)
--{
--	return REG_RAZ;
--}
--
- /* cpufeature ID register access trap handlers */
- 
- static bool access_id_reg(struct kvm_vcpu *vcpu,
-diff --git a/arch/arm64/kvm/sys_regs.h b/arch/arm64/kvm/sys_regs.h
-index 2a983664220c..75d581050b09 100644
---- a/arch/arm64/kvm/sys_regs.h
-+++ b/arch/arm64/kvm/sys_regs.h
-@@ -108,6 +108,12 @@ struct sys_reg_desc {
- #define REG_RAZ			(1 << 1) /* RAZ from userspace and guest */
- #define REG_USER_WI		(1 << 2) /* WI from userspace only */
- 
-+static inline unsigned int raz_visibility(const struct kvm_vcpu *vcpu,
-+				   const struct sys_reg_desc *r)
-+{
-+	return REG_RAZ;
-+}
+diff --git a/drivers/mailbox/imx-mailbox.c b/drivers/mailbox/imx-mailbox.c
+index 30a52c609e56b..9bf6484af45ed 100644
+--- a/drivers/mailbox/imx-mailbox.c
++++ b/drivers/mailbox/imx-mailbox.c
+@@ -528,6 +528,12 @@ static irqreturn_t imx_mu_isr_th(int irq, void *p)
+ 			imx_mu_xcr_rmw(priv, IMX_MU_RCR, IMX_MU_xCR_RIEn(priv->dcfg->type, cp->=
+idx), 0);
+ 		return IRQ_HANDLED;
+=20
++	case IMX_MU_TYPE_RXDB:
++		cp->pending =3D 0;
++		priv->dcfg->rxdb(priv, cp);
++		imx_mu_xcr_rmw(priv, IMX_MU_GIER, IMX_MU_xCR_RIEn(priv->dcfg->type, cp->=
+idx), 0);
++		return IRQ_HANDLED;
 +
- static __printf(2, 3)
- inline void print_sys_reg_msg(const struct sys_reg_params *p,
- 				       char *fmt, ...)
-@@ -237,6 +243,12 @@ bool triage_sysreg_trap(struct kvm_vcpu *vcpu, int *sr_index);
- 
- int kvm_finalize_sys_regs(struct kvm_vcpu *vcpu);
- 
-+u64 kvm_read_sanitised_id_reg(struct kvm_vcpu *vcpu,
-+			      const struct sys_reg_desc *r);
-+
-+/* Implemented by each architecture */
-+u64 kvm_sanitised_host_ftr_reg(u32 id);
-+
- #define AA32(_x)	.aarch32_map = AA32_##_x
- #define Op0(_x) 	.Op0 = _x
- #define Op1(_x) 	.Op1 = _x
-@@ -257,6 +269,81 @@ int kvm_finalize_sys_regs(struct kvm_vcpu *vcpu);
- 	CRn(sys_reg_CRn(reg)), CRm(sys_reg_CRm(reg)),	\
- 	Op2(sys_reg_Op2(reg))
- 
-+/*
-+ * Since reset() callback and field val are not used for idregs, they will be
-+ * used for specific purposes for idregs.
-+ * The reset() would return KVM sanitised register value. The value would be the
-+ * same as the host kernel sanitised value if there is no KVM sanitisation.
-+ * The val would be used as a mask indicating writable fields for the idreg.
-+ * Only bits with 1 are writable from userspace. This mask might not be
-+ * necessary in the future whenever all ID registers are enabled as writable
-+ * from userspace.
-+ */
-+
-+#define ID_DESC_DEFAULT_CALLBACKS		\
-+	.access	= access_id_reg,		\
-+	.get_user = get_id_reg,			\
-+	.set_user = set_id_reg,			\
-+	.visibility = id_visibility,		\
-+	.reset = kvm_read_sanitised_id_reg
-+
-+#define ID_DESC(name)				\
-+	SYS_DESC(SYS_##name),			\
-+	ID_DESC_DEFAULT_CALLBACKS
-+
-+/* sys_reg_desc initialiser for known cpufeature ID registers */
-+#define ID_SANITISED(name) {			\
-+	ID_DESC(name),				\
-+	.val = 0,				\
-+}
-+
-+/* sys_reg_desc initialiser for writable ID registers */
-+#define ID_WRITABLE(name, mask) {		\
-+	ID_DESC(name),				\
-+	.val = mask,				\
-+}
-+
-+/*
-+ * 32bit ID regs are fully writable when the guest is 32bit
-+ * capable. Nothing in the KVM code should rely on 32bit features
-+ * anyway, only 64bit, so let the VMM do its worse.
-+ */
-+#define AA32_ID_WRITABLE(name) {		\
-+	ID_DESC(name),				\
-+	.visibility = aa32_id_visibility,	\
-+	.val = GENMASK(31, 0),			\
-+}
-+
-+/* sys_reg_desc initialiser for cpufeature ID registers that need filtering */
-+#define ID_FILTERED(sysreg, name, mask) {	\
-+	ID_DESC(sysreg),				\
-+	.set_user = set_##name,				\
-+	.val = (mask),					\
-+}
-+
-+/*
-+ * sys_reg_desc initialiser for architecturally unallocated cpufeature ID
-+ * register with encoding Op0=3, Op1=0, CRn=0, CRm=crm, Op2=op2
-+ * (1 <= crm < 8, 0 <= Op2 < 8).
-+ */
-+#define ID_UNALLOCATED(crm, op2) {			\
-+	.name = "S3_0_0_" #crm "_" #op2,		\
-+	Op0(3), Op1(0), CRn(0), CRm(crm), Op2(op2),	\
-+	ID_DESC_DEFAULT_CALLBACKS,			\
-+	.visibility = raz_visibility,			\
-+	.val = 0,					\
-+}
-+
-+/*
-+ * sys_reg_desc initialiser for known ID registers that we hide from guests.
-+ * For now, these are exposed just like unallocated ID regs: they appear
-+ * RAZ for the guest.
-+ */
-+#define ID_HIDDEN(name) {			\
-+	ID_DESC(name),				\
-+	.visibility = raz_visibility,		\
-+	.val = 0,				\
-+}
- #define ID_REG_LIMIT_FIELD_ENUM(val, reg, field, limit)			       \
- ({									       \
- 	u64 __f_val = FIELD_GET(reg##_##field##_MASK, val);		       \
--- 
+ 	default:
+ 		dev_warn_ratelimited(priv->dev, "Unhandled channel type %d\n",
+ 				     cp->type);
+@@ -585,7 +591,9 @@ static irqreturn_t imx_mu_isr(int irq, void *p)
+ 		ret =3D IRQ_WAKE_THREAD;
+ 	} else if ((val =3D=3D IMX_MU_xSR_GIPn(priv->dcfg->type, cp->idx)) &&
+ 		   (cp->type =3D=3D IMX_MU_TYPE_RXDB)) {
+-		priv->dcfg->rxdb(priv, cp);
++		cp->pending =3D 1;
++		imx_mu_xcr_rmw(priv, IMX_MU_GIER, 0, IMX_MU_xCR_GIEn(priv->dcfg->type, c=
+p->idx));
++		ret =3D IRQ_WAKE_THREAD;
+ 	} else {
+ 		dev_warn_ratelimited(priv->dev, "Not handled interrupt\n");
+ 		return IRQ_NONE;
+
+--=20
 2.53.0
 
 
