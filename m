@@ -4,115 +4,94 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id D2A42CD6E51
-	for <linux-arm-kernel@archiver.kernel.org>; Fri, 29 May 2026 14:29:51 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 04F05CD6E4A
+	for <linux-arm-kernel@archiver.kernel.org>; Fri, 29 May 2026 14:32:42 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:Cc:To:Subject:Message-ID:Date:From:In-Reply-To:References:
-	MIME-Version:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=NjJKmutnUNBGPFFmHdw0hEt43SqCNilkH+GSFOwNlCI=; b=X22dDrQrZgpolnfH7Wb+QxxbwG
-	mYGsv6XxYL/WIPf2CfNvioFyu5bCV/BfTDlV+F4B6qxEL9LJbwYG1bBoPS3ABNQVEvV1SN4s8YPKC
-	43f60imE//h1yp28qGGbGObU14OeTsoFLwBpUMkB5RdRxIsWfREUsG/M9uw+OmfOpVzGfIrOGt7l5
-	DPW4DeEOdoIvw8wfcAgNiNg5NznrYc6/6WMQ7O76BdzDnFpuHaqKYPoVyLjvcf2Qy7GuoSZ4ER2cv
-	vLkPkAyZ70qanvn7ua0SI3IYSvi6H0Vds04bg5ujUTeXiav8Qe9rEnB97jD0fpkgMPRNZH/zByIjd
-	V9bP8t5g==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=P2Vt6NJ/1ID8MCy+YuGg9aIM9aiVrg+WLBywxH6BVRc=; b=tp41WaT2Yzw2NFtFJTfoJW9ltd
+	+icxB5b97eiOZqb5jbFsvKIVIf/v/6nhaY8BWs31Y6Tf+/4jR1ktSlEeksRoQEYWca+3r9ETsC6or
+	Z9QzWbX2bMgAega6bf7Bl0jgdofSuQzzZASXo0B9lWdi072hC3xsrZ9KBuT5eO6Tu+ozsWf4mhiqh
+	WOhZqSDLUYLoNVBsRYYhb+Y6K05dP3mP9Te3uQMkwQwLyDLseoOgh0Dz+jUC2MLIg6pn5FMZ2bVIO
+	P7JNKgvP87Z0uGVPA1o8pzZxNzJpnxW7PYXQyMfhAxvHuRX/MaEhTt43T277p4moRXud8FjJ0wMcY
+	bK8F8tMQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wSyDX-00000007WJo-2114;
-	Fri, 29 May 2026 14:29:43 +0000
-Received: from mail-dl1-x122d.google.com ([2607:f8b0:4864:20::122d])
+	id 1wSyGI-00000007WY9-24U9;
+	Fri, 29 May 2026 14:32:34 +0000
+Received: from mail-pl1-x62e.google.com ([2607:f8b0:4864:20::62e])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wSyDV-00000007WJS-0Apf
+	id 1wSyGF-00000007WXK-0o8u
 	for linux-arm-kernel@lists.infradead.org;
-	Fri, 29 May 2026 14:29:42 +0000
-Received: by mail-dl1-x122d.google.com with SMTP id a92af1059eb24-137c0db2638so17553c88.2
-        for <linux-arm-kernel@lists.infradead.org>; Fri, 29 May 2026 07:29:40 -0700 (PDT)
-ARC-Seal: i=1; a=rsa-sha256; t=1780064979; cv=none;
-        d=google.com; s=arc-20240605;
-        b=WXQ3esyjkC0K6Z69UG4uXWIcpUyjizcpg8v5N9o35fEbLwJf9Q9e0tJdnRg9sFjqLu
-         qtQzssWXb8RDGDZrYoZXeJqvmPMTXEX5FbkI5X0DdxLH80ClWyOlpKBeIoPcvyr92fDQ
-         wjjqIRWen17Vl3LkPFkSwNcodPXgZ7xvZo8DkqDRpQa7ttXLr8azyia0qNPelNDNiKWT
-         wvfXczRg+qAfNbXCDdJHc8Ome3QkNkXtCLax2jqOO2wMicRxL4ZtCasD89VOLtm7GSbn
-         khi7y2J6lKJATyKdJZjonG0L/vMchDwSVnhRkUD4ln701cP3HuwfYeHAda+ZVYvNQYHN
-         HwHw==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20240605;
-        h=content-transfer-encoding:cc:to:subject:message-id:date:from
-         :in-reply-to:references:mime-version:dkim-signature;
-        bh=NjJKmutnUNBGPFFmHdw0hEt43SqCNilkH+GSFOwNlCI=;
-        fh=/jkOfrzWP05sfhlqIeBzHrRUTlN3YkXNRM+wXeo8MLE=;
-        b=RsaxRMT38OUxv/wHjEF20W4LafSeTIleSQN7N+YqjwXfV7ksEAm+M1xgONDxIhsl8D
-         pHGCmtCV4QdkOu7ipnvtn4tnSXCVFogIvkgI1ftJZVBfhAR7OyInozXw36yuJBYz+5Wd
-         E5Yxi05Bz1hBmw2j6j16eOhWr89+8WnlLKk2Dd7rCybBY4i6IGm+yht02X0pV6O0IAhk
-         74rBsUAzTXhLzuYM3mpgPWmmK3yspjCzoljvDePQMCQajAkBVn292JXElsb0oailhdAw
-         I/AoRcOHal7o7p8sTCE6oAXv84m29uSEY1YAbpFcARwDHRJopp0kTgDNMBQTVHFpdI73
-         QDgQ==;
-        darn=lists.infradead.org
-ARC-Authentication-Results: i=1; mx.google.com; arc=none
+	Fri, 29 May 2026 14:32:33 +0000
+Received: by mail-pl1-x62e.google.com with SMTP id d9443c01a7336-2b2e8b95bdbso1125ad.0
+        for <linux-arm-kernel@lists.infradead.org>; Fri, 29 May 2026 07:32:30 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20251104; t=1780064979; x=1780669779; darn=lists.infradead.org;
-        h=content-transfer-encoding:cc:to:subject:message-id:date:from
-         :in-reply-to:references:mime-version:from:to:cc:subject:date
-         :message-id:reply-to;
-        bh=NjJKmutnUNBGPFFmHdw0hEt43SqCNilkH+GSFOwNlCI=;
-        b=G1WwmjyMaPlwAQ85tDOzHrkY2e0LeyJx4q64c8r4C/FrV0aZfu8S1fT4VPMCyrZYsY
-         4K9IpYi58+LxGMJbkM9/BkHtExldWXShnFXOd/dS3fL+LZsUjY9wpqR49cX9f1A/sMAp
-         FP9S8NMWTQF5uPdurEAd60MBTbE7B24iCUAEN6NYrZcPRw9AgQoIo9g0y8RS3IRFB1FY
-         VdBL4ebDv7gTs430HtOFxAuPw75GzKRccQaCR4D1WV61AnPlsxKjJhFsfR3P4Rw13+GX
-         c8T40DUhxpoYa3eTbtwcoXPMsTjjIRYZM9L8fnjh0dnNHe8jF9o2aD/4nvywBY8YltjJ
-         zX6g==
+        d=google.com; s=20251104; t=1780065149; x=1780669949; darn=lists.infradead.org;
+        h=in-reply-to:content-disposition:mime-version:references:message-id
+         :subject:cc:to:from:date:from:to:cc:subject:date:message-id:reply-to;
+        bh=P2Vt6NJ/1ID8MCy+YuGg9aIM9aiVrg+WLBywxH6BVRc=;
+        b=l7HIJyDJAB5Cqf8wrkcAQ1ShMevXhu3hsrqGuB0VK0AaCAM4WXam2x8uCODTx+uhYd
+         tQ6PyI/lNfTOu5Owy+ydSz9C5zqLWuZHLcluSiRq99/QVMX+WvZeAf8cIcp5Fxn/oXNj
+         IhoY2QfhB4AXEyBML20L79C29P02p/LCxTYkCy8zcRK+qHaL761Mt01AicaiTVP4XN9q
+         fjPnoXJw6yA71nrrFbivbDBIAXKnJsdHf7bIncJDVTXlWJzHRHbI6WhWGT/6uB8tBIOX
+         bQI2nvjal/8BCr+VAtVf4oT0H16+i2aslU7gcn/UQaD+DRo9AjbbsJ76vTYS0Qg9nyUl
+         l9ww==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20251104; t=1780064979; x=1780669779;
-        h=content-transfer-encoding:cc:to:subject:message-id:date:from
-         :in-reply-to:references:mime-version:x-gm-gg:x-gm-message-state:from
-         :to:cc:subject:date:message-id:reply-to;
-        bh=NjJKmutnUNBGPFFmHdw0hEt43SqCNilkH+GSFOwNlCI=;
-        b=IhKdev3iYqjp5RTHWQvLpSNEqi8qhFSR0NRCnIfESU46jYi9+aO0ImUpNWxJPbfEvd
-         madumIViAxVeXu7g3oNjUli0S+6Ll4MFvoEOVel0cVRm7fO1iVJFSLteDY79y7gpUmFS
-         0uhCNdyfsbAByo8o4xPxMUTUrt4dMo6G+kd/xR/Bg7z/jE0ESz+ZSOAP2Xkw/pgTavha
-         kTLfmiBInvlqCKaHqKmwBGOchQXrsBOHJVsWY31hAU9Jf6xFXekejzbedbfhxw9RnpjO
-         z/pU46fwF3b7jHYnuyu6NMpCL6dOB1Sxo0clpb1sUrOf+08c7PDmbS8KWbsPJUtjHWkk
-         s/RQ==
-X-Forwarded-Encrypted: i=1; AFNElJ/AymlkBzzBbryuVdTmsvVvj3O88UYams+9fzLs/fIf2eiiKlW5Lbd7EFXmVuD187a/qUDNbVKhByC/Ta/I2i8Y@lists.infradead.org
-X-Gm-Message-State: AOJu0Yztczp4PQo5vZ5Xo6cOtOwNOMIkypWyQmSOUNldEvbGJmtXtNJL
-	kSkRDaDwnG2cbDn3Ib3tAZPtiun8QquVylfLES4/3w2SUT3E3NSsTifCSPHkP2G8ttwaFWLGrew
-	lJJMOcAVT77AfOSyRtivY8sjLMj7SEA4=
-X-Gm-Gg: Acq92OFC9DjKhxckcZ4jmHnyjvKcR7TmAXb7OBDy6qTHAUATpHTlzRFN7IglBc+yK9s
-	ypePOsTGDRjz2E8wP+Mz0TkUM1fQjRnSrimAWll6u6/HhRqWmq+Z9cKppje+7FKcG80ykLBbIlc
-	PVfas6zAH8s3d9hQBDUqf1Sh1vpoflD0Cy433PPdBscZamtnmlq20IYrU2R/NbKvF/A++wyH1Vr
-	vDt/6NEc0IvCJvYScpnWPD7qA8KOXLnIAsAByBcrRaoBPnJy2gtOdwPbm77D9T5x5qcKhlTikcH
-	KuJEJf58OvwmlGGSdTU+G+DAfT6fKvVicPMGHvR0z1TH/JNeGA3r0mWKkKQ78WZYeY72eNeQDnT
-	hDkBRusCN+hhEJp8sjU7NAE3wzNiZJwXUXA==
-X-Received: by 2002:a05:7301:fa13:b0:304:5074:83b1 with SMTP id
- 5a478bee46e88-304fa68c838mr7153eec.6.1780064979301; Fri, 29 May 2026 07:29:39
- -0700 (PDT)
+        d=1e100.net; s=20251104; t=1780065149; x=1780669949;
+        h=in-reply-to:content-disposition:mime-version:references:message-id
+         :subject:cc:to:from:date:x-gm-gg:x-gm-message-state:from:to:cc
+         :subject:date:message-id:reply-to;
+        bh=P2Vt6NJ/1ID8MCy+YuGg9aIM9aiVrg+WLBywxH6BVRc=;
+        b=B6M8x9Em5SgdvFhQR+rnyXZL7Stkk6V/Nf/e2VXrX0DgB0zaqCr6yXSo/dZjCj1mne
+         aqQfeq3si9ypYRf9pZCzzw2vlyb6rV5CloHOB07w+weT7lFffR3M7n10Gj07bDPJtoTf
+         PoVsHyxcmKZrPDs9Qsz8oDG7v3uIuUuXrDWcO/urAnFsDlfjpBjdfeyFnw7Rdie8FZdM
+         /gFsagkZMC2Z+A4K4dXUZQFIxTyWV7dEmiAObGe2buCTjTbeyQmheoi0H04Vj9eS6pWu
+         LmA7uPl6HT20moq5n0rIgnT6sGklVAQe8VVdD2nReuYEMLuVbB+wmB0r34hxGRX/ngz2
+         YdGg==
+X-Forwarded-Encrypted: i=1; AFNElJ98jVeXkb/tSuVDxeBLEZxEk2zMtmYcRHczg4VTHVeBqOZicHLP9sZuJA10K3ryfjapEmDx9wLepAZDWMeMXCMQ@lists.infradead.org
+X-Gm-Message-State: AOJu0YyVzCqb0FoK5N8Gka6m3dmDzjbZqFxIR2embyNwcCZn/R0RaIDe
+	NQeV5AuXWtNksf0xRf8ovUr8jp0NFReQ8DJUP7e5Odl+9PYg8DfaVRXT7Am/q+uI6g==
+X-Gm-Gg: Acq92OEwbuxXhmZzMXNZ7JqtSUbfN412AA1kBrUZ7gHz9W2d1VAX9UoCBlsy/xuIOUh
+	9MDX629n873VIL/q8VT9vaeSf5Xog2UJE/8bdEyRTKyLG1fR+hzB8yK9wSkk7Yg0MRcsIsUn1P2
+	YIp/qmaqrR1T1jPYrTL/aJCZPqOBXvqcxU+YQXs1mJkVn4tmWcQNKG0ybTRTAKPaMUn3HBiTgxa
+	O+IHA7xgc6Ejnql2CLuHkyX8B73vr3CiuWM9Qwc2QovcwSA5CqiwFN9FWV9VcIrV9eXuoUfvpIt
+	r89ioWFb2e6p8U08C3CX4uw1cnxu+IbcfDzgxQNxcyBFmnzCz3gPavJjC2BL3Z2HvXM5UkqdjWr
+	75fGUYxZWH0WhBysrAwq6CnjAdKMyRu/cyicbNWV6C884hBZvqlw1Fz7zLOOfaXftpg/LLct5rU
+	yUb2FOnXOAepMh2cBVh5jqDxo/nTUO2wuJ2dtYhaET9owW6m1W1BW3u5siIR+cBrVlwHJl
+X-Received: by 2002:a17:902:db07:b0:2b9:a39a:e5db with SMTP id d9443c01a7336-2bf22eb6216mr1645625ad.7.1780065148948;
+        Fri, 29 May 2026 07:32:28 -0700 (PDT)
+Received: from google.com (44.234.124.34.bc.googleusercontent.com. [34.124.234.44])
+        by smtp.gmail.com with ESMTPSA id d9443c01a7336-2bf239fd85dsm20999405ad.25.2026.05.29.07.32.25
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Fri, 29 May 2026 07:32:28 -0700 (PDT)
+Date: Fri, 29 May 2026 14:32:22 +0000
+From: Pranjal Shrivastava <praan@google.com>
+To: Nicolin Chen <nicolinc@nvidia.com>
+Cc: iommu@lists.linux.dev, Will Deacon <will@kernel.org>,
+	Joerg Roedel <joro@8bytes.org>, Robin Murphy <robin.murphy@arm.com>,
+	Jason Gunthorpe <jgg@ziepe.ca>, Mostafa Saleh <smostafa@google.com>,
+	Daniel Mentz <danielmentz@google.com>,
+	Ashish Mhetre <amhetre@nvidia.com>,
+	linux-arm-kernel@lists.infradead.org
+Subject: Re: [PATCH v7 02/11] iommu/arm-smmu-v3: Add a helper to drain cmd
+ queues
+Message-ID: <ahmjdjkhCHWpD10P@google.com>
+References: <20260527221407.1756491-1-praan@google.com>
+ <20260527221407.1756491-3-praan@google.com>
+ <aheb/OLd9AQO6rD8@Asurada-Nvidia>
+ <ahgaQm5y_9mISKg0@google.com>
+ <ahi8/7NnqW5TzY4P@Asurada-Nvidia>
 MIME-Version: 1.0
-References: <20260527-uwtable-module-flag-v1-1-caa41342be4b@google.com>
- <CANiq72mCYOXrWM7_3jby_ZvYmspXsYVzRqhTgQiBF0bdDLAaEg@mail.gmail.com> <ahkzD01e14wOTNBk@google.com>
-In-Reply-To: <ahkzD01e14wOTNBk@google.com>
-From: Miguel Ojeda <miguel.ojeda.sandonis@gmail.com>
-Date: Fri, 29 May 2026 16:29:26 +0200
-X-Gm-Features: AVHnY4ITXSy2YsBgESTon1imbL652KMxtXJwaINjczc3yS9Lri52BUZ0ApSInSU
-Message-ID: <CANiq72=eccCAvfG4kYA52uV5+1ysU6QFYq+3GUgTVwJ4=kxDwQ@mail.gmail.com>
-Subject: Re: [PATCH] rust: arm64: set uwtable llvm module flag for CONFIG_UNWIND_TABLES
-To: Alice Ryhl <aliceryhl@google.com>
-Cc: Catalin Marinas <catalin.marinas@arm.com>, Will Deacon <will@kernel.org>, 
-	Miguel Ojeda <ojeda@kernel.org>, Boqun Feng <boqun@kernel.org>, Gary Guo <gary@garyguo.net>, 
-	=?UTF-8?Q?Bj=C3=B6rn_Roy_Baron?= <bjorn3_gh@protonmail.com>, 
-	Benno Lossin <lossin@kernel.org>, Andreas Hindborg <a.hindborg@kernel.org>, 
-	Trevor Gross <tmgross@umich.edu>, Danilo Krummrich <dakr@kernel.org>, 
-	Nathan Chancellor <nathan@kernel.org>, Nick Desaulniers <nick.desaulniers+lkml@gmail.com>, 
-	Bill Wendling <morbo@google.com>, Justin Stitt <justinstitt@google.com>, 
-	linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org, 
-	rust-for-linux@vger.kernel.org, llvm@lists.linux.dev, stable@kernel.org, 
-	Bo Ye <bo.ye@mediatek.com>, Isaac Manjarres <isaacmanjarres@google.com>, 
-	Sami Tolvanen <samitolvanen@google.com>
-Content-Type: text/plain; charset="UTF-8"
-Content-Transfer-Encoding: quoted-printable
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+In-Reply-To: <ahi8/7NnqW5TzY4P@Asurada-Nvidia>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260529_072941_085032_093A9B40 
-X-CRM114-Status: GOOD (  10.20  )
+X-CRM114-CacheID: sfid-20260529_073231_282976_075AD95E 
+X-CRM114-Status: GOOD (  22.53  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -127,22 +106,94 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Fri, May 29, 2026 at 8:32=E2=80=AFAM Alice Ryhl <aliceryhl@google.com> w=
-rote:
->
-> Hrm, is there a way to perform the version check in the Makefile, or do
-> I need a Kconfig for whether the fix is needed?
+On Thu, May 28, 2026 at 03:09:03PM -0700, Nicolin Chen wrote:
+> On Thu, May 28, 2026 at 10:34:42AM +0000, Pranjal Shrivastava wrote:
+> > On Wed, May 27, 2026 at 06:35:56PM -0700, Nicolin Chen wrote:
+> > > On Wed, May 27, 2026 at 10:13:58PM +0000, Pranjal Shrivastava wrote:
+> > I'm planning to rename it to arm_smmu_drain_cmdq(), sounds good?
+> 
+> That sounds okay.
+> 
+> Though my series is still at the early review stage, I would like
+> to merge those two functions at some point
 
-We shouldn't need a Kconfig -- we can do e.g.
+Makes sense.
 
-  KBUILD_RUSTFLAGS +=3D $(if $(call
-rustc-min-version,109800),,-Zllvm_module_flag=3Duwtable:u32:2:max)
+> 
+> Do you know if my implementation can work for cmdq too? Seems that
+> only the WFE would be different, which can be a bool?
 
-I tested with 1.96 and nightly -- I can apply it to the Rust tree if
-arm64 prefers.
+I think we can definitely unify these. I had a similar approach in my v2. 
+I've reviewed your PRI series and I think it would be best to use a common 
+helper for both use cases. 
 
-I hope that helps!
+Maybe you include this patch in your series to combine the draining logic
+It leverages the helpers you factored out in your Patch 2 and adds a 
+toggle for the queue_empty requirement of Runtime PM. It also checks for 
+WFE appropriately:
 
-Cheers,
-Miguel
+Subject: [PATCH] iommu/arm-smmu-v3: Add a unified arm_smmu_drain_queue() helper
+
+Introduce a unified arm_smmu_drain_queue() helper to handle both 
+snapshot-based cohort draining (for IOPF) and polling until queue_empty 
+(required for Runtime PM).
+
+The helper dynamically checks for the WFE requirement when targeting the 
+CMDQ and uses cond_resched() to avoid starving the threaded IRQ handlers 
+responsible for consuming entries from other queues.
+
+Signed-off-by: Pranjal Shrivastava <praan@google.com>
+---
+ drivers/iommu/arm/arm-smmu-v3/arm-smmu-v3.c | 32 +++++++++++++++++++++++++++++
+ 1 file changed, 32 insertions(+)
+
+diff --git a/drivers/iommu/arm/arm-smmu-v3/arm-smmu-v3.c b/drivers/iommu/arm/arm-smmu-v3/arm-smmu-v3.c
+index 866c711b118b..cf41b3cf5985f 100644
+--- a/drivers/iommu/arm/arm-smmu-v3/arm-smmu-v3.c
++++ b/drivers/iommu/arm/arm-smmu-v3/arm-smmu-v3.c
+@@ -894,6 +894,38 @@ static int arm_smmu_cmdq_batch_submit(struct arm_smmu_device *smmu,
+ 					   cmds->num, true);
+ }
+ 
++static int arm_smmu_drain_queue(struct arm_smmu_device *smmu,
++				struct arm_smmu_queue *q,
++				bool until_empty)
++{
++	struct arm_smmu_queue_poll qp;
++	u32 snapshot_prod, cons;
++	int ret = 0;
++
++	queue_poll_init(smmu, &qp);
++
++	/* Secondary CMDQs don't support WFE*/
++	qp.wfe &= (q == &smmu->cmdq.q);
++
++	snapshot_prod = readl_relaxed(q->prod_reg);
++
++	do {
++		u32 target_prod;
++
++		cons = readl_relaxed(q->cons_reg);
++		target_prod = until_empty ? readl_relaxed(q->prod_reg) : snapshot_prod;
++
++		if (__queue_empty(&q->llq, cons, target_prod) ||
++		    __queue_consumed(&q->llq, cons, target_prod))
++			return 0;
++
++		cond_resched();
++	} while (!(ret = queue_poll(&qp)));
++
++	dev_warn_ratelimited(smmu->dev,
++			     "queue drain timed out at prod=0x%x cons=0x%x\n",
++			     readl_relaxed(q->prod_reg), cons);
++	return ret;
++}
++
+ static void arm_smmu_page_response(struct device *dev, struct iopf_fault *unused,
+ 				   struct iommu_page_response *resp)
+ {
+--
+
+Thanks,
+Praan
 
