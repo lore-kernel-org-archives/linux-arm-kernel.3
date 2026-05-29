@@ -4,93 +4,152 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 025D9CD4F54
-	for <linux-arm-kernel@archiver.kernel.org>; Fri, 29 May 2026 17:10:21 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 24BE7CD6E49
+	for <linux-arm-kernel@archiver.kernel.org>; Fri, 29 May 2026 17:14:56 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:
-	Content-Transfer-Encoding:Content-Type:MIME-Version:References:Message-ID:
-	Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=XEa79tV2eMzpcPWIo8LBBqUX2PeWclrMmzllPIEalhs=; b=KkEX+xfaT8LaiEKQ41L/Fakaft
-	+OMTLVIB8ilmKGNPW9W+H8lU43paAuM4JZ5S+jlwdiHu3h9r7aDgwRA31pKKp45GoeVPOBvswHhmQ
-	T76h1/1T75ALCp6pejh41ffcca2PdyO+rrNnEF3RPSBsrTy0LmI154LUC23fHlFyZpOaaYUcAuI8d
-	KsqlDcXsJnZ41o0+/pLgxYxDmHhkPGhZZz2gjTSRpDVgNx+6fYyacgBwvMTIe59fnosFjMvAxcwUT
-	gQW3o8OSYZqSTGr5vMWNomkT+3fjC8AlS88kanAtD2jmwt3O/L34wWRtsKT/Mz315/UknERNRvAIn
-	jEfi40gA==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:In-Reply-To:References:Cc:To:Subject:From:MIME-Version:Date:
+	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=lJmWWWcIH+ma7IFx18m2vogfRXpnULCsTEE4DquBRew=; b=2Xdkk2Tj6jPL+Zby0BdrnsqFif
+	AGIMh7zzfEMSomoHV9oTl6KDKIXHv/npD9Ha7Bqvlr5m9Kqc9eaOVcQC3lSkQpZzLq0SF9xsTLUKA
+	Z1y9ENcjYUBrShba+hoRNyuKQoSdJjpPdn8K54t/xbpR5FnZ0c3Sp08qgF/qOkofiWnCAS4vr6dbt
+	JwO5juZZwB+0fVM5B+BJG/t+2G8AhZm518wiqpJ1OJT+2acznaKdvwdUH/pVjK/rZJHrejYRZHaOs
+	PXln7dke3B8Fkt1ZAj9/xBE1yWiAEYc19zLF95orky6g35LAfWRCpIOogvT8hwue0m2fTH5R7zI4e
+	C4XOvmsA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wT0it-00000007xfg-1wwS;
-	Fri, 29 May 2026 17:10:15 +0000
-Received: from mail-yw1-x112a.google.com ([2607:f8b0:4864:20::112a])
+	id 1wT0nJ-00000007y92-488X;
+	Fri, 29 May 2026 17:14:49 +0000
+Received: from mx0a-0031df01.pphosted.com ([205.220.168.131])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wT0ip-00000007xf3-48w3
+	id 1wT0nG-00000007y8P-3whK
 	for linux-arm-kernel@lists.infradead.org;
-	Fri, 29 May 2026 17:10:13 +0000
-Received: by mail-yw1-x112a.google.com with SMTP id 00721157ae682-7c0de780bf1so128862177b3.2
-        for <linux-arm-kernel@lists.infradead.org>; Fri, 29 May 2026 10:10:11 -0700 (PDT)
+	Fri, 29 May 2026 17:14:48 +0000
+Received: from pps.filterd (m0279866.ppops.net [127.0.0.1])
+	by mx0a-0031df01.pphosted.com (8.18.1.11/8.18.1.11) with ESMTP id 64TH8ZZc3771660
+	for <linux-arm-kernel@lists.infradead.org>; Fri, 29 May 2026 17:14:46 GMT
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=qualcomm.com; h=
+	cc:content-transfer-encoding:content-type:date:from:in-reply-to
+	:message-id:mime-version:references:subject:to; s=qcppdkim1; bh=
+	lJmWWWcIH+ma7IFx18m2vogfRXpnULCsTEE4DquBRew=; b=AxVbb1jmWn6aHqAD
+	3m3DsXClFjd7myjwZOnFRTWa4dNFI+MtDEYGk3juTtH/ltD88vc4NnXJWWjpJF6o
+	k37lYBJ+Uqh6frAhHx994cLmGJe7MZb0S8j8FM4Fho1eLwEIE7LAtDSoCDk6V5Sn
+	/3JoIRcRouFWvm+Adc+2QgEU3TTUVt45Htxs1deRlYLVsmWJDSlB+yBE1d8EMTis
+	hsRw2ENtbsQ/aEOcsThOIBlCz3YTIsd60NKhmQLW/LrtqeRsqxxyDHI6DZyiuuFh
+	bnFDOA/pZl0u9j+1POMi9IFPkSUJtXFIb2ALMoTSXIR7XePNV9S0FLNs5JGQ9cmf
+	XJnjtw==
+Received: from mail-pl1-f199.google.com (mail-pl1-f199.google.com [209.85.214.199])
+	by mx0a-0031df01.pphosted.com (PPS) with ESMTPS id 4ef015c24e-1
+	(version=TLSv1.3 cipher=TLS_AES_128_GCM_SHA256 bits=128 verify=NOT)
+	for <linux-arm-kernel@lists.infradead.org>; Fri, 29 May 2026 17:14:46 +0000 (GMT)
+Received: by mail-pl1-f199.google.com with SMTP id d9443c01a7336-2bf335549b8so3932535ad.1
+        for <linux-arm-kernel@lists.infradead.org>; Fri, 29 May 2026 10:14:46 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20251104; t=1780074610; x=1780679410; darn=lists.infradead.org;
-        h=in-reply-to:content-transfer-encoding:content-disposition
-         :mime-version:references:message-id:subject:cc:to:from:date:from:to
+        d=oss.qualcomm.com; s=google; t=1780074886; x=1780679686; darn=lists.infradead.org;
+        h=content-transfer-encoding:in-reply-to:content-language:references
+         :cc:to:subject:from:user-agent:mime-version:date:message-id:from:to
          :cc:subject:date:message-id:reply-to;
-        bh=XEa79tV2eMzpcPWIo8LBBqUX2PeWclrMmzllPIEalhs=;
-        b=N6jhM0F67yRBFXMAzu71k3szz6SSIrZIQ5VH65xLfhvGtUX8D2N0NE2BWfIwOesc2s
-         nw3IEfsGyvhaHJcPKH1PrGPw0RYNVTAcsvgyTEzLwcoM1C3wrQLU+7nBDcxgPAbhS9dg
-         iFsmaVAkiO3+5twMqB4HN+aOfjwLhZxLz6V4hqsfYRa/0AMsIHYO9pf12AtzUkT/FsCf
-         JUUyKRZqhJwfWOzMM55131MgMrOOsWLTNZZuIh/U298foE3KT9hVp1iQcCL5skjUE2oi
-         O792//C50kmThXGquRMN3w3w+qibj5gTf8WdoZ/LuYqqplh0FqR7H6KmaXn8R4EAJ+zH
-         OgYA==
+        bh=lJmWWWcIH+ma7IFx18m2vogfRXpnULCsTEE4DquBRew=;
+        b=b2ceVlE8FnqPL1wL+KL1Evccm7wC0b7Sb8Kx/DsLHZPMMpUJlTE9WesdphZgrn2Fw9
+         w0bnmxUz5ULm8Y5b34ggatB27qR3qT07qpjR5PmzJdEsGl8eUeqOZ8lC0qqjz76KP0UX
+         lNO3m6F/xsjmGMkVlrjpFqDmgYh6YORm7+ZFGE6jvZPjGhkU4emZSY1xmZVyNna6/zD2
+         Bg64aNmB82+AgMbW1ss3u/ZE1UwxZw2MNqhxLSQw1ZYq/E/QMgkwGxkDTco6HG3uVJks
+         SftzaRJRWFUUHspvZqDrUKIQYfzaZ3yQrAhscfV1bKRXbO54TeYO3hLWlYxDveKIiGsQ
+         SyjA==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20251104; t=1780074610; x=1780679410;
-        h=in-reply-to:content-transfer-encoding:content-disposition
-         :mime-version:references:message-id:subject:cc:to:from:date:x-gm-gg
+        d=1e100.net; s=20251104; t=1780074886; x=1780679686;
+        h=content-transfer-encoding:in-reply-to:content-language:references
+         :cc:to:subject:from:user-agent:mime-version:date:message-id:x-gm-gg
          :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to;
-        bh=XEa79tV2eMzpcPWIo8LBBqUX2PeWclrMmzllPIEalhs=;
-        b=CYpx0ZzJ8rY4W92OEyPatG6VFepwb7wUW9lIHnmGgE6dAMCNKNMvhQYR7xIuG+KKHH
-         aVY8CFh8BMAqPdhh13tzwoga2fmJcWFOy7eHY3fvK0XPSq03OOvxXFCfdR4MbOKoWAV3
-         r59N7Au4E1uMOfmWpAdMnyXiAeF03id5gwG10iXXF+AY/LMXBtIwTFLblsao+OyOldH7
-         N3Z96jE4kL6b+dQjv5+9LwUC+jFZkZsq1rxfL96BTj7WVUaapBvkK4oNY/EyQHfVYxZd
-         j/FILdbjv9ZrgpPsFI5Y85zA3Q7w0Yw7D7Bq3O49R07UkxCRY4LzhocicxBr5SeOVPr+
-         O3ZQ==
-X-Forwarded-Encrypted: i=1; AFNElJ+TP8NRlFLUlsWvLWmH2dlQb2uYIakv8d89VETdGt4/BkShi/qLRFElj1Y2UZq8qKzMf0thjpyDmcwr6ukV1YJV@lists.infradead.org
-X-Gm-Message-State: AOJu0YwAwjKtSQGxnRAtdxmhBIBNRfdG0M0MAAD4QfThRvmA0UW3Cac8
-	Aof16za4QZWeBecUV/zMW42WVXa+o2MactOEJbK/56mFMQyxbKiqNn/z
-X-Gm-Gg: Acq92OGdXUSO6dJnAjAWFE5Ei9m2oreUigZgXsK8ALHY18JaWKaeCJxTmvEnL/HDC5r
-	1dm6YnRwLSFZjmdJciUimNJNQytwltENaw2WGN143LpiS49xCAMLNaxlcWc3Xz7+qSmocc3DhQE
-	cjtdlLtD/3qKfrsb+2pFht9edRRURS/VYZKmyMYx+B627VRHMUqz4UL4J8j8y7FGnKauAliLhE8
-	UnbPwhyZKuwz1FWYSJpOxnVM6C+JkIB7OyNz3On8y+A0W7T0tIAeUY9ioICbalFleozJehwVTKq
-	5tZhxbMwvJJr0ouBTeHBujBgIp44+aFAvA/mXnC8v/JwLAlvRK6VIP+etHHR4R2QIBwT8YuJKRn
-	u+h4PJfeXHmxByfwr/JssPfEcf8FY4IwAT2OCQiV43jG+T1bt4o8rAbkpKbiCa9KbuT/EoA8h0t
-	Ra+bWgwqE9jOXPX8lmzKNy1vxglwqR/BQWVg==
-X-Received: by 2002:a05:690c:e34b:b0:7d0:261a:6bd with SMTP id 00721157ae682-7e05f11c4ffmr1672527b3.44.1780074610517;
-        Fri, 29 May 2026 10:10:10 -0700 (PDT)
-Received: from Red ([2a01:cb1d:897:7800:4a02:2aff:fe07:1efc])
-        by smtp.googlemail.com with ESMTPSA id 00721157ae682-7de689e58d9sm8427927b3.21.2026.05.29.10.10.08
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Fri, 29 May 2026 10:10:09 -0700 (PDT)
-Date: Fri, 29 May 2026 19:10:06 +0200
-From: Corentin Labbe <clabbe.montjoie@gmail.com>
-To: Eric Biggers <ebiggers@kernel.org>
-Cc: Tianchu Chen <tianchu.chen@linux.dev>, herbert@gondor.apana.org.au,
-	davem@davemloft.net, wens@kernel.org, jernej.skrabec@gmail.com,
-	samuel@sholland.org, linux-crypto@vger.kernel.org,
-	linux-arm-kernel@lists.infradead.org, linux-sunxi@lists.linux.dev,
-	linux-kernel@vger.kernel.org
-Subject: Re: [PATCH v2] crypto: sun4i-ss - clamp PRNG seed length to prevent
- heap overflow
-Message-ID: <ahnIbpBLyn5z_siT@Red>
-References: <af749a8447bd7f0e9dd26ca6c87e9c6afecb09d9@linux.dev>
- <4d4407c05835a50413fa1e974e3aa3f4abfe2d5b@linux.dev>
- <20260529161057.GA2706@sol>
+        bh=lJmWWWcIH+ma7IFx18m2vogfRXpnULCsTEE4DquBRew=;
+        b=oR84cfYXkEQB2Ry8eHNz/zYJsh9Rtwil4BBapy/wpOIeW2MkDVRgtXcrt5yHm9QgOq
+         FwCOVKLCmLbeJ3iDR4BerE67AxK9DYRk4KfNPEOVBZrdIrie/vpFFOhjYJZaz0Hq+qTD
+         SzqtXAY049Oz8f6DyNtvuX0OYLkbElV+iAJ80rs6VULOOwiz8h3OaQ99Ygw0a1sKmN7e
+         A7/yr+zmgRR1SIO182oc4Ac/7PeC1zqpCLXPU39GqAHt0X857P+Nh7USVuT8Ccv2XSsc
+         lhqzy9KwobqStToOHZy+gwe2Nu/TVlNoFA0kjh7d9T3PSBb8NeHO4EQkF1bJXeRg0RUM
+         7Xfg==
+X-Forwarded-Encrypted: i=1; AFNElJ+PYA+b4UPsXgFPQVs+tOMrdhkASw2fA+QxgXAT8w6ng5o7VRBwPI8efuWLOtqEv4MV+0New/8DXRUphb5JTHas@lists.infradead.org
+X-Gm-Message-State: AOJu0YzBz0p25aeu+1sT9vCCUqHjUYMWC4MN8lxxKA/3PB/k88COkvNH
+	9ldPXE2SDzKV4HYNgkjd8sP9uKESOS1bFsTRwlrKas8teb/yQRYLSaUunwo67Y6oGlGpnAB2+dq
+	izml/qCYhk2sKAyKMupBUhBXoXGBArgxvNdRGw1c1+IalrxsWUSwhitIeqmw1GicLLoq5xxoxqi
+	eJhA==
+X-Gm-Gg: Acq92OHFFsMQsYzQ7IxNtgPFARS20IiBdRXBN0DQlP0yH7sp6L6XUq+8PVZewHLmrUD
+	4KuwQ8XotUERCi1BkSwP0T2xxOoAu8g914eu/rbhHwXayGB/8f4VkcTJMAie1Q1YRxb0VO5hSkW
+	RR+FKJiaJ/Zrl10s+i8j7R/+S8E/q975745PXx3iUQEAeC5R4x9plvLgiKq4erCDOVUN3fF5M61
+	SwAYqoiT1DjT94A4cdIEi6Z9OmDVJjgPIWVyS5kq+m3uY/uVn5pcRNpRtXDbTHd5tTczO6g/Ecd
+	prTm02wAwLDcDkKj7l4D+hThwuOqYyZJwkuzmEyaNk5HFa1X+5loNezGQM2H6xnb23bYp4rhRe6
+	4tbyLLuYZz9vEZWanr9jM3IsEFx546yb56cqr2ZXQ/sMROhXDxLh5Z/DhEpdl6cA=
+X-Received: by 2002:a17:903:2450:b0:2bc:a577:70c2 with SMTP id d9443c01a7336-2bf368383aamr8593275ad.31.1780074885585;
+        Fri, 29 May 2026 10:14:45 -0700 (PDT)
+X-Received: by 2002:a17:903:2450:b0:2bc:a577:70c2 with SMTP id d9443c01a7336-2bf368383aamr8592825ad.31.1780074885113;
+        Fri, 29 May 2026 10:14:45 -0700 (PDT)
+Received: from [192.168.29.115] ([49.43.224.248])
+        by smtp.gmail.com with ESMTPSA id d9443c01a7336-2bf23a00a53sm35627145ad.27.2026.05.29.10.14.37
+        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
+        Fri, 29 May 2026 10:14:44 -0700 (PDT)
+Message-ID: <051b9597-873c-44ca-b7a5-29efa795406f@oss.qualcomm.com>
+Date: Fri, 29 May 2026 22:44:35 +0530
 MIME-Version: 1.0
-Content-Type: text/plain; charset=iso-8859-1
-Content-Disposition: inline
-Content-Transfer-Encoding: 8bit
-In-Reply-To: <20260529161057.GA2706@sol>
+User-Agent: Mozilla Thunderbird
+From: Nihal Kumar Gupta <nihal.gupta@oss.qualcomm.com>
+Subject: Re: [PATCH 8/8] arm64: dts: qcom: shikra-iqs-evk-imx577-camera: Add
+ DT overlay
+To: bod@kernel.org
+Cc: Vladimir Zapolskiy <vladimir.zapolskiy@linaro.org>,
+        Loic Poulain <loic.poulain@oss.qualcomm.com>,
+        Mauro Carvalho Chehab <mchehab@kernel.org>,
+        Rob Herring <robh@kernel.org>,
+        Krzysztof Kozlowski <krzk+dt@kernel.org>,
+        Conor Dooley
+ <conor+dt@kernel.org>, Robert Foss <rfoss@kernel.org>,
+        Andi Shyti <andi.shyti@kernel.org>,
+        Bryan O'Donoghue <bryan.odonoghue@linaro.org>,
+        Bjorn Andersson <andersson@kernel.org>,
+        Konrad Dybcio <konradybcio@kernel.org>, Frank Li <Frank.Li@nxp.com>,
+        Sascha Hauer <s.hauer@pengutronix.de>,
+        Pengutronix Kernel Team <kernel@pengutronix.de>,
+        Fabio Estevam <festevam@gmail.com>, linux-arm-msm@vger.kernel.org,
+        linux-media@vger.kernel.org, devicetree@vger.kernel.org,
+        linux-kernel@vger.kernel.org, linux-i2c@vger.kernel.org,
+        imx@lists.linux.dev, linux-arm-kernel@lists.infradead.org,
+        Suresh Vankadara <quic_svankada@quicinc.com>,
+        Vikram Sharma <vikram.sharma@oss.qualcomm.com>
+References: <20260526-shikra-camss-review-v1-0-645d2c8c75a7@qti.qualcomm.com>
+ <20260526-shikra-camss-review-v1-8-645d2c8c75a7@qti.qualcomm.com>
+ <178000744162.4557.14613962845288279527.b4-reply@b4>
+Content-Language: en-US
+In-Reply-To: <178000744162.4557.14613962845288279527.b4-reply@b4>
+Content-Type: text/plain; charset=UTF-8
+Content-Transfer-Encoding: 7bit
+X-Proofpoint-ORIG-GUID: c1sgF1yNL8WUTnSi9hZr8d9ULp7coi7v
+X-Proofpoint-Spam-Details-Enc: AW1haW4tMjYwNTI5MDE3MSBTYWx0ZWRfX1WocCIzu4Urm
+ 1cnBHbS7tGhliZzebOXifAGBglZgTI3WxhhkLLeZgdJiRL+r8oppbSpbYsCxWickjr6W6qqB2Ra
+ 2zhT6mfuJ0j5bvrkNzZRk1go4jXoD7Ioul17XEfVpCZN2seO1mCwknSQkET8xzdcKTiEwTcpV5y
+ rNfLeTe+x2lbg4/XmdwyTJ68fQxjS/H/SkNjchBFf7CQWETyS+ANz0J+zlxYWmgbtIVZjUKyLJR
+ dRWgVxIlGLp8wWEisArMZ4d/QO7N1uG8+k+fiJK6epyKLq+AfYHdajWqlbTthe5z+5hYj21YGL1
+ ITt1NuygOAGHTDNJ/YVIu/74PL82tnk3a6b8L7i5WtnaSxGSubJeSFiKxxkFEbadDNlLIPDqac8
+ kRkjcfBPUc36qCsKsZJwByoFVXcv43O+7MKG0aOnQFaY7zuSbbwNmYgaPKwtaaImrgrdEdlX+QO
+ X+D0NM4+hPlraWJa5dQ==
+X-Authority-Analysis: v=2.4 cv=DIG/JSNb c=1 sm=1 tr=0 ts=6a19c986 cx=c_pps
+ a=JL+w9abYAAE89/QcEU+0QA==:117 a=tDSAgCU/rryVExTQDfsVjg==:17
+ a=IkcTkHD0fZMA:10 a=NGcC8JguVDcA:10 a=s4-Qcg_JpJYA:10
+ a=VkNPw1HP01LnGYTKEx00:22 a=u7WPNUs3qKkmUXheDGA7:22 a=YMgV9FUhrdKAYTUUvYB2:22
+ a=VwQbUJbxAAAA:8 a=nnX9c2Y5NtHo51HYM2EA:9 a=QEXdDO2ut3YA:10
+ a=324X-CrmTo6CU4MGRt3R:22
+X-Proofpoint-GUID: c1sgF1yNL8WUTnSi9hZr8d9ULp7coi7v
+X-Proofpoint-Virus-Version: vendor=baseguard
+ engine=ICAP:2.0.293,Aquarius:18.0.1143,Hydra:6.1.125,FMLib:17.12.100.49
+ definitions=2026-05-29_04,2026-05-28_03,2025-10-01_01
+X-Proofpoint-Spam-Details: rule=outbound_notspam policy=outbound score=0
+ suspectscore=0 phishscore=0 lowpriorityscore=0 bulkscore=0 priorityscore=1501
+ spamscore=0 impostorscore=0 adultscore=0 clxscore=1015 malwarescore=0
+ classifier=typeunknown authscore=0 authtc= authcc= route=outbound adjust=0
+ reason=mlx scancount=1 engine=8.22.0-2605210000 definitions=main-2605290171
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260529_101012_036834_43B82B28 
-X-CRM114-Status: GOOD (  15.15  )
+X-CRM114-CacheID: sfid-20260529_101446_989862_C7CF8875 
+X-CRM114-Status: GOOD (  13.43  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -105,34 +164,22 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Le Fri, May 29, 2026 at 09:10:57AM -0700, Eric Biggers a écrit :
-> On Fri, May 29, 2026 at 08:08:01AM +0000, Tianchu Chen wrote:
-> > From: Tianchu Chen <flynnnchen@tencent.com>
-> > 
-> > sun4i_ss_prng_seed() copies the user-supplied seed into ss->seed
-> > using the user-provided length with no bounds check. The crypto core
-> > does not enforce slen <= seedsize before calling into the driver, so a
-> > userspace caller via AF_ALG setsockopt(ALG_SET_KEY) can pass up to
-> > sysctl_optmem_max bytes, overflowing the fixed-size buffer and
-> > corrupting adjacent heap memory.
-> > 
-> > Clamp the copy length to the buffer size, matching the approach used by
-> > loongson-rng for oversized seeds.
-> > 
-> > Discovered by Atuin - Automated Vulnerability Discovery Engine.
-> > 
-> > Fixes: 6298e948215f ("crypto: sunxi-ss - Add Allwinner Security System crypto accelerator")
-> > Cc: stable@vger.kernel.org
-> > Signed-off-by: Tianchu Chen <flynnnchen@tencent.com>
-> > ---
-> > v2: Silently clamp oversized seeds with min_t instead of returning
-> >     -EINVAL (Herbert Xu).
+
+
+On 29-05-2026 04:00, bod@kernel.org wrote:
+>> +		dovdd-supply = <&pm8150_l15>;
+> I don't have your schematic BUT where are the rest of the regulators.
 > 
-> sun4i-ss-prng.c is useless, is still broken, and should just be deleted.
+> If they are absent or powered by the daughter board, a comment in the patch
+> would be warranted.
+> 
+> Same comment for previous patch.
 
-Hello
+/*
+ * avdd and dvdd are supplied by on-board regulators on the IMX577
+ * module from the connector's 3.3 V rail; they are not SoC-controlled.
+ * dovdd is the only supply sourced from the SoC PMIC.
+ */
 
-useless ? clearly no, it helped a lot on devices where it is.
-
-Regards
+Sure, I'll add this comment in v2.
 
