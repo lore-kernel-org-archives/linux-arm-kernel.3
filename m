@@ -4,92 +4,120 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 6B388CD6E45
-	for <linux-arm-kernel@archiver.kernel.org>; Fri, 29 May 2026 07:55:13 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 5A232CD5BD2
+	for <linux-arm-kernel@archiver.kernel.org>; Fri, 29 May 2026 07:56:25 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Reply-To:List-Subscribe:
+	List-Help:List-Post:List-Archive:List-Unsubscribe:List-Id:
+	Content-Transfer-Encoding:Content-Type:In-Reply-To:References:Cc:To:Subject:
+	From:MIME-Version:Date:Message-ID:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=rwrPCj2IqJEcRJugk6Ecz2xdcmK5e89mwdODai47RFE=; b=Ppr7FvmgBWwxrOD3urClots2iF
-	4zuisqdiviXIw1W3ysvtgTJMxte6L5seQvtuvYDyimX99Nb+wW/jQAVnmYSIbJANRLRww4HwOgyGs
-	gOihrLIVG1yQ1HAVrdsySLRm7XcKlIX2hQ2bffNYiQ5vWrVpp+RiSXNBeWViBJdMzxego5t3jm/+C
-	jAV25jHPct/6JgNtgyliBxmaRJ1601krJx4dLavnupv8n5gdqSJ4s/ECpazDF+J/hROaj8If0nwbY
-	mk6R7zbC09K6Ipv8yycv+lf4J9Fh3dEGx6tXyH6nQZi0l7ZIbd+qLQoBYzDw5s2pyu1XDRcVCE/Yc
-	9T6vvTPw==;
+	bh=rbf61mTeeb5+bPzWqAJNBcq8SFoXoM6zULZJ7jvwjCw=; b=y5ia67QSfikGd2l0QMUAArXL1+
+	bjEKWcqnun/RE51ckW4CYBEcybjqfUYKiUFTZvs0cWoRxgsLhWFoj04QC4wff44oRPvKw+J5gUsGL
+	W/AbDQCt+LWxDMz2FmR4cAYuqhhYmkqDx+a8BB8+NQVqHG/a0Kw2I4HaIB65kOIswJgY1X2TCv1j4
+	+WPtkEMXzvMZA8Qodxi4Qmx2DXu33f4WEXcQDV+rR+yxiTgfd8c9zgJeNPsxR4/xVzCJl267gS/ct
+	QtypEeybiooZtWGvYPG9sVDJ6YqG8Eb/MkDHqArVothdiuVznhC1aGhhTvkuZMoDYmE8Cf9npBu0O
+	L+9J87oA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wSs3d-00000006ukq-3HWF;
-	Fri, 29 May 2026 07:55:05 +0000
-Received: from mail-wm1-x336.google.com ([2a00:1450:4864:20::336])
+	id 1wSrgu-00000006saE-406G;
+	Fri, 29 May 2026 07:31:36 +0000
+Received: from mail-wr1-x42e.google.com ([2a00:1450:4864:20::42e])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wSs3b-00000006ukG-0Qf1
+	id 1wSrgr-00000006sZO-1HAs
 	for linux-arm-kernel@lists.infradead.org;
-	Fri, 29 May 2026 07:55:04 +0000
-Received: by mail-wm1-x336.google.com with SMTP id 5b1f17b1804b1-49050bfe053so42132055e9.3
-        for <linux-arm-kernel@lists.infradead.org>; Fri, 29 May 2026 00:55:02 -0700 (PDT)
+	Fri, 29 May 2026 07:31:35 +0000
+Received: by mail-wr1-x42e.google.com with SMTP id ffacd0b85a97d-45ee1a56328so1687145f8f.3
+        for <linux-arm-kernel@lists.infradead.org>; Fri, 29 May 2026 00:31:32 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=baylibre.com; s=google; t=1780041301; x=1780646101; darn=lists.infradead.org;
-        h=in-reply-to:content-disposition:mime-version:references:message-id
-         :subject:cc:to:from:date:from:to:cc:subject:date:message-id:reply-to;
-        bh=rwrPCj2IqJEcRJugk6Ecz2xdcmK5e89mwdODai47RFE=;
-        b=R1DrLtvQyryI3xiSBAm1RQX+7bE9R6KeICRyGEDzP9anauwvvFwMH4/17e6sQo/BTJ
-         72l0za40nfd1HuqzwmJDaaRRcdRtPFNKN4PkT3ZOGavjuG+D5nb+7ow6MNLzJsslP1iX
-         CdzSk9sd0hVC3mbSKlU36bq6FkU00zxCPi/4+CXU4nW99vb70HlwMtrOsA92suqmwmtv
-         O6NbJys5fMdjsiXja0Ln99BpY9twyZ3CJ6mw7LbEoymb/O7+6u5pBJg4YPrI6OJY+txM
-         qIwoCVDJl0GfKMR5pzZhHOdzLXv/ROiFvy10dxur4DUvq5MoToMZXucZds3BH9F5Z+7w
-         IYcg==
+        d=linaro.org; s=google; t=1780039890; x=1780644690; darn=lists.infradead.org;
+        h=content-transfer-encoding:in-reply-to:organization:autocrypt
+         :content-language:references:cc:to:subject:reply-to:from:user-agent
+         :mime-version:date:message-id:from:to:cc:subject:date:message-id
+         :reply-to;
+        bh=rbf61mTeeb5+bPzWqAJNBcq8SFoXoM6zULZJ7jvwjCw=;
+        b=oX7t8BD4tsoi9AXuNeuHVNf4qLTEbxbadTi35fPWQTgFFt/e5oxhxXyjpPyvkAYosv
+         MKDrP0FmKcGCifm02eCKGRMgvH0zhDtHrySGP6MacHpDUyCfPqjfuFTcuEiZRObxcCRh
+         zTCaOJJohzscXI7BuzEyGBA7YsYRwLvLijWN44ZckTTNBInfSKjjpvGRNnLQ/NeVa2EY
+         IRAPmCsDLMnAwJRih6VafXH/qBFebZd9xwxXuZfmn9CmialstZBSkl0ektL9S8P0AF18
+         JVJnlBMp5joRshvOWKlGjaHJ7xJibIQGpHnChcI/R2KyVkuYvyiESgQ3uzX6M9BjDnE6
+         KGeg==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20251104; t=1780041301; x=1780646101;
-        h=in-reply-to:content-disposition:mime-version:references:message-id
-         :subject:cc:to:from:date:x-gm-gg:x-gm-message-state:from:to:cc
+        d=1e100.net; s=20251104; t=1780039890; x=1780644690;
+        h=content-transfer-encoding:in-reply-to:organization:autocrypt
+         :content-language:references:cc:to:subject:reply-to:from:user-agent
+         :mime-version:date:message-id:x-gm-gg:x-gm-message-state:from:to:cc
          :subject:date:message-id:reply-to;
-        bh=rwrPCj2IqJEcRJugk6Ecz2xdcmK5e89mwdODai47RFE=;
-        b=lggwLZfhpAi27zfBvBql4/3UkfEM3Wx4XdRSj9KgkVWFW+HlhZIAXfX2ZALytYyNCX
-         Zg0SmHbxi94OS/xDi6OnK2MwWLvaN5bO+o1SZxdHOupFu5LkJ0D7v9gN4APaFnoQzgOw
-         kCd3DMzMiKeK6o1Tk88uc/WPd96Gr6VnarUYyDBwfQzbVxFmbI1GSWc1d5LK19eoa6/H
-         oKxm1NdVRDgA1/UC8gGWFT7LCdCPlZgUp0lKVwMtUygh3lohF5Z4yz1GL5Ob1oR7+F4z
-         PKfngz7Q6OY8i4ulGY+KmJ6mpxbCJRmLyLU4LXyh5BwQDvMsg5iLO2T8mzxdCMHlz6fJ
-         wSog==
-X-Forwarded-Encrypted: i=1; AFNElJ83VM0NJy06jgL3dB0rxtMfOM8M3mJ3ZF4DmBQF5GfN4Jw8VWCSfktx5VEFJhIKtmPTqnZuSMDTuWLhCSi73OVh@lists.infradead.org
-X-Gm-Message-State: AOJu0YwYeKVZOzSLMApyJHcq0Sk0Q3KLl61KTvp3v0DEzJJcQagT0Nol
-	NL+lgQYbSCMZgZxkB5/gCd9bC+CHZqMI+6uXc4QPYInYpOVIMuoE+HuuhVSN3eZvVzo=
-X-Gm-Gg: Acq92OGQVQaLYHUTPBlwdJDAsduDWhOJwfBgpFQXoomynLe5Dn92PPA9R82UHh1q/U4
-	9X2MQgUEUj3VSwi2/vpKIZXLvV/USZLBnmeOupPHSGueuUAi5BlZe//CliAv9YqFAUdl2nlB6n1
-	WVbRGS3aLLBQOtGm9+sBSypM2Cz7oCTKnb3d7lzhDcNMULGLNh6fCwO0n8xGwQfBlZ5KRebloy4
-	H6mRBLj6xEJdu3Tjh4bHwtJ33ZeAPDhXMlOngitviXNf2urmgEJ86PpO3c3H8RyCJOXNUxq2Y4Z
-	THfH8gqYqGuX3XYHDVgiqyGeL98jYdfjgmZtcwnQUFEwfSsDj7P31FOvMMmMcD+BJCQDW9b9V/P
-	0bD/6/5KyZmXosfT+sUIR561h0sLNrdjvcjrvo3rnKindCTeAzvEro1DC8MaFYyfKQAGfMTPi0p
-	b+QDBgPkvf3n8ls7yF/qjvDQYGmHMpmA4i403Gt8M5KvH8rKF9ruiuwUYMXMcxUReFhzZgjfP5r
-	+IT3u8Z5HGYFis0/kxtkQ7PaBFR54SaLHQT
-X-Received: by 2002:a05:600c:4504:b0:48f:be94:d82c with SMTP id 5b1f17b1804b1-4909c0b33fcmr30600785e9.19.1780041300797;
-        Fri, 29 May 2026 00:55:00 -0700 (PDT)
-Received: from localhost (p200300f65f47db043f932d8b97293bf6.dip0.t-ipconnect.de. [2003:f6:5f47:db04:3f93:2d8b:9729:3bf6])
-        by smtp.gmail.com with UTF8SMTPSA id 5b1f17b1804b1-4909ca65f54sm27221465e9.5.2026.05.29.00.54.59
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Fri, 29 May 2026 00:55:00 -0700 (PDT)
-Date: Fri, 29 May 2026 09:54:58 +0200
-From: Uwe =?utf-8?Q?Kleine-K=C3=B6nig?= <u.kleine-koenig@baylibre.com>
-To: Arnd Bergmann <arnd@kernel.org>
-Cc: Inki Dae <inki.dae@samsung.com>, 
-	Seung-Woo Kim <sw0312.kim@samsung.com>, Kyungmin Park <kyungmin.park@samsung.com>, 
-	David Airlie <airlied@gmail.com>, Simona Vetter <simona@ffwll.ch>, 
-	Krzysztof Kozlowski <krzk@kernel.org>, Chen-Yu Tsai <wenst@chromium.org>, 
-	Marek Szyprowski <m.szyprowski@samsung.com>, Arnd Bergmann <arnd@arndb.de>, 
-	Alim Akhtar <alim.akhtar@samsung.com>, dri-devel@lists.freedesktop.org, 
-	linux-arm-kernel@lists.infradead.org, linux-samsung-soc@vger.kernel.org, linux-kernel@vger.kernel.org
-Subject: Re: [PATCH] drm/exynos: fix size_t format string
-Message-ID: <ahlFfp-kIqpdPGZd@monoceros>
-References: <20260527194525.45762-1-arnd@kernel.org>
+        bh=rbf61mTeeb5+bPzWqAJNBcq8SFoXoM6zULZJ7jvwjCw=;
+        b=A8xvCYY2p81rWG9krKkLeMpwrgGFeHLZjFh1gE2G2hmF3VN2d5ezrcde0wye7xk7jp
+         PqOXBPzr1qPMdnlhiYmKFmnmUhmumGs4kUd++P0ZC4+fNXKk8o3+1x97m83Kmg9Jr4sV
+         bka6gfl/KQ0WHWrBKljja/6+P/hDaLEhbf4kXCLykxAf5vqAay2jIMY3n77xHGxlBXMr
+         JaSOgDVx5c8M6t0dv+aT9cZPtmlbswDY25Zy5frNkwuZaI2rrYdxeNS196ocFTl+dnwn
+         eUhsA9mdF8tvJUXRTD6kAUOlPzMQHE116mDe5oLC7RC2MDbjboQOd1/5Yv1Y0UsXYK56
+         6s8w==
+X-Forwarded-Encrypted: i=1; AFNElJ9RaTEfl3m21WySSBdeoV8Hu5FirHUWf0Dp/moSQS5Fr9eUD8UuoH1YKiX9D9hb4GmVU/6xnZCw6cCovWUlZE6e@lists.infradead.org
+X-Gm-Message-State: AOJu0YzsB8aQEuAwWjdtv9s3CqfrrBq6ixuxhs853ygphcQhE5GeAeJ1
+	C8VQ3YeMXnnSKptrD9Ew7ELyn9n44BmgCBGaW2Ss6EtJw3IKP1XfGZbfcAYNSTr1a4c=
+X-Gm-Gg: Acq92OFl+xKAc5OI1GwogM5aF77PQhptXOJJWYLWTdvmPFUycrAuzNlQaLLyGtTopkp
+	eEOwPGKlco3UXi6oBFXnne/D0l68z1njTe5j/rKgNHKAyDNAiuMaUmfM63Rq3OGUyGLyFLv/q64
+	K4H+7wifjQ/+dlghzm4Ookik/RP7q3hBZQSYulxcFZeu+xyhFPD0HngvOsin7dnAubhX7mUG3qR
+	cbpRgw4osPAkdF7qo9oa27OM3Pl1tOMyeZB0DxvXlqRXlDmL/Q+wKosBznq9f3UmxsyL68tP3Vo
+	T9y3m+ZDERrU2tqpmr52yZbO5tNM/WBQYtgQYfSvunem2oIMEvZs0RPKGTQFuUQsuWHMIMJX+DL
+	+PJxjcRsQmOd+hYqZRyI3lFqni1emNroJPSg9nZnURwA5SShfiN8rzVSWRlK16bygYHwQIbwIXj
+	sYESweaUm0pvcCfSFGL/mg3kW+BiMvV8w4HX22iEr1Eg==
+X-Received: by 2002:a05:6000:4b07:b0:45e:ec27:b4b1 with SMTP id ffacd0b85a97d-45ef140cc1bmr2805286f8f.12.1780039890330;
+        Fri, 29 May 2026 00:31:30 -0700 (PDT)
+Received: from [172.20.10.3] ([37.167.96.43])
+        by smtp.gmail.com with ESMTPSA id ffacd0b85a97d-45ef34a090dsm1495768f8f.3.2026.05.29.00.31.28
+        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
+        Fri, 29 May 2026 00:31:29 -0700 (PDT)
+Message-ID: <8ef7a26d-8e32-4684-b0ff-dc0c3ff4af73@linaro.org>
+Date: Fri, 29 May 2026 09:31:27 +0200
 MIME-Version: 1.0
-Content-Type: multipart/signed; micalg=pgp-sha512;
-	protocol="application/pgp-signature"; boundary="jnujdylfqv2kbd66"
-Content-Disposition: inline
-In-Reply-To: <20260527194525.45762-1-arnd@kernel.org>
+User-Agent: Mozilla Thunderbird
+From: Neil Armstrong <neil.armstrong@linaro.org>
+Subject: Re: [PATCH] media: cec: meson: ao-cec-g12a: name the CEC core regmap
+ to avoid debugfs clash
+To: Yi Ding <yi.s.ding@gmail.com>, Hans Verkuil <hverkuil@kernel.org>,
+ Mauro Carvalho Chehab <mchehab@kernel.org>
+Cc: Kevin Hilman <khilman@baylibre.com>, Jerome Brunet
+ <jbrunet@baylibre.com>,
+ Martin Blumenstingl <martin.blumenstingl@googlemail.com>,
+ linux-media@vger.kernel.org, linux-amlogic@lists.infradead.org,
+ linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org
+References: <20260529060005.94700-1-yi.s.ding@gmail.com>
+Content-Language: en-US, fr
+Autocrypt: addr=neil.armstrong@linaro.org; keydata=
+ xsBNBE1ZBs8BCAD78xVLsXPwV/2qQx2FaO/7mhWL0Qodw8UcQJnkrWmgTFRobtTWxuRx8WWP
+ GTjuhvbleoQ5Cxjr+v+1ARGCH46MxFP5DwauzPekwJUD5QKZlaw/bURTLmS2id5wWi3lqVH4
+ BVF2WzvGyyeV1o4RTCYDnZ9VLLylJ9bneEaIs/7cjCEbipGGFlfIML3sfqnIvMAxIMZrvcl9
+ qPV2k+KQ7q+aXavU5W+yLNn7QtXUB530Zlk/d2ETgzQ5FLYYnUDAaRl+8JUTjc0CNOTpCeik
+ 80TZcE6f8M76Xa6yU8VcNko94Ck7iB4vj70q76P/J7kt98hklrr85/3NU3oti3nrIHmHABEB
+ AAHNKk5laWwgQXJtc3Ryb25nIDxuZWlsLmFybXN0cm9uZ0BsaW5hcm8ub3JnPsLAkQQTAQoA
+ OwIbIwULCQgHAwUVCgkICwUWAgMBAAIeAQIXgBYhBInsPQWERiF0UPIoSBaat7Gkz/iuBQJk
+ Q5wSAhkBAAoJEBaat7Gkz/iuyhMIANiD94qDtUTJRfEW6GwXmtKWwl/mvqQtaTtZID2dos04
+ YqBbshiJbejgVJjy+HODcNUIKBB3PSLaln4ltdsV73SBcwUNdzebfKspAQunCM22Mn6FBIxQ
+ GizsMLcP/0FX4en9NaKGfK6ZdKK6kN1GR9YffMJd2P08EO8mHowmSRe/ExAODhAs9W7XXExw
+ UNCY4pVJyRPpEhv373vvff60bHxc1k/FF9WaPscMt7hlkbFLUs85kHtQAmr8pV5Hy9ezsSRa
+ GzJmiVclkPc2BY592IGBXRDQ38urXeM4nfhhvqA50b/nAEXc6FzqgXqDkEIwR66/Gbp0t3+r
+ yQzpKRyQif3OwE0ETVkGzwEIALyKDN/OGURaHBVzwjgYq+ZtifvekdrSNl8TIDH8g1xicBYp
+ QTbPn6bbSZbdvfeQPNCcD4/EhXZuhQXMcoJsQQQnO4vwVULmPGgtGf8PVc7dxKOeta+qUh6+
+ SRh3vIcAUFHDT3f/Zdspz+e2E0hPV2hiSvICLk11qO6cyJE13zeNFoeY3ggrKY+IzbFomIZY
+ 4yG6xI99NIPEVE9lNBXBKIlewIyVlkOaYvJWSV+p5gdJXOvScNN1epm5YHmf9aE2ZjnqZGoM
+ Mtsyw18YoX9BqMFInxqYQQ3j/HpVgTSvmo5ea5qQDDUaCsaTf8UeDcwYOtgI8iL4oHcsGtUX
+ oUk33HEAEQEAAcLAXwQYAQIACQUCTVkGzwIbDAAKCRAWmrexpM/4rrXiB/sGbkQ6itMrAIfn
+ M7IbRuiSZS1unlySUVYu3SD6YBYnNi3G5EpbwfBNuT3H8//rVvtOFK4OD8cRYkxXRQmTvqa3
+ 3eDIHu/zr1HMKErm+2SD6PO9umRef8V82o2oaCLvf4WeIssFjwB0b6a12opuRP7yo3E3gTCS
+ KmbUuLv1CtxKQF+fUV1cVaTPMyT25Od+RC1K+iOR0F54oUJvJeq7fUzbn/KdlhA8XPGzwGRy
+ 4zcsPWvwnXgfe5tk680fEKZVwOZKIEuJC3v+/yZpQzDvGYJvbyix0lHnrCzq43WefRHI5XTT
+ QbM0WUIBIcGmq38+OgUsMYu4NzLu7uZFAcmp6h8g
+Organization: Linaro
+In-Reply-To: <20260529060005.94700-1-yi.s.ding@gmail.com>
+Content-Type: text/plain; charset=UTF-8; format=flowed
+Content-Transfer-Encoding: 7bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260529_005503_175488_812CDBE4 
-X-CRM114-Status: GOOD (  21.26  )
+X-CRM114-CacheID: sfid-20260529_003133_780830_FC7AF08F 
+X-CRM114-Status: GOOD (  18.70  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -101,104 +129,54 @@ List-Post: <mailto:linux-arm-kernel@lists.infradead.org>
 List-Help: <mailto:linux-arm-kernel-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
  <mailto:linux-arm-kernel-request@lists.infradead.org?subject=subscribe>
+Reply-To: Neil Armstrong <neil.armstrong@linaro.org>
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-
---jnujdylfqv2kbd66
-Content-Type: text/plain; protected-headers=v1; charset=us-ascii
-Content-Disposition: inline
-Content-Transfer-Encoding: quoted-printable
-Subject: Re: [PATCH] drm/exynos: fix size_t format string
-MIME-Version: 1.0
-
-Hello,
-
-On Wed, May 27, 2026 at 09:45:07PM +0200, Arnd Bergmann wrote:
-> From: Arnd Bergmann <arnd@arndb.de>
->=20
-> The exynos_gem->base.size argument is a size_t rather than an
-> unsigned long, so adapt the printk() format string accordingly:
->=20
-> In file included from drivers/gpu/drm/exynos/exynos_drm_gem.c:16:
-> drivers/gpu/drm/exynos/exynos_drm_gem.c: In function 'exynos_drm_alloc_bu=
-f':
-> drivers/gpu/drm/exynos/exynos_drm_gem.c:69:49: error: format '%lx' expect=
-s argument of type 'long unsigned int', but argument 6 has type 'size_t' {a=
-ka 'unsigned int'} [-Werror=3Dformat=3D]
->    69 |         DRM_DEV_DEBUG_KMS(drm_dev_dma_dev(dev), "dma_addr(0x%lx),=
- size(0x%lx)\n",
->       |                                                 ^~~~~~~~~~~~~~~~~=
-~~~~~~~~~~~~~~~
->    70 |                         (unsigned long)exynos_gem->dma_addr, exyn=
-os_gem->base.size);
->       |                                                              ~~~~=
-~~~~~~~~~~~~~~~~~
->       |                                                                  =
-            |
->       |                                                                  =
-            size_t {aka unsigned int}
->=20
-> The dma_addr in the same line is already printed using a cast
-> to unsigned long, so change that similarly to use the correct
-> %pad format.
->=20
-> Fixes: 11e898373fba ("drm/exynos: Drop exynos_drm_gem.size field")
-> Signed-off-by: Arnd Bergmann <arnd@arndb.de>
+On 5/29/26 08:00, Yi Ding wrote:
+> The driver registers two regmaps on the same platform device: an MMIO
+> regmap for the AO CEC registers, and an indirect regmap (using
+> reg_read()/reg_write() callbacks) for the CEC controller core registers.
+> Neither regmap_config sets a .name, so both default their debugfs
+> directory to the device name and collide:
+> 
+>    debugfs: 'ff800280.cec' already exists in 'regmap'
+> 
+> Because of the clash the second regmap's debugfs directory fails to
+> register, so its registers can no longer be inspected via debugfs.
+> 
+> Give the indirect CEC core regmap a distinct name. The two debugfs
+> directories then become "<dev>.cec" and "<dev>.cec-core". This only
+> affects debugfs naming; register access is unchanged.
+> 
+> Tested on an ODROID-N2 (Amlogic S922X): the warning is gone and both
+> /sys/kernel/debug/regmap/ff800280.cec and ff800280.cec-core are present.
+> 
+> Fixes: b7778c46683c ("media: platform: meson: Add Amlogic Meson G12A AO CEC Controller driver")
+> Assisted-by: Claude:claude-opus-4-8
+> Signed-off-by: Yi Ding <yi.s.ding@gmail.com>
 > ---
->  drivers/gpu/drm/exynos/exynos_drm_gem.c | 8 ++++----
->  1 file changed, 4 insertions(+), 4 deletions(-)
->=20
-> diff --git a/drivers/gpu/drm/exynos/exynos_drm_gem.c b/drivers/gpu/drm/ex=
-ynos/exynos_drm_gem.c
-> index 297a93b087cd..8e357f2beb9e 100644
-> --- a/drivers/gpu/drm/exynos/exynos_drm_gem.c
-> +++ b/drivers/gpu/drm/exynos/exynos_drm_gem.c
-> @@ -66,8 +66,8 @@ static int exynos_drm_alloc_buf(struct exynos_drm_gem *=
-exynos_gem, bool kvmap)
->  	if (kvmap)
->  		exynos_gem->kvaddr =3D exynos_gem->cookie;
-> =20
-> -	DRM_DEV_DEBUG_KMS(drm_dev_dma_dev(dev), "dma_addr(0x%lx), size(0x%lx)\n=
-",
-> -			(unsigned long)exynos_gem->dma_addr, exynos_gem->base.size);
-> +	DRM_DEV_DEBUG_KMS(drm_dev_dma_dev(dev), "dma_addr(%pad), size(0x%zx)\n",
-> +			  &exynos_gem->dma_addr, exynos_gem->base.size);
->  	return 0;
->  }
-> =20
-> @@ -80,8 +80,8 @@ static void exynos_drm_free_buf(struct exynos_drm_gem *=
-exynos_gem)
->  		return;
->  	}
-> =20
-> -	DRM_DEV_DEBUG_KMS(dev->dev, "dma_addr(0x%lx), size(0x%lx)\n",
-> -			(unsigned long)exynos_gem->dma_addr, exynos_gem->base.size);
-> +	DRM_DEV_DEBUG_KMS(dev->dev, "dma_addr(0x%pad), size(0x%zx)\n",
-> +			  &exynos_gem->dma_addr, exynos_gem->base.size);
+>   drivers/media/cec/platform/meson/ao-cec-g12a.c | 1 +
+>   1 file changed, 1 insertion(+)
+> 
+> diff --git a/drivers/media/cec/platform/meson/ao-cec-g12a.c b/drivers/media/cec/platform/meson/ao-cec-g12a.c
+> index 41f5b8669..2c914f000 100644
+> --- a/drivers/media/cec/platform/meson/ao-cec-g12a.c
+> +++ b/drivers/media/cec/platform/meson/ao-cec-g12a.c
+> @@ -405,6 +405,7 @@ static int meson_ao_cec_g12a_write(void *context, unsigned int addr,
+>   }
+>   
+>   static const struct regmap_config meson_ao_cec_g12a_cec_regmap_conf = {
+> +	.name = "core",
+>   	.reg_bits = 8,
+>   	.val_bits = 8,
+>   	.reg_read = meson_ao_cec_g12a_read,
 
-Inconsistent formatting. The first hunk used dma_addr(%pad), the second
-adds "0x". Chen-Yu Tsai's patch[1] was better in that regard.
+Good catch
 
-Best regards
-Uwe
 
-[1] https://lore.kernel.org/all/20260408064936.1342321-1-wenst@chromium.org/
+Reviewed-by: Neil Armstrong <neil.armstrong@linaro.org>
 
---jnujdylfqv2kbd66
-Content-Type: application/pgp-signature; name="signature.asc"
-
------BEGIN PGP SIGNATURE-----
-
-iQEzBAABCgAdFiEEP4GsaTp6HlmJrf7Tj4D7WH0S/k4FAmoZRlAACgkQj4D7WH0S
-/k4uLAf8CDNBSWkI/8nW1u/hhrBYD4t2URn0LO0re8mpGRHjxAyA2ted0Ag3jvDa
-8F55jr1ySezFOkOTycAdA+yW6AiferDGR6YbeeJURQtgw6/OR0QQ/iHO+PC2ZyjC
-9q6ls8fHy2K99TM2nwUh2SjbucVfCUhCXYL8iK88guLXcWdOfAyFJMT5Q1iQEhAU
-qW8lFER+hwe6VMeTZQk5CyqPhsUcYz0Pt+qVkGs3hOBbIL505NlsnPzSDgsE6kC/
-GnmGyW63GGoVoyA6J1C6ybt/geR4ilr12gm+rZqKDU9Wydfwz/kfmA3sc5JzWVZT
-xF6rNWt7febUyDzSmbvzndFdKi1DcA==
-=vHrt
------END PGP SIGNATURE-----
-
---jnujdylfqv2kbd66--
+Thanks,
+Neil
 
