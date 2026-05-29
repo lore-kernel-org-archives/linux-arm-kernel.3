@@ -4,61 +4,60 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 37B37CD5BD2
-	for <linux-arm-kernel@archiver.kernel.org>; Fri, 29 May 2026 08:41:26 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id F4171CD5BD2
+	for <linux-arm-kernel@archiver.kernel.org>; Fri, 29 May 2026 08:42:35 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
 	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
 	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=PEWnK275bsfNEPuoz47fHj1DYYs/Io1QWeiz24esTV0=; b=YE7AEzFT4YjtBXJ4yJYzE7jyXD
-	KsrUb/5b6RYJHlXWC9w6ekeZb7j/Tzz7eI8JzG1MVi0JhPWWYGrMLg1v4kS3peRoAZR/tk5l2HrQn
-	/JX8+jBXkiLQ+k6Scx1q22pxgmaxH6NfW3Ku6hUBy56LQrl/3C14FhsL1b+L+WXcS7UcuzTiUEnct
-	nidJzQbqXMH1x84eU+o0Jpe0Xch2IrODXgBGssux7HnirDRASaDX56wzGIlDyNoWVF0CRHVkDzUMU
-	6QcqL2Bf1o1sMIm/6GJnNfy1dY4tYHUyYePSaBC2ezDAoQRU+0LlpZkQhqbkv3YRVWmBP1vGEp/NE
-	PoyzCJ0g==;
+	bh=ACwquFOLw/0jKm4fKqth53Ztrx1fpIWYUQOFT1jyt3E=; b=4ksSJ5c0dScfwmAjqBTJK3HQdv
+	j846MudlzaQE5oJzBgeyVaxjbVqxDU0Hl+4dcfKl5jzfU9kxJ7bhi6c2H7OFvejMmKY5jcTGdl+yh
+	dRE9g6migModDI7i9Q2kqpOYRTQWy7AB2k8txIBLlRA7/MobuQkDXDK/puUpc+cZOPMHm0bFFoVCM
+	QYigxOu9kPu5tUAg3pW34tORmnINSO6lb6R0rn+g9qfWJyowCa6Giqrd6pUG+YXEyf+imRcOKnLiq
+	m5noi7fph3Jl67Qd0F7PQUIAgGxxACKXp35ebuCsBhtNkWkc2alSp5oVgnG0cH6KxQ7nsz2gaNMwx
+	uZU5RscA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wSsmM-00000006yBo-37z1;
-	Fri, 29 May 2026 08:41:18 +0000
+	id 1wSsnU-00000006yIe-4944;
+	Fri, 29 May 2026 08:42:28 +0000
 Received: from foss.arm.com ([217.140.110.172])
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wSsmK-00000006yBM-17tZ
+	id 1wSsnS-00000006yI8-17lQ
 	for linux-arm-kernel@lists.infradead.org;
-	Fri, 29 May 2026 08:41:17 +0000
+	Fri, 29 May 2026 08:42:28 +0000
 Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
-	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id 28927204C;
-	Fri, 29 May 2026 01:41:09 -0700 (PDT)
+	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id A376E204C;
+	Fri, 29 May 2026 01:42:19 -0700 (PDT)
 Received: from [10.1.26.144] (unknown [10.1.26.144])
-	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id 3E81C3F632;
-	Fri, 29 May 2026 01:41:12 -0700 (PDT)
+	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id 93BE83F632;
+	Fri, 29 May 2026 01:42:22 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=simple/simple; d=arm.com; s=foss;
-	t=1780044074; bh=vbeZEyiR/h6eWp5O0i9nwQvt26tcfiPct0YRF+hL2B0=;
+	t=1780044144; bh=AqR1rgWXEAXIlDqc3S6o5bYfI/ctZcgtp61gxbnNDAM=;
 	h=Date:Subject:To:Cc:References:From:In-Reply-To:From;
-	b=OO0OCxUP6Tc+Vw1mQUwyArHcpL82pFAPHnZ3imrzhZ9OseGf4HwuTUe3FXyKLiTeL
-	 1Q2sOhtVTRNWg0x2aA5H33QL6zCMLjfS1FH2epOGR7RL3Ov2ia+MiABXfVCuDW/yN4
-	 i940eLqtrT/UE++l48qi+oobYioK4tJkd+/DWeUc=
-Message-ID: <014b8a22-d2fe-4989-a430-861753beb1b1@arm.com>
-Date: Fri, 29 May 2026 09:41:09 +0100
+	b=jUImnIYEBKOSJQYKz4x0DaqpeEuJ9Qr9MWkEiUoVlXISyZLeGWboNtVdv107aJtWp
+	 LTyx6SzO+LnBvYKDBDg5u7ci/lQi63GA/SoHgDZKce8rCceTGyyTdJOSk8z1q/gpvo
+	 PF/Je2bUH9nlgCJs8wQ8XuDc3jDe3tRwN2v5IAtA=
+Message-ID: <b097ee0f-e517-47e3-9bfc-167f72e177a3@arm.com>
+Date: Fri, 29 May 2026 09:42:20 +0100
 MIME-Version: 1.0
 User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH v2 07/18] arm64: fpsimd: Use assembler for SVE
- instructions
+Subject: Re: [PATCH v2 10/18] arm64: sysreg: Add FPCR and FPSR
 To: Mark Rutland <mark.rutland@arm.com>,
  linux-arm-kernel@lists.infradead.org, kvmarm@lists.linux.dev
 Cc: broonie@kernel.org, catalin.marinas@arm.com, james.morse@arm.com,
  maz@kernel.org, oupton@kernel.org, tabba@google.com, will@kernel.org
 References: <20260528165446.701944-1-mark.rutland@arm.com>
- <20260528165446.701944-8-mark.rutland@arm.com>
+ <20260528165446.701944-11-mark.rutland@arm.com>
 Content-Language: en-GB
 From: Vladimir Murzin <vladimir.murzin@arm.com>
-In-Reply-To: <20260528165446.701944-8-mark.rutland@arm.com>
+In-Reply-To: <20260528165446.701944-11-mark.rutland@arm.com>
 Content-Type: text/plain; charset=UTF-8
 Content-Transfer-Encoding: 7bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260529_014116_432245_12DFDB5E 
-X-CRM114-Status: GOOD (  17.22  )
+X-CRM114-CacheID: sfid-20260529_014226_351697_B5D711FF 
+X-CRM114-Status: GOOD (  15.04  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -74,146 +73,97 @@ Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
 On 5/28/26 17:54, Mark Rutland wrote:
-> Historically we supported assemblers which could not assemble SVE
-> instructions. We dropped support for such assemblers in commit:
+> Add sysreg definitions for FPCR and FPSR.
 > 
->   118c40b7b503 ("kbuild: require gcc-8 and binutils-2.30")
+> Some versions of LLVM will refuse to assemble accesses to FPCR and FPSR
+> unless the "fp" arch extension is enabled, which we don't currently do
+> for read_sysreg() and write_sysreg(). In general, handling feature
+> dependencies would complicate read_sysreg() and write_sysreg(), and it's
+> simpler to use read_sysreg_s() and write_sysreg_s() instead, requiring
+> sysreg definitions.
 > 
-> Since that commit, all supported assemblers (binutils and LLVM) are
-> capable of assembling SVE instructions, and there's no need for us to
-> manually encode SVE instructions.
+> The values used can be found in ARM ARM issue M.b:
 > 
-> Rely on the assembler to encode SVE instructions, and remove the manual
-> encoding. The various _sve_<insn> macros are kept for now, and will be
-> cleaned up in subsequent patches.
+>   https://developer.arm.com/documentation/ddi0487/mb/
 > 
-> There should be no functional change as a result of this patch.
+> ... in sections:
+> 
+> * C5.2.8 ("FPCR, Floating-point Control Register")
+> * C5.2.10 ("FPSR, Floating-point Status Register")
 > 
 > Signed-off-by: Mark Rutland <mark.rutland@arm.com>
-> Reviewed-by: Mark Brown <broonie@kernel.org>
 > Cc: Catalin Marinas <catalin.marinas@arm.com>
 > Cc: Fuad Tabba <tabba@google.com>
 > Cc: James Morse <james.morse@arm.com>
 > Cc: Marc Zyngier <maz@kernel.org>
+> Cc: Mark Brown <broonie@kernel.org>
 > Cc: Oliver Upton <oupton@kernel.org>
 > Cc: Will Deacon <will@kernel.org>
 > ---
->  arch/arm64/include/asm/fpsimdmacros.h | 65 +++++++--------------------
->  1 file changed, 17 insertions(+), 48 deletions(-)
+>  arch/arm64/tools/sysreg | 45 +++++++++++++++++++++++++++++++++++++++++
+>  1 file changed, 45 insertions(+)
 > 
-> diff --git a/arch/arm64/include/asm/fpsimdmacros.h b/arch/arm64/include/asm/fpsimdmacros.h
-> index adf33d2da40c3..4ba23e493cb69 100644
-> --- a/arch/arm64/include/asm/fpsimdmacros.h
-> +++ b/arch/arm64/include/asm/fpsimdmacros.h
-> @@ -99,85 +99,54 @@
->  	.endif
->  .endm
+> diff --git a/arch/arm64/tools/sysreg b/arch/arm64/tools/sysreg
+> index 6c3ff14e561e6..8b219d6566608 100644
+> --- a/arch/arm64/tools/sysreg
+> +++ b/arch/arm64/tools/sysreg
+> @@ -3790,6 +3790,51 @@ Field	1	ZA
+>  Field	0	SM
+>  EndSysreg
 >  
-> -/* SVE instruction encodings for non-SVE-capable assemblers */
-> -/* (pre binutils 2.28, all kernel capable clang versions support SVE) */
-> +/* Deprecated macros for SVE instructions */
->  
->  /* STR (vector): STR Z\nz, [X\nxbase, #\offset, MUL VL] */
->  .macro _sve_str_v nz, nxbase, offset=0
-> -	_sve_check_zreg \nz
-> -	_check_general_reg \nxbase
-> -	_check_num (\offset), -0x100, 0xff
-> -	.inst	0xe5804000			\
-> -		| (\nz)				\
-> -		| ((\nxbase) << 5)		\
-> -		| (((\offset) & 7) << 10)	\
-> -		| (((\offset) & 0x1f8) << 13)
-> +	.arch_extension sve
-> +	str	z\nz, [X\nxbase, #\offset, MUL VL]
->  .endm
->  
->  /* LDR (vector): LDR Z\nz, [X\nxbase, #\offset, MUL VL] */
->  .macro _sve_ldr_v nz, nxbase, offset=0
-> -	_sve_check_zreg \nz
-> -	_check_general_reg \nxbase
-> -	_check_num (\offset), -0x100, 0xff
-> -	.inst	0x85804000			\
-> -		| (\nz)				\
-> -		| ((\nxbase) << 5)		\
-> -		| (((\offset) & 7) << 10)	\
-> -		| (((\offset) & 0x1f8) << 13)
-> +	.arch_extension sve
-> +	ldr	z\nz, [X\nxbase, #\offset, MUL VL]
->  .endm
->  
->  /* STR (predicate): STR P\np, [X\nxbase, #\offset, MUL VL] */
->  .macro _sve_str_p np, nxbase, offset=0
-> -	_sve_check_preg \np
-> -	_check_general_reg \nxbase
-> -	_check_num (\offset), -0x100, 0xff
-> -	.inst	0xe5800000			\
-> -		| (\np)				\
-> -		| ((\nxbase) << 5)		\
-> -		| (((\offset) & 7) << 10)	\
-> -		| (((\offset) & 0x1f8) << 13)
-> +	.arch_extension sve
-> +	str	p\np, [X\nxbase, #\offset, MUL VL]
->  .endm
->  
->  /* LDR (predicate): LDR P\np, [X\nxbase, #\offset, MUL VL] */
->  .macro _sve_ldr_p np, nxbase, offset=0
-> -	_sve_check_preg \np
-> -	_check_general_reg \nxbase
-> -	_check_num (\offset), -0x100, 0xff
-> -	.inst	0x85800000			\
-> -		| (\np)				\
-> -		| ((\nxbase) << 5)		\
-> -		| (((\offset) & 7) << 10)	\
-> -		| (((\offset) & 0x1f8) << 13)
-> +	.arch_extension sve
-> +	ldr p\np, [x\nxbase, #\offset, MUL VL]
->  .endm
->  
->  /* RDVL X\nx, #\imm */
->  .macro _sve_rdvl nx, imm
-> -	_check_general_reg \nx
-> -	_check_num (\imm), -0x20, 0x1f
-> -	.inst	0x04bf5000			\
-> -		| (\nx)				\
-> -		| (((\imm) & 0x3f) << 5)
-> +	.arch_extension sve
-> +	rdvl x\nx, #\imm
->  .endm
->  
->  /* RDFFR (unpredicated): RDFFR P\np.B */
->  .macro _sve_rdffr np
-> -	_sve_check_preg \np
-> -	.inst	0x2519f000			\
-> -		| (\np)
-> +	.arch_extension sve
-> +	rdffr p\np\().b
->  .endm
->  
->  /* WRFFR P\np.B */
->  .macro _sve_wrffr np
-> -	_sve_check_preg \np
-> -	.inst	0x25289000			\
-> -		| ((\np) << 5)
-> +	.arch_extension sve
-> +	wrffr p\np\().b
->  .endm
->  
->  /* PFALSE P\np.B */
->  .macro _sve_pfalse np
-> -	_sve_check_preg \np
-> -	.inst	0x2518e400			\
-> -		| (\np)
-> +	.arch_extension sve
-> +	pfalse	p\np\().b
->  .endm
->  
->  /* SME instruction encodings for non-SME-capable assemblers */
+> +Sysreg	FPCR	3	3	4	4	0
+> +Res0	63:27
+> +Field	26	AHP
+> +Field	25	DN
+> +Field	24	FZ
+> +Enum	23:22	RMode
+> +	0b00	RN
+> +	0b01	RP
+> +	0b10	RM
+> +	0b11	RZ
+> +EndEnum
+> +Field	21:20	Stride
+> +Field	19	FZ16
+> +Field	18:16	Len
+> +Field	15	IDE
+> +Res0	14
+> +Field	13	EBF
+> +Field	12	IXE
+> +Field	11	UFE
+> +Field	10	OFE
+> +Field	9	DZE
+> +Field	8	IOE
+> +Res0	7:3
+> +Field	2	NEP
+> +Field	1	AH
+> +Field	0	FIZ
+> +EndSysreg
+> +
+> +Sysreg	FPSR	3	3	4	4	1
+> +Res0	63:32
+> +Field	31	N
+> +Field	30	Z
+> +Field	29	C
+> +Field	28	V
+> +Field	27	QC
+> +Res0	26:8
+> +Field	7	IDC
+> +Res0	6:5
+> +Field	4	IXC
+> +Field	3	UFC
+> +Field	2	OFC
+> +Field	1	DZC
+> +Field	0	IOC
+> +EndSysreg
+> +
+>  Sysreg	FPMR	3	3	4	4	2
+>  Res0	63:38
+>  Field	37:32	LSCALE2
 > -- 2.30.2
 > 
 
 FWIW,
 
 Reviewed-by: Vladimir Murzin <vladimir.murzin@arm.com>
-
 
 
