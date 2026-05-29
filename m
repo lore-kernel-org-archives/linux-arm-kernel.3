@@ -4,150 +4,105 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 26560CD6E4A
-	for <linux-arm-kernel@archiver.kernel.org>; Fri, 29 May 2026 14:46:10 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 80FCFCD6E4A
+	for <linux-arm-kernel@archiver.kernel.org>; Fri, 29 May 2026 14:47:27 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:Cc:To:Subject:Message-ID:Date:From:In-Reply-To:References:
-	MIME-Version:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=y0uRdyGufttfYsaSEKi83F70fZI3azu4YBlntZSpPu4=; b=xVBDNdQ1fXY1Ua7dMKEW5WkCCH
-	3q9YE4mm7wUnLxlw8Te+9TEDaeD06h05p2Ugws7nbrvujtu21Jk1U1l117oKMpuHeFxuODaGiJokO
-	Sg/8/OSahip8umsC+o+ptJK+HMZVpzhoMYLBMmXSu8C0FggLLlojNc/DY9d8etZxoAe/wLTQxAIcg
-	+dEBGmb64UPclH35ZjbWdBBWZJy4ccx9YjYjozIivWv0YUw7uhY1UG3JHVqNw8tWwmgs1FOYZlb3y
-	WhxsBMjUAZ5LrvTzE2GS7dzQmN5K4gXROctRrAHPWXJYii4VUV0wdYemVJ7o96t6+J+1yySkrP6Lb
-	2I1zOmpA==;
+	MIME-Version:Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-Type:
+	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
+	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=uXAnr2ji1K1FMxfIa+2dWup2lSJTGHNXhn3K7ZsSAnw=; b=bqMOULDKVjXEC6+H5GB7tDGSwz
+	0A8/EbcFA1KlPR3uG6LqRclwz1DTScN4BuxRWaD1J4+jrPONnkP5+6ls+mi50rqMjpspEn8vtX+3X
+	BLtBf60V7Zh+OHQevMSu0SMBoQAvNW+XY94KvtqP4t5GYFYWdhODYFR/Xnq0LlX/zQTgNgxJZ/57v
+	M7YFaEtAz5YIkxxIKU13vtcaAaWYgCI1r4VgXzntv80M9KXVz5kHrcRiZMYsNmyTvRcvezP5P1X1m
+	ghHUgPlN9a5RnAGLykyFkoMkZNmh6pNwL2Y43gBFcBf3GmoynHITwScaYO16+5okR5ZOLQ+yrXm2B
+	Oh08oz5g==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wSyTM-00000007YCJ-0Zft;
-	Fri, 29 May 2026 14:46:04 +0000
-Received: from mx0b-0031df01.pphosted.com ([205.220.180.131])
+	id 1wSyUb-00000007YOp-26hn;
+	Fri, 29 May 2026 14:47:21 +0000
+Received: from mail-wm1-x331.google.com ([2a00:1450:4864:20::331])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wSyTI-00000007YBa-0p8F
+	id 1wSyUZ-00000007YN3-1b7v
 	for linux-arm-kernel@lists.infradead.org;
-	Fri, 29 May 2026 14:46:03 +0000
-Received: from pps.filterd (m0279869.ppops.net [127.0.0.1])
-	by mx0a-0031df01.pphosted.com (8.18.1.11/8.18.1.11) with ESMTP id 64TDL00o2334974
-	for <linux-arm-kernel@lists.infradead.org>; Fri, 29 May 2026 14:45:59 GMT
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=qualcomm.com; h=
-	cc:content-transfer-encoding:content-type:date:from:in-reply-to
-	:message-id:mime-version:references:subject:to; s=qcppdkim1; bh=
-	y0uRdyGufttfYsaSEKi83F70fZI3azu4YBlntZSpPu4=; b=Bu3eS0IocdVwcgU3
-	CGTFtvJsHhHnWhPRxdFyHJvNRpwXsNF23f6zIOH4cgaJR8KdAGRdP6uxlcvwADxj
-	sdfmufVCxLd7S4lfAP8c/cW4sRRY/lpyXpZDEkiTEDqhadvk3J8s+KZEv5AZyR+s
-	BLlH1NDNk2MGWYZT3ibgT6O4GUxvmCf0wOcKB+pp81pulce5ifgnR8A8j8q+N14n
-	F1C6J6SSYrSHMySeK0wVDH6gHQ6tYPlqNGIMeZANuO5W6VP2b3D9cmsSeGaJwETy
-	KiHxJjnm5MukNBqHY0ERqom4iOSWGsq+o0P/58FN7+fYFzqVW+9Nwps8SooyVzqZ
-	b19KUA==
-Received: from mail-qv1-f69.google.com (mail-qv1-f69.google.com [209.85.219.69])
-	by mx0a-0031df01.pphosted.com (PPS) with ESMTPS id 4ef4jj28h3-1
-	(version=TLSv1.3 cipher=TLS_AES_128_GCM_SHA256 bits=128 verify=NOT)
-	for <linux-arm-kernel@lists.infradead.org>; Fri, 29 May 2026 14:45:59 +0000 (GMT)
-Received: by mail-qv1-f69.google.com with SMTP id 6a1803df08f44-8b1f39c5827so287025746d6.1
-        for <linux-arm-kernel@lists.infradead.org>; Fri, 29 May 2026 07:45:59 -0700 (PDT)
-ARC-Seal: i=1; a=rsa-sha256; t=1780065959; cv=none;
-        d=google.com; s=arc-20240605;
-        b=DDcs0I+e/mGQcbedlbapFQ1/DIOFkTOmiT+wCWZrYhoi/q4skflxpv5ZPhGF7XyYAW
-         qNn1e5HPj0rGkpeZ2URNAu7OCkLQqeH5qTHu7dbCtd4S5Fl0n1PaK9D1ngPfuWAEfQb+
-         +Yeu8J3pwW0b9sknnwWYokqjCgiTOeUlJi4DshzaZXdaPgY/YTj69hcqq1CsfSsETv/s
-         h7MSqu0i+LPc/ADG4b7xXgm+OpW1S3B6oiFv9f1/1924uLOnr5gVRWvW0Tx6a/pbJ9H2
-         TNBS4aWxJBMNfhEzvMmYQ5QcKydXc66TK7XGLCbIwYwHbs+OMPzuep18z94SleAs+xp7
-         VXXA==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20240605;
-        h=content-transfer-encoding:cc:to:subject:message-id:date:from
-         :in-reply-to:references:mime-version:dkim-signature;
-        bh=y0uRdyGufttfYsaSEKi83F70fZI3azu4YBlntZSpPu4=;
-        fh=qiGG9qFVfzginv50uaysJWfDW2/qd3i9wTt0TD03eK8=;
-        b=leP8SebgZ2qHoMEsYs4Y3ZgXjFCFymnw6AzwK2QGEszKp4AnFpsxCafAjw7OTytRwV
-         JiZf1j8lS1iUsuPLSgTHUycdkYyBwyt7ACOSgpvDYp/NK0ATS7oqkaxZ6ZEydwj5Hzk7
-         jCCblub/EAth4W2qdZ16dTy30KG//6yGNAZC0g61/LTz2zcW+aetLdkLiJwGLGDPQ7WF
-         Uy278Wq45j/8ir0dcfFf2HAYgJoj0Ku1ybFneX5HnAm1s1Vut49qpNelA/zYDGYnMy9H
-         7X4xFEVG9EOSo5pO81QWYdfvc7fsTmmLlrpx9x4NWv81B1oFLtf8IWAaFPQDSr2ZMPMc
-         IOcA==;
-        darn=lists.infradead.org
-ARC-Authentication-Results: i=1; mx.google.com; arc=none
+	Fri, 29 May 2026 14:47:20 +0000
+Received: by mail-wm1-x331.google.com with SMTP id 5b1f17b1804b1-4891e5b9c1fso121675475e9.2
+        for <linux-arm-kernel@lists.infradead.org>; Fri, 29 May 2026 07:47:16 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=oss.qualcomm.com; s=google; t=1780065959; x=1780670759; darn=lists.infradead.org;
-        h=content-transfer-encoding:cc:to:subject:message-id:date:from
-         :in-reply-to:references:mime-version:from:to:cc:subject:date
-         :message-id:reply-to;
-        bh=y0uRdyGufttfYsaSEKi83F70fZI3azu4YBlntZSpPu4=;
-        b=YSHZ9tF2ySnBWZO0pOc72TYgyQ6k+efpIBMxxOn6eudSz4EcKLzVvO/+178OyUxzry
-         6QvTVi6U/hsujL1iGUfPoIaZ8acLToF1ht1uW8nMGwyzcUtq/8Zvic06dcUPRKSGJh5L
-         SGGbOZn/9i8ia+DjVJsJk9mtV7/YF4bvXIvBsvTehrMVU/eM2xVwowI91FFeqEZVKwEl
-         ky6WBf3nUi5Kub+EZm74l8qvih/szPh/HRqMNWcmu2DCt+/Nz+FrHKthW3MCjbrhS4SU
-         Ap90lGlXSvCbS888MOFnRk0h9qQHkAFyyNeHTQOjxenH7V+2R1V1W4Em+k0hjPLn8Tz4
-         QZJw==
+        d=amarulasolutions.com; s=google; t=1780066035; x=1780670835; darn=lists.infradead.org;
+        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
+         :to:from:from:to:cc:subject:date:message-id:reply-to;
+        bh=uXAnr2ji1K1FMxfIa+2dWup2lSJTGHNXhn3K7ZsSAnw=;
+        b=MeSjYVkCTH8bMg3HaY4uH7hzo1K+xAkYJnHW0C6pCWgVTKhWgK4dEfPAj85jEFdnRp
+         lxhU4Z0mpG823bbcEO00Jo/CfvIk6Io2SESLOaWULhsB62CsNcJLXvOfevjkGk9wsgqH
+         MnY2dOu6pAu8RcIHOCPqU8i/3VgSsI1QW5YDg=
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20251104; t=1780065959; x=1780670759;
-        h=content-transfer-encoding:cc:to:subject:message-id:date:from
-         :in-reply-to:references:mime-version:x-gm-gg:x-gm-message-state:from
-         :to:cc:subject:date:message-id:reply-to;
-        bh=y0uRdyGufttfYsaSEKi83F70fZI3azu4YBlntZSpPu4=;
-        b=Gnv0xnBIt6zcjA7uCiqtRptsnEEpivjMBwq6MN/PGAENegX93CSoAy8Y8KrY8fr1HX
-         Y1ASrBNe8Tt/3PSUQzBekxWxHBIk3AO8i4FKZFQGu9ofM2R4PmObThJ8OX4An2kZfz7a
-         gY5Fx85DPsagj3vSh6H/+P7DRF1bqErhdDxPQ18WBwDpevurp1sTr4ecLNHbc+hDrjXk
-         COc7N07JeA8PIX++OC0G0r/u/xBUEqu1AzD/YKS1QRFiOD3kzyOvYjIfJEy/JPiNMwuJ
-         DkA8vLJgj2y5XjedH2/Pa8lqffkKmSsEhoy/vy0wvdS3Waslp/2pp2JYAbvRzN+ydWJc
-         +qPQ==
-X-Forwarded-Encrypted: i=1; AFNElJ9etUWUxoVqFLHLvFsJU/VdjeiSFJiPnpwvUkyJkkKDow1VoaJ0MmllusE8ELmDTYiG5CyM22reLwFTU6w47YAm@lists.infradead.org
-X-Gm-Message-State: AOJu0YxLTgQLfR7dTLjdSg/sfjeeVHtceRBa4dPejNFpvw5j4MVwCll2
-	QrIhMiAyxXKUus4KMCYwbdQzaJIp74H29qocev2+ICvqpSU170qaReArZatEQPDVmdp6OKnyxTJ
-	+5AwEyAzKt8Cn1yROR4uLMdlYjJsrkofY9Zw3/SPCTA5+lMhWBfiH/VAf2N/HljcmYBwzkzZbBU
-	DpDyP3jmoobtzFL5mvKdpel3RM0VvYr4Zv9Qw9NWw5ES88St5d7S8s
-X-Gm-Gg: Acq92OFaOGvf60/PQfWJIdkaRODdssvqc9A4vFuVifwOObgr0WiN8WWpsK2tIb2cJRH
-	VzZiJ84NoAWWFTC7crlq/Ng94o413AJV39yOCFSSIBoSX3fyfueQZx7GevBvYbkx8wLA4yNqj4c
-	aJMSY/HQntIf5e6hV5/SQtdo1ScK3xQQEbuRljg0vtfBDAC14Ox5ibj2CB0CThna28A+01ULYcO
-	8LuCDanKh8m3w2zTQ==
-X-Received: by 2002:a05:6214:230b:b0:8ca:10c9:845d with SMTP id 6a1803df08f44-8cce801f126mr36090096d6.31.1780065958655;
-        Fri, 29 May 2026 07:45:58 -0700 (PDT)
-X-Received: by 2002:a05:6214:230b:b0:8ca:10c9:845d with SMTP id
- 6a1803df08f44-8cce801f126mr36089856d6.31.1780065958269; Fri, 29 May 2026
- 07:45:58 -0700 (PDT)
+        d=1e100.net; s=20251104; t=1780066035; x=1780670835;
+        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
+         :to:from:x-gm-gg:x-gm-message-state:from:to:cc:subject:date
+         :message-id:reply-to;
+        bh=uXAnr2ji1K1FMxfIa+2dWup2lSJTGHNXhn3K7ZsSAnw=;
+        b=iqce5cimGngJfQwUBrajjErc7vFBgKCIxLFGrAWi4BTaW22Y2/RgbUq/y64s2AKbcS
+         ZrNuOvHlAyhO0C3Kr/9vT/J4ORN5y5e/MTiPl2fO3AsQOejbzBbU58DHHrP4P9XmmclT
+         0Qrq9ZUMLViF8y+PJnWtpx8C6qDjumK3EpV78aWvAyS/FXUY767BYSNcszC6Y0vu5A13
+         RSLiUkKWoyo1sw8HJpePrzRtlN0GoSvgkH0TmtI4lf1eZQ3n56+6saJ7OG3ilb/Jg2DI
+         WOM1uQBiLkKshmZvKdpWpbddElKcVHC1u3Y9C7JcMt3RLeVVAhKJs5T2jpI6X5Gf6DdX
+         3jNg==
+X-Forwarded-Encrypted: i=1; AFNElJ+pyfg4d7yxnb35rmM4wxGB9lNlFfjNbDoKsyhACloLVU53Zj7gLJQxJTKQbj4DRSADgXQYhy7YQMzgImOI0ZRS@lists.infradead.org
+X-Gm-Message-State: AOJu0YyLqMPVcK3k2bv9CITnSLyWFyZNGueR07yAxhcT5pL+UWGdNhYp
+	tZWmwlCe0rL0vK+FseCGVD9fcBG581Wo0G7iq1bMpLpXq8vV/2xf+pP7G9uLZgiYOwo=
+X-Gm-Gg: Acq92OFcY/ulN+8GVEtwjhagWJbaX9dXqMf3xGS4oToY81D5ri+elnfy3kIDg8ZF55q
+	HsxKZtZhQo/7J7uEtQ0shX0tCiI1rArlnentUgxbd1Pb9fGhc3GC+bKvgecaFAoDT/Mn1VXU7WX
+	H/GSNKcP/HeIeKc6baYj76E22b9bMKQOWoYvo3VkcZe4kp6cXqMZ7oMjWp1liubLW12I0wnfoKT
+	L9WlPch2J2m+Twi7k3Pk2iTK8gEeqoA3R53IO6KtY/WPJ68JqwggNABtZnSS0R1CBCY4O1uyy+F
+	uzR9pJm18+a7EDYCh3ABY/EW4oepIu7a0Q/UUe0ZN+8FV9K+LRoxY0UJNbx9Lw6NdMRkdLXDd8s
+	5y+IcImh4M80DtYR8/DKRPCgGvEG5/0Er1uruwMGJkFb1VfyaniC0gWdosl7eRFV1s7/KjiB+a5
+	s2fYto0XtovVZRSpCq/HRe19CCSWnnLg0ROop58kDEqb2aVhJBS1gtYUzgl+wZDwwZ8xzDcZqu3
+	xNiUC9eKd+kjMmk2kd8/etTYFNtQ6GJ7mwdlO30o+/RPCJEJ5s/M/XOCRU=
+X-Received: by 2002:a05:600d:848a:b0:490:60cb:55f0 with SMTP id 5b1f17b1804b1-4909c0aa2c7mr40837195e9.21.1780066035193;
+        Fri, 29 May 2026 07:47:15 -0700 (PDT)
+Received: from dario-ThinkPad-P14s-Gen-5.amarulasolutions.com ([2.196.43.161])
+        by smtp.gmail.com with ESMTPSA id 5b1f17b1804b1-4909d6eb470sm38694785e9.10.2026.05.29.07.47.13
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Fri, 29 May 2026 07:47:14 -0700 (PDT)
+From: Dario Binacchi <dario.binacchi@amarulasolutions.com>
+To: linux-kernel@vger.kernel.org
+Cc: domenico.acri@engicam.com,
+	francesco.utel@engicam.com,
+	michael@amarulasolutions.com,
+	linux-amarula@amarulasolutions.com,
+	Dario Binacchi <dario.binacchi@amarulasolutions.com>,
+	Alexandre Torgue <alexandre.torgue@foss.st.com>,
+	Amelie Delaunay <amelie.delaunay@foss.st.com>,
+	Arnd Bergmann <arnd@arndb.de>,
+	Bjorn Andersson <bjorn.andersson@oss.qualcomm.com>,
+	Christophe Parant <c.parant@phytec.fr>,
+	Conor Dooley <conor+dt@kernel.org>,
+	Dmitry Baryshkov <dmitry.baryshkov@oss.qualcomm.com>,
+	Eric Biggers <ebiggers@kernel.org>,
+	Geert Uytterhoeven <geert@linux-m68k.org>,
+	Himanshu Bhavani <himanshu.bhavani@siliconsignals.io>,
+	Konrad Dybcio <konrad.dybcio@oss.qualcomm.com>,
+	Krzysztof Kozlowski <krzk+dt@kernel.org>,
+	Krzysztof Kozlowski <krzysztof.kozlowski@oss.qualcomm.com>,
+	Luca Weiss <luca.weiss@fairphone.com>,
+	Maxime Coquelin <mcoquelin.stm32@gmail.com>,
+	Michal Simek <michal.simek@amd.com>,
+	Rob Herring <robh@kernel.org>,
+	Sven Peter <sven@kernel.org>,
+	devicetree@vger.kernel.org,
+	linux-arm-kernel@lists.infradead.org,
+	linux-stm32@st-md-mailman.stormreply.com
+Subject: [PATCH v2 00/15] arm64: support Engicam MicroGEA-STM32MP257-RMM board
+Date: Fri, 29 May 2026 16:46:14 +0200
+Message-ID: <20260529144707.3931919-1-dario.binacchi@amarulasolutions.com>
+X-Mailer: git-send-email 2.43.0
 MIME-Version: 1.0
-References: <20260522184307.2979579-1-heiko@sntech.de>
-In-Reply-To: <20260522184307.2979579-1-heiko@sntech.de>
-From: Ulf Hansson <ulf.hansson@oss.qualcomm.com>
-Date: Fri, 29 May 2026 16:45:47 +0200
-X-Gm-Features: AVHnY4J_FLHe1mGcqIVr9GZCUybu2z_sAx_8iofpKeK_xPfv3mpX0W3pewKBvLE
-Message-ID: <CAPx+jO9kKCQE+ZtKhJWX9mztEQ2m93irdqt6910wG=9M9zN4KA@mail.gmail.com>
-Subject: Re: [PATCH] mmc: dw_mmc-rockchip: Add missing private data for very
- old controllers
-To: Heiko Stuebner <heiko@sntech.de>
-Cc: ulfh@kernel.org, shawn.lin@rock-chips.com, jh80.chung@samsung.com,
-        linux-mmc@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
-        linux-rockchip@lists.infradead.org, linux-kernel@vger.kernel.org,
-        stable@vger.kernel.org
-Content-Type: text/plain; charset="UTF-8"
-Content-Transfer-Encoding: quoted-printable
-X-Proofpoint-Spam-Details-Enc: AW1haW4tMjYwNTI5MDE0NyBTYWx0ZWRfX5u/oVBLM0VzD
- maq3rihMUTG/ek4rqPeoSm5YBJvCj3aXyWUzqQiLKLC5qcdbzd8AAV+4ekgqCQJRSKI6vNVwY5P
- vB2Z3fn2rXKPi9lsTIdTBp51BwxFAaF/1txIrGkq2QrqQrgqvgx6bJywHjURoxTtabUK+FLjeLt
- zz8B/mKXRKBWQHeL40yEhHKgd6tqUk04cUHrbAMwHfA83DO7fZsON3cMXSbmkBnG8OASQvsYMLl
- IKD63YWHDuZqWo+Jx3vIfTUh3N+LXdjTmlIw6Bbsr5LbiUJLYxt6NcgwC81GV/vgIiImtmebOcx
- LCtl0bSn9gPKWRhYx0xsw6aEJ6gsBS2re08kTVNNEK80+nqDvUDZ+MJwi9VS0lFNWt2MZKs11gu
- Oc6kWryjplv1V1zA3ThjbvovisYXTsfodOMhALuCrTib0JhzJSX+yBisU342k3NnIfl7Why6yaT
- P6gAQG9BKzJlR8uPf+Q==
-X-Proofpoint-ORIG-GUID: mabLvZb2IVBMGjn2R8KBy2tQWSdj39qF
-X-Authority-Analysis: v=2.4 cv=Tt7WQjXh c=1 sm=1 tr=0 ts=6a19a6a7 cx=c_pps
- a=wEM5vcRIz55oU/E2lInRtA==:117 a=IkcTkHD0fZMA:10 a=NGcC8JguVDcA:10
- a=s4-Qcg_JpJYA:10 a=VkNPw1HP01LnGYTKEx00:22 a=u7WPNUs3qKkmUXheDGA7:22
- a=_glEPmIy2e8OvE2BGh3C:22 a=JfrnYn6hAAAA:8 a=VwQbUJbxAAAA:8
- a=zCIS9O9Q-TFeY09dWLwA:9 a=QEXdDO2ut3YA:10 a=OIgjcC2v60KrkQgK7BGD:22
- a=1CNFftbPRP8L7MoqJWF3:22
-X-Proofpoint-GUID: mabLvZb2IVBMGjn2R8KBy2tQWSdj39qF
-X-Proofpoint-Virus-Version: vendor=baseguard
- engine=ICAP:2.0.293,Aquarius:18.0.1143,Hydra:6.1.125,FMLib:17.12.100.49
- definitions=2026-05-29_04,2026-05-28_03,2025-10-01_01
-X-Proofpoint-Spam-Details: rule=outbound_notspam policy=outbound score=0
- suspectscore=0 lowpriorityscore=0 clxscore=1015 impostorscore=0 bulkscore=0
- adultscore=0 malwarescore=0 phishscore=0 spamscore=0 priorityscore=1501
- classifier=typeunknown authscore=0 authtc= authcc= route=outbound adjust=0
- reason=mlx scancount=1 engine=8.22.0-2605210000 definitions=main-2605290147
+Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260529_074601_379386_CE3C17EF 
-X-CRM114-Status: GOOD (  27.02  )
+X-CRM114-CacheID: sfid-20260529_074719_448268_140FD166 
+X-CRM114-Status: GOOD (  14.23  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -162,84 +117,69 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Fri, May 22, 2026 at 8:43=E2=80=AFPM Heiko Stuebner <heiko@sntech.de> wr=
-ote:
->
-> The really old controllers (rk2928, rk3066, rk3188) do not support UHS
-> speeds at all, and thus never handled phase data.
->
-> For that reason it never had a parse_dt callback and no driver private
-> data at all.
->
-> Commit ff6f0286c896 ("mmc: dw_mmc-rockchip: Add memory clock auto-gating
-> support") makes the private data sort of mandatory, because the init
-> function checks whether phases are configured internally or through the
-> clock controller.
->
-> This results in the old SoCs then experiencing NULL-pointer dereferences
-> when they try to access that private-data struct.
->
-> While we could have if (priv) conditionals in all places, it's way less
-> cluttery to just give the old types their private-data struct.
->
-> Fixes: ff6f0286c896 ("mmc: dw_mmc-rockchip: Add memory clock auto-gating =
-support")
-> Cc: stable@vger.kernel.org
-> Signed-off-by: Heiko Stuebner <heiko@sntech.de>
+This series adds initial support for the Engicam MicroGEA-STM32MP257-RMM
+board based on the MicroGEA-STM32MP257 SoM.
 
-Applied for fixes, thanks!
+The support includes device tree descriptions for both the SoM and the
+carrier board, together with the required pinctrl definitions for the
+peripherals used.
 
-Kind regards
-Uffe
+The series also updates the arm64 defconfig accordingly.
 
+Notes:
+Following Arnd's guidance [1], patch 14/15 "arm64: defconfig: cleanup the
+defconfig" is kept in this series purely for review purposes. Since a better
+version of this change has already been merged via Krzysztof's cleanups,
+this patch will be skipped once the review is complete.
 
-> ---
->  drivers/mmc/host/dw_mmc-rockchip.c | 17 +++++++++++++++++
->  1 file changed, 17 insertions(+)
->
-> diff --git a/drivers/mmc/host/dw_mmc-rockchip.c b/drivers/mmc/host/dw_mmc=
--rockchip.c
-> index c6eece4ec3fd..75c82ff20f17 100644
-> --- a/drivers/mmc/host/dw_mmc-rockchip.c
-> +++ b/drivers/mmc/host/dw_mmc-rockchip.c
-> @@ -441,6 +441,22 @@ static int dw_mci_common_parse_dt(struct dw_mci *hos=
-t)
->         return 0;
->  }
->
-> +static int dw_mci_rk2928_parse_dt(struct dw_mci *host)
-> +{
-> +       struct dw_mci_rockchip_priv_data *priv;
-> +       int err;
-> +
-> +       err =3D dw_mci_common_parse_dt(host);
-> +       if (err)
-> +               return err;
-> +
-> +       priv =3D host->priv;
-> +
-> +       priv->internal_phase =3D false;
-> +
-> +       return 0;
-> +}
-> +
->  static int dw_mci_rk3288_parse_dt(struct dw_mci *host)
->  {
->         struct dw_mci_rockchip_priv_data *priv;
-> @@ -514,6 +530,7 @@ static int dw_mci_rockchip_init(struct dw_mci *host)
->
->  static const struct dw_mci_drv_data rk2928_drv_data =3D {
->         .init                   =3D dw_mci_rockchip_init,
-> +       .parse_dt               =3D dw_mci_rk2928_parse_dt,
->  };
->
->  static const struct dw_mci_drv_data rk3288_drv_data =3D {
-> --
-> 2.47.3
->
->
-> _______________________________________________
-> Linux-rockchip mailing list
-> Linux-rockchip@lists.infradead.org
-> http://lists.infradead.org/mailman/listinfo/linux-rockchip
+[1] https://lore.kernel.org/all/3e23b0c6-6968-4c87-8d34-f44b8af1df82@app.fastmail.com/
+
+Changes in v2:
+- Add Acked-by of Conor Dooley for patch 0/1 "dt-bindings: arm: stm32:
+  support Engicam MicroGEA-STM32MP257-RMM board"
+- Add resets property to dts CAN node. Suggested by Sashiko.
+- Drop the clocks property from the sai1 node in stm32mp257-engicam-microgea-rmm.dts
+  to avoid overriding the peripheral bus clock reference defined in the base
+  SoC device tree. Suggested by Sashiko.
+- Reference the existing labeled nodes directly at the root level using
+  &sai1a and &sai1b in stm32mp257-engicam-microgea-rmm.dts instead of
+  redefining the entire node structure and redeclaring the labels. Suggested by Sashiko.
+- Drop the #clock-cells property from sai1a and remove the reference to sai1a from
+  the clocks array in sai1b, relying strictly on the st,sync property to handle
+  internal synchronization.
+
+Dario Binacchi (15):
+  dt-bindings: arm: stm32: support Engicam MicroGEA-STM32MP257-RMM board
+  arm64: dts: st: add SDMMC2 support on stm32mp25
+  arm64: dts: st: add CAN1 support on stm32mp25
+  arm64: dts: st: add i2c1 pins for stm32mp25
+  arm64: dts: st: add ltdc pins for stm32mp25
+  arm64: dts: st: add can1 pins for stm32mp25
+  arm64: dts: st: add pwm2/pwm4 pins for stm32mp25
+  arm64: dts: st: add sai1 pins for stm32mp25
+  arm64: dts: st: add sdmmc2 pins for stm32mp25
+  arm64: dts: st: add spi1 pins for stm32mp25
+  arm64: dts: st: add usart1 pins for stm32mp25
+  arm64: dts: st: support Engicam MicroGEA-STM32MP257 SoM
+  arm64: dts: st: support Engicam MicroGEA-STM32MP257-RMM board
+  arm64: defconfig: cleanup the defconfig
+  arm64: defconfig: enable configs for Engicam MicroGEA-STM32MP257-RMM
+
+ .../devicetree/bindings/arm/stm32/stm32.yaml  |   7 +
+ arch/arm64/boot/dts/st/Makefile               |   1 +
+ arch/arm64/boot/dts/st/stm32mp25-pinctrl.dtsi | 328 ++++++++++++++++++
+ arch/arm64/boot/dts/st/stm32mp251.dtsi        |  15 +
+ arch/arm64/boot/dts/st/stm32mp253.dtsi        |  16 +
+ .../st/stm32mp257-engicam-microgea-rmm.dts    | 319 +++++++++++++++++
+ .../dts/st/stm32mp257-engicam-microgea.dtsi   |  64 ++++
+ arch/arm64/configs/defconfig                  | 293 ++++++----------
+ 8 files changed, 861 insertions(+), 182 deletions(-)
+ create mode 100644 arch/arm64/boot/dts/st/stm32mp257-engicam-microgea-rmm.dts
+ create mode 100644 arch/arm64/boot/dts/st/stm32mp257-engicam-microgea.dtsi
+
+-- 
+2.43.0
+
+base-commit: 8fde5d1d47f69db6082dfa34500c27f8485389a5
+branch: stm32mp257d-microgea
 
