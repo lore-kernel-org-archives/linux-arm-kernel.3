@@ -4,98 +4,98 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 1C2D9CD6E4A
-	for <linux-arm-kernel@archiver.kernel.org>; Fri, 29 May 2026 11:20:02 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 37F9DCD6E43
+	for <linux-arm-kernel@archiver.kernel.org>; Fri, 29 May 2026 11:20:36 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:Subject:References:In-Reply-To:Message-Id:Cc:To:From:Date:
-	MIME-Version:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
+	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=xtH8EAmvqZSbaipGcXqbfvMaLUl7NiYH5Y5wqwunt3g=; b=BDBxmhXNs/PHWwCv7dF1qJPAPw
-	CgWTcjqlUEf9h5KcBU4IgBxeGAZa4Loiy5HzAu2pNDVRNHMz/xp/YYIRhaPU2scKwJ/b3PioayntE
-	Q56C2idj5I3lsv271aFlJB7PPZY9mGPu2iOizk8TR0gyy9IF9j6/eIFMgBWa2Mwvgf14bO50pjQEJ
-	2A2HQw59M+sIcXHQHkwrpxkpFpJqBW44fr5zfOEE6OJKmhfq6vpwdh9V5CnveAfZoFfYFSq9zJ9BD
-	8dMxsQqpjLm1fjHTxEEUBHKUmNu2j3rlA5GeT9840KDcAUxZ56wuGJh0KRsLUv+933EdTrvfXnHvo
-	+8JiWjPg==;
+	bh=mRQnl4cL1WBl6UH6DzyzccF/izxjjWzeBGgbQMxLsH4=; b=JBZ4JasWIquCIhCm5MWXnGc8Fo
+	oCTPYpZixoniUhmqYdOJ2n6W3XtN5bNsXiGbcM9N2G1P8YP9osJR+cCBgd7ydJP09xe6f9OQ9uwqC
+	Ce5/d3DtindhnlElhxRbdsmsQmeNm6CCT6cFYL1Jj6C9WNMMu/dfKTTWNtWXgc3k+4ZbyxjnwbOGG
+	ELXqdMQdSGCEMZJvN+25kMgLfMx+KgZ9VZfm7xTZEgieKuDofT166cKlqrKlsVgeW5sfOc8GgWNun
+	RB3YW2SummfcuHtbz8c99Vd5vhT4J6wFo3TAVtE5cFE8Ob1hBcRSUJpzSt60QRMBIPW4NKFes59YB
+	qk/QZ3jw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wSvFq-00000007Gdh-36LJ;
-	Fri, 29 May 2026 11:19:54 +0000
-Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
+	id 1wSvGO-00000007Gjh-3gZT;
+	Fri, 29 May 2026 11:20:28 +0000
+Received: from mail-wm1-x334.google.com ([2a00:1450:4864:20::334])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wSvFo-00000007GdB-2bqd
+	id 1wSvGM-00000007Gis-2w0U
 	for linux-arm-kernel@lists.infradead.org;
-	Fri, 29 May 2026 11:19:53 +0000
-Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
-	by sea.source.kernel.org (Postfix) with ESMTP id 77DC7403E7;
-	Fri, 29 May 2026 11:19:51 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id CDF071F00899;
-	Fri, 29 May 2026 11:19:50 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1780053591;
-	bh=xtH8EAmvqZSbaipGcXqbfvMaLUl7NiYH5Y5wqwunt3g=;
-	h=Date:From:To:Cc:In-Reply-To:References:Subject;
-	b=VmEQNF8A0z8+1KzIlCnBSO2nUEjqvajOvCGEzAL61RGw93MGpbxmK5hJDcK4X+hgg
-	 UZKxfoV+OrLA00JLpRYVuEnk2+zG0EcpjagS5/KmFt0OlhLC2p/e7meFVlfDWD7qGs
-	 nXTLDmbcXuJ39EZkHnlth4IqaeCi/xiYBJKbRQwcygEsAdh9ylf/Ou+VU97yLvZ9Cs
-	 KUHV7496Qj6cK1kjLuE0clbEqRyZChdum1FkQtJgv1XKb+hiJafgFN/nxu3gSZRMV6
-	 cHZPnxD8vXnSD0ap3nn/GVB5hOYSMxIec2bGVi+edJ+wzEHCTm2BRGVHuY+7qP1zKL
-	 Hwp9v0rR9TS9A==
-Received: from phl-compute-01.internal (phl-compute-01.internal [10.202.2.41])
-	by mailfauth.phl.internal (Postfix) with ESMTP id ED4F7F40074;
-	Fri, 29 May 2026 07:19:49 -0400 (EDT)
-Received: from phl-imap-05 ([10.202.2.95])
-  by phl-compute-01.internal (MEProxy); Fri, 29 May 2026 07:19:49 -0400
-X-ME-Sender: <xms:VXYZakI5lWrnjge3izJfszwDrLDqJlPb7nZ0fT2HU7TYrL3TCplw0g>
-    <xme:VXYZau-AYVOUF9zWLtiR3lm77FNmKJDLXiNWTgXWm9kM2PbUtk5JH_BTb9XckEQOf
-    IM6xKd0uVlGv-Af0EaHgCLAEeZ07MDo1zAmw0HyV4We9otTLxNO-NQ>
-X-ME-Proxy-Cause: dmFkZTFogum++9uuClw8cy4SxNf1uWqqkvv8W4zIXBwA82RSASLtxRMehGsMOXMDBhgeWs
-    nqlmwZCFKVFfLIVlHXs/McboQpxGj3Pf/Ca9vw5Fnwc460UfhaDDOmaD3qvEx/I9yot16o
-    HKbvIb5r5GxP5YIN93FaDmoekYS17nZB9LNN3lQjM9012YeqOgV9t7nikOyyFsfLmoVLay
-    2YMvHAVZxPo//ZDllLTAZWgQ4dya84DY5uFQ7jgZWp0nWHWbC6LnXyanKW9V439JwchFGC
-    I+7TQCdJ0Aia8Y6Nx/jquUp5kpwJr9SFRPG5NT61F+6w8immYHkB9rO2MG46U9M4rAtks7
-    FeYlv48F9dDSBaNVIhgiLyXG0PEVVdSqnyDVJK19Q8VZKEv7FqVxTjyauoS88acTjMpWp/
-    wnyx9eq5Q+f5wK4egPUSKqhj7maPxidfHDG1WybBbDoe8hefgi9mzbvN6wOxEvLi4ThE/i
-    MCWVLp78FR3MwE532+oBLLfeGjmhf6gZyKHjLuYhzMxUvJnYMpPai18akdXzsdwQK2aSsn
-    wpp1RuigsjRmFaaIsnA306F8hDP1J0Fxb+aIo+N2kmBwBA8HAEREHRMnLbSamezdfHC6Ve
-    s9QaINOtjR8mBOL8OW8amM7Webdd9NcpxVnF5I+lLv9XwA9CwYgWN6RjMV6w
-X-ME-Proxy: <xmx:VXYZanXYdNwCH4CsxKGeZZp6kszaQ63Ocg-v04B-teUHBstDlEmyMg>
-    <xmx:VXYZamBp3-MPM4qn2rsNYhHpzsmmVdV5g6OjHCmDaSXkN1v4jHu47w>
-    <xmx:VXYZag7SWu0rxSwEDztJtlk8ygBpxPpuf624jcXQ5GC0FR4qM0qwuw>
-    <xmx:VXYZaqsRBvAntj4cnVkJkSyhoVKFoo__reIoGcw406RrMsk5tE-WSw>
-    <xmx:VXYZagzZ6tepEBQMivW1UkJKqyKitg7wfO0OdNyGrhha1AuEusqO4XPX>
-Feedback-ID: ice86485a:Fastmail
-Received: by mailuser.phl.internal (Postfix, from userid 501)
-	id C1546182007A; Fri, 29 May 2026 07:19:49 -0400 (EDT)
-X-Mailer: MessagingEngine.com Webmail Interface
+	Fri, 29 May 2026 11:20:27 +0000
+Received: by mail-wm1-x334.google.com with SMTP id 5b1f17b1804b1-48d146705b4so146125855e9.3
+        for <linux-arm-kernel@lists.infradead.org>; Fri, 29 May 2026 04:20:26 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=linaro.org; s=google; t=1780053625; x=1780658425; darn=lists.infradead.org;
+        h=content-transfer-encoding:in-reply-to:from:content-language
+         :references:cc:to:subject:user-agent:mime-version:date:message-id
+         :from:to:cc:subject:date:message-id:reply-to;
+        bh=mRQnl4cL1WBl6UH6DzyzccF/izxjjWzeBGgbQMxLsH4=;
+        b=IJ0cnDjlVaSW8wUsulQCTZhbNlcPAkvf7ffjTVtwAATD1fzSy34aoibSeXQZW+491Y
+         DXy6xcDEW1c8wGqwGoezfKaxj+5XMel8TQ53MsNcGLD2dIuE5B9iuMY/l6Zu6N8tVtmd
+         ezBN7XZy/PmVvYDgPJa3ZxkG8TKkTavsUfQR+ixE/CUkZJdAa1mJ2d5eehTmkq9oeo1x
+         KM2wu2SusMl1pfmkhN9/RQeo4WIQvwAlk7l8HAH+6Tm308PjAZGGgh895VGmIv4nRacG
+         KMv//E0vRYPv2yaC6MO8lnk+V7Cp6TmI/xUMFw/bl79xMv60EL0dAqqbGuUCGS20194N
+         jT3g==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20251104; t=1780053625; x=1780658425;
+        h=content-transfer-encoding:in-reply-to:from:content-language
+         :references:cc:to:subject:user-agent:mime-version:date:message-id
+         :x-gm-gg:x-gm-message-state:from:to:cc:subject:date:message-id
+         :reply-to;
+        bh=mRQnl4cL1WBl6UH6DzyzccF/izxjjWzeBGgbQMxLsH4=;
+        b=n17anJUZwFqSDgQ5vY6EvRfItZNzXWI4dnNuNfjGjVa9xPlN/VRWyTW6q8mfSYjJoa
+         nfJYuVhrHwV/vyJHaCl/rV0cvtruEP9UG9fiK8KitCotf7JUU1uKjiVie67oKYSdOu8Z
+         LgBa/Ru/8NC1RbcAotfaKDvMiOSi2l2RD2ICVxCyI56IXbG9FNNGctQB16lW8l6t4wcp
+         6l4kqg5Ubr7Q5Izd+/TMPf2uRnwpnhDcimVFsBZBufdivdxu76ui3l5dZyZOliu96HSZ
+         BFuraXfoFg/lFxI9E10D04y43g3tXMRsAiV/o7a9Ji9XaLkpvRYwnWm0iz3zI3yjY0aM
+         E0cQ==
+X-Forwarded-Encrypted: i=1; AFNElJ9SJElnlxZULl5nWCtlUEz6h8yaS9M77p1bRALFYD0R4pcZl9h3yg4caZpQNJ9SHcKfHmBHxXk7kAJnhvWJWzJV@lists.infradead.org
+X-Gm-Message-State: AOJu0YyYHKM//fEBJq6+Z6EXyC7MUYyOW656PnBoTsFYXbnCVlv+VBW2
+	soBW/QiSz2ruJ92BrAy1A4nHJkRH5RH3d8tIVrxG9AyxTyK/PACAhL2Xo7wDBjb+VlI=
+X-Gm-Gg: Acq92OF/7ANdHvKBxSKofz288I5FKJnUPUWmmvFO4zIMBH8Q+80bAQ2kTLvYAuUPSqp
+	eGjD1L67zKDFf//QHFncuaUuOPd05zMjkDVajzheUpL7kqGAQMBYKiKQBvprn/OmsuiADBwUYSH
+	zkY/LYueSXRt3MNfCYS2LBNa0dccPBViYanRBXrh9GyuVEIyqIqhVpleaTd9H4zH2Fmdq++rRY5
+	ax4WU/6g+koFAGvxlVi807qi2ULhE8dzr/1jXlpLO87N1qAqX4ylneLBmtK8IR9t7JgXklGpZr8
+	bBquplmllPUyRFPscuUBV8C9KSVAHdkrDNqWKCouHFS2yxqqlQVaIA/Q1N4yA7IMNr1Uv1AtuCe
+	hP/E7vxqUs22HoECddEtVpRstQaivR1KeakyZWiTt1E4SdZ0fU+COht1VrBih1l3YxywPKADH/T
+	uJmkIe+GPgFz8+aTRoiFIo1N+nCeX1FBckZPJjvFqQOw==
+X-Received: by 2002:a05:600c:560d:b0:490:4ee0:82f9 with SMTP id 5b1f17b1804b1-4909c0920c0mr32909035e9.7.1780053624779;
+        Fri, 29 May 2026 04:20:24 -0700 (PDT)
+Received: from [10.11.12.110] ([82.76.215.73])
+        by smtp.gmail.com with ESMTPSA id ffacd0b85a97d-45ef34c50f6sm3257061f8f.16.2026.05.29.04.20.23
+        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
+        Fri, 29 May 2026 04:20:24 -0700 (PDT)
+Message-ID: <ed771a16-6241-4246-976e-48349e544b5b@linaro.org>
+Date: Fri, 29 May 2026 14:20:22 +0300
 MIME-Version: 1.0
-Date: Fri, 29 May 2026 13:19:29 +0200
-From: "Ard Biesheuvel" <ardb@kernel.org>
-To: "Kevin Brodsky" <kevin.brodsky@arm.com>,
- "Ard Biesheuvel" <ardb+git@google.com>, linux-arm-kernel@lists.infradead.org
-Cc: linux-kernel@vger.kernel.org, "Will Deacon" <will@kernel.org>,
- "Catalin Marinas" <catalin.marinas@arm.com>,
- "Mark Rutland" <mark.rutland@arm.com>, "Ryan Roberts" <ryan.roberts@arm.com>,
- "Anshuman Khandual" <anshuman.khandual@arm.com>,
- "Liz Prucka" <lizprucka@google.com>, "Seth Jenkins" <sethjenkins@google.com>,
- "Kees Cook" <kees@kernel.org>, "Mike Rapoport" <rppt@kernel.org>,
- "David Hildenbrand" <david@kernel.org>,
- "Andrew Morton" <akpm@linux-foundation.org>, "Jann Horn" <jannh@google.com>,
- linux-mm@kvack.org, linux-hardening@vger.kernel.org,
- linuxppc-dev@lists.ozlabs.org, linux-sh@vger.kernel.org
-Message-Id: <96a8b6b9-71f2-4550-bbbb-fbfa146f4e6a@app.fastmail.com>
-In-Reply-To: <2a6f9f05-ac57-4ef8-9328-74cc8ccfea16@arm.com>
-References: <20260526175846.2694125-17-ardb+git@google.com>
- <20260526175846.2694125-26-ardb+git@google.com>
- <2a6f9f05-ac57-4ef8-9328-74cc8ccfea16@arm.com>
-Subject: Re: [PATCH v6 09/15] arm64: Move fixmap and kasan page tables to end of kernel
- image
-Content-Type: text/plain
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH v5 4/7] firmware: samsung: acpm: Add memory barrier before
+ advancing RX pointer
+To: Arnd Bergmann <arnd@arndb.de>, Krzysztof Kozlowski <krzk@kernel.org>,
+ Alim Akhtar <alim.akhtar@samsung.com>
+Cc: linux-kernel@vger.kernel.org, linux-samsung-soc@vger.kernel.org,
+ linux-arm-kernel@lists.infradead.org,
+ Peter Griffin <peter.griffin@linaro.org>,
+ =?UTF-8?Q?Andr=C3=A9_Draszik?= <andre.draszik@linaro.org>,
+ jyescas@google.com, kernel-team@android.com, stable@vger.kernel.org
+References: <20260505-acpm-fixes-sashiko-reports-v5-0-43b5ee7f1674@linaro.org>
+ <20260505-acpm-fixes-sashiko-reports-v5-4-43b5ee7f1674@linaro.org>
+ <a1629d9d-0357-42a3-aef8-c8d1cfa5ad39@app.fastmail.com>
+ <ad30ca8b-01ba-40b9-a631-503ff463bc50@kernel.org>
+ <26e9c700-c519-4888-8739-c48c73b8a39f@app.fastmail.com>
+Content-Language: en-US
+From: Tudor Ambarus <tudor.ambarus@linaro.org>
+In-Reply-To: <26e9c700-c519-4888-8739-c48c73b8a39f@app.fastmail.com>
+Content-Type: text/plain; charset=UTF-8
 Content-Transfer-Encoding: 7bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260529_041952_727262_B9520A03 
-X-CRM114-Status: GOOD (  16.96  )
+X-CRM114-CacheID: sfid-20260529_042026_777592_680B7240 
+X-CRM114-Status: GOOD (  26.41  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -111,59 +111,80 @@ Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
 
-On Fri, 29 May 2026, at 10:27, Kevin Brodsky wrote:
-> On 26/05/2026 19:58, Ard Biesheuvel wrote:
->> From: Ard Biesheuvel <ardb@kernel.org>
->>
->> Move the fixmap and kasan page tables out of the BSS section, and place
->> them at the end of the image, right before the init_pg_dir section where
->> some of the other statically allocated page tables live.
->>
->> These page tables are currently the only data objects in vmlinux that
->> are meant to be accessed via the kernel image's linear alias, and so
->> placing them together allows the remainder of the data/bss section to be
->> remapped read-only or unmapped entirely.
->>
->> Reviewed-by: Kevin Brodsky <kevin.brodsky@arm.com>
->> Signed-off-by: Ard Biesheuvel <ardb@kernel.org>
->> ---
->>  arch/arm64/include/asm/mmu.h    | 2 ++
->>  arch/arm64/kernel/vmlinux.lds.S | 8 +++++++-
->>  arch/arm64/mm/fixmap.c          | 6 +++---
->>  arch/arm64/mm/kasan_init.c      | 2 +-
->>  4 files changed, 13 insertions(+), 5 deletions(-)
->>
->> diff --git a/arch/arm64/include/asm/mmu.h b/arch/arm64/include/asm/mmu.h
->> index 5e1211c540ab..fb95754f2876 100644
->> --- a/arch/arm64/include/asm/mmu.h
->> +++ b/arch/arm64/include/asm/mmu.h
->> @@ -13,6 +13,8 @@
->>  
->>  #ifndef __ASSEMBLER__
->>  
->> +#define __pgtbl_bss __section(".pgdir.bss") __aligned(PAGE_SIZE)
->> +
->>  #include <linux/refcount.h>
->>  #include <asm/cpufeature.h>
->>  
->> diff --git a/arch/arm64/kernel/vmlinux.lds.S b/arch/arm64/kernel/vmlinux.lds.S
->> index e1ac876200a3..2b0ebfb30c63 100644
->> --- a/arch/arm64/kernel/vmlinux.lds.S
->> +++ b/arch/arm64/kernel/vmlinux.lds.S
->> @@ -349,9 +349,15 @@ SECTIONS
->>  	_edata = .;
->>  
->>  	/* start of zero-init region */
->> -	BSS_SECTION(SBSS_ALIGN, 0, 0)
->> +	BSS_SECTION(SBSS_ALIGN, 0, PAGE_SIZE)
->>  	__pi___bss_start = __bss_start;
->>  
->> +	/* fixmap BSS starts here - preceding data/BSS is omitted from the linear map */
->> +	.pgdir.bss (NOLOAD) : ALIGN(PAGE_SIZE) {
->
-> Do we actually need the NOLOAD type here?
 
-Yes, otherwise it is emitted as PROGBITS, resulting in all of BSS to be
-emitted into Image.
+On 5/29/26 11:25 AM, Arnd Bergmann wrote:
+> On Fri, May 29, 2026, at 09:47, Krzysztof Kozlowski wrote:
+>> On 28/05/2026 19:44, Arnd Bergmann wrote:
+>>> On Tue, May 5, 2026, at 15:13, Tudor Ambarus wrote:
+>>>> Sashiko identified a silent data corruption in [1].
+>>>>
+>>>> In acpm_get_rx(), the driver reads the response payload from SRAM using
+>>>> __ioread32_copy() and subsequently updates the hardware RX rear pointer
+>>>> via writel().
+>>>>
+>>>> On weakly ordered architectures like ARM64, writel() provides a write
+>>>> memory barrier (wmb()), which strictly orders prior writes against
+>>>> subsequent writes. However, it does not order prior reads against
+>>>> subsequent writes. Consequently, the CPU is permitted to reorder the
+>>>> writel() store to become globally visible before the payload reads
+>>>> have completed.
+>>>
+>>> I am very confused by this after seeing it in the Exynos fixes pull
+>>> request. How would anything get reordered here? What I see is that
+>>>
+>>> - The SRAM is device memory, so any access to it is architecturally
+>>>   ordered against other accesses to the same device. Even on
+>>>   architectures that don't guarantee this, Linux I/O accessors
+>>>   do.
+>>
+>> Well, __ioread32_copy does not guarantee that, I think. That's the
+>> relaxed version.
+> 
+> __ioread32_copy() certainly does not guarantee the ordering within
+> the block, and I think you are right that we don't properly document
+> the ordering between a __raw_readl() and following writel(), but
+> as far as I can tell all implementations do provide strict
+> ordering here because either the MMIO load/store instructions are
+> architecturally ordered (x86, arm64, ...) or there are sufficient
+> barriers in the writel() to serialize the __raw_readl() as well
+> (mips, alpha, ...).
+> 
+> [side note: there is a difference between __raw_readl() and
+> readl_relaxed() here. The _relaxed MMIO operations are required
+> to to be serialized with each other but not against memory
+> accesses, while the __raw_ version used here provides neither
+> guarantee]
+> 
+>>>   after the read (because of the data dependency).
+>>
+>> I don't see the data dependency regarding the write. We read 'rx_front'
+>> and 'i' in the loop. The 'i' is used for subsequent read (addr = base +
+>> mlen*i) and that's dependency, but that 'addr' is not used in any
+>> further writes.
+> 
+> What I meant is that the store into the target memory buffer
+> (xfer->rxd or rx_data->cmd) depends on the data being read from
+> MMIO first. The writel() guarantees that this buffer is visible
+> to all DMA masters in the system and that can only happen when
+> the __raw_readl() has provided the data first.
+> 
+Thanks both for the detailed explanations.
 
+I missed the data dependency chain. I focused too much on the read
+part in __ioread32_copy() that I missed the RAM store implications
+in it. The RAM store is forced to wait for its SRAM load, and the
+writel is forced to wait for all the RAM stores. So the entire
+payload is guaranteed to be visible in memory RAM before the writel.
+
+Maybe I thought about the reordering of the final __raw_readl() loop
+iteration with the writel(). But the dma_wmb() -> __dma_wmb() ->
+dmb(oshst) from writel has a compiler barrier, so the compiler can't
+reorder the code. And given the ARM64 device memory accesses ordering,
+the ordering is protected.
+
+My bad, sorry. We shall either drop or revert the patch. Please let
+me know if you prefer a revert.
+
+Thanks,
+ta
 
