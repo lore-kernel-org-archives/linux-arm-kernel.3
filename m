@@ -4,63 +4,125 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 4A843CD6E49
-	for <linux-arm-kernel@archiver.kernel.org>; Fri, 29 May 2026 15:46:03 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 90E44CD4F54
+	for <linux-arm-kernel@archiver.kernel.org>; Fri, 29 May 2026 15:51:31 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=eb8nb8fScTBwcXSgw+9Ix5UCDWfyVmuJGL2kWpyLZjY=; b=yeHoeDCklwASZYhuCyJn5okL0x
-	d1JX1NHVMdRydytoeRuuZiRYZu/Lcz27CKuzDAwBEvq2htBr9N/Ruqu65VGQvUKjDhuS/OC1lF+Zc
-	t+PuEgPRj2pkgqOoxytqu30bOIE7aUhrFskG9b/OqA4wxmhvfk6K7WB+kK7wKDZ8SYpCkrIC7vPFE
-	avXSCQyQtt9PsWvX4qKjibjMQDjhf8mNECaiiC5VrpuvYUTMsBFmXyZNY+mRV3O58nbnuzKl8aH6/
-	mtsg5TPp7jHpmLmf/wJSdxeMeX9TjxThR7ssEfegDT5fxiJxVv9yowPVjilEP6P4ZzEq12t4OfpJx
-	phEY+UZw==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:
+	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=38JiNFeklbccFtH2ph2/bPaFd8mrZsh9Ea0AawF0sQg=; b=DlMetBk/A5c5M2S6R4/t3XTYqh
+	4vvXR2iqh7FBjQfIQLOu9EpLv3bYjeHbloxDoXFwUNCVCesSV0Cy46grb39gUk5ACX0yEPY5SUOXF
+	oxEgpary02Xdz49cW3nBRlVVhZ9m9kGl7bt7uGEBsUXjCacAZuG1RY1mghij+Z0lZkHSgb5ED6IYF
+	UeT3NuLfMy0D2/+IIMxT4eBvUAOphjQksCWvKSPfy6Lc0jaW2pX/WS41wIofz8ZmhhwDHCemHfqFa
+	KHC+IxteqaiyUzPfhRhHIlwQJpxB3bwoWJk5QWpy22BRBz8fT+7qH1IlO2QcLhMGszzuRybE14UiF
+	CZ/3LlcQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wSzPG-00000007j9V-2CF4;
-	Fri, 29 May 2026 15:45:54 +0000
-Received: from tor.source.kernel.org ([2600:3c04:e001:324:0:1991:8:25])
+	id 1wSzUT-00000007jRS-1gae;
+	Fri, 29 May 2026 15:51:17 +0000
+Received: from mx0a-001b2d01.pphosted.com ([148.163.156.1])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wSzPE-00000007j9I-18fo;
-	Fri, 29 May 2026 15:45:52 +0000
-Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
-	by tor.source.kernel.org (Postfix) with ESMTP id 309E1605D0;
-	Fri, 29 May 2026 15:45:51 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 55D491F00893;
-	Fri, 29 May 2026 15:45:50 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1780069550;
-	bh=eb8nb8fScTBwcXSgw+9Ix5UCDWfyVmuJGL2kWpyLZjY=;
-	h=Date:From:To:Cc:Subject:References:In-Reply-To;
-	b=AbOO1yPycW9O3NJSH2EN0ltj3+bAVSFepl38eCrMztR7HEPcDhMdHnk9RF3JMRt2Q
-	 CcptiCk7B9RnAMPrxYLsGVS7lQ2TnNjQieYhfu3EsGjBiqR8gNHkFifOZwgybVES9O
-	 WtlWUwP8cbvXqTkV3LTqBFOyeI1qQ4RSOQfqAY7txpWrWD5A4Z1FtpJkiaXzrN0sMV
-	 XWpJB4AbhiTi0bJzCFQVGn04HOuFFgMvfujIQEbRdweGWJh97JpBn0cR9Le+c8s296
-	 RKzAG/gnfEE/dKtM3ceHxIerCdOPdl1yr/sdLyRJCyfZTM4ldxmaZ5KCMGQPTTQ/DV
-	 H0Zj2qBkCT1Xg==
-Date: Fri, 29 May 2026 17:45:48 +0200
-From: Krzysztof Kozlowski <krzk@kernel.org>
-To: Laurentiu Palcu <laurentiu.palcu@oss.nxp.com>
-Cc: Vinod Koul <vkoul@kernel.org>, 
-	Neil Armstrong <neil.armstrong@linaro.org>, Rob Herring <robh@kernel.org>, 
-	Krzysztof Kozlowski <krzk+dt@kernel.org>, Conor Dooley <conor+dt@kernel.org>, Frank Li <Frank.Li@nxp.com>, 
-	Sascha Hauer <s.hauer@pengutronix.de>, Pengutronix Kernel Team <kernel@pengutronix.de>, 
-	Fabio Estevam <festevam@gmail.com>, dri-devel@lists.freedesktop.org, devicetree@vger.kernel.org, 
-	linux-kernel@vger.kernel.org, linux-phy@lists.infradead.org, imx@lists.linux.dev, 
-	linux-arm-kernel@lists.infradead.org, linux@ew.tq-group.com, 
-	Alexander Stein <alexander.stein@ew.tq-group.com>, Ying Liu <victor.liu@nxp.com>
-Subject: Re: [PATCH v23 3/8] dt-bindings: phy: Add Freescale iMX8MQ DP and
- HDMI PHY
-Message-ID: <20260529-aquatic-industrious-lorikeet-b81aaf@quoll>
-References: <20260519-dcss-hdmi-upstreaming-v23-0-5615524a9c63@oss.nxp.com>
- <20260519-dcss-hdmi-upstreaming-v23-3-5615524a9c63@oss.nxp.com>
+	id 1wSzUQ-00000007jQB-0iHT
+	for linux-arm-kernel@lists.infradead.org;
+	Fri, 29 May 2026 15:51:15 +0000
+Received: from pps.filterd (m0360083.ppops.net [127.0.0.1])
+	by mx0a-001b2d01.pphosted.com (8.18.1.11/8.18.1.11) with ESMTP id 64TF9bDG2418009;
+	Fri, 29 May 2026 15:51:00 GMT
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=ibm.com; h=cc
+	:content-transfer-encoding:date:from:in-reply-to:message-id
+	:mime-version:references:subject:to; s=pp1; bh=38JiNFeklbccFtH2p
+	h2/bPaFd8mrZsh9Ea0AawF0sQg=; b=ik243tM1UzJzROY1FZfm5i3fiWnPWK21c
+	p+jIRchW1JMM2Am/IrWQRK7rEEe5rbm53BK2PoILvm6Dlkf8/NjEuxP383gn2xds
+	Dd1qarTIthis0G8uHd8GOohDYtVYG/MA/TmFFyoa9j3ninygnSqrroyU1pQG418k
+	1Y/hrsdthdwg+IIqJKf4BLQd44ZaT75TMIAFqpHGTHR/VprcAmuvZZLI4Sg43n2K
+	59L7T5v57HEDM0Izt46sRhK/u5ffow1hmztCpBkRc9rJ/hAryOalMTnxYy64n3hw
+	IWV7Or7pFPSELNsWCAZuICgRClCVYSQ4udDrOfK8F/iZFFiqiMo7A==
+Received: from ppma11.dal12v.mail.ibm.com (db.9e.1632.ip4.static.sl-reverse.com [50.22.158.219])
+	by mx0a-001b2d01.pphosted.com (PPS) with ESMTPS id 4ee884ve0r-1
+	(version=TLSv1.2 cipher=ECDHE-RSA-AES256-GCM-SHA384 bits=256 verify=NOT);
+	Fri, 29 May 2026 15:50:59 +0000 (GMT)
+Received: from pps.filterd (ppma11.dal12v.mail.ibm.com [127.0.0.1])
+	by ppma11.dal12v.mail.ibm.com (8.18.1.7/8.18.1.7) with ESMTP id 64TFd6h9005005;
+	Fri, 29 May 2026 15:50:58 GMT
+Received: from smtprelay02.fra02v.mail.ibm.com ([9.218.2.226])
+	by ppma11.dal12v.mail.ibm.com (PPS) with ESMTPS id 4edjrbgg1t-1
+	(version=TLSv1.2 cipher=ECDHE-RSA-AES256-GCM-SHA384 bits=256 verify=NOT);
+	Fri, 29 May 2026 15:50:58 +0000 (GMT)
+Received: from smtpav07.fra02v.mail.ibm.com (smtpav07.fra02v.mail.ibm.com [10.20.54.106])
+	by smtprelay02.fra02v.mail.ibm.com (8.14.9/8.14.9/NCO v10.0) with ESMTP id 64TFopgi49807858
+	(version=TLSv1/SSLv3 cipher=DHE-RSA-AES256-GCM-SHA384 bits=256 verify=OK);
+	Fri, 29 May 2026 15:50:52 GMT
+Received: from smtpav07.fra02v.mail.ibm.com (unknown [127.0.0.1])
+	by IMSVA (Postfix) with ESMTP id DCA5A20043;
+	Fri, 29 May 2026 15:50:51 +0000 (GMT)
+Received: from smtpav07.fra02v.mail.ibm.com (unknown [127.0.0.1])
+	by IMSVA (Postfix) with ESMTP id 904DC2004B;
+	Fri, 29 May 2026 15:50:51 +0000 (GMT)
+Received: from tuxmaker.boeblingen.de.ibm.com (unknown [9.87.85.9])
+	by smtpav07.fra02v.mail.ibm.com (Postfix) with ESMTP;
+	Fri, 29 May 2026 15:50:51 +0000 (GMT)
+From: Steffen Eiden <seiden@linux.ibm.com>
+To: kvm@vger.kernel.org, kvmarm@lists.linux.dev,
+        linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org,
+        linux-s390@vger.kernel.org
+Cc: Alexander Gordeev <agordeev@linux.ibm.com>,
+        Andreas Grapentin <gra@linux.ibm.com>, Arnd Bergmann <arnd@arndb.de>,
+        Catalin Marinas <catalin.marinas@arm.com>,
+        Christian Borntraeger <borntraeger@linux.ibm.com>,
+        Claudio Imbrenda <imbrenda@linux.ibm.com>,
+        David Hildenbrand <david@kernel.org>,
+        Friedrich Welter <fritz@linux.ibm.com>,
+        Gautam Gala <ggala@linux.ibm.com>,
+        Hariharan Mari <hari55@linux.ibm.com>,
+        Heiko Carstens <hca@linux.ibm.com>,
+        Hendrik Brueckner <brueckner@linux.ibm.com>,
+        Ilya Leoshkevich <iii@linux.ibm.com>,
+        Janosch Frank <frankja@linux.ibm.com>, Joey Gouly <joey.gouly@arm.com>,
+        Marc Zyngier <maz@kernel.org>, Nico Boehr <nrb@linux.ibm.com>,
+        Nina Schoetterl-Glausch <oss@nina.schoetterlglausch.eu>,
+        Oliver Upton <oupton@kernel.org>, Paolo Bonzini <pbonzini@redhat.com>,
+        Suzuki K Poulose <suzuki.poulose@arm.com>,
+        Sven Schnelle <svens@linux.ibm.com>,
+        Ulrich Weigand <Ulrich.Weigand@de.ibm.com>,
+        Vasily Gorbik <gor@linux.ibm.com>, Will Deacon <will@kernel.org>,
+        Zenghui Yu <yuzenghui@huawei.com>
+Subject: [PATCH v3 03/27] KVM, vfio: remove symbol_get(kvm_put_kvm) from vfio
+Date: Fri, 29 May 2026 17:50:17 +0200
+Message-ID: <20260529155050.2902245-4-seiden@linux.ibm.com>
+X-Mailer: git-send-email 2.53.0
+In-Reply-To: <20260529155050.2902245-1-seiden@linux.ibm.com>
+References: <20260529155050.2902245-1-seiden@linux.ibm.com>
 MIME-Version: 1.0
-Content-Type: text/plain; charset=utf-8
-Content-Disposition: inline
-In-Reply-To: <20260519-dcss-hdmi-upstreaming-v23-3-5615524a9c63@oss.nxp.com>
+Content-Transfer-Encoding: 8bit
+X-TM-AS-GCONF: 00
+X-Authority-Analysis: v=2.4 cv=L4MtheT8 c=1 sm=1 tr=0 ts=6a19b5e3 cx=c_pps
+ a=aDMHemPKRhS1OARIsFnwRA==:117 a=aDMHemPKRhS1OARIsFnwRA==:17
+ a=NGcC8JguVDcA:10 a=VkNPw1HP01LnGYTKEx00:22 a=RnoormkPH1_aCDwRdu11:22
+ a=iQ6ETzBq9ecOQQE5vZCe:22 a=20KFwNOVAAAA:8 a=VnNF1IyMAAAA:8 a=r1p2_3pzAAAA:8
+ a=Iid1VeoRPhL8jyw1u-UA:9 a=r_pkcD-q9-ctt7trBg_g:22
+X-Proofpoint-ORIG-GUID: NU_-Q4KFPUH2BieGYecsp8vJiPmwpRyi
+X-Proofpoint-Spam-Details-Enc: AW1haW4tMjYwNTI5MDE1NiBTYWx0ZWRfX/lyxJxEHtGhf
+ mGvQZFpi+vfwZZSPBjJ0A3NJylhXgGL/ggCqSU+Sz93jxXP3090B3BpaIuYbO5x2IHlHITOC9xz
+ ucsSw1PZ+W3u319F6D8hUKE5iWoqaE2yPbA2TzhP5amPuCL3467uPs4wjhb0uIyHuFyKJGknAyj
+ ROOSvfIAn9Wb0F8/44ASvEfJVNYRKnzmvINLzkHXLPph+h3o/LgwweEtYErlXYUn0OHeb/AqseC
+ 3BFGGwI6Cbx2ApOb3ZFBzHzVL/mbbsu/ZrqUhVEnFS7S9uca2Y0HOwmBcOaFo7gO0OgjGTf5c3f
+ m0pzwqN9l1MSv4AoTNxJQm9NqX0GoSXjt8zogebGld5s9HpN6GmxwSVO3IW36VRL9wiLcRrQQVZ
+ Ttdp9VbXx4IIesJj4OFlc4u+kGranpdnQwPN/0qeMuT8sLc3k8FzijE8lEeEQ8Bo5FLxnrwnULi
+ oJxvXcnBDeTYwD9RTlw==
+X-Proofpoint-GUID: NU_-Q4KFPUH2BieGYecsp8vJiPmwpRyi
+X-Proofpoint-Virus-Version: vendor=baseguard
+ engine=ICAP:2.0.293,Aquarius:18.0.1143,Hydra:6.1.125,FMLib:17.12.100.49
+ definitions=2026-05-29_04,2026-05-28_03,2025-10-01_01
+X-Proofpoint-Spam-Details: rule=outbound_notspam policy=outbound score=0
+ phishscore=0 lowpriorityscore=0 suspectscore=0 clxscore=1015 malwarescore=0
+ bulkscore=0 impostorscore=0 adultscore=0 priorityscore=1501 spamscore=0
+ classifier=typeunknown authscore=0 authtc= authcc= route=outbound adjust=0
+ reason=mlx scancount=1 engine=8.22.0-2605210000 definitions=main-2605290156
+X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
+X-CRM114-CacheID: sfid-20260529_085114_221672_3359233C 
+X-CRM114-Status: GOOD (  21.13  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -75,42 +137,178 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Tue, May 19, 2026 at 02:42:26PM +0000, Laurentiu Palcu wrote:
-> From: Sandor Yu <Sandor.yu@nxp.com>
-> 
-> Add bindings for Freescale iMX8MQ DP and HDMI PHY.
-> 
-> Signed-off-by: Sandor Yu <Sandor.yu@nxp.com>
-> Signed-off-by: Laurentiu Palcu <laurentiu.palcu@oss.nxp.com>
-> ---
->  .../bindings/phy/fsl,imx8mq-hdptx-phy.yaml         | 52 ++++++++++++++++++++++
->  1 file changed, 52 insertions(+)
-> 
-> diff --git a/Documentation/devicetree/bindings/phy/fsl,imx8mq-hdptx-phy.yaml b/Documentation/devicetree/bindings/phy/fsl,imx8mq-hdptx-phy.yaml
-> new file mode 100644
-> index 0000000000000..b544c260aa073
-> --- /dev/null
-> +++ b/Documentation/devicetree/bindings/phy/fsl,imx8mq-hdptx-phy.yaml
-> @@ -0,0 +1,52 @@
-> +# SPDX-License-Identifier: (GPL-2.0-only OR BSD-2-Clause)
-> +%YAML 1.2
-> +---
-> +$id: http://devicetree.org/schemas/phy/fsl,imx8mq-hdptx-phy.yaml#
-> +$schema: http://devicetree.org/meta-schemas/core.yaml#
-> +
-> +title: Cadence HDP-TX DP/HDMI PHY for Freescale i.MX8MQ SoC
-> +
-> +maintainers:
-> +  - Laurentiu Palcu <laurentiu.palcu@oss.nxp.com>
-> +
-> +description:
-> +  The Cadence HDP-TX DP/HDMI PHY is a child node of the MHDP8501 bridge,
-> +  sharing the same MMIO region as the parent bridge node.
+From: Paolo Bonzini <pbonzini@redhat.com>
 
-As commented in bridge bindings, I have doubts in such case it is a
-separate component.
+Right now, KVM and VFIO are using symbol_get to access each other's
+symbols because of a circular reference between the modules, as well
+as to avoid loading them unnecessarily.
 
-Best regards,
-Krzysztof
+The remaining use in VFIO is for kvm_put_kvm, which is not inline
+because it needs to call kvm_destroy_vm.  However, storing the
+address of kvm_destroy_vm in the "struct kvm" is enough to remove
+the dependency from VFIO.
+
+This also makes it possible to direct kvm_put_kvm to either the arm64
+or the s390 implementation of kvm_destroy_vm.
+
+Signed-off-by: Paolo Bonzini <pbonzini@redhat.com>
+Reviewed-by: Steffen Eiden <seiden@linux.ibm.com>
+Acked-by: Alex Williamson <alex@shazbot.org>
+---
+ drivers/vfio/vfio_main.c  | 24 +++---------------------
+ include/linux/kvm_host.h  |  1 -
+ include/linux/kvm_types.h |  8 ++++++++
+ include/linux/vfio.h      |  1 -
+ virt/kvm/kvm_main.c       |  9 ++-------
+ 5 files changed, 13 insertions(+), 30 deletions(-)
+
+diff --git a/drivers/vfio/vfio_main.c b/drivers/vfio/vfio_main.c
+index e606db41ff3f..053559a8c7f3 100644
+--- a/drivers/vfio/vfio_main.c
++++ b/drivers/vfio/vfio_main.c
+@@ -17,7 +17,7 @@
+ #include <linux/idr.h>
+ #include <linux/iommu.h>
+ #if IS_ENABLED(CONFIG_KVM)
+-#include <linux/kvm_host.h>
++#include <linux/kvm_types.h>
+ #endif
+ #include <linux/list.h>
+ #include <linux/miscdevice.h>
+@@ -444,9 +444,6 @@ EXPORT_SYMBOL_GPL(vfio_unregister_group_dev);
+ #if IS_ENABLED(CONFIG_KVM)
+ void vfio_device_get_kvm_safe(struct vfio_device *device, struct kvm *kvm, struct module *kvm_module)
+ {
+-	void (*pfn)(struct kvm *kvm);
+-	bool ret;
+-
+ 	lockdep_assert_held(&device->dev_set->lock);
+ 
+ 	if (!kvm)
+@@ -455,21 +452,13 @@ void vfio_device_get_kvm_safe(struct vfio_device *device, struct kvm *kvm, struc
+ 	if (!try_module_get(kvm_module))
+ 		return;
+ 
+-	pfn = symbol_get(kvm_put_kvm);
+-	if (WARN_ON(!pfn))
++	if (!kvm_get_kvm_safe(kvm))
+ 		goto out_put_mod;
+ 
+-	ret = kvm_get_kvm_safe(kvm);
+-	if (!ret)
+-		goto out_put_sym;
+-
+-	device->put_kvm = pfn;
+ 	device->kvm = kvm;
+ 	device->kvm_module = kvm_module;
+ 	return;
+ 
+-out_put_sym:
+-	symbol_put(kvm_put_kvm);
+ out_put_mod:
+ 	module_put(kvm_module);
+ }
+@@ -481,14 +470,7 @@ void vfio_device_put_kvm(struct vfio_device *device)
+ 	if (!device->kvm)
+ 		return;
+ 
+-	if (WARN_ON(!device->put_kvm))
+-		goto clear;
+-
+-	device->put_kvm(device->kvm);
+-	device->put_kvm = NULL;
+-	symbol_put(kvm_put_kvm);
+-
+-clear:
++	kvm_put_kvm(device->kvm);
+ 	device->kvm = NULL;
+ 	module_put(device->kvm_module);
+ 	device->kvm_module = NULL;
+diff --git a/include/linux/kvm_host.h b/include/linux/kvm_host.h
+index 8a068cbf12ff..088986d0aca2 100644
+--- a/include/linux/kvm_host.h
++++ b/include/linux/kvm_host.h
+@@ -1072,7 +1072,6 @@ static inline void kvm_irqfd_exit(void)
+ int kvm_init(unsigned vcpu_size, unsigned vcpu_align, struct module *module);
+ void kvm_exit(void);
+ 
+-void kvm_put_kvm(struct kvm *kvm);
+ bool file_is_kvm(struct file *file);
+ void kvm_put_kvm_no_destroy(struct kvm *kvm);
+ 
+diff --git a/include/linux/kvm_types.h b/include/linux/kvm_types.h
+index 4cb68c71a13c..8a9be07cb8dd 100644
+--- a/include/linux/kvm_types.h
++++ b/include/linux/kvm_types.h
+@@ -144,6 +144,7 @@ struct kvm_vcpu_stat_generic {
+ 
+ struct kvm_refcount {
+ 	refcount_t users_count;
++	void (*destroy)(struct kvm *kvm);
+ };
+ 
+ static inline void kvm_get_kvm(struct kvm *kvm)
+@@ -162,6 +163,13 @@ static inline bool kvm_get_kvm_safe(struct kvm *kvm)
+ 	return refcount_inc_not_zero(&rc->users_count);
+ }
+ 
++static inline void kvm_put_kvm(struct kvm *kvm)
++{
++	struct kvm_refcount *rc = (struct kvm_refcount *)kvm;
++	if (refcount_dec_and_test(&rc->users_count))
++		rc->destroy(kvm);
++}
++
+ #endif /* !__ASSEMBLER__ */
+ 
+ #endif /* __KVM_TYPES_H__ */
+diff --git a/include/linux/vfio.h b/include/linux/vfio.h
+index 5bfec0339804..81f04e60ebfd 100644
+--- a/include/linux/vfio.h
++++ b/include/linux/vfio.h
+@@ -67,7 +67,6 @@ struct vfio_device {
+ 	unsigned int open_count;
+ 	struct completion comp;
+ 	struct iommufd_access *iommufd_access;
+-	void (*put_kvm)(struct kvm *kvm);
+ 	struct inode *inode;
+ #if IS_ENABLED(CONFIG_IOMMUFD)
+ 	struct iommufd_device *iommufd_device;
+diff --git a/virt/kvm/kvm_main.c b/virt/kvm/kvm_main.c
+index 3c08f640c996..2eca44a69a9a 100644
+--- a/virt/kvm/kvm_main.c
++++ b/virt/kvm/kvm_main.c
+@@ -119,6 +119,7 @@ static struct dentry *kvm_debugfs_dir;
+ 
+ static const struct file_operations stat_fops_per_vm;
+ 
++static void kvm_destroy_vm(struct kvm *kvm);
+ static long kvm_vcpu_ioctl(struct file *file, unsigned int ioctl,
+ 			   unsigned long arg);
+ #ifdef CONFIG_KVM_COMPAT
+@@ -1148,6 +1149,7 @@ static struct kvm *kvm_create_vm(unsigned long type, const char *fdname)
+ 
+ 	BUILD_BUG_ON(offsetof(struct kvm, rc) != 0);
+ 	refcount_set(&kvm->rc.users_count, 1);
++	kvm->rc.destroy = kvm_destroy_vm;
+ 
+ 	for (i = 0; i < kvm_arch_nr_memslot_as_ids(kvm); i++) {
+ 		for (j = 0; j < 2; j++) {
+@@ -1310,13 +1312,6 @@ static void kvm_destroy_vm(struct kvm *kvm)
+ 	mmdrop(mm);
+ }
+ 
+-void kvm_put_kvm(struct kvm *kvm)
+-{
+-	if (refcount_dec_and_test(&kvm->rc.users_count))
+-		kvm_destroy_vm(kvm);
+-}
+-EXPORT_SYMBOL_GPL(kvm_put_kvm);
+-
+ /*
+  * Used to put a reference that was taken on behalf of an object associated
+  * with a user-visible file descriptor, e.g. a vcpu or device, if installation
+-- 
+2.53.0
 
 
