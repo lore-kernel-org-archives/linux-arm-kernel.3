@@ -4,123 +4,151 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 82F94CD6E50
-	for <linux-arm-kernel@archiver.kernel.org>; Fri, 29 May 2026 14:49:48 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id A1227CD6E4A
+	for <linux-arm-kernel@archiver.kernel.org>; Fri, 29 May 2026 14:52:47 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:CC:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=tydq5bl4Lid7dHHgeyO1M936S9mVL9K3D2tiHZQ1bf0=; b=u4tVqrkvYN8ZKdO9XaZVmTt6/c
-	du9w/8wm4dvfw3JjLPBV5LpmMI6HDC1gz9IARd+HPxhgmAaf3dtWR5s/UQhNsucyMBv9Uw7UsuAbo
-	Y1yspUjZkrRSz5MQesHU488YFvEvjrswTbcFWeILo4GKOlSx1UK25tfrX+LgcErfQr+7lAkOQMV1Z
-	8XHeQt3geRCGb+ssr1lu/y24scAmINx1JHWsrMXLsfTIflRm1f3qy3nxq3aSi/Ml0IrLDpVhcHCb/
-	bQIqZLki1hQmgzUjZW3sJ0UojafSsaXJPkzMly4tcnCybwEZ5i+4PO/hueJ7pv/q3QembxZZKXcs4
-	S7K5HyMg==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
+	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=7fDi3qZvLhAdC7/0jy+gsVwkzd9Lct8DJ2M+A7e3DX0=; b=drSE+6F3O7V4BS7i6LdB4Jexmu
+	4WKcHjWx3xGKzcEMX5BRYfIm70ylo5eqs1rN/WEauWXaJUsYAvpyxqGecf7msX2ZglC7hKs/iPP0J
+	KGl3agIAobm0Jer/JL8jIoaZi2LrlKIA9k8brQkIUh2OhSCeU70GPgI/mgGbUYCQKaFDxbXMMK0bW
+	EAV+sV1OXGZMeWQkursjXQrnIEi2PM+/ktyt2sBL3FdL3tT89ts3VQlMT1TyrVXrVr6gQmERoCVyU
+	+NwhGdQURyyBjkhyPe3PdXZX3YnRzt68/u/FazE7B/dLkX0hVt80uFJEKIvO8NL2rPHYFjFSn0M3W
+	ZhI3gLjQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wSyWo-00000007ZlA-3QoO;
-	Fri, 29 May 2026 14:49:38 +0000
-Received: from mail-westus3azon11010065.outbound.protection.outlook.com ([52.101.201.65] helo=PH7PR06CU001.outbound.protection.outlook.com)
+	id 1wSyZk-00000007a1y-11sB;
+	Fri, 29 May 2026 14:52:40 +0000
+Received: from mx0a-0031df01.pphosted.com ([205.220.168.131])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wSyWm-00000007ZkK-2swX
+	id 1wSyZh-00000007a1P-2Fj5
 	for linux-arm-kernel@lists.infradead.org;
-	Fri, 29 May 2026 14:49:38 +0000
-ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
- b=E4Nzox21HTBmqEVwHb6wO0BX9tpu171ESHkvSxRCSUVye2Dx8v2ak6tFaZ1DjTsRHVFHke7fOzP77eEkL6aNM5X1Op3sMwBLe1FlVcbCaA1uRJvC06yXGSvWhVEZRGRpoCVuD6l1bWL3CTUgsPueNj6cD+jHOe+A4VIfpwP+rxTu/dwMuRX0HD7Q+Oyamv83j+Hzo7R9zqzZcA4hu4wt+vGDkQKpNVkuLcz75e02diK5N+yOgoHNXUEO46H9ZJUw+P+ZppmcjhuxbHNeBRHoULByXdgGvthljFybJChicRI5j8M6i27F8caiGipT8RdCn39jvjTLKvIfZY/t4UsOYw==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
- s=arcselector10001;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
- bh=tydq5bl4Lid7dHHgeyO1M936S9mVL9K3D2tiHZQ1bf0=;
- b=C/mbgOJ5Ee5t53GGNqsVmbv517bsZbetpq9pjqvZbtW6GwaHJsJJPu7NvefLshCxXH4Po2HJ1Zm+x3XpWEYipozxH8VAUAr3tfRG/wCX5U3cBzLZ2nM8o51yjvY/k/HVM/n7JZIIRFlHLBtlTD8z+zko7ZraE7AT/Lft8WcKWDxd6TF9dHnaFYlaO4t6yD7xyck67SpxKeo6rjq1fMiqNbI4vga73T948INdn/jy6g2UxOdJvFCcXr0yzqL3MtNNk73z0KwgpJNSsB1d0N23Sm+1OGFXZVc/rRqD2bFMLGHzuHBQKeRC+UYIESmhbZkeGnFovlTqaUOhwwWt3G/7Zg==
-ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass (sender ip is
- 198.47.21.194) smtp.rcpttodomain=vger.kernel.org smtp.mailfrom=ti.com;
- dmarc=pass (p=quarantine sp=none pct=100) action=none header.from=ti.com;
- dkim=none (message not signed); arc=none (0)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=ti.com; s=selector1;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
- bh=tydq5bl4Lid7dHHgeyO1M936S9mVL9K3D2tiHZQ1bf0=;
- b=sdNQmRJYr3KMcU6Go9LgH4LaVP76xzIEHYFsTR82+TrEcc4jo9VXsapbffTlI9uqq/+m8D+3GpuBVe7zqiBDTjt6wuResCqkavXLIhLGr49oGpEoav8lCGfz0sQ3qw3g/IfIPwdBixFPIJGDvalxCZeTwiR79Oe4Q8GW24Rbxeg=
-Received: from BL1PR13CA0301.namprd13.prod.outlook.com (2603:10b6:208:2c1::6)
- by SN7PR10MB6332.namprd10.prod.outlook.com (2603:10b6:806:270::10) with
- Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.21.71.15; Fri, 29 May
- 2026 14:49:31 +0000
-Received: from BL6PEPF0001AB50.namprd04.prod.outlook.com
- (2603:10b6:208:2c1:cafe::77) by BL1PR13CA0301.outlook.office365.com
- (2603:10b6:208:2c1::6) with Microsoft SMTP Server (version=TLS1_3,
- cipher=TLS_AES_256_GCM_SHA384) id 15.21.92.5 via Frontend Transport; Fri, 29
- May 2026 14:49:31 +0000
-X-MS-Exchange-Authentication-Results: spf=pass (sender IP is 198.47.21.194)
- smtp.mailfrom=ti.com; dkim=none (message not signed) header.d=none;dmarc=pass
- action=none header.from=ti.com;
-Received-SPF: Pass (protection.outlook.com: domain of ti.com designates
- 198.47.21.194 as permitted sender) receiver=protection.outlook.com;
- client-ip=198.47.21.194; helo=flwvzet200.ext.ti.com; pr=C
-Received: from flwvzet200.ext.ti.com (198.47.21.194) by
- BL6PEPF0001AB50.mail.protection.outlook.com (10.167.242.74) with Microsoft
- SMTP Server (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
- 15.21.92.5 via Frontend Transport; Fri, 29 May 2026 14:49:30 +0000
-Received: from DFLE212.ent.ti.com (10.64.6.70) by flwvzet200.ext.ti.com
- (10.248.192.31) with Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.2.2562.37; Fri, 29 May
- 2026 09:49:17 -0500
-Received: from DFLE209.ent.ti.com (10.64.6.67) by DFLE212.ent.ti.com
- (10.64.6.70) with Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.2.2562.37; Fri, 29 May
- 2026 09:49:17 -0500
-Received: from lelvem-mr06.itg.ti.com (10.180.75.8) by DFLE209.ent.ti.com
- (10.64.6.67) with Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.2.2562.37 via Frontend
- Transport; Fri, 29 May 2026 09:49:17 -0500
-Received: from localhost (uda0133052.dhcp.ti.com [128.247.81.232])
-	by lelvem-mr06.itg.ti.com (8.18.1/8.18.1) with ESMTP id 64TEnHij3830103;
-	Fri, 29 May 2026 09:49:17 -0500
-Date: Fri, 29 May 2026 09:49:17 -0500
-From: Nishanth Menon <nm@ti.com>
-To: Jai Luthra <jai.luthra@ideasonboard.com>
-CC: Vignesh Raghavendra <vigneshr@ti.com>, Tero Kristo <kristo@kernel.org>,
-	Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>,
-	Conor Dooley <conor+dt@kernel.org>, Robert Nelson <robertcnelson@gmail.com>,
-	Andrew Davis <afd@ti.com>, Devarsh Thakkar <devarsht@ti.com>, Tomi Valkeinen
-	<tomi.valkeinen@ideasonboard.com>, <linux-arm-kernel@lists.infradead.org>,
-	<devicetree@vger.kernel.org>, <linux-kernel@vger.kernel.org>
-Subject: Re: [PATCH v2 3/4] arm64: dts: ti: k3-am67a-beagley-ai: Add overlay
- for IMX219 on CSI0
-Message-ID: <20260529144917.wp46oj6z3clarvft@blabber>
-References: <20260515-beagley-cameras-v2-0-f6acb66c9995@ideasonboard.com>
- <20260515-beagley-cameras-v2-3-f6acb66c9995@ideasonboard.com>
+	Fri, 29 May 2026 14:52:38 +0000
+Received: from pps.filterd (m0279866.ppops.net [127.0.0.1])
+	by mx0a-0031df01.pphosted.com (8.18.1.11/8.18.1.11) with ESMTP id 64TDL2Wn3249643
+	for <linux-arm-kernel@lists.infradead.org>; Fri, 29 May 2026 14:52:36 GMT
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=qualcomm.com; h=
+	cc:content-transfer-encoding:content-type:date:from:in-reply-to
+	:message-id:mime-version:references:subject:to; s=qcppdkim1; bh=
+	7fDi3qZvLhAdC7/0jy+gsVwkzd9Lct8DJ2M+A7e3DX0=; b=WsnegsD/WRgT7zBp
+	KZBLOe3RIyTM21H3gknjzlTo+0dXRAyfiCQQTVtGDsznzUIm6YH5vqc4ByboIQmp
+	eMmW18qt9ncuqZ+mPB9WBd0MLqIkVfvWtaQRM8RJciofK8pHhC/ecd6O4NXuEarE
+	YCJiL823SF8/MsQIuuzHJGpaERcYn6mDnlZWfQ00wNkyT7IF30sqJemQv2r4j4JA
+	WuWWtvHZNOuEh8j5uCSTHmDMMrvF6UxOdtJbYHwPO/eXakd3YZUsU3U4n67m4K8k
+	9RCjb6XhNP7JA9zBEKKNBGJ9qQMh+JJGbQVNtkhpnIstTuLfKltjCEsovzMocvtg
+	d5yOTA==
+Received: from mail-pj1-f69.google.com (mail-pj1-f69.google.com [209.85.216.69])
+	by mx0a-0031df01.pphosted.com (PPS) with ESMTPS id 4ef015b6kn-1
+	(version=TLSv1.3 cipher=TLS_AES_128_GCM_SHA256 bits=128 verify=NOT)
+	for <linux-arm-kernel@lists.infradead.org>; Fri, 29 May 2026 14:52:36 +0000 (GMT)
+Received: by mail-pj1-f69.google.com with SMTP id 98e67ed59e1d1-365fd467cf6so11606460a91.0
+        for <linux-arm-kernel@lists.infradead.org>; Fri, 29 May 2026 07:52:36 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=oss.qualcomm.com; s=google; t=1780066355; x=1780671155; darn=lists.infradead.org;
+        h=content-transfer-encoding:in-reply-to:from:content-language
+         :references:cc:to:subject:user-agent:mime-version:date:message-id
+         :from:to:cc:subject:date:message-id:reply-to;
+        bh=7fDi3qZvLhAdC7/0jy+gsVwkzd9Lct8DJ2M+A7e3DX0=;
+        b=AMQNAmPsHgdRDCfxawbrKD13z5YE1BRCTIhak76LQO+Zxyr2xa9KD0kM/fiGAregBC
+         kvdFWny0SJRCqSjbrzbiiBm2v0TBm4KJMgb9hv2Hf1VRhkgj3c+UaMM1eOQrIpDFewUF
+         CHIYcXjR5nMcPNuGQarweArg/w8xFNq7Wz7rb5fVFkcsmd5zSb9ny2mDSBz9xQ2+hYqz
+         Jc417UX1lsuLwjsyGZNYGVO589qSoyZF4TWpkS5ZpwXzAQjwhb7pmEWo1xZywarPq3pA
+         W6Baoe08mpD6DYB7azQloQBmWGoWIWtSp7tSfJXYt3c9I1H0cUxdvp3JlFsWt6IcZVgy
+         dbiQ==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20251104; t=1780066355; x=1780671155;
+        h=content-transfer-encoding:in-reply-to:from:content-language
+         :references:cc:to:subject:user-agent:mime-version:date:message-id
+         :x-gm-gg:x-gm-message-state:from:to:cc:subject:date:message-id
+         :reply-to;
+        bh=7fDi3qZvLhAdC7/0jy+gsVwkzd9Lct8DJ2M+A7e3DX0=;
+        b=aO/4hdfTWwp3szL3NsNjsPU/c40keGmciJI0/uPS/yXvuE9LjMJXIuEMY+O2E8RLy1
+         CkTafDANKKaTfsbe5vM8s/JNZONiMu46fsy81GTUckjfzmD0MmQFcpEGmDvfUg2R7seY
+         Nk8ujpQTTPDoq0oaQsA1z0DMAxRIlQ1wS0JyRE6FOuZc5PxrwSLlqOW19gJu1I2yAgxV
+         VXLyG+B1LR8yA01M34GRzlEr4t5L5GLT0SjRz0bzOr+WznvJiX0Jp2QJ95BK1nc+g1MC
+         Wnrhscske9DtmnAhxnjKoXaFfL51VkYXhU7/+hoShYqIRE47mYTwyY9BA9ur4ojnfwJv
+         iYWg==
+X-Forwarded-Encrypted: i=1; AFNElJ+uBYl/OoROEiKV766IubL3DB8bZOY09KEMXMw64R8lbY5sE7NaQWpZzC+TdhedCbDQoBk6YwkoqpWEqaRfWtiO@lists.infradead.org
+X-Gm-Message-State: AOJu0Yyq4s9A3QcpMxN5H96NaVlaC+xK4LRLKL5YrZIFMJXHDebr2vPx
+	kVvyKUrVNH8nSrqzbH81pcDfPwgKLRHYpyw/7+4Exr0ICd+/VR5mhuq7UdjMx72nY6D8VHqgest
+	l2OgY/WQNZ0MjipMyMzXprUMA6IEFmHTm+18uTDBEjrIvYcafVtnZ/3QuRc0BtBxBaUxHkweQ0L
+	Jx5A==
+X-Gm-Gg: Acq92OEME9hl8gKvC0vzpfzLtUwpWXD920f3Sgze+LO40u8FeJoCNcd/wnUhuxHB0sc
+	JICT6w9IJSErz/HTZhAFYEfgnGSesFWIJ60A2JzbOOSVVNzhod8EX2csku3vezgBqNO/UvfEDW1
+	0RefIL8qm/1kTym0YXhhORtOxozgNfbs5Nw02tk2EAP6+6LS/cD4JIxoSs4CxKgHTbtJfujLPBA
+	I+mxmQSqpGqypnKxJ+A/ZKXx3JWGSAN5gPKMRtKwsTdRb3uh0ForvbmQlTBUMSs1zONZv9zyKMf
+	vuvsKpDZubNrmRIzrFEVmDSsO6Gbu9ueV36AHyUPImT0/AuMH7+WZ2qTSQ/jWmp1sTUEfkGLxbt
+	xiICmhQ7+zBurQiHkxQWujBCfo9ZRwJ9nv7Ushihz7LRRFPATC0quRgMZCscl/Ec=
+X-Received: by 2002:a17:90a:d40d:b0:35f:b572:ece9 with SMTP id 98e67ed59e1d1-36bbcad48acmr3569138a91.5.1780066355532;
+        Fri, 29 May 2026 07:52:35 -0700 (PDT)
+X-Received: by 2002:a17:90a:d40d:b0:35f:b572:ece9 with SMTP id 98e67ed59e1d1-36bbcad48acmr3569081a91.5.1780066354875;
+        Fri, 29 May 2026 07:52:34 -0700 (PDT)
+Received: from [10.204.67.150] ([202.46.23.25])
+        by smtp.gmail.com with ESMTPSA id 98e67ed59e1d1-36bc9bff159sm845633a91.0.2026.05.29.07.52.27
+        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
+        Fri, 29 May 2026 07:52:34 -0700 (PDT)
+Message-ID: <df00e8d8-21ab-415f-815e-608eb7ab0967@oss.qualcomm.com>
+Date: Fri, 29 May 2026 20:22:25 +0530
 MIME-Version: 1.0
-Content-Type: text/plain; charset="us-ascii"
-Content-Disposition: inline
-In-Reply-To: <20260515-beagley-cameras-v2-3-f6acb66c9995@ideasonboard.com>
-X-C2ProcessedOrg: 333ef613-75bf-4e12-a4b1-8e3623f5dcea
-X-EOPAttributedMessage: 0
-X-MS-PublicTrafficType: Email
-X-MS-TrafficTypeDiagnostic: BL6PEPF0001AB50:EE_|SN7PR10MB6332:EE_
-X-MS-Office365-Filtering-Correlation-Id: 9a114a4d-e959-48bb-d5b4-08debd917d46
-X-MS-Exchange-SenderADCheck: 1
-X-MS-Exchange-AntiSpam-Relay: 0
-X-Microsoft-Antispam: BCL:0;ARA:13230040|1800799024|376014|7416014|36860700016|82310400026|18002099003|22082099003|4143699003|56012099006;
-X-Microsoft-Antispam-Message-Info: ounNTAm80SXYdx9Bs//JfJKrShwcYF1WdlNIHU7neONMjwlfUNMAtl5BIeN0GA2+RMjX8/yN8Qu4nv2fSiHUhi2nm7yTuGlW2jfP22k5ybfSFZVXIrRf3+eOeoW+TsyU+y5FDVcxUVGitQeuCrSt+dQkGk22Bg21z+APTwqKMsMx9GaUn1fb4Gs60LvMSpvQ7DezLd6U8vPDLDx5hJSvclHBNa502iI1jPUogIWGevbLVc9ifDubYpMdN/5vVguqukfhn3cCjc5PjRhtFKbXhLcAALux2OkuA9g9uYQDXwrivfaJMt7tOqZ8rfgEve+UK/4e8JD9OIkX61WM6yGysFeul1dpRtcC6sFqRIHBJerYMr4uUrJgcXB4iaLB72CumVK4tfgXHsjuE24AFn63SDToLjirwfdEgMdZvQ7yoHVjRrVDhlHNoafoEvKimsfBJvfEn+/wd/5UUw0axo3KL+J0HyYnjEX4QmdohfI369EHiki0a0Luq+W+ve8r7vFz3dU5LA9NeLFcND9mld18cCsVI5NnX+nTbjuAYId98NDEIApvdjlUr0cyJrKgCs3cBuYW+d9MLT9juAfXN9VGy50Gd56sUIllBOGfwPzTkrKa71QTI3kxKnDfOAiE9iCNlWiVK8tRigtrOZg2g/6foK5++VqQtsp8zvkhKnS9JwnslwWqIcX+C0yLatMIkvDX
-X-Forefront-Antispam-Report: CIP:198.47.21.194;CTRY:US;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:flwvzet200.ext.ti.com;PTR:ErrorRetry;CAT:NONE;SFS:(13230040)(1800799024)(376014)(7416014)(36860700016)(82310400026)(18002099003)(22082099003)(4143699003)(56012099006);DIR:OUT;SFP:1101;
-X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
-X-MS-Exchange-AntiSpam-MessageData-0: m2P119DPJbhu+Q5dDXhWImvhKLD+QLXMqqQelVrUKZvwkYiipJzbvMdhMEB98OWMCZXxbU4nn71s+Uqqwaip13ccOfU4wUeRgh+x7a4r/IaPEf8jJFyx3RQ/1wurBtgbP9IIiG3B3nLY1D7RnhOyX1axYkvgOR0VepsV6wY/46NWww/MgttCSP3WqPt9lpBYJ6NjsJf3EKIHbmBm+92OMMlij4MoV541CqJD7ni6dLpXr+ULnlAPnucVbkWFTXYZbBq4T6YmT5zdBiUVASC9nP7QO3Ne8tjHl5Mjr4JnB3mHuICoRw2Oorp5reh9mlHKVkAAysefKFeJXTlijIepmn/2IP0lfbIj7hf8YKr0DgKqq1PNMuKJ+RU0ZaCBNx2NaXmuGfx9/OpjPGSb2z+f+bbMLbycEUKiBSG0clCet7TsqOnOr+Q5hCSzG10XxOHV
-X-OriginatorOrg: ti.com
-X-MS-Exchange-CrossTenant-OriginalArrivalTime: 29 May 2026 14:49:30.1609
- (UTC)
-X-MS-Exchange-CrossTenant-Network-Message-Id: 9a114a4d-e959-48bb-d5b4-08debd917d46
-X-MS-Exchange-CrossTenant-Id: e5b49634-450b-4709-8abb-1e2b19b982b7
-X-MS-Exchange-CrossTenant-OriginalAttributedTenantConnectingIp: TenantId=e5b49634-450b-4709-8abb-1e2b19b982b7;Ip=[198.47.21.194];Helo=[flwvzet200.ext.ti.com]
-X-MS-Exchange-CrossTenant-AuthSource: BL6PEPF0001AB50.namprd04.prod.outlook.com
-X-MS-Exchange-CrossTenant-AuthAs: Anonymous
-X-MS-Exchange-CrossTenant-FromEntityHeader: HybridOnPrem
-X-MS-Exchange-Transport-CrossTenantHeadersStamped: SN7PR10MB6332
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH 4/8] arm64: dts: qcom: shikra: Add CAMSS node
+To: bod@kernel.org, Nihal Kumar Gupta <nihal.gupta@oss.qualcomm.com>
+Cc: Vladimir Zapolskiy <vladimir.zapolskiy@linaro.org>,
+        Loic Poulain <loic.poulain@oss.qualcomm.com>,
+        Mauro Carvalho Chehab <mchehab@kernel.org>,
+        Rob Herring <robh@kernel.org>,
+        Krzysztof Kozlowski <krzk+dt@kernel.org>,
+        Conor Dooley
+ <conor+dt@kernel.org>, Robert Foss <rfoss@kernel.org>,
+        Andi Shyti <andi.shyti@kernel.org>,
+        Bryan O'Donoghue <bryan.odonoghue@linaro.org>,
+        Bjorn Andersson <andersson@kernel.org>,
+        Konrad Dybcio <konradybcio@kernel.org>, Frank Li <Frank.Li@nxp.com>,
+        Sascha Hauer <s.hauer@pengutronix.de>,
+        Pengutronix Kernel Team <kernel@pengutronix.de>,
+        Fabio Estevam <festevam@gmail.com>, linux-arm-msm@vger.kernel.org,
+        linux-media@vger.kernel.org, devicetree@vger.kernel.org,
+        linux-kernel@vger.kernel.org, linux-i2c@vger.kernel.org,
+        imx@lists.linux.dev, linux-arm-kernel@lists.infradead.org,
+        Suresh Vankadara <quic_svankada@quicinc.com>
+References: <20260526-shikra-camss-review-v1-0-645d2c8c75a7@qti.qualcomm.com>
+ <20260526-shikra-camss-review-v1-4-645d2c8c75a7@qti.qualcomm.com>
+ <178000689150.4557.11759359941436928903.b4-reply@b4>
+Content-Language: en-US
+From: Vikram Sharma <vikram.sharma@oss.qualcomm.com>
+In-Reply-To: <178000689150.4557.11759359941436928903.b4-reply@b4>
+Content-Type: text/plain; charset=UTF-8
+Content-Transfer-Encoding: 7bit
+X-Proofpoint-ORIG-GUID: Aofcs4_5gwBpYvGJ9vFXmezAJwjkPuHo
+X-Proofpoint-Spam-Details-Enc: AW1haW4tMjYwNTI5MDE0OSBTYWx0ZWRfXxPs5W8oKG4UU
+ 6yKSSScVth6xxwqXokTBMyh7PXix3GYsUwnF9TWlUTc2FLlGj4qaA/CLf6DNTbphJXvu0VeeiMg
+ dVZXsNBHMFG7/mzNwyqNYshsqkh+2JI6FfiUJP/pMFnIwE4WIB8AC44gHn0cIx4/aTOOKio/pg4
+ 0ZaQipIXQyjh1+9YJCdjYlEvaW8OD1KNGeqD4y7xEOTdJB0zkubJD0GR2lbkpd79nWjHgj1XtG5
+ vvCabymomPJmHywUx8ca27HpYwNjv2ZP1Xczj1XNdeD+Nu17QTz6V6iUB/YzpN4MBeCVB7ntxRr
+ egjZzJdy/QA6KheTR7kXNDPGSnPuR7MTQ4v6kAy+8gAf7vUs4WwCzHFkLFv5RKlF6J1koSZjU6d
+ SlRxYjMkAZX0mObGrAoLO+RyHpfhiTbYZXAFxl3VFtidgq9J4XdNntFO5xbUs2PVeCIimvm5HGD
+ LLmmwW0EgzxPjanktow==
+X-Authority-Analysis: v=2.4 cv=DIG/JSNb c=1 sm=1 tr=0 ts=6a19a834 cx=c_pps
+ a=vVfyC5vLCtgYJKYeQD43oA==:117 a=ZePRamnt/+rB5gQjfz0u9A==:17
+ a=IkcTkHD0fZMA:10 a=NGcC8JguVDcA:10 a=s4-Qcg_JpJYA:10
+ a=VkNPw1HP01LnGYTKEx00:22 a=u7WPNUs3qKkmUXheDGA7:22 a=YMgV9FUhrdKAYTUUvYB2:22
+ a=VwQbUJbxAAAA:8 a=EUspDBNiAAAA:8 a=i0fgkIc6DCDsPB5MfecA:9 a=QEXdDO2ut3YA:10
+ a=rl5im9kqc5Lf4LNbBjHf:22
+X-Proofpoint-GUID: Aofcs4_5gwBpYvGJ9vFXmezAJwjkPuHo
+X-Proofpoint-Virus-Version: vendor=baseguard
+ engine=ICAP:2.0.293,Aquarius:18.0.1143,Hydra:6.1.125,FMLib:17.12.100.49
+ definitions=2026-05-29_04,2026-05-28_03,2025-10-01_01
+X-Proofpoint-Spam-Details: rule=outbound_notspam policy=outbound score=0
+ suspectscore=0 phishscore=0 lowpriorityscore=0 bulkscore=0 priorityscore=1501
+ spamscore=0 impostorscore=0 adultscore=0 clxscore=1011 malwarescore=0
+ classifier=typeunknown authscore=0 authtc= authcc= route=outbound adjust=0
+ reason=mlx scancount=1 engine=8.22.0-2605210000 definitions=main-2605290149
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260529_074936_728955_20F9561E 
-X-CRM114-Status: UNSURE (   7.73  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20260529_075237_583300_3481BEC4 
+X-CRM114-Status: GOOD (  18.39  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -135,24 +163,39 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On 06:46-20260515, Jai Luthra wrote:
-[...]
 
-> +&main_i2c2 {
-> +	status = "okay";
-Comes last.. please follow:
-https://git.kernel.org/pub/scm/linux/kernel/git/torvalds/linux.git/tree/Documentation/devicetree/bindings/dts-coding-style.rst#n117
+On 5/29/2026 3:51 AM, bod@kernel.org wrote:
+>> +			iommus = <&apps_smmu 0x400 0x0>;
+> So I'm suspicious of this IOMMU.
+>
+> We should list the full range of IFE SIDs here not a subset. Since we are
+> register compatible with Agatti that implies to me we should also be IOMMU
+> compatible.
 
-> +	pinctrl-names = "default";
-> +	pinctrl-0 = <&main_i2c2_pins_default>;
-> +	clock-frequency = <400000>;
-> +
-> +	#address-cells = <1>;
-> +	#size-cells = <0>;
-> +
--- 
+Shikra and Agatti are not iommu compatible in terms of Stream ID. Only VFE SID is same
+for both. Agatti is documenting iommu for VFE, CDM and OPE. OPE is not yet enabled for
+Shikra and in my opinion it should be added as a separate yaml similar to Agatti.
+"https://lore.kernel.org/all/20260508-camss-isp-ope-v3-9-bb1055274603@oss.qualcomm.com/"
+
+Regarding cdm iommu we have excluded it as we do not use it to program registers as of now.
+
+Loic/Bryan, Please share your thoughts on this?
+
+> Please list in your next submission commit log the IOMMU SIDs - comment in
+> the DTS is fine too.
+
+Sure.
+
+> Ideally list the IOMMus for Agatti/2290 and then explain why the singleton
+> you have enumerated here is the only required one.
+>
+> Right now my suspicion radar is high that either the Agatti binding is
+> wrong or the Shikra binding is.
+>
+> Possibly both.
+
 Regards,
-Nishanth Menon
-Key (0xDDB5849D1736249D) / Fingerprint: F8A2 8693 54EB 8232 17A3  1A34 DDB5 849D 1736 249D
-https://ti.com/opensource
+
+Vikram
+
 
