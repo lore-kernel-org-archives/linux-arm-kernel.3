@@ -4,96 +4,125 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 48E05CD6E49
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 48E4DCD6E4A
 	for <linux-arm-kernel@archiver.kernel.org>; Fri, 29 May 2026 15:56:28 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	MIME-Version:References:In-Reply-To:Message-Id:Date:Subject:Cc:To:From:
+	MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:
 	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=p1A+YljpcvCERY1OoB5p2TF1PX3S8oCba6E+e91fZVo=; b=2xFr4TK0MKT6ffaoFN91Y49Weg
-	KFeNTcL6S/YOwMqmjZeLssvLBqLQ2URPbN5njG9kVWMWyE2sZXtspenEEUOuBU7fUhYEUuQX2jv2P
-	lRkiCg9kvIt1miqSF0xzI0+G0x4Ma3BOMeJ/eUuaZ8/NeQfOh5eaccJc1i7lFl+9QpaJttO+Vw0Rf
-	2AZmZ1t2lPNDxBvHeYQ2AuswsWkl7J9AvH8Wroqm/UzPmfcKJHGQMVXgsM3MhoCvoxJbvO5PmQ74B
-	autyiU5LNGySgEjeFRrDEnVyik9blhoBnZ2fXtHXSMpqx44r/+MtGoUfNIuxyqRz4dIqPqd321/um
-	xBL5qRKw==;
+	bh=Ro0hJ2PXVdAS4y3vh+rJQpIxNqmd87hHps7exvaGijU=; b=YX+qL5R6rd7v93UCuAuwbowq/k
+	PahQq1GQMgxICHU7phXPcIU/UGAbz6LBk3JTuTcjbSoVPZAY7LSUoP6SDZvCc+mKBU1vg5rfJL3Yw
+	NQAU87M71TUi88Ltm/09dBm9CdMzGkG97y2kjtCHJvTkavH67kzeWbpDcIeL9gjJEiJ8J3sKabBn4
+	QnppX1L1sQN1cCNDwpVs2GW9Zk4mZXGCDTsdgbhxJaaZxqUdchL5dkPbrmbPK1u5lE48AXMZC1WtS
+	H0LYE287OVSSRyg1VYItM9kgfnTWhEDffxGgBPjcMR+1zlY23auwD3fZeTFRqP+ceHFRmSe75dtjK
+	AbJHTgnw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wSzZM-00000007m6N-15lh;
+	id 1wSzZM-00000007m7W-45ly;
 	Fri, 29 May 2026 15:56:20 +0000
-Received: from mail-wm1-x333.google.com ([2a00:1450:4864:20::333])
+Received: from mx0b-001b2d01.pphosted.com ([148.163.158.5])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wSzZG-00000007lzR-2cVX
+	id 1wSzZI-00000007m2L-4900
 	for linux-arm-kernel@lists.infradead.org;
-	Fri, 29 May 2026 15:56:16 +0000
-Received: by mail-wm1-x333.google.com with SMTP id 5b1f17b1804b1-4891c00e7aeso95586165e9.2
-        for <linux-arm-kernel@lists.infradead.org>; Fri, 29 May 2026 08:56:14 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20251104; t=1780070173; x=1780674973; darn=lists.infradead.org;
-        h=content-transfer-encoding:mime-version:references:in-reply-to
-         :message-id:date:subject:cc:to:from:from:to:cc:subject:date
-         :message-id:reply-to;
-        bh=p1A+YljpcvCERY1OoB5p2TF1PX3S8oCba6E+e91fZVo=;
-        b=pcM0B49qqLNs7sTqrv+Tzh5niI6du7ZRWnx16SmPjB4/iIxiSVMFHYIf9vqGJZNr3P
-         yeW7euI2BZOZhDT9QfqV/QuALzct+czVhQybfW7qSIiaudhfjyr+9ThnYZ+xc/x8h+NS
-         tTz+1bdSiNqEVw2qsBm0bzukfTRfx6GR8Eh3vlRwr447OdktGM+ZHSafwGcunYbTKoX2
-         hGP3X/DWyBFszx4Bc7ZAkvhbO5V9HRSkxS97ui+u2RNTOuvELPU3KiTWTPlyzEej9pBm
-         JtIpidin4ngf0CathICfnktHloUUFb6TU1LYS1mAmBUnDMr4MteK1b7M8QYIdApH1PLl
-         M3vA==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20251104; t=1780070173; x=1780674973;
-        h=content-transfer-encoding:mime-version:references:in-reply-to
-         :message-id:date:subject:cc:to:from:x-gm-gg:x-gm-message-state:from
-         :to:cc:subject:date:message-id:reply-to;
-        bh=p1A+YljpcvCERY1OoB5p2TF1PX3S8oCba6E+e91fZVo=;
-        b=AMZqK0UCTQHywmiMbae5+3UtTdH5TcHzOhZZ1lfMD27zJYw+zU+sazpaVSzdDdOghT
-         XX89o2vVHCTqgoYAzqyvQoVjKvH0idra3RNwIWZGX1FB+7T7soX10qV698XTQkFfyX9V
-         VI107rd2tNMn6HCK07yu5RxEsgZFnq4pB1SdmpnB3q9RsITqq7hTJ+ks55Ld68+hn9iv
-         n5eK+lrmSv/Lm4m5l+kVA5TPbny05J9BuciPBee3CUxYJbB34ArV5BXYP55jsVg77xXa
-         TGTcpgIeOcU5/tflLQ5rDNIgZCYfjLb5W/8tFlbMAeO+tg6KsKvk4cLtn4qwiFaYXxyr
-         Z7ng==
-X-Forwarded-Encrypted: i=1; AFNElJ8WRDeS4oNMGIo77ii+U5jefiBh3u4r+qqtix5IztwQXDGPIEufmdomiZpqLzpii7ULZ7POo7JEzX884BMQ67BW@lists.infradead.org
-X-Gm-Message-State: AOJu0YxEzWRYM8tGY5N/kuZqLsuhLHYfR6nwpyOXNL37LxXsbVXZLDjb
-	HZ7kAql6OVNAT4suj9OShEtvaQTJgof2fjzxsuMKFBxnEG6Bbcygqvta
-X-Gm-Gg: Acq92OHZ8/Wsy+ZstlcB7vQ4OOdHj1NbSb+eXDrm6DWliZYUQ8k8kpIIs4lKaMYGksx
-	WyXnhXYXx2oNI8vJJro8HPbC/M5L2Ge2AlQlNCjJAbRmxpiltYzKmZ0GEAU6Eb6pZ5j662Z6oOR
-	5lrlDIwMzRXF0yeB9GWeB+BeWSTtq0yzF9njMyI0x0CGxvjQvqkSY+7pbWIw92JDMroXATg/pnn
-	Q5arMN7Yk6KCPqDlM89thGVWIrXdX5iwAjx+faaagi4ehDFqc+EmaCnmV6n9xK+jQ7TN7EaIA81
-	JAHmAz2fYccZvAQ5y8klMChH2yYsky/Kj8jIZt2NefeHvSrws8bEBD3Qqcx6sWcH2qRLBzeyI6a
-	7Ud3ics8oM/g5es4d8ZVQpWaU4aat6/3v7M3QiQ1lT3iCJJnwd6ApgFTsUh5/eLFc0/Zv7ZilbV
-	g5JNXtSEynBExZcvukE0xQnHWnDifQauGL/krB2B5HZ5F3sxvDCq+lHePgWpXmH9/Y9ATJBdTbh
-	8aZB6xYwSoRwoXOT3UHMrgW4MCQ4wdZ6uQnseF+
-X-Received: by 2002:a05:600c:4703:b0:490:9d1b:f086 with SMTP id 5b1f17b1804b1-490a2915c45mr3835355e9.14.1780070172686;
-        Fri, 29 May 2026 08:56:12 -0700 (PDT)
-Received: from debian.tailb81abf.ts.net (2a01cb09e0354cc878d00097536575e1.ipv6.abo.wanadoo.fr. [2a01:cb09:e035:4cc8:78d0:97:5365:75e1])
-        by smtp.gmail.com with ESMTPSA id 5b1f17b1804b1-4909cabfd6esm55150315e9.15.2026.05.29.08.56.11
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Fri, 29 May 2026 08:56:12 -0700 (PDT)
-From: MidG971 <midgy971@gmail.com>
-To: Tomeu Vizoso <tomeu@tomeuvizoso.net>,
-	Oded Gabbay <ogabbay@kernel.org>
-Cc: Rob Herring <robh@kernel.org>,
-	Krzysztof Kozlowski <krzk+dt@kernel.org>,
-	Conor Dooley <conor+dt@kernel.org>,
-	Heiko Stuebner <heiko@sntech.de>,
-	dri-devel@lists.freedesktop.org,
-	devicetree@vger.kernel.org,
-	linux-arm-kernel@lists.infradead.org,
-	linux-rockchip@lists.infradead.org,
-	linux-kernel@vger.kernel.org,
-	Midgy BALON <midgy971@gmail.com>
-Subject: [PATCH v2 3/4] arm64: dts: rockchip: rk356x: Add NPU and its IOMMU
-Date: Fri, 29 May 2026 17:58:23 +0200
-Message-Id: <20260529155824.3099831-4-midgy971@gmail.com>
-X-Mailer: git-send-email 2.39.5
-In-Reply-To: <20260529155824.3099831-1-midgy971@gmail.com>
-References: <20260529155824.3099831-1-midgy971@gmail.com>
+	Fri, 29 May 2026 15:56:18 +0000
+Received: from pps.filterd (m0356516.ppops.net [127.0.0.1])
+	by mx0a-001b2d01.pphosted.com (8.18.1.11/8.18.1.11) with ESMTP id 64TFILcm3029742;
+	Fri, 29 May 2026 15:51:03 GMT
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=ibm.com; h=cc
+	:content-transfer-encoding:date:from:in-reply-to:message-id
+	:mime-version:references:subject:to; s=pp1; bh=Ro0hJ2PXVdAS4y3vh
+	+rJQpIxNqmd87hHps7exvaGijU=; b=lYR1PhIzfxVkYFH15zhoXOTk44JCBPuxb
+	n3hOujtGBlUknwmc/SdUFg8cL6K7LaNVt/K9AGMs9n8bgl578al6RE5tBsxXrQ07
+	vpCTuNySS71+fZ5e0Hx5EaIwBi8Ra53Qn8V8koijkOVI+9bq6D5YbNhvS44n/YhG
+	HFcp8br2R7VR4lMh5oo0hrODRN/gsnx7tGqvzk149Pb+p7fzJzVHuHGmpoJun3UW
+	ONCUKcv+oU3psroS+8qpFQJvqcut9bfe2QqpDX4n0xNMu7v3Md9DyHKKBwKA/J3w
+	miUojiPB217NDlTk/7D5CJU3+Nypbi3PPB2LK4JgIaG6Jr2vqNmgA==
+Received: from ppma13.dal12v.mail.ibm.com (dd.9e.1632.ip4.static.sl-reverse.com [50.22.158.221])
+	by mx0a-001b2d01.pphosted.com (PPS) with ESMTPS id 4ee889kw0d-1
+	(version=TLSv1.2 cipher=ECDHE-RSA-AES256-GCM-SHA384 bits=256 verify=NOT);
+	Fri, 29 May 2026 15:51:02 +0000 (GMT)
+Received: from pps.filterd (ppma13.dal12v.mail.ibm.com [127.0.0.1])
+	by ppma13.dal12v.mail.ibm.com (8.18.1.7/8.18.1.7) with ESMTP id 64TFd5ZT012279;
+	Fri, 29 May 2026 15:51:02 GMT
+Received: from smtprelay03.fra02v.mail.ibm.com ([9.218.2.224])
+	by ppma13.dal12v.mail.ibm.com (PPS) with ESMTPS id 4edjrbget2-1
+	(version=TLSv1.2 cipher=ECDHE-RSA-AES256-GCM-SHA384 bits=256 verify=NOT);
+	Fri, 29 May 2026 15:51:01 +0000 (GMT)
+Received: from smtpav07.fra02v.mail.ibm.com (smtpav07.fra02v.mail.ibm.com [10.20.54.106])
+	by smtprelay03.fra02v.mail.ibm.com (8.14.9/8.14.9/NCO v10.0) with ESMTP id 64TFot8O42074440
+	(version=TLSv1/SSLv3 cipher=DHE-RSA-AES256-GCM-SHA384 bits=256 verify=OK);
+	Fri, 29 May 2026 15:50:55 GMT
+Received: from smtpav07.fra02v.mail.ibm.com (unknown [127.0.0.1])
+	by IMSVA (Postfix) with ESMTP id A254F2004D;
+	Fri, 29 May 2026 15:50:55 +0000 (GMT)
+Received: from smtpav07.fra02v.mail.ibm.com (unknown [127.0.0.1])
+	by IMSVA (Postfix) with ESMTP id 5A6122004E;
+	Fri, 29 May 2026 15:50:55 +0000 (GMT)
+Received: from tuxmaker.boeblingen.de.ibm.com (unknown [9.87.85.9])
+	by smtpav07.fra02v.mail.ibm.com (Postfix) with ESMTP;
+	Fri, 29 May 2026 15:50:55 +0000 (GMT)
+From: Steffen Eiden <seiden@linux.ibm.com>
+To: kvm@vger.kernel.org, kvmarm@lists.linux.dev,
+        linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org,
+        linux-s390@vger.kernel.org
+Cc: Alexander Gordeev <agordeev@linux.ibm.com>,
+        Andreas Grapentin <gra@linux.ibm.com>, Arnd Bergmann <arnd@arndb.de>,
+        Catalin Marinas <catalin.marinas@arm.com>,
+        Christian Borntraeger <borntraeger@linux.ibm.com>,
+        Claudio Imbrenda <imbrenda@linux.ibm.com>,
+        David Hildenbrand <david@kernel.org>,
+        Friedrich Welter <fritz@linux.ibm.com>,
+        Gautam Gala <ggala@linux.ibm.com>,
+        Hariharan Mari <hari55@linux.ibm.com>,
+        Heiko Carstens <hca@linux.ibm.com>,
+        Hendrik Brueckner <brueckner@linux.ibm.com>,
+        Ilya Leoshkevich <iii@linux.ibm.com>,
+        Janosch Frank <frankja@linux.ibm.com>, Joey Gouly <joey.gouly@arm.com>,
+        Marc Zyngier <maz@kernel.org>, Nico Boehr <nrb@linux.ibm.com>,
+        Nina Schoetterl-Glausch <oss@nina.schoetterlglausch.eu>,
+        Oliver Upton <oupton@kernel.org>, Paolo Bonzini <pbonzini@redhat.com>,
+        Suzuki K Poulose <suzuki.poulose@arm.com>,
+        Sven Schnelle <svens@linux.ibm.com>,
+        Ulrich Weigand <Ulrich.Weigand@de.ibm.com>,
+        Vasily Gorbik <gor@linux.ibm.com>, Will Deacon <will@kernel.org>,
+        Zenghui Yu <yuzenghui@huawei.com>
+Subject: [PATCH v3 13/27] KVM: arm64: Extract & share ipa size shift calculation
+Date: Fri, 29 May 2026 17:50:27 +0200
+Message-ID: <20260529155050.2902245-14-seiden@linux.ibm.com>
+X-Mailer: git-send-email 2.53.0
+In-Reply-To: <20260529155050.2902245-1-seiden@linux.ibm.com>
+References: <20260529155050.2902245-1-seiden@linux.ibm.com>
 MIME-Version: 1.0
 Content-Transfer-Encoding: 8bit
+X-TM-AS-GCONF: 00
+X-Proofpoint-ORIG-GUID: -N28e_7ZJNLeT2qfXqeraNb20TjHbZVv
+X-Proofpoint-GUID: -N28e_7ZJNLeT2qfXqeraNb20TjHbZVv
+X-Authority-Analysis: v=2.4 cv=XqfK/1F9 c=1 sm=1 tr=0 ts=6a19b5e6 cx=c_pps
+ a=AfN7/Ok6k8XGzOShvHwTGQ==:117 a=AfN7/Ok6k8XGzOShvHwTGQ==:17
+ a=NGcC8JguVDcA:10 a=VkNPw1HP01LnGYTKEx00:22 a=RnoormkPH1_aCDwRdu11:22
+ a=Y2IxJ9c9Rs8Kov3niI8_:22 a=VnNF1IyMAAAA:8 a=MB2ALdkwiJlipvWvu_wA:9
+X-Proofpoint-Spam-Details-Enc: AW1haW4tMjYwNTI5MDE1NiBTYWx0ZWRfX2b8y3aH7k+uu
+ 2BqctaSU1ObtpbjpvqzNfNWpP5rV1/kgN4sVq4gl77qn4q7rLjMc+rsr7sbu7lQ293Zo6LnBvji
+ kCxS0JL2YoxGLbayzzq1RRm9UENGtEVAXI9R+ouOhJ/eOW5HW8BMGRW2nMZBeNQoH8Y/1Zx0u8d
+ UKhh2mquBqUx0Ms+DGYvXYds+YejyxU7tEEwzlh5Ki2NmKE/7r94g2GDwXgUVXlA/K+TZ7XzCUl
+ OA3RmAlh7OZ1QQcv4C5GURSqJ+dn6DwQx7VRzpoNFiYBnoIc2hYOohtmFOagiBg1/qP0dUIQTCC
+ i2fel3JngDOV82DRgChIp81XNL6/dMQCX8Y/8D6OCEXTyYNmJuRflrBFtyVjTkPqSVW8wjJO/EN
+ QNz4uaiMOdw9fea6qTCc/ch9Pv3UNO/V7hFV+cwh9vvs1Zv21EUAYa9tH2ATlK9gQZqmDLL5AWO
+ COwFKi8Htkwv5QlS6Tw==
+X-Proofpoint-Virus-Version: vendor=baseguard
+ engine=ICAP:2.0.293,Aquarius:18.0.1143,Hydra:6.1.125,FMLib:17.12.100.49
+ definitions=2026-05-29_04,2026-05-28_03,2025-10-01_01
+X-Proofpoint-Spam-Details: rule=outbound_notspam policy=outbound score=0
+ malwarescore=0 spamscore=0 impostorscore=0 adultscore=0 phishscore=0
+ priorityscore=1501 lowpriorityscore=0 bulkscore=0 suspectscore=0
+ clxscore=1015 classifier=typeunknown authscore=0 authtc= authcc=
+ route=outbound adjust=0 reason=mlx scancount=1 engine=8.22.0-2605210000
+ definitions=main-2605290156
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260529_085614_678490_638EFB7E 
-X-CRM114-Status: GOOD (  10.04  )
+X-CRM114-CacheID: sfid-20260529_085617_151061_B58DBFAF 
+X-CRM114-Status: GOOD (  18.26  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -108,63 +137,100 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-From: Midgy BALON <midgy971@gmail.com>
+Extract the ipa shift calculation from kvm_init_ipa_range into its own
+function kvm_vm_type_ipa_size_shift to be shared across architectures.
 
-Add the RKNN core 0 and its IOMMU to the RK3568 SoC dtsi, mirroring
-the RK3588 pattern in rk3588-base.dtsi but with rk3568-specific clocks,
-resets, power domain, and a rockchip,pmu phandle required for the NPU
-NOC bus de-idle sequence.
+User space passes a type parameter to the VM creation ioctl, indicating
+the physical size of the VM. Therefore extract the ipa shift calculation
+from kvm_init_ipa_range into its own function kvm_vm_type_ipa_size_shift,
+so all implementers of arm64 KVM can make use of it for VM creation.
 
-Both nodes remain disabled by default; boards enable them as needed.
-
-Signed-off-by: Midgy BALON <midgy971@gmail.com>
+Co-developed-by: Nina Schoetterl-Glausch <nsg@linux.ibm.com>
+Signed-off-by: Nina Schoetterl-Glausch <nsg@linux.ibm.com>
+Signed-off-by: Steffen Eiden <seiden@linux.ibm.com>
 ---
- arch/arm64/boot/dts/rockchip/rk356x-base.dtsi | 31 +++++++++++++++++++
- 1 file changed, 31 insertions(+)
+ arch/arm64/kvm/mmu.c         | 19 ++++++-------------
+ include/kvm/arm64/kvm_host.h |  1 +
+ virt/kvm/arm64/arm.c         | 21 +++++++++++++++++++++
+ 3 files changed, 28 insertions(+), 13 deletions(-)
 
-diff --git a/arch/arm64/boot/dts/rockchip/rk356x-base.dtsi b/arch/arm64/boot/dts/rockchip/rk356x-base.dtsi
-index 8893b7b6c..2c2a57ea3 100644
---- a/arch/arm64/boot/dts/rockchip/rk356x-base.dtsi
-+++ b/arch/arm64/boot/dts/rockchip/rk356x-base.dtsi
-@@ -929,6 +929,37 @@ qos_rga_wr: qos@fe158300 {
- 		reg = <0x0 0xfe158300 0x0 0x20>;
- 	};
+diff --git a/arch/arm64/kvm/mmu.c b/arch/arm64/kvm/mmu.c
+index f683eb18c4ec..e202063fcdda 100644
+--- a/arch/arm64/kvm/mmu.c
++++ b/arch/arm64/kvm/mmu.c
+@@ -877,24 +877,17 @@ static struct kvm_pgtable_mm_ops kvm_s2_mm_ops = {
  
-+	rknn_core_0: npu@fde40000 {
-+		compatible = "rockchip,rk3568-rknn-core";
-+		reg = <0x0 0xfde40000 0x0 0x1000>,
-+		      <0x0 0xfde41000 0x0 0x1000>,
-+		      <0x0 0xfde43000 0x0 0x1000>;
-+		reg-names = "pc", "cna", "core";
-+		interrupts = <GIC_SPI 151 IRQ_TYPE_LEVEL_HIGH>;
-+		clocks = <&cru ACLK_NPU>, <&cru HCLK_NPU>,
-+			 <&scmi_clk SCMI_CLK_NPU>, <&cru PCLK_NPU_PRE>;
-+		clock-names = "aclk", "hclk", "npu", "pclk";
-+		assigned-clocks = <&scmi_clk SCMI_CLK_NPU>;
-+		assigned-clock-rates = <200000000>;
-+		resets = <&cru SRST_A_NPU>, <&cru SRST_H_NPU>;
-+		reset-names = "srst_a", "srst_h";
-+		power-domains = <&power RK3568_PD_NPU>;
-+		rockchip,pmu = <&pmu>;
-+		iommus = <&rknn_mmu_0>;
-+		status = "disabled";
-+	};
+ static int kvm_init_ipa_range(struct kvm_s2_mmu *mmu, unsigned long type)
+ {
+-	u32 kvm_ipa_limit = get_kvm_ipa_limit();
+ 	u64 mmfr0, mmfr1;
+ 	u32 phys_shift;
++	int r;
+ 
+-	phys_shift = KVM_VM_TYPE_ARM_IPA_SIZE(type);
+ 	if (is_protected_kvm_enabled()) {
+-		phys_shift = kvm_ipa_limit;
+-	} else if (phys_shift) {
+-		if (phys_shift > kvm_ipa_limit ||
+-		    phys_shift < ARM64_MIN_PARANGE_BITS)
+-			return -EINVAL;
++		phys_shift = get_kvm_ipa_limit();
+ 	} else {
+-		phys_shift = KVM_PHYS_SHIFT;
+-		if (phys_shift > kvm_ipa_limit) {
+-			pr_warn_once("%s using unsupported default IPA limit, upgrade your VMM\n",
+-				     current->comm);
+-			return -EINVAL;
+-		}
++		r = kvm_vm_type_ipa_size_shift(type);
++		if (r < 0)
++			return r;
++		phys_shift = r;
+ 	}
+ 
+ 	mmfr0 = read_sanitised_ftr_reg(SYS_ID_AA64MMFR0_EL1);
+diff --git a/include/kvm/arm64/kvm_host.h b/include/kvm/arm64/kvm_host.h
+index d36ebea4d60f..8bf399508757 100644
+--- a/include/kvm/arm64/kvm_host.h
++++ b/include/kvm/arm64/kvm_host.h
+@@ -33,6 +33,7 @@ int kvm_vcpu_init_check_features(struct kvm_vcpu *vcpu,
+ 				 const struct kvm_vcpu_init *init);
+ bool kvm_vcpu_init_changed(struct kvm_vcpu *vcpu,
+ 			   const struct kvm_vcpu_init *init);
++int kvm_vm_type_ipa_size_shift(unsigned long type);
+ 
+ /* MMIO helpers */
+ void kvm_mmio_write_buf(void *buf, unsigned int len, unsigned long data);
+diff --git a/virt/kvm/arm64/arm.c b/virt/kvm/arm64/arm.c
+index b47adef65e5f..0bbfbe63e558 100644
+--- a/virt/kvm/arm64/arm.c
++++ b/virt/kvm/arm64/arm.c
+@@ -52,3 +52,24 @@ bool kvm_vcpu_init_changed(struct kvm_vcpu *vcpu,
+ 	return !bitmap_equal(vcpu->kvm->arch.vcpu_features, &features,
+ 			     KVM_VCPU_MAX_FEATURES);
+ }
 +
-+	rknn_mmu_0: iommu@fde4b000 {
-+		compatible = "rockchip,iommu";
-+		reg = <0x0 0xfde4b000 0x0 0x40>;
-+		interrupts = <GIC_SPI 151 IRQ_TYPE_LEVEL_HIGH>;
-+		clock-names = "aclk", "iface";
-+		clocks = <&cru ACLK_NPU>, <&cru HCLK_NPU>;
-+		power-domains = <&power RK3568_PD_NPU>;
-+		#iommu-cells = <0>;
-+		status = "disabled";
-+	};
++int kvm_vm_type_ipa_size_shift(unsigned long type)
++{
++	int phys_shift;
 +
- 	qos_npu: qos@fe180000 {
- 		compatible = "rockchip,rk3568-qos", "syscon";
- 		reg = <0x0 0xfe180000 0x0 0x20>;
++	phys_shift = KVM_VM_TYPE_ARM_IPA_SIZE(type);
++	if (phys_shift) {
++		if (phys_shift > get_kvm_ipa_limit() ||
++		    phys_shift < ARM64_MIN_PARANGE_BITS)
++			return -EINVAL;
++	} else {
++		phys_shift = KVM_PHYS_SHIFT;
++		if (phys_shift > get_kvm_ipa_limit()) {
++			pr_warn_once("%s using unsupported default IPA limit, upgrade your VMM\n",
++				     current->comm);
++			return -EINVAL;
++		}
++	}
++
++	return phys_shift;
++}
 -- 
-2.39.5
+2.53.0
 
 
