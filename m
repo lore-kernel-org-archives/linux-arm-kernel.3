@@ -4,91 +4,124 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 7DC97CD4F54
-	for <linux-arm-kernel@archiver.kernel.org>; Fri, 29 May 2026 15:56:28 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id DDD25CD6E49
+	for <linux-arm-kernel@archiver.kernel.org>; Fri, 29 May 2026 15:56:32 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	MIME-Version:Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-Type:
-	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
-	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
-	bh=LnHNg9n0JGZsDydxLfv4khIj43e63eeZtcUcMwaZSDY=; b=tYOALmI5lLMjAbUzWQBuEKiys7
-	fFRr6YfV+ol1sxyGuTsLqWyekmTWCSKm1w9IN/tUcfySOmbHgeHy/LT8gDqZ5xm8smRjbkv15Llht
-	BtWW4881emsh6ECUd4U68MuYLD9Uu/Lv5Q651t75gU7Ln0cGV0J9VxAaNnCGx0QDMaevxL7AFVHWD
-	sOK8BmQDrf5IbblHW9VPF+zHB9ge6JyPpeIT5hJ3xq9g2oVDtqwLwnWC/6HpOKYOVsVAH8t5stW8u
-	1j4hv8Z+jWb/xEkp7lz+iWKP4Eeiq5rxERLLPUIvGyqRGe5ybXr2mB5gsBeolNEYxpqsnwqN+F15D
-	MIV1ehdw==;
+	MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:
+	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=r8qv0I8vvxpjvrNnb+Rd4VaSRAFc/2VGBv0YYFUfb6Q=; b=sfMNI9pDU6OoVZIsaAE7cNUTo2
+	mIVMLk0tNAO1rPzvdv5VpELOWeFgL/EB5t4Uv2OQ3KUEr/yIoUFBLAtjrmWZEE6zofKyCafh7vCmD
+	b95JCybqDxdGGOjJ03KYXMUxNa64npFV9u+PFbiYl9VIbIbFEgcGWHMtEEaFLtB99u63RMMBM1MrH
+	6HDGBKEB8tesvK/N3hRjpqSPO+jFPU8/K8OAo3iG87cq4XAIGCp6lYDxOnqiYfDvyzuENGp9wjaSQ
+	TKD0l4F8PaZcISwCjNEN2+lmxB1El8nvTCALV21u5LB0bc+KiRFaFHxr1RZleexXjY/h1CzohRqLz
+	I8QmY8/A==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wSzZM-00000007m6l-2NNh;
-	Fri, 29 May 2026 15:56:20 +0000
-Received: from mail-wm1-x336.google.com ([2a00:1450:4864:20::336])
+	id 1wSzZN-00000007m8U-1CYf;
+	Fri, 29 May 2026 15:56:21 +0000
+Received: from mx0a-001b2d01.pphosted.com ([148.163.156.1])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wSzZG-00000007lzA-05cp
+	id 1wSzZK-00000007m3a-2V3d
 	for linux-arm-kernel@lists.infradead.org;
-	Fri, 29 May 2026 15:56:17 +0000
-Received: by mail-wm1-x336.google.com with SMTP id 5b1f17b1804b1-49042aeeb75so95482465e9.1
-        for <linux-arm-kernel@lists.infradead.org>; Fri, 29 May 2026 08:56:13 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=amarulasolutions.com; s=google; t=1780070172; x=1780674972; darn=lists.infradead.org;
-        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
-         :to:from:from:to:cc:subject:date:message-id:reply-to;
-        bh=LnHNg9n0JGZsDydxLfv4khIj43e63eeZtcUcMwaZSDY=;
-        b=cf+pXIYnVcTUtrN2YBx3tq7oj6C0WlPiozNzaFOV5dQcvCRYbl/TSl6CEAcQQfeNLE
-         QA04MkpKDn0m/I7YKG2y0jl64QTM0AwvK90s2tojkJ01Brs790hoFnGiilLYhZ2yF/Ke
-         NY/gH9fxecLBs87gIrvO9C4+CKVJyLqaNyhVk=
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20251104; t=1780070172; x=1780674972;
-        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
-         :to:from:x-gm-gg:x-gm-message-state:from:to:cc:subject:date
-         :message-id:reply-to;
-        bh=LnHNg9n0JGZsDydxLfv4khIj43e63eeZtcUcMwaZSDY=;
-        b=PbUvwdLkvUAjRkMVA4noFL1Bu4OmFYJf+2NnSXvnwjTy7HMz5eX0L6Xje/Wkuunsai
-         rSsUyGBHFnVWkHovxxTMc1R/O4CNpDYvWhd9eA1byq/L4wUdNoj2EzsHVj4GXdpfA44H
-         8ucVJtQ7Gxe+seXuGOCufGYD8QL5lBt9N5FTLgWXnaVp1SX8Sqca4ort5H2o3FVO1ZJ5
-         7dlr0kOlhVhs8wW0vqJXiJG2ghe/vW4Ae47xP1LFK1mAo24R1icsPf7HHGnBYhqvcp09
-         /U8aeqyb9+swr8VbfMaZ+2aB/4lUY8V6AaoN40kv1MDQYVnZ9MqCAEcUVjsQlwFjXbJZ
-         gn7Q==
-X-Forwarded-Encrypted: i=1; AFNElJ83+4w6mJV5czln43dthKYhYxZzfs/QWiakZ7Sj0pl6WYbCzTEH1Ock1PEZ9uPa57Q/ojpXFtZIpYthbsKUXzcC@lists.infradead.org
-X-Gm-Message-State: AOJu0YyUzMzPCyIeKRuXD/j0OWQAR7McMyc/vuZo4/IV8pgZTL8gP4AO
-	pasLHSjMmoAFHTtrTC1h7OBhFyHAxHUrFb6uH8PNcaS7nbaKzPcVccpO1D2/vSbxK5M=
-X-Gm-Gg: Acq92OF1dI66fH34hgO21F5mt6qxBNZ4+abj681WJ2wCa/KYkOce0nRqZbZRE0nng1g
-	IKRBrBNPxbjg9tZwE55ymoeNBgKNg9c69+o/MlIXWBACecSTz/9ip7bwh5lipEHxfsSwBjVlxk+
-	McBT2fF4tb+gMh6/hac4jf43N8cOf0AorgSCvL/BKzkJjRzWlHQxdkKDU5+BDgXXhj7D4Zn6c3w
-	Co+yAU++67/BYtNTo+ThDLuST4sLEUBDF3apoKXX4yiIwv4pvlee0UbxyJPHyOs98pZbd4or/4X
-	mXAl3JiWvMv179V958IyjcwOIaCQWfiBWwM7Df0SUwPq4PB5UZYhdNrnSFwHfUWRR33ce/Szy+9
-	/eJi6jnW8Fi+bbAHMeM7WQVKx0R/2WUVZslxKJxqPLOlwDcHIzjO8QsG+5NQIn0OzAK+2ok/ckw
-	tR8wvOfgnDCXKcY4i4IKGQekJnxlfzyGKzLW/LkYl28sHNM8eYxKD2u7yOyLxSbmYdKbYf7+VvW
-	QvjfyneJ2m0wX9lQRNdbbiVPv6Q30gLMxcmtVG5ixBirYxN7gSEEdEPt1oNdqYCKz8YkA==
-X-Received: by 2002:a05:600c:8a0d:20b0:48a:906b:14ca with SMTP id 5b1f17b1804b1-490a293dcaamr2867795e9.20.1780070172253;
-        Fri, 29 May 2026 08:56:12 -0700 (PDT)
-Received: from dario-ThinkPad-P14s-Gen-5.amarulasolutions.com ([2.196.43.161])
-        by smtp.gmail.com with ESMTPSA id ffacd0b85a97d-45ef354c682sm4114680f8f.23.2026.05.29.08.56.10
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Fri, 29 May 2026 08:56:11 -0700 (PDT)
-From: Dario Binacchi <dario.binacchi@amarulasolutions.com>
-To: linux-kernel@vger.kernel.org
-Cc: linux-amarula@amarulasolutions.com,
-	michael@amarulasolutions.com,
-	Dario Binacchi <dario.binacchi@amarulasolutions.com>,
-	Alexandre Torgue <alexandre.torgue@foss.st.com>,
-	Conor Dooley <conor+dt@kernel.org>,
-	Krzysztof Kozlowski <krzk+dt@kernel.org>,
-	Maxime Coquelin <mcoquelin.stm32@gmail.com>,
-	Rob Herring <robh@kernel.org>,
-	devicetree@vger.kernel.org,
-	linux-arm-kernel@lists.infradead.org,
-	linux-stm32@st-md-mailman.stormreply.com
-Subject: [PATCH] arm64: dts: st: add power-domains to sdmmc1 on stm32mp251
-Date: Fri, 29 May 2026 17:55:50 +0200
-Message-ID: <20260529155607.3948045-1-dario.binacchi@amarulasolutions.com>
-X-Mailer: git-send-email 2.43.0
+	Fri, 29 May 2026 15:56:19 +0000
+Received: from pps.filterd (m0360083.ppops.net [127.0.0.1])
+	by mx0a-001b2d01.pphosted.com (8.18.1.11/8.18.1.11) with ESMTP id 64TFGVBL2418177;
+	Fri, 29 May 2026 15:51:05 GMT
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=ibm.com; h=cc
+	:content-transfer-encoding:date:from:in-reply-to:message-id
+	:mime-version:references:subject:to; s=pp1; bh=r8qv0I8vvxpjvrNnb
+	+Rd4VaSRAFc/2VGBv0YYFUfb6Q=; b=FHWP+mAI+48JECvH3V5WAE/KTCF+w87d/
+	rRoWG7cFfMz5S9kdy/cECpUjzZefBDlnJzLwmSMiy4wuIsdzuOjes3fAhMLI4SP7
+	ledii2FrEBj0HNmiIY9r5tYbBYq8RFs6qP8jCl9bCrIrNR3o9WZMDmtbZRumtoZN
+	EyG+Cv0LMcz4wc4ky5hMtVmmNCropBKK3Y5oNeLQ+AWdNfyEq10tkJHiJF4RCuus
+	SdKi6/pCYKPXtzodw8uFg9DEv9l98AA/ZcyNsIZUUUsoxzrGYFRMu8JGwFHiObL3
+	tPWGC/x2s+xjMJvjMkTsfS85yJpSg5LSB5Kt1qyD4Zjye6nR6rR6w==
+Received: from ppma21.wdc07v.mail.ibm.com (5b.69.3da9.ip4.static.sl-reverse.com [169.61.105.91])
+	by mx0a-001b2d01.pphosted.com (PPS) with ESMTPS id 4ee884ve37-1
+	(version=TLSv1.2 cipher=ECDHE-RSA-AES256-GCM-SHA384 bits=256 verify=NOT);
+	Fri, 29 May 2026 15:51:04 +0000 (GMT)
+Received: from pps.filterd (ppma21.wdc07v.mail.ibm.com [127.0.0.1])
+	by ppma21.wdc07v.mail.ibm.com (8.18.1.7/8.18.1.7) with ESMTP id 64TFd76Y024390;
+	Fri, 29 May 2026 15:51:03 GMT
+Received: from smtprelay01.fra02v.mail.ibm.com ([9.218.2.227])
+	by ppma21.wdc07v.mail.ibm.com (PPS) with ESMTPS id 4edjrbgfsq-1
+	(version=TLSv1.2 cipher=ECDHE-RSA-AES256-GCM-SHA384 bits=256 verify=NOT);
+	Fri, 29 May 2026 15:51:03 +0000 (GMT)
+Received: from smtpav07.fra02v.mail.ibm.com (smtpav07.fra02v.mail.ibm.com [10.20.54.106])
+	by smtprelay01.fra02v.mail.ibm.com (8.14.9/8.14.9/NCO v10.0) with ESMTP id 64TFov3g48431392
+	(version=TLSv1/SSLv3 cipher=DHE-RSA-AES256-GCM-SHA384 bits=256 verify=OK);
+	Fri, 29 May 2026 15:50:57 GMT
+Received: from smtpav07.fra02v.mail.ibm.com (unknown [127.0.0.1])
+	by IMSVA (Postfix) with ESMTP id 72FC82004F;
+	Fri, 29 May 2026 15:50:57 +0000 (GMT)
+Received: from smtpav07.fra02v.mail.ibm.com (unknown [127.0.0.1])
+	by IMSVA (Postfix) with ESMTP id 2AC442004B;
+	Fri, 29 May 2026 15:50:57 +0000 (GMT)
+Received: from tuxmaker.boeblingen.de.ibm.com (unknown [9.87.85.9])
+	by smtpav07.fra02v.mail.ibm.com (Postfix) with ESMTP;
+	Fri, 29 May 2026 15:50:57 +0000 (GMT)
+From: Steffen Eiden <seiden@linux.ibm.com>
+To: kvm@vger.kernel.org, kvmarm@lists.linux.dev,
+        linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org,
+        linux-s390@vger.kernel.org
+Cc: Alexander Gordeev <agordeev@linux.ibm.com>,
+        Andreas Grapentin <gra@linux.ibm.com>, Arnd Bergmann <arnd@arndb.de>,
+        Catalin Marinas <catalin.marinas@arm.com>,
+        Christian Borntraeger <borntraeger@linux.ibm.com>,
+        Claudio Imbrenda <imbrenda@linux.ibm.com>,
+        David Hildenbrand <david@kernel.org>,
+        Friedrich Welter <fritz@linux.ibm.com>,
+        Gautam Gala <ggala@linux.ibm.com>,
+        Hariharan Mari <hari55@linux.ibm.com>,
+        Heiko Carstens <hca@linux.ibm.com>,
+        Hendrik Brueckner <brueckner@linux.ibm.com>,
+        Ilya Leoshkevich <iii@linux.ibm.com>,
+        Janosch Frank <frankja@linux.ibm.com>, Joey Gouly <joey.gouly@arm.com>,
+        Marc Zyngier <maz@kernel.org>, Nico Boehr <nrb@linux.ibm.com>,
+        Nina Schoetterl-Glausch <oss@nina.schoetterlglausch.eu>,
+        Oliver Upton <oupton@kernel.org>, Paolo Bonzini <pbonzini@redhat.com>,
+        Suzuki K Poulose <suzuki.poulose@arm.com>,
+        Sven Schnelle <svens@linux.ibm.com>,
+        Ulrich Weigand <Ulrich.Weigand@de.ibm.com>,
+        Vasily Gorbik <gor@linux.ibm.com>, Will Deacon <will@kernel.org>,
+        Zenghui Yu <yuzenghui@huawei.com>
+Subject: [PATCH v3 18/27] KVM: s390: Prepare kvm-s390 for a second kvm module
+Date: Fri, 29 May 2026 17:50:32 +0200
+Message-ID: <20260529155050.2902245-19-seiden@linux.ibm.com>
+X-Mailer: git-send-email 2.53.0
+In-Reply-To: <20260529155050.2902245-1-seiden@linux.ibm.com>
+References: <20260529155050.2902245-1-seiden@linux.ibm.com>
 MIME-Version: 1.0
 Content-Transfer-Encoding: 8bit
+X-TM-AS-GCONF: 00
+X-Authority-Analysis: v=2.4 cv=L4MtheT8 c=1 sm=1 tr=0 ts=6a19b5e9 cx=c_pps
+ a=GFwsV6G8L6GxiO2Y/PsHdQ==:117 a=GFwsV6G8L6GxiO2Y/PsHdQ==:17
+ a=NGcC8JguVDcA:10 a=VkNPw1HP01LnGYTKEx00:22 a=RnoormkPH1_aCDwRdu11:22
+ a=iQ6ETzBq9ecOQQE5vZCe:22 a=VnNF1IyMAAAA:8 a=D2QCReHFeZxoMWIWDosA:9
+X-Proofpoint-ORIG-GUID: LXkxrC-Rn5pJk1pTcJtkgP9RCroIABMz
+X-Proofpoint-Spam-Details-Enc: AW1haW4tMjYwNTI5MDE1NiBTYWx0ZWRfX3iV7Ki2qo8es
+ 8WxpfGchgtRgVSK20MRwvoVkbH3MJ/fdha+N8ezkfrbj6ezkPMpovuVFC1V/3f7jd26eBk3X+sZ
+ K6yFu/wf4zxic6zC9m1zwsfFy4EYXjt35wOQH0nzWTsMtce5HgFQgTpWEU1QHuYzsuzUHIGGO4y
+ DY4UbC20W+AF0a34S86h0ZWYkWo/pmYQsN6GGmvXM6gnGrrANjy7fDOQzdAWds90cDnFmCCI0k2
+ DvcBbq+ScLCvC8WawDxY490yCzzyrqR33fGQGbld7yD8WThI7W0Oxxm7NP/P2MdFHgOqNLhhcXD
+ yySVxafk4hVuFWwVdppfqu2HUplaUxWs8Jz+yc/w0b4xlOtw3swYNY7q6r8xx15VjG4CGaFh8Na
+ 7hAgWrl4E2LHo8GVmeW9kC/0qxvyE+nZKOASfG+npiWUdkDQXM5Fh77A80M5VMkNCTSo+qnqLOs
+ gMHOVNru/hyXNt7lESw==
+X-Proofpoint-GUID: LXkxrC-Rn5pJk1pTcJtkgP9RCroIABMz
+X-Proofpoint-Virus-Version: vendor=baseguard
+ engine=ICAP:2.0.293,Aquarius:18.0.1143,Hydra:6.1.125,FMLib:17.12.100.49
+ definitions=2026-05-29_04,2026-05-28_03,2025-10-01_01
+X-Proofpoint-Spam-Details: rule=outbound_notspam policy=outbound score=0
+ phishscore=0 lowpriorityscore=0 suspectscore=0 clxscore=1015 malwarescore=0
+ bulkscore=0 impostorscore=0 adultscore=0 priorityscore=1501 spamscore=0
+ classifier=typeunknown authscore=0 authtc= authcc= route=outbound adjust=0
+ reason=mlx scancount=1 engine=8.22.0-2605210000 definitions=main-2605290156
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260529_085614_106330_BC3A6066 
-X-CRM114-Status: UNSURE (   9.59  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20260529_085618_836095_3C1509E8 
+X-CRM114-Status: GOOD (  12.31  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -103,32 +136,36 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-The sdmmc1 node was introduced early in the SoC bring-up before power
-domains were systematically mapped. Add the missing power-domains
-property to align it with the rest of the peripheral nodes.
+The second KVM module will have a different Kconfig set.
+When both modules are compiled the Kconfig sets get merged and
+the native s390 KVM needs to implement functionality required by
+the respective config options. Ensure that s390-KVM will still compile.
 
-Signed-off-by: Dario Binacchi <dario.binacchi@amarulasolutions.com>
-
+Signed-off-by: Steffen Eiden <seiden@linux.ibm.com>
 ---
+ arch/s390/kvm/s390/s390.c | 8 ++++++++
+ 1 file changed, 8 insertions(+)
 
- arch/arm64/boot/dts/st/stm32mp251.dtsi | 1 +
- 1 file changed, 1 insertion(+)
-
-diff --git a/arch/arm64/boot/dts/st/stm32mp251.dtsi b/arch/arm64/boot/dts/st/stm32mp251.dtsi
-index 673fbc5632e6..b3416c928c08 100644
---- a/arch/arm64/boot/dts/st/stm32mp251.dtsi
-+++ b/arch/arm64/boot/dts/st/stm32mp251.dtsi
-@@ -1664,6 +1664,7 @@ sdmmc1: mmc@48220000 {
- 				cap-mmc-highspeed;
- 				max-frequency = <120000000>;
- 				access-controllers = <&rifsc 76>;
-+				power-domains = <&CLUSTER_PD>;
- 				status = "disabled";
- 			};
+diff --git a/arch/s390/kvm/s390/s390.c b/arch/s390/kvm/s390/s390.c
+index c9dff21f823e..e9352864a492 100644
+--- a/arch/s390/kvm/s390/s390.c
++++ b/arch/s390/kvm/s390/s390.c
+@@ -5683,6 +5683,14 @@ bool kvm_unmap_gfn_range(struct kvm *kvm, struct kvm_gfn_range *range)
+ 	return gmap_unmap_gfn_range(kvm->arch.gmap, range->slot, range->start, range->end);
+ }
  
++#ifdef CONFIG_HAVE_KVM_VCPU_RUN_PID_CHANGE
++/* Make s390 compile if arm64-on-s390 is selected */
++int kvm_arch_vcpu_run_pid_change(struct kvm_vcpu *vcpu)
++{
++	return 0;
++}
++#endif /* CONFIG_HAVE_KVM_VCPU_RUN_PID_CHANGE */
++
+ static inline unsigned long nonhyp_mask(int i)
+ {
+ 	unsigned int nonhyp_fai = (sclp.hmfai << i * 2) >> 30;
 -- 
-2.43.0
+2.53.0
 
-base-commit: 8fde5d1d47f69db6082dfa34500c27f8485389a5
-branch: stm32mp251-sdmmc1-power-domains
 
