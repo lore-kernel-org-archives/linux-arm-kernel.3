@@ -4,65 +4,65 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id A9206CD6E55
-	for <linux-arm-kernel@archiver.kernel.org>; Fri, 29 May 2026 15:57:10 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 4C46DCD4F54
+	for <linux-arm-kernel@archiver.kernel.org>; Fri, 29 May 2026 15:57:14 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
 	MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:
 	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=OB54e0sJf0qPl31odE4TOuJ++EZKctY7iEXbx4L5EuE=; b=UHVi8lYNsQjEo/upJPXeaDcn8e
-	kny07BlEsiGLsz591n39LRC1d38Gs0yroUzJZKVoDmWeIgkcJexw0DC+smMG1k/6ucTrRXloXNod9
-	HodTXI6zCD5iWYpBwA9qrBO227BuUkCkwre4ET/NF1Q0Q56vI8WgLlpNeyttqXnGRs351VnAVn/t5
-	l81L1jES6mY7vxOfxv0bF4DclCb7g3qP8dpn8DAWgAoTr3i0JiPHlXU9gq+AJnZK/stAa3SE+Vv1j
-	dy4gkxohK3FrptoX9x8CLfPQ5Iwn0eYtrRsPcVwpmLKfXl/DH9ubk3BLMXwf2U7qEeIUEhUH6zYdi
-	lXB17sKA==;
+	bh=EQ2VuK7ZFaehrQoRtzvCBljTp7pTrarwgW+FNoWOdfE=; b=FA6p+yK40vyUcpzZ6I7L4cqpRF
+	hP8GJ1Sg+iS+dhs2wpIzC+FjwV5wpPEqperWziaDd3Iq0Z6H9qfwVFr3Kn3Ae47hBz4afg2rIowUI
+	LvJQjFpfMYhEaVxwdfZ+YK9gO50wBkkuqdhU4AGFWjDli4GYY+ATLQpxlmdWfWuKi0x8cWi2yo9A2
+	LVvMBp6sGXGxgL9HqKai5oWHSe8CwhZuXlGkx/vKGYVJkb91CwlUEM7F4+wnZ8ajYfe2B4aRkIvt8
+	wb09/Bxv0xXnfz9Q3whgFtIAQIzHv8cX376yoDUj3Z4xGRes9c2tYte7fKiJhh8G/ybTO1BL2OJ9d
+	K0Moljtw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wSzZx-00000007mnN-1dNR;
-	Fri, 29 May 2026 15:56:57 +0000
+	id 1wSzZy-00000007mpc-0cFG;
+	Fri, 29 May 2026 15:56:58 +0000
 Received: from mx0a-001b2d01.pphosted.com ([148.163.156.1])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wSzZU-00000007mFi-0sov
+	id 1wSzZW-00000007mM8-11dZ
 	for linux-arm-kernel@lists.infradead.org;
-	Fri, 29 May 2026 15:56:33 +0000
-Received: from pps.filterd (m0353729.ppops.net [127.0.0.1])
-	by mx0a-001b2d01.pphosted.com (8.18.1.11/8.18.1.11) with ESMTP id 64TFKGCK1685956;
-	Fri, 29 May 2026 15:56:17 GMT
+	Fri, 29 May 2026 15:56:35 +0000
+Received: from pps.filterd (m0356517.ppops.net [127.0.0.1])
+	by mx0a-001b2d01.pphosted.com (8.18.1.11/8.18.1.11) with ESMTP id 64TF7d4s1468503;
+	Fri, 29 May 2026 15:56:18 GMT
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=ibm.com; h=cc
 	:content-transfer-encoding:date:from:in-reply-to:message-id
-	:mime-version:references:subject:to; s=pp1; bh=OB54e0sJf0qPl31od
-	E4TOuJ++EZKctY7iEXbx4L5EuE=; b=ahvt5PEK3ue2LKPLeYZ0iiHkL/ub/q50A
-	xss/LlZNhg0Oclokhxgcab+IqqPYeYnkfi0VJtlmn8hUvz4A2xo5g2cyO5EDRt7c
-	Rv3qcSf6olqpanSAEsPiZ9s6g+egE1QtVmxtEYPq7bz8eG5vCrGoC1avcCdQrRbB
-	a4V19WHkkNHVGMRttXRnDAhGq11xAICMnfa2o4imN2w9Jep9zNfD/0605OmKkTbL
-	M96SV0ZtUrq/PPS535IygkfW5b/+qWjBZRsVXzz3cCDUaRBNdmgb1fiLzS02DQK1
-	+KwUBX92IfoDLobvr1G/z5tJ9TzoL6UL52ymzFeaemSG9WLxI42Xg==
-Received: from ppma12.dal12v.mail.ibm.com (dc.9e.1632.ip4.static.sl-reverse.com [50.22.158.220])
-	by mx0a-001b2d01.pphosted.com (PPS) with ESMTPS id 4ee884mh75-1
+	:mime-version:references:subject:to; s=pp1; bh=EQ2VuK7ZFaehrQoRt
+	zvCBljTp7pTrarwgW+FNoWOdfE=; b=I0nhmUfo4LDAlEHf3BKf2nOYyI/Je41nO
+	igFFNOwda9L57DJa/sMfVSmqDD4UOFrfl/ns1Zh7aMDpMZjElW1KxI7YenFnSe8z
+	Fb0J0cDY2jam7h7Q+d0XffE/TGeD5gAoajRvPXWxuoOpxjdlb7wRThElrfMazEU4
+	rRxqMoXJkMNd9+DnEvOGuwe7xIxbZuKL6Nf+8+0EYcmy21wFAEbtZQYJzNL5Unju
+	ADp7xZZZKyOr62Nxctgy7CYUd2Y6sSm6u6bR3bYuwaOUYcJ3R2dq3OkehQTGoYhs
+	UJgSSiyKiQafZ/d3CvYSedv63LAHsx1M6KXrA2WPhsrnYNA/w+J9g==
+Received: from ppma21.wdc07v.mail.ibm.com (5b.69.3da9.ip4.static.sl-reverse.com [169.61.105.91])
+	by mx0a-001b2d01.pphosted.com (PPS) with ESMTPS id 4ee886mgjh-1
 	(version=TLSv1.2 cipher=ECDHE-RSA-AES256-GCM-SHA384 bits=256 verify=NOT);
-	Fri, 29 May 2026 15:56:15 +0000 (GMT)
-Received: from pps.filterd (ppma12.dal12v.mail.ibm.com [127.0.0.1])
-	by ppma12.dal12v.mail.ibm.com (8.18.1.7/8.18.1.7) with ESMTP id 64TFs5GF003169;
-	Fri, 29 May 2026 15:56:14 GMT
-Received: from smtprelay02.fra02v.mail.ibm.com ([9.218.2.226])
-	by ppma12.dal12v.mail.ibm.com (PPS) with ESMTPS id 4edjrbgm8v-1
+	Fri, 29 May 2026 15:56:18 +0000 (GMT)
+Received: from pps.filterd (ppma21.wdc07v.mail.ibm.com [127.0.0.1])
+	by ppma21.wdc07v.mail.ibm.com (8.18.1.7/8.18.1.7) with ESMTP id 64TFs9LX029222;
+	Fri, 29 May 2026 15:56:16 GMT
+Received: from smtprelay05.fra02v.mail.ibm.com ([9.218.2.225])
+	by ppma21.wdc07v.mail.ibm.com (PPS) with ESMTPS id 4edjrbgks5-1
 	(version=TLSv1.2 cipher=ECDHE-RSA-AES256-GCM-SHA384 bits=256 verify=NOT);
-	Fri, 29 May 2026 15:56:14 +0000 (GMT)
+	Fri, 29 May 2026 15:56:16 +0000 (GMT)
 Received: from smtpav07.fra02v.mail.ibm.com (smtpav07.fra02v.mail.ibm.com [10.20.54.106])
-	by smtprelay02.fra02v.mail.ibm.com (8.14.9/8.14.9/NCO v10.0) with ESMTP id 64TFu6ac36700644
+	by smtprelay05.fra02v.mail.ibm.com (8.14.9/8.14.9/NCO v10.0) with ESMTP id 64TFu7tH50004440
 	(version=TLSv1/SSLv3 cipher=DHE-RSA-AES256-GCM-SHA384 bits=256 verify=OK);
-	Fri, 29 May 2026 15:56:06 GMT
+	Fri, 29 May 2026 15:56:08 GMT
 Received: from smtpav07.fra02v.mail.ibm.com (unknown [127.0.0.1])
-	by IMSVA (Postfix) with ESMTP id 0617F20040;
-	Fri, 29 May 2026 15:56:06 +0000 (GMT)
+	by IMSVA (Postfix) with ESMTP id DC33820040;
+	Fri, 29 May 2026 15:56:07 +0000 (GMT)
 Received: from smtpav07.fra02v.mail.ibm.com (unknown [127.0.0.1])
-	by IMSVA (Postfix) with ESMTP id ACE432004B;
-	Fri, 29 May 2026 15:56:05 +0000 (GMT)
+	by IMSVA (Postfix) with ESMTP id 8EDCA2004B;
+	Fri, 29 May 2026 15:56:07 +0000 (GMT)
 Received: from tuxmaker.boeblingen.de.ibm.com (unknown [9.87.85.9])
 	by smtpav07.fra02v.mail.ibm.com (Postfix) with ESMTP;
-	Fri, 29 May 2026 15:56:05 +0000 (GMT)
+	Fri, 29 May 2026 15:56:07 +0000 (GMT)
 From: Steffen Eiden <seiden@linux.ibm.com>
 To: kvm@vger.kernel.org, kvmarm@lists.linux.dev,
         linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org,
@@ -88,41 +88,40 @@ Cc: Alexander Gordeev <agordeev@linux.ibm.com>,
         Ulrich Weigand <Ulrich.Weigand@de.ibm.com>,
         Vasily Gorbik <gor@linux.ibm.com>, Will Deacon <will@kernel.org>,
         Zenghui Yu <yuzenghui@huawei.com>
-Subject: [PATCH v1 10/26] KVM: arm64: Fix set_oslsr_el1 to write to OSLAR_EL1
-Date: Fri, 29 May 2026 17:55:43 +0200
-Message-ID: <20260529155601.2927240-11-seiden@linux.ibm.com>
+Subject: [PATCH v1 15/26] s390: Add functions to query arm guest time
+Date: Fri, 29 May 2026 17:55:48 +0200
+Message-ID: <20260529155601.2927240-16-seiden@linux.ibm.com>
 X-Mailer: git-send-email 2.53.0
 In-Reply-To: <20260529155601.2927240-1-seiden@linux.ibm.com>
 References: <20260529155601.2927240-1-seiden@linux.ibm.com>
 MIME-Version: 1.0
 Content-Transfer-Encoding: 8bit
 X-TM-AS-GCONF: 00
-X-Authority-Analysis: v=2.4 cv=fIYJG5ae c=1 sm=1 tr=0 ts=6a19b71f cx=c_pps
- a=bLidbwmWQ0KltjZqbj+ezA==:117 a=bLidbwmWQ0KltjZqbj+ezA==:17
+X-Proofpoint-GUID: zh0j-2KLsmXGXQtSfEQu2miThfmIi10t
+X-Authority-Analysis: v=2.4 cv=Z8Dc2nRA c=1 sm=1 tr=0 ts=6a19b722 cx=c_pps
+ a=GFwsV6G8L6GxiO2Y/PsHdQ==:117 a=GFwsV6G8L6GxiO2Y/PsHdQ==:17
  a=NGcC8JguVDcA:10 a=VkNPw1HP01LnGYTKEx00:22 a=RnoormkPH1_aCDwRdu11:22
- a=uAbxVGIbfxUO_5tXvNgY:22 a=VnNF1IyMAAAA:8 a=5EGiLxFwAr7VIT5rVV0A:9
-X-Proofpoint-ORIG-GUID: Wgd_CA6F3seeTvf6_fbULAQn4h0wRnvg
-X-Proofpoint-GUID: Wgd_CA6F3seeTvf6_fbULAQn4h0wRnvg
-X-Proofpoint-Spam-Details-Enc: AW1haW4tMjYwNTI5MDE1NiBTYWx0ZWRfX7ZbACSDx4jlO
- UQ8aei+lNfw7u4H6u/iIeB1Xy96QCrJaCbwREAu9McKDcUINIf2UmHhnI5TuAAiumMN8Y9/w1GX
- Hk/qtUUhPSeT9jfgzKJQtAfnoLpEsvsLLd+NBPP96SLXAcQ2jj+AhzNDaNNX293Lo8Tthn517BQ
- F8ZWheskkNTW7Q+Z95kYw2Y+5Nr+it4XHSoSiF33H/vMPe7vPY+1efXtvR+TEDxiYp94lO/yUEn
- ULyQ6JcxM6SfSfTg+kiieT00cw8rVAvCkR5CTo70JwqjEHmUpoyL+6/XnuPxBPaNbuK62tXj6JC
- bTZIAfV8hKU1jOCmsxcTbRZtdqKOOpmaWSH/3OavNWDMtp7K6Ow4raap6+9SGxG+V9E4gzZTl59
- f/fjIlkJxC599mmR8W1vXsEy5OiOiA1C3t3Qs14ahjvtPxsmBX8Kh+h36X745+1KZ0CmOqthDW9
- ErfRFOZ5KsbMvdeBpow==
+ a=U7nrCbtTmkRpXpFmAIza:22 a=VnNF1IyMAAAA:8 a=Hmczd7efCeE0AqCQNNQA:9
+X-Proofpoint-Spam-Details-Enc: AW1haW4tMjYwNTI5MDE1NiBTYWx0ZWRfXwHVnBeyemYoW
+ TMg9EI8tQhju9p1KhbfdE08dbjeWDSJ8P5oJJCiJ6wup0bFIwxSCgUcFure2M36PZCTQfq3uWza
+ /rakQn7/qjlP2ZWcpWwcSzwdDu8X3ZjU9x2f1jRQ/tUO0z7WV/z3OmJVfeIcDYlzHoRcx6kvtBy
+ xko2J7N3LnkDLWTiPhbpDNrv32fDd54Uyw+3qAg77u75nfceFUzxGg6NzWAGAIVe1uILaJX7s8t
+ 2c6ZzWQNt87a5st8cZ70HkjrVKmT4Yudclhq+XCCJM8cdysaUAZDyZ7knZicepFWnTNU91xVR8v
+ IvxIHaQCp2uIBqV/DSlDKKYwTygRUnNPObi27ULQ050OlaT7q6lSmpeQ8bBNEtViePN2hU4zg8Y
+ 6/trH9IAoFstnckcZfvfBy5a0DcodKx/3ocBxFacSrwjb0k4dJCcP+L+V10RobxUk5ID5yMl/aa
+ 94fQ/gYd6qQ0twv0o/g==
+X-Proofpoint-ORIG-GUID: zh0j-2KLsmXGXQtSfEQu2miThfmIi10t
 X-Proofpoint-Virus-Version: vendor=baseguard
  engine=ICAP:2.0.293,Aquarius:18.0.1143,Hydra:6.1.125,FMLib:17.12.100.49
  definitions=2026-05-29_04,2026-05-28_03,2025-10-01_01
 X-Proofpoint-Spam-Details: rule=outbound_notspam policy=outbound score=0
- phishscore=0 lowpriorityscore=0 suspectscore=0 impostorscore=0
- priorityscore=1501 malwarescore=0 clxscore=1015 adultscore=0 spamscore=0
- bulkscore=0 classifier=typeunknown authscore=0 authtc= authcc= route=outbound
- adjust=0 reason=mlx scancount=1 engine=8.22.0-2605210000
- definitions=main-2605290156
+ clxscore=1015 spamscore=0 bulkscore=0 impostorscore=0 priorityscore=1501
+ malwarescore=0 phishscore=0 suspectscore=0 adultscore=0 lowpriorityscore=0
+ classifier=typeunknown authscore=0 authtc= authcc= route=outbound adjust=0
+ reason=mlx scancount=1 engine=8.22.0-2605210000 definitions=main-2605290156
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260529_085628_451659_2C93429A 
-X-CRM114-Status: GOOD (  18.42  )
+X-CRM114-CacheID: sfid-20260529_085630_297423_D02B6291 
+X-CRM114-Status: GOOD (  17.56  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -137,81 +136,123 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-From: Andreas Grapentin <gra@linux.ibm.com>
+Add functions to convert between ARM guest time (LSB0) and s390 host
+time (MSB0) using new ptff function codes.
 
-The set_oslsr_el1() function was incorrectly writing directly to the
-OSLSR_EL1 register, which is architecturally a read-only status register
-that reflects the state of the OS Lock.
-
-Fix this by extracting the OSLK bit from the user-provided value and
-writing it to OSLAR_EL1 (OS Lock Access Register) instead, which is the
-proper control register for managing the OS Lock state. OSLSR_EL1 will
-then reflect this state when read.
-
-This ensures the implementation follows the ARM architecture
-specification where OSLAR_EL1 controls the lock and OSLSR_EL1 provides
-status information.
-
-Signed-off-by: Andreas Grapentin <gra@linux.ibm.com>
+Co-developed-by: Nico Boehr <nrb@linux.ibm.com>
+Signed-off-by: Nico Boehr <nrb@linux.ibm.com>
 Signed-off-by: Steffen Eiden <seiden@linux.ibm.com>
 ---
- arch/arm64/include/asm/kvm_host.h    |  1 +
- arch/arm64/kvm/sys_regs.c            | 10 +++++++++-
- include/arch/arm64/asm/sysreg-defs.h |  1 +
- 3 files changed, 11 insertions(+), 1 deletion(-)
+ arch/s390/include/asm/timex.h | 49 +++++++++++++++++++++++++++++++++++
+ arch/s390/kernel/time.c       |  1 +
+ arch/s390/kvm/arm64/arm.c     |  9 ++++++-
+ 3 files changed, 58 insertions(+), 1 deletion(-)
 
-diff --git a/arch/arm64/include/asm/kvm_host.h b/arch/arm64/include/asm/kvm_host.h
-index a8efff6ea01d..5734e93cad57 100644
---- a/arch/arm64/include/asm/kvm_host.h
-+++ b/arch/arm64/include/asm/kvm_host.h
-@@ -408,6 +408,7 @@ enum vcpu_sysreg {
- 	PAR_EL1,	/* Physical Address Register */
- 	MDCCINT_EL1,	/* Monitor Debug Comms Channel Interrupt Enable Reg */
- 	OSLSR_EL1,	/* OS Lock Status Register */
-+	OSLAR_EL1,	/* OS Lock Access Register */
- 	DISR_EL1,	/* Deferred Interrupt Status Register */
+diff --git a/arch/s390/include/asm/timex.h b/arch/s390/include/asm/timex.h
+index 49447b40f038..9ec22a28bbda 100644
+--- a/arch/s390/include/asm/timex.h
++++ b/arch/s390/include/asm/timex.h
+@@ -99,6 +99,8 @@ extern unsigned char ptff_function_mask[16];
+ #define PTFF_QSI	0x02	/* query steering information */
+ #define PTFF_QPT	0x03	/* query physical clock */
+ #define PTFF_QUI	0x04	/* query UTC information */
++#define PTFF_QAGTO	0x10	/* query arm guest time offset */
++#define PTFF_QAGPT	0x11	/* query arm guest physical time offset */
+ #define PTFF_ATO	0x40	/* adjust tod offset */
+ #define PTFF_STO	0x41	/* set tod offset */
+ #define PTFF_SFS	0x42	/* set fine steering rate */
+@@ -136,6 +138,17 @@ struct ptff_qui {
+ 	unsigned int pad_0x5c[41];
+ } __packed;
  
- 	/* Performance Monitors Registers */
-diff --git a/arch/arm64/kvm/sys_regs.c b/arch/arm64/kvm/sys_regs.c
-index 195ecdac7bd6..6522f9302967 100644
---- a/arch/arm64/kvm/sys_regs.c
-+++ b/arch/arm64/kvm/sys_regs.c
-@@ -822,6 +822,8 @@ static bool trap_oslsr_el1(struct kvm_vcpu *vcpu,
- static int set_oslsr_el1(struct kvm_vcpu *vcpu, const struct sys_reg_desc *rd,
- 			 u64 val)
- {
-+	u64 oslk;
++/*
++ * Query Arm Guest Time
++ * used for:
++ *	- Query Arm Guest Time Offset
++ *	- Query Arm Guest Physical Time
++ */
++struct ptff_qagt {
++	u64 in;
++	u64 out;
++};
 +
- 	/*
- 	 * The only modifiable bit is the OSLK bit. Refuse the write if
- 	 * userspace attempts to change any other bit in the register.
-@@ -829,7 +831,13 @@ static int set_oslsr_el1(struct kvm_vcpu *vcpu, const struct sys_reg_desc *rd,
- 	if ((val ^ rd->val) & ~OSLSR_EL1_OSLK)
- 		return -EINVAL;
- 
--	__vcpu_assign_sys_reg(vcpu, rd->reg, val);
-+	/*
-+	 * Redirect the write to the proper control register.
-+	 * OSLSR is read-only
-+	 */
-+	oslk = SYS_FIELD_GET(OSLSR_EL1, OSLK, val);
-+	__vcpu_assign_sys_reg(vcpu, OSLAR_EL1,
-+			      SYS_FIELD_PREP(OSLAR_EL1, OSLK, oslk));
- 	return 0;
+ /*
+  * ptff - Perform timing facility function
+  * @ptff_block: Pointer to ptff parameter block
+@@ -286,4 +299,40 @@ static inline int tod_after_eq(unsigned long a, unsigned long b)
+ 	return a >= b;
  }
  
-diff --git a/include/arch/arm64/asm/sysreg-defs.h b/include/arch/arm64/asm/sysreg-defs.h
-index 3e280d4156ce..c6bdb0f11e1b 100644
---- a/include/arch/arm64/asm/sysreg-defs.h
-+++ b/include/arch/arm64/asm/sysreg-defs.h
-@@ -129,6 +129,7 @@
- #define OSLSR_EL1_OSLM_NI		0
- #define OSLSR_EL1_OSLM_IMPLEMENTED	BIT(3)
- #define OSLSR_EL1_OSLK			BIT(1)
-+#define OSLSR_EL1_OSLK_MASK             BIT(1)
++/*
++ * ptff_qagto() -  Query Arm Guest Time Offset
++ *
++ * @physical_time: Arm guest physical time in MSb 0
++ *
++ * Converts Arm guest physical time in MSb 0 bit ordering
++ * into the Arm guest offset in LSb 0 bit ordering.
++ *
++ * Return: Arm guest time offset in LSb 0
++ */
++static inline u64 ptff_qagto(u64 physical_time)
++{
++	struct ptff_qagt qagto = { .in = physical_time };
++
++	ptff(&qagto, sizeof(qagto), PTFF_QAGTO);
++	return qagto.out;
++}
++
++/*
++ * ptff_qagpt() - Query Arm Guest Physical Time
++ *
++ * @guest_time_offset: Arm guest time offset in MSb 0
++ *
++ * Converts Arm guest offset in MSb 0 bit ordering
++ * into the Arm guest physical time in LSb 0 bit ordering.
++ *
++ * Return: Arm guest physical time in LSb 0
++ * */
++static inline u64 ptff_qagpt(u64 guest_time_offset)
++{
++	struct ptff_qagt qagpt = { .in = guest_time_offset };
++
++	ptff(&qagpt, sizeof(qagpt), PTFF_QAGPT);
++	return qagpt.out;
++}
++
+ #endif
+diff --git a/arch/s390/kernel/time.c b/arch/s390/kernel/time.c
+index bd0df61d1907..2b989bebd220 100644
+--- a/arch/s390/kernel/time.c
++++ b/arch/s390/kernel/time.c
+@@ -65,6 +65,7 @@ ATOMIC_NOTIFIER_HEAD(s390_epoch_delta_notifier);
+ EXPORT_SYMBOL(s390_epoch_delta_notifier);
  
- #define SYS_OSDLR_EL1			sys_reg(2, 0, 1, 3, 4)
- #define SYS_DBGPRCR_EL1			sys_reg(2, 0, 1, 4, 4)
+ unsigned char ptff_function_mask[16];
++EXPORT_SYMBOL(ptff_function_mask);
+ 
+ static unsigned long lpar_offset;
+ static unsigned long initial_leap_seconds;
+diff --git a/arch/s390/kvm/arm64/arm.c b/arch/s390/kvm/arm64/arm.c
+index bf0866659421..636bbeda98a8 100644
+--- a/arch/s390/kvm/arm64/arm.c
++++ b/arch/s390/kvm/arm64/arm.c
+@@ -692,8 +692,15 @@ long kvm_arch_vcpu_unlocked_ioctl(struct file *filp, unsigned int ioctl,
+ 
+ static int __init kvm_s390_arm64_init(void)
+ {
+-	if (!sclp.has_aef)
++	if (!sclp.has_aef) {
++		pr_info("SAE is not available\n");
+ 		return -ENXIO;
++	}
++
++	if (!(ptff_query(PTFF_QAGTO) && ptff_query(PTFF_QAGPT))) {
++		pr_info("PTFF for arm on s390 is not available\n");
++		return -ENXIO;
++	}
+ 
+ 	return kvm_init_with_dev(sizeof(struct kvm_vcpu), 0, THIS_MODULE,
+ 				 KVM_DEV_NAME, MISC_DYNAMIC_MINOR);
 -- 
 2.53.0
 
