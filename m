@@ -4,65 +4,65 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 73FB5CD6E49
-	for <linux-arm-kernel@archiver.kernel.org>; Fri, 29 May 2026 15:51:42 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id C8234CD4F54
+	for <linux-arm-kernel@archiver.kernel.org>; Fri, 29 May 2026 15:51:46 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
 	MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:
 	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=LVdCA853kbF/5ti7W0oIJc7JmhR6xTQgk8c1qFoC35k=; b=aAnFIHN+ph1pZ72n+iqcoW0Tso
-	AI2Z0hSDHMxU+WUjIJ+7UK+cUiFnCHdMi1fGj0Pl9URPBWbZmVKC/w020zqT/J4sjKdn+937W9RkX
-	1MsMPhBPe58icEZKDlPXANxH6PSSrXT8jTgvpZoEu5GlzpgvjS/D+cRqMrJPziJ/KnxPIanZVPozz
-	9vOiUqxOKUY4PF6bPkcaX4o95zrkVRABIBXeIXR4WK4cNjwbfD/DL4FL4nPeHbsYSHfo0BEBdngxX
-	oLxPdx9nVCDonhXB/dP6xAQw4oQxXVFqm8p/JNMLb64t3WtH8wKIzuGTeYwpoe0+U3khR5xejikXI
-	8drEjj2A==;
+	bh=Cg0ros1wPgTvf6bFuzYmLK4U6oANOh/aWRatOLQjbbI=; b=qBM1lZoPPdnVtP/ckm97jIPXGD
+	pGCn6d7hBfwrdP0XvlLiwoRDp+ox3iUo2goc2Rk8eK1EGRkxhvBN6E3Z0saRjoxPFMp+FMQsfuik/
+	eoryRuVmrOCgrzeE3cfjh1Wxyz8tou1WJC3XmdsTPXcF7pxpinND1hK//wSzNWzBXxWY6BpnlSp+A
+	6DvManQrQcgA5bLw0mmWJyTV48FE9C5HxinJa8SNt+OSdWtI6VgSYEB/9Bt1NAgljqpW9ytyDS979
+	sTDGwhZK8ybex15TNcXE0zBjMX8qxQ97Nw4IieAvWKMkRKm9XZXq7Z9L+EprPCo26rgT5o8kdrx7r
+	5jYcSMAg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wSzUk-00000007jc0-3hDa;
-	Fri, 29 May 2026 15:51:34 +0000
-Received: from mx0b-001b2d01.pphosted.com ([148.163.158.5])
+	id 1wSzUm-00000007jfK-2ZsO;
+	Fri, 29 May 2026 15:51:36 +0000
+Received: from mx0a-001b2d01.pphosted.com ([148.163.156.1])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wSzUQ-00000007jQC-3jHN
+	id 1wSzUZ-00000007jVc-1AUE
 	for linux-arm-kernel@lists.infradead.org;
-	Fri, 29 May 2026 15:51:16 +0000
-Received: from pps.filterd (m0360072.ppops.net [127.0.0.1])
-	by mx0a-001b2d01.pphosted.com (8.18.1.11/8.18.1.11) with ESMTP id 64TFBpm62133330;
-	Fri, 29 May 2026 15:51:02 GMT
+	Fri, 29 May 2026 15:51:30 +0000
+Received: from pps.filterd (m0360083.ppops.net [127.0.0.1])
+	by mx0a-001b2d01.pphosted.com (8.18.1.11/8.18.1.11) with ESMTP id 64TFGVBO2418177;
+	Fri, 29 May 2026 15:51:09 GMT
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=ibm.com; h=cc
 	:content-transfer-encoding:date:from:in-reply-to:message-id
-	:mime-version:references:subject:to; s=pp1; bh=LVdCA853kbF/5ti7W
-	0oIJc7JmhR6xTQgk8c1qFoC35k=; b=R1tKZ/D7MRUhafRPs1sc8ZKPIOWjiURwm
-	tH8kfHjnKvDmVOGOw/ZLuz3xNaDnwUsVru3c+b9QCUyXyMQQXF9q7hWFLFxl7nH6
-	935JnCnk/XPpZn7+Z1potJdgc81It519h40TA03GNYfV4BkE+gFn9kkFUHWug5kq
-	xLsdNNhXvxwgbNL1M/eogN+30CdZyBQ+3JtcGDHxqcNO3TsjkXMPAWViQzcNXltS
-	qXsZGWOQRqluJXLXJAzh5OEhWaSAWXrnGLOEMyyxk74w7KSqS9+jG+EXmR1hqlua
-	n9qJRJf/LU5CHLvXyHI84hfBJEsIpbaqCSN6aT0e9500y8lv/XvTg==
-Received: from ppma22.wdc07v.mail.ibm.com (5c.69.3da9.ip4.static.sl-reverse.com [169.61.105.92])
-	by mx0a-001b2d01.pphosted.com (PPS) with ESMTPS id 4ee887uxpb-1
+	:mime-version:references:subject:to; s=pp1; bh=Cg0ros1wPgTvf6bFu
+	zYmLK4U6oANOh/aWRatOLQjbbI=; b=k3d8vDicnGVnkYtHSagOzI8BStNgoM75d
+	QdgZilUFgwOayY9otF9XMuaD5FG+TBfh/c9woL68W0bO6m04C0ItzqlWAJNMolzg
+	jWo3Slv3LKs2KvImEiNsK3T+bPScmXzh+7p6uLhUoAbS7kwtQWaQ+9A8evp8YPE/
+	FDWjkb9CSxktIuRj8IUFApnli6+57LTByqWxrV0zH8hlZpOUxDSeU6/0GEwtoXnJ
+	DSe+WQnjBPbiU5AdlPTlOFrmJq0JSMhZ6axf0ETCVuAYRrWF7pKsF3NTcrZUReHz
+	vuTPrpJSI01JVIg9IKXoiG6C5xoqrAGIXKbkSEXGfXd58yc61oEWg==
+Received: from ppma23.wdc07v.mail.ibm.com (5d.69.3da9.ip4.static.sl-reverse.com [169.61.105.93])
+	by mx0a-001b2d01.pphosted.com (PPS) with ESMTPS id 4ee884ve5n-1
 	(version=TLSv1.2 cipher=ECDHE-RSA-AES256-GCM-SHA384 bits=256 verify=NOT);
-	Fri, 29 May 2026 15:51:01 +0000 (GMT)
-Received: from pps.filterd (ppma22.wdc07v.mail.ibm.com [127.0.0.1])
-	by ppma22.wdc07v.mail.ibm.com (8.18.1.7/8.18.1.7) with ESMTP id 64TFd6ce018480;
-	Fri, 29 May 2026 15:51:01 GMT
+	Fri, 29 May 2026 15:51:09 +0000 (GMT)
+Received: from pps.filterd (ppma23.wdc07v.mail.ibm.com [127.0.0.1])
+	by ppma23.wdc07v.mail.ibm.com (8.18.1.7/8.18.1.7) with ESMTP id 64TFd6JC022954;
+	Fri, 29 May 2026 15:51:07 GMT
 Received: from smtprelay06.fra02v.mail.ibm.com ([9.218.2.230])
-	by ppma22.wdc07v.mail.ibm.com (PPS) with ESMTPS id 4edjrc0faw-1
+	by ppma23.wdc07v.mail.ibm.com (PPS) with ESMTPS id 4edjrc8exg-1
 	(version=TLSv1.2 cipher=ECDHE-RSA-AES256-GCM-SHA384 bits=256 verify=NOT);
-	Fri, 29 May 2026 15:51:01 +0000 (GMT)
+	Fri, 29 May 2026 15:51:07 +0000 (GMT)
 Received: from smtpav07.fra02v.mail.ibm.com (smtpav07.fra02v.mail.ibm.com [10.20.54.106])
-	by smtprelay06.fra02v.mail.ibm.com (8.14.9/8.14.9/NCO v10.0) with ESMTP id 64TFor1329950428
+	by smtprelay06.fra02v.mail.ibm.com (8.14.9/8.14.9/NCO v10.0) with ESMTP id 64TFp09629294930
 	(version=TLSv1/SSLv3 cipher=DHE-RSA-AES256-GCM-SHA384 bits=256 verify=OK);
-	Fri, 29 May 2026 15:50:53 GMT
+	Fri, 29 May 2026 15:51:00 GMT
 Received: from smtpav07.fra02v.mail.ibm.com (unknown [127.0.0.1])
-	by IMSVA (Postfix) with ESMTP id C77342004F;
-	Fri, 29 May 2026 15:50:53 +0000 (GMT)
+	by IMSVA (Postfix) with ESMTP id A703720043;
+	Fri, 29 May 2026 15:51:00 +0000 (GMT)
 Received: from smtpav07.fra02v.mail.ibm.com (unknown [127.0.0.1])
-	by IMSVA (Postfix) with ESMTP id 76A4C20065;
-	Fri, 29 May 2026 15:50:53 +0000 (GMT)
+	by IMSVA (Postfix) with ESMTP id 563A220063;
+	Fri, 29 May 2026 15:51:00 +0000 (GMT)
 Received: from tuxmaker.boeblingen.de.ibm.com (unknown [9.87.85.9])
 	by smtpav07.fra02v.mail.ibm.com (Postfix) with ESMTP;
-	Fri, 29 May 2026 15:50:53 +0000 (GMT)
+	Fri, 29 May 2026 15:51:00 +0000 (GMT)
 From: Steffen Eiden <seiden@linux.ibm.com>
 To: kvm@vger.kernel.org, kvmarm@lists.linux.dev,
         linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org,
@@ -88,40 +88,40 @@ Cc: Alexander Gordeev <agordeev@linux.ibm.com>,
         Ulrich Weigand <Ulrich.Weigand@de.ibm.com>,
         Vasily Gorbik <gor@linux.ibm.com>, Will Deacon <will@kernel.org>,
         Zenghui Yu <yuzenghui@huawei.com>
-Subject: [PATCH v3 08/27] arm64: Extract pstate definitions from ptrace
-Date: Fri, 29 May 2026 17:50:22 +0200
-Message-ID: <20260529155050.2902245-9-seiden@linux.ibm.com>
+Subject: [PATCH v3 27/27] KVM: s390: arm64: Enable KVM_ARM64 config and Kbuild
+Date: Fri, 29 May 2026 17:50:41 +0200
+Message-ID: <20260529155050.2902245-28-seiden@linux.ibm.com>
 X-Mailer: git-send-email 2.53.0
 In-Reply-To: <20260529155050.2902245-1-seiden@linux.ibm.com>
 References: <20260529155050.2902245-1-seiden@linux.ibm.com>
 MIME-Version: 1.0
 Content-Transfer-Encoding: 8bit
 X-TM-AS-GCONF: 00
-X-Authority-Analysis: v=2.4 cv=QLJYgALL c=1 sm=1 tr=0 ts=6a19b5e5 cx=c_pps
- a=5BHTudwdYE3Te8bg5FgnPg==:117 a=5BHTudwdYE3Te8bg5FgnPg==:17
+X-Authority-Analysis: v=2.4 cv=L4MtheT8 c=1 sm=1 tr=0 ts=6a19b5ed cx=c_pps
+ a=3Bg1Hr4SwmMryq2xdFQyZA==:117 a=3Bg1Hr4SwmMryq2xdFQyZA==:17
  a=NGcC8JguVDcA:10 a=VkNPw1HP01LnGYTKEx00:22 a=RnoormkPH1_aCDwRdu11:22
- a=RzCfie-kr_QcCd8fBx8p:22 a=VnNF1IyMAAAA:8 a=i1ah5YvoNV5MJ1hGTMsA:9
-X-Proofpoint-GUID: k7iLlbha4RP5sQ5NhvwMiH7gx8HDYHuz
-X-Proofpoint-ORIG-GUID: k7iLlbha4RP5sQ5NhvwMiH7gx8HDYHuz
-X-Proofpoint-Spam-Details-Enc: AW1haW4tMjYwNTI5MDE1NiBTYWx0ZWRfX8A2AaQgcgruw
- FULirAMl+hFRAkpUlZAvHR54Xocl04rcqP8oPdtdOAC+wzixXlaaKUWMcT8QpRCzj+b8hMS+Dit
- HwgU7YnIccpqGVQo6ifL6dTClD80GYRnbMWC2LfcQOOt9Q6sAVjd5KDF4c5tOyWy1kOF2rji3V9
- 26Y38Bamy6qjFale3xScARf5P4ZHzHBYC1kgup5thtJ2iA+MdqThO/YqlM2gHb729Ln9jB3sXWW
- W+JYo0vm01nHUskQUYnrEnmdYAq+YZ0HUPtEYHZn1+lfl3wjurcsf5hbpeFpnYkJjQABo8QCYLt
- mfx0Vgeu8wdeREvpJOkc8E9ldpw/Nny2k92quQmwMcBIwFPgvrdz7YdI503wXTw7MpaLXNAZudX
- wi9hyFnRMhfllIkrRpx8z+dLF+3JL1ZdDTtTTdf57zfyAWG6kfpaEfzCRE2UKZ/IvqQBVbyzkjF
- JDbzzXYLWp0f3cghqEg==
+ a=iQ6ETzBq9ecOQQE5vZCe:22 a=VnNF1IyMAAAA:8 a=kekBd6hy71sv0FWHAtgA:9
+X-Proofpoint-ORIG-GUID: BGMmbF-YSmlvH2_1RWij-uvq5SOJ6fwS
+X-Proofpoint-Spam-Details-Enc: AW1haW4tMjYwNTI5MDE1NiBTYWx0ZWRfX/zELhmqRfDL1
+ mptV8d1f4BdrkSkC1Cvsj+Qfj+FI7CE+JbYjHXIgYVuQxqSznXE8XJerwIIPcrw+Ei5EyjCoqly
+ BhyVjMHxHTqNNJtTXE++f6+1SPWvY0gD9R2gEY+lHQmBpe47tgaRFn3HTQutVj3w2tRd3cmeL9F
+ Wix5e42mMuZdXmO5ZGZ1NUfzxFsTwPkKf5V5VeiO4I8Q/rkx44M34tEqJsvmnIDum/P5iwslyQx
+ CY7qDWVQp1k8mjRDLGH2P/I0e7hRi5X1xXcUOlGrCFQhuL79ei8WAAS1acVQWrth3jLm9/itDDX
+ O9x1B1FdtXz1Mj7P69PeCX2e+WlBDXFahnlMxZtrkkjXTWYEJ2TzJnxsYupWPYMnSonaS0fEwY0
+ 1pHAluMKrm80FwLCIQzF32Fec4jfZECkqT8qglGIX8T+8/kMNQ45NSZQREVmbLLEokJNMfCjkev
+ 5JvmkMdOGu+vEjC20NQ==
+X-Proofpoint-GUID: BGMmbF-YSmlvH2_1RWij-uvq5SOJ6fwS
 X-Proofpoint-Virus-Version: vendor=baseguard
  engine=ICAP:2.0.293,Aquarius:18.0.1143,Hydra:6.1.125,FMLib:17.12.100.49
  definitions=2026-05-29_04,2026-05-28_03,2025-10-01_01
 X-Proofpoint-Spam-Details: rule=outbound_notspam policy=outbound score=0
- spamscore=0 suspectscore=0 impostorscore=0 malwarescore=0 adultscore=0
- lowpriorityscore=0 phishscore=0 clxscore=1015 priorityscore=1501 bulkscore=0
+ phishscore=0 lowpriorityscore=0 suspectscore=0 clxscore=1015 malwarescore=0
+ bulkscore=0 impostorscore=0 adultscore=0 priorityscore=1501 spamscore=0
  classifier=typeunknown authscore=0 authtc= authcc= route=outbound adjust=0
  reason=mlx scancount=1 engine=8.22.0-2605210000 definitions=main-2605290156
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260529_085115_087430_F60BB262 
-X-CRM114-Status: GOOD (  20.25  )
+X-CRM114-CacheID: sfid-20260529_085123_410264_67A801BE 
+X-CRM114-Status: GOOD (  22.19  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -136,324 +136,233 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-From: Nina Schoetterl-Glausch <nsg@linux.ibm.com>
+Add all Kbuild/Makefile configurations to build a second KVM module on
+s390 implementing the arm64-KVM API. To prevent symbol conflicts with
+kvm-s390 all internal symbols in kvm-arm64 are mangled if compiled as
+built-in. The new module ins named kvm-arm64.
 
-Split all definitions that can be used by non-native architectures into a
-separate file pstate.h. This allows other architectures using
-the pstate definitions. While at it refactor SPSR related definitions
-to use the BIT(n) macro and move them into sysreg-defs.h
+As in this case the build does not go through the normal build process
+the module parameter handling would be messed up. By forcing
+KBUILD_MODNAME to kvm-arm64 all parameters are at the same location and
+not at object/basename of the object file the parameter is introduced.
 
+Co-developed-by: Andreas Grapentin <gra@linux.ibm.com>
+Signed-off-by: Andreas Grapentin <gra@linux.ibm.com>
+Co-developed-by: Nina Schoetterl-Glausch <nsg@linux.ibm.com>
 Signed-off-by: Nina Schoetterl-Glausch <nsg@linux.ibm.com>
+Co-developed-by: Gautam Gala <ggala@linux.ibm.com>
+Signed-off-by: Gautam Gala <ggala@linux.ibm.com>
 Signed-off-by: Steffen Eiden <seiden@linux.ibm.com>
 ---
- arch/arm64/include/asm/ptrace.h      | 34 +-----------------
- arch/arm64/include/uapi/asm/pstate.h | 53 ++++++++++++++++++++++++++++
- arch/arm64/include/uapi/asm/ptrace.h | 49 +------------------------
- include/arch/arm64/asm/pstate.h      | 46 ++++++++++++++++++++++++
- include/arch/arm64/asm/sysreg-defs.h | 42 ++++++++++++++++++++++
- include/uapi/arch/arm64/asm/Kbuild   |  1 +
- 6 files changed, 144 insertions(+), 81 deletions(-)
- create mode 100644 arch/arm64/include/uapi/asm/pstate.h
- create mode 100644 include/arch/arm64/asm/pstate.h
+ arch/s390/configs/defconfig  |   1 +
+ arch/s390/include/asm/Kbuild |   3 +
+ arch/s390/kvm/Kconfig        |   1 +
+ arch/s390/kvm/Makefile       |   1 +
+ arch/s390/kvm/arm64/Kconfig  |  22 +++++++
+ arch/s390/kvm/arm64/Makefile | 108 +++++++++++++++++++++++++++++++++++
+ arch/s390/tools/Makefile     |   2 +
+ 7 files changed, 138 insertions(+)
+ create mode 100644 arch/s390/kvm/arm64/Kconfig
+ create mode 100644 arch/s390/kvm/arm64/Makefile
 
-diff --git a/arch/arm64/include/asm/ptrace.h b/arch/arm64/include/asm/ptrace.h
-index 39582511ad72..72ea0a8af960 100644
---- a/arch/arm64/include/asm/ptrace.h
-+++ b/arch/arm64/include/asm/ptrace.h
-@@ -9,6 +9,7 @@
- #define __ASM_PTRACE_H
+diff --git a/arch/s390/configs/defconfig b/arch/s390/configs/defconfig
+index 21e803354845..65d5e739539b 100644
+--- a/arch/s390/configs/defconfig
++++ b/arch/s390/configs/defconfig
+@@ -58,6 +58,7 @@ CONFIG_CMM=m
+ CONFIG_APPLDATA_BASE=y
+ CONFIG_S390_HYPFS_FS=y
+ CONFIG_KVM_S390=m
++CONFIG_KVM_ARM64=m
+ CONFIG_S390_UNWIND_SELFTEST=m
+ CONFIG_S390_KPROBES_SANITY_TEST=m
+ CONFIG_S390_MODULES_SANITY_TEST=m
+diff --git a/arch/s390/include/asm/Kbuild b/arch/s390/include/asm/Kbuild
+index 0c1fc47c3ba0..f6fd67d1c651 100644
+--- a/arch/s390/include/asm/Kbuild
++++ b/arch/s390/include/asm/Kbuild
+@@ -8,3 +8,6 @@ generic-y += asm-offsets.h
+ generic-y += mcs_spinlock.h
+ generic-y += mmzone.h
+ generic-y += ring_buffer.h
++
++generated-y += sysreg-gen-defs.h
++generated-y += kvm_arm64_modname.h
+diff --git a/arch/s390/kvm/Kconfig b/arch/s390/kvm/Kconfig
+index f8d4a9a38dae..bbae58aa8bc4 100644
+--- a/arch/s390/kvm/Kconfig
++++ b/arch/s390/kvm/Kconfig
+@@ -20,5 +20,6 @@ config KVM
+ 	tristate
  
- #include <asm/cpufeature.h>
-+#include <asm/pstate.h>
+ source "arch/s390/kvm/s390/Kconfig"
++source "arch/s390/kvm/arm64/Kconfig"
  
- #include <uapi/asm/ptrace.h>
+ endif # VIRTUALIZATION
+diff --git a/arch/s390/kvm/Makefile b/arch/s390/kvm/Makefile
+index c43d7dffca13..38bdd7c9b42d 100644
+--- a/arch/s390/kvm/Makefile
++++ b/arch/s390/kvm/Makefile
+@@ -4,3 +4,4 @@
+ # Copyright IBM Corp. 2008
  
-@@ -28,10 +29,6 @@
- 
- #define GIC_PRIO_PSR_I_SET	GICV3_PRIO_PSR_I_SET
- 
--/* Additional SPSR bits not exposed in the UABI */
--#define PSR_MODE_THREAD_BIT	(1 << 0)
--#define PSR_IL_BIT		(1 << 20)
--
- /* AArch32-specific ptrace requests */
- #define COMPAT_PTRACE_GETREGS		12
- #define COMPAT_PTRACE_SETREGS		13
-@@ -42,41 +39,12 @@
- #define COMPAT_PTRACE_GETHBPREGS	29
- #define COMPAT_PTRACE_SETHBPREGS	30
- 
--/* SPSR_ELx bits for exceptions taken from AArch32 */
--#define PSR_AA32_MODE_MASK	0x0000001f
--#define PSR_AA32_MODE_USR	0x00000010
--#define PSR_AA32_MODE_FIQ	0x00000011
--#define PSR_AA32_MODE_IRQ	0x00000012
--#define PSR_AA32_MODE_SVC	0x00000013
--#define PSR_AA32_MODE_ABT	0x00000017
--#define PSR_AA32_MODE_HYP	0x0000001a
--#define PSR_AA32_MODE_UND	0x0000001b
--#define PSR_AA32_MODE_SYS	0x0000001f
--#define PSR_AA32_T_BIT		0x00000020
--#define PSR_AA32_F_BIT		0x00000040
--#define PSR_AA32_I_BIT		0x00000080
--#define PSR_AA32_A_BIT		0x00000100
--#define PSR_AA32_E_BIT		0x00000200
--#define PSR_AA32_PAN_BIT	0x00400000
--#define PSR_AA32_SSBS_BIT	0x00800000
--#define PSR_AA32_DIT_BIT	0x01000000
--#define PSR_AA32_Q_BIT		0x08000000
--#define PSR_AA32_V_BIT		0x10000000
--#define PSR_AA32_C_BIT		0x20000000
--#define PSR_AA32_Z_BIT		0x40000000
--#define PSR_AA32_N_BIT		0x80000000
--#define PSR_AA32_IT_MASK	0x0600fc00	/* If-Then execution state mask */
--#define PSR_AA32_GE_MASK	0x000f0000
--
- #ifdef CONFIG_CPU_BIG_ENDIAN
- #define PSR_AA32_ENDSTATE	PSR_AA32_E_BIT
- #else
- #define PSR_AA32_ENDSTATE	0
- #endif
- 
--/* AArch32 CPSR bits, as seen in AArch32 */
--#define COMPAT_PSR_DIT_BIT	0x00200000
--
- /*
-  * These are 'magic' values for PTRACE_PEEKUSR that return info about where a
-  * process is located in memory.
-diff --git a/arch/arm64/include/uapi/asm/pstate.h b/arch/arm64/include/uapi/asm/pstate.h
+ obj-$(CONFIG_KVM_S390) += s390/
++obj-$(CONFIG_KVM_ARM64) += arm64/
+diff --git a/arch/s390/kvm/arm64/Kconfig b/arch/s390/kvm/arm64/Kconfig
 new file mode 100644
-index 000000000000..1fbbdb6e8a2b
+index 000000000000..65b9dc25fe62
 --- /dev/null
-+++ b/arch/arm64/include/uapi/asm/pstate.h
-@@ -0,0 +1,53 @@
-+/* SPDX-License-Identifier: GPL-2.0 WITH Linux-syscall-note */
++++ b/arch/s390/kvm/arm64/Kconfig
+@@ -0,0 +1,22 @@
++# SPDX-License-Identifier: GPL-2.0
 +
-+#ifndef _UAPI__ASM_PSTATE_SHARED_H
-+#define _UAPI__ASM_PSTATE_SHARED_H
++config KVM_ARM64
++	def_tristate y
++	prompt "Kernel-based Virtual Machine (KVM) support for arm64 guests"
++	depends on HAS_IOMEM
++	select KVM
++	select KVM_VFIO
++	select IRQ_BYPASS_MANAGER
++	select SCHED_INFO
++	select XARRAY_MULTI
++	select KVM_COMMON
++	select HAVE_KVM_CPU_RELAX_INTERCEPT
++	select HAVE_KVM_MSI
++	select HAVE_KVM_IRQCHIP
++	select HAVE_KVM_IRQ_ROUTING
++	select HAVE_KVM_VCPU_RUN_PID_CHANGE
++	select GUEST_PERF_EVENTS if PERF_EVENTS
++	help
++	  Support hosting virtualized arm64 guest machines on s390 host machines.
 +
-+/*
-+ * PSR bits
-+ */
-+#define PSR_MODE_EL0t  0x00000000
-+#define PSR_MODE_EL1t  0x00000004
-+#define PSR_MODE_EL1h  0x00000005
-+#define PSR_MODE_EL2t  0x00000008
-+#define PSR_MODE_EL2h  0x00000009
-+#define PSR_MODE_EL3t  0x0000000c
-+#define PSR_MODE_EL3h  0x0000000d
-+#define PSR_MODE_MASK  0x0000000f
-+
-+/* AArch32 CPSR bits */
-+#define PSR_MODE32_BIT         0x00000010
-+
-+/* AArch64 SPSR bits */
-+#define PSR_F_BIT      0x00000040
-+#define PSR_I_BIT      0x00000080
-+#define PSR_A_BIT      0x00000100
-+#define PSR_D_BIT      0x00000200
-+#define PSR_BTYPE_MASK 0x00000c00
-+#define PSR_SSBS_BIT   0x00001000
-+#define PSR_PAN_BIT    0x00400000
-+#define PSR_UAO_BIT    0x00800000
-+#define PSR_DIT_BIT    0x01000000
-+#define PSR_TCO_BIT    0x02000000
-+#define PSR_V_BIT      0x10000000
-+#define PSR_C_BIT      0x20000000
-+#define PSR_Z_BIT      0x40000000
-+#define PSR_N_BIT      0x80000000
-+
-+#define PSR_BTYPE_SHIFT                10
-+
-+/*
-+ * Groups of PSR bits
-+ */
-+#define PSR_f          0xff000000      /* Flags                */
-+#define PSR_s          0x00ff0000      /* Status               */
-+#define PSR_x          0x0000ff00      /* Extension            */
-+#define PSR_c          0x000000ff      /* Control              */
-+
-+/* Convenience names for the values of PSTATE.BTYPE */
-+#define PSR_BTYPE_NONE         (0b00 << PSR_BTYPE_SHIFT)
-+#define PSR_BTYPE_JC           (0b01 << PSR_BTYPE_SHIFT)
-+#define PSR_BTYPE_C            (0b10 << PSR_BTYPE_SHIFT)
-+#define PSR_BTYPE_J            (0b11 << PSR_BTYPE_SHIFT)
-+
-+#endif /* _UAPI__ASM_PSTATE_SHARED_H */
-diff --git a/arch/arm64/include/uapi/asm/ptrace.h b/arch/arm64/include/uapi/asm/ptrace.h
-index 6fed93fb2536..6e743eb021e8 100644
---- a/arch/arm64/include/uapi/asm/ptrace.h
-+++ b/arch/arm64/include/uapi/asm/ptrace.h
-@@ -24,54 +24,7 @@
- 
- #include <asm/hwcap.h>
- #include <asm/sve_context.h>
--
--
--/*
-- * PSR bits
-- */
--#define PSR_MODE_EL0t	0x00000000
--#define PSR_MODE_EL1t	0x00000004
--#define PSR_MODE_EL1h	0x00000005
--#define PSR_MODE_EL2t	0x00000008
--#define PSR_MODE_EL2h	0x00000009
--#define PSR_MODE_EL3t	0x0000000c
--#define PSR_MODE_EL3h	0x0000000d
--#define PSR_MODE_MASK	0x0000000f
--
--/* AArch32 CPSR bits */
--#define PSR_MODE32_BIT		0x00000010
--
--/* AArch64 SPSR bits */
--#define PSR_F_BIT	0x00000040
--#define PSR_I_BIT	0x00000080
--#define PSR_A_BIT	0x00000100
--#define PSR_D_BIT	0x00000200
--#define PSR_BTYPE_MASK	0x00000c00
--#define PSR_SSBS_BIT	0x00001000
--#define PSR_PAN_BIT	0x00400000
--#define PSR_UAO_BIT	0x00800000
--#define PSR_DIT_BIT	0x01000000
--#define PSR_TCO_BIT	0x02000000
--#define PSR_V_BIT	0x10000000
--#define PSR_C_BIT	0x20000000
--#define PSR_Z_BIT	0x40000000
--#define PSR_N_BIT	0x80000000
--
--#define PSR_BTYPE_SHIFT		10
--
--/*
-- * Groups of PSR bits
-- */
--#define PSR_f		0xff000000	/* Flags		*/
--#define PSR_s		0x00ff0000	/* Status		*/
--#define PSR_x		0x0000ff00	/* Extension		*/
--#define PSR_c		0x000000ff	/* Control		*/
--
--/* Convenience names for the values of PSTATE.BTYPE */
--#define PSR_BTYPE_NONE		(0b00 << PSR_BTYPE_SHIFT)
--#define PSR_BTYPE_JC		(0b01 << PSR_BTYPE_SHIFT)
--#define PSR_BTYPE_C		(0b10 << PSR_BTYPE_SHIFT)
--#define PSR_BTYPE_J		(0b11 << PSR_BTYPE_SHIFT)
-+#include <asm/pstate.h>
- 
- /* syscall emulation path in ptrace */
- #define PTRACE_SYSEMU		  31
-diff --git a/include/arch/arm64/asm/pstate.h b/include/arch/arm64/asm/pstate.h
++	  If unsure, say N.
+diff --git a/arch/s390/kvm/arm64/Makefile b/arch/s390/kvm/arm64/Makefile
 new file mode 100644
-index 000000000000..5a576ad94064
+index 000000000000..d0aac34b8d2f
 --- /dev/null
-+++ b/include/arch/arm64/asm/pstate.h
-@@ -0,0 +1,46 @@
-+/* SPDX-License-Identifier: GPL-2.0-only */
++++ b/arch/s390/kvm/arm64/Makefile
+@@ -0,0 +1,108 @@
++# SPDX-License-Identifier: GPL-2.0
 +
-+#ifndef __ARM64_ASM_PSTATE_H
-+#define __ARM64_ASM_PSTATE_H
++KVM := ../../../../virt/kvm
++include $(srctree)/virt/kvm/Makefile.kvm
++include $(srctree)/virt/kvm/arm64/Makefile.kvm
++include $(srctree)/arch/s390/kvm/gmap/Makefile
 +
-+#include <asm/sysreg-defs.h>
-+#ifdef __aarch64__
-+#include <uapi/asm/pstate.h>
-+#else
-+#include <uapi/arch/arm64/asm/pstate.h>
-+#endif /* __aarch64__ */
++ccflags-y += -I $(src) -I$(srctree)/arch/s390/kvm/gmap -DKVM_S390_ARM64
 +
-+/* Additional SPSR bits not exposed in the UABI */
-+#define PSR_MODE_THREAD_BIT	BIT(0)
-+#define PSR_IL_BIT		SPSR_IL
++kvm-arm64-obj := \
++	arm.o \
++	guest.o \
++	handle_exit.o \
++	inject_fault.o \
++	mmu.o \
++	reset.o \
 +
-+/* SPSR_ELx bits for exceptions taken from AArch32 */
-+#define PSR_AA32_MODE_MASK	SPSR_MODE_MASK
-+#define PSR_AA32_MODE_USR	(SPSR_MODE_32BIT | SPSR32_MODE_USR)
-+#define PSR_AA32_MODE_FIQ	(SPSR_MODE_32BIT | SPSR32_MODE_FIQ)
-+#define PSR_AA32_MODE_IRQ	(SPSR_MODE_32BIT | SPSR32_MODE_IRQ)
-+#define PSR_AA32_MODE_SVC	(SPSR_MODE_32BIT | SPSR32_MODE_SVC)
-+#define PSR_AA32_MODE_ABT	(SPSR_MODE_32BIT | SPSR32_MODE_ABT)
-+#define PSR_AA32_MODE_HYP	(SPSR_MODE_32BIT | SPSR32_MODE_HYP)
-+#define PSR_AA32_MODE_UND	(SPSR_MODE_32BIT | SPSR32_MODE_UND)
-+#define PSR_AA32_MODE_SYS	(SPSR_MODE_32BIT | SPSR32_MODE_SYS)
-+#define PSR_AA32_T_BIT		SPSR32_T
-+#define PSR_AA32_F_BIT		SPSR_F
-+#define PSR_AA32_I_BIT		SPSR_I
-+#define PSR_AA32_A_BIT		SPSR_A
-+#define PSR_AA32_E_BIT		SPSR32_E
-+#define PSR_AA32_PAN_BIT	SPSR_PAN
-+#define PSR_AA32_SSBS_BIT	SPSR32_SSBS
-+#define PSR_AA32_DIT_BIT	SPSR_DIT
-+#define PSR_AA32_Q_BIT		SPSR32_Q
-+#define PSR_AA32_V_BIT		SPSR_V
-+#define PSR_AA32_C_BIT		SPSR_C
-+#define PSR_AA32_Z_BIT		SPSR_Z
-+#define PSR_AA32_N_BIT		SPSR_N
-+#define PSR_AA32_IT_MASK	SPSR32_IT_MASK	/* If-Then execution state mask */
-+#define PSR_AA32_GE_MASK	SPSR32_GE_MASK
++kvm-arm64-obj += $(patsubst %.o,%-arm64.o,$(shared-arm64-obj))
++kvm-arm64-obj += $(patsubst %.o,%-arm64.o,$(kvm-y))
 +
-+/* AArch32 CPSR bits, as seen in AArch32 */
-+#define COMPAT_PSR_DIT_BIT	0x00200000
++targets += $(kvm-arm64-obj)
 +
-+#endif /* __ARM64_ASM_PSTATE_H */
-diff --git a/include/arch/arm64/asm/sysreg-defs.h b/include/arch/arm64/asm/sysreg-defs.h
-index 58cb7eb0bf4e..27646c91e15c 100644
---- a/include/arch/arm64/asm/sysreg-defs.h
-+++ b/include/arch/arm64/asm/sysreg-defs.h
-@@ -468,6 +468,48 @@
- #define SYS_FPEXC32_EL2			sys_reg(3, 4, 5, 3, 0)
- #define SYS_TFSR_EL2			sys_reg(3, 4, 5, 6, 0)
++$(obj)/%-arm64.o: $(src)/%.c FORCE
++	@mkdir -p $(dir $@)
++	$(call if_changed_rule,cc_o_c)
++
++ifeq ($(CONFIG_KVM_ARM64),m)
++
++kvm-arm64-y = $(kvm-arm64-obj)
++
++else ifeq ($(CONFIG_KVM_ARM64),y)
++
++KVM_ARM64_GEN_DIR :=$(objtree)/arch/${SRCARCH}/include/generated/asm
++KVM_ARM64_MODNAME_H := $(KVM_ARM64_GEN_DIR)/kvm_arm64_modname.h
++ccflags-y += -include $(KVM_ARM64_MODNAME_H)
++
++targets += $(KVM_ARM64_MODNAME_H)
++
++quiet_cmd_kvm_arm64_modname_h = GEN     $@
++      cmd_kvm_arm64_modname_h = { \
++	echo '/* Automatically generated; do not edit. */'; \
++	echo '\#ifndef _KVM_ARM64_MODNAME_H'; \
++	echo '\#define _KVM_ARM64_MODNAME_H'; \
++	echo '\#undef KBUILD_MODNAME'; \
++	echo '\#define KBUILD_MODNAME "kvm_arm64"'; \
++	echo '\#endif /* _KVM_ARM64_MODNAME_H */'; \
++	} > $@
++
++$(addprefix $(obj)/,$(kvm-arm64-obj)): $(KVM_ARM64_MODNAME_H)
++
++$(KVM_ARM64_MODNAME_H):
++	@mkdir -p $(KVM_ARM64_GEN_DIR)
++	$(call cmd,kvm_arm64_modname_h)
++
++prereq-o-cmd = $(foreach o, $(filter %.o, $^), $(dir $(o)).$(notdir $(o)).cmd)
++cmd_gen_symversions_o = \
++	grep --no-filename "^\#SYMVER" $(prereq-o-cmd) >> $(dot-target).cmd || true
++
++define rule_ld_o_o
++	$(call cmd_and_savecmd,ld)
++	$(call cmd,gen_symversions_o)
++endef
++
++LDFLAGS_kvm-unnamespaced.o := -r
++$(obj)/kvm-unnamespaced.o: $(addprefix $(obj)/,$(kvm-arm64-obj)) FORCE
++	$(call if_changed_rule,ld_o_o)
++
++# Make list of symbols to localize.
++# Collect normal/exported symbols. Use dict as set for deduplication.
++quiet_cmd_nm_filter = NMFLTR  $@
++	cmd_nm_filter = \
++$(NM) -jU $< | awk '							\
++{	if (match($$0, /^__export_symbol_(.*)$$/, exp_sym)) {		\
++		exp_syms[exp_sym[1]] = 1;				\
++	} else {							\
++		normal_syms[$$0] = 1;					\
++	}								\
++}									\
++END {									\
++	for (sym in normal_syms) {					\
++		if (!(sym in exp_syms)) {				\
++			print sym;					\
++		}							\
++	}								\
++}' > $@
++
++$(obj)/kvm_symbol_list: $(obj)/kvm-unnamespaced.o FORCE
++	$(call if_changed,nm_filter)
++
++define rule_oc_o_o
++	$(call cmd_and_savecmd,objcopy)
++	$(call cmd,gen_objtooldep)
++	$(call cmd,gen_symversions_o)
++endef
++
++OBJCOPYFLAGS_kvm-namespaced.o := -O default --localize-symbols=$(obj)/kvm_symbol_list
++$(obj)/kvm-namespaced.o: $(obj)/kvm-unnamespaced.o $(obj)/kvm_symbol_list FORCE
++	$(call if_changed_rule,oc_o_o)
++
++kvm-arm64-y = kvm-namespaced.o
++
++targets += kvm-unnamespaced.o kvm_symbol_list kvm-namespaced.o
++
++endif
++
++obj-$(CONFIG_KVM_ARM64) += kvm-arm64.o
++
++LINUXINCLUDE := -I$(srctree)/include/arch/arm64/ $(LINUXINCLUDE)
+diff --git a/arch/s390/tools/Makefile b/arch/s390/tools/Makefile
+index f2862364fb42..921261dcde28 100644
+--- a/arch/s390/tools/Makefile
++++ b/arch/s390/tools/Makefile
+@@ -6,6 +6,8 @@
+ kapi := arch/$(ARCH)/include/generated/asm
+ kapi-hdrs-y := $(kapi)/facility-defs.h $(kapi)/dis-defs.h
  
-+#define SPSR_PPEND			BIT(33)
-+#define SPSR_N				BIT(31)
-+#define SPSR_Z				BIT(30)
-+#define SPSR_C				BIT(29)
-+#define SPSR_V				BIT(28)
-+#define SPSR32_Q			BIT(27)
-+#define SPSR32_IT_MASK			(GENMASK(26, 25) | GENMASK(15, 10))
-+#define SPSR64_TCO			BIT(25)
-+#define SPSR_DIT			BIT(24)
-+#define SPSR64_UAO			BIT(23)
-+#define SPSR32_SSBS			BIT(23)
-+#define SPSR_PAN			BIT(22)
-+#define SPSR_SS				BIT(21)
-+#define SPSR_IL				BIT(20)
-+#define SPSR32_GE_MASK			GENMASK(19, 16)
-+#define SPSR64_SSBS			BIT(12)
-+#define SPSR64_BTYPE_SHIFT		10
-+#define SPSR64_BTYPE_MASK		(UL(3) << SPSR64_BTYPE_SHIFT)
-+#define SPSR64_D			BIT(9)
-+#define SPSR32_E			BIT(9)
-+#define SPSR_A				BIT(8)
-+#define SPSR_I				BIT(7)
-+#define SPSR_F				BIT(6)
-+#define SPSR32_T			BIT(5)
-+#define SPSR_MODE_MASK			UL(0x1f)
-+#define SPSR_MODE_32BIT			BIT(4)
-+#define SPSR64_MODE_EL0			UL(0x0)
-+#define SPSR64_MODE_EL1t		UL(0x4)
-+#define SPSR64_MODE_EL1h		UL(0x5)
-+#define SPSR64_MODE_EL2t		UL(0x8)
-+#define SPSR64_MODE_EL2h		UL(0x9)
-+#define SPSR64_MODE_EL3t		UL(0xc)
-+#define SPSR64_MODE_EL3h		UL(0xd)
-+#define SPSR32_MODE_USR			UL(0x0)
-+#define SPSR32_MODE_FIQ			UL(0x1)
-+#define SPSR32_MODE_IRQ			UL(0x2)
-+#define SPSR32_MODE_SVC			UL(0x3)
-+#define SPSR32_MODE_ABT			UL(0x7)
-+#define SPSR32_MODE_HYP			UL(0xa)
-+#define SPSR32_MODE_UND			UL(0xb)
-+#define SPSR32_MODE_SYS			UL(0xf)
++include $(srctree)/arch/arm64/tools/Makefile.sysreg
 +
- #define SYS_FAR_EL2			sys_reg(3, 4, 6, 0, 0)
- #define SYS_HPFAR_EL2			sys_reg(3, 4, 6, 0, 4)
+ PHONY += kapi
  
-diff --git a/include/uapi/arch/arm64/asm/Kbuild b/include/uapi/arch/arm64/asm/Kbuild
-index 73b69888ea28..f29b28d40e16 100644
---- a/include/uapi/arch/arm64/asm/Kbuild
-+++ b/include/uapi/arch/arm64/asm/Kbuild
-@@ -3,3 +3,4 @@ shared-uapi-src := arch/arm64/include/uapi/asm
- 
- shared-uapi-y += kvm.h
- shared-uapi-y += sve_context.h
-+shared-uapi-y += pstate.h
+ kapi:	$(kapi-hdrs-y)
 -- 
 2.53.0
 
