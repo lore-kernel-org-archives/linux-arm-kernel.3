@@ -4,60 +4,91 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 01BFCCD5BD1
-	for <linux-arm-kernel@archiver.kernel.org>; Fri, 29 May 2026 00:39:17 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id F3A1CCD5BD1
+	for <linux-arm-kernel@archiver.kernel.org>; Fri, 29 May 2026 00:55:45 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:MIME-Version:References:In-Reply-To:Message-ID:Subject:Cc:To:
-	From:Date:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=S0LhC+L7ew0JwAUKzb7htSG+8KHzDbUfZ+uer8crve4=; b=gbooJ/81c2fQ1/pkeqF8a/NRbb
-	OZe+Tl1Fawgkm02NQvaFQUcV2bnkyUp5yOlAHJI7UPDbLiu4hSaKzQD6iG4JLQtEYg/tiH+cd1GpS
-	/v30YRo+egcGrwadzsFi4UBHf4dD9sMUajbpkOq1dXHnlwWyZvDlbmntSIROwz8fuFQrGVNmS1/2C
-	jqu+iBx3zoc9T5t/Ew2V/CV2Ht/TQn28Rh6mfiafc3AuNOpWhtXFcL0FVH/lRTHu/1P8uttI2qDsb
-	4WIbMBvLvf9lXFxa6eC+RuDDNZfzWvtlwvhW9mJtRat3SNiOMrzRmfqI4X9ixUncDTTES+9w8Ay9m
-	++DlgeUQ==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=qTXQz6HHs8W29ynQVKxVai17ePUtAyTqEstLwjrZgu8=; b=ZcK9lP7w9TNp4TUVGd0XRmmYXv
+	xe68q35Bbhz8+Y6XkDqMwdHIp+fPeaJsuzjCcswOvujkmUm5hcXkVPKMbXye0oSXPD/Jvhwq497TE
+	6ukvDroWIyq+8iQ67JM47CwqV14UVTYCD36XrzQp449zsZ2FsUfMD1mhIz+NVXLCgE6KfZXXF+kLh
+	tIqIPLr7oQNRzzPif3G/p0GAlokgcsj3+9QK3fiqm46G/Yu1lqkf6dzR7nVVIN2wDYvk4PgfGGCET
+	/H4j3EgPRwEa36bLys8IS282h3AlNFI+2wENrf/nwk4E2WKrKzLpiLFZFP1ibqJwhBmI6VPJDX5p5
+	H1xS4hhQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wSlFh-00000006aMh-0uAe;
-	Fri, 29 May 2026 00:39:05 +0000
-Received: from tor.source.kernel.org ([172.105.4.254])
+	id 1wSlVi-00000006afF-26Hd;
+	Fri, 29 May 2026 00:55:38 +0000
+Received: from esa10.hc1455-7.c3s2.iphmx.com ([139.138.36.225])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wSlFf-00000006aMb-1fLx
+	id 1wSlVe-00000006aer-2OSr
 	for linux-arm-kernel@lists.infradead.org;
-	Fri, 29 May 2026 00:39:03 +0000
-Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
-	by tor.source.kernel.org (Postfix) with ESMTP id 3D74160213;
-	Fri, 29 May 2026 00:39:01 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 6BD0D1F000E9;
-	Fri, 29 May 2026 00:39:00 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1780015140;
-	bh=S0LhC+L7ew0JwAUKzb7htSG+8KHzDbUfZ+uer8crve4=;
-	h=Date:From:To:Cc:Subject:In-Reply-To:References;
-	b=Huhxiir74PyJdqHzFCx/VC7sOg9xcgOt2UIExXN4OjrzpRRIxL5udOeZOX5IWMPUY
-	 Gxah3mU8eTdd6Ol+C+nOSSNLD9ABwLtEVZ4A9hEa9lbYQl41i3V2qSu63cZN8/Kb58
-	 HAWSPpVh3Mls+N6dj+q5ESN6LjQ41QfpzqQO3klv4BnE9D6nGOhfyVNHkE2JQfBSV0
-	 dgHApsPOfNZEf8KPP7MAErX+0XEINmBRUirb6nENwokaulWf+L63nzvCI2acrhF9Kt
-	 ofaMYNQl1qgMBVBu7fcuTGVi6PZIAv+geeoUBL6+XWuB9Oh6Weac80vr9IryXGXj5T
-	 a0PFjOxcuTcag==
-Date: Thu, 28 May 2026 17:38:59 -0700
-From: Jakub Kicinski <kuba@kernel.org>
-To: Haoxiang Li <lihaoxiang@isrc.iscas.ac.cn>
-Cc: andrew+netdev@lunn.ch, edumazet@google.com, davem@davemloft.net,
- pabeni@redhat.com, Steen.Hegelund@microchip.com,
- daniel.machon@microchip.com, UNGLinuxDriver@microchip.com,
- netdev@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
- linux-kernel@vger.kernel.org
-Subject: Re: [PATCH] net: microchip: sparx5: clean up PSFP resources on
- flower setup failure
-Message-ID: <20260528173859.04fd6c27@kernel.org>
-In-Reply-To: <20260527073855.2334001-1-lihaoxiang@isrc.iscas.ac.cn>
-References: <20260527073855.2334001-1-lihaoxiang@isrc.iscas.ac.cn>
+	Fri, 29 May 2026 00:55:36 +0000
+DKIM-Signature: v=1; a=rsa-sha256; c=simple/simple;
+  d=fujitsu.com; i=@fujitsu.com; q=dns/txt; s=fj2;
+  t=1780016134; x=1811552134;
+  h=date:from:to:cc:subject:message-id:references:
+   mime-version:in-reply-to;
+  bh=lhpPtqrPlN22mh1WZzcu3aj/wlFlJxXUx2s+ET5Hoyw=;
+  b=mWRWw1BG+xhSGGzWdT4bNw8QoQksIQirgFRMv1HO+1lQN5HaxWxjwnOb
+   PJpeZWpRAKn+lnNi0g6sel3u9vtiYoJSpmWaI4hRcNGfxsvW/Ecx5/idp
+   MVPOdVmuU4aYTqElt/WCLUblKfpKm8vx2C+ZWh+/U/B7V38OnOaSvx6+C
+   n+yfqIbxZVUOpvHnRLOcLtU+RnwyDfzBMhoH7i8gbA496bmQAui8PRhal
+   jUJOd2wzyHJhj8YN+1DaYuYg2Q9XnYJI8SECNqF2vCZCTayUh3W28YJrn
+   B+jcRAmFSyHHl5RuWmBd8oro8xJFw/OHnJAmEJO/Z892CR9gWiDkRoVv/
+   A==;
+X-CSE-ConnectionGUID: dX4/cQIJS6a6dqNTcjQfng==
+X-CSE-MsgGUID: obudLK9eSZaQdnFn6JxWLg==
+X-IronPort-AV: E=McAfee;i="6800,10657,11800"; a="228364635"
+X-IronPort-AV: E=Sophos;i="6.24,174,1774278000"; 
+   d="scan'208";a="228364635"
+Received: from gmgwuk01.global.fujitsu.com ([172.187.114.235])
+  by esa10.hc1455-7.c3s2.iphmx.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 29 May 2026 09:55:31 +0900
+Received: from az2uksmgm4.o.css.fujitsu.com (unknown [10.151.22.201])
+	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
+	 key-exchange X25519 server-signature RSA-PSS (2048 bits) server-digest SHA256)
+	(No client certificate requested)
+	by gmgwuk01.global.fujitsu.com (Postfix) with ESMTPS id AEBF3C00415
+	for <linux-arm-kernel@lists.infradead.org>; Fri, 29 May 2026 00:55:31 +0000 (UTC)
+Received: from az2nlsmom4.fujitsu.com (unknown [10.150.26.201])
+	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
+	 key-exchange X25519 server-signature RSA-PSS (2048 bits) server-digest SHA256)
+	(No client certificate requested)
+	by az2uksmgm4.o.css.fujitsu.com (Postfix) with ESMTPS id 647E014003F4
+	for <linux-arm-kernel@lists.infradead.org>; Fri, 29 May 2026 00:55:31 +0000 (UTC)
+Received: from sm-arm-grace07 (unknown [10.124.178.20])
+	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
+	 key-exchange ECDHE (P-256) server-signature RSA-PSS (2048 bits) server-digest SHA256)
+	(No client certificate requested)
+	by az2nlsmom4.fujitsu.com (Postfix) with ESMTPS id 128DA2000752;
+	Fri, 29 May 2026 00:55:26 +0000 (UTC)
+Date: Fri, 29 May 2026 09:55:24 +0900
+From: Itaru Kitayama <itaru.kitayama@fujitsu.com>
+To: Marc Zyngier <maz@kernel.org>
+Cc: Wei-Lin Chang <weilin.chang@arm.com>,
+	linux-arm-kernel@lists.infradead.org, kvmarm@lists.linux.dev,
+	linux-kernel@vger.kernel.org, Oliver Upton <oupton@kernel.org>,
+	Joey Gouly <joey.gouly@arm.com>,
+	Suzuki K Poulose <suzuki.poulose@arm.com>,
+	Zenghui Yu <yuzenghui@huawei.com>,
+	Catalin Marinas <catalin.marinas@arm.com>,
+	Will Deacon <will@kernel.org>
+Subject: Re: [PATCH v3 0/5] KVM: arm64: nv: Implement nested stage-2 reverse
+ map
+Message-ID: <ahjj_CKuXhDOHhBZ@sm-arm-grace07>
+References: <20260510145338.322962-1-weilin.chang@arm.com>
+ <ag1jQB3dRX0RSqbR@sm-arm-grace07>
+ <86fr3bvnt5.wl-maz@kernel.org>
 MIME-Version: 1.0
-Content-Type: text/plain; charset=US-ASCII
-Content-Transfer-Encoding: 7bit
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+In-Reply-To: <86fr3bvnt5.wl-maz@kernel.org>
+X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
+X-CRM114-CacheID: sfid-20260528_175535_171137_B5FB72F3 
+X-CRM114-Status: GOOD (  23.50  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -72,13 +103,64 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Wed, 27 May 2026 15:38:55 +0800 Haoxiang Li wrote:
-> Add error handling paths to unwind the PSFP resources that have already
-> been allocated before returning the error.
+On Thu, May 28, 2026 at 11:19:34AM +0100, Marc Zyngier wrote:
+> On Wed, 20 May 2026 08:31:12 +0100,
+> Itaru Kitayama <itaru.kitayama@fujitsu.com> wrote:
+> > 
+> > Hi Wei Lin,
+> > 
+> > On Sun, May 10, 2026 at 03:53:33PM +0100, Wei-Lin Chang wrote:
+> > > Hi,
+> > > 
+> > > This is v3 of optimizing the shadow s2 mmu unmapping during MMU
+> > > notifiers.
+> > > 
+> > > Two new preparatory patches are added, one reduces a hole in kvm_s2_mmu
+> > > and another refactors the code a bit during s2 faults. Other changes are
+> > > listed below.
+> > > 
+> > > * Changes from v2 [1]:
+> > > 
+> > >   - Removed "polluted" teminology.
+> > > 
+> > >   - Use xa_{mk, to}_value() when storing and retriving values from maple
+> > >     trees.
+> > > 
+> > >   - Avoid using the 63rd bit in maple tree values so that xa_{mk, to}_value()
+> > >     does not lose us a bit.
+> > > 
+> > >   - Added reverse map removal during TLBI handling.
+> > > 
+> > >   - Other suggested refactorings.
+> > > 
+> > > Thanks!
+> > 
+> > With this series applied on the recent kvmarm/fixes (minor local modification), 
+> > your v3 hello_nested runs fine on all three page granules; without this 16KB 
+> > kernel can't handle stage 2 unmapping paths. I tested using the latest QEMU only 
+> > so wonder how you're testing.
+> 
+> Can you clarify this statement?
+> 
+> Are you saying that 16kB S2 unmap do not work with upstream? That
+> seems odd, as it would mean NV wouldn't work on Apple HW, which
+> represents two thirds of my development boxes...
 
-Does not apply, please rebase on
-https://git.kernel.org/pub/scm/linux/kernel/git/netdev/net-next.git/
-and repost
--- 
-pw-bot: cr
+Yes, I built this morning's upstream kvmarm/fixes with 16KB granule fresh, and tested
+Wei Lin's propsed KVM selftest, hello_nested on QEMU with the small buildroot
+filesystem and saw the above i.e., the stage 2 unmapping paths never finish.
+
+I thought it was due to the Ubuntu userspace I was using for testing,
+but not sure now.
+
+Thanks,
+Itaru.
+
+> 
+> Thanks,
+> 
+> 	M.
+> 
+> -- 
+> Without deviation from the norm, progress is not possible.
 
