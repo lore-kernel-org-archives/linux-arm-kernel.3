@@ -4,66 +4,87 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id F2EF9CD6E51
-	for <linux-arm-kernel@archiver.kernel.org>; Fri, 29 May 2026 15:08:57 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 2F74ECD6E4A
+	for <linux-arm-kernel@archiver.kernel.org>; Fri, 29 May 2026 15:14:35 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
 	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
 	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=Z+neS3Llvyfy3P4tauMZpeOCQxOmOPM92PXLEWzDVW0=; b=ecIGN9OHk4qn//Ud/8RYNeGGpu
-	K/eiCyCXl2nu8nHKqrlFe2LrtF1uPp6Xyyl44dCq4R9FsHgFHELbdLs8Gfs/DHeP4h10q28GY3zG6
-	RZR24JRweJ6EhPF03k7RCm9A1hk70jH905C08EzD5PQOdZLAeFkT4Gv2xWHWoy1plUIq8lfkWSUcZ
-	Ef/fFas+1hcqniyKt1A8HYunKNC3PTtKUrWvW73DfCzgh4kRQRpNRnvstVAsBkpH5Q6hLcAVjiROU
-	iqXDj2Ij/7fOCMlNN+n7eZAsUMZpNqUP8odGvjuHQOd4pBlIdBbXVFV/qVn5hopvdpicVC6NzYPDM
-	UrD9GHVw==;
+	bh=CjGV1ydNT4vhjd08DNoiUIAjJm6vDoz197TfHBqCPyQ=; b=FUpiiVG7NIUQKYL654h2UJ99me
+	kT7IQLeMHTPvCb1d/mJgxwj/fsbWMyprNV9UBSxr3t3+uYObynTzfjmlHOa7bgf2xMl5gnX3Gxgat
+	KrjQ/JTWPJfoPNZTDqxFwWKyRH8kgqo8JUlGalTWis0+eSl5PgnLHSqcpC0j7zxfckI6j660huaz8
+	QUK5/nAFhDZZmhNP3+Qay8v8+BADeoYRYKLdFNS0DKh4Jt8VVkH5oNNDTycjwnmb/v4+elqmhpXsf
+	EeLKdgJ7RZ35tzqApyXRLLOzh4Rs0qmCmJtoGH8uvUEIJy0W80nX6A6IZSizba9YsmQ/eyaUrRbgR
+	ADvJmV/g==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wSypQ-00000007dlb-0Nch;
-	Fri, 29 May 2026 15:08:52 +0000
-Received: from tor.source.kernel.org ([2600:3c04:e001:324:0:1991:8:25])
+	id 1wSyuq-00000007e90-3WaI;
+	Fri, 29 May 2026 15:14:28 +0000
+Received: from mail-pj1-x102e.google.com ([2607:f8b0:4864:20::102e])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wSypP-00000007dlH-261g;
-	Fri, 29 May 2026 15:08:51 +0000
-Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
-	by tor.source.kernel.org (Postfix) with ESMTP id AB72F60546;
-	Fri, 29 May 2026 15:08:50 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 879E21F00893;
-	Fri, 29 May 2026 15:08:45 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1780067330;
-	bh=Z+neS3Llvyfy3P4tauMZpeOCQxOmOPM92PXLEWzDVW0=;
-	h=Date:From:To:Cc:Subject:References:In-Reply-To;
-	b=lR2pXawpPwU7zOlNmNYRWyqr6Rs8IREQyqXMAgYbEUQnkqvx5JDHA1xCz0bi7n4E5
-	 FvbfKcblWQTnP5e/D/SsEZl0f8k2dCUK+A6vkCoMuv0DrYH6JlkQ8mzfqdsO2rb3yy
-	 Ii03QBrvON1RZGmF0snsD1x+dVkZ74002GDXbRNsK3428w0kwgNIABDZygdD2YlsyK
-	 Et+xwQ2V5wuhOItthhp2u/f1mFJ/EAX7OrQ1vi30I0PkzggRH6bRUz60RJJwtEplpE
-	 buDUncSPwMsci9bBxMrD7aHU3hDo4xpDCHbrh5H8bQOLqgyOjvPiHe3IFaYQXPN3hU
-	 NRKVFqyew03qQ==
-Date: Fri, 29 May 2026 16:08:41 +0100
-From: Will Deacon <will@kernel.org>
-To: Wandun Chen <chenwandun1@gmail.com>
-Cc: linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org,
-	loongarch@lists.linux.dev, linux-riscv@lists.infradead.org,
-	devicetree@vger.kernel.org, kexec@lists.infradead.org,
-	iommu@lists.linux.dev, zhaomeijing@lixiang.com,
-	catalin.marinas@arm.com, chenhuacai@kernel.org, kernel@xen0n.name,
-	pjw@kernel.org, palmer@dabbelt.com, aou@eecs.berkeley.edu,
-	alex@ghiti.fr, robh@kernel.org, saravanak@kernel.org,
-	akpm@linux-foundation.org, bhe@redhat.com, rppt@kernel.org,
-	pasha.tatashin@soleen.com, pratyush@kernel.org,
-	ruirui.yang@linux.dev, m.szyprowski@samsung.com,
-	robin.murphy@arm.com, quic_obabatun@quicinc.com
-Subject: Re: [PATCH v3 09/11] arm64: kdump: exclude non-dumpable reserved
- memory regions from vmcore
-Message-ID: <ahmr-UjoApj2j5JS@willie-the-truck>
-References: <20260527032917.3385849-1-chenwandun1@gmail.com>
- <20260527032917.3385849-10-chenwandun1@gmail.com>
+	id 1wSyuo-00000007e8Y-24aZ
+	for linux-arm-kernel@lists.infradead.org;
+	Fri, 29 May 2026 15:14:27 +0000
+Received: by mail-pj1-x102e.google.com with SMTP id 98e67ed59e1d1-367cbac9c37so8384591a91.2
+        for <linux-arm-kernel@lists.infradead.org>; Fri, 29 May 2026 08:14:25 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=linaro.org; s=google; t=1780067665; x=1780672465; darn=lists.infradead.org;
+        h=in-reply-to:content-disposition:mime-version:references:message-id
+         :subject:cc:to:from:date:from:to:cc:subject:date:message-id:reply-to;
+        bh=CjGV1ydNT4vhjd08DNoiUIAjJm6vDoz197TfHBqCPyQ=;
+        b=k4x1o6tWKdipyMpkIMpswo2yvbocRG/+CxGc+/0MUAdtTeq6jek1p1a5B4frdOJ0Fp
+         2R6MDarDudkWWsDEdOe94UDeczDbTyxflWNbwsgLQPephiLJme9EL+1kdi4TdJWQzRgj
+         e/IEKrmkMGditJLtJ5StLxwHssVOEJZALViCAAqtZ7YI4KNDEuJ3LKuZKPOLcEoY7lcZ
+         TrQ/2TjaajVSjDF9SFD+FVGFWYspuKcamvONC5+U91T+Utloj1qXb4rTeFxbat7FfhVS
+         0sPb6NFDqcQtbDS5BSiBa+yqQvXZy/cjqRc2giP/IeNplPG56HT5nbCNhh4cwu8O6IZW
+         1i7w==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20251104; t=1780067665; x=1780672465;
+        h=in-reply-to:content-disposition:mime-version:references:message-id
+         :subject:cc:to:from:date:x-gm-gg:x-gm-message-state:from:to:cc
+         :subject:date:message-id:reply-to;
+        bh=CjGV1ydNT4vhjd08DNoiUIAjJm6vDoz197TfHBqCPyQ=;
+        b=DqMS4NyL4lP5XB6svvC27b1Nd65gAm9VzaZbY30yl+d5otR+AhwZGoWnZ349XGsM/v
+         BJEnluRhWqvlSWAeUwXNsGM492fxvVMizMmZLT5lcU5XgGOCCHiR6X1ISCECOsI4K+Ys
+         UmLAFSQnMhDeSxyeskO6NeHi2obqzn0iF05cNsH/0VmeJVgHsZU4ywgne3yI3IgXLiSd
+         QQ3bXFoTtxm0EQHQ4ae9ajFaQiGeU11blNUqRpcgFLIaAIeYvESxRCHmthtf6CcinTMR
+         XtrO0y1UcYyz6V8fDadnkyUISJO3u4hQdKSfv7TUUV43fSMRksIym36gMyW2WGV6jBPM
+         LGeg==
+X-Forwarded-Encrypted: i=1; AFNElJ+oJVaeNj+womfUxO5LHckXKOEShRZo0vO86XFz2rboAJAqBNvcCwND6DGQ3zph4oA/M10eLZBHnPGNRexUpzEq@lists.infradead.org
+X-Gm-Message-State: AOJu0Yy+lj32XY1VAEQVjMPjRmOZuXaLvkmfwXwJN38YfmyPc/NVgeA5
+	TkxiGBSxgnC9nbYNJjp7MRRV7bfEBfMBjnsiXr/Eh99EP6GO/1tpgz+jgSTthyRsyTQ=
+X-Gm-Gg: Acq92OFCO5Tmz0cfn/X15JauMuk1mxaZIou+lrrQ8tNoIFn9pBJs7P70UsAuBFcyy/d
+	KrwM3n0Exg1P67rYEn0clst4qzYb79x60ot+DidiXr25pvRnX27rrMcVJl1ReqPRVXC7VJz5bes
+	B1CR7k4OXXhmcINqAFlWVu8rHwO9zFIL8ZTx6zdQ8KEhYDlc6hnWaQdrKvIk2MqrG3hUWFbo+FU
+	JO6Ysyj/Rd1pw9eQ2WJ8cQJN/NYrOlssRiJxokPevqg4E9oJJx0JAkNf1NUrwjQCIWeOLYlyZXy
+	ExMzeBYElOnBUxnG6NK+b0Ce3y5H9cNZVJ95yQx7rWZCFFdeZvzu39AHPzLGNWbGCYUIIkQ/tzo
+	b2ueuRPasRgDSkwvu/5klnxuFgvKI7718uXszcI71DmIK1EgifUi4Uq5X6L/ewLol5fY/Vlj8yJ
+	DJ1yuMQv118Unmm47rXc444A2ey3peCoQqxnRWXQ==
+X-Received: by 2002:a17:902:fc8e:b0:2ba:839e:15cb with SMTP id d9443c01a7336-2bf368463e6mr2923465ad.27.1780067664889;
+        Fri, 29 May 2026 08:14:24 -0700 (PDT)
+Received: from p14s ([2604:3d09:148c:c800:fe93:5096:4a36:4399])
+        by smtp.gmail.com with ESMTPSA id d9443c01a7336-2bf239e5d83sm24992375ad.8.2026.05.29.08.14.23
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Fri, 29 May 2026 08:14:24 -0700 (PDT)
+Date: Fri, 29 May 2026 09:14:21 -0600
+From: Mathieu Poirier <mathieu.poirier@linaro.org>
+To: Tanmay Shah <tanmay.shah@amd.com>
+Cc: andersson@kernel.org, robh@kernel.org, krzk+dt@kernel.org,
+	conor+dt@kernel.org, michal.simek@amd.com, ben.levinsky@amd.com,
+	linux-remoteproc@vger.kernel.org, devicetree@vger.kernel.org,
+	linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org
+Subject: Re: [PATCH v3 0/2] remoteproc: xlnx: add auto-boot support
+Message-ID: <ahmtTVp9Kv2ZH-Ds@p14s>
+References: <20260527051611.194844-1-tanmay.shah@amd.com>
 MIME-Version: 1.0
 Content-Type: text/plain; charset=us-ascii
 Content-Disposition: inline
-In-Reply-To: <20260527032917.3385849-10-chenwandun1@gmail.com>
+In-Reply-To: <20260527051611.194844-1-tanmay.shah@amd.com>
+X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
+X-CRM114-CacheID: sfid-20260529_081426_543651_A48F5AB3 
+X-CRM114-Status: GOOD (  15.96  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -78,69 +99,40 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Wed, May 27, 2026 at 11:29:15AM +0800, Wandun Chen wrote:
-> From: Wandun Chen <chenwandun@lixiang.com>
+On Tue, May 26, 2026 at 10:16:09PM -0700, Tanmay Shah wrote:
+> The Linux kernel remoteproc framework provides auto boot feature. When
+> enabled, the remote processor framework attempts to start the remote
+> processor based on the firmware-name provided in the device-tree or
+> attach to the remote processor if bootloader has already started the
+> remote processor. Enable this auto boot feature for all AMD-xilinx
+> platforms.
 > 
-> Reserved memory regions are excluded from vmcore by default unless
-> marked dumpable. Honor the dumpable flag to filter out device firmware
-> regions (e.g., GPU, DSP, modem) reserved via device tree, since they
-> typically contain data not useful for kernel crash analysis and can
-> significantly increase vmcore size.
+> Changes in v3:
+>   - add more descriptive commit message in the patch 2/2.
 > 
-> Use of_reserved_mem_kdump_exclude() to perform the exclusion, and
-> pre-size the crash_mem array via of_reserved_mem_kdump_nr_ranges().
+> Changes in v2:
+>   - remove the auto-boot property from bindings patch (1/2)
+>   - rebase on latest remoteproc for-next branch
+>   - refactor the driver patch (2/2) and detect the auto-boot runtime
 > 
-> Signed-off-by: Wandun Chen <chenwandun@lixiang.com>
-> Tested-by: Meijing Zhao <zhaomeijing@lixiang.com>
-> ---
->  arch/arm64/kernel/machine_kexec_file.c | 6 ++++++
->  1 file changed, 6 insertions(+)
 > 
-> diff --git a/arch/arm64/kernel/machine_kexec_file.c b/arch/arm64/kernel/machine_kexec_file.c
-> index e31fabed378a..1d65320c6ba4 100644
-> --- a/arch/arm64/kernel/machine_kexec_file.c
-> +++ b/arch/arm64/kernel/machine_kexec_file.c
-> @@ -17,6 +17,7 @@
->  #include <linux/memblock.h>
->  #include <linux/of.h>
->  #include <linux/of_fdt.h>
-> +#include <linux/of_reserved_mem.h>
->  #include <linux/slab.h>
->  #include <linux/string.h>
->  #include <linux/types.h>
-> @@ -51,6 +52,7 @@ static int prepare_elf_headers(void **addr, unsigned long *sz)
->  	nr_ranges = 2; /* for exclusion of crashkernel region */
->  	for_each_mem_range(i, &start, &end)
->  		nr_ranges++;
-> +	nr_ranges += of_reserved_mem_kdump_nr_ranges();
->  
->  	cmem = kmalloc_flex(*cmem, ranges, nr_ranges);
->  	if (!cmem)
-> @@ -75,6 +77,10 @@ static int prepare_elf_headers(void **addr, unsigned long *sz)
->  			goto out;
->  	}
->  
-> +	ret = of_reserved_mem_kdump_exclude(cmem);
-> +	if (ret)
-> +		goto out;
-> +
->  	ret = crash_prepare_elf64_headers(cmem, true, addr, sz);
+> Tanmay Shah (2):
+>   dt-bindings: remoteproc: xlnx: add firmware-name property
+>   remoteproc: xlnx: enable auto boot feature
+> 
+>  .../remoteproc/xlnx,zynqmp-r5fss.yaml         |  4 ++
+>  drivers/remoteproc/xlnx_r5_remoteproc.c       | 48 +++++++++++++------
+>  2 files changed, 38 insertions(+), 14 deletions(-)
+> 
 
-This looks fine to me:
+Applied.
 
-Acked-by: Will Deacon <will@kernel.org>
+Thanks,
+Mathieu
 
-Although I do wonder whether there's scope to consolidate some of the
-arch code here. Now that you have a helper for reserved memory, perhaps
-the core code could also handle the crashkernel reservation itself as
-well? If the arch code passed in its number of memory regions, the
-core code could take care of (a) allocating the crash_mem ranges array
-(b) excluding the crashkernel and (c) excluding the reserved regions
-(the part you have here).
-
-Obviously that would be follow-up work, but the fact that you're having
-to apply basically the same diff to three architectures is a bit of a
-giveaway that this could benefit from some wider cleanup.
-
-Will
+> 
+> base-commit: 90de217305800ff32df4c0308e240925c8deb385
+> -- 
+> 2.34.1
+> 
 
