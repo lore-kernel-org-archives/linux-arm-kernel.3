@@ -4,109 +4,110 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 9D778CD5BD2
-	for <linux-arm-kernel@archiver.kernel.org>; Fri, 29 May 2026 07:38:06 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 7906DCD5BD2
+	for <linux-arm-kernel@archiver.kernel.org>; Fri, 29 May 2026 07:40:44 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
-	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Content-Type:Cc:To:Subject:Message-ID:Date:From:In-Reply-To:References:
+	MIME-Version:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=/TBv59Ti2UL7odKDTk8sG5twFnNYtXSjuJaISEHL/oY=; b=PsO/IxIsutA4fONa7fhO5qtFdF
-	yJmIcY3r1M6U/JqgzIVZN/Ci5qBVG45ijYrilV0fB/8TuijCg7o+JQO3mJeMch8nmdK+qnHItIyUH
-	CydRDqkWUa7OCGM1qTman8qJ3h+6CkQakiiV1+Tjc7S+3gcqjex1wXZlKVdgVF1K+lKZFzsPPHlza
-	U5zxB+di9jRkT6Te+QIa+gQWe7z/g4OLYQJzpjgj88mcjkAeq6nt8qsLKuqHfoiWwtuX/WHKaY4WH
-	ivPhFm4GNEkFFn9MvgkOvGhyeqfoq3eGX07JiOYcnwx6KxvM5a+W4QOS5lJE1pVg+4OWYIKF24THR
-	4eNcyXOg==;
+	bh=j149X8gXwUQ+5tkgK+g5qHkOUSrSS7YQiLSxtBB0NMw=; b=IZHUzMdAbgddWgZtPB9sjBO5Lz
+	TtObf3Ywfco2EXupFXCbRAyBBsQ0C8N9zTzC6+xeSEozcNa4riIuFrCKC2Jik3ibnZ1b9Rf3NJ6Ql
+	3WX0ibkd6yZduRV4t0VCDu+NxuY4W2JdzPdtdRkchTJOKbreEeFLG5vWbx8lPIJCYyPE+X3/SvSFC
+	xoJPtFy17BKknhMTtEnn80K2nQczPq+DN4QFETEzAcS58d14IaZ1q2k/GKXtRJEKFHrbaSN3uj41D
+	oves3UuQe6s26XyNSnc1QjwLi5Pbt3YvcdhsaEYa6P5EiGj3+/cnWx03GwoRTvqF2qs46iiY4VYc/
+	RkTRfLZw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wSrn5-00000006tKz-0F2K;
-	Fri, 29 May 2026 07:37:59 +0000
-Received: from sea.source.kernel.org ([172.234.252.31])
+	id 1wSrpc-00000006tZt-1mhq;
+	Fri, 29 May 2026 07:40:36 +0000
+Received: from mail-lf1-x136.google.com ([2a00:1450:4864:20::136])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wSrn3-00000006tKf-0H3t
+	id 1wSrpZ-00000006tZJ-3R95
 	for linux-arm-kernel@lists.infradead.org;
-	Fri, 29 May 2026 07:37:58 +0000
-Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
-	by sea.source.kernel.org (Postfix) with ESMTP id 79BE941900;
-	Fri, 29 May 2026 07:37:55 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 5BF041F00893;
-	Fri, 29 May 2026 07:37:53 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1780040275;
-	bh=/TBv59Ti2UL7odKDTk8sG5twFnNYtXSjuJaISEHL/oY=;
-	h=Date:Subject:To:Cc:References:From:In-Reply-To;
-	b=Dqf8dH4EkGT7OxI275CdWh+iMxp5lOchslcpiipnZJUatrKB2lkn2Br+GSUcvgfxH
-	 WRxmj+uqh7nAF9ILkkcUgcfmTXXpLzWr4Hce0JxuNyqcaTM5+jZQL3GyRCjmj9mBU9
-	 t5dXMBrjBzpY5dpiGpjYTlkBG9scQBwgBEk/dZ4w9PlmX6PjsJDZ3X2eH4o5e5BnxR
-	 9mf/SWFVjBoWw9Xvp7xn27dPcZcs3HGc1XSr1f/ZcREk7T4aEEmDdHQEIZWpE3NC3f
-	 c6e/fWFU6+k6zErJZuEuRx4uLpzY2Uve1iwyrRfWfShF4NHAVkCVzyYOOV19OTc8PP
-	 WvdWjLVN1reIQ==
-Message-ID: <038ae6be-03f7-4e6a-8c1e-70cbcf8424cb@kernel.org>
-Date: Fri, 29 May 2026 09:37:51 +0200
+	Fri, 29 May 2026 07:40:34 +0000
+Received: by mail-lf1-x136.google.com with SMTP id 2adb3069b0e04-5aa4b131940so2927846e87.0
+        for <linux-arm-kernel@lists.infradead.org>; Fri, 29 May 2026 00:40:33 -0700 (PDT)
+ARC-Seal: i=1; a=rsa-sha256; t=1780040432; cv=none;
+        d=google.com; s=arc-20240605;
+        b=LER9lMiG2182RLyHDXQlHGWV1pD3cK7nO2sbTIOY9YZimNA6A47Qa6jpKSb6nltLxw
+         6MVcWTcg5Gx2aa71+aq4a3GxfyR+mfha7m+A212/YRTbmKyqFSU+4JjpSAN6bM3onihg
+         0jNDhngu6uepNvfcNtVz4+rrsv9RjRSKrDjZJanL1C0EoTavc4z2VsoC9WpkgKvxLc4h
+         NEX8DQBlf1Q78hLrd/JS468CtZPJyAJbleBtJ0U/8DGTze0oLddAOvOvJwJoCGV48e7y
+         vHLuKD/NHFua30Yy+E6mTAEBcje4XznOaIJs7roObwt0QsC3znmDVggW/6tpA6yO24il
+         j2XQ==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20240605;
+        h=content-transfer-encoding:cc:to:subject:message-id:date:from
+         :in-reply-to:references:mime-version:dkim-signature;
+        bh=j149X8gXwUQ+5tkgK+g5qHkOUSrSS7YQiLSxtBB0NMw=;
+        fh=hepJSU5evqCsx0VvMOJDlJIdGHgn3mgFqarrqysT9LE=;
+        b=Io0qixjQm3q360q6nTNg5VrYr823b+bbskfKa2Cy8d/2UUOqOkuAQQF6dGMnLutFOx
+         f6ddalOUw64QntVTCfktbDaMfbjifVZvT9fIfdgIL+JqU/TIBT7lsJK1UH2PuwJ+MF32
+         K/ieh8Fnc6d0kjr2/ddU0WDdyG8hGf5a2fw5uhYegN3gMLyvxz/gobR5bxb0C7rIos1O
+         w5r6Eb4fJTfH67roWSaBchEn9RzuQ3Zjc+YtHR8rMTiflutw7srude8K4Ktz5WK8sQ5r
+         NH3i6R+f6S/SNNFZTjaqpgGaaes0sSH9d66WHqn/FMg+XzeNoPCxraVbvRDtHcI9Zrbq
+         HkuQ==;
+        darn=lists.infradead.org
+ARC-Authentication-Results: i=1; mx.google.com; arc=none
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=gmail.com; s=20251104; t=1780040432; x=1780645232; darn=lists.infradead.org;
+        h=content-transfer-encoding:cc:to:subject:message-id:date:from
+         :in-reply-to:references:mime-version:from:to:cc:subject:date
+         :message-id:reply-to;
+        bh=j149X8gXwUQ+5tkgK+g5qHkOUSrSS7YQiLSxtBB0NMw=;
+        b=pRbLfr4DXX0XoAJ7Mz+hjgdW8A9tpICC5xgKv/SFaWgeah8lWU3VEbdFEy9yLDsfpQ
+         Z9AC+gAanoO0hD4lP8d0brfMqKPeQx5w2NXuphb79nJRq1zukQIl0SoFjzgG6XATnezE
+         39NynjPrzoibGH6956u6BuplSZbi85Rp+K1+EVK6oq58crVLqvCl+tbHcJ9Z4JWn9OUO
+         2bXYj8SBrs7tnPTllf/gkoqfmTFElur1iYwiMEdQL6PajiWlQs01b2CqxOHSF2xWh/j6
+         F13wvdX6Di5GeR3LTanL4oSM5DOUypJZYUd4o2zHyU46VmiO3QmhUWDUYUQSTLJ8qe9E
+         OB6w==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20251104; t=1780040432; x=1780645232;
+        h=content-transfer-encoding:cc:to:subject:message-id:date:from
+         :in-reply-to:references:mime-version:x-gm-gg:x-gm-message-state:from
+         :to:cc:subject:date:message-id:reply-to;
+        bh=j149X8gXwUQ+5tkgK+g5qHkOUSrSS7YQiLSxtBB0NMw=;
+        b=CzeMm6r4j+YEdUZpm46qDChV0zkfBucIP5DYGTAAk99ngHJy3kov9lzJ7SxLPun+oZ
+         IlaFaUuunuZkZf2KZracnsbMMRqdLAL7kXEZGlhlmkDnSrvILpiloIw0QZPbjo6w05FX
+         YVTHe5fw5yldf3YU0t+1EuPb2ViTZNllhmJWUTWXDt3QGS9u0SnRtYTuINjKxPsEDo2c
+         Ui6SA+PP7+dfGXwhAEKdJQuJW5mKsXqDXvS0ZCvctcxIWavjr3w8QAoJG/phfTb6gj4k
+         UloqhgJBskBkS2yF4irbMEA+HAZcVJiukyyB3PdzYudjJhz/3S2teU5FuAh5FzLzDMmg
+         22GQ==
+X-Forwarded-Encrypted: i=1; AFNElJ+ZUa2AGLHC3VQS6UGdG3bR/rZW0NFwAGGocwuIk7HHTi5wQ7/29sSq92McAx1AsusGEvBnUy7M5HHWajr5O5kG@lists.infradead.org
+X-Gm-Message-State: AOJu0Yxn4beaxGrHY2P3b9grlQzhX89wlWTzsJIffgY7o9Ir+daA8VsM
+	P3Dn5dr0AHvXcUQRAeBQIHOv9DIxtk/ZwkBCYjoIVfkNofisNgoX1XL8rFbTpdtrFMfaSF0XXki
+	Yvyv4VumcOn7UpZiEQvJNaY3zk98j6N/bSgM5
+X-Gm-Gg: Acq92OGuynhU/4lKQ3yM/yjWQt/1CYFx5Xx6eOnu+xqjM9I3WNLrmbXYudJgedNavrO
+	3AMUqdKDo3DNLnYhaGZ6Egozf5KvrvSz+u9CmY+7k+2KhNdUd/cjowT5H6exR8fv7jQIzJTAXcz
+	HtkrKuZwfu/2+7lfZR8KW+SZp5h4ZvUndX8YDgODY8sn3lk8K4FvMHDi9tuFgxsP86J55lWUsp/
+	cnutUNNVjR05HVxkZuwxN8xZvFQAxTcHEZ/I5D79cHgeh0YAa9jsS3wdoR65hP3cNkeulm1ZrF4
+	+QtudwBFaLMsJ1Pc0VsXDO+f05cnO9uMMhGYn8+MeaC3h4SKkaHIVbNrQ/9mtST6E8+GDJGgQuL
+	YXSQpyNuSTMVFfdsgt4wNwFDTQVg4/LeyH5f9kHDLOmPMdN6DN8tcwYQZx34XttafN1zJ
+X-Received: by 2002:a05:6512:401d:b0:5a8:9986:8490 with SMTP id
+ 2adb3069b0e04-5aa5948ef29mr474317e87.20.1780040431328; Fri, 29 May 2026
+ 00:40:31 -0700 (PDT)
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
+References: <20260528203011.137338-1-rosenp@gmail.com> <038ae6be-03f7-4e6a-8c1e-70cbcf8424cb@kernel.org>
+In-Reply-To: <038ae6be-03f7-4e6a-8c1e-70cbcf8424cb@kernel.org>
+From: Rosen Penev <rosenp@gmail.com>
+Date: Fri, 29 May 2026 00:40:19 -0700
+X-Gm-Features: AVHnY4LCY9FWvT2VC_UvRSAi9rf7pxOk0uNbrtkA8fVCsHKkI-e-ZKd_4cJZWfM
+Message-ID: <CAKxU2N8jaG-WHeEpJs_NPKLdB9LP+cxDMhZN_bzX1gnBAhGUzw@mail.gmail.com>
 Subject: Re: [PATCH] serial: mxs-auart: fix 64-bit cast in probe
-To: Rosen Penev <rosenp@gmail.com>, linux-serial@vger.kernel.org
-Cc: Greg Kroah-Hartman <gregkh@linuxfoundation.org>,
- Frank Li <Frank.Li@nxp.com>, Sascha Hauer <s.hauer@pengutronix.de>,
- Pengutronix Kernel Team <kernel@pengutronix.de>,
- Fabio Estevam <festevam@gmail.com>,
- "open list:TTY LAYER AND SERIAL DRIVERS" <linux-kernel@vger.kernel.org>,
- "open list:ARM/FREESCALE IMX / MXC ARM ARCHITECTURE" <imx@lists.linux.dev>,
- "moderated list:ARM/FREESCALE IMX / MXC ARM ARCHITECTURE"
- <linux-arm-kernel@lists.infradead.org>
-References: <20260528203011.137338-1-rosenp@gmail.com>
-Content-Language: en-US
-From: Jiri Slaby <jirislaby@kernel.org>
-Autocrypt: addr=jirislaby@kernel.org; keydata=
- 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
-In-Reply-To: <20260528203011.137338-1-rosenp@gmail.com>
-Content-Type: text/plain; charset=UTF-8; format=flowed
-Content-Transfer-Encoding: 7bit
+To: Jiri Slaby <jirislaby@kernel.org>
+Cc: linux-serial@vger.kernel.org, 
+	Greg Kroah-Hartman <gregkh@linuxfoundation.org>, Frank Li <Frank.Li@nxp.com>, 
+	Sascha Hauer <s.hauer@pengutronix.de>, Pengutronix Kernel Team <kernel@pengutronix.de>, 
+	Fabio Estevam <festevam@gmail.com>, 
+	"open list:TTY LAYER AND SERIAL DRIVERS" <linux-kernel@vger.kernel.org>, 
+	"open list:ARM/FREESCALE IMX / MXC ARM ARCHITECTURE" <imx@lists.linux.dev>, 
+	"moderated list:ARM/FREESCALE IMX / MXC ARM ARCHITECTURE" <linux-arm-kernel@lists.infradead.org>
+Content-Type: text/plain; charset="UTF-8"
+Content-Transfer-Encoding: quoted-printable
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260529_003757_236015_4EE23CB0 
-X-CRM114-Status: GOOD (  15.52  )
+X-CRM114-CacheID: sfid-20260529_004033_883547_75528AE5 
+X-CRM114-Status: GOOD (  18.90  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -121,41 +122,50 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On 28. 05. 26, 22:30, Rosen Penev wrote:
-> of_device_get_match_data() returns a pointer. Casting it directly to
-> enum truncates on 64-bit platforms. Cast to unsigned long instead.
-
-This is a misleading commit log. It still truncates during the assignment.
-
-> Fixes compilation with W=1.
-
-Fixes a warning, not compilation, right?
-
-> Assisted-by: Opencode:Big-pickle
-> Signed-off-by: Rosen Penev <rosenp@gmail.com>
-> ---
->   drivers/tty/serial/mxs-auart.c | 2 +-
->   1 file changed, 1 insertion(+), 1 deletion(-)
-> 
-> diff --git a/drivers/tty/serial/mxs-auart.c b/drivers/tty/serial/mxs-auart.c
-> index 697318dbb146..de97c0f74e7d 100644
-> --- a/drivers/tty/serial/mxs-auart.c
-> +++ b/drivers/tty/serial/mxs-auart.c
-> @@ -1598,7 +1598,7 @@ static int mxs_auart_probe(struct platform_device *pdev)
->   		return -EINVAL;
->   	}
-> 
-> -	s->devtype = (enum mxs_auart_type)of_device_get_match_data(&pdev->dev);
-> +	s->devtype = (unsigned long)of_device_get_match_data(&pdev->dev);
-> 
->   	ret = mxs_get_clks(s, pdev);
->   	if (ret)
+On Fri, May 29, 2026 at 12:37=E2=80=AFAM Jiri Slaby <jirislaby@kernel.org> =
+wrote:
+>
+> On 28. 05. 26, 22:30, Rosen Penev wrote:
+> > of_device_get_match_data() returns a pointer. Casting it directly to
+> > enum truncates on 64-bit platforms. Cast to unsigned long instead.
+>
+> This is a misleading commit log. It still truncates during the assignment=
+.
+>
+> > Fixes compilation with W=3D1.
+>
+> Fixes a warning, not compilation, right?
+compilation. I believe -Werror is passed.
+>
+> > Assisted-by: Opencode:Big-pickle
+> > Signed-off-by: Rosen Penev <rosenp@gmail.com>
+> > ---
+> >   drivers/tty/serial/mxs-auart.c | 2 +-
+> >   1 file changed, 1 insertion(+), 1 deletion(-)
+> >
+> > diff --git a/drivers/tty/serial/mxs-auart.c b/drivers/tty/serial/mxs-au=
+art.c
+> > index 697318dbb146..de97c0f74e7d 100644
+> > --- a/drivers/tty/serial/mxs-auart.c
+> > +++ b/drivers/tty/serial/mxs-auart.c
+> > @@ -1598,7 +1598,7 @@ static int mxs_auart_probe(struct platform_device=
+ *pdev)
+> >               return -EINVAL;
+> >       }
+> >
+> > -     s->devtype =3D (enum mxs_auart_type)of_device_get_match_data(&pde=
+v->dev);
+> > +     s->devtype =3D (unsigned long)of_device_get_match_data(&pdev->dev=
+);
+> >
+> >       ret =3D mxs_get_clks(s, pdev);
+> >       if (ret)
+> > --
+> > 2.54.0
+> >
+>
+>
 > --
-> 2.54.0
-> 
-
-
--- 
-js
-suse labs
+> js
+> suse labs
 
