@@ -4,71 +4,93 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 572BBCD6E49
-	for <linux-arm-kernel@archiver.kernel.org>; Fri, 29 May 2026 17:07:02 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 025D9CD4F54
+	for <linux-arm-kernel@archiver.kernel.org>; Fri, 29 May 2026 17:10:21 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:MIME-Version:References:In-Reply-To:Message-ID:Subject:Cc:To:
-	From:Date:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=4M+It2DOv5k9KjwYe9tzppT1ZADxs54n1EqbAeaJ720=; b=QxMpHw0RpbjDkAZVygNbdthM/r
-	V8HN7HNTCECpNAUaJUB+1XyGMv6CzNGeu2UZDybxpuphYWJxfV5kNDLqtbyPKu6ul8B2e8AIIM0et
-	Cva+eAfVe8gyIiwHbuLkHXbBHjcAbXXbvvIjwb3IdwLjNXU0zUOj0L52auu55bmPrxoej4Ug1qK2f
-	9gz27XED73KNB4/LKD8luBZbtDI4U8AUR7fT6dZmLivUMkmIu5irFzWu8tVYYlw8AMZOldbuJwGmi
-	xF8jlroyETlj1bF8AhTolzF00BF8x4vfKSuitqtcI5X/UdHwikjYaSpIxDxqDA/JgtXp7DDMztBct
-	CvvANJCA==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:
+	Content-Transfer-Encoding:Content-Type:MIME-Version:References:Message-ID:
+	Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=XEa79tV2eMzpcPWIo8LBBqUX2PeWclrMmzllPIEalhs=; b=KkEX+xfaT8LaiEKQ41L/Fakaft
+	+OMTLVIB8ilmKGNPW9W+H8lU43paAuM4JZ5S+jlwdiHu3h9r7aDgwRA31pKKp45GoeVPOBvswHhmQ
+	T76h1/1T75ALCp6pejh41ffcca2PdyO+rrNnEF3RPSBsrTy0LmI154LUC23fHlFyZpOaaYUcAuI8d
+	KsqlDcXsJnZ41o0+/pLgxYxDmHhkPGhZZz2gjTSRpDVgNx+6fYyacgBwvMTIe59fnosFjMvAxcwUT
+	gQW3o8OSYZqSTGr5vMWNomkT+3fjC8AlS88kanAtD2jmwt3O/L34wWRtsKT/Mz315/UknERNRvAIn
+	jEfi40gA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wT0ff-00000007xHx-46oX;
-	Fri, 29 May 2026 17:06:56 +0000
-Received: from sea.source.kernel.org ([172.234.252.31])
+	id 1wT0it-00000007xfg-1wwS;
+	Fri, 29 May 2026 17:10:15 +0000
+Received: from mail-yw1-x112a.google.com ([2607:f8b0:4864:20::112a])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wT0fc-00000007xH5-40Jo
+	id 1wT0ip-00000007xf3-48w3
 	for linux-arm-kernel@lists.infradead.org;
-	Fri, 29 May 2026 17:06:54 +0000
-Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
-	by sea.source.kernel.org (Postfix) with ESMTP id E4313408CD;
-	Fri, 29 May 2026 17:06:51 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id F08591F00893;
-	Fri, 29 May 2026 17:06:40 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1780074411;
-	bh=4M+It2DOv5k9KjwYe9tzppT1ZADxs54n1EqbAeaJ720=;
-	h=Date:From:To:Cc:Subject:In-Reply-To:References;
-	b=SP6p72pip/TZBBTPfI6xJt9s5UzA6binmI5dRPsEByPLuFHi5uyL5UYdE8bdSHQaK
-	 tggLikbsoalo8nS1PkmzssxJbu9eVzYH/XiBmA58ftVjJcuZW+1ohhVAC5LB21QdLO
-	 oGCFs3Z50GQocKQNRfiY/XOpzHcG3dHvfn3y8lOO1A4lTOdYUmHfsy+/Vj68eBdvlP
-	 wNp474s6YWglQC/Cp+xQvxvmqiOkmYUetZsumkvZu+Z/4TRhGwojOPkLDmWdP3EBq/
-	 zXiKyDgjFvZB6Ku/zB36Kb4XtrGNWFt7iuVxUawWOWRtqTWeE3i953yDfR380EWquV
-	 /HVuWv7/PVBoQ==
-Date: Fri, 29 May 2026 18:06:36 +0100
-From: Jonathan Cameron <jic23@kernel.org>
-To: Ahmed Tiba <ahmed.tiba@arm.com>
-Cc: will@kernel.org, xueshuai@linux.alibaba.com, saket.dumbre@intel.com,
- mchehab@kernel.org, dave@stgolabs.net, djbw@kernel.org, bp@alien8.de,
- tony.luck@intel.com, guohanjun@huawei.com, lenb@kernel.org,
- skhan@linuxfoundation.org, vishal.l.verma@intel.com, rafael@kernel.org,
- corbet@lwn.net, ira.weiny@intel.com, dave.jiang@intel.com,
- krzk+dt@kernel.org, robh@kernel.org, catalin.marinas@arm.com,
- alison.schofield@intel.com, conor+dt@kernel.org,
- linux-arm-kernel@lists.infradead.org, Michael.Zhao2@arm.com,
- linux-doc@vger.kernel.org, linux-kernel@vger.kernel.org,
- linux-cxl@vger.kernel.org, Dmitry.Lamerov@arm.com,
- devicetree@vger.kernel.org, linux-acpi@vger.kernel.org,
- linux-edac@vger.kernel.org, acpica-devel@lists.linux.dev
-Subject: Re: [PATCH v5 10/10] RAS: add firmware-first CPER provider
-Message-ID: <20260529180636.78cbc75f@jic23-huawei>
-In-Reply-To: <20260529-topics-ahmtib01-ras_ffh_arm_internal_review-v5-10-2e0500d42642@arm.com>
-References: <20260529-topics-ahmtib01-ras_ffh_arm_internal_review-v5-0-2e0500d42642@arm.com>
-	<20260529-topics-ahmtib01-ras_ffh_arm_internal_review-v5-10-2e0500d42642@arm.com>
-X-Mailer: Claws Mail 4.4.0 (GTK 3.24.52; x86_64-pc-linux-gnu)
+	Fri, 29 May 2026 17:10:13 +0000
+Received: by mail-yw1-x112a.google.com with SMTP id 00721157ae682-7c0de780bf1so128862177b3.2
+        for <linux-arm-kernel@lists.infradead.org>; Fri, 29 May 2026 10:10:11 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=gmail.com; s=20251104; t=1780074610; x=1780679410; darn=lists.infradead.org;
+        h=in-reply-to:content-transfer-encoding:content-disposition
+         :mime-version:references:message-id:subject:cc:to:from:date:from:to
+         :cc:subject:date:message-id:reply-to;
+        bh=XEa79tV2eMzpcPWIo8LBBqUX2PeWclrMmzllPIEalhs=;
+        b=N6jhM0F67yRBFXMAzu71k3szz6SSIrZIQ5VH65xLfhvGtUX8D2N0NE2BWfIwOesc2s
+         nw3IEfsGyvhaHJcPKH1PrGPw0RYNVTAcsvgyTEzLwcoM1C3wrQLU+7nBDcxgPAbhS9dg
+         iFsmaVAkiO3+5twMqB4HN+aOfjwLhZxLz6V4hqsfYRa/0AMsIHYO9pf12AtzUkT/FsCf
+         JUUyKRZqhJwfWOzMM55131MgMrOOsWLTNZZuIh/U298foE3KT9hVp1iQcCL5skjUE2oi
+         O792//C50kmThXGquRMN3w3w+qibj5gTf8WdoZ/LuYqqplh0FqR7H6KmaXn8R4EAJ+zH
+         OgYA==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20251104; t=1780074610; x=1780679410;
+        h=in-reply-to:content-transfer-encoding:content-disposition
+         :mime-version:references:message-id:subject:cc:to:from:date:x-gm-gg
+         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to;
+        bh=XEa79tV2eMzpcPWIo8LBBqUX2PeWclrMmzllPIEalhs=;
+        b=CYpx0ZzJ8rY4W92OEyPatG6VFepwb7wUW9lIHnmGgE6dAMCNKNMvhQYR7xIuG+KKHH
+         aVY8CFh8BMAqPdhh13tzwoga2fmJcWFOy7eHY3fvK0XPSq03OOvxXFCfdR4MbOKoWAV3
+         r59N7Au4E1uMOfmWpAdMnyXiAeF03id5gwG10iXXF+AY/LMXBtIwTFLblsao+OyOldH7
+         N3Z96jE4kL6b+dQjv5+9LwUC+jFZkZsq1rxfL96BTj7WVUaapBvkK4oNY/EyQHfVYxZd
+         j/FILdbjv9ZrgpPsFI5Y85zA3Q7w0Yw7D7Bq3O49R07UkxCRY4LzhocicxBr5SeOVPr+
+         O3ZQ==
+X-Forwarded-Encrypted: i=1; AFNElJ+TP8NRlFLUlsWvLWmH2dlQb2uYIakv8d89VETdGt4/BkShi/qLRFElj1Y2UZq8qKzMf0thjpyDmcwr6ukV1YJV@lists.infradead.org
+X-Gm-Message-State: AOJu0YwAwjKtSQGxnRAtdxmhBIBNRfdG0M0MAAD4QfThRvmA0UW3Cac8
+	Aof16za4QZWeBecUV/zMW42WVXa+o2MactOEJbK/56mFMQyxbKiqNn/z
+X-Gm-Gg: Acq92OGdXUSO6dJnAjAWFE5Ei9m2oreUigZgXsK8ALHY18JaWKaeCJxTmvEnL/HDC5r
+	1dm6YnRwLSFZjmdJciUimNJNQytwltENaw2WGN143LpiS49xCAMLNaxlcWc3Xz7+qSmocc3DhQE
+	cjtdlLtD/3qKfrsb+2pFht9edRRURS/VYZKmyMYx+B627VRHMUqz4UL4J8j8y7FGnKauAliLhE8
+	UnbPwhyZKuwz1FWYSJpOxnVM6C+JkIB7OyNz3On8y+A0W7T0tIAeUY9ioICbalFleozJehwVTKq
+	5tZhxbMwvJJr0ouBTeHBujBgIp44+aFAvA/mXnC8v/JwLAlvRK6VIP+etHHR4R2QIBwT8YuJKRn
+	u+h4PJfeXHmxByfwr/JssPfEcf8FY4IwAT2OCQiV43jG+T1bt4o8rAbkpKbiCa9KbuT/EoA8h0t
+	Ra+bWgwqE9jOXPX8lmzKNy1vxglwqR/BQWVg==
+X-Received: by 2002:a05:690c:e34b:b0:7d0:261a:6bd with SMTP id 00721157ae682-7e05f11c4ffmr1672527b3.44.1780074610517;
+        Fri, 29 May 2026 10:10:10 -0700 (PDT)
+Received: from Red ([2a01:cb1d:897:7800:4a02:2aff:fe07:1efc])
+        by smtp.googlemail.com with ESMTPSA id 00721157ae682-7de689e58d9sm8427927b3.21.2026.05.29.10.10.08
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Fri, 29 May 2026 10:10:09 -0700 (PDT)
+Date: Fri, 29 May 2026 19:10:06 +0200
+From: Corentin Labbe <clabbe.montjoie@gmail.com>
+To: Eric Biggers <ebiggers@kernel.org>
+Cc: Tianchu Chen <tianchu.chen@linux.dev>, herbert@gondor.apana.org.au,
+	davem@davemloft.net, wens@kernel.org, jernej.skrabec@gmail.com,
+	samuel@sholland.org, linux-crypto@vger.kernel.org,
+	linux-arm-kernel@lists.infradead.org, linux-sunxi@lists.linux.dev,
+	linux-kernel@vger.kernel.org
+Subject: Re: [PATCH v2] crypto: sun4i-ss - clamp PRNG seed length to prevent
+ heap overflow
+Message-ID: <ahnIbpBLyn5z_siT@Red>
+References: <af749a8447bd7f0e9dd26ca6c87e9c6afecb09d9@linux.dev>
+ <4d4407c05835a50413fa1e974e3aa3f4abfe2d5b@linux.dev>
+ <20260529161057.GA2706@sol>
 MIME-Version: 1.0
-Content-Type: text/plain; charset=US-ASCII
-Content-Transfer-Encoding: 7bit
+Content-Type: text/plain; charset=iso-8859-1
+Content-Disposition: inline
+Content-Transfer-Encoding: 8bit
+In-Reply-To: <20260529161057.GA2706@sol>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260529_100653_099125_7B315F1C 
-X-CRM114-Status: GOOD (  43.59  )
+X-CRM114-CacheID: sfid-20260529_101012_036834_43B82B28 
+X-CRM114-Status: GOOD (  15.15  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -83,315 +105,34 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Fri, 29 May 2026 10:50:50 +0100
-Ahmed Tiba <ahmed.tiba@arm.com> wrote:
-
-> Add a firmware-first CPER provider that reuses the shared
-> GHES helpers, wire it into the RAS Kconfig/Makefile and
-> document it in the admin guide.
+Le Fri, May 29, 2026 at 09:10:57AM -0700, Eric Biggers a écrit :
+> On Fri, May 29, 2026 at 08:08:01AM +0000, Tianchu Chen wrote:
+> > From: Tianchu Chen <flynnnchen@tencent.com>
+> > 
+> > sun4i_ss_prng_seed() copies the user-supplied seed into ss->seed
+> > using the user-provided length with no bounds check. The crypto core
+> > does not enforce slen <= seedsize before calling into the driver, so a
+> > userspace caller via AF_ALG setsockopt(ALG_SET_KEY) can pass up to
+> > sysctl_optmem_max bytes, overflowing the fixed-size buffer and
+> > corrupting adjacent heap memory.
+> > 
+> > Clamp the copy length to the buffer size, matching the approach used by
+> > loongson-rng for oversized seeds.
+> > 
+> > Discovered by Atuin - Automated Vulnerability Discovery Engine.
+> > 
+> > Fixes: 6298e948215f ("crypto: sunxi-ss - Add Allwinner Security System crypto accelerator")
+> > Cc: stable@vger.kernel.org
+> > Signed-off-by: Tianchu Chen <flynnnchen@tencent.com>
+> > ---
+> > v2: Silently clamp oversized seeds with min_t instead of returning
+> >     -EINVAL (Herbert Xu).
 > 
-> Update MAINTAINERS now that the driver exists.
-Sashiko had some interesting comments on this one. Please take a look and
-reply to the thread if any look plausible but aren't!
-https://sashiko.dev/#/patchset/20260529-topics-ahmtib01-ras_ffh_arm_internal_review-v5-0-2e0500d42642@arm.com
+> sun4i-ss-prng.c is useless, is still broken, and should just be deleted.
 
-The irq thread / force_sig() one is something I'd not have
-considered. I obviously haven't tested it and so it might be wrong :)
+Hello
 
-A few things inline.
+useless ? clearly no, it helped a lot on devices where it is.
 
-Jonathan
-
-
-> 
-> Signed-off-by: Ahmed Tiba <ahmed.tiba@arm.com>
-> ---
->  Documentation/admin-guide/RAS/main.rst |  18 +++
->  MAINTAINERS                            |   1 +
->  drivers/acpi/apei/apei-internal.h      |  10 +-
->  drivers/acpi/apei/ghes_cper.c          |   2 +
->  drivers/ras/Kconfig                    |  11 ++
->  drivers/ras/Makefile                   |   1 +
->  drivers/ras/cper-esource.c             | 257 +++++++++++++++++++++++++++++++++
->  include/acpi/ghes_cper.h               |  10 ++
->  8 files changed, 301 insertions(+), 9 deletions(-)
-> 
-> diff --git a/Documentation/admin-guide/RAS/main.rst b/Documentation/admin-guide/RAS/main.rst
-> index 5a45db32c49b..84219d25a072 100644
-> --- a/Documentation/admin-guide/RAS/main.rst
-> +++ b/Documentation/admin-guide/RAS/main.rst
-> @@ -205,6 +205,24 @@ Architecture (MCA)\ [#f3]_.
->  .. [#f3] For more details about the Machine Check Architecture (MCA),
->    please read Documentation/arch/x86/x86_64/machinecheck.rst at the Kernel tree.
->  
-> +Firmware-first CPER providers
-> +-----------------------------
-> +
-> +Some systems expose Common Platform Error Record (CPER) data
-> +through platform firmware instead of ACPI HEST tables.
-
-Given the data doesn't come through HEST but rather in places it points to and
-that is via a different type of platform firmware it seems to me this
-bit needs a rewrite.
-
-> +Enable ``CONFIG_RAS_CPER_ESOURCE`` to build the ``drivers/ras/cper-esource.c``
-> +driver. The current in-tree firmware description uses the
-> +``Documentation/devicetree/bindings/firmware/arm,ras-cper.yaml`` binding.
-> +The driver reuses the GHES CPER helper object in
-> +``drivers/acpi/apei/ghes_cper.c`` so the logging, notifier chains, and
-> +memory failure handling match the ACPI GHES behaviour even when
-> +ACPI is disabled.
-
-Rewrap.  Line lengths appear very random.
-
-> +
-> +Once a platform describes a firmware-first provider, both ACPI GHES and the
-> +firmware-described driver reuse the same code paths. This keeps the
-> +behaviour consistent regardless of whether the error source is described
-> +by ACPI tables or another firmware description.
-> +
->  EDAC - Error Detection And Correction
->  *************************************
->  
-> diff --git a/MAINTAINERS b/MAINTAINERS
-> index 8a9714603a7d..c14638cd97f6 100644
-> --- a/MAINTAINERS
-> +++ b/MAINTAINERS
-> @@ -22265,6 +22265,7 @@ RAS ERROR STATUS
->  M:	Ahmed Tiba <ahmed.tiba@arm.com>
->  S:	Maintained
->  F:	Documentation/devicetree/bindings/firmware/arm,ras-cper.yaml
-> +F:	drivers/ras/cper-esource.c
->  
->  RAS INFRASTRUCTURE
->  M:	Tony Luck <tony.luck@intel.com>
-> diff --git a/drivers/acpi/apei/apei-internal.h b/drivers/acpi/apei/apei-internal.h
-> index 77c10a7a7a9f..c16ac541f15b 100644
-> --- a/drivers/acpi/apei/apei-internal.h
-> +++ b/drivers/acpi/apei/apei-internal.h
-> @@ -8,6 +8,7 @@
->  #define APEI_INTERNAL_H
->  
->  #include <linux/acpi.h>
-> +#include <acpi/ghes_cper.h>
->  
->  struct apei_exec_context;
->  
-> @@ -120,15 +121,6 @@ int apei_exec_collect_resources(struct apei_exec_context *ctx,
->  struct dentry;
->  struct dentry *apei_get_debugfs_dir(void);
->  
-> -static inline u32 cper_estatus_len(struct acpi_hest_generic_status *estatus)
-
-As below. I'd not expect to see this moving in this patch given all the precursor
-code movement patches.
-
-> -{
-> -	if (estatus->raw_data_length)
-> -		return estatus->raw_data_offset + \
-> -			estatus->raw_data_length;
-> -	else
-> -		return sizeof(*estatus) + estatus->data_length;
-> -}
-> -
->  int apei_osc_setup(void);
->  
->  int einj_get_available_error_type(u32 *type, int einj_action);
-> diff --git a/drivers/acpi/apei/ghes_cper.c b/drivers/acpi/apei/ghes_cper.c
-> index 0ff9d06eb78f..a7691aa5011c 100644
-> --- a/drivers/acpi/apei/ghes_cper.c
-> +++ b/drivers/acpi/apei/ghes_cper.c
-> @@ -46,7 +46,9 @@
->  #include <asm/fixmap.h>
->  #include <asm/tlbflush.h>
->  
-> +#ifdef CONFIG_ACPI_APEI
->  #include "apei-internal.h"
-
-Why is this dance needed? Add a comment.
-
-We'd normally expect a header to safe to include if it's not used with
-any stubbing done in the header.
-
-> +#endif
->  
->  ATOMIC_NOTIFIER_HEAD(ghes_report_chain);
->  
-
-> diff --git a/drivers/ras/cper-esource.c b/drivers/ras/cper-esource.c
-> new file mode 100644
-> index 000000000000..83f7a910e50a
-> --- /dev/null
-> +++ b/drivers/ras/cper-esource.c
-
-> +struct cper_esource {
-> +	struct device *dev;
-> +	void __iomem *status;
-> +	size_t status_len;
-> +
-> +	struct cper_esource_ack ack;
-> +
-> +	struct acpi_hest_generic *generic;
-
-See below - maybe this can just be embedded here.
-
-> +	struct acpi_hest_generic_status *estatus;
-> +
-> +	bool sync;
-> +	int irq;
-> +
-> +	/* Serializes access while firmware and the OS share the status buffer. */
-> +	spinlock_t lock;
-> +};
-
-> +
-> +static int cper_esource_copy_status(struct cper_esource *ctx)
-> +{
-> +	memcpy_fromio(ctx->estatus, ctx->status, ctx->status_len);
-> +	return 0;
-
-Seems an unnecessary helper. In particular if it returns 0 always
-no need to do so or to check the return value.
-
-> +}
->
-
-
-> +static int cper_esource_probe(struct platform_device *pdev)
-> +{
-> +	struct device *dev = &pdev->dev;
-> +	struct cper_esource *ctx;
-> +	struct resource *res;
-> +	int source_id;
-> +	int rc;
-> +
-> +	ctx = devm_kzalloc(dev, sizeof(*ctx), GFP_KERNEL);
-> +	if (!ctx)
-> +		return -ENOMEM;
-> +
-> +	spin_lock_init(&ctx->lock);
-> +	ctx->dev = dev;
-> +	ctx->sync = device_property_read_bool(dev, "arm,sea-notify");
-> +
-> +	ctx->status = devm_platform_get_and_ioremap_resource(pdev, 0, &res);
-> +	if (IS_ERR(ctx->status))
-> +		return dev_err_probe(dev, PTR_ERR(ctx->status),
-> +				     "failed to map status region\n");
-> +
-> +	ctx->status_len = resource_size(res);
-> +	if (!ctx->status_len)
-> +		return dev_err_probe(dev, -EINVAL, "status region has zero length\n");
-> +
-> +	rc = cper_esource_init_ack(pdev, ctx);
-> +	if (rc)
-> +		return rc;
-> +
-> +	rc = cper_esource_init_pool();
-> +	if (rc)
-> +		return rc;
-> +
-> +	ctx->estatus = devm_kzalloc(dev, ctx->status_len, GFP_KERNEL);
-> +	if (!ctx->estatus)
-> +		return -ENOMEM;
-> +
-> +	ctx->generic = devm_kzalloc(dev, sizeof(*ctx->generic), GFP_KERNEL);
-
-Lifetime of this is shorter than that of containing structure. Why not just
-embed it and avoid need to allocate here?
-
-> +	if (!ctx->generic)
-> +		return -ENOMEM;
-> +
-> +	source_id = ida_alloc_min(&cper_esource_source_ids, 1, GFP_KERNEL);
-
-Maybe a comment on what is special about id 0
-
-> +	if (source_id < 0)
-> +		return source_id;
-> +
-> +	ctx->generic->header.type = ACPI_HEST_TYPE_GENERIC_ERROR;
-> +	ctx->generic->header.source_id = source_id;
-> +
-> +	rc = devm_add_action_or_reset(dev, cper_esource_release_source_id,
-> +				      ctx->generic);
-> +	if (rc)
-> +		return rc;
-> +
-> +	ctx->generic->notify.type = ctx->sync ?
-> +		ACPI_HEST_NOTIFY_SEA : ACPI_HEST_NOTIFY_EXTERNAL;
-> +	ctx->generic->error_block_length = ctx->status_len;
-> +
-> +	ctx->irq = platform_get_irq(pdev, 0);
-> +	if (ctx->irq < 0)
-> +		return ctx->irq;
-> +
-> +	rc = devm_request_threaded_irq(dev, ctx->irq, NULL, cper_esource_irq,
-> +				       IRQF_ONESHOT,
-> +				       dev_name(dev), ctx);
-> +	if (rc)
-> +		return dev_err_probe(dev, rc, "failed to request interrupt\n");
-> +
-> +	return 0;
-> +}
-> +
-> +static const struct of_device_id cper_esource_of_match[] = {
-> +	{ .compatible = "arm,ras-cper" },
-> +	{ /* sentinel */ }
-> +};
-> +MODULE_DEVICE_TABLE(of, cper_esource_of_match);
-> +
-> +static struct platform_driver cper_esource_driver = {
-> +	.driver = {
-> +		.name = "cper-esource",
-> +		.of_match_table = cper_esource_of_match,
-> +	},
-> +	.probe = cper_esource_probe,
-> +};
-Common practice to not have a blank line here. Keeps the
-structure and the macro visually closely coupled.
-
-> +
-> +module_platform_driver(cper_esource_driver);
-> +
-> +MODULE_AUTHOR("Ahmed Tiba <ahmed.tiba@arm.com>");
-> +MODULE_DESCRIPTION("Firmware-first CPER provider");
-> +MODULE_LICENSE("GPL");
-> diff --git a/include/acpi/ghes_cper.h b/include/acpi/ghes_cper.h
-> index 511b95b50911..a78d4a773129 100644
-> --- a/include/acpi/ghes_cper.h
-> +++ b/include/acpi/ghes_cper.h
-> @@ -80,6 +80,14 @@ static inline bool is_hest_sync_notify(struct ghes *ghes)
->  	return notify_type == ACPI_HEST_NOTIFY_SEA;
->  }
->  
-> +static inline u32 cper_estatus_len(struct acpi_hest_generic_status *estatus)
-
-I'm surprised to still see code movement in this patch. To me this should have
-happened earlier in series. 
-
-> +{
-> +	if (estatus->raw_data_length)
-> +		return estatus->raw_data_offset + estatus->raw_data_length;
-> +	else
-> +		return sizeof(*estatus) + estatus->data_length;
-> +}
-> +
->  struct ghes_vendor_record_entry {
->  	struct work_struct work;
->  	int error_severity;
-> @@ -108,6 +116,8 @@ int __ghes_read_estatus(struct acpi_hest_generic_status *estatus,
->  int ghes_estatus_cached(struct acpi_hest_generic_status *estatus);
->  void ghes_estatus_cache_add(struct acpi_hest_generic *generic,
->  			    struct acpi_hest_generic_status *estatus);
-> +int ghes_register_vendor_record_notifier(struct notifier_block *nb);
-> +void ghes_unregister_vendor_record_notifier(struct notifier_block *nb);
-
-Why are we seeing these here now?  Stray from earlier patch?
-Which c file are they in at this point?
-
->  void ghes_defer_non_standard_event(struct acpi_hest_generic_data *gdata,
->  				   int sev);
->  int ghes_severity(int severity);
-> 
-
+Regards
 
