@@ -4,71 +4,70 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id DFBF8CD6E43
-	for <linux-arm-kernel@archiver.kernel.org>; Fri, 29 May 2026 12:09:38 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 092D5CD6E52
+	for <linux-arm-kernel@archiver.kernel.org>; Fri, 29 May 2026 12:09:40 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:
-	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=1jXwBJL09ITgBWBM4jQU4+8bhoBzGyCBEiuiVIpIW/s=; b=Q5qe0+cUn6xkCVw28udVRuJO8I
-	Rkm2NePbu7w4yI5k5Ce8JRRM8GSncXfBPufMEJ1Myl31nnGTOpwveJQretwrrc+JNdv48kmQTm4GK
-	gDBPJWUUD5BltWehDI6F1F6q2fvkzUoVjIszXcy3EVcJn9LwDMxduKSOGIXJWCRfsHGkQc9FqmONL
-	9dROH7eKLTgpDURJxyIPGs8PdRD/IrYByPMO/g7VAQauN74vFRra1SgJOPYFmeXWhxEiynz6930bs
-	bHzEsV8OIayv1H/djNfZjoZNf1tBSBM5SxWjOUQYEAjjZ/UlwkNSEUlQIZIevQgyci3vGQjjMnjlb
-	72fCEa9A==;
+	MIME-Version:Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-Type:
+	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
+	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=Ns0b+AP7a0XFNtYiOZwiqXXnknxzUGgu+QW5bEOOYco=; b=yKutmDYXYKHX08qP9cHIfN+Ffz
+	2fPOVvQGi8362TumTupDWpcTDpYMkZTGjUwow/OJV2da9yG3VLJlBxMpTFxgJqV6Yo6vEbfNHPjn0
+	P0bhJuQFKhg/BX2JGfTHhYsiJ8B+gqyIgWUFHwTUpOdkgkLfnYJqcyVlq1z7Rmul2dgyzzKhZeST5
+	ZBxdYpaEWbg6dw5X7HEV0d8BsFreFv1TgAd5somMYEr+KAY7ucropC1toErpkSk9YFt070XiXrl1t
+	QqP9GCpsDr8qi/TMAsQKL8XVwwTBDGBSnWao74tw/XF7KQFT1lUIw7uHpPJTqQB9yi3uLHt5LckaK
+	P5A47Ruw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wSw1t-00000007Kx1-2mEa;
+	id 1wSw1t-00000007Kwl-2P4b;
 	Fri, 29 May 2026 12:09:33 +0000
-Received: from mail-wm1-x336.google.com ([2a00:1450:4864:20::336])
+Received: from mail-wm1-x32e.google.com ([2a00:1450:4864:20::32e])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wSw1f-00000007KtV-1m0y
+	id 1wSw1b-00000007KsX-0RNp
 	for linux-arm-kernel@lists.infradead.org;
-	Fri, 29 May 2026 12:09:20 +0000
-Received: by mail-wm1-x336.google.com with SMTP id 5b1f17b1804b1-490686877a1so39708055e9.0
-        for <linux-arm-kernel@lists.infradead.org>; Fri, 29 May 2026 05:09:18 -0700 (PDT)
+	Fri, 29 May 2026 12:09:16 +0000
+Received: by mail-wm1-x32e.google.com with SMTP id 5b1f17b1804b1-490388fd0dbso81854765e9.0
+        for <linux-arm-kernel@lists.infradead.org>; Fri, 29 May 2026 05:09:14 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20251104; t=1780056557; x=1780661357; darn=lists.infradead.org;
-        h=content-transfer-encoding:mime-version:references:in-reply-to
-         :message-id:date:subject:cc:to:from:from:to:cc:subject:date
-         :message-id:reply-to;
-        bh=1jXwBJL09ITgBWBM4jQU4+8bhoBzGyCBEiuiVIpIW/s=;
-        b=WhB/5GGdP5/YCT4cPcAIHgc2Ka4QtKl1BuzZgFLB126oqBJ183FxmVyvu1/9qxB0dz
-         P7V3z6OnJjuicg7u9ckco1pxedzL/epU6k3fyTLsp2rh4vyqK7xBoid1rBsi6aTctfPK
-         e6vLq9JCcyhbBDTNxlvfH4FRslGkT4cMQnnEviVrOYQ9rjnCKUdKdkxSnJlh++C+8TFr
-         D15dgM30zu8mjc0GiqYNfwDR1FqXpbW46lA2cnWfGsyMsigBRVEioqrf3gPkkXyVq3M2
-         /+12atkt0O4muJYROdeQ4S+4xvkJio+dBdXsEBR299Tv7T2vfexNXNCxI5xiK5kGe/+4
-         aYgw==
+        d=gmail.com; s=20251104; t=1780056553; x=1780661353; darn=lists.infradead.org;
+        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
+         :to:from:from:to:cc:subject:date:message-id:reply-to;
+        bh=Ns0b+AP7a0XFNtYiOZwiqXXnknxzUGgu+QW5bEOOYco=;
+        b=Nhb2zYuHuvF4F1OrlIxFJLpWI00cfBTX+hnrgftWUUmMitqkqiayIlwXdui1FiA+Pf
+         d8HGm+64nP8d/GBwSiWNxa6stOQRsIx61Vmo0wEsRGz82gGpNu7Id33bHHr3WmhFTezG
+         /ZF9nk4rdAfnt7WkKgSsZif9uAvpCtM60YWtOmYBQVhmWcXWFQZ/5yQAcNqBJpYrhHTi
+         UtIrEPQw1EWyhh1Oia+spuPGY5xmnAarGEiS7yO0sZPte5V7A+p2kqaCM6LYq6ZkRfoi
+         jUm8B9t6qr3U4OjRtbUPXKES4QRY1B/q3xzj31thbajzoxH1YzMmyhiu7oIbBrLrUZrw
+         B+wQ==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20251104; t=1780056557; x=1780661357;
-        h=content-transfer-encoding:mime-version:references:in-reply-to
-         :message-id:date:subject:cc:to:from:x-gm-gg:x-gm-message-state:from
-         :to:cc:subject:date:message-id:reply-to;
-        bh=1jXwBJL09ITgBWBM4jQU4+8bhoBzGyCBEiuiVIpIW/s=;
-        b=n3qIQGoZP53t55rXcH1dDLRjhnrf3Au8iCgPRf5f3fGR9gFsgil4a0ZTM0wqZc5ZVQ
-         26nFeGJtTvyrAdlnNDn+orEhdBnIuieol1Pme41zuwf8Un43YDcC7QvPM5m/hmLyBCsi
-         j640el/d+1QVqQoKGRfSP5tQGG1H4gSIgmg+Lp9CECBWn2yQt4wlLMOcYOYNHeXKzSt2
-         cyIS7zC3LbCOsqFqZYIYhvHY5FLWotX8givuNxE+vV/q+Et6uBvAZvhQn0D7vZnyCxog
-         /+ZZNaKd5mknH7NzspzlhDzS/CCpTo7kNJv9KNeaIHnOraKmAKgW22c7oy1fgf1ozqch
-         VAIw==
-X-Forwarded-Encrypted: i=1; AFNElJ8ZoaG0s8jrRkOX1OvFz6lVOLey/Gjr79C+zKtqBD53E5mL5Sf1PuSNKhGBuOyV2c8P8lUvz0oy+eX3htvRvUa6@lists.infradead.org
-X-Gm-Message-State: AOJu0Yz4s1xSVCp8iKaP7AczbkXZQoJpHjqmI3CszN2saWSuUL8e/ln6
-	WO2uGJ5ThRlIm8EuOF66DCij5w/dUh8TPhb0R/o7RK3EVHIaUxSQocTk
-X-Gm-Gg: Acq92OG3NDymyfvSki3t7fuV1lj/yK66YTVvXck7GHQj2rhoZ0r/G7wTdxDmeSPpcz3
-	bmapATJ/HQAy7txUTnWb/LFnsbqOY0s399X+A4bW6CFaXwyt+lNTxK05xpINwnDttQH/9uhqjfD
-	F6eA9giTD4+715TAia5xmVozw6v5ZsNYaUn07TfRLgM7/uHkSs5YXiGf/rmMklbIR9/tyUvhTRp
-	UqpMN+D2J2pkobmW/ZSvRL6sF5T7SmaU85yFi5VDl/iFn4WAsGbxOtVS9figgOERtkvdFYvpwLw
-	+urPDrrV4ztVUJoWPybhWQgDzYIDE+6S6Mv+mqsvQqfTR7Yjrn3FTO/DYnu30wV6r9CSBE+Xb1C
-	KXfaP5S8hida3SoYyHHLRJqR+nz9WrlFzcupouE6SYNWA9Bvo8DRS51mdFjbpmj1ktOz79JGGWc
-	W1ovlULZ1Mwhf/LpYQTo9Qlb2f
-X-Received: by 2002:a05:600c:a013:b0:48f:d620:c27f with SMTP id 5b1f17b1804b1-4909c411cecmr33061665e9.4.1780056557146;
-        Fri, 29 May 2026 05:09:17 -0700 (PDT)
+        d=1e100.net; s=20251104; t=1780056553; x=1780661353;
+        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
+         :to:from:x-gm-gg:x-gm-message-state:from:to:cc:subject:date
+         :message-id:reply-to;
+        bh=Ns0b+AP7a0XFNtYiOZwiqXXnknxzUGgu+QW5bEOOYco=;
+        b=a/+mNuJi/zMa3IKYpOiXpYYHIgpz9pdHOG8YSQhh9T9Cl7i888O9+653Y/5N4aRJ1r
+         WtuwT/9GE5abVVA1Szuo95nXotBVYzlHGuDod52XQd0B66cNWa5G8zLTOpg6ilxQbNoD
+         GfHNnNEdABcUnZMi9N0QmZA1kBKuncUSpPMzdURaHzf0Qpdzca9kZ0hEq39LkwwmpSrf
+         CMLaZZ9UmozOebEBUPYZDEcn0MR8W7gqcCOjxKBDH1h4PwyGsg7cMyJRo/36M85Lu8rC
+         mAs1akmgfTjQaOf0bjEBd8rw2NI91kc6pBTFIjhxbtdeR3/U4LI73vEAFewQ3c4+lSmc
+         kgiA==
+X-Forwarded-Encrypted: i=1; AFNElJ9X1jECqQGFl/tGwmJ4JZxISC7iwZsri13JCPe2E35IAw/0U1IEhKQotof2lEwwze6ldDdQe/Nemg3NDzdhTUwp@lists.infradead.org
+X-Gm-Message-State: AOJu0YxbL5csaxkcSUhV69SxINx+vk3w1keh656LWXSvYlTuVsAo8BV8
+	c9AyYbskr5FgVD4gVCeDzSZGcvR8vKa+LRDfTH/J1d4s3H11Xt2XTcII
+X-Gm-Gg: Acq92OHae3dPs339sZHob5fX2XuUcHGkf2ynDB2HYnWdYLfdLEo8CqHiSA8E68ubW2e
+	OdEgA4NjiFWCuUK6OHvKXOkQXdvvYw9l8ZG6s8LNCgXc1dxPrGShrITZQYGLUq545By9FHukUPO
+	7PfgryrIiJ38w5GgVbHwwIr7eZMYv34q/g2W+nmd7AZuMquhiIb2qMIqxuDWEydlL4wAeIL8KRr
+	xmhXR03TIMghk+XRmi3l5ajy3qKqNiszhywctZ6zCba+jgzLL+xc1y4ReKrcy4hBVnRkdJYlYTW
+	e7XRGQUX+5ngrgfJPJffJ31BgfiJRh8r8umDfZz6GH4HzmkTMhfzlFnzz5VC6cqEq8YbHje3uoe
+	LjDs7f9Mv8zKV8dG0F4O6JWvMghc0zpiY0QOPv0KEhj6zyMZIcziVo5VYETGmB+5+A/Y20+O4bz
+	G8hjImqMWR/zJ4O5IMrZPWYo3b78s7PwoJTvc=
+X-Received: by 2002:a05:600c:8b47:b0:48f:e230:c3fb with SMTP id 5b1f17b1804b1-4909c0fa43cmr45960295e9.33.1780056553133;
+        Fri, 29 May 2026 05:09:13 -0700 (PDT)
 Received: from vitor-nb ([89.214.125.253])
-        by smtp.gmail.com with ESMTPSA id 5b1f17b1804b1-4909c0b8a11sm13586595e9.16.2026.05.29.05.09.13
+        by smtp.gmail.com with ESMTPSA id 5b1f17b1804b1-4909c0b8a11sm13586595e9.16.2026.05.29.05.09.09
         (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Fri, 29 May 2026 05:09:16 -0700 (PDT)
+        Fri, 29 May 2026 05:09:12 -0700 (PDT)
 From: Vitor Soares <ivitro@gmail.com>
 To: Nishanth Menon <nm@ti.com>,
 	Vignesh Raghavendra <vigneshr@ti.com>,
@@ -80,17 +79,15 @@ Cc: Vitor Soares <vitor.soares@toradex.com>,
 	linux-arm-kernel@lists.infradead.org,
 	devicetree@vger.kernel.org,
 	linux-kernel@vger.kernel.org
-Subject: [PATCH v1 1/7] arm64: dts: ti: k3-am69-aquila: Add Toradex DSI to HDMI Adapter
-Date: Fri, 29 May 2026 13:08:53 +0100
-Message-ID: <20260529120853.636015-10-ivitro@gmail.com>
+Subject: [PATCH v1 0/7] arm64: dts: ti: k3-am69-aquila: Add display and peripheral overlays
+Date: Fri, 29 May 2026 13:08:52 +0100
+Message-ID: <20260529120853.636015-9-ivitro@gmail.com>
 X-Mailer: git-send-email 2.54.0
-In-Reply-To: <20260529120853.636015-9-ivitro@gmail.com>
-References: <20260529120853.636015-9-ivitro@gmail.com>
 MIME-Version: 1.0
 Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260529_050919_516569_E96523CF 
-X-CRM114-Status: GOOD (  15.45  )
+X-CRM114-CacheID: sfid-20260529_050915_173179_05F6024D 
+X-CRM114-Status: GOOD (  10.20  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -107,158 +104,66 @@ Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.i
 
 From: Vitor Soares <vitor.soares@toradex.com>
 
-Add a device tree overlay for the Toradex DSI to HDMI Adapter on the
-Aquila AM69 DSI_1 interface. Used on Aquila Development Board (J44),
-where DSI_1 is exposed via a Samtec LSS-130 connector.
+This series adds device tree overlays for the Toradex Aquila AM69 carrier
+boards. The overlays cover display adapters, DSI displays, and OV5640 CSI
+camera modules available through the Toradex accessory ecosystem.
 
-The adapter is based on the Lontium LT8912B DSI-to-HDMI bridge.
+Display additions cover three configurations:
+- DSI-to-HDMI adapter based on the LT8912B
+- DSI-to-LVDS adapter based on the SN65DSI84 with the Toradex Capacitive
+  Touch Display 10.1" LVDS
+- DSI driving the Toradex Capacitive Touch Display 7" and 10.1" DSI
 
-Link: https://developer.toradex.com/hardware/accessories/add-ons/dsi-hdmi-adapter
-Signed-off-by: Vitor Soares <vitor.soares@toradex.com>
----
- arch/arm64/boot/dts/ti/Makefile               |   4 +
- .../dts/ti/k3-am69-aquila-dsi-to-hdmi.dtso    | 115 ++++++++++++++++++
- 2 files changed, 119 insertions(+)
+For the OV5640 camera overlays, both the current Toradex CSI Camera Set
+5MP OV5640 with a 27 MHz oscillator and the legacy CSI Module 5MP OV5640
+with a 24 MHz oscillator are supported.
+
+This series depends on the Riverdi vendor prefix and panel-lvds binding
+patches, which have been submitted as part of a separate series:
+
+https://lore.kernel.org/all/20260522161105.277519-13-ivitro@gmail.com/
+
+Vitor Soares (7):
+  arm64: dts: ti: k3-am69-aquila: Add Toradex DSI to HDMI Adapter
+  arm64: dts: ti: k3-am69-aquila: Add DSI to LVDS adapter with 10.1"
+    display
+  arm64: dts: ti: k3-am69-aquila: Add Toradex Capacitive Touch Display
+    10.1" DSI with adapter
+  arm64: dts: ti: k3-am69-aquila: Add Toradex Capacitive Touch Display
+    7" DSI with adapter
+  arm64: dts: ti: k3-am69-aquila: Add Toradex Capacitive Touch Display
+    10.1" DSI
+  arm64: dts: ti: k3-am69-aquila: Add Toradex Capacitive Touch Display
+    7" DSI
+  arm64: dts: ti: k3-am69-aquila: Add Toradex OV5640 CSI cameras
+
+ arch/arm64/boot/dts/ti/Makefile               |  43 +++++
+ ...la-adapter-panel-cap-touch-10inch-dsi.dtso | 151 ++++++++++++++++++
+ ...ila-adapter-panel-cap-touch-7inch-dsi.dtso | 151 ++++++++++++++++++
+ .../ti/k3-am69-aquila-csi1-ov5640-24mhz.dtso  |  18 +++
+ .../dts/ti/k3-am69-aquila-csi1-ov5640.dtsi    |  76 +++++++++
+ .../dts/ti/k3-am69-aquila-csi1-ov5640.dtso    |  19 +++
+ .../ti/k3-am69-aquila-csi2-ov5640-24mhz.dtso  |  18 +++
+ .../dts/ti/k3-am69-aquila-csi2-ov5640.dtsi    |  76 +++++++++
+ .../dts/ti/k3-am69-aquila-csi2-ov5640.dtso    |  19 +++
+ .../dts/ti/k3-am69-aquila-dsi-to-hdmi.dtso    | 115 +++++++++++++
+ ...la-dsi-to-lvds-panel-cap-touch-10inch.dtso | 142 ++++++++++++++++
+ ...m69-aquila-panel-cap-touch-10inch-dsi.dtso | 149 +++++++++++++++++
+ ...am69-aquila-panel-cap-touch-7inch-dsi.dtso | 149 +++++++++++++++++
+ 13 files changed, 1126 insertions(+)
+ create mode 100644 arch/arm64/boot/dts/ti/k3-am69-aquila-adapter-panel-cap-touch-10inch-dsi.dtso
+ create mode 100644 arch/arm64/boot/dts/ti/k3-am69-aquila-adapter-panel-cap-touch-7inch-dsi.dtso
+ create mode 100644 arch/arm64/boot/dts/ti/k3-am69-aquila-csi1-ov5640-24mhz.dtso
+ create mode 100644 arch/arm64/boot/dts/ti/k3-am69-aquila-csi1-ov5640.dtsi
+ create mode 100644 arch/arm64/boot/dts/ti/k3-am69-aquila-csi1-ov5640.dtso
+ create mode 100644 arch/arm64/boot/dts/ti/k3-am69-aquila-csi2-ov5640-24mhz.dtso
+ create mode 100644 arch/arm64/boot/dts/ti/k3-am69-aquila-csi2-ov5640.dtsi
+ create mode 100644 arch/arm64/boot/dts/ti/k3-am69-aquila-csi2-ov5640.dtso
  create mode 100644 arch/arm64/boot/dts/ti/k3-am69-aquila-dsi-to-hdmi.dtso
+ create mode 100644 arch/arm64/boot/dts/ti/k3-am69-aquila-dsi-to-lvds-panel-cap-touch-10inch.dtso
+ create mode 100644 arch/arm64/boot/dts/ti/k3-am69-aquila-panel-cap-touch-10inch-dsi.dtso
+ create mode 100644 arch/arm64/boot/dts/ti/k3-am69-aquila-panel-cap-touch-7inch-dsi.dtso
 
-diff --git a/arch/arm64/boot/dts/ti/Makefile b/arch/arm64/boot/dts/ti/Makefile
-index 21db60cd19de..c1aa5c1df927 100644
---- a/arch/arm64/boot/dts/ti/Makefile
-+++ b/arch/arm64/boot/dts/ti/Makefile
-@@ -172,8 +172,12 @@ dtb-$(CONFIG_ARCH_K3) += k3-j722s-evm-csi2-quad-rpi-cam-imx219.dtbo
- dtb-$(CONFIG_ARCH_K3) += k3-j722s-evm-csi2-quad-tevi-ov5640.dtbo
- 
- # Boards with J784s4 SoC
-+k3-am69-aquila-dev-dsi-to-hdmi-dtbs := k3-am69-aquila-dev.dtb \
-+	k3-am69-aquila-dsi-to-hdmi.dtbo
- dtb-$(CONFIG_ARCH_K3) += k3-am69-aquila-clover.dtb
- dtb-$(CONFIG_ARCH_K3) += k3-am69-aquila-dev.dtb
-+dtb-$(CONFIG_ARCH_K3) += k3-am69-aquila-dev-dsi-to-hdmi.dtb
-+dtb-$(CONFIG_ARCH_K3) += k3-am69-aquila-dsi-to-hdmi.dtbo
- dtb-$(CONFIG_ARCH_K3) += k3-am69-sk.dtb
- dtb-$(CONFIG_ARCH_K3) += k3-am69-sk-pcie0-ep.dtbo
- dtb-$(CONFIG_ARCH_K3) += k3-j784s4-evm.dtb
-diff --git a/arch/arm64/boot/dts/ti/k3-am69-aquila-dsi-to-hdmi.dtso b/arch/arm64/boot/dts/ti/k3-am69-aquila-dsi-to-hdmi.dtso
-new file mode 100644
-index 000000000000..d8e4dd69599e
---- /dev/null
-+++ b/arch/arm64/boot/dts/ti/k3-am69-aquila-dsi-to-hdmi.dtso
-@@ -0,0 +1,115 @@
-+// SPDX-License-Identifier: GPL-2.0-or-later OR MIT
-+/*
-+ * Copyright (c) Toradex
-+ *
-+ * Toradex DSI to HDMI Adapter on Aquila AM69 DSI_1.
-+ * Used on Development Board (J44), DSI_1 is exposed via a Samtec LSS-130 connector.
-+ *
-+ * https://developer.toradex.com/hardware/accessories/add-ons/dsi-hdmi-adapter
-+ */
-+
-+/dts-v1/;
-+/plugin/;
-+
-+#include <dt-bindings/gpio/gpio.h>
-+
-+&{/} {
-+	hdmi-connector {
-+		compatible = "hdmi-connector";
-+		pinctrl-names = "default";
-+		pinctrl-0 = <&pinctrl_pwm3_dsi_gpio>;
-+		ddc-i2c-bus = <&i2c_dsi_1>;
-+		/* Aquila PWM_3_DSI (AQUILA B46) */
-+		hpd-gpios = <&main_gpio0 33 GPIO_ACTIVE_HIGH>;
-+		type = "a";
-+
-+		port {
-+			hdmi_connector_in: endpoint {
-+				remote-endpoint = <&dsi_hdmi_bridge_out>;
-+			};
-+		};
-+	};
-+};
-+
-+&dphy_tx0 {
-+	status = "okay";
-+};
-+
-+&dsi0 {
-+	status = "okay";
-+};
-+
-+&dsi0_ports {
-+	#address-cells = <1>;
-+	#size-cells = <0>;
-+
-+	port@0 {
-+		reg = <0>;
-+
-+		dsi0_out: endpoint {
-+			remote-endpoint = <&dsi_hdmi_bridge_in>;
-+		};
-+	};
-+
-+	port@1 {
-+		reg = <1>;
-+
-+		dsi0_in: endpoint {
-+			remote-endpoint = <&dpi2_out>;
-+		};
-+	};
-+};
-+
-+&dss_ports {
-+	#address-cells = <1>;
-+	#size-cells = <0>;
-+
-+	port@2 {
-+		reg = <2>;
-+
-+		dpi2_out: endpoint {
-+			remote-endpoint = <&dsi0_in>;
-+		};
-+	};
-+};
-+
-+/* Aquila PWM_3_DSI (AQUILA B46) repurposed as HDMI HPD GPIO */
-+&main_ehrpwm5 {
-+	status = "disabled";
-+};
-+
-+&i2c_dsi_0 {
-+	#address-cells = <1>;
-+	#size-cells = <0>;
-+
-+	hdmi@48 {
-+		compatible = "lontium,lt8912b";
-+		reg = <0x48>;
-+		pinctrl-names = "default";
-+		pinctrl-0 = <&pinctrl_gpio_20_dsi_1>;
-+		/* Aquila GPIO_20_DSI_1 (AQUILA B45) */
-+		reset-gpios = <&main_gpio0 18 GPIO_ACTIVE_LOW>;
-+
-+		ports {
-+			#address-cells = <1>;
-+			#size-cells = <0>;
-+
-+			port@0 {
-+				reg = <0>;
-+
-+				dsi_hdmi_bridge_in: endpoint {
-+					remote-endpoint = <&dsi0_out>;
-+					data-lanes = <1 2 3 4>;
-+				};
-+			};
-+
-+			port@1 {
-+				reg = <1>;
-+
-+				dsi_hdmi_bridge_out: endpoint {
-+					remote-endpoint = <&hdmi_connector_in>;
-+				};
-+			};
-+		};
-+	};
-+};
 -- 
 2.54.0
 
