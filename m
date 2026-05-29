@@ -4,96 +4,124 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 5BB54CD6E49
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 74F8ACD6E58
 	for <linux-arm-kernel@archiver.kernel.org>; Fri, 29 May 2026 15:56:59 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	MIME-Version:References:In-Reply-To:Message-Id:Date:Subject:Cc:To:From:
+	MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:
 	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=DXtmoRa4P06Ph2LHtyp4xqyCcrT4FMd0i5231H6kh7A=; b=sqE6tJjA9ejoJD/Tf3YkysPBrE
-	CfLgCRcdhd9FzHCpd/YEbqo1W9i3S/2727r1scYsu0+HtfNj8N4rLNDINjNU+ylWEAgEcFxs9CT0h
-	clSTUdPNUd1WQcP0RKo7F0aitr/8y4BakxrmWj9rH3zcP0oCOOQM4cY6ZuMvs0u9ZN+zRbHSD6u50
-	El6E7+AnY4dyz7kc0VGqRK9exMDYOOr15X3CLUgnM9c9tqe1glD/MBde0VfdX6bYm6o9LTWp5gx0N
-	WmgWI/YUgRAjOu+uGrWXLUMXoJbqIlvLGzHcxE5nh7OMZs704jGCQ2IHdyPpmWyDJl+ddT8GhpjRv
-	WQtDhjQw==;
+	bh=dqKCCofcz0Zv74DPHirPfzI3TpUJzfAENQhUkMK1kvo=; b=lL3ZYnomJ1Fva4TEd2xb3CPkyn
+	1vQDnzrPIqYqp52VHmGJVD2oCl54Z0rSnmUpOnEywKIxg94QwKSTVh91yOpaNHm296297+j+1WtOJ
+	H1v90XznhJCAccbxmoBYxmeYVw7uT5wYM34kkLfASskSsx79KoTgyhOZ0XUCO9URjGVK3cIzMX/sM
+	w1pjf5y015HVMQx0x9e/8N6MQQTrjCUKZ61K4iNJTQ23dNjRYC+GfA08of6Fs07fJd3cEFRlQVQa7
+	0UrfuFigksKWZNorS+Y8zbripMOQFhqydoK98h+0a5KDy8NQzfX/jCZcNLav/2ctXvYDhLwnUwpwo
+	zKWTLoow==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wSzZp-00000007mbV-1IJ0;
+	id 1wSzZp-00000007mbr-1usf;
 	Fri, 29 May 2026 15:56:49 +0000
-Received: from mail-wm1-x336.google.com ([2a00:1450:4864:20::336])
+Received: from mx0a-001b2d01.pphosted.com ([148.163.156.1])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wSzZL-00000007m3d-2d2W
+	id 1wSzZS-00000007mFR-028t
 	for linux-arm-kernel@lists.infradead.org;
-	Fri, 29 May 2026 15:56:20 +0000
-Received: by mail-wm1-x336.google.com with SMTP id 5b1f17b1804b1-4896c22fcbaso122174915e9.0
-        for <linux-arm-kernel@lists.infradead.org>; Fri, 29 May 2026 08:56:19 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20251104; t=1780070178; x=1780674978; darn=lists.infradead.org;
-        h=content-transfer-encoding:mime-version:references:in-reply-to
-         :message-id:date:subject:cc:to:from:from:to:cc:subject:date
-         :message-id:reply-to;
-        bh=DXtmoRa4P06Ph2LHtyp4xqyCcrT4FMd0i5231H6kh7A=;
-        b=TrAzcnusLAclwGxgo7DNMaSEXozYX8u4aQNToRONT+1QXckDhABzvMf152PPb+xUss
-         QQrcDjpHNQ4GBtQCu22j1ZK2mOxeKnGlmMBoiPi4VwG/Gno9ar63dOgARy37SpRJR7IJ
-         B4ZjQA40U4lLurIV4kYzOTfFWg43Skw/RwE2WhY3eW9KHpHjw6XjsijMlSLg7N/Xmtxk
-         /TnB74g4On/UVPIs7bng48WHM8233j2LEwugrDOAv4VDIx1bsIGl08a/bCKKLypa4iJt
-         N0eGUHxmmn603wYb0Lhs2cAXNXgcx7LShQivAjltBKOG3spDDQgYsF5nDbKWXBSC0Fou
-         jVDQ==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20251104; t=1780070178; x=1780674978;
-        h=content-transfer-encoding:mime-version:references:in-reply-to
-         :message-id:date:subject:cc:to:from:x-gm-gg:x-gm-message-state:from
-         :to:cc:subject:date:message-id:reply-to;
-        bh=DXtmoRa4P06Ph2LHtyp4xqyCcrT4FMd0i5231H6kh7A=;
-        b=dNk5P54kOV2GRvKEsjU4NokXtlZeCKV4Bxjz9NXdKF50eBn9Tdb+8cSTpgnzctCL/Y
-         KUnys797xKXqPcdeazxLwB453oaaVhZ1ARfD9VeEsXwXbiOp+hHIeFKudtuEiT0YLvbc
-         jaEbIBUIk4xsoazWtUhCJjo4/mFW95M3yTiZPKh8iHwF/ZKbdY+tvXpFBjPzjlSm5+yt
-         rB6zE3vV7m6LbnRAbbB67ajIQVczobFVfCZDBaL/z+2iSUdBCrILCenuY9uIHNCjhyv4
-         OZGeG1dyRdymyRUNZKi9rpqa5iE3ITaaGtUltPoDFII8OUg86KAJAEIeiDk1zgtgGAOw
-         /BIw==
-X-Forwarded-Encrypted: i=1; AFNElJ+CXBmCydntJNYhx0ULP2NF89L4Ic9b2Rf32uyXaTJE3ALbrUj7WGL63dNfQHhl86apJ2lhnfT41EGAxXiyeAzk@lists.infradead.org
-X-Gm-Message-State: AOJu0YwxvV9cobIT4zBK4O3gadgczofmT5bfxkY21cGpfq60S29esKDJ
-	rHYhw88Cekpc/48NKCYl162zKPb89KLyZiO3w4N6671D1Gtrqv8IemF8
-X-Gm-Gg: Acq92OFe2FlLz+dT9O+UVfEmu+bLEXp/GaKXBUT2bts9I0xCOSZi9Jmm9s7tqxt9azr
-	feikWgB4IcLJFbWHz/hJnTTwCNtMnqkgCfa70CIL8pz3Zu46erIYIhbx6AM/ts7JtkHax8Dnkbe
-	wVF5JkQ6+jSTPC1KKKQ3Jbf9LtR6fBkZDhUBNqAOL2aJCKZZ7I8O2tU1dyKCQzAwBf56XB18wu5
-	zyi3b6RC4SWprtl5Q6HqvNhWY91hEykak8AFlk8cMqhAs3jpBwQWvznZMDWtXQBB2BB2aZ/SfX2
-	a2S7eZKC/n4Pj6T9fkEwegtsecAepz50F5AS7nF1riPLeDezoBbf+GRyhTP1fSxXXS/CiYn3dBq
-	ODdlzANP1bR+S/yJ3KkobbGQHINbOf+uZxcQJ/TByab+PvTpreDGsEEZ1ikC5DRe0NjwfnSIkSL
-	cCDVcgVPQfz3OGueUT5R2MPVttoeNqfzT8xSl/YB3oaMm7vS5HFqjrKbIVy85PyNII/yyktM1sG
-	CQQT2ZPlwoEHK69z8tgr2p+uy0MQ6UmBaM3iVET
-X-Received: by 2002:a05:600c:1382:b0:48f:e3e7:3d39 with SMTP id 5b1f17b1804b1-490a29e4449mr1171935e9.11.1780070177866;
-        Fri, 29 May 2026 08:56:17 -0700 (PDT)
-Received: from debian.tailb81abf.ts.net (2a01cb09e0354cc878d00097536575e1.ipv6.abo.wanadoo.fr. [2a01:cb09:e035:4cc8:78d0:97:5365:75e1])
-        by smtp.gmail.com with ESMTPSA id 5b1f17b1804b1-4909cabfd6esm55150315e9.15.2026.05.29.08.56.16
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Fri, 29 May 2026 08:56:17 -0700 (PDT)
-From: MidG971 <midgy971@gmail.com>
-To: Tomeu Vizoso <tomeu@tomeuvizoso.net>,
-	Oded Gabbay <ogabbay@kernel.org>
-Cc: Rob Herring <robh@kernel.org>,
-	Krzysztof Kozlowski <krzk+dt@kernel.org>,
-	Conor Dooley <conor+dt@kernel.org>,
-	Heiko Stuebner <heiko@sntech.de>,
-	dri-devel@lists.freedesktop.org,
-	devicetree@vger.kernel.org,
-	linux-arm-kernel@lists.infradead.org,
-	linux-rockchip@lists.infradead.org,
-	linux-kernel@vger.kernel.org,
-	Midgy BALON <midgy971@gmail.com>
-Subject: [PATCH v2 4/4] arm64: dts: rockchip: rk3568-rock-3b: Enable NPU
-Date: Fri, 29 May 2026 17:58:24 +0200
-Message-Id: <20260529155824.3099831-5-midgy971@gmail.com>
-X-Mailer: git-send-email 2.39.5
-In-Reply-To: <20260529155824.3099831-1-midgy971@gmail.com>
-References: <20260529155824.3099831-1-midgy971@gmail.com>
+	Fri, 29 May 2026 15:56:30 +0000
+Received: from pps.filterd (m0360083.ppops.net [127.0.0.1])
+	by mx0a-001b2d01.pphosted.com (8.18.1.11/8.18.1.11) with ESMTP id 64TFFon92418293;
+	Fri, 29 May 2026 15:56:14 GMT
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=ibm.com; h=cc
+	:content-transfer-encoding:date:from:in-reply-to:message-id
+	:mime-version:references:subject:to; s=pp1; bh=dqKCCofcz0Zv74DPH
+	irPfzI3TpUJzfAENQhUkMK1kvo=; b=Evhp8XjgdpMwTUdSePXiqx8k31I/ekiRG
+	7mdbZwIjQAoQozZjlWvK4P7mSpYl8pBBUOmE5vDlUnpokXCPhghZV9M9H42BZldV
+	3VVS/qa19kj7EgEIUWExZCx4G+X1IAyp6i76u791S0qx6F0SJTwEPwUDui3a04Xw
+	/sNxOhUiu/CoIyny3AV7RV6Rv1UtJ+E0+OiYpZ1ZZVsi9IdK1rmm0PDayN5sVT5s
+	R16Qq4+XS1YCBl5KkKt//dgKnX5R0PkIjnN0IMV8SAKqXIo6J9a44c5ucaXu0Gj+
+	dSS+zaC9KAw37LHv9O56GImmqTAtFQ/cw5VlsgcAUTUD8cbAe2MrA==
+Received: from ppma23.wdc07v.mail.ibm.com (5d.69.3da9.ip4.static.sl-reverse.com [169.61.105.93])
+	by mx0a-001b2d01.pphosted.com (PPS) with ESMTPS id 4ee884vkpj-1
+	(version=TLSv1.2 cipher=ECDHE-RSA-AES256-GCM-SHA384 bits=256 verify=NOT);
+	Fri, 29 May 2026 15:56:14 +0000 (GMT)
+Received: from pps.filterd (ppma23.wdc07v.mail.ibm.com [127.0.0.1])
+	by ppma23.wdc07v.mail.ibm.com (8.18.1.7/8.18.1.7) with ESMTP id 64TFs8Dx027824;
+	Fri, 29 May 2026 15:56:13 GMT
+Received: from smtprelay01.fra02v.mail.ibm.com ([9.218.2.227])
+	by ppma23.wdc07v.mail.ibm.com (PPS) with ESMTPS id 4edjrc8jmf-1
+	(version=TLSv1.2 cipher=ECDHE-RSA-AES256-GCM-SHA384 bits=256 verify=NOT);
+	Fri, 29 May 2026 15:56:13 +0000 (GMT)
+Received: from smtpav07.fra02v.mail.ibm.com (smtpav07.fra02v.mail.ibm.com [10.20.54.106])
+	by smtprelay01.fra02v.mail.ibm.com (8.14.9/8.14.9/NCO v10.0) with ESMTP id 64TFu5VT42205508
+	(version=TLSv1/SSLv3 cipher=DHE-RSA-AES256-GCM-SHA384 bits=256 verify=OK);
+	Fri, 29 May 2026 15:56:05 GMT
+Received: from smtpav07.fra02v.mail.ibm.com (unknown [127.0.0.1])
+	by IMSVA (Postfix) with ESMTP id A0A1920040;
+	Fri, 29 May 2026 15:56:05 +0000 (GMT)
+Received: from smtpav07.fra02v.mail.ibm.com (unknown [127.0.0.1])
+	by IMSVA (Postfix) with ESMTP id 4AC132004D;
+	Fri, 29 May 2026 15:56:05 +0000 (GMT)
+Received: from tuxmaker.boeblingen.de.ibm.com (unknown [9.87.85.9])
+	by smtpav07.fra02v.mail.ibm.com (Postfix) with ESMTP;
+	Fri, 29 May 2026 15:56:05 +0000 (GMT)
+From: Steffen Eiden <seiden@linux.ibm.com>
+To: kvm@vger.kernel.org, kvmarm@lists.linux.dev,
+        linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org,
+        linux-s390@vger.kernel.org
+Cc: Alexander Gordeev <agordeev@linux.ibm.com>,
+        Andreas Grapentin <gra@linux.ibm.com>, Arnd Bergmann <arnd@arndb.de>,
+        Catalin Marinas <catalin.marinas@arm.com>,
+        Christian Borntraeger <borntraeger@linux.ibm.com>,
+        Claudio Imbrenda <imbrenda@linux.ibm.com>,
+        David Hildenbrand <david@kernel.org>,
+        Friedrich Welter <fritz@linux.ibm.com>,
+        Gautam Gala <ggala@linux.ibm.com>,
+        Hariharan Mari <hari55@linux.ibm.com>,
+        Heiko Carstens <hca@linux.ibm.com>,
+        Hendrik Brueckner <brueckner@linux.ibm.com>,
+        Ilya Leoshkevich <iii@linux.ibm.com>,
+        Janosch Frank <frankja@linux.ibm.com>, Joey Gouly <joey.gouly@arm.com>,
+        Marc Zyngier <maz@kernel.org>, Nico Boehr <nrb@linux.ibm.com>,
+        Nina Schoetterl-Glausch <oss@nina.schoetterlglausch.eu>,
+        Oliver Upton <oupton@kernel.org>, Paolo Bonzini <pbonzini@redhat.com>,
+        Suzuki K Poulose <suzuki.poulose@arm.com>,
+        Sven Schnelle <svens@linux.ibm.com>,
+        Ulrich Weigand <Ulrich.Weigand@de.ibm.com>,
+        Vasily Gorbik <gor@linux.ibm.com>, Will Deacon <will@kernel.org>,
+        Zenghui Yu <yuzenghui@huawei.com>
+Subject: [PATCH v1 09/26] KVM: arm64: Refactor idreg caching into dedicated structure
+Date: Fri, 29 May 2026 17:55:42 +0200
+Message-ID: <20260529155601.2927240-10-seiden@linux.ibm.com>
+X-Mailer: git-send-email 2.53.0
+In-Reply-To: <20260529155601.2927240-1-seiden@linux.ibm.com>
+References: <20260529155601.2927240-1-seiden@linux.ibm.com>
 MIME-Version: 1.0
 Content-Transfer-Encoding: 8bit
+X-TM-AS-GCONF: 00
+X-Authority-Analysis: v=2.4 cv=L4MtheT8 c=1 sm=1 tr=0 ts=6a19b71e cx=c_pps
+ a=3Bg1Hr4SwmMryq2xdFQyZA==:117 a=3Bg1Hr4SwmMryq2xdFQyZA==:17
+ a=NGcC8JguVDcA:10 a=VkNPw1HP01LnGYTKEx00:22 a=RnoormkPH1_aCDwRdu11:22
+ a=iQ6ETzBq9ecOQQE5vZCe:22 a=VnNF1IyMAAAA:8 a=ltnAkj20NlQT-AaSmW0A:9
+X-Proofpoint-ORIG-GUID: v-ZUWhFCxXBMvxuhjxXM0qLXz25xPYX1
+X-Proofpoint-Spam-Details-Enc: AW1haW4tMjYwNTI5MDE1NiBTYWx0ZWRfX0iwO/qKPo8HI
+ EsmFXXeoaO6BoC57iqvezPM1uhFuhPoC+50C6SIL4NgZnyFHBltBqcd3fhpS5L/vp5Rp+8CxlHE
+ 1zlUXAj6rb6gc7zmzaw/x9WSNNizz5GosWm7rGpKYxy1lywT5myMVBcE1JBOFsZKllYcy1GDa+y
+ zAbl65QxnoAU/l1Ch/Pg8G6/5xm9yp8IxksBt/+dE1mRiIRytX0SYuZ3TPzsptyFGqOmjIkVlfE
+ Bv8IIGogt2Vm7i0wBJAlcfCPPA8f0gjlbKPwM9KVdU08SgJDuqiXbdwrfLen06qI59A/6Eu82nD
+ i6w/D6Vl8XzCAds5Yo316fqM4P1aw3J9/4Am5/u1jVRKcazRmVg0ZwNKkADg8rxeJsplFX5lY6h
+ uoghT3iFZbj5PqYZtSDvtS9J0saERKDsw76IeE2N8VL3FRr5XRsQVmpdTspo/CZ/QpYmBt/tP6w
+ ftoVeK6dxi6SWAMnUVA==
+X-Proofpoint-GUID: v-ZUWhFCxXBMvxuhjxXM0qLXz25xPYX1
+X-Proofpoint-Virus-Version: vendor=baseguard
+ engine=ICAP:2.0.293,Aquarius:18.0.1143,Hydra:6.1.125,FMLib:17.12.100.49
+ definitions=2026-05-29_04,2026-05-28_03,2025-10-01_01
+X-Proofpoint-Spam-Details: rule=outbound_notspam policy=outbound score=0
+ phishscore=0 lowpriorityscore=0 suspectscore=0 clxscore=1015 malwarescore=0
+ bulkscore=0 impostorscore=0 adultscore=0 priorityscore=1501 spamscore=0
+ classifier=typeunknown authscore=0 authtc= authcc= route=outbound adjust=0
+ reason=mlx scancount=1 engine=8.22.0-2605210000 definitions=main-2605290156
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260529_085619_674836_4D2F763F 
-X-CRM114-Status: GOOD (  11.08  )
+X-CRM114-CacheID: sfid-20260529_085628_018096_D449F486 
+X-CRM114-Status: GOOD (  21.84  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -108,39 +136,185 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-From: Midgy BALON <midgy971@gmail.com>
+Move VM-wide ID register emulation fields from struct kvm_arch into a
+new struct kvm_vm_id_regs to prepare future sharing of these fields and
+functions using them. Update all users to use the new structure. No
+functional changes.
 
-Enable the RKNN core 0 and its IOMMU on the Radxa ROCK 3B by
-overriding their status. The Rocket accel driver binds via the
-rockchip,rk3568-rknn-core compatible.
-
-The NPU is powered from vdd_npu (regulator already defined for OPP
-table). The IOMMU node is also enabled so the rocket driver can manage
-its own paging domain for user-mode submissions.
-
-Signed-off-by: Midgy BALON <midgy971@gmail.com>
+Co-developed-by: Nina Schoetterl-Glausch <nsg@linux.ibm.com>
+Signed-off-by: Nina Schoetterl-Glausch <nsg@linux.ibm.com>
+Signed-off-by: Steffen Eiden <seiden@linux.ibm.com>
 ---
- arch/arm64/boot/dts/rockchip/rk3568-rock-3b.dts | 9 +++++++++
- 1 file changed, 9 insertions(+)
+ arch/arm64/include/asm/kvm_host.h  | 50 ++++++++++++++++--------------
+ arch/arm64/kvm/config.c            |  2 +-
+ arch/arm64/kvm/hyp/nvhe/pkvm.c     |  7 +++--
+ arch/arm64/kvm/hyp/nvhe/sys_regs.c |  4 +--
+ arch/arm64/kvm/sys_regs.c          |  2 +-
+ 5 files changed, 35 insertions(+), 30 deletions(-)
 
-diff --git a/arch/arm64/boot/dts/rockchip/rk3568-rock-3b.dts b/arch/arm64/boot/dts/rockchip/rk3568-rock-3b.dts
-index 3d0c1ccfa..d54229123 100644
---- a/arch/arm64/boot/dts/rockchip/rk3568-rock-3b.dts
-+++ b/arch/arm64/boot/dts/rockchip/rk3568-rock-3b.dts
-@@ -779,3 +779,12 @@ vp0_out_hdmi: endpoint@ROCKCHIP_VOP2_EP_HDMI0 {
- 		remote-endpoint = <&hdmi_in_vp0>;
- 	};
- };
+diff --git a/arch/arm64/include/asm/kvm_host.h b/arch/arm64/include/asm/kvm_host.h
+index 4c2c62b8b506..a8efff6ea01d 100644
+--- a/arch/arm64/include/asm/kvm_host.h
++++ b/arch/arm64/include/asm/kvm_host.h
+@@ -352,22 +352,7 @@ struct kvm_arch {
+ 	struct kvm_smccc_features smccc_feat;
+ 	struct maple_tree smccc_filter;
+ 
+-	/*
+-	 * Emulated CPU ID registers per VM
+-	 * (Op0, Op1, CRn, CRm, Op2) of the ID registers to be saved in it
+-	 * is (3, 0, 0, crm, op2), where 1<=crm<8, 0<=op2<8.
+-	 *
+-	 * These emulated idregs are VM-wide, but accessed from the context of a vCPU.
+-	 * Atomic access to multiple idregs are guarded by kvm_arch.config_lock.
+-	 */
+-#define IDREG_IDX(id)		(((sys_reg_CRm(id) - 1) << 3) | sys_reg_Op2(id))
+-#define KVM_ARM_ID_REG_NUM	(IDREG_IDX(sys_reg(3, 0, 0, 7, 7)) + 1)
+-	u64 id_regs[KVM_ARM_ID_REG_NUM];
+-
+-	u64 midr_el1;
+-	u64 revidr_el1;
+-	u64 aidr_el1;
+-	u64 ctr_el0;
++	struct kvm_vm_id_regs id_regs;
+ 
+ 	/* Masks for VNCR-backed and general EL2 sysregs */
+ 	struct kvm_sysreg_masks	*sysreg_masks;
+@@ -1399,19 +1384,38 @@ static inline void kvm_hyp_reserve(void) { }
+ void kvm_arm_vcpu_power_off(struct kvm_vcpu *vcpu);
+ bool kvm_arm_vcpu_stopped(struct kvm_vcpu *vcpu);
+ 
+-static inline u64 *__vm_id_reg(struct kvm_arch *ka, u32 reg)
++struct kvm_vm_id_regs {
++	/*
++	 * Emulated CPU ID registers per VM
++	 * (Op0, Op1, CRn, CRm, Op2) of the ID registers to be saved in it
++	 * is (3, 0, 0, crm, op2), where 1<=crm<8, 0<=op2<8.
++	 *
++	 * These emulated idregs are VM-wide, but accessed from the context of a vCPU.
++	 * Atomic access to multiple idregs are guarded by kvm_arch.config_lock.
++	 */
++#define IDREG_IDX(id)		(((sys_reg_CRm(id) - 1) << 3) | sys_reg_Op2(id))
++#define KVM_ARM_ID_REG_NUM	(IDREG_IDX(sys_reg(3, 0, 0, 7, 7)) + 1)
++	u64 normal[KVM_ARM_ID_REG_NUM];
 +
-+&rknn_core_0 {
-+	npu-supply = <&vdd_npu>;
-+	status = "okay";
++	u64 midr_el1;
++	u64 revidr_el1;
++	u64 aidr_el1;
++	u64 ctr_el0;
 +};
 +
-+&rknn_mmu_0 {
-+	status = "okay";
-+};
++static inline u64 *__vm_id_reg(struct kvm_vm_id_regs *id_regs, u32 reg)
+ {
+ 	switch (reg) {
+ 	case sys_reg(3, 0, 0, 1, 0) ... sys_reg(3, 0, 0, 7, 7):
+-		return &ka->id_regs[IDREG_IDX(reg)];
++		return &id_regs->normal[IDREG_IDX(reg)];
+ 	case SYS_CTR_EL0:
+-		return &ka->ctr_el0;
++		return &id_regs->ctr_el0;
+ 	case SYS_MIDR_EL1:
+-		return &ka->midr_el1;
++		return &id_regs->midr_el1;
+ 	case SYS_REVIDR_EL1:
+-		return &ka->revidr_el1;
++		return &id_regs->revidr_el1;
+ 	case SYS_AIDR_EL1:
+-		return &ka->aidr_el1;
++		return &id_regs->aidr_el1;
+ 	default:
+ 		WARN_ON_ONCE(1);
+ 		return NULL;
+@@ -1419,7 +1423,7 @@ static inline u64 *__vm_id_reg(struct kvm_arch *ka, u32 reg)
+ }
+ 
+ #define kvm_read_vm_id_reg(kvm, reg)					\
+-	({ u64 __val = *__vm_id_reg(&(kvm)->arch, reg); __val; })
++	({ u64 __val = *__vm_id_reg(&(kvm)->arch.id_regs, reg); __val; })
+ 
+ void kvm_set_vm_id_reg(struct kvm *kvm, u32 reg, u64 val);
+ 
+diff --git a/arch/arm64/kvm/config.c b/arch/arm64/kvm/config.c
+index 014fe04daabf..58a439c3ab9c 100644
+--- a/arch/arm64/kvm/config.c
++++ b/arch/arm64/kvm/config.c
+@@ -1398,7 +1398,7 @@ void __init check_feature_map(void)
+ 
+ static bool idreg_feat_match(struct kvm *kvm, const struct reg_bits_to_feat_map *map)
+ {
+-	u64 regval = kvm->arch.id_regs[map->regidx];
++	u64 regval = kvm->arch.id_regs.normal[map->regidx];
+ 	u64 regfld = (regval >> map->shift) & GENMASK(map->width - 1, 0);
+ 
+ 	if (map->sign) {
+diff --git a/arch/arm64/kvm/hyp/nvhe/pkvm.c b/arch/arm64/kvm/hyp/nvhe/pkvm.c
+index eb1c10120f9f..94620f142f42 100644
+--- a/arch/arm64/kvm/hyp/nvhe/pkvm.c
++++ b/arch/arm64/kvm/hyp/nvhe/pkvm.c
+@@ -343,7 +343,7 @@ static void pkvm_init_features_from_host(struct pkvm_hyp_vm *hyp_vm, const struc
+ 	DECLARE_BITMAP(allowed_features, KVM_VCPU_MAX_FEATURES);
+ 
+ 	/* CTR_EL0 is always under host control, even for protected VMs. */
+-	hyp_vm->kvm.arch.ctr_el0 = host_kvm->arch.ctr_el0;
++	hyp_vm->kvm.arch.id_regs.ctr_el0 = host_kvm->arch.id_regs.ctr_el0;
+ 
+ 	/* Preserve the vgic model so that GICv3 emulation works */
+ 	hyp_vm->kvm.arch.vgic.vgic_model = host_kvm->arch.vgic.vgic_model;
+@@ -358,7 +358,7 @@ static void pkvm_init_features_from_host(struct pkvm_hyp_vm *hyp_vm, const struc
+ 			    KVM_VCPU_MAX_FEATURES);
+ 
+ 		if (test_bit(KVM_ARCH_FLAG_WRITABLE_IMP_ID_REGS, &host_arch_flags))
+-			hyp_vm->kvm.arch.midr_el1 = host_kvm->arch.midr_el1;
++			hyp_vm->kvm.arch.id_regs.midr_el1 = host_kvm->arch.id_regs.midr_el1;
+ 
+ 		return;
+ 	}
+@@ -493,7 +493,8 @@ static int vm_copy_id_regs(struct pkvm_hyp_vcpu *hyp_vcpu)
+ 	if (test_and_set_bit(KVM_ARCH_FLAG_ID_REGS_INITIALIZED, &kvm->arch.flags))
+ 		return 0;
+ 
+-	memcpy(kvm->arch.id_regs, host_kvm->arch.id_regs, sizeof(kvm->arch.id_regs));
++	memcpy(kvm->arch.id_regs.normal, host_kvm->arch.id_regs.normal,
++	       sizeof(kvm->arch.id_regs.normal));
+ 
+ 	return 0;
+ }
+diff --git a/arch/arm64/kvm/hyp/nvhe/sys_regs.c b/arch/arm64/kvm/hyp/nvhe/sys_regs.c
+index b5a0de84ce01..e8d773d38905 100644
+--- a/arch/arm64/kvm/hyp/nvhe/sys_regs.c
++++ b/arch/arm64/kvm/hyp/nvhe/sys_regs.c
+@@ -292,7 +292,7 @@ static u64 read_id_reg(const struct kvm_vcpu *vcpu,
+ 		return 0;
+ 
+ 	if (reg >= sys_reg(3, 0, 0, 1, 0) && reg <= sys_reg(3, 0, 0, 7, 7))
+-		return kvm->arch.id_regs[IDREG_IDX(reg)];
++		return kvm->arch.id_regs.normal[IDREG_IDX(reg)];
+ 
+ 	return 0;
+ }
+@@ -543,7 +543,7 @@ void kvm_init_pvm_id_regs(struct kvm_vcpu *vcpu)
+ 	 * for protected VMs.
+ 	 */
+ 	for (r = sys_reg(3, 0, 0, 4, 0); r <= sys_reg(3, 0, 0, 7, 7); r += sys_reg(0, 0, 0, 0, 1))
+-		ka->id_regs[IDREG_IDX(r)] = pvm_calc_id_reg(vcpu, r);
++		ka->id_regs.normal[IDREG_IDX(r)] = pvm_calc_id_reg(vcpu, r);
+ 
+ 	set_bit(KVM_ARCH_FLAG_ID_REGS_INITIALIZED, &kvm->arch.flags);
+ }
+diff --git a/arch/arm64/kvm/sys_regs.c b/arch/arm64/kvm/sys_regs.c
+index b9aa892616ab..195ecdac7bd6 100644
+--- a/arch/arm64/kvm/sys_regs.c
++++ b/arch/arm64/kvm/sys_regs.c
+@@ -2477,7 +2477,7 @@ static int set_id_reg(struct kvm_vcpu *vcpu, const struct sys_reg_desc *rd,
+ 
+ void kvm_set_vm_id_reg(struct kvm *kvm, u32 reg, u64 val)
+ {
+-	u64 *p = __vm_id_reg(&kvm->arch, reg);
++	u64 *p = __vm_id_reg(&kvm->arch.id_regs, reg);
+ 
+ 	lockdep_assert_held(&kvm->arch.config_lock);
+ 
 -- 
-2.39.5
+2.53.0
 
 
