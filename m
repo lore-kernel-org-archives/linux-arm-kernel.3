@@ -4,7 +4,7 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 069BACD6E45
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 54952CD6E4E
 	for <linux-arm-kernel@archiver.kernel.org>; Fri, 29 May 2026 10:11:27 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
@@ -12,64 +12,64 @@ DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:
 	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=iBGQxOuIfjlaYF5jaV4k96kqDs0sEx4tF2C5YHnDbmQ=; b=SMkcelgu7yLf7l+UtFnqU0S1hq
-	cj+vQO7CTMGJ+itz4AXZqSrp9KcuRiHbtk7WmEK7AFfQiMqSSd6SMpV8KgHzC8U3+NP6k5Ieh4MDu
-	TNmWEp6XYW04gtr8pSyvVGX34N0aIu0bXzmHDTu12eSZTY64neeBcgNpOnebbzWqO/vNTl31Al83P
-	xubjk5n1zoKBBLC6BRhm473DzxjSEttxiKb39rrQq1DyNFM4NyB6/PFPBGUlJMK8iUTe+ImRijmH7
-	HQ6C6HFDoSk5DwnWHEHxEiZN1zAqgL1k+/81iEnJF2RF4yt4MaRmJvUE6p4YsoKBtqt5jL6QMPB9o
-	pyGF/vQA==;
+	bh=w+aM/24gP63Krqe0+2Zo2UxbF+//YntcPeOEzBEtHfs=; b=Z4pZB69jvI+ouTWk+AlhApx1lL
+	OaacUSzxS+WzVqcHJwXEHVs2iywMKUfIGNwTUamOvnyhjLa3DzWnWvGcKIwBjOxr84dgmZ6qTs2sB
+	V4a21QnuycFiMARiqDLySJ2eZ9qO3uibRanPFE1A2YcyMq/I/vTqLgpunCY0P+N8XQoHwLZU33x8o
+	O603PTW1F3jDR+F7lu1ONQGxRidx68RSC2d/TjOa8vndC7oSsvBR/0qVMmlQpWplWNSZFYMAp/my8
+	5yyK4PDwzd9VeQk1xmwEZDRYbXVvJmXNsKf6KN9TbqLvE8FWq6CsOdevD7jgIUn3jZRT8J258nip7
+	8wY1R3Rw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wSuBU-0000000798p-36jf;
-	Fri, 29 May 2026 10:11:20 +0000
-Received: from mail-wm1-x32f.google.com ([2a00:1450:4864:20::32f])
+	id 1wSuBV-0000000799f-0JM4;
+	Fri, 29 May 2026 10:11:21 +0000
+Received: from mail-wm1-x333.google.com ([2a00:1450:4864:20::333])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wSuBN-0000000796R-2hXM
+	id 1wSuBQ-0000000797g-3Qr5
 	for linux-arm-kernel@lists.infradead.org;
-	Fri, 29 May 2026 10:11:14 +0000
-Received: by mail-wm1-x32f.google.com with SMTP id 5b1f17b1804b1-48a563e4ef7so97545445e9.0
-        for <linux-arm-kernel@lists.infradead.org>; Fri, 29 May 2026 03:11:13 -0700 (PDT)
+	Fri, 29 May 2026 10:11:17 +0000
+Received: by mail-wm1-x333.google.com with SMTP id 5b1f17b1804b1-4904fd4f6aeso60589125e9.2
+        for <linux-arm-kernel@lists.infradead.org>; Fri, 29 May 2026 03:11:16 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20251104; t=1780049472; x=1780654272; darn=lists.infradead.org;
+        d=gmail.com; s=20251104; t=1780049475; x=1780654275; darn=lists.infradead.org;
         h=content-transfer-encoding:mime-version:references:in-reply-to
          :message-id:date:subject:cc:to:from:from:to:cc:subject:date
          :message-id:reply-to;
-        bh=iBGQxOuIfjlaYF5jaV4k96kqDs0sEx4tF2C5YHnDbmQ=;
-        b=l9V/J5mS4O6J6IUqxwvi2epx3yx3Kk2aE7qsE0xMOSjq8ZXvTzVjf7/m1U7sjn1MlR
-         nm1tdDmIfEI1or12FCvq/P0uYtcqoUeP3kx5WZPHte1gy9qHeR/mK9lPpKFqLWoGvatl
-         myh7AShuKPlZPGSURN0nJHmeKF+vuvS51jt4o/O3/LVHiyyraLDuzXmdmVYgIJ6z75n2
-         vXKadBGdyuF3MEu/RZVzIdBj3QXLlFJdsAlWO363qdiQpUyRbi2q0ZaL2e/rYrr003XH
-         J3MJtLYrFod5zsPDdZ16fwCFCWxTqEOGnNHxroqb0dbvsZzXK/Alb3Eoifp8dKKIhkz/
-         KqfQ==
+        bh=w+aM/24gP63Krqe0+2Zo2UxbF+//YntcPeOEzBEtHfs=;
+        b=Qp45RIJBphav2B4WIDqErmsnMIEsT+PgIdbaOrgL2vXvj0d0YgUiZB/ScDH4uDahyg
+         PBS49YhzaT1EsJeTHyP6ALimX0ofnVybwzIz/W4hOYSgoVIQ0thYktl2vbxXVEciwI9w
+         +2b4ZKiU7Vi3+Kqy9lvdHxdyD7YY2R8d6v0+6b4bmUhcB4kkQtmhAr8LosNonqS5oDHP
+         PQ/yBK2CRJdTxKg9Fc9MhVILkk889/S5ZwBQAKD/9m6I1DeK7YYydszFME/25fSB25nu
+         hBSewtw3FUx6U+L9QgEMz/DfCPB2wMddFYKRTGYs3Gl2IIbF14E4bd2bO8951zv387mB
+         mAOg==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20251104; t=1780049472; x=1780654272;
+        d=1e100.net; s=20251104; t=1780049475; x=1780654275;
         h=content-transfer-encoding:mime-version:references:in-reply-to
          :message-id:date:subject:cc:to:from:x-gm-gg:x-gm-message-state:from
          :to:cc:subject:date:message-id:reply-to;
-        bh=iBGQxOuIfjlaYF5jaV4k96kqDs0sEx4tF2C5YHnDbmQ=;
-        b=oXwc8ue2vExQrG/pPjw2zJtsJwuaPLge8z+BITLdcG4K7uI8QAazDu1LQb6MTyO+Ti
-         B+uO3AzaEehKFnyU2VKl7B2Dt2K8wV2Yu5S+CKtIK4mnCEIN8gOC51B4+yQ7dAOVGW0B
-         IR69U0OETxs5KuybsBFf07ysoai8ehe+aJ5hGke4ch45qv5HZApRT62TSLkQK/ZM4CqI
-         SUs6AR8BZGB7vY4bxoLcZKg5UO4z+X+vphpyhG8ceL3/sXkG1PIJ8/Ld1IgPEYElxFGd
-         lq5Bl+Ld6MG5VBvij6/txoaQoRo79ByoLBGHAE9+sPoS7LdNvuhUP2OKGUallQlonIbo
-         XSSQ==
-X-Forwarded-Encrypted: i=1; AFNElJ9ECQZreCVJsYrn68Oh/mAmAwHyLXrBdXJlbOfV2kL9AjsA1JgBtgQh+7lOshZysqj4oOd6/XdBg6C0fC6zFYt9@lists.infradead.org
-X-Gm-Message-State: AOJu0YyMn3fLWgC7eZLVQWMIAiRPoE5MPXBSlMXKHN689YuiSA7AX66a
-	79FLyhr0bxtfPE5TFo8O0/m49Gulc6Ec3TC8H/1lTHT9tsM8hH6t/str
-X-Gm-Gg: Acq92OGxmYuHgvhogYe9w7HVocjXkRxeN/fFL1tjeEtawitxvMbeUkMPpPD+p4Z0W1R
-	nYAJeuPrEbZTZa68Tu5rPrO5hD6G1GZ1k66NJ9J9mP4ygryx9BgU16V1G3u8pjLQdkROy1/5Ztc
-	v3JSozeMcG27OWf3JI0aqRHz0iHGIiv1GVjQmi3vgRKrZEN0WqdyZ6LALrmaKkDc1RKTB+HhzAr
-	J83D2/aXDYtFVWc1zL//uQFkEFWYzYvsdQtWDiXqhEOswFgYeGTSDtdU2JTPuwp5i2QvWR63SXW
-	j5UagMn8fGhCEXQWOjbEzgkQqd3Aj8lUOuEIKSOwOMTVzVJMOvNFyoTBKy5pJyt3iVRxW7KKc5y
-	zWezHlsVsCUc3skj5IR2/YCCChMcW9Ygh9f5oDxi9BnbYtp8P1yw7eOkPMVvLV7qZ30tmF9MvuX
-	hQTXp+J9L6y+PKcoP0IqII5tNCyTPvZ13IsvsPVzLIiMKfDTUTtioToCY9AJ+UEom/mBxMiOTGX
-	ignce4yTOHpPoLSlO0JcX/hlwzHWpzIzC/DFleaKPRQ/0k=
-X-Received: by 2002:a05:600c:c168:b0:490:50eb:b777 with SMTP id 5b1f17b1804b1-4909c07267dmr44399965e9.5.1780049471356;
-        Fri, 29 May 2026 03:11:11 -0700 (PDT)
+        bh=w+aM/24gP63Krqe0+2Zo2UxbF+//YntcPeOEzBEtHfs=;
+        b=OUI0+4ShKEhhcxK5fV+SWhOejQBrg524J/tF+r2pgvDEg6cb6hdNtJs7eJcSJ9+P59
+         vuIzU573lf3hjHWR6I0+trxcOw3hHn0Wxb1NOZrY77UaKGCT5IrQmiW8W73OM6n43WDr
+         OQNe52gG51MOuhL+3ZRBKgT84vFcoxW7IZ7LvqcokiKUq6xXPIo0QLbPyxAT0zGxZ5Uf
+         fhSKafjb1kXFK/HmU0+QsyqaN9nuoPlC+exYaSXQegRzvoEChFvxo3svm58hhTK/mPS8
+         ZUPP8CXICCG+RAT5kGJAU10V1tkpOSJad8g71yt1W3UWCgKXekXZy/dVQXNvuIL7fmw4
+         ZHHA==
+X-Forwarded-Encrypted: i=1; AFNElJ9bQdem1efj6eAH8wTDZzrhnahZe+8R5zFE+z8ZZA/wJJGh1EiXbx5K1B3YOX6g6wVn8NhG3joxfq36F+vL53pQ@lists.infradead.org
+X-Gm-Message-State: AOJu0YwFHs8LyVHV2iHZCZLs3uADxboNttoAx+SmIH6qmoKW3P1PqbNb
+	r663sLKGJ5ICBX8cRgBziwMEwsJ8jWRCjv8kZnM7FhfBoz/IPK7UBP9b9+7XPw==
+X-Gm-Gg: Acq92OE/OZEX4b+0T+1hO7tWdYQonRYjvyIYMDLivCJgsXJmO/orlQ/npUl14ZF3jd5
+	5HeCKiH9Ob8Hc53W47Rk8K5kF+7EXmFI9MSsPymebdEUHIyKNwHqHeei29rZgRhOhIouvMVsZWo
+	GmWq3fuUW4xDctMiYq3czSVJrFouUrVKgxEdatJMLNhAZejReLwQzc5ovOIPqJ52uLq+FwvOmDw
+	UuWpnU1ZYqhCB4t8q6mDDMcmJSWADJx9W81FWUbiF6+BijXkEn+mZoJ+9qARYq5V64YsN3yojg5
+	C+t6ZAvXO9F98FYuFWhqcrfBfQzjR20KpK7AHtlRXfZNMkstTwk2JrtUlC5zSTrwMrTl9saY5p0
+	JH2JYdUCDVn9Ouab0O3lpcXr+161AA+qSFEirr8JU/th3Eeyl7gSJzFbR6q8Szv6NBGYDlEbSu3
+	ARUQ/eUHXuFF9n7uktzS2U0SygnA3EFms2BGoapUZ+dnEVwrOCqGhf7PAiCEV75JDN2dKdrnNgM
+	+zx2tBVHDKxX7VOVwyr2YtKaSazT3IsCvpTXETQRAYNYO4=
+X-Received: by 2002:a05:600c:468a:b0:490:9588:bdb6 with SMTP id 5b1f17b1804b1-4909c0c9b87mr40354715e9.33.1780049474638;
+        Fri, 29 May 2026 03:11:14 -0700 (PDT)
 Received: from Lord-Beerus.station (net-93-144-20-233.cust.dsl.teletu.it. [93.144.20.233])
-        by smtp.gmail.com with ESMTPSA id 5b1f17b1804b1-4909caa7faasm34551025e9.11.2026.05.29.03.11.10
+        by smtp.gmail.com with ESMTPSA id 5b1f17b1804b1-4909caa7faasm34551025e9.11.2026.05.29.03.11.13
         (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Fri, 29 May 2026 03:11:11 -0700 (PDT)
+        Fri, 29 May 2026 03:11:14 -0700 (PDT)
 From: Stefano Radaelli <stefano.radaelli21@gmail.com>
 X-Google-Original-From: Stefano Radaelli <stefano.r@variscite.com>
 To: linux-kernel@vger.kernel.org,
@@ -85,17 +85,17 @@ Cc: pierluigi.p@variscite.com,
 	Sascha Hauer <s.hauer@pengutronix.de>,
 	Pengutronix Kernel Team <kernel@pengutronix.de>,
 	Fabio Estevam <festevam@gmail.com>
-Subject: [PATCH v1 1/4] arm64: dts: imx93-var-som-symphony: add TPM support
-Date: Fri, 29 May 2026 12:10:48 +0200
-Message-ID: <040ad9104a8a628e3b2c18cb296a0d63d31b533c.1780049085.git.stefano.r@variscite.com>
+Subject: [PATCH v1 4/4] arm64: dts: imx93-var-som-symphony: enable TPM3 PWM
+Date: Fri, 29 May 2026 12:10:51 +0200
+Message-ID: <7fa810b0227fde0205eb0fdefc6a6ef9cfb279eb.1780049085.git.stefano.r@variscite.com>
 X-Mailer: git-send-email 2.47.3
 In-Reply-To: <cover.1780049085.git.stefano.r@variscite.com>
 References: <cover.1780049085.git.stefano.r@variscite.com>
 MIME-Version: 1.0
 Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260529_031113_703233_18DB9398 
-X-CRM114-Status: GOOD (  11.92  )
+X-CRM114-CacheID: sfid-20260529_031116_880937_068F1D6C 
+X-CRM114-Status: GOOD (  10.61  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -112,48 +112,51 @@ Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.i
 
 From: Stefano Radaelli <stefano.r@variscite.com>
 
-Add the ST33KTPM2XI2C TPM device on the Symphony carrier board.
-
-The TPM enable signal is driven through a PCAL6408 GPIO expander, so add
-the expander on the I2C bus and configure the TPM enable line as a GPIO
-hog.
+Enable TPM3 on the Symphony carrier board and add the pinctrl states for
+the PWM output and sleep configuration.
 
 Signed-off-by: Stefano Radaelli <stefano.r@variscite.com>
 ---
- .../dts/freescale/imx93-var-som-symphony.dts  | 20 +++++++++++++++++++
- 1 file changed, 20 insertions(+)
+ .../dts/freescale/imx93-var-som-symphony.dts  | 19 +++++++++++++++++++
+ 1 file changed, 19 insertions(+)
 
 diff --git a/arch/arm64/boot/dts/freescale/imx93-var-som-symphony.dts b/arch/arm64/boot/dts/freescale/imx93-var-som-symphony.dts
-index c0842fb3cfa3..ea996a36b022 100644
+index 23b359e39094..7f79cd7e7a4c 100644
 --- a/arch/arm64/boot/dts/freescale/imx93-var-som-symphony.dts
 +++ b/arch/arm64/boot/dts/freescale/imx93-var-som-symphony.dts
-@@ -208,6 +208,26 @@ &lpi2c1 {
- 	sda-gpios = <&gpio1 1 GPIO_ACTIVE_HIGH>;
+@@ -325,6 +325,13 @@ &lpuart7 {
  	status = "okay";
+ };
  
-+	pca6408: gpio@21 {
-+		compatible = "nxp,pcal6408";
-+		reg = <0x21>;
-+		gpio-controller;
-+		#gpio-cells = <2>;
-+		status = "okay";
++&tpm3 {
++	pinctrl-0 = <&pinctrl_tpm3>;
++	pinctrl-1 = <&pinctrl_tpm3_sleep>;
++	pinctrl-names = "default", "sleep";
++	status = "okay";
++};
 +
-+		tpm-enable-hog {
-+			gpio-hog;
-+			gpios = <4 GPIO_ACTIVE_HIGH>;
-+			output-high;
-+			line-name = "tpm_en";
-+		};
+ &usbotg1 {
+ 	dr_mode = "otg";
+ 	hnp-disable;
+@@ -447,6 +454,18 @@ MX93_PAD_PDM_BIT_STREAM1__GPIO1_IO10            0x31e
+ 		>;
+ 	};
+ 
++	pinctrl_tpm3: tpm3grp {
++		fsl,pins = <
++			MX93_PAD_GPIO_IO24__TPM3_CH3			0x51e
++		>;
 +	};
 +
-+	st33ktpm2xi2c: tpm@2e {
-+		compatible = "st,st33ktpm2xi2c", "tcg,tpm-tis-i2c";
-+		reg = <0x2e>;
++	pinctrl_tpm3_sleep: tpm3sleepgrp {
++		fsl,pins = <
++			MX93_PAD_GPIO_IO24__GPIO2_IO24			0x51e
++		>;
 +	};
 +
- 	/* Capacitive touch controller */
- 	ft5x06_ts: touchscreen@38 {
- 		compatible = "edt,edt-ft5206";
+ 	pinctrl_uart1: uart1grp {
+ 		fsl,pins = <
+ 			MX93_PAD_UART1_RXD__LPUART1_RX			0x31e
 -- 
 2.47.3
 
