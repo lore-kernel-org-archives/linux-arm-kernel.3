@@ -4,137 +4,61 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id D8376CD6E4C
-	for <linux-arm-kernel@archiver.kernel.org>; Fri, 29 May 2026 09:47:24 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id ECBF4CD6E45
+	for <linux-arm-kernel@archiver.kernel.org>; Fri, 29 May 2026 09:47:40 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=o3Mx7+vtImpwG4SUbS85lLpmAFW5jV+p+rxF61HIx7M=; b=Pq0zl4gcHiw/Ma0eC/kUIULwBb
-	xKybAiTb/QcuQi7uX+G/LqAAQVwSTeGtIObGRulVHF7cWVPXkLr6lyi/6cGfmdp1G1wXHvbi1L+VA
-	QZsWvV7609Z3eU6CK2L/StprgKL0uUH79lG40sZWbvgDsDtNvKLOOcftuRYopR4tNa3EIB77OdaAS
-	Q+S6HyEyPXDTgGOz3typVD2S/bw4gNlSeMZg9qk5q/giDuPQL4LNpsIFgTkPQUtIIXfK6GT1Um3s9
-	I1TfnmyDhtWgtHflCfDdCWHU8+Pc2K5Oeqb9hzd3xoJQC2AnXpmbd/BK7TPw89WqouPPndYk3bo+S
-	4qTANUvA==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
+	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=y4w68myDVDCrwprHXf4Bm9v0v2jfwDW6DRk/H7qnl/M=; b=OmzGjNNcB4//sQ2vWYGFJwki64
+	r4TnnHi3Og+GTTT+baZXiftspKWXXHB2dLLCqNBFgACGgNtHOvfCk5Ju9m/i6tmfVZ9uoKAPQ5nBG
+	dql1a0PYoKL7ZbBrm5ZnFT+hztXyVm6gtYJb+MSp0NtbfYqtqQaIVW58OfNjvsKtf7ZrhcF5kGSny
+	To8/I5ey6LcKl8guJsq/5wuz27qxIt9DX1MhW+dVfzMhx6OmZx5mB+lKQv+oW7yu9qNOo3ay5A2Nl
+	VVf6SKSSa7xpxWQWHK5IvkUlru79Ak8sUuXlcvmd6lHVphW/6T5oQxpEWPrgA71BXH5L5GeDtrXgD
+	ZmMuBV0g==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wStoB-000000075s3-3BCX;
-	Fri, 29 May 2026 09:47:15 +0000
-Received: from smtp-out1.suse.de ([195.135.223.130])
-	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wSto9-000000075r6-05la
+	id 1wStoU-000000075w3-4A3B;
+	Fri, 29 May 2026 09:47:34 +0000
+Received: from foss.arm.com ([217.140.110.172])
+	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
+	id 1wStoT-000000075vZ-1Cpn
 	for linux-arm-kernel@lists.infradead.org;
-	Fri, 29 May 2026 09:47:14 +0000
-Received: from imap1.dmz-prg2.suse.org (imap1.dmz-prg2.suse.org [IPv6:2a07:de40:b281:104:10:150:64:97])
-	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
-	 key-exchange X25519 server-signature RSA-PSS (4096 bits) server-digest SHA256)
-	(No client certificate requested)
-	by smtp-out1.suse.de (Postfix) with ESMTPS id B51776AD6B;
-	Fri, 29 May 2026 09:47:09 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=suse.de; s=susede2_rsa;
-	t=1780048029; h=from:from:reply-to:date:date:message-id:message-id:to:to:cc:cc:
-	 mime-version:mime-version:content-type:content-type:
-	 in-reply-to:in-reply-to:references:references;
-	bh=o3Mx7+vtImpwG4SUbS85lLpmAFW5jV+p+rxF61HIx7M=;
-	b=HGWjvJ7krjEkXrJgISz6Jki3tMYkNKr1W/Q5L2cQQeTufVF5blzAJVsGARnZ6PKnTiWf35
-	J7Za4HjC8X9DiNfW7hJ/g+/Tk/q/B1cUrdG6HgQRNcw1DwniwgbH+9zc5ZApM2um/iR+ku
-	d3HjYsQNbEnFe+VcmGVObpsbg7hQ9ZU=
-DKIM-Signature: v=1; a=ed25519-sha256; c=relaxed/relaxed; d=suse.de;
-	s=susede2_ed25519; t=1780048029;
-	h=from:from:reply-to:date:date:message-id:message-id:to:to:cc:cc:
-	 mime-version:mime-version:content-type:content-type:
-	 in-reply-to:in-reply-to:references:references;
-	bh=o3Mx7+vtImpwG4SUbS85lLpmAFW5jV+p+rxF61HIx7M=;
-	b=PBIn0ExjslQJyXzZPLnj2gbseuq37EaYuCGteX+fFnPce2Symkakm1vO7vO3STEvux+wcN
-	koujOSmIG+w8MxBg==
-Authentication-Results: smtp-out1.suse.de;
-	dkim=pass header.d=suse.de header.s=susede2_rsa header.b=HGWjvJ7k;
-	dkim=pass header.d=suse.de header.s=susede2_ed25519 header.b=PBIn0Exj
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=suse.de; s=susede2_rsa;
-	t=1780048029; h=from:from:reply-to:date:date:message-id:message-id:to:to:cc:cc:
-	 mime-version:mime-version:content-type:content-type:
-	 in-reply-to:in-reply-to:references:references;
-	bh=o3Mx7+vtImpwG4SUbS85lLpmAFW5jV+p+rxF61HIx7M=;
-	b=HGWjvJ7krjEkXrJgISz6Jki3tMYkNKr1W/Q5L2cQQeTufVF5blzAJVsGARnZ6PKnTiWf35
-	J7Za4HjC8X9DiNfW7hJ/g+/Tk/q/B1cUrdG6HgQRNcw1DwniwgbH+9zc5ZApM2um/iR+ku
-	d3HjYsQNbEnFe+VcmGVObpsbg7hQ9ZU=
-DKIM-Signature: v=1; a=ed25519-sha256; c=relaxed/relaxed; d=suse.de;
-	s=susede2_ed25519; t=1780048029;
-	h=from:from:reply-to:date:date:message-id:message-id:to:to:cc:cc:
-	 mime-version:mime-version:content-type:content-type:
-	 in-reply-to:in-reply-to:references:references;
-	bh=o3Mx7+vtImpwG4SUbS85lLpmAFW5jV+p+rxF61HIx7M=;
-	b=PBIn0ExjslQJyXzZPLnj2gbseuq37EaYuCGteX+fFnPce2Symkakm1vO7vO3STEvux+wcN
-	koujOSmIG+w8MxBg==
-Received: from imap1.dmz-prg2.suse.org (localhost [127.0.0.1])
-	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
-	 key-exchange X25519 server-signature RSA-PSS (4096 bits) server-digest SHA256)
-	(No client certificate requested)
-	by imap1.dmz-prg2.suse.org (Postfix) with ESMTPS id 56767779A7;
-	Fri, 29 May 2026 09:47:07 +0000 (UTC)
-Received: from dovecot-director2.suse.de ([2a07:de40:b281:106:10:150:64:167])
-	by imap1.dmz-prg2.suse.org with ESMTPSA
-	id HtzNEJtgGWqFZQAAD6G6ig
-	(envelope-from <pfalcato@suse.de>); Fri, 29 May 2026 09:47:07 +0000
-Date: Fri, 29 May 2026 10:47:05 +0100
-From: Pedro Falcato <pfalcato@suse.de>
-To: Usama Arif <usama.arif@linux.dev>
-Cc: Andrew Morton <akpm@linux-foundation.org>, david@kernel.org, 
-	willy@infradead.org, ryan.roberts@arm.com, linux-mm@kvack.org, r@hev.cc, jack@suse.cz, 
-	Andrew Donnellan <andrew+kernel@donnellan.id.au>, apopple@nvidia.com, baohua@kernel.org, 
-	baolin.wang@linux.alibaba.com, brauner@kernel.org, catalin.marinas@arm.com, dev.jain@arm.com, 
-	kees@kernel.org, kevin.brodsky@arm.com, lance.yang@linux.dev, 
-	"Liam R. Howlett" <liam@infradead.org>, linux-arm-kernel@lists.infradead.org, 
-	linux-fsdevel@vger.kernel.org, linux-kernel@vger.kernel.org, ljs@kernel.org, mhocko@suse.com, 
-	npache@redhat.com, pasha.tatashin@soleen.com, rmclure@linux.ibm.com, 
-	rppt@kernel.org, surenb@google.com, vbabka@kernel.org, 
-	Al Viro <viro@zeniv.linux.org.uk>, wilts.infradead.org@pedro-suse.lan, ziy@nvidia.com, 
-	hannes@cmpxchg.org, kas@kernel.org, shakeel.butt@linux.dev, kernel-team@meta.com
-Subject: Re: [PATCH v6 1/2] mm: bypass mmap_miss heuristic for VM_EXEC
- readahead
-Message-ID: <ahlgda3xJ587eSCg@pedro-suse.lan>
-References: <20260528165635.2068012-1-usama.arif@linux.dev>
- <20260528165635.2068012-2-usama.arif@linux.dev>
+	Fri, 29 May 2026 09:47:34 +0000
+Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
+	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id B2E2A1DB5;
+	Fri, 29 May 2026 02:47:26 -0700 (PDT)
+Received: from [10.1.26.144] (unknown [10.1.26.144])
+	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id 526073F905;
+	Fri, 29 May 2026 02:47:30 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=simple/simple; d=arm.com; s=foss;
+	t=1780048051; bh=ybmvzCzXntZRoRn1SxSPm0ifKdn3SMRIbhENixtHroo=;
+	h=Date:Subject:To:Cc:References:From:In-Reply-To:From;
+	b=Ecq9esxF7UMec/lltYpS+pKeKOSO7uP9tNC3wEeWgM3wnF1tK+g00pmu3R8vpx8fv
+	 oNdtl86zLRBUwuNY4taUq79pJqzJ/guIdhm3HvI2UZwZJcuJ1UowwG/Ufskl6R7ksw
+	 Jor5hp6PypWUcywqvA0WIh+8ncqrd9zgadmp2/WI=
+Message-ID: <82df53fd-c6e5-4bc9-b653-3d6451f3ad1a@arm.com>
+Date: Fri, 29 May 2026 10:47:28 +0100
 MIME-Version: 1.0
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-In-Reply-To: <20260528165635.2068012-2-usama.arif@linux.dev>
-X-Rspamd-Server: rspamd1.dmz-prg2.suse.org
-X-Rspamd-Action: no action
-X-Rspamd-Queue-Id: B51776AD6B
-X-Spamd-Result: default: False [-3.01 / 50.00];
-	BAYES_HAM(-3.00)[100.00%];
-	SUSPICIOUS_RECIPS(1.50)[];
-	NEURAL_HAM_LONG(-1.00)[-1.000];
-	R_DKIM_ALLOW(-0.20)[suse.de:s=susede2_rsa,suse.de:s=susede2_ed25519];
-	NEURAL_HAM_SHORT(-0.20)[-1.000];
-	MIME_GOOD(-0.10)[text/plain];
-	MX_GOOD(-0.01)[];
-	TO_MATCH_ENVRCPT_ALL(0.00)[];
-	MIME_TRACE(0.00)[0:+];
-	URIBL_BLOCKED(0.00)[suse.de:email,suse.de:dkim];
-	ARC_NA(0.00)[];
-	DKIM_SIGNED(0.00)[suse.de:s=susede2_rsa,suse.de:s=susede2_ed25519];
-	RCPT_COUNT_TWELVE(0.00)[37];
-	SPAMHAUS_XBL(0.00)[2a07:de40:b281:104:10:150:64:97:from];
-	FUZZY_RATELIMITED(0.00)[rspamd.com];
-	FROM_HAS_DN(0.00)[];
-	RCVD_TLS_ALL(0.00)[];
-	DWL_DNSWL_BLOCKED(0.00)[suse.de:dkim];
-	RCVD_COUNT_TWO(0.00)[2];
-	FROM_EQ_ENVFROM(0.00)[];
-	TO_DN_SOME(0.00)[];
-	TAGGED_RCPT(0.00)[kernel];
-	MISSING_XM_UA(0.00)[];
-	RCVD_VIA_SMTP_AUTH(0.00)[];
-	DKIM_TRACE(0.00)[suse.de:+];
-	R_RATELIMIT(0.00)[to_ip_from(RL764437jfm1qe6abtk9nwyx8m)];
-	DBL_BLOCKED_OPENRESOLVER(0.00)[pedro-suse.lan:mid,suse.cz:email,imap1.dmz-prg2.suse.org:rdns,imap1.dmz-prg2.suse.org:helo,suse.de:email,suse.de:dkim,linux.dev:email]
+User-Agent: Mozilla Thunderbird
+Subject: Re: [BOOTWRAPPER PATCH v2 1/2] Introduce --with-gic option
+To: Sascha Bischoff <Sascha.Bischoff@arm.com>,
+ "linux-arm-kernel@lists.infradead.org" <linux-arm-kernel@lists.infradead.org>
+Cc: "maz@kernel.org" <maz@kernel.org>, Joey Gouly <Joey.Gouly@arm.com>,
+ Mark Rutland <Mark.Rutland@arm.com>, nd <nd@arm.com>
+References: <20260324125906.67012-1-vladimir.murzin@arm.com>
+ <20260324125906.67012-2-vladimir.murzin@arm.com>
+ <a39930aac3543e2866a5a0f8e8a9e98ee94a0026.camel@arm.com>
+Content-Language: en-GB
+From: Vladimir Murzin <vladimir.murzin@arm.com>
+In-Reply-To: <a39930aac3543e2866a5a0f8e8a9e98ee94a0026.camel@arm.com>
+Content-Type: text/plain; charset=UTF-8
+Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260529_024713_350608_6F2B48B2 
-X-CRM114-Status: GOOD (  28.35  )
+X-CRM114-CacheID: sfid-20260529_024733_364266_4EA01A59 
+X-CRM114-Status: GOOD (  10.21  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -149,94 +73,28 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Thu, May 28, 2026 at 09:55:19AM -0700, Usama Arif wrote:
-> The mmap_miss heuristic is intended to stop speculative mmap readahead
-> when a file looks like a random-access workload. That does not fit the
-> VM_EXEC path very well.
+On 5/28/26 16:06, Sascha Bischoff wrote:
+> Hi Vladimir,
 > 
-> VM_EXEC readahead is already constrained differently from ordinary mmap
-> read-around: it is bounded by the VMA, uses exec_folio_order() to choose
-> an order useful for executable mappings, and sets async_size to 0 so it
-> does not create follow-on readahead. When VM_HUGEPAGE is also present,
-> the larger readahead is an explicit userspace opt-in.
+> Sorry for taking so long to get to this!
 > 
-> The mmap_miss counter is decremented from cache-hit paths in
-> do_async_mmap_readahead() and filemap_map_pages(). Those paths are not
-> always enough to balance the synchronous miss increments for executable
-> mappings. In particular, when fault-around is effectively disabled, such
-> as configurations where fault_around_pages is 1, filemap_map_pages() is
-> not reached from the fault path. The counter can then become a stale
-> throttle for VM_EXEC mappings and suppress the readahead behavior that
-> the executable-specific path is trying to provide.
+> On Tue, 2026-03-24 at 12:59 +0000, Vladimir Murzin wrote:
+>> We are about adding support for another GIC version, so introduce a
+> nit: We are about to add support
 > 
-> Skip both mmap_miss increments and decrements for VM_EXEC mappings,
-> matching the existing VM_SEQ_READ treatment and keeping the counter
-> accounting symmetric.
+>> new --with-gic option to select the desired GIC version at configure
+>> time. The default remains v2, preserving existing behavior. 
+>> Howevere,
+> nit: However
 > 
-> Signed-off-by: Usama Arif <usama.arif@linux.dev>
-> Reviewed-by: Jan Kara <jack@suse.cz>
-> Reviewed-by: Kiryl Shutsemau (Meta) <kas@kernel.org>
+> Aside from these nits, this looks good to me, so:
+> Reviewed-by: Sascha Bischoff <sascha.bischoff@arm.com>
+> 
+> Thanks,
+> Sascha
 
-Reviewed-by: Pedro Falcato <pfalcato@suse.de>
+Thanks Sascha, all fixed locally.
 
-This is reasonable, thanks.
-
-> ---
->  mm/filemap.c | 14 +++++++-------
->  1 file changed, 7 insertions(+), 7 deletions(-)
-> 
-> diff --git a/mm/filemap.c b/mm/filemap.c
-> index cca20e350c95..a16b33e0fc71 100644
-> --- a/mm/filemap.c
-> +++ b/mm/filemap.c
-> @@ -3339,7 +3339,7 @@ static struct file *do_sync_mmap_readahead(struct vm_fault *vmf)
->  		}
->  	}
->  
-> -	if (!(vm_flags & VM_SEQ_READ)) {
-> +	if (!(vm_flags & (VM_SEQ_READ | VM_EXEC))) {
->  		/* Avoid banging the cache line if not needed */
->  		mmap_miss = READ_ONCE(ra->mmap_miss);
->  		if (mmap_miss < MMAP_LOTSAMISS * 10)
-> @@ -3434,12 +3434,12 @@ static struct file *do_async_mmap_readahead(struct vm_fault *vmf,
->  	 * times for a single folio and break the balance with mmap_miss
->  	 * increase in do_sync_mmap_readahead().
->  	 *
-> -	 * VM_SEQ_READ mappings skip the mmap_miss increment in
-> +	 * VM_SEQ_READ and VM_EXEC mappings skip the mmap_miss increment in
->  	 * do_sync_mmap_readahead(), so skip the decrement here as well to
->  	 * keep the counter symmetric.
->  	 */
->  	if (likely(!folio_test_locked(folio)) &&
-> -	    !(vmf->vma->vm_flags & VM_SEQ_READ)) {
-> +	    !(vmf->vma->vm_flags & (VM_SEQ_READ | VM_EXEC))) {
->  		mmap_miss = READ_ONCE(ra->mmap_miss);
->  		if (mmap_miss)
->  			WRITE_ONCE(ra->mmap_miss, --mmap_miss);
-> @@ -3941,14 +3941,14 @@ vm_fault_t filemap_map_pages(struct vm_fault *vmf,
->  		 * Don't decrease mmap_miss in this scenario to make sure
->  		 * we can stop read-ahead.
->  		 *
-> -		 * VM_SEQ_READ mappings skip the mmap_miss increment in
-> -		 * do_sync_mmap_readahead(), so skip the decrement here as
-> -		 * well to keep the counter symmetric.
-> +		 * VM_SEQ_READ and VM_EXEC mappings skip the mmap_miss
-> +		 * increment in do_sync_mmap_readahead(), so skip the
-> +		 * decrement here as well to keep the counter symmetric.
->  		 */
->  		if ((map_ret & VM_FAULT_NOPAGE) &&
->  		    !(vmf->flags & FAULT_FLAG_TRIED) &&
->  		    !folio_test_workingset(folio) &&
-> -		    !(vma->vm_flags & VM_SEQ_READ)) {
-> +		    !(vma->vm_flags & (VM_SEQ_READ | VM_EXEC))) {
->  			unsigned short mmap_miss;
->  
->  			mmap_miss = READ_ONCE(file->f_ra.mmap_miss);
-> -- 
-> 2.52.0
-> 
-> 
-
--- 
-Pedro
+Cheers
+Vladimir
 
