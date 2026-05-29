@@ -4,89 +4,67 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id F070ACD6E4A
-	for <linux-arm-kernel@archiver.kernel.org>; Fri, 29 May 2026 15:03:48 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 154E9CD6E50
+	for <linux-arm-kernel@archiver.kernel.org>; Fri, 29 May 2026 15:04:22 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:Cc:To:From:
-	Subject:Message-ID:References:Mime-Version:In-Reply-To:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=RUlY0Cb5F8XLpE5JfjwZ+7xlX215FRQLeW3ZifZ4LCc=; b=13Ck3knka1njALe3k2iDnPkq9N
-	llR/3NBJ++PSiD06RjAcEf3jqtKGnwTR6QasLY9L/d+WTYp1mFY0RgydeXnTaJwv9IHa51+S7tCqW
-	r9+EuJgNWo6KWkZRx4aGiybztNCPf3s92o5Ct+cwC7FTS7sFJlBi0QDrCggd2yeetqM4G9qW4TcUn
-	eiMtkEe7y3V61geMonpye1nGM3RqF3nIMdvi515les7ceaOixDO9+MlNSdjwKc6VNKQCD2HAG8GzX
-	dE/1Fg8X0XXzqSNa7/l0bJBP8+yfWlDs/WZeTgjjM4jTYtjoJUEfhZZcNlVBqeD0p4VdxLuOmlNB4
-	dP4/gLhw==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:MIME-Version:Message-ID:Date:References:In-Reply-To:Subject:Cc:
+	To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=fUWeaNsfFgJU6Qp2lS9wdzvNAu5L3srRKzUtR510ldk=; b=AeolaCwhXFqLTg00PhR1e4sikP
+	sLaY4GswzD31wGGNiYrJoEx/ymZq7Z6HiwaLefiD/ZkLNXm8Hr4nyTgCA2blozotZM13DhcEVgmsy
+	HABRThTv0+vzTmLGSq4ZYM/M8GMZx+dDYkT3ybI2Sk47zBCFfCFhnhxznmc3OkE41/GvvadVjfdhV
+	c2e6nAXF8bC62v+bNiNJ24zayU6akOMnZn8TijxP9PM18Q3lYwXbIM0dj9WUUP5e8U7aBR1l3tSnO
+	lilBHL81wl2zMxdOqJfSkusLH4UfdkNvKvrRk9OssIHzY/JfH3Cg/LXgVM6Xofi0Hel7mDWsGA0mp
+	YX32NH0Q==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wSykN-00000007coJ-45hl;
-	Fri, 29 May 2026 15:03:39 +0000
-Received: from mail-wr1-x44a.google.com ([2a00:1450:4864:20::44a])
+	id 1wSykw-00000007d7x-2vgS;
+	Fri, 29 May 2026 15:04:14 +0000
+Received: from smtpout-04.galae.net ([185.171.202.116])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wSyjO-00000007bmm-3nrs
+	id 1wSykt-00000007d5T-3oLQ
 	for linux-arm-kernel@lists.infradead.org;
-	Fri, 29 May 2026 15:02:40 +0000
-Received: by mail-wr1-x44a.google.com with SMTP id ffacd0b85a97d-45ef3c7073eso470880f8f.2
-        for <linux-arm-kernel@lists.infradead.org>; Fri, 29 May 2026 08:02:36 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=google.com; s=20251104; t=1780066955; x=1780671755; darn=lists.infradead.org;
-        h=cc:to:from:subject:message-id:references:mime-version:in-reply-to
-         :date:from:to:cc:subject:date:message-id:reply-to;
-        bh=RUlY0Cb5F8XLpE5JfjwZ+7xlX215FRQLeW3ZifZ4LCc=;
-        b=eI+j4WzQY4g0+L7igynXL4lSxX4vr03oqFFST8lQRBYLd4GEyK6lQ+m2YK5sm4IrnG
-         CGDbGYs8Se6gEQbUJOcNZL7zYv+EhNEFIMMa3lDuHGwQw+8hN7uDc/57TI84iS9Ev6UE
-         5+ymu0DeyKKeVt96zchjADIENGDKLThB1+D542xumD/ZhONPsih+tdgNDeT6BzkFmvQT
-         icLZ8klASh5n5RSF3AzLc04uDPFy94KGWtnrk4qvsZIRm0zrkAZOS9NphaSSLcn94pIM
-         g7nEiL0c7MWB5VEuVl/aioFMGqNwUeh/6VwuhjqjuIhKadP5lSp6Om1+kwi6pI02As9W
-         p9EA==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20251104; t=1780066955; x=1780671755;
-        h=cc:to:from:subject:message-id:references:mime-version:in-reply-to
-         :date:x-gm-message-state:from:to:cc:subject:date:message-id:reply-to;
-        bh=RUlY0Cb5F8XLpE5JfjwZ+7xlX215FRQLeW3ZifZ4LCc=;
-        b=LHljTsoPdvbdmzLXPwG8Q/z9Reberq0mwsI3iWe3edPObcPWZmuPZWnDpj7UQDTpNP
-         qltnuxfSmT6TokPiC9xi+A3ur6yhMBesMMPgFtl1WdjPvcMIdNfwuJM4b1CJoHqyylIM
-         sZoNVzgKDXBVdnLl33yOJLbLr+/+dg+Q9uJsKbfGbCfOd1WZTqunLSMwnQ5APN3Czd+z
-         AJz2t+DuIcPQyxauCKfI88ZfgluH68w6uI3bYpJLPhHIoNWf6wfTEhq/Tjb3sXhA5hIF
-         I7mEXEoYxpj0LFhDZ7+56pL9OSl/LV4MJW5CBU8gGxvANf37gBuHMMqD27lFwW9hwaJ2
-         gZnQ==
-X-Gm-Message-State: AOJu0Yw9XEjQxhLw8UasMZrW8B9Ecl1N+HoB9dYNR4rr+NE8phJs6qSu
-	HSLd87cK0IDSb6u7ECgzP+LkGr6UG5N+0SJy4L6bQd6D08mon6QQf7QlFejAYA6KuczZXtRLqxa
-	fcE4C0RtvTz/KLm9Y3Qwbv8TtBtoymvTTtnNQ/JhRE/7cM7xrfkVkA+uOgG8mshmkTpocB3o0gs
-	xGC6v5aXOMnPqHQOxe7/E901RYFtftEjRI8SnX2qoVPCLu
-X-Received: from wmte9.prod.google.com ([2002:a05:600c:8b29:b0:48f:de4f:a90])
- (user=ardb job=prod-delivery.src-stubby-dispatcher) by 2002:a05:600c:3b13:b0:490:44eb:c1d7
- with SMTP id 5b1f17b1804b1-4909c0f30c7mr58093455e9.30.1780066955148; Fri, 29
- May 2026 08:02:35 -0700 (PDT)
-Date: Fri, 29 May 2026 17:02:05 +0200
-In-Reply-To: <20260529150150.1670604-17-ardb+git@google.com>
-Mime-Version: 1.0
-References: <20260529150150.1670604-17-ardb+git@google.com>
-X-Developer-Key: i=ardb@kernel.org; a=openpgp; fpr=F43D03328115A198C90016883D200E9CA6329909
-X-Developer-Signature: v=1; a=openpgp-sha256; l=2481; i=ardb@kernel.org;
- h=from:subject; bh=hrcFvMrty6wWPLsRojP9eqDUmoO4ZLfdaegUjBt5TKE=;
- b=owGbwMvMwCVmkMcZplerG8N4Wi2JIUtyVT7LQrk5StrVnhW9eSm1/NNic7seSLefqruzq2ZDx
- bLLO9w6SlkYxLgYZMUUWQRm/3238/REqVrnWbIwc1iZQIYwcHEKwEQWTmP4Z9y4/eO0WW8mJKrq
- 1MW9sj4c8WmpWkn/Y9030oYr+jdxWTH8DxJlLpd0i0/zDFP5wK+8gt14wjNV0eevVH96qbb/sHn BAwA=
-X-Mailer: git-send-email 2.54.0.823.g6e5bcc1fc9-goog
-Message-ID: <20260529150150.1670604-31-ardb+git@google.com>
-Subject: [PATCH v7 14/15] arm64: mm: Map the kernel data/bss read-only in the
- linear map
-From: Ard Biesheuvel <ardb+git@google.com>
-To: linux-arm-kernel@lists.infradead.org
-Cc: linux-kernel@vger.kernel.org, will@kernel.org, catalin.marinas@arm.com, 
-	mark.rutland@arm.com, Ard Biesheuvel <ardb@kernel.org>, Ryan Roberts <ryan.roberts@arm.com>, 
-	Anshuman Khandual <anshuman.khandual@arm.com>, Kevin Brodsky <kevin.brodsky@arm.com>, 
-	Liz Prucka <lizprucka@google.com>, Seth Jenkins <sethjenkins@google.com>, 
-	Kees Cook <kees@kernel.org>, Mike Rapoport <rppt@kernel.org>, David Hildenbrand <david@kernel.org>, 
-	Andrew Morton <akpm@linux-foundation.org>, Jann Horn <jannh@google.com>, linux-mm@kvack.org, 
-	linux-hardening@vger.kernel.org, linuxppc-dev@lists.ozlabs.org, 
-	linux-sh@vger.kernel.org
-Content-Type: text/plain; charset="UTF-8"
+	Fri, 29 May 2026 15:04:14 +0000
+Received: from smtpout-01.galae.net (smtpout-01.galae.net [212.83.139.233])
+	by smtpout-04.galae.net (Postfix) with ESMTPS id 2A604C62461;
+	Fri, 29 May 2026 15:04:07 +0000 (UTC)
+Received: from mail.galae.net (mail.galae.net [212.83.136.155])
+	by smtpout-01.galae.net (Postfix) with ESMTPS id 68007601FA;
+	Fri, 29 May 2026 15:04:06 +0000 (UTC)
+Received: from [127.0.0.1] (localhost [127.0.0.1]) by localhost (Mailerdaemon) with ESMTPSA id 8289D10888CC2;
+	Fri, 29 May 2026 17:04:01 +0200 (CEST)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=bootlin.com; s=dkim;
+	t=1780067045; h=from:subject:date:message-id:to:cc:mime-version:content-type:
+	 content-transfer-encoding:in-reply-to:references;
+	bh=fUWeaNsfFgJU6Qp2lS9wdzvNAu5L3srRKzUtR510ldk=;
+	b=mgf3otVKPRUXFhpVnJ78Lp60lbpvE9XKk2jjeYH47r8V1MgE6/2/7CGUwnSZ5BbjM+ec2Q
+	1a3MmW+WvM1X6MXUISKX9VbbPMOs3VTpwQ3yJkE0chnFTQ5lj3iga19mOl4E1U1/e5m9Gl
+	ZwCPvE730Kp70jTlHWR7C1sEtlK+dPMUU6vAtQo5/7c4qqAA740HQ7UvGplbHoi6r5jcIK
+	Wm3zdae3yU81FhvS2OMJN3OVOJ4lWi5OUe0AO5kzftu9S1HhwvzTJQHt0C6eer/PiJefBw
+	BcM0i1ONwLzaJVERSNfcgPZbkcwrdXXHXv03nAJdIW9iUAEI5/xljJhlfnbs4g==
+From: Gregory CLEMENT <gregory.clement@bootlin.com>
+To: Arnd Bergmann <arnd@kernel.org>, soc@lists.linux.dev, Andrew Lunn
+ <andrew@lunn.ch>, Sebastian Hesselbarth <sebastian.hesselbarth@gmail.com>,
+ Russell King <linux@armlinux.org.uk>, Daniel Mack <daniel@zonque.org>,
+ Haojian Zhuang <haojian.zhuang@gmail.com>, Robert Jarzmik
+ <robert.jarzmik@free.fr>, Krzysztof Kozlowski <krzk@kernel.org>
+Cc: Arnd Bergmann <arnd@arndb.de>, Alim Akhtar <alim.akhtar@samsung.com>,
+ linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org,
+ linux-samsung-soc@vger.kernel.org
+Subject: Re: [PATCH] ARM: select legacy gpiolib interfaces where used
+In-Reply-To: <20260428162757.540823-1-arnd@kernel.org>
+References: <20260428162757.540823-1-arnd@kernel.org>
+Date: Fri, 29 May 2026 17:04:00 +0200
+Message-ID: <87h5nq1cm7.fsf@BLaptop.bootlin.com>
+MIME-Version: 1.0
+Content-Type: text/plain; charset=utf-8
+Content-Transfer-Encoding: quoted-printable
+X-Last-TLS-Session-Version: TLSv1.3
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260529_080238_964398_62704618 
-X-CRM114-Status: GOOD (  15.94  )
+X-CRM114-CacheID: sfid-20260529_080412_104083_C1441442 
+X-CRM114-Status: GOOD (  13.55  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -101,68 +79,100 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-From: Ard Biesheuvel <ardb@kernel.org>
+Arnd Bergmann <arnd@kernel.org> writes:
 
-On systems where the bootloader adheres to the original arm64 boot
-protocol, the placement of the kernel in the physical address space is
-highly predictable, and this makes the placement of its linear alias in
-the kernel virtual address space equally predictable, given the lack of
-randomization of the linear map.
+> From: Arnd Bergmann <arnd@arndb.de>
+>
+> A few old machines have not been converted away from the old-style
+> gpiolib interfaces. Make these select the new CONFIG_GPIOLIB_LEGACY
+> symbol so the code still works where it is needed but can be left
+> out otherwise.
+>
+> Acked-by: Krzysztof Kozlowski <krzk@kernel.org>
+> Signed-off-by: Arnd Bergmann <arnd@arndb.de>
 
-The linear aliases of the kernel text and rodata regions are already
-mapped read-only, but the kernel data and bss are mapped read-write in
-this region. This is not needed, so map them read-only as well.
+for mv78xx0 and orion5x
 
-Note that the statically allocated kernel page tables do need to be
-modifiable via the linear map, so leave these mapped read-write.
+Acked-by: Gregory CLEMENT <gregory.clement@bootlin.com>
 
-Reviewed-by: Kevin Brodsky <kevin.brodsky@arm.com>
-Signed-off-by: Ard Biesheuvel <ardb@kernel.org>
----
- arch/arm64/mm/mmu.c | 15 +++++++++++++--
- 1 file changed, 13 insertions(+), 2 deletions(-)
+Thanks,
 
-diff --git a/arch/arm64/mm/mmu.c b/arch/arm64/mm/mmu.c
-index dcfca5667e5c..7b18dc2f1721 100644
---- a/arch/arm64/mm/mmu.c
-+++ b/arch/arm64/mm/mmu.c
-@@ -1138,7 +1138,9 @@ static void __init map_mem(void)
- {
- 	static const u64 direct_map_end = _PAGE_END(VA_BITS_MIN);
- 	phys_addr_t kernel_start = __pa_symbol(_text);
--	phys_addr_t kernel_end = __pa_symbol(__init_begin);
-+	phys_addr_t init_begin = __pa_symbol(__init_begin);
-+	phys_addr_t init_end = __pa_symbol(__init_end);
-+	phys_addr_t kernel_end = __pa_symbol(__bss_stop);
- 	phys_addr_t start, end;
- 	int flags = NO_EXEC_MAPPINGS;
- 	u64 i;
-@@ -1173,7 +1175,11 @@ static void __init map_mem(void)
- 	 * contents of the region accessible to subsystems such as hibernate,
- 	 * but protects it from inadvertent modification or execution.
- 	 */
--	__map_memblock(kernel_start, kernel_end, pgprot_tagged(PAGE_KERNEL),
-+	__map_memblock(kernel_start, init_begin, pgprot_tagged(PAGE_KERNEL),
-+		       flags);
-+
-+	/* Map the kernel data/bss so it can be remapped later */
-+	__map_memblock(init_end, kernel_end, pgprot_tagged(PAGE_KERNEL),
- 		       flags);
- 
- 	/* map all the memory banks */
-@@ -1186,6 +1192,11 @@ static void __init map_mem(void)
- 		__map_memblock(start, end, pgprot_tagged(PAGE_KERNEL),
- 			       flags);
- 	}
-+
-+	/* Map the kernel data/bss read-only in the linear map */
-+	__map_memblock(init_end, kernel_end, PAGE_KERNEL_RO, flags);
-+	flush_tlb_kernel_range((unsigned long)lm_alias(__init_end),
-+			       (unsigned long)lm_alias(__bss_stop));
- }
- 
- void mark_rodata_ro(void)
--- 
-2.54.0.823.g6e5bcc1fc9-goog
+Gregory
+> ---
+>  arch/arm/mach-mv78xx0/Kconfig     | 1 +
+>  arch/arm/mach-orion5x/Kconfig     | 1 +
+>  arch/arm/mach-pxa/Kconfig         | 1 +
+>  arch/arm/mach-s3c/Kconfig.s3c64xx | 1 +
+>  arch/arm/mach-sa1100/Kconfig      | 1 +
+>  5 files changed, 5 insertions(+)
+>
+> diff --git a/arch/arm/mach-mv78xx0/Kconfig b/arch/arm/mach-mv78xx0/Kconfig
+> index 9de3bbc09c3a..670e6587827e 100644
+> --- a/arch/arm/mach-mv78xx0/Kconfig
+> +++ b/arch/arm/mach-mv78xx0/Kconfig
+> @@ -6,6 +6,7 @@ menuconfig ARCH_MV78XX0
+>  	depends on ATAGS
+>  	select CPU_FEROCEON
+>  	select GPIOLIB
+> +	select GPIOLIB_LEGACY
+>  	select MVEBU_MBUS
+>  	select FORCE_PCI
+>  	select PLAT_ORION_LEGACY
+> diff --git a/arch/arm/mach-orion5x/Kconfig b/arch/arm/mach-orion5x/Kconfig
+> index ee449ca032d2..cef19bea6164 100644
+> --- a/arch/arm/mach-orion5x/Kconfig
+> +++ b/arch/arm/mach-orion5x/Kconfig
+> @@ -5,6 +5,7 @@ menuconfig ARCH_ORION5X
+>  	depends on CPU_LITTLE_ENDIAN
+>  	select CPU_FEROCEON
+>  	select GPIOLIB
+> +	select GPIOLIB_LEGACY
+>  	select MVEBU_MBUS
+>  	select FORCE_PCI
+>  	select PCI_QUIRKS
+> diff --git a/arch/arm/mach-pxa/Kconfig b/arch/arm/mach-pxa/Kconfig
+> index 10e472f4fa43..66e26990e2c8 100644
+> --- a/arch/arm/mach-pxa/Kconfig
+> +++ b/arch/arm/mach-pxa/Kconfig
+> @@ -10,6 +10,7 @@ menuconfig ARCH_PXA
+>  	select CPU_XSCALE if !CPU_XSC3
+>  	select GPIO_PXA
+>  	select GPIOLIB
+> +	select GPIOLIB_LEGACY
+>  	select PLAT_PXA
+>  	help
+>  	  Support for Intel/Marvell's PXA2xx/PXA3xx processor line.
+> diff --git a/arch/arm/mach-s3c/Kconfig.s3c64xx b/arch/arm/mach-s3c/Kconfi=
+g.s3c64xx
+> index 8f40af063ad6..3f97fba8e4f5 100644
+> --- a/arch/arm/mach-s3c/Kconfig.s3c64xx
+> +++ b/arch/arm/mach-s3c/Kconfig.s3c64xx
+> @@ -101,6 +101,7 @@ config MACH_WLF_CRAGG_6410
+>  	depends on ATAGS
+>  	depends on I2C=3Dy
+>  	select CPU_S3C6410
+> +	select GPIOLIB_LEGACY
+>  	select LEDS_GPIO_REGISTER
+>  	select S3C64XX_DEV_SPI0
+>  	select S3C64XX_SETUP_FB_24BPP
+> diff --git a/arch/arm/mach-sa1100/Kconfig b/arch/arm/mach-sa1100/Kconfig
+> index 0fb4c24cfad5..e23700e0d6c8 100644
+> --- a/arch/arm/mach-sa1100/Kconfig
+> +++ b/arch/arm/mach-sa1100/Kconfig
+> @@ -13,6 +13,7 @@ menuconfig ARCH_SA1100
+>  	select CPU_FREQ
+>  	select CPU_SA1100
+>  	select GPIOLIB
+> +	select GPIOLIB_LEGACY
+>  	select IRQ_DOMAIN
+>  	select ISA
+>  	select NEED_MACH_MEMORY_H
+> --=20
+> 2.39.5
+>
 
+--=20
+Gr=C3=A9gory CLEMENT, Bootlin
+Embedded Linux and Kernel engineering
+https://bootlin.com
 
