@@ -4,69 +4,66 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id B66DBCD6E50
-	for <linux-arm-kernel@archiver.kernel.org>; Fri, 29 May 2026 15:06:56 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id F2EF9CD6E51
+	for <linux-arm-kernel@archiver.kernel.org>; Fri, 29 May 2026 15:08:57 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
-	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=pJrpc/0Rjq2d5GXNAElO4nk+xNGZj/e71nP8ybvwuOs=; b=jVrIYkodqlaM81F5z7bZdgWtmP
-	P/7rdgz79tEGyw57pNl1JO+RmosPbhVg0lGD192/WedB6nmWS68g1ujqptmD+QvoYxfQVtXHWS9GR
-	eh9O8aK8apnSzn6OpiFDOCqTBKjn0Dgs4ZhXtnK0A1068qTdlijgPDEY4teVi/kBOr6gV42uqarQe
-	gPytPK6WIvStzdcdt4qX6b+6Nb9erzdVproJ5cX2vEjRMtMiCrXBAifPllmAOHzsweE+pG8pqfk3j
-	/EoyA4Ero7OCTbDwYfL13+lN01AqKCo+xlD1DrtVsVdHnBvpbhX6TdZwnho5GF7pA1qLrKu/qpgY3
-	vHo0lbjw==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=Z+neS3Llvyfy3P4tauMZpeOCQxOmOPM92PXLEWzDVW0=; b=ecIGN9OHk4qn//Ud/8RYNeGGpu
+	K/eiCyCXl2nu8nHKqrlFe2LrtF1uPp6Xyyl44dCq4R9FsHgFHELbdLs8Gfs/DHeP4h10q28GY3zG6
+	RZR24JRweJ6EhPF03k7RCm9A1hk70jH905C08EzD5PQOdZLAeFkT4Gv2xWHWoy1plUIq8lfkWSUcZ
+	Ef/fFas+1hcqniyKt1A8HYunKNC3PTtKUrWvW73DfCzgh4kRQRpNRnvstVAsBkpH5Q6hLcAVjiROU
+	iqXDj2Ij/7fOCMlNN+n7eZAsUMZpNqUP8odGvjuHQOd4pBlIdBbXVFV/qVn5hopvdpicVC6NzYPDM
+	UrD9GHVw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wSynS-00000007dZM-2ZdG;
-	Fri, 29 May 2026 15:06:50 +0000
-Received: from tor.source.kernel.org ([172.105.4.254])
+	id 1wSypQ-00000007dlb-0Nch;
+	Fri, 29 May 2026 15:08:52 +0000
+Received: from tor.source.kernel.org ([2600:3c04:e001:324:0:1991:8:25])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wSynR-00000007dZ1-1Nwm;
-	Fri, 29 May 2026 15:06:49 +0000
+	id 1wSypP-00000007dlH-261g;
+	Fri, 29 May 2026 15:08:51 +0000
 Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
-	by tor.source.kernel.org (Postfix) with ESMTP id 755DB605D6;
-	Fri, 29 May 2026 15:06:48 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id BB4BA1F00893;
-	Fri, 29 May 2026 15:06:44 +0000 (UTC)
+	by tor.source.kernel.org (Postfix) with ESMTP id AB72F60546;
+	Fri, 29 May 2026 15:08:50 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 879E21F00893;
+	Fri, 29 May 2026 15:08:45 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1780067208;
-	bh=pJrpc/0Rjq2d5GXNAElO4nk+xNGZj/e71nP8ybvwuOs=;
-	h=Date:Subject:To:Cc:References:From:In-Reply-To;
-	b=JsDy7Hxe98Rqfov8re5K/ZlPuX8sR7l1ggC434/5ZyrVJhwqp07y6MQ5doTXRyyrq
-	 W26TCUfDfaPaRaX3O8KoODIC7Rpgmv/Hjp3Jy8GokNNvdmkB3EHM6OZCS01uXRlYpO
-	 gKoek43VCbp8NKdOXuaQ8GVR+03XJ6zyxEvZEHm0A1WlLajFmVfC3hm03pLAD1Cud5
-	 bd7jegDMNa9e44Ia9E/21BK9571tJK2oK5t/lHAwiigVE4d/kxGOi4UkiM2SjhS6Jw
-	 f4yQBlUfOqdBS3CHHGaJykyR/YxmfDpgsStxDdCXcfvzhWeqJ0zd5ZqjzQyMhZceTu
-	 WHjS5vLjWl7iQ==
-Message-ID: <5b63761b-07dd-4786-bc98-d8a1c48a2ef4@kernel.org>
-Date: Fri, 29 May 2026 18:06:42 +0300
+	s=k20260515; t=1780067330;
+	bh=Z+neS3Llvyfy3P4tauMZpeOCQxOmOPM92PXLEWzDVW0=;
+	h=Date:From:To:Cc:Subject:References:In-Reply-To;
+	b=lR2pXawpPwU7zOlNmNYRWyqr6Rs8IREQyqXMAgYbEUQnkqvx5JDHA1xCz0bi7n4E5
+	 FvbfKcblWQTnP5e/D/SsEZl0f8k2dCUK+A6vkCoMuv0DrYH6JlkQ8mzfqdsO2rb3yy
+	 Ii03QBrvON1RZGmF0snsD1x+dVkZ74002GDXbRNsK3428w0kwgNIABDZygdD2YlsyK
+	 Et+xwQ2V5wuhOItthhp2u/f1mFJ/EAX7OrQ1vi30I0PkzggRH6bRUz60RJJwtEplpE
+	 buDUncSPwMsci9bBxMrD7aHU3hDo4xpDCHbrh5H8bQOLqgyOjvPiHe3IFaYQXPN3hU
+	 NRKVFqyew03qQ==
+Date: Fri, 29 May 2026 16:08:41 +0100
+From: Will Deacon <will@kernel.org>
+To: Wandun Chen <chenwandun1@gmail.com>
+Cc: linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org,
+	loongarch@lists.linux.dev, linux-riscv@lists.infradead.org,
+	devicetree@vger.kernel.org, kexec@lists.infradead.org,
+	iommu@lists.linux.dev, zhaomeijing@lixiang.com,
+	catalin.marinas@arm.com, chenhuacai@kernel.org, kernel@xen0n.name,
+	pjw@kernel.org, palmer@dabbelt.com, aou@eecs.berkeley.edu,
+	alex@ghiti.fr, robh@kernel.org, saravanak@kernel.org,
+	akpm@linux-foundation.org, bhe@redhat.com, rppt@kernel.org,
+	pasha.tatashin@soleen.com, pratyush@kernel.org,
+	ruirui.yang@linux.dev, m.szyprowski@samsung.com,
+	robin.murphy@arm.com, quic_obabatun@quicinc.com
+Subject: Re: [PATCH v3 09/11] arm64: kdump: exclude non-dumpable reserved
+ memory regions from vmcore
+Message-ID: <ahmr-UjoApj2j5JS@willie-the-truck>
+References: <20260527032917.3385849-1-chenwandun1@gmail.com>
+ <20260527032917.3385849-10-chenwandun1@gmail.com>
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH v2] media: bcm2835-unicam: Fix log status runtime access
-To: Jean-Michel Hautbois <jeanmichel.hautbois@yoseli.org>,
- Raspberry Pi Kernel Maintenance <kernel-list@raspberrypi.com>,
- Mauro Carvalho Chehab <mchehab@kernel.org>,
- Florian Fainelli <florian.fainelli@broadcom.com>,
- Broadcom internal kernel review list
- <bcm-kernel-feedback-list@broadcom.com>, Ray Jui <rjui@broadcom.com>,
- Scott Branden <sbranden@broadcom.com>,
- Dave Stevenson <dave.stevenson@raspberrypi.com>,
- Hans Verkuil <hverkuil@kernel.org>,
- Laurent Pinchart <laurent.pinchart@ideasonboard.com>,
- Sakari Ailus <sakari.ailus@linux.intel.com>
-Cc: Naushir Patuck <naush@raspberrypi.com>, linux-media@vger.kernel.org,
- linux-rpi-kernel@lists.infradead.org, linux-arm-kernel@lists.infradead.org,
- linux-kernel@vger.kernel.org
-References: <20260522-bcmpipm-v2-1-a3da66cbc9f0@kernel.org>
- <1ddf8baa-47db-4b9d-9df6-a6075bc94593@yoseli.org>
-Content-Language: en-US
-From: Eugen Hristev <ehristev@kernel.org>
-In-Reply-To: <1ddf8baa-47db-4b9d-9df6-a6075bc94593@yoseli.org>
-Content-Type: text/plain; charset=UTF-8
-Content-Transfer-Encoding: 8bit
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+In-Reply-To: <20260527032917.3385849-10-chenwandun1@gmail.com>
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -81,101 +78,69 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On 5/29/26 08:12, Jean-Michel Hautbois wrote:
-> Hi Eugen,
+On Wed, May 27, 2026 at 11:29:15AM +0800, Wandun Chen wrote:
+> From: Wandun Chen <chenwandun@lixiang.com>
 > 
-> Le 22/05/2026 à 17:28, Eugen Hristev a écrit :
->> When requesting log status, the block might be powered off, but registers
->> are being read.
->> Avoid reading the registers if the device is not resumed, thus also avoid
->> powering up the device just for log status.
->>
->> Fixes: 392cd78d495f ("media: bcm2835-unicam: Add support for CCP2/CSI2 camera interface")
->> Signed-off-by: Eugen Hristev <ehristev@kernel.org>
->> ---
->> Changes in v2:
->> - changed to use pm_runtime_get_if_active()
->> - add corresponding put()
->> - Link to v1: https://patch.msgid.link/20260521-bcmpipm-v1-1-3eba88d88045@kernel.org
->>
->> To: Raspberry Pi Kernel Maintenance <kernel-list@raspberrypi.com>
->> To: Mauro Carvalho Chehab <mchehab@kernel.org>
->> To: Florian Fainelli <florian.fainelli@broadcom.com>
->> To: Ray Jui <rjui@broadcom.com>
->> To: Scott Branden <sbranden@broadcom.com>
->> To: Broadcom internal kernel review list <bcm-kernel-feedback-list@broadcom.com>
->> To: Sakari Ailus <sakari.ailus@linux.intel.com>
->> To: Jean-Michel Hautbois <jeanmichel.hautbois@yoseli.org>
->> To: Laurent Pinchart <laurent.pinchart@ideasonboard.com>
->> To: Hans Verkuil <hverkuil@kernel.org>
->> To: Naushir Patuck <naush@raspberrypi.com>
->> Cc: Dave Stevenson <dave.stevenson@raspberrypi.com>
->> Cc: linux-media@vger.kernel.org
->> Cc: linux-rpi-kernel@lists.infradead.org
->> Cc: linux-arm-kernel@lists.infradead.org
->> Cc: linux-kernel@vger.kernel.org
->> ---
->>   drivers/media/platform/broadcom/bcm2835-unicam.c | 9 +++++++++
->>   1 file changed, 9 insertions(+)
->>
->> diff --git a/drivers/media/platform/broadcom/bcm2835-unicam.c b/drivers/media/platform/broadcom/bcm2835-unicam.c
->> index 8d28ba0b59a3..93815b8ab930 100644
->> --- a/drivers/media/platform/broadcom/bcm2835-unicam.c
->> +++ b/drivers/media/platform/broadcom/bcm2835-unicam.c
->> @@ -2052,6 +2052,13 @@ static int unicam_log_status(struct file *file, void *fh)
->>   		 node->fmt.fmt.pix.width, node->fmt.fmt.pix.height);
->>   	dev_info(unicam->dev, "V4L2 format:         %08x\n",
->>   		 node->fmt.fmt.pix.pixelformat);
->> +
->> +	if (!pm_runtime_get_if_active(unicam->dev)) {
+> Reserved memory regions are excluded from vmcore by default unless
+> marked dumpable. Honor the dumpable flag to filter out device firmware
+> regions (e.g., GPU, DSP, modem) reserved via device tree, since they
+> typically contain data not useful for kernel crash analysis and can
+> significantly increase vmcore size.
 > 
-> Well, if I am picky I would say that pm_runtime_get_if_active() can 
-> return -EINVAL if runtime PM is disabled for the device. It should then 
-> be tested against '<= 0' ?
+> Use of_reserved_mem_kdump_exclude() to perform the exclusion, and
+> pre-size the crash_mem array via of_reserved_mem_kdump_nr_ranges().
 > 
-> I suppose this should not happen really often, as very few drivers 
-> actually test this case...
+> Signed-off-by: Wandun Chen <chenwandun@lixiang.com>
+> Tested-by: Meijing Zhao <zhaomeijing@lixiang.com>
+> ---
+>  arch/arm64/kernel/machine_kexec_file.c | 6 ++++++
+>  1 file changed, 6 insertions(+)
+> 
+> diff --git a/arch/arm64/kernel/machine_kexec_file.c b/arch/arm64/kernel/machine_kexec_file.c
+> index e31fabed378a..1d65320c6ba4 100644
+> --- a/arch/arm64/kernel/machine_kexec_file.c
+> +++ b/arch/arm64/kernel/machine_kexec_file.c
+> @@ -17,6 +17,7 @@
+>  #include <linux/memblock.h>
+>  #include <linux/of.h>
+>  #include <linux/of_fdt.h>
+> +#include <linux/of_reserved_mem.h>
+>  #include <linux/slab.h>
+>  #include <linux/string.h>
+>  #include <linux/types.h>
+> @@ -51,6 +52,7 @@ static int prepare_elf_headers(void **addr, unsigned long *sz)
+>  	nr_ranges = 2; /* for exclusion of crashkernel region */
+>  	for_each_mem_range(i, &start, &end)
+>  		nr_ranges++;
+> +	nr_ranges += of_reserved_mem_kdump_nr_ranges();
+>  
+>  	cmem = kmalloc_flex(*cmem, ranges, nr_ranges);
+>  	if (!cmem)
+> @@ -75,6 +77,10 @@ static int prepare_elf_headers(void **addr, unsigned long *sz)
+>  			goto out;
+>  	}
+>  
+> +	ret = of_reserved_mem_kdump_exclude(cmem);
+> +	if (ret)
+> +		goto out;
+> +
+>  	ret = crash_prepare_elf64_headers(cmem, true, addr, sz);
 
-I saw that. Some do. This driver enables runtime pm in probe though. So
-I guess it cannot happen, unless runtime pm would not selected in kernel
-config, but the driver depends on PM.
+This looks fine to me:
 
-Ultimately I guess it's up to Sakari or Hans to decide whether it's
-worth checking for error code, but I picked the simpler path (and
-considering <depends on PM> in Kconfig) .
-> 
-> With or without this small change:
-> Reviewed-by: Jean-Michel Hautbois <jeanmichel.hautbois@yoseli.org>
-> 
-> Thanks,
-> JM
-> 
->> +		dev_info(unicam->dev,
->> +			 "Live data N/A due to device inactive\n");
->> +		return 0;
->> +	}
->> +
->>   	reg = unicam_reg_read(unicam, UNICAM_IPIPE);
->>   	dev_info(unicam->dev, "Unpacking/packing:   %u / %u\n",
->>   		 unicam_get_field(reg, UNICAM_PUM_MASK),
->> @@ -2065,6 +2072,8 @@ static int unicam_log_status(struct file *file, void *fh)
->>   	dev_info(unicam->dev, "Write pointer:       %08x\n",
->>   		 unicam_reg_read(unicam, UNICAM_IBWP));
->>   
->> +	pm_runtime_put(unicam->dev);
->> +
->>   	return 0;
->>   }
->>   
->>
->> ---
->> base-commit: e98d21c170b01ddef366f023bbfcf6b31509fa83
->> change-id: 20260521-bcmpipm-6c578e73239c
->>
->> Best regards,
->> --
->> Eugen Hristev <ehristev@kernel.org>
->>
-> 
+Acked-by: Will Deacon <will@kernel.org>
 
+Although I do wonder whether there's scope to consolidate some of the
+arch code here. Now that you have a helper for reserved memory, perhaps
+the core code could also handle the crashkernel reservation itself as
+well? If the arch code passed in its number of memory regions, the
+core code could take care of (a) allocating the crash_mem ranges array
+(b) excluding the crashkernel and (c) excluding the reserved regions
+(the part you have here).
+
+Obviously that would be follow-up work, but the fact that you're having
+to apply basically the same diff to three architectures is a bit of a
+giveaway that this could benefit from some wider cleanup.
+
+Will
 
