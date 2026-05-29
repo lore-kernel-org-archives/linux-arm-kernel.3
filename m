@@ -4,93 +4,55 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id B75A4CD4F54
-	for <linux-arm-kernel@archiver.kernel.org>; Fri, 29 May 2026 18:49:36 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 86CACCD6E4A
+	for <linux-arm-kernel@archiver.kernel.org>; Fri, 29 May 2026 19:04:14 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=lp4vtffxigjSJ7RW/i4Jgv4QK66o94cv0dvcll4cQ/M=; b=AIC2dSFC5ZowPf/dShDWSx3p3Y
-	37tQrz0U1NThhxXf/sC3Njplrk4P0hFEAIj4svLbhtn3pmoiVgc2qVhmji2jyxsnxVOYceh3NUqf7
-	vm5RfebsYpXqYgbqFJPypC/LMkiqls+a8NLAuhoThesPKDQhfSAScZ3ZCay4Rs8K4OLlAVgkpSYtB
-	YgK7DesF3dWpzis+6ZUtWuFUxfUsjQXOI/nO2YQNbyagla3cKfwfUwhkuJdy5I5xhuJPw4q2xDe9l
-	owF7PmpaX/tDyGcbAf3NuX0xSmEQyLkHIuRnmQ0IKGMo5n2hQqJ1GSl/ZZ7jy2vtjZSwCXrSmKjUo
-	nfvsf7uA==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:
+	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=B0i2l9rmJG/vn/wo//SdqtapwvCPkTpI4NEickiZAa4=; b=CBWsmYolqPWNEo8oRYU1KBZPOg
+	4mY7GdzSS59US3N1MlMtvzaJPuf5UoOTU8jprHDorwMHY0V5DtF8WQ4KGOH0vGcyqowisC4XaiI5D
+	7g0oOwPJOxruZpacSrit+xVPYy2NRs9DC4TGJOJVxs2El6+r8WWolMLCOqY4rs9PoZMSZdLfojQVa
+	kA64Pq9U00Jcr+zMfsxPfROXK8I06lQCrSNFaiXLwCh7uQr/mFf7kmYUOzNh8zALU57yghj67/n1U
+	TNuVddsk32jxwu6fLaCRC3ba+IIKGlQRSXxap0FLB5vjAgtzx0s3IFn3rXI8O4rGxmH2qe0HsPWMt
+	+3tK5vWA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wT2Gv-000000088z5-261Z;
-	Fri, 29 May 2026 18:49:29 +0000
-Received: from mail-wr1-x434.google.com ([2a00:1450:4864:20::434])
+	id 1wT2V5-000000089lN-2tbz;
+	Fri, 29 May 2026 19:04:07 +0000
+Received: from gloria.sntech.de ([185.11.138.130])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wT2Gs-000000088yU-2CaK
-	for linux-arm-kernel@lists.infradead.org;
-	Fri, 29 May 2026 18:49:28 +0000
-Received: by mail-wr1-x434.google.com with SMTP id ffacd0b85a97d-45ed18d8a1bso2904741f8f.0
-        for <linux-arm-kernel@lists.infradead.org>; Fri, 29 May 2026 11:49:25 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=baylibre.com; s=google; t=1780080565; x=1780685365; darn=lists.infradead.org;
-        h=in-reply-to:content-disposition:mime-version:references:message-id
-         :subject:cc:to:from:date:from:to:cc:subject:date:message-id:reply-to;
-        bh=lp4vtffxigjSJ7RW/i4Jgv4QK66o94cv0dvcll4cQ/M=;
-        b=LKeRhmpWJg5fBJs0nMUtr/1TyIoGP0Bm8ld6ymjwkiJgiHYHgiXGpI0cZcHPdkdPCl
-         Bu7ow82e+I121pbSAmltw8NH/5Ce1jbmH7w1/z9TzZ4RcGX9mKGvlm1M6/DUt9mZUIrz
-         FJhYapd0c+9EHW64G4xiJUQVV9fI8QaDde8/2q6cbgZ1Haeh9cOFM6B3hqpzpv2bfMSi
-         gCP3gsQgGJNTBupwlHlgYIr9aL4pHI/HFS02zEaGfEtXktyOtAbZLOJ8LH4o7174b2Px
-         JBXDsgScbxu6QPbzYScBfNlGV4+nqia5YWTFb3xXDweCRC8xqofiag3iufBdPTW2SJAD
-         45jw==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20251104; t=1780080565; x=1780685365;
-        h=in-reply-to:content-disposition:mime-version:references:message-id
-         :subject:cc:to:from:date:x-gm-gg:x-gm-message-state:from:to:cc
-         :subject:date:message-id:reply-to;
-        bh=lp4vtffxigjSJ7RW/i4Jgv4QK66o94cv0dvcll4cQ/M=;
-        b=jDrdg1QrX1SSnpaaxbuXvd4VkgVEfNaaZ7eJDZ4oJhebjAcpBOXySL+IvfXVdA31w2
-         vviAlxw9q6UZp1D1DH9CExT17JXWfgPVS5RexsZcp7LYmUK0TI9jyMeiY3BbpjNmITSj
-         5BIH/QHr9ulihRqruCCa5c4sAAuGeDBUWtwJCTBYKvEXyploYasIWNuLqtnewkuiQkdR
-         MsZ2KSJlFxAP6M8gKoM6Q3ej46wX1cM78bCosivx8zBcKd6UkrI7U5VXEJPEH+UsJBUm
-         q3oE/4sR1dU0847AQgFNNjtcMnx6kw7E0KNwRzx+PVzjugdL7l31T0dsSnAXTzY1I9jw
-         Vwcw==
-X-Forwarded-Encrypted: i=1; AFNElJ9L7HJEmT1hwLjgDeg4LqD+Z/ZT89hoq5/nhdsIqb+dPwJ/78K17QfOfRXCFCuLkIuHySZ5lLEjqScT2jGfWDJQ@lists.infradead.org
-X-Gm-Message-State: AOJu0YzgxJZ9d1vF+szJwu9wlUbRUzJETnTpoQUkq/esZRSSMHOZJ3Ec
-	mDpCRNGuh3GMbvcF01UklKU8Zkjb+nPZT6JRBeMP7XHOaIO1mRjneVRmyaq4BIaHyAk=
-X-Gm-Gg: Acq92OGI+RApm7+nd+35F1mlN8hxp3mcMgGqgcwJpScpP6jqgr1SnzGm4uZF7iDNLgk
-	95/hpBzqCKbCSdozY18MDfcHU9Uv8DJ+6SQdJT6HZbFIvDu9HqmpTE1gdC1w0XtPLM1Gxr4agno
-	9HXxlUSx78HC9r1UdTuEZTkJlQdXihiedBY7LG8N9qzuncCgnCGTFU2zyXobaNTl5mP2cqb5Ajw
-	W1ECwZRF+OH61JolIDrcS/xZKEEdjgyNhj7anxD4u+02cUBeoGtuwXZS/oInfhpcWDkY/UbyF1K
-	1KK28K00ulmHSq4LZgc1F3nnmJKaHlumD8vf5SFNY2X8bwsd5uMzT8bsbBAJWcvWfK84rPf8jVG
-	/JLMLIrkOSoxbb3icv+hc/lphiZd1TtK3yjbZHtt3AM4Z1bQuIBJtk+IsnVAuwC9ezoH1YOtd4T
-	zyrxaX/vRhoHgin/q5i8CrxWielrTd5GebXaoY2T8=
-X-Received: by 2002:adf:e609:0:b0:43e:aa88:f1a1 with SMTP id ffacd0b85a97d-45ef6b92502mr1248001f8f.30.1780080564532;
-        Fri, 29 May 2026 11:49:24 -0700 (PDT)
-Received: from localhost ([2a02:8071:56d1:2de0:1d24:d58d:2b65:c291])
-        by smtp.gmail.com with UTF8SMTPSA id ffacd0b85a97d-45ef34b47eesm6096276f8f.9.2026.05.29.11.49.23
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Fri, 29 May 2026 11:49:23 -0700 (PDT)
-Date: Fri, 29 May 2026 20:49:22 +0200
-From: Uwe =?utf-8?Q?Kleine-K=C3=B6nig_=28The_Capable_Hub=29?= <u.kleine-koenig@baylibre.com>
-To: Joshua Peisach <jpeisach@ubuntu.com>
-Cc: Sebastian Reichel <sre@kernel.org>, Yixun Lan <dlan@kernel.org>, 
-	Andreas Kemnade <andreas@kemnade.info>, Matti Vaittinen <mazziesaccount@gmail.com>, 
-	Sven Peter <sven@kernel.org>, Janne Grunau <j@jannau.net>, Neal Gompa <neal@gompa.dev>, 
-	Amit Sunil Dhamne <amitsd@google.com>, Samuel Kayode <samkay014@gmail.com>, linux-pm@vger.kernel.org, 
-	linux-riscv@lists.infradead.org, spacemit@lists.linux.dev, linux-kernel@vger.kernel.org, 
-	asahi@lists.linux.dev, linux-arm-kernel@lists.infradead.org, imx@lists.linux.dev
-Subject: Re: [PATCH v1 4/6] power: Use named initializers for
- platform_device_id arrays
-Message-ID: <ahnev6lMK5tiUybP@monoceros>
-References: <cover.1780048925.git.u.kleine-koenig@baylibre.com>
- <1ceacf4f9c3f827bcad85b378aa04cdca1c04635.1780048925.git.u.kleine-koenig@baylibre.com>
- <DIV4J6UGUQGG.28KL8EGBZWJSJ@ubuntu.com>
+	id 1wT2V3-000000089jT-19nw;
+	Fri, 29 May 2026 19:04:06 +0000
+DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed; d=sntech.de;
+	s=gloria202408; h=Content-Transfer-Encoding:MIME-Version:References:
+	In-Reply-To:Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-Type;
+	bh=B0i2l9rmJG/vn/wo//SdqtapwvCPkTpI4NEickiZAa4=; b=L7XjVZlkce/mpdKdBZu6v5XTL0
+	QNWmQKZjBTyjWZ/YcwhsB+CljYx4qvg4rMuBTuqxuHmtD104O/XR1spWq55np/EdpU6OrchsiipgU
+	6rsqdwLNLWFPdG1pVBJ6fn/2M+Ezp/A8/rH9O4lNkGWRJscNbA7mYL4bmCXPaIkQYb0vbYLlht2lM
+	QxY2+qX3rGLrcibosf6Rp0uep2vNl5eUdT9BJ/rUJX2X6UnCu0JqCmq42Y701bousQ5YdApUwQX+A
+	sbcvazW9H5wtiaGe63kt++L1sUMdY4a0ufmA2i54O7VZj+M3oq5iPrZRd3caKhI19lwA4Luxlc2MX
+	+RMaC1GQ==;
+From: Heiko Stuebner <heiko@sntech.de>
+To: heiko@sntech.de
+Cc: linux-rockchip@lists.infradead.org,
+	linux-arm-kernel@lists.infradead.org,
+	linux-kernel@vger.kernel.org,
+	amadeus@jmu.edu.cn,
+	jonas@kwiboo.se
+Subject: [PATCH v4 4/5] arm64: dts: rockchip: Enable USB 2.0 ports on ArmSoM Sige1
+Date: Fri, 29 May 2026 21:03:54 +0200
+Message-ID: <20260529190355.4148175-5-heiko@sntech.de>
+X-Mailer: git-send-email 2.47.3
+In-Reply-To: <20260529190355.4148175-1-heiko@sntech.de>
+References: <20260529190355.4148175-1-heiko@sntech.de>
 MIME-Version: 1.0
-Content-Type: multipart/signed; micalg=pgp-sha512;
-	protocol="application/pgp-signature"; boundary="pzwfvojoqum2whq2"
-Content-Disposition: inline
-In-Reply-To: <DIV4J6UGUQGG.28KL8EGBZWJSJ@ubuntu.com>
+Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260529_114926_891911_B159202F 
-X-CRM114-Status: GOOD (  13.20  )
+X-CRM114-CacheID: sfid-20260529_120405_369720_343CDBA0 
+X-CRM114-Status: GOOD (  10.46  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -105,54 +67,56 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
+From: Jonas Karlman <jonas@kwiboo.se>
 
---pzwfvojoqum2whq2
-Content-Type: text/plain; protected-headers=v1; charset=us-ascii
-Content-Disposition: inline
-Content-Transfer-Encoding: quoted-printable
-Subject: Re: [PATCH v1 4/6] power: Use named initializers for
- platform_device_id arrays
-MIME-Version: 1.0
+The ArmSoM Sige1 has two USB 2.0 Type-A HOST ports behind an onboard
+USB hub, and one USB 2.0 Type-C OTG port.
 
-Hello Joshua,
+Add support for using the USB 2.0 ports on ArmSoM Sige1.
 
-On Fri, May 29, 2026 at 07:29:08AM -0400, Joshua Peisach wrote:
-> For macsmc-power,
->=20
-> Reviewed-by: Joshua Peisach <jpeisach@ubuntu.com>
+The onboard USB hub handles OHCI so only the EHCI controller is enabled.
 
-Thanks!
+Signed-off-by: Jonas Karlman <jonas@kwiboo.se>
+[added phy-supply for otg port]
+Signed-off-by: Heiko Stuebner <heiko@sntech.de>
+---
+ .../boot/dts/rockchip/rk3528-armsom-sige1.dts | 25 +++++++++++++++++++
+ 1 file changed, 25 insertions(+)
 
-> (I'm not sure if one can "Review-by" a specific section of a singular
-> patch, but also the other changes in the patch look fine to me, so
-> consider it reviewed as well.)
+diff --git a/arch/arm64/boot/dts/rockchip/rk3528-armsom-sige1.dts b/arch/arm64/boot/dts/rockchip/rk3528-armsom-sige1.dts
+index c41af8fc0c8d..ee4183fb980d 100644
+--- a/arch/arm64/boot/dts/rockchip/rk3528-armsom-sige1.dts
++++ b/arch/arm64/boot/dts/rockchip/rk3528-armsom-sige1.dts
+@@ -480,3 +480,28 @@ bluetooth {
+ 		vddio-supply = <&vcc_1v8>;
+ 	};
+ };
++
++&usb_host0_ehci {
++	status = "okay";
++};
++
++&usb_host0_xhci {
++	extcon = <&usb2phy>;
++	maximum-speed = "high-speed";
++	phys = <&usb2phy_otg>;
++	phy-names = "usb2-phy";
++	status = "okay";
++};
++
++&usb2phy {
++	status = "okay";
++};
++
++&usb2phy_host {
++	status = "okay";
++};
++
++&usb2phy_otg {
++	phy-supply = <&vcc5v0_usb_otg>;
++	status = "okay";
++};
+-- 
+2.47.3
 
-I think what you did is quite usual. The restriction doesn't make it
-into git history this way though. Another usual idiom that can be found
-often in git-log is:
-
-Reviewed-by_ Joshua Peisach <jpeisach@ubuntu.com> # macsmc-power
-
-(intentionally added did s/:/_/ to not make tools pick up this line).
-
-Best regards
-Uwe
-
-
---pzwfvojoqum2whq2
-Content-Type: application/pgp-signature; name="signature.asc"
-
------BEGIN PGP SIGNATURE-----
-
-iQEzBAABCgAdFiEEP4GsaTp6HlmJrf7Tj4D7WH0S/k4FAmoZ368ACgkQj4D7WH0S
-/k7D9wf+K/Kbjth006e5cY3RbjoS8K9jW3NQ01G+VBxY+lHExj1dG+49FF1HI8kt
-qfulP3y/YdWSh2JA4Iu/NK5mHfXtx3IWR9T8IuNyDfXpEJECZipp2WG77R9slfko
-t4zpckQ+iaOMoUDYB7CB93ltVHaeYHp3Y079Vm1cylL5z2/tessr8YqNr+o5lP/l
-c/36Uyh8+f0J9Vm+OEsK5r4lyPA9YxyotfCCx4qbxxAjgGbQUW+rj6MZgm5AGfmK
-rcXLESM1abNV6atU3liVQQQhtTPw4t6YXGDZVfGZbyMLtuZTrVZKCQF24odWnbJ6
-juiDjaO5lCkS75qD+EK1IeT4tTF/hw==
-=+SnX
------END PGP SIGNATURE-----
-
---pzwfvojoqum2whq2--
 
