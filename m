@@ -4,100 +4,102 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id B6793CD6E43
-	for <linux-arm-kernel@archiver.kernel.org>; Fri, 29 May 2026 11:48:36 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 08424CD6E4A
+	for <linux-arm-kernel@archiver.kernel.org>; Fri, 29 May 2026 11:51:48 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
 	Content-Type:Subject:References:In-Reply-To:Message-Id:Cc:To:From:Date:
 	MIME-Version:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=sIeVd/WX/TWHB/VJyICGafCV81ZvEMJIfeKTRzi4YyU=; b=lCk1qXvDpYnoHaNx/2biet9B38
-	56sWFzE7+rgapquysed1znVs9Ohq5oe6eBdnQZA32tz4ABtsYNv9FiL0HdxBYpeKRMfu5H+QKhic/
-	pyDq9jYdaTVhCE/bjAMoakNY0G/UKuT0L3F39yvuGBE5NeeD2X7DD/y86Wuv8aoeOpYlD+7gsAaIa
-	H+s/11yhHXBf3yab3VlqDYXES2Z+MevVYm+pCPImiDYFN8+TP7my3ENb8AsGF3t62G8FLLO+6fsQB
-	Sb4NVPtfHOMMHfZSIsp3ljE7JYkPdlUbW3Nq2Ad8nKFA3dX41Z477aeQ50yBn/cfMN1BLh55sUH+H
-	M9Mhrvww==;
+	bh=VJNx6OZ4qZBVWaiEmcIuYAI1+8fMOknxmxIfY6fAGFg=; b=Ki4oTVrfyMXSzyDU+tetJ4bp2+
+	BsBnzti73blb5JZkEFjppEG8GgNCAQFvEJBVF4OaiPemx0/4242tJWL1crwhpmU2JS37+GYNaajJZ
+	sGGSUrz5REYdQ6G0hpdNJo1OXBweE9v4BT/dq+C+jmkKTe8T9vJU75BzZWViGI2O7FW72yhjqS+hZ
+	sKyX2IXj+Y3gcqFo9U6ivy4JKj5K8H49ptpwVbI7MouSp1Ws9zsn6M4D5KXNZP1JXmp6cxhXlpL1J
+	QoZ9CaoaXjgZwXWRi28eC5CR94rN46jtYQP/ZzNX+OZiZBQ5fZYFbJzzXQwYV0/BHbHPkBSexfDG6
+	SDZsZQ3Q==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wSvhW-00000007JX0-2Sxb;
-	Fri, 29 May 2026 11:48:30 +0000
-Received: from sea.source.kernel.org ([172.234.252.31])
+	id 1wSvkb-00000007JvA-3rhH;
+	Fri, 29 May 2026 11:51:41 +0000
+Received: from fhigh-b7-smtp.messagingengine.com ([202.12.124.158])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wSvhT-00000007JWX-1cu3
+	id 1wSvkY-00000007Jud-35TE
 	for linux-arm-kernel@lists.infradead.org;
-	Fri, 29 May 2026 11:48:28 +0000
-Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
-	by sea.source.kernel.org (Postfix) with ESMTP id C73C44408C;
-	Fri, 29 May 2026 11:48:26 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 28B391F00893;
-	Fri, 29 May 2026 11:48:26 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1780055306;
-	bh=sIeVd/WX/TWHB/VJyICGafCV81ZvEMJIfeKTRzi4YyU=;
-	h=Date:From:To:Cc:In-Reply-To:References:Subject;
-	b=JRO772ouOdhT+jOQJ0OTbNHxgdzgvxi473owGgUo4TE57zUhwukVR0+C+fpHEsL92
-	 fUVrUiHHHckcGymqGSKgE4CWyPhCY2v/Gt0NycMsYvqVnYk4x5muiJhKJVFCtDgKJP
-	 qPhb2qvrQcWq0x8XmZeLnojxrZQZgrkS61hCbjqhs5GJq3CnheRLlZ7PGBXI9vBwxP
-	 NN7nD+As59I/v/CjdM5jvCr8K65cs7ezJ5VLQ7Bx1MfdpM9sXLjmhDvAOo6Y7lhGT3
-	 fzgx4us/z4Z+CnkRRgLRDpzwYHCeBByicEWc9iDnSb9ih93N8eYpiCPeaFNLE+JULK
-	 boLKl1E8SsPGA==
-Received: from phl-compute-01.internal (phl-compute-01.internal [10.202.2.41])
-	by mailfauth.phl.internal (Postfix) with ESMTP id 5C985F40068;
-	Fri, 29 May 2026 07:48:25 -0400 (EDT)
+	Fri, 29 May 2026 11:51:39 +0000
+Received: from phl-compute-04.internal (phl-compute-04.internal [10.202.2.44])
+	by mailfhigh.stl.internal (Postfix) with ESMTP id 7D53A7A0028;
+	Fri, 29 May 2026 07:51:37 -0400 (EDT)
 Received: from phl-imap-05 ([10.202.2.95])
-  by phl-compute-01.internal (MEProxy); Fri, 29 May 2026 07:48:25 -0400
-X-ME-Sender: <xms:CX0ZagN3aQtnP5COtTHB95DuxR1C1PNBgVxGl18aCXuND6jeeqckiw>
-    <xme:CX0ZahwyJ8letx_9aBqmekV7icYDJoKqohBqLWMpvVtp53-keo9G82lVoEKGv84Jt
-    eNVudLoKHRxrjpE44-4QHGCJ-S6Pu72-sY9DE1-y8ECJMmJYgW79qU>
-X-ME-Proxy-Cause: dmFkZTEZo0PmK4mVB+fFM0IN1SyU0XoyCS4JtFVZ5bJycosU9Xxdllrud3l8Di6ocFbe5N
-    HEklJ59M+C805Cm4eym0UqzqtnTUFRvNdnKZ8X1TMfo6I03dE5uih4Vqp1hkE80h74zsWF
-    2ltZ/T3xvnpSusp3LJ0hMNAUQlyq1C1oIbvywWhQHwhCzEZui5yARzH7uSNzEqRwl3CkfL
-    81udAFrbb1pHb25iUo9sopmerAdCubWvBJgnRkMS1JcOjioNciLlaIqOX/MIH7t9grkDqv
-    VCqC6913tLnFO5KvwlaytX17z6eAcG7QjcGkp2vjNsx3WSh27qiy35mJdl+ogoOHiiNlAx
-    RTD/Zl+pGjPdayDQvssU9/4Pn2g9XOvFTKlf9A7BBg2RlDplKNj91dg6kC06Sk4CaHnXue
-    tdK3k5SQs4G1GyPAXF210G5E7yRaZeS3rkj6JQ5+fZln4NVAW9ii6cpmuibsM9izO10mSp
-    TRB/s+D+ZTUllXeG4AIvlwB+S7HNLNNKI9mcLAr+Me0DQ0I/F1uHG47+V8nGVI4e9wwSfW
-    TLbZPErXQ4GTogQTz51PhpGN3fNwBATIOK3i5dos6l0JxJXNG7JAuf9rdDwAnNezvRbJr/
-    lxxwjSL+5t9OJkSnrY0pM2yq/TpsykeyFonsIGIwNyMsOqLLbuQLGhikVh0A
-X-ME-Proxy: <xmx:CX0Zap16tX7A2oLaMjBjQAzRHEsI65FLz7uHu4CX9VagJUHaDTOx8g>
-    <xmx:CX0ZanLZhe5zBc8zPzIUwmo0FHz66Gw4nyjgOOIQhcZxrhMm7lAbmw>
-    <xmx:CX0ZahkjPCu6whROyp9OvLCnjBPsNyVZnm_q_TY9yheAvvfpMJu_pA>
-    <xmx:CX0ZatMbPkNztnNyEwLga96pIQj92RQmP17RQF58EO8XjM79j38WDg>
-    <xmx:CX0Zaox4r43qBEISSLnS04jJIkSlhY96ahChUyzXn09Ys7cTJ2_N2bfv>
-Feedback-ID: ice86485a:Fastmail
+  by phl-compute-04.internal (MEProxy); Fri, 29 May 2026 07:51:37 -0400
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=arndb.de; h=cc
+	:cc:content-transfer-encoding:content-type:content-type:date
+	:date:from:from:in-reply-to:in-reply-to:message-id:mime-version
+	:references:reply-to:subject:subject:to:to; s=fm3; t=1780055497;
+	 x=1780141897; bh=VJNx6OZ4qZBVWaiEmcIuYAI1+8fMOknxmxIfY6fAGFg=; b=
+	JzK94IfB/Wj10ilbbVhYyhyh9svTwvL/VPr3axqhWsorZkpSNRM2+QRX/L4RHXnY
+	WX4A7v74zlzegKv6QOTtrfG9VI7wVPe45ga33NZT3YLkSwtC303gvPEcFAlu1AOH
+	dA0omNNhAu0Bg0mdG2/X5RuVEPcsOMXvZ3Ujm0sS/HuqE07h+I16hBDy3QD2KRT+
+	Cpe7aSk9JriUzRppyDjy+AZJMGy5weXplGNN3KFGGrS50JFvGB61hnFPoSN6ijUi
+	QNpbD9UXz6cCXpUAqvnoO3TDvcGIbCDzj3xWCI7mzoP54Tl7iL6kHfTD3f/D8Omr
+	88w6QNFzfZuiUpTFJb0xcw==
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=
+	messagingengine.com; h=cc:cc:content-transfer-encoding
+	:content-type:content-type:date:date:feedback-id:feedback-id
+	:from:from:in-reply-to:in-reply-to:message-id:mime-version
+	:references:reply-to:subject:subject:to:to:x-me-proxy
+	:x-me-sender:x-me-sender:x-sasl-enc; s=fm3; t=1780055497; x=
+	1780141897; bh=VJNx6OZ4qZBVWaiEmcIuYAI1+8fMOknxmxIfY6fAGFg=; b=A
+	AgeHqn/mT2xRwfZvf2CvM0agLuin4YDkYfsrm8uVAP7ZURkUawQ9kvW77bnK+M2U
+	kL0S9/2aNyI6iz+Dfl/oS7OVW36f2FppG8153X8tmjd1z5GDEIS5zdpfa5iuYVsy
+	O3O7O1mLn68xX0LkWM2zHgF5jlLKOa40pZCQCQHxgMjWENOhO2MiLKaAmKcupIqc
+	SWnwUM6gZ4oL6G2JkZxtC5HQNanPLcUe+mTrWhp5OIeb0uwxnHSz9ZUCvG9qGPwm
+	BWcB4FB/pzRXp1tRpMlxwSQQUrgUaIUW0vg2SEDP2ECKABceE/qUthlHvCj7gEev
+	cGhvTV8phi4gHij9NmJPQ==
+X-ME-Sender: <xms:yH0Zaj8uzgIzXsHnbL_ATZ5ydyrMo5b5lh3Z9NY0dN-6V0rerAoplw>
+    <xme:yH0Zaqge-Y4QFanlxyEuqkgMsXcTY1q59SrWXcDZnZnZEae4_RfPidGw1-xkaqHYS
+    ZBgE1p6977fZ6NCM2kE0mYejl0-x07L8U4sGL4TTxTnrw73b783efW8>
+X-ME-Proxy-Cause: dmFkZTEOqfAht6jnJ7IgGiG0XvEGJZLrz8NegVe6R6sYgAFlTHHQVyPuWoyw17obntFV/+
+    JmXJgEYHjgkibZCJ3+Lxg/l7rjD8gUZpJosfJIv2nMg/x0ge5U097tsebjyuIJe3bGxiPt
+    ob1c8Tc0E0aIaXn1TH4lpk3//a0mUJ+z0lwRi6lNpFNk1JURc1+o91yU92cMKqagvpKJq1
+    RlO1gTD7nZ/gTae1UAMc+mGNZ6dWY6tkzi2hIgcl1fAn6qJ7ffNfaqGRONEtfKrtV7eUy7
+    VPw7PmE7O55ed1lxy/8OtG2qGdbfhGQycj5WR/YxPPYDQ4JFQbIqGpYmJ9jJyTguvR/gdu
+    mIE/Uch51YcAo1S5P4axzLZRCcjPgXR92Gr1fil61GXfMu/fXufYxYn+pGJFZj6MB90uKJ
+    xGfug2+8VuuV7xOsTqg/+58nRcvzWX0Zl4nS2XHksErSIiWj7eGmE4NbeHP1gaolwfDDO+
+    bmHuJZIyhbeXCPvk4rBk48v5mZYyml7Y16Uqlrg3rZCzxG+gGqtOQbm8/X1d5tDvGJTnEW
+    kUtLXJYyGErkcG5ZJi80Rjsn2ZjPjv/4RUSnh3CuOP70vs6Fju7IB7TfXp6+gYfomFtk3B
+    S+3kn46kdRUSDQWZTfNaKryDwEhgoZx2u+Q2vwoheIEguHS2TpknAZqNeFlg
+X-ME-Proxy: <xmx:yH0ZahgeYq8R-edrkhDq75gq7jWpnYFls4am1DCKfraYjD9OGctSgg>
+    <xmx:yH0ZanmdnpRwmATw7IAFYwYHkravIieLfbDHU1eLT9vfb0PgKl3eoQ>
+    <xmx:yH0ZagVZGimS9jIenqF9JaS_UQDt16a9zE2VWBFC8e1FC_LqJNJZnQ>
+    <xmx:yH0Zass2zb3P8Sm1Y7I4U6iINRCSKiEYJDWufocHPZoFkKku8LT1hQ>
+    <xmx:yX0ZaqgNVdvIz2tJ-dWpbNBH2490ByKefS_2Nf_7mTDo_hZljemtSjpq>
+Feedback-ID: i56a14606:Fastmail
 Received: by mailuser.phl.internal (Postfix, from userid 501)
-	id 3991F182007A; Fri, 29 May 2026 07:48:25 -0400 (EDT)
+	id B37D5182007E; Fri, 29 May 2026 07:51:36 -0400 (EDT)
 X-Mailer: MessagingEngine.com Webmail Interface
 MIME-Version: 1.0
-Date: Fri, 29 May 2026 13:48:04 +0200
-From: "Ard Biesheuvel" <ardb@kernel.org>
-To: "Kevin Brodsky" <kevin.brodsky@arm.com>,
- "Ard Biesheuvel" <ardb+git@google.com>, linux-arm-kernel@lists.infradead.org
-Cc: linux-kernel@vger.kernel.org, "Will Deacon" <will@kernel.org>,
- "Catalin Marinas" <catalin.marinas@arm.com>,
- "Mark Rutland" <mark.rutland@arm.com>, "Ryan Roberts" <ryan.roberts@arm.com>,
- "Anshuman Khandual" <anshuman.khandual@arm.com>,
- "Liz Prucka" <lizprucka@google.com>, "Seth Jenkins" <sethjenkins@google.com>,
- "Kees Cook" <kees@kernel.org>, "Mike Rapoport" <rppt@kernel.org>,
- "David Hildenbrand" <david@kernel.org>,
- "Andrew Morton" <akpm@linux-foundation.org>, "Jann Horn" <jannh@google.com>,
- linux-mm@kvack.org, linux-hardening@vger.kernel.org,
- linuxppc-dev@lists.ozlabs.org, linux-sh@vger.kernel.org
-Message-Id: <c96591f0-fcf9-43c9-8e45-4a688b3aa116@app.fastmail.com>
-In-Reply-To: <32458c49-0e3c-4d27-b1cf-0e2d7ee0273d@arm.com>
-References: <20260526175846.2694125-17-ardb+git@google.com>
- <20260526175846.2694125-32-ardb+git@google.com>
- <22042b98-cfcc-428e-bb08-ebcfe785eb69@arm.com>
- <8082b77d-6522-472a-9030-317087ecd7e9@app.fastmail.com>
- <32458c49-0e3c-4d27-b1cf-0e2d7ee0273d@arm.com>
-Subject: Re: [PATCH v6 15/15] arm64: mm: Unmap kernel data/bss entirely from the linear
- map
+X-ThreadId: AIgwaTVwlN8Z
+Date: Fri, 29 May 2026 13:51:16 +0200
+From: "Arnd Bergmann" <arnd@arndb.de>
+To: "Tudor Ambarus" <tudor.ambarus@linaro.org>,
+ "Krzysztof Kozlowski" <krzk@kernel.org>,
+ "Alim Akhtar" <alim.akhtar@samsung.com>
+Cc: linux-kernel@vger.kernel.org, linux-samsung-soc@vger.kernel.org,
+ linux-arm-kernel@lists.infradead.org,
+ "Peter Griffin" <peter.griffin@linaro.org>,
+ =?UTF-8?Q?Andr=C3=A9_Draszik?= <andre.draszik@linaro.org>,
+ jyescas@google.com, kernel-team@android.com, stable@vger.kernel.org
+Message-Id: <03dc9ccc-d819-413e-b8fd-23ccd85675ba@app.fastmail.com>
+In-Reply-To: <20260505-acpm-fixes-sashiko-reports-v5-3-43b5ee7f1674@linaro.org>
+References: <20260505-acpm-fixes-sashiko-reports-v5-0-43b5ee7f1674@linaro.org>
+ <20260505-acpm-fixes-sashiko-reports-v5-3-43b5ee7f1674@linaro.org>
+Subject: Re: [PATCH v5 3/7] firmware: samsung: acpm: Fix dummy stubs to return ERR_PTR
 Content-Type: text/plain
 Content-Transfer-Encoding: 7bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260529_044827_468622_3EC3AF66 
-X-CRM114-Status: GOOD (  17.38  )
+X-CRM114-CacheID: sfid-20260529_045138_820469_BB4A6EA5 
+X-CRM114-Status: GOOD (  15.12  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -112,44 +114,69 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-
-On Fri, 29 May 2026, at 10:49, Kevin Brodsky wrote:
-> On 29/05/2026 10:34, Ard Biesheuvel wrote:
->> On Fri, 29 May 2026, at 10:29, Kevin Brodsky wrote:
->>> On 26/05/2026 19:59, Ard Biesheuvel wrote:
->>>> From: Ard Biesheuvel <ardb@kernel.org>
->>>>
->>>> The linear aliases of the kernel text and rodata are mapped read-only in
->>>> the linear map as well. Given that the contents of these regions are
->>>> mostly identical to the version in the loadable image, mapping them
->>>> read-only and leaving their contents visible is a reasonable hardening
->>>> measure.
->>>>
->>>> Data and bss, however, are now also mapped read-only but the contents of
->>>> these regions are more likely to contain data that we'd rather not leak.
->>>> So let's unmap these entirely in the linear map when the kernel is
->>>> running normally.
->>>>
->>>> When going into hibernation or waking up from it, these regions need to
->>>> be mapped, so map the region initially, and toggle the valid bit so
->>>> map/unmap the region as needed. (While the hibernation snapshot logic
->>>> seems able to map inaccessible pages as needed, it currently disregards
->>>> non-present pages entirely.)
->>> I'm not sure I understand this, is there something wrong with the
->>> kernel_page_present() check in safe_copy_page()?
->>>
->> No. If the hibernate code decides to snapshot a page and it is not mapped,
->> safe_copy_page() will do the right thing and map it on demand.
->>
->> The problem is that pages belonging to the kernel image are marked as
->> PageReserved, and so the hibernation logic will not even consider the
->> pages for snapshotting if they are not mapped.
+On Tue, May 5, 2026, at 15:13, Tudor Ambarus wrote:
+> Sashiko identified a potential NULL pointer dereference [1].
 >
-> Right I see the check in saveable_page() now. Maybe it would be worth
-> spelling it out in the commit message (hibernation logic ignores
-> non-present Reserved pages).
->
+> The dummy stub implementation for devm_acpm_get_by_node() returns NULL
+> when CONFIG_EXYNOS_ACPM_PROTOCOL is disabled.
 
-Yeah it's there but clearly not spelled out sufficiently :-)
+I meant to comment on this yesterday as well.
 
+Having stub functions like this return NULL is a common way to
+define optional interfaces, where callers still work when the
+feature is disabled, though this clearly does not work for
+acpm because some callers have a NULL pointer dereference
+when compile testing.
+
+My preferred solution to this type of problem would be to
+just remove the stub helpers and drop the ||COMPILE_TEST
+from the one user that calls them, see below.
+
+The point here is that CONFIG_EXYNOS_ACPM_PROTOCOL already
+supports compile-testing itself, and all (both) drivers using
+it clearly require the support, so this just simplifies
+the option space without losing any build coverage.
+
+Signed-off-by: Arnd Bergmann <arnd@arndb.de>
+
+diff --git a/drivers/clk/samsung/Kconfig b/drivers/clk/samsung/Kconfig
+index 70a8b82a0136..198d8b621289 100644
+--- a/drivers/clk/samsung/Kconfig
++++ b/drivers/clk/samsung/Kconfig
+@@ -97,7 +97,7 @@ config EXYNOS_CLKOUT
+ 
+ config EXYNOS_ACPM_CLK
+ 	tristate "Clock driver controlled via ACPM interface"
+-	depends on EXYNOS_ACPM_PROTOCOL || (COMPILE_TEST && !EXYNOS_ACPM_PROTOCOL)
++	depends on EXYNOS_ACPM_PROTOCOL
+ 	help
+ 	  This driver provides support for clocks that are controlled by
+ 	  firmware that implements the ACPM interface.
+diff --git a/include/linux/firmware/samsung/exynos-acpm-protocol.h b/include/linux/firmware/samsung/exynos-acpm-protocol.h
+index 83cbd425b652..c73aea30d960 100644
+--- a/include/linux/firmware/samsung/exynos-acpm-protocol.h
++++ b/include/linux/firmware/samsung/exynos-acpm-protocol.h
+@@ -68,22 +68,8 @@ struct acpm_handle {
+ 
+ struct device;
+ 
+-#if IS_ENABLED(CONFIG_EXYNOS_ACPM_PROTOCOL)
+ struct acpm_handle *devm_acpm_get_by_node(struct device *dev,
+ 					  struct device_node *np);
+ struct acpm_handle *devm_acpm_get_by_phandle(struct device *dev);
+-#else
+-
+-static inline struct acpm_handle *devm_acpm_get_by_node(struct device *dev,
+-							struct device_node *np)
+-{
+-	return ERR_PTR(-ENODEV);
+-}
+-
+-static inline struct acpm_handle *devm_acpm_get_by_phandle(struct device *dev)
+-{
+-	return ERR_PTR(-ENODEV);
+-}
+-#endif
+ 
+ #endif /* __EXYNOS_ACPM_PROTOCOL_H */
 
