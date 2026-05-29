@@ -4,95 +4,61 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 3A804CD6E45
-	for <linux-arm-kernel@archiver.kernel.org>; Fri, 29 May 2026 08:35:29 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 37B37CD5BD2
+	for <linux-arm-kernel@archiver.kernel.org>; Fri, 29 May 2026 08:41:26 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:Subject:References:In-Reply-To:Message-Id:Cc:To:From:Date:
-	MIME-Version:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
+	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=pb8hRl9aeM4TyobxS9yOnAKjXiRrSGZc3kFIWxU6xN8=; b=G33n3a9iWUufmIt70v8U4nZvPz
-	88W6aMITB9yjccbFc2fbYeHECG41kVhCanepE5vSXusQWxEj3kTixPa4tPlac40uLVJu15TWnA+Nz
-	5p1jT/eEyim27seO18owmXGsj75UCOvKZwc6+X1B3CXL4/VUG4L8hr28c7IKwRyAzHtuEyRUyhx2w
-	d8KAT2DaGHj4rcNw1wbmiivZ5Xj97/cwKTQXeBtxd7a08NTtEp5hlLvLIapKMoejxCyoJYVzM5ICM
-	ko0FBMG+uQtlgFjAcgqkxtvFQlRU/+vyMY9vbrJvR3G/0EMV0KTLM1qZ62cCUedCQjlbLN21MucsN
-	EwZWv+LQ==;
+	bh=PEWnK275bsfNEPuoz47fHj1DYYs/Io1QWeiz24esTV0=; b=YE7AEzFT4YjtBXJ4yJYzE7jyXD
+	KsrUb/5b6RYJHlXWC9w6ekeZb7j/Tzz7eI8JzG1MVi0JhPWWYGrMLg1v4kS3peRoAZR/tk5l2HrQn
+	/JX8+jBXkiLQ+k6Scx1q22pxgmaxH6NfW3Ku6hUBy56LQrl/3C14FhsL1b+L+WXcS7UcuzTiUEnct
+	nidJzQbqXMH1x84eU+o0Jpe0Xch2IrODXgBGssux7HnirDRASaDX56wzGIlDyNoWVF0CRHVkDzUMU
+	6QcqL2Bf1o1sMIm/6GJnNfy1dY4tYHUyYePSaBC2ezDAoQRU+0LlpZkQhqbkv3YRVWmBP1vGEp/NE
+	PoyzCJ0g==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wSsga-00000006xw7-0NxB;
-	Fri, 29 May 2026 08:35:20 +0000
-Received: from tor.source.kernel.org ([2600:3c04:e001:324:0:1991:8:25])
-	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wSsgY-00000006xvy-2orh
+	id 1wSsmM-00000006yBo-37z1;
+	Fri, 29 May 2026 08:41:18 +0000
+Received: from foss.arm.com ([217.140.110.172])
+	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
+	id 1wSsmK-00000006yBM-17tZ
 	for linux-arm-kernel@lists.infradead.org;
-	Fri, 29 May 2026 08:35:18 +0000
-Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
-	by tor.source.kernel.org (Postfix) with ESMTP id A645860594;
-	Fri, 29 May 2026 08:35:17 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 9EBAF1F00893;
-	Fri, 29 May 2026 08:35:16 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1780043717;
-	bh=pb8hRl9aeM4TyobxS9yOnAKjXiRrSGZc3kFIWxU6xN8=;
-	h=Date:From:To:Cc:In-Reply-To:References:Subject;
-	b=eHiWA6JmmhYrHhKFbvxiZTW2xJNbosNU9RTUq54HJ9qxC8j3R64ua2CiUQZSUqrGR
-	 E4C4UAZoPRV+CsP2askx3paA4itfF9NPWE1l5jJvDfGPFPkEGz3bxaowNb98jVhwYd
-	 sIzZwjUPwcgBigvncsDX4VRpDg0Tb6nhoOntqVSjMBnwzxSdSiLFK6FJIf15NU1oue
-	 2e06gPFOVDKImLo61ENrTCqi0Vur53PFnTt+HyeKotfWsgoxzzM/t3v5FSFnxqJZ1x
-	 5vkt06vWKXTJUvw6Aip6rqRQinfTHQ/h0Ol1LDsXkJDGByoWsG4GKZzw2U9VgRPNk4
-	 X+1bHuoen9KnQ==
-Received: from phl-compute-01.internal (phl-compute-01.internal [10.202.2.41])
-	by mailfauth.phl.internal (Postfix) with ESMTP id BFDBEF40071;
-	Fri, 29 May 2026 04:35:15 -0400 (EDT)
-Received: from phl-imap-05 ([10.202.2.95])
-  by phl-compute-01.internal (MEProxy); Fri, 29 May 2026 04:35:15 -0400
-X-ME-Sender: <xms:w08ZakpiqlRdTFy9M8HRTgnxe37LK5skX4bkamkDB8ZQY6J_BXof0g>
-    <xme:w08ZalcpocRSklO6G3o4eP1S-C7Au03jLquVqT3dZ5DscMRpjm2bm4i_76NXPzOYq
-    8m4qP5eSsmGjQA1h8D2q0tixCicp_xLKZTHbImZhneyxQr7DFoP86w>
-X-ME-Proxy-Cause: dmFkZTEQkc69D4Zmkpn7XYQpl901Rkrrlg7dZ91u0M7kyZwKWzkp8pPC3OUm3GoeIl8ZEa
-    YfWBmvqFv7f873bL+J6awk4ALyVkWsyPN8hSWHWjLy526VQi+F7vLkb0Se4dJsA0+9AZhC
-    mbOE8Rse92D/zIxqfxjhk+KGvVsWFXzvhiWzaNvH5HcjXMs97MFy2Ahat6AJXkgvUokmXr
-    /Gu6KLlQhkZMYy3mWkvL+fDWGnmRPKdBsaBtjexICmnhLEzeFMUm63gl1KF4NntnTnrGCZ
-    5uP9Ng/N2EwYovqYva2VTXsDVpCTseypQ4wv1F7Roh5FxvMHGn/c9ZuTyDPXb5H5cYd9OF
-    ouUVMrrrUvOBF+JwFSgKrNDT1DaZWGqGqIruNwSE/opEQSzIQ9zrw0wSLqFYazgl+kiQ2Y
-    sOA6HQbJZ1rsrjuuE8457H8E9j+gYAMNvf2x/vyO3yPcSYsc6/o4Qv5NP528gMTHdvJaAm
-    67pp6LKTMNBnVUl5+cMWaa7+cdgW/ehxUAOYaKGkKA+PbVR4+3EA/jVGZ6CQAJR+U55MP8
-    RJ3nfWIh5Zcdgam/v5JKyDfCEfILxKZWGoRhtzNLhOLpeh2LqHMVG6TV6WbGBbiSYPAVd9
-    5RD+D/lju40uQTEYWt1/7jLvi8oS4Hu5DB5XqNd+rkUXwkCvApYca1SMpU/Q
-X-ME-Proxy: <xmx:w08ZalSR2fUKHnUGeophPGZfIoa3FLSiVorE0-OEfUNGV2uLw-_6ZA>
-    <xmx:w08Zal3v_7ek3COIKrCDsZfg2jQl0m4Z3rI0TedAf7i9hjoae96Jag>
-    <xmx:w08ZaiiajKIvWqZEZyaQI_aMtzFW-TTcZjHXYOCntS4zV902fIzDwQ>
-    <xmx:w08ZajZHTB-r0fcFpaVE-YRBz0k-6zzT2wtxgkCJgsY-Wxa2QTmtlg>
-    <xmx:w08ZarPj9tOVHrNBAweSV_sZUvum-foitmXNYw4RmHdlg2YpKR9_xRaz>
-Feedback-ID: ice86485a:Fastmail
-Received: by mailuser.phl.internal (Postfix, from userid 501)
-	id 9B247182007A; Fri, 29 May 2026 04:35:15 -0400 (EDT)
-X-Mailer: MessagingEngine.com Webmail Interface
+	Fri, 29 May 2026 08:41:17 +0000
+Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
+	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id 28927204C;
+	Fri, 29 May 2026 01:41:09 -0700 (PDT)
+Received: from [10.1.26.144] (unknown [10.1.26.144])
+	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id 3E81C3F632;
+	Fri, 29 May 2026 01:41:12 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=simple/simple; d=arm.com; s=foss;
+	t=1780044074; bh=vbeZEyiR/h6eWp5O0i9nwQvt26tcfiPct0YRF+hL2B0=;
+	h=Date:Subject:To:Cc:References:From:In-Reply-To:From;
+	b=OO0OCxUP6Tc+Vw1mQUwyArHcpL82pFAPHnZ3imrzhZ9OseGf4HwuTUe3FXyKLiTeL
+	 1Q2sOhtVTRNWg0x2aA5H33QL6zCMLjfS1FH2epOGR7RL3Ov2ia+MiABXfVCuDW/yN4
+	 i940eLqtrT/UE++l48qi+oobYioK4tJkd+/DWeUc=
+Message-ID: <014b8a22-d2fe-4989-a430-861753beb1b1@arm.com>
+Date: Fri, 29 May 2026 09:41:09 +0100
 MIME-Version: 1.0
-Date: Fri, 29 May 2026 10:34:49 +0200
-From: "Ard Biesheuvel" <ardb@kernel.org>
-To: "Kevin Brodsky" <kevin.brodsky@arm.com>,
- "Ard Biesheuvel" <ardb+git@google.com>, linux-arm-kernel@lists.infradead.org
-Cc: linux-kernel@vger.kernel.org, "Will Deacon" <will@kernel.org>,
- "Catalin Marinas" <catalin.marinas@arm.com>,
- "Mark Rutland" <mark.rutland@arm.com>, "Ryan Roberts" <ryan.roberts@arm.com>,
- "Anshuman Khandual" <anshuman.khandual@arm.com>,
- "Liz Prucka" <lizprucka@google.com>, "Seth Jenkins" <sethjenkins@google.com>,
- "Kees Cook" <kees@kernel.org>, "Mike Rapoport" <rppt@kernel.org>,
- "David Hildenbrand" <david@kernel.org>,
- "Andrew Morton" <akpm@linux-foundation.org>, "Jann Horn" <jannh@google.com>,
- linux-mm@kvack.org, linux-hardening@vger.kernel.org,
- linuxppc-dev@lists.ozlabs.org, linux-sh@vger.kernel.org
-Message-Id: <8082b77d-6522-472a-9030-317087ecd7e9@app.fastmail.com>
-In-Reply-To: <22042b98-cfcc-428e-bb08-ebcfe785eb69@arm.com>
-References: <20260526175846.2694125-17-ardb+git@google.com>
- <20260526175846.2694125-32-ardb+git@google.com>
- <22042b98-cfcc-428e-bb08-ebcfe785eb69@arm.com>
-Subject: Re: [PATCH v6 15/15] arm64: mm: Unmap kernel data/bss entirely from the linear
- map
-Content-Type: text/plain
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH v2 07/18] arm64: fpsimd: Use assembler for SVE
+ instructions
+To: Mark Rutland <mark.rutland@arm.com>,
+ linux-arm-kernel@lists.infradead.org, kvmarm@lists.linux.dev
+Cc: broonie@kernel.org, catalin.marinas@arm.com, james.morse@arm.com,
+ maz@kernel.org, oupton@kernel.org, tabba@google.com, will@kernel.org
+References: <20260528165446.701944-1-mark.rutland@arm.com>
+ <20260528165446.701944-8-mark.rutland@arm.com>
+Content-Language: en-GB
+From: Vladimir Murzin <vladimir.murzin@arm.com>
+In-Reply-To: <20260528165446.701944-8-mark.rutland@arm.com>
+Content-Type: text/plain; charset=UTF-8
 Content-Transfer-Encoding: 7bit
+X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
+X-CRM114-CacheID: sfid-20260529_014116_432245_12DFDB5E 
+X-CRM114-Status: GOOD (  17.22  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -107,103 +73,147 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
+On 5/28/26 17:54, Mark Rutland wrote:
+> Historically we supported assemblers which could not assemble SVE
+> instructions. We dropped support for such assemblers in commit:
+> 
+>   118c40b7b503 ("kbuild: require gcc-8 and binutils-2.30")
+> 
+> Since that commit, all supported assemblers (binutils and LLVM) are
+> capable of assembling SVE instructions, and there's no need for us to
+> manually encode SVE instructions.
+> 
+> Rely on the assembler to encode SVE instructions, and remove the manual
+> encoding. The various _sve_<insn> macros are kept for now, and will be
+> cleaned up in subsequent patches.
+> 
+> There should be no functional change as a result of this patch.
+> 
+> Signed-off-by: Mark Rutland <mark.rutland@arm.com>
+> Reviewed-by: Mark Brown <broonie@kernel.org>
+> Cc: Catalin Marinas <catalin.marinas@arm.com>
+> Cc: Fuad Tabba <tabba@google.com>
+> Cc: James Morse <james.morse@arm.com>
+> Cc: Marc Zyngier <maz@kernel.org>
+> Cc: Oliver Upton <oupton@kernel.org>
+> Cc: Will Deacon <will@kernel.org>
+> ---
+>  arch/arm64/include/asm/fpsimdmacros.h | 65 +++++++--------------------
+>  1 file changed, 17 insertions(+), 48 deletions(-)
+> 
+> diff --git a/arch/arm64/include/asm/fpsimdmacros.h b/arch/arm64/include/asm/fpsimdmacros.h
+> index adf33d2da40c3..4ba23e493cb69 100644
+> --- a/arch/arm64/include/asm/fpsimdmacros.h
+> +++ b/arch/arm64/include/asm/fpsimdmacros.h
+> @@ -99,85 +99,54 @@
+>  	.endif
+>  .endm
+>  
+> -/* SVE instruction encodings for non-SVE-capable assemblers */
+> -/* (pre binutils 2.28, all kernel capable clang versions support SVE) */
+> +/* Deprecated macros for SVE instructions */
+>  
+>  /* STR (vector): STR Z\nz, [X\nxbase, #\offset, MUL VL] */
+>  .macro _sve_str_v nz, nxbase, offset=0
+> -	_sve_check_zreg \nz
+> -	_check_general_reg \nxbase
+> -	_check_num (\offset), -0x100, 0xff
+> -	.inst	0xe5804000			\
+> -		| (\nz)				\
+> -		| ((\nxbase) << 5)		\
+> -		| (((\offset) & 7) << 10)	\
+> -		| (((\offset) & 0x1f8) << 13)
+> +	.arch_extension sve
+> +	str	z\nz, [X\nxbase, #\offset, MUL VL]
+>  .endm
+>  
+>  /* LDR (vector): LDR Z\nz, [X\nxbase, #\offset, MUL VL] */
+>  .macro _sve_ldr_v nz, nxbase, offset=0
+> -	_sve_check_zreg \nz
+> -	_check_general_reg \nxbase
+> -	_check_num (\offset), -0x100, 0xff
+> -	.inst	0x85804000			\
+> -		| (\nz)				\
+> -		| ((\nxbase) << 5)		\
+> -		| (((\offset) & 7) << 10)	\
+> -		| (((\offset) & 0x1f8) << 13)
+> +	.arch_extension sve
+> +	ldr	z\nz, [X\nxbase, #\offset, MUL VL]
+>  .endm
+>  
+>  /* STR (predicate): STR P\np, [X\nxbase, #\offset, MUL VL] */
+>  .macro _sve_str_p np, nxbase, offset=0
+> -	_sve_check_preg \np
+> -	_check_general_reg \nxbase
+> -	_check_num (\offset), -0x100, 0xff
+> -	.inst	0xe5800000			\
+> -		| (\np)				\
+> -		| ((\nxbase) << 5)		\
+> -		| (((\offset) & 7) << 10)	\
+> -		| (((\offset) & 0x1f8) << 13)
+> +	.arch_extension sve
+> +	str	p\np, [X\nxbase, #\offset, MUL VL]
+>  .endm
+>  
+>  /* LDR (predicate): LDR P\np, [X\nxbase, #\offset, MUL VL] */
+>  .macro _sve_ldr_p np, nxbase, offset=0
+> -	_sve_check_preg \np
+> -	_check_general_reg \nxbase
+> -	_check_num (\offset), -0x100, 0xff
+> -	.inst	0x85800000			\
+> -		| (\np)				\
+> -		| ((\nxbase) << 5)		\
+> -		| (((\offset) & 7) << 10)	\
+> -		| (((\offset) & 0x1f8) << 13)
+> +	.arch_extension sve
+> +	ldr p\np, [x\nxbase, #\offset, MUL VL]
+>  .endm
+>  
+>  /* RDVL X\nx, #\imm */
+>  .macro _sve_rdvl nx, imm
+> -	_check_general_reg \nx
+> -	_check_num (\imm), -0x20, 0x1f
+> -	.inst	0x04bf5000			\
+> -		| (\nx)				\
+> -		| (((\imm) & 0x3f) << 5)
+> +	.arch_extension sve
+> +	rdvl x\nx, #\imm
+>  .endm
+>  
+>  /* RDFFR (unpredicated): RDFFR P\np.B */
+>  .macro _sve_rdffr np
+> -	_sve_check_preg \np
+> -	.inst	0x2519f000			\
+> -		| (\np)
+> +	.arch_extension sve
+> +	rdffr p\np\().b
+>  .endm
+>  
+>  /* WRFFR P\np.B */
+>  .macro _sve_wrffr np
+> -	_sve_check_preg \np
+> -	.inst	0x25289000			\
+> -		| ((\np) << 5)
+> +	.arch_extension sve
+> +	wrffr p\np\().b
+>  .endm
+>  
+>  /* PFALSE P\np.B */
+>  .macro _sve_pfalse np
+> -	_sve_check_preg \np
+> -	.inst	0x2518e400			\
+> -		| (\np)
+> +	.arch_extension sve
+> +	pfalse	p\np\().b
+>  .endm
+>  
+>  /* SME instruction encodings for non-SME-capable assemblers */
+> -- 2.30.2
+> 
 
+FWIW,
 
-On Fri, 29 May 2026, at 10:29, Kevin Brodsky wrote:
-> On 26/05/2026 19:59, Ard Biesheuvel wrote:
->> From: Ard Biesheuvel <ardb@kernel.org>
->>
->> The linear aliases of the kernel text and rodata are mapped read-only in
->> the linear map as well. Given that the contents of these regions are
->> mostly identical to the version in the loadable image, mapping them
->> read-only and leaving their contents visible is a reasonable hardening
->> measure.
->>
->> Data and bss, however, are now also mapped read-only but the contents of
->> these regions are more likely to contain data that we'd rather not leak.
->> So let's unmap these entirely in the linear map when the kernel is
->> running normally.
->>
->> When going into hibernation or waking up from it, these regions need to
->> be mapped, so map the region initially, and toggle the valid bit so
->> map/unmap the region as needed. (While the hibernation snapshot logic
->> seems able to map inaccessible pages as needed, it currently disregards
->> non-present pages entirely.)
->
-> I'm not sure I understand this, is there something wrong with the
-> kernel_page_present() check in safe_copy_page()?
->
+Reviewed-by: Vladimir Murzin <vladimir.murzin@arm.com>
 
-No. If the hibernate code decides to snapshot a page and it is not mapped,
-safe_copy_page() will do the right thing and map it on demand.
-
-The problem is that pages belonging to the kernel image are marked as
-PageReserved, and so the hibernation logic will not even consider the
-pages for snapshotting if they are not mapped.
-
->> Signed-off-by: Ard Biesheuvel <ardb@kernel.org>
->> ---
->>  arch/arm64/mm/mmu.c | 39 +++++++++++++++++---
->>  1 file changed, 34 insertions(+), 5 deletions(-)
->>
->> diff --git a/arch/arm64/mm/mmu.c b/arch/arm64/mm/mmu.c
->> index e7ca53d20b87..cb00e42abbe1 100644
->> --- a/arch/arm64/mm/mmu.c
->> +++ b/arch/arm64/mm/mmu.c
->> @@ -24,6 +24,7 @@
->>  #include <linux/mm.h>
->>  #include <linux/vmalloc.h>
->>  #include <linux/set_memory.h>
->> +#include <linux/suspend.h>
->>  #include <linux/kfence.h>
->>  #include <linux/pkeys.h>
->>  #include <linux/mm_inline.h>
->> @@ -1056,6 +1057,29 @@ static void __init __map_memblock(phys_addr_t start, phys_addr_t end,
->>  				 end - start, prot, early_pgtable_alloc, flags);
->>  }
->>  
->> +static void remap_linear_data_alias(bool unmap)
->> +{
->> +	set_memory_valid((unsigned long)lm_alias(__init_end),
->> +			 (unsigned long)(__bss_stop - __init_end) / PAGE_SIZE,
->> +			 !unmap);
->> +}
->> +
->> +static int arm64_hibernate_pm_notify(struct notifier_block *nb,
->> +				     unsigned long mode, void *unused)
->> +{
->> +	switch (mode) {
->> +	default:
->> +		break;
->> +	case PM_POST_HIBERNATION:
->> +		remap_linear_data_alias(true);
->> +		break;
->> +	case PM_HIBERNATION_PREPARE:
->> +		remap_linear_data_alias(false);
->> +		break;
->> +	}
->> +	return 0;
->> +}
->> +
->>  void __init mark_linear_text_alias_ro(void)
->>  {
->>  	/*
->> @@ -1064,6 +1088,16 @@ void __init mark_linear_text_alias_ro(void)
->>  	update_mapping_prot(__pa_symbol(_text), (unsigned long)lm_alias(_text),
->>  			    (unsigned long)__init_begin - (unsigned long)_text,
->>  			    PAGE_KERNEL_RO);
->> +
->> +	remap_linear_data_alias(true);
->
-> As suggested on v4, something like mark_linear_data_alias_valid(false)
-> would be clearer.
->
-
-Ack.
-
-> Also, is there anything stopping us from doing that directly in map_mem()?
->
-
-Excellent question. I will investigate.
 
 
