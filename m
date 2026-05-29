@@ -4,68 +4,75 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 49F11CD4F54
-	for <linux-arm-kernel@archiver.kernel.org>; Fri, 29 May 2026 16:32:55 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id D35B7CD6E49
+	for <linux-arm-kernel@archiver.kernel.org>; Fri, 29 May 2026 16:34:58 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:MIME-Version:References:In-Reply-To:Message-ID:Subject:Cc:To:
-	From:Date:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:References
+	:Message-Id:Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:
+	From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=NJKm4DQd8wLymlnydE/tYUEbKfRJqcyMFKjOdZG+S0A=; b=YClf1qtDGWdi82tSu8DjOhex4u
-	bnlCHDvmCmEGjK6cdjqqPHLiiYqE3k+C6XA52jR66rOejA8xUUY1RaQHu0W2y2NOCy3lLqgUHZIt4
-	lO6Tq/id8HimJ7+BH5cgEh5HeObHtcu5FSu9zo/MHvrd82lT9kwJxv3nenPyeTIded6cAYszHhlLI
-	xBp8B2HEIcw8fo2JlEVDY8EpSI7FM0IEz/QNS01SNEj5J1niux0W70lOa7xcz6H8Wltfaw/NVyeDe
-	7d+DAYOFH/lac6ZHP07cidy6hNVFM5GIMnfffsSPhW6goE5r2rUdIE6UlxVOt2dPVtzWeqhbwX212
-	WXoUQ5Bw==;
+	bh=8mr+2IKRPq6GxrBU0bB4d+jYOkLg4Nyvmg+o4j1Gky0=; b=cF6zAdj8xTfXk/RQJ2Qk8Frcxa
+	AZdWw8KL9jwwMnCZiA9itJceC9Px4vteNTDnJfq7JwG9gmnAN6z1/TOqm0xiKN3WCubnKJQFr4wls
+	lYsXOgIEu1G0G/F+7w6ZSbyfuz7G/RVqT9Rx3UOzPA/Oar0xQU/4Nfculq25jasLGI6OS/vLV5Fai
+	iBj1o29f3CzUK9N9m0PB4ylvaJVgPZjMWYim1TbyV2fPCximTDTZ8B9Xw8PRFfypfRfZMDatLbKii
+	QfzIHOvT1YQ5uRLet2Tllquft/IzcM/IwhZH1IHhRv9EWnw1Mg2lok7vWNehPqcRmw0alN2Nvr27C
+	ZrsWPd1g==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wT08e-00000007tYD-2tb0;
-	Fri, 29 May 2026 16:32:49 +0000
-Received: from tor.source.kernel.org ([2600:3c04:e001:324:0:1991:8:25])
+	id 1wT0Ab-00000007tpG-2eR6;
+	Fri, 29 May 2026 16:34:49 +0000
+Received: from fanzine2.igalia.com ([213.97.179.56])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wT08c-00000007tXr-2bYA
+	id 1wT0AY-00000007to0-2FdO
 	for linux-arm-kernel@lists.infradead.org;
-	Fri, 29 May 2026 16:32:46 +0000
-Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
-	by tor.source.kernel.org (Postfix) with ESMTP id 17549605D0;
-	Fri, 29 May 2026 16:32:46 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id DE0001F00893;
-	Fri, 29 May 2026 16:32:34 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1780072365;
-	bh=NJKm4DQd8wLymlnydE/tYUEbKfRJqcyMFKjOdZG+S0A=;
-	h=Date:From:To:Cc:Subject:In-Reply-To:References;
-	b=mX8PGa38Wq6NozoBBfp4pcg9DjDIcytpq0mrX99CXq9anID9csliTdSxABivMZ+R5
-	 qIJ3d4b86aqP+Z4OXEE8CfMUBrm/fQDTGVqH6dg/KFIOFr6iNmGtvxAch1/1xcIs9J
-	 OeRW+vk1DUCqjnMXaP4B9emGolgupQs3TBMZp/75CyS5S+0HvhwkGY4FP+xh/zP5Gk
-	 IYPthMuJJYDzdHvKGSgWLe7LG3ZJEvPe+0qPUI+ZnljD7xIpdwg5B+swXd2yryYzlj
-	 kr3c8aGuNlb8/zcGGjmAexOs75NVeIn0+Nw0hBluFglUAculi5lm4O9ofCC+07zkWp
-	 7txTu1m/+e6gw==
-Date: Fri, 29 May 2026 17:32:29 +0100
-From: Jonathan Cameron <jic23@kernel.org>
-To: Ahmed Tiba <ahmed.tiba@arm.com>
-Cc: will@kernel.org, xueshuai@linux.alibaba.com, saket.dumbre@intel.com,
- mchehab@kernel.org, dave@stgolabs.net, djbw@kernel.org, bp@alien8.de,
- tony.luck@intel.com, guohanjun@huawei.com, lenb@kernel.org,
- skhan@linuxfoundation.org, vishal.l.verma@intel.com, rafael@kernel.org,
- corbet@lwn.net, ira.weiny@intel.com, dave.jiang@intel.com,
- krzk+dt@kernel.org, robh@kernel.org, catalin.marinas@arm.com,
- alison.schofield@intel.com, conor+dt@kernel.org,
- linux-arm-kernel@lists.infradead.org, Michael.Zhao2@arm.com,
- linux-doc@vger.kernel.org, linux-kernel@vger.kernel.org,
- linux-cxl@vger.kernel.org, Dmitry.Lamerov@arm.com,
- devicetree@vger.kernel.org, linux-acpi@vger.kernel.org,
- linux-edac@vger.kernel.org, acpica-devel@lists.linux.dev
-Subject: Re: [PATCH v5 08/10] ACPI: APEI: share GHES CPER helpers
-Message-ID: <20260529173229.18843384@jic23-huawei>
-In-Reply-To: <20260529-topics-ahmtib01-ras_ffh_arm_internal_review-v5-8-2e0500d42642@arm.com>
-References: <20260529-topics-ahmtib01-ras_ffh_arm_internal_review-v5-0-2e0500d42642@arm.com>
-	<20260529-topics-ahmtib01-ras_ffh_arm_internal_review-v5-8-2e0500d42642@arm.com>
-X-Mailer: Claws Mail 4.4.0 (GTK 3.24.52; x86_64-pc-linux-gnu)
+	Fri, 29 May 2026 16:34:48 +0000
+DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed; d=igalia.com;
+	s=20170329; h=Cc:To:In-Reply-To:References:Message-Id:
+	Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:From:Sender:
+	Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender
+	:Resent-To:Resent-Cc:Resent-Message-ID:List-Id:List-Help:List-Unsubscribe:
+	List-Subscribe:List-Post:List-Owner:List-Archive;
+	bh=8mr+2IKRPq6GxrBU0bB4d+jYOkLg4Nyvmg+o4j1Gky0=; b=e7KKtsEmK5GEgkevjN1/FWqXce
+	yGj4xbuBWq9+dqI1XIuKLDgeZiF1i2vmSoLhaf/YU+NmCaN2XDd4lG4zRFnCD7DlSVFi+ynq5T864
+	XIU2L088v4xTgHMNiTLMY0gDVIrpHBc3Oog+6pj5GstHSrf+gLmFhUQ7lS3DihtPPqMbGC0jhP2so
+	MTYSFntXkTb5VoymwK+bSyCgD8BH34Z0TMPpvj9c++FO4gvjJS5ET3HJ8LRKOGRErpv9cLs2CKMX5
+	olZx424AZsob9pw4LPi9/TdL4iZTvqhNsED7mecU/LcA/WvBGwNVMrZDzU/1QqKQTYm0aMzpTH3Ly
+	TL2ld/6g==;
+Received: from [179.118.191.12] (helo=[192.168.15.100])
+	by fanzine2.igalia.com with esmtpsa 
+	(Cipher TLS1.3:ECDHE_X25519__RSA_PSS_RSAE_SHA256__AES_256_GCM:256) (Exim)
+	id 1wT0AB-009wov-4i; Fri, 29 May 2026 18:34:23 +0200
+From: =?utf-8?q?Andr=C3=A9_Almeida?= <andrealmeid@igalia.com>
+Date: Fri, 29 May 2026 13:33:53 -0300
+Subject: [PATCH v3 1/5] arm64: vdso: Prepare for robust futex unlock
+ support
 MIME-Version: 1.0
-Content-Type: text/plain; charset=US-ASCII
-Content-Transfer-Encoding: 7bit
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: 8bit
+Message-Id: <20260529-tonyk-robust_arm-v3-1-a6f02684d4fe@igalia.com>
+References: <20260529-tonyk-robust_arm-v3-0-a6f02684d4fe@igalia.com>
+In-Reply-To: <20260529-tonyk-robust_arm-v3-0-a6f02684d4fe@igalia.com>
+To: Catalin Marinas <catalin.marinas@arm.com>, 
+ Will Deacon <will@kernel.org>, Thomas Gleixner <tglx@kernel.org>, 
+ Mark Rutland <mark.rutland@arm.com>, 
+ Mathieu Desnoyers <mathieu.desnoyers@efficios.com>, 
+ Sebastian Andrzej Siewior <bigeasy@linutronix.de>, 
+ Carlos O'Donell <carlos@redhat.com>, Peter Zijlstra <peterz@infradead.org>, 
+ Florian Weimer <fweimer@redhat.com>, Rich Felker <dalias@aerifal.cx>, 
+ Torvald Riegel <triegel@redhat.com>, Darren Hart <dvhart@infradead.org>, 
+ Ingo Molnar <mingo@kernel.org>, Davidlohr Bueso <dave@stgolabs.net>, 
+ Arnd Bergmann <arnd@arndb.de>, "Liam R . Howlett" <Liam.Howlett@oracle.com>, 
+ Uros Bizjak <ubizjak@gmail.com>, 
+ =?utf-8?q?Thomas_Wei=C3=9Fschuh?= <linux@weissschuh.net>
+Cc: linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org, 
+ linux-arch@vger.kernel.org, kernel-dev@igalia.com, 
+ LKML <linux-kernel@vger.kernel.org>, 
+ =?utf-8?q?Andr=C3=A9_Almeida?= <andrealmeid@igalia.com>
+X-Mailer: b4 0.15.2
+X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
+X-CRM114-CacheID: sfid-20260529_093446_874997_C5666175 
+X-CRM114-Status: GOOD (  22.75  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -80,234 +87,169 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Fri, 29 May 2026 10:50:48 +0100
-Ahmed Tiba <ahmed.tiba@arm.com> wrote:
+There will be a VDSO function to unlock non-contended robust futexes in
+user space. The unlock sequence is racy vs. clearing the list_pending_op
+pointer in the task's robust list head. To plug this race the kernel needs
+to know the critical section window so it can clear the pointer when the
+task is interrupted within that race window. The window is determined by
+labels in the inline assembly.
 
-> Wire GHES up to the helper routines in ghes_cper.c and remove the local
-> copies from ghes.c. This keeps the control flow identical while letting
-> the helpers be shared with other firmware-first providers.
-> 
-> Signed-off-by: Ahmed Tiba <ahmed.tiba@arm.com>
-Mostly looks fine.  The one bit that rather makes this exercise of breaking
-out generic code look dodgy is the ifdefs in the generic file.
+Signed-off-by: André Almeida <andrealmeid@igalia.com>
+---
+Notes:
+ - The diff futex_set_vdso_cs_range() should happen in the commit that
+ introduced it, and rebase will clear it from here
+ - So far I couldn't figure out why current->rseq.event.user_irq is never set in
+ aarch64
 
-I'm haven't looked closely but that to me implies a coupling that should not be
-here.
+v3:
+ - Fix adding vdso base addr twice
+ - Call vdso_futex_robust_unlock_update_ips() on remap as well
+v2:
+ - Fixed linker not finding VDSO symbols
+---
+ arch/arm64/kernel/vdso.c          | 25 +++++++++++++++++++++++++
+ arch/arm64/kernel/vdso/vdso.lds.S |  5 +++++
+ arch/x86/entry/vdso/vma.c         |  4 ++--
+ include/linux/futex.h             | 13 ++-----------
+ 4 files changed, 34 insertions(+), 13 deletions(-)
 
-Jonathan
+diff --git a/arch/arm64/kernel/vdso.c b/arch/arm64/kernel/vdso.c
+index 592dd8668de4..76f22ea8e181 100644
+--- a/arch/arm64/kernel/vdso.c
++++ b/arch/arm64/kernel/vdso.c
+@@ -11,6 +11,7 @@
+ #include <linux/clocksource.h>
+ #include <linux/elf.h>
+ #include <linux/err.h>
++#include <linux/futex.h>
+ #include <linux/errno.h>
+ #include <linux/gfp.h>
+ #include <linux/kernel.h>
+@@ -57,11 +58,31 @@ static struct vdso_abi_info vdso_info[] __ro_after_init = {
+ #endif /* CONFIG_COMPAT_VDSO */
+ };
+ 
++#ifdef CONFIG_FUTEX_ROBUST_UNLOCK
++static void vdso_futex_robust_unlock_update_ips(enum vdso_abi abi, struct mm_struct *mm)
++{
++	unsigned long vdso = (unsigned long) mm->context.vdso;
++	struct futex_mm_data *fd = &mm->futex;
++	uintptr_t success, end;
++
++	if (abi == VDSO_ABI_AA64) {
++		success = (uintptr_t) VDSO_SYMBOL(vdso, futex_list64_try_unlock_cs_success);
++		end = (uintptr_t) VDSO_SYMBOL(vdso, futex_list64_try_unlock_cs_end);
++
++		futex_set_vdso_cs_range(fd, 0, success, end, false);
++	}
++}
++#else
++static inline void vdso_futex_robust_unlock_update_ips(enum vdso_abi abi, struct mm_struct *mm) { }
++#endif /* CONFIG_FUTEX_ROBUST_UNLOCK */
++
+ static int vdso_mremap(const struct vm_special_mapping *sm,
+ 		struct vm_area_struct *new_vma)
+ {
+ 	current->mm->context.vdso = (void *)new_vma->vm_start;
+ 
++	vdso_futex_robust_unlock_update_ips(VDSO_ABI_AA64, current->mm);
++
+ 	return 0;
+ }
+ 
+@@ -134,6 +155,8 @@ static int __setup_additional_pages(enum vdso_abi abi,
+ 	if (IS_ERR(ret))
+ 		goto up_fail;
+ 
++	vdso_futex_robust_unlock_update_ips(abi, mm);
++
+ 	return 0;
+ 
+ up_fail:
+@@ -159,6 +182,8 @@ static int aarch32_sigpage_mremap(const struct vm_special_mapping *sm,
+ {
+ 	current->mm->context.sigpage = (void *)new_vma->vm_start;
+ 
++	vdso_futex_robust_unlock_update_ips(VDSO_ABI_AA32, current->mm);
++
+ 	return 0;
+ }
+ 
+diff --git a/arch/arm64/kernel/vdso/vdso.lds.S b/arch/arm64/kernel/vdso/vdso.lds.S
+index 52314be29191..8633aafe6b81 100644
+--- a/arch/arm64/kernel/vdso/vdso.lds.S
++++ b/arch/arm64/kernel/vdso/vdso.lds.S
+@@ -104,6 +104,7 @@ VERSION
+ 		__kernel_clock_gettime;
+ 		__kernel_clock_getres;
+ 		__kernel_getrandom;
++		__vdso_futex_robust_list64_try_unlock;
+ 	local: *;
+ 	};
+ }
+@@ -112,3 +113,7 @@ VERSION
+  * Make the sigreturn code visible to the kernel.
+  */
+ VDSO_sigtramp		= __kernel_rt_sigreturn;
++
++VDSO_futex_list64_try_unlock_cs_start = __futex_list64_try_unlock_cs_start;
++VDSO_futex_list64_try_unlock_cs_success = __futex_list64_try_unlock_cs_success;
++VDSO_futex_list64_try_unlock_cs_end = __futex_list64_try_unlock_cs_end;
+diff --git a/arch/x86/entry/vdso/vma.c b/arch/x86/entry/vdso/vma.c
+index 357e18db0c7a..988568a62a8b 100644
+--- a/arch/x86/entry/vdso/vma.c
++++ b/arch/x86/entry/vdso/vma.c
+@@ -85,13 +85,13 @@ static void vdso_futex_robust_unlock_update_ips(void)
+ 	futex_reset_cs_ranges(fd);
+ 
+ #ifdef CONFIG_X86_64
+-	futex_set_vdso_cs_range(fd, idx, vdso, image->sym___futex_list64_try_unlock_cs_start,
++	futex_set_vdso_cs_range(fd, idx, image->sym___futex_list64_try_unlock_cs_start + vdso,
+ 				image->sym___futex_list64_try_unlock_cs_end, false);
+ 	idx++;
+ #endif /* CONFIG_X86_64 */
+ 
+ #if defined(CONFIG_X86_32) || defined(CONFIG_COMPAT)
+-	futex_set_vdso_cs_range(fd, idx, vdso, image->sym___futex_list32_try_unlock_cs_start,
++	futex_set_vdso_cs_range(fd, idx, image->sym___futex_list32_try_unlock_cs_start + vdso,
+ 				image->sym___futex_list32_try_unlock_cs_end, true);
+ #endif /* CONFIG_X86_32 || CONFIG_COMPAT */
+ }
+diff --git a/include/linux/futex.h b/include/linux/futex.h
+index 33524dfb3fe4..cb378872e4e7 100644
+--- a/include/linux/futex.h
++++ b/include/linux/futex.h
+@@ -122,14 +122,6 @@ static inline void futex_fixup_robust_unlock(struct pt_regs *regs)
+ {
+ 	struct futex_unlock_cs_range *csr;
+ 
+-	/*
+-	 * Avoid dereferencing current->mm if not returning from interrupt.
+-	 * current->rseq.event is going to be used subsequently, so bringing the
+-	 * cache line in is not a big deal.
+-	 */
+-	if (!current->rseq.event.user_irq)
+-		return;
+-
+ 	csr = current->mm->futex.unlock.cs_ranges;
+ 
+ 	/* The loop is optimized out for !COMPAT */
+@@ -142,10 +134,9 @@ static inline void futex_fixup_robust_unlock(struct pt_regs *regs)
+ }
+ 
+ static inline void futex_set_vdso_cs_range(struct futex_mm_data *fd, unsigned int idx,
+-					   unsigned long vdso, unsigned long start,
+-					   unsigned long end, bool sz32)
++					   unsigned long start, unsigned long end, bool sz32)
+ {
+-	fd->unlock.cs_ranges[idx].start_ip = vdso + start;
++	fd->unlock.cs_ranges[idx].start_ip = start;
+ 	fd->unlock.cs_ranges[idx].len = end - start;
+ 	fd->unlock.cs_ranges[idx].pop_size32 = sz32;
+ }
 
-> ---
->  drivers/acpi/apei/ghes.c      | 416 +--------------------------------------
->  drivers/acpi/apei/ghes_cper.c | 438 +++++++++++++++++++++++++++++++++++++++++-
->  include/acpi/ghes_cper.h      |  20 ++
->  3 files changed, 459 insertions(+), 415 deletions(-)
-> 
-> diff --git a/drivers/acpi/apei/ghes.c b/drivers/acpi/apei/ghes.c
-> index 85be2ebf4d3e..f85b97c4db4c 100644
-> --- a/drivers/acpi/apei/ghes.c
-> +++ b/drivers/acpi/apei/ghes.c
-
->  
->  static void __ghes_panic(struct ghes *ghes,
-> diff --git a/drivers/acpi/apei/ghes_cper.c b/drivers/acpi/apei/ghes_cper.c
-> index d7a666a163c3..0ff9d06eb78f 100644
-> --- a/drivers/acpi/apei/ghes_cper.c
-> +++ b/drivers/acpi/apei/ghes_cper.c
-> @@ -13,22 +13,32 @@
-
->  
->  #include "apei-internal.h"
->  
-> +ATOMIC_NOTIFIER_HEAD(ghes_report_chain);
-> +
-> +#ifndef CONFIG_ACPI_APEI
-> +void __weak arch_apei_report_mem_error(int sev, struct cper_sec_mem_err *mem_err) { }
-> +#endif
-This is non obvious enough that the reasoning for a new weak function should be mentioned in
-the patch description.  Why not stub it in include/acpi/apei.h? 
-
-> +
->  static struct ghes_estatus_cache __rcu *ghes_estatus_caches[GHES_ESTATUS_CACHES_SIZE];
->  static atomic_t ghes_estatus_cache_alloced;
-
-> +void __ghes_print_estatus(const char *pfx,
-> +			  const struct acpi_hest_generic *generic,
-> +			  const struct acpi_hest_generic_status *estatus)
-> +{
-> +	static atomic_t seqno;
-> +	unsigned int curr_seqno;
-> +	char pfx_seq[64];
-> +
-> +	if (!pfx) {
-> +		if (ghes_severity(estatus->error_severity) <=
-> +		    GHES_SEV_CORRECTED)
-> +			pfx = KERN_WARNING;
-> +		else
-> +			pfx = KERN_ERR;
-> +	}
-> +	curr_seqno = atomic_inc_return(&seqno);
-> +	snprintf(pfx_seq, sizeof(pfx_seq), "%s{%u}" HW_ERR, pfx, curr_seqno);
-> +	printk("%sHardware error from APEI Generic Hardware Error Source: %d\n",
-> +	       pfx_seq, generic->header.source_id);
-> +	cper_estatus_print(pfx_seq, estatus);
-> +}
-> +
-> +int ghes_print_estatus(const char *pfx,
-> +		       const struct acpi_hest_generic *generic,
-> +		       const struct acpi_hest_generic_status *estatus)
-> +{
-> +	/* Not more than 2 messages every 5 seconds */
-> +	static DEFINE_RATELIMIT_STATE(ratelimit_corrected, 5 * HZ, 2);
-> +	static DEFINE_RATELIMIT_STATE(ratelimit_uncorrected, 5 * HZ, 2);
-> +	struct ratelimit_state *ratelimit;
-> +
-> +	if (ghes_severity(estatus->error_severity) <= GHES_SEV_CORRECTED)
-> +		ratelimit = &ratelimit_corrected;
-> +	else
-> +		ratelimit = &ratelimit_uncorrected;
-> +	if (__ratelimit(ratelimit)) {
-> +		__ghes_print_estatus(pfx, generic, estatus);
-> +		return 1;
-> +	}
-> +	return 0;
-> +}
-> +
-> +#ifdef CONFIG_ACPI_APEI
-
-So after the effort to break the the generic stuff we end up with non generic
-bits in the broken out file?  Is there no way to avoid this?
-
->  static void __iomem *ghes_map(u64 pfn, enum fixed_addresses fixmap_idx)
->  {
->  	phys_addr_t paddr;
-> @@ -272,6 +636,7 @@ void ghes_clear_estatus(struct ghes *ghes,
->  	if (is_hest_type_generic_v2(ghes))
->  		ghes_ack_error(ghes->generic_v2);
->  }
-> +#endif /* CONFIG_ACPI_APEI */
-
-> +void ghes_cper_handle_status(struct device *dev,
-> +			     const struct acpi_hest_generic *generic,
-> +			     const struct acpi_hest_generic_status *estatus,
-> +			     bool sync)
-> +{
-> +	int sev, sec_sev;
-> +	struct acpi_hest_generic_data *gdata;
-> +	guid_t *sec_type;
-> +	const guid_t *fru_id = &guid_null;
-> +	char *fru_text = "";
-> +	bool queued = false;
-> +
-> +	sev = ghes_severity(estatus->error_severity);
-> +	apei_estatus_for_each_section(estatus, gdata) {
-> +		sec_type = (guid_t *)gdata->section_type;
-> +		sec_sev = ghes_severity(gdata->error_severity);
-> +		if (gdata->validation_bits & CPER_SEC_VALID_FRU_ID)
-> +			fru_id = (guid_t *)gdata->fru_id;
-> +
-> +		if (gdata->validation_bits & CPER_SEC_VALID_FRU_TEXT)
-> +			fru_text = gdata->fru_text;
-> +
-> +		ghes_log_hwerr(sev, sec_type);
-> +		if (guid_equal(sec_type, &CPER_SEC_PLATFORM_MEM)) {
-> +			struct cper_sec_mem_err *mem_err = acpi_hest_get_payload(gdata);
-> +
-> +			atomic_notifier_call_chain(&ghes_report_chain, sev, mem_err);
-> +
-> +			arch_apei_report_mem_error(sev, mem_err);
-> +			queued = ghes_handle_memory_failure(gdata, sev, sync);
-> +		} else if (guid_equal(sec_type, &CPER_SEC_PCIE)) {
-> +			ghes_handle_aer(gdata);
-> +		} else if (guid_equal(sec_type, &CPER_SEC_PROC_ARM)) {
-> +			queued = ghes_handle_arm_hw_error(gdata, sev, sync);
-> +		} else if (guid_equal(sec_type, &CPER_SEC_CXL_PROT_ERR)) {
-> +			struct cxl_cper_sec_prot_err *prot_err = acpi_hest_get_payload(gdata);
-> +
-> +			cxl_cper_post_prot_err(prot_err, gdata->error_severity);
-> +		} else if (guid_equal(sec_type, &CPER_SEC_CXL_GEN_MEDIA_GUID)) {
-> +			struct cxl_cper_event_rec *rec = acpi_hest_get_payload(gdata);
-> +
-> +			cxl_cper_post_event(CXL_CPER_EVENT_GEN_MEDIA, rec);
-> +		} else if (guid_equal(sec_type, &CPER_SEC_CXL_DRAM_GUID)) {
-> +			struct cxl_cper_event_rec *rec = acpi_hest_get_payload(gdata);
-> +
-> +			cxl_cper_post_event(CXL_CPER_EVENT_DRAM, rec);
-> +		} else if (guid_equal(sec_type, &CPER_SEC_CXL_MEM_MODULE_GUID)) {
-> +			struct cxl_cper_event_rec *rec = acpi_hest_get_payload(gdata);
-> +
-> +			cxl_cper_post_event(CXL_CPER_EVENT_MEM_MODULE, rec);
-> +		} else {
-> +			void *err = acpi_hest_get_payload(gdata);
-> +
-> +			ghes_defer_non_standard_event(gdata, sev);
-> +			log_non_standard_event(sec_type, fru_id, fru_text,
-> +					       sec_sev, err,
-> +					       gdata->error_data_length);
-> +		}
-> +	}
-> +
-> +	/*
-> +	 * If no memory failure work is queued for abnormal synchronous
-> +	 * errors, do a force kill.
-> +	 */
-> +	if (sync && !queued) {
-> +		dev_err(dev,
-> +			HW_ERR GHES_PFX "%s:%d: synchronous unrecoverable error (SIGBUS)\n",
-> +			current->comm, task_pid_nr(current));
-> +		force_sig(SIGBUS);
-> +	}
-> +}
-
-Blank line here
-
->  /* Room for 8 entries */
->  #define CXL_CPER_PROT_ERR_FIFO_DEPTH 8
->  static DEFINE_KFIFO(cxl_cper_prot_err_fifo, struct cxl_cper_prot_err_work_data,
-> diff --git a/include/acpi/ghes_cper.h b/include/acpi/ghes_cper.h
-> index dd49e9179b63..511b95b50911 100644
-> --- a/include/acpi/ghes_cper.h
-> +++ b/include/acpi/ghes_cper.h
-> @@ -17,6 +17,8 @@
->  #define ACPI_APEI_GHES_CPER_H
->  
->  #include <linux/atomic.h>
-> +#include <linux/device.h>
-> +#include <linux/notifier.h>
->  #include <linux/workqueue.h>
->  
->  #include <acpi/ghes.h>
-> @@ -57,6 +59,7 @@
->  	((struct ghes_vendor_record_entry *)(vendor_entry) + 1))
->  
->  extern struct gen_pool *ghes_estatus_pool;
-> +extern struct atomic_notifier_head ghes_report_chain;
->  
->  static inline bool is_hest_type_generic_v2(struct ghes *ghes)
->  {
-> @@ -107,6 +110,23 @@ void ghes_estatus_cache_add(struct acpi_hest_generic *generic,
->  			    struct acpi_hest_generic_status *estatus);
->  void ghes_defer_non_standard_event(struct acpi_hest_generic_data *gdata,
->  				   int sev);
-> +int ghes_severity(int severity);
-> +bool ghes_handle_memory_failure(struct acpi_hest_generic_data *gdata,
-> +				int sev, bool sync);
-> +bool ghes_handle_arm_hw_error(struct acpi_hest_generic_data *gdata,
-> +			      int sev, bool sync);
-> +void ghes_handle_aer(struct acpi_hest_generic_data *gdata);
-> +void ghes_log_hwerr(int sev, guid_t *sec_type);
-> +void __ghes_print_estatus(const char *pfx,
-> +			  const struct acpi_hest_generic *generic,
-> +			  const struct acpi_hest_generic_status *estatus);
-> +int ghes_print_estatus(const char *pfx,
-> +		       const struct acpi_hest_generic *generic,
-> +		       const struct acpi_hest_generic_status *estatus);
-> +void ghes_cper_handle_status(struct device *dev,
-> +			     const struct acpi_hest_generic *generic,
-> +			     const struct acpi_hest_generic_status *estatus,
-> +			     bool sync);
->  void cxl_cper_post_prot_err(struct cxl_cper_sec_prot_err *prot_err,
->  			    int severity);
->  int cxl_cper_register_prot_err_work(struct work_struct *work);
-> 
+-- 
+2.54.0
 
 
