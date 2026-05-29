@@ -4,87 +4,74 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 89A88CD6E45
-	for <linux-arm-kernel@archiver.kernel.org>; Fri, 29 May 2026 06:55:30 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 876BDCD6E45
+	for <linux-arm-kernel@archiver.kernel.org>; Fri, 29 May 2026 06:56:42 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
 	MIME-Version:Message-Id:Date:Subject:Cc:To:From:Reply-To:Content-Type:
 	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
 	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
-	bh=3Iagb2rUTGDj6eYGk2excnNHam5SMUj25f8dwqAIwig=; b=TROxxavS8ofJ3QUOpwCEUXKue5
-	WlUo8WYNFPF9m8X0ySJusdZGtPdmoId/ul90DPxMd7HO9cM5K8pZP57XozTMBfYNbK81qiRd4d/dm
-	gGv8R4MlztP5c+f2M8fG8vQM5qm/RdD61ScWq3Zcvp0NCm0Ua5J5aLTCUBb95dRyM1CsveB63KtBF
-	Z4FR24+zFKNsq2immB5W3KY7gy085NN1s8g1E4jqW09qB6RJFmPgWhn9QpCJ5B3b83SblM76EijSC
-	rzfrkbnmX3I8014pi59qtieJyFccqMo1RQj7xcqWc9PiZsOsNlgUrSlJwo+TjS9bhdRqZEXFpQJQM
-	MlCSu1fg==;
+	bh=IEVwhznXLUvLV9o0M1pyD0GB4B4T8jzF42sRdRnyUT0=; b=C74MnG/NMX26Hq39ZdvfbEKvU/
+	dwPdvas0VOiIaVr3eCBhROyouXWnnNwyzgypQ11B9BJvrNTqWZBAHrJS12Ub52OgN6Vgh2Cg7+Ua+
+	QBsUbrgHJhrxlVa4JEgdJbyAw8xC5A8M2RMyA8xuscd4HwXpOFzu9fPmCht9RsxL1pjODr5Yova3U
+	mzjpRotJ7Q1eGh65BmgGiO6FLhyrRCMVW9kTWJVyK5l/Tgt5O3ghHIwT7Iwx8dFloimmmSGCdRs24
+	b+q1kmfU9Vw18PSy9GaD59JGfHibLIiIjzjQTsgyecJRvMhJinU10pz/r7inqTSa8+vEpRiO9sXpg
+	xEMnne2A==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wSr7p-00000006qW4-1QQt;
-	Fri, 29 May 2026 06:55:23 +0000
-Received: from mail-pj1-x102f.google.com ([2607:f8b0:4864:20::102f])
+	id 1wSr90-00000006qbG-2tdk;
+	Fri, 29 May 2026 06:56:34 +0000
+Received: from smtp25.cstnet.cn ([159.226.251.25] helo=cstnet.cn)
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wSr7m-00000006qVZ-3khi
+	id 1wSr8v-00000006qaJ-30OQ
 	for linux-arm-kernel@lists.infradead.org;
-	Fri, 29 May 2026 06:55:19 +0000
-Received: by mail-pj1-x102f.google.com with SMTP id 98e67ed59e1d1-36b7e4e3be0so185562a91.0
-        for <linux-arm-kernel@lists.infradead.org>; Thu, 28 May 2026 23:55:18 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20251104; t=1780037718; x=1780642518; darn=lists.infradead.org;
-        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
-         :to:from:from:to:cc:subject:date:message-id:reply-to;
-        bh=3Iagb2rUTGDj6eYGk2excnNHam5SMUj25f8dwqAIwig=;
-        b=NoRqeaCcROAqsvK6+08r7V5HXkSgAlYYL9V9UYPmvpVIuDDxYIM0XLwo9pRFCRi/Ft
-         ++YSZ6Fsw9KcMsdsp2mVw4HGhSdXmpWiv3dF5yU4sNggncb7Bb784AFO+ItdNoWi6D18
-         ZBaR1bOd64IY6XPEMH6VL3sCHA9ANt71Xdrhd6ubvZZQZm3WNxY2UqfHLgTfIWngxNf+
-         ycE+cljnPOBiD5J97McUyxlhAh5JieUnxA94ASra56aacxZwxyu2xdDUPFbXgunvMPTH
-         x7wc41T1eTFzJl+3+efvXQM72O4g5zzNmbPohNtYZq06LSuBp9U936ox8B+6+yjOBLJ6
-         F1eQ==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20251104; t=1780037718; x=1780642518;
-        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
-         :to:from:x-gm-gg:x-gm-message-state:from:to:cc:subject:date
-         :message-id:reply-to;
-        bh=3Iagb2rUTGDj6eYGk2excnNHam5SMUj25f8dwqAIwig=;
-        b=ZEXHR36QiM1RZsr6QANskpX7wpy5BmODreoGb8gdZSJris8MJy7q5pkvdls6Mt/R0g
-         kPMydKwwXeIW9JZnFGRx82Sqf0g5rJiBZ5aOMuyU4ELHPET6IEYs8WiHmivIj/Q//MeP
-         dCyCUyvw0JQDphzw/BlMAUX6Np+iJ2FRJP9uOFkgSqblMPzwluF1/qqK3KXrYEeNd2Q1
-         KM2+6am0In15dXnTQQ/11xbEq732cZTi+99izkFMX+PvEBW0ab+lwRczFJ5su+RVF+qL
-         WGzSl9Vx2cwVVWctMbADmFnor6Qfg83NDnPvsfW44cxq+oejWA+4DEYZnsLKxcN6hLtt
-         CgJg==
-X-Forwarded-Encrypted: i=1; AFNElJ95rQWz8VwfNBXPDfxmkCnQe+gZs03U8zdUGhxicb0zmgNiMQFeS8ublxl8Obsw+7uliUY1IokHN6f98uMBgtQY@lists.infradead.org
-X-Gm-Message-State: AOJu0YzU38DlMHmv/6SLSCrmLRlOK9vn2LM8W0jf3gX1UqzC2XqWp+lD
-	1orArIZQA1a1Dx3UbZYPH4cHVKJboZrW3nn9jyos2wMTvqBJYRR6mtHD
-X-Gm-Gg: Acq92OEitLqaSOOTiZBH0cjq/i1IGFgjW9KxL5NjoSRnmO1nCixMNQRorAfsqQZUl39
-	S6Gs1mFS/5krlnafROmDTD6Sqvd7O8daM5BhlkH4Jx6lFqZDISb9XyczYR2w1Q8VoAb8Pfjbosq
-	nqsnbjQvqBXUplEuyORnCV6pM/pktZUzjTiVKofRM5U0xG/F0I0VwRB7ce9X69yFvFxlyI9xndl
-	NyyR5em+LZmNaFIUQ7xOsVsLJjSkRbMYjzy6r0k9UzLmqd6NtLZGB0lbqKQlWhSgLgT/zpFQXcT
-	GqxLBB3Xo4xJfNWSaOXBKE+bWiZ0csQ2XLxb9ieWNrhamOUKfA3/TFbVyPH98iezAhb38BHzjuD
-	V9vYYi/vv1nPbIxW4yzfICRAXNwtIiF+BBw97fFy+0J6O6hx5XmDriOAmkz3D8h0+VuVAz3nVc4
-	KeAZdIVZsa7/QzlH0+PxeOSokhVahzhXgOaP7oTJjeD4A=
-X-Received: by 2002:a17:90b:2701:b0:366:2b56:3ec2 with SMTP id 98e67ed59e1d1-36bbcac2603mr1125096a91.1.1780037717407;
-        Thu, 28 May 2026 23:55:17 -0700 (PDT)
-Received: from localhost.localdomain ([189.1.242.96])
-        by smtp.gmail.com with ESMTPSA id 98e67ed59e1d1-36bc6621745sm1121405a91.7.2026.05.28.23.55.14
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Thu, 28 May 2026 23:55:16 -0700 (PDT)
-From: Yiqi Sun <sunyiqixm@gmail.com>
-To: catalin.marinas@arm.com,
-	linux-arm-kernel@lists.infradead.org
-Cc: linux-kernel@vger.kernel.org,
-	rmk+kernel@armlinux.org.uk,
-	ruanjinjie@huawei.com,
-	will@kernel.org,
-	Yiqi Sun <sunyiqixm@gmail.com>
-Subject: [PATCH] fix: arm64: syscall: use live x0 for syscall_get_arguments() arg0
-Date: Fri, 29 May 2026 14:54:44 +0800
-Message-Id: <20260529065444.1336608-1-sunyiqixm@gmail.com>
-X-Mailer: git-send-email 2.34.1
+	Fri, 29 May 2026 06:56:32 +0000
+Received: from localhost.localdomain (unknown [36.112.3.223])
+	by APP-05 (Coremail) with SMTP id zQCowADnLxKPOBlqiG67EQ--.10286S2;
+	Fri, 29 May 2026 14:56:16 +0800 (CST)
+From: Haoxiang Li <lihaoxiang@isrc.iscas.ac.cn>
+To: andrew+netdev@lunn.ch,
+	davem@davemloft.net,
+	kuba@kernel.org,
+	pabeni@redhat.com,
+	Steen.Hegelund@microchip.com,
+	daniel.machon@microchip.com,
+	UNGLinuxDriver@microchip.com,
+	kees@kernel.org,
+	jacob.e.keller@intel.com
+Cc: netdev@vger.kernel.org,
+	linux-arm-kernel@lists.infradead.org,
+	linux-kernel@vger.kernel.org,
+	Haoxiang Li <lihaoxiang@isrc.iscas.ac.cn>
+Subject: [PATCH net-next v2] net: microchip: sparx5: clean up PSFP resources on flower setup failure
+Date: Fri, 29 May 2026 14:56:15 +0800
+Message-Id: <20260529065615.35782-1-lihaoxiang@isrc.iscas.ac.cn>
+X-Mailer: git-send-email 2.25.1
 MIME-Version: 1.0
 Content-Transfer-Encoding: 8bit
+X-CM-TRANSID: zQCowADnLxKPOBlqiG67EQ--.10286S2
+X-Coremail-Antispam: 1UD129KBjvJXoW7Kw1UWw18Xr4UtFW7CrykXwb_yoW8uryfpF
+	WUA3s3ury8Gr4fCF18tw40vFn8u34SqrWxWF4fK345Zr15CF4kCFn8K3W8Kr1YgryUJF93
+	ZF4UAF4UCwnxGrUanT9S1TB71UUUUU7qnTZGkaVYY2UrUUUUjbIjqfuFe4nvWSU5nxnvy2
+	9KBjDU0xBIdaVrnRJUUU9014x267AKxVW8JVW5JwAFc2x0x2IEx4CE42xK8VAvwI8IcIk0
+	rVWrJVCq3wAFIxvE14AKwVWUJVWUGwA2ocxC64kIII0Yj41l84x0c7CEw4AK67xGY2AK02
+	1l84ACjcxK6xIIjxv20xvE14v26r1j6r1xM28EF7xvwVC0I7IYx2IY6xkF7I0E14v26r4j
+	6F4UM28EF7xvwVC2z280aVAFwI0_Jr0_Gr1l84ACjcxK6I8E87Iv6xkF7I0E14v26r4j6r
+	4UJwAS0I0E0xvYzxvE52x082IY62kv0487Mc02F40EFcxC0VAKzVAqx4xG6I80ewAv7VC0
+	I7IYx2IY67AKxVWUJVWUGwAv7VC2z280aVAFwI0_Jr0_Gr1lOx8S6xCaFVCjc4AY6r1j6r
+	4UM4x0Y48IcxkI7VAKI48JM4x0x7Aq67IIx4CEVc8vx2IErcIFxwACI402YVCY1x02628v
+	n2kIc2xKxwCY1x0262kKe7AKxVWUtVW8ZwCF04k20xvY0x0EwIxGrwCFx2IqxVCFs4IE7x
+	kEbVWUJVW8JwC20s026c02F40E14v26r1j6r18MI8I3I0E7480Y4vE14v26r106r1rMI8E
+	67AF67kF1VAFwI0_Jw0_GFylIxkGc2Ij64vIr41lIxAIcVC0I7IYx2IY67AKxVWUJVWUCw
+	CI42IY6xIIjxv20xvEc7CjxVAFwI0_Gr0_Cr1lIxAIcVCF04k26cxKx2IYs7xG6r1j6r1x
+	MIIF0xvEx4A2jsIE14v26r1j6r4UMIIF0xvEx4A2jsIEc7CjxVAFwI0_Gr0_Gr1UYxBIda
+	VFxhVjvjDU0xZFpf9x0JUd-B_UUUUU=
+X-Originating-IP: [36.112.3.223]
+X-CM-SenderInfo: 5olkt0x0ld0ww6lv2u4olvutnvoduhdfq/1tbiBwsCE2oY6gj-LQAAsf
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260528_235518_933710_5059D453 
-X-CRM114-Status: GOOD (  12.66  )
+X-CRM114-CacheID: sfid-20260528_235630_152515_CFA2A647 
+X-CRM114-Status: GOOD (  11.02  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -99,38 +86,68 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On arm64, seccomp obtains syscall arguments via syscall_get_arguments(),
-where arg0 is currently read from regs->orig_x0. However, the syscall
-wrapper consumes live arguments from regs->regs[0..5].
+Add error handling paths to unwind the PSFP resources that have already
+been allocated before returning the error.
 
-A ptracer can modify x0 on syscall-enter stop before seccomp runs,
-but cannot update orig_x0 through that interface. This can
-leave seccomp checking stale arg0 while the syscall executes with updated
-live x0, allowing seccomp bypass when filters depend on arg0.
-
-Make syscall_get_arguments() read arg0 from regs->regs[0], matching the
-actual dispatch arguments and removing this desynchronization.
-
-Fixes: f27bb139c387 ("arm64: Miscellaneous library functions")
-Signed-off-by: Yiqi Sun <sunyiqixm@gmail.com>
+Signed-off-by: Haoxiang Li <lihaoxiang@isrc.iscas.ac.cn>
+Reviewed-by: Jacob Keller <jacob.e.keller@intel.com>
 ---
- arch/arm64/include/asm/syscall.h | 2 +-
- 1 file changed, 1 insertion(+), 1 deletion(-)
+Changes in v2:
+ - Rebase on netdev/net-next.
+ - Add a Reviewed-by tag.
+---
+ .../microchip/sparx5/sparx5_tc_flower.c        | 18 ++++++++++++++----
+ 1 file changed, 14 insertions(+), 4 deletions(-)
 
-diff --git a/arch/arm64/include/asm/syscall.h b/arch/arm64/include/asm/syscall.h
-index 5e4c7fc44f73..4bdb4d3ce2b4 100644
---- a/arch/arm64/include/asm/syscall.h
-+++ b/arch/arm64/include/asm/syscall.h
-@@ -81,7 +81,7 @@ static inline void syscall_get_arguments(struct task_struct *task,
- 					 struct pt_regs *regs,
- 					 unsigned long *args)
- {
--	args[0] = regs->orig_x0;
-+	args[0] = regs->regs[0];
- 	args[1] = regs->regs[1];
- 	args[2] = regs->regs[2];
- 	args[3] = regs->regs[3];
+diff --git a/drivers/net/ethernet/microchip/sparx5/sparx5_tc_flower.c b/drivers/net/ethernet/microchip/sparx5/sparx5_tc_flower.c
+index f779a5c00803..a17143953502 100644
+--- a/drivers/net/ethernet/microchip/sparx5/sparx5_tc_flower.c
++++ b/drivers/net/ethernet/microchip/sparx5/sparx5_tc_flower.c
+@@ -807,7 +807,7 @@ static int sparx5_tc_flower_psfp_setup(struct sparx5 *sparx5,
+ 		/* Add new flow-meter */
+ 		ret = sparx5_psfp_fm_add(sparx5, pol_idx, fm, &psfp_fmid);
+ 		if (ret < 0)
+-			return ret;
++			goto err_sg_del;
+ 	}
+ 
+ 	/* Map stream filter to stream gate */
+@@ -816,7 +816,7 @@ static int sparx5_tc_flower_psfp_setup(struct sparx5 *sparx5,
+ 	/* Add new stream-filter and map it to a steam gate */
+ 	ret = sparx5_psfp_sf_add(sparx5, sf, &psfp_sfid);
+ 	if (ret < 0)
+-		return ret;
++		goto err_fm_del;
+ 
+ 	/* Streams are classified by ISDX - map ISDX 1:1 to sfid for now. */
+ 	sparx5_isdx_conf_set(sparx5, psfp_sfid, psfp_sfid, psfp_fmid);
+@@ -824,13 +824,23 @@ static int sparx5_tc_flower_psfp_setup(struct sparx5 *sparx5,
+ 	ret = vcap_rule_add_action_bit(vrule, VCAP_AF_ISDX_ADD_REPLACE_SEL,
+ 				       VCAP_BIT_1);
+ 	if (ret)
+-		return ret;
++		goto err_sf_del;
+ 
+ 	ret = vcap_rule_add_action_u32(vrule, VCAP_AF_ISDX_VAL, psfp_sfid);
+ 	if (ret)
+-		return ret;
++		goto err_sf_del;
+ 
+ 	return 0;
++
++err_sf_del:
++	sparx5_isdx_conf_set(sparx5, psfp_sfid, 0, 0);
++	sparx5_psfp_sf_del(sparx5, psfp_sfid);
++err_fm_del:
++	if (pol_idx >= 0)
++		sparx5_psfp_fm_del(sparx5, psfp_fmid);
++err_sg_del:
++	sparx5_psfp_sg_del(sparx5, psfp_sgid);
++	return ret;
+ }
+ 
+ /* Handle the action trap for a VCAP rule */
 -- 
-2.34.1
+2.25.1
 
 
