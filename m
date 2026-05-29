@@ -4,65 +4,65 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id EAAD6CD6E49
-	for <linux-arm-kernel@archiver.kernel.org>; Fri, 29 May 2026 15:57:03 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 30035CD6E52
+	for <linux-arm-kernel@archiver.kernel.org>; Fri, 29 May 2026 15:57:04 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
 	MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:
 	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=WnQHAGFKd6DchrlP6Ju4P8YPOX1SBDsgwJ6yTF6AD1E=; b=FT4xHgIHH+qpGqezA7BdcKeCRK
-	rlaNbiJz/oGmv3mJippjsQlm89YczuugPpvPYZboi05kcEO/M9ga3XgCCh8b4laPK7uVLK6CXvr5V
-	4NAA9rGiWg7dZI0YxQyrtRyO8XZu7iWAR1AVeKySWPA7FVrqCmJYhHE8Tg/MJ/UdbA3NE3tflyNXf
-	baZKRUh1zObT9wuBWmLgnm5446p06taELDJbM9ZVhN6lpJcAdSoXQTYXyLmwpb+y5pQX5ZRQybC5K
-	4xg6ElCaidbQt4HgloPvbGp0uGhCXVe3cWzhp+tOYuQg4YWXfIA0VHotjoUIPk2oPfMlhs9MBxlCW
-	JuE9oD4A==;
+	bh=65ZPjGgfujvTG2FNZtowcxEFcacc9WDSb9CSpbn8UaE=; b=e2J0O2u5NJUh70OgzKgNvOxkiG
+	n8j9xXFcCuixCkANDwU+N13ZO/pxTpq4DyrBeowp6ZodjjSjCSImb8rQxfBT83BtpmVpubxAIUG20
+	6WMnXBii/b9vQWIGNUrF/FcGkjuD/HOkhvt/rAQy4+anQAaMgI/wmRGua4OzWtymGHyGWRZgR6gya
+	zBONtW1ce2+bGn/xvzfoRTt5zUDkP6bAEEV7UXqn73ZMsyHHqf3CAcIVM1Rlx0F8CtXq11x2ci4rs
+	RIB6h808k4MJv2v62Q1ydfIvIvF7mxpv17551LMzHxR5nt+FXUZ7VuJG0OxMCsJNUuxZPnsfHseRT
+	duZMJbCA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wSzZp-00000007mdS-43ne;
-	Fri, 29 May 2026 15:56:50 +0000
-Received: from mx0b-001b2d01.pphosted.com ([148.163.158.5])
+	id 1wSzZx-00000007mp8-443G;
+	Fri, 29 May 2026 15:56:57 +0000
+Received: from mx0a-001b2d01.pphosted.com ([148.163.156.1])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wSzZT-00000007mFY-0sND
+	id 1wSzZU-00000007mIy-22NO
 	for linux-arm-kernel@lists.infradead.org;
-	Fri, 29 May 2026 15:56:32 +0000
-Received: from pps.filterd (m0356516.ppops.net [127.0.0.1])
-	by mx0a-001b2d01.pphosted.com (8.18.1.11/8.18.1.11) with ESMTP id 64TFg2LN2776549;
-	Fri, 29 May 2026 15:56:14 GMT
+	Fri, 29 May 2026 15:56:34 +0000
+Received: from pps.filterd (m0356517.ppops.net [127.0.0.1])
+	by mx0a-001b2d01.pphosted.com (8.18.1.11/8.18.1.11) with ESMTP id 64TF4tJ11467789;
+	Fri, 29 May 2026 15:56:19 GMT
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=ibm.com; h=cc
 	:content-transfer-encoding:date:from:in-reply-to:message-id
-	:mime-version:references:subject:to; s=pp1; bh=WnQHAGFKd6DchrlP6
-	Ju4P8YPOX1SBDsgwJ6yTF6AD1E=; b=h3Ro1jA76JxVqbaXxvN/d730zt/FvXxUZ
-	uZlQD5UmaK9LrRFXBt60ZkjvDjmWOYQ33xtPfmgBrppsD8CxLCayRuzznQqs4cY9
-	cc/GMc8rbCSyQzBUgk3ndsTqXO4cc1aTFKZdCpcHb3MYtqVQocsatGznf/dl5wjM
-	UCt+bvTF6hw/WudSF8ePa1RP4+qBzqlQnGo3cdMRziz+qUrzqKWBRss6YBZs52LP
-	nPpLEpFigApiZRI7xZSgy1nfesB9KFo0i8PWedHKW0t0gh+Q7WRFMA6Qh6CqqFDa
-	BL7PcLHYVroCzYPso9ZjDHAMbszZnaF5/EHW+Ide2hOM+4twRxhog==
-Received: from ppma22.wdc07v.mail.ibm.com (5c.69.3da9.ip4.static.sl-reverse.com [169.61.105.92])
-	by mx0a-001b2d01.pphosted.com (PPS) with ESMTPS id 4ee889m2ba-1
+	:mime-version:references:subject:to; s=pp1; bh=65ZPjGgfujvTG2FNZ
+	towcxEFcacc9WDSb9CSpbn8UaE=; b=VrIdGcOw2TW//fI640IuF96wP4YN7VLPU
+	9ljjCj5/SUMds5oxleVfMRfIr0nwC49/syiF4xtubaH3k9gpfRx7SjgkNg3c6Hiv
+	ErM0vIk+D2feXYFATvvFZ+wYjKG6lT7emiuycU1uBQANhRM/dQqjGOAAwaFXAAjK
+	1ClQoEq08GG4UwxWRm8brebvLikkrC8Uab5xfbVZIRrNQ194fu+GU8nsvhgMq9GP
+	LS751ORizJ3CmSK7RvAIC6ulWZ4OMCQNHaoNE/VgwA+oGnGHbwvrwVIdk1RZejzT
+	NtnfOkp9FW/SeB1AwNnHM6LkBZKvkroGLHhvWje97dcpstHvIASpQ==
+Received: from ppma11.dal12v.mail.ibm.com (db.9e.1632.ip4.static.sl-reverse.com [50.22.158.219])
+	by mx0a-001b2d01.pphosted.com (PPS) with ESMTPS id 4ee886mgjy-1
 	(version=TLSv1.2 cipher=ECDHE-RSA-AES256-GCM-SHA384 bits=256 verify=NOT);
-	Fri, 29 May 2026 15:56:14 +0000 (GMT)
-Received: from pps.filterd (ppma22.wdc07v.mail.ibm.com [127.0.0.1])
-	by ppma22.wdc07v.mail.ibm.com (8.18.1.7/8.18.1.7) with ESMTP id 64TFs816023079;
-	Fri, 29 May 2026 15:56:13 GMT
-Received: from smtprelay05.fra02v.mail.ibm.com ([9.218.2.225])
-	by ppma22.wdc07v.mail.ibm.com (PPS) with ESMTPS id 4edjrc0k2m-1
+	Fri, 29 May 2026 15:56:19 +0000 (GMT)
+Received: from pps.filterd (ppma11.dal12v.mail.ibm.com [127.0.0.1])
+	by ppma11.dal12v.mail.ibm.com (8.18.1.7/8.18.1.7) with ESMTP id 64TFs7ar009677;
+	Fri, 29 May 2026 15:56:18 GMT
+Received: from smtprelay01.fra02v.mail.ibm.com ([9.218.2.227])
+	by ppma11.dal12v.mail.ibm.com (PPS) with ESMTPS id 4edjrbgkwq-1
 	(version=TLSv1.2 cipher=ECDHE-RSA-AES256-GCM-SHA384 bits=256 verify=NOT);
-	Fri, 29 May 2026 15:56:13 +0000 (GMT)
+	Fri, 29 May 2026 15:56:18 +0000 (GMT)
 Received: from smtpav07.fra02v.mail.ibm.com (smtpav07.fra02v.mail.ibm.com [10.20.54.106])
-	by smtprelay05.fra02v.mail.ibm.com (8.14.9/8.14.9/NCO v10.0) with ESMTP id 64TFu78p50004432
+	by smtprelay01.fra02v.mail.ibm.com (8.14.9/8.14.9/NCO v10.0) with ESMTP id 64TFuCP549349006
 	(version=TLSv1/SSLv3 cipher=DHE-RSA-AES256-GCM-SHA384 bits=256 verify=OK);
-	Fri, 29 May 2026 15:56:07 GMT
+	Fri, 29 May 2026 15:56:12 GMT
 Received: from smtpav07.fra02v.mail.ibm.com (unknown [127.0.0.1])
-	by IMSVA (Postfix) with ESMTP id 1B17E20040;
-	Fri, 29 May 2026 15:56:07 +0000 (GMT)
+	by IMSVA (Postfix) with ESMTP id 5051720040;
+	Fri, 29 May 2026 15:56:12 +0000 (GMT)
 Received: from smtpav07.fra02v.mail.ibm.com (unknown [127.0.0.1])
-	by IMSVA (Postfix) with ESMTP id BDFB22004E;
-	Fri, 29 May 2026 15:56:06 +0000 (GMT)
+	by IMSVA (Postfix) with ESMTP id 023C12004B;
+	Fri, 29 May 2026 15:56:12 +0000 (GMT)
 Received: from tuxmaker.boeblingen.de.ibm.com (unknown [9.87.85.9])
 	by smtpav07.fra02v.mail.ibm.com (Postfix) with ESMTP;
-	Fri, 29 May 2026 15:56:06 +0000 (GMT)
+	Fri, 29 May 2026 15:56:11 +0000 (GMT)
 From: Steffen Eiden <seiden@linux.ibm.com>
 To: kvm@vger.kernel.org, kvmarm@lists.linux.dev,
         linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org,
@@ -88,41 +88,40 @@ Cc: Alexander Gordeev <agordeev@linux.ibm.com>,
         Ulrich Weigand <Ulrich.Weigand@de.ibm.com>,
         Vasily Gorbik <gor@linux.ibm.com>, Will Deacon <will@kernel.org>,
         Zenghui Yu <yuzenghui@huawei.com>
-Subject: [PATCH v1 13/26] s390: Introduce read/write ARM sysreg instructions
-Date: Fri, 29 May 2026 17:55:46 +0200
-Message-ID: <20260529155601.2927240-14-seiden@linux.ibm.com>
+Subject: [PATCH v1 26/26] KVM: s390: arm64: Finalize page fault handling
+Date: Fri, 29 May 2026 17:55:59 +0200
+Message-ID: <20260529155601.2927240-27-seiden@linux.ibm.com>
 X-Mailer: git-send-email 2.53.0
 In-Reply-To: <20260529155601.2927240-1-seiden@linux.ibm.com>
 References: <20260529155601.2927240-1-seiden@linux.ibm.com>
 MIME-Version: 1.0
 Content-Transfer-Encoding: 8bit
 X-TM-AS-GCONF: 00
-X-Proofpoint-ORIG-GUID: NYwQLjch8AAYoUDuGJ9-iOYn8u_3SwZM
-X-Proofpoint-GUID: NYwQLjch8AAYoUDuGJ9-iOYn8u_3SwZM
-X-Authority-Analysis: v=2.4 cv=XqfK/1F9 c=1 sm=1 tr=0 ts=6a19b71e cx=c_pps
- a=5BHTudwdYE3Te8bg5FgnPg==:117 a=5BHTudwdYE3Te8bg5FgnPg==:17
+X-Proofpoint-GUID: qdGqNpQsC3UYpGpvAk8HeorvrvLc47VH
+X-Authority-Analysis: v=2.4 cv=Z8Dc2nRA c=1 sm=1 tr=0 ts=6a19b723 cx=c_pps
+ a=aDMHemPKRhS1OARIsFnwRA==:117 a=aDMHemPKRhS1OARIsFnwRA==:17
  a=NGcC8JguVDcA:10 a=VkNPw1HP01LnGYTKEx00:22 a=RnoormkPH1_aCDwRdu11:22
- a=Y2IxJ9c9Rs8Kov3niI8_:22 a=VnNF1IyMAAAA:8 a=GoOEIcCEF_BdVuQDi_EA:9
-X-Proofpoint-Spam-Details-Enc: AW1haW4tMjYwNTI5MDE1NiBTYWx0ZWRfX9/++cki3jljI
- f83bnBX/m3d72SamK5XaOFICAAVHg5ycoBac3FAfpNjOFDMmV674fElxYVUFLpx23BtZMlsWxP0
- 6zkbWx8mQAxfV+k/By+++ntdMPv7vtX5jUVvhk5rnY9jvcn0jxkHrY0mxho3Vj+P4WOWIWRi51o
- IQtwLfLWQ0C9OC8pF6IyzP+jLn7tP/JlByrzPy5nu3yt1on1JHFpQurpnvVtugEi3KSWKiNpBlQ
- 897F5BnM2AgEuTFwn8wAcYMpvy6rDEiXwkhrqLE9CXIrLOVX8OzhKzCdCvTriJ7yuSxVmfZ6amz
- FrDugEah/QsgKKzTRAQ5t6jfGd8LFXQNALEkjClfjFctL2JzGfnMjYjAWs6iZvQ/rLKRS8E6/X3
- 7HlSf/X7U39wNRNXxaJR/QFb1l3EspxXDNipGX4hapcr1xnEb4T+cbVfXyLxk6ACX/Iwby4Cdmb
- S2SMQ5fI0prTSW41Yiw==
+ a=U7nrCbtTmkRpXpFmAIza:22 a=VnNF1IyMAAAA:8 a=LtHRyupC2uTP9dkk8LUA:9
+X-Proofpoint-Spam-Details-Enc: AW1haW4tMjYwNTI5MDE1NiBTYWx0ZWRfXx3wbluWa3lB6
+ rnxFykGocU5+j9Wla02dXZFABY6qgxxpQtelKlJIA1zq/r+5dkk33gFCssPqPaqmn6mm5uIOquu
+ y0yEznA2FwBjT2S35mf5TMExYrEMLlCezCINd8Tk+DMPK9YhVI6SFCMDMt6aBDu3bPg3OinGneK
+ CBNSR9iTAWCWJFm3VhGwd+tj7YiycPZqoLsTzhIdtPJUPJKRlNKasI5EQsHFWRKrrmDXC6dGUch
+ 2Jqd7BTS0acQYinl2K27BMjQy77m7IOPvqooH4hxyFFi6BhPhmozLFO0ud7+zjIAJySreoBCNmi
+ ApGgsg1hZpBDsRwIsnTUDdzESnFIwwkEy87uUZ9mP0zp26ol8XhBhQD7PvR7NKl5ffIY2ijXsxm
+ xR7VvXmZHugNWOg66kXF5E1ep50oIl55lKHzaNn4wKE6W0UgQpiGQ6bzse6V5T/QIxel2nRDfRL
+ 3HK55T8PQmmdeKORCVQ==
+X-Proofpoint-ORIG-GUID: qdGqNpQsC3UYpGpvAk8HeorvrvLc47VH
 X-Proofpoint-Virus-Version: vendor=baseguard
  engine=ICAP:2.0.293,Aquarius:18.0.1143,Hydra:6.1.125,FMLib:17.12.100.49
  definitions=2026-05-29_04,2026-05-28_03,2025-10-01_01
 X-Proofpoint-Spam-Details: rule=outbound_notspam policy=outbound score=0
- malwarescore=0 spamscore=0 impostorscore=0 adultscore=0 phishscore=0
- priorityscore=1501 lowpriorityscore=0 bulkscore=0 suspectscore=0
- clxscore=1015 classifier=typeunknown authscore=0 authtc= authcc=
- route=outbound adjust=0 reason=mlx scancount=1 engine=8.22.0-2605210000
- definitions=main-2605290156
+ clxscore=1015 spamscore=0 bulkscore=0 impostorscore=0 priorityscore=1501
+ malwarescore=0 phishscore=0 suspectscore=0 adultscore=0 lowpriorityscore=0
+ classifier=typeunknown authscore=0 authtc= authcc= route=outbound adjust=0
+ reason=mlx scancount=1 engine=8.22.0-2605210000 definitions=main-2605290156
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260529_085627_949350_A683761D 
-X-CRM114-Status: GOOD (  20.94  )
+X-CRM114-CacheID: sfid-20260529_085628_560036_41462A38 
+X-CRM114-Status: GOOD (  21.53  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -137,185 +136,130 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Introduce Extract Arm System Register and Store Arm System Register to
-enable s390 hosts to read and write system registers for arm64 guests.
-The new instructions use the new RIE_H instruction format. Add assembler
-macros to create instructions in RIE_H format manually. Add Support for
-disassembling the new instructions.
+Complete the page fault handling implementation by replacing temporary
+error returns with proper ARM64 exception injection.
 
-Co-developed-by: Andreas Grapentin <gra@linux.ibm.com>
-Signed-off-by: Andreas Grapentin <gra@linux.ibm.com>
 Signed-off-by: Steffen Eiden <seiden@linux.ibm.com>
 ---
- arch/s390/include/asm/sae-asm.h | 48 +++++++++++++++++++++++++++
- arch/s390/include/asm/sae.h     | 58 +++++++++++++++++++++++++++++++++
- arch/s390/kernel/dis.c          |  1 +
- arch/s390/tools/opcodes.txt     |  2 ++
- 4 files changed, 109 insertions(+)
- create mode 100644 arch/s390/include/asm/sae-asm.h
+ arch/s390/kvm/arm64/mmu.c       | 62 ++++++++++++++++++++++-----------
+ include/kvm/arm64/kvm_feature.h |  3 ++
+ 2 files changed, 44 insertions(+), 21 deletions(-)
 
-diff --git a/arch/s390/include/asm/sae-asm.h b/arch/s390/include/asm/sae-asm.h
-new file mode 100644
-index 000000000000..d81ed89eb4ed
---- /dev/null
-+++ b/arch/s390/include/asm/sae-asm.h
-@@ -0,0 +1,48 @@
-+/* SPDX-License-Identifier: GPL-2.0 */
-+#ifndef __ASM_S390_SAE_ASM_H
-+#define __ASM_S390_SAE_ASM_H
-+
-+#ifdef __ASSEMBLER__
-+
-+.macro	GPR_NUM	opd gr
-+	\opd = 255
-+	.irp rs,0,1,2,3,4,5,6,7,8,9,10,11,12,13,14,15
-+	.ifc \gr,%r\rs
-+		\opd = \rs
-+	.endif
-+	.endr
-+	.if \opd == 255
-+		\opd = \gr
-+	.endif
-+.endm
-+
-+/*
-+ * RIE_H - RIE-h instruction format
-+ *
-+ * RIE-h format: <insn> R1, R3, I2, M4
-+ *    +--------+----+----+----+-----------------+----+--------+
-+ *    | OpCode | R1 |////| R3 |        I2       | M4 | Opcode |
-+ *    +--------+----+----+----+-----------------+----+--------+
-+ *    0        8    12   16   20                36   40      47
-+ */
-+.macro RIE_H	opc, gr1, gr3, imm2, m4
-+	GPR_NUM	r1, \gr1
-+	GPR_NUM	r3, \gr3
-+	.byte	(\opc & 0xff00) >> 8
-+	.byte	r1 << 4
-+	.byte	(r3 << 4) | ((\imm2 & 0xf000) >> 12)
-+	.byte	((\imm2 & 0x0ff0) >> 4)
-+	.byte	((\imm2 & 0x000f) << 4) | (\m4 & 0xf)
-+	.byte	\opc & 0xff
-+.endm
-+
-+.macro SASR r1, r3, i2, m4
-+	RIE_H 0xed99, \r1, \r3, \i2, \m4,
-+.endm
-+
-+.macro EASR r1, r3, i2, m4
-+	RIE_H 0xed9b, \r1, \r3, \i2, \m4,
-+.endm
-+
-+#endif /* __ASSEMBLER__ */
-+#endif /* __ASM_S390_SAE_ASM_H */
-diff --git a/arch/s390/include/asm/sae.h b/arch/s390/include/asm/sae.h
-index fe010a1a7729..1d9a16b91b23 100644
---- a/arch/s390/include/asm/sae.h
-+++ b/arch/s390/include/asm/sae.h
-@@ -4,6 +4,7 @@
- 
- #include "linux/linkage.h"
- #include <linux/types.h>
-+#include <asm/sae-asm.h>
- 
- /* defined in arch/s390/kernel/entry.S */
- asmlinkage int __sae64a(phys_addr_t sae_block_phys);
-@@ -12,6 +13,12 @@ asmlinkage int __sae64a(phys_addr_t sae_block_phys);
- #include <linux/io.h>
- #include <asm/kvm_host_arm64_types.h>
- 
-+asm(".include \"asm/sae-asm.h\"\n");
-+
-+#define _SAE_ASR_REG_SHIFT	5
-+#define SASR_FLAG_INITIALIZED  0x8
-+#define EASR_FLAG_SA           0x8
-+
- /**
-  * __sae64a() - Start Arm Execution
-  */
-@@ -20,6 +27,57 @@ static inline void sae64a(struct kvm_sae_block *sae_block)
- 	__sae64a(virt_to_phys(sae_block));
+diff --git a/arch/s390/kvm/arm64/mmu.c b/arch/s390/kvm/arm64/mmu.c
+index 8759cbafbaff..4224503276fb 100644
+--- a/arch/s390/kvm/arm64/mmu.c
++++ b/arch/s390/kvm/arm64/mmu.c
+@@ -31,12 +31,14 @@ static int user_mem_abort(struct kvm_vcpu *vcpu, gpa_t fault_ipa,
+ 	ret = kvm_s390_faultin_gfn(vcpu, NULL, &f);
+ 	if (ret <= 0)
+ 		return ret;
+-	if (ret == PGM_ADDRESSING)
++	if (ret == PGM_ADDRESSING) {
+ 		/*
+-		 * Without the relevant sysregs we cannot do anything for now.
+-		 * Go back to userspace with an error. TODO sysreg handling
++		 * There is no page with the requested address. Inject size fault
++		 * which is the closest arm match to PGM-addressing
+ 		 */
+-		return -ENOEXEC;
++		kvm_inject_size_fault(vcpu);
++		return 1;
++	}
+ 	KVM_BUG_ON(ret, vcpu->kvm);
+ 	return -EINVAL;
+ }
+@@ -69,6 +71,27 @@ static int kvm_handle_pic(struct kvm_vcpu *vcpu, bool *translation)
+ 	return 0;
  }
  
-+/**
-+ * sasr() - Set Arm System Register
-+ * @arm_reg: ARM system register identifier; compile-time constant
-+ * @val: Value to set
-+ * @save_area: Pointer to SAE save area
-+ * @flags: Operation flags; compile-time constant
-+ *
-+ * Sets an ARM system register value.
-+ */
-+static __always_inline void sasr(unsigned int arm_reg, u64 val,
-+				 struct kvm_sae_save_area *save_area,
-+				 u64 flags)
++static u32 kvm_get_pa_bits(struct kvm *kvm)
 +{
-+	struct kvm_sae_save_area *sdo = (void *)save_area->sdo;
-+	u16 reg = arm_reg >> _SAE_ASR_REG_SHIFT;
++	u32 id_parange = get_idreg_field_enum(kvm, ID_AA64MMFR0_EL1, PARANGE);
 +
-+	asm volatile (
-+		"	SASR	%[r1],%[r3],%[i2],%[m4]\n"
-+		: "+m" (*save_area), "+m" (*sdo)
-+		: [r1] "d" (val),
-+		  [r3] "a" (save_area), [i2] "K" (reg), [m4] "I" (flags)
-+	);
++	switch (id_parange) {
++	case ID_AA64MMFR0_EL1_PARANGE_32: return 32;
++	case ID_AA64MMFR0_EL1_PARANGE_36: return 36;
++	case ID_AA64MMFR0_EL1_PARANGE_40: return 40;
++	case ID_AA64MMFR0_EL1_PARANGE_42: return 42;
++	case ID_AA64MMFR0_EL1_PARANGE_44: return 44;
++	case ID_AA64MMFR0_EL1_PARANGE_48: return 48;
++	case ID_AA64MMFR0_EL1_PARANGE_52: return 52;
++	case ID_AA64MMFR0_EL1_PARANGE_56: return 56;
++	}
++	/*
++	 * Future values must be higher than we know already.
++	 * See ARM DDI 0487C.a. Return a safe limit.
++	 */
++	return ID_AA64MMFR0_EL1_PARANGE_48;
 +}
 +
-+/**
-+ * easr() - Extract Arm System Register
-+ * @arm_reg: ARM system register identifier; compile-time constant
-+ * @save_area: Pointer to SAE save area
-+ * @flags: Operation flags; compile-time constant
-+ *
-+ * Reads an ARM system register value.
-+ *
-+ * Return: Register value
-+ */
-+static __always_inline u64 easr(unsigned int arm_reg,
-+				const struct kvm_sae_save_area *save_area,
-+				u64 flags)
-+{
-+	struct kvm_sae_save_area *sdo = (void *)save_area->sdo;
-+	u16 reg = arm_reg >> _SAE_ASR_REG_SHIFT;
-+	u64 val;
+ int kvm_handle_guest_abort(struct kvm_vcpu *vcpu)
+ {
+ 	struct kvm_memory_slot *memslot;
+@@ -98,16 +121,17 @@ int kvm_handle_guest_abort(struct kvm_vcpu *vcpu)
+ 	}
+ 
+ 	if (translation) {
+-		/*
+-		 * For both cases:
+-		 * Without the relevant sysregs we cannot do anything for now.
+-		 * Go back to userspace with an error. TODO sysreg handling
+-		 */
+-		if (fault_ipa >= BIT_ULL(get_kvm_ipa_limit()))
+-			return -ENOEXEC;
++		/* Beyond sanitised PA range (which is the IPA limit) */
++		if (fault_ipa >= BIT_ULL(kvm_get_pa_bits(vcpu->kvm))) {
++			kvm_inject_size_fault(vcpu);
++			return 1;
++		}
+ 
+-		if (fault_ipa >= kvm_phys_size(vcpu->kvm))
+-			return -ENOEXEC;
++		/* Falls between the IPA range and the PA range? */
++		if (fault_ipa >= kvm_phys_size(vcpu->kvm)) {
++			fault_ipa |= kvm_vcpu_get_hfar(vcpu) & GENMASK(11, 0);
++			return kvm_inject_sea(vcpu, is_iabt, fault_ipa);
++		}
+ 	}
+ 
+ 	idx = srcu_read_lock(&vcpu->kvm->srcu);
+@@ -123,18 +147,14 @@ int kvm_handle_guest_abort(struct kvm_vcpu *vcpu)
+ 		 * The guest has put either its instructions or its page-tables
+ 		 * somewhere it shouldn't have. Userspace won't be able to do
+ 		 * anything about this (there's no syndrome for a start).
+-		 *
+-		 * Without the relevant sysregs we cannot do anything for now.
+-		 * Go back to userspace with an error. TODO sysreg handling
+ 		 */
+-		if (is_iabt)
++		if (is_iabt) {
++			ret = kvm_inject_sea_iabt(vcpu, kvm_vcpu_get_hfar(vcpu));
+ 			goto out_unlock;
++		}
+ 
+ 		if (kvm_vcpu_abt_iss1tw(vcpu)) {
+-			/*
+-			 * Without the relevant sysregs we cannot do anything for now.
+-			 * Go back to userspace with an error. TODO sysreg handling
+-			 */
++			ret = kvm_inject_sea_dabt(vcpu, kvm_vcpu_get_hfar(vcpu));
+ 			goto out_unlock;
+ 		}
+ 
+diff --git a/include/kvm/arm64/kvm_feature.h b/include/kvm/arm64/kvm_feature.h
+index 945abbbf1aa8..193c9ca7045f 100644
+--- a/include/kvm/arm64/kvm_feature.h
++++ b/include/kvm/arm64/kvm_feature.h
+@@ -47,6 +47,9 @@
+ 
+ #define kvm_has_feat_enum(kvm, ...) __kvm_has_feat_enum(kvm, __VA_ARGS__)
+ 
++#define get_idreg_field_enum(kvm, id, fld)				\
++	SYS_FIELD_GET(id, fld, kvm_read_vm_id_reg((kvm), SYS_##id))
 +
-+	asm volatile(
-+		"	EASR	%[r1],%[r3],%[i2],%[m4]\n"
-+		: [r1] "=d"(val)
-+		: "m"(*save_area),
-+		  "m"(*sdo), [r3] "a"(save_area), [i2] "K"(reg), [m4] "I"(flags)
-+	);
-+	return val;
-+}
-+
- /**
-  * stiasrm() - STore and Invalidate Arm System Register Multiple
-  * @save_area: Pointer to SAE save area
-diff --git a/arch/s390/kernel/dis.c b/arch/s390/kernel/dis.c
-index 1cec93895b3a..6ff8fd09d5bc 100644
---- a/arch/s390/kernel/dis.c
-+++ b/arch/s390/kernel/dis.c
-@@ -208,6 +208,7 @@ static const unsigned char formats[][6] = {
- 	[INSTR_RIE_RUI0]     = { R_8, I16_16, U4_12, 0, 0, 0 },
- 	[INSTR_RIE_RUPI]     = { R_8, I8_32, U4_12, J16_16, 0, 0 },
- 	[INSTR_RIE_RUPU]     = { R_8, U8_32, U4_12, J16_16, 0, 0 },
-+	[INSTR_RIE_R0RIU]    = { R_8, R_16, U16_20, U4_36, 0, 0 },
- 	[INSTR_RIL_RI]	     = { R_8, I32_16, 0, 0, 0, 0 },
- 	[INSTR_RIL_RP]	     = { R_8, J32_16, 0, 0, 0, 0 },
- 	[INSTR_RIL_RU]	     = { R_8, U32_16, 0, 0, 0, 0 },
-diff --git a/arch/s390/tools/opcodes.txt b/arch/s390/tools/opcodes.txt
-index 0e4773c94af0..18af14071290 100644
---- a/arch/s390/tools/opcodes.txt
-+++ b/arch/s390/tools/opcodes.txt
-@@ -1255,6 +1255,8 @@ ed64	ley	RXY_FRRD
- ed65	ldy	RXY_FRRD
- ed66	stey	RXY_FRRD
- ed67	stdy	RXY_FRRD
-+ed99	sasr	RIE_R0RIU
-+ed9b	easr	RIE_R0RIU
- eda8	czdt	RSL_LRDFU
- eda9	czxt	RSL_LRDFU
- edaa	cdzt	RSL_LRDFU
+ /* Check for a given level of PAuth support */
+ #define kvm_has_pauth(k, l)						\
+ 	({								\
 -- 
 2.53.0
 
