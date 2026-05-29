@@ -4,99 +4,96 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 35B0ECD5BD2
-	for <linux-arm-kernel@archiver.kernel.org>; Fri, 29 May 2026 10:08:17 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id A224FCD6E45
+	for <linux-arm-kernel@archiver.kernel.org>; Fri, 29 May 2026 10:11:20 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=695o6Vsk+rg4TEq2m0E4aPhfvl/ze1rK746wt9maXiQ=; b=ZqXHBF7/aqJbpGRhqqYz/RDUnF
-	ukdqikDIsRAQ1hVe8uyZgY1mZwVzUxdiyGn+CBWtvUXmm4P6JHJ+S6g0KC2GCnlc6I8B7EFfASSYO
-	UdmO/L0dNmNw2SaQ1O+h1yVB2Y4YFapSjcrfJ5VQkr1VAMCMtqv19bk0HOSNa8BQgBEWnmfxBk8Ra
-	sX1Rtxe30kse/ARtCorqrpCz7byVncsja3XlxmkC2n0RkQf0FNkWXdyZ5VM9IxfiPyJGc9TmtFgKU
-	mDZK8NYuN755a/kjy0UeZwtaMuyPmX5ZkURA7ilxAxOpOOjkA0JVntI8b6VxEPYjKIGCA9ocEboA0
-	yE5temBA==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	MIME-Version:Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-Type:
+	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
+	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=N9pBkAXW7gLZd8FKwdSxA3ABXZRrpLoJn++TQ4FzcjA=; b=QxivfW/WrfNN0vHjknhIbmNym3
+	WSprqJdl2mqzo3w3LOeA/0wJzTQ0XhaGOnr33NpFjP4vXJFS9AMiVpDKzY8s02h1jVJ0dtJzRCs0C
+	jdNG4M7PL2nJPhnfsdBj5KNlOodO8wqvBfxoYzxmoj66W0HbsWmNtaHYfAlkfcg8XMtBaMT0MxKC2
+	0TpdDbyY9cJQYrHtU8V9Bt9H4THBweGKSmbH2aJI8y2jTrByxo10cjHTMbxyUBO7YE3mVo+gYkTHI
+	rwH3tjwuqFpBHvgBnSaZ6lKZDdnpQtt/1koWYfeo/iNmNvbvjC77CMAqCO1Oebg2O1AlZyVhvuK4u
+	bG81ZcPQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wSu8R-000000078uG-0jeT;
-	Fri, 29 May 2026 10:08:11 +0000
-Received: from mail-wm1-x32b.google.com ([2a00:1450:4864:20::32b])
+	id 1wSuBO-00000007975-2PrL;
+	Fri, 29 May 2026 10:11:14 +0000
+Received: from mail-wm1-x336.google.com ([2a00:1450:4864:20::336])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wSu8O-000000078tp-1BnH
+	id 1wSuBM-0000000796Q-1Wu2
 	for linux-arm-kernel@lists.infradead.org;
-	Fri, 29 May 2026 10:08:09 +0000
-Received: by mail-wm1-x32b.google.com with SMTP id 5b1f17b1804b1-4905529b933so54000545e9.0
-        for <linux-arm-kernel@lists.infradead.org>; Fri, 29 May 2026 03:08:07 -0700 (PDT)
+	Fri, 29 May 2026 10:11:13 +0000
+Received: by mail-wm1-x336.google.com with SMTP id 5b1f17b1804b1-49050bfe053so43489295e9.3
+        for <linux-arm-kernel@lists.infradead.org>; Fri, 29 May 2026 03:11:11 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=google.com; s=20251104; t=1780049286; x=1780654086; darn=lists.infradead.org;
-        h=in-reply-to:content-disposition:mime-version:references:message-id
-         :subject:cc:to:from:date:from:to:cc:subject:date:message-id:reply-to;
-        bh=695o6Vsk+rg4TEq2m0E4aPhfvl/ze1rK746wt9maXiQ=;
-        b=uwH2Yb3mxp7qXIbXQ1kI8dCfCQalgtx7tOLmRU63xh8e1b9NLOchUllYP8WgCFFCtd
-         M9W/lfKydLjCTlUZRQGMJy4SNPWYQsggMpKYE4KiRY+StGWuHNKV9nH4C1kik6EUbWGV
-         lKwcJZVdspEk3U0ull0abpuMFgC3Hoou8zJbJ42YWk3Qc0L6Dej79jXhDeqbMTcwBZr/
-         ZqaZc17hp+uNGcpHQHktngQH8j/OgMUYz6cjz76H6slfYikDNu1yi5Sv2/QhM+q62bY3
-         F3Dd8bVsDLqZbiOfuyZfqqHegpuvUqFnb6zf+MbpMONEKAMhCAwKfIXczfHZfl0qU+id
-         wIOA==
+        d=gmail.com; s=20251104; t=1780049470; x=1780654270; darn=lists.infradead.org;
+        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
+         :to:from:from:to:cc:subject:date:message-id:reply-to;
+        bh=N9pBkAXW7gLZd8FKwdSxA3ABXZRrpLoJn++TQ4FzcjA=;
+        b=U9Ubt/ogENTyMDNWpz1GP15JrNRySlUwXmbYGulyP/I5owGTE7jwBQDkSaD7G0nCrT
+         AvPNd60Z3lJgCFGNBv18LuEOGlAzLIoAAEJc317WEI4ge5g9DBdWbo058+4LwZJzKd2B
+         NTZxHUHTvMQ1hQUFrz66vOhpBsLvE/W7oM3FCgh7FR4OqjGkuyxscMj7F3Ai03JrBxnC
+         1gJcsEz00vL2VGX3qrJoSiOoWJLnVt1SNoAoFmQuKVuPjuCsqnMwSitu3nXlmGOyx2pv
+         XrI3aSRZEVI+pXJYy5/eRvmMd2I5cT+IrrmBr3dK4RSXI8nJJTjE9GWanOa5VoW7nnhc
+         t3eA==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20251104; t=1780049286; x=1780654086;
-        h=in-reply-to:content-disposition:mime-version:references:message-id
-         :subject:cc:to:from:date:x-gm-gg:x-gm-message-state:from:to:cc
-         :subject:date:message-id:reply-to;
-        bh=695o6Vsk+rg4TEq2m0E4aPhfvl/ze1rK746wt9maXiQ=;
-        b=ng+Fe/1ezSMbnMDULsv/tzj1rsIlwNg5q2g/2ksPhI6Bbu/t0+TsPVMYAXA7Ce3z9T
-         CFFEOeX/i91AeVT4Bgrsk07+tgGqkxlVc7qQYd1LM8W/OiU1U7kDS8gYgHENU18OQYA5
-         TIyCiNrLWLhB0YiLrZE61Mijg1PLIKgkAVsM7jp/C9OgsJ/R3drhxqKpny9EiexP/53k
-         FA9tcIJVNcF/SxprHsm85XWRoOqSTCEav99lcRiuDX2aGc/xnmGzRT8I8KDNSbawc/kt
-         0YSk+nx8banPq2qheR0XOU65+EjgtwgrLz0QMimEq14a0MzD7PWQnID7R12vebg8L48u
-         aEeQ==
-X-Forwarded-Encrypted: i=1; AFNElJ9BQIe19VqFQczVCSx6LYlnNq1BQG97BDLeyGfiy5N/KS5iZ+p0ZTsW7y3QcCYbqhB7JarIV6WyJ7MRNzFqTVje@lists.infradead.org
-X-Gm-Message-State: AOJu0YwkpBRrVkq535q7R3QbuM9g/A1CJs1QPZiBgw/69xWb1UQY9ywN
-	62sXzIbuO/anaslvQWrXTKagqwIfuJMcssfa+R9Dy+rXRG9nfpfhxQMMAiBqxnyedQ==
-X-Gm-Gg: Acq92OH94tpxNzQ581F8PFAqLS9nVPIx0lsrlC4ibxkUXsSLjHzYdh4efiCOsZvq5XZ
-	vR+OvIJFAKREJLiBeI1DTu/KRY2BE96cx9p3kXQ5R76klpJOU4XNgjF3iKzRHSZVP4lCHsYywc5
-	M/LjEkSWAvg+1k5T5Q4fBdf7+iTYPDM1zaYm4fS6yKc1Ya8w4yz5Dj50m2qa/SV9Y6Icab+RFTG
-	/sg+3JJgxtOd9glrzOyqd4Cwfg2W+0u9P7gYTJ+aVSg2QDiK+Rp2NLP4cJpBhPtQcbJJWxkWifL
-	ZfTu07WDbrx9yUML8WP4Fc3n4OiKyTxanStLDwWkBTeWZ9hE6sSPU2+FEoWqiUVKM7IOTewxR+q
-	Ac1LaOWioglekOHO4wOA5vyRQwYzDk2eEptXwjxH1JElZ+zyEqcjIez0F3xskza80ruKTwR5vFj
-	F+xFc12fAhu8FH/qXMPGJcLuu/DLZPDaqZF4pvWZTZn8PuZuVbFNkvQhe3s7/V4PVEAvk0MnOpw
-	y0B3A==
-X-Received: by 2002:a05:600c:6287:b0:488:a882:c7 with SMTP id 5b1f17b1804b1-4909c0bce7bmr41795985e9.25.1780049285690;
-        Fri, 29 May 2026 03:08:05 -0700 (PDT)
-Received: from google.com (135.91.155.104.bc.googleusercontent.com. [104.155.91.135])
-        by smtp.gmail.com with ESMTPSA id 5b1f17b1804b1-4909c12f4d0sm11602305e9.34.2026.05.29.03.08.04
+        d=1e100.net; s=20251104; t=1780049470; x=1780654270;
+        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
+         :to:from:x-gm-gg:x-gm-message-state:from:to:cc:subject:date
+         :message-id:reply-to;
+        bh=N9pBkAXW7gLZd8FKwdSxA3ABXZRrpLoJn++TQ4FzcjA=;
+        b=dZ+GMUQiEd/mVSj+PhNKgCz3k26BMC3us5g4+MOtQtJdhC1hxXnz8/ZRHMNcUelN3d
+         HON6+qsKxQqzJUfwE18iHOz4n95KlRf2LfjGHwErQ9L82keV1wCv3fxl+0EBkKhInXQs
+         pj0flbOSPCoRLErNs3iWoy04rUgouQS8/N88pklgxPsQ65+YLOVhfRUvScA0KTkJjFe0
+         i1ibiPw3qpO85OAHjhBcE41p3Qw+P0AJWgAUmBJD239OBp2jST5j7CAK87KG4bEU+kKD
+         xILy0C2oE3g62jbcLzASW+uasM42ntpiQtStIrvYYpxt0lbR52dE8vehi7CtOh5EWUxI
+         thBQ==
+X-Forwarded-Encrypted: i=1; AFNElJ8wNb0mDoeEnlUcQX97a+EQ7ZDq230DYCr5Kg//W4j0eyU7VYGt6wuEPI/6qoCHk9tBeN0QqTpBsFROksg9XkPr@lists.infradead.org
+X-Gm-Message-State: AOJu0YzXbSIK0Et2v4xMkZSnl+rDvYML+V53REjrinDvJm3VT0nnoX/E
+	UGCA5YUdRBnvY+W06akodt36TAzFGBruw2OIJDt5ByEtcwSSoaIbdsO9HMuidg==
+X-Gm-Gg: Acq92OFjlABt8mo65dleYT7ncpS3iWCIBJaiv69RKN97NiRoamCIDcdqZQxH9oIA+KZ
+	At8MBgo6zDOxv9FZTlIyn9sTJKF8Qu9AbD4E37zx4l/E0JTYs8IYWJIlKIyFhcXspO3cpziTLCK
+	WA6sajchIaIg/fdBn9OUS+2BQe/v0HnO0mdxIKJ4GZTiHsYb0zpl+jEkc9LtAh/i0IUZwvzYXxc
+	Xuo3eHIMkbQFkKxJg+dwSqNE2EmmugWgEw4Yqz2KSOEzqmqBsssYLZDQH+endNVkTdlG1xTxWSP
+	aJWlmcMKrhyHcVnfjqisk7IV1fFZcdq7byEfLGUiaN+TQaj4TQZ77AOWLOdFw+8WL9r9jzu/JE5
+	A/Hch9AEwSW+OLSNXU0F4u6HV3uj92cjqrSIhWwRfZ45+6FwGaCVw9wdk2dbelGL8geCu4+QjmH
+	JxIkMWXO4K4CyTzmSOoF3UfG2MbGlTcUw/M36zJPI/ZyuzneHW3zjZjlx9B8P+tfyuOaNpOBWZy
+	QCzZG/pmde73KJXEmAVyiykTgO2zqn0zA/ooZbysf9ERrg=
+X-Received: by 2002:a05:600d:6413:20b0:488:78f2:6b0 with SMTP id 5b1f17b1804b1-4909c0c9f56mr31124965e9.29.1780049470077;
+        Fri, 29 May 2026 03:11:10 -0700 (PDT)
+Received: from Lord-Beerus.station (net-93-144-20-233.cust.dsl.teletu.it. [93.144.20.233])
+        by smtp.gmail.com with ESMTPSA id 5b1f17b1804b1-4909caa7faasm34551025e9.11.2026.05.29.03.11.09
         (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Fri, 29 May 2026 03:08:04 -0700 (PDT)
-Date: Fri, 29 May 2026 11:07:59 +0100
-From: Vincent Donnefort <vdonnefort@google.com>
-To: Fuad Tabba <tabba@google.com>
-Cc: Marc Zyngier <maz@kernel.org>, Oliver Upton <oupton@kernel.org>,
-	Joey Gouly <joey.gouly@arm.com>,
-	Suzuki K Poulose <suzuki.poulose@arm.com>,
-	Zenghui Yu <yuzenghui@huawei.com>,
-	Catalin Marinas <catalin.marinas@arm.com>,
-	Will Deacon <will@kernel.org>, Quentin Perret <qperret@google.com>,
-	linux-arm-kernel@lists.infradead.org, kvmarm@lists.linux.dev,
-	linux-kernel@vger.kernel.org
-Subject: Re: [PATCH 0/2] KVM: arm64: Fix host/hyp tracking on share/unshare
- hypercall failure
-Message-ID: <ahllfyVfQw8G3tFX@google.com>
-References: <20260529074341.2271950-1-tabba@google.com>
- <ahlIJQU-1b0mayPP@google.com>
- <CA+EHjTxktk4-B6qcAOf4O26++M5s6CKkkP539s4dRBRWxZN83Q@mail.gmail.com>
- <86a4tivdh3.wl-maz@kernel.org>
- <CA+EHjTykVY6x+iFwSFH7MaK7rfV5CTSeFwx4cZatbB+Fuzu9Yg@mail.gmail.com>
- <ahlapmZj4wnce__B@google.com>
- <CA+EHjTzpKjs-xFC=5cQ33Ly2O7qkNj=yJSzOSjx0SpyBjKFdbQ@mail.gmail.com>
+        Fri, 29 May 2026 03:11:09 -0700 (PDT)
+From: Stefano Radaelli <stefano.radaelli21@gmail.com>
+X-Google-Original-From: Stefano Radaelli <stefano.r@variscite.com>
+To: linux-kernel@vger.kernel.org,
+	devicetree@vger.kernel.org,
+	imx@lists.linux.dev,
+	linux-arm-kernel@lists.infradead.org
+Cc: pierluigi.p@variscite.com,
+	Stefano Radaelli <stefano.r@variscite.com>,
+	Rob Herring <robh@kernel.org>,
+	Krzysztof Kozlowski <krzk+dt@kernel.org>,
+	Conor Dooley <conor+dt@kernel.org>,
+	Frank Li <Frank.Li@nxp.com>,
+	Sascha Hauer <s.hauer@pengutronix.de>,
+	Pengutronix Kernel Team <kernel@pengutronix.de>,
+	Fabio Estevam <festevam@gmail.com>
+Subject: [PATCH v1 0/4] arm64: dts: imx93-var-som-symphony: align DTS with hardware revision
+Date: Fri, 29 May 2026 12:10:47 +0200
+Message-ID: <cover.1780049085.git.stefano.r@variscite.com>
+X-Mailer: git-send-email 2.47.3
 MIME-Version: 1.0
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-In-Reply-To: <CA+EHjTzpKjs-xFC=5cQ33Ly2O7qkNj=yJSzOSjx0SpyBjKFdbQ@mail.gmail.com>
+Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260529_030808_371027_09DA32C8 
-X-CRM114-Status: GOOD (  33.22  )
+X-CRM114-CacheID: sfid-20260529_031112_414545_156466B5 
+X-CRM114-Status: UNSURE (   8.25  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -111,88 +108,24 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Fri, May 29, 2026 at 10:23:22AM +0100, Fuad Tabba wrote:
-> On Fri, 29 May 2026 at 10:21, Vincent Donnefort <vdonnefort@google.com> wrote:
-> >
-> > On Fri, May 29, 2026 at 09:20:50AM +0100, Fuad Tabba wrote:
-> > > On Fri, 29 May 2026 at 09:15, Marc Zyngier <maz@kernel.org> wrote:
-> > > >
-> > > > On Fri, 29 May 2026 09:05:35 +0100,
-> > > > Fuad Tabba <tabba@google.com> wrote:
-> > > > >
-> > > > > On Fri, 29 May 2026 at 09:02, Vincent Donnefort <vdonnefort@google.com> wrote:
-> > > > > >
-> > > > > > On Fri, May 29, 2026 at 08:43:39AM +0100, tabba@google.com wrote:
-> > > > > > > Hi folks,
-> > > > > > >
-> > > > > > > Yet another bug I found while testing Sashiko locally with fixes to
-> > > > > > > review-prompts.
-> > > > > > >
-> > > > > > > share_pfn_hyp() and unshare_pfn_hyp() in arch/arm64/kvm/mmu.c
-> > > > > > > maintain a host-side RB-tree mirroring the set of pages shared with
-> > > > > > > EL2. Both invoke a hypercall that can fail (page-state mismatch,
-> > > > > > > EL2 refcount still held), but neither cleans up on failure:
-> > > > > > >
-> > > > > > > - share_pfn_hyp() inserts the tracking node before the hypercall
-> > > > > > >   and leaves it in the tree on failure, leaking the allocation and
-> > > > > > >   presenting a phantom share to a later unshare.
-> > > > > > >
-> > > > > > > - unshare_pfn_hyp() erases the tracking node before the hypercall;
-> > > > > > >   on failure the host loses its record while EL2 still owns the
-> > > > > > >   share, breaking later operations on the same pfn.
-> > > > > > >
-> > > > > > > Severity is low (no isolation impact) and the failure paths are rare
-> > > > > > > in practice, but the desync is real. Both patches are independent and
-> > > > > > > apply cleanly to current mainline. In other words, this can wait for
-> > > > > > > 7.2.
-> > > > > >
-> > > > > >
-> > > > > > I believe I fixed that here lore.kernel.org/all/acyKhZL2di_QQ9xm@google.com but
-> > > > > > as Quentin pointed-out, there's absolutely no reason for the hypercall to fail.
-> > > > > > So I haven't sent a v2.
-> > > > >
-> > > > > At the very least we need to add a comment, otherwise, people like me
-> > > > > and LLMs like Sashiko would stumble upon it.
-> > > > >
-> > > > > That said, this fix adds no real overhead, makes the code clearer, and
-> > > > > guards us against a future where that call might fail.
-> > > > > Self-documenting in essense.
-> > > > >
-> > > > > WDYT?
-> > > >
-> > > > If a hypercall really cannot fail, why does it have a return value?
-> > >
-> > > Good point. If we know it cannot fail, how about just `void`?
-> > >
-> > > That said, Vincen't exact words are: `very much unlikely`, not the
-> > > same as cannot fail :)
-> > >
-> > > https://lore.kernel.org/all/acyKhZL2di_QQ9xm@google.com/
-> >
-> > The error would happen only if the host tries to share/unshare a page with the
-> > wrong state. This would only happen in the case of a misbehaving host.
-> >
-> > And Quentin's point was that this is anyway incomplete. To handle this error
-> > properly, kvm_share_hyp/kvm_unshare_hyp would also need to rollback things...
-> > The callers of the unshare should also leak the memory which couldn't be
-> > unshared properly. This isn't the case now, (however we do WARN_ON).
-> 
-> If we WARN_ON() in hyp, then I argue we shouldn't have a return value.
+This series updates the i.MX93 VAR-SOM Symphony device tree to match the
+latest carrier board hardware revision.
 
-I meant the WARN_ON in the host's kvm_hyp_unshare()
+The changes add support for onboard peripherals and complete the board
+configuration with the required GPIO, pinctrl and PWM settings.
 
-> Or at least add a comment, BUG_ON() here. Think of the poor LLMs and
-> the people who run them :)
-> 
-> /fuad
-> 
-> >
-> > >
-> > > /fuad
-> > >
-> > > >
-> > > >         M.
-> > > >
-> > > > --
-> > > > Without deviation from the norm, progress is not possible.
+Stefano Radaelli (4):
+  arm64: dts: imx93-var-som-symphony: add TPM support
+  arm64: dts: imx93-var-som-symphony: enable UART7
+  arm64: dts: imx93-var-som-symphony: keep RGB_SEL low
+  arm64: dts: imx93-var-som-symphony: enable TPM3 PWM
+
+ .../dts/freescale/imx93-var-som-symphony.dts  | 61 +++++++++++++++++++
+ 1 file changed, 61 insertions(+)
+
+
+base-commit: b3c1d1631f097619f8091f0293e027c4301285d6
+-- 
+2.47.3
+
 
