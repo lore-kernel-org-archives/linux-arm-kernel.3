@@ -4,91 +4,94 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id F3A1CCD5BD1
-	for <linux-arm-kernel@archiver.kernel.org>; Fri, 29 May 2026 00:55:45 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 0C52CCD6E43
+	for <linux-arm-kernel@archiver.kernel.org>; Fri, 29 May 2026 00:59:47 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
 	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
 	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=qTXQz6HHs8W29ynQVKxVai17ePUtAyTqEstLwjrZgu8=; b=ZcK9lP7w9TNp4TUVGd0XRmmYXv
-	xe68q35Bbhz8+Y6XkDqMwdHIp+fPeaJsuzjCcswOvujkmUm5hcXkVPKMbXye0oSXPD/Jvhwq497TE
-	6ukvDroWIyq+8iQ67JM47CwqV14UVTYCD36XrzQp449zsZ2FsUfMD1mhIz+NVXLCgE6KfZXXF+kLh
-	tIqIPLr7oQNRzzPif3G/p0GAlokgcsj3+9QK3fiqm46G/Yu1lqkf6dzR7nVVIN2wDYvk4PgfGGCET
-	/H4j3EgPRwEa36bLys8IS282h3AlNFI+2wENrf/nwk4E2WKrKzLpiLFZFP1ibqJwhBmI6VPJDX5p5
-	H1xS4hhQ==;
+	bh=2tFoYpzfMUAkB3JpfkER88CdCEd7iFUbwdJ47mVqnAQ=; b=1Ppb+AijxpTx4g7IoSGF1OLgAX
+	wDPC8ckXMZ5CVuS755fGa31uQV5bH/0hUc2g/t8CqQwnB4iTJNUOeTlEwVkHXQYaR/Lr1Roh6iMwo
+	ENlJZG9TgpGD3TeNKCkAGa9mxLOOf6CugkoB2/M6C7u8ex05W2HDmxZ/Bw60x55ljc+HLFKbh1XVV
+	w9Cip+t5z64ylWAdlgCVMdH0TVpPGKPGZp5bN0ehsrQDb3ZoSLgRaJ37mR49kQ7OclwYtIWERVc8Y
+	vQiEhIG8JLzkrqvXN//zRWE436PL6uZZY0/Hen5bS5ud7Y7kmuGcGBBfSfm/sH+OChJbBmmOsicjx
+	WT8QjDWQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wSlVi-00000006afF-26Hd;
-	Fri, 29 May 2026 00:55:38 +0000
-Received: from esa10.hc1455-7.c3s2.iphmx.com ([139.138.36.225])
+	id 1wSlZc-00000006amx-3ssc;
+	Fri, 29 May 2026 00:59:40 +0000
+Received: from mail-qk1-x72a.google.com ([2607:f8b0:4864:20::72a])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wSlVe-00000006aer-2OSr
+	id 1wSlZa-00000006ama-2ctn
 	for linux-arm-kernel@lists.infradead.org;
-	Fri, 29 May 2026 00:55:36 +0000
-DKIM-Signature: v=1; a=rsa-sha256; c=simple/simple;
-  d=fujitsu.com; i=@fujitsu.com; q=dns/txt; s=fj2;
-  t=1780016134; x=1811552134;
-  h=date:from:to:cc:subject:message-id:references:
-   mime-version:in-reply-to;
-  bh=lhpPtqrPlN22mh1WZzcu3aj/wlFlJxXUx2s+ET5Hoyw=;
-  b=mWRWw1BG+xhSGGzWdT4bNw8QoQksIQirgFRMv1HO+1lQN5HaxWxjwnOb
-   PJpeZWpRAKn+lnNi0g6sel3u9vtiYoJSpmWaI4hRcNGfxsvW/Ecx5/idp
-   MVPOdVmuU4aYTqElt/WCLUblKfpKm8vx2C+ZWh+/U/B7V38OnOaSvx6+C
-   n+yfqIbxZVUOpvHnRLOcLtU+RnwyDfzBMhoH7i8gbA496bmQAui8PRhal
-   jUJOd2wzyHJhj8YN+1DaYuYg2Q9XnYJI8SECNqF2vCZCTayUh3W28YJrn
-   B+jcRAmFSyHHl5RuWmBd8oro8xJFw/OHnJAmEJO/Z892CR9gWiDkRoVv/
-   A==;
-X-CSE-ConnectionGUID: dX4/cQIJS6a6dqNTcjQfng==
-X-CSE-MsgGUID: obudLK9eSZaQdnFn6JxWLg==
-X-IronPort-AV: E=McAfee;i="6800,10657,11800"; a="228364635"
-X-IronPort-AV: E=Sophos;i="6.24,174,1774278000"; 
-   d="scan'208";a="228364635"
-Received: from gmgwuk01.global.fujitsu.com ([172.187.114.235])
-  by esa10.hc1455-7.c3s2.iphmx.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 29 May 2026 09:55:31 +0900
-Received: from az2uksmgm4.o.css.fujitsu.com (unknown [10.151.22.201])
-	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
-	 key-exchange X25519 server-signature RSA-PSS (2048 bits) server-digest SHA256)
-	(No client certificate requested)
-	by gmgwuk01.global.fujitsu.com (Postfix) with ESMTPS id AEBF3C00415
-	for <linux-arm-kernel@lists.infradead.org>; Fri, 29 May 2026 00:55:31 +0000 (UTC)
-Received: from az2nlsmom4.fujitsu.com (unknown [10.150.26.201])
-	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
-	 key-exchange X25519 server-signature RSA-PSS (2048 bits) server-digest SHA256)
-	(No client certificate requested)
-	by az2uksmgm4.o.css.fujitsu.com (Postfix) with ESMTPS id 647E014003F4
-	for <linux-arm-kernel@lists.infradead.org>; Fri, 29 May 2026 00:55:31 +0000 (UTC)
-Received: from sm-arm-grace07 (unknown [10.124.178.20])
-	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
-	 key-exchange ECDHE (P-256) server-signature RSA-PSS (2048 bits) server-digest SHA256)
-	(No client certificate requested)
-	by az2nlsmom4.fujitsu.com (Postfix) with ESMTPS id 128DA2000752;
-	Fri, 29 May 2026 00:55:26 +0000 (UTC)
-Date: Fri, 29 May 2026 09:55:24 +0900
-From: Itaru Kitayama <itaru.kitayama@fujitsu.com>
-To: Marc Zyngier <maz@kernel.org>
-Cc: Wei-Lin Chang <weilin.chang@arm.com>,
-	linux-arm-kernel@lists.infradead.org, kvmarm@lists.linux.dev,
-	linux-kernel@vger.kernel.org, Oliver Upton <oupton@kernel.org>,
-	Joey Gouly <joey.gouly@arm.com>,
-	Suzuki K Poulose <suzuki.poulose@arm.com>,
-	Zenghui Yu <yuzenghui@huawei.com>,
-	Catalin Marinas <catalin.marinas@arm.com>,
-	Will Deacon <will@kernel.org>
-Subject: Re: [PATCH v3 0/5] KVM: arm64: nv: Implement nested stage-2 reverse
- map
-Message-ID: <ahjj_CKuXhDOHhBZ@sm-arm-grace07>
-References: <20260510145338.322962-1-weilin.chang@arm.com>
- <ag1jQB3dRX0RSqbR@sm-arm-grace07>
- <86fr3bvnt5.wl-maz@kernel.org>
+	Fri, 29 May 2026 00:59:40 +0000
+Received: by mail-qk1-x72a.google.com with SMTP id af79cd13be357-913cc4d7c71so1464623085a.2
+        for <linux-arm-kernel@lists.infradead.org>; Thu, 28 May 2026 17:59:37 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=ziepe.ca; s=google; t=1780016377; x=1780621177; darn=lists.infradead.org;
+        h=in-reply-to:content-disposition:mime-version:references:message-id
+         :subject:cc:to:from:date:from:to:cc:subject:date:message-id:reply-to;
+        bh=2tFoYpzfMUAkB3JpfkER88CdCEd7iFUbwdJ47mVqnAQ=;
+        b=EPgzErf4bHrKLEFXBz6sRbzVXMp5V9bNEJtp1chwN0lUUViHGbHCeD1jAE33Lt1lVf
+         qVCR8g+hHA8hcZuQieuDLhBzmwn9G3QVl59cbZsIMTUnp6DEUuNlnnXtNJT/6zozfTc9
+         FvzF0t8Qup1B2s72vjy9QLmRzCcKkAi3tXaUxkaFDpPZfv7OeQgrLauUjG/Qj2rG/eI0
+         vZrZeCZ0mSynaqpJKuCUfbtgkoicfkuc3YPv5osT4n45WfBXulEwfxH+xCATLznepymY
+         ZhkoJCwdmkPAslfry7srpGTuQMKxHMpXpBE3Sn3UojXRelEfDTPUITThxqNHpAqCsM7c
+         A85g==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20251104; t=1780016377; x=1780621177;
+        h=in-reply-to:content-disposition:mime-version:references:message-id
+         :subject:cc:to:from:date:x-gm-gg:x-gm-message-state:from:to:cc
+         :subject:date:message-id:reply-to;
+        bh=2tFoYpzfMUAkB3JpfkER88CdCEd7iFUbwdJ47mVqnAQ=;
+        b=Py0hATFjDl6PPX/kZqc/hi/0lD8UgAARHN4tfRUArYI7tQIKBnYb/0KOppktS+Fno2
+         SOi0HNdTQf7NQ4YVriXJUCzOMKntRYDWMitplS/jLc6hB6X6tqXbcGZ1kuMTy+46m4jd
+         1KiuZhYBFA+es5PieIgWgpoaMVrGrSIi3W1lAnAGcpt1dNDEnVutpB0DRvFFs0OyAK+e
+         yayTmmZ7etATyoXX5P41XbUCoYVN51/hRK/ub7IRJTZJBEqnt7CeylBUOsp6JW/vBQcg
+         Fxzp5yxHATEwBV82A/Y7/gFYtfIMsRwE3j2tOaRZh7o9gbc7XG5Z/SsN6W+y1EmIp3NX
+         iIdA==
+X-Forwarded-Encrypted: i=1; AFNElJ/ohi2hos2oct1aJc4eAzxqokpJiX3hOhaR+B2W9AqCZ8Oyy2kRgldLnqU8JVjETFBjfop4gXFnhZEZA0/Wiwfq@lists.infradead.org
+X-Gm-Message-State: AOJu0YzV+Dz0xOOQDdOr86plmDUVg+xzrJ0euvN8FYqHzvcrVXQHMc/H
+	OGX7ZuczFrMCK6gAxbjl/6b6xPZmT/AjOAciMfQ9zruxcW1XVGp2oKkCwb4DOUroWGJjMOkpbGO
+	wcMq1
+X-Gm-Gg: Acq92OFV0HbQeN10to+7bw8E4NfxmKvlWCgfMxYwVED2FI9NZ4MIJWcKioklg6gDPGs
+	HohcNPjn8EnfzGPJaHYUp7gJixdVrb2LUASaDNga8bBuwU6az/+kImTaLVpyJzVIk1XQ3SLY23N
+	JVo1wfVxs5yRNII3GGPARFs1B8WBnvFonCxCKLpenJOsD4oKyO+DLzr0JvUZ3zheCc2m8gopSE8
+	6qKsRAor1co8AwSdnhwu6dFpOkCsajIhxQDTz3qefbxji8v6fZR8jrqKN05kTd6Mh6QSVyJosP4
+	4FKomLQ5f2bKHKZhkpJX9z5nNV5TGpq5hXQKvVWgQZp8XhEzogKvyasvF1rWoUqHGySWnOk4CDi
+	OpAeJ5kighxpaQmhskqfqWKGg/bhqQ1oWRyp0rvfxdCu+I5NPlkeizcFmnnzT0oxw8U+uAiDqrv
+	354J2xiq+ijpe5Nv88irm2CajPLCHXIsiw11/djQqrI+Wo5AAQ2MeMQ4GQVUYSUCWfhiLzSQEb/
+	69uyC51Mqe8Nxpp
+X-Received: by 2002:a05:620a:6cc6:b0:914:aa0d:aa87 with SMTP id af79cd13be357-9152fd2d425mr108562785a.23.1780016376749;
+        Thu, 28 May 2026 17:59:36 -0700 (PDT)
+Received: from ziepe.ca (crbknf0213w-47-54-130-67.pppoe-dynamic.high-speed.nl.bellaliant.net. [47.54.130.67])
+        by smtp.gmail.com with ESMTPSA id af79cd13be357-91530135f92sm52883085a.47.2026.05.28.17.59.34
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Thu, 28 May 2026 17:59:34 -0700 (PDT)
+Received: from jgg by wakko with local (Exim 4.97)
+	(envelope-from <jgg@ziepe.ca>)
+	id 1wSlZV-0000000HBjx-3ea1;
+	Thu, 28 May 2026 21:59:33 -0300
+Date: Thu, 28 May 2026 21:59:33 -0300
+From: Jason Gunthorpe <jgg@ziepe.ca>
+To: Ashish Mhetre <amhetre@nvidia.com>
+Cc: will@kernel.org, robin.murphy@arm.com, joro@8bytes.org,
+	nicolinc@nvidia.com, linux-arm-kernel@lists.infradead.org,
+	iommu@lists.linux.dev, linux-kernel@vger.kernel.org,
+	linux-tegra@vger.kernel.org
+Subject: Re: [PATCH 2/2] iommu/arm-smmu-v3: Issue CFGI/TLBI twice on Tegra264
+Message-ID: <20260529005933.GQ2487554@ziepe.ca>
+References: <20260528101617.4068249-1-amhetre@nvidia.com>
+ <20260528101617.4068249-3-amhetre@nvidia.com>
 MIME-Version: 1.0
 Content-Type: text/plain; charset=us-ascii
 Content-Disposition: inline
-In-Reply-To: <86fr3bvnt5.wl-maz@kernel.org>
+In-Reply-To: <20260528101617.4068249-3-amhetre@nvidia.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260528_175535_171137_B5FB72F3 
-X-CRM114-Status: GOOD (  23.50  )
+X-CRM114-CacheID: sfid-20260528_175938_827410_78D75042 
+X-CRM114-Status: GOOD (  17.33  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -103,64 +106,37 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Thu, May 28, 2026 at 11:19:34AM +0100, Marc Zyngier wrote:
-> On Wed, 20 May 2026 08:31:12 +0100,
-> Itaru Kitayama <itaru.kitayama@fujitsu.com> wrote:
-> > 
-> > Hi Wei Lin,
-> > 
-> > On Sun, May 10, 2026 at 03:53:33PM +0100, Wei-Lin Chang wrote:
-> > > Hi,
-> > > 
-> > > This is v3 of optimizing the shadow s2 mmu unmapping during MMU
-> > > notifiers.
-> > > 
-> > > Two new preparatory patches are added, one reduces a hole in kvm_s2_mmu
-> > > and another refactors the code a bit during s2 faults. Other changes are
-> > > listed below.
-> > > 
-> > > * Changes from v2 [1]:
-> > > 
-> > >   - Removed "polluted" teminology.
-> > > 
-> > >   - Use xa_{mk, to}_value() when storing and retriving values from maple
-> > >     trees.
-> > > 
-> > >   - Avoid using the 63rd bit in maple tree values so that xa_{mk, to}_value()
-> > >     does not lose us a bit.
-> > > 
-> > >   - Added reverse map removal during TLBI handling.
-> > > 
-> > >   - Other suggested refactorings.
-> > > 
-> > > Thanks!
-> > 
-> > With this series applied on the recent kvmarm/fixes (minor local modification), 
-> > your v3 hello_nested runs fine on all three page granules; without this 16KB 
-> > kernel can't handle stage 2 unmapping paths. I tested using the latest QEMU only 
-> > so wonder how you're testing.
+On Thu, May 28, 2026 at 10:16:17AM +0000, Ashish Mhetre wrote:
+> Apply the workaround for Tegra264 erratum by issuing every CFGI/TLBI
+> command twice on affected SMMU instances, with CMD_SYNC after each.
+> The erratum requires this exact sequencing:
 > 
-> Can you clarify this statement?
+>     TLBI/CFGI ... CMD_SYNC TLBI/CFGI ... CMD_SYNC
 > 
-> Are you saying that 16kB S2 unmap do not work with upstream? That
-> seems odd, as it would mean NV wouldn't work on Apple HW, which
-> represents two thirds of my development boxes...
+> To get this sequence with minimal surgery, hook the workaround into
+> arm_smmu_cmdq_issue_cmdlist(). Rename the original function to
+> __arm_smmu_cmdq_issue_cmdlist() and add a thin wrapper that, on
+> affected SMMUs and when @sync is true, re-issues the same cmdlist a
+> second time.
+> 
+> A new arm_smmu_cmd_needs_tlbi_twice() helper classifies which opcodes
+> need the doubling: CFGI_* and TLBI_*.
+> 
+> For batches that exceed CMDQ_BATCH_ENTRIES commands,
+> arm_smmu_cmdq_batch_add_cmd_p() normally flushes the full buffer with
+> sync=false, deferring the SYNC to the eventual batch_submit(). On
+> affected SMMUs this would leave the first chunk's commands issued
+> only once, since the WAR hook in arm_smmu_cmdq_issue_cmdlist() only
+> fires on synced submissions. Force a SYNC on the capacity rollover
+> when the buffer carries CFGI/TLBI commands so every flushed chunk is
+> correctly doubled.
+> 
+> Signed-off-by: Ashish Mhetre <amhetre@nvidia.com>
+> ---
+>  drivers/iommu/arm/arm-smmu-v3/arm-smmu-v3.c | 66 +++++++++++++++++++--
+>  1 file changed, 61 insertions(+), 5 deletions(-)
 
-Yes, I built this morning's upstream kvmarm/fixes with 16KB granule fresh, and tested
-Wei Lin's propsed KVM selftest, hello_nested on QEMU with the small buildroot
-filesystem and saw the above i.e., the stage 2 unmapping paths never finish.
+Reviewed-by: Jason Gunthorpe <jgg@nvidia.com>
 
-I thought it was due to the Ubuntu userspace I was using for testing,
-but not sure now.
-
-Thanks,
-Itaru.
-
-> 
-> Thanks,
-> 
-> 	M.
-> 
-> -- 
-> Without deviation from the norm, progress is not possible.
+Jason
 
