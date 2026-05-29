@@ -4,72 +4,112 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id A8790CD6E43
-	for <linux-arm-kernel@archiver.kernel.org>; Fri, 29 May 2026 11:29:40 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 61DFCCD6E4A
+	for <linux-arm-kernel@archiver.kernel.org>; Fri, 29 May 2026 11:34:08 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:References:Cc:To
-	:From:Subject:Message-Id:Date:Content-Type:Content-Transfer-Encoding:
-	Mime-Version:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	MIME-Version:References:In-Reply-To:Message-Id:Date:Subject:Cc:To:From:
+	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=mvGXi3GnoQLfXUwepfNKreQtoZ065df4GYADd0i3vGY=; b=BhCpk2pfwDPoQn9iXcwtW53sQp
-	J4nqEnkBwM+OM0iArwGpeIaRv1gFWiFf62TS3IwWb6lWgK2VSeOC37o/a1PQHD3R1sr81NQAj1LUX
-	3+iI8ximf6gTz8y8O7r7sbTWzQOmJayiaTmk0KLbZm+ex8O0Lf7UWnyR2SAMdD0PQOkq5ltdssVTv
-	BdRVPZXqUa9DOfxcM2QjUFUYuDmPsQfQ0cZZImaiy93R/xPifvQGNG+thtyzgNqQpYYy3BahPigAG
-	cV6QCUZzUPJuZhiVlBbLliDSVmuuwGJxROFSFnrmxkg8v0DeYOSS/G+GlJMxHVfaP/Uj96r6mAufx
-	XTylcsng==;
+	bh=EAfM7s+mpYNDbAPjmSVR9D6/MML1U3SzvdduUy3krA4=; b=0XZvkiycDNYIwjcNSzbO4G3l/M
+	GTDgjVjUnWe7XDsnYVwK0JpSkzetb6oFae4195r96tRuGe/anmu6uMk0MW8fDjWxIEJUNuiKQa1Cv
+	QlYPNRg+Pnu0v4oB3oejZm+Pdo2KQ6KEnyxgIT3RmCSoQ9TtqZyNEXIELp8ehay/t7MbPuS6vHRAi
+	DeK31KkScEmApFI9MJtLO7IrMj/Cl2yyS/Hf4m77cEwlosbzAyfLaq2GsjY4qJAVGfzyeRaev5hcV
+	yfSm596uBrmg6XKH8CLHgWDLCkbkIeerX6TIEBuGBWR/K+jU2iVttq4oH+Owyv/nGpCKfsRG9XZpw
+	FejChGSQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wSvPA-00000007HOr-2x0b;
-	Fri, 29 May 2026 11:29:32 +0000
-Received: from smtp.forwardemail.net ([121.127.44.66])
+	id 1wSvTW-00000007Hzt-1H0b;
+	Fri, 29 May 2026 11:34:02 +0000
+Received: from mx0b-0031df01.pphosted.com ([205.220.180.131])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wSvP7-00000007HNa-1LEd
-	for linux-arm-kernel@lists.infradead.org;
-	Fri, 29 May 2026 11:29:30 +0000
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=ubuntu.com;
- h=In-Reply-To: References: Cc: To: From: Subject: Message-Id: Date:
- Content-Type: Content-Transfer-Encoding: Mime-Version; q=dns/txt;
- s=fe-953a8a3ca9; t=1780054167;
- bh=mvGXi3GnoQLfXUwepfNKreQtoZ065df4GYADd0i3vGY=;
- b=blWlMXan1MSo6CS28ZZ+xUN8xIdK+GE9+fuYFCX3ApfRwJELBB4DbfAqa3iUQFLLjA/gy/pJS
- GDqFaExGyV9w8dMKmH0XKGtpaJ1m5B5FrNiClOX7jxD2g8N0Q0MrOgfiyF0ECdtizQ4gxrRbUSo
- r+01AoXy47AkwtIzuIth1mQKyoYwQ3RiZxMdstfEP2ln8dUrPlixGuhAGgi/yMqCvtmvqy6fLOL
- MGHGfpJI6paNEDk9koJTyBBA+d/I1fZon2X+TGMXzrpoUIKCziB2hV8NRhpROgPlDh0Ty5JVDHN
- Xqn5Uuwz9pvl4hSi5gjA1KrMwjXaR3UZOQn0w8D9Tu+w==
-X-Forward-Email-ID: 6a1978895c58ed9868160fa3
-X-Forward-Email-Sender: rfc822; jpeisach@ubuntu.com, smtp.forwardemail.net,
- 121.127.44.66
-X-Forward-Email-Version: 2.8.15
-X-Forward-Email-Website: https://forwardemail.net
-X-Complaints-To: abuse@forwardemail.net
-X-Report-Abuse: abuse@forwardemail.net
-X-Report-Abuse-To: abuse@forwardemail.net
-Mime-Version: 1.0
-Content-Transfer-Encoding: quoted-printable
-Content-Type: text/plain; charset=UTF-8; format=Flowed
-Date: Fri, 29 May 2026 07:29:08 -0400
-Message-Id: <DIV4J6UGUQGG.28KL8EGBZWJSJ@ubuntu.com>
-Subject: Re: [PATCH v1 4/6] power: Use named initializers for
- platform_device_id arrays
-From: "Joshua Peisach" <jpeisach@ubuntu.com>
-To: =?utf-8?b?VXdlIEtsZWluZS1Lw7ZuaWcgKFRoZSBDYXBhYmxlIEh1Yik=?=
- <u.kleine-koenig@baylibre.com>, "Sebastian Reichel" <sre@kernel.org>
-Cc: "Yixun Lan" <dlan@kernel.org>, "Andreas Kemnade" <andreas@kemnade.info>,
- "Matti Vaittinen" <mazziesaccount@gmail.com>, "Sven Peter"
- <sven@kernel.org>, "Janne Grunau" <j@jannau.net>, "Neal Gompa"
- <neal@gompa.dev>, "Amit Sunil Dhamne" <amitsd@google.com>, "Samuel Kayode"
- <samkay014@gmail.com>, <linux-pm@vger.kernel.org>,
- <linux-riscv@lists.infradead.org>, <spacemit@lists.linux.dev>,
- <linux-kernel@vger.kernel.org>, <asahi@lists.linux.dev>,
- <linux-arm-kernel@lists.infradead.org>, <imx@lists.linux.dev>
-X-Mailer: aerc 0.21.0
-References: <cover.1780048925.git.u.kleine-koenig@baylibre.com>
- <1ceacf4f9c3f827bcad85b378aa04cdca1c04635.1780048925.git.u.kleine-koenig@baylibre.com>
-In-Reply-To: <1ceacf4f9c3f827bcad85b378aa04cdca1c04635.1780048925.git.u.kleine-koenig@baylibre.com>
+	id 1wSvTQ-00000007Hyt-3p6G;
+	Fri, 29 May 2026 11:34:00 +0000
+Received: from pps.filterd (m0279871.ppops.net [127.0.0.1])
+	by mx0a-0031df01.pphosted.com (8.18.1.11/8.18.1.11) with ESMTP id 64T6hTcI1386301;
+	Fri, 29 May 2026 11:33:45 GMT
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=qualcomm.com; h=
+	cc:content-transfer-encoding:date:from:in-reply-to:message-id
+	:mime-version:references:subject:to; s=qcppdkim1; bh=EAfM7s+mpYN
+	DbAPjmSVR9D6/MML1U3SzvdduUy3krA4=; b=DrBErj4//LD2cXgDYWByMnk+Q8w
+	xjOnfhsDPCv49O/djJVDFBz41ELL3Rx6Dso2v9/xWrACHcdG+UItZ+vxv89aADFw
+	uSQcqO/2ssvkUElt0Xu6BY3THZJBnXGcS7SZBpzWdqdHxqqCM538kDQmQXn9NNcf
+	HhOnN5zbgOJ57zjV5sp8L25AhT+vNOWOy2xov8Qcp8MLfI2AslM44lhmy/4AWLC/
+	s4/Ldw5LmL2IhWMl/C45ieGObJQqwxKNDfC7rGNbYgOIUIqFBHUiSKzxdXel4IWk
+	Lxh1gKDIfbGDkf4SMz7IUvWvIbn4cYAmobi9f163SBf56C77p0gvxq8jBkA==
+Received: from nalasppmta02.qualcomm.com (Global_NAT1.qualcomm.com [129.46.96.20])
+	by mx0a-0031df01.pphosted.com (PPS) with ESMTPS id 4eevumu9db-1
+	(version=TLSv1.2 cipher=ECDHE-RSA-AES256-GCM-SHA384 bits=256 verify=NOT);
+	Fri, 29 May 2026 11:33:45 +0000 (GMT)
+Received: from pps.filterd (NALASPPMTA02.qualcomm.com [127.0.0.1])
+	by NALASPPMTA02.qualcomm.com (8.18.1.7/8.18.1.7) with ESMTP id 64TBUZFw017010;
+	Fri, 29 May 2026 11:33:44 GMT
+Received: from pps.reinject (localhost [127.0.0.1])
+	by NALASPPMTA02.qualcomm.com (PPS) with ESMTPS id 4eej1su6fm-1
+	(version=TLSv1.2 cipher=ECDHE-RSA-AES256-GCM-SHA384 bits=256 verify=NOT);
+	Fri, 29 May 2026 11:33:44 +0000 (GMT)
+Received: from NALASPPMTA02.qualcomm.com (NALASPPMTA02.qualcomm.com [127.0.0.1])
+	by pps.reinject (8.18.1.12/8.18.1.12) with ESMTP id 64TBXg63022056;
+	Fri, 29 May 2026 11:33:43 GMT
+Received: from hu-devc-lv-u22-c.qualcomm.com (hu-cang-lv.qualcomm.com [10.81.25.255])
+	by NALASPPMTA02.qualcomm.com (PPS) with ESMTPS id 64TBXfWS022045
+	(version=TLSv1.2 cipher=ECDHE-RSA-AES256-GCM-SHA384 bits=256 verify=NOT);
+	Fri, 29 May 2026 11:33:42 +0000 (GMT)
+Received: by hu-devc-lv-u22-c.qualcomm.com (Postfix, from userid 359480)
+	id 7058A62E; Fri, 29 May 2026 04:33:41 -0700 (PDT)
+From: Can Guo <can.guo@oss.qualcomm.com>
+To: bvanassche@acm.org, beanhuo@micron.com, peter.wang@mediatek.com,
+        martin.petersen@oracle.com, mani@kernel.org
+Cc: linux-scsi@vger.kernel.org, Can Guo <can.guo@oss.qualcomm.com>,
+        Alim Akhtar <alim.akhtar@samsung.com>,
+        Avri Altman <avri.altman@wdc.com>, Rob Herring <robh@kernel.org>,
+        Krzysztof Kozlowski <krzk+dt@kernel.org>,
+        Conor Dooley <conor+dt@kernel.org>,
+        Matthias Brugger <matthias.bgg@gmail.com>,
+        AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>,
+        Zhaoming Luo <zhml@posteo.com>,
+        Ram Kumar Dwivedi <quic_rdwivedi@quicinc.com>,
+        devicetree@vger.kernel.org (open list:OPEN FIRMWARE AND FLATTENED DEVICE TREE BINDINGS),
+        linux-kernel@vger.kernel.org (open list),
+        linux-arm-kernel@lists.infradead.org (moderated list:ARM/Mediatek SoC support:Keyword:mediatek),
+        linux-mediatek@lists.infradead.org (moderated list:ARM/Mediatek SoC support:Keyword:mediatek)
+Subject: [PATCH v6 1/2] dt-bindings: ufs: Document static TX Equalization settings properties
+Date: Fri, 29 May 2026 04:33:37 -0700
+Message-Id: <20260529113338.984301-2-can.guo@oss.qualcomm.com>
+X-Mailer: git-send-email 2.34.1
+In-Reply-To: <20260529113338.984301-1-can.guo@oss.qualcomm.com>
+References: <20260529113338.984301-1-can.guo@oss.qualcomm.com>
+MIME-Version: 1.0
+Content-Transfer-Encoding: 8bit
+X-QCInternal: smtphost
+X-QCInternal: smtphost
+X-Proofpoint-GUID: lPRjIg8uOo1OveVchCIwUfKqixZbYdU_
+X-Proofpoint-ORIG-GUID: lPRjIg8uOo1OveVchCIwUfKqixZbYdU_
+X-Proofpoint-Spam-Details-Enc: AW1haW4tMjYwNTI5MDExNSBTYWx0ZWRfX9F0R6ZrrYsIq
+ 4ONnf4Jdd5eP01z4c+6wp/lF15a4V7EaDmMZKRz+R//oC/AwQD49r/4DUYNszrncoXaIw2AAQcV
+ px6tcthNDSp4Wu+aTMjGZmUrGAl0dVC93afMrIp2UOcmXhTxuJfq0jvMqkuTQAJTqtU3z31xbDU
+ pqWA4pfMTb62IQCZmYf29AL2GA/gUvG9A/QFDzthNjL5StTFXFOF6iZRP94Fb/4cG56zpUK5L1N
+ uyxa5enpGTANRLbm3v69ckkbWzi5fQABs9GzRmQrDB2jDUnqyzTmsxhkYvZrDwvGUbl6izv6tiR
+ frjzVggvaWf/4cpZtvVks7UcN6UUGhktgq1Rp/mRAel+0n0UIgAsejMSWqQiHP7Met9WJvXzVw3
+ JdMBPeGjwsAdqnvwo5rG9ant0sbQpX2ThMGQ3ZyAzjyaZ1aUQxuwafE1Kq+pIK5GykiSDqYlNlJ
+ F2w/2dlbEHEa9Lr5lXA==
+X-Authority-Analysis: v=2.4 cv=cObQdFeN c=1 sm=1 tr=0 ts=6a197999 cx=c_pps
+ a=ouPCqIW2jiPt+lZRy3xVPw==:117 a=ouPCqIW2jiPt+lZRy3xVPw==:17
+ a=NGcC8JguVDcA:10 a=VkNPw1HP01LnGYTKEx00:22 a=u7WPNUs3qKkmUXheDGA7:22
+ a=3WHJM1ZQz_JShphwDgj5:22 a=VwQbUJbxAAAA:8 a=PY6Zn8H8AAAA:8 a=mpaa-ttXAAAA:8
+ a=EUspDBNiAAAA:8 a=aytFPfgCXfsv55HZsIkA:9 a=ySS05r0LPNlNiX1MMvNp:22
+X-Proofpoint-Virus-Version: vendor=baseguard
+ engine=ICAP:2.0.293,Aquarius:18.0.1143,Hydra:6.1.125,FMLib:17.12.100.49
+ definitions=2026-05-29_03,2026-05-28_03,2025-10-01_01
+X-Proofpoint-Spam-Details: rule=outbound_notspam policy=outbound score=0
+ impostorscore=0 adultscore=0 clxscore=1015 spamscore=0 malwarescore=0
+ phishscore=0 suspectscore=0 priorityscore=1501 lowpriorityscore=0 bulkscore=0
+ classifier=typeunknown authscore=0 authtc= authcc= route=outbound adjust=0
+ reason=mlx scancount=1 engine=8.22.0-2605210000 definitions=main-2605290115
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260529_042929_462415_8013AEB9 
-X-CRM114-Status: GOOD (  16.29  )
+X-CRM114-CacheID: sfid-20260529_043357_082467_540A8545 
+X-CRM114-Status: GOOD (  10.13  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -84,50 +124,90 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Fri May 29, 2026 at 6:18 AM EDT, Uwe Kleine-K=C3=B6nig (The Capable Hub)=
- wrote:
-> Named initializers are better readable and more robust to changes of the
-> struct definition. This robustness is relevant for a planned change to
-> struct platform_device_id replacing .driver_data by an anonymous union.
->
-> While touching these arrays unify spacing and usage of commas.
->
-> Signed-off-by: Uwe Kleine-K=C3=B6nig (The Capable Hub) <u.kleine-koenig@b=
-aylibre.com>
-> ---
->  drivers/power/reset/spacemit-p1-reboot.c | 4 ++--
->  drivers/power/reset/tps65086-restart.c   | 2 +-
->  drivers/power/supply/bd71828-power.c     | 8 ++++----
->  drivers/power/supply/macsmc-power.c      | 2 +-
->  drivers/power/supply/max77759_charger.c  | 2 +-
->  drivers/power/supply/max8998_charger.c   | 2 +-
->  drivers/power/supply/pf1550-charger.c    | 2 +-
->  drivers/power/supply/rt5033_charger.c    | 2 +-
->  8 files changed, 12 insertions(+), 12 deletions(-)
+UFS v5.0/UFSHCI v5.0 add HS-G6 support (46.6 Gbps/lane) via UniPro v3.0
+and M-PHY v6.0. In these specs, TX Equalization is defined for all High
+Speed Gears (not only HS-G6) to compensate channel loss and improve signal
+integrity at high speed operation.
 
-[snip]
+For HS-G6, M-PHY uses PAM4 1b1b line coding, Pre-Coding may also be
+required depending on channel characteristics.
 
-> diff --git a/drivers/power/supply/macsmc-power.c b/drivers/power/supply/m=
-acsmc-power.c
-> index 33ca07460f3a..ced07f71e0a8 100644
-> --- a/drivers/power/supply/macsmc-power.c
-> +++ b/drivers/power/supply/macsmc-power.c
-> @@ -834,7 +834,7 @@ static void macsmc_power_remove(struct platform_devic=
-e *pdev)
->  }
-> =20
->  static const struct platform_device_id macsmc_power_id[] =3D {
-> -	{ "macsmc-power" },
-> +	{ .name =3D "macsmc-power" },
->  	{ /* sentinel */ }
->  };
->  MODULE_DEVICE_TABLE(platform, macsmc_power_id);
+Add vendor-neutral DT properties:
 
-For macsmc-power,
+- patternProperties for txeq-preshoot-g[1-6] and txeq-deemphasis-g[1-6]
+- fixed property tx-precode-enable-g6
 
-Reviewed-by: Joshua Peisach <jpeisach@ubuntu.com>
+Each property is a uint32 array of per-lane tuples:
+<Host_Lane0 Device_Lane0>, [<Host_Lane1 Device_Lane1>]
 
-(I'm not sure if one can "Review-by" a specific section of a singular
-patch, but also the other changes in the patch look fine to me, so
-consider it reviewed as well.)
+Accept 2 or 4 values (x1/x2 lane configs). PreShoot and DeEmphasis values
+are 0..7. Precode enable values are 0/1 and only applicable to HS-G6.
+
+Acked-by: Manivannan Sadhasivam <mani@kernel.org>
+Reviewed-by: Bean Huo <beanhuo@micron.com>
+Reviewed-by: Peter Wang <peter.wang@mediatek.com>
+Signed-off-by: Can Guo <can.guo@oss.qualcomm.com>
+---
+ .../devicetree/bindings/ufs/ufs-common.yaml   | 45 +++++++++++++++++++
+ 1 file changed, 45 insertions(+)
+
+diff --git a/Documentation/devicetree/bindings/ufs/ufs-common.yaml b/Documentation/devicetree/bindings/ufs/ufs-common.yaml
+index ed97f5682509..d90cf25adfa5 100644
+--- a/Documentation/devicetree/bindings/ufs/ufs-common.yaml
++++ b/Documentation/devicetree/bindings/ufs/ufs-common.yaml
+@@ -105,6 +105,51 @@ properties:
+       Restricts the UFS controller to rate-a or rate-b for both TX and
+       RX directions.
+ 
++  tx-precode-enable-g6:
++    $ref: /schemas/types.yaml#/definitions/uint32-array
++    oneOf:
++      - minItems: 2
++        maxItems: 2
++      - minItems: 4
++        maxItems: 4
++    items:
++      enum: [0, 1]
++    description: |
++      Static TX Precode enable values for HS-G6 only.
++      Values are specified as per-lane tuples:
++      <Host_Lane0 Device_Lane0>, [<Host_Lane1 Device_Lane1>].
++
++patternProperties:
++  "^txeq-preshoot-g[1-6]$":
++    $ref: /schemas/types.yaml#/definitions/uint32-array
++    oneOf:
++      - minItems: 2
++        maxItems: 2
++      - minItems: 4
++        maxItems: 4
++    items:
++      minimum: 0
++      maximum: 7
++    description: |
++      Static TX Equalization PreShoot values for High Speed Gears.
++      Values are specified as per-lane tuples:
++      <Host_Lane0 Device_Lane0>, [<Host_Lane1 Device_Lane1>].
++
++  "^txeq-deemphasis-g[1-6]$":
++    $ref: /schemas/types.yaml#/definitions/uint32-array
++    oneOf:
++      - minItems: 2
++        maxItems: 2
++      - minItems: 4
++        maxItems: 4
++    items:
++      minimum: 0
++      maximum: 7
++    description: |
++      Static TX Equalization DeEmphasis values for High Speed Gears.
++      Values are specified as per-lane tuples:
++      <Host_Lane0 Device_Lane0>, [<Host_Lane1 Device_Lane1>].
++
+ dependencies:
+   freq-table-hz: [ clocks ]
+   operating-points-v2: [ clocks, clock-names ]
+-- 
+2.34.1
+
 
