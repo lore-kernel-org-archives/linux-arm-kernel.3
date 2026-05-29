@@ -4,61 +4,105 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 23605CD6E4A
-	for <linux-arm-kernel@archiver.kernel.org>; Fri, 29 May 2026 13:39:21 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 9D289CD6E4A
+	for <linux-arm-kernel@archiver.kernel.org>; Fri, 29 May 2026 13:39:33 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=X2b/jFqR3es0k+K4KUVwPP+EZAQSXP/Sg3HEXSr0lns=; b=WPUUlUFI37oh76LukG3tNkc1+7
-	i/h6VZmURuNngy88bbMRV61V4tPzdORJAgFLSLpYj1PiVSAwt3xiH41nBeSWeyl6dfkUz/5G7sjF3
-	/Rd3nMzV60m+LLV7oue5hYPGVtPabH59Bi4ZPRRcLSEaT/1ST+j4ioB1gnRpr2EtKVvfJniUazG1R
-	h3xcwaUE5110YG2WsSnIqVckFBpLN/SxSfJqZgb1tbPzImQz31hmKWEezTBpxiKcm3k9niW+jvuCV
-	WxSsFjA7LuA5fL+tZhvYymuexKX+W8xIeZQrhGwHSlXVVp1UExLKC6L5BwI0wQ0zdpaaar3u+50hb
-	TUJfKjxg==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:Subject:References:In-Reply-To:Message-Id:Cc:To:From:Date:
+	MIME-Version:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=dijpLU+OU7oGppfwXWO2pPWD4SaRJOSfT1ZxhEnI80s=; b=dqPrM5z3iBJg/6egLkv+w1hD6B
+	5Dn2qCgw//q7SCLR6EqYzJXABSvxGC2YMIIx6j4VR07u/+XlDkgrtzZ4a0gzWc7X0gBkOftNvkkUa
+	aUxiw8OnifLlT2YYfXwiCy1guG3PYl9imXtf+dON7pmPc73khLTiPCnzNHqL9IQ+aSiLKyHqyY5F/
+	WN3R3ORoZzxrgXVpspqIXrbgykk/8feZT/P1Yo2qodn4swZA+ahKXlVIM6tkz/oEzMh42SiC5eJNW
+	BYg5q/0jjxeoYo/WcKtET0haRPH+1iWDU5ZNFjnh70x4wRk9/4s/KA++NCvwDFsXcDBheF4sn0yut
+	yq5IAs/A==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wSxQc-00000007SLp-1HIg;
-	Fri, 29 May 2026 13:39:10 +0000
-Received: from foss.arm.com ([217.140.110.172])
-	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wSxQZ-00000007SL0-1AlR
+	id 1wSxQp-00000007SOJ-1hLi;
+	Fri, 29 May 2026 13:39:23 +0000
+Received: from fout-b2-smtp.messagingengine.com ([202.12.124.145])
+	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
+	id 1wSxQl-00000007SMy-1Gp8
 	for linux-arm-kernel@lists.infradead.org;
-	Fri, 29 May 2026 13:39:09 +0000
-Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
-	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id 73C9B2247;
-	Fri, 29 May 2026 06:39:00 -0700 (PDT)
-Received: from thinkpad-e142931.arm.com (usa-sjc-imap-foss1.foss.arm.com [10.121.207.14])
-	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id F3D7F3F905;
-	Fri, 29 May 2026 06:39:01 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=simple/simple; d=arm.com; s=foss;
-	t=1780061945; bh=7cmIIs9xR7uMqTm+Z6aD9663vI48NGNNoR+rAVutfCA=;
-	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
-	b=ZwbvlGL/hw4kBlp8VXC/2kqCg+mD3sjTb8MNl4B2Mmd580f1ntfEzvd3wiaQ1GZma
-	 pYPyZ4BhPO8swphi0VYXozIPeakgqpXWh+EoOPe6y3keeqDqsf7bZAYzoUSTxY/tRD
-	 CH2Xfcsp92lhz6kO+eCyS+TXMplYbiCu6zkDsy34=
-Date: Fri, 29 May 2026 14:38:53 +0100
-From: Wei-Lin Chang <weilin.chang@arm.com>
-To: Oliver Upton <oupton@kernel.org>
-Cc: linux-kernel@vger.kernel.org, kvm@vger.kernel.org, 
-	linux-kselftest@vger.kernel.org, linux-arm-kernel@lists.infradead.org, kvmarm@lists.linux.dev, 
-	Paolo Bonzini <pbonzini@redhat.com>, Shuah Khan <shuah@kernel.org>, Marc Zyngier <maz@kernel.org>, 
-	Joey Gouly <joey.gouly@arm.com>, Suzuki K Poulose <suzuki.poulose@arm.com>, 
-	Zenghui Yu <yuzenghui@huawei.com>, Catalin Marinas <catalin.marinas@arm.com>, 
-	Will Deacon <will@kernel.org>, Itaru Kitayama <itaru.kitayama@fujitsu.com>
-Subject: Re: [PATCH v3 0/9] KVM: arm64: selftests: Basic nested guest support
-Message-ID: <ioz7qsirq2v665bqbjin5ekwss46pfg2sfmndkvail2athbo75@cgt7zikhtx6r>
-References: <20260516183003.799058-1-weilin.chang@arm.com>
- <agzWnS2gzzhEHEG6@kernel.org>
+	Fri, 29 May 2026 13:39:20 +0000
+Received: from phl-compute-04.internal (phl-compute-04.internal [10.202.2.44])
+	by mailfout.stl.internal (Postfix) with ESMTP id AB2111D0012F;
+	Fri, 29 May 2026 09:39:17 -0400 (EDT)
+Received: from phl-imap-05 ([10.202.2.95])
+  by phl-compute-04.internal (MEProxy); Fri, 29 May 2026 09:39:18 -0400
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=arndb.de; h=cc
+	:cc:content-transfer-encoding:content-type:content-type:date
+	:date:from:from:in-reply-to:in-reply-to:message-id:mime-version
+	:references:reply-to:subject:subject:to:to; s=fm3; t=1780061957;
+	 x=1780148357; bh=dijpLU+OU7oGppfwXWO2pPWD4SaRJOSfT1ZxhEnI80s=; b=
+	Lo9E5V+AZL+GiAHP4+j8owKk2lO0iOlOEcfTYsz4aXEz8bL7ZnY4EPL6cuyhJuKF
+	Y6b1sBPh6Ghrk5t6ZoK4vnpaf6lMlrBCL175Kq8Uc8VKotoIWt7Bl1mzYMO5avEm
+	7l9EA+oKCsdohu0ntJigWmz0jTuYK5LakwTUhhNtIrNFY7Ncc6Yaio8H9/WySJDz
+	K9CAzp0DpcTiXz+ltW0A3bWhFG8Ghjdi88yaiSsTCfYbBmQVshOvi8Ed8+xKu8y0
+	cskhNLOvTb6qescVEiTwk6qGfg5f9QRjTMUvY5f+J8RSd21lMALfqF0E5Mxhdi73
+	HdwkUCM2RUuPLb8/Q1ufxw==
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=
+	messagingengine.com; h=cc:cc:content-transfer-encoding
+	:content-type:content-type:date:date:feedback-id:feedback-id
+	:from:from:in-reply-to:in-reply-to:message-id:mime-version
+	:references:reply-to:subject:subject:to:to:x-me-proxy
+	:x-me-sender:x-me-sender:x-sasl-enc; s=fm3; t=1780061957; x=
+	1780148357; bh=dijpLU+OU7oGppfwXWO2pPWD4SaRJOSfT1ZxhEnI80s=; b=k
+	4e7HwEXRVNh6dH900tHVwoL7ogfzg7KG3xdLfAFyAiYv3GRBwARAIMCTAfyG+bCF
+	tpoEr921JcUq1xlDloncqsLNJ6AGH7Qp/MRcYe+t4RLBlmLk1QdrVDrTbjOgwCdU
+	bW4JhmJSVGnfuHp6LzrNkODwJt6bmcfhF86OA0ui0QrTgOGOKSqAT0sDeEhZOdmr
+	aBhrJim3pno17MpxdAsdPMQ+4D47mPk4AhkLCa449FgkG6qCa9QJOo6hvsc2xUC8
+	UIP8ubjbMfa6kebQ2RyWL7yyVtptJPwrQCEboNDG4usYYlTaVI2XhbbGJduxQnFu
+	JRFtmbEyONFtVZB8CS47w==
+X-ME-Sender: <xms:BJcZalCWshej6AmMmJXaY_6zBVacFwUK7u4zefuHmr_Mz1Jiqi4iRw>
+    <xme:BJcZauWzZFebLRwx6O8-trkwKe91XRP7xKJnCB_qZWbosiuRkIjqJbywp-etEJLd3
+    55UrTOTDfAfa9cncsrmPNaEDXkWzn5atnQhem9hdrR5LKchUbpkizk>
+X-ME-Proxy-Cause: dmFkZTGyRrIgFgQ6qfer+Y4a1h2hQq6z7xkQeot4goKpuHSqMIzgKw47he6xTaYx2ppKRa
+    VqvD1CTTOrF9lbkxxeuSc1JZk3o6VnpMitGIIDR/YC3t8SVtOqJyFHkHw5x3fk8hu4gw4z
+    FOGLeRY21OB6MM/Gufhtmf5TbvS8+zZvhpro4mmVIbzRBstlAYcH4RKIEQduH7m89NY66z
+    5l4IPLL2B38MOxmhI/2RVQQRxFkJfsM1cCWOQJlTz6yfu1CFqgWrqqQvf0BYGjr80yIv2Q
+    ZByDnlVnbFzNzAP6QRxmyyX2lSVWFBYkykG62xXXsUcBdPeYs7q5bJ6EKHzlrvnRdEfvKv
+    iW7rxVF0SWC3/HI545Y1U4SwZ3bpvqA+YfBS9FnD0s/5xCYVx2kRh/5eNbm0ccCeJiFFNl
+    g+WDJciGwQWuioJVW0i/8uWhWk+xYxe8hvTEsWhD2xWpO2ECT9SusERqhWOUd93qDRZMX1
+    +p+d6PDvYHyOrIvDZdRBQNOkwEkwdqRWVgvvoIvk7KLliPVvf3D1OZ59RzVs4kZu1j/2ed
+    nhmiU+WICvO97G1nWX8KCbVDYgNAngwT3+BthY8yLHGNyS1vbQjurA2IxStDiOWJSFDpO/
+    SBKHkpUcHhl8Z3HasfHDtpvtk3rISL2zRhGJ1Re0nkZFed8Rhwp+4A7uyRsg
+X-ME-Proxy: <xmx:BJcZalmCK4e3Ic54lPmbCwKLn9HE1cZbVaecAebrT12EKo987ihSGw>
+    <xmx:BJcZaiazXC_cC6W9gQDrNLB0dNNsaYKrtAj8Q31zqVGysp5V4qF53A>
+    <xmx:BJcZaq4B_9TqZn9TAgDUPRx40h8zrarbk5xtL6NvK0r2igI0B69ZPQ>
+    <xmx:BJcZasDcfGcxG8N1ipfTYGLyhCuAisAuM2QLcPpM8eCruxUOe7S-Kw>
+    <xmx:BZcZasHvx4WBlV5jYiCc9RHyNL1NH40bZL6NS_ZGrXwXXp3nwRj3mZQp>
+Feedback-ID: i56a14606:Fastmail
+Received: by mailuser.phl.internal (Postfix, from userid 501)
+	id 9E60B182007A; Fri, 29 May 2026 09:39:16 -0400 (EDT)
+X-Mailer: MessagingEngine.com Webmail Interface
 MIME-Version: 1.0
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-In-Reply-To: <agzWnS2gzzhEHEG6@kernel.org>
+X-ThreadId: AIgwaTVwlN8Z
+Date: Fri, 29 May 2026 15:38:28 +0200
+From: "Arnd Bergmann" <arnd@arndb.de>
+To: "Tudor Ambarus" <tudor.ambarus@linaro.org>,
+ "Krzysztof Kozlowski" <krzk@kernel.org>,
+ "Alim Akhtar" <alim.akhtar@samsung.com>
+Cc: linux-kernel@vger.kernel.org, linux-samsung-soc@vger.kernel.org,
+ linux-arm-kernel@lists.infradead.org,
+ "Peter Griffin" <peter.griffin@linaro.org>,
+ =?UTF-8?Q?Andr=C3=A9_Draszik?= <andre.draszik@linaro.org>,
+ jyescas@google.com, kernel-team@android.com, stable@vger.kernel.org
+Message-Id: <d6663bd0-178e-46d6-af3a-69b8be197375@app.fastmail.com>
+In-Reply-To: <a7994860-24a3-4f87-84bf-109ed653dda4@linaro.org>
+References: <20260505-acpm-fixes-sashiko-reports-v5-0-43b5ee7f1674@linaro.org>
+ <20260505-acpm-fixes-sashiko-reports-v5-3-43b5ee7f1674@linaro.org>
+ <03dc9ccc-d819-413e-b8fd-23ccd85675ba@app.fastmail.com>
+ <6c77d706-5944-4e7d-8a4a-b3a6cac6a83b@kernel.org>
+ <a7994860-24a3-4f87-84bf-109ed653dda4@linaro.org>
+Subject: Re: [PATCH v5 3/7] firmware: samsung: acpm: Fix dummy stubs to return ERR_PTR
+Content-Type: text/plain
+Content-Transfer-Encoding: 7bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260529_063907_393823_D2F375AF 
-X-CRM114-Status: GOOD (  30.00  )
+X-CRM114-CacheID: sfid-20260529_063919_591587_CC6E5D33 
+X-CRM114-Status: GOOD (  15.32  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -73,108 +117,40 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hi Oliver,
+On Fri, May 29, 2026, at 14:37, Tudor Ambarus wrote:
+> On 5/29/26 3:09 PM, Krzysztof Kozlowski wrote:
+>> On 29/05/2026 13:51, Arnd Bergmann wrote:
+>
+> I confirm that the ACPM protocol is mandatory for the clients to
+> work, thanks!
+>
+>>> the option space without losing any build coverage.
+>
+> nice, I didn't know this. I guess it's a "greedy" algorithm in
+> allmodconfig, if the dependency is met the dependents are enabled too.
 
-On Tue, May 19, 2026 at 02:31:09PM -0700, Oliver Upton wrote:
-> Hi Wei-Lin,
-> 
-> Thank you very much for the series.
-> 
-> I haven't had time to read through much of this yet, but I noticed
-> Itaru's comment about leaving stage-1 translation disabled for the L2.
-> 
-> Since selftests expects things like atomics to work we will definitely
-> need the stage-1 MMU to be enabled w/ Normal mappings (this was broken
-> in the past [*]). I wonder if we can (ab)use the pre-existing stage-1
-> tables that the selftests library creates on behalf of the L1. After all,
-> L1 and L2 are both effectively in the same virtual address space.
-> 
-> [*] https://lore.kernel.org/kvmarm/20250405001042.1470552-1-rananta@google.com/
+It's not even that interesting I think: the way I understand it,
+the values (=m for allmodconfig, random for randconfig) are
+assigned first and then adjusted if dependencies are not
+met. This means with my change, anything that would have
+CONFIG_EXYNOS_ACPM_PROTOCOL=n and CONFIG_EXYNOS_ACPM_CLK=m now
+turns off EXYNOS_ACPM_CLK as well, rather than turning on
+CONFIG_EXYNOS_ACPM_PROTOCOL, but this still covers all
+the combinations we need to test.
 
-Thanks for the pointer, I see, only inner/outer shareable, write-back
-normal memory guarantees atomics to work. Interestingly, treating the
-atomic instruction as a NOP is one of the permitted outcomes if other
-memory attributes are used...
+>> Sure, I am fine with it. I'll take your patch with a bit adjusted commit
+>> msg.
+>> 
+>
+> Thank you! I need to drop the devm_acpm_get_by_phandle dummy stub from:
+> https://lore.kernel.org/linux-samsung-soc/a59c6e3a-6092-4114-8961-c2a71a812959@kernel.org/T/#m0ac077507129c37b84443513eecadd70b5eaf8b8
+>
+> Shall I send again the entire set?
 
-However, the L2s in this series aren't using atomic instructions, and
-right now for the current organization of this series, the L1 guest
-hypervisor infrastructure is in lib/ for future NV selftests to share L2
-creation code, but L2 code are entirely per selftest. This means other
-selftest L2s can reuse the L1 stage-1 tables themselves if the implicit
-memory attributes that comes from MMU being off is not desired.
+I'll just send my change on top of your 8ad2c29d53e6 ("firmware:
+samsung: acpm: Add devm_acpm_get_by_phandle helper"). Since there
+is no way to hit the actual bug on a running kernel, it can wait for
+the merge window, and that way we don't need a rebase.
 
-Sorry if that sounded defensive, I am not opposed to always reusing the
-L1 stage-1 tables in L2, just wanted to make sure the point gets across.
-
-Always reusing L1 stage-1 tables in L2 allows L2 access to lib/ (which
-should be helpful for testing recursive NV), and L1-L2 code sharing
-intra-selftest. OTOH things are a bit simpler with MMU off in this case
-with testing the shadow stage2.
-
-What do you think?
-
-Thanks,
-Wei-Lin Chang
-
-> 
-> Thanks,
-> Oliver
-> 
-> On Sat, May 16, 2026 at 07:29:54PM +0100, Wei-Lin Chang wrote:
-> > Hi,
-> > 
-> > This is v3 of adding basic support for running nested guests (L2) in
-> > kselftest. This time a framework for enabling stage-2 in the guest is
-> > added, including the s2_mmu struct, s2 translation control setup, and
-> > a stage-2 page table generator. Similar to L2 vCPU management, all
-> > stage-2 work is done in the guest instead of userspace.
-> > 
-> > An additional shadow_stage2 test is added which leverages the framework
-> > to run L2 with stage-2 enabled.
-> > 
-> > * Changes from v2 [1]:
-> > 
-> >   - Update vm_paddr_t to gpa_t, vm_vaddr_t to gva_t.
-> > 
-> >   - Added framework for enabling stage-2 in the guest.
-> > 
-> >   - Added shadow_stage2 test.
-> > 
-> > Thanks!
-> > 
-> > [1]: https://lore.kernel.org/kvmarm/20260412142216.3806482-1-weilin.chang@arm.com/
-> > 
-> > Wei-Lin Chang (9):
-> >   KVM: arm64: selftests: Add GPR save/restore functions for NV
-> >   KVM: arm64: selftests: Add helpers for guest hypervisors
-> >   KVM: arm64: selftests: Add hello_nested basic NV selftest
-> >   KVM: arm64: selftests: Enhance hello_nested test
-> >   KVM: arm64: selftests: Add shadow_stage2 test
-> >   KVM: arm64: selftests: shadow_stage2: Allocate L2 stack from dedicated
-> >     pool
-> >   KVM: arm64: selftests: shadow_stage2: Check supported stage-2 granule
-> >     size
-> >   KVM: arm64: selftests: Add infrastructure for using stage-2 in guest
-> >   KVM: arm64: selftests: shadow_stage2: Turn on stage-2 translation for
-> >     the nested guest
-> > 
-> >  tools/testing/selftests/kvm/Makefile.kvm      |   5 +
-> >  .../selftests/kvm/arm64/hello_nested.c        | 134 +++++++++
-> >  .../selftests/kvm/arm64/shadow_stage2.c       | 165 +++++++++++
-> >  .../selftests/kvm/include/arm64/nested.h      |  85 ++++++
-> >  tools/testing/selftests/kvm/lib/arm64/entry.S | 137 +++++++++
-> >  .../selftests/kvm/lib/arm64/hyp-entry.S       |  77 +++++
-> >  .../testing/selftests/kvm/lib/arm64/nested.c  | 264 ++++++++++++++++++
-> >  7 files changed, 867 insertions(+)
-> >  create mode 100644 tools/testing/selftests/kvm/arm64/hello_nested.c
-> >  create mode 100644 tools/testing/selftests/kvm/arm64/shadow_stage2.c
-> >  create mode 100644 tools/testing/selftests/kvm/include/arm64/nested.h
-> >  create mode 100644 tools/testing/selftests/kvm/lib/arm64/entry.S
-> >  create mode 100644 tools/testing/selftests/kvm/lib/arm64/hyp-entry.S
-> >  create mode 100644 tools/testing/selftests/kvm/lib/arm64/nested.c
-> > 
-> > -- 
-> > 2.43.0
-> > 
-> > 
+     Arnd
 
