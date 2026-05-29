@@ -4,69 +4,97 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 03F8FCD4F54
-	for <linux-arm-kernel@archiver.kernel.org>; Fri, 29 May 2026 12:36:46 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 31C4BCD4F54
+	for <linux-arm-kernel@archiver.kernel.org>; Fri, 29 May 2026 12:37:26 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
 	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
 	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=9lVmfgexspnKoW/3agaiDvDisr/iv75bUoYrdSLOXwE=; b=g0bK3LmzcaQ8nTp/uTpFIOK7Hf
-	Az5j6mr7rn7pUL+C+pAwOqgWVkI+Y2wmREbF46JdhsxF341FBMJt7vMqRXFVxrxIRfQSbVRptNAbN
-	lIAcBsjnGTL02MrI3Y9Bl/XQadY9riS8ucozcGcfVKRhZdBc0otD1AsY8FU/8XH8bKb+1tnEQnq66
-	lNFJ2FFc9VpzY1FZfygttWFpH4pjJaYtxLJXWGlHKWwwTgjrdVezPwfvi90NqN1ouOH+LAAfa+bF2
-	14As5AVPSsKhmWo3zkSqg6yXrQmbq95AAQaP2QXKsU6l+la/ehbn0ZzjAXmFouP2cGKSW2gW40vER
-	Zt8PzLCg==;
+	bh=RQzxiBtnUr7ain8V9TqP5xGod1EBAScgia3DVab5ruI=; b=IKhFv64YJDHv++FRVMQmvLeaT4
+	E9hDpxM10XSllrmadHULjP462wYvmsGs5zQvXKPRR7xBzc2SEWM7s5DGRGjr/2Uhzvl26vGQqEuJ9
+	wmaU9SdKysnkH8Qrm2sWKm8jKDVYEyIAStQ2LyjKIsa5+KquGQmStcmmRT8VYltUQjn7Yj5rJQW4p
+	Dc+vv+fDE8bc1VBe6FTdQcwolOTY5/yRTIJLNaKdtQnCuqfy+XvD64l3EhkmWuDrEyAFA7T/llPxi
+	98GeSGQvlw+b8CMnm1HgnvFjNNxGCVRWDIcE+4EU4CUs0o2BgvPtkiXJLytiJKx5IUEn4dim7fvxI
+	9CYP7RUA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wSwS5-00000007OGp-00Dj;
-	Fri, 29 May 2026 12:36:37 +0000
-Received: from out-181.mta1.migadu.com ([95.215.58.181])
+	id 1wSwSm-00000007OL2-0cIt;
+	Fri, 29 May 2026 12:37:20 +0000
+Received: from mail-wr1-x436.google.com ([2a00:1450:4864:20::436])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wSwS2-00000007OGI-28P9
+	id 1wSwSj-00000007OKb-33Qr
 	for linux-arm-kernel@lists.infradead.org;
-	Fri, 29 May 2026 12:36:36 +0000
-Message-ID: <fb47629e-6533-4c87-ac0b-e3a48a890ef4@linux.dev>
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=linux.dev; s=key1;
-	t=1780058181;
-	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
-	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
-	 content-transfer-encoding:content-transfer-encoding:
-	 in-reply-to:in-reply-to:references:references;
-	bh=9lVmfgexspnKoW/3agaiDvDisr/iv75bUoYrdSLOXwE=;
-	b=jjsu6MlvrjBVw8EHwN0hZmMlYdVyXnIGj7OspJTJ4D6N+7yBnvman4zcAHpc1Ij97Gm08b
-	r/smJSHm1710yMUCteZUE0tkdOltvNb2M1Yl3SZ4d9zzKBzaKOzUGwE6mp49+rBFiVdWRH
-	JYU2SGHM12nodC78Fy/TqrlxlFyboI8=
-Date: Fri, 29 May 2026 13:36:10 +0100
+	Fri, 29 May 2026 12:37:19 +0000
+Received: by mail-wr1-x436.google.com with SMTP id ffacd0b85a97d-45ef616daf6so124707f8f.3
+        for <linux-arm-kernel@lists.infradead.org>; Fri, 29 May 2026 05:37:16 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=linaro.org; s=google; t=1780058235; x=1780663035; darn=lists.infradead.org;
+        h=content-transfer-encoding:in-reply-to:from:content-language
+         :references:cc:to:subject:user-agent:mime-version:date:message-id
+         :from:to:cc:subject:date:message-id:reply-to;
+        bh=RQzxiBtnUr7ain8V9TqP5xGod1EBAScgia3DVab5ruI=;
+        b=zBEsyjATRIqCLwvWvuXOw0E+vg3dCN8CZb5P8boxGfz8PxJ32cVnKN2FXLE4j4YB6/
+         uLfeE1GpL20mHFJMTOJRGImDng5TZOeCI1ypOMl30oGkirr3oRIUSLIL1Y7hCWx7hY3R
+         Hy02DHRfwNHPjtdQkQry6Zwu60cHhdmfE6rgWhPFQM8W3b0G/b4BTtkyb1NKA8yZk3j4
+         5ydnpOVOM7NUTbFosLPTLWBhQAkTu+/vqGCp335UrDFNVA31vykM9bA5DD4c/4B5g6E3
+         cbFKU41fQ77mxDaKBT3NaGLYyC69kGck53rxtZ8B+xBN3YR30lOKGY+3V0s5YuOLJjcb
+         fX0Q==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20251104; t=1780058235; x=1780663035;
+        h=content-transfer-encoding:in-reply-to:from:content-language
+         :references:cc:to:subject:user-agent:mime-version:date:message-id
+         :x-gm-gg:x-gm-message-state:from:to:cc:subject:date:message-id
+         :reply-to;
+        bh=RQzxiBtnUr7ain8V9TqP5xGod1EBAScgia3DVab5ruI=;
+        b=TH57V3o1pYkgTuUQQpgH00vbUyRUKsOGjK8Xqvy6oBPbIj7/KPmmfOE2qKzlbDe78A
+         K9tQ+wFHTRrparckf5JnBw3+ubGuSTqjraByJsZ3VCDbDan0oHC0XrPHV3tkBxmbKQfF
+         U2v60fQF6e5VsUxLpZ+gwZIjyDeQAFmDdv2meRBY6eI5P6ft7Nt4I74cpYFvQpsKLruo
+         Ou5203SxW7l/Q6BwBgsU9CsFjribpBfM+tuTmm6LZWK9m1bXbUmTBCOtzy4IuhGBN8Yt
+         +IU97UNBBNam2ACrf100qsJy2O7mg24IF0xKH46Pnl9A4VutNtj5/Cx66ThYyzeke4gv
+         o7HQ==
+X-Forwarded-Encrypted: i=1; AFNElJ/u3WqfsTaUWefbw/H8qA3v+t8LSGTU27blPQktxp9226cfzC5Wm0LJ7lv0Bf2MVQF13R0jjx6fwXGCShjba++1@lists.infradead.org
+X-Gm-Message-State: AOJu0YyWdSp2pHDvNgl6+hzKeTsBzyoSOyPxeWO1suOPObp3d/YGLeky
+	ccWeNw1nnnEP1qwVGphVND4sf3nN7OncK6KNE+JAZ/N6w5fzaoA3AZ14VDxhDU+40WI=
+X-Gm-Gg: Acq92OFxc1aoJHBmcCCVoviwt6rbZhLuuaaM/212oU9IhV0yIgEyAlMrUi3tVeUkk4m
+	HPER/e3MO4yvO1Yx+f3mhuYXYhErQeiP9dtYFTX8hmKSOeOp5Y4rrqcIuYpwu0wvwShL1GI1hml
+	+VXma+rug8SfQGs1s9KYuBA+KpLYBVcy2nXpyXWqGSmIiRzPxIZ0c6j2ozNxhhdunyS1NO/7/+A
+	RHeoSwHEdgtOnHu1C8z9INZK9oiKvkPad6lmQ+CLOTLl5H86ENgKyQc7A2kTj1oDFZ+DQcYwI1p
+	wLGcknIlIvV+WvAMkZ5W+s6z/4wK57eofcivjCHfAoQZuY9sffHUvrZUtxOAjCMxc7ZlBRmBtPK
+	gVA1+KzTGrqRkrDgFspnceFt3y6PMuWeEz3MgdMdyQTFqlO5nzp0knvR6SZLHDDpel+Zj+DZvRr
+	2hK25ORs8/LVpx+MptJQMf04KuZrEkqAhfSEN4QaKU1A==
+X-Received: by 2002:a05:6000:470c:b0:45e:f2bd:2b16 with SMTP id ffacd0b85a97d-45ef2bd2d41mr3802790f8f.18.1780058235304;
+        Fri, 29 May 2026 05:37:15 -0700 (PDT)
+Received: from [10.11.12.110] ([82.76.215.73])
+        by smtp.gmail.com with ESMTPSA id ffacd0b85a97d-45ef34a0374sm2981872f8f.2.2026.05.29.05.37.14
+        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
+        Fri, 29 May 2026 05:37:14 -0700 (PDT)
+Message-ID: <a7994860-24a3-4f87-84bf-109ed653dda4@linaro.org>
+Date: Fri, 29 May 2026 15:37:13 +0300
 MIME-Version: 1.0
-Subject: Re: [PATCH v6 2/2] mm: use mapping_max_folio_order() for
- force_thp_readahead order
-To: Andrew Morton <akpm@linux-foundation.org>, david@kernel.org,
- willy@infradead.org, ryan.roberts@arm.com, linux-mm@kvack.org
-Cc: r@hev.cc, jack@suse.cz, Andrew Donnellan <andrew+kernel@donnellan.id.au>,
- apopple@nvidia.com, baohua@kernel.org, baolin.wang@linux.alibaba.com,
- brauner@kernel.org, catalin.marinas@arm.com, dev.jain@arm.com,
- kees@kernel.org, kevin.brodsky@arm.com, lance.yang@linux.dev,
- "Liam R. Howlett" <liam@infradead.org>,
- linux-arm-kernel@lists.infradead.org, linux-fsdevel@vger.kernel.org,
- linux-kernel@vger.kernel.org, ljs@kernel.org, mhocko@suse.com,
- npache@redhat.com, pasha.tatashin@soleen.com, rmclure@linux.ibm.com,
- rppt@kernel.org, surenb@google.com, vbabka@kernel.org,
- Al Viro <viro@zeniv.linux.org.uk>, ziy@nvidia.com, hannes@cmpxchg.org,
- kas@kernel.org, shakeel.butt@linux.dev, kernel-team@meta.com
-References: <20260528165635.2068012-1-usama.arif@linux.dev>
- <20260528165635.2068012-3-usama.arif@linux.dev>
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH v5 3/7] firmware: samsung: acpm: Fix dummy stubs to return
+ ERR_PTR
+To: Krzysztof Kozlowski <krzk@kernel.org>, Arnd Bergmann <arnd@arndb.de>,
+ Alim Akhtar <alim.akhtar@samsung.com>
+Cc: linux-kernel@vger.kernel.org, linux-samsung-soc@vger.kernel.org,
+ linux-arm-kernel@lists.infradead.org,
+ Peter Griffin <peter.griffin@linaro.org>,
+ =?UTF-8?Q?Andr=C3=A9_Draszik?= <andre.draszik@linaro.org>,
+ jyescas@google.com, kernel-team@android.com, stable@vger.kernel.org
+References: <20260505-acpm-fixes-sashiko-reports-v5-0-43b5ee7f1674@linaro.org>
+ <20260505-acpm-fixes-sashiko-reports-v5-3-43b5ee7f1674@linaro.org>
+ <03dc9ccc-d819-413e-b8fd-23ccd85675ba@app.fastmail.com>
+ <6c77d706-5944-4e7d-8a4a-b3a6cac6a83b@kernel.org>
 Content-Language: en-US
-X-Report-Abuse: Please report any abuse attempt to abuse@migadu.com and include these headers.
-From: Usama Arif <usama.arif@linux.dev>
-In-Reply-To: <20260528165635.2068012-3-usama.arif@linux.dev>
+From: Tudor Ambarus <tudor.ambarus@linaro.org>
+In-Reply-To: <6c77d706-5944-4e7d-8a4a-b3a6cac6a83b@kernel.org>
 Content-Type: text/plain; charset=UTF-8
 Content-Transfer-Encoding: 7bit
-X-Migadu-Flow: FLOW_OUT
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260529_053634_862590_2364295A 
-X-CRM114-Status: GOOD (  30.38  )
+X-CRM114-CacheID: sfid-20260529_053717_796855_ADFD52C3 
+X-CRM114-Status: GOOD (  19.02  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -83,100 +111,53 @@ Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.i
 
 
 
-On 28/05/2026 17:55, Usama Arif wrote:
-> The force_thp_readahead path in do_sync_mmap_readahead() is gated on
-> HPAGE_PMD_ORDER <= MAX_PAGECACHE_ORDER and always requests
-> HPAGE_PMD_ORDER / HPAGE_PMD_NR. On configurations where HPAGE_PMD_ORDER
-> exceeds MAX_PAGECACHE_ORDER, notably arm64 with a 64K base page size,
-> VM_HUGEPAGE mappings cannot use this path and fall back to the non-forced
-> mmap readahead path even when the mapping supports useful large folios.
+On 5/29/26 3:09 PM, Krzysztof Kozlowski wrote:
+> On 29/05/2026 13:51, Arnd Bergmann wrote:
+>> On Tue, May 5, 2026, at 15:13, Tudor Ambarus wrote:
+>>> Sashiko identified a potential NULL pointer dereference [1].
+>>>
+>>> The dummy stub implementation for devm_acpm_get_by_node() returns NULL
+>>> when CONFIG_EXYNOS_ACPM_PROTOCOL is disabled.
+>>
+>> I meant to comment on this yesterday as well.
+>>
+>> Having stub functions like this return NULL is a common way to
+>> define optional interfaces, where callers still work when the
+>> feature is disabled, though this clearly does not work for
+>> acpm because some callers have a NULL pointer dereference
+>> when compile testing.
+>>
+>> My preferred solution to this type of problem would be to
+>> just remove the stub helpers and drop the ||COMPILE_TEST
+>> from the one user that calls them, see below.
+>>
+>> The point here is that CONFIG_EXYNOS_ACPM_PROTOCOL already
+>> supports compile-testing itself, and all (both) drivers using
+>> it clearly require the support, so this just simplifies
+
+I confirm that the ACPM protocol is mandatory for the clients to
+work, thanks!
+
+>> the option space without losing any build coverage.
+
+nice, I didn't know this. I guess it's a "greedy" algorithm in
+allmodconfig, if the dependency is met the dependents are enabled too.
+
+>>
+>> Signed-off-by: Arnd Bergmann <arnd@arndb.de>
+
+Reviewed-by: Tudor Ambarus <tudor.ambarus@linaro.org>
+>>
 > 
-> Keep the existing PMD-sized behavior when HPAGE_PMD_ORDER fits in the
-> page cache. When it does not, enable forced readahead for mappings that
-> support large folios and request an order capped by both
-> mapping_max_folio_order(mapping) and 2MB.
+> Sure, I am fine with it. I'll take your patch with a bit adjusted commit
+> msg.
 > 
-> 2MB is chosen as the cap because it matches the PMD size on x86_64
-> and on arm64 with 4K or 16K base pages, so the size/memory-pressure
-> tradeoff for folios of that size is already well understood. On arm64
-> with a 64K base page size, 2MB is also the contiguous-PTE (contpte)
-> block size, so the resulting folios coalesce into a single TLB entry
-> and reduce TLB pressure on the readahead path.
-> 
-> The final allocation order may still be clamped by page_cache_ra_order()
-> to the mapping and request geometry, but this gives VM_HUGEPAGE mappings
-> on such configurations a large-folio readahead request instead of
-> dropping back to base-page readahead.
-> 
-> Signed-off-by: Usama Arif <usama.arif@linux.dev>
-> ---
->  mm/filemap.c | 27 +++++++++++++++++++--------
->  1 file changed, 19 insertions(+), 8 deletions(-)
-> 
-> diff --git a/mm/filemap.c b/mm/filemap.c
-> index a16b33e0fc71..bfb891d9da1f 100644
-> --- a/mm/filemap.c
-> +++ b/mm/filemap.c
-> @@ -3312,14 +3312,23 @@ static struct file *do_sync_mmap_readahead(struct vm_fault *vmf)
->  	struct file *fpin = NULL;
->  	vm_flags_t vm_flags = vmf->vma->vm_flags;
->  	bool force_thp_readahead = false;
-> +	unsigned int thp_order = 0;
->  	unsigned short mmap_miss;
->  
->  	ractl._max_index = vmf->vma->vm_pgoff + vma_pages(vmf->vma) - 1;
->  
->  	/* Use the readahead code, even if readahead is disabled */
-> -	if (IS_ENABLED(CONFIG_TRANSPARENT_HUGEPAGE) &&
-> -	    (vm_flags & VM_HUGEPAGE) && HPAGE_PMD_ORDER <= MAX_PAGECACHE_ORDER)
-> -		force_thp_readahead = true;
-> +	if (IS_ENABLED(CONFIG_TRANSPARENT_HUGEPAGE) && (vm_flags & VM_HUGEPAGE)) {
-> +		if (HPAGE_PMD_ORDER <= MAX_PAGECACHE_ORDER) {
-> +			force_thp_readahead = true;
-> +			thp_order = HPAGE_PMD_ORDER;
-> +		} else if (mapping_large_folio_support(mapping)) {
-> +			force_thp_readahead = true;
-> +			thp_order = min_t(unsigned int,
-> +					  mapping_max_folio_order(mapping),
-> +					  get_order(SZ_2M));
-> +		}
-> +	}
->  
 
-I think might be good to include the below comment to explain the decision being made
-here:
+Thank you! I need to drop the devm_acpm_get_by_phandle dummy stub from:
+https://lore.kernel.org/linux-samsung-soc/a59c6e3a-6092-4114-8961-c2a71a812959@kernel.org/T/#m0ac077507129c37b84443513eecadd70b5eaf8b8
 
-From 6673c04a434df01d449c1bdb9ac8de74e19d6b7e Mon Sep 17 00:00:00 2001
-From: Usama Arif <usama.arif@linux.dev>
-Date: Fri, 29 May 2026 05:31:05 -0700
-Subject: [PATCH] [fixlet] mm/filemap: add comment explaining design decision
+Shall I send again the entire set?
 
-Signed-off-by: Usama Arif <usama.arif@linux.dev>
----
- mm/filemap.c | 8 ++++++++
- 1 file changed, 8 insertions(+)
-
-diff --git a/mm/filemap.c b/mm/filemap.c
-index bfb891d9da1f..0a3facf452b3 100644
---- a/mm/filemap.c
-+++ b/mm/filemap.c
-@@ -3319,6 +3319,14 @@ static struct file *do_sync_mmap_readahead(struct vm_fault *vmf)
- 
- 	/* Use the readahead code, even if readahead is disabled */
- 	if (IS_ENABLED(CONFIG_TRANSPARENT_HUGEPAGE) && (vm_flags & VM_HUGEPAGE)) {
-+		/*
-+		 * Preserve PMD-sized readahead where it already fits in
-+		 * the page cache. Otherwise cap the new fallback path at
-+		 * 2MB: this is the common PMD-sized hugepage size, and it
-+		 * avoids memory pressure from very large forced readahead
-+		 * when mapping_max_folio_order() is high (for example,
-+		 * 128MB with 64K base pages on arm64).
-+		 */
- 		if (HPAGE_PMD_ORDER <= MAX_PAGECACHE_ORDER) {
- 			force_thp_readahead = true;
- 			thp_order = HPAGE_PMD_ORDER;
--- 
-2.53.0-Meta
-
-
+Cheers,
+ta
 
