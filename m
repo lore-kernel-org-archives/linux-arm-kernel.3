@@ -4,74 +4,105 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 6BF2ECD5BD2
-	for <linux-arm-kernel@archiver.kernel.org>; Fri, 29 May 2026 05:12:49 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 09FB2CD6E45
+	for <linux-arm-kernel@archiver.kernel.org>; Fri, 29 May 2026 05:37:17 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
-	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=BttzE/fX7kpFiyMECta2BQYA4zESLmMgKfBxXAnML3A=; b=czyGRCh74NFpYqjApG1roL35mX
-	nOn5g+9XtQDPf9nn3uxSh06X1KJHhoNXVnmYPhhXEZKnenxosPTPMZCtfaFCprYBpPxHeqFpHIfs8
-	C82Lq9TK5uVbmEn4Br7f05PoRIXx+/o0rogLZtmOtp9g00pYssYQjhFDkHr+PEXh3kbTCZXuD4Phq
-	/Z30idioUL/x6qqWKffEMl4cabVB6Rs3mJVDmGATe+4Acvpe5nh1ydUOt+9hYQIIbZeC2ry8gQzY1
-	Xbv+uVe/ogIMQYeEGV96SEkbBRqT4CXvL+sXDXC9u7cG58DwZ1xwJwoSHLQSfRc209z6xp6+gcPej
-	ol6MzXZQ==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:
+	Content-Transfer-Encoding:Content-Type:MIME-Version:References:Message-ID:
+	Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=b3mngTSiQ9G4QDQdoy3QdNFGLu5UDTjPqyOy5Rx/Ffg=; b=cEps2ssW3WTenDwvfe9sSec/4e
+	IbUFl8sxjsrxdA8RGCEByyJrtC3iTWc6ZK3OmzU9AD38n9EojT8dd/OITVJmYBl7dy8VeSHSQCeV7
+	QpA2HXLdb5MgRKhCVdQKcVALQOMh52xOi94Afr89d8SuEr1yeLulnssCfQeVk2JqwRCkprpl2DSeQ
+	nBDSLbohhqipmW7qTHoKseIdwTThHmQN9bMnybpi5Rc0jNPiuYh3sE74dphgMMIJ6FPEwUHXMp8GF
+	JZO06hcKCEtKvJ5+GyaxwfJVT01pNz73xUyRnwDuZlzKiYurOi5llJyN+byApghCvzFK8KQ3OgOdR
+	cIKU7ZGQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wSpWR-00000006koD-3BcV;
-	Fri, 29 May 2026 05:12:39 +0000
-Received: from relay8-d.mail.gandi.net ([2001:4b98:dc4:8::228])
+	id 1wSpuA-00000006lcX-0u04;
+	Fri, 29 May 2026 05:37:10 +0000
+Received: from mail-dl1-x1235.google.com ([2607:f8b0:4864:20::1235])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wSpWO-00000006knm-0QMp;
-	Fri, 29 May 2026 05:12:38 +0000
-Received: by mail.gandi.net (Postfix) with ESMTPSA id 740FF3EC79;
-	Fri, 29 May 2026 05:12:26 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=yoseli.org; s=gm1;
-	t=1780031549;
-	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
-	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
-	 content-transfer-encoding:content-transfer-encoding:
-	 in-reply-to:in-reply-to:references:references;
-	bh=BttzE/fX7kpFiyMECta2BQYA4zESLmMgKfBxXAnML3A=;
-	b=QTaGrf2pdfrCoV6beJM+TI/zonhCWkPRlcMkodOdAkqZvKCMaPseNOF9hav1WXK0WmGbYD
-	Q1jI8xiOEAieDkfiOK/oiCxJDDEZP/Dixi3udWL/pgmmdE5zkS/J1THwSKNDoCTHa5lGWD
-	6zXg3AQZf18AF1FzzAGdkN9k6F6ePEegGN8Lf7JLqEozVbzjG6mk/VPwC5qwJ3utbwFWI1
-	9OThQzMCLLk/HZp9i7Q5K2YfBRZaH436+mvn8iTUNQ+fnfqxIjPUdHmxRBE3Fr+dsOIeuT
-	0EGqyVcbSASU+5VgbraZb3aUY89oTWAqUrrBl1JbZicBEoSxWtgFevn1wE85wQ==
-Message-ID: <1ddf8baa-47db-4b9d-9df6-a6075bc94593@yoseli.org>
-Date: Fri, 29 May 2026 07:12:26 +0200
+	id 1wSpu7-00000006lby-3Gov
+	for linux-arm-kernel@lists.infradead.org;
+	Fri, 29 May 2026 05:37:09 +0000
+Received: by mail-dl1-x1235.google.com with SMTP id a92af1059eb24-1363e78746eso9885046c88.1
+        for <linux-arm-kernel@lists.infradead.org>; Thu, 28 May 2026 22:37:07 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=gmail.com; s=20251104; t=1780033026; x=1780637826; darn=lists.infradead.org;
+        h=in-reply-to:content-transfer-encoding:content-disposition
+         :mime-version:references:message-id:subject:cc:to:from:date:from:to
+         :cc:subject:date:message-id:reply-to;
+        bh=b3mngTSiQ9G4QDQdoy3QdNFGLu5UDTjPqyOy5Rx/Ffg=;
+        b=oLXJgKCz60TFiV/hPMJPa4jqe+8RPoGfVt52WAO/wFc05sWVFORLAeIJNS6du/iTwS
+         LCphhyVwrjD7edBORljVDsWWsEUclGg9sEcWJFDOSUCT3XqZW7rqdLQ1982PXENXUPgz
+         X43hAwpvFINO7NLZbraBHSW13nO1JAtR167uAu79FG1fFpIW6NfFgwI/DB58W22VSk2t
+         ck/kw9gwmoPPpeoKrvPOk8UB/MhBtivj/j2Ttiea/iMhx5cw+uqWbWpsE3sls/SYloGS
+         0uxcVxp+bp1x6bwDTiZdIyJXS8l2Rvz0J7ompJyYyEJ72pK8aK3TBWobyHq8l/z0qhB2
+         ebdw==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20251104; t=1780033026; x=1780637826;
+        h=in-reply-to:content-transfer-encoding:content-disposition
+         :mime-version:references:message-id:subject:cc:to:from:date:x-gm-gg
+         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to;
+        bh=b3mngTSiQ9G4QDQdoy3QdNFGLu5UDTjPqyOy5Rx/Ffg=;
+        b=hKPo49Of53RP4Mpj6bCXl6fAy2JJ5QofeuKZRFu3PFq5LQLFatSNR4S0fhadj7AWpV
+         nn1DIdO2C31KpTzc78x/JDjnZIYoXQbeqS2UGnU6Xy+STedXraOYeXhGqnfJwZSMXX9r
+         lqgjQR1nJHRmr9T5JrIWvqxiGFyWB/NyP6gNlIsoIQ/8h4EQaqRfrsgSWFLDkHXB0HJG
+         WzrD0LLEeat26Z+Wg5tKghSxpsEbx0EpxJi8L1LMHag6TJB8hFeoKbGdxvw70FilWeoV
+         JVUdKhkgqA+XWEjYp76Zft8w1tpGwnxyvlnaVhBlKnaXtCHPS+hLK1Aymc0lxjV52XvD
+         srww==
+X-Forwarded-Encrypted: i=1; AFNElJ9/hazn71pstAIMiNLtli7fHcXlF0ywRvOZqnJKNfUP79ZS4e2CqYK7qqql4r1vvoIxppXNsfkAikjg1ni+sSDe@lists.infradead.org
+X-Gm-Message-State: AOJu0Yw63Kk6fkVZlYRHAbNeda2QbgmCFuuyoAITZJDMtlwetc1o9Cs0
+	W/Yu5mzM3nCV0Tfmc5JcmRlfg/fY+CIX7wPCUbx/4duJolW/OoZnqxqX
+X-Gm-Gg: Acq92OHEUs+/ZPmm+lpClFI/jUPgganWLHtO6pbzQweWD2ErYhLfXi0YcYFtGH2y8Ss
+	tJh9cf5i7Yyg0P4PTIqIFuX2/0v8IYtsPQEYuzIuM9y4RJ6etw/3qiuJ8TfbncJMwAoG+nwqi5Q
+	co9Znj401qZEPYJiiZ4xcBoGLOvpT0ymQj+vzlg1616jnDZ+jFEXDewuhAZcUk2MEiPKGUijRjX
+	0cbDGYeywkf/7Cvl86pjmvFOsCj8FO5uSCdIHMWQamwZT+/HJhP9PlaNLAbP47H74PNSgZZAkIn
+	6I3rwVqc9CMRWcBDU6EWgTL7FXEJRVRV3yWK6/VEekZR6+27B6dIt2AJUb4X7MN1aUWVOgzBBz1
+	xzASKnqI9o6lCk2EYSlVxEMghldVNzA+BtsQ4ZU//Yvsvzcg9xly/9AMgQg1q4VzYiYj2UAwsfa
+	A+lhXiwFgYMlaBrHhzST9DGqwIO+wGqebdTwqC+rO1DsiAa4zQZYi2ZLeRZMBUEo85bHVroSSO1
+	DI=
+X-Received: by 2002:a05:7022:2223:b0:135:d76a:aedc with SMTP id a92af1059eb24-137aeee5faemr536827c88.33.1780033026219;
+        Thu, 28 May 2026 22:37:06 -0700 (PDT)
+Received: from google.com ([2a00:79e0:2ebe:8:e169:a62b:d3ca:e8c5])
+        by smtp.gmail.com with ESMTPSA id a92af1059eb24-137b2d04287sm832719c88.0.2026.05.28.22.37.03
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Thu, 28 May 2026 22:37:05 -0700 (PDT)
+Date: Thu, 28 May 2026 22:37:01 -0700
+From: Dmitry Torokhov <dmitry.torokhov@gmail.com>
+To: Linus Walleij <linusw@kernel.org>
+Cc: Arnd Bergmann <arnd@kernel.org>, linux-gpio@vger.kernel.org, 
+	linux-kernel@vger.kernel.org, Arnd Bergmann <arnd@arndb.de>, 
+	Christian Lamparter <chunkeey@googlemail.com>, Johannes Berg <johannes@sipsolutions.net>, 
+	Aaro Koskinen <aaro.koskinen@iki.fi>, Andreas Kemnade <andreas@kemnade.info>, 
+	Kevin Hilman <khilman@baylibre.com>, Roger Quadros <rogerq@kernel.org>, 
+	Tony Lindgren <tony@atomide.com>, Thomas Bogendoerfer <tsbogend@alpha.franken.de>, 
+	John Paul Adrian Glaubitz <glaubitz@physik.fu-berlin.de>, Thomas Gleixner <tglx@kernel.org>, 
+	Ingo Molnar <mingo@redhat.com>, Borislav Petkov <bp@alien8.de>, 
+	Dave Hansen <dave.hansen@linux.intel.com>, x86@kernel.org, "H. Peter Anvin" <hpa@zytor.com>, 
+	Bartosz Golaszewski <brgl@kernel.org>, Lee Jones <lee@kernel.org>, Pavel Machek <pavel@kernel.org>, 
+	Matti Vaittinen <mazziesaccount@gmail.com>, Florian Fainelli <florian.fainelli@broadcom.com>, 
+	Jonas Gorski <jonas.gorski@gmail.com>, Andrew Lunn <andrew@lunn.ch>, 
+	Vladimir Oltean <olteanv@gmail.com>, "David S. Miller" <davem@davemloft.net>, 
+	Eric Dumazet <edumazet@google.com>, Jakub Kicinski <kuba@kernel.org>, 
+	Paolo Abeni <pabeni@redhat.com>, linux-wireless@vger.kernel.org, linux-omap@vger.kernel.org, 
+	linux-arm-kernel@lists.infradead.org, linux-mips@vger.kernel.org, linux-sh@vger.kernel.org, 
+	linux-input@vger.kernel.org, linux-leds@vger.kernel.org, netdev@vger.kernel.org
+Subject: Re: [PATCH 02/10] [v3] input: gpio-keys: make legacy gpiolib optional
+Message-ID: <ahklyAUMaOxy3Z9X@google.com>
+References: <20260520183815.2510387-1-arnd@kernel.org>
+ <20260520183815.2510387-3-arnd@kernel.org>
+ <CAD++jLnYeh3GfEfNXfCYdcdg_j2RAU63TYewwaTx3tm0tM531w@mail.gmail.com>
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH v2] media: bcm2835-unicam: Fix log status runtime access
-To: Eugen Hristev <ehristev@kernel.org>,
- Raspberry Pi Kernel Maintenance <kernel-list@raspberrypi.com>,
- Mauro Carvalho Chehab <mchehab@kernel.org>,
- Florian Fainelli <florian.fainelli@broadcom.com>,
- Broadcom internal kernel review list
- <bcm-kernel-feedback-list@broadcom.com>, Ray Jui <rjui@broadcom.com>,
- Scott Branden <sbranden@broadcom.com>,
- Dave Stevenson <dave.stevenson@raspberrypi.com>,
- Hans Verkuil <hverkuil@kernel.org>,
- Laurent Pinchart <laurent.pinchart@ideasonboard.com>,
- Sakari Ailus <sakari.ailus@linux.intel.com>
-Cc: Naushir Patuck <naush@raspberrypi.com>, linux-media@vger.kernel.org,
- linux-rpi-kernel@lists.infradead.org, linux-arm-kernel@lists.infradead.org,
- linux-kernel@vger.kernel.org
-References: <20260522-bcmpipm-v2-1-a3da66cbc9f0@kernel.org>
-Content-Language: fr-FR, en-US, en-GB
-From: Jean-Michel Hautbois <jeanmichel.hautbois@yoseli.org>
-In-Reply-To: <20260522-bcmpipm-v2-1-a3da66cbc9f0@kernel.org>
-Content-Type: text/plain; charset=UTF-8; format=flowed
+Content-Type: text/plain; charset=utf-8
+Content-Disposition: inline
 Content-Transfer-Encoding: 8bit
-X-GND-Sasl: jeanmichel.hautbois@yoseli.org
-X-GND-Cause: dmFkZTFP7v61qAXaDtMJlaPuR+iahK4NnAc5ChdxPN86ogDXQpgj7OFiRtQMgoE0rp8UQzVA9VRBBpOtdM4wiZrwtmFajBw1oHW9V7FcITTffacofi4KIQYotDKuBBXRb1V4OI7LKdgHnWdhls6wf8OBPV1pjQwk3g4G3KSdU4FgelGlv95JAnPOAxu5t7e7RSFosFzOrUpIURGPaH5DwBAhxvxtPVOQdue5Cpq5Q8V3/4ZKLV911UhBTRrwG+WrXqpWq13xJpYX0fRd1h5n5oQ1Bt4hDFx2qCNUcRP2A/cPhYl6yHjExZUkdb6Hf9TeiPCVPIz5nhbNcLoTWx4OTN6Y7k8Xnb5ErLxZJEYMOgOLIH0tJsskaCpRxJecjyVk7XlJVF3Z1JFhs5390Zz6OvI19nXRlHYND8cmQPDR1QUtbA28JTmXoP3GKUYei8oHPyX6kE9+anGwZTn3JI+1+yeOgxrX310gshlTP6QfzpFoFNSVpyEKAzyk0yDgogIye4qyXuPSebyMzE3S7BRDumiOFAJMOyn+aHB8hAvpX/0vaKkr6PNYMTmq4DAh8dKlT7RGxuZF4waEyx6LeSwWfl/7+d/69O5BssSYwNcZ0cAYe+ize5vUlk2RILlgAYkj9hTwP5etaiNqdOLX8OsffT0/S4PDMUeRp4wJ+bK6yCZfstoz0Q
-X-GND-State: clean
-X-GND-Score: -100
+In-Reply-To: <CAD++jLnYeh3GfEfNXfCYdcdg_j2RAU63TYewwaTx3tm0tM531w@mail.gmail.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260528_221236_332336_2D13E0FE 
-X-CRM114-Status: GOOD (  19.73  )
+X-CRM114-CacheID: sfid-20260528_223707_821870_0E612FEE 
+X-CRM114-Status: GOOD (  19.18  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -86,91 +117,33 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hi Eugen,
-
-Le 22/05/2026 à 17:28, Eugen Hristev a écrit :
-> When requesting log status, the block might be powered off, but registers
-> are being read.
-> Avoid reading the registers if the device is not resumed, thus also avoid
-> powering up the device just for log status.
+On Mon, May 25, 2026 at 10:57:44AM +0200, Linus Walleij wrote:
+> On Wed, May 20, 2026 at 8:38 PM Arnd Bergmann <arnd@kernel.org> wrote:
 > 
-> Fixes: 392cd78d495f ("media: bcm2835-unicam: Add support for CCP2/CSI2 camera interface")
-> Signed-off-by: Eugen Hristev <ehristev@kernel.org>
-> ---
-> Changes in v2:
-> - changed to use pm_runtime_get_if_active()
-> - add corresponding put()
-> - Link to v1: https://patch.msgid.link/20260521-bcmpipm-v1-1-3eba88d88045@kernel.org
+> > From: Arnd Bergmann <arnd@arndb.de>
+> >
+> > Most users of gpio-keys and gpio-keys-polled use modern gpiolib
+> > interfaces, but there are still number of ancient sh, arm32 and x86
+> > machines that have never been converted.
+> >
+> > Add an #ifdef block for the parts of the driver that are only used on
+> > those legacy machines.
+> >
+> > The two Rohm PMIC drivers use a gpio-keys device without an actual GPIO,
+> > passing an IRQ number instead. In order to keep this working both with
+> > and with CONFIG_GPIOLIB_LEGACY, change the gpio-keys driver to ignore
+> > the gpio number if an IRQ is passed.
+> >
+> > Link: https://lore.kernel.org/all/b3c94552-c104-42e3-be15-7e8362e8039e@gmail.com/
+> > Link: https://lore.kernel.org/all/afJXG4_rtaj3l2Dk@google.com/
+> > Signed-off-by: Arnd Bergmann <arnd@arndb.de>
 > 
-> To: Raspberry Pi Kernel Maintenance <kernel-list@raspberrypi.com>
-> To: Mauro Carvalho Chehab <mchehab@kernel.org>
-> To: Florian Fainelli <florian.fainelli@broadcom.com>
-> To: Ray Jui <rjui@broadcom.com>
-> To: Scott Branden <sbranden@broadcom.com>
-> To: Broadcom internal kernel review list <bcm-kernel-feedback-list@broadcom.com>
-> To: Sakari Ailus <sakari.ailus@linux.intel.com>
-> To: Jean-Michel Hautbois <jeanmichel.hautbois@yoseli.org>
-> To: Laurent Pinchart <laurent.pinchart@ideasonboard.com>
-> To: Hans Verkuil <hverkuil@kernel.org>
-> To: Naushir Patuck <naush@raspberrypi.com>
-> Cc: Dave Stevenson <dave.stevenson@raspberrypi.com>
-> Cc: linux-media@vger.kernel.org
-> Cc: linux-rpi-kernel@lists.infradead.org
-> Cc: linux-arm-kernel@lists.infradead.org
-> Cc: linux-kernel@vger.kernel.org
-> ---
->   drivers/media/platform/broadcom/bcm2835-unicam.c | 9 +++++++++
->   1 file changed, 9 insertions(+)
-> 
-> diff --git a/drivers/media/platform/broadcom/bcm2835-unicam.c b/drivers/media/platform/broadcom/bcm2835-unicam.c
-> index 8d28ba0b59a3..93815b8ab930 100644
-> --- a/drivers/media/platform/broadcom/bcm2835-unicam.c
-> +++ b/drivers/media/platform/broadcom/bcm2835-unicam.c
-> @@ -2052,6 +2052,13 @@ static int unicam_log_status(struct file *file, void *fh)
->   		 node->fmt.fmt.pix.width, node->fmt.fmt.pix.height);
->   	dev_info(unicam->dev, "V4L2 format:         %08x\n",
->   		 node->fmt.fmt.pix.pixelformat);
-> +
-> +	if (!pm_runtime_get_if_active(unicam->dev)) {
+> Reviewed-by: Linus Walleij <linusw@kernel.org>
 
-Well, if I am picky I would say that pm_runtime_get_if_active() can 
-return -EINVAL if runtime PM is disabled for the device. It should then 
-be tested against '<= 0' ?
+OK, if Lee Acks MFD changes I can pick this up.
 
-I suppose this should not happen really often, as very few drivers 
-actually test this case...
+Thanks.
 
-With or without this small change:
-Reviewed-by: Jean-Michel Hautbois <jeanmichel.hautbois@yoseli.org>
-
-Thanks,
-JM
-
-> +		dev_info(unicam->dev,
-> +			 "Live data N/A due to device inactive\n");
-> +		return 0;
-> +	}
-> +
->   	reg = unicam_reg_read(unicam, UNICAM_IPIPE);
->   	dev_info(unicam->dev, "Unpacking/packing:   %u / %u\n",
->   		 unicam_get_field(reg, UNICAM_PUM_MASK),
-> @@ -2065,6 +2072,8 @@ static int unicam_log_status(struct file *file, void *fh)
->   	dev_info(unicam->dev, "Write pointer:       %08x\n",
->   		 unicam_reg_read(unicam, UNICAM_IBWP));
->   
-> +	pm_runtime_put(unicam->dev);
-> +
->   	return 0;
->   }
->   
-> 
-> ---
-> base-commit: e98d21c170b01ddef366f023bbfcf6b31509fa83
-> change-id: 20260521-bcmpipm-6c578e73239c
-> 
-> Best regards,
-> --
-> Eugen Hristev <ehristev@kernel.org>
-> 
-
+-- 
+Dmitry
 
