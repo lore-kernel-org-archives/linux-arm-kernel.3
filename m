@@ -4,72 +4,69 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id BA72ECD4F54
-	for <linux-arm-kernel@archiver.kernel.org>; Fri, 29 May 2026 16:37:22 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 637D2CD6E4A
+	for <linux-arm-kernel@archiver.kernel.org>; Fri, 29 May 2026 16:43:36 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:MIME-Version:References:In-Reply-To:Message-ID:Subject:Cc:To:
-	From:Date:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=Er+CRp+/fzF6XP7lhBBmaTyKlQe5AEFZx4olmr5xIQ0=; b=b1hLBaSvMGgXRd9hU77SawmsA1
-	VI9CNls+iMgIKOXuWEM+/vkjICM2Q0GoAarz7KQ2Sx6iLn0g23eQi0RM1EaCBD0FzyefG8/tHDWOO
-	HRoc9UCxkfWAoz0qN7HzQfU5zOnxpBcnEOIVMeNaVyL1TO9Bm5pUKfKFE23D++heECBthjAlFOZhX
-	ZGqw+iExAbJgL9MLsUH4DLBGHjo/EdwwRvDuL/XTsDV/THCVnTOJyy/vHN7FkrA88zigvKxyjwmA8
-	QrK1RgodMzdwdSTHBV1XI0RxlMJOEEExZ/P0/4k1mnaQD8c9mEuiFnMXL0TpZBTNN54xNOiE+OTcx
-	0cw7PTLQ==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=r957v2CWrz1MjIvRcsu269D9FVC83NzhoDB9LUW/yek=; b=CNp1DmGacVGemHX51fVisr3C4W
+	2r1U6M6KRa9FU+fZOXKW1hrRsmjWcV5DyMGp0kTf/C14KTJS97CgFLfDVZAUpmEsXzzq9pa3gZcvL
+	Y2SkyEgG5uMdk0h5fJAHMIbcuRiPlXFVpfpcL+sP3IlMf+MDJ4tkPaGwRelxpoZObcaE5csQB/ti4
+	5t9ekEeH11hf+80r0wc1SCrvCNRSnrxrtPhOF283fDyP7rDGJDwuH1PkAZ4Z3LlgTifzrzGq0eszc
+	RAGKwhvbUG4dVhUzVLY4r4i+T2M5qwQrOjFx9knd6fFCvu88QBTeAhQteAKAF0jXgskDxstZIv9LS
+	jufzGluA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wT0Cu-00000007uPs-38Yh;
-	Fri, 29 May 2026 16:37:12 +0000
-Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
+	id 1wT0J0-00000007usB-1EqK;
+	Fri, 29 May 2026 16:43:30 +0000
+Received: from tor.source.kernel.org ([172.105.4.254])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wT0Cs-00000007uPH-0VZe
-	for linux-arm-kernel@lists.infradead.org;
-	Fri, 29 May 2026 16:37:11 +0000
+	id 1wT0Iy-00000007uru-3Und;
+	Fri, 29 May 2026 16:43:28 +0000
 Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
-	by sea.source.kernel.org (Postfix) with ESMTP id 66DDA43767;
-	Fri, 29 May 2026 16:37:09 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id EF4E71F00893;
-	Fri, 29 May 2026 16:36:57 +0000 (UTC)
+	by tor.source.kernel.org (Postfix) with ESMTP id 081E46022D;
+	Fri, 29 May 2026 16:43:28 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 6CB111F00898;
+	Fri, 29 May 2026 16:43:22 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1780072629;
-	bh=Er+CRp+/fzF6XP7lhBBmaTyKlQe5AEFZx4olmr5xIQ0=;
-	h=Date:From:To:Cc:Subject:In-Reply-To:References;
-	b=DpJhVU3rHJQc98K2nTljj478Xh+GZiF0GUfOrwna3KtBKLlr2LjxoQlGAGOl1YFYj
-	 JBYbOaE9746eYVP4RH2CqkzDMpk83yl26x5ckIrnbt4smT+ohvYdTsPlkFYVI1mTej
-	 EB0KqUUmrVx45MeOEZ5y7jdg7Lsd+RA3Snlz6IhJrxF4Iu5Nya8fgNgD4vxLhbNqjH
-	 KpmKdd5xCszMTY5cp16+JK/yjzYpX+MQt80DJQ5CJWKsYanZIszzTUQHokKsxNcmTq
-	 Sh9iw2+A5hUTvVNfA2MHfr0zoJwCpvO1wp44xDknFQUzawJM/USdYwTFXVanvDnM+M
-	 mqN0hjyHWFxgQ==
-Date: Fri, 29 May 2026 17:36:52 +0100
-From: Jonathan Cameron <jic23@kernel.org>
-To: Ahmed Tiba <ahmed.tiba@arm.com>
-Cc: will@kernel.org, xueshuai@linux.alibaba.com, saket.dumbre@intel.com,
- mchehab@kernel.org, dave@stgolabs.net, djbw@kernel.org, bp@alien8.de,
- tony.luck@intel.com, guohanjun@huawei.com, lenb@kernel.org,
- skhan@linuxfoundation.org, vishal.l.verma@intel.com, rafael@kernel.org,
- corbet@lwn.net, ira.weiny@intel.com, dave.jiang@intel.com,
- krzk+dt@kernel.org, robh@kernel.org, catalin.marinas@arm.com,
- alison.schofield@intel.com, conor+dt@kernel.org,
- linux-arm-kernel@lists.infradead.org, Michael.Zhao2@arm.com,
- linux-doc@vger.kernel.org, linux-kernel@vger.kernel.org,
- linux-cxl@vger.kernel.org, Dmitry.Lamerov@arm.com,
- devicetree@vger.kernel.org, linux-acpi@vger.kernel.org,
- linux-edac@vger.kernel.org, acpica-devel@lists.linux.dev
-Subject: Re: [PATCH v5 00/10] ACPI: APEI: share GHES CPER helpers and add DT
- FFH provider
-Message-ID: <20260529173652.25069d3b@jic23-huawei>
-In-Reply-To: <20260529-topics-ahmtib01-ras_ffh_arm_internal_review-v5-0-2e0500d42642@arm.com>
-References: <20260529-topics-ahmtib01-ras_ffh_arm_internal_review-v5-0-2e0500d42642@arm.com>
-X-Mailer: Claws Mail 4.4.0 (GTK 3.24.52; x86_64-pc-linux-gnu)
+	s=k20260515; t=1780073007;
+	bh=r957v2CWrz1MjIvRcsu269D9FVC83NzhoDB9LUW/yek=;
+	h=Date:From:To:Cc:Subject:References:In-Reply-To;
+	b=eSi9kAZXupGxFPLy4ASfu+n36iRVBcamZ6fRqO8A5ZbTueEu4FXeAUjsrq/S9oQjd
+	 dIWHg53c6IqAnk732NmRuFNnq3KWRtAmBQ4DVhTKf4YX9oSau0/+c1EOcnvBB6sPYN
+	 mHvkZdq6+CaNH5PPsSYEln9oGOA4hBJfthYGNjk4gW4p/Q651oM4yuUUcyBQ8KjV0O
+	 fMQeTKArAwX7f6Nwfv0SHKdowN8ZVaQ+IcrsN9dXgOphz8ckUjzrTrVkD1F1hn6IVB
+	 zvlTX/+ByKxMQ2mXKL75mxb0QT/IdTHqfTqH1/ue/rSGqVYqeQWwNZpSKjghIFbsYk
+	 V0eMJ7oYmML/A==
+Date: Fri, 29 May 2026 17:43:20 +0100
+From: Conor Dooley <conor@kernel.org>
+To: Damon Ding <damon.ding@rock-chips.com>
+Cc: hjc@rock-chips.com, heiko@sntech.de, andy.yan@rock-chips.com,
+	maarten.lankhorst@linux.intel.com, mripard@kernel.org,
+	tzimmermann@suse.de, airlied@gmail.com, simona@ffwll.ch,
+	robh@kernel.org, krzk+dt@kernel.org, conor+dt@kernel.org,
+	andrzej.hajda@intel.com, neil.armstrong@linaro.org,
+	rfoss@kernel.org, Laurent.pinchart@ideasonboard.com,
+	jonas@kwiboo.se, jernej.skrabec@gmail.com,
+	nicolas.frattaroli@collabora.com, cristian.ciocaltea@collabora.com,
+	sebastian.reichel@collabora.com, dmitry.baryshkov@oss.qualcomm.com,
+	luca.ceresoli@bootlin.com, dianders@chromium.org,
+	m.szyprowski@samsung.com, dri-devel@lists.freedesktop.org,
+	devicetree@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
+	linux-rockchip@lists.infradead.org, linux-kernel@vger.kernel.org
+Subject: Re: [PATCH v4 1/3] dt-bindings: display: bridge: analogix-dp: Add
+ data-lanes support for endpoint
+Message-ID: <20260529-concur-grandly-745bb08c1d3f@spud>
+References: <20260529040530.741336-1-damon.ding@rock-chips.com>
+ <20260529040530.741336-2-damon.ding@rock-chips.com>
 MIME-Version: 1.0
-Content-Type: text/plain; charset=US-ASCII
-Content-Transfer-Encoding: 7bit
-X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260529_093710_180950_54556A5D 
-X-CRM114-Status: UNSURE (   9.64  )
-X-CRM114-Notice: Please train this message.
+Content-Type: multipart/signed; micalg=pgp-sha512;
+	protocol="application/pgp-signature"; boundary="5luu5ycDxMPs2Thy"
+Content-Disposition: inline
+In-Reply-To: <20260529040530.741336-2-damon.ding@rock-chips.com>
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -84,19 +81,119 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Fri, 29 May 2026 10:50:40 +0100
-Ahmed Tiba <ahmed.tiba@arm.com> wrote:
 
-> This is v5 of the GHES refactor series. Compared to v4, it only updates
-> the DT binding to address the latest review comments.
+--5luu5ycDxMPs2Thy
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+Content-Transfer-Encoding: quoted-printable
 
-https://sashiko.dev/#/patchset/20260529-topics-ahmtib01-ras_ffh_arm_internal_review-v5-0-2e0500d42642@arm.com
+On Fri, May 29, 2026 at 12:05:28PM +0800, Damon Ding wrote:
+> Add data-lanes property support to the port@1 endpoint for physical
+> lane mapping configuration.
+>=20
+> Lane mapping is mainly used for below scenarios:
+> 1. Correct PCB lane swap and differential line routing crossover
+>    without hardware changes;
+> 2. Adapt mismatched lane pin definitions between SoC and eDP panel;
+> 3. Support multiple panel hardware variants on the same board
+>    by configuring data-lanes in device tree only.
+>=20
+> Additionally, add data-lanes setting in Rockchip eDP DT node example
+> to show actual lane mapping usage.
+>=20
+> Signed-off-by: Damon Ding <damon.ding@rock-chips.com>
 
-It is mostly not happy with existing code, but there is one point where it notes
-a header that should be there (linux/cleanup.h)
+Not entirely sure if this is correct, but I'll leave that decision up to
+the display folks who know the hardware.
+pw-bot: not-applicable
+Acked-by: Conor Dooley <conor.dooley@microchip.com>
 
-Given you are working with this code at the moment, maybe take a look at some
-of the reported issues whilst you are here!
+Cheers,
+Conor.
 
-Jonathan
+>=20
+> ---
+>=20
+> Changes in v2:
+> - Add lane mapping application scenarios in commit message.
+> - Remove redundant deprecated property 'data-lanes' for eDP node.
+> - Update port@1 $ref to /schemas/graph.yaml#/$defs/port-base.
+>=20
+> Changes in v3:
+> - Squash data-lanes adjustment of Rockchip eDP DT example into this
+>   commit.
+> - Add unevaluatedProperties: false to both the port@1 and endpoint
+>   nodes.
+> ---
+>  .../bindings/display/bridge/analogix,dp.yaml  | 19 ++++++++++++++-----
+>  .../rockchip/rockchip,analogix-dp.yaml        |  1 +
+>  2 files changed, 15 insertions(+), 5 deletions(-)
+>=20
+> diff --git a/Documentation/devicetree/bindings/display/bridge/analogix,dp=
+=2Eyaml b/Documentation/devicetree/bindings/display/bridge/analogix,dp.yaml
+> index 62f0521b0924..ecf206871cdd 100644
+> --- a/Documentation/devicetree/bindings/display/bridge/analogix,dp.yaml
+> +++ b/Documentation/devicetree/bindings/display/bridge/analogix,dp.yaml
+> @@ -42,13 +42,22 @@ properties:
+>      properties:
+>        port@0:
+>          $ref: /schemas/graph.yaml#/properties/port
+> -        description:
+> -          Input node to receive pixel data.
+> +        description: Input node to receive pixel data.
+> =20
+>        port@1:
+> -        $ref: /schemas/graph.yaml#/properties/port
+> -        description:
+> -          Port node with one endpoint connected to a dp-connector node.
+> +        $ref: /schemas/graph.yaml#/$defs/port-base
+> +        unevaluatedProperties: false
+> +        description: Port node with one endpoint connected to sink devic=
+e node.
+> +        properties:
+> +          endpoint:
+> +            $ref: /schemas/media/video-interfaces.yaml#
+> +            unevaluatedProperties: false
+> +            properties:
+> +              data-lanes:
+> +                minItems: 1
+> +                maxItems: 4
+> +                items:
+> +                  enum: [ 0, 1, 2, 3 ]
+> =20
+>      required:
+>        - port@0
+> diff --git a/Documentation/devicetree/bindings/display/rockchip/rockchip,=
+analogix-dp.yaml b/Documentation/devicetree/bindings/display/rockchip/rockc=
+hip,analogix-dp.yaml
+> index d99b23b88cc5..f690ee393fdb 100644
+> --- a/Documentation/devicetree/bindings/display/rockchip/rockchip,analogi=
+x-dp.yaml
+> +++ b/Documentation/devicetree/bindings/display/rockchip/rockchip,analogi=
+x-dp.yaml
+> @@ -117,6 +117,7 @@ examples:
+>            reg =3D <1>;
+> =20
+>            edp_out_panel: endpoint {
+> +            data-lanes =3D <0 1>;
+>              remote-endpoint =3D <&panel_in_edp>;
+>            };
+>          };
+> --=20
+> 2.34.1
+>=20
+>=20
+
+--5luu5ycDxMPs2Thy
+Content-Type: application/pgp-signature; name="signature.asc"
+
+-----BEGIN PGP SIGNATURE-----
+
+iHUEABYKAB0WIQRh246EGq/8RLhDjO14tDGHoIJi0gUCahnCKAAKCRB4tDGHoIJi
+0krpAP9zkNijMkKB+OlQAVfE8qu8J6APtlizk/cPwZuBFwjGmQEA1qzuR9AdmjN2
+NDIExP/FQCGHdc3jKLG6nIP56dmsvAQ=
+=Mv2x
+-----END PGP SIGNATURE-----
+
+--5luu5ycDxMPs2Thy--
 
