@@ -4,128 +4,72 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 828F5CD4F54
-	for <linux-arm-kernel@archiver.kernel.org>; Fri, 29 May 2026 15:54:17 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id AEDC9CD4F54
+	for <linux-arm-kernel@archiver.kernel.org>; Fri, 29 May 2026 15:55:11 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:CC:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=Y8B7fsGaRMlcMnFyTABzOXe4W2xFt4+gZgVhtUjR6zo=; b=EM+K3Xs3FQHjZkehfdZ1hQ0Oc2
-	djmazOvWk3K76C5nE7pKE8yGgxt8xCzFCOeKusqA0lrOAeu6E2JhAc2pM99JqlRmOqFn4LBmSPg4y
-	NzXi61q2NdJJahGh6QS+iVdMk6CLGi9c5lH4nWWUS+gFBXUvqsPhRf8+mCSfP+sOhVlZvdXTdMTX4
-	jlB+39vob/AjEbCdGHfjSCUM8eKuFCAr6m+lhYGGVULqOgLKKNUWMk/KWdVHPKDbdTy0tRTFfGv/P
-	hUY5uxKHhOebPYq8FE3xQM70N+aUee8y/QMyZKBqhFHEEnkLGaENfipIGRVM/vSIdsV1JxLzxnAK8
-	6dOa2TEQ==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:MIME-Version:References:In-Reply-To:Message-ID:Subject:Cc:To:
+	From:Date:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=sVe55kbXzOg+Z8nDDwZg/tyzZkOiB0dMGcWUzNM9AVY=; b=PWFFZWTJ+yP+MaeCnxRxYwfvPz
+	x+LdSZ6MFMF/zs/0QEpRSvE2CwzibUXfwptxZTxugDOocZb1tVpPz4nLjK7J5ysr21tRRO6LC/EZt
+	S7SLw3PqC/n1LJDih1ZMj/HArUGFhbkbftJrPX3JNrCFBiwUVo/umyLn2lHQOWKr/s8JdoXQMeWRw
+	zZPm8SRxkMMFbasu815ic5vsNeJlBTi+XqiwxwclFHRSG/Vun6msdbVTx9VNVau3jGvE0zxBVN/XO
+	QKuMR5ZoukdspduAGEcSIDXrKTCMOfNp4zWeHq3NqT8X/AAWS5/QI7YRaRj03C8jIJ9ovJOKr3JFt
+	KaTxR99A==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wSzXG-00000007lQk-3VLc;
-	Fri, 29 May 2026 15:54:11 +0000
-Received: from mail-southcentralusazon11011013.outbound.protection.outlook.com ([40.93.194.13] helo=SN4PR0501CU005.outbound.protection.outlook.com)
+	id 1wSzY9-00000007lga-2WZo;
+	Fri, 29 May 2026 15:55:05 +0000
+Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wSzX9-00000007lMc-1aDP
+	id 1wSzY4-00000007lfX-3SGi
 	for linux-arm-kernel@lists.infradead.org;
-	Fri, 29 May 2026 15:54:08 +0000
-ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
- b=h/h+ya0SKVRa0XBPQxpcS9UQ0tdg7Rx7uPBgdFqaViQRYeOI07BkzO9v4sAnLThH2kDnLh6Iw0JQHYfjP5I8GAN2QpiCqUIDPGl3FqW1S03czys4Ns0I7MyBjC+JJys2N0qDKahYtFY1nggrz/kb6aqdMq+YaS+M6Etiym0DKD2HNVmneeey82paank57Q/ES539pv41aV/aZ97MDxaNFO3MqIdJTTH0hxPv21vSq782ZzCzmDAI+Y6/9URksWINnXC2CPtPB7mfAcpe3f07S03xsyIkd5HYAlMy/svBlTUI7ptr5ungunY5+j8biBMYm6E8ym8HNReJvAxBk0BWZA==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
- s=arcselector10001;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
- bh=Y8B7fsGaRMlcMnFyTABzOXe4W2xFt4+gZgVhtUjR6zo=;
- b=dVRUV9iqC+Nl6GAiPjwbQyRuSCE+uCi9diz0KBQgfyLuv08hZZNmx2nEMVbW4P9r+Um68zd/a7so07d5/Xo3P0jaHGQ8VarjR6P4OYxsXRBEqsm5sZZa5K0a7RDAs46q9TzfsPghkXQqmIeCx69oaR2kF3PrwuvvgORbMbfYmVpJxVzL1Ip2UlrFVCNTNc3kFKCvC8GaCyRgeCE3L1sRMlqj/j48QOk6OziYnV8M3VRrcSKn9wBsG+j7OtfcXIKj8FK/1BFX3BeANcpplXl3x68a4jeIgZM/cR6hCwe99IIJTby8XIFHIUQlh2F7nnUdPP0K9PmuFky60ShAAPyiWA==
-ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass (sender ip is
- 198.47.21.195) smtp.rcpttodomain=lists.infradead.org smtp.mailfrom=ti.com;
- dmarc=pass (p=quarantine sp=none pct=100) action=none header.from=ti.com;
- dkim=none (message not signed); arc=none (0)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=ti.com; s=selector1;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
- bh=Y8B7fsGaRMlcMnFyTABzOXe4W2xFt4+gZgVhtUjR6zo=;
- b=JTO/Ae5LZR/CwiCj5lVXbRhMm6aldWX0gmQHBwTzZ6NcD84AoKlczCEGOIMbxjGoUlLopqb2OaOq3nrJqme6w3srUVhHF3521TzJEQSyf6EUsBKShr8MMyjp3IVnsKTz6LcM5uPgOfx5SG3kUoYpEuPd6sYZYANsdygS973TluA=
-Received: from CH0PR08CA0002.namprd08.prod.outlook.com (2603:10b6:610:33::7)
- by BN0PR10MB5206.namprd10.prod.outlook.com (2603:10b6:408:127::8) with
- Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.21.71.14; Fri, 29 May
- 2026 15:53:56 +0000
-Received: from DS1PEPF00017090.namprd03.prod.outlook.com
- (2603:10b6:610:33:cafe::f) by CH0PR08CA0002.outlook.office365.com
- (2603:10b6:610:33::7) with Microsoft SMTP Server (version=TLS1_3,
- cipher=TLS_AES_256_GCM_SHA384) id 15.21.71.13 via Frontend Transport; Fri, 29
- May 2026 15:53:56 +0000
-X-MS-Exchange-Authentication-Results: spf=pass (sender IP is 198.47.21.195)
- smtp.mailfrom=ti.com; dkim=none (message not signed) header.d=none;dmarc=pass
- action=none header.from=ti.com;
-Received-SPF: Pass (protection.outlook.com: domain of ti.com designates
- 198.47.21.195 as permitted sender) receiver=protection.outlook.com;
- client-ip=198.47.21.195; helo=flwvzet201.ext.ti.com; pr=C
-Received: from flwvzet201.ext.ti.com (198.47.21.195) by
- DS1PEPF00017090.mail.protection.outlook.com (10.167.17.132) with Microsoft
- SMTP Server (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
- 15.21.92.5 via Frontend Transport; Fri, 29 May 2026 15:53:54 +0000
-Received: from DFLE200.ent.ti.com (10.64.6.58) by flwvzet201.ext.ti.com
- (10.248.192.32) with Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.2.2562.37; Fri, 29 May
- 2026 10:53:45 -0500
-Received: from DFLE211.ent.ti.com (10.64.6.69) by DFLE200.ent.ti.com
- (10.64.6.58) with Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.2.2562.37; Fri, 29 May
- 2026 10:53:45 -0500
-Received: from lelvem-mr05.itg.ti.com (10.180.75.9) by DFLE211.ent.ti.com
- (10.64.6.69) with Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.2.2562.37 via Frontend
- Transport; Fri, 29 May 2026 10:53:45 -0500
-Received: from localhost (uda0133052.dhcp.ti.com [128.247.81.232])
-	by lelvem-mr05.itg.ti.com (8.18.1/8.18.1) with ESMTP id 64TFrjCS265972;
-	Fri, 29 May 2026 10:53:45 -0500
-Date: Fri, 29 May 2026 10:53:45 -0500
-From: Nishanth Menon <nm@ti.com>
-To: Vitor Soares <ivitro@gmail.com>
-CC: Laurent Pinchart <laurent.pinchart@ideasonboard.com>, Neil Armstrong
-	<neil.armstrong@linaro.org>, Jessica Zhang <jesszhan0024@gmail.com>, "David
- Airlie" <airlied@gmail.com>, Simona Vetter <simona@ffwll.ch>, "Maarten
- Lankhorst" <maarten.lankhorst@linux.intel.com>, Maxime Ripard
-	<mripard@kernel.org>, Thomas Zimmermann <tzimmermann@suse.de>, Rob Herring
-	<robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>, Conor Dooley
-	<conor+dt@kernel.org>, Vignesh Raghavendra <vigneshr@ti.com>, Tero Kristo
-	<kristo@kernel.org>, Lad Prabhakar <prabhakar.mahadev-lad.rj@bp.renesas.com>,
-	Thierry Reding <thierry.reding@gmail.com>, Vitor Soares
-	<vitor.soares@toradex.com>, <dri-devel@lists.freedesktop.org>,
-	<devicetree@vger.kernel.org>, <linux-kernel@vger.kernel.org>,
-	<linux-arm-kernel@lists.infradead.org>
-Subject: Re: [PATCH v3 06/11] arm64: dts: ti: k3-am62-verdin: Add Toradex
- Capacitive Touch Display 7" DSI
-Message-ID: <20260529155345.z6ht5adzhwafdvx5@voting>
-References: <20260522161105.277519-13-ivitro@gmail.com>
- <20260522161105.277519-19-ivitro@gmail.com>
+	Fri, 29 May 2026 15:55:02 +0000
+Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
+	by sea.source.kernel.org (Postfix) with ESMTP id DD30140787;
+	Fri, 29 May 2026 15:54:59 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 415981F00893;
+	Fri, 29 May 2026 15:54:47 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
+	s=k20260515; t=1780070099;
+	bh=sVe55kbXzOg+Z8nDDwZg/tyzZkOiB0dMGcWUzNM9AVY=;
+	h=Date:From:To:Cc:Subject:In-Reply-To:References;
+	b=THR4yJ+SIEv4gOdeg1a71O5x2FJCph4oUeQBkYsREFY0TNOYpRjK7cEml+jLO6wKO
+	 1QtkI4HvQgFJlgQejqTrXQaR9BCrsdWs7+ecj3raEZ0NUbc2EiGFITOOeycUtPSc/Y
+	 GR2eoyfmSaWialaDzC59KjPaWUgkERidsR5YnBZ43Dyt01hGCdwjfq7JGQO/wV7i82
+	 IDBdGGC06mik3nVm7zUvNRoy42xiNa1BUgcSmMOqCiHc/qVM062PmWzHFrBOhLgQgE
+	 8uXUMUKpH1Fwsqh4Mnl4L8aLQq7uDe7tIo3lulxgqqYSU5EmfaQ8UeXWI/aIRH4Zcx
+	 AKhXEy8L+Gihg==
+Date: Fri, 29 May 2026 16:54:42 +0100
+From: Jonathan Cameron <jic23@kernel.org>
+To: Ahmed Tiba <ahmed.tiba@arm.com>
+Cc: will@kernel.org, xueshuai@linux.alibaba.com, saket.dumbre@intel.com,
+ mchehab@kernel.org, dave@stgolabs.net, djbw@kernel.org, bp@alien8.de,
+ tony.luck@intel.com, guohanjun@huawei.com, lenb@kernel.org,
+ skhan@linuxfoundation.org, vishal.l.verma@intel.com, rafael@kernel.org,
+ corbet@lwn.net, ira.weiny@intel.com, dave.jiang@intel.com,
+ krzk+dt@kernel.org, robh@kernel.org, catalin.marinas@arm.com,
+ alison.schofield@intel.com, conor+dt@kernel.org,
+ linux-arm-kernel@lists.infradead.org, Michael.Zhao2@arm.com,
+ linux-doc@vger.kernel.org, linux-kernel@vger.kernel.org,
+ linux-cxl@vger.kernel.org, Dmitry.Lamerov@arm.com,
+ devicetree@vger.kernel.org, linux-acpi@vger.kernel.org,
+ linux-edac@vger.kernel.org, acpica-devel@lists.linux.dev
+Subject: Re: [PATCH v5 03/10] ACPI: APEI: GHES: move GHESv2 ack and alloc
+ helpers
+Message-ID: <20260529165442.76449f9e@jic23-huawei>
+In-Reply-To: <20260529-topics-ahmtib01-ras_ffh_arm_internal_review-v5-3-2e0500d42642@arm.com>
+References: <20260529-topics-ahmtib01-ras_ffh_arm_internal_review-v5-0-2e0500d42642@arm.com>
+	<20260529-topics-ahmtib01-ras_ffh_arm_internal_review-v5-3-2e0500d42642@arm.com>
+X-Mailer: Claws Mail 4.4.0 (GTK 3.24.52; x86_64-pc-linux-gnu)
 MIME-Version: 1.0
-Content-Type: text/plain; charset="us-ascii"
-Content-Disposition: inline
-In-Reply-To: <20260522161105.277519-19-ivitro@gmail.com>
-X-C2ProcessedOrg: 333ef613-75bf-4e12-a4b1-8e3623f5dcea
-X-EOPAttributedMessage: 0
-X-MS-PublicTrafficType: Email
-X-MS-TrafficTypeDiagnostic: DS1PEPF00017090:EE_|BN0PR10MB5206:EE_
-X-MS-Office365-Filtering-Correlation-Id: 44ebe46e-ced2-4757-e8b4-08debd9a7ca6
-X-MS-Exchange-SenderADCheck: 1
-X-MS-Exchange-AntiSpam-Relay: 0
-X-Microsoft-Antispam: BCL:0;ARA:13230040|82310400026|1800799024|36860700016|7416014|376014|22082099003|18002099003|4143699003|56012099006;
-X-Microsoft-Antispam-Message-Info: FBPmoow77uluJmSFIJdfIFTwWwxqhgZx7sNUSVjS3RKufJLKdxVcgJKtlHdYTIxEKjSlyte3lghjuNev2j8bxht3+1bgc7gG2h3eEx/bSHvILxspNqClkr5o70p1AW4H64acFQyJ2Jv8WXTAKOIddfzfvFemgTmlnev2JViOqyO2u7Jpc2sxkdTNQAxgYXAfujHLXvMspBq81YmvFWlJ7Y3H9tQO8CQQ5vBUc3d/UoU2RHsYwDY4ad6yJi58Lc33SHkVukOOrrD2ah8RKjXOLYfn6b4BujJBdG6XZbPxTHn61LhWfUPgXpNnrH8C8xCM014H0zBafBEvFB193h4M61YkPftRnjKOjddkdS2CHNupZeEXBRIAvg1vJX/d+RCpQmJU0gaLhAnKG73QE07+b6RbxGggKQGh2kFiZrpeXVtl9cpidOjJhRwpgosc/cokDy/CPNUtr5Pcp8DdG4sevDenmXu82pOo8Zs8cTZ/qmRtqtrplpr4lOmnHC4ewyKA9LuFp+8ah6kBn0VbD1vq7jzjfYa0sJf0zvU6SG5lUCt3h5z3CfxguaZMvkW9Lq5Hxz9wdlSm4DCJzFc7zahCiCFb0Pnnj7wkDud5lNle4BbKT7Nft1bTSpGvYqW+pgXHaTZEU0bXeL59td2Y6GyeFLdsCAoBhK1iV23GHd+xDHfO7kh6aOU1eVytt6rrqsxY
-X-Forefront-Antispam-Report: CIP:198.47.21.195;CTRY:US;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:flwvzet201.ext.ti.com;PTR:ErrorRetry;CAT:NONE;SFS:(13230040)(82310400026)(1800799024)(36860700016)(7416014)(376014)(22082099003)(18002099003)(4143699003)(56012099006);DIR:OUT;SFP:1101;
-X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
-X-MS-Exchange-AntiSpam-MessageData-0: LXvcqpIauV6XrtxyhBIsve/p0uX//ZKC2CJvFDYnFuxeo1c/6pvQ/UTj0FLmMqzcG0tryETTy/ufVj8o0kGXenuKY3W7zD1cvo3ilBYBMW7DqO8Ki+W3zUdNF5CYj8BQyZAljq2Bjwe2rli5J0v9tirJtsVW7zDvMx6f+e+DM8oF37tVkOhKLQVbT6vdJWXnc5v4ofPD4w1g6YStwdiGJRXiVlv9VWpjCo9clhIF6r+CtB8s7XsCnTfPkgIx+jvLKIaIoz2L89oiSaSng82II52PpF6UP24GvNex4myZGsTXeBAwQXVeteZGIQcCfR4Q78TD8fSP5MkfwL1Vf9l20FwoDoEhjqmIgl2fdgZICAnoCW9W8n+qYGPj8GTVGrRSgLcFQeVf6o7rt3byG+qxrY1AujM5NXmZuamcLKNce/91iYxQS2MCZ7YoWAUssqyt
-X-OriginatorOrg: ti.com
-X-MS-Exchange-CrossTenant-OriginalArrivalTime: 29 May 2026 15:53:54.6095
- (UTC)
-X-MS-Exchange-CrossTenant-Network-Message-Id: 44ebe46e-ced2-4757-e8b4-08debd9a7ca6
-X-MS-Exchange-CrossTenant-Id: e5b49634-450b-4709-8abb-1e2b19b982b7
-X-MS-Exchange-CrossTenant-OriginalAttributedTenantConnectingIp: TenantId=e5b49634-450b-4709-8abb-1e2b19b982b7;Ip=[198.47.21.195];Helo=[flwvzet201.ext.ti.com]
-X-MS-Exchange-CrossTenant-AuthSource: DS1PEPF00017090.namprd03.prod.outlook.com
-X-MS-Exchange-CrossTenant-AuthAs: Anonymous
-X-MS-Exchange-CrossTenant-FromEntityHeader: HybridOnPrem
-X-MS-Exchange-Transport-CrossTenantHeadersStamped: BN0PR10MB5206
+Content-Type: text/plain; charset=US-ASCII
+Content-Transfer-Encoding: 7bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260529_085403_420732_7104F8C8 
-X-CRM114-Status: UNSURE (   9.67  )
+X-CRM114-CacheID: sfid-20260529_085500_897112_8FE78C14 
+X-CRM114-Status: UNSURE (   6.91  )
 X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
@@ -141,33 +85,13 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On 17:11-20260522, Vitor Soares wrote:
-> +	touchscreen@41 {
-> +		compatible = "ilitek,ili2132";
-> +		reg = <0x41>;
-> +		pinctrl-names = "default";
-> +		pinctrl-0 = <&pinctrl_dsi1_int>, <&pinctrl_i2s_2_bclk_gpio>;
-> +		/* Verdin GPIO_9_DSI (SODIMM 17) - TOUCH_INT# */
-> +		interrupt-parent = <&main_gpio1>;
-> +		interrupts = <49 IRQ_TYPE_EDGE_RISING>;
+On Fri, 29 May 2026 10:50:43 +0100
+Ahmed Tiba <ahmed.tiba@arm.com> wrote:
 
-https://lore.kernel.org/r/20260521152550.A928B1F000E9@smtp.kernel.org
-https://lore.kernel.org/r/20260522140245.472651F000E9@smtp.kernel.org
-Sashiko comment would probably be good to explain - I see the same in
-v3.
-
-> +		/* Verdin I2S_2_BCLK (SODIMM 42) - TOUCH_RESET# */
-> +		reset-gpios = <&main_gpio0 35 GPIO_ACTIVE_LOW>;
-> +	};
-> +};
-> -- 
-> 2.54.0
+> Move the GHESv2 acknowledgment and error-source allocation helpers from
+> ghes.c into ghes_cper.c. This is a mechanical refactor that keeps the
+> logic unchanged while making the helpers reusable.
 > 
-> 
-
--- 
-Regards,
-Nishanth Menon
-Key (0xDDB5849D1736249D) / Fingerprint: F8A2 8693 54EB 8232 17A3  1A34 DDB5 849D 1736 249D
-https://ti.com/opensource
+> Signed-off-by: Ahmed Tiba <ahmed.tiba@arm.com>
+Reviewed-by: Jonathan Cameron <jic23@kernel.org>
 
