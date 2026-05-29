@@ -4,57 +4,117 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 7BD23CD6E49
-	for <linux-arm-kernel@archiver.kernel.org>; Fri, 29 May 2026 18:20:06 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 87C8CCD6E49
+	for <linux-arm-kernel@archiver.kernel.org>; Fri, 29 May 2026 18:38:45 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:
-	Content-Transfer-Encoding:MIME-Version:References:In-Reply-To:Message-ID:Date
-	:Subject:Cc:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=MezAljbMtu/a/IWnbTDAtFD/p1r8DFJmzsXD7QfO5sE=; b=18uDEFUplOmOInyeqAiApZ8Yd/
-	xI2XkVXjqf+Rcydn9+jyR1gbuXfc7tk4C7iNqlrN+o2XJBb+ZRPctzDKud0kQAMAojNqz5ssJUZ9E
-	mXWcqN8jPmBmPdLj0YacPcoHWNZRnucl4B29Emrvlgb/DmHVxGhD4+pa/MHjbkI58IX/BSuqf6LST
-	cWmkdlpfM4SJcakbYAbSEspLz6eGmIUNmMuzpubPnfzbGMHXzrnXm2kgwiW5RHeWubrvCrbUn9d+5
-	iDUcmFRQAKGZx1s1HFCIE6SFxyOyhLUMbywm1IVL5DstV/vApQ4Q8Tp/A8Q9HkNUHCzN+WFSlRuLW
-	ohPuaNMA==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:Cc:To:Subject:Message-ID:Date:From:In-Reply-To:References:
+	MIME-Version:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=/iWiuvGopjfPOqN1ltMMiCqrYpx4WW05J/mF6yDghGQ=; b=tIgtna5myxnN+c26+0k8YSvDsB
+	PaXn3teOgn/jvP6qC+gGKfBGSU2/aQXmQOU63K14Alat7AV3yZWjgp1JCKBtwuFlUlgbKjkB01Ra7
+	m8MAvcNW7QG80jOHwBqU+NzNulGT9fBNuHlyb6dwMqO0kXkU33aN3eG7Nb+K/klKsffnHV+85m9yU
+	FiJDzE72Wi5IRXAZh17Qei4+U67P1rxugj9ZUXwZjfKwCASRfKmZOZg0cc8jFpXqenvCMRuvCniLd
+	7PX3re0LW5a0Xek1Q/aJ2Ht7/2a9y4+ofKztWChqwdIUPtTYNBAZTr77994tdUhKp93AiS+YExyPu
+	GsLP5kkA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wT1oL-000000085sh-2IPn;
-	Fri, 29 May 2026 18:19:57 +0000
-Received: from gloria.sntech.de ([185.11.138.130])
+	id 1wT26Q-0000000889E-1ain;
+	Fri, 29 May 2026 18:38:38 +0000
+Received: from mail-wm1-x331.google.com ([2a00:1450:4864:20::331])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wT1oJ-000000085s7-1rx8;
-	Fri, 29 May 2026 18:19:56 +0000
-DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed; d=sntech.de;
-	s=gloria202408; h=Content-Type:Content-Transfer-Encoding:MIME-Version:
-	References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:Reply-To;
-	bh=MezAljbMtu/a/IWnbTDAtFD/p1r8DFJmzsXD7QfO5sE=; b=iudeHZxJStlryOmQAUHhsleY6G
-	6XU21yner9VdSVJz2LnIP66KoBRM3GZ3FMalVNbytmY4chArURs0O4Um31YsLhxSP9UTyIuvArUnr
-	pBGSlvQyxFlIV9a7MRAPChCJ6sewkACEUUtK80hGptBuDlq5bOXMgBph63rx5Y/70Pg9cClKVjBbe
-	alBOV5l6R8Yivt0+ULO6bzAQiwKRScSZ1Po2AjcaSpWhJKxpkZV6B974c8sCnfmy1R5ppPEgk+xjg
-	2/2M59Qq6ylmGuu8I5GcIDs/cUXizKa+cYPYXKQ+yGa3OJYrwUYgV9u0OuW8Q/aC+PgkFYeKPlDNb
-	H3E2FJjw==;
-From: Heiko Stuebner <heiko@sntech.de>
-To: Tomeu Vizoso <tomeu@tomeuvizoso.net>, Oded Gabbay <ogabbay@kernel.org>,
- MidG971 <midgy971@gmail.com>
-Cc: Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>,
- Conor Dooley <conor+dt@kernel.org>, dri-devel@lists.freedesktop.org,
- devicetree@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
- linux-rockchip@lists.infradead.org, linux-kernel@vger.kernel.org,
- Midgy BALON <midgy971@gmail.com>
-Subject: Re: [PATCH v2 1/4] accel: rocket: Add support for Rockchip RK3568
-Date: Fri, 29 May 2026 20:19:50 +0200
-Message-ID: <5132269.NnENhoQgcM@phil>
-In-Reply-To: <20260529155824.3099831-2-midgy971@gmail.com>
-References: <20260529155824.3099831-1-midgy971@gmail.com>
- <20260529155824.3099831-2-midgy971@gmail.com>
+	id 1wT26O-0000000888b-1Iee
+	for linux-arm-kernel@lists.infradead.org;
+	Fri, 29 May 2026 18:38:37 +0000
+Received: by mail-wm1-x331.google.com with SMTP id 5b1f17b1804b1-490388fd0dbso85809935e9.0
+        for <linux-arm-kernel@lists.infradead.org>; Fri, 29 May 2026 11:38:35 -0700 (PDT)
+ARC-Seal: i=1; a=rsa-sha256; t=1780079914; cv=none;
+        d=google.com; s=arc-20240605;
+        b=CBJRlCOOluVcDM9Kau7AjdLTziEOyk8A1VYk62ilGMbHBwE3GYYUayBvJO3qC+CtD6
+         mI9Xa6OBCXqAfr+NSYd2FPKT/o3s7jNPxf+CwtaqaBbq+SjQ9GAFUisRwjHGP2NL1h5f
+         h5LzcqV3wU9h5hQm9kgjJ51+UjcVTtqH81HeutRbBoSdpZ53eg5czaK856dGD0i+8LNs
+         3mB1jQTEK/Oju3tn14w+T6RFk1tX0ZrXjVT0dueweplXh/g9yJ0peHSr3yKnj49GEX9w
+         i+owq0DiJjWBiAZxF71sfp9EceZwxtFOdC9tGf3VEItkmKCcScABcsgHrVDTyFbL+G1Q
+         HjOw==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20240605;
+        h=content-transfer-encoding:cc:to:subject:message-id:date:from
+         :in-reply-to:references:mime-version:dkim-signature;
+        bh=/iWiuvGopjfPOqN1ltMMiCqrYpx4WW05J/mF6yDghGQ=;
+        fh=uuS5EVFfAF/t1+5F250U+NImNKT621I/BbjMVN1i81M=;
+        b=RSkQdUpa3FABCkE4UGlWYok0VVvFAqJs4K4x4kpYPwx3kTKA9AJJFfcf3JR8oo5bPF
+         PinctahCh+aQTI6QzmQEpEI0bOfKsxJq2EQxcnZfN/GODzB67O0ctHzXoKsRYqjXn8o9
+         RigDrj2ZgdR2vfdM6VxzJFDl36ivZ05KOSyww4zkH3LW3zwawP0VIrizkGOmKYnOtN+3
+         BOhGnq7mZ0MeUxZRiz3yJH0MLUfS7yGoSRZbe45uyNRN3vFWJVsnKJER0jBx60sOVhSs
+         /6AvGcgBmLay0ez806V0mhCE7LdEAPG0ZOVlKwqCOUVlCm6Autrpjuh47fzS4dMmH0M2
+         7XcA==;
+        darn=lists.infradead.org
+ARC-Authentication-Results: i=1; mx.google.com; arc=none
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=gmail.com; s=20251104; t=1780079914; x=1780684714; darn=lists.infradead.org;
+        h=content-transfer-encoding:cc:to:subject:message-id:date:from
+         :in-reply-to:references:mime-version:from:to:cc:subject:date
+         :message-id:reply-to;
+        bh=/iWiuvGopjfPOqN1ltMMiCqrYpx4WW05J/mF6yDghGQ=;
+        b=MClH3HY355itJXL21Nhlzy3qMKhFnduq88z79E6sCXqn7FzIgMZdnSlaCXamphaeXa
+         UGx2GaSe3ccOA//dFP0KMS9EOclNAeHgNUx4FB0S0RZXyNF/RTWF+qt3K5tLgt6lNmZQ
+         kh/t3JomHDQyTJjQZqAQ+8iOYHxVUwWKTD0WDY6KRTsN5j45JG8iyIPE6rKnqX+FKHrA
+         /Ind/9iTnRASqcYGU2JQI+abEEn8zvWWbzVq09CuXB7A6UROI/MjAXRn0EChhqR2Bg/d
+         3R/RDgGKwdk8enD6sEv9r9ZbG/8mLlKQoqEK5wU2BhHxeI7NOcwLZKKp6yjTWo8IOj1a
+         WUhA==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20251104; t=1780079914; x=1780684714;
+        h=content-transfer-encoding:cc:to:subject:message-id:date:from
+         :in-reply-to:references:mime-version:x-gm-gg:x-gm-message-state:from
+         :to:cc:subject:date:message-id:reply-to;
+        bh=/iWiuvGopjfPOqN1ltMMiCqrYpx4WW05J/mF6yDghGQ=;
+        b=kBzqh79p/hbWHI66YXNvXjvVAOKdvmjqRNX5WpiuD9OYEaiZzE1k90PasfSqzMMj6T
+         zByHDsujYOYgDHfxgHuODnF/djKnYgd7Shal4MBpBzdy3/buGmagJ0gvAJc9ERfp9a4v
+         SmTLElRN24eZ1pC+zez4FrjO7salJEWO/syEB0H0b3Qha6vR31eH5vbeu7JmDae7y44S
+         ViQhy+vkhGxC7hzL7WLRyH+fXUN4Oy6YZv9IcV40+Ek037EvrULY/3Lb2lRh+/8RFCxp
+         irZYuEFLHXBNif6lUhlsUiwkOtYFfzf1+HvyJ9RwgEwlMoCgGhmsAIj+fB8JvyAVgY9l
+         5BgQ==
+X-Forwarded-Encrypted: i=1; AFNElJ/sVblHxKIl3pKoW+5Ys2axr7OL7PIvC6RLiW9C4RvKlL1Bwf92FAC+QhXrIP+7egDkRMoCud/BbMExdKKU5D1M@lists.infradead.org
+X-Gm-Message-State: AOJu0YyY6DaCgu5gFwDQBLgV5datl2e7HND9kxeiL4zTxkFWfyr6G4ri
+	rT07CsPg6qIVHVeFxNgVgqB0MBDPWVOyOKtoKYX7ttKMJL5zzslJKMKRMuV9uD9CZvXYYNcFk6H
+	6Bdg/zSCUSLGANCykCfccdPXid8rp2lwuR4tv
+X-Gm-Gg: Acq92OFpPgym/fgn57V9za20N8p0t1/5laE3O0bu79uqiQ1XPjYBXyXoBLXixgkMpYf
+	cWdHLPX1mM9nrXWQQvgou3vIcD38TUZdW8AsCtSTfPMBe2zAuOLF8zEAJjhHvtVvJq0oRSv6agG
+	LLXs5HFNQoC93ddRRad0bAju+qU4Ww4IibEXRUlXPIZGmSYfqWHLIs1byUnI4fYG9GL+1B3xOPc
+	w/wd/8YnfGshclrcU1p5ICMLegYhaEGZb1bhk5IPaWQQNz0uclToxBHTvUzMZ6R2sqwS/8uXvNw
+	k0HeenSIlxmEzsxyXwImXxnKG1JSpxajYCPP8TM9m6NtRUsLU/DskGAwDNgKMDg6IK/mbO8RvlA
+	gXBQoFq6TIjZXcKhFUweIPkgCibwI1y5cZgOud0OOAwNq83o=
+X-Received: by 2002:a05:600c:34c8:b0:488:ac01:72de with SMTP id
+ 5b1f17b1804b1-490a2b6e3d2mr7261425e9.5.1780079914175; Fri, 29 May 2026
+ 11:38:34 -0700 (PDT)
 MIME-Version: 1.0
+References: <20260522172219.1423324-1-tj@kernel.org> <20260522172219.1423324-3-tj@kernel.org>
+ <7fd673df-22f3-4d70-a779-ea0b878188b3@kernel.org> <DIUMP21RASZI.2VNQV45RIL209@gmail.com>
+ <3901fe0537edee9d7acdfd91695ead28@kernel.org>
+In-Reply-To: <3901fe0537edee9d7acdfd91695ead28@kernel.org>
+From: Alexei Starovoitov <alexei.starovoitov@gmail.com>
+Date: Fri, 29 May 2026 11:38:21 -0700
+X-Gm-Features: AVHnY4KtV1pUn-d6UzBaLOg5AUfIedwDfvDWPug9r5TxPVQH38dOVxXqqoga_T4
+Message-ID: <CAADnVQJ+CqAszS2sSVu7gSfA_g4oaTR+SWmLNMX3_8c=OdR7NQ@mail.gmail.com>
+Subject: Re: [PATCH 2/8] bpf: Recover arena kernel faults with scratch page
+To: Tejun Heo <tj@kernel.org>
+Cc: David Hildenbrand <david@kernel.org>, David Vernet <void@manifault.com>, 
+	Andrea Righi <arighi@nvidia.com>, Changwoo Min <changwoo@igalia.com>, 
+	Alexei Starovoitov <ast@kernel.org>, Andrii Nakryiko <andrii@kernel.org>, 
+	Daniel Borkmann <daniel@iogearbox.net>, Martin KaFai Lau <martin.lau@linux.dev>, 
+	Kumar Kartikeya Dwivedi <memxor@gmail.com>, Peter Zijlstra <peterz@infradead.org>, 
+	Catalin Marinas <catalin.marinas@arm.com>, Will Deacon <will@kernel.org>, 
+	Thomas Gleixner <tglx@kernel.org>, Ingo Molnar <mingo@redhat.com>, Borislav Petkov <bp@alien8.de>, 
+	Dave Hansen <dave.hansen@linux.intel.com>, Andrew Morton <akpm@linux-foundation.org>, 
+	Mike Rapoport <rppt@kernel.org>, Emil Tsalapatis <emil@etsalapatis.com>, sched-ext@lists.linux.dev, 
+	bpf <bpf@vger.kernel.org>, X86 ML <x86@kernel.org>, 
+	linux-arm-kernel <linux-arm-kernel@lists.infradead.org>, linux-mm <linux-mm@kvack.org>, 
+	LKML <linux-kernel@vger.kernel.org>
+Content-Type: text/plain; charset="UTF-8"
 Content-Transfer-Encoding: quoted-printable
-Content-Type: text/plain; charset="utf-8"
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260529_111955_483678_5EDC9493 
-X-CRM114-Status: GOOD (  25.59  )
+X-CRM114-CacheID: sfid-20260529_113836_362281_FECCDAE5 
+X-CRM114-Status: GOOD (  16.32  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -69,116 +129,34 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hi,
+On Fri, May 29, 2026 at 11:12=E2=80=AFAM Tejun Heo <tj@kernel.org> wrote:
+>
+> Hello,
+>
+> > It should do set_pte_at() unconditionally.
+>
+> I think two concerns are tangled here.
+>
+> 1. The racing write. set_pte_at() and the scratch installer's
+> ptep_try_set() hit the same PTE with no common lock. On x86-64 and arm64
+> set_pte_at() is a single atomic store, so it can't tear against the
+> cmpxchg, but a plain store racing a cmpxchg isn't atomic in general.
+> David, is that the worry - an arch where set_pte_at() is split and could
+> tear - or something else?
+>
+> 2. The SEGV. It's a BPF program failure propagating out as a SEGV. Maybe
+> not ideal, but as long as we surface the BPF error properly, it doesn't
+> necessarily seem broken to me.
 
-Am Freitag, 29. Mai 2026, 17:58:21 Mitteleurop=C3=A4ische Sommerzeit schrie=
-b MidG971:
-> From: Midgy BALON <midgy971@gmail.com>
->=20
-> The RK3568 has a single NVDLA-derived NPU core (0.8 TOPS), the same IP
-> family as the three-core RK3588 NPU already supported by the Rocket
-> driver. To accommodate both SoCs:
->=20
->   - Introduce a per-SoC rocket_soc_data structure carrying dma_bits and
-> an optional noc_init callback, plumbed through of_device_get_match_data().
->   - rocket_device_init() now scans for both rk3568 and rk3588 RKNN cores
-> and picks the narrower DMA width (32-bit) when an RK3568 core is present.
->   - Add rk3568_soc_data and rk3568_noc_init() handling the three RK3568-
-> specific initialisation steps that must run after the power domain is
-> on and clocks are enabled:
-
-if you need bullet points to describe your patch, that strongly indicates
-these need to be multple patches.
-I.e. the move of the relevant parts to a per-soc data is one patch
-(and only having the rk3588 soc-data in that one).
-
-
-
->=20
-> 1. PVTPLL initialisation: The NPU uses a PVTPLL ring oscillator
->    managed by TF-A via SCMI for rates above 400 MHz. A two-step
->    clk_set_rate() sequence (600 MHz then 1 GHz) forces two SCMI calls
->    to TF-A even if the kernel clock framework would skip an unchanged
->    rate. The PVTPLL must be running before the NPU NOC bus will
->    acknowledge a de-idle request.
->=20
-> 2. Explicit NPU power-on (PWR_GATE_SFTCON): The RK3568_PD_NPU power
->    domain is marked always_on in pm-domains.c, so the generic power
->    domain framework power_on() callback is a no-op. The NPU hardware
->    can remain power-gated at boot. Writing bit 1 =3D 0 to PWR_GATE_SFTCON
->    (PMU offset 0xa0) explicitly powers on the NPU hardware before the
->    de-idle request is issued.
->=20
-> 3. NOC bus de-idle: Disable NPU NOC auto-idle (NOC_AUTO_CON0 bit 2),
->    request de-idle (BUS_IDLE_SFTCON0 bit 2 =3D 0), then poll
->    BUS_IDLE_ST (PMU offset 0x60) until bit 2 clears (bus active).
->=20
-> The RK3568 DMA address space is limited to 32 bits, as the NPU AXI bus
-> and IOMMU page walker cannot address memory above 4 GB.
->=20
-> All PMU accesses follow the RK3568 write-mask protocol: upper 16 bits are
-> the write-enable mask for the lower 16 bits.
->=20
-> Signed-off-by: Midgy BALON <midgy971@gmail.com>
-
-[...]
-
-> diff --git a/drivers/accel/rocket/rocket_device.c b/drivers/accel/rocket/=
-rocket_device.c
-> index 46e6ee1e7..0ed8251c8 100644
-> --- a/drivers/accel/rocket/rocket_device.c
-> +++ b/drivers/accel/rocket/rocket_device.c
-> @@ -27,6 +27,9 @@ struct rocket_device *rocket_device_init(struct platfor=
-m_device *pdev,
->  	ddev =3D &rdev->ddev;
->  	dev_set_drvdata(dev, rdev);
-> =20
-> +	for_each_compatible_node(core_node, NULL, "rockchip,rk3568-rknn-core")
-> +		if (of_device_is_available(core_node))
-> +			num_cores++;
->  	for_each_compatible_node(core_node, NULL, "rockchip,rk3588-rknn-core")
->  		if (of_device_is_available(core_node))
->  			num_cores++;
-> @@ -37,9 +40,25 @@ struct rocket_device *rocket_device_init(struct platfo=
-rm_device *pdev,
-> =20
->  	dma_set_max_seg_size(dev, UINT_MAX);
-> =20
-> -	err =3D dma_set_mask_and_coherent(dev, DMA_BIT_MASK(40));
-> -	if (err)
-> -		return ERR_PTR(err);
-
-for both changes in rocket_device_init():
-
-rocket_device_init() gets called from the main probe function, so before
-calling rocket_device_init() you can already access the specific soc data
-from the compatible and can derive both that for_each above, and the dma-
-width, directly from that.
-
-No need for that loop below.
-
-> +	/* Use the DMA width of the first available RKNN core.  RK3568 cores
-> +	 * are 32-bit; RK3588 are 40-bit.  If both are present we pick the
-> +	 * narrower mask.
-> +	 */
-> +	{
-> +		struct device_node *n;
-> +		unsigned int dma_bits =3D 40;
-> +
-> +		for_each_compatible_node(n, NULL, "rockchip,rk3568-rknn-core")
-> +			if (of_device_is_available(n)) {
-> +				dma_bits =3D 32;
-> +				of_node_put(n);
-> +				break;
-> +			}
-> +
-> +		err =3D dma_set_mask_and_coherent(dev, DMA_BIT_MASK(dma_bits));
-> +		if (err)
-> +			return ERR_PTR(err);
-> +	}
-
-
-Heiko
-
-
+returning EBUSY because apply_range_set_cb() hit scratch page
+is SEGV out of arena_vm_fault() and arguably ok-ish,
+but bpf_arena_alloc_pages() returning NULL because scratch page
+was in the range just sucks.
+Earlier bpf prog passed the wrong arena addr to kfunc and triggered
+that scratch page. It broke the contract and kept the pieces,
+so ok-ish too, but overwriting scratch page with proper page
+during bpf_arena_alloc_pages() is imo much better behavior.
+That scratch page will cause all future bpf_arena_alloc_pages() fail as wel=
+l.
+Hence I prefer that check removed.
 
