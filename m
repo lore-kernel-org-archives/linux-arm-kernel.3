@@ -4,113 +4,66 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id D3AACCD6E45
-	for <linux-arm-kernel@archiver.kernel.org>; Fri, 29 May 2026 09:12:01 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 79862CD5BD2
+	for <linux-arm-kernel@archiver.kernel.org>; Fri, 29 May 2026 09:18:12 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:
-	Content-Transfer-Encoding:MIME-Version:Message-ID:Date:Subject:CC:To:From:
-	Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender
-	:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
-	bh=pqAuhOzE2ps9eOoFTmvVyRq00kM+so5XUon7eW0uSAg=; b=Hoario3zthRIKH/gcKvCF3GzAU
-	1Z2khvVhgUGqB/POfggzY7dQi4ACmI/Vdupj84N/H0T/SI8T1hpWxeZ7b750FJDJiPSUw1oRbjJvO
-	x2MU/joamqcUqSgCEsHzC7TG8PlSfKtAXV1nO08be7wcmi497XU1c2CR2s+QxonqxET2IMnbG/F2p
-	FIkZLmPxxGOjagZpnP8sFbHeEFovd/Lw6jckkcqPtWYoaN/2UDxSMvOPtikt295yTHTe94TARwT7c
-	nCRGCxAJP9s+ku4kM3vVZZjjS7hXzaftypdgA8ykbLVKbRcqwvCcgROkhcqSIZA75bRH4RlvxW5fE
-	AhMf0fdw==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
+	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=MpAd4JLwDy780JI6tkVdl+dfSo8Gflh5xQKvIOnUKq4=; b=0AyzGaCagKa8S1r/ySWcTuvUzr
+	gPDAWqFrQ6Md9IHRgKU6skopmn5W9Icv2AsPBj0isGx+Uj80yMdIhlLj4K9jo+bMo0v/0l6WaRUUu
+	fvH4N/B3gVqsc7+ggEXISdXUId3oV2mrvLS+V68A1Zq6yAVAOdXsnyjDA6uKpSDbQW1bF253BqcbH
+	5P5eqTqxIs3qABgJpv7oOoE2MIq40JBivLQUBHhA0wpDGW0Ts7OgbgVgD9tl2Y17E9H69SZdqCRx3
+	PsRdMWtDDEvi1umggSXEgD3Iz0itb8VOGApEK6So7TysfL7lFD0J+iZeXXG+SeMptf5CXKq2h5yLX
+	esAeVbsA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wStFz-000000072eM-0QUo;
-	Fri, 29 May 2026 09:11:55 +0000
-Received: from mail-westus2azlp170100005.outbound.protection.outlook.com ([2a01:111:f403:c005::5] helo=CO1PR03CU002.outbound.protection.outlook.com)
-	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wStFw-000000072dP-1anG
+	id 1wStLw-0000000734J-3QRk;
+	Fri, 29 May 2026 09:18:04 +0000
+Received: from foss.arm.com ([217.140.110.172])
+	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
+	id 1wStLu-0000000733s-2uCK
 	for linux-arm-kernel@lists.infradead.org;
-	Fri, 29 May 2026 09:11:53 +0000
-ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
- b=hxYTCYLgPk5WQ1sKaAudfX9i/Z3REf49f/tnD1CUYLsDDrEOGCwVB6MWeijAxPv+5dkfaQ9hccrVa/NNhfOEBF+cnSJRklaSu1kEBjifLtNiTFDaBZ2BJfdimgRJM4AomETOpH90p81wb8aTyznrn/Arfmy8k3nnYv0QPN4mkp+n5JW2AjoIEFtJIDtoUCuUOSkWeEcOjlgYlpTaoIt08si4Fwx5MnbLrzLC3Mq7vK/zBsXGLu0LOuneTJkKv2fA1JuxxbD0Q1JuvpWXHXEGfUkWL13lGKnbWGuSdXqNCKeA14YFvK9VlBoxgnvqpEzhs70v+CLKc6EgtwkKbHnRIg==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
- s=arcselector10001;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
- bh=pqAuhOzE2ps9eOoFTmvVyRq00kM+so5XUon7eW0uSAg=;
- b=AJv0tyq2aUgSepRo2+PvURHYm/buNHYRbhxmsD+RSjyPDgCCoW/Xzh3gTDi9yVhuRDV00e0zINFf3gkIAPdS5IYVpecba8RYFWbGLlYDzfq73qL8DXxzlpXdCnj+/jQucksMWX8VJi5KnJjiTrnrZtjG5juCu/397eH8984I+B/nNmS2AuaYCtEbfMiNo4ZoOFDYuRyCAp1531N8GoAGDqEWRbT6fu1tlYXgytcV2CeqcI5W1pGGPTjnRiXhHoQlPaXqvOLHLQajc1R7Rr45HXYhr0XRj1rlf7YumFfLpkOtp87nZcSFaYlzXaL9cYTaSxTd1EsrB51TT7J5R3fmcQ==
-ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass (sender ip is
- 216.228.117.161) smtp.rcpttodomain=lists.linux.dev smtp.mailfrom=nvidia.com;
- dmarc=pass (p=reject sp=reject pct=100) action=none header.from=nvidia.com;
- dkim=none (message not signed); arc=none (0)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=Nvidia.com;
- s=selector2;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
- bh=pqAuhOzE2ps9eOoFTmvVyRq00kM+so5XUon7eW0uSAg=;
- b=D6elDilQ1LmrGUh6cZKUiQUUlpFRkb7m+2OtlWGjFSzruhCQ69BmQsV780jUBOBqBJopBsvUyZ95qKh2IH0MkCILZKpcJwk2yv0KgHV7vg6UgZJ/Zbzzf03qHx9sTypN6/XzxE7xxMUnCSScazUaTOdejZ2xLiSGlKXjRiReVFUnNuECnHykIobDBCeJ6zwoz6RGBcHFMFXMug1f1/bKxc5oK02kcMVxXEww5r4A5TUwDhNpivWha95Tg/GLGgweUkEJ3GhuJEiwhNObcEkvYpcGiAEAndz9e8i1TEnIIyRRiZXv5GaG7IU0pukdZPzGQuAIMfL+/u9pRi7DJLBmXQ==
-Received: from PH0PR07CA0019.namprd07.prod.outlook.com (2603:10b6:510:5::24)
- by CH3PR12MB8073.namprd12.prod.outlook.com (2603:10b6:610:126::8) with
- Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.21.71.14; Fri, 29 May
- 2026 09:11:41 +0000
-Received: from CY4PEPF0000EE37.namprd05.prod.outlook.com
- (2603:10b6:510:5:cafe::30) by PH0PR07CA0019.outlook.office365.com
- (2603:10b6:510:5::24) with Microsoft SMTP Server (version=TLS1_3,
- cipher=TLS_AES_256_GCM_SHA384) id 15.21.71.13 via Frontend Transport; Fri, 29
- May 2026 09:11:41 +0000
-X-MS-Exchange-Authentication-Results: spf=pass (sender IP is 216.228.117.161)
- smtp.mailfrom=nvidia.com; dkim=none (message not signed)
- header.d=none;dmarc=pass action=none header.from=nvidia.com;
-Received-SPF: Pass (protection.outlook.com: domain of nvidia.com designates
- 216.228.117.161 as permitted sender) receiver=protection.outlook.com;
- client-ip=216.228.117.161; helo=mail.nvidia.com; pr=C
-Received: from mail.nvidia.com (216.228.117.161) by
- CY4PEPF0000EE37.mail.protection.outlook.com (10.167.242.43) with Microsoft
- SMTP Server (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
- 15.21.92.5 via Frontend Transport; Fri, 29 May 2026 09:11:40 +0000
-Received: from rnnvmail201.nvidia.com (10.129.68.8) by mail.nvidia.com
- (10.129.200.67) with Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.2.2562.20; Fri, 29 May
- 2026 02:11:25 -0700
-Received: from NV-2Y5XW94.nvidia.com (10.126.231.37) by rnnvmail201.nvidia.com
- (10.129.68.8) with Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.2.2562.20; Fri, 29 May
- 2026 02:11:22 -0700
-From: Shameer Kolothum <skolothumtho@nvidia.com>
-To: <iommu@lists.linux.dev>, <linux-kernel@vger.kernel.org>,
-	<linux-arm-kernel@lists.infradead.org>
-CC: <nicolinc@nvidia.com>, <jgg@ziepe.ca>, <joro@8bytes.org>,
-	<will@kernel.org>, <robin.murphy@arm.com>, <nathanc@nvidia.com>,
-	<mochs@nvidia.com>, <skolothumtho@nvidia.com>
-Subject: [PATCH] iommu/tegra241-cmdqv: Skip CMD_SYNC flush during remove
-Date: Fri, 29 May 2026 10:10:52 +0100
-Message-ID: <20260529091052.317102-1-skolothumtho@nvidia.com>
-X-Mailer: git-send-email 2.43.0
+	Fri, 29 May 2026 09:18:04 +0000
+Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
+	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id A15E42103;
+	Fri, 29 May 2026 02:17:56 -0700 (PDT)
+Received: from [10.1.26.144] (unknown [10.1.26.144])
+	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id 529D93F905;
+	Fri, 29 May 2026 02:17:56 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=simple/simple; d=arm.com; s=foss;
+	t=1780046281; bh=cC6GCz9SDpPPAzRlwubJlNLqt9LuBexObx/G12LYcTE=;
+	h=Date:Subject:To:Cc:References:From:In-Reply-To:From;
+	b=HV7ZHCWucu1poa0B4H6+eZqo24UH3DZ6YOpZQqFo0vM90GFm5QysTLUY4y64d8zRS
+	 ijTR9KAwHTD2ppAX5hp12EDKJYQKekHkS9uel9TZJDhBEtOjYF9isT4e7uQl2Guwgm
+	 KciJg21vMlr+3qYGt/aY7GjSmpESUHVLh+EtaH+U=
+Message-ID: <1e107eba-e28c-4fbf-80dc-808b8c3f4bb5@arm.com>
+Date: Fri, 29 May 2026 10:17:54 +0100
 MIME-Version: 1.0
-Content-Transfer-Encoding: 8bit
-Content-Type: text/plain
-X-Originating-IP: [10.126.231.37]
-X-ClientProxiedBy: rnnvmail203.nvidia.com (10.129.68.9) To
- rnnvmail201.nvidia.com (10.129.68.8)
-X-EOPAttributedMessage: 0
-X-MS-PublicTrafficType: Email
-X-MS-TrafficTypeDiagnostic: CY4PEPF0000EE37:EE_|CH3PR12MB8073:EE_
-X-MS-Office365-Filtering-Correlation-Id: ab7e7e13-9444-405e-d060-08debd624bbe
-X-MS-Exchange-SenderADCheck: 1
-X-MS-Exchange-AntiSpam-Relay: 0
-X-Microsoft-Antispam: BCL:0;ARA:13230040|82310400026|1800799024|36860700016|376014|18002099003|56012099006|11063799006;
-X-Microsoft-Antispam-Message-Info: 1cKt66UY7xiCYC0YzaWQSVpMTl57Lj/5y6rVAKEDu+laeQy8Qy0XA3KeEJHqZL5sX/qmyIEGjb12krClgJpUphwe2e+nii+zO7Pg9RR7LqKvW283yiff/qRYT1ccft0xovas6U18ndE9KjPuJTM6QNRTmpG7juH3jx4yTR762vFZrtRwC2Wc88fe96taByck+Hc18DEFXPUrX2aNMe2xWgaba8BubUCAWJSbRKm3oR3Mcxr25HU0J2x+KuIh4JQSYGLl04tyJw+UehWLWo45/O+GjI+W/XpmhgP+n43/MlKU/WyEnLrjy344AgCxq/COcPRofTnzepN9zZ0/H7zx/76sA7YQAoO/iDXFgAirh91wUoCOOQzfNIhO245BNUpD8itEYPoTGnwkIQ97SHVCVr5DCQwwbvolPvfvuQoAdokcYjg5u1lqTxb6fqUt9qNkW1ONqbOrDwq7eHWkz/+apQXd5gO+48h6yfkH1VEjQj/fZUSDJot5KJ+lwZOI6qtYTnvRLuwY3xfqg8EGbiCa7THD7GwuA7mrRqtcqzxjVKwO2ib4yipW/AGMRt7tPBk94kMDvO0RU9bV5XedLeh1ad8PBezqlH384cnSG6NZUWO0+T3YaM07imrqzhIIGUzgrpNPoDmi5enAvp3D4yihtb578JujTrsBFR1mHreAafECoTQ2jgwoN1HG3ZYIZAXqzfmfVbKGWKvvdkRpbCuFI3w6Ptq59m3TwlG0HY2wkNY=
-X-Forefront-Antispam-Report: CIP:216.228.117.161;CTRY:US;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:mail.nvidia.com;PTR:dc6edge2.nvidia.com;CAT:NONE;SFS:(13230040)(82310400026)(1800799024)(36860700016)(376014)(18002099003)(56012099006)(11063799006);DIR:OUT;SFP:1101;
-X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
-X-MS-Exchange-AntiSpam-MessageData-0: rcBZY3Yu6Qu51SyK+y2YhbCFvhXnwW7eK9budV1thNNw7l043CszwoB8VJfZeZms23ROC9E1WNejzkblzNkkcRtvA7khRkvnXLliLUiy2XQFR+fZCW5okdpUiuIO7sBB+OpMGGcNulCPBB9iFQ47tZD3VjuYoQFNgV6dzQ78oYN1C/+V6FyOCCGWHpZwnNLfR/+ilNVyLkDrAqjJQOm//hDY08S9zO8Zsm/FXn64B5b+QnvNPfHeq4Soj/h5Y4c7DvUj3FwjjGsa0A4n6cFztzMKPKgGUsFX5tuKSvBVdsdaZoYkzLtwIVghjwtR0r0ZNWzKeoSKkYoZ4I1jZlTb8Bw06a6ndF+Ecr/muk+qW8ZxWJUcKoqOKYopt/uz48ZceAipEKk6bhsJ3WRqqWZkA7/rvL3WBWgaPrDtI3kVfJ91nnl9dtoPNSvxid2Txv+D
-X-OriginatorOrg: Nvidia.com
-X-MS-Exchange-CrossTenant-OriginalArrivalTime: 29 May 2026 09:11:40.7291
- (UTC)
-X-MS-Exchange-CrossTenant-Network-Message-Id: ab7e7e13-9444-405e-d060-08debd624bbe
-X-MS-Exchange-CrossTenant-Id: 43083d15-7273-40c1-b7db-39efd9ccc17a
-X-MS-Exchange-CrossTenant-OriginalAttributedTenantConnectingIp: TenantId=43083d15-7273-40c1-b7db-39efd9ccc17a;Ip=[216.228.117.161];Helo=[mail.nvidia.com]
-X-MS-Exchange-CrossTenant-AuthSource: CY4PEPF0000EE37.namprd05.prod.outlook.com
-X-MS-Exchange-CrossTenant-AuthAs: Anonymous
-X-MS-Exchange-CrossTenant-FromEntityHeader: HybridOnPrem
-X-MS-Exchange-Transport-CrossTenantHeadersStamped: CH3PR12MB8073
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH v2] arm64: kernel: Unify CNP disable workaround into
+ ARM64_WORKAROUND_DISABLE_CNP
+To: Zeng Heng <zengheng@huaweicloud.com>, xuwei5@huawei.com,
+ wangyushan12@huawei.com, maz@kernel.org, skhan@linuxfoundation.org,
+ miko.lenczewski@arm.com, lucaswei@google.com, broonie@kernel.org,
+ thuth@redhat.com, ryan.roberts@arm.com, tongtiangen@huawei.com,
+ oupton@kernel.org, kuninori.morimoto.gx@renesas.com, mark.rutland@arm.com,
+ will@kernel.org, corbet@lwn.net, catalin.marinas@arm.com,
+ kevin.brodsky@arm.com, lpieralisi@kernel.org, yangyicong@hisilicon.com,
+ james.clark@linaro.org, yeoreum.yun@arm.com
+Cc: linux-doc@vger.kernel.org, wangkefeng.wang@huawei.com,
+ linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org
+References: <20260529063132.766491-1-zengheng@huaweicloud.com>
+Content-Language: en-GB
+From: Vladimir Murzin <vladimir.murzin@arm.com>
+In-Reply-To: <20260529063132.766491-1-zengheng@huaweicloud.com>
+Content-Type: text/plain; charset=UTF-8
+Content-Transfer-Encoding: 7bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260529_021152_429639_CA9FE246 
-X-CRM114-Status: GOOD (  18.21  )
+X-CRM114-CacheID: sfid-20260529_021802_816771_DBF800D6 
+X-CRM114-Status: GOOD (  27.35  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -125,123 +78,229 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-tegra241_vcmdq_hw_deinit() unconditionally issues a CMD_SYNC on
-smmu->cmdq via tegra241_vcmdq_hw_flush_timeout(). When the SMMU is
-being torn down (eg: probe failure), this CMD_SYNC hits freed
-memory and UAFs. Observed during testing with a QEMU hack that
-fails tegra241_cmdqv_setup_vcmdq(), so the guest sees the VCMDQ
-enable as failed:
+Hi,
 
- platform NVDA200C:00: tegra241_cmdqv: VINTF0: VCMDQ0/LVCMDQ0: failed to enable, STATUS=0x00000000
- platform NVDA200C:00: tegra241_cmdqv: VINTF0: VCMDQ0/LVCMDQ0: GERRORN=0x0, GERROR=0x4, CONS=0x0
- platform NVDA200C:00: tegra241_cmdqv: VINTF0: VCMDQ0/LVCMDQ0: uncleared error detected, resetting
- arm-smmu-v3 arm-smmu-v3.0.auto: failed to reset impl
- arm-smmu-v3 arm-smmu-v3.0.auto: probe with driver arm-smmu-v3 failed with error -110
- Unable to handle kernel paging request at virtual address ffff8000891e0098
- ...
- Internal error: Oops: 0000000096000047 [#1] SMP
- ...
- Call trace:
-  arm_smmu_cmdq_issue_cmdlist+0x320/0x6fc (P)
-  tegra241_vcmdq_hw_deinit+0x98/0x168
-  tegra241_vintf_hw_deinit+0x5c/0x1b0
-  tegra241_cmdqv_remove_vintf+0x34/0xec
-  tegra241_cmdqv_remove+0x40/0x9c
-  arm_smmu_impl_remove+0x20/0x30
-  devm_action_release+0x14/0x20
-  devres_release_all+0xa8/0x110
-  device_unbind_cleanup+0x18/0x84
-  really_probe+0x1f0/0x29c
+On 5/29/26 07:31, Zeng Heng wrote:
+> From: Zeng Heng <zengheng4@huawei.com>
+> 
+> HiSilicon HIP09 implements TLB entry matching behavior that deviates
+> from the ARM architecture specification when the CnP (Common not Private)
+> bit is set in TTBRx_ELx.
+> 
+> When TTBRx.CNP=1, TLB entries may be incorrectly shared between CPU
+> cores, leading to TLB conflicts and stale mappings. This breaks
+> coherency and can result in incorrect translations.
+> 
+> Add the hardware erratum workaround (Hisilicon erratum 162100125) to
+> disable CNP on affected HIP09 cores.
+> 
+> Merge the existing NVIDIA Carmel and the HiSilicon HIP09 CNP errata
+> workarounds into a single generic capability ARM64_WORKAROUND_DISABLE_CNP.
+> 
+> Both NVIDIA Carmel and HiSilicon HIP09 have hardware errata where
+> CNP (Common Not Private) behavior differs from the ARM specification,
+> causing incorrect TLB entry sharing between cores. The existing
+> NVIDIA_CARMEL_CNP_ERRATUM and the newly added HISILICON_ERRATUM_162100125
+> are now both handled by the unified ARM64_WORKAROUND_DISABLE_CNP.
+> 
+> Co-developed-by: Tong Tiangen <tongtiangen@huawei.com>
+> Signed-off-by: Tong Tiangen <tongtiangen@huawei.com>
+> Signed-off-by: Zeng Heng <zengheng4@huawei.com>
+> ---
+> v1: https://lore.kernel.org/all/20260526015720.206854-1-zengheng@huaweicloud.com/
+> 
+> Changes in v2:
+>   - Unify CNP disable workaround into ARM64_WORKAROUND_DISABLE_CNP
+> ---
+> 
+>  Documentation/arch/arm64/silicon-errata.rst |  4 +++-
+>  arch/arm64/Kconfig                          | 17 ++++++++++++-----
+>  arch/arm64/include/asm/cpucaps.h            |  4 ++--
+>  arch/arm64/kernel/cpu_errata.c              | 17 ++++++++++++-----
+>  arch/arm64/kernel/cpufeature.c              |  2 +-
+>  arch/arm64/tools/cpucaps                    |  2 +-
+>  6 files changed, 31 insertions(+), 15 deletions(-)
+> 
+> diff --git a/Documentation/arch/arm64/silicon-errata.rst b/Documentation/arch/arm64/silicon-errata.rst
+> index 211119ce7adc..b4565e1a726d 100644
+> --- a/Documentation/arch/arm64/silicon-errata.rst
+> +++ b/Documentation/arch/arm64/silicon-errata.rst
+> @@ -254,7 +254,7 @@ stable kernels.
+>  | Marvell        | ARM-MMU-500     | #582743         | N/A                         |
+>  +----------------+-----------------+-----------------+-----------------------------+
+>  +----------------+-----------------+-----------------+-----------------------------+
+> -| NVIDIA         | Carmel Core     | N/A             | NVIDIA_CARMEL_CNP_ERRATUM   |
+> +| NVIDIA         | Carmel Core     | N/A             | ARM64_WORKAROUND_DISABLE_CNP|
+>  +----------------+-----------------+-----------------+-----------------------------+
+>  | NVIDIA         | T241 GICv3/4.x  | T241-FABRIC-4   | N/A                         |
+>  +----------------+-----------------+-----------------+-----------------------------+
+> @@ -284,6 +284,8 @@ stable kernels.
+>  +----------------+-----------------+-----------------+-----------------------------+
+>  | Hisilicon      | Hip09           | #162100801      | HISILICON_ERRATUM_162100801 |
+>  +----------------+-----------------+-----------------+-----------------------------+
+> +| Hisilicon      | Hip09           | #162100125      | ARM64_WORKAROUND_DISABLE_CNP|
+> ++----------------+-----------------+-----------------+-----------------------------+
+>  +----------------+-----------------+-----------------+-----------------------------+
+>  | Qualcomm Tech. | Kryo/Falkor v1  | E1003           | QCOM_FALKOR_ERRATUM_1003    |
+>  +----------------+-----------------+-----------------+-----------------------------+
+> diff --git a/arch/arm64/Kconfig b/arch/arm64/Kconfig
+> index fe60738e5943..dc0bd32ea2d1 100644
+> --- a/arch/arm64/Kconfig
+> +++ b/arch/arm64/Kconfig
+> @@ -1315,13 +1315,20 @@ config QCOM_FALKOR_ERRATUM_E1041
+> 
+>  	  If unsure, say Y.
+> 
+> -config NVIDIA_CARMEL_CNP_ERRATUM
+> -	bool "NVIDIA Carmel CNP: CNP on Carmel semantically different than ARM cores"
+> +config ARM64_WORKAROUND_DISABLE_CNP
+> +	bool "Disable CNP on affected CPUs"
+>  	default y
+>  	help
+> -	  If CNP is enabled on Carmel cores, non-sharable TLBIs on a core will not
+> -	  invalidate shared TLB entries installed by a different core, as it would
+> -	  on standard ARM cores.
+> +	  This option disables the CNP (Common Not Private) feature on CPUs
+> +	  that have hardware errata affecting CNP behavior.
+> +
+> +	  On NVIDIA Carmel cores, CNP behaves differently than on standard ARM
+> +	  cores: non-shareable TLBIs on a core may not invalidate shared TLB
+> +	  entries installed by a different core.
+> +
+> +	  On Hisilicon HIP09 cores, TLB entries may be incorrectly shared
+> +	  between cores when TTBRx.CNP=1, leading to TLB conflicts and
+> +	  stale mappings.
+> 
+>  	  If unsure, say Y.
+>
 
-The reason is the devres ordering. arm_smmu_impl_probe() registers
-arm_smmu_impl_remove as a devres action before arm_smmu_init_queues()
-does dmam_alloc_coherent() for smmu->cmdq.q.base.
+I'm afraid we cannot swap one config with another. Instead, we need to follow
+established pattern for sharing workaround, something like
 
-devres unwinds LIFO, so q.base is released first, then
-arm_smmu_impl_remove()
- tegra241_cmdqv_remove()
-  tegra241_vintf_hw_deinit()
-   tegra241_vcmdq_hw_deinit()
-     hw_flush_timeout() on a freed q.base.
-
-The flush exists to drain a guest-owned VCMDQ's pending ATC_INV
-TIMEOUT before the VCMDQ is handed to the next VM (see the comment
-above tegra241_vcmdq_hw_flush_timeout()). impl-remove is not a
-handover: no VM is taking the VCMDQ here. The next time a VM is
-assigned a VCMDQ via the IOMMU_HW_QUEUE_ALLOC ioctl, this host
-kernel driver's tegra241_vcmdq_hw_init_user() runs hw_deinit() ->
-hw_flush_timeout() before the hw_queue is returned to userspace,
-so any pending TIMEOUT is drained by the host before any guest
-sees the VCMDQ.
-
-Mark the cmdqv as removing at the top of tegra241_cmdqv_remove() and
-skip the flush in tegra241_vcmdq_hw_deinit() when the flag is set.
-All other hw_deinit callers (in-kernel hw_init reset, vintf_hw_init
-failure unwind, user-mode lvcmdq destroy) run while smmu->cmdq is
-still valid and continue to issue the flush as before.
-
-Fixes: 4dc0d12474f9 ("iommu/tegra241-cmdqv: Add user-space use support")
-Cc: stable@vger.kernel.org # v6.17+
-Signed-off-by: Shameer Kolothum <skolothumtho@nvidia.com>
----
- drivers/iommu/arm/arm-smmu-v3/tegra241-cmdqv.c | 15 ++++++++++++++-
- 1 file changed, 14 insertions(+), 1 deletion(-)
-
-diff --git a/drivers/iommu/arm/arm-smmu-v3/tegra241-cmdqv.c b/drivers/iommu/arm/arm-smmu-v3/tegra241-cmdqv.c
-index 4915ed96baca..b336b0bffe96 100644
---- a/drivers/iommu/arm/arm-smmu-v3/tegra241-cmdqv.c
-+++ b/drivers/iommu/arm/arm-smmu-v3/tegra241-cmdqv.c
-@@ -208,6 +208,7 @@ struct tegra241_vintf_sid {
-  * @num_sids_per_vintf: Total number of SID mappings per VINTF
-  * @vintf_ids: VINTF id allocator
-  * @vintfs: List of VINTFs
-+ * @removing: Set while the device is being torn down via impl_remove
-  */
- struct tegra241_cmdqv {
- 	struct arm_smmu_device smmu;
-@@ -226,6 +227,8 @@ struct tegra241_cmdqv {
- 	struct ida vintf_ids;
+diff --git a/arch/arm64/Kconfig b/arch/arm64/Kconfig
+index 378e50fef247..68eb2993cfd3 100644
+--- a/arch/arm64/Kconfig
++++ b/arch/arm64/Kconfig
+@@ -1315,9 +1315,13 @@ config QCOM_FALKOR_ERRATUM_E1041
  
- 	struct tegra241_vintf **vintfs;
+          If unsure, say Y.
+ 
++config ARM64_WORKAROUND_DISABLE_CNP
++       bool
 +
-+	bool removing;
- };
- 
- /* Config and Polling Helpers */
-@@ -452,7 +455,9 @@ static void tegra241_vcmdq_hw_deinit(struct tegra241_vcmdq *vcmdq)
- 			readl_relaxed(REG_VCMDQ_PAGE0(vcmdq, GERROR)),
- 			readl_relaxed(REG_VCMDQ_PAGE0(vcmdq, CONS)));
- 	}
--	tegra241_vcmdq_hw_flush_timeout(vcmdq);
-+	/* In the removing path, smmu->cmdq.q.base is freed by the devres */
-+	if (!vcmdq->cmdqv->removing)
-+		tegra241_vcmdq_hw_flush_timeout(vcmdq);
- 
- 	writel_relaxed(0, REG_VCMDQ_PAGE0(vcmdq, PROD));
- 	writel_relaxed(0, REG_VCMDQ_PAGE0(vcmdq, CONS));
-@@ -789,6 +794,13 @@ static void tegra241_cmdqv_remove(struct arm_smmu_device *smmu)
- 		container_of(smmu, struct tegra241_cmdqv, smmu);
- 	u16 idx;
- 
-+	/*
-+	 * tegra241_cmdqv_remove() is added to devres at the very beginning. So,
-+	 * at this point, devres has already freed the SMMU resources that this
-+	 * path must not access to avoid a UAF.
-+	 */
-+	cmdqv->removing = true;
+ config NVIDIA_CARMEL_CNP_ERRATUM
+        bool "NVIDIA Carmel CNP: CNP on Carmel semantically different than ARM cores"
+        default y
++       select ARM64_WORKAROUND_DISABLE_CNP
+        help
+          If CNP is enabled on Carmel cores, non-sharable TLBIs on a core will not
+          invalidate shared TLB entries installed by a different core, as it would
+
+
+and related changes for generalisation of the workaround - that would to be patch 1/2.
+
+Then we can easily wire-up your errata with something like
+
++config HISILICON_ERRATUM_162100125
++       bool "Hisilicon erratum 162100125"
++       default y
++       select ARM64_WORKAROUND_DISABLE_CNP
++       help
++         On HiSilicon HIP09, TLB entry matching behavior when CNP
++         (TTBRx.CNP=1) is enabled differs from the ARM architecture
++         specification.
 +
- 	/* Remove VINTF resources */
- 	for (idx = 0; idx < cmdqv->num_vintfs; idx++) {
- 		if (cmdqv->vintfs[idx]) {
-@@ -932,6 +944,7 @@ __tegra241_cmdqv_probe(struct arm_smmu_device *smmu, struct resource *res,
- 	cmdqv->base = base;
- 	cmdqv->dev = smmu->impl_dev;
- 	cmdqv->base_phys = res->start;
-+	cmdqv->removing = false;
++         TLB entries may be incorrectly shared between CPUs, potentially
++         causing TLB conflicts and stale mappings.
++
++         Disable CNP support for affected HiSilicon HIP09 cores.
++
++         If unsure, say Y.
+
+and related update in documentation and MIDR list - that would be patch 2/2
+
+Thanks
+Vladimir
  
- 	if (cmdqv->irq > 0) {
- 		ret = request_threaded_irq(irq, NULL, tegra241_cmdqv_isr,
--- 
-2.43.0
+> diff --git a/arch/arm64/include/asm/cpucaps.h b/arch/arm64/include/asm/cpucaps.h
+> index d0d3cdd5763c..25c61cda901c 100644
+> --- a/arch/arm64/include/asm/cpucaps.h
+> +++ b/arch/arm64/include/asm/cpucaps.h
+> @@ -58,8 +58,8 @@ cpucap_is_possible(const unsigned int cap)
+>  		return IS_ENABLED(CONFIG_ARM64_ERRATUM_2658417);
+>  	case ARM64_WORKAROUND_CAVIUM_23154:
+>  		return IS_ENABLED(CONFIG_CAVIUM_ERRATUM_23154);
+> -	case ARM64_WORKAROUND_NVIDIA_CARMEL_CNP:
+> -		return IS_ENABLED(CONFIG_NVIDIA_CARMEL_CNP_ERRATUM);
+> +	case ARM64_WORKAROUND_DISABLE_CNP:
+> +		return IS_ENABLED(CONFIG_ARM64_WORKAROUND_DISABLE_CNP);
+>  	case ARM64_WORKAROUND_REPEAT_TLBI:
+>  		return IS_ENABLED(CONFIG_ARM64_WORKAROUND_REPEAT_TLBI);
+>  	case ARM64_WORKAROUND_SPECULATIVE_SSBS:
+> diff --git a/arch/arm64/kernel/cpu_errata.c b/arch/arm64/kernel/cpu_errata.c
+> index 5377e4c2eba2..675cd059165c 100644
+> --- a/arch/arm64/kernel/cpu_errata.c
+> +++ b/arch/arm64/kernel/cpu_errata.c
+> @@ -394,6 +394,14 @@ static const struct arm64_cpu_capabilities qcom_erratum_1003_list[] = {
+>  };
+>  #endif
+> 
+> +#ifdef CONFIG_ARM64_WORKAROUND_DISABLE_CNP
+> +static const struct midr_range cnp_erratum_cpus[] = {
+> +	MIDR_ALL_VERSIONS(MIDR_NVIDIA_CARMEL),
+> +	MIDR_ALL_VERSIONS(MIDR_HISI_HIP09),
+> +	{},
+> +};
+> +#endif
+> +
+>  #ifdef CONFIG_ARM64_WORKAROUND_CLEAN_CACHE
+>  static const struct midr_range workaround_clean_cache[] = {
+>  #if	defined(CONFIG_ARM64_ERRATUM_826319) || \
+> @@ -801,12 +809,11 @@ const struct arm64_cpu_capabilities arm64_errata[] = {
+>  				  1, 0),
+>  	},
+>  #endif
+> -#ifdef CONFIG_NVIDIA_CARMEL_CNP_ERRATUM
+> +#ifdef CONFIG_ARM64_WORKAROUND_DISABLE_CNP
+>  	{
+> -		/* NVIDIA Carmel */
+> -		.desc = "NVIDIA Carmel CNP erratum",
+> -		.capability = ARM64_WORKAROUND_NVIDIA_CARMEL_CNP,
+> -		ERRATA_MIDR_ALL_VERSIONS(MIDR_NVIDIA_CARMEL),
+> +		.desc = "NVIDIA Carmel CNP erratum, or Hisilicon erratum 162100125",
+> +		.capability = ARM64_WORKAROUND_DISABLE_CNP,
+> +		ERRATA_MIDR_RANGE_LIST(cnp_erratum_cpus),
+>  	},
+>  #endif
+>  #ifdef CONFIG_ARM64_WORKAROUND_TRBE_OVERWRITE_FILL_MODE
+> diff --git a/arch/arm64/kernel/cpufeature.c b/arch/arm64/kernel/cpufeature.c
+> index 6d53bb15cf7b..20c5f24f74a9 100644
+> --- a/arch/arm64/kernel/cpufeature.c
+> +++ b/arch/arm64/kernel/cpufeature.c
+> @@ -1785,7 +1785,7 @@ has_useable_cnp(const struct arm64_cpu_capabilities *entry, int scope)
+>  	if (is_kdump_kernel())
+>  		return false;
+> 
+> -	if (cpus_have_cap(ARM64_WORKAROUND_NVIDIA_CARMEL_CNP))
+> +	if (cpus_have_cap(ARM64_WORKAROUND_DISABLE_CNP))
+>  		return false;
+> 
+>  	return has_cpuid_feature(entry, scope);
+> diff --git a/arch/arm64/tools/cpucaps b/arch/arm64/tools/cpucaps
+> index 811c2479e82d..9b85a84f6fd4 100644
+> --- a/arch/arm64/tools/cpucaps
+> +++ b/arch/arm64/tools/cpucaps
+> @@ -120,7 +120,7 @@ WORKAROUND_CAVIUM_TX2_219_PRFM
+>  WORKAROUND_CAVIUM_TX2_219_TVM
+>  WORKAROUND_CLEAN_CACHE
+>  WORKAROUND_DEVICE_LOAD_ACQUIRE
+> -WORKAROUND_NVIDIA_CARMEL_CNP
+> +WORKAROUND_DISABLE_CNP
+>  WORKAROUND_PMUV3_IMPDEF_TRAPS
+>  WORKAROUND_QCOM_FALKOR_E1003
+>  WORKAROUND_QCOM_ORYON_CNTVOFF
+> --
+> 2.43.0
+> 
 
 
