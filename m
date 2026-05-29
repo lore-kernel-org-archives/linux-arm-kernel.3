@@ -4,60 +4,88 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 2D3FACD6E45
-	for <linux-arm-kernel@archiver.kernel.org>; Fri, 29 May 2026 08:43:49 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 386A8CD6E45
+	for <linux-arm-kernel@archiver.kernel.org>; Fri, 29 May 2026 08:47:28 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
-	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=LZ+2BriGcUoQCB9R5Nhhl9kS0v/pUWUNaGjr2e1gbZ8=; b=IFnKlqBM9kEv6jppG4UN1zjDhA
-	IOmJkzxVFMJvu2Ygk+T/gOTv7H07anMcIrsfP2ci4YTx+wSKW8x5jq49x/7Mg6q1xuSJbiQFrjVo3
-	EbmVSmMge07BmyJX94lxaZCFc45NwkleOM74s6o129XLLvO0M6AeT4b/KNbZo/NE2SE+GSqymDWlv
-	5QlicPV8cWTx6BqWUfSRALSBUnbcTn6ZNf3QOYXxv4QIXkcydCiVX8MkjsXKnlj4Jd6QEyB999fZh
-	QFPCnXJFpNjqfPPcnm5BbhRW8uygWPbkum7PFSbFINzaaJCq/JOX3CkieNRjK+NdVXd0JSbI9t2C3
-	jwAUOCbw==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:
+	Content-Transfer-Encoding:Content-Type:MIME-Version:Message-Id:Date:Subject:
+	From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:
+	List-Owner; bh=vjkKZgQzTXUS5z9B9TEm46vwTVWKfMQNRHTJ1QTMoVE=; b=Nz4wOkFsZNL/Gt
+	8xfrPvb3Brlv5kNgUs0O13DIjV5W06uKhmQ3t+i2dJjY19yLPoN4wDUcafsMqsruoUVU3uFLzQdAG
+	X1b0IdaSCskWkL+ogVOxfueRIhC1fg3l3wri5KYRPvFVF//jCj3JSHVCsQy5DmaQWnVZ+UckDoC/m
+	kQmiHBx1ul5dswGLR1+zIe9ZdlulBwSaBGpWdAtifFgQ8VOK0Pqo92gjwnnqW+GZyPo73E3Aqagse
+	SLIzyUe11mtkFBVrnsR/6QLHlv8s83FlS4CRjuUst6pmZ+0za5rna4+3ML08MvZQEK67rdwB1IfYF
+	RnqvQZKT+pzebPmiACGg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wSsof-00000006yVN-1SOg;
-	Fri, 29 May 2026 08:43:41 +0000
-Received: from foss.arm.com ([217.140.110.172])
-	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wSsod-00000006yV0-1DL1
+	id 1wSssD-00000006ymq-1UQz;
+	Fri, 29 May 2026 08:47:21 +0000
+Received: from perceval.ideasonboard.com ([213.167.242.64])
+	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
+	id 1wSss9-00000006ykl-0neu
 	for linux-arm-kernel@lists.infradead.org;
-	Fri, 29 May 2026 08:43:40 +0000
-Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
-	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id 3AA30204C;
-	Fri, 29 May 2026 01:43:33 -0700 (PDT)
-Received: from [10.1.26.144] (unknown [10.1.26.144])
-	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id E2F0A3F632;
-	Fri, 29 May 2026 01:43:35 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=simple/simple; d=arm.com; s=foss;
-	t=1780044218; bh=KygjM3ZykWxWbDxiC7hupI7dfqvP38H79ifxVucLd7s=;
-	h=Date:Subject:To:Cc:References:From:In-Reply-To:From;
-	b=UV5BGLRtOl91Z/MsKlJEM8AgO+Hjwx9Pz3JUe/rapOjbl+lAXUcD5/WdCF6BfqPeI
-	 Hn20VBP5lyOleWQTbkBG4zZCZzujOG+LzfyxDhj649uCXrBMnENKFayBiDZxjQIruV
-	 yinajPGXuAyMI3ur7p44dwIDrs1vfMpTy6R5d1GE=
-Message-ID: <eb4544ff-c2f0-407c-8449-8a423cdeab09@arm.com>
-Date: Fri, 29 May 2026 09:43:33 +0100
+	Fri, 29 May 2026 08:47:19 +0000
+Received: from [127.0.1.1] (91-158-153-178.elisa-laajakaista.fi [91.158.153.178])
+	by perceval.ideasonboard.com (Postfix) with ESMTPSA id 50390741;
+	Fri, 29 May 2026 10:46:53 +0200 (CEST)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=ideasonboard.com;
+	s=mail; t=1780044414;
+	bh=ns9apGH4POa8yl/UYKramrpqDnT3jxOchO1UHnMK7Is=;
+	h=From:Subject:Date:To:Cc:From;
+	b=qeeXDZMaVDMD6ASaqBl8wz1iMyKUqCN1dxDCXmGLc8b+rkqQJIQCwLO8IROmiSsF+
+	 g8pqPg/FJAYNe85r8dCEGPIgGW+M3v2yT/8qxmwLWjJlrTr8fTZ+RZAvdUh5Y3Knbk
+	 fJ9lz9Xu3b7ALYZrUpDWKZoA4P4JjHymMq/70p4E=
+From: Tomi Valkeinen <tomi.valkeinen@ideasonboard.com>
+Subject: [PATCH v3 00/15] drm/tidss: Add BeagleY-AI display support (and
+ some more)
+Date: Fri, 29 May 2026 11:45:30 +0300
+Message-Id: <20260529-beagley-ai-display-v3-0-7fefdc5d1adf@ideasonboard.com>
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH v2 12/18] arm64: fpsimd: Move fpsimd save/restore inline
-To: Mark Rutland <mark.rutland@arm.com>,
- linux-arm-kernel@lists.infradead.org, kvmarm@lists.linux.dev
-Cc: broonie@kernel.org, catalin.marinas@arm.com, james.morse@arm.com,
- maz@kernel.org, oupton@kernel.org, tabba@google.com, will@kernel.org
-References: <20260528165446.701944-1-mark.rutland@arm.com>
- <20260528165446.701944-13-mark.rutland@arm.com>
-Content-Language: en-GB
-From: Vladimir Murzin <vladimir.murzin@arm.com>
-In-Reply-To: <20260528165446.701944-13-mark.rutland@arm.com>
-Content-Type: text/plain; charset=UTF-8
+Content-Type: text/plain; charset="utf-8"
 Content-Transfer-Encoding: 7bit
+X-B4-Tracking: v=1; b=H4sIACxSGWoC/33PzY7CIBAH8FdpOO+YQqFqT/seGw98DDqJBYVKt
+ jF996X14MXs8T8Dv5l5soyJMLOhebKEhTLFUEP31TB70eGMQK5mJlrRt1K0YFCfrziDJnCUb1c
+ 9g9v7vpPWofKS1Y+3hJ5+N/Tn9MoJ749qT6/imx6aDVbiABPBqCmAjcFXUmnUCpUVZih8VY3OW
+ JvjSNPQlP2OQ7KKrf6F8hTTvN1Q364D/lu3cGjB9+KgZOe84/KbHOocg4k6uV0dsalFvCXFu4+
+ SqNIRj8aid9gb+0FaluUPWlVPlGUBAAA=
+X-Change-ID: 20260420-beagley-ai-display-d7f634cde5f4
+To: Maarten Lankhorst <maarten.lankhorst@linux.intel.com>, 
+ Maxime Ripard <mripard@kernel.org>, Thomas Zimmermann <tzimmermann@suse.de>, 
+ David Airlie <airlied@gmail.com>, Simona Vetter <simona@ffwll.ch>, 
+ Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>, 
+ Conor Dooley <conor+dt@kernel.org>, Lee Jones <lee@kernel.org>, 
+ Aradhya Bhatia <aradhya.bhatia@linux.dev>, Nishanth Menon <nm@ti.com>, 
+ Vignesh Raghavendra <vigneshr@ti.com>, Swamil Jain <s-jain1@ti.com>, 
+ Devarsh Thakkar <devarsht@ti.com>, 
+ Louis Chauvet <louis.chauvet@bootlin.com>
+Cc: devicetree@vger.kernel.org, dri-devel@lists.freedesktop.org, 
+ linux-kernel@vger.kernel.org, linux-arm-kernel@lists.infradead.org, 
+ Tomi Valkeinen <tomi.valkeinen@ideasonboard.com>, 
+ Jayesh Choudhary <j-choudhary@ti.com>, Aradhya Bhatia <a-bhatia1@ti.com>, 
+ Andrew Davis <afd@ti.com>, Robert Nelson <robertcnelson@gmail.com>
+X-Mailer: b4 0.15.2
+X-Developer-Signature: v=1; a=openpgp-sha256; l=6028;
+ i=tomi.valkeinen@ideasonboard.com; h=from:subject:message-id;
+ bh=ns9apGH4POa8yl/UYKramrpqDnT3jxOchO1UHnMK7Is=;
+ b=owEBbQKS/ZANAwAIAfo9qoy8lh71AcsmYgBqGVKIlPy/glwTSO58WbcEpx1uvmffXSOmzmdlY
+ 7j5kYpPcLCJAjMEAAEIAB0WIQTEOAw+ll79gQef86f6PaqMvJYe9QUCahlSiAAKCRD6PaqMvJYe
+ 9dE9D/kBYIS5NefMls2VIVt4nAzxtakVo9gp0P9DQoLTAMbFuqvB4bDKFSOdW4wgm+jixf7Uj5+
+ dOslXajpKRvgazfT/GAI57D0F75I9a3F9LFsu9M8PNODk+sy9EbS5xOHymFXQLkhcR835qHSnDr
+ vExBo8UjJB05Ofwnw+zDi2WWahzYQFRnVlJCTxRFXmMh4q7XTTseNj5MH6OTB4x0uNN4g7Thoig
+ yxPsv2ceXH0fpqOVuq3wAZL15ejiJBif64e5ALEL6jzOky1KCvEsrGEYhXia5RnihEYY/fAXHMY
+ 8q6wIo0RdYMp/hGF4Vw/1VpuWd6syAvzust74e4nKTxu5ggEO7bvQXPo2OAC+J1C4xJkOCn3Hzo
+ Asr/zZgVWOf2Mj+Y5LENOX25oMejRveWJO6jUIlGYpjZnrMCTxYioSHACdAMU+jjCLWQeQoGQq1
+ 86jUEFNhdPACMikOVoPijbnRs3dpUp7JqokzHDveBU+I6LrXMixTHNXSCzE5OHiCNukq7Ey8Mgu
+ 56loyZ1xhlGj4j3rRuijTJ/2hc5a4yZgXrk0f8E/HooF/XO33vRO8bI48XBGCpdmB2wLVmqADYQ
+ WTpSBCsDWpfSO7wI2livadoNwQFPwli6HOYxldHIOpDkmi3lzIGrENNxHHLhBTW+hwy0OZmNB8O
+ Er9p08NRc3oDONQ==
+X-Developer-Key: i=tomi.valkeinen@ideasonboard.com; a=openpgp;
+ fpr=C4380C3E965EFD81079FF3A7FA3DAA8CBC961EF5
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260529_014339_430786_B56F8638 
-X-CRM114-Status: GOOD (  34.38  )
+X-CRM114-CacheID: sfid-20260529_014717_820193_E07DBDCB 
+X-CRM114-Status: GOOD (  17.68  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -72,339 +100,128 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On 5/28/26 17:54, Mark Rutland wrote:
-> Currently the FPSIMD register save/restore sequences are written in
-> out-of-line assembly routines. While this works, it's somewhat painful:
-> 
-> * As KVM needs to be able to use the sequences in hyp code, separate
->   assembly files are used for the regular kernel and KVM code. While the
->   common logic is shared in assembly macros, this still requires some
->   duplication, and has lead to some trivial divergence.
-> 
-> * For historical reasons, the assembly macros take some register
->   arguments as numerical indices (e.g. "fpsimd_save x0, 8" uses x0 and
->   x8), which is simply confusing.
-> 
-> * For historical reasons, the SVE save/restore code and FPSIMD
->   save/restore code have distinct sequences for FPSR and FPCR. Ideally
->   this logic would be shared.
-> 
-> * The assembly sequences can't be instrumented, and so it's harder than
->   necessary to catch memory safety issues.
-> 
-> To handle the above, move the FPSIMD register save/restore sequences to
-> inline assembly, and share the FPSR+FPCR save/restore with SVE.
-> 
-> Neither GCC nor LLVM instrument memory arguments to inline assembly, so
-> explicit instrumentation is added in the same manner as other assembly
-> routines. This instrumentation is implicitly disabled by Kbuild for nVHE
-> hyp code.
-> 
-> I've used the SVE sequence for restoring FPCR, which uses an
-> unconditional write to FPCR, rather than the conditional write used by
-> the FPSIMD assembly sequence. I believe that in practice, this doesn't
-> matter to a real workload, and given it's possible for the mis-predicted
-> branch to cost more than the necessary micro-architectural
-> synchronization, I strongly suspect any performance impact is within the
-> noise.
-> 
-> Looking at the history, the FPSIMD assembly sequence was changed to use
-> a conditional write to FPCR since 2014 in commit:
-> 
->   5959e25729a5 ("arm64: fpsimd: avoid restoring fpcr if the contents haven't change")
-> 
-> ... as described in the commit message, this was based on an expectation
-> of implementation style, and was not based on benchmarking.
-> 
-> Signed-off-by: Mark Rutland <mark.rutland@arm.com>
-> Reviewed-by: Mark Brown <broonie@kernel.org>
-> Cc: Catalin Marinas <catalin.marinas@arm.com>
-> Cc: Fuad Tabba <tabba@google.com>
-> Cc: James Morse <james.morse@arm.com>
-> Cc: Marc Zyngier <maz@kernel.org>
-> Cc: Mark Brown <broonie@kernel.org>
-> Cc: Oliver Upton <oupton@kernel.org>
-> Cc: Will Deacon <will@kernel.org>
-> ---
->  arch/arm64/include/asm/fpsimd.h         | 68 ++++++++++++++++++++++++-
->  arch/arm64/include/asm/fpsimdmacros.h   | 59 ---------------------
->  arch/arm64/include/asm/kvm_hyp.h        |  2 -
->  arch/arm64/kernel/entry-fpsimd.S        | 20 --------
->  arch/arm64/kvm/hyp/fpsimd.S             | 10 ----
->  arch/arm64/kvm/hyp/include/hyp/switch.h |  4 +-
->  arch/arm64/kvm/hyp/nvhe/hyp-main.c      |  4 +-
->  7 files changed, 70 insertions(+), 97 deletions(-)
-> 
-> diff --git a/arch/arm64/include/asm/fpsimd.h b/arch/arm64/include/asm/fpsimd.h
-> index 6fd5cdf5e5f17..19b373ad0ebf7 100644
-> --- a/arch/arm64/include/asm/fpsimd.h
-> +++ b/arch/arm64/include/asm/fpsimd.h
-> @@ -22,6 +22,8 @@
->  #include <linux/stddef.h>
->  #include <linux/types.h>
->  
-> +#define __FPSIMD_PREAMBLE	".arch_extension fp\n" \
-> +				".arch_extension simd\n"
->  #define __SVE_PREAMBLE		".arch_extension sve\n"
->  #define __SME_PREAMBLE		".arch_extension sme\n"
->  
-> @@ -86,8 +88,70 @@ static inline void fpsimd_load_common(const struct user_fpsimd_state *state)
->  	write_sysreg_s(state->fpcr, SYS_FPCR);
->  }
->  
-> -extern void fpsimd_save_state(struct user_fpsimd_state *state);
-> -extern void fpsimd_load_state(struct user_fpsimd_state *state);
-> +static inline void fpsimd_save_vregs(struct user_fpsimd_state *state)
-> +{
-> +	instrument_write(state->vregs, sizeof(state->vregs));
-> +	asm volatile(
-> +	__FPSIMD_PREAMBLE
-> +	"	stp	q0,  q1,  [%[vregs], #16 * 0]\n"
-> +	"	stp	q2,  q3,  [%[vregs], #16 * 2]\n"
-> +	"	stp	q4,  q5,  [%[vregs], #16 * 4]\n"
-> +	"	stp	q6,  q7,  [%[vregs], #16 * 6]\n"
-> +	"	stp	q8,  q9,  [%[vregs], #16 * 8]\n"
-> +	"	stp	q10, q11, [%[vregs], #16 * 10]\n"
-> +	"	stp	q12, q13, [%[vregs], #16 * 12]\n"
-> +	"	stp	q14, q15, [%[vregs], #16 * 14]\n"
-> +	"	stp	q16, q17, [%[vregs], #16 * 16]\n"
-> +	"	stp	q18, q19, [%[vregs], #16 * 18]\n"
-> +	"	stp	q20, q21, [%[vregs], #16 * 20]\n"
-> +	"	stp	q22, q23, [%[vregs], #16 * 22]\n"
-> +	"	stp	q24, q25, [%[vregs], #16 * 24]\n"
-> +	"	stp	q26, q27, [%[vregs], #16 * 26]\n"
-> +	"	stp	q28, q29, [%[vregs], #16 * 28]\n"
-> +	"	stp	q30, q31, [%[vregs], #16 * 30]\n"
-> +	: "=Q" (state->vregs)
-> +	: [vregs] "r" (state->vregs)
-> +	);
-> +}
-> +
-> +static inline void fpsimd_load_vregs(const struct user_fpsimd_state *state)
-> +{
-> +	instrument_read(state->vregs, sizeof(state->vregs));
-> +	asm volatile(
-> +	__FPSIMD_PREAMBLE
-> +	"	ldp	q0,  q1,  [%[vregs], #16 * 0]\n"
-> +	"	ldp	q2,  q3,  [%[vregs], #16 * 2]\n"
-> +	"	ldp	q4,  q5,  [%[vregs], #16 * 4]\n"
-> +	"	ldp	q6,  q7,  [%[vregs], #16 * 6]\n"
-> +	"	ldp	q8,  q9,  [%[vregs], #16 * 8]\n"
-> +	"	ldp	q10, q11, [%[vregs], #16 * 10]\n"
-> +	"	ldp	q12, q13, [%[vregs], #16 * 12]\n"
-> +	"	ldp	q14, q15, [%[vregs], #16 * 14]\n"
-> +	"	ldp	q16, q17, [%[vregs], #16 * 16]\n"
-> +	"	ldp	q18, q19, [%[vregs], #16 * 18]\n"
-> +	"	ldp	q20, q21, [%[vregs], #16 * 20]\n"
-> +	"	ldp	q22, q23, [%[vregs], #16 * 22]\n"
-> +	"	ldp	q24, q25, [%[vregs], #16 * 24]\n"
-> +	"	ldp	q26, q27, [%[vregs], #16 * 26]\n"
-> +	"	ldp	q28, q29, [%[vregs], #16 * 28]\n"
-> +	"	ldp	q30, q31, [%[vregs], #16 * 30]\n"
-> +	:
-> +	: "Q" (state->vregs),
-> +	  [vregs] "r" (state->vregs)
-> +	);
-> +}
-> +
-> +static inline void fpsimd_save_state(struct user_fpsimd_state *state)
-> +{
-> +	fpsimd_save_vregs(state);
-> +	fpsimd_save_common(state);
-> +}
-> +
-> +static inline void fpsimd_load_state(const struct user_fpsimd_state *state)
-> +{
-> +	fpsimd_load_vregs(state);
-> +	fpsimd_load_common(state);
-> +}
->  
->  extern void fpsimd_thread_switch(struct task_struct *next);
->  extern void fpsimd_flush_thread(void);
-> diff --git a/arch/arm64/include/asm/fpsimdmacros.h b/arch/arm64/include/asm/fpsimdmacros.h
-> index 1f32e0967dcd3..b486c6399bb4e 100644
-> --- a/arch/arm64/include/asm/fpsimdmacros.h
-> +++ b/arch/arm64/include/asm/fpsimdmacros.h
-> @@ -8,65 +8,6 @@
->  
->  #include <asm/assembler.h>
->  
-> -.macro fpsimd_save state, tmpnr
-> -	stp	q0, q1, [\state, #16 * 0]
-> -	stp	q2, q3, [\state, #16 * 2]
-> -	stp	q4, q5, [\state, #16 * 4]
-> -	stp	q6, q7, [\state, #16 * 6]
-> -	stp	q8, q9, [\state, #16 * 8]
-> -	stp	q10, q11, [\state, #16 * 10]
-> -	stp	q12, q13, [\state, #16 * 12]
-> -	stp	q14, q15, [\state, #16 * 14]
-> -	stp	q16, q17, [\state, #16 * 16]
-> -	stp	q18, q19, [\state, #16 * 18]
-> -	stp	q20, q21, [\state, #16 * 20]
-> -	stp	q22, q23, [\state, #16 * 22]
-> -	stp	q24, q25, [\state, #16 * 24]
-> -	stp	q26, q27, [\state, #16 * 26]
-> -	stp	q28, q29, [\state, #16 * 28]
-> -	stp	q30, q31, [\state, #16 * 30]!
-> -	mrs	x\tmpnr, fpsr
-> -	str	w\tmpnr, [\state, #16 * 2]
-> -	mrs	x\tmpnr, fpcr
-> -	str	w\tmpnr, [\state, #16 * 2 + 4]
-> -.endm
-> -
-> -.macro fpsimd_restore_fpcr state, tmp
-> -	/*
-> -	 * Writes to fpcr may be self-synchronising, so avoid restoring
-> -	 * the register if it hasn't changed.
-> -	 */
-> -	mrs	\tmp, fpcr
-> -	cmp	\tmp, \state
-> -	b.eq	9999f
-> -	msr	fpcr, \state
-> -9999:
-> -.endm
-> -
-> -/* Clobbers \state */
-> -.macro fpsimd_restore state, tmpnr
-> -	ldp	q0, q1, [\state, #16 * 0]
-> -	ldp	q2, q3, [\state, #16 * 2]
-> -	ldp	q4, q5, [\state, #16 * 4]
-> -	ldp	q6, q7, [\state, #16 * 6]
-> -	ldp	q8, q9, [\state, #16 * 8]
-> -	ldp	q10, q11, [\state, #16 * 10]
-> -	ldp	q12, q13, [\state, #16 * 12]
-> -	ldp	q14, q15, [\state, #16 * 14]
-> -	ldp	q16, q17, [\state, #16 * 16]
-> -	ldp	q18, q19, [\state, #16 * 18]
-> -	ldp	q20, q21, [\state, #16 * 20]
-> -	ldp	q22, q23, [\state, #16 * 22]
-> -	ldp	q24, q25, [\state, #16 * 24]
-> -	ldp	q26, q27, [\state, #16 * 26]
-> -	ldp	q28, q29, [\state, #16 * 28]
-> -	ldp	q30, q31, [\state, #16 * 30]!
-> -	ldr	w\tmpnr, [\state, #16 * 2]
-> -	msr	fpsr, x\tmpnr
-> -	ldr	w\tmpnr, [\state, #16 * 2 + 4]
-> -	fpsimd_restore_fpcr x\tmpnr, \state
-> -.endm
-> -
->  /* Sanity-check macros to help avoid encoding garbage instructions */
->  
->  .macro _check_general_reg nr
-> diff --git a/arch/arm64/include/asm/kvm_hyp.h b/arch/arm64/include/asm/kvm_hyp.h
-> index 0030cc1b52197..8c4602c8f4356 100644
-> --- a/arch/arm64/include/asm/kvm_hyp.h
-> +++ b/arch/arm64/include/asm/kvm_hyp.h
-> @@ -121,8 +121,6 @@ void __debug_save_host_buffers_nvhe(struct kvm_vcpu *vcpu);
->  void __debug_restore_host_buffers_nvhe(struct kvm_vcpu *vcpu);
->  #endif
->  
-> -void __fpsimd_save_state(struct user_fpsimd_state *fp_regs);
-> -void __fpsimd_restore_state(struct user_fpsimd_state *fp_regs);
->  void __sve_save_state(void *sve, int save_ffr);
->  void __sve_restore_state(void *sve, int restore_ffr);
->  
-> diff --git a/arch/arm64/kernel/entry-fpsimd.S b/arch/arm64/kernel/entry-fpsimd.S
-> index 83fe9c32bbd1c..4fa00c94f28b7 100644
-> --- a/arch/arm64/kernel/entry-fpsimd.S
-> +++ b/arch/arm64/kernel/entry-fpsimd.S
-> @@ -11,26 +11,6 @@
->  #include <asm/assembler.h>
->  #include <asm/fpsimdmacros.h>
->  
-> -/*
-> - * Save the FP registers.
-> - *
-> - * x0 - pointer to struct fpsimd_state
-> - */
-> -SYM_FUNC_START(fpsimd_save_state)
-> -	fpsimd_save x0, 8
-> -	ret
-> -SYM_FUNC_END(fpsimd_save_state)
-> -
-> -/*
-> - * Load the FP registers.
-> - *
-> - * x0 - pointer to struct fpsimd_state
-> - */
-> -SYM_FUNC_START(fpsimd_load_state)
-> -	fpsimd_restore x0, 8
-> -	ret
-> -SYM_FUNC_END(fpsimd_load_state)
-> -
->  #ifdef CONFIG_ARM64_SVE
->  
->  /*
-> diff --git a/arch/arm64/kvm/hyp/fpsimd.S b/arch/arm64/kvm/hyp/fpsimd.S
-> index 8575e32977d19..beacec33b2541 100644
-> --- a/arch/arm64/kvm/hyp/fpsimd.S
-> +++ b/arch/arm64/kvm/hyp/fpsimd.S
-> @@ -10,16 +10,6 @@
->  
->  	.text
->  
-> -SYM_FUNC_START(__fpsimd_save_state)
-> -	fpsimd_save	x0, 1
-> -	ret
-> -SYM_FUNC_END(__fpsimd_save_state)
-> -
-> -SYM_FUNC_START(__fpsimd_restore_state)
-> -	fpsimd_restore	x0, 1
-> -	ret
-> -SYM_FUNC_END(__fpsimd_restore_state)
-> -
->  SYM_FUNC_START(__sve_restore_state)
->  	sve_load 0, x1
->  	ret
-> diff --git a/arch/arm64/kvm/hyp/include/hyp/switch.h b/arch/arm64/kvm/hyp/include/hyp/switch.h
-> index eb76a863ebb84..aaa43554fd8e6 100644
-> --- a/arch/arm64/kvm/hyp/include/hyp/switch.h
-> +++ b/arch/arm64/kvm/hyp/include/hyp/switch.h
-> @@ -565,7 +565,7 @@ static void kvm_hyp_save_fpsimd_host(struct kvm_vcpu *vcpu)
->  	if (system_supports_sve()) {
->  		__hyp_sve_save_host();
->  	} else {
-> -		__fpsimd_save_state(&hctxt->fp_regs);
-> +		fpsimd_save_state(&hctxt->fp_regs);
->  	}
->  
->  	if (kvm_has_fpmr(kern_hyp_va(vcpu->kvm)))
-> @@ -625,7 +625,7 @@ static inline bool kvm_hyp_handle_fpsimd(struct kvm_vcpu *vcpu, u64 *exit_code)
->  	if (sve_guest)
->  		__hyp_sve_restore_guest(vcpu);
->  	else
-> -		__fpsimd_restore_state(&vcpu->arch.ctxt.fp_regs);
-> +		fpsimd_load_state(&vcpu->arch.ctxt.fp_regs);
->  
->  	if (kvm_has_fpmr(kern_hyp_va(vcpu->kvm)))
->  		write_sysreg_s(__vcpu_sys_reg(vcpu, FPMR), SYS_FPMR);
-> diff --git a/arch/arm64/kvm/hyp/nvhe/hyp-main.c b/arch/arm64/kvm/hyp/nvhe/hyp-main.c
-> index 0be4577a67e7b..627762ed7327f 100644
-> --- a/arch/arm64/kvm/hyp/nvhe/hyp-main.c
-> +++ b/arch/arm64/kvm/hyp/nvhe/hyp-main.c
-> @@ -83,7 +83,7 @@ static void fpsimd_sve_sync(struct kvm_vcpu *vcpu)
->  	if (vcpu_has_sve(vcpu))
->  		__hyp_sve_save_guest(vcpu);
->  	else
-> -		__fpsimd_save_state(&vcpu->arch.ctxt.fp_regs);
-> +		fpsimd_save_state(&vcpu->arch.ctxt.fp_regs);
->  
->  	has_fpmr = kvm_has_fpmr(kern_hyp_va(vcpu->kvm));
->  	if (has_fpmr)
-> @@ -92,7 +92,7 @@ static void fpsimd_sve_sync(struct kvm_vcpu *vcpu)
->  	if (system_supports_sve())
->  		__hyp_sve_restore_host();
->  	else
-> -		__fpsimd_restore_state(&hctxt->fp_regs);
-> +		fpsimd_load_state(&hctxt->fp_regs);
->  
->  	if (has_fpmr)
->  		write_sysreg_s(ctxt_sys_reg(hctxt, FPMR), SYS_FPMR);
-> -- 2.30.2
-> 
+This series aims to add display support for all display interfaces on
+BeagleY-AI board. More generally, it adds display support for TI AM62P,
+J722S, and related SoCs, and, as a bit extra, improves AM62L's DPI
+handling.
 
-FWIW,
+The main topics to highlight:
 
-Reviewed-by: Vladimir Murzin <vladimir.murzin@arm.com>
+- The data and sync signal polarities require accessing a register
+  (DPI0_CLK_CTRL) in the CTRL_MMR block. This has already been discussed
+  e.g. in
+  https://lore.kernel.org/all/20250730-fix-edge-handling-v1-0-1bdfb3fe7922%40bootlin.com/.
+  This series is based on "[PATCH 0/6] arm64: ti: Use syscon for the
+  Control Module" which makes the CTRL_MMR block available for DSS via
+  syscon.
+
+- The tidss OLDI support will now use auxiliary device/driver. This seems
+  to solve quite neatly the requirement to have a power-domain for each
+  OLDI. The main issue that remains is that on AM62P (and similar) we
+  will have three OLDI TX DT nodes, even if there are only two in the
+  hardware.
+
+- I'm no audio expert, but based on the original dts from Robert Nelson,
+  I did get HDMI audio working, but I see "davinci-mcasp
+  2b10000.audio-controller: Sample-rate is off by 400 PPM".
+
+With this series one can use the HDMI output on BeagleY-AI. I have also
+tested the DSI output with Raspberry Pi's 7" DSI display, and OLDI
+output with an oscilloscope (I don't have a suitable OLDI panel) with
+extra DT overlays.
+
+ Tomi
+
+Signed-off-by: Tomi Valkeinen <tomi.valkeinen@ideasonboard.com>
+---
+Changes in v3:
+- Base on "[PATCH 0/6] arm64: ti: Use syscon for the Control Module"
+- Drop quotation marks from Rb tags
+- Drop Tested-by tags for the bindings patches
+- "drm/tidss: Add external data and sync signal edge configuration": Fix
+  error handling
+- "drm/tidss: Add support for DPIENABLE bit": set/unset DPIENABLE in
+  prepare/unprepare
+- "drm/tidss: oldi: Convert OLDI to an aux driver": Improve cleanups
+  (of_node_put, clk_put, device_link_del)
+- Dropped "arm64: dts: ti: k3-am62p-j722s-common-main: Make main_conf a syscon"
+- "arm64: dts: ti: k3-am62p-j722s-common-main: Add support for DSS": Add
+  missing clocks and ti,oldi-io-ctrl for oldi1 node. Drop unused
+  main-gpio0-ioexp-intr-default-pins node. Fix MCASP1_AXR0 pin
+  direction. Fix DSS videoport numbering.
+- Link to v2: https://lore.kernel.org/r/20260513-beagley-ai-display-v2-0-9e9bcefde6bc@ideasonboard.com
+
+Changes in v2:
+- Add Rb and Tb tags
+- Drop "dt-bindings: mfd: syscon: Add ti,am625-dss-dpi0-clk-ctrl
+  compatible", which is now implemented with the below changes.
+- New patch "dt-bindings: display: ti,am65x-dss: Add ti,dpi-io-ctrl"
+- Modify "drm/tidss: Add external data and sync signal edge
+  configuration" to use the 'ti,dpi-io-ctrl' with offset.
+- New patch "arm64: dts: ti: k3-am62p-j722s-common-main: Make main_conf
+  a syscon".
+- Modify "arm64: dts: ti: k3-am62p-j722s-common-main: Add support for
+  DSS" to set 'ti,dpi-io-ctrl' properties
+- Drop generic desc in DT bindings for power-domains property
+- Fix pm_runtime_get_sync() return value check
+- Link to v1: https://lore.kernel.org/r/20260420-beagley-ai-display-v1-0-f628543dfd14@ideasonboard.com
+
+---
+Andrew Davis (1):
+      arm64: dts: ti: beagley-ai: Enable HDMI display and audio
+
+Jayesh Choudhary (1):
+      arm64: dts: ti: k3-am62p-j722s-common-main: Add support for DSS
+
+Swamil Jain (1):
+      drm/tidss: Add support for AM62P display subsystem
+
+Tomi Valkeinen (12):
+      dt-bindings: display: ti: Move ti,am62l-dss binding to a new binding file
+      dt-bindings: display: ti,am65x-dss: Simplify binding
+      dt-bindings: display: ti,am625-oldi: Add optional power-domain for OLDI
+      dt-bindings: display: ti,am65x-dss: Add ti,dpi-io-ctrl
+      dt-bindings: display: ti,am65x-dss: Add AM62P DSS
+      drm/tidss: Remove extra pm_runtime_mark_last_busy
+      drm/tidss: oldi: Remove define for unused register OLDI_LB_CTRL
+      drm/tidss: Add mechanism to detect DPI output
+      drm/tidss: Add external data and sync signal edge configuration
+      drm/tidss: Add support for DPIENABLE bit
+      drm/tidss: oldi: Fix OLDI signal polarities
+      drm/tidss: oldi: Convert OLDI to an aux driver
+
+ .../bindings/display/ti/ti,am625-oldi.yaml         |   3 +
+ .../bindings/display/ti/ti,am62l-dss.yaml          | 136 ++++++
+ .../bindings/display/ti/ti,am65x-dss.yaml          | 187 +++----
+ MAINTAINERS                                        |   1 +
+ .../boot/dts/ti/k3-am62p-j722s-common-main.dtsi    | 112 +++++
+ arch/arm64/boot/dts/ti/k3-am62p.dtsi               |  16 +
+ arch/arm64/boot/dts/ti/k3-am67a-beagley-ai.dts     | 191 ++++++++
+ arch/arm64/boot/dts/ti/k3-j722s.dtsi               |  16 +
+ drivers/gpu/drm/tidss/tidss_crtc.c                 |  10 +-
+ drivers/gpu/drm/tidss/tidss_crtc.h                 |   4 +-
+ drivers/gpu/drm/tidss/tidss_dispc.c                |  53 +-
+ drivers/gpu/drm/tidss/tidss_dispc.h                |   5 +-
+ drivers/gpu/drm/tidss/tidss_dispc_regs.h           |   5 +
+ drivers/gpu/drm/tidss/tidss_drv.c                  |  54 ++-
+ drivers/gpu/drm/tidss/tidss_drv.h                  |   5 +-
+ drivers/gpu/drm/tidss/tidss_kms.c                  |  55 ++-
+ drivers/gpu/drm/tidss/tidss_oldi.c                 | 540 +++++++++++++++------
+ drivers/gpu/drm/tidss/tidss_oldi.h                 |   8 +-
+ 18 files changed, 1109 insertions(+), 292 deletions(-)
+---
+base-commit: 9e171fc1d7d7ab847a750c03571c87ac3c17bd84
+change-id: 20260420-beagley-ai-display-d7f634cde5f4
+prerequisite-change-id: 20260528-ti-main-conf-d75aea5e5c2b:v1
+prerequisite-patch-id: b45e40d091eeb547189d2bed60cb809be22543cf
+prerequisite-patch-id: 1098a5aca6124123635bc0b19853eca9968291bc
+prerequisite-patch-id: edea999683b5849977f5a1d40430fa674c3143ff
+prerequisite-patch-id: 1a71566898f248dfdd99bed6b2de9ab8b229bf7d
+prerequisite-patch-id: 9112dad36cf951c79d63ea3d87324745ed790ca3
+prerequisite-patch-id: 7b93f92509cb1a9536cd8a2833526178a9d13f74
+
+Best regards,
+--  
+Tomi Valkeinen <tomi.valkeinen@ideasonboard.com>
 
 
