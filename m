@@ -4,54 +4,54 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id F0DC1CD6E51
-	for <linux-arm-kernel@archiver.kernel.org>; Fri, 29 May 2026 15:31:41 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 30EA5CD4F54
+	for <linux-arm-kernel@archiver.kernel.org>; Fri, 29 May 2026 15:31:55 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Reply-To:List-Subscribe:
 	List-Help:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:
 	References:Message-Id:Content-Transfer-Encoding:Content-Type:MIME-Version:
 	Subject:Date:From:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=Rixo/OFmXxd0V69iW8/dOH5goIKfdyQ4LxceVsHVvuc=; b=OeBFMRbht2MhGQm9T5oeCe6iAY
-	E7MQkyoxAAdlkn4HS/0UGEW7Bep6hfqVPdU+3z+iAbhZkuy1M5HCHujN+LQhHh73qnzSUJ3MzoEHr
-	E2CQn6ftXOcMkLqg2cu+fMNikllJ0garypvG0KYzBDdxxhPDrLxG7CDXvgqmZfO8mF+HTZz1dY2lE
-	u4hXsMAv9yTEMEYY9LhjVG7m8TZVzY25tRnTPCD8dr3uIcNbpRqkfC4A1MKpzet9Rf26zfzu77VJj
-	3aGG5JrEt7SE9n05XLv9/z67sjWC1ms4fGE1vrXKsC122ThMhR97Qxc91fF6eEwkkO7r3Wgviaecu
-	5k+xwk1g==;
+	bh=6019gf6Ws9x6KZmCKGWwhpz/s0jMlBxfJS9KE2dGjX8=; b=zzfj+4UXd8M/Lx4xRlm3ODhsI/
+	g8gnUYqsj8jXlGuZoMwLrIZrPO/q4omstxAtV4CeeNLBdIBbBCJGIQGyMIPT/tc5d+BnM63Ju4CWe
+	OYEsRQsNaVbjsD7243xUmEnSTKTsi32qJ5bTWUE+7UXdQ5XFJi45pn0/VLSaKwPss86hYI+ot7H2A
+	MN9pBDwOp/qVbRL6uNMcASWX9xx8daTL3bQL1xE9g6kueZK0I4loxFYvZse0qnxKeITJ1ymBrGm6R
+	qoQj998kYcNm/P5Ep+d9kIkZvP8zLnMiKRoQnooOno15PURBC2ipwaMqzzlDd+K+HnEyd0sTOR576
+	fZ7zv0Hg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wSzBP-00000007hjt-3spG;
-	Fri, 29 May 2026 15:31:35 +0000
+	id 1wSzBc-00000007hrH-2mRF;
+	Fri, 29 May 2026 15:31:49 +0000
 Received: from sea.source.kernel.org ([172.234.252.31])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wSzBN-00000007hhx-0EDA;
-	Fri, 29 May 2026 15:31:34 +0000
+	id 1wSzBN-00000007hhy-0GmW;
+	Fri, 29 May 2026 15:31:35 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by sea.source.kernel.org (Postfix) with ESMTP id 33C9D43DF9;
+	by sea.source.kernel.org (Postfix) with ESMTP id 42B7C443BA;
 	Fri, 29 May 2026 15:31:32 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPS id 0DC44C2BCB8;
+Received: by smtp.kernel.org (Postfix) with ESMTPS id 1FBD5C2BCF5;
 	Fri, 29 May 2026 15:31:32 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
 	s=k20201202; t=1780068692;
-	bh=YXvNousRoGDqwqdFEWiYKe9SC5sclogXBwxPuNZK0+A=;
+	bh=c9I9mrSZss9ipoBnXCmsbn04ME4OcIddnFHzKREDh4g=;
 	h=From:Date:Subject:References:In-Reply-To:To:Cc:Reply-To:From;
-	b=SxtO+T9L9YhtKBy6lwm8MY69wUzoqWiKsR2DnzlBGvEs8Ev0wMKEHp8vAx3Sk8+wc
-	 zULFulnP/A3fN8Ao6u828WtioWLxmYa4DupgccetcK9bcp0Ptc1RcBwCk4O+h3KdD/
-	 9mOvjuOJkDLkeCDF4Hh+rsZwTlyeHXCCXsfdIYtNVbvxT86zGx7TjZVDkc8VPnZXhC
-	 CPxxGk0yYg5jzYYzZSugzAoxqoz82ycWgDiGoDweyMlwglVjspIRIa31YVezvF16qr
-	 LgoQ5KCpH1/4LkAxi6wI/37W4VRxufzolsL8pVanrt37irrkQAdlrrisHqZ1k3/89/
-	 Xv26fRYRaCAeA==
+	b=pWWpdmpQi1abzetdwtgJvS3URvDDWGCKPwfy4DeTNby7Pcjc8dxlhDvojqs3jv4pM
+	 rLoQk9wwSwQkmAsDidPJd1/RJfqqNTv1msrzGX+jNK9gvaPsdQ5baMVCOOfI23gEd8
+	 V5vOyZuxaM8Y4jVMUun2Dkxt8Luz0ti7IphmRkY1dcKEGzcgi55RXhNWVg2ufFHujj
+	 /jYdY2PJNZaV6y7aC7sxmzkUEO88NYa6fzclj3Wazaz5zRuWKSFRIC9w9+H8vYxyKd
+	 Kb9z6FZyXLUoLKNV2RWfZfl4Stf4XDD8xrKVUQr4d5o7z5zApHm2E1gx5o4y3VvgEB
+	 ECvXRqCSO8W2Q==
 Received: from aws-us-west-2-korg-lkml-1.web.codeaurora.org (localhost.localdomain [127.0.0.1])
-	by smtp.lore.kernel.org (Postfix) with ESMTP id 05C67CD6E4A;
+	by smtp.lore.kernel.org (Postfix) with ESMTP id 1870BCD6E51;
 	Fri, 29 May 2026 15:31:32 +0000 (UTC)
 From: Ricardo Pardini via B4 Relay <devnull+ricardo.pardini.net@kernel.org>
-Date: Fri, 29 May 2026 17:31:24 +0200
-Subject: [PATCH v2 1/2] arm64: dts: rockchip: describe PCIe Ethernet
- controllers on NanoPC-T6
+Date: Fri, 29 May 2026 17:31:25 +0200
+Subject: [PATCH v2 2/2] arm64: dts: rockchip: fix PCIe regulator name on
+ NanoPC-T6
 MIME-Version: 1.0
 Content-Type: text/plain; charset="utf-8"
 Content-Transfer-Encoding: 7bit
-Message-Id: <20260529-rk3588-dts-rtl-eth-describe-dt-alias-v2-1-49700248143f@pardini.net>
+Message-Id: <20260529-rk3588-dts-rtl-eth-describe-dt-alias-v2-2-49700248143f@pardini.net>
 References: <20260529-rk3588-dts-rtl-eth-describe-dt-alias-v2-0-49700248143f@pardini.net>
 In-Reply-To: <20260529-rk3588-dts-rtl-eth-describe-dt-alias-v2-0-49700248143f@pardini.net>
 To: Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>, 
@@ -61,26 +61,25 @@ Cc: Sebastian Reichel <sebastian.reichel@collabora.com>,
  linux-rockchip@lists.infradead.org, linux-kernel@vger.kernel.org, 
  Ricardo Pardini <ricardo@pardini.net>
 X-Mailer: b4 0.15.2
-X-Developer-Signature: v=1; a=openpgp-sha256; l=1935;
+X-Developer-Signature: v=1; a=openpgp-sha256; l=1834;
  i=ricardo@pardini.net; h=from:subject:message-id;
- bh=2PbNzuIjWPVmiNZE+VGSo9E5JFZNjeHgejELWlx8zA0=;
- b=owEBiQF2/pANAwAIATteP+Oex+3pAcsmYgBqGbFSPJENa/7M0hIsX8QZTVDKL5ybziDJ32Mcv
- 0CUdDRXgfOJAU8EAAEIADkWIQSsGCMM9q/qytxIiJM7Xj/jnsft6QUCahmxUhsUgAAAAAAEAA5t
- YW51MiwyLjUrMS4xMiwwLDMACgkQO14/457H7enxQwf/f4efDbsFjixVgO0r+qirfD7qwBnLeRi
- +T+sYVCzBeLicYRWVses2atOVpWutNM6EPMYL9DcBsdrMuZkCRm7a2HVTQJ0Q1eqRP/qBi9RRvi
- pfqn6tfaduxxSvKMl1JI0/SGeYLTET2pQXF/aeQLjjl8Kr7ve6a0KDRo8l+loFH0BNWzQGcQleY
- oSL9DCAyMYAsTjatOIX6lhslGtVSToxmfezDpvQ9N8Ss+KF57Chv2zeAVuwQn61dlqj1KQXqsGA
- qKsdlfK1W2omSV0sY9Xa5mBakuqRl7zkPIT0BF9K98avb3nAXiTg461fGtw3X7DNMVLOqHrlWrg
- JEMpmisjdDA==
+ bh=0u1U7cadCrfZljLfYE+rIEFeBThAN/F4SqtY240X3PA=;
+ b=owGbwMvMwMFoHWf/eN7xty8ZT6slMWRJbgyaWGffcDNPdKV6xeNHq87baQTt8Z/yeEvA9IXlD
+ 90VkgIDOhn9WRgYORgsxRRZ1kgo83xb/+rUHY+OyTCDWJlApkiLNDAAAQsDX25iXqmRjpGeqbah
+ nqGRjoGOMQMXpwBMdZ4TB8Ma5zeHZx+QylB6rWYYfenQtcPRWmabN52a9u/N/9+HllsZHfKRiy4
+ MSBWJzHvleiYlyftBeyp/2r9VutPUGP32b5u4IpFTz32NW8OdyprGhV/PeJgIy6z9v6/Q8s+28D
+ ahj9eK54iGnylnufdbx+/ln9/CUmtmpn9h4Z5zjtFv/X82cTuRpmdsOr+7Jxzy5Xpw9wer0dLPD
+ gaRa95x6vaJlX53bFm5ylEw2claP+SzRfFSA/bTL9zl3gTyPZikZK9rU7aIfeqFOb6r+WP1+5UT
+ ympXzjXac+7X9/T7p1rzH+knTLthHZC9N/aOWXK9SKWyCNOl+Ju2SkEhNXEJcqI7pe0yPnqLLlO
+ 5cCE3GAA=
 X-Developer-Key: i=ricardo@pardini.net; a=openpgp;
  fpr=AC18230CF6AFEACADC4888933B5E3FE39EC7EDE9
 X-Endpoint-Received: by B4 Relay for ricardo@pardini.net/default with
  auth_id=588
 X-Original-From: Ricardo Pardini <ricardo@pardini.net>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260529_083133_138817_5FA00AB2 
-X-CRM114-Status: UNSURE (   9.62  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20260529_083133_159377_A81B41DC 
+X-CRM114-Status: GOOD (  11.23  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -98,76 +97,50 @@ Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.i
 
 From: Ricardo Pardini <ricardo@pardini.net>
 
-The FriendlyElec NanoPC-T6 carries two on-board Realtek RTL8125BG
-(r8169 family, PCI 10ec:8125) NICs, each behind its own RK3588 PCIe2x1
-controller (pcie2x1l0 and pcie2x1l2). Both host bridges were already
-enabled by the board DT, but the Ethernet function nodes themselves
-were not described, leaving the kernel without DT handles on the two
-NICs.
+The GPIO-switched 3v3 regulator on the NanoPC-T6 is labeled
+vcc3v3_pcie2x1l0, but it is wired to and consumed by &pcie2x1l1, and
+its enable is the pcie_m2_1_pwren pin - i.e. it powers the M.2 slot on
+pcie2x1l1, not pcie2x1l0. The two soldered RTL8125 NICs on pcie2x1l0
+and pcie2x1l2 instead share the always-on vcc_3v3_pcie20 rail, so
+nothing actually uses an "l0" switched supply.
 
-Describe the fixed PCI function nodes and attach ethernet0/ethernet1
-aliases to them.
+Rename the label, node name and regulator-name to vcc3v3_pcie2x1l1 so
+they match the controller the rail actually supplies.
 
 Signed-off-by: Ricardo Pardini <ricardo@pardini.net>
 ---
- arch/arm64/boot/dts/rockchip/rk3588-nanopc-t6.dtsi | 30 ++++++++++++++++++++++
- 1 file changed, 30 insertions(+)
+ arch/arm64/boot/dts/rockchip/rk3588-nanopc-t6.dtsi | 6 +++---
+ 1 file changed, 3 insertions(+), 3 deletions(-)
 
 diff --git a/arch/arm64/boot/dts/rockchip/rk3588-nanopc-t6.dtsi b/arch/arm64/boot/dts/rockchip/rk3588-nanopc-t6.dtsi
-index 84b6b53f016ab..04c4479f08170 100644
+index 04c4479f08170..7d314df3f947b 100644
 --- a/arch/arm64/boot/dts/rockchip/rk3588-nanopc-t6.dtsi
 +++ b/arch/arm64/boot/dts/rockchip/rk3588-nanopc-t6.dtsi
-@@ -20,6 +20,8 @@ / {
- 	compatible = "friendlyarm,nanopc-t6", "rockchip,rk3588";
- 
- 	aliases {
-+		ethernet0 = &rtl_eth0;
-+		ethernet1 = &rtl_eth1;
- 		mmc0 = &sdhci;
- 		mmc1 = &sdmmc;
+@@ -203,13 +203,13 @@ vbus5v0_usb: regulator-vbus5v0-usb {
+ 		vin-supply = <&vcc5v0_sys>;
  	};
-@@ -635,6 +637,20 @@ &pcie2x1l0 {
- 	pinctrl-names = "default";
- 	pinctrl-0 = <&pcie2_0_rst>;
- 	status = "okay";
-+
-+	pcie@0,0 {
-+		reg = <0x200000 0 0 0 0>;
-+		#address-cells = <3>;
-+		#size-cells = <2>;
-+		ranges;
-+		device_type = "pci";
-+		bus-range = <0x20 0x2f>;
-+
-+		rtl_eth0: ethernet@0,0 {
-+			compatible = "pci10ec,8125";
-+			reg = <0x210000 0 0 0 0>;
-+		};
-+	};
- };
+ 
+-	vcc3v3_pcie2x1l0: regulator-vcc3v3-pcie2x1l0 {
++	vcc3v3_pcie2x1l1: regulator-vcc3v3-pcie2x1l1 {
+ 		compatible = "regulator-fixed";
+ 		enable-active-high;
+ 		gpio = <&gpio4 RK_PC2 GPIO_ACTIVE_HIGH>;
+ 		pinctrl-names = "default";
+ 		pinctrl-0 = <&pcie_m2_1_pwren>;
+-		regulator-name = "vcc3v3_pcie2x1l0";
++		regulator-name = "vcc3v3_pcie2x1l1";
+ 		regulator-min-microvolt = <3300000>;
+ 		regulator-max-microvolt = <3300000>;
+ 		vin-supply = <&vcc5v0_sys>;
+@@ -655,7 +655,7 @@ rtl_eth0: ethernet@0,0 {
  
  &pcie2x1l1 {
-@@ -651,6 +667,20 @@ &pcie2x1l2 {
+ 	reset-gpios = <&gpio4 RK_PA2 GPIO_ACTIVE_HIGH>;
+-	vpcie3v3-supply = <&vcc3v3_pcie2x1l0>;
++	vpcie3v3-supply = <&vcc3v3_pcie2x1l1>;
  	pinctrl-names = "default";
- 	pinctrl-0 = <&pcie2_2_rst>;
+ 	pinctrl-0 = <&pcie2_1_rst>;
  	status = "okay";
-+
-+	pcie@0,0 {
-+		reg = <0x400000 0 0 0 0>;
-+		#address-cells = <3>;
-+		#size-cells = <2>;
-+		ranges;
-+		device_type = "pci";
-+		bus-range = <0x40 0x4f>;
-+
-+		rtl_eth1: ethernet@0,0 {
-+			compatible = "pci10ec,8125";
-+			reg = <0x410000 0 0 0 0>;
-+		};
-+	};
- };
- 
- &pcie30phy {
 
 -- 
 2.54.0
