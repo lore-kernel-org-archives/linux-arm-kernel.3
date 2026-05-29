@@ -4,71 +4,88 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id DD9B9CD6E4A
-	for <linux-arm-kernel@archiver.kernel.org>; Fri, 29 May 2026 14:43:14 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 7F3CFCD6E4A
+	for <linux-arm-kernel@archiver.kernel.org>; Fri, 29 May 2026 14:45:50 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
-	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=Elw36BouPUMp0mEeSrBwT8wHQMoNjB+NX8AH+lO18hw=; b=GR1pI+lxrgm4zEMYaS/Zh6vTFA
-	QJcL1tJIWbaRTIrwjrP9JuG4iviIJiHMV2ip7x99mVYR1YXrTEkU7AkQe7QT+TxhToLEnBypNVJmu
-	lXUth1MO4wRFY5UL69VOyfSPgvC70YPJDb2rqKavgLW99hZwqR2EkTF11VdBi6X9m8VsVSMRDKVIw
-	++GCVUPb8H4OjCCnQv6W7xLZ0vik/OcDgpKhRZ1NDH3bnRrOjB3yt+DEcvGOZHPy9huN+z/XAXfSw
-	6LGOEysG7JX3WtZNAmVRLh9j+bPL43T+Je1r0tuJ/ZXCuU0+7yD3FUpZl/GEHXRREyW/QP3Hw/8e5
-	xIN1G1mw==;
+	Content-Type:Cc:To:From:Subject:Message-ID:References:Mime-Version:
+	In-Reply-To:Date:Reply-To:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=ralOVts9fCNQ2tqBK8zNgoCjriSrrEOepBDVwIQK1cc=; b=a2scljK//LaL/0kL0OxshLhVIG
+	tZ2YHBGCuU/exq+xY8Yn/bURnd9ZUUP2ytlg6K2+T6r+ukDQZ3aW8AUDF80whsswVJdR1pZABF5CQ
+	0Q0i0QoP9ZzBcnJmwxvubcZp3hQvROcjJACkfYam+o6MsveRB1cCjiQp403kuOc42iSByjsbEK3H5
+	mP97+yRGJ84lEmNWyw8xaZMceDUQmrOj5/pCuuW2xMi9HaCPlOMqqbixIL1VjvLZe8+BY045YOHcH
+	F/yACl+H2Uz666xcBoPYXjpOvmVTR+0+5zFTOGld/pvVQrhHdw98BYzGktNmO/O1iyBt4NU3I9aUk
+	au9A05hg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wSyQV-00000007XsY-2WIJ;
-	Fri, 29 May 2026 14:43:07 +0000
-Received: from foss.arm.com ([217.140.110.172])
-	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wSyQS-00000007XrM-2SHL
+	id 1wSySq-00000007Y79-3vW9;
+	Fri, 29 May 2026 14:45:32 +0000
+Received: from mail-wm1-x34a.google.com ([2a00:1450:4864:20::34a])
+	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
+	id 1wSySo-00000007Y6S-2ajW
 	for linux-arm-kernel@lists.infradead.org;
-	Fri, 29 May 2026 14:43:06 +0000
-Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
-	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id 9A05B202C;
-	Fri, 29 May 2026 07:42:58 -0700 (PDT)
-Received: from [10.43.20.82] (e126510-lin.lund.arm.com [10.43.20.82])
-	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id A5DC23F905;
-	Fri, 29 May 2026 07:42:59 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=simple/simple; d=arm.com; s=foss;
-	t=1780065783; bh=Jl9VQKojRAgBG12zDuJGeC336Uk4pqmCiAHAf+KoXfY=;
-	h=Date:Subject:To:Cc:References:From:In-Reply-To:From;
-	b=N9E9N33X8n15HQwC5psjF+tcjK3WjyYarbBnqu3nIcNYoMawZ7mbV1yjWd13q7IJv
-	 QTsroWS/j20zBbVb7rfEQI+Aiu3SBMqEK641u2iZkJkWxvlTEL5KjcIxaj6t8ojsHY
-	 iT1KU9ZTFJfOcdoib6fau3D3/hY79iVtzbs6xxPI=
-Message-ID: <b76b327f-612e-494f-b8d3-44108aa73d2a@arm.com>
-Date: Fri, 29 May 2026 16:42:55 +0200
-MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH v6 09/15] arm64: Move fixmap and kasan page tables to end
- of kernel image
-To: Ard Biesheuvel <ardb@kernel.org>, Ard Biesheuvel <ardb+git@google.com>,
- linux-arm-kernel@lists.infradead.org
-Cc: linux-kernel@vger.kernel.org, Will Deacon <will@kernel.org>,
- Catalin Marinas <catalin.marinas@arm.com>,
- Mark Rutland <mark.rutland@arm.com>, Ryan Roberts <ryan.roberts@arm.com>,
- Anshuman Khandual <anshuman.khandual@arm.com>,
- Liz Prucka <lizprucka@google.com>, Seth Jenkins <sethjenkins@google.com>,
- Kees Cook <kees@kernel.org>, Mike Rapoport <rppt@kernel.org>,
- David Hildenbrand <david@kernel.org>,
- Andrew Morton <akpm@linux-foundation.org>, Jann Horn <jannh@google.com>,
- linux-mm@kvack.org, linux-hardening@vger.kernel.org,
- linuxppc-dev@lists.ozlabs.org, linux-sh@vger.kernel.org
-References: <20260526175846.2694125-17-ardb+git@google.com>
- <20260526175846.2694125-26-ardb+git@google.com>
- <2a6f9f05-ac57-4ef8-9328-74cc8ccfea16@arm.com>
- <96a8b6b9-71f2-4550-bbbb-fbfa146f4e6a@app.fastmail.com>
-From: Kevin Brodsky <kevin.brodsky@arm.com>
-Content-Language: en-GB
-In-Reply-To: <96a8b6b9-71f2-4550-bbbb-fbfa146f4e6a@app.fastmail.com>
-Content-Type: text/plain; charset=UTF-8
-Content-Transfer-Encoding: 7bit
+	Fri, 29 May 2026 14:45:31 +0000
+Received: by mail-wm1-x34a.google.com with SMTP id 5b1f17b1804b1-48fed2519daso66191135e9.0
+        for <linux-arm-kernel@lists.infradead.org>; Fri, 29 May 2026 07:45:28 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=google.com; s=20251104; t=1780065927; x=1780670727; darn=lists.infradead.org;
+        h=content-transfer-encoding:cc:to:from:subject:message-id:references
+         :mime-version:in-reply-to:date:from:to:cc:subject:date:message-id
+         :reply-to;
+        bh=ralOVts9fCNQ2tqBK8zNgoCjriSrrEOepBDVwIQK1cc=;
+        b=FArtUKUltUiTzBcrU2ymM0U47JwhUYLzx7G8fviCnRmN26Ouyn57oRJ49f6UCN8BFZ
+         wQzVoz7MtYTw/P//wpL8RsmOgKcCxciZdLLpIvMf70/wzfB1z4ziBoUYLftPNiZuCwKs
+         R/VLdtICtS7JlGiJApoTsbAb0/mo6KLVRys8Pl3EACLUfO1g4FD2negbcVIjYHuVAk/g
+         tr4fSIzUUikP5E6iZCIoR5mEn7iJkAQEenF1fR9/BtvvD6I2JhtvRuj0NcUw3G3Ip63f
+         jHatF/+OudWADNnUfGp1LAszA3f8N6BPauRW4/dOgasFPunjDP3pU+GBp1vx7BRwaMP6
+         hQ8g==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20251104; t=1780065927; x=1780670727;
+        h=content-transfer-encoding:cc:to:from:subject:message-id:references
+         :mime-version:in-reply-to:date:x-gm-message-state:from:to:cc:subject
+         :date:message-id:reply-to;
+        bh=ralOVts9fCNQ2tqBK8zNgoCjriSrrEOepBDVwIQK1cc=;
+        b=SXQvO4xoDFmSMSA45vj70IO6v5TKRAYYTUcCVzgqFyeJxrvYvyL32waMlXgrrqBnNu
+         AQr7yLl4hFYmqjJ7zcNRkGGX5KzTbl34uS6mNOQ+87oPOUgcLoORAlR5USnE3s8ezgmz
+         ymlr0N5iV/f/e/ekEgLmlUC/1X7WuWf+eItEsFeMZbNq/3ez5eNg8RtY2aYSk2HP0FN5
+         H/wqxytTClIZmgP7HwOZQBls5OpNiRVOtukEbeqkx2V9tohYFSwupwCe1qRDv2xvRCaH
+         f0nXItMIDL0QilCXwGm3IKj0lAzjPN4HdaSk3Knw8pXvr/7jdjRZjOG1GWewcZv9BEuB
+         oMyQ==
+X-Forwarded-Encrypted: i=1; AFNElJ9brV4bPenmwtvGjEweeljx/MIOnBT/PghH4InL90uqsqfV7UL6CMBj9Ymn0jr5BFk+3lWG95Y3aUxPwiRvIx+l@lists.infradead.org
+X-Gm-Message-State: AOJu0YyGuAtu1t6oF0F0kYMrZUdGt7wV3PKEC0jozcAgLDBvfefG27tY
+	iPe/TZSSoqCstD5CLlKZV96ropWoM9d+qw02/wohgHQreOUpAdoVKiAREWpuYWcJ5YIBCz1O3+h
+	aEAjNTE7jzOWaz5449A==
+X-Received: from wmma4.prod.google.com ([2002:a05:600c:2244:b0:48a:93d2:60ec])
+ (user=aliceryhl job=prod-delivery.src-stubby-dispatcher) by
+ 2002:a05:600c:c0d2:10b0:48e:7854:1608 with SMTP id 5b1f17b1804b1-4909c0b34e3mr44173425e9.25.1780065927012;
+ Fri, 29 May 2026 07:45:27 -0700 (PDT)
+Date: Fri, 29 May 2026 14:45:25 +0000
+In-Reply-To: <CANiq72=eccCAvfG4kYA52uV5+1ysU6QFYq+3GUgTVwJ4=kxDwQ@mail.gmail.com>
+Mime-Version: 1.0
+References: <20260527-uwtable-module-flag-v1-1-caa41342be4b@google.com>
+ <CANiq72mCYOXrWM7_3jby_ZvYmspXsYVzRqhTgQiBF0bdDLAaEg@mail.gmail.com>
+ <ahkzD01e14wOTNBk@google.com> <CANiq72=eccCAvfG4kYA52uV5+1ysU6QFYq+3GUgTVwJ4=kxDwQ@mail.gmail.com>
+Message-ID: <ahmmhcyfgZQjnOcX@google.com>
+Subject: Re: [PATCH] rust: arm64: set uwtable llvm module flag for CONFIG_UNWIND_TABLES
+From: Alice Ryhl <aliceryhl@google.com>
+To: Miguel Ojeda <miguel.ojeda.sandonis@gmail.com>
+Cc: Catalin Marinas <catalin.marinas@arm.com>, Will Deacon <will@kernel.org>, 
+	Miguel Ojeda <ojeda@kernel.org>, Boqun Feng <boqun@kernel.org>, Gary Guo <gary@garyguo.net>, 
+	"=?utf-8?B?QmrDtnJu?= Roy Baron" <bjorn3_gh@protonmail.com>, Benno Lossin <lossin@kernel.org>, 
+	Andreas Hindborg <a.hindborg@kernel.org>, Trevor Gross <tmgross@umich.edu>, 
+	Danilo Krummrich <dakr@kernel.org>, Nathan Chancellor <nathan@kernel.org>, 
+	Nick Desaulniers <nick.desaulniers+lkml@gmail.com>, Bill Wendling <morbo@google.com>, 
+	Justin Stitt <justinstitt@google.com>, linux-arm-kernel@lists.infradead.org, 
+	linux-kernel@vger.kernel.org, rust-for-linux@vger.kernel.org, 
+	llvm@lists.linux.dev, stable@kernel.org, Bo Ye <bo.ye@mediatek.com>, 
+	Isaac Manjarres <isaacmanjarres@google.com>, Sami Tolvanen <samitolvanen@google.com>
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: quoted-printable
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260529_074304_713982_5534E1CD 
-X-CRM114-Status: GOOD (  16.62  )
+X-CRM114-CacheID: sfid-20260529_074530_678599_82706A44 
+X-CRM114-Status: GOOD (  11.56  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -83,64 +100,19 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On 29/05/2026 13:19, Ard Biesheuvel wrote:
-> On Fri, 29 May 2026, at 10:27, Kevin Brodsky wrote:
->> On 26/05/2026 19:58, Ard Biesheuvel wrote:
->>> From: Ard Biesheuvel <ardb@kernel.org>
->>>
->>> Move the fixmap and kasan page tables out of the BSS section, and place
->>> them at the end of the image, right before the init_pg_dir section where
->>> some of the other statically allocated page tables live.
->>>
->>> These page tables are currently the only data objects in vmlinux that
->>> are meant to be accessed via the kernel image's linear alias, and so
->>> placing them together allows the remainder of the data/bss section to be
->>> remapped read-only or unmapped entirely.
->>>
->>> Reviewed-by: Kevin Brodsky <kevin.brodsky@arm.com>
->>> Signed-off-by: Ard Biesheuvel <ardb@kernel.org>
->>> ---
->>>  arch/arm64/include/asm/mmu.h    | 2 ++
->>>  arch/arm64/kernel/vmlinux.lds.S | 8 +++++++-
->>>  arch/arm64/mm/fixmap.c          | 6 +++---
->>>  arch/arm64/mm/kasan_init.c      | 2 +-
->>>  4 files changed, 13 insertions(+), 5 deletions(-)
->>>
->>> diff --git a/arch/arm64/include/asm/mmu.h b/arch/arm64/include/asm/mmu.h
->>> index 5e1211c540ab..fb95754f2876 100644
->>> --- a/arch/arm64/include/asm/mmu.h
->>> +++ b/arch/arm64/include/asm/mmu.h
->>> @@ -13,6 +13,8 @@
->>>  
->>>  #ifndef __ASSEMBLER__
->>>  
->>> +#define __pgtbl_bss __section(".pgdir.bss") __aligned(PAGE_SIZE)
->>> +
->>>  #include <linux/refcount.h>
->>>  #include <asm/cpufeature.h>
->>>  
->>> diff --git a/arch/arm64/kernel/vmlinux.lds.S b/arch/arm64/kernel/vmlinux.lds.S
->>> index e1ac876200a3..2b0ebfb30c63 100644
->>> --- a/arch/arm64/kernel/vmlinux.lds.S
->>> +++ b/arch/arm64/kernel/vmlinux.lds.S
->>> @@ -349,9 +349,15 @@ SECTIONS
->>>  	_edata = .;
->>>  
->>>  	/* start of zero-init region */
->>> -	BSS_SECTION(SBSS_ALIGN, 0, 0)
->>> +	BSS_SECTION(SBSS_ALIGN, 0, PAGE_SIZE)
->>>  	__pi___bss_start = __bss_start;
->>>  
->>> +	/* fixmap BSS starts here - preceding data/BSS is omitted from the linear map */
->>> +	.pgdir.bss (NOLOAD) : ALIGN(PAGE_SIZE) {
->> Do we actually need the NOLOAD type here?
-> Yes, otherwise it is emitted as PROGBITS, resulting in all of BSS to be
-> emitted into Image.
+On Fri, May 29, 2026 at 04:29:26PM +0200, Miguel Ojeda wrote:
+> On Fri, May 29, 2026 at 8:32=E2=80=AFAM Alice Ryhl <aliceryhl@google.com>=
+ wrote:
+> >
+> > Hrm, is there a way to perform the version check in the Makefile, or do
+> > I need a Kconfig for whether the fix is needed?
+>=20
+> We shouldn't need a Kconfig -- we can do e.g.
+>=20
+>   KBUILD_RUSTFLAGS +=3D $(if $(call rustc-min-version,109800),,-Zllvm_mod=
+ule_flag=3Duwtable:u32:2:max)
 
-That's rather strange, aren't the .pgdir.bss input sections already
-NOBITS since __pgtbl_bss is only used on default-initialised globals?
-Also AFAIU NOLOAD does not prevent the output section from being emitted
-into the ELF file.
+Ah, right we can do it like that! LGTM.
 
-- Kevin
+Alice
 
