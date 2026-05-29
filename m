@@ -4,74 +4,119 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 60ED1CD6E4A
-	for <linux-arm-kernel@archiver.kernel.org>; Fri, 29 May 2026 14:12:30 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 92917CD6E4A
+	for <linux-arm-kernel@archiver.kernel.org>; Fri, 29 May 2026 14:12:54 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
-	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=d4X9vwkCHSddENx5Gglm/hOpAgU7U6Z+T82AMSjAjBE=; b=S2je2LcYmk5rQWYXRikkeflzhA
-	sZbsJ29pqHQsCYy2865wJWnxCJKjE4l4rzp/KeXr0X/EWdsbA7/Bpu6J7y/8HXvMAhPMmx6xWSRt1
-	MRakQ9cROvP9/QdDuBwguCFZy2OibCyZhbzOtMTc41J2youYcSSgCYHyIeQWcAyBqN3n3r0/IbsPf
-	T7meQlJCdnymWJLQ5nrqtm05sf58TipDoBa9v92OtjhYUtTDczVmuqMx2nA6wDFOTOt5g1GaAAo9k
-	Da4AJ9UoM82JMJDDrHaBBAbpOGMs0vebd8JKrNpwk2K88BCCkqBu8e5wBJ850/+J29lbmTOBG3OCx
-	knpLlLIQ==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:
+	Content-Transfer-Encoding:MIME-Version:Message-ID:Date:Subject:CC:To:From:
+	Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender
+	:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=YUTVL7AE4qSr+7IvirfAuhJ5RUJHi9s/1HzjJV5+qIQ=; b=zHmEompIe20yo1O9AakQIpojPH
+	aIwvIEX1pdlZnGyObJdgfwpMTdNEeIckvD1sTv9H6u3dwE4MujqjjSzFBSOLc4USMQhL4u9pCdb7w
+	FadGRqMIhQ7Sxh6Xo9oIZ8mkV+lL51eZGUzgs1Clhj6upgdGNCeBMgpYerrAoFUqKoz0niC0/hvhy
+	3Yd50lyf0+n3JoaQ7Up8yo5aCJ53xnCiFsapSbpWijdaybnuB3XePegeUiTN07MgSmf4ahMwUL22N
+	8R6x1CTlDqI3Gfb8NPo8cRvpuuMpsAu0y1TgMYya116BZzJJ7NZdg+01xmHI8581R8X0a/PD6GJMw
+	ause/L/w==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wSxwl-00000007V2B-0dj3;
-	Fri, 29 May 2026 14:12:23 +0000
-Received: from out-186.mta1.migadu.com ([95.215.58.186])
+	id 1wSxx9-00000007V6H-17Lk;
+	Fri, 29 May 2026 14:12:47 +0000
+Received: from mail-eastusazlp170120007.outbound.protection.outlook.com ([2a01:111:f403:c101::7] helo=BL0PR03CU003.outbound.protection.outlook.com)
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wSxwi-00000007V1a-1mHE
+	id 1wSxx6-00000007V5G-2RAE
 	for linux-arm-kernel@lists.infradead.org;
-	Fri, 29 May 2026 14:12:22 +0000
-Message-ID: <185f1caf-b33d-4467-beb5-51bd8520ac78@linux.dev>
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=linux.dev; s=key1;
-	t=1780063936;
-	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
-	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
-	 content-transfer-encoding:content-transfer-encoding:
-	 in-reply-to:in-reply-to:references:references;
-	bh=d4X9vwkCHSddENx5Gglm/hOpAgU7U6Z+T82AMSjAjBE=;
-	b=JLPCvJK79SCpodHOC8Zl7IddRjrtvqukUPFRrtPCcLMxUdCF4RZ8uQartrpJUibd2h/66X
-	OJmBi26/H0srMKbN/NTfSuaPmdtYQJqsTVgTE3BqugvznrnDzBw13w0Sr97417lH5mhsow
-	m1e8Tfw0EnsU1yOvo438g2t//YFHiRs=
-Date: Fri, 29 May 2026 15:11:54 +0100
+	Fri, 29 May 2026 14:12:46 +0000
+ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
+ b=sZ62i86T/MJdWnA5Z6e0sH74PiL1gMtN4NjCgsVXV3OZuXy8HzViwQNk7tK4wyMUOwkcmdCcPaRBdMYMk24tPcdHf8aI1Z0OV2TBjjOeotkcSVuc6VfHN5gzk5gBgrV8RM5PR4qnSp8mJ8Qqa0/8IqmitgByQL9J0UONmvvp+UWSwk9pjysd1iwbxL48r7Qjr2Qe0xivbMDZ/m/+oV3P2BG1CAC2KIGnZ1e4ZPg8Yg27l1XKzhewrWadWcoAUNcCaxgd0cEeuYO26aO8IyHAL1UOmV9hQ8z0PT35u52PNYVn1Naoa5dli3KZvuG0N9Yp7/QN4khGuBxsZr/MfbLjUA==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
+ s=arcselector10001;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
+ bh=YUTVL7AE4qSr+7IvirfAuhJ5RUJHi9s/1HzjJV5+qIQ=;
+ b=oiYmKpIHCg/v4Hi5gLaR7bln8/Kg4vfBpmkc0mf+OZXxpDnnUyiklfjJtgyqFQ2LdNeriVbYDvc8WFATMt6CBgfIxyHVTVaR33rnXdeJJ40SUC9UNi+9QURvBtA0fvwU1h+qarOXmgBQrQWnBcfORYTDncjkGbX4JO8JzJ+swPQmAjCmfkJmRsCBTA1zN2yZxIoJZwKsJ5QsHXRcuKez44g/g3TVjnBO4F54FTxjf80bKkuC0wIHc3XRl2fbi7E3Owq39Je/gdZ/tmHZyUYQ7S8aJ+xJJwh9Iij1JfDuDKTtXfsF+0VMma9TLPjEY7sqlcVyfiPh9Kloc3temrn6aw==
+ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass (sender ip is
+ 165.204.84.17) smtp.rcpttodomain=vger.kernel.org smtp.mailfrom=amd.com;
+ dmarc=pass (p=quarantine sp=quarantine pct=100) action=none
+ header.from=amd.com; dkim=none (message not signed); arc=none (0)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=amd.com; s=selector1;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
+ bh=YUTVL7AE4qSr+7IvirfAuhJ5RUJHi9s/1HzjJV5+qIQ=;
+ b=maUcLK0X/naKDzgmMqaVNH/aaAbY+dO844HQGXahZesDf2ae7D+57TXFywmK9jVI0twb/IGuRBlDkUqonEVKW/Yec8jncmhcDigFqnBC4YxMP0O0Bq0Yg302IoaLMfbzoc5qXvElFORvNIhf4K5jDvhI31c/oQOX0HCrOIAy//w=
+Received: from SJ0PR13CA0030.namprd13.prod.outlook.com (2603:10b6:a03:2c0::35)
+ by SJ0PR12MB5675.namprd12.prod.outlook.com (2603:10b6:a03:42d::16) with
+ Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.21.71.15; Fri, 29 May
+ 2026 14:12:34 +0000
+Received: from BY1PEPF0001AE18.namprd04.prod.outlook.com
+ (2603:10b6:a03:2c0:cafe::5a) by SJ0PR13CA0030.outlook.office365.com
+ (2603:10b6:a03:2c0::35) with Microsoft SMTP Server (version=TLS1_3,
+ cipher=TLS_AES_256_GCM_SHA384) id 15.21.92.5 via Frontend Transport; Fri, 29
+ May 2026 14:12:34 +0000
+X-MS-Exchange-Authentication-Results: spf=pass (sender IP is 165.204.84.17)
+ smtp.mailfrom=amd.com; dkim=none (message not signed)
+ header.d=none;dmarc=pass action=none header.from=amd.com;
+Received-SPF: Pass (protection.outlook.com: domain of amd.com designates
+ 165.204.84.17 as permitted sender) receiver=protection.outlook.com;
+ client-ip=165.204.84.17; helo=satlexmb08.amd.com; pr=C
+Received: from satlexmb08.amd.com (165.204.84.17) by
+ BY1PEPF0001AE18.mail.protection.outlook.com (10.167.242.100) with Microsoft
+ SMTP Server (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
+ 15.21.92.5 via Frontend Transport; Fri, 29 May 2026 14:12:34 +0000
+Received: from satlexmb10.amd.com (10.181.42.219) by satlexmb08.amd.com
+ (10.181.42.217) with Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.2.2562.41; Fri, 29 May
+ 2026 09:12:29 -0500
+Received: from satlexmb07.amd.com (10.181.42.216) by satlexmb10.amd.com
+ (10.181.42.219) with Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.2.2562.41; Fri, 29 May
+ 2026 09:12:28 -0500
+Received: from localhost (10.180.168.240) by satlexmb07.amd.com
+ (10.181.42.216) with Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.2.2562.41 via Frontend
+ Transport; Fri, 29 May 2026 09:12:27 -0500
+From: Michal Simek <michal.simek@amd.com>
+To: <linux-kernel@vger.kernel.org>, <monstr@monstr.eu>,
+	<michal.simek@amd.com>, <git@amd.com>
+CC: Conor Dooley <conor+dt@kernel.org>, Krzysztof Kozlowski
+	<krzk+dt@kernel.org>, Michael Turquette <mturquette@baylibre.com>, "Rob
+ Herring" <robh@kernel.org>, Stephen Boyd <sboyd@kernel.org>, "open list:OPEN
+ FIRMWARE AND FLATTENED DEVICE TREE BINDINGS" <devicetree@vger.kernel.org>,
+	"moderated list:ARM/ZYNQ ARCHITECTURE"
+	<linux-arm-kernel@lists.infradead.org>, "open list:COMMON CLK FRAMEWORK"
+	<linux-clk@vger.kernel.org>
+Subject: [PATCH v2 0/3] clock: versal-clk: Fix Versal NET clock binding and switch to CCF
+Date: Fri, 29 May 2026 16:12:06 +0200
+Message-ID: <cover.1780063921.git.michal.simek@amd.com>
+X-Mailer: git-send-email 2.43.0
 MIME-Version: 1.0
-Subject: Re: [PATCH v6 2/2] mm: use mapping_max_folio_order() for
- force_thp_readahead order
-To: Pedro Falcato <pfalcato@suse.de>, willy@infradead.org, jack@suse.cz
-Cc: Andrew Morton <akpm@linux-foundation.org>, david@kernel.org,
- ryan.roberts@arm.com, linux-mm@kvack.org, r@hev.cc,
- Andrew Donnellan <andrew+kernel@donnellan.id.au>, apopple@nvidia.com,
- baohua@kernel.org, baolin.wang@linux.alibaba.com, brauner@kernel.org,
- catalin.marinas@arm.com, dev.jain@arm.com, kees@kernel.org,
- kevin.brodsky@arm.com, lance.yang@linux.dev,
- "Liam R. Howlett" <liam@infradead.org>,
- linux-arm-kernel@lists.infradead.org, linux-fsdevel@vger.kernel.org,
- linux-kernel@vger.kernel.org, ljs@kernel.org, mhocko@suse.com,
- npache@redhat.com, pasha.tatashin@soleen.com, rmclure@linux.ibm.com,
- rppt@kernel.org, surenb@google.com, vbabka@kernel.org,
- Al Viro <viro@zeniv.linux.org.uk>, wilts.infradead.org@pedro-suse.lan,
- ziy@nvidia.com, hannes@cmpxchg.org, kas@kernel.org, shakeel.butt@linux.dev,
- kernel-team@meta.com
-References: <20260528165635.2068012-1-usama.arif@linux.dev>
- <20260528165635.2068012-3-usama.arif@linux.dev>
- <ahlh2vdHEGo6ZSot@pedro-suse.lan>
- <cc9a1cf7-7b96-439a-b0be-ecdcf27b5da5@linux.dev>
- <ahmSolHvUChl-3vM@pedro-suse.lan>
-Content-Language: en-US
-X-Report-Abuse: Please report any abuse attempt to abuse@migadu.com and include these headers.
-From: Usama Arif <usama.arif@linux.dev>
-In-Reply-To: <ahmSolHvUChl-3vM@pedro-suse.lan>
-Content-Type: text/plain; charset=UTF-8
-Content-Transfer-Encoding: 7bit
-X-Migadu-Flow: FLOW_OUT
+X-Developer-Signature: v=1; a=openpgp-sha256; l=2580; i=michal.simek@amd.com; h=from:subject:message-id; bh=OMhPUSE6Fq5eG5fh9qZ1Lx1rxipiHUC9CbwJ2wETyPc=; b=owGbwMvMwCG2mv3fB7+vgl8ZT6slMWRJzjuybPUlsY9WjQa3y786XKnQv7Tw2Jrd24Iedl7Y0 PWntP5/TEcpC4MYB4OsmCLLdCYdhzXfri0VWx6ZDzOHlQlkCAMXpwBM5EMWwz/VfaLzZDLjPkae tHrDdD7R9G3lBOl/erIrNt7py2Plvv+NkeGKgf6WidK2WjfrdgQHTN9cui5MUkvrzqoki7wlgvv kHbgB
+X-Developer-Key: i=michal.simek@amd.com; a=openpgp; fpr=67350C9BF5CCEE9B5364356A377C7F21FE3D1F91
+Content-Transfer-Encoding: 8bit
+Content-Type: text/plain
+X-EOPAttributedMessage: 0
+X-MS-PublicTrafficType: Email
+X-MS-TrafficTypeDiagnostic: BY1PEPF0001AE18:EE_|SJ0PR12MB5675:EE_
+X-MS-Office365-Filtering-Correlation-Id: eda3bf81-575f-49c0-9c08-08debd8c5497
+X-MS-Exchange-SenderADCheck: 1
+X-MS-Exchange-AntiSpam-Relay: 0
+X-Microsoft-Antispam: BCL:0;ARA:13230040|1800799024|7416014|376014|36860700016|82310400026|18002099003|3023799007|6133799003|11063799006|56012099006;
+X-Microsoft-Antispam-Message-Info: mQQ+n8ajXG9YVc2UGRKDo1hrQLLHo0OJRI23Fjk4ocG20ty0xgiG/ApJyJlH8IT1KzK6Z0vjoe22ygrtqH0ZcjR+G9WsVKOKJDEe10eTPHlLPhUK72LOQLHNpHCvxzn8HyXVxPL4sHnIwBVKDLjsSaQqy2IOBQlC0xvP8Ep8Q/W5KN4Y1ey+Mh+YOHInWrxPiDB68RaVYEfkkQjN2fOWmWMJdgxwjVgQApzQCoDSSN68WXcCeqEvRJyX9Xz1PfxDUcvCnbWtoerb6RjGvfCqJO6PdazWtxtmJXGRCuRRkPWwZwSvwr57N9yTG03FUD1g8YtEfHv2urnv6aq8HnwKqRdaWka4MgU4oA9r768ZV3lB70vYOxPTzMPxTPiDHYEzUUeCCYArvSUdyKsSGH8ZLi3rlDzwB6pu6BtNPdQeBMelE2Zin0YHtCK24OOTPIEkZG+R8ytVS94lDxTiPdh6WAucOxaOQ6QO1UPJS5Xi1kOcIVtWBvfOvPNLBvDb1CcaTTHDJttx4SouTfH23Yt0tc+gG0m/q52J0RUelXAqOSci2SO2eB1sWgNrKLWGI4kxwJDPu3EaBfrT1qSTv4DA3TzaGE2mK+d1BNZNsg/rZIlDhWXCHznc+zoIwsKkGgRUey8NT/JHPHUqxXfhxVgamDKRCtVvG9UnPRMLxrh8fssP+dxizHnkU/X2svhY8R2o4uRUA7RIdnqOrlY1jdZjqCBmX3xLpFGcSVrWANMzzW8=
+X-Forefront-Antispam-Report: CIP:165.204.84.17;CTRY:US;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:satlexmb08.amd.com;PTR:InfoDomainNonexistent;CAT:NONE;SFS:(13230040)(1800799024)(7416014)(376014)(36860700016)(82310400026)(18002099003)(3023799007)(6133799003)(11063799006)(56012099006);DIR:OUT;SFP:1101;
+X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
+X-MS-Exchange-AntiSpam-MessageData-0: EJnQL8mc5RIZUGABZXEWfATsl/aasaLx4vo43cnSputI3DUg61zGYq46lnuf6E6r+4V1NIz5Piy6S8UO/lV24by/zpWKG8e5GV8xG7jniP5MSvPZC+kXfVeFEfyokn2QMR3dpfPAkJSwHMmDa8yRQWlaGzAYX23CWSoowjaOHCtMy9Dsxy4za1SiMUq1wh3jM6cInuMQoh30OgoNX5HUZeXkMjOuexJL+E2aYUUXw1HMi6NQX0buNjkkm8oCRSefUYJJsDUUyqDY2usM1YvJIUKGxDeJayfVUCkofBSqcsmQb1RAJ9TxnjEzRaMXWOE7Ee1nrQMYrEq0lEwmOcJ7GqOVsfemY3xIdsjMG2pzj2fvWU+kTpyNt++gKgKrgLnhL2afw4AkMqVFKfTofanVhUIfXA0mI0qGuGzK37f99pAofjW70Kp9z/pEBjJTVEI2
+X-OriginatorOrg: amd.com
+X-MS-Exchange-CrossTenant-OriginalArrivalTime: 29 May 2026 14:12:34.4258
+ (UTC)
+X-MS-Exchange-CrossTenant-Network-Message-Id: eda3bf81-575f-49c0-9c08-08debd8c5497
+X-MS-Exchange-CrossTenant-Id: 3dd8961f-e488-4e60-8e11-a82d994e183d
+X-MS-Exchange-CrossTenant-OriginalAttributedTenantConnectingIp: TenantId=3dd8961f-e488-4e60-8e11-a82d994e183d;Ip=[165.204.84.17];Helo=[satlexmb08.amd.com]
+X-MS-Exchange-CrossTenant-AuthSource: BY1PEPF0001AE18.namprd04.prod.outlook.com
+X-MS-Exchange-CrossTenant-AuthAs: Anonymous
+X-MS-Exchange-CrossTenant-FromEntityHeader: HybridOnPrem
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: SJ0PR12MB5675
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260529_071220_683121_008339ED 
-X-CRM114-Status: GOOD (  51.47  )
+X-CRM114-CacheID: sfid-20260529_071244_620153_D4863D42 
+X-CRM114-Status: GOOD (  13.31  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -86,208 +131,61 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
+This series fixes the Versal NET clock controller DT binding validation
+and switches the platform to use the firmware-based CCF clock interface.
 
+Patch 1 extracts zynqmp to own DT binding file.
 
-On 29/05/2026 14:40, Pedro Falcato wrote:
-> On Fri, May 29, 2026 at 01:19:03PM +0100, Usama Arif wrote:
->>
->>
->> On 29/05/2026 11:01, Pedro Falcato wrote:
->>> On Thu, May 28, 2026 at 09:55:20AM -0700, Usama Arif wrote:
->>>> The force_thp_readahead path in do_sync_mmap_readahead() is gated on
->>>> HPAGE_PMD_ORDER <= MAX_PAGECACHE_ORDER and always requests
->>>> HPAGE_PMD_ORDER / HPAGE_PMD_NR. On configurations where HPAGE_PMD_ORDER
->>>> exceeds MAX_PAGECACHE_ORDER, notably arm64 with a 64K base page size,
->>>> VM_HUGEPAGE mappings cannot use this path and fall back to the non-forced
->>>> mmap readahead path even when the mapping supports useful large folios.
->>>>
->>>> Keep the existing PMD-sized behavior when HPAGE_PMD_ORDER fits in the
->>>> page cache. When it does not, enable forced readahead for mappings that
->>>> support large folios and request an order capped by both
->>>> mapping_max_folio_order(mapping) and 2MB.
->>>>
->>>> 2MB is chosen as the cap because it matches the PMD size on x86_64
->>>> and on arm64 with 4K or 16K base pages, so the size/memory-pressure
->>>
->>> 16K base page size's PMDs should be 32M, no? Am I misunderstanding what
->>> you mean here?
->>>
->>
->> Yes, should have just said 4K. Messed up when rewriting the commit
->> message. Andrew Thanks for merging in mm-new, would it be possible
->> to remove "or 16K" from the commit message. I can send a new revision
->> as well if that is easier and preferred.
->>
->>>> tradeoff for folios of that size is already well understood. On arm64
->>>> with a 64K base page size, 2MB is also the contiguous-PTE (contpte)
->>>> block size, so the resulting folios coalesce into a single TLB entry
->>>> and reduce TLB pressure on the readahead path.
->>>>
->>>> The final allocation order may still be clamped by page_cache_ra_order()
->>>> to the mapping and request geometry, but this gives VM_HUGEPAGE mappings
->>>> on such configurations a large-folio readahead request instead of
->>>> dropping back to base-page readahead.
->>>>
->>>> Signed-off-by: Usama Arif <usama.arif@linux.dev>
->>>> ---
->>>>  mm/filemap.c | 27 +++++++++++++++++++--------
->>>>  1 file changed, 19 insertions(+), 8 deletions(-)
->>>>
->>>> diff --git a/mm/filemap.c b/mm/filemap.c
->>>> index a16b33e0fc71..bfb891d9da1f 100644
->>>> --- a/mm/filemap.c
->>>> +++ b/mm/filemap.c
->>>> @@ -3312,14 +3312,23 @@ static struct file *do_sync_mmap_readahead(struct vm_fault *vmf)
->>>>  	struct file *fpin = NULL;
->>>>  	vm_flags_t vm_flags = vmf->vma->vm_flags;
->>>>  	bool force_thp_readahead = false;
->>>> +	unsigned int thp_order = 0;
->>>>  	unsigned short mmap_miss;
->>>>  
->>>>  	ractl._max_index = vmf->vma->vm_pgoff + vma_pages(vmf->vma) - 1;
->>>>  
->>>>  	/* Use the readahead code, even if readahead is disabled */
->>>> -	if (IS_ENABLED(CONFIG_TRANSPARENT_HUGEPAGE) &&
->>>> -	    (vm_flags & VM_HUGEPAGE) && HPAGE_PMD_ORDER <= MAX_PAGECACHE_ORDER)
->>>> -		force_thp_readahead = true;
->>>> +	if (IS_ENABLED(CONFIG_TRANSPARENT_HUGEPAGE) && (vm_flags & VM_HUGEPAGE)) {
->>>> +		if (HPAGE_PMD_ORDER <= MAX_PAGECACHE_ORDER) {
->>>> +			force_thp_readahead = true;
->>>> +			thp_order = HPAGE_PMD_ORDER;
->>>> +		} else if (mapping_large_folio_support(mapping)) {
->>>> +			force_thp_readahead = true;
->>>> +			thp_order = min_t(unsigned int,
->>>> +					  mapping_max_folio_order(mapping),
->>>> +					  get_order(SZ_2M));
->>>
->>> This looks somewhat arbitrary to me (as does the old logic). It seems more
->>> natural (correct?) to do this:
->>>
->>> 	if (THP_ENABLED && (vm_flags & VM_HUGEPAGE)) {
->>> 		if (mapping_large_folio_support(mapping)) {
->>> 			force_thp_readahead = true;
->>> 			/*
->>> 			 * Cap THP readahead to either the max folio order the
->>> 			 * mapping supports, or the max order the page cache
->>> 			 * supports (useless to try more), or the hugepage PMD
->>> 			 * order (CPU can't benefit from larger).
->>> 			 */
->>> 			thp_order = min3(mapping_max_folio_order(mapping),
->>> 					MAX_PAGECACHE_ORDER, HPAGE_PMD_ORDER);
->>> 		}
->>> 	}
->>>
->>
->> So this can result in extreme memory pressure. For example, on 64K base page size,
->> with HPAGE_PMD_ORDER = 13 (512M) and MAX_PAGECACHE_ORDER = 11 (128M), this will evaluate
->> THP order to 128M. I think Jan mentioned in previous versions that there are already
->> reports of high memory pressure due to large file folios, and we are seeing this
->> in our fleet as well with xfs.
->>
->> I chose 2M cap as that is what most (not all) architectures which currently support this
->> hugepage code flow are currently used to, and on archs + base page size combination which
->> just evaluate this code to base page, for example 64K base page size, it will provide a
->> performance uplift without causing excessive memory pressure.
-> 
-> For what it's worth, memory pressure is still a problem even on 2MB folios. But
-> yes, I understand.
-> 
-> For what it's worth, I don't think it's such a big issue in this case - you're
-> asking for THPs, and you're getting them - though maybe not efficiently because
-> these aren't at the PMD level. But this is also true for e.g x86 where an
-> an order-3 folio or order-7 folio are completely useless for the hardware, since
-> there is no mTHP to speak of (and, with that, you also lose PG_active and
-> PG_reference precision as you only keep one of each for each folio, amongst
-> other tradeoffs).
-> 
+Patch 2 restructures the if/then conditions in the versal-clk binding
+schema so that xlnx,versal-net-clk is matched first before falling back
+to xlnx,versal-clk. This fixes false "too long" validation errors caused
+by both conditions matching simultaneously when the fallback compatible
+is present. A dedicated example for the Versal NET 3-clock configuration
+is added and all examples are split into separate blocks for independent
+validation.
 
-So there is hardware TLB coalescing on almost every new AMD CPU, I believe it is
-at 32kB, and we would benefit from that. On top of that, we would reduce pagefaults.
+Patch 3 switches Versal NET from static fixed-clock definitions to the
+firmware-based clock interface, enabling proper clock management
+through platform firmware. DT macro headers for clocks, power domains
+and resets are added.
 
->>
->> In pagemap.h, we have
->>
->> #define PREFERRED_MAX_PAGECACHE_ORDER	HPAGE_PMD_ORDER
->> #define MAX_PAGECACHE_ORDER	min(MAX_XAS_ORDER, PREFERRED_MAX_PAGECACHE_ORDER)
->>
->> So MAX_PAGECACHE_ORDER <= HPAGE_PMD_ORDER is always true.
->>
->> At filesystem/inode setup: mapping_set_folio_order_range() 
->>
->> 	if (max > MAX_PAGECACHE_ORDER)
->> 		max = MAX_PAGECACHE_ORDER;
->>
->> so mapping_max_folio_order() <= MAX_PAGECACHE_ORDER is also always true.
-> 
-> Right, good point. (well, I suppose it will not be true in the future as
-> someone tries to harness PMD-level cont bits)
-> 
->>
->> which means mapping_max_folio_order(mapping) <= MAX_PAGECACHE_ORDER <= HPAGE_PMD_ORDER is always
->> true, and you dont need the min3(..) in your diff.
->>
->> Now the question is if then why not just do:
->>
->> 	if (IS_ENABLED(CONFIG_TRANSPARENT_HUGEPAGE) && (vm_flags & VM_HUGEPAGE)) {
->> 		if (mapping_large_folio_support(mapping)) {
->> 			force_thp_readahead = true;
->> 			thp_order = min_t(unsigned int,
->> 					  mapping_max_folio_order(mapping),
->> 					  get_order(SZ_2M));
->> 		}
->> 	}
->>
->>
->> This is because this will regress the 16K ARM case where we already got 32M
->> folios. Someone might upgrade the kernel and start getting 2M folios now.
-> 
-> So maybe limit to 32MB? It's still arbitrary but at least you get simpler
-> logic. If the architecture does not support 32MiB folios, it will clamp
-> the maximum folio order to HPAGE_PMD_ORDER, and you get the same result.
-> 
-> Does this sound correct?
-> 
+Thanks,
+Michal
 
-Yes, so if we replace it with SZ_32M, it sounds correct. I just think
-the 32M size is too large. But as you pointed out, even 2M can be too large...
+Changes in v2:
+- New patch in series
+- Split zynqmp-clk from versal-clk
+- Update logic without ZynqMP part in this file and have if/else only
+  around min/maxItems
+- use clock-<HZ> node name for fixed clocks
+- Reuse existing versal-net-clk.dtsi file
 
+Michal Simek (3):
+  dt-bindings: clock: Move xlnx,zynqmp-clk to its own schema
+  dt-bindings: clock: versal-clk: Fix Versal NET clock validation
+  arm64: zynqmp: Switch Versal NET to firmware clock interface
 
->>
->> So IMHO the current code is correct, both in maintaining what the
->> existing behaviour has been, but also trying to provide large folios to
->> architectures that currently dont get them but in a controlled way.
->>
->> Later on, when we think or evaluate that 2M was too small a cap, it can
->> be raised. I think its very easy to raise a cap, but much more difficult
->> to make the cap smaller, as we might get reports on kernel upgrades that
->> someone was getting a certain size of folio but now its much smaller.
-> 
-> I don't think this is a valid argument. You can also have reports that now
-> folios are too large and they're regressing workloads because of thrashing/
-> compaction/possibly TLB thrashing. And indeed we have several reports of that
-> (https://lore.kernel.org/linux-fsdevel/20260403193535.9970-1-dipiets@amazon.it/
-> comes to mind, plus all of the anon THP regressions over the years, including
-> in $current_year).
+ .../bindings/clock/xlnx,versal-clk.yaml       |  87 +----
+ .../bindings/clock/xlnx,zynqmp-clk.yaml       |  68 ++++
+ .../arm64/boot/dts/xilinx/versal-net-clk.dtsi | 345 +++++++++++++-----
+ arch/arm64/boot/dts/xilinx/xlnx-versal-clk.h  | 123 +++++++
+ .../boot/dts/xilinx/xlnx-versal-net-clk.h     |  78 ++++
+ .../boot/dts/xilinx/xlnx-versal-net-power.h   |  38 ++
+ .../boot/dts/xilinx/xlnx-versal-net-resets.h  |  53 +++
+ .../arm64/boot/dts/xilinx/xlnx-versal-power.h |  54 +++
+ .../boot/dts/xilinx/xlnx-versal-resets.h      | 105 ++++++
+ 9 files changed, 783 insertions(+), 168 deletions(-)
+ create mode 100644 Documentation/devicetree/bindings/clock/xlnx,zynqmp-clk.yaml
+ create mode 100644 arch/arm64/boot/dts/xilinx/xlnx-versal-clk.h
+ create mode 100644 arch/arm64/boot/dts/xilinx/xlnx-versal-net-clk.h
+ create mode 100644 arch/arm64/boot/dts/xilinx/xlnx-versal-net-power.h
+ create mode 100644 arch/arm64/boot/dts/xilinx/xlnx-versal-net-resets.h
+ create mode 100644 arch/arm64/boot/dts/xilinx/xlnx-versal-power.h
+ create mode 100644 arch/arm64/boot/dts/xilinx/xlnx-versal-resets.h
 
-Ack, and yes we have seen both thrashing and compaction issues due to xfs
-large folios in the fleet with x86..
+-- 
+2.43.0
 
-> 
-> Bottom line is that changing things will always affect someone :) Particularly
-> since the logic we have is not too careful at deciding what should or should
-> not be a THP (both in anon and file cases). And if (once?) we make it smarter,
-> it will surely also regress someone!
-> 
-
-Yes completely agree on this as well.
-
-So personally I do have a preference of keeping the cap at 2M atleast initially
-while we currently try and solve the issues we see with 2M alone. As we are already
-seeing reports of thrashing and compaction with just 2M, I dont think the logic
-in this patch with just an if else is that complicated.
-
-Matthew, Jan, do you have any thoughts or strong preferences on cap size?
-
-Thanks!
-
+base-commit: 254f49634ee16a731174d2ae34bc50bd5f45e731
+branch: xnext/versal-net
 
