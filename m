@@ -4,48 +4,48 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 6C919CD6E4C
-	for <linux-arm-kernel@archiver.kernel.org>; Fri, 29 May 2026 09:51:52 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 6A1EBCD5BD2
+	for <linux-arm-kernel@archiver.kernel.org>; Fri, 29 May 2026 09:51:55 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:References
 	:Message-Id:Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:
 	From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=af9SB703Uj9KiBq40YAphNoJLaEYljz89DYpm7vOojM=; b=FqpyyB5cGOR/5OnnvA/EHBPnwU
-	t4ILr6URAJvDCiNSV/AhiaJIyHDBr1Uzrx86vmqEENYOFHZffO+r6Q/Huc9JUMkqZRAN5Kw2jqABr
-	CZHkp8OPuEzLr0o6nndCJfLxUyWx8Xr8EqIqHC2dz3qIrczCzCWF7vRRwDf5IxueQjuK3izl7+I3K
-	JqgY3OBppjJlZRMf7LVzcPs1wMoaGXoEpRz+nWQ0x6ft1m/sxcariDsXSse+lzWTTlndfbAG3ZNlQ
-	8kET+hIY7m7fLLSpskz/J5Y1PFMxmKIU4jiBpbyVCayFaa1oSVA06YOGMnFpr6tBavC9d9bWayozN
-	XTkKpXiw==;
+	bh=W5dcUNwqX13oJt9eTUWl4hxYV0M/Izj9HMawndI9ohc=; b=JuyAEytZV8fasisuPvj6CokWyR
+	ISP0DxZIVT4VfQ/MekDz/3cHVwHQ7E9VVZxaCgFVXvW4miNYihvoiP30l0DoNLEuyx+zMcOwpYvy2
+	xNPJl1yV6ujo+yhtc+gZkhWNyXmqq4+7nTfkowegFkMKQycX0QFii7IVBkhMOIY0V4aw9lZq/7yWL
+	wD81foTq8U41tfP9eyaJdhyf6jaojFb7yEAQ+CQn/GsEPmiPJVs0CdkHJL/R0N4lqpREgF3umFz1I
+	si450jw7fscOLRH/6ZF77MYepWRrIyw5KnrmyVwjb2sW1wHPsnr+HkgnVjilEzIlpGsySWsT59sMT
+	FMGl8w3A==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wStsY-000000076ew-1G1Z;
-	Fri, 29 May 2026 09:51:46 +0000
+	id 1wStsX-000000076e7-2yhb;
+	Fri, 29 May 2026 09:51:45 +0000
 Received: from foss.arm.com ([217.140.110.172])
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wStsV-000000076ca-0RTG
+	id 1wStsM-000000076WR-3GBS
 	for linux-arm-kernel@lists.infradead.org;
-	Fri, 29 May 2026 09:51:44 +0000
+	Fri, 29 May 2026 09:51:36 +0000
 Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
-	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id 73C0032E5;
-	Fri, 29 May 2026 02:51:37 -0700 (PDT)
+	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id 0933522D7;
+	Fri, 29 May 2026 02:51:28 -0700 (PDT)
 Received: from e134710.arm.com (e134710.arm.com [10.33.10.82])
-	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id 195323F905;
-	Fri, 29 May 2026 02:51:37 -0700 (PDT)
+	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id A2FC93F905;
+	Fri, 29 May 2026 02:51:28 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=simple/simple; d=arm.com; s=foss;
-	t=1780048302; bh=qIFFyyy4m0uVoomEtae1wRHS1d2gI1FUMrEpVshS6vY=;
+	t=1780048293; bh=lFx22FK8BwhqLRtXVDa7n9zPnHQJet90r0IFTaX1i1s=;
 	h=From:Date:Subject:References:In-Reply-To:To:Cc:From;
-	b=K0yxv1mIHfRIjQVUddiv4tJ9zbuW6NsMf3bbwHp7/QB6+e1pVx2NxzsZxoo/iBOBW
-	 3xToFeQhuJb8nuEYEM+nHsEWcuH2e9tQXMj2lgl48cYZzME/Ak9FK+0PAdf7yJxyft
-	 YqlFTbgCknX8R95VzGEK9L3u8q5XKJOGye2iLtU8=
+	b=IKIZrNKz1w5bbzAPhqxgS4wkKjGAwtbT64bmt5iXfcU2V2FonliMgD0QXyZIsz8do
+	 QqhOMjAZUB9HtWcKoOkUS/sOPFDkdMlXHYftEqnx14WG9MQcqD70dkCbfRtsEUWavX
+	 kW1hoH9ygE6OtKkBfOrOsVvX3Rme1CHVYOV/DHyw=
 From: Ahmed Tiba <ahmed.tiba@arm.com>
-Date: Fri, 29 May 2026 10:50:46 +0100
-Subject: [PATCH v5 06/10] ACPI: APEI: GHES: move CXL CPER helpers
+Date: Fri, 29 May 2026 10:50:44 +0100
+Subject: [PATCH v5 04/10] ACPI: APEI: GHES: move estatus cache helpers
 MIME-Version: 1.0
 Content-Type: text/plain; charset="utf-8"
 Content-Transfer-Encoding: 7bit
-Message-Id: <20260529-topics-ahmtib01-ras_ffh_arm_internal_review-v5-6-2e0500d42642@arm.com>
+Message-Id: <20260529-topics-ahmtib01-ras_ffh_arm_internal_review-v5-4-2e0500d42642@arm.com>
 References: <20260529-topics-ahmtib01-ras_ffh_arm_internal_review-v5-0-2e0500d42642@arm.com>
 In-Reply-To: <20260529-topics-ahmtib01-ras_ffh_arm_internal_review-v5-0-2e0500d42642@arm.com>
 To: will@kernel.org, jic23@kernel.org, xueshuai@linux.alibaba.com, 
@@ -62,16 +62,16 @@ Cc: Ahmed Tiba <ahmed.tiba@arm.com>, linux-arm-kernel@lists.infradead.org,
  linux-acpi@vger.kernel.org, linux-edac@vger.kernel.org, 
  acpica-devel@lists.linux.dev
 X-Mailer: b4 0.13.0
-X-Developer-Signature: v=1; a=ed25519-sha256; t=1780048269; l=10220;
+X-Developer-Signature: v=1; a=ed25519-sha256; t=1780048269; l=11290;
  i=ahmed.tiba@arm.com; s=20260219; h=from:subject:message-id;
- bh=qIFFyyy4m0uVoomEtae1wRHS1d2gI1FUMrEpVshS6vY=;
- b=uiUZzhRkHQVdWfn4cIK8H6E1iU0KW5AnAh2aXXgcvgvVkBlBmmfqSbvVPJOMWI02ojwvAKzYY
- et16V8aeXI+CsTjoPzXnlgDzEE5hEYhN7QoxF+3BTH3u10y/GHD9g22
+ bh=lFx22FK8BwhqLRtXVDa7n9zPnHQJet90r0IFTaX1i1s=;
+ b=SRigsCIzuicXgXu6KXQKiOnNICRrcCKoYHTED6AiIpcNs82LTNCJkQbr/QLdCdhy07fMq8gga
+ 7zEfHMZZvW4C75hv9AsedWT8m3s+fwKZAqI3PihoAAdG/ZGR23wBqzA
 X-Developer-Key: i=ahmed.tiba@arm.com; a=ed25519;
  pk=xVOtd+Qklh/4tuM3tB+BEZD4jj5a6W59C3KCNX6v7OE=
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260529_025143_254223_CE3FAEBE 
-X-CRM114-Status: GOOD (  14.88  )
+X-CRM114-CacheID: sfid-20260529_025134_923402_F8E93D57 
+X-CRM114-Status: GOOD (  23.51  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -86,349 +86,367 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Move the CXL CPER handling paths out of ghes.c and into ghes_cper.c so the
-helpers can be reused. The code is moved as-is, with the public
-prototypes updated so GHES keeps calling into the new translation unit.
+Relocate the estatus cache allocation and lookup helpers from ghes.c into
+ghes_cper.c. This code move keeps the logic intact while making the cache
+implementation available to forthcoming users.
 
 Signed-off-by: Ahmed Tiba <ahmed.tiba@arm.com>
 ---
- drivers/acpi/apei/ghes.c      | 132 -----------------------------------------
- drivers/acpi/apei/ghes_cper.c | 134 ++++++++++++++++++++++++++++++++++++++++++
- include/acpi/ghes_cper.h      |  11 ++++
- 3 files changed, 145 insertions(+), 132 deletions(-)
+ drivers/acpi/apei/ghes.c      | 138 +----------------------------------------
+ drivers/acpi/apei/ghes_cper.c | 140 ++++++++++++++++++++++++++++++++++++++++++
+ include/acpi/ghes_cper.h      |   6 ++
+ 3 files changed, 147 insertions(+), 137 deletions(-)
 
 diff --git a/drivers/acpi/apei/ghes.c b/drivers/acpi/apei/ghes.c
-index 81ac51632f21..85be2ebf4d3e 100644
+index 91638ae7e05e..adab7404310e 100644
 --- a/drivers/acpi/apei/ghes.c
 +++ b/drivers/acpi/apei/ghes.c
-@@ -383,69 +383,6 @@ static void ghes_handle_aer(struct acpi_hest_generic_data *gdata)
- #endif
+@@ -113,10 +113,7 @@ static DEFINE_MUTEX(ghes_devs_mutex);
+  */
+ static DEFINE_SPINLOCK(ghes_notify_lock_irq);
+ 
+-static struct gen_pool *ghes_estatus_pool;
+-
+-static struct ghes_estatus_cache __rcu *ghes_estatus_caches[GHES_ESTATUS_CACHES_SIZE];
+-static atomic_t ghes_estatus_cache_alloced;
++struct gen_pool *ghes_estatus_pool;
+ 
+ int ghes_estatus_pool_init(unsigned int num_ghes)
+ {
+@@ -733,139 +730,6 @@ static int ghes_print_estatus(const char *pfx,
+ 	return 0;
  }
  
--/* Room for 8 entries */
--#define CXL_CPER_PROT_ERR_FIFO_DEPTH 8
--static DEFINE_KFIFO(cxl_cper_prot_err_fifo, struct cxl_cper_prot_err_work_data,
--		    CXL_CPER_PROT_ERR_FIFO_DEPTH);
--
--/* Synchronize schedule_work() with cxl_cper_prot_err_work changes */
--static DEFINE_SPINLOCK(cxl_cper_prot_err_work_lock);
--struct work_struct *cxl_cper_prot_err_work;
--
--static void cxl_cper_post_prot_err(struct cxl_cper_sec_prot_err *prot_err,
--				   int severity)
+-/*
+- * GHES error status reporting throttle, to report more kinds of
+- * errors, instead of just most frequently occurred errors.
+- */
+-static int ghes_estatus_cached(struct acpi_hest_generic_status *estatus)
 -{
--#ifdef CONFIG_ACPI_APEI_PCIEAER
--	struct cxl_cper_prot_err_work_data wd;
+-	u32 len;
+-	int i, cached = 0;
+-	unsigned long long now;
+-	struct ghes_estatus_cache *cache;
+-	struct acpi_hest_generic_status *cache_estatus;
 -
--	if (cxl_cper_sec_prot_err_valid(prot_err))
--		return;
--
--	guard(spinlock_irqsave)(&cxl_cper_prot_err_work_lock);
--
--	if (!cxl_cper_prot_err_work)
--		return;
--
--	if (cxl_cper_setup_prot_err_work_data(&wd, prot_err, severity))
--		return;
--
--	if (!kfifo_put(&cxl_cper_prot_err_fifo, wd)) {
--		pr_err_ratelimited("CXL CPER kfifo overflow\n");
--		return;
+-	len = cper_estatus_len(estatus);
+-	rcu_read_lock();
+-	for (i = 0; i < GHES_ESTATUS_CACHES_SIZE; i++) {
+-		cache = rcu_dereference(ghes_estatus_caches[i]);
+-		if (cache == NULL)
+-			continue;
+-		if (len != cache->estatus_len)
+-			continue;
+-		cache_estatus = GHES_ESTATUS_FROM_CACHE(cache);
+-		if (memcmp(estatus, cache_estatus, len))
+-			continue;
+-		atomic_inc(&cache->count);
+-		now = sched_clock();
+-		if (now - cache->time_in < GHES_ESTATUS_IN_CACHE_MAX_NSEC)
+-			cached = 1;
+-		break;
 -	}
--
--	schedule_work(cxl_cper_prot_err_work);
--#endif
+-	rcu_read_unlock();
+-	return cached;
 -}
 -
--int cxl_cper_register_prot_err_work(struct work_struct *work)
+-static struct ghes_estatus_cache *ghes_estatus_cache_alloc(
+-	struct acpi_hest_generic *generic,
+-	struct acpi_hest_generic_status *estatus)
 -{
--	if (cxl_cper_prot_err_work)
--		return -EINVAL;
+-	int alloced;
+-	u32 len, cache_len;
+-	struct ghes_estatus_cache *cache;
+-	struct acpi_hest_generic_status *cache_estatus;
 -
--	guard(spinlock)(&cxl_cper_prot_err_work_lock);
--	cxl_cper_prot_err_work = work;
--	return 0;
--}
--EXPORT_SYMBOL_NS_GPL(cxl_cper_register_prot_err_work, "CXL");
--
--int cxl_cper_unregister_prot_err_work(struct work_struct *work)
--{
--	if (cxl_cper_prot_err_work != work)
--		return -EINVAL;
--
--	guard(spinlock)(&cxl_cper_prot_err_work_lock);
--	cxl_cper_prot_err_work = NULL;
--	return 0;
--}
--EXPORT_SYMBOL_NS_GPL(cxl_cper_unregister_prot_err_work, "CXL");
--
--int cxl_cper_prot_err_kfifo_get(struct cxl_cper_prot_err_work_data *wd)
--{
--	return kfifo_get(&cxl_cper_prot_err_fifo, wd);
--}
--EXPORT_SYMBOL_NS_GPL(cxl_cper_prot_err_kfifo_get, "CXL");
--
- static void ghes_vendor_record_notifier_destroy(void *nb)
- {
- 	ghes_unregister_vendor_record_notifier(nb);
-@@ -464,75 +401,6 @@ int devm_ghes_register_vendor_record_notifier(struct device *dev,
- }
- EXPORT_SYMBOL_GPL(devm_ghes_register_vendor_record_notifier);
- 
--/* Room for 8 entries for each of the 4 event log queues */
--#define CXL_CPER_FIFO_DEPTH 32
--DEFINE_KFIFO(cxl_cper_fifo, struct cxl_cper_work_data, CXL_CPER_FIFO_DEPTH);
--
--/* Synchronize schedule_work() with cxl_cper_work changes */
--static DEFINE_SPINLOCK(cxl_cper_work_lock);
--struct work_struct *cxl_cper_work;
--
--static void cxl_cper_post_event(enum cxl_event_type event_type,
--				struct cxl_cper_event_rec *rec)
--{
--	struct cxl_cper_work_data wd;
--
--	if (rec->hdr.length <= sizeof(rec->hdr) ||
--	    rec->hdr.length > sizeof(*rec)) {
--		pr_err(FW_WARN "CXL CPER Invalid section length (%u)\n",
--		       rec->hdr.length);
--		return;
+-	alloced = atomic_add_return(1, &ghes_estatus_cache_alloced);
+-	if (alloced > GHES_ESTATUS_CACHE_ALLOCED_MAX) {
+-		atomic_dec(&ghes_estatus_cache_alloced);
+-		return NULL;
 -	}
--
--	if (!(rec->hdr.validation_bits & CPER_CXL_COMP_EVENT_LOG_VALID)) {
--		pr_err(FW_WARN "CXL CPER invalid event\n");
--		return;
+-	len = cper_estatus_len(estatus);
+-	cache_len = GHES_ESTATUS_CACHE_LEN(len);
+-	cache = (void *)gen_pool_alloc(ghes_estatus_pool, cache_len);
+-	if (!cache) {
+-		atomic_dec(&ghes_estatus_cache_alloced);
+-		return NULL;
 -	}
+-	cache_estatus = GHES_ESTATUS_FROM_CACHE(cache);
+-	memcpy(cache_estatus, estatus, len);
+-	cache->estatus_len = len;
+-	atomic_set(&cache->count, 0);
+-	cache->generic = generic;
+-	cache->time_in = sched_clock();
+-	return cache;
+-}
 -
--	guard(spinlock_irqsave)(&cxl_cper_work_lock);
+-static void ghes_estatus_cache_rcu_free(struct rcu_head *head)
+-{
+-	struct ghes_estatus_cache *cache;
+-	u32 len;
 -
--	if (!cxl_cper_work)
+-	cache = container_of(head, struct ghes_estatus_cache, rcu);
+-	len = cper_estatus_len(GHES_ESTATUS_FROM_CACHE(cache));
+-	len = GHES_ESTATUS_CACHE_LEN(len);
+-	gen_pool_free(ghes_estatus_pool, (unsigned long)cache, len);
+-	atomic_dec(&ghes_estatus_cache_alloced);
+-}
+-
+-static void
+-ghes_estatus_cache_add(struct acpi_hest_generic *generic,
+-		       struct acpi_hest_generic_status *estatus)
+-{
+-	unsigned long long now, duration, period, max_period = 0;
+-	struct ghes_estatus_cache *cache, *new_cache;
+-	struct ghes_estatus_cache __rcu *victim;
+-	int i, slot = -1, count;
+-
+-	new_cache = ghes_estatus_cache_alloc(generic, estatus);
+-	if (!new_cache)
 -		return;
 -
--	wd.event_type = event_type;
--	memcpy(&wd.rec, rec, sizeof(wd.rec));
--
--	if (!kfifo_put(&cxl_cper_fifo, wd)) {
--		pr_err_ratelimited("CXL CPER kfifo overflow\n");
--		return;
+-	rcu_read_lock();
+-	now = sched_clock();
+-	for (i = 0; i < GHES_ESTATUS_CACHES_SIZE; i++) {
+-		cache = rcu_dereference(ghes_estatus_caches[i]);
+-		if (cache == NULL) {
+-			slot = i;
+-			break;
+-		}
+-		duration = now - cache->time_in;
+-		if (duration >= GHES_ESTATUS_IN_CACHE_MAX_NSEC) {
+-			slot = i;
+-			break;
+-		}
+-		count = atomic_read(&cache->count);
+-		period = duration;
+-		do_div(period, (count + 1));
+-		if (period > max_period) {
+-			max_period = period;
+-			slot = i;
+-		}
 -	}
+-	rcu_read_unlock();
 -
--	schedule_work(cxl_cper_work);
+-	if (slot != -1) {
+-		/*
+-		 * Use release semantics to ensure that ghes_estatus_cached()
+-		 * running on another CPU will see the updated cache fields if
+-		 * it can see the new value of the pointer.
+-		 */
+-		victim = xchg_release(&ghes_estatus_caches[slot],
+-				      RCU_INITIALIZER(new_cache));
+-
+-		/*
+-		 * At this point, victim may point to a cached item different
+-		 * from the one based on which we selected the slot. Instead of
+-		 * going to the loop again to pick another slot, let's just
+-		 * drop the other item anyway: this may cause a false cache
+-		 * miss later on, but that won't cause any problems.
+-		 */
+-		if (victim)
+-			call_rcu(&unrcu_pointer(victim)->rcu,
+-				 ghes_estatus_cache_rcu_free);
+-	}
 -}
 -
--int cxl_cper_register_work(struct work_struct *work)
--{
--	if (cxl_cper_work)
--		return -EINVAL;
--
--	guard(spinlock)(&cxl_cper_work_lock);
--	cxl_cper_work = work;
--	return 0;
--}
--EXPORT_SYMBOL_NS_GPL(cxl_cper_register_work, "CXL");
--
--int cxl_cper_unregister_work(struct work_struct *work)
--{
--	if (cxl_cper_work != work)
--		return -EINVAL;
--
--	guard(spinlock)(&cxl_cper_work_lock);
--	cxl_cper_work = NULL;
--	return 0;
--}
--EXPORT_SYMBOL_NS_GPL(cxl_cper_unregister_work, "CXL");
--
--int cxl_cper_kfifo_get(struct cxl_cper_work_data *wd)
--{
--	return kfifo_get(&cxl_cper_fifo, wd);
--}
--EXPORT_SYMBOL_NS_GPL(cxl_cper_kfifo_get, "CXL");
--
- static void ghes_log_hwerr(int sev, guid_t *sec_type)
- {
- 	if (sev != CPER_SEV_RECOVERABLE)
+ static void __ghes_panic(struct ghes *ghes,
+ 			 struct acpi_hest_generic_status *estatus,
+ 			 u64 buf_paddr, enum fixed_addresses fixmap_idx)
 diff --git a/drivers/acpi/apei/ghes_cper.c b/drivers/acpi/apei/ghes_cper.c
-index 131980d36064..d7a666a163c3 100644
+index 8080e0f76dac..0a117f478afb 100644
 --- a/drivers/acpi/apei/ghes_cper.c
 +++ b/drivers/acpi/apei/ghes_cper.c
-@@ -12,10 +12,12 @@
-  *   Author: Huang Ying <ying.huang@intel.com>
+@@ -13,10 +13,14 @@
   */
  
-+#include <linux/aer.h>
  #include <linux/err.h>
- #include <linux/genalloc.h>
- #include <linux/irq_work.h>
++#include <linux/genalloc.h>
  #include <linux/io.h>
-+#include <linux/kfifo.h>
  #include <linux/kernel.h>
- #include <linux/list.h>
- #include <linux/math64.h>
-@@ -321,6 +323,138 @@ void ghes_defer_non_standard_event(struct acpi_hest_generic_data *gdata,
- 	schedule_work(&entry->work);
- }
++#include <linux/math64.h>
+ #include <linux/mm.h>
+ #include <linux/ratelimit.h>
++#include <linux/rcupdate.h>
++#include <linux/sched/clock.h>
+ #include <linux/slab.h>
  
-+/* Room for 8 entries */
-+#define CXL_CPER_PROT_ERR_FIFO_DEPTH 8
-+static DEFINE_KFIFO(cxl_cper_prot_err_fifo, struct cxl_cper_prot_err_work_data,
-+		    CXL_CPER_PROT_ERR_FIFO_DEPTH);
+ #include <acpi/apei.h>
+@@ -27,6 +31,9 @@
+ 
+ #include "apei-internal.h"
+ 
++static struct ghes_estatus_cache __rcu *ghes_estatus_caches[GHES_ESTATUS_CACHES_SIZE];
++static atomic_t ghes_estatus_cache_alloced;
 +
-+/* Synchronize schedule_work() with cxl_cper_prot_err_work changes */
-+static DEFINE_SPINLOCK(cxl_cper_prot_err_work_lock);
-+struct work_struct *cxl_cper_prot_err_work;
+ static void __iomem *ghes_map(u64 pfn, enum fixed_addresses fixmap_idx)
+ {
+ 	phys_addr_t paddr;
+@@ -258,3 +265,136 @@ void ghes_clear_estatus(struct ghes *ghes,
+ 	if (is_hest_type_generic_v2(ghes))
+ 		ghes_ack_error(ghes->generic_v2);
+ }
 +
-+void cxl_cper_post_prot_err(struct cxl_cper_sec_prot_err *prot_err,
-+			    int severity)
++/*
++ * GHES error status reporting throttle, to report more kinds of
++ * errors, instead of just most frequently occurred errors.
++ */
++int ghes_estatus_cached(struct acpi_hest_generic_status *estatus)
 +{
-+#ifdef CONFIG_ACPI_APEI_PCIEAER
-+	struct cxl_cper_prot_err_work_data wd;
++	u32 len;
++	int i, cached = 0;
++	unsigned long long now;
++	struct ghes_estatus_cache *cache;
++	struct acpi_hest_generic_status *cache_estatus;
 +
-+	if (cxl_cper_sec_prot_err_valid(prot_err))
-+		return;
-+
-+	guard(spinlock_irqsave)(&cxl_cper_prot_err_work_lock);
-+
-+	if (!cxl_cper_prot_err_work)
-+		return;
-+
-+	if (cxl_cper_setup_prot_err_work_data(&wd, prot_err, severity))
-+		return;
-+
-+	if (!kfifo_put(&cxl_cper_prot_err_fifo, wd)) {
-+		pr_err_ratelimited("CXL CPER kfifo overflow\n");
-+		return;
++	len = cper_estatus_len(estatus);
++	rcu_read_lock();
++	for (i = 0; i < GHES_ESTATUS_CACHES_SIZE; i++) {
++		cache = rcu_dereference(ghes_estatus_caches[i]);
++		if (cache == NULL)
++			continue;
++		if (len != cache->estatus_len)
++			continue;
++		cache_estatus = GHES_ESTATUS_FROM_CACHE(cache);
++		if (memcmp(estatus, cache_estatus, len))
++			continue;
++		atomic_inc(&cache->count);
++		now = sched_clock();
++		if (now - cache->time_in < GHES_ESTATUS_IN_CACHE_MAX_NSEC)
++			cached = 1;
++		break;
 +	}
-+
-+	schedule_work(cxl_cper_prot_err_work);
-+#endif
++	rcu_read_unlock();
++	return cached;
 +}
 +
-+int cxl_cper_register_prot_err_work(struct work_struct *work)
++static struct ghes_estatus_cache *ghes_estatus_cache_alloc(
++	struct acpi_hest_generic *generic,
++	struct acpi_hest_generic_status *estatus)
 +{
-+	if (cxl_cper_prot_err_work)
-+		return -EINVAL;
++	int alloced;
++	u32 len, cache_len;
++	struct ghes_estatus_cache *cache;
++	struct acpi_hest_generic_status *cache_estatus;
 +
-+	guard(spinlock)(&cxl_cper_prot_err_work_lock);
-+	cxl_cper_prot_err_work = work;
-+	return 0;
-+}
-+EXPORT_SYMBOL_NS_GPL(cxl_cper_register_prot_err_work, "CXL");
-+
-+int cxl_cper_unregister_prot_err_work(struct work_struct *work)
-+{
-+	if (cxl_cper_prot_err_work != work)
-+		return -EINVAL;
-+
-+	guard(spinlock)(&cxl_cper_prot_err_work_lock);
-+	cxl_cper_prot_err_work = NULL;
-+	return 0;
-+}
-+EXPORT_SYMBOL_NS_GPL(cxl_cper_unregister_prot_err_work, "CXL");
-+
-+int cxl_cper_prot_err_kfifo_get(struct cxl_cper_prot_err_work_data *wd)
-+{
-+	return kfifo_get(&cxl_cper_prot_err_fifo, wd);
-+}
-+EXPORT_SYMBOL_NS_GPL(cxl_cper_prot_err_kfifo_get, "CXL");
-+
-+/* Room for 8 entries for each of the 4 event log queues */
-+#define CXL_CPER_FIFO_DEPTH 32
-+static DEFINE_KFIFO(cxl_cper_fifo, struct cxl_cper_work_data, CXL_CPER_FIFO_DEPTH);
-+
-+/* Synchronize schedule_work() with cxl_cper_work changes */
-+static DEFINE_SPINLOCK(cxl_cper_work_lock);
-+struct work_struct *cxl_cper_work;
-+
-+void cxl_cper_post_event(enum cxl_event_type event_type,
-+			 struct cxl_cper_event_rec *rec)
-+{
-+	struct cxl_cper_work_data wd;
-+
-+	if (rec->hdr.length <= sizeof(rec->hdr) ||
-+	    rec->hdr.length > sizeof(*rec)) {
-+		pr_err(FW_WARN "CXL CPER Invalid section length (%u)\n",
-+		       rec->hdr.length);
-+		return;
++	alloced = atomic_add_return(1, &ghes_estatus_cache_alloced);
++	if (alloced > GHES_ESTATUS_CACHE_ALLOCED_MAX) {
++		atomic_dec(&ghes_estatus_cache_alloced);
++		return NULL;
 +	}
-+
-+	if (!(rec->hdr.validation_bits & CPER_CXL_COMP_EVENT_LOG_VALID)) {
-+		pr_err(FW_WARN "CXL CPER invalid event\n");
-+		return;
++	len = cper_estatus_len(estatus);
++	cache_len = GHES_ESTATUS_CACHE_LEN(len);
++	cache = (void *)gen_pool_alloc(ghes_estatus_pool, cache_len);
++	if (cache == NULL) {
++		atomic_dec(&ghes_estatus_cache_alloced);
++		return NULL;
 +	}
++	cache_estatus = GHES_ESTATUS_FROM_CACHE(cache);
++	memcpy(cache_estatus, estatus, len);
++	cache->estatus_len = len;
++	atomic_set(&cache->count, 0);
++	cache->generic = generic;
++	cache->time_in = sched_clock();
++	return cache;
++}
 +
-+	guard(spinlock_irqsave)(&cxl_cper_work_lock);
++static void ghes_estatus_cache_rcu_free(struct rcu_head *head)
++{
++	struct ghes_estatus_cache *cache;
++	u32 len;
 +
-+	if (!cxl_cper_work)
++	cache = container_of(head, struct ghes_estatus_cache, rcu);
++	len = cper_estatus_len(GHES_ESTATUS_FROM_CACHE(cache));
++	len = GHES_ESTATUS_CACHE_LEN(len);
++	gen_pool_free(ghes_estatus_pool, (unsigned long)cache, len);
++	atomic_dec(&ghes_estatus_cache_alloced);
++}
++
++void
++ghes_estatus_cache_add(struct acpi_hest_generic *generic,
++		       struct acpi_hest_generic_status *estatus)
++{
++	unsigned long long now, duration, period, max_period = 0;
++	struct ghes_estatus_cache *cache, *new_cache;
++	struct ghes_estatus_cache __rcu *victim;
++	int i, slot = -1, count;
++
++	new_cache = ghes_estatus_cache_alloc(generic, estatus);
++	if (!new_cache)
 +		return;
 +
-+	wd.event_type = event_type;
-+	memcpy(&wd.rec, rec, sizeof(wd.rec));
-+
-+	if (!kfifo_put(&cxl_cper_fifo, wd)) {
-+		pr_err_ratelimited("CXL CPER kfifo overflow\n");
-+		return;
++	rcu_read_lock();
++	now = sched_clock();
++	for (i = 0; i < GHES_ESTATUS_CACHES_SIZE; i++) {
++		cache = rcu_dereference(ghes_estatus_caches[i]);
++		if (cache == NULL) {
++			slot = i;
++			break;
++		}
++		duration = now - cache->time_in;
++		if (duration >= GHES_ESTATUS_IN_CACHE_MAX_NSEC) {
++			slot = i;
++			break;
++		}
++		count = atomic_read(&cache->count);
++		period = duration;
++		do_div(period, (count + 1));
++		if (period > max_period) {
++			max_period = period;
++			slot = i;
++		}
 +	}
++	rcu_read_unlock();
 +
-+	schedule_work(cxl_cper_work);
++	if (slot != -1) {
++		/*
++		 * Use release semantics to ensure that ghes_estatus_cached()
++		 * running on another CPU will see the updated cache fields if
++		 * it can see the new value of the pointer.
++		 */
++		victim = xchg_release(&ghes_estatus_caches[slot],
++				      RCU_INITIALIZER(new_cache));
++
++		/*
++		 * At this point, victim may point to a cached item different
++		 * from the one based on which we selected the slot. Instead of
++		 * going to the loop again to pick another slot, let's just
++		 * drop the other item anyway: this may cause a false cache
++		 * miss later on, but that won't cause any problems.
++		 */
++		if (victim)
++			call_rcu(&unrcu_pointer(victim)->rcu,
++				 ghes_estatus_cache_rcu_free);
++	}
 +}
-+
-+int cxl_cper_register_work(struct work_struct *work)
-+{
-+	if (cxl_cper_work)
-+		return -EINVAL;
-+
-+	guard(spinlock)(&cxl_cper_work_lock);
-+	cxl_cper_work = work;
-+	return 0;
-+}
-+EXPORT_SYMBOL_NS_GPL(cxl_cper_register_work, "CXL");
-+
-+int cxl_cper_unregister_work(struct work_struct *work)
-+{
-+	if (cxl_cper_work != work)
-+		return -EINVAL;
-+
-+	guard(spinlock)(&cxl_cper_work_lock);
-+	cxl_cper_work = NULL;
-+	return 0;
-+}
-+EXPORT_SYMBOL_NS_GPL(cxl_cper_unregister_work, "CXL");
-+
-+int cxl_cper_kfifo_get(struct cxl_cper_work_data *wd)
-+{
-+	return kfifo_get(&cxl_cper_fifo, wd);
-+}
-+EXPORT_SYMBOL_NS_GPL(cxl_cper_kfifo_get, "CXL");
-+
- /*
-  * GHES error status reporting throttle, to report more kinds of
-  * errors, instead of just most frequently occurred errors.
 diff --git a/include/acpi/ghes_cper.h b/include/acpi/ghes_cper.h
-index 51725f25c516..dd49e9179b63 100644
+index 6b7632cfaf66..1b5dbeca9bb6 100644
 --- a/include/acpi/ghes_cper.h
 +++ b/include/acpi/ghes_cper.h
-@@ -20,6 +20,7 @@
+@@ -16,6 +16,7 @@
+ #ifndef ACPI_APEI_GHES_CPER_H
+ #define ACPI_APEI_GHES_CPER_H
+ 
++#include <linux/atomic.h>
  #include <linux/workqueue.h>
  
  #include <acpi/ghes.h>
-+#include <cxl/event.h>
+@@ -54,6 +55,8 @@
+ 	((struct acpi_hest_generic_data *)                              \
+ 	((struct ghes_vendor_record_entry *)(vendor_entry) + 1))
  
- #define GHES_PFX	"GHES: "
- 
-@@ -106,5 +107,15 @@ void ghes_estatus_cache_add(struct acpi_hest_generic *generic,
- 			    struct acpi_hest_generic_status *estatus);
- void ghes_defer_non_standard_event(struct acpi_hest_generic_data *gdata,
- 				   int sev);
-+void cxl_cper_post_prot_err(struct cxl_cper_sec_prot_err *prot_err,
-+			    int severity);
-+int cxl_cper_register_prot_err_work(struct work_struct *work);
-+int cxl_cper_unregister_prot_err_work(struct work_struct *work);
-+int cxl_cper_prot_err_kfifo_get(struct cxl_cper_prot_err_work_data *wd);
-+void cxl_cper_post_event(enum cxl_event_type event_type,
-+			 struct cxl_cper_event_rec *rec);
-+int cxl_cper_register_work(struct work_struct *work);
-+int cxl_cper_unregister_work(struct work_struct *work);
-+int cxl_cper_kfifo_get(struct cxl_cper_work_data *wd);
++extern struct gen_pool *ghes_estatus_pool;
++
+ static inline bool is_hest_type_generic_v2(struct ghes *ghes)
+ {
+ 	return ghes->generic->header.type == ACPI_HEST_TYPE_GENERIC_ERROR_V2;
+@@ -98,5 +101,8 @@ int __ghes_read_estatus(struct acpi_hest_generic_status *estatus,
+ 			u64 buf_paddr, enum fixed_addresses fixmap_idx,
+ 			size_t buf_len);
+ #endif
++int ghes_estatus_cached(struct acpi_hest_generic_status *estatus);
++void ghes_estatus_cache_add(struct acpi_hest_generic *generic,
++			    struct acpi_hest_generic_status *estatus);
  
  #endif /* ACPI_APEI_GHES_CPER_H */
 
