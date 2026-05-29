@@ -4,117 +4,74 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id B8452CD6E4A
-	for <linux-arm-kernel@archiver.kernel.org>; Fri, 29 May 2026 14:09:24 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 60ED1CD6E4A
+	for <linux-arm-kernel@archiver.kernel.org>; Fri, 29 May 2026 14:12:30 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:
-	Content-Transfer-Encoding:MIME-Version:References:In-Reply-To:Message-ID:Date
-	:Subject:CC:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=9ihMHP1kiSQo7PDS0ImGe3qoqy0nxILnU9Qm29gSEZE=; b=mL48Hk48lihD4YyUoZzbB9/1EE
-	n8d4VTom6JbEAYg8LEVdrpomgiofs31rijMGPTWuPJi+N9e9VH6c0jgWvrGDh+3SOKyLhNSOLyEy+
-	ish52MaRvHs3PYCDDDVlVJdMvdzGf5GafuzjKgSOUG//RuAumiZwRW5idENAg9OVYypqQLllWR8X0
-	5+apOWBXWvwoOgERSrasaLs/f995PV5huFSS83onFrd4uHXIeBiuYXMUctDADEtOdGKd2l/8zpfFg
-	drTyaygWMgFsSLla2DT66ZPDKuDC8CAuzJ2LgHRiplZwR/6pxH3p8NZlgrOsZ7jWCcBAAQt8vjAkw
-	imvKi4ZQ==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
+	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=d4X9vwkCHSddENx5Gglm/hOpAgU7U6Z+T82AMSjAjBE=; b=S2je2LcYmk5rQWYXRikkeflzhA
+	sZbsJ29pqHQsCYy2865wJWnxCJKjE4l4rzp/KeXr0X/EWdsbA7/Bpu6J7y/8HXvMAhPMmx6xWSRt1
+	MRakQ9cROvP9/QdDuBwguCFZy2OibCyZhbzOtMTc41J2youYcSSgCYHyIeQWcAyBqN3n3r0/IbsPf
+	T7meQlJCdnymWJLQ5nrqtm05sf58TipDoBa9v92OtjhYUtTDczVmuqMx2nA6wDFOTOt5g1GaAAo9k
+	Da4AJ9UoM82JMJDDrHaBBAbpOGMs0vebd8JKrNpwk2K88BCCkqBu8e5wBJ850/+J29lbmTOBG3OCx
+	knpLlLIQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wSxtm-00000007UnV-2bnL;
-	Fri, 29 May 2026 14:09:18 +0000
-Received: from mail-westus2azon11010043.outbound.protection.outlook.com ([52.101.46.43] helo=CO1PR03CU002.outbound.protection.outlook.com)
+	id 1wSxwl-00000007V2B-0dj3;
+	Fri, 29 May 2026 14:12:23 +0000
+Received: from out-186.mta1.migadu.com ([95.215.58.186])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wSxti-00000007UmF-1aBN
+	id 1wSxwi-00000007V1a-1mHE
 	for linux-arm-kernel@lists.infradead.org;
-	Fri, 29 May 2026 14:09:15 +0000
-ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
- b=XaLABZ61sWwuyEZTMnVR8+aXLaFrvn+LU3lUjpVUYJAQrA5s+KKdUCslPVbYBkCPID5LAGOKW5fFrQVXfrgWLSfkebgrxmGhIinsi8Xwfzxa/rbFW5hnnPalLZHQN1rV6afZL86WpY3S041NO4BoI+ywAMDi6j4kT/Ut/Jhl6Y1Q80dV17PyOAWsOSy2FroXzFmu/BPbp9y/Fkg1WHKbDwwCTMxbdo4JflX92H0O7SSbqA03W8vLrE61vynm9VjjoMuZRaHj1xyU4FOUKePK8hM7XJlkgY44UPI9MeLnW3ibZxZJ7HgYBVU+wv/W9tnCjqIkgHi9a5nznYjEU4df6g==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
- s=arcselector10001;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
- bh=9ihMHP1kiSQo7PDS0ImGe3qoqy0nxILnU9Qm29gSEZE=;
- b=QJFhOtAGHeWocdukt0P+Sjue6oizT7chhMtxCO7wKJafIEqzS1pEiahFOcTWbdHXGmK0ki/Cmbv7w3jln8DvP6QW/8CxrOuLvrKvDdZ+r8D7lr1FWv0zXI4zeE008Ha3uNF0eiqyll4/chHyYexZ166tMdxscn6QTqa3nUnQZzqEKKkHv+nV21iwlul+qEjFWTkCmN27xrlIAXtFvPNP30vtlCK1RX07fWKrC0hJr/iGTt8ioA78K7f2f4inpxw/YxPV4Li6LllECU+1+8+TqvkKFM6nRmVd9PInmgGLPAykab+7nvVr/Rydn07CvKSkZG9DqbJ+jYfdf2dym3s8xQ==
-ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass (sender ip is
- 216.228.117.161) smtp.rcpttodomain=kernel.org smtp.mailfrom=nvidia.com;
- dmarc=pass (p=reject sp=reject pct=100) action=none header.from=nvidia.com;
- dkim=none (message not signed); arc=none (0)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=Nvidia.com;
- s=selector2;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
- bh=9ihMHP1kiSQo7PDS0ImGe3qoqy0nxILnU9Qm29gSEZE=;
- b=XurRQhjQcAQ59jaGLIUNClf2OmCq/4PN1kFXhD8rqJx4hLFcqNLN1z3HHypHUc5GIW9CTU+J/Pub9051Q/5pnYQqTJp5pfNlvPJerFH96EB3koMLEMWvqAiZ4hHYmeHo5GSm0HMMFuQF2mQAlRp3/eRHm8deN+CW/MHj1ZZDEB1ghtlBqD9kJS2Dg6g351WdFCqVNM6kO1S/oqmlSYaTl9aF72s4NyGZQoygdPvo7G7U/fuN3dQQjwAc37Om9gej5fpCv0rU/KDXgV+DMnEg39yAX3y6kpEF4pK344zpP5t1NG4x57UObg/5ZzGpXPGdq2KC+BrwBs4xgQ20pheL5Q==
-Received: from BY3PR04CA0016.namprd04.prod.outlook.com (2603:10b6:a03:217::21)
- by IA0PR12MB8932.namprd12.prod.outlook.com (2603:10b6:208:492::18) with
- Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.21.71.14; Fri, 29 May
- 2026 14:09:05 +0000
-Received: from CO1PEPF000066E7.namprd05.prod.outlook.com
- (2603:10b6:a03:217:cafe::4a) by BY3PR04CA0016.outlook.office365.com
- (2603:10b6:a03:217::21) with Microsoft SMTP Server (version=TLS1_3,
- cipher=TLS_AES_256_GCM_SHA384) id 15.21.71.13 via Frontend Transport; Fri, 29
- May 2026 14:09:03 +0000
-X-MS-Exchange-Authentication-Results: spf=pass (sender IP is 216.228.117.161)
- smtp.mailfrom=nvidia.com; dkim=none (message not signed)
- header.d=none;dmarc=pass action=none header.from=nvidia.com;
-Received-SPF: Pass (protection.outlook.com: domain of nvidia.com designates
- 216.228.117.161 as permitted sender) receiver=protection.outlook.com;
- client-ip=216.228.117.161; helo=mail.nvidia.com; pr=C
-Received: from mail.nvidia.com (216.228.117.161) by
- CO1PEPF000066E7.mail.protection.outlook.com (10.167.249.9) with Microsoft
- SMTP Server (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
- 15.21.92.5 via Frontend Transport; Fri, 29 May 2026 14:09:02 +0000
-Received: from rnnvmail203.nvidia.com (10.129.68.9) by mail.nvidia.com
- (10.129.200.67) with Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.2.2562.20; Fri, 29 May
- 2026 07:08:38 -0700
-Received: from rnnvmail202.nvidia.com (10.129.68.7) by rnnvmail203.nvidia.com
- (10.129.68.9) with Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.2.2562.20; Fri, 29 May
- 2026 07:08:37 -0700
-Received: from build-amhetre-focal-20250829.internal (10.127.8.12) by
- mail.nvidia.com (10.129.68.7) with Microsoft SMTP Server id 15.2.2562.20 via
- Frontend Transport; Fri, 29 May 2026 07:08:37 -0700
-From: Ashish Mhetre <amhetre@nvidia.com>
-To: <will@kernel.org>, <robin.murphy@arm.com>, <joro@8bytes.org>,
-	<jgg@ziepe.ca>, <nicolinc@nvidia.com>
-CC: <linux-arm-kernel@lists.infradead.org>, <iommu@lists.linux.dev>,
-	<linux-kernel@vger.kernel.org>, <linux-tegra@vger.kernel.org>, Ashish Mhetre
-	<amhetre@nvidia.com>, Jason Gunthorpe <jgg@nvidia.com>
-Subject: [PATCH v2 2/2] iommu/arm-smmu-v3: Issue CFGI/TLBI twice on Tegra264
-Date: Fri, 29 May 2026 14:08:30 +0000
-Message-ID: <20260529140830.629738-3-amhetre@nvidia.com>
-X-Mailer: git-send-email 2.50.1
-In-Reply-To: <20260529140830.629738-1-amhetre@nvidia.com>
-References: <20260529140830.629738-1-amhetre@nvidia.com>
+	Fri, 29 May 2026 14:12:22 +0000
+Message-ID: <185f1caf-b33d-4467-beb5-51bd8520ac78@linux.dev>
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=linux.dev; s=key1;
+	t=1780063936;
+	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
+	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
+	 content-transfer-encoding:content-transfer-encoding:
+	 in-reply-to:in-reply-to:references:references;
+	bh=d4X9vwkCHSddENx5Gglm/hOpAgU7U6Z+T82AMSjAjBE=;
+	b=JLPCvJK79SCpodHOC8Zl7IddRjrtvqukUPFRrtPCcLMxUdCF4RZ8uQartrpJUibd2h/66X
+	OJmBi26/H0srMKbN/NTfSuaPmdtYQJqsTVgTE3BqugvznrnDzBw13w0Sr97417lH5mhsow
+	m1e8Tfw0EnsU1yOvo438g2t//YFHiRs=
+Date: Fri, 29 May 2026 15:11:54 +0100
 MIME-Version: 1.0
-X-NVConfidentiality: public
-Content-Transfer-Encoding: 8bit
-Content-Type: text/plain
-X-NV-OnPremToCloud: ExternallySecured
-X-EOPAttributedMessage: 0
-X-MS-PublicTrafficType: Email
-X-MS-TrafficTypeDiagnostic: CO1PEPF000066E7:EE_|IA0PR12MB8932:EE_
-X-MS-Office365-Filtering-Correlation-Id: e5cae11b-971e-47dd-b30a-08debd8bd687
-X-MS-Exchange-SenderADCheck: 1
-X-MS-Exchange-AntiSpam-Relay: 0
-X-Microsoft-Antispam: BCL:0;ARA:13230040|1800799024|376014|82310400026|36860700016|18002099003|22082099003|3023799007|11063799006|56012099006;
-X-Microsoft-Antispam-Message-Info: CF+avVXLuCRdbmnT7EP53xa9B369WrWsTdV0LKxInBarQuVfNuoYirXBGJJKWV+dPvgnEID7J1YfwsbgFWqiMS2DozyPdjOsghivPc3V2VgqN9b/ViC70HQwF1qmIkbh1m3G340SV1qjMS1H0rjC3MHt8MOL9QxR47N72lqsaSnpF7Ghn2Gc4HJhC9kl9jsweStj/+KcI95Vb71R8gkUB/7OIo8OZ0ZBSD+ATRTpLHD7hofZ68pme25AQ5RUYRbDa2gYfJXb7pEZU6i8WA0n9fbuBq9Noa1h2tBP7d5ZfO05RCOi+m5spubUnxQlOJwtpetFxdhZitCR7stEuba13v1xxnamcuLrFywQmjXOp82x1jtgEwuEbBlleQgEhAyZqJqfdgNYEYTsVxcfRFA16G9LLvM8JF45jXGRmHsSe4nPA5ds0bCKvUrNrwvxTyvnPY4MBzqG9EmrzNU6SmNZHd8AQwzxr3yOhZvaXhdwByZwiCNeJs8/CCgcf3MfkVm67dHREQMCZV0G7Expubajdgi0wAdjavAz80w/x5Zw1PW1GNCa5FF42L09+nGFwIwu7odp9BRc1nCT0vYklvFyEm9YwKuovOUcSUFs3GQMbkAKxW/9KZnEzDwKfTRK3xIYGtlexkuIUtUDFEJOIuJXKm+IxN7L/s63BYUzMc/IqvwKNWc8LS0NLdqIUfyIEXmSog3AoaqUz00pwk1fZNHe3+0iUhUHWSBHPa/tj95qbEc=
-X-Forefront-Antispam-Report: CIP:216.228.117.161;CTRY:US;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:mail.nvidia.com;PTR:dc6edge2.nvidia.com;CAT:NONE;SFS:(13230040)(1800799024)(376014)(82310400026)(36860700016)(18002099003)(22082099003)(3023799007)(11063799006)(56012099006);DIR:OUT;SFP:1101;
-X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
-X-MS-Exchange-AntiSpam-MessageData-0: /SYYuNSX/Z2VozLNOGsQN1MK7mkq9Rw1xZpiZVii1RZe+o5ts6hmZMEIrL14dl9agrkIbC9Vrd0C6z8Zyz7Adghe2zVl+JtUoFI8jtWws1dzii/JKBv6VJCgS64xUOtu6tbo0ORoJfyEmuC9380vvtLp/BhOXv0ESnzQGUEkBY4iqfMKDf8i8rU9sAAD/XKXm55xz3xcC0GyqxEwMjSQOC2CUMuN+XBl1ajsN8SL2KPg/NBBHTzARkw6EpDpXcr0GNNHPAWBrbckorSKGxIawsncU1yzb8HgER328ncLgtd5Yfmt99keQYN7tYHmIZdeNXkUQt4cP6Arl5iMgtMbXtgi35lorv0g6CSSI9zqfxKE0vtLkfuPntV+3JLLfIIeQRY6JS3XRQYdq83/1Y+T+0Da0r8Rqdv/VZ1YqzkSwLslMrK64+eePCKKp29xoJK9
-X-OriginatorOrg: Nvidia.com
-X-MS-Exchange-CrossTenant-OriginalArrivalTime: 29 May 2026 14:09:02.9564
- (UTC)
-X-MS-Exchange-CrossTenant-Network-Message-Id: e5cae11b-971e-47dd-b30a-08debd8bd687
-X-MS-Exchange-CrossTenant-Id: 43083d15-7273-40c1-b7db-39efd9ccc17a
-X-MS-Exchange-CrossTenant-OriginalAttributedTenantConnectingIp: TenantId=43083d15-7273-40c1-b7db-39efd9ccc17a;Ip=[216.228.117.161];Helo=[mail.nvidia.com]
-X-MS-Exchange-CrossTenant-AuthSource: CO1PEPF000066E7.namprd05.prod.outlook.com
-X-MS-Exchange-CrossTenant-AuthAs: Anonymous
-X-MS-Exchange-CrossTenant-FromEntityHeader: HybridOnPrem
-X-MS-Exchange-Transport-CrossTenantHeadersStamped: IA0PR12MB8932
+Subject: Re: [PATCH v6 2/2] mm: use mapping_max_folio_order() for
+ force_thp_readahead order
+To: Pedro Falcato <pfalcato@suse.de>, willy@infradead.org, jack@suse.cz
+Cc: Andrew Morton <akpm@linux-foundation.org>, david@kernel.org,
+ ryan.roberts@arm.com, linux-mm@kvack.org, r@hev.cc,
+ Andrew Donnellan <andrew+kernel@donnellan.id.au>, apopple@nvidia.com,
+ baohua@kernel.org, baolin.wang@linux.alibaba.com, brauner@kernel.org,
+ catalin.marinas@arm.com, dev.jain@arm.com, kees@kernel.org,
+ kevin.brodsky@arm.com, lance.yang@linux.dev,
+ "Liam R. Howlett" <liam@infradead.org>,
+ linux-arm-kernel@lists.infradead.org, linux-fsdevel@vger.kernel.org,
+ linux-kernel@vger.kernel.org, ljs@kernel.org, mhocko@suse.com,
+ npache@redhat.com, pasha.tatashin@soleen.com, rmclure@linux.ibm.com,
+ rppt@kernel.org, surenb@google.com, vbabka@kernel.org,
+ Al Viro <viro@zeniv.linux.org.uk>, wilts.infradead.org@pedro-suse.lan,
+ ziy@nvidia.com, hannes@cmpxchg.org, kas@kernel.org, shakeel.butt@linux.dev,
+ kernel-team@meta.com
+References: <20260528165635.2068012-1-usama.arif@linux.dev>
+ <20260528165635.2068012-3-usama.arif@linux.dev>
+ <ahlh2vdHEGo6ZSot@pedro-suse.lan>
+ <cc9a1cf7-7b96-439a-b0be-ecdcf27b5da5@linux.dev>
+ <ahmSolHvUChl-3vM@pedro-suse.lan>
+Content-Language: en-US
+X-Report-Abuse: Please report any abuse attempt to abuse@migadu.com and include these headers.
+From: Usama Arif <usama.arif@linux.dev>
+In-Reply-To: <ahmSolHvUChl-3vM@pedro-suse.lan>
+Content-Type: text/plain; charset=UTF-8
+Content-Transfer-Encoding: 7bit
+X-Migadu-Flow: FLOW_OUT
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260529_070914_421584_1433D8B8 
-X-CRM114-Status: GOOD (  16.68  )
+X-CRM114-CacheID: sfid-20260529_071220_683121_008339ED 
+X-CRM114-Status: GOOD (  51.47  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -129,129 +86,208 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Apply the workaround for Tegra264 erratum by issuing every CFGI/TLBI
-command twice on affected SMMU instances, with CMD_SYNC after each.
-The erratum requires this exact sequencing:
 
-    TLBI/CFGI ... CMD_SYNC TLBI/CFGI ... CMD_SYNC
 
-To get this sequence with minimal surgery, hook the workaround into
-arm_smmu_cmdq_issue_cmdlist(). Rename the original function to
-__arm_smmu_cmdq_issue_cmdlist() and add a thin wrapper that, on
-affected SMMUs and when @sync is true, re-issues the same cmdlist a
-second time.
+On 29/05/2026 14:40, Pedro Falcato wrote:
+> On Fri, May 29, 2026 at 01:19:03PM +0100, Usama Arif wrote:
+>>
+>>
+>> On 29/05/2026 11:01, Pedro Falcato wrote:
+>>> On Thu, May 28, 2026 at 09:55:20AM -0700, Usama Arif wrote:
+>>>> The force_thp_readahead path in do_sync_mmap_readahead() is gated on
+>>>> HPAGE_PMD_ORDER <= MAX_PAGECACHE_ORDER and always requests
+>>>> HPAGE_PMD_ORDER / HPAGE_PMD_NR. On configurations where HPAGE_PMD_ORDER
+>>>> exceeds MAX_PAGECACHE_ORDER, notably arm64 with a 64K base page size,
+>>>> VM_HUGEPAGE mappings cannot use this path and fall back to the non-forced
+>>>> mmap readahead path even when the mapping supports useful large folios.
+>>>>
+>>>> Keep the existing PMD-sized behavior when HPAGE_PMD_ORDER fits in the
+>>>> page cache. When it does not, enable forced readahead for mappings that
+>>>> support large folios and request an order capped by both
+>>>> mapping_max_folio_order(mapping) and 2MB.
+>>>>
+>>>> 2MB is chosen as the cap because it matches the PMD size on x86_64
+>>>> and on arm64 with 4K or 16K base pages, so the size/memory-pressure
+>>>
+>>> 16K base page size's PMDs should be 32M, no? Am I misunderstanding what
+>>> you mean here?
+>>>
+>>
+>> Yes, should have just said 4K. Messed up when rewriting the commit
+>> message. Andrew Thanks for merging in mm-new, would it be possible
+>> to remove "or 16K" from the commit message. I can send a new revision
+>> as well if that is easier and preferred.
+>>
+>>>> tradeoff for folios of that size is already well understood. On arm64
+>>>> with a 64K base page size, 2MB is also the contiguous-PTE (contpte)
+>>>> block size, so the resulting folios coalesce into a single TLB entry
+>>>> and reduce TLB pressure on the readahead path.
+>>>>
+>>>> The final allocation order may still be clamped by page_cache_ra_order()
+>>>> to the mapping and request geometry, but this gives VM_HUGEPAGE mappings
+>>>> on such configurations a large-folio readahead request instead of
+>>>> dropping back to base-page readahead.
+>>>>
+>>>> Signed-off-by: Usama Arif <usama.arif@linux.dev>
+>>>> ---
+>>>>  mm/filemap.c | 27 +++++++++++++++++++--------
+>>>>  1 file changed, 19 insertions(+), 8 deletions(-)
+>>>>
+>>>> diff --git a/mm/filemap.c b/mm/filemap.c
+>>>> index a16b33e0fc71..bfb891d9da1f 100644
+>>>> --- a/mm/filemap.c
+>>>> +++ b/mm/filemap.c
+>>>> @@ -3312,14 +3312,23 @@ static struct file *do_sync_mmap_readahead(struct vm_fault *vmf)
+>>>>  	struct file *fpin = NULL;
+>>>>  	vm_flags_t vm_flags = vmf->vma->vm_flags;
+>>>>  	bool force_thp_readahead = false;
+>>>> +	unsigned int thp_order = 0;
+>>>>  	unsigned short mmap_miss;
+>>>>  
+>>>>  	ractl._max_index = vmf->vma->vm_pgoff + vma_pages(vmf->vma) - 1;
+>>>>  
+>>>>  	/* Use the readahead code, even if readahead is disabled */
+>>>> -	if (IS_ENABLED(CONFIG_TRANSPARENT_HUGEPAGE) &&
+>>>> -	    (vm_flags & VM_HUGEPAGE) && HPAGE_PMD_ORDER <= MAX_PAGECACHE_ORDER)
+>>>> -		force_thp_readahead = true;
+>>>> +	if (IS_ENABLED(CONFIG_TRANSPARENT_HUGEPAGE) && (vm_flags & VM_HUGEPAGE)) {
+>>>> +		if (HPAGE_PMD_ORDER <= MAX_PAGECACHE_ORDER) {
+>>>> +			force_thp_readahead = true;
+>>>> +			thp_order = HPAGE_PMD_ORDER;
+>>>> +		} else if (mapping_large_folio_support(mapping)) {
+>>>> +			force_thp_readahead = true;
+>>>> +			thp_order = min_t(unsigned int,
+>>>> +					  mapping_max_folio_order(mapping),
+>>>> +					  get_order(SZ_2M));
+>>>
+>>> This looks somewhat arbitrary to me (as does the old logic). It seems more
+>>> natural (correct?) to do this:
+>>>
+>>> 	if (THP_ENABLED && (vm_flags & VM_HUGEPAGE)) {
+>>> 		if (mapping_large_folio_support(mapping)) {
+>>> 			force_thp_readahead = true;
+>>> 			/*
+>>> 			 * Cap THP readahead to either the max folio order the
+>>> 			 * mapping supports, or the max order the page cache
+>>> 			 * supports (useless to try more), or the hugepage PMD
+>>> 			 * order (CPU can't benefit from larger).
+>>> 			 */
+>>> 			thp_order = min3(mapping_max_folio_order(mapping),
+>>> 					MAX_PAGECACHE_ORDER, HPAGE_PMD_ORDER);
+>>> 		}
+>>> 	}
+>>>
+>>
+>> So this can result in extreme memory pressure. For example, on 64K base page size,
+>> with HPAGE_PMD_ORDER = 13 (512M) and MAX_PAGECACHE_ORDER = 11 (128M), this will evaluate
+>> THP order to 128M. I think Jan mentioned in previous versions that there are already
+>> reports of high memory pressure due to large file folios, and we are seeing this
+>> in our fleet as well with xfs.
+>>
+>> I chose 2M cap as that is what most (not all) architectures which currently support this
+>> hugepage code flow are currently used to, and on archs + base page size combination which
+>> just evaluate this code to base page, for example 64K base page size, it will provide a
+>> performance uplift without causing excessive memory pressure.
+> 
+> For what it's worth, memory pressure is still a problem even on 2MB folios. But
+> yes, I understand.
+> 
+> For what it's worth, I don't think it's such a big issue in this case - you're
+> asking for THPs, and you're getting them - though maybe not efficiently because
+> these aren't at the PMD level. But this is also true for e.g x86 where an
+> an order-3 folio or order-7 folio are completely useless for the hardware, since
+> there is no mTHP to speak of (and, with that, you also lose PG_active and
+> PG_reference precision as you only keep one of each for each folio, amongst
+> other tradeoffs).
+> 
 
-A new arm_smmu_cmd_needs_tlbi_twice() helper classifies which opcodes
-need the doubling: CFGI_* and TLBI_*.
+So there is hardware TLB coalescing on almost every new AMD CPU, I believe it is
+at 32kB, and we would benefit from that. On top of that, we would reduce pagefaults.
 
-For batches that exceed CMDQ_BATCH_ENTRIES commands,
-arm_smmu_cmdq_batch_add_cmd_p() normally flushes the full buffer with
-sync=false, deferring the SYNC to the eventual batch_submit(). On
-affected SMMUs this would leave the first chunk's commands issued
-only once, since the WAR hook in arm_smmu_cmdq_issue_cmdlist() only
-fires on synced submissions. Force a SYNC on the capacity rollover
-when the buffer carries CFGI/TLBI commands so every flushed chunk is
-correctly doubled.
+>>
+>> In pagemap.h, we have
+>>
+>> #define PREFERRED_MAX_PAGECACHE_ORDER	HPAGE_PMD_ORDER
+>> #define MAX_PAGECACHE_ORDER	min(MAX_XAS_ORDER, PREFERRED_MAX_PAGECACHE_ORDER)
+>>
+>> So MAX_PAGECACHE_ORDER <= HPAGE_PMD_ORDER is always true.
+>>
+>> At filesystem/inode setup: mapping_set_folio_order_range() 
+>>
+>> 	if (max > MAX_PAGECACHE_ORDER)
+>> 		max = MAX_PAGECACHE_ORDER;
+>>
+>> so mapping_max_folio_order() <= MAX_PAGECACHE_ORDER is also always true.
+> 
+> Right, good point. (well, I suppose it will not be true in the future as
+> someone tries to harness PMD-level cont bits)
+> 
+>>
+>> which means mapping_max_folio_order(mapping) <= MAX_PAGECACHE_ORDER <= HPAGE_PMD_ORDER is always
+>> true, and you dont need the min3(..) in your diff.
+>>
+>> Now the question is if then why not just do:
+>>
+>> 	if (IS_ENABLED(CONFIG_TRANSPARENT_HUGEPAGE) && (vm_flags & VM_HUGEPAGE)) {
+>> 		if (mapping_large_folio_support(mapping)) {
+>> 			force_thp_readahead = true;
+>> 			thp_order = min_t(unsigned int,
+>> 					  mapping_max_folio_order(mapping),
+>> 					  get_order(SZ_2M));
+>> 		}
+>> 	}
+>>
+>>
+>> This is because this will regress the 16K ARM case where we already got 32M
+>> folios. Someone might upgrade the kernel and start getting 2M folios now.
+> 
+> So maybe limit to 32MB? It's still arbitrary but at least you get simpler
+> logic. If the architecture does not support 32MiB folios, it will clamp
+> the maximum folio order to HPAGE_PMD_ORDER, and you get the same result.
+> 
+> Does this sound correct?
+> 
 
-Signed-off-by: Ashish Mhetre <amhetre@nvidia.com>
-Reviewed-by: Jason Gunthorpe <jgg@nvidia.com>
----
- drivers/iommu/arm/arm-smmu-v3/arm-smmu-v3.c | 66 +++++++++++++++++++--
- 1 file changed, 61 insertions(+), 5 deletions(-)
+Yes, so if we replace it with SZ_32M, it sounds correct. I just think
+the 32M size is too large. But as you pointed out, even 2M can be too large...
 
-diff --git a/drivers/iommu/arm/arm-smmu-v3/arm-smmu-v3.c b/drivers/iommu/arm/arm-smmu-v3/arm-smmu-v3.c
-index 88296c0a5337..38d45f175a2c 100644
---- a/drivers/iommu/arm/arm-smmu-v3/arm-smmu-v3.c
-+++ b/drivers/iommu/arm/arm-smmu-v3/arm-smmu-v3.c
-@@ -698,10 +698,10 @@ static void arm_smmu_cmdq_write_entries(struct arm_smmu_cmdq *cmdq,
-  *   insert their own list of commands then all of the commands from one
-  *   CPU will appear before any of the commands from the other CPU.
-  */
--int arm_smmu_cmdq_issue_cmdlist(struct arm_smmu_device *smmu,
--				struct arm_smmu_cmdq *cmdq,
--				struct arm_smmu_cmd *cmds, int n,
--				bool sync)
-+static int __arm_smmu_cmdq_issue_cmdlist(struct arm_smmu_device *smmu,
-+					 struct arm_smmu_cmdq *cmdq,
-+					 struct arm_smmu_cmd *cmds, int n,
-+					 bool sync)
- {
- 	struct arm_smmu_cmd cmd_sync;
- 	u32 prod;
-@@ -820,6 +820,52 @@ int arm_smmu_cmdq_issue_cmdlist(struct arm_smmu_device *smmu,
- 	return ret;
- }
- 
-+/*
-+ * Returns true if @opcode is a CFGI_* or TLBI_* command, i.e. one of the
-+ * invalidations covered by Tegra264 erratum (see ARM_SMMU_OPT_TLBI_TWICE).
-+ */
-+static bool arm_smmu_cmd_needs_tlbi_twice(u8 opcode)
-+{
-+	switch (opcode) {
-+	case CMDQ_OP_CFGI_STE:
-+	case CMDQ_OP_CFGI_ALL:
-+	case CMDQ_OP_CFGI_CD:
-+	case CMDQ_OP_CFGI_CD_ALL:
-+	case CMDQ_OP_TLBI_NH_ALL:
-+	case CMDQ_OP_TLBI_NH_ASID:
-+	case CMDQ_OP_TLBI_NH_VA:
-+	case CMDQ_OP_TLBI_NH_VAA:
-+	case CMDQ_OP_TLBI_EL2_ALL:
-+	case CMDQ_OP_TLBI_EL2_ASID:
-+	case CMDQ_OP_TLBI_EL2_VA:
-+	case CMDQ_OP_TLBI_S12_VMALL:
-+	case CMDQ_OP_TLBI_S2_IPA:
-+	case CMDQ_OP_TLBI_NSNH_ALL:
-+		return true;
-+	default:
-+		return false;
-+	}
-+}
-+
-+int arm_smmu_cmdq_issue_cmdlist(struct arm_smmu_device *smmu,
-+				struct arm_smmu_cmdq *cmdq,
-+				struct arm_smmu_cmd *cmds, int n,
-+				bool sync)
-+{
-+	int ret = __arm_smmu_cmdq_issue_cmdlist(smmu, cmdq, cmds, n, sync);
-+
-+	/*
-+	 * The driver's batch invariants keep a single submission's
-+	 * opcode class uniform, so checking the first command is enough.
-+	 */
-+	if (!ret && sync && (smmu->options & ARM_SMMU_OPT_TLBI_TWICE) &&
-+	    arm_smmu_cmd_needs_tlbi_twice(FIELD_GET(CMDQ_0_OP,
-+						    cmds[0].data[0])))
-+		ret = __arm_smmu_cmdq_issue_cmdlist(smmu, cmdq, cmds, n, sync);
-+
-+	return ret;
-+}
-+
- static int arm_smmu_cmdq_issue_cmd_p(struct arm_smmu_device *smmu,
- 				     struct arm_smmu_cmd *cmd, bool sync)
- {
-@@ -863,8 +909,18 @@ static void arm_smmu_cmdq_batch_add_cmd_p(struct arm_smmu_device *smmu,
- 	}
- 
- 	if (cmds->num == CMDQ_BATCH_ENTRIES) {
-+		/*
-+		 * Force a SYNC only when the batch carries commands that
-+		 * have to be doubled (see ARM_SMMU_OPT_TLBI_TWICE).
-+		 * The batch holds a uniform opcode class, so checking
-+		 * the first command is sufficient.
-+		 */
-+		bool need_sync = (smmu->options & ARM_SMMU_OPT_TLBI_TWICE) &&
-+				 arm_smmu_cmd_needs_tlbi_twice(FIELD_GET(CMDQ_0_OP,
-+									 cmds->cmds[0].data[0]));
-+
- 		arm_smmu_cmdq_issue_cmdlist(smmu, cmds->cmdq, cmds->cmds,
--					    cmds->num, false);
-+					    cmds->num, need_sync);
- 		arm_smmu_cmdq_batch_init_cmd(smmu, cmds, cmd);
- 	}
- 
--- 
-2.50.1
+
+>>
+>> So IMHO the current code is correct, both in maintaining what the
+>> existing behaviour has been, but also trying to provide large folios to
+>> architectures that currently dont get them but in a controlled way.
+>>
+>> Later on, when we think or evaluate that 2M was too small a cap, it can
+>> be raised. I think its very easy to raise a cap, but much more difficult
+>> to make the cap smaller, as we might get reports on kernel upgrades that
+>> someone was getting a certain size of folio but now its much smaller.
+> 
+> I don't think this is a valid argument. You can also have reports that now
+> folios are too large and they're regressing workloads because of thrashing/
+> compaction/possibly TLB thrashing. And indeed we have several reports of that
+> (https://lore.kernel.org/linux-fsdevel/20260403193535.9970-1-dipiets@amazon.it/
+> comes to mind, plus all of the anon THP regressions over the years, including
+> in $current_year).
+
+Ack, and yes we have seen both thrashing and compaction issues due to xfs
+large folios in the fleet with x86..
+
+> 
+> Bottom line is that changing things will always affect someone :) Particularly
+> since the logic we have is not too careful at deciding what should or should
+> not be a THP (both in anon and file cases). And if (once?) we make it smarter,
+> it will surely also regress someone!
+> 
+
+Yes completely agree on this as well.
+
+So personally I do have a preference of keeping the cap at 2M atleast initially
+while we currently try and solve the issues we see with 2M alone. As we are already
+seeing reports of thrashing and compaction with just 2M, I dont think the logic
+in this patch with just an if else is that complicated.
+
+Matthew, Jan, do you have any thoughts or strong preferences on cap size?
+
+Thanks!
 
 
