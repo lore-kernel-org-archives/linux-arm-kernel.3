@@ -4,122 +4,85 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 3B3FCCD6E50
-	for <linux-arm-kernel@archiver.kernel.org>; Fri, 29 May 2026 15:22:48 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 5231CCD6E52
+	for <linux-arm-kernel@archiver.kernel.org>; Fri, 29 May 2026 15:31:42 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:CC:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=WlvcSp/rrpHFLtIpSLyFhaGHVz7gzgTDiD7PFPIB3Es=; b=wbCfQnfE9XnTOBj4PSZeOHAdzz
-	WKHLhi0UB9MW8iUOLhdNHLHGQsPrxP2pOdnMcXYtLQS1h9Em7kEnrqo0KOxXdP5JV/tZ2X+2vKJaC
-	GPj9tzcoQPJjGiJIVLNaXGrZkWfE8eFziIV9oCAlezCVIAYfaeT2MttLE50FefgScxmu82gDspXR0
-	ZoPW8sEALHTxmhRr8NnbzkWYsUOGhwUvXmLa8jxGnr3NNMX9k9tme07ak2NFuth37EK8pMlbIHu4E
-	n27TKcMQkWmOhIR40/5p8CuAHlQ24Go5WtlcPm6HMMkeP3L/a7ESoDTOfQmSTO0SRN7cllw9mm2Oz
-	eyM7Y9HA==;
+	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Reply-To:List-Subscribe:
+	List-Help:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:
+	Content-Transfer-Encoding:Content-Type:MIME-Version:Message-Id:Date:Subject:
+	From:Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
+	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=YcowIcPNux4LDkAMYkEqLQs99M4cGzB+ZVypPifTiHQ=; b=Z7VN0XYLHrVkUw6jAX/9j4kFIO
+	Oo/pdHX1egUnoBEcJ0B1wMNzPJgYot6FtkZLviCDu6EhcDD60aVmqYr3Zd5sfOrlt8hLD8vQIkEPA
+	dHFAgrAIr2SmuHRh316Lvh+4/AnCoSjJy4M3QJRylpwEcMSFhXFEPUlzSCM1o2I64vaINpJg8Knhp
+	IGd4s5CyAJPx0L2twc8V2fYqr+PHwqf7ZbPEBCgONbGCFQ/VlBUSQB+Nx1AjV+59hbeG69BthxuFj
+	EEIAvXOw/vatoCE3vg2yJugQXigAL3aQ/ErgNg4g62Chi6HySNsZK7cFMmUUXQ2SbPJDGtTvL6UTA
+	LkQ0OnNQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wSz2o-00000007f9a-0QRa;
-	Fri, 29 May 2026 15:22:42 +0000
-Received: from mail-centralusazon11011070.outbound.protection.outlook.com ([52.101.62.70] helo=DM5PR21CU001.outbound.protection.outlook.com)
+	id 1wSzBQ-00000007hkD-0X2f;
+	Fri, 29 May 2026 15:31:36 +0000
+Received: from sea.source.kernel.org ([172.234.252.31])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wSz2i-00000007f8J-28r0
-	for linux-arm-kernel@lists.infradead.org;
-	Fri, 29 May 2026 15:22:40 +0000
-ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
- b=BB0UubKkdka+v00vVTlTbKkgTYW6q1pG1bdFRrYiUCZzgBS3mazuqZjwMyGx+jksDmwZpzp17UfVp2IABPkD84zfGpriM8uAsNpOatg9sBAFynMbWNnVhOujf+hGNgcltOy5CKXUZN7T/hUF42Mhw/oTVfUAkIAy0T8/w8xNZkTo87bB4bPrrO0iySu/CV5fbewMe+Ts3Hy+PeHRMMf+JSbBx8jBSF1gXzx9zn5A+CPPMqSw53vaIfivAt3t+kB9NpSZTjyD7eEvEhg/abUVSYgm6ddwOVJoONzIcxS3roH8OwpmtxU51slN/sRyzovsIqRRrfZ0zqJENkco66pNNQ==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
- s=arcselector10001;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
- bh=WlvcSp/rrpHFLtIpSLyFhaGHVz7gzgTDiD7PFPIB3Es=;
- b=eyCbcX8ii7KNNBpev09bBPSH/9WDuhE87yn2tcy6vkMC8ZJ3sG9Zj3Xl+ItJfNZxpbvd1VBjcUb2C9QB5avQznMBS9deS2Y3CtWdO/lDWsbqlh4p6cK7sKqgtLPD2jNM0ZXFkXwW4cbwnHB+0l6S+Rt+ysYiEHmQAPkwSnm9NQtX9mX+VQxFtRhuv/GiJspzFvfYu2pYC4qMlDHhuZFASEqvEV3+4CTGlju/+wx2d52OVM0fWStm3aNOCBQHkjbUVz2FnqL4N13hAEpRkvPLLIoLARmoHEoc0U04tY6yEaSh6tPNtNKkLVacT4z1RuTd5NzPuNc1uIrB2Oodld3m8Q==
-ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass (sender ip is
- 198.47.23.194) smtp.rcpttodomain=vger.kernel.org smtp.mailfrom=ti.com;
- dmarc=pass (p=quarantine sp=none pct=100) action=none header.from=ti.com;
- dkim=none (message not signed); arc=none (0)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=ti.com; s=selector1;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
- bh=WlvcSp/rrpHFLtIpSLyFhaGHVz7gzgTDiD7PFPIB3Es=;
- b=d7RPQzyz5Lf6sgC79qVEHAdvspNMJ5TLgF9Fk8yfqouCsy6ve7FkCdGprpl5DgBpKMB+RASDBngVDx/jRrvsAZhsk/n66/E5SmSPAH6KxmhOV7cFt7MwQy0PT7Wyf7c1YpPcbOvmdbOEm+Ts+mzOgXE7uaYvTfm4PyvmFedmxMw=
-Received: from SJ0P220CA0029.NAMP220.PROD.OUTLOOK.COM (2603:10b6:a03:41b::13)
- by IA4PR10MB8472.namprd10.prod.outlook.com (2603:10b6:208:56f::6) with
- Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.21.71.12; Fri, 29 May
- 2026 15:22:30 +0000
-Received: from MWH0EPF000C6192.namprd02.prod.outlook.com
- (2603:10b6:a03:41b:cafe::79) by SJ0P220CA0029.outlook.office365.com
- (2603:10b6:a03:41b::13) with Microsoft SMTP Server (version=TLS1_3,
- cipher=TLS_AES_256_GCM_SHA384) id 15.21.71.13 via Frontend Transport; Fri, 29
- May 2026 15:22:30 +0000
-X-MS-Exchange-Authentication-Results: spf=pass (sender IP is 198.47.23.194)
- smtp.mailfrom=ti.com; dkim=none (message not signed) header.d=none;dmarc=pass
- action=none header.from=ti.com;
-Received-SPF: Pass (protection.outlook.com: domain of ti.com designates
- 198.47.23.194 as permitted sender) receiver=protection.outlook.com;
- client-ip=198.47.23.194; helo=lewvzet200.ext.ti.com; pr=C
-Received: from lewvzet200.ext.ti.com (198.47.23.194) by
- MWH0EPF000C6192.mail.protection.outlook.com (10.167.249.102) with Microsoft
- SMTP Server (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
- 15.21.92.5 via Frontend Transport; Fri, 29 May 2026 15:22:30 +0000
-Received: from DLEE211.ent.ti.com (157.170.170.113) by lewvzet200.ext.ti.com
- (10.4.14.103) with Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.2.2562.37; Fri, 29 May
- 2026 10:22:16 -0500
-Received: from DLEE210.ent.ti.com (157.170.170.112) by DLEE211.ent.ti.com
- (157.170.170.113) with Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.2.2562.37; Fri, 29 May
- 2026 10:22:16 -0500
-Received: from lelvem-mr05.itg.ti.com (10.180.75.9) by DLEE210.ent.ti.com
- (157.170.170.112) with Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.2.2562.37 via Frontend
- Transport; Fri, 29 May 2026 10:22:16 -0500
-Received: from localhost (uda0133052.dhcp.ti.com [128.247.81.232])
-	by lelvem-mr05.itg.ti.com (8.18.1/8.18.1) with ESMTP id 64TFMGaq218904;
-	Fri, 29 May 2026 10:22:16 -0500
-Date: Fri, 29 May 2026 10:22:16 -0500
-From: Nishanth Menon <nm@ti.com>
-To: "Wang, Sen" <sen@ti.com>
-CC: Moteen Shah <m-shah@ti.com>, <krzk+dt@kernel.org>, <robh@kernel.org>,
-	<conor+dt@kernel.org>, <vigneshr@ti.com>, <kristo@kernel.org>,
-	<devicetree@vger.kernel.org>, <linux-arm-kernel@lists.infradead.org>,
-	<linux-kernel@vger.kernel.org>, <u-kumar1@ti.com>, <gehariprasath@ti.com>,
-	<y-abhilashchandra@ti.com>
-Subject: Re: [PATCH v5 2/2] arm64: dts: ti: Add audio overlay for
- k3-j721s2-evm
-Message-ID: <20260529152216.nfsyt7rf7jtfgvi2@agreeably>
-References: <20260520115603.2662930-1-m-shah@ti.com>
- <20260520115603.2662930-3-m-shah@ti.com>
- <3d958ba0-30b1-461b-aea7-c0bf758a490c@ti.com>
+	id 1wSzBN-00000007hhw-0DDA;
+	Fri, 29 May 2026 15:31:34 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by sea.source.kernel.org (Postfix) with ESMTP id 2380A43D7A;
+	Fri, 29 May 2026 15:31:32 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPS id EB91DC2BCB3;
+	Fri, 29 May 2026 15:31:31 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1780068692;
+	bh=Wc7i4dF9ygiTQTaQ/gCEQkz1kc+L4fUW6J/05ngPp7E=;
+	h=From:Subject:Date:To:Cc:Reply-To:From;
+	b=boPVeON2KW3rK93sT25Ly4iFGSKdlqTWm+ENdICl1VZIZECcCNk+w04jdJo+WT2JE
+	 VHE4zAcbHxfUUXjBDKj7ldrmAVMGyNT725OjVO/BzhT46kCgyEundpAlcG8R4wg0k2
+	 dLznGWGI3SfRoKLfvcUcDeFpzmjs++MgYHkKLCoC8x4dj9hC3ijkE5Lf10LaFi4SAJ
+	 PFW5PbqodBas3HGxToHcEeUprZFRevoTYRCAmMqoQc/Vcze7LHPOslW5jAG0GRL6lh
+	 G9MyiYK+egdLwWCGt3vVdqa0GZzaTtw6+90GKxCXgPKeIe72KOIx7JpIURgY9VLcnb
+	 XitH9p1ATQkAA==
+Received: from aws-us-west-2-korg-lkml-1.web.codeaurora.org (localhost.localdomain [127.0.0.1])
+	by smtp.lore.kernel.org (Postfix) with ESMTP id E182ECD4F54;
+	Fri, 29 May 2026 15:31:31 +0000 (UTC)
+From: Ricardo Pardini via B4 Relay <devnull+ricardo.pardini.net@kernel.org>
+Subject: [PATCH v2 0/2] describe PCIe ethernet interfaces and alias
+ ethernet0/1 on NanoPC-T6
+Date: Fri, 29 May 2026 17:31:23 +0200
+Message-Id: <20260529-rk3588-dts-rtl-eth-describe-dt-alias-v2-0-49700248143f@pardini.net>
 MIME-Version: 1.0
-Content-Type: text/plain; charset="us-ascii"
-Content-Disposition: inline
-In-Reply-To: <3d958ba0-30b1-461b-aea7-c0bf758a490c@ti.com>
-X-C2ProcessedOrg: 333ef613-75bf-4e12-a4b1-8e3623f5dcea
-X-EOPAttributedMessage: 0
-X-MS-PublicTrafficType: Email
-X-MS-TrafficTypeDiagnostic: MWH0EPF000C6192:EE_|IA4PR10MB8472:EE_
-X-MS-Office365-Filtering-Correlation-Id: 935d16f7-da9d-47c8-83f8-08debd961983
-X-MS-Exchange-SenderADCheck: 1
-X-MS-Exchange-AntiSpam-Relay: 0
-X-Microsoft-Antispam: BCL:0;ARA:13230040|82310400026|36860700016|376014|1800799024|4143699003|56012099006|18002099003|22082099003;
-X-Microsoft-Antispam-Message-Info: 2Q7KnfmnJlZZFcc09Gq74jd5wCYL8dkBJJDTpm3EvjFluZB9/4GLkWcnLSGAQ7nYMudxI1M6Y66Jn5Vf2skk/ST34De6xV7IPRktlHkYGOAZ1lS2plaPMr7/bV3kaxlIjfyuxBIXE6AqqJPnzbLDWCfrakMXD4tP1w0Ux7C0wnqxK4R344YjRAnbE1eb3/9by9qfyLBIqyykTDBOzEDXmHdi0avgFG5NknpSFtEeRSHU5NhOIINaK/20M0jzdGxwVHlhVZXYS8BZkEEjlIyBscSyy1C5d8k0WSg927JlI3qz5ffGaWrUQpNjW4HmzzGBD3Dk7kc6cT5nBV69or+yzM32r3814YhPVJ2C/iuDpDkLStcyqWin894XrU4a8X4oBs+R7sJpPH9afZW1LAbY7QwAtgUcXAoCYjonYvHC71ZAqvIQSADHAZpgb54JWFy7K1YCih384fO4YBuTthfw1BxZoa2XQPwtum7ZrOTjxr0SjQodxsPlr5hmzbkppVGRzeMOZscSNLtfFZ1HI/+Rd5cjGqoJTejVH/OhrkuJ6p1G+6EMNrGu82PR/APVIod3Kx1isGbG8naSIuRpv6RL6a7RnNgOxvOD0hfud3XVQwh3oPS4TSMFIUwtUpzLlR1z/xGxM4eWCb6TjLwtTnxZRglp9vpNrH30rn1wSf2GT9UptIJ2cG3p8pSJLqMc4uvbUQv+MwNIznA7kbv/fzdCPdGPJLg6JAJctVpLkOh7ziE=
-X-Forefront-Antispam-Report: CIP:198.47.23.194;CTRY:US;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:lewvzet200.ext.ti.com;PTR:InfoDomainNonexistent;CAT:NONE;SFS:(13230040)(82310400026)(36860700016)(376014)(1800799024)(4143699003)(56012099006)(18002099003)(22082099003);DIR:OUT;SFP:1101;
-X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
-X-MS-Exchange-AntiSpam-MessageData-0: Iao6NFCxpKWp5GCKI6naDMJDKao07/mcFnesbtRGJWdtYjDxF9JgmShJkRYuFl7m7ZsXump73iUkAw+pOMqbL59go/ReDMeUx2YKL02+ERSC422DcEKVlKYTMlNKw2mdu6UR47lQ4F1QjHCfL6W0MIHhx2nIIScSRJj9WXCbhTo8IwIw/saQ7ONnUbfUaPDmMj6HtQ+Y/tRKdH3hlbE3poKI8Ed2ocEqbcKga5htKRyWToFtvAuf0ZAM53cdg3Wsns/hYDIFutEC2AE2sDL68hqLHspTJks2c8YlPSrpdvIgblupkiIajS/nkmsm4TEG8z9hcaH8Lfk16up1gLYmmf53pzYzgWcY2tmVpGjmsPQXWwlnVO/edgwfiw2ADm199dbyDbYKnklEASWgiHR3v+NfYK0R9h5gRhRi5Em3+9eyL7l4MltfNG33Ki7CBB5+
-X-OriginatorOrg: ti.com
-X-MS-Exchange-CrossTenant-OriginalArrivalTime: 29 May 2026 15:22:30.2678
- (UTC)
-X-MS-Exchange-CrossTenant-Network-Message-Id: 935d16f7-da9d-47c8-83f8-08debd961983
-X-MS-Exchange-CrossTenant-Id: e5b49634-450b-4709-8abb-1e2b19b982b7
-X-MS-Exchange-CrossTenant-OriginalAttributedTenantConnectingIp: TenantId=e5b49634-450b-4709-8abb-1e2b19b982b7;Ip=[198.47.23.194];Helo=[lewvzet200.ext.ti.com]
-X-MS-Exchange-CrossTenant-AuthSource: MWH0EPF000C6192.namprd02.prod.outlook.com
-X-MS-Exchange-CrossTenant-AuthAs: Anonymous
-X-MS-Exchange-CrossTenant-FromEntityHeader: HybridOnPrem
-X-MS-Exchange-Transport-CrossTenantHeadersStamped: IA4PR10MB8472
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: 7bit
+X-B4-Tracking: v=1; b=H4sIAAAAAAAC/42OwQ6CMBBEf4X07BpaLBBP/ofhUNpFVkkh20o0h
+ H+3YLx7fJPJvFlEQCYM4pwtgnGmQKNPoA6ZsL3xNwRyiYXKVZlrdQJ+FLquwcUAHAfA2IPDYJl
+ aTCGYgUwAK9HJumorq3ORpibGjl675tp8OTzbO9q4bW+NnkIc+b3/mOXW+yn1f8pZggRTdtYZX
+ RbGVpfJsCNPR49RNOu6fgA3sv5v7AAAAA==
+X-Change-ID: 20260524-rk3588-dts-rtl-eth-describe-dt-alias-c1ed187b7c50
+To: Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>, 
+ Conor Dooley <conor+dt@kernel.org>, Heiko Stuebner <heiko@sntech.de>
+Cc: Sebastian Reichel <sebastian.reichel@collabora.com>, 
+ devicetree@vger.kernel.org, linux-arm-kernel@lists.infradead.org, 
+ linux-rockchip@lists.infradead.org, linux-kernel@vger.kernel.org, 
+ Ricardo Pardini <ricardo@pardini.net>
+X-Mailer: b4 0.15.2
+X-Developer-Signature: v=1; a=openpgp-sha256; l=2868;
+ i=ricardo@pardini.net; h=from:subject:message-id;
+ bh=Wc7i4dF9ygiTQTaQ/gCEQkz1kc+L4fUW6J/05ngPp7E=;
+ b=owEBiQF2/pANAwAIATteP+Oex+3pAcsmYgBqGbFSPnLISoKIp2YOdD3mlPG61DJUOBfi9o1sC
+ thxlsVlILWJAU8EAAEIADkWIQSsGCMM9q/qytxIiJM7Xj/jnsft6QUCahmxUhsUgAAAAAAEAA5t
+ YW51MiwyLjUrMS4xMiwwLDMACgkQO14/457H7emM8Af+I/ztaHtuESg8K7PXiX+dQ+qkRAk6nPQ
+ btd0McxQmrWGrJ57QoTBbgthgPt7E7fbINDputVTOkME8dq4b+6MsSN+VrtbR3HDjbDe6VC2daD
+ w7zGtsEVV5yXRmLZllu6R+mLVvoilpLL534zYGM4N/QEGH2sIShyq+HI8vgS7V3fCx5fz6yFMzF
+ aymwSBhN6/t1EV0UfTGisW/WOIbvxSIimh2vlNLvI/F7rXvgzG874uRx25yDtWylzIY3JpQoGpn
+ +620KC3UsuZNwQ/HTlUQ+QxRI5Mqb+iM2PBGEN7RSM1M/SF18cPjMuv2fUG/0SRjoi0/J2/DUm0
+ EkyPm173ZMA==
+X-Developer-Key: i=ricardo@pardini.net; a=openpgp;
+ fpr=AC18230CF6AFEACADC4888933B5E3FE39EC7EDE9
+X-Endpoint-Received: by B4 Relay for ricardo@pardini.net/default with
+ auth_id=588
+X-Original-From: Ricardo Pardini <ricardo@pardini.net>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260529_082236_673614_FD71B11B 
-X-CRM114-Status: GOOD (  12.74  )
+X-CRM114-CacheID: sfid-20260529_083133_137397_3237768D 
+X-CRM114-Status: GOOD (  11.80  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -131,42 +94,76 @@ List-Post: <mailto:linux-arm-kernel@lists.infradead.org>
 List-Help: <mailto:linux-arm-kernel-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
  <mailto:linux-arm-kernel-request@lists.infradead.org?subject=subscribe>
+Reply-To: ricardo@pardini.net
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On 22:09-20260528, Wang, Sen wrote:
-> On 5/20/2026 6:56 AM, Moteen Shah wrote:
-> > From: Jayesh Choudhary <j-choudhary@ti.com>
-> > 
-> > Add device tree overlay to enable analog audio support on J721S2-EVM
-> > using PCM3168A codec connected to McASP4 serializers.
-> (snip)> +&scm_conf {
-> > +	#address-cells = <1>;
-> > +	#size-cells = <1>;
-> > +
-> > +	audio_refclk1: clock-controller@42e4 {
-> > +		compatible = "ti,j721s2-audio-refclk", "ti,am62-audio-refclk";
-> > +		reg = <0x42e4 0x4>;
-> > +		clocks = <&k3_clks 157 299>;
-> > +		assigned-clocks = <&k3_clks 157 299>;
-> > +		assigned-clock-parents = <&k3_clks 157 328>;
-> > +		#clock-cells = <0>;
-> > +	};
-> > +};
-> 
-> Hi Moteen,
-> 
-> Should the bulk of this scm_conf block go to the SoC-dtsi instead? It looks
-> like it could be a part of J721 SoC dtsi, which currently doesn't seem to
-> have any audio refclks defined.
+This describes the two on-board Realtek RTL8125BG PCIe Ethernet
+controllers on the FriendlyElec NanoPC-T6 (RK3588) board and aliases
+them to ethernet0/ethernet1.
 
-See 6111ac92f9341 as an example? audio refclk is the primary function,
-why make it as board dependent function?
+Many Rockchip boards have on-board RTL8125 PCIe NICs, wired to
+pcie2x1l0 and pcie2x1l2. The controllers were already enabled in the
+board DT, but the Ethernet function nodes themselves are not
+described, so the kernel (and u-boot) has no DT handle on the NICs.
+
+Adding the function nodes lets us:
+- expose stable ethernet0/ethernet1 aliases for the two NICs, the
+  same way other rk3588 boards alias their GMAC interfaces; and
+- let U-Boot's fdt_fixup_ethernet() patch mac-address properties in
+  at boot time from its ethaddr/eth1addr environment - useful on
+  boards (like this one) whose on-NIC EEPROM is not pre-programmed
+  with a unique MAC. The kernel and U-Boot then agree on the MAC,
+  which matters for network-boot setups.
+
+Checkpatch warnings:
+-  WARNING: DT compatible string "pci10ec,8125" appears un-documented
+-  WARNING: DT compatible string vendor "pci10ec" appears un-documented
+Both are expected. "pciVVVV,DDDD" is the Open Firmware PCI Bus
+Binding spelling, where VVVV/DDDD are the PCI vendor and device IDs
+allocated by the PCI-SIG (10ec = Realtek, 8125 = RTL8125). It is not a
+DT vendor prefix.
+
+If this is seen as a good thing, it would apply very similarly to
+the Radxa Rock 5 series and others.
+
+While at it, rename regulator vcc3v3_pcie2x1l0 to l1, since that is
+what is actually powers; since only cosmetic, I did not include
+a Fixes tag.
+
+---
+Changes in v2:
+- fix: pcie2x1l0, not pcie2x1l1; indirectly caught by Sashiko's review [1]
+- while-at-it: rename regulator vcc3v3_pcie2x1l0 to l1
+- Link to v1: https://patch.msgid.link/20260525-rk3588-dts-rtl-eth-describe-dt-alias-v1-1-a6fcda563ac7@pardini.net
+
+[1] https://sashiko.dev/#/patchset/20260525-rk3588-dts-rtl-eth-describe-dt-alias-v1-1-a6fcda563ac7%40pardini.net
+
+To: Rob Herring <robh@kernel.org>
+To: Krzysztof Kozlowski <krzk+dt@kernel.org>
+To: Conor Dooley <conor+dt@kernel.org>
+To: Heiko Stuebner <heiko@sntech.de>
+Cc: Sebastian Reichel <sebastian.reichel@collabora.com>
+Cc: devicetree@vger.kernel.org
+Cc: linux-arm-kernel@lists.infradead.org
+Cc: linux-rockchip@lists.infradead.org
+Cc: linux-kernel@vger.kernel.org
+Signed-off-by: Ricardo Pardini <ricardo@pardini.net>
+
+---
+Ricardo Pardini (2):
+      arm64: dts: rockchip: describe PCIe Ethernet controllers on NanoPC-T6
+      arm64: dts: rockchip: fix PCIe regulator name on NanoPC-T6
+
+ arch/arm64/boot/dts/rockchip/rk3588-nanopc-t6.dtsi | 36 ++++++++++++++++++++--
+ 1 file changed, 33 insertions(+), 3 deletions(-)
+---
+base-commit: e7ae89a0c97ce2b68b0983cd01eda67cf373517d
+change-id: 20260524-rk3588-dts-rtl-eth-describe-dt-alias-c1ed187b7c50
+
+Best regards,
+--  
+Ricardo Pardini <ricardo@pardini.net>
 
 
--- 
-Regards,
-Nishanth Menon
-Key (0xDDB5849D1736249D) / Fingerprint: F8A2 8693 54EB 8232 17A3  1A34 DDB5 849D 1736 249D
-https://ti.com/opensource
 
