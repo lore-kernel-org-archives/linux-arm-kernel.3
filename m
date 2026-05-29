@@ -4,72 +4,79 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 75EBCCD6E51
-	for <linux-arm-kernel@archiver.kernel.org>; Fri, 29 May 2026 12:19:45 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id BBC2FCD4F54
+	for <linux-arm-kernel@archiver.kernel.org>; Fri, 29 May 2026 12:25:23 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
-	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=9JUtOsCPfuOe2T57OFW29f3zVWa3oduKvxfNw4LBbDU=; b=gOWGxGDxNzHx6xKNYXrmAYsbbF
-	I6YQjHjaob0sia4scmrg9z/NHszXdE4Gr6d15bX9TqLRiYBwNN1sB5ShXVGwytP9MHl7/7DsrOqqK
-	vp3htzUN0Ees5dDOoDc8HMFZ8RPppn1bIOe2Hg/uV4KGlW2BrGa/6ipcJItCv5+finwzXHhdhY9uu
-	uEOyIKE1knx/czyjgoUkqHhsM7IJuQBNSO50JJEZYFAUD7hjqwaRn/dmttfpOZ3VbVDQJRsTFHhzB
-	F131/MqVTN3GvBebTE5D988Np6DySIBh2IS32waAIq03TOrJqSxIPyReZxmDVqW2nvS3gcEqEEfyr
-	+IYXxwrg==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:MIME-Version:
+	References:In-Reply-To:Subject:Cc:To:From:Message-ID:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=mG0TiHBAekQCoiSIto81YmHTibJe256DIjsJ2ZqbJpY=; b=A4B2adZxhRptf+BtBJAyaB0/68
+	A8YUI3iy4t+ZgZq+qnNrPISw7JXjt5+VB17LW4UWCCzB1z0WGGj7ikO7cRnCYZheBscQ+npnkEcVJ
+	11XsGivGJ2o3FdesFADubFgW0fGTRZ8j9OORMxzKe+Y62prO8h+hhLgZIeRlBoDloc/57OUhRVVOx
+	K1j9wGnlF0ToPUScmo0gj9Jim5LqcU5QfEBVkNHHqgj+IjXua/Jb3X8MltHyOA6EwwGmxrR0Bao7K
+	pbgsYOrV4aLxHHNlavgbYwayRSRln4wLHmiAQBC79TMjYwQglQ11m3RJMx2uhL5U2cVj5GdCWWW+O
+	kzH2KNRQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wSwBe-00000007Mmp-490j;
-	Fri, 29 May 2026 12:19:39 +0000
-Received: from out-177.mta1.migadu.com ([95.215.58.177])
+	id 1wSwH5-00000007NPZ-3V3u;
+	Fri, 29 May 2026 12:25:15 +0000
+Received: from tor.source.kernel.org ([172.105.4.254])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wSwBc-00000007MmH-1EPM
+	id 1wSwH4-00000007NPT-24z1
 	for linux-arm-kernel@lists.infradead.org;
-	Fri, 29 May 2026 12:19:37 +0000
-Message-ID: <cc9a1cf7-7b96-439a-b0be-ecdcf27b5da5@linux.dev>
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=linux.dev; s=key1;
-	t=1780057163;
-	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
-	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
-	 content-transfer-encoding:content-transfer-encoding:
-	 in-reply-to:in-reply-to:references:references;
-	bh=9JUtOsCPfuOe2T57OFW29f3zVWa3oduKvxfNw4LBbDU=;
-	b=fsyMd7lc9DQWXIHngNY5FbL4hfa4iXeIt4xrx/a8WeY77abOL0ewWlYq5i/6PQo64jta31
-	njPwicrvQwHTWf78VemGoFKHoY5hfsw8kO1Y2PGbihOQfAlDz/yqSGHvh1U/xBAkCMNMhj
-	VEkYggS/8GX7N7hbpteEHqhIOIGciSc=
-Date: Fri, 29 May 2026 13:19:03 +0100
-MIME-Version: 1.0
-Subject: Re: [PATCH v6 2/2] mm: use mapping_max_folio_order() for
- force_thp_readahead order
-To: Pedro Falcato <pfalcato@suse.de>
-Cc: Andrew Morton <akpm@linux-foundation.org>, david@kernel.org,
- willy@infradead.org, ryan.roberts@arm.com, linux-mm@kvack.org, r@hev.cc,
- jack@suse.cz, Andrew Donnellan <andrew+kernel@donnellan.id.au>,
- apopple@nvidia.com, baohua@kernel.org, baolin.wang@linux.alibaba.com,
- brauner@kernel.org, catalin.marinas@arm.com, dev.jain@arm.com,
- kees@kernel.org, kevin.brodsky@arm.com, lance.yang@linux.dev,
- "Liam R. Howlett" <liam@infradead.org>,
- linux-arm-kernel@lists.infradead.org, linux-fsdevel@vger.kernel.org,
- linux-kernel@vger.kernel.org, ljs@kernel.org, mhocko@suse.com,
- npache@redhat.com, pasha.tatashin@soleen.com, rmclure@linux.ibm.com,
- rppt@kernel.org, surenb@google.com, vbabka@kernel.org,
- Al Viro <viro@zeniv.linux.org.uk>, wilts.infradead.org@pedro-suse.lan,
- ziy@nvidia.com, hannes@cmpxchg.org, kas@kernel.org, shakeel.butt@linux.dev,
- kernel-team@meta.com
-References: <20260528165635.2068012-1-usama.arif@linux.dev>
- <20260528165635.2068012-3-usama.arif@linux.dev>
- <ahlh2vdHEGo6ZSot@pedro-suse.lan>
-Content-Language: en-US
-X-Report-Abuse: Please report any abuse attempt to abuse@migadu.com and include these headers.
-From: Usama Arif <usama.arif@linux.dev>
-In-Reply-To: <ahlh2vdHEGo6ZSot@pedro-suse.lan>
-Content-Type: text/plain; charset=UTF-8
-Content-Transfer-Encoding: 7bit
-X-Migadu-Flow: FLOW_OUT
-X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260529_051936_487614_50C9123A 
-X-CRM114-Status: GOOD (  36.78  )
+	Fri, 29 May 2026 12:25:14 +0000
+Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
+	by tor.source.kernel.org (Postfix) with ESMTP id ADD816054F;
+	Fri, 29 May 2026 12:25:13 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 63FCF1F00893;
+	Fri, 29 May 2026 12:25:13 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
+	s=k20260515; t=1780057513;
+	bh=mG0TiHBAekQCoiSIto81YmHTibJe256DIjsJ2ZqbJpY=;
+	h=Date:From:To:Cc:Subject:In-Reply-To:References;
+	b=OtP56GBthsMtZdogkYuQhgxvcJD9y8TmL1qKYM+KmphhvQhY1y25OJu6fDlwobbYA
+	 db+iYUcz7vdby8g+B/fm7t0YYhG3sFzFRIfGa4grvrwhpIbUBdf+aKue+DVcKkGS0k
+	 g1sMU2zqK12C5JbaYtcerv9qsXM+YhlP9oj+Tequ93/cb6vfUQf5Fg4PJgDBwVT2Md
+	 IcVDZsYnvHwQhMEKLfJQJsGG6+k3ogkj6YyhzP+8jFEVQCXmJ3GzGNcVKvJqO0SttQ
+	 QAq4fpUmIYRjQ4rG+2cXjeb5VYYf7pwj6mE3fZ1Ji+dGLF8f4jQcXB6w6RxV640gJx
+	 GKvV/DiKW+b9w==
+Received: from sofa.misterjones.org ([185.219.108.64] helo=goblin-girl.misterjones.org)
+	by disco-boy.misterjones.org with esmtpsa  (TLS1.3) tls TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384
+	(Exim 4.98.2)
+	(envelope-from <maz@kernel.org>)
+	id 1wSwH0-00000007P17-3Qg6;
+	Fri, 29 May 2026 12:25:10 +0000
+Date: Fri, 29 May 2026 13:25:10 +0100
+Message-ID: <865x46v1w9.wl-maz@kernel.org>
+From: Marc Zyngier <maz@kernel.org>
+To: Leonardo Bras <leo.bras@arm.com>
+Cc: Oliver Upton <oupton@kernel.org>,
+	Joey Gouly <joey.gouly@arm.com>,
+	Suzuki K Poulose <suzuki.poulose@arm.com>,
+	Zenghui Yu <yuzenghui@huawei.com>,
+	Catalin Marinas <catalin.marinas@arm.com>,
+	Will Deacon <will@kernel.org>,
+	Fuad Tabba <tabba@google.com>,
+	Raghavendra Rao Ananta <rananta@google.com>,
+	linux-arm-kernel@lists.infradead.org,
+	kvmarm@lists.linux.dev,
+	linux-kernel@vger.kernel.org
+Subject: Re: [RFC PATCH 0/2] Optimize S2 page splitting
+In-Reply-To: <ahh0wOamCIKbmQqp@devkitleo>
+References: <20260515195904.2466381-1-leo.bras@arm.com>
+	<87o6ifaf5z.wl-maz@kernel.org>
+	<ahh0wOamCIKbmQqp@devkitleo>
+User-Agent: Wanderlust/2.15.9 (Almost Unreal) SEMI-EPG/1.14.7 (Harue)
+ FLIM-LB/1.14.9 (=?UTF-8?B?R29qxY0=?=) APEL-LB/10.8 EasyPG/1.0.0 Emacs/30.1
+ (aarch64-unknown-linux-gnu) MULE/6.0 (HANACHIRUSATO)
+MIME-Version: 1.0 (generated by SEMI-EPG 1.14.7 - "Harue")
+Content-Type: text/plain; charset=US-ASCII
+X-SA-Exim-Connect-IP: 185.219.108.64
+X-SA-Exim-Rcpt-To: leo.bras@arm.com, oupton@kernel.org, joey.gouly@arm.com, suzuki.poulose@arm.com, yuzenghui@huawei.com, catalin.marinas@arm.com, will@kernel.org, tabba@google.com, rananta@google.com, linux-arm-kernel@lists.infradead.org, kvmarm@lists.linux.dev, linux-kernel@vger.kernel.org
+X-SA-Exim-Mail-From: maz@kernel.org
+X-SA-Exim-Scanned: No (on disco-boy.misterjones.org); SAEximRunCond expanded to false
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -84,194 +91,108 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-
-
-On 29/05/2026 11:01, Pedro Falcato wrote:
-> On Thu, May 28, 2026 at 09:55:20AM -0700, Usama Arif wrote:
->> The force_thp_readahead path in do_sync_mmap_readahead() is gated on
->> HPAGE_PMD_ORDER <= MAX_PAGECACHE_ORDER and always requests
->> HPAGE_PMD_ORDER / HPAGE_PMD_NR. On configurations where HPAGE_PMD_ORDER
->> exceeds MAX_PAGECACHE_ORDER, notably arm64 with a 64K base page size,
->> VM_HUGEPAGE mappings cannot use this path and fall back to the non-forced
->> mmap readahead path even when the mapping supports useful large folios.
->>
->> Keep the existing PMD-sized behavior when HPAGE_PMD_ORDER fits in the
->> page cache. When it does not, enable forced readahead for mappings that
->> support large folios and request an order capped by both
->> mapping_max_folio_order(mapping) and 2MB.
->>
->> 2MB is chosen as the cap because it matches the PMD size on x86_64
->> and on arm64 with 4K or 16K base pages, so the size/memory-pressure
+On Thu, 28 May 2026 18:00:48 +0100,
+Leonardo Bras <leo.bras@arm.com> wrote:
 > 
-> 16K base page size's PMDs should be 32M, no? Am I misunderstanding what
-> you mean here?
+> On Sat, May 16, 2026 at 10:15:36AM +0100, Marc Zyngier wrote:
+> > On Fri, 15 May 2026 20:59:01 +0100,
+> > Leonardo Bras <leo.bras@arm.com> wrote:
+> > > 
+> > > While playing with dirty-bit tracking, I decided to take a look on how page
+> > > splitting works. Found out all entries are walked, even though we can infer,
+> > > for instance that:
+> > > - If a level-3 entry is walked, it means the parent level-2 entry is split
+> > > - If a split just succeeded in an table entry, it means all children nodes
+> > >   are already split
+> > > 
+> > > So I tried to optimize it in a way that it does not break other users.
+> > > 
+> > > My main idea is to introduce positive return values that hint to the
+> > > pagetable walking mechanism that either siblings or children can be 
+> > > skipped. That should be contained to the visitor function, that returns
+> > > zero if no error was detected.
+> > > 
+> > > Numbers on above optimization are promising:
+> > > A 1GB VM, running on the model, splitting all at the beginning 
+> > > (no manual protect):
+> > > - Memory was already split (4k pages): 	-97.33% runtime (-172ms) - 20 runs
+> > > - THP backed memory: 			-19.82% runtime (-153ms) - 10 runs
+> > > - 1x1GB hugetlb memory:			-20.65% runtime (-150ms) - 10 runs
+> > >
+> > 
+> > I haven't looked at the changes in details, but the methodology is
+> > quite flawed. For a start, measuring anything on a software model
+> > (QEMU or FVP) doesn't mean anything performance-wise. The trade-offs
+> > are completely different from a HW implementation, and even the notion
+> > of time is pretty inconsistent.
+> > 
+> > Please run this on actual HW. I'm sure your employer can give you
+> > access to one of these mythical arm64 toys. Measure things from
+> > userspace, not from the kernel, so that you have all the overheads.
+> > Don't add console output, because that will make things far worse.
+> > 
+> > I'm sure you can hack one of the selftests for this purpose.
 > 
-
-Yes, should have just said 4K. Messed up when rewriting the commit
-message. Andrew Thanks for merging in mm-new, would it be possible
-to remove "or 16K" from the commit message. I can send a new revision
-as well if that is easier and preferred.
-
->> tradeoff for folios of that size is already well understood. On arm64
->> with a 64K base page size, 2MB is also the contiguous-PTE (contpte)
->> block size, so the resulting folios coalesce into a single TLB entry
->> and reduce TLB pressure on the readahead path.
->>
->> The final allocation order may still be clamped by page_cache_ra_order()
->> to the mapping and request geometry, but this gives VM_HUGEPAGE mappings
->> on such configurations a large-folio readahead request instead of
->> dropping back to base-page readahead.
->>
->> Signed-off-by: Usama Arif <usama.arif@linux.dev>
->> ---
->>  mm/filemap.c | 27 +++++++++++++++++++--------
->>  1 file changed, 19 insertions(+), 8 deletions(-)
->>
->> diff --git a/mm/filemap.c b/mm/filemap.c
->> index a16b33e0fc71..bfb891d9da1f 100644
->> --- a/mm/filemap.c
->> +++ b/mm/filemap.c
->> @@ -3312,14 +3312,23 @@ static struct file *do_sync_mmap_readahead(struct vm_fault *vmf)
->>  	struct file *fpin = NULL;
->>  	vm_flags_t vm_flags = vmf->vma->vm_flags;
->>  	bool force_thp_readahead = false;
->> +	unsigned int thp_order = 0;
->>  	unsigned short mmap_miss;
->>  
->>  	ractl._max_index = vmf->vma->vm_pgoff + vma_pages(vmf->vma) - 1;
->>  
->>  	/* Use the readahead code, even if readahead is disabled */
->> -	if (IS_ENABLED(CONFIG_TRANSPARENT_HUGEPAGE) &&
->> -	    (vm_flags & VM_HUGEPAGE) && HPAGE_PMD_ORDER <= MAX_PAGECACHE_ORDER)
->> -		force_thp_readahead = true;
->> +	if (IS_ENABLED(CONFIG_TRANSPARENT_HUGEPAGE) && (vm_flags & VM_HUGEPAGE)) {
->> +		if (HPAGE_PMD_ORDER <= MAX_PAGECACHE_ORDER) {
->> +			force_thp_readahead = true;
->> +			thp_order = HPAGE_PMD_ORDER;
->> +		} else if (mapping_large_folio_support(mapping)) {
->> +			force_thp_readahead = true;
->> +			thp_order = min_t(unsigned int,
->> +					  mapping_max_folio_order(mapping),
->> +					  get_order(SZ_2M));
+> Hello Marc,
 > 
-> This looks somewhat arbitrary to me (as does the old logic). It seems more
-> natural (correct?) to do this:
+> I have ran some tests in real hardware (AmpereOne) and calling from 
+> userspace as you suggested.
 > 
-> 	if (THP_ENABLED && (vm_flags & VM_HUGEPAGE)) {
-> 		if (mapping_large_folio_support(mapping)) {
-> 			force_thp_readahead = true;
-> 			/*
-> 			 * Cap THP readahead to either the max folio order the
-> 			 * mapping supports, or the max order the page cache
-> 			 * supports (useless to try more), or the hugepage PMD
-> 			 * order (CPU can't benefit from larger).
-> 			 */
-> 			thp_order = min3(mapping_max_folio_order(mapping),
-> 					MAX_PAGECACHE_ORDER, HPAGE_PMD_ORDER);
-> 		}
-> 	}
+> The tests create a 64GB VM, using either regular pages (no split needed), 
+> THP backed memory or Hugetlb. 
 > 
-
-So this can result in extreme memory pressure. For example, on 64K base page size,
-with HPAGE_PMD_ORDER = 13 (512M) and MAX_PAGECACHE_ORDER = 11 (128M), this will evaluate
-THP order to 128M. I think Jan mentioned in previous versions that there are already
-reports of high memory pressure due to large file folios, and we are seeing this
-in our fleet as well with xfs.
-
-I chose 2M cap as that is what most (not all) architectures which currently support this
-hugepage code flow are currently used to, and on archs + base page size combination which
-just evaluate this code to base page, for example 64K base page size, it will provide a
-performance uplift without causing excessive memory pressure.
-
-In pagemap.h, we have
-
-#define PREFERRED_MAX_PAGECACHE_ORDER	HPAGE_PMD_ORDER
-#define MAX_PAGECACHE_ORDER	min(MAX_XAS_ORDER, PREFERRED_MAX_PAGECACHE_ORDER)
-
-So MAX_PAGECACHE_ORDER <= HPAGE_PMD_ORDER is always true.
-
-At filesystem/inode setup: mapping_set_folio_order_range() 
-
-	if (max > MAX_PAGECACHE_ORDER)
-		max = MAX_PAGECACHE_ORDER;
-
-so mapping_max_folio_order() <= MAX_PAGECACHE_ORDER is also always true.
-
-which means mapping_max_folio_order(mapping) <= MAX_PAGECACHE_ORDER <= HPAGE_PMD_ORDER is always
-true, and you dont need the min3(..) in your diff.
-
-Now the question is if then why not just do:
-
-	if (IS_ENABLED(CONFIG_TRANSPARENT_HUGEPAGE) && (vm_flags & VM_HUGEPAGE)) {
-		if (mapping_large_folio_support(mapping)) {
-			force_thp_readahead = true;
-			thp_order = min_t(unsigned int,
-					  mapping_max_folio_order(mapping),
-					  get_order(SZ_2M));
-		}
-	}
-
-
-This is because this will regress the 16K ARM case where we already got 32M
-folios. Someone might upgrade the kernel and start getting 2M folios now.
-
-So IMHO the current code is correct, both in maintaining what the
-existing behaviour has been, but also trying to provide large folios to
-architectures that currently dont get them but in a controlled way.
-
-Later on, when we think or evaluate that 2M was too small a cap, it can
-be raised. I think its very easy to raise a cap, but much more difficult
-to make the cap smaller, as we might get reports on kernel upgrades that
-someone was getting a certain size of folio but now its much smaller.
-
-As a summary, what my code in this current form gives is:
-1) 4K x86/ARM (HPAGE_PMD_ORDER=9 <= 9): first branch -> 2M unchanged behaviour
-2) 16K ARM (HPAGE_PMD_ORDER=11 <= 11): first branch -> 32M unchanged behaviour
-3) 64K ARM (HPAGE_PMD_ORDER=13 <= 11): new else-if -> 2M new capability, conservative
-behaviour, which can be increased later if needed.
-I know that 64K base page size having 2M large folios while 16K base page size
-having 32M sounds counterintuitive, but I think 32M on 16K was a mistake and
-we shouldnt repeat that mistake for 64K.
-
-What your change with min3(mapping_max_folio_order(mapping), MAX_PAGECACHE_ORDER, HPAGE_PMD_ORDER)
-will give
-3) 64K ARM -> 128M folios, extremely high memory pressure.
-
-What only having min(mapping_max_folio_order, get_order(SZ_2M)) will give:
-2) 16K ARM -> 2M folios, (regression since we always had 32M on 16K ARM).
-
-
-
->> +		}
->> +	}
->>  
->>  	if (!force_thp_readahead) {
->>  		/*
->> @@ -3354,17 +3363,19 @@ static struct file *do_sync_mmap_readahead(struct vm_fault *vmf)
->>  	}
->>  
->>  	if (force_thp_readahead) {
->> +		unsigned long folio_nr_pages = 1UL << thp_order;
->> +
->>  		fpin = maybe_unlock_mmap_for_io(vmf, fpin);
->> -		ractl._index &= ~((unsigned long)HPAGE_PMD_NR - 1);
->> -		ra->size = HPAGE_PMD_NR;
->> +		ractl._index &= ~(folio_nr_pages - 1);
->> +		ra->size = folio_nr_pages;
->>  		/*
->> -		 * Fetch two PMD folios, so we get the chance to actually
->> +		 * Fetch two folios so we get the chance to actually
-> 			  ^^ large folios?
->>  		 * readahead, unless we've been told not to.
->>  		 */
->>  		if (!(vm_flags & VM_RAND_READ))
->>  			ra->size *= 2;
->> -		ra->async_size = HPAGE_PMD_NR;
->> -		ra->order = HPAGE_PMD_ORDER;
->> +		ra->async_size = folio_nr_pages;
->> +		ra->order = thp_order;
+> Those tests measured the times for the whole syscall that happens to do
+> eager page splitting, in this case,
+> 1 - Manual protect and init set: On every KVM_CLEAR_DIRTY_LOG, if the page
+>     was requested to be cleaned, it is also split.
+> 2 - Otherwise, on dirty log enable (aka KVM_SET_USER_MEMORY_REGION2 with
+>     KVM_MEM_LOG_DIRTY_PAGES set in flags), for the whole memslot is split
+>     at once.
 > 
-> This part LGTM.
+> Tests reflect new suggestions I got in this patchset: instead of using 
+> return values, I am using flags to skip whole levels, or skipping children 
+> nodes. I tested those 2 kernels, on top of vanilla:
+> a - Skip levels
+> b - Skip levels, and skip children node
 > 
+> Results averaged across 4k, 16k and 64k pages, a percentage of time 
+> saved, compared to vanilla kernel. More is better.
+> 
+> For (1), we have
+> regular pages:	26.7% (a) and 25.3% (b)
+> THP:		13.2% (a) and 11.9% (b)
+> Hugetlb:	14.3% (a) and 13.2% (b)
+> 
+> For (2), we have:
+> regular pages:	33.1% (a) and 35.0% (b)
+> THP:		11.9% (a) and 10.7% (b)
+> Hugetlb:	13.4% (a) and 13.2% (b)
+> 
+> On above results, I could notice about 1% overhead showing that skipping 
+> child nodes (testing flag) ends up being counter-productive compared to 
+> just skipping levels. The only case this does not happen is (2a), but it's 
+> not clear on why that happens.
+> 
+> Based on that, I plan to remove the skip_child patch, and send a v2 with a 
+> flag-based mechanism, which results are shown above.
+> 
+> Please let me know of any thoughts, suggestions or ideas you might have 
+> about it.
 
+Right, that seems compelling. I'd suggest you send a new version with:
+
+- a pointer to the test and its the exact invocation parameters so
+  that people other than you can reproduce it
+
+- these numbers with a bit of analysis explaining where the gains are
+
+With that, we can look at it again and compare results on different
+workloads and HW.
+
+Thanks,
+
+	M.
+
+-- 
+Without deviation from the norm, progress is not possible.
 
