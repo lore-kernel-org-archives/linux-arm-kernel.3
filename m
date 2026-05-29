@@ -4,98 +4,73 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 69C16CD6E53
-	for <linux-arm-kernel@archiver.kernel.org>; Fri, 29 May 2026 10:53:09 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 0DFEDCD6E4A
+	for <linux-arm-kernel@archiver.kernel.org>; Fri, 29 May 2026 10:54:20 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:
-	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=JfF+RXqoejGgiWqoKcAHP3fk5A5vKuoY8Cwpe8kKlEI=; b=4of+TVw0gZcXdt0rjWHhdwxHb2
-	kvTmWXCHICi2Md9s0Tt4Ouk61nL79hbO1JvcncAcKbisPbcISaqbAozfzqVHhM/gq8fKSeTk0vH9S
-	Ryxp+8GfGNwf148Mk18G9m1zvyKnpi05BOmadQ9fWld73FrjKhPgMZCNj0hzQ8vmVLLmK3PfLpwLV
-	jzRjAN9TH+UEDAH5i372CLh9pwBBAq7O9jSAGx2d9LGQSPAiFrEx6uENi/QKpXLBocZay0qzvLXs+
-	LzCZTMAzVzEuMQq7sSaLqoSN+3AaK7Dxw3ZEjj09u1SBaIJayYTj3O/9H0CGqyW5n8XQhKJ0sbVBm
-	ok+0Fl7g==;
+	MIME-Version:Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-Type:
+	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
+	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=KIHsSApk6kpDUVJxzRZqO9dpY8FfkxUF/l4px39fU+o=; b=CkStBnsZeAdmrtf4EaKnAbe9jb
+	gKNrQRJ1TrhauSBiY+AsZmSt4AXW9PHb0Fli7O3NMZA6oQt/ZFXz8BwGLwR5vYrdbc2aDxRw0EUlt
+	lL/bMBFCn/FG+3VR3xhOhXLL4+CWKEshrbT74g6ngTex52jUfmBpmHoGMwKs7CrlUoB1ONY13bMK+
+	bgEKc/r9PdcGAgTQIDwvqz7W/H0YT/8KbzRB7/iV3TqS/b01tKdfBe8C0bAeskSso779R8ZjvfoQ6
+	UBP5WlvDubF/IEfMqY+UxKlIPJ3h9pzkml5a+4LdkuO5+BLLSdcdbvnswPAd9IdNUyVe+jpgAOlhS
+	uPhS/rwg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wSupq-00000007E3N-0eA4;
-	Fri, 29 May 2026 10:53:02 +0000
-Received: from mail-wr1-x42d.google.com ([2a00:1450:4864:20::42d])
+	id 1wSuqz-00000007EQf-09XC;
+	Fri, 29 May 2026 10:54:13 +0000
+Received: from tor.source.kernel.org ([172.105.4.254])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wSupi-00000007E0R-3PCX
+	id 1wSuqx-00000007EQT-1QC5
 	for linux-arm-kernel@lists.infradead.org;
-	Fri, 29 May 2026 10:52:55 +0000
-Received: by mail-wr1-x42d.google.com with SMTP id ffacd0b85a97d-45ef42dfb26so120148f8f.2
-        for <linux-arm-kernel@lists.infradead.org>; Fri, 29 May 2026 03:52:54 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20251104; t=1780051973; x=1780656773; darn=lists.infradead.org;
-        h=content-transfer-encoding:mime-version:references:in-reply-to
-         :message-id:date:subject:cc:to:from:from:to:cc:subject:date
-         :message-id:reply-to;
-        bh=JfF+RXqoejGgiWqoKcAHP3fk5A5vKuoY8Cwpe8kKlEI=;
-        b=IFHMvFOfX5Fnt2ft+NzmfQwXX4b0vgOrOzf2jbfRZLZKEdGfNoxpQMy/PAPBU12lan
-         OYWIzfj2MqrU3sOa+57aly7Y2VbbwgD6ne+J7ncyfsvPvonmgqeBTNOIyvjgoUUKmawy
-         MNabtEbEjWQgWJhpnfaxw8GZmTi2fEWPAFpQbOn+TtstiKQosVsRldvYPe0UGgymnTv0
-         8N+S0L8N6GTKrZTcjcC5icJJfB8AfksH+zlM62id+2YT0EeSee4lPTDjqwV35vA+FM5g
-         xU0q8fuGeNVL4BG5wCIK5G4gPtMI8tiGfOh162W8EC9/IEvwBcdmIzoxL6Be6OWNkM+K
-         SorA==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20251104; t=1780051973; x=1780656773;
-        h=content-transfer-encoding:mime-version:references:in-reply-to
-         :message-id:date:subject:cc:to:from:x-gm-gg:x-gm-message-state:from
-         :to:cc:subject:date:message-id:reply-to;
-        bh=JfF+RXqoejGgiWqoKcAHP3fk5A5vKuoY8Cwpe8kKlEI=;
-        b=bwGklUj2muznec3qvVMXgzSagBbfrUHrJAxcOxTIz9S0bnTxU8NQQihNQDnhvURc2Y
-         B4jJ/fKA0lk6YsznW9NG744TgSUbtC5YEE2JbM24622FUJhTcyvtYMFM+n2dFWTK7svp
-         BhVG1c9cN195FkFtIuTEtT1kc+eKjLhF/O2v4HL1U89If1nDfopGw5RyCQJoa1USGfY7
-         0xWhEcf7R4SAy71dWJLthEIwMdCAlhVsHWI1bmKom3893RkXqFcH7SRnXGcp3zVP5dZH
-         Gs7L0n2MWMkSBzvgvD7awr00Ij3p7Ew4ERfDejmxFTnlGMtW6IYTBVWZ8/WyJ7WBGbJg
-         s3gg==
-X-Forwarded-Encrypted: i=1; AFNElJ9ao8CTbsWr0qN/6ImRBEj8PQFyXVz2LBcro0VAyp8vFPVBAtKxzQLKX0iUwN6d6wuoxJNSefem7moXYchJtx8p@lists.infradead.org
-X-Gm-Message-State: AOJu0YxUbAQsr4KzShGK1YAiKRokNYggC9OZHPz+zSHjFcR3ny9ayRS2
-	qdACVRtNV4j9X0QKRK/iSj9IjgPRo98r8Gs8jtB1OfYN6iZA/QFiHEn3
-X-Gm-Gg: Acq92OFTSysfNCuUr79iELIO21xWYeQ2KVcWg6d7uNOfDBvRfuB46BJkbyudvHWLVoY
-	Wh0FVF2jCxV0hN8BbcxOKVw/Gmg6Xf5vsSMAweFou4Ti4hS43Lrx4q5sDbRLLmE8QoGgyG4kT4+
-	SAs2c2fFWl7AJZmN0nfnNB+vI8AnAjNXdqC4YIyOuOb32FOm2WVowbUbWF1mDI73Qkwh3zoNNJc
-	RhtBy8Ky9IT2vKSymGz3t50EWr5xxn14ZYk2ExmD0QYP0UE8Z3UI4L6B+mQDS0l79HcMUd5vCdl
-	SoMJQwqmz+tNn6fIlpJZ5ErZcOOSPX2Mj43gt+fwkHdLFYvoXPOaHZbcTXxuvJbWF3PsSCHOgpt
-	A7SgLWiR5/3GKOIKvKoaC4bs4seb0+OaCtBOgjudfJfF2neRcBQFKuKDymSDSd2K41dYGyPcOWZ
-	Wz+Y8mVdnJHrki9RPCD8z/EpzGmosJ7Q+bZtPP2vaoxQG1L/nt/69OrWthk/kf2bjZVWG849Zo1
-	MP4zpaNChmV0fgqOWsTsIXmNEnL0UfxyCnzxu7igHYNeqs=
-X-Received: by 2002:a05:6000:40c5:b0:45e:ec27:b4ad with SMTP id ffacd0b85a97d-45ef143eff4mr4491582f8f.24.1780051972829;
-        Fri, 29 May 2026 03:52:52 -0700 (PDT)
-Received: from Lord-Beerus.station (net-93-144-20-233.cust.dsl.teletu.it. [93.144.20.233])
-        by smtp.gmail.com with ESMTPSA id ffacd0b85a97d-45ef34a090dsm2541596f8f.3.2026.05.29.03.52.51
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Fri, 29 May 2026 03:52:52 -0700 (PDT)
-From: Stefano Radaelli <stefano.radaelli21@gmail.com>
-X-Google-Original-From: Stefano Radaelli <stefano.r@variscite.com>
-To: linux-kernel@vger.kernel.org,
-	devicetree@vger.kernel.org,
-	imx@lists.linux.dev,
-	linux-arm-kernel@lists.infradead.org
-Cc: pierluigi.p@variscite.com,
-	Stefano Radaelli <stefano.r@variscite.com>,
-	Rob Herring <robh@kernel.org>,
-	Krzysztof Kozlowski <krzk+dt@kernel.org>,
-	Conor Dooley <conor+dt@kernel.org>,
-	Frank Li <Frank.Li@nxp.com>,
-	Sascha Hauer <s.hauer@pengutronix.de>,
-	Pengutronix Kernel Team <kernel@pengutronix.de>,
-	Fabio Estevam <festevam@gmail.com>
-Subject: [PATCH v2 2/4] arm64: dts: imx93-var-som-symphony: enable UART7
-Date: Fri, 29 May 2026 12:52:45 +0200
-Message-ID: <d7cbbae223dff7ad797b715d34eb79db9ee54203.1780051874.git.stefano.r@variscite.com>
+	Fri, 29 May 2026 10:54:11 +0000
+Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
+	by tor.source.kernel.org (Postfix) with ESMTP id C61896012A;
+	Fri, 29 May 2026 10:54:10 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 7CAFD1F00893;
+	Fri, 29 May 2026 10:54:10 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
+	s=k20260515; t=1780052050;
+	bh=KIHsSApk6kpDUVJxzRZqO9dpY8FfkxUF/l4px39fU+o=;
+	h=From:To:Cc:Subject:Date;
+	b=m1mQG6jhOXDhTzI4B8SmFplAzzrbvWY4M9n0NthbuUmH7BaBkkvIn3iMJEsssoavo
+	 o5JtyScp/w5Nf+eigpIDFF6aN/0/xb0/17NoLOffJMlakKNnisG6M9Su45Hl6uib/d
+	 z8kvST01etrOqrFX54/Ni4E0XtUZWsYKN8Yd4Kx5f/yxYonxlqr6Dmeew0oEOKWUuR
+	 JOVlczv9cX3wxZkKzCjNGMz3G6FfPZ5q4ZiyloHN1BA5qUvcVQkapMCUueRaOayYKQ
+	 ejlOS/U7og1/hsUYrZUcXSJ8N7Gm9QrgiT0TOeokBRjXFn2iWYf5VG9dUigWXegU9D
+	 4MDUT3FO80Q/A==
+Received: from sofa.misterjones.org ([185.219.108.64] helo=valley-girl.lan)
+	by disco-boy.misterjones.org with esmtpsa  (TLS1.3) tls TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384
+	(Exim 4.98.2)
+	(envelope-from <maz@kernel.org>)
+	id 1wSuqu-00000007NGX-1CoU;
+	Fri, 29 May 2026 10:54:08 +0000
+From: Marc Zyngier <maz@kernel.org>
+To: Paolo Bonzini <pbonzini@redhat.com>
+Cc: Mark Brown <broonie@kernel.org>,
+	Qiang Ma <maqianga@uniontech.com>,
+	Vincent Donnefort <vdonnefort@google.com>,
+	Steffen Eiden <seiden@linux.ibm.com>,
+	Joey Gouly <joey.gouly@arm.com>,
+	Suzuki K Poulose <suzuki.poulose@arm.com>,
+	Oliver Upton <oupton@kernel.org>,
+	Zenghui Yu <yuzenghui@huawei.com>,
+	kvmarm@lists.linux.dev,
+	linux-arm-kernel@lists.infradead.org,
+	kvm@vger.kernel.org
+Subject: [GIT PULL] KVM/arm64 fixes for 7.1, take #4
+Date: Fri, 29 May 2026 11:54:05 +0100
+Message-ID: <20260529105405.1839362-1-maz@kernel.org>
 X-Mailer: git-send-email 2.47.3
-In-Reply-To: <cover.1780051874.git.stefano.r@variscite.com>
-References: <cover.1780051874.git.stefano.r@variscite.com>
 MIME-Version: 1.0
 Content-Transfer-Encoding: 8bit
-X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260529_035254_864571_4BDFFAB3 
-X-CRM114-Status: GOOD (  10.31  )
+X-SA-Exim-Connect-IP: 185.219.108.64
+X-SA-Exim-Rcpt-To: pbonzini@redhat.com, broonie@kernel.org, maqianga@uniontech.com, vdonnefort@google.com, seiden@linux.ibm.com, joey.gouly@arm.com, suzuki.poulose@arm.com, oupton@kernel.org, yuzenghui@huawei.com, kvmarm@lists.linux.dev, linux-arm-kernel@lists.infradead.org, kvm@vger.kernel.org
+X-SA-Exim-Mail-From: maz@kernel.org
+X-SA-Exim-Scanned: No (on disco-boy.misterjones.org); SAEximRunCond expanded to false
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -110,59 +85,72 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-From: Stefano Radaelli <stefano.r@variscite.com>
+Paolo,
 
-Enable UART7 on the Symphony carrier board and add its pinctrl
-configuration.
+This is hopefully the last round of fixes for 7.1 on the KVM/arm64
+front.
 
-Signed-off-by: Stefano Radaelli <stefano.r@variscite.com>
----
-v1->v2:
- - 
+We have yet another batch of fixes for the newly introduced tracing
+code (memory leaks), a fix for a config symbol misspelled in the
+source code (therefore being permanently disabled), a fix for an
+embarrassing bug in the PMU emulation (write any value as long as it
+is zero), and an SVE sanitisation bug in nested virt resulting in a
+guest being able to access more than it really should.
 
- .../boot/dts/freescale/imx93-var-som-symphony.dts  | 14 ++++++++++++++
- 1 file changed, 14 insertions(+)
+I've purposely refrained from adding another lot of fixes for more
+benign issues since His Majesty has announced he'd be picky about
+that. Fear not, they'll be in the 7.2 pull request.
 
-diff --git a/arch/arm64/boot/dts/freescale/imx93-var-som-symphony.dts b/arch/arm64/boot/dts/freescale/imx93-var-som-symphony.dts
-index f541308ebf6b..f313f168cfb4 100644
---- a/arch/arm64/boot/dts/freescale/imx93-var-som-symphony.dts
-+++ b/arch/arm64/boot/dts/freescale/imx93-var-som-symphony.dts
-@@ -35,6 +35,7 @@ aliases {
- 		serial3 = &lpuart4;
- 		serial4 = &lpuart5;
- 		serial5 = &lpuart6;
-+		serial6 = &lpuart7;
- 	};
- 
- 
-@@ -310,6 +311,12 @@ &lpuart6 {
- 	status = "okay";
- };
- 
-+&lpuart7 {
-+	pinctrl-names = "default";
-+	pinctrl-0 = <&pinctrl_uart7>;
-+	status = "okay";
-+};
-+
- &usbotg1 {
- 	dr_mode = "otg";
- 	hnp-disable;
-@@ -446,6 +453,13 @@ MX93_PAD_GPIO_IO04__LPUART6_TX			0x31e
- 		>;
- 	};
- 
-+	pinctrl_uart7: uart7grp {
-+		fsl,pins = <
-+			MX93_PAD_GPIO_IO09__LPUART7_RX			0x31e
-+			MX93_PAD_GPIO_IO08__LPUART7_TX			0x31e
-+		>;
-+	};
-+
- 	pinctrl_reg_usdhc2_vmmc: regusdhc2vmmcgrp {
- 		fsl,pins = <
- 			MX93_PAD_GPIO_IO18__GPIO2_IO18		0x31e
--- 
-2.47.3
+Please pull,
 
+	M.
+
+The following changes since commit 1702da76e017ae0fbe1a92b07bc332972c293e89:
+
+  KVM: arm64: Fix nVHE/pKVM hyp tracing error on invalid desc (2026-05-20 08:08:37 +0100)
+
+are available in the Git repository at:
+
+  git://git.kernel.org/pub/scm/linux/kernel/git/kvmarm/kvmarm.git tags/kvmarm-fixes-7.1-4
+
+for you to fetch changes up to 83726330748981372bde86ed5411d7b306612991:
+
+  KVM: arm64: Correctly cap ZCR_EL2 provided by a guest hypervisor (2026-05-29 10:04:00 +0100)
+
+----------------------------------------------------------------
+KVM/arm64 fixes for 7.1, take #4
+
+- Restore CONFIG_PKVM_DISABLE_STAGE2_ON_PANIC to its former glory by
+  making sure the config symbol is correctly spelled out in the code
+
+- Don't reset the AArch32 view of the PMU counters to zero when the
+  guest is writing to them
+
+- Fix an assorted collection of memory leaks in the newly added tracing
+  code
+
+- Fix the capping of ZCR_EL2 which could be used in an unsanitised way
+  by an L2 guest
+
+----------------------------------------------------------------
+Mark Brown (1):
+      KVM: arm64: Correctly cap ZCR_EL2 provided by a guest hypervisor
+
+Qiang Ma (1):
+      KVM: arm64: PMU: Preserve AArch32 counter low bits
+
+Vincent Donnefort (4):
+      KVM: arm64: Fix CONFIG_PKVM_DISABLE_STAGE2_ON_PANIC
+      KVM: arm64: Fix meta-page unsharing in pKVM hyp tracing
+      KVM: arm64: Fix rollback in hyp_trace_buffer_share_hyp()
+      KVM: arm64: Fix memory leak in hyp_trace_unload()
+
+ arch/arm64/include/asm/kvm_host.h       |  2 +-
+ arch/arm64/kvm/hyp/include/hyp/switch.h | 16 ++++++++++------
+ arch/arm64/kvm/hyp/nvhe/host.S          |  2 +-
+ arch/arm64/kvm/hyp_trace.c              |  9 ++++++---
+ arch/arm64/kvm/nested.c                 |  5 +++++
+ arch/arm64/kvm/pmu-emul.c               |  4 ++--
+ arch/arm64/kvm/sys_regs.c               | 11 +++--------
+ 7 files changed, 28 insertions(+), 21 deletions(-)
 
