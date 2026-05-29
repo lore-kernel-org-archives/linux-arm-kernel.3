@@ -4,7 +4,7 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 64807CD6E49
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 7CEFBCD6E4A
 	for <linux-arm-kernel@archiver.kernel.org>; Fri, 29 May 2026 15:57:09 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
@@ -12,72 +12,57 @@ DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:
 	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=Is1nyIcJfv6NVfSOrnexMYVzhmTQoSC3qzLaTacV2Nk=; b=2z3KR6SOjrQryuFDllPLgIwvun
-	WSZxXU5V0llIap2FXOIozpdw18NYPsc1lGGxFfKcF7aD+0K4yya1pOHa5etxA26aEZZX//NriXW7y
-	q11HoBr7o3pVn8FURh4N1B0jb81tn+tQie0s/m0CxcBKT15OaiPOai7Eqfa/9kreWgJcYWdujQMSx
-	yfiaUrfNyINYCW72fhHAII+BD8cK3VGUETDzLSorgy9+k7cyxMjo8NBZAJg2v9IJmcs/GjunkfL66
-	Lru9bauwATn/RzoDh3glfetznKO6aktEEAajUKAI+A4+6UtMAW7vb0teedvEqbaD3GGFYHZ0dOpX6
-	+J/RVnGQ==;
+	bh=yL/F1708cPQ4KFVdo+/id21T92ovtgaWXRdzBLzjNOY=; b=Gfm8UMrOWd1Pp4LAh6nGP480sQ
+	J+KzrBG0fseuO/7V9o1Vmcdgv5RDMmzF741VrQjOTML/gyraZd6brhUtZq1EiE63LcDEqhgMILF7L
+	/SVdnRfrIR5rwEOgFPFPteR8V4emPcMh8+40x+STHh+rzc9KRPafa0q4vqFss8Wof17AvS08j3Sgn
+	SCYpskmtUNNGJibAOg3p/8KJPhbUm56I4P2jw3wVwOjQWrNw8gRBKGGCttRtP/VzOmcGDyhLOObe8
+	srq8UWVVWv4q0aLMIG0Tfn/H1lFuk058q1gMttA8+FcKCfJyUzaQoR88Si6a0r0iDv7r+seOyrLEj
+	lkfguH7Q==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wSzZz-00000007msC-0k7N;
+	id 1wSzZz-00000007mtw-2lkR;
 	Fri, 29 May 2026 15:56:59 +0000
-Received: from desiato.infradead.org ([2001:8b0:10b:1:d65d:64ff:fe57:4e05])
-	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wSzZb-00000007mRf-3kPT
-	for linux-arm-kernel@bombadil.infradead.org;
-	Fri, 29 May 2026 15:56:36 +0000
-DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=infradead.org; s=desiato.20200630; h=Content-Transfer-Encoding:MIME-Version
-	:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:Sender:Reply-To:
-	Content-Type:Content-ID:Content-Description;
-	bh=Is1nyIcJfv6NVfSOrnexMYVzhmTQoSC3qzLaTacV2Nk=; b=DQGAw8vAL2eo1iW0ciuwYeH7lX
-	XKxMapF5adktRlIWAo7K7I8h/m0m5eEXSZCkuVF6JPuRRU1bKOFBC03Lf63GM01mBHwzxJ8uj7I5o
-	muBg7cJf6YMq1aNEHE+6LsxS7S9j7egKx9EssO3XNSeJKgiW+nQ6okdKtmL+rNlNe9uMba2FyGzVz
-	vXBEUMfZjRFOskLDccsFMUBr99n9PaVCdFcoMq935pCACt3ByzaSGEPUsopO5NIclbH3uArZbCtg8
-	OEbeXbfjFr9XZP7QKkiTNl1B7sotw4Wxx3VXAMduGKR7BVXm188t5r6YT0rSQncWdIX4OnpN119Df
-	4AHZoOcA==;
 Received: from mx0b-001b2d01.pphosted.com ([148.163.158.5])
-	by desiato.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wSzZX-00000001nGf-2HoN
+	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
+	id 1wSzZR-00000007mEW-1B5Q
 	for linux-arm-kernel@lists.infradead.org;
-	Fri, 29 May 2026 15:56:34 +0000
+	Fri, 29 May 2026 15:56:40 +0000
 Received: from pps.filterd (m0356516.ppops.net [127.0.0.1])
-	by mx0a-001b2d01.pphosted.com (8.18.1.11/8.18.1.11) with ESMTP id 64TF73Vs2778440;
-	Fri, 29 May 2026 15:56:19 GMT
+	by mx0a-001b2d01.pphosted.com (8.18.1.11/8.18.1.11) with ESMTP id 64TFEPUl2776290;
+	Fri, 29 May 2026 15:51:08 GMT
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=ibm.com; h=cc
 	:content-transfer-encoding:date:from:in-reply-to:message-id
-	:mime-version:references:subject:to; s=pp1; bh=Is1nyIcJfv6NVfSOr
-	nexMYVzhmTQoSC3qzLaTacV2Nk=; b=VQ9qNVER0U9fgEyCiuxMLQBja3KHoy5zF
-	irJwrYtYLf7aCPM3NzBL9FWDx1ciIm2p4S/tdpKXEwl+HtIX0KTgBQkig5rWEVJh
-	NYA4FXgdNsbBhxN4VmW1ydayKts6cR/zj4eLzOucKOFbzJv6mttvo7JZ7C5WGCEb
-	lJqXwTNttbMK+IOmSc/pB0HYf12pFRUqtRF70k9zW+o3LBH3rsLcBPVfI/GDSMaG
-	/q2kAdAPLDbt07IUMY6hvzTVQIycZhTrSRbO0ZT7Ho85RKzdHC5mHtNhlNo/az+p
-	EZfF38hBG4xUFbxGnUYOu6gpfRvg+43kUqsewoier5s5DOEFyKuRg==
-Received: from ppma11.dal12v.mail.ibm.com (db.9e.1632.ip4.static.sl-reverse.com [50.22.158.219])
-	by mx0a-001b2d01.pphosted.com (PPS) with ESMTPS id 4ee889m2dq-1
+	:mime-version:references:subject:to; s=pp1; bh=yL/F1708cPQ4KFVdo
+	+/id21T92ovtgaWXRdzBLzjNOY=; b=N1m/MI8IUjSKOmEaeiZ17Qmi3QY4c2y82
+	yfYjb2TdG2pV+V90WIVf7qP/t3T6nXrH6PFiRCbIxqpRdQyOp7WVUKHNiH3Dbwtd
+	fVQe9+cHgZWJrgM6hhDn447dZbsO8dnK/zwHrkL0V2kCNv13vaP8HaisSF5Nc1MB
+	J9Au2dbsy0fQiX1XYbDCC95/WEDPs3WFv761NFtsPWz93shognXannXtcrr4hPY1
+	dSe1P0VfnI9tzcfRmAn4bogmsn9c45WXxQtZsII711yh8ZQh0hHGV7rLJcd/Xsel
+	37csnNiq2iMJ+a2iOBbA3/nYdKmLK9g3kPzNQT78LFFORc5Ma/wcg==
+Received: from ppma22.wdc07v.mail.ibm.com (5c.69.3da9.ip4.static.sl-reverse.com [169.61.105.92])
+	by mx0a-001b2d01.pphosted.com (PPS) with ESMTPS id 4ee889kw36-1
 	(version=TLSv1.2 cipher=ECDHE-RSA-AES256-GCM-SHA384 bits=256 verify=NOT);
-	Fri, 29 May 2026 15:56:18 +0000 (GMT)
-Received: from pps.filterd (ppma11.dal12v.mail.ibm.com [127.0.0.1])
-	by ppma11.dal12v.mail.ibm.com (8.18.1.7/8.18.1.7) with ESMTP id 64TFs7Xa009669;
-	Fri, 29 May 2026 15:56:17 GMT
+	Fri, 29 May 2026 15:51:07 +0000 (GMT)
+Received: from pps.filterd (ppma22.wdc07v.mail.ibm.com [127.0.0.1])
+	by ppma22.wdc07v.mail.ibm.com (8.18.1.7/8.18.1.7) with ESMTP id 64TFd6GK018492;
+	Fri, 29 May 2026 15:51:07 GMT
 Received: from smtprelay06.fra02v.mail.ibm.com ([9.218.2.230])
-	by ppma11.dal12v.mail.ibm.com (PPS) with ESMTPS id 4edjrbgkwa-1
+	by ppma22.wdc07v.mail.ibm.com (PPS) with ESMTPS id 4edjrc0fde-1
 	(version=TLSv1.2 cipher=ECDHE-RSA-AES256-GCM-SHA384 bits=256 verify=NOT);
-	Fri, 29 May 2026 15:56:17 +0000 (GMT)
+	Fri, 29 May 2026 15:51:06 +0000 (GMT)
 Received: from smtpav07.fra02v.mail.ibm.com (smtpav07.fra02v.mail.ibm.com [10.20.54.106])
-	by smtprelay06.fra02v.mail.ibm.com (8.14.9/8.14.9/NCO v10.0) with ESMTP id 64TFu8FB30212446
+	by smtprelay06.fra02v.mail.ibm.com (8.14.9/8.14.9/NCO v10.0) with ESMTP id 64TFp0qw30212598
 	(version=TLSv1/SSLv3 cipher=DHE-RSA-AES256-GCM-SHA384 bits=256 verify=OK);
-	Fri, 29 May 2026 15:56:08 GMT
+	Fri, 29 May 2026 15:51:00 GMT
 Received: from smtpav07.fra02v.mail.ibm.com (unknown [127.0.0.1])
-	by IMSVA (Postfix) with ESMTP id AFC6D20040;
-	Fri, 29 May 2026 15:56:08 +0000 (GMT)
+	by IMSVA (Postfix) with ESMTP id EE8342004B;
+	Fri, 29 May 2026 15:50:59 +0000 (GMT)
 Received: from smtpav07.fra02v.mail.ibm.com (unknown [127.0.0.1])
-	by IMSVA (Postfix) with ESMTP id 4E2AC2004B;
-	Fri, 29 May 2026 15:56:08 +0000 (GMT)
+	by IMSVA (Postfix) with ESMTP id 9306020063;
+	Fri, 29 May 2026 15:50:59 +0000 (GMT)
 Received: from tuxmaker.boeblingen.de.ibm.com (unknown [9.87.85.9])
 	by smtpav07.fra02v.mail.ibm.com (Postfix) with ESMTP;
-	Fri, 29 May 2026 15:56:08 +0000 (GMT)
+	Fri, 29 May 2026 15:50:59 +0000 (GMT)
 From: Steffen Eiden <seiden@linux.ibm.com>
 To: kvm@vger.kernel.org, kvmarm@lists.linux.dev,
         linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org,
@@ -103,29 +88,29 @@ Cc: Alexander Gordeev <agordeev@linux.ibm.com>,
         Ulrich Weigand <Ulrich.Weigand@de.ibm.com>,
         Vasily Gorbik <gor@linux.ibm.com>, Will Deacon <will@kernel.org>,
         Zenghui Yu <yuzenghui@huawei.com>
-Subject: [PATCH v1 17/26] arm64: Extract cputype definitions.
-Date: Fri, 29 May 2026 17:55:50 +0200
-Message-ID: <20260529155601.2927240-18-seiden@linux.ibm.com>
+Subject: [PATCH v3 25/27] KVM: s390: arm64: Implement vCPU IOCTLs
+Date: Fri, 29 May 2026 17:50:39 +0200
+Message-ID: <20260529155050.2902245-26-seiden@linux.ibm.com>
 X-Mailer: git-send-email 2.53.0
-In-Reply-To: <20260529155601.2927240-1-seiden@linux.ibm.com>
-References: <20260529155601.2927240-1-seiden@linux.ibm.com>
+In-Reply-To: <20260529155050.2902245-1-seiden@linux.ibm.com>
+References: <20260529155050.2902245-1-seiden@linux.ibm.com>
 MIME-Version: 1.0
 Content-Transfer-Encoding: 8bit
 X-TM-AS-GCONF: 00
-X-Proofpoint-ORIG-GUID: O_8cEhutoYgDeJRmdXjOcEwlst_hBrz4
-X-Proofpoint-GUID: O_8cEhutoYgDeJRmdXjOcEwlst_hBrz4
-X-Authority-Analysis: v=2.4 cv=XqfK/1F9 c=1 sm=1 tr=0 ts=6a19b723 cx=c_pps
- a=aDMHemPKRhS1OARIsFnwRA==:117 a=aDMHemPKRhS1OARIsFnwRA==:17
+X-Proofpoint-ORIG-GUID: 3xfmvTWQkc8JYkOYMcL56VJL2zf1XYek
+X-Proofpoint-GUID: 3xfmvTWQkc8JYkOYMcL56VJL2zf1XYek
+X-Authority-Analysis: v=2.4 cv=XqfK/1F9 c=1 sm=1 tr=0 ts=6a19b5eb cx=c_pps
+ a=5BHTudwdYE3Te8bg5FgnPg==:117 a=5BHTudwdYE3Te8bg5FgnPg==:17
  a=NGcC8JguVDcA:10 a=VkNPw1HP01LnGYTKEx00:22 a=RnoormkPH1_aCDwRdu11:22
- a=Y2IxJ9c9Rs8Kov3niI8_:22 a=VnNF1IyMAAAA:8 a=T5dvmTGJR8rAyywy3tIA:9
-X-Proofpoint-Spam-Details-Enc: AW1haW4tMjYwNTI5MDE1NiBTYWx0ZWRfXz7uDMCyl0q2e
- IriHEkU9hzFpxAFfGTcC9HzsooxKWns80nuTxf+ZI7uS7YmmgYK/GfFMjE0s/J60H6peW4AcKUA
- qVY2yQ1MPflYyXEygYeL7nNCOFWkqasJ2/L6ub4uQ3lpJGFh4ZRDwMFuFO27eUmqmLmiaA6IlVy
- u5vEG8ABEdNvXl4bvFqNEI/jV1wqhPSVLl+QSrAWIWrrh5yKT8iPGiPBTJo1j4nmMDCFRV0g+s4
- JEFmPBsxXreBkfCk3l6VOyaU7AMGkR8WUXnsMVdNvRdJvoh50dNvb0xeFneEhDI/dL74ETxdp/L
- W/CjBrPodXuChuS3WPP3h3dDzkf6OGhLhr0+suIaUYO+LAKmHx9L0J43+LC6B8bcjp7JreUrQT8
- edm8z84Pxbn2V4s7hRIZeJlNpBCu2oIG3CqrYOOieAP7C1DWcie58Crfu7YYkDdxae/cBVMUbic
- U9xh2jMxiffnzM9q1fA==
+ a=Y2IxJ9c9Rs8Kov3niI8_:22 a=VnNF1IyMAAAA:8 a=LjdwMlecOWSdWhcHteUA:9
+X-Proofpoint-Spam-Details-Enc: AW1haW4tMjYwNTI5MDE1NiBTYWx0ZWRfX+5YmZX90gmk4
+ 6oyx6zjFnrlX5JNnYK1BpbGWtHJBdYqkIAHSfi9o3m7Jpg6bbLr3YrKi1m3aU7/ca6fO040cExp
+ tv6gzKGSBtf9H0tgjrszA/CQxXffLmFUjJhmqPAT9NNDRFCVjmfV39do27qhkU8cf3rpqBpqIji
+ XeqbU4QJRWHAN6QhlNealun7NUMvL2AYeyJ9Qgy/HaXWteMLfwsBnZelCDQjHfAFGlwCMOTf/Kv
+ 0YJJd8ColBjv6xrPzW6DYToBsSNU/IFpUICVP9caDS3bPde4erHdNzDUcpXx6575EdttI/MzBn6
+ ZGdJb9nv0NEqYPKsWalrDKPPAW58hq4sxkIn6MUoB9D9CaMmnc6Y5RFTyw8G2rmaHtrrF2PXBtG
+ ZqeT7ZAOYqemeTHrw5Mepzwv7BM145gF0mY958PCC8SEfly5iW5F5lnKs3Bbjxb4Aai13G675hn
+ wubRU6RIFB5hZBXUSHg==
 X-Proofpoint-Virus-Version: vendor=baseguard
  engine=ICAP:2.0.293,Aquarius:18.0.1143,Hydra:6.1.125,FMLib:17.12.100.49
  definitions=2026-05-29_04,2026-05-28_03,2025-10-01_01
@@ -136,8 +121,8 @@ X-Proofpoint-Spam-Details: rule=outbound_notspam policy=outbound score=0
  route=outbound adjust=0 reason=mlx scancount=1 engine=8.22.0-2605210000
  definitions=main-2605290156
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260529_165632_174255_B389F537 
-X-CRM114-Status: GOOD (  10.67  )
+X-CRM114-CacheID: sfid-20260529_085628_325503_B89B2256 
+X-CRM114-Status: GOOD (  25.58  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -152,382 +137,609 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Move CPU type definitions from arch/arm64/include/asm/cputype.h to
-include/arch/arm64/asm/cputype-defs.h to prepare sharing with other
-architectures. No functional changes.
+Implement all vCPU IOCTLs.
 
+Co-developed-by: Andreas Grapentin <gra@linux.ibm.com>
+Signed-off-by: Andreas Grapentin <gra@linux.ibm.com>
+Co-developed-by: Nina Schoetterl-Glausch <nsg@linux.ibm.com>
+Signed-off-by: Nina Schoetterl-Glausch <nsg@linux.ibm.com>
 Signed-off-by: Steffen Eiden <seiden@linux.ibm.com>
 ---
- arch/arm64/include/asm/cputype.h              | 246 +-----------------
- .../arch/arm64/asm/cputype-defs.h             |  92 +------
- 2 files changed, 6 insertions(+), 332 deletions(-)
- copy arch/arm64/include/asm/cputype.h => include/arch/arm64/asm/cputype-defs.h (85%)
+ arch/s390/kvm/arm64/arm.c   | 360 ++++++++++++++++++++++++++++++++++++
+ arch/s390/kvm/arm64/guest.c |  71 ++++++-
+ arch/s390/kvm/arm64/guest.h |   5 +
+ arch/s390/kvm/arm64/reset.c |  57 ++++++
+ arch/s390/kvm/arm64/reset.h |  11 ++
+ 5 files changed, 502 insertions(+), 2 deletions(-)
+ create mode 100644 arch/s390/kvm/arm64/reset.c
+ create mode 100644 arch/s390/kvm/arm64/reset.h
 
-diff --git a/arch/arm64/include/asm/cputype.h b/arch/arm64/include/asm/cputype.h
-index 7b518e81dd15..67765cdbce84 100644
---- a/arch/arm64/include/asm/cputype.h
-+++ b/arch/arm64/include/asm/cputype.h
-@@ -5,251 +5,7 @@
- #ifndef __ASM_CPUTYPE_H
- #define __ASM_CPUTYPE_H
- 
--#define INVALID_HWID		ULONG_MAX
--
--#define MPIDR_UP_BITMASK	(0x1 << 30)
--#define MPIDR_MT_BITMASK	(0x1 << 24)
--#define MPIDR_HWID_BITMASK	UL(0xff00ffffff)
--
--#define MPIDR_LEVEL_BITS_SHIFT	3
--#define MPIDR_LEVEL_BITS	(1 << MPIDR_LEVEL_BITS_SHIFT)
--#define MPIDR_LEVEL_MASK	((1 << MPIDR_LEVEL_BITS) - 1)
--
--#define MPIDR_LEVEL_SHIFT(level) \
--	(((1 << level) >> 1) << MPIDR_LEVEL_BITS_SHIFT)
--
--#define MPIDR_AFFINITY_LEVEL(mpidr, level) \
--	((mpidr >> MPIDR_LEVEL_SHIFT(level)) & MPIDR_LEVEL_MASK)
--
--#define MIDR_REVISION_MASK	0xf
--#define MIDR_REVISION(midr)	((midr) & MIDR_REVISION_MASK)
--#define MIDR_PARTNUM_SHIFT	4
--#define MIDR_PARTNUM_MASK	(0xfff << MIDR_PARTNUM_SHIFT)
--#define MIDR_PARTNUM(midr)	\
--	(((midr) & MIDR_PARTNUM_MASK) >> MIDR_PARTNUM_SHIFT)
--#define MIDR_ARCHITECTURE_SHIFT	16
--#define MIDR_ARCHITECTURE_MASK	(0xf << MIDR_ARCHITECTURE_SHIFT)
--#define MIDR_ARCHITECTURE(midr)	\
--	(((midr) & MIDR_ARCHITECTURE_MASK) >> MIDR_ARCHITECTURE_SHIFT)
--#define MIDR_VARIANT_SHIFT	20
--#define MIDR_VARIANT_MASK	(0xf << MIDR_VARIANT_SHIFT)
--#define MIDR_VARIANT(midr)	\
--	(((midr) & MIDR_VARIANT_MASK) >> MIDR_VARIANT_SHIFT)
--#define MIDR_IMPLEMENTOR_SHIFT	24
--#define MIDR_IMPLEMENTOR_MASK	(0xffU << MIDR_IMPLEMENTOR_SHIFT)
--#define MIDR_IMPLEMENTOR(midr)	\
--	(((midr) & MIDR_IMPLEMENTOR_MASK) >> MIDR_IMPLEMENTOR_SHIFT)
--
--#define MIDR_CPU_MODEL(imp, partnum) \
--	((_AT(u32, imp)		<< MIDR_IMPLEMENTOR_SHIFT) | \
--	(0xf			<< MIDR_ARCHITECTURE_SHIFT) | \
--	((partnum)		<< MIDR_PARTNUM_SHIFT))
--
--#define MIDR_CPU_VAR_REV(var, rev) \
--	(((var)	<< MIDR_VARIANT_SHIFT) | (rev))
--
--#define MIDR_CPU_MODEL_MASK (MIDR_IMPLEMENTOR_MASK | MIDR_PARTNUM_MASK | \
--			     MIDR_ARCHITECTURE_MASK)
--
--#define ARM_CPU_IMP_ARM			0x41
--#define ARM_CPU_IMP_APM			0x50
--#define ARM_CPU_IMP_CAVIUM		0x43
--#define ARM_CPU_IMP_BRCM		0x42
--#define ARM_CPU_IMP_QCOM		0x51
--#define ARM_CPU_IMP_NVIDIA		0x4E
--#define ARM_CPU_IMP_FUJITSU		0x46
--#define ARM_CPU_IMP_HISI		0x48
--#define ARM_CPU_IMP_APPLE		0x61
--#define ARM_CPU_IMP_AMPERE		0xC0
--#define ARM_CPU_IMP_MICROSOFT		0x6D
--
--#define ARM_CPU_PART_AEM_V8		0xD0F
--#define ARM_CPU_PART_FOUNDATION		0xD00
--#define ARM_CPU_PART_CORTEX_A57		0xD07
--#define ARM_CPU_PART_CORTEX_A72		0xD08
--#define ARM_CPU_PART_CORTEX_A53		0xD03
--#define ARM_CPU_PART_CORTEX_A73		0xD09
--#define ARM_CPU_PART_CORTEX_A75		0xD0A
--#define ARM_CPU_PART_CORTEX_A35		0xD04
--#define ARM_CPU_PART_CORTEX_A55		0xD05
--#define ARM_CPU_PART_CORTEX_A76		0xD0B
--#define ARM_CPU_PART_NEOVERSE_N1	0xD0C
--#define ARM_CPU_PART_CORTEX_A77		0xD0D
--#define ARM_CPU_PART_CORTEX_A76AE	0xD0E
--#define ARM_CPU_PART_NEOVERSE_V1	0xD40
--#define ARM_CPU_PART_CORTEX_A78		0xD41
--#define ARM_CPU_PART_CORTEX_A78AE	0xD42
--#define ARM_CPU_PART_CORTEX_X1		0xD44
--#define ARM_CPU_PART_CORTEX_A510	0xD46
--#define ARM_CPU_PART_CORTEX_A520	0xD80
--#define ARM_CPU_PART_CORTEX_A710	0xD47
--#define ARM_CPU_PART_CORTEX_A715	0xD4D
--#define ARM_CPU_PART_CORTEX_X2		0xD48
--#define ARM_CPU_PART_NEOVERSE_N2	0xD49
--#define ARM_CPU_PART_CORTEX_A78C	0xD4B
--#define ARM_CPU_PART_CORTEX_X1C		0xD4C
--#define ARM_CPU_PART_CORTEX_X3		0xD4E
--#define ARM_CPU_PART_NEOVERSE_V2	0xD4F
--#define ARM_CPU_PART_CORTEX_A720	0xD81
--#define ARM_CPU_PART_CORTEX_X4		0xD82
--#define ARM_CPU_PART_NEOVERSE_V3AE	0xD83
--#define ARM_CPU_PART_NEOVERSE_V3	0xD84
--#define ARM_CPU_PART_CORTEX_X925	0xD85
--#define ARM_CPU_PART_CORTEX_A725	0xD87
--#define ARM_CPU_PART_CORTEX_A720AE	0xD89
--#define ARM_CPU_PART_NEOVERSE_N3	0xD8E
--#define ARM_CPU_PART_C1_PRO		0xD8B
--
--#define APM_CPU_PART_XGENE		0x000
--#define APM_CPU_VAR_POTENZA		0x00
--
--#define CAVIUM_CPU_PART_THUNDERX	0x0A1
--#define CAVIUM_CPU_PART_THUNDERX_81XX	0x0A2
--#define CAVIUM_CPU_PART_THUNDERX_83XX	0x0A3
--#define CAVIUM_CPU_PART_THUNDERX2	0x0AF
--/* OcteonTx2 series */
--#define CAVIUM_CPU_PART_OCTX2_98XX	0x0B1
--#define CAVIUM_CPU_PART_OCTX2_96XX	0x0B2
--#define CAVIUM_CPU_PART_OCTX2_95XX	0x0B3
--#define CAVIUM_CPU_PART_OCTX2_95XXN	0x0B4
--#define CAVIUM_CPU_PART_OCTX2_95XXMM	0x0B5
--#define CAVIUM_CPU_PART_OCTX2_95XXO	0x0B6
--
--#define BRCM_CPU_PART_BRAHMA_B53	0x100
--#define BRCM_CPU_PART_VULCAN		0x516
--
--#define QCOM_CPU_PART_FALKOR_V1		0x800
--#define QCOM_CPU_PART_FALKOR		0xC00
--#define QCOM_CPU_PART_KRYO		0x200
--#define QCOM_CPU_PART_KRYO_2XX_GOLD	0x800
--#define QCOM_CPU_PART_KRYO_2XX_SILVER	0x801
--#define QCOM_CPU_PART_KRYO_3XX_GOLD	0x802
--#define QCOM_CPU_PART_KRYO_3XX_SILVER	0x803
--#define QCOM_CPU_PART_KRYO_4XX_GOLD	0x804
--#define QCOM_CPU_PART_KRYO_4XX_SILVER	0x805
--#define QCOM_CPU_PART_ORYON_X1		0x001
--
--#define NVIDIA_CPU_PART_DENVER		0x003
--#define NVIDIA_CPU_PART_CARMEL		0x004
--#define NVIDIA_CPU_PART_OLYMPUS		0x010
--
--#define FUJITSU_CPU_PART_A64FX		0x001
--
--#define HISI_CPU_PART_TSV110		0xD01
--#define HISI_CPU_PART_HIP09			0xD02
--#define HISI_CPU_PART_HIP12		0xD06
--
--#define APPLE_CPU_PART_M1_ICESTORM	0x022
--#define APPLE_CPU_PART_M1_FIRESTORM	0x023
--#define APPLE_CPU_PART_M1_ICESTORM_PRO	0x024
--#define APPLE_CPU_PART_M1_FIRESTORM_PRO	0x025
--#define APPLE_CPU_PART_M1_ICESTORM_MAX	0x028
--#define APPLE_CPU_PART_M1_FIRESTORM_MAX	0x029
--#define APPLE_CPU_PART_M2_BLIZZARD	0x032
--#define APPLE_CPU_PART_M2_AVALANCHE	0x033
--#define APPLE_CPU_PART_M2_BLIZZARD_PRO	0x034
--#define APPLE_CPU_PART_M2_AVALANCHE_PRO	0x035
--#define APPLE_CPU_PART_M2_BLIZZARD_MAX	0x038
--#define APPLE_CPU_PART_M2_AVALANCHE_MAX	0x039
--
--#define AMPERE_CPU_PART_AMPERE1		0xAC3
--#define AMPERE_CPU_PART_AMPERE1A	0xAC4
--
--#define MICROSOFT_CPU_PART_AZURE_COBALT_100	0xD49 /* Based on r0p0 of ARM Neoverse N2 */
--
--#define MIDR_CORTEX_A53 MIDR_CPU_MODEL(ARM_CPU_IMP_ARM, ARM_CPU_PART_CORTEX_A53)
--#define MIDR_CORTEX_A57 MIDR_CPU_MODEL(ARM_CPU_IMP_ARM, ARM_CPU_PART_CORTEX_A57)
--#define MIDR_CORTEX_A72 MIDR_CPU_MODEL(ARM_CPU_IMP_ARM, ARM_CPU_PART_CORTEX_A72)
--#define MIDR_CORTEX_A73 MIDR_CPU_MODEL(ARM_CPU_IMP_ARM, ARM_CPU_PART_CORTEX_A73)
--#define MIDR_CORTEX_A75 MIDR_CPU_MODEL(ARM_CPU_IMP_ARM, ARM_CPU_PART_CORTEX_A75)
--#define MIDR_CORTEX_A35 MIDR_CPU_MODEL(ARM_CPU_IMP_ARM, ARM_CPU_PART_CORTEX_A35)
--#define MIDR_CORTEX_A55 MIDR_CPU_MODEL(ARM_CPU_IMP_ARM, ARM_CPU_PART_CORTEX_A55)
--#define MIDR_CORTEX_A76	MIDR_CPU_MODEL(ARM_CPU_IMP_ARM, ARM_CPU_PART_CORTEX_A76)
--#define MIDR_NEOVERSE_N1 MIDR_CPU_MODEL(ARM_CPU_IMP_ARM, ARM_CPU_PART_NEOVERSE_N1)
--#define MIDR_CORTEX_A77	MIDR_CPU_MODEL(ARM_CPU_IMP_ARM, ARM_CPU_PART_CORTEX_A77)
--#define MIDR_CORTEX_A76AE	MIDR_CPU_MODEL(ARM_CPU_IMP_ARM, ARM_CPU_PART_CORTEX_A76AE)
--#define MIDR_NEOVERSE_V1	MIDR_CPU_MODEL(ARM_CPU_IMP_ARM, ARM_CPU_PART_NEOVERSE_V1)
--#define MIDR_CORTEX_A78	MIDR_CPU_MODEL(ARM_CPU_IMP_ARM, ARM_CPU_PART_CORTEX_A78)
--#define MIDR_CORTEX_A78AE	MIDR_CPU_MODEL(ARM_CPU_IMP_ARM, ARM_CPU_PART_CORTEX_A78AE)
--#define MIDR_CORTEX_X1	MIDR_CPU_MODEL(ARM_CPU_IMP_ARM, ARM_CPU_PART_CORTEX_X1)
--#define MIDR_CORTEX_A510 MIDR_CPU_MODEL(ARM_CPU_IMP_ARM, ARM_CPU_PART_CORTEX_A510)
--#define MIDR_CORTEX_A520 MIDR_CPU_MODEL(ARM_CPU_IMP_ARM, ARM_CPU_PART_CORTEX_A520)
--#define MIDR_CORTEX_A710 MIDR_CPU_MODEL(ARM_CPU_IMP_ARM, ARM_CPU_PART_CORTEX_A710)
--#define MIDR_CORTEX_A715 MIDR_CPU_MODEL(ARM_CPU_IMP_ARM, ARM_CPU_PART_CORTEX_A715)
--#define MIDR_CORTEX_X2 MIDR_CPU_MODEL(ARM_CPU_IMP_ARM, ARM_CPU_PART_CORTEX_X2)
--#define MIDR_NEOVERSE_N2 MIDR_CPU_MODEL(ARM_CPU_IMP_ARM, ARM_CPU_PART_NEOVERSE_N2)
--#define MIDR_CORTEX_A78C	MIDR_CPU_MODEL(ARM_CPU_IMP_ARM, ARM_CPU_PART_CORTEX_A78C)
--#define MIDR_CORTEX_X1C	MIDR_CPU_MODEL(ARM_CPU_IMP_ARM, ARM_CPU_PART_CORTEX_X1C)
--#define MIDR_CORTEX_X3 MIDR_CPU_MODEL(ARM_CPU_IMP_ARM, ARM_CPU_PART_CORTEX_X3)
--#define MIDR_NEOVERSE_V2 MIDR_CPU_MODEL(ARM_CPU_IMP_ARM, ARM_CPU_PART_NEOVERSE_V2)
--#define MIDR_CORTEX_A720 MIDR_CPU_MODEL(ARM_CPU_IMP_ARM, ARM_CPU_PART_CORTEX_A720)
--#define MIDR_CORTEX_X4 MIDR_CPU_MODEL(ARM_CPU_IMP_ARM, ARM_CPU_PART_CORTEX_X4)
--#define MIDR_NEOVERSE_V3AE	MIDR_CPU_MODEL(ARM_CPU_IMP_ARM, ARM_CPU_PART_NEOVERSE_V3AE)
--#define MIDR_NEOVERSE_V3 MIDR_CPU_MODEL(ARM_CPU_IMP_ARM, ARM_CPU_PART_NEOVERSE_V3)
--#define MIDR_CORTEX_X925 MIDR_CPU_MODEL(ARM_CPU_IMP_ARM, ARM_CPU_PART_CORTEX_X925)
--#define MIDR_CORTEX_A725 MIDR_CPU_MODEL(ARM_CPU_IMP_ARM, ARM_CPU_PART_CORTEX_A725)
--#define MIDR_CORTEX_A720AE MIDR_CPU_MODEL(ARM_CPU_IMP_ARM, ARM_CPU_PART_CORTEX_A720AE)
--#define MIDR_NEOVERSE_N3 MIDR_CPU_MODEL(ARM_CPU_IMP_ARM, ARM_CPU_PART_NEOVERSE_N3)
--#define MIDR_C1_PRO MIDR_CPU_MODEL(ARM_CPU_IMP_ARM, ARM_CPU_PART_C1_PRO)
--#define MIDR_THUNDERX	MIDR_CPU_MODEL(ARM_CPU_IMP_CAVIUM, CAVIUM_CPU_PART_THUNDERX)
--#define MIDR_THUNDERX_81XX MIDR_CPU_MODEL(ARM_CPU_IMP_CAVIUM, CAVIUM_CPU_PART_THUNDERX_81XX)
--#define MIDR_THUNDERX_83XX MIDR_CPU_MODEL(ARM_CPU_IMP_CAVIUM, CAVIUM_CPU_PART_THUNDERX_83XX)
--#define MIDR_OCTX2_98XX MIDR_CPU_MODEL(ARM_CPU_IMP_CAVIUM, CAVIUM_CPU_PART_OCTX2_98XX)
--#define MIDR_OCTX2_96XX MIDR_CPU_MODEL(ARM_CPU_IMP_CAVIUM, CAVIUM_CPU_PART_OCTX2_96XX)
--#define MIDR_OCTX2_95XX MIDR_CPU_MODEL(ARM_CPU_IMP_CAVIUM, CAVIUM_CPU_PART_OCTX2_95XX)
--#define MIDR_OCTX2_95XXN MIDR_CPU_MODEL(ARM_CPU_IMP_CAVIUM, CAVIUM_CPU_PART_OCTX2_95XXN)
--#define MIDR_OCTX2_95XXMM MIDR_CPU_MODEL(ARM_CPU_IMP_CAVIUM, CAVIUM_CPU_PART_OCTX2_95XXMM)
--#define MIDR_OCTX2_95XXO MIDR_CPU_MODEL(ARM_CPU_IMP_CAVIUM, CAVIUM_CPU_PART_OCTX2_95XXO)
--#define MIDR_CAVIUM_THUNDERX2 MIDR_CPU_MODEL(ARM_CPU_IMP_CAVIUM, CAVIUM_CPU_PART_THUNDERX2)
--#define MIDR_BRAHMA_B53 MIDR_CPU_MODEL(ARM_CPU_IMP_BRCM, BRCM_CPU_PART_BRAHMA_B53)
--#define MIDR_BRCM_VULCAN MIDR_CPU_MODEL(ARM_CPU_IMP_BRCM, BRCM_CPU_PART_VULCAN)
--#define MIDR_QCOM_FALKOR_V1 MIDR_CPU_MODEL(ARM_CPU_IMP_QCOM, QCOM_CPU_PART_FALKOR_V1)
--#define MIDR_QCOM_FALKOR MIDR_CPU_MODEL(ARM_CPU_IMP_QCOM, QCOM_CPU_PART_FALKOR)
--#define MIDR_QCOM_KRYO MIDR_CPU_MODEL(ARM_CPU_IMP_QCOM, QCOM_CPU_PART_KRYO)
--#define MIDR_QCOM_KRYO_2XX_GOLD MIDR_CPU_MODEL(ARM_CPU_IMP_QCOM, QCOM_CPU_PART_KRYO_2XX_GOLD)
--#define MIDR_QCOM_KRYO_2XX_SILVER MIDR_CPU_MODEL(ARM_CPU_IMP_QCOM, QCOM_CPU_PART_KRYO_2XX_SILVER)
--#define MIDR_QCOM_KRYO_3XX_GOLD MIDR_CPU_MODEL(ARM_CPU_IMP_QCOM, QCOM_CPU_PART_KRYO_3XX_GOLD)
--#define MIDR_QCOM_KRYO_3XX_SILVER MIDR_CPU_MODEL(ARM_CPU_IMP_QCOM, QCOM_CPU_PART_KRYO_3XX_SILVER)
--#define MIDR_QCOM_KRYO_4XX_GOLD MIDR_CPU_MODEL(ARM_CPU_IMP_QCOM, QCOM_CPU_PART_KRYO_4XX_GOLD)
--#define MIDR_QCOM_KRYO_4XX_SILVER MIDR_CPU_MODEL(ARM_CPU_IMP_QCOM, QCOM_CPU_PART_KRYO_4XX_SILVER)
--#define MIDR_QCOM_ORYON_X1 MIDR_CPU_MODEL(ARM_CPU_IMP_QCOM, QCOM_CPU_PART_ORYON_X1)
--
--/*
-- * NOTES:
-- * - Qualcomm Kryo 5XX Prime / Gold ID themselves as MIDR_CORTEX_A77
-- * - Qualcomm Kryo 5XX Silver IDs itself as MIDR_QCOM_KRYO_4XX_SILVER
-- * - Qualcomm Kryo 6XX Prime IDs itself as MIDR_CORTEX_X1
-- * - Qualcomm Kryo 6XX Gold IDs itself as ARM_CPU_PART_CORTEX_A78
-- * - Qualcomm Kryo 6XX Silver IDs itself as MIDR_CORTEX_A55
-- */
--
--#define MIDR_NVIDIA_DENVER MIDR_CPU_MODEL(ARM_CPU_IMP_NVIDIA, NVIDIA_CPU_PART_DENVER)
--#define MIDR_NVIDIA_CARMEL MIDR_CPU_MODEL(ARM_CPU_IMP_NVIDIA, NVIDIA_CPU_PART_CARMEL)
--#define MIDR_NVIDIA_OLYMPUS MIDR_CPU_MODEL(ARM_CPU_IMP_NVIDIA, NVIDIA_CPU_PART_OLYMPUS)
--#define MIDR_FUJITSU_A64FX MIDR_CPU_MODEL(ARM_CPU_IMP_FUJITSU, FUJITSU_CPU_PART_A64FX)
--#define MIDR_HISI_TSV110 MIDR_CPU_MODEL(ARM_CPU_IMP_HISI, HISI_CPU_PART_TSV110)
--#define MIDR_HISI_HIP09 MIDR_CPU_MODEL(ARM_CPU_IMP_HISI, HISI_CPU_PART_HIP09)
--#define MIDR_HISI_HIP12 MIDR_CPU_MODEL(ARM_CPU_IMP_HISI, HISI_CPU_PART_HIP12)
--#define MIDR_APPLE_M1_ICESTORM MIDR_CPU_MODEL(ARM_CPU_IMP_APPLE, APPLE_CPU_PART_M1_ICESTORM)
--#define MIDR_APPLE_M1_FIRESTORM MIDR_CPU_MODEL(ARM_CPU_IMP_APPLE, APPLE_CPU_PART_M1_FIRESTORM)
--#define MIDR_APPLE_M1_ICESTORM_PRO MIDR_CPU_MODEL(ARM_CPU_IMP_APPLE, APPLE_CPU_PART_M1_ICESTORM_PRO)
--#define MIDR_APPLE_M1_FIRESTORM_PRO MIDR_CPU_MODEL(ARM_CPU_IMP_APPLE, APPLE_CPU_PART_M1_FIRESTORM_PRO)
--#define MIDR_APPLE_M1_ICESTORM_MAX MIDR_CPU_MODEL(ARM_CPU_IMP_APPLE, APPLE_CPU_PART_M1_ICESTORM_MAX)
--#define MIDR_APPLE_M1_FIRESTORM_MAX MIDR_CPU_MODEL(ARM_CPU_IMP_APPLE, APPLE_CPU_PART_M1_FIRESTORM_MAX)
--#define MIDR_APPLE_M2_BLIZZARD MIDR_CPU_MODEL(ARM_CPU_IMP_APPLE, APPLE_CPU_PART_M2_BLIZZARD)
--#define MIDR_APPLE_M2_AVALANCHE MIDR_CPU_MODEL(ARM_CPU_IMP_APPLE, APPLE_CPU_PART_M2_AVALANCHE)
--#define MIDR_APPLE_M2_BLIZZARD_PRO MIDR_CPU_MODEL(ARM_CPU_IMP_APPLE, APPLE_CPU_PART_M2_BLIZZARD_PRO)
--#define MIDR_APPLE_M2_AVALANCHE_PRO MIDR_CPU_MODEL(ARM_CPU_IMP_APPLE, APPLE_CPU_PART_M2_AVALANCHE_PRO)
--#define MIDR_APPLE_M2_BLIZZARD_MAX MIDR_CPU_MODEL(ARM_CPU_IMP_APPLE, APPLE_CPU_PART_M2_BLIZZARD_MAX)
--#define MIDR_APPLE_M2_AVALANCHE_MAX MIDR_CPU_MODEL(ARM_CPU_IMP_APPLE, APPLE_CPU_PART_M2_AVALANCHE_MAX)
--#define MIDR_AMPERE1 MIDR_CPU_MODEL(ARM_CPU_IMP_AMPERE, AMPERE_CPU_PART_AMPERE1)
--#define MIDR_AMPERE1A MIDR_CPU_MODEL(ARM_CPU_IMP_AMPERE, AMPERE_CPU_PART_AMPERE1A)
--#define MIDR_MICROSOFT_AZURE_COBALT_100 MIDR_CPU_MODEL(ARM_CPU_IMP_MICROSOFT, MICROSOFT_CPU_PART_AZURE_COBALT_100)
--
--/* Fujitsu Erratum 010001 affects A64FX 1.0 and 1.1, (v0r0 and v1r0) */
--#define MIDR_FUJITSU_ERRATUM_010001		MIDR_FUJITSU_A64FX
--#define MIDR_FUJITSU_ERRATUM_010001_MASK	(~MIDR_CPU_VAR_REV(1, 0))
--#define TCR_CLEAR_FUJITSU_ERRATUM_010001	(TCR_EL1_NFD1 | TCR_EL1_NFD0)
-+#include <asm/cputype-defs.h>
- 
- #ifndef __ASSEMBLER__
- 
-diff --git a/arch/arm64/include/asm/cputype.h b/include/arch/arm64/asm/cputype-defs.h
-similarity index 85%
-copy from arch/arm64/include/asm/cputype.h
-copy to include/arch/arm64/asm/cputype-defs.h
-index 7b518e81dd15..6f5279aaaa19 100644
---- a/arch/arm64/include/asm/cputype.h
-+++ b/include/arch/arm64/asm/cputype-defs.h
-@@ -1,9 +1,8 @@
- /* SPDX-License-Identifier: GPL-2.0-only */
--/*
-- * Copyright (C) 2012 ARM Ltd.
-- */
--#ifndef __ASM_CPUTYPE_H
--#define __ASM_CPUTYPE_H
-+#ifndef __ASM_CPUTYPE_DEFS_H
-+#define __ASM_CPUTYPE_DEFS_H
+diff --git a/arch/s390/kvm/arm64/arm.c b/arch/s390/kvm/arm64/arm.c
+index 79ce6570fa03..18eca2261e0d 100644
+--- a/arch/s390/kvm/arm64/arm.c
++++ b/arch/s390/kvm/arm64/arm.c
+@@ -7,10 +7,18 @@
+ #include <linux/kvm.h>
+ #include <linux/kvm_types.h>
+ #include <linux/kvm_host.h>
++#include <linux/fpu.h>
 +
-+#include <linux/types.h>
++#include <asm/access-regs.h>
++#include <asm/kvm_emulate.h>
++
++#include <kvm/arm64/handle_exit.h>
++#include <kvm/arm64/kvm_emulate.h>
  
- #define INVALID_HWID		ULONG_MAX
+ #include <gmap.h>
  
-@@ -251,85 +250,4 @@
- #define MIDR_FUJITSU_ERRATUM_010001_MASK	(~MIDR_CPU_VAR_REV(1, 0))
- #define TCR_CLEAR_FUJITSU_ERRATUM_010001	(TCR_EL1_NFD1 | TCR_EL1_NFD0)
+ #include "arm.h"
++#include "guest.h"
+ #include "reset.h"
  
--#ifndef __ASSEMBLER__
--
--#include <asm/sysreg.h>
--
--#define read_cpuid(reg)			read_sysreg_s(SYS_ ## reg)
--
--/*
-- * The CPU ID never changes at run time, so we might as well tell the
-- * compiler that it's constant.  Use this function to read the CPU ID
-- * rather than directly reading processor_id or read_cpuid() directly.
-- */
--static inline u32 __attribute_const__ read_cpuid_id(void)
--{
--	return read_cpuid(MIDR_EL1);
--}
--
--/*
-- * Represent a range of MIDR values for a given CPU model and a
-- * range of variant/revision values.
-- *
-- * @model	- CPU model as defined by MIDR_CPU_MODEL
-- * @rv_min	- Minimum value for the revision/variant as defined by
-- *		  MIDR_CPU_VAR_REV
-- * @rv_max	- Maximum value for the variant/revision for the range.
-- */
--struct midr_range {
--	u32 model;
--	u32 rv_min;
--	u32 rv_max;
--};
--
--#define MIDR_RANGE(m, v_min, r_min, v_max, r_max)		\
--	{							\
--		.model = m,					\
--		.rv_min = MIDR_CPU_VAR_REV(v_min, r_min),	\
--		.rv_max = MIDR_CPU_VAR_REV(v_max, r_max),	\
--	}
--
--#define MIDR_REV_RANGE(m, v, r_min, r_max) MIDR_RANGE(m, v, r_min, v, r_max)
--#define MIDR_REV(m, v, r) MIDR_RANGE(m, v, r, v, r)
--#define MIDR_ALL_VERSIONS(m) MIDR_RANGE(m, 0, 0, 0xf, 0xf)
--
--static inline bool midr_is_cpu_model_range(u32 midr, u32 model, u32 rv_min,
--					   u32 rv_max)
--{
--	u32 _model = midr & MIDR_CPU_MODEL_MASK;
--	u32 rv = midr & (MIDR_REVISION_MASK | MIDR_VARIANT_MASK);
--
--	return _model == model && rv >= rv_min && rv <= rv_max;
--}
--
--struct target_impl_cpu {
--	u64 midr;
--	u64 revidr;
--	u64 aidr;
--};
--
--bool cpu_errata_set_target_impl(u64 num, void *impl_cpus);
--bool is_midr_in_range_list(struct midr_range const *ranges);
--
--static inline u64 __attribute_const__ read_cpuid_mpidr(void)
--{
--	return read_cpuid(MPIDR_EL1);
--}
--
--static inline unsigned int __attribute_const__ read_cpuid_implementor(void)
--{
--	return MIDR_IMPLEMENTOR(read_cpuid_id());
--}
--
--static inline unsigned int __attribute_const__ read_cpuid_part_number(void)
--{
--	return MIDR_PARTNUM(read_cpuid_id());
--}
--
--static inline u32 __attribute_const__ read_cpuid_cachetype(void)
--{
--	return read_cpuid(CTR_EL0);
--}
--#endif /* __ASSEMBLER__ */
--
--#endif
-+#endif /* __ASM_CPUTYPE_DEFS_H */
+ int kvm_vm_ioctl_check_extension(struct kvm *kvm, long ext)
+@@ -172,6 +180,22 @@ void kvm_arch_vcpu_unblocking(struct kvm_vcpu *vcpu)
+ {
+ }
+ 
++void kvm_arch_vcpu_load(struct kvm_vcpu *vcpu, int cpu)
++{
++	save_access_regs(&vcpu->arch.host_acrs[0]);
++	vcpu->cpu = cpu;
++
++	lasrm(&vcpu->arch.save_area);
++}
++
++void kvm_arch_vcpu_put(struct kvm_vcpu *vcpu)
++{
++	stiasrm(&vcpu->arch.save_area);
++
++	vcpu->cpu = -1;
++	restore_access_regs(&vcpu->arch.host_acrs[0]);
++}
++
+ int kvm_arch_vcpu_ioctl_get_mpstate(struct kvm_vcpu *vcpu,
+ 				    struct kvm_mp_state *mp_state)
+ {
+@@ -195,12 +219,348 @@ unsigned long system_supported_vcpu_features(void)
+ 	return KVM_VCPU_VALID_FEATURES;
+ }
+ 
++bool kvm_arch_vcpu_in_kernel(struct kvm_vcpu *vcpu)
++{
++	return vcpu_mode_priv(vcpu);
++}
++
++int kvm_arch_vcpu_run_pid_change(struct kvm_vcpu *vcpu)
++{
++	struct kvm *kvm = vcpu->kvm;
++
++	if (!kvm_vcpu_initialized(vcpu))
++		return -ENOEXEC;
++
++	if (!kvm_arm_vcpu_is_finalized(vcpu))
++		return -EPERM;
++
++	if (likely(READ_ONCE(vcpu->pid)))
++		return 0;
++
++
++	mutex_lock(&kvm->arch.config_lock);
++	set_bit(KVM_ARCH_FLAG_HAS_RAN_ONCE, &kvm->arch.flags);
++	mutex_unlock(&kvm->arch.config_lock);
++
++	return 0;
++}
++
++/**
++ * check_vcpu_requests - check and handle pending vCPU requests
++ * @vcpu:	the VCPU pointer
++ *
++ * Return: 1 if we should enter the guest
++ *	   0 if we should exit to userspace
++ *	   < 0 if we should exit to userspace, where the return value indicates
++ *	   an error
++ */
++static int check_vcpu_requests(struct kvm_vcpu *vcpu)
++{
++	if (kvm_request_pending(vcpu)) {
++		if (kvm_check_request(KVM_REQ_VCPU_RESET, vcpu))
++			kvm_reset_vcpu(vcpu);
++		/*
++		 * Clear IRQ_PENDING requests that were made to guarantee
++		 * that a VCPU sees new virtual interrupts.
++		 */
++		kvm_check_request(KVM_REQ_IRQ_PENDING, vcpu);
++	}
++
++	return 1;
++}
++
++static int kvm_vcpu_initialize(struct kvm_vcpu *vcpu,
++				 const struct kvm_vcpu_init *init)
++{
++	unsigned long features = init->features[0];
++	struct kvm *kvm = vcpu->kvm;
++	int ret = -EINVAL;
++
++	mutex_lock(&kvm->arch.config_lock);
++
++	if (test_bit(KVM_ARCH_FLAG_VCPU_FEATURES_CONFIGURED, &kvm->arch.flags) &&
++	    kvm_vcpu_init_changed(vcpu, init))
++		goto out_unlock;
++
++	bitmap_copy(kvm->arch.vcpu_features, &features, KVM_VCPU_MAX_FEATURES);
++
++	kvm_reset_vcpu(vcpu);
++
++	set_bit(KVM_ARCH_FLAG_VCPU_FEATURES_CONFIGURED, &kvm->arch.flags);
++	vcpu_set_flag(vcpu, VCPU_INITIALIZED);
++
++	ret = 0;
++out_unlock:
++	mutex_unlock(&kvm->arch.config_lock);
++	return ret;
++}
++
++static int kvm_vcpu_set_target(struct kvm_vcpu *vcpu,
++			       const struct kvm_vcpu_init *init)
++{
++	int ret;
++
++	if (init->target != KVM_ARM_TARGET_GENERIC_V8)
++		return -EINVAL;
++
++	ret = kvm_vcpu_init_check_features(vcpu, init);
++	if (ret)
++		return ret;
++
++	if (!kvm_vcpu_initialized(vcpu))
++		return kvm_vcpu_initialize(vcpu, init);
++
++	if (kvm_vcpu_init_changed(vcpu, init))
++		return -EINVAL;
++
++	kvm_reset_vcpu(vcpu);
++
++	return 0;
++}
++
++static int kvm_arch_vcpu_ioctl_vcpu_init(struct kvm_vcpu *vcpu,
++					 struct kvm_vcpu_init *init)
++{
++	struct kvm_sae_save_area *save_area = &vcpu->arch.save_area;
++	struct kvm_sae_block *sae_block = &vcpu->arch.sae_block;
++	int ret;
++
++	sae_block->save_area = virt_to_phys(save_area);
++	save_area->sdo = virt_to_phys(sae_block);
++
++	ret = kvm_vcpu_set_target(vcpu, init);
++	if (ret)
++		return ret;
++
++	spin_lock(&vcpu->arch.mp_state_lock);
++	WRITE_ONCE(vcpu->arch.mp_state.mp_state, KVM_MP_STATE_RUNNABLE);
++	spin_unlock(&vcpu->arch.mp_state_lock);
++
++	return 0;
++}
++
+ int kvm_vm_ioctl_irq_line(struct kvm *kvm, struct kvm_irq_level *irq_level,
+ 			  bool line_status)
+ {
+ 	return 0;
+ }
+ 
++static void adjust_pc(struct kvm_vcpu *vcpu)
++{
++	if (vcpu_get_flag(vcpu, INCREMENT_PC)) {
++		kvm_skip_instr(vcpu);
++		vcpu_clear_flag(vcpu, INCREMENT_PC);
++	}
++}
++
++static void arm_vcpu_run(struct kvm_vcpu *vcpu)
++{
++	struct kvm_sae_block *sae_block = &vcpu->arch.sae_block;
++
++	adjust_pc(vcpu);
++
++	local_irq_disable();
++	guest_enter_irqoff();
++	local_irq_enable();
++
++	sae_block->icptr = 0;
++
++	sae64a(sae_block);
++
++	local_irq_disable();
++	guest_exit_irqoff();
++	local_irq_enable();
++}
++
++/** kvm_arch_vcpu_ioctl_run() - run arm64 vCPU
++ *
++ * Execute arm64 guest instructions using SAE.
++ *
++ * Returns:
++ * 1 enter the guest (should not be observed by userspace)
++ * 0 exit to userspace
++ * < 0 exit to userspace, where the return value indicates n error
++ *
++ *
++ */
++int kvm_arch_vcpu_ioctl_run(struct kvm_vcpu *vcpu)
++{
++	DECLARE_KERNEL_FPU_ONSTACK32(fpu_save);
++	struct kvm_run *kvm_run = vcpu->run;
++	u8 icptr;
++	int ret;
++
++	if (kvm_run->exit_reason == KVM_EXIT_MMIO) {
++		ret = kvm_handle_mmio_return(vcpu);
++		if (ret <= 0)
++			return ret;
++	}
++
++	vcpu_load(vcpu);
++
++	kernel_fpu_begin(&fpu_save, KERNEL_FPC | KERNEL_VXR);
++	load_vx_regs((vcpu->arch.ctxt.vregs));
++
++	if (!vcpu->wants_to_run) {
++		ret = -EINTR;
++		goto out;
++	}
++
++	kvm_sigset_activate(vcpu);
++
++	might_fault();
++
++	ret = 1;
++	do {
++		if (signal_pending(current)) {
++			kvm_run->exit_reason = KVM_EXIT_INTR;
++			ret = -EINTR;
++			continue;
++		}
++
++		if (need_resched())
++			schedule();
++
++		if (ret > 0)
++			ret = check_vcpu_requests(vcpu);
++
++		vcpu->arch.sae_block.icptr = 0;
++
++		arm_vcpu_run(vcpu);
++
++		icptr = vcpu->arch.sae_block.icptr;
++		switch (icptr) {
++		case SAE_ICPTR_SPURIOUS:
++			break;
++		case SAE_ICPTR_VALIDITY:
++			WARN_ONCE(true, "SAE: validity intercept. vir: 0x%04x",
++				  vcpu->arch.sae_block.vir);
++			ret = -EINVAL;
++			break;
++		case SAE_ICPTR_SYNCHRONOUS_EXCEPTION:
++			ret = handle_trap_exceptions(vcpu);
++			break;
++		default:
++			WARN_ONCE(true, "SAE: unknown interception reason 0x%02x", icptr);
++			ret = -EINVAL;
++		}
++	} while (ret > 0);
++
++	kvm_sigset_deactivate(vcpu);
++out:
++	if (unlikely(vcpu_get_flag(vcpu, INCREMENT_PC)))
++		adjust_pc(vcpu);
++
++	save_vx_regs(vcpu->arch.ctxt.vregs);
++	kernel_fpu_end(&fpu_save, KERNEL_FPC | KERNEL_VXR);
++	vcpu_put(vcpu);
++
++	return ret;
++}
++
++long kvm_arch_vcpu_ioctl(struct file *filp, unsigned int ioctl, unsigned long arg)
++{
++	struct kvm_vcpu *vcpu = filp->private_data;
++	void __user *argp = (void __user *)arg;
++	struct kvm_device_attr attr;
++	int ret;
++
++	switch (ioctl) {
++	case KVM_ARM_VCPU_INIT: {
++		struct kvm_vcpu_init init;
++
++		ret = -EFAULT;
++		if (copy_from_user(&init, argp, sizeof(init)))
++			break;
++
++		ret = kvm_arch_vcpu_ioctl_vcpu_init(vcpu, &init);
++		break;
++	}
++	case KVM_SET_ONE_REG:
++	case KVM_GET_ONE_REG: {
++		struct kvm_one_reg reg;
++
++		ret = -ENOEXEC;
++		if (unlikely(!kvm_vcpu_initialized(vcpu)))
++			break;
++
++		ret = -EFAULT;
++		if (copy_from_user(&reg, argp, sizeof(reg)))
++			break;
++
++		if (kvm_check_request(KVM_REQ_VCPU_RESET, vcpu))
++			kvm_reset_vcpu(vcpu);
++
++		if (ioctl == KVM_SET_ONE_REG)
++			ret = kvm_arm_set_reg(vcpu, &reg);
++		else
++			ret = kvm_arm_get_reg(vcpu, &reg);
++		break;
++	}
++	case KVM_GET_REG_LIST: {
++		struct kvm_reg_list __user *user_list = argp;
++		struct kvm_reg_list reg_list;
++		unsigned int n;
++
++		ret = -ENOEXEC;
++		if (unlikely(!kvm_vcpu_initialized(vcpu)))
++			break;
++		ret = -EPERM;
++		if (!kvm_arm_vcpu_is_finalized(vcpu))
++			break;
++		ret = -EFAULT;
++		if (copy_from_user(&reg_list, user_list, sizeof(reg_list)))
++			break;
++		n = reg_list.n;
++		reg_list.n = kvm_arm_num_regs(vcpu);
++		if (copy_to_user(user_list, &reg_list, sizeof(reg_list)))
++			break;
++		ret = -E2BIG;
++		if (n < reg_list.n)
++			break;
++		ret = kvm_arm_copy_reg_indices(vcpu, user_list->reg);
++		break;
++	}
++	case KVM_ARM_VCPU_FINALIZE: {
++		int what;
++
++		if (!kvm_vcpu_initialized(vcpu))
++			return -ENOEXEC;
++
++		if (get_user(what, (const int __user *)argp))
++			return -EFAULT;
++
++		ret = kvm_arm_vcpu_finalize(vcpu, what);
++		break;
++	}
++	case KVM_SET_DEVICE_ATTR: {
++		ret = -EFAULT;
++		if (copy_from_user(&attr, argp, sizeof(attr)))
++			break;
++		ret = kvm_arm_vcpu_set_attr(vcpu, &attr);
++		break;
++	}
++	case KVM_GET_DEVICE_ATTR: {
++		ret = -EFAULT;
++		if (copy_from_user(&attr, argp, sizeof(attr)))
++			break;
++		ret = kvm_arm_vcpu_get_attr(vcpu, &attr);
++		break;
++	}
++	case KVM_HAS_DEVICE_ATTR: {
++		ret = -EFAULT;
++		if (copy_from_user(&attr, argp, sizeof(attr)))
++			break;
++		ret = kvm_arm_vcpu_has_attr(vcpu, &attr);
++		break;
++	}
++	default:
++		ret = -EINVAL;
++	}
++
++	return ret;
++}
++
+ int kvm_vm_ioctl_get_dirty_log(struct kvm *kvm,
+ 			       struct kvm_dirty_log *log)
+ {
+diff --git a/arch/s390/kvm/arm64/guest.c b/arch/s390/kvm/arm64/guest.c
+index 00886755accf..893d48037292 100644
+--- a/arch/s390/kvm/arm64/guest.c
++++ b/arch/s390/kvm/arm64/guest.c
+@@ -4,7 +4,7 @@
+ 
+ #include "guest.h"
+ 
+-const struct _kvm_stats_desc kvm_vm_stats_desc[] = {
++const struct kvm_stats_desc kvm_vm_stats_desc[] = {
+ 	KVM_GENERIC_VM_STATS()
+ };
+ 
+@@ -17,7 +17,7 @@ const struct kvm_stats_header kvm_vm_stats_header = {
+ 		       sizeof(kvm_vm_stats_desc),
+ };
+ 
+-const struct _kvm_stats_desc kvm_vcpu_stats_desc[] = {
++const struct kvm_stats_desc kvm_vcpu_stats_desc[] = {
+ 	KVM_GENERIC_VCPU_STATS(),
+ 	/* ARM64 stats */
+ 	STATS_DESC_COUNTER(VCPU, hvc_exit_stat),
+@@ -50,6 +50,73 @@ unsigned long kvm_arm_num_regs(struct kvm_vcpu *vcpu)
+ 	return num_core_regs(vcpu);
+ }
+ 
++int kvm_arm_get_reg(struct kvm_vcpu *vcpu, const struct kvm_one_reg *reg)
++{
++	/* We currently use nothing arch-specific in upper 32 bits */
++	if ((reg->id & ~KVM_REG_SIZE_MASK) >> 32 != KVM_REG_ARM64 >> 32)
++		return -EINVAL;
++
++	switch (reg->id & KVM_REG_ARM_COPROC_MASK) {
++	case KVM_REG_ARM_CORE:
++		return get_core_reg(vcpu, reg);
++	default:
++		return -EINVAL;
++	}
++}
++
++int kvm_arm_set_reg(struct kvm_vcpu *vcpu, const struct kvm_one_reg *reg)
++{
++	/* We currently use nothing arch-specific in upper 32 bits */
++	if ((reg->id & ~KVM_REG_SIZE_MASK) >> 32 != KVM_REG_ARM64 >> 32)
++		return -EINVAL;
++
++	switch (reg->id & KVM_REG_ARM_COPROC_MASK) {
++	case KVM_REG_ARM_CORE:
++		return set_core_reg(vcpu, reg);
++	default:
++		return -EINVAL;
++	}
++}
++
++int kvm_arm_vcpu_set_attr(struct kvm_vcpu *vcpu, struct kvm_device_attr *attr)
++{
++	int ret;
++
++	switch (attr->group) {
++	default:
++		ret = -ENXIO;
++		break;
++	}
++
++	return ret;
++}
++
++int kvm_arm_vcpu_get_attr(struct kvm_vcpu *vcpu, struct kvm_device_attr *attr)
++{
++	int ret;
++
++	switch (attr->group) {
++	default:
++		ret = -ENXIO;
++		break;
++	}
++
++	return ret;
++}
++
++int kvm_arm_vcpu_has_attr(struct kvm_vcpu *vcpu, struct kvm_device_attr *attr)
++{
++	int ret;
++
++	switch (attr->group) {
++	default:
++		ret = -ENXIO;
++		break;
++	}
++
++	return ret;
++}
++
+ int kvm_arch_vcpu_ioctl_get_regs(struct kvm_vcpu *vcpu, struct kvm_regs *regs)
+ {
+ 	return -EINVAL;
+diff --git a/arch/s390/kvm/arm64/guest.h b/arch/s390/kvm/arm64/guest.h
+index db635d513c2c..847489fb81be 100644
+--- a/arch/s390/kvm/arm64/guest.h
++++ b/arch/s390/kvm/arm64/guest.h
+@@ -6,5 +6,10 @@
+ #include <kvm/arm64/guest.h>
+ 
+ unsigned long kvm_arm_num_regs(struct kvm_vcpu *vcpu);
++int kvm_arm_get_reg(struct kvm_vcpu *vcpu, const struct kvm_one_reg *reg);
++int kvm_arm_set_reg(struct kvm_vcpu *vcpu, const struct kvm_one_reg *reg);
++int kvm_arm_vcpu_set_attr(struct kvm_vcpu *vcpu, struct kvm_device_attr *attr);
++int kvm_arm_vcpu_get_attr(struct kvm_vcpu *vcpu, struct kvm_device_attr *attr);
++int kvm_arm_vcpu_has_attr(struct kvm_vcpu *vcpu, struct kvm_device_attr *attr);
+ 
+ #endif /* KVM_ARM_GUEST_H */
+diff --git a/arch/s390/kvm/arm64/reset.c b/arch/s390/kvm/arm64/reset.c
+new file mode 100644
+index 000000000000..b38b36c72c72
+--- /dev/null
++++ b/arch/s390/kvm/arm64/reset.c
+@@ -0,0 +1,57 @@
++// SPDX-License-Identifier: GPL-2.0
++
++#include <linux/kvm_host.h>
++#include <asm/kvm_emulate.h>
++#include <kvm/arm64/reset.h>
++
++#include "reset.h"
++
++bool kvm_arm_vcpu_is_finalized(struct kvm_vcpu *vcpu)
++{
++	return true;
++}
++
++void kvm_reset_vcpu(struct kvm_vcpu *vcpu)
++{
++	struct vcpu_reset_state reset_state;
++	bool loaded;
++
++	spin_lock(&vcpu->arch.mp_state_lock);
++	reset_state = vcpu->arch.reset_state;
++	vcpu->arch.reset_state.reset = false;
++	spin_unlock(&vcpu->arch.mp_state_lock);
++
++	/*
++	 * Disable preemption around the vcpu reset as we might otherwise race with
++	 * preempt notifiers which call stiasrm/lasrm from put/load
++	 */
++	preempt_disable();
++
++	/* The reset must run with an unloaded save area */
++	loaded = vcpu_is_loaded(vcpu);
++	if (loaded)
++		vcpu_put(vcpu);
++
++	kvm_reset_vcpu_core_regs(vcpu);
++
++	/* Reset special registers */
++	vcpu_reset_hcr(vcpu);
++
++	if (reset_state.reset) {
++		*vcpu_pc(vcpu) = reset_state.pc;
++		vcpu_clear_flag(vcpu, PENDING_EXCEPTION);
++		vcpu_clear_flag(vcpu, EXCEPT_MASK);
++		vcpu_clear_flag(vcpu, INCREMENT_PC);
++		vcpu_set_reg(vcpu, 0, reset_state.r0);
++	}
++
++	if (loaded)
++		vcpu_load(vcpu);
++
++	preempt_enable();
++}
++
++int kvm_arm_vcpu_finalize(struct kvm_vcpu *vcpu, int feature)
++{
++	return 0;
++}
+diff --git a/arch/s390/kvm/arm64/reset.h b/arch/s390/kvm/arm64/reset.h
+new file mode 100644
+index 000000000000..a5c5304e47bc
+--- /dev/null
++++ b/arch/s390/kvm/arm64/reset.h
+@@ -0,0 +1,11 @@
++/* SPDX-License-Identifier: GPL-2.0 */
++#ifndef KVM_ARM_RESET_H
++#define KVM_ARM_RESET_H
++
++#include <linux/kvm_host.h>
++
++bool kvm_arm_vcpu_is_finalized(struct kvm_vcpu *vcpu);
++void kvm_reset_vcpu(struct kvm_vcpu *vcpu);
++int kvm_arm_vcpu_finalize(struct kvm_vcpu *vcpu, int feature);
++
++#endif /* KVM_ARM_RESET_H */
 -- 
 2.53.0
 
