@@ -4,65 +4,65 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id D12DACD6E57
-	for <linux-arm-kernel@archiver.kernel.org>; Fri, 29 May 2026 15:51:50 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 21EABCD6E52
+	for <linux-arm-kernel@archiver.kernel.org>; Fri, 29 May 2026 15:51:55 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
 	MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:
 	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=mLKXzUx8y1/hdsM3n9eU/lplZiabjlywmzoOKP5Uw1I=; b=4LEHNiQ3jPfX4yqpYXgw0K9pbV
-	4D8Gb9mppQqkZqMUpnY5DEZUNjsW5y6+fhTb2VxbtoWcL6Q6dqRRPDsHUsmMxO7mkP5tlqd69Gmtg
-	iFVncru2t+1ikKYcOTr8u5S8Vjdx7fug4vOMtraX8MEeLWxtaSIn6jzSeWZrjbXSFZ9pESgO3V0bC
-	yVaEcIpIorUCVmSc8ltKiObLkGN5tBaeXP75HkdNnTbilhf48vQNrm3UgyOVeNRxEcyu20HSapOj6
-	RKLhiPwRVhMKD3S3TrmlJavVm75aHMmzVLQobY5fcRM3vxyuzX0YpOwUO6HR8O+kXLCMMsytXXrDb
-	l1S59TzQ==;
+	bh=3iyZ5WiyMuVYVGVxa0rY4+rBvDtWgxOvyn3MoH3u5dk=; b=fdmC0rIIKgUQtiKfl5syLrzQV4
+	ksIY6QNdGyRdR8HUWYMcBpX8NHNswrzZ0futQINOBy7NTHWEgvebjpBlGIyT5ra/DSlZq1lu9VcLp
+	OtB1rwyCNoCSxc9MckKLHLjbvryH1wxS4fz9HerZoK1YdLDABIlLsgmePPfVkmGjO8CfgIBxOSGNE
+	ev2m3jGn+kcfXN70opstOTTPJugTpnVN31we8kQ3uncvR4Fh1didf6lshdoao1b8wSyvlg/TEVdZ8
+	RSQR1zbDvAIONfq35iUTczQUkyQ79erRYhAhy/P00HeBHdpzu+FG/ULvAiEUCYsJtHrJkAt1i9SNF
+	O529L20Q==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wSzUr-00000007jm8-3N3C;
-	Fri, 29 May 2026 15:51:41 +0000
+	id 1wSzUl-00000007jcw-1WtZ;
+	Fri, 29 May 2026 15:51:35 +0000
 Received: from mx0a-001b2d01.pphosted.com ([148.163.156.1])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wSzUa-00000007jWR-1fHB
+	id 1wSzUU-00000007jSO-3ZSj
 	for linux-arm-kernel@lists.infradead.org;
-	Fri, 29 May 2026 15:51:32 +0000
-Received: from pps.filterd (m0356517.ppops.net [127.0.0.1])
-	by mx0a-001b2d01.pphosted.com (8.18.1.11/8.18.1.11) with ESMTP id 64TFBXRX1468203;
-	Fri, 29 May 2026 15:51:07 GMT
+	Fri, 29 May 2026 15:51:20 +0000
+Received: from pps.filterd (m0360083.ppops.net [127.0.0.1])
+	by mx0a-001b2d01.pphosted.com (8.18.1.11/8.18.1.11) with ESMTP id 64TFoBVg2419218;
+	Fri, 29 May 2026 15:51:05 GMT
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=ibm.com; h=cc
 	:content-transfer-encoding:date:from:in-reply-to:message-id
-	:mime-version:references:subject:to; s=pp1; bh=mLKXzUx8y1/hdsM3n
-	9eU/lplZiabjlywmzoOKP5Uw1I=; b=JTLEqKe/tuZBL1nHq2v2YJPH8/7by5fLL
-	RJyZw2t8XHrBy9e9aMpvuXbA1yeG+5NlL35XAiCLEkyqemFZ8mfjhMV4KbSfOFId
-	sUFSoOirU74ta6UU9REA6NbFDX7LbvbyCfcB+Zx7QtL2mpPwNw1P7HvTC/XU6wcH
-	QBDNxQKK4FWFolMiOH8tlG9RDwE/wYN07Ug5WW/UfWtWEWzKlDDSb8qkzuzE1/CF
-	ECDZ+nctE5UkjKsXZZRqNBqchn5op3530C7qyLJ+lCv0iG+eFt7R6Tn/8dVpLd2A
-	MhmMjG72k5i508YoYaH5/gxLZS6m4Goo7GgBykeuup4KQkIqdRPqg==
-Received: from ppma13.dal12v.mail.ibm.com (dd.9e.1632.ip4.static.sl-reverse.com [50.22.158.221])
-	by mx0a-001b2d01.pphosted.com (PPS) with ESMTPS id 4ee886mb5q-1
-	(version=TLSv1.2 cipher=ECDHE-RSA-AES256-GCM-SHA384 bits=256 verify=NOT);
-	Fri, 29 May 2026 15:51:06 +0000 (GMT)
-Received: from pps.filterd (ppma13.dal12v.mail.ibm.com [127.0.0.1])
-	by ppma13.dal12v.mail.ibm.com (8.18.1.7/8.18.1.7) with ESMTP id 64TFd5HC012278;
-	Fri, 29 May 2026 15:51:05 GMT
-Received: from smtprelay05.fra02v.mail.ibm.com ([9.218.2.225])
-	by ppma13.dal12v.mail.ibm.com (PPS) with ESMTPS id 4edjrbgeum-1
+	:mime-version:references:subject:to; s=pp1; bh=3iyZ5WiyMuVYVGVxa
+	0rY4+rBvDtWgxOvyn3MoH3u5dk=; b=bUPo1uJu5iye9hhVLpUcoScX9OiZmTPv8
+	1QjgtOAEVTQYQLiCU/Mlyu8GKu32hcQ6qCJW7ifqLzPVScB0LV0lNA+sZ8Ncd8AB
+	sdOysz+/igsZItZyXvsxSuv3BH2NQcUHT16k6v0/vV39RugnQ3JXl4ggWqgjH+PX
+	YSXoX/R9uEBCd/2MM0shAavQsA2Rst1I/MgdxSsWvXpLdA52QK1jzWJtQjRHErD0
+	AK+kDrWiQjXZVsGRh2jMO6FY4cdoiQy2j3RG91FmX5bnXo9m9zCEhVog7oSFOlVR
+	gaZDl6SNUmrOw6ZOUmXV/aT4r+4VA2Haml8Du5qjh/fGzXQKxbv9Q==
+Received: from ppma12.dal12v.mail.ibm.com (dc.9e.1632.ip4.static.sl-reverse.com [50.22.158.220])
+	by mx0a-001b2d01.pphosted.com (PPS) with ESMTPS id 4ee884ve3h-1
 	(version=TLSv1.2 cipher=ECDHE-RSA-AES256-GCM-SHA384 bits=256 verify=NOT);
 	Fri, 29 May 2026 15:51:05 +0000 (GMT)
+Received: from pps.filterd (ppma12.dal12v.mail.ibm.com [127.0.0.1])
+	by ppma12.dal12v.mail.ibm.com (8.18.1.7/8.18.1.7) with ESMTP id 64TFd6Nu030534;
+	Fri, 29 May 2026 15:51:04 GMT
+Received: from smtprelay01.fra02v.mail.ibm.com ([9.218.2.227])
+	by ppma12.dal12v.mail.ibm.com (PPS) with ESMTPS id 4edjrbggff-1
+	(version=TLSv1.2 cipher=ECDHE-RSA-AES256-GCM-SHA384 bits=256 verify=NOT);
+	Fri, 29 May 2026 15:51:04 +0000 (GMT)
 Received: from smtpav07.fra02v.mail.ibm.com (smtpav07.fra02v.mail.ibm.com [10.20.54.106])
-	by smtprelay05.fra02v.mail.ibm.com (8.14.9/8.14.9/NCO v10.0) with ESMTP id 64TFoxr641288038
+	by smtprelay01.fra02v.mail.ibm.com (8.14.9/8.14.9/NCO v10.0) with ESMTP id 64TFovEa60490100
 	(version=TLSv1/SSLv3 cipher=DHE-RSA-AES256-GCM-SHA384 bits=256 verify=OK);
-	Fri, 29 May 2026 15:50:59 GMT
+	Fri, 29 May 2026 15:50:58 GMT
 Received: from smtpav07.fra02v.mail.ibm.com (unknown [127.0.0.1])
-	by IMSVA (Postfix) with ESMTP id 365DC20043;
-	Fri, 29 May 2026 15:50:59 +0000 (GMT)
+	by IMSVA (Postfix) with ESMTP id C0D442004B;
+	Fri, 29 May 2026 15:50:57 +0000 (GMT)
 Received: from smtpav07.fra02v.mail.ibm.com (unknown [127.0.0.1])
-	by IMSVA (Postfix) with ESMTP id D7CCB2005A;
-	Fri, 29 May 2026 15:50:58 +0000 (GMT)
+	by IMSVA (Postfix) with ESMTP id 79C0E2005A;
+	Fri, 29 May 2026 15:50:57 +0000 (GMT)
 Received: from tuxmaker.boeblingen.de.ibm.com (unknown [9.87.85.9])
 	by smtpav07.fra02v.mail.ibm.com (Postfix) with ESMTP;
-	Fri, 29 May 2026 15:50:58 +0000 (GMT)
+	Fri, 29 May 2026 15:50:57 +0000 (GMT)
 From: Steffen Eiden <seiden@linux.ibm.com>
 To: kvm@vger.kernel.org, kvmarm@lists.linux.dev,
         linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org,
@@ -88,40 +88,40 @@ Cc: Alexander Gordeev <agordeev@linux.ibm.com>,
         Ulrich Weigand <Ulrich.Weigand@de.ibm.com>,
         Vasily Gorbik <gor@linux.ibm.com>, Will Deacon <will@kernel.org>,
         Zenghui Yu <yuzenghui@huawei.com>
-Subject: [PATCH v3 23/27] KVM: s390: arm64: Implement required functions
-Date: Fri, 29 May 2026 17:50:37 +0200
-Message-ID: <20260529155050.2902245-24-seiden@linux.ibm.com>
+Subject: [PATCH v3 19/27] s390: Introduce Start Arm Execution instruction
+Date: Fri, 29 May 2026 17:50:33 +0200
+Message-ID: <20260529155050.2902245-20-seiden@linux.ibm.com>
 X-Mailer: git-send-email 2.53.0
 In-Reply-To: <20260529155050.2902245-1-seiden@linux.ibm.com>
 References: <20260529155050.2902245-1-seiden@linux.ibm.com>
 MIME-Version: 1.0
 Content-Transfer-Encoding: 8bit
 X-TM-AS-GCONF: 00
-X-Proofpoint-GUID: m0z0nq37zDWnVhfKbAtJg7ydYJhAoODQ
-X-Authority-Analysis: v=2.4 cv=Z8Dc2nRA c=1 sm=1 tr=0 ts=6a19b5ea cx=c_pps
- a=AfN7/Ok6k8XGzOShvHwTGQ==:117 a=AfN7/Ok6k8XGzOShvHwTGQ==:17
+X-Authority-Analysis: v=2.4 cv=L4MtheT8 c=1 sm=1 tr=0 ts=6a19b5e9 cx=c_pps
+ a=bLidbwmWQ0KltjZqbj+ezA==:117 a=bLidbwmWQ0KltjZqbj+ezA==:17
  a=NGcC8JguVDcA:10 a=VkNPw1HP01LnGYTKEx00:22 a=RnoormkPH1_aCDwRdu11:22
- a=U7nrCbtTmkRpXpFmAIza:22 a=VnNF1IyMAAAA:8 a=JEk9-RCT-MC-l0ff1-cA:9
-X-Proofpoint-Spam-Details-Enc: AW1haW4tMjYwNTI5MDE1NiBTYWx0ZWRfX9JgpVRODEdv+
- 27D1JwMKVDAQfRuYBJ+m+F0syIDfUrX1ZC/IKtWgjm9ACUdjYY8mCNr0KMXnrjxg6zf9nK218Mn
- DEht9O+kgwINMJC9m/G98amoJaLg2KD3ulpJyORCuJW8dU6suVRReB2ybCTqaKiu8BBXc2vb/N8
- SyQCNERc6jrsYq0C26mpM9YBzyG1f7v2gcPTIDLfs+40vmo/MhEeTNrT/u9BWOBygLz+V+ZMV/z
- Gz1NAeWwJDScZgsUgZlGJ9dwr8baULCCbU+6iznSlsjpwe7NckO11oBEg7Su97u3RYu3hE8kDRB
- MmrafB5CTcPKp279agqOHtdysHGGcTuloLKi/ZpR9T/+3YIUfOu99ky+zvDci3OKe3W/vlrDjPK
- mK6JwVxgr+EWmVnGctHEyja3SKj+LJ2/7i5FJsA/7O0qL6I+DQkUpt0IK9ow4rzm0YrfRPomliX
- pZnn9VSlQbNWsK1PjJw==
-X-Proofpoint-ORIG-GUID: m0z0nq37zDWnVhfKbAtJg7ydYJhAoODQ
+ a=iQ6ETzBq9ecOQQE5vZCe:22 a=VnNF1IyMAAAA:8 a=D7HF9d94yUUfLUezzdoA:9
+X-Proofpoint-ORIG-GUID: 8Y5bGxNoeSqLf4zR2gmVhm8P7SsZCdFl
+X-Proofpoint-Spam-Details-Enc: AW1haW4tMjYwNTI5MDE1NiBTYWx0ZWRfX/GmYgBkWeL59
+ nYHIzftxgb4EAKy3KR/0YtZAhnYSxww/NtgM4PTC87KXax4uBNLdMCKNE3zPwsjD44e9k+bIRyX
+ t7HZHybYEtQh0Yp33EgNSy5u7BmtyjZhBgnQ8DvQAQmY8oG0NYhrparJGZP0vjewkHr/otfHbOi
+ L//lcHmEtmGHkKqglrsO0qf+tRIMlJ7yF7/at7JMKsizdLDulcmUSwyhfbAL2QRzwyfxBS4XEdm
+ qZiAMgFze5qU1q8OXf1TKkw0I/g/TXk5O93YQWJoqZyLlZbmc1S07sNlj2+hqfkzpVoxYZ+afQE
+ DWE95TKee8nCuKs7aKl/Iw69ow62XR8fVAr4Yg3rzZ2qMYGW459kZ4z7klEe/FeO/EI+d1ll5KF
+ moY+UF73QXgtn7FXuhShr8nJR5w1ZJ1GI6tF2D511BbH+kDH5S7kzgYV1FrLd2htXxTTXgcOpAK
+ OpWZZBytW53issOq8FQ==
+X-Proofpoint-GUID: 8Y5bGxNoeSqLf4zR2gmVhm8P7SsZCdFl
 X-Proofpoint-Virus-Version: vendor=baseguard
  engine=ICAP:2.0.293,Aquarius:18.0.1143,Hydra:6.1.125,FMLib:17.12.100.49
  definitions=2026-05-29_04,2026-05-28_03,2025-10-01_01
 X-Proofpoint-Spam-Details: rule=outbound_notspam policy=outbound score=0
- clxscore=1015 spamscore=0 bulkscore=0 impostorscore=0 priorityscore=1501
- malwarescore=0 phishscore=0 suspectscore=0 adultscore=0 lowpriorityscore=0
+ phishscore=0 lowpriorityscore=0 suspectscore=0 clxscore=1015 malwarescore=0
+ bulkscore=0 impostorscore=0 adultscore=0 priorityscore=1501 spamscore=0
  classifier=typeunknown authscore=0 authtc= authcc= route=outbound adjust=0
  reason=mlx scancount=1 engine=8.22.0-2605210000 definitions=main-2605290156
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260529_085124_496287_1888F351 
-X-CRM114-Status: GOOD (  20.95  )
+X-CRM114-CacheID: sfid-20260529_085119_160869_0C2E9201 
+X-CRM114-Status: GOOD (  24.11  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -136,283 +136,336 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Implement the mostly trivial functions that the shared arm64 (kvm)
-headers oblige s390 to implement.
+The Start Arm Execution (SAE) instruction is the centerpiece for
+executing arm64 (KVM) guests on s390. Its purpose is, similar to SIE, to
+enable accelerated execution of arm64 virtual machines. SAE expects the
+physical address of a control block as the only argument.
 
-Implement a very basic smccc handler that (non-compliantly) is just able
-to stop a vcpu.
+The host is responsible to save & restore
+ - GPRs 0-13
+ - access register 0-15
+ - breaking event register (BEAR)
+ - vector/floating point registers
+between SAE executions to guarantee host consistency.
 
+GPRs and BEAR are save and restores in the asm functions. The other
+register are handled in within C code. Access registers are handled in a
+later patch and SVEs will be handled when they are introduced in a
+future series. Most arm64 registers are handled by a satellite block
+called save_area. Some registers, frequently used by hypervisors, are
+placed into the SAE control block itself.
+
+Co-developed-by: Andreas Grapentin <gra@linux.ibm.com>
+Signed-off-by: Andreas Grapentin <gra@linux.ibm.com>
+Co-developed-by: Nina Schoetterl-Glausch <nsg@linux.ibm.com>
+Signed-off-by: Nina Schoetterl-Glausch <nsg@linux.ibm.com>
 Signed-off-by: Steffen Eiden <seiden@linux.ibm.com>
 ---
- arch/s390/include/asm/kvm_emulate.h | 131 ++++++++++++++++++++++++++++
- arch/s390/include/asm/kvm_mmu.h     |  12 +++
- arch/s390/include/asm/kvm_nested.h  |  13 +++
- arch/s390/kvm/arm64/handle_exit.c   |  50 +++++++++++
- arch/s390/kvm/arm64/inject_fault.c  |  21 +++++
- 5 files changed, 227 insertions(+)
- create mode 100644 arch/s390/include/asm/kvm_emulate.h
- create mode 100644 arch/s390/include/asm/kvm_mmu.h
- create mode 100644 arch/s390/include/asm/kvm_nested.h
- create mode 100644 arch/s390/kvm/arm64/handle_exit.c
- create mode 100644 arch/s390/kvm/arm64/inject_fault.c
+ arch/s390/include/asm/asm-prototypes.h       |   1 +
+ arch/s390/include/asm/kvm_host_arm64_types.h | 129 +++++++++++++++++++
+ arch/s390/include/asm/sae.h                  |  56 ++++++++
+ arch/s390/include/asm/stacktrace.h           |   5 +
+ arch/s390/kernel/asm-offsets.c               |   1 +
+ arch/s390/kernel/entry.S                     |  25 ++++
+ arch/s390/tools/opcodes.txt                  |   3 +
+ 7 files changed, 220 insertions(+)
+ create mode 100644 arch/s390/include/asm/kvm_host_arm64_types.h
+ create mode 100644 arch/s390/include/asm/sae.h
 
-diff --git a/arch/s390/include/asm/kvm_emulate.h b/arch/s390/include/asm/kvm_emulate.h
+diff --git a/arch/s390/include/asm/asm-prototypes.h b/arch/s390/include/asm/asm-prototypes.h
+index 7bd1801cf241..2bf4b52f4d2d 100644
+--- a/arch/s390/include/asm/asm-prototypes.h
++++ b/arch/s390/include/asm/asm-prototypes.h
+@@ -6,6 +6,7 @@
+ #include <asm/bug.h>
+ #include <asm/fpu.h>
+ #include <asm/nospec-branch.h>
++#include <asm/sae.h>
+ #include <asm-generic/asm-prototypes.h>
+ 
+ __int128_t __ashlti3(__int128_t a, int b);
+diff --git a/arch/s390/include/asm/kvm_host_arm64_types.h b/arch/s390/include/asm/kvm_host_arm64_types.h
 new file mode 100644
-index 000000000000..93b9e777b51e
+index 000000000000..3882d5462a05
 --- /dev/null
-+++ b/arch/s390/include/asm/kvm_emulate.h
-@@ -0,0 +1,131 @@
++++ b/arch/s390/include/asm/kvm_host_arm64_types.h
+@@ -0,0 +1,129 @@
 +/* SPDX-License-Identifier: GPL-2.0 */
-+/*
-+ * Emulation functionality for arm64 guests.
-+ */
++#ifndef ASM_KVM_HOST_ARM64_TYPES_H
++#define ASM_KVM_HOST_ARM64_TYPES_H
 +
-+#ifndef __S390_ARM64_KVM_EMULATE_H__
-+#define __S390_ARM64_KVM_EMULATE_H__
-+
++#include <linux/types.h>
++#include <linux/kvm_types.h>
++#include <linux/compiler_attributes.h>
++#include <asm/page.h>
 +#include <asm/fault.h>
-+#include <asm/ptrace.h>
-+#include <linux/kvm_host.h>
 +
-+#include <kvm/arm64/kvm_arm.h>
-+#include <kvm/arm64/kvm_emulate.h>
++struct kvm_sae_block {
++	u64	_0000[16];		/* 0x0000 */
++#define SAE_ICPTR_SPURIOUS			0x00
++#define SAE_ICPTR_VALIDITY			0x01
++#define SAE_ICPTR_HOST_ACCESS_EXCEPTION		0x02
++#define SAE_ICPTR_SYNCHRONOUS_EXCEPTION		0x03
++#define SAE_ICPTR_TIMER				0x04
++#define SAE_ICPTR_PE_INTERCOMM			0x05
++#define SAE_ICPTR_GUEST_ADDRESS_SIZE		0x06
++#define SAE_ICPTR_STOP				0x07
++#define SAE_ICPTR_SYSTEM_REGISTER		0x08
++#define SAE_ICPTR_PMU				0x09
++#define SAE_ICPTR_MAINTENANCE			0x0a
++	u8	icptr;			/* 0x0080 */
++	u8	_0081[7];		/* 0x0081 */
++	u64	scad;			/* 0x0088 */
++	u64	_0090[16];		/* 0x00b0 */
++	u32	cntp_ctl;		/* 0x0110 */
++	u32	cntv_ctl;		/* 0x0114 */
++	u8	irq_ctl;		/* 0x0118 */
++	u8	_0119[7];		/* 0x0119 */
++	struct {
++		u64	ich_hcr_el2;	/* 0x0120 */
++		u64	ich_vmcr_el2;	/* 0x0128 */
++		u64	ich_ap0r0_el2;	/* 0x0130 */
++		u64	ich_ap1r0_el2;	/* 0x0138 */
++		u64	_0140[2];	/* 0x0140 */
++		u64	ich_lrn_el2[4];	/* 0x0150 */
++		u64	_0170[4];	/* 0x0170 */
++	} ic_regs;
++	u64	_0190[12];		/* 0x0190 */
++	u64	contextidr_el1;		/* 0x01f0 */
++	u32	wip;			/* 0x01f8 */
++	u32	_01fc;			/* 0x01fc */
++#define SAE_SD_FORMAT_0                 0x00
++	u8	sdf;			/* 0x0200  */
++	u8	_0201[7];		/* 0x0201  */
++	u64	mso;			/* 0x0208  */
++	u64	msl;			/* 0x0210  */
++	u64	hbasce;			/* 0x0218  */
++	u64	_0220;			/* 0x0220  */
++	u64	gpto;			/* 0x0228  */
++	u64	ic;			/* 0x0230  */
++	u64	ec;			/* 0x0238  */
++	u64	save_area;		/* 0x0240  */
++	u64	_0248[7];		/* 0x0248  */
++	u8	_0280[6];		/* 0x0280  */
++	u16	lrcpua;			/* 0x0286  */
++	u64	pstate;			/* 0x0288  */
++	u64	pc;			/* 0x0290  */
++	u64	sp_el0;			/* 0x0298  */
++	u64	sp_el1;			/* 0x02a0  */
++	u64	_02a8;			/* 0x02a8  */
++	u64	fpcr;			/* 0x02b0  */
++	u64	fpsr;			/* 0x02b8  */
++	u16	sve_pregs[16];		/* 0x02c0  */
++	u16	sve_ffr;		/* 0x02e0  */
++	u8	_02e2[6];		/* 0x02e2  */
++	u64	_02e8[3];		/* 0x02e8  */
 +
-+static __always_inline unsigned long *vcpu_pc(const struct kvm_vcpu *vcpu)
-+{
-+	return (unsigned long *)&vcpu->arch.sae_block.pc;
-+}
++	u64	gpr[31];		/* 0x0300  */
++	u64	_03f8;			/* 0x03f8  */
 +
-+static __always_inline unsigned long *vcpu_cpsr(const struct kvm_vcpu *vcpu)
-+{
-+	return (unsigned long *)&vcpu->arch.sae_block.pstate;
-+}
++	union {
++		u64	icptd[8];		/* 0x0400 */
++		/* validity-interception reason; icptr 0x01 */
++#define SAE_VIR_UNKNOWN		0x00
++#define SAE_VIR_UNSUPP_FORMAT	0x01
++#define SAE_VIR_MSO_BOUNDS	0x02
++#define SAE_VIR_MSLA		0x03
++#define SAE_VIR_MGPAS		0x04
++#define SAE_VIR_INVAL_SYSREG	0x05
++#define SAE_VIR_HOST_CONTROL	0x06
++#define SAE_VIR_SCA		0x07
++#define SAE_VIR_MSO_ALIGN	0x08
++#define SAE_VIR_HLC		0x09
++#define SAE_VIR_IRPTC		0x0a
++		u16 vir;			/* 0x0400 */
++		/* host access interception details; icptr 0x02 */
++		struct {
++			u64		esr_elz;	/* 0x0400 */
++			u8		_0408[6];	/* 0x0408 */
++			u16		pic;		/* 0x040e */
++			union teid	teid;		/* 0x0410 */
++			gva_t		far_elz;	/* 0x0418 */
++			gva_t		vaddr;		/* 0x0420 */
++			u64		suppl;		/* 0x0428 */
++			u8		gltl;		/* 0x0430 */
++			u8		_0431[7];	/* 0x0431 */
++			u64		_0438;		/* 0x0438 */
++		} hai;
++		/* exception-interception details; icptr 0x03 */
++		struct {
++			u64	esr_elz;		/* 0x0400 */
++			u64	_0408[2];		/* 0x0408 */
++			gva_t	far_elz;		/* 0x0418 */
++		} trap;
++		/* timer-interception reason; icptr 0x04 */
++#define SAE_IR_TIMER_ID_VIRT		BIT(6)
++#define SAE_IR_TIMER_ID_PHYS		BIT(7)
++		u8	tir;			/* 0x0400 */
++	};
++	u64	_0440[376];			/* 0x0440 */
++} __packed __aligned(PAGE_SIZE);
++static_assert(sizeof(struct kvm_sae_block) == PAGE_SIZE);
 +
-+static __always_inline unsigned long *vcpu_sp_el0(const struct kvm_vcpu *vcpu)
-+{
-+	return (unsigned long *)&vcpu->arch.sae_block.sp_el0;
-+}
++struct kvm_sae_save_area {
++#define SAE_SAVE_AREA_FORMAT_0	0x00
++	u8	saf;		/* 0x0000 */
++	u8	_0001[5];	/* 0x0001 */
++#define SAE_SAS_VALID		BIT(0)
++	u16	sas;		/* 0x0006 */
++	u64	sdo;		/* 0x0008 */
++	u64	_0010[2];	/* 0x0010 */
++	u64	regs[508];	/* 0x0020 */
++} __packed __aligned(PAGE_SIZE);
++static_assert(sizeof(struct kvm_sae_save_area) == PAGE_SIZE);
 +
-+static __always_inline bool vcpu_mode_is_32bit(const struct kvm_vcpu *vcpu)
-+{
-+	return false;
-+}
-+
-+static __always_inline u64 kvm_vcpu_get_esr(const struct kvm_vcpu *vcpu)
-+{
-+	return vcpu->arch.sae_block.hai.esr_elz;
-+}
-+
-+static __always_inline unsigned long kvm_vcpu_get_hfar(const struct kvm_vcpu *vcpu)
-+{
-+	return vcpu->arch.sae_block.hai.far_elz;
-+}
-+
-+static __always_inline phys_addr_t kvm_vcpu_get_fault_ipa(const struct kvm_vcpu *vcpu)
-+{
-+	return vcpu->arch.sae_block.hai.teid.addr * PAGE_SIZE;
-+}
-+
-+static inline u16 kvm_vcpu_fault_pic(const struct kvm_vcpu *vcpu)
-+{
-+	return vcpu->arch.sae_block.hai.pic & PGM_INT_CODE_MASK;
-+}
-+
-+/* Should be unreachable, arm64 on s390 does not claim KVM_CAP_ARM_NISV_TO_USER*/
-+static inline unsigned long kvm_vcpu_dabt_iss_nisv_sanitized(const struct kvm_vcpu *vcpu)
-+{
-+	return kvm_vcpu_get_esr(vcpu) & (ESR_ELx_CM | ESR_ELx_WNR);
-+}
-+
-+static __always_inline
-+bool kvm_vcpu_trap_is_permission_fault(const struct kvm_vcpu *vcpu)
-+{
-+	return kvm_vcpu_fault_pic(vcpu) == PGM_PROTECTION;
-+}
-+
-+static __always_inline bool kvm_condition_valid(const struct kvm_vcpu *vcpu)
-+{
-+	return true;
-+}
-+
-+static __always_inline bool vcpu_el1_is_32bit(struct kvm_vcpu *vcpu)
-+{
-+	return false;
-+}
-+
-+static inline void vcpu_reset_hcr(struct kvm_vcpu *vcpu)
-+{
-+	vcpu->arch.hcr_elz = HCR_E2H | HCR_RW | HCR_AMO | HCR_IMO | HCR_FMO |
-+			     HCR_PTW;
-+	/* traps */
-+	vcpu->arch.hcr_elz |= HCR_TSC | HCR_TID1 | HCR_TID2 | HCR_TID3 |
-+			      HCR_TID4 | HCR_TID5 | HCR_TIDCP;
-+}
-+
-+static inline unsigned long vcpu_get_vsesr(struct kvm_vcpu *vcpu)
-+{
-+	WARN(true, "not implemented, just feat RAS");
-+
-+	return 0L;
-+}
-+
-+static inline void vcpu_set_vsesr(struct kvm_vcpu *vcpu, u64 vsesr)
-+{
-+	WARN(true, "not implemented, just feat RAS");
-+}
-+
-+static inline bool vcpu_el2_tge_is_set(const struct kvm_vcpu *vcpu)
-+{
-+	return false;
-+}
-+
-+static inline bool kvm_vcpu_is_be(struct kvm_vcpu *vcpu)
-+{
-+	return false;
-+}
-+
-+static inline int kvm_vcpu_abt_gltl(struct kvm_vcpu *vcpu)
-+{
-+	return vcpu->arch.sae_block.hai.gltl;
-+}
-+
-+static inline bool is_hyp_ctxt(const struct kvm_vcpu *vcpu)
-+{
-+	return false;
-+}
-+
-+static inline bool is_nested_ctxt(struct kvm_vcpu *vcpu)
-+{
-+	return false;
-+}
-+
-+static inline bool vcpu_mode_priv(const struct kvm_vcpu *vcpu)
-+{
-+	u32 mode = *vcpu_cpsr(vcpu) & PSR_MODE_MASK;
-+
-+	return mode != PSR_MODE_EL0t;
-+}
-+
-+#endif /* __S390_ARM64_KVM_EMULATE_H__ */
-diff --git a/arch/s390/include/asm/kvm_mmu.h b/arch/s390/include/asm/kvm_mmu.h
++#endif /* ASM_KVM_HOST_ARM64_TYPES_H */
+diff --git a/arch/s390/include/asm/sae.h b/arch/s390/include/asm/sae.h
 new file mode 100644
-index 000000000000..ac354fd5bac9
+index 000000000000..fe010a1a7729
 --- /dev/null
-+++ b/arch/s390/include/asm/kvm_mmu.h
-@@ -0,0 +1,12 @@
++++ b/arch/s390/include/asm/sae.h
+@@ -0,0 +1,56 @@
 +/* SPDX-License-Identifier: GPL-2.0 */
-+/*
-+ * KVM MMU for arm64 guests.
-+ */
-+#ifndef __S390_ARM64_KVM_MMU_H__
-+#define __S390_ARM64_KVM_MMU_H__
++#ifndef __ASM_S390_SAE_H
++#define __ASM_S390_SAE_H
 +
-+#include <linux/kvm_host.h>
++#include "linux/linkage.h"
++#include <linux/types.h>
 +
-+#include <kvm/arm64/kvm_mmu.h>
++/* defined in arch/s390/kernel/entry.S */
++asmlinkage int __sae64a(phys_addr_t sae_block_phys);
 +
-+#endif /* __S390_ARM64_KVM_MMU_H__ */
-diff --git a/arch/s390/include/asm/kvm_nested.h b/arch/s390/include/asm/kvm_nested.h
-new file mode 100644
-index 000000000000..7158932e718b
---- /dev/null
-+++ b/arch/s390/include/asm/kvm_nested.h
-@@ -0,0 +1,13 @@
-+/* SPDX-License-Identifier: GPL-2.0 */
-+/*
-+ * Nested KVM for arm64 guests. (Not supported by s390)
-+ */
-+#ifndef ASM_KVM_NESTED_H
-+#define ASM_KVM_NESTED_H
-+
-+static inline bool vcpu_has_nv(const struct kvm_vcpu *vcpu)
-+{
-+	return false;
-+}
-+
-+#endif /* ASM_KVM_NESTED_H */
-diff --git a/arch/s390/kvm/arm64/handle_exit.c b/arch/s390/kvm/arm64/handle_exit.c
-new file mode 100644
-index 000000000000..89933a604876
---- /dev/null
-+++ b/arch/s390/kvm/arm64/handle_exit.c
-@@ -0,0 +1,50 @@
-+// SPDX-License-Identifier: GPL-2.0
-+#include <linux/kvm_host.h>
-+
-+#include <asm/esr.h>
-+#include <asm/kvm_emulate.h>
-+
-+#include <kvm/arm64/handle_exit.h>
-+
-+#define PSCI_0_2_FN_SYSTEM_OFF		0x84000008
-+#define PSCI_RET_NOT_SUPPORTED		-1
-+#define PSCI_RET_INTERNAL_FAILURE	-6
-+/*
-+ * Temporary smc/hvc handler. Non-compliant implementation (features missing).
-+ * Implements only system off so that test programs are able to end their execution
-+ */
-+static int kvm_smccc_call_handler(struct kvm_vcpu *vcpu)
-+{
-+	u32 func_id = vcpu_get_reg(vcpu, 0);
-+	u64 val = PSCI_RET_NOT_SUPPORTED;
-+	int ret = 1;
-+
-+	if (func_id == PSCI_0_2_FN_SYSTEM_OFF) {
-+		spin_lock(&vcpu->arch.mp_state_lock);
-+		WRITE_ONCE(vcpu->arch.mp_state.mp_state, KVM_MP_STATE_STOPPED);
-+		spin_unlock(&vcpu->arch.mp_state_lock);
-+		kvm_make_all_cpus_request(vcpu->kvm, KVM_REQ_SLEEP);
-+		memset(&vcpu->run->system_event, 0,
-+		       sizeof(vcpu->run->system_event));
-+		vcpu->run->system_event.type = KVM_SYSTEM_EVENT_SHUTDOWN;
-+		vcpu->run->system_event.ndata = 1;
-+		vcpu->run->system_event.data[0] = 0;
-+		vcpu->run->exit_reason = KVM_EXIT_SYSTEM_EVENT;
-+		val = PSCI_RET_INTERNAL_FAILURE;
-+		ret = 0;
-+	}
-+	vcpu_set_reg(vcpu, 0, val);
-+
-+	return ret;
-+}
-+
-+static int handle_hvc(struct kvm_vcpu *vcpu)
-+{
-+	vcpu->stat.hvc_exit_stat++;
-+	return kvm_smccc_call_handler(vcpu);
-+}
-+
-+exit_handle_fn arm_exit_handlers[] = {
-+	[0 ... ESR_ELx_EC_MAX]	= kvm_handle_unknown_ec,
-+	[ESR_ELx_EC_HVC64]	= handle_hvc,
-+};
-diff --git a/arch/s390/kvm/arm64/inject_fault.c b/arch/s390/kvm/arm64/inject_fault.c
-new file mode 100644
-index 000000000000..650c041efde2
---- /dev/null
-+++ b/arch/s390/kvm/arm64/inject_fault.c
-@@ -0,0 +1,21 @@
-+// SPDX-License-Identifier: GPL-2.0
-+
-+#include <asm/kvm_emulate.h>
++#ifndef __ASSEMBLER__
++#include <linux/io.h>
++#include <asm/kvm_host_arm64_types.h>
 +
 +/**
-+ * kvm_inject_undefined - inject an undefined instruction into the guest
-+ * @vcpu: The vCPU in which to inject the exception
-+ *
-+ * It is assumed that this code is called from the VCPU thread and that the
-+ * VCPU therefore is not currently executing guest code.
++ * __sae64a() - Start Arm Execution
 + */
-+void kvm_inject_undefined(struct kvm_vcpu *vcpu)
++static inline void sae64a(struct kvm_sae_block *sae_block)
 +{
-+	/* Stub until s390 supports arm64 sysregs TODO sysregs*/
++	__sae64a(virt_to_phys(sae_block));
 +}
 +
-+int kvm_inject_sea(struct kvm_vcpu *vcpu, bool iabt, u64 addr)
++/**
++ * stiasrm() - STore and Invalidate Arm System Register Multiple
++ * @save_area: Pointer to SAE save area
++ *
++ * Store the guest system register to the save area.
++ * The values in the guest are not valid anymore..
++ */
++static __always_inline void stiasrm(struct kvm_sae_save_area *save_area)
 +{
-+	/* Stub until s390 supports arm64 sysregs TODO sysregs*/
-+	return 1;
++	asm volatile(
++		"	.insn	rre,0xb9a70000,%[r1],0\n"
++		: "+m"(*save_area)
++		: [r1] "a"(save_area)
++	);
 +}
++
++/**
++ * lasrm() - Load Arm System Register Multiple
++ *
++ * @save_area: Pointer to SAE save area
++ *
++ * Load the system registers from save_area into the guest.
++ */
++static __always_inline void lasrm(struct kvm_sae_save_area *save_area)
++{
++	asm volatile(
++		"	.insn	rre,0xb9a60000,%[r1],0\n"
++		:
++		: "m"(*save_area), [r1] "a"(save_area)
++	);
++}
++
++#endif /* !__ASSEMBLER__ */
++#endif /* __ASM_S390_SAE_H */
+diff --git a/arch/s390/include/asm/stacktrace.h b/arch/s390/include/asm/stacktrace.h
+index ac3606c3babe..2d332d7c8145 100644
+--- a/arch/s390/include/asm/stacktrace.h
++++ b/arch/s390/include/asm/stacktrace.h
+@@ -59,6 +59,7 @@ static inline bool on_stack(struct stack_info *info,
+ struct stack_frame {
+ 	union {
+ 		unsigned long empty[9];
++		/* SIE stack frame */
+ 		struct {
+ 			unsigned long sie_control_block;
+ 			unsigned long sie_savearea;
+@@ -68,6 +69,10 @@ struct stack_frame {
+ 			unsigned long sie_guest_asce;
+ 			unsigned long sie_irq;
+ 		};
++		/* SAE stack frame */
++		struct {
++			unsigned long sae_bear;
++		};
+ 	};
+ 	unsigned long gprs[10];
+ 	unsigned long back_chain;
+diff --git a/arch/s390/kernel/asm-offsets.c b/arch/s390/kernel/asm-offsets.c
+index 8619adf91cdb..8ef992734bf8 100644
+--- a/arch/s390/kernel/asm-offsets.c
++++ b/arch/s390/kernel/asm-offsets.c
+@@ -68,6 +68,7 @@ int main(void)
+ 	OFFSET(__SF_SIE_CONTROL_PHYS, stack_frame, sie_control_block_phys);
+ 	OFFSET(__SF_SIE_GUEST_ASCE, stack_frame, sie_guest_asce);
+ 	OFFSET(__SF_SIE_IRQ, stack_frame, sie_irq);
++	OFFSET(__SF_SAE_BEAR, stack_frame, sae_bear);
+ 	DEFINE(STACK_FRAME_OVERHEAD, sizeof(struct stack_frame));
+ 	BLANK();
+ 	OFFSET(__SFUSER_BACKCHAIN, stack_frame_user, back_chain);
+diff --git a/arch/s390/kernel/entry.S b/arch/s390/kernel/entry.S
+index cd4fbdec67a7..d44daedcd47b 100644
+--- a/arch/s390/kernel/entry.S
++++ b/arch/s390/kernel/entry.S
+@@ -244,6 +244,31 @@ EXPORT_SYMBOL(__sie64a)
+ EXPORT_SYMBOL(sie_exit)
+ #endif
+ 
++#if IS_ENABLED(CONFIG_KVM_ARM64)
++/*
++ * __sae64a calling convention:
++ * %r2 pointer to sae control block physical address
++ */
++SYM_FUNC_START(__sae64a)
++	stmg	%r6,%r14,__SF_GPRS(%r15)	# store kernel registers
++	STBEAR	__SF_SAE_BEAR(%r15)		# save breaking event address register
++	.insn	rre,0xb9a50000,%r2,0		# Start Arm Execution
++# Let the next instruction be NOP to avoid triggering a machine check
++# and handling it in a guest as result of the instruction execution.
++	nopr	7
++	LBEAR	__SF_SAE_BEAR(%r15)		# restore breaking event address register
++	lmg	%r6,%r14,__SF_GPRS(%r15)	# restore kernel registers
++	xgr	%r0,%r0				# clear guest registers to
++	xgr	%r1,%r1				# prevent speculative use
++	xgr	%r3,%r3
++	xgr	%r2,%r2
++	xgr	%r4,%r4
++	xgr	%r5,%r5
++	BR_EX	%r14
++SYM_FUNC_END(__sae64a)
++EXPORT_SYMBOL(__sae64a)
++#endif
++
+ /*
+  * SVC interrupt handler routine. System calls are synchronous events and
+  * are entered with interrupts disabled.
+diff --git a/arch/s390/tools/opcodes.txt b/arch/s390/tools/opcodes.txt
+index def2659f6602..0e4773c94af0 100644
+--- a/arch/s390/tools/opcodes.txt
++++ b/arch/s390/tools/opcodes.txt
+@@ -594,6 +594,9 @@ b9a0	clp	RRF_U0RR
+ b9a1	tpei	RRE_RR
+ b9a2	ptf	RRE_R0
+ b9a4	uvc	RRF_URR
++b9a5	sae	RRE_R0
++b9a6	lasrm	RRE_R0
++b9a7	stiasrm	RRE_R0
+ b9aa	lptea	RRF_RURR2
+ b9ab	essa	RRF_U0RR
+ b9ac	irbm	RRE_RR
 -- 
 2.53.0
 
