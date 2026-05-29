@@ -4,99 +4,95 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 0C4F1CD6E4A
-	for <linux-arm-kernel@archiver.kernel.org>; Fri, 29 May 2026 13:45:52 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 3E919CD4F54
+	for <linux-arm-kernel@archiver.kernel.org>; Fri, 29 May 2026 13:49:08 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:MIME-Version:Date:Message-Id:Subject:References:In-Reply-To:Cc:
-	To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=/hmESmRQ7oEDRaIT7qrXfWDnCEYcDZdHNx/MwGQONMc=; b=ZXb01BZMGdCV0Px61IsZwzIPLY
-	HEyxGOHCjqJgcYuO1b9rs+X2qCZaEiuBbtrndLmjgb+Sdx3/0atht+Pqb/0aAZvmzy4NEeJRcdwh/
-	FCjeUZgRxXfHMgtU/+CI+WRBI0+CV75GhEl12a3d0HmdpS1fboCfBYvn28RY3m9bEPB+iHFL8V2qP
-	Mzh9VfDI5JPVNUJtABPdaAESQAh6TACiPy0xuQbKIxjmhF5vm4wIIKMgu+yyTqWXACUTYPvbkWtBp
-	wCdn8eIJmagoJIbpHwPfToQL8bMb8haTih54SqX9DHymCCV2NiEhEh7pxfm6rYb8tO27bQfFrR9HI
-	lL5P0efw==;
+	MIME-Version:Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-Type:
+	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
+	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=rMxhIukJleY41vOIZ+SD59yfY87aAB1ancR/PBsfkqk=; b=Zajan16jZ+8d7FhWOXbH0ogpt7
+	uZOgDTiaAynZC6enWcAHdv2++maW15RTqSGl56qEmsPe2dvVKk1mIwj61w/GLR0cWDYb2Ut4+7FUZ
+	cIf3bvCRK+SPWuKelT+M6+YWpP5lQgJ6bE3MoQWAET8MAFwFCqtobco79S10oND6W8cwdQ8qQWfj3
+	gO09zd1xnWezeuXGVzl7AjHlWM5Wsy2eprw/WRtY1b6myvRBK6PBgzjUJsjpGlQ5CN744CpumGQTB
+	OcO5Ovc6n5mzSmtpKh1PDmtQEy3vmZKcVjye4mTWNnZUy0q94h7xc3M7yBbp/6QKGv41Cz/BzBu/v
+	iDV1IajA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wSxWy-00000007T7i-0wMn;
-	Fri, 29 May 2026 13:45:44 +0000
-Received: from mail-wm1-x333.google.com ([2a00:1450:4864:20::333])
+	id 1wSxa8-00000007TGl-2kCS;
+	Fri, 29 May 2026 13:49:00 +0000
+Received: from mail-wm1-x331.google.com ([2a00:1450:4864:20::331])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wSxWv-00000007T77-3Q5W
+	id 1wSxa5-00000007TG6-3Sdf
 	for linux-arm-kernel@lists.infradead.org;
-	Fri, 29 May 2026 13:45:43 +0000
-Received: by mail-wm1-x333.google.com with SMTP id 5b1f17b1804b1-4891c00e7aeso94701425e9.2
-        for <linux-arm-kernel@lists.infradead.org>; Fri, 29 May 2026 06:45:41 -0700 (PDT)
+	Fri, 29 May 2026 13:48:59 +0000
+Received: by mail-wm1-x331.google.com with SMTP id 5b1f17b1804b1-4905e190c71so66718825e9.3
+        for <linux-arm-kernel@lists.infradead.org>; Fri, 29 May 2026 06:48:57 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=linaro.org; s=google; t=1780062340; x=1780667140; darn=lists.infradead.org;
-        h=content-transfer-encoding:mime-version:date:message-id:subject
-         :references:in-reply-to:cc:to:from:from:to:cc:subject:date
-         :message-id:reply-to;
-        bh=/hmESmRQ7oEDRaIT7qrXfWDnCEYcDZdHNx/MwGQONMc=;
-        b=YqeoLLmu3YCfpX96kAfyvN2a0fGOjmoVVbmZrnZK11xDgdmCSRGLtJNkVtYNO+QJfQ
-         LdFSpOV2Z7g1AIJnLaKJOdlYqNHZ01gN+dD0MjDekzIRqe7RBQ2z7Ve7TUSAQYAY19zj
-         ypWDc9Kkuad/e5+L7i/LCDUCA2c+89gxH6MR3S2mIcufjZNr+R2EueCyv2tO3NLAEYw7
-         i5MLGT4Ws+XyBCB9Vj+1w36Gve42tJhxXan/xA4o52PIAeJbsToAdz2f5MB17PrtKDuf
-         rc4C89bpncL0B1+lZKwsKPqxab/GnR7dpg8sLPSQopxWJLTSSOvfzCD3Xyigk6/6ZJYe
-         j+sw==
+        d=gmail.com; s=20251104; t=1780062536; x=1780667336; darn=lists.infradead.org;
+        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
+         :to:from:from:to:cc:subject:date:message-id:reply-to;
+        bh=rMxhIukJleY41vOIZ+SD59yfY87aAB1ancR/PBsfkqk=;
+        b=NY0qnjGk1rpG3XWsKW7468Ze7MJOhxlxcU/Qkwk9kx6xWJsecDEgLu9qWlPrUyr9Bx
+         VMR4Nii1XpIcXr1sy/gyZ733hQyTAmNpCsbaZB9EInZZ46qTkuBAeS+t4v++/knXreUJ
+         RvYqgTsgPhq+Mh314uJcv6tTu0ApGRkipiqoRmYX10vd4pfNaHfrj6kElFG7tYyQe2BY
+         8VT7XbM1MvyFA5mRtSZWy/+z+6UKV01rOuJ5T8oIjh5dc8dMjUr9fmjLNbQYOhoXXAYH
+         KLzqBgM/G/TCWL7D9g/pTq9UAZXtIyECQdbMNlkuSfDmalIFygGbykue5O5zdlYGPC2y
+         gkcw==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20251104; t=1780062340; x=1780667140;
-        h=content-transfer-encoding:mime-version:date:message-id:subject
-         :references:in-reply-to:cc:to:from:x-gm-gg:x-gm-message-state:from
-         :to:cc:subject:date:message-id:reply-to;
-        bh=/hmESmRQ7oEDRaIT7qrXfWDnCEYcDZdHNx/MwGQONMc=;
-        b=KyBdODWjML5CP/rSvNkTq6xh4egm/XSUxNxjLS3VBajs92reiQ+7eKcVZp6iPxmOoa
-         l83CLBZNUEZeYARyC2NUcOh43CE+FRMdI9QdDVBRpn3j+bNGK0nszJXQe/eE03iMskCX
-         KH2hNkRj/XATDYoMfI6Uh1fwCNnzSDKkl3hFg8JmSALSiVEkx7PqOo/eg/DfevmjhH44
-         uBbACw8SnfMVw/hFcyG8iXCNouEa5+YXoZNEFvQODOj1tx1BAvUnZhjvO+gleIr5dkXX
-         aY24lhe/5TMrDaQn7Wg/haO4x0TbMqso1QRR6NDqXuNoXBApj62nKhulGJmGdumVvVXK
-         Q4dg==
-X-Forwarded-Encrypted: i=1; AFNElJ+906Sir9j4DEtJeWui+FEp/i54FwMYy0e78TrpegdAUYfcLbQZXt4z8zcbQioKbdpjyPLTo6OdFKxZaPwFp6iI@lists.infradead.org
-X-Gm-Message-State: AOJu0YyP0/JCRUkBHARj8kPeugE1uoXV00A99mbaXUlWjGa1cayo9QHV
-	rq72I68BILvRpk2UBE+hpV+YC6akLo5UVi0mO2M5Cc0cdAxpR1rF1pUFcE+QDxbgtLM=
-X-Gm-Gg: Acq92OGfQmxM9oIc1eD6icvhwtf5O/KT/VAFQ8VZoIUJb/1F4M81snOv0Fv7YZajXg6
-	2fSuYZqVQeSvo/CNCfSt+k8ZOYxj8IqzRceO1TEUUaCqLQVs9HBmYOjFGG3Zp0Tb5Epk20iHlPS
-	TnngkZsdIIzmVZSaCamNNTFarJtisY6Oo8BsFMJh8c+tOhv9rOqyOPCdO5MVUGZ65xFxsFhHFT1
-	0PCCG0qAOJ9GvgkKTxII3ML1i9GzO2nozgSa7vCM0heBtCBlItkdiI5fmVkqW5wAernMxvKf/Oc
-	ZbOV74dRzL/pdqmJCawzWo0Pu+xJptUsqhFAl7Po0vwuHgtJgI8ra2Csf/vxK+qcMUzq3wvEBom
-	x3FFqVyQbtfbzxJsWhrwpiXFUHHWLB/p9CCZ8OPWfB4XBHRcJiIuBSl/5poY0jqYlPJcm3NsHi+
-	NydQRNs8Ca4sGZR9Z7fCU2EG7SF4f07fBYItrN3I5cWANFH8/wiBn8WkU=
-X-Received: by 2002:a05:600c:c0d1:10b0:490:5e2a:f924 with SMTP id 5b1f17b1804b1-4909c07755dmr41345005e9.7.1780062339885;
-        Fri, 29 May 2026 06:45:39 -0700 (PDT)
-Received: from arrakeen.starnux.net ([2a01:e0a:106d:1080:52eb:f6ff:feb3:451a])
-        by smtp.gmail.com with ESMTPSA id 5b1f17b1804b1-4909d6eb3adsm41387165e9.11.2026.05.29.06.45.38
+        d=1e100.net; s=20251104; t=1780062536; x=1780667336;
+        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
+         :to:from:x-gm-gg:x-gm-message-state:from:to:cc:subject:date
+         :message-id:reply-to;
+        bh=rMxhIukJleY41vOIZ+SD59yfY87aAB1ancR/PBsfkqk=;
+        b=JVqp5wJYLfbqFw2uS4NEj6SsXXv9YQMXqZR74WApbVMB8RQjCKDq7DOH+AeZf+2OU/
+         R8STRQMDGpa2RUPRO8eVNOIDQrcwtrDGfigNDNDCqfEz97xsc1ZKatT7C6mlJTIdnU7L
+         wJrFsUxfP/9g+voo7ITAFrS3r4If1v8Mzl8c9ZXhjScTGErlYuufFiVD+fH0leHz6FI2
+         nIaJbDkfflc8sAFWqUGOoGvsVxZ1ZQW/V3OZIARqF2Ggl9H6DeFMDngR6cTGTyXIkA49
+         OHckpIoH7xRMGgqYwmO2+kvshQiWdYfGrqxMEMd4VhLaeuHd8+WHyNm4dLuhVvcrYne9
+         Q1Lw==
+X-Forwarded-Encrypted: i=1; AFNElJ+fD0hocPKadYHfbR8cbZwgsmNU6SZiCZBePw1GTxLZM4niNeXjkhHe/HP4iTAmDaeM2IjWlooqWgP7P0sdernt@lists.infradead.org
+X-Gm-Message-State: AOJu0Yw+cidEEcWzngSydcSrRUbyQH16xT3srhSFCbFC01F+/zgc8HZ7
+	T5XHmwZ1Jf0MaZjj7jYhP5EJQJFOSp9tGskiDaC3KHn3sXolEt3cNASn
+X-Gm-Gg: Acq92OFRJ1/g0k9jPoAGKlUc7zIWIyRz1Y/nCvONkWwPYt4xUIXc4sBg2r7rqd6UOAz
+	hBCN1J5pgzmnpcaMA68v8dwi5h7zv7Ibf3W6L49qtMeic5zLBKkj3A765cGhvUsTsptYOLYn2Ms
+	aDQJVn8dmbtVafzHytsPmWcLPmbKIo3P9M6YEQlCzBTMWCxzWvi+fmL7/eDQ/yZkdBYUUdGqb9h
+	YkDDv49nCzP6jOQ3CJYhn4TC3y11E3VE/z/3VQk29C7O6PKYM3KlLG24nuns1S2IhF+ZSCaaoMi
+	iz7HN94PhVHVUg5gVPesBffZ3r5ULrd11+GWIiXqtl8c4draBA9NlHBiFq8XB1EwoDXOvGbBInb
+	V/BvIAuyoj5KsZ+WEz/RffLLD4BpxEDTwkqc2xLQIyOljOcnjVN1jq6E5/1313iVxBgSepwqrZF
+	whNOP4kkrY6RmeknV6kUXSdnx7//DAEJ6aZalOHmyt7L6NJ5AITe2FEL9jDCbhJJsFWUPQIGSc0
+	17Qi1RdLCS/YbBUdsMTyoQlLTYgY11DQ6uGwVORuw==
+X-Received: by 2002:a05:600c:a012:b0:490:9d5b:d721 with SMTP id 5b1f17b1804b1-4909d5bd98emr48239965e9.16.1780062535369;
+        Fri, 29 May 2026 06:48:55 -0700 (PDT)
+Received: from GLaDOS.lan (93-55-225-230.ip265.fastwebnet.it. [93.55.225.230])
+        by smtp.gmail.com with ESMTPSA id 5b1f17b1804b1-4909c152570sm20777125e9.9.2026.05.29.06.48.54
         (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Fri, 29 May 2026 06:45:39 -0700 (PDT)
-From: Neil Armstrong <neil.armstrong@linaro.org>
-To: Laurent Pinchart <laurent.pinchart@ideasonboard.com>, 
- Jessica Zhang <jesszhan0024@gmail.com>, David Airlie <airlied@gmail.com>, 
- Simona Vetter <simona@ffwll.ch>, 
- Maarten Lankhorst <maarten.lankhorst@linux.intel.com>, 
- Maxime Ripard <mripard@kernel.org>, Thomas Zimmermann <tzimmermann@suse.de>, 
- Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>, 
- Conor Dooley <conor+dt@kernel.org>, Nishanth Menon <nm@ti.com>, 
- Vignesh Raghavendra <vigneshr@ti.com>, Tero Kristo <kristo@kernel.org>, 
- Lad Prabhakar <prabhakar.mahadev-lad.rj@bp.renesas.com>, 
- Thierry Reding <thierry.reding@gmail.com>, Vitor Soares <ivitro@gmail.com>
-Cc: Vitor Soares <vitor.soares@toradex.com>, 
- dri-devel@lists.freedesktop.org, devicetree@vger.kernel.org, 
- linux-kernel@vger.kernel.org, linux-arm-kernel@lists.infradead.org
-In-Reply-To: <20260522161105.277519-13-ivitro@gmail.com>
-References: <20260522161105.277519-13-ivitro@gmail.com>
-Subject: Re: (subset) [PATCH v3 00/11] arm64: dts: ti: k3-am62-verdin: Add
- display and peripheral overlays
-Message-Id: <178006233854.3611686.1401419911890133047.b4-ty@b4>
-Date: Fri, 29 May 2026 15:45:38 +0200
+        Fri, 29 May 2026 06:48:54 -0700 (PDT)
+From: Stefano Radaelli <stefano.radaelli21@gmail.com>
+X-Google-Original-From: Stefano Radaelli <stefano.r@variscite.com>
+To: Frank Li <Frank.Li@nxp.com>,
+	linux-kernel@vger.kernel.org,
+	devicetree@vger.kernel.org,
+	imx@lists.linux.dev
+Cc: pierluigi.p@variscite.com,
+	Stefano Radaelli <stefano.r@variscite.com>,
+	Rob Herring <robh@kernel.org>,
+	Krzysztof Kozlowski <krzk+dt@kernel.org>,
+	Conor Dooley <conor+dt@kernel.org>,
+	Sascha Hauer <s.hauer@pengutronix.de>,
+	Pengutronix Kernel Team <kernel@pengutronix.de>,
+	Fabio Estevam <festevam@gmail.com>,
+	linux-arm-kernel@lists.infradead.org
+Subject: [PATCH v1 1/1] arm64: dts: imx91-var-som-symphony: fix RGB_SEL handling
+Date: Fri, 29 May 2026 15:48:50 +0200
+Message-ID: <20260529134850.22196-1-stefano.r@variscite.com>
+X-Mailer: git-send-email 2.47.3
 MIME-Version: 1.0
-Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: 7bit
-X-Mailer: b4 0.15.1
+Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260529_064541_868866_7DA637D0 
-X-CRM114-Status: UNSURE (   8.55  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20260529_064857_907470_C6E79B55 
+X-CRM114-Status: GOOD (  13.01  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -111,24 +107,64 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hi,
+From: Stefano Radaelli <stefano.r@variscite.com>
 
-On Fri, 22 May 2026 17:11:04 +0100, Vitor Soares wrote:
-> From: Vitor Soares <vitor.soares@toradex.com>
-> 
-> This series adds device tree overlays, expanding the hardware support for
-> the Toradex Verdin AM62 SoM. The overlays target displays, cameras, audio,
-> and peripherals available through Toradex carrier boards and the accessory
-> ecosystem.
-> 
-> [...]
+RGB_SEL is a board-level signal driven by the PCAL6408 GPIO expander on
+the Symphony carrier board.
 
-Thanks, Applied to https://gitlab.freedesktop.org/drm/misc/kernel.git (drm-misc-next)
+The signal needs to be driven high on the i.MX91 variant to keep the
+board in the expected display configuration. Move the handling of this
+line from a fixed regulator tied to the PCAL6408 supply to a GPIO hog on
+the correct GPIO expander.
 
-[03/11] dt-bindings: vendor-prefixes: Add Riverdi
-        https://gitlab.freedesktop.org/drm/misc/kernel/-/commit/3764568dd2e621850c8c2a34dd8a88096ae73e72
+Fixes: b3292129dcef ("arm64: dts: imx91-var-som: Add support for Variscite Symphony board")
+Signed-off-by: Stefano Radaelli <stefano.r@variscite.com>
+---
+ .../dts/freescale/imx91-var-som-symphony.dts     | 16 ++++++++--------
+ 1 file changed, 8 insertions(+), 8 deletions(-)
 
+diff --git a/arch/arm64/boot/dts/freescale/imx91-var-som-symphony.dts b/arch/arm64/boot/dts/freescale/imx91-var-som-symphony.dts
+index ac9fed58357e..c1e6c9978275 100644
+--- a/arch/arm64/boot/dts/freescale/imx91-var-som-symphony.dts
++++ b/arch/arm64/boot/dts/freescale/imx91-var-som-symphony.dts
+@@ -97,13 +97,6 @@ reg_fec_phy: regulator-fec-phy {
+ 		regulator-always-on;
+ 	};
+ 
+-	reg_rgb_sel: regulator-rgb-enable {
+-		compatible = "regulator-fixed";
+-		regulator-name = "RGBSEL";
+-		gpio = <&pca9534 7 GPIO_ACTIVE_HIGH>;
+-		enable-active-high;
+-	};
+-
+ 	reg_usdhc2_vmmc: regulator-usdhc2 {
+ 		compatible = "regulator-fixed";
+ 		regulator-name = "VSD_3V3";
+@@ -258,7 +251,6 @@ pca6408: gpio@21 {
+ 		#interrupt-cells = <2>;
+ 		interrupt-parent = <&gpio2>;
+ 		interrupts = <4 IRQ_TYPE_EDGE_FALLING>;
+-		vcc-supply = <&reg_rgb_sel>;
+ 		wakeup-source;
+ 
+ 		tpm-enable-hog {
+@@ -267,6 +259,14 @@ tpm-enable-hog {
+ 			output-high;
+ 			line-name = "tpm_en";
+ 		};
++
++		/* RGB_SEL */
++		lvds-brg-enable-hog {
++			gpio-hog;
++			gpios = <7 GPIO_ACTIVE_HIGH>;
++			output-high;
++			line-name = "lvds_brg_en";
++		};
+ 	};
+ 
+ 	/* USB Type-C Controller */
 -- 
-Neil
+2.47.3
 
 
