@@ -4,78 +4,70 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 15003CD6E49
-	for <linux-arm-kernel@archiver.kernel.org>; Fri, 29 May 2026 20:10:38 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 52918CD4F54
+	for <linux-arm-kernel@archiver.kernel.org>; Fri, 29 May 2026 20:31:24 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
 	Content-Type:Cc:To:Subject:Message-ID:Date:From:In-Reply-To:References:
 	MIME-Version:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=oQDqTDRzNTPwZsPjGf6RDDjOef9CQeyvOpIJfJ3OCq0=; b=JEkzAGU98YZVeyZsgGpHySofob
-	bvhP0RZpl1y40hyWVE2wkwtgl+h3qs9vxbFMR4JIVoIH+bc4rSYX59yqiZxwD6YO90CuV6lcmgQsd
-	Q/9043v57wb0wNcjbG5+5xHVT0z9fiYNq/tx5JokOGziBjc9G0eeORptfWoHeshjYGMM5IH2uDfnm
-	KIU0B/1lNuIY8UTvk3aqCo/Sc0ginvE9kI8bUYoz+l9JI9MkrC3/AtidoPJ267cPMb8pH5rh+1mtL
-	ZhoxLiD6gWTUQBwJj+Fx2HJMnU9QbyI22BTJAy2DFTyYmWTFZTk03B3565NC73dvMbmhVtToSB/Y2
-	micvr9sw==;
+	bh=flVuTYQMPE98WVvZ/bed+lF6Q3W4uYVMMxpgyqZY3FQ=; b=z4rcoWTV3VRV8yGbUZFTANtHIj
+	Ui67KS8zhJb6mWwb6YQOZ5XV/dFgLRQTyIKd1TfuDiA+opTR10ZuAT4ALMV5AFwNimT6MuOaZQF1K
+	MT6G4BaywDjMTXF/zGp5f9XR45WUDNdMkLJtSw8VBMmevtRFVLm/FCKHDcVhsOTLFA4fllK0O2BwM
+	OT1pxJK3Iv0n4gDR8wVhxBu6L2GlL5M+X8RsCWI2rhbB8ybZ07+IlVm+F7RaFd/uiXzx81gVOfofH
+	0y8iHjejaYzFKIdtSkNSLBMntVxXuCGS18APneyE2zfyKCm8dKclOTauePH7hsWoHEbSZtaFbcCZZ
+	3V4VNQeg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wT3XM-00000008Czb-2RM7;
-	Fri, 29 May 2026 20:10:32 +0000
+	id 1wT3rO-00000008Dx5-1CsD;
+	Fri, 29 May 2026 20:31:14 +0000
 Received: from tor.source.kernel.org ([172.105.4.254])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wT3XK-00000008CzV-40dH
+	id 1wT3rN-00000008Dwd-0ity
 	for linux-arm-kernel@lists.infradead.org;
-	Fri, 29 May 2026 20:10:31 +0000
+	Fri, 29 May 2026 20:31:13 +0000
 Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
-	by tor.source.kernel.org (Postfix) with ESMTP id 190BC605E3
-	for <linux-arm-kernel@lists.infradead.org>; Fri, 29 May 2026 20:10:30 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id C6F6C1F0089F
-	for <linux-arm-kernel@lists.infradead.org>; Fri, 29 May 2026 20:10:29 +0000 (UTC)
+	by tor.source.kernel.org (Postfix) with ESMTP id 510B6605DF
+	for <linux-arm-kernel@lists.infradead.org>; Fri, 29 May 2026 20:31:12 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 086571F0089F
+	for <linux-arm-kernel@lists.infradead.org>; Fri, 29 May 2026 20:31:11 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1780085429;
-	bh=oQDqTDRzNTPwZsPjGf6RDDjOef9CQeyvOpIJfJ3OCq0=;
+	s=k20260515; t=1780086672;
+	bh=flVuTYQMPE98WVvZ/bed+lF6Q3W4uYVMMxpgyqZY3FQ=;
 	h=References:In-Reply-To:From:Date:Subject:To:Cc;
-	b=Hr0FdYjpscSqOgX6XAS7vi179k5c+4IiLv3XINZ5NYNN/JqEKjhv2gt4CMAt0IP8Q
-	 1X/TM5PJg1e4ZlShrD6O/HNgq8RKlNw3hIzreEPnWWMwyMh68ZyyB/5kmoaWrmhgtc
-	 yV/JISHYI4ywXs67aBR/X40iPXIoyp3nMJl/EkUleFdZ5b4KR79Eht1vk7R2ZZvetH
-	 zUodYB54OTRDYsPIuMQA/Bkq1/tWkH/X5ozy/+6EBkvt8RPGNKIP+mWQ2Z4Q+1kfFg
-	 8i4rV9h4ezta4qtUiDt/8t5CZABtjhOCs3y71fFeHjpgNVCdrvugNroW64BRNhU31f
-	 X4mSFsNnslgKA==
-Received: by mail-lf1-f50.google.com with SMTP id 2adb3069b0e04-5aa0cf8bca3so13272443e87.0
-        for <linux-arm-kernel@lists.infradead.org>; Fri, 29 May 2026 13:10:29 -0700 (PDT)
-X-Forwarded-Encrypted: i=1; AFNElJ+r1sVNtM3UkgLUMXUW5dwV8iYtwEGtW7m/tRHe+MlYrsyU8vzYQ2k3rITUtXHz1hSDDLkoXB9svmfba3imKiWC@lists.infradead.org
-X-Gm-Message-State: AOJu0YxA/olX20jG5o7vsq7YBDmBMZG6po23EVggi9UlnC8XtuoIM9Sr
-	68jv0nO4nDLxEmPz3yKaCh1NbEzX8F+gTGEU/3r4BjHYN88IQ1OC/Z8CmiWjVesjeZ65wFXfYPW
-	k348bvy5WsavDms5t22jajQcC3ziDnvY=
-X-Received: by 2002:a05:6512:3d8f:b0:5a3:e7df:2396 with SMTP id
- 2adb3069b0e04-5aa607bc2admr441921e87.13.1780085428571; Fri, 29 May 2026
- 13:10:28 -0700 (PDT)
+	b=DzPGRoQRXxlO98kzFknnqbv66lXJDatBV8P/Lq4TYfX/dNnQJMZjv4WACrC0jbVPU
+	 zxkN3U0VJqrhcGuKfCjHhdaYxUFVgAR01hNVk2UkbxBDd0DYUzVBVAmHy1GVfcQ2HV
+	 rtY4oDMuklf3/2WvilxspzK8DMcoDlmOZWbpX/3Zwjh8boReF6r6477PqozAsJiRLc
+	 2Dy1vbj33sTW40HLvQh71b2bjgCrDCbWf1MuDhAOF1oH+eW9ah96R7uNucNZP1J47H
+	 z7JT7hh+hHdZfSHc+wk3OhCFdHuqc8kfVhmu+7cCLq9RZO9MZFFZsnp8xS0QjCRG9Z
+	 +RFiqrhPom70A==
+Received: by mail-lf1-f46.google.com with SMTP id 2adb3069b0e04-5aa5aba358dso1006675e87.2
+        for <linux-arm-kernel@lists.infradead.org>; Fri, 29 May 2026 13:31:11 -0700 (PDT)
+X-Forwarded-Encrypted: i=1; AFNElJ+E2/MBkGQYzh2f+fi8dWr6QQyvkOxEEP20am4ErXZDnsx1kHrL8A71JbO+VB4RgSM72f/XVLrTBgHXo9Jo0z90@lists.infradead.org
+X-Gm-Message-State: AOJu0YwfcqTTc2D3MBsLwPFoNzx7VjjUjCVt69VX1xLJSGLJHI85UcBn
+	o/YKIK1vjFeO+MGMmKce+sVdwFPlTPTwY0XCGuy72SKbeP3k6IRIzJ+CYJCrk9PfumdUaUNnSOZ
+	ff4LFJVCHTuKATt0S3WLEOe0CamIqQeo=
+X-Received: by 2002:a05:6512:3f07:b0:5a8:fbe0:bc53 with SMTP id
+ 2adb3069b0e04-5aa608ef062mr483883e87.24.1780086670800; Fri, 29 May 2026
+ 13:31:10 -0700 (PDT)
 MIME-Version: 1.0
-References: <20260525144629.498630-1-jerrysteve1101@gmail.com> <20260525144629.498630-4-jerrysteve1101@gmail.com>
-In-Reply-To: <20260525144629.498630-4-jerrysteve1101@gmail.com>
+References: <20260507-a9-pinctrl-v2-0-49774feff2ef@amlogic.com>
+ <CAD++jLmGr_UOja2yHjCHv7xRcGqit_TxKk7A5YzSoviicJrJUA@mail.gmail.com> <36cdfa84-1e83-4a44-a529-653d476778fd@amlogic.com>
+In-Reply-To: <36cdfa84-1e83-4a44-a529-653d476778fd@amlogic.com>
 From: Linus Walleij <linusw@kernel.org>
-Date: Fri, 29 May 2026 22:10:16 +0200
-X-Gmail-Original-Message-ID: <CAD++jL=v0fPeOmyN=rW8dqNiExogf2V4GN5jjJFJuMxA=i1rPA@mail.gmail.com>
-X-Gm-Features: AVHnY4KYuAdI5WTslUv2iX3q4rH-Di7FQSijsq0vHVgdtoE9bbcWaq0tBRNjUrc
-Message-ID: <CAD++jL=v0fPeOmyN=rW8dqNiExogf2V4GN5jjJFJuMxA=i1rPA@mail.gmail.com>
-Subject: Re: [PATCH v2 3/6] gpiolib: of: add quirk for IS31FL319X shutdown line
-To: Jun Yan <jerrysteve1101@gmail.com>
-Cc: dmitry.baryshkov@oss.qualcomm.com, Lee Jones <lee@kernel.org>, 
-	Pavel Machek <pavel@kernel.org>, Rob Herring <robh@kernel.org>, 
-	Krzysztof Kozlowski <krzk+dt@kernel.org>, Conor Dooley <conor+dt@kernel.org>, 
-	Bjorn Andersson <andersson@kernel.org>, Konrad Dybcio <konradybcio@kernel.org>, 
-	Andrew Lunn <andrew@lunn.ch>, Gregory Clement <gregory.clement@bootlin.com>, 
-	Sebastian Hesselbarth <sebastian.hesselbarth@gmail.com>, Bartosz Golaszewski <brgl@kernel.org>, 
-	Vincent Knecht <vincent.knecht@mailoo.org>, Grant Feng <von81@163.com>, 
-	Andre Przywara <andre.przywara@arm.com>, Tony Lindgren <tony@atomide.com>, 
-	Sudeep Holla <sudeep.holla@kernel.org>, Romain Perier <romain.perier@gmail.com>, 
-	Jesper Nilsson <jesper.nilsson@axis.com>, Robert Marko <robert.marko@sartura.hr>, 
-	Pavel Machek <pavel@ucw.cz>, Krzysztof Kozlowski <krzk@kernel.org>, Wei Xu <xuwei5@hisilicon.com>, 
-	Geert Uytterhoeven <geert+renesas@glider.be>, Peter Rosin <peda@axentia.se>, linux-leds@vger.kernel.org, 
-	devicetree@vger.kernel.org, linux-kernel@vger.kernel.org, 
-	linux-arm-msm@vger.kernel.org, linux-arm-kernel@lists.infradead.org, 
-	linux-gpio@vger.kernel.org
+Date: Fri, 29 May 2026 22:30:58 +0200
+X-Gmail-Original-Message-ID: <CAD++jLntffpfwtjD16SHD79W-tQKJTMwmjP5y1+0rgNS31yv-w@mail.gmail.com>
+X-Gm-Features: AVHnY4JiTwG2IVBsAlj_GioMQiqlf8ek1E0ZiI_k3UEBuzhsFkAe-cqsDu5gZBw
+Message-ID: <CAD++jLntffpfwtjD16SHD79W-tQKJTMwmjP5y1+0rgNS31yv-w@mail.gmail.com>
+Subject: Re: [PATCH v2 0/2] pinctrl: add support amlogic a9
+To: Xianwei Zhao <xianwei.zhao@amlogic.com>
+Cc: Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>, 
+	Conor Dooley <conor+dt@kernel.org>, Neil Armstrong <neil.armstrong@linaro.org>, 
+	Kevin Hilman <khilman@baylibre.com>, Jerome Brunet <jbrunet@baylibre.com>, 
+	Martin Blumenstingl <martin.blumenstingl@googlemail.com>, linux-amlogic@lists.infradead.org, 
+	linux-gpio@vger.kernel.org, devicetree@vger.kernel.org, 
+	linux-kernel@vger.kernel.org, linux-arm-kernel@lists.infradead.org
 Content-Type: text/plain; charset="UTF-8"
 Content-Transfer-Encoding: quoted-printable
 X-BeenThere: linux-arm-kernel@lists.infradead.org
@@ -92,21 +84,17 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Mon, May 25, 2026 at 4:47=E2=80=AFPM Jun Yan <jerrysteve1101@gmail.com> =
-wrote:
+On Fri, May 29, 2026 at 5:02=E2=80=AFAM Xianwei Zhao <xianwei.zhao@amlogic.=
+com> wrote:
 
-> According to the IS31FL319x datasheet[1], the SDB pin is active=E2=80=91l=
-ow.
-> However, existing device tree incorrectly configure it as active=E2=80=91=
-high.
->
-> Add a fixup to force the consumer active low for legacy device trees.
->
-> [1] https://lumissil.com/assets/pdf/core/IS31FL3196_DS.pdf
->
-> Signed-off-by: Jun Yan <jerrysteve1101@gmail.com>
+> Hi Linus,
+>     I don't see these patches in the for-next branch yet. Were they
+> intentionally left out?
 
-Reviewed-by: Linus Walleij <linusw@kernel.org>
+Hm I wonder what happened. I probably thought I applied
+it and didn't.
+
+I applied it now!
 
 Yours,
 Linus Walleij
