@@ -4,68 +4,74 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 442E5CD6E49
-	for <linux-arm-kernel@archiver.kernel.org>; Fri, 29 May 2026 16:04:08 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id AFBF5CD4F54
+	for <linux-arm-kernel@archiver.kernel.org>; Fri, 29 May 2026 16:06:29 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:MIME-Version:References:In-Reply-To:Message-ID:Subject:Cc:To:
-	From:Date:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=6qBznc6a6QijXfnCauAhH2VOH6sZkPkccOFwVOda7dk=; b=A5PoySvNt+GQn2EGN4Nq6oJGf5
-	ao4UzBAGPVRTjFSsKk50DFnBF3GIYq17jptS/vqJ8dlkXAzM1+Ircwc/7DSCsAMrd9Np7aTJOVhNE
-	OYQ+YCYLH1PmpeOkHaMHp6e7r66ENCkK5+H1gwHAw0wdneQ60+bK73e9vCc8tURnT/Qr5uZ5VV8gf
-	tzrL3ow8gHE4uHfl1RiTMjfJAWKoyKAcYCHuMT4Bc021VdvhFTSl1Gas5Zp7VZtD3qgJRrFk/npWn
-	v/Oqw0NiM3xxX9/ffZUwHg+zuLNpqAOMsu9k3UVvjil6yh+DVRKg2YWmQ//JnNBSKZTbLs84BkkVF
-	QlFqT3Vg==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:
+	Content-Transfer-Encoding:Content-Type:MIME-Version:Message-Id:Date:Subject:
+	From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:
+	List-Owner; bh=AbIisObweaikverU/R1oPGcmbKvCO5ExRZlJhyzMgQU=; b=m0jaYTui279ggY
+	a8JuxLM5Y31KYutWDAPL6IeoJnjyAw35DYJw1YYL+3d483tygyeVP3+8RJxERgiEwQFYns0O+hHnP
+	2sa6ab5oG6QiXiw82E2rqYcfT6PrnoTTpaGWmubzC5NyfTo6Clxz1RxA+yxLZJXwH0PESUq2neSxK
+	YaI6M08F8P3nwWWTSUZ51Qmj/AnAqNiIk+kF9cmTQEY0Vl8aKC6IYXA+3t6/JV/DFzvaSjGTZXpTI
+	fF2zIVSPTfFgLKwQTZ4ZZF4q36y+HlIB1byC0nZyBP4uUIIVeNeipCFHeM3cSXuFWNnQ9q8XUI2/Y
+	C+/QIbfD5HCjjrAPHXjw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wSzgs-00000007pKv-2a1R;
-	Fri, 29 May 2026 16:04:06 +0000
-Received: from tor.source.kernel.org ([172.105.4.254])
+	id 1wSzj9-00000007pVp-0UF5;
+	Fri, 29 May 2026 16:06:27 +0000
+Received: from smtpout-03.galae.net ([185.246.85.4])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wSzgq-00000007pKf-3NkB
+	id 1wSzj6-00000007pUz-00cq
 	for linux-arm-kernel@lists.infradead.org;
-	Fri, 29 May 2026 16:04:04 +0000
-Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
-	by tor.source.kernel.org (Postfix) with ESMTP id 090A2605D0;
-	Fri, 29 May 2026 16:04:04 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 0A66B1F00893;
-	Fri, 29 May 2026 16:03:52 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1780070643;
-	bh=6qBznc6a6QijXfnCauAhH2VOH6sZkPkccOFwVOda7dk=;
-	h=Date:From:To:Cc:Subject:In-Reply-To:References;
-	b=miEqoNZCCSiqX+JEe8R6+K7Vfpu5DKBqGvRMRkTalRRH2j5FP9V15L5ufngSIDKVy
-	 FeyeB0NCkxK6keQExR4ubeZ9acE/H9hPG58NrPZz8gNcJtoVcXXjAU+iY/RLs9dh7w
-	 CYRA7SVdTKErbv3Pv+3sQP+piQ69+/f3oe6QgaEAx6sXbLT37YxoeC8Bp3I91XfWUF
-	 JFj+wAlGOaqsWFSyGOcPD9q1pmtGQR4BPTfsQVhtaXDBfTu1HkIo5VJY8IWa8Bt5P3
-	 sSWq4bzhkETIpxvIfX75j4b0obwXmnXUx6WTNAb7uCcIiAPRLnt+E8Kt6NtOgvpimI
-	 xwsIAwjtWITCg==
-Date: Fri, 29 May 2026 17:03:48 +0100
-From: Jonathan Cameron <jic23@kernel.org>
-To: Ahmed Tiba <ahmed.tiba@arm.com>
-Cc: will@kernel.org, xueshuai@linux.alibaba.com, saket.dumbre@intel.com,
- mchehab@kernel.org, dave@stgolabs.net, djbw@kernel.org, bp@alien8.de,
- tony.luck@intel.com, guohanjun@huawei.com, lenb@kernel.org,
- skhan@linuxfoundation.org, vishal.l.verma@intel.com, rafael@kernel.org,
- corbet@lwn.net, ira.weiny@intel.com, dave.jiang@intel.com,
- krzk+dt@kernel.org, robh@kernel.org, catalin.marinas@arm.com,
- alison.schofield@intel.com, conor+dt@kernel.org,
- linux-arm-kernel@lists.infradead.org, Michael.Zhao2@arm.com,
- linux-doc@vger.kernel.org, linux-kernel@vger.kernel.org,
- linux-cxl@vger.kernel.org, Dmitry.Lamerov@arm.com,
- devicetree@vger.kernel.org, linux-acpi@vger.kernel.org,
- linux-edac@vger.kernel.org, acpica-devel@lists.linux.dev
-Subject: Re: [PATCH v5 04/10] ACPI: APEI: GHES: move estatus cache helpers
-Message-ID: <20260529170348.0560da0e@jic23-huawei>
-In-Reply-To: <20260529-topics-ahmtib01-ras_ffh_arm_internal_review-v5-4-2e0500d42642@arm.com>
-References: <20260529-topics-ahmtib01-ras_ffh_arm_internal_review-v5-0-2e0500d42642@arm.com>
-	<20260529-topics-ahmtib01-ras_ffh_arm_internal_review-v5-4-2e0500d42642@arm.com>
-X-Mailer: Claws Mail 4.4.0 (GTK 3.24.52; x86_64-pc-linux-gnu)
+	Fri, 29 May 2026 16:06:25 +0000
+Received: from smtpout-01.galae.net (smtpout-01.galae.net [212.83.139.233])
+	by smtpout-03.galae.net (Postfix) with ESMTPS id 6855F4E42D90;
+	Fri, 29 May 2026 16:06:21 +0000 (UTC)
+Received: from mail.galae.net (mail.galae.net [212.83.136.155])
+	by smtpout-01.galae.net (Postfix) with ESMTPS id 3B6B6601FA;
+	Fri, 29 May 2026 16:06:21 +0000 (UTC)
+Received: from [127.0.0.1] (localhost [127.0.0.1]) by localhost (Mailerdaemon) with ESMTPSA id 65F6A10888CBC;
+	Fri, 29 May 2026 18:06:12 +0200 (CEST)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=bootlin.com; s=dkim;
+	t=1780070780; h=from:subject:date:message-id:to:cc:mime-version:content-type:
+	 content-transfer-encoding; bh=AbIisObweaikverU/R1oPGcmbKvCO5ExRZlJhyzMgQU=;
+	b=K5Ao63fKm2DgxyLbgKOUm197YybOnuWarpj3GIUqAicz0AYamf+GHRVgBYFMa7mVUWTjf6
+	HnnEineggGBP/GfAIcFCVB3sLWX0c3WNWjAg0jmJsi+SF9LiOeLDNkHhZ3gAKkWE4qyokY
+	2bLD5XQeustofpf48C6osX/77EuZH6tUNC9zWQ2J2Yg/RdQd+G0mZQJ6LW6daw1RPpalgH
+	Pq21pepQFN4GxWv7tyzFTAtkvd4O5zh2npeZ2JQwiEzxBLUsoFrZ4p0jldLcTcgynb2rg0
+	dM9dWWPMwiIfgGYd98Gd+4RKQgCufQb1ofhNzH+Tp3d5QkZbI3QwelVNpfxbEQ==
+From: Miquel Raynal <miquel.raynal@bootlin.com>
+Subject: [PATCH 0/5] mtd: spi-nor: Massive QE handling cleanup and Winbond
+ RV chips addition
+Date: Fri, 29 May 2026 18:05:45 +0200
+Message-Id: <20260529-winbond-v7-1-spi-nor-rv-addition-v1-0-f3ae18502d5a@bootlin.com>
 MIME-Version: 1.0
-Content-Type: text/plain; charset=US-ASCII
-Content-Transfer-Encoding: 7bit
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: 8bit
+X-B4-Tracking: v=1; b=H4sIAAAAAAAC/32OQWrDMBBFr2K07gSPYsmOCSX3KFnI1qidEkuu5
+ CiFkLtXbgredfkG5r1/F4kiUxJ9dReRMicOvgC+VGL8MP6dgG1hIWupayUPcGM/BG8ht4CQZgY
+ fIsQMxlpeyjOMZKRDh6obSBTNHMnx92/i7fzkSF/XUlqexy3UVyWjELHZMhqwgzhurXSbodPK7
+ rVrnD6oPus1M1FK5s9y/H/tZ4bxQsZfZ8gINXQtFR1KKZvmNISwXNjvxjC9rt7BJIICEy99lds
+ drmPE+fH4AU0dHqE7AQAA
+X-Change-ID: 20260529-winbond-v7-1-spi-nor-rv-addition-cea2f1f158be
+To: Pratyush Yadav <pratyush@kernel.org>, Michael Walle <mwalle@kernel.org>, 
+ Takahiro Kuwano <takahiro.kuwano@infineon.com>, 
+ Richard Weinberger <richard@nod.at>, Vignesh Raghavendra <vigneshr@ti.com>, 
+ Nicolas Ferre <nicolas.ferre@microchip.com>, 
+ Alexandre Belloni <alexandre.belloni@bootlin.com>, 
+ Claudiu Beznea <claudiu.beznea@tuxon.dev>
+Cc: Steam Lin <STLin2@winbond.com>, Hsin-Yi Wang <hsinyi@chromium.org>, 
+ Thomas Petazzoni <thomas.petazzoni@bootlin.com>, 
+ linux-mtd@lists.infradead.org, linux-arm-kernel@lists.infradead.org, 
+ linux-kernel@vger.kernel.org, Miquel Raynal <miquel.raynal@bootlin.com>
+X-Mailer: b4 0.14.3
+X-Last-TLS-Session-Version: TLSv1.3
+X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
+X-CRM114-CacheID: sfid-20260529_090624_297690_65C3D8AC 
+X-CRM114-Status: GOOD (  13.10  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -80,162 +86,122 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Fri, 29 May 2026 10:50:44 +0100
-Ahmed Tiba <ahmed.tiba@arm.com> wrote:
+Hello,
 
-> Relocate the estatus cache allocation and lookup helpers from ghes.c into
-> ghes_cper.c. This code move keeps the logic intact while making the cache
-> implementation available to forthcoming users.
-> 
-> Signed-off-by: Ahmed Tiba <ahmed.tiba@arm.com>
+Following my "software protection" enhancement series, there were
+several comments about the need to simplify and reorganize the handling
+of the QE bits, which is strongly impacted by the various read/write
+status register capabilities.
 
-A couple of minor things inline.
+The first patch is all about this. It is a massive cleanup, everything
+is explained inside, the how and the why. This is a commit that must be
+tested, so if you have a SPI NOR chip with one of the not yet tested
+SFDP QER configuration, please consider applying that patch (just patch
+1 is enough) and boot. If your chip is recognized, it's probably all
+good.
 
-With the two I've called out tidied up
-Reviewed-by: Jonathan Cameron <jic23@kernel.org>
+Then I add support for JESD216 revision F and its new QER field.
 
-> diff --git a/drivers/acpi/apei/ghes_cper.c b/drivers/acpi/apei/ghes_cper.c
-> index 8080e0f76dac..0a117f478afb 100644
-> --- a/drivers/acpi/apei/ghes_cper.c
-> +++ b/drivers/acpi/apei/ghes_cper.c
-> @@ -13,10 +13,14 @@
->   */
->  
->  #include <linux/err.h>
-> +#include <linux/genalloc.h>
->  #include <linux/io.h>
->  #include <linux/kernel.h>
-> +#include <linux/math64.h>
->  #include <linux/mm.h>
->  #include <linux/ratelimit.h>
-> +#include <linux/rcupdate.h>
-> +#include <linux/sched/clock.h>
->  #include <linux/slab.h>
+Finally, I propose two Winbond chip additions (from the new RV family)
+which makes use of these new capabilities. 
 
-> +static void ghes_estatus_cache_rcu_free(struct rcu_head *head)
-> +{
-> +	struct ghes_estatus_cache *cache;
-> +	u32 len;
-> +
-> +	cache = container_of(head, struct ghes_estatus_cache, rcu);
-> +	len = cper_estatus_len(GHES_ESTATUS_FROM_CACHE(cache));
-> +	len = GHES_ESTATUS_CACHE_LEN(len);
-> +	gen_pool_free(ghes_estatus_pool, (unsigned long)cache, len);
-> +	atomic_dec(&ghes_estatus_cache_alloced);
-> +}
-> +
-> +void
-> +ghes_estatus_cache_add(struct acpi_hest_generic *generic,
-> +		       struct acpi_hest_generic_status *estatus)
+There will be more chips to come, but that is all I can test at the
+moment.
 
-void ghes_estatus_cache_add(struct acpi_hest_generic *generic,
-			    struct acpi_hest_generic_status *estatus)
+Thanks,
+Miquèl
 
-is under 80 chars (and how you have it in the header!)
+Signed-off-by: Miquel Raynal <miquel.raynal@bootlin.com>
+---
+Miquel Raynal (5):
+      mtd: spi-nor: Refactor Read Status/Write Status support
+      mtd: spi-nor: Add support for the new JESD216 rev F QER field
+      mtd: spi-nor: Move the SFDP header structure to a C header
+      mtd: spi-nor: winbond: Add support for W25Q02RV-M
+      mtd: spi-nor: winbond: Add support for W25Q51RV-M
 
-(RB assumes you fix this - or argue against perhaps because of a change in
- a future patch)
+ drivers/mtd/spi-nor/atmel.c      |  50 +--
+ drivers/mtd/spi-nor/core.c       | 702 +++++++++++----------------------------
+ drivers/mtd/spi-nor/core.h       |  54 ++-
+ drivers/mtd/spi-nor/debugfs.c    |   1 -
+ drivers/mtd/spi-nor/gigadevice.c |   6 +-
+ drivers/mtd/spi-nor/issi.c       |   3 +-
+ drivers/mtd/spi-nor/macronix.c   |  12 +-
+ drivers/mtd/spi-nor/otp.c        |  16 +-
+ drivers/mtd/spi-nor/sfdp.c       |  55 ++-
+ drivers/mtd/spi-nor/sfdp.h       |  19 ++
+ drivers/mtd/spi-nor/spansion.c   |  16 +-
+ drivers/mtd/spi-nor/sst.c        |   5 +-
+ drivers/mtd/spi-nor/swp.c        |  58 +---
+ drivers/mtd/spi-nor/winbond.c    |  59 +++-
+ include/linux/mtd/spi-nor.h      |   5 +-
+ 15 files changed, 401 insertions(+), 660 deletions(-)
+---
+base-commit: 5e9b7d093f3f77cb0af4409559e3d139babfb443
+change-id: 20260529-winbond-v7-1-spi-nor-rv-addition-cea2f1f158be
+prerequisite-change-id: 20251114-winbond-v6-18-rc1-spi-nor-swp-865d36f4f695:v6
+prerequisite-patch-id: 41fa5f57751ccb1324c31df8d0c7d2b327fa1a17
+prerequisite-patch-id: 31b2eb1f1148054d1cd45e488c0e973e1621f44c
+prerequisite-patch-id: b376391b7772443e75b82d9ceb4d6c564371330a
+prerequisite-patch-id: 8d5bfc3369cf6080eb60b7a32de5bfbde4475431
+prerequisite-patch-id: 6fad316bee00a8f453527a1f338538540b7356a2
+prerequisite-patch-id: c16390e544c15e2ae78ab67ab536cc424ac7c620
+prerequisite-patch-id: 3b619f843842f6c00048c90a34d615bafa37ca23
+prerequisite-patch-id: a3b7f9516e4eb69e4feae624059c5985b189a9b2
+prerequisite-patch-id: 90bfb22a3519fad4d490c7016b6fb8137c1ade08
+prerequisite-patch-id: c9375e2a9cf35e00e29a3feb8673db6102e2bafd
+prerequisite-patch-id: 283bdc0412147df8f87f823ae2f876667dd00b4c
+prerequisite-patch-id: 4e324cb821c96ddffd5b68889f7fb4f340df4b0b
+prerequisite-patch-id: ff00869a1a045f279657de31495773594b0aca93
+prerequisite-patch-id: 594980c7c187274761a6a10b1803c630976d8290
+prerequisite-patch-id: 0ead288e109031e5653558e809778b8561862b28
+prerequisite-patch-id: a74f5deb8e8df344c35757adae5072964a5289f5
+prerequisite-patch-id: 6dab8d535c34e1c1e84a295c70e48c3bc6dac9f5
+prerequisite-patch-id: 09b411dfea1e51b8a33ebcf0887260b5d05fdbc5
+prerequisite-patch-id: 83aeb811574fc5242b3709335120854423e60173
+prerequisite-patch-id: 0366883be8924559d19c4732d99d3b9df4db7dd1
+prerequisite-patch-id: c0a80c658297b6dad22be20efa14e53e928a0f80
+prerequisite-patch-id: 6883cb379f52c055d4d1cdc4ea798c7b775d0dd8
+prerequisite-patch-id: 2fa7c195a618e53ba5181f308a467817e7efcfca
+prerequisite-patch-id: e100bc5f348900a1c976932e3dc6482ae7a5dda9
+prerequisite-patch-id: ee34be9e4b9a3d2333a22cd7643a292a45de2c0d
+prerequisite-patch-id: 3024fbd42edbc8c246805c7533e314e5a1462ea7
+prerequisite-patch-id: d8271437833307db86abf5a952bc0227562c9283
+prerequisite-patch-id: 2f65c33b74cce2d0b891974ffe68babe0e829894
+prerequisite-message-id: <20260529-winbond-v7-1-spi-nor-jv-cleanup-v1-0-87e5d3122244@bootlin.com>
+prerequisite-patch-id: 90271b7e055db3079d3897546c3480a285b740c8
+prerequisite-patch-id: 600c72d0a18dc003917f774209625f24c37d11d5
+prerequisite-patch-id: 2a40afdd885392bab2b93035db111670016b16e5
+prerequisite-patch-id: 840643fd3e1c3d725c1db2ec3ec9f056c0b59203
+prerequisite-patch-id: 7d7af1e7bcc2efa8194805a58524b63bcdcaf388
+prerequisite-patch-id: 010fd4751671a20d249ecb772bea9d16bf58c76d
+prerequisite-patch-id: 0a269f09cd1a9c6597533ef6814141ffd7bca37c
+prerequisite-patch-id: c11657122b4e8aac7d93fee35bc6bb8afddc84cb
+prerequisite-patch-id: a8d07b1ee7c8d91991531baf7b12294e849ce767
+prerequisite-patch-id: 7d822caac76012627ed5e8889011088d721a7bd4
+prerequisite-patch-id: 1b688642b8795aecfedd833b4606a992795c4007
+prerequisite-patch-id: 7c23d56ea0f3cf6edec6e849bc923ff99a8b68e5
+prerequisite-patch-id: 0a9d35ce50c6a2c45b1adca4796766e3eeae79c4
+prerequisite-patch-id: 6bf63b2dcd7105e1833117a8d7c40b9bbf4b3669
+prerequisite-patch-id: 462a6751e3e9074102e8d31b23bf06140f6ee6e6
+prerequisite-patch-id: 4e8a8ccadb8ed079d8e5271bab44e03050024adc
+prerequisite-patch-id: 94455a1cc1ba7fac00a1be1fa961f1597878fe85
+prerequisite-patch-id: 7e731eebba360dd2f5263aea13b697a1488a6283
+prerequisite-patch-id: 78dac39c5737a166cfd2b04002a5e0a131ee8940
+prerequisite-patch-id: 0dc8b0344e8b29f298c856477bc5acaa61d3967a
+prerequisite-patch-id: a46684d4159abe1e3fd8f76c45001ecf52a92973
+prerequisite-patch-id: f07c3b16f229881d2e17f4a8addf3e79835bd641
+prerequisite-patch-id: b67fe113cd46f03786adcb69eaf86190eac1d33f
+prerequisite-patch-id: ea181a86120f14b48e9ec77e467cd2cce8ce208e
+prerequisite-patch-id: 20ce5105adc4c7f8ebc6c779b107fd54def4f1f8
+prerequisite-patch-id: 34ed2ebf8e08b20e9443fb95591478840a530b36
+prerequisite-patch-id: eaeebc9df5221bab68a6cabc64a97e9c2608899b
+prerequisite-patch-id: fb220fdab1d5722ef18827e1629f466f32b14a3e
+prerequisite-patch-id: f80c10737ffd66f4b4d700149efe2e354ffd7b46
+prerequisite-patch-id: b0cb24cc785ea0f871b60effc6b8334c91aaa0f9
 
-> +{
-> +	unsigned long long now, duration, period, max_period = 0;
-> +	struct ghes_estatus_cache *cache, *new_cache;
-> +	struct ghes_estatus_cache __rcu *victim;
-> +	int i, slot = -1, count;
-> +
-> +	new_cache = ghes_estatus_cache_alloc(generic, estatus);
-> +	if (!new_cache)
-> +		return;
-> +
-> +	rcu_read_lock();
-> +	now = sched_clock();
-> +	for (i = 0; i < GHES_ESTATUS_CACHES_SIZE; i++) {
-> +		cache = rcu_dereference(ghes_estatus_caches[i]);
-> +		if (cache == NULL) {
-> +			slot = i;
-> +			break;
-> +		}
-> +		duration = now - cache->time_in;
-> +		if (duration >= GHES_ESTATUS_IN_CACHE_MAX_NSEC) {
-> +			slot = i;
-> +			break;
-> +		}
-> +		count = atomic_read(&cache->count);
-> +		period = duration;
-> +		do_div(period, (count + 1));
-> +		if (period > max_period) {
-> +			max_period = period;
-> +			slot = i;
-> +		}
-> +	}
-> +	rcu_read_unlock();
-> +
-> +	if (slot != -1) {
-If you even end up doing tidy up of this code, would be nicer to flip
-the logic here and do an early return.
-	if (slot == -1)
-		return;
-Then the rest is much less indented.
-
-No need to do that in this series though as nothing 'wrong' with the
-current code as such.
-
-> +		/*
-> +		 * Use release semantics to ensure that ghes_estatus_cached()
-> +		 * running on another CPU will see the updated cache fields if
-> +		 * it can see the new value of the pointer.
-> +		 */
-> +		victim = xchg_release(&ghes_estatus_caches[slot],
-> +				      RCU_INITIALIZER(new_cache));
-> +
-> +		/*
-> +		 * At this point, victim may point to a cached item different
-> +		 * from the one based on which we selected the slot. Instead of
-> +		 * going to the loop again to pick another slot, let's just
-> +		 * drop the other item anyway: this may cause a false cache
-> +		 * miss later on, but that won't cause any problems.
-> +		 */
-> +		if (victim)
-> +			call_rcu(&unrcu_pointer(victim)->rcu,
-> +				 ghes_estatus_cache_rcu_free);
-> +	}
-> +}
-> diff --git a/include/acpi/ghes_cper.h b/include/acpi/ghes_cper.h
-> index 6b7632cfaf66..1b5dbeca9bb6 100644
-> --- a/include/acpi/ghes_cper.h
-> +++ b/include/acpi/ghes_cper.h
-> @@ -16,6 +16,7 @@
->  #ifndef ACPI_APEI_GHES_CPER_H
->  #define ACPI_APEI_GHES_CPER_H
->  
-> +#include <linux/atomic.h>
-
-Why?  Nothing in in the types used in what is added to the header needs
-it - maybe I'm suffering Friday syndrome. Seems like it belongs in another
-patch or in a c file rather than the header.
-(RB assumes this fixed or argued against)
-
-
->  #include <linux/workqueue.h>
->  
->  #include <acpi/ghes.h>
-> @@ -54,6 +55,8 @@
->  	((struct acpi_hest_generic_data *)                              \
->  	((struct ghes_vendor_record_entry *)(vendor_entry) + 1))
->  
-> +extern struct gen_pool *ghes_estatus_pool;
-> +
->  static inline bool is_hest_type_generic_v2(struct ghes *ghes)
->  {
->  	return ghes->generic->header.type == ACPI_HEST_TYPE_GENERIC_ERROR_V2;
-> @@ -98,5 +101,8 @@ int __ghes_read_estatus(struct acpi_hest_generic_status *estatus,
->  			u64 buf_paddr, enum fixed_addresses fixmap_idx,
->  			size_t buf_len);
->  #endif
-> +int ghes_estatus_cached(struct acpi_hest_generic_status *estatus);
-> +void ghes_estatus_cache_add(struct acpi_hest_generic *generic,
-> +			    struct acpi_hest_generic_status *estatus);
->  
->  #endif /* ACPI_APEI_GHES_CPER_H */
-> 
+Best regards,
+-- 
+Miquel Raynal <miquel.raynal@bootlin.com>
 
 
