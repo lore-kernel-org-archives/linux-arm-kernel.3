@@ -4,63 +4,60 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 4AC18CD6E43
-	for <linux-arm-kernel@archiver.kernel.org>; Fri, 29 May 2026 01:20:11 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 37749CD6E43
+	for <linux-arm-kernel@archiver.kernel.org>; Fri, 29 May 2026 01:21:30 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:References
-	:Date:Message-Id:From:Subject:Content-Transfer-Encoding:MIME-Version:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Message-ID:Date:To:Cc:From:
+	Subject:References:In-Reply-To:Content-Transfer-Encoding:MIME-Version:
 	Content-Type:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=lOaKOCR8muSZegpxRQTwrSb3xsHi/hx1Esr98dOCWEg=; b=TGwz/IMmZNUAalRmWiYaPmZj7j
-	Z/7dk6/iDEHlOFxx0q9NpwRcLbQ09IYTs1zFx+TQ8od7yxrCBgOoSiD3y5M3iZfLGZCzeBLkiEXWU
-	p9bDlsILzPRWLJErB/fX6Eu7N6ujXKMQn2sBSRuv+x7N6z5c0TOHq0T45GWi4kwc8QcvscyZtqWNN
-	A8VZMsafobWtDxyyx2eNt4lUtwouPGMQm5zi/hWz4LEPluuH9ze3cjEsWMhqS+gDiOuOpQBoB4NGE
-	XiSrDIU5F5gsZTkG9m3XVyRJE/VFo9sQS0N9EBJlUGtzsOJip3f7HHgJ7isBs1qf3Xrh+jHcP5k4A
-	YYY7V2gA==;
+	bh=B1fdyORPeXwVnM0sOVGVQvdONUxVTJ8NIxo91EPGSlk=; b=K4Hg5/jycI9VuijsJo1B4fdG/0
+	bRX/fgcJ82CVR6RvN1HAwbxcu2y7riCzU18cGYiGDpY7JxoQc5NYFbe7UqvKuVZ+pdoX5Q+/2GnIR
+	KNQewJaZjj4DGqApsAiEcaI9TiSMqB3UqLcYfKsTGYIFboisDkHQ8ADvoHCTAfRzytQwukdUhToUr
+	j+kOf1NRxa9MfSKKuxeToj0uf9wKrXJYf7QEZvZ9akMemHAdprcj9CKcdiljFZVKCk3aUOo+7L9IK
+	tYW31DZjRiS16eH/IPKr/spaiv+jys1i12lna51q9behFAgTbNMvzH/ysNH6Bk26vOY6wXRf4otk4
+	npNHDOJQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wSltL-00000006bTm-3vTF;
-	Fri, 29 May 2026 01:20:03 +0000
-Received: from tor.source.kernel.org ([172.105.4.254])
+	id 1wSlud-00000006bef-0nqW;
+	Fri, 29 May 2026 01:21:23 +0000
+Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wSltK-00000006bTW-0dha;
-	Fri, 29 May 2026 01:20:02 +0000
+	id 1wSlua-00000006beG-1QBy
+	for linux-arm-kernel@lists.infradead.org;
+	Fri, 29 May 2026 01:21:21 +0000
 Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
-	by tor.source.kernel.org (Postfix) with ESMTP id 5706560565;
-	Fri, 29 May 2026 01:20:01 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 0D5AF1F000E9;
-	Fri, 29 May 2026 01:20:01 +0000 (UTC)
+	by sea.source.kernel.org (Postfix) with ESMTP id E6D1541B01;
+	Fri, 29 May 2026 01:21:18 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id B975B1F000E9;
+	Fri, 29 May 2026 01:21:18 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1780017601;
-	bh=lOaKOCR8muSZegpxRQTwrSb3xsHi/hx1Esr98dOCWEg=;
-	h=Subject:From:Date:References:In-Reply-To:To:Cc;
-	b=Pdv+apmykyR9FKD9yA0LR52fMkOlE2aYqQBtEe+5OTPwusSkk7Og9EDqgOuc4wTji
-	 OJ9YNb8nmTGNZHLdbcyF9nkhcRcRr19QfloteOjPjn/vV0zYhUlmzuxX8409XgBxil
-	 xInGNVfO8i9QW7VcOdMTJ1S8mDhCvu1HcmRMi5gy0K0PJQ/ShZc1m94JmbvE9V/8Bs
-	 LyM/U8NR0ydSZIrcj4wDGus2fHmnnq3nlG0ZDwIFUmr5s0lnvYTRp5zovbVtwhMkuv
-	 PZuJmIpZX2tGECNTwhZgjxDyw4O8rhe6kNX2qrgHpE0UrNEUSX6QXxz3cJFN0SAo+a
-	 ZtDA7YEKvve7Q==
-Received: from [10.30.226.235] (localhost [IPv6:::1])
-	by aws-us-west-2-korg-oddjob-rhel9-1.codeaurora.org (Postfix) with ESMTP id 568C3392FFFE;
-	Fri, 29 May 2026 01:20:06 +0000 (UTC)
+	s=k20260515; t=1780017678;
+	bh=B1fdyORPeXwVnM0sOVGVQvdONUxVTJ8NIxo91EPGSlk=;
+	h=In-Reply-To:References:Subject:From:Cc:To:Date;
+	b=BRRkDF6C3Y/8wKPLSY2UI6GE4UPn+NNGrXIEkvw9z4hhbDF0brwaep0U5uRv4IMZM
+	 mYChWO7smrWL8eyDT1Ai/DTGyOmykyRusloWJbGrkk5Fr+lpRoPxCS1t9Rtpo2kmXJ
+	 BLOAaHtC12BAYr7hhR+3w5U/cAl8x3iagRp9tMgOmAoG3FwhQqz5QbRuxWtN+x5qFe
+	 VRkJYgfhNCCU9dpeTGinUSCKRdDGg5iFVNWVzsTi7YVi9kt96WYlkdtETYKMfOKXCH
+	 1m07QTybfBKso3cSnUM4S6ZujoEVcNMK5Ey2ZO7DcV9OH4xuheZUKTbM1oDN+MiseV
+	 hTFdkj7bp5eOQ==
 Content-Type: text/plain; charset="utf-8"
 MIME-Version: 1.0
-Content-Transfer-Encoding: 8bit
-Subject: Re: [net v2] net: pcs: pcs-mtk-lynxi: fix bpi-r3 serdes configuration
-From: patchwork-bot+netdevbpf@kernel.org
-Message-Id: <178001760515.1584301.241177425272173045.git-patchwork-notify@kernel.org>
-Date: Fri, 29 May 2026 01:20:05 +0000
-References: <20260526153239.30194-1-linux@fw-web.de>
-In-Reply-To: <20260526153239.30194-1-linux@fw-web.de>
-To: Frank Wunderlich <linux@fw-web.de>
-Cc: lynxis@fe80.eu, daniel@makrotopia.org, andrew@lunn.ch,
- hkallweit1@gmail.com, linux@armlinux.org.uk, davem@davemloft.net,
- edumazet@google.com, kuba@kernel.org, pabeni@redhat.com,
- matthias.bgg@gmail.com, angelogioacchino.delregno@collabora.com,
- frank-w@public-files.de, vladimir.oltean@nxp.com, netdev@vger.kernel.org,
- linux-kernel@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
- linux-mediatek@lists.infradead.org
+Content-Transfer-Encoding: quoted-printable
+In-Reply-To: <20260524184701.16599-2-krzk@kernel.org>
+References: <20260524184701.16599-2-krzk@kernel.org>
+Subject: Re: [GIT PULL] clk: samsung: fixes for v7.1
+From: Stephen Boyd <sboyd@kernel.org>
+Cc: Krzysztof Kozlowski <krzk@kernel.org>, Chanwoo Choi <cw00.choi@samsung.com>, linux-clk@vger.kernel.org, Sylwester Nawrocki <snawrocki@kernel.org>, Alim Akhtar <alim.akhtar@samsung.com>, Peter Griffin <peter.griffin@linaro.org>, linux-arm-kernel@lists.infradead.org, linux-samsung-soc@vger.kernel.org, linux-kernel@vger.kernel.org
+To: Krzysztof Kozlowski <krzk@kernel.org>, Michael Turquette <mturquette@baylibre.com>
+Date: Thu, 28 May 2026 18:21:16 -0700
+Message-ID: <178001767699.5961.8049719569121972475@lazor>
+User-Agent: alot/0.12
+X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
+X-CRM114-CacheID: sfid-20260528_182120_394817_0D6F611C 
+X-CRM114-Status: UNSURE (   9.21  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -75,29 +72,31 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hello:
+Quoting Krzysztof Kozlowski (2026-05-24 11:47:02)
+> Hi Stephen and Michael,
+>=20
+> Just one fix for current cycle.
+>=20
+> Best regards,
+> Krzysztof
+>=20
+>=20
+> The following changes since commit 254f49634ee16a731174d2ae34bc50bd5f45e7=
+31:
+>=20
+>   Linux 7.1-rc1 (2026-04-26 14:19:00 -0700)
+>=20
+> are available in the Git repository at:
+>=20
+>   https://git.kernel.org/pub/scm/linux/kernel/git/krzk/linux.git tags/sam=
+sung-clk-fixes-7.1
+>=20
+> for you to fetch changes up to 78ee734b36284d82454e87a92094fdb926985b47:
+>=20
+>   clk: samsung: gs101: Fix missing USI7_USI DIV clock in peric0_clk_regs =
+(2026-05-14 18:48:05 +0200)
+>=20
+> ----------------------------------------------------------------
 
-This patch was applied to netdev/net.git (main)
-by Jakub Kicinski <kuba@kernel.org>:
-
-On Tue, 26 May 2026 17:32:38 +0200 you wrote:
-> From: Frank Wunderlich <frank-w@public-files.de>
-> 
-> Commit 8871389da151 introduces common pcs dts properties which writes
-> rx=normal,tx=normal polarity to register SGMSYS_QPHY_WRAP_CTRL of switch.
-> This is initialized with tx-bit set and so change inverts polarity
-> compared to before.
-> 
-> [...]
-
-Here is the summary with links:
-  - [net,v2] net: pcs: pcs-mtk-lynxi: fix bpi-r3 serdes configuration
-    https://git.kernel.org/netdev/net/c/422b5233b607
-
-You are awesome, thank you!
--- 
-Deet-doot-dot, I am a bot.
-https://korg.docs.kernel.org/patchwork/pwbot.html
-
-
+Thanks. Pulled into clk-fixes.
 
