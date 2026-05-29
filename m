@@ -4,81 +4,93 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 13301CD6E49
-	for <linux-arm-kernel@archiver.kernel.org>; Fri, 29 May 2026 18:44:18 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id B75A4CD4F54
+	for <linux-arm-kernel@archiver.kernel.org>; Fri, 29 May 2026 18:49:36 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
 	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
 	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=ZwpO+pOOZTWBchQdW/Dv7jGhsKusDPQYZ/nVee/aPKo=; b=Mvxp0CLHKysvnRRefTXFvmKipT
-	SK30iYaBEaQBNIyvOD6ppriEymHs+wSvueudgeTUBKWc6SkpMjvkMLWBsgWkBoMnPL+LMhdw3gmof
-	G97Xaa/Qc2mPgZdGuMGMgX1qSFoD95ZDQkJJZb5vsTzujTV/AfXMfsg2UbcZDNoGR3SGdEuBMPLHA
-	YSx0tspUHIGxOBjYD68lg7HdmyjrjOkkEjUP4ItJ4/cFfeoNax/jBUwdk3T9L4y30Ql2lDxFbPEEO
-	2jpcXjBMvGw3pgdQAGhCdzGIDnY1Y6YoNnDJIC5EVocJvMq3yeG/DEaVh5q4E3t2NPxHylcjwi019
-	5KfyZBhA==;
+	bh=lp4vtffxigjSJ7RW/i4Jgv4QK66o94cv0dvcll4cQ/M=; b=AIC2dSFC5ZowPf/dShDWSx3p3Y
+	37tQrz0U1NThhxXf/sC3Njplrk4P0hFEAIj4svLbhtn3pmoiVgc2qVhmji2jyxsnxVOYceh3NUqf7
+	vm5RfebsYpXqYgbqFJPypC/LMkiqls+a8NLAuhoThesPKDQhfSAScZ3ZCay4Rs8K4OLlAVgkpSYtB
+	YgK7DesF3dWpzis+6ZUtWuFUxfUsjQXOI/nO2YQNbyagla3cKfwfUwhkuJdy5I5xhuJPw4q2xDe9l
+	owF7PmpaX/tDyGcbAf3NuX0xSmEQyLkHIuRnmQ0IKGMo5n2hQqJ1GSl/ZZ7jy2vtjZSwCXrSmKjUo
+	nfvsf7uA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wT2Bl-000000088it-4Amb;
-	Fri, 29 May 2026 18:44:09 +0000
-Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
+	id 1wT2Gv-000000088z5-261Z;
+	Fri, 29 May 2026 18:49:29 +0000
+Received: from mail-wr1-x434.google.com ([2a00:1450:4864:20::434])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wT2Bj-000000088iO-32yh
+	id 1wT2Gs-000000088yU-2CaK
 	for linux-arm-kernel@lists.infradead.org;
-	Fri, 29 May 2026 18:44:08 +0000
-Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
-	by sea.source.kernel.org (Postfix) with ESMTP id C810942A85;
-	Fri, 29 May 2026 18:44:06 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 842341F00893;
-	Fri, 29 May 2026 18:44:06 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1780080246;
-	bh=ZwpO+pOOZTWBchQdW/Dv7jGhsKusDPQYZ/nVee/aPKo=;
-	h=Date:From:To:Cc:Subject:References:In-Reply-To;
-	b=BO85kgePRyguLqXdsSmYSPPbc2M9M1R9D7u7yNKftG8vO83z5DOcpC1hVIDZvumcT
-	 QWxKTrqcHbY4mwtZyZS6Ri4wQ8M2wE5vozWmFRthBrdQTSjixI1eNMVZe401kMXp9x
-	 VKQXxqMh1mY8BQveioCajwIz3qEgPD3Wz7WFV799FuuXrDcApB+DKzZxCKjOMBtPc8
-	 xHIQ50diUzeyAWDTfME/K/4V9hozcFX8TbJXdud7+hlk9p/n3YoI3H2L1udoyJNVo2
-	 5aUAa1AzYtzcKeTBeKIaIbwzo5WR4sOI3s9svJydmcCnk5t2Y6uhwHfkazwN33Ed9k
-	 vzcg2+4l1sZBA==
-Date: Fri, 29 May 2026 08:44:05 -1000
-From: Tejun Heo <tj@kernel.org>
-To: Alexei Starovoitov <alexei.starovoitov@gmail.com>
-Cc: David Hildenbrand <david@kernel.org>, David Vernet <void@manifault.com>,
-	Andrea Righi <arighi@nvidia.com>,
-	Changwoo Min <changwoo@igalia.com>,
-	Alexei Starovoitov <ast@kernel.org>,
-	Andrii Nakryiko <andrii@kernel.org>,
-	Daniel Borkmann <daniel@iogearbox.net>,
-	Martin KaFai Lau <martin.lau@linux.dev>,
-	Kumar Kartikeya Dwivedi <memxor@gmail.com>,
-	Peter Zijlstra <peterz@infradead.org>,
-	Catalin Marinas <catalin.marinas@arm.com>,
-	Will Deacon <will@kernel.org>, Thomas Gleixner <tglx@kernel.org>,
-	Ingo Molnar <mingo@redhat.com>, Borislav Petkov <bp@alien8.de>,
-	Dave Hansen <dave.hansen@linux.intel.com>,
-	Andrew Morton <akpm@linux-foundation.org>,
-	Mike Rapoport <rppt@kernel.org>,
-	Emil Tsalapatis <emil@etsalapatis.com>, sched-ext@lists.linux.dev,
-	bpf <bpf@vger.kernel.org>, X86 ML <x86@kernel.org>,
-	linux-arm-kernel <linux-arm-kernel@lists.infradead.org>,
-	linux-mm <linux-mm@kvack.org>, LKML <linux-kernel@vger.kernel.org>
-Subject: Re: [PATCH 2/8] bpf: Recover arena kernel faults with scratch page
-Message-ID: <ahnedQ33ZH8ogjbC@slm.duckdns.org>
-References: <20260522172219.1423324-1-tj@kernel.org>
- <20260522172219.1423324-3-tj@kernel.org>
- <7fd673df-22f3-4d70-a779-ea0b878188b3@kernel.org>
- <DIUMP21RASZI.2VNQV45RIL209@gmail.com>
- <3901fe0537edee9d7acdfd91695ead28@kernel.org>
- <CAADnVQJ+CqAszS2sSVu7gSfA_g4oaTR+SWmLNMX3_8c=OdR7NQ@mail.gmail.com>
+	Fri, 29 May 2026 18:49:28 +0000
+Received: by mail-wr1-x434.google.com with SMTP id ffacd0b85a97d-45ed18d8a1bso2904741f8f.0
+        for <linux-arm-kernel@lists.infradead.org>; Fri, 29 May 2026 11:49:25 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=baylibre.com; s=google; t=1780080565; x=1780685365; darn=lists.infradead.org;
+        h=in-reply-to:content-disposition:mime-version:references:message-id
+         :subject:cc:to:from:date:from:to:cc:subject:date:message-id:reply-to;
+        bh=lp4vtffxigjSJ7RW/i4Jgv4QK66o94cv0dvcll4cQ/M=;
+        b=LKeRhmpWJg5fBJs0nMUtr/1TyIoGP0Bm8ld6ymjwkiJgiHYHgiXGpI0cZcHPdkdPCl
+         Bu7ow82e+I121pbSAmltw8NH/5Ce1jbmH7w1/z9TzZ4RcGX9mKGvlm1M6/DUt9mZUIrz
+         FJhYapd0c+9EHW64G4xiJUQVV9fI8QaDde8/2q6cbgZ1Haeh9cOFM6B3hqpzpv2bfMSi
+         gCP3gsQgGJNTBupwlHlgYIr9aL4pHI/HFS02zEaGfEtXktyOtAbZLOJ8LH4o7174b2Px
+         JBXDsgScbxu6QPbzYScBfNlGV4+nqia5YWTFb3xXDweCRC8xqofiag3iufBdPTW2SJAD
+         45jw==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20251104; t=1780080565; x=1780685365;
+        h=in-reply-to:content-disposition:mime-version:references:message-id
+         :subject:cc:to:from:date:x-gm-gg:x-gm-message-state:from:to:cc
+         :subject:date:message-id:reply-to;
+        bh=lp4vtffxigjSJ7RW/i4Jgv4QK66o94cv0dvcll4cQ/M=;
+        b=jDrdg1QrX1SSnpaaxbuXvd4VkgVEfNaaZ7eJDZ4oJhebjAcpBOXySL+IvfXVdA31w2
+         vviAlxw9q6UZp1D1DH9CExT17JXWfgPVS5RexsZcp7LYmUK0TI9jyMeiY3BbpjNmITSj
+         5BIH/QHr9ulihRqruCCa5c4sAAuGeDBUWtwJCTBYKvEXyploYasIWNuLqtnewkuiQkdR
+         MsZ2KSJlFxAP6M8gKoM6Q3ej46wX1cM78bCosivx8zBcKd6UkrI7U5VXEJPEH+UsJBUm
+         q3oE/4sR1dU0847AQgFNNjtcMnx6kw7E0KNwRzx+PVzjugdL7l31T0dsSnAXTzY1I9jw
+         Vwcw==
+X-Forwarded-Encrypted: i=1; AFNElJ9L7HJEmT1hwLjgDeg4LqD+Z/ZT89hoq5/nhdsIqb+dPwJ/78K17QfOfRXCFCuLkIuHySZ5lLEjqScT2jGfWDJQ@lists.infradead.org
+X-Gm-Message-State: AOJu0YzgxJZ9d1vF+szJwu9wlUbRUzJETnTpoQUkq/esZRSSMHOZJ3Ec
+	mDpCRNGuh3GMbvcF01UklKU8Zkjb+nPZT6JRBeMP7XHOaIO1mRjneVRmyaq4BIaHyAk=
+X-Gm-Gg: Acq92OGI+RApm7+nd+35F1mlN8hxp3mcMgGqgcwJpScpP6jqgr1SnzGm4uZF7iDNLgk
+	95/hpBzqCKbCSdozY18MDfcHU9Uv8DJ+6SQdJT6HZbFIvDu9HqmpTE1gdC1w0XtPLM1Gxr4agno
+	9HXxlUSx78HC9r1UdTuEZTkJlQdXihiedBY7LG8N9qzuncCgnCGTFU2zyXobaNTl5mP2cqb5Ajw
+	W1ECwZRF+OH61JolIDrcS/xZKEEdjgyNhj7anxD4u+02cUBeoGtuwXZS/oInfhpcWDkY/UbyF1K
+	1KK28K00ulmHSq4LZgc1F3nnmJKaHlumD8vf5SFNY2X8bwsd5uMzT8bsbBAJWcvWfK84rPf8jVG
+	/JLMLIrkOSoxbb3icv+hc/lphiZd1TtK3yjbZHtt3AM4Z1bQuIBJtk+IsnVAuwC9ezoH1YOtd4T
+	zyrxaX/vRhoHgin/q5i8CrxWielrTd5GebXaoY2T8=
+X-Received: by 2002:adf:e609:0:b0:43e:aa88:f1a1 with SMTP id ffacd0b85a97d-45ef6b92502mr1248001f8f.30.1780080564532;
+        Fri, 29 May 2026 11:49:24 -0700 (PDT)
+Received: from localhost ([2a02:8071:56d1:2de0:1d24:d58d:2b65:c291])
+        by smtp.gmail.com with UTF8SMTPSA id ffacd0b85a97d-45ef34b47eesm6096276f8f.9.2026.05.29.11.49.23
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Fri, 29 May 2026 11:49:23 -0700 (PDT)
+Date: Fri, 29 May 2026 20:49:22 +0200
+From: Uwe =?utf-8?Q?Kleine-K=C3=B6nig_=28The_Capable_Hub=29?= <u.kleine-koenig@baylibre.com>
+To: Joshua Peisach <jpeisach@ubuntu.com>
+Cc: Sebastian Reichel <sre@kernel.org>, Yixun Lan <dlan@kernel.org>, 
+	Andreas Kemnade <andreas@kemnade.info>, Matti Vaittinen <mazziesaccount@gmail.com>, 
+	Sven Peter <sven@kernel.org>, Janne Grunau <j@jannau.net>, Neal Gompa <neal@gompa.dev>, 
+	Amit Sunil Dhamne <amitsd@google.com>, Samuel Kayode <samkay014@gmail.com>, linux-pm@vger.kernel.org, 
+	linux-riscv@lists.infradead.org, spacemit@lists.linux.dev, linux-kernel@vger.kernel.org, 
+	asahi@lists.linux.dev, linux-arm-kernel@lists.infradead.org, imx@lists.linux.dev
+Subject: Re: [PATCH v1 4/6] power: Use named initializers for
+ platform_device_id arrays
+Message-ID: <ahnev6lMK5tiUybP@monoceros>
+References: <cover.1780048925.git.u.kleine-koenig@baylibre.com>
+ <1ceacf4f9c3f827bcad85b378aa04cdca1c04635.1780048925.git.u.kleine-koenig@baylibre.com>
+ <DIV4J6UGUQGG.28KL8EGBZWJSJ@ubuntu.com>
 MIME-Version: 1.0
-Content-Type: text/plain; charset=us-ascii
+Content-Type: multipart/signed; micalg=pgp-sha512;
+	protocol="application/pgp-signature"; boundary="pzwfvojoqum2whq2"
 Content-Disposition: inline
-In-Reply-To: <CAADnVQJ+CqAszS2sSVu7gSfA_g4oaTR+SWmLNMX3_8c=OdR7NQ@mail.gmail.com>
+In-Reply-To: <DIV4J6UGUQGG.28KL8EGBZWJSJ@ubuntu.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260529_114407_804626_EF6EF1B2 
-X-CRM114-Status: GOOD (  16.72  )
+X-CRM114-CacheID: sfid-20260529_114926_891911_B159202F 
+X-CRM114-Status: GOOD (  13.20  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -93,37 +105,54 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hello,
 
-On Fri, May 29, 2026 at 11:38:21AM -0700, Alexei Starovoitov wrote:
-...
-> > 1. The racing write. set_pte_at() and the scratch installer's
-> > ptep_try_set() hit the same PTE with no common lock. On x86-64 and arm64
-> > set_pte_at() is a single atomic store, so it can't tear against the
-> > cmpxchg, but a plain store racing a cmpxchg isn't atomic in general.
-> > David, is that the worry - an arch where set_pte_at() is split and could
-> > tear - or something else?
-> >
-> > 2. The SEGV. It's a BPF program failure propagating out as a SEGV. Maybe
-> > not ideal, but as long as we surface the BPF error properly, it doesn't
-> > necessarily seem broken to me.
-> 
-> returning EBUSY because apply_range_set_cb() hit scratch page
-> is SEGV out of arena_vm_fault() and arguably ok-ish,
-> but bpf_arena_alloc_pages() returning NULL because scratch page
-> was in the range just sucks.
-> Earlier bpf prog passed the wrong arena addr to kfunc and triggered
-> that scratch page. It broke the contract and kept the pieces,
-> so ok-ish too, but overwriting scratch page with proper page
-> during bpf_arena_alloc_pages() is imo much better behavior.
-> That scratch page will cause all future bpf_arena_alloc_pages() fail as well.
-> Hence I prefer that check removed.
+--pzwfvojoqum2whq2
+Content-Type: text/plain; protected-headers=v1; charset=us-ascii
+Content-Disposition: inline
+Content-Transfer-Encoding: quoted-printable
+Subject: Re: [PATCH v1 4/6] power: Use named initializers for
+ platform_device_id arrays
+MIME-Version: 1.0
 
-Yeah, let's do that. David, would that be enough? Or are you still concerned
-about set_pte_at() competing with ptep_try_set()?
+Hello Joshua,
 
-Thanks.
+On Fri, May 29, 2026 at 07:29:08AM -0400, Joshua Peisach wrote:
+> For macsmc-power,
+>=20
+> Reviewed-by: Joshua Peisach <jpeisach@ubuntu.com>
 
--- 
-tejun
+Thanks!
+
+> (I'm not sure if one can "Review-by" a specific section of a singular
+> patch, but also the other changes in the patch look fine to me, so
+> consider it reviewed as well.)
+
+I think what you did is quite usual. The restriction doesn't make it
+into git history this way though. Another usual idiom that can be found
+often in git-log is:
+
+Reviewed-by_ Joshua Peisach <jpeisach@ubuntu.com> # macsmc-power
+
+(intentionally added did s/:/_/ to not make tools pick up this line).
+
+Best regards
+Uwe
+
+
+--pzwfvojoqum2whq2
+Content-Type: application/pgp-signature; name="signature.asc"
+
+-----BEGIN PGP SIGNATURE-----
+
+iQEzBAABCgAdFiEEP4GsaTp6HlmJrf7Tj4D7WH0S/k4FAmoZ368ACgkQj4D7WH0S
+/k7D9wf+K/Kbjth006e5cY3RbjoS8K9jW3NQ01G+VBxY+lHExj1dG+49FF1HI8kt
+qfulP3y/YdWSh2JA4Iu/NK5mHfXtx3IWR9T8IuNyDfXpEJECZipp2WG77R9slfko
+t4zpckQ+iaOMoUDYB7CB93ltVHaeYHp3Y079Vm1cylL5z2/tessr8YqNr+o5lP/l
+c/36Uyh8+f0J9Vm+OEsK5r4lyPA9YxyotfCCx4qbxxAjgGbQUW+rj6MZgm5AGfmK
+rcXLESM1abNV6atU3liVQQQhtTPw4t6YXGDZVfGZbyMLtuZTrVZKCQF24odWnbJ6
+juiDjaO5lCkS75qD+EK1IeT4tTF/hw==
+=+SnX
+-----END PGP SIGNATURE-----
+
+--pzwfvojoqum2whq2--
 
