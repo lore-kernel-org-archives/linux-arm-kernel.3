@@ -4,105 +4,66 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 09FB2CD6E45
-	for <linux-arm-kernel@archiver.kernel.org>; Fri, 29 May 2026 05:37:17 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id E2D7BCD5BD2
+	for <linux-arm-kernel@archiver.kernel.org>; Fri, 29 May 2026 05:57:23 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:
-	Content-Transfer-Encoding:Content-Type:MIME-Version:References:Message-ID:
-	Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=b3mngTSiQ9G4QDQdoy3QdNFGLu5UDTjPqyOy5Rx/Ffg=; b=cEps2ssW3WTenDwvfe9sSec/4e
-	IbUFl8sxjsrxdA8RGCEByyJrtC3iTWc6ZK3OmzU9AD38n9EojT8dd/OITVJmYBl7dy8VeSHSQCeV7
-	QpA2HXLdb5MgRKhCVdQKcVALQOMh52xOi94Afr89d8SuEr1yeLulnssCfQeVk2JqwRCkprpl2DSeQ
-	nBDSLbohhqipmW7qTHoKseIdwTThHmQN9bMnybpi5Rc0jNPiuYh3sE74dphgMMIJ6FPEwUHXMp8GF
-	JZO06hcKCEtKvJ5+GyaxwfJVT01pNz73xUyRnwDuZlzKiYurOi5llJyN+byApghCvzFK8KQ3OgOdR
-	cIKU7ZGQ==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
+	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=bikGWbo7Z8u+Y86zGUnLKB2GE1vzG3CgAboXfzOGk8Q=; b=MNy/kFBeMJW8U0lvPkuI/62ODd
+	UOTu4DE+jZS8s972nCrp6xf2Yf/qf/oTjPriTEKQZVRa0cPz5CdsJtSGwRZgcc1PRGJEb4c7sAI81
+	esYwKa6hLurGdzmVAMhnZAb4Als2JG9sC4ZTPffvlQT6GtmSFkkE0GQJz0+C+QQWV9Vm2SaPE7Bkr
+	hUNHUATCtxltPdeVbh4xDhETmR5WG3PSe7H1u53oAc5pNcn8ngsh6H2Wd8wIJMxxfTZ4/8XqkKzgo
+	zPmUzoeVCX3nCYMjwz83RAqqtbBD8R82Ky0SIK82My1mNRmkCL8IlVaQi+d+8K+C6bxe1c1IcI8CJ
+	otIq0wqg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wSpuA-00000006lcX-0u04;
-	Fri, 29 May 2026 05:37:10 +0000
-Received: from mail-dl1-x1235.google.com ([2607:f8b0:4864:20::1235])
-	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wSpu7-00000006lby-3Gov
+	id 1wSqDb-00000006mMQ-0cXI;
+	Fri, 29 May 2026 05:57:15 +0000
+Received: from foss.arm.com ([217.140.110.172])
+	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
+	id 1wSqDZ-00000006mM2-0fjg
 	for linux-arm-kernel@lists.infradead.org;
-	Fri, 29 May 2026 05:37:09 +0000
-Received: by mail-dl1-x1235.google.com with SMTP id a92af1059eb24-1363e78746eso9885046c88.1
-        for <linux-arm-kernel@lists.infradead.org>; Thu, 28 May 2026 22:37:07 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20251104; t=1780033026; x=1780637826; darn=lists.infradead.org;
-        h=in-reply-to:content-transfer-encoding:content-disposition
-         :mime-version:references:message-id:subject:cc:to:from:date:from:to
-         :cc:subject:date:message-id:reply-to;
-        bh=b3mngTSiQ9G4QDQdoy3QdNFGLu5UDTjPqyOy5Rx/Ffg=;
-        b=oLXJgKCz60TFiV/hPMJPa4jqe+8RPoGfVt52WAO/wFc05sWVFORLAeIJNS6du/iTwS
-         LCphhyVwrjD7edBORljVDsWWsEUclGg9sEcWJFDOSUCT3XqZW7rqdLQ1982PXENXUPgz
-         X43hAwpvFINO7NLZbraBHSW13nO1JAtR167uAu79FG1fFpIW6NfFgwI/DB58W22VSk2t
-         ck/kw9gwmoPPpeoKrvPOk8UB/MhBtivj/j2Ttiea/iMhx5cw+uqWbWpsE3sls/SYloGS
-         0uxcVxp+bp1x6bwDTiZdIyJXS8l2Rvz0J7ompJyYyEJ72pK8aK3TBWobyHq8l/z0qhB2
-         ebdw==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20251104; t=1780033026; x=1780637826;
-        h=in-reply-to:content-transfer-encoding:content-disposition
-         :mime-version:references:message-id:subject:cc:to:from:date:x-gm-gg
-         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to;
-        bh=b3mngTSiQ9G4QDQdoy3QdNFGLu5UDTjPqyOy5Rx/Ffg=;
-        b=hKPo49Of53RP4Mpj6bCXl6fAy2JJ5QofeuKZRFu3PFq5LQLFatSNR4S0fhadj7AWpV
-         nn1DIdO2C31KpTzc78x/JDjnZIYoXQbeqS2UGnU6Xy+STedXraOYeXhGqnfJwZSMXX9r
-         lqgjQR1nJHRmr9T5JrIWvqxiGFyWB/NyP6gNlIsoIQ/8h4EQaqRfrsgSWFLDkHXB0HJG
-         WzrD0LLEeat26Z+Wg5tKghSxpsEbx0EpxJi8L1LMHag6TJB8hFeoKbGdxvw70FilWeoV
-         JVUdKhkgqA+XWEjYp76Zft8w1tpGwnxyvlnaVhBlKnaXtCHPS+hLK1Aymc0lxjV52XvD
-         srww==
-X-Forwarded-Encrypted: i=1; AFNElJ9/hazn71pstAIMiNLtli7fHcXlF0ywRvOZqnJKNfUP79ZS4e2CqYK7qqql4r1vvoIxppXNsfkAikjg1ni+sSDe@lists.infradead.org
-X-Gm-Message-State: AOJu0Yw63Kk6fkVZlYRHAbNeda2QbgmCFuuyoAITZJDMtlwetc1o9Cs0
-	W/Yu5mzM3nCV0Tfmc5JcmRlfg/fY+CIX7wPCUbx/4duJolW/OoZnqxqX
-X-Gm-Gg: Acq92OHEUs+/ZPmm+lpClFI/jUPgganWLHtO6pbzQweWD2ErYhLfXi0YcYFtGH2y8Ss
-	tJh9cf5i7Yyg0P4PTIqIFuX2/0v8IYtsPQEYuzIuM9y4RJ6etw/3qiuJ8TfbncJMwAoG+nwqi5Q
-	co9Znj401qZEPYJiiZ4xcBoGLOvpT0ymQj+vzlg1616jnDZ+jFEXDewuhAZcUk2MEiPKGUijRjX
-	0cbDGYeywkf/7Cvl86pjmvFOsCj8FO5uSCdIHMWQamwZT+/HJhP9PlaNLAbP47H74PNSgZZAkIn
-	6I3rwVqc9CMRWcBDU6EWgTL7FXEJRVRV3yWK6/VEekZR6+27B6dIt2AJUb4X7MN1aUWVOgzBBz1
-	xzASKnqI9o6lCk2EYSlVxEMghldVNzA+BtsQ4ZU//Yvsvzcg9xly/9AMgQg1q4VzYiYj2UAwsfa
-	A+lhXiwFgYMlaBrHhzST9DGqwIO+wGqebdTwqC+rO1DsiAa4zQZYi2ZLeRZMBUEo85bHVroSSO1
-	DI=
-X-Received: by 2002:a05:7022:2223:b0:135:d76a:aedc with SMTP id a92af1059eb24-137aeee5faemr536827c88.33.1780033026219;
-        Thu, 28 May 2026 22:37:06 -0700 (PDT)
-Received: from google.com ([2a00:79e0:2ebe:8:e169:a62b:d3ca:e8c5])
-        by smtp.gmail.com with ESMTPSA id a92af1059eb24-137b2d04287sm832719c88.0.2026.05.28.22.37.03
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Thu, 28 May 2026 22:37:05 -0700 (PDT)
-Date: Thu, 28 May 2026 22:37:01 -0700
-From: Dmitry Torokhov <dmitry.torokhov@gmail.com>
-To: Linus Walleij <linusw@kernel.org>
-Cc: Arnd Bergmann <arnd@kernel.org>, linux-gpio@vger.kernel.org, 
-	linux-kernel@vger.kernel.org, Arnd Bergmann <arnd@arndb.de>, 
-	Christian Lamparter <chunkeey@googlemail.com>, Johannes Berg <johannes@sipsolutions.net>, 
-	Aaro Koskinen <aaro.koskinen@iki.fi>, Andreas Kemnade <andreas@kemnade.info>, 
-	Kevin Hilman <khilman@baylibre.com>, Roger Quadros <rogerq@kernel.org>, 
-	Tony Lindgren <tony@atomide.com>, Thomas Bogendoerfer <tsbogend@alpha.franken.de>, 
-	John Paul Adrian Glaubitz <glaubitz@physik.fu-berlin.de>, Thomas Gleixner <tglx@kernel.org>, 
-	Ingo Molnar <mingo@redhat.com>, Borislav Petkov <bp@alien8.de>, 
-	Dave Hansen <dave.hansen@linux.intel.com>, x86@kernel.org, "H. Peter Anvin" <hpa@zytor.com>, 
-	Bartosz Golaszewski <brgl@kernel.org>, Lee Jones <lee@kernel.org>, Pavel Machek <pavel@kernel.org>, 
-	Matti Vaittinen <mazziesaccount@gmail.com>, Florian Fainelli <florian.fainelli@broadcom.com>, 
-	Jonas Gorski <jonas.gorski@gmail.com>, Andrew Lunn <andrew@lunn.ch>, 
-	Vladimir Oltean <olteanv@gmail.com>, "David S. Miller" <davem@davemloft.net>, 
-	Eric Dumazet <edumazet@google.com>, Jakub Kicinski <kuba@kernel.org>, 
-	Paolo Abeni <pabeni@redhat.com>, linux-wireless@vger.kernel.org, linux-omap@vger.kernel.org, 
-	linux-arm-kernel@lists.infradead.org, linux-mips@vger.kernel.org, linux-sh@vger.kernel.org, 
-	linux-input@vger.kernel.org, linux-leds@vger.kernel.org, netdev@vger.kernel.org
-Subject: Re: [PATCH 02/10] [v3] input: gpio-keys: make legacy gpiolib optional
-Message-ID: <ahklyAUMaOxy3Z9X@google.com>
-References: <20260520183815.2510387-1-arnd@kernel.org>
- <20260520183815.2510387-3-arnd@kernel.org>
- <CAD++jLnYeh3GfEfNXfCYdcdg_j2RAU63TYewwaTx3tm0tM531w@mail.gmail.com>
+	Fri, 29 May 2026 05:57:14 +0000
+Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
+	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id EC81C20E3;
+	Thu, 28 May 2026 22:57:05 -0700 (PDT)
+Received: from [10.164.19.8] (unknown [10.164.19.8])
+	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id 08C023F7B4;
+	Thu, 28 May 2026 22:57:05 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=simple/simple; d=arm.com; s=foss;
+	t=1780034230; bh=xtznZdFjBfsx+x5Ya5ydKOlmG98EyGoHWLUMAFrCTzA=;
+	h=Date:Subject:To:Cc:References:From:In-Reply-To:From;
+	b=Fgqx2Y8RR687yU7zdX7ZpAqBz6WeA7sNuW3FzjxAGEN1Z7gVhSnzL5ZXasdq2mGvp
+	 905qzto8FzndnoeDZUaU/fLkjBxjXTkaV4N86n9HCvGjJVkq4Ksnd7IOMxL6ZT9FeW
+	 9GMisM4bQxSR4tTSRIe40iHkFT2ePhj7hn4oYxlg=
+Message-ID: <176c83fb-edf0-47b3-9823-21a92ea8b4c7@arm.com>
+Date: Fri, 29 May 2026 11:27:02 +0530
 MIME-Version: 1.0
-Content-Type: text/plain; charset=utf-8
-Content-Disposition: inline
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH v3 5/6] mm/vmalloc: map contiguous pages in batches for
+ vmap() if possible
+To: Wen Jiang <jiangwenxiaomi@gmail.com>
+Cc: linux-mm@kvack.org, linux-arm-kernel@lists.infradead.org,
+ catalin.marinas@arm.com, will@kernel.org, akpm@linux-foundation.org,
+ urezki@gmail.com, baohua@kernel.org, Xueyuan.chen21@gmail.com,
+ rppt@kernel.org, david@kernel.org, ryan.roberts@arm.com,
+ anshuman.khandual@arm.com, ajd@linux.ibm.com, linux-kernel@vger.kernel.org,
+ jiangwen6@xiaomi.com
+References: <20260522053146.83209-1-jiangwenxiaomi@gmail.com>
+ <20260522053146.83209-6-jiangwenxiaomi@gmail.com>
+ <340c811e-2501-46c3-8a55-19e955c5ae8a@arm.com>
+ <CAHKocdHOT13DHdz+DsT2BaP0EJSKdoWU2NO-wjFwB9+--CqsHw@mail.gmail.com>
+Content-Language: en-US
+From: Dev Jain <dev.jain@arm.com>
+In-Reply-To: <CAHKocdHOT13DHdz+DsT2BaP0EJSKdoWU2NO-wjFwB9+--CqsHw@mail.gmail.com>
+Content-Type: text/plain; charset=UTF-8
 Content-Transfer-Encoding: 8bit
-In-Reply-To: <CAD++jLnYeh3GfEfNXfCYdcdg_j2RAU63TYewwaTx3tm0tM531w@mail.gmail.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260528_223707_821870_0E612FEE 
-X-CRM114-Status: GOOD (  19.18  )
+X-CRM114-CacheID: sfid-20260528_225713_295772_16F0A791 
+X-CRM114-Status: GOOD (  25.66  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -117,33 +78,194 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Mon, May 25, 2026 at 10:57:44AM +0200, Linus Walleij wrote:
-> On Wed, May 20, 2026 at 8:38 PM Arnd Bergmann <arnd@kernel.org> wrote:
+
+
+On 28/05/26 9:12 am, Wen Jiang wrote:
+> On Wed, 27 May 2026 at 16:28, Dev Jain <dev.jain@arm.com> wrote:
+>>
+>>
+>>
+>> On 22/05/26 11:01 am, Wen Jiang wrote:
+>>> From: "Barry Song (Xiaomi)" <baohua@kernel.org>
+>>>
+>>> In many cases, the pages passed to vmap() may include high-order
+>>> pages. For example, the systemheap often allocates pages in descending
+>>> order: order 8, then 4, then 0. Currently, vmap() iterates over every
+>>> page individually—even pages inside a high-order block are handled
+>>> one by one.
+>>>
+>>> This patch detects physically contiguous pages (regardless of whether
+>>> they are compound or non-compound) by scanning with
+>>> num_pages_contiguous(), and maps them as a single contiguous block
+>>> whenever possible. The first page's pfn must be aligned to the
+>>> mapping order for the batched mapping to be used.
+>>>
+>>> Pages with the same page_shift are coalesced and mapped via
+>>> vmap_pages_range_noflush_walk() to avoid page table rewalk.
+>>>
+>>> As users typically allocate memory in descending orders (e.g.
+>>> 8 → 4 → 0), once an order-0 page is encountered, we stop scanning
+>>> for contiguous pages since subsequent pages are likely order-0 as well.
+>>>
+>>> Signed-off-by: Barry Song (Xiaomi) <baohua@kernel.org>
+>>> Co-developed-by: Dev Jain <dev.jain@arm.com>
+>>> Signed-off-by: Dev Jain <dev.jain@arm.com>
+>>> Signed-off-by: Wen Jiang <jiangwen6@xiaomi.com>
+>>> Tested-by: Xueyuan Chen <xueyuan.chen21@gmail.com>
+>>> ---
+>>>  mm/vmalloc.c | 82 ++++++++++++++++++++++++++++++++++++++++++++++++++--
+>>>  1 file changed, 80 insertions(+), 2 deletions(-)
+>>>
+>>> diff --git a/mm/vmalloc.c b/mm/vmalloc.c
+>>> index deb764abc0571..50642246f4d40 100644
+>>> --- a/mm/vmalloc.c
+>>> +++ b/mm/vmalloc.c
+>>> @@ -3542,6 +3542,84 @@ void vunmap(const void *addr)
+>>>  }
+>>>  EXPORT_SYMBOL(vunmap);
+>>>
+>>> +static inline int get_vmap_batch_order(struct page **pages,
+>>> +             unsigned int max_steps, unsigned int idx)
+>>> +{
+>>> +     unsigned int nr_contig;
+>>> +     int order;
+>>> +
+>>> +     if (!IS_ENABLED(CONFIG_HAVE_ARCH_HUGE_VMAP) ||
+>>> +                     ioremap_max_page_shift == PAGE_SHIFT)
+>>
+>>
+>> Why bail out on ioremap_max_page_shift == PAGE_SHIFT? The code
+>> path for ioremap is different from vmap right?
+>>
+>>
 > 
-> > From: Arnd Bergmann <arnd@arndb.de>
-> >
-> > Most users of gpio-keys and gpio-keys-polled use modern gpiolib
-> > interfaces, but there are still number of ancient sh, arm32 and x86
-> > machines that have never been converted.
-> >
-> > Add an #ifdef block for the parts of the driver that are only used on
-> > those legacy machines.
-> >
-> > The two Rohm PMIC drivers use a gpio-keys device without an actual GPIO,
-> > passing an IRQ number instead. In order to keep this working both with
-> > and with CONFIG_GPIOLIB_LEGACY, change the gpio-keys driver to ignore
-> > the gpio number if an IRQ is passed.
-> >
-> > Link: https://lore.kernel.org/all/b3c94552-c104-42e3-be15-7e8362e8039e@gmail.com/
-> > Link: https://lore.kernel.org/all/afJXG4_rtaj3l2Dk@google.com/
-> > Signed-off-by: Arnd Bergmann <arnd@arndb.de>
+> ioremap_max_page_shift is under CONFIG_HAVE_ARCH_HUGE_VMAP which
+> controls both ioremap and vmap huge mappings.
+
+I don't get it. So with this patch if nohugeiomap is passed on kernel
+cmdline, then vmap-huge is also disabled. That does not sound correct.
+Currently ioremap_max_page_shift does not play at all with the normal
+vmap code path. It is only involved in ioremap_page_range().
+
+
 > 
-> Reviewed-by: Linus Walleij <linusw@kernel.org>
+>>> +             return 0;
+>>> +
+>>> +     nr_contig = num_pages_contiguous(&pages[idx], max_steps);
+>>> +     if (nr_contig < 2)
+>>> +             return 0;
+>>> +
+>>> +     order = fls(nr_contig) - 1;
+>>> +
+>>> +     if (arch_vmap_pte_supported_shift(PAGE_SIZE << order) == PAGE_SHIFT)
+>>> +             return 0;
 
-OK, if Lee Acks MFD changes I can pick this up.
+Also, for arches where this function does not do anything special
+(i.e return PAGE_SHIFT), we will effectively not do any huge mappings
+for them.
 
-Thanks.
 
--- 
-Dmitry
+>>> +
+>>> +     /* Ensure the first page's pfn is aligned to the order */
+>>> +     if (!IS_ALIGNED(page_to_pfn(pages[idx]), 1 << order))
+>>> +             return 0;
+
+This condition is a bit fragile. It may happen that we have, say 2^8
+contigous pages, but they are aligned to only 2^4. We are operating
+on a page array and have no idea if the caller has passed some
+random subrange of the array.
+
+I think the purpose of these checks is this - to do an early bailout
+if arch does not support huge mappings, or the alignment is not correct,
+instead of finding this out very deep into vmap_pages_range_noflush_walk.
+
+So you could do something like (completely untested and may miss some edge cases):
+
+order = ilog2(nr_contig);
+
+order = min(order, __ffs(page_to_pfn(pages[idx])));
+
+order = vm_shift(PAGE_SIZE << order) - PAGE_SHIFT;
+
+Where vm_shift() is the helper I had used in my patch.
+
+>>> +
+>>> +     return order;
+>>> +}
+>>> +
+>>> +static int vmap_batched(unsigned long addr, unsigned long end,
+>>> +             pgprot_t prot, struct page **pages)
+>>> +{
+>>> +     unsigned int count = (end - addr) >> PAGE_SHIFT;
+>>> +     unsigned int prev_shift = 0, idx = 0;
+>>> +     unsigned long start = addr, map_addr = addr;
+>>> +     int err;
+>>> +
+>>> +     err = kmsan_vmap_pages_range_noflush(addr, end, prot, pages,
+>>> +                                             PAGE_SHIFT, GFP_KERNEL);
+>>> +     if (err)
+>>> +             goto out;
+>>> +
+>>> +     for (unsigned int i = 0; i < count; ) {
+>>> +             unsigned int shift = PAGE_SHIFT +
+>>> +                     get_vmap_batch_order(pages, count - i, i);
+>>> +
+>>> +             if (!i)
+>>> +                     prev_shift = shift;
+>>> +
+>>> +             if (shift != prev_shift) {
+>>> +                     err = vmap_pages_range_noflush_walk(map_addr, addr,
+>>
+>> It would be worth documenting vmap_pages_range_noflush_walk() that
+>> it can take an array of pages which are not all contiguous, but it
+>> may have contiguous chunks, as hinted by page_shift.
+>>
+>> Otherwise this looks good.
+>>
+>>> +                                     prot, pages + idx,
+>>> +                                     min(prev_shift, PMD_SHIFT));
+>>> +                     if (err)
+>>> +                             goto out;
+>>> +                     prev_shift = shift;
+>>> +                     map_addr = addr;
+>>> +                     idx = i;
+>>> +             }
+>>> +
+>>> +             /*
+>>> +              * Once small pages are encountered, the remaining pages
+>>> +              * are likely small as well.
+>>> +              */
+>>> +             if (shift == PAGE_SHIFT)
+>>> +                     break;
+>>> +
+>>> +             addr += 1UL << shift;
+>>> +             i += 1U << (shift - PAGE_SHIFT);
+>>> +     }
+>>> +
+>>> +     /* Remaining */
+>>> +     if (map_addr < end)
+>>> +             err = vmap_pages_range_noflush_walk(map_addr, end,
+>>> +                             prot, pages + idx, min(prev_shift, PMD_SHIFT));
+>>> +
+>>> +out:
+>>> +     flush_cache_vmap(start, end);
+>>> +     return err;
+>>> +}
+>>> +
+>>>  /**
+>>>   * vmap - map an array of pages into virtually contiguous space
+>>>   * @pages: array of page pointers
+>>> @@ -3585,8 +3663,8 @@ void *vmap(struct page **pages, unsigned int count,
+>>>               return NULL;
+>>>
+>>>       addr = (unsigned long)area->addr;
+>>> -     if (vmap_pages_range(addr, addr + size, pgprot_nx(prot),
+>>> -                             pages, PAGE_SHIFT) < 0) {
+>>> +     if (vmap_batched(addr, addr + size, pgprot_nx(prot),
+>>> +                             pages) < 0) {
+>>>               vunmap(area->addr);
+>>>               return NULL;
+>>>       }
+>>
+
 
