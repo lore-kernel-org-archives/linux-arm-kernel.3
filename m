@@ -4,75 +4,72 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 840F1CD4F54
-	for <linux-arm-kernel@archiver.kernel.org>; Fri, 29 May 2026 16:35:17 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id BA72ECD4F54
+	for <linux-arm-kernel@archiver.kernel.org>; Fri, 29 May 2026 16:37:22 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:References
-	:Message-Id:Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:
-	From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:MIME-Version:References:In-Reply-To:Message-ID:Subject:Cc:To:
+	From:Date:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=R4JTcNVSu0j7h5Ha9fe+aZclKI7tLU2gi4u42f9j99Y=; b=jZ4JbJrvrn8dUqED3SHiv5ffzE
-	78l7oVC6jeNtvNq8YeUzdK0UkGKRldU4ZIQ2cdru0v2NgdF81YCkMLNddJzcoBIYXQ81WtiDtCq33
-	nFcslhaU7qjIFcjnqcBYajkT/76/x1Ywy0gbpIYj/eof8bPf2k6mwFyIc/qtDkRqjAuZ+PFL/vAp/
-	6YIQYF5fVDJN5Udjdoj2R3/TFSqIRwSMaPxH33/x4qpK7JQWRmwQsc4SD0x6H2Ky5te17MnBple+3
-	adbJfD+4DSUUXK4ze77Bci8QBfdV9H3yMZXwc7lCyDCCJqGdM4t4LHV4VGsfBhjdl6OF4JTy30nOB
-	VQD5JpMg==;
+	bh=Er+CRp+/fzF6XP7lhBBmaTyKlQe5AEFZx4olmr5xIQ0=; b=b1hLBaSvMGgXRd9hU77SawmsA1
+	VI9CNls+iMgIKOXuWEM+/vkjICM2Q0GoAarz7KQ2Sx6iLn0g23eQi0RM1EaCBD0FzyefG8/tHDWOO
+	HRoc9UCxkfWAoz0qN7HzQfU5zOnxpBcnEOIVMeNaVyL1TO9Bm5pUKfKFE23D++heECBthjAlFOZhX
+	ZGqw+iExAbJgL9MLsUH4DLBGHjo/EdwwRvDuL/XTsDV/THCVnTOJyy/vHN7FkrA88zigvKxyjwmA8
+	QrK1RgodMzdwdSTHBV1XI0RxlMJOEEExZ/P0/4k1mnaQD8c9mEuiFnMXL0TpZBTNN54xNOiE+OTcx
+	0cw7PTLQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wT0Ax-00000007tzB-1Q3s;
-	Fri, 29 May 2026 16:35:11 +0000
-Received: from fanzine2.igalia.com ([213.97.179.56])
+	id 1wT0Cu-00000007uPs-38Yh;
+	Fri, 29 May 2026 16:37:12 +0000
+Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wT0Am-00000007ttf-2rE7
+	id 1wT0Cs-00000007uPH-0VZe
 	for linux-arm-kernel@lists.infradead.org;
-	Fri, 29 May 2026 16:35:01 +0000
-DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed; d=igalia.com;
-	s=20170329; h=Cc:To:In-Reply-To:References:Message-Id:
-	Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:From:Sender:
-	Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender
-	:Resent-To:Resent-Cc:Resent-Message-ID:List-Id:List-Help:List-Unsubscribe:
-	List-Subscribe:List-Post:List-Owner:List-Archive;
-	bh=R4JTcNVSu0j7h5Ha9fe+aZclKI7tLU2gi4u42f9j99Y=; b=m5fSKYAbPwXMUu3X4JElCGVLc3
-	heuvdO8lxMeOkeCUDdnoRu7zPsg7dQm3kqu+Cqkc3ei8dMHQ7qqa/XL1nB0qfqb82bubYp9tOJ9sb
-	T/38Cer1Tm7Hhg36ciYLIqjS4s8coExTfc9KXPf918GSh5c3B3tX4QFLVAT1ym0eGiDZ0ptU7gt9A
-	0h0YcIaVen/PxypG6y6FvHaPhHfsYAKaxgFxoXqvFt9sHNumHDk2yDrbPlrcCmSruQ9o4qMtLMTb9
-	i4QOHTU9LlSmMQHoQUuZ4Bji4fU5xUEyKOZiV8Dm7BIEM80g/u0TG5dsvwDowYi6E1gLTMT8YMH1F
-	07c0LLaw==;
-Received: from [179.118.191.12] (helo=[192.168.15.100])
-	by fanzine2.igalia.com with esmtpsa 
-	(Cipher TLS1.3:ECDHE_X25519__RSA_PSS_RSAE_SHA256__AES_256_GCM:256) (Exim)
-	id 1wT0AW-009wov-5J; Fri, 29 May 2026 18:34:44 +0200
-From: =?utf-8?q?Andr=C3=A9_Almeida?= <andrealmeid@igalia.com>
-Date: Fri, 29 May 2026 13:33:57 -0300
-Subject: [PATCH v3 5/5] arm64: vdso32: Implement
- __vdso_futex_robust_try_unlock()
+	Fri, 29 May 2026 16:37:11 +0000
+Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
+	by sea.source.kernel.org (Postfix) with ESMTP id 66DDA43767;
+	Fri, 29 May 2026 16:37:09 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id EF4E71F00893;
+	Fri, 29 May 2026 16:36:57 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
+	s=k20260515; t=1780072629;
+	bh=Er+CRp+/fzF6XP7lhBBmaTyKlQe5AEFZx4olmr5xIQ0=;
+	h=Date:From:To:Cc:Subject:In-Reply-To:References;
+	b=DpJhVU3rHJQc98K2nTljj478Xh+GZiF0GUfOrwna3KtBKLlr2LjxoQlGAGOl1YFYj
+	 JBYbOaE9746eYVP4RH2CqkzDMpk83yl26x5ckIrnbt4smT+ohvYdTsPlkFYVI1mTej
+	 EB0KqUUmrVx45MeOEZ5y7jdg7Lsd+RA3Snlz6IhJrxF4Iu5Nya8fgNgD4vxLhbNqjH
+	 KpmKdd5xCszMTY5cp16+JK/yjzYpX+MQt80DJQ5CJWKsYanZIszzTUQHokKsxNcmTq
+	 Sh9iw2+A5hUTvVNfA2MHfr0zoJwCpvO1wp44xDknFQUzawJM/USdYwTFXVanvDnM+M
+	 mqN0hjyHWFxgQ==
+Date: Fri, 29 May 2026 17:36:52 +0100
+From: Jonathan Cameron <jic23@kernel.org>
+To: Ahmed Tiba <ahmed.tiba@arm.com>
+Cc: will@kernel.org, xueshuai@linux.alibaba.com, saket.dumbre@intel.com,
+ mchehab@kernel.org, dave@stgolabs.net, djbw@kernel.org, bp@alien8.de,
+ tony.luck@intel.com, guohanjun@huawei.com, lenb@kernel.org,
+ skhan@linuxfoundation.org, vishal.l.verma@intel.com, rafael@kernel.org,
+ corbet@lwn.net, ira.weiny@intel.com, dave.jiang@intel.com,
+ krzk+dt@kernel.org, robh@kernel.org, catalin.marinas@arm.com,
+ alison.schofield@intel.com, conor+dt@kernel.org,
+ linux-arm-kernel@lists.infradead.org, Michael.Zhao2@arm.com,
+ linux-doc@vger.kernel.org, linux-kernel@vger.kernel.org,
+ linux-cxl@vger.kernel.org, Dmitry.Lamerov@arm.com,
+ devicetree@vger.kernel.org, linux-acpi@vger.kernel.org,
+ linux-edac@vger.kernel.org, acpica-devel@lists.linux.dev
+Subject: Re: [PATCH v5 00/10] ACPI: APEI: share GHES CPER helpers and add DT
+ FFH provider
+Message-ID: <20260529173652.25069d3b@jic23-huawei>
+In-Reply-To: <20260529-topics-ahmtib01-ras_ffh_arm_internal_review-v5-0-2e0500d42642@arm.com>
+References: <20260529-topics-ahmtib01-ras_ffh_arm_internal_review-v5-0-2e0500d42642@arm.com>
+X-Mailer: Claws Mail 4.4.0 (GTK 3.24.52; x86_64-pc-linux-gnu)
 MIME-Version: 1.0
-Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: 8bit
-Message-Id: <20260529-tonyk-robust_arm-v3-5-a6f02684d4fe@igalia.com>
-References: <20260529-tonyk-robust_arm-v3-0-a6f02684d4fe@igalia.com>
-In-Reply-To: <20260529-tonyk-robust_arm-v3-0-a6f02684d4fe@igalia.com>
-To: Catalin Marinas <catalin.marinas@arm.com>, 
- Will Deacon <will@kernel.org>, Thomas Gleixner <tglx@kernel.org>, 
- Mark Rutland <mark.rutland@arm.com>, 
- Mathieu Desnoyers <mathieu.desnoyers@efficios.com>, 
- Sebastian Andrzej Siewior <bigeasy@linutronix.de>, 
- Carlos O'Donell <carlos@redhat.com>, Peter Zijlstra <peterz@infradead.org>, 
- Florian Weimer <fweimer@redhat.com>, Rich Felker <dalias@aerifal.cx>, 
- Torvald Riegel <triegel@redhat.com>, Darren Hart <dvhart@infradead.org>, 
- Ingo Molnar <mingo@kernel.org>, Davidlohr Bueso <dave@stgolabs.net>, 
- Arnd Bergmann <arnd@arndb.de>, "Liam R . Howlett" <Liam.Howlett@oracle.com>, 
- Uros Bizjak <ubizjak@gmail.com>, 
- =?utf-8?q?Thomas_Wei=C3=9Fschuh?= <linux@weissschuh.net>
-Cc: linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org, 
- linux-arch@vger.kernel.org, kernel-dev@igalia.com, 
- LKML <linux-kernel@vger.kernel.org>, 
- =?utf-8?q?Andr=C3=A9_Almeida?= <andrealmeid@igalia.com>
-X-Mailer: b4 0.15.2
+Content-Type: text/plain; charset=US-ASCII
+Content-Transfer-Encoding: 7bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260529_093500_723404_CABDAB14 
-X-CRM114-Status: GOOD (  13.93  )
+X-CRM114-CacheID: sfid-20260529_093710_180950_54556A5D 
+X-CRM114-Status: UNSURE (   9.64  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -87,109 +84,19 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Based on aarch64 implementation, provide a 32 bit entry point for this vDSO.
+On Fri, 29 May 2026 10:50:40 +0100
+Ahmed Tiba <ahmed.tiba@arm.com> wrote:
 
-In order to keep compatibility with arm64_futex_robust_unlock_get_pop(),
-make sure to store the pop address at r2.
+> This is v5 of the GHES refactor series. Compared to v4, it only updates
+> the DT binding to address the latest review comments.
 
-Signed-off-by: André Almeida <andrealmeid@igalia.com>
----
- arch/arm64/kernel/vdso.c            |  9 +++++++++
- arch/arm64/kernel/vdso32/Makefile   |  2 +-
- arch/arm64/kernel/vdso32/vdso.lds.S |  5 +++++
- arch/arm64/kernel/vdso32/vfutex.c   | 33 +++++++++++++++++++++++++++++++++
- 4 files changed, 48 insertions(+), 1 deletion(-)
+https://sashiko.dev/#/patchset/20260529-topics-ahmtib01-ras_ffh_arm_internal_review-v5-0-2e0500d42642@arm.com
 
-diff --git a/arch/arm64/kernel/vdso.c b/arch/arm64/kernel/vdso.c
-index 76f22ea8e181..3ce9d9d79431 100644
---- a/arch/arm64/kernel/vdso.c
-+++ b/arch/arm64/kernel/vdso.c
-@@ -71,6 +71,15 @@ static void vdso_futex_robust_unlock_update_ips(enum vdso_abi abi, struct mm_str
- 
- 		futex_set_vdso_cs_range(fd, 0, success, end, false);
- 	}
-+
-+#ifdef CONFIG_COMPAT_VDSO
-+	if (abi == VDSO_ABI_AA32) {
-+		success = (uintptr_t) VDSO_SYMBOL(vdso, futex_list32_try_unlock_cs_success);
-+		end = (uintptr_t) VDSO_SYMBOL(vdso, futex_list32_try_unlock_cs_end);
-+
-+		futex_set_vdso_cs_range(fd, 1, success, end, true);
-+	}
-+#endif
- }
- #else
- static inline void vdso_futex_robust_unlock_update_ips(enum vdso_abi abi, struct mm_struct *mm) { }
-diff --git a/arch/arm64/kernel/vdso32/Makefile b/arch/arm64/kernel/vdso32/Makefile
-index 2775843e53cd..cc4248539bec 100644
---- a/arch/arm64/kernel/vdso32/Makefile
-+++ b/arch/arm64/kernel/vdso32/Makefile
-@@ -97,7 +97,7 @@ VDSO_LDFLAGS += --orphan-handling=$(CONFIG_LD_ORPHAN_WARN_LEVEL)
- munge := ../../../arm/vdso/vdsomunge
- hostprogs := $(munge)
- 
--c-obj-vdso := note.o
-+c-obj-vdso := note.o vfutex.o
- c-obj-vdso-gettimeofday := vgettimeofday.o
- 
- ifneq ($(c-gettimeofday-y),)
-diff --git a/arch/arm64/kernel/vdso32/vdso.lds.S b/arch/arm64/kernel/vdso32/vdso.lds.S
-index c374fb0146f3..31e0a3770c32 100644
---- a/arch/arm64/kernel/vdso32/vdso.lds.S
-+++ b/arch/arm64/kernel/vdso32/vdso.lds.S
-@@ -87,6 +87,11 @@ VERSION
- 		__vdso_clock_getres;
- 		__vdso_clock_gettime64;
- 		__vdso_clock_getres_time64;
-+		__vdso_futex_robust_list32_try_unlock;
- 	local: *;
- 	};
- }
-+
-+VDSO_futex_list32_try_unlock_cs_success = __futex_list32_try_unlock_cs_success;
-+VDSO_futex_list32_try_unlock_cs_start = __futex_list32_try_unlock_cs_start;
-+VDSO_futex_list32_try_unlock_cs_end = __futex_list32_try_unlock_cs_end;
-diff --git a/arch/arm64/kernel/vdso32/vfutex.c b/arch/arm64/kernel/vdso32/vfutex.c
-new file mode 100644
-index 000000000000..a347da5ef47f
---- /dev/null
-+++ b/arch/arm64/kernel/vdso32/vfutex.c
-@@ -0,0 +1,33 @@
-+// SPDX-License-Identifier: GPL-2.0-or-later
-+#include <linux/stringify.h>
-+#include <vdso/futex.h>
-+
-+#define LABEL(name, sz) __stringify(__futex_list##sz##_try_unlock_cs_##name)
-+
-+#define GLOBLS(sz) ".globl " LABEL(start, sz) ", " LABEL(success, sz) ", " LABEL(end, sz) "\n"
-+
-+__u32 __vdso_futex_robust_list32_try_unlock(__u32 *lock, __u32 tid, __u32 *pop)
-+{
-+	register __u32 *pop_reg asm("r2") = pop;
-+	__u32 val, result, zero = 0;
-+
-+	asm volatile (
-+		GLOBLS(32)
-+		"retry:						\n"
-+		"	ldrex %[val], %[lock]			\n"
-+		"	cmp %[tid], %[val]			\n"
-+		"	bne " LABEL(end, 32)"			\n"
-+		"	strex %[result], %[zero], %[lock]	\n"
-+		"	cmp %[result], #0			\n"
-+		"	bne retry				\n"
-+		LABEL(start, 32)":				\n"
-+		LABEL(success, 32)":				\n"
-+		"	str %[zero], %[pop_reg]			\n"
-+		LABEL(end, 32)":				\n"
-+		: [val] "=&r" (val), [result] "=r" (result)
-+		: [tid] "r" (tid), [lock] "Q" (*lock), [pop_reg] "Q" (*pop_reg), [zero] "r" (zero)
-+		: "memory"
-+	);
-+
-+	return val;
-+}
+It is mostly not happy with existing code, but there is one point where it notes
+a header that should be there (linux/cleanup.h)
 
--- 
-2.54.0
+Given you are working with this code at the moment, maybe take a look at some
+of the reported issues whilst you are here!
 
+Jonathan
 
