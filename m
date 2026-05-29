@@ -4,124 +4,61 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 939CECD6E49
-	for <linux-arm-kernel@archiver.kernel.org>; Fri, 29 May 2026 15:52:02 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 22995CD6E49
+	for <linux-arm-kernel@archiver.kernel.org>; Fri, 29 May 2026 15:53:39 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:
-	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
+	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=KTnJ9N/khaLChkjou0ysI/xLREdm3g3GAN5DKQ9K9Ng=; b=Sil+3rNyH66EyR6gW4+zZs/XdB
-	h5PiCNkwpDPCLJ/V6ccDUpTrp6vfWgoX365j5rfPeynZuEw15BlTqUGTBR8dkIO/eUnk0MFwzkkGv
-	4jJQzHbq2p2UEhLC84QUz5uYqls1NQNC1u4IzgorOBxTGuwqFLPqHr4ErQJbM5QbLPIN16/oU6obf
-	YLcnHYy5Q015HlatUnd36uDQyPObmNt6SPKGzVTbzd2w/UdqUnJvkCUxooET74+B3HHv/KPZb7/qa
-	vS4w21Dd5oRjaBrgMM0aGlAMiYEjxwg35ttXNLjBptcwoKZBi4i1zaslxC92KsA2VIp96I2XVvf/j
-	ZUHVIPLw==;
+	bh=WBiwHGCiw9Myhj8FPUiy6U6RW3ZRRMa5Jy4NrDV481I=; b=CR5LTT8gFhlxi3Gwh5jsvomxL9
+	Xi2mjIvHxgbU56LpbPob1shUZJuC32kBWcugezL2DaN7rLp9CpZGUnar8YFtpf0R9Ml48uOUGizwh
+	1bvqI3g+P6FHO8v1AnixJkP56tW8G1ESvoJ8bWW/KmrpjymdbnYR7INjROXyzcFIcvm3LVtECNDGn
+	mpmHZk3kPBOvOeYNwLc0lGZNU6Z3yfCxgcJcqipl8T6G/NcImDLZfglgxv/Eff/vMAH5J4JwdTB5i
+	e9wHKumjhT1Lx1jmsmed5qyS2DdfPOdPXVZrqexRw9pg7vTKa3drTCVxVv/qGllOJWtTYIGpaJdUA
+	05CTPx+w==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wSzUm-00000007jdy-00TB;
-	Fri, 29 May 2026 15:51:36 +0000
-Received: from mx0a-001b2d01.pphosted.com ([148.163.156.1])
-	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wSzUY-00000007jUU-15fq
+	id 1wSzWe-00000007kqM-2zoZ;
+	Fri, 29 May 2026 15:53:32 +0000
+Received: from foss.arm.com ([217.140.110.172])
+	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
+	id 1wSzVz-00000007klB-2mjm
 	for linux-arm-kernel@lists.infradead.org;
-	Fri, 29 May 2026 15:51:24 +0000
-Received: from pps.filterd (m0360083.ppops.net [127.0.0.1])
-	by mx0a-001b2d01.pphosted.com (8.18.1.11/8.18.1.11) with ESMTP id 64TF3eu52418298;
-	Fri, 29 May 2026 15:51:08 GMT
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=ibm.com; h=cc
-	:content-transfer-encoding:date:from:in-reply-to:message-id
-	:mime-version:references:subject:to; s=pp1; bh=KTnJ9N/khaLChkjou
-	0ysI/xLREdm3g3GAN5DKQ9K9Ng=; b=Ebf6wqgJCF4+LOEVBQLNCJD9g0fk2Xuji
-	pj49tLZzNZSlvVNwXvp4Ahr2b6yj+7HTgjnbSBF5jmLy9N8HVURsw4aLPwMmBDJ8
-	3aqA/BSIXtzGTNbG1gIY1KlI38eK81saa36l0XNaXsDvfw2ltrF+fXAwt3uNecE+
-	j3PMUj/nhBiH3LmZpD1Hk82POMyOd9phiwmE/cd03N9GPwz085ZDQQHAh9RUcmRm
-	oMWYGy8OHiyi7HXzpxfE2zEQRMA/nE53a1LGhAC8ASQn15NBakPoGnWxH2NdcuFJ
-	gDBraNX7CdJo0ip0GWImMNHLluv+Kx8y/APA1Z1nukBOMYc2GxoiA==
-Received: from ppma23.wdc07v.mail.ibm.com (5d.69.3da9.ip4.static.sl-reverse.com [169.61.105.93])
-	by mx0a-001b2d01.pphosted.com (PPS) with ESMTPS id 4ee884ve4y-1
-	(version=TLSv1.2 cipher=ECDHE-RSA-AES256-GCM-SHA384 bits=256 verify=NOT);
-	Fri, 29 May 2026 15:51:07 +0000 (GMT)
-Received: from pps.filterd (ppma23.wdc07v.mail.ibm.com [127.0.0.1])
-	by ppma23.wdc07v.mail.ibm.com (8.18.1.7/8.18.1.7) with ESMTP id 64TFd7cf022992;
-	Fri, 29 May 2026 15:51:06 GMT
-Received: from smtprelay05.fra02v.mail.ibm.com ([9.218.2.225])
-	by ppma23.wdc07v.mail.ibm.com (PPS) with ESMTPS id 4edjrc8ex0-1
-	(version=TLSv1.2 cipher=ECDHE-RSA-AES256-GCM-SHA384 bits=256 verify=NOT);
-	Fri, 29 May 2026 15:51:06 +0000 (GMT)
-Received: from smtpav07.fra02v.mail.ibm.com (smtpav07.fra02v.mail.ibm.com [10.20.54.106])
-	by smtprelay05.fra02v.mail.ibm.com (8.14.9/8.14.9/NCO v10.0) with ESMTP id 64TFoxrX41288042
-	(version=TLSv1/SSLv3 cipher=DHE-RSA-AES256-GCM-SHA384 bits=256 verify=OK);
-	Fri, 29 May 2026 15:50:59 GMT
-Received: from smtpav07.fra02v.mail.ibm.com (unknown [127.0.0.1])
-	by IMSVA (Postfix) with ESMTP id 8CE0F2004F;
-	Fri, 29 May 2026 15:50:59 +0000 (GMT)
-Received: from smtpav07.fra02v.mail.ibm.com (unknown [127.0.0.1])
-	by IMSVA (Postfix) with ESMTP id 3C5702004B;
-	Fri, 29 May 2026 15:50:59 +0000 (GMT)
-Received: from tuxmaker.boeblingen.de.ibm.com (unknown [9.87.85.9])
-	by smtpav07.fra02v.mail.ibm.com (Postfix) with ESMTP;
-	Fri, 29 May 2026 15:50:59 +0000 (GMT)
-From: Steffen Eiden <seiden@linux.ibm.com>
-To: kvm@vger.kernel.org, kvmarm@lists.linux.dev,
-        linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org,
-        linux-s390@vger.kernel.org
-Cc: Alexander Gordeev <agordeev@linux.ibm.com>,
-        Andreas Grapentin <gra@linux.ibm.com>, Arnd Bergmann <arnd@arndb.de>,
-        Catalin Marinas <catalin.marinas@arm.com>,
-        Christian Borntraeger <borntraeger@linux.ibm.com>,
-        Claudio Imbrenda <imbrenda@linux.ibm.com>,
-        David Hildenbrand <david@kernel.org>,
-        Friedrich Welter <fritz@linux.ibm.com>,
-        Gautam Gala <ggala@linux.ibm.com>,
-        Hariharan Mari <hari55@linux.ibm.com>,
-        Heiko Carstens <hca@linux.ibm.com>,
-        Hendrik Brueckner <brueckner@linux.ibm.com>,
-        Ilya Leoshkevich <iii@linux.ibm.com>,
-        Janosch Frank <frankja@linux.ibm.com>, Joey Gouly <joey.gouly@arm.com>,
-        Marc Zyngier <maz@kernel.org>, Nico Boehr <nrb@linux.ibm.com>,
-        Nina Schoetterl-Glausch <oss@nina.schoetterlglausch.eu>,
-        Oliver Upton <oupton@kernel.org>, Paolo Bonzini <pbonzini@redhat.com>,
-        Suzuki K Poulose <suzuki.poulose@arm.com>,
-        Sven Schnelle <svens@linux.ibm.com>,
-        Ulrich Weigand <Ulrich.Weigand@de.ibm.com>,
-        Vasily Gorbik <gor@linux.ibm.com>, Will Deacon <will@kernel.org>,
-        Zenghui Yu <yuzenghui@huawei.com>
-Subject: [PATCH v3 24/27] KVM: s390: arm64: Implement vm/vcpu create destroy.
-Date: Fri, 29 May 2026 17:50:38 +0200
-Message-ID: <20260529155050.2902245-25-seiden@linux.ibm.com>
-X-Mailer: git-send-email 2.53.0
-In-Reply-To: <20260529155050.2902245-1-seiden@linux.ibm.com>
-References: <20260529155050.2902245-1-seiden@linux.ibm.com>
+	Fri, 29 May 2026 15:52:56 +0000
+Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
+	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id 26E871C00;
+	Fri, 29 May 2026 08:52:43 -0700 (PDT)
+Received: from [10.57.72.122] (unknown [10.57.72.122])
+	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id C90103F632;
+	Fri, 29 May 2026 08:52:46 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=simple/simple; d=arm.com; s=foss;
+	t=1780069968; bh=f/w7mTwYDvz8h8dLB6/Nyvab2IZrXvJ7DSVWZv6qDw0=;
+	h=Date:Subject:To:Cc:References:From:In-Reply-To:From;
+	b=LLC2hMgwutgd6K+xqM/uxPsGhSCS/soZiCxqIfE04gtLxtegLARgW1RajDDPBupBh
+	 ci4eggq2O2nG11SgmnziepEExFQP6+e7aN/laxclU1da4gmY4QoUynfjBvhkOQPuWj
+	 oUJWEvwhCuBAOLUHwspe9X7Wx58W1Hrd1CeyPaLU=
+Message-ID: <f69417f3-485e-4255-b544-0b9f1a6b1ec1@arm.com>
+Date: Fri, 29 May 2026 16:52:44 +0100
 MIME-Version: 1.0
+User-Agent: Mozilla Thunderbird
+Subject: Re: [BOOTWRAPPER PATCH v3 2/2] Add support for GICv5
+To: Sascha Bischoff <Sascha.Bischoff@arm.com>,
+ "linux-arm-kernel@lists.infradead.org" <linux-arm-kernel@lists.infradead.org>
+Cc: "maz@kernel.org" <maz@kernel.org>, Joey Gouly <Joey.Gouly@arm.com>,
+ Mark Rutland <Mark.Rutland@arm.com>, nd <nd@arm.com>
+References: <20260529095032.48951-1-vladimir.murzin@arm.com>
+ <20260529095032.48951-3-vladimir.murzin@arm.com>
+ <81e52eb94e26f8c7469d24ceb857890964c5383c.camel@arm.com>
+Content-Language: en-GB
+From: Vladimir Murzin <vladimir.murzin@arm.com>
+In-Reply-To: <81e52eb94e26f8c7469d24ceb857890964c5383c.camel@arm.com>
+Content-Type: text/plain; charset=UTF-8
 Content-Transfer-Encoding: 8bit
-X-TM-AS-GCONF: 00
-X-Authority-Analysis: v=2.4 cv=L4MtheT8 c=1 sm=1 tr=0 ts=6a19b5eb cx=c_pps
- a=3Bg1Hr4SwmMryq2xdFQyZA==:117 a=3Bg1Hr4SwmMryq2xdFQyZA==:17
- a=NGcC8JguVDcA:10 a=VkNPw1HP01LnGYTKEx00:22 a=RnoormkPH1_aCDwRdu11:22
- a=iQ6ETzBq9ecOQQE5vZCe:22 a=VnNF1IyMAAAA:8 a=RC2V8De_2s-pDU17uugA:9
-X-Proofpoint-ORIG-GUID: P3VgJIg4WDA-p59gxsSr96pYmcFn-IaH
-X-Proofpoint-Spam-Details-Enc: AW1haW4tMjYwNTI5MDE1NiBTYWx0ZWRfX8aJNScxZEIa8
- /ICUMNxJf6SxB63z87Fzb80zZTdyfqmuSqlFWtajKfWWlzq1UZBJZGH/KdwToU/czUyBeQf36OX
- g1voZn9wMbYnbfunHO0VPvYj98wij9bmYN4YDOE56biBnQ6kj9wAZz8cHO6vDocHTDJqY8Pb0XW
- olBXddox42eMapUayQqPheX9NuQTb/w59uoUW3ymlOqjsUqp+C+/XRQeV2V23kPtIWABwdzosWg
- TuUZ0yQ+tCmTigXWWmsrkEyKqSMnuljRwRsiaMPdftk8iICQU3sme01vAT0w+PGCdjnI2H3sA8o
- zIbAPAhJm2jwqDZZOX+IK6m412bl3Rd4MTJzr+OfVLQcVzH6g2sMS3kJV9yqcmHLlbrpx2rgvtb
- Zv50S+4GrRLzsVCFH2fV12bl4WlOp8EHbSx1+XUlzyCyzSrfbvHpkG+JhZY5RCnRs+4FkqVC4qS
- 4d1iJVX8NErCpjUtLhA==
-X-Proofpoint-GUID: P3VgJIg4WDA-p59gxsSr96pYmcFn-IaH
-X-Proofpoint-Virus-Version: vendor=baseguard
- engine=ICAP:2.0.293,Aquarius:18.0.1143,Hydra:6.1.125,FMLib:17.12.100.49
- definitions=2026-05-29_04,2026-05-28_03,2025-10-01_01
-X-Proofpoint-Spam-Details: rule=outbound_notspam policy=outbound score=0
- phishscore=0 lowpriorityscore=0 suspectscore=0 clxscore=1015 malwarescore=0
- bulkscore=0 impostorscore=0 adultscore=0 priorityscore=1501 spamscore=0
- classifier=typeunknown authscore=0 authtc= authcc= route=outbound adjust=0
- reason=mlx scancount=1 engine=8.22.0-2605210000 definitions=main-2605290156
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260529_085122_439962_37A0326A 
-X-CRM114-Status: GOOD (  18.17  )
+X-CRM114-CacheID: sfid-20260529_085251_815194_DB458B70 
+X-CRM114-Status: GOOD (  33.07  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -136,297 +73,270 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Implement init and destroy IOCTLS for vcpu and vm.
-Implement arch vm IOCTL. Use s390 gmap.
+Hi Sascha,
 
-Co-developed-by: Janosch Frank <frankja@linux.ibm.com>
-Signed-off-by: Janosch Frank <frankja@linux.ibm.com>
-Co-developed-by: Andreas Grapentin <gra@linux.ibm.com>
-Signed-off-by: Andreas Grapentin <gra@linux.ibm.com>
-Co-developed-by: Nina Schoetterl-Glausch <nsg@linux.ibm.com>
-Signed-off-by: Nina Schoetterl-Glausch <nsg@linux.ibm.com>
-Signed-off-by: Steffen Eiden <seiden@linux.ibm.com>
----
- arch/s390/kvm/arm64/arm.c | 161 ++++++++++++++++++++++++++++++++++++++
- arch/s390/kvm/arm64/arm.h |  54 +++++++++++++
- 2 files changed, 215 insertions(+)
+On 5/29/26 16:34, Sascha Bischoff wrote:
+> Hi Vladimir,
+> 
+> Thanks for the rapid turn-around. This is now looking good to me. I've
+> tested things again and have confirmed that they're working for me.
+> 
+> One small thing to point out is that I got this when applying:
+> 
+> Applying: Add support for GICv5
+> .git/rebase-apply/patch:203: new blank line at EOF.
+> +
+> warning: 1 line adds whitespace errors.
+> 
+> It looks like you have an extra newline, which must have been there
+> previously too. Sorry for missing it. In either case, this looks to be
+> in a good state now:
+> 
+> Reviewed-by: Sascha Bischoff <sascha.bischoff@arm.com>
+> 
 
-diff --git a/arch/s390/kvm/arm64/arm.c b/arch/s390/kvm/arm64/arm.c
-index 591e2e874891..79ce6570fa03 100644
---- a/arch/s390/kvm/arm64/arm.c
-+++ b/arch/s390/kvm/arm64/arm.c
-@@ -8,7 +8,10 @@
- #include <linux/kvm_types.h>
- #include <linux/kvm_host.h>
- 
-+#include <gmap.h>
-+
- #include "arm.h"
-+#include "reset.h"
- 
- int kvm_vm_ioctl_check_extension(struct kvm *kvm, long ext)
- {
-@@ -45,6 +48,61 @@ static u64 kvm_max_guest_address(void)
- 	return ALIGN_DOWN(max_addr + 1, 1 << 30) - 1;
- }
- 
-+static int kvm_gmap_init(struct kvm *kvm)
-+{
-+	struct crst_table *table;
-+
-+	kvm->arch.gmap = gmap_new(kvm, gpa_to_gfn(kvm->arch.guest_phys_size));
-+
-+	if (!kvm->arch.gmap)
-+		return -ENOMEM;
-+
-+	/* arm64 (on s390) do not have pfault */
-+	clear_bit(GMAP_FLAG_PFAULT_ENABLED, &kvm->arch.gmap->flags);
-+	set_bit(GMAP_FLAG_ALLOW_HPAGE_1M, &kvm->arch.gmap->flags);
-+
-+	table = dereference_asce(kvm->arch.gmap->asce);
-+	crst_table_init((void *)table, _CRSTE_HOLE(table->crstes[0].h.tt).val);
-+
-+	return 0;
-+}
-+
-+int kvm_arch_init_vm(struct kvm *kvm, unsigned long type)
-+{
-+	char debug_name[32];
-+	int ret;
-+
-+	if (type & ~KVM_VM_TYPE_ARM_IPA_SIZE_MASK)
-+		return -EINVAL;
-+
-+	ret = kvm_vm_type_ipa_size_shift(type);
-+	if (ret < 0)
-+		return ret;
-+	kvm->arch.guest_phys_size = 1UL << ret;
-+
-+	mutex_init(&kvm->arch.config_lock);
-+	bitmap_zero(kvm->arch.vcpu_features, KVM_VCPU_MAX_FEATURES);
-+
-+	snprintf(debug_name, sizeof(debug_name), "kvm-arm64-%u", current->pid);
-+	kvm->arch.dbf = debug_register(debug_name, 32, 1, 7 * sizeof(long));
-+	if (!kvm->arch.dbf)
-+		return -ENOMEM;
-+	debug_register_view(kvm->arch.dbf, &debug_sprintf_view);
-+
-+	ret = kvm_gmap_init(kvm);
-+	if (ret)
-+		goto out_err;
-+	kvm->arch.mem_limit = kvm_max_guest_address();
-+
-+	VM_EVENT(kvm, 3, "vm created with type %lu", type);
-+	return 0;
-+
-+out_err:
-+	debug_unregister(kvm->arch.dbf);
-+
-+	return ret;
-+}
-+
- vm_fault_t kvm_arch_vcpu_fault(struct kvm_vcpu *vcpu, struct vm_fault *vmf)
- {
- 	return VM_FAULT_SIGBUS;
-@@ -56,6 +114,13 @@ long kvm_arch_dev_ioctl(struct file *filp,
- 	return -EINVAL;
- }
- 
-+void kvm_arch_destroy_vm(struct kvm *kvm)
-+{
-+	kvm_destroy_vcpus(kvm);
-+	debug_unregister(kvm->arch.dbf);
-+	kvm->arch.gmap = gmap_put(kvm->arch.gmap);
-+}
-+
- u32 get_kvm_ipa_limit(void)
- {
- 	return fls64(kvm_max_guest_address() + 1) - 1;
-@@ -66,10 +131,39 @@ int kvm_arch_vcpu_precreate(struct kvm *kvm, unsigned int id)
- 	return 0;
- }
- 
-+int kvm_arch_vcpu_create(struct kvm_vcpu *vcpu)
-+{
-+	struct kvm_sae_block *sae_block = &vcpu->arch.sae_block;
-+
-+	spin_lock_init(&vcpu->arch.mp_state_lock);
-+
-+	/* Force users to call KVM_ARM_VCPU_INIT */
-+	vcpu_clear_flag(vcpu, VCPU_INITIALIZED);
-+
-+	vcpu->arch.mc = kvm_s390_new_mmu_cache();
-+	if (!vcpu->arch.mc)
-+		return -ENOMEM;
-+
-+	sae_block->hbasce = vcpu->kvm->arch.gmap->asce.val;
-+	sae_block->mso = 0L;
-+	sae_block->msl = kvm_max_guest_address();
-+
-+	VM_EVENT(vcpu->kvm, 3, "create cpu %d at 0x%p, sae block at 0x%p, satellite at 0x%p",
-+		 vcpu->vcpu_id, vcpu, &vcpu->arch.sae_block, &vcpu->arch.save_area);
-+	return 0;
-+}
-+
- void kvm_arch_vcpu_postcreate(struct kvm_vcpu *vcpu)
- {
- }
- 
-+void kvm_arch_vcpu_destroy(struct kvm_vcpu *vcpu)
-+{
-+	kvm_s390_free_mmu_cache(vcpu->arch.mc);
-+
-+	VCPU_EVENT(vcpu, 3, "%s", "free cpu");
-+}
-+
- void kvm_arch_vcpu_blocking(struct kvm_vcpu *vcpu)
- {
- }
-@@ -107,6 +201,52 @@ int kvm_vm_ioctl_irq_line(struct kvm *kvm, struct kvm_irq_level *irq_level,
- 	return 0;
- }
- 
-+int kvm_vm_ioctl_get_dirty_log(struct kvm *kvm,
-+			       struct kvm_dirty_log *log)
-+{
-+	return gmap_get_dirty_log(kvm, log);
-+}
-+
-+bool kvm_age_gfn(struct kvm *kvm, struct kvm_gfn_range *range)
-+{
-+	scoped_guard(read_lock, &kvm->mmu_lock)
-+		return gmap_age_gfn(kvm->arch.gmap, range->start, range->end);
-+}
-+
-+void kvm_arch_sync_dirty_log(struct kvm *kvm, struct kvm_memory_slot *memslot)
-+{
-+	gfn_t last_gfn = memslot->base_gfn + memslot->npages;
-+
-+	scoped_guard(read_lock, &kvm->mmu_lock)
-+		gmap_sync_dirty_log(kvm->arch.gmap, memslot->base_gfn, last_gfn);
-+}
-+
-+int kvm_arch_prepare_memory_region(struct kvm *kvm,
-+				   const struct kvm_memory_slot *old,
-+				   struct kvm_memory_slot *new,
-+				   enum kvm_mr_change change)
-+{
-+	return gmap_prepare_memory_region(kvm, old, new, change);
-+}
-+
-+void kvm_arch_commit_memory_region(struct kvm *kvm,
-+				   struct kvm_memory_slot *old,
-+				   const struct kvm_memory_slot *new,
-+				   enum kvm_mr_change change)
-+{
-+	gmap_commit_memory_region(kvm, old, new, change);
-+}
-+
-+bool kvm_unmap_gfn_range(struct kvm *kvm, struct kvm_gfn_range *range)
-+{
-+	return gmap_unmap_gfn_range(kvm->arch.gmap, range->slot, range->start, range->end);
-+}
-+
-+bool kvm_test_age_gfn(struct kvm *kvm, struct kvm_gfn_range *range)
-+{
-+	return gmap_test_age_gfn(kvm, range);
-+}
-+
- void kvm_arch_mmu_enable_log_dirty_pt_masked(struct kvm *kvm,
- 					     struct kvm_memory_slot *slot,
- 					     gfn_t gfn_offset,
-@@ -114,6 +254,27 @@ void kvm_arch_mmu_enable_log_dirty_pt_masked(struct kvm *kvm,
- {
- }
- 
-+int kvm_arch_vm_ioctl(struct file *filp, unsigned int ioctl, unsigned long arg)
-+{
-+	void __user *argp = (void __user *)arg;
-+
-+	switch (ioctl) {
-+	case KVM_ARM_PREFERRED_TARGET: {
-+		struct kvm_vcpu_init init = {
-+			.target = KVM_ARM_TARGET_GENERIC_V8,
-+		};
-+
-+		if (copy_to_user(argp, &init, sizeof(init)))
-+			return -EFAULT;
-+
-+		return 0;
-+	}
-+
-+	default:
-+		return -EINVAL;
-+	}
-+}
-+
- bool kvm_arch_irqchip_in_kernel(struct kvm *kvm)
- {
- 	return false;
-diff --git a/arch/s390/kvm/arm64/arm.h b/arch/s390/kvm/arm64/arm.h
-index a3db254462c0..df6a9099a864 100644
---- a/arch/s390/kvm/arm64/arm.h
-+++ b/arch/s390/kvm/arm64/arm.h
-@@ -4,4 +4,58 @@
- 
- #define KVM_DEV_NAME "kvm-arm64"
- 
-+#define VM_EVENT(d_kvm, d_loglevel, d_string, d_args...)\
-+do { \
-+	debug_sprintf_event((d_kvm)->arch.dbf, d_loglevel, KVM_DEV_NAME ": " d_string "\n", d_args); \
-+} while (0)
-+
-+#define VCPU_EVENT(d_vcpu, d_loglevel, d_string, d_args...)			\
-+	do {									\
-+		debug_sprintf_event(						\
-+			(d_vcpu)->kvm->arch.dbf, d_loglevel,			\
-+			KVM_DEV_NAME " %02d[%016llx-%016llx]: " d_string "\n",	\
-+			(d_vcpu)->vcpu_id, (d_vcpu)->arch.sae_block.pstate,	\
-+			(d_vcpu)->arch.sae_block.pc, d_args);			\
-+	} while (0)
-+
-+static __always_inline bool kvm_s390_is_in_sie(struct kvm_vcpu *vcpu)
-+{
-+	return false;
-+}
-+
-+static __always_inline int kvm_is_ucontrol(struct kvm *kvm)
-+{
-+	return 0;
-+}
-+
-+static __always_inline int __kvm_s390_pv_destroy_page(struct page *page)
-+{
-+	return 0;
-+}
-+
-+static __always_inline void kvm_s390_vsie_gmap_notifier(struct gmap *gmap, gpa_t start, gpa_t end)
-+{
-+}
-+
-+static __always_inline int kvm_s390_pv_get_handle(struct kvm *kvm)
-+{
-+	return 0;
-+}
-+
-+static __always_inline int kvm_s390_is_migration_mode(struct kvm *kvm)
-+{
-+	return false;
-+}
-+
-+static __always_inline bool kvm_arch_setup_async_pf(struct kvm_vcpu *vcpu)
-+{
-+	return false;
-+}
-+
-+/* should never be called */
-+static __always_inline int kvm_s390_vm_stop_migration(struct kvm *kvm)
-+{
-+	return -EINVAL;
-+}
-+
- #endif /* ARCH_S390_KVM_ARM64_H */
--- 
-2.53.0
+Thanks for your time!
+
+> Thanks,
+> Sascha
+> 
+> On Fri, 2026-05-29 at 10:50 +0100, Vladimir Murzin wrote:
+>> Performs the minimal initialization required for GICv5 support. GICv5
+>> support can be requested with --with-gic=v5.
+>>
+>> Signed-off-by: Vladimir Murzin <vladimir.murzin@arm.com>
+>> Tested-by: Sascha Bischoff <sascha.bischoff@arm.com>
+>> ---
+>>  Makefile.am                    |   7 ++
+>>  arch/aarch64/include/asm/cpu.h |  11 +++
+>>  common/gic-v5.c                | 132
+>> +++++++++++++++++++++++++++++++++
+>>  configure.ac                   |   7 +-
+>>  scripts/FDT.pm                 |  16 ++++
+>>  scripts/findbase-by-regname.pl |  44 +++++++++++
+>>  6 files changed, 214 insertions(+), 3 deletions(-)
+>>  create mode 100644 common/gic-v5.c
+>>  create mode 100755 scripts/findbase-by-regname.pl
+>>
+>> diff --git a/Makefile.am b/Makefile.am
+>> index 2710494..aacd639 100644
+>> --- a/Makefile.am
+>> +++ b/Makefile.am
+>> @@ -82,6 +82,13 @@ PSCI_NODE	:=
+>>  CPU_NODES	:=
+>>  endif
+>>  
+>> +if GICV5
+>> +GIC_IRS_BASE	:= $(shell perl -I $(SCRIPT_DIR)
+>> $(SCRIPT_DIR)/findbase-by-regname.pl $(KERNEL_DTB) "el3-config"
+>> 'arm,gic-v5-irs')
+>> +GIC_IWB_BASE	:= $(shell perl -I $(SCRIPT_DIR)
+>> $(SCRIPT_DIR)/findbase.pl $(KERNEL_DTB) 0 'arm,gic-v5-iwb')
+>> +DEFINES		+= -DGIC_IRS_BASE=$(GIC_IRS_BASE)
+>> +DEFINES		+= -DGIC_IWB_BASE=$(GIC_IWB_BASE)
+>> +endif
+>> +
+>>  if GICV3
+>>  GIC_DIST_BASE	:= $(shell perl -I $(SCRIPT_DIR)
+>> $(SCRIPT_DIR)/findbase.pl $(KERNEL_DTB) 0 'arm,gic-v3')
+>>  GIC_RDIST_BASE	:= $(shell perl -I $(SCRIPT_DIR)
+>> $(SCRIPT_DIR)/findbase.pl $(KERNEL_DTB) 1 'arm,gic-v3')
+>> diff --git a/arch/aarch64/include/asm/cpu.h
+>> b/arch/aarch64/include/asm/cpu.h
+>> index ac50474..af4191c 100644
+>> --- a/arch/aarch64/include/asm/cpu.h
+>> +++ b/arch/aarch64/include/asm/cpu.h
+>> @@ -128,6 +128,7 @@
+>>  #define ID_AA64PFR1_EL1_THE		BITS(51, 48)
+>>  
+>>  #define ID_AA64PFR2_EL1			s3_0_c0_c4_2
+>> +#define ID_AA64PFR2_EL1_GCIE		BITS(15, 12)
+>>  #define ID_AA64PFR2_EL1_FPMR		BITS(35, 32)
+>>  
+>>  #define ID_AA64SMFR0_EL1		s3_0_c0_c4_5
+>> @@ -169,6 +170,11 @@
+>>  #define ICC_CTLR_EL3		S3_6_C12_C12_4
+>>  #define ICC_PMR_EL1		S3_0_C4_C6_0
+>>  
+>> +#define ICC_PPI_DOMAINR0_EL3	S3_6_C12_C8_4
+>> +#define ICC_PPI_DOMAINR1_EL3	S3_6_C12_C8_5
+>> +#define ICC_PPI_DOMAINR2_EL3	S3_6_C12_C8_6
+>> +#define ICC_PPI_DOMAINR3_EL3	S3_6_C12_C8_7
+>> +
+>>  #define VSTCR_EL2		s3_4_c2_c6_2
+>>  #define VSCTLR_EL2		s3_4_c2_c0_0
+>>  
+>> @@ -245,6 +251,11 @@ static inline int has_gicv3_sysreg(void)
+>>  	return !!mrs_field(ID_AA64PFR0_EL1, GIC);
+>>  }
+>>  
+>> +static inline int has_gicv5_sysreg(void)
+>> +{
+>> +	return !!mrs_field(ID_AA64PFR2_EL1, GCIE);
+>> +}
+>> +
+>>  #endif /* !__ASSEMBLY__ */
+>>  
+>>  #endif
+>> diff --git a/common/gic-v5.c b/common/gic-v5.c
+>> new file mode 100644
+>> index 0000000..49b7b0e
+>> --- /dev/null
+>> +++ b/common/gic-v5.c
+>> @@ -0,0 +1,132 @@
+>> +/*
+>> + * gic-v5.c
+>> + *
+>> + * Copyright (C) 2025 ARM Limited. All rights reserved.
+>> + *
+>> + * Use of this source code is governed by a BSD-style license that
+>> can be
+>> + * found in the LICENSE.txt file.
+>> + */
+>> +
+>> +#include <stdint.h>
+>> +
+>> +#include <cpu.h>
+>> +#include <gic.h>
+>> +#include <asm/io.h>
+>> +
+>> +#define IWB_IDR0			0x0
+>> +#define IWB_IDR0_IW_RANGE_SHIFT		0x0
+>> +#define IWB_IDR0_IW_RANGE_MASK		0x7ff
+>> +
+>> +#define IWB_CR0				0x80
+>> +#define IWB_CR0_IWBEN			(1 << 0)
+>> +#define IWB_CR0_IDLE			(1 << 1)
+>> +
+>> +#define IWB_WENABLE_STATUSR		0xc0
+>> +#define IWB_WENABLE_STATUSR_IDLE	(1 << 0)
+>> +
+>> +#define IWB_WDOMAIN_STATUSR		0xc4
+>> +#define IWB_WDOMAIN_STATUSR_IDLE	(1 << 0)
+>> +
+>> +#define IWB_WENABLER			0x2000
+>> +#define IWB_WDOMAINR			0x8000
+>> +
+>> +#define IRS_IDR6			0x0018
+>> +#define IRS_IDR6_SPI_IRS_RANGE_MASK	0x1ffffff
+>> +
+>> +#define IRS_IDR7			0x001c
+>> +#define IRS_IDR7_SPI_BASE_MASK		0xffffff
+>> +
+>> +#define IRS_SPI_SELR			0x108
+>> +#define IRS_SPI_DOMAINR			0x10c
+>> +
+>> +#define IRS_SPI_STATUSR			0x0118
+>> +#define IRS_SPI_STATUSR_IDLE		(1 << 0)
+>> +
+>> +static void gic_iwb_init(void) {
+>> +	void *iwb_ptr = (void *)GIC_IWB_BASE;
+>> +	unsigned int num;
+>> +	unsigned int i;
+>> +
+>> +	/* Get number of implemented wire control registers */
+>> +	num = ((raw_readl(iwb_ptr + IWB_IDR0) >>
+>> IWB_IDR0_IW_RANGE_SHIFT) & IWB_IDR0_IW_RANGE_MASK) + 1;
+>> +
+>> +	/* Disable all wires */
+>> +	for (i = 0; i < num; i++)
+>> +		raw_writel(0, iwb_ptr + IWB_WENABLER + i * 4);
+>> +
+>> +	while (!(raw_readl(iwb_ptr + IWB_WENABLE_STATUSR) &
+>> IWB_WENABLE_STATUSR_IDLE));
+>> +
+>> +	/* Assign all wires to Non-Secure domain */
+>> +	for (i = 0; i < num * 2; i++)
+>> +		raw_writel(0x55555555, iwb_ptr + IWB_WDOMAINR + i *
+>> 4);
+>> +
+>> +	while (!(raw_readl(iwb_ptr + IWB_WDOMAIN_STATUSR) &
+>> IWB_WDOMAIN_STATUSR_IDLE));
+>> +
+>> +	/* Enable IWB */
+>> +	raw_writel(IWB_CR0_IWBEN, iwb_ptr + IWB_CR0);
+>> +
+>> +	while (!(raw_readl(iwb_ptr + IWB_CR0) & IWB_CR0_IDLE));
+>> +}
+>> +
+>> +static void gic_irs_init(void) {
+>> +	void *irs_ptr = (void *)GIC_IRS_BASE;
+>> +	unsigned int range;
+>> +	unsigned int base;
+>> +	unsigned int i;
+>> +
+>> +	/* Get the range of implemented SPIs */
+>> +	base = raw_readl(irs_ptr + IRS_IDR7) &
+>> IRS_IDR7_SPI_BASE_MASK;
+>> +	range = raw_readl(irs_ptr + IRS_IDR6) &
+>> IRS_IDR6_SPI_IRS_RANGE_MASK;
+>> +
+>> +	for (i = base; i < base + range; i++) {
+>> +		/* Select SPI */
+>> +		raw_writel(i, irs_ptr + IRS_SPI_SELR);
+>> +		while (!(raw_readl(irs_ptr + IRS_SPI_STATUSR) &
+>> IRS_SPI_STATUSR_IDLE));
+>> +
+>> +		/* Assign SPI to Non-Secure domain */
+>> +		raw_writel(1, irs_ptr + IRS_SPI_DOMAINR);
+>> +		while (!(raw_readl(irs_ptr + IRS_SPI_STATUSR) &
+>> IRS_SPI_STATUSR_IDLE));
+>> +	}
+>> +}
+>> +
+>> +static void gic_ppi_init(void) {
+>> +	uint64_t val = 0;
+>> +
+>> +	val |= 1UL << (2 * 31); // Trace Buffer Unit
+>> +	val |= 1UL << (2 * 30); // EL1 Physical Timer
+>> +	val |= 1UL << (2 * 28); // Non-secure EL2 Virtual Timer
+>> +	val |= 1UL << (2 * 27); // EL1 Virtual Timer
+>> +	val |= 1UL << (2 * 26); // Non-secure EL2 Physical Timer
+>> +	val |= 1UL << (2 * 25); // GIC maintenance interrupt
+>> +	val |= 1UL << (2 * 24); // Generic CTI interrupt trigger
+>> event
+>> +	val |= 1UL << (2 * 23); // PMU overflow interrupt request
+>> +	val |= 1UL << (2 * 22); // Debug communication channel
+>> +	val |= 1UL << (2 * 21); // Profiling Buffer management
+>> interrupt request
+>> +	val |= 1UL << (2 * 15); // Hardware accelerator for cleaning
+>> Dirty state interrupt
+>> +	val |= 1UL << (2 * 3);  // Reserved for software usage
+>> +
+>> +	/* Assign PPI to Non-Secure domain */
+>> +	msr(ICC_PPI_DOMAINR0_EL3, val);
+>> +	isb();
+>> +}
+>> +
+>> +void gic_secure_init(void)
+>> +{
+>> +	/*
+>> +	 * If GICv5 is not available, skip initialisation. The OS
+>> will probably
+>> +	 * fail with a warning, but this should be easier to debug
+>> than a
+>> +	 * failure within the boot wrapper.
+>> +	 */
+>> +	if (!has_gicv5_sysreg())
+>> +		return;
+>> +
+>> +	if (this_cpu_logical_id() == 0) {
+>> +		gic_iwb_init();
+>> +		gic_irs_init();
+>> +	}
+>> +
+>> +	gic_ppi_init();
+>> +
+>> +	return;
+>> +}
+>> +
+
+It is where new blank line has been lurking :) Fixed locally.
+
+I'll wait some time before sending v4 in case someone wants to have
+a look or give it a try ;)
+
+Cheers
+Vladimir
 
 
