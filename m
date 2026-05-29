@@ -4,97 +4,62 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 67CB0CD5BD2
-	for <linux-arm-kernel@archiver.kernel.org>; Fri, 29 May 2026 09:45:15 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 8FF4ECD5BD2
+	for <linux-arm-kernel@archiver.kernel.org>; Fri, 29 May 2026 09:46:39 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:
-	To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=7RTjgH7cR4g1plwKCLhYGLVrvQZCj948qud0birIVKE=; b=AHr5x6R4heSYLGTFF3CcrQeDw7
-	0vaXMam3jwq/+9LvoN3bieC4h+WKkFYcgTAzvJ1v+S9fbDPXNnzXUtkU+KCJCy68IGjLCxcgL1zoB
-	fqhetB+cUl4drv6n+il8SpW5qOAlzyR5kxg09uvxEwn239xS2duwc4GtBc7cX6YXVvqHgl1RKPWF6
-	F/P31WD8m0Kam0UxCp106sXz5ay/W6EfSLneUVkVnlGHDihxRU7cWOvGF9Xj4D9adredWa3SO2yhV
-	3lKPjLTq+Osq0M7cVJxG4lns1HgqOGZZscSTUvnwpacuru8ZpSaxVSpVYf0AaaAlsvsiueG6JYh0C
-	WEmg8miA==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=hECA0utA2/L/UXnbxSWEvYNIQRYUaYa7ERfSy+Q2v9E=; b=gKZku2r5vXDIBi/WA39a6wfu2K
+	JpSALWA9kOWntwJZnw4H7/mqoeQ2THi5Ks8s35wY4vTXllwRqLTA9WDWmsRYkzPHYQBnGNAocQsJQ
+	Bk0o6nR69NBBSU4fHWNjz/A0eocNVWPOto2V6phJteB1TM3thD8KzRTMwfnKkNo5237c94bStEZvO
+	YHHmlXxjc/BhTe7LJTBaUzM5W1iHMxpXGKZuUgzoh959p8Qv9lY6nwvB7KWuNq2M2B0nsida5Bpg1
+	KhZ9nO+JXeKAM2rEniWUU0zq+ocGrOXdOwGy82EhwvmXLdONtbAJHyeAxi954vliqNI+otIkv1FqS
+	x7+w6Kqw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wStm5-000000075aA-1a9l;
-	Fri, 29 May 2026 09:45:05 +0000
-Received: from sea.source.kernel.org ([172.234.252.31])
-	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wStm2-000000075ZY-2Mvk
+	id 1wStnV-000000075mi-2LCz;
+	Fri, 29 May 2026 09:46:33 +0000
+Received: from foss.arm.com ([217.140.110.172])
+	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
+	id 1wStnS-000000075m5-2yY4
 	for linux-arm-kernel@lists.infradead.org;
-	Fri, 29 May 2026 09:45:03 +0000
-Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
-	by sea.source.kernel.org (Postfix) with ESMTP id 38FA243568;
-	Fri, 29 May 2026 09:45:01 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 7A7761F00893;
-	Fri, 29 May 2026 09:45:00 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1780047901;
-	bh=7RTjgH7cR4g1plwKCLhYGLVrvQZCj948qud0birIVKE=;
-	h=From:To:Cc:Subject:Date:In-Reply-To:References;
-	b=HNcHfibnRNMLyOqVp7W9kvfKqxv/RbLwtM3Codujo0cAFq3R63T8yeLjyld3drx2V
-	 6LwPSdOa6ReLeYSW7hna3tQvtoIG9pFATM1ZEeglDwJbPyVzM2vFOjc1htVhMBl0fb
-	 GzO6mjodOKj08HSLPFreBXUB+7tuhm+yZsxmfisz8ZxnB7TuEjnxcByJt5P02kv1iu
-	 D4lYpo3ne3AM5bbQohx0IbiE0GLPgB1p+2BWQZOY6wxQSaIVpuVxK7djGcq3Jjd9SY
-	 oOU9uHrUNwW8EdX8JwP2a1bVc8K0itiNRamsK/lWmu0eO93YMvWGQUr6QlKHcwPcsD
-	 RSdb5gDwoh8iQ==
-From: Maxime Ripard <mripard@kernel.org>
-To: Maarten Lankhorst <maarten.lankhorst@linux.intel.com>,
-	Thomas Zimmermann <tzimmermann@suse.de>,
-	David Airlie <airlied@gmail.com>,
-	Simona Vetter <simona@ffwll.ch>,
-	Jonathan Corbet <corbet@lwn.net>,
-	Shuah Khan <skhan@linuxfoundation.org>,
-	Dmitry Baryshkov <dmitry.baryshkov@oss.qualcomm.com>,
-	Jyri Sarha <jyri.sarha@iki.fi>,
-	Tomi Valkeinen <tomi.valkeinen@ideasonboard.com>,
-	Andrzej Hajda <andrzej.hajda@intel.com>,
-	Neil Armstrong <neil.armstrong@linaro.org>,
-	Robert Foss <rfoss@kernel.org>,
-	Laurent Pinchart <Laurent.pinchart@ideasonboard.com>,
-	Jonas Karlman <jonas@kwiboo.se>,
-	Jernej Skrabec <jernej.skrabec@gmail.com>,
-	Simon Ser <contact@emersion.fr>,
-	Harry Wentland <harry.wentland@amd.com>,
-	Melissa Wen <mwen@igalia.com>,
-	Sebastian Wick <sebastian.wick@redhat.com>,
-	Alex Hung <alex.hung@amd.com>,
-	Jani Nikula <jani.nikula@linux.intel.com>,
-	Rodrigo Vivi <rodrigo.vivi@intel.com>,
-	Joonas Lahtinen <joonas.lahtinen@linux.intel.com>,
-	Tvrtko Ursulin <tursulin@ursulin.net>,
-	Chen-Yu Tsai <wens@kernel.org>,
-	Samuel Holland <samuel@sholland.org>,
-	Dave Stevenson <dave.stevenson@raspberrypi.com>,
-	=?UTF-8?q?Ma=C3=ADra=20Canal?= <mcanal@igalia.com>,
-	Raspberry Pi Kernel Maintenance <kernel-list@raspberrypi.com>,
-	Maxime Ripard <mripard@kernel.org>
-Cc: dri-devel@lists.freedesktop.org,
-	linux-doc@vger.kernel.org,
-	linux-kernel@vger.kernel.org,
-	Daniel Stone <daniels@collabora.com>,
-	intel-gfx@lists.freedesktop.org,
-	intel-xe@lists.freedesktop.org,
-	linux-arm-kernel@lists.infradead.org,
-	linux-sunxi@lists.linux.dev,
-	Laurent Pinchart <laurent.pinchart+renesas@ideasonboard.com>,
-	Laurent Pinchart <laurent.pinchart@ideasonboard.com>
-Subject: Re: [PATCH v6 00/19] drm/atomic: Rework initial state allocation
-Date: Fri, 29 May 2026 11:44:56 +0200
-Message-ID: <178004789161.1619320.5591445399376924968.b4-ty@kernel.org>
-X-Mailer: git-send-email 2.54.0
-In-Reply-To: <20260526-drm-mode-config-init-v6-0-852346394200@kernel.org>
-References: <20260526-drm-mode-config-init-v6-0-852346394200@kernel.org>
+	Fri, 29 May 2026 09:46:32 +0000
+Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
+	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id 7F6732247;
+	Fri, 29 May 2026 02:46:22 -0700 (PDT)
+Received: from e124191.cambridge.arm.com (e124191.cambridge.arm.com [10.1.197.45])
+	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id 0CB1E3F905;
+	Fri, 29 May 2026 02:46:25 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=simple/simple; d=arm.com; s=foss;
+	t=1780047987; bh=NsFQRYip/hELKHXpSdhGRL1Zi8kiBFNQRk5a4eoFpyY=;
+	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
+	b=cPtp8E8fiJFsIpbd4nDiEiAUlhSS9OYxgGdFZjsU1PMbXgie/yZqfAz3zm01OrzkD
+	 39NJj4WjVcieajBynQfLB3WVipKS8FkXwfJiW8NOsb0T/r41l8OAVqUb760iy8nlJa
+	 E69nTGWBqOTKgpS74gEYN3o/PGE0DbYd6AW3Ht3E=
+Date: Fri, 29 May 2026 10:46:21 +0100
+From: Joey Gouly <joey.gouly@arm.com>
+To: Marc Zyngier <maz@kernel.org>
+Cc: Mark Brown <broonie@kernel.org>, Oliver Upton <oupton@kernel.org>,
+	Steffen Eiden <seiden@linux.ibm.com>,
+	Suzuki K Poulose <suzuki.poulose@arm.com>,
+	Catalin Marinas <catalin.marinas@arm.com>,
+	Will Deacon <will@kernel.org>, Mark Rutland <mark.rutland@arm.com>,
+	linux-arm-kernel@lists.infradead.org, kvmarm@lists.linux.dev,
+	linux-kernel@vger.kernel.org, stable@vger.kernel.org
+Subject: Re: [PATCH v2] KVM: arm64: Preserve all guest ZCR_EL2.LEN values
+Message-ID: <20260529094621.GA1196227@e124191.cambridge.arm.com>
+References: <20260529-kvm-arm64-fix-zcr-len-nv-v2-1-86cad51992bd@kernel.org>
+ <868q92vace.wl-maz@kernel.org>
 MIME-Version: 1.0
-Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: 8bit
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+In-Reply-To: <868q92vace.wl-maz@kernel.org>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260529_024502_645008_08189D00 
-X-CRM114-Status: GOOD (  11.50  )
+X-CRM114-CacheID: sfid-20260529_024630_843500_1C272C75 
+X-CRM114-Status: GOOD (  32.87  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -109,19 +74,91 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Tue, 26 May 2026 18:46:12 +0200, Maxime Ripard wrote:
-> This series started from my work on the hardware state readout[1], and
-> more specifically a discussion with Thomas[2].
+On Fri, May 29, 2026 at 10:22:41AM +0100, Marc Zyngier wrote:
+> Thanks for respinning this patch quickly.
 > 
-> This series expands the work that has been merged recently to make
-> drm_private_obj and drm_private_state allocation a bit more consistent
-> and ended up creating a new atomic_create_state callback to allocate a
-> new state with no side effect.
+> On Fri, 29 May 2026 00:01:44 +0100,
+> Mark Brown <broonie@kernel.org> wrote:
+> > 
+> > Since commit b3d29a823099 ("KVM: arm64: nv: Handle ZCR_EL2 traps") when
+> > guests write to ZCR_EL2 we have clamped the value of ZCR_EL2.LEN to be
+> > at most that configuring the maximum guest VL when accessed directly as
+> > ZCR_EL2. This is not clearly the behaviour the architecture documents
+> > for ZCR_EL2.LEN, while things are a little ambiguous currently there is
+> > a fairly direct reading that suggests values will be read as written.
+> > Further, the documented procedure for enumerating vector lengths means
+> > that it is expected that values larger than the largest supported vector
+> > length will be written in practice.
+> 
+> Honestly, that's not the core issue. And even $SUBJECT fails to
+> capture what is at stake here.
+> 
+> > 
+> > The reasoning for the current behaviour is not specifically articulated, my
+> 
+> I don't think there is a reasoning behind each and every bug.
+> 
+> > best guess is that it is intended to ensure that the guest can not see an
+> > effective VL greater than the maximum that has been configured, though
+> > this will be ineffective when a VHE guest uses the ZCR_EL1 accessor.
+> 
+> This last point *IS* the core problem. It is that the guest can access
+> VLs beyond what is intended by the VM configuration. Not getting the
+> read-as-written behaviour really is secondary compared to that issue.
 > 
 > [...]
+> 
+> I've rewritten the commit message to make it plain what the problem
+> is, see below. I've also slightly tidied up access_zcr_el2(), but the
+> fix otherwise looks good.
 
-Applied to misc/kernel.git (drm-misc-next).
+Seems like you're starting your own CMAAS! https://lore.kernel.org/kvmarm/86cxyzxymq.wl-maz@kernel.org/
 
-Thanks!
-Maxime
+> 
+> Thanks,
+> 
+> 	M.
+> 
+> KVM: arm64: Correctly cap ZCR_EL2 provided by a guest hypervisor
+> 
+> ZCR_EL2 can be updated by a VHE guest hypervisor either using ZCR_EL2
+> (which traps) or ZCR_EL1 (which does not trap). KVM handles both in
+> different way:
+> 
+> - on ZCR_EL2 trap, ZCR_EL2.LEN is immediately capped at the VM's own
+>   VL limit. This has the potential to break existing SW that relies
+>   on the full LEN field to be stateful.
+> 
+> - on ZCR_EL1 access, we do absolutely nothing.
+> 
+> On restoring the SVE context for an L2 guest, we directly restore the
+> guest hypervisor's view of ZCR_EL2 into the physical ZCR_EL2. If the
+> guest's view of the register was updated using the ZCR_EL2 accessor,
+> the value has already been sanitised (with the caveat mentioned above).
+> 
+> But if the guest used ZCR_EL1, the raw value is written into the HW,
+> and the L2 guest can now access VLs that it shouldn't.
+> 
+> Fix all the above by moving the VL capping to the restore points,
+> ensuring that:
+> 
+> - the HW is always programmed with a capped value, irrespective of
+>   the accessor being used,
+> 
+> - the ZCR_EL2.LEN field is always completely stateful, irrespective
+>   of the accessor being used.
+> 
+> Additionally, move ZCR_EL2 to be a sanitised register, ensuring that
+> only the LEN field is actually stateful. This requires some creative
+> construction of the RES0 mask, as the sysreg generation script does
+> not yet generate RAZ/WI fields.
+> 
+> -- 
+
+Reviewed-by: Joey Gouly <joey.gouly@arm.com>
+
+Thanks,
+Joey
+
+> Without deviation from the norm, progress is not possible.
 
