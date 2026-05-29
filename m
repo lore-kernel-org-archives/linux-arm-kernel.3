@@ -4,60 +4,82 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 9F525CD6E45
-	for <linux-arm-kernel@archiver.kernel.org>; Fri, 29 May 2026 08:51:22 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id A79E6CD5BD2
+	for <linux-arm-kernel@archiver.kernel.org>; Fri, 29 May 2026 08:51:38 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
-	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=9xpjqmUhFI2AbKGy1xJZATqBrgeDmke1uC6jfHvQrRo=; b=CTggFP1Y3cTUxNpuqWaQ90vE7b
-	NJF+45Gdw88piH6zq+BNsqaxXyef2yAdLiNSRGc2+S1iZxW/ZMJKiRBaatlYSEQVLZkg2IE5Esrd4
-	5vsthNivEhUv+HQZu1KTCdt/n8BOFwOZyjUGGf7HE+ftgnNYBlwY6CPJ5D94IP1vW2sJth5aQST+X
-	5cfQ/8FlrpAdbT7SvlO+z8mWk+gSzz4T9k7rmuhdp93PHTbNBxGh/cAVHHxN+mSiBz+FjcGqMP9FQ
-	7Ot8MHV89jpHphdJUJVfAdo27fjM0FTZa9LJAjeaEe1g2XNqljCpzO1JA6CK5d/BsPCb+4cBfHFRs
-	c5PKp/gQ==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:Cc:To:Subject:
+	Message-ID:Date:From:In-Reply-To:References:MIME-Version:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=RkwvcdoTXy80UmD5wUVPELnXBlXTid1VaGcK25N+5mA=; b=v4krtE++rfjt5S4Zyc26StB5q7
+	zmfA1HV+ZhVMh7GIEusMGyy18hBBDyusn82hUUJeNQ65OnNftSdNm+gFgdpRFILX989sMWMyGoHTl
+	jeu9JMn1WWo/BbmZ27kihvGeawoU/hC8BNoAtJiLkR2rPVbZM53QTB5SQUWSbg1iUE9fZ2b3+D2nw
+	TOTGrxE1NkTVJLOFPL0jw1Zj6ZLE2y8cugT6WabdJD98+UoLymc5P9xQkuld0o3QabfVnncomdOTS
+	EgLuERj1UU24Jd/C/KeHgYQyVDEFxcF2eFZ6TzUJgzsDUQTOF9x+yDtFX4P3BQX5X6cZE9sIe0nq9
+	WpDkqu5w==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wSsvz-000000070UV-1eo6;
-	Fri, 29 May 2026 08:51:15 +0000
-Received: from foss.arm.com ([217.140.110.172])
-	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wSsvv-000000070Tt-4B9g
+	id 1wSswG-000000070ZT-2nEZ;
+	Fri, 29 May 2026 08:51:32 +0000
+Received: from mail-vk1-f180.google.com ([209.85.221.180])
+	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
+	id 1wSswD-000000070YJ-2yeC
 	for linux-arm-kernel@lists.infradead.org;
-	Fri, 29 May 2026 08:51:13 +0000
-Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
-	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id EB022204C;
-	Fri, 29 May 2026 01:51:05 -0700 (PDT)
-Received: from [10.1.26.144] (unknown [10.1.26.144])
-	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id CE6F73F632;
-	Fri, 29 May 2026 01:51:08 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=simple/simple; d=arm.com; s=foss;
-	t=1780044670; bh=pdl+PbEIhEYFJrEvk5kgpdCOCgNnkLs+H3lbzdQRE48=;
-	h=Date:Subject:To:Cc:References:From:In-Reply-To:From;
-	b=cQs3sIvTPVFRm4P1Lv3hL3Uxa1x2mj04emkriFGPKrSzwp6i9BGdja1sQ84jdkASS
-	 IlF0pCbYt42HM4+3vaT2verhYZNIbJD9v0KO5SXBYr9BWEUN7LXEGWTWpJOmQzazZs
-	 1yo7FH/rLAOTTmG3ljrT9dDUtm0pbwUbcOPbOC+A=
-Message-ID: <370bf29a-780f-4517-8e85-db68fad6f8d9@arm.com>
-Date: Fri, 29 May 2026 09:51:06 +0100
+	Fri, 29 May 2026 08:51:31 +0000
+Received: by mail-vk1-f180.google.com with SMTP id 71dfb90a1353d-57513a91514so4593548e0c.2
+        for <linux-arm-kernel@lists.infradead.org>; Fri, 29 May 2026 01:51:29 -0700 (PDT)
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20251104; t=1780044688; x=1780649488;
+        h=cc:to:subject:message-id:date:from:in-reply-to:references
+         :mime-version:x-gm-gg:x-gm-message-state:from:to:cc:subject:date
+         :message-id:reply-to;
+        bh=RkwvcdoTXy80UmD5wUVPELnXBlXTid1VaGcK25N+5mA=;
+        b=JA8+SRJ2DS3mhFaEdOwIVh7OYZ+I62HfKb3NluRBRg0XcgcXfVqWyeOVoe9jLm7ywL
+         hUdvPwYFCgM37l9hlen8yD5lb/UZeckNwnQ0rigX9F+HvfhAWCZADXVJU8Nf3Oxn0G4T
+         YpVpaPP3rj931o1xYoTFutyC88U2KPDB7DA8AfANBLn2ffdt5Hx/LJwDGsVc4f5v9vzG
+         NUmrxUuHlSMcQhshOOpj7yzPKsV3B1dIU/ItphdZaiTCfGD5nd5LDrY8o8UKWf6Ary2o
+         yuj/U+J8fOCLWC/jqVDN1YIhrPjk1pki/hIbZY97dbtwyGksbN+abkMraQ1/FBigE+Sf
+         AScw==
+X-Gm-Message-State: AOJu0YzM6/+LAGe6Ts38tjxZx+gGOdHUx8OTwjcYAyJ/3DwdGWtJpbl5
+	zOw667lR7GpqmRb0a0lmqDjH8N/tplVEjAGYgz0bBGg+0WbUI9yK4JqxDgWDbiwHuzk=
+X-Gm-Gg: Acq92OEzBNDI4HN1HPveOENCgPfK6YwJbNdJedjkFqkQun/IFS1zkFWpR2X/9IjVRLc
+	gEqfV7PxVPOyfOsx1fwcT2fs7sd8/imqQ5I6WPU3nnijbhfQiAut4RFrTzdTvUheaMpbQmWkHfF
+	Bv6SRE7VfhqN2vjcKVQgLqKDeD88y00plXNddAe6hAAfYBvRuTwf+B7PwKTLLM1uGOH8P8yxR7Y
+	sCx5DHow+zCUz5JQMUY7cZj/jckuRREtAqgUaWIyUdFJMW2AmR1d+yF+tdDEC3Jo/wrHyaU6Q8o
+	fXXlwMClcGD4ZTE9Uej7RrF5+WQWpTLOnfgSnKN3qwjvZjLwTXcMigGQx1XTfqIbV0YmUNFoHSw
+	sMa61YzWouGJaOMzqa+5wAtyb0DvWRCK/b+eoB/4g/kP/R6Ht89wxvKcCeB0dATzISslVS1zCx1
+	7rlcmabiIS7IfB6Wkjsdi7d8umMK6SgQuSmYp/p39giaBinV+F7c3NGvU1CUCpHEaOH19w64Y=
+X-Received: by 2002:a05:6123:4a:b0:57d:8059:e0e9 with SMTP id 71dfb90a1353d-599ef5a4717mr618975e0c.2.1780044687773;
+        Fri, 29 May 2026 01:51:27 -0700 (PDT)
+Received: from mail-vs1-f53.google.com (mail-vs1-f53.google.com. [209.85.217.53])
+        by smtp.gmail.com with ESMTPSA id 71dfb90a1353d-599da3ed0cfsm746849e0c.16.2026.05.29.01.51.26
+        for <linux-arm-kernel@lists.infradead.org>
+        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
+        Fri, 29 May 2026 01:51:27 -0700 (PDT)
+Received: by mail-vs1-f53.google.com with SMTP id ada2fe7eead31-6312a0d556cso6444305137.3
+        for <linux-arm-kernel@lists.infradead.org>; Fri, 29 May 2026 01:51:26 -0700 (PDT)
+X-Received: by 2002:a05:6102:3ed1:b0:64e:32c3:1371 with SMTP id
+ ada2fe7eead31-6bf3719eddcmr673394137.2.1780044686545; Fri, 29 May 2026
+ 01:51:26 -0700 (PDT)
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH v2 17/18] arm64: fpsimd: Move SME save/restore inline
-To: Mark Rutland <mark.rutland@arm.com>,
- linux-arm-kernel@lists.infradead.org, kvmarm@lists.linux.dev
-Cc: broonie@kernel.org, catalin.marinas@arm.com, james.morse@arm.com,
- maz@kernel.org, oupton@kernel.org, tabba@google.com, will@kernel.org
-References: <20260528165446.701944-1-mark.rutland@arm.com>
- <20260528165446.701944-18-mark.rutland@arm.com>
-Content-Language: en-GB
-From: Vladimir Murzin <vladimir.murzin@arm.com>
-In-Reply-To: <20260528165446.701944-18-mark.rutland@arm.com>
-Content-Type: text/plain; charset=UTF-8
-Content-Transfer-Encoding: 7bit
+References: <20260517163212.18016-1-marek.vasut+renesas@mailbox.org>
+In-Reply-To: <20260517163212.18016-1-marek.vasut+renesas@mailbox.org>
+From: Geert Uytterhoeven <geert@linux-m68k.org>
+Date: Fri, 29 May 2026 10:51:14 +0200
+X-Gmail-Original-Message-ID: <CAMuHMdUvUsUUkOj43oOWGs_MLvOZnEW=2YyKpP-VwHxe7ZaTgg@mail.gmail.com>
+X-Gm-Features: AVHnY4KcCj63IhphrvFGQN6syC1_7Ix7eM6G3oNuhl6QDo_VJC9lcWJclcF3QAs
+Message-ID: <CAMuHMdUvUsUUkOj43oOWGs_MLvOZnEW=2YyKpP-VwHxe7ZaTgg@mail.gmail.com>
+Subject: Re: [PATCH] arm64: dts: renesas: r8a78000: Describe all reserved memory
+To: Marek Vasut <marek.vasut+renesas@mailbox.org>
+Cc: linux-arm-kernel@lists.infradead.org, Conor Dooley <conor+dt@kernel.org>, 
+	Geert Uytterhoeven <geert+renesas@glider.be>, Krzysztof Kozlowski <krzk+dt@kernel.org>, 
+	Magnus Damm <magnus.damm@gmail.com>, Rob Herring <robh@kernel.org>, devicetree@vger.kernel.org, 
+	linux-kernel@vger.kernel.org, linux-renesas-soc@vger.kernel.org
+Content-Type: text/plain; charset="UTF-8"
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260529_015112_136916_E80486EF 
-X-CRM114-Status: GOOD (  31.24  )
+X-CRM114-CacheID: sfid-20260529_015129_754818_B725855A 
+X-CRM114-Status: GOOD (  26.73  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -72,343 +94,61 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On 5/28/26 17:54, Mark Rutland wrote:
-> Currently the SVE register save/restore sequences are written in
-> out-of-line assembly routines. While this works, it's somewhat painful:
-> 
-> * For KVM to use the sequences, portions of the logic will need to be
->   duplicated in KVM hyp code. While the common logic can be shared in
->   assembly macros, this is very likely to lead to unnecessary divergence
->   and be a maintenance burden.
-> 
-> * For historical reasons, the assembly macros take some register
->   arguments as numerical indices (e.g. "sme_save_za 0, x2, 12" uses x0, x1, and
->   x12), which is simply confusing.
-> 
-> * Address generation and control flow are far clearer in C than in
->   assembly.
-> 
-> * The assembly sequences can't be instrumented, and so it's harder than
->   necessary to catch memory safety issues.
-> 
-> To handle the above, move the SME register save/restore sequences
-> to inline assembly.
-> 
-> Neither GCC nor LLVM instrument memory arguments to inline assembly, so
-> explicit instrumentation is added in the same manner as other assembly
-> routines. This instrumentation is implicitly disabled by Kbuild for nVHE
-> hyp code.
-> 
-> Signed-off-by: Mark Rutland <mark.rutland@arm.com>
-> Cc: Catalin Marinas <catalin.marinas@arm.com>
-> Cc: Fuad Tabba <tabba@google.com>
-> Cc: James Morse <james.morse@arm.com>
-> Cc: Marc Zyngier <maz@kernel.org>
-> Cc: Mark Brown <broonie@kernel.org>
-> Cc: Oliver Upton <oupton@kernel.org>
-> Cc: Will Deacon <will@kernel.org>
-> ---
->  arch/arm64/include/asm/fpsimd.h       | 106 +++++++++++++++++++++++++-
->  arch/arm64/include/asm/fpsimdmacros.h |  76 ------------------
->  arch/arm64/kernel/Makefile            |   2 +-
->  arch/arm64/kernel/entry-fpsimd.S      |  48 ------------
->  4 files changed, 104 insertions(+), 128 deletions(-)
->  delete mode 100644 arch/arm64/kernel/entry-fpsimd.S
-> 
-> diff --git a/arch/arm64/include/asm/fpsimd.h b/arch/arm64/include/asm/fpsimd.h
-> index 550987b36206a..3ab271320d1de 100644
-> --- a/arch/arm64/include/asm/fpsimd.h
-> +++ b/arch/arm64/include/asm/fpsimd.h
-> @@ -357,9 +357,6 @@ static inline void sve_flush_live(void)
->  	);
->  }
->  
-> -extern void sme_save_state(struct sme_state *state, int zt);
-> -extern void sme_load_state(const struct sme_state *state, int zt);
-> -
->  struct arm64_cpu_capabilities;
->  extern void cpu_enable_fpsimd(const struct arm64_cpu_capabilities *__unused);
->  extern void cpu_enable_sve(const struct arm64_cpu_capabilities *__unused);
-> @@ -639,6 +636,106 @@ static inline size_t __sme_state_size(unsigned int sme_vl)
->  	return size;
->  }
->  
-> +static inline void __sme_save_za(struct sme_state *state, unsigned long svl)
-> +{
-> +	/*
-> +	 * The <Wv> argument to LDR/STR (array vector) can only encode W12-W15.
-> +	 * The "Ucj" constraint exists for this, but is only supported by GCC
-> +	 * 14.1.0+ and LLVM 18.1.0+.
-> +	 */
-> +	register unsigned int v asm ("w12");
-> +
-> +	instrument_write(state, svl * svl);
-> +	for (v = 0; v < svl; v++) {
-> +		void *pav = (void *)state + v * svl;
-> +
-> +		asm volatile(
-> +		__SME_PREAMBLE
-> +		"	str	za[%w[v], #0], [%[pav]]\n"
-> +		:
-> +		: [v] "r" (v),
-> +		  [pav] "r" (pav)
-> +		: "memory"
-> +		);
-> +	}
-> +}
-> +
-> +static inline void __sme_load_za(const struct sme_state *state, unsigned long svl)
-> +{
-> +	/* See comment in __sme_save_za */
-> +	register unsigned int v asm ("w12");
-> +
-> +	instrument_read(state, svl * svl);
-> +	for (v = 0; v < svl; v++) {
-> +		void *pav = (void *)state + v * svl;
-> +
-> +		asm volatile(
-> +		__SME_PREAMBLE
-> +		"	ldr	za[%w[v], #0], [%[pav]]\n"
-> +		:
-> +		: [v] "r" (v),
-> +		  [pav] "r" (pav)
-> +		: "memory"
-> +		);
-> +	}
-> +}
-> +
-> +static inline void __sme_save_zt(struct sme_state *state, unsigned long svl)
-> +{
-> +	void *pzt = (void *)state + svl * svl;
-> +
-> +	instrument_write(pzt, svl);
-> +	asm volatile(
-> +	__DEFINE_ASM_GPR_NUMS
-> +	/*
-> +	 * STR ZT0, [<Xn|SP>]
-> +	 * Supported by binutils 2.41+.
-> +	 * Supported by LLVM 16+
-> +	 */
-> +	"	.inst	0xe13f8000 | ((.L__gpr_num_%[pzt]) << 5)\n"
-> +	:
-> +	: [pzt] "r" (pzt)
-> +	: "memory"
-> +	);
-> +}
-> +
-> +static inline void __sme_load_zt(const struct sme_state *state, unsigned long svl)
-> +{
-> +	void *pzt = (void *)state + svl * svl;
-> +
-> +	instrument_read(pzt, svl);
-> +	asm volatile(
-> +	__DEFINE_ASM_GPR_NUMS
-> +	/*
-> +	 * LDR ZT0, [<Xn|SP>]
-> +	 * Supported by binutils 2.41+.
-> +	 * Supported by LLVM 16+
-> +	 */
-> +	"	.inst	0xe11f8000 | ((.L__gpr_num_%[pzt]) << 5)\n"
-> +	:
-> +	: [pzt] "r" (pzt)
-> +	: "memory"
-> +	);
-> +}
-> +
-> +static inline void sme_save_state(struct sme_state *state, bool zt)
-> +{
-> +	unsigned long svl = sme_get_vl();
-> +
-> +	__sme_save_za(state, svl);
-> +	if (zt)
-> +		__sme_save_zt(state, svl);
-> +}
-> +
-> +static inline void sme_load_state(const struct sme_state *state, bool zt)
-> +{
-> +	unsigned long svl = sme_get_vl();
-> +
-> +	__sme_load_za(state, svl);
-> +	if (zt)
-> +		__sme_load_zt(state, svl);
-> +}
-> +
->  /*
->   * Return how many bytes of memory are required to store the full SME
->   * specific state for task, given task's currently configured vector
-> @@ -695,6 +792,9 @@ static inline size_t sme_state_size(struct task_struct const *task)
->  	return 0;
->  }
->  
-> +static inline void sme_save_state(struct sme_state *state, bool zt) { BUILD_BUG(); }
-> +static inline void sme_load_state(const struct sme_state *state, bool zt) { BUILD_BUG(); }
-> +
->  static inline void sme_enter_from_user_mode(void) { }
->  static inline void sme_exit_to_user_mode(void) { }
->  
-> diff --git a/arch/arm64/include/asm/fpsimdmacros.h b/arch/arm64/include/asm/fpsimdmacros.h
-> index 9e352b5c6b764..a763fd03ffef3 100644
-> --- a/arch/arm64/include/asm/fpsimdmacros.h
-> +++ b/arch/arm64/include/asm/fpsimdmacros.h
-> @@ -40,60 +40,6 @@
->  	.endif
->  .endm
->  
-> -/* Deprecated macros for SME instructions */
-> -
-> -/* RDSVL X\nx, #\imm */
-> -.macro _sme_rdsvl nx, imm
-> -	.arch_extension sme
-> -	rdsvl x\nx, #\imm
-> -.endm
-> -
-> -/*
-> - * STR (vector from ZA array):
-> - *	STR ZA[W\nw, #\offset], [X\nxbase, #\offset, MUL VL]
-> - */
-> -.macro _sme_str_zav nw, nxbase, offset=0
-> -	.arch_extension sme
-> -	str	za[w\nw, #\offset], [x\nxbase, #\offset, MUL VL]
-> -.endm
-> -
-> -/*
-> - * LDR (vector to ZA array):
-> - *	LDR ZA[w\nw, #\offset], [X\nxbase, #\offset, MUL VL]
-> - */
-> -.macro _sme_ldr_zav nw, nxbase, offset=0
-> -	.arch_extension sme
-> -	ldr	za[w\nw, #\offset], [x\nxbase, #\offset, MUL VL]
-> -.endm
-> -
-> -/*
-> - * SME2 instruction encodings for older assemblers.
-> - * Supported by binutils 2.41+.
-> - * Supported by LLVM 16+
-> - */
-> -
-> -/*
-> - * LDR (ZT0)
-> - *
-> - *	LDR ZT0, nx
-> - */
-> -.macro _ldr_zt nx
-> -	_check_general_reg \nx
-> -	.inst	0xe11f8000	\
-> -		 | (\nx << 5)
-> -.endm
-> -
-> -/*
-> - * STR (ZT0)
-> - *
-> - *	STR ZT0, nx
-> - */
-> -.macro _str_zt nx
-> -	_check_general_reg \nx
-> -	.inst	0xe13f8000		\
-> -		| (\nx << 5)
-> -.endm
-> -
->  .macro __for from:req, to:req
->  	.if (\from) == (\to)
->  		_for__body %\from
-> @@ -116,25 +62,3 @@
->  
->  	.purgem _for__body
->  .endm
-> -
-> -.macro sme_save_za nxbase, xvl, nw
-> -	mov	w\nw, #0
-> -
-> -423:
-> -	_sme_str_zav \nw, \nxbase
-> -	add	x\nxbase, x\nxbase, \xvl
-> -	add	x\nw, x\nw, #1
-> -	cmp	\xvl, x\nw
-> -	bne	423b
-> -.endm
-> -
-> -.macro sme_load_za nxbase, xvl, nw
-> -	mov	w\nw, #0
-> -
-> -423:
-> -	_sme_ldr_zav \nw, \nxbase
-> -	add	x\nxbase, x\nxbase, \xvl
-> -	add	x\nw, x\nw, #1
-> -	cmp	\xvl, x\nw
-> -	bne	423b
-> -.endm
-> diff --git a/arch/arm64/kernel/Makefile b/arch/arm64/kernel/Makefile
-> index 74b76bb704523..d2690c3ec5288 100644
-> --- a/arch/arm64/kernel/Makefile
-> +++ b/arch/arm64/kernel/Makefile
-> @@ -27,7 +27,7 @@ KCOV_INSTRUMENT_idle.o := n
->  
->  # Object file lists.
->  obj-y			:= debug-monitors.o entry.o irq.o fpsimd.o		\
-> -			   entry-common.o entry-fpsimd.o process.o ptrace.o	\
-> +			   entry-common.o process.o ptrace.o			\
->  			   setup.o signal.o sys.o stacktrace.o time.o traps.o	\
->  			   io.o vdso.o hyp-stub.o psci.o cpu_ops.o		\
->  			   return_address.o cpuinfo.o cpu_errata.o		\
-> diff --git a/arch/arm64/kernel/entry-fpsimd.S b/arch/arm64/kernel/entry-fpsimd.S
-> deleted file mode 100644
-> index bff941eea9566..0000000000000
-> --- a/arch/arm64/kernel/entry-fpsimd.S
-> +++ /dev/null
-> @@ -1,48 +0,0 @@
-> -/* SPDX-License-Identifier: GPL-2.0-only */
-> -/*
-> - * FP/SIMD state saving and restoring
-> - *
-> - * Copyright (C) 2012 ARM Ltd.
-> - * Author: Catalin Marinas <catalin.marinas@arm.com>
-> - */
-> -
-> -#include <linux/linkage.h>
-> -
-> -#include <asm/assembler.h>
-> -#include <asm/fpsimdmacros.h>
-> -
-> -#ifdef CONFIG_ARM64_SME
-> -
-> -/*
-> - * Save the ZA and ZT state
-> - *
-> - * x0 - pointer to buffer for state
-> - * x1 - number of ZT registers to save
-> - */
-> -SYM_FUNC_START(sme_save_state)
-> -	_sme_rdsvl	2, 1		// x2 = VL/8
-> -	sme_save_za 0, x2, 12		// Leaves x0 pointing to the end of ZA
-> -
-> -	cbz	x1, 1f
-> -	_str_zt 0
-> -1:
-> -	ret
-> -SYM_FUNC_END(sme_save_state)
-> -
-> -/*
-> - * Load the ZA and ZT state
-> - *
-> - * x0 - pointer to buffer for state
-> - * x1 - number of ZT registers to save
-> - */
-> -SYM_FUNC_START(sme_load_state)
-> -	_sme_rdsvl	2, 1		// x2 = VL/8
-> -	sme_load_za 0, x2, 12		// Leaves x0 pointing to the end of ZA
-> -
-> -	cbz	x1, 1f
-> -	_ldr_zt 0
-> -1:
-> -	ret
-> -SYM_FUNC_END(sme_load_state)
-> -
-> -#endif /* CONFIG_ARM64_SME */
-> -- 2.30.2
-> 
+Hi Marek,
 
-FWIW,
+s/r8a78000/ironhide/ in the one-line summary
 
-Reviewed-by: Vladimir Murzin <vladimir.murzin@arm.com>
+On Sun, 17 May 2026 at 18:32, Marek Vasut
+<marek.vasut+renesas@mailbox.org> wrote:
+> Fully describe all available DRAM in the DT, and describe regions which
+> are not accessible because they are used by firmware in reserved-memory
+> node.
+>
+> Replace first memory bank memory@60600000 with memory@40000000 and a
+> 518 MiB long reserved-memory no-map subnode. This memory region is used
+> by other cores in the system.
+>
+> Reserve 32 kiB of memory at 0x8c100000 for parameters shared by IPL,
+> SCP, TFA BL31 and TEE.
+>
+> Reserve 512 kiB of memory at 0x8c200000 for TFA BL31. The upcoming
+> upstream TFA 2.15 BL31 uses memory from 0x8c200000..0x8c242fff, the
+> round up to 512 kiB is slight future proofing.
+>
+> Reserve 32 MiB of memory at 0x8c400000 for OPTEE-OS, which is the
+> entire OPTEE-OS TZ protected DRAM area.
+>
+> Neither the TFA BL31 nor OPTEE-OS do modify the DT passed to Linux in
+> any way with any new reserved-memory {} node to reserve memory areas
+> used by the TFA BL31 or OPTEE-OS to prevent the next stage from using
+> those areas, which lets Linux use all of the available DRAM as it is
+> described in the DT that was passed in by U-Boot, including the areas
+> that are newly utilized by TFA BL31 or OPTEE-OS.
 
+Thanks for your patch!
+
+> In case of high DRAM utilization, unless the memory used by TFA BL31
+> or OPTEE-OS is properly reserved, Linux may use and corrupt the memory
+> used by TFA BL31 or OPTEE-OS, which would lead to the system becoming
+> unresponsive.
+
+Oh well...
+
+> Fixes: ad142a4ef710 ("arm64: dts: renesas: r8a78000: Add initial Ironhide board support")
+> Signed-off-by: Marek Vasut <marek.vasut+renesas@mailbox.org>
+
+LGTM, so
+Reviewed-by: Geert Uytterhoeven <geert+renesas@glider.be>
+i.e. will queue in renesas-devel for v7.2.
+
+Gr{oetje,eeting}s,
+
+                        Geert
+
+-- 
+Geert Uytterhoeven -- There's lots of Linux beyond ia32 -- geert@linux-m68k.org
+
+In personal conversations with technical people, I call myself a hacker. But
+when I'm talking to journalists I just say "programmer" or something like that.
+                                -- Linus Torvalds
 
