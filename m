@@ -4,82 +4,65 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 3FAC0CD5BD1
-	for <linux-arm-kernel@archiver.kernel.org>; Fri, 29 May 2026 03:23:48 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 3843FCD5BD2
+	for <linux-arm-kernel@archiver.kernel.org>; Fri, 29 May 2026 04:03:12 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
-	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=aOU2RCYFW5gy8yOcvzKD2LYKQJInJJBEtyfu7dPaVog=; b=rq15FxPiUFjCG3wcLP2Lk4NLNR
-	YiL9RaUM6fN/fMAzYP395/rYOk4tZZKPnPFS+gQCD9u+S3fLUodj9aJaFlsY41OxGV7Y2Ch3EbtcQ
-	7DopPqusg9fbvQRyRLE6TfTWWcIXkSWecrDl3BCY1oHVdo9SLjuuRG7VRAaOfBhjVThAOBqaphR4x
-	GNQZGdHtR30fxwhatHDd2CeusTM7i3O4UwaAs5fBeIS5xthmRu5ztC7d5ujU1vGVog5EJ9uk7TRAk
-	aH5R1vylB0tUymk0+9j2SADk1NPdTl+X1YeiXOPUy6udXOVm3z6eQa7Px8UYzXwkZjZJvyX2oEdlH
-	uoQxSG9Q==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=eaGfYqsccDWsJTN0WYM3ff7hRWxPyaL2TevoJQw06eY=; b=2StoyXdwkq4tLKQy/8pM7oGSrx
+	XOJaWMRnebfswOuG0cVGo4xHVuHyie7KuPXI7LsSmvbzbcKYikot9ZHXZoo8I2cPu18z7dU8ObK7X
+	4kazoDv9VQz22Q6a8a9U629Qy1Eh9gv4T14wlTQaM8v6phaw6622z62NQgxwGXOyZlOG+CkfP+tQZ
+	IwZ/qv1NpDlixphVOfmL8NVxuToFfvXNyY7IVhf939eW/S1TYvCXKUSonqCRY1cI5VYtpqWCIRDZl
+	H1R4gBVtCTv7xuaYVAM0XG3oJYAe1jatUKr6YBk8ZvJNtrg4vdx1r933ymgonSeo3j/dnONW8juC6
+	nWiDvVZg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wSnoy-00000006h1a-3xOY;
-	Fri, 29 May 2026 03:23:40 +0000
-Received: from mgamail.intel.com ([198.175.65.16])
-	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wSnow-00000006gl8-2Gky
+	id 1wSoR5-00000006iNS-3th2;
+	Fri, 29 May 2026 04:03:03 +0000
+Received: from foss.arm.com ([217.140.110.172])
+	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
+	id 1wSoR2-00000006iMu-3GJs
 	for linux-arm-kernel@lists.infradead.org;
-	Fri, 29 May 2026 03:23:40 +0000
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple;
-  d=intel.com; i=@intel.com; q=dns/txt; s=Intel;
-  t=1780025018; x=1811561018;
-  h=message-id:date:mime-version:subject:to:cc:references:
-   from:in-reply-to:content-transfer-encoding;
-  bh=wDQVFhBo3gBIQZfJEViqlT0vYqsaA6hIzYCcs0Tl2GA=;
-  b=R95wXqg83RirX6ilBFX8GpwClBNgUggJyZsWMmx4YwqKwOPaalYi7SvJ
-   SdKVrZDHG+4t+qrKN3/9Q6GvTVYfRzlawzDU4hv9BjJEyLpaRLZ4rtizM
-   KXjBX1oVn0zhT5SdiDqCxRowy1gHYSeiZ2cfDsh9h0zxZ6poYXr5ZEYeA
-   YDP2ymOLPlzZp6E0OuCV/Qov0f2GF2TPdL0KAScwgSYdL9dZTV3aoaZvl
-   E7gmMRl4mOR9gdaV3Hn7E7USlcb4JG2DzMIK1xUfOpPeVayGbz2oL9DE5
-   MW8/Q2fuh6QXebHfRqMJcDUO3/ORkPV7AEMRgJsnLAl4O30n6RBUq9a56
-   A==;
-X-CSE-ConnectionGUID: bNDVyRmEQMmrOXlg4ku0Cg==
-X-CSE-MsgGUID: NKV47LwLS+qOTb5xCEGJPQ==
-X-IronPort-AV: E=McAfee;i="6800,10657,11800"; a="81058265"
-X-IronPort-AV: E=Sophos;i="6.24,174,1774335600"; 
-   d="scan'208";a="81058265"
-Received: from fmviesa003.fm.intel.com ([10.60.135.143])
-  by orvoesa108.jf.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 28 May 2026 20:21:37 -0700
-X-CSE-ConnectionGUID: H5rT94fQQAuf4q2VWMam+w==
-X-CSE-MsgGUID: RCxSXA1aSmSJpaSFQgHLbQ==
-X-ExtLoop1: 1
-Received: from allen-sbox.sh.intel.com (HELO [10.239.159.30]) ([10.239.159.30])
-  by fmviesa003-auth.fm.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 28 May 2026 20:21:33 -0700
-Message-ID: <5c5e85f1-f745-4667-af0d-30af71288294@linux.intel.com>
-Date: Fri, 29 May 2026 11:20:47 +0800
+	Fri, 29 May 2026 04:03:02 +0000
+Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
+	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id 7B0CC16A3;
+	Thu, 28 May 2026 21:02:52 -0700 (PDT)
+Received: from localhost (a079125.arm.com [10.164.21.37])
+	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id 82F1E3F7B4;
+	Thu, 28 May 2026 21:02:56 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=simple/simple; d=arm.com; s=foss;
+	t=1780027377; bh=eDyqfPL3Tk2ANdqi4jSCbSbhgcCNem97wosvoWpsFcg=;
+	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
+	b=OOY3mvD22sd6y3WIPIIBcAbQvrNOHJdbg8VSwgi08Y8G4+HVYqhi78mSOgyEElCPS
+	 Ro423BqzSe1PsgPppGukcVfWG5BAtkTRz5nbljRvC3GK70b/CNF/WOmP+OAVY9L0p6
+	 3RicJRMfamLoi/GNNA6iHWitua0Dnln1bXAOOp9Y=
+Date: Fri, 29 May 2026 09:32:52 +0530
+From: Linu Cherian <linu.cherian@arm.com>
+To: Ryan Roberts <ryan.roberts@arm.com>
+Cc: Anshuman Khandual <anshuman.khandual@arm.com>,
+	linux-arm-kernel@lists.infradead.org,
+	Catalin Marinas <catalin.marinas@arm.com>,
+	Will Deacon <will@kernel.org>, Mark Rutland <mark.rutland@arm.com>,
+	Lorenzo Stoakes <lorenzo.stoakes@oracle.com>,
+	Andrew Morton <akpm@linux-foundation.org>,
+	David Hildenbrand <david@kernel.org>,
+	Mike Rapoport <rppt@kernel.org>, Usama Arif <usama.arif@linux.dev>,
+	linux-kernel@vger.kernel.org, linux-mm@kvack.org
+Subject: Re: [RFC V2 13/14] arm64/mm: Add an abstraction level for tlbi_op
+Message-ID: <ahkP7IWLX-0QCoul@a079125.arm.com>
+References: <20260513044547.4128549-1-anshuman.khandual@arm.com>
+ <20260513044547.4128549-14-anshuman.khandual@arm.com>
+ <37917d56-ae26-4789-ac4c-15f8ee12398b@arm.com>
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH v5 5/7] iommu/vt-d: Fix RB-tree corruption and
- Use-After-Free in probe
-To: Pranjal Shrivastava <praan@google.com>, iommu@lists.linux.dev,
- linux-pci@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
- linux-kernel@vger.kernel.org
-Cc: Joerg Roedel <joro@8bytes.org>, Will Deacon <will@kernel.org>,
- Bjorn Helgaas <bhelgaas@google.com>, David Woodhouse <dwmw2@infradead.org>,
- Robin Murphy <robin.murphy@arm.com>,
- Suravee Suthikulpanit <suravee.suthikulpanit@amd.com>,
- Jason Gunthorpe <jgg@ziepe.ca>, Nicolin Chen <nicolinc@nvidia.com>,
- David Matlack <dmatlack@google.com>, Samiullah Khawaja
- <skhawaja@google.com>, Daniel Mentz <danielmentz@google.com>,
- Pasha Tatashin <pasha.tatashin@soleen.com>,
- Mostafa Saleh <smostafa@google.com>, sashiko-bot@kernel.org
-References: <20260528202353.3422206-1-praan@google.com>
- <20260528202353.3422206-6-praan@google.com>
-Content-Language: en-US
-From: Baolu Lu <baolu.lu@linux.intel.com>
-In-Reply-To: <20260528202353.3422206-6-praan@google.com>
-Content-Type: text/plain; charset=UTF-8; format=flowed
-Content-Transfer-Encoding: 7bit
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+In-Reply-To: <37917d56-ae26-4789-ac4c-15f8ee12398b@arm.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260528_202338_655652_B96358B0 
-X-CRM114-Status: GOOD (  21.05  )
+X-CRM114-CacheID: sfid-20260528_210300_936133_97302F24 
+X-CRM114-Status: GOOD (  16.75  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -94,71 +77,49 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On 5/29/26 04:23, Pranjal Shrivastava wrote:
-> The intel_iommu_probe_device() function contains two pre-existing
-> memory safety issues on its error path:
-> 
-> 1. The info->node RB-tree member is zero-initialized via kzalloc. If
->     a device does not support ATS, the device_rbtree_insert() call is
->     skipped. If a subsequent probe step fails, the error path jumps to
->     device_rbtree_remove(), which misinterprets the zeroed node as
->     a tree root and corrupts the device RB-tree.
-> 
-> 2. The info structure is freed on failure, but the pointer remains
->     linked to the device via dev_iommu_priv_set(). This leads to a
->     Use-After-Free regression if the pointer is accessed later.
-> 
-> Fix these by explicitly initializing the RB-node as empty and guarding
-> its removal. Additionally, ensure dev_iommu_priv_set(dev, NULL) is
-> called before freeing the info structure in the error path.
+Hi Ryan,
 
-Thanks for the fixes. Could you please separate these two fixes into two
-distinct patches and post them as a standalone series? These two fixes
-are quick cleanups and are not part of the current series, which focuses
-on improving the robustness of ATS enablement.
+On Wed, May 27, 2026 at 03:50:10PM +0100, Ryan Roberts wrote:
+> On 13/05/2026 05:45, Anshuman Khandual wrote:
+> > From: Linu Cherian <linu.cherian@arm.com>
+> > 
+> > With FEAT_D128, a new instruction aka TLBIP is being introduced for the TLB
+> > range operations which has an argument size of 128 bit.
+> 
+> nit: TLB range operations -> TLBI-by-range operations ?
+
+Ack.
 
 > 
-> Reported-by: sashiko-bot@kernel.org
-> Closes: https://lore.kernel.org/all/20260525205628.CD4431F000E9@smtp.kernel.org/
-> Suggested-by: Baolu Lu <baolu.lu@linux.intel.com>
-> Signed-off-by: Pranjal Shrivastava <praan@google.com>
-> ---
->   drivers/iommu/intel/iommu.c | 7 ++++++-
->   1 file changed, 6 insertions(+), 1 deletion(-)
+> > 
+> > Add an abstraction level to void (*tlbi_op)(u64 arg) helpers to support the
+> > D128 variations when applicable.
+> > 
+> > No functional changes are introduced with this patch.
+> > 
+> > Signed-off-by: Linu Cherian <linu.cherian@arm.com>
+> > Signed-off-by: Anshuman Khandual <anshuman.khandual@arm.com>
+> > ---
+> >  arch/arm64/include/asm/tlbflush.h | 70 ++++++++++++++++---------------
+> >  1 file changed, 37 insertions(+), 33 deletions(-)
+> > 
+> > diff --git a/arch/arm64/include/asm/tlbflush.h b/arch/arm64/include/asm/tlbflush.h
+> > index c0bf5b398041..361d74ef8016 100644
+> > --- a/arch/arm64/include/asm/tlbflush.h
+> > +++ b/arch/arm64/include/asm/tlbflush.h
+> > @@ -162,49 +162,53 @@ static inline void sme_dvmsync_batch(struct arch_tlbflush_unmap_batch *batch)
+> >  
+> >  #define TLBI_TTL_UNKNOWN	INT_MAX
+> >  
+> > -typedef void (*tlbi_op)(u64 arg);
+> > +typedef u64 tlbi_args_t;
 > 
-> diff --git a/drivers/iommu/intel/iommu.c b/drivers/iommu/intel/iommu.c
-> index 4d0e65bc131d..ed6d3a0203f5 100644
-> --- a/drivers/iommu/intel/iommu.c
-> +++ b/drivers/iommu/intel/iommu.c
-> @@ -157,7 +157,10 @@ static void device_rbtree_remove(struct device_domain_info *info)
->   	unsigned long flags;
->   
->   	spin_lock_irqsave(&iommu->device_rbtree_lock, flags);
-> -	rb_erase(&info->node, &iommu->device_rbtree);
-> +	if (!RB_EMPTY_NODE(&info->node)) {
-> +		rb_erase(&info->node, &iommu->device_rbtree);
-> +		RB_CLEAR_NODE(&info->node);
-> +	}
->   	spin_unlock_irqrestore(&iommu->device_rbtree_lock, flags);
->   }
->   
-> @@ -3254,6 +3257,7 @@ static struct iommu_device *intel_iommu_probe_device(struct device *dev)
->   
->   	info->dev = dev;
->   	info->iommu = iommu;
-> +	RB_CLEAR_NODE(&info->node);
->   	if (dev_is_pci(dev)) {
->   		if (ecap_dev_iotlb_support(iommu->ecap) &&
->   		    pci_ats_supported(pdev) &&
-> @@ -3316,6 +3320,7 @@ static struct iommu_device *intel_iommu_probe_device(struct device *dev)
->   clear_rbtree:
->   	device_rbtree_remove(info);
->   free:
-> +	dev_iommu_priv_set(dev, NULL);
->   	kfree(info);
->   
->   	return ERR_PTR(ret);
+> nit: tlbi_args_t -> tlbi_arg_t ?
 
+Ack.
+
+
+--
 Thanks,
-baolu
+Linu Cherian.
 
