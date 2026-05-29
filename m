@@ -4,71 +4,62 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id A9118CD6E52
-	for <linux-arm-kernel@archiver.kernel.org>; Fri, 29 May 2026 16:44:31 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 5C36BCD4F54
+	for <linux-arm-kernel@archiver.kernel.org>; Fri, 29 May 2026 16:45:27 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:MIME-Version:References:In-Reply-To:Message-ID:Subject:Cc:To:
-	From:Date:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
+	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=G3wDg+4g2GptZbsh0HCiLEhJwcrrrvElip6Ufk/Fn/o=; b=B6so3QpOrrBhnOCz+G7K9o4bGi
-	2MBCiDBAkhJ8SuQcph64pxGGTj6MlxOnds0HyFxkNl6HSoc//hJ2ttoLvI28SuefrM1lIrGoOYobi
-	sD2Z+BHHQ96u4+eBX9pdS0Pcf2H4Or76w/lf3K34oxqz3YZ6D8TOMHFLPArsAEuvCu3yuC851vYEn
-	rqHgRG7rk8Nibq+bx0T1lnGTQicxg0NsIRmUwKJeJGFy60lXh1zkhdk+QqS6d3augjIdVxc7lNYfe
-	2dxUgdRxKiswcf8pilPZpUGf2gdIeZh36xZEjKmDssgbezUblvz3D3rT/ppyXfIdAHoPyOKDDdUOP
-	M3MnhGeg==;
+	bh=v5YYJfoTLTuk76/K4Vxthemxw2nXDmtS323PjFAHTsI=; b=o+xK77orLzR6DNuMNCV0Ucdh6V
+	T9nDCAG3KOBMtY0zo/TTr56y0wueRY0FGcao0hmbhzk441ayfbig5MiTZFkYPOgqXvHRHDQrJ0rTd
+	vz3OTJfgZhae2zsNOJlIccsH8IoLkK00wNqoJj1m2GwN/4Y5wXdx1yxaO14rKDujdPTDdxYhzfgkE
+	Qt19no/GxGjG4LTCo5NJnhAwtp1kj43Q0xJFauXvQVi4ioAtL+Ks1kdEFMNB/hfwubLRiDUfRX8uT
+	+AutsOG9Qa9uWRTDDbW+3jh6ugqNbyyW94hKdM0qY0u5jQJ+Z83kHpGFq2WN53obxlo26uqCTj9Pu
+	SUugOmvQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wT0Jt-00000007v6P-2rOB;
-	Fri, 29 May 2026 16:44:25 +0000
-Received: from sea.source.kernel.org ([172.234.252.31])
-	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wT0Jr-00000007v5i-45BH
+	id 1wT0Km-00000007vGE-3XAi;
+	Fri, 29 May 2026 16:45:20 +0000
+Received: from foss.arm.com ([217.140.110.172])
+	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
+	id 1wT0Kk-00000007vFR-0I8k
 	for linux-arm-kernel@lists.infradead.org;
-	Fri, 29 May 2026 16:44:25 +0000
-Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
-	by sea.source.kernel.org (Postfix) with ESMTP id ABDE443CE6;
-	Fri, 29 May 2026 16:44:23 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id A2FF41F00893;
-	Fri, 29 May 2026 16:44:12 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1780073063;
-	bh=G3wDg+4g2GptZbsh0HCiLEhJwcrrrvElip6Ufk/Fn/o=;
-	h=Date:From:To:Cc:Subject:In-Reply-To:References;
-	b=WM0FXepsh/oPSKCdzTWjewW0wPQJFUaBHz7CLH18fotnVaOFZU+Ne2y6a0Q6qnlwe
-	 tsxFmYFSHcvpPZGdmr3Xqv1rSHY+RHAlzg4dCm2D4uSI1Ohspv05QeRm5jSGHI48qk
-	 imSVQ5s0omjKZRBZZAFxtjnfzqZizp6PFRfoCHK+oIHvuxetQzWtLKPteUn4NW/Qnh
-	 NNWgpPd45k+Sd42HIf1LFbykbOj1IKD/Bwskw3FNLfCcGApKbjFRXJKB8TfeCg1uYM
-	 KGMAQguxHHBhC4/wKlhQ1SnVVRgvCtGrNgpE/dDZwSmh9iekrsStpOO6qbKG8lF5Sa
-	 nF04ArOzslibQ==
-Date: Fri, 29 May 2026 17:44:07 +0100
-From: Jonathan Cameron <jic23@kernel.org>
-To: Ahmed Tiba <ahmed.tiba@arm.com>
-Cc: will@kernel.org, xueshuai@linux.alibaba.com, saket.dumbre@intel.com,
- mchehab@kernel.org, dave@stgolabs.net, djbw@kernel.org, bp@alien8.de,
- tony.luck@intel.com, guohanjun@huawei.com, lenb@kernel.org,
- skhan@linuxfoundation.org, vishal.l.verma@intel.com, rafael@kernel.org,
- corbet@lwn.net, ira.weiny@intel.com, dave.jiang@intel.com,
- krzk+dt@kernel.org, robh@kernel.org, catalin.marinas@arm.com,
- alison.schofield@intel.com, conor+dt@kernel.org,
- linux-arm-kernel@lists.infradead.org, Michael.Zhao2@arm.com,
- linux-doc@vger.kernel.org, linux-kernel@vger.kernel.org,
- linux-cxl@vger.kernel.org, Dmitry.Lamerov@arm.com,
- devicetree@vger.kernel.org, linux-acpi@vger.kernel.org,
- linux-edac@vger.kernel.org, acpica-devel@lists.linux.dev
-Subject: Re: [PATCH v5 09/10] dt-bindings: firmware: add arm,ras-cper
-Message-ID: <20260529174407.7081ad0b@jic23-huawei>
-In-Reply-To: <20260529-topics-ahmtib01-ras_ffh_arm_internal_review-v5-9-2e0500d42642@arm.com>
-References: <20260529-topics-ahmtib01-ras_ffh_arm_internal_review-v5-0-2e0500d42642@arm.com>
-	<20260529-topics-ahmtib01-ras_ffh_arm_internal_review-v5-9-2e0500d42642@arm.com>
-X-Mailer: Claws Mail 4.4.0 (GTK 3.24.52; x86_64-pc-linux-gnu)
+	Fri, 29 May 2026 16:45:19 +0000
+Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
+	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id 93B87472F;
+	Fri, 29 May 2026 09:45:11 -0700 (PDT)
+Received: from [10.1.196.85] (e121345-lin.cambridge.arm.com [10.1.196.85])
+	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id 3F3DF3F632;
+	Fri, 29 May 2026 09:45:07 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=simple/simple; d=arm.com; s=foss;
+	t=1780073116; bh=ALGQmCpwsVKx34+Za/AJKF2HqIAWjst2g4Ih2YoNxeM=;
+	h=Date:Subject:To:Cc:References:From:In-Reply-To:From;
+	b=p0TpU/ZMxNj3ljUd57XZ0SFVLeWHY4ior1Q/YF3mUFnFI6SE4eyRygirpz95YEntV
+	 yQZKF9ccxkbND5FmTkIMylQ1E/9JfSmpFOMMz1a3brnYz9DwnU97J6rfZnC1NEL1Nl
+	 OT3KpM3iFDX+qOJpexeGuRegya5aC+92F74iR2pg=
+Message-ID: <c1d27212-8e2b-4820-bee6-ad7e7de81238@arm.com>
+Date: Fri, 29 May 2026 17:44:58 +0100
 MIME-Version: 1.0
-Content-Type: text/plain; charset=US-ASCII
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH v3 1/2] perf/arm-cmn: Move struct arm_cmn_hw_event into
+ struct hw_perf_event
+To: Aviv Bakal <avivb@amazon.com>, will@kernel.org, mark.rutland@arm.com
+Cc: linux-arm-kernel@lists.infradead.org, linux-perf-users@vger.kernel.org,
+ linux-kernel@vger.kernel.org, zeev@amazon.com, blakgeof@amazon.com,
+ Ilkka Koskinen <ilkka@os.amperecomputing.com>
+References: <20260504133923.23373-1-avivb@amazon.com>
+ <20260524153848.16334-1-avivb@amazon.com>
+ <20260524153848.16334-2-avivb@amazon.com>
+From: Robin Murphy <robin.murphy@arm.com>
+Content-Language: en-GB
+In-Reply-To: <20260524153848.16334-2-avivb@amazon.com>
+Content-Type: text/plain; charset=UTF-8; format=flowed
 Content-Transfer-Encoding: 7bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260529_094424_060257_9D03968C 
-X-CRM114-Status: GOOD (  20.30  )
+X-CRM114-CacheID: sfid-20260529_094518_374558_84A7BAE4 
+X-CRM114-Status: GOOD (  39.10  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -83,89 +74,402 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Fri, 29 May 2026 10:50:49 +0100
-Ahmed Tiba <ahmed.tiba@arm.com> wrote:
-
-> Describe the DeviceTree node that exposes the Arm firmware-first
-> CPER provider and hook the file into MAINTAINERS so the
-> binding has an owner.
-
-Odd wrap. Pick a length (72 / 75 typical for commit messages) and
-stick to it.
-
-Request for references inline + a question on whether we have
-to allow for the ack register not existing. I'd rather we required
-it if possible.
-
+On 24/05/2026 4:38 pm, Aviv Bakal wrote:
+> In order to increase CMN_MAX_DIMENSION beyond 12 (required for meshes
+> larger than 12x12, such as Graviton5), the arm_cmn_hw_event struct must
+> grow. Since it is overlaid on the beginning of hw_perf_event via an
+> unsafe cast, increasing its size would violate the static_assert that
+> guards against overflowing into the 'target' field.
 > 
-> Signed-off-by: Ahmed Tiba <ahmed.tiba@arm.com>
+> Resolve this by moving struct arm_cmn_hw_event into the hw_perf_event
+> union as a proper named member, eliminating the cast in to_cmn_hw() and
+> making the size reservation explicit. Set CMN_MAX_DIMENSION to 14 to
+> accommodate larger mesh topologies.
+> 
+> Signed-off-by: Aviv Bakal <avivb@amazon.com>
 > ---
->  .../devicetree/bindings/firmware/arm,ras-cper.yaml | 54 ++++++++++++++++++++++
->  MAINTAINERS                                        |  5 ++
->  2 files changed, 59 insertions(+)
+>   drivers/perf/arm-cmn.c     | 26 +-------------------------
+>   include/linux/perf_event.h | 22 ++++++++++++++++++++++
+>   2 files changed, 23 insertions(+), 25 deletions(-)
 > 
-> diff --git a/Documentation/devicetree/bindings/firmware/arm,ras-cper.yaml b/Documentation/devicetree/bindings/firmware/arm,ras-cper.yaml
-> new file mode 100644
-> index 000000000000..3d4de096093f
-> --- /dev/null
-> +++ b/Documentation/devicetree/bindings/firmware/arm,ras-cper.yaml
-> @@ -0,0 +1,54 @@
-> +# SPDX-License-Identifier: (GPL-2.0-only OR BSD-2-Clause)
-> +%YAML 1.2
-> +---
-> +$id: http://devicetree.org/schemas/firmware/arm,ras-cper.yaml#
-> +$schema: http://devicetree.org/meta-schemas/core.yaml#
-> +
-> +title: Arm RAS CPER provider
-> +
-> +maintainers:
-> +  - Ahmed Tiba <ahmed.tiba@arm.com>
-> +
-> +description:
-> +  Arm Reliability, Availability and Serviceability (RAS) firmware can expose
-> +  a firmware-first CPER error source directly via DeviceTree. Firmware
-> +  provides the CPER Generic Error Status block and notifies the OS through
-> +  an interrupt.
+> diff --git a/drivers/perf/arm-cmn.c b/drivers/perf/arm-cmn.c
+> index f5305c8fdca4..3443b819afed 100644
+> --- a/drivers/perf/arm-cmn.c
+> +++ b/drivers/perf/arm-cmn.c
+> @@ -31,13 +31,8 @@
+>   #define CMN_CHILD_NODE_ADDR		GENMASK(29, 0)
+>   #define CMN_CHILD_NODE_EXTERNAL		BIT(31)
+>   
+> -#define CMN_MAX_DIMENSION		12
+> -#define CMN_MAX_XPS			(CMN_MAX_DIMENSION * CMN_MAX_DIMENSION)
+>   #define CMN_MAX_DTMS			(CMN_MAX_XPS + (CMN_MAX_DIMENSION - 1) * 4)
+>   
+> -/* Currently XPs are the node type we can have most of; others top out at 128 */
+> -#define CMN_MAX_NODES_PER_EVENT		CMN_MAX_XPS
+> -
+>   /* The CFG node has various info besides the discovery tree */
+>   #define CMN_CFGM_PERIPH_ID_01		0x0008
+>   #define CMN_CFGM_PID0_PART_0		GENMASK_ULL(7, 0)
+> @@ -148,7 +143,6 @@
+>   #define CMN_DT_PMSRR_SS_REQ		BIT(0)
+>   
+>   #define CMN_DT_NUM_COUNTERS		8
+> -#define CMN_MAX_DTCS			4
+>   
+>   /*
+>    * Even in the worst case a DTC counter can't wrap in fewer than 2^42 cycles,
+> @@ -595,24 +589,6 @@ static void arm_cmn_debugfs_init(struct arm_cmn *cmn, int id)
+>   static void arm_cmn_debugfs_init(struct arm_cmn *cmn, int id) {}
+>   #endif
+>   
+> -struct arm_cmn_hw_event {
+> -	struct arm_cmn_node *dn;
+> -	u64 dtm_idx[DIV_ROUND_UP(CMN_MAX_NODES_PER_EVENT * 2, 64)];
+> -	s8 dtc_idx[CMN_MAX_DTCS];
+> -	u8 num_dns;
+> -	u8 dtm_offset;
+> -
+> -	/*
+> -	 * WP config registers are divided to UP and DOWN events. We need to
+> -	 * keep to track only one of them.
+> -	 */
+> -	DECLARE_BITMAP(wp_idx, CMN_MAX_XPS);
+> -
+> -	bool wide_sel;
+> -	enum cmn_filter_select filter_sel;
+> -};
+> -static_assert(sizeof(struct arm_cmn_hw_event) <= offsetof(struct hw_perf_event, target));
+> -
+>   #define for_each_hw_dn(hw, dn, i) \
+>   	for (i = 0, dn = hw->dn; i < hw->num_dns; i++, dn++)
+>   
+> @@ -622,7 +598,7 @@ static_assert(sizeof(struct arm_cmn_hw_event) <= offsetof(struct hw_perf_event,
+>   
+>   static struct arm_cmn_hw_event *to_cmn_hw(struct perf_event *event)
+>   {
+> -	return (struct arm_cmn_hw_event *)&event->hw;
+> +	return &event->hw.cmn;
+>   }
+>   
+>   static void arm_cmn_set_index(u64 x[], unsigned int pos, unsigned int val)
+> diff --git a/include/linux/perf_event.h b/include/linux/perf_event.h
+> index 48d851fbd8ea..c38576a8e338 100644
+> --- a/include/linux/perf_event.h
+> +++ b/include/linux/perf_event.h
 
-I'd like some spec references in here if possible.
+$ scripts/get_maintainer.pl include/linux/perf_event.h
+Peter Zijlstra <peterz@infradead.org> (maintainer:PERFORMANCE EVENTS SUBSYSTEM)
+Ingo Molnar <mingo@redhat.com> (maintainer:PERFORMANCE EVENTS SUBSYSTEM)
+Arnaldo Carvalho de Melo <acme@kernel.org> (maintainer:PERFORMANCE EVENTS SUBSYSTEM)
+Namhyung Kim <namhyung@kernel.org> (maintainer:PERFORMANCE EVENTS SUBSYSTEM)
+Mark Rutland <mark.rutland@arm.com> (reviewer:PERFORMANCE EVENTS SUBSYSTEM)
+Alexander Shishkin <alexander.shishkin@linux.intel.com> (reviewer:PERFORMANCE EVENTS SUBSYSTEM)
+Jiri Olsa <jolsa@kernel.org> (reviewer:PERFORMANCE EVENTS SUBSYSTEM)
+Ian Rogers <irogers@google.com> (reviewer:PERFORMANCE EVENTS SUBSYSTEM)
+Adrian Hunter <adrian.hunter@intel.com> (reviewer:PERFORMANCE EVENTS SUBSYSTEM)
+James Clark <james.clark@linaro.org> (reviewer:PERFORMANCE EVENTS SUBSYSTEM)
+linux-perf-users@vger.kernel.org (open list:PERFORMANCE EVENTS SUBSYSTEM)
+linux-kernel@vger.kernel.org (open list:PERFORMANCE EVENTS SUBSYSTEM)
 
-> +
-> +properties:
-> +  compatible:
-> +    const: arm,ras-cper
-> +
-> +  memory-region:
-> +    minItems: 1
-> +    items:
-> +      - description:
-> +          CPER Generic Error Status block exposed by firmware.
-> +      - description:
-> +          Optional firmware-owned ack buffer used on platforms
-> +          where firmware needs an explicit "ack" handshake before overwriting
-> +          the CPER buffer. Firmware watches bit 0 and expects the OS to set it
-> +          once the current status block has been consumed.
+> @@ -119,6 +119,7 @@ struct perf_branch_stack {
+>   };
+>   
+>   struct task_struct;
+> +struct arm_cmn_node;
+>   
+>   /*
+>    * extra PMU register associated with an event
+> @@ -200,6 +201,27 @@ struct hw_perf_event {
+>   			u64	conf;
+>   			u64	conf1;
+>   		};
+> +#ifdef CONFIG_ARM_CMN
+> +/* Some implementations use a mesh larger than the architectural max of 12 */
+> +#define CMN_MAX_DIMENSION		14
+> +#define CMN_MAX_XPS			(CMN_MAX_DIMENSION * CMN_MAX_DIMENSION)
+> +#define CMN_MAX_NODES_PER_EVENT		CMN_MAX_XPS
+> +#define CMN_MAX_DTCS			4
 
-Does the arm spec really make this optional?  Can we constraint it to not be
-just to make our lives easier?  I've never been sure how you would actually
-make a working platform without the ack support.
+I doubt the maintainers would be too happy to have this degree of random
+driver specifics in a core header. Certainly I wouldn't consider it a
+great idea myself...
 
+> +		struct arm_cmn_hw_event { /* arm_cmn */
+> +			/*
+> +			 * CMN PMU event state overlaid on hw_perf_event.
+> +			 * Must fit before the 'target' field.
+> +			 */
+> +			struct arm_cmn_node	*dn;
+> +			u64			dtm_idx[DIV_ROUND_UP(CMN_MAX_NODES_PER_EVENT * 2, 64)];
+> +			s8			dtc_idx[CMN_MAX_DTCS];
+> +			u8			num_dns;
+> +			u8			dtm_offset;
+> +			DECLARE_BITMAP(wp_idx, CMN_MAX_XPS);
+> +			bool			wide_sel;
+> +			int			filter_sel;
+> +		} cmn;
+> +#endif
+>   	};
+>   	/*
+>   	 * If the event is a per task event, this will point to the task in
 
-> diff --git a/MAINTAINERS b/MAINTAINERS
-> index 461a3eed6129..8a9714603a7d 100644
-> --- a/MAINTAINERS
-> +++ b/MAINTAINERS
-> @@ -22261,6 +22261,11 @@ M:	Alexandre Bounine <alex.bou9@gmail.com>
->  S:	Maintained
->  F:	drivers/rapidio/
->  
-> +RAS ERROR STATUS
-> +M:	Ahmed Tiba <ahmed.tiba@arm.com>
-> +S:	Maintained
-> +F:	Documentation/devicetree/bindings/firmware/arm,ras-cper.yaml
-> +
->  RAS INFRASTRUCTURE
->  M:	Tony Luck <tony.luck@intel.com>
->  M:	Borislav Petkov <bp@alien8.de>
-> 
+TBH I'd be tempted to just disable 32-bit compile-testing for now, but
+if we're going to do anything "proper" then it's probably about time to
+do this:
+
+Thanks,
+Robin.
+
+----->8-----
+Subject: [PATCH] perf/arm-cmn: Move DTM index data out of hw_perf_event
+
+The amount of data we need to store all the per-DTM counter and
+watchpoint allocations is already testing the limits of hw_perf_event,
+and future CMNs are only likely to keep growing larger, so move these
+arrays out to separate memory allocations. As part of that we can use
+an explicit union for allocating cycle counters to dtc_cycles events,
+which is arguably nicer anyway.
+
+Cc: Ilkka Koskinen <ilkka@os.amperecomputing.com>
+Signed-off-by: Robin Murphy <robin.murphy@arm.com>
+---
+  drivers/perf/arm-cmn.c | 89 ++++++++++++++++++++++++++++--------------
+  1 file changed, 59 insertions(+), 30 deletions(-)
+
+diff --git a/drivers/perf/arm-cmn.c b/drivers/perf/arm-cmn.c
+index 6e5cc4086a9e..470f6a82502e 100644
+--- a/drivers/perf/arm-cmn.c
++++ b/drivers/perf/arm-cmn.c
+@@ -598,17 +598,14 @@ static void arm_cmn_debugfs_init(struct arm_cmn *cmn, int id) {}
+  
+  struct arm_cmn_hw_event {
+  	struct arm_cmn_node *dn;
+-	u64 dtm_idx[DIV_ROUND_UP(CMN_MAX_NODES_PER_EVENT * 2, 64)];
++	union {
++		u64 *dtm_idx;
++		int cc_idx;
++	};
++	unsigned long *wp_idx;
+  	s8 dtc_idx[CMN_MAX_DTCS];
+  	u8 num_dns;
+  	u8 dtm_offset;
+-
+-	/*
+-	 * WP config registers are divided to UP and DOWN events. We need to
+-	 * keep to track only one of them.
+-	 */
+-	DECLARE_BITMAP(wp_idx, CMN_MAX_XPS);
+-
+  	bool wide_sel;
+  	enum cmn_filter_select filter_sel;
+  };
+@@ -626,25 +623,42 @@ static struct arm_cmn_hw_event *to_cmn_hw(struct perf_event *event)
+  	return (struct arm_cmn_hw_event *)&event->hw;
+  }
+  
+-static void arm_cmn_set_index(u64 x[], unsigned int pos, unsigned int val)
++static void arm_cmn_set_dtm_idx(struct arm_cmn_hw_event *hw, unsigned int pos, unsigned int val)
+  {
+-	x[pos / 32] |= (u64)val << ((pos % 32) * 2);
++	hw->dtm_idx[pos / 32] |= (u64)val << ((pos % 32) * 2);
+  }
+  
+-static unsigned int arm_cmn_get_index(u64 x[], unsigned int pos)
++static unsigned int arm_cmn_get_dtm_idx(struct arm_cmn_hw_event *hw, unsigned int pos)
+  {
+-	return (x[pos / 32] >> ((pos % 32) * 2)) & 3;
++	return (hw->dtm_idx[pos / 32] >> ((pos % 32) * 2)) & 3;
+  }
+  
+-static void arm_cmn_set_wp_idx(unsigned long *wp_idx, unsigned int pos, bool val)
++static u64 *arm_cmn_alloc_dtm_idx(void)
++{
++	return kzalloc(DIV_ROUND_UP(CMN_MAX_NODES_PER_EVENT * 2, 64), GFP_KERNEL);
++}
++
++static void arm_cmn_set_wp_idx(struct arm_cmn_hw_event *hw, unsigned int pos, bool val)
+  {
+  	if (val)
+-		set_bit(pos, wp_idx);
++		set_bit(pos, hw->wp_idx);
+  }
+  
+-static unsigned int arm_cmn_get_wp_idx(unsigned long *wp_idx, unsigned int pos)
++static unsigned int arm_cmn_get_wp_idx(struct arm_cmn_hw_event *hw, unsigned int pos)
+  {
+-	return test_bit(pos, wp_idx);
++	return test_bit(pos, hw->wp_idx);
++}
++
++static unsigned long *arm_cmn_alloc_wp_idx(void)
++{
++	return bitmap_zalloc(CMN_MAX_XPS, GFP_KERNEL);
++}
++
++static void arm_cmn_clear_idx(struct arm_cmn_hw_event *hw)
++{
++	memset(hw->dtm_idx, 0, DIV_ROUND_UP(CMN_MAX_NODES_PER_EVENT * 2, 64));
++	if (hw->wp_idx)
++		memset(hw->wp_idx, 0, CMN_MAX_XPS);
+  }
+  
+  struct arm_cmn_event_attr {
+@@ -1377,7 +1391,7 @@ static int arm_cmn_get_assigned_wp_idx(struct perf_event *event,
+  				       struct arm_cmn_hw_event *hw,
+  				       unsigned int pos)
+  {
+-	return CMN_EVENT_EVENTID(event) + arm_cmn_get_wp_idx(hw->wp_idx, pos);
++	return CMN_EVENT_EVENTID(event) + arm_cmn_get_wp_idx(hw, pos);
+  }
+  
+  static void arm_cmn_claim_wp_idx(struct arm_cmn_dtm *dtm,
+@@ -1388,7 +1402,7 @@ static void arm_cmn_claim_wp_idx(struct arm_cmn_dtm *dtm,
+  	struct arm_cmn_hw_event *hw = to_cmn_hw(event);
+  
+  	dtm->wp_event[wp_idx] = hw->dtc_idx[dtc];
+-	arm_cmn_set_wp_idx(hw->wp_idx, pos, wp_idx - CMN_EVENT_EVENTID(event));
++	arm_cmn_set_wp_idx(hw, pos, wp_idx - CMN_EVENT_EVENTID(event));
+  }
+  
+  static u32 arm_cmn_wp_config(struct perf_event *event, int wp_idx)
+@@ -1459,7 +1473,7 @@ static u64 arm_cmn_read_dtm(struct arm_cmn *cmn, struct arm_cmn_hw_event *hw,
+  			dtm = &cmn->dtms[dn->dtm] + hw->dtm_offset;
+  			reg = readq_relaxed(dtm->base + offset);
+  		}
+-		dtm_idx = arm_cmn_get_index(hw->dtm_idx, i);
++		dtm_idx = arm_cmn_get_dtm_idx(hw, i);
+  		count += (u16)(reg >> (dtm_idx * 16));
+  	}
+  	return count;
+@@ -1506,7 +1520,7 @@ static void arm_cmn_event_read(struct perf_event *event)
+  	unsigned long flags;
+  
+  	if (CMN_EVENT_TYPE(event) == CMN_TYPE_DTC) {
+-		delta = arm_cmn_read_cc(cmn->dtc + hw->dtc_idx[0]);
++		delta = arm_cmn_read_cc(cmn->dtc + hw->cc_idx);
+  		local64_add(delta, &event->count);
+  		return;
+  	}
+@@ -1573,7 +1587,7 @@ static void arm_cmn_event_start(struct perf_event *event, int flags)
+  	int i;
+  
+  	if (type == CMN_TYPE_DTC) {
+-		struct arm_cmn_dtc *dtc = cmn->dtc + hw->dtc_idx[0];
++		struct arm_cmn_dtc *dtc = cmn->dtc + hw->cc_idx;
+  
+  		writel_relaxed(CMN_DT_DTC_CTL_DT_EN | CMN_DT_DTC_CTL_CG_DISABLE,
+  			       dtc->base + CMN_DT_DTC_CTL);
+@@ -1591,7 +1605,7 @@ static void arm_cmn_event_start(struct perf_event *event, int flags)
+  			writeq_relaxed(mask, base + CMN_DTM_WPn_MASK(wp_idx));
+  		}
+  	} else for_each_hw_dn(hw, dn, i) {
+-		int dtm_idx = arm_cmn_get_index(hw->dtm_idx, i);
++		int dtm_idx = arm_cmn_get_dtm_idx(hw, i);
+  
+  		arm_cmn_set_event_sel_lo(dn, dtm_idx, CMN_EVENT_EVENTID(event),
+  					 hw->wide_sel);
+@@ -1607,7 +1621,7 @@ static void arm_cmn_event_stop(struct perf_event *event, int flags)
+  	int i;
+  
+  	if (type == CMN_TYPE_DTC) {
+-		struct arm_cmn_dtc *dtc = cmn->dtc + hw->dtc_idx[0];
++		struct arm_cmn_dtc *dtc = cmn->dtc + hw->cc_idx;
+  
+  		dtc->cc_active = false;
+  		writel_relaxed(CMN_DT_DTC_CTL_DT_EN, dtc->base + CMN_DT_DTC_CTL);
+@@ -1620,7 +1634,7 @@ static void arm_cmn_event_stop(struct perf_event *event, int flags)
+  			writeq_relaxed(~0ULL, base + CMN_DTM_WPn_VAL(wp_idx));
+  		}
+  	} else for_each_hw_dn(hw, dn, i) {
+-		int dtm_idx = arm_cmn_get_index(hw->dtm_idx, i);
++		int dtm_idx = arm_cmn_get_dtm_idx(hw, i);
+  
+  		arm_cmn_set_event_sel_lo(dn, dtm_idx, 0, hw->wide_sel);
+  	}
+@@ -1764,6 +1778,14 @@ static enum cmn_filter_select arm_cmn_filter_sel(const struct arm_cmn *cmn,
+  }
+  
+  
++static void arm_cmn_event_destroy(struct perf_event *event)
++{
++	struct arm_cmn_hw_event *hw = to_cmn_hw(event);
++
++	kfree(hw->dtm_idx);
++	bitmap_free(hw->wp_idx);
++}
++
+  static int arm_cmn_event_init(struct perf_event *event)
+  {
+  	struct arm_cmn *cmn = to_cmn(event->pmu);
+@@ -1788,6 +1810,11 @@ static int arm_cmn_event_init(struct perf_event *event)
+  	if (type == CMN_TYPE_DTC)
+  		return arm_cmn_validate_group(cmn, event);
+  
++	event->destroy = arm_cmn_event_destroy;
++	hw->dtm_idx = arm_cmn_alloc_dtm_idx();
++	if (!hw->dtm_idx)
++		return -ENOMEM;
++
+  	eventid = CMN_EVENT_EVENTID(event);
+  	/* For watchpoints we need the actual XP node here */
+  	if (type == CMN_TYPE_WP) {
+@@ -1798,6 +1825,9 @@ static int arm_cmn_event_init(struct perf_event *event)
+  		/* ...but the DTM may depend on which port we're watching */
+  		if (cmn->multi_dtm)
+  			hw->dtm_offset = CMN_EVENT_WP_DEV_SEL(event) / 2;
++		hw->wp_idx = arm_cmn_alloc_wp_idx();
++		if (!hw->wp_idx)
++			return -ENOMEM;
+  	} else if (type == CMN_TYPE_XP &&
+  		   (cmn->part == PART_CMN700 || cmn->part == PART_CMN_S3)) {
+  		hw->wide_sel = true;
+@@ -1848,7 +1878,7 @@ static void arm_cmn_event_clear(struct arm_cmn *cmn, struct perf_event *event,
+  
+  	while (i--) {
+  		struct arm_cmn_dtm *dtm = &cmn->dtms[hw->dn[i].dtm] + hw->dtm_offset;
+-		unsigned int dtm_idx = arm_cmn_get_index(hw->dtm_idx, i);
++		unsigned int dtm_idx = arm_cmn_get_dtm_idx(hw, i);
+  
+  		if (type == CMN_TYPE_WP) {
+  			int wp_idx = arm_cmn_get_assigned_wp_idx(event, hw, i);
+@@ -1862,8 +1892,7 @@ static void arm_cmn_event_clear(struct arm_cmn *cmn, struct perf_event *event,
+  		dtm->pmu_config_low &= ~CMN__PMEVCNT_PAIRED(dtm_idx);
+  		writel_relaxed(dtm->pmu_config_low, dtm->base + CMN_DTM_PMU_CONFIG);
+  	}
+-	memset(hw->dtm_idx, 0, sizeof(hw->dtm_idx));
+-	memset(hw->wp_idx, 0, sizeof(hw->wp_idx));
++	arm_cmn_clear_idx(hw);
+  
+  	for_each_hw_dtc_idx(hw, j, idx)
+  		cmn->dtc[j].counters[idx] = NULL;
+@@ -1883,7 +1912,7 @@ static int arm_cmn_event_add(struct perf_event *event, int flags)
+  				return -ENOSPC;
+  
+  		cmn->dtc[i].cycles = event;
+-		hw->dtc_idx[0] = i;
++		hw->cc_idx = i;
+  
+  		if (flags & PERF_EF_START)
+  			arm_cmn_event_start(event, 0);
+@@ -1948,7 +1977,7 @@ static int arm_cmn_event_add(struct perf_event *event, int flags)
+  				goto free_dtms;
+  		}
+  
+-		arm_cmn_set_index(hw->dtm_idx, i, dtm_idx);
++		arm_cmn_set_dtm_idx(hw, i, dtm_idx);
+  
+  		dtm->input_sel[dtm_idx] = input_sel;
+  		shift = CMN__PMEVCNTn_GLOBAL_NUM_SHIFT(dtm_idx);
+@@ -1981,7 +2010,7 @@ static void arm_cmn_event_del(struct perf_event *event, int flags)
+  	arm_cmn_event_stop(event, PERF_EF_UPDATE);
+  
+  	if (type == CMN_TYPE_DTC)
+-		cmn->dtc[hw->dtc_idx[0]].cycles = NULL;
++		cmn->dtc[hw->cc_idx].cycles = NULL;
+  	else
+  		arm_cmn_event_clear(cmn, event, hw->num_dns);
+  }
+-- 
+2.54.0.dirty
 
 
