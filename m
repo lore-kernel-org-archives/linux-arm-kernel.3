@@ -4,76 +4,123 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 697F0CD5BD1
-	for <linux-arm-kernel@archiver.kernel.org>; Fri, 29 May 2026 03:09:52 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 4BFCBCD6E49
+	for <linux-arm-kernel@archiver.kernel.org>; Fri, 29 May 2026 03:21:25 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:MIME-Version:References:In-Reply-To:Message-Id:Date:Subject:Cc:
-	To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Content-Type:In-Reply-To:From:References:CC:To:Subject:MIME-Version:Date:
+	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=TK0Ooz++M6ADTeqrK3RvYBVcHOibgpzwEbnFPIpXtyg=; b=KhHqakxYbzeXzzTeDEoRNXnjWv
-	/hPjB5pP3eBAO4+tKFPiq4JzHSz3ElwJ4HyN1KFleRN7nFwL4NVZK/qS+rbK2iI7vj2etVwg8HKmk
-	wsrAtpJe72VAxIj4Wy+yxig3t8/E/cmB5aFfjMgO5lMAcLSfpRVfmCjRqvri0SAJSU9KUKo1SWITs
-	0nTBDF5eaIKZpuehoOOvhzDfZc6dhm6aWqBqF4/y+giF5RKeLEkMpw4fJB42A44EgAxT3uABzQ+Hs
-	U6q7FN9LnjK64RKTlao8QsglXioYk6+7zcNA3US1eHMZx4Ip5XuRQc+mP6vhClT4xqUYIPDEQmOww
-	WkoWYZZg==;
+	bh=njm9Lb6PnPkKXEPA2I6kX9wff67YWmaAIYAMRIfCmqs=; b=2RxtQSbbADBpfzTdvZHOgPvlIR
+	f5mbc2YwJcaFyeexLH/hTA6EZCUMk860TJY0Ub3pfDYWD1ni7wDeoYu3t4wdhDXcLj19cSAdc1LTk
+	j8Nh2BPeguXRwQY6xzUAAZuzw1W9Tc/5G7FV/wDA7lWCSyQuq9j4RdIVZjpYFb+VCxE2ZJR0gCSXi
+	9N1HBX07pX/M/pvIh1wBVHe64N2ISRQBGF3QYLqriDQVTBKdXKmCDVn6LrXw7TZQh74nT3tCCNrfR
+	mQInatJFfgVh0cVcNSceidZSG5jnoKJXCrOjJF5ZsvvQs/7AzN/ee0dLQC4qWxbiRv6L/NyqS2FDN
+	OHSpIa3w==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wSnbV-00000006fwA-0KbJ;
-	Fri, 29 May 2026 03:09:45 +0000
-Received: from out-173.mta1.migadu.com ([95.215.58.173])
+	id 1wSnb3-00000006ftU-43n4;
+	Fri, 29 May 2026 03:09:17 +0000
+Received: from mail-westus3azlp170110003.outbound.protection.outlook.com ([2a01:111:f403:c107::3] helo=PH0PR06CU001.outbound.protection.outlook.com)
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wSnbS-00000006fvO-2VZQ
+	id 1wSnb0-00000006ftB-47lv
 	for linux-arm-kernel@lists.infradead.org;
-	Fri, 29 May 2026 03:09:44 +0000
-X-Report-Abuse: Please report any abuse attempt to abuse@migadu.com and include these headers.
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=linux.dev; s=key1;
-	t=1780024177;
-	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
-	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
-	 content-transfer-encoding:content-transfer-encoding:
-	 in-reply-to:in-reply-to:references:references;
-	bh=TK0Ooz++M6ADTeqrK3RvYBVcHOibgpzwEbnFPIpXtyg=;
-	b=rPW2L/AwIYHoiWPp2eOwE0adHHwnFnOKbGhcWqGIMYN5aqkat2mrGz4RqBT4mgPHOoKR/b
-	ZlE0dx4rkYNhcztLXz5+G/x9mfCdx/BjU9xVDTgp6qacNPe3uEONvKerIPhutbo1UvuEGS
-	AoYMONqZpJtbsaFd0uo/gZtTNsBzZwo=
-From: Lance Yang <lance.yang@linux.dev>
-To: yang@os.amperecomputing.com,
-	dave.hansen@intel.com,
-	jannh@google.com
-Cc: xueyuan.chen21@gmail.com,
-	akpm@linux-foundation.org,
-	linux-mm@kvack.org,
-	linux-kernel@vger.kernel.org,
-	linux-arm-kernel@lists.infradead.org,
-	x86@kernel.org,
-	catalin.marinas@arm.com,
-	will@kernel.org,
-	tglx@kernel.org,
-	mingo@redhat.com,
-	bp@alien8.de,
-	dave.hansen@linux.intel.com,
-	hpa@zytor.com,
-	david@kernel.org,
-	ljs@kernel.org,
-	ziy@nvidia.com,
-	baolin.wang@linux.alibaba.com,
-	ryan.roberts@arm.com,
-	dev.jain@arm.com,
-	lance.yang@linux.dev
-Subject: Re: [RFC PATCH 1/3] mm: make persistent huge zero folio read-only
-Date: Fri, 29 May 2026 11:09:15 +0800
-Message-Id: <20260529030915.37767-1-lance.yang@linux.dev>
-In-Reply-To: <c0f9a811-0286-4e1c-8790-8e31d95e5819@os.amperecomputing.com>
-References: <c0f9a811-0286-4e1c-8790-8e31d95e5819@os.amperecomputing.com>
+	Fri, 29 May 2026 03:09:16 +0000
+ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
+ b=nogOPbcsdKfnOBEOTvFO1ohFpm/tIE7Cuu5t6wOZZ2neVdakGsX1FjbWr6bbZTci/p57YJvtVUvD3xgO7IcxHVbLqe0CBW89Bqcj+WyzWzNihQ78NBYi4XOoFEVrX4IkPFMcxJi5iIQh0HhSI+wYAv9yGOyXcb63iOS3zt6tI99N+AmBTnqKktupTF4ptAOjVf2t84NCUwgPNKYgQgBAtb044XSDVhRtLNm1a6TPJ2wiLl3cGM0dZzfESg0tuaXJYL2s1cYF/yG6Ty3K6FoNW4HV9yFl1hAoEzxGUTbPhPpKvzHpJPhmtgXn+e55UCBMGuBCK31BbsChY+uONiQVPA==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
+ s=arcselector10001;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
+ bh=njm9Lb6PnPkKXEPA2I6kX9wff67YWmaAIYAMRIfCmqs=;
+ b=TcndqHfGeulA+6HrSNfNNRhLfzNydt5iKpKVZJ59tfz9HB30T7ZEYcuEtLcgh1H600wbO8maWNwC84SVKRq2JlmcGFxYUWdRLPEDtZIY1JttBZmS1LF1q12PwhRy2h12v8ItRIpP1muMd3NJAbIWcQeixk5pQKAF5AOK9LEF4TMF/Wihuae9HUdWcgOIE0z1VmUQSgHBnMfckMSvKDgT6+xfVsDZ1qt6c9jhI6aSFAq27Rs5C7xkqoXXW1dFLqF5MKE7RMtPfol1kTtiqovqTL5+SjRVEFfrTcrnTGcwqlsR2Nm0Az3EoVng09JLz8oeCCefJweVLNIfuPWHycRKJg==
+ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass (sender ip is
+ 198.47.23.195) smtp.rcpttodomain=vger.kernel.org smtp.mailfrom=ti.com;
+ dmarc=pass (p=quarantine sp=none pct=100) action=none header.from=ti.com;
+ dkim=none (message not signed); arc=none (0)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=ti.com; s=selector1;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
+ bh=njm9Lb6PnPkKXEPA2I6kX9wff67YWmaAIYAMRIfCmqs=;
+ b=Um/rn5LIA+Wv9gIeneEOtEGM0oPdpZEyn14VzrRd8iG0ActvWqeT+R8zg32ddFC8QwMzztcfSjmiTI507coS0A+3/K58YPZQd2Z7zwjVjlRv+OGD+nVF1V6GOF3+oeEvrxK4t0HJO/4sgP4onbTeg+Ep9Vo9LvtG/GJwx7r3i+8=
+Received: from BN9PR03CA0206.namprd03.prod.outlook.com (2603:10b6:408:f9::31)
+ by DM4PR10MB7389.namprd10.prod.outlook.com (2603:10b6:8:10f::19) with
+ Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.21.71.14; Fri, 29 May
+ 2026 03:09:11 +0000
+Received: from BN3PEPF0000B075.namprd04.prod.outlook.com
+ (2603:10b6:408:f9:cafe::64) by BN9PR03CA0206.outlook.office365.com
+ (2603:10b6:408:f9::31) with Microsoft SMTP Server (version=TLS1_3,
+ cipher=TLS_AES_256_GCM_SHA384) id 15.21.71.13 via Frontend Transport; Fri, 29
+ May 2026 03:09:11 +0000
+X-MS-Exchange-Authentication-Results: spf=pass (sender IP is 198.47.23.195)
+ smtp.mailfrom=ti.com; dkim=none (message not signed) header.d=none;dmarc=pass
+ action=none header.from=ti.com;
+Received-SPF: Pass (protection.outlook.com: domain of ti.com designates
+ 198.47.23.195 as permitted sender) receiver=protection.outlook.com;
+ client-ip=198.47.23.195; helo=lewvzet201.ext.ti.com; pr=C
+Received: from lewvzet201.ext.ti.com (198.47.23.195) by
+ BN3PEPF0000B075.mail.protection.outlook.com (10.167.243.120) with Microsoft
+ SMTP Server (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
+ 15.21.92.5 via Frontend Transport; Fri, 29 May 2026 03:09:11 +0000
+Received: from DLEE200.ent.ti.com (157.170.170.75) by lewvzet201.ext.ti.com
+ (10.4.14.104) with Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.2.2562.37; Thu, 28 May
+ 2026 22:09:10 -0500
+Received: from DLEE206.ent.ti.com (157.170.170.90) by DLEE200.ent.ti.com
+ (157.170.170.75) with Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.2.2562.37; Thu, 28 May
+ 2026 22:09:10 -0500
+Received: from lelvem-mr06.itg.ti.com (10.180.75.8) by DLEE206.ent.ti.com
+ (157.170.170.90) with Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.2.2562.37 via Frontend
+ Transport; Thu, 28 May 2026 22:09:10 -0500
+Received: from [10.249.33.223] ([10.249.33.223])
+	by lelvem-mr06.itg.ti.com (8.18.1/8.18.1) with ESMTP id 64T39ARj2782222;
+	Thu, 28 May 2026 22:09:10 -0500
+Message-ID: <3d958ba0-30b1-461b-aea7-c0bf758a490c@ti.com>
+Date: Thu, 28 May 2026 22:09:09 -0500
 MIME-Version: 1.0
-Content-Type: text/plain; charset=UTF-8
-Content-Transfer-Encoding: 8bit
-X-Migadu-Flow: FLOW_OUT
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH v5 2/2] arm64: dts: ti: Add audio overlay for
+ k3-j721s2-evm
+To: Moteen Shah <m-shah@ti.com>, <krzk+dt@kernel.org>, <robh@kernel.org>,
+	<conor+dt@kernel.org>, <nm@ti.com>, <vigneshr@ti.com>, <kristo@kernel.org>
+CC: <devicetree@vger.kernel.org>, <linux-arm-kernel@lists.infradead.org>,
+	<linux-kernel@vger.kernel.org>, <u-kumar1@ti.com>, <gehariprasath@ti.com>,
+	<y-abhilashchandra@ti.com>
+References: <20260520115603.2662930-1-m-shah@ti.com>
+ <20260520115603.2662930-3-m-shah@ti.com>
+Content-Language: en-US
+From: "Wang, Sen" <sen@ti.com>
+In-Reply-To: <20260520115603.2662930-3-m-shah@ti.com>
+Content-Type: text/plain; charset="UTF-8"; format=flowed
+Content-Transfer-Encoding: 7bit
+X-C2ProcessedOrg: 333ef613-75bf-4e12-a4b1-8e3623f5dcea
+X-EOPAttributedMessage: 0
+X-MS-PublicTrafficType: Email
+X-MS-TrafficTypeDiagnostic: BN3PEPF0000B075:EE_|DM4PR10MB7389:EE_
+X-MS-Office365-Filtering-Correlation-Id: 36b1536e-15ec-4e8c-83dd-08debd2fa80b
+X-MS-Exchange-SenderADCheck: 1
+X-MS-Exchange-AntiSpam-Relay: 0
+X-Microsoft-Antispam: BCL:0;ARA:13230040|36860700016|376014|1800799024|82310400026|18002099003|22082099003|56012099006|4143699003;
+X-Microsoft-Antispam-Message-Info: Wo3y2IcQoKtebXYSkeCcYCNlRbffxQAmbEVG6WM9KZVCz0M2PDZ1tmPUMlSrCOzMkR9B0jWl8cCf53F02VwTBS4pQk97/ZBi2QbOmjIrA1zUuIcNDa2GscuYa5C5pdLsrrubYUsYGFqH0D8gaCKvx2moQ0+5bOLFVGpWRej0/qWpkLSpsyO0zUUuYEkiEtJ/YnUcC4Y/X+hdTCXfaUPl+pQSWSYPA+J6XVP9RVQBjDFnFjsBf1ij2QrdrqIJSt8i5U7eAV559aLL3GCHlhNYZKHOOnkr3l2tkm63yuDM+KwCO6upMk9oaY/cgEjjdKOvN3i75BDVpJP83o8mEDi6YclZRDg5kA88Gldrtf3o8rKBLO8AUq8KRKjx5hQqLbmVewyDmu6xKJz0k8TaV9xsIWKhcQtGZGqwM5EBeDWCDlnAJ/ehHrmo973nApAbmBJHH9W2ZTaMP73wo6WHmlcKmvTVltKHSEwrxH2pWzb9W9lum4MKTc6mz4GhEDKAvbDxZosvtcOZm/4qZHoZtCWTVRwgSIxAk2OFqKr5rRadKOHRmr1GXSooV6w4qv2zcoCsk5GRM/U7Jk8RsKTWakLUI+D5Kiy/RPLdYQSBZ8ILbcfLuiQDEbo1LNeX6FQHTBZA72Xfs3+vbpya3BXti//lGl5b67NFte07g05xxWXhV7DxRbKgkfrED36nfBRnoewQmY36jujE6J4R6tv0ZGmrZiNbhpeu67UX6hPLQeZd+oM=
+X-Forefront-Antispam-Report: CIP:198.47.23.195;CTRY:US;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:lewvzet201.ext.ti.com;PTR:InfoDomainNonexistent;CAT:NONE;SFS:(13230040)(36860700016)(376014)(1800799024)(82310400026)(18002099003)(22082099003)(56012099006)(4143699003);DIR:OUT;SFP:1101;
+X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
+X-MS-Exchange-AntiSpam-MessageData-0: MruZqCDfldlZ4hAF7yCUUl4u0bnhh94OrKLOkH7k4OiKfwsFc3Z61H+j2368n4u4CvTrVh7LZdgY7DK6XCXGd0ZVaNTM3YT+RQnKv2LK+A7VD7eimmfbddqJaKiPmCHzVywDt8lJZNnIh4VlUQlaKvx8ebhidyUXDyO4GY0890TFdd/VipUh3zGfKsn63DWHhC+tG4ch7VGFGGB7utE7nBdVJ8/9cDMMPjwwhffulLeCTZcAdV3n4o0CLlw4CVcAMzvOx9ueVvQ/ojcc7e8bR9eLOUrcIaMVRJPUWtw7EhzlJAubon4DTjWsP0igAbN1PsQ0oDxPXk6x915+QqlaQQxsutcnzRdeVHJpxJ94s6AAv/NdZW3RxvnNp5gNLIjQhivI9ilc1shcgV7qV/qp8jc4M0k/8USlerZcIvmUkk/+HALdmlCHiM5ZqvIOx1V6
+X-OriginatorOrg: ti.com
+X-MS-Exchange-CrossTenant-OriginalArrivalTime: 29 May 2026 03:09:11.2380
+ (UTC)
+X-MS-Exchange-CrossTenant-Network-Message-Id: 36b1536e-15ec-4e8c-83dd-08debd2fa80b
+X-MS-Exchange-CrossTenant-Id: e5b49634-450b-4709-8abb-1e2b19b982b7
+X-MS-Exchange-CrossTenant-OriginalAttributedTenantConnectingIp: TenantId=e5b49634-450b-4709-8abb-1e2b19b982b7;Ip=[198.47.23.195];Helo=[lewvzet201.ext.ti.com]
+X-MS-Exchange-CrossTenant-AuthSource: BN3PEPF0000B075.namprd04.prod.outlook.com
+X-MS-Exchange-CrossTenant-AuthAs: Anonymous
+X-MS-Exchange-CrossTenant-FromEntityHeader: HybridOnPrem
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: DM4PR10MB7389
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260528_200942_850720_09A4F9E0 
-X-CRM114-Status: GOOD (  11.22  )
+X-CRM114-CacheID: sfid-20260528_200915_147166_C8E321BB 
+X-CRM114-Status: UNSURE (   8.72  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -88,52 +135,32 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
+On 5/20/2026 6:56 AM, Moteen Shah wrote:
+> From: Jayesh Choudhary <j-choudhary@ti.com>
+> 
+> Add device tree overlay to enable analog audio support on J721S2-EVM
+> using PCM3168A codec connected to McASP4 serializers.
+(snip)> +&scm_conf {
+> +	#address-cells = <1>;
+> +	#size-cells = <1>;
+> +
+> +	audio_refclk1: clock-controller@42e4 {
+> +		compatible = "ti,j721s2-audio-refclk", "ti,am62-audio-refclk";
+> +		reg = <0x42e4 0x4>;
+> +		clocks = <&k3_clks 157 299>;
+> +		assigned-clocks = <&k3_clks 157 299>;
+> +		assigned-clock-parents = <&k3_clks 157 328>;
+> +		#clock-cells = <0>;
+> +	};
+> +};
 
-On Thu, May 28, 2026 at 11:43:40AM -0700, Yang Shi wrote:
->
->
->On 5/27/26 9:20 AM, Jann Horn wrote:
->> On Wed, May 27, 2026 at 5:55 PM Dave Hansen <dave.hansen@intel.com> wrote:
->>> On 5/26/26 20:56, Xueyuan chen wrote:
->>>> +config READONLY_HUGE_ZERO_FOLIO
->>>> +     bool "Map the huge zero folio read-only in the direct map"
->>>> +     depends on PERSISTENT_HUGE_ZERO_FOLIO
->>>> +     depends on ARCH_HAS_READONLY_HUGE_ZERO_FOLIO
->>>> +     help
->>>> +       The persistent huge zero folio is shared globally, and nothing
->>>> +       should ever change its contents after initialization.
->>>> +
->>>> +       When supported, mark the folio read-only in the direct map so such
->>>> +       writes trigger a fault instead of silently corrupting the zero contents.
->>>> +
->>>> +       If the permission change is not supported, the kernel keeps using
->>>> +       the writable persistent huge zero folio.
->>> I vote for no Kconfig options here. Why? This adds "security" with
->>> _basically_ no extra runtime cost. The runtime cost is, what, usually
->>> one kernel TLB invalidation during boot?
->> Plus potentially a bit more TLB pressure from losing a huge PUD in the
->> linear map, IDK how much we care about that.
->
->This shouldn't be a big issue on ARM64. The most ARM64 machines have 
->linear mapping mapped with PTE if rodata is on. Some machines with 
->BBML2_NOABORT support have linear mapping mapped with PUD/PMD, but those 
->machines typically have large memory, having 512 PMDs instead of 1 PUD 
->shouldn't be a noticeable issue IMHO.
+Hi Moteen,
 
-Cool! Thanks Dave, Jann, Yang!
+Should the bulk of this scm_conf block go to the SoC-dtsi instead? It 
+looks like it could be a part of J721 SoC dtsi, which currently doesn't 
+seem to have any audio refclks defined.
 
-Yeah, that sounds reasonable. No need for another Kconfig option here;
-one less knob for people to care about :D
+Best,
+Sen Wang
 
-For arm64, I think Yang has it:
-
-1) Without BBML2_NOABORT, rodata=on already forces the linear map down
-to PTEs, so nothing really changes there for most machines.
-
-2) With BBML2_NOABORT, this may cost us 512 PMDs instead of one PUD for
-that. I don't expect that to be noticeable either ;)
-
-So let's drop the option in the next version.
-
-Cheers, Lance
 
