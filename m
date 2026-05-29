@@ -4,95 +4,85 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id BB282CD6E43
-	for <linux-arm-kernel@archiver.kernel.org>; Fri, 29 May 2026 01:10:58 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 7944ECD5BD1
+	for <linux-arm-kernel@archiver.kernel.org>; Fri, 29 May 2026 01:18:36 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:Message-Id:
-	Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:From:
-	Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender
-	:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
-	bh=+9rCaR21M/nc3/i6qSSe04SnKU+FWJmA2yPT3FUP/WY=; b=PRHs5478MOj0uj7nMaTbDeC4P+
-	wffxxmAlo0fHamTj/xFqdTtuY42R5nmw47nqsO01skBdqdHeyLy99zfx02UpMIifnvZy5Cymp9dMj
-	oijYHnNDTfpLQgnt8HSrkg6HpHW+s+j6XssQHutvo/TSwqQiULIHJngDqYNAk4OfruW0Y7MQEZWOV
-	o3MHoiPgR2Vsab94bUxQSmBy3FH4f0y/tfxgcat0d/uv1WP0+H0qV2FqZNiIbkKbZVBoYCcrxovKu
-	CsaFfR+aUoRBPBdAWVH4f9PYRFvJEUKPSHJU+wycrMQfYlJRqtp/ol/9boPtYsIZkve+wu2RUcbjk
-	3VGXKm7w==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
+	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=IFhWtiTca4KN7jNJbQ39dVsqplJfAuEyUAlnwh0AXXA=; b=HiLSJey5h/tLqzCvNgZR9Wl2Ib
+	RH4uG5CMtn2jgKIC6C7eWgnef2nXRmTrQeBhEHItzzWMUHyyxMK2Orm4Tr8yFgknCAPu+KAsacC+q
+	/oP2P3eKE9bp1REhm1DG77GEGYmRSF73lqOb6J0lzG261unYvQRtbWzKa6U4TBGgxbtYi6EaqFsEo
+	XbA1K8DPGLpsi0OO/83iPIT4JdcLywGKwdL5f4VJsyp7ig6Xcyfr5kAP4Azdy7sHPY/EgfDtxagUY
+	+jPB3kf15nWJAvFdlvWn8JG7qlb4VQx00IKVYx9ZnxdbcFV8p7T06l3JIfAS9JIwCYo6FkALJoVNJ
+	66XRYaBA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wSlkQ-00000006b79-3Oc5;
-	Fri, 29 May 2026 01:10:50 +0000
-Received: from mail-ua1-x936.google.com ([2607:f8b0:4864:20::936])
+	id 1wSlrk-00000006bLi-2rT0;
+	Fri, 29 May 2026 01:18:24 +0000
+Received: from mail-m17233.xmail.ntesmail.com ([45.195.17.233])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wSlkO-00000006b6o-1W2b
-	for linux-arm-kernel@lists.infradead.org;
-	Fri, 29 May 2026 01:10:49 +0000
-Received: by mail-ua1-x936.google.com with SMTP id a1e0cc1a2514c-9639130b20fso1021954241.3
-        for <linux-arm-kernel@lists.infradead.org>; Thu, 28 May 2026 18:10:47 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20251104; t=1780017047; x=1780621847; darn=lists.infradead.org;
-        h=cc:to:message-id:content-transfer-encoding:mime-version:subject
-         :date:from:from:to:cc:subject:date:message-id:reply-to;
-        bh=+9rCaR21M/nc3/i6qSSe04SnKU+FWJmA2yPT3FUP/WY=;
-        b=WrREz0Al/y33JBJD+obTOLnjyrotUbHr8ttA3igbkDeawVnWl4xd7bCrbdoMweZVLM
-         pCM3gfOR/HzR+pxRF5AwqZBj8ZMlHqr4igV4+uzWyYOz5/WK6Oke/KO6nKt2lgwAtrnQ
-         obUcSQH4NpdC2+NuZCmQaCQiU1hk7o4f+pg0uelcsyoiKPkSc1xtz+G8n2MdwF90POmX
-         H8AgZjp5jf5PkN7aydkb/3WKSQmua9nvLihhkDIVmY2Iq8VppLENYJcyCidMHe9gZnyQ
-         jNn5Q2RSAQezKCpbBv95E50AcrSGfFFXetSbgs3TXu3jV2SUim0lGLJI2TQRxi3/LgDg
-         NpQg==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20251104; t=1780017047; x=1780621847;
-        h=cc:to:message-id:content-transfer-encoding:mime-version:subject
-         :date:from:x-gm-gg:x-gm-message-state:from:to:cc:subject:date
-         :message-id:reply-to;
-        bh=+9rCaR21M/nc3/i6qSSe04SnKU+FWJmA2yPT3FUP/WY=;
-        b=RWI6z065lbA2SFBZC8pqkLnaH2KEGkASr/nx8uDuQvLXCkhRKgued0iuLuvPmmgXUN
-         VqgVqkoVehXUhuX6G2Y+xk8ejekbDJ6DUN6u/nCctIum81GXaKx3d4T2CrT8xcaf1FXt
-         XsKQxlkEN/Wvm/JPJfqFdVZSiHX05MtDetT35pX9dWSYHDUmsvGSC0QA84u8Q0i+nSIN
-         uKSC/Dbn7OylPhNV62vruyh40oiLpVFac8l/dKuRjWU3XRbWWzhqZ29QbmnwglVytWWO
-         yezdm0FeR1u0q85aA8jJG2K9Tcpmwokg+xgmjsanfyzkxMvMqgR8ldlksS4FXw1VKfcA
-         FTIg==
-X-Forwarded-Encrypted: i=1; AFNElJ/aKDHgwJGmVzW4s/RYcjtCm8Eg8Hv8Q8GDu9y4FaSmu+2UyWZyT+MGvGgEEnLgsP6s8ZmYrAoJ/EHd22jIjzML@lists.infradead.org
-X-Gm-Message-State: AOJu0Yz01k/zHhUjAaM+h1bOgt3rK2ANJR28QqdlPZ6zufYsFKaT+0d0
-	8DtJqzWelDG7Pk5wjo+xb+D90pwJMeAMmzbwefJDpFObbAeNjbX80znO
-X-Gm-Gg: Acq92OEO+fY5b/mEmnzZEC2oGDgVdg8+D0n49nIaizUaGN3yQbiN3TJjMxu5kJ9gTzI
-	PvkLWclfTWSCeSXOavDfDAghLK+tg5wwP/rvYb3X1e+CrAUFxEEHbq7e16mmxMCV1N6t34o55MP
-	27Ji1mLeCxcy6AmxvdryAybxSwSO8sODg8o9MPV3CmYNx+yr6EP82E/MFJB8RwRu4IRBOA4O4un
-	6jNR4e8WGHmbZ96nJLV5tBvEZhXQIyQ8WWuC2ZLelhFzwtmetyGtjdfJ8ZWZ984k/eL3xzOvm4k
-	tze11NyuhZ5KvTXanhulvLc0aSDvBTq77FNMkUSJsG9vbDQ/XjkBA6uusiSU4ZZo7Py91CxuHtK
-	3lzwDpdjy79mXYEPUdgZK5QOALvdQu1QpxcrfloGitm9IIniryzLGxZthoX9jVTmepNxv9uD3z2
-	D0YGHxbhmPsIXmPzrBQdb8wlY=
-X-Received: by 2002:a05:6122:3401:b0:56c:3a57:aee2 with SMTP id 71dfb90a1353d-599f67cea76mr184555e0c.6.1780017046650;
-        Thu, 28 May 2026 18:10:46 -0700 (PDT)
-Received: from [127.0.0.1] ([2a02:6ea0:5505:7199::29])
-        by smtp.gmail.com with ESMTPSA id 71dfb90a1353d-599d3c9662esm311912e0c.3.2026.05.28.18.10.41
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Thu, 28 May 2026 18:10:46 -0700 (PDT)
-From: Denzeel Oliva <wachiturroxd150@gmail.com>
-Date: Thu, 28 May 2026 20:10:39 -0500
-Subject: [PATCH] clk: samsung: exynos990: Fix PERIS gate clock parents and
- add TMU_SUB
+	id 1wSlrg-00000006bL9-2Xe7;
+	Fri, 29 May 2026 01:18:23 +0000
+Received: from [172.16.12.90] (unknown [61.154.14.86])
+	by smtp.qiye.163.com (Hmail) with ESMTP id 403fe69fb;
+	Fri, 29 May 2026 09:18:05 +0800 (GMT+08:00)
+Message-ID: <162da16e-6fec-4d47-ba67-46ec2ffa8e2f@rock-chips.com>
+Date: Fri, 29 May 2026 09:18:03 +0800
 MIME-Version: 1.0
-Content-Type: text/plain; charset="utf-8"
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH v15 1/9] drm/bridge: Implement generic USB Type-C DP HPD
+ bridge
+To: Nicolas Frattaroli <nicolas.frattaroli@collabora.com>
+Cc: Heikki Krogerus <heikki.krogerus@linux.intel.com>,
+ Greg Kroah-Hartman <gregkh@linuxfoundation.org>,
+ Dmitry Baryshkov <dmitry.baryshkov@oss.qualcomm.com>,
+ Peter Chen <hzpeterchen@gmail.com>, Luca Ceresoli
+ <luca.ceresoli@bootlin.com>, Rob Herring <robh@kernel.org>,
+ Krzysztof Kozlowski <krzk+dt@kernel.org>, Conor Dooley
+ <conor+dt@kernel.org>, Vinod Koul <vkoul@kernel.org>,
+ Kishon Vijay Abraham I <kishon@kernel.org>, Heiko Stuebner
+ <heiko@sntech.de>, Sandy Huang <hjc@rock-chips.com>,
+ Andy Yan <andy.yan@rock-chips.com>,
+ Yubing Zhang <yubing.zhang@rock-chips.com>,
+ Frank Wang <frank.wang@rock-chips.com>,
+ Andrzej Hajda <andrzej.hajda@intel.com>,
+ Neil Armstrong <neil.armstrong@linaro.org>, Robert Foss <rfoss@kernel.org>,
+ Laurent Pinchart <Laurent.pinchart@ideasonboard.com>,
+ Jonas Karlman <jonas@kwiboo.se>, Jernej Skrabec <jernej.skrabec@gmail.com>,
+ Maarten Lankhorst <maarten.lankhorst@linux.intel.com>,
+ Maxime Ripard <mripard@kernel.org>, Thomas Zimmermann <tzimmermann@suse.de>,
+ David Airlie <airlied@gmail.com>, Simona Vetter <simona@ffwll.ch>,
+ Amit Sunil Dhamne <amitsd@google.com>, Dragan Simic <dsimic@manjaro.org>,
+ Johan Jonker <jbx6244@gmail.com>, Diederik de Haas <didi.debian@cknow.org>,
+ Peter Robinson <pbrobinson@gmail.com>, Hugh Cole-Baker <sigmaris@gmail.com>,
+ dri-devel@lists.freedesktop.org, linux-usb@vger.kernel.org,
+ devicetree@vger.kernel.org, linux-kernel@vger.kernel.org,
+ linux-phy@lists.infradead.org, linux-arm-kernel@lists.infradead.org,
+ linux-rockchip@lists.infradead.org, Chaoyi Chen <chaoyi.chen@rock-chips.com>
+References: <20260304094152.92-1-kernel@airkyi.com>
+ <20260304094152.92-2-kernel@airkyi.com>
+ <q6ufdWF5QJ60i9KlIiE_AA@collabora.com>
+Content-Language: en-US
+From: Chaoyi Chen <chaoyi.chen@rock-chips.com>
+In-Reply-To: <q6ufdWF5QJ60i9KlIiE_AA@collabora.com>
+Content-Type: text/plain; charset=UTF-8
 Content-Transfer-Encoding: 7bit
-Message-Id: <20260528-exynos990-peris-fix-v1-1-5b65aa7def2d@gmail.com>
-X-B4-Tracking: v=1; b=H4sIAI7nGGoC/yWMwQrCQAwFf6XkbGAN3dL1V8SDXV81HrZlo1Ip/
- XejHmdgZiVDVRgdmpUqXmo6FYf9rqF8O5crWC/OJEG6EKVnLO8yWUqBZy+NR11YokSkrm9HZPJ
- yrnD9ux5Pf7bncEd+fFe0bR8Py/AydwAAAA==
-X-Change-ID: 20260528-exynos990-peris-fix-2525e9684fec
-To: Krzysztof Kozlowski <krzk@kernel.org>, 
- Sylwester Nawrocki <s.nawrocki@samsung.com>, 
- Chanwoo Choi <cw00.choi@samsung.com>, Alim Akhtar <alim.akhtar@samsung.com>, 
- Michael Turquette <mturquette@baylibre.com>, 
- Stephen Boyd <sboyd@kernel.org>, Brian Masney <bmasney@redhat.com>, 
- Rob Herring <robh@kernel.org>, Conor Dooley <conor+dt@kernel.org>
-Cc: linux-samsung-soc@vger.kernel.org, linux-clk@vger.kernel.org, 
- linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org, 
- devicetree@vger.kernel.org, Denzeel Oliva <wachiturroxd150@gmail.com>
-X-Mailer: b4 0.15.1
+X-HM-Tid: 0a9e714f575603a7kunm02f79646c276f
+X-HM-MType: 1
+X-HM-Spam-Status: e1kfGhgUHx5ZQUpXWQgPGg8OCBgUHx5ZQUlOS1dZFg8aDwILHllBWSg2Ly
+	tZV1koWUFITzdXWRgWCB1ZQUpXWS1ZQUlXWQ8JGhUIEh9ZQVlDTkkYVkJCS01DQ0pLQx1KTVYVFA
+	kWGhdVEwETFhoSFyQUDg9ZV1kYEgtZQVlNSlVKTk9VSk9VQ01ZV1kWGg8SFR0UWUFZT0tIVUpLSE
+	pKQk1VSktLVUpCWQY+
+DKIM-Signature: a=rsa-sha256;
+	b=XH3HAMkJS0xVohcQuMdKTriE7Bx8yFw6eb42zoSKsvGfn7hX654CyUvDAI5X7TDt3QLQKsY0JYgFk82I6qcr7FwY1sB0NglC9697BPY9uHlC0kePlaHxXstQmxJq3qRRm5aETC3C2H7j2/19/UHeGZCfVTUs9fJAGvk+bTsSZpI=; c=relaxed/relaxed; s=default; d=rock-chips.com; v=1;
+	bh=IFhWtiTca4KN7jNJbQ39dVsqplJfAuEyUAlnwh0AXXA=;
+	h=date:mime-version:subject:message-id:from;
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260528_181048_445337_862A93B9 
-X-CRM114-Status: GOOD (  12.57  )
+X-CRM114-CacheID: sfid-20260528_181821_256596_560804F8 
+X-CRM114-Status: GOOD (  32.63  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -107,112 +97,207 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Correct eight PERIS gate clock parents to match the hardware clock
-tree, reorder the GIC mux parents, and add the missing TMU_SUB_PCLK
-gate.
+Hello Nicolas,
 
-Signed-off-by: Denzeel Oliva <wachiturroxd150@gmail.com>
----
- drivers/clk/samsung/clk-exynos990.c           | 24 ++++++++++++++----------
- include/dt-bindings/clock/samsung,exynos990.h |  1 +
- 2 files changed, 15 insertions(+), 10 deletions(-)
+On 5/28/2026 11:37 PM, Nicolas Frattaroli wrote:
+> On Wednesday, 4 March 2026 10:41:44 Central European Summer Time Chaoyi Chen wrote:
+>> From: Chaoyi Chen <chaoyi.chen@rock-chips.com>
+>>
+>> The HPD function of Type-C DP is implemented through
+>> drm_connector_oob_hotplug_event(). For embedded DP, it is required
+>> that the DRM connector fwnode corresponds to the Type-C port fwnode.
+>>
+>> To describe the relationship between the DP controller and the Type-C
+>> port device, we usually using drm_bridge to build a bridge chain.
+>>
+>> Now several USB-C controller drivers have already implemented the DP
+>> HPD bridge function provided by aux-hpd-bridge.c, it will build a DP
+>> HPD bridge on USB-C connector port device.
+>>
+>> But this requires the USB-C controller driver to manually register the
+>> HPD bridge. If the driver does not implement this feature, the bridge
+>> will not be create.
+>>
+>> So this patch implements a generic DP HPD bridge based on
+>> aux-hpd-bridge.c. It will monitor Type-C bus events, and when a
+>> Type-C port device containing the DP svid is registered, it will
+>> create an HPD bridge for it without the need for the USB-C controller
+>> driver to implement it.
+>>
+>> Signed-off-by: Chaoyi Chen <chaoyi.chen@rock-chips.com>
+>> Reviewed-by: Heikki Krogerus <heikki.krogerus@linux.intel.com>
+>> ---
+>>
+>> (no changes since v14)
+>>
+>> Changes in v13:
+>> - Only register drm dp hpd bridge for typec port altmode device.
+>>
+>> (no changes since v12)
+>>
+>> Changes in v11:
+>> - Switch to using typec bus notifiers.
+>>
+>> (no changes since v10)
+>>
+>> Changes in v9:
+>> - Remove the exposed DRM_AUX_HPD_BRIDGE option, and select
+>> DRM_AUX_HPD_TYPEC_BRIDGE when it is available.
+>> - Add more commit comment about problem background.
+>>
+>> Changes in v8:
+>> - Merge generic DP HPD bridge into one module.
+>> ---
+>>
+>>  drivers/gpu/drm/bridge/Kconfig                | 10 ++++
+>>  drivers/gpu/drm/bridge/Makefile               |  1 +
+>>  .../gpu/drm/bridge/aux-hpd-typec-dp-bridge.c  | 49 +++++++++++++++++++
+>>  3 files changed, 60 insertions(+)
+>>  create mode 100644 drivers/gpu/drm/bridge/aux-hpd-typec-dp-bridge.c
+>>
+>> diff --git a/drivers/gpu/drm/bridge/Kconfig b/drivers/gpu/drm/bridge/Kconfig
+>> index a250afd8d662..559487aa09a9 100644
+>> --- a/drivers/gpu/drm/bridge/Kconfig
+>> +++ b/drivers/gpu/drm/bridge/Kconfig
+>> @@ -30,6 +30,16 @@ config DRM_AUX_HPD_BRIDGE
+>>  	  Simple bridge that terminates the bridge chain and provides HPD
+>>  	  support.
+>>  
+>> +if DRM_AUX_HPD_BRIDGE
+>> +config DRM_AUX_HPD_TYPEC_BRIDGE
+>> +	tristate
+>> +	depends on TYPEC || !TYPEC
+>> +	default TYPEC
+>> +	help
+>> +	  Simple bridge that terminates the bridge chain and provides HPD
+>> +	  support. It build bridge on each USB-C connector device node.
+>> +endif
+>> +
+>>  menu "Display Interface Bridges"
+>>  	depends on DRM && DRM_BRIDGE
+>>  
+>> diff --git a/drivers/gpu/drm/bridge/Makefile b/drivers/gpu/drm/bridge/Makefile
+>> index c7dc03182e59..a3a0393d2e72 100644
+>> --- a/drivers/gpu/drm/bridge/Makefile
+>> +++ b/drivers/gpu/drm/bridge/Makefile
+>> @@ -1,6 +1,7 @@
+>>  # SPDX-License-Identifier: GPL-2.0
+>>  obj-$(CONFIG_DRM_AUX_BRIDGE) += aux-bridge.o
+>>  obj-$(CONFIG_DRM_AUX_HPD_BRIDGE) += aux-hpd-bridge.o
+>> +obj-$(CONFIG_DRM_AUX_HPD_TYPEC_BRIDGE) += aux-hpd-typec-dp-bridge.o
+>>  obj-$(CONFIG_DRM_CHIPONE_ICN6211) += chipone-icn6211.o
+>>  obj-$(CONFIG_DRM_CHRONTEL_CH7033) += chrontel-ch7033.o
+>>  obj-$(CONFIG_DRM_CROS_EC_ANX7688) += cros-ec-anx7688.o
+>> diff --git a/drivers/gpu/drm/bridge/aux-hpd-typec-dp-bridge.c b/drivers/gpu/drm/bridge/aux-hpd-typec-dp-bridge.c
+>> new file mode 100644
+>> index 000000000000..d915e0fb0668
+>> --- /dev/null
+>> +++ b/drivers/gpu/drm/bridge/aux-hpd-typec-dp-bridge.c
+>> @@ -0,0 +1,49 @@
+>> +// SPDX-License-Identifier: GPL-2.0+
+> 
+> Having a copyright statement added here is likely required.
+> Something like
+> 
+> /*
+>  * Copyright (C) 2026 Rockchip Electronics Co., Ltd.
+>  *
+>  * Author: Chaoyi Chen <chaoyi.chen@rock-chips.com>
+>  */
+> 
+> will suffice. While I hope it's never relevant for a driver this
+> small, explicit copyright statements in this form have a legal
+> effect in some jurisdictions like the US, where by law it
+> automatically dismisses the defense that the copyright holder
+> wasn't known.
+> 
 
-diff --git a/drivers/clk/samsung/clk-exynos990.c b/drivers/clk/samsung/clk-exynos990.c
-index 6277dd557..f1f5297f5 100644
---- a/drivers/clk/samsung/clk-exynos990.c
-+++ b/drivers/clk/samsung/clk-exynos990.c
-@@ -21,7 +21,7 @@
- #define CLKS_NR_HSI0 (CLK_GOUT_HSI0_LHS_ACEL_D_HSI0_CLK + 1)
- #define CLKS_NR_PERIC0 (CLK_GOUT_PERIC0_SYSREG_PCLK + 1)
- #define CLKS_NR_PERIC1 (CLK_GOUT_PERIC1_XIU_P_ACLK + 1)
--#define CLKS_NR_PERIS (CLK_GOUT_PERIS_OTP_CON_TOP_OSCCLK + 1)
-+#define CLKS_NR_PERIS (CLK_GOUT_PERIS_TMU_SUB_PCLK + 1)
- 
- /* ---- CMU_TOP ------------------------------------------------------------- */
- 
-@@ -2572,7 +2572,7 @@ static const unsigned long peris_clk_regs[] __initconst = {
- 
- /* Parent clock list for CMU_PERIS muxes */
- PNAME(mout_peris_bus_user_p)		= { "oscclk", "mout_cmu_peris_bus" };
--PNAME(mout_peris_clk_peris_gic_p)	= { "oscclk", "mout_peris_bus_user" };
-+PNAME(mout_peris_clk_peris_gic_p)	= { "mout_peris_bus_user", "oscclk" };
- 
- static const struct samsung_mux_clock peris_mux_clks[] __initconst = {
- 	MUX(CLK_MOUT_PERIS_BUS_USER, "mout_peris_bus_user",
-@@ -2605,15 +2605,15 @@ static const struct samsung_gate_clock peris_gate_clks[] __initconst = {
- 	     CLK_CON_GAT_GOUT_BLK_PERIS_UID_RSTNSYNC_CLK_PERIS_BUSP_IPCLKPORT_CLK,
- 	     21, 0, 0),
- 	GATE(CLK_GOUT_PERIS_CLK_PERIS_OSCCLK_CLK,
--	     "gout_peris_clk_peris_oscclk_clk", "mout_peris_bus_user",
-+	     "gout_peris_clk_peris_oscclk_clk", "oscclk",
- 	     CLK_CON_GAT_CLK_BLK_PERIS_UID_RSTNSYNC_CLK_PERIS_OSCCLK_IPCLKPORT_CLK,
- 	     21, 0, 0),
- 	GATE(CLK_GOUT_PERIS_CLK_PERIS_GIC_CLK,
--	     "gout_peris_clk_peris_gic_clk", "mout_peris_bus_user",
-+	     "gout_peris_clk_peris_gic_clk", "mout_peris_clk_peris_gic",
- 	     CLK_CON_GAT_GOUT_BLK_PERIS_UID_RSTNSYNC_CLK_PERIS_GIC_IPCLKPORT_CLK,
- 	     21, 0, 0),
- 	GATE(CLK_GOUT_PERIS_AD_AXI_P_PERIS_ACLKM,
--	     "gout_peris_ad_axi_p_peris_aclkm", "mout_peris_bus_user",
-+	     "gout_peris_ad_axi_p_peris_aclkm", "mout_peris_clk_peris_gic",
- 	     CLK_CON_GAT_GOUT_BLK_PERIS_UID_AD_AXI_P_PERIS_IPCLKPORT_ACLKM,
- 	     21, CLK_IGNORE_UNUSED, 0),
- 	GATE(CLK_GOUT_PERIS_OTP_CON_BIRA_PCLK,
-@@ -2621,27 +2621,31 @@ static const struct samsung_gate_clock peris_gate_clks[] __initconst = {
- 	     CLK_CON_GAT_GOUT_BLK_PERIS_UID_OTP_CON_BIRA_IPCLKPORT_PCLK,
- 	     21, 0, 0),
- 	GATE(CLK_GOUT_PERIS_GIC_CLK,
--	     "gout_peris_gic_clk", "mout_peris_bus_user",
-+	     "gout_peris_gic_clk", "mout_peris_clk_peris_gic",
- 	     CLK_CON_GAT_GOUT_BLK_PERIS_UID_GIC_IPCLKPORT_CLK,
- 	     21, CLK_IS_CRITICAL, 0),
- 	GATE(CLK_GOUT_PERIS_LHM_AXI_P_PERIS_CLK,
--	     "gout_peris_lhm_axi_p_peris_clk", "oscclk",
-+	     "gout_peris_lhm_axi_p_peris_clk", "mout_peris_bus_user",
- 	     CLK_CON_GAT_GOUT_BLK_PERIS_UID_LHM_AXI_P_PERIS_IPCLKPORT_I_CLK,
- 	     21, CLK_IGNORE_UNUSED, 0),
- 	GATE(CLK_GOUT_PERIS_MCT_PCLK,
--	     "gout_peris_mct_pclk", "mout_peris_clk_peris_gic",
-+	     "gout_peris_mct_pclk", "mout_peris_bus_user",
- 	     CLK_CON_GAT_GOUT_BLK_PERIS_UID_MCT_IPCLKPORT_PCLK,
- 	     21, 0, 0),
- 	GATE(CLK_GOUT_PERIS_OTP_CON_TOP_PCLK,
--	     "gout_peris_otp_con_top_pclk", "mout_peris_clk_peris_gic",
-+	     "gout_peris_otp_con_top_pclk", "mout_peris_bus_user",
- 	     CLK_CON_GAT_GOUT_BLK_PERIS_UID_OTP_CON_TOP_IPCLKPORT_PCLK,
- 	     21, 0, 0),
- 	GATE(CLK_GOUT_PERIS_D_TZPC_PERIS_PCLK,
- 	     "gout_peris_d_tzpc_peris_pclk", "mout_peris_bus_user",
- 	     CLK_CON_GAT_GOUT_BLK_PERIS_UID_D_TZPC_PERIS_IPCLKPORT_PCLK,
- 	     21, 0, 0),
-+	GATE(CLK_GOUT_PERIS_TMU_SUB_PCLK,
-+	     "gout_peris_tmu_sub_pclk", "mout_peris_bus_user",
-+	     CLK_CON_GAT_GOUT_BLK_PERIS_UID_TMU_SUB_IPCLKPORT_PCLK,
-+	     21, 0, 0),
- 	GATE(CLK_GOUT_PERIS_TMU_TOP_PCLK,
--	     "gout_peris_tmu_top_pclk", "mout_peris_clk_peris_gic",
-+	     "gout_peris_tmu_top_pclk", "mout_peris_bus_user",
- 	     CLK_CON_GAT_GOUT_BLK_PERIS_UID_TMU_TOP_IPCLKPORT_PCLK,
- 	     21, 0, 0),
- 	GATE(CLK_GOUT_PERIS_OTP_CON_BIRA_OSCCLK,
-diff --git a/include/dt-bindings/clock/samsung,exynos990.h b/include/dt-bindings/clock/samsung,exynos990.h
-index 47540307c..c06f591d9 100644
---- a/include/dt-bindings/clock/samsung,exynos990.h
-+++ b/include/dt-bindings/clock/samsung,exynos990.h
-@@ -434,5 +434,6 @@
- #define CLK_GOUT_PERIS_TMU_TOP_PCLK		17
- #define CLK_GOUT_PERIS_OTP_CON_BIRA_OSCCLK	18
- #define CLK_GOUT_PERIS_OTP_CON_TOP_OSCCLK	19
-+#define CLK_GOUT_PERIS_TMU_SUB_PCLK		20
- 
- #endif
+Oh! I hadn't noticed that. Thank you for your legal advice.
 
----
-base-commit: e7d700e14934e68f86338c5610cf2ae76798b663
-change-id: 20260528-exynos990-peris-fix-2525e9684fec
+>> +#include <linux/of.h>
+>> +#include <linux/usb/typec_altmode.h>
+>> +#include <linux/usb/typec_dp.h>
+>> +
+>> +#include <drm/bridge/aux-bridge.h>
+>> +
+>> +static int drm_typec_bus_event(struct notifier_block *nb,
+>> +			       unsigned long action, void *data)
+>> +{
+>> +	struct device *dev = (struct device *)data;
+> 
+> Small nitpick: The explicit (struct device *) cast of data isn't
+> needed here. Just
+> 
+>     struct device *dev = data;
+> 
+> will work fine. The benefit is that if the type of "data" ever changes
+> (e.g. from void *data to const void *data) then we're not silencing
+> a warning/error through an explicit cast.
+>
 
-Best regards,
---  
-Denzeel Oliva <wachiturroxd150@gmail.com>
+Yep. Will fix in v2.
 
+>> +	struct typec_altmode *alt = to_typec_altmode(dev);
+>> +
+>> +	if (action != BUS_NOTIFY_ADD_DEVICE)
+>> +		goto done;
+>> +
+>> +	/*
+>> +	 * alt->dev.parent->parent : USB-C controller device
+>> +	 * alt->dev.parent         : USB-C connector device
+>> +	 */
+>> +	if (is_typec_port_altmode(&alt->dev) && alt->svid == USB_TYPEC_DP_SID)
+>> +		drm_dp_hpd_bridge_register(alt->dev.parent->parent,
+>> +					   to_of_node(alt->dev.parent->fwnode));
+>> +
+>> +done:
+>> +	return NOTIFY_OK;
+>> +}
+> 
+> Nitpicking: the "done" label and "goto done" here is redundant.
+> You could remove the label and replace the goto with another
+> "return NOTIFY_OK;". There's no functional change here though.
+> 
+
+Will fix in v2.
+
+>> +
+>> +static struct notifier_block drm_typec_event_nb = {
+>> +	.notifier_call = drm_typec_bus_event,
+>> +};
+>> +
+>> +static void drm_aux_hpd_typec_dp_bridge_module_exit(void)
+>> +{
+>> +	bus_unregister_notifier(&typec_bus, &drm_typec_event_nb);
+>> +}
+>> +
+>> +static int __init drm_aux_hpd_typec_dp_bridge_module_init(void)
+>> +{
+>> +	bus_register_notifier(&typec_bus, &drm_typec_event_nb);
+>> +
+>> +	return 0;
+>> +}
+>> +
+>> +module_init(drm_aux_hpd_typec_dp_bridge_module_init);
+>> +module_exit(drm_aux_hpd_typec_dp_bridge_module_exit);
+>> +
+>> +MODULE_DESCRIPTION("DRM TYPEC DP HPD BRIDGE");
+>> +MODULE_LICENSE("GPL");
+>>
+> 
+> Feel free to add yourself as MODULE_AUTHOR here. :)
+> 
+> With those things changed:
+> 
+> Reviewed-by: Nicolas Frattaroli <nicolas.frattaroli@collabora.com>
+> 
+> Kind regards,
+> Nicolas Frattaroli
+> 
+> 
+> 
+
+-- 
+Best, 
+Chaoyi
 
