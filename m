@@ -4,107 +4,72 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id F252FCD6E43
-	for <linux-arm-kernel@archiver.kernel.org>; Fri, 29 May 2026 11:44:48 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 38348CD6E43
+	for <linux-arm-kernel@archiver.kernel.org>; Fri, 29 May 2026 11:45:40 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:Subject:References:In-Reply-To:Message-Id:Cc:To:From:Date:
-	MIME-Version:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Content-Type:MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:
+	To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=dakiticL3KcnH3Mr/ftel+GcbHuqEroaW01vc1VFp8c=; b=V006fJCOo0BuV/wOgldKKuKv9l
-	vRK8M3MELnVElKTnuqMTY6flgFbOBjPVoO38+fNSVrSDCKKfz/ZCUZ3nLHePaVEJuIfVh8u0oQXqK
-	/ToqGOsDAAcNkRst9zeSjRpM3Rgr+65XfTiVtyFYT5workDn6ag7vBU9mIXIsHO4uPA4+O3Bkz9jw
-	bJeT7NLE+QOqsjWfcfFVi8K0Ob8albtCwukTLS5QGiv0B2tiaQs3TJAPsG6U+PQV9v6UGvoc2l9RX
-	a184cWziM7IDdFB9q5S9mEeeCkWyMMmUPj2UVinUetAm1/wL+X6tPYhXwwfb83JRkT1gkkz9eWeeA
-	x2JVTL4g==;
+	bh=OsUANOWLHKOer8SDTCbPpoX6AoZe8u2V4LnMwcLy5iA=; b=cByeb1bLeNMZPDHR+pk014hnAi
+	sS3YDN7Jjk2hLAACcUf6j8paQS+C/kToI2N89vjWc68w2cyCMhDahXhK+KVRxxme0VLmar6rxymyD
+	veMPXqSZExnm32vizjDSlo37dM6H958aKTj9zb6UEi4n34Wzch54iafz97CzCPs/zTkZ6XMQWESRZ
+	KnDn/0rY2NHqUUq8g/mJy3x2aGKGUc8aE4ywvGptmjeq/IKVe32DgKqPDvG6CRVX4m1P7rlEH4azG
+	l+7gBicPCPkQCBmMqhYi15f1jVZ6v6z/8InRrGRlfPmOySK5I9r3yGRWUkGowD418YYRhlhwW22h7
+	b4SFH6Cg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wSvdp-00000007J8d-3pv9;
-	Fri, 29 May 2026 11:44:41 +0000
-Received: from fout-b6-smtp.messagingengine.com ([202.12.124.149])
+	id 1wSvef-00000007JHP-0FaA;
+	Fri, 29 May 2026 11:45:33 +0000
+Received: from gloria.sntech.de ([185.11.138.130])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wSvdn-00000007J6n-2Jfq
-	for linux-arm-kernel@lists.infradead.org;
-	Fri, 29 May 2026 11:44:41 +0000
-Received: from phl-compute-04.internal (phl-compute-04.internal [10.202.2.44])
-	by mailfout.stl.internal (Postfix) with ESMTP id 187F91D000B6;
-	Fri, 29 May 2026 07:44:38 -0400 (EDT)
-Received: from phl-imap-05 ([10.202.2.95])
-  by phl-compute-04.internal (MEProxy); Fri, 29 May 2026 07:44:38 -0400
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=arndb.de; h=cc
-	:cc:content-transfer-encoding:content-type:content-type:date
-	:date:from:from:in-reply-to:in-reply-to:message-id:mime-version
-	:references:reply-to:subject:subject:to:to; s=fm3; t=1780055077;
-	 x=1780141477; bh=dakiticL3KcnH3Mr/ftel+GcbHuqEroaW01vc1VFp8c=; b=
-	doQ+STQBDCQgZDyK9pBeL0MTZOTbF07Z/QNSNr0EM/3dEPvcnCWJPz56JRM/EklT
-	PWYu9w/2yhbTmhgCyh6Kk/ruMfJGRCAhqhg8QF8ARqOvvu+ejgkRI41p5BWECfQz
-	EaPAGA+e42ZPEaxyGzfMZTvqghJP8bootznZb/WnSdT1NkDu7sP+X00/ckgCFXyL
-	aPU9qo7MMfAUnw2VeymhcU5LRx2AcwDzyXS+d0jNEUhfN/9qB4gyUFJHxWmIs0tB
-	+2ZCDutrLkoL5S+WSqCCM9+7qFY3oxySxt0Z8BNP0csGsIvGwd0VUoOuHDVgxODm
-	1cB36qFMEdwbC3V/VkL1BQ==
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=
-	messagingengine.com; h=cc:cc:content-transfer-encoding
-	:content-type:content-type:date:date:feedback-id:feedback-id
-	:from:from:in-reply-to:in-reply-to:message-id:mime-version
-	:references:reply-to:subject:subject:to:to:x-me-proxy
-	:x-me-sender:x-me-sender:x-sasl-enc; s=fm3; t=1780055077; x=
-	1780141477; bh=dakiticL3KcnH3Mr/ftel+GcbHuqEroaW01vc1VFp8c=; b=R
-	lmuvkiZtvll5fAliuc/TayDNvVWNF6BMKGoWKixK6BqYmOlBwhRy5BZVwVagtfS/
-	IdNE0yxwYcuAyCoCy8Wu3i2Vt0eOaC1RBBgIaakbpv6glha6evjUjCLlS4zMOY3i
-	0SWXMozKanuJha9r1FUaki4gPF9tom9gFyUJQmLw0dheqtI6FPGYhNoc5tKbuMPs
-	oqPYl63xlN0Qj3Dg3ooIlyuJ/dfDQ5pZRpgU7NI7ERsAfOPo08OQ2vE72nZzni1/
-	HgbTWkt4P3xXaV1BUXm0jmqyDuvtuDecii4e27p44YCdGs//sFI56Nax7U+8nPEM
-	0KaSqmByBTVWcDLiX0ZCw==
-X-ME-Sender: <xms:JXwZagmdaKx8-aNcyjUjF3Sa4WL8r96Xcs7Mrsk3KA87uRNBC5K1dQ>
-    <xme:JXwZaqrGe9NGz0h1SnvmbEUnwwCRrksXx-M65tdmPCc3kZKiSlx-PDPX90z7mp__R
-    lIMfj2xr4IMdNnRVuicZjiHqCvD4i3_vlo-XvwlUJispV5g0wHeYNg>
-X-ME-Proxy-Cause: dmFkZTE1AF5MuKiGjejyqiNs30FvaXZD/yW/oTzYH3UBKvNMbqhYUiGLgUeBuBy7X5uoOl
-    4ybjLNi+fwFzCC9jiQREiqcI76WN1VuKsrnej+BrSv6Gp+mjdbS3XWvzJzaSexVgS4KXOZ
-    zQTIfg/WUY0dIfRGE952WmkgtiI7YW+0zMYxdpWx79VfZeXeqq8rhqEuXDuaE+PuuZjLHS
-    uBUcDK6I861h6yf5/Z81VmnqC2v4S4rOch4/3I8bbDEXchPpIRi89Px4hVVGSwAuJNbfzB
-    tDxxWKi23rcH+qe23+fvt2yCYVjTwlrVLbHlp3Qpd7FG7oCzJ1Tdv6mobO+wXryNnK79g+
-    NcBsAeIz2y/45Opi7CaUmYVDDhYyDU8wp6cHa7/5uNDrATQITbumjW7liU/JcP0Jyx56mY
-    UiCLgKRsyMo7IR/Y+CcGOfeO5NCSlzuGFn5/KklrRnzQc+ves0E6LNWuMZe5NlDOrt64Ti
-    de7hPqkvuUTZxPJ0g+iip8GGx5Ycgtd/3EsG8fKe9v3AWPHLcXGeMu7BiZ/Tnkz0tN2VkJ
-    OtYZLCNa7C5XLLy8MRrPXDjBqhX5xHyJ9OvygLX2fSq9H6QvvLBzlMJPnxZ+noO9QHZ/0I
-    /479X2zXsltj1R8AzCoGTxISDQaC5kQsKqOGn40F/LCHBzT+ttyjAQxI5d3g
-X-ME-Proxy: <xmx:JXwZasIsi81tOW2TXB2vBVZEbZwPz0Peq_4nP98nIS-wL7nfUe_IoQ>
-    <xmx:JXwZatuX_j_MRa4jIqAUcb96tsCv6EvBfp0HhUx67ax5kVG7yFfC_A>
-    <xmx:JXwZar8ARCpsh1-AyQHPSnr9KKRptmrUXC8gGWaPONSJ-IXi6vfJ2w>
-    <xmx:JXwZav28spS3WNj6lag2ON44iiGXTfvYNtFYepFwWRvUhQ3XTkhsYQ>
-    <xmx:JXwZasJh5DiBbqJEG7zNlbaySmfxS8HwR52mvUr6dA4wHfCtHl35VHhi>
-Feedback-ID: i56a14606:Fastmail
-Received: by mailuser.phl.internal (Postfix, from userid 501)
-	id 452C5182007A; Fri, 29 May 2026 07:44:37 -0400 (EDT)
-X-Mailer: MessagingEngine.com Webmail Interface
+	id 1wSvec-00000007JGu-0LRN;
+	Fri, 29 May 2026 11:45:31 +0000
+DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed; d=sntech.de;
+	s=gloria202408; h=Content-Transfer-Encoding:Content-Type:MIME-Version:
+	References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:Reply-To;
+	bh=OsUANOWLHKOer8SDTCbPpoX6AoZe8u2V4LnMwcLy5iA=; b=ZoOBoPTYgtLqwe91Tke96Elckk
+	2JzMPczz4LtDrQ6kqL5HiO3UT78giBGarZ2ccbzg9Ew+7SPP1yUPfKE9XQ+m42LfYELqkSe8ZV8of
+	RK4quJgk1VDbZfRDM/3paRUbUwShr6YjMeOV+biHXGTzg6AwXjsj8P7xgqyG0QXqNhnaG3E+/eIJ/
+	CJmFKmVsSaWX1ad9SyNxnZ09PBDojtuRm7AUQH5oPzdEVAW/n970ezm7TZ89k5yEw5FxgC7I4EZev
+	QiGNOU4Mlvu8rnr2W76SNikGepa6UgD3blySqraW9DGF35a+dp5F/l8IE7uAlQiWXLRv7sp3AYu/i
+	G+KjkZOg==;
+From: Heiko Stuebner <heiko@sntech.de>
+To: Mehdi Djait <mehdi.djait@linux.intel.com>,
+	Laurent Pinchart <laurent.pinchart@ideasonboard.com>,
+	Mauro Carvalho Chehab <mchehab@kernel.org>,
+	Rob Herring <robh@kernel.org>,
+	Krzysztof Kozlowski <krzk+dt@kernel.org>,
+	Conor Dooley <conor+dt@kernel.org>,
+	Kever Yang <kever.yang@rock-chips.com>,
+	Jagan Teki <jagan@amarulasolutions.com>,
+	=?UTF-8?q?=D0=9A=D1=83=D0=B7=D0=BD=D0=B5=D1=86=D0=BE=D0=B2=20=D0=9C=D0=B8=D1=85=D0=B0=D0=B8=D0=BB?= <mai.kuznetsov.misha@gmail.com>,
+	Charalampos Mitrodimas <charmitro@posteo.net>,
+	Sebastian Reichel <sebastian.reichel@collabora.com>,
+	Nicolas Dufresne <nicolas.dufresne@collabora.com>,
+	Collabora Kernel Team <kernel@collabora.com>,
+	Sakari Ailus <sakari.ailus@linux.intel.com>,
+	Michael Riesch <michael.riesch@collabora.com>
+Cc: Heiko Stuebner <heiko@sntech.de>,
+	linux-media@vger.kernel.org,
+	devicetree@vger.kernel.org,
+	linux-arm-kernel@lists.infradead.org,
+	linux-rockchip@lists.infradead.org,
+	linux-kernel@vger.kernel.org,
+	Conor Dooley <conor.dooley@microchip.com>
+Subject: Re: (subset) [PATCH v5 0/8] media: rockchip: rkcif: add support for rk3588 vicap
+Date: Fri, 29 May 2026 13:45:09 +0200
+Message-ID: <178005509966.4123143.16381895849368924420.b4-ty@sntech.de>
+X-Mailer: git-send-email 2.47.3
+In-Reply-To: <20260522-rk3588-vicap-v5-0-d1d1f5265c56@collabora.com>
+References: <20260522-rk3588-vicap-v5-0-d1d1f5265c56@collabora.com>
 MIME-Version: 1.0
-X-ThreadId: AR8ZB97ino5k
-Date: Fri, 29 May 2026 13:44:16 +0200
-From: "Arnd Bergmann" <arnd@arndb.de>
-To: "Tudor Ambarus" <tudor.ambarus@linaro.org>,
- "Alim Akhtar" <alim.akhtar@samsung.com>,
- "Krzysztof Kozlowski" <krzk@kernel.org>
-Cc: linux-kernel@vger.kernel.org, linux-samsung-soc@vger.kernel.org,
- linux-arm-kernel@lists.infradead.org,
- "Peter Griffin" <peter.griffin@linaro.org>,
- =?UTF-8?Q?Andr=C3=A9_Draszik?= <andre.draszik@linaro.org>,
- jyescas@google.com, kernel-team@android.com, stable@vger.kernel.org
-Message-Id: <9d6bda31-839b-4cf8-b715-0d24760c73c2@app.fastmail.com>
-In-Reply-To: <ed771a16-6241-4246-976e-48349e544b5b@linaro.org>
-References: <20260505-acpm-fixes-sashiko-reports-v5-0-43b5ee7f1674@linaro.org>
- <20260505-acpm-fixes-sashiko-reports-v5-4-43b5ee7f1674@linaro.org>
- <a1629d9d-0357-42a3-aef8-c8d1cfa5ad39@app.fastmail.com>
- <ad30ca8b-01ba-40b9-a631-503ff463bc50@kernel.org>
- <26e9c700-c519-4888-8739-c48c73b8a39f@app.fastmail.com>
- <ed771a16-6241-4246-976e-48349e544b5b@linaro.org>
-Subject: Re: [PATCH v5 4/7] firmware: samsung: acpm: Add memory barrier before
- advancing RX pointer
-Content-Type: text/plain
-Content-Transfer-Encoding: 7bit
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260529_044439_950734_2E33F6BD 
-X-CRM114-Status: GOOD (  14.83  )
+X-CRM114-CacheID: sfid-20260529_044530_217352_A6F0E75B 
+X-CRM114-Status: GOOD (  11.38  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -119,35 +84,29 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Fri, May 29, 2026, at 13:20, Tudor Ambarus wrote:
-> On 5/29/26 11:25 AM, Arnd Bergmann wrote:
->
-> I missed the data dependency chain. I focused too much on the read
-> part in __ioread32_copy() that I missed the RAM store implications
-> in it. The RAM store is forced to wait for its SRAM load, and the
-> writel is forced to wait for all the RAM stores. So the entire
-> payload is guaranteed to be visible in memory RAM before the writel.
->
-> Maybe I thought about the reordering of the final __raw_readl() loop
-> iteration with the writel(). But the dma_wmb() -> __dma_wmb() ->
-> dmb(oshst) from writel has a compiler barrier, so the compiler can't
-> reorder the code. And given the ARM64 device memory accesses ordering,
-> the ordering is protected.
 
-Ok, thanks for checking and confirming my thoughts.
+On Fri, 22 May 2026 23:23:06 +0200, Michael Riesch wrote:
+> Habidere,
+> 
+> The RK3588 Video Capture (VICAP) constitutes an essential piece of the
+> RK3588 camera interface with one DVP, six MIPI CSI-2 receivers, scale/crop
+> units, and a data path multiplexer (to scaler units, to ISP, ...). This
+> series introduces basic support for the RK3588 VICAP unit to the rkcif
+> driver, thus paving the way for video capture in general and for camera
+> sensor image processing in particular.
+> 
+> [...]
 
-> My bad, sorry. We shall either drop or revert the patch. Please let
-> me know if you prefer a revert.
+Applied, thanks!
 
-I'll leave it up to Krzysztof, as he's already sent it to
-soc@lists.linux.dev as part of the 7.1 fixes, and I'd
-like to send the rest to Linus soon.
+[5/8] arm64: dts: rockchip: add vicap node to rk3588
+      commit: c7126247fb797127ced68691583932d0a05bbd68
+[6/8] arm64: dts: rockchip: add radxa camera 4k on rock 5b+ cam0
+      commit: bfc2779116ab7636a08c254d76a7a43d06feae1c
+[7/8] arm64: dts: rockchip: add radxa camera 4k on rock 5b+ cam1
+      commit: a34ae4f44c9ff4f4170dd21cdb22efad63710af4
 
-Krzysztof, if you can send an updated pull request without
-this patch (and maybe also without b4a38606991c ("firmware:
-samsung: acpm: Fix dummy stubs to return ERR_PTR"), see
-separate email), I'll just merge the other fixes and
-send that off instead.
-
-      Arnd
+Best regards,
+-- 
+Heiko Stuebner <heiko@sntech.de>
 
