@@ -4,75 +4,75 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 86CDFCD6E4A
-	for <linux-arm-kernel@archiver.kernel.org>; Fri, 29 May 2026 15:02:52 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id DBA4FCD6E56
+	for <linux-arm-kernel@archiver.kernel.org>; Fri, 29 May 2026 15:02:53 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:Cc:To:From:
 	Subject:Message-ID:References:Mime-Version:In-Reply-To:Date:Reply-To:
 	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=9SMbp+4SpJBPuSW3tE55txpooI4fjODhC3THY1otv5g=; b=qke4olp6gyvEO6QJeNv77vvb7I
-	CStcmN4ojMlpdcTIXmT9FZNLkd9FTDamRSfLvVJqOlvE3aRiUkQfsPUfZL2kA0bJiQvQMClrykC1+
-	+r93lXRTfeRwVs79jhFsjjHxhE+Yj8jpef9FRoqcKjVtUXObX4TnWRIyJ8hQ2ehKWLc8ZBnGuYbBg
-	r2Du5hrUHpa/yiXa2PgRbHCHXg5P3UiXlSRizQ3V0jieIZSBbtZLX34L2FDX9XBjzEEV8hr3Acoa5
-	DZSLkgW+Gfo8iL0r3z6QeSxGGhUbUzwxV+xaCfmAG/Z/XXQ+v5y+Wr9O0K4BCpmXiKGXvzjgctH+H
-	8prgaD9A==;
+	bh=i9tlxHwsxA6eqo2SKmJcmasVfNUkIRzlQyYjktT989Y=; b=2Kb/1rAAHEkBh9eyS4Rzylj1kP
+	M6xbPW7ln+7J8TX2mN2gOdKBiZA3gkyH+vzjeEoia1vEO0e1Fb+cx7BnZTHXiEOkwbb7j8WhhKbJj
+	esnRZZMrnrVE+1YRkGLHfbI+exvDGY3ns0UHAZfG7TBEOURa9kLay7e7HyWPWUpcVpIHWMy9FEOMR
+	KvDHhQncNEKAJsQurD08evzlC5GClL1G2rXqNJTqO89FQyfP0PKXznKkl5fSMu+Yxn64SvYzqj8Cy
+	5HW2NpKDHdPIKUmmQw/GXyc46YTp2quj7NjVSOPr/dUzkbD5rB2gY8sp7iC9S0OA3WKaN23+ykWsi
+	HCGCFohA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wSyjP-00000007bpN-1CGi;
+	id 1wSyjP-00000007bqk-4449;
 	Fri, 29 May 2026 15:02:39 +0000
-Received: from mail-wr1-x449.google.com ([2a00:1450:4864:20::449])
+Received: from mail-wm1-x34a.google.com ([2a00:1450:4864:20::34a])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wSyjB-00000007bey-0uiv
+	id 1wSyjF-00000007biF-1iMc
 	for linux-arm-kernel@lists.infradead.org;
-	Fri, 29 May 2026 15:02:28 +0000
-Received: by mail-wr1-x449.google.com with SMTP id ffacd0b85a97d-45ef66cc579so84076f8f.3
-        for <linux-arm-kernel@lists.infradead.org>; Fri, 29 May 2026 08:02:23 -0700 (PDT)
+	Fri, 29 May 2026 15:02:30 +0000
+Received: by mail-wm1-x34a.google.com with SMTP id 5b1f17b1804b1-4905428aad6so54769725e9.1
+        for <linux-arm-kernel@lists.infradead.org>; Fri, 29 May 2026 08:02:28 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=google.com; s=20251104; t=1780066942; x=1780671742; darn=lists.infradead.org;
+        d=google.com; s=20251104; t=1780066947; x=1780671747; darn=lists.infradead.org;
         h=cc:to:from:subject:message-id:references:mime-version:in-reply-to
          :date:from:to:cc:subject:date:message-id:reply-to;
-        bh=9SMbp+4SpJBPuSW3tE55txpooI4fjODhC3THY1otv5g=;
-        b=hlz4jY414Rd5mLIBS995eRXYnSSRQucznrbp6MMPC8x6vAQYFUZUo7QEWuei7pV7vM
-         WZdfkPT7XNreBcqRwT/fCq4mLMvyzRxxEZud086vPnJ7c4VaOa/bzLBnmhnuem2heWld
-         0/j16Pp2eSDvX0wUi/MgcZIU3BZfdeSLvdpm0W9CaCvkGh3YMva+3/Im0fYj5XrGy6Xc
-         IUmyJac2s4s8j6OR8gsXdNyhEaVzTaPGsnVbjSJrQeiExYYwo4AyBa5pQ1R6in9GYHYl
-         WEgTGnnQCyEz+BVHhDrj7MlyTtEttqtULVVsN3PnzJ2uTSOqGPN/nqIS8eAO/015YoJL
-         3pdQ==
+        bh=i9tlxHwsxA6eqo2SKmJcmasVfNUkIRzlQyYjktT989Y=;
+        b=A986GVzR9I+PTiYjCNwUSooU5I3FX9vxnVwB7ituZ4PZu/BgN//6FHeqzURP2UKVIr
+         Bo28bhGYLrDJTDRDROMqi+4JzSGHMnSXdeaL3QfSOvVCacJyoikqXG4OiuAO1GDjoAIV
+         I5HLQAUm3R8w5C3RUlPqUHiCqZ/nFepRc+ClFX436ESrTvQBvKqiVk2heVvOkSW/omgK
+         +E1wan72CGeti+FbYo55SsWB4fGziOxDe3Hja+fORQJLRFWWoJgn6r0MkCn8jMCP2esC
+         0NZzrae0ZLqsQXwlfREAw5sma1jZY3hoOo4WYxMnhOchAIuKjuKUw+qf/iXMqFVYbTsK
+         ca7A==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20251104; t=1780066942; x=1780671742;
+        d=1e100.net; s=20251104; t=1780066947; x=1780671747;
         h=cc:to:from:subject:message-id:references:mime-version:in-reply-to
          :date:x-gm-message-state:from:to:cc:subject:date:message-id:reply-to;
-        bh=9SMbp+4SpJBPuSW3tE55txpooI4fjODhC3THY1otv5g=;
-        b=cT73dI9KXkizNmb774czpx7zFJKBqGJly5wQZn/XAbu88OErcrKLUbYze0OMz4naj1
-         7nouNuJg5F4DnSU/Gq3lRoj6S9hczGy1DEvfKOt1iNqIA25uRiJhrkgAZJKlym12eAHS
-         g0RycoGW6xHA1cDeMm75S189yir8hlMZkKLCnODpfIg3oMgIoteeFoHndO15RXDVfQ8W
-         c5eddCedtHTOJ7goPQmvM/dNEGLXRQmIE0UW7z1uAH12o2dnov5ARy4JqhdOIZCxIfEq
-         sj1G1TcfWlx9Uroasud15zuRejbeqNptF23aJZNWYj9yD3P10DOqVSGKonMp7QzNTqdw
-         B7IQ==
-X-Gm-Message-State: AOJu0YxdXbw411PEPkcILsON/mNtmQYi1kLukob3zN6CtKZZaRxRsLqf
-	LDnIGjFCk/IX6Rj7UdWec5tMjLdt6YjAfX4E4i/LwFrPS4rYerPNVSrIQxac15Ml+uck55ucbu9
-	JycbrCaTBmyLSpe500luFB2Mpo1Iyqm5Kv7VklD8QxbbXKCS1NMan7icb6j6rVSsy40ObFopIgc
-	gfclD6dgE8Wo6Ax7VdYM6Pl9vPhPeq43u0INgV4PwKKHt3
-X-Received: from wrna16.prod.google.com ([2002:adf:e5d0:0:b0:43f:df99:cb43])
- (user=ardb job=prod-delivery.src-stubby-dispatcher) by 2002:a05:6000:b05:b0:45e:e3ea:1101
- with SMTP id ffacd0b85a97d-45ef6b3a9d3mr250438f8f.17.1780066942102; Fri, 29
- May 2026 08:02:22 -0700 (PDT)
-Date: Fri, 29 May 2026 17:01:55 +0200
+        bh=i9tlxHwsxA6eqo2SKmJcmasVfNUkIRzlQyYjktT989Y=;
+        b=SMPLCQBy1g7zIH/6DtxfSkj95iXSl3PFZIgvNwNICse8VPCieFkhOxcgm+bh1CCapO
+         AiRN23DPlaYDQYvUPeKM9Qrs2LyfxhVscPMWW/yT/UtGYU+UKjMnrTbvk6Xe2VmveD4h
+         F3iZWMeDvqEwp+0PHPQEK7x9ZabMWUq1hRzICjoGHnKpXpSQ4gpbVNcE7r6uwY+UCJTC
+         I6y/cC7sUxUPP4JavMahjaQYRtRV8F31S6D3g1kN1SiQdsnHF+EfDAV1l217PzT9I0+B
+         3wet2M14wzTyr6MgyemntBWwEl3FNTB2aA/mUhhRM3fiMNnBDvjJ2yFDMI9jWKShPmTP
+         t8RA==
+X-Gm-Message-State: AOJu0YzPwrEQkspAeZMGbL0XWuVhNKc6WUhwLbQCZoUlmuXmdO5me/6t
+	lW7W5smr0LAWHipV7S/aiFzhZX6mJIIZ0ytbOz826V/To5yeS2KKxfjqDFgaAGSWTUsfEF6EPXh
+	hd1YG56OTwkO7OYnUtiVLqP3u2/+cnMHchWhs0hcE1hPI4DU1wuk6p1HTZWIF6Bgejsijx9ouTP
+	hBfuXK20SaObjS041b9p6qXvdh7IjiuRZV4DJRod2tVMuw
+X-Received: from wmaq22.prod.google.com ([2002:a05:600c:6c96:b0:48f:dc9f:6f14])
+ (user=ardb job=prod-delivery.src-stubby-dispatcher) by 2002:a05:600c:3b14:b0:490:4b89:5361
+ with SMTP id 5b1f17b1804b1-490a2904d7fmr303015e9.7.1780066946805; Fri, 29 May
+ 2026 08:02:26 -0700 (PDT)
+Date: Fri, 29 May 2026 17:01:59 +0200
 In-Reply-To: <20260529150150.1670604-17-ardb+git@google.com>
 Mime-Version: 1.0
 References: <20260529150150.1670604-17-ardb+git@google.com>
 X-Developer-Key: i=ardb@kernel.org; a=openpgp; fpr=F43D03328115A198C90016883D200E9CA6329909
-X-Developer-Signature: v=1; a=openpgp-sha256; l=1360; i=ardb@kernel.org;
- h=from:subject; bh=zgVblspip5ZINNAWS3J63kCjniwJXU0OYP5r0DXGxEI=;
- b=owGbwMvMwCVmkMcZplerG8N4Wi2JIUtyVfJJkczPYfGm/hd8+FL02y7q1vnc3l5lLz2B/bWeR
- ZyU8q+OUhYGMS4GWTFFFoHZf9/tPD1RqtZ5lizMHFYmkCEMXJwCMJGrFxn+e55rMk6KmS+o8qjx
- TFPydss+tp/hHKtbs3vkHc/PO8RoyvA/WrE+UfB50QXpS/Hr3nSqW/oxK2XsCGS8dSmZxXNHTQs /AA==
+X-Developer-Signature: v=1; a=openpgp-sha256; l=2952; i=ardb@kernel.org;
+ h=from:subject; bh=TyyULer9eaKHyQ1BOINcFoCv1vvnMukGL48REtJhPzs=;
+ b=owGbwMvMwCVmkMcZplerG8N4Wi2JIUtyVUboiS16Xkfr8iLbWErOKcytU4vuVJk0+76BcO5Hz
+ rb1+sUdpSwMYlwMsmKKLAKz/77beXqiVK3zLFmYOaxMIEMYuDgFYCKqGxgZNjU07DG6GaTpezdh
+ zbZrEwzidjxa865atLfK9/GeO2emyzH8d7MLuK/p3ZH8ib3z+D7vti6R81b7wgsSZrk1v7x+zKK WEQA=
 X-Mailer: git-send-email 2.54.0.823.g6e5bcc1fc9-goog
-Message-ID: <20260529150150.1670604-21-ardb+git@google.com>
-Subject: [PATCH v7 04/15] arm64: mm: Preserve existing table mappings when
- mapping DRAM
+Message-ID: <20260529150150.1670604-25-ardb+git@google.com>
+Subject: [PATCH v7 08/15] arm64: mm: Permit contiguous attribute for
+ preliminary mappings
 From: Ard Biesheuvel <ardb+git@google.com>
 To: linux-arm-kernel@lists.infradead.org
 Cc: linux-kernel@vger.kernel.org, will@kernel.org, catalin.marinas@arm.com, 
@@ -85,8 +85,8 @@ Cc: linux-kernel@vger.kernel.org, will@kernel.org, catalin.marinas@arm.com,
 	linux-sh@vger.kernel.org
 Content-Type: text/plain; charset="UTF-8"
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260529_080227_018144_16DDA741 
-X-CRM114-Status: GOOD (  11.51  )
+X-CRM114-CacheID: sfid-20260529_080229_463871_A6AF99ED 
+X-CRM114-Status: GOOD (  17.00  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -103,41 +103,72 @@ Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.i
 
 From: Ard Biesheuvel <ardb@kernel.org>
 
-Instead of blindly overwriting an existing table entry when mapping DRAM
-regions, take care not to replace a pre-existing table entry with a
-block entry. This permits the logic of mapping the kernel's linear alias
-to be simplified in a subsequent patch.
+There are a few cases where we omit the contiguous hint for mappings
+that start out as read-write and are remapped read-only later, on the
+basis that manipulating live descriptors with the PTE_CONT attribute set
+is unsafe. When support for the contiguous hint was added to the code,
+the ARM ARM was ambiguous about this, and so we erred on the side of
+caution.
 
-Reviewed-by: Ryan Roberts <ryan.roberts@arm.com>
+In the meantime, this has been clarified [0], and regions that will be
+remapped in their entirety, retaining the contiguous bit on all entries,
+can use the contiguous hint both in the initial mapping as well as the
+one that replaces it. Note that this requires that the logic that may be
+called to remap overlapping regions respects existing valid descriptors
+that have the contiguous bit cleared.
+
+So omit the NO_CONT_MAPPINGS flag in places where it is unneeded.
+
+[0] RJQQTC
+
+For a TLB lookup in a contiguous region mapped by translation table entries that
+have consistent values for the Contiguous bit, but have the OA, attributes, or
+permissions misprogrammed, that TLB lookup is permitted to produce an OA, access
+permissions, and memory attributes that are consistent with any one of the
+programmed translation table values.
+
+Reviewed-by: Kevin Brodsky <kevin.brodsky@arm.com>
 Signed-off-by: Ard Biesheuvel <ardb@kernel.org>
 ---
- arch/arm64/mm/mmu.c | 6 ++++--
- 1 file changed, 4 insertions(+), 2 deletions(-)
+ arch/arm64/mm/mmu.c | 10 +++-------
+ 1 file changed, 3 insertions(+), 7 deletions(-)
 
 diff --git a/arch/arm64/mm/mmu.c b/arch/arm64/mm/mmu.c
-index b2ba5b35c35f..5c827fa3cd38 100644
+index cdf8b3510229..971996e46fd1 100644
 --- a/arch/arm64/mm/mmu.c
 +++ b/arch/arm64/mm/mmu.c
-@@ -256,7 +256,8 @@ static int init_pmd(pmd_t *pmdp, unsigned long addr, unsigned long end,
+@@ -1016,8 +1016,7 @@ void __init create_mapping_noalloc(phys_addr_t phys, unsigned long virt,
+ 			&phys, virt);
+ 		return;
+ 	}
+-	early_create_pgd_mapping(init_mm.pgd, phys, virt, size, prot, NULL,
+-				 NO_CONT_MAPPINGS);
++	early_create_pgd_mapping(init_mm.pgd, phys, virt, size, prot, NULL, 0);
+ }
  
- 		/* try section mapping first */
- 		if (((addr | next | phys) & ~PMD_MASK) == 0 &&
--		    (flags & NO_BLOCK_MAPPINGS) == 0) {
-+		    (flags & NO_BLOCK_MAPPINGS) == 0 &&
-+		    !pmd_table(old_pmd)) {
- 			WARN_ON(!pmd_set_huge(pmdp, phys, prot));
+ void __init create_pgd_mapping(struct mm_struct *mm, phys_addr_t phys,
+@@ -1044,8 +1043,7 @@ static void update_mapping_prot(phys_addr_t phys, unsigned long virt,
+ 		return;
+ 	}
  
- 			/*
-@@ -379,7 +380,8 @@ static int alloc_init_pud(p4d_t *p4dp, unsigned long addr, unsigned long end,
- 		 */
- 		if (pud_sect_supported() &&
- 		   ((addr | next | phys) & ~PUD_MASK) == 0 &&
--		    (flags & NO_BLOCK_MAPPINGS) == 0) {
-+		    (flags & NO_BLOCK_MAPPINGS) == 0 &&
-+		    !pud_table(old_pud)) {
- 			WARN_ON(!pud_set_huge(pudp, phys, prot));
+-	early_create_pgd_mapping(init_mm.pgd, phys, virt, size, prot, NULL,
+-				 NO_CONT_MAPPINGS);
++	early_create_pgd_mapping(init_mm.pgd, phys, virt, size, prot, NULL, 0);
  
- 			/*
+ 	/* flush the TLBs after updating live kernel mappings */
+ 	flush_tlb_kernel_range(virt, virt + size);
+@@ -1191,10 +1189,8 @@ static void __init map_mem(void)
+ 	 * alternative patching has completed). This makes the contents
+ 	 * of the region accessible to subsystems such as hibernate,
+ 	 * but protects it from inadvertent modification or execution.
+-	 * Note that contiguous mappings cannot be remapped in this way,
+-	 * so we should avoid them here.
+ 	 */
+-	__map_memblock(kernel_start, kernel_end, PAGE_KERNEL, NO_CONT_MAPPINGS);
++	__map_memblock(kernel_start, kernel_end, PAGE_KERNEL, 0);
+ 	memblock_clear_nomap(kernel_start, kernel_end - kernel_start);
+ }
+ 
 -- 
 2.54.0.823.g6e5bcc1fc9-goog
 
