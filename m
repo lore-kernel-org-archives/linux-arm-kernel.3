@@ -4,65 +4,56 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 07801CD6E49
-	for <linux-arm-kernel@archiver.kernel.org>; Fri, 29 May 2026 17:39:26 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 42A06CD6E49
+	for <linux-arm-kernel@archiver.kernel.org>; Fri, 29 May 2026 17:47:46 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:
+	Content-Transfer-Encoding:MIME-Version:References:In-Reply-To:Message-ID:Date
+	:Subject:Cc:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=0WI4qQyv1EBpPKFRUbV0AQ8EnBM8UW7h22nNav4ht4s=; b=EPaKB4E9ee7qpb2VPlNUUkRhq2
-	un/X6DxntybChWvxndg6TrBvZRvSK7hw6+Cd+rgN3IARWkohKFy5J/b7VytltLpFeEZMO6M3pSzsp
-	TYaqaYXuzm7N3KLmkX8CMJW+6Avkau8pUbzQiy57vST6qjDao2vBm2S2tvfTKqFTmbZle1cd1kNkg
-	nacuIBjUMkbuDaYZA+oaZEXNewMa7Ul47YlHvDyg5qmo9M2eJMHLd/S+xBxG3vQMe+itKjo3AceVg
-	ATdjy2/KDt/H5x61mHTfDhvbKxf7kU/wJfid7j7OzruHgmgouo9BFrlD/7vgioVL4JFVUEB7Et9hd
-	T6IKDgiQ==;
+	bh=JmCG5c7ZdraaUuv5adtXfMR+L/IgQPNcJErvSgyx1bo=; b=0GUVGzh7jtg0UHfaP0g2S16jUl
+	kJGFSpOOfw9TbPXZbK9tDpZwSV68QAV7XrqO6tnR/LA2VWVHdtP5CHFXBt+2uC8+KQYqItE64bYDY
+	oMDoU1ZcVYtYeDrwW6gWD4J6QwhnnyvrF/1NBXnC5iBQbXuitzU3k1FxCdtw5wM2g1ycAuwvPT5I0
+	kpDxJ4f2P0qggMY7QyopFMQVuz37JPj1gTxmtn8IVeAuZaBtgLyr12dgF/UkxzztcS8F1B+GGxcTE
+	FKlAM0f3Xl/1w1wmryactzDAUaWHs4bxU/5tAMVgnXpJqJZOEfjlyS9JwJAn6Xg27oxRnqNtN3D/e
+	C6RpJMGA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wT1B2-000000081XH-0Sbo;
-	Fri, 29 May 2026 17:39:20 +0000
-Received: from tor.source.kernel.org ([2600:3c04:e001:324:0:1991:8:25])
+	id 1wT1J4-000000082Q8-3aMb;
+	Fri, 29 May 2026 17:47:38 +0000
+Received: from gloria.sntech.de ([185.11.138.130])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wT1B1-000000081XB-1q0m
-	for linux-arm-kernel@lists.infradead.org;
-	Fri, 29 May 2026 17:39:19 +0000
-Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
-	by tor.source.kernel.org (Postfix) with ESMTP id C5A53605D6;
-	Fri, 29 May 2026 17:39:18 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id F22C31F00893;
-	Fri, 29 May 2026 17:39:17 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1780076358;
-	bh=0WI4qQyv1EBpPKFRUbV0AQ8EnBM8UW7h22nNav4ht4s=;
-	h=Date:From:To:Cc:Subject:References:In-Reply-To;
-	b=Z310wI/JnTJ55UPI2NaUhuoQKsf2EhdkhQdN8jU3oDCtKPpmWt+FK14n2kUk9JHRF
-	 j0m5swxjsiuXc7sIomdwRUXJAQKApd8tESOB2MaBefqP2BZ1HgZZP434x1eA9BEySw
-	 pJFHz2nsjpLZWLfqlwcXBzgXGJVyvznOrcxDKoCyL6eKfilULbvurOgoADNF1SfYpx
-	 ASmT5Ks5kF+CwQkdtb7304ywS0f6XQaUpdCaqZ1kOIYPV72AUOMbaQ9VfNiGV1jWf1
-	 C3FWloTyFBPzluVScwSsbiQ0YfgNM3LKilJncymHrSsdRd9HTpdGbrQYPHzoaeC+Ao
-	 Pb63skQKRLliA==
-Date: Fri, 29 May 2026 19:39:16 +0200
-From: Krzysztof Kozlowski <krzk@kernel.org>
-To: Taniya Das <taniya.das@oss.qualcomm.com>
-Cc: Bjorn Andersson <andersson@kernel.org>, 
-	Michael Turquette <mturquette@baylibre.com>, Stephen Boyd <sboyd@kernel.org>, Rob Herring <robh@kernel.org>, 
-	Krzysztof Kozlowski <krzk+dt@kernel.org>, Conor Dooley <conor+dt@kernel.org>, 
-	Konrad Dybcio <konradybcio@kernel.org>, Maxime Coquelin <mcoquelin.stm32@gmail.com>, 
-	Alexandre Torgue <alexandre.torgue@foss.st.com>, Luca Weiss <luca.weiss@fairphone.com>, 
-	Ajit Pandey <ajit.pandey@oss.qualcomm.com>, Imran Shaik <imran.shaik@oss.qualcomm.com>, 
-	Jagadeesh Kona <jagadeesh.kona@oss.qualcomm.com>, linux-arm-msm@vger.kernel.org, linux-clk@vger.kernel.org, 
-	devicetree@vger.kernel.org, linux-kernel@vger.kernel.org, 
-	linux-stm32@st-md-mailman.stormreply.com, linux-arm-kernel@lists.infradead.org
-Subject: Re: [PATCH v5 3/7] dt-bindings: clock: qcom: Add support for CAMCC
- for Eliza
-Message-ID: <20260529-jade-weasel-of-perspective-c2e0aa@quoll>
-References: <20260525-eliza_mm_cc_v2-v5-0-a1d125619a5a@oss.qualcomm.com>
- <20260525-eliza_mm_cc_v2-v5-3-a1d125619a5a@oss.qualcomm.com>
+	id 1wT1J2-000000082P0-2NGt;
+	Fri, 29 May 2026 17:47:37 +0000
+DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed; d=sntech.de;
+	s=gloria202408; h=Content-Type:Content-Transfer-Encoding:MIME-Version:
+	References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:Reply-To;
+	bh=JmCG5c7ZdraaUuv5adtXfMR+L/IgQPNcJErvSgyx1bo=; b=qowQRPp+vmiLNlYsmQPNOAQ1Ec
+	lVyVhrZDC21fF+NNodAjsFn5ZcLORaY/3O9HnWneNKzwlKVyzCaMqEFCD6YpXPQZaIlu/jkFjH4LU
+	shW79nPyr9Vuw/7MBwOe7jTui9E+JApfeBCOZOzB/0c4IgXOM27YFzvxDtMlZzCjqKdwTDNuNkl69
+	2eFDFVrKn1c0x7H1Zs+aT/uWRNeYVF0EFSVs9xxFHNH4kIJjw4llpUhFwnfvg9jGOo31b85YL9i3f
+	8NX0teUlNxgLr0V+HO7co/tkX2+E9EsRUkLST/cvFeqX7TOsiiYr64h27lHtYCMwcOwp3EOh1cVgO
+	yEyYoYPQ==;
+From: Heiko Stuebner <heiko@sntech.de>
+To: Joerg Roedel <joro@8bytes.org>, Will Deacon <will@kernel.org>,
+ Robin Murphy <robin.murphy@arm.com>,
+ Sven =?UTF-8?B?UMO8c2NoZWw=?= <s.pueschel@pengutronix.de>
+Cc: iommu@lists.linux.dev, linux-arm-kernel@lists.infradead.org,
+ linux-rockchip@lists.infradead.org, linux-kernel@vger.kernel.org,
+ Simon Xue <xxm@rock-chips.com>, kernel@pengutronix.de,
+ Sven =?UTF-8?B?UMO8c2NoZWw=?= <s.pueschel@pengutronix.de>
+Subject: Re: [PATCH v2] iommu/rockchip: disable fetch dte time limit
+Date: Fri, 29 May 2026 19:47:27 +0200
+Message-ID: <5524351.eFTFzoEnKi@phil>
+In-Reply-To: <20260428-spu-iommudtefix-v2-1-f592f579e508@pengutronix.de>
+References: <20260428-spu-iommudtefix-v2-1-f592f579e508@pengutronix.de>
 MIME-Version: 1.0
-Content-Type: text/plain; charset=utf-8
-Content-Disposition: inline
-In-Reply-To: <20260525-eliza_mm_cc_v2-v5-3-a1d125619a5a@oss.qualcomm.com>
+Content-Transfer-Encoding: quoted-printable
+Content-Type: text/plain; charset="utf-8"
+X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
+X-CRM114-CacheID: sfid-20260529_104736_664956_CBF90E14 
+X-CRM114-Status: GOOD (  16.33  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -77,22 +68,57 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Mon, May 25, 2026 at 04:16:05PM +0530, Taniya Das wrote:
-> Eliza camera clock controller is on CX and MX rails similar to Milos.
-> Add compatible string for Eliza camera and camera BIST clock
-> controller to the existing Milos camcc binding and add the
-> dt-bindings header for Eliza.
-> 
-> The camera clock controller provides power domains, so 'power-domain-cells'
-> must be present in the device tree node. Add this to required properties
-> to enforce it in the binding schema.
-> 
-> Signed-off-by: Taniya Das <taniya.das@oss.qualcomm.com>
-> ---
+Am Dienstag, 28. April 2026, 18:05:31 Mitteleurop=C3=A4ische Sommerzeit sch=
+rieb Sven P=C3=BCschel:
+> From: Simon Xue <xxm@rock-chips.com>
+>=20
+> Disable the Bit 31 of the AUTO_GATING iommu register, as it causes
+> hangups with the RGA3 (Raster Graphics Acceleration 3) peripheral.
+> The RGA3 register description of the TRM already states that the bit
+> must be set to 1. The vendor kernel sets the bit unconditionally to
+> 1 to fix VOP (Video Output Processor) screen black issues. This patch
+> squashes the 2 vendor kernel commits with the following commit messages:
+>=20
+> Master fetch data and cpu update page table may work in parallel, may
+> have the following procedure:
+>=20
+> 	master                  cpu
+> 	fetch dte               update page tabl
+> 	        |                       |
+> 	(make dte invalid)  <-  zap iotlb entry
+> 	        |                       |
+> 	fetch dte again
+> 	(make dte invalid)  <-  zap iotlb entry
+> 	        |                       |
+> 	fetch dte again
+> 	(make dte invalid)  <-  zap iotlb entry
+> 	        |                       |
+> 	fetch dte again
+> 	(make iommu block)  <-  zap iotlb entry
+>=20
+> New iommu version has the above bug, if fetch dte consecutively four
+> times, then it will be blocked. Fortunately, we can set bit 31 of
+> register MMU_AUTO_GATING to 1 to make it work as old version which does
+> not have this issue.
+>=20
+> This issue only appears on RV1126 so far, so make a workaround dedicated
+> to "rockchip,rv1126" machine type.
+>=20
+> iommu/rockchip: fix vop blocked and screen black on RK356X and RK3588
+>=20
+> RK3568 and RK3588 has the same issue as RV1126/RV1109 that caused by
+> dte fetch time limit, So we can set BIT(31) of register 0x24 default
+> to 1 as a workaround.
+>=20
+> Signed-off-by: Simon Xue <xxm@rock-chips.com>
+> Signed-off-by: Sven P=C3=BCschel <s.pueschel@pengutronix.de>
 
-Reviewed-by: Krzysztof Kozlowski <krzysztof.kozlowski@oss.qualcomm.com>
+Acked-by: Heiko Stuebner <heiko@sntech.de>
 
-Best regards,
-Krzysztof
+@Joerg: could we get this merged?
+
+Thanks
+Heiko
+
 
 
