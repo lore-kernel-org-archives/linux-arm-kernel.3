@@ -4,68 +4,68 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 5E86DCD4F54
-	for <linux-arm-kernel@archiver.kernel.org>; Fri, 29 May 2026 16:49:42 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id AEF8CCD6E49
+	for <linux-arm-kernel@archiver.kernel.org>; Fri, 29 May 2026 16:58:39 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
 	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
 	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=lwfdphpnNxuajP1SfK7U6y2PR8IZ0jJwzcVdnBMd6nA=; b=i1rR8YLssypvtHdpvW3pm7207X
-	hFumMecj6KHpFk50dt+9h8lieQmVfCM0PK17lFY/YZDPGYD6oishj70a3a3VNfdgQjfeYIyKDOUR1
-	GhC19eq8L4OlyYHEserlF8aj7vyfA3yvQWygcPkSetM2op2Q2bnZfIxkx362mEpLVAbEY9X6HIDxX
-	RJUuWPEoNWlZNnnoYz5nvnbcPq6s7wtpIEBSHF4W78ffTdc/SCHOcIEZRFqhp0OozWO5jNoRGGEcQ
-	r4tWSc7nWigC4OOe5mme/bghjjIAUjwtJJPwCj90hFruS1SRQOUUuOFK+8QVtx7Wjmc8XnIjM/UsJ
-	9xLYNCvw==;
+	bh=Rr93txAorkGK4w7kSiV9wcRvir3FWXid5u8/S3kOYh8=; b=SjLbTvYEqJd3z7smyQVdJm54q5
+	+KEZ5hNvnyb18A73b4GPE5Mo+zD119TGtbksYSZ4+kjhZckvjbWpqOyH9x+c0bA+CGoGy6poovuxr
+	30dhREy5Yg3q4jGCtH5qAK6thelVlO3QOhU36145zzSbEA0ILo8swuIJrIv0KtBzdBJP5HVTRXHfc
+	4oIrFVDLtEww3pj4tyb7KA+2bBG+AYQEBw+J8HZdcolL69iElwcUXNdqYeMrJJ1q1zfbGzROTBlBp
+	j6dj3s/Fsa2IQaJyyOITcPXtCdRoMrZS4ILm124ya1EkF2U407XXkJDF1groBVBadN7+MXC9SpD2d
+	5Jl9bITg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wT0Ou-00000007vpd-1JNX;
-	Fri, 29 May 2026 16:49:36 +0000
-Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
+	id 1wT0XW-00000007wbM-0RS8;
+	Fri, 29 May 2026 16:58:30 +0000
+Received: from sea.source.kernel.org ([172.234.252.31])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wT0Or-00000007vpF-429w
-	for linux-arm-kernel@lists.infradead.org;
-	Fri, 29 May 2026 16:49:35 +0000
+	id 1wT0XT-00000007waR-4BRL;
+	Fri, 29 May 2026 16:58:29 +0000
 Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
-	by sea.source.kernel.org (Postfix) with ESMTP id 70FC443C26;
-	Fri, 29 May 2026 16:49:31 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 0F4551F00893;
-	Fri, 29 May 2026 16:49:28 +0000 (UTC)
+	by sea.source.kernel.org (Postfix) with ESMTP id 39E1D403AF;
+	Fri, 29 May 2026 16:58:27 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 794101F00893;
+	Fri, 29 May 2026 16:58:26 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1780073371;
-	bh=lwfdphpnNxuajP1SfK7U6y2PR8IZ0jJwzcVdnBMd6nA=;
+	s=k20260515; t=1780073907;
+	bh=Rr93txAorkGK4w7kSiV9wcRvir3FWXid5u8/S3kOYh8=;
 	h=Date:From:To:Cc:Subject:References:In-Reply-To;
-	b=HYvhkWubGms+xcSqFGgV+A4XLqcgjZT85EHj4REmJI1M0I2vpo7geJNfgbRBHsgZp
-	 whEMQVzUe0sflshBaReOWx8me6PbiLYCAzUz64zRIKjtze6K7Ugb4TEKlBuPG5grM0
-	 004X6A+CdTQA2JJFGTdBCSpVSvJYkZdngo1ZdHC6grPPL3iQ5CpQkkdndBBfTfFFmE
-	 XmTXmu3ah/6uGIXgrplvlL/KiP+YDKmgoo880MplkZT0JZjhLRIPmPWgcIqsW2+ZAr
-	 X+9WYwmpLpWTpPuVHIzOi6WGa01c/ffbVZadih2j80+jqo+1eaAVKt/q20HRb39Vye
-	 RVjkIeET8xq3w==
-Date: Fri, 29 May 2026 17:49:27 +0100
-From: Conor Dooley <conor@kernel.org>
-To: Stefan =?iso-8859-1?Q?D=F6singer?= <stefandoesinger@gmail.com>
-Cc: Michael Turquette <mturquette@baylibre.com>,
-	Stephen Boyd <sboyd@kernel.org>, Rob Herring <robh@kernel.org>,
-	Krzysztof Kozlowski <krzk+dt@kernel.org>,
-	Conor Dooley <conor+dt@kernel.org>,
-	Philipp Zabel <p.zabel@pengutronix.de>,
-	Brian Masney <bmasney@redhat.com>, linux-clk@vger.kernel.org,
-	devicetree@vger.kernel.org, linux-kernel@vger.kernel.org,
-	linux-arm-kernel@lists.infradead.org
-Subject: Re: [PATCH RFC v3 2/5] dt-bindings: clk: zte: Add zx297520v3 LSP
- clock and reset bindings.
-Message-ID: <20260529-hypocrisy-clump-abf596df704d@spud>
-References: <20260529-zx29clk-v3-0-c7fe54ea388f@gmail.com>
- <20260529-zx29clk-v3-2-c7fe54ea388f@gmail.com>
+	b=YcdEd8KIrgqEjIJyzfEWp3wxA2BOaPQFdZlliH+hhKlBpjybWVcwk0zVC6bgK5YTR
+	 RmnqI08n1+vYEJMy4t8kaL28I/0vBbs8kisVrBWt4MBPRPPKVXK8zs4hov/GJ/al6F
+	 AHt9PSSgT3oGgXaSXqe6NxsSK0q4PYe4GSO/3OyZMhBdkmr5XdhUmDf/OazuTy8zIM
+	 pZmWz+Hx9kJHzKe6wH3BejyNDN0Vzad/IOXlRwj7othy/nDthuEY4IAlgp7pNCl3Zc
+	 +eyfImujLBctVUARngY8my0TXcuI3qqcT5R5XiB4jgJHik3fElcHZ3O35fGpKUW+Uz
+	 j1DqtFpAdUTVA==
+Date: Fri, 29 May 2026 18:58:24 +0200
+From: Krzysztof Kozlowski <krzk@kernel.org>
+To: Can Guo <can.guo@oss.qualcomm.com>
+Cc: bvanassche@acm.org, beanhuo@micron.com, peter.wang@mediatek.com, 
+	martin.petersen@oracle.com, mani@kernel.org, linux-scsi@vger.kernel.org, 
+	Alim Akhtar <alim.akhtar@samsung.com>, Avri Altman <avri.altman@wdc.com>, Rob Herring <robh@kernel.org>, 
+	Krzysztof Kozlowski <krzk+dt@kernel.org>, Conor Dooley <conor+dt@kernel.org>, 
+	Matthias Brugger <matthias.bgg@gmail.com>, 
+	AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>, Zhaoming Luo <zhml@posteo.com>, 
+	Ram Kumar Dwivedi <quic_rdwivedi@quicinc.com>, 
+	"open list:OPEN FIRMWARE AND FLATTENED DEVICE TREE BINDINGS" <devicetree@vger.kernel.org>, open list <linux-kernel@vger.kernel.org>, 
+	"moderated list:ARM/Mediatek SoC support:Keyword:mediatek" <linux-arm-kernel@lists.infradead.org>, 
+	"moderated list:ARM/Mediatek SoC support:Keyword:mediatek" <linux-mediatek@lists.infradead.org>
+Subject: Re: [PATCH v6 1/2] dt-bindings: ufs: Document static TX Equalization
+ settings properties
+Message-ID: <20260529-neat-bright-shellfish-eab5e8@quoll>
+References: <20260529113338.984301-1-can.guo@oss.qualcomm.com>
+ <20260529113338.984301-2-can.guo@oss.qualcomm.com>
 MIME-Version: 1.0
-Content-Type: multipart/signed; micalg=pgp-sha512;
-	protocol="application/pgp-signature"; boundary="Itt2pNgWFbhrwYID"
+Content-Type: text/plain; charset=utf-8
 Content-Disposition: inline
-In-Reply-To: <20260529-zx29clk-v3-2-c7fe54ea388f@gmail.com>
+In-Reply-To: <20260529113338.984301-2-can.guo@oss.qualcomm.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260529_094934_016114_FC1016F9 
-X-CRM114-Status: GOOD (  10.41  )
+X-CRM114-CacheID: sfid-20260529_095828_086154_48CD99C0 
+X-CRM114-Status: GOOD (  17.67  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -80,74 +80,79 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-
---Itt2pNgWFbhrwYID
-Content-Type: text/plain; charset=iso-8859-1
-Content-Disposition: inline
-Content-Transfer-Encoding: quoted-printable
-
-On Fri, May 29, 2026 at 12:52:59AM +0300, Stefan D=F6singer wrote:
-> +properties:
-> +  compatible:
-> +    const: zte,zx297520v3-lspclk
-> +
-> +  clocks:
+On Fri, May 29, 2026 at 04:33:37AM -0700, Can Guo wrote:
+> UFS v5.0/UFSHCI v5.0 add HS-G6 support (46.6 Gbps/lane) via UniPro v3.0
+> and M-PHY v6.0. In these specs, TX Equalization is defined for all High
+> Speed Gears (not only HS-G6) to compensate channel loss and improve signal
+> integrity at high speed operation.
+> 
+> For HS-G6, M-PHY uses PAM4 1b1b line coding, Pre-Coding may also be
+> required depending on channel characteristics.
+> 
+> Add vendor-neutral DT properties:
+> 
+> - patternProperties for txeq-preshoot-g[1-6] and txeq-deemphasis-g[1-6]
+> - fixed property tx-precode-enable-g6
+> 
+> Each property is a uint32 array of per-lane tuples:
+> <Host_Lane0 Device_Lane0>, [<Host_Lane1 Device_Lane1>]
+> 
+> Accept 2 or 4 values (x1/x2 lane configs). PreShoot and DeEmphasis values
+> are 0..7. Precode enable values are 0/1 and only applicable to HS-G6.
+> 
+> Acked-by: Manivannan Sadhasivam <mani@kernel.org>
+> Reviewed-by: Bean Huo <beanhuo@micron.com>
+> Reviewed-by: Peter Wang <peter.wang@mediatek.com>
+> Signed-off-by: Can Guo <can.guo@oss.qualcomm.com>
+> ---
+>  .../devicetree/bindings/ufs/ufs-common.yaml   | 45 +++++++++++++++++++
+>  1 file changed, 45 insertions(+)
+> 
+> diff --git a/Documentation/devicetree/bindings/ufs/ufs-common.yaml b/Documentation/devicetree/bindings/ufs/ufs-common.yaml
+> index ed97f5682509..d90cf25adfa5 100644
+> --- a/Documentation/devicetree/bindings/ufs/ufs-common.yaml
+> +++ b/Documentation/devicetree/bindings/ufs/ufs-common.yaml
+> @@ -105,6 +105,51 @@ properties:
+>        Restricts the UFS controller to rate-a or rate-b for both TX and
+>        RX directions.
+>  
+> +  tx-precode-enable-g6:
+> +    $ref: /schemas/types.yaml#/definitions/uint32-array
+> +    oneOf:
+> +      - minItems: 2
+> +        maxItems: 2
+> +      - minItems: 4
+> +        maxItems: 4
 > +    items:
-> +      - description: Main PLL divided by 5 output from topclk (124.8 MHz)
-> +      - description: Main PLL divided by 4 output from topclk (156 MHz)
-> +      - description: Main PLL divided by 6 output from topclk (104 MHz)
-> +      - description: Main PLL divided by 8 output from topclk (78 MHz)
-> +      - description: Main PLL divided by 12 output from topclk (52 MHz)
-> +      - description: Main oscillator output from topclk (26 MHz)
-> +      - description: Timer oscillator output from topclk (32 KHz)
-> +      - description: LSP pclk output from topclk (26 MHz)
-> +      - description: TDM wclk mux output from topclk
-> +      - description: DPLL divided by 4 output from topclk (122.88 MHz)
+> +      enum: [0, 1]
+> +    description: |
+> +      Static TX Precode enable values for HS-G6 only.
+> +      Values are specified as per-lane tuples:
+> +      <Host_Lane0 Device_Lane0>, [<Host_Lane1 Device_Lane1>].
+
+You need to include them in any of applicable examples, otherwise
+nothing here is validated.
+
+Why values cannot be on or off? Or even better: why you cannot just list
+all the lanes which has it enabled, assuming disabled is by default?
+
 > +
-> +  clock-names:
+> +patternProperties:
+> +  "^txeq-preshoot-g[1-6]$":
+> +    $ref: /schemas/types.yaml#/definitions/uint32-array
+> +    oneOf:
+> +      - minItems: 2
+> +        maxItems: 2
+> +      - minItems: 4
+> +        maxItems: 4
 > +    items:
-> +      - const: mpll_d5
-> +      - const: mpll_d4
-> +      - const: mpll_d6
-> +      - const: mpll_d8
-> +      - const: mpll_d12
-> +      - const: osc26m
-> +      - const: osc32k
-> +      - const: pclk
-> +      - const: tdm_wclk
-> +      - const: dpll_d4
-> +
-> +  "#clock-cells":
-> +    const: 1
-> +
-> +  "#reset-cells":
-> +    const: 1
-> +
-> +  reg:
-> +    items:
-> +      - description: IO memory region of the LSP controller
+> +      minimum: 0
+> +      maximum: 7
 
-Just make this "maxItems: 1".
+What is the meaning of values? Nothing here refers to the spec, so is
+this driver specific?
 
-Also, sort reg after compatible please.
+Best regards,
+Krzysztof
 
-Same comments apply here about the example and using _END defines.
-
-pw-bot: changes-requested
-
-Cheers,
-Conor.
-
---Itt2pNgWFbhrwYID
-Content-Type: application/pgp-signature; name="signature.asc"
-
------BEGIN PGP SIGNATURE-----
-
-iHUEABYKAB0WIQRh246EGq/8RLhDjO14tDGHoIJi0gUCahnDlgAKCRB4tDGHoIJi
-0isBAP992+dVrtcpmiLKLuTlJrY2DJkqogyJJVFoNxdYD6jcXgD/b15qvDe703x3
-bPfmU+yYyoX/O3iQkIUsVeePrR0mtwc=
-=axFd
------END PGP SIGNATURE-----
-
---Itt2pNgWFbhrwYID--
 
