@@ -4,65 +4,65 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 18A7CCD6E56
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id D5FEACD6E59
 	for <linux-arm-kernel@archiver.kernel.org>; Fri, 29 May 2026 15:57:00 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:
-	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=3Vy2znU6BE4rmaBvm7MA/uVOlXjosiNrrWucqsFdf9c=; b=VEjqSpoa0rXgTVM5CZPP6hADns
-	8lDWLbrHtgfvcFXq5hWeP0QeKogXWffISkTfjyMsGCYsTZBsXGNb2ebpWES+3qttDkN7Au8YMHV1U
-	1bD9uDCwzbHyXAuHqmelp7EccQQhrvhaWpPUD8pDP3fnVEvYHkXyXI+LCl5nGEUfR3k6/blzigcdH
-	7KBojRBBCVWwCDLDIuShpcxJD1V1Rt1WvxjoEdLdgP5fMBI/xBpvApSKnWdXSlKL08jxE032hVdYL
-	4vTBHknWQXDT9cMIJz1h83bYsiC9KYtow+TnGf0xPrXGo0OJC8T/zSCKeeC40xhOFgYaX9UtWW53y
-	zq3s21+w==;
+	MIME-Version:Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-Type:
+	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
+	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=KFWGTod/Hb30Jg5nGx1OXx0QlYfmVGBc741mC5/G7B8=; b=KmPKouuyqc2mdBy7Zde3MjQFgi
+	fDbk6GBDQpKdgmwNN9uFkFk2ZFJJAwRWDsMTkkJDLZUXLfw4hYtcFf9PmwuePC1QwzG4vjQ1Nrqzt
+	zEigyFQr0oZYOvW3aTUvJM+s6N2fNCejui/hyPsEYDpwb/Rb02BUgizCPBHqOh5+KeCdEpzVJq7DQ
+	QviBw8AQKMWg0hvYsq75Jray2voB58T09h5Vkk3QSv3OIpgXcZXsYcfFENA1JCDIjP0TTZ4lvdmxb
+	5Hx6MpWjKJzrhqr1rO4xJ6vxE59/Kl7iz1Uhmr2V5RGBYP1yWCahbDHuag+DrcGWOff2uD+9xPkNs
+	e0xi8Hwg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wSzZp-00000007mct-3KeB;
-	Fri, 29 May 2026 15:56:49 +0000
+	id 1wSzZq-00000007mej-32sJ;
+	Fri, 29 May 2026 15:56:50 +0000
 Received: from mx0a-001b2d01.pphosted.com ([148.163.156.1])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wSzZT-00000007mFh-3DH9
+	id 1wSzZS-00000007mFS-0L8V
 	for linux-arm-kernel@lists.infradead.org;
-	Fri, 29 May 2026 15:56:31 +0000
-Received: from pps.filterd (m0353729.ppops.net [127.0.0.1])
-	by mx0a-001b2d01.pphosted.com (8.18.1.11/8.18.1.11) with ESMTP id 64TFDGnm1684869;
-	Fri, 29 May 2026 15:56:18 GMT
+	Fri, 29 May 2026 15:56:32 +0000
+Received: from pps.filterd (m0360083.ppops.net [127.0.0.1])
+	by mx0a-001b2d01.pphosted.com (8.18.1.11/8.18.1.11) with ESMTP id 64TF20CR2418232;
+	Fri, 29 May 2026 15:56:10 GMT
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=ibm.com; h=cc
-	:content-transfer-encoding:date:from:in-reply-to:message-id
-	:mime-version:references:subject:to; s=pp1; bh=3Vy2znU6BE4rmaBvm
-	7MA/uVOlXjosiNrrWucqsFdf9c=; b=K27KKNdreoIEGHSTowUgvDrVoDEGlaaIk
-	KKFeC2moTvrOwELxIq/fCLEUTqNwIR16vBd9KFN/EzVI7jFCQaSKMAY5ltCsQ8AW
-	TupsHjs5vd3uBLKmMLAgnQe4AW+vRx7ArNUNcJImG8/Z3u3FMxMUpt2Sf/gx/tB0
-	slS9HntHuPN4IiRdzo+7gzKVAidoszJZ0LPI/uVRQHnvLlsZ839eauE6/DlbIIOp
-	dbQtQziRMKjIvsFg/Q+U0Fdmzv88/ubR4+eWJBqAfQ4n7d/vaOJIeAMfXBCbvoM+
-	8VJPdG3bJlp48Tf4d4FK5SSc7CMwhbrBwpyzR3NRtg5Ivn9Q6BDww==
-Received: from ppma13.dal12v.mail.ibm.com (dd.9e.1632.ip4.static.sl-reverse.com [50.22.158.221])
-	by mx0a-001b2d01.pphosted.com (PPS) with ESMTPS id 4ee884mh8f-1
+	:content-transfer-encoding:date:from:message-id:mime-version
+	:subject:to; s=pp1; bh=KFWGTod/Hb30Jg5nGx1OXx0QlYfmVGBc741mC5/G7
+	B8=; b=QblZmF79W2mAJFeoiCLGMOMqm8eqKf/4o2MocZ4eKg+hpsYl1IJErqwIB
+	scHNZYogxHHIzX99muDksigweZ91kt0U2IREzTdfN4eZDZ6PbnAFApc3NBtE2EHQ
+	ccCxUGSmHvCwtP3PxLG5QXd1St+g+KKtiUjvhPef+oCXXpeNcAH2s36c6DEQR2wE
+	rKxCn10WHV2GJvCD5RS2Gn2LD8yGuWhmJIawe9sU7NwkWAOroHAT70DlWZtmdV4C
+	Kh/FRhme4pw2+qEancDmIVvpDXv+3q29fZ0vFd7L5aZH+QB0f94XR95QEhkxpel2
+	slANEtsp9arI+jcR8s6gDeTiAGg+A==
+Received: from ppma22.wdc07v.mail.ibm.com (5c.69.3da9.ip4.static.sl-reverse.com [169.61.105.92])
+	by mx0a-001b2d01.pphosted.com (PPS) with ESMTPS id 4ee884vkm4-1
 	(version=TLSv1.2 cipher=ECDHE-RSA-AES256-GCM-SHA384 bits=256 verify=NOT);
-	Fri, 29 May 2026 15:56:18 +0000 (GMT)
-Received: from pps.filterd (ppma13.dal12v.mail.ibm.com [127.0.0.1])
-	by ppma13.dal12v.mail.ibm.com (8.18.1.7/8.18.1.7) with ESMTP id 64TFs5Ej016940;
-	Fri, 29 May 2026 15:56:17 GMT
-Received: from smtprelay07.fra02v.mail.ibm.com ([9.218.2.229])
-	by ppma13.dal12v.mail.ibm.com (PPS) with ESMTPS id 4edjrbgjr6-1
-	(version=TLSv1.2 cipher=ECDHE-RSA-AES256-GCM-SHA384 bits=256 verify=NOT);
-	Fri, 29 May 2026 15:56:17 +0000 (GMT)
-Received: from smtpav07.fra02v.mail.ibm.com (smtpav07.fra02v.mail.ibm.com [10.20.54.106])
-	by smtprelay07.fra02v.mail.ibm.com (8.14.9/8.14.9/NCO v10.0) with ESMTP id 64TFu9ss47120700
-	(version=TLSv1/SSLv3 cipher=DHE-RSA-AES256-GCM-SHA384 bits=256 verify=OK);
+	Fri, 29 May 2026 15:56:10 +0000 (GMT)
+Received: from pps.filterd (ppma22.wdc07v.mail.ibm.com [127.0.0.1])
+	by ppma22.wdc07v.mail.ibm.com (8.18.1.7/8.18.1.7) with ESMTP id 64TFs7dm023024;
 	Fri, 29 May 2026 15:56:09 GMT
-Received: from smtpav07.fra02v.mail.ibm.com (unknown [127.0.0.1])
-	by IMSVA (Postfix) with ESMTP id C734620040;
+Received: from smtprelay07.fra02v.mail.ibm.com ([9.218.2.229])
+	by ppma22.wdc07v.mail.ibm.com (PPS) with ESMTPS id 4edjrc0k0q-1
+	(version=TLSv1.2 cipher=ECDHE-RSA-AES256-GCM-SHA384 bits=256 verify=NOT);
 	Fri, 29 May 2026 15:56:09 +0000 (GMT)
+Received: from smtpav07.fra02v.mail.ibm.com (smtpav07.fra02v.mail.ibm.com [10.20.54.106])
+	by smtprelay07.fra02v.mail.ibm.com (8.14.9/8.14.9/NCO v10.0) with ESMTP id 64TFu2sb50594184
+	(version=TLSv1/SSLv3 cipher=DHE-RSA-AES256-GCM-SHA384 bits=256 verify=OK);
+	Fri, 29 May 2026 15:56:02 GMT
 Received: from smtpav07.fra02v.mail.ibm.com (unknown [127.0.0.1])
-	by IMSVA (Postfix) with ESMTP id 7A7352004E;
-	Fri, 29 May 2026 15:56:09 +0000 (GMT)
+	by IMSVA (Postfix) with ESMTP id 4E6132004B;
+	Fri, 29 May 2026 15:56:02 +0000 (GMT)
+Received: from smtpav07.fra02v.mail.ibm.com (unknown [127.0.0.1])
+	by IMSVA (Postfix) with ESMTP id E6F8D20040;
+	Fri, 29 May 2026 15:56:01 +0000 (GMT)
 Received: from tuxmaker.boeblingen.de.ibm.com (unknown [9.87.85.9])
 	by smtpav07.fra02v.mail.ibm.com (Postfix) with ESMTP;
-	Fri, 29 May 2026 15:56:09 +0000 (GMT)
+	Fri, 29 May 2026 15:56:01 +0000 (GMT)
 From: Steffen Eiden <seiden@linux.ibm.com>
 To: kvm@vger.kernel.org, kvmarm@lists.linux.dev,
         linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org,
@@ -88,41 +88,39 @@ Cc: Alexander Gordeev <agordeev@linux.ibm.com>,
         Ulrich Weigand <Ulrich.Weigand@de.ibm.com>,
         Vasily Gorbik <gor@linux.ibm.com>, Will Deacon <will@kernel.org>,
         Zenghui Yu <yuzenghui@huawei.com>
-Subject: [PATCH v1 20/26] KVM: arm64: Share ID reg handling
-Date: Fri, 29 May 2026 17:55:53 +0200
-Message-ID: <20260529155601.2927240-21-seiden@linux.ibm.com>
+Subject: [PATCH v1 00/26] KVM: arm64 on s390 System Register Handling
+Date: Fri, 29 May 2026 17:55:33 +0200
+Message-ID: <20260529155601.2927240-1-seiden@linux.ibm.com>
 X-Mailer: git-send-email 2.53.0
-In-Reply-To: <20260529155601.2927240-1-seiden@linux.ibm.com>
-References: <20260529155601.2927240-1-seiden@linux.ibm.com>
 MIME-Version: 1.0
 Content-Transfer-Encoding: 8bit
 X-TM-AS-GCONF: 00
-X-Authority-Analysis: v=2.4 cv=fIYJG5ae c=1 sm=1 tr=0 ts=6a19b722 cx=c_pps
- a=AfN7/Ok6k8XGzOShvHwTGQ==:117 a=AfN7/Ok6k8XGzOShvHwTGQ==:17
+X-Authority-Analysis: v=2.4 cv=L4MtheT8 c=1 sm=1 tr=0 ts=6a19b71a cx=c_pps
+ a=5BHTudwdYE3Te8bg5FgnPg==:117 a=5BHTudwdYE3Te8bg5FgnPg==:17
  a=NGcC8JguVDcA:10 a=VkNPw1HP01LnGYTKEx00:22 a=RnoormkPH1_aCDwRdu11:22
- a=uAbxVGIbfxUO_5tXvNgY:22 a=VnNF1IyMAAAA:8 a=zX106nZOjTGFKEJQ2UEA:9
-X-Proofpoint-ORIG-GUID: ZzHTE0AERXso7IIrM-FN81R4I5MxuTO1
-X-Proofpoint-GUID: ZzHTE0AERXso7IIrM-FN81R4I5MxuTO1
-X-Proofpoint-Spam-Details-Enc: AW1haW4tMjYwNTI5MDE1NiBTYWx0ZWRfX2vj6YkRj7S/C
- /fxSSkbOGVA5zBBSZdvjrlGMcnXyGE4kTca+RTxJLMmJsXkDHQFXBNywofBFuGNuvi3ZISjzWco
- 1HUwkMl1+js7fUQItP6Kp7bfj9rm84EQgt4+imjAEFLqtMfPgRnDtFdqq7yHFvUzZVzqAdAtSN0
- aaCiARNmGFqHoFqzaiZBVQ4O2DFXi0XBCKg4ffzO3IRJr1yz8sYlIjaYcdBJ6RBPj+QyeV8iVZ3
- SuhMcQLOkESCjOntKD5rZfHaZ9Wru02+ElmA7bGNb1ff2fwoIQzJR5NFE2mC1WPLroKkU00BJZg
- sB3vf8JpvAi8ZopBrJW1QQ9QEURxjgAlUvkNESpoiXGBGrVHwCejNHCEaOAXQuW6HA/Fq2yEa2I
- lmwlAq3XYm6a3CGhR9ZWSZ+r4TdSyRtZp4Nk/wVNja0D8sQCXf44s4CuqtHpmgaZr6Z8j9e/gFh
- EiE/w34gfmchWc+mn7g==
+ a=iQ6ETzBq9ecOQQE5vZCe:22 a=VwQbUJbxAAAA:8 a=VnNF1IyMAAAA:8
+ a=SYefhmQwoCRZZBh0FkwA:9
+X-Proofpoint-ORIG-GUID: ElVShckdVUTBxAneIkY6-NTlIwU94kG9
+X-Proofpoint-Spam-Details-Enc: AW1haW4tMjYwNTI5MDE1NiBTYWx0ZWRfX91eGG6WRN1wh
+ AKG6wPMJVHwkG5vuTm759aRP+kfvwDLJNNslsjnytwLbxvnIqvE3ZPNfiqK4J+He0P27a3CQL3S
+ UQa0zh2DhIsFo+3+ZrOtKzuqnuVuYfglr8e6KLzvWfek/u3pqgW8mC3fP/N4HvN9Uovh+8aD6I6
+ hZGChDW2I32TTwMeN5Fzp+dnq5hQ2a6uAfVyJYmSOx2g/quWfJjgJ63tXj6p2jpgrkyiTGs7htb
+ ox3uM0L3S85O8Xc3NbsWlhC0kTlpfwpCVvks08YUlZTnmzm9UujFbs/fASjN2wwk00O2pL5vK7M
+ x3W4BPonn8DjdZVkrwH0v1uPQpPN03snfOQx1tUAELqOoH4Zce7805UM7d9ZCiQFKOgr8RuWGOH
+ eH4lpDUprF1TyN7YmuKlxWQnYd1jhaSG9erh0vwo5O40gnn8R/IH+ulI3/QN+wEPgVWeP6fG8gn
+ h3nSC+Qu9f5Y0S/ZHkQ==
+X-Proofpoint-GUID: ElVShckdVUTBxAneIkY6-NTlIwU94kG9
 X-Proofpoint-Virus-Version: vendor=baseguard
  engine=ICAP:2.0.293,Aquarius:18.0.1143,Hydra:6.1.125,FMLib:17.12.100.49
  definitions=2026-05-29_04,2026-05-28_03,2025-10-01_01
 X-Proofpoint-Spam-Details: rule=outbound_notspam policy=outbound score=0
- phishscore=0 lowpriorityscore=0 suspectscore=0 impostorscore=0
- priorityscore=1501 malwarescore=0 clxscore=1015 adultscore=0 spamscore=0
- bulkscore=0 classifier=typeunknown authscore=0 authtc= authcc= route=outbound
- adjust=0 reason=mlx scancount=1 engine=8.22.0-2605210000
- definitions=main-2605290156
+ phishscore=0 lowpriorityscore=0 suspectscore=0 clxscore=1015 malwarescore=0
+ bulkscore=0 impostorscore=0 adultscore=0 priorityscore=1501 spamscore=0
+ classifier=typeunknown authscore=0 authtc= authcc= route=outbound adjust=0
+ reason=mlx scancount=1 engine=8.22.0-2605210000 definitions=main-2605290156
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260529_085628_020237_AF747B0D 
-X-CRM114-Status: GOOD (  15.55  )
+X-CRM114-CacheID: sfid-20260529_085628_166618_080FA641 
+X-CRM114-Status: GOOD (  15.24  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -137,128 +135,141 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Move ID register definitions from arch/arm64/include to a shared
-location (include/kvm/arm64) to enable reuse by e.g. s390 for KVM/arm64
-on s390 support.
+Add system register handling for KVM/arm64 on s390. Restructure and share
+KVM/arm64 code, introduce ARM guest management functions for s390 hosts,
+and implement host sysreg & exception handling.
 
-Signed-off-by: Steffen Eiden <seiden@linux.ibm.com>
----
- arch/arm64/include/asm/kvm_host.h | 41 ------------------------------
- include/kvm/arm64/kvm_host.h      | 42 +++++++++++++++++++++++++++++++
- 2 files changed, 42 insertions(+), 41 deletions(-)
+Changes in detail:
 
-diff --git a/arch/arm64/include/asm/kvm_host.h b/arch/arm64/include/asm/kvm_host.h
-index 5734e93cad57..a5fca468cc4a 100644
---- a/arch/arm64/include/asm/kvm_host.h
-+++ b/arch/arm64/include/asm/kvm_host.h
-@@ -1385,47 +1385,6 @@ static inline void kvm_hyp_reserve(void) { }
- void kvm_arm_vcpu_power_off(struct kvm_vcpu *vcpu);
- bool kvm_arm_vcpu_stopped(struct kvm_vcpu *vcpu);
- 
--struct kvm_vm_id_regs {
--	/*
--	 * Emulated CPU ID registers per VM
--	 * (Op0, Op1, CRn, CRm, Op2) of the ID registers to be saved in it
--	 * is (3, 0, 0, crm, op2), where 1<=crm<8, 0<=op2<8.
--	 *
--	 * These emulated idregs are VM-wide, but accessed from the context of a vCPU.
--	 * Atomic access to multiple idregs are guarded by kvm_arch.config_lock.
--	 */
--#define IDREG_IDX(id)		(((sys_reg_CRm(id) - 1) << 3) | sys_reg_Op2(id))
--#define KVM_ARM_ID_REG_NUM	(IDREG_IDX(sys_reg(3, 0, 0, 7, 7)) + 1)
--	u64 normal[KVM_ARM_ID_REG_NUM];
--
--	u64 midr_el1;
--	u64 revidr_el1;
--	u64 aidr_el1;
--	u64 ctr_el0;
--};
--
--static inline u64 *__vm_id_reg(struct kvm_vm_id_regs *id_regs, u32 reg)
--{
--	switch (reg) {
--	case sys_reg(3, 0, 0, 1, 0) ... sys_reg(3, 0, 0, 7, 7):
--		return &id_regs->normal[IDREG_IDX(reg)];
--	case SYS_CTR_EL0:
--		return &id_regs->ctr_el0;
--	case SYS_MIDR_EL1:
--		return &id_regs->midr_el1;
--	case SYS_REVIDR_EL1:
--		return &id_regs->revidr_el1;
--	case SYS_AIDR_EL1:
--		return &id_regs->aidr_el1;
--	default:
--		WARN_ON_ONCE(1);
--		return NULL;
--	}
--}
--
--#define kvm_read_vm_id_reg(kvm, reg)					\
--	({ u64 __val = *__vm_id_reg(&(kvm)->arch.id_regs, reg); __val; })
--
- void kvm_set_vm_id_reg(struct kvm *kvm, u32 reg, u64 val);
- 
- static inline bool kvm_arch_has_irq_bypass(void)
-diff --git a/include/kvm/arm64/kvm_host.h b/include/kvm/arm64/kvm_host.h
-index 8bf399508757..379942225d5f 100644
---- a/include/kvm/arm64/kvm_host.h
-+++ b/include/kvm/arm64/kvm_host.h
-@@ -4,6 +4,7 @@
- #define __KVM_ARM64_KVM_HOST_H
- 
- #include <linux/types.h>
-+#include <asm/sysreg-defs.h>
- 
- #define KVM_VCPU_MAX_FEATURES 9
- 
-@@ -21,6 +22,47 @@
- #define KVM_REQ_MAP_L1_VNCR_EL2		KVM_ARCH_REQ(10)
- #define KVM_REQ_VGIC_PROCESS_UPDATE	KVM_ARCH_REQ(11)
- 
-+struct kvm_vm_id_regs {
-+	/*
-+	 * Emulated CPU ID registers per VM
-+	 * (Op0, Op1, CRn, CRm, Op2) of the ID registers to be saved in it
-+	 * is (3, 0, 0, crm, op2), where 1<=crm<8, 0<=op2<8.
-+	 *
-+	 * These emulated idregs are VM-wide, but accessed from the context of a vCPU.
-+	 * Atomic access to multiple idregs are guarded by kvm_arch.config_lock.
-+	 */
-+#define IDREG_IDX(id)		(((sys_reg_CRm(id) - 1) << 3) | sys_reg_Op2(id))
-+#define KVM_ARM_ID_REG_NUM	(IDREG_IDX(sys_reg(3, 0, 0, 7, 7)) + 1)
-+	u64 normal[KVM_ARM_ID_REG_NUM];
-+
-+	u64 midr_el1;
-+	u64 revidr_el1;
-+	u64 aidr_el1;
-+	u64 ctr_el0;
-+};
-+
-+static inline u64 *__vm_id_reg(struct kvm_vm_id_regs *id_regs, u32 reg)
-+{
-+	switch (reg) {
-+	case sys_reg(3, 0, 0, 1, 0) ... sys_reg(3, 0, 0, 7, 7):
-+		return &id_regs->normal[IDREG_IDX(reg)];
-+	case SYS_CTR_EL0:
-+		return &id_regs->ctr_el0;
-+	case SYS_MIDR_EL1:
-+		return &id_regs->midr_el1;
-+	case SYS_REVIDR_EL1:
-+		return &id_regs->revidr_el1;
-+	case SYS_AIDR_EL1:
-+		return &id_regs->aidr_el1;
-+	default:
-+		WARN_ON_ONCE(1);
-+		return NULL;
-+	}
-+}
-+
-+#define kvm_read_vm_id_reg(kvm, reg)					\
-+	({ u64 __val = *__vm_id_reg(&(kvm)->arch.id_regs, reg); __val; })
-+
- struct vcpu_reset_state {
- 	unsigned long	pc;
- 	unsigned long	r0;
+arm64:
+
+Refactor arm64 feature detection and ID register handling to make it
+generic and reusable across architectures.
+
+Restructure ID register storage and core register handling. Refactor core
+registers to use functions instead of direct memory access.
+
+Move arm64-specific definitions (CPU types, cache, KVM features, ID
+registers, system registers) to shared locations for reuse by other
+architectures.
+
+s390:
+
+Add s390 instruction support for ARM guest management: easr/sasr for
+system register access, QAAF for feature queries, and ptff extensions
+for guest time handling.
+
+Implement complete sysreg handling for s390 including feature
+sanitisation, register enumeration and access, exception injection,
+and finalized page fault handling.
+
+The series builds upon the foundation established in the first series and
+requires the first series v3[1] as base.
+
+	Steffen
+
+[1] https://lore.kernel.org/lkml/20260529155050.2902245-1-seiden@linux.ibm.com/
+
+Andreas Grapentin (1):
+  KVM: arm64: Fix set_oslsr_el1 to write to OSLAR_EL1
+
+Steffen Eiden (25):
+  KVM: arm64: Extract some feature related changes to kvm_feature.h
+  KVM: arm64: Remove __expand_field_sign_(un)signed
+  KVM: arm64: Generalize get_idreg_field_*()
+  KVM: arm64: Generalize kvm_cmp_feat_*()
+  KVM: arm64: Generalize kvm_has_feat_*
+  KVM: arm64: Remove get_idreg_field_*() and kvm_cmp_feat_*()
+  KVM: arm64: Remove kvm_has_feat_range
+  KVM: arm64: Split up feature sysreg sanitisation
+  KVM: arm64: Refactor idreg caching into dedicated structure
+  KVM: arm64: Move definitions from sys_regs.c to sys_regs.h
+  KVM: arm64: Add PVM_ prefix to avoid name collisions
+  s390: Introduce read/write ARM sysreg instructions
+  s390: Introduce Query Available Arm features
+  s390: Add functions to query arm guest time
+  KVM: s390: arm64: Add sysreg related functions and definitions
+  arm64: Extract cputype definitions.
+  arm64: Extract cache definitions
+  KVM: arm64: Share KVM feature detection macros
+  KVM: arm64: Share ID reg handling
+  KVM: arm64: Share sys-reg handling
+  KVM: arm64: Refactor core reg handling
+  KVM: s390: arm64: Implement feature sanitisation
+  KVM: s390: arm64: Implement sysreg handling
+  KVM: s390: arm64: Implement exception injection
+  KVM: s390: arm64: Finalize page fault handling
+
+ arch/arm64/include/asm/cache.h                |   19 +-
+ arch/arm64/include/asm/cputype.h              |  246 +---
+ arch/arm64/include/asm/kvm_emulate.h          |    1 +
+ arch/arm64/include/asm/kvm_feature.h          |   27 +
+ arch/arm64/include/asm/kvm_host.h             |  137 +-
+ arch/arm64/include/asm/kvm_nested.h           |    1 +
+ arch/arm64/kvm/arm.c                          |    2 +-
+ arch/arm64/kvm/at.c                           |    1 +
+ arch/arm64/kvm/config.c                       |    3 +-
+ arch/arm64/kvm/hyp/include/hyp/sysreg-sr.h    |    1 +
+ arch/arm64/kvm/hyp/nvhe/hyp-main.c            |    1 +
+ arch/arm64/kvm/hyp/nvhe/pkvm.c                |    7 +-
+ arch/arm64/kvm/hyp/nvhe/sys_regs.c            |   55 +-
+ arch/arm64/kvm/nested.c                       |    2 +-
+ arch/arm64/kvm/sys_regs.c                     | 1307 +----------------
+ arch/arm64/kvm/sys_regs.h                     |  276 ----
+ arch/arm64/kvm/trace_handle_exit.h            |   36 +-
+ arch/arm64/kvm/vgic-sys-reg-v3.c              |    2 +-
+ arch/arm64/kvm/vgic/vgic-init.c               |    1 +
+ arch/arm64/kvm/vgic/vgic.h                    |    1 +
+ arch/s390/include/asm/kvm_emulate.h           |   34 +
+ arch/s390/include/asm/kvm_feature.h           |  111 ++
+ arch/s390/include/asm/kvm_host_arm64.h        |  168 ++-
+ arch/s390/include/asm/kvm_host_arm64_types.h  |   97 ++
+ arch/s390/include/asm/kvm_nested.h            |    5 +
+ arch/s390/include/asm/sae-asm.h               |   48 +
+ arch/s390/include/asm/sae.h                   |   86 ++
+ arch/s390/include/asm/timex.h                 |   49 +
+ arch/s390/kernel/dis.c                        |    1 +
+ arch/s390/kernel/time.c                       |    1 +
+ arch/s390/kvm/arm64/Makefile                  |    3 +
+ arch/s390/kvm/arm64/arm.c                     |   44 +-
+ arch/s390/kvm/arm64/exception.c               |  105 ++
+ arch/s390/kvm/arm64/feature.c                 |  170 +++
+ arch/s390/kvm/arm64/guest.c                   |   20 +-
+ arch/s390/kvm/arm64/handle_exit.c             |    1 +
+ arch/s390/kvm/arm64/inject_fault.c            |   72 +-
+ arch/s390/kvm/arm64/mmu.c                     |   62 +-
+ arch/s390/kvm/arm64/reset.c                   |    5 +
+ arch/s390/kvm/arm64/sys_regs.c                |  769 ++++++++++
+ arch/s390/kvm/arm64/trace.h                   |   33 +
+ arch/s390/tools/opcodes.txt                   |    3 +
+ include/arch/arm64/asm/cache-defs.h           |   22 +
+ .../arch/arm64/asm/cputype-defs.h             |   92 +-
+ include/arch/arm64/asm/sysreg-defs.h          |    9 +
+ include/kvm/arm64/kvm_feature.h               |   68 +
+ include/kvm/arm64/kvm_host.h                  |   52 +
+ include/kvm/arm64/sys_regs.h                  |  548 +++++++
+ virt/kvm/arm64/Makefile.kvm                   |    1 +
+ virt/kvm/arm64/guest.c                        |  100 +-
+ virt/kvm/arm64/mmio.c                         |    1 +
+ virt/kvm/arm64/sys_regs.c                     | 1039 +++++++++++++
+ virt/kvm/arm64/trace.h                        |   34 +
+ 53 files changed, 3838 insertions(+), 2141 deletions(-)
+ create mode 100644 arch/arm64/include/asm/kvm_feature.h
+ delete mode 100644 arch/arm64/kvm/sys_regs.h
+ create mode 100644 arch/s390/include/asm/kvm_feature.h
+ create mode 100644 arch/s390/include/asm/sae-asm.h
+ create mode 100644 arch/s390/kvm/arm64/exception.c
+ create mode 100644 arch/s390/kvm/arm64/feature.c
+ create mode 100644 arch/s390/kvm/arm64/sys_regs.c
+ create mode 100644 arch/s390/kvm/arm64/trace.h
+ create mode 100644 include/arch/arm64/asm/cache-defs.h
+ copy arch/arm64/include/asm/cputype.h => include/arch/arm64/asm/cputype-defs.h (85%)
+ create mode 100644 include/kvm/arm64/kvm_feature.h
+ create mode 100644 include/kvm/arm64/sys_regs.h
+ create mode 100644 virt/kvm/arm64/sys_regs.c
+
+
+base-commit: 4095afb932d1a98a6fcb3f4f490964949d0de338
 -- 
 2.53.0
 
