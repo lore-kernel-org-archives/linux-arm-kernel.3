@@ -4,103 +4,146 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 9FAABCD6E43
-	for <linux-arm-kernel@archiver.kernel.org>; Fri, 29 May 2026 10:18:58 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 1C996CD5BD2
+	for <linux-arm-kernel@archiver.kernel.org>; Fri, 29 May 2026 10:27:10 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:
-	To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
+	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=P4zSRLTrRKREVH9IqS8el7yHWyFDWA9l51ZOzDmK9sI=; b=et677XgUPteghIFsSOSTASCXrg
-	f1kDRkCbPtI0GT/3TK3Vu+uNKUTwKWi3JpF3/hukAsTLs0dKjmgfGLyakzNzqLjS5/Kmho6ZebVju
-	kMCfQjDNCaoztEHY5QvoggWn0OgYjO7tt1IILjesRa1vKRVQKm9kBMnpoliCusmyCe08VtAbD4PPV
-	5xwRGay7P4q+Wn2heMKR6xjP+58FmTL4Up24lnvMghnoEMNdBJIQoMPFrXFP9KbN2/vlB93Qi9K7/
-	8P9+KBB40QU/wrqGhxbMbUMDjvZyk417GTMmkZ/mfTjMh+IHclNz8YAtKK2WCWp0FCui9jdmblJeB
-	rmBkmFqw==;
+	bh=KKcwd9MWaUtPKni3P9v2KO6dNdslVHLHPQmpmH4aFvw=; b=CRrKfGAPCKRuPUkyB5VZlIlEwz
+	e+TiIZ1eX/sZP5lq+iO1ZRw0IbuDs4ZmrJXQkaJ34f88vrzASKP7vtDoMLujoOZgoRKEk8kC7z2vA
+	Kjb6U9cKWQM/7gpH/s4s86/E9CHmBd4FBWDhOsDjRoK3ugn6xXDIpQijDl7iACIHZkuay0Nozq4fZ
+	nmqb+5CS3Q621ZtABmXl+fMYTEtAIQmTBl5hLUwIjlDDH4q2bOsnehwUYAWx7eERc8PiTSdHbM29j
+	U5n9/9PvWqhsFlI8vjgUoe3Zf9rQBE4H4r+qyTbFfH5dQg7mHR8ssW+qFtplOtLCet9d5jR0zJKUM
+	mIhyzTZw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wSuIk-00000007ANs-37na;
-	Fri, 29 May 2026 10:18:50 +0000
-Received: from mail-wm1-x331.google.com ([2a00:1450:4864:20::331])
+	id 1wSuQf-00000007BO1-3pJJ;
+	Fri, 29 May 2026 10:27:01 +0000
+Received: from mx0a-0031df01.pphosted.com ([205.220.168.131])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wSuIg-00000007AHN-25tU
+	id 1wSuQc-00000007BN2-2khW
 	for linux-arm-kernel@lists.infradead.org;
-	Fri, 29 May 2026 10:18:48 +0000
-Received: by mail-wm1-x331.google.com with SMTP id 5b1f17b1804b1-49039a8851fso81461055e9.2
-        for <linux-arm-kernel@lists.infradead.org>; Fri, 29 May 2026 03:18:45 -0700 (PDT)
+	Fri, 29 May 2026 10:27:00 +0000
+Received: from pps.filterd (m0279863.ppops.net [127.0.0.1])
+	by mx0a-0031df01.pphosted.com (8.18.1.11/8.18.1.11) with ESMTP id 64T6LMaN562448
+	for <linux-arm-kernel@lists.infradead.org>; Fri, 29 May 2026 10:26:57 GMT
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=qualcomm.com; h=
+	cc:content-transfer-encoding:content-type:date:from:in-reply-to
+	:message-id:mime-version:references:subject:to; s=qcppdkim1; bh=
+	KKcwd9MWaUtPKni3P9v2KO6dNdslVHLHPQmpmH4aFvw=; b=RnjH83pmAiHippPc
+	S8Rpcc0JtoOlC00V7WG6iwGfN7zy8LACGNPmwF2lj4ssIkCSQKTe2lp3ydgghZSh
+	2vsEzkgpI/6d2JE6zfXYawhB4GdsE94tpo7cEAsIzd6Tf2acI5kOq4wrvBuxR5q8
+	qt2f/tu20x7cOvyoK9ewN4wRskuWQCnWCTIe6xFr5RDLOyHejlf5mraiVL4RbuOZ
+	lfHt6yeT68OKQOrphefe0GhutNGdUwhbBeRXpIuep7mB637G5zN8bKrtTl8ZbJFq
+	Nfh3BqAD1JpjIWdISZLQ8PVQtJ8S/96C8neK05tGTeyJ0zcklezAMcWXOYiJmUcS
+	Ay1XlA==
+Received: from mail-pj1-f69.google.com (mail-pj1-f69.google.com [209.85.216.69])
+	by mx0a-0031df01.pphosted.com (PPS) with ESMTPS id 4eevug33vq-1
+	(version=TLSv1.3 cipher=TLS_AES_128_GCM_SHA256 bits=128 verify=NOT)
+	for <linux-arm-kernel@lists.infradead.org>; Fri, 29 May 2026 10:26:57 +0000 (GMT)
+Received: by mail-pj1-f69.google.com with SMTP id 98e67ed59e1d1-368ac44b26dso12460437a91.2
+        for <linux-arm-kernel@lists.infradead.org>; Fri, 29 May 2026 03:26:56 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=baylibre.com; s=google; t=1780049924; x=1780654724; darn=lists.infradead.org;
-        h=content-transfer-encoding:mime-version:references:in-reply-to
-         :message-id:date:subject:cc:to:from:from:to:cc:subject:date
-         :message-id:reply-to;
-        bh=P4zSRLTrRKREVH9IqS8el7yHWyFDWA9l51ZOzDmK9sI=;
-        b=fAUbDSchbLJ9qIHQLxHZIIBkOaRFYuE+rvO3hkT91ozfIE4uXMIZEfMxRrIWd0jjcc
-         KnUhvYJnyQEsQ8stWABt9CMe7JmrLVA6YOXZ6o/gxMyh+RLXWr27hgi/aqkipWnc7GDU
-         aDGQgxasVaDjSSL7IVJo764eeHAEHRVFSUViEqZCt4kkceQdbwCUwVJqH3l3UYx3+3Wl
-         s+KOdeBIcdrfMLjLJ+/eNZFvLYPEexUNPdcBMbCDDTemkmTu1Sqs2WcXMqKpuY/8evvl
-         eylscmZokUMLqY8hsqOEcb691AlYZwpzhHtUPkM29MAqFCtnf+LHl2zNxXHGT9BJwrdZ
-         M6TQ==
+        d=oss.qualcomm.com; s=google; t=1780050416; x=1780655216; darn=lists.infradead.org;
+        h=content-transfer-encoding:in-reply-to:from:content-language
+         :references:cc:to:subject:user-agent:mime-version:date:message-id
+         :from:to:cc:subject:date:message-id:reply-to;
+        bh=KKcwd9MWaUtPKni3P9v2KO6dNdslVHLHPQmpmH4aFvw=;
+        b=HyRn6b4u6Bi2j2+FTSE+a71+wJ2Hh0i4i0sJQ0h5pDER04LUXapDHoZ4BVn1l5pXic
+         PryFbWWbFZjm9tTL5KZgOcp5GZFpG3ZbCX5WIHoRU9S4OWp5g0kCJ+9ZgG3F0Xi7co5r
+         LIGk9wdvOKmZDIoE46nrkKQ01vhne8pnr8bqwVcZ+TcvXHSX0NcSCBHsKV4STKrHrnjV
+         ojShfdbeSogoVN1+fLE992gZo5R1bbKMESJxIoolDawS5bhVy4u/IuvXzxa/87Gn/YnL
+         14kTyhVa72GPNcr2+7MTrHnaBUpuv45Zh1xWZx6dO6KnJWQiavhJAvlYjKvq3O4uk6gt
+         AjIg==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20251104; t=1780049924; x=1780654724;
-        h=content-transfer-encoding:mime-version:references:in-reply-to
-         :message-id:date:subject:cc:to:from:x-gm-gg:x-gm-message-state:from
-         :to:cc:subject:date:message-id:reply-to;
-        bh=P4zSRLTrRKREVH9IqS8el7yHWyFDWA9l51ZOzDmK9sI=;
-        b=T44bN3GhxZ2AuiPYAodzQo8XHKnZlYARh3Uxxhh1fE7ROBg3I9/tDCPOSdw+FnLk/L
-         UYg6q+x+WFyKs6repRR99yFsGUZtYVDIEXfuoNyYdRiVn8It24chr0rfafr9y9kLDJrW
-         H1fPxLDv6jzMUsKMmhVbMypuaY7qCOs6eWMnl9HaEGCzOQa3S1mZFicVKGu9rczQiA4z
-         Qv1ODCzX2m1aX7rMM+vKbzcp8i+EJOHNF21PoMOcqCW5PP35B2wU/EGGesgA2UY25aDu
-         icqWP+OERcpKr7xaIKNv4ADfl7SUdA+J5BsAoKK8V0HqQ4FCB727xuMLbbOtnAmxpqPj
-         z4Bg==
-X-Forwarded-Encrypted: i=1; AFNElJ/yewzFpZRc4p1HbswGUTlNG4gc8pQdZjvkiZmqYTbqwHmV/GS/pLZV+VaN0MU3p0H3qITw2nF68utvBj3PrHvd@lists.infradead.org
-X-Gm-Message-State: AOJu0YyYjMBswrzaJ+MeL1PejBPMWGDLOIT0HEd1AGTbj1K8XYk0/Qcl
-	IR3X7oj0DV3ZGfufeDDxqd0jDo2pjxzsjifDmXcZU4KZ0NdcNrp92/JmOc/nVihzK+U=
-X-Gm-Gg: Acq92OFP9Aa83073Epqp01H7ooVUisb3+uhrWHFiRPKFX0nz6QMl1k7ATkqnjDrTDOI
-	stGsMqpFeCQH8qq7t/j1Ze2TEq5WKnXThh5aLx/krUiTdrKc94nygNEAHQj9GLTkAk5onjSxIWO
-	YjdFDNzycU/h1jlEP0kslzGXGPCCNJguPVjN1VnsDoQRhN3awhLyjoZMcWQPnJ22feqNUVS2l/0
-	85lNIt3zIt4PmXZpC86fuA28vnUvEy5eLKw0N3D4yrRnrVYltj3b7K8+BXO5BRL5rv60ZXJvZrL
-	r6oDWwNaH9hxiKQ8lz7hVGN/6PnNqmUXfV7e3ZOuCBKo4hYOuP7N+iG8JrnJ0Y4KN/9cGx5TPLR
-	ODXpIIJoVfAOgJxMHXRT7yT7aGUSZsbn99CZgc/CBxtKGbdEjNK9Zfd6xi5K5YzXKLWecEc1Jl+
-	sMpi+iC/R4wjVZQZXef8D7IBZ6N01G1g6zG5O9wrvSzUgYz6dzt4R59Hv7BqXw5khUOKCtng4tZ
-	teJ9ZjtRDAFw7DXh2aEGiCL0A==
-X-Received: by 2002:a05:600c:58ce:b0:490:44eb:c1ea with SMTP id 5b1f17b1804b1-4909c0b546cmr30191565e9.24.1780049924381;
-        Fri, 29 May 2026 03:18:44 -0700 (PDT)
-Received: from localhost (p200300f65f47db043f932d8b97293bf6.dip0.t-ipconnect.de. [2003:f6:5f47:db04:3f93:2d8b:9729:3bf6])
-        by smtp.gmail.com with UTF8SMTPSA id 5b1f17b1804b1-4909c0ad269sm11855695e9.11.2026.05.29.03.18.43
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Fri, 29 May 2026 03:18:43 -0700 (PDT)
-From: =?UTF-8?q?Uwe=20Kleine-K=C3=B6nig=20=28The=20Capable=20Hub=29?= <u.kleine-koenig@baylibre.com>
-To: Sebastian Reichel <sre@kernel.org>
-Cc: Yixun Lan <dlan@kernel.org>,
-	Andreas Kemnade <andreas@kemnade.info>,
-	Matti Vaittinen <mazziesaccount@gmail.com>,
-	Sven Peter <sven@kernel.org>,
-	Janne Grunau <j@jannau.net>,
-	Neal Gompa <neal@gompa.dev>,
-	Amit Sunil Dhamne <amitsd@google.com>,
-	Samuel Kayode <samkay014@gmail.com>,
-	linux-pm@vger.kernel.org,
-	linux-riscv@lists.infradead.org,
-	spacemit@lists.linux.dev,
-	linux-kernel@vger.kernel.org,
-	asahi@lists.linux.dev,
-	linux-arm-kernel@lists.infradead.org,
-	imx@lists.linux.dev
-Subject: [PATCH v1 4/6] power: Use named initializers for platform_device_id arrays
-Date: Fri, 29 May 2026 12:18:19 +0200
-Message-ID: <1ceacf4f9c3f827bcad85b378aa04cdca1c04635.1780048925.git.u.kleine-koenig@baylibre.com>
-X-Mailer: git-send-email 2.47.3
-In-Reply-To: <cover.1780048925.git.u.kleine-koenig@baylibre.com>
-References: <cover.1780048925.git.u.kleine-koenig@baylibre.com>
+        d=1e100.net; s=20251104; t=1780050416; x=1780655216;
+        h=content-transfer-encoding:in-reply-to:from:content-language
+         :references:cc:to:subject:user-agent:mime-version:date:message-id
+         :x-gm-gg:x-gm-message-state:from:to:cc:subject:date:message-id
+         :reply-to;
+        bh=KKcwd9MWaUtPKni3P9v2KO6dNdslVHLHPQmpmH4aFvw=;
+        b=ZVMOntwYmDOsqUO9xN3TB4ouW5JJPa5ZYyPoArQwb6Hq4nLrdr2IkuM3VaXzSxBefu
+         nNX/zkPR0K8xAnjiAGZT1fhg1DpqRPUsWin2/D/uLCBBHEhx8lKI2rQUUISVra0jPoJn
+         9sD5zGN5+mQ6+7sLdWJllwCp52xitORCCefCKXJ8TPE2mUIFb07W4cSGC8JOAOkOoZqK
+         vc+RbuFQdZZ+on2U2m+CTmINgF142YxypP6MBMhrxgObzhPt8WPbPXbAfR5BNg0VEMW+
+         rQdvTRpRlybV2HKrh9TGtlbelqmQh6QbQIYPqXoiCOJkYUAmwwJDDnGMUyZmzyxd1Jup
+         NN1g==
+X-Forwarded-Encrypted: i=1; AFNElJ9TmLbyRtnHMkKi8KyB1Zg4X0nr9WVanfkNllT7LTYSqUDPH66DOi93i0SM4SN9WeN2kr6cxbKycVs9uAg5Uc7J@lists.infradead.org
+X-Gm-Message-State: AOJu0YysNVI4OYxKDI/OiREWzn38+T9GpS37GooUCdMX5U671B/rIRjN
+	uVBYEeLDZdNSYx0hc3qM9M/80K+PugiuJMrRPkDN/IEDjnFyL7s14ib0Okp3XXLRlkNvqO22/GO
+	Ua585jaNcNH6ICqz/QJQFcc0jNiS6cWoS2HlhpLLJL7+TnKXSV7IYwrYfV+A24jPhjbPmtV2wIO
+	ebZg==
+X-Gm-Gg: Acq92OFxbgxTADFKnMBpBMwp/pI95zPU+oXDuKdWLualJZZ54M16fZvA1Blruy4Z9hK
+	8ux6BzBmxHkb5fwzB1M3fAIjhj5xMfPGGI4LatqpSyuqcExRjc/PJZdAxPuevqcIqN9oqNwWUBU
+	IvYkSEOZ5ecX8+/M2Yn51aDXWRp+lMbFNb07SuhbSulvWDwsekuJDXj57qsdxdjEd3jKtTsUrVH
+	mm4Z+arY+pN973AaJMa5xEDQoujVpZQiikXdYSVzEl1TKJdqDL4FS84BEQ/vaUeQVoafBrK7zwv
+	/30jYibm441XVV/K0DzU8Jc6Hxyz7XVVN12Bplq0zGOyUBHOB2Q1auKwYpDlVQaskvTYVl7zZr/
+	FJh/rSm1lFLvSnWOdfZhjTbmfOMzqfeUWflSetdKNcEKVAIXkCxsR0oPTJ7JRdgvvAKQQuibPdA
+	IrJrx+AEU8DRJ9VT9Qn3c3CA==
+X-Received: by 2002:a17:90b:4ccf:b0:36b:944b:fd81 with SMTP id 98e67ed59e1d1-36bbcad635amr2645383a91.4.1780050416336;
+        Fri, 29 May 2026 03:26:56 -0700 (PDT)
+X-Received: by 2002:a17:90b:4ccf:b0:36b:944b:fd81 with SMTP id 98e67ed59e1d1-36bbcad635amr2645363a91.4.1780050415867;
+        Fri, 29 May 2026 03:26:55 -0700 (PDT)
+Received: from [10.133.33.250] (tpe-colo-wan-fw-bordernet.qualcomm.com. [103.229.16.4])
+        by smtp.gmail.com with ESMTPSA id 98e67ed59e1d1-36bc02b8b57sm1804194a91.7.2026.05.29.03.26.51
+        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
+        Fri, 29 May 2026 03:26:55 -0700 (PDT)
+Message-ID: <f2f23d0a-dc24-4a06-948d-56df913994ba@oss.qualcomm.com>
+Date: Fri, 29 May 2026 18:26:49 +0800
 MIME-Version: 1.0
-Content-Type: text/plain; charset=UTF-8
-X-Developer-Signature: v=1; a=openpgp-sha256; l=5348; i=u.kleine-koenig@baylibre.com; h=from:subject:message-id; bh=W9xT+mzvNTBez1lAU3xkbd8dVtQp/hVdeRLR+vfLdCE=; b=owEBbQGS/pANAwAKAY+A+1h9Ev5OAcsmYgBqGWfy0bX/m5kq8Arlyt5XE8Z+Ge+pZiRLveebn 4cklmt0zVmJATMEAAEKAB0WIQQ/gaxpOnoeWYmt/tOPgPtYfRL+TgUCahln8gAKCRCPgPtYfRL+ Tgj4CACZl/QxMesCrrIl4aNkVxWwxHLc2F2zJNbXP7mUNUZy6iSAQRmCPv/wrBPSa2TyyvCYd7T zCUw3L9LezGtcTAcu4AT6betYFrT3vdx2aMXWqk/lunJew9bTfAOihdCMJcA3jLt0SHECHUBYCt 8ibifSKnMpS9cmgT1+nXA/3x0Zp26IE6mNdFJai3hgNrNtpW+8MKMX2tBk/3VT6uv4nv3bzs5JR DZ9/1h8ng6iT+z6mSE3NjM83dSCzN+fkhK6EXTAZ8k0GaxqyY4TdqZSyZdPCeFum1xeDSRiVunl YedBpxql0w3n64ysMOen1PE+PCNSTxrCd0ATCblCqdxOqrhO
-X-Developer-Key: i=u.kleine-koenig@baylibre.com; a=openpgp; fpr=0D2511F322BFAB1C1580266BE2DCDD9132669BD6
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH v3 0/3] Enable CTCU and ETR devices for multiple QCOM
+ platforms
+To: Suzuki K Poulose <suzuki.poulose@arm.com>,
+        Mike Leach <mike.leach@linaro.org>,
+        James Clark <james.clark@linaro.org>, Rob Herring <robh@kernel.org>,
+        Krzysztof Kozlowski <krzk+dt@kernel.org>,
+        Conor Dooley <conor+dt@kernel.org>,
+        Tingwei Zhang <tingwei.zhang@oss.qualcomm.com>,
+        Bjorn Andersson <andersson@kernel.org>,
+        Konrad Dybcio <konradybcio@kernel.org>
+Cc: coresight@lists.linaro.org, linux-arm-kernel@lists.infradead.org,
+        linux-arm-msm@vger.kernel.org, devicetree@vger.kernel.org,
+        linux-kernel@vger.kernel.org,
+        Konrad Dybcio <konrad.dybcio@oss.qualcomm.com>
+References: <20260204-enable-ctcu-and-etr-v3-0-0bb95c590ae1@oss.qualcomm.com>
+ <545b4ebb-2c7e-480d-80bb-5e08dd3c52a7@arm.com>
+Content-Language: en-US
+From: Jie Gan <jie.gan@oss.qualcomm.com>
+In-Reply-To: <545b4ebb-2c7e-480d-80bb-5e08dd3c52a7@arm.com>
+Content-Type: text/plain; charset=UTF-8; format=flowed
 Content-Transfer-Encoding: 8bit
+X-Proofpoint-Spam-Details-Enc: AW1haW4tMjYwNTI5MDEwMyBTYWx0ZWRfXxo8m3MY/TcAg
+ p/dHtgjDsEw9TgN4rWrsOsXhGoaqDEI66jJGWd+KvaCikAc4k+ApKpYCVcOOa6N4xBIdttHXX6h
+ fXAvpDxIPoYrul7CWUzF7s8NF9r1lzsyN+AFwjPibjYkQo+GM6OWGEShOGui0S9jM/+iNbMAa97
+ 8xVb5HGS4MSzsK8sE6jTb1IKVfa3tZP6vmARSZm8hEytGuaP/qoKCuj4DCLJeUa4462ZedYUM5k
+ 3bR9khw0NWPCfzo8mQgx5nMhMuTuKyvcJ8gsZdSYhyyTaxlVeUM//TKV5s8g/HjWY1sY63k2oXQ
+ /ScL/TlJnlISsvPbbGm0Y5bJo20d2lG/N44llds3UOZM87QrUIoTBE9l+l5IlBrRWvBJ7g91XHL
+ H7FQ57MK1RwwL3sW8m+mgcEt7U7LTk64jSEqRkcRx3Ts2CrPBYKWKYZK4Z1xnhzzqK8tnCysiqx
+ NOWNVODmJDWdWUyJvbg==
+X-Authority-Analysis: v=2.4 cv=SNBykuvH c=1 sm=1 tr=0 ts=6a1969f1 cx=c_pps
+ a=vVfyC5vLCtgYJKYeQD43oA==:117 a=nuhDOHQX5FNHPW3J6Bj6AA==:17
+ a=IkcTkHD0fZMA:10 a=NGcC8JguVDcA:10 a=s4-Qcg_JpJYA:10
+ a=VkNPw1HP01LnGYTKEx00:22 a=u7WPNUs3qKkmUXheDGA7:22 a=yOCtJkima9RkubShWh1s:22
+ a=VwQbUJbxAAAA:8 a=7CQSdrXTAAAA:8 a=EUspDBNiAAAA:8 a=nTQ8HVyESOUA6E9D-IoA:9
+ a=3ZKOabzyN94A:10 a=QEXdDO2ut3YA:10 a=rl5im9kqc5Lf4LNbBjHf:22
+ a=a-qgeE7W1pNrGK8U0ZQC:22
+X-Proofpoint-ORIG-GUID: 4lHDztYMA6EZciRO5vZuvkhuMi7Q5mir
+X-Proofpoint-GUID: 4lHDztYMA6EZciRO5vZuvkhuMi7Q5mir
+X-Proofpoint-Virus-Version: vendor=baseguard
+ engine=ICAP:2.0.293,Aquarius:18.0.1143,Hydra:6.1.125,FMLib:17.12.100.49
+ definitions=2026-05-29_03,2026-05-28_03,2025-10-01_01
+X-Proofpoint-Spam-Details: rule=outbound_notspam policy=outbound score=0
+ suspectscore=0 priorityscore=1501 malwarescore=0 spamscore=0 adultscore=0
+ lowpriorityscore=0 phishscore=0 impostorscore=0 clxscore=1015 bulkscore=0
+ classifier=typeunknown authscore=0 authtc= authcc= route=outbound adjust=0
+ reason=mlx scancount=1 engine=8.22.0-2605210000 definitions=main-2605290103
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260529_031846_600437_42ABC845 
-X-CRM114-Status: GOOD (  15.38  )
+X-CRM114-CacheID: sfid-20260529_032658_715159_A3BB9F76 
+X-CRM114-Status: GOOD (  22.13  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -115,137 +158,81 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Named initializers are better readable and more robust to changes of the
-struct definition. This robustness is relevant for a planned change to
-struct platform_device_id replacing .driver_data by an anonymous union.
 
-While touching these arrays unify spacing and usage of commas.
 
-Signed-off-by: Uwe Kleine-König (The Capable Hub) <u.kleine-koenig@baylibre.com>
----
- drivers/power/reset/spacemit-p1-reboot.c | 4 ++--
- drivers/power/reset/tps65086-restart.c   | 2 +-
- drivers/power/supply/bd71828-power.c     | 8 ++++----
- drivers/power/supply/macsmc-power.c      | 2 +-
- drivers/power/supply/max77759_charger.c  | 2 +-
- drivers/power/supply/max8998_charger.c   | 2 +-
- drivers/power/supply/pf1550-charger.c    | 2 +-
- drivers/power/supply/rt5033_charger.c    | 2 +-
- 8 files changed, 12 insertions(+), 12 deletions(-)
+On 2/27/2026 6:10 PM, Suzuki K Poulose wrote:
+> Hello,
+> 
+> 
+> On 04/02/2026 02:22, Jie Gan wrote:
+>> The DT‑binding patch adds platform‑specific compatibles for the
+>> CTCU device, and the following Qualcomm platforms are included:
+>> Kaanapali
+>> Pakala(sm8750)
+>> Hamoa(x1e80100)
+>> Glymur
+> 
+> Given this is predominantly DTS changes, and there is very low chances
+> of a conflict with the binding yaml change, I would recommend this to go
+> via soc or the qcom platform tree.
+> 
+> For the series:
+> 
+> Acked-by: Suzuki K Poulose <suzuki.poulose@arm.com>
 
-diff --git a/drivers/power/reset/spacemit-p1-reboot.c b/drivers/power/reset/spacemit-p1-reboot.c
-index 9ec3d1fff8f3..84026b042ea2 100644
---- a/drivers/power/reset/spacemit-p1-reboot.c
-+++ b/drivers/power/reset/spacemit-p1-reboot.c
-@@ -70,8 +70,8 @@ static int spacemit_p1_reboot_probe(struct platform_device *pdev)
- }
- 
- static const struct platform_device_id spacemit_p1_reboot_id_table[] = {
--	{ "spacemit-p1-reboot", },
--	{ /* sentinel */ },
-+	{ .name = "spacemit-p1-reboot" },
-+	{ /* sentinel */ }
- };
- MODULE_DEVICE_TABLE(platform, spacemit_p1_reboot_id_table);
- 
-diff --git a/drivers/power/reset/tps65086-restart.c b/drivers/power/reset/tps65086-restart.c
-index 6976dbcac74f..37d248a9df17 100644
---- a/drivers/power/reset/tps65086-restart.c
-+++ b/drivers/power/reset/tps65086-restart.c
-@@ -41,7 +41,7 @@ static int tps65086_restart_probe(struct platform_device *pdev)
- }
- 
- static const struct platform_device_id tps65086_restart_id_table[] = {
--	{ "tps65086-reset", },
-+	{ .name = "tps65086-reset" },
- 	{ /* sentinel */ }
- };
- MODULE_DEVICE_TABLE(platform, tps65086_restart_id_table);
-diff --git a/drivers/power/supply/bd71828-power.c b/drivers/power/supply/bd71828-power.c
-index 5e78faa0a4aa..5ab514ff5c65 100644
---- a/drivers/power/supply/bd71828-power.c
-+++ b/drivers/power/supply/bd71828-power.c
-@@ -1184,10 +1184,10 @@ static int bd71828_power_probe(struct platform_device *pdev)
- }
- 
- static const struct platform_device_id bd71828_charger_id[] = {
--	{ "bd71815-power", ROHM_CHIP_TYPE_BD71815 },
--	{ "bd71828-power", ROHM_CHIP_TYPE_BD71828 },
--	{ "bd72720-power", ROHM_CHIP_TYPE_BD72720 },
--	{ },
-+	{ .name = "bd71815-power", .driver_data = ROHM_CHIP_TYPE_BD71815 },
-+	{ .name = "bd71828-power", .driver_data = ROHM_CHIP_TYPE_BD71828 },
-+	{ .name = "bd72720-power", .driver_data = ROHM_CHIP_TYPE_BD72720 },
-+	{ }
- };
- MODULE_DEVICE_TABLE(platform, bd71828_charger_id);
- 
-diff --git a/drivers/power/supply/macsmc-power.c b/drivers/power/supply/macsmc-power.c
-index 33ca07460f3a..ced07f71e0a8 100644
---- a/drivers/power/supply/macsmc-power.c
-+++ b/drivers/power/supply/macsmc-power.c
-@@ -834,7 +834,7 @@ static void macsmc_power_remove(struct platform_device *pdev)
- }
- 
- static const struct platform_device_id macsmc_power_id[] = {
--	{ "macsmc-power" },
-+	{ .name = "macsmc-power" },
- 	{ /* sentinel */ }
- };
- MODULE_DEVICE_TABLE(platform, macsmc_power_id);
-diff --git a/drivers/power/supply/max77759_charger.c b/drivers/power/supply/max77759_charger.c
-index 9bb414599f16..c606d7bafcb8 100644
---- a/drivers/power/supply/max77759_charger.c
-+++ b/drivers/power/supply/max77759_charger.c
-@@ -754,7 +754,7 @@ static int max77759_charger_probe(struct platform_device *pdev)
- }
- 
- static const struct platform_device_id max77759_charger_id[] = {
--	{ .name = "max77759-charger", },
-+	{ .name = "max77759-charger" },
- 	{ }
- };
- MODULE_DEVICE_TABLE(platform, max77759_charger_id);
-diff --git a/drivers/power/supply/max8998_charger.c b/drivers/power/supply/max8998_charger.c
-index 418b882b163d..b0eda2b51e7f 100644
---- a/drivers/power/supply/max8998_charger.c
-+++ b/drivers/power/supply/max8998_charger.c
-@@ -188,7 +188,7 @@ static int max8998_battery_probe(struct platform_device *pdev)
- }
- 
- static const struct platform_device_id max8998_battery_id[] = {
--	{ "max8998-battery", TYPE_MAX8998 },
-+	{ .name = "max8998-battery" },
- 	{ }
- };
- MODULE_DEVICE_TABLE(platform, max8998_battery_id);
-diff --git a/drivers/power/supply/pf1550-charger.c b/drivers/power/supply/pf1550-charger.c
-index a457862ef461..41036f4cb64a 100644
---- a/drivers/power/supply/pf1550-charger.c
-+++ b/drivers/power/supply/pf1550-charger.c
-@@ -622,7 +622,7 @@ static int pf1550_charger_probe(struct platform_device *pdev)
- }
- 
- static const struct platform_device_id pf1550_charger_id[] = {
--	{ "pf1550-charger", },
-+	{ .name = "pf1550-charger" },
- 	{ /* sentinel */ }
- };
- MODULE_DEVICE_TABLE(platform, pf1550_charger_id);
-diff --git a/drivers/power/supply/rt5033_charger.c b/drivers/power/supply/rt5033_charger.c
-index de724f23e453..536ab29b657d 100644
---- a/drivers/power/supply/rt5033_charger.c
-+++ b/drivers/power/supply/rt5033_charger.c
-@@ -727,7 +727,7 @@ static int rt5033_charger_probe(struct platform_device *pdev)
- }
- 
- static const struct platform_device_id rt5033_charger_id[] = {
--	{ "rt5033-charger", },
-+	{ .name = "rt5033-charger" },
- 	{ }
- };
- MODULE_DEVICE_TABLE(platform, rt5033_charger_id);
--- 
-2.47.3
+Hi Suzuki,
+
+May I ask is there a chance this patch series could go through the 
+CoreSight tree?
+
+Thanks a lot.
+Jie
+
+> 
+> 
+>>
+>> Since the base Coresight DT patches for the Kaanapali and Glymur
+>> platforms have not yet been applied, I created DT patches only
+>> for the Pakala and Hamoa platforms. I will submit the Kaanapali
+>> and Glymur patches once their corresponding base Coresight DT patches
+>> are merged.
+>>
+>> The Hamoa‑related patches were posted in a separate email, and I
+>> have included them in the current patch series.
+>>
+>> Link to the previous Hamoa patch series:
+>> https://lore.kernel.org/all/20251106-enable-etr-and-ctcu-for-hamoa- 
+>> v2-0-cdb3a18753aa@oss.qualcomm.com/
+>>
+>> Signed-off-by: Jie Gan <jie.gan@oss.qualcomm.com>
+>> ---
+>> Changes in v3:
+>> - change back to the numeric compatible from hamoa to x1e80100.
+>> - Link to v2: https://lore.kernel.org/r/20260203-enable-ctcu-and-etr- 
+>> v2-0-aacc7bd7eccb@oss.qualcomm.com
+>>
+>> Changes in v2:
+>> - change back to the numeric compatible from pakala to sm8750.
+>> - Link to v1: https://lore.kernel.org/r/20260203-enable-ctcu-and-etr- 
+>> v1-0-a5371a2ec2b8@oss.qualcomm.com
+>>
+>> ---
+>> Jie Gan (3):
+>>        dt-binding: document QCOM platforms for CTCU device
+>>        arm64: dts: qcom: hamoa: enable ETR and CTCU devices
+>>        arm64: dts: qcom: sm8750: enable ETR and CTCU devices
+>>
+>>   .../bindings/arm/qcom,coresight-ctcu.yaml          |   4 +
+>>   arch/arm64/boot/dts/qcom/hamoa.dtsi                | 160 +++++++++++ 
+>> +++++++-
+>>   arch/arm64/boot/dts/qcom/sm8750.dtsi               | 177 +++++++++++ 
+>> ++++++++++
+>>   3 files changed, 340 insertions(+), 1 deletion(-)
+>> ---
+>> base-commit: 193579fe01389bc21aff0051d13f24e8ea95b47d
+>> change-id: 20260203-enable-ctcu-and-etr-31f9e9d1088d
+>>
+>> Best regards,
+> 
 
 
