@@ -4,83 +4,93 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 46FB5CD6E4A
-	for <linux-arm-kernel@archiver.kernel.org>; Fri, 29 May 2026 04:06:14 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id DAB69CD6E49
+	for <linux-arm-kernel@archiver.kernel.org>; Fri, 29 May 2026 04:21:09 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	MIME-Version:References:In-Reply-To:Message-Id:Date:Subject:Cc:To:From:
-	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=73qAOTIleH0MDsOqvfvdJo3Hbwa6tE3kEhHdlHdGqdk=; b=ZzwpQKECoIiMDlelnNujW/mNeH
-	q8oZO5DMel1d1/IU/cNxqh8Ppd/XTKvOD6utDYKd4vWRq1uYXpg/aqc/SyMS0unN3tSRk8lXs2gFO
-	skDH0oMJi9Tt+FmmFTHY6XrQK7at+GUG34CVKX9KLHyr2Y2gWRgT70iuMZWrAhr+NRsmeC5qvXaFQ
-	fshJlI9tv6ilQ1Q3K+lMV7K5QoPZDiWHJZETdmMR8m8pCJS+nd5x6FZ1QKztVzDj+wgIxX+ggo9D5
-	lAm6I6aUw9YfeFnB1bwxkDC2F9/U7G0m9PLEIyAKNIonRrvQySJM+I8YVkkbU4yN1rnJE81Om3N95
-	000BggTQ==;
+	MIME-Version:Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-Type:
+	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
+	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=WkkJotVpft6x/vARkqnh9oEixNmMN2cX8O5U+VJWqdM=; b=XiEUycjfT/WcxSI8ipTQsHz5a1
+	L7V6S97Oq3Um5SalTGqISplsLvhSu9OQUqF8stAypqe8tCmKm3GaoohbV+Wqgw/xLPqD/oJErMCCa
+	WzwrwzGwv5vX06QS6t3zStKb6UEuV+8Fygb9FxVxXz3d4YZAasc5sDOQNAi+9ChxdEJq68DfMxRE9
+	gihBSstbySxZiJDac3Yo6TEvu02wXZJO25byb22wpV3MEpUlmLpXrkNmMHJo7YKqysxX51PZmpMnl
+	ufo0Mo1GmZF0FmK33H/uT8ToIVfMsxVl/x7zf62uZ7yvbVxScuL57K+l+AxxCVaR2QHB2Z6PiCmDx
+	cAwaRlSQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wSoU1-00000006ig8-48Ns;
-	Fri, 29 May 2026 04:06:05 +0000
-Received: from mail-m82183.xmail.ntesmail.com ([156.224.82.183])
+	id 1wSoiS-00000006jLn-17M5;
+	Fri, 29 May 2026 04:21:00 +0000
+Received: from mail-qk1-x730.google.com ([2607:f8b0:4864:20::730])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wSoTt-00000006ia8-1fH0;
-	Fri, 29 May 2026 04:05:58 +0000
-Received: from zyb-HP-ProDesk-680-G2-MT.. (unknown [61.154.14.86])
-	by smtp.qiye.163.com (Hmail) with ESMTP id 404653bd3;
-	Fri, 29 May 2026 12:05:52 +0800 (GMT+08:00)
-From: Damon Ding <damon.ding@rock-chips.com>
-To: hjc@rock-chips.com,
-	heiko@sntech.de,
-	andy.yan@rock-chips.com,
-	maarten.lankhorst@linux.intel.com,
-	mripard@kernel.org,
-	tzimmermann@suse.de,
-	airlied@gmail.com,
-	simona@ffwll.ch,
-	robh@kernel.org,
-	krzk+dt@kernel.org,
-	conor+dt@kernel.org,
-	andrzej.hajda@intel.com,
-	neil.armstrong@linaro.org,
-	rfoss@kernel.org
-Cc: Laurent.pinchart@ideasonboard.com,
-	jonas@kwiboo.se,
-	jernej.skrabec@gmail.com,
-	nicolas.frattaroli@collabora.com,
-	cristian.ciocaltea@collabora.com,
-	sebastian.reichel@collabora.com,
-	dmitry.baryshkov@oss.qualcomm.com,
-	luca.ceresoli@bootlin.com,
-	dianders@chromium.org,
-	m.szyprowski@samsung.com,
-	dri-devel@lists.freedesktop.org,
-	devicetree@vger.kernel.org,
+	id 1wSoiP-00000006jLI-2rlg
+	for linux-arm-kernel@lists.infradead.org;
+	Fri, 29 May 2026 04:20:59 +0000
+Received: by mail-qk1-x730.google.com with SMTP id af79cd13be357-914bf787977so538524785a.2
+        for <linux-arm-kernel@lists.infradead.org>; Thu, 28 May 2026 21:20:56 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=gmail.com; s=20251104; t=1780028456; x=1780633256; darn=lists.infradead.org;
+        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
+         :to:from:from:to:cc:subject:date:message-id:reply-to;
+        bh=WkkJotVpft6x/vARkqnh9oEixNmMN2cX8O5U+VJWqdM=;
+        b=jevcN2U8CX1ARfFUZ4kdioPt+MWmRkBLld4t7kx4wcmoR3Fpf/KplTLcKO6DiBwwo6
+         gVZYi5mJdXzXm19dRPvOz5iOjAEgMbdL7oQ3HNbGaMhKajoxaVVek9uo11iqFqxhb8q0
+         8IBjIz33jfc+Rl25zjGH3vB3Pt2OmAgyvNoIIvGP1XJTi+kDvWXA1edd3FdPwvxnK4Of
+         xf4ZS5g1gCW06FolgdNLNTzS4E5bxkAyQvTZqe9hEr9jks5yzGfXjrIWdf3EIIcHcFDa
+         ly5JqA83Te7tStoWy+mnf8mS7WNI5gJ6EAnx1DVxHkVZ5SEowpkWJxKzyFNwBWKlneP9
+         tlAA==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20251104; t=1780028456; x=1780633256;
+        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
+         :to:from:x-gm-gg:x-gm-message-state:from:to:cc:subject:date
+         :message-id:reply-to;
+        bh=WkkJotVpft6x/vARkqnh9oEixNmMN2cX8O5U+VJWqdM=;
+        b=PlZYSvmcCKaMG5gYR14vc2PI3zXAKYXM4WEnOZwKR0HebqRt1GWkGEknKW+M+QLVKa
+         VBhHaJlaDx2Hqq6iDX926Ajrx38d0ip6dyNuVziQII/74n92LqhE+yBjGs7GoF45htFS
+         c4ufI3sMR1FhCX6AxWXRGZR3HNzOyuvNvu9wyjwR0JC5xTa4fIYoY/yMhESUSxQvoK7H
+         vUTh51FLLcYwj1KMBP7eLCys2aKamjd/dDySG/UWQSu5bzeWvV1sAD+LRGLcLQoYkNwj
+         OzMAEzZAuX2uGqUXkDWZAnmytyKmXv7sLb5jNFKZ2f5KTeD7BEPkyVL4EBXFKRUwddkn
+         7lsQ==
+X-Forwarded-Encrypted: i=1; AFNElJ8dR40CRyd8JdLAK6RvbgN1AQWyxbDOflJrnvCMTlTl6nYMXZ2nGEjToaeEgpK6z16aNIO04ixkFdBzffPV6RxY@lists.infradead.org
+X-Gm-Message-State: AOJu0Yz98DLjsHznHEw8Jc9UM8kyYHBZWYjI2mR/ybMAVPH/uCNQTh+F
+	LIapM3N0Odkp5Oo+opTbOvwLVcjpwJ0+BGDpgzGqmFF7U3KYJa+YJyQc
+X-Gm-Gg: Acq92OFh9ivuxEafmc7M23nDPy8A/krkf1kpEQycOf7VTPHFcJRS/qO/mNMnDzhyIKQ
+	oykN8+j3gpk2VnoeJjUsXZg6gymlcynbqvZPITRUcLYuNFOOhKFhdO65CfG98fGpAWHLZcadc+c
+	+0Hlu/QcJGVRLpAl+M4PIt9hTQh/jw1mDeaF7yMsz22XK01vs2C061Cah6gk8+NlMwByXV1M44B
+	HC+4Zeu5n4aLLqNvuYgEQAHOKIeIPQ1s3hkrmkr4rjnLOwtTOWhi/CNGSpN6bQo9UCTnFU4LaM8
+	zXzgvBxWNk74x8KfHXvfdyNrC0v8yOpAyCcLKNwzXSG/xwnWEa414fOpWJSFHfTVUOWlZc3lQdW
+	9FAp3f1jmq7I6vK7Sj9UMzhqNUWAYX/ETOiP8PvD3Ze+/puzpAeKKpEdP4Mv/lCmibrzxbhoocd
+	oRqQi0FWQuqIlIRVBRMrNTvP01WpyGbdO6v74Kf/5B7kudzNAdxMA=
+X-Received: by 2002:a05:620a:6494:b0:914:c38a:4e72 with SMTP id af79cd13be357-9152fe13a9fmr153575385a.50.1780028455830;
+        Thu, 28 May 2026 21:20:55 -0700 (PDT)
+Received: from i4-gl-tmk5904.ad.psu.edu ([130.203.156.186])
+        by smtp.gmail.com with ESMTPSA id af79cd13be357-91532480ed6sm55661885a.15.2026.05.28.21.20.54
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Thu, 28 May 2026 21:20:55 -0700 (PDT)
+From: Yuho Choi <dbgh9129@gmail.com>
+To: Michael Turquette <mturquette@baylibre.com>,
+	Stephen Boyd <sboyd@kernel.org>,
+	Nicolas Ferre <nicolas.ferre@microchip.com>,
+	Alexandre Belloni <alexandre.belloni@bootlin.com>,
+	Claudiu Beznea <claudiu.beznea@tuxon.dev>
+Cc: Brian Masney <bmasney@redhat.com>,
+	Kees Cook <kees@kernel.org>,
+	"Rafael J. Wysocki (Intel)" <rafael@kernel.org>,
+	Thierry Reding <treding@nvidia.com>,
+	linux-clk@vger.kernel.org,
 	linux-arm-kernel@lists.infradead.org,
-	linux-rockchip@lists.infradead.org,
 	linux-kernel@vger.kernel.org,
-	Damon Ding <damon.ding@rock-chips.com>
-Subject: [PATCH v4 3/3] drm/bridge: analogix_dp: Add support for optional data-lanes mapping
-Date: Fri, 29 May 2026 12:05:30 +0800
-Message-Id: <20260529040530.741336-4-damon.ding@rock-chips.com>
-X-Mailer: git-send-email 2.34.1
-In-Reply-To: <20260529040530.741336-1-damon.ding@rock-chips.com>
-References: <20260529040530.741336-1-damon.ding@rock-chips.com>
+	Yuho Choi <dbgh9129@gmail.com>
+Subject: [PATCH v1] clk: at91: keep securam node alive while mapping it
+Date: Fri, 29 May 2026 00:20:51 -0400
+Message-ID: <20260529042051.1626978-1-dbgh9129@gmail.com>
+X-Mailer: git-send-email 2.43.0
 MIME-Version: 1.0
 Content-Transfer-Encoding: 8bit
-X-HM-Tid: 0a9e71e8f47d03a8kunmaf9a1d48e6c34
-X-HM-MType: 1
-X-HM-Spam-Status: e1kfGhgUHx5ZQUpXWQgPGg8OCBgUHx5ZQUlOS1dZFg8aDwILHllBWSg2Ly
-	tZV1koWUFITzdXWRgWCB1ZQUpXWS1ZQUlXWQ8JGhUIEh9ZQVkaQhpKVh9MSx9PH0kZGRgYGVYVFA
-	kWGhdVEwETFhoSFyQUDg9ZV1kYEgtZQVlNSlVKTk9VSk9VQ01ZV1kWGg8SFR0UWUFZT0tIVUpLSE
-	pKQk1VSktLVUpCWQY+
-DKIM-Signature: a=rsa-sha256;
-	b=MMgPJ4+Vi0CVvauDkSv080LStu9S72lp32lWV3eqT2I887soBz3RTHzQcp+w8NIkOcFQeQVOca0lrzbGx8v9ezXsuZ6SK4PDqyZx1kTccv4uaYvdMiM++roHJEUEde25ffrzPZEcOqQ+Hahhi8yHTCf11rqTRHahwiSztB6skaM=; c=relaxed/relaxed; s=default; d=rock-chips.com; v=1;
-	bh=73qAOTIleH0MDsOqvfvdJo3Hbwa6tE3kEhHdlHdGqdk=;
-	h=date:mime-version:subject:message-id:from;
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260528_210557_739559_5D0DD482 
-X-CRM114-Status: GOOD (  17.89  )
+X-CRM114-CacheID: sfid-20260528_212057_722844_BB66DC9C 
+X-CRM114-Status: GOOD (  12.13  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -95,180 +105,38 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Parse the optional 'data-lanes' device tree property to support
-custom physical lane mapping configuration.
+pmc_register_ops() gets an owned reference to the
+"atmel,sama5d2-securam" node with of_find_compatible_node().  The
+success path dropped that reference before passing the node to
+of_iomap(), leaving of_iomap() to consume a node pointer after the caller
+had released its reference.
 
-If no valid configuration is found, fall back to the default
-lane map (0, 1, 2, 3) automatically and keep the driver running.
+Move of_node_put() after of_iomap() so the node remains referenced for
+the mapping operation.  The unavailable-node error path already releases
+the reference.
 
-Lane mapping is mainly used for below scenarios:
-1. Correct PCB lane swap and differential line routing crossover
-   without hardware changes;
-2. Adapt mismatched lane pin definitions between SoC and eDP panel;
-3. Support multiple panel hardware variants on the same board
-   by configuring data-lanes in device tree only.
-
-Signed-off-by: Damon Ding <damon.ding@rock-chips.com>
-
+Fixes: 4d21be864092 ("clk: at91: pmc: execute suspend/resume only for backup mode")
+Signed-off-by: Yuho Choi <dbgh9129@gmail.com>
 ---
+ drivers/clk/at91/pmc.c | 2 +-
+ 1 file changed, 1 insertion(+), 1 deletion(-)
 
-Changes in v2:
-- Add lane mapping application scenarios in commit message.
----
- .../drm/bridge/analogix/analogix_dp_core.c    | 56 +++++++++++++++++++
- .../drm/bridge/analogix/analogix_dp_core.h    |  4 +-
- .../gpu/drm/bridge/analogix/analogix_dp_reg.c | 15 +++--
- .../gpu/drm/bridge/analogix/analogix_dp_reg.h |  4 ++
- 4 files changed, 70 insertions(+), 9 deletions(-)
-
-diff --git a/drivers/gpu/drm/bridge/analogix/analogix_dp_core.c b/drivers/gpu/drm/bridge/analogix/analogix_dp_core.c
-index 699a7f380c56..b2e729850391 100644
---- a/drivers/gpu/drm/bridge/analogix/analogix_dp_core.c
-+++ b/drivers/gpu/drm/bridge/analogix/analogix_dp_core.c
-@@ -1234,6 +1234,59 @@ static const struct drm_bridge_funcs analogix_dp_bridge_funcs = {
- 	.detect = analogix_dp_bridge_detect,
- };
- 
-+static int analogix_dp_dt_parse_lanes_map(struct analogix_dp_device *dp)
-+{
-+	struct video_info *video_info = &dp->video_info;
-+	struct device_node *endpoint;
-+	u32 tmp[LANE_COUNT4];
-+	u32 map[LANE_COUNT4] = {0, 1, 2, 3};
-+	bool used[LANE_COUNT4] = {false};
-+	int num_lanes;
-+	int ret, i;
-+
-+	memcpy(video_info->lane_map, map, sizeof(map));
-+
-+	num_lanes = drm_of_get_data_lanes_count_ep(dp->dev->of_node, 1, 0, 1,
-+						   video_info->max_lane_count);
-+	if (num_lanes < 0)
-+		return -EINVAL;
-+
-+	endpoint = of_graph_get_endpoint_by_regs(dp->dev->of_node, 1, -1);
-+	if (!endpoint)
-+		return -EINVAL;
-+
-+	ret = of_property_read_u32_array(endpoint, "data-lanes", tmp, num_lanes);
-+	of_node_put(endpoint);
-+	if (ret)
-+		return -EINVAL;
-+
-+	for (i = 0; i < num_lanes; i++) {
-+		if (tmp[i] >= LANE_COUNT4) {
-+			dev_dbg(dp->dev, "data-lanes[%d] = %u is out of range\n", i, tmp[i]);
-+			return -EINVAL;
-+		}
-+
-+		if (used[tmp[i]]) {
-+			dev_dbg(dp->dev, "data-lanes[%d] = %u is duplicate\n", i, tmp[i]);
-+			return -EINVAL;
-+		}
-+
-+		used[tmp[i]] = true;
-+		map[i] = tmp[i];
-+	}
-+
-+	for (i = 0; i < LANE_COUNT4 && num_lanes < LANE_COUNT4; i++) {
-+		if (!used[i])
-+			map[num_lanes++] = i;
-+	}
-+
-+	dev_dbg(dp->dev, "Using parsed lane map: <%u %u %u %u>\n", map[0], map[1], map[2], map[3]);
-+
-+	memcpy(video_info->lane_map, map, sizeof(map));
-+
-+	return 0;
-+}
-+
- static int analogix_dp_dt_parse_pdata(struct analogix_dp_device *dp)
- {
- 	struct device_node *dp_node = dp->dev->of_node;
-@@ -1274,6 +1327,9 @@ static int analogix_dp_dt_parse_pdata(struct analogix_dp_device *dp)
- 		break;
+diff --git a/drivers/clk/at91/pmc.c b/drivers/clk/at91/pmc.c
+index b618a5e00b00..03a6c31d6aa8 100644
+--- a/drivers/clk/at91/pmc.c
++++ b/drivers/clk/at91/pmc.c
+@@ -180,9 +180,9 @@ static int __init pmc_register_ops(void)
+ 		of_node_put(np);
+ 		return -ENODEV;
  	}
+-	of_node_put(np);
  
-+	if (analogix_dp_dt_parse_lanes_map(dp))
-+		dev_dbg(dp->dev, "No valid data-lanes found, using default lane map\n");
-+
- 	return 0;
- }
- 
-diff --git a/drivers/gpu/drm/bridge/analogix/analogix_dp_core.h b/drivers/gpu/drm/bridge/analogix/analogix_dp_core.h
-index 17347448c6b0..634fad241e69 100644
---- a/drivers/gpu/drm/bridge/analogix/analogix_dp_core.h
-+++ b/drivers/gpu/drm/bridge/analogix/analogix_dp_core.h
-@@ -137,6 +137,8 @@ struct video_info {
- 
- 	int max_link_rate;
- 	enum link_lane_count_type max_lane_count;
-+
-+	u32 lane_map[LANE_COUNT4];
- };
- 
- struct link_train {
-@@ -175,7 +177,7 @@ struct analogix_dp_device {
- /* analogix_dp_reg.c */
- void analogix_dp_enable_video_mute(struct analogix_dp_device *dp, bool enable);
- void analogix_dp_stop_video(struct analogix_dp_device *dp);
--void analogix_dp_lane_swap(struct analogix_dp_device *dp, bool enable);
-+void analogix_dp_lane_mapping(struct analogix_dp_device *dp);
- void analogix_dp_init_analog_param(struct analogix_dp_device *dp);
- void analogix_dp_init_interrupt(struct analogix_dp_device *dp);
- void analogix_dp_reset(struct analogix_dp_device *dp);
-diff --git a/drivers/gpu/drm/bridge/analogix/analogix_dp_reg.c b/drivers/gpu/drm/bridge/analogix/analogix_dp_reg.c
-index 38fd8d5014d2..45c7652645a1 100644
---- a/drivers/gpu/drm/bridge/analogix/analogix_dp_reg.c
-+++ b/drivers/gpu/drm/bridge/analogix/analogix_dp_reg.c
-@@ -48,16 +48,15 @@ void analogix_dp_stop_video(struct analogix_dp_device *dp)
- 	writel(reg, dp->reg_base + ANALOGIX_DP_VIDEO_CTL_1);
- }
- 
--void analogix_dp_lane_swap(struct analogix_dp_device *dp, bool enable)
-+void analogix_dp_lane_mapping(struct analogix_dp_device *dp)
- {
-+	u32 *lane_map = dp->video_info.lane_map;
- 	u32 reg;
- 
--	if (enable)
--		reg = LANE3_MAP_LOGIC_LANE_0 | LANE2_MAP_LOGIC_LANE_1 |
--		      LANE1_MAP_LOGIC_LANE_2 | LANE0_MAP_LOGIC_LANE_3;
--	else
--		reg = LANE3_MAP_LOGIC_LANE_3 | LANE2_MAP_LOGIC_LANE_2 |
--		      LANE1_MAP_LOGIC_LANE_1 | LANE0_MAP_LOGIC_LANE_0;
-+	reg = lane_map[0] << LANE0_MAP_SHIFT;
-+	reg |= lane_map[1] << LANE1_MAP_SHIFT;
-+	reg |= lane_map[2] << LANE2_MAP_SHIFT;
-+	reg |= lane_map[3] << LANE3_MAP_SHIFT;
- 
- 	writel(reg, dp->reg_base + ANALOGIX_DP_LANE_MAP);
- }
-@@ -140,7 +139,7 @@ void analogix_dp_reset(struct analogix_dp_device *dp)
- 
- 	usleep_range(20, 30);
- 
--	analogix_dp_lane_swap(dp, 0);
-+	analogix_dp_lane_mapping(dp);
- 
- 	writel(0x0, dp->reg_base + ANALOGIX_DP_SYS_CTL_1);
- 	writel(0x40, dp->reg_base + ANALOGIX_DP_SYS_CTL_2);
-diff --git a/drivers/gpu/drm/bridge/analogix/analogix_dp_reg.h b/drivers/gpu/drm/bridge/analogix/analogix_dp_reg.h
-index 12735139046c..ac914e37089b 100644
---- a/drivers/gpu/drm/bridge/analogix/analogix_dp_reg.h
-+++ b/drivers/gpu/drm/bridge/analogix/analogix_dp_reg.h
-@@ -209,6 +209,10 @@
- #define LANE0_MAP_LOGIC_LANE_1			(0x1 << 0)
- #define LANE0_MAP_LOGIC_LANE_2			(0x2 << 0)
- #define LANE0_MAP_LOGIC_LANE_3			(0x3 << 0)
-+#define LANE3_MAP_SHIFT				(6)
-+#define LANE2_MAP_SHIFT				(4)
-+#define LANE1_MAP_SHIFT				(2)
-+#define LANE0_MAP_SHIFT				(0)
- 
- /* ANALOGIX_DP_ANALOG_CTL_1 */
- #define TX_TERMINAL_CTRL_50_OHM			(0x1 << 4)
+ 	at91_pmc_backup_suspend = of_iomap(np, 0);
++	of_node_put(np);
+ 	if (!at91_pmc_backup_suspend) {
+ 		pr_warn("%s(): unable to map securam\n", __func__);
+ 		return -ENOMEM;
 -- 
-2.34.1
+2.43.0
 
 
