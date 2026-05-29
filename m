@@ -4,148 +4,72 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id D10E3CD6E49
-	for <linux-arm-kernel@archiver.kernel.org>; Fri, 29 May 2026 19:15:59 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 89FD9CD6E49
+	for <linux-arm-kernel@archiver.kernel.org>; Fri, 29 May 2026 19:31:00 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:
-	Content-Transfer-Encoding:Content-Type:In-Reply-To:From:References:Cc:To:
-	Subject:Date:Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=V0ddpHKKi9O2KILWKxBE36eNBnrMyiSiwjSGPeP71z4=; b=FLJ+WjUZydVZIP6gTvhQrm9EMV
-	vFjxvvH/1ZOva2A47lNNykNBA3FfZxKE1L8EkNdFTslhocIaO6rdFef/NdDybuOxQouYWCV8tKn1d
-	pFyoYdEIyYBAmetsJHyLNLjmGGPbbevPU9V1SkzwF4V8QxqHJEDT+Fl7XGd5Ak35sOZpjkIuXDi/n
-	h87dsHl67Q2DYtxYFpPkDn723npr267KQ2EXZsJjwRDtkWTr+D/sT+NytkGlZM4Alqgu1cafGkqaH
-	wT8KqeF35doPaUbUk/1Gn/hqGQbRmE/ZXJ6Clegv2nLVKoyirahQlB8/I8x1y7zroDxGhpoyGy2CJ
-	qRBkWdWw==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Message-ID:Subject:Cc:To:
+	From:Date:Reply-To:MIME-Version:Content-Type:Content-Transfer-Encoding:
+	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
+	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=Q7KEvMciwGamTwHxAnK/ewv8bbFHQ1YXKD+ikm5AJUM=; b=rNZFoMg0AOjM78Rp5j12ZKDlBG
+	hgNj3D5/fMMI7uUi69iUgwVU9gc8075LX6J1R2eOuHiUkEXgmfOMJLFK2ITMu1d8kCor5GPI4gdcW
+	mWpM0kYjL7THgw2k7nyh6e1pwwtzcuSCTBvRS80hNhCoqTPIh/AN18M/Ey4LmkpivGTHqk8HkCb0l
+	kk3j/kOpdTDWaLwFPE2o1kWrVsBlwUtqIhLjv0nULQy2uFF84YhLRxHBiJrsybKqHLkyCClF5o27l
+	7fkYbk5BHqFlJVyqwHfCtcPcaLFLjr6YrU9vXwS5rx+gX7yHNDlFeUFPguqbx9USv4CRad0n9/MCt
+	Hse8RepA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wT2gR-00000008Aky-303T;
-	Fri, 29 May 2026 19:15:51 +0000
-Received: from mail-canadaeastazlp170100000.outbound.protection.outlook.com ([2a01:111:f403:c104::] helo=YQZPR01CU011.outbound.protection.outlook.com)
+	id 1wT2uy-00000008BJq-3nlo;
+	Fri, 29 May 2026 19:30:52 +0000
+Received: from mgamail.intel.com ([192.198.163.17])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wT2gP-00000008Ake-0XE8
+	id 1wT2uv-00000008BJK-3MCF
 	for linux-arm-kernel@lists.infradead.org;
-	Fri, 29 May 2026 19:15:50 +0000
-ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
- b=BrtUV8vJ3zc4NkE6fAkbGNT2XA30PUcfAOmuvRWFAvqz0pvzZXYuJB6RnXn9gVc5+XddolyDB/wYCt+/cnmMpU99mWkLvblQpcR9IqPPqSMDca6+1p93Au9Pr8SAK6xLxOkRpXYmf3kIYRezPDTQgCEInJPHT3VSU/XZDwDGe1y9jaLVbP+pDxa9GE1cpG1dKF9F7v/kWe4LuxFqGO51SNH6Yt1xkbm+6yt/98FuLbpRyS9yntKxkoDniKb0XTtF3GYChNnH/azUcmP18bhQORnRzYRUTQT8qFR8AHImcjK10HMRtPVJ9E5v7avaCHcWR1DkVZfn4vASTd4KxjaxvQ==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
- s=arcselector10001;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
- bh=V0ddpHKKi9O2KILWKxBE36eNBnrMyiSiwjSGPeP71z4=;
- b=WhEvK0/EwKMmcCYYQlKj1mYo0QXYB7RlY8yoVkMRaWcFsTromyXmVEu0j3upaBAfMcrClb/8m3cyIcQMHj6+ePjNya0UKMWzB+T5WtB477F8ntpQqUCpDUAOhGB9/mYEvPTenB9XeuXBx0zNmbX3MdKfsW63YdFReeCJw7egARvnalPeb3aJ21gDqfdOftVGn0Jv3tZ1DuvnT1T/JprnzpiU8BJRFCXJDiSiVOFSty/L/c9eUxhuK/Mz8i5xKxUUFksbZCaZLsURflNwJXiXE1/N6ndkkcsRDNmTHrGUrWl+4ZKHnsJgQPrOcMFpmSyqtEmdS6Z27uKZOJnXlT84gw==
-ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
- smtp.mailfrom=efficios.com; dmarc=pass action=none header.from=efficios.com;
- dkim=pass header.d=efficios.com; arc=none
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=efficios.com;
- s=selector1;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
- bh=V0ddpHKKi9O2KILWKxBE36eNBnrMyiSiwjSGPeP71z4=;
- b=C2IHm6UatsHN5MRyQRnELEBFR2fSBocGx/oTvsiQxBN7KxoetQwxz6s9XEBSah6l3jmZYlZ74Q+IYi4NQAqVDF/2tQ3DKgVlbAYWBNJwlUsag/xtpirWeUTV28ohbZzH4DSiFVBz+dKrXjoDZflYevyNCZq9ilDGltcuwWJW2Spol/USX0jiHPf5BUfTDVChbDWMl3XEkqMIpPM1zZCCLuz8wKbqWN00LEAjgjtRseiYGNevVcHSisB2hvroPAOJF84pEtQ4s9kZqEwrzfWLh3ZpMV4oKWLfg8tuOaaQTxpPaQbK9f6O/2ayT8y/EIru9QvMQH5IHwLYwGe9qC7dbw==
-Authentication-Results: dkim=none (message not signed)
- header.d=none;dmarc=none action=none header.from=efficios.com;
-Received: from YT2PR01MB9175.CANPRD01.PROD.OUTLOOK.COM (2603:10b6:b01:be::5)
- by YQXPR01MB6366.CANPRD01.PROD.OUTLOOK.COM (2603:10b6:c01:4d::14) with
- Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.21.92.5; Fri, 29 May 2026
- 19:15:42 +0000
-Received: from YT2PR01MB9175.CANPRD01.PROD.OUTLOOK.COM
- ([fe80::6004:a862:d45d:90c1]) by YT2PR01MB9175.CANPRD01.PROD.OUTLOOK.COM
- ([fe80::6004:a862:d45d:90c1%3]) with mapi id 15.21.0092.004; Fri, 29 May 2026
- 19:15:41 +0000
-Message-ID: <75e7db50-cb3b-43c2-9c9e-6bb63815308f@efficios.com>
-Date: Fri, 29 May 2026 15:15:40 -0400
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH v3 5/5] arm64: vdso32: Implement
- __vdso_futex_robust_try_unlock()
-To: =?UTF-8?Q?Andr=C3=A9_Almeida?= <andrealmeid@igalia.com>,
- Catalin Marinas <catalin.marinas@arm.com>, Will Deacon <will@kernel.org>,
- Thomas Gleixner <tglx@kernel.org>, Mark Rutland <mark.rutland@arm.com>,
- Sebastian Andrzej Siewior <bigeasy@linutronix.de>,
- Carlos O'Donell <carlos@redhat.com>, Peter Zijlstra <peterz@infradead.org>,
- Florian Weimer <fweimer@redhat.com>, Rich Felker <dalias@aerifal.cx>,
- Torvald Riegel <triegel@redhat.com>, Darren Hart <dvhart@infradead.org>,
- Ingo Molnar <mingo@kernel.org>, Davidlohr Bueso <dave@stgolabs.net>,
- Arnd Bergmann <arnd@arndb.de>, "Liam R . Howlett" <Liam.Howlett@oracle.com>,
- Uros Bizjak <ubizjak@gmail.com>, =?UTF-8?Q?Thomas_Wei=C3=9Fschuh?=
- <linux@weissschuh.net>
-Cc: linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org,
- linux-arch@vger.kernel.org, kernel-dev@igalia.com
-References: <20260529-tonyk-robust_arm-v3-0-a6f02684d4fe@igalia.com>
- <20260529-tonyk-robust_arm-v3-5-a6f02684d4fe@igalia.com>
-From: Mathieu Desnoyers <mathieu.desnoyers@efficios.com>
-Content-Language: en-US
-In-Reply-To: <20260529-tonyk-robust_arm-v3-5-a6f02684d4fe@igalia.com>
-Content-Type: text/plain; charset=UTF-8; format=flowed
-Content-Transfer-Encoding: 7bit
-X-ClientProxiedBy: YQZPR01CA0087.CANPRD01.PROD.OUTLOOK.COM
- (2603:10b6:c01:84::6) To YT2PR01MB9175.CANPRD01.PROD.OUTLOOK.COM
- (2603:10b6:b01:be::5)
-MIME-Version: 1.0
-X-MS-PublicTrafficType: Email
-X-MS-TrafficTypeDiagnostic: YT2PR01MB9175:EE_|YQXPR01MB6366:EE_
-X-MS-Office365-Filtering-Correlation-Id: d6d13d0e-6559-48a3-19a3-08debdb6aceb
-X-MS-Exchange-SenderADCheck: 1
-X-MS-Exchange-AntiSpam-Relay: 0
-X-Microsoft-Antispam: BCL:0;ARA:13230040|7416014|376014|366016|1800799024|921020|22082099003|18002099003|56012099006|4143699003;
-X-Microsoft-Antispam-Message-Info: YzlIVHjLiRwd6EJHyu5w+q4UaUem0wN5mRyf1c88i15f+GaAwcLSXMygnFneWW+yZAVMIFrWPZDMoRSZrREv8UnL92yvS7/UmvxXTb5L8xUQMi627EgSHmjDKk7DtbgcYcJIME18MtkvbMJPVUM5om1Ue6aV4Mn2kBU4scqA/m5M/zj8s0Aju4vaQaSBgia6FvqV9omR6nFPANvZncNIBT1Eei6NIsaw1B8217/L4xaI2gt5s/4kbWW9R4+iElDzCSRx3duUMvtAoY6JNdFpDwXQxP1I35euMF/BKLj4eK4C75UNtXBmRYTHk1+X/XATn2TRKLb6wbDjyZnmijvORsSlfLsf9BuuaAQq6lsz0kBZh7nBqH3rmjzsqVjJVAgemtsZkZ2lgqnQ6y+0kDDVDlVHBdobJLcO7k1HtK2XoY6/zu/Fa9RUXkev44Pj7dRXoJxn6mAC4sflJGlbcV3KiWd2Q3Ryc2AqRjkTjbF7HWB8MZDO5heC/f+py426PZC52umT1lb3PoID1eUcxVOkYDZjPNTCFJehLA14t61fexkdCB+nmZ4qBz5z1IR3M2HbtsoS9bKVEDknqnWR7laeaCBqG6BJQSS5jrPry4LiSqOoZBGL6Zg1P/AbwOn1BJ8TH+MEWjLilyPmcGztMqfTAggBkUcCzQi0uZ8Z2AnaP2pr4mlABjTljhrJ6Vf72XPJ
-X-Forefront-Antispam-Report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:YT2PR01MB9175.CANPRD01.PROD.OUTLOOK.COM;PTR:;CAT:NONE;SFS:(13230040)(7416014)(376014)(366016)(1800799024)(921020)(22082099003)(18002099003)(56012099006)(4143699003);DIR:OUT;SFP:1102;
-X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
-X-MS-Exchange-AntiSpam-MessageData-0: =?utf-8?B?UWk1NnA1RDQvWCs2U05pTzlsc1lFaXk1amEvb2JETDNyRGVUNnh5ejlYK0E0?=
- =?utf-8?B?WmJudUhnb1l5YWs2Q1VXUkxkZzNyRE9VVnZCRFZOWVc5VjJ3cmZXcGZNYnBC?=
- =?utf-8?B?bEo3aDlFNzJkR0FaZHphSXJGekg3UW0zTXZOMmRvSlR2UUJOa1JGWjkxa083?=
- =?utf-8?B?SktjTDFnVHltWVREYzNjVVN4eWNNZmtZTmNQb243NmpNMHJhbG0zWGFFb25o?=
- =?utf-8?B?R1hseTRwSm8xeWRFcFlpa3F3bWtyZlQzeFdwVW1NZjh1bmhOS24xWWNZNmtI?=
- =?utf-8?B?VXlOaDdJaVRReFlDaUFKVHQyOFo4NkNzdGk5Y2x1OXBWdTQwd2xNbGUyaGV1?=
- =?utf-8?B?WUV5S2c1M1kwNmJWOWdUZHBZZzd6aFBNU2Z6SE9SZjdoeDNFSHY3UE9sRkhw?=
- =?utf-8?B?QmFibTFONFFWbThscmRZSnJYdXZQTE12MnREa0o3alZYVlRLZUxVdU9PTE5h?=
- =?utf-8?B?dGNwU2FnQVhVcFFTeER3TTdpa0xoeGhldHNnUDdjWFk0aHprMjRxbmJobnEz?=
- =?utf-8?B?aUEwbG1OY3AyMzZoamZOL3lUYTJYaitYOFpGMGpzKzhSK0lZR2xXRlNyS0FB?=
- =?utf-8?B?S3pzZ3JCZlBWZzk4SGVxUXd4a0ZtL1JmajBFaGhkVFBWNTdWemV0elpZNHM0?=
- =?utf-8?B?dm5kUEhSb1dTUCtYalk1QW9tNGFvUUdGWkIxN204WTdVOFV4SHBkRWlibEJI?=
- =?utf-8?B?a1BCNThLbGhzSzRiNjdtTmFkZWMvdmE4cEFoampSMWFJR2R5SjRZYTJjVWIz?=
- =?utf-8?B?UER2ZExERmk0ZmF0Tk45RGErNjMzYVhhMUl5U2NVRUR4ZTJWSmhvMWxZazc2?=
- =?utf-8?B?ZFJxWG9mOU15cjUyVUpoNGFtdGU1L1RLVlZXOFZKNjFKOThMbzZaNkxGRzAy?=
- =?utf-8?B?Mkt0QmJjWE5uVEtPR0lRNHE2UFhKN0ZNeXJTTnJtd0N4cE5SZmM0cmhLOHhn?=
- =?utf-8?B?dU1Qd3pJcmRva2JxcjV5QzNFSlBrTlNaeDlMV1BPV3A4bkplSDl5Q1IrbXBC?=
- =?utf-8?B?WHpYSXhaMUFmbE1Id2ZmcHhkK0hDRzM2MGlvcksra2hoQzRmSmxxbFBFS2Nl?=
- =?utf-8?B?czJGTFRtL3k1SzZobVVMQVVuc2dOcDZ1dldHWmI4bTNPWHpYczJlVDllbktF?=
- =?utf-8?B?MHdudUxWczFzSkxua2RwQklJT3pwVkg5QlZtdmdORFFsK2JLVUpzMU4xeWs0?=
- =?utf-8?B?VnNnVnZaMS92OHZTYUlGWWZpOURlM2pRSkRyVlgwSFIrY00wajBIWkY5M3kw?=
- =?utf-8?B?VzNFTGZmL08xVGdlMElyTWlsaFhQNVNzeWErdXZZY2xQTmhtclJvR3l3QkNW?=
- =?utf-8?B?Wks1dWpJS0I1N0tCelJVZGJoZTNMcVFuL1lJQmhkNldhZE5oWmlqaTEzNXNH?=
- =?utf-8?B?Y0V1WXpDY3Q3UUxRYkVWbHU4UEFrc21ERS9mQy8wc1lGQTFRSXYvSkRNVFE0?=
- =?utf-8?B?NWxoWkYzQ3hub2Ird2VmdFpHSzdmNVRqdmVodzcxckxGc0w0NWVOb1NxQ1Q2?=
- =?utf-8?B?N0FySDQyUlNSbXV0ZGdIQlpUYktSU2VMSFYzam05YWJDcDdHbElZZGJEUzhT?=
- =?utf-8?B?ODlJeTE2NDFMMG41a0tLUXBoR0pqYU5MelVRREJnNkJoWThKLzFGVVJCR1Bm?=
- =?utf-8?B?S0w0UzNEZVNBbWRiRy9sRVBLRml6WUxYN1Q2SWs2TEVQL0UzOVdJVDZJQnJi?=
- =?utf-8?B?c2ZDS0l4SXJUOVdobTMxQnZxRFJMZ1NEM3dIZzlYTWhyUEc1SkEycENkcVdv?=
- =?utf-8?B?ZGM5TkdVVTY3M3lDS0hxK1BEdTFLQng3VU0vQ1IxZVJmS2g5M1g3MCt2OUpq?=
- =?utf-8?B?YktOQ3RPTE1JaXlTWFR3cElxN05sakZLQi9OQ1UveHlweU53SUJNODFpZjRT?=
- =?utf-8?B?SVN3UTIzV0FXcDFRdExoUWJYWm9EWE9KVWhPQmkxRGpTcU9DSGxVWVdFMFcv?=
- =?utf-8?B?NzR4VGZVdDVaWUhCSjNGSlFKcjdhQUkvOHR6d1hVOTM3cDNWOU5qYTZOY200?=
- =?utf-8?B?akRrSnJBNEdaMEdQam5YRm5kWTRocXhna1BuSVVHNGtuNVJieXBQLzhnbXhj?=
- =?utf-8?B?QkJjMVB1QzRyUy9GNTNGMGpHb1A2WTdtSkhaV0RnUEZwbDZPdEVKbjJyMjBK?=
- =?utf-8?B?UmFnQWU1MjNzYXJ5Njl2WnBLQm1BemhndWdnN2lJRXBKTnBkczg1MGducDFq?=
- =?utf-8?B?SDQvdzJKc0lXYWZHZTY0TDZVWmczUkxnYjFUQVVpWnZ6VGdUSHFHcXJNNEI0?=
- =?utf-8?B?K2hhNXpGK0FkU1JTOFY4aXF4OUNWYjh6cUgydm81SUxvaE50ZkhwOWZKMHJY?=
- =?utf-8?B?Z0NVcThrbStET1orYkFtcjFPZ3ViV3VHMHFKVi8xM0Z5MmtMYWd3bkx0V1Zq?=
- =?utf-8?Q?vaKuxAM/SEDwJfuF/54aZCg28GyolAwHpcJ3i?=
-X-OriginatorOrg: efficios.com
-X-MS-Exchange-CrossTenant-Network-Message-Id: d6d13d0e-6559-48a3-19a3-08debdb6aceb
-X-MS-Exchange-CrossTenant-AuthSource: YT2PR01MB9175.CANPRD01.PROD.OUTLOOK.COM
-X-MS-Exchange-CrossTenant-AuthAs: Internal
-X-MS-Exchange-CrossTenant-OriginalArrivalTime: 29 May 2026 19:15:41.7313
- (UTC)
-X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
-X-MS-Exchange-CrossTenant-Id: 4f278736-4ab6-415c-957e-1f55336bd31e
-X-MS-Exchange-CrossTenant-MailboxType: HOSTED
-X-MS-Exchange-CrossTenant-UserPrincipalName: z4mu83nynnLOV+8xL7iVK1Zv43zB58v3X45AnUN+c4Tj7cCXJQKJgPBqXxkb5RHRRkuZDmw4jjqTFFPgh/y79kpnR9TuirJ1onlQ6D7K70Y=
-X-MS-Exchange-Transport-CrossTenantHeadersStamped: YQXPR01MB6366
+	Fri, 29 May 2026 19:30:51 +0000
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple;
+  d=intel.com; i=@intel.com; q=dns/txt; s=Intel;
+  t=1780083049; x=1811619049;
+  h=date:from:to:cc:subject:message-id;
+  bh=QZ/5ipK/QhhxD1HdAIKiPbLGE1KQ3R7JNjuwA3TLQXg=;
+  b=lfAC2Z/0zMjGo7e7YeLYezoEd5OGfr2FM+sadRfJM5a5Av70TtEEb/MS
+   iv6hJGVP5pbOOg26dCT1Vxpkt53wshQ8Vv2GSrktu4iYlQuEqZpgh/Y/j
+   5hlk4mYAVcoKKO3W7crPLHhO8pKxZbZPm1lmpRrJ7U11GQgDzP3iHt68m
+   5y6xJ/Cz2pxDRCAkcxBQKLqDYf+hO6Kg34huKWsFhaS8Lhtvifk7o73Aq
+   vsC4SunE48f9DJkJILWePa7J3CTxfi1x+WGZ52/xCwOqP995E+SB0hIJo
+   /lA6/qcexFhVrOiV72cb/ELfY+/vnkF1VnkucN4VJ4xgvERv6kmBapXR0
+   w==;
+X-CSE-ConnectionGUID: b0LkswdgS3KUYJFOxSOGxQ==
+X-CSE-MsgGUID: wcYG01lXQY6AOOGPQ8S+Qw==
+X-IronPort-AV: E=McAfee;i="6800,10657,11801"; a="80794870"
+X-IronPort-AV: E=Sophos;i="6.24,175,1774335600"; 
+   d="scan'208";a="80794870"
+Received: from orviesa006.jf.intel.com ([10.64.159.146])
+  by fmvoesa111.fm.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 29 May 2026 12:30:47 -0700
+X-CSE-ConnectionGUID: 1uz+UkfMTPOhXjDFeWNIUA==
+X-CSE-MsgGUID: S8hhaTx6R8mKwH2T6miNtA==
+X-ExtLoop1: 1
+X-IronPort-AV: E=Sophos;i="6.24,175,1774335600"; 
+   d="scan'208";a="241889273"
+Received: from lkp-server01.sh.intel.com (HELO f0d55cb201f0) ([10.239.97.150])
+  by orviesa006.jf.intel.com with ESMTP; 29 May 2026 12:30:46 -0700
+Received: from kbuild by f0d55cb201f0 with local (Exim 4.98.2)
+	(envelope-from <lkp@intel.com>)
+	id 1wT2up-000000007cM-0ghC;
+	Fri, 29 May 2026 19:30:43 +0000
+Date: Sat, 30 May 2026 03:29:55 +0800
+From: kernel test robot <lkp@intel.com>
+To: Marc Zyngier <maz@kernel.org>
+Cc: llvm@lists.linux.dev, oe-kbuild-all@lists.linux.dev,
+ linux-arm-kernel@lists.infradead.org
+Subject: [arm-platforms:kvm-arm64/nv3 25/32]
+ arch/arm64/kvm/hyp/vhe/switch.c:368:22: warning: value size does not match
+ register size specified by the constraint and modifier
+Message-ID: <202605300331.uAxQip7s-lkp@intel.com>
+User-Agent: s-nail v14.9.25
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260529_121549_486578_BE4D6E3E 
-X-CRM114-Status: UNSURE (   7.17  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20260529_123049_877985_1488F32B 
+X-CRM114-Status: GOOD (  10.89  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -160,29 +84,87 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-> +__u32 __vdso_futex_robust_list32_try_unlock(__u32 *lock, __u32 tid, __u32 *pop)
-> +{
-> +	register __u32 *pop_reg asm("r2") = pop;
-> +	__u32 val, result, zero = 0;
-> +
-> +	asm volatile (
-> +		GLOBLS(32)
-> +		"retry:						\n"
-> +		"	ldrex %[val], %[lock]			\n"
-> +		"	cmp %[tid], %[val]			\n"
-> +		"	bne " LABEL(end, 32)"			\n"
-> +		"	strex %[result], %[zero], %[lock]	\n"
+tree:   https://git.kernel.org/pub/scm/linux/kernel/git/maz/arm-platforms.git kvm-arm64/nv3
+head:   1779d2897784632a8fee0474e0dd5d124a8beeff
+commit: f967f8c6811b3c791cb2fd70289b633d04785aa5 [25/32] KVM: arm64: Implement runtime handling of HCRX_EL2.NVTGE==1
+config: arm64-allmodconfig (https://download.01.org/0day-ci/archive/20260530/202605300331.uAxQip7s-lkp@intel.com/config)
+compiler: clang version 19.1.7 (https://github.com/llvm/llvm-project cd708029e0b2869e80abe31ddb175f7c35361f90)
+reproduce (this is a W=1 build): (https://download.01.org/0day-ci/archive/20260530/202605300331.uAxQip7s-lkp@intel.com/reproduce)
 
-Here too the address range between strex (success) and start is not
-covered. Failure to fixup if the process is killed here.
+If you fix the issue in a separate patch/commit (i.e. not just a new version of
+the same patch/commit), kindly add following tags
+| Reported-by: kernel test robot <lkp@intel.com>
+| Closes: https://lore.kernel.org/oe-kbuild-all/202605300331.uAxQip7s-lkp@intel.com/
 
-Thanks,
+All warnings (new ones prefixed by >>):
 
-Mathieu
+>> arch/arm64/kvm/hyp/vhe/switch.c:368:22: warning: value size does not match register size specified by the constraint and modifier [-Wasm-operand-widths]
+     368 |                      : [err] "+r" (err), [v] "=&r" (v)
+         |                                    ^
+   arch/arm64/kvm/hyp/vhe/switch.c:365:16: note: use constraint modifier "w"
+     365 |                      "2:        mov     %[err], %[errcode]\n"
+         |                                         ^~~~~~
+         |                                         %w[err]
+   1 warning generated.
 
 
--- 
-Mathieu Desnoyers
-EfficiOS Inc.
-https://www.efficios.com
+vim +368 arch/arm64/kvm/hyp/vhe/switch.c
+
+   350	
+   351	static int __vcpu_l1_vncr_read(struct kvm_vcpu *vcpu, enum vcpu_sysreg reg, u64 *val)
+   352	{
+   353		u64 vncr_va = read_sysreg_s(SYS_VNCR_EL2);
+   354		u64 *reg_va = &((u64 *)vncr_va)[reg - __VNCR_START__];
+   355		u64 spsr, elr, esr, far, v;
+   356		int err = 0;
+   357	
+   358		spsr = read_sysreg_el2(SYS_SPSR);
+   359		elr = read_sysreg_el2(SYS_ELR);
+   360		esr = read_sysreg_el2(SYS_ESR);
+   361		far = read_sysreg_el2(SYS_FAR);
+   362	
+   363		asm volatile("1:	ldr	%[v], [%[va]]\n"
+   364			     "		b	9f\n"
+   365			     "2:	mov	%[err], %[errcode]\n"
+   366			     "9:\n"
+   367			     __KVM_EXTABLE(1b, 2b)
+ > 368			     : [err] "+r" (err), [v] "=&r" (v)
+   369			     : [va] "r" (reg_va), [errcode] "i" (-EFAULT));
+   370	
+   371		if (unlikely(err)) {
+   372			unsigned int ec;
+   373	
+   374			/*
+   375			 * We expect this to be ESR_ELx_EC_DABT_CUR, and to be dealt
+   376			 * with by the VNCR fault handler on the slow path.
+   377			 */
+   378			vcpu->arch.fault.esr_el2 = read_sysreg_el2(SYS_ESR);
+   379			ec = kvm_vcpu_trap_get_class(vcpu);
+   380	
+   381			if (!WARN_ONCE(ec != ESR_ELx_EC_DABT_CUR,
+   382				       "Unexpected EC=%x reading L1 VNCR\n", ec)) {
+   383				vcpu->arch.fault.esr_el2 &= ESR_ELx_EC_MASK | ESR_ELx_FSC;
+   384				vcpu->arch.fault.esr_el2 |= ESR_ELx_VNCR | ESR_ELx_IL;
+   385				vcpu->arch.fault.far_el2  = read_sysreg_el2(SYS_FAR);
+   386			}
+   387	
+   388			/* Restore the original fault context, just in case */
+   389			write_sysreg_el2(spsr, SYS_SPSR);
+   390			write_sysreg_el2(elr,  SYS_ELR);
+   391			write_sysreg_el2(esr,  SYS_ESR);
+   392			write_sysreg_el2(far,  SYS_FAR);
+   393	
+   394			return err;
+   395		}
+   396	
+   397		/* Apply our own sanitisation, just like HW would... */
+   398		*val = kvm_vcpu_apply_reg_masks(vcpu, reg, v);
+   399	
+   400		return 0;
+   401	}
+   402	
+
+--
+0-DAY CI Kernel Test Service
+https://github.com/intel/lkp-tests/wiki
 
