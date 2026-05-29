@@ -4,64 +4,79 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id E8DF3CD6E4A
-	for <linux-arm-kernel@archiver.kernel.org>; Fri, 29 May 2026 12:18:20 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 1D920CD6E43
+	for <linux-arm-kernel@archiver.kernel.org>; Fri, 29 May 2026 12:18:22 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	MIME-Version:Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-Type:
-	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
-	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
-	bh=CzGNF+VTlvtIapSjsIV5bW5TQhJnEB3/iQPUbpSa5uI=; b=g1UsCqkYUqyfSryrEKu2xK+8A6
-	SHCUwz52jT58xCysbyRysLVO6gDmv1tUzKV2a59Ctkfj3lGsa1L/9YrRlWqlO1xW2lfK3IJ+kjhsY
-	7tuG3truTYtgNopgx4u5BQreur80ZVe1WqB1ajrWB1BePMw1HXXBqWpjljZS/ME7l393Docc7TtDz
-	VEEqhpV3PcafqDIr+0mnAOLq8PCi0nuq9cVJyeozpY0QpBjjpzi336pfqAAX1EtkrvvEVjgGKOKKM
-	nxiANRyB7nGaAJucwgK2bYmy19FLqKH6cNxIukRY5ZVyYtQWs1pdrrYfPARQgOvDFUil5geufiUYN
-	8pG9MtHg==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:Cc:To:From:
+	Subject:Message-ID:References:Mime-Version:In-Reply-To:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=P7DIYy/NA1CowFMUedyn+8E7FgwfAdykU+tJsf37FuI=; b=sH6qwF3i4UJUlJV3ijuxgJhtjQ
+	lVl3+T9W/t9YsK0xy7A/qXa4aJqcbJTL+jclkTRvcDKvVsv0S6SNHpMxfJ5Tr4rjm54K8iYXmjsXz
+	HB4rNCpGt2E9tTOaAGHSD9sSOz/V91kZAyUHCr2qW3l+J4BJXtRPFnVp9xv7aNfeTc6Ol+7uQz8hJ
+	4wKYNMV7H70z5fazygRraGlEfg0O+zC33BFLjoRzwQGc5neGMNEDwWtguI2hW0Mzvkz0a1OByVuSS
+	OROXcYjVhL1cBxcTgl1uPu+YWzggQah9J3/UwgqK7imT5K/mUs4qNP7pRGHRIbL+0ExzIVZgjr+Gu
+	t+rFzx+A==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wSwAI-00000007MMx-3KBi;
+	id 1wSwAI-00000007MMM-2TPY;
 	Fri, 29 May 2026 12:18:14 +0000
-Received: from tor.source.kernel.org ([2600:3c04:e001:324:0:1991:8:25])
+Received: from mail-wr1-x449.google.com ([2a00:1450:4864:20::449])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wSwAB-00000007MKi-0NJI
+	id 1wSwA6-00000007MHk-2KpZ
 	for linux-arm-kernel@lists.infradead.org;
-	Fri, 29 May 2026 12:18:07 +0000
-Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
-	by tor.source.kernel.org (Postfix) with ESMTP id 5B5F860564;
-	Fri, 29 May 2026 12:18:06 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 92F751F00899;
-	Fri, 29 May 2026 12:18:03 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1780057086;
-	bh=CzGNF+VTlvtIapSjsIV5bW5TQhJnEB3/iQPUbpSa5uI=;
-	h=From:To:Cc:Subject:Date;
-	b=geAcMOp56bGWFIr02wcGx3THTHRAt1Sdn54lmekJqxnYyEUoh+mQBnwyuPFnBrzv+
-	 TTj1k0ACRBCKCcQYiZRm9kBn2kTagJaBDAkU+VzNKiGbyPwV9odjPQZZxrYvw5hBU1
-	 ajp3tHKo2h6yxzzZjc799g2GcG2PSawv19H1U6ckpPpzl9+HPpc5LvjC70YzaqutBd
-	 rqVTIwHP2YLZ6UIQ6v0kv72IHVg/zLhm/5xW3+eExKz6KGfjXszIv1of0ePF29WF7+
-	 J2XVtQI8EfxEhGDcxkuU/3UZc3NTWVVA85c6du3r4Vbvtz2CWL22U8eDNeesxBdBij
-	 VHnKbkHGl3FsQ==
-From: Krzysztof Kozlowski <krzk@kernel.org>
-To: Arnd Bergmann <arnd@arndb.de>,
-	Alexandre Belloni <alexandre.belloni@bootlin.com>,
-	Linus Walleij <linusw@kernel.org>,
-	Drew Fustini <fustini@kernel.org>,
-	soc@lists.linux.dev
-Cc: Krzysztof Kozlowski <krzk@kernel.org>,
-	Alim Akhtar <alim.akhtar@samsung.com>,
-	Peter Griffin <peter.griffin@linaro.org>,
-	linux-arm-kernel@lists.infradead.org,
-	linux-samsung-soc@vger.kernel.org,
+	Fri, 29 May 2026 12:18:03 +0000
+Received: by mail-wr1-x449.google.com with SMTP id ffacd0b85a97d-45eec27f5a5so943112f8f.2
+        for <linux-arm-kernel@lists.infradead.org>; Fri, 29 May 2026 05:18:01 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=google.com; s=20251104; t=1780057080; x=1780661880; darn=lists.infradead.org;
+        h=cc:to:from:subject:message-id:references:mime-version:in-reply-to
+         :date:from:to:cc:subject:date:message-id:reply-to;
+        bh=P7DIYy/NA1CowFMUedyn+8E7FgwfAdykU+tJsf37FuI=;
+        b=UzJnVemeerKjE+otwsxk8Eea9i6S13A95sZ71O/IyBWzhr9+FZJ0w4B7rLt46mqGYe
+         uhG6rCV45vK9ll6N2Zu9b8N8cWrONC+De2MvWmPQLCLZIZ5lzzNN8QkXRhs2ghfoVvN6
+         /tyDRlGk/wOMGgaOu4ixGH9CTVkL4SCibvVdi2njWvzKCYTdHV6fENz37AxQSzRbd5tR
+         iCkEJQcf64Ne/36/r4vWSVK9+DKLusfGL1gNxF6DWQlY6QjEeuVxFQRRV0+Gz6a9e0Xj
+         oZlgFtuWVMWlidNAWQrw3z1xRWwQsdsBWdFg7Mg8z0ZLyM/2uuX8VI8dWL//XdtfZusx
+         fmgg==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20251104; t=1780057080; x=1780661880;
+        h=cc:to:from:subject:message-id:references:mime-version:in-reply-to
+         :date:x-gm-message-state:from:to:cc:subject:date:message-id:reply-to;
+        bh=P7DIYy/NA1CowFMUedyn+8E7FgwfAdykU+tJsf37FuI=;
+        b=fx0y0P5rAXem4+ZBtHL1Vd94B7aoLlHucerYMReJ4iIet18F/PjiGhBpQ048gW1w/Z
+         4s+PolLjiB0//lmRztUKTBzz+wopC61fcfHOLVxQWOlgxp7oZjvyiZGZjCtC0O6A/SlV
+         SMNngqMVeMqEjrhccNMVivyeLIqgviqzoHNfZfoobQ9Dgiv6dl6YPbHqqb2NxgsvJUht
+         2qzfddZQEtLfaiXvJJZaYHNZnV+5EFzDRB50PlBV81H1rlwA+UmZzarBw/koSXM2ul1e
+         QNy0CxQV+WvORsoyqC+EZrDjMXB/MSs6JKjVJEZ9NEDNI8ouj3TtCfOWv+53q3JygQqI
+         OYWw==
+X-Gm-Message-State: AOJu0Yx8ujxhYPfz5GdTzkyPdgzMFCJmZogn7fT9KsYrbX5vC5M7fd80
+	OTnY9H244XjfuWFFwLXWBJ4aXkqQTgxQiuYaXdNQtmvk5vte91N96zrmA8rciQ4xQa35gYNjDII
+	0vw==
+X-Received: from wmjt12.prod.google.com ([2002:a7b:c3cc:0:b0:490:3974:b74f])
+ (user=tabba job=prod-delivery.src-stubby-dispatcher) by 2002:a05:600c:1d09:b0:490:a1a6:6f24
+ with SMTP id 5b1f17b1804b1-490a1a67021mr16515805e9.15.1780057079441; Fri, 29
+ May 2026 05:17:59 -0700 (PDT)
+Date: Fri, 29 May 2026 13:17:54 +0100
+In-Reply-To: <20260529121755.2923500-1-tabba@google.com>
+Mime-Version: 1.0
+References: <20260529121755.2923500-1-tabba@google.com>
+X-Mailer: git-send-email 2.54.0.929.g9b7fa37559-goog
+Message-ID: <20260529121755.2923500-3-tabba@google.com>
+Subject: [PATCH v2 2/3] KVM: arm64: Avoid host/hyp share desync on unshare
+ hypercall failure
+From: tabba@google.com
+To: Marc Zyngier <maz@kernel.org>, Oliver Upton <oupton@kernel.org>, Joey Gouly <joey.gouly@arm.com>, 
+	Suzuki K Poulose <suzuki.poulose@arm.com>, Zenghui Yu <yuzenghui@huawei.com>, 
+	Catalin Marinas <catalin.marinas@arm.com>, Will Deacon <will@kernel.org>, 
+	Quentin Perret <qperret@google.com>, Vincent Donnefort <vdonnefort@google.com>
+Cc: linux-arm-kernel@lists.infradead.org, kvmarm@lists.linux.dev, 
 	linux-kernel@vger.kernel.org
-Subject: [GIT PULL] samsung: drivers firmware for v7.1, replacement
-Date: Fri, 29 May 2026 14:17:57 +0200
-Message-ID: <20260529121757.13224-2-krzk@kernel.org>
-X-Mailer: git-send-email 2.53.0
-MIME-Version: 1.0
-X-Developer-Signature: v=1; a=openpgp-sha256; l=2052; i=krzk@kernel.org; h=from:subject; bh=ZMjAF+OwBUX1j8RpGOcH8icmR9zWYxGfGHxf/YItcBg=; b=owEBbQKS/ZANAwAKAcE3ZuaGi4PXAcsmYgBqGYP21QR0o7tuEi3Mg+qQ+UoRS4Gpd1oPhE3Go FDcj+ptjJaJAjMEAAEKAB0WIQTd0mIoPREbIztuuKjBN2bmhouD1wUCahmD9gAKCRDBN2bmhouD 1w1MEACCgy6+0dYIFFXZlvyZWmbIS+Ge3Pbw03rpKsktJby8zcvGTsrWW9U+hmfTxRvqJ9FZXQG XGjrj+IOxst9AmogOnewraoEokSI0ZeCP+rAlfT9kTPdp70plfpOi3+JPI5sZBimChUWEZ8D0vF VBVbmOtjqF1HvhwYSo3agk9dIy0Dpu4wWP7OBkaZulXFkR8GSkvnZd+e2a+GgXw0qCajG5i9RF6 03OJmC3jcQgO72+BsLg0gHWKt+QFrrLX9vEB0RonLs8bYpXA8CYOx+owW5gTAXgiaXs4cDtsagB UZbWG78w4S+MPvWwPLvoF2sqmqkWH0Q4UMVoXSJCUOT+gx5qzghAL5FSETykQ8ms7ZE5gtDhSUO 853mdWa3ske8PUFHiX+sSXRGwHI/5z//PcyeWL3fhLvRanRHxQcXl9egQIuRM/kQs4IS/Xhn9NM jGat76mqkd2kIyBMl2tC65KNYliyZuy1c8K5zRWZclfyHZMa/DM+9EUW/WJ9KKA+SxekOsbyJUL 9qtahlHmXrPAdJxUI/Pc/0b7kuan+tfQu9PEcCnIE5/tcUnaT3VSpKrJv/2eO+Ga8dAAfklxGcS CA644PSF1FULCSzz+dMFIKgUPkHPvtwUmil2/JT0gOnaW2xea+JnYMcWEqurg6SgPBQ1Aoh8dhk zPcw6gAqMBcGBwQ==
-X-Developer-Key: i=krzk@kernel.org; a=openpgp; fpr=9BD07E0E0C51F8D59677B7541B93437D3B41629B
-Content-Transfer-Encoding: 8bit
+Content-Type: text/plain; charset="UTF-8"
+X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
+X-CRM114-CacheID: sfid-20260529_051802_607476_768CBDB0 
+X-CRM114-Status: GOOD (  14.24  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -76,54 +91,64 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hi Arnd and SoC folks,
+unshare_pfn_hyp() erases the tracking node from hyp_shared_pfns
+and frees it before invoking __pkvm_host_unshare_hyp. If the
+hypercall fails (e.g. EL2 refcount still held, or page-state
+mismatch), the host loses its record while EL2 still holds the
+share, breaking later share/unshare attempts on the same pfn.
 
-This is a replacement/rework pull of previous tags/samsung-drivers-fixes-7.1.
-I also dropped that tag from my repo.
+Invoke the hypercall first; erase and free only on success.
 
-Changes against previous pull:
-1. Drop commit: firmware: samsung: acpm: Fix dummy stubs to return ERR_PTR
-2. Drop commit: firmware: samsung: acpm: Add memory barrier before advancing RX pointer
+Document at the kvm_unshare_hyp() call site that the WARN_ON() is
+left non-fatal: a failed unshare leaks the page (it stays shared
+with the hypervisor) but breaks no isolation guarantee.
 
-This caused rewritten history, but all of the commits were already in next
-since May 14.
+Fixes: 52b28657ebd7 ("KVM: arm64: pkvm: Unshare guest structs during teardown")
+Reported-by: Sashiko (local):gemini-3.1-pro
+Suggested-by: Vincent Donnefort <vdonnefort@google.com>
+Signed-off-by: Fuad Tabba <tabba@google.com>
+---
+ arch/arm64/kvm/mmu.c | 15 ++++++++++++---
+ 1 file changed, 12 insertions(+), 3 deletions(-)
 
+diff --git a/arch/arm64/kvm/mmu.c b/arch/arm64/kvm/mmu.c
+index 4a928fb003ff..e08503e89fc4 100644
+--- a/arch/arm64/kvm/mmu.c
++++ b/arch/arm64/kvm/mmu.c
+@@ -524,13 +524,17 @@ static int unshare_pfn_hyp(u64 pfn)
+ 		goto unlock;
+ 	}
+ 
+-	this->count--;
+-	if (this->count)
++	if (this->count > 1) {
++		this->count--;
++		goto unlock;
++	}
++
++	ret = kvm_call_hyp_nvhe(__pkvm_host_unshare_hyp, pfn);
++	if (ret)
+ 		goto unlock;
+ 
+ 	rb_erase(&this->node, &hyp_shared_pfns);
+ 	kfree(this);
+-	ret = kvm_call_hyp_nvhe(__pkvm_host_unshare_hyp, pfn);
+ unlock:
+ 	mutex_unlock(&hyp_shared_pfns_lock);
+ 
+@@ -581,6 +585,11 @@ void kvm_unshare_hyp(void *from, void *to)
+ 	end = PAGE_ALIGN(__pa(to));
+ 	for (cur = start; cur < end; cur += PAGE_SIZE) {
+ 		pfn = __phys_to_pfn(cur);
++		/*
++		 * A failed unshare leaks the page: it stays shared with the
++		 * hypervisor and is no longer reusable for pKVM. No isolation
++		 * guarantee is broken, and this is not expected in practice.
++		 */
+ 		WARN_ON(unshare_pfn_hyp(pfn));
+ 	}
+ }
+-- 
+2.54.0.929.g9b7fa37559-goog
 
-Best regards,
-Krzysztof
-
-
-The following changes since commit 254f49634ee16a731174d2ae34bc50bd5f45e731:
-
-  Linux 7.1-rc1 (2026-04-26 14:19:00 -0700)
-
-are available in the Git repository at:
-
-  https://git.kernel.org/pub/scm/linux/kernel/git/krzk/linux.git tags/samsung-drivers-fixes-7.1-2
-
-for you to fetch changes up to 7fe40c32a33905302341797b5d12c541729dd08d:
-
-  firmware: samsung: acpm: Fix infinite loop on sequence number exhaustion (2026-05-29 14:11:23 +0200)
-
-----------------------------------------------------------------
-Samsung SoC driver fixes for v7.1
-
-Fix several concurrency issues present in Samsung ACPM firmware drivers,
-used currently only on Google GS101.  Tudor with help of Sashiko
-identified several missing barriers and incomplete synchronization,
-leading to possible transfer data corruption or use after free.  Few
-other issues related to probe, including missing mailbox cleanup, were
-also fixed.
-
-----------------------------------------------------------------
-Tudor Ambarus (5):
-      firmware: samsung: acpm: Fix cross-thread RX length corruption
-      firmware: samsung: acpm: Fix mailbox channel leak on probe error
-      firmware: samsung: acpm: Fix false timeouts and Use-After-Free in polling
-      firmware: samsung: acpm: Fix missing LKMM barriers in sequence allocator
-      firmware: samsung: acpm: Fix infinite loop on sequence number exhaustion
-
- drivers/firmware/samsung/exynos-acpm-dvfs.c |   3 +
- drivers/firmware/samsung/exynos-acpm.c      | 141 +++++++++++++++++++---------
- 2 files changed, 100 insertions(+), 44 deletions(-)
 
