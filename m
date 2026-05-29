@@ -4,56 +4,147 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 42A06CD6E49
-	for <linux-arm-kernel@archiver.kernel.org>; Fri, 29 May 2026 17:47:46 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id B58B1CD6E49
+	for <linux-arm-kernel@archiver.kernel.org>; Fri, 29 May 2026 17:47:53 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:
-	Content-Transfer-Encoding:MIME-Version:References:In-Reply-To:Message-ID:Date
-	:Subject:Cc:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:
+	Content-Transfer-Encoding:Content-Type:In-Reply-To:From:References:Cc:To:
+	Subject:Date:Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=JmCG5c7ZdraaUuv5adtXfMR+L/IgQPNcJErvSgyx1bo=; b=0GUVGzh7jtg0UHfaP0g2S16jUl
-	kJGFSpOOfw9TbPXZbK9tDpZwSV68QAV7XrqO6tnR/LA2VWVHdtP5CHFXBt+2uC8+KQYqItE64bYDY
-	oMDoU1ZcVYtYeDrwW6gWD4J6QwhnnyvrF/1NBXnC5iBQbXuitzU3k1FxCdtw5wM2g1ycAuwvPT5I0
-	kpDxJ4f2P0qggMY7QyopFMQVuz37JPj1gTxmtn8IVeAuZaBtgLyr12dgF/UkxzztcS8F1B+GGxcTE
-	FKlAM0f3Xl/1w1wmryactzDAUaWHs4bxU/5tAMVgnXpJqJZOEfjlyS9JwJAn6Xg27oxRnqNtN3D/e
-	C6RpJMGA==;
+	bh=FB0FIykHwSvyzqTlvm27XBUJnI1wlUFZM8BAEy4O/Ek=; b=HKdbZZfWI//JI6DRZVde/MxelN
+	sqL0w2yVL4NY/Q8Byd2AOQ6HlvNPLUSaQLxAuL2bfb0k9B1u2ivzMFC5DZP0/27Y31bvPpN7CFff8
+	39lR6KNM6hjo/SaGnQ4k+fxg/oi3WDrMqn3atJYlxoatNXEpxc3o/+IkzcpnJwAE9UGxXMU9cWz6h
+	wM4YWHMMA/7Mv/qyzuOybT8FVXDcJccEczUmqsQDVrQkw486K+aotyjueWc4oAm7kgzKIl1S65YWX
+	zyW9kvHupptjGXAYVAxxF5hKUcS9YH8gPriQs61sbtuprhTCZG38lp8A1qsvE8wEz1u3p6LIrH7Ij
+	nUEWcLjg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wT1J4-000000082Q8-3aMb;
-	Fri, 29 May 2026 17:47:38 +0000
-Received: from gloria.sntech.de ([185.11.138.130])
+	id 1wT1JB-000000082SL-0DaX;
+	Fri, 29 May 2026 17:47:45 +0000
+Received: from mail-canadacentralazon11022081.outbound.protection.outlook.com ([40.107.193.81] helo=YT6PR01CU002.outbound.protection.outlook.com)
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wT1J2-000000082P0-2NGt;
-	Fri, 29 May 2026 17:47:37 +0000
-DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed; d=sntech.de;
-	s=gloria202408; h=Content-Type:Content-Transfer-Encoding:MIME-Version:
-	References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:Reply-To;
-	bh=JmCG5c7ZdraaUuv5adtXfMR+L/IgQPNcJErvSgyx1bo=; b=qowQRPp+vmiLNlYsmQPNOAQ1Ec
-	lVyVhrZDC21fF+NNodAjsFn5ZcLORaY/3O9HnWneNKzwlKVyzCaMqEFCD6YpXPQZaIlu/jkFjH4LU
-	shW79nPyr9Vuw/7MBwOe7jTui9E+JApfeBCOZOzB/0c4IgXOM27YFzvxDtMlZzCjqKdwTDNuNkl69
-	2eFDFVrKn1c0x7H1Zs+aT/uWRNeYVF0EFSVs9xxFHNH4kIJjw4llpUhFwnfvg9jGOo31b85YL9i3f
-	8NX0teUlNxgLr0V+HO7co/tkX2+E9EsRUkLST/cvFeqX7TOsiiYr64h27lHtYCMwcOwp3EOh1cVgO
-	yEyYoYPQ==;
-From: Heiko Stuebner <heiko@sntech.de>
-To: Joerg Roedel <joro@8bytes.org>, Will Deacon <will@kernel.org>,
- Robin Murphy <robin.murphy@arm.com>,
- Sven =?UTF-8?B?UMO8c2NoZWw=?= <s.pueschel@pengutronix.de>
-Cc: iommu@lists.linux.dev, linux-arm-kernel@lists.infradead.org,
- linux-rockchip@lists.infradead.org, linux-kernel@vger.kernel.org,
- Simon Xue <xxm@rock-chips.com>, kernel@pengutronix.de,
- Sven =?UTF-8?B?UMO8c2NoZWw=?= <s.pueschel@pengutronix.de>
-Subject: Re: [PATCH v2] iommu/rockchip: disable fetch dte time limit
-Date: Fri, 29 May 2026 19:47:27 +0200
-Message-ID: <5524351.eFTFzoEnKi@phil>
-In-Reply-To: <20260428-spu-iommudtefix-v2-1-f592f579e508@pengutronix.de>
-References: <20260428-spu-iommudtefix-v2-1-f592f579e508@pengutronix.de>
+	id 1wT1J6-000000082P4-2lMx
+	for linux-arm-kernel@lists.infradead.org;
+	Fri, 29 May 2026 17:47:42 +0000
+ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
+ b=BuiZmJOH75OOOAy0ccY7Q70H3YfST+mos9xo8bwP+hqluuS6BE9oP4h61UeBIJ604PqDNLkBLNfwFGTn7wvz21M7T5ny837qW1nE/XJjPG4G8Y1Fj5nU4rnUeIi5FPPlKYrlzbBsfmOKvJHw4puqECqSn4SZxq2esw+OWlfi8X/EXuFXIX3I1pK4SbA6b1/NPGwRHQIb0X3CluL4jXF/+XwmkYhd7nbfmKLDt58267IQeoeAK66PaG1JrBsKWVCpb1RoAoYEB0sB1ByfKZraYgFD2EJt4hLjWxnT5+DscgPXI1scRmwNRzstcR3e8E6Ua42pp7KBQc/ZpkMqbqiSYA==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
+ s=arcselector10001;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
+ bh=FB0FIykHwSvyzqTlvm27XBUJnI1wlUFZM8BAEy4O/Ek=;
+ b=u23PR7vxg9P/pZwtH+0IQ4RPpb8imMC72q8ZkUFt1UT6lQB/veqyvyQJbIjRRbww7whn+GRFfoDWaK0zkK+UPmCM1Yx/5sshJsk8fK0tdPzkuXpqN+bl9r127rPTJ53ZRSZpWKRAVnUE3/BZ6iarOpCNs/84gxPIjLV1y1TK5/BCTAj21IhSfN79gLfV5klrZ4OL0WgG7/VcsMsyfkLWHzEBpZv21pyd/X3sqAfhZNAaLmOj2m79Rs9OlfzQQtKT1QVgFP825IX7SmPwc3ozev3KO40zVGo2gdEzsDja2Vf0UM6jxZutjY6nKti3Q4amZGHVehwmmkB2jHk9XLyvog==
+ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
+ smtp.mailfrom=efficios.com; dmarc=pass action=none header.from=efficios.com;
+ dkim=pass header.d=efficios.com; arc=none
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=efficios.com;
+ s=selector1;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
+ bh=FB0FIykHwSvyzqTlvm27XBUJnI1wlUFZM8BAEy4O/Ek=;
+ b=aa6EeteEyhRJj1bRQU2b/QgQibvt3aPoCO+UY4jK4i1y6al2fFHRKm42j+iaawVvT0KO1OQI5OECzFLWRLEKncroU4ELJrVMJdRem4l/psy+QMbosV/uiZMJerTdKZoQzZpsHqZgi/LuViTr6Swj0gvs+39uT0GqbE41AKBCn+lWqG/U0NR4i9i37sCuYHq9EX+fKx3jug4AP1sDNrICCuTDPLxN30u69h6fTly+0Zr4BgD0s3uXI5WPOxqiE+VhHRcgAlh/NZo5AlSwAyRIHKefUUoVYWpv5lcB5WvTveONcjA2y2ZTRKxZjaSUkgScOQD7C7udaKhmFYqHD7BgLQ==
+Authentication-Results: dkim=none (message not signed)
+ header.d=none;dmarc=none action=none header.from=efficios.com;
+Received: from YT2PR01MB9175.CANPRD01.PROD.OUTLOOK.COM (2603:10b6:b01:be::5)
+ by YQXPR01MB5835.CANPRD01.PROD.OUTLOOK.COM (2603:10b6:c01:3c::10) with
+ Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.21.92.5; Fri, 29 May 2026
+ 17:47:29 +0000
+Received: from YT2PR01MB9175.CANPRD01.PROD.OUTLOOK.COM
+ ([fe80::6004:a862:d45d:90c1]) by YT2PR01MB9175.CANPRD01.PROD.OUTLOOK.COM
+ ([fe80::6004:a862:d45d:90c1%3]) with mapi id 15.21.0092.004; Fri, 29 May 2026
+ 17:47:29 +0000
+Message-ID: <844b56fe-b5d4-42b2-ae8e-ce07980d0f50@efficios.com>
+Date: Fri, 29 May 2026 13:47:28 -0400
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH v3 2/5] arm64: vdso: Implement
+ __vdso_futex_robust_try_unlock()
+To: =?UTF-8?Q?Andr=C3=A9_Almeida?= <andrealmeid@igalia.com>,
+ Catalin Marinas <catalin.marinas@arm.com>, Will Deacon <will@kernel.org>,
+ Thomas Gleixner <tglx@kernel.org>, Mark Rutland <mark.rutland@arm.com>,
+ Sebastian Andrzej Siewior <bigeasy@linutronix.de>,
+ Carlos O'Donell <carlos@redhat.com>, Peter Zijlstra <peterz@infradead.org>,
+ Florian Weimer <fweimer@redhat.com>, Rich Felker <dalias@aerifal.cx>,
+ Torvald Riegel <triegel@redhat.com>, Darren Hart <dvhart@infradead.org>,
+ Ingo Molnar <mingo@kernel.org>, Davidlohr Bueso <dave@stgolabs.net>,
+ Arnd Bergmann <arnd@arndb.de>, "Liam R . Howlett" <Liam.Howlett@oracle.com>,
+ Uros Bizjak <ubizjak@gmail.com>, =?UTF-8?Q?Thomas_Wei=C3=9Fschuh?=
+ <linux@weissschuh.net>
+Cc: linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org,
+ linux-arch@vger.kernel.org, kernel-dev@igalia.com
+References: <20260529-tonyk-robust_arm-v3-0-a6f02684d4fe@igalia.com>
+ <20260529-tonyk-robust_arm-v3-2-a6f02684d4fe@igalia.com>
+From: Mathieu Desnoyers <mathieu.desnoyers@efficios.com>
+Content-Language: en-US
+In-Reply-To: <20260529-tonyk-robust_arm-v3-2-a6f02684d4fe@igalia.com>
+Content-Type: text/plain; charset=UTF-8; format=flowed
+Content-Transfer-Encoding: 8bit
+X-ClientProxiedBy: YT4PR01CA0098.CANPRD01.PROD.OUTLOOK.COM
+ (2603:10b6:b01:d7::15) To YT2PR01MB9175.CANPRD01.PROD.OUTLOOK.COM
+ (2603:10b6:b01:be::5)
 MIME-Version: 1.0
-Content-Transfer-Encoding: quoted-printable
-Content-Type: text/plain; charset="utf-8"
+X-MS-PublicTrafficType: Email
+X-MS-TrafficTypeDiagnostic: YT2PR01MB9175:EE_|YQXPR01MB5835:EE_
+X-MS-Office365-Filtering-Correlation-Id: ec87b175-a7c4-4dbb-aad6-08debdaa5a91
+X-MS-Exchange-SenderADCheck: 1
+X-MS-Exchange-AntiSpam-Relay: 0
+X-Microsoft-Antispam: BCL:0;ARA:13230040|366016|1800799024|7416014|376014|921020|4143699003|56012099006|18002099003|22082099003;
+X-Microsoft-Antispam-Message-Info: v0oFQubAHBEN+c8UfB1X0VqeADe18DP4vqoI5O6vGVmiDMnnhx0TvP52h1CveGiklZ/LmTbxgDOasyyxyCMTfdF9di4iePe5CqI+T/WIcWxrEDJkvVb7NTroqKC0gjTf1AY0iDnb4Y1zBRH6JkTKpUDdDWOFXQofKcb4uojBCYuODxI4WxcUovy9G3PWIHjpfdrP7uDOSpFAa+DpNkUSAro8UOw1hqBU5r3MdUdvqLmUK5Ipqd8XgSxiBDKX8/24vAtwJqM0aIBRUUptR0ajXvJ/fH3/Zni+NZw7wVfRjFhJfN3WhGUKrCejZ926/sd4JLsk/WxzE1fVtao/nMu7aPv8pDf7e8O30fTEWOtiW8uWOhB6n4JmUhcwqi29DZyxODS949qOj85+Pwk8mRI1DUss/2nCEOknarA5AHGTsyA/qXVmd/+g3ffYeTxu3l4ssAm5Z3/VDMIqgxpWDpusTAYJ8U3JcflfIgDcOsiHYVYqatMGrg96ydtnrnFyZc0CiFkV6jzAvGhMWu5yXVyZshGfWggGiusq+rPZH8JsC6cQLR++x6P/FIbu+yzXgJRFT5H0nWCIudmtrrbabBDiZ96ElYly5Rp3B5pD1VBCxGOFC+sBz/2GSWAusGK1lELcGADxSGWAJsHgIdKFGF3m4yPQb/PWPzN1gUow3aA8Oc/Fz+E9FAo41Eg3NR1QqWc0
+X-Forefront-Antispam-Report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:YT2PR01MB9175.CANPRD01.PROD.OUTLOOK.COM;PTR:;CAT:NONE;SFS:(13230040)(366016)(1800799024)(7416014)(376014)(921020)(4143699003)(56012099006)(18002099003)(22082099003);DIR:OUT;SFP:1102;
+X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
+X-MS-Exchange-AntiSpam-MessageData-0: =?utf-8?B?aGxkSnVzZ0UyUVlNQjV0R1VIMG02MDBTOHR3YXdlM0tSVEkxWlZiS010ODNN?=
+ =?utf-8?B?Z1k1NHd6b1lYTXVCa0ZkQ29DUkI2RUV4bmw4YnZhZEJ5K2puMENsNitqZFR2?=
+ =?utf-8?B?OUI5Vm9icUJiNGJWWlNpV2pIdGcweGYxTlVPeEk3VGZpbnh4Q2thR1BJQ05s?=
+ =?utf-8?B?bWc1Q0dhYUxCVVhVc1B5RVR6dEFsbGFQdENFYkd3VXRtNnZoMGZDd2o1Qm9Z?=
+ =?utf-8?B?UU1aYk03TG1qYm1QcDBRYVBnNVBlZFlIMnczcW9oVVNSYjB6MzJONzNTOTl1?=
+ =?utf-8?B?WUJJTmxzMXFXRWxlRnhkQm5vWU5zcjBITjQ2ZVRibVJwSFpEZ09EWStLbGhI?=
+ =?utf-8?B?MDhGdjlTZC93dGhtQ0lUbmIzS0FMNHVSRUdONzc5RzBkRGRRQ29DOG5GZGtE?=
+ =?utf-8?B?TStXMWdQdnQzT2ZZYUVycUxZK21Sby94TVFOWithYlBxRGY5YXB0MG90UHlS?=
+ =?utf-8?B?SFUraTNBcS9PTUlLSGE3SUVDbEhnYnNnYUx4TUJXR0plZ0V4VlIzeWZ2K1BU?=
+ =?utf-8?B?NnlUcitnYWtNTGtaZEc1bGdxSDhPVlZmaVBBRUlCY0pSNTdjMjdudklvWTBE?=
+ =?utf-8?B?U2IwUGMwNUt6RFdHbmRNRmExSHByVWhCZTQ0alV0dGYxYVdhb25CR0UyQ1h3?=
+ =?utf-8?B?N2pEWmoySlBBWnRlUC8wbWpycE1jVm9yUnZMZ0F2VGtJcDdhZUZ3dlFoMi9U?=
+ =?utf-8?B?Tlp4cTVDbXFFN09kYUhjQnh4d2R2cnRuZ1hBcUtmSFI3aGF6anVLV05wQXpX?=
+ =?utf-8?B?d0tlM1RLNGJwZ3J3UEU0MXRtOFh1TzcxVzRRVXVhRVVvekxKazhldDl6Um5Q?=
+ =?utf-8?B?WTJRYm1wR1VpN243T0d5QVBIZWI3bnJPaERwbGdpUEFkTTJBSEk4bUVtRE80?=
+ =?utf-8?B?SGh6TXNVNWExVmxTS3IrSnFOOS92TlkxL0s3b0hmUzhjK20zb3B3MjI0Uitz?=
+ =?utf-8?B?QjgrM05EQUVqT3Exa1p5MllyWkl6V01LbTNIR0lOY1k1QTNoTzlPNE85MUYv?=
+ =?utf-8?B?am1KbjY5NHNLcmxxQnpNdGlDcmhTVnE0TEdnanl6aGZ5cWY5aFYwSmc5ME9m?=
+ =?utf-8?B?aWhpbkdpTTlnZG5qeGVvQVA5U1liK3F3ZzN4eFFlYWxzM3VVYzI5RGZUdU9I?=
+ =?utf-8?B?eFAwNXM2bmlsVTR6aHJnVmhVUFZPWnB5TDJxLzkrSCswZTY5d3M0NXdHL1pC?=
+ =?utf-8?B?dkxvVXlyRFRmdE4zQVZKS3hIS1BGTUhibmhGWlgvb0RqUThmS2RWYzhMSW9N?=
+ =?utf-8?B?dTNXS3RxK1ZtZG9nSHdhSnhpMDkxQkNGcUtCUHEyZGI5dWdFSGJuZm1ERVJi?=
+ =?utf-8?B?VTN1SEhCQlVyOHVYVXczZEdhTGcwVnlobkhXcUY0ZXo2OVdva2JEUEF1VWhK?=
+ =?utf-8?B?K08yQm9nam1QWnUxZ2gvVmV2Y0FPR0NWeUlPUzVIMHFsZXQ2dEg3eXo5dTJ0?=
+ =?utf-8?B?Y2s3NUpua2VYTmFRdVVVU0xFdDdGTUo4K3BzN3p5NmNremRodDQyL1IxRlZ2?=
+ =?utf-8?B?K2pzZjAyUm1CRjhGWkY3V3pPb01pUEJWbzJrclFwcmt6bFpXNUVMSEdiaUtX?=
+ =?utf-8?B?aUE2Zlp5eHZyV2NlVFMwT29oZnZpeWtaZmxTNXdQeTg1SVFpZ3JnUXQwaGZt?=
+ =?utf-8?B?bEJUelFZeTNSWlFhaHFjaHliRFZidGVGK1BxbGtnS2twU2VGTFRSY0Q5VGtR?=
+ =?utf-8?B?SlhUdCtzTlR2aWNMMDJ1M0NzdlExSWxjSXF3R2NZWDNUS05nTDZrSGVGSlB0?=
+ =?utf-8?B?QjR4WU5PMjRjYzNBb3RGc01iSmxaRjV6TFk0SU1NRlJnajFxYzRkazZiOFNW?=
+ =?utf-8?B?Ni84SjNWbHR4dUpHOW1PeVNHYVViSk1Db0VXKzFaNzlJUWhxdGlvZmxvd2pP?=
+ =?utf-8?B?eTU3YjRxQ214VzRmK081M2V3ekc0dlF4USsxOFU2M2xxKzBqZzdWWUNlT0JB?=
+ =?utf-8?B?dis3N2FEU05FN3RoT3ZLV0YwTjR5MWRERHJTeEhGVDY0ZjNuTVExckUzS3kz?=
+ =?utf-8?B?bS9OSEh2MHVrTnAzYzB1YUhaOGM4c3RObHhHN2xVb0hNRDIvV2VoMkZtWW84?=
+ =?utf-8?B?bzNsRkJRbHphWUFRQmtjL203V3lRQ09GWWJSNnNuQ3pTMkJ1SnVyR25ZbkRC?=
+ =?utf-8?B?TUFZYlRLd0sxcng4MW1TazNSTGNsdEc4ZW1KK3hwNkljcCtQaUdTRHNrbk9N?=
+ =?utf-8?B?RUdCMlU0T0wrYlB0S0lzUTBNQStlODBpMWNSLzZGY1A5eldUMGFOblFPTGpU?=
+ =?utf-8?B?cE9xZTkxTHFkK1BFdnRKNHZMQzlFVWVGMnlVNDF6SFpLL3lXU0tnUXdicTRj?=
+ =?utf-8?B?WUhQRVcvYUU1MVdMbDFBSStzTXMxNzlVVEFiUVhBN0lRWDhrNXYwdkI2NVRj?=
+ =?utf-8?Q?RK8nvF7Tz9vELRIl+JTDdZK2wAA4r8SxK7LB6?=
+X-OriginatorOrg: efficios.com
+X-MS-Exchange-CrossTenant-Network-Message-Id: ec87b175-a7c4-4dbb-aad6-08debdaa5a91
+X-MS-Exchange-CrossTenant-AuthSource: YT2PR01MB9175.CANPRD01.PROD.OUTLOOK.COM
+X-MS-Exchange-CrossTenant-AuthAs: Internal
+X-MS-Exchange-CrossTenant-OriginalArrivalTime: 29 May 2026 17:47:29.6403
+ (UTC)
+X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
+X-MS-Exchange-CrossTenant-Id: 4f278736-4ab6-415c-957e-1f55336bd31e
+X-MS-Exchange-CrossTenant-MailboxType: HOSTED
+X-MS-Exchange-CrossTenant-UserPrincipalName: YD39FSmmvrBrFD7KlEXtZXwwNRVb2WlGo+WuD3F4C0Mfu1j3hICCOBTmHsf2dDupyW02c7FtzlU9pdE8h86FLGSBd5WaVpHE0EVBGfXxcow=
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: YQXPR01MB5835
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260529_104736_664956_CBF90E14 
-X-CRM114-Status: GOOD (  16.33  )
+X-CRM114-CacheID: sfid-20260529_104741_030234_17307C44 
+X-CRM114-Status: GOOD (  13.52  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -68,57 +159,48 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Am Dienstag, 28. April 2026, 18:05:31 Mitteleurop=C3=A4ische Sommerzeit sch=
-rieb Sven P=C3=BCschel:
-> From: Simon Xue <xxm@rock-chips.com>
->=20
-> Disable the Bit 31 of the AUTO_GATING iommu register, as it causes
-> hangups with the RGA3 (Raster Graphics Acceleration 3) peripheral.
-> The RGA3 register description of the TRM already states that the bit
-> must be set to 1. The vendor kernel sets the bit unconditionally to
-> 1 to fix VOP (Video Output Processor) screen black issues. This patch
-> squashes the 2 vendor kernel commits with the following commit messages:
->=20
-> Master fetch data and cpu update page table may work in parallel, may
-> have the following procedure:
->=20
-> 	master                  cpu
-> 	fetch dte               update page tabl
-> 	        |                       |
-> 	(make dte invalid)  <-  zap iotlb entry
-> 	        |                       |
-> 	fetch dte again
-> 	(make dte invalid)  <-  zap iotlb entry
-> 	        |                       |
-> 	fetch dte again
-> 	(make dte invalid)  <-  zap iotlb entry
-> 	        |                       |
-> 	fetch dte again
-> 	(make iommu block)  <-  zap iotlb entry
->=20
-> New iommu version has the above bug, if fetch dte consecutively four
-> times, then it will be blocked. Fortunately, we can set bit 31 of
-> register MMU_AUTO_GATING to 1 to make it work as old version which does
-> not have this issue.
->=20
-> This issue only appears on RV1126 so far, so make a workaround dedicated
-> to "rockchip,rv1126" machine type.
->=20
-> iommu/rockchip: fix vop blocked and screen black on RK356X and RK3588
->=20
-> RK3568 and RK3588 has the same issue as RV1126/RV1109 that caused by
-> dte fetch time limit, So we can set BIT(31) of register 0x24 default
-> to 1 as a workaround.
->=20
-> Signed-off-by: Simon Xue <xxm@rock-chips.com>
-> Signed-off-by: Sven P=C3=BCschel <s.pueschel@pengutronix.de>
+On 2026-05-29 12:33, André Almeida wrote:
+> Based on the x86 implementation, implement the vDSO function for unlocking
+> a robust futex correctly.
+> 
+> Commit xxxxxxxxxxxx ("x86/vdso: Implement __vdso_futex_robust_try_unlock()") has
+> the full explanation about why this mechanism is needed.
+> 
+> The unlock assembly sequence for arm64 is:
+> 
+> 	__vdso_futex_robust_list64_try_unlock:
+> 	retry:
+> 		ldxr	w8, [x0] // Load the value from *futex
+> 		cmp	w1, w8   // Compare with TID
+> 		b.ne	__vdso_futex_list64_try_unlock_cs_end
+> 		stlxr	w9, wzr, [x0] // Try to zero *futex
 
-Acked-by: Heiko Stuebner <heiko@sntech.de>
+So it looks like stlxr can be successful, and the process is killed
+right here. This is not within the start/end critical section, so the
+fixup is missed ? Or am I missing something ?
 
-@Joerg: could we get this merged?
+> 		cbnz	w9, retry
+> 	__vdso_futex_list64_try_unlock_cs_start:
+> 		str	xzr, [x2] // After zeroing *futex, zero *op_pending
+> 	__vdso_futex_list64_try_unlock_cs_end>:
+> 
+> The decision regarding if the pointer should be cleared or not lies on checking
+> the condition flag zero:
+> 
+> 	return (regs->user_regs.pstate & PSR_Z_BIT) ?
+> 		(void __user *) regs->user_regs.regs[2] : NULL;
+> 
+> If it's not zero, that means that the comparassion worked and the kernel should
 
-Thanks
-Heiko
+comparison
 
+> clear op_pending (if userspace didn't managed to) stored at x2.
+Thanks,
 
+Mathieu
+
+-- 
+Mathieu Desnoyers
+EfficiOS Inc.
+https://www.efficios.com
 
