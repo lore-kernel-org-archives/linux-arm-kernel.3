@@ -4,72 +4,65 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 89FD9CD6E49
-	for <linux-arm-kernel@archiver.kernel.org>; Fri, 29 May 2026 19:31:00 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id E7D6ECD4F54
+	for <linux-arm-kernel@archiver.kernel.org>; Fri, 29 May 2026 19:37:17 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Message-ID:Subject:Cc:To:
-	From:Date:Reply-To:MIME-Version:Content-Type:Content-Transfer-Encoding:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	MIME-Version:Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-Type:
 	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
 	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
-	bh=Q7KEvMciwGamTwHxAnK/ewv8bbFHQ1YXKD+ikm5AJUM=; b=rNZFoMg0AOjM78Rp5j12ZKDlBG
-	hgNj3D5/fMMI7uUi69iUgwVU9gc8075LX6J1R2eOuHiUkEXgmfOMJLFK2ITMu1d8kCor5GPI4gdcW
-	mWpM0kYjL7THgw2k7nyh6e1pwwtzcuSCTBvRS80hNhCoqTPIh/AN18M/Ey4LmkpivGTHqk8HkCb0l
-	kk3j/kOpdTDWaLwFPE2o1kWrVsBlwUtqIhLjv0nULQy2uFF84YhLRxHBiJrsybKqHLkyCClF5o27l
-	7fkYbk5BHqFlJVyqwHfCtcPcaLFLjr6YrU9vXwS5rx+gX7yHNDlFeUFPguqbx9USv4CRad0n9/MCt
-	Hse8RepA==;
+	bh=uXXSjeJFPuB/KuxWxyJIQTywCncWt6wmewMVR0k3lww=; b=v+qG2ux+lOIR9Lmhg4HOEG3TA0
+	MtTm2ruMDk+jOCWo6c92YzfoHYDQdyUTkQrFCDzjk3jI+EmT2xeg7+jMICLMGgVxoAcONdKbVvLKW
+	9qpFhoKmnGSv90diRXk8LmrozgyPOnLp/UGh2oXZjdrnktE62BMG83+2Dar5zY4VrmxiDICGJvcRz
+	k1pORwFOVjL4eqNFOmHMpEwF7icWkX+2R54LlWIp5CynJmRTbDbuRRQ0vV0s1SPo8KYBgMwlc+l1q
+	KwCUS81E/WvN1mPrPlW2kryuwq/ouTYsLUlcBpTWhKcjN9dYHV1DfUZKAm21sO4AkA7ahtlvGJR0j
+	vynGGbbQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wT2uy-00000008BJq-3nlo;
-	Fri, 29 May 2026 19:30:52 +0000
-Received: from mgamail.intel.com ([192.198.163.17])
+	id 1wT314-00000008Bjo-24BW;
+	Fri, 29 May 2026 19:37:10 +0000
+Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wT2uv-00000008BJK-3MCF
+	id 1wT30x-00000008Bij-1oeH
 	for linux-arm-kernel@lists.infradead.org;
-	Fri, 29 May 2026 19:30:51 +0000
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple;
-  d=intel.com; i=@intel.com; q=dns/txt; s=Intel;
-  t=1780083049; x=1811619049;
-  h=date:from:to:cc:subject:message-id;
-  bh=QZ/5ipK/QhhxD1HdAIKiPbLGE1KQ3R7JNjuwA3TLQXg=;
-  b=lfAC2Z/0zMjGo7e7YeLYezoEd5OGfr2FM+sadRfJM5a5Av70TtEEb/MS
-   iv6hJGVP5pbOOg26dCT1Vxpkt53wshQ8Vv2GSrktu4iYlQuEqZpgh/Y/j
-   5hlk4mYAVcoKKO3W7crPLHhO8pKxZbZPm1lmpRrJ7U11GQgDzP3iHt68m
-   5y6xJ/Cz2pxDRCAkcxBQKLqDYf+hO6Kg34huKWsFhaS8Lhtvifk7o73Aq
-   vsC4SunE48f9DJkJILWePa7J3CTxfi1x+WGZ52/xCwOqP995E+SB0hIJo
-   /lA6/qcexFhVrOiV72cb/ELfY+/vnkF1VnkucN4VJ4xgvERv6kmBapXR0
-   w==;
-X-CSE-ConnectionGUID: b0LkswdgS3KUYJFOxSOGxQ==
-X-CSE-MsgGUID: wcYG01lXQY6AOOGPQ8S+Qw==
-X-IronPort-AV: E=McAfee;i="6800,10657,11801"; a="80794870"
-X-IronPort-AV: E=Sophos;i="6.24,175,1774335600"; 
-   d="scan'208";a="80794870"
-Received: from orviesa006.jf.intel.com ([10.64.159.146])
-  by fmvoesa111.fm.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 29 May 2026 12:30:47 -0700
-X-CSE-ConnectionGUID: 1uz+UkfMTPOhXjDFeWNIUA==
-X-CSE-MsgGUID: S8hhaTx6R8mKwH2T6miNtA==
-X-ExtLoop1: 1
-X-IronPort-AV: E=Sophos;i="6.24,175,1774335600"; 
-   d="scan'208";a="241889273"
-Received: from lkp-server01.sh.intel.com (HELO f0d55cb201f0) ([10.239.97.150])
-  by orviesa006.jf.intel.com with ESMTP; 29 May 2026 12:30:46 -0700
-Received: from kbuild by f0d55cb201f0 with local (Exim 4.98.2)
-	(envelope-from <lkp@intel.com>)
-	id 1wT2up-000000007cM-0ghC;
-	Fri, 29 May 2026 19:30:43 +0000
-Date: Sat, 30 May 2026 03:29:55 +0800
-From: kernel test robot <lkp@intel.com>
-To: Marc Zyngier <maz@kernel.org>
-Cc: llvm@lists.linux.dev, oe-kbuild-all@lists.linux.dev,
- linux-arm-kernel@lists.infradead.org
-Subject: [arm-platforms:kvm-arm64/nv3 25/32]
- arch/arm64/kvm/hyp/vhe/switch.c:368:22: warning: value size does not match
- register size specified by the constraint and modifier
-Message-ID: <202605300331.uAxQip7s-lkp@intel.com>
-User-Agent: s-nail v14.9.25
+	Fri, 29 May 2026 19:37:08 +0000
+Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
+	by sea.source.kernel.org (Postfix) with ESMTP id BBBD74033E;
+	Fri, 29 May 2026 19:37:02 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 275591F00893;
+	Fri, 29 May 2026 19:37:02 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
+	s=k20260515; t=1780083422;
+	bh=uXXSjeJFPuB/KuxWxyJIQTywCncWt6wmewMVR0k3lww=;
+	h=From:To:Cc:Subject:Date;
+	b=CNX1Patm49sY+ooeTxvKjWszj/W1CVvN+O/h0HWvCoY11KGu0XP193ZcddNGOaeGx
+	 DNSdnNcG5NdRghUyYwoBB8KCopTuRZuEejVNnlm0YiBe91DFOwZ+Z1QQ/vcsqXE5uj
+	 NTSdiRFzxTGbtV7CcUXylvuex2iB/4/CzbdN7M/R2EWy8NwR6LRFbtGHwbk/w2UosM
+	 1J8fbg5++Z5zN1ecs2ug/PiaiAPiWNzMXVQdex5OcRToyeXEBI2D+5YfZM/Me/2k2X
+	 xrDlEKtHUKekah2TTEW1l+lAE7K9FNnntUOltLlE2Hl70s2aQ7kPR0tL0Q3cq5fzCu
+	 eKGyVBHaNqWAg==
+From: Eric Biggers <ebiggers@kernel.org>
+To: linux-crypto@vger.kernel.org,
+	Herbert Xu <herbert@gondor.apana.org.au>
+Cc: linux-sunxi@lists.linux.dev,
+	linux-arm-kernel@lists.infradead.org,
+	linux-kernel@vger.kernel.org,
+	Chen-Yu Tsai <wens@kernel.org>,
+	Jernej Skrabec <jernej.skrabec@gmail.com>,
+	Samuel Holland <samuel@sholland.org>,
+	Corentin Labbe <clabbe.montjoie@gmail.com>,
+	Eric Biggers <ebiggers@kernel.org>,
+	stable@vger.kernel.org
+Subject: [PATCH] crypto: sun4i-ss - Remove insecure and unused rng_alg
+Date: Fri, 29 May 2026 12:36:48 -0700
+Message-ID: <20260529193648.18172-1-ebiggers@kernel.org>
+X-Mailer: git-send-email 2.54.0
+MIME-Version: 1.0
+Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260529_123049_877985_1488F32B 
-X-CRM114-Status: GOOD (  10.89  )
+X-CRM114-CacheID: sfid-20260529_123703_514214_576EFC59 
+X-CRM114-Status: GOOD (  24.74  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -84,87 +77,362 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-tree:   https://git.kernel.org/pub/scm/linux/kernel/git/maz/arm-platforms.git kvm-arm64/nv3
-head:   1779d2897784632a8fee0474e0dd5d124a8beeff
-commit: f967f8c6811b3c791cb2fd70289b633d04785aa5 [25/32] KVM: arm64: Implement runtime handling of HCRX_EL2.NVTGE==1
-config: arm64-allmodconfig (https://download.01.org/0day-ci/archive/20260530/202605300331.uAxQip7s-lkp@intel.com/config)
-compiler: clang version 19.1.7 (https://github.com/llvm/llvm-project cd708029e0b2869e80abe31ddb175f7c35361f90)
-reproduce (this is a W=1 build): (https://download.01.org/0day-ci/archive/20260530/202605300331.uAxQip7s-lkp@intel.com/reproduce)
+Remove sun4i_ss_rng, as it is insecure and unused:
 
-If you fix the issue in a separate patch/commit (i.e. not just a new version of
-the same patch/commit), kindly add following tags
-| Reported-by: kernel test robot <lkp@intel.com>
-| Closes: https://lore.kernel.org/oe-kbuild-all/202605300331.uAxQip7s-lkp@intel.com/
+- It has multiple vulnerabilities.  sun4i_ss_prng_seed() is missing
+  locking and has a buffer overflow.  sun4i_ss_prng_generate() fails to
+  fill the entire buffer with cryptographic random bytes, because it
+  rounds the destination length down and also doesn't actually wait for
+  the hardware to be ready before pulling bytes from it.
 
-All warnings (new ones prefixed by >>):
+- No user of this code is known.  It's usable only theoretically via the
+  "rng" algorithm type of AF_ALG.  But userspace actually just uses the
+  actual Linux RNG (/dev/random etc) instead.  And rng_algs don't
+  contribute entropy to the actual Linux RNG either.  (This may have
+  been confused with hwrng, which does contribute entropy.)
 
->> arch/arm64/kvm/hyp/vhe/switch.c:368:22: warning: value size does not match register size specified by the constraint and modifier [-Wasm-operand-widths]
-     368 |                      : [err] "+r" (err), [v] "=&r" (v)
-         |                                    ^
-   arch/arm64/kvm/hyp/vhe/switch.c:365:16: note: use constraint modifier "w"
-     365 |                      "2:        mov     %[err], %[errcode]\n"
-         |                                         ^~~~~~
-         |                                         %w[err]
-   1 warning generated.
+Fixes: b8ae5c7387ad ("crypto: sun4i-ss - support the Security System PRNG")
+Cc: stable@vger.kernel.org
+Cc: Corentin Labbe <clabbe.montjoie@gmail.com>
+Signed-off-by: Eric Biggers <ebiggers@kernel.org>
+---
+ arch/arm/configs/sunxi_defconfig              |  1 -
+ drivers/crypto/allwinner/Kconfig              |  8 ---
+ drivers/crypto/allwinner/sun4i-ss/Makefile    |  1 -
+ .../crypto/allwinner/sun4i-ss/sun4i-ss-core.c | 44 ------------
+ .../crypto/allwinner/sun4i-ss/sun4i-ss-prng.c | 69 -------------------
+ drivers/crypto/allwinner/sun4i-ss/sun4i-ss.h  | 20 ------
+ 6 files changed, 143 deletions(-)
+ delete mode 100644 drivers/crypto/allwinner/sun4i-ss/sun4i-ss-prng.c
 
+diff --git a/arch/arm/configs/sunxi_defconfig b/arch/arm/configs/sunxi_defconfig
+index a83d29fed175..f4b8d8f7dbef 100644
+--- a/arch/arm/configs/sunxi_defconfig
++++ b/arch/arm/configs/sunxi_defconfig
+@@ -168,11 +168,10 @@ CONFIG_NFS_V3_ACL=y
+ CONFIG_NFS_V4=y
+ CONFIG_ROOT_NFS=y
+ CONFIG_NLS_CODEPAGE_437=y
+ CONFIG_NLS_ISO8859_1=y
+ CONFIG_CRYPTO_DEV_SUN4I_SS=y
+-CONFIG_CRYPTO_DEV_SUN4I_SS_PRNG=y
+ CONFIG_CRYPTO_DEV_SUN8I_CE=y
+ CONFIG_CRYPTO_DEV_SUN8I_SS=y
+ CONFIG_DMA_CMA=y
+ CONFIG_PRINTK_TIME=y
+ CONFIG_DEBUG_FS=y
+diff --git a/drivers/crypto/allwinner/Kconfig b/drivers/crypto/allwinner/Kconfig
+index b8e75210a0e3..06ea0e9fe6f2 100644
+--- a/drivers/crypto/allwinner/Kconfig
++++ b/drivers/crypto/allwinner/Kconfig
+@@ -22,18 +22,10 @@ config CRYPTO_DEV_SUN4I_SS
+ 	  and SHA1 and MD5 hash algorithms.
+ 
+ 	  To compile this driver as a module, choose M here: the module
+ 	  will be called sun4i-ss.
+ 
+-config CRYPTO_DEV_SUN4I_SS_PRNG
+-	bool "Support for Allwinner Security System PRNG"
+-	depends on CRYPTO_DEV_SUN4I_SS
+-	select CRYPTO_RNG
+-	help
+-	  Select this option if you want to provide kernel-side support for
+-	  the Pseudo-Random Number Generator found in the Security System.
+-
+ config CRYPTO_DEV_SUN4I_SS_DEBUG
+ 	bool "Enable sun4i-ss stats"
+ 	depends on CRYPTO_DEV_SUN4I_SS
+ 	depends on DEBUG_FS
+ 	help
+diff --git a/drivers/crypto/allwinner/sun4i-ss/Makefile b/drivers/crypto/allwinner/sun4i-ss/Makefile
+index c0a2797d3168..06a9ae81f9f8 100644
+--- a/drivers/crypto/allwinner/sun4i-ss/Makefile
++++ b/drivers/crypto/allwinner/sun4i-ss/Makefile
+@@ -1,4 +1,3 @@
+ # SPDX-License-Identifier: GPL-2.0-only
+ obj-$(CONFIG_CRYPTO_DEV_SUN4I_SS) += sun4i-ss.o
+ sun4i-ss-y += sun4i-ss-core.o sun4i-ss-hash.o sun4i-ss-cipher.o
+-sun4i-ss-$(CONFIG_CRYPTO_DEV_SUN4I_SS_PRNG) += sun4i-ss-prng.o
+diff --git a/drivers/crypto/allwinner/sun4i-ss/sun4i-ss-core.c b/drivers/crypto/allwinner/sun4i-ss/sun4i-ss-core.c
+index 813c4bc6312a..35ef0930e77f 100644
+--- a/drivers/crypto/allwinner/sun4i-ss/sun4i-ss-core.c
++++ b/drivers/crypto/allwinner/sun4i-ss/sun4i-ss-core.c
+@@ -211,27 +211,10 @@ static struct sun4i_ss_alg_template ss_algs[] = {
+ 			.cra_init = sun4i_ss_cipher_init,
+ 			.cra_exit = sun4i_ss_cipher_exit,
+ 		}
+ 	}
+ },
+-#ifdef CONFIG_CRYPTO_DEV_SUN4I_SS_PRNG
+-{
+-	.type = CRYPTO_ALG_TYPE_RNG,
+-	.alg.rng = {
+-		.base = {
+-			.cra_name		= "stdrng",
+-			.cra_driver_name	= "sun4i_ss_rng",
+-			.cra_priority		= 300,
+-			.cra_ctxsize		= 0,
+-			.cra_module		= THIS_MODULE,
+-		},
+-		.generate               = sun4i_ss_prng_generate,
+-		.seed                   = sun4i_ss_prng_seed,
+-		.seedsize               = SS_SEED_LEN / BITS_PER_BYTE,
+-	}
+-},
+-#endif
+ };
+ 
+ static int sun4i_ss_debugfs_show(struct seq_file *seq, void *v)
+ {
+ 	unsigned int i;
+@@ -245,18 +228,10 @@ static int sun4i_ss_debugfs_show(struct seq_file *seq, void *v)
+ 				   ss_algs[i].alg.crypto.base.cra_driver_name,
+ 				   ss_algs[i].alg.crypto.base.cra_name,
+ 				   ss_algs[i].stat_req, ss_algs[i].stat_opti, ss_algs[i].stat_fb,
+ 				   ss_algs[i].stat_bytes);
+ 			break;
+-#ifdef CONFIG_CRYPTO_DEV_SUN4I_SS_PRNG
+-		case CRYPTO_ALG_TYPE_RNG:
+-			seq_printf(seq, "%s %s reqs=%lu tsize=%lu\n",
+-				   ss_algs[i].alg.rng.base.cra_driver_name,
+-				   ss_algs[i].alg.rng.base.cra_name,
+-				   ss_algs[i].stat_req, ss_algs[i].stat_bytes);
+-			break;
+-#endif
+ 		case CRYPTO_ALG_TYPE_AHASH:
+ 			seq_printf(seq, "%s %s reqs=%lu\n",
+ 				   ss_algs[i].alg.hash.halg.base.cra_driver_name,
+ 				   ss_algs[i].alg.hash.halg.base.cra_name,
+ 				   ss_algs[i].stat_req);
+@@ -471,19 +446,10 @@ static int sun4i_ss_probe(struct platform_device *pdev)
+ 				dev_err(ss->dev, "Fail to register %s\n",
+ 					ss_algs[i].alg.hash.halg.base.cra_name);
+ 				goto error_alg;
+ 			}
+ 			break;
+-#ifdef CONFIG_CRYPTO_DEV_SUN4I_SS_PRNG
+-		case CRYPTO_ALG_TYPE_RNG:
+-			err = crypto_register_rng(&ss_algs[i].alg.rng);
+-			if (err) {
+-				dev_err(ss->dev, "Fail to register %s\n",
+-					ss_algs[i].alg.rng.base.cra_name);
+-			}
+-			break;
+-#endif
+ 		}
+ 	}
+ 
+ 	/* Ignore error of debugfs */
+ 	ss->dbgfs_dir = debugfs_create_dir("sun4i-ss", NULL);
+@@ -499,15 +465,10 @@ static int sun4i_ss_probe(struct platform_device *pdev)
+ 			crypto_unregister_skcipher(&ss_algs[i].alg.crypto);
+ 			break;
+ 		case CRYPTO_ALG_TYPE_AHASH:
+ 			crypto_unregister_ahash(&ss_algs[i].alg.hash);
+ 			break;
+-#ifdef CONFIG_CRYPTO_DEV_SUN4I_SS_PRNG
+-		case CRYPTO_ALG_TYPE_RNG:
+-			crypto_unregister_rng(&ss_algs[i].alg.rng);
+-			break;
+-#endif
+ 		}
+ 	}
+ error_pm:
+ 	sun4i_ss_pm_exit(ss);
+ 	return err;
+@@ -524,15 +485,10 @@ static void sun4i_ss_remove(struct platform_device *pdev)
+ 			crypto_unregister_skcipher(&ss_algs[i].alg.crypto);
+ 			break;
+ 		case CRYPTO_ALG_TYPE_AHASH:
+ 			crypto_unregister_ahash(&ss_algs[i].alg.hash);
+ 			break;
+-#ifdef CONFIG_CRYPTO_DEV_SUN4I_SS_PRNG
+-		case CRYPTO_ALG_TYPE_RNG:
+-			crypto_unregister_rng(&ss_algs[i].alg.rng);
+-			break;
+-#endif
+ 		}
+ 	}
+ 
+ 	sun4i_ss_pm_exit(ss);
+ }
+diff --git a/drivers/crypto/allwinner/sun4i-ss/sun4i-ss-prng.c b/drivers/crypto/allwinner/sun4i-ss/sun4i-ss-prng.c
+deleted file mode 100644
+index 491fcb7b81b4..000000000000
+--- a/drivers/crypto/allwinner/sun4i-ss/sun4i-ss-prng.c
++++ /dev/null
+@@ -1,69 +0,0 @@
+-// SPDX-License-Identifier: GPL-2.0-or-later
+-#include "sun4i-ss.h"
+-
+-int sun4i_ss_prng_seed(struct crypto_rng *tfm, const u8 *seed,
+-		       unsigned int slen)
+-{
+-	struct sun4i_ss_alg_template *algt;
+-	struct rng_alg *alg = crypto_rng_alg(tfm);
+-
+-	algt = container_of(alg, struct sun4i_ss_alg_template, alg.rng);
+-	memcpy(algt->ss->seed, seed, slen);
+-
+-	return 0;
+-}
+-
+-int sun4i_ss_prng_generate(struct crypto_rng *tfm, const u8 *src,
+-			   unsigned int slen, u8 *dst, unsigned int dlen)
+-{
+-	struct sun4i_ss_alg_template *algt;
+-	struct rng_alg *alg = crypto_rng_alg(tfm);
+-	int i, err;
+-	u32 v;
+-	u32 *data = (u32 *)dst;
+-	const u32 mode = SS_OP_PRNG | SS_PRNG_CONTINUE | SS_ENABLED;
+-	size_t len;
+-	struct sun4i_ss_ctx *ss;
+-	unsigned int todo = (dlen / 4) * 4;
+-
+-	algt = container_of(alg, struct sun4i_ss_alg_template, alg.rng);
+-	ss = algt->ss;
+-
+-	err = pm_runtime_resume_and_get(ss->dev);
+-	if (err < 0)
+-		return err;
+-
+-	if (IS_ENABLED(CONFIG_CRYPTO_DEV_SUN4I_SS_DEBUG)) {
+-		algt->stat_req++;
+-		algt->stat_bytes += todo;
+-	}
+-
+-	spin_lock_bh(&ss->slock);
+-
+-	writel(mode, ss->base + SS_CTL);
+-
+-	while (todo > 0) {
+-		/* write the seed */
+-		for (i = 0; i < SS_SEED_LEN / BITS_PER_LONG; i++)
+-			writel(ss->seed[i], ss->base + SS_KEY0 + i * 4);
+-
+-		/* Read the random data */
+-		len = min_t(size_t, SS_DATA_LEN / BITS_PER_BYTE, todo);
+-		readsl(ss->base + SS_TXFIFO, data, len / 4);
+-		data += len / 4;
+-		todo -= len;
+-
+-		/* Update the seed */
+-		for (i = 0; i < SS_SEED_LEN / BITS_PER_LONG; i++) {
+-			v = readl(ss->base + SS_KEY0 + i * 4);
+-			ss->seed[i] = v;
+-		}
+-	}
+-
+-	writel(0, ss->base + SS_CTL);
+-	spin_unlock_bh(&ss->slock);
+-
+-	pm_runtime_put(ss->dev);
+-
+-	return 0;
+-}
+diff --git a/drivers/crypto/allwinner/sun4i-ss/sun4i-ss.h b/drivers/crypto/allwinner/sun4i-ss/sun4i-ss.h
+index 6c5d4aa6453c..f7d1c79ac677 100644
+--- a/drivers/crypto/allwinner/sun4i-ss/sun4i-ss.h
++++ b/drivers/crypto/allwinner/sun4i-ss/sun4i-ss.h
+@@ -29,12 +29,10 @@
+ #include <crypto/hash.h>
+ #include <crypto/internal/hash.h>
+ #include <crypto/internal/skcipher.h>
+ #include <crypto/aes.h>
+ #include <crypto/internal/des.h>
+-#include <crypto/internal/rng.h>
+-#include <crypto/rng.h>
+ 
+ #define SS_CTL            0x00
+ #define SS_KEY0           0x04
+ #define SS_KEY1           0x08
+ #define SS_KEY2           0x0C
+@@ -60,14 +58,10 @@
+ #define SS_RXFIFO         0x200
+ #define SS_TXFIFO         0x204
+ 
+ /* SS_CTL configuration values */
+ 
+-/* PRNG generator mode - bit 15 */
+-#define SS_PRNG_ONESHOT		(0 << 15)
+-#define SS_PRNG_CONTINUE	(1 << 15)
+-
+ /* IV mode for hash */
+ #define SS_IV_ARBITRARY		(1 << 14)
+ 
+ /* SS operation mode - bits 12-13 */
+ #define SS_ECB			(0 << 12)
+@@ -92,18 +86,14 @@
+ #define SS_OP_AES		(0 << 4)
+ #define SS_OP_DES		(1 << 4)
+ #define SS_OP_3DES		(2 << 4)
+ #define SS_OP_SHA1		(3 << 4)
+ #define SS_OP_MD5		(4 << 4)
+-#define SS_OP_PRNG		(5 << 4)
+ 
+ /* Data end bit - bit 2 */
+ #define SS_DATA_END		(1 << 2)
+ 
+-/* PRNG start bit - bit 1 */
+-#define SS_PRNG_START		(1 << 1)
+-
+ /* SS Enable bit - bit 0 */
+ #define SS_DISABLED		(0 << 0)
+ #define SS_ENABLED		(1 << 0)
+ 
+ /* SS_FCSR configuration values */
+@@ -126,13 +116,10 @@
+ #define SS_RXFIFO_EMP_INT_PENDING	(1 << 10)
+ #define SS_TXFIFO_AVA_INT_PENDING	(1 << 8)
+ #define SS_RXFIFO_EMP_INT_ENABLE	(1 << 2)
+ #define SS_TXFIFO_AVA_INT_ENABLE	(1 << 0)
+ 
+-#define SS_SEED_LEN 192
+-#define SS_DATA_LEN 160
+-
+ /*
+  * struct ss_variant - Describe SS hardware variant
+  * @sha1_in_be:		The SHA1 digest is given by SS in BE, and so need to be inverted.
+  */
+ struct ss_variant {
+@@ -149,24 +136,20 @@ struct sun4i_ss_ctx {
+ 	struct device *dev;
+ 	struct resource *res;
+ 	char buf[4 * SS_RX_MAX];/* buffer for linearize SG src */
+ 	char bufo[4 * SS_TX_MAX]; /* buffer for linearize SG dst */
+ 	spinlock_t slock; /* control the use of the device */
+-#ifdef CONFIG_CRYPTO_DEV_SUN4I_SS_PRNG
+-	u32 seed[SS_SEED_LEN / BITS_PER_LONG];
+-#endif
+ 	struct dentry *dbgfs_dir;
+ 	struct dentry *dbgfs_stats;
+ };
+ 
+ struct sun4i_ss_alg_template {
+ 	u32 type;
+ 	u32 mode;
+ 	union {
+ 		struct skcipher_alg crypto;
+ 		struct ahash_alg hash;
+-		struct rng_alg rng;
+ 	} alg;
+ 	struct sun4i_ss_ctx *ss;
+ 	unsigned long stat_req;
+ 	unsigned long stat_fb;
+ 	unsigned long stat_bytes;
+@@ -229,8 +212,5 @@ int sun4i_ss_aes_setkey(struct crypto_skcipher *tfm, const u8 *key,
+ 			unsigned int keylen);
+ int sun4i_ss_des_setkey(struct crypto_skcipher *tfm, const u8 *key,
+ 			unsigned int keylen);
+ int sun4i_ss_des3_setkey(struct crypto_skcipher *tfm, const u8 *key,
+ 			 unsigned int keylen);
+-int sun4i_ss_prng_generate(struct crypto_rng *tfm, const u8 *src,
+-			   unsigned int slen, u8 *dst, unsigned int dlen);
+-int sun4i_ss_prng_seed(struct crypto_rng *tfm, const u8 *seed, unsigned int slen);
 
-vim +368 arch/arm64/kvm/hyp/vhe/switch.c
+base-commit: 49e05bb00f2e8168695f7af4d694c39e1423e8a2
+-- 
+2.54.0
 
-   350	
-   351	static int __vcpu_l1_vncr_read(struct kvm_vcpu *vcpu, enum vcpu_sysreg reg, u64 *val)
-   352	{
-   353		u64 vncr_va = read_sysreg_s(SYS_VNCR_EL2);
-   354		u64 *reg_va = &((u64 *)vncr_va)[reg - __VNCR_START__];
-   355		u64 spsr, elr, esr, far, v;
-   356		int err = 0;
-   357	
-   358		spsr = read_sysreg_el2(SYS_SPSR);
-   359		elr = read_sysreg_el2(SYS_ELR);
-   360		esr = read_sysreg_el2(SYS_ESR);
-   361		far = read_sysreg_el2(SYS_FAR);
-   362	
-   363		asm volatile("1:	ldr	%[v], [%[va]]\n"
-   364			     "		b	9f\n"
-   365			     "2:	mov	%[err], %[errcode]\n"
-   366			     "9:\n"
-   367			     __KVM_EXTABLE(1b, 2b)
- > 368			     : [err] "+r" (err), [v] "=&r" (v)
-   369			     : [va] "r" (reg_va), [errcode] "i" (-EFAULT));
-   370	
-   371		if (unlikely(err)) {
-   372			unsigned int ec;
-   373	
-   374			/*
-   375			 * We expect this to be ESR_ELx_EC_DABT_CUR, and to be dealt
-   376			 * with by the VNCR fault handler on the slow path.
-   377			 */
-   378			vcpu->arch.fault.esr_el2 = read_sysreg_el2(SYS_ESR);
-   379			ec = kvm_vcpu_trap_get_class(vcpu);
-   380	
-   381			if (!WARN_ONCE(ec != ESR_ELx_EC_DABT_CUR,
-   382				       "Unexpected EC=%x reading L1 VNCR\n", ec)) {
-   383				vcpu->arch.fault.esr_el2 &= ESR_ELx_EC_MASK | ESR_ELx_FSC;
-   384				vcpu->arch.fault.esr_el2 |= ESR_ELx_VNCR | ESR_ELx_IL;
-   385				vcpu->arch.fault.far_el2  = read_sysreg_el2(SYS_FAR);
-   386			}
-   387	
-   388			/* Restore the original fault context, just in case */
-   389			write_sysreg_el2(spsr, SYS_SPSR);
-   390			write_sysreg_el2(elr,  SYS_ELR);
-   391			write_sysreg_el2(esr,  SYS_ESR);
-   392			write_sysreg_el2(far,  SYS_FAR);
-   393	
-   394			return err;
-   395		}
-   396	
-   397		/* Apply our own sanitisation, just like HW would... */
-   398		*val = kvm_vcpu_apply_reg_masks(vcpu, reg, v);
-   399	
-   400		return 0;
-   401	}
-   402	
-
---
-0-DAY CI Kernel Test Service
-https://github.com/intel/lkp-tests/wiki
 
