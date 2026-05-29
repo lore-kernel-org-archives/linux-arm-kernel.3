@@ -4,7 +4,7 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id CD7DFCD6E4A
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id CD822CD6E52
 	for <linux-arm-kernel@archiver.kernel.org>; Fri, 29 May 2026 15:56:55 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
@@ -12,57 +12,57 @@ DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:
 	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=7WJoSNxNCqAD1yMb5BggkCxNMBPVI9mELDSocM+HPU8=; b=niqCbs0PYMScGjYl3jMGwFzX+y
-	nlRGWO42HpKcawfm9uUDXa8dok9NzaRqJMTTnyftv/AH5XMrPiGlY/6JFEwf976XUvg5Ct53QQLJo
-	buLSLgCQjxPNy4conyk7QoY2b2BvIXd8GmmTrST3BHxuCse+o44VZr/w3Mbygns4oCkcuQ8i7H1Bj
-	pyfBqjjn+pbv01INqGuomdxywWOJTqGGlT4135sRevGHOAjs7Wpor4E6nVblGVrdUYrbe+vfT0+LO
-	O1yyRderru9oIjUlVTzY+P9QOanCv+0Ecwbg6bAXLZxN0LAf2TMiMUGNJsf7fxahan7CulNnPr7jw
-	0YAxH4OA==;
+	bh=3/FkRX+SkHZmJLVfESRkOboCdzcmTpr5KGDuU5B1jY4=; b=cK/2jLIGFOmr/jg6q7EMkTmAXb
+	ixBjlBUGR5ewhl6GYigvKxX5SeJJp8VPANzTjKmmAVYQDxaZ7fgt8LuPG3i3d1D4PcDNy9tSnfZN9
+	v0SXRyx51bqfXxHqWaAj85p2o9PM+R/CrtF4MKK+Qx0zEB2LHeCjMuRKbBfg2RXo8JWqmtxzZzWPq
+	qSX0enw7cUbVaLzl2WqkhDLDFZRaGQGx/7TTR8MWzK73anXoSlEWVhxycEdMcpUC/qhs5o/zCLu1c
+	0pevT5Ax60Se/XwTYxoIqTQecaUMjne4p5CtgU8omU3KvGIXRVSxH8nQg3reyQsVFc44eShBvdJbf
+	dheO8K0Q==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wSzZo-00000007mZV-0aTL;
+	id 1wSzZo-00000007ma5-1iXl;
 	Fri, 29 May 2026 15:56:48 +0000
 Received: from mx0a-001b2d01.pphosted.com ([148.163.156.1])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wSzZN-00000007m9K-470k
+	id 1wSzZP-00000007mDB-3brk
 	for linux-arm-kernel@lists.infradead.org;
-	Fri, 29 May 2026 15:56:23 +0000
-Received: from pps.filterd (m0353729.ppops.net [127.0.0.1])
-	by mx0a-001b2d01.pphosted.com (8.18.1.11/8.18.1.11) with ESMTP id 64TFZ5hW1684858;
-	Fri, 29 May 2026 15:56:10 GMT
+	Fri, 29 May 2026 15:56:25 +0000
+Received: from pps.filterd (m0360083.ppops.net [127.0.0.1])
+	by mx0a-001b2d01.pphosted.com (8.18.1.11/8.18.1.11) with ESMTP id 64TFAXSC2419213;
+	Fri, 29 May 2026 15:56:12 GMT
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=ibm.com; h=cc
 	:content-transfer-encoding:date:from:in-reply-to:message-id
-	:mime-version:references:subject:to; s=pp1; bh=7WJoSNxNCqAD1yMb5
-	BggkCxNMBPVI9mELDSocM+HPU8=; b=AXNGdUchGt+EKII8ibBc0IXKzgVrMYHGu
-	15IpxwrKwCf73UDiZulwisrnJGqJEQ/+cocWakBSIScC6qHRvYKEND9H0v6odc0/
-	u4/Ax25rM0CkYYdx994iBFfG3r8vykVl3gneL7cTCq7dztU6gvrXtnn9NL3pm9Ku
-	lRhfXngAmVhhe9RxsWKMBPChiz6ggz9ue2IKplQzAl1KM30baWoLyOUYZaKoQjvk
-	InXRhsKdHimdbEHHveqAT/dkYSqt7gp1iaKvlVxQSDbjy1d5+c6tKSqJFuUHJuLd
-	v7mAfTWw5r1xwGhiMaSw6kchafITj1AecWmM5FImUVpjDTfT0cKOA==
-Received: from ppma21.wdc07v.mail.ibm.com (5b.69.3da9.ip4.static.sl-reverse.com [169.61.105.91])
-	by mx0a-001b2d01.pphosted.com (PPS) with ESMTPS id 4ee884mh3w-1
+	:mime-version:references:subject:to; s=pp1; bh=3/FkRX+SkHZmJLVfE
+	SRkOboCdzcmTpr5KGDuU5B1jY4=; b=V34lUfcpaRVZPqVpvVs+sLOJLgO7gfRJ+
+	kLjFvhE+ysG946P89jOQOn+qoddOadzUGpB3v3/IDkrYxGjGcSW3JbO8ZFRp7M1U
+	AbpK0G2b84n4SpJSGrkCioEo2Zi8hoQSuoLROclb7ft/mjNGDcqmWBWm1VH56nEz
+	4xQhC/YnXvSKQmMjjk7YwSeAtmDB4kYoPGJmN/edDOMCnrju08jfQa300PMKk3It
+	6hBxZbZ4g5tlOfXx0da5DWQdxVAI9xCwtPFyzxfR+wMlu5aS0pswlaE8z9mhEetX
+	SvJeJsX5AJUTEuXpl84JK4wlY4XDpIur99sLkht/KLCtQTFFhgwTQ==
+Received: from ppma22.wdc07v.mail.ibm.com (5c.69.3da9.ip4.static.sl-reverse.com [169.61.105.92])
+	by mx0a-001b2d01.pphosted.com (PPS) with ESMTPS id 4ee884vknk-1
 	(version=TLSv1.2 cipher=ECDHE-RSA-AES256-GCM-SHA384 bits=256 verify=NOT);
-	Fri, 29 May 2026 15:56:10 +0000 (GMT)
-Received: from pps.filterd (ppma21.wdc07v.mail.ibm.com [127.0.0.1])
-	by ppma21.wdc07v.mail.ibm.com (8.18.1.7/8.18.1.7) with ESMTP id 64TFs9LN029222;
-	Fri, 29 May 2026 15:56:09 GMT
-Received: from smtprelay03.fra02v.mail.ibm.com ([9.218.2.224])
-	by ppma21.wdc07v.mail.ibm.com (PPS) with ESMTPS id 4edjrbgkns-1
+	Fri, 29 May 2026 15:56:12 +0000 (GMT)
+Received: from pps.filterd (ppma22.wdc07v.mail.ibm.com [127.0.0.1])
+	by ppma22.wdc07v.mail.ibm.com (8.18.1.7/8.18.1.7) with ESMTP id 64TFs814023079;
+	Fri, 29 May 2026 15:56:11 GMT
+Received: from smtprelay04.fra02v.mail.ibm.com ([9.218.2.228])
+	by ppma22.wdc07v.mail.ibm.com (PPS) with ESMTPS id 4edjrc0k1r-1
 	(version=TLSv1.2 cipher=ECDHE-RSA-AES256-GCM-SHA384 bits=256 verify=NOT);
-	Fri, 29 May 2026 15:56:09 +0000 (GMT)
+	Fri, 29 May 2026 15:56:11 +0000 (GMT)
 Received: from smtpav07.fra02v.mail.ibm.com (smtpav07.fra02v.mail.ibm.com [10.20.54.106])
-	by smtprelay03.fra02v.mail.ibm.com (8.14.9/8.14.9/NCO v10.0) with ESMTP id 64TFu3aN41877916
+	by smtprelay04.fra02v.mail.ibm.com (8.14.9/8.14.9/NCO v10.0) with ESMTP id 64TFu4t616187700
 	(version=TLSv1/SSLv3 cipher=DHE-RSA-AES256-GCM-SHA384 bits=256 verify=OK);
-	Fri, 29 May 2026 15:56:03 GMT
+	Fri, 29 May 2026 15:56:05 GMT
 Received: from smtpav07.fra02v.mail.ibm.com (unknown [127.0.0.1])
-	by IMSVA (Postfix) with ESMTP id 1577620040;
-	Fri, 29 May 2026 15:56:03 +0000 (GMT)
+	by IMSVA (Postfix) with ESMTP id D1F6120040;
+	Fri, 29 May 2026 15:56:04 +0000 (GMT)
 Received: from smtpav07.fra02v.mail.ibm.com (unknown [127.0.0.1])
-	by IMSVA (Postfix) with ESMTP id BD2D42004B;
-	Fri, 29 May 2026 15:56:02 +0000 (GMT)
+	by IMSVA (Postfix) with ESMTP id 865482004D;
+	Fri, 29 May 2026 15:56:04 +0000 (GMT)
 Received: from tuxmaker.boeblingen.de.ibm.com (unknown [9.87.85.9])
 	by smtpav07.fra02v.mail.ibm.com (Postfix) with ESMTP;
-	Fri, 29 May 2026 15:56:02 +0000 (GMT)
+	Fri, 29 May 2026 15:56:04 +0000 (GMT)
 From: Steffen Eiden <seiden@linux.ibm.com>
 To: kvm@vger.kernel.org, kvmarm@lists.linux.dev,
         linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org,
@@ -88,41 +88,40 @@ Cc: Alexander Gordeev <agordeev@linux.ibm.com>,
         Ulrich Weigand <Ulrich.Weigand@de.ibm.com>,
         Vasily Gorbik <gor@linux.ibm.com>, Will Deacon <will@kernel.org>,
         Zenghui Yu <yuzenghui@huawei.com>
-Subject: [PATCH v1 02/26] KVM: arm64: Remove __expand_field_sign_(un)signed
-Date: Fri, 29 May 2026 17:55:35 +0200
-Message-ID: <20260529155601.2927240-3-seiden@linux.ibm.com>
+Subject: [PATCH v1 07/26] KVM: arm64: Remove kvm_has_feat_range
+Date: Fri, 29 May 2026 17:55:40 +0200
+Message-ID: <20260529155601.2927240-8-seiden@linux.ibm.com>
 X-Mailer: git-send-email 2.53.0
 In-Reply-To: <20260529155601.2927240-1-seiden@linux.ibm.com>
 References: <20260529155601.2927240-1-seiden@linux.ibm.com>
 MIME-Version: 1.0
 Content-Transfer-Encoding: 8bit
 X-TM-AS-GCONF: 00
-X-Authority-Analysis: v=2.4 cv=fIYJG5ae c=1 sm=1 tr=0 ts=6a19b71a cx=c_pps
- a=GFwsV6G8L6GxiO2Y/PsHdQ==:117 a=GFwsV6G8L6GxiO2Y/PsHdQ==:17
+X-Authority-Analysis: v=2.4 cv=L4MtheT8 c=1 sm=1 tr=0 ts=6a19b71c cx=c_pps
+ a=5BHTudwdYE3Te8bg5FgnPg==:117 a=5BHTudwdYE3Te8bg5FgnPg==:17
  a=NGcC8JguVDcA:10 a=VkNPw1HP01LnGYTKEx00:22 a=RnoormkPH1_aCDwRdu11:22
- a=uAbxVGIbfxUO_5tXvNgY:22 a=VnNF1IyMAAAA:8 a=8GpaujLIwWfsa4wt0MAA:9
-X-Proofpoint-ORIG-GUID: 3I44r_DIBytvrXZTWkT_uTU1h5rmPzRk
-X-Proofpoint-GUID: 3I44r_DIBytvrXZTWkT_uTU1h5rmPzRk
-X-Proofpoint-Spam-Details-Enc: AW1haW4tMjYwNTI5MDE1NiBTYWx0ZWRfX1KhKBwY2gvl2
- t/NYK0TgB5NS37wysRV+k4on33aX+pB9kji43Wr2RbAdV+dEY4lg8OVfgh5sqk34D5bmE/7eo68
- ssrMD5nl0twm65zxGLHszNqeJbkaaqSQYcPL5k7HejuWlwXyG3zZ7VWNdzp2OLDsZhP9QZHYC52
- LlS7c7Ap/6+BsoJkCd/ANZtIc4Sos3OvsffJGAw2GlTpchRWJGMGwqiIBCFCiFSH0ejKv+hcQcy
- Kq3md6GF8P7vtn/MQLlqeN/IaaJV0dquFRGNzmiCbNiJwj24Ccpi5CWprxlr866Gw5w50wIY2XX
- BGP2MQ1iNEKiyXaSlRbYcxS2LYH0Ao+cuJwlNNty/lTgGY4WscfyZyObXAfEyLAGdspfHTDInCS
- rYpQluYFQuXbiM2XEgjK5SGvmzBjb9LWLvd9GfWoxrCckucTQyxIut3Lo1RKA9N4tFMyvCth9xP
- Q0/bzea+peapDHh2IKg==
+ a=iQ6ETzBq9ecOQQE5vZCe:22 a=VnNF1IyMAAAA:8 a=3-yqm4NPzKxgNXSuSH0A:9
+X-Proofpoint-ORIG-GUID: iRKEu5XZGYdTQl1aubAOq9aFT057y5V6
+X-Proofpoint-Spam-Details-Enc: AW1haW4tMjYwNTI5MDE1NiBTYWx0ZWRfX8mTz7O9VCZFE
+ R0XL99rl7E3yEfO2jUkeFCw65+CjRp4OtiyuZQ1D5P2YKaZ5EPpZvFlCGZr+o/HVLxaELK6D7Ze
+ M0AtUF8VESpOJGbVIVny3zPZGSxbHohy/2AWVERM3iaFZoKVPDad7OUka8DmDmbvwXrteTCsGyf
+ MQOx0qVS16L7/aughYsjRWDyG658HCwKaMl/024pux99SZ3aZoTC7E7tQFMCKdvdHnbvqy4JCdg
+ NtzHTu32KWRqIwB9lvmn6xo7XXgoLSBDInAdOHbivz2jvi6Mv2hOqkcZ55OAUERGvQGQqiYA+Nb
+ a/cia20Md2aMzdbkM62zv9QzcFe3OOFHP3WjG+f4ClqvLCHvZt5qE2ldnWJpd4oOC6d/1RH+wJ8
+ 3BczdDf9r4VraVSDORZon4KkHF3EPgCb5J1zZNGEKxQJl1sMH9iptxmZXjV1sD4k7XdcMsrS3d1
+ swNwplc0CQkEp1ZfrCA==
+X-Proofpoint-GUID: iRKEu5XZGYdTQl1aubAOq9aFT057y5V6
 X-Proofpoint-Virus-Version: vendor=baseguard
  engine=ICAP:2.0.293,Aquarius:18.0.1143,Hydra:6.1.125,FMLib:17.12.100.49
  definitions=2026-05-29_04,2026-05-28_03,2025-10-01_01
 X-Proofpoint-Spam-Details: rule=outbound_notspam policy=outbound score=0
- phishscore=0 lowpriorityscore=0 suspectscore=0 impostorscore=0
- priorityscore=1501 malwarescore=0 clxscore=1015 adultscore=0 spamscore=0
- bulkscore=0 classifier=typeunknown authscore=0 authtc= authcc= route=outbound
- adjust=0 reason=mlx scancount=1 engine=8.22.0-2605210000
- definitions=main-2605290156
+ phishscore=0 lowpriorityscore=0 suspectscore=0 clxscore=1015 malwarescore=0
+ bulkscore=0 impostorscore=0 adultscore=0 priorityscore=1501 spamscore=0
+ classifier=typeunknown authscore=0 authtc= authcc= route=outbound adjust=0
+ reason=mlx scancount=1 engine=8.22.0-2605210000 definitions=main-2605290156
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260529_085622_028655_DC78DE79 
-X-CRM114-Status: GOOD (  13.90  )
+X-CRM114-CacheID: sfid-20260529_085623_902185_ABE44A3B 
+X-CRM114-Status: GOOD (  10.80  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -137,74 +136,26 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-__expand_field_sign_unsigned is a very small abstraction that makes it
-harder to see what's happening when looking at the caller. Just inline
-it. Create a macro S64_SYS_FIELD_VALUE that is a sign extended
-SYS_FIELD_VALUE. Then also get rid of __expand_field_sign_signed.
+It is (and has been) unused.
 
-Co-developed-by: Nina Schoetterl-Glausch <nsg@linux.ibm.com>
-Signed-off-by: Nina Schoetterl-Glausch <nsg@linux.ibm.com>
 Signed-off-by: Steffen Eiden <seiden@linux.ibm.com>
 ---
- arch/arm64/include/asm/kvm_feature.h | 13 ++-----------
- include/arch/arm64/asm/sysreg-defs.h |  8 ++++++++
- 2 files changed, 10 insertions(+), 11 deletions(-)
+ arch/arm64/include/asm/kvm_feature.h | 2 --
+ 1 file changed, 2 deletions(-)
 
 diff --git a/arch/arm64/include/asm/kvm_feature.h b/arch/arm64/include/asm/kvm_feature.h
-index 8d0c65246aa0..d580f4ffab34 100644
+index da9ba5041f44..27a472d2343e 100644
 --- a/arch/arm64/include/asm/kvm_feature.h
 +++ b/arch/arm64/include/asm/kvm_feature.h
-@@ -6,15 +6,6 @@
- #include <linux/bitfield.h>
- #include <asm/sysreg-defs.h>
+@@ -46,8 +46,6 @@
  
--#define __expand_field_sign_unsigned(id, fld, val)			\
--	((u64)SYS_FIELD_VALUE(id, fld, val))
--
--#define __expand_field_sign_signed(id, fld, val)			\
--	({								\
--		u64 __val = SYS_FIELD_VALUE(id, fld, val);		\
--		sign_extend64(__val, id##_##fld##_WIDTH - 1);		\
--	})
--
- #define get_idreg_field_unsigned(kvm, id, fld)				\
- 	({								\
- 		u64 __val = kvm_read_vm_id_reg((kvm), SYS_##id);	\
-@@ -31,10 +22,10 @@
- 	get_idreg_field_unsigned(kvm, id, fld)
+ #define kvm_has_feat_enum(kvm, ...) __kvm_has_feat_enum(kvm, __VA_ARGS__)
  
- #define kvm_cmp_feat_signed(kvm, id, fld, op, limit)			\
--	(get_idreg_field_signed((kvm), id, fld) op __expand_field_sign_signed(id, fld, limit))
-+	(get_idreg_field_signed((kvm), id, fld) op S64_SYS_FIELD_VALUE(id, fld, limit))
+-#define kvm_has_feat_range(kvm, id, fld, min, max)			\
+-	id_has_feat_range(kvm_read_vm_id_reg((kvm), SYS_##id), id, fld, min, max)
  
- #define kvm_cmp_feat_unsigned(kvm, id, fld, op, limit)			\
--	(get_idreg_field_unsigned((kvm), id, fld) op __expand_field_sign_unsigned(id, fld, limit))
-+	(get_idreg_field_unsigned((kvm), id, fld) op (u64)SYS_FIELD_VALUE(id, fld, limit))
- 
- #define kvm_cmp_feat(kvm, id, fld, op, limit)				\
- 	(id##_##fld##_SIGNED ?						\
-diff --git a/include/arch/arm64/asm/sysreg-defs.h b/include/arch/arm64/asm/sysreg-defs.h
-index 27646c91e15c..3e280d4156ce 100644
---- a/include/arch/arm64/asm/sysreg-defs.h
-+++ b/include/arch/arm64/asm/sysreg-defs.h
-@@ -998,9 +998,17 @@
- 
- #ifndef __ASSEMBLER__
- #include <linux/bitfield.h>
-+#include <linux/bitops.h>
-+#include <linux/types.h>
- 
- #define SYS_FIELD_VALUE(reg, field, val)	reg##_##field##_##val
- 
-+#define S64_SYS_FIELD_VALUE(id, fld, val)				\
-+	({								\
-+		u64 __val = SYS_FIELD_VALUE(id, fld, val);		\
-+		sign_extend64(__val, id##_##fld##_WIDTH - 1);		\
-+	})
-+
- #define SYS_FIELD_GET(reg, field, val)		\
- 		 FIELD_GET(reg##_##field##_MASK, val)
- 
+ /* Check for a given level of PAuth support */
+ #define kvm_has_pauth(k, l)						\
 -- 
 2.53.0
 
