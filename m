@@ -4,97 +4,77 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 4AB6BCD6E45
-	for <linux-arm-kernel@archiver.kernel.org>; Fri, 29 May 2026 09:21:59 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 5314CCD6E45
+	for <linux-arm-kernel@archiver.kernel.org>; Fri, 29 May 2026 09:22:52 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:MIME-Version:
+	References:In-Reply-To:Subject:Cc:To:From:Message-ID:Date:Reply-To:
 	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=vqAhzSB+vg9kKyzDEDNMhRArlwjWlt4Tgxtrau4bCQU=; b=Xb1SbhL9spBtvgpA2ZmrosBX4p
-	wcSCjolJYMRRL+9sXWlGcxMtMcH3d76D0NEi5Pas3H9QOXZbQAjgVzwTiyohDywVcY+WyMiBErfsW
-	HoDEeJ7BgaNq5CpEbGOiHe4kyQp5OO2sRa2Z0+rLUVgWld3ipflWt6b8DE+Ny6WqFuC4XtzTVF4/X
-	MY+HB8OUan9zE1GUFb5E8W6UhHGHq6QdEfmojuGRIyrSp7eCyjqJgtp3FWZYgMdzEIlg0+9JeuGy3
-	KpjQq5tLxXY59H5h3pTmqaRjjXzIKZ+klBcgHdOdnlsOrchbIdYFKZ8IX1nSQwzEhCZ8yZLn27CuE
-	lDk7PypA==;
+	bh=TmeAf3Ybvh22BotVc9J8HU5aFJTBYRisynSo9SzTQqs=; b=2eYQxMKqf0xdRa6cOEYPmWKP9/
+	Kxr9z7MRpVYoclaf+nYBpKTZjhQaFnYW76kpG1N9c+uDu5ZWAGeP4jzAt5OtuXTnY9fyRDrNImvak
+	Zuktd7tK0BFqCIcZTJ+w+1WRkXJdTGbZHpHP0Uek32O55mKLytSaB6T7kCGffFb03OmjFylX5M1rj
+	GJU302UenQbNa6PAQW83QmwNoobVrWerWh3xoWVdsplk94QH01JpOYlThfGb3qua8Rj3r5cXteeP1
+	OwiM60dpfvQ3iT2F1TxD3MilAVZDb7jXgF33Cj5vMtL1JmgvCbUt0bVXk+FY+EBrd3dvD7Lf/ESO8
+	LjqW00sA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wStPc-000000073HC-0amT;
-	Fri, 29 May 2026 09:21:52 +0000
-Received: from mail-wm1-x335.google.com ([2a00:1450:4864:20::335])
+	id 1wStQU-000000073RF-1CmN;
+	Fri, 29 May 2026 09:22:46 +0000
+Received: from tor.source.kernel.org ([2600:3c04:e001:324:0:1991:8:25])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wStPZ-000000073GS-2NNZ
+	id 1wStQT-000000073Qm-07mr
 	for linux-arm-kernel@lists.infradead.org;
-	Fri, 29 May 2026 09:21:50 +0000
-Received: by mail-wm1-x335.google.com with SMTP id 5b1f17b1804b1-4905e190c71so63233115e9.3
-        for <linux-arm-kernel@lists.infradead.org>; Fri, 29 May 2026 02:21:49 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=google.com; s=20251104; t=1780046508; x=1780651308; darn=lists.infradead.org;
-        h=in-reply-to:content-disposition:mime-version:references:message-id
-         :subject:cc:to:from:date:from:to:cc:subject:date:message-id:reply-to;
-        bh=vqAhzSB+vg9kKyzDEDNMhRArlwjWlt4Tgxtrau4bCQU=;
-        b=W2CCnbutRbNm8wlM8ib6SsrgFvWirgyRRkOr7XWRDZClgbwFAmwn4yUBBDdBuMYRqK
-         E5UEuPG4+iEJ2QyQTpL01eN5T1HWxjUCDGqfDpeuYdkS/Fjx4zPFhGnvYupC+7TO/72c
-         YU/uvGpPY6+Yhg4wxvDrmzEyLhQpGQpzXQ5w0ofibpbtL1YV2+Qc98+eVAq7pz9xa2jq
-         5D7s+FwimFupO4XAnE9sHZdyzMKmNdoEvypOGidCL8hsV2soFYTyw3cr4s5rhuhMD0sV
-         71BQqXTLiPWosqPq1NVGgB2pil/6U8PQMARavYw1G02cWkPPZcESP82O/+w87Ip/N60P
-         crfw==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20251104; t=1780046508; x=1780651308;
-        h=in-reply-to:content-disposition:mime-version:references:message-id
-         :subject:cc:to:from:date:x-gm-gg:x-gm-message-state:from:to:cc
-         :subject:date:message-id:reply-to;
-        bh=vqAhzSB+vg9kKyzDEDNMhRArlwjWlt4Tgxtrau4bCQU=;
-        b=aPE2mOe1U/C7uc927eQkdC5g5XfgnuiQ8e/UNi1mmGNUw5OFw0tP8/HOZXGeITA09g
-         Ud6OZzVAacmJyOvutUKqsiK30qelBJtaKz6Iws3uDHj97LqVy6ivZfiIrLiufKWl037e
-         DKU0uWfD9m+eehv5FqJS2gltAESPb+iVWUhDWOIlb9HmHYBG8kua9gy8A3I+yTM3Hr4I
-         vqECtQpuZxUdlf+tNCH54C7tQDntUYxjJEqnEpvpJfRdp3FHvYroHa2CFr5Ib57jLBg3
-         coEDDwROXKdLpnpBDT8iY4BBv9Ghh2poZd2r7mhmoglH5Q2kpHFH2/Nobx/c4okpdKaf
-         cMvw==
-X-Forwarded-Encrypted: i=1; AFNElJ/J0uidHjQ0tIzgyKlf/BoZc96SJwUvwaWcYlsvHUWzUXEQZf0A0qDGv1/own1FXW8dSVMfOQargTvxjpof3Ymz@lists.infradead.org
-X-Gm-Message-State: AOJu0Yw1EebuFYKT3BqQYMbg2z5utDlp4HNdrK062iHeLO5L8zFDAAwM
-	7WNOb8aImTlYW8R+4iBjlO3lmv9Y8cSZjXCF6gdCq3QSWR33ytF28cLHUUIMnOif5w==
-X-Gm-Gg: Acq92OFTbVoaIeuPS5KtHmGKKlFm9ctCyMtMIQE3+uRiqb4noI9hyiomltrtItwwLDf
-	dgpziFfIvTyNcn2oLkQGAgLEFg0uXqPDOnckKPPWaxje/TztXXU0Ae4dY46DDDg659ytbtcdTtq
-	IM6YTREprQiXDBCznzc4H8jkFcEHCOvsXICpxaHbS16zshurfchZMELN2UdK+exa6++aVRePhmw
-	lyPNktP7ZvoadfihkAdEpps18I/dswFHRDoYnQSbw8LZZWM5s32oUCr5ffwF1i9Jgghw0jQVHa4
-	zpg+FIEynyRtNtWqOsnBGJT2mvEr95KFnjUeSXGo47HcC07AzCWSRotTACU+A+uge+i8tZcslJ1
-	jINAiQPd7vlhQVOUJJMHV5b3iTWevpo2S2xynRhqZMn+9bvfAs5iT+l+Kapvdd5bGUt3kKnHxiE
-	UkBHtx1AfHSOI2p5tIYI4M3pIDJBmXqfzsN41TPBQYsW5KNJ/w8dYZYa5T7Vzb48fem8vDFT3JS
-	zDhYQ==
-X-Received: by 2002:a05:600c:8582:b0:48f:e230:72fc with SMTP id 5b1f17b1804b1-4909c0cbd2dmr25839285e9.33.1780046507168;
-        Fri, 29 May 2026 02:21:47 -0700 (PDT)
-Received: from google.com (135.91.155.104.bc.googleusercontent.com. [104.155.91.135])
-        by smtp.gmail.com with ESMTPSA id 5b1f17b1804b1-4909d6f3612sm26265365e9.12.2026.05.29.02.21.46
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Fri, 29 May 2026 02:21:46 -0700 (PDT)
-Date: Fri, 29 May 2026 10:21:42 +0100
-From: Vincent Donnefort <vdonnefort@google.com>
-To: Fuad Tabba <tabba@google.com>
-Cc: Marc Zyngier <maz@kernel.org>, Oliver Upton <oupton@kernel.org>,
+	Fri, 29 May 2026 09:22:45 +0000
+Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
+	by tor.source.kernel.org (Postfix) with ESMTP id 0F3AA60565;
+	Fri, 29 May 2026 09:22:44 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id B9B271F00893;
+	Fri, 29 May 2026 09:22:43 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
+	s=k20260515; t=1780046563;
+	bh=TmeAf3Ybvh22BotVc9J8HU5aFJTBYRisynSo9SzTQqs=;
+	h=Date:From:To:Cc:Subject:In-Reply-To:References;
+	b=Jv2cf8dIg3u3/4h/MRPg7XZ9u6bG0aIX7EubS3mCH9+OW+uvRtM27zzQvthavml7O
+	 GzwhrpWPWTW8OvkGKTCIsupp/sZ2rRElbG3fQVInBqESrt/r7qVINXCcNfBs85uMCI
+	 IRj8mj9S7qzrltVb8FjBliVdnzCjMvAXjjj95tE9c5ZGzeQwy1dzXVoZi/R6xeRRNV
+	 EVDhdBkz7npRtn5sWDbSZKTjIUKPUImMUfqderLN1S4phongLqNHQpciBCrfyEKzKk
+	 Gr+eUMn0lR/bLYY00uRajpfL2/av/X1pO+EeDRcoFiXomdXAuiMYea39M6vvVRTubS
+	 uVLrOgND86mrw==
+Received: from sofa.misterjones.org ([185.219.108.64] helo=goblin-girl.misterjones.org)
+	by disco-boy.misterjones.org with esmtpsa  (TLS1.3) tls TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384
+	(Exim 4.98.2)
+	(envelope-from <maz@kernel.org>)
+	id 1wStQP-00000007LU9-2NUG;
+	Fri, 29 May 2026 09:22:41 +0000
+Date: Fri, 29 May 2026 10:22:41 +0100
+Message-ID: <868q92vace.wl-maz@kernel.org>
+From: Marc Zyngier <maz@kernel.org>
+To: Mark Brown <broonie@kernel.org>
+Cc: Oliver Upton <oupton@kernel.org>,
 	Joey Gouly <joey.gouly@arm.com>,
+	Steffen Eiden <seiden@linux.ibm.com>,
 	Suzuki K Poulose <suzuki.poulose@arm.com>,
-	Zenghui Yu <yuzenghui@huawei.com>,
 	Catalin Marinas <catalin.marinas@arm.com>,
-	Will Deacon <will@kernel.org>, Quentin Perret <qperret@google.com>,
-	linux-arm-kernel@lists.infradead.org, kvmarm@lists.linux.dev,
-	linux-kernel@vger.kernel.org
-Subject: Re: [PATCH 0/2] KVM: arm64: Fix host/hyp tracking on share/unshare
- hypercall failure
-Message-ID: <ahlapmZj4wnce__B@google.com>
-References: <20260529074341.2271950-1-tabba@google.com>
- <ahlIJQU-1b0mayPP@google.com>
- <CA+EHjTxktk4-B6qcAOf4O26++M5s6CKkkP539s4dRBRWxZN83Q@mail.gmail.com>
- <86a4tivdh3.wl-maz@kernel.org>
- <CA+EHjTykVY6x+iFwSFH7MaK7rfV5CTSeFwx4cZatbB+Fuzu9Yg@mail.gmail.com>
-MIME-Version: 1.0
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-In-Reply-To: <CA+EHjTykVY6x+iFwSFH7MaK7rfV5CTSeFwx4cZatbB+Fuzu9Yg@mail.gmail.com>
-X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260529_022149_618263_298C56E4 
-X-CRM114-Status: GOOD (  30.52  )
+	Will Deacon <will@kernel.org>,
+	Mark Rutland <mark.rutland@arm.com>,
+	linux-arm-kernel@lists.infradead.org,
+	kvmarm@lists.linux.dev,
+	linux-kernel@vger.kernel.org,
+	stable@vger.kernel.org
+Subject: Re: [PATCH v2] KVM: arm64: Preserve all guest ZCR_EL2.LEN values
+In-Reply-To: <20260529-kvm-arm64-fix-zcr-len-nv-v2-1-86cad51992bd@kernel.org>
+References: <20260529-kvm-arm64-fix-zcr-len-nv-v2-1-86cad51992bd@kernel.org>
+User-Agent: Wanderlust/2.15.9 (Almost Unreal) SEMI-EPG/1.14.7 (Harue)
+ FLIM-LB/1.14.9 (=?UTF-8?B?R29qxY0=?=) APEL-LB/10.8 EasyPG/1.0.0 Emacs/30.1
+ (aarch64-unknown-linux-gnu) MULE/6.0 (HANACHIRUSATO)
+MIME-Version: 1.0 (generated by SEMI-EPG 1.14.7 - "Harue")
+Content-Type: text/plain; charset=US-ASCII
+X-SA-Exim-Connect-IP: 185.219.108.64
+X-SA-Exim-Rcpt-To: broonie@kernel.org, oupton@kernel.org, joey.gouly@arm.com, seiden@linux.ibm.com, suzuki.poulose@arm.com, catalin.marinas@arm.com, will@kernel.org, mark.rutland@arm.com, linux-arm-kernel@lists.infradead.org, kvmarm@lists.linux.dev, linux-kernel@vger.kernel.org, stable@vger.kernel.org
+X-SA-Exim-Mail-From: maz@kernel.org
+X-SA-Exim-Scanned: No (on disco-boy.misterjones.org); SAEximRunCond expanded to false
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -109,75 +89,81 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Fri, May 29, 2026 at 09:20:50AM +0100, Fuad Tabba wrote:
-> On Fri, 29 May 2026 at 09:15, Marc Zyngier <maz@kernel.org> wrote:
-> >
-> > On Fri, 29 May 2026 09:05:35 +0100,
-> > Fuad Tabba <tabba@google.com> wrote:
-> > >
-> > > On Fri, 29 May 2026 at 09:02, Vincent Donnefort <vdonnefort@google.com> wrote:
-> > > >
-> > > > On Fri, May 29, 2026 at 08:43:39AM +0100, tabba@google.com wrote:
-> > > > > Hi folks,
-> > > > >
-> > > > > Yet another bug I found while testing Sashiko locally with fixes to
-> > > > > review-prompts.
-> > > > >
-> > > > > share_pfn_hyp() and unshare_pfn_hyp() in arch/arm64/kvm/mmu.c
-> > > > > maintain a host-side RB-tree mirroring the set of pages shared with
-> > > > > EL2. Both invoke a hypercall that can fail (page-state mismatch,
-> > > > > EL2 refcount still held), but neither cleans up on failure:
-> > > > >
-> > > > > - share_pfn_hyp() inserts the tracking node before the hypercall
-> > > > >   and leaves it in the tree on failure, leaking the allocation and
-> > > > >   presenting a phantom share to a later unshare.
-> > > > >
-> > > > > - unshare_pfn_hyp() erases the tracking node before the hypercall;
-> > > > >   on failure the host loses its record while EL2 still owns the
-> > > > >   share, breaking later operations on the same pfn.
-> > > > >
-> > > > > Severity is low (no isolation impact) and the failure paths are rare
-> > > > > in practice, but the desync is real. Both patches are independent and
-> > > > > apply cleanly to current mainline. In other words, this can wait for
-> > > > > 7.2.
-> > > >
-> > > >
-> > > > I believe I fixed that here lore.kernel.org/all/acyKhZL2di_QQ9xm@google.com but
-> > > > as Quentin pointed-out, there's absolutely no reason for the hypercall to fail.
-> > > > So I haven't sent a v2.
-> > >
-> > > At the very least we need to add a comment, otherwise, people like me
-> > > and LLMs like Sashiko would stumble upon it.
-> > >
-> > > That said, this fix adds no real overhead, makes the code clearer, and
-> > > guards us against a future where that call might fail.
-> > > Self-documenting in essense.
-> > >
-> > > WDYT?
-> >
-> > If a hypercall really cannot fail, why does it have a return value?
-> 
-> Good point. If we know it cannot fail, how about just `void`?
-> 
-> That said, Vincen't exact words are: `very much unlikely`, not the
-> same as cannot fail :)
-> 
-> https://lore.kernel.org/all/acyKhZL2di_QQ9xm@google.com/
+Thanks for respinning this patch quickly.
 
-The error would happen only if the host tries to share/unshare a page with the
-wrong state. This would only happen in the case of a misbehaving host.
+On Fri, 29 May 2026 00:01:44 +0100,
+Mark Brown <broonie@kernel.org> wrote:
+> 
+> Since commit b3d29a823099 ("KVM: arm64: nv: Handle ZCR_EL2 traps") when
+> guests write to ZCR_EL2 we have clamped the value of ZCR_EL2.LEN to be
+> at most that configuring the maximum guest VL when accessed directly as
+> ZCR_EL2. This is not clearly the behaviour the architecture documents
+> for ZCR_EL2.LEN, while things are a little ambiguous currently there is
+> a fairly direct reading that suggests values will be read as written.
+> Further, the documented procedure for enumerating vector lengths means
+> that it is expected that values larger than the largest supported vector
+> length will be written in practice.
 
-And Quentin's point was that this is anyway incomplete. To handle this error
-properly, kvm_share_hyp/kvm_unshare_hyp would also need to rollback things...
-The callers of the unshare should also leak the memory which couldn't be
-unshared properly. This isn't the case now, (however we do WARN_ON).
+Honestly, that's not the core issue. And even $SUBJECT fails to
+capture what is at stake here.
 
 > 
-> /fuad
-> 
-> >
-> >         M.
-> >
-> > --
-> > Without deviation from the norm, progress is not possible.
+> The reasoning for the current behaviour is not specifically articulated, my
+
+I don't think there is a reasoning behind each and every bug.
+
+> best guess is that it is intended to ensure that the guest can not see an
+> effective VL greater than the maximum that has been configured, though
+> this will be ineffective when a VHE guest uses the ZCR_EL1 accessor.
+
+This last point *IS* the core problem. It is that the guest can access
+VLs beyond what is intended by the VM configuration. Not getting the
+read-as-written behaviour really is secondary compared to that issue.
+
+[...]
+
+I've rewritten the commit message to make it plain what the problem
+is, see below. I've also slightly tidied up access_zcr_el2(), but the
+fix otherwise looks good.
+
+Thanks,
+
+	M.
+
+KVM: arm64: Correctly cap ZCR_EL2 provided by a guest hypervisor
+
+ZCR_EL2 can be updated by a VHE guest hypervisor either using ZCR_EL2
+(which traps) or ZCR_EL1 (which does not trap). KVM handles both in
+different way:
+
+- on ZCR_EL2 trap, ZCR_EL2.LEN is immediately capped at the VM's own
+  VL limit. This has the potential to break existing SW that relies
+  on the full LEN field to be stateful.
+
+- on ZCR_EL1 access, we do absolutely nothing.
+
+On restoring the SVE context for an L2 guest, we directly restore the
+guest hypervisor's view of ZCR_EL2 into the physical ZCR_EL2. If the
+guest's view of the register was updated using the ZCR_EL2 accessor,
+the value has already been sanitised (with the caveat mentioned above).
+
+But if the guest used ZCR_EL1, the raw value is written into the HW,
+and the L2 guest can now access VLs that it shouldn't.
+
+Fix all the above by moving the VL capping to the restore points,
+ensuring that:
+
+- the HW is always programmed with a capped value, irrespective of
+  the accessor being used,
+
+- the ZCR_EL2.LEN field is always completely stateful, irrespective
+  of the accessor being used.
+
+Additionally, move ZCR_EL2 to be a sanitised register, ensuring that
+only the LEN field is actually stateful. This requires some creative
+construction of the RES0 mask, as the sysreg generation script does
+not yet generate RAZ/WI fields.
+
+-- 
+Without deviation from the norm, progress is not possible.
 
