@@ -4,75 +4,99 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id A7007CD5BD2
-	for <linux-arm-kernel@archiver.kernel.org>; Fri, 29 May 2026 10:16:40 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 85349CD5BD2
+	for <linux-arm-kernel@archiver.kernel.org>; Fri, 29 May 2026 10:17:08 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:
-	Content-Transfer-Encoding:MIME-Version:References:In-Reply-To:Message-ID:Date
-	:Subject:CC:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=DzF9tm7ur7HLo2X6C2bLqmJDq98NOCzuUnqS4td4HdQ=; b=FUL29y+O9SXSyKTMrck4hgvtxM
-	C939WM/I/3FcxVQGADm5/iZVutZx3HhmWlSK6jPzTbrC4Pzx5OtNYM8kpUD9NiHUimO7I/K+U28M3
-	X/YC2p6UP4y5qWJQE8rey3N1DV0F8DrJdICxOvObUGZSua3aG+vQ5mc9t/bHZRqbHeVKpFl9UGbJL
-	Rf2B2RmeG4vqIChoMeMerLAdVzIw2vRpeA0MuHDbcu0EFQCQKzFe3wCy4DUB2AttCVL7PBTbcA50y
-	bbUBFVhjbzLUJtUc4Jmsz4REwuqe3bBjU6DKBWT91xzA5OhoyAE9tWsFpaHW+HH3OksVXQr5tKfKV
-	kLeLqqDw==;
+	bh=PChq7lVk0cZN2Il3vhZJBZZET0uiB5y1SQ5YG4ON0U0=; b=EzjvJkIhguuoRhhGZd9kxvBudy
+	YppQgDPQ88TDnkxHF/RQJ9cN+G7lyKfqpO4fg9ZUnOglbNrSoJFgxmozwKLr22Lodwtw2oTJTghct
+	YUKBRRMYjjhCv1tjP73xetsSO93H3kFjob7D/c6eb8Aui3r2VC8DPX95/meze3l1nqxbslJHKONlM
+	ztZUSFo99ShJg7/RkRg+4m2A+pToaJTTyV1WCIdlWXG1wiFcR8B2w9vR7aL27nSBnroQu5m/3nZmp
+	92ORethfBRCDESIM9sFsDJ6uPHuIsIjQ+bFPyKyMK/kNetpcFmQhcJigwxbTB4FKmPU+cXPvD4S7T
+	EAfvUpbQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wSuGX-000000079pM-1w8M;
-	Fri, 29 May 2026 10:16:33 +0000
-Received: from mailgw01.mediatek.com ([216.200.240.184])
+	id 1wSuH0-000000079wt-2OdD;
+	Fri, 29 May 2026 10:17:02 +0000
+Received: from mail-wm1-x329.google.com ([2a00:1450:4864:20::329])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wSuGL-000000079ie-1tAN;
-	Fri, 29 May 2026 10:16:22 +0000
-X-UUID: 6e8a513e5b4711f1afed4741b24580c9-20260529
-DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed; d=mediatek.com; s=dk;
-	h=Content-Type:Content-Transfer-Encoding:MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:CC:To:From; bh=DzF9tm7ur7HLo2X6C2bLqmJDq98NOCzuUnqS4td4HdQ=;
-	b=P6+SXkFoQZWUBfyl4koA/qAP7e+4XsQ9hfRQfiymSt1D297Wcp68b/b9t+7a5S8fz/hYBsbnJVEs6KGerADnm9p5pnGoMGEqiWG4ie9xfT0q4a4KLxPwtYcd9n/fKGyJobJ3Xuh06KeT6/q2rPxmjwi+Vdjfa9+zM+xHoqADlGI=;
-X-CID-P-RULE: Release_Ham
-X-CID-O-INFO: VERSION:1.3.15,REQID:38aa64b8-a17c-4276-9c08-c03f3524f4f4,IP:0,U
-	RL:0,TC:0,Content:0,EDM:0,RT:0,SF:0,FILE:0,BULK:0,RULE:Release_Ham,ACTION:
-	release,TS:0
-X-CID-META: VersionHash:e276073,CLOUDID:420992c9-9273-4096-a0ce-fc7a6a4f85f7,B
-	ulkID:nil,BulkQuantity:0,Recheck:0,SF:81|82|102|836|865|888|898,TC:-5,Cont
-	ent:0|15|50,EDM:-3,IP:nil,URL:0,File:130,RT:0,Bulk:nil,QS:nil,BEC:-1,COL:0
-	,OSI:0,OSA:0,AV:0,LES:1,SPR:NO,DKR:0,DKP:0,BRR:0,BRE:0,ARC:0
-X-CID-BVR: 2,SSN|SDN
-X-CID-BAS: 2,SSN|SDN,0,_
-X-CID-FACTOR: TF_CID_SPAM_SNR
-X-CID-RHF: D41D8CD98F00B204E9800998ECF8427E
-X-UUID: 6e8a513e5b4711f1afed4741b24580c9-20260529
-Received: from mtkmbs13n1.mediatek.inc [(172.21.101.193)] by mailgw01.mediatek.com
-	(envelope-from <justin.yeh@mediatek.com>)
-	(musrelay.mediatek.com ESMTP with TLSv1.2 ECDHE-RSA-AES256-GCM-SHA384 256/256)
-	with ESMTP id 196471547; Fri, 29 May 2026 03:16:18 -0700
-Received: from mtkmbs13n1.mediatek.inc (172.21.101.193) by
- mtkmbs13n1.mediatek.inc (172.21.101.193) with Microsoft SMTP Server
- (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
- 15.2.2562.29; Fri, 29 May 2026 18:16:15 +0800
-Received: from mtksitap99.mediatek.inc (10.233.130.16) by
- mtkmbs13n1.mediatek.inc (172.21.101.73) with Microsoft SMTP Server id
- 15.2.2562.29 via Frontend Transport; Fri, 29 May 2026 18:16:15 +0800
-From: Justin Yeh <justin.yeh@mediatek.com>
-To: Matthias Brugger <matthias.bgg@gmail.com>, AngeloGioacchino Del Regno
-	<angelogioacchino.delregno@collabora.com>
-CC: <Project_Global_Chrome_Upstream_Group@mediatek.com>,
-	<linux-kernel@vger.kernel.org>, <linux-arm-kernel@lists.infradead.org>,
-	<linux-mediatek@lists.infradead.org>, Justin Yeh <justin.yeh@mediatek.com>
-Subject: [PATCH 2/2] soc: mediatek: mtk-infracfg: Export symbols for DDK modules
-Date: Fri, 29 May 2026 18:16:03 +0800
-Message-ID: <20260529101613.55697-3-justin.yeh@mediatek.com>
-X-Mailer: git-send-email 2.45.2
-In-Reply-To: <20260529101613.55697-1-justin.yeh@mediatek.com>
-References: <20260529101613.55697-1-justin.yeh@mediatek.com>
+	id 1wSuGy-000000079vd-0EQ9
+	for linux-arm-kernel@lists.infradead.org;
+	Fri, 29 May 2026 10:17:01 +0000
+Received: by mail-wm1-x329.google.com with SMTP id 5b1f17b1804b1-4905529b933so54097275e9.0
+        for <linux-arm-kernel@lists.infradead.org>; Fri, 29 May 2026 03:16:59 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=gmail.com; s=20251104; t=1780049818; x=1780654618; darn=lists.infradead.org;
+        h=in-reply-to:content-disposition:mime-version:references:message-id
+         :subject:cc:to:from:date:from:to:cc:subject:date:message-id:reply-to;
+        bh=PChq7lVk0cZN2Il3vhZJBZZET0uiB5y1SQ5YG4ON0U0=;
+        b=kUwpyeOTeQLGgoQtlAoY/DjouT65SizfUnfYLVos0feWINpDxlewqR4+kJhvbB4BsA
+         EkkqstWfo4thVX843kjaPc/n3gxdViAErv6D5Y/kLC8DftsztaJQE8ZL59d4YnWehkp5
+         2AiuTGy8yhciSNVtu3BoMtHkGVM4nflBKgA7VL2B/Fc9oZ6mmJuISjeHqm/KmRPtNBOT
+         SC8HDzQN1rlwMfVbUeaQIfY3BYqHUUSPSVjB1CAJ9I7xs9QVGQjaQU/2KhyP9PL0a0Te
+         WrHzs0B/jRfPtanxoDlKOWPFBG9fIPAsPccIts+xrE/SCwn8gfHBTS3vdu6f9BobnTm9
+         PArA==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20251104; t=1780049818; x=1780654618;
+        h=in-reply-to:content-disposition:mime-version:references:message-id
+         :subject:cc:to:from:date:x-gm-gg:x-gm-message-state:from:to:cc
+         :subject:date:message-id:reply-to;
+        bh=PChq7lVk0cZN2Il3vhZJBZZET0uiB5y1SQ5YG4ON0U0=;
+        b=K7G4+wxgW0LZAZ3bTa8LSG6CIpfdXPIvEajVBbgo7/hclY2RmqAFrZMIbPC/1z7v49
+         1nisy8IouBk7NQhS2J9nAyDX1umIdzy9qA4lHBoFdOvKS9j4BBL9ARaZR6LVvyGWEpre
+         4r8YQsp5ncNFr/EXq309V2Ch0EkU/FLiH31nU77owRCDQMRN+LIEm12nUbfZoWcGZR7c
+         ButQEN4sGYzaH/RgdV9EtDSye+NVmJMiELYukvdO4LRpJVbYE+zOX1ab6Cq2HY2d2BoR
+         qxXX/ES5GgXyCeqCNsS2rm5QOj5K2i5DpQy0Y/c8WtoIpz1kaJba2GfYxW6K++O59HLc
+         z3Aw==
+X-Forwarded-Encrypted: i=1; AFNElJ89D6fORDdFPzvU22YpPLCafPByL010EQmiVDwFs72jfnW7LZ0S1EUJk000pyvVMTryZsGGjC/Wt6nO0lAN/L3M@lists.infradead.org
+X-Gm-Message-State: AOJu0Yzdk+e7w6fohZoi4aZ/ivDJ2bWaLno6Pg6Q1ZmS7AZkl1QJZMwd
+	STQquWIH7SQPxiabHTiz+AqXziUJ0sB70+zeGj8H0VJOMP0b0t++fVWRYME44w==
+X-Gm-Gg: Acq92OFPzi2x4NTanTTU/zRNLYQAvOUZGtu87JSRShc3TKc+Te7dIZCz6J+Eg7wG7As
+	2hLnvd/8kRb/2k/h+oRWnouVWkNWMvlxSLLurUlNpBZbCKoTLl1gs4yDiV525d+tRltMYfF4RYb
+	xtdlIBpwSc42fdDeT65cBf0tcBZGlyQnFQBmy/poa3U4yk+Utv/8+fvJIjvXGVZkyStQItrIor1
+	H64chWF/dMGa+1z30pPVjadVuH0P3m6QCszsDMMEReG66m2y3Jf9QX7zxkGrVmo9b6RoNH3J8NH
+	2AUhJK0ZTnko3LCoMwph+5Ow8JXQ4mAyzUkiKl1schI45eDeiEp3RS8t0nP8IScAwVGS6q6Zbi3
+	My7MiWVOUQFnF9AGfvo+spEMaFxmY1+G8V0D5FVcvqZDIkhQALsqUA3DFMVzisNLPm8F3QHAgAD
+	hGYYEhqDUzpB27k/V7OwTK9eK+FRZ7jDmSCy13LxJP0DKQ04vx+PRfsRZgZWJ0VNq5iuzrqoC7L
+	/YeH9N+UOo/Hxtcj7AVm3u/05pzQf75VGaoBAji1N7T
+X-Received: by 2002:a05:600c:1453:b0:490:50ff:7943 with SMTP id 5b1f17b1804b1-4909c0773a4mr26720375e9.5.1780049817498;
+        Fri, 29 May 2026 03:16:57 -0700 (PDT)
+Received: from fedora (cpc92878-cmbg18-2-0-cust539.5-4.cable.virginm.net. [86.16.54.28])
+        by smtp.gmail.com with ESMTPSA id 5b1f17b1804b1-4909c13276dsm11265945e9.36.2026.05.29.03.16.56
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Fri, 29 May 2026 03:16:56 -0700 (PDT)
+Date: Fri, 29 May 2026 11:16:54 +0100
+From: Vishal Moola <vishal.moola@gmail.com>
+To: Kevin Brodsky <kevin.brodsky@arm.com>
+Cc: Matthew Wilcox <willy@infradead.org>, Will Deacon <will@kernel.org>,
+	Catalin Marinas <catalin.marinas@arm.com>,
+	Andrew Morton <akpm@linux-foundation.org>,
+	Alistair Popple <apopple@nvidia.com>,
+	linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org,
+	linux-mm@kvack.org, david@kernel.org
+Subject: Re: [PATCH] arm64: mm: call pagetable dtor when freeing hot-removed
+ page tables
+Message-ID: <ahlnltbpnoWcEtEj@fedora>
+References: <20260521032730.2104017-1-apopple@nvidia.com>
+ <20260521153130.d7d5cd060f7522f894252333@linux-foundation.org>
+ <ahACfQ6kCfONqz5h@arm.com>
+ <ahAjudlB32VbkKbG@fedora>
+ <92450154-e1ab-46e4-b23d-eaa59c9cdd3b@arm.com>
+ <ahW3QYiYjjVB4Knv@willie-the-truck>
+ <423a2656-e1a3-473e-abeb-5e301c6f7c2a@arm.com>
+ <aha5w_WRTmtb6O-B@fedora>
+ <83d168c1-fed9-4301-8d0e-ffd133df90bb@arm.com>
 MIME-Version: 1.0
-Content-Transfer-Encoding: 8bit
-Content-Type: text/plain
-X-MTK: N
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+In-Reply-To: <83d168c1-fed9-4301-8d0e-ffd133df90bb@arm.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260529_031621_492536_7B2D5316 
-X-CRM114-Status: GOOD (  15.02  )
+X-CRM114-CacheID: sfid-20260529_031700_122209_508BAF3B 
+X-CRM114-Status: GOOD (  36.87  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -87,77 +111,79 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Export mtk_infracfg functions to allow other DDK modules (like
-mtk-scpsys) to use bus protection APIs.
+On Thu, May 28, 2026 at 10:05:22AM +0200, Kevin Brodsky wrote:
+> On 27/05/2026 11:30, Vishal Moola wrote:
+> > On Wed, May 27, 2026 at 09:35:50AM +0200, Kevin Brodsky wrote:
+> >> On 26/05/2026 17:07, Will Deacon wrote:
+> >>> On Tue, May 26, 2026 at 01:54:00PM +0200, Kevin Brodsky wrote:
+> >>>> On 22/05/2026 11:36, Vishal Moola wrote:
+> >>>>>> diff --git a/arch/arm64/mm/mmu.c b/arch/arm64/mm/mmu.c
+> >>>>>> index 4c8959153ac4..9d42cbddce27 100644
+> >>>>>> --- a/arch/arm64/mm/mmu.c
+> >>>>>> +++ b/arch/arm64/mm/mmu.c
+> >>>>>> @@ -1441,6 +1441,9 @@ static void free_hotplug_page_range(struct page *page, size_t size,
+> >>>>>>  
+> >>>>>>  static void free_hotplug_pgtable_page(struct page *page)
+> >>>>>>  {
+> >>>>>> +	if (folio_test_pgtable(page_folio(page)))
+> >>>>> This should work.
+> >>>>>
+> >>>>>> +		pagetable_dtor(page_ptdesc(page));
+> >>>>>> +
+> >>>>>>  	free_hotplug_page_range(page, PAGE_SIZE, NULL);
+> >>>>> In the case we presumably have a page table page (ptdesc) at this
+> >>>>> point, we should really be freeing it with pagetable_free() as well.
+> >>>> Agreed, I think this is the right thing to do, something like:
+> >>>>
+> >>>> if (folio_test_pgtable(page_folio(page)))
+> >>>> pagetable_dtor_free(page_ptdesc(page)); else
+> >>>> free_hotplug_page_range(page, PAGE_SIZE, NULL);
+> >>>>
+> >>>>
+> >>>> Strangely enough x86 calls pagetable_free() in both cases.
+> >>>>
+> >>>> My series protecting page tables with pkeys has a patch [1] to get
+> >>>> vmemmap to allocate page tables with pagetable_alloc(). The diff above
+> >>>> will require pagetable_*_ctor() to be called as well, but I think that's
+> >>>> the right thing to do anyway. That could be posted as a separate series,
+> >>>> but I'm hesitant due to the lack of NUMA awareness in pagetable_alloc().
+> >>> I agree that calling the ctor()/dtor() functions consistently is the
+> >>> cleanest approach and that will need something like your patch to call
+> >>> the constructor from vmemmap_alloc_block_zero(). Trying to elide these
+> >>> calls for the page-table pages used to map the altmap just feels odd to
+> >>> me, as there isn't anything particularly special about them afaik.
+> >> I don't think they're really special either, most likely they just got
+> >> missed/ignored for the purpose of ctor/dtor like many other kernel page
+> >> tables (until recently).
+> >>
+> >> I'll prepare a series refactoring that code then - that will also
+> >> require changing most arch implementations of vmemmap_free() to call
+> >> pagetable_dtor_free().
+> > Take a look at Matthew's series[1]. I think thats the ideal approach for
+> > page table accounting. He hasn't had time to iterate on it though. I
+> > doubt he'd mind if someone picked it up.
+> 
+> I recall this series. Are you suggesting that we would no longer need to
+> call the ctor/dtor for kernel page tables with this approach? That
+> leaves us with the weird case of ptdesc_set_kernel(), which is called
+> from *_alloc_one() while ptdesc_clear_kernel() is called from
+> pagetable_free(), but that's only an optimisation so we can probably
+> live with it.
 
-Changes:
-- Add EXPORT_SYMBOL_GPL for set/clear bus_protection and init functions
-- Remove static and __init qualifiers from mtk_infracfg_init
-- Add mtk_infracfg_init() declaration to header
-- Remove postcore_initcall, let dependent modules call init explicitly
-- Add #include <linux/module.h> for export macros
-- Add MODULE_LICENSE("GPL") metadata
+Pretty much. The ctor/dtor do things that every single page table should
+be doing, so it makes sense to move them to the allocation/free sites
+instead.
 
-This allows mtk-infracfg to be built as a DDK module (.ko) and its
-functions to be used by other modules like mtk-scpsys for power domain
-management.
+Kernel pagetables are a subset of ptdescs, so keeping those where they
+are makes sense IMO.
 
-Signed-off-by: Justin Yeh <justin.yeh@mediatek.com>
----
- drivers/soc/mediatek/mtk-infracfg.c   | 9 +++++++--
- include/linux/soc/mediatek/infracfg.h | 1 +
- 2 files changed, 8 insertions(+), 2 deletions(-)
+> If we go down this route, I would suggest we inline what's left of the
+> ctor/dtor, i.e. ptlock, in {pte,pmd}_alloc_one() and {pte,pmd}_free().
+> This way it is clear that everything applicable to all page tables
+> (kernel+user) should go directly into pagetable_{alloc,free}.
+> 
+> Happy to post something along those lines (patch 2/3 of Matthew's series
+> + removing ctor/dtor completely) if that sounds sensible.
 
-diff --git a/drivers/soc/mediatek/mtk-infracfg.c b/drivers/soc/mediatek/mtk-infracfg.c
-index 2acf19676af2..8a88805468cc 100644
---- a/drivers/soc/mediatek/mtk-infracfg.c
-+++ b/drivers/soc/mediatek/mtk-infracfg.c
-@@ -7,6 +7,7 @@
- #include <linux/jiffies.h>
- #include <linux/regmap.h>
- #include <linux/mfd/syscon.h>
-+#include <linux/module.h>
- #include <linux/soc/mediatek/infracfg.h>
- #include <asm/processor.h>
- 
-@@ -43,6 +44,7 @@ int mtk_infracfg_set_bus_protection(struct regmap *infracfg, u32 mask,
- 
- 	return ret;
- }
-+EXPORT_SYMBOL_GPL(mtk_infracfg_set_bus_protection);
- 
- /**
-  * mtk_infracfg_clear_bus_protection - disable bus protection
-@@ -73,8 +75,9 @@ int mtk_infracfg_clear_bus_protection(struct regmap *infracfg, u32 mask,
- 
- 	return ret;
- }
-+EXPORT_SYMBOL_GPL(mtk_infracfg_clear_bus_protection);
- 
--static int __init mtk_infracfg_init(void)
-+int mtk_infracfg_init(void)
- {
- 	struct regmap *infracfg;
- 
-@@ -90,4 +93,6 @@ static int __init mtk_infracfg_init(void)
- 				MT8192_INFRA_CTRL_DISABLE_MFG2ACP);
- 	return 0;
- }
--postcore_initcall(mtk_infracfg_init);
-+EXPORT_SYMBOL_GPL(mtk_infracfg_init);
-+
-+MODULE_LICENSE("GPL");
-diff --git a/include/linux/soc/mediatek/infracfg.h b/include/linux/soc/mediatek/infracfg.h
-index 9956e18c5ffa..847431a7b967 100644
---- a/include/linux/soc/mediatek/infracfg.h
-+++ b/include/linux/soc/mediatek/infracfg.h
-@@ -454,4 +454,5 @@ int mtk_infracfg_set_bus_protection(struct regmap *infracfg, u32 mask,
- 		bool reg_update);
- int mtk_infracfg_clear_bus_protection(struct regmap *infracfg, u32 mask,
- 		bool reg_update);
-+int mtk_infracfg_init(void);
- #endif /* __SOC_MEDIATEK_INFRACFG_H */
--- 
-2.45.2
-
+Sounds good to me :)
 
