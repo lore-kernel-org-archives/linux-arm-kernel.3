@@ -4,59 +4,78 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 06E67CD5BD2
-	for <linux-arm-kernel@archiver.kernel.org>; Fri, 29 May 2026 09:51:09 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 1FE57CD5BD2
+	for <linux-arm-kernel@archiver.kernel.org>; Fri, 29 May 2026 09:51:28 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	MIME-Version:References:In-Reply-To:Message-Id:Date:Subject:Cc:To:From:
-	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=xwjibTqDrsLsVA6ZL3FN4yeJ+2dNA+oalwouJiDDhtM=; b=ODH1iMoWHtWqPfZ2va5r2uRWPw
-	B6fUpoUQZlrFzgdSG1hqPrpA2bWTVZ/GnThyzFjPkoBw4EXFIQsiyUamGn/Kjlli3HieddSezOnWz
-	qoz9kp3ptxVm3chbtMxfYqKhrFhSm+tTL193kEZiD/IAmgrCno4OYt+em9+9gVDqEZA/QWsHUxM5X
-	ulDT9dUBk1RCfGTkfYao3aYkIrOavqZtPug9ke+3oxlU6QhW08su83Jh6FLwweMyIPvbTS3hcyrvj
-	iSvFYqUr4rmgl1fbcuztnfhHrete6Z0e7znWBIGTuuAE5SdpzVHxRZ6VdS2FMVTWvXmRkhIR+DbtT
-	CGhFrIRw==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:
+	Content-Transfer-Encoding:Content-Type:MIME-Version:Message-Id:Date:Subject:
+	From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:
+	List-Owner; bh=hgJEqCSwRPOGcKT1kA9c3gxIVZOnLg8mNQ7VsPlMaBY=; b=O+f/T+02fROdnC
+	v0zE+meNfJO3QvRGTO7DCNssyrpcUF8+XOEvQLevXwSHKf/YDiy5HCJalo/qZlJmQ6tRqIsu3UjVK
+	e9XCbUnSiPD3gvHtRdcwk9hxxEwyPXQXyXSMIovAk7YYJ/ylzgzMqzFoJx9pQT0KX8HIJ9DenxEeT
+	dCdTj6dO4eii7wwvOBGNuLuxFKS65GzH+07yrXHz09d3a1ubrAn+nzFp8aR8eq6OwKNKPnnd0PNHc
+	ZV/VZIYQpYuaQY4ga1bl69FyoZqk6lOL60cFmx34+rju/kU3DDyHyHAW2zZh/5m92bQ45HdOaothq
+	hYJeY6ghKZDtHdkP0g9w==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wStrq-000000076Io-2Rma;
-	Fri, 29 May 2026 09:51:02 +0000
+	id 1wSts7-000000076Oe-3KbE;
+	Fri, 29 May 2026 09:51:22 +0000
 Received: from foss.arm.com ([217.140.110.172])
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wStrm-000000076HV-2MGu
+	id 1wSts5-000000076Mu-0KHL
 	for linux-arm-kernel@lists.infradead.org;
-	Fri, 29 May 2026 09:50:59 +0000
+	Fri, 29 May 2026 09:51:18 +0000
 Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
-	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id 8DE9032E6;
-	Fri, 29 May 2026 02:50:52 -0700 (PDT)
-Received: from login2.euhpc.arm.com (login2.euhpc.arm.com [10.6.38.22])
-	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPA id 68E6C3F905;
-	Fri, 29 May 2026 02:50:56 -0700 (PDT)
+	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id 3470B22D7;
+	Fri, 29 May 2026 02:51:09 -0700 (PDT)
+Received: from e134710.arm.com (e134710.arm.com [10.33.10.82])
+	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id C3A863F905;
+	Fri, 29 May 2026 02:51:09 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=simple/simple; d=arm.com; s=foss;
-	t=1780048257; bh=C/IksnNtoNt/AZgpqUQsS99rm8NU69jgpIEkuoQ/8M0=;
-	h=From:To:Cc:Subject:Date:In-Reply-To:References:From;
-	b=SEjnzm9EFnvzYwIA/pVhgVgVVDqWNUUn9m13Iiggb6MUU/bvuHckEyVAHjWzMIncV
-	 oeavMBEYlfkkWww2rCn3jALZBOa6XngAFs0zTfA7O3tjevlZYEvLzShlQmx1WG4050
-	 +YHHGzTsCUck53ugbJJSTp0pvLp3THzo4H5jdxjo=
-From: Vladimir Murzin <vladimir.murzin@arm.com>
-To: linux-arm-kernel@lists.infradead.org
-Cc: vladimir.murzin@arm.com,
-	mark.rutland@arm.com,
-	maz@kernel.org,
-	joey.gouly@arm.com,
-	Sascha.Bischoff@arm.com
-Subject: [BOOTWRAPPER PATCH v3 2/2] Add support for GICv5
-Date: Fri, 29 May 2026 10:50:32 +0100
-Message-Id: <20260529095032.48951-3-vladimir.murzin@arm.com>
-X-Mailer: git-send-email 2.24.0
-In-Reply-To: <20260529095032.48951-1-vladimir.murzin@arm.com>
-References: <20260529095032.48951-1-vladimir.murzin@arm.com>
+	t=1780048274; bh=PhsoWnNzKoot9QOeJqx67Uz0y4ZbixYdSGzdVAqeDi0=;
+	h=From:Subject:Date:To:Cc:From;
+	b=gUOu0QnPcKnD3bkA1MrT7ZF46sBfdAYOyiqCLYtu9YKupH+gOKBV+WOikGfSD9NcQ
+	 EPyArBAnrs+zw4i2tVQ4C1KCeaoa/ywBKG7Mi7aECBgI1J9G4MC+3NCyl8dGpwyuCV
+	 QSmJIfizE8sI4oShP3gADl3ZjiMbrYnnl/Ctoo6E=
+From: Ahmed Tiba <ahmed.tiba@arm.com>
+Subject: [PATCH v5 00/10] ACPI: APEI: share GHES CPER helpers and add DT
+ FFH provider
+Date: Fri, 29 May 2026 10:50:40 +0100
+Message-Id: <20260529-topics-ahmtib01-ras_ffh_arm_internal_review-v5-0-2e0500d42642@arm.com>
 MIME-Version: 1.0
-Content-Transfer-Encoding: 8bit
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: 7bit
+X-B4-Tracking: v=1; b=H4sIAHBhGWoC/5XOzYrCMBSG4VuRrE3JOSZNdTX3MUjJ7/SAbSUpd
+ QbpvZsIIrN0+R3I8+bOckgUMjvt7iyFlTLNUxlqv2NuMNNP4OTLZiiwFYiCL/OVXOZmGBeyAng
+ yuY9x6E0ae5qWkCZz6asUbtxG752OTjtjWRGvKUT6fda+z2UPlJc5/T3jK9Rr7ShA0ADYSdVAB
+ xLgyKEGg29K03yVVOPmkVVixdezz7+3Ihf8IHU06PVBgf0vy7esoPtMlkWW2B67VitrWnjL27Y
+ 9ACF2UCN1AQAA
+To: will@kernel.org, jic23@kernel.org, xueshuai@linux.alibaba.com, 
+ saket.dumbre@intel.com, mchehab@kernel.org, dave@stgolabs.net, 
+ djbw@kernel.org, bp@alien8.de, tony.luck@intel.com, guohanjun@huawei.com, 
+ lenb@kernel.org, skhan@linuxfoundation.org, vishal.l.verma@intel.com, 
+ rafael@kernel.org, corbet@lwn.net, ira.weiny@intel.com, 
+ dave.jiang@intel.com, krzk+dt@kernel.org, robh@kernel.org, 
+ catalin.marinas@arm.com, alison.schofield@intel.com, conor+dt@kernel.org
+Cc: Ahmed Tiba <ahmed.tiba@arm.com>, linux-arm-kernel@lists.infradead.org, 
+ Michael.Zhao2@arm.com, linux-doc@vger.kernel.org, 
+ linux-kernel@vger.kernel.org, linux-cxl@vger.kernel.org, 
+ Dmitry.Lamerov@arm.com, devicetree@vger.kernel.org, 
+ linux-acpi@vger.kernel.org, linux-edac@vger.kernel.org, 
+ acpica-devel@lists.linux.dev
+X-Mailer: b4 0.13.0
+X-Developer-Signature: v=1; a=ed25519-sha256; t=1780048269; l=4273;
+ i=ahmed.tiba@arm.com; s=20260219; h=from:subject:message-id;
+ bh=PhsoWnNzKoot9QOeJqx67Uz0y4ZbixYdSGzdVAqeDi0=;
+ b=4LZk0RIa3vVsPfok70Bkk0nn/tFW90OcgFipoA9qmlu1DTjOsn7/XsxWtMrCF3t0hdeWKsRDG
+ qK1VHPix0lxCheY5fBK53z7Wxo4MMrJ6qkbFDhJk0TCcZZ+6/6wcgg7
+X-Developer-Key: i=ahmed.tiba@arm.com; a=ed25519;
+ pk=xVOtd+Qklh/4tuM3tB+BEZD4jj5a6W59C3KCNX6v7OE=
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260529_025058_695111_C41BC309 
-X-CRM114-Status: GOOD (  27.54  )
+X-CRM114-CacheID: sfid-20260529_025117_694595_D666CF0A 
+X-CRM114-Status: GOOD (  12.57  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -71,319 +90,92 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Performs the minimal initialization required for GICv5 support. GICv5
-support can be requested with --with-gic=v5.
+This is v5 of the GHES refactor series. Compared to v4, it only updates
+the DT binding to address the latest review comments.
 
-Signed-off-by: Vladimir Murzin <vladimir.murzin@arm.com>
-Tested-by: Sascha Bischoff <sascha.bischoff@arm.com>
+Changes in v5:
+- Dropped the `oneOf` from `memory-region` and described it as a plain
+  list with `minItems: 1`.
+- Simplified the DT example to keep only the `arm,ras-cper` device node.
+- Link to v4: https://lore.kernel.org/r/20260518-topics-ahmtib01-ras_ffh_arm_internal_review-v4-0-42698675ba61@arm.com
+
+Signed-off-by: Ahmed Tiba <ahmed.tiba@arm.com>
+
+Changes in v4:
+- Reworded the ghes_cper.h header comment and kept the original copyrights.
+- Fixed the ghes_cper.h W=1 warnings by limiting the ACPI
+  fixmap-based declarations to the ACPI build path.
+- Updated the DT binding to describe the CPER buffer
+  as firmware-owned shared memory.
+- Described the optional ack area as a second memory-region entry.
+- Updated the DT example accordingly.
+- Link to v3: https://lore.kernel.org/r/20260318-topics-ahmtib01-ras_ffh_arm_internal_review-v3-0-48e6a1c249ef@arm.com
+
+Changes in v3:
+- Fixed the new ghes_cper.h header comment and kept the original
+  copyrights.
+- Added <linux/bitfield.h> to fix the kernel test robot build failure.
+- Renamed the binding/compatible and DT-side naming to ras-cper.
+- Switched the DT provider to generic firmware property accessors.
+- Replaced atomic source IDs with IDA.
+- Updated IRQ/error/resource handling as suggested in review
+  (platform_get_irq(), dev_err_probe(), devm platform ioremap
+  helpers).
+- Removed the ARM64 dependency and fixed Kconfig/build coverage.
+- Clarified comments and kept the early move patches mechanical.
+- Link to v2: https://lore.kernel.org/r/20260220-topics-ahmtib01-ras_ffh_arm_internal_review-v2-0-347fa2d7351b@arm.com
+
+Changes in v2:
+- Dropped the proposed "estatus core" and kept GHES naming/flow intact
+  (per Borislav Petkov).
+- Re-sliced the series into smaller mechanical steps (per Mauro Carvalho Chehab).
+- Minor DT binding fixes based on Krzysztof Kozlowski's feedback.
+- Removed fixmap slot usage from the DT FFH driver (per Will Deacon).
+
+Series structure:
+- Patches 1-8 are mechanical moves only and do not change behavior.
+- Patch 9 wires the shared helpers back into GHES.
+- The DT firmware-first CPER buffer provider is added in the final patches.
+- "ACPI: APEI: introduce GHES helper" is internal build glue only
+  and does not introduce a new user-visible configuration option.
+
+- Link to v1: https://lore.kernel.org/r/20251217112845.1814119-1-ahmed.tiba@arm.com
+
 ---
- Makefile.am                    |   7 ++
- arch/aarch64/include/asm/cpu.h |  11 +++
- common/gic-v5.c                | 132 +++++++++++++++++++++++++++++++++
- configure.ac                   |   7 +-
- scripts/FDT.pm                 |  16 ++++
- scripts/findbase-by-regname.pl |  44 +++++++++++
- 6 files changed, 214 insertions(+), 3 deletions(-)
- create mode 100644 common/gic-v5.c
- create mode 100755 scripts/findbase-by-regname.pl
+Ahmed Tiba (10):
+      ACPI: APEI: GHES: share macros via a private header
+      ACPI: APEI: GHES: move CPER read helpers
+      ACPI: APEI: GHES: move GHESv2 ack and alloc helpers
+      ACPI: APEI: GHES: move estatus cache helpers
+      ACPI: APEI: GHES: move vendor record helpers
+      ACPI: APEI: GHES: move CXL CPER helpers
+      ACPI: APEI: introduce GHES helper
+      ACPI: APEI: share GHES CPER helpers
+      dt-bindings: firmware: add arm,ras-cper
+      RAS: add firmware-first CPER provider
 
-diff --git a/Makefile.am b/Makefile.am
-index 2710494..aacd639 100644
---- a/Makefile.am
-+++ b/Makefile.am
-@@ -82,6 +82,13 @@ PSCI_NODE	:=
- CPU_NODES	:=
- endif
- 
-+if GICV5
-+GIC_IRS_BASE	:= $(shell perl -I $(SCRIPT_DIR) $(SCRIPT_DIR)/findbase-by-regname.pl $(KERNEL_DTB) "el3-config" 'arm,gic-v5-irs')
-+GIC_IWB_BASE	:= $(shell perl -I $(SCRIPT_DIR) $(SCRIPT_DIR)/findbase.pl $(KERNEL_DTB) 0 'arm,gic-v5-iwb')
-+DEFINES		+= -DGIC_IRS_BASE=$(GIC_IRS_BASE)
-+DEFINES		+= -DGIC_IWB_BASE=$(GIC_IWB_BASE)
-+endif
-+
- if GICV3
- GIC_DIST_BASE	:= $(shell perl -I $(SCRIPT_DIR) $(SCRIPT_DIR)/findbase.pl $(KERNEL_DTB) 0 'arm,gic-v3')
- GIC_RDIST_BASE	:= $(shell perl -I $(SCRIPT_DIR) $(SCRIPT_DIR)/findbase.pl $(KERNEL_DTB) 1 'arm,gic-v3')
-diff --git a/arch/aarch64/include/asm/cpu.h b/arch/aarch64/include/asm/cpu.h
-index ac50474..af4191c 100644
---- a/arch/aarch64/include/asm/cpu.h
-+++ b/arch/aarch64/include/asm/cpu.h
-@@ -128,6 +128,7 @@
- #define ID_AA64PFR1_EL1_THE		BITS(51, 48)
- 
- #define ID_AA64PFR2_EL1			s3_0_c0_c4_2
-+#define ID_AA64PFR2_EL1_GCIE		BITS(15, 12)
- #define ID_AA64PFR2_EL1_FPMR		BITS(35, 32)
- 
- #define ID_AA64SMFR0_EL1		s3_0_c0_c4_5
-@@ -169,6 +170,11 @@
- #define ICC_CTLR_EL3		S3_6_C12_C12_4
- #define ICC_PMR_EL1		S3_0_C4_C6_0
- 
-+#define ICC_PPI_DOMAINR0_EL3	S3_6_C12_C8_4
-+#define ICC_PPI_DOMAINR1_EL3	S3_6_C12_C8_5
-+#define ICC_PPI_DOMAINR2_EL3	S3_6_C12_C8_6
-+#define ICC_PPI_DOMAINR3_EL3	S3_6_C12_C8_7
-+
- #define VSTCR_EL2		s3_4_c2_c6_2
- #define VSCTLR_EL2		s3_4_c2_c0_0
- 
-@@ -245,6 +251,11 @@ static inline int has_gicv3_sysreg(void)
- 	return !!mrs_field(ID_AA64PFR0_EL1, GIC);
- }
- 
-+static inline int has_gicv5_sysreg(void)
-+{
-+	return !!mrs_field(ID_AA64PFR2_EL1, GCIE);
-+}
-+
- #endif /* !__ASSEMBLY__ */
- 
- #endif
-diff --git a/common/gic-v5.c b/common/gic-v5.c
-new file mode 100644
-index 0000000..49b7b0e
---- /dev/null
-+++ b/common/gic-v5.c
-@@ -0,0 +1,132 @@
-+/*
-+ * gic-v5.c
-+ *
-+ * Copyright (C) 2025 ARM Limited. All rights reserved.
-+ *
-+ * Use of this source code is governed by a BSD-style license that can be
-+ * found in the LICENSE.txt file.
-+ */
-+
-+#include <stdint.h>
-+
-+#include <cpu.h>
-+#include <gic.h>
-+#include <asm/io.h>
-+
-+#define IWB_IDR0			0x0
-+#define IWB_IDR0_IW_RANGE_SHIFT		0x0
-+#define IWB_IDR0_IW_RANGE_MASK		0x7ff
-+
-+#define IWB_CR0				0x80
-+#define IWB_CR0_IWBEN			(1 << 0)
-+#define IWB_CR0_IDLE			(1 << 1)
-+
-+#define IWB_WENABLE_STATUSR		0xc0
-+#define IWB_WENABLE_STATUSR_IDLE	(1 << 0)
-+
-+#define IWB_WDOMAIN_STATUSR		0xc4
-+#define IWB_WDOMAIN_STATUSR_IDLE	(1 << 0)
-+
-+#define IWB_WENABLER			0x2000
-+#define IWB_WDOMAINR			0x8000
-+
-+#define IRS_IDR6			0x0018
-+#define IRS_IDR6_SPI_IRS_RANGE_MASK	0x1ffffff
-+
-+#define IRS_IDR7			0x001c
-+#define IRS_IDR7_SPI_BASE_MASK		0xffffff
-+
-+#define IRS_SPI_SELR			0x108
-+#define IRS_SPI_DOMAINR			0x10c
-+
-+#define IRS_SPI_STATUSR			0x0118
-+#define IRS_SPI_STATUSR_IDLE		(1 << 0)
-+
-+static void gic_iwb_init(void) {
-+	void *iwb_ptr = (void *)GIC_IWB_BASE;
-+	unsigned int num;
-+	unsigned int i;
-+
-+	/* Get number of implemented wire control registers */
-+	num = ((raw_readl(iwb_ptr + IWB_IDR0) >> IWB_IDR0_IW_RANGE_SHIFT) & IWB_IDR0_IW_RANGE_MASK) + 1;
-+
-+	/* Disable all wires */
-+	for (i = 0; i < num; i++)
-+		raw_writel(0, iwb_ptr + IWB_WENABLER + i * 4);
-+
-+	while (!(raw_readl(iwb_ptr + IWB_WENABLE_STATUSR) & IWB_WENABLE_STATUSR_IDLE));
-+
-+	/* Assign all wires to Non-Secure domain */
-+	for (i = 0; i < num * 2; i++)
-+		raw_writel(0x55555555, iwb_ptr + IWB_WDOMAINR + i * 4);
-+
-+	while (!(raw_readl(iwb_ptr + IWB_WDOMAIN_STATUSR) & IWB_WDOMAIN_STATUSR_IDLE));
-+
-+	/* Enable IWB */
-+	raw_writel(IWB_CR0_IWBEN, iwb_ptr + IWB_CR0);
-+
-+	while (!(raw_readl(iwb_ptr + IWB_CR0) & IWB_CR0_IDLE));
-+}
-+
-+static void gic_irs_init(void) {
-+	void *irs_ptr = (void *)GIC_IRS_BASE;
-+	unsigned int range;
-+	unsigned int base;
-+	unsigned int i;
-+
-+	/* Get the range of implemented SPIs */
-+	base = raw_readl(irs_ptr + IRS_IDR7) & IRS_IDR7_SPI_BASE_MASK;
-+	range = raw_readl(irs_ptr + IRS_IDR6) & IRS_IDR6_SPI_IRS_RANGE_MASK;
-+
-+	for (i = base; i < base + range; i++) {
-+		/* Select SPI */
-+		raw_writel(i, irs_ptr + IRS_SPI_SELR);
-+		while (!(raw_readl(irs_ptr + IRS_SPI_STATUSR) & IRS_SPI_STATUSR_IDLE));
-+
-+		/* Assign SPI to Non-Secure domain */
-+		raw_writel(1, irs_ptr + IRS_SPI_DOMAINR);
-+		while (!(raw_readl(irs_ptr + IRS_SPI_STATUSR) & IRS_SPI_STATUSR_IDLE));
-+	}
-+}
-+
-+static void gic_ppi_init(void) {
-+	uint64_t val = 0;
-+
-+	val |= 1UL << (2 * 31); // Trace Buffer Unit
-+	val |= 1UL << (2 * 30); // EL1 Physical Timer
-+	val |= 1UL << (2 * 28); // Non-secure EL2 Virtual Timer
-+	val |= 1UL << (2 * 27); // EL1 Virtual Timer
-+	val |= 1UL << (2 * 26); // Non-secure EL2 Physical Timer
-+	val |= 1UL << (2 * 25); // GIC maintenance interrupt
-+	val |= 1UL << (2 * 24); // Generic CTI interrupt trigger event
-+	val |= 1UL << (2 * 23); // PMU overflow interrupt request
-+	val |= 1UL << (2 * 22); // Debug communication channel
-+	val |= 1UL << (2 * 21); // Profiling Buffer management interrupt request
-+	val |= 1UL << (2 * 15); // Hardware accelerator for cleaning Dirty state interrupt
-+	val |= 1UL << (2 * 3);  // Reserved for software usage
-+
-+	/* Assign PPI to Non-Secure domain */
-+	msr(ICC_PPI_DOMAINR0_EL3, val);
-+	isb();
-+}
-+
-+void gic_secure_init(void)
-+{
-+	/*
-+	 * If GICv5 is not available, skip initialisation. The OS will probably
-+	 * fail with a warning, but this should be easier to debug than a
-+	 * failure within the boot wrapper.
-+	 */
-+	if (!has_gicv5_sysreg())
-+		return;
-+
-+	if (this_cpu_logical_id() == 0) {
-+		gic_iwb_init();
-+		gic_irs_init();
-+	}
-+
-+	gic_ppi_init();
-+
-+	return;
-+}
-+
-diff --git a/configure.ac b/configure.ac
-index 6f486c4..f4faff7 100644
---- a/configure.ac
-+++ b/configure.ac
-@@ -141,18 +141,19 @@ AC_SUBST([XEN_CMDLINE], [$X_CMDLINE])
- 
- 
- AC_ARG_WITH([gic],
--  AS_HELP_STRING([--with-gic={v2|v3}], [select GIC version]),
-+  AS_HELP_STRING([--with-gic={v2|v3|v5}], [select GIC version]),
-   [GIC_VERSION=$withval],
-   [GIC_VERSION=v2])
- 
- AS_CASE([$GIC_VERSION],
--  [v2|v3], [],
--  [AC_MSG_ERROR([Invalid GIC version: $GIC_VERSION (use v2 or v3)])])
-+  [v2|v3|v5], [],
-+  [AC_MSG_ERROR([Invalid GIC version: $GIC_VERSION (use v2, v3, or v5)])])
- 
- AC_SUBST([GIC_VERSION], [$GIC_VERSION])
- 
- AM_CONDITIONAL([GICV2], [test "x$GIC_VERSION" = "xv2"])
- AM_CONDITIONAL([GICV3], [test "x$GIC_VERSION" = "xv3"])
-+AM_CONDITIONAL([GICV5], [test "x$GIC_VERSION" = "xv5"])
- 
- 
- # Ensure that we have all the needed programs
-diff --git a/scripts/FDT.pm b/scripts/FDT.pm
-index 9adf70b..3f49ba6 100755
---- a/scripts/FDT.pm
-+++ b/scripts/FDT.pm
-@@ -322,6 +322,22 @@ sub get_num_reg_cells
- 	return ($ac, $sc);
- }
- 
-+sub get_regname_idx
-+{
-+    my $self = shift;
-+    my $regname = shift;
-+
-+    my $prop = $self->get_property("reg-names");
-+
-+    return undef if (not defined($prop));
-+
-+    my @names = $prop->read_strings();
-+
-+    my ($idx) = grep { $names[$_] eq $regname } 0 .. $#names;
-+
-+    return $idx;
-+}
-+
- sub translate_address
- {
- 	my $self = shift;
-diff --git a/scripts/findbase-by-regname.pl b/scripts/findbase-by-regname.pl
-new file mode 100755
-index 0000000..49cd0ce
---- /dev/null
-+++ b/scripts/findbase-by-regname.pl
-@@ -0,0 +1,44 @@
-+#!/usr/bin/perl -w
-+# Find device register base addresses.
-+#
-+# Usage: ./$0 <DTB> <regname> <compatible ...>
-+#
-+# Copyright (C) 2026 ARM Limited. All rights reserved.
-+#
-+# Use of this source code is governed by a BSD-style license that can be
-+# found in the LICENSE.txt file.
-+
-+use warnings;
-+use strict;
-+
-+use FDT;
-+
-+my $filename = shift;
-+die("No filename provided") unless defined($filename);
-+
-+my $regname = shift;
-+die("no reg regname provided") unless defined($regname);
-+
-+my @compats = shift;
-+
-+open (my $fh, "<:raw", $filename) or die("Unable to open file '$filename'");
-+
-+my $fdt = FDT->parse($fh) or die("Unable to parse DTB");
-+
-+my $root = $fdt->get_root();
-+
-+my @devs = ();
-+for my $compat (@compats) {
-+	push @devs, $root->find_compatible($compat);
-+}
-+
-+# We only care about finding the first matching device
-+my $dev = shift @devs;
-+die("No matching devices found") if (not defined($dev));
-+
-+my $idx = $dev->get_regname_idx($regname);
-+die("Cannot find reg name $regname") if (not defined($idx));
-+my ($addr, $size) = $dev->get_translated_reg($idx);
-+die("Cannot find reg entry $idx") if (not defined($addr) or not defined($size));
-+
-+printf("0x%016x\n", $addr);
+ Documentation/admin-guide/RAS/main.rst             |   18 +
+ .../devicetree/bindings/firmware/arm,ras-cper.yaml |   54 +
+ MAINTAINERS                                        |    6 +
+ drivers/Makefile                                   |    1 +
+ drivers/acpi/Kconfig                               |    4 +
+ drivers/acpi/apei/Kconfig                          |    1 +
+ drivers/acpi/apei/apei-internal.h                  |   10 +-
+ drivers/acpi/apei/ghes.c                           | 1025 +------------------
+ drivers/acpi/apei/ghes_cper.c                      | 1027 ++++++++++++++++++++
+ drivers/ras/Kconfig                                |   11 +
+ drivers/ras/Makefile                               |    1 +
+ drivers/ras/cper-esource.c                         |  257 +++++
+ include/acpi/ghes.h                                |   10 +-
+ include/acpi/ghes_cper.h                           |  151 +++
+ include/cxl/event.h                                |    2 +-
+ 15 files changed, 1542 insertions(+), 1036 deletions(-)
+---
+base-commit: 8fde5d1d47f69db6082dfa34500c27f8485389a5
+change-id: 20260220-topics-ahmtib01-ras_ffh_arm_internal_review-bfddc7fc7cab
+
+Best regards,
 -- 
-2.34.1
+Ahmed Tiba <ahmed.tiba@arm.com>
 
 
