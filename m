@@ -4,69 +4,104 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 47E79CD6E4A
-	for <linux-arm-kernel@archiver.kernel.org>; Fri, 29 May 2026 16:16:48 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 00779CD6E49
+	for <linux-arm-kernel@archiver.kernel.org>; Fri, 29 May 2026 16:17:34 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:MIME-Version:References:In-Reply-To:Message-ID:Subject:Cc:To:
-	From:Date:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
+	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=Uo3Lj6en5uJFwNsoGFoFrZluPF7HDMxmD9kpI0nqTIE=; b=dmvX2VBgjGS3pbEEC22N8BlwcK
-	AVNHwUgkybKP8YTJh1BweATJ7z1OtwkAEcLBRlWVZua41A9d5+aiP88dSGxDX3NrBYX2SZjdtK6cY
-	XppiEiKVL10xhoYkBTnLglHo0H/Az7spTy4EfhwwvCWf5qcA3X8PxJwKRKEMUpySFtiv3z0Yd7Ag0
-	bXrAfR+wJzvC+/k9XQxSZI5oVWTeBjFbbmMtzsKUXD/PZFVx3GuNVYU3b2DKwMhHuggbo+JwEK3AH
-	78zaGUbRT6X//R2Q8R00JaP2jmTv2a1jyuGOmmI/pyh7GvNwb/crj9xMR4TbfC3IfqJ+F3wgVCpbl
-	QHl6bOXA==;
+	bh=c1QR2LQzaSkBcrsEtlqVivrKMt9D/HuRW5WxsHgnw0g=; b=DDJsBPWfi6Z3fwCnU6DkuVntxG
+	YS2knoFdtF1CJVjW4n4bIClMsQZOR3DTjVxfdsGAh9UiG2elIwPHaw9jv4Mq1Pe+tkPe6foXZ87vM
+	Ou722L1Ga5QjsbFPZ7xP481aq1t4khfkbDJ0rywi2KSzdv13LkG5v9JhdD+1eT5yCoRO2Rbvp8Op5
+	kDu9hIDANW1o6d0Yv3Y63lLTU7/3AbNDq3LvXSZVky7ssLjP7GrYTHN/akeK8xlerJvsbvy1Z6/7L
+	GgK7jJFAOrP9cW2mHBpNI85rDbJpOzZCLuGZ/jsH14e/gsXmxV8CdyGUd6IGaVZ4pq4XFWbQXbdCg
+	KgDi2MBg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wSzt0-00000007rT9-2fvU;
-	Fri, 29 May 2026 16:16:38 +0000
-Received: from tor.source.kernel.org ([2600:3c04:e001:324:0:1991:8:25])
+	id 1wSzto-00000007rbS-3tI5;
+	Fri, 29 May 2026 16:17:28 +0000
+Received: from tor.source.kernel.org ([172.105.4.254])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wSzsz-00000007rT3-0GbB
-	for linux-arm-kernel@lists.infradead.org;
-	Fri, 29 May 2026 16:16:37 +0000
+	id 1wSztn-00000007rav-3JTA;
+	Fri, 29 May 2026 16:17:27 +0000
 Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
-	by tor.source.kernel.org (Postfix) with ESMTP id 74A4D605CF;
-	Fri, 29 May 2026 16:16:36 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id EBEAE1F00898;
-	Fri, 29 May 2026 16:16:24 +0000 (UTC)
+	by tor.source.kernel.org (Postfix) with ESMTP id 1BBBE605CF;
+	Fri, 29 May 2026 16:17:27 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id D9B671F00893;
+	Fri, 29 May 2026 16:17:23 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1780071396;
-	bh=Uo3Lj6en5uJFwNsoGFoFrZluPF7HDMxmD9kpI0nqTIE=;
-	h=Date:From:To:Cc:Subject:In-Reply-To:References;
-	b=HCpooG0gwWBsjDrMl/d8yDPOqD936gfXTRkXK4hjnGqSRYlorbU2+R/k/sZCBQqzz
-	 Kd3kQpeh2KzcTx92eVnBd0N+5gFEQ86R1z/BnSfv2NIyT2HnLH8sinhP+Cx2h64OaM
-	 WX30yNNlUkZRO1IG1ErpoT5c9XpcwEclSaVB1aWGyca0enN9DYH8iT3aI+qk8yngEv
-	 HHKVdPZeH3x83lsKta5fesz+Vc/uatnFtfiCRvnVoPTPJS2tEBISEEuuadwpZOfdc0
-	 RIPWVMWcnlxR3fiKd6s9SjQza0UAZpAaWuPuKf+SfhXVsJClU0aL+zBBp9NDbJ59QM
-	 JlQmJY5vlaGZg==
-Date: Fri, 29 May 2026 17:16:19 +0100
-From: Jonathan Cameron <jic23@kernel.org>
-To: Ahmed Tiba <ahmed.tiba@arm.com>
-Cc: will@kernel.org, xueshuai@linux.alibaba.com, saket.dumbre@intel.com,
- mchehab@kernel.org, dave@stgolabs.net, djbw@kernel.org, bp@alien8.de,
- tony.luck@intel.com, guohanjun@huawei.com, lenb@kernel.org,
- skhan@linuxfoundation.org, vishal.l.verma@intel.com, rafael@kernel.org,
- corbet@lwn.net, ira.weiny@intel.com, dave.jiang@intel.com,
- krzk+dt@kernel.org, robh@kernel.org, catalin.marinas@arm.com,
- alison.schofield@intel.com, conor+dt@kernel.org,
- linux-arm-kernel@lists.infradead.org, Michael.Zhao2@arm.com,
- linux-doc@vger.kernel.org, linux-kernel@vger.kernel.org,
- linux-cxl@vger.kernel.org, Dmitry.Lamerov@arm.com,
- devicetree@vger.kernel.org, linux-acpi@vger.kernel.org,
- linux-edac@vger.kernel.org, acpica-devel@lists.linux.dev, Terry Bowman
- <terry.bowman@amd.com>
-Subject: Re: [PATCH v5 06/10] ACPI: APEI: GHES: move CXL CPER helpers
-Message-ID: <20260529171619.78f914bb@jic23-huawei>
-In-Reply-To: <20260529-topics-ahmtib01-ras_ffh_arm_internal_review-v5-6-2e0500d42642@arm.com>
-References: <20260529-topics-ahmtib01-ras_ffh_arm_internal_review-v5-0-2e0500d42642@arm.com>
-	<20260529-topics-ahmtib01-ras_ffh_arm_internal_review-v5-6-2e0500d42642@arm.com>
-X-Mailer: Claws Mail 4.4.0 (GTK 3.24.52; x86_64-pc-linux-gnu)
+	s=k20260515; t=1780071446;
+	bh=c1QR2LQzaSkBcrsEtlqVivrKMt9D/HuRW5WxsHgnw0g=;
+	h=Date:Subject:To:Cc:References:From:In-Reply-To;
+	b=hXhQpwbwETVAg4ABZ1v1n/MraC+JI9PfoXQk3aYsFxMqD1Joj4z+E437V/DoE5KGD
+	 4SU149busxNl+FHWdTtQn9Gn3Vi09MmIkscxZPuc6ywNyrjh3LdO8iXkQvVMGNo+4w
+	 gW1sNdp28M7CWKzMaE5fWOKqrwQJWa1GwAq4JCe55lCS0gvTM9cIJa7FFnstj2lSRT
+	 v3vmmeztEtOlkWo243smTnEIitKK69B8AMxS2Wm9asrAp9ZsO1Qwt5n2uQ8ZSsnVUT
+	 tiI0M2EuzVg6UkH5Ko6DsLckc8kmxYOC7J2MtglS8qzPeJ2FABST6gWCeoHRzSDP+E
+	 J/hjbeyDmq4vw==
+Message-ID: <26069b3b-43c0-45fa-92ee-729d270a8b6b@kernel.org>
+Date: Fri, 29 May 2026 18:17:21 +0200
 MIME-Version: 1.0
-Content-Type: text/plain; charset=US-ASCII
-Content-Transfer-Encoding: 7bit
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH v2 0/4] accel: rocket: Add RK3568 NPU support
+To: MidG971 <midgy971@gmail.com>, Tomeu Vizoso <tomeu@tomeuvizoso.net>,
+ Oded Gabbay <ogabbay@kernel.org>
+Cc: Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>,
+ Conor Dooley <conor+dt@kernel.org>, Heiko Stuebner <heiko@sntech.de>,
+ dri-devel@lists.freedesktop.org, devicetree@vger.kernel.org,
+ linux-arm-kernel@lists.infradead.org, linux-rockchip@lists.infradead.org,
+ linux-kernel@vger.kernel.org
+References: <20260529155824.3099831-1-midgy971@gmail.com>
+From: Krzysztof Kozlowski <krzk@kernel.org>
+Content-Language: en-US
+Autocrypt: addr=krzk@kernel.org; keydata=
+ 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 a/A=
+In-Reply-To: <20260529155824.3099831-1-midgy971@gmail.com>
+Content-Type: text/plain; charset=UTF-8
+Content-Transfer-Encoding: 8bit
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -81,365 +116,19 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Fri, 29 May 2026 10:50:46 +0100
-Ahmed Tiba <ahmed.tiba@arm.com> wrote:
-
-> Move the CXL CPER handling paths out of ghes.c and into ghes_cper.c so the
-> helpers can be reused. The code is moved as-is, with the public
-> prototypes updated so GHES keeps calling into the new translation unit.
+On 29/05/2026 17:58, MidG971 wrote:
 > 
-> Signed-off-by: Ahmed Tiba <ahmed.tiba@arm.com>
-This is going to clash with the series Terry is working on for CXL error handling.
-I think this patch in particular:
-https://lore.kernel.org/all/20260505173029.2718246-6-terry.bowman@amd.com/
-
-That series is high priority to land from a CXL point of view. +CC Terry
-
-Subject to that,
-Reviewed-by: Jonathan Cameron <jic23@kernel.org>
-
-Patch left so Terry can see it. No comments.
-
-> ---
->  drivers/acpi/apei/ghes.c      | 132 -----------------------------------------
->  drivers/acpi/apei/ghes_cper.c | 134 ++++++++++++++++++++++++++++++++++++++++++
->  include/acpi/ghes_cper.h      |  11 ++++
->  3 files changed, 145 insertions(+), 132 deletions(-)
+> This series builds against current v6.19-rc5 with no checkpatch warnings,
+> the dtb builds, and dtbs_check passes.  The April v1 series included a
+> fifth patch ("Use of_find_matching_node() instead of for_each_of_allnodes")
+> which is no longer required — upstream rocket already uses
+> for_each_compatible_node() since v6.19-rc5.
 > 
-> diff --git a/drivers/acpi/apei/ghes.c b/drivers/acpi/apei/ghes.c
-> index 81ac51632f21..85be2ebf4d3e 100644
-> --- a/drivers/acpi/apei/ghes.c
-> +++ b/drivers/acpi/apei/ghes.c
-> @@ -383,69 +383,6 @@ static void ghes_handle_aer(struct acpi_hest_generic_data *gdata)
->  #endif
->  }
->  
-> -/* Room for 8 entries */
-> -#define CXL_CPER_PROT_ERR_FIFO_DEPTH 8
-> -static DEFINE_KFIFO(cxl_cper_prot_err_fifo, struct cxl_cper_prot_err_work_data,
-> -		    CXL_CPER_PROT_ERR_FIFO_DEPTH);
-> -
-> -/* Synchronize schedule_work() with cxl_cper_prot_err_work changes */
-> -static DEFINE_SPINLOCK(cxl_cper_prot_err_work_lock);
-> -struct work_struct *cxl_cper_prot_err_work;
-> -
-> -static void cxl_cper_post_prot_err(struct cxl_cper_sec_prot_err *prot_err,
-> -				   int severity)
-> -{
-> -#ifdef CONFIG_ACPI_APEI_PCIEAER
-> -	struct cxl_cper_prot_err_work_data wd;
-> -
-> -	if (cxl_cper_sec_prot_err_valid(prot_err))
-> -		return;
-> -
-> -	guard(spinlock_irqsave)(&cxl_cper_prot_err_work_lock);
-> -
-> -	if (!cxl_cper_prot_err_work)
-> -		return;
-> -
-> -	if (cxl_cper_setup_prot_err_work_data(&wd, prot_err, severity))
-> -		return;
-> -
-> -	if (!kfifo_put(&cxl_cper_prot_err_fifo, wd)) {
-> -		pr_err_ratelimited("CXL CPER kfifo overflow\n");
-> -		return;
-> -	}
-> -
-> -	schedule_work(cxl_cper_prot_err_work);
-> -#endif
-> -}
-> -
-> -int cxl_cper_register_prot_err_work(struct work_struct *work)
-> -{
-> -	if (cxl_cper_prot_err_work)
-> -		return -EINVAL;
-> -
-> -	guard(spinlock)(&cxl_cper_prot_err_work_lock);
-> -	cxl_cper_prot_err_work = work;
-> -	return 0;
-> -}
-> -EXPORT_SYMBOL_NS_GPL(cxl_cper_register_prot_err_work, "CXL");
-> -
-> -int cxl_cper_unregister_prot_err_work(struct work_struct *work)
-> -{
-> -	if (cxl_cper_prot_err_work != work)
-> -		return -EINVAL;
-> -
-> -	guard(spinlock)(&cxl_cper_prot_err_work_lock);
-> -	cxl_cper_prot_err_work = NULL;
-> -	return 0;
-> -}
-> -EXPORT_SYMBOL_NS_GPL(cxl_cper_unregister_prot_err_work, "CXL");
-> -
-> -int cxl_cper_prot_err_kfifo_get(struct cxl_cper_prot_err_work_data *wd)
-> -{
-> -	return kfifo_get(&cxl_cper_prot_err_fifo, wd);
-> -}
-> -EXPORT_SYMBOL_NS_GPL(cxl_cper_prot_err_kfifo_get, "CXL");
-> -
->  static void ghes_vendor_record_notifier_destroy(void *nb)
->  {
->  	ghes_unregister_vendor_record_notifier(nb);
-> @@ -464,75 +401,6 @@ int devm_ghes_register_vendor_record_notifier(struct device *dev,
->  }
->  EXPORT_SYMBOL_GPL(devm_ghes_register_vendor_record_notifier);
->  
-> -/* Room for 8 entries for each of the 4 event log queues */
-> -#define CXL_CPER_FIFO_DEPTH 32
-> -DEFINE_KFIFO(cxl_cper_fifo, struct cxl_cper_work_data, CXL_CPER_FIFO_DEPTH);
-> -
-> -/* Synchronize schedule_work() with cxl_cper_work changes */
-> -static DEFINE_SPINLOCK(cxl_cper_work_lock);
-> -struct work_struct *cxl_cper_work;
-> -
-> -static void cxl_cper_post_event(enum cxl_event_type event_type,
-> -				struct cxl_cper_event_rec *rec)
-> -{
-> -	struct cxl_cper_work_data wd;
-> -
-> -	if (rec->hdr.length <= sizeof(rec->hdr) ||
-> -	    rec->hdr.length > sizeof(*rec)) {
-> -		pr_err(FW_WARN "CXL CPER Invalid section length (%u)\n",
-> -		       rec->hdr.length);
-> -		return;
-> -	}
-> -
-> -	if (!(rec->hdr.validation_bits & CPER_CXL_COMP_EVENT_LOG_VALID)) {
-> -		pr_err(FW_WARN "CXL CPER invalid event\n");
-> -		return;
-> -	}
-> -
-> -	guard(spinlock_irqsave)(&cxl_cper_work_lock);
-> -
-> -	if (!cxl_cper_work)
-> -		return;
-> -
-> -	wd.event_type = event_type;
-> -	memcpy(&wd.rec, rec, sizeof(wd.rec));
-> -
-> -	if (!kfifo_put(&cxl_cper_fifo, wd)) {
-> -		pr_err_ratelimited("CXL CPER kfifo overflow\n");
-> -		return;
-> -	}
-> -
-> -	schedule_work(cxl_cper_work);
-> -}
-> -
-> -int cxl_cper_register_work(struct work_struct *work)
-> -{
-> -	if (cxl_cper_work)
-> -		return -EINVAL;
-> -
-> -	guard(spinlock)(&cxl_cper_work_lock);
-> -	cxl_cper_work = work;
-> -	return 0;
-> -}
-> -EXPORT_SYMBOL_NS_GPL(cxl_cper_register_work, "CXL");
-> -
-> -int cxl_cper_unregister_work(struct work_struct *work)
-> -{
-> -	if (cxl_cper_work != work)
-> -		return -EINVAL;
-> -
-> -	guard(spinlock)(&cxl_cper_work_lock);
-> -	cxl_cper_work = NULL;
-> -	return 0;
-> -}
-> -EXPORT_SYMBOL_NS_GPL(cxl_cper_unregister_work, "CXL");
-> -
-> -int cxl_cper_kfifo_get(struct cxl_cper_work_data *wd)
-> -{
-> -	return kfifo_get(&cxl_cper_fifo, wd);
-> -}
-> -EXPORT_SYMBOL_NS_GPL(cxl_cper_kfifo_get, "CXL");
-> -
->  static void ghes_log_hwerr(int sev, guid_t *sec_type)
->  {
->  	if (sev != CPER_SEV_RECOVERABLE)
-> diff --git a/drivers/acpi/apei/ghes_cper.c b/drivers/acpi/apei/ghes_cper.c
-> index 131980d36064..d7a666a163c3 100644
-> --- a/drivers/acpi/apei/ghes_cper.c
-> +++ b/drivers/acpi/apei/ghes_cper.c
-> @@ -12,10 +12,12 @@
->   *   Author: Huang Ying <ying.huang@intel.com>
->   */
->  
-> +#include <linux/aer.h>
->  #include <linux/err.h>
->  #include <linux/genalloc.h>
->  #include <linux/irq_work.h>
->  #include <linux/io.h>
-> +#include <linux/kfifo.h>
->  #include <linux/kernel.h>
->  #include <linux/list.h>
->  #include <linux/math64.h>
-> @@ -321,6 +323,138 @@ void ghes_defer_non_standard_event(struct acpi_hest_generic_data *gdata,
->  	schedule_work(&entry->work);
->  }
->  
-> +/* Room for 8 entries */
-> +#define CXL_CPER_PROT_ERR_FIFO_DEPTH 8
-> +static DEFINE_KFIFO(cxl_cper_prot_err_fifo, struct cxl_cper_prot_err_work_data,
-> +		    CXL_CPER_PROT_ERR_FIFO_DEPTH);
-> +
-> +/* Synchronize schedule_work() with cxl_cper_prot_err_work changes */
-> +static DEFINE_SPINLOCK(cxl_cper_prot_err_work_lock);
-> +struct work_struct *cxl_cper_prot_err_work;
-> +
-> +void cxl_cper_post_prot_err(struct cxl_cper_sec_prot_err *prot_err,
-> +			    int severity)
-> +{
-> +#ifdef CONFIG_ACPI_APEI_PCIEAER
-> +	struct cxl_cper_prot_err_work_data wd;
-> +
-> +	if (cxl_cper_sec_prot_err_valid(prot_err))
-> +		return;
-> +
-> +	guard(spinlock_irqsave)(&cxl_cper_prot_err_work_lock);
-> +
-> +	if (!cxl_cper_prot_err_work)
-> +		return;
-> +
-> +	if (cxl_cper_setup_prot_err_work_data(&wd, prot_err, severity))
-> +		return;
-> +
-> +	if (!kfifo_put(&cxl_cper_prot_err_fifo, wd)) {
-> +		pr_err_ratelimited("CXL CPER kfifo overflow\n");
-> +		return;
-> +	}
-> +
-> +	schedule_work(cxl_cper_prot_err_work);
-> +#endif
-> +}
-> +
-> +int cxl_cper_register_prot_err_work(struct work_struct *work)
-> +{
-> +	if (cxl_cper_prot_err_work)
-> +		return -EINVAL;
-> +
-> +	guard(spinlock)(&cxl_cper_prot_err_work_lock);
-> +	cxl_cper_prot_err_work = work;
-> +	return 0;
-> +}
-> +EXPORT_SYMBOL_NS_GPL(cxl_cper_register_prot_err_work, "CXL");
-> +
-> +int cxl_cper_unregister_prot_err_work(struct work_struct *work)
-> +{
-> +	if (cxl_cper_prot_err_work != work)
-> +		return -EINVAL;
-> +
-> +	guard(spinlock)(&cxl_cper_prot_err_work_lock);
-> +	cxl_cper_prot_err_work = NULL;
-> +	return 0;
-> +}
-> +EXPORT_SYMBOL_NS_GPL(cxl_cper_unregister_prot_err_work, "CXL");
-> +
-> +int cxl_cper_prot_err_kfifo_get(struct cxl_cper_prot_err_work_data *wd)
-> +{
-> +	return kfifo_get(&cxl_cper_prot_err_fifo, wd);
-> +}
-> +EXPORT_SYMBOL_NS_GPL(cxl_cper_prot_err_kfifo_get, "CXL");
-> +
-> +/* Room for 8 entries for each of the 4 event log queues */
-> +#define CXL_CPER_FIFO_DEPTH 32
-> +static DEFINE_KFIFO(cxl_cper_fifo, struct cxl_cper_work_data, CXL_CPER_FIFO_DEPTH);
-> +
-> +/* Synchronize schedule_work() with cxl_cper_work changes */
-> +static DEFINE_SPINLOCK(cxl_cper_work_lock);
-> +struct work_struct *cxl_cper_work;
-> +
-> +void cxl_cper_post_event(enum cxl_event_type event_type,
-> +			 struct cxl_cper_event_rec *rec)
-> +{
-> +	struct cxl_cper_work_data wd;
-> +
-> +	if (rec->hdr.length <= sizeof(rec->hdr) ||
-> +	    rec->hdr.length > sizeof(*rec)) {
-> +		pr_err(FW_WARN "CXL CPER Invalid section length (%u)\n",
-> +		       rec->hdr.length);
-> +		return;
-> +	}
-> +
-> +	if (!(rec->hdr.validation_bits & CPER_CXL_COMP_EVENT_LOG_VALID)) {
-> +		pr_err(FW_WARN "CXL CPER invalid event\n");
-> +		return;
-> +	}
-> +
-> +	guard(spinlock_irqsave)(&cxl_cper_work_lock);
-> +
-> +	if (!cxl_cper_work)
-> +		return;
-> +
-> +	wd.event_type = event_type;
-> +	memcpy(&wd.rec, rec, sizeof(wd.rec));
-> +
-> +	if (!kfifo_put(&cxl_cper_fifo, wd)) {
-> +		pr_err_ratelimited("CXL CPER kfifo overflow\n");
-> +		return;
-> +	}
-> +
-> +	schedule_work(cxl_cper_work);
-> +}
-> +
-> +int cxl_cper_register_work(struct work_struct *work)
-> +{
-> +	if (cxl_cper_work)
-> +		return -EINVAL;
-> +
-> +	guard(spinlock)(&cxl_cper_work_lock);
-> +	cxl_cper_work = work;
-> +	return 0;
-> +}
-> +EXPORT_SYMBOL_NS_GPL(cxl_cper_register_work, "CXL");
-> +
-> +int cxl_cper_unregister_work(struct work_struct *work)
-> +{
-> +	if (cxl_cper_work != work)
-> +		return -EINVAL;
-> +
-> +	guard(spinlock)(&cxl_cper_work_lock);
-> +	cxl_cper_work = NULL;
-> +	return 0;
-> +}
-> +EXPORT_SYMBOL_NS_GPL(cxl_cper_unregister_work, "CXL");
-> +
-> +int cxl_cper_kfifo_get(struct cxl_cper_work_data *wd)
-> +{
-> +	return kfifo_get(&cxl_cper_fifo, wd);
-> +}
-> +EXPORT_SYMBOL_NS_GPL(cxl_cper_kfifo_get, "CXL");
-> +
->  /*
->   * GHES error status reporting throttle, to report more kinds of
->   * errors, instead of just most frequently occurred errors.
-> diff --git a/include/acpi/ghes_cper.h b/include/acpi/ghes_cper.h
-> index 51725f25c516..dd49e9179b63 100644
-> --- a/include/acpi/ghes_cper.h
-> +++ b/include/acpi/ghes_cper.h
-> @@ -20,6 +20,7 @@
->  #include <linux/workqueue.h>
->  
->  #include <acpi/ghes.h>
-> +#include <cxl/event.h>
->  
->  #define GHES_PFX	"GHES: "
->  
-> @@ -106,5 +107,15 @@ void ghes_estatus_cache_add(struct acpi_hest_generic *generic,
->  			    struct acpi_hest_generic_status *estatus);
->  void ghes_defer_non_standard_event(struct acpi_hest_generic_data *gdata,
->  				   int sev);
-> +void cxl_cper_post_prot_err(struct cxl_cper_sec_prot_err *prot_err,
-> +			    int severity);
-> +int cxl_cper_register_prot_err_work(struct work_struct *work);
-> +int cxl_cper_unregister_prot_err_work(struct work_struct *work);
-> +int cxl_cper_prot_err_kfifo_get(struct cxl_cper_prot_err_work_data *wd);
-> +void cxl_cper_post_event(enum cxl_event_type event_type,
-> +			 struct cxl_cper_event_rec *rec);
-> +int cxl_cper_register_work(struct work_struct *work);
-> +int cxl_cper_unregister_work(struct work_struct *work);
-> +int cxl_cper_kfifo_get(struct cxl_cper_work_data *wd);
->  
->  #endif /* ACPI_APEI_GHES_CPER_H */
-> 
+> Changes since v1 (April 2026, never sent on-list):
 
+Then there was never a v1. v1 is the first version you send, regardless
+of its status.
+
+Best regards,
+Krzysztof
 
