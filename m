@@ -4,75 +4,74 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id A8F1FCD6E53
-	for <linux-arm-kernel@archiver.kernel.org>; Fri, 29 May 2026 15:02:47 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 9A0F0CD6E54
+	for <linux-arm-kernel@archiver.kernel.org>; Fri, 29 May 2026 15:02:48 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:Cc:To:From:
 	Subject:Message-ID:References:Mime-Version:In-Reply-To:Date:Reply-To:
 	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=KwwWx+36ZO5AyFG8PbXK1ZtkzsCWR7UH7LxbrRw2oLU=; b=g2YvQ7Q/hJCeIWEGJdSpQrbTFU
-	GEPQY+YauTgGkkGP/nThE0JKJDFE4xG9h0iTXviq1esIpFMjVquo50rbQovgtwQ7I4ptBGr03Pp/2
-	2rKO1JDEhBpEvSWWiBjPXbRlYI9/+5Z9P5CJlyukPtnoDkVJ81ft32syYpLslGT2h3fDkVi3LsQew
-	LEsPMDtoMke9QE42AzkK8bQ9JLbW3XT5tnngwQMqyt/dabeS+BnJqHgOg5rGoK0MXq04y2g2oMZf8
-	Ju8iYkIbdccD5A8o+3w6LIB4omAB9pVNW73XzSpHq4YdNDO7zj5PG1F9iqI1gAA1MpfMOgDzj9dym
-	/cJMOvmQ==;
+	bh=jiyjEGpnno65e28CupjUd9OJcNW9bWS5umqxs4/DfeA=; b=mj8Pi3o8s3hbpx7b8nCHuXW+Ah
+	NLT9a31+lIc/Hk2/4ruJqmrmggtgs9hDwUZLYuXZRgyZ3CWUTxVdtiB0SP8ILDRLj6VWHQnXj7ezZ
+	ZBPJoYoH6tPrjJYNlfJUO87YJWOcLOqXUhnT3nM7+XjgqZimSZ6H1bp5vpLUeOtUBtcU0QzWZ1c9C
+	jMh0tVBFCdtSQ5edTGHfW5KU5hF7TBC5mbLfNXY7eyw6SoMdB5oHDJrcRvUkn9ixTduxSS92QvKtb
+	oAilgKbK6lt6LKiy25bHKY+q5i4FQY/a8KDCts+X0jOTbWs+E3PMEZ29Gbe9sGoN0zk3Qlo4RJHZ/
+	sNnWaRbg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wSyjP-00000007bpi-2Kff;
+	id 1wSyjP-00000007bqB-31fH;
 	Fri, 29 May 2026 15:02:39 +0000
 Received: from mail-wm1-x34a.google.com ([2a00:1450:4864:20::34a])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wSyjD-00000007bg3-10sn
+	id 1wSyjD-00000007bgE-2sK4
 	for linux-arm-kernel@lists.infradead.org;
-	Fri, 29 May 2026 15:02:28 +0000
-Received: by mail-wm1-x34a.google.com with SMTP id 5b1f17b1804b1-49051422d55so69832925e9.2
-        for <linux-arm-kernel@lists.infradead.org>; Fri, 29 May 2026 08:02:24 -0700 (PDT)
+	Fri, 29 May 2026 15:02:29 +0000
+Received: by mail-wm1-x34a.google.com with SMTP id 5b1f17b1804b1-4909c0f0ba2so6454155e9.3
+        for <linux-arm-kernel@lists.infradead.org>; Fri, 29 May 2026 08:02:25 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=google.com; s=20251104; t=1780066943; x=1780671743; darn=lists.infradead.org;
+        d=google.com; s=20251104; t=1780066944; x=1780671744; darn=lists.infradead.org;
         h=cc:to:from:subject:message-id:references:mime-version:in-reply-to
          :date:from:to:cc:subject:date:message-id:reply-to;
-        bh=KwwWx+36ZO5AyFG8PbXK1ZtkzsCWR7UH7LxbrRw2oLU=;
-        b=wD7aDT6/Wf7rIu2CJuAGNAtp94Ye6/gKboXuelhwNQmv3+SX2fw2yiVUXIC32XG823
-         2uXv1RVyqR4N7fGi54ij5QoMlasp9XMSnYNJRRXdKUPG2YT2eQ5skoxSU0zS80CvdHUa
-         ZSN84nFDWmvUDbh02Za8XrBCfeMOTUWmITVCpL5Tm4FbK/fsUw1ww4vxXsHBFBSteTiP
-         zTNL1XyAniBJSJyfkCPNa8yoLDvsZAV3Lv2RjTyD1QxYDaf2m/oOQcvRm8i9W9gVr+vR
-         IQVf4i6+rBX3TBFQfRrIOwBb3kdfA55K4wuc++oDTY8UsX8rWJwARZxbBzlkKkr1zZOX
-         aTng==
+        bh=jiyjEGpnno65e28CupjUd9OJcNW9bWS5umqxs4/DfeA=;
+        b=EpSSdCsQanfqQXVpthGkS8PWg3hX/EAr4TtCyVUbBw82CrkzN0NGYDiQp8H7nbQAv4
+         Su0oY6dmEIcTLzditIidL2mp6DINZUAcudu2knkpTsq9WQ4u3ODymyjC7uEnIRlP3smK
+         XaKA/l6n/eqrCRN+WVjb4putMcSCdmNiO+a5nQSTfvwTywjetWo4x69EDA5542A5VfIa
+         B1gHqp8GRCS6zrtH44EQaPiZ1hEEjCVHSgnnEBF9TPlC3tgrafRKQlx6LszzEiRDAqwc
+         g/7GHT+ei5+W8CmZAyVJZQlXwS7oCmeNPSDTJG/8xkJkbS8shU0lyfl7gumCZs25RfKf
+         ExFA==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20251104; t=1780066943; x=1780671743;
+        d=1e100.net; s=20251104; t=1780066944; x=1780671744;
         h=cc:to:from:subject:message-id:references:mime-version:in-reply-to
          :date:x-gm-message-state:from:to:cc:subject:date:message-id:reply-to;
-        bh=KwwWx+36ZO5AyFG8PbXK1ZtkzsCWR7UH7LxbrRw2oLU=;
-        b=C8tVEYHmllinpDBLjSiuDplXD7qYHlETxBiMYVUHOk+4watIV2zi10UEBJHivUCU2x
-         PTWxTlKxVHr+pD5ij95b2Cwn9DAIHQWZjd9/PXl5Gj9HU1dhQoiLMBUVfmnBob+z/Rtj
-         qp9IR+fDLKVhxuk7sSqohx+L5HG7FwqEETaZ60XPoI0coTjkalG/conMXfEAiMFiDzk1
-         fCSh0jSKSwOB843IDkqdyTUPphktA2Ewvgf3kSBKVJYyX2olfxIItLp6nDnDiuSzW9km
-         wUcsVYXBcprlRB92yR3xptnraqbcpdAIsQoi8TywwtknOrI3A0Wo0+sUKY3KMgkeEI3a
-         kG+g==
-X-Gm-Message-State: AOJu0Yx84PgHtr7dWlpLD3W+A5Fj+sAK2C6iguVLjorH/RzUew47tmrR
-	hUMDih09QwajOVI1tDp2B6uGoFm5DB9LSKaCwOg8z9R265mnNkMJTH9N8Y6fLJbPhaFp8X9yce6
-	bTm06yjCYo78TeBcrNuMijxP3rP8hWtq5E+04w5m26VVqs1QSjh7tGi5E5fnsjQ3l6/fUz73bge
-	X28ZPkkOhvJdn6VlWFuuNM6qu0zrL+V6TPZ7ST2LLhpjtM
-X-Received: from wmbiv7.prod.google.com ([2002:a05:600c:5487:b0:48f:de29:3f52])
- (user=ardb job=prod-delivery.src-stubby-dispatcher) by 2002:a05:600c:2313:b0:490:6237:5213
- with SMTP id 5b1f17b1804b1-4909c0af69cmr42420765e9.23.1780066943345; Fri, 29
- May 2026 08:02:23 -0700 (PDT)
-Date: Fri, 29 May 2026 17:01:56 +0200
+        bh=jiyjEGpnno65e28CupjUd9OJcNW9bWS5umqxs4/DfeA=;
+        b=MbOFTANC5nBucJIK0fOa1YuMsBmoP2r9/w6Sa0X66coMw/UG0t9QlyH9AeDkGwMiRF
+         5HdSmT5VrMnYx1jHUiOjGYFfenHpk5kki1XfrCZ7uhs9SnCTxZOv6YTKCS0yB7nGlhgX
+         l4mhZOLL8p5C4CWmU9AE4An61Vxx0AULtzlz+An4FWTDkJD4oA6ORW6AgJSBdZSZQtR8
+         snCfRyQ3zGDeSVXfYdxBWcGVtFg120W4YN0kFtgFJGneGywUd/NDIG+hDpmeSttLgrAR
+         ZfmPAW6ValdTKA2zTF2dwT9YPbBvh0mMmt1vLy1DMzdqt54igHjZlWnX7/rlldKzi5Ps
+         0rGg==
+X-Gm-Message-State: AOJu0YyP7g1anKelKED5loL3y/xcXMA4x6mjb0DPV+J6nnN4bXSIoZOa
+	sN/xpYOioI+fGxJjgiIzdq+tBnSWAXD4PQ8jclmkkbsPHCuNgFCIfVUmN1/hvwcczwTg/1v4GJR
+	rSCbzzqgb4CfgTEj9br4Tz8pggj7K2XkQ5X1jdnfO9LPnAcw8YS+2+MYQG6rdkrGRJ2WktkcJLD
+	niSw+24FygFiLC9y0JHkejK+7OLL0UX5mxusXnzbtLdUJG
+X-Received: from wmbgx19.prod.google.com ([2002:a05:600c:8593:b0:489:1d25:1a63])
+ (user=ardb job=prod-delivery.src-stubby-dispatcher) by 2002:a05:600c:a315:b0:490:53d3:4767
+ with SMTP id 5b1f17b1804b1-490a2912114mr284275e9.7.1780066944330; Fri, 29 May
+ 2026 08:02:24 -0700 (PDT)
+Date: Fri, 29 May 2026 17:01:57 +0200
 In-Reply-To: <20260529150150.1670604-17-ardb+git@google.com>
 Mime-Version: 1.0
 References: <20260529150150.1670604-17-ardb+git@google.com>
 X-Developer-Key: i=ardb@kernel.org; a=openpgp; fpr=F43D03328115A198C90016883D200E9CA6329909
-X-Developer-Signature: v=1; a=openpgp-sha256; l=3700; i=ardb@kernel.org;
- h=from:subject; bh=JEV2e9VnURwytUBvbY/jPf+EEXewGZ41iq/e9jE9rQo=;
- b=owGbwMvMwCVmkMcZplerG8N4Wi2JIUtyVap1rG3Fm6CS7u4UZS4lT7Z9HxxXNudcEuL6naq74
- afp7KCOUhYGMS4GWTFFFoHZf9/tPD1RqtZ5lizMHFYmkCEMXJwCMJGPCgx/uKQ8e8xyJPt5JLP2
- bi5SltRnOvLycG3KFEeBXT7tu08rMTKsXffM79eljW7bhWbvntV0WFru9cWYiprdF6/MlLIvbk5 kAAA=
+X-Developer-Signature: v=1; a=openpgp-sha256; l=1543; i=ardb@kernel.org;
+ h=from:subject; bh=aFPaV3eZRwZbfRuJcOVglMiqpjLOoyYLSair5CgEE90=;
+ b=owGbwMvMwCVmkMcZplerG8N4Wi2JIUtyVZr0Ro45KbG/U3TOPQvc7JNkwC0kaWy1cjWvuuPuw
+ kXLLSd0lLIwiHExyIopsgjM/vtu5+mJUrXOs2Rh5rAygQxh4OIUgInMk2T4Z7Hw4UF3Zx6hsg1W
+ SuvzdNwYJPwFeT9LdVbN/bJSSk70NCPDCQPV3OWP9bYd/e+4xmP7gWzbOV2yZp1zagvtpm/ydwp nBwA=
 X-Mailer: git-send-email 2.54.0.823.g6e5bcc1fc9-goog
-Message-ID: <20260529150150.1670604-22-ardb+git@google.com>
-Subject: [PATCH v7 05/15] arm64: mm: Preserve non-contiguous descriptors when
- mapping DRAM
+Message-ID: <20260529150150.1670604-23-ardb+git@google.com>
+Subject: [PATCH v7 06/15] arm64: mm: Permit contiguous descriptors to be manipulated
 From: Ard Biesheuvel <ardb+git@google.com>
 To: linux-arm-kernel@lists.infradead.org
 Cc: linux-kernel@vger.kernel.org, will@kernel.org, catalin.marinas@arm.com, 
@@ -85,8 +84,8 @@ Cc: linux-kernel@vger.kernel.org, will@kernel.org, catalin.marinas@arm.com,
 	linux-sh@vger.kernel.org
 Content-Type: text/plain; charset="UTF-8"
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260529_080227_393797_38141A28 
-X-CRM114-Status: GOOD (  16.02  )
+X-CRM114-CacheID: sfid-20260529_080227_751857_5ACBA48A 
+X-CRM114-Status: GOOD (  14.44  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -103,94 +102,42 @@ Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.i
 
 From: Ard Biesheuvel <ardb@kernel.org>
 
-Instead of blindly overwriting existing live entries regardless of the
-value of their contiguous bit when mapping DRAM regions at
-contiguous-hint granularity, check whether the contiguous region in
-question contains any valid descriptors that have the contiguous bit
-cleared, and in that case, leave the contiguous bit unset on the entire
-region. This permits the logic of mapping the kernel's linear alias to
-be simplified in a subsequent patch.
+Currently, pgattr_change_is_safe() is overly pedantic when it comes to
+descriptors with the contiguous hint attribute set, as it rejects
+assignments even if the old and the new value are the same.
 
-Note that this can only result in a misprogrammed contiguous bit (as per
-ARM ARM RNGLXZ) if the region in question already contains a mix of
-valid contiguous and valid non-contiguous descriptors, in which case it
-was already misprogrammed to begin with.
+In fact, as per ARM ARM RJQQTC, manipulating descriptors with the
+contiguous bit set is safe as long as the bit itself does not change
+value, in the sense that no TLB conflict aborts or other exceptions may
+be raised as a result. Inconsistent permission attributes within the
+contiguous region may result in any of the alternatives to be taken to
+apply to the entire region, which might be a programming error, but it
+does not constitute an unsafe manipulation in terms of what
+pgattr_change_is_safe() is intended to detect.
+
+So drop the special PTE_CONT check, but still omit PTE_CONT from 'mask'
+so that modifying the bit is still regarded as unsafe.
 
 Signed-off-by: Ard Biesheuvel <ardb@kernel.org>
 ---
- arch/arm64/include/asm/pgtable.h |  4 ++++
- arch/arm64/mm/mmu.c              | 22 ++++++++++++++++++--
- 2 files changed, 24 insertions(+), 2 deletions(-)
+ arch/arm64/mm/mmu.c | 4 ----
+ 1 file changed, 4 deletions(-)
 
-diff --git a/arch/arm64/include/asm/pgtable.h b/arch/arm64/include/asm/pgtable.h
-index 4dfa42b7d053..a1c5894332d9 100644
---- a/arch/arm64/include/asm/pgtable.h
-+++ b/arch/arm64/include/asm/pgtable.h
-@@ -181,6 +181,10 @@ static inline pteval_t __phys_to_pte_val(phys_addr_t phys)
-  * Returns true if the pte is valid and has the contiguous bit set.
-  */
- #define pte_valid_cont(pte)	(pte_valid(pte) && pte_cont(pte))
-+/*
-+ * Returns true if the pte is valid and has the contiguous bit cleared.
-+ */
-+#define pte_valid_noncont(pte)	(pte_valid(pte) && !pte_cont(pte))
- /*
-  * Could the pte be present in the TLB? We must check mm_tlb_flush_pending
-  * so that we don't erroneously return false for pages that have been
 diff --git a/arch/arm64/mm/mmu.c b/arch/arm64/mm/mmu.c
-index 5c827fa3cd38..6b42d724bd1b 100644
+index 6b42d724bd1b..d7a6991e1844 100644
 --- a/arch/arm64/mm/mmu.c
 +++ b/arch/arm64/mm/mmu.c
-@@ -187,6 +187,14 @@ static void init_pte(pte_t *ptep, unsigned long addr, unsigned long end,
- 	} while (ptep++, addr += PAGE_SIZE, addr != end);
- }
+@@ -134,10 +134,6 @@ bool pgattr_change_is_safe(pteval_t old, pteval_t new)
+ 	if (pte_pfn(__pte(old)) != pte_pfn(__pte(new)))
+ 		return false;
  
-+static bool pte_range_has_valid_noncont(pte_t *ptep)
-+{
-+	for (int i = 0; i < CONT_PTES; i++)
-+		if (pte_valid_noncont(__ptep_get(&ptep[i])))
-+			return true;
-+	return false;
-+}
-+
- static int alloc_init_cont_pte(pmd_t *pmdp, unsigned long addr,
- 			       unsigned long end, phys_addr_t phys,
- 			       pgprot_t prot,
-@@ -224,7 +232,8 @@ static int alloc_init_cont_pte(pmd_t *pmdp, unsigned long addr,
- 
- 		/* use a contiguous mapping if the range is suitably aligned */
- 		if ((((addr | next | phys) & ~CONT_PTE_MASK) == 0) &&
--		    (flags & NO_CONT_MAPPINGS) == 0)
-+		    (flags & NO_CONT_MAPPINGS) == 0 &&
-+		    !pte_range_has_valid_noncont(ptep))
- 			__prot = __pgprot(pgprot_val(prot) | PTE_CONT);
- 
- 		init_pte(ptep, addr, next, phys, __prot);
-@@ -283,6 +292,14 @@ static int init_pmd(pmd_t *pmdp, unsigned long addr, unsigned long end,
- 	return 0;
- }
- 
-+static bool pmd_range_has_valid_noncont(pmd_t *pmdp)
-+{
-+	for (int i = 0; i < CONT_PMDS; i++)
-+		if (pte_valid_noncont(pmd_pte(READ_ONCE(pmdp[i]))))
-+			return true;
-+	return false;
-+}
-+
- static int alloc_init_cont_pmd(pud_t *pudp, unsigned long addr,
- 			       unsigned long end, phys_addr_t phys,
- 			       pgprot_t prot,
-@@ -324,7 +341,8 @@ static int alloc_init_cont_pmd(pud_t *pudp, unsigned long addr,
- 
- 		/* use a contiguous mapping if the range is suitably aligned */
- 		if ((((addr | next | phys) & ~CONT_PMD_MASK) == 0) &&
--		    (flags & NO_CONT_MAPPINGS) == 0)
-+		    (flags & NO_CONT_MAPPINGS) == 0 &&
-+		    !pmd_range_has_valid_noncont(pmdp))
- 			__prot = __pgprot(pgprot_val(prot) | PTE_CONT);
- 
- 		ret = init_pmd(pmdp, addr, next, phys, __prot, pgtable_alloc, flags);
+-	/* live contiguous mappings may not be manipulated at all */
+-	if ((old | new) & PTE_CONT)
+-		return false;
+-
+ 	/* Transitioning from Non-Global to Global is unsafe */
+ 	if (old & ~new & PTE_NG)
+ 		return false;
 -- 
 2.54.0.823.g6e5bcc1fc9-goog
 
