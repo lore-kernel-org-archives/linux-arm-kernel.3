@@ -4,68 +4,61 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 8F78FCD6E4A
-	for <linux-arm-kernel@archiver.kernel.org>; Fri, 29 May 2026 13:36:34 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 23605CD6E4A
+	for <linux-arm-kernel@archiver.kernel.org>; Fri, 29 May 2026 13:39:21 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
 	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
 	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=tkl4sR7vzufgWkjQ1saXN08wf7PWrUa9x52UIeb6DXo=; b=wJ6XKnxspN00PFPtFyeu/CM8a9
-	vVXLfMd4Tn3PdKkVim+HbyKH4kw+00vZbVz3goReGfOY5GsKWmNudPfnImHL0skygbkuZVwA/Ha2o
-	37uXKvXpC/aeAdLsBG6rN3zqQ8v540862uzVp3pD0xXYtt/o9aRYdN3VMJilbNBK3yUyGti6qsuZO
-	G/Yc/7v3l9aVaTMRHUM+J/7kF0aq0umkDjwHnatFdQ32QC3i+9n/xpjjZoazKCCLl5QzrpwE/ZIzB
-	P1TApweOdmIN/0HsYtA4+bCVxSZhUbEgWFAjqVFOwilgF2zid9fddXTMzLVwssjVoVXffVtPuzSkJ
-	vgPzbaMw==;
+	bh=X2b/jFqR3es0k+K4KUVwPP+EZAQSXP/Sg3HEXSr0lns=; b=WPUUlUFI37oh76LukG3tNkc1+7
+	i/h6VZmURuNngy88bbMRV61V4tPzdORJAgFLSLpYj1PiVSAwt3xiH41nBeSWeyl6dfkUz/5G7sjF3
+	/Rd3nMzV60m+LLV7oue5hYPGVtPabH59Bi4ZPRRcLSEaT/1ST+j4ioB1gnRpr2EtKVvfJniUazG1R
+	h3xcwaUE5110YG2WsSnIqVckFBpLN/SxSfJqZgb1tbPzImQz31hmKWEezTBpxiKcm3k9niW+jvuCV
+	WxSsFjA7LuA5fL+tZhvYymuexKX+W8xIeZQrhGwHSlXVVp1UExLKC6L5BwI0wQ0zdpaaar3u+50hb
+	TUJfKjxg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wSxNt-00000007S4r-41TS;
-	Fri, 29 May 2026 13:36:21 +0000
-Received: from tor.source.kernel.org ([2600:3c04:e001:324:0:1991:8:25])
-	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wSxNs-00000007S4d-1dl2
+	id 1wSxQc-00000007SLp-1HIg;
+	Fri, 29 May 2026 13:39:10 +0000
+Received: from foss.arm.com ([217.140.110.172])
+	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
+	id 1wSxQZ-00000007SL0-1AlR
 	for linux-arm-kernel@lists.infradead.org;
-	Fri, 29 May 2026 13:36:20 +0000
-Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
-	by tor.source.kernel.org (Postfix) with ESMTP id 57B3E600AA;
-	Fri, 29 May 2026 13:36:19 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 8503D1F00893;
-	Fri, 29 May 2026 13:36:16 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1780061779;
-	bh=tkl4sR7vzufgWkjQ1saXN08wf7PWrUa9x52UIeb6DXo=;
-	h=Date:From:To:Cc:Subject:References:In-Reply-To;
-	b=Ei/P//Bdo7LQH9SHf4hMwHCjs5/09N0sRrmYWFaUJmPLiYB/r2Ox3F+KotJwIopVY
-	 tGzsfEs0PMxKRaMp/EK3dSintQMjamBdnhUchtjYb04yBqJQLTbm4XmmqBXQmkfPTP
-	 r/1LedetR72P+I+dkeNIOb4J/guQMcE7PWHbS1S7ztVO+Pb+LJ4wgqouHmq/x8mXCu
-	 hCpuPY6pCZOotBU90aqu3prcEBG9/XS5fRevVh3Ab41OkqzInJP5R3WMDoFZUtUVPW
-	 3bH4I/ph6hpGGZWw5PM0qr3NO7r28ielMUBjIghzKvuYLwwpt8/LXaro+TwHpW0KXG
-	 UHJfbSmDJOSEg==
-Date: Fri, 29 May 2026 14:36:13 +0100
-From: Will Deacon <will@kernel.org>
-To: Puranjay Mohan <puranjay12@gmail.com>
-Cc: bpf@vger.kernel.org, Yonghong Song <yonghong.song@linux.dev>,
-	Alexei Starovoitov <ast@kernel.org>,
-	Daniel Borkmann <daniel@iogearbox.net>,
-	Andrii Nakryiko <andrii@kernel.org>,
-	Martin KaFai Lau <martin.lau@linux.dev>,
-	Eduard Zingerman <eddyz87@gmail.com>,
-	Kumar Kartikeya Dwivedi <memxor@gmail.com>,
-	Song Liu <song@kernel.org>, Xu Kuohai <xukuohai@huaweicloud.com>,
-	Catalin Marinas <catalin.marinas@arm.com>,
-	linux-arm-kernel@lists.infradead.org
-Subject: Re: [PATCH bpf-next v2 2/3] bpf, arm64: Add JIT support for stack
- arguments
-Message-ID: <ahmWTbYokwcp1Lel@willie-the-truck>
-References: <20260427234801.2104511-1-puranjay@kernel.org>
- <20260427234801.2104511-3-puranjay@kernel.org>
- <ahhGbFY_4Dai1NjR@willie-the-truck>
- <CANk7y0j6JecSuJVZg1phn2tSHrcHPDqqmoaDBy1LdnMo-1qsFg@mail.gmail.com>
+	Fri, 29 May 2026 13:39:09 +0000
+Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
+	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id 73C9B2247;
+	Fri, 29 May 2026 06:39:00 -0700 (PDT)
+Received: from thinkpad-e142931.arm.com (usa-sjc-imap-foss1.foss.arm.com [10.121.207.14])
+	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id F3D7F3F905;
+	Fri, 29 May 2026 06:39:01 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=simple/simple; d=arm.com; s=foss;
+	t=1780061945; bh=7cmIIs9xR7uMqTm+Z6aD9663vI48NGNNoR+rAVutfCA=;
+	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
+	b=ZwbvlGL/hw4kBlp8VXC/2kqCg+mD3sjTb8MNl4B2Mmd580f1ntfEzvd3wiaQ1GZma
+	 pYPyZ4BhPO8swphi0VYXozIPeakgqpXWh+EoOPe6y3keeqDqsf7bZAYzoUSTxY/tRD
+	 CH2Xfcsp92lhz6kO+eCyS+TXMplYbiCu6zkDsy34=
+Date: Fri, 29 May 2026 14:38:53 +0100
+From: Wei-Lin Chang <weilin.chang@arm.com>
+To: Oliver Upton <oupton@kernel.org>
+Cc: linux-kernel@vger.kernel.org, kvm@vger.kernel.org, 
+	linux-kselftest@vger.kernel.org, linux-arm-kernel@lists.infradead.org, kvmarm@lists.linux.dev, 
+	Paolo Bonzini <pbonzini@redhat.com>, Shuah Khan <shuah@kernel.org>, Marc Zyngier <maz@kernel.org>, 
+	Joey Gouly <joey.gouly@arm.com>, Suzuki K Poulose <suzuki.poulose@arm.com>, 
+	Zenghui Yu <yuzenghui@huawei.com>, Catalin Marinas <catalin.marinas@arm.com>, 
+	Will Deacon <will@kernel.org>, Itaru Kitayama <itaru.kitayama@fujitsu.com>
+Subject: Re: [PATCH v3 0/9] KVM: arm64: selftests: Basic nested guest support
+Message-ID: <ioz7qsirq2v665bqbjin5ekwss46pfg2sfmndkvail2athbo75@cgt7zikhtx6r>
+References: <20260516183003.799058-1-weilin.chang@arm.com>
+ <agzWnS2gzzhEHEG6@kernel.org>
 MIME-Version: 1.0
 Content-Type: text/plain; charset=us-ascii
 Content-Disposition: inline
-In-Reply-To: <CANk7y0j6JecSuJVZg1phn2tSHrcHPDqqmoaDBy1LdnMo-1qsFg@mail.gmail.com>
+In-Reply-To: <agzWnS2gzzhEHEG6@kernel.org>
+X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
+X-CRM114-CacheID: sfid-20260529_063907_393823_D2F375AF 
+X-CRM114-Status: GOOD (  30.00  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -80,65 +73,108 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Thu, May 28, 2026 at 03:23:32PM +0100, Puranjay Mohan wrote:
-> Thanks for your review.
-> These patches have already landed in bpf-next tree as a part of this
-> series: https://lore.kernel.org/all/20260513044949.2382019-1-yonghong.song@linux.dev/
+Hi Oliver,
+
+On Tue, May 19, 2026 at 02:31:09PM -0700, Oliver Upton wrote:
+> Hi Wei-Lin,
 > 
-> I will take all your feedback and send fixes for all the required changes.
-
-Thanks. My review backlog is huge, but I still try to look at stuff even
-after it's been merged.
-
-> > How does that work with kfuncs? I think the PCS means that they will
-> > expect to pick the stack arguments starting at [SP+0]. Or are you
-> > saying that SP == FP+16 on entry to the callee? It's hard to reconcile
-> > that with the ASCII art in build_prologue() because neither "current
-> > A64_FP" nor "BPF_FP" point below A64_SP and it's not clear which of them
-> > you're referring to when you refer to "FP" on its own.
+> Thank you very much for the series.
 > 
-> At entry to kfunc the arguments are starting at [SP+0] like a normal C
-> callee function would expect.
+> I haven't had time to read through much of this yet, but I noticed
+> Itaru's comment about leaving stage-1 translation disabled for the L2.
 > 
-> The line "callee reads them from [FP+16], [FP+24]" is for a BPF callee
-> which always emits a frame record.
-> So the caller puts the arguments at SP+0, SP+8, .. and then the callee
-> creates the frame record in the prologue which means the first
-> argument is at FP+16, ....
-> This is just an implementation detail about how the JITed BPF callee
-> programs can read stack arguments from FP+16, ... easily.
-
-That makes sense, but if you're able to rejig the diagram in
-build_prologue() to mirror that then it would really help us to remember
-it in future.
-
-> > > @@ -1191,6 +1207,41 @@ static int add_exception_handler(const struct bpf_insn *insn,
-> > >       return 0;
-> > >  }
-> > >
-> > > +static const u8 stack_arg_reg[] = { A64_R(5), A64_R(6), A64_R(7) };
-> > > +
-> > > +#define NR_STACK_ARG_REGS    ARRAY_SIZE(stack_arg_reg)
-> > > +
-> > > +static void emit_stack_arg_load(u8 dst, s16 bpf_off, struct jit_ctx *ctx)
-> > > +{
-> > > +     int idx = bpf_off / sizeof(u64) - 1;
-> > > +
-> > > +     if (idx < NR_STACK_ARG_REGS)
-> > > +             emit(A64_MOV(1, dst, stack_arg_reg[idx]), ctx);
-> > > +     else
-> > > +             emit(A64_LDR64I(dst, A64_FP, (idx - NR_STACK_ARG_REGS) * sizeof(u64) + 16), ctx);
-> > > +}
-> >
-> > Is it worth asserting that bpf_off >= 8 here or can we rely on that? I
-> > struggled to find any details about how bpf passes arguments on the
-> > stack (beyond what you describe in the commit message) and grepping for
-> > BPF_REG_PARAMS didn't help either.
+> Since selftests expects things like atomics to work we will definitely
+> need the stage-1 MMU to be enabled w/ Normal mappings (this was broken
+> in the past [*]). I wonder if we can (ab)use the pre-existing stage-1
+> tables that the selftests library creates on behalf of the L1. After all,
+> L1 and L2 are both effectively in the same virtual address space.
 > 
-> This and other patches in this set has more information about this:
-> https://lore.kernel.org/all/20260513045015.2385013-1-yonghong.song@linux.dev/
+> [*] https://lore.kernel.org/kvmarm/20250405001042.1470552-1-rananta@google.com/
 
-Thanks, that matches what I'd managed to figure out.
+Thanks for the pointer, I see, only inner/outer shareable, write-back
+normal memory guarantees atomics to work. Interestingly, treating the
+atomic instruction as a NOP is one of the permitted outcomes if other
+memory attributes are used...
 
-Will
+However, the L2s in this series aren't using atomic instructions, and
+right now for the current organization of this series, the L1 guest
+hypervisor infrastructure is in lib/ for future NV selftests to share L2
+creation code, but L2 code are entirely per selftest. This means other
+selftest L2s can reuse the L1 stage-1 tables themselves if the implicit
+memory attributes that comes from MMU being off is not desired.
+
+Sorry if that sounded defensive, I am not opposed to always reusing the
+L1 stage-1 tables in L2, just wanted to make sure the point gets across.
+
+Always reusing L1 stage-1 tables in L2 allows L2 access to lib/ (which
+should be helpful for testing recursive NV), and L1-L2 code sharing
+intra-selftest. OTOH things are a bit simpler with MMU off in this case
+with testing the shadow stage2.
+
+What do you think?
+
+Thanks,
+Wei-Lin Chang
+
+> 
+> Thanks,
+> Oliver
+> 
+> On Sat, May 16, 2026 at 07:29:54PM +0100, Wei-Lin Chang wrote:
+> > Hi,
+> > 
+> > This is v3 of adding basic support for running nested guests (L2) in
+> > kselftest. This time a framework for enabling stage-2 in the guest is
+> > added, including the s2_mmu struct, s2 translation control setup, and
+> > a stage-2 page table generator. Similar to L2 vCPU management, all
+> > stage-2 work is done in the guest instead of userspace.
+> > 
+> > An additional shadow_stage2 test is added which leverages the framework
+> > to run L2 with stage-2 enabled.
+> > 
+> > * Changes from v2 [1]:
+> > 
+> >   - Update vm_paddr_t to gpa_t, vm_vaddr_t to gva_t.
+> > 
+> >   - Added framework for enabling stage-2 in the guest.
+> > 
+> >   - Added shadow_stage2 test.
+> > 
+> > Thanks!
+> > 
+> > [1]: https://lore.kernel.org/kvmarm/20260412142216.3806482-1-weilin.chang@arm.com/
+> > 
+> > Wei-Lin Chang (9):
+> >   KVM: arm64: selftests: Add GPR save/restore functions for NV
+> >   KVM: arm64: selftests: Add helpers for guest hypervisors
+> >   KVM: arm64: selftests: Add hello_nested basic NV selftest
+> >   KVM: arm64: selftests: Enhance hello_nested test
+> >   KVM: arm64: selftests: Add shadow_stage2 test
+> >   KVM: arm64: selftests: shadow_stage2: Allocate L2 stack from dedicated
+> >     pool
+> >   KVM: arm64: selftests: shadow_stage2: Check supported stage-2 granule
+> >     size
+> >   KVM: arm64: selftests: Add infrastructure for using stage-2 in guest
+> >   KVM: arm64: selftests: shadow_stage2: Turn on stage-2 translation for
+> >     the nested guest
+> > 
+> >  tools/testing/selftests/kvm/Makefile.kvm      |   5 +
+> >  .../selftests/kvm/arm64/hello_nested.c        | 134 +++++++++
+> >  .../selftests/kvm/arm64/shadow_stage2.c       | 165 +++++++++++
+> >  .../selftests/kvm/include/arm64/nested.h      |  85 ++++++
+> >  tools/testing/selftests/kvm/lib/arm64/entry.S | 137 +++++++++
+> >  .../selftests/kvm/lib/arm64/hyp-entry.S       |  77 +++++
+> >  .../testing/selftests/kvm/lib/arm64/nested.c  | 264 ++++++++++++++++++
+> >  7 files changed, 867 insertions(+)
+> >  create mode 100644 tools/testing/selftests/kvm/arm64/hello_nested.c
+> >  create mode 100644 tools/testing/selftests/kvm/arm64/shadow_stage2.c
+> >  create mode 100644 tools/testing/selftests/kvm/include/arm64/nested.h
+> >  create mode 100644 tools/testing/selftests/kvm/lib/arm64/entry.S
+> >  create mode 100644 tools/testing/selftests/kvm/lib/arm64/hyp-entry.S
+> >  create mode 100644 tools/testing/selftests/kvm/lib/arm64/nested.c
+> > 
+> > -- 
+> > 2.43.0
+> > 
+> > 
 
