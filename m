@@ -4,97 +4,132 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 31C4BCD4F54
-	for <linux-arm-kernel@archiver.kernel.org>; Fri, 29 May 2026 12:37:26 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id CA080CD4F54
+	for <linux-arm-kernel@archiver.kernel.org>; Fri, 29 May 2026 12:50:30 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
-	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=RQzxiBtnUr7ain8V9TqP5xGod1EBAScgia3DVab5ruI=; b=IKhFv64YJDHv++FRVMQmvLeaT4
-	E9hDpxM10XSllrmadHULjP462wYvmsGs5zQvXKPRR7xBzc2SEWM7s5DGRGjr/2Uhzvl26vGQqEuJ9
-	wmaU9SdKysnkH8Qrm2sWKm8jKDVYEyIAStQ2LyjKIsa5+KquGQmStcmmRT8VYltUQjn7Yj5rJQW4p
-	Dc+vv+fDE8bc1VBe6FTdQcwolOTY5/yRTIJLNaKdtQnCuqfy+XvD64l3EhkmWuDrEyAFA7T/llPxi
-	98GeSGQvlw+b8CMnm1HgnvFjNNxGCVRWDIcE+4EU4CUs0o2BgvPtkiXJLytiJKx5IUEn4dim7fvxI
-	9CYP7RUA==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:
+	Content-Transfer-Encoding:Content-Type:In-Reply-To:References:Message-ID:Date
+	:Subject:CC:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=u+3hKuNPK3gvpx7Xbm+6JosxKil8mbqCxSMEeOdUnoc=; b=HbBRM3p+6WfhUn83N7derxoP9F
+	H69tZLZzafIOuJ5N2C9vxJ+uwSors3RtDi3X1ZzohsVG9uHi8at7YIZ4TxGTrWMx7fcr1pSfG0bui
+	SMI7+waKe+s6s+liBPaIiuyrxEhnT3evYr9o3EpTspNIwzpt3orO9o34YpgHF6GNpH/0NGGQmv1hH
+	Dh0BVNWypXfUoIUiX39488lKGVWZjOt3DaFrWjT1LadkWoTQl+poqzsiA8c59gKoJj6fk23J5XMY/
+	2nsliyfyZS22mIvrzT14i/yWxjonBm2OZ/226j4niMyhvFAzdPtA/wnRsl9atAmnUIFoEhXgoxyX2
+	/pC1tt9g==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wSwSm-00000007OL2-0cIt;
-	Fri, 29 May 2026 12:37:20 +0000
-Received: from mail-wr1-x436.google.com ([2a00:1450:4864:20::436])
+	id 1wSwfP-00000007PJr-1uSn;
+	Fri, 29 May 2026 12:50:23 +0000
+Received: from mail-northcentralusazon11013003.outbound.protection.outlook.com ([40.107.201.3] helo=CH4PR04CU002.outbound.protection.outlook.com)
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wSwSj-00000007OKb-33Qr
+	id 1wSwfN-00000007PJT-35F0
 	for linux-arm-kernel@lists.infradead.org;
-	Fri, 29 May 2026 12:37:19 +0000
-Received: by mail-wr1-x436.google.com with SMTP id ffacd0b85a97d-45ef616daf6so124707f8f.3
-        for <linux-arm-kernel@lists.infradead.org>; Fri, 29 May 2026 05:37:16 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=linaro.org; s=google; t=1780058235; x=1780663035; darn=lists.infradead.org;
-        h=content-transfer-encoding:in-reply-to:from:content-language
-         :references:cc:to:subject:user-agent:mime-version:date:message-id
-         :from:to:cc:subject:date:message-id:reply-to;
-        bh=RQzxiBtnUr7ain8V9TqP5xGod1EBAScgia3DVab5ruI=;
-        b=zBEsyjATRIqCLwvWvuXOw0E+vg3dCN8CZb5P8boxGfz8PxJ32cVnKN2FXLE4j4YB6/
-         uLfeE1GpL20mHFJMTOJRGImDng5TZOeCI1ypOMl30oGkirr3oRIUSLIL1Y7hCWx7hY3R
-         Hy02DHRfwNHPjtdQkQry6Zwu60cHhdmfE6rgWhPFQM8W3b0G/b4BTtkyb1NKA8yZk3j4
-         5ydnpOVOM7NUTbFosLPTLWBhQAkTu+/vqGCp335UrDFNVA31vykM9bA5DD4c/4B5g6E3
-         cbFKU41fQ77mxDaKBT3NaGLYyC69kGck53rxtZ8B+xBN3YR30lOKGY+3V0s5YuOLJjcb
-         fX0Q==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20251104; t=1780058235; x=1780663035;
-        h=content-transfer-encoding:in-reply-to:from:content-language
-         :references:cc:to:subject:user-agent:mime-version:date:message-id
-         :x-gm-gg:x-gm-message-state:from:to:cc:subject:date:message-id
-         :reply-to;
-        bh=RQzxiBtnUr7ain8V9TqP5xGod1EBAScgia3DVab5ruI=;
-        b=TH57V3o1pYkgTuUQQpgH00vbUyRUKsOGjK8Xqvy6oBPbIj7/KPmmfOE2qKzlbDe78A
-         K9tQ+wFHTRrparckf5JnBw3+ubGuSTqjraByJsZ3VCDbDan0oHC0XrPHV3tkBxmbKQfF
-         U2v60fQF6e5VsUxLpZ+gwZIjyDeQAFmDdv2meRBY6eI5P6ft7Nt4I74cpYFvQpsKLruo
-         Ou5203SxW7l/Q6BwBgsU9CsFjribpBfM+tuTmm6LZWK9m1bXbUmTBCOtzy4IuhGBN8Yt
-         +IU97UNBBNam2ACrf100qsJy2O7mg24IF0xKH46Pnl9A4VutNtj5/Cx66ThYyzeke4gv
-         o7HQ==
-X-Forwarded-Encrypted: i=1; AFNElJ/u3WqfsTaUWefbw/H8qA3v+t8LSGTU27blPQktxp9226cfzC5Wm0LJ7lv0Bf2MVQF13R0jjx6fwXGCShjba++1@lists.infradead.org
-X-Gm-Message-State: AOJu0YyWdSp2pHDvNgl6+hzKeTsBzyoSOyPxeWO1suOPObp3d/YGLeky
-	ccWeNw1nnnEP1qwVGphVND4sf3nN7OncK6KNE+JAZ/N6w5fzaoA3AZ14VDxhDU+40WI=
-X-Gm-Gg: Acq92OFxc1aoJHBmcCCVoviwt6rbZhLuuaaM/212oU9IhV0yIgEyAlMrUi3tVeUkk4m
-	HPER/e3MO4yvO1Yx+f3mhuYXYhErQeiP9dtYFTX8hmKSOeOp5Y4rrqcIuYpwu0wvwShL1GI1hml
-	+VXma+rug8SfQGs1s9KYuBA+KpLYBVcy2nXpyXWqGSmIiRzPxIZ0c6j2ozNxhhdunyS1NO/7/+A
-	RHeoSwHEdgtOnHu1C8z9INZK9oiKvkPad6lmQ+CLOTLl5H86ENgKyQc7A2kTj1oDFZ+DQcYwI1p
-	wLGcknIlIvV+WvAMkZ5W+s6z/4wK57eofcivjCHfAoQZuY9sffHUvrZUtxOAjCMxc7ZlBRmBtPK
-	gVA1+KzTGrqRkrDgFspnceFt3y6PMuWeEz3MgdMdyQTFqlO5nzp0knvR6SZLHDDpel+Zj+DZvRr
-	2hK25ORs8/LVpx+MptJQMf04KuZrEkqAhfSEN4QaKU1A==
-X-Received: by 2002:a05:6000:470c:b0:45e:f2bd:2b16 with SMTP id ffacd0b85a97d-45ef2bd2d41mr3802790f8f.18.1780058235304;
-        Fri, 29 May 2026 05:37:15 -0700 (PDT)
-Received: from [10.11.12.110] ([82.76.215.73])
-        by smtp.gmail.com with ESMTPSA id ffacd0b85a97d-45ef34a0374sm2981872f8f.2.2026.05.29.05.37.14
-        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
-        Fri, 29 May 2026 05:37:14 -0700 (PDT)
-Message-ID: <a7994860-24a3-4f87-84bf-109ed653dda4@linaro.org>
-Date: Fri, 29 May 2026 15:37:13 +0300
-MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH v5 3/7] firmware: samsung: acpm: Fix dummy stubs to return
- ERR_PTR
-To: Krzysztof Kozlowski <krzk@kernel.org>, Arnd Bergmann <arnd@arndb.de>,
- Alim Akhtar <alim.akhtar@samsung.com>
-Cc: linux-kernel@vger.kernel.org, linux-samsung-soc@vger.kernel.org,
- linux-arm-kernel@lists.infradead.org,
- Peter Griffin <peter.griffin@linaro.org>,
- =?UTF-8?Q?Andr=C3=A9_Draszik?= <andre.draszik@linaro.org>,
- jyescas@google.com, kernel-team@android.com, stable@vger.kernel.org
-References: <20260505-acpm-fixes-sashiko-reports-v5-0-43b5ee7f1674@linaro.org>
- <20260505-acpm-fixes-sashiko-reports-v5-3-43b5ee7f1674@linaro.org>
- <03dc9ccc-d819-413e-b8fd-23ccd85675ba@app.fastmail.com>
- <6c77d706-5944-4e7d-8a4a-b3a6cac6a83b@kernel.org>
+	Fri, 29 May 2026 12:50:23 +0000
+ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
+ b=y8LQv9CCbnU/EHh+DpM0H7khDWSano+CW6cUuvq7c+PEcJNZOWTN7O5lUX7fyuI1aIvcW1BA5theKHP13rIrss0p/Sg4A8JEzQDXzqyDLP0X1aXnL9fxk3GYBgwKCtzOL2wvDig5gQc5bb/9BB7a3pCo9ipNFQKuVRPFYtKOXdMpchG3Sk9IF3ogPM+HAkI8Gm5IFyUy95P77MPsnfoYHHOoRuDBq2SDIDu2L5T8Q3gageDc7qGCXJVMiCJRK/GUKj2NympYvsr1TW9imCdiC+ufTqx6TmwkAGryXJZIMkyEL1c2R5YWS5QQBxlqYvcE6po23A0Ki0mLuphLPd7vUw==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
+ s=arcselector10001;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
+ bh=u+3hKuNPK3gvpx7Xbm+6JosxKil8mbqCxSMEeOdUnoc=;
+ b=tLa4tB4KbsAWyrofpHTfRsOmiOdDp2Z5DCVZg4hh2//zE9Ephl3qxF75aNJQhVmUTlZTO0YEtoNyL9dKEQ8883NUMB88NJOIqyP74keK/o0Vi90aLsKUQWhQDnZl3SOjXtnCtEk+Bwvc8vpPWaTqIC5CF/WXLPcTZyR10pbepJBvCSM8/s1zyjMNsttmzMiWdybXz8XMriPJxLsDKf3WDTaaNT1hrVX2xSqp6CMlL0BdIhqZ+xaxIuwxGRrvy5I3nEhnG59k569msidyqdG8p7K4ymdyjq4+LMHBJyWT+kosv/fU77oHc4ZxelAFL1fzKM5XGPZ78O87WKfdkEpk7Q==
+ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
+ smtp.mailfrom=nvidia.com; dmarc=pass action=none header.from=nvidia.com;
+ dkim=pass header.d=nvidia.com; arc=none
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=Nvidia.com;
+ s=selector2;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
+ bh=u+3hKuNPK3gvpx7Xbm+6JosxKil8mbqCxSMEeOdUnoc=;
+ b=EI5NlZaLp69Ksp6MpEiBMIkWnzfUbJNGaoGcxwCkUgvfPQBY6g+PZjFQ+ef79r9/euCAoCwn4XIcNwuzpkHmAeCKvabOD9MLGJh7B/e0C5b1sK3X5JOGdpJaGultxxU5IviYJMyS2STnuX+Bq1BIrg8kUYL5a/BvgqFZSnMMdjXtOWg0HzzxB9qG/1f+M3t8JIUcMB+H3Ue79Dv+HfBU6POtvAsaPtA7qfbqfrObt+5bZD3MDAUeSYNnkISTGngHbp3QxZmYe5zYI6pyO/gdKjPFG9zQr0/wIRSEjmzzLas4UUjwO9BvfFWROuNjyO2i2CkKzIPMYNsPwYRQ8+cq5A==
+Received: from CH3PR12MB7548.namprd12.prod.outlook.com (2603:10b6:610:144::12)
+ by DM4PR12MB7623.namprd12.prod.outlook.com (2603:10b6:8:108::13) with
+ Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.21.71.14; Fri, 29 May
+ 2026 12:50:15 +0000
+Received: from CH3PR12MB7548.namprd12.prod.outlook.com
+ ([fe80::b710:d6a1:ab16:76de]) by CH3PR12MB7548.namprd12.prod.outlook.com
+ ([fe80::b710:d6a1:ab16:76de%6]) with mapi id 15.21.0071.011; Fri, 29 May 2026
+ 12:50:15 +0000
+From: Shameer Kolothum Thodi <skolothumtho@nvidia.com>
+To: Jason Gunthorpe <jgg@ziepe.ca>
+CC: "iommu@lists.linux.dev" <iommu@lists.linux.dev>,
+	"linux-kernel@vger.kernel.org" <linux-kernel@vger.kernel.org>,
+	"linux-arm-kernel@lists.infradead.org"
+	<linux-arm-kernel@lists.infradead.org>, Nicolin Chen <nicolinc@nvidia.com>,
+	"joro@8bytes.org" <joro@8bytes.org>, "will@kernel.org" <will@kernel.org>,
+	"robin.murphy@arm.com" <robin.murphy@arm.com>, Nathan Chen
+	<nathanc@nvidia.com>, Matt Ochs <mochs@nvidia.com>
+Subject: RE: [PATCH] iommu/tegra241-cmdqv: Skip CMD_SYNC flush during remove
+Thread-Topic: [PATCH] iommu/tegra241-cmdqv: Skip CMD_SYNC flush during remove
+Thread-Index: AQHc70ssAhCMx5MQSEOA/ouMwFgDuLYk5PiAgAANFDA=
+Date: Fri, 29 May 2026 12:50:15 +0000
+Message-ID: <CH3PR12MB754872279F0152B590D9E699AB162@CH3PR12MB7548.namprd12.prod.outlook.com>
+References: <20260529091052.317102-1-skolothumtho@nvidia.com>
+ <20260529115335.GS2487554@ziepe.ca>
+In-Reply-To: <20260529115335.GS2487554@ziepe.ca>
+Accept-Language: en-US, en-GB
 Content-Language: en-US
-From: Tudor Ambarus <tudor.ambarus@linaro.org>
-In-Reply-To: <6c77d706-5944-4e7d-8a4a-b3a6cac6a83b@kernel.org>
-Content-Type: text/plain; charset=UTF-8
-Content-Transfer-Encoding: 7bit
+X-MS-Has-Attach: 
+X-MS-TNEF-Correlator: 
+authentication-results: dkim=none (message not signed)
+ header.d=none;dmarc=none action=none header.from=nvidia.com;
+x-ms-publictraffictype: Email
+x-ms-traffictypediagnostic: CH3PR12MB7548:EE_|DM4PR12MB7623:EE_
+x-ms-office365-filtering-correlation-id: 30fd53ed-5a93-4029-de6d-08debd80d485
+x-ms-exchange-senderadcheck: 1
+x-ms-exchange-antispam-relay: 0
+x-microsoft-antispam: BCL:0;ARA:13230040|376014|1800799024|366016|38070700021|56012099006|4143699003|11063799006|22082099003|18002099003;
+x-microsoft-antispam-message-info: g/R+IP/kKH6KZ7oY3AuTaL0d46G/ztlMpPH7ENbjz5GCFW20Rj9t+1MLhNO/DOr9dy9AEq4gLeZt54JiEoSjppHeFQquzW0qiB9JJYKaPr1w4l2amVoYpUw+l249lvafvgCh/NpQ1Q+BIi8sAcmANp6rNSYVOQ71XVag/1pxKPdhu/7+BaUfHBw8O6FwqcDZQhPtK7iB7i5SQ95iSCBoEBzwmhDtkJSaRWUCBfNYY2I1fYGvhdchIv7O8iJlKEkR65RrqNuEKUDz6K0MpRpbx+kjbYVUBgN4wGklOGW24pdvcaVtbXfCteiUS96AKpjzIwmKDxZOZokobzzRPHKqS/sFIx1AAjwEVlp5zdKPUsH1Rrddxh2iiHZvSmxTJgeYTpvlTkp+Bp1TKZXcbpzdd3h4y+CvTTWcsFpRbWj/A1SfOoechWRhvWjG1EbdOwtOx2LZ1Fhj2CrWitWfH87F5UPCT+hJpjzLDtnkRql50Pn/bUUiItbGft+BXvk2eZNWASOwyd5+OooxW06+TxNjP6+nJzFCtTCkIWL5Qj5Q8/oK3UeeIg9oqJ/xQ5dCpG2LEIuZy2LtTmQYj3rV478S0vtYau6qaid8fZU0Bo3iLIZyVMbPfZAz627nxglSX88ZjWeTZAAme382zgJ5QN5UbbStI0ye5Iudj7QOqjLS5agaEU4sHfBfTKd7nziCZ+OTNjua77bQ1JNH9/75t8gauhnQ82wWJlzozvG7HR94qR/Nv5Uan6nLnDpw4Dto9hg3
+x-forefront-antispam-report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:CH3PR12MB7548.namprd12.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(376014)(1800799024)(366016)(38070700021)(56012099006)(4143699003)(11063799006)(22082099003)(18002099003);DIR:OUT;SFP:1101;
+x-ms-exchange-antispam-messagedata-chunkcount: 1
+x-ms-exchange-antispam-messagedata-0: =?us-ascii?Q?VgjmwgEy+oaUmUyN0OHsh/l/Qonuh2v5yiTOGMBhT/g7U0h49SH3BVic/Vx/?=
+ =?us-ascii?Q?Qxot3bAwjLuJ4Y+dh/2bMKCMFOF0STjqHDLT1Mh6/jiCo7QBDL8Jhjgrn863?=
+ =?us-ascii?Q?1Dh9tbNegy7WgaVl40cALAsNXK1jjNgaSKH5hONTdfIpdEDYHUFqfzXfxtE3?=
+ =?us-ascii?Q?NhrZw0wigv6ut0DFFO7E/ul2+WuDNFOo4VV8QWotnOturPW1J0VyW1AT4S0N?=
+ =?us-ascii?Q?e1sz2DOUmWZfvfq0juhgljtQUdyUzHtW3ci8gi497DKS6ZAV1GWtk5OIikpZ?=
+ =?us-ascii?Q?uiYAwscjvNNVzThlny9ISuCAphucAkNIv0IAfDuV7KhpFb/lPXLJnmqUuHxJ?=
+ =?us-ascii?Q?+ZQHsgGfDoQ3dWQy7007/scJJ6YxSlY/CHPhde90lDBXn8t/l5wLnZZxRF2O?=
+ =?us-ascii?Q?ZuzuGfAWSkuz6u6qCi1fCCHcp9mHJgVOZ9GW/HsIi/c78+Vd5G7vSjM10lK0?=
+ =?us-ascii?Q?iZ2Amz+8d8X4C2mmSBn1P5hpc2pfm2hYyDuaq2hJaGkqDKeGggM9ogOg/57T?=
+ =?us-ascii?Q?I1U6Sr2AJokZlKXXynG1mVWhr5eKVmdiy4HKhFDo7Qi4MVlyLkF7RR/90N6d?=
+ =?us-ascii?Q?CfuKL/JjhP7NchPkH7ng8PszhWO/2AA6Fh8/rl0ygP6oT2iSk2x1PVi16i78?=
+ =?us-ascii?Q?VzTBTw/Bg2yjBIDCoG6wXyKMIAPITdNHfsbVf5zJxRpvOaiO/NNGXEELnE57?=
+ =?us-ascii?Q?MGeE+qZ/ORUcTKdgT66o8imlMmIB+9OUDpFd0ZpuyVM5jhu5a0sidCJMjx9n?=
+ =?us-ascii?Q?mD4yYwE+1uMf3d5ySMwuOIXCwmvszyMOwZtk77OfNIZW/ujUgSeQGAmSz2Rj?=
+ =?us-ascii?Q?FrNbNQcZNtSwspnbJFd03QNGysIAc2ZvKq2ev1dptrqI+zrwDRpCbAgda9V2?=
+ =?us-ascii?Q?HGXwP6U21FSvib8iUWnWKhUFWvlqpEukaZzhfzQ00Rvx+D5WZpW917qM3PPK?=
+ =?us-ascii?Q?W07ShtqEdZQwIlZ+MbQgr/aeuNPZTeWG5G/igA0WpA0a5xHl62YfRpuWZcA9?=
+ =?us-ascii?Q?64DHb2KtNcSaZCMW/yHIvZ9K/sEdviqX4EaZK8LwfZuDJv5n2/owp0CN7eGw?=
+ =?us-ascii?Q?OT8A59Tl8LEurt9FPn50JQ3qQaoWMmwno4sSni458wCQAAzD4k1brKAyx7Z7?=
+ =?us-ascii?Q?92vb3f+TpQy+O+o2dFWp4FJLU9NXP1R6CXquWk25QiUxgQZ2TAKeOkiZ3rln?=
+ =?us-ascii?Q?tsMIBq/UXXDiTGvjT6wolqbPjuN5Xttb31V3Cvi5FRUE1TLR50287hj1eYBn?=
+ =?us-ascii?Q?26VjYl5vK0/pOUB0s+QYqGyRmBvjdy/azXPEPnaG35YKbIbAGJyY9zEnmt4o?=
+ =?us-ascii?Q?nc327Yk54bUzlSXG2QIA1cfYVq03WAxcz7kLJnTBe6UOA240JixAeaaz8nUa?=
+ =?us-ascii?Q?38r2jhFQbUMM0EgdLLtPQiLVo6JCZGqaB3thpAZ0zEjkH98Fq0teQYXZuAv7?=
+ =?us-ascii?Q?rE+NOJFZAhjbM+FMsr2c32NVgg+VLZFZ2LOuM22DepjPqZRi3ExbWrEgD+CF?=
+ =?us-ascii?Q?zVLP1QHiHbD07PkW8SbqL3LLwjbmGCROdqCm+6x9GvUz7rBJCL/4tTxCviGl?=
+ =?us-ascii?Q?9Slr2s6wCXCjNndOjrXw5N3MN7RBPn8LGpMnOSZN0vMYpJO/5I6pJyoooF1C?=
+ =?us-ascii?Q?2cQhV84yMJoR0/o3PQO3fFcDpiZ2FQjfNNfoEY0D2956nQ/GXEJIFwSDHiZe?=
+ =?us-ascii?Q?Gzn9e4/5roBdL7Sw/RNuhOMSeaJ1i97AqUhN70HSaoVzq9Odr3VcBol7RruN?=
+ =?us-ascii?Q?hEUMHApa5w=3D=3D?=
+Content-Type: text/plain; charset="us-ascii"
+Content-Transfer-Encoding: quoted-printable
+MIME-Version: 1.0
+X-OriginatorOrg: Nvidia.com
+X-MS-Exchange-CrossTenant-AuthAs: Internal
+X-MS-Exchange-CrossTenant-AuthSource: CH3PR12MB7548.namprd12.prod.outlook.com
+X-MS-Exchange-CrossTenant-Network-Message-Id: 30fd53ed-5a93-4029-de6d-08debd80d485
+X-MS-Exchange-CrossTenant-originalarrivaltime: 29 May 2026 12:50:15.2026
+ (UTC)
+X-MS-Exchange-CrossTenant-fromentityheader: Hosted
+X-MS-Exchange-CrossTenant-id: 43083d15-7273-40c1-b7db-39efd9ccc17a
+X-MS-Exchange-CrossTenant-mailboxtype: HOSTED
+X-MS-Exchange-CrossTenant-userprincipalname: 51k+CHd4+WN0PYJHQm7o3x+UaUyqz+0sQ5nAqzMvXt6KeUf8MVeM0QV+cthbHmrWimZ37v9be1i+mIBKrStpJg==
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: DM4PR12MB7623
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260529_053717_796855_ADFD52C3 
-X-CRM114-Status: GOOD (  19.02  )
+X-CRM114-CacheID: sfid-20260529_055021_813265_EB1F181F 
+X-CRM114-Status: GOOD (  13.95  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -111,53 +146,43 @@ Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.i
 
 
 
-On 5/29/26 3:09 PM, Krzysztof Kozlowski wrote:
-> On 29/05/2026 13:51, Arnd Bergmann wrote:
->> On Tue, May 5, 2026, at 15:13, Tudor Ambarus wrote:
->>> Sashiko identified a potential NULL pointer dereference [1].
->>>
->>> The dummy stub implementation for devm_acpm_get_by_node() returns NULL
->>> when CONFIG_EXYNOS_ACPM_PROTOCOL is disabled.
->>
->> I meant to comment on this yesterday as well.
->>
->> Having stub functions like this return NULL is a common way to
->> define optional interfaces, where callers still work when the
->> feature is disabled, though this clearly does not work for
->> acpm because some callers have a NULL pointer dereference
->> when compile testing.
->>
->> My preferred solution to this type of problem would be to
->> just remove the stub helpers and drop the ||COMPILE_TEST
->> from the one user that calls them, see below.
->>
->> The point here is that CONFIG_EXYNOS_ACPM_PROTOCOL already
->> supports compile-testing itself, and all (both) drivers using
->> it clearly require the support, so this just simplifies
+> -----Original Message-----
+> From: Jason Gunthorpe <jgg@ziepe.ca>
+> Sent: 29 May 2026 12:54
+> To: Shameer Kolothum Thodi <skolothumtho@nvidia.com>
+> Cc: iommu@lists.linux.dev; linux-kernel@vger.kernel.org; linux-arm-
+> kernel@lists.infradead.org; Nicolin Chen <nicolinc@nvidia.com>;
+> joro@8bytes.org; will@kernel.org; robin.murphy@arm.com; Nathan Chen
+> <nathanc@nvidia.com>; Matt Ochs <mochs@nvidia.com>
+> Subject: Re: [PATCH] iommu/tegra241-cmdqv: Skip CMD_SYNC flush during
+> remove
+>=20
+> External email: Use caution opening links or attachments
+>=20
+>=20
+> On Fri, May 29, 2026 at 10:10:52AM +0100, Shameer Kolothum wrote:
+>=20
+> > @@ -789,6 +794,13 @@ static void tegra241_cmdqv_remove(struct
+> arm_smmu_device *smmu)
+> >               container_of(smmu, struct tegra241_cmdqv, smmu);
+> >       u16 idx;
+> >
+> > +     /*
+> > +      * tegra241_cmdqv_remove() is added to devres at the very beginni=
+ng.
+> So,
+> > +      * at this point, devres has already freed the SMMU resources tha=
+t this
+> > +      * path must not access to avoid a UAF.
+> > +      */
+> > +     cmdqv->removing =3D true;
+>=20
+> Please don't add random bools to avoid devm bugs. Just don't use devm,
+> or maybe fix the devm ordering.. These ordering bugs are a well known
+> problem with using devm :(
 
-I confirm that the ACPM protocol is mandatory for the clients to
-work, thanks!
+Ok. Let me take another look at this.
 
->> the option space without losing any build coverage.
-
-nice, I didn't know this. I guess it's a "greedy" algorithm in
-allmodconfig, if the dependency is met the dependents are enabled too.
-
->>
->> Signed-off-by: Arnd Bergmann <arnd@arndb.de>
-
-Reviewed-by: Tudor Ambarus <tudor.ambarus@linaro.org>
->>
-> 
-> Sure, I am fine with it. I'll take your patch with a bit adjusted commit
-> msg.
-> 
-
-Thank you! I need to drop the devm_acpm_get_by_phandle dummy stub from:
-https://lore.kernel.org/linux-samsung-soc/a59c6e3a-6092-4114-8961-c2a71a812959@kernel.org/T/#m0ac077507129c37b84443513eecadd70b5eaf8b8
-
-Shall I send again the entire set?
-
-Cheers,
-ta
+Thanks,
+Shameer
 
