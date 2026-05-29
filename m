@@ -4,45 +4,45 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id B4B3ACD6E49
-	for <linux-arm-kernel@archiver.kernel.org>; Fri, 29 May 2026 17:37:11 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 07801CD6E49
+	for <linux-arm-kernel@archiver.kernel.org>; Fri, 29 May 2026 17:39:26 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
 	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
 	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=Gkuk1hSYF7azCaKHz/S3pZc2XU3K06FzR8lRjatZQwc=; b=DFQVw16N/UtvDEfOjyeI/2j8of
-	5Krk/RNLqdMpcQJetuFPwidmfPdWBi7S/0SBvhZk6iATplckgkIyUinof0w/kEATy3pYm4tMSPKGz
-	fy4V5QO9lw5DcmUaODqscYlwEWGw/QYyum/4KEMXWgEpVGJVWDv5lDq3+oO6YVTeARN3ED0fy8bMg
-	2aWI/TJdKh09TImdaQNHoLZpABtlVMyQR8Q+Pt35Q5yk6s8uV3008DnJ5+vdm51F8kH25ijyyiG8e
-	8naKnvjSECCUV0+sSn/1sCDv7hNy3ojrwC2+Htvcv3Az4KiWmp+b4E9k9V7aEmuAvtVgheNwzdsXm
-	ttfwIQ5w==;
+	bh=0WI4qQyv1EBpPKFRUbV0AQ8EnBM8UW7h22nNav4ht4s=; b=EPaKB4E9ee7qpb2VPlNUUkRhq2
+	un/X6DxntybChWvxndg6TrBvZRvSK7hw6+Cd+rgN3IARWkohKFy5J/b7VytltLpFeEZMO6M3pSzsp
+	TYaqaYXuzm7N3KLmkX8CMJW+6Avkau8pUbzQiy57vST6qjDao2vBm2S2tvfTKqFTmbZle1cd1kNkg
+	nacuIBjUMkbuDaYZA+oaZEXNewMa7Ul47YlHvDyg5qmo9M2eJMHLd/S+xBxG3vQMe+itKjo3AceVg
+	ATdjy2/KDt/H5x61mHTfDhvbKxf7kU/wJfid7j7OzruHgmgouo9BFrlD/7vgioVL4JFVUEB7Et9hd
+	T6IKDgiQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wT18r-000000081Hu-3Q6K;
-	Fri, 29 May 2026 17:37:05 +0000
-Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
+	id 1wT1B2-000000081XH-0Sbo;
+	Fri, 29 May 2026 17:39:20 +0000
+Received: from tor.source.kernel.org ([2600:3c04:e001:324:0:1991:8:25])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wT18p-000000081H9-3vaZ
+	id 1wT1B1-000000081XB-1q0m
 	for linux-arm-kernel@lists.infradead.org;
-	Fri, 29 May 2026 17:37:05 +0000
+	Fri, 29 May 2026 17:39:19 +0000
 Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
-	by sea.source.kernel.org (Postfix) with ESMTP id 8A17543BE5;
-	Fri, 29 May 2026 17:37:03 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id D9BD61F00893;
-	Fri, 29 May 2026 17:37:02 +0000 (UTC)
+	by tor.source.kernel.org (Postfix) with ESMTP id C5A53605D6;
+	Fri, 29 May 2026 17:39:18 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id F22C31F00893;
+	Fri, 29 May 2026 17:39:17 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1780076223;
-	bh=Gkuk1hSYF7azCaKHz/S3pZc2XU3K06FzR8lRjatZQwc=;
+	s=k20260515; t=1780076358;
+	bh=0WI4qQyv1EBpPKFRUbV0AQ8EnBM8UW7h22nNav4ht4s=;
 	h=Date:From:To:Cc:Subject:References:In-Reply-To;
-	b=XyPCHAU055g5ZN7YMdDu61wHTj2INteS4tKl7VRuD1bN8aKrsNK9viwY5qoL9mtGk
-	 L7u0p3sRKKV9oeaoVoQsrKwl+EbB76H7gaokCR4TMYIbJC0m7i6wCTJIvH7ydwPbjZ
-	 WBMncnMKC03ne5NRA1Sz6MmtemeRvtrATJkZnVvCf7++zDWRFJdfJV5/dNZ18twMH+
-	 frmdzmc4u9ey980lzvzqhgccf31Qj6TSaHn73ea885R++JKooTRvRTrOb2OBHcu3CF
-	 IAdnjwa7U0P1q/n/5TgsVQsg5qodfYeEZjAZltiLu229k2mJWqTMR9aTtAWkFkxtu3
-	 262jQgwYtbyiA==
-Date: Fri, 29 May 2026 19:37:01 +0200
+	b=Z310wI/JnTJ55UPI2NaUhuoQKsf2EhdkhQdN8jU3oDCtKPpmWt+FK14n2kUk9JHRF
+	 j0m5swxjsiuXc7sIomdwRUXJAQKApd8tESOB2MaBefqP2BZ1HgZZP434x1eA9BEySw
+	 pJFHz2nsjpLZWLfqlwcXBzgXGJVyvznOrcxDKoCyL6eKfilULbvurOgoADNF1SfYpx
+	 ASmT5Ks5kF+CwQkdtb7304ywS0f6XQaUpdCaqZ1kOIYPV72AUOMbaQ9VfNiGV1jWf1
+	 C3FWloTyFBPzluVScwSsbiQ0YfgNM3LKilJncymHrSsdRd9HTpdGbrQYPHzoaeC+Ao
+	 Pb63skQKRLliA==
+Date: Fri, 29 May 2026 19:39:16 +0200
 From: Krzysztof Kozlowski <krzk@kernel.org>
 To: Taniya Das <taniya.das@oss.qualcomm.com>
 Cc: Bjorn Andersson <andersson@kernel.org>, 
@@ -54,19 +54,15 @@ Cc: Bjorn Andersson <andersson@kernel.org>,
 	Jagadeesh Kona <jagadeesh.kona@oss.qualcomm.com>, linux-arm-msm@vger.kernel.org, linux-clk@vger.kernel.org, 
 	devicetree@vger.kernel.org, linux-kernel@vger.kernel.org, 
 	linux-stm32@st-md-mailman.stormreply.com, linux-arm-kernel@lists.infradead.org
-Subject: Re: [PATCH v5 2/7] dt-bindings: clock: qcom: document the Eliza GPU
- Clock Controller
-Message-ID: <20260529-bipedal-notorious-macaque-a999f4@quoll>
+Subject: Re: [PATCH v5 3/7] dt-bindings: clock: qcom: Add support for CAMCC
+ for Eliza
+Message-ID: <20260529-jade-weasel-of-perspective-c2e0aa@quoll>
 References: <20260525-eliza_mm_cc_v2-v5-0-a1d125619a5a@oss.qualcomm.com>
- <20260525-eliza_mm_cc_v2-v5-2-a1d125619a5a@oss.qualcomm.com>
+ <20260525-eliza_mm_cc_v2-v5-3-a1d125619a5a@oss.qualcomm.com>
 MIME-Version: 1.0
 Content-Type: text/plain; charset=utf-8
 Content-Disposition: inline
-In-Reply-To: <20260525-eliza_mm_cc_v2-v5-2-a1d125619a5a@oss.qualcomm.com>
-X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260529_103703_995376_2C4490D2 
-X-CRM114-Status: UNSURE (   8.40  )
-X-CRM114-Notice: Please train this message.
+In-Reply-To: <20260525-eliza_mm_cc_v2-v5-3-a1d125619a5a@oss.qualcomm.com>
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -81,14 +77,18 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Mon, May 25, 2026 at 04:16:04PM +0530, Taniya Das wrote:
-> Add bindings documentation for the Eliza Graphics Clock Controller.
+On Mon, May 25, 2026 at 04:16:05PM +0530, Taniya Das wrote:
+> Eliza camera clock controller is on CX and MX rails similar to Milos.
+> Add compatible string for Eliza camera and camera BIST clock
+> controller to the existing Milos camcc binding and add the
+> dt-bindings header for Eliza.
+> 
+> The camera clock controller provides power domains, so 'power-domain-cells'
+> must be present in the device tree node. Add this to required properties
+> to enforce it in the binding schema.
 > 
 > Signed-off-by: Taniya Das <taniya.das@oss.qualcomm.com>
 > ---
->  .../bindings/clock/qcom,sm8450-gpucc.yaml          |  3 ++
->  include/dt-bindings/clock/qcom,eliza-gpucc.h       | 51 ++++++++++++++++++++++
->  2 files changed, 54 insertions(+)
 
 Reviewed-by: Krzysztof Kozlowski <krzysztof.kozlowski@oss.qualcomm.com>
 
