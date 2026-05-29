@@ -4,7 +4,7 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 3F3FBCD6E50
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 04F41CD6E57
 	for <linux-arm-kernel@archiver.kernel.org>; Fri, 29 May 2026 15:02:48 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
@@ -12,66 +12,66 @@ DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	Subject:Message-ID:References:Mime-Version:In-Reply-To:Date:Reply-To:
 	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=5ic2DGsrtEHhUHaDXXEd0q4Y8zWmRk/iCag+la1hIg4=; b=KOKBzpgi9gZXGZINRpF1szLom6
-	pxhXCkCJ+h4JudsOfJ5h2HcCyIVbzhguepa6+4362/9KPdqXcpK7g9OkeM7L9BD6l8NZpHUvEkibt
-	aYS/lU9wx099T7lvgwav9sfNP0QzRCQrqRVB01vuYHerDpHquMGzier8MlpKIq/wyVplKtoANW4m2
-	JF/lp3KzRW+o8xYspPWjOyw9rptqfTSer5wqSZS7nVoJCfu14hPdz/CtwzzJd0TstpBguXgAE9PPx
-	g4wv33jEJwNjvZZ5sWPy7mRVOYsVJ9qtHDJOTmwF5UqQWEbsDjWE/pS4SAw2AvYUv/xOTEV7hx/1f
-	RF0CHZlA==;
+	bh=OI2PiSwVSqs1DMfWl+ZXR2POFOtjIsRCGzcVsnmPBAE=; b=30u9MdYbu3s97jjK64pVO8kUQS
+	gPXcANcYqLdut1YO5HO5SMO0jC5YFag0wxF5RxxE43UOqysKlr54Yw8Rf+8RDE5FJtHD7sCQj8k2N
+	vOZh8ASfR0e1d4u+zgHBR3UkIO1XTtkYLZTEI1Kmg17YVNPI3wX7eBet9YSezBoZ2hfKxq9aweeF1
+	H/FsYVvIGRtb6zHXQ3j+q6dbsgWstT72H8UjUsmVKoVMOToQwNIpgSIr5DzDjYBPJF/72DX8+XlEA
+	vuWOh9QgqtaAjx/njx5DrNOdPuJBnsAHeXPM7xP18pWtxqN+29CSrWRDI9AriQfM2sSewDi9K/AJs
+	MGAgl16w==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wSyjQ-00000007brY-1cGE;
+	id 1wSyjQ-00000007brL-0xO1;
 	Fri, 29 May 2026 15:02:40 +0000
-Received: from mail-ej1-x649.google.com ([2a00:1450:4864:20::649])
+Received: from mail-ej1-x64a.google.com ([2a00:1450:4864:20::64a])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wSyjL-00000007bkC-2MVL
+	id 1wSyjL-00000007bk7-0xwh
 	for linux-arm-kernel@lists.infradead.org;
 	Fri, 29 May 2026 15:02:37 +0000
-Received: by mail-ej1-x649.google.com with SMTP id a640c23a62f3a-bd50f081f72so203558766b.1
-        for <linux-arm-kernel@lists.infradead.org>; Fri, 29 May 2026 08:02:33 -0700 (PDT)
+Received: by mail-ej1-x64a.google.com with SMTP id a640c23a62f3a-bd2a8eb9281so218491766b.3
+        for <linux-arm-kernel@lists.infradead.org>; Fri, 29 May 2026 08:02:31 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=google.com; s=20251104; t=1780066952; x=1780671752; darn=lists.infradead.org;
+        d=google.com; s=20251104; t=1780066950; x=1780671750; darn=lists.infradead.org;
         h=cc:to:from:subject:message-id:references:mime-version:in-reply-to
          :date:from:to:cc:subject:date:message-id:reply-to;
-        bh=5ic2DGsrtEHhUHaDXXEd0q4Y8zWmRk/iCag+la1hIg4=;
-        b=G6duyjxDwaxlZ7i9e94CQele3r62Wl5H2aRe6FHH91mrGSXm1UyRGVgoFkheRy32fb
-         dIdsjBQr2ZdNktaWvo/oVETCCLuU05P/N729oGsIZ1InInSlzUhBs/nky/kzJjgbe6RT
-         CipqhlZBgJdTtJBrh1+wYXxr+pvuEYtWVMhZA4jyU2LpxUNr/MVB4LUNuONZgXwiyj6E
-         r4KSQXQuPFLjRt7GayizY+B85XENgolgtQoSkgdmE4dcK0KwqszTbgeFuyceUujJVsrx
-         FNuKLNBJpzFBucYDO6U9LJrUnKjL5Quqs7eWhmobdMLxLpOa1uYZPq3bANzqpWeL6UJ4
-         NtGg==
+        bh=OI2PiSwVSqs1DMfWl+ZXR2POFOtjIsRCGzcVsnmPBAE=;
+        b=JMH/E9R4I2odNUwGUQdoM0+zfbqFSSoeAGDNPmLEH970A+C8MmlP81vdY8l02cCURt
+         +uzCwS4DrxyrCgGqZ2zOjHdnC9YpDd9UN15IMfT8QpS+1QXFK1fuMsdmnw/0W20twGwY
+         sCTDM4LpK3YK6eEqPwfrKBU6sDAnXhB/RjwbFDbtcRY54XVVfRn208vUOGSHtpHsmF2e
+         VOKuLoG9TXMFJXFmbkBtMfZ4DKkyUeD8XvIYRwonuzOwDjp7VUjCAvKMmPq9dOq4Ot9r
+         8jSUQfJJDsp5qp3ruWJv23FV20OuS3kBM6cpIOEA9sC+sNOpp6mmJUKGBM64zRe6c19w
+         6yZA==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20251104; t=1780066952; x=1780671752;
+        d=1e100.net; s=20251104; t=1780066950; x=1780671750;
         h=cc:to:from:subject:message-id:references:mime-version:in-reply-to
          :date:x-gm-message-state:from:to:cc:subject:date:message-id:reply-to;
-        bh=5ic2DGsrtEHhUHaDXXEd0q4Y8zWmRk/iCag+la1hIg4=;
-        b=nKhsryO2IwYqpr/yMaPxuoUNG28BE7OJw4x77rckj+iArJmYY7qa4PaP5OBEP4u04C
-         +SXXy+fM2V65veippzodX1S+StIUADp/gIYi1k2jinSAvg/TpsynauF0oLXxZ/jAf0T6
-         oMPfqywzV5mE2TC1ixjMbvnbsM72KKb4CGiJmRkA7Uq9jU96te/pdccacQ1kIRHjBpv8
-         RZSykbI2iTg9IOlhk5WUFi4Pqok48qf3Fsfg7lguOor91Zk8n5rBO4baAnU2lIJ8Fpxv
-         piS6z8QSPEIG6UHVw51HV0/4hJjnK/5VVRbIq/sdx/DuuoMdx31S5kEdfxRa2RCn570T
-         /Adg==
-X-Gm-Message-State: AOJu0YzUEeGKmJIhYq44rgVLkKksN4hSddnTOh0Tk8DCvDa1CgCXZPkT
-	9IPi+3go+COWIIW0JcPgK7coOgWjNRwutvIZbJaJ/e+YijCpAmbn71OYeW63m52drx0AUioUcsx
-	nOLiz4C9FtEIgJj3FoHikgX+0nFLqyKnh6tRWWv+8mzmYFsydGGDIeehH6ZRHbtjxODpilbvglc
-	/LFW2UKW92rtQ1xeJY+iGE9494DKasfFVnXlFlMaWw9vqW
-X-Received: from ejcdp16.prod.google.com ([2002:a17:906:c150:b0:bcc:71b:965d])
- (user=ardb job=prod-delivery.src-stubby-dispatcher) by 2002:a17:907:846:b0:bd5:7c2:7622
- with SMTP id a640c23a62f3a-be9cce79583mr206170566b.49.1780066950536; Fri, 29
- May 2026 08:02:30 -0700 (PDT)
-Date: Fri, 29 May 2026 17:02:02 +0200
+        bh=OI2PiSwVSqs1DMfWl+ZXR2POFOtjIsRCGzcVsnmPBAE=;
+        b=oEX02C67+Ep/t25ztdD9Bg5T/Cv5GLlahMOPqnuttSQS6hi/veKaxxEr/tgYx5GrPt
+         FchNtwu4liYHl58r913mc3jIToi50DGsLjEML06oASdfKsDvxPepIs8G5/wG+7CUZkeg
+         YTMJABcHolQ6UbaHBfGekYtw8lw/yh3DIjnvAPOG5XZbf2hi/xbtezPKfJ601bBdPfZy
+         vu9VU/TUqmMOSU7mFxyX0G+UcDcBu7jGzlCHcQbp4MG8X+9aUl1HiqMhLb5UwDudZrs9
+         Lyp8X2t7fwvNsvZmJ01GLOujJNYlGdh5+PUsajVWOiq6fDmRzi6EHNLkKv9nMe3xrt35
+         lmdg==
+X-Gm-Message-State: AOJu0YziP2nLMCBvwXijiIBgcNYuDkZC38d0971SfPQuhce5fRXMHsiL
+	fhTTEWo/Bll2aZZXWwP6SA+peVpLKTCx2ty54Xat7GNHMIU1FF5mi42SL5sJqkdS2gEz7tvLn0V
+	iNfS5S9KYt/HHo2j1Z4+CcVZ4Dl/epFL110ou+WdibcRfSDREj47Qhh8WU3VmS/Gwu4En08o3rN
+	OFRdykak00N8ajXMwGVv/HfKvYJMajhpYarDZtfxGc8AZN
+X-Received: from wrmg9.prod.google.com ([2002:adf:e409:0:b0:45e:f392:2777])
+ (user=ardb job=prod-delivery.src-stubby-dispatcher) by 2002:a17:907:a07:b0:bd5:2e64:aef0
+ with SMTP id a640c23a62f3a-be9cbdc6f6fmr179513966b.24.1780066949175; Fri, 29
+ May 2026 08:02:29 -0700 (PDT)
+Date: Fri, 29 May 2026 17:02:01 +0200
 In-Reply-To: <20260529150150.1670604-17-ardb+git@google.com>
 Mime-Version: 1.0
 References: <20260529150150.1670604-17-ardb+git@google.com>
 X-Developer-Key: i=ardb@kernel.org; a=openpgp; fpr=F43D03328115A198C90016883D200E9CA6329909
-X-Developer-Signature: v=1; a=openpgp-sha256; l=3562; i=ardb@kernel.org;
- h=from:subject; bh=ubRBWkWn2UVZmjj/MlvsEvyHLMfMbEt4k4F760d5eRs=;
- b=owGbwMvMwCVmkMcZplerG8N4Wi2JIUtyVY4k535dO+nZFlbOfzzdd/L8Kc16wKgvUGy0L8C+M
- NAkc31HKQuDGBeDrJgii8Dsv+92np4oVes8SxZmDisTyBAGLk4BmMji6YwM9xVOLdQXVDy63md1
- QcOOcqYQ72WntJ6eyrZNi+loev33MsP/3BPHG8Off7zik3rM8U/Y17jQr64tKe5X7+RwlEXo3Rb gAwA=
+X-Developer-Signature: v=1; a=openpgp-sha256; l=2652; i=ardb@kernel.org;
+ h=from:subject; bh=LBsPwtXISC3cDlPuViRIHN1SKeCiNO3w0g/LYP90bWk=;
+ b=kA0DAAoWMG4JVi59LVwByyZiAGoZqmug957hRslXLEFSHUmrg+wMpqdQu/ZaCQ6ZVNlpR/e6R
+ Yh1BAAWCgAdFiEEEJv97rnLkRp9Q5odMG4JVi59LVwFAmoZqmsACgkQMG4JVi59LVw9CgD+Kz5r
+ yC92Fjmy2/vY5E6VGL4/Nm1StvBfLlgn5WtMnkABAJz+h8RdmiKW2M9JyTSGnfE2SIklxmyurX5 hqMMXobkC
 X-Mailer: git-send-email 2.54.0.823.g6e5bcc1fc9-goog
-Message-ID: <20260529150150.1670604-28-ardb+git@google.com>
-Subject: [PATCH v7 11/15] powerpc/code-patching: Avoid r/w mapping of the zero page
+Message-ID: <20260529150150.1670604-27-ardb+git@google.com>
+Subject: [PATCH v7 10/15] arm64: mm: Don't abuse memblock NOMAP to check for overlaps
 From: Ard Biesheuvel <ardb+git@google.com>
 To: linux-arm-kernel@lists.infradead.org
 Cc: linux-kernel@vger.kernel.org, will@kernel.org, catalin.marinas@arm.com, 
@@ -81,13 +81,11 @@ Cc: linux-kernel@vger.kernel.org, will@kernel.org, catalin.marinas@arm.com,
 	Kees Cook <kees@kernel.org>, Mike Rapoport <rppt@kernel.org>, David Hildenbrand <david@kernel.org>, 
 	Andrew Morton <akpm@linux-foundation.org>, Jann Horn <jannh@google.com>, linux-mm@kvack.org, 
 	linux-hardening@vger.kernel.org, linuxppc-dev@lists.ozlabs.org, 
-	linux-sh@vger.kernel.org, Madhavan Srinivasan <maddy@linux.ibm.com>, 
-	Michael Ellerman <mpe@ellerman.id.au>, Nicholas Piggin <npiggin@gmail.com>, 
-	"Christophe Leroy (CS GROUP)" <chleroy@kernel.org>
+	linux-sh@vger.kernel.org
 Content-Type: text/plain; charset="UTF-8"
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260529_080235_635241_ADE3988C 
-X-CRM114-Status: GOOD (  16.91  )
+X-CRM114-CacheID: sfid-20260529_080235_290628_11F22521 
+X-CRM114-Status: GOOD (  14.99  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -104,115 +102,66 @@ Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.i
 
 From: Ard Biesheuvel <ardb@kernel.org>
 
-The only remaining use of map_patch_area() is mapping the zero page, and
-immediately unmapping it again so that the intermediate page table
-levels are all guaranteed to be populated.
+Now that the linear region mapping routines respect existing table
+mappings and contiguous block and page mappings, it is no longer needed
+to fiddle with the memblock tables to set and clear the NOMAP attribute
+in order to omit text and rodata when creating the linear map.
 
-The use of the zero page here is completely arbitrary, and not harmful
-per se, but currently, it creates a writable mapping, and does so in a
-manner that requires that the empty_zero_page[] symbol is not
-const-qualified.
+Instead, map the kernel text and rodata alias first with the desired
+initial attributes and granularity, so that the loop iterating over the
+memblocks will not remap it in a manner that prevents it from being
+remapped with updated attributes later.
 
-Given that this is about to change, and that map_patch_area() now never
-maps anything other than the zero page, let's simplify the code and
-- remove the helpers and call [un]map_kernel_page() directly
-- take the PA of empty_zero_page directly
-- create a read-only temporary mapping.
-
-This allows empty_zero_page[] to be repainted as const u8[] in a
-subsequent patch, without making substantial changes to this code
-patching logic.
-
-Cc: Madhavan Srinivasan <maddy@linux.ibm.com>
-Cc: Michael Ellerman <mpe@ellerman.id.au>
-Cc: Nicholas Piggin <npiggin@gmail.com>
-Cc: "Christophe Leroy (CS GROUP)" <chleroy@kernel.org>
-Link: https://lore.kernel.org/all/20260520085423.485402-1-ardb@kernel.org/
 Signed-off-by: Ard Biesheuvel <ardb@kernel.org>
 ---
- arch/powerpc/lib/code-patching.c | 52 +-------------------
- 1 file changed, 2 insertions(+), 50 deletions(-)
+ arch/arm64/mm/mmu.c | 26 ++++++++------------
+ 1 file changed, 10 insertions(+), 16 deletions(-)
 
-diff --git a/arch/powerpc/lib/code-patching.c b/arch/powerpc/lib/code-patching.c
-index f84e0337cc02..44ff9f684bef 100644
---- a/arch/powerpc/lib/code-patching.c
-+++ b/arch/powerpc/lib/code-patching.c
-@@ -60,9 +60,6 @@ struct patch_context {
+diff --git a/arch/arm64/mm/mmu.c b/arch/arm64/mm/mmu.c
+index 971996e46fd1..dcfca5667e5c 100644
+--- a/arch/arm64/mm/mmu.c
++++ b/arch/arm64/mm/mmu.c
+@@ -1164,12 +1164,17 @@ static void __init map_mem(void)
+ 		flags |= NO_BLOCK_MAPPINGS | NO_CONT_MAPPINGS;
  
- static DEFINE_PER_CPU(struct patch_context, cpu_patching_context);
+ 	/*
+-	 * Take care not to create a writable alias for the
+-	 * read-only text and rodata sections of the kernel image.
+-	 * So temporarily mark them as NOMAP to skip mappings in
+-	 * the following for-loop
++	 * Map the linear alias of the [_text, __init_begin) interval first
++	 * so that its write permissions can be removed later without the need
++	 * to split any block mappings created by the loop below.
++	 *
++	 * Write permissions are needed for alternatives patching, and will be
++	 * removed later by mark_linear_text_alias_ro() above. This makes the
++	 * contents of the region accessible to subsystems such as hibernate,
++	 * but protects it from inadvertent modification or execution.
+ 	 */
+-	memblock_mark_nomap(kernel_start, kernel_end - kernel_start);
++	__map_memblock(kernel_start, kernel_end, pgprot_tagged(PAGE_KERNEL),
++		       flags);
  
--static int map_patch_area(void *addr, unsigned long text_poke_addr);
--static void unmap_patch_area(unsigned long addr);
--
- static bool mm_patch_enabled(void)
- {
- 	return IS_ENABLED(CONFIG_SMP) && radix_enabled();
-@@ -117,11 +114,11 @@ static int text_area_cpu_up(unsigned int cpu)
- 
- 	// Map/unmap the area to ensure all page tables are pre-allocated
- 	addr = (unsigned long)area->addr;
--	err = map_patch_area(empty_zero_page, addr);
-+	err = map_kernel_page(addr, __pa_symbol(empty_zero_page), PAGE_KERNEL_RO);
- 	if (err)
- 		return err;
- 
--	unmap_patch_area(addr);
-+	unmap_kernel_page(addr);
- 
- 	this_cpu_write(cpu_patching_context.area, area);
- 	this_cpu_write(cpu_patching_context.addr, addr);
-@@ -233,51 +230,6 @@ static unsigned long get_patch_pfn(void *addr)
- 		return __pa_symbol(addr) >> PAGE_SHIFT;
- }
- 
--/*
-- * This can be called for kernel text or a module.
-- */
--static int map_patch_area(void *addr, unsigned long text_poke_addr)
--{
--	unsigned long pfn = get_patch_pfn(addr);
--
--	return map_kernel_page(text_poke_addr, (pfn << PAGE_SHIFT), PAGE_KERNEL);
--}
--
--static void unmap_patch_area(unsigned long addr)
--{
--	pte_t *ptep;
--	pmd_t *pmdp;
--	pud_t *pudp;
--	p4d_t *p4dp;
--	pgd_t *pgdp;
--
--	pgdp = pgd_offset_k(addr);
--	if (WARN_ON(pgd_none(*pgdp)))
--		return;
--
--	p4dp = p4d_offset(pgdp, addr);
--	if (WARN_ON(p4d_none(*p4dp)))
--		return;
--
--	pudp = pud_offset(p4dp, addr);
--	if (WARN_ON(pud_none(*pudp)))
--		return;
--
--	pmdp = pmd_offset(pudp, addr);
--	if (WARN_ON(pmd_none(*pmdp)))
--		return;
--
--	ptep = pte_offset_kernel(pmdp, addr);
--	if (WARN_ON(pte_none(*ptep)))
--		return;
+ 	/* map all the memory banks */
+ 	for_each_mem_range(i, &start, &end) {
+@@ -1181,17 +1186,6 @@ static void __init map_mem(void)
+ 		__map_memblock(start, end, pgprot_tagged(PAGE_KERNEL),
+ 			       flags);
+ 	}
 -
 -	/*
--	 * In hash, pte_clear flushes the tlb, in radix, we have to
+-	 * Map the linear alias of the [_text, __init_begin) interval
+-	 * as non-executable now, and remove the write permission in
+-	 * mark_linear_text_alias_ro() below (which will be called after
+-	 * alternative patching has completed). This makes the contents
+-	 * of the region accessible to subsystems such as hibernate,
+-	 * but protects it from inadvertent modification or execution.
 -	 */
--	pte_clear(&init_mm, addr, ptep);
--	flush_tlb_kernel_range(addr, addr + PAGE_SIZE);
--}
--
- static int __do_patch_mem_mm(void *addr, unsigned long val, bool is_dword)
- {
- 	int err;
+-	__map_memblock(kernel_start, kernel_end, PAGE_KERNEL, 0);
+-	memblock_clear_nomap(kernel_start, kernel_end - kernel_start);
+ }
+ 
+ void mark_rodata_ro(void)
 -- 
 2.54.0.823.g6e5bcc1fc9-goog
 
