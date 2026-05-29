@@ -4,94 +4,56 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 04F05CD6E4A
-	for <linux-arm-kernel@archiver.kernel.org>; Fri, 29 May 2026 14:32:42 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 3F6B9CD6E50
+	for <linux-arm-kernel@archiver.kernel.org>; Fri, 29 May 2026 14:34:08 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=P2Vt6NJ/1ID8MCy+YuGg9aIM9aiVrg+WLBywxH6BVRc=; b=tp41WaT2Yzw2NFtFJTfoJW9ltd
-	+icxB5b97eiOZqb5jbFsvKIVIf/v/6nhaY8BWs31Y6Tf+/4jR1ktSlEeksRoQEYWca+3r9ETsC6or
-	Z9QzWbX2bMgAega6bf7Bl0jgdofSuQzzZASXo0B9lWdi072hC3xsrZ9KBuT5eO6Tu+ozsWf4mhiqh
-	WOhZqSDLUYLoNVBsRYYhb+Y6K05dP3mP9Te3uQMkwQwLyDLseoOgh0Dz+jUC2MLIg6pn5FMZ2bVIO
-	P7JNKgvP87Z0uGVPA1o8pzZxNzJpnxW7PYXQyMfhAxvHuRX/MaEhTt43T277p4moRXud8FjJ0wMcY
-	bK8F8tMQ==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	MIME-Version:Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-Type:
+	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
+	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=3AeC0mcKyvhtl2K4+FGM4pifQSMvkq+Qw88py2mgbTA=; b=C3HvaPy01JNxAfztTVerLF3O/i
+	Px0HRhZmCTPTHgewrU4hrMGtlFt+0yXHrKRosvgCuruVLnmfIeRzZqrB/42EtEwCuSebd3xunIJqt
+	kuKIppTqspxFYANy2WCRbjVlrUwzLgLrDvidhthMiTvW4sp63gORtpKw/KQtbePYLE+gprdvBFq2N
+	V/2qJQM3oQRNX4aXvhqr1LfZpy2RTYpWKnj4Zb5TQXlxZKVzPFMet4JLF6BlFaB7VIPL8YAW4A9+b
+	dTq8phzT27yPofNogSKe8+HnW4f1g6ADQBXvIr+WccJJb3VeZroOkcU6MDH3lqh3pmmJa7hR6lUNj
+	Hn1tjLvg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wSyGI-00000007WY9-24U9;
-	Fri, 29 May 2026 14:32:34 +0000
-Received: from mail-pl1-x62e.google.com ([2607:f8b0:4864:20::62e])
-	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wSyGF-00000007WXK-0o8u
+	id 1wSyHg-00000007WyD-3TJR;
+	Fri, 29 May 2026 14:34:00 +0000
+Received: from foss.arm.com ([217.140.110.172])
+	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
+	id 1wSyHd-00000007Wx6-1W4N
 	for linux-arm-kernel@lists.infradead.org;
-	Fri, 29 May 2026 14:32:33 +0000
-Received: by mail-pl1-x62e.google.com with SMTP id d9443c01a7336-2b2e8b95bdbso1125ad.0
-        for <linux-arm-kernel@lists.infradead.org>; Fri, 29 May 2026 07:32:30 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=google.com; s=20251104; t=1780065149; x=1780669949; darn=lists.infradead.org;
-        h=in-reply-to:content-disposition:mime-version:references:message-id
-         :subject:cc:to:from:date:from:to:cc:subject:date:message-id:reply-to;
-        bh=P2Vt6NJ/1ID8MCy+YuGg9aIM9aiVrg+WLBywxH6BVRc=;
-        b=l7HIJyDJAB5Cqf8wrkcAQ1ShMevXhu3hsrqGuB0VK0AaCAM4WXam2x8uCODTx+uhYd
-         tQ6PyI/lNfTOu5Owy+ydSz9C5zqLWuZHLcluSiRq99/QVMX+WvZeAf8cIcp5Fxn/oXNj
-         IhoY2QfhB4AXEyBML20L79C29P02p/LCxTYkCy8zcRK+qHaL761Mt01AicaiTVP4XN9q
-         fjPnoXJw6yA71nrrFbivbDBIAXKnJsdHf7bIncJDVTXlWJzHRHbI6WhWGT/6uB8tBIOX
-         bQI2nvjal/8BCr+VAtVf4oT0H16+i2aslU7gcn/UQaD+DRo9AjbbsJ76vTYS0Qg9nyUl
-         l9ww==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20251104; t=1780065149; x=1780669949;
-        h=in-reply-to:content-disposition:mime-version:references:message-id
-         :subject:cc:to:from:date:x-gm-gg:x-gm-message-state:from:to:cc
-         :subject:date:message-id:reply-to;
-        bh=P2Vt6NJ/1ID8MCy+YuGg9aIM9aiVrg+WLBywxH6BVRc=;
-        b=B6M8x9Em5SgdvFhQR+rnyXZL7Stkk6V/Nf/e2VXrX0DgB0zaqCr6yXSo/dZjCj1mne
-         aqQfeq3si9ypYRf9pZCzzw2vlyb6rV5CloHOB07w+weT7lFffR3M7n10Gj07bDPJtoTf
-         PoVsHyxcmKZrPDs9Qsz8oDG7v3uIuUuXrDWcO/urAnFsDlfjpBjdfeyFnw7Rdie8FZdM
-         /gFsagkZMC2Z+A4K4dXUZQFIxTyWV7dEmiAObGe2buCTjTbeyQmheoi0H04Vj9eS6pWu
-         LmA7uPl6HT20moq5n0rIgnT6sGklVAQe8VVdD2nReuYEMLuVbB+wmB0r34hxGRX/ngz2
-         YdGg==
-X-Forwarded-Encrypted: i=1; AFNElJ98jVeXkb/tSuVDxeBLEZxEk2zMtmYcRHczg4VTHVeBqOZicHLP9sZuJA10K3ryfjapEmDx9wLepAZDWMeMXCMQ@lists.infradead.org
-X-Gm-Message-State: AOJu0YyVzCqb0FoK5N8Gka6m3dmDzjbZqFxIR2embyNwcCZn/R0RaIDe
-	NQeV5AuXWtNksf0xRf8ovUr8jp0NFReQ8DJUP7e5Odl+9PYg8DfaVRXT7Am/q+uI6g==
-X-Gm-Gg: Acq92OEwbuxXhmZzMXNZ7JqtSUbfN412AA1kBrUZ7gHz9W2d1VAX9UoCBlsy/xuIOUh
-	9MDX629n873VIL/q8VT9vaeSf5Xog2UJE/8bdEyRTKyLG1fR+hzB8yK9wSkk7Yg0MRcsIsUn1P2
-	YIp/qmaqrR1T1jPYrTL/aJCZPqOBXvqcxU+YQXs1mJkVn4tmWcQNKG0ybTRTAKPaMUn3HBiTgxa
-	O+IHA7xgc6Ejnql2CLuHkyX8B73vr3CiuWM9Qwc2QovcwSA5CqiwFN9FWV9VcIrV9eXuoUfvpIt
-	r89ioWFb2e6p8U08C3CX4uw1cnxu+IbcfDzgxQNxcyBFmnzCz3gPavJjC2BL3Z2HvXM5UkqdjWr
-	75fGUYxZWH0WhBysrAwq6CnjAdKMyRu/cyicbNWV6C884hBZvqlw1Fz7zLOOfaXftpg/LLct5rU
-	yUb2FOnXOAepMh2cBVh5jqDxo/nTUO2wuJ2dtYhaET9owW6m1W1BW3u5siIR+cBrVlwHJl
-X-Received: by 2002:a17:902:db07:b0:2b9:a39a:e5db with SMTP id d9443c01a7336-2bf22eb6216mr1645625ad.7.1780065148948;
-        Fri, 29 May 2026 07:32:28 -0700 (PDT)
-Received: from google.com (44.234.124.34.bc.googleusercontent.com. [34.124.234.44])
-        by smtp.gmail.com with ESMTPSA id d9443c01a7336-2bf239fd85dsm20999405ad.25.2026.05.29.07.32.25
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Fri, 29 May 2026 07:32:28 -0700 (PDT)
-Date: Fri, 29 May 2026 14:32:22 +0000
-From: Pranjal Shrivastava <praan@google.com>
-To: Nicolin Chen <nicolinc@nvidia.com>
-Cc: iommu@lists.linux.dev, Will Deacon <will@kernel.org>,
-	Joerg Roedel <joro@8bytes.org>, Robin Murphy <robin.murphy@arm.com>,
-	Jason Gunthorpe <jgg@ziepe.ca>, Mostafa Saleh <smostafa@google.com>,
-	Daniel Mentz <danielmentz@google.com>,
-	Ashish Mhetre <amhetre@nvidia.com>,
-	linux-arm-kernel@lists.infradead.org
-Subject: Re: [PATCH v7 02/11] iommu/arm-smmu-v3: Add a helper to drain cmd
- queues
-Message-ID: <ahmjdjkhCHWpD10P@google.com>
-References: <20260527221407.1756491-1-praan@google.com>
- <20260527221407.1756491-3-praan@google.com>
- <aheb/OLd9AQO6rD8@Asurada-Nvidia>
- <ahgaQm5y_9mISKg0@google.com>
- <ahi8/7NnqW5TzY4P@Asurada-Nvidia>
+	Fri, 29 May 2026 14:33:59 +0000
+Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
+	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id 6F4BF1FC7;
+	Fri, 29 May 2026 07:33:50 -0700 (PDT)
+Received: from e121345-lin.cambridge.arm.com (e121345-lin.cambridge.arm.com [10.1.196.85])
+	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPA id AF6B03F905;
+	Fri, 29 May 2026 07:33:54 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=simple/simple; d=arm.com; s=foss;
+	t=1780065235; bh=DxQIY9aVNXnbe+nacPZDzEqdF/6n6FZ2z0Z159xjSJk=;
+	h=From:To:Cc:Subject:Date:From;
+	b=frmzm4Bw0NKUCKg7cScfgm4wYmILy10DV6QqLlMXsaJp5zwedFU4kHAze4ZyreWSn
+	 7qevaKhEkRLfLeEvA/Pu5o224lb3z/IdD12EyF9fX8reA+k+NVfOoML+tzwW645ugf
+	 Kr+A0g++p6Yy/rHfK1clZfFRGv67X8sEJWu2VDjc=
+From: Robin Murphy <robin.murphy@arm.com>
+To: will@kernel.org
+Cc: mark.rutland@arm.com,
+	linux-perf-users@vger.kernel.org,
+	linux-arm-kernel@lists.infradead.org,
+	stable@vger.kernel.org
+Subject: [PATCH] perf/arm-cmn: Fix DVM node events
+Date: Fri, 29 May 2026 15:33:45 +0100
+Message-ID: <1af20ba3fb35cc507e0d74408675b50340feca39.1780065225.git.robin.murphy@arm.com>
+X-Mailer: git-send-email 2.54.0.dirty
 MIME-Version: 1.0
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-In-Reply-To: <ahi8/7NnqW5TzY4P@Asurada-Nvidia>
+Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260529_073231_282976_075AD95E 
-X-CRM114-Status: GOOD (  22.53  )
+X-CRM114-CacheID: sfid-20260529_073358_799189_1BCCD198 
+X-CRM114-Status: GOOD (  10.01  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -106,94 +68,63 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Thu, May 28, 2026 at 03:09:03PM -0700, Nicolin Chen wrote:
-> On Thu, May 28, 2026 at 10:34:42AM +0000, Pranjal Shrivastava wrote:
-> > On Wed, May 27, 2026 at 06:35:56PM -0700, Nicolin Chen wrote:
-> > > On Wed, May 27, 2026 at 10:13:58PM +0000, Pranjal Shrivastava wrote:
-> > I'm planning to rename it to arm_smmu_drain_cmdq(), sounds good?
-> 
-> That sounds okay.
-> 
-> Though my series is still at the early review stage, I would like
-> to merge those two functions at some point
+The new DVM node events added in CMN-700 also apply to CMN S3; fix
+the model encoding so that we can expose the aliases and handle
+occupancy filtering on newer CMNs too.
 
-Makes sense.
-
-> 
-> Do you know if my implementation can work for cmdq too? Seems that
-> only the WFE would be different, which can be a bool?
-
-I think we can definitely unify these. I had a similar approach in my v2. 
-I've reviewed your PRI series and I think it would be best to use a common 
-helper for both use cases. 
-
-Maybe you include this patch in your series to combine the draining logic
-It leverages the helpers you factored out in your Patch 2 and adds a 
-toggle for the queue_empty requirement of Runtime PM. It also checks for 
-WFE appropriately:
-
-Subject: [PATCH] iommu/arm-smmu-v3: Add a unified arm_smmu_drain_queue() helper
-
-Introduce a unified arm_smmu_drain_queue() helper to handle both 
-snapshot-based cohort draining (for IOPF) and polling until queue_empty 
-(required for Runtime PM).
-
-The helper dynamically checks for the WFE requirement when targeting the 
-CMDQ and uses cond_resched() to avoid starving the threaded IRQ handlers 
-responsible for consuming entries from other queues.
-
-Signed-off-by: Pranjal Shrivastava <praan@google.com>
+Cc: <stable@vger.kernel.org>
+Fixes: 0dc2f4963f7e ("perf/arm-cmn: Support CMN S3")
+Signed-off-by: Robin Murphy <robin.murphy@arm.com>
 ---
- drivers/iommu/arm/arm-smmu-v3/arm-smmu-v3.c | 32 +++++++++++++++++++++++++++++
- 1 file changed, 32 insertions(+)
+ drivers/perf/arm-cmn.c | 23 ++++++++++++-----------
+ 1 file changed, 12 insertions(+), 11 deletions(-)
 
-diff --git a/drivers/iommu/arm/arm-smmu-v3/arm-smmu-v3.c b/drivers/iommu/arm/arm-smmu-v3/arm-smmu-v3.c
-index 866c711b118b..cf41b3cf5985f 100644
---- a/drivers/iommu/arm/arm-smmu-v3/arm-smmu-v3.c
-+++ b/drivers/iommu/arm/arm-smmu-v3/arm-smmu-v3.c
-@@ -894,6 +894,38 @@ static int arm_smmu_cmdq_batch_submit(struct arm_smmu_device *smmu,
- 					   cmds->num, true);
- }
+diff --git a/drivers/perf/arm-cmn.c b/drivers/perf/arm-cmn.c
+index f5305c8fdca4..6e5cc4086a9e 100644
+--- a/drivers/perf/arm-cmn.c
++++ b/drivers/perf/arm-cmn.c
+@@ -197,13 +197,14 @@
+ enum cmn_model {
+ 	CMN600 = 1,
+ 	CMN650 = 2,
+-	CMN700 = 4,
+-	CI700 = 8,
++	CI700 = 4,
++	CMN700 = 8,
+ 	CMNS3 = 16,
+ 	/* ...and then we can use bitmap tricks for commonality */
+ 	CMN_ANY = -1,
+ 	NOT_CMN600 = -2,
+-	CMN_650ON = CMN650 | CMN700 | CMNS3,
++	CMN_700ON = ~(CMN700 - 1),
++	CMN_650ON = CMN_700ON | CMN650,
+ };
  
-+static int arm_smmu_drain_queue(struct arm_smmu_device *smmu,
-+				struct arm_smmu_queue *q,
-+				bool until_empty)
-+{
-+	struct arm_smmu_queue_poll qp;
-+	u32 snapshot_prod, cons;
-+	int ret = 0;
-+
-+	queue_poll_init(smmu, &qp);
-+
-+	/* Secondary CMDQs don't support WFE*/
-+	qp.wfe &= (q == &smmu->cmdq.q);
-+
-+	snapshot_prod = readl_relaxed(q->prod_reg);
-+
-+	do {
-+		u32 target_prod;
-+
-+		cons = readl_relaxed(q->cons_reg);
-+		target_prod = until_empty ? readl_relaxed(q->prod_reg) : snapshot_prod;
-+
-+		if (__queue_empty(&q->llq, cons, target_prod) ||
-+		    __queue_consumed(&q->llq, cons, target_prod))
-+			return 0;
-+
-+		cond_resched();
-+	} while (!(ret = queue_poll(&qp)));
-+
-+	dev_warn_ratelimited(smmu->dev,
-+			     "queue drain timed out at prod=0x%x cons=0x%x\n",
-+			     readl_relaxed(q->prod_reg), cons);
-+	return ret;
-+}
-+
- static void arm_smmu_page_response(struct device *dev, struct iopf_fault *unused,
- 				   struct iommu_page_response *resp)
- {
---
+ /* Actual part numbers and revision IDs defined by the hardware */
+@@ -919,14 +920,14 @@ static struct attribute *arm_cmn_event_attrs[] = {
+ 	CMN_EVENT_DVM(NOT_CMN600, txsnp_stall,		0x0a),
+ 	CMN_EVENT_DVM(NOT_CMN600, trkfull,		0x0b),
+ 	CMN_EVENT_DVM_OCC(NOT_CMN600, trk_occupancy,	0x0c),
+-	CMN_EVENT_DVM_OCC(CMN700, trk_occupancy_cxha,	0x0d),
+-	CMN_EVENT_DVM_OCC(CMN700, trk_occupancy_pdn,	0x0e),
+-	CMN_EVENT_DVM(CMN700, trk_alloc,		0x0f),
+-	CMN_EVENT_DVM(CMN700, trk_cxha_alloc,		0x10),
+-	CMN_EVENT_DVM(CMN700, trk_pdn_alloc,		0x11),
+-	CMN_EVENT_DVM(CMN700, txsnp_stall_limit,	0x12),
+-	CMN_EVENT_DVM(CMN700, rxsnp_stall_starv,	0x13),
+-	CMN_EVENT_DVM(CMN700, txsnp_sync_stall_op,	0x14),
++	CMN_EVENT_DVM_OCC(CMN_700ON, trk_occupancy_cxha, 0x0d),
++	CMN_EVENT_DVM_OCC(CMN_700ON, trk_occupancy_pdn,	0x0e),
++	CMN_EVENT_DVM(CMN_700ON, trk_alloc,		0x0f),
++	CMN_EVENT_DVM(CMN_700ON, trk_cxha_alloc,	0x10),
++	CMN_EVENT_DVM(CMN_700ON, trk_pdn_alloc,		0x11),
++	CMN_EVENT_DVM(CMN_700ON, txsnp_stall_limit,	0x12),
++	CMN_EVENT_DVM(CMN_700ON, rxsnp_stall_starv,	0x13),
++	CMN_EVENT_DVM(CMN_700ON, txsnp_sync_stall_op,	0x14),
+ 
+ 	CMN_EVENT_HNF(CMN_ANY, cache_miss,		0x01),
+ 	CMN_EVENT_HNF(CMN_ANY, slc_sf_cache_access,	0x02),
+-- 
+2.54.0.dirty
 
-Thanks,
-Praan
 
