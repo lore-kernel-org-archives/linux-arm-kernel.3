@@ -4,93 +4,106 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id E7154CD6E45
-	for <linux-arm-kernel@archiver.kernel.org>; Fri, 29 May 2026 08:03:04 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 5AA69CD5BD2
+	for <linux-arm-kernel@archiver.kernel.org>; Fri, 29 May 2026 08:06:24 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:Cc:To:Subject:
+	Message-ID:Date:From:In-Reply-To:References:MIME-Version:Reply-To:
 	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=EEpP20QLYbUafDoJ1/D4YHhW2s2jVmPtJASihmV02YE=; b=CjvwseEHsAbworiVTIC5uwrmDg
-	w4L4OQbmiwNpp7O3ZjR4ob94mtdL7K7UOSGGFIhwLe4JoNoWHdHPvA46tNPIe1WkoxWOW7lW01Nie
-	gbINGO2Dp0Fav2soXO5jJi5ND38q2s+zpFWC3eqzbNWS+glgwut2MtzsCwG2njuC0+wyhQo7AbAfd
-	r1DfRS6kYaJRwc3VMk1Jc/7K5WysPtRDoY+vJ2phHUGAOc2wX5kKMPbPf1d0IvnqJ9j2tgr+SNJbR
-	d9VBIGpcs85OiQCjN6hyzK7WWa/ULBl3oGWv0EDNEBi9zK7NmKSo+cxgUS+PgM+Q9Np5FHcS70nJQ
-	0Rk8Y24g==;
+	bh=f05sF6HcNfeY9NaPK45KVgik8aSR3ZDOtTZVDoaoPk4=; b=i5WAuDJyONqHj0+b2TzxfDQnVy
+	IuAR/KKZvWzT92a2AM8t3uWvenbPuV+rzlCnLmbTZEnB0/lilKlvgfw3iAGb8HN5/VJBeQ7OOLtOk
+	t3GXa/0/jeMLtf3X33pJJnrMj57mviJnBsB9C0bg9mIkn14UG1FOWAZPPHmF10fXfER/Sig0M7dkd
+	dxYW6XtnAOG6t++Aknn7lcpFnNyzeVAZOGmRlX/A/FdG4fAT+0dy+y14RPFxLbCX4lVfsBrIOvv+N
+	F12ccy3k9HGr7qTgn5NwETOB4s5zCRty3SeSNmT84WagziuTTGhlIxZhwXVwqIFD1Um5fT3APDB3M
+	4O7tbwQQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wSsBG-00000006vPu-3RRp;
-	Fri, 29 May 2026 08:02:58 +0000
-Received: from mail-wm1-x329.google.com ([2a00:1450:4864:20::329])
+	id 1wSsET-00000006vi0-0w2B;
+	Fri, 29 May 2026 08:06:17 +0000
+Received: from mail-qt1-x82e.google.com ([2607:f8b0:4864:20::82e])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wSsBE-00000006vP9-0mjV
+	id 1wSsEQ-00000006vhO-1pIp
 	for linux-arm-kernel@lists.infradead.org;
-	Fri, 29 May 2026 08:02:57 +0000
-Received: by mail-wm1-x329.google.com with SMTP id 5b1f17b1804b1-48a563e4ef7so96672555e9.0
-        for <linux-arm-kernel@lists.infradead.org>; Fri, 29 May 2026 01:02:54 -0700 (PDT)
+	Fri, 29 May 2026 08:06:15 +0000
+Received: by mail-qt1-x82e.google.com with SMTP id d75a77b69052e-516d78ba1adso1391cf.1
+        for <linux-arm-kernel@lists.infradead.org>; Fri, 29 May 2026 01:06:13 -0700 (PDT)
+ARC-Seal: i=1; a=rsa-sha256; t=1780041972; cv=none;
+        d=google.com; s=arc-20240605;
+        b=PzgWb5BR8f8f0gmBH6/knZLBDikvL1T5Ra39jGx33MuGaCmDvmeITZlipbqv/z88c4
+         TEF7p+thxyu2xdHmBFQ1aLqW2b7oJJJJ4w1K3dZkMVvbMlu6jsr04ERQA8SpfIpVqwXy
+         5OJL2YDiDmrpXhqzZg6DKfIAi4cLR5gs9VXAydQ9UmcfI3PVBg9xhyqDyz7R02WboMMb
+         NrOLN2ztAuHureAb/AZViJzzRmMNExGHrcZsMUXlRrYJro2FudB6as+/JwL5flX8u2g4
+         lYrut0eDjWBMyrx+RYaFnD9eUm724aAGwE3HFd5ovOtRsbL5e7Y5nSvQNro1FjM+suan
+         gg6A==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20240605;
+        h=cc:to:subject:message-id:date:from:in-reply-to:references
+         :mime-version:dkim-signature;
+        bh=f05sF6HcNfeY9NaPK45KVgik8aSR3ZDOtTZVDoaoPk4=;
+        fh=8Nzesn9HO1AlhkL22Wg2/538k33jhvNwDfl2csKCMjo=;
+        b=fxTqjQk0FcHkgW1C+bxqY10uE6JKGlHyoSf8sl4l68BJMbz7y97l+yYPWdv5OBHz8i
+         6rxY5gs8XKW8mSrDngoggfBuuXhhyhMMjbcWBo/JLdWTFMU/vW9j0WQ33Imq7GxcWiNr
+         2+ZNXraOlSkC7vrQzM9zTTUOL/RNxJ5T//9ToaHc9bzKWbtZ1ObRtgXoWkRnXPLaH7od
+         2j/quuvIEOBjQgBcChRaz6zqgDM/RimSD9SeSbLXR1axNPUj3MZenHq5PHSk3ncjC46y
+         YeoepGyDbj3BSGhc9bU2jEK7WaKzeOkBtcEesKPZ2buFzk0nxhNha2/UVB0hMHn4LopI
+         sVoA==;
+        darn=lists.infradead.org
+ARC-Authentication-Results: i=1; mx.google.com; arc=none
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=google.com; s=20251104; t=1780041773; x=1780646573; darn=lists.infradead.org;
-        h=in-reply-to:content-disposition:mime-version:references:message-id
-         :subject:cc:to:from:date:from:to:cc:subject:date:message-id:reply-to;
-        bh=EEpP20QLYbUafDoJ1/D4YHhW2s2jVmPtJASihmV02YE=;
-        b=YbSx9nNNTyPh5/o7z204T5PM0j7hYOQ0tk+YQJGClhVn/9hTRHebaXUM48ZtVrEO2/
-         LFbjEXYjMoDX/A+IbkU3OVFSijLrF98qYfF3HYz2djrlUSuq9bvI5ocuAvceVtQ22ivy
-         CBuOPWwWSKhAfXIrRSPGaQn5I0/msaKermbZE0EjXrmRQVNBmpTeoe2AW1S8ksvhs8b2
-         DraSgcvUUO59zXzoSolmymK9r5ty17tdrLZCf7Jo8uZSdrZ6BE9zzFAViESB1AztCF7w
-         U7Ie7ek7ULYylTyjsH0Xx9uPsLIBlRQXKEUU3sPkR8cCuqvOk9f5wHBLS8thGi+OtC/u
-         0mCw==
+        d=google.com; s=20251104; t=1780041972; x=1780646772; darn=lists.infradead.org;
+        h=cc:to:subject:message-id:date:from:in-reply-to:references
+         :mime-version:from:to:cc:subject:date:message-id:reply-to;
+        bh=f05sF6HcNfeY9NaPK45KVgik8aSR3ZDOtTZVDoaoPk4=;
+        b=U53q5QPxhki2jvHl6Gew05YDgNflUA7fhTyu98K/xYuscZJm1SLduHFs/uFO4wREwi
+         JrnUGPNf5v+4kS4jbAiuXCzcsVAAiP53LujneqEfLjMggKgo8X/7wGOtE7LD2NE5eezM
+         Cdwy5uTzcICpCbTOfmiCenkMIckiOwC0fjlm6FKlU06GOjisGCJ8OkcnnhqHbMANaL34
+         DOMKE4bIgdAnpluvbgFTJbazcyOLxUOlVNg16EhbFkSzt2agDYGwd6IymOzPkj7jxHL6
+         GKDrDAk2svb67fUKLjHZoy3WannWZPui8VXQwL8hgfUqIsusWpi+fUsezF1qxUkt7vHj
+         OY0Q==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20251104; t=1780041773; x=1780646573;
-        h=in-reply-to:content-disposition:mime-version:references:message-id
-         :subject:cc:to:from:date:x-gm-gg:x-gm-message-state:from:to:cc
-         :subject:date:message-id:reply-to;
-        bh=EEpP20QLYbUafDoJ1/D4YHhW2s2jVmPtJASihmV02YE=;
-        b=aEU8zHEiDB2QWjlz8yw3BVB6EKOK9gl1gKyaU4nj+v9yjkPzRMQfetJsDhCsw7Drni
-         CvY/6CcSQzgMBmVvKqa3BlWuSZFYt4CEnf4vecfBnFGwOuprS165xwJK6Vz4Y833kVWT
-         32EXsUrim5iEqdIGk9qlxqVAMrOIrsTULf+J8I1fFg78Cke2cCwSSEvafL++u02KfiyW
-         MOdeoftldWC8Pk79WmRaVjcKEiG2KCok+Wfrioz6YKCVMkrlUqNiOn+r2GoSkBBbFssn
-         plXSKSf/lCSExWd+j4vT/dq19im8VBWFjY6ubmZU5D1T27NydF/Y2X4nEqkh28+k3Yyb
-         a8Jg==
-X-Forwarded-Encrypted: i=1; AFNElJ83WNU8kZq8DKoCgBjvZWiOwNELVYMYAmOEC7k3ziRvn77nqdtqTbqDa+9l8XnXoZN0YBCtr82vXGem0JW0sWRd@lists.infradead.org
-X-Gm-Message-State: AOJu0Yx3Vh5bdkEY7AFag3Qp9cR4t+9Ajzyc4DKCkdtPHLeJ3nFDtI3W
-	+fX62O8ZiMnJz5YirBb/Ch3DgDVMTZ/re7SOX20QUqS7wM41ZtHfbJ5kYamf5uT4XA==
-X-Gm-Gg: Acq92OELv7lT0bL2nTZ4ybc2thzLlx6uFDLSUoFE03AxmGkwEcRCqIr07k7LwaIUUdv
-	LWzlvxszfcEaul0qa8osBAQ+aL71933GWMTV+HRI/YSdaOyL/EpWMelM1UfbOqK4zb4BitriczX
-	ItgSrHV+l+JMNROkiEHVwh7m+BzcXiEQGuQyuLw3CwjhFKCMS00Gfn6RogZ/1CEUFih378d/EoU
-	sGgWJuB8BjGuHzu1GLqHnmNit4s/LY+8yVlC/8Ji0hotJzpq4x7CRMNT3tZXMsoBflctVl3RKaq
-	BwY0d4R6jGtzP2dxQOlZGh67I6huPTBWSIwOJmKaDTZC9Fdm1lEqzKZ+Du4XV6RSm+sk492zM0M
-	E/68O4aBcrvdXd5CNXQRg0yRbwn8cDUogt7unElkpIsrZvks+F9JNU+3soQwxRfbwBoxldklpdM
-	uwkxpKYsSsO2UooYATnzvYQAirfe56R0H4HzLWBAwEY32XsJtYBzyGiaB+/d2PapZ3cAi2K61Wu
-	WfUCg==
-X-Received: by 2002:a05:600c:c16b:b0:48a:563c:c8c0 with SMTP id 5b1f17b1804b1-4909d2e8ff7mr29149015e9.7.1780041772883;
-        Fri, 29 May 2026 01:02:52 -0700 (PDT)
-Received: from google.com (135.91.155.104.bc.googleusercontent.com. [104.155.91.135])
-        by smtp.gmail.com with ESMTPSA id 5b1f17b1804b1-4909c12b6ddsm8900445e9.33.2026.05.29.01.02.51
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Fri, 29 May 2026 01:02:51 -0700 (PDT)
-Date: Fri, 29 May 2026 09:02:45 +0100
-From: Vincent Donnefort <vdonnefort@google.com>
-To: tabba@google.com
-Cc: Marc Zyngier <maz@kernel.org>, Oliver Upton <oupton@kernel.org>,
-	Joey Gouly <joey.gouly@arm.com>,
-	Suzuki K Poulose <suzuki.poulose@arm.com>,
-	Zenghui Yu <yuzenghui@huawei.com>,
-	Catalin Marinas <catalin.marinas@arm.com>,
-	Will Deacon <will@kernel.org>, Quentin Perret <qperret@google.com>,
-	linux-arm-kernel@lists.infradead.org, kvmarm@lists.linux.dev,
-	linux-kernel@vger.kernel.org
+        d=1e100.net; s=20251104; t=1780041972; x=1780646772;
+        h=cc:to:subject:message-id:date:from:in-reply-to:references
+         :mime-version:x-gm-gg:x-gm-message-state:from:to:cc:subject:date
+         :message-id:reply-to;
+        bh=f05sF6HcNfeY9NaPK45KVgik8aSR3ZDOtTZVDoaoPk4=;
+        b=qrGiN/LhLRnxURB44Y2je9r9PWf4Rkq8W4UpHti+R/HnWg9197+uT3iAwtiq/d1Ms3
+         6gcKdwaH+Oa94s3jZTn25Hu8Nj0lLbGBBUfyoQcbHITYzoPUid7yd9sIFaH1m9eB7APC
+         vUCw90HsvJ9K7CCGy6PJ9PMBZtGnOy9DS32Qp/f6BBXKU8nVmwjDO+S93jFxwvfy7uQW
+         kVtCxzzFOm1NDDabn0MXbyhYn4dShviZkfPpqjJZh6j41Dg2vSjFq80CKk+C8MfvuZvb
+         YknLfLvObmh5sXqJVAZOSCTj7pzj2lxVPau8tx4Z7UP0j9I62vmAztSJZuUhx3xNSz6k
+         +1dw==
+X-Forwarded-Encrypted: i=1; AFNElJ/cigRV7HDujxDgNdW4DAr1mdxlJJEM45CwFzuwlnn+TKoVmEuo25ortaNC0FzTp7mxQPYdr1uPmz8ztqKq2ZrP@lists.infradead.org
+X-Gm-Message-State: AOJu0YzYLTpxrRqdRXKEOv/moZROczc18ZQ2XtFjb4j5MGr4tPjieWAI
+	/SCbHDJK4Mu1+ENdxghAgVst2ESBFApcswOvsKWBG3l3QQpgzdCWOsuFM/lD1oc1AxxeSDZpvWH
+	JYvMzKAM78L7qicphXHElSwpkmAwIff52T2B/g5WA
+X-Gm-Gg: Acq92OFWvgalz7YqJCuzzV/dq0gQBv6S3N2HfkKneop0gF+EF4MwKNFDfEnJ4y8ve5W
+	1M9HT+N3Z2lz80eglmCLQhbRX7nB6yJkfo7vZPBjiPulRIF0eGxbEMJ5EHHLIgJU8Gb1toCquBj
+	alz3j1VV96eenuNMskhL5LfZGFajJBmYOINLKZ2+AB2h+G7V7pTqwUPQlVvl4Nm0h5xQlQIh7si
+	NfkSXW9muZeUs7Bb36nBUC6pl3h4Xq+ZVTlYJmhp7CfOBrK4TYNkJlpKShPfYKS3iX7OTtT4Ukb
+	62y6tg7sBQ+BVc3dFzQ=
+X-Received: by 2002:ac8:58d1:0:b0:50f:af60:3496 with SMTP id
+ d75a77b69052e-5172f749fe4mr4695851cf.1.1780041971660; Fri, 29 May 2026
+ 01:06:11 -0700 (PDT)
+MIME-Version: 1.0
+References: <20260529074341.2271950-1-tabba@google.com> <ahlIJQU-1b0mayPP@google.com>
+In-Reply-To: <ahlIJQU-1b0mayPP@google.com>
+From: Fuad Tabba <tabba@google.com>
+Date: Fri, 29 May 2026 09:05:35 +0100
+X-Gm-Features: AVHnY4IsnAKmofdq6nk2K3297Z-C7ow2zDSgBYFAHw1ynri3vQ-SBvvvAsaLYy4
+Message-ID: <CA+EHjTxktk4-B6qcAOf4O26++M5s6CKkkP539s4dRBRWxZN83Q@mail.gmail.com>
 Subject: Re: [PATCH 0/2] KVM: arm64: Fix host/hyp tracking on share/unshare
  hypercall failure
-Message-ID: <ahlIJQU-1b0mayPP@google.com>
-References: <20260529074341.2271950-1-tabba@google.com>
-MIME-Version: 1.0
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-In-Reply-To: <20260529074341.2271950-1-tabba@google.com>
+To: Vincent Donnefort <vdonnefort@google.com>
+Cc: Marc Zyngier <maz@kernel.org>, Oliver Upton <oupton@kernel.org>, Joey Gouly <joey.gouly@arm.com>, 
+	Suzuki K Poulose <suzuki.poulose@arm.com>, Zenghui Yu <yuzenghui@huawei.com>, 
+	Catalin Marinas <catalin.marinas@arm.com>, Will Deacon <will@kernel.org>, 
+	Quentin Perret <qperret@google.com>, linux-arm-kernel@lists.infradead.org, 
+	kvmarm@lists.linux.dev, linux-kernel@vger.kernel.org
+Content-Type: text/plain; charset="UTF-8"
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260529_010256_241472_A7865404 
-X-CRM114-Status: GOOD (  18.96  )
+X-CRM114-CacheID: sfid-20260529_010614_501480_4584E169 
+X-CRM114-Status: GOOD (  23.15  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -105,47 +118,61 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Fri, May 29, 2026 at 08:43:39AM +0100, tabba@google.com wrote:
-> Hi folks,
-> 
-> Yet another bug I found while testing Sashiko locally with fixes to
-> review-prompts.
-> 
-> share_pfn_hyp() and unshare_pfn_hyp() in arch/arm64/kvm/mmu.c
-> maintain a host-side RB-tree mirroring the set of pages shared with
-> EL2. Both invoke a hypercall that can fail (page-state mismatch,
-> EL2 refcount still held), but neither cleans up on failure:
-> 
-> - share_pfn_hyp() inserts the tracking node before the hypercall
->   and leaves it in the tree on failure, leaking the allocation and
->   presenting a phantom share to a later unshare.
-> 
-> - unshare_pfn_hyp() erases the tracking node before the hypercall;
->   on failure the host loses its record while EL2 still owns the
->   share, breaking later operations on the same pfn.
-> 
-> Severity is low (no isolation impact) and the failure paths are rare
-> in practice, but the desync is real. Both patches are independent and
-> apply cleanly to current mainline. In other words, this can wait for
-> 7.2.
+On Fri, 29 May 2026 at 09:02, Vincent Donnefort <vdonnefort@google.com> wrote:
+>
+> On Fri, May 29, 2026 at 08:43:39AM +0100, tabba@google.com wrote:
+> > Hi folks,
+> >
+> > Yet another bug I found while testing Sashiko locally with fixes to
+> > review-prompts.
+> >
+> > share_pfn_hyp() and unshare_pfn_hyp() in arch/arm64/kvm/mmu.c
+> > maintain a host-side RB-tree mirroring the set of pages shared with
+> > EL2. Both invoke a hypercall that can fail (page-state mismatch,
+> > EL2 refcount still held), but neither cleans up on failure:
+> >
+> > - share_pfn_hyp() inserts the tracking node before the hypercall
+> >   and leaves it in the tree on failure, leaking the allocation and
+> >   presenting a phantom share to a later unshare.
+> >
+> > - unshare_pfn_hyp() erases the tracking node before the hypercall;
+> >   on failure the host loses its record while EL2 still owns the
+> >   share, breaking later operations on the same pfn.
+> >
+> > Severity is low (no isolation impact) and the failure paths are rare
+> > in practice, but the desync is real. Both patches are independent and
+> > apply cleanly to current mainline. In other words, this can wait for
+> > 7.2.
+>
+>
+> I believe I fixed that here lore.kernel.org/all/acyKhZL2di_QQ9xm@google.com but
+> as Quentin pointed-out, there's absolutely no reason for the hypercall to fail.
+> So I haven't sent a v2.
 
+At the very least we need to add a comment, otherwise, people like me
+and LLMs like Sashiko would stumble upon it.
 
-I believe I fixed that here lore.kernel.org/all/acyKhZL2di_QQ9xm@google.com but
-as Quentin pointed-out, there's absolutely no reason for the hypercall to fail.
-So I haven't sent a v2.
+That said, this fix adds no real overhead, makes the code clearer, and
+guards us against a future where that call might fail.
+Self-documenting in essense.
 
-> 
-> Cheers,
-> /fuad
-> 
-> Fuad Tabba (2):
->   KVM: arm64: Free hyp-share tracking node when share hypercall fails
->   KVM: arm64: Avoid host/hyp share desync on unshare hypercall failure
-> 
->  arch/arm64/kvm/mmu.c | 14 +++++++++++---
->  1 file changed, 11 insertions(+), 3 deletions(-)
-> 
-> -- 
-> 2.54.0.929.g9b7fa37559-goog
-> 
+WDYT?
+
+/fuad
+
+>
+> >
+> > Cheers,
+> > /fuad
+> >
+> > Fuad Tabba (2):
+> >   KVM: arm64: Free hyp-share tracking node when share hypercall fails
+> >   KVM: arm64: Avoid host/hyp share desync on unshare hypercall failure
+> >
+> >  arch/arm64/kvm/mmu.c | 14 +++++++++++---
+> >  1 file changed, 11 insertions(+), 3 deletions(-)
+> >
+> > --
+> > 2.54.0.929.g9b7fa37559-goog
+> >
 
