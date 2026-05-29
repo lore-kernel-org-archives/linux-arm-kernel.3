@@ -4,93 +4,83 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id DAB69CD6E49
-	for <linux-arm-kernel@archiver.kernel.org>; Fri, 29 May 2026 04:21:09 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 862EACD5BD2
+	for <linux-arm-kernel@archiver.kernel.org>; Fri, 29 May 2026 04:26:54 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	MIME-Version:Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-Type:
-	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
-	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
-	bh=WkkJotVpft6x/vARkqnh9oEixNmMN2cX8O5U+VJWqdM=; b=XiEUycjfT/WcxSI8ipTQsHz5a1
-	L7V6S97Oq3Um5SalTGqISplsLvhSu9OQUqF8stAypqe8tCmKm3GaoohbV+Wqgw/xLPqD/oJErMCCa
-	WzwrwzGwv5vX06QS6t3zStKb6UEuV+8Fygb9FxVxXz3d4YZAasc5sDOQNAi+9ChxdEJq68DfMxRE9
-	gihBSstbySxZiJDac3Yo6TEvu02wXZJO25byb22wpV3MEpUlmLpXrkNmMHJo7YKqysxX51PZmpMnl
-	ufo0Mo1GmZF0FmK33H/uT8ToIVfMsxVl/x7zf62uZ7yvbVxScuL57K+l+AxxCVaR2QHB2Z6PiCmDx
-	cAwaRlSQ==;
+	MIME-Version:References:In-Reply-To:Message-Id:Date:Subject:Cc:To:From:
+	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=Syj2RHvx/LpmGjzUXzJU++cXesHP0Q423pMH72UNJp4=; b=L682DkUqLxOFC+61CsziiHrTBu
+	XObSkAAtUN/ND2bjZNwCu1ycp3PTqKFCLk/P6DoGvIsJW0EKdyRkYkGvs0kPfLVf9W4j/307iP9QV
+	jf5ouB2FASSne7Bc29d45tHe+RLoDg3gYGHTYruzHg3dldlPx7/Ajea3NazbBe+9aMqUazkTqo4lN
+	vWdswfkbAhMhXQLZNxf8giJcSG6+xCs96vW5bdjktIkvZytTlP+nPrbGcUN3V+fOTw30RvWPI3hQV
+	b4hIqKAOn7Kf/2Zld3v/UhM6tAfxlFbPNVp0Q2aWfT+5rZeNUgrKwyaaMYKov9Gg6sOk4RmNTonoU
+	zVygRzxQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wSoiS-00000006jLn-17M5;
-	Fri, 29 May 2026 04:21:00 +0000
-Received: from mail-qk1-x730.google.com ([2607:f8b0:4864:20::730])
+	id 1wSoU1-00000006ifl-3Td1;
+	Fri, 29 May 2026 04:06:05 +0000
+Received: from mail-m60162.netease.com ([210.79.60.162])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wSoiP-00000006jLI-2rlg
-	for linux-arm-kernel@lists.infradead.org;
-	Fri, 29 May 2026 04:20:59 +0000
-Received: by mail-qk1-x730.google.com with SMTP id af79cd13be357-914bf787977so538524785a.2
-        for <linux-arm-kernel@lists.infradead.org>; Thu, 28 May 2026 21:20:56 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20251104; t=1780028456; x=1780633256; darn=lists.infradead.org;
-        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
-         :to:from:from:to:cc:subject:date:message-id:reply-to;
-        bh=WkkJotVpft6x/vARkqnh9oEixNmMN2cX8O5U+VJWqdM=;
-        b=jevcN2U8CX1ARfFUZ4kdioPt+MWmRkBLld4t7kx4wcmoR3Fpf/KplTLcKO6DiBwwo6
-         gVZYi5mJdXzXm19dRPvOz5iOjAEgMbdL7oQ3HNbGaMhKajoxaVVek9uo11iqFqxhb8q0
-         8IBjIz33jfc+Rl25zjGH3vB3Pt2OmAgyvNoIIvGP1XJTi+kDvWXA1edd3FdPwvxnK4Of
-         xf4ZS5g1gCW06FolgdNLNTzS4E5bxkAyQvTZqe9hEr9jks5yzGfXjrIWdf3EIIcHcFDa
-         ly5JqA83Te7tStoWy+mnf8mS7WNI5gJ6EAnx1DVxHkVZ5SEowpkWJxKzyFNwBWKlneP9
-         tlAA==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20251104; t=1780028456; x=1780633256;
-        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
-         :to:from:x-gm-gg:x-gm-message-state:from:to:cc:subject:date
-         :message-id:reply-to;
-        bh=WkkJotVpft6x/vARkqnh9oEixNmMN2cX8O5U+VJWqdM=;
-        b=PlZYSvmcCKaMG5gYR14vc2PI3zXAKYXM4WEnOZwKR0HebqRt1GWkGEknKW+M+QLVKa
-         VBhHaJlaDx2Hqq6iDX926Ajrx38d0ip6dyNuVziQII/74n92LqhE+yBjGs7GoF45htFS
-         c4ufI3sMR1FhCX6AxWXRGZR3HNzOyuvNvu9wyjwR0JC5xTa4fIYoY/yMhESUSxQvoK7H
-         vUTh51FLLcYwj1KMBP7eLCys2aKamjd/dDySG/UWQSu5bzeWvV1sAD+LRGLcLQoYkNwj
-         OzMAEzZAuX2uGqUXkDWZAnmytyKmXv7sLb5jNFKZ2f5KTeD7BEPkyVL4EBXFKRUwddkn
-         7lsQ==
-X-Forwarded-Encrypted: i=1; AFNElJ8dR40CRyd8JdLAK6RvbgN1AQWyxbDOflJrnvCMTlTl6nYMXZ2nGEjToaeEgpK6z16aNIO04ixkFdBzffPV6RxY@lists.infradead.org
-X-Gm-Message-State: AOJu0Yz98DLjsHznHEw8Jc9UM8kyYHBZWYjI2mR/ybMAVPH/uCNQTh+F
-	LIapM3N0Odkp5Oo+opTbOvwLVcjpwJ0+BGDpgzGqmFF7U3KYJa+YJyQc
-X-Gm-Gg: Acq92OFh9ivuxEafmc7M23nDPy8A/krkf1kpEQycOf7VTPHFcJRS/qO/mNMnDzhyIKQ
-	oykN8+j3gpk2VnoeJjUsXZg6gymlcynbqvZPITRUcLYuNFOOhKFhdO65CfG98fGpAWHLZcadc+c
-	+0Hlu/QcJGVRLpAl+M4PIt9hTQh/jw1mDeaF7yMsz22XK01vs2C061Cah6gk8+NlMwByXV1M44B
-	HC+4Zeu5n4aLLqNvuYgEQAHOKIeIPQ1s3hkrmkr4rjnLOwtTOWhi/CNGSpN6bQo9UCTnFU4LaM8
-	zXzgvBxWNk74x8KfHXvfdyNrC0v8yOpAyCcLKNwzXSG/xwnWEa414fOpWJSFHfTVUOWlZc3lQdW
-	9FAp3f1jmq7I6vK7Sj9UMzhqNUWAYX/ETOiP8PvD3Ze+/puzpAeKKpEdP4Mv/lCmibrzxbhoocd
-	oRqQi0FWQuqIlIRVBRMrNTvP01WpyGbdO6v74Kf/5B7kudzNAdxMA=
-X-Received: by 2002:a05:620a:6494:b0:914:c38a:4e72 with SMTP id af79cd13be357-9152fe13a9fmr153575385a.50.1780028455830;
-        Thu, 28 May 2026 21:20:55 -0700 (PDT)
-Received: from i4-gl-tmk5904.ad.psu.edu ([130.203.156.186])
-        by smtp.gmail.com with ESMTPSA id af79cd13be357-91532480ed6sm55661885a.15.2026.05.28.21.20.54
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Thu, 28 May 2026 21:20:55 -0700 (PDT)
-From: Yuho Choi <dbgh9129@gmail.com>
-To: Michael Turquette <mturquette@baylibre.com>,
-	Stephen Boyd <sboyd@kernel.org>,
-	Nicolas Ferre <nicolas.ferre@microchip.com>,
-	Alexandre Belloni <alexandre.belloni@bootlin.com>,
-	Claudiu Beznea <claudiu.beznea@tuxon.dev>
-Cc: Brian Masney <bmasney@redhat.com>,
-	Kees Cook <kees@kernel.org>,
-	"Rafael J. Wysocki (Intel)" <rafael@kernel.org>,
-	Thierry Reding <treding@nvidia.com>,
-	linux-clk@vger.kernel.org,
+	id 1wSoTq-00000006iYu-1njc;
+	Fri, 29 May 2026 04:05:55 +0000
+Received: from zyb-HP-ProDesk-680-G2-MT.. (unknown [61.154.14.86])
+	by smtp.qiye.163.com (Hmail) with ESMTP id 404653bc6;
+	Fri, 29 May 2026 12:05:50 +0800 (GMT+08:00)
+From: Damon Ding <damon.ding@rock-chips.com>
+To: hjc@rock-chips.com,
+	heiko@sntech.de,
+	andy.yan@rock-chips.com,
+	maarten.lankhorst@linux.intel.com,
+	mripard@kernel.org,
+	tzimmermann@suse.de,
+	airlied@gmail.com,
+	simona@ffwll.ch,
+	robh@kernel.org,
+	krzk+dt@kernel.org,
+	conor+dt@kernel.org,
+	andrzej.hajda@intel.com,
+	neil.armstrong@linaro.org,
+	rfoss@kernel.org
+Cc: Laurent.pinchart@ideasonboard.com,
+	jonas@kwiboo.se,
+	jernej.skrabec@gmail.com,
+	nicolas.frattaroli@collabora.com,
+	cristian.ciocaltea@collabora.com,
+	sebastian.reichel@collabora.com,
+	dmitry.baryshkov@oss.qualcomm.com,
+	luca.ceresoli@bootlin.com,
+	dianders@chromium.org,
+	m.szyprowski@samsung.com,
+	dri-devel@lists.freedesktop.org,
+	devicetree@vger.kernel.org,
 	linux-arm-kernel@lists.infradead.org,
+	linux-rockchip@lists.infradead.org,
 	linux-kernel@vger.kernel.org,
-	Yuho Choi <dbgh9129@gmail.com>
-Subject: [PATCH v1] clk: at91: keep securam node alive while mapping it
-Date: Fri, 29 May 2026 00:20:51 -0400
-Message-ID: <20260529042051.1626978-1-dbgh9129@gmail.com>
-X-Mailer: git-send-email 2.43.0
+	Damon Ding <damon.ding@rock-chips.com>
+Subject: [PATCH v4 2/3] drm/bridge: analogix_dp: Add validation for samsung,lane-count property
+Date: Fri, 29 May 2026 12:05:29 +0800
+Message-Id: <20260529040530.741336-3-damon.ding@rock-chips.com>
+X-Mailer: git-send-email 2.34.1
+In-Reply-To: <20260529040530.741336-1-damon.ding@rock-chips.com>
+References: <20260529040530.741336-1-damon.ding@rock-chips.com>
 MIME-Version: 1.0
 Content-Transfer-Encoding: 8bit
+X-HM-Tid: 0a9e71e8eb0203a8kunmaf9a1d48e6c1d
+X-HM-MType: 1
+X-HM-Spam-Status: e1kfGhgUHx5ZQUpXWQgPGg8OCBgUHx5ZQUlOS1dZFg8aDwILHllBWSg2Ly
+	tZV1koWUFITzdXWRgWCB1ZQUpXWS1ZQUlXWQ8JGhUIEh9ZQVlDSE9CVkxITklCSh4YGhhDGFYVFA
+	kWGhdVEwETFhoSFyQUDg9ZV1kYEgtZQVlNSlVKTk9VSk9VQ01ZV1kWGg8SFR0UWUFZT0tIVUpLSE
+	pKQk1VSktLVUpCWQY+
+DKIM-Signature: a=rsa-sha256;
+	b=DfdPuSR2IE05HJwrYdcrDhvrb3baFXB3hECoW7hXsI7+DxcjIXaD5jhGrwdCL/3jr3hdWhXrjaRR4L3HzG8PKDrX7zpWxn8gMWS1bdKR6cblDWRZd3qxJxWi88l4hPrCEN2QyIVHPn7XP7pddJ+0BICUCFVDlnRZd7rwqN5rlns=; c=relaxed/relaxed; s=default; d=rock-chips.com; v=1;
+	bh=Syj2RHvx/LpmGjzUXzJU++cXesHP0Q423pMH72UNJp4=;
+	h=date:mime-version:subject:message-id:from;
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260528_212057_722844_BB66DC9C 
-X-CRM114-Status: GOOD (  12.13  )
+X-CRM114-CacheID: sfid-20260528_210554_685900_612AACAE 
+X-CRM114-Status: GOOD (  10.64  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -105,38 +95,48 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-pmc_register_ops() gets an owned reference to the
-"atmel,sama5d2-securam" node with of_find_compatible_node().  The
-success path dropped that reference before passing the node to
-of_iomap(), leaving of_iomap() to consume a node pointer after the caller
-had released its reference.
+Add range check for samsung,lane-count to avoid invalid values.
+Validation is only applied when the property exists to maintain
+backward compatibility.
 
-Move of_node_put() after of_iomap() so the node remains referenced for
-the mapping operation.  The unavailable-node error path already releases
-the reference.
-
-Fixes: 4d21be864092 ("clk: at91: pmc: execute suspend/resume only for backup mode")
-Signed-off-by: Yuho Choi <dbgh9129@gmail.com>
+Suggested-by: Luca Ceresoli <luca.ceresoli@bootlin.com>
+Signed-off-by: Damon Ding <damon.ding@rock-chips.com>
 ---
- drivers/clk/at91/pmc.c | 2 +-
- 1 file changed, 1 insertion(+), 1 deletion(-)
+ drivers/gpu/drm/bridge/analogix/analogix_dp_core.c | 13 +++++++++++--
+ 1 file changed, 11 insertions(+), 2 deletions(-)
 
-diff --git a/drivers/clk/at91/pmc.c b/drivers/clk/at91/pmc.c
-index b618a5e00b00..03a6c31d6aa8 100644
---- a/drivers/clk/at91/pmc.c
-+++ b/drivers/clk/at91/pmc.c
-@@ -180,9 +180,9 @@ static int __init pmc_register_ops(void)
- 		of_node_put(np);
- 		return -ENODEV;
- 	}
--	of_node_put(np);
+diff --git a/drivers/gpu/drm/bridge/analogix/analogix_dp_core.c b/drivers/gpu/drm/bridge/analogix/analogix_dp_core.c
+index 8cf6b73bceac..699a7f380c56 100644
+--- a/drivers/gpu/drm/bridge/analogix/analogix_dp_core.c
++++ b/drivers/gpu/drm/bridge/analogix/analogix_dp_core.c
+@@ -1238,6 +1238,7 @@ static int analogix_dp_dt_parse_pdata(struct analogix_dp_device *dp)
+ {
+ 	struct device_node *dp_node = dp->dev->of_node;
+ 	struct video_info *video_info = &dp->video_info;
++	int ret;
  
- 	at91_pmc_backup_suspend = of_iomap(np, 0);
-+	of_node_put(np);
- 	if (!at91_pmc_backup_suspend) {
- 		pr_warn("%s(): unable to map securam\n", __func__);
- 		return -ENOMEM;
+ 	switch (dp->plat_data->dev_type) {
+ 	case RK3288_DP:
+@@ -1260,8 +1261,16 @@ static int analogix_dp_dt_parse_pdata(struct analogix_dp_device *dp)
+ 		 */
+ 		of_property_read_u32(dp_node, "samsung,link-rate",
+ 				     &video_info->max_link_rate);
+-		of_property_read_u32(dp_node, "samsung,lane-count",
+-				     &video_info->max_lane_count);
++		ret = of_property_read_u32(dp_node, "samsung,lane-count",
++					   &video_info->max_lane_count);
++		if (!ret) {
++			if (video_info->max_lane_count == 0 ||
++			    video_info->max_lane_count > LANE_COUNT4) {
++				dev_err(dp->dev, "samsung,lane-count = %d is out of range\n",
++					video_info->max_lane_count);
++				return -EINVAL;
++			}
++		}
+ 		break;
+ 	}
+ 
 -- 
-2.43.0
+2.34.1
 
 
