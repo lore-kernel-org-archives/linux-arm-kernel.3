@@ -4,74 +4,135 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 759B0CD6E45
-	for <linux-arm-kernel@archiver.kernel.org>; Fri, 29 May 2026 09:52:23 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 1DBAFCD6E45
+	for <linux-arm-kernel@archiver.kernel.org>; Fri, 29 May 2026 10:01:39 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:References
-	:Message-Id:Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:
-	From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=wPgiwpcF08LUa6KXpwONsFpsmxyEmkHsfAy+nvpAr3Q=; b=S9Dlol++t0xFIpMH4BEPua6a/J
-	MRumyLkyfpOI184C/Xm4c0Eiambnbd/Hc0kjK+S/vpzyUJLEcLf5nY/Co69qQvEfznjwaSYP/uAwh
-	k94sccSFe5l5G3JpnbvKXMwuWS99DLFDyDVhqD9wt8n7YJgJZtEqiyDmISXw10tP66tUfDQrPzPor
-	f1UJDJ5FRYxz8jJvVJgBWnvkJypQwaSW52jSdEIGh/26ofPu+n+WNfxV4g8QhCYKjmc2bHt9w8U8c
-	BPcGI8/fruB7R0H120aTTLd2pFBmk3te2VwqhLHMyGuz76ZMj0pSWIunhPWYmYFrU4GXUhLEfDkE2
-	oKpqZwyA==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=IDCpu1/nuWgxfdw1LsjaHJ9L6YwcwToPNO7yEAIUT+Q=; b=4YcNsLqVxi4n4UcTT85k7c+MVW
+	xDZa4Li6FTUFtDIt/hfhk2kuT6ZWyr+fMVyhfeYJfyBB6RMDevh+jmcRuZbEZMtXnQUt9JoBxeGBR
+	+RSy+XNXLVmitaCj8bay2mrH+MJLENNLeNtMqeC+023HarhLSVXbBxAEq2kIxhfDRDe2ymyaqtU9y
+	qTcwgO2zAqzDPiAHGinvwmUDeJibNJlpcuYvK4y9v4hEm1CogBWNnU1DK5grhjZM5H+5wFDm771/r
+	SftaX7BYzOAtFb/aa+gSPf56bKsK+mgFTY0Ro0L4LtH6xTT9EIEuy2KsGPakaZFDZWoKU6p8uVAnv
+	FG2/rX9A==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wStt3-0000000776p-1JP5;
-	Fri, 29 May 2026 09:52:17 +0000
-Received: from foss.arm.com ([217.140.110.172])
-	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wStso-000000076tO-1Q52
+	id 1wSu20-000000077vH-19Vw;
+	Fri, 29 May 2026 10:01:32 +0000
+Received: from smtp-out1.suse.de ([195.135.223.130])
+	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
+	id 1wSu1x-000000077uq-3i91
 	for linux-arm-kernel@lists.infradead.org;
-	Fri, 29 May 2026 09:52:03 +0000
-Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
-	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id 75F0532E5;
-	Fri, 29 May 2026 02:51:56 -0700 (PDT)
-Received: from e134710.arm.com (e134710.arm.com [10.33.10.82])
-	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id 147B23F905;
-	Fri, 29 May 2026 02:51:56 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=simple/simple; d=arm.com; s=foss;
-	t=1780048321; bh=3Vm+nt9+NrRY2BNeT6yqN54lwtE/pTm7P8uhemvSbxw=;
-	h=From:Date:Subject:References:In-Reply-To:To:Cc:From;
-	b=C7xg8XMzq5zTtGfFr5s/2WYQYt+gpieTU7iOBQhmMtsGT9GXHigWk02g3JisLNZDg
-	 EfrT3vAxG+K6+BkarPyGHy2JBMBbg5gRsupN9ig5hxDK/Ef7hbUap+i/mB3/6iaxka
-	 U9nGu5xRIHxBLhx7jgQU3+80wTtca/MbrCaWAopA=
-From: Ahmed Tiba <ahmed.tiba@arm.com>
-Date: Fri, 29 May 2026 10:50:50 +0100
-Subject: [PATCH v5 10/10] RAS: add firmware-first CPER provider
+	Fri, 29 May 2026 10:01:31 +0000
+Received: from imap1.dmz-prg2.suse.org (imap1.dmz-prg2.suse.org [IPv6:2a07:de40:b281:104:10:150:64:97])
+	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
+	 key-exchange X25519 server-signature RSA-PSS (4096 bits) server-digest SHA256)
+	(No client certificate requested)
+	by smtp-out1.suse.de (Postfix) with ESMTPS id DDF066AADA;
+	Fri, 29 May 2026 10:01:23 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=suse.de; s=susede2_rsa;
+	t=1780048887; h=from:from:reply-to:date:date:message-id:message-id:to:to:cc:cc:
+	 mime-version:mime-version:content-type:content-type:
+	 in-reply-to:in-reply-to:references:references;
+	bh=IDCpu1/nuWgxfdw1LsjaHJ9L6YwcwToPNO7yEAIUT+Q=;
+	b=reQyoAZggaokCNF1+0IkBjyJV72pNQ5r6ET1CR/g/LQfhNd6xCcPR9XLudh+nM7iUKWBVf
+	BuQ1Cpazko0Of4tlGW5M0CH7OTeTuoJe6VwIy8g1nuE71kvaeTCaBnYc1027ZUUimsUJtS
+	Hy9cHwMBT6yCLUf2aJZhQZzweUj4JJ8=
+DKIM-Signature: v=1; a=ed25519-sha256; c=relaxed/relaxed; d=suse.de;
+	s=susede2_ed25519; t=1780048887;
+	h=from:from:reply-to:date:date:message-id:message-id:to:to:cc:cc:
+	 mime-version:mime-version:content-type:content-type:
+	 in-reply-to:in-reply-to:references:references;
+	bh=IDCpu1/nuWgxfdw1LsjaHJ9L6YwcwToPNO7yEAIUT+Q=;
+	b=1ck1i2jT0HYfHibf1hHQDlmVSZbD6UgcIrXbtrCJzfHZuSETmb/WiPxaV6xxJj7MqJiAXi
+	3FQNPTLDZGvG3lDw==
+Authentication-Results: smtp-out1.suse.de;
+	dkim=pass header.d=suse.de header.s=susede2_rsa header.b=R9MbOLjn;
+	dkim=pass header.d=suse.de header.s=susede2_ed25519 header.b=8dtnSBU8
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=suse.de; s=susede2_rsa;
+	t=1780048883; h=from:from:reply-to:date:date:message-id:message-id:to:to:cc:cc:
+	 mime-version:mime-version:content-type:content-type:
+	 in-reply-to:in-reply-to:references:references;
+	bh=IDCpu1/nuWgxfdw1LsjaHJ9L6YwcwToPNO7yEAIUT+Q=;
+	b=R9MbOLjnfaB2OW5h+RPzQd1GQdd/hX9knnauDawYIpyznWihIT9ezMl7VjfwWKHA8ehS+7
+	5Si53dwcl4+/Xo4JPBj6XnR1v/f4o14yiMnDDiXi22woGtIPSlOXMe21y5gtUcA5s7SwW2
+	CBWkiDImwPBOD75ig5qfV1Cgcrao6nI=
+DKIM-Signature: v=1; a=ed25519-sha256; c=relaxed/relaxed; d=suse.de;
+	s=susede2_ed25519; t=1780048883;
+	h=from:from:reply-to:date:date:message-id:message-id:to:to:cc:cc:
+	 mime-version:mime-version:content-type:content-type:
+	 in-reply-to:in-reply-to:references:references;
+	bh=IDCpu1/nuWgxfdw1LsjaHJ9L6YwcwToPNO7yEAIUT+Q=;
+	b=8dtnSBU8SRtvS0iRSEMWihwBKq5EHV3pfDBhkQnqsaV46vO3PCbFFla6qu6WdqzEqV9/sv
+	DwiELJFLHklF+sAg==
+Received: from imap1.dmz-prg2.suse.org (localhost [127.0.0.1])
+	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
+	 key-exchange X25519 server-signature RSA-PSS (4096 bits) server-digest SHA256)
+	(No client certificate requested)
+	by imap1.dmz-prg2.suse.org (Postfix) with ESMTPS id 8797A779A7;
+	Fri, 29 May 2026 10:01:21 +0000 (UTC)
+Received: from dovecot-director2.suse.de ([2a07:de40:b281:106:10:150:64:167])
+	by imap1.dmz-prg2.suse.org with ESMTPSA
+	id I2KYHfFjGWrNcwAAD6G6ig
+	(envelope-from <pfalcato@suse.de>); Fri, 29 May 2026 10:01:21 +0000
+Date: Fri, 29 May 2026 11:01:19 +0100
+From: Pedro Falcato <pfalcato@suse.de>
+To: Usama Arif <usama.arif@linux.dev>
+Cc: Andrew Morton <akpm@linux-foundation.org>, david@kernel.org, 
+	willy@infradead.org, ryan.roberts@arm.com, linux-mm@kvack.org, r@hev.cc, jack@suse.cz, 
+	Andrew Donnellan <andrew+kernel@donnellan.id.au>, apopple@nvidia.com, baohua@kernel.org, 
+	baolin.wang@linux.alibaba.com, brauner@kernel.org, catalin.marinas@arm.com, dev.jain@arm.com, 
+	kees@kernel.org, kevin.brodsky@arm.com, lance.yang@linux.dev, 
+	"Liam R. Howlett" <liam@infradead.org>, linux-arm-kernel@lists.infradead.org, 
+	linux-fsdevel@vger.kernel.org, linux-kernel@vger.kernel.org, ljs@kernel.org, mhocko@suse.com, 
+	npache@redhat.com, pasha.tatashin@soleen.com, rmclure@linux.ibm.com, 
+	rppt@kernel.org, surenb@google.com, vbabka@kernel.org, 
+	Al Viro <viro@zeniv.linux.org.uk>, wilts.infradead.org@pedro-suse.lan, ziy@nvidia.com, 
+	hannes@cmpxchg.org, kas@kernel.org, shakeel.butt@linux.dev, kernel-team@meta.com
+Subject: Re: [PATCH v6 2/2] mm: use mapping_max_folio_order() for
+ force_thp_readahead order
+Message-ID: <ahlh2vdHEGo6ZSot@pedro-suse.lan>
+References: <20260528165635.2068012-1-usama.arif@linux.dev>
+ <20260528165635.2068012-3-usama.arif@linux.dev>
 MIME-Version: 1.0
-Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: 7bit
-Message-Id: <20260529-topics-ahmtib01-ras_ffh_arm_internal_review-v5-10-2e0500d42642@arm.com>
-References: <20260529-topics-ahmtib01-ras_ffh_arm_internal_review-v5-0-2e0500d42642@arm.com>
-In-Reply-To: <20260529-topics-ahmtib01-ras_ffh_arm_internal_review-v5-0-2e0500d42642@arm.com>
-To: will@kernel.org, jic23@kernel.org, xueshuai@linux.alibaba.com, 
- saket.dumbre@intel.com, mchehab@kernel.org, dave@stgolabs.net, 
- djbw@kernel.org, bp@alien8.de, tony.luck@intel.com, guohanjun@huawei.com, 
- lenb@kernel.org, skhan@linuxfoundation.org, vishal.l.verma@intel.com, 
- rafael@kernel.org, corbet@lwn.net, ira.weiny@intel.com, 
- dave.jiang@intel.com, krzk+dt@kernel.org, robh@kernel.org, 
- catalin.marinas@arm.com, alison.schofield@intel.com, conor+dt@kernel.org
-Cc: Ahmed Tiba <ahmed.tiba@arm.com>, linux-arm-kernel@lists.infradead.org, 
- Michael.Zhao2@arm.com, linux-doc@vger.kernel.org, 
- linux-kernel@vger.kernel.org, linux-cxl@vger.kernel.org, 
- Dmitry.Lamerov@arm.com, devicetree@vger.kernel.org, 
- linux-acpi@vger.kernel.org, linux-edac@vger.kernel.org, 
- acpica-devel@lists.linux.dev
-X-Mailer: b4 0.13.0
-X-Developer-Signature: v=1; a=ed25519-sha256; t=1780048269; l=12767;
- i=ahmed.tiba@arm.com; s=20260219; h=from:subject:message-id;
- bh=3Vm+nt9+NrRY2BNeT6yqN54lwtE/pTm7P8uhemvSbxw=;
- b=fJuzbuh5gHAUrlcRsuZoAdSAQnVi9D2NMEtR4k8a1eCtv2+bFccnL+0PmDxls6bHh0Ns0V/Ml
- OLwy/sSySYiAqqdGcScJ/ea+VtjIxNA6sBpX7CZX6tgab7fccOmfE7q
-X-Developer-Key: i=ahmed.tiba@arm.com; a=ed25519;
- pk=xVOtd+Qklh/4tuM3tB+BEZD4jj5a6W59C3KCNX6v7OE=
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+In-Reply-To: <20260528165635.2068012-3-usama.arif@linux.dev>
+X-Rspamd-Server: rspamd2.dmz-prg2.suse.org
+X-Rspamd-Queue-Id: DDF066AADA
+X-Rspamd-Action: no action
+X-Spamd-Result: default: False [-3.01 / 50.00];
+	BAYES_HAM(-3.00)[100.00%];
+	SUSPICIOUS_RECIPS(1.50)[];
+	NEURAL_HAM_LONG(-1.00)[-1.000];
+	R_DKIM_ALLOW(-0.20)[suse.de:s=susede2_rsa,suse.de:s=susede2_ed25519];
+	NEURAL_HAM_SHORT(-0.20)[-1.000];
+	MIME_GOOD(-0.10)[text/plain];
+	MX_GOOD(-0.01)[];
+	FUZZY_RATELIMITED(0.00)[rspamd.com];
+	RCVD_VIA_SMTP_AUTH(0.00)[];
+	ARC_NA(0.00)[];
+	MIME_TRACE(0.00)[0:+];
+	MISSING_XM_UA(0.00)[];
+	TO_DN_SOME(0.00)[];
+	RCPT_COUNT_TWELVE(0.00)[37];
+	TAGGED_RCPT(0.00)[kernel];
+	RCVD_TLS_ALL(0.00)[];
+	DKIM_SIGNED(0.00)[suse.de:s=susede2_rsa,suse.de:s=susede2_ed25519];
+	FROM_EQ_ENVFROM(0.00)[];
+	FROM_HAS_DN(0.00)[];
+	R_RATELIMIT(0.00)[to_ip_from(RL764437jfm1qe6abtk9nwyx8m)];
+	SPAMHAUS_XBL(0.00)[2a07:de40:b281:104:10:150:64:97:from];
+	TO_MATCH_ENVRCPT_ALL(0.00)[];
+	DBL_BLOCKED_OPENRESOLVER(0.00)[linux.dev:email,pedro-suse.lan:mid,imap1.dmz-prg2.suse.org:rdns,imap1.dmz-prg2.suse.org:helo,suse.de:dkim];
+	RCVD_COUNT_TWO(0.00)[2];
+	DKIM_TRACE(0.00)[suse.de:+]
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260529_025202_486760_DFA75F71 
-X-CRM114-Status: GOOD (  29.70  )
+X-CRM114-CacheID: sfid-20260529_030130_093479_9C641011 
+X-CRM114-Status: GOOD (  31.21  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -86,434 +147,115 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Add a firmware-first CPER provider that reuses the shared
-GHES helpers, wire it into the RAS Kconfig/Makefile and
-document it in the admin guide.
+On Thu, May 28, 2026 at 09:55:20AM -0700, Usama Arif wrote:
+> The force_thp_readahead path in do_sync_mmap_readahead() is gated on
+> HPAGE_PMD_ORDER <= MAX_PAGECACHE_ORDER and always requests
+> HPAGE_PMD_ORDER / HPAGE_PMD_NR. On configurations where HPAGE_PMD_ORDER
+> exceeds MAX_PAGECACHE_ORDER, notably arm64 with a 64K base page size,
+> VM_HUGEPAGE mappings cannot use this path and fall back to the non-forced
+> mmap readahead path even when the mapping supports useful large folios.
+> 
+> Keep the existing PMD-sized behavior when HPAGE_PMD_ORDER fits in the
+> page cache. When it does not, enable forced readahead for mappings that
+> support large folios and request an order capped by both
+> mapping_max_folio_order(mapping) and 2MB.
+> 
+> 2MB is chosen as the cap because it matches the PMD size on x86_64
+> and on arm64 with 4K or 16K base pages, so the size/memory-pressure
 
-Update MAINTAINERS now that the driver exists.
+16K base page size's PMDs should be 32M, no? Am I misunderstanding what
+you mean here?
 
-Signed-off-by: Ahmed Tiba <ahmed.tiba@arm.com>
----
- Documentation/admin-guide/RAS/main.rst |  18 +++
- MAINTAINERS                            |   1 +
- drivers/acpi/apei/apei-internal.h      |  10 +-
- drivers/acpi/apei/ghes_cper.c          |   2 +
- drivers/ras/Kconfig                    |  11 ++
- drivers/ras/Makefile                   |   1 +
- drivers/ras/cper-esource.c             | 257 +++++++++++++++++++++++++++++++++
- include/acpi/ghes_cper.h               |  10 ++
- 8 files changed, 301 insertions(+), 9 deletions(-)
+> tradeoff for folios of that size is already well understood. On arm64
+> with a 64K base page size, 2MB is also the contiguous-PTE (contpte)
+> block size, so the resulting folios coalesce into a single TLB entry
+> and reduce TLB pressure on the readahead path.
+> 
+> The final allocation order may still be clamped by page_cache_ra_order()
+> to the mapping and request geometry, but this gives VM_HUGEPAGE mappings
+> on such configurations a large-folio readahead request instead of
+> dropping back to base-page readahead.
+> 
+> Signed-off-by: Usama Arif <usama.arif@linux.dev>
+> ---
+>  mm/filemap.c | 27 +++++++++++++++++++--------
+>  1 file changed, 19 insertions(+), 8 deletions(-)
+> 
+> diff --git a/mm/filemap.c b/mm/filemap.c
+> index a16b33e0fc71..bfb891d9da1f 100644
+> --- a/mm/filemap.c
+> +++ b/mm/filemap.c
+> @@ -3312,14 +3312,23 @@ static struct file *do_sync_mmap_readahead(struct vm_fault *vmf)
+>  	struct file *fpin = NULL;
+>  	vm_flags_t vm_flags = vmf->vma->vm_flags;
+>  	bool force_thp_readahead = false;
+> +	unsigned int thp_order = 0;
+>  	unsigned short mmap_miss;
+>  
+>  	ractl._max_index = vmf->vma->vm_pgoff + vma_pages(vmf->vma) - 1;
+>  
+>  	/* Use the readahead code, even if readahead is disabled */
+> -	if (IS_ENABLED(CONFIG_TRANSPARENT_HUGEPAGE) &&
+> -	    (vm_flags & VM_HUGEPAGE) && HPAGE_PMD_ORDER <= MAX_PAGECACHE_ORDER)
+> -		force_thp_readahead = true;
+> +	if (IS_ENABLED(CONFIG_TRANSPARENT_HUGEPAGE) && (vm_flags & VM_HUGEPAGE)) {
+> +		if (HPAGE_PMD_ORDER <= MAX_PAGECACHE_ORDER) {
+> +			force_thp_readahead = true;
+> +			thp_order = HPAGE_PMD_ORDER;
+> +		} else if (mapping_large_folio_support(mapping)) {
+> +			force_thp_readahead = true;
+> +			thp_order = min_t(unsigned int,
+> +					  mapping_max_folio_order(mapping),
+> +					  get_order(SZ_2M));
 
-diff --git a/Documentation/admin-guide/RAS/main.rst b/Documentation/admin-guide/RAS/main.rst
-index 5a45db32c49b..84219d25a072 100644
---- a/Documentation/admin-guide/RAS/main.rst
-+++ b/Documentation/admin-guide/RAS/main.rst
-@@ -205,6 +205,24 @@ Architecture (MCA)\ [#f3]_.
- .. [#f3] For more details about the Machine Check Architecture (MCA),
-   please read Documentation/arch/x86/x86_64/machinecheck.rst at the Kernel tree.
- 
-+Firmware-first CPER providers
-+-----------------------------
-+
-+Some systems expose Common Platform Error Record (CPER) data
-+through platform firmware instead of ACPI HEST tables.
-+Enable ``CONFIG_RAS_CPER_ESOURCE`` to build the ``drivers/ras/cper-esource.c``
-+driver. The current in-tree firmware description uses the
-+``Documentation/devicetree/bindings/firmware/arm,ras-cper.yaml`` binding.
-+The driver reuses the GHES CPER helper object in
-+``drivers/acpi/apei/ghes_cper.c`` so the logging, notifier chains, and
-+memory failure handling match the ACPI GHES behaviour even when
-+ACPI is disabled.
-+
-+Once a platform describes a firmware-first provider, both ACPI GHES and the
-+firmware-described driver reuse the same code paths. This keeps the
-+behaviour consistent regardless of whether the error source is described
-+by ACPI tables or another firmware description.
-+
- EDAC - Error Detection And Correction
- *************************************
- 
-diff --git a/MAINTAINERS b/MAINTAINERS
-index 8a9714603a7d..c14638cd97f6 100644
---- a/MAINTAINERS
-+++ b/MAINTAINERS
-@@ -22265,6 +22265,7 @@ RAS ERROR STATUS
- M:	Ahmed Tiba <ahmed.tiba@arm.com>
- S:	Maintained
- F:	Documentation/devicetree/bindings/firmware/arm,ras-cper.yaml
-+F:	drivers/ras/cper-esource.c
- 
- RAS INFRASTRUCTURE
- M:	Tony Luck <tony.luck@intel.com>
-diff --git a/drivers/acpi/apei/apei-internal.h b/drivers/acpi/apei/apei-internal.h
-index 77c10a7a7a9f..c16ac541f15b 100644
---- a/drivers/acpi/apei/apei-internal.h
-+++ b/drivers/acpi/apei/apei-internal.h
-@@ -8,6 +8,7 @@
- #define APEI_INTERNAL_H
- 
- #include <linux/acpi.h>
-+#include <acpi/ghes_cper.h>
- 
- struct apei_exec_context;
- 
-@@ -120,15 +121,6 @@ int apei_exec_collect_resources(struct apei_exec_context *ctx,
- struct dentry;
- struct dentry *apei_get_debugfs_dir(void);
- 
--static inline u32 cper_estatus_len(struct acpi_hest_generic_status *estatus)
--{
--	if (estatus->raw_data_length)
--		return estatus->raw_data_offset + \
--			estatus->raw_data_length;
--	else
--		return sizeof(*estatus) + estatus->data_length;
--}
--
- int apei_osc_setup(void);
- 
- int einj_get_available_error_type(u32 *type, int einj_action);
-diff --git a/drivers/acpi/apei/ghes_cper.c b/drivers/acpi/apei/ghes_cper.c
-index 0ff9d06eb78f..a7691aa5011c 100644
---- a/drivers/acpi/apei/ghes_cper.c
-+++ b/drivers/acpi/apei/ghes_cper.c
-@@ -46,7 +46,9 @@
- #include <asm/fixmap.h>
- #include <asm/tlbflush.h>
- 
-+#ifdef CONFIG_ACPI_APEI
- #include "apei-internal.h"
-+#endif
- 
- ATOMIC_NOTIFIER_HEAD(ghes_report_chain);
- 
-diff --git a/drivers/ras/Kconfig b/drivers/ras/Kconfig
-index fc4f4bb94a4c..3c1c63b2fefc 100644
---- a/drivers/ras/Kconfig
-+++ b/drivers/ras/Kconfig
-@@ -34,6 +34,17 @@ if RAS
- source "arch/x86/ras/Kconfig"
- source "drivers/ras/amd/atl/Kconfig"
- 
-+config RAS_CPER_ESOURCE
-+	bool "Firmware-first CPER error source block provider"
-+	select GHES_CPER_HELPERS
-+	help
-+	  Enable support for firmware-first Common Platform Error Record
-+	  (CPER) error source block providers. The current in-tree user is
-+	  described by the arm,ras-cper DeviceTree binding. The driver
-+	  reuses the existing GHES CPER helpers so the error processing
-+	  matches the ACPI code paths, but it can be built even when ACPI is
-+	  disabled.
-+
- config RAS_FMPM
- 	tristate "FRU Memory Poison Manager"
- 	default m
-diff --git a/drivers/ras/Makefile b/drivers/ras/Makefile
-index 11f95d59d397..0de069557f31 100644
---- a/drivers/ras/Makefile
-+++ b/drivers/ras/Makefile
-@@ -2,6 +2,7 @@
- obj-$(CONFIG_RAS)	+= ras.o
- obj-$(CONFIG_DEBUG_FS)	+= debugfs.o
- obj-$(CONFIG_RAS_CEC)	+= cec.o
-+obj-$(CONFIG_RAS_CPER_ESOURCE)	+= cper-esource.o
- 
- obj-$(CONFIG_RAS_FMPM)	+= amd/fmpm.o
- obj-y			+= amd/atl/
-diff --git a/drivers/ras/cper-esource.c b/drivers/ras/cper-esource.c
-new file mode 100644
-index 000000000000..83f7a910e50a
---- /dev/null
-+++ b/drivers/ras/cper-esource.c
-@@ -0,0 +1,257 @@
-+// SPDX-License-Identifier: GPL-2.0-only
-+/*
-+ * Firmware-first CPER error source provider.
-+ *
-+ * This driver shares the GHES CPER helpers so we keep the reporting and
-+ * notifier behaviour identical to ACPI GHES.
-+ *
-+ * Copyright (C) 2026 ARM Ltd.
-+ * Author: Ahmed Tiba <ahmed.tiba@arm.com>
-+ */
-+
-+#include <linux/bitops.h>
-+#include <linux/cleanup.h>
-+#include <linux/idr.h>
-+#include <linux/interrupt.h>
-+#include <linux/io.h>
-+#include <linux/mod_devicetable.h>
-+#include <linux/module.h>
-+#include <linux/panic.h>
-+#include <linux/platform_device.h>
-+#include <linux/property.h>
-+#include <linux/slab.h>
-+#include <linux/spinlock.h>
-+
-+#include <acpi/ghes.h>
-+#include <acpi/ghes_cper.h>
-+
-+static DEFINE_IDA(cper_esource_source_ids);
-+
-+struct cper_esource_ack {
-+	void __iomem *addr;
-+	u64 preserve;
-+	u64 set;
-+	u8 width;
-+	bool present;
-+};
-+
-+struct cper_esource {
-+	struct device *dev;
-+	void __iomem *status;
-+	size_t status_len;
-+
-+	struct cper_esource_ack ack;
-+
-+	struct acpi_hest_generic *generic;
-+	struct acpi_hest_generic_status *estatus;
-+
-+	bool sync;
-+	int irq;
-+
-+	/* Serializes access while firmware and the OS share the status buffer. */
-+	spinlock_t lock;
-+};
-+
-+static void cper_esource_release_source_id(void *data)
-+{
-+	struct acpi_hest_generic *generic = data;
-+
-+	ida_free(&cper_esource_source_ids, generic->header.source_id);
-+}
-+
-+static int cper_esource_init_pool(void)
-+{
-+	if (ghes_estatus_pool)
-+		return 0;
-+
-+	return ghes_estatus_pool_init(1);
-+}
-+
-+static int cper_esource_copy_status(struct cper_esource *ctx)
-+{
-+	memcpy_fromio(ctx->estatus, ctx->status, ctx->status_len);
-+	return 0;
-+}
-+
-+static void cper_esource_ack(struct cper_esource *ctx)
-+{
-+	u64 val;
-+
-+	if (!ctx->ack.present)
-+		return;
-+
-+	if (ctx->ack.width == 64) {
-+		val = readq(ctx->ack.addr);
-+		val &= ctx->ack.preserve;
-+		val |= ctx->ack.set;
-+		writeq(val, ctx->ack.addr);
-+	} else {
-+		val = readl(ctx->ack.addr);
-+		val &= (u32)ctx->ack.preserve;
-+		val |= (u32)ctx->ack.set;
-+		writel(val, ctx->ack.addr);
-+	}
-+}
-+
-+static void cper_esource_fatal(struct cper_esource *ctx)
-+{
-+	__ghes_print_estatus(KERN_EMERG, ctx->generic, ctx->estatus);
-+	add_taint(TAINT_MACHINE_CHECK, LOCKDEP_STILL_OK);
-+	panic("GHES: fatal firmware-first CPER record from %s\n",
-+	      dev_name(ctx->dev));
-+}
-+
-+static void cper_esource_process(struct cper_esource *ctx)
-+{
-+	int sev;
-+
-+	guard(spinlock_irqsave)(&ctx->lock);
-+
-+	if (cper_esource_copy_status(ctx))
-+		return;
-+
-+	sev = ghes_severity(ctx->estatus->error_severity);
-+	if (sev >= GHES_SEV_PANIC)
-+		cper_esource_fatal(ctx);
-+
-+	if (!ghes_estatus_cached(ctx->estatus) &&
-+	    ghes_print_estatus(NULL, ctx->generic, ctx->estatus))
-+		ghes_estatus_cache_add(ctx->generic, ctx->estatus);
-+
-+	ghes_cper_handle_status(ctx->dev, ctx->generic, ctx->estatus, ctx->sync);
-+	cper_esource_ack(ctx);
-+}
-+
-+static irqreturn_t cper_esource_irq(int irq, void *data)
-+{
-+	struct cper_esource *ctx = data;
-+
-+	cper_esource_process(ctx);
-+
-+	return IRQ_HANDLED;
-+}
-+
-+static int cper_esource_init_ack(struct platform_device *pdev,
-+				 struct cper_esource *ctx)
-+{
-+	struct device *dev = &pdev->dev;
-+	struct resource *res;
-+	size_t size;
-+
-+	res = platform_get_resource(pdev, IORESOURCE_MEM, 1);
-+	if (!res)
-+		return 0;
-+
-+	ctx->ack.addr = devm_platform_get_and_ioremap_resource(pdev, 1, &res);
-+	if (IS_ERR(ctx->ack.addr))
-+		return PTR_ERR(ctx->ack.addr);
-+
-+	size = resource_size(res);
-+	switch (size) {
-+	case 4:
-+		ctx->ack.width = 32;
-+		ctx->ack.preserve = ~0U;
-+		break;
-+	case 8:
-+		ctx->ack.width = 64;
-+		ctx->ack.preserve = ~0ULL;
-+		break;
-+	default:
-+		return dev_err_probe(dev, -EINVAL,
-+				     "unsupported ack resource size %zu\n", size);
-+	}
-+
-+	ctx->ack.set = BIT_ULL(0);
-+	ctx->ack.present = true;
-+	return 0;
-+}
-+
-+static int cper_esource_probe(struct platform_device *pdev)
-+{
-+	struct device *dev = &pdev->dev;
-+	struct cper_esource *ctx;
-+	struct resource *res;
-+	int source_id;
-+	int rc;
-+
-+	ctx = devm_kzalloc(dev, sizeof(*ctx), GFP_KERNEL);
-+	if (!ctx)
-+		return -ENOMEM;
-+
-+	spin_lock_init(&ctx->lock);
-+	ctx->dev = dev;
-+	ctx->sync = device_property_read_bool(dev, "arm,sea-notify");
-+
-+	ctx->status = devm_platform_get_and_ioremap_resource(pdev, 0, &res);
-+	if (IS_ERR(ctx->status))
-+		return dev_err_probe(dev, PTR_ERR(ctx->status),
-+				     "failed to map status region\n");
-+
-+	ctx->status_len = resource_size(res);
-+	if (!ctx->status_len)
-+		return dev_err_probe(dev, -EINVAL, "status region has zero length\n");
-+
-+	rc = cper_esource_init_ack(pdev, ctx);
-+	if (rc)
-+		return rc;
-+
-+	rc = cper_esource_init_pool();
-+	if (rc)
-+		return rc;
-+
-+	ctx->estatus = devm_kzalloc(dev, ctx->status_len, GFP_KERNEL);
-+	if (!ctx->estatus)
-+		return -ENOMEM;
-+
-+	ctx->generic = devm_kzalloc(dev, sizeof(*ctx->generic), GFP_KERNEL);
-+	if (!ctx->generic)
-+		return -ENOMEM;
-+
-+	source_id = ida_alloc_min(&cper_esource_source_ids, 1, GFP_KERNEL);
-+	if (source_id < 0)
-+		return source_id;
-+
-+	ctx->generic->header.type = ACPI_HEST_TYPE_GENERIC_ERROR;
-+	ctx->generic->header.source_id = source_id;
-+
-+	rc = devm_add_action_or_reset(dev, cper_esource_release_source_id,
-+				      ctx->generic);
-+	if (rc)
-+		return rc;
-+
-+	ctx->generic->notify.type = ctx->sync ?
-+		ACPI_HEST_NOTIFY_SEA : ACPI_HEST_NOTIFY_EXTERNAL;
-+	ctx->generic->error_block_length = ctx->status_len;
-+
-+	ctx->irq = platform_get_irq(pdev, 0);
-+	if (ctx->irq < 0)
-+		return ctx->irq;
-+
-+	rc = devm_request_threaded_irq(dev, ctx->irq, NULL, cper_esource_irq,
-+				       IRQF_ONESHOT,
-+				       dev_name(dev), ctx);
-+	if (rc)
-+		return dev_err_probe(dev, rc, "failed to request interrupt\n");
-+
-+	return 0;
-+}
-+
-+static const struct of_device_id cper_esource_of_match[] = {
-+	{ .compatible = "arm,ras-cper" },
-+	{ /* sentinel */ }
-+};
-+MODULE_DEVICE_TABLE(of, cper_esource_of_match);
-+
-+static struct platform_driver cper_esource_driver = {
-+	.driver = {
-+		.name = "cper-esource",
-+		.of_match_table = cper_esource_of_match,
-+	},
-+	.probe = cper_esource_probe,
-+};
-+
-+module_platform_driver(cper_esource_driver);
-+
-+MODULE_AUTHOR("Ahmed Tiba <ahmed.tiba@arm.com>");
-+MODULE_DESCRIPTION("Firmware-first CPER provider");
-+MODULE_LICENSE("GPL");
-diff --git a/include/acpi/ghes_cper.h b/include/acpi/ghes_cper.h
-index 511b95b50911..a78d4a773129 100644
---- a/include/acpi/ghes_cper.h
-+++ b/include/acpi/ghes_cper.h
-@@ -80,6 +80,14 @@ static inline bool is_hest_sync_notify(struct ghes *ghes)
- 	return notify_type == ACPI_HEST_NOTIFY_SEA;
- }
- 
-+static inline u32 cper_estatus_len(struct acpi_hest_generic_status *estatus)
-+{
-+	if (estatus->raw_data_length)
-+		return estatus->raw_data_offset + estatus->raw_data_length;
-+	else
-+		return sizeof(*estatus) + estatus->data_length;
-+}
-+
- struct ghes_vendor_record_entry {
- 	struct work_struct work;
- 	int error_severity;
-@@ -108,6 +116,8 @@ int __ghes_read_estatus(struct acpi_hest_generic_status *estatus,
- int ghes_estatus_cached(struct acpi_hest_generic_status *estatus);
- void ghes_estatus_cache_add(struct acpi_hest_generic *generic,
- 			    struct acpi_hest_generic_status *estatus);
-+int ghes_register_vendor_record_notifier(struct notifier_block *nb);
-+void ghes_unregister_vendor_record_notifier(struct notifier_block *nb);
- void ghes_defer_non_standard_event(struct acpi_hest_generic_data *gdata,
- 				   int sev);
- int ghes_severity(int severity);
+This looks somewhat arbitrary to me (as does the old logic). It seems more
+natural (correct?) to do this:
+
+	if (THP_ENABLED && (vm_flags & VM_HUGEPAGE)) {
+		if (mapping_large_folio_support(mapping)) {
+			force_thp_readahead = true;
+			/*
+			 * Cap THP readahead to either the max folio order the
+			 * mapping supports, or the max order the page cache
+			 * supports (useless to try more), or the hugepage PMD
+			 * order (CPU can't benefit from larger).
+			 */
+			thp_order = min3(mapping_max_folio_order(mapping),
+					MAX_PAGECACHE_ORDER, HPAGE_PMD_ORDER);
+		}
+	}
+
+> +		}
+> +	}
+>  
+>  	if (!force_thp_readahead) {
+>  		/*
+> @@ -3354,17 +3363,19 @@ static struct file *do_sync_mmap_readahead(struct vm_fault *vmf)
+>  	}
+>  
+>  	if (force_thp_readahead) {
+> +		unsigned long folio_nr_pages = 1UL << thp_order;
+> +
+>  		fpin = maybe_unlock_mmap_for_io(vmf, fpin);
+> -		ractl._index &= ~((unsigned long)HPAGE_PMD_NR - 1);
+> -		ra->size = HPAGE_PMD_NR;
+> +		ractl._index &= ~(folio_nr_pages - 1);
+> +		ra->size = folio_nr_pages;
+>  		/*
+> -		 * Fetch two PMD folios, so we get the chance to actually
+> +		 * Fetch two folios so we get the chance to actually
+			  ^^ large folios?
+>  		 * readahead, unless we've been told not to.
+>  		 */
+>  		if (!(vm_flags & VM_RAND_READ))
+>  			ra->size *= 2;
+> -		ra->async_size = HPAGE_PMD_NR;
+> -		ra->order = HPAGE_PMD_ORDER;
+> +		ra->async_size = folio_nr_pages;
+> +		ra->order = thp_order;
+
+This part LGTM.
 
 -- 
-2.43.0
-
+Pedro
 
