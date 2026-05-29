@@ -4,65 +4,83 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 3843FCD5BD2
-	for <linux-arm-kernel@archiver.kernel.org>; Fri, 29 May 2026 04:03:12 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 78EF6CD5BD2
+	for <linux-arm-kernel@archiver.kernel.org>; Fri, 29 May 2026 04:05:58 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=eaGfYqsccDWsJTN0WYM3ff7hRWxPyaL2TevoJQw06eY=; b=2StoyXdwkq4tLKQy/8pM7oGSrx
-	XOJaWMRnebfswOuG0cVGo4xHVuHyie7KuPXI7LsSmvbzbcKYikot9ZHXZoo8I2cPu18z7dU8ObK7X
-	4kazoDv9VQz22Q6a8a9U629Qy1Eh9gv4T14wlTQaM8v6phaw6622z62NQgxwGXOyZlOG+CkfP+tQZ
-	IwZ/qv1NpDlixphVOfmL8NVxuToFfvXNyY7IVhf939eW/S1TYvCXKUSonqCRY1cI5VYtpqWCIRDZl
-	H1R4gBVtCTv7xuaYVAM0XG3oJYAe1jatUKr6YBk8ZvJNtrg4vdx1r933ymgonSeo3j/dnONW8juC6
-	nWiDvVZg==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	MIME-Version:References:In-Reply-To:Message-Id:Date:Subject:Cc:To:From:
+	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=4TECj+eo2504ZHJMX4bVMBIaoIrtjNzQH7rBEbcRAg4=; b=Y2uJDNZMwZbeYRVD0Kj5Br06cC
+	zE/6qzmUEahpQvhsK1hcV1hlxh2gHRlMJ+jw9YZbw3AqbbpBrV6NIdAprliO/NmuzI48/2/KOaJbv
+	I9SZCNVdIQ9OB8oNqFJGBfUxgRRY7xFY7DogRCCx3bZzV9JmuNvIUkQbmDDAEhJwdoHzcV2v1kDUL
+	jsC50PZKFywSvLdRCltmrcD0Y1yJGrdAQi0dIHtmmbnKH9/Tujr1dLnXN/9mQdeMv01FsrepUerug
+	DH/+plDu/rX3SQupC2tc29q2PGzQEFZ9ONdKth+jmQ7O8Bx1807zlUBkD09fpgYmGRnhi7/7n5WKF
+	lmBfouBw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wSoR5-00000006iNS-3th2;
-	Fri, 29 May 2026 04:03:03 +0000
-Received: from foss.arm.com ([217.140.110.172])
-	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wSoR2-00000006iMu-3GJs
-	for linux-arm-kernel@lists.infradead.org;
-	Fri, 29 May 2026 04:03:02 +0000
-Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
-	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id 7B0CC16A3;
-	Thu, 28 May 2026 21:02:52 -0700 (PDT)
-Received: from localhost (a079125.arm.com [10.164.21.37])
-	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id 82F1E3F7B4;
-	Thu, 28 May 2026 21:02:56 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=simple/simple; d=arm.com; s=foss;
-	t=1780027377; bh=eDyqfPL3Tk2ANdqi4jSCbSbhgcCNem97wosvoWpsFcg=;
-	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
-	b=OOY3mvD22sd6y3WIPIIBcAbQvrNOHJdbg8VSwgi08Y8G4+HVYqhi78mSOgyEElCPS
-	 Ro423BqzSe1PsgPppGukcVfWG5BAtkTRz5nbljRvC3GK70b/CNF/WOmP+OAVY9L0p6
-	 3RicJRMfamLoi/GNNA6iHWitua0Dnln1bXAOOp9Y=
-Date: Fri, 29 May 2026 09:32:52 +0530
-From: Linu Cherian <linu.cherian@arm.com>
-To: Ryan Roberts <ryan.roberts@arm.com>
-Cc: Anshuman Khandual <anshuman.khandual@arm.com>,
+	id 1wSoTn-00000006iYS-1TZa;
+	Fri, 29 May 2026 04:05:51 +0000
+Received: from mail-m82184.xmail.ntesmail.com ([156.224.82.184])
+	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
+	id 1wSoTj-00000006iXs-0E6B;
+	Fri, 29 May 2026 04:05:49 +0000
+Received: from zyb-HP-ProDesk-680-G2-MT.. (unknown [61.154.14.86])
+	by smtp.qiye.163.com (Hmail) with ESMTP id 404653b96;
+	Fri, 29 May 2026 12:05:40 +0800 (GMT+08:00)
+From: Damon Ding <damon.ding@rock-chips.com>
+To: hjc@rock-chips.com,
+	heiko@sntech.de,
+	andy.yan@rock-chips.com,
+	maarten.lankhorst@linux.intel.com,
+	mripard@kernel.org,
+	tzimmermann@suse.de,
+	airlied@gmail.com,
+	simona@ffwll.ch,
+	robh@kernel.org,
+	krzk+dt@kernel.org,
+	conor+dt@kernel.org,
+	andrzej.hajda@intel.com,
+	neil.armstrong@linaro.org,
+	rfoss@kernel.org
+Cc: Laurent.pinchart@ideasonboard.com,
+	jonas@kwiboo.se,
+	jernej.skrabec@gmail.com,
+	nicolas.frattaroli@collabora.com,
+	cristian.ciocaltea@collabora.com,
+	sebastian.reichel@collabora.com,
+	dmitry.baryshkov@oss.qualcomm.com,
+	luca.ceresoli@bootlin.com,
+	dianders@chromium.org,
+	m.szyprowski@samsung.com,
+	dri-devel@lists.freedesktop.org,
+	devicetree@vger.kernel.org,
 	linux-arm-kernel@lists.infradead.org,
-	Catalin Marinas <catalin.marinas@arm.com>,
-	Will Deacon <will@kernel.org>, Mark Rutland <mark.rutland@arm.com>,
-	Lorenzo Stoakes <lorenzo.stoakes@oracle.com>,
-	Andrew Morton <akpm@linux-foundation.org>,
-	David Hildenbrand <david@kernel.org>,
-	Mike Rapoport <rppt@kernel.org>, Usama Arif <usama.arif@linux.dev>,
-	linux-kernel@vger.kernel.org, linux-mm@kvack.org
-Subject: Re: [RFC V2 13/14] arm64/mm: Add an abstraction level for tlbi_op
-Message-ID: <ahkP7IWLX-0QCoul@a079125.arm.com>
-References: <20260513044547.4128549-1-anshuman.khandual@arm.com>
- <20260513044547.4128549-14-anshuman.khandual@arm.com>
- <37917d56-ae26-4789-ac4c-15f8ee12398b@arm.com>
+	linux-rockchip@lists.infradead.org,
+	linux-kernel@vger.kernel.org,
+	Damon Ding <damon.ding@rock-chips.com>
+Subject: [PATCH v4 1/3] dt-bindings: display: bridge: analogix-dp: Add data-lanes support for endpoint
+Date: Fri, 29 May 2026 12:05:28 +0800
+Message-Id: <20260529040530.741336-2-damon.ding@rock-chips.com>
+X-Mailer: git-send-email 2.34.1
+In-Reply-To: <20260529040530.741336-1-damon.ding@rock-chips.com>
+References: <20260529040530.741336-1-damon.ding@rock-chips.com>
 MIME-Version: 1.0
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-In-Reply-To: <37917d56-ae26-4789-ac4c-15f8ee12398b@arm.com>
+Content-Transfer-Encoding: 8bit
+X-HM-Tid: 0a9e71e8c2ac03a8kunmaf9a1d48e6bc9
+X-HM-MType: 1
+X-HM-Spam-Status: e1kfGhgUHx5ZQUpXWQgPGg8OCBgUHx5ZQUlOS1dZFg8aDwILHllBWSg2Ly
+	tZV1koWUFITzdXWRgWCB1ZQUpXWS1ZQUlXWQ8JGhUIEh9ZQVlDSkpCVkgZTk1JGh8dGE4fQlYVFA
+	kWGhdVEwETFhoSFyQUDg9ZV1kYEgtZQVlNSlVKTk9VSk9VQ01ZV1kWGg8SFR0UWUFZT0tIVUpLSE
+	pKQk1VSktLVUpCWQY+
+DKIM-Signature: a=rsa-sha256;
+	b=eyRwlXX4fJCK6ANquk1lRzey47o/T2/m7U3rokghp+xX8elRaBrRvIaSq7luu/2kN94dl14Mmq/Mtg4C4+rsw98VanhIYpp0+5pGqA83Se/AKtGlThG2ucdZl5RI5Qy/1GWJKhQQr9X3TrIHwNKU7RULc6Ph43KfdLApVwa3r5o=; c=relaxed/relaxed; s=default; d=rock-chips.com; v=1;
+	bh=4TECj+eo2504ZHJMX4bVMBIaoIrtjNzQH7rBEbcRAg4=;
+	h=date:mime-version:subject:message-id:from;
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260528_210300_936133_97302F24 
-X-CRM114-Status: GOOD (  16.75  )
+X-CRM114-CacheID: sfid-20260528_210547_714176_17E980AB 
+X-CRM114-Status: GOOD (  10.44  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -77,49 +95,83 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hi Ryan,
+Add data-lanes property support to the port@1 endpoint for physical
+lane mapping configuration.
 
-On Wed, May 27, 2026 at 03:50:10PM +0100, Ryan Roberts wrote:
-> On 13/05/2026 05:45, Anshuman Khandual wrote:
-> > From: Linu Cherian <linu.cherian@arm.com>
-> > 
-> > With FEAT_D128, a new instruction aka TLBIP is being introduced for the TLB
-> > range operations which has an argument size of 128 bit.
-> 
-> nit: TLB range operations -> TLBI-by-range operations ?
+Lane mapping is mainly used for below scenarios:
+1. Correct PCB lane swap and differential line routing crossover
+   without hardware changes;
+2. Adapt mismatched lane pin definitions between SoC and eDP panel;
+3. Support multiple panel hardware variants on the same board
+   by configuring data-lanes in device tree only.
 
-Ack.
+Additionally, add data-lanes setting in Rockchip eDP DT node example
+to show actual lane mapping usage.
 
-> 
-> > 
-> > Add an abstraction level to void (*tlbi_op)(u64 arg) helpers to support the
-> > D128 variations when applicable.
-> > 
-> > No functional changes are introduced with this patch.
-> > 
-> > Signed-off-by: Linu Cherian <linu.cherian@arm.com>
-> > Signed-off-by: Anshuman Khandual <anshuman.khandual@arm.com>
-> > ---
-> >  arch/arm64/include/asm/tlbflush.h | 70 ++++++++++++++++---------------
-> >  1 file changed, 37 insertions(+), 33 deletions(-)
-> > 
-> > diff --git a/arch/arm64/include/asm/tlbflush.h b/arch/arm64/include/asm/tlbflush.h
-> > index c0bf5b398041..361d74ef8016 100644
-> > --- a/arch/arm64/include/asm/tlbflush.h
-> > +++ b/arch/arm64/include/asm/tlbflush.h
-> > @@ -162,49 +162,53 @@ static inline void sme_dvmsync_batch(struct arch_tlbflush_unmap_batch *batch)
-> >  
-> >  #define TLBI_TTL_UNKNOWN	INT_MAX
-> >  
-> > -typedef void (*tlbi_op)(u64 arg);
-> > +typedef u64 tlbi_args_t;
-> 
-> nit: tlbi_args_t -> tlbi_arg_t ?
+Signed-off-by: Damon Ding <damon.ding@rock-chips.com>
 
-Ack.
+---
 
+Changes in v2:
+- Add lane mapping application scenarios in commit message.
+- Remove redundant deprecated property 'data-lanes' for eDP node.
+- Update port@1 $ref to /schemas/graph.yaml#/$defs/port-base.
 
---
-Thanks,
-Linu Cherian.
+Changes in v3:
+- Squash data-lanes adjustment of Rockchip eDP DT example into this
+  commit.
+- Add unevaluatedProperties: false to both the port@1 and endpoint
+  nodes.
+---
+ .../bindings/display/bridge/analogix,dp.yaml  | 19 ++++++++++++++-----
+ .../rockchip/rockchip,analogix-dp.yaml        |  1 +
+ 2 files changed, 15 insertions(+), 5 deletions(-)
+
+diff --git a/Documentation/devicetree/bindings/display/bridge/analogix,dp.yaml b/Documentation/devicetree/bindings/display/bridge/analogix,dp.yaml
+index 62f0521b0924..ecf206871cdd 100644
+--- a/Documentation/devicetree/bindings/display/bridge/analogix,dp.yaml
++++ b/Documentation/devicetree/bindings/display/bridge/analogix,dp.yaml
+@@ -42,13 +42,22 @@ properties:
+     properties:
+       port@0:
+         $ref: /schemas/graph.yaml#/properties/port
+-        description:
+-          Input node to receive pixel data.
++        description: Input node to receive pixel data.
+ 
+       port@1:
+-        $ref: /schemas/graph.yaml#/properties/port
+-        description:
+-          Port node with one endpoint connected to a dp-connector node.
++        $ref: /schemas/graph.yaml#/$defs/port-base
++        unevaluatedProperties: false
++        description: Port node with one endpoint connected to sink device node.
++        properties:
++          endpoint:
++            $ref: /schemas/media/video-interfaces.yaml#
++            unevaluatedProperties: false
++            properties:
++              data-lanes:
++                minItems: 1
++                maxItems: 4
++                items:
++                  enum: [ 0, 1, 2, 3 ]
+ 
+     required:
+       - port@0
+diff --git a/Documentation/devicetree/bindings/display/rockchip/rockchip,analogix-dp.yaml b/Documentation/devicetree/bindings/display/rockchip/rockchip,analogix-dp.yaml
+index d99b23b88cc5..f690ee393fdb 100644
+--- a/Documentation/devicetree/bindings/display/rockchip/rockchip,analogix-dp.yaml
++++ b/Documentation/devicetree/bindings/display/rockchip/rockchip,analogix-dp.yaml
+@@ -117,6 +117,7 @@ examples:
+           reg = <1>;
+ 
+           edp_out_panel: endpoint {
++            data-lanes = <0 1>;
+             remote-endpoint = <&panel_in_edp>;
+           };
+         };
+-- 
+2.34.1
+
 
