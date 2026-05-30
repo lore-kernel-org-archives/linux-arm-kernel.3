@@ -4,98 +4,143 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 9B3C4CD5BD0
-	for <linux-arm-kernel@archiver.kernel.org>; Sat, 30 May 2026 14:58:41 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 0CB90CD5BD0
+	for <linux-arm-kernel@archiver.kernel.org>; Sat, 30 May 2026 15:16:44 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:
-	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=Ah0Awc7w6DblN/EtzE3iOxHXiYlVpbiL1luCM9s1B+k=; b=1weH5K78W+QMyCVzCObD32EXmy
-	lKD+AdvNRQOfbdNHheBRw5YY9kjfmkRni//tE3YV9KsSUHCl3xv34p8X2Qk3hVFR3GmR752is1b90
-	j0Z4UN71yuL4tFVGi/u0jd8GAvXwzmAQTIeUXcTDuNmYY+c1qsaXQe2YWNkNInkkrQx98FstfySyq
-	id8z76tM94kDiBGxVizBvgq62dKnaNAf8n4CLouMzYXTDYzHaN5QRo9CGScTXGGV8QZw82MoeaxSJ
-	jM8XQnGH248x6/2uJHYrmuDEbuhQ/ITuvfYEV6JXJDbmuoI/vXJ6aWXtFp3II/GfVBFKF6JPUP/4e
-	tL2bGq8g==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=SE90/JszZ/IRjGrWEI0Bz20FnK4+6DcEq7PwC6UmGJk=; b=GU5AdDUye0tRbKY77PS1Mff0ZK
+	SAOfcZMf7eB+G9vcvfBZzF6xeAlmi0T2epGggztIx/fx7rMwVRFaD0XC0nLzj8Snm35wX1GmTFexA
+	Rd72V3LqkAFg90YJT+GF0gC35fi/rTardGC+TaFcIQ72cn1qrqyw48frHx3Qg3a8roYPD58UY5c8o
+	esi3N9H+/0dCAyhviva1+FOGwClVULyHSlJ6f88V+owHampJcnd3Y5zLz9WTlv1JopbsWUFT/oKVL
+	VrTE+/Iq+3xjauHeQUNokMxUTchWKgRDH5Zc7YY3XzwUgWGj0bREOK39OES8aO5dE/fZL7uyaY7EK
+	5jWRweOw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wTL8v-00000008r9u-1xZG;
-	Sat, 30 May 2026 14:58:29 +0000
-Received: from mail-wr1-x433.google.com ([2a00:1450:4864:20::433])
+	id 1wTLQT-00000008sK1-1XOx;
+	Sat, 30 May 2026 15:16:37 +0000
+Received: from smtp-out1.suse.de ([195.135.223.130])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wTL8k-00000008qz6-2qpv
+	id 1wTLQQ-00000008sJW-01ej
 	for linux-arm-kernel@lists.infradead.org;
-	Sat, 30 May 2026 14:58:19 +0000
-Received: by mail-wr1-x433.google.com with SMTP id ffacd0b85a97d-45ef1629ff4so1271840f8f.0
-        for <linux-arm-kernel@lists.infradead.org>; Sat, 30 May 2026 07:58:18 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20251104; t=1780153097; x=1780757897; darn=lists.infradead.org;
-        h=content-transfer-encoding:mime-version:references:in-reply-to
-         :message-id:date:subject:cc:to:from:from:to:cc:subject:date
-         :message-id:reply-to;
-        bh=Ah0Awc7w6DblN/EtzE3iOxHXiYlVpbiL1luCM9s1B+k=;
-        b=RiEqzjHimz+wvx60mXadJ/kKHFOlJm+s6ykyHwvhDwMvPAFEI+FvEHYWrEqWf38Tez
-         Sxe6+ttjIwonOmVOJtOr6ksPncIwBrr0xlAURzC0A2doJFe1N9olsaf2MPckbBgGgwN+
-         qCu0fGiGumxVsZsZiik0+J4fxQQfiONtPeJsxkKw6nFD2czupX3S00nJeYs99J/SffJm
-         qMYXUIfVSuIa2VpNGN+2rOaXa7TZ4CvqzPDkVv8OssLrfH95F0jaXZeeG+wXLjjUJret
-         IG2I7/9bjwFtc7FUO2EhGZFtm3zgEi3KUJ2OJj0LKvaWT1g3P9rREOKFsALcYDvOp0ry
-         zF8Q==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20251104; t=1780153097; x=1780757897;
-        h=content-transfer-encoding:mime-version:references:in-reply-to
-         :message-id:date:subject:cc:to:from:x-gm-gg:x-gm-message-state:from
-         :to:cc:subject:date:message-id:reply-to;
-        bh=Ah0Awc7w6DblN/EtzE3iOxHXiYlVpbiL1luCM9s1B+k=;
-        b=paVUq7aTYmegs9MPumBYehC9lKLVVhLBIA6Jz7HWAIYNm42uSDg6PPrNuc2dcH9+h0
-         2kwqigwQ/nKuE9238Fl5a750AJEMxKFNic4hyFdAcu+t0EYxTQ62AJC6HX8KDOeWCsi4
-         3brv9DFg7zaxM8M0e3PlwkcC1LwT8jx7XXsWj5SmDMlbVzAci9RCxg5ifO6OLMTC5ieZ
-         eQNB6+acuKY9DzaqaV/zROPy0hFE3v+E/dTjjgDj3C7aAv5G2hKd36yi+/Wuzpn/1wNW
-         4N1uxpE/lcCJvtfjKB2jwZz3dxBjXaSF+Ifcc4jgzpworDLGhjd1EesakGQzapaRQvQw
-         mqrw==
-X-Forwarded-Encrypted: i=1; AFNElJ8RzX6AVTGX9PV0m6HTunDmtA7PMbv95BRLPMMqJsomcmpFmP8nOTSqKrVT12+BqY77PYqNw3iEUjZWJn8Dw0aT@lists.infradead.org
-X-Gm-Message-State: AOJu0Ywuf9AMiKTXdHcSMfF4gG8IfxIxAp36pithbUF+PZ7itsDbKOB9
-	3FvLWOaUetqmu37u/lE9T5TfBQ3cuo7ZG4o03s2b//YZ/nUjjOTenhiA
-X-Gm-Gg: Acq92OE8+fe4yRs1+Vr80stDqjV8AAFHnVmvGHviTBz+FLITSVlGvPp/XHVZ912+Skl
-	I0xMJLm1oPYoG2ll0l59zJGoZjUcGbD/hNxRr4k9elY46zGiL5bMO74VsA17MHmG56+7ERkK26K
-	Bp03F5AEg8UnlVfDmP1229jbNNnUrum1xVT9y2yYp9jCdJYB7GBEn2kPeL6SLROTiG9JD2D6Ebg
-	Y56TA3jNqtnrmHUqGcGVO18hEs9B60Kmjc0xkNm7gLMoBOKfVd9Le+4umwSmxSKLeUX7jIZDAs4
-	4vQdWvUo6nNqGEw9OJF/+On01pobMwLfH8sogPFhGVGevqBVLGcrI/HhOj/X/tdl/ApQjuG56gg
-	GYI7ruk963KHRxVINvJ0uhIyXmPluCu7o5DgwWVOEkHOMOXxepw29CL71ohUD+xJMa40FNugnN0
-	7wH3gfC0BQq+h6HBHW47UC0IVjVCpbqiM=
-X-Received: by 2002:a05:600c:c492:b0:490:50eb:b777 with SMTP id 5b1f17b1804b1-490a2901b25mr67467075e9.5.1780153096610;
-        Sat, 30 May 2026 07:58:16 -0700 (PDT)
-Received: from zenbook ([31.4.224.70])
-        by smtp.gmail.com with ESMTPSA id ffacd0b85a97d-45ef354b5bdsm10916493f8f.21.2026.05.30.07.58.14
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Sat, 30 May 2026 07:58:16 -0700 (PDT)
-From: Yassine Oudjana <yassine.oudjana@gmail.com>
-X-Google-Original-From: Yassine Oudjana <y.oudjana@protonmail.com>
-To: Sean Wang <sean.wang@kernel.org>,
-	Linus Walleij <linusw@kernel.org>,
-	Rob Herring <robh@kernel.org>,
-	Krzysztof Kozlowski <krzk+dt@kernel.org>,
-	Conor Dooley <conor+dt@kernel.org>,
-	Matthias Brugger <matthias.bgg@gmail.com>,
-	AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>,
-	Andy Teng <andy.teng@mediatek.com>
-Cc: Yassine Oudjana <y.oudjana@protonmail.com>,
-	linux-mediatek@lists.infradead.org,
-	linux-gpio@vger.kernel.org,
-	devicetree@vger.kernel.org,
-	linux-kernel@vger.kernel.org,
-	linux-arm-kernel@lists.infradead.org
-Subject: [PATCH v8 4/6] dt-bindings: pinctrl: mediatek,mt6779-pinctrl: Document MT6765 pin controller
-Date: Sat, 30 May 2026 16:57:56 +0200
-Message-ID: <20260530145800.1029920-5-y.oudjana@protonmail.com>
-X-Mailer: git-send-email 2.54.0
-In-Reply-To: <20260530145800.1029920-1-y.oudjana@protonmail.com>
-References: <20260530145800.1029920-1-y.oudjana@protonmail.com>
+	Sat, 30 May 2026 15:16:35 +0000
+Received: from imap1.dmz-prg2.suse.org (imap1.dmz-prg2.suse.org [IPv6:2a07:de40:b281:104:10:150:64:97])
+	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
+	 key-exchange X25519 server-signature RSA-PSS (4096 bits) server-digest SHA256)
+	(No client certificate requested)
+	by smtp-out1.suse.de (Postfix) with ESMTPS id 443A86BB03;
+	Sat, 30 May 2026 15:16:30 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=suse.cz; s=susede2_rsa;
+	t=1780154190; h=from:from:reply-to:date:date:message-id:message-id:to:to:cc:cc:
+	 mime-version:mime-version:content-type:content-type:
+	 in-reply-to:in-reply-to:references:references;
+	bh=SE90/JszZ/IRjGrWEI0Bz20FnK4+6DcEq7PwC6UmGJk=;
+	b=Qa+LcmTW0ZOv9LibRf4M14HYx6ONzmia57kRHvqcPwTd3BcxiGBEeG6TM8YKzB+RKO8H2n
+	PZw8uaca7wIUEt0oSClLTTozzT8ZwSJFgeVqU2OBk5dNGZiji2PDHA1w3PVqlrLjX8ul34
+	gLdIrfF0XCXJgrSiHsUxfgs9b0aFqUI=
+DKIM-Signature: v=1; a=ed25519-sha256; c=relaxed/relaxed; d=suse.cz;
+	s=susede2_ed25519; t=1780154190;
+	h=from:from:reply-to:date:date:message-id:message-id:to:to:cc:cc:
+	 mime-version:mime-version:content-type:content-type:
+	 in-reply-to:in-reply-to:references:references;
+	bh=SE90/JszZ/IRjGrWEI0Bz20FnK4+6DcEq7PwC6UmGJk=;
+	b=PFpj0hi2yZT/rs7ItscQI1gzyO9nEwyIjbHSvtCf+NkEtx0A9KaNoFgp53A3WJWGc08WSW
+	v4b6RbI4syEl2xCw==
+Authentication-Results: smtp-out1.suse.de;
+	dkim=pass header.d=suse.cz header.s=susede2_rsa header.b=Qa+LcmTW;
+	dkim=pass header.d=suse.cz header.s=susede2_ed25519 header.b=PFpj0hi2
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=suse.cz; s=susede2_rsa;
+	t=1780154190; h=from:from:reply-to:date:date:message-id:message-id:to:to:cc:cc:
+	 mime-version:mime-version:content-type:content-type:
+	 in-reply-to:in-reply-to:references:references;
+	bh=SE90/JszZ/IRjGrWEI0Bz20FnK4+6DcEq7PwC6UmGJk=;
+	b=Qa+LcmTW0ZOv9LibRf4M14HYx6ONzmia57kRHvqcPwTd3BcxiGBEeG6TM8YKzB+RKO8H2n
+	PZw8uaca7wIUEt0oSClLTTozzT8ZwSJFgeVqU2OBk5dNGZiji2PDHA1w3PVqlrLjX8ul34
+	gLdIrfF0XCXJgrSiHsUxfgs9b0aFqUI=
+DKIM-Signature: v=1; a=ed25519-sha256; c=relaxed/relaxed; d=suse.cz;
+	s=susede2_ed25519; t=1780154190;
+	h=from:from:reply-to:date:date:message-id:message-id:to:to:cc:cc:
+	 mime-version:mime-version:content-type:content-type:
+	 in-reply-to:in-reply-to:references:references;
+	bh=SE90/JszZ/IRjGrWEI0Bz20FnK4+6DcEq7PwC6UmGJk=;
+	b=PFpj0hi2yZT/rs7ItscQI1gzyO9nEwyIjbHSvtCf+NkEtx0A9KaNoFgp53A3WJWGc08WSW
+	v4b6RbI4syEl2xCw==
+Received: from imap1.dmz-prg2.suse.org (localhost [127.0.0.1])
+	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
+	 key-exchange X25519 server-signature RSA-PSS (4096 bits) server-digest SHA256)
+	(No client certificate requested)
+	by imap1.dmz-prg2.suse.org (Postfix) with ESMTPS id 2EDC7779A7;
+	Sat, 30 May 2026 15:16:30 +0000 (UTC)
+Received: from dovecot-director2.suse.de ([2a07:de40:b281:106:10:150:64:167])
+	by imap1.dmz-prg2.suse.org with ESMTPSA
+	id MAHOCk7/GmoTBwAAD6G6ig
+	(envelope-from <jack@suse.cz>); Sat, 30 May 2026 15:16:30 +0000
+Received: by quack3.suse.cz (Postfix, from userid 1000)
+	id 83C05A0EBD; Sat, 30 May 2026 17:16:29 +0200 (CEST)
+Date: Sat, 30 May 2026 17:16:29 +0200
+From: Jan Kara <jack@suse.cz>
+To: Usama Arif <usama.arif@linux.dev>
+Cc: Pedro Falcato <pfalcato@suse.de>, willy@infradead.org, jack@suse.cz, 
+	Andrew Morton <akpm@linux-foundation.org>, david@kernel.org, ryan.roberts@arm.com, linux-mm@kvack.org, 
+	r@hev.cc, Andrew Donnellan <andrew+kernel@donnellan.id.au>, 
+	apopple@nvidia.com, baohua@kernel.org, baolin.wang@linux.alibaba.com, 
+	brauner@kernel.org, catalin.marinas@arm.com, dev.jain@arm.com, kees@kernel.org, 
+	kevin.brodsky@arm.com, lance.yang@linux.dev, "Liam R. Howlett" <liam@infradead.org>, 
+	linux-arm-kernel@lists.infradead.org, linux-fsdevel@vger.kernel.org, linux-kernel@vger.kernel.org, 
+	ljs@kernel.org, mhocko@suse.com, npache@redhat.com, pasha.tatashin@soleen.com, 
+	rmclure@linux.ibm.com, rppt@kernel.org, surenb@google.com, vbabka@kernel.org, 
+	Al Viro <viro@zeniv.linux.org.uk>, wilts.infradead.org@pedro-suse.lan, ziy@nvidia.com, 
+	hannes@cmpxchg.org, kas@kernel.org, shakeel.butt@linux.dev, kernel-team@meta.com
+Subject: Re: [PATCH v6 2/2] mm: use mapping_max_folio_order() for
+ force_thp_readahead order
+Message-ID: <u52xvwk2fjjk2izdb4wvuqq2zhc5neb4q6usimcxejluuyngxw@d64sc6rvojyp>
+References: <20260528165635.2068012-1-usama.arif@linux.dev>
+ <20260528165635.2068012-3-usama.arif@linux.dev>
+ <ahlh2vdHEGo6ZSot@pedro-suse.lan>
+ <cc9a1cf7-7b96-439a-b0be-ecdcf27b5da5@linux.dev>
+ <ahmSolHvUChl-3vM@pedro-suse.lan>
+ <185f1caf-b33d-4467-beb5-51bd8520ac78@linux.dev>
 MIME-Version: 1.0
-Content-Transfer-Encoding: 8bit
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+In-Reply-To: <185f1caf-b33d-4467-beb5-51bd8520ac78@linux.dev>
+X-Rspamd-Server: rspamd1.dmz-prg2.suse.org
+X-Rspamd-Action: no action
+X-Rspamd-Queue-Id: 443A86BB03
+X-Spamd-Result: default: False [-2.51 / 50.00];
+	BAYES_HAM(-3.00)[100.00%];
+	SUSPICIOUS_RECIPS(1.50)[];
+	NEURAL_HAM_LONG(-1.00)[-1.000];
+	MID_RHS_NOT_FQDN(0.50)[];
+	NEURAL_HAM_SHORT(-0.20)[-1.000];
+	R_DKIM_ALLOW(-0.20)[suse.cz:s=susede2_rsa,suse.cz:s=susede2_ed25519];
+	MIME_GOOD(-0.10)[text/plain];
+	MX_GOOD(-0.01)[];
+	RCPT_COUNT_TWELVE(0.00)[38];
+	FUZZY_RATELIMITED(0.00)[rspamd.com];
+	RCVD_COUNT_THREE(0.00)[3];
+	DKIM_SIGNED(0.00)[suse.cz:s=susede2_rsa,suse.cz:s=susede2_ed25519];
+	MIME_TRACE(0.00)[0:+];
+	ARC_NA(0.00)[];
+	RCVD_TLS_LAST(0.00)[];
+	DBL_BLOCKED_OPENRESOLVER(0.00)[suse.com:email,imap1.dmz-prg2.suse.org:rdns,imap1.dmz-prg2.suse.org:helo,suse.cz:dkim];
+	TO_DN_SOME(0.00)[];
+	DNSWL_BLOCKED(0.00)[2a07:de40:b281:106:10:150:64:167:received,2a07:de40:b281:104:10:150:64:97:from];
+	FROM_EQ_ENVFROM(0.00)[];
+	FROM_HAS_DN(0.00)[];
+	TO_MATCH_ENVRCPT_ALL(0.00)[];
+	TAGGED_RCPT(0.00)[kernel];
+	MISSING_XM_UA(0.00)[];
+	RCVD_VIA_SMTP_AUTH(0.00)[];
+	DKIM_TRACE(0.00)[suse.cz:+];
+	R_RATELIMIT(0.00)[to_ip_from(RL7pfqg7h1m44jupjp7nguhfec)];
+	SPAMHAUS_XBL(0.00)[2a07:de40:b281:104:10:150:64:97:from]
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260530_075818_729809_6A66BD9E 
-X-CRM114-Status: GOOD (  10.69  )
+X-CRM114-CacheID: sfid-20260530_081634_198489_71DE3D3B 
+X-CRM114-Status: GOOD (  34.48  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -110,73 +155,73 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-From: Yassine Oudjana <y.oudjana@protonmail.com>
+On Fri 29-05-26 15:11:54, Usama Arif wrote:
+> On 29/05/2026 14:40, Pedro Falcato wrote:
+> > On Fri, May 29, 2026 at 01:19:03PM +0100, Usama Arif wrote:
+> >>
+> >> which means mapping_max_folio_order(mapping) <= MAX_PAGECACHE_ORDER <= HPAGE_PMD_ORDER is always
+> >> true, and you dont need the min3(..) in your diff.
+> >>
+> >> Now the question is if then why not just do:
+> >>
+> >> 	if (IS_ENABLED(CONFIG_TRANSPARENT_HUGEPAGE) && (vm_flags & VM_HUGEPAGE)) {
+> >> 		if (mapping_large_folio_support(mapping)) {
+> >> 			force_thp_readahead = true;
+> >> 			thp_order = min_t(unsigned int,
+> >> 					  mapping_max_folio_order(mapping),
+> >> 					  get_order(SZ_2M));
+> >> 		}
+> >> 	}
+> >>
+> >>
+> >> This is because this will regress the 16K ARM case where we already got 32M
+> >> folios. Someone might upgrade the kernel and start getting 2M folios now.
+> > 
+> > So maybe limit to 32MB? It's still arbitrary but at least you get simpler
+> > logic. If the architecture does not support 32MiB folios, it will clamp
+> > the maximum folio order to HPAGE_PMD_ORDER, and you get the same result.
+> > 
+> > Does this sound correct?
+> > 
+> 
+> Yes, so if we replace it with SZ_32M, it sounds correct. I just think
+> the 32M size is too large. But as you pointed out, even 2M can be too large...
 
-The MT6765 pin controller has had a driver for a while, but DT
-bindings were never documented for it.
+So AFAIU the practical discussion is about two options:
 
-Signed-off-by: Yassine Oudjana <y.oudjana@protonmail.com>
-Reviewed-by: Rob Herring <robh@kernel.org>
-Reviewed-by: AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>
----
- .../pinctrl/mediatek,mt6779-pinctrl.yaml      | 36 +++++++++++++++++++
- 1 file changed, 36 insertions(+)
+1) limiting at 2MB with a slighly more complicated logic to keep mapping at
+PMD order for 16k pagesize on ARM but use 2MB pages for 64k pagesize on ARM
 
-diff --git a/Documentation/devicetree/bindings/pinctrl/mediatek,mt6779-pinctrl.yaml b/Documentation/devicetree/bindings/pinctrl/mediatek,mt6779-pinctrl.yaml
-index 2124804c8863..1f65f0fd41bd 100644
---- a/Documentation/devicetree/bindings/pinctrl/mediatek,mt6779-pinctrl.yaml
-+++ b/Documentation/devicetree/bindings/pinctrl/mediatek,mt6779-pinctrl.yaml
-@@ -18,6 +18,7 @@ description:
- properties:
-   compatible:
-     enum:
-+      - mediatek,mt6765-pinctrl
-       - mediatek,mt6779-pinctrl
-       - mediatek,mt6795-pinctrl
-       - mediatek,mt6797-pinctrl
-@@ -61,6 +62,41 @@ required:
- 
- allOf:
-   - $ref: pinctrl.yaml#
-+  - if:
-+      properties:
-+        compatible:
-+          contains:
-+            const: mediatek,mt6765-pinctrl
-+    then:
-+      properties:
-+        reg:
-+          minItems: 9
-+          maxItems: 9
-+
-+        reg-names:
-+          items:
-+            - const: iocfg0
-+            - const: iocfg1
-+            - const: iocfg2
-+            - const: iocfg3
-+            - const: iocfg4
-+            - const: iocfg5
-+            - const: iocfg6
-+            - const: iocfg7
-+            - const: eint
-+
-+        interrupts:
-+          items:
-+            - description: EINT interrupt
-+
-+      patternProperties:
-+        '-pins$':
-+          patternProperties:
-+            '^pins':
-+              properties:
-+                drive-strength:
-+                  enum: [1, 2, 4, 16]
-+
-   - if:
-       properties:
-         compatible:
+or
+
+2) limit at 32MB with simple logic which results in larger (32MB) folios
+with 16k and 64k pagesize on ARM and thus larger memory overhead.
+
+I'd like to maybe offer option 3): limit at 2MB with simple logic. This
+will reduce folio size on 16k pagesize ARM compared to 1) but do we really
+care? I.e., is there big enough practical performance impact with conpte
+and other tricks ARM is playing?
+
+> > Bottom line is that changing things will always affect someone :) Particularly
+> > since the logic we have is not too careful at deciding what should or should
+> > not be a THP (both in anon and file cases). And if (once?) we make it smarter,
+> > it will surely also regress someone!
+> 
+> Yes completely agree on this as well.
+> 
+> So personally I do have a preference of keeping the cap at 2M atleast initially
+> while we currently try and solve the issues we see with 2M alone. As we are already
+> seeing reports of thrashing and compaction with just 2M, I dont think the logic
+> in this patch with just an if else is that complicated.
+> 
+> Matthew, Jan, do you have any thoughts or strong preferences on cap size?
+
+Frankly, no strong opinion. I'd think 3) is worth trying for its simplicity
+and seeing whether somebody complains, otherwise I can live with both 1)
+and 2).
+
+								Honza
 -- 
-2.54.0
-
+Jan Kara <jack@suse.com>
+SUSE Labs, CR
 
