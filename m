@@ -4,75 +4,77 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id BC4EBCD6E55
-	for <linux-arm-kernel@archiver.kernel.org>; Sat, 30 May 2026 14:03:26 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id B433BCD6E49
+	for <linux-arm-kernel@archiver.kernel.org>; Sat, 30 May 2026 14:07:00 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:References
-	:Message-Id:Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:
-	From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=r4nbS8xa1t6p9SSd83lfSkSZbudRp6Hwue1GxL/GjKY=; b=0ZTv/2hXSmOyZBeiqhR8PwcQiP
-	jBJEvMZ9hWuOnq8ulZu7aWOUTZ/0mgSwCmx8QraQEp9vXOb7P1sWWu6ui1pTDAx6EXmb7E7Y3AiY3
-	SiLR3BhKAu9tu0AKciTRNDKUjoxKdO35LAfTfiU0z8lfwrXO6rCGsmV0ZSZqf4wzqupaBQexqcZvH
-	lnI0Z5k3G1E8rObu+CPOmWzrjMKTNMdiZQjORxwn0rRRHInJyncMZvwljLWuqjBC5hx5yQhfEEn8f
-	5ffY6fbiOod3co4/iHxsDR2iM/OZ/8EMy5zBiCW/PplRPSGmR0C5uLnjtPcJF1wfy3/g1bEX1hnjc
-	inr4gzdw==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=jxV7ngvfcwDYs3XVjbuPiw74ltU6lWm+WOr2nuykH/4=; b=0DX4u+7350N/AdZapt+R4syS2Z
+	iz8z70+HA44GU7xKmtcy8XbQn+Od2hWqrzoMBYrt4HxM/8Pi/TNtnDH05SKgZ2I1VSfZnAgoSOkcc
+	S3e6W0z1wbhin0RsPXZOTpMY/TrSW6cW+kcKs2/CwnY4LXSF4/bJll0NDaCk8ULtiAc8x8zTNaDRP
+	4jEOqdMvr9MPYG8+w8zll63w2SIoCkiWpxZhFTBi5i63AAgCuyu0HqFXQKRZYGLdU6JhfQvsC2SUd
+	89wse1zHqODPsYipKc8EnYBcOfWkTdc0yK9Yci3VhMc9M9A9gFCppae10jTubi+jmEdFNiEm/ldUY
+	x98xFExg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wTKHY-00000008oHg-3j0r;
-	Sat, 30 May 2026 14:03:20 +0000
-Received: from tor.source.kernel.org ([2600:3c04:e001:324:0:1991:8:25])
+	id 1wTKKz-00000008ogz-1UoT;
+	Sat, 30 May 2026 14:06:53 +0000
+Received: from zeus03.de ([194.117.254.33] helo=mail.zeus03.de)
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wTKHK-00000008o4g-2QY2
+	id 1wTKKw-00000008oga-0ThA
 	for linux-arm-kernel@lists.infradead.org;
-	Sat, 30 May 2026 14:03:06 +0000
-Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
-	by tor.source.kernel.org (Postfix) with ESMTP id 0CD9060122;
-	Sat, 30 May 2026 14:03:06 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 420481F00898;
-	Sat, 30 May 2026 14:03:05 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1780149785;
-	bh=r4nbS8xa1t6p9SSd83lfSkSZbudRp6Hwue1GxL/GjKY=;
-	h=From:Date:Subject:References:In-Reply-To:To:Cc;
-	b=VXsRofvTlCT+f9SOep2P3TzeES/n0PxqbaWYu2qUVSauLYc8l7nFZfYyQFsWpvcRU
-	 q5foFNJToypw69zncc3efl1nWPQZvn77U8h40IEEBhs9G3OLfA5pBAk36cKlIz+otC
-	 sews696a9U0e3nVo4CR5jTIBZ6vVUMVhTB5eki5TmNHRjpGyviW95Fh8beXhtE2QRo
-	 YMCVFrGDtWXH/sz5B1Cxk3bwCkM2gdFp8J3ZXq5Qq6waGUPu9P5rTfuEDPg85nkJng
-	 oRZr2vxTZ8DPF29uB7HnNwrWoE7kDIElF127SAtp+xVJbarRisXfMv+Zddf6A8/EwP
-	 rD792GFxJNodg==
-From: Maxime Ripard <mripard@kernel.org>
-Date: Sat, 30 May 2026 16:00:16 +0200
-Subject: [PATCH 71/76] drm/xlnx: zynqmp_dp: Switch to atomic_create_state
+	Sat, 30 May 2026 14:06:52 +0000
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=
+	sang-engineering.com; h=date:from:to:cc:subject:message-id
+	:references:mime-version:content-type:in-reply-to; s=k1; bh=jxV7
+	ngvfcwDYs3XVjbuPiw74ltU6lWm+WOr2nuykH/4=; b=aq3Q+QFHpOXBnB8eBf3c
+	XMGVv2c6YeAfcCasT57jtlGaBtFT9SgrQQ0sEl+ha6L8VE51V0O2sagjYy3lv8qI
+	lwsrcCaybcN3scUUkoy9NQIbeQ1rf19naDYryMoH8Ui4e6jjG+ylqRITqhCieHPZ
+	ioBT12l5WFwCEEwoU2cRILw4V8P6Rse0JvT7mMJvveoCOVikmcpIf2lALA2a13Pu
+	mN6kfSSXDu4/MGGQNiKTyxtvzMAm7c23kAoRa51MoXTMbjKptHwkuAWW0Vl/bCvC
+	gcnb87kNPVpw8DB8N+fdgXfKHTyViS3/1cQ7APAUiJvB4NNZIjGFG0xihAH6Y2vN
+	EA==
+Received: (qmail 1763752 invoked from network); 30 May 2026 16:06:45 +0200
+Received: by mail.zeus03.de with ESMTPSA (TLS_AES_256_GCM_SHA384 encrypted, authenticated); 30 May 2026 16:06:45 +0200
+X-UD-Smtp-Session: l3s3148p1@Mci0eAlTGIAqAQ4KEBW5QLbOwWyJKVt/
+Date: Sat, 30 May 2026 16:06:44 +0200
+From: Wolfram Sang <wsa+renesas@sang-engineering.com>
+To: Nihal Kumar Gupta <nihal.gupta@oss.qualcomm.com>
+Cc: Bryan O'Donoghue <bod@kernel.org>,
+	Vladimir Zapolskiy <vladimir.zapolskiy@linaro.org>,
+	Loic Poulain <loic.poulain@oss.qualcomm.com>,
+	Mauro Carvalho Chehab <mchehab@kernel.org>,
+	Rob Herring <robh@kernel.org>,
+	Krzysztof Kozlowski <krzk+dt@kernel.org>,
+	Conor Dooley <conor+dt@kernel.org>, Robert Foss <rfoss@kernel.org>,
+	Andi Shyti <andi.shyti@kernel.org>,
+	Bryan O'Donoghue <bryan.odonoghue@linaro.org>,
+	Bjorn Andersson <andersson@kernel.org>,
+	Konrad Dybcio <konradybcio@kernel.org>, Frank Li <Frank.Li@nxp.com>,
+	Sascha Hauer <s.hauer@pengutronix.de>,
+	Pengutronix Kernel Team <kernel@pengutronix.de>,
+	Fabio Estevam <festevam@gmail.com>, linux-arm-msm@vger.kernel.org,
+	linux-media@vger.kernel.org, devicetree@vger.kernel.org,
+	linux-kernel@vger.kernel.org, linux-i2c@vger.kernel.org,
+	imx@lists.linux.dev, linux-arm-kernel@lists.infradead.org,
+	Suresh Vankadara <quic_svankada@quicinc.com>,
+	Vikram Sharma <vikram.sharma@oss.qualcomm.com>
+Subject: Re: [PATCH 2/8] dt-bindings: i2c: qcom-cci: Document Shikra
+ compatible
+Message-ID: <ahru9MckM2pHN4m2@shikoro>
+References: <20260526-shikra-camss-review-v1-0-645d2c8c75a7@qti.qualcomm.com>
+ <20260526-shikra-camss-review-v1-2-645d2c8c75a7@qti.qualcomm.com>
 MIME-Version: 1.0
-Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: 7bit
-Message-Id: <20260530-drm-no-more-bridge-reset-v1-71-875d828d31bc@kernel.org>
-References: <20260530-drm-no-more-bridge-reset-v1-0-875d828d31bc@kernel.org>
-In-Reply-To: <20260530-drm-no-more-bridge-reset-v1-0-875d828d31bc@kernel.org>
-To: Andrzej Hajda <andrzej.hajda@intel.com>, 
- Neil Armstrong <neil.armstrong@linaro.org>, Robert Foss <rfoss@kernel.org>, 
- Laurent Pinchart <Laurent.pinchart@ideasonboard.com>, 
- Jonas Karlman <jonas@kwiboo.se>, Jernej Skrabec <jernej.skrabec@gmail.com>, 
- Luca Ceresoli <luca.ceresoli@bootlin.com>, 
- Maarten Lankhorst <maarten.lankhorst@linux.intel.com>, 
- Thomas Zimmermann <tzimmermann@suse.de>, David Airlie <airlied@gmail.com>, 
- Simona Vetter <simona@ffwll.ch>
-Cc: Dmitry Baryshkov <lumag@kernel.org>, dri-devel@lists.freedesktop.org, 
- Maxime Ripard <mripard@kernel.org>, 
- Laurent Pinchart <laurent.pinchart@ideasonboard.com>, 
- Tomi Valkeinen <tomi.valkeinen@ideasonboard.com>, 
- Michal Simek <michal.simek@amd.com>, linux-arm-kernel@lists.infradead.org
-X-Mailer: b4 0.14.3
-X-Developer-Signature: v=1; a=openpgp-sha256; l=1570; i=mripard@kernel.org;
- h=from:subject:message-id; bh=uVDQrnlYf7QLxjWeJ5PXbsoBfWA33z0UzTd61/u5pp0=;
- b=owGbwMvMwCmsHn9OcpHtvjLG02pJDFlSb0MmzPjI6Mu+0+WTdF+PDusKu1UyYnuXhRwznsyj+
- ur+hxtNHVNZGIQ5GWTFFFmeyISdXt6+uMrBfuUPmDmsTCBDGLg4BWAi+94yNszdP+Wb51uxUx2t
- Cy/Z1PavzDja/Pdi6p+dT6TLtj03m3v53Y91RjeFGl3OJscwFDPc4WNs6DhXxsXdk3FTdLaTt9Q
- kk/3V5o2znbXiDF4fiSzycmP99Tvn8Au/o8Fi173C9nN/8+wBAA==
-X-Developer-Key: i=mripard@kernel.org; a=openpgp;
- fpr=BE5675C37E818C8B5764241C254BCFC56BF6CE8D
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+In-Reply-To: <20260526-shikra-camss-review-v1-2-645d2c8c75a7@qti.qualcomm.com>
+X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
+X-CRM114-CacheID: sfid-20260530_070650_431330_9D8DCE3F 
+X-CRM114-Status: UNSURE (   6.71  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -87,43 +89,13 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-The drm_bridge_funcs.atomic_reset callback and its
-drm_atomic_helper_bridge_reset() helper are deprecated.
+On Tue, May 26, 2026 at 10:42:46PM +0530, Nihal Kumar Gupta wrote:
+> Add Shikra compatible consistent with CAMSS CCI interfaces.
+> It requires only two clocks.
+> 
+> Signed-off-by: Nihal Kumar Gupta <nihal.gupta@oss.qualcomm.com>
+> Reviewed-by: Bryan O'Donoghue <bryan.odonoghue@linaro.org>
 
-Switch to the atomic_create_state callback and its
-drm_atomic_helper_bridge_create_state() counterpart.
-
-Signed-off-by: Maxime Ripard <mripard@kernel.org>
-
----
-To: Laurent Pinchart <laurent.pinchart@ideasonboard.com>
-To: Tomi Valkeinen <tomi.valkeinen@ideasonboard.com>
-To: Michal Simek <michal.simek@amd.com>
-Cc: dri-devel@lists.freedesktop.org
-Cc: linux-arm-kernel@lists.infradead.org
----
- drivers/gpu/drm/xlnx/zynqmp_dp.c | 2 +-
- 1 file changed, 1 insertion(+), 1 deletion(-)
-
-diff --git a/drivers/gpu/drm/xlnx/zynqmp_dp.c b/drivers/gpu/drm/xlnx/zynqmp_dp.c
-index 7fb11b0a44f0..b209582bc130 100644
---- a/drivers/gpu/drm/xlnx/zynqmp_dp.c
-+++ b/drivers/gpu/drm/xlnx/zynqmp_dp.c
-@@ -2278,11 +2278,11 @@ static const struct drm_bridge_funcs zynqmp_dp_bridge_funcs = {
- 	.mode_valid = zynqmp_dp_bridge_mode_valid,
- 	.atomic_enable = zynqmp_dp_bridge_atomic_enable,
- 	.atomic_disable = zynqmp_dp_bridge_atomic_disable,
- 	.atomic_duplicate_state = drm_atomic_helper_bridge_duplicate_state,
- 	.atomic_destroy_state = drm_atomic_helper_bridge_destroy_state,
--	.atomic_reset = drm_atomic_helper_bridge_reset,
-+	.atomic_create_state = drm_atomic_helper_bridge_create_state,
- 	.atomic_check = zynqmp_dp_bridge_atomic_check,
- 	.detect = zynqmp_dp_bridge_detect,
- 	.edid_read = zynqmp_dp_bridge_edid_read,
- 	.atomic_get_input_bus_fmts = zynqmp_dp_bridge_get_input_bus_fmts,
- 	.debugfs_init = zynqmp_dp_bridge_debugfs_init,
-
--- 
-2.54.0
+Reviewed-by: Wolfram Sang <wsa+renesas@sang-engineering.com>
 
 
