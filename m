@@ -4,65 +4,120 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id D842BCD6E49
-	for <linux-arm-kernel@archiver.kernel.org>; Sat, 30 May 2026 16:51:47 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 21342CD6E49
+	for <linux-arm-kernel@archiver.kernel.org>; Sat, 30 May 2026 17:33:40 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:MIME-Version:Date:Message-Id:Subject:References:In-Reply-To:Cc:
-	To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
+	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=Fs37mZtBEj4mh4HBBrOzVn2o9vM5ahogZ/D+zH8VWRE=; b=sGGmOD5b/wpeIGSv0EJnNf9KgS
-	6sJLZVOhBKUhd8eKThWizElz3s2hZX3XiUhU6a/VoFLkDSWEX3ugvavD6YzK/Pi+4Af/HbFGDfaA3
-	Pb6KOJfi+Ts++4w/zDcVfKb2kO+/k2YbZwG1wPqJJ+VgeKPct2XPoM9jlzEkRWO+HkZIpz2pAb+eb
-	FbgxoxAcsTAVGZMwOzsepFC1BobaFBDC4xYPLdzyN3Q1nTM4uaQALpIfDvMd/cRwtjHDrHJq7Mo3X
-	JX80GVHkULXcSKJ4r3d/0dZtorDWpVJ+OmfdG8sQw5OuZjVVnc8kbDxk7nnSU7/uPH6aiVtquW116
-	phBRbxHg==;
+	bh=uAflBWOHLMczVAx0OqWwLrWmJzNPKJqnt7OnFqzNt6g=; b=RYZ6Wds3ZUX1Z9xz0tzo5JL8q8
+	t6LPElSe51RJEUbsMK9g8croWQpujHIzWWAsLb0mk9nxwE4IcZ6WvtOMDdqcjvbsrMVm4PdUWx33g
+	QZa1FpZQ4LsBujiJsw5zWmQk708q3YtoJq97gIfKeoNl6QnLNOk5IwZWjHObj82Fgfah+mEaxMlX6
+	5cnQhRERmgiV7STEMUkrkk9OhTjT9HUX5K5/E8WvOAsY9OF9BRT7ompX1HwYoAo4b/eExv1Qlfi+T
+	GswAWM2hNw4KvczAGrnBY11mh6Qz2nw2kmAvDoQVPAxmOUqKWcfQByU0c5kgtPXbieRwy1T+SLlso
+	/quLJaDw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wTMuS-00000008woo-0fkB;
-	Sat, 30 May 2026 16:51:40 +0000
-Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
+	id 1wTNYw-00000008y3w-1wIx;
+	Sat, 30 May 2026 17:33:30 +0000
+Received: from sea.source.kernel.org ([172.234.252.31])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wTMuP-00000008woS-35nG
-	for linux-arm-kernel@lists.infradead.org;
-	Sat, 30 May 2026 16:51:38 +0000
+	id 1wTNYt-00000008y3O-2w7o;
+	Sat, 30 May 2026 17:33:29 +0000
 Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
-	by sea.source.kernel.org (Postfix) with ESMTP id EC1D243E86;
-	Sat, 30 May 2026 16:51:36 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id B6A581F00893;
-	Sat, 30 May 2026 16:51:34 +0000 (UTC)
+	by sea.source.kernel.org (Postfix) with ESMTP id DDF2C408E9;
+	Sat, 30 May 2026 17:33:26 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id AF4BC1F00893;
+	Sat, 30 May 2026 17:33:22 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1780159896;
-	bh=Fs37mZtBEj4mh4HBBrOzVn2o9vM5ahogZ/D+zH8VWRE=;
-	h=From:To:Cc:In-Reply-To:References:Subject:Date;
-	b=BAyAqQi3WXNfTP7owhvvOIsi35V9WV2a9Kf7BDnajl5xDaDfayuQiYxICAjvXvhcB
-	 G9Jp4kdq7Q19B/bLt8FZK18fVyO1Dv05jr4VrOuh/KBzhRc7ZjkVdlajtVbIf3k8+I
-	 iBP9oGd7wLwPJA5EfIHhVggz/CGu8VLgzDeqpFFqMPVHxBOwHLdTTn5F7/GQmMvWsF
-	 wK8D27QgMNFMMXzUh1bY1Kw6OdpGxZszex0aXG3dr87ipI8KdYXZLV6VPG0JbDdwxB
-	 mjL9IC8kQ8neyppeKCQdsWCtBVU50s+2ZL5wd1mbS9a40K7Fj+jhESh8geP0D5cDDB
-	 WCHSuzk1WYE3g==
-From: Krzysztof Kozlowski <krzk@kernel.org>
-To: Sylwester Nawrocki <s.nawrocki@samsung.com>, 
- Chanwoo Choi <cw00.choi@samsung.com>, Alim Akhtar <alim.akhtar@samsung.com>, 
- Michael Turquette <mturquette@baylibre.com>, 
- Stephen Boyd <sboyd@kernel.org>, Brian Masney <bmasney@redhat.com>, 
- Denzeel Oliva <wachiturroxd150@gmail.com>
-Cc: linux-samsung-soc@vger.kernel.org, linux-clk@vger.kernel.org, 
- linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org
-In-Reply-To: <20260528-perics-usi-v1-1-13a6ee4d1a6f@gmail.com>
-References: <20260528-perics-usi-v1-1-13a6ee4d1a6f@gmail.com>
-Subject: Re: [PATCH] clk: samsung: exynos990: Fix PERIC0/1 USI clock types
-Message-Id: <178015989447.40681.11936234439376141101.b4-ty@b4>
-Date: Sat, 30 May 2026 18:51:34 +0200
+	s=k20260515; t=1780162406;
+	bh=uAflBWOHLMczVAx0OqWwLrWmJzNPKJqnt7OnFqzNt6g=;
+	h=Date:Subject:To:Cc:References:From:In-Reply-To;
+	b=DtB1Ks3pddrvkt5ANvMit/Nr8FN17UEKfuMv2Qi/BtHKQyho9447UtfHZj+UeLCAc
+	 09J6ceCqzucIPNqZtuXbMHDjr4ws45MU4fPPOnF2nMWLDJSi7Xy9YXGzwQDii0YrUS
+	 xqSj+RKNT8jbK0/5+wUTEiPeXdH/RHgcHb/m3anLXeuAKrSoPHv4VTSq/6dykdEP47
+	 XdsWrzVjZB1mNd1igVz3RKG4798No2SYhFHLns+U3v1oUPlG9wpK3duXFV/Fc9aZsU
+	 0QIFapivknON4x62Ec46BzEa/orUxdutBwrkh0w/NOxD+N8A3O+hCnrSSx6439d7bj
+	 Ob5C2TZg2QF/g==
+Message-ID: <b445e9e3-dfda-45d6-bafb-a2deb3357144@kernel.org>
+Date: Sat, 30 May 2026 19:33:20 +0200
 MIME-Version: 1.0
-Content-Type: text/plain; charset="utf-8"
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH v6 1/2] dt-bindings: ufs: Document static TX Equalization
+ settings properties
+To: Can Guo <can.guo@oss.qualcomm.com>
+Cc: bvanassche@acm.org, beanhuo@micron.com, peter.wang@mediatek.com,
+ martin.petersen@oracle.com, mani@kernel.org, linux-scsi@vger.kernel.org,
+ Alim Akhtar <alim.akhtar@samsung.com>, Avri Altman <avri.altman@wdc.com>,
+ Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>,
+ Conor Dooley <conor+dt@kernel.org>, Matthias Brugger
+ <matthias.bgg@gmail.com>,
+ AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>,
+ Zhaoming Luo <zhml@posteo.com>, Ram Kumar Dwivedi
+ <quic_rdwivedi@quicinc.com>,
+ "open list:OPEN FIRMWARE AND FLATTENED DEVICE TREE BINDINGS"
+ <devicetree@vger.kernel.org>, open list <linux-kernel@vger.kernel.org>,
+ "moderated list:ARM/Mediatek SoC support:Keyword:mediatek"
+ <linux-arm-kernel@lists.infradead.org>,
+ "moderated list:ARM/Mediatek SoC support:Keyword:mediatek"
+ <linux-mediatek@lists.infradead.org>
+References: <20260529113338.984301-1-can.guo@oss.qualcomm.com>
+ <20260529113338.984301-2-can.guo@oss.qualcomm.com>
+ <20260529-neat-bright-shellfish-eab5e8@quoll>
+ <ada65ce2-6736-44fe-9396-d3ed632274ce@oss.qualcomm.com>
+From: Krzysztof Kozlowski <krzk@kernel.org>
+Content-Language: en-US
+Autocrypt: addr=krzk@kernel.org; keydata=
+ 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 a/A=
+In-Reply-To: <ada65ce2-6736-44fe-9396-d3ed632274ce@oss.qualcomm.com>
+Content-Type: text/plain; charset=UTF-8
 Content-Transfer-Encoding: 7bit
-X-Mailer: b4 0.15.2
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260530_095137_802011_AD63178A 
-X-CRM114-Status: UNSURE (   7.16  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20260530_103327_806581_D3A876BB 
+X-CRM114-Status: GOOD (  17.56  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -77,25 +132,96 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-
-On Thu, 28 May 2026 15:09:01 -0500, Denzeel Oliva wrote:
-> Use nMUX() for USI and UART user muxes to allow reparenting between
-> OSC and CMU IP output when changing rates, and use DIV_F() with
-> CLK_SET_RATE_PARENT on their dividers and gates so rate requests
-> propagate upward.
+On 30/05/2026 14:45, Can Guo wrote:
 > 
-> Consolidate identical USI parent arrays into shared
-> mout_peric0_nonbususer_p and mout_peric1_nonbususer_p.
 > 
-> [...]
+> On 5/30/2026 12:58 AM, Krzysztof Kozlowski wrote:
+>> On Fri, May 29, 2026 at 04:33:37AM -0700, Can Guo wrote:
+>>> UFS v5.0/UFSHCI v5.0 add HS-G6 support (46.6 Gbps/lane) via UniPro v3.0
+>>> and M-PHY v6.0. In these specs, TX Equalization is defined for all High
+>>> Speed Gears (not only HS-G6) to compensate channel loss and improve signal
+>>> integrity at high speed operation.
+>>>
+>>> For HS-G6, M-PHY uses PAM4 1b1b line coding, Pre-Coding may also be
+>>> required depending on channel characteristics.
+>>>
+>>> Add vendor-neutral DT properties:
+>>>
+>>> - patternProperties for txeq-preshoot-g[1-6] and txeq-deemphasis-g[1-6]
+>>> - fixed property tx-precode-enable-g6
+>>>
+>>> Each property is a uint32 array of per-lane tuples:
+>>> <Host_Lane0 Device_Lane0>, [<Host_Lane1 Device_Lane1>]
+>>>
+>>> Accept 2 or 4 values (x1/x2 lane configs). PreShoot and DeEmphasis values
+>>> are 0..7. Precode enable values are 0/1 and only applicable to HS-G6.
+>>>
+>>> Acked-by: Manivannan Sadhasivam <mani@kernel.org>
+>>> Reviewed-by: Bean Huo <beanhuo@micron.com>
+>>> Reviewed-by: Peter Wang <peter.wang@mediatek.com>
+>>> Signed-off-by: Can Guo <can.guo@oss.qualcomm.com>
+>>> ---
+>>>   .../devicetree/bindings/ufs/ufs-common.yaml   | 45 +++++++++++++++++++
+>>>   1 file changed, 45 insertions(+)
+>>>
+>>> diff --git a/Documentation/devicetree/bindings/ufs/ufs-common.yaml b/Documentation/devicetree/bindings/ufs/ufs-common.yaml
+>>> index ed97f5682509..d90cf25adfa5 100644
+>>> --- a/Documentation/devicetree/bindings/ufs/ufs-common.yaml
+>>> +++ b/Documentation/devicetree/bindings/ufs/ufs-common.yaml
+>>> @@ -105,6 +105,51 @@ properties:
+>>>         Restricts the UFS controller to rate-a or rate-b for both TX and
+>>>         RX directions.
+>>>   
+>>> +  tx-precode-enable-g6:
+>>> +    $ref: /schemas/types.yaml#/definitions/uint32-array
+>>> +    oneOf:
+>>> +      - minItems: 2
+>>> +        maxItems: 2
+>>> +      - minItems: 4
+>>> +        maxItems: 4
+>>> +    items:
+>>> +      enum: [0, 1]
+>>> +    description: |
+>>> +      Static TX Precode enable values for HS-G6 only.
+>>> +      Values are specified as per-lane tuples:
+>>> +      <Host_Lane0 Device_Lane0>, [<Host_Lane1 Device_Lane1>].
+>> You need to include them in any of applicable examples, otherwise
+>> nothing here is validated.
+> Hi Krzysztof,
+> 
+> Thanks for the review.
+> 
+> Since no UFS5-capable SoC binding exists upstream yet (the target SoC is
 
-Applied, thanks!
+I would imagine cover letter or commit msg would briefly mention that.
 
-[1/1] clk: samsung: exynos990: Fix PERIC0/1 USI clock types
-      https://git.kernel.org/krzk/linux/c/e11560b050ce867bd7d3ccea138231db54e2250a
+> still pre-CS), there is no vendor-specific YAML to attach the example to.
+> 
+> Is a synthetic example directly in ufs-common.yaml OK to you?
+
+Skip example in such case.
+
+>>
+>> Why values cannot be on or off? Or even better: why you cannot just list
+>> all the lanes which has it enabled, assuming disabled is by default?
+> Thanks for the suggestions.
+> 
+> For the "just list enabled lanes" suggestion: precode must be configured
+> independently for the Host-side TX and Device-side TX transceivers within
+> the same physical lane. A lane index list alone cannot capture this
+> two-dimensional per-lane state. The tuple format <Host_LaneN Device_LaneN>
+> is the minimal encoding that covers both.
+
+Again, why do you need to encode '0'?
+
+> 
+> For the "on/off" suggestion: the on/off string pattern is used with
+> single-value properties (e.g. LED default-state) read via
+> of_property_read_string(). I am not aware of precedent for on/off as a
+> string array for per-lane tuples.
+
+git grep string-array. Plenty of precedents.
 
 Best regards,
--- 
-Krzysztof Kozlowski <krzk@kernel.org>
-
+Krzysztof
 
