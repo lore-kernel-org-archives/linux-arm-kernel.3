@@ -4,70 +4,70 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id DE9A6CD6E4A
-	for <linux-arm-kernel@archiver.kernel.org>; Sat, 30 May 2026 11:30:00 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 7C486CD5BD0
+	for <linux-arm-kernel@archiver.kernel.org>; Sat, 30 May 2026 11:35:08 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:References:To:
-	From:Subject:Cc:Message-Id:Date:Content-Type:Content-Transfer-Encoding:
-	Mime-Version:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=koc182XcypwgblVKdeSIgVWifpWgkzVIW/22VPMmUuU=; b=j1lvRLwMYoB3MflDHAygrdSLj6
-	cqKyGOMHzGnVRR3EfY9SJ+9SLdU0qlK/UUXG6K9w0cTFDTroFU7B7jVk5tr/LohM2pAp6mFXKOk+P
-	ZhwcrcGEZWAC+RK2w5fNy51K7UREpFRtGO6GSQ0oqGO+8u5NtuA8mUFu6aavJ7uwEa/NcLzVkGjta
-	B217rGz798OMvsd//nRjXGmIPRMi5KtvoYOqzNhrLZ7ciYr2urkmX08Z61xWuXkd+0Yl5xlALZuSk
-	7kGPKwy7yhVzCFlHSkjAF7IdyA1UYUk7yJxezmP5zNYZyM3cmCR49sI91MC0xpAd8QfxG9WNQqzS9
-	JRhHj8LQ==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=r6iJ03g0GN7RPUEqnMX9QzrhnN3t4K3RUDcacgMvbpA=; b=KNWd26CSvMuBK5np88jDucI5Jx
+	L5zKQISouZktUHKDeRGBMJryMILtv77w2KH/i0EyBuaWGpDrQEGd67ruDgtMJsof+v1mtNLospvOq
+	rtwVgXcR6ktzWHOEqLkAPt+8E0LC8YdzSymF9dzDfuxq28D+aNIaT/PVGOIaD3mPEQGCpqHIZlKvU
+	FHgZ8rWJMCPUp90bQZMD7PxoCPlZRyhWdkUClh6DuO6F2FXGsIj9b2muKdx182EBkKE7Uk6ZfKG1c
+	Ga4gnlVPBFmQHS3szNwQ8ccYcgU/kYH/9ZxyYQv50YfhGSGMpKtRAZDi/rPfqlYDuaBI58hHveKcv
+	ltoUgrRw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wTHt3-00000008gGo-2ADX;
-	Sat, 30 May 2026 11:29:53 +0000
-Received: from out-181.mta0.migadu.com ([91.218.175.181])
+	id 1wTHy1-00000008gaM-0NYl;
+	Sat, 30 May 2026 11:35:01 +0000
+Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wTHt0-00000008gFS-1Rrt
+	id 1wTHxy-00000008gZw-3hKk
 	for linux-arm-kernel@lists.infradead.org;
-	Sat, 30 May 2026 11:29:51 +0000
-Mime-Version: 1.0
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=cknow-tech.com;
-	s=key1; t=1780140576;
-	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
-	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
-	 content-transfer-encoding:content-transfer-encoding:
-	 in-reply-to:in-reply-to:references:references;
-	bh=koc182XcypwgblVKdeSIgVWifpWgkzVIW/22VPMmUuU=;
-	b=nlm0SqO6Ux6TBklBXdGkKJEhTao7Z3+0nn5LH1tPMJo2DQt4I9eDda93iXQAfl233TfX/d
-	hVWX2IQs35puA2gA1D+ARI8hH3MFSvJTWxuDWIkzPNoXRwC2WQSFA0n4560+X/4h85nI18
-	PlFueIwyicAQ9W0RcsNaMC6iOjqa4B+R8xq53ok9zyh3YSzgMjjXRPKVkcIj/YlOMnMCNk
-	62MqCCklM3TifYLU/NQNTnxIEcqgHhtzw/q31/dqWjLUwmYgf+atmPv3EPhVgK7+S69xsl
-	NzFuQRGJsPSyKkWOCtQMPioQOMJSLywovGfbdL+Kzuoe7gEWjhsuC3VKh31DOg==
-Content-Transfer-Encoding: quoted-printable
-Content-Type: text/plain; charset=UTF-8
-Date: Sat, 30 May 2026 13:29:18 +0200
-Message-Id: <DIVZ5UVI8BNH.2KC7WUNECAMZS@cknow-tech.com>
-Cc: <kernel@collabora.com>, <dri-devel@lists.freedesktop.org>,
- <linux-arm-kernel@lists.infradead.org>,
- <linux-rockchip@lists.infradead.org>, <linux-kernel@vger.kernel.org>
-Subject: Re: [PATCH v3 0/2] Rockchip DRM use-after-free & null-ptr-deref
- fixes
-X-Report-Abuse: Please report any abuse attempt to abuse@migadu.com and include these headers.
-From: "Diederik de Haas" <diederik@cknow-tech.com>
-To: "Cristian Ciocaltea" <cristian.ciocaltea@collabora.com>, "Sandy Huang"
- <hjc@rock-chips.com>, =?utf-8?q?Heiko_St=C3=BCbner?= <heiko@sntech.de>,
- "Andy Yan" <andy.yan@rock-chips.com>, "Maarten Lankhorst"
- <maarten.lankhorst@linux.intel.com>, "Maxime Ripard" <mripard@kernel.org>,
- "Thomas Zimmermann" <tzimmermann@suse.de>, "David Airlie"
- <airlied@gmail.com>, "Simona Vetter" <simona@ffwll.ch>, "Dmitry Baryshkov"
- <dmitry.baryshkov@oss.qualcomm.com>, "Dmitry Baryshkov" <lumag@kernel.org>,
- "Andrzej Hajda" <andrzej.hajda@intel.com>, "Neil Armstrong"
- <neil.armstrong@linaro.org>, "Robert Foss" <rfoss@kernel.org>, "Laurent
- Pinchart" <Laurent.pinchart@ideasonboard.com>, "Jonas Karlman"
- <jonas@kwiboo.se>, "Jernej Skrabec" <jernej.skrabec@gmail.com>
-References: <20260327-drm-rk-fixes-v3-0-fd2e6900c08c@collabora.com>
-In-Reply-To: <20260327-drm-rk-fixes-v3-0-fd2e6900c08c@collabora.com>
-X-Migadu-Flow: FLOW_OUT
+	Sat, 30 May 2026 11:34:59 +0000
+Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
+	by sea.source.kernel.org (Postfix) with ESMTP id 0D1A5402BD;
+	Sat, 30 May 2026 11:34:58 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 50AE61F00893;
+	Sat, 30 May 2026 11:34:57 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
+	s=k20260515; t=1780140897;
+	bh=r6iJ03g0GN7RPUEqnMX9QzrhnN3t4K3RUDcacgMvbpA=;
+	h=Date:From:To:Cc:Subject:References:In-Reply-To;
+	b=imYG6wHpndrIyG2kUXah98OBeOwxAQDxY+wnIJP2tmdT81J8jrlgyC9zjchdYinrp
+	 qrUwgYBT9G5apv8isIO+ZfnGbXbykqDUC1FDnE7Ay5q/2UR5W8EZyOe1i0mxgZPKIy
+	 iIPeqjCEDwKD8nsV8rhLLHL1+Ev5/QAyb3zCLONelalhQa4Lpq9RpJtoRu/3SLYSQ6
+	 UW2ecTI7wyeuNZhHfcKVjz2R1WFhmrbOJVHtcx+VcYPUS6Py/4NsxZwC+CbRiSRC4d
+	 qL01rbpeAjc9gEJmvEQSKpvHrqY+MAWqSYcPSuE7/rMcGqnz1mvNLBj+QYcfzF0z2H
+	 psI/LmsNcVEUQ==
+Date: Sat, 30 May 2026 13:34:55 +0200
+From: Krzysztof Kozlowski <krzk@kernel.org>
+To: Nihal Kumar Gupta <nihal.gupta@oss.qualcomm.com>
+Cc: Bryan O'Donoghue <bod@kernel.org>, 
+	Vladimir Zapolskiy <vladimir.zapolskiy@linaro.org>, Loic Poulain <loic.poulain@oss.qualcomm.com>, 
+	Mauro Carvalho Chehab <mchehab@kernel.org>, Rob Herring <robh@kernel.org>, 
+	Krzysztof Kozlowski <krzk+dt@kernel.org>, Conor Dooley <conor+dt@kernel.org>, 
+	Robert Foss <rfoss@kernel.org>, Andi Shyti <andi.shyti@kernel.org>, 
+	Bryan O'Donoghue <bryan.odonoghue@linaro.org>, Bjorn Andersson <andersson@kernel.org>, 
+	Konrad Dybcio <konradybcio@kernel.org>, Frank Li <Frank.Li@nxp.com>, 
+	Sascha Hauer <s.hauer@pengutronix.de>, Pengutronix Kernel Team <kernel@pengutronix.de>, 
+	Fabio Estevam <festevam@gmail.com>, linux-arm-msm@vger.kernel.org, linux-media@vger.kernel.org, 
+	devicetree@vger.kernel.org, linux-kernel@vger.kernel.org, linux-i2c@vger.kernel.org, 
+	imx@lists.linux.dev, linux-arm-kernel@lists.infradead.org, 
+	Suresh Vankadara <quic_svankada@quicinc.com>, Vikram Sharma <vikram.sharma@oss.qualcomm.com>
+Subject: Re: [PATCH 1/8] dt-bindings: media: qcom: Add Shikra CAMSS compatible
+Message-ID: <20260530-lorikeet-of-strongest-honeydew-fd9b16@quoll>
+References: <20260526-shikra-camss-review-v1-0-645d2c8c75a7@qti.qualcomm.com>
+ <20260526-shikra-camss-review-v1-1-645d2c8c75a7@qti.qualcomm.com>
+MIME-Version: 1.0
+Content-Type: text/plain; charset=utf-8
+Content-Disposition: inline
+In-Reply-To: <20260526-shikra-camss-review-v1-1-645d2c8c75a7@qti.qualcomm.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260530_042950_533724_F8A5F8A3 
-X-CRM114-Status: GOOD (  12.99  )
+X-CRM114-CacheID: sfid-20260530_043458_961964_73F91674 
+X-CRM114-Status: GOOD (  16.05  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -82,50 +82,49 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Sat May 30, 2026 at 1:26 PM CEST, Cristian Ciocaltea wrote:
-> The first three patches in the series are fixes for use-after-free &
-> null-ptr-deref related issues found in dw_dp and inno-hdmi Rockchip DRM
-> drivers.
->
-> The following three patches provide a few minor improvements to dw_dp
-> and dw_hdmi_qp, while the remaining two address use-after-free and
-> memory allocation in DW DP core library.
-
-What's the status of this patch set?
-
-Cheers,
-  Diederik
-
-> Signed-off-by: Cristian Ciocaltea <cristian.ciocaltea@collabora.com>
+On Tue, May 26, 2026 at 10:42:45PM +0530, Nihal Kumar Gupta wrote:
+> Shikra uses the same CAMSS IP as QCM2290. Extend the existing
+> qcom,qcm2290-camss binding to add the qcom,shikra-camss compatible
+> string.
+> 
+> Signed-off-by: Nihal Kumar Gupta <nihal.gupta@oss.qualcomm.com>
 > ---
-> Changes in v3:
-> - Dropped patches 1..6,8 already applied by Heiko
-> - Reworked remaining patch "drm/bridge: synopsys: dw-dp: Unregister AUX
->   channel on bridge detach" into:
->   * drm/bridge: synopsys: dw-dp: Support unregistering the AUX channel
->   * drm/rockchip: dw_dp: Release core resources
-> - Link to v2: https://lore.kernel.org/r/20260310-drm-rk-fixes-v2-0-645ecf=
-b43f49@collabora.com
->
-> Changes in v2:
-> - Fixed conflicts while rebasing onto latest drm-misc-next
-> - Added two more patches:
->   * drm/bridge: synopsys: dw-dp: Unregister AUX channel on bridge detach
->   * drm/bridge: synopsys: dw-dp: Drop useless memory allocation
-> - Link to v1: https://lore.kernel.org/r/20260122-drm-rk-fixes-v1-0-3942f1=
-85750e@collabora.com
->
-> ---
-> Cristian Ciocaltea (2):
->       drm/bridge: synopsys: dw-dp: Support unregistering the AUX channel
->       drm/rockchip: dw_dp: Release core resources
->
->  drivers/gpu/drm/bridge/synopsys/dw-dp.c   |  6 ++++++
->  drivers/gpu/drm/rockchip/dw_dp-rockchip.c | 20 +++++++++++++++++---
->  include/drm/bridge/dw_dp.h                |  1 +
->  3 files changed, 24 insertions(+), 3 deletions(-)
-> ---
-> base-commit: 46c31e1604d121221167cb09380de8c7d53290b9
-> change-id: 20260122-drm-rk-fixes-a7622c71553e
+>  Documentation/devicetree/bindings/media/qcom,qcm2290-camss.yaml | 6 +++++-
+>  1 file changed, 5 insertions(+), 1 deletion(-)
+> 
+> diff --git a/Documentation/devicetree/bindings/media/qcom,qcm2290-camss.yaml b/Documentation/devicetree/bindings/media/qcom,qcm2290-camss.yaml
+> index 391d0f6f67ef5fdfea31dd3683477561516b1556..7b1469d6a1601413a1a32dc452d7d1fc85aa9eb8 100644
+> --- a/Documentation/devicetree/bindings/media/qcom,qcm2290-camss.yaml
+> +++ b/Documentation/devicetree/bindings/media/qcom,qcm2290-camss.yaml
+> @@ -8,13 +8,16 @@ title: Qualcomm QCM2290 Camera Subsystem (CAMSS)
+>  
+>  maintainers:
+>    - Loic Poulain <loic.poulain@oss.qualcomm.com>
+> +  - Nihal Kumar Gupta <nihal.gupta@oss.qualcomm.com>
+>  
+>  description:
+>    The CAMSS IP is a CSI decoder and ISP present on Qualcomm platforms.
+>  
+>  properties:
+>    compatible:
+> -    const: qcom,qcm2290-camss
+> +    enum:
+> +      - qcom,qcm2290-camss
+> +      - qcom,shikra-camss
+>  
+>    reg:
+>      maxItems: 9
+> @@ -76,6 +79,7 @@ properties:
+>        - const: sf_mnoc
+>  
+>    iommus:
+> +    minItems: 1
+
+No. Same feedback as before - you need to describe now the items if you
+claim that there is distinction. I already pointed this out to Qualcomm
+at least two or three times.
+
+Best regards,
+Krzysztof
 
 
