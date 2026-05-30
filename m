@@ -4,60 +4,58 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 0AE86CD6E49
-	for <linux-arm-kernel@archiver.kernel.org>; Sat, 30 May 2026 20:48:43 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 3963DCD6E49
+	for <linux-arm-kernel@archiver.kernel.org>; Sat, 30 May 2026 21:40:43 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Subject:Message-Id:
-	References:In-Reply-To:To:Cc:From:MIME-Version:Content-Transfer-Encoding:
-	Content-Type:Date:Reply-To:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=c9vLKWYG42FEGYkXWgIv3uwvb3u+dOyLKJzsNTX1l4A=; b=U6UGrJdC7rZZMk7qYy2z+0Z5nA
-	wqWLf+Obp/4TjkbPltBTR1g2B4gFjiTyaynh0fn6WzmDX45wEwykhdhZ2kpVf4JDtM9D/MGHBP7G4
-	4JrWYWiL6mfSD3t288Jpefv9W7pmeBVQ07vS51RkCoEz42F4sJH4zKXPLIlY36F73XfzwhhuKVDC2
-	kL5819UaGXWiNtDSktIpmcS8v3tz5Rwors4DQBdlxRL07eVDXiEnvOQzW0AAIRJzBDH+LeRutQDIp
-	UmzqYoKCFakRnaQqTFWgQdrv+Lx6XowjkwvYqbcI4cRiK5LLq7Kd5Kk+Oh4WJ5BfMU9bnCknf9lc0
-	I3mDc5Ng==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	MIME-Version:Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-Type:
+	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
+	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=0tqOO6Ey8WoBe2Yp/hCytGo0ORoFcd+v8Gfopa8G1bA=; b=FBX5FbTAuieENzlXSc+JY5tQvH
+	s/dpLrUU/Kp/NyzNFBkXS7eXzTFI3x+vqcyQ1AJwsliOSZTkKTrDKrd/W1i4HHb19+KGIn88uA/X+
+	bKNw8xycwPJ38uT7sGBF1iMewa90iDyrYutjHNp/Xk0tNo6oDV+om0S1FllVjXjFyMwVJwr3Z0LUH
+	8Rg7XYls0uD46rhzbjYdlg5d75xQq+HBvn89QQP/uxtcl1Le1lpiGHSZ3CuKWYYbV+7pNvJQ5nptO
+	k5MSiP04lBC1Pk7yqs+nj8MxC//se2t6FcfYRpX5/wRf3xUPJcikSPkPVcnQO38hI+R9V14h+IMc0
+	Wk0XmMPA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wTQbl-000000093ml-0EQx;
-	Sat, 30 May 2026 20:48:37 +0000
-Received: from tor.source.kernel.org ([2600:3c04:e001:324:0:1991:8:25])
+	id 1wTRQ3-000000094nR-2VQc;
+	Sat, 30 May 2026 21:40:35 +0000
+Received: from sea.source.kernel.org ([172.234.252.31])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wTQbj-000000093mZ-1fc3;
-	Sat, 30 May 2026 20:48:35 +0000
+	id 1wTRQ0-000000094n3-3bED
+	for linux-arm-kernel@lists.infradead.org;
+	Sat, 30 May 2026 21:40:34 +0000
 Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
-	by tor.source.kernel.org (Postfix) with ESMTP id 60DAE60126;
-	Sat, 30 May 2026 20:48:33 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id C87B51F00898;
-	Sat, 30 May 2026 20:48:32 +0000 (UTC)
+	by sea.source.kernel.org (Postfix) with ESMTP id 5085443E0F
+	for <linux-arm-kernel@lists.infradead.org>; Sat, 30 May 2026 21:40:31 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 516A11F00893;
+	Sat, 30 May 2026 21:40:30 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1780174113;
-	bh=c9vLKWYG42FEGYkXWgIv3uwvb3u+dOyLKJzsNTX1l4A=;
-	h=Date:From:Cc:To:In-Reply-To:References:Subject;
-	b=a2OtfUrlXutm5ZE8Fug07AhMbKv2H+ooDEDCNjWQj7Os/kjhxrbeJYEaGpLvKB/6a
-	 YQbWhJ2wtFjeCMCUlHRkDZlkL3tyD8t+JLq6uYtmCQ2EskyuV1AUAfyhUezTSM9V6/
-	 bG+Ak7oIy0lfr0iB9SM/FKwUXVq2ctDEzne16pGErdYjLE1JME6NAbujLTXfCFImph
-	 VEFXOzAkfxac+bgbbn8iO9uOfdMbl7XoL+Z0kP38eElQC5NNbc9nJSA2IbPrZ/V0mB
-	 qtS3v266kMpKxXZAFPoCvGXKpE5BubD9bBY83omk70CmdaXpy67bChnc8yx0BL9wna
-	 Qul5ncVjOlGZQ==
-Date: Sat, 30 May 2026 15:48:31 -0500
-Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: 8bit
+	s=k20260515; t=1780177231;
+	bh=0tqOO6Ey8WoBe2Yp/hCytGo0ORoFcd+v8Gfopa8G1bA=;
+	h=From:To:Cc:Subject:Date;
+	b=nOwCQWhnIJSoGVStvsqVrDYAB8sSH0GiS5FnlXzTo/3ZQWd8lRQpkaP3agYzsKO/g
+	 bQuNmpR2hSUaWW6fETnSLi6UDC4btu/e67OVbYJLab2tilvKxtSqH6BJDy8eQOKHrc
+	 ONbss7T8ZfbRCeKLVzdPpD5Qj80hQXyKdMjR85D/OohwhWIXOOiJ/AS84tPIw0ggHi
+	 Ift/5HpK58wQIwS41kfjAu2wzgi020gSGGUuwGoFxH2hHYt8f+aaY9OEa51EEtW3oQ
+	 EJ4DxZaK+LZQa38uEKlT1uBzDXtY5JYqqAKv0RPUvTyv/aVE0IITua4eIeITej64vB
+	 CGrSnB0GZuPTQ==
+From: Dinh Nguyen <dinguyen@kernel.org>
+To: linux-arm-kernel@lists.infradead.org,
+	soc@lists.linux.dev
+Cc: dinguyen@kernel.org,
+	devicetree@vger.kernel.org
+Subject: [GIT PULL] arm64: dts: socfpga: updates for v7.2
+Date: Sat, 30 May 2026 16:40:27 -0500
+Message-ID: <20260530214027.161945-1-dinguyen@kernel.org>
+X-Mailer: git-send-email 2.42.0.411.g813d9a9188
 MIME-Version: 1.0
-From: "Rob Herring (Arm)" <robh@kernel.org>
-Cc: devicetree@vger.kernel.org, clabbe@baylibre.com, 
- linux-rockchip@lists.infradead.org, heiko@sntech.de, 
- linux-arm-kernel@lists.infradead.org, krzk+dt@kernel.org, 
- conor+dt@kernel.org, davem@davemloft.net, linux-kernel@vger.kernel.org, 
- linux-crypto@vger.kernel.org, herbert@gondor.apana.org.au
-To: Dawid Olesinski <dawidro@gmail.com>
-In-Reply-To: <20260530160704.3453555-2-dawidro@gmail.com>
-References: <20260530160704.3453555-1-dawidro@gmail.com>
- <20260530160704.3453555-2-dawidro@gmail.com>
-Message-Id: <178017410969.3710466.3951554039156108335.robh@kernel.org>
-Subject: Re: [PATCH 1/4] dt-bindings: crypto: rockchip: Add RK356x/RK3588
- crypto engine binding
+Content-Transfer-Encoding: 8bit
+X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
+X-CRM114-CacheID: sfid-20260530_144032_922773_9D6FA57B 
+X-CRM114-Status: GOOD (  10.69  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -72,61 +70,61 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
+The following changes since commit 254f49634ee16a731174d2ae34bc50bd5f45e731:
 
-On Sat, 30 May 2026 17:06:42 +0100, Dawid Olesinski wrote:
-> Add a YAML device tree binding for the Rockchip second-generation (V2)
-> cryptographic hardware accelerator present on the RK3568 and RK3588 SoCs.
-> 
-> The IP block exposes AES-ECB, AES-CBC, AES-XTS block ciphers, SHA-1,
-> SHA-224, SHA-256, SHA-384, SHA-512, MD5, and SM3 hash algorithms, each
-> with a hardware DMA engine controlled via linked-list descriptors.
-> 
-> The binding covers two compatible strings:
-> 
->   - rockchip,rk3568-crypto: clocks and resets are driven directly by the
->     non-secure CRU (accessible to Linux at EL1).
->   - rockchip,rk3588-crypto: clocks and resets live in SECURECRU, a
->     register bank sandboxed to TrustZone. Linux must request them through
->     the ARM SCMI firmware interface (scmi_clk / scmi_reset), as direct
->     MMIO access to SECURECRU from EL1 triggers a bus fault.
-> 
-> Signed-off-by: Dawid Olesinski <dawidro@gmail.com>
-> ---
->  .../crypto/rockchip,rk3588-crypto.yaml        | 69 +++++++++++++++++++
->  1 file changed, 69 insertions(+)
->  create mode 100644 Documentation/devicetree/bindings/crypto/rockchip,rk3588-crypto.yaml
-> 
+  Linux 7.1-rc1 (2026-04-26 14:19:00 -0700)
 
-My bot found errors running 'make dt_binding_check' on your patch:
+are available in the Git repository at:
 
-yamllint warnings/errors:
+  git://git.kernel.org/pub/scm/linux/kernel/git/dinguyen/linux.git tags/socfpga_dts_updates_for_v7.2
 
-dtschema/dtc warnings/errors:
-Lexical error: Documentation/devicetree/bindings/crypto/rockchip,rk3588-crypto.example.dts:30.33-49 Unexpected 'SCMI_CRYPTO_CORE'
-Lexical error: Documentation/devicetree/bindings/crypto/rockchip,rk3588-crypto.example.dts:31.33-52 Unexpected 'SCMI_ACLK_SECURE_NS'
-Lexical error: Documentation/devicetree/bindings/crypto/rockchip,rk3588-crypto.example.dts:32.33-52 Unexpected 'SCMI_HCLK_SECURE_NS'
-Lexical error: Documentation/devicetree/bindings/crypto/rockchip,rk3588-crypto.example.dts:34.35-56 Unexpected 'SCMI_SRST_CRYPTO_CORE'
-FATAL ERROR: Syntax error parsing input tree
-make[2]: *** [scripts/Makefile.dtbs:140: Documentation/devicetree/bindings/crypto/rockchip,rk3588-crypto.example.dtb] Error 1
-make[2]: *** Waiting for unfinished jobs....
-make[1]: *** [/builds/robherring/dt-review-ci/linux/Makefile:1660: dt_binding_check] Error 2
-make: *** [Makefile:248: __sub-make] Error 2
+for you to fetch changes up to 7557d67a6057362a65ad03a03cbefe7f03523003:
 
-doc reference errors (make refcheckdocs):
+  ARM: dts: socfpga: arria10: Increase JFFS2 rootfs partition size (2026-05-14 06:56:55 -0500)
 
-See https://patchwork.kernel.org/project/devicetree/patch/20260530160704.3453555-2-dawidro@gmail.com
+----------------------------------------------------------------
+SoCFPGA DTS updates for v7.2
+- dt-bindings updates:
+	- Document compatible for Agilex5 socdk debug daughter card
+	- Document compatible for Agilex7-M devkit
 
-The base for the series is generally the latest rc1. A different dependency
-should be noted in *this* patch.
+- Add support for Agilex7-M devkit
+- Remove reg property in the PMU on 32-bit SoCFPGA
+- Set i3c alias on Agilex3 and Agilex5
+- Update data-width of DMA controller on Agilex5
+- Set phy-mode to rgmii on Agilex5
+- Increase the JFFS2 rootfs partition on the Arria10 NAND SoCDK
 
-If you already ran 'make dt_binding_check' and didn't see the above
-error(s), then make sure 'yamllint' is installed and dt-schema is up to
-date:
+----------------------------------------------------------------
+Adrian Ng Ho Yin (4):
+      arm64: dts: socfpga: agilex5: set alias for i3c controllers
+      arm64: dts: socfpga: agilex3: set alias for i3c controller
+      arm64: dts: socfpga: agilex5: update data-width for dmac
+      dt-bindings: altera: add compatible for agilex5 socdk debug daughter card
 
-pip3 install dtschema --upgrade
+Dinh Nguyen (3):
+      dt-bindings: arm: altera: document the Agilex7-M devkit
+      arm64: dts: socfpga: agilex7m: Add SoCFPGA Agilex7-M devkit
+      ARM: dts: socfpga: remove the reg property in the pmu
 
-Please check and re-submit after running the above command yourself. Note
-that DT_SCHEMA_FILES can be set to your schema file to speed up checking
-your schema. However, it must be unset to test all examples with your schema.
+Nazim Amirul (1):
+      arm64: dts: socfpga: agilex5: Fix phy-mode to rgmii as HW provides clock delay
 
+Niravkumar L Rabara (1):
+      ARM: dts: socfpga: arria10: Increase JFFS2 rootfs partition size
+
+ Documentation/devicetree/bindings/arm/altera.yaml  |   7 ++
+ arch/arm/boot/dts/intel/socfpga/socfpga.dtsi       |   4 +-
+ .../boot/dts/intel/socfpga/socfpga_arria10.dtsi    |   4 +-
+ .../intel/socfpga/socfpga_arria10_socdk_nand.dts   |   4 +-
+ arch/arm64/boot/dts/intel/Makefile                 |   1 +
+ .../arm64/boot/dts/intel/socfpga_agilex3_socdk.dts |   2 +
+ arch/arm64/boot/dts/intel/socfpga_agilex5.dtsi     |   4 +-
+ .../arm64/boot/dts/intel/socfpga_agilex5_socdk.dts |   4 +-
+ .../boot/dts/intel/socfpga_agilex5_socdk_013b.dts  |   4 +-
+ .../dts/intel/socfpga_agilex5_socdk_modular.dts    |   4 +-
+ .../boot/dts/intel/socfpga_agilex5_socdk_nand.dts  |   4 +-
+ .../boot/dts/intel/socfpga_agilex7m_socdk.dts      | 103 +++++++++++++++++++++
+ 12 files changed, 131 insertions(+), 14 deletions(-)
+ create mode 100644 arch/arm64/boot/dts/intel/socfpga_agilex7m_socdk.dts
 
