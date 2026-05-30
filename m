@@ -4,73 +4,100 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 7F8ABCD6E4A
-	for <linux-arm-kernel@archiver.kernel.org>; Sat, 30 May 2026 09:20:38 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id B99CACD5BD0
+	for <linux-arm-kernel@archiver.kernel.org>; Sat, 30 May 2026 09:43:48 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:From:References:CC:To:Subject:MIME-Version:Date:
-	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=gJKyD3MEQeL3NtbvOYS6sEffOYNqTkOAvR4qUFqTcfA=; b=FHRMZPJcCLdhT1wiEk6ND7iRpa
-	ifFIg6aBRnv99lJRrB+up7voyNWbE/nNec8vhGdVNIiOjj5E4nOX/Gy0due0P46p4qyZkpIddz+15
-	rlZ4517KF5JSGn3EUk4pdrFhulv2eax/LNbuZJaIenAdMzO7flWiXx/fplTZjCBpt7P1DhJlCQEcW
-	jTw3gEiMpfF1aOjp/fEZ+7e4RhQ5HStFgH2AgolVkNK24toiyGrkU44XJY2yXtaezuuvu/K8H1SQz
-	jBiz4QkEmu177s9LnFOfELWY2GbLYN6/b7xqLMZe8lcRL1qTIqlMcQa1q3SwdPQzdikYS6swi1ueW
-	S+yQ3ugQ==;
+	Content-Type:MIME-Version:Message-ID:Date:Subject:To:From:Reply-To:Cc:
+	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
+	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=5ZTtXuk8VMOe/R1MOW9+2Ia+hoeCMO0OxOU+XGlScXw=; b=h8zTLYf8GE6mOrMkDL3TN9d79X
+	z9YF9GvtKvAggIQqUMsJ+adqtU4IdXHU+k7b6XGJTRo5JFZ6RkcyJs+vbkvN+UI1f2glvAN67RZSP
+	PrFXV7xKovsos6drZxP6MbSO0SeBH37VFkexPozetHjSr9i5UE7pzAcLxG0A0WS3ojHBSc4oOAwpJ
+	AL/hlQIrn0W5N1Ee2mHXu40EJkgp8ljczaOqTZqwsOLSMuV2wQBZQzaUXnoKHwPDpMn5flb8JQbBm
+	yhZhei9Y3DGLwXvDNbLVPRHVBTHV0XxcQPtDOU1EtY8vwwN+xAzLQABFzWPdoNP9Bau0PGGVYg/FD
+	MmD4Dzjw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wTFrs-00000008ZPh-0zjo;
-	Sat, 30 May 2026 09:20:32 +0000
-Received: from canpmsgout12.his.huawei.com ([113.46.200.227])
+	id 1wTGEG-00000008aPM-0KXI;
+	Sat, 30 May 2026 09:43:40 +0000
+Received: from mail-pl1-x631.google.com ([2607:f8b0:4864:20::631])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wTFro-00000008ZKm-0JfX
+	id 1wTGEE-00000008aOa-0hlu
 	for linux-arm-kernel@lists.infradead.org;
-	Sat, 30 May 2026 09:20:30 +0000
-dkim-signature: v=1; a=rsa-sha256; d=huawei.com; s=dkim;
-	c=relaxed/relaxed; q=dns/txt;
-	h=From;
-	bh=gJKyD3MEQeL3NtbvOYS6sEffOYNqTkOAvR4qUFqTcfA=;
-	b=YYEwUr9YjDAV4gF6NQ78K8/5xbTf6orWEUaTxdA+IyOLpNba9GNwjVrgEpD0RN8FNkrBqHYsY
-	pN9+8das2/qPxObAjOCy8wqJZ/yVDiLdblztMVulDOWt2y8wMu+QgRzox/gLnV02QyU8niFGuoA
-	A5+QkKFpS7wtt78oRq6Put0=
-Received: from mail.maildlp.com (unknown [172.19.163.200])
-	by canpmsgout12.his.huawei.com (SkyGuard) with ESMTPS id 4gSDvr4vVkznTW2;
-	Sat, 30 May 2026 17:10:16 +0800 (CST)
-Received: from dggemv712-chm.china.huawei.com (unknown [10.1.198.32])
-	by mail.maildlp.com (Postfix) with ESMTPS id 1FC744055B;
-	Sat, 30 May 2026 17:18:12 +0800 (CST)
-Received: from kwepemn200010.china.huawei.com (7.202.194.133) by
- dggemv712-chm.china.huawei.com (10.1.198.32) with Microsoft SMTP Server
- (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
- 15.2.1544.11; Sat, 30 May 2026 17:18:11 +0800
-Received: from [10.174.178.56] (10.174.178.56) by
- kwepemn200010.china.huawei.com (7.202.194.133) with Microsoft SMTP Server
- (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
- 15.2.1544.11; Sat, 30 May 2026 17:18:11 +0800
-Message-ID: <d0e24622-fbf1-484b-81c8-4e5d945e808d@huawei.com>
-Date: Sat, 30 May 2026 17:18:04 +0800
+	Sat, 30 May 2026 09:43:39 +0000
+Received: by mail-pl1-x631.google.com with SMTP id d9443c01a7336-2bf008a99d4so29385735ad.2
+        for <linux-arm-kernel@lists.infradead.org>; Sat, 30 May 2026 02:43:37 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=gmail.com; s=20251104; t=1780134216; x=1780739016; darn=lists.infradead.org;
+        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
+         :to:from:from:to:cc:subject:date:message-id:reply-to;
+        bh=5ZTtXuk8VMOe/R1MOW9+2Ia+hoeCMO0OxOU+XGlScXw=;
+        b=ID5bEGdUkmgsrcsBw8XdkdS7fvucVNl64SVMq0bDm0Yg9xd+KOPPLc7yfbKXIpbdhk
+         Rs4je6pgbwoFLLdRLWneWKBKxQFIGio4z9ZtNMijT9b4bWpfzRebT7w56zjIVqJ1Z+j1
+         65nhwHRvknKgKUy5Z3anHHTOczPMu1o1F1ogJA82U77TH+tMZWdELaEdFqr7DG/jct73
+         zg7g2zNt/m9QhDP60cUNEHN2i0zwe2nv5I/VK3ZoWaGp+6kwXyLPbeFJFqSo8J+b1xdR
+         YLrf1iB31aMzy6xQ+bXoSj/ZnWh1UeNlTmxO1O/tRhHl23w1s6wkhX/wLvkzvwQTNX01
+         aDYw==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20251104; t=1780134216; x=1780739016;
+        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
+         :to:from:x-gm-gg:x-gm-message-state:from:to:cc:subject:date
+         :message-id:reply-to;
+        bh=5ZTtXuk8VMOe/R1MOW9+2Ia+hoeCMO0OxOU+XGlScXw=;
+        b=exe6KMkbZ3eiHlrYa8P9d6HcwFC6H6xqZfRL2GL4Zef8mVKOpWREV/j9wvrpxXQ5LN
+         1vhTPspUWibvqrXoKTNaG0D4Zkc0XrFPr71QXaexsMBCq0UMFxtEBAGUVxSV88ESI5d1
+         6OZuvHpRHKsXNvuO5lwjQ8h8b944Cw1WgbOJ/Ob8cFwbtPdF/Dmk0R+1U1CxIeTAM9pT
+         Hp1xsIOPDwNrBgJ8WlnucIjqRjNObvHUtdab3I9lOcORMotzIN5ltmquNIO3WiTzTPig
+         A8eb6ZVhkkV3tTRTeaFIRg+ozqD2BmTzUEg2qLeTeLi3LgXqJJTCkcO1Vkd8eSI6g357
+         PVkA==
+X-Forwarded-Encrypted: i=1; AFNElJ/jWGxEHTr0M/xa5nWqE3EOD7McwzkkxboxpUz2ZchQvoUh8N+V5vjKJ/iKz0IkpBwIk6RrMmavCirC+++OEzyN@lists.infradead.org
+X-Gm-Message-State: AOJu0YwnQomqBeeKWiXqbSBPQ9YvJrR6nXbBr/wJ19xVeo/ja/rxWNFQ
+	hBLKROc9Okh6sU5Wuch7MUbo/D3OdfwZdMyFRSPBOpFYPcnbgUbG9mDsQQ/w3g==
+X-Gm-Gg: Acq92OEfeLdXLjH9C8D1sd2zkDQJT8x1Jz7b/FrTYxIRqUg+9qDdnsnM55EC+c0H39b
+	AAlmwyjK18yLerhIfXEAL4vV0DY3EIkhjNqB22NoReXF9yY99zKalNMQEZyfT6RpowZHL6cL8j5
+	Tsme1NAO7X/wYGwcJB4IZuLm7DlrRyfiDUdRd/KTcWEZlcLfE1oJtqPJR5sKCHIiEC7sYrx+5Yc
+	ak+MHLVWNL1rPgRbUbETxhjiFt2TCFfUBLntyR7SGR3AerYnRO6uNZ8/7CyoqdGkiZHrgd+Ukh8
+	UKN1B/QDmyRvero+r8cTHRR3l+Anjs94eiTWy4akkC5j/qOFua/MAdlkSxOOt+FGRvVHUzqZ3j+
+	/R2ND7PpAjPgeNXLJPJtyzmVIgcc+Rq3xdLwFgzsnkeI3roUnmUhDnejL/XWwpT7A5fwFEt+Cb+
+	uquWVcAtVe6MBWg5sQv+dpARMq9edBnjM=
+X-Received: by 2002:a17:903:46c4:b0:2c0:ab92:584c with SMTP id d9443c01a7336-2c0ab926140mr12404095ad.25.1780134216487;
+        Sat, 30 May 2026 02:43:36 -0700 (PDT)
+Received: from rockpi-5b ([45.112.0.191])
+        by smtp.gmail.com with ESMTPSA id d9443c01a7336-2bf239e700csm61529945ad.10.2026.05.30.02.43.29
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Sat, 30 May 2026 02:43:35 -0700 (PDT)
+From: Anand Moon <linux.amoon@gmail.com>
+To: Neil Armstrong <neil.armstrong@linaro.org>,
+	Maarten Lankhorst <maarten.lankhorst@linux.intel.com>,
+	Maxime Ripard <mripard@kernel.org>,
+	Thomas Zimmermann <tzimmermann@suse.de>,
+	David Airlie <airlied@gmail.com>,
+	Simona Vetter <simona@ffwll.ch>,
+	Kevin Hilman <khilman@baylibre.com>,
+	Jerome Brunet <jbrunet@baylibre.com>,
+	Martin Blumenstingl <martin.blumenstingl@googlemail.com>,
+	Mauro Carvalho Chehab <mchehab@kernel.org>,
+	Greg Kroah-Hartman <gregkh@linuxfoundation.org>,
+	Hans Verkuil <hverkuil@kernel.org>,
+	Maxime Jourdan <mjourdan@baylibre.com>,
+	dri-devel@lists.freedesktop.org (open list:DRM DRIVERS FOR AMLOGIC SOCS),
+	linux-amlogic@lists.infradead.org (open list:DRM DRIVERS FOR AMLOGIC SOCS),
+	linux-arm-kernel@lists.infradead.org (moderated list:ARM/Amlogic Meson SoC support),
+	linux-kernel@vger.kernel.org (open list),
+	linux-media@vger.kernel.org (open list:MESON VIDEO DECODER DRIVER FOR AMLOGIC SOCS),
+	linux-staging@lists.linux.dev (open list:STAGING SUBSYSTEM)
+Subject: [PATCH v6 0/8] media: meson: Fix memory leak in error path in vdec
+Date: Sat, 30 May 2026 15:12:46 +0530
+Message-ID: <20260530094326.11892-1-linux.amoon@gmail.com>
+X-Mailer: git-send-email 2.50.1
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH v3] Faster Arm64 __arch_copy_from_user and
- __arch_copy_to_user
-To: Catalin Marinas <catalin.marinas@arm.com>
-CC: <will@kernel.org>, <sunnanyong@huawei.com>, <wangkefeng.wang@huawei.com>,
-	<benniu@meta.com>, <linux-arm-kernel@lists.infradead.org>,
-	<linux-kernel@vger.kernel.org>
-References: <20260316123100.82932-1-xiqi2@huawei.com>
- <agdaAPtmPekOKzCx@arm.com>
-Content-Language: en-GB
-From: Qi Xi <xiqi2@huawei.com>
-In-Reply-To: <agdaAPtmPekOKzCx@arm.com>
-Content-Type: text/plain; charset="UTF-8"; format=flowed
-Content-Transfer-Encoding: 7bit
-X-Originating-IP: [10.174.178.56]
-X-ClientProxiedBy: kwepems500001.china.huawei.com (7.221.188.70) To
- kwepemn200010.china.huawei.com (7.202.194.133)
+Content-Type: text/plain; charset=UTF-8
+Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260530_022028_442951_FCD9DE4F 
-X-CRM114-Status: GOOD (  36.82  )
+X-CRM114-CacheID: sfid-20260530_024338_232317_3148A9B5 
+X-CRM114-Status: GOOD (  16.86  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -85,125 +112,85 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hi Catalin,
+v6: Changes
 
-Thank you for the detailed review. I agree with the security concerns raised.
-I am preparing a second version with PAN toggled around the large copy_from_user loop,
-using privileged LDP/STP only there; all non-optimized paths, boundary handling,
-and copy_to_user() will continue using LDTR/STTR as before.
+The previous approach had some technical issues, so this new version
+takes a slightly different approach, I have fixed the DMA warnings
+found during basic testing.
 
-- For the copy_from_user fault concern, I will integrate Mark Rutland's kunit usercopy
-boundary tests into our validation pipeline before resubmitting, to ensure fault
-semantics and partial-copy reporting remain correct.
+I have donse basic testing on the Odroid N2+ and found that
+the clocks are not enabling for decoder.
 
-- For the performance improvements: I have only been able to measure these
-on Kunpeng 920 so far. The optimization relies on generic instruction
-reduction (fewer pointer updates per iteration) and brief PAN toggling,
-which should benefit other ARM64 implementations, but I do not have access
-to additional hardware for validation. I would appreciate testing feedback
-from the community if anyone can run the kunit/benchmark suite on other
-platforms.
+It also seems some Mali GPU configurations are still missing.
 
-I'll send the updated patch once the implementation and testing are ready.
+You can reproduce the test case using:
 
-Best regards,
-Qi
+mpv --hwdec=v4l2m2m Big_Buck_Bunny_1080_10s_30MB.mp4
 
-On 16/05/2026 01:38, Catalin Marinas wrote:
-> Hi Qi,
->
-> On Mon, Mar 16, 2026 at 08:31:00PM +0800, Qi Xi wrote:
->> Based on Ben Niu's "Faster Arm64 __arch_copy_from_user and
->> __arch_copy_to_user" patch [1], this implementation further optimizes
->> and simplifies user space copies by:
->>
->> 1. Limiting optimization scope to >=128 bytes copies where PAN state matters.
->>     For <128 bytes copies, the implementation uses non-privileged
->>     instructions uniformly, simplifying the code and reducing maintenance
->>     cost.
-> At least this part makes the changes more manageable.
->
->> 2. Adding "arm64.nopan" cmdline support using the standard idreg-override
->>     framework, allowing runtime PAN disable without building separate
->>     CONFIG_ARM64_PAN=y/n kernels as required by Ben Niu's version.
->>     The implementation maintains separate paths for PAN-enabled (using
->>     unprivileged ldtr/sttr) and PAN-disabled (using standard ldp/stp), with
->>     runtime selection via ALTERNATIVE() at the large copy loop entry.
-> I think you got them the other way around. Your new code requires PAN=0
-> to be able to use the privileged STP/LDP. However, disabling PAN does
-> not mean STTR/LDTR are no longer needed and the kernel should use
-> STP/LDP for uaccess.
->
-> Even on hardware without PAN, having STTR/LDTR is still very useful (we
-> had them on get/put_user() from the start; later fully used in the user
-> copy routines once we got rid of KERNEL_DS). They prevent accessing
-> kernel location with a user-controlled address if somehow they escape
-> access_ok() (and we did have bugs in this area). This has nothing to do
-> with PAN.
->
-> You don't even need PAN disabled globally for your code to work, just
-> toggle PAN briefly for the routine, similar to what we had since commit
-> 338d4f49d6f7 ("arm64: kernel: Add support for Privileged Access Never").
-> Presumably for large copies, the PAN setting is lost in the noise.
->
-> That said, I don't think we should reduce the security in mainline for
-> this optimisation. And we should definitely not gate it on arm64.nopan
-> (more like a less_secure_uaccess_but_faster_on_some_hardware=1).
->
->> 3. Retaining the critical path optimization from the original patch:
->>     reducing pointer update instructions through manual batch updates,
->>     processing 64 bytes per iteration with only one pair of add instructions.
->>
->> Performance improvements measured on Kunpeng 920 with PAN disabled:
-> [...]
->> Real-world workloads:
->> - RocksDB read-write mixed workload:
->>    Overall throughput improved by 2%.
->>    copy_to_user hotspot reduced from 3.3% to 2.7% of total CPU cycles.
->>    copy_from_user hotspot reduced from 2.25% to 0.85% of total CPU cycles.
->>
->> - BRPC rdma_performance (server side, baidu_std protocol over TCP):
->>    copy_to_user accounts for ~11.5% of total CPU cycles.
->>    After optimization, server CPU utilization reduced from 64% to 62%
->>    (2% absolute improvement, equivalent to ~17% reduction in
->>    copy_to_user overhead)
-> I agree there are some small improvements but it would be good to
-> reproduce them on other hardware as well.
->
->> +	/*
->> +	* interlace the load of next 64 bytes data block with store of the last
->> +	* loaded 64 bytes data.
->> +	*/
->> +	stp_unpriv	A_l, A_h, dst, #0
->> +	ldp_unpriv	A_l, A_h, src, #0
->> +	stp_unpriv	B_l, B_h, dst, #16
->> +	ldp_unpriv	B_l, B_h, src, #16
->> +	stp_unpriv	C_l, C_h, dst, #32
->> +	ldp_unpriv	C_l, C_h, src, #32
->> +	stp_unpriv	D_l, D_h, dst, #48
->> +	ldp_unpriv	D_l, D_h, src, #48
->> +	add	dst, dst, #64
->> +	add	src, src, #64
->> +	subs	count, count, #64
->> +	b.ge	1b
->> +	b	.Llarge_done
-> This changes the semantics a bit, especially in the copy_from_user()
-> path. With your patch, we can write into the kernel buffer until, say,
-> offset #32. On the offset #48 ldp we get a fault but #dst has never been
-> updated, so we report nothing copied (almost, we have the fault path
-> attempting one more byte copy).
->
-> For copy_to_user(), we have some imp def behaviour already where a
-> faulting unaligned store at the end of a page may or may not write the
-> end of the page. Past discussions concluded that under-reporting on
-> copy_to_user(). Whether that's also fine for copy_from_user(), not sure.
-> I think Robin tried to address these at some point. There's also a
-> proposal for a kunit usercopy test for boundary conditions but we
-> couldn't agree on the semantics (architectures behave differently here):
->
-> https://lore.kernel.org/r/20230321122514.1743889-1-mark.rutland@arm.com/
->
-> We do run these internally but it would be good to get them upstream
-> before any other changes to this code.
->
+Please let me know your feedback so we can discuss and address these
+points!
+
+Thanks
+-Anand 
+
+V5: Changes
+
+[v5] https://lore.kernel.org/all/20260525095216.12078-2-linux.amoon@gmail.com/
+ 
+Following chamges try to fix the memory leak reported by Sashiko
+
+New issues:
+- [High] The newly added error path in `vdec_start_streaming()` leaks
+  `sess->priv` when `kthread_run()` fails.
+
+Pre-existing issues:
+- [Critical] Race condition between hardware power-on and `core->cur_sess`
+   initialization leads to a NULL pointer dereference in the IRQ handler.
+- [High] Returning buffers for both source and destination queues upon
+    single-queue failure orphans active queue buffers.
+- [High] Concurrent sessions can bypass the hardware exclusivity check,
+  leading to simultaneous hardware programming.
+--
+
+V4: Changes:
+
+v4: https://lore.kernel.org/all/20260521073449.10057-2-linux.amoon@gmail.com/
+
+Following chamges try to fix the memory leak reported by Sashiko
+
+Pre-existing issues:
+- [Critical] The `sess->esparser_queue_work` work item is not canceled
+   before freeing the session context, leading to a potential Use-After-Free
+   vulnerability.
+- [High] The patch attempts to fix a memory leak reported by kmemleak,
+    but misdiagnoses the root cause and leaves the primary memory leak
+    (the V4L2 control handler) unresolved.
+- [High] The driver does not verify if `kthread_run()` returns an `ERR_PTR`,
+     leading to a kernel panic when `kthread_stop()` is called.
+
+Thanks
+-Anand
+
+Anand Moon (8):
+  media: meson: vdec: Fix memory leaks and lifetime of m2m device
+  media: meson: vdec: Fix concurrent STREAMON / STREAMOFF race
+    conditions
+  media: meson: vdec: Handle kthread failure and free codec state
+  media: meson: vdec: Condition buffer flushing on queue type in
+    start_streaming
+  media: meson: vdec: Cancel esparser work during teardown
+  media: meson: vdec: Configure DMA mask and segment size in probe
+  media: meson: vdec: Fix NULL pointer dereference in ISR handlers
+  gpu: drm: meson: Fix DMA max segment size for DMABUF imports
+
+ drivers/gpu/drm/meson/meson_drv.c       |   2 +
+ drivers/staging/media/meson/vdec/vdec.c | 179 +++++++++++++++++-------
+ drivers/staging/media/meson/vdec/vdec.h |   4 +-
+ 3 files changed, 136 insertions(+), 49 deletions(-)
+
+
+base-commit: f5e5d3509bffb95c6648eb9795f7f236852ae62d
+-- 
+2.50.1
+
 
