@@ -4,67 +4,105 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id DCB9FCD6E4A
-	for <linux-arm-kernel@archiver.kernel.org>; Sat, 30 May 2026 08:58:50 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 14DD9CD5BD0
+	for <linux-arm-kernel@archiver.kernel.org>; Sat, 30 May 2026 09:02:45 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
 	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
 	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=ayHHk4ZOOr5w+O/PeNuUnAMZ4J8wsxunRTe/vkmvyG8=; b=EvnS/VMy04rgyk944TL1vd0DVi
-	bWaEsyAozPze/2vr9GN4QTs4ciuedpbz4f8T/dNIn+8eofudBdOzC+NP6XbZ1+47GEPEFdFyiHRwb
-	NAWjP29FQwLqLW96RtoB5wx4SNcMjUF0pcitG+jUMD4Q5NM0YGz7dmRX07WiWookgYukGjj6eB9j/
-	/8pU8eplwTim3yk30Ikpb7x3FHvixAAVHqh9v1w1icLA+YEF+2ZjVc/CYPDvkcNMHcfGypfG3YGWg
-	AIxdAKpqcBsvUHAlsvbENcssMtCZE7QuB+NmoSkinlqyRYxq87y1cbgE2tMqoGOF/p0opP364wR7f
-	AOJGZ8+g==;
+	bh=8Y08Yc/9ObCFrBoa3oD8RRhgwJsluA9PsZz28hZyP2k=; b=EpNl/pUZT/W6ArVZqSY/dCR6be
+	tC/XXNyOh/Fun/Rc/Outio/OEKN7CgdUDztT2hhTcu10ZZ5Ll5kYn2uWRHwvACyT/KoaS8SvD83sL
+	iQ8hbENlIIupvaOFCd3VBrdsoSM/Hnhcq4yXsTTeqZdDNF4sXAlEbJOOQcsswUfKAY97hlAYM4fFf
+	YCl9mKPE0fp3s1yeX3jJKIn58E0S2IWoqbvAP6mmsebN/0i1794+tLooiSiR9CKrEjkvKsxOOSn4B
+	B4Si0atwFutRRUr4Wlq1we1NTy/YmpyabRDfSoGGRbRk+pOHjGludZxuToFksJjgTXnzI0OH7XfVh
+	FLo/HoWg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wTFWm-00000008YgW-10Ap;
-	Sat, 30 May 2026 08:58:44 +0000
-Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
+	id 1wTFaY-00000008YtE-2OGN;
+	Sat, 30 May 2026 09:02:38 +0000
+Received: from fhigh-a8-smtp.messagingengine.com ([103.168.172.159])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wTFWk-00000008Yg7-1suE
+	id 1wTFaV-00000008Yss-23nP
 	for linux-arm-kernel@lists.infradead.org;
-	Sat, 30 May 2026 08:58:43 +0000
-Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
-	by sea.source.kernel.org (Postfix) with ESMTP id 6B3FF44775;
-	Sat, 30 May 2026 08:58:41 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 8924D1F00893;
-	Sat, 30 May 2026 08:58:40 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1780131521;
-	bh=ayHHk4ZOOr5w+O/PeNuUnAMZ4J8wsxunRTe/vkmvyG8=;
-	h=Date:From:To:Cc:Subject:References:In-Reply-To;
-	b=YDhpt0SYHo9S+jdUx8pLtkH/ygPg2Y5vBAXhc/kIgMbDqclzrhIPo5PtQdlFhfHKv
-	 j8q70TsdwYVghsf9v0dggNSFxMnVKEU+CAlwNt5AoBBeveiIYHmhovlEuv3Rdwtq6q
-	 QOF8THxNchBkkD/ZkkycslTkcfz0t2QpFxM8rc/A85VC1lRpl6UMFZMDjGpgFy/zf3
-	 wTHlpw8l7iKVwBJtKhfLJvl7jPCIcWkfwwAd9jSIhLEIkaMMBu73LEcyPpoo2WIQX7
-	 NVBZ3lZUQv8wqsDrIkWUL3oy7WQNKcc224nUanT4TyLxO6BcR+4PJPIlYHvax4A3hH
-	 iIzHV2suEZlzg==
-Date: Sat, 30 May 2026 10:58:38 +0200
-From: Krzysztof Kozlowski <krzk@kernel.org>
-To: Tomi Valkeinen <tomi.valkeinen@ideasonboard.com>
-Cc: Maarten Lankhorst <maarten.lankhorst@linux.intel.com>, 
-	Maxime Ripard <mripard@kernel.org>, Thomas Zimmermann <tzimmermann@suse.de>, 
-	David Airlie <airlied@gmail.com>, Simona Vetter <simona@ffwll.ch>, Rob Herring <robh@kernel.org>, 
-	Krzysztof Kozlowski <krzk+dt@kernel.org>, Conor Dooley <conor+dt@kernel.org>, Lee Jones <lee@kernel.org>, 
-	Aradhya Bhatia <aradhya.bhatia@linux.dev>, Nishanth Menon <nm@ti.com>, 
-	Vignesh Raghavendra <vigneshr@ti.com>, Swamil Jain <s-jain1@ti.com>, Devarsh Thakkar <devarsht@ti.com>, 
-	Louis Chauvet <louis.chauvet@bootlin.com>, devicetree@vger.kernel.org, dri-devel@lists.freedesktop.org, 
-	linux-kernel@vger.kernel.org, linux-arm-kernel@lists.infradead.org
-Subject: Re: [PATCH v3 04/15] dt-bindings: display: ti,am65x-dss: Add
- ti,dpi-io-ctrl
-Message-ID: <20260530-slim-private-dachshund-e869cd@quoll>
-References: <20260529-beagley-ai-display-v3-0-7fefdc5d1adf@ideasonboard.com>
- <20260529-beagley-ai-display-v3-4-7fefdc5d1adf@ideasonboard.com>
+	Sat, 30 May 2026 09:02:37 +0000
+Received: from phl-compute-03.internal (phl-compute-03.internal [10.202.2.43])
+	by mailfhigh.phl.internal (Postfix) with ESMTP id 2AF79140005C;
+	Sat, 30 May 2026 05:02:32 -0400 (EDT)
+Received: from phl-frontend-04 ([10.202.2.163])
+  by phl-compute-03.internal (MEProxy); Sat, 30 May 2026 05:02:32 -0400
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=jannau.net; h=cc
+	:cc:content-type:content-type:date:date:from:from:in-reply-to
+	:in-reply-to:message-id:mime-version:references:reply-to:subject
+	:subject:to:to; s=fm2; t=1780131752; x=1780218152; bh=8Y08Yc/9Ob
+	CFrBoa3oD8RRhgwJsluA9PsZz28hZyP2k=; b=fgQ0jPCXayXSAJqBQbatCaW9Ss
+	jpkUHz5FPNuDUMmSsGTE5Npo1vcymtYwGEjPdkX0gW+QhTXpABu6epu+UoEvXdbT
+	Zr/SmFESXrka23JfHJld7cgEu5EaJBUw6JvcSdx+0j90IQyMVmcO1eaLgRTpAAyj
+	cEdUxv+RkfkqQW5R3JSaRGIHOsu2fn9MNgOUEnflxKIW7FFnjS+G4j4ycCo4exam
+	Ds5IedqeGNREoY6gHUD6pfpaa7ltWwP1YuXwpwqJYGOfcjUaULbIsJJH6iz1yiJa
+	FIKiLG8X66nZxUiGx51F2kebGQom0eOAR4ShhohF3r5c6j52AuT4WjIxDmiQ==
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=
+	messagingengine.com; h=cc:cc:content-type:content-type:date:date
+	:feedback-id:feedback-id:from:from:in-reply-to:in-reply-to
+	:message-id:mime-version:references:reply-to:subject:subject:to
+	:to:x-me-proxy:x-me-sender:x-me-sender:x-sasl-enc; s=fm3; t=
+	1780131752; x=1780218152; bh=8Y08Yc/9ObCFrBoa3oD8RRhgwJsluA9PsZz
+	28hZyP2k=; b=b5DxiRjJZJLtP4bXVx1V+Tu/Pk9CLrx9k8Pk4nuVmbNC2T/PA7E
+	19p9U8yaK/IsevjwI8vrtma1CFoP6qhI3zzFCIURb1IfWd/cze37M43KmKl8Zfux
+	nfRBXyOozp6WHabGIO/C3TEaWvmrAwz2zz2BHSqTqBD6NnsVunAmevXVfnyWPAqZ
+	NuWraZtdJHKWaNw2VAAGpv7bqxB8pTFvRKVMdNxWIjIjIoPJSu2gTBdEHZThnUce
+	DnP3eqiz/4eWSxjOHxJceg9EAPq33JD0GzMMhyjM2ZJwkLP7DgTWArM9b5Hynnm1
+	3ba7r/wL8fIeijTXQBqMhAqDLnhv3Lu6D8Q==
+X-ME-Sender: <xms:p6caatfeaLTeU7fNxL6_FesenpZNCDdPfC04lB2QMOSgoWqCdti-CA>
+    <xme:p6caagHj4WU9YZ07M_AQKn8itQ-zWmhIQtw6UTMjR0KMX1ScTzvO9kER063pP1x9G
+    okHIA05XtGOb2hvT1GrsyP-Bl5V_-v7lQtggj8hNvoiKcRlnH1DDhiU>
+X-ME-Received: <xmr:p6caavHVWKml6D3yxSxIqtZ0L2yduXPzJk_RgiGUCAgI6APSpWjT_RDvB93Yuv7jjjGNxKVpE6OjWnnl2vaVRYr-Wmg9JxEacWo>
+X-ME-Proxy-Cause: dmFkZTEgVH0+MijfGOyS8LccP2FlT4PjQGKiqHieM85QnwsZb/DBivIGG35sOrFkzroCgS
+    QVTAP1PgLElAjKh9dN6yLCKwn/4uQu2yMoiNWvaZitp16XcLa3tFAZ1FZdzYOvRgj6ZANh
+    FvtzLlempzhlx7Ej3sI0Sqs0Ok9EwgzWYII28ZvQbNcigUMolKZ6X2gOSNbvnUfy5RKOD/
+    IE0kn6LWxudtaLRqJ+t5yFn9bx4JSuvJRiVW7zArCFqfc51DA9YaVtZstuF1Xk12GAirow
+    CqtmzRJ2INp31rbWw3riCGZ+xQDrxavxNVXxdl/s1yrIUDPGZQ7Kh3LOIE9V2CpN0Z5IQc
+    JXT2EWV8j5/BT+0RDuMF+3pMUoA6ceg9cpx2a5xZZod8MJL4kYeyOSbiY2INV/24nMbRxS
+    PKGEQ4kvI8T7q64axGwA0wbdDhrP7nL3erfHDHy+yIjtYmUYzADtKKGD8Rk0sXnpM/uVqm
+    8bCezPypUrTPf0O/POhI7Ab/4XCiMEWF75FFiRKnKhekT+goHc272r7zM1xP9rWjG+JKgm
+    Tp1qFyA/C2hQ+gtmdtTtHWLgKNQLHEQvVeEr70JcMgeUAPIsFCJTnKnsL5xdOmpC68+9jW
+    mnESXLWLyPTOWJhQyOSmAryENA/UTvzapfhrwkFNPzTB1xFzzVj4JTqK4nqw
+X-ME-Proxy: <xmx:p6caaoPsOP86pd9veLKivz2dzdn1JedNn9MqU2XlktKKUqLgtFKpQQ>
+    <xmx:p6caaspMkntuLkPUPYod3UbXRGRvnL6zTt87sKrGHHsWSTfJKV2HPQ>
+    <xmx:p6caahAY81d8ns5umtS1DLbca_vPgOXuU3S3cRhsZo7yEmBXCdImMQ>
+    <xmx:p6caatNXS2So5FPQ3sHrPMF58Rsd1beci-eCEUSNon3Is6aLfIV84w>
+    <xmx:qKcaatr0ejJZQiftEFTHfqMN87jLApxgMtOG-_ak6qvUR_O6jD7TUdvE>
+Feedback-ID: i47b949f6:Fastmail
+Received: by mail.messagingengine.com (Postfix) with ESMTPA; Sat,
+ 30 May 2026 05:02:30 -0400 (EDT)
+Date: Sat, 30 May 2026 11:02:29 +0200
+From: Janne Grunau <j@jannau.net>
+To: Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>,
+	Conor Dooley <conor+dt@kernel.org>,
+	Lorenzo Pieralisi <lpieralisi@kernel.org>,
+	Sven Peter <sven@kernel.org>, Neal Gompa <neal@gompa.dev>,
+	Wim Van Sebroeck <wim@linux-watchdog.org>,
+	Guenter Roeck <linux@roeck-us.net>,
+	Mark Kettenis <kettenis@openbsd.org>,
+	Sasha Finkelstein <k@chaosmail.tech>,
+	Uwe =?utf-8?Q?Kleine-K=C3=B6nig?= <ukleinek@kernel.org>
+Cc: devicetree@vger.kernel.org, linux-kernel@vger.kernel.org,
+	asahi@lists.linux.dev, linux-arm-kernel@lists.infradead.org,
+	linux-watchdog@vger.kernel.org, linux-pwm@vger.kernel.org,
+	Joshua Peisach <jpeisach@ubuntu.com>,
+	Michael Reeves <michael.reeves077@gmail.com>
+Subject: Re: [PATCH v3 0/5] Initial Apple silicon M3 device trees and
+ dt-bindings
+Message-ID: <20260530090229.GA1424101@robin.jannau.net>
+References: <20260507-apple-m3-initial-devicetrees-v3-0-ca07c81b5dc7@jannau.net>
 MIME-Version: 1.0
 Content-Type: text/plain; charset=utf-8
 Content-Disposition: inline
-In-Reply-To: <20260529-beagley-ai-display-v3-4-7fefdc5d1adf@ideasonboard.com>
+In-Reply-To: <20260507-apple-m3-initial-devicetrees-v3-0-ca07c81b5dc7@jannau.net>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260530_015842_529198_99C602FD 
-X-CRM114-Status: GOOD (  22.22  )
+X-CRM114-CacheID: sfid-20260530_020235_918675_A338B296 
+X-CRM114-Status: GOOD (  16.85  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -79,63 +117,46 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Fri, May 29, 2026 at 11:45:34AM +0300, Tomi Valkeinen wrote:
-> The DPI output pipeline in K3 SoCs contains the display subsystem (DSS)
-> which produces the in-SoC parallel video signal, and a DPI block which
-> adjusts the signal to the external MIPI DPI output.
-> 
-> The DSS IP has registers to configure whether the data and sync signals
-> are driven on rising or falling clock edge, and on some SoCs these are
-> automatically conveyed to the DPI block which needs that configuration
-> to properly output the MIPI DPI signal.
-> 
-> However, on some SoCs the DPI block configuration has to be done
-> manually, using an extra register outside the DSS, DPI0_CLK_CTRL in
-> MAIN_CTRL_MMR_CFG0 block, which controls the DPI block's behavior.
+Hej,
 
-Why don't you constrain this properyy per SoC in such case? Why is it
-applicable to each SoC, even though you said it is done via DSS IP
-registers?
-
+On Thu, May 07, 2026 at 09:33:06AM +0200, Janne Grunau wrote:
 > 
-> Currently the DPI0_CLK_CTRL is never written, so it's always 0, meaning
-> the data and sync are always driven on a rising clock edge regardless of
-> the DSS configuration.
+> This series adds initial device trees for M3 Apple silicon devices. The
+> device trees contain only a minimal set of hardware not going much
+> beyond the minimum required for booting kernel and initramfs and
+> verify via serial console that the hardware and drivers work.
+> The hardware with the exception of the interrupt controller is
+> compatible with the M1 and M2 SoCs and the existing drivers.
+> `make dtbs_check` depends on the already applied and dropped apple,i2c
+> and apple,pmgr dt-binding changes.
+> The watchdog load depends on stalled and forgotten addition of the
+> "apple,t8103-wdt" compatible posted in [1]. I've replied to the thread
+> to get the change merged.
 > 
-> Add 'ti,dpi-io-ctrl' property, which contains phandle to the
-> MAIN_CTRL_MMR_CFG0 block and the offset to the DPI0_CLK_CTRL register,
-> so that the DSS driver can configure the data and sync signals
-> correctly.
+> Merge strategy:
+> Apply whole series via apple-soc / arm-soc to keep `make dtbs_check`
+> errors minimal. Otherwise no dependencies between the patches.
+> I might want to send another series which depends on this later in this
+> cycle.
 > 
-> Signed-off-by: Tomi Valkeinen <tomi.valkeinen@ideasonboard.com>
+> Link: https://lore.kernel.org/linux-watchdog/20251231-watchdog-apple-t8103-base-compat-v1-1-1702a02e0c45@jannau.net/ [1]
+> Signed-off-by: Janne Grunau <j@jannau.net>
 > ---
->  .../devicetree/bindings/display/ti/ti,am65x-dss.yaml          | 11 +++++++++++
->  1 file changed, 11 insertions(+)
-> 
-> diff --git a/Documentation/devicetree/bindings/display/ti/ti,am65x-dss.yaml b/Documentation/devicetree/bindings/display/ti/ti,am65x-dss.yaml
-> index 588d72d4ec0d..902ae2122d86 100644
-> --- a/Documentation/devicetree/bindings/display/ti/ti,am65x-dss.yaml
-> +++ b/Documentation/devicetree/bindings/display/ti/ti,am65x-dss.yaml
-> @@ -113,6 +113,17 @@ properties:
->        and OLDI_CLK_IO_CTRL registers. This property is needed for OLDI
->        interface to work.
->  
-> +  ti,dpi-io-ctrl:
-> +    $ref: /schemas/types.yaml#/definitions/phandle-array
-> +    description:
-> +      phandle to a syscon device node containing the DPI0_CLK_CTRL register,
-> +      with the offset to DPI0_CLK_CTRL as an argument.
-> +    maxItems: 1
+> Changes in v3:
+> - adjust reg size of pmgr node to fit all its childrens' regs. Improper
+>   size was caused by a bug in the script used to convert Apple's
+>   power-states into DT nodes
+> - drop picked up changes from v2:
+>   - [PATCH v2 1/6] dt-bindings: arm: apple: apple,pmgr: Add t8122 compatible" (for v7.2-rc1)
 
-Drop
+This is wrong, I must have mixed this up with "[PATCH v2 3/6]
+dt-bindings: watchdog: apple,wdt: Add t8122 compatible". The change is
+missing in next and causes dtbs_check warnings.
 
-> +    items:
-> +      items:
+I can either resend the change or Sven can pick it up from the v2 series
+in https://lore.kernel.org/all/20260505-apple-m3-initial-devicetrees-v2-1-b0c2f3519e0e@jannau.net/
 
-missing '-'. See other examples of phandle-array, for example one of
-the first search results: qcom,ssc-block-bus.yaml
+Thanks
 
-Best regards,
-Krzysztof
-
+Janne
 
