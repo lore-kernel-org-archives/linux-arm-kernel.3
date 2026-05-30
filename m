@@ -4,84 +4,82 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 0F161CD6E43
-	for <linux-arm-kernel@archiver.kernel.org>; Sat, 30 May 2026 00:47:44 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 56EF2CD4F54
+	for <linux-arm-kernel@archiver.kernel.org>; Sat, 30 May 2026 00:51:28 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Message-Id:Date:References:
-	In-Reply-To:Cc:To:From:Subject:Content-Transfer-Encoding:Content-Type:
-	MIME-Version:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=BTJODSZ6QGmMUevGaoHSn6rTroHEuOqUe6r0UU6EnUc=; b=GIxz/9Lb2zvjpLNGC9p+11yOyU
-	eZ1SlUMqKdRWMlDGI1z2emNIoN8deDcJCnWs+P4aFWXSsWAfdL9iqNcdXXX2+slod5KQyy0+T0erY
-	eLKsInZ5VARz/7CcZJgkXpVneZUdnWQBF/crmhjBbi8jcWaWeK6oXxLSp1gP1WTvehlU//2fpr0Ea
-	Z6e5DWQC1kpjkBpVmKgvWXpBrTApKcy+eOiSSfv/gfIvBSegMrINZH6C0qUpKcaoHgTQ1tJnsbEqf
-	ddoF/WqyE+VGEMYsIiAeFjR0uM+c5bIPfbhEXnvuQNVXH20PCroey+tcN0Q0ltndvRb0DvEWDDge0
-	w7MVQEDg==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:In-Reply-To:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=zRqQuSUnQXIp8UkHJ3sfDs0vFpquRuFQmXl1WKZBm+U=; b=s0lXS+c/vCoVEPXl3DS2q9m6yB
+	hWN1xIBmxSyqvgFH9vKDzcwlfWPvzr+NYPaocfrFHFm3MChthtMlCnV4vLZ8mUWp3xRrArtOMWETi
+	Fb28gfa4kGpjsYs0gVyHlGv1Y2yKop2PLy08Q9MMWdOpB7M7z7KtQbQEGQpwwVunfS7mBlhTXFbZa
+	knXuDV78uChQBE9rQ609ltS+JyXykghBdPYkMUiw8gl1i91vt/Vuovzc0AFguKjGxRauMmOUmFP/q
+	3FE0aOnWrY2TzMKAJNIf3vTN36zqN5fyj2vs/moLmQ25HGPOYdaC/iRvHpzxHiuTqjF7fDZUggiA/
+	ZUDvofyg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wT7rV-00000008LJZ-0ip5;
-	Sat, 30 May 2026 00:47:37 +0000
-Received: from sea.source.kernel.org ([172.234.252.31])
+	id 1wT7v7-00000008LXe-2i0V;
+	Sat, 30 May 2026 00:51:21 +0000
+Received: from us-smtp-delivery-124.mimecast.com ([170.10.129.124])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wT7rS-00000008LIx-0Vm9
+	id 1wT7v4-00000008LX5-3syF
 	for linux-arm-kernel@lists.infradead.org;
-	Sat, 30 May 2026 00:47:35 +0000
-Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
-	by sea.source.kernel.org (Postfix) with ESMTP id 3D197409D3;
-	Sat, 30 May 2026 00:47:33 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id D5F6A1F00898;
-	Sat, 30 May 2026 00:47:27 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1780102053;
-	bh=BTJODSZ6QGmMUevGaoHSn6rTroHEuOqUe6r0UU6EnUc=;
-	h=Subject:From:To:Cc:In-Reply-To:References:Date;
-	b=L5GZr6L+FuaxhEvORMGfXyAzMuYWTnEwZ/fZXphbiWsUTJc/yXGid/cAXMyrGRzzJ
-	 XhGIiUOQmd9w4m+vMwdY0viWXVRbuWA04Wsv7l+tLSaRJyXvhIPjhTrotZ8j4GmzHc
-	 TPUD5ch3G2zdOC+EnnGTWJ1oryWJD8HsBGIdxWMZ6rxrrXQwHB4Q7ZMbO9YWP6Gma2
-	 6mbE27n/Z1G0Uzm6mcv7JBKxb0seyIDhUWnMwF40ZKl5ptQ2WJ/X6cRvqOOeW2bahV
-	 ukBZ1xWXMGis7/9v+dTnLGbMEZDEq7FmiPmo9VlQm3OGZ5fX43daXELIaS2ICCrhU/
-	 jmCkZk1S0zyVw==
+	Sat, 30 May 2026 00:51:20 +0000
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=redhat.com;
+	s=mimecast20190719; t=1780102275;
+	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
+	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
+	 in-reply-to:in-reply-to:references:references;
+	bh=zRqQuSUnQXIp8UkHJ3sfDs0vFpquRuFQmXl1WKZBm+U=;
+	b=VVpe1yZk4AcW//r2MUOssBbVieSDx3lLoGKzvY8USgB9a8LTKPPoGJSTXAUIzkKRczncRV
+	VZ+QUk0kxfpmuEcoZsc5FIJHPJfk8R8Gia6JRg1ctl6vxWALkp0fWRogGTCUkR2cRCao+o
+	odw6RLQMaydfvO39ooS5wr6j1vAbhLQ=
+Received: from mx-prod-mc-05.mail-002.prod.us-west-2.aws.redhat.com
+ (ec2-54-186-198-63.us-west-2.compute.amazonaws.com [54.186.198.63]) by
+ relay.mimecast.com with ESMTP with STARTTLS (version=TLSv1.3,
+ cipher=TLS_AES_256_GCM_SHA384) id us-mta-451-aSJK__TSM1uXw8sPVkz9hw-1; Fri,
+ 29 May 2026 20:51:13 -0400
+X-MC-Unique: aSJK__TSM1uXw8sPVkz9hw-1
+X-Mimecast-MFC-AGG-ID: aSJK__TSM1uXw8sPVkz9hw_1780102271
+Received: from mx-prod-int-08.mail-002.prod.us-west-2.aws.redhat.com (mx-prod-int-08.mail-002.prod.us-west-2.aws.redhat.com [10.30.177.111])
+	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
+	 key-exchange X25519 server-signature RSA-PSS (2048 bits) server-digest SHA256)
+	(No client certificate requested)
+	by mx-prod-mc-05.mail-002.prod.us-west-2.aws.redhat.com (Postfix) with ESMTPS id 9C01F1956080;
+	Sat, 30 May 2026 00:51:10 +0000 (UTC)
+Received: from localhost (unknown [10.22.88.56])
+	by mx-prod-int-08.mail-002.prod.us-west-2.aws.redhat.com (Postfix) with ESMTP id 65F321800576;
+	Sat, 30 May 2026 00:51:08 +0000 (UTC)
+Date: Fri, 29 May 2026 21:51:06 -0300
+From: "Luis Claudio R. Goncalves" <lgoncalv@redhat.com>
+To: Sebastian Andrzej Siewior <bigeasy@linutronix.de>
+Cc: Waiman Long <longman@redhat.com>,
+	Catalin Marinas <catalin.marinas@arm.com>,
+	Will Deacon <will@kernel.org>, Mark Rutland <mark.rutland@arm.com>,
+	Clark Williams <clrkwllms@kernel.org>,
+	Steven Rostedt <rostedt@goodmis.org>,
+	linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org,
+	linux-rt-devel@lists.linux.dev
+Subject: Re: [PATCH] arm64/entry: Don't disable preemption in
+ debug_exception_enter() with RT kernel
+Message-ID: <aho0eqjMESuHxECr@redhat.com>
+References: <20260519222524.886454-1-longman@redhat.com>
+ <20260520061920.XCqBHe0x@linutronix.de>
+ <a5251664-2c15-4a8e-906b-d204e10c38be@redhat.com>
+ <20260528145124.v9o6OcOc@linutronix.de>
+ <20260528153554.vllN7_T9@linutronix.de>
 MIME-Version: 1.0
-Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: 7bit
-Subject: Re: [PATCH v3 2/2] kconfig: Remove the architecture specific
- config for Propeller
-From: Nathan Chancellor <nathan@kernel.org>
-To: xur@google.com
-Cc: Yabin Cui <yabinc@google.com>, Will Deacon <will@kernel.org>, 
- Han Shen <shenhan@google.com>, Thomas Gleixner <tglx@linutronix.de>, 
- Ingo Molnar <mingo@redhat.com>, Borislav Petkov <bp@alien8.de>, 
- Dave Hansen <dave.hansen@linux.intel.com>, "H. Peter Anvin" <hpa@zytor.com>, 
- Kees Cook <kees@kernel.org>, Nathan Chancellor <nathan@kernel.org>, 
- Nicolas Schier <nicolas.schier@linux.dev>, 
- Linus Walleij <linusw@kernel.org>, Arnd Bergmann <arnd@arndb.de>, 
- Mathieu Desnoyers <mathieu.desnoyers@efficios.com>, 
- Miguel Ojeda <ojeda@kernel.org>, Peter Zijlstra <peterz@infradead.org>, 
- Jinjie Ruan <ruanjinjie@huawei.com>, 
- Lukas Bulwahn <lukas.bulwahn@redhat.com>, linux-kernel@vger.kernel.org, 
- Juergen Gross <jgross@suse.com>, Helge Deller <deller@gmx.de>, 
- Ryan Roberts <ryan.roberts@arm.com>, Marc Zyngier <maz@kernel.org>, 
- Ard Biesheuvel <ardb@kernel.org>, Vincent Donnefort <vdonnefort@google.com>, 
- Alice Ryhl <aliceryhl@google.com>, x86@kernel.org, 
- linux-arm-kernel@lists.infradead.org
-In-Reply-To: <20260527214510.3907973-3-xur@google.com>
-References: <20260527214510.3907973-1-xur@google.com>
- <20260527214510.3907973-3-xur@google.com>
-Date: Fri, 29 May 2026 17:47:11 -0700
-Message-Id: <178010203122.3743687.12531843798236779880.b4-review@b4>
-X-Mailer: b4 0.16-dev
-X-Developer-Signature: v=1; a=openpgp-sha256; l=3531; i=nathan@kernel.org;
- h=from:subject:message-id; bh=9OMPifNitnzGPA2fSMJItQgS33sgKeWBK76+/2tkOdI=;
- b=owGbwMvMwCUmm602sfCA1DTG02pJDFlSxjO5Hy7ZF6/RfoTztvS9E17My/bm+x+dMHn3IamIk
- KkHZqfd6ihlYRDjYpAVU2Spfqx63NBwzlnGG6cmwcxhZQIZwsDFKQATOdXF8M9wocXb9DrNXWpz
- K2XrnPwCL795vWMh78+gDL/gUN/OhK2MDN/Wp337fV794fJjUxPEtxhlZVo15VgsaO7n+ajzbBv
- jFE4A
-X-Developer-Key: i=nathan@kernel.org; a=openpgp;
- fpr=2437CB76E544CB6AB3D9DFD399739260CB6CB716
+In-Reply-To: <20260528153554.vllN7_T9@linutronix.de>
+X-Scanned-By: MIMEDefang 3.4.1 on 10.30.177.111
+X-Mimecast-MFC-PROC-ID: W9cN2eeafCebWcOKETLVr2EFWu1Pnvuw2AFnbf_BGYU_1780102271
+X-Mimecast-Originator: redhat.com
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260529_174734_226579_EA9B7E5C 
-X-CRM114-Status: GOOD (  15.93  )
+X-CRM114-CacheID: sfid-20260529_175119_057671_E2F75529 
+X-CRM114-Status: GOOD (  17.95  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -96,114 +94,99 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Wed, 27 May 2026 14:45:08 -0700, xur@google.com <xur@google.com> wrote:
-> diff --git a/arch/Kconfig b/arch/Kconfig
-> index e510c585ea84..e4eaca9c917c 100644
-> --- a/arch/Kconfig
-> +++ b/arch/Kconfig
-> @@ -879,12 +879,8 @@ config AUTOFDO_CLANG
->  
->  	  If unsure, say N.
->  
-> -config ARCH_SUPPORTS_PROPELLER_CLANG
-> -	bool
-> -
->  config PROPELLER_CLANG
->  	bool "Enable Clang's Propeller build"
-> -	depends on ARCH_SUPPORTS_PROPELLER_CLANG
+On Thu, May 28, 2026 at 05:35:54PM +0200, Sebastian Andrzej Siewior wrote:
+> On 2026-05-28 16:51:24 [+0200], To Waiman Long wrote:
+> > > The kernel backtrace is produced using the latest v7.1-rc4 kernel. There are
+> > > a number of changes to the debug_exception_enter() and
+> > > debug_exception_exit() functions over the years, but the preemption disable
+> > > code remains since its introduction in v5.3.
+> > 
+> > Let me look at this again.
+> 
+> So how do you reproduce this? The calls within debug_exception_enter()/
+> exit() look harmless or I miss the big thing here.
+> From your backtrace, you have brk_handler() and this is gone since
+> commit 31575e11ecf7e ("arm64: debug: split brk64 exception entry") which
+> is v6.17-rc1. I can use gdb with breakpoint handling.
 
-It does not look like '-fbasic-block-address-map' or its predecessor,
-'-fbasic-block-sections=labels', are supported by all architectures?
-This will break allmodconfig for some architectures in that case, so
-this needs to addressed with some other dependency.
+Sebastian, in the original series Ada provided a few tests, including the
+two files I list below. Running that test in a v7.1-rc5 kernel with
+PREEMPT_RT and DEBUG_ATOMIC_SLEEP enabled, I get this backtrace:
 
-  | $ make -skj"$(nproc)" ARCH=arm LLVM=1 mrproper allmodconfig all
-  | ...
-  | clang: error: unsupported option '-fbasic-block-address-map' for target 'armv6k-unknown-linux-gnueabi'
-  | ...
-  |
-  | $ make -skj"$(nproc)" ARCH=s390 LLVM=1 mrproper allmodconfig all
-  | ...
-  | clang: error: unsupported option '-fbasic-block-address-map' for target 's390x-unknown-linux-gnu'
-  | ...
+[10416.818417] BUG: sleeping function called from invalid context at kernel/locking/spinlock_rt.c:48
+[10416.818426] in_atomic(): 1, irqs_disabled(): 1, non_block: 0, pid: 6437, name: gdb_prog1
+[10416.818428] preempt_count: 1, expected: 0
+[10416.818430] RCU nest depth: 1, expected: 1
+[10416.818434] CPU: 11 UID: 0 PID: 6437 Comm: gdb_prog1 Not tainted 7.1.0-rc5-rt1 #2 PREEMPT_{RT,(full)} 
+[10416.818437] Hardware name: Lenovo HR330A            7X33CTO1WW    /FALCON     , BIOS hve104r-1.15 02/26/2021
+[10416.818440] Call trace:
+[10416.818442]  show_stack+0x20/0x40 (C)
+[10416.818450]  dump_stack_lvl+0x88/0xb8
+[10416.818454]  dump_stack+0x18/0x30
+[10416.818457]  __might_resched+0x18c/0x1c8
+[10416.818462]  rt_spin_lock+0x4c/0x1b0
+[10416.818467]  force_sig_info_to_task+0x34/0x1f0
+[10416.818471]  force_sig_fault+0x68/0xb0
+[10416.818473]  arm64_force_sig_fault+0x44/0x70
+[10416.818476]  ptrace_hbptriggered+0xd0/0x150
+[10416.818479]  __perf_event_overflow+0xf4/0x300
+[10416.818483]  perf_swevent_event+0x1b8/0x1f0
+[10416.818486]  perf_bp_event+0xcc/0xe0
+[10416.818489]  do_breakpoint+0xf4/0x238
+[10416.818493]  el0_breakpt+0x7c/0x200
+[10416.818497]  el0t_64_sync_handler+0xa8/0xf0
+[10416.818500]  el0t_64_sync+0x1b0/0x1b8
 
-Maybe something like
 
-  depends on CC_IS_CLANG && $(cc-option,-fbasic-block-address-map)
+n order to run the test, you need to create two files with the names and
+content listed below and run the following commands:
 
-then cleaning up scripts/Makefile.propeller to use it exclusively?
+    cc gdb_prog1.c -o gdb_prog1 -O0 -g
+    gdb -x gdb_cmdlist ./gdb_prog1
 
->
-> diff --git a/arch/arm64/kernel/vmlinux.lds.S b/arch/arm64/kernel/vmlinux.lds.S
-> index e1ac876200a3..44a42e7c66cf 100644
-> --- a/arch/arm64/kernel/vmlinux.lds.S
-> +++ b/arch/arm64/kernel/vmlinux.lds.S
-> @@ -368,6 +368,9 @@ SECTIONS
->  
->  	STABS_DEBUG
->  	DWARF_DEBUG
-> +#ifdef CONFIG_PROPELLER_CLANG
-> +        .llvm_bb_addr_map : { *(.llvm_bb_addr_map) }
+That's it.
 
-I would prefer to take the opportunity to consolidate this into
-include/asm-generic/vmlinux.lds.h with something like this:
+The files I mentioned are:
 
-  | diff --git a/arch/arm64/kernel/vmlinux.lds.S b/arch/arm64/kernel/vmlinux.lds.S
-  | index 44a42e7c66cf..8aaf404980a7 100644
-  | --- a/arch/arm64/kernel/vmlinux.lds.S
-  | +++ b/arch/arm64/kernel/vmlinux.lds.S
-  | @@ -368,9 +368,7 @@ SECTIONS
-  |  
-  |  	STABS_DEBUG
-  |  	DWARF_DEBUG
-  | -#ifdef CONFIG_PROPELLER_CLANG
-  | -        .llvm_bb_addr_map : { *(.llvm_bb_addr_map) }
-  | -#endif
-  | +	PROPELLER_DATA
-  |  	MODINFO
-  |  	ELF_DETAILS
-  |  
-  | diff --git a/arch/x86/kernel/vmlinux.lds.S b/arch/x86/kernel/vmlinux.lds.S
-  | index 4711a35e706c..d93611675d8a 100644
-  | --- a/arch/x86/kernel/vmlinux.lds.S
-  | +++ b/arch/x86/kernel/vmlinux.lds.S
-  | @@ -423,9 +423,7 @@ SECTIONS
-  |  
-  |  	STABS_DEBUG
-  |  	DWARF_DEBUG
-  | -#ifdef CONFIG_PROPELLER_CLANG
-  | -	.llvm_bb_addr_map : { *(.llvm_bb_addr_map) }
-  | -#endif
-  | +	PROPELLER_DATA
-  |  
-  |  	MODINFO
-  |  	ELF_DETAILS
-  | diff --git a/include/asm-generic/vmlinux.lds.h b/include/asm-generic/vmlinux.lds.h
-  | index 60c8c22fd3e4..7a157a1320b9 100644
-  | --- a/include/asm-generic/vmlinux.lds.h
-  | +++ b/include/asm-generic/vmlinux.lds.h
-  | @@ -1011,6 +1011,13 @@
-  |  #define PERCPU_DECRYPTED_SECTION
-  |  #endif
-  |  
-  | +#ifdef CONFIG_PROPELLER_CLANG
-  | +#define PROPELLER_DATA							\
-  | +	.llvm_bb_addr_map : { *(.llvm_bb_addr_map) }
-  | +#else
-  | +#define PROPELLER_DATA
-  | +#endif
-  | +
-  |  
-  |  /*
-  |   * Default discarded sections.
+===== gdb_cmdlist 
 
-That keeps the ifdef in one place and makes it easy to add this to other
-architecture linker scripts as they gain support for Propeller. Are
-there any other architectures that need this added? Or are arm64 and
-x86_64 the only supported architectures?
+---------- >8 cut here 8< ----------
+start
+hbreak 3
+watch target
+commands 2
+continue
+end
+commands 3
+continue
+end
+continue
+jump 11
+continue
+quit
+---------- >8 cut here 8< ----------
 
--- 
-Cheers,
-Nathan
+
+===== gdb_prog1.c
+
+---------- >8 cut here 8< ----------
+int main() {
+	int add = 0xAA;
+	int target = 0;
+
+	target += add;
+
+#ifdef COMPAT
+    __asm__("BKPT");
+#else
+    __asm__("BRK 1");
+#endif
+
+	return target;
+}
+---------- >8 cut here 8< ----------
+
+Luis
+
 
 
