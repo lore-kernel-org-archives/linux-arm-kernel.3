@@ -4,54 +4,62 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 78D26CD6E4A
-	for <linux-arm-kernel@archiver.kernel.org>; Sat, 30 May 2026 10:25:11 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 61738CD5BD0
+	for <linux-arm-kernel@archiver.kernel.org>; Sat, 30 May 2026 10:25:54 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Message-ID:Date:To:Cc:From:
-	Subject:References:In-Reply-To:Content-Transfer-Encoding:MIME-Version:
-	Content-Type:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=wnSw9/eFV2gm9WzVroD9AlPYZTDugHNiqlnBeQ2uSDs=; b=k9icDjgX7egcVXrQldI4KqjAhD
-	IMoIxqB2cw/WsrKIgjiF1Qbdn42wdMpiHLZ5RCvRM2olYqI2UNkRCTGuqFuEkUzlg+Hpg7dlY6Opo
-	VSX/QvAPdh9zR6gA+fMcVxrEJRLOx2SSFkN4LbX8ailJGXEdPUG2QPLtoyxqi66Kt/376VKt2iFTO
-	+vjGyFbXY5biFl0/7N1RbTMOx5U0DCvEjPzYRuwvXZOWVpVtmW/k4RQkZZO62HiIeO/uqQcy3xxuv
-	1+gMmO5gyV34Jo5Jhhnxjza18qqQAvM1j5Tin8RDOA+u2NeewXeK7SfmaPUvlUh9ZrenqsIZhBU/h
-	UzA8d5Iw==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=cFeS5ZghyqtLcvpjiqm8Lf4ksDZz0Ai1X1bJYSK/WDw=; b=hWuA1S+BzMXBCJ/HCZZYxiwSNn
+	b7dKUlxhzP48TVQt7pgUIROzVr6QbYOuDzC+i0DgcBV9CLQ/nQJq4czwlCLmE7poTxVWHUmnH/Z5X
+	bDY2QmP8U/xlgydP1BctSxlaXrMwvKUMasmgPFIASueC+hDsFomePLdn2cPdBE4dTatGgjBVwK1BL
+	L5+NoVLGqF/4iUKx6WraZX9H97BFW9HWrbsIOqxwjQ13VyUA2w8xsGxzDFhxmDLMFkUEgwDn7EaVk
+	Nvqk0RTc5P1W/ZHD/vEIHgiwK3BWvq9avc5+zBQ5T/8hYm9eKeK25POMUjXnAOKLy2Zv8XwbB5aya
+	RhSBnaEQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wTGsL-00000008cwK-0F0x;
-	Sat, 30 May 2026 10:25:05 +0000
-Received: from perceval.ideasonboard.com ([213.167.242.64])
+	id 1wTGt1-00000008d2D-0nVO;
+	Sat, 30 May 2026 10:25:47 +0000
+Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wTGsI-00000008cvn-1Omi
+	id 1wTGsz-00000008d1p-1Res
 	for linux-arm-kernel@lists.infradead.org;
-	Sat, 30 May 2026 10:25:03 +0000
-Received: from mail.ideasonboard.com (unknown [IPv6:2401:4900:1c69:382:6f:8c15:9eec:bfe9])
-	by perceval.ideasonboard.com (Postfix) with ESMTPSA id 517277CA;
-	Sat, 30 May 2026 12:24:39 +0200 (CEST)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=ideasonboard.com;
-	s=mail; t=1780136679;
-	bh=7DclqNSWpjRXXBRFWrNUXdTeUwXd2xsqw56KwwCn1mQ=;
-	h=In-Reply-To:References:Subject:From:Cc:To:Date:From;
-	b=srFsXAr0aGam8biawfn9fF17wEv2Y4RFd4XGkHIuo07DywhfuLMYY1MlDH+iHORoa
-	 VHvqYgoLtLWqpr6Sh+ICtCE0juXNCyU7z/IsLgvZLrDnG20NxLFbGha8n/G9UbvhHn
-	 L9a3FM/Wqg+NoLQbgPZoetReNlaQh4tfaEN1+EVw=
-Content-Type: text/plain; charset="utf-8"
+	Sat, 30 May 2026 10:25:46 +0000
+Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
+	by sea.source.kernel.org (Postfix) with ESMTP id AD2624099E;
+	Sat, 30 May 2026 10:25:44 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id E1C141F00893;
+	Sat, 30 May 2026 10:25:43 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=linuxfoundation.org;
+	s=korg; t=1780136744;
+	bh=cFeS5ZghyqtLcvpjiqm8Lf4ksDZz0Ai1X1bJYSK/WDw=;
+	h=Date:From:To:Cc:Subject:References:In-Reply-To;
+	b=TdX7ATjL+JjHILUuCxvkBh0D90EOmmzLV8D/d4Wwvxp1EEdipUcU95CCk0lpoWa0o
+	 mdIoV/6qOldP0BT0rASI6N80Fu+bzrCstE0Y3qQRlRhAc58YZfz+6vgfc6kFvOgu5r
+	 8/39CUZ6W+KOjOHkP8FZNXMpCEJet/78yKghk6qk=
+Date: Sat, 30 May 2026 07:21:52 +0200
+From: Greg Kroah-Hartman <gregkh@linuxfoundation.org>
+To: Rosen Penev <rosenp@gmail.com>
+Cc: linux-serial@vger.kernel.org, Jiri Slaby <jirislaby@kernel.org>,
+	Frank Li <Frank.Li@nxp.com>, Sascha Hauer <s.hauer@pengutronix.de>,
+	Pengutronix Kernel Team <kernel@pengutronix.de>,
+	Fabio Estevam <festevam@gmail.com>,
+	"open list:TTY LAYER AND SERIAL DRIVERS" <linux-kernel@vger.kernel.org>,
+	"open list:ARM/FREESCALE IMX / MXC ARM ARCHITECTURE" <imx@lists.linux.dev>,
+	"moderated list:ARM/FREESCALE IMX / MXC ARM ARCHITECTURE" <linux-arm-kernel@lists.infradead.org>
+Subject: Re: [PATCH] serial: mxs-auart: fix probe error paths and clock
+ handling
+Message-ID: <2026053046-bonanza-bobcat-6ed1@gregkh>
+References: <20260528230616.186792-1-rosenp@gmail.com>
 MIME-Version: 1.0
-Content-Transfer-Encoding: quoted-printable
-In-Reply-To: <20260529150119.dqzzruc7xqliftwp@bullhorn>
-References: <20260515-beagley-cameras-v2-0-f6acb66c9995@ideasonboard.com> <20260515-beagley-cameras-v2-3-f6acb66c9995@ideasonboard.com> <20260529150119.dqzzruc7xqliftwp@bullhorn>
-Subject: Re: [PATCH v2 3/4] arm64: dts: ti: k3-am67a-beagley-ai: Add overlay for IMX219 on CSI0
-From: Jai Luthra <jai.luthra@ideasonboard.com>
-Cc: Vignesh Raghavendra <vigneshr@ti.com>, Tero Kristo <kristo@kernel.org>, Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>, Conor Dooley <conor+dt@kernel.org>, Robert Nelson <robertcnelson@gmail.com>, Andrew Davis <afd@ti.com>, Devarsh Thakkar <devarsht@ti.com>, Tomi Valkeinen <tomi.valkeinen@ideasonboard.com>, linux-arm-kernel@lists.infradead.org, devicetree@vger.kernel.org, linux-kernel@vger.kernel.org
-To: Nishanth Menon <nm@ti.com>
-Date: Sat, 30 May 2026 15:54:55 +0530
-Message-ID: <178013669509.933414.8765119606360834035@freya>
-User-Agent: alot/0.13.dev20+g31692a239
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+In-Reply-To: <20260528230616.186792-1-rosenp@gmail.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260530_032502_527167_C263F5B4 
-X-CRM114-Status: GOOD (  12.43  )
+X-CRM114-CacheID: sfid-20260530_032545_497478_75662192 
+X-CRM114-Status: GOOD (  13.83  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -66,53 +74,33 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Quoting Nishanth Menon (2026-05-29 20:31:19)
-> On 06:46-20260515, Jai Luthra wrote:
-> > RPi v2 Camera (IMX219) is an 8MP camera that can be used with BeagleY AI
-> > through the 22-pin CSI-RX connectors. Add a DT overlay to enable use of
-> > this camera sensor through the CSI0 connector.
-> >=20
-> > Signed-off-by: Jai Luthra <jai.luthra@ideasonboard.com>
-> > ---
-> >  arch/arm64/boot/dts/ti/Makefile                    |   4 +
-> >  .../dts/ti/k3-am67a-beagley-ai-csi0-imx219.dtso    | 121 +++++++++++++=
-++++++++
->=20
-> Oh man..
-> https://lore.kernel.org/linux-arm-kernel/20240702164403.29067-1-afd@ti.co=
-m/
-> comes to memory.. Afd - what ever happened to that?
->=20
-> other than the dsi mux, painful to see so much duplication..
->=20
+On Thu, May 28, 2026 at 04:06:16PM -0700, Rosen Penev wrote:
+> Sashiko reported three pre-existing bugs in the mxs-auart driver:
+> 
+> - For non-ASM9260 variants, mxs_get_clks() obtained the clock but never
+>   prepared/enabled it, leaving register accesses in probe at risk of
+>   faulting if the bootloader had gated the clock.
+> - The error path and remove function used pdev->id instead of
+>   s->port.line to clear the auart_port[] slot.  For DT-probed devices
+>   pdev->id is -1, causing an out-of-bounds write and leaving a dangling
+>   pointer in the array.
 
-I recently came across the new DTS Addon proposal:
-https://lore.kernel.org/devicetree-compiler/20260112142009.1006236-1-herve.=
-codina@bootlin.com/
-https://lore.kernel.org/devicetree-compiler/20260409115426.352214-1-herve.c=
-odina@bootlin.com/
+This feels like it should be a different patch, and not burried in this
+change, right?
 
-which might be handy to unify overlays for all 15 and 22-pin Pi-style FFC
-connectors, which I guess are now quite popular across different vendor
-boards.
+> - The probe error path called iounmap() while the IRQ was still
+>   registered. An interrupt during that window would dereference the
+>   unmapped membase.
+> 
+> All of this is a consequence of using mixed devm and non devm. Instead
+> of working around these issues, go full devm so that everything can be
+> cleaned up properly.
 
-> Other than that, there is the previous comment (ordering etc, repeated
-> here). I also suggest people put the url of the board/part that the
-> overlay is supposed to refer to when creating overlays.. at least, some
-> sort of canonical link so folks are'nt confused in a future date.
+Are you sure that devm and irq code is going to work properly?  That's
+always a very tricky code path, was this tested with the hardware to
+ensure it still works on teardown correctly?
 
-Ack. I'll add https://docs.beagle.cc/boards/beagley/ai/03-design.html#csi
-in v2 unless there's a better link I can use (?)
+thanks,
 
-Thanks,
-    Jai
-
->=20
->=20
-> --=20
-> Regards,
-> Nishanth Menon
-> Key (0xDDB5849D1736249D) / Fingerprint: F8A2 8693 54EB 8232 17A3  1A34 DD=
-B5 849D 1736 249D
-> https://ti.com/opensource
+greg k-h
 
