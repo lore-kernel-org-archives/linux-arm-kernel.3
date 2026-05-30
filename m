@@ -4,72 +4,71 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 944D4CD6E4C
-	for <linux-arm-kernel@archiver.kernel.org>; Sat, 30 May 2026 16:19:58 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 86027CD5BD0
+	for <linux-arm-kernel@archiver.kernel.org>; Sat, 30 May 2026 16:25:49 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
 	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
 	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=WxYmQxwwBxgWs6asR9XSCI+irQfqn2faBEqKE1hn53E=; b=fqeYhXBaomFukpjcjR27IZQwcz
-	8rJeJetoYWy7CnAkR5wHLO2cDVEY9GvG7r1bth9MOs1obnEQdzg08dcAr97sry+zLUuaZ6CvIeodw
-	F5Nj21lmAxKXwOScLlXnWdBQusauwj0fSWTGXueObDERvr9KfBgGSzwgIscukuXzauuzHghrr0XgQ
-	UcXGCj/5fTKz4KIPzhZHd8bVb1+ej4HpPrCOFioqF1VWQlG8VYVI0FeHFGcsI9uG45Jz2uz9knDrh
-	pbPOtlZPdgq2Qx4IiJaKUfxpBu8mXnpKFWIEEXDcCerHpvn6lCngpvNwZc+2pc/lK0h9sOD/28u/P
-	FCvcvyXg==;
+	bh=1suTZzjeKKm1M2CPVaqVj1nFGVAvH1OGHJ6QIFVOJpU=; b=gt3TWdYiFFT9q2AkbVo9fLxDbM
+	i7GiT95VVXrIRDXbnaaLmv6R2eM+zw/Msml6vf76hRlcJcNW3/FDwx6pqM0oItIWDQzlvBaHMNe6u
+	1VmiG5hduqEUq9e6ZSxL2ePIzJOLDMQWanVOSivs+V83DaD5IA3x2r2K+CGCP/mumIoT1ygew1VQb
+	NwtbVsQC9R6kRV52KkEmlcXdbFAkDWoGdLqxl4wEXrTvVwNTKQ9iKR+x1IoSZKJuAPnHctm+aqLGc
+	G1GjSgYU2Da9CwlddpAF7WWuUvrxFVtQLwliL0DAWxoP6vLE9S9cx9De7d/qR4usrgd5UOV7v7H0B
+	Ibq7REVA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wTMPf-00000008v8T-1UYX;
-	Sat, 30 May 2026 16:19:51 +0000
-Received: from tor.source.kernel.org ([172.105.4.254])
+	id 1wTMVJ-00000008vZI-3ntF;
+	Sat, 30 May 2026 16:25:41 +0000
+Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wTMPd-00000008v8N-0ESE
-	for linux-arm-kernel@lists.infradead.org;
-	Sat, 30 May 2026 16:19:49 +0000
+	id 1wTMVD-00000008vYH-2cSD;
+	Sat, 30 May 2026 16:25:37 +0000
 Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
-	by tor.source.kernel.org (Postfix) with ESMTP id 18ACC600BB;
-	Sat, 30 May 2026 16:19:48 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id BD33E1F00893;
-	Sat, 30 May 2026 16:19:40 +0000 (UTC)
+	by sea.source.kernel.org (Postfix) with ESMTP id 6DC4841B57;
+	Sat, 30 May 2026 16:25:34 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id BB20F1F00893;
+	Sat, 30 May 2026 16:25:25 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1780157987;
-	bh=WxYmQxwwBxgWs6asR9XSCI+irQfqn2faBEqKE1hn53E=;
+	s=k20260515; t=1780158334;
+	bh=1suTZzjeKKm1M2CPVaqVj1nFGVAvH1OGHJ6QIFVOJpU=;
 	h=Date:From:To:Cc:Subject:References:In-Reply-To;
-	b=WZl0+4I9eq0OPPyxyDBdqCGRR+y0CoJpx7P9J1ZNHafWZGZX1fuK9HT7HOCSp1FVU
-	 9ddWJ9lDITFjq9eKGfZ8XgcPI1Gceue8QxkZpOu0JwKjN75XEWJg4tA2a8UNAkWZvu
-	 d2ASsHkW3EY1IZ3rOpPzq31XPfEMQM756K5+/fSW612wkX78yv2eAZ66ejeZV4LlfY
-	 gAu+RNJYW42KKsssq+PHsl1z2ZSd/eOK+QZCgtAc5FgOD8sjUj3miMaJcP2gtaD17q
-	 8U+HAlTtH77+9KCSbzDnS36KQEJCJesVoZVR5wfQkL3btqSLgCjvtjIMAmDS1I+rUb
-	 wf48OWQ3Lcqyg==
-Date: Sat, 30 May 2026 19:19:36 +0300
+	b=ZNZulNZWopBoouy0/z4gcjC11VMW+fTvUrQ09qpmPKznqSj+bQDP9lcOybTNBz00u
+	 jq7ay/ejY+Cb+GCmiHvxtp2t6DeCzHRKhhyy+f5sufkOPpJR0B+nFfwxWfJvFRce2s
+	 VqGaGsio2ebJiwUKmS4D+Mr1+pnZZjeL8cHrQV8cEEaGQoQExr8ByXCCUH5EpMbUp4
+	 NNX5fsoQ/L/HfuSCRU2U4PvdPmeW8OcKs8RQkEBbDMlPiVfQTcx3Eaz1uAR/9130L6
+	 Mi2kaeXpxLG0x3MrzfXvcWrftE68RFqLXGMiYQs8S31o7y6Phs/1MZY6/armSuLsIF
+	 hk7vRncNndt8w==
+Date: Sat, 30 May 2026 19:25:22 +0300
 From: Mike Rapoport <rppt@kernel.org>
-To: Ard Biesheuvel <ardb+git@google.com>
-Cc: linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org,
-	will@kernel.org, catalin.marinas@arm.com, mark.rutland@arm.com,
-	Ard Biesheuvel <ardb@kernel.org>,
-	Ryan Roberts <ryan.roberts@arm.com>,
-	Anshuman Khandual <anshuman.khandual@arm.com>,
-	Kevin Brodsky <kevin.brodsky@arm.com>,
-	Liz Prucka <lizprucka@google.com>,
-	Seth Jenkins <sethjenkins@google.com>, Kees Cook <kees@kernel.org>,
-	David Hildenbrand <david@kernel.org>,
-	Andrew Morton <akpm@linux-foundation.org>,
-	Jann Horn <jannh@google.com>, linux-mm@kvack.org,
-	linux-hardening@vger.kernel.org, linuxppc-dev@lists.ozlabs.org,
-	linux-sh@vger.kernel.org,
-	Yoshinori Sato <ysato@users.sourceforge.jp>,
-	Rich Felker <dalias@libc.org>,
-	John Paul Adrian Glaubitz <glaubitz@physik.fu-berlin.de>,
-	Geert Uytterhoeven <geert+renesas@glider.be>
-Subject: Re: [PATCH v7 12/15] sh: Drop cache flush of the zero page at boot
-Message-ID: <ahsOGMc7ys3H_oAt@kernel.org>
-References: <20260529150150.1670604-17-ardb+git@google.com>
- <20260529150150.1670604-29-ardb+git@google.com>
+To: Will Deacon <will@kernel.org>
+Cc: Wandun Chen <chenwandun1@gmail.com>,
+	linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org,
+	loongarch@lists.linux.dev, linux-riscv@lists.infradead.org,
+	devicetree@vger.kernel.org, kexec@lists.infradead.org,
+	iommu@lists.linux.dev, zhaomeijing@lixiang.com,
+	catalin.marinas@arm.com, chenhuacai@kernel.org, kernel@xen0n.name,
+	pjw@kernel.org, palmer@dabbelt.com, aou@eecs.berkeley.edu,
+	alex@ghiti.fr, robh@kernel.org, saravanak@kernel.org,
+	akpm@linux-foundation.org, bhe@redhat.com,
+	pasha.tatashin@soleen.com, pratyush@kernel.org,
+	ruirui.yang@linux.dev, m.szyprowski@samsung.com,
+	robin.murphy@arm.com, quic_obabatun@quicinc.com
+Subject: Re: [PATCH v3 09/11] arm64: kdump: exclude non-dumpable reserved
+ memory regions from vmcore
+Message-ID: <ahsPcv8G1BR9rLah@kernel.org>
+References: <20260527032917.3385849-1-chenwandun1@gmail.com>
+ <20260527032917.3385849-10-chenwandun1@gmail.com>
+ <ahmr-UjoApj2j5JS@willie-the-truck>
 MIME-Version: 1.0
 Content-Type: text/plain; charset=us-ascii
 Content-Disposition: inline
-In-Reply-To: <20260529150150.1670604-29-ardb+git@google.com>
+In-Reply-To: <ahmr-UjoApj2j5JS@willie-the-truck>
+X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
+X-CRM114-CacheID: sfid-20260530_092535_705417_854789DC 
+X-CRM114-Status: GOOD (  27.92  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -84,33 +83,78 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Fri, May 29, 2026 at 05:02:03PM +0200, Ard Biesheuvel wrote:
-> From: Ard Biesheuvel <ardb@kernel.org>
+On Fri, May 29, 2026 at 04:08:41PM +0100, Will Deacon wrote:
+> On Wed, May 27, 2026 at 11:29:15AM +0800, Wandun Chen wrote:
+> > From: Wandun Chen <chenwandun@lixiang.com>
+> > 
+> > Reserved memory regions are excluded from vmcore by default unless
+> > marked dumpable. Honor the dumpable flag to filter out device firmware
+> > regions (e.g., GPU, DSP, modem) reserved via device tree, since they
+> > typically contain data not useful for kernel crash analysis and can
+> > significantly increase vmcore size.
+> > 
+> > Use of_reserved_mem_kdump_exclude() to perform the exclusion, and
+> > pre-size the crash_mem array via of_reserved_mem_kdump_nr_ranges().
+> > 
+> > Signed-off-by: Wandun Chen <chenwandun@lixiang.com>
+> > Tested-by: Meijing Zhao <zhaomeijing@lixiang.com>
+> > ---
+> >  arch/arm64/kernel/machine_kexec_file.c | 6 ++++++
+> >  1 file changed, 6 insertions(+)
+> > 
+> > diff --git a/arch/arm64/kernel/machine_kexec_file.c b/arch/arm64/kernel/machine_kexec_file.c
+> > index e31fabed378a..1d65320c6ba4 100644
+> > --- a/arch/arm64/kernel/machine_kexec_file.c
+> > +++ b/arch/arm64/kernel/machine_kexec_file.c
+> > @@ -17,6 +17,7 @@
+> >  #include <linux/memblock.h>
+> >  #include <linux/of.h>
+> >  #include <linux/of_fdt.h>
+> > +#include <linux/of_reserved_mem.h>
+> >  #include <linux/slab.h>
+> >  #include <linux/string.h>
+> >  #include <linux/types.h>
+> > @@ -51,6 +52,7 @@ static int prepare_elf_headers(void **addr, unsigned long *sz)
+> >  	nr_ranges = 2; /* for exclusion of crashkernel region */
+> >  	for_each_mem_range(i, &start, &end)
+> >  		nr_ranges++;
+> > +	nr_ranges += of_reserved_mem_kdump_nr_ranges();
+> >  
+> >  	cmem = kmalloc_flex(*cmem, ranges, nr_ranges);
+> >  	if (!cmem)
+> > @@ -75,6 +77,10 @@ static int prepare_elf_headers(void **addr, unsigned long *sz)
+> >  			goto out;
+> >  	}
+> >  
+> > +	ret = of_reserved_mem_kdump_exclude(cmem);
+> > +	if (ret)
+> > +		goto out;
+> > +
+> >  	ret = crash_prepare_elf64_headers(cmem, true, addr, sz);
 > 
-> SuperH performs cache maintenance on the zero page during boot,
-> presumably because before commit
+> This looks fine to me:
 > 
->   6215d9f4470f ("arch, mm: consolidate empty_zero_page")
+> Acked-by: Will Deacon <will@kernel.org>
 > 
-> the zero page did double duty as a boot params region, and was cleared
-> separately, as it was not part of BSS. The memset() in question was
-> dropped by that commit, but the __flush_wback_region() call remained.
+> Although I do wonder whether there's scope to consolidate some of the
+> arch code here. Now that you have a helper for reserved memory, perhaps
+> the core code could also handle the crashkernel reservation itself as
+> well? If the arch code passed in its number of memory regions, the
+> core code could take care of (a) allocating the crash_mem ranges array
+> (b) excluding the crashkernel and (c) excluding the reserved regions
+> (the part you have here).
 > 
-> As empty_zero_page[] has been moved to BSS, it can be treated as any
-> other BSS memory, and so the cache flush can be dropped.
-> 
-> Cc: Yoshinori Sato <ysato@users.sourceforge.jp>
-> Cc: Rich Felker <dalias@libc.org>
-> Cc: John Paul Adrian Glaubitz <glaubitz@physik.fu-berlin.de>
-> Cc: Mike Rapoport <rppt@kernel.org>
-> Cc: Geert Uytterhoeven <geert+renesas@glider.be>
-> Signed-off-by: Ard Biesheuvel <ardb@kernel.org>
+> Obviously that would be follow-up work, but the fact that you're having
+> to apply basically the same diff to three architectures is a bit of a
+> giveaway that this could benefit from some wider cleanup.
 
-Acked-by: Mike Rapoport (Microsoft) <rppt@kernel.org>
+There are patches that move common code to kernel/crash_core.c:
 
-> ---
->  arch/sh/mm/init.c | 3 ---
->  1 file changed, 3 deletions(-)
+https://lore.kernel.org/all/20260525084932.934910-1-ruanjinjie@huawei.com
+ 
+Review from arch maintainers would be helpful there ;-)
+
+> Will
 
 -- 
 Sincerely yours,
