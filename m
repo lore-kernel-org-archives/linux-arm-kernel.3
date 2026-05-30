@@ -4,63 +4,70 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 8B478CD5BD0
-	for <linux-arm-kernel@archiver.kernel.org>; Sat, 30 May 2026 10:46:05 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 5B0B9CD5BD0
+	for <linux-arm-kernel@archiver.kernel.org>; Sat, 30 May 2026 10:48:22 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
 	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
 	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=lgysvuYQa3VryADSMxaUOkvnpUJJME8Z4Jq9WXkJPsM=; b=arpSZZ5LcuuApl7gIfE4UFn+vU
-	metC59P2l4Jw5ZjcBWQV4mRQkutPTXEre0k2/S/iGg2lBJLQcIs9lEzUTRrSFOxzuXneSKfDQd/+H
-	hxZQagKCR8gZBzkLCzWBUlfM2HCqDRCzWXc9zUcg7yrhcqf99zhkSA5Rke87xClJ0EYm+7wfCMaPF
-	cXFUV11brz6rNxGl+2D1PgPfYhbHrNRGqTRW9IN4Se3pKd/aXrYeO/UoXTADyQHH7JcW9Ijw4iPO+
-	jkz+bS2fRS+yHyBcyr9V6504e6fg4KP+VecH1FWDjh4VXM/uvhjgj06h//4+vo6KD1EWrjuATKzPb
-	YLb7MMGQ==;
+	bh=8ZOkOiUGphlye6XMDBEWeJg+3upNBwM3JqNA5E14kxQ=; b=VP2RVTDm5oHm4ZChROggaWsvpN
+	OYP8IgidmpZKX3f/WtRHMCpA0frBdFs9bxH6pH9SCl2IOA/q5pXglNDeqG/xxb8L4iZ4qBGLTGurr
+	mzcV9vuwFvGMp76zJ1vDOVU9FcKM6FpddRdcHA8P8/mpNKnhZW8+iKiMmHgI3Xfce865utHxFvZPS
+	tf0p+ieFNKI8O8sE16giJMCO19+ndYSyjXsn0O94Y1jZ71lqcxElAFy6kae6k4UeN1ViwoN+lVXel
+	JcCp1fyvY33GoB1bpDt7edru9zqeHKnLQAOfKHygSsOI8QP5UIdD6mxy5d9DeD7sN/Wv6ZhEE0Tyf
+	CyUqUk8Q==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wTHCZ-00000008eN6-1pFP;
-	Sat, 30 May 2026 10:45:59 +0000
-Received: from tor.source.kernel.org ([2600:3c04:e001:324:0:1991:8:25])
+	id 1wTHEl-00000008eWI-3HYF;
+	Sat, 30 May 2026 10:48:15 +0000
+Received: from sea.source.kernel.org ([172.234.252.31])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wTHCY-00000008eMv-07Vq
+	id 1wTHEj-00000008eVs-2Kn9
 	for linux-arm-kernel@lists.infradead.org;
-	Sat, 30 May 2026 10:45:58 +0000
+	Sat, 30 May 2026 10:48:14 +0000
 Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
-	by tor.source.kernel.org (Postfix) with ESMTP id D04EA600BB;
-	Sat, 30 May 2026 10:45:56 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 02A011F00893;
-	Sat, 30 May 2026 10:45:55 +0000 (UTC)
+	by sea.source.kernel.org (Postfix) with ESMTP id A94A740184;
+	Sat, 30 May 2026 10:48:12 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id C49D91F00893;
+	Sat, 30 May 2026 10:48:11 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1780137956;
-	bh=lgysvuYQa3VryADSMxaUOkvnpUJJME8Z4Jq9WXkJPsM=;
+	s=k20260515; t=1780138092;
+	bh=8ZOkOiUGphlye6XMDBEWeJg+3upNBwM3JqNA5E14kxQ=;
 	h=Date:From:To:Cc:Subject:References:In-Reply-To;
-	b=LF9JPGAcC6moprVYRK0U4dFljJn/TPozotuwfFii37DICafru5Y1mAAgjlhJ9e06z
-	 9SGRJEk5thzrrSB5IJNQKd6brcTQ0i/vBmArRmWoFmnG8h6IuAGYaSBDGy2KeeHqb3
-	 Sp41R1Po7GEY/ZeRbsnKV++sgd3pGQt9tUuRMhu7US3dBNO5r7CB5VyVRwJnr4Al8c
-	 MHlCGcQFBcBuwg8mWJ4NFaTiaXJr19gtPbFlA5LTJRtrez5KvxKH6r01ogiKGgWFoG
-	 FNu+9r/srmgiu5XJJG3+U9i22Hp84uOarJ1iY7Iyp6T02UirR9FKPBxgThJMe9BrRu
-	 Xszkru5qtrvfw==
-Date: Sat, 30 May 2026 12:45:54 +0200
+	b=MP5c73d9myscEqyCSzql55cJ27CeS+f0OyRedHnif8Ny44lNNrYxpOuTIVQqlUmbf
+	 iS1Lyx17qVCiER0uLQcw/OIH0j42Zi70dtGt9eAGTS/iaMEbnbbJWVK087lh5ZFMxM
+	 A3/9LnhWwT0BqzFAtrPh16o3vvzNTryX+Y/nRsNJnx1fCvA1jtMqVZywrgd8KKCpie
+	 uIVjnR//3JbS0erZg+8JCOyPZcGQIpSHvFTXXasBuyrM8Wjj+vFAV7YPzM1vyla2cc
+	 NvugdXL2GIQfechTmq05Y2/AzeIldT2WGT955Dw4r3FgkJFM3d3094zUQVxzplrOvC
+	 DkP0oorkhEPgw==
+Date: Sat, 30 May 2026 12:48:10 +0200
 From: Krzysztof Kozlowski <krzk@kernel.org>
-To: Laurentiu Mihalcea <laurentiumihalcea111@gmail.com>
-Cc: Bjorn Andersson <andersson@kernel.org>, 
-	Mathieu Poirier <mathieu.poirier@linaro.org>, Rob Herring <robh@kernel.org>, 
-	Krzysztof Kozlowski <krzk+dt@kernel.org>, Conor Dooley <conor+dt@kernel.org>, Frank Li <Frank.Li@nxp.com>, 
-	Sascha Hauer <s.hauer@pengutronix.de>, Peng Fan <peng.fan@nxp.com>, Fabio Estevam <festevam@gmail.com>, 
-	Pengutronix Kernel Team <kernel@pengutronix.de>, linux-remoteproc@vger.kernel.org, devicetree@vger.kernel.org, 
-	imx@lists.linux.dev, linux-arm-kernel@lists.infradead.org, 
-	linux-kernel@vger.kernel.org
-Subject: Re: [PATCH 1/5] dt-bindings: remoteproc: imx_rproc: document
- optional "memory-region-names"
-Message-ID: <20260530-indefinable-oriole-of-champagne-375a1e@quoll>
-References: <20260522111849.783-1-laurentiumihalcea111@gmail.com>
- <20260522111849.783-2-laurentiumihalcea111@gmail.com>
+To: Eric Biggers <ebiggers@kernel.org>
+Cc: Demi Marie Obenour <demiobenour@gmail.com>, 
+	Dmitry Baryshkov <dmitry.baryshkov@oss.qualcomm.com>, Herbert Xu <herbert@gondor.apana.org.au>, 
+	"David S. Miller" <davem@davemloft.net>, Thara Gopinath <thara.gopinath@gmail.com>, 
+	Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>, 
+	Conor Dooley <conor+dt@kernel.org>, Bjorn Andersson <andersson@kernel.org>, 
+	Konrad Dybcio <konradybcio@kernel.org>, Russell King <linux@armlinux.org.uk>, 
+	linux-kernel@vger.kernel.org, linux-crypto@vger.kernel.org, linux-arm-msm@vger.kernel.org, 
+	Ard Biesheuvel <ardb@kernel.org>, devicetree@vger.kernel.org, linux-arm-kernel@lists.infradead.org
+Subject: Re: [PATCH 1/2] crypto: Delete Qualcomm crypto engine driver
+Message-ID: <20260530-unbeatable-supportive-wren-c27de8@quoll>
+References: <20260523-delete-qce-v1-0-86105cd7f406@gmail.com>
+ <20260523-delete-qce-v1-1-86105cd7f406@gmail.com>
+ <7rgfuvv3hai7g4wt4accbkejtzdt5dnb6mkj6x7ox5sz35q4n2@h7j6rr7extuj>
+ <66317f6a-645e-432b-ae11-8f40569d4117@gmail.com>
+ <d97382a6-6c5d-4a3f-89cc-3ae9b432de3f@kernel.org>
+ <20260524204537.GB110177@quark>
 MIME-Version: 1.0
 Content-Type: text/plain; charset=utf-8
 Content-Disposition: inline
-In-Reply-To: <20260522111849.783-2-laurentiumihalcea111@gmail.com>
+In-Reply-To: <20260524204537.GB110177@quark>
+X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
+X-CRM114-CacheID: sfid-20260530_034813_666708_FE51F1E0 
+X-CRM114-Status: GOOD (  25.37  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -75,12 +82,54 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Fri, May 22, 2026 at 04:18:45AM -0700, Laurentiu Mihalcea wrote:
-> From: Laurentiu Mihalcea <laurentiu.mihalcea@nxp.com>
+On Sun, May 24, 2026 at 03:45:37PM -0500, Eric Biggers wrote:
+> On Sun, May 24, 2026 at 10:29:28PM +0200, Krzysztof Kozlowski wrote:
+> > On 24/05/2026 22:12, Demi Marie Obenour wrote:
+> > > On 5/24/26 12:42, Dmitry Baryshkov wrote:
+> > >> On Sat, May 23, 2026 at 03:03:56PM -0400, Demi Marie Obenour via B4 Relay wrote:
+> > >>> From: Demi Marie Obenour <demiobenour@gmail.com>
+> > >>>
+> > >>> It's slower than the generic C code and causes problems.
+> > >>
+> > >> Which problems?
+> > > 
+> > > See https://lore.kernel.org/all/20260522024912.GC5937@quark/.
+> > 
+> > Your commit is still incomplete and other people's opinion is poor
+> > reason. If you do not know what to write, ask that person to make
+> > necessary changes.
+> > 
+> > Not mentioning that removing driver is not even necessary to achieve the
+> > goal Eric was mentioning and if I understood correctly: you are removing
+> > even the pieces Eric found useful.
 > 
-> Document the optional "memory-region-names" property.
+> This driver is more than an order of magnitude slower than the CPU for
+> both encryption and hashing.  See:
+> 
+>     https://lore.kernel.org/r/20250704070322.20692-1-ebiggers@kernel.org/
+>     https://lore.kernel.org/r/20250615031807.GA81869@sol/
+> 
+> There are many examples of it having bugs as well, for example see the
+> second link above.
+> 
+> That's why it had to be disabled via the cra_priority system.  This
+> driver was actively making Linux worse.
+> 
+> This isn't particularly unique to drivers/crypto/, of course.  This one
+> we just have data on, so it's a bit clearer.
+> 
+> I've yet to see any real reason to keep this driver.
+> 
+> Crypto drivers need to be held to a higher standard than other device
+> drivers, as well.  The onus is on those who want to keep a particular
+> crypto driver to prove that it's worth keeping.
 
-Why?
+Commit doing the work should have all these explanations, including
+numbers. External references are not a proper justification for commits.
+
+Make your case, describe the findings including impact (or lack of
+impact) on ongoing hw wrapped keys work and inlined encryption for other
+devices (ICE).
 
 Best regards,
 Krzysztof
