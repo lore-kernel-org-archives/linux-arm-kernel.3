@@ -4,62 +4,55 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 61738CD5BD0
-	for <linux-arm-kernel@archiver.kernel.org>; Sat, 30 May 2026 10:25:54 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 526FACD5BD0
+	for <linux-arm-kernel@archiver.kernel.org>; Sat, 30 May 2026 10:28:03 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=cFeS5ZghyqtLcvpjiqm8Lf4ksDZz0Ai1X1bJYSK/WDw=; b=hWuA1S+BzMXBCJ/HCZZYxiwSNn
-	b7dKUlxhzP48TVQt7pgUIROzVr6QbYOuDzC+i0DgcBV9CLQ/nQJq4czwlCLmE7poTxVWHUmnH/Z5X
-	bDY2QmP8U/xlgydP1BctSxlaXrMwvKUMasmgPFIASueC+hDsFomePLdn2cPdBE4dTatGgjBVwK1BL
-	L5+NoVLGqF/4iUKx6WraZX9H97BFW9HWrbsIOqxwjQ13VyUA2w8xsGxzDFhxmDLMFkUEgwDn7EaVk
-	Nvqk0RTc5P1W/ZHD/vEIHgiwK3BWvq9avc5+zBQ5T/8hYm9eKeK25POMUjXnAOKLy2Zv8XwbB5aya
-	RhSBnaEQ==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Message-ID:Date:To:Cc:From:
+	Subject:References:In-Reply-To:Content-Transfer-Encoding:MIME-Version:
+	Content-Type:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=Xf9P0EPvQn1LFSFweDG7oOWEJuepHmczDyWefeBtRGM=; b=yenOnyHbuQfDPpjd3vQj3VyoZg
+	E0xMdDKkEXcEp2cl4JmtWwNn14mEuLSYvqgisM8mz6p0rEQUIaG9RCFOiTSQfuRiEO1m+YX9p7Od3
+	qF5MVgDAgu88GRTMix2cTS77fE1gqbPVNDk9B62i4aI6pVFqeRCaxdk7jJ521YTiqGq/KdOOjAjW5
+	6wGO4JFarhjgaBOhXJnfcb+TNA0F0U+H226MsL6ZaJToVAVyRqgmiOuMSzywi8WUsXwCCTyJebOu8
+	asDePayMpvqHgGQstdL/8QskGsgirgK2baRbPPl2WTOYlR4ohmbiFfj5JZ4zc3URIbWMxoqNE8tap
+	eM1fDMJQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wTGt1-00000008d2D-0nVO;
-	Sat, 30 May 2026 10:25:47 +0000
-Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
+	id 1wTGv7-00000008dGQ-1u8d;
+	Sat, 30 May 2026 10:27:57 +0000
+Received: from perceval.ideasonboard.com ([213.167.242.64])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wTGsz-00000008d1p-1Res
+	id 1wTGv4-00000008dFv-3FbR
 	for linux-arm-kernel@lists.infradead.org;
-	Sat, 30 May 2026 10:25:46 +0000
-Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
-	by sea.source.kernel.org (Postfix) with ESMTP id AD2624099E;
-	Sat, 30 May 2026 10:25:44 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id E1C141F00893;
-	Sat, 30 May 2026 10:25:43 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=linuxfoundation.org;
-	s=korg; t=1780136744;
-	bh=cFeS5ZghyqtLcvpjiqm8Lf4ksDZz0Ai1X1bJYSK/WDw=;
-	h=Date:From:To:Cc:Subject:References:In-Reply-To;
-	b=TdX7ATjL+JjHILUuCxvkBh0D90EOmmzLV8D/d4Wwvxp1EEdipUcU95CCk0lpoWa0o
-	 mdIoV/6qOldP0BT0rASI6N80Fu+bzrCstE0Y3qQRlRhAc58YZfz+6vgfc6kFvOgu5r
-	 8/39CUZ6W+KOjOHkP8FZNXMpCEJet/78yKghk6qk=
-Date: Sat, 30 May 2026 07:21:52 +0200
-From: Greg Kroah-Hartman <gregkh@linuxfoundation.org>
-To: Rosen Penev <rosenp@gmail.com>
-Cc: linux-serial@vger.kernel.org, Jiri Slaby <jirislaby@kernel.org>,
-	Frank Li <Frank.Li@nxp.com>, Sascha Hauer <s.hauer@pengutronix.de>,
-	Pengutronix Kernel Team <kernel@pengutronix.de>,
-	Fabio Estevam <festevam@gmail.com>,
-	"open list:TTY LAYER AND SERIAL DRIVERS" <linux-kernel@vger.kernel.org>,
-	"open list:ARM/FREESCALE IMX / MXC ARM ARCHITECTURE" <imx@lists.linux.dev>,
-	"moderated list:ARM/FREESCALE IMX / MXC ARM ARCHITECTURE" <linux-arm-kernel@lists.infradead.org>
-Subject: Re: [PATCH] serial: mxs-auart: fix probe error paths and clock
- handling
-Message-ID: <2026053046-bonanza-bobcat-6ed1@gregkh>
-References: <20260528230616.186792-1-rosenp@gmail.com>
+	Sat, 30 May 2026 10:27:56 +0000
+Received: from mail.ideasonboard.com (unknown [IPv6:2401:4900:1c69:382:6f:8c15:9eec:bfe9])
+	by perceval.ideasonboard.com (Postfix) with ESMTPSA id 6D74B7CA;
+	Sat, 30 May 2026 12:27:31 +0200 (CEST)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=ideasonboard.com;
+	s=mail; t=1780136851;
+	bh=xIGVJHDXpcmxVhUELeooaud4zDPbQF75EH7ok2C0qKU=;
+	h=In-Reply-To:References:Subject:From:Cc:To:Date:From;
+	b=oAmTDck9dwCihc7pzbDIKdz8iRU2fvIkyf5klsPbJbEo2bQoWutWjOqAbvjx11EMO
+	 kzmpWVxdLzDD3jwk3Z8O3JU65RsXYRw0sOrMeWxR32/u/p4+P9cgIfLRZjRGl/7EWX
+	 QB+ARSCp1VoEbTZG6g9aalF/LxOzNZX88nFBXm38=
+Content-Type: text/plain; charset="utf-8"
 MIME-Version: 1.0
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-In-Reply-To: <20260528230616.186792-1-rosenp@gmail.com>
+Content-Transfer-Encoding: quoted-printable
+In-Reply-To: <20260529144917.wp46oj6z3clarvft@blabber>
+References: <20260515-beagley-cameras-v2-0-f6acb66c9995@ideasonboard.com> <20260515-beagley-cameras-v2-3-f6acb66c9995@ideasonboard.com> <20260529144917.wp46oj6z3clarvft@blabber>
+Subject: Re: [PATCH v2 3/4] arm64: dts: ti: k3-am67a-beagley-ai: Add overlay for IMX219 on CSI0
+From: Jai Luthra <jai.luthra@ideasonboard.com>
+Cc: Vignesh Raghavendra <vigneshr@ti.com>, Tero Kristo <kristo@kernel.org>, Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>, Conor Dooley <conor+dt@kernel.org>, Robert Nelson <robertcnelson@gmail.com>, Andrew Davis <afd@ti.com>, Devarsh Thakkar <devarsht@ti.com>, Tomi Valkeinen <tomi.valkeinen@ideasonboard.com>, linux-arm-kernel@lists.infradead.org, devicetree@vger.kernel.org, linux-kernel@vger.kernel.org
+To: Nishanth Menon <nm@ti.com>
+Date: Sat, 30 May 2026 15:57:47 +0530
+Message-ID: <178013686712.933414.13519886286669092495@freya>
+User-Agent: alot/0.13.dev20+g31692a239
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260530_032545_497478_75662192 
-X-CRM114-Status: GOOD (  13.83  )
+X-CRM114-CacheID: sfid-20260530_032754_976672_8FA15FA6 
+X-CRM114-Status: UNSURE (   6.14  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -74,33 +67,35 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Thu, May 28, 2026 at 04:06:16PM -0700, Rosen Penev wrote:
-> Sashiko reported three pre-existing bugs in the mxs-auart driver:
-> 
-> - For non-ASM9260 variants, mxs_get_clks() obtained the clock but never
->   prepared/enabled it, leaving register accesses in probe at risk of
->   faulting if the bootloader had gated the clock.
-> - The error path and remove function used pdev->id instead of
->   s->port.line to clear the auart_port[] slot.  For DT-probed devices
->   pdev->id is -1, causing an out-of-bounds write and leaving a dangling
->   pointer in the array.
+Quoting Nishanth Menon (2026-05-29 20:19:17)
+> On 06:46-20260515, Jai Luthra wrote:
+> [...]
+>=20
+> > +&main_i2c2 {
+> > +     status =3D "okay";
+> Comes last.. please follow:
+> https://git.kernel.org/pub/scm/linux/kernel/git/torvalds/linux.git/tree/D=
+ocumentation/devicetree/bindings/dts-coding-style.rst#n117
+>=20
 
-This feels like it should be a different patch, and not burried in this
-change, right?
+Oops. Will fix everywhere in v3*
 
-> - The probe error path called iounmap() while the IRQ was still
->   registered. An interrupt during that window would dereference the
->   unmapped membase.
-> 
-> All of this is a consequence of using mixed devm and non devm. Instead
-> of working around these issues, go full devm so that everything can be
-> cleaned up properly.
+* just realized I was calling it v2 in other replies
 
-Are you sure that devm and irq code is going to work properly?  That's
-always a very tricky code path, was this tested with the hardware to
-ensure it still works on teardown correctly?
+Thanks,
+    Jai
 
-thanks,
-
-greg k-h
+> > +     pinctrl-names =3D "default";
+> > +     pinctrl-0 =3D <&main_i2c2_pins_default>;
+> > +     clock-frequency =3D <400000>;
+> > +
+> > +     #address-cells =3D <1>;
+> > +     #size-cells =3D <0>;
+> > +
+> --=20
+> Regards,
+> Nishanth Menon
+> Key (0xDDB5849D1736249D) / Fingerprint: F8A2 8693 54EB 8232 17A3  1A34 DD=
+B5 849D 1736 249D
+> https://ti.com/opensource
 
