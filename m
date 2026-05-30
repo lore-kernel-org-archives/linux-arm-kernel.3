@@ -4,76 +4,67 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id B50B5CD6E4A
-	for <linux-arm-kernel@archiver.kernel.org>; Sat, 30 May 2026 07:47:37 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 3CD0ACD6E4A
+	for <linux-arm-kernel@archiver.kernel.org>; Sat, 30 May 2026 08:56:11 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:MIME-Version:References:In-Reply-To:Message-Id:Date:Subject:Cc:
-	To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=KxXQXGjA8Ez+LLNGezkt0TxaGdPDqNizkUCvoA6K7p0=; b=TYHcipC04UJB/YhCFixME0/XI3
-	+EeZmnaXbHW2nmi0CJ2bL0Anv4P+ERRm3YeZIJ4ys+J3z5GNqlAn9m+dmeNUMLPTL7VcUuvtFzGge
-	SCarcAeUtrmkYf+uJ25bcOou6E5UUul0fyk5WcQe1TnsPjGZnYfpUcdXoQCDqfWiIgle1rwx5sCUd
-	GMhv9WZXiODIkWimrzo8EwvX3WHHfwrhRQXq8WEThhiBQbWRsPCTFjvL5weBmJ59eKWnet+9YuxKE
-	RrT/+m3cJvrtm0qzHbSl0uqD8YkjuDl7uzVlmX3rNq8uC2PNTE69tH3iS7lTJ4jiV8eyZyRXzDBrQ
-	Z3m4QyZQ==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=gCbea2ijODrO6sWfTgmHFJeUbJdsnvpmfjDFt87l/DA=; b=J1AhikcGR1Dgpympt6kKkm45OG
+	m0yfb+NKMBZKDkm6+jmf++iZd/BDrn5zctyHr6/ehcjTYAbuyB8kGkw4BLqvccp7rVd4BcKZh69D1
+	c6sVBfZStTxOwI6ZVprTnDWyZnZb/MMdoEn7EGaLY9FrU1oebX3vebA8Knk6Ue20XWF1y/dLH5eeQ
+	qolQcFgSDGhrPgj4hRQyenblNg058QwGZtWGl+qgQZln/n71nNsoptVtzt8Ge5Tibjg6xQx+n4QIV
+	TkYn4CsJkEZEUumnOmYYke7++09HsvUX97+G2+gBGxgeKYpcDaF+1fyJVMT9ZInit4uZ/G3EMvPJF
+	eYaIy1GA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wTEPq-00000008Wi5-1XKW;
-	Sat, 30 May 2026 07:47:30 +0000
-Received: from out-183.mta1.migadu.com ([95.215.58.183])
+	id 1wTFUA-00000008YX4-3NPX;
+	Sat, 30 May 2026 08:56:02 +0000
+Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wTEPo-00000008WhZ-1faz
+	id 1wTFU8-00000008YWi-2FSB
 	for linux-arm-kernel@lists.infradead.org;
-	Sat, 30 May 2026 07:47:29 +0000
-X-Report-Abuse: Please report any abuse attempt to abuse@migadu.com and include these headers.
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=linux.dev; s=key1;
-	t=1780127229;
-	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
-	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
-	 content-transfer-encoding:content-transfer-encoding:
-	 in-reply-to:in-reply-to:references:references;
-	bh=KxXQXGjA8Ez+LLNGezkt0TxaGdPDqNizkUCvoA6K7p0=;
-	b=XlU47XZ7t70fUvpZtLoR7bU5qgPv3nVY/flIm+FlY+aCJVaW/2OcOM37f9BjQ1OEGJvAaI
-	OZwER44ej+Z8rnIZum1fy9fCFDR8gZ0vOuRCpNdMO4klHc3Ei1+TdY1vtL2fGXk3go69Md
-	ozbTnRO59SwW8/C48shqyJgtE1VzN6g=
-From: Lance Yang <lance.yang@linux.dev>
-To: dave.hansen@intel.com
-Cc: xueyuan.chen21@gmail.com,
-	akpm@linux-foundation.org,
-	linux-mm@kvack.org,
-	linux-kernel@vger.kernel.org,
-	linux-arm-kernel@lists.infradead.org,
-	x86@kernel.org,
-	catalin.marinas@arm.com,
-	will@kernel.org,
-	tglx@kernel.org,
-	mingo@redhat.com,
-	bp@alien8.de,
-	dave.hansen@linux.intel.com,
-	hpa@zytor.com,
-	david@kernel.org,
-	ljs@kernel.org,
-	ziy@nvidia.com,
-	baolin.wang@linux.alibaba.com,
-	ryan.roberts@arm.com,
-	dev.jain@arm.com,
-	lance.yang@linux.dev,
-	yang@os.amperecomputing.com,
-	jannh@google.com
-Subject: Re: [RFC PATCH 0/3] make persistent huge zero folio read-only
-Date: Sat, 30 May 2026 15:46:48 +0800
-Message-Id: <20260530074648.33513-1-lance.yang@linux.dev>
-In-Reply-To: <54986350-dfd4-4065-b960-e1ba30fee4b8@intel.com>
-References: <54986350-dfd4-4065-b960-e1ba30fee4b8@intel.com>
+	Sat, 30 May 2026 08:56:01 +0000
+Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
+	by sea.source.kernel.org (Postfix) with ESMTP id 1E77540907;
+	Sat, 30 May 2026 08:56:00 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 66DF01F00893;
+	Sat, 30 May 2026 08:55:59 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
+	s=k20260515; t=1780131360;
+	bh=gCbea2ijODrO6sWfTgmHFJeUbJdsnvpmfjDFt87l/DA=;
+	h=Date:From:To:Cc:Subject:References:In-Reply-To;
+	b=KaibxtZz8iwYzltdaad6YmQE9wlQ56wgEGZvkdkNzysLW0D6l8V7t14XNKhNluyD7
+	 uGID3zLI2DI/G+EHuyivOzfx+sZUgpqWtFd1ZV2ouESpbr4PE+QJtqwQ3DDK5NUrnW
+	 tXSKAqT9NpLrc4KRDIE/3frQYTtcHvdtM0XE+69OaqmeZhwDMnhqpWDj+oQUcz1zXY
+	 tpJnZl8ZDMrqlnugMv6l9buOgBO5pVxMKIAFfgOrUF+PsIESTSkzuYclyaZOr731CF
+	 x7WN4Laj2FAXGiyjj2VhJorhHtqaeSuPNVgVVXcox2OA65FvIISPeLD2P7eDWhK7Ha
+	 d9WEBXdfCzKOQ==
+Date: Sat, 30 May 2026 10:55:56 +0200
+From: Krzysztof Kozlowski <krzk@kernel.org>
+To: Tomi Valkeinen <tomi.valkeinen@ideasonboard.com>
+Cc: Maarten Lankhorst <maarten.lankhorst@linux.intel.com>, 
+	Maxime Ripard <mripard@kernel.org>, Thomas Zimmermann <tzimmermann@suse.de>, 
+	David Airlie <airlied@gmail.com>, Simona Vetter <simona@ffwll.ch>, Rob Herring <robh@kernel.org>, 
+	Krzysztof Kozlowski <krzk+dt@kernel.org>, Conor Dooley <conor+dt@kernel.org>, Lee Jones <lee@kernel.org>, 
+	Aradhya Bhatia <aradhya.bhatia@linux.dev>, Nishanth Menon <nm@ti.com>, 
+	Vignesh Raghavendra <vigneshr@ti.com>, Swamil Jain <s-jain1@ti.com>, Devarsh Thakkar <devarsht@ti.com>, 
+	Louis Chauvet <louis.chauvet@bootlin.com>, devicetree@vger.kernel.org, dri-devel@lists.freedesktop.org, 
+	linux-kernel@vger.kernel.org, linux-arm-kernel@lists.infradead.org
+Subject: Re: [PATCH v3 03/15] dt-bindings: display: ti,am625-oldi: Add
+ optional power-domain for OLDI
+Message-ID: <20260530-axolotl-of-normal-vigor-efaee1@quoll>
+References: <20260529-beagley-ai-display-v3-0-7fefdc5d1adf@ideasonboard.com>
+ <20260529-beagley-ai-display-v3-3-7fefdc5d1adf@ideasonboard.com>
 MIME-Version: 1.0
-Content-Type: text/plain; charset=UTF-8
-Content-Transfer-Encoding: 8bit
-X-Migadu-Flow: FLOW_OUT
+Content-Type: text/plain; charset=utf-8
+Content-Disposition: inline
+In-Reply-To: <20260529-beagley-ai-display-v3-3-7fefdc5d1adf@ideasonboard.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260530_004728_615086_36B424CA 
-X-CRM114-Status: GOOD (  16.12  )
+X-CRM114-CacheID: sfid-20260530_015600_615623_95C24C06 
+X-CRM114-Status: GOOD (  12.05  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -88,53 +79,21 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hi Dave,
+On Fri, May 29, 2026 at 11:45:33AM +0300, Tomi Valkeinen wrote:
+> On some SoCs the OLDI blocks belong to the same power-domain as the main
+> DSS block, but on some more recent SoCs the OLDI blocks have a
+> controllable power-domain.
+> 
+> Add the power-domain to the DT binding.
+> 
+> Signed-off-by: Tomi Valkeinen <tomi.valkeinen@ideasonboard.com>
+> ---
+>  Documentation/devicetree/bindings/display/ti/ti,am625-oldi.yaml | 3 +++
+>  1 file changed, 3 insertions(+)
 
-Sorry for the late reply.
+Acked-by: Krzysztof Kozlowski <krzysztof.kozlowski@oss.qualcomm.com>
 
-On Wed, May 27, 2026 at 08:58:38AM -0700, Dave Hansen wrote:
->On 5/26/26 20:56, Xueyuan chen wrote:
->> The motivation comes from Jann Horn's read-only zero page work[1] and the
->> follow-up discussion[2] with Yang Shi. As Jann pointed out, the kernel has
->> had bugs, including security bugs, where pages taken with read-only
->> semantics were later written to.
->
->My overall concern with this is that it's just a code hack for the huge
->zero page and nothing else. It's a total one-off.
+Best regards,
+Krzysztof
 
-Fair point. I was trying to keep the first version simple, so I
-special-cased the persistent huge zero folio. But agreed, the arch side
-should not grow a huge-zero-folio-only hook :)
-
->I think you need to make the case here that the huge zero page truly is
->a special snowflake and deserves a one-off special snowflake solution.
->Because it doesn't seem *that* crazy that there are more things that the
->kernel dynamically allocates that it wants to keep read only.
->
->Maybe there aren't many things that get mapped to userspace like this.
->But the case needs to get made either way.
-
-For RFC v2, I think we should make the arch hook generic, probably
-arch_make_folio_readonly(), with a weak default implementation. The
-persistent huge zero folio would just be the first user.
-
-But even with a generic helper, we still need to be careful about the
-model. I see two possible ones:
-
-1) Treat "read-only in the direct map" as real folio state. Then core MM
-has to know about it and carry or clear that state in paths like
-migration and freeing. It also makes the possible direct-map split / TLB
-cost a more general MM issue, not just a cost tied to one caller ...
-
-2) Only use the helper for folios with a simple lifetime: allocated once,
-not migrated, not freed, and not written after they are made read-only.
-
-I'd start with 2. Keeps the arch API generic, but avoids teaching core
-MM a new folio state before we have a user that really needs that. The
-persistent huge zero folio still works fine with that model. It just
-becomes the first user instead of the special case :)
-
-Thoughts?
-
-Cheers, Lance
 
