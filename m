@@ -4,52 +4,50 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id DA1BACD6E49
-	for <linux-arm-kernel@archiver.kernel.org>; Sat, 30 May 2026 14:02:06 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 9BA70CD6E49
+	for <linux-arm-kernel@archiver.kernel.org>; Sat, 30 May 2026 14:02:12 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:References
 	:Message-Id:Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:
 	From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=E//UWfyU6MGhKaC1hBQH0KYtQ8sNEvwGPvQuEq3V9SM=; b=DLWePby80XY5oB1g/8XE+zvB1p
-	U6U5R0u8+Z1aT7B/STEHr5aaVGIkfHo7P9v4iin5Nq3P+yEsXi0k2EdZfyxC4vYAacU+Qu4LL40/U
-	cijiGRulXUFsEmQSRj4EAKVlOFKoCpBUG7FXg258gCmaVvscG17GaZMPPNNLqqCPLp9zieO/6wPzN
-	Gol/bZMIepvj0/t1BDOcYxaIZT6+UgLb7Ebqqg4mDXgFsSf6CTRgcYpLispfyySdAR5zt/An/kPjR
-	kmENnto+Wp9QcbnLDat4e23SnZJ9Qhm/XczvMRgLa2UAaiLAzOIPJGXpJpdgXgwLh4sd3k+U6vuR7
-	neeD1f6g==;
+	bh=tkKo06NVcI6uh4ZW6Uzyin5XXMzJtpQRIxgWV7wZoJw=; b=a+48n95OpSaYonME0i6bY8k7a2
+	/GN5OmgNOL4nL4QfafXmq24h7fj7Of7Ez4EMqVRjJD2J3if4qgPwRziz/u4/zgNzr9QVtJDaI4bYN
+	1csgdoK2MLciZ4o9uUgW9fOMhRPZVAjBHbF95S9hZAbMde0eU2ZJnyxyZMSjfGZcultnEFyZD6SHb
+	oOsK2q12k4ZBBkuJ95ZkFwALbQ69qqpZzW1nBp8DKEorKWZwaeDWkHFCNhG0VyVdypkyWpWJy8uud
+	URvy9gOPzLU7y9psv2Ia9LndEme4v8GGjmJP/UPgZWRSfEngY8IpyNpWCZMJQVbmU2P1QWgPgQ//E
+	c1r6QXAQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wTKGG-00000008n9x-1xPU;
-	Sat, 30 May 2026 14:02:00 +0000
-Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
+	id 1wTKGL-00000008nBK-2NXP;
+	Sat, 30 May 2026 14:02:05 +0000
+Received: from tor.source.kernel.org ([2600:3c04:e001:324:0:1991:8:25])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wTKGC-00000008n98-2sa4
-	for linux-arm-kernel@lists.infradead.org;
-	Sat, 30 May 2026 14:01:59 +0000
+	id 1wTKGI-00000008nAO-2u1Z;
+	Sat, 30 May 2026 14:02:02 +0000
 Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
-	by sea.source.kernel.org (Postfix) with ESMTP id 4FFFE40710;
-	Sat, 30 May 2026 14:01:56 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 863BC1F00893;
-	Sat, 30 May 2026 14:01:55 +0000 (UTC)
+	by tor.source.kernel.org (Postfix) with ESMTP id D49D0600CB;
+	Sat, 30 May 2026 14:02:01 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 19BF51F00899;
+	Sat, 30 May 2026 14:02:00 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1780149716;
-	bh=E//UWfyU6MGhKaC1hBQH0KYtQ8sNEvwGPvQuEq3V9SM=;
+	s=k20260515; t=1780149721;
+	bh=tkKo06NVcI6uh4ZW6Uzyin5XXMzJtpQRIxgWV7wZoJw=;
 	h=From:Date:Subject:References:In-Reply-To:To:Cc;
-	b=N9t6sN0tF3NXMCdzP4xqoI259iuS+y47S6VqQP3A6L7qBAF/2p1wjmT8YlC4pcePu
-	 +TtUYB/NCtu4a0x8kFKuDRUQgP3+q+1HkJF1cyrCEOcTG98/u9OKrRSAC5iI9GL9QY
-	 VAtvrj6YpXpXWd9pHL9XVZCWFBePyfXqnaF+J0BVWyFrM9UQsmIx4o7yHuMXhy0iRC
-	 I82YRNcvB6ShGtosfJIAIc+pmSCieMxlBbS8FWQ5foYNVR7rTXYcPEL3dFW1aX+es9
-	 HCAXXihkcWo3Qm9hV00OCf4Z9SYKUXEjr3SVxq5XXWRPNRuVg9R+TzwVyiE0PjHzTB
-	 OhVTbAoR10DtQ==
+	b=V6eykwwCGxKXneGrTa/l+tH3JI/+2rqM4JCh3f7Kp/K3PKayHxPavS/gypU+vy6Lu
+	 Vadn1M75XP5ilajWaca32EYiu49GGWhPjvkaHw62IX1Wk1Mem0d+2cjYIqCIwwZwRO
+	 Tysyp0e7DLQAI3rC6H3HnORkGCcxvsa3Re0dZ1CmYhwAHpe81VSFwYLyGeyvJJfEJd
+	 A6hU52VavJcWT1c30JFkq9iVtsbUcbWYcF6U8qjgWPJtxlIMMn5ZY9abn+fCfze+I8
+	 Q0kXFXuhfTr1nw+4cNY1oX2nO/8ou6POgBaNSifA9gkwU3iGjMm2A2DRZenhgYKwIb
+	 jNz7eOeKvgYXQ==
 From: Maxime Ripard <mripard@kernel.org>
-Date: Sat, 30 May 2026 15:59:50 +0200
-Subject: [PATCH 45/76] drm/imx: parallel-display: Switch to
- atomic_create_state
+Date: Sat, 30 May 2026 15:59:52 +0200
+Subject: [PATCH 47/76] drm/mediatek: dp: Switch to atomic_create_state
 MIME-Version: 1.0
 Content-Type: text/plain; charset="utf-8"
 Content-Transfer-Encoding: 7bit
-Message-Id: <20260530-drm-no-more-bridge-reset-v1-45-875d828d31bc@kernel.org>
+Message-Id: <20260530-drm-no-more-bridge-reset-v1-47-875d828d31bc@kernel.org>
 References: <20260530-drm-no-more-bridge-reset-v1-0-875d828d31bc@kernel.org>
 In-Reply-To: <20260530-drm-no-more-bridge-reset-v1-0-875d828d31bc@kernel.org>
 To: Andrzej Hajda <andrzej.hajda@intel.com>, 
@@ -61,23 +59,21 @@ To: Andrzej Hajda <andrzej.hajda@intel.com>,
  Thomas Zimmermann <tzimmermann@suse.de>, David Airlie <airlied@gmail.com>, 
  Simona Vetter <simona@ffwll.ch>
 Cc: Dmitry Baryshkov <lumag@kernel.org>, dri-devel@lists.freedesktop.org, 
- Maxime Ripard <mripard@kernel.org>, Philipp Zabel <p.zabel@pengutronix.de>, 
- Frank Li <Frank.Li@nxp.com>, Sascha Hauer <s.hauer@pengutronix.de>, 
- Pengutronix Kernel Team <kernel@pengutronix.de>, 
- Fabio Estevam <festevam@gmail.com>, imx@lists.linux.dev, 
+ Maxime Ripard <mripard@kernel.org>, Chun-Kuang Hu <chunkuang.hu@kernel.org>, 
+ Philipp Zabel <p.zabel@pengutronix.de>, 
+ Matthias Brugger <matthias.bgg@gmail.com>, 
+ AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>, 
+ linux-mediatek@lists.infradead.org, linux-kernel@vger.kernel.org, 
  linux-arm-kernel@lists.infradead.org
 X-Mailer: b4 0.14.3
-X-Developer-Signature: v=1; a=openpgp-sha256; l=1678; i=mripard@kernel.org;
- h=from:subject:message-id; bh=w+4/gZ5eZl1voVGoufBQrlVUuTZA//x+hgNxgwDIyZ0=;
- b=owGbwMvMwCmsHn9OcpHtvjLG02pJDFlSbz1XzKzjkDHiL31rJXpB6Kmo+q6/r0zu6mg9sZo+y
- /TTxjfXO6ayMAhzMsiKKbI8kQk7vbx9cZWD/cofMHNYmUCGMHBxCsBEVFQZ62z6Hsx82Fdfs3Sy
- UvQJK+VtE58VMkaqba8TOylb/8xx0sWH3W+4Pm+/Zhheb5v/9eyGTMaGt/cfZPDtObL3/uv+jLe
- nD4ek/vzLz6f6VVNwRwSr4V2u4+eW2FfWveAz4dvw+t20wAMSAA==
+X-Developer-Signature: v=1; a=openpgp-sha256; l=1708; i=mripard@kernel.org;
+ h=from:subject:message-id; bh=z6xBipWEymo12CMpBvlHKhN+wcozoxiodkjgXo7rQlo=;
+ b=owGbwMvMwCmsHn9OcpHtvjLG02pJDFlSb71kJrNsMgiYIrL24mpRAb3fUZyvdEN7e29w23hYf
+ TjWxbq2YyoLgzAng6yYIssTmbDTy9sXVznYr/wBM4eVCWQIAxenAExkYg1jw+8/0ldzJGINOwqP
+ 9V2cebrp+JZXLlpeh9yvn78k2x2yqTVu3X9VPYdSLk+V+aVCYaV3GRvaz9m98jvsWH/7VH3H0qa
+ f32Ku/fsfdPjQx0iTd0sXPZ3s/NR5X2SPIq+C6O+PzmUrquMB
 X-Developer-Key: i=mripard@kernel.org; a=openpgp;
  fpr=BE5675C37E818C8B5764241C254BCFC56BF6CE8D
-X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260530_070156_764174_3FB78135 
-X-CRM114-Status: GOOD (  11.41  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -101,35 +97,35 @@ drm_atomic_helper_bridge_create_state() counterpart.
 Signed-off-by: Maxime Ripard <mripard@kernel.org>
 
 ---
+To: Chun-Kuang Hu <chunkuang.hu@kernel.org>
 To: Philipp Zabel <p.zabel@pengutronix.de>
-To: Frank Li <Frank.Li@nxp.com>
-To: Sascha Hauer <s.hauer@pengutronix.de>
-Cc: Pengutronix Kernel Team <kernel@pengutronix.de>
-Cc: Fabio Estevam <festevam@gmail.com>
+To: Matthias Brugger <matthias.bgg@gmail.com>
+To: AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>
 Cc: dri-devel@lists.freedesktop.org
-Cc: imx@lists.linux.dev
+Cc: linux-mediatek@lists.infradead.org
+Cc: linux-kernel@vger.kernel.org
 Cc: linux-arm-kernel@lists.infradead.org
 ---
- drivers/gpu/drm/imx/ipuv3/parallel-display.c | 2 +-
+ drivers/gpu/drm/mediatek/mtk_dp.c | 2 +-
  1 file changed, 1 insertion(+), 1 deletion(-)
 
-diff --git a/drivers/gpu/drm/imx/ipuv3/parallel-display.c b/drivers/gpu/drm/imx/ipuv3/parallel-display.c
-index 0f06db95f00f..eb75827394f8 100644
---- a/drivers/gpu/drm/imx/ipuv3/parallel-display.c
-+++ b/drivers/gpu/drm/imx/ipuv3/parallel-display.c
-@@ -178,11 +178,11 @@ static int imx_pd_bridge_attach(struct drm_bridge *bridge,
- 	return drm_bridge_attach(encoder, imxpd->next_bridge, bridge, flags);
- }
- 
- static const struct drm_bridge_funcs imx_pd_bridge_funcs = {
- 	.attach = imx_pd_bridge_attach,
--	.atomic_reset = drm_atomic_helper_bridge_reset,
-+	.atomic_create_state = drm_atomic_helper_bridge_create_state,
+diff --git a/drivers/gpu/drm/mediatek/mtk_dp.c b/drivers/gpu/drm/mediatek/mtk_dp.c
+index eefbc7e0f9c8..f656b85b8421 100644
+--- a/drivers/gpu/drm/mediatek/mtk_dp.c
++++ b/drivers/gpu/drm/mediatek/mtk_dp.c
+@@ -2576,11 +2576,11 @@ static const struct drm_bridge_funcs mtk_dp_bridge_funcs = {
+ 	.atomic_check = mtk_dp_bridge_atomic_check,
  	.atomic_duplicate_state = drm_atomic_helper_bridge_duplicate_state,
  	.atomic_destroy_state = drm_atomic_helper_bridge_destroy_state,
- 	.atomic_check = imx_pd_bridge_atomic_check,
- 	.atomic_get_input_bus_fmts = imx_pd_bridge_atomic_get_input_bus_fmts,
- 	.atomic_get_output_bus_fmts = imx_pd_bridge_atomic_get_output_bus_fmts,
+ 	.atomic_get_output_bus_fmts = mtk_dp_bridge_atomic_get_output_bus_fmts,
+ 	.atomic_get_input_bus_fmts = mtk_dp_bridge_atomic_get_input_bus_fmts,
+-	.atomic_reset = drm_atomic_helper_bridge_reset,
++	.atomic_create_state = drm_atomic_helper_bridge_create_state,
+ 	.attach = mtk_dp_bridge_attach,
+ 	.detach = mtk_dp_bridge_detach,
+ 	.atomic_enable = mtk_dp_bridge_atomic_enable,
+ 	.atomic_disable = mtk_dp_bridge_atomic_disable,
+ 	.mode_valid = mtk_dp_bridge_mode_valid,
 
 -- 
 2.54.0
