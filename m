@@ -4,108 +4,94 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 0D1D1CD5BD0
-	for <linux-arm-kernel@archiver.kernel.org>; Sat, 30 May 2026 05:57:05 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 7D9E8CD6E4A
+	for <linux-arm-kernel@archiver.kernel.org>; Sat, 30 May 2026 06:55:23 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:
-	Content-Transfer-Encoding:Content-Type:MIME-Version:References:Message-ID:
-	Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=uR8xbGosrZDiZ3bGOF/uomoehMbPSntRHGsC0W465dY=; b=xSjA8Q8L1ldccfS6buLjlcHZlx
-	lVtHSXh3084posf8qTbaYHgCnE6nYK2Ysfmg5IRODf8yDfSAnbfoRolLZS1xh0O2QQbL5DIUFOCCL
-	C9AQ9EdNipMx9C3Nn3jUDMgyWeniQHuXYPHW0QqO25PfxA9XyKTP9fS5IpJfLN4FVpGKOP6v3cIsz
-	cVUxQ7AT6DbBnbl5AxPHKsDCubwK3Jp++yJnqel0TDk0cZDS2cngtq24G+4K2lTDEEF7OrIWVHmEi
-	Stsw2UFSBWblfJiHQVyEWMWl2eqfFVtrNRqdcE80boBvCb8+RDfGuMm3DfuOVQlI2wCjucfLIoF0V
-	6qrbGq4g==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:In-Reply-To:References:Cc:To:Subject:From:MIME-Version:Date:
+	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=G/pspHAOG8bM/eVN42fbNVCl71EeErqhE9ZBZ4j/TXY=; b=Z0dm9/aMa45zex1IwW7XEbX1a1
+	LnrbyY3bgZLxjdKZ+I0k1tA18+HgAyIeGcriJwdMToE5/Iax9ImcROagQAAfDT6AdRauuS+wJ3TeU
+	c9D0UiPKez15SzOQwcd8KbP0q+0+AlduKuiMLj2M3L097ckZ97psh+guJXIyIcDVIRTVXAH9MyN29
+	EdAG4snmMiItrxOkLTc5cSXWXSnvgBw5z5GaOmqbHE4W40j2OtKfHjWxQ+oyvMsPZ4jkTGSnZf3xm
+	/BENE+Ihi8OHIksH/AYjmHUM/OfdoF61gn4saZg6Bab3uRVMZTw2iP0h92IaVNPdU3waI1sb3n2W0
+	q6brRV+A==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wTCgr-00000008TWu-3J1J;
-	Sat, 30 May 2026 05:56:57 +0000
-Received: from mail-dy1-x132e.google.com ([2607:f8b0:4864:20::132e])
+	id 1wTDbC-00000008Us0-38yd;
+	Sat, 30 May 2026 06:55:10 +0000
+Received: from mail.lysator.liu.se ([130.236.254.3])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wTCgo-00000008TWY-3Svo
+	id 1wTDb8-00000008Ura-49Yv
 	for linux-arm-kernel@lists.infradead.org;
-	Sat, 30 May 2026 05:56:56 +0000
-Received: by mail-dy1-x132e.google.com with SMTP id 5a478bee46e88-304ec41197bso1374076eec.1
-        for <linux-arm-kernel@lists.infradead.org>; Fri, 29 May 2026 22:56:53 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20251104; t=1780120613; x=1780725413; darn=lists.infradead.org;
-        h=in-reply-to:content-transfer-encoding:content-disposition
-         :mime-version:references:message-id:subject:cc:to:from:date:from:to
-         :cc:subject:date:message-id:reply-to;
-        bh=uR8xbGosrZDiZ3bGOF/uomoehMbPSntRHGsC0W465dY=;
-        b=HsHduQWqN9dB5kAP+TniiN4IRQPxka10V81Z+jNESZX+w/td3ms8/9t+qUEwAw5mw9
-         QeFJ2LrPG2X4qzklJXEi2kVflBDt4eTtmLGT2SKSfhRXXSafHvYfYxpk5ls6TrfkTdTS
-         bece0M/rSswvsnoa3+qdztFxzjP8H4Dr9Q0Ye78UvteLNPhUGddn/7yu/PW1Kuh8XvQR
-         vAM+GrmP1LgVKSu4cm8pvZJOeP7SpgweFjXpOVCU+Q03vTQRkudD5xJNLnd7SY+V+9AH
-         +tNtVCUlrQNuI9jHbigv8u4r33y/u09Xq4O4hcVXJLjspJ4fRXG0VuhF+7+VW1PvKt6z
-         xoqQ==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20251104; t=1780120613; x=1780725413;
-        h=in-reply-to:content-transfer-encoding:content-disposition
-         :mime-version:references:message-id:subject:cc:to:from:date:x-gm-gg
-         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to;
-        bh=uR8xbGosrZDiZ3bGOF/uomoehMbPSntRHGsC0W465dY=;
-        b=c1wQpqxlFR4knsaRS/QuC4rt0wUuHH+fX9dZykyrIFg1RZgrUfM1Y1bfQbnqHWtJPw
-         oLLaqB1UtzvXRU+RCLirTcaEfUGtmgBBNPRNo1RqitOEKnmbqMmQlj6L4Wrnv2W+C6xC
-         9h4qf6e7/AnZa+asNi075mOJOyItaVLSB8eutlawO2JjBUInfS8T+PaG3ObCbQZukgft
-         4jU51W0bSw9MjJTAZUjy0W0NHVe+12rgKzzmYxRE5HjEqi197k2jX1g8G4cF0Id0URnt
-         Zq9Dy7QUcX+4a7FPGqOtWonwi/BQaaWiRBDImO6bIASxULE59LLj94dLBTwsYB/JdmRl
-         4L/w==
-X-Forwarded-Encrypted: i=1; AFNElJ8MShNn2+Jroou83P0SYYxlt04aLpeJ8L6iL5f4tBxPFDKd3RqpJXrPsaNfkMMC+cfVtzHQmI0QH+a8RxZOQvku@lists.infradead.org
-X-Gm-Message-State: AOJu0YyZelt5MFaWmG2Mq3ewqPuQpKlRDYoixuVOGMnetG36c3fKgCRH
-	om5oZNKT3o6G4BarNrCin0nxtxsrIVJX80FkZpRbUWSPo22r+gK6Xa3b
-X-Gm-Gg: Acq92OHMeUx3e9m1f3Vr2gJtp8w+A5T4DXf/T46KNcawGStmCeYi++wTAPwA7cIEuya
-	07R4lHN6BREn/7uZGr19WbDJ8EjFx9gUiYhF6Szv3m7l3rC4901HoK+3jJe8R08wp6ghwGB6yJd
-	ZS2qPLMi3aUx582ffaf3AIBG5WY7IrBj0xJ8mJgcvyXZG5nulKnGFmLhIwkjar97hF44ZIdVNf1
-	+zHUxnqJK8dgOwUYCKYpdUR1iH8tKcGK/2b4GpX/iF3QVnpC8FkttUpcqelBWxSkoysfUxonold
-	WOsF4ji9Sgc0tjEEAMEh4kkgeuhFzGCuUl3W+CMHei8kyriM5Z+22xzuCQQ47jvEjPbUczkBqmz
-	84LKVUFzXk07UVhjCa4da3jpwwojQHRKKzWjSYkSYMPL5Vx/74UjXrZYp9+pYcUex/js4le1qVv
-	TXkrRfdewgAnmhL/QU5nAwjaDME75589hEGPFjZNerGPQiYC1vMjjJuC2wV+5gaLmYImQu0wnu2
-	po=
-X-Received: by 2002:a05:7300:80c9:b0:2e0:1f09:d924 with SMTP id 5a478bee46e88-304fa526036mr1388786eec.5.1780120613171;
-        Fri, 29 May 2026 22:56:53 -0700 (PDT)
-Received: from google.com ([2a00:79e0:2ebe:8:307d:2a52:8823:4a01])
-        by smtp.gmail.com with ESMTPSA id 5a478bee46e88-304ed53f002sm3397737eec.18.2026.05.29.22.56.50
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Fri, 29 May 2026 22:56:52 -0700 (PDT)
-Date: Fri, 29 May 2026 22:56:48 -0700
-From: Dmitry Torokhov <dmitry.torokhov@gmail.com>
-To: Uwe =?utf-8?Q?Kleine-K=C3=B6nig_=28The_Capable_Hub=29?= <u.kleine-koenig@baylibre.com>
-Cc: Anshul Dalal <anshulusr@gmail.com>, 
-	Michael Hennerich <michael.hennerich@analog.com>, Yassine Oudjana <y.oudjana@protonmail.com>, 
-	Linus Walleij <linusw@kernel.org>, Nicolas Ferre <nicolas.ferre@microchip.com>, 
-	Alexandre Belloni <alexandre.belloni@bootlin.com>, Claudiu Beznea <claudiu.beznea@tuxon.dev>, 
-	Support Opensource <support.opensource@diasemi.com>, Nick Dyer <nick@shmanahar.org>, Hans de Goede <hansg@kernel.org>, 
-	Job Noorman <job@noorman.info>, Mika =?utf-8?B?UGVudHRpbMOk?= <mpenttil@redhat.com>, 
-	Maxime Coquelin <mcoquelin.stm32@gmail.com>, Alexandre Torgue <alexandre.torgue@foss.st.com>, 
-	Kees Cook <kees@kernel.org>, bui duc phuc <phucduc.bui@gmail.com>, 
-	Thorsten Blum <thorsten.blum@linux.dev>, Yauhen Kharuzhy <jekhor@gmail.com>, 
-	Sakari Ailus <sakari.ailus@linux.intel.com>, Marco Crivellari <marco.crivellari@suse.com>, 
-	Minseong Kim <ii4gsp@gmail.com>, Ingo Molnar <mingo@kernel.org>, 
-	Thomas Gleixner <tglx@kernel.org>, Oleh Kuzhylnyi <kuzhylol@gmail.com>, 
-	Marek Vasut <marek.vasut+renesas@mailbox.org>, Krzysztof Kozlowski <krzysztof.kozlowski@oss.qualcomm.com>, 
-	Geert Uytterhoeven <geert+renesas@glider.be>, Josua Mayer <josua@solid-run.com>, 
-	Michael Tretter <m.tretter@pengutronix.de>, Jeff LaBundy <jeff@labundy.com>, 
-	Javier Carrasco <javier.carrasco@wolfvision.net>, David Heidelberg <david@ixit.cz>, 
-	Petr Hodina <petr.hodina@protonmail.com>, Svyatoslav Ryhel <clamor95@gmail.com>, 
-	Johannes Kirchmair <johannes.kirchmair@skidata.com>, Andy Shevchenko <andriy.shevchenko@linux.intel.com>, 
-	Xichao Zhao <zhao.xichao@vivo.com>, linux-input@vger.kernel.org, linux-kernel@vger.kernel.org, 
-	linux-arm-kernel@lists.infradead.org, platform-driver-x86@vger.kernel.org, 
-	linux-stm32@st-md-mailman.stormreply.com
-Subject: Re: [PATCH v1] Input: Use named initializers for arrays of
- i2c_device_data
-Message-ID: <ahp7WuHiPYa7Q_pX@google.com>
-References: <20260515164848.497608-2-u.kleine-koenig@baylibre.com>
+	Sat, 30 May 2026 06:55:09 +0000
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=lysator.liu.se;
+	s=2026; t=1780124100;
+	bh=VZFuFh7AcIhBfBW691fSrA8ioZDjxFI473ZYQP5DxLA=;
+	h=Date:From:Subject:To:Cc:References:In-Reply-To:From;
+	b=uvaR19CTpfg61dUMRgyESFWEiE8UFoNgDOVgR/8Iwgzx5kl6Oeg9rrxgnTYlSPM3w
+	 DBplsUEb8EVhEcjJ8wNGlKYQlwSC4Pj34GxFCYXypKVf7nlyROqramHTtXlJsEz2Oe
+	 GZ3AjKrjDEl8RMsn8lpnZzapknK3y2DVJx88MdAzVdPns1C6OauQudKYMyWVe5dqUR
+	 3AiYbJtUKEa1hL4J28Six+snfTo0kqXX/Hf6Gq+a0KYI5NxEQ6cDtjRc6FWiJd8D8r
+	 dkWli41iSSfYL5VcsCnSoYigm8jxXlSj9l93QNqwvWIogWlKf6cWTvCVWyp+nLsrT+
+	 i6giRDQm3x7Rg==
+Received: from mail.lysator.liu.se (localhost [127.0.0.1])
+	by mail.lysator.liu.se (Postfix) with ESMTP id F03CCE26F
+	for <linux-arm-kernel@lists.infradead.org>; Sat, 30 May 2026 08:54:59 +0200 (CEST)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=lysator.liu.se;
+	s=2026; t=1780124099;
+	bh=VZFuFh7AcIhBfBW691fSrA8ioZDjxFI473ZYQP5DxLA=;
+	h=Date:From:Subject:To:Cc:References:In-Reply-To:From;
+	b=HCK3fv32O5g7L1x9HKrIg7HVMWUqDtq2uP0uS4v3fiITLZ8qIebcCubvZYkjKfOoR
+	 ZmC0+qeaaEe28J2CMkmr0v5udxlckMLpXHiQm6cwzZYYgTL95/Nb25Bd/yeuc1UpHN
+	 B36AyJV/cmAabUdnQBWhx1tqZodZco4fFpNo7vuRbp0RV3HfrWAdVkiGMIkqfIuGZE
+	 u1t2KCf04ldP3sWQfwWFWA3ulMTCxk+uazId+A1cqCFdpUQF+QPPI8LYO/7QP4d7mi
+	 aUkwS6XJsLLKW/B8EjIyYhqXlstZG7IFDCvKcayReXGutYcEEB/iKRD4mysf73w46x
+	 uDZr+8pDbWmWw==
+Received: by mail.lysator.liu.se (Postfix, from userid 1004)
+	id C52B5E2DF; Sat, 30 May 2026 08:54:59 +0200 (CEST)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=lysator.liu.se;
+	s=2026; t=1780124093;
+	bh=VZFuFh7AcIhBfBW691fSrA8ioZDjxFI473ZYQP5DxLA=;
+	h=Date:From:Subject:To:Cc:References:In-Reply-To:From;
+	b=AGzQV5J5yV2XTtNXt05MMVmqAE5jfejNZMi4PYyCillCvaj/A6ehca3Eu4zSwexPq
+	 UgHD0Jo5l3KBD/mhqn1oFyiPmabe6Ai9g0zJxwn+QFVQzv+CtjN45IMUFW8Kg5dXZz
+	 RBkcI/E3ODxuUagVVJATMc47ysPj2XwTiIOYBpHhsuWN6S4dMA2wuDHrpdtFqoplVY
+	 Vr4eHjG5V3lyn0sq3krh5IV18ZEmZQfYvVWYPH1AxUzF5+UN/vw98bGscX+0QH7w3w
+	 YOGz3dkEOfvbm1pmEm+Zi3IEU9Vq+r2OwMMQCjTWQeM9xYiyHTRmX2RTuXthDJU9Fr
+	 /OhJc0LcwQ/EA==
+Received: from [192.168.2.172] (81-225-28-11-no2391.tbcn.telia.com [81.225.28.11])
+	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
+	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
+	(No client certificate requested)
+	by mail.lysator.liu.se (Postfix) with ESMTPSA id 83030E268;
+	Sat, 30 May 2026 08:54:52 +0200 (CEST)
+Message-ID: <776cefab-fa6c-4092-8b95-236a3eaac729@lysator.liu.se>
+Date: Sat, 30 May 2026 08:54:51 +0200
 MIME-Version: 1.0
-Content-Type: text/plain; charset=iso-8859-1
-Content-Disposition: inline
-Content-Transfer-Encoding: 8bit
-In-Reply-To: <20260515164848.497608-2-u.kleine-koenig@baylibre.com>
+User-Agent: Mozilla Thunderbird
+From: Peter Rosin <peda@lysator.liu.se>
+Subject: Re: [PATCH v9 5/5] docs: i2c: i2c-topology: add section about bus
+ speed
+To: Wolfram Sang <wsa+renesas@sang-engineering.com>,
+ Marcus Folkesson <marcus.folkesson@gmail.com>
+Cc: Michael Hennerich <michael.hennerich@analog.com>,
+ Bartosz Golaszewski <brgl@bgdev.pl>, Andi Shyti <andi.shyti@kernel.org>,
+ Andy Shevchenko <andriy.shevchenko@intel.com>,
+ Bartosz Golaszewski <brgl@kernel.org>, linux-i2c@vger.kernel.org,
+ linux-kernel@vger.kernel.org, linux-arm-kernel@lists.infradead.org
+References: <20260324-i2c-mux-v9-0-5292b0608243@gmail.com>
+ <20260324-i2c-mux-v9-5-5292b0608243@gmail.com> <ahX4_WaqodYt3PmD@shikoro>
+Content-Language: en-US, sv-SE
+In-Reply-To: <ahX4_WaqodYt3PmD@shikoro>
+Content-Type: text/plain; charset=UTF-8; format=flowed
+Content-Transfer-Encoding: 7bit
+X-Virus-Scanned: ClamAV using ClamSMTP
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260529_225654_876453_A36B1E0E 
-X-CRM114-Status: GOOD (  31.92  )
+X-CRM114-CacheID: sfid-20260529_235507_684517_F547FCF4 
+X-CRM114-Status: GOOD (  23.53  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -120,99 +106,124 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hi Uwe,
+Hi all,
 
-On Fri, May 15, 2026 at 06:48:47PM +0200, Uwe Kleine-König (The Capable Hub) wrote:
-> While being less compact, using named initializers allows to more easily
-> see which members of the structs are assigned which value without having
-> to lookup the declaration of the struct. And it's also more robust
-> against changes to the struct definition.
-> 
-> The mentioned robustness is relevant for a planned change to struct
-> i2c_device_id that replaces .driver_data by an anonymous union.
-> 
-> This patch doesn't modify the compiled arrays, only their representation
-> in source form benefits. The former was confirmed with x86 and arm64
-> builds.
-> 
-> Signed-off-by: Uwe Kleine-König (The Capable Hub) <u.kleine-koenig@baylibre.com>
-> ---
-> Hello,
-> 
-> the mentioned change to i2c_device_id is the following:
-> 
-> 	diff --git a/include/linux/mod_devicetable.h b/include/linux/mod_devicetable.h
-> 	index 23ff24080dfd..aebd3a5e90af 100644
-> 	--- a/include/linux/mod_devicetable.h
-> 	+++ b/include/linux/mod_devicetable.h
-> 	@@ -477,7 +477,11 @@ struct rpmsg_device_id {
-> 	
-> 	 struct i2c_device_id {
-> 	 	char name[I2C_NAME_SIZE];
-> 	-	kernel_ulong_t driver_data;     /* Data private to the driver */
-> 	+	union {
-> 	+		/* Data private to the driver */
-> 	+		kernel_ulong_t driver_data;
-> 	+		const void *driver_data_ptr;
-> 	+	};
-> 	 };
-> 	
-> 	 /* pci_epf */
-> 
-> and this requires that .driver_data is assigned via a named initializer
-> for static data. This requirement isn't a bad one because named
-> initializers are also much better readable than list initializers.
-> 
-> The union added to struct i2c_device_id enables further cleanups like:
-> 
-> 	diff --git a/drivers/input/touchscreen/ili210x.c b/drivers/input/touchscreen/ili210x.c
-> 	index 66ada7ffbc80..94aa4dc002c5 100644
-> 	--- a/drivers/input/touchscreen/ili210x.c
-> 	+++ b/drivers/input/touchscreen/ili210x.c
-> 	@@ -969,7 +969,7 @@ static int ili210x_i2c_probe(struct i2c_client *client)
-> 	 
-> 		chip = device_get_match_data(dev);
-> 		if (!chip && id)
-> 	-		chip = (const struct ili2xxx_chip *)id->driver_data;
-> 	+		chip = id->driver_data_ptr;
-> 		if (!chip)
-> 			return dev_err_probe(&client->dev, -ENODEV, "unknown device model\n");
-> 	 
-> 	@@ -1049,10 +1049,10 @@ static int ili210x_i2c_probe(struct i2c_client *client)
-> 	 }
-> 	 
-> 	 static const struct i2c_device_id ili210x_i2c_id[] = {
-> 	-	{ .name = "ili210x", .driver_data = (long)&ili210x_chip },
-> 	-	{ .name = "ili2117", .driver_data = (long)&ili211x_chip },
-> 	-	{ .name = "ili2120", .driver_data = (long)&ili212x_chip },
-> 	-	{ .name = "ili251x", .driver_data = (long)&ili251x_chip },
-> 	+	{ .name = "ili210x", .driver_data_ptr = &ili210x_chip },
-> 	+	{ .name = "ili2117", .driver_data_ptr = &ili211x_chip },
-> 	+	{ .name = "ili2120", .driver_data_ptr = &ili212x_chip },
-> 	+	{ .name = "ili251x", .driver_data_ptr = &ili251x_chip },
-> 		{ }
-> 	 };
-> 	 MODULE_DEVICE_TABLE(i2c, ili210x_i2c_id);
-> 
-> that are an improvement for readability (again!) and it keeps some
-> properties of the pointers (here: being const) without having to pay
-> attention for that.
-> 
-> My additional motivation for this effort is CHERI[1]. This is a hardware
-> extension that uses 128 bit pointers but unsigned long is still 64 bit.
-> So with CHERI you cannot store pointers in unsigned long variables.
+First off, sorry for being so incredibly slow in getting to this
+series.
 
-I like the ability to properly set up pointers for driver data, however
-I do not think we should use named initializers for name field. As long
-as we are not planning on moving its position I like the brevity of just
-saying
+On 2026-05-26 21:48, Wolfram Sang wrote:
+> 
+>> +Multiple muxes in series
+>> +--------------------------
+>> +
+>> +When multiple muxes are used in series the same rules applies.
+>> +
+>> +Transfers to D3 may interleave between select-transfer-deselect to D1, which
+>> +results that the bus speed to D2 or D3 will be at 100KHz.
+>> +
+>> +Transfers to D2 may interleave between select-transfer-deselect to D1, which
+>> +results in that the bus speed to D1 may be at 400kHz as the transfer to D2
+>> +will set the bus speed to before the transfer to D1 starts.
+>> +
+>> +This is probably a bad topology ::
+> 
+> In documentation, we probably shouldn't say "probably" ;)
 
-	{ "ili210x", .driver_data_ptr = &ili210x_chip },
+What makes the topology bad is D2. Without that device, it should
+be OK. So, the question is which is more important?
+1. protect ignorant system designers from creating a topology
+    that includes problematic devices like D2
+2. allow multi-level mux-locked muxes with variable bus-speed at all
 
-Can we keep the old style for the name field?
+Checking the rules at run-time feels complicated to me, as devices
+may come and go. Also, naming people "ignorant" over a mistake such
+as the above in 1 is perhaps not all that fair. But, it feels sad
+to disallow things that in fact do work.
 
-Thanks.
+>> +
+>> +                     .----------. 400kHz .----------. 100kHz .--------.
+>> +    .--------.400kHz |   mux-   |--------|   mux-   |--------| dev D1 |
+>> +    |  root  |--+----|  locked  | 400kHz |  locked  |        '--------'
+>> +    '--------'  |    |  mux M1  |--.     |  mux M2  |
+>> +                |    '----------'  |     '----------'
+>> +                |  .--------.      |  .--------.
+>> +                '--| dev D3 |      '--| dev D2 |
+>> +                   '--------'         '--------'
+> 
+> 400kHz leaking to a 100kHz device is bad. I guess we cannot do much
+> about it here because the bus speed is a board specific parameter...
+> 
+>> +Idle state
+>> +-----------
+>> +
+>> +Muxes have an idle state, which is the state the channels are put into when no channel
+>> +is active. The state is typically one of the following:
+>> +
+>> +- All channels are disconnected
+>> +- The last selected channel is left as-is
+>> +- A predefined channel is selected
+>> +
+>> +Muxes that support an idle state where all channels are disconnected are preferred when using
+>> +different bus speeds. Otherwise high bus speeds may "leak" through to devices that
+>> +may not support that higher speed.
+>> +
+>> +Consider the following example: ::
+>> +
+>> +                          .----------. 100kHz .--------.
+>> +        .--------. 400kHz |   mux-   |--------| dev D1 |
+>> +        |  root  |--+-----|  locked  |        '--------'
+>> +        '--------'  |     |  mux M1  |--. 400kHz .--------.
+>> +                    |     '----------'  '--------| dev D2 |
+>> +                    |  .--------.                '--------'
+>> +                    '--| dev D3 |
+>> +                       '--------'
+>> +
+>> +If the idle state of M1 is:
+>> +
+>> +- All channels disconnected: No problem, D1 and D2 are not affected by communication
+>> +  to D3.
+>> +- Last selected channel: Problem if D1 was the last selected channel. High speed
+>> +  communication to D3 will be "leaked" to D1.
+>> +- Predefined channel: Problem if the predefined channel D1. Set predefined channel
+>> +  to D2 as D2 may handle 400kHz.
+> 
+> ... unlike here. We have MUX_IDLE_AS_IS and MUX_IDLE_DISCONNECT defined
+> already. And I'd think we should only allow bus speed switching for
+> MUX_IDLE_DISCONNECT to avoid out-of-spec scenarios. Opinions?
 
--- 
-Dmitry
+It is probably not unwise to disallow MUX_IDLE_AS_IS in this context,
+at least until someone actually needs it. Which does not seem all that
+likely?
+
+However, it seems like it should be fairly OK to allow a predefined
+idle channel, as long as that channel is not lowering the bus speed
+compared to the parent. But maybe supporting that can also wait for
+an actual user?
+
+>> +Supported controllers
+>> +-----------------------
+>> +
+>> +Not all I2C controllers support setting the bus speed dynamically.
+>> +At the time of writing, the following controllers have support:
+>> +
+>> +============================   =============================================
+>> +i2c-davinci                    Supports dynamic bus speed
+>> +============================   =============================================
+> 
+> This paragaph is easy to get outdated. We can document that only
+> controller drivers with the callback function implemented will work.
+> People then can find out if that applies for their driver...
+
+There are other such hard-to-maintain lists elsewhere in the text.
+Not saying that this makes neither those nor this list a good idea,
+but it is an explanation for adding one more.
+
+Cheers,
+Peter
+
+> There are some grammar correction in the Sashiko-review[1]. Most of them
+> look correct to me. Can you have a look at these, too, please?
+> 
+> [1] https://sashiko.dev/#/patchset/20260324-i2c-mux-v9-0-5292b0608243%40gmail.com
+
 
