@@ -4,143 +4,67 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 0CB90CD5BD0
-	for <linux-arm-kernel@archiver.kernel.org>; Sat, 30 May 2026 15:16:44 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 6299FCD6E49
+	for <linux-arm-kernel@archiver.kernel.org>; Sat, 30 May 2026 15:25:48 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=SE90/JszZ/IRjGrWEI0Bz20FnK4+6DcEq7PwC6UmGJk=; b=GU5AdDUye0tRbKY77PS1Mff0ZK
-	SAOfcZMf7eB+G9vcvfBZzF6xeAlmi0T2epGggztIx/fx7rMwVRFaD0XC0nLzj8Snm35wX1GmTFexA
-	Rd72V3LqkAFg90YJT+GF0gC35fi/rTardGC+TaFcIQ72cn1qrqyw48frHx3Qg3a8roYPD58UY5c8o
-	esi3N9H+/0dCAyhviva1+FOGwClVULyHSlJ6f88V+owHampJcnd3Y5zLz9WTlv1JopbsWUFT/oKVL
-	VrTE+/Iq+3xjauHeQUNokMxUTchWKgRDH5Zc7YY3XzwUgWGj0bREOK39OES8aO5dE/fZL7uyaY7EK
-	5jWRweOw==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:Message-Id:
+	Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:From:
+	Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender
+	:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=iecpMyBy5MTB0RQzT2oRMj4VPEdKJVOMMF3dhEPLQ5A=; b=YtSyuSOT41H6npsMTaX2kbp0s0
+	/WYLmS2aguy+vD+mw2Cexc53S6ImIRszuSfJO3sHOBTT62G2IBEdYd561An5JENqOpJ9Q8g6bVxlI
+	rpNxX63WI2EF95FdNCoFVdrzkvYzlUh9YImqWwu30LalGpecdhkHH36fnEmAFMZPMXPBb2phjCHPH
+	x47iIXEoZwl+u+7Bqbs+NTk/Fe3zWSF+YijMg1ugRFWt2jAk6P5KZjnnN7RST28AkNeZ0qyZ1Zk0Q
+	Twvt3RpTG98DgcgVA/mLQtSRrQptkGyzLwXR/XUm4GBzYi4Gs4ZogLEdE9o1l/gTFoUX9Jb6mfCFJ
+	FoetD65g==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wTLQT-00000008sK1-1XOx;
-	Sat, 30 May 2026 15:16:37 +0000
-Received: from smtp-out1.suse.de ([195.135.223.130])
+	id 1wTLZG-00000008sbb-0ZM0;
+	Sat, 30 May 2026 15:25:42 +0000
+Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wTLQQ-00000008sJW-01ej
-	for linux-arm-kernel@lists.infradead.org;
-	Sat, 30 May 2026 15:16:35 +0000
-Received: from imap1.dmz-prg2.suse.org (imap1.dmz-prg2.suse.org [IPv6:2a07:de40:b281:104:10:150:64:97])
-	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
-	 key-exchange X25519 server-signature RSA-PSS (4096 bits) server-digest SHA256)
-	(No client certificate requested)
-	by smtp-out1.suse.de (Postfix) with ESMTPS id 443A86BB03;
-	Sat, 30 May 2026 15:16:30 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=suse.cz; s=susede2_rsa;
-	t=1780154190; h=from:from:reply-to:date:date:message-id:message-id:to:to:cc:cc:
-	 mime-version:mime-version:content-type:content-type:
-	 in-reply-to:in-reply-to:references:references;
-	bh=SE90/JszZ/IRjGrWEI0Bz20FnK4+6DcEq7PwC6UmGJk=;
-	b=Qa+LcmTW0ZOv9LibRf4M14HYx6ONzmia57kRHvqcPwTd3BcxiGBEeG6TM8YKzB+RKO8H2n
-	PZw8uaca7wIUEt0oSClLTTozzT8ZwSJFgeVqU2OBk5dNGZiji2PDHA1w3PVqlrLjX8ul34
-	gLdIrfF0XCXJgrSiHsUxfgs9b0aFqUI=
-DKIM-Signature: v=1; a=ed25519-sha256; c=relaxed/relaxed; d=suse.cz;
-	s=susede2_ed25519; t=1780154190;
-	h=from:from:reply-to:date:date:message-id:message-id:to:to:cc:cc:
-	 mime-version:mime-version:content-type:content-type:
-	 in-reply-to:in-reply-to:references:references;
-	bh=SE90/JszZ/IRjGrWEI0Bz20FnK4+6DcEq7PwC6UmGJk=;
-	b=PFpj0hi2yZT/rs7ItscQI1gzyO9nEwyIjbHSvtCf+NkEtx0A9KaNoFgp53A3WJWGc08WSW
-	v4b6RbI4syEl2xCw==
-Authentication-Results: smtp-out1.suse.de;
-	dkim=pass header.d=suse.cz header.s=susede2_rsa header.b=Qa+LcmTW;
-	dkim=pass header.d=suse.cz header.s=susede2_ed25519 header.b=PFpj0hi2
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=suse.cz; s=susede2_rsa;
-	t=1780154190; h=from:from:reply-to:date:date:message-id:message-id:to:to:cc:cc:
-	 mime-version:mime-version:content-type:content-type:
-	 in-reply-to:in-reply-to:references:references;
-	bh=SE90/JszZ/IRjGrWEI0Bz20FnK4+6DcEq7PwC6UmGJk=;
-	b=Qa+LcmTW0ZOv9LibRf4M14HYx6ONzmia57kRHvqcPwTd3BcxiGBEeG6TM8YKzB+RKO8H2n
-	PZw8uaca7wIUEt0oSClLTTozzT8ZwSJFgeVqU2OBk5dNGZiji2PDHA1w3PVqlrLjX8ul34
-	gLdIrfF0XCXJgrSiHsUxfgs9b0aFqUI=
-DKIM-Signature: v=1; a=ed25519-sha256; c=relaxed/relaxed; d=suse.cz;
-	s=susede2_ed25519; t=1780154190;
-	h=from:from:reply-to:date:date:message-id:message-id:to:to:cc:cc:
-	 mime-version:mime-version:content-type:content-type:
-	 in-reply-to:in-reply-to:references:references;
-	bh=SE90/JszZ/IRjGrWEI0Bz20FnK4+6DcEq7PwC6UmGJk=;
-	b=PFpj0hi2yZT/rs7ItscQI1gzyO9nEwyIjbHSvtCf+NkEtx0A9KaNoFgp53A3WJWGc08WSW
-	v4b6RbI4syEl2xCw==
-Received: from imap1.dmz-prg2.suse.org (localhost [127.0.0.1])
-	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
-	 key-exchange X25519 server-signature RSA-PSS (4096 bits) server-digest SHA256)
-	(No client certificate requested)
-	by imap1.dmz-prg2.suse.org (Postfix) with ESMTPS id 2EDC7779A7;
-	Sat, 30 May 2026 15:16:30 +0000 (UTC)
-Received: from dovecot-director2.suse.de ([2a07:de40:b281:106:10:150:64:167])
-	by imap1.dmz-prg2.suse.org with ESMTPSA
-	id MAHOCk7/GmoTBwAAD6G6ig
-	(envelope-from <jack@suse.cz>); Sat, 30 May 2026 15:16:30 +0000
-Received: by quack3.suse.cz (Postfix, from userid 1000)
-	id 83C05A0EBD; Sat, 30 May 2026 17:16:29 +0200 (CEST)
-Date: Sat, 30 May 2026 17:16:29 +0200
-From: Jan Kara <jack@suse.cz>
-To: Usama Arif <usama.arif@linux.dev>
-Cc: Pedro Falcato <pfalcato@suse.de>, willy@infradead.org, jack@suse.cz, 
-	Andrew Morton <akpm@linux-foundation.org>, david@kernel.org, ryan.roberts@arm.com, linux-mm@kvack.org, 
-	r@hev.cc, Andrew Donnellan <andrew+kernel@donnellan.id.au>, 
-	apopple@nvidia.com, baohua@kernel.org, baolin.wang@linux.alibaba.com, 
-	brauner@kernel.org, catalin.marinas@arm.com, dev.jain@arm.com, kees@kernel.org, 
-	kevin.brodsky@arm.com, lance.yang@linux.dev, "Liam R. Howlett" <liam@infradead.org>, 
-	linux-arm-kernel@lists.infradead.org, linux-fsdevel@vger.kernel.org, linux-kernel@vger.kernel.org, 
-	ljs@kernel.org, mhocko@suse.com, npache@redhat.com, pasha.tatashin@soleen.com, 
-	rmclure@linux.ibm.com, rppt@kernel.org, surenb@google.com, vbabka@kernel.org, 
-	Al Viro <viro@zeniv.linux.org.uk>, wilts.infradead.org@pedro-suse.lan, ziy@nvidia.com, 
-	hannes@cmpxchg.org, kas@kernel.org, shakeel.butt@linux.dev, kernel-team@meta.com
-Subject: Re: [PATCH v6 2/2] mm: use mapping_max_folio_order() for
- force_thp_readahead order
-Message-ID: <u52xvwk2fjjk2izdb4wvuqq2zhc5neb4q6usimcxejluuyngxw@d64sc6rvojyp>
-References: <20260528165635.2068012-1-usama.arif@linux.dev>
- <20260528165635.2068012-3-usama.arif@linux.dev>
- <ahlh2vdHEGo6ZSot@pedro-suse.lan>
- <cc9a1cf7-7b96-439a-b0be-ecdcf27b5da5@linux.dev>
- <ahmSolHvUChl-3vM@pedro-suse.lan>
- <185f1caf-b33d-4467-beb5-51bd8520ac78@linux.dev>
+	id 1wTLZD-00000008sbB-1yUv;
+	Sat, 30 May 2026 15:25:40 +0000
+Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
+	by sea.source.kernel.org (Postfix) with ESMTP id A678040978;
+	Sat, 30 May 2026 15:25:38 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 0EF681F00893;
+	Sat, 30 May 2026 15:25:37 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
+	s=k20260515; t=1780154738;
+	bh=iecpMyBy5MTB0RQzT2oRMj4VPEdKJVOMMF3dhEPLQ5A=;
+	h=From:Date:Subject:To:Cc;
+	b=CTE9Cz4CnOBOBMH4lbuzHJRRx6S4pJAjmaSczNC8VC5sRDnJTx7I7837TS5Bpm46U
+	 ll9yL07TMB9RYVEB0+CTM0dh9GMY00t240I1pkPMa89qgY/onkSXA9jy2nqwKhctYL
+	 GAcPfvF9iUiobumycm/nNMbZGKoCVc7Vi4tAoL4pvvKmTEB8fLaTuKo3JBA+C4mXWD
+	 Vh9UtzQAQa/a6WgmcSkgQYUyTyJbd6Kua0aIcC6DbgAoLv9pyPEjcHj6GzRDw8BXrt
+	 L6Mt1+AUoXAUEiTexw5RK8LqXAVr2R0SxFgtfHYavFeviFSmdBFNg24RQIj4NbXb8S
+	 pPJh+KOTDcCmQ==
+From: Lorenzo Bianconi <lorenzo@kernel.org>
+Date: Sat, 30 May 2026 17:25:22 +0200
+Subject: [PATCH] wifi: mt76: mt7996: fix reading zeroed info->control.flags
+ after mt76_tx_status_skb_add()
 MIME-Version: 1.0
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-In-Reply-To: <185f1caf-b33d-4467-beb5-51bd8520ac78@linux.dev>
-X-Rspamd-Server: rspamd1.dmz-prg2.suse.org
-X-Rspamd-Action: no action
-X-Rspamd-Queue-Id: 443A86BB03
-X-Spamd-Result: default: False [-2.51 / 50.00];
-	BAYES_HAM(-3.00)[100.00%];
-	SUSPICIOUS_RECIPS(1.50)[];
-	NEURAL_HAM_LONG(-1.00)[-1.000];
-	MID_RHS_NOT_FQDN(0.50)[];
-	NEURAL_HAM_SHORT(-0.20)[-1.000];
-	R_DKIM_ALLOW(-0.20)[suse.cz:s=susede2_rsa,suse.cz:s=susede2_ed25519];
-	MIME_GOOD(-0.10)[text/plain];
-	MX_GOOD(-0.01)[];
-	RCPT_COUNT_TWELVE(0.00)[38];
-	FUZZY_RATELIMITED(0.00)[rspamd.com];
-	RCVD_COUNT_THREE(0.00)[3];
-	DKIM_SIGNED(0.00)[suse.cz:s=susede2_rsa,suse.cz:s=susede2_ed25519];
-	MIME_TRACE(0.00)[0:+];
-	ARC_NA(0.00)[];
-	RCVD_TLS_LAST(0.00)[];
-	DBL_BLOCKED_OPENRESOLVER(0.00)[suse.com:email,imap1.dmz-prg2.suse.org:rdns,imap1.dmz-prg2.suse.org:helo,suse.cz:dkim];
-	TO_DN_SOME(0.00)[];
-	DNSWL_BLOCKED(0.00)[2a07:de40:b281:106:10:150:64:167:received,2a07:de40:b281:104:10:150:64:97:from];
-	FROM_EQ_ENVFROM(0.00)[];
-	FROM_HAS_DN(0.00)[];
-	TO_MATCH_ENVRCPT_ALL(0.00)[];
-	TAGGED_RCPT(0.00)[kernel];
-	MISSING_XM_UA(0.00)[];
-	RCVD_VIA_SMTP_AUTH(0.00)[];
-	DKIM_TRACE(0.00)[suse.cz:+];
-	R_RATELIMIT(0.00)[to_ip_from(RL7pfqg7h1m44jupjp7nguhfec)];
-	SPAMHAUS_XBL(0.00)[2a07:de40:b281:104:10:150:64:97:from]
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: 7bit
+Message-Id: <20260530-mt76_tx_status_skb_add-overwrite-fix-v1-1-e2c3151c391a@kernel.org>
+X-B4-Tracking: v=1; b=H4sIAAAAAAAC/x2N0QrCMAwAf2Xk2UC7sVn9FZHS2kyDuEkS52Ds3
+ y0+3j3cbaAkTArnZgOhhZXnqYI/NHB7pOlOyKUytK4dXN85fNlxiLZGtWQfjfrMMZWC80LyFTb
+ CkVcMffAhnXLu/Ag19Raq+r+5XPf9B00r8Lh2AAAA
+X-Change-ID: 20260530-mt76_tx_status_skb_add-overwrite-fix-85818a9bb31f
+To: Felix Fietkau <nbd@nbd.name>, Ryder Lee <ryder.lee@mediatek.com>, 
+ Shayne Chen <shayne.chen@mediatek.com>, Sean Wang <sean.wang@mediatek.com>, 
+ Matthias Brugger <matthias.bgg@gmail.com>, 
+ AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>, 
+ Bo Jiao <Bo.Jiao@mediatek.com>, Peter Chiu <chui-hao.chiu@mediatek.com>, 
+ Lorenzo Bianconi <lorenzo@kernel.org>
+Cc: Roy Luo <roy-ch.luo@mediatek.com>, linux-wireless@vger.kernel.org, 
+ linux-arm-kernel@lists.infradead.org, linux-mediatek@lists.infradead.org
+X-Mailer: b4 0.14.3
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260530_081634_198489_71DE3D3B 
-X-CRM114-Status: GOOD (  34.48  )
+X-CRM114-CacheID: sfid-20260530_082539_577634_CBF21E5D 
+X-CRM114-Status: GOOD (  11.28  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -155,73 +79,114 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Fri 29-05-26 15:11:54, Usama Arif wrote:
-> On 29/05/2026 14:40, Pedro Falcato wrote:
-> > On Fri, May 29, 2026 at 01:19:03PM +0100, Usama Arif wrote:
-> >>
-> >> which means mapping_max_folio_order(mapping) <= MAX_PAGECACHE_ORDER <= HPAGE_PMD_ORDER is always
-> >> true, and you dont need the min3(..) in your diff.
-> >>
-> >> Now the question is if then why not just do:
-> >>
-> >> 	if (IS_ENABLED(CONFIG_TRANSPARENT_HUGEPAGE) && (vm_flags & VM_HUGEPAGE)) {
-> >> 		if (mapping_large_folio_support(mapping)) {
-> >> 			force_thp_readahead = true;
-> >> 			thp_order = min_t(unsigned int,
-> >> 					  mapping_max_folio_order(mapping),
-> >> 					  get_order(SZ_2M));
-> >> 		}
-> >> 	}
-> >>
-> >>
-> >> This is because this will regress the 16K ARM case where we already got 32M
-> >> folios. Someone might upgrade the kernel and start getting 2M folios now.
-> > 
-> > So maybe limit to 32MB? It's still arbitrary but at least you get simpler
-> > logic. If the architecture does not support 32MiB folios, it will clamp
-> > the maximum folio order to HPAGE_PMD_ORDER, and you get the same result.
-> > 
-> > Does this sound correct?
-> > 
-> 
-> Yes, so if we replace it with SZ_32M, it sounds correct. I just think
-> the 32M size is too large. But as you pointed out, even 2M can be too large...
+mt76_tx_status_skb_add() zeroes the mt76_tx_cb struct stored at
+info->status.status_driver_data via memset(). Since info->control and
+info->status are members of the same union in ieee80211_tx_info,
+this overwrites info->control.flags.
+In mt7996_tx_prepare_skb(), mt76_tx_status_skb_add() is called before
+mt7996_mac_write_txwi(), which re-reads info->control.flags to extract
+IEEE80211_TX_CTRL_MLO_LINK. Because the field has been zeroed, the
+link_id always resolves to 0 for frames using global_wcid, leading to
+incorrect TXWI configuration.
+Fix this by passing link_id as an explicit parameter to
+mt7996_mac_write_txwi(). In mt7996_tx_prepare_skb(), the link_id is
+already extracted from info->control.flags before the destructive
+mt76_tx_status_skb_add() call. For the beacon and inband discovery
+callers in mcu.c, use link_conf->link_id directly.
 
-So AFAIU the practical discussion is about two options:
+Fixes: f0b0b239b8f36 ("wifi: mt76: mt7996: rework mt7996_mac_write_txwi() for MLO support")
+Signed-off-by: Lorenzo Bianconi <lorenzo@kernel.org>
+---
+ drivers/net/wireless/mediatek/mt76/mt7996/mac.c    | 9 +++------
+ drivers/net/wireless/mediatek/mt76/mt7996/mcu.c    | 5 +++--
+ drivers/net/wireless/mediatek/mt76/mt7996/mt7996.h | 3 ++-
+ 3 files changed, 8 insertions(+), 9 deletions(-)
 
-1) limiting at 2MB with a slighly more complicated logic to keep mapping at
-PMD order for 16k pagesize on ARM but use 2MB pages for 64k pagesize on ARM
+diff --git a/drivers/net/wireless/mediatek/mt76/mt7996/mac.c b/drivers/net/wireless/mediatek/mt76/mt7996/mac.c
+index c98446057282..2d3f80b3e41a 100644
+--- a/drivers/net/wireless/mediatek/mt76/mt7996/mac.c
++++ b/drivers/net/wireless/mediatek/mt76/mt7996/mac.c
+@@ -856,7 +856,8 @@ mt7996_mac_write_txwi_80211(struct mt7996_dev *dev, __le32 *txwi,
+ void mt7996_mac_write_txwi(struct mt7996_dev *dev, __le32 *txwi,
+ 			   struct sk_buff *skb, struct mt76_wcid *wcid,
+ 			   struct ieee80211_key_conf *key, int pid,
+-			   enum mt76_txq_id qid, u32 changed)
++			   enum mt76_txq_id qid, u32 changed,
++			   unsigned int link_id)
+ {
+ 	struct ieee80211_hdr *hdr = (struct ieee80211_hdr *)skb->data;
+ 	struct ieee80211_tx_info *info = IEEE80211_SKB_CB(skb);
+@@ -866,7 +867,6 @@ void mt7996_mac_write_txwi(struct mt7996_dev *dev, __le32 *txwi,
+ 	bool is_8023 = info->flags & IEEE80211_TX_CTL_HW_80211_ENCAP;
+ 	struct mt76_vif_link *mlink = NULL;
+ 	struct mt7996_vif *mvif;
+-	unsigned int link_id;
+ 	u16 tx_count = 15;
+ 	u32 val;
+ 	bool inband_disc = !!(changed & (BSS_CHANGED_UNSOL_BCAST_PROBE_RESP |
+@@ -876,9 +876,6 @@ void mt7996_mac_write_txwi(struct mt7996_dev *dev, __le32 *txwi,
+ 
+ 	if (wcid != &dev->mt76.global_wcid)
+ 		link_id = wcid->link_id;
+-	else
+-		link_id = u32_get_bits(info->control.flags,
+-				       IEEE80211_TX_CTRL_MLO_LINK);
+ 
+ 	mvif = vif ? (struct mt7996_vif *)vif->drv_priv : NULL;
+ 	if (mvif) {
+@@ -1096,7 +1093,7 @@ int mt7996_tx_prepare_skb(struct mt76_dev *mdev, void *txwi_ptr,
+ 	/* Transmit non qos data by 802.11 header and need to fill txd by host*/
+ 	if (!is_8023 || pid >= MT_PACKET_ID_FIRST)
+ 		mt7996_mac_write_txwi(dev, txwi_ptr, tx_info->skb, wcid, key,
+-				      pid, qid, 0);
++				      pid, qid, 0, link_id);
+ 
+ 	/* MT7996 and MT7992 require driver to provide the MAC TXP for AddBA
+ 	 * req
+diff --git a/drivers/net/wireless/mediatek/mt76/mt7996/mcu.c b/drivers/net/wireless/mediatek/mt76/mt7996/mcu.c
+index 8be40d60ad29..a14c63438923 100644
+--- a/drivers/net/wireless/mediatek/mt76/mt7996/mcu.c
++++ b/drivers/net/wireless/mediatek/mt76/mt7996/mcu.c
+@@ -3103,7 +3103,7 @@ mt7996_mcu_beacon_cont(struct mt7996_dev *dev,
+ 
+ 	buf = (u8 *)bcn + sizeof(*bcn);
+ 	mt7996_mac_write_txwi(dev, (__le32 *)buf, skb, wcid, NULL, 0, 0,
+-			      BSS_CHANGED_BEACON);
++			      BSS_CHANGED_BEACON, link_conf->link_id);
+ 
+ 	memcpy(buf + MT_TXD_SIZE, skb->data, skb->len);
+ }
+@@ -3249,7 +3249,8 @@ int mt7996_mcu_beacon_inband_discov(struct mt7996_dev *dev,
+ 
+ 	buf = (u8 *)tlv + sizeof(*discov);
+ 
+-	mt7996_mac_write_txwi(dev, (__le32 *)buf, skb, wcid, NULL, 0, 0, changed);
++	mt7996_mac_write_txwi(dev, (__le32 *)buf, skb, wcid, NULL, 0, 0,
++			      changed, link_conf->link_id);
+ 
+ 	memcpy(buf + MT_TXD_SIZE, skb->data, skb->len);
+ 
+diff --git a/drivers/net/wireless/mediatek/mt76/mt7996/mt7996.h b/drivers/net/wireless/mediatek/mt76/mt7996/mt7996.h
+index 0dc4198fcf8b..0d6488522ba7 100644
+--- a/drivers/net/wireless/mediatek/mt76/mt7996/mt7996.h
++++ b/drivers/net/wireless/mediatek/mt76/mt7996/mt7996.h
+@@ -874,7 +874,8 @@ void mt7996_mac_enable_nf(struct mt7996_dev *dev, u8 band);
+ void mt7996_mac_write_txwi(struct mt7996_dev *dev, __le32 *txwi,
+ 			   struct sk_buff *skb, struct mt76_wcid *wcid,
+ 			   struct ieee80211_key_conf *key, int pid,
+-			   enum mt76_txq_id qid, u32 changed);
++			   enum mt76_txq_id qid, u32 changed,
++			   unsigned int link_id);
+ void mt7996_mac_update_beacons(struct mt7996_phy *phy);
+ void mt7996_mac_set_coverage_class(struct mt7996_phy *phy);
+ void mt7996_mac_work(struct work_struct *work);
 
-or
+---
+base-commit: 4913f44167cf35a9536e9eec7352e15b2de0c573
+change-id: 20260530-mt76_tx_status_skb_add-overwrite-fix-85818a9bb31f
 
-2) limit at 32MB with simple logic which results in larger (32MB) folios
-with 16k and 64k pagesize on ARM and thus larger memory overhead.
-
-I'd like to maybe offer option 3): limit at 2MB with simple logic. This
-will reduce folio size on 16k pagesize ARM compared to 1) but do we really
-care? I.e., is there big enough practical performance impact with conpte
-and other tricks ARM is playing?
-
-> > Bottom line is that changing things will always affect someone :) Particularly
-> > since the logic we have is not too careful at deciding what should or should
-> > not be a THP (both in anon and file cases). And if (once?) we make it smarter,
-> > it will surely also regress someone!
-> 
-> Yes completely agree on this as well.
-> 
-> So personally I do have a preference of keeping the cap at 2M atleast initially
-> while we currently try and solve the issues we see with 2M alone. As we are already
-> seeing reports of thrashing and compaction with just 2M, I dont think the logic
-> in this patch with just an if else is that complicated.
-> 
-> Matthew, Jan, do you have any thoughts or strong preferences on cap size?
-
-Frankly, no strong opinion. I'd think 3) is worth trying for its simplicity
-and seeing whether somebody complains, otherwise I can live with both 1)
-and 2).
-
-								Honza
+Best regards,
 -- 
-Jan Kara <jack@suse.com>
-SUSE Labs, CR
+Lorenzo Bianconi <lorenzo@kernel.org>
+
 
