@@ -4,71 +4,71 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 8C7CACD6E4A
-	for <linux-arm-kernel@archiver.kernel.org>; Sat, 30 May 2026 09:45:17 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 774FDCD6E4A
+	for <linux-arm-kernel@archiver.kernel.org>; Sat, 30 May 2026 09:45:29 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Cc:List-Subscribe:
 	List-Help:List-Post:List-Archive:List-Unsubscribe:List-Id:
 	Content-Transfer-Encoding:MIME-Version:References:In-Reply-To:Message-ID:Date
 	:Subject:To:From:Reply-To:Content-Type:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=UsfY8GRrXZdSk9lyMdgzW2ibIF3DXFt06J5TGlB1HVc=; b=l0qzDdc5qz6R0p
-	z2uO3ofqLtKLCM0Kdi2S6djY+KI31tJ5442Z3aG7SN9eGHuCFpMScBDw/Ca5YuxDdiJSlTTN2vvKG
-	VQeQtTVEGmzMpcNEeLwXWvYkbAz6BQLAMmSJpw0iWGHC4Z6BQ0tr6KmetccU8mAXm0BglploEKMZz
-	ZfBa4ApGFROMxwhsIl9EnFsXUOFLzxAk0BuI6MczjAGpfF1zCTZy1XG/Dx5i60OVxwUPqm+VTDdC0
-	BFgqFkG5lmY8kdqbtTV8Kckqq06Y/jjlcG7Df3tYF3KkTY1KHOZJWxLC7mkLBmZB1q7CxAiqkstie
-	reW91ulJPxxneV1CMWjQ==;
+	List-Owner; bh=N5aJiRofz4S8JTYcjNZpyXHhE2VKKeRqZ24DGJJ/QHU=; b=3s36zrNUEtikGT
+	OsguJN5HtkKRtURbDsiLwM1Lqv70PByDTcyViztCQ1X9M0cPiS+IgCGSnJ1f1Idj1m6XTM4fSBPcG
+	BvaMHY2fiDOC2fMr7L5oTBYcZd6atpTSj43BmrNuKH+xV73Mhw1/bbaz5b6gaCgHrkhx/7BvnJzGP
+	alBgN5l2mmLgbM86qibAGK1202ZL/IZL0WiNX648K4dc+nrt/+K8K1HD4buPJ0l8Tg6/BeA4P6F98
+	Myd2ethQWOn2iEFO0bwPVwfSw3kBTY3AHJ4j6Os2IZO9ITZFvK+6+wqpBq3UiF4GrnL04//+l4UbU
+	gAqH9hrGvwdNQqNXLC4Q==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wTGFj-00000008b1E-1ssi;
-	Sat, 30 May 2026 09:45:11 +0000
+	id 1wTGFq-00000008b5r-2YSS;
+	Sat, 30 May 2026 09:45:18 +0000
 Received: from mail-pl1-x62d.google.com ([2607:f8b0:4864:20::62d])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wTGFe-00000008ayS-3e1h
+	id 1wTGFo-00000008b4M-3AKk
 	for linux-arm-kernel@lists.infradead.org;
-	Sat, 30 May 2026 09:45:10 +0000
-Received: by mail-pl1-x62d.google.com with SMTP id d9443c01a7336-2bd9c3b550aso100550175ad.2
-        for <linux-arm-kernel@lists.infradead.org>; Sat, 30 May 2026 02:45:06 -0700 (PDT)
+	Sat, 30 May 2026 09:45:18 +0000
+Received: by mail-pl1-x62d.google.com with SMTP id d9443c01a7336-2bf008a99d4so29393215ad.2
+        for <linux-arm-kernel@lists.infradead.org>; Sat, 30 May 2026 02:45:16 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20251104; t=1780134306; x=1780739106; darn=lists.infradead.org;
+        d=gmail.com; s=20251104; t=1780134316; x=1780739116; darn=lists.infradead.org;
         h=content-transfer-encoding:mime-version:references:in-reply-to
          :message-id:date:subject:cc:to:from:from:to:cc:subject:date
          :message-id:reply-to;
-        bh=UsfY8GRrXZdSk9lyMdgzW2ibIF3DXFt06J5TGlB1HVc=;
-        b=aj7jHy5hTdWJZl5j+N34BMId2oKqOFppCk/c1Jx5L4QZ+JpbPvLp/vAVg01+TbQ75F
-         rwSd37cFMOTuLqHsaz/F+aYqna5gTrFzUzOSZv8MD6D6QVO9/VbEP5XlrV5vuv6sKXr/
-         ukjhgLC5Sdgg36TtmIaaWgi9mCNLr71kxfFv8mIOfmMhl7/BJRzfPIWAEa/qmwRKZfP8
-         Kies2R3807FJk2rzfmfg5OfI5Oug9YP8Fj19RuwsR3BcvKAHQvOZ6z/l5XhgUZoKDseJ
-         kfCbmfyYdSASeh0aT2BnFyykCVLfBfEI/BS1qo6b0TPZ8e8WCErArdQbHKFHuJQRenn2
-         VP6Q==
+        bh=N5aJiRofz4S8JTYcjNZpyXHhE2VKKeRqZ24DGJJ/QHU=;
+        b=ko8U58S/MnD0prrMnlHedNusiZBwM+iVSf5fJPFtmgUXGg3swuTNXuBlSJ4x+TAMd5
+         /VOEgNmkeRCyQCGktyGvPKpanWIl2G/FPgIcECBDDghBd8rxkmvPpBjlCMfO8tHk6n58
+         xBEZEGHfzu3KNxsHHW1kbn2OHa349/fnwC7zyyVAD5RyxRiKgdUouXB1OZv76vw+mI4+
+         zQ5hVFMogKBgm8GBu6WdasOxRNHX63h2+Lm6JmuWOXLaotp75Bx1l9ptL0Gi8kn/E6AO
+         We1cBjBgubym93fb7E4jkgtOZGWmCKlf6w1oNzfdC2y/1Gu8V5y2LRRuyAuGkw5KxFJs
+         c43g==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20251104; t=1780134306; x=1780739106;
+        d=1e100.net; s=20251104; t=1780134316; x=1780739116;
         h=content-transfer-encoding:mime-version:references:in-reply-to
          :message-id:date:subject:cc:to:from:x-gm-gg:x-gm-message-state:from
          :to:cc:subject:date:message-id:reply-to;
-        bh=UsfY8GRrXZdSk9lyMdgzW2ibIF3DXFt06J5TGlB1HVc=;
-        b=hqET9ptdJtblTtaRr2s2RHW7LB7FDmB61hbIMA8ps577GIZNIZYlIr1lrTC1+H6Pyk
-         d5TtiIwHss4SbZBWBXtWnCy817MVh/P8UMvVRLVVUR/mJ3HQT/2Ja9ybTnsdXFocSOVc
-         AsqYtTv4u2jnx5MoxyZT11NNVymTwVcMBnJuLbN48jCx1P2UIxMFsLAzwWhqZVs7AoVs
-         mNzGkU3DSNGtmBn71bzkUcazLAm5fX1yv2WEWGy5WViHMnNwpDupoSvfghbAUhs2hLNb
-         a+S57RWeYLm1n+JcJuhVW7ubKaXK0NqJZCJU8OIPIf1+FFH1UDTZI69ia4KxUbtNGqiI
-         xtow==
-X-Forwarded-Encrypted: i=1; AFNElJ+fZ/AUJ6nMQ7kELlYgBzhQ6aRQosMnvSnTDCvO4OyRDwZ6Jxk8C3+gaNgENpGZN+a3gMCNJFaB87wKiXxVdDNS@lists.infradead.org
-X-Gm-Message-State: AOJu0YyVzmFYEykBu4r4JHnZXh+we0p2FmPGc9C7tvKyctnyaSuU8dfv
-	qAVBRFBNFILxUnpTvVxxuCbgEaBUiKCerdiBVq/OTXSdDVSvMjK22TGf
-X-Gm-Gg: Acq92OGRjUD8zYqYT8b4Xb66Xgj0rMAA77p0Ju/yrduF3+7zsqq+s7PrbMXlKm87Jcx
-	2vzp3fl/97/LfbaKvZAmefFwL1uUUbRCp1uIKF6wcgRAiZHtVJ0YpxCZ4e8EN3VuEw1C09/uUgh
-	LdbKlLTAuIbBXn7EcJxaG0yMwC31bkZt2xSNZlio/uU5LkzH+RQTBXqCRHMd2/kgHLSvFGf4Dve
-	1Nx0AZYcC7ZSfpxt96gFmRnBmx0KOygIX9oXu99gmiUenk1E1gpVKu04Y9/6s6oCE2z77f2O5Bc
-	4OZqJ1msPgLmiuc4dby4F/QPQn49+F7C32vGWWSOBKvK7cMj/QY25Mrsw+UaunhS6u081AZ9jSE
-	az+il17szo2g/IAqrAegfwniQg98YJzbstI75CBd4G6Ftbla0RWs7oBOU384yw1ivX1fFv50Fvx
-	HTSCufGbSC+OQb43Bd+cPDcHM94H0pSW4Rr5p48Skohg==
-X-Received: by 2002:a17:903:32cc:b0:2bf:23ad:8598 with SMTP id d9443c01a7336-2bf3679336dmr37430715ad.5.1780134306001;
-        Sat, 30 May 2026 02:45:06 -0700 (PDT)
+        bh=N5aJiRofz4S8JTYcjNZpyXHhE2VKKeRqZ24DGJJ/QHU=;
+        b=M5KEMCTqYi7sq/URQJ8eLe3bVy7Y/UYbY/XYcpvp2Wu+m/Si/A1urQS0nSwmK67y4Z
+         WGlBgIsxQTZvfKjPlWQymyZtk7CbzyMsZ9YMRPOMAATqqr5bdoQEXKxgOHxJczW1U9fB
+         XN8GZ4vFMeb8dXS4sGqJN0ewlIdGzw1kF7IhpNl5SSsyJMHZFjhQmoXFp75IL/gVescD
+         qGxL/Don8kIki+OFikdHkRFfeIzSLCVreeLqQLMljDJmWW4+V2UW4YurUfulWOZU8Umz
+         2M26S5Y/SVsyvA1rl2IeFfulbCIyRbUd5qAwZDr5d5zd9I7LzCsnm2mttTu8YO0D88dO
+         Ic8w==
+X-Forwarded-Encrypted: i=1; AFNElJ9i9YMKQ+mIWnjjJ6C7pe7VKK4ctckjxk+wD1XJtHo8FhcoJpzbdpIin0Yk86TVyO2z1qvBDhF7Jpng2ruCiyjz@lists.infradead.org
+X-Gm-Message-State: AOJu0Yx7w3L57wp7b3CNFC9pTreb2imcrqqf0iC1pYtgedeagk+Jy7da
+	W5GrjQB+Pm2grX4i8MFekz16dHr9o9yBNXzZqdQ9A9QduMNNZtbJtrjF
+X-Gm-Gg: Acq92OGJpJmyih3sfcqPtbuAs1LfztqmAGGMO/GyZ8ms/3lL8CYlUnMcgPHF7GxYRB1
+	OJ6yIYA1DUhcKXMr8JZK9Gz2y/lLYfmydLZNfLYskrYRUePHRx51CywcgMh57ui+Xvvb9wqIT/c
+	p+I6adpT3rN92h2gtHlkH0mMSU0lk+yrq1nGfCYlIuOssC8a048V6dFS1ehv/8Sh/jKnNRx0W7F
+	j6LEOa47kXtuMl3HRRQBktCOcyLwixxNe4D9JmOWPkh9xZY5tww04nLACo9jrUgjJt7yCRjh+lf
+	F09DGciXBFSItRbc89WZE8h3GHGCpp7KPWq+9VtUWnZWgNKK4yixS8zRFRo9qj2F2KTgc9APuUB
+	hHHmzRuknT9tikZtTFCO0pbxAWST18vbnfRILzbXOZ4ggeJRaXCxq4e0gpdwvqF0H8rSXDXS/EH
+	iqXM8A0VFEnW1EtoGv1l0Z6DXdqWDE0D8=
+X-Received: by 2002:a17:902:e88e:b0:2c0:a3dd:4e6c with SMTP id d9443c01a7336-2c0a3dd4f17mr23090205ad.38.1780134315999;
+        Sat, 30 May 2026 02:45:15 -0700 (PDT)
 Received: from rockpi-5b ([45.112.0.191])
-        by smtp.gmail.com with ESMTPSA id d9443c01a7336-2bf239e700csm61529945ad.10.2026.05.30.02.44.59
+        by smtp.gmail.com with ESMTPSA id d9443c01a7336-2bf239e700csm61529945ad.10.2026.05.30.02.45.09
         (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Sat, 30 May 2026 02:45:05 -0700 (PDT)
+        Sat, 30 May 2026 02:45:15 -0700 (PDT)
 From: Anand Moon <linux.amoon@gmail.com>
 To: Neil Armstrong <neil.armstrong@linaro.org>,
 	Maarten Lankhorst <maarten.lankhorst@linux.intel.com>,
@@ -81,25 +81,25 @@ To: Neil Armstrong <neil.armstrong@linaro.org>,
 	Martin Blumenstingl <martin.blumenstingl@googlemail.com>,
 	Mauro Carvalho Chehab <mchehab@kernel.org>,
 	Greg Kroah-Hartman <gregkh@linuxfoundation.org>,
-	Hans Verkuil <hverkuil@kernel.org>,
 	Maxime Jourdan <mjourdan@baylibre.com>,
+	Hans Verkuil <hverkuil@kernel.org>,
 	dri-devel@lists.freedesktop.org (open list:DRM DRIVERS FOR AMLOGIC SOCS),
 	linux-amlogic@lists.infradead.org (open list:DRM DRIVERS FOR AMLOGIC SOCS),
 	linux-arm-kernel@lists.infradead.org (moderated list:ARM/Amlogic Meson SoC support),
 	linux-kernel@vger.kernel.org (open list),
 	linux-media@vger.kernel.org (open list:MESON VIDEO DECODER DRIVER FOR AMLOGIC SOCS),
 	linux-staging@lists.linux.dev (open list:STAGING SUBSYSTEM)
-Subject: [PATCH v6 6/8] media: meson: vdec: Configure DMA mask and segment size in probe
-Date: Sat, 30 May 2026 15:12:52 +0530
-Message-ID: <20260530094326.11892-7-linux.amoon@gmail.com>
+Subject: [PATCH v6 7/8] media: meson: vdec: Fix NULL pointer dereference in ISR handlers
+Date: Sat, 30 May 2026 15:12:53 +0530
+Message-ID: <20260530094326.11892-8-linux.amoon@gmail.com>
 X-Mailer: git-send-email 2.50.1
 In-Reply-To: <20260530094326.11892-1-linux.amoon@gmail.com>
 References: <20260530094326.11892-1-linux.amoon@gmail.com>
 MIME-Version: 1.0
 Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260530_024508_147603_2971B9AD 
-X-CRM114-Status: GOOD (  14.93  )
+X-CRM114-CacheID: sfid-20260530_024516_795205_0B8D5DF0 
+X-CRM114-Status: GOOD (  18.19  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -115,19 +115,15 @@ Cc: Sashiko <sashiko-bot@kernel.org>, Nicolas Dufresne <nicolas@ndufresne.ca>
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-The vdec probe routine did not set explicit DMA constraints,
-leaving the driver dependent on platform defaults. This could
-cause allocation failures or fragmented buffer handling on
-systems with stricter DMA limits.
+The hard interrupt handler (vdec_isr) and the threaded interrupt handler
+(vdec_threaded_isr) directly read core->cur_sess without synchronization
+or validation. If a streaming teardown concurrently clears core->cur_sess
+to NULL while an interrupt is being processed, a NULL pointer dereference
+occurs when accessing the session fields or codec operations.
 
-Fix this by:
-- Setting a 64 bit coherent DMA mask with
-  dma_set_mask_and_coherent(dev, DMA_BIT_MASK(64)).
-- Configuring the maximum contiguous segment size to UINT_MAX
-  via vb2_dma_contig_set_max_seg_size().
-
-This aligns the driver with common DMA setup practices and guarantees
-large buffer allocations work reliably across platforms.
+Fix this race condition by using READ_ONCE() to obtain a stable, atomic
+snapshot of core->cur_sess. Check if the returned session pointer is NULL,
+and return IRQ_NONE immediately if the session has already been torn down.
 
 Cc: Nicolas Dufresne <nicolas@ndufresne.ca>
 Reported-by: Sashiko <sashiko-bot@kernel.org>
@@ -135,29 +131,53 @@ Closes: https://lore.kernel.org/all/20260521090944.F35401F00A3D@smtp.kernel.org/
 Fixes: 3e7f51bd9607 ("media: meson: add v4l2 m2m video decoder driver")
 Signed-off-by: Anand Moon <linux.amoon@gmail.com>
 ---
- drivers/staging/media/meson/vdec/vdec.c | 9 +++++++++
- 1 file changed, 9 insertions(+)
+ drivers/staging/media/meson/vdec/vdec.c | 25 ++++++++++++++++++++++---
+ 1 file changed, 22 insertions(+), 3 deletions(-)
 
 diff --git a/drivers/staging/media/meson/vdec/vdec.c b/drivers/staging/media/meson/vdec/vdec.c
-index 4884ee04b352..f99335effe17 100644
+index f99335effe17..3897c75b19c8 100644
 --- a/drivers/staging/media/meson/vdec/vdec.c
 +++ b/drivers/staging/media/meson/vdec/vdec.c
-@@ -1064,6 +1064,15 @@ static int vdec_probe(struct platform_device *pdev)
- 	if (IS_ERR(core->canvas))
- 		return PTR_ERR(core->canvas);
- 
-+	ret = dma_set_mask_and_coherent(dev, DMA_BIT_MASK(64));
-+	if (ret)
-+		return dev_err_probe(dev, ret, "Failed to set DMA mask\n");
+@@ -996,17 +996,36 @@ static const struct v4l2_file_operations vdec_fops = {
+ static irqreturn_t vdec_isr(int irq, void *data)
+ {
+ 	struct amvdec_core *core = data;
+-	struct amvdec_session *sess = core->cur_sess;
++	struct amvdec_session *sess;
++	irqreturn_t ret = IRQ_HANDLED;
 +
-+	ret = vb2_dma_contig_set_max_seg_size(dev, UINT_MAX);
-+	if (ret)
-+		return dev_err_probe(dev, ret,
-+				     "Failed to set DMA max segment size\n");
-+
- 	of_id = of_match_node(vdec_dt_match, dev->of_node);
- 	core->platform = of_id->data;
++	/*
++	 * Use READ_ONCE to secure an atomic snapshot of the pointer,
++	 * protecting against concurrent clearing during streaming
++	 * teardowns.
++	 */
++	sess = READ_ONCE(core->cur_sess);
++	if (!sess)
++		return IRQ_NONE;
  
+ 	sess->last_irq_jiffies = get_jiffies_64();
++	ret = sess->fmt_out->codec_ops->isr(sess);
+ 
+-	return sess->fmt_out->codec_ops->isr(sess);
++	return ret;
+ }
+ 
+ static irqreturn_t vdec_threaded_isr(int irq, void *data)
+ {
+ 	struct amvdec_core *core = data;
+-	struct amvdec_session *sess = core->cur_sess;
++	struct amvdec_session *sess;
++
++	/*
++	 * Prevent late-stage threaded interrupts from dereferencing a NULL
++	 * session.
++	 */
++	sess = READ_ONCE(core->cur_sess);
++	if (!sess)
++		return IRQ_NONE;
+ 
+ 	return sess->fmt_out->codec_ops->threaded_isr(sess);
+ }
 -- 
 2.50.1
 
