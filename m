@@ -4,80 +4,74 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 16578CD6E49
-	for <linux-arm-kernel@archiver.kernel.org>; Sat, 30 May 2026 19:59:52 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 59EB1CD6E49
+	for <linux-arm-kernel@archiver.kernel.org>; Sat, 30 May 2026 20:06:24 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
 	MIME-Version:Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-Type:
 	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
 	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
-	bh=xDsrez4hENrmsOP6DpqaPlhTbFkmYHTO8HsVENUs2Sc=; b=iCjnZ1DD79k+XwJineqpgi7yIX
-	7R6S2W8zlmjLsQ+THJvOzmxu1y67sxEymGGDMWHAZOtk3lR+RigbJyBHQEGyjUADQ+YU5fQjYCG/L
-	D/fWCmcXwYn4OIZgjRIxVhXDy6StGa99Tl4OTr0mrl04RJdkqsSIUQRFVXZ8oRkKIhtU/J4Ut6H6+
-	9WN2YF0ozqmsdaAfvC08Mtu8QXibda9j+ZHHhkdJJgi+Wc2UUtRTEslbfJYWilvsA1i7ttSiU3tn/
-	DfwFQJgxg5tQW7+LpqMJgUbFaEUJf0fb9TpXeLrYzNwI+b6qHHH8HTVjDUNGBC1MNrSAF/Nc61rhM
-	DLqlZ4Fw==;
+	bh=7fBSNfLq7QUu4AmPks5xSIdwkB0r3aZw9X+kxcAAws0=; b=p2T4P7vsb87tg0mRu5MYZm/c70
+	dM8cxXXRkiBBnRdWR/8B+DDbwx8tNkBa0Jvz7GDXDRx9sotHxxMZUHCxkJoSaD8Tzn7h3QxP+FDTF
+	dyKRdxr1Ar6jh+sWyuxYcMGnReG2ptoEgujcE4Gi7aujF/q47qnlw23suTR65BbkcuH++nD+4i13s
+	HGd2iVYSUYUZy88zC+ryBCpNSoD6P364PXOsZbVLyIdKKTHDwH0ptHimXnkQjtwMCO0rlZwEkbvJs
+	3wXfc/gm2MoqWVEiCsH6TF1esCH7+iWYnIkb9YK7IO1bdBtNfO7m3Ct9lxAZkUaUpCCVr4rxP0YPd
+	aYw5QwnQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wTPqT-000000092NY-3BdC;
-	Sat, 30 May 2026 19:59:45 +0000
-Received: from mail-pg1-x52b.google.com ([2607:f8b0:4864:20::52b])
+	id 1wTPwm-000000092ZC-26v4;
+	Sat, 30 May 2026 20:06:16 +0000
+Received: from mail-pl1-x634.google.com ([2607:f8b0:4864:20::634])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wTPqR-000000092NC-1LSr
+	id 1wTPwj-000000092Ys-1Apw
 	for linux-arm-kernel@lists.infradead.org;
-	Sat, 30 May 2026 19:59:44 +0000
-Received: by mail-pg1-x52b.google.com with SMTP id 41be03b00d2f7-c85a2c012e5so31541a12.1
-        for <linux-arm-kernel@lists.infradead.org>; Sat, 30 May 2026 12:59:43 -0700 (PDT)
+	Sat, 30 May 2026 20:06:15 +0000
+Received: by mail-pl1-x634.google.com with SMTP id d9443c01a7336-2bf18c30bb2so15709295ad.0
+        for <linux-arm-kernel@lists.infradead.org>; Sat, 30 May 2026 13:06:12 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20251104; t=1780171182; x=1780775982; darn=lists.infradead.org;
+        d=gmail.com; s=20251104; t=1780171572; x=1780776372; darn=lists.infradead.org;
         h=content-transfer-encoding:mime-version:message-id:date:subject:cc
          :to:from:from:to:cc:subject:date:message-id:reply-to;
-        bh=xDsrez4hENrmsOP6DpqaPlhTbFkmYHTO8HsVENUs2Sc=;
-        b=FrozTfH5KV2iXHRTmPEoenpbFUDLVpT9bsMIXqa1+kX5oYVgQUkkEkSxz8GcOHORfm
-         FTp8WVolQzjuB436r+Bxv9GABfTv17rz7TbxIf8uUgwXYOuOv5ADWvWyOorHj/xmGZVK
-         Lh23cIKQ+UJdj1JofaXUJ2Od0oQcy7+3ZWuxW6ih2DFu1BmLnsKpCB8B0ucBfiI/uD2y
-         RnYVNllzvkCxRFdLpNZoZbb4inw5vnBhHXRM75roNYR/Q2KrF3hK/A2hePKEpCJn23f4
-         DdHS5C/QLr+JEPpkQo9S/cuu5TWba5SoR3bNz6HDR/GbQ7fazjkuew8smoz3ZJamxzCD
-         CaPQ==
+        bh=7fBSNfLq7QUu4AmPks5xSIdwkB0r3aZw9X+kxcAAws0=;
+        b=HWNMOZdcAzOauWT2CejeOn9bXii5ri/2IH5/aE9i/6LNQQODeip03i1Lp0tbRM5oFf
+         2mf3dT7EJznUFtIhYfaSVUW7E2zV37BHXQNH+oH9TM5kG+jRBK3m9RqNgoSXsYRdfnZO
+         D3+yCxIMelUNbZdvozrGDLqW/oGxiWMwB8ji+buKnQ6/sBZx9/EdHj0lQ5l2aN+/xzPk
+         xMfYCVzcP8cyTMEUFmzDu8PdEgBBfxHfHGtRteJi4g+E29oPj77lbzcLuWvGF7B5PA9R
+         41BmJ1whZIjE//VV5G7+146cWHGc72cuXopUVQCuvpzNiu42srP26yML2TbQaGZ1QagN
+         zW7Q==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20251104; t=1780171182; x=1780775982;
+        d=1e100.net; s=20251104; t=1780171572; x=1780776372;
         h=content-transfer-encoding:mime-version:message-id:date:subject:cc
          :to:from:x-gm-gg:x-gm-message-state:from:to:cc:subject:date
          :message-id:reply-to;
-        bh=xDsrez4hENrmsOP6DpqaPlhTbFkmYHTO8HsVENUs2Sc=;
-        b=OQEXYgO6tR4T/N40qk9m5ltpdsHYj8Qamxu5P2DnJKKDq3H4jpY9CfWtFX3tOA6vOL
-         ry02SOXFo+LA2Cv6kMvtducLAN/WlZFaEWKDc9Eslv5KPNMA+wtwQfb+kYkKUHS96jpq
-         FFQjKHHGFZC4VidWHkSsY6bpi2wgHBV3AyNxOrwhu4npRbIUCUojIZ60wHC/t6ip3Ymy
-         R5jR1SyuYLPYMZmAw/tk11iqLjoX32wQVUsn2kG2o30Wb2gotbxgj+uAjm9h1t43EPpo
-         RwfScGHp72DFMa3a1Lk6i7Sx5kXf1q4Pi3taMTjpcGfyb+WAEu59yds5XypYHC2hCfo2
-         OVaA==
-X-Forwarded-Encrypted: i=1; AFNElJ9IBVaJURQx6bRpZ9BmV7J61bS0oCfwVq4Ii6Lk87FywV/d1gbPRRvP2GCuVNFNBOqPuLjtwINg4D4tmTFQo+Qr@lists.infradead.org
-X-Gm-Message-State: AOJu0YzIRC9wY0bIZRMQmJNN7XPw16ckykPxCaQZCYzSPPRWVSMsstYf
-	7WhhLYj+1sIo6o/+FVztm9mr1jXC2TPZiQPhqz1VmV6gbuwWzbOHhabM
-X-Gm-Gg: Acq92OEOBWYucwhhh4FaF3H+JwwCwEi0iBm0E0LBdiXnww+EUknvaxyr+UsBncAZBC+
-	Wv6a508CqAK5OlVK3lU9dLLyelqWC86LLgO/xZn+9wQGg3P+MFoE0M/owfbvNYpeZSnCaXf3PXX
-	LnnuIRnxi5IrgEiV7TRxWdfsfJImO4zJJsIST6VU/Nx+Iz6oxRcUgJG10Nr1I422O8ToRTI/c5k
-	30qxlUIr9VqGISHJcp+VlOXIVYZHpnmnHSV2aq+IF5yRRtWpC9VhG1Jj6tsIPSdnGvTcBru5dIX
-	NaXAlbxtY567tfiWz94rrQwOYaCFVn58vLj9rJNtdlYnfAPExn2vSzsiAw68osxOkLF+p7Kh0P+
-	5t+DPhiEmlbYiXh4m4CGm7UPFDCBqhO4LR9WJtDwaQ5CITZdumHG0t9y+zID/bgh9Yl1Kky+W/R
-	h08vjF/rgT87dKp2k9X35ILi5cKfOLjiQieNfWHo18EFhamWuNdsBVfUTx9eMu6U5+HPMDeuo79
-	LBROD4csn05THElgIg/Pq8Eh1yT5a7tTMz2Ym3x5Ifalw==
-X-Received: by 2002:a05:6a00:4296:b0:82f:5726:be23 with SMTP id d2e1a72fcca58-8422575fed2mr4382838b3a.49.1780171182401;
-        Sat, 30 May 2026 12:59:42 -0700 (PDT)
+        bh=7fBSNfLq7QUu4AmPks5xSIdwkB0r3aZw9X+kxcAAws0=;
+        b=rYVuLF6R034efxUChNgwnN0S3vazXYBmDUa4KHh8UupVl1gcharvqXgWGRTEgdaAcV
+         tRgpbH2oPF4FBq5SadR24oaKS/rIeWAYDAHJhYqnFkvLWcxCGTAYiwTqD8nVJzYwz4ES
+         /UANb6pkFGeEvS8DRXsx2zYILJhJije9mY5pmJdc/6XxKNIgQrsoXUG3ub93UiG0zKhW
+         RLj1UYDYU8mVJUT3jMKBOmHwsVK+9ZbWgQVmxABr0zSvY0GokRSEniga1uMFuUpSgtpo
+         AaWJfsHemeljgpqSI/Q1roTFTwRwbje1gYjZpTa8dosv3bgmjriX54BeI5IC6BIBoWEZ
+         0hDA==
+X-Forwarded-Encrypted: i=1; AFNElJ+wQrnLn611ZiZIbeko5Xzc61ldw/VXbafiesty05U62CGWHAPPGPRl0g4KFBzjZD6ul1pd83lHbMy67LckujLD@lists.infradead.org
+X-Gm-Message-State: AOJu0Yy2SBpOTV5aULr2qGQe9yJHuYxhUm442k7X45G6AED82GoOpwcm
+	zSDNMW1Uv3cpVXf37ejMbzkgo8hxP3DBqz3nZ5dXbOQTM1T5fEC3deD5
+X-Gm-Gg: Acq92OG8KyrNi2bVyO1QGVwamaDTn+jvdnMGs9K862CA9c+J2g59Sd8QHeuufQH/sIk
+	BjHgY8YdsSTaNuTMn/CsuEfoX3yfmXPTcldaAIh0f0kw3iiOmWdcHrcPc3w80jg1nZOr/VU9njL
+	KBC8vFrkAyHstAcDKNHm/9V6x/4q1tWUZ1mr6QwZ8mn3OV+SSoz0rS9tuLtvdmiev1PCvs/nkbr
+	pEMCoOFkZCD4LyyF1soD4BjgP4LlwtgCXoW497RYePxzCdRVGftdjQDRoPGz/mN8t2K026XRqxk
+	qe/cHmUAzxFBNgYH+Fyks696uJL2KkgsTY+3ATCIskM4ZyHWTZL5FMqeMjnKBtIZVpRg0A1+bQv
+	nmPWbyccs+DS5XPKG3Kwismmt53c88V5CQ+0Q2s0InIeApgJf3t9OQ907iAoSrWf0/3f6gPDNa1
+	w1Ai2ihE56VoSEzqGr+0RiuqkaYKK0aghdDE8cDKrY1WdW9y1j4lmIQWsqMAxFRSQsRWd9HsGzO
+	03liYIT08/lPYTKtXjoBO7n6ofd3IDjk0j2C7FHjC7LWA==
+X-Received: by 2002:a17:903:37ce:b0:2c0:b5c1:8e32 with SMTP id d9443c01a7336-2c0b5c192fbmr19092815ad.41.1780171572211;
+        Sat, 30 May 2026 13:06:12 -0700 (PDT)
 Received: from ryzen ([2601:644:8000:5b5d:7285:c2ff:fe45:8a32])
-        by smtp.gmail.com with ESMTPSA id d2e1a72fcca58-8422b170f31sm2682850b3a.33.2026.05.30.12.59.40
+        by smtp.gmail.com with ESMTPSA id d9443c01a7336-2bf23c4dd4csm58546105ad.78.2026.05.30.13.06.10
         (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Sat, 30 May 2026 12:59:41 -0700 (PDT)
+        Sat, 30 May 2026 13:06:11 -0700 (PDT)
 From: Rosen Penev <rosenp@gmail.com>
-To: dri-devel@lists.freedesktop.org
-Cc: Laurentiu Palcu <laurentiu.palcu@oss.nxp.com>,
-	Lucas Stach <l.stach@pengutronix.de>,
-	Maarten Lankhorst <maarten.lankhorst@linux.intel.com>,
-	Maxime Ripard <mripard@kernel.org>,
-	Thomas Zimmermann <tzimmermann@suse.de>,
-	David Airlie <airlied@gmail.com>,
-	Simona Vetter <simona@ffwll.ch>,
+To: linux-i2c@vger.kernel.org
+Cc: Andi Shyti <andi.shyti@kernel.org>,
 	Frank Li <Frank.Li@nxp.com>,
 	Sascha Hauer <s.hauer@pengutronix.de>,
 	Pengutronix Kernel Team <kernel@pengutronix.de>,
@@ -85,15 +79,16 @@ Cc: Laurentiu Palcu <laurentiu.palcu@oss.nxp.com>,
 	imx@lists.linux.dev (open list:ARM/FREESCALE IMX / MXC ARM ARCHITECTURE),
 	linux-arm-kernel@lists.infradead.org (moderated list:ARM/FREESCALE IMX / MXC ARM ARCHITECTURE),
 	linux-kernel@vger.kernel.org (open list)
-Subject: [PATCH] drm/imx/dcss: add missing kernel-doc parameters for scaler functions
-Date: Sat, 30 May 2026 12:59:25 -0700
-Message-ID: <20260530195925.5477-1-rosenp@gmail.com>
+Subject: [PATCH] i2c: mxs: add missing kernel-doc for struct mxs_i2c_dev members
+Date: Sat, 30 May 2026 13:05:54 -0700
+Message-ID: <20260530200554.8415-1-rosenp@gmail.com>
 X-Mailer: git-send-email 2.54.0
 MIME-Version: 1.0
 Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260530_125943_366790_5345E69E 
-X-CRM114-Status: GOOD (  10.41  )
+X-CRM114-CacheID: sfid-20260530_130613_341915_2C8265D8 
+X-CRM114-Status: UNSURE (   9.97  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -108,38 +103,35 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-dcss_scaler_gaussian_filter() was missing @phase0_identity and
-dcss_scaler_filter_design() was missing @phase0_identity and
-@nn_interpolation in their kernel-doc comments.
+Add kernel-doc documentation for the struct members that were previously
+undocumented. This fixes warnings when building with W=1 and ensures
+the struct is fully documented per kernel-doc conventions.
 
 Assisted-by: Opencode:Big-pickle
-Signed-off-by: Rosen Penev <rosenp@gmail.com>
+Signed-off-by: Rosen Penev &lt;rosenp@gmail.com&gt;
 ---
- drivers/gpu/drm/imx/dcss/dcss-scaler.c | 3 +++
- 1 file changed, 3 insertions(+)
+ drivers/i2c/busses/i2c-mxs.c | 8 ++++++++
+ 1 file changed, 8 insertions(+)
 
-diff --git a/drivers/gpu/drm/imx/dcss/dcss-scaler.c b/drivers/gpu/drm/imx/dcss/dcss-scaler.c
-index 32c3f46b21da..e48b3117efb9 100644
---- a/drivers/gpu/drm/imx/dcss/dcss-scaler.c
-+++ b/drivers/gpu/drm/imx/dcss/dcss-scaler.c
-@@ -166,6 +166,7 @@ static int exp_approx_q(int x)
-  * dcss_scaler_gaussian_filter() - Generate gaussian prototype filter.
-  * @fc_q: fixed-point cutoff frequency normalized to range [0, 1]
-  * @use_5_taps: indicates whether to use 5 taps or 7 taps
-+ * @phase0_identity: use identity filter for phase 0
-  * @coef: output filter coefficients
+diff --git a/drivers/i2c/busses/i2c-mxs.c b/drivers/i2c/busses/i2c-mxs.c
+index 08c9091a1e35..4e07babea9c3 100644
+--- a/drivers/i2c/busses/i2c-mxs.c
++++ b/drivers/i2c/busses/i2c-mxs.c
+@@ -108,6 +108,14 @@ enum mxs_i2c_devtype {
+  * @cmd_complete: completion object for transaction wait
+  * @cmd_err: error code for last transaction
+  * @adapter: i2c subsystem adapter node
++ * @timing0: I2C TIMING0 register value
++ * @timing1: I2C TIMING1 register value
++ * @timing2: I2C TIMING2 register value
++ * @dmach: DMA channel
++ * @pio_data: PIO data for DMA
++ * @addr_data: address data for DMA
++ * @sg_io: scatterlist for I/O
++ * @dma_read: flag indicating DMA read
   */
- static void dcss_scaler_gaussian_filter(int fc_q, bool use_5_taps,
-@@ -262,7 +263,9 @@ static void dcss_scaler_nearest_neighbor_filter(bool use_5_taps,
-  * @src_length: length of input
-  * @dst_length: length of output
-  * @use_5_taps: 0 for 7 taps per phase, 1 for 5 taps
-+ * @phase0_identity: use identity filter for phase 0
-  * @coef: output coefficients
-+ * @nn_interpolation: use nearest neighbor interpolation
-  */
- static void dcss_scaler_filter_design(int src_length, int dst_length,
- 				      bool use_5_taps, bool phase0_identity,
+ struct mxs_i2c_dev {
+ 	struct device *dev;
 --
 2.54.0
 
