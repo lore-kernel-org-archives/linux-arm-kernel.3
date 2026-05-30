@@ -4,63 +4,70 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id DF2AACD6E52
-	for <linux-arm-kernel@archiver.kernel.org>; Sat, 30 May 2026 11:22:04 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id DE9A6CD6E4A
+	for <linux-arm-kernel@archiver.kernel.org>; Sat, 30 May 2026 11:30:00 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=/PKIUPzKZultVLVuDEshDOuPNkVRnRPKWDlFHZcHgBg=; b=IWdI8IhXSSYJEzOj86p8c+LU9z
-	/9iTkPrenFNgWYfexGiIFFxbdT8B75SSZ7BguR4BOFlI1X+8If89nhluP3ldTVIxfbvz0Bsi+OfI0
-	4TuseVKvI5n0b0I3PY/nZov4yKuV5Vqr5bRVjH3upyZJEbWVE7ThJXthNp85UxXNZnIJlLUUpi1S+
-	QoYzIXqqrFlVb5Ra5R7BYW2mdUxnTTmt3eyXuhKVIjDFXMtuj8ZR4PQoTkRSSltkYqXkpISA1gKIv
-	Y7SJUY3dipREAs4QR0talO/55vqTKAMUin5zq0xHe+GX5Q2g2knxFrr+IJc4dOhDomrbZSCzbRmKD
-	pCuHZU7Q==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:References:To:
+	From:Subject:Cc:Message-Id:Date:Content-Type:Content-Transfer-Encoding:
+	Mime-Version:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=koc182XcypwgblVKdeSIgVWifpWgkzVIW/22VPMmUuU=; b=j1lvRLwMYoB3MflDHAygrdSLj6
+	cqKyGOMHzGnVRR3EfY9SJ+9SLdU0qlK/UUXG6K9w0cTFDTroFU7B7jVk5tr/LohM2pAp6mFXKOk+P
+	ZhwcrcGEZWAC+RK2w5fNy51K7UREpFRtGO6GSQ0oqGO+8u5NtuA8mUFu6aavJ7uwEa/NcLzVkGjta
+	B217rGz798OMvsd//nRjXGmIPRMi5KtvoYOqzNhrLZ7ciYr2urkmX08Z61xWuXkd+0Yl5xlALZuSk
+	7kGPKwy7yhVzCFlHSkjAF7IdyA1UYUk7yJxezmP5zNYZyM3cmCR49sI91MC0xpAd8QfxG9WNQqzS9
+	JRhHj8LQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wTHlH-00000008fq4-2bVs;
-	Sat, 30 May 2026 11:21:51 +0000
-Received: from sea.source.kernel.org ([172.234.252.31])
+	id 1wTHt3-00000008gGo-2ADX;
+	Sat, 30 May 2026 11:29:53 +0000
+Received: from out-181.mta0.migadu.com ([91.218.175.181])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wTHlF-00000008fpk-2Ety
+	id 1wTHt0-00000008gFS-1Rrt
 	for linux-arm-kernel@lists.infradead.org;
-	Sat, 30 May 2026 11:21:50 +0000
-Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
-	by sea.source.kernel.org (Postfix) with ESMTP id AA756406BD;
-	Sat, 30 May 2026 11:21:48 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 070561F00893;
-	Sat, 30 May 2026 11:21:47 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1780140108;
-	bh=/PKIUPzKZultVLVuDEshDOuPNkVRnRPKWDlFHZcHgBg=;
-	h=Date:From:To:Cc:Subject:References:In-Reply-To;
-	b=e5XFGMMNxepVlF0/oJxZsyKEE0iKf5a9QQNSu1ZUZxh6mJwXvRhE25rYLnJ4vfONa
-	 XaMyjSqBe+AIJEFhfFQPYfemmMlilA3TnIPyjgKhvp2grF/diRalawoS62X+Y3/qZH
-	 bhF+NFaVVmTyB9uwfW+iZ1s5B526gAmyyUH3TrCoo6AaZqk9u+HlgjUs9TCeNB8OIp
-	 qvOzkgjFtkK9iDjqMVzVlssA09nNAndEe1g8c1af7LmqaR8ktEuUfbscuT3F/F/tCV
-	 +mI2nHp+iLiYtrfUdLfsm8aoxOzagSr0o1UyAvlDWsYAAZCRdpUB3CP+MWhRDdUmsU
-	 rwmOaHYIWlAFw==
-Date: Sat, 30 May 2026 13:21:46 +0200
-From: Krzysztof Kozlowski <krzk@kernel.org>
-To: Jingyi Wang <jingyi.wang@oss.qualcomm.com>
-Cc: Will Deacon <will@kernel.org>, Robin Murphy <robin.murphy@arm.com>, 
-	Joerg Roedel <joro@8bytes.org>, Rob Herring <robh@kernel.org>, 
-	Krzysztof Kozlowski <krzk+dt@kernel.org>, Conor Dooley <conor+dt@kernel.org>, aiqun.yu@oss.qualcomm.com, 
-	tingwei.zhang@oss.qualcomm.com, trilok.soni@oss.qualcomm.com, yijie.yang@oss.qualcomm.com, 
-	linux-arm-kernel@lists.infradead.org, iommu@lists.linux.dev, devicetree@vger.kernel.org, 
-	linux-kernel@vger.kernel.org
-Subject: Re: [PATCH] dt-bindings: arm-smmu: qcom: Add compatible for Maili SoC
-Message-ID: <20260530-blazing-copperhead-of-gallantry-c1dd23@quoll>
-References: <20260524-maili-smmu-v1-1-ec85b12fda83@oss.qualcomm.com>
-MIME-Version: 1.0
-Content-Type: text/plain; charset=utf-8
-Content-Disposition: inline
-In-Reply-To: <20260524-maili-smmu-v1-1-ec85b12fda83@oss.qualcomm.com>
+	Sat, 30 May 2026 11:29:51 +0000
+Mime-Version: 1.0
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=cknow-tech.com;
+	s=key1; t=1780140576;
+	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
+	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
+	 content-transfer-encoding:content-transfer-encoding:
+	 in-reply-to:in-reply-to:references:references;
+	bh=koc182XcypwgblVKdeSIgVWifpWgkzVIW/22VPMmUuU=;
+	b=nlm0SqO6Ux6TBklBXdGkKJEhTao7Z3+0nn5LH1tPMJo2DQt4I9eDda93iXQAfl233TfX/d
+	hVWX2IQs35puA2gA1D+ARI8hH3MFSvJTWxuDWIkzPNoXRwC2WQSFA0n4560+X/4h85nI18
+	PlFueIwyicAQ9W0RcsNaMC6iOjqa4B+R8xq53ok9zyh3YSzgMjjXRPKVkcIj/YlOMnMCNk
+	62MqCCklM3TifYLU/NQNTnxIEcqgHhtzw/q31/dqWjLUwmYgf+atmPv3EPhVgK7+S69xsl
+	NzFuQRGJsPSyKkWOCtQMPioQOMJSLywovGfbdL+Kzuoe7gEWjhsuC3VKh31DOg==
+Content-Transfer-Encoding: quoted-printable
+Content-Type: text/plain; charset=UTF-8
+Date: Sat, 30 May 2026 13:29:18 +0200
+Message-Id: <DIVZ5UVI8BNH.2KC7WUNECAMZS@cknow-tech.com>
+Cc: <kernel@collabora.com>, <dri-devel@lists.freedesktop.org>,
+ <linux-arm-kernel@lists.infradead.org>,
+ <linux-rockchip@lists.infradead.org>, <linux-kernel@vger.kernel.org>
+Subject: Re: [PATCH v3 0/2] Rockchip DRM use-after-free & null-ptr-deref
+ fixes
+X-Report-Abuse: Please report any abuse attempt to abuse@migadu.com and include these headers.
+From: "Diederik de Haas" <diederik@cknow-tech.com>
+To: "Cristian Ciocaltea" <cristian.ciocaltea@collabora.com>, "Sandy Huang"
+ <hjc@rock-chips.com>, =?utf-8?q?Heiko_St=C3=BCbner?= <heiko@sntech.de>,
+ "Andy Yan" <andy.yan@rock-chips.com>, "Maarten Lankhorst"
+ <maarten.lankhorst@linux.intel.com>, "Maxime Ripard" <mripard@kernel.org>,
+ "Thomas Zimmermann" <tzimmermann@suse.de>, "David Airlie"
+ <airlied@gmail.com>, "Simona Vetter" <simona@ffwll.ch>, "Dmitry Baryshkov"
+ <dmitry.baryshkov@oss.qualcomm.com>, "Dmitry Baryshkov" <lumag@kernel.org>,
+ "Andrzej Hajda" <andrzej.hajda@intel.com>, "Neil Armstrong"
+ <neil.armstrong@linaro.org>, "Robert Foss" <rfoss@kernel.org>, "Laurent
+ Pinchart" <Laurent.pinchart@ideasonboard.com>, "Jonas Karlman"
+ <jonas@kwiboo.se>, "Jernej Skrabec" <jernej.skrabec@gmail.com>
+References: <20260327-drm-rk-fixes-v3-0-fd2e6900c08c@collabora.com>
+In-Reply-To: <20260327-drm-rk-fixes-v3-0-fd2e6900c08c@collabora.com>
+X-Migadu-Flow: FLOW_OUT
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260530_042149_597518_1565047F 
-X-CRM114-Status: GOOD (  10.09  )
+X-CRM114-CacheID: sfid-20260530_042950_533724_F8A5F8A3 
+X-CRM114-Status: GOOD (  12.99  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -75,19 +82,50 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Sun, May 24, 2026 at 11:17:34PM -0700, Jingyi Wang wrote:
-> Qualcomm Maili SoC includes apps smmu that implements arm,mmu-500,
-> which is used to translate device-visible virtual addresses to
-> physical addresses. Add compatible for it.
-> 
-> Signed-off-by: Jingyi Wang <jingyi.wang@oss.qualcomm.com>
+On Sat May 30, 2026 at 1:26 PM CEST, Cristian Ciocaltea wrote:
+> The first three patches in the series are fixes for use-after-free &
+> null-ptr-deref related issues found in dw_dp and inno-hdmi Rockchip DRM
+> drivers.
+>
+> The following three patches provide a few minor improvements to dw_dp
+> and dw_hdmi_qp, while the remaining two address use-after-free and
+> memory allocation in DW DP core library.
+
+What's the status of this patch set?
+
+Cheers,
+  Diederik
+
+> Signed-off-by: Cristian Ciocaltea <cristian.ciocaltea@collabora.com>
 > ---
->  Documentation/devicetree/bindings/iommu/arm,smmu.yaml | 1 +
->  1 file changed, 1 insertion(+)
-
-Same comments
-
-Best regards,
-Krzysztof
+> Changes in v3:
+> - Dropped patches 1..6,8 already applied by Heiko
+> - Reworked remaining patch "drm/bridge: synopsys: dw-dp: Unregister AUX
+>   channel on bridge detach" into:
+>   * drm/bridge: synopsys: dw-dp: Support unregistering the AUX channel
+>   * drm/rockchip: dw_dp: Release core resources
+> - Link to v2: https://lore.kernel.org/r/20260310-drm-rk-fixes-v2-0-645ecf=
+b43f49@collabora.com
+>
+> Changes in v2:
+> - Fixed conflicts while rebasing onto latest drm-misc-next
+> - Added two more patches:
+>   * drm/bridge: synopsys: dw-dp: Unregister AUX channel on bridge detach
+>   * drm/bridge: synopsys: dw-dp: Drop useless memory allocation
+> - Link to v1: https://lore.kernel.org/r/20260122-drm-rk-fixes-v1-0-3942f1=
+85750e@collabora.com
+>
+> ---
+> Cristian Ciocaltea (2):
+>       drm/bridge: synopsys: dw-dp: Support unregistering the AUX channel
+>       drm/rockchip: dw_dp: Release core resources
+>
+>  drivers/gpu/drm/bridge/synopsys/dw-dp.c   |  6 ++++++
+>  drivers/gpu/drm/rockchip/dw_dp-rockchip.c | 20 +++++++++++++++++---
+>  include/drm/bridge/dw_dp.h                |  1 +
+>  3 files changed, 24 insertions(+), 3 deletions(-)
+> ---
+> base-commit: 46c31e1604d121221167cb09380de8c7d53290b9
+> change-id: 20260122-drm-rk-fixes-a7622c71553e
 
 
