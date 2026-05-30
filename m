@@ -4,105 +4,73 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 69B0FCD5BD0
-	for <linux-arm-kernel@archiver.kernel.org>; Sat, 30 May 2026 09:20:28 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 7F8ABCD6E4A
+	for <linux-arm-kernel@archiver.kernel.org>; Sat, 30 May 2026 09:20:38 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
+	Content-Type:In-Reply-To:From:References:CC:To:Subject:MIME-Version:Date:
 	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=Vk/0CJJJGRogiX9amt5r+/shVb/2evbPqryg55FyrkU=; b=mr//fSKeES3q1KIi6qGh6Ac5Em
-	bSOI5KtDEsUMHfpRHCD/zaPHvJbrfGiJlcbZZ3zN2zXTqm9gnORGE4Jvsnd0ul30DeXh2y5yu+ULN
-	REHCPs2XtXDRdJXaxr8Lbem+kJs2ALnVhxAg3Q58dByeNPSQbPlIXBGeejPt2jqE6tHvUJJsWPE3c
-	bFqePjaZtGtL3ftJv2StnWQLFwetTkO0CqDMedSv3SJkpdBHzco+3Qhn0brLA/Smzv6ahur/QEBWS
-	lkxMZbjJjlhF4z3hz8DsUJ2AS/4jlCRq6XoSETZpFdul1lJ4ADJvMKhq0NQgnvbodEMwREmdpBAVu
-	xp+OFW4w==;
+	bh=gJKyD3MEQeL3NtbvOYS6sEffOYNqTkOAvR4qUFqTcfA=; b=FHRMZPJcCLdhT1wiEk6ND7iRpa
+	ifFIg6aBRnv99lJRrB+up7voyNWbE/nNec8vhGdVNIiOjj5E4nOX/Gy0due0P46p4qyZkpIddz+15
+	rlZ4517KF5JSGn3EUk4pdrFhulv2eax/LNbuZJaIenAdMzO7flWiXx/fplTZjCBpt7P1DhJlCQEcW
+	jTw3gEiMpfF1aOjp/fEZ+7e4RhQ5HStFgH2AgolVkNK24toiyGrkU44XJY2yXtaezuuvu/K8H1SQz
+	jBiz4QkEmu177s9LnFOfELWY2GbLYN6/b7xqLMZe8lcRL1qTIqlMcQa1q3SwdPQzdikYS6swi1ueW
+	S+yQ3ugQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wTFrh-00000008ZNb-0U31;
-	Sat, 30 May 2026 09:20:21 +0000
-Received: from tor.source.kernel.org ([2600:3c04:e001:324:0:1991:8:25])
+	id 1wTFrs-00000008ZPh-0zjo;
+	Sat, 30 May 2026 09:20:32 +0000
+Received: from canpmsgout12.his.huawei.com ([113.46.200.227])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wTFrf-00000008ZNN-0vvJ
+	id 1wTFro-00000008ZKm-0JfX
 	for linux-arm-kernel@lists.infradead.org;
-	Sat, 30 May 2026 09:20:19 +0000
-Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
-	by tor.source.kernel.org (Postfix) with ESMTP id 57FCB600BB;
-	Sat, 30 May 2026 09:20:18 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 393951F00893;
-	Sat, 30 May 2026 09:20:15 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1780132818;
-	bh=Vk/0CJJJGRogiX9amt5r+/shVb/2evbPqryg55FyrkU=;
-	h=Date:Subject:To:Cc:References:From:In-Reply-To;
-	b=Z3MLw6286pAZHXisvAX6mcc3n8SwhgLI2lkh8wkg2D4WEYvLlyaDQnDwsmOO9fgkX
-	 NkfQc3aRbxPyzYzbxLTOIjyitexuuhzEowcWGNDsXf7V15vYt1YPq3QzpgxfsnYBM5
-	 HxYIJci55WznOm01TlPpzGKmIEzH0qYzkhcF+O7LrEJLu2k4vOqmR3sqtsymGuamvK
-	 3Pm75l9b3B4nv/XqP1xcUOtzARmsd1Kl7u3RSXJlJ4eYuA1QCrpkFbKVDKXoYznL50
-	 sKPkL/NC+ej92VGJnwydTcRhodcWkSa9T1d2EaNaC16/xUNlXmjgQA6nYX7THqd3vv
-	 P9u97A5SELywQ==
-Message-ID: <c8209301-774e-4ec5-8685-c8453a84ae61@kernel.org>
-Date: Sat, 30 May 2026 11:20:13 +0200
+	Sat, 30 May 2026 09:20:30 +0000
+dkim-signature: v=1; a=rsa-sha256; d=huawei.com; s=dkim;
+	c=relaxed/relaxed; q=dns/txt;
+	h=From;
+	bh=gJKyD3MEQeL3NtbvOYS6sEffOYNqTkOAvR4qUFqTcfA=;
+	b=YYEwUr9YjDAV4gF6NQ78K8/5xbTf6orWEUaTxdA+IyOLpNba9GNwjVrgEpD0RN8FNkrBqHYsY
+	pN9+8das2/qPxObAjOCy8wqJZ/yVDiLdblztMVulDOWt2y8wMu+QgRzox/gLnV02QyU8niFGuoA
+	A5+QkKFpS7wtt78oRq6Put0=
+Received: from mail.maildlp.com (unknown [172.19.163.200])
+	by canpmsgout12.his.huawei.com (SkyGuard) with ESMTPS id 4gSDvr4vVkznTW2;
+	Sat, 30 May 2026 17:10:16 +0800 (CST)
+Received: from dggemv712-chm.china.huawei.com (unknown [10.1.198.32])
+	by mail.maildlp.com (Postfix) with ESMTPS id 1FC744055B;
+	Sat, 30 May 2026 17:18:12 +0800 (CST)
+Received: from kwepemn200010.china.huawei.com (7.202.194.133) by
+ dggemv712-chm.china.huawei.com (10.1.198.32) with Microsoft SMTP Server
+ (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
+ 15.2.1544.11; Sat, 30 May 2026 17:18:11 +0800
+Received: from [10.174.178.56] (10.174.178.56) by
+ kwepemn200010.china.huawei.com (7.202.194.133) with Microsoft SMTP Server
+ (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
+ 15.2.1544.11; Sat, 30 May 2026 17:18:11 +0800
+Message-ID: <d0e24622-fbf1-484b-81c8-4e5d945e808d@huawei.com>
+Date: Sat, 30 May 2026 17:18:04 +0800
 MIME-Version: 1.0
 User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH v3] ASoC: dt-bindings: sound: atmel_ac97c: Convert to DT
- schema
-To: Manish Baing <manishbaing2789@gmail.com>, claudiu.beznea@tuxon.dev,
- lgirdwood@gmail.com, broonie@kernel.org, robh@kernel.org,
- krzk+dt@kernel.org, conor+dt@kernel.org, nicolas.ferre@microchip.com,
- alexandre.belloni@bootlin.com
-Cc: linux-sound@vger.kernel.org, devicetree@vger.kernel.org,
- linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org
-References: <20260530052812.115994-1-manishbaing2789@gmail.com>
-From: Krzysztof Kozlowski <krzk@kernel.org>
-Content-Language: en-US
-Autocrypt: addr=krzk@kernel.org; keydata=
- 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 a/A=
-In-Reply-To: <20260530052812.115994-1-manishbaing2789@gmail.com>
-Content-Type: text/plain; charset=UTF-8
+Subject: Re: [PATCH v3] Faster Arm64 __arch_copy_from_user and
+ __arch_copy_to_user
+To: Catalin Marinas <catalin.marinas@arm.com>
+CC: <will@kernel.org>, <sunnanyong@huawei.com>, <wangkefeng.wang@huawei.com>,
+	<benniu@meta.com>, <linux-arm-kernel@lists.infradead.org>,
+	<linux-kernel@vger.kernel.org>
+References: <20260316123100.82932-1-xiqi2@huawei.com>
+ <agdaAPtmPekOKzCx@arm.com>
+Content-Language: en-GB
+From: Qi Xi <xiqi2@huawei.com>
+In-Reply-To: <agdaAPtmPekOKzCx@arm.com>
+Content-Type: text/plain; charset="UTF-8"; format=flowed
 Content-Transfer-Encoding: 7bit
+X-Originating-IP: [10.174.178.56]
+X-ClientProxiedBy: kwepems500001.china.huawei.com (7.221.188.70) To
+ kwepemn200010.china.huawei.com (7.202.194.133)
+X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
+X-CRM114-CacheID: sfid-20260530_022028_442951_FCD9DE4F 
+X-CRM114-Status: GOOD (  36.82  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -117,33 +85,125 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On 30/05/2026 07:28, Manish Baing wrote:
-> Convert the Atmel AC97 controller binding from text
-> format to YAML schema.
-> 
-> The binding constraints were updated during conversion to align with
-> actual driver behavior:
-> - Added previously undocumented 'clocks' and 'clock-names' properties.
->   These are made required, as the driver unconditionally requests them.
-> - Removed 'ac97-gpios' from the required list, as the driver
->   treats the reset pin as optional, and requiring it breaks existing
->   .dtsi validation.
-> - Fixed the ac97-gpios array in the example to use standard
->   comma-separated formatting.
-> 
-> Signed-off-by: Manish Baing <manishbaing2789@gmail.com>
-> ---
-> Changes in v3:
-> - Updated the commit message to include the reasoning behind the property changes, 
->   addressing Sashiko bot feedback.
-> Changes in v2:
-> - Added undocumented 'clocks' and 'clock-names' properties which are
->   unconditionally required by the driver.
-> - Removed 'ac97-gpios' from the required list, as the driver treats
+Hi Catalin,
 
+Thank you for the detailed review. I agree with the security concerns raised.
+I am preparing a second version with PAN toggled around the large copy_from_user loop,
+using privileged LDP/STP only there; all non-optimized paths, boundary handling,
+and copy_to_user() will continue using LDTR/STTR as before.
 
-Srsly, stop. I don't even know where to reply...
+- For the copy_from_user fault concern, I will integrate Mark Rutland's kunit usercopy
+boundary tests into our validation pipeline before resubmitting, to ensure fault
+semantics and partial-copy reporting remain correct.
+
+- For the performance improvements: I have only been able to measure these
+on Kunpeng 920 so far. The optimization relies on generic instruction
+reduction (fewer pointer updates per iteration) and brief PAN toggling,
+which should benefit other ARM64 implementations, but I do not have access
+to additional hardware for validation. I would appreciate testing feedback
+from the community if anyone can run the kunit/benchmark suite on other
+platforms.
+
+I'll send the updated patch once the implementation and testing are ready.
 
 Best regards,
-Krzysztof
+Qi
+
+On 16/05/2026 01:38, Catalin Marinas wrote:
+> Hi Qi,
+>
+> On Mon, Mar 16, 2026 at 08:31:00PM +0800, Qi Xi wrote:
+>> Based on Ben Niu's "Faster Arm64 __arch_copy_from_user and
+>> __arch_copy_to_user" patch [1], this implementation further optimizes
+>> and simplifies user space copies by:
+>>
+>> 1. Limiting optimization scope to >=128 bytes copies where PAN state matters.
+>>     For <128 bytes copies, the implementation uses non-privileged
+>>     instructions uniformly, simplifying the code and reducing maintenance
+>>     cost.
+> At least this part makes the changes more manageable.
+>
+>> 2. Adding "arm64.nopan" cmdline support using the standard idreg-override
+>>     framework, allowing runtime PAN disable without building separate
+>>     CONFIG_ARM64_PAN=y/n kernels as required by Ben Niu's version.
+>>     The implementation maintains separate paths for PAN-enabled (using
+>>     unprivileged ldtr/sttr) and PAN-disabled (using standard ldp/stp), with
+>>     runtime selection via ALTERNATIVE() at the large copy loop entry.
+> I think you got them the other way around. Your new code requires PAN=0
+> to be able to use the privileged STP/LDP. However, disabling PAN does
+> not mean STTR/LDTR are no longer needed and the kernel should use
+> STP/LDP for uaccess.
+>
+> Even on hardware without PAN, having STTR/LDTR is still very useful (we
+> had them on get/put_user() from the start; later fully used in the user
+> copy routines once we got rid of KERNEL_DS). They prevent accessing
+> kernel location with a user-controlled address if somehow they escape
+> access_ok() (and we did have bugs in this area). This has nothing to do
+> with PAN.
+>
+> You don't even need PAN disabled globally for your code to work, just
+> toggle PAN briefly for the routine, similar to what we had since commit
+> 338d4f49d6f7 ("arm64: kernel: Add support for Privileged Access Never").
+> Presumably for large copies, the PAN setting is lost in the noise.
+>
+> That said, I don't think we should reduce the security in mainline for
+> this optimisation. And we should definitely not gate it on arm64.nopan
+> (more like a less_secure_uaccess_but_faster_on_some_hardware=1).
+>
+>> 3. Retaining the critical path optimization from the original patch:
+>>     reducing pointer update instructions through manual batch updates,
+>>     processing 64 bytes per iteration with only one pair of add instructions.
+>>
+>> Performance improvements measured on Kunpeng 920 with PAN disabled:
+> [...]
+>> Real-world workloads:
+>> - RocksDB read-write mixed workload:
+>>    Overall throughput improved by 2%.
+>>    copy_to_user hotspot reduced from 3.3% to 2.7% of total CPU cycles.
+>>    copy_from_user hotspot reduced from 2.25% to 0.85% of total CPU cycles.
+>>
+>> - BRPC rdma_performance (server side, baidu_std protocol over TCP):
+>>    copy_to_user accounts for ~11.5% of total CPU cycles.
+>>    After optimization, server CPU utilization reduced from 64% to 62%
+>>    (2% absolute improvement, equivalent to ~17% reduction in
+>>    copy_to_user overhead)
+> I agree there are some small improvements but it would be good to
+> reproduce them on other hardware as well.
+>
+>> +	/*
+>> +	* interlace the load of next 64 bytes data block with store of the last
+>> +	* loaded 64 bytes data.
+>> +	*/
+>> +	stp_unpriv	A_l, A_h, dst, #0
+>> +	ldp_unpriv	A_l, A_h, src, #0
+>> +	stp_unpriv	B_l, B_h, dst, #16
+>> +	ldp_unpriv	B_l, B_h, src, #16
+>> +	stp_unpriv	C_l, C_h, dst, #32
+>> +	ldp_unpriv	C_l, C_h, src, #32
+>> +	stp_unpriv	D_l, D_h, dst, #48
+>> +	ldp_unpriv	D_l, D_h, src, #48
+>> +	add	dst, dst, #64
+>> +	add	src, src, #64
+>> +	subs	count, count, #64
+>> +	b.ge	1b
+>> +	b	.Llarge_done
+> This changes the semantics a bit, especially in the copy_from_user()
+> path. With your patch, we can write into the kernel buffer until, say,
+> offset #32. On the offset #48 ldp we get a fault but #dst has never been
+> updated, so we report nothing copied (almost, we have the fault path
+> attempting one more byte copy).
+>
+> For copy_to_user(), we have some imp def behaviour already where a
+> faulting unaligned store at the end of a page may or may not write the
+> end of the page. Past discussions concluded that under-reporting on
+> copy_to_user(). Whether that's also fine for copy_from_user(), not sure.
+> I think Robin tried to address these at some point. There's also a
+> proposal for a kunit usercopy test for boundary conditions but we
+> couldn't agree on the semantics (architectures behave differently here):
+>
+> https://lore.kernel.org/r/20230321122514.1743889-1-mark.rutland@arm.com/
+>
+> We do run these internally but it would be good to get them upstream
+> before any other changes to this code.
+>
 
