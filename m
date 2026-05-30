@@ -4,67 +4,60 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 3F496CD5BD0
-	for <linux-arm-kernel@archiver.kernel.org>; Sat, 30 May 2026 20:47:18 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 0AE86CD6E49
+	for <linux-arm-kernel@archiver.kernel.org>; Sat, 30 May 2026 20:48:43 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:MIME-Version:Message-ID:Date:Subject:Cc:To:From:Reply-To:
-	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
-	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
-	bh=BfIck/rT3+zK22QCpPHxg3Zn0YkqOsK6i33YZrX+1YY=; b=NWuvQ5rv1j2Z5ikYWG4K80sjS8
-	GN3PYI9H9CO3eB0RGS+UrarfPY6snNoob/OU37fgBwZYvr+y5gZz+OdGvcRTV5iEYW6gvZ75+/SQX
-	7K8SN2TxfwYrFPmtM8Yi6ZzxPSATCGDAY6K4Mtr0Tb0OHREgnr9h8l1L+J195QiaCNOx0vv4OqvA7
-	PVJCT7Eo0Pnc0y2VLXUqio9ddipqdv3Gg9sBqnswa9VzvTIc0iXEKjkq1+QJC9EIB6m1ovup/9zA8
-	Qw1G489IkltmW8gqBNNarGJXEnWMBwqnqKntiCceZCHm5z61TDiofCVqbqyAf7Yb4CV8JKeyVf4Ao
-	C5xff+dA==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Subject:Message-Id:
+	References:In-Reply-To:To:Cc:From:MIME-Version:Content-Transfer-Encoding:
+	Content-Type:Date:Reply-To:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=c9vLKWYG42FEGYkXWgIv3uwvb3u+dOyLKJzsNTX1l4A=; b=U6UGrJdC7rZZMk7qYy2z+0Z5nA
+	wqWLf+Obp/4TjkbPltBTR1g2B4gFjiTyaynh0fn6WzmDX45wEwykhdhZ2kpVf4JDtM9D/MGHBP7G4
+	4JrWYWiL6mfSD3t288Jpefv9W7pmeBVQ07vS51RkCoEz42F4sJH4zKXPLIlY36F73XfzwhhuKVDC2
+	kL5819UaGXWiNtDSktIpmcS8v3tz5Rwors4DQBdlxRL07eVDXiEnvOQzW0AAIRJzBDH+LeRutQDIp
+	UmzqYoKCFakRnaQqTFWgQdrv+Lx6XowjkwvYqbcI4cRiK5LLq7Kd5Kk+Oh4WJ5BfMU9bnCknf9lc0
+	I3mDc5Ng==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wTQaI-000000093gq-3NfJ;
-	Sat, 30 May 2026 20:47:06 +0000
-Received: from fanzine2.igalia.com ([213.97.179.56])
+	id 1wTQbl-000000093ml-0EQx;
+	Sat, 30 May 2026 20:48:37 +0000
+Received: from tor.source.kernel.org ([2600:3c04:e001:324:0:1991:8:25])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wTQaF-000000093gG-2nJt;
-	Sat, 30 May 2026 20:47:05 +0000
-DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed; d=igalia.com;
-	s=20170329; h=Content-Transfer-Encoding:Content-Type:MIME-Version:Message-ID:
-	Date:Subject:Cc:To:From:Sender:Reply-To:Content-ID:Content-Description:
-	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	In-Reply-To:References:List-Id:List-Help:List-Unsubscribe:List-Subscribe:
-	List-Post:List-Owner:List-Archive;
-	bh=BfIck/rT3+zK22QCpPHxg3Zn0YkqOsK6i33YZrX+1YY=; b=SwxvQkoEVKNzIOGqsyo0BlWs4C
-	WSHo0ip6PZzcLEB3DxmTB96AwEwzUFeAR1LoXjR/BRGTrmRwCjBDwPZXQeDFajWWIxTFqqaA9LSgT
-	Y965Fs92x/BxcKWgnPIxWpxlbneORSjUUzMBP+X2TXNT8i6Hpwiss2MpamKO3RSlmVtTf9anRNOJE
-	GNbXWgydb55lIb1DEchC3gR+UULryEVrnidNhFpiH/dVbDYSDM708m4/mV7UchoNOr2SFuwex+ASj
-	Y1U0Y3bR+FLV7c2KV0LVKrz5OaGA50W2eYOFFLIkx2BK42P3a9+QrV08O2XEE0uTto5WCMkPdml43
-	UPqCOtUA==;
-Received: from [189.7.87.67] (helo=prince)
-	by fanzine2.igalia.com with esmtpsa 
-	(Cipher TLS1.3:ECDHE_X25519__RSA_PSS_RSAE_SHA256__AES_256_GCM:256) (Exim)
-	id 1wTQZy-00AN27-3W; Sat, 30 May 2026 22:46:46 +0200
-From: =?UTF-8?q?Ma=C3=ADra=20Canal?= <mcanal@igalia.com>
-To: Ulf Hansson <ulfh@kernel.org>,
-	Florian Fainelli <florian.fainelli@broadcom.com>,
-	Broadcom internal kernel review list <bcm-kernel-feedback-list@broadcom.com>,
-	Ray Jui <rjui@broadcom.com>,
-	Scott Branden <sbranden@broadcom.com>,
-	Stefan Wahren <wahrenst@gmx.net>
-Cc: linux-pm@vger.kernel.org,
-	linux-rpi-kernel@lists.infradead.org,
-	linux-arm-kernel@lists.infradead.org,
-	kernel-dev@igalia.com,
-	=?UTF-8?q?Ma=C3=ADra=20Canal?= <mcanal@igalia.com>
-Subject: [PATCH] pmdomain: bcm: bcm2835-power: Raise ASB poll timeout to 100us
-Date: Sat, 30 May 2026 17:46:34 -0300
-Message-ID: <20260530204636.1115120-1-mcanal@igalia.com>
-X-Mailer: git-send-email 2.54.0
-MIME-Version: 1.0
-Content-Type: text/plain; charset=UTF-8
+	id 1wTQbj-000000093mZ-1fc3;
+	Sat, 30 May 2026 20:48:35 +0000
+Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
+	by tor.source.kernel.org (Postfix) with ESMTP id 60DAE60126;
+	Sat, 30 May 2026 20:48:33 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id C87B51F00898;
+	Sat, 30 May 2026 20:48:32 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
+	s=k20260515; t=1780174113;
+	bh=c9vLKWYG42FEGYkXWgIv3uwvb3u+dOyLKJzsNTX1l4A=;
+	h=Date:From:Cc:To:In-Reply-To:References:Subject;
+	b=a2OtfUrlXutm5ZE8Fug07AhMbKv2H+ooDEDCNjWQj7Os/kjhxrbeJYEaGpLvKB/6a
+	 YQbWhJ2wtFjeCMCUlHRkDZlkL3tyD8t+JLq6uYtmCQ2EskyuV1AUAfyhUezTSM9V6/
+	 bG+Ak7oIy0lfr0iB9SM/FKwUXVq2ctDEzne16pGErdYjLE1JME6NAbujLTXfCFImph
+	 VEFXOzAkfxac+bgbbn8iO9uOfdMbl7XoL+Z0kP38eElQC5NNbc9nJSA2IbPrZ/V0mB
+	 qtS3v266kMpKxXZAFPoCvGXKpE5BubD9bBY83omk70CmdaXpy67bChnc8yx0BL9wna
+	 Qul5ncVjOlGZQ==
+Date: Sat, 30 May 2026 15:48:31 -0500
+Content-Type: text/plain; charset="utf-8"
 Content-Transfer-Encoding: 8bit
-X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260530_134704_031702_D0C6BF2F 
-X-CRM114-Status: UNSURE (   9.64  )
-X-CRM114-Notice: Please train this message.
+MIME-Version: 1.0
+From: "Rob Herring (Arm)" <robh@kernel.org>
+Cc: devicetree@vger.kernel.org, clabbe@baylibre.com, 
+ linux-rockchip@lists.infradead.org, heiko@sntech.de, 
+ linux-arm-kernel@lists.infradead.org, krzk+dt@kernel.org, 
+ conor+dt@kernel.org, davem@davemloft.net, linux-kernel@vger.kernel.org, 
+ linux-crypto@vger.kernel.org, herbert@gondor.apana.org.au
+To: Dawid Olesinski <dawidro@gmail.com>
+In-Reply-To: <20260530160704.3453555-2-dawidro@gmail.com>
+References: <20260530160704.3453555-1-dawidro@gmail.com>
+ <20260530160704.3453555-2-dawidro@gmail.com>
+Message-Id: <178017410969.3710466.3951554039156108335.robh@kernel.org>
+Subject: Re: [PATCH 1/4] dt-bindings: crypto: rockchip: Add RK356x/RK3588
+ crypto engine binding
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -79,40 +72,61 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Commit 18605b1b936b ("pmdomain: bcm: bcm2835-power: Increase ASB control
-timeout") raised the ASB handshake polling budget from 1us to 5us.
-Surveying the pmdomain subsystem, 5us is still one of the smallest polling
-budgets by a wide margin. Comparable handshakes in other drivers use:
 
-  - 100us : starfive jh71xx-pmu, apple pmgr-pwrstate
-  - 1ms   : renesas rcar-sysc, rmobile-sysc (power-on)
-  - 10ms  : renesas rcar-gen4-sysc, sunxi sun55i-pck600
-  - 1s    : mediatek mtk-pm-domains, mtk-scpsys
+On Sat, 30 May 2026 17:06:42 +0100, Dawid Olesinski wrote:
+> Add a YAML device tree binding for the Rockchip second-generation (V2)
+> cryptographic hardware accelerator present on the RK3568 and RK3588 SoCs.
+> 
+> The IP block exposes AES-ECB, AES-CBC, AES-XTS block ciphers, SHA-1,
+> SHA-224, SHA-256, SHA-384, SHA-512, MD5, and SM3 hash algorithms, each
+> with a hardware DMA engine controlled via linked-list descriptors.
+> 
+> The binding covers two compatible strings:
+> 
+>   - rockchip,rk3568-crypto: clocks and resets are driven directly by the
+>     non-secure CRU (accessible to Linux at EL1).
+>   - rockchip,rk3588-crypto: clocks and resets live in SECURECRU, a
+>     register bank sandboxed to TrustZone. Linux must request them through
+>     the ARM SCMI firmware interface (scmi_clk / scmi_reset), as direct
+>     MMIO access to SECURECRU from EL1 triggers a bus fault.
+> 
+> Signed-off-by: Dawid Olesinski <dawidro@gmail.com>
+> ---
+>  .../crypto/rockchip,rk3588-crypto.yaml        | 69 +++++++++++++++++++
+>  1 file changed, 69 insertions(+)
+>  create mode 100644 Documentation/devicetree/bindings/crypto/rockchip,rk3588-crypto.yaml
+> 
 
-Raise the BCM2835 timeout to 100us, matching analogous drivers. 100us is
-still negligible relative to a power-domain transition and gives the V3D
-master ASB substantially more headroom to drain under heavy workloads,
-assuring us that the timeout is enough for any scenario.
+My bot found errors running 'make dt_binding_check' on your patch:
 
-Signed-off-by: Maíra Canal <mcanal@igalia.com>
----
- drivers/pmdomain/bcm/bcm2835-power.c | 2 +-
- 1 file changed, 1 insertion(+), 1 deletion(-)
+yamllint warnings/errors:
 
-diff --git a/drivers/pmdomain/bcm/bcm2835-power.c b/drivers/pmdomain/bcm/bcm2835-power.c
-index b76d74e3849b..d507bb675e29 100644
---- a/drivers/pmdomain/bcm/bcm2835-power.c
-+++ b/drivers/pmdomain/bcm/bcm2835-power.c
-@@ -175,7 +175,7 @@ static int bcm2835_asb_control(struct bcm2835_power *power, u32 reg, bool enable
- 	writel(PM_PASSWORD | val, base + reg);
- 
- 	if (readl_poll_timeout_atomic(base + reg, val,
--				      !!(val & ASB_ACK) != enable, 0, 5))
-+				      !!(val & ASB_ACK) != enable, 0, 100))
- 		return -ETIMEDOUT;
- 
- 	return 0;
--- 
-2.54.0
+dtschema/dtc warnings/errors:
+Lexical error: Documentation/devicetree/bindings/crypto/rockchip,rk3588-crypto.example.dts:30.33-49 Unexpected 'SCMI_CRYPTO_CORE'
+Lexical error: Documentation/devicetree/bindings/crypto/rockchip,rk3588-crypto.example.dts:31.33-52 Unexpected 'SCMI_ACLK_SECURE_NS'
+Lexical error: Documentation/devicetree/bindings/crypto/rockchip,rk3588-crypto.example.dts:32.33-52 Unexpected 'SCMI_HCLK_SECURE_NS'
+Lexical error: Documentation/devicetree/bindings/crypto/rockchip,rk3588-crypto.example.dts:34.35-56 Unexpected 'SCMI_SRST_CRYPTO_CORE'
+FATAL ERROR: Syntax error parsing input tree
+make[2]: *** [scripts/Makefile.dtbs:140: Documentation/devicetree/bindings/crypto/rockchip,rk3588-crypto.example.dtb] Error 1
+make[2]: *** Waiting for unfinished jobs....
+make[1]: *** [/builds/robherring/dt-review-ci/linux/Makefile:1660: dt_binding_check] Error 2
+make: *** [Makefile:248: __sub-make] Error 2
+
+doc reference errors (make refcheckdocs):
+
+See https://patchwork.kernel.org/project/devicetree/patch/20260530160704.3453555-2-dawidro@gmail.com
+
+The base for the series is generally the latest rc1. A different dependency
+should be noted in *this* patch.
+
+If you already ran 'make dt_binding_check' and didn't see the above
+error(s), then make sure 'yamllint' is installed and dt-schema is up to
+date:
+
+pip3 install dtschema --upgrade
+
+Please check and re-submit after running the above command yourself. Note
+that DT_SCHEMA_FILES can be set to your schema file to speed up checking
+your schema. However, it must be unset to test all examples with your schema.
 
 
