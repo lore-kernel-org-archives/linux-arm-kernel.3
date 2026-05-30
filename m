@@ -4,84 +4,72 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 6B4B5CD6E49
-	for <linux-arm-kernel@archiver.kernel.org>; Sat, 30 May 2026 16:09:30 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 944D4CD6E4C
+	for <linux-arm-kernel@archiver.kernel.org>; Sat, 30 May 2026 16:19:58 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:MIME-Version:Message-ID:Date:Subject:Cc:To:From:Reply-To:
-	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
-	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
-	bh=c+oE8zzIOS3Se+b/rUAfcpZ/DI7FVtS/AJEmeRtHYxE=; b=usJ9ue6oejrY5nD4dmr+wzuBIN
-	du3T+FjYToXN5ZVQ4uQuvVxJ90rsjwLKzd/wZC+KRv7rxUhMFcgsjCX8uqxEfUGWh3frpcwe8BLpG
-	u+XoaPjXF2/TTRhlUIm9ef0H7UVL+HrgCOj131eSJ9L3z7edml7UVPKN4neN4Ktk5RgF/B8tUPDvP
-	lUfKJtrR9UqAzvnPaRj0r2EnbXcD0g3eByp6nrji+LzTMB8gH1K/eCXhflsXSSAt4UeFICxm2kjIp
-	Erd20ZLE+7pubjY+dKcQ83D/FVsCK9LLDq6g13v4gkYrCW9E/YzRz5z0aVFMzvhydmARdqhWZNTrH
-	evyreGQQ==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=WxYmQxwwBxgWs6asR9XSCI+irQfqn2faBEqKE1hn53E=; b=fqeYhXBaomFukpjcjR27IZQwcz
+	8rJeJetoYWy7CnAkR5wHLO2cDVEY9GvG7r1bth9MOs1obnEQdzg08dcAr97sry+zLUuaZ6CvIeodw
+	F5Nj21lmAxKXwOScLlXnWdBQusauwj0fSWTGXueObDERvr9KfBgGSzwgIscukuXzauuzHghrr0XgQ
+	UcXGCj/5fTKz4KIPzhZHd8bVb1+ej4HpPrCOFioqF1VWQlG8VYVI0FeHFGcsI9uG45Jz2uz9knDrh
+	pbPOtlZPdgq2Qx4IiJaKUfxpBu8mXnpKFWIEEXDcCerHpvn6lCngpvNwZc+2pc/lK0h9sOD/28u/P
+	FCvcvyXg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wTMFY-00000008uh5-1fZw;
-	Sat, 30 May 2026 16:09:24 +0000
-Received: from mail-wm1-x333.google.com ([2a00:1450:4864:20::333])
+	id 1wTMPf-00000008v8T-1UYX;
+	Sat, 30 May 2026 16:19:51 +0000
+Received: from tor.source.kernel.org ([172.105.4.254])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wTMFV-00000008ugJ-1TTN
+	id 1wTMPd-00000008v8N-0ESE
 	for linux-arm-kernel@lists.infradead.org;
-	Sat, 30 May 2026 16:09:22 +0000
-Received: by mail-wm1-x333.google.com with SMTP id 5b1f17b1804b1-49048e043e5so68500975e9.1
-        for <linux-arm-kernel@lists.infradead.org>; Sat, 30 May 2026 09:09:20 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20251104; t=1780157359; x=1780762159; darn=lists.infradead.org;
-        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
-         :to:from:from:to:cc:subject:date:message-id:reply-to;
-        bh=c+oE8zzIOS3Se+b/rUAfcpZ/DI7FVtS/AJEmeRtHYxE=;
-        b=lec0btolFoq3wZuxouNZREoAK61Xk1tuN+Ghgp33Uv89hHwiWOgx3cwXrNUPNAxIrb
-         QbzZaJ/kz3hCKzz3tofRGmKfD84NRxQx1vXr6NJhHxsW7SN39YARoMpyDh0kg439/KDs
-         JoaRGKUhry8TzoWbW4xrvsbP9D+MTZFHEYF0eXlpaiy2VwaVwfqDLfwGiBXfS2NnqMVo
-         Ls2yC0DT7ccBZ+3qNayjK/cb1mXoQvZwIL+FWAZ9RtiCwPW40Ef6aypNRcoqOQXtXb6q
-         yeqRuLFVo4w1VdyF18634EilbSSqH5yqD2QEdDw+umqaocIMIev38G2Lcb7FT53s+wYk
-         kYpQ==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20251104; t=1780157359; x=1780762159;
-        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
-         :to:from:x-gm-gg:x-gm-message-state:from:to:cc:subject:date
-         :message-id:reply-to;
-        bh=c+oE8zzIOS3Se+b/rUAfcpZ/DI7FVtS/AJEmeRtHYxE=;
-        b=VqPaOu7ZTj5tJFSRkacBj9axAlH7uSlpQnxodbcvpgoWpcmKn3rOx2slfBLteYA1dx
-         ask5kbMuUxhoQck8+pprNiSGsJ67yYVp67JAm2IzUEP/EO/c0LrmpgyD+zspP2daWeQ4
-         qvm0bTAYEIvGAgPklcuWyM27Qla4ZuebOVl2wGf/xhpdFtocGOVxVh7+Ng+/vtyTl5/l
-         kaOOSWpf2NprSO3e1a5pppt3pAkKIOsi4fAiybJadST34CR3leapF/TSxeXugmIB6U1M
-         qPLYcVIFhUzAbIrdXZEsuXLEIC0IgpgTl8G1wzKifNMNFJsRXANrjdjST9O11muinMtk
-         8dNA==
-X-Gm-Message-State: AOJu0YyE0kmnoTBTQmB3l4EqUIJaqPuVUUH8wKKla6QD2DxxtzVFcvbd
-	4WXz9YfWOwDHS4UYtkuBD7iW4Wq/ecSJ+VhK5rKl4oLohBGGJeg/qvlgOajBRg8oSCI=
-X-Gm-Gg: Acq92OEBBOp0ZbZ85S3eyj9BdeuHOvhyPqu94MGLpI4ZKcGAote0NHO0otg8I2CZwER
-	OVq7j8j3R+jDJRipbi2rjdz6QGgGXZVJUUq7e8k6YCmzy6x0IuKEoqhXnxVvlFUTE7A//Iv2ogZ
-	GL+zXL0ygh41ELX7SJCZKBgqACBZWy2OJho6oz899NXkUAGWADAUroG5WQqPwoVvqrlIitpzKnm
-	14kLtWYqbzYBrFXzCnf4VeHxNR3F62aHqD4v68GMYpsk6jDLL+5vD8wZxgPEV/5vLVl77fNAsiS
-	cC/qg/w5hD2jrCGRpfC39pmWLFob1K+3H/226SJdk7DiX2+3QHDBqd6OTV1YbWpYbCjWQ1QrGpc
-	0HU3W2lxbFHy1GY56ZY7ahWa1IhoswnpdtoXlp3xhsdk4GMIezDjR3Rie7e8D0fWXj1VqHrWN3Y
-	LITE6LAEUsAIyYJhpXsBVm28xknPwd28jXfm5YCQ==
-X-Received: by 2002:a05:600c:1d86:b0:488:8bdd:cfcc with SMTP id 5b1f17b1804b1-490a28ab3d7mr81162665e9.0.1780157359207;
-        Sat, 30 May 2026 09:09:19 -0700 (PDT)
-Received: from olympus.. ([2a0a:ef40:ea3:3f01:2e0:4cff:fe68:285])
-        by smtp.gmail.com with ESMTPSA id 5b1f17b1804b1-4909c110243sm55610615e9.6.2026.05.30.09.09.18
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Sat, 30 May 2026 09:09:18 -0700 (PDT)
-From: Dawid Olesinski <dawidro@gmail.com>
-To: heiko@sntech.de,
-	linux-rockchip@lists.infradead.org
-Cc: linux-arm-kernel@lists.infradead.org,
-	Dawid Olesinski <dawidro@gmail.com>
-Subject: [PATCH] clk: rockchip: rk3588: Remove SECURECRU reset definitions
-Date: Sat, 30 May 2026 17:08:14 +0100
-Message-ID: <20260530160827.3453582-1-dawidro@gmail.com>
-X-Mailer: git-send-email 2.47.3
+	Sat, 30 May 2026 16:19:49 +0000
+Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
+	by tor.source.kernel.org (Postfix) with ESMTP id 18ACC600BB;
+	Sat, 30 May 2026 16:19:48 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id BD33E1F00893;
+	Sat, 30 May 2026 16:19:40 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
+	s=k20260515; t=1780157987;
+	bh=WxYmQxwwBxgWs6asR9XSCI+irQfqn2faBEqKE1hn53E=;
+	h=Date:From:To:Cc:Subject:References:In-Reply-To;
+	b=WZl0+4I9eq0OPPyxyDBdqCGRR+y0CoJpx7P9J1ZNHafWZGZX1fuK9HT7HOCSp1FVU
+	 9ddWJ9lDITFjq9eKGfZ8XgcPI1Gceue8QxkZpOu0JwKjN75XEWJg4tA2a8UNAkWZvu
+	 d2ASsHkW3EY1IZ3rOpPzq31XPfEMQM756K5+/fSW612wkX78yv2eAZ66ejeZV4LlfY
+	 gAu+RNJYW42KKsssq+PHsl1z2ZSd/eOK+QZCgtAc5FgOD8sjUj3miMaJcP2gtaD17q
+	 8U+HAlTtH77+9KCSbzDnS36KQEJCJesVoZVR5wfQkL3btqSLgCjvtjIMAmDS1I+rUb
+	 wf48OWQ3Lcqyg==
+Date: Sat, 30 May 2026 19:19:36 +0300
+From: Mike Rapoport <rppt@kernel.org>
+To: Ard Biesheuvel <ardb+git@google.com>
+Cc: linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org,
+	will@kernel.org, catalin.marinas@arm.com, mark.rutland@arm.com,
+	Ard Biesheuvel <ardb@kernel.org>,
+	Ryan Roberts <ryan.roberts@arm.com>,
+	Anshuman Khandual <anshuman.khandual@arm.com>,
+	Kevin Brodsky <kevin.brodsky@arm.com>,
+	Liz Prucka <lizprucka@google.com>,
+	Seth Jenkins <sethjenkins@google.com>, Kees Cook <kees@kernel.org>,
+	David Hildenbrand <david@kernel.org>,
+	Andrew Morton <akpm@linux-foundation.org>,
+	Jann Horn <jannh@google.com>, linux-mm@kvack.org,
+	linux-hardening@vger.kernel.org, linuxppc-dev@lists.ozlabs.org,
+	linux-sh@vger.kernel.org,
+	Yoshinori Sato <ysato@users.sourceforge.jp>,
+	Rich Felker <dalias@libc.org>,
+	John Paul Adrian Glaubitz <glaubitz@physik.fu-berlin.de>,
+	Geert Uytterhoeven <geert+renesas@glider.be>
+Subject: Re: [PATCH v7 12/15] sh: Drop cache flush of the zero page at boot
+Message-ID: <ahsOGMc7ys3H_oAt@kernel.org>
+References: <20260529150150.1670604-17-ardb+git@google.com>
+ <20260529150150.1670604-29-ardb+git@google.com>
 MIME-Version: 1.0
-Content-Type: text/plain; charset=UTF-8
-Content-Transfer-Encoding: 8bit
-X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260530_090921_436154_DD3EA3E9 
-X-CRM114-Status: GOOD (  12.83  )
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+In-Reply-To: <20260529150150.1670604-29-ardb+git@google.com>
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -96,95 +84,35 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On RK3588 the SECURECRU register bank (mapped at 0xFD7D0000) is
-exclusively accessible to the TrustZone firmware running at EL3.
-Any direct MMIO read or write to these addresses from the non-secure
-Linux kernel (EL1) triggers an asynchronous bus fault and a fatal
-system panic.
+On Fri, May 29, 2026 at 05:02:03PM +0200, Ard Biesheuvel wrote:
+> From: Ard Biesheuvel <ardb@kernel.org>
+> 
+> SuperH performs cache maintenance on the zero page during boot,
+> presumably because before commit
+> 
+>   6215d9f4470f ("arch, mm: consolidate empty_zero_page")
+> 
+> the zero page did double duty as a boot params region, and was cleared
+> separately, as it was not part of BSS. The memset() in question was
+> dropped by that commit, but the __flush_wback_region() call remained.
+> 
+> As empty_zero_page[] has been moved to BSS, it can be treated as any
+> other BSS memory, and so the cache flush can be dropped.
+> 
+> Cc: Yoshinori Sato <ysato@users.sourceforge.jp>
+> Cc: Rich Felker <dalias@libc.org>
+> Cc: John Paul Adrian Glaubitz <glaubitz@physik.fu-berlin.de>
+> Cc: Mike Rapoport <rppt@kernel.org>
+> Cc: Geert Uytterhoeven <geert+renesas@glider.be>
+> Signed-off-by: Ard Biesheuvel <ardb@kernel.org>
 
-The non-secure CRU driver in rst-rk3588.c currently contains 17 reset
-entries backed by RK3588_SECURECRU_RESET_OFFSET, which calculates
-offsets into this protected range. These definitions are unreachable in
-practice — any driver that calls reset_control_assert/deassert on one of
-them will fault the system — and their presence is a source of confusion
-and latent danger.
+Acked-by: Mike Rapoport (Microsoft) <rppt@kernel.org>
 
-Remove the RK3588_SECURECRU_RESET_OFFSET macro and all 17 associated
-reset table entries. Peripherals whose reset lines are controlled by
-SECURECRU (crypto core, keyladder, TRNG, secure SDMMC, etc.) must
-instead obtain their resets through the SCMI firmware protocol, using
-the &scmi_reset phandle in device tree.
+> ---
+>  arch/sh/mm/init.c | 3 ---
+>  1 file changed, 3 deletions(-)
 
-No existing in-tree driver is affected: none of the removed IDs
-(SRST_CRYPTO_CORE, SRST_CRYPTO_PKA, etc.) are referenced outside this
-file and its corresponding header.
-
-Signed-off-by: Dawid Olesinski <dawidro@gmail.com>
----
- drivers/clk/rockchip/rst-rk3588.c | 42 -------------------------------
- 1 file changed, 42 deletions(-)
-
-diff --git a/drivers/clk/rockchip/rst-rk3588.c b/drivers/clk/rockchip/rst-rk3588.c
-index c4ebc01f1c9c..7a856de64d9e 100644
---- a/drivers/clk/rockchip/rst-rk3588.c
-+++ b/drivers/clk/rockchip/rst-rk3588.c
-@@ -16,9 +16,6 @@
- /* 0xFD7C8000 + 0x0A00 */
- #define RK3588_PHPTOPCRU_RESET_OFFSET(id, reg, bit) [id] = (0x8000*4 + reg * 16 + bit)
- 
--/* 0xFD7D0000 + 0x0A00 */
--#define RK3588_SECURECRU_RESET_OFFSET(id, reg, bit) [id] = (0x10000*4 + reg * 16 + bit)
--
- /* 0xFD7F0000 + 0x0A00 */
- #define RK3588_PMU1CRU_RESET_OFFSET(id, reg, bit) [id] = (0x30000*4 + reg * 16 + bit)
- 
-@@ -807,45 +804,6 @@ static const int rk3588_register_offset[] = {
- 	RK3588_PMU1CRU_RESET_OFFSET(SRST_P_PMU0IOC, 5, 4),
- 	RK3588_PMU1CRU_RESET_OFFSET(SRST_P_GPIO0, 5, 5),
- 	RK3588_PMU1CRU_RESET_OFFSET(SRST_GPIO0, 5, 6),
--
--	/* SECURECRU_SOFTRST_CON00 */
--	RK3588_SECURECRU_RESET_OFFSET(SRST_A_SECURE_NS_BIU, 0, 10),
--	RK3588_SECURECRU_RESET_OFFSET(SRST_H_SECURE_NS_BIU, 0, 11),
--	RK3588_SECURECRU_RESET_OFFSET(SRST_A_SECURE_S_BIU, 0, 12),
--	RK3588_SECURECRU_RESET_OFFSET(SRST_H_SECURE_S_BIU, 0, 13),
--	RK3588_SECURECRU_RESET_OFFSET(SRST_P_SECURE_S_BIU, 0, 14),
--	RK3588_SECURECRU_RESET_OFFSET(SRST_CRYPTO_CORE, 0, 15),
--
--	/* SECURECRU_SOFTRST_CON01 */
--	RK3588_SECURECRU_RESET_OFFSET(SRST_CRYPTO_PKA, 1, 0),
--	RK3588_SECURECRU_RESET_OFFSET(SRST_CRYPTO_RNG, 1, 1),
--	RK3588_SECURECRU_RESET_OFFSET(SRST_A_CRYPTO, 1, 2),
--	RK3588_SECURECRU_RESET_OFFSET(SRST_H_CRYPTO, 1, 3),
--	RK3588_SECURECRU_RESET_OFFSET(SRST_KEYLADDER_CORE, 1, 9),
--	RK3588_SECURECRU_RESET_OFFSET(SRST_KEYLADDER_RNG, 1, 10),
--	RK3588_SECURECRU_RESET_OFFSET(SRST_A_KEYLADDER, 1, 11),
--	RK3588_SECURECRU_RESET_OFFSET(SRST_H_KEYLADDER, 1, 12),
--	RK3588_SECURECRU_RESET_OFFSET(SRST_P_OTPC_S, 1, 13),
--	RK3588_SECURECRU_RESET_OFFSET(SRST_OTPC_S, 1, 14),
--	RK3588_SECURECRU_RESET_OFFSET(SRST_WDT_S, 1, 15),
--
--	/* SECURECRU_SOFTRST_CON02 */
--	RK3588_SECURECRU_RESET_OFFSET(SRST_T_WDT_S, 2, 0),
--	RK3588_SECURECRU_RESET_OFFSET(SRST_H_BOOTROM, 2, 1),
--	RK3588_SECURECRU_RESET_OFFSET(SRST_A_DCF, 2, 2),
--	RK3588_SECURECRU_RESET_OFFSET(SRST_P_DCF, 2, 3),
--	RK3588_SECURECRU_RESET_OFFSET(SRST_H_BOOTROM_NS, 2, 5),
--	RK3588_SECURECRU_RESET_OFFSET(SRST_P_KEYLADDER, 2, 14),
--	RK3588_SECURECRU_RESET_OFFSET(SRST_H_TRNG_S, 2, 15),
--
--	/* SECURECRU_SOFTRST_CON03 */
--	RK3588_SECURECRU_RESET_OFFSET(SRST_H_TRNG_NS, 3, 0),
--	RK3588_SECURECRU_RESET_OFFSET(SRST_D_SDMMC_BUFFER, 3, 1),
--	RK3588_SECURECRU_RESET_OFFSET(SRST_H_SDMMC, 3, 2),
--	RK3588_SECURECRU_RESET_OFFSET(SRST_H_SDMMC_BUFFER, 3, 3),
--	RK3588_SECURECRU_RESET_OFFSET(SRST_SDMMC, 3, 4),
--	RK3588_SECURECRU_RESET_OFFSET(SRST_P_TRNG_CHK, 3, 5),
--	RK3588_SECURECRU_RESET_OFFSET(SRST_TRNG_S, 3, 6),
- };
- 
- void rk3588_rst_init(struct device_node *np, void __iomem *reg_base)
 -- 
-2.47.3
-
+Sincerely yours,
+Mike.
 
