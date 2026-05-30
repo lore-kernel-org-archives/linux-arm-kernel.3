@@ -4,66 +4,105 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 32302CD5BD0
-	for <linux-arm-kernel@archiver.kernel.org>; Sat, 30 May 2026 09:17:22 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 69B0FCD5BD0
+	for <linux-arm-kernel@archiver.kernel.org>; Sat, 30 May 2026 09:20:28 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=5Tz7bz6dX9G948lnWkl0CzkG89ZjwO69Hb6Asux763A=; b=mTCT8e1/x6S83xFyCV4aJfSdWa
-	Ga7St8q18UqUWB5YTrMmxblRqyroBHFnxnWDHbDgpf2KSjHbUAj1H91612DWAZUlNCRaAK4o43+bM
-	iKysQM/EGFmmXyP+IPWVXNVDSobWu/o6nv/e66TTp0GY+X0LVa1lT0oHbULR0Wj5y36loGPufM2/Q
-	fm3EKD/mUFEl+bfhLLKfQSqmQYzFR05/id5ullTUegjvBzHDuEfs/ZHKPVCddW8GdJqLI+5bXeNZz
-	ACtiN0XpHOnIpyKM2dGSU67UKD8dCg9rXSpFlIU+W/3hBPoN7OGt5YtiwG8lIOVm9AyaUYRrgSlje
-	scKC/ukA==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
+	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=Vk/0CJJJGRogiX9amt5r+/shVb/2evbPqryg55FyrkU=; b=mr//fSKeES3q1KIi6qGh6Ac5Em
+	bSOI5KtDEsUMHfpRHCD/zaPHvJbrfGiJlcbZZ3zN2zXTqm9gnORGE4Jvsnd0ul30DeXh2y5yu+ULN
+	REHCPs2XtXDRdJXaxr8Lbem+kJs2ALnVhxAg3Q58dByeNPSQbPlIXBGeejPt2jqE6tHvUJJsWPE3c
+	bFqePjaZtGtL3ftJv2StnWQLFwetTkO0CqDMedSv3SJkpdBHzco+3Qhn0brLA/Smzv6ahur/QEBWS
+	lkxMZbjJjlhF4z3hz8DsUJ2AS/4jlCRq6XoSETZpFdul1lJ4ADJvMKhq0NQgnvbodEMwREmdpBAVu
+	xp+OFW4w==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wTFog-00000008ZEC-2qNB;
-	Sat, 30 May 2026 09:17:14 +0000
-Received: from zeus03.de ([194.117.254.33] helo=mail.zeus03.de)
+	id 1wTFrh-00000008ZNb-0U31;
+	Sat, 30 May 2026 09:20:21 +0000
+Received: from tor.source.kernel.org ([2600:3c04:e001:324:0:1991:8:25])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wTFod-00000008ZDo-0eyT
+	id 1wTFrf-00000008ZNN-0vvJ
 	for linux-arm-kernel@lists.infradead.org;
-	Sat, 30 May 2026 09:17:13 +0000
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=
-	sang-engineering.com; h=date:from:to:cc:subject:message-id
-	:references:mime-version:content-type:in-reply-to; s=k1; bh=5Tz7
-	bz6dX9G948lnWkl0CzkG89ZjwO69Hb6Asux763A=; b=HcwBzck3MSSjwprJqLpb
-	D7oSe1xJTw5vsdWcMeKaMqKdFlEj1kEJeN6+7pyPGDPbfq8GgIhIUIAtgo3B83g8
-	BJLkjZM1PmtxjFq/7rlOYZQo/A9Vub3g4YCBY0f1DtBGABRlL9qcTZZxDVBDUkB8
-	crsJwfVH9yvaB/NgwXJenfkROx6JsD/Zu3RuOFDnyA5PaE2fXhJ68XVP7yZipdbY
-	K0+30PQlZc8TP0qtdqsigcjpJI7hXekHeLoL+BYJkN+xQUyev/mqOaGkKG8Zxx2J
-	aH5smIjF9LBRvRrKPLB4C0t7QjH0BZQWkmS8ysJE+7i4ZUYWJg/cs9JeDhf3/z/Q
-	jQ==
-Received: (qmail 1702015 invoked from network); 30 May 2026 11:17:05 +0200
-Received: by mail.zeus03.de with ESMTPSA (TLS_AES_256_GCM_SHA384 encrypted, authenticated); 30 May 2026 11:17:05 +0200
-X-UD-Smtp-Session: l3s3148p1@yyHJbAVT4aKSAB1K
-Date: Sat, 30 May 2026 11:17:05 +0200
-From: Wolfram Sang <wsa+renesas@sang-engineering.com>
-To: Peter Rosin <peda@lysator.liu.se>
-Cc: Marcus Folkesson <marcus.folkesson@gmail.com>,
-	Michael Hennerich <michael.hennerich@analog.com>,
-	Bartosz Golaszewski <brgl@bgdev.pl>,
-	Andi Shyti <andi.shyti@kernel.org>,
-	Andy Shevchenko <andriy.shevchenko@intel.com>,
-	Bartosz Golaszewski <brgl@kernel.org>, linux-i2c@vger.kernel.org,
-	linux-kernel@vger.kernel.org, linux-arm-kernel@lists.infradead.org
-Subject: Re: [PATCH v9 5/5] docs: i2c: i2c-topology: add section about bus
- speed
-Message-ID: <ahqrEe_m4K4T7LaC@shikoro>
-References: <20260324-i2c-mux-v9-0-5292b0608243@gmail.com>
- <20260324-i2c-mux-v9-5-5292b0608243@gmail.com>
- <ahX4_WaqodYt3PmD@shikoro>
- <776cefab-fa6c-4092-8b95-236a3eaac729@lysator.liu.se>
+	Sat, 30 May 2026 09:20:19 +0000
+Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
+	by tor.source.kernel.org (Postfix) with ESMTP id 57FCB600BB;
+	Sat, 30 May 2026 09:20:18 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 393951F00893;
+	Sat, 30 May 2026 09:20:15 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
+	s=k20260515; t=1780132818;
+	bh=Vk/0CJJJGRogiX9amt5r+/shVb/2evbPqryg55FyrkU=;
+	h=Date:Subject:To:Cc:References:From:In-Reply-To;
+	b=Z3MLw6286pAZHXisvAX6mcc3n8SwhgLI2lkh8wkg2D4WEYvLlyaDQnDwsmOO9fgkX
+	 NkfQc3aRbxPyzYzbxLTOIjyitexuuhzEowcWGNDsXf7V15vYt1YPq3QzpgxfsnYBM5
+	 HxYIJci55WznOm01TlPpzGKmIEzH0qYzkhcF+O7LrEJLu2k4vOqmR3sqtsymGuamvK
+	 3Pm75l9b3B4nv/XqP1xcUOtzARmsd1Kl7u3RSXJlJ4eYuA1QCrpkFbKVDKXoYznL50
+	 sKPkL/NC+ej92VGJnwydTcRhodcWkSa9T1d2EaNaC16/xUNlXmjgQA6nYX7THqd3vv
+	 P9u97A5SELywQ==
+Message-ID: <c8209301-774e-4ec5-8685-c8453a84ae61@kernel.org>
+Date: Sat, 30 May 2026 11:20:13 +0200
 MIME-Version: 1.0
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-In-Reply-To: <776cefab-fa6c-4092-8b95-236a3eaac729@lysator.liu.se>
-X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260530_021712_078413_882AD7AA 
-X-CRM114-Status: GOOD (  26.16  )
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH v3] ASoC: dt-bindings: sound: atmel_ac97c: Convert to DT
+ schema
+To: Manish Baing <manishbaing2789@gmail.com>, claudiu.beznea@tuxon.dev,
+ lgirdwood@gmail.com, broonie@kernel.org, robh@kernel.org,
+ krzk+dt@kernel.org, conor+dt@kernel.org, nicolas.ferre@microchip.com,
+ alexandre.belloni@bootlin.com
+Cc: linux-sound@vger.kernel.org, devicetree@vger.kernel.org,
+ linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org
+References: <20260530052812.115994-1-manishbaing2789@gmail.com>
+From: Krzysztof Kozlowski <krzk@kernel.org>
+Content-Language: en-US
+Autocrypt: addr=krzk@kernel.org; keydata=
+ xsFNBFVDQq4BEAC6KeLOfFsAvFMBsrCrJ2bCalhPv5+KQF2PS2+iwZI8BpRZoV+Bd5kWvN79
+ cFgcqTTuNHjAvxtUG8pQgGTHAObYs6xeYJtjUH0ZX6ndJ33FJYf5V3yXqqjcZ30FgHzJCFUu
+ JMp7PSyMPzpUXfU12yfcRYVEMQrmplNZssmYhiTeVicuOOypWugZKVLGNm0IweVCaZ/DJDIH
+ gNbpvVwjcKYrx85m9cBVEBUGaQP6AT7qlVCkrf50v8bofSIyVa2xmubbAwwFA1oxoOusjPIE
+ J3iadrwpFvsZjF5uHAKS+7wHLoW9hVzOnLbX6ajk5Hf8Pb1m+VH/E8bPBNNYKkfTtypTDUCj
+ NYcd27tjnXfG+SDs/EXNUAIRefCyvaRG7oRYF3Ec+2RgQDRnmmjCjoQNbFrJvJkFHlPeHaeS
+ BosGY+XWKydnmsfY7SSnjAzLUGAFhLd/XDVpb1Een2XucPpKvt9ORF+48gy12FA5GduRLhQU
+ vK4tU7ojoem/G23PcowM1CwPurC8sAVsQb9KmwTGh7rVz3ks3w/zfGBy3+WmLg++C2Wct6nM
+ Pd8/6CBVjEWqD06/RjI2AnjIq5fSEH/BIfXXfC68nMp9BZoy3So4ZsbOlBmtAPvMYX6U8VwD
+ TNeBxJu5Ex0Izf1NV9CzC3nNaFUYOY8KfN01X5SExAoVTr09ewARAQABzSVLcnp5c3p0b2Yg
+ S296bG93c2tpIDxrcnprQGtlcm5lbC5vcmc+wsGVBBMBCgA/AhsDBgsJCAcDAgYVCAIJCgsE
+ FgIDAQIeAQIXgBYhBJvQfg4MUfjVlne3VBuTQ307QWKbBQJoF1BKBQkWlnSaAAoJEBuTQ307
+ QWKbHukP/3t4tRp/bvDnxJfmNdNVn0gv9ep3L39IntPalBFwRKytqeQkzAju0whYWg+R/rwp
+ +r2I1Fzwt7+PTjsnMFlh1AZxGDmP5MFkzVsMnfX1lGiXhYSOMP97XL6R1QSXxaWOpGNCDaUl
+ ajorB0lJDcC0q3xAdwzRConxYVhlgmTrRiD8oLlSCD5baEAt5Zw17UTNDnDGmZQKR0fqLpWy
+ 786Lm5OScb7DjEgcA2PRm17st4UQ1kF0rQHokVaotxRM74PPDB8bCsunlghJl1DRK9s1aSuN
+ hL1Pv9VD8b4dFNvCo7b4hfAANPU67W40AaaGZ3UAfmw+1MYyo4QuAZGKzaP2ukbdCD/DYnqi
+ tJy88XqWtyb4UQWKNoQqGKzlYXdKsldYqrLHGoMvj1UN9XcRtXHST/IaLn72o7j7/h/Ac5EL
+ 8lSUVIG4TYn59NyxxAXa07Wi6zjVL1U11fTnFmE29ALYQEXKBI3KUO1A3p4sQWzU7uRmbuxn
+ naUmm8RbpMcOfa9JjlXCLmQ5IP7Rr5tYZUCkZz08LIfF8UMXwH7OOEX87Y++EkAB+pzKZNNd
+ hwoXulTAgjSy+OiaLtuCys9VdXLZ3Zy314azaCU3BoWgaMV0eAW/+gprWMXQM1lrlzvwlD/k
+ whyy9wGf0AEPpLssLVt9VVxNjo6BIkt6d1pMg6mHsUEVzsFNBFVDXDQBEADNkrQYSREUL4D3
+ Gws46JEoZ9HEQOKtkrwjrzlw/tCmqVzERRPvz2Xg8n7+HRCrgqnodIYoUh5WsU84N03KlLue
+ MNsWLJBvBaubYN4JuJIdRr4dS4oyF1/fQAQPHh8Thpiz0SAZFx6iWKB7Qrz3OrGCjTPcW6ei
+ OMheesVS5hxietSmlin+SilmIAPZHx7n242u6kdHOh+/SyLImKn/dh9RzatVpUKbv34eP1wA
+ GldWsRxbf3WP9pFNObSzI/Bo3kA89Xx2rO2roC+Gq4LeHvo7ptzcLcrqaHUAcZ3CgFG88CnA
+ 6z6lBZn0WyewEcPOPdcUB2Q7D/NiUY+HDiV99rAYPJztjeTrBSTnHeSBPb+qn5ZZGQwIdUW9
+ YegxWKvXXHTwB5eMzo/RB6vffwqcnHDoe0q7VgzRRZJwpi6aMIXLfeWZ5Wrwaw2zldFuO4Dt
+ 91pFzBSOIpeMtfgb/Pfe/a1WJ/GgaIRIBE+NUqckM+3zJHGmVPqJP/h2Iwv6nw8U+7Yyl6gU
+ BLHFTg2hYnLFJI4Xjg+AX1hHFVKmvl3VBHIsBv0oDcsQWXqY+NaFahT0lRPjYtrTa1v3tem/
+ JoFzZ4B0p27K+qQCF2R96hVvuEyjzBmdq2esyE6zIqftdo4MOJho8uctOiWbwNNq2U9pPWmu
+ 4vXVFBYIGmpyNPYzRm0QPwARAQABwsF8BBgBCgAmAhsMFiEEm9B+DgxR+NWWd7dUG5NDfTtB
+ YpsFAmgXUF8FCRaWWyoACgkQG5NDfTtBYptO0w//dlXJs5/42hAXKsk+PDg3wyEFb4NpyA1v
+ qmx7SfAzk9Hf6lWwU1O6AbqNMbh6PjEwadKUk1m04S7EjdQLsj/MBSgoQtCT3MDmWUUtHZd5
+ RYIPnPq3WVB47GtuO6/u375tsxhtf7vt95QSYJwCB+ZUgo4T+FV4hquZ4AsRkbgavtIzQisg
+ Dgv76tnEv3YHV8Jn9mi/Bu0FURF+5kpdMfgo1sq6RXNQ//TVf8yFgRtTUdXxW/qHjlYURrm2
+ H4kutobVEIxiyu6m05q3e9eZB/TaMMNVORx+1kM3j7f0rwtEYUFzY1ygQfpcMDPl7pRYoJjB
+ dSsm0ZuzDaCwaxg2t8hqQJBzJCezTOIkjHUsWAK+tEbU4Z4SnNpCyM3fBqsgYdJxjyC/tWVT
+ AQ18NRLtPw7tK1rdcwCl0GFQHwSwk5pDpz1NH40e6lU+NcXSeiqkDDRkHlftKPV/dV+lQXiu
+ jWt87ecuHlpL3uuQ0ZZNWqHgZoQLXoqC2ZV5KrtKWb/jyiFX/sxSrodALf0zf+tfHv0FZWT2
+ zHjUqd0t4njD/UOsuIMOQn4Ig0SdivYPfZukb5cdasKJukG1NOpbW7yRNivaCnfZz6dTawXw
+ XRIV/KDsHQiyVxKvN73bThKhONkcX2LWuD928tAR6XMM2G5ovxLe09vuOzzfTWQDsm++9UKF a/A=
+In-Reply-To: <20260530052812.115994-1-manishbaing2789@gmail.com>
+Content-Type: text/plain; charset=UTF-8
+Content-Transfer-Encoding: 7bit
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -78,74 +117,33 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-
-> What makes the topology bad is D2. Without that device, it should
-> be OK. So, the question is which is more important?
-> 1. protect ignorant system designers from creating a topology
->    that includes problematic devices like D2
-> 2. allow multi-level mux-locked muxes with variable bus-speed at all
-
-My take is: as a generic operating system, we should try hard to
-maintain a reliable system. If a device gets stalled and blocks the bus
-because of a too high frequency, this is really bad.
-
-Now, if this is a flaw of the HW design, we can only do so much but not
-more. If the HW design is OK, we should not introduce risks. This is why
-I want to disable this feature for MUX_IDLE_AS_IS. It cannot work in
-this setup, but the bus itself is likely designed OK and would work at
-the lowest speed.
-
-> Checking the rules at run-time feels complicated to me, as devices
-> may come and go. Also, naming people "ignorant" over a mistake such
-> as the above in 1 is perhaps not all that fair. But, it feels sad
-> to disallow things that in fact do work.
-
-Like I said, as a generic OS, we should play safe. If someone wants to
-implement a more risky version, it can be built on top of what we have.
-This is agreeing to "I want this and I know I am on my own now".
-Obviously, it reduces maintenance burden a lot.
-
-> > ... unlike here. We have MUX_IDLE_AS_IS and MUX_IDLE_DISCONNECT defined
-> > already. And I'd think we should only allow bus speed switching for
-> > MUX_IDLE_DISCONNECT to avoid out-of-spec scenarios. Opinions?
+On 30/05/2026 07:28, Manish Baing wrote:
+> Convert the Atmel AC97 controller binding from text
+> format to YAML schema.
 > 
-> It is probably not unwise to disallow MUX_IDLE_AS_IS in this context,
-> at least until someone actually needs it. Which does not seem all that
-> likely?
-
-Exactly.
-
-> However, it seems like it should be fairly OK to allow a predefined
-> idle channel, as long as that channel is not lowering the bus speed
-> compared to the parent. But maybe supporting that can also wait for
-> an actual user?
-
-I agree as well. I hope that Marcus' use-case is MUX_IDLE_DISCONNECT.
-
-> > > +Supported controllers
-> > > +-----------------------
-> > > +
-> > > +Not all I2C controllers support setting the bus speed dynamically.
-> > > +At the time of writing, the following controllers have support:
-> > > +
-> > > +============================   =============================================
-> > > +i2c-davinci                    Supports dynamic bus speed
-> > > +============================   =============================================
-> > 
-> > This paragaph is easy to get outdated. We can document that only
-> > controller drivers with the callback function implemented will work.
-> > People then can find out if that applies for their driver...
+> The binding constraints were updated during conversion to align with
+> actual driver behavior:
+> - Added previously undocumented 'clocks' and 'clock-names' properties.
+>   These are made required, as the driver unconditionally requests them.
+> - Removed 'ac97-gpios' from the required list, as the driver
+>   treats the reset pin as optional, and requiring it breaks existing
+>   .dtsi validation.
+> - Fixed the ac97-gpios array in the example to use standard
+>   comma-separated formatting.
 > 
-> There are other such hard-to-maintain lists elsewhere in the text.
-> Not saying that this makes neither those nor this list a good idea,
-> but it is an explanation for adding one more.
+> Signed-off-by: Manish Baing <manishbaing2789@gmail.com>
+> ---
+> Changes in v3:
+> - Updated the commit message to include the reasoning behind the property changes, 
+>   addressing Sashiko bot feedback.
+> Changes in v2:
+> - Added undocumented 'clocks' and 'clock-names' properties which are
+>   unconditionally required by the driver.
+> - Removed 'ac97-gpios' from the required list, as the driver treats
 
-You mean the list if a driver uses parent-locked or mux-locked. What
-about putting that information into the driver? The core could enforce
-that it is set to a meaningful value and not left uninitialized?
 
-Happy hacking everyone,
+Srsly, stop. I don't even know where to reply...
 
-   Wolfram
-
+Best regards,
+Krzysztof
 
