@@ -4,108 +4,54 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 2EF74CD6E4A
-	for <linux-arm-kernel@archiver.kernel.org>; Sat, 30 May 2026 09:47:44 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 0E1A2CD6E4A
+	for <linux-arm-kernel@archiver.kernel.org>; Sat, 30 May 2026 10:15:56 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:Cc:To:Subject:Message-ID:Date:From:In-Reply-To:References:
-	MIME-Version:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Message-ID:Date:To:Cc:From:
+	Subject:References:In-Reply-To:Content-Transfer-Encoding:MIME-Version:
+	Content-Type:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=Oz3YRZffQ26ZGbOw1AGWWjvLi6zaQG9IZbhnachZ1JQ=; b=yHs8TethJZGLKwYFyIdzGZvD1D
-	tq1UESQYOUeReYcs2wXHnT/bapyDX3BV/q0emKnQEQ2hGdpzg72SVde3rlyo64OELKCRWyj1Ki+vW
-	Wxaw7NC94HQV1OfqlV75X/o6Wqch5YzsnylZoQYQ14CbDTFN9uvn80qOk9woOiuJxwWR2/1gaN63L
-	em5zLPVLaJthQvA1+NI0hcYdAYtilKAPiIel7EymkmpfcoZyvSAnMtclxzlYaAyKg14l9bHrd/0Rv
-	zOTEB09G4R9d84WWl6jKGzsmNAmQFpx3d/RRLRFKz6biEk/2cNcw/BT1fyLtmHT6L7PLRHlSV9TSV
-	H6nBHJaw==;
+	bh=HzwkDTAQqG6PPS7fnoCTQG10EzG6gQrpm3Qj4d8jAGQ=; b=IRM5p1XIV1TOY4xni/kOXJmCwX
+	+GKGeM/6tT+xjGeM9/SG63/58z8ixscIxfT05NrpC+kppYpXB3WK+MJlDE96zbwKqBbIkon4H/F8M
+	gOWN7Rmmr9zzCLmZ22CQmRNoWyrVcNfuE8uVzuL1ArbFWjJzhLdkA1zaLEKZBmOyllZI6+kKUuWFs
+	V03Zqkt0uz8ZqA9ZsDMu6EwV+5Fx0sz1ToCcwqoKFKMXGeiOlkqnm9VW9Qj1buLdyQP3RdmSszla/
+	+pN0T1dxSFdlKcTCIoWT2vSH7ZfIDxnu0nFRuT+19xcotaF1KK2xsSo9SlvEqjYvwmjiikBoXloJi
+	FcrmPVeA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wTGI2-00000008bVo-1VUb;
-	Sat, 30 May 2026 09:47:34 +0000
-Received: from mail-qv1-xf35.google.com ([2607:f8b0:4864:20::f35])
+	id 1wTGjM-00000008cOV-3rLt;
+	Sat, 30 May 2026 10:15:48 +0000
+Received: from perceval.ideasonboard.com ([213.167.242.64])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wTGI0-00000008bVR-0uKX
+	id 1wTGjJ-00000008cNv-29mP
 	for linux-arm-kernel@lists.infradead.org;
-	Sat, 30 May 2026 09:47:33 +0000
-Received: by mail-qv1-xf35.google.com with SMTP id 6a1803df08f44-8c9166b26b4so170475306d6.0
-        for <linux-arm-kernel@lists.infradead.org>; Sat, 30 May 2026 02:47:31 -0700 (PDT)
-ARC-Seal: i=1; a=rsa-sha256; t=1780134451; cv=none;
-        d=google.com; s=arc-20240605;
-        b=O+SthATq9g5kMLjRKkycvsZcHGhRm+XOEcQmsflNgQRddS8k+NsK+mutpCxTs3b3zu
-         RGAMq+Yjvx5QsqvKKLgilLZ6IfOFXU/e+vPHs50+sjuyhrv+OYeaL2yQGXM7QAkIzUdj
-         kRsdFQV0vl1tChhrZ4M1N33wle8Tm6j386tTQ9aGF3Pra3DJ/LGWNUvaYXxtnbEGSg70
-         ixP0jlRVsITMqr6+5Mliz7xCQWQjEHMTzXgNYqsspQJYUXrpeMbnAhZUx+syPQ0t5X5y
-         QO4tJyJNGuGLuQ8pHGMe27u/ZeoO5SNCc2WMv7Hp06jwc/hzb3ntifSChbyGRTkrLZRX
-         LUjQ==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20240605;
-        h=content-transfer-encoding:cc:to:subject:message-id:date:from
-         :in-reply-to:references:mime-version:dkim-signature;
-        bh=Oz3YRZffQ26ZGbOw1AGWWjvLi6zaQG9IZbhnachZ1JQ=;
-        fh=LdQC6COVITInupk7/G2IFRZJLN4NBTmc3+OSt9ZI+oI=;
-        b=i2wMezkenonofwwCxqHrbQ5i3B0upJ9H/P1I6DWf6riRWe7qZ6qpu7TH2q+sPV642K
-         bDoxfVGUSmqALHOLnmetzaVp9PKdOMK0R68aqUrUcS2dcOMb10TUhNl7aw0a0hiiIh2d
-         cwQq/u7MVf+sdsRqAL8DLISimxiYzW6GUzG8O6dtyXqNhWGtJ0i4LcgdEu+JJJ6PDeO9
-         3mRdUK/aWsrn5AA4aZvE9gerePc1z22c4loTqTznGlVGyybYhzXjlGEyUIfZGiTY4kAx
-         jFY+CGgwBknWbOO6860SZHQZHdrKfFDf9sGMRfcavNL1vvVXkgCNAuGd/70SfVfuq4CJ
-         UlZA==;
-        darn=lists.infradead.org
-ARC-Authentication-Results: i=1; mx.google.com; arc=none
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20251104; t=1780134451; x=1780739251; darn=lists.infradead.org;
-        h=content-transfer-encoding:cc:to:subject:message-id:date:from
-         :in-reply-to:references:mime-version:from:to:cc:subject:date
-         :message-id:reply-to;
-        bh=Oz3YRZffQ26ZGbOw1AGWWjvLi6zaQG9IZbhnachZ1JQ=;
-        b=lAnHQZSwtrbiCmzOpO6SUuenUfK64v4Ek9lea/d+3q6lvu5y4ZhhLObHIxp3D8O4BH
-         o8pEsTtbpSn9ZkaW/dFauyqQi4Y01nQ9maidCGEnao19wJrlzjxFg9adb0ELZWqHoxmg
-         iziYeXbHmyIJtDYTHgHQmMOwWx7Rgp2+Gx52C0gNczKQuz3BI7RKnHLjtd+ftN5r+h5S
-         GkqoEjwmhlmFfpG56wLIbHque1j4vdmUVMc2LUeK5vvf6BrZXFZHqOapelVjOAcJjCtU
-         IMZ0vuabiRdK2FSzXYqnnVrfpZWNRO2xmXJk2/G/rlTY1oPlqPQXxsAIwIa5Ok3DnhIl
-         hwPQ==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20251104; t=1780134451; x=1780739251;
-        h=content-transfer-encoding:cc:to:subject:message-id:date:from
-         :in-reply-to:references:mime-version:x-gm-gg:x-gm-message-state:from
-         :to:cc:subject:date:message-id:reply-to;
-        bh=Oz3YRZffQ26ZGbOw1AGWWjvLi6zaQG9IZbhnachZ1JQ=;
-        b=p/pS4Mf3JxHjrmscDns3pnUHR+6H5i1NIMh/onaC0WsfaUlBezE/BpmysRpUxs9Gb+
-         T5YQOVrImePTV5l3I2jeSEfUjrkn3MQ5VRvhE795cEG03X1AI61IXas6nCloif8Gyk5+
-         f9HO0iHlTpgWL2rj4tnbu75BvSX4pzCZ/MyZFL3U1QYKWAFNsOh1vhYRnPGIM7RvP7Bn
-         RwR8dN7xCShUYzwuSHF+TlWZZAM8uB3UrnrmknPQ27SwBFLEBoJ/xb0y4eo2+63FYVgi
-         8LYRE9Ftk4giMtgnrdJgtSwxyZSvBueRVc2mGJI8e8XlkPGuoXe9mjIgUzDXGF9JRbjz
-         VQgQ==
-X-Forwarded-Encrypted: i=1; AFNElJ+jZ5mfGsTF8LOR+n5XOiDjO2GPKjpHyf+ksGaGqJr4smzQ1y35jxl38O/AsIg4ZMQh+YNkK/Rw2Ek4focVBnID@lists.infradead.org
-X-Gm-Message-State: AOJu0YyM52Upj6PJBDX1onowN2tBlBgOG0t2osYhExR7tPq1jjj9CDND
-	5S8eMy98E5ilV3wV99IdVWjDLc1SD3Gyvql6q33pcA0YO4oLv49+bwNnXuyW44CldiRp4vFaQ98
-	wu8vWNb3fY7KOTj0rygc2I9R53gt3JRE=
-X-Gm-Gg: Acq92OEolBFO2O7Ia7EASaAGsjkoP0yhfM4Wux1Kvu1AUCyHT5H+d1qDCuGI90G1ejg
-	5QuJbW5ONY2OZYvn5kp/46gdhOm4D6GgklaDpMcq7JZjRI6m2ismSvaBnsxQydXuQ9+raiS5Vcs
-	LDvXIwJo1EGgDVG77FtaUCB+XgY6sQAHuIVF0tp1cXPwMsvIGouxf1bcWKo4qnSpvoEUoka2+72
-	7XOgFqdsLPeuEa+qXgNsPNbWpMGDawLpBVxLLJq0irYW2vNeOrAd7kGAiF3ZddDErI5Sw+7LC2r
-	JXtZu9GYBzRsDRZ1NpRSdm9RqDw2l/4fCPUmafUzniRIcLkjR2K5UPx3s3dGLVZMT2Uk1C6pSba
-	7WyY=
-X-Received: by 2002:a05:6214:3207:b0:8ca:10cc:fdbc with SMTP id
- 6a1803df08f44-8ccefd98b0amr53330036d6.23.1780134450763; Sat, 30 May 2026
- 02:47:30 -0700 (PDT)
+	Sat, 30 May 2026 10:15:47 +0000
+Received: from mail.ideasonboard.com (unknown [IPv6:2401:4900:1c69:382:6f:8c15:9eec:bfe9])
+	by perceval.ideasonboard.com (Postfix) with ESMTPSA id 579157CA;
+	Sat, 30 May 2026 12:15:19 +0200 (CEST)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=ideasonboard.com;
+	s=mail; t=1780136119;
+	bh=zvaQmf+JYcrSECFYTq4UgqqoBQXPSdcx+io6HmU0Skc=;
+	h=In-Reply-To:References:Subject:From:Cc:To:Date:From;
+	b=ZSaTGwIJEU8eaobh6MC0b3gcnNDLpSV9zHMxVRStc4f8kSxSuDWq6QnARS2AUHlid
+	 G7l8wSlvHfjDDzDW4muwKU7nMnF0XIvUHgrhuAkY8PK0s8g6c4IKdMUgzosQIYw0/x
+	 1o8tHlJlfIH/2CGUQJyY7+wPUrssN6gDr5ZSGmGg=
+Content-Type: text/plain; charset="utf-8"
 MIME-Version: 1.0
-References: <20260530052812.115994-1-manishbaing2789@gmail.com> <c8209301-774e-4ec5-8685-c8453a84ae61@kernel.org>
-In-Reply-To: <c8209301-774e-4ec5-8685-c8453a84ae61@kernel.org>
-From: Manish Baing <manishbaing2789@gmail.com>
-Date: Sat, 30 May 2026 15:17:19 +0530
-X-Gm-Features: AVHnY4KAZWNK2RT4qjWm79BISQq-qXuvBUOBtqIHpTd5Bcj1PcsZbOxPtlj136I
-Message-ID: <CAJvdc_f4MPNcUn6C5VGB5f_mmyeq2jQ_Ln-4CWxNTF7fcXhsQA@mail.gmail.com>
-Subject: Re: [PATCH v3] ASoC: dt-bindings: sound: atmel_ac97c: Convert to DT schema
-To: Krzysztof Kozlowski <krzk@kernel.org>
-Cc: claudiu.beznea@tuxon.dev, lgirdwood@gmail.com, broonie@kernel.org, 
-	robh@kernel.org, krzk+dt@kernel.org, conor+dt@kernel.org, 
-	nicolas.ferre@microchip.com, alexandre.belloni@bootlin.com, 
-	linux-sound@vger.kernel.org, devicetree@vger.kernel.org, 
-	linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org
-Content-Type: text/plain; charset="UTF-8"
 Content-Transfer-Encoding: quoted-printable
+In-Reply-To: <20260529144125.vs4bds6nwimqdnbg@quack>
+References: <20260515-beagley-cameras-v2-0-f6acb66c9995@ideasonboard.com> <20260515-beagley-cameras-v2-1-f6acb66c9995@ideasonboard.com> <20260529144125.vs4bds6nwimqdnbg@quack>
+Subject: Re: [PATCH v2 1/4] arm64: dts: ti: k3-am67a-beagley-ai: Add I2C2 pinctrl
+From: Jai Luthra <jai.luthra@ideasonboard.com>
+Cc: Vignesh Raghavendra <vigneshr@ti.com>, Tero Kristo <kristo@kernel.org>, Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>, Conor Dooley <conor+dt@kernel.org>, Robert Nelson <robertcnelson@gmail.com>, Andrew Davis <afd@ti.com>, Devarsh Thakkar <devarsht@ti.com>, Tomi Valkeinen <tomi.valkeinen@ideasonboard.com>, linux-arm-kernel@lists.infradead.org, devicetree@vger.kernel.org, linux-kernel@vger.kernel.org
+To: Nishanth Menon <nm@ti.com>
+Date: Sat, 30 May 2026 15:45:35 +0530
+Message-ID: <178013613529.933414.3135232474616950291@freya>
+User-Agent: alot/0.13.dev20+g31692a239
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260530_024732_274910_3142BA4F 
-X-CRM114-Status: GOOD (  20.11  )
+X-CRM114-CacheID: sfid-20260530_031545_698591_D84F7176 
+X-CRM114-Status: GOOD (  16.90  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -120,51 +66,69 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hi Krzysztof,
+Hi Nishanth,
 
-I sincerely apologize for the massive amount of noise I have created
-on the mailing lists today.
-I am new to the kernel patch submission process and made several major
-workflow mistakes in rapid succession.
-I am stopping all patch submissions immediately.
-I will hold off on further submissions until I have properly verified
-all in-tree users. I will then send a single, consolidated patch
-series with corrected terminology and constraints.
+Quoting Nishanth Menon (2026-05-29 20:11:25)
+> On 06:46-20260515, Jai Luthra wrote:
+> > I2C2 is used by camera sensor devices connected on the 22-pin CSI0
+> > connector. Add the pin definition here so I2C2 may be enabled by the
+> > camera sensor overlays.
+> >=20
+>=20
+> Why not add the i2c node here with the pinmux, but disable the node with a
+> comment that this should be enabled for camera sensors? A bit confused
+> seeing a orphan pinmux node. but i dont see any other function for the
+> i2c2 other than support the camera sensors :)
+>=20
 
-Thank you for your patience and for taking the time to correct my
-workflow. I will do better.
+Ah I saw main_i2c0 pins defined here already with no node (that's also only
+used by CSI1/DSI0 connector), so I followed the same pattern here.
 
-On Sat, May 30, 2026 at 2:50=E2=80=AFPM Krzysztof Kozlowski <krzk@kernel.or=
-g> wrote:
->
-> On 30/05/2026 07:28, Manish Baing wrote:
-> > Convert the Atmel AC97 controller binding from text
-> > format to YAML schema.
-> >
-> > The binding constraints were updated during conversion to align with
-> > actual driver behavior:
-> > - Added previously undocumented 'clocks' and 'clock-names' properties.
-> >   These are made required, as the driver unconditionally requests them.
-> > - Removed 'ac97-gpios' from the required list, as the driver
-> >   treats the reset pin as optional, and requiring it breaks existing
-> >   .dtsi validation.
-> > - Fixed the ac97-gpios array in the example to use standard
-> >   comma-separated formatting.
-> >
-> > Signed-off-by: Manish Baing <manishbaing2789@gmail.com>
+Will move them both here in v2.
+
+Thanks,
+    Jai
+
+>=20
+> > Signed-off-by: Jai Luthra <jai.luthra@ideasonboard.com>
 > > ---
-> > Changes in v3:
-> > - Updated the commit message to include the reasoning behind the proper=
-ty changes,
-> >   addressing Sashiko bot feedback.
-> > Changes in v2:
-> > - Added undocumented 'clocks' and 'clock-names' properties which are
-> >   unconditionally required by the driver.
-> > - Removed 'ac97-gpios' from the required list, as the driver treats
->
->
-> Srsly, stop. I don't even know where to reply...
->
-> Best regards,
-> Krzysztof
+> >  arch/arm64/boot/dts/ti/k3-am67a-beagley-ai.dts | 7 +++++++
+> >  1 file changed, 7 insertions(+)
+> >=20
+> > diff --git a/arch/arm64/boot/dts/ti/k3-am67a-beagley-ai.dts b/arch/arm6=
+4/boot/dts/ti/k3-am67a-beagley-ai.dts
+> > index 5255e04b9ac7..06aac02a7668 100644
+> > --- a/arch/arm64/boot/dts/ti/k3-am67a-beagley-ai.dts
+> > +++ b/arch/arm64/boot/dts/ti/k3-am67a-beagley-ai.dts
+> > @@ -157,6 +157,13 @@ J722S_IOPAD(0x01e4, PIN_INPUT_PULLUP, 0) /* (B22) =
+I2C0_SDA */
+> >               bootph-all;
+> >       };
+> > =20
+> > +     main_i2c2_pins_default: main-i2c2-default-pins {
+> > +             pinctrl-single,pins =3D <
+> > +                     J722S_IOPAD(0x00b0, PIN_INPUT_PULLUP, 1) /* (P22)=
+ GPMC0_CSn2.I2C2_SCL */
+> > +                     J722S_IOPAD(0x00b4, PIN_INPUT_PULLUP, 1) /* (P23)=
+ GPMC0_CSn3.I2C2_SDA */
+> > +             >;
+> > +     };
+> > +
+> >       main_uart0_pins_default: main-uart0-default-pins {
+> >               pinctrl-single,pins =3D <
+> >                       J722S_IOPAD(0x01c8, PIN_INPUT, 0)       /* (A22) =
+UART0_RXD */
+> >=20
+> > --=20
+> > 2.54.0
+> >=20
+> >=20
+>=20
+>=20
+> --=20
+> Regards,
+> Nishanth Menon
+> Key (0xDDB5849D1736249D) / Fingerprint: F8A2 8693 54EB 8232 17A3  1A34 DD=
+B5 849D 1736 249D
+> https://ti.com/opensource
 
