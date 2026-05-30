@@ -4,96 +4,84 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id C284ECD6E55
-	for <linux-arm-kernel@archiver.kernel.org>; Sat, 30 May 2026 16:07:39 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 6B4B5CD6E49
+	for <linux-arm-kernel@archiver.kernel.org>; Sat, 30 May 2026 16:09:30 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:
-	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=+SJMrJ4Tyw4rnth10NKoarZEEEB3Q5hOPvF+j2hwsdo=; b=eyU7/IEFVbSvAEgLrT2O+4RKkA
-	G2xbMcjKsUVxmWfF7uj/Z8h4BjqsGAavV0G0+UN6sXYXjzrVsXuvw1mJ6EmT9lGbgNR6M9ejUl5hs
-	3v/26ZC42bzT1YYsL7cURRvmtBrRlvkh18ZIBISpNscgqsn83HoekX+xo8b407yN0lZ8BriJTw2kI
-	Ewa1Y0H+0ZvAcHlMuNF3H2M28aliteZ3Cz5/pmw/u3j4TW0oLkgMl7zFISBNrmK9tP9orFwNtFDTO
-	vhGKEbyXOZKnLFirMNwyc9MLDTYISQh0OTTzUYapzkk8ZeNkx6VeMokhW56VrulH+l9AGg9uacrg+
-	EuyGtbww==;
+	Content-Type:MIME-Version:Message-ID:Date:Subject:Cc:To:From:Reply-To:
+	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
+	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=c+oE8zzIOS3Se+b/rUAfcpZ/DI7FVtS/AJEmeRtHYxE=; b=usJ9ue6oejrY5nD4dmr+wzuBIN
+	du3T+FjYToXN5ZVQ4uQuvVxJ90rsjwLKzd/wZC+KRv7rxUhMFcgsjCX8uqxEfUGWh3frpcwe8BLpG
+	u+XoaPjXF2/TTRhlUIm9ef0H7UVL+HrgCOj131eSJ9L3z7edml7UVPKN4neN4Ktk5RgF/B8tUPDvP
+	lUfKJtrR9UqAzvnPaRj0r2EnbXcD0g3eByp6nrji+LzTMB8gH1K/eCXhflsXSSAt4UeFICxm2kjIp
+	Erd20ZLE+7pubjY+dKcQ83D/FVsCK9LLDq6g13v4gkYrCW9E/YzRz5z0aVFMzvhydmARdqhWZNTrH
+	evyreGQQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wTMDj-00000008uJ4-25X6;
-	Sat, 30 May 2026 16:07:31 +0000
-Received: from mail-wr1-x42c.google.com ([2a00:1450:4864:20::42c])
+	id 1wTMFY-00000008uh5-1fZw;
+	Sat, 30 May 2026 16:09:24 +0000
+Received: from mail-wm1-x333.google.com ([2a00:1450:4864:20::333])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wTMDZ-00000008uAm-3e49
+	id 1wTMFV-00000008ugJ-1TTN
 	for linux-arm-kernel@lists.infradead.org;
-	Sat, 30 May 2026 16:07:22 +0000
-Received: by mail-wr1-x42c.google.com with SMTP id ffacd0b85a97d-45e9f4a3510so5180286f8f.1
-        for <linux-arm-kernel@lists.infradead.org>; Sat, 30 May 2026 09:07:21 -0700 (PDT)
+	Sat, 30 May 2026 16:09:22 +0000
+Received: by mail-wm1-x333.google.com with SMTP id 5b1f17b1804b1-49048e043e5so68500975e9.1
+        for <linux-arm-kernel@lists.infradead.org>; Sat, 30 May 2026 09:09:20 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20251104; t=1780157240; x=1780762040; darn=lists.infradead.org;
-        h=content-transfer-encoding:mime-version:references:in-reply-to
-         :message-id:date:subject:cc:to:from:from:to:cc:subject:date
-         :message-id:reply-to;
-        bh=+SJMrJ4Tyw4rnth10NKoarZEEEB3Q5hOPvF+j2hwsdo=;
-        b=PEU0zsTN6o/PafM7Xhw5WwxC7M1Dh4BKtKosPYO8/ZdWHW2Vu87UzzcYbyqbMKTOub
-         +qV+YlIoXd56KBEPoFhZyYzmzfRJfyKcubP5FAQVCjNUcYa3PHa73oTxc1lKKiZk7m4+
-         DoMw/Pp1sLKTznxr7JS0poxhrKUB8C0YY0xx6jaLdvLKDZK5BZo4zSupFlsF3Km/dmzt
-         6KbWgPFy2Z2yt/pHwiJAYlvMjWXZbJv1+hm9WKTWVUq80H7Np2qfW04p3KT2oNJyErxw
-         iBndksOBtkPYwWraVO2JlswtnK/714ZHpLAtmNU1OYlzr4gqyq0ZjviE0HxCwutTIxLd
-         n9iw==
+        d=gmail.com; s=20251104; t=1780157359; x=1780762159; darn=lists.infradead.org;
+        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
+         :to:from:from:to:cc:subject:date:message-id:reply-to;
+        bh=c+oE8zzIOS3Se+b/rUAfcpZ/DI7FVtS/AJEmeRtHYxE=;
+        b=lec0btolFoq3wZuxouNZREoAK61Xk1tuN+Ghgp33Uv89hHwiWOgx3cwXrNUPNAxIrb
+         QbzZaJ/kz3hCKzz3tofRGmKfD84NRxQx1vXr6NJhHxsW7SN39YARoMpyDh0kg439/KDs
+         JoaRGKUhry8TzoWbW4xrvsbP9D+MTZFHEYF0eXlpaiy2VwaVwfqDLfwGiBXfS2NnqMVo
+         Ls2yC0DT7ccBZ+3qNayjK/cb1mXoQvZwIL+FWAZ9RtiCwPW40Ef6aypNRcoqOQXtXb6q
+         yeqRuLFVo4w1VdyF18634EilbSSqH5yqD2QEdDw+umqaocIMIev38G2Lcb7FT53s+wYk
+         kYpQ==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20251104; t=1780157240; x=1780762040;
-        h=content-transfer-encoding:mime-version:references:in-reply-to
-         :message-id:date:subject:cc:to:from:x-gm-gg:x-gm-message-state:from
-         :to:cc:subject:date:message-id:reply-to;
-        bh=+SJMrJ4Tyw4rnth10NKoarZEEEB3Q5hOPvF+j2hwsdo=;
-        b=mcm6zOmAgbXbYYKvvbYjswB2/elNnRZ+qvZonBdv5lTcKIgsS4lRAgrxZ1J5yogCo+
-         QnJtRBlQDOH3DDFcEe7QBQpZ43pI41x733acOHHdhe7ch+61ossxfnB3SxithTEtTEdi
-         0FngKpK+4Xg854ChdxcPEP1rJovlP7o0Z/VSI7qa+psIOPzRmThsCGNyC28H7Y/j3Wwb
-         vFtUtI93N0W6C/5YxEBlBWux+hk81O/Oi0TzUm7baw+BhMjmJRkqoPeCUnFLHR75cv+W
-         uZUiwAOQq+6tPnzZofPPPFu8q5ChFNDGsekD9l42aGf66Eh0eHwWCB68rxwbBIBapCq+
-         HViQ==
-X-Forwarded-Encrypted: i=1; AFNElJ+iAcnycz2nQZi2iXpu07bdAj4AeCCOBqJM9t+SgM5P2y8JC9iuKlQqlXNFSuHN5zs5B+AsUQ8iZwyUw7nVCQv/@lists.infradead.org
-X-Gm-Message-State: AOJu0Yz6/y5KKti6ZHU7qceLa4dnxoWBulIbyvJoA+Qq4+xZi6PHrCDh
-	JcmBm+aSShRT/B+aVt0FRHpTSkGzPtttJvOMK2eovTEMWZHMyc3KZTSTTfhsbXbT3oI=
-X-Gm-Gg: Acq92OFn0Dkpvg27zmDZKxyqb0wR6AXUhqhulxpxFmezDe0CdGt4JR6zSCvqCRjYmEg
-	jcnoV7tDCatcBvxkzioFYoKF2zXursYGFLastRpvBJri8juA81oOiFNlmy65t7LieAR6ZLdtsVz
-	nRaGx5vqi4DQFJmXJzvO4KR1H8ZgEAnON6HOvj/6yl2fP8hHtqzKLSJi6f7t5AjaKTJ77qz+u8w
-	ZQQXZ0ltKjRq8qdu+HVMfqC+jSeg/8a/A960IhUWBEn7ZTXnMUqH3/4vQ4fXi58YwSxwa8HHAp8
-	m+jAZGi8xYmwWxBWmHaFQRqBxa3R9zzkaPsQ/WpHSgZ4L2gJmL/lry546gCFh3oBSWl4HDnryW8
-	BIplRz6U3DHV+lmdwr2uWTTYUn2lM+PT2MOP9SWgGrrqDt5vEFMg1l794233kKcXoCCOefy4P8j
-	Y1OhYNQGywsQZbrQRwsXddH/jRKCg=
-X-Received: by 2002:a5d:5989:0:b0:45f:68a7:38d0 with SMTP id ffacd0b85a97d-45f68a73a2amr1942009f8f.0.1780157239975;
-        Sat, 30 May 2026 09:07:19 -0700 (PDT)
+        d=1e100.net; s=20251104; t=1780157359; x=1780762159;
+        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
+         :to:from:x-gm-gg:x-gm-message-state:from:to:cc:subject:date
+         :message-id:reply-to;
+        bh=c+oE8zzIOS3Se+b/rUAfcpZ/DI7FVtS/AJEmeRtHYxE=;
+        b=VqPaOu7ZTj5tJFSRkacBj9axAlH7uSlpQnxodbcvpgoWpcmKn3rOx2slfBLteYA1dx
+         ask5kbMuUxhoQck8+pprNiSGsJ67yYVp67JAm2IzUEP/EO/c0LrmpgyD+zspP2daWeQ4
+         qvm0bTAYEIvGAgPklcuWyM27Qla4ZuebOVl2wGf/xhpdFtocGOVxVh7+Ng+/vtyTl5/l
+         kaOOSWpf2NprSO3e1a5pppt3pAkKIOsi4fAiybJadST34CR3leapF/TSxeXugmIB6U1M
+         qPLYcVIFhUzAbIrdXZEsuXLEIC0IgpgTl8G1wzKifNMNFJsRXANrjdjST9O11muinMtk
+         8dNA==
+X-Gm-Message-State: AOJu0YyE0kmnoTBTQmB3l4EqUIJaqPuVUUH8wKKla6QD2DxxtzVFcvbd
+	4WXz9YfWOwDHS4UYtkuBD7iW4Wq/ecSJ+VhK5rKl4oLohBGGJeg/qvlgOajBRg8oSCI=
+X-Gm-Gg: Acq92OEBBOp0ZbZ85S3eyj9BdeuHOvhyPqu94MGLpI4ZKcGAote0NHO0otg8I2CZwER
+	OVq7j8j3R+jDJRipbi2rjdz6QGgGXZVJUUq7e8k6YCmzy6x0IuKEoqhXnxVvlFUTE7A//Iv2ogZ
+	GL+zXL0ygh41ELX7SJCZKBgqACBZWy2OJho6oz899NXkUAGWADAUroG5WQqPwoVvqrlIitpzKnm
+	14kLtWYqbzYBrFXzCnf4VeHxNR3F62aHqD4v68GMYpsk6jDLL+5vD8wZxgPEV/5vLVl77fNAsiS
+	cC/qg/w5hD2jrCGRpfC39pmWLFob1K+3H/226SJdk7DiX2+3QHDBqd6OTV1YbWpYbCjWQ1QrGpc
+	0HU3W2lxbFHy1GY56ZY7ahWa1IhoswnpdtoXlp3xhsdk4GMIezDjR3Rie7e8D0fWXj1VqHrWN3Y
+	LITE6LAEUsAIyYJhpXsBVm28xknPwd28jXfm5YCQ==
+X-Received: by 2002:a05:600c:1d86:b0:488:8bdd:cfcc with SMTP id 5b1f17b1804b1-490a28ab3d7mr81162665e9.0.1780157359207;
+        Sat, 30 May 2026 09:09:19 -0700 (PDT)
 Received: from olympus.. ([2a0a:ef40:ea3:3f01:2e0:4cff:fe68:285])
-        by smtp.gmail.com with ESMTPSA id ffacd0b85a97d-45ef32fabcasm11667339f8f.0.2026.05.30.09.07.19
+        by smtp.gmail.com with ESMTPSA id 5b1f17b1804b1-4909c110243sm55610615e9.6.2026.05.30.09.09.18
         (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Sat, 30 May 2026 09:07:19 -0700 (PDT)
+        Sat, 30 May 2026 09:09:18 -0700 (PDT)
 From: Dawid Olesinski <dawidro@gmail.com>
-To: herbert@gondor.apana.org.au,
-	davem@davemloft.net,
-	heiko@sntech.de
-Cc: linux-crypto@vger.kernel.org,
-	linux-rockchip@lists.infradead.org,
-	devicetree@vger.kernel.org,
-	linux-arm-kernel@lists.infradead.org,
-	clabbe@baylibre.com,
-	robh@kernel.org,
-	krzk+dt@kernel.org,
-	conor+dt@kernel.org,
-	linux-kernel@vger.kernel.org,
+To: heiko@sntech.de,
+	linux-rockchip@lists.infradead.org
+Cc: linux-arm-kernel@lists.infradead.org,
 	Dawid Olesinski <dawidro@gmail.com>
-Subject: [PATCH 3/4] arm64: dts: rockchip: Add crypto node to rk356x-base
-Date: Sat, 30 May 2026 17:06:44 +0100
-Message-ID: <20260530160704.3453555-4-dawidro@gmail.com>
+Subject: [PATCH] clk: rockchip: rk3588: Remove SECURECRU reset definitions
+Date: Sat, 30 May 2026 17:08:14 +0100
+Message-ID: <20260530160827.3453582-1-dawidro@gmail.com>
 X-Mailer: git-send-email 2.47.3
-In-Reply-To: <20260530160704.3453555-1-dawidro@gmail.com>
-References: <20260530160704.3453555-1-dawidro@gmail.com>
 MIME-Version: 1.0
+Content-Type: text/plain; charset=UTF-8
 Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260530_090721_919950_24FD86ED 
-X-CRM114-Status: GOOD (  12.26  )
+X-CRM114-CacheID: sfid-20260530_090921_436154_DD3EA3E9 
+X-CRM114-Status: GOOD (  12.83  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -108,44 +96,94 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Add the device tree node for the V2 cryptographic hardware accelerator
-on RK356x SoCs (RK3566, RK3568).
+On RK3588 the SECURECRU register bank (mapped at 0xFD7D0000) is
+exclusively accessible to the TrustZone firmware running at EL3.
+Any direct MMIO read or write to these addresses from the non-secure
+Linux kernel (EL1) triggers an asynchronous bus fault and a fatal
+system panic.
 
-The IP block sits in the non-secure peripheral domain. Its three clocks
-(core, aclk, hclk) and reset line are accessible directly through the
-main non-secure CRU, so no firmware intermediary is required.
+The non-secure CRU driver in rst-rk3588.c currently contains 17 reset
+entries backed by RK3588_SECURECRU_RESET_OFFSET, which calculates
+offsets into this protected range. These definitions are unreachable in
+practice — any driver that calls reset_control_assert/deassert on one of
+them will fault the system — and their presence is a source of confusion
+and latent danger.
 
-The node is disabled by default; board files that wish to use hardware
-crypto offload must enable it.
+Remove the RK3588_SECURECRU_RESET_OFFSET macro and all 17 associated
+reset table entries. Peripherals whose reset lines are controlled by
+SECURECRU (crypto core, keyladder, TRNG, secure SDMMC, etc.) must
+instead obtain their resets through the SCMI firmware protocol, using
+the &scmi_reset phandle in device tree.
+
+No existing in-tree driver is affected: none of the removed IDs
+(SRST_CRYPTO_CORE, SRST_CRYPTO_PKA, etc.) are referenced outside this
+file and its corresponding header.
 
 Signed-off-by: Dawid Olesinski <dawidro@gmail.com>
 ---
- arch/arm64/boot/dts/rockchip/rk356x-base.dtsi | 12 ++++++++++++
- 1 file changed, 12 insertions(+)
+ drivers/clk/rockchip/rst-rk3588.c | 42 -------------------------------
+ 1 file changed, 42 deletions(-)
 
-diff --git a/arch/arm64/boot/dts/rockchip/rk356x-base.dtsi b/arch/arm64/boot/dts/rockchip/rk356x-base.dtsi
-index 64bdd8b7754b..3b73a56046e7 100644
---- a/arch/arm64/boot/dts/rockchip/rk356x-base.dtsi
-+++ b/arch/arm64/boot/dts/rockchip/rk356x-base.dtsi
-@@ -1171,6 +1171,18 @@ gpu_leakage: gpu-leakage@1d {
- 		};
- 	};
+diff --git a/drivers/clk/rockchip/rst-rk3588.c b/drivers/clk/rockchip/rst-rk3588.c
+index c4ebc01f1c9c..7a856de64d9e 100644
+--- a/drivers/clk/rockchip/rst-rk3588.c
++++ b/drivers/clk/rockchip/rst-rk3588.c
+@@ -16,9 +16,6 @@
+ /* 0xFD7C8000 + 0x0A00 */
+ #define RK3588_PHPTOPCRU_RESET_OFFSET(id, reg, bit) [id] = (0x8000*4 + reg * 16 + bit)
  
-+	crypto: crypto@fe380000 {
-+		compatible = "rockchip,rk3568-crypto";
-+		reg = <0x0 0xfe380000 0x0 0x2000>;
-+		interrupts = <GIC_SPI 4 IRQ_TYPE_LEVEL_HIGH>;
-+		clocks = <&cru CLK_CRYPTO_NS_CORE>, <&cru ACLK_CRYPTO_NS>,
-+			 <&cru HCLK_CRYPTO_NS>;
-+		clock-names = "core", "aclk", "hclk";
-+		resets = <&cru SRST_CRYPTO_NS_CORE>;
-+		reset-names = "core";
-+		status = "disabled";
-+	};
-+
- 	i2s0_8ch: i2s@fe400000 {
- 		compatible = "rockchip,rk3568-i2s-tdm";
- 		reg = <0x0 0xfe400000 0x0 0x1000>;
+-/* 0xFD7D0000 + 0x0A00 */
+-#define RK3588_SECURECRU_RESET_OFFSET(id, reg, bit) [id] = (0x10000*4 + reg * 16 + bit)
+-
+ /* 0xFD7F0000 + 0x0A00 */
+ #define RK3588_PMU1CRU_RESET_OFFSET(id, reg, bit) [id] = (0x30000*4 + reg * 16 + bit)
+ 
+@@ -807,45 +804,6 @@ static const int rk3588_register_offset[] = {
+ 	RK3588_PMU1CRU_RESET_OFFSET(SRST_P_PMU0IOC, 5, 4),
+ 	RK3588_PMU1CRU_RESET_OFFSET(SRST_P_GPIO0, 5, 5),
+ 	RK3588_PMU1CRU_RESET_OFFSET(SRST_GPIO0, 5, 6),
+-
+-	/* SECURECRU_SOFTRST_CON00 */
+-	RK3588_SECURECRU_RESET_OFFSET(SRST_A_SECURE_NS_BIU, 0, 10),
+-	RK3588_SECURECRU_RESET_OFFSET(SRST_H_SECURE_NS_BIU, 0, 11),
+-	RK3588_SECURECRU_RESET_OFFSET(SRST_A_SECURE_S_BIU, 0, 12),
+-	RK3588_SECURECRU_RESET_OFFSET(SRST_H_SECURE_S_BIU, 0, 13),
+-	RK3588_SECURECRU_RESET_OFFSET(SRST_P_SECURE_S_BIU, 0, 14),
+-	RK3588_SECURECRU_RESET_OFFSET(SRST_CRYPTO_CORE, 0, 15),
+-
+-	/* SECURECRU_SOFTRST_CON01 */
+-	RK3588_SECURECRU_RESET_OFFSET(SRST_CRYPTO_PKA, 1, 0),
+-	RK3588_SECURECRU_RESET_OFFSET(SRST_CRYPTO_RNG, 1, 1),
+-	RK3588_SECURECRU_RESET_OFFSET(SRST_A_CRYPTO, 1, 2),
+-	RK3588_SECURECRU_RESET_OFFSET(SRST_H_CRYPTO, 1, 3),
+-	RK3588_SECURECRU_RESET_OFFSET(SRST_KEYLADDER_CORE, 1, 9),
+-	RK3588_SECURECRU_RESET_OFFSET(SRST_KEYLADDER_RNG, 1, 10),
+-	RK3588_SECURECRU_RESET_OFFSET(SRST_A_KEYLADDER, 1, 11),
+-	RK3588_SECURECRU_RESET_OFFSET(SRST_H_KEYLADDER, 1, 12),
+-	RK3588_SECURECRU_RESET_OFFSET(SRST_P_OTPC_S, 1, 13),
+-	RK3588_SECURECRU_RESET_OFFSET(SRST_OTPC_S, 1, 14),
+-	RK3588_SECURECRU_RESET_OFFSET(SRST_WDT_S, 1, 15),
+-
+-	/* SECURECRU_SOFTRST_CON02 */
+-	RK3588_SECURECRU_RESET_OFFSET(SRST_T_WDT_S, 2, 0),
+-	RK3588_SECURECRU_RESET_OFFSET(SRST_H_BOOTROM, 2, 1),
+-	RK3588_SECURECRU_RESET_OFFSET(SRST_A_DCF, 2, 2),
+-	RK3588_SECURECRU_RESET_OFFSET(SRST_P_DCF, 2, 3),
+-	RK3588_SECURECRU_RESET_OFFSET(SRST_H_BOOTROM_NS, 2, 5),
+-	RK3588_SECURECRU_RESET_OFFSET(SRST_P_KEYLADDER, 2, 14),
+-	RK3588_SECURECRU_RESET_OFFSET(SRST_H_TRNG_S, 2, 15),
+-
+-	/* SECURECRU_SOFTRST_CON03 */
+-	RK3588_SECURECRU_RESET_OFFSET(SRST_H_TRNG_NS, 3, 0),
+-	RK3588_SECURECRU_RESET_OFFSET(SRST_D_SDMMC_BUFFER, 3, 1),
+-	RK3588_SECURECRU_RESET_OFFSET(SRST_H_SDMMC, 3, 2),
+-	RK3588_SECURECRU_RESET_OFFSET(SRST_H_SDMMC_BUFFER, 3, 3),
+-	RK3588_SECURECRU_RESET_OFFSET(SRST_SDMMC, 3, 4),
+-	RK3588_SECURECRU_RESET_OFFSET(SRST_P_TRNG_CHK, 3, 5),
+-	RK3588_SECURECRU_RESET_OFFSET(SRST_TRNG_S, 3, 6),
+ };
+ 
+ void rk3588_rst_init(struct device_node *np, void __iomem *reg_base)
 -- 
 2.47.3
 
