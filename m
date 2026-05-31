@@ -4,91 +4,106 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id C3F84CD6E52
-	for <linux-arm-kernel@archiver.kernel.org>; Sun, 31 May 2026 12:18:32 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 7889BCD6E52
+	for <linux-arm-kernel@archiver.kernel.org>; Sun, 31 May 2026 12:20:58 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
 	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
 	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=1SIgq8nHu6psw4Php68J+X3M2P+JbJ62dqeHI2I7CMc=; b=NR1r+8g5j9ROkaX911nax19stx
-	87Ah2TSZ9Mj+9QPyPRMuX5v/a+BwTpfF35dNnYnMzVuKO647KenAabxk5hSEUDDayrPuNgytLK+YH
-	w9A4sYHBnmUqKSGv+IBDQ+ExguTitSK+xfLAiPcSk1tk8HH+h5ExfeQiknfZAoE0cUs723d28KtbO
-	mDpbjIg2/0VPi1has+Bna/F8ohGgl0R9rCG/V0HOD+STfMO0towq0w4W8vsFPpCzhKvw1UPqhYF+T
-	emsEQ4ip6ghGx9DkrDBs8YmJX/24aJchhK3C0GwCrixE8t9hg6ldfeylJJrOSL0zO1e3dxJcaTpXA
-	jDid0suA==;
+	bh=QkqyId/lSn/z0xr6H0udg1Ti/GmR3szFqxT9D9eNHOI=; b=WWBkdNduphmHWbDqHC92Nc6kAP
+	RWwoLzDFB5Xj84oG9WEro4+CXs8SiZVazlI0GtNi94dBWIIZ+ZiKbeiDsQPR4c3qPj0sGeLv8FLev
+	yrAZNt+JPguSqZpMe0uOMJo8eRfJ4UjVaTJ++unpD7gcYYRMyB5XBlQKV9yctXZykdFqa8ovRsXW6
+	OlZAeFi9ulC9qyUk3ZUdCZKYObs8WmDcpY4bbWwej9v3xZrZF/2Nc8grBQPfbAUrZgEfqujD+w/kc
+	d624Ibnxr/ee+5taMtpr1xhL6oCnjOCilEJPiYO2j5/k1AYAt9Y95qoE2Tz7OlXLEqNTFVP/rtpNc
+	AS59Ldkw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wTf7a-00000009Zgq-08fz;
-	Sun, 31 May 2026 12:18:26 +0000
-Received: from fanzine2.igalia.com ([213.97.179.56])
+	id 1wTf9w-00000009ZpD-1plX;
+	Sun, 31 May 2026 12:20:52 +0000
+Received: from tor.source.kernel.org ([172.105.4.254])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wTf7W-00000009ZgG-0rwa;
-	Sun, 31 May 2026 12:18:24 +0000
-DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed; d=igalia.com;
-	s=20170329; h=Content-Transfer-Encoding:Content-Type:In-Reply-To:From:
-	References:Cc:To:Subject:MIME-Version:Date:Message-ID:Sender:Reply-To:
-	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
-	Resent-To:Resent-Cc:Resent-Message-ID:List-Id:List-Help:List-Unsubscribe:
-	List-Subscribe:List-Post:List-Owner:List-Archive;
-	bh=1SIgq8nHu6psw4Php68J+X3M2P+JbJ62dqeHI2I7CMc=; b=KNahn7qtNwDSJ95/VyjhQogG5F
-	gAP843yR+nqj1HlCXX16K3bF0N1+oz944Hv5hFV0jOCNktJ228XdHkWL4I7rALgJOjPW2XNLt3hWG
-	m9AfuFqSu3Z47KS/dbFY2p4LYylbk6gWMr9/oUmZUqeYWUkI9epfKJb0W5R1ruri4h3OUpdWZzM1x
-	4jhS8+d//u74PAy3Ykb38CMhfV7Ru//WTmZg/D8QPCLaZbjgHaYqJnKORlCOxfBuPHBRaHKyFOKGX
-	kNJboHdY3wBSD+iqlQLgPznbfRSEOlWufplTw6dFC8w3noVZ+74mLAlPhH3g+dzM1b8sL0alCcngr
-	Qj6pEZNw==;
-Received: from [189.7.87.67] (helo=[192.168.0.2])
-	by fanzine2.igalia.com with esmtpsa 
-	(Cipher TLS1.3:ECDHE_X25519__RSA_PSS_RSAE_SHA256__AES_128_GCM:128) (Exim)
-	id 1wTf7I-00AZaA-LQ; Sun, 31 May 2026 14:18:08 +0200
-Message-ID: <eba66b9e-520e-4afc-8973-d54b22919d2c@igalia.com>
-Date: Sun, 31 May 2026 09:18:01 -0300
+	id 1wTf9v-00000009Zp1-1G1n
+	for linux-arm-kernel@lists.infradead.org;
+	Sun, 31 May 2026 12:20:51 +0000
+Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
+	by tor.source.kernel.org (Postfix) with ESMTP id 6A02C60123;
+	Sun, 31 May 2026 12:20:50 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 3A5221F00893;
+	Sun, 31 May 2026 12:20:44 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
+	s=k20260515; t=1780230050;
+	bh=QkqyId/lSn/z0xr6H0udg1Ti/GmR3szFqxT9D9eNHOI=;
+	h=Date:Subject:To:Cc:References:From:In-Reply-To;
+	b=nPOg4MK8gtEP/vrKiJxVYL567aVHGLkjmWY4CitMTsPwuLxfQp57rQWSdIXbCYE1v
+	 7krrfaTMNejGC7+UHUuWgsbw0nMf5BDOHsBdT2N9JHvIXzimoHencHWcLUIqYEOTG+
+	 4vTySNXmFah4t5Diz7CsP1/aTPD/FSHoVoT2agUQ8fsjGgQT9lNfLKWGpAP1FJ9HGg
+	 sG+B9HszTCiVh3VQA1hbuZhbLu5OxfCZRdO6tTzlP8YQ4EZkhPBnhct/Nu93MTrHr0
+	 PvIBADQi/dKhzlVy92U7D4M/JDeg6MhNQkM4xwVTsGdpEi1Ob/04GKmHVdkeJd1ELF
+	 uTyFIZ07ocZlw==
+Message-ID: <726f2de6-eee9-4786-b001-c46feaa06ec8@kernel.org>
+Date: Sun, 31 May 2026 14:20:42 +0200
 MIME-Version: 1.0
 User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH] pmdomain: bcm: bcm2835-power: Raise ASB poll timeout to
- 100us
-To: Stefan Wahren <wahrenst@gmx.net>, Ulf Hansson <ulfh@kernel.org>,
- Florian Fainelli <florian.fainelli@broadcom.com>,
- Broadcom internal kernel review list
- <bcm-kernel-feedback-list@broadcom.com>, Ray Jui <rjui@broadcom.com>,
- Scott Branden <sbranden@broadcom.com>
-Cc: linux-pm@vger.kernel.org, linux-rpi-kernel@lists.infradead.org,
- linux-arm-kernel@lists.infradead.org, kernel-dev@igalia.com
-References: <20260530204636.1115120-1-mcanal@igalia.com>
- <deecc409-02c1-4393-bc06-1852fc06e4d1@gmx.net>
-From: =?UTF-8?Q?Ma=C3=ADra_Canal?= <mcanal@igalia.com>
+Subject: Re: [GIT PULL 1/2] arm64: dts: samsung: dts for v7.1
+To: Arnd Bergmann <arnd@arndb.de>,
+ Alexandre Belloni <alexandre.belloni@bootlin.com>,
+ Linus Walleij <linusw@kernel.org>, Drew Fustini <fustini@kernel.org>,
+ soc@lists.linux.dev
+Cc: Alim Akhtar <alim.akhtar@samsung.com>,
+ Peter Griffin <peter.griffin@linaro.org>,
+ linux-arm-kernel@lists.infradead.org, linux-samsung-soc@vger.kernel.org,
+ linux-kernel@vger.kernel.org
+References: <20260531120708.21017-3-krzk@kernel.org>
+From: Krzysztof Kozlowski <krzk@kernel.org>
 Content-Language: en-US
-Autocrypt: addr=mcanal@igalia.com; keydata=
- xsBNBGcCwywBCADgTji02Sv9zjHo26LXKdCaumcSWglfnJ93rwOCNkHfPIBll85LL9G0J7H8
- /PmEL9y0LPo9/B3fhIpbD8VhSy9Sqz8qVl1oeqSe/rh3M+GceZbFUPpMSk5pNY9wr5raZ63d
- gJc1cs8XBhuj1EzeE8qbP6JAmsL+NMEmtkkNPfjhX14yqzHDVSqmAFEsh4Vmw6oaTMXvwQ40
- SkFjtl3sr20y07cJMDe++tFet2fsfKqQNxwiGBZJsjEMO2T+mW7DuV2pKHr9aifWjABY5EPw
- G7qbrh+hXgfT+njAVg5+BcLz7w9Ju/7iwDMiIY1hx64Ogrpwykj9bXav35GKobicCAwHABEB
- AAHNIE1hw61yYSBDYW5hbCA8bWNhbmFsQGlnYWxpYS5jb20+wsCRBBMBCAA7FiEE+ORdfQEW
- dwcppnfRP/MOinaI+qoFAmcCwywCGwMFCwkIBwICIgIGFQoJCAsCBBYCAwECHgcCF4AACgkQ
- P/MOinaI+qoUBQgAqz2gzUP7K3EBI24+a5FwFlruQGtim85GAJZXToBtzsfGLLVUSCL3aF/5
- O335Bh6ViSBgxmowIwVJlS/e+L95CkTGzIIMHgyUZfNefR2L3aZA6cgc9z8cfow62Wu8eXnq
- GM/+WWvrFQb/dBKKuohfBlpThqDWXxhozazCcJYYHradIuOM8zyMtCLDYwPW7Vqmewa+w994
- 7Lo4CgOhUXVI2jJSBq3sgHEPxiUBOGxvOt1YBg7H9C37BeZYZxFmU8vh7fbOsvhx7Aqu5xV7
- FG+1ZMfDkv+PixCuGtR5yPPaqU2XdjDC/9mlRWWQTPzg74RLEw5sz/tIHQPPm6ROCACFls7A
- TQRnAsMsAQgAxTU8dnqzK6vgODTCW2A6SAzcvKztxae4YjRwN1SuGhJR2isJgQHoOH6oCItW
- Xc1CGAWnci6doh1DJvbbB7uvkQlbeNxeIz0OzHSiB+pb1ssuT31Hz6QZFbX4q+crregPIhr+
- 0xeDi6Mtu+paYprI7USGFFjDUvJUf36kK0yuF2XUOBlF0beCQ7Jhc+UoI9Akmvl4sHUrZJzX
- LMeajARnSBXTcig6h6/NFVkr1mi1uuZfIRNCkxCE8QRYebZLSWxBVr3h7dtOUkq2CzL2kRCK
- T2rKkmYrvBJTqSvfK3Ba7QrDg3szEe+fENpL3gHtH6h/XQF92EOulm5S5o0I+ceREwARAQAB
- wsB2BBgBCAAgFiEE+ORdfQEWdwcppnfRP/MOinaI+qoFAmcCwywCGwwACgkQP/MOinaI+qpI
- zQf+NAcNDBXWHGA3lgvYvOU31+ik9bb30xZ7IqK9MIi6TpZqL7cxNwZ+FAK2GbUWhy+/gPkX
- it2gCAJsjo/QEKJi7Zh8IgHN+jfim942QZOkU+p/YEcvqBvXa0zqW0sYfyAxkrf/OZfTnNNE
- Tr+uBKNaQGO2vkn5AX5l8zMl9LCH3/Ieaboni35qEhoD/aM0Kpf93PhCvJGbD4n1DnRhrxm1
- uEdQ6HUjWghEjC+Jh9xUvJco2tUTepw4OwuPxOvtuPTUa1kgixYyG1Jck/67reJzMigeuYFt
- raV3P8t/6cmtawVjurhnCDuURyhUrjpRhgFp+lW8OGr6pepHol/WFIOQEg==
-In-Reply-To: <deecc409-02c1-4393-bc06-1852fc06e4d1@gmx.net>
-Content-Type: text/plain; charset=UTF-8; format=flowed
-Content-Transfer-Encoding: 8bit
-X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260531_051822_565982_C3C11295 
-X-CRM114-Status: GOOD (  27.77  )
+Autocrypt: addr=krzk@kernel.org; keydata=
+ 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 a/A=
+In-Reply-To: <20260531120708.21017-3-krzk@kernel.org>
+Content-Type: text/plain; charset=UTF-8
+Content-Transfer-Encoding: 7bit
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -103,94 +118,21 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hi Stefan,
-
-On 31/05/26 07:41, Stefan Wahren wrote:
-> Hi Maíra,
+On 31/05/2026 14:07, Krzysztof Kozlowski wrote:
+> The following changes since commit 254f49634ee16a731174d2ae34bc50bd5f45e731:
 > 
-> Am 30.05.26 um 22:46 schrieb Maíra Canal:
->> Commit 18605b1b936b ("pmdomain: bcm: bcm2835-power: Increase ASB control
->> timeout") raised the ASB handshake polling budget from 1us to 5us.
->> Surveying the pmdomain subsystem, 5us is still one of the smallest 
->> polling
->> budgets by a wide margin. Comparable handshakes in other drivers use:
->>
->>    - 100us : starfive jh71xx-pmu, apple pmgr-pwrstate
->>    - 1ms   : renesas rcar-sysc, rmobile-sysc (power-on)
->>    - 10ms  : renesas rcar-gen4-sysc, sunxi sun55i-pck600
->>    - 1s    : mediatek mtk-pm-domains, mtk-scpsys
->>
->> Raise the BCM2835 timeout to 100us, matching analogous drivers. 100us is
->> still negligible relative to a power-domain transition and gives the V3D
->> master ASB substantially more headroom to drain under heavy workloads,
->> assuring us that the timeout is enough for any scenario.
-> tbh I'm not convinced by this explanation. Starting with a timeout 
-> comparison across different pmdomain driver looks strange to me.
+>   Linux 7.1-rc1 (2026-04-26 14:19:00 -0700)
 > 
-> My expectation that the reason for such a patch is that there is some 
-> kind of scenario to trigger unexpected timeouts.
-> If this is the case, please provide more information about the scenario 
-> (specific platform, scenario, link to the bug report).
-
-The context: I was debugging this issue [1] and initially I had the
-intuition that it could be related to a timeout in the ASB polling loop.
-As I don't have access to the BCM2835 SoC datasheet (the public one
-doesn't have PM information), I started to check other driver's
-handshake timeout to see if ours was comparable to similar drivers. As
-you can see, our timeout is much smaller.
-
-In the end, issue [1] wasn't related to the pmdomain driver, so I don't
-have a specific scenario to trigger this issue. Even though, I sent this
-patch considering the comparison to other drivers with the goal to be
-conservative and use a larger timeout that could accommodate an extreme
-scenario. However, if you believe it's unreasonable, I'm okay dropping
-this patch.
-
-Ideally, it would be great to have information from Broadcom on what's
-the largest possible time required to perform a power transition. Maybe
-Florian could help us with that?
-
-[1] 
-https://lore.kernel.org/dri-devel/20260530-v3d-fix-rpi4-freezes-v1-0-c2c8307da6ce@igalia.com/T/
-
+> are available in the Git repository at:
 > 
-> I'm not against the change in general, but please start your commit 
-> message with the problem and not with the solution.
+>   https://git.kernel.org/pub/scm/linux/kernel/git/krzk/linux.git tags/samsung-dt64-7.2
 > 
-> A related question, does it make sense to add an error message here for 
-> the timeout case just like in the rest of the driver?
+> for you to fetch changes up to 20550601bf4c23effa013a5f37e5250618869e87:
+> 
+>   MAINTAINERS: Add Peter Griffin as a co-maintainer of Samsung Exynos SoCs (2026-05-30 18:27:52 +0200)
 
-Before commit 18605b1b936b, I was getting a "Failed to disable ASB
-master for v3d" error message, so I believe the error message already
-exists where the function is called.
-
-Thanks for your feedback!
+Subject is wrong - this should be for v7.2. Tag and contents is correct.
 
 Best regards,
-- Maíra
-
-> 
-> Best regards
-> 
->>
->> Signed-off-by: Maíra Canal <mcanal@igalia.com>
->> ---
->>   drivers/pmdomain/bcm/bcm2835-power.c | 2 +-
->>   1 file changed, 1 insertion(+), 1 deletion(-)
->>
->> diff --git a/drivers/pmdomain/bcm/bcm2835-power.c b/drivers/pmdomain/ 
->> bcm/bcm2835-power.c
->> index b76d74e3849b..d507bb675e29 100644
->> --- a/drivers/pmdomain/bcm/bcm2835-power.c
->> +++ b/drivers/pmdomain/bcm/bcm2835-power.c
->> @@ -175,7 +175,7 @@ static int bcm2835_asb_control(struct 
->> bcm2835_power *power, u32 reg, bool enable
->>       writel(PM_PASSWORD | val, base + reg);
->>       if (readl_poll_timeout_atomic(base + reg, val,
->> -                      !!(val & ASB_ACK) != enable, 0, 5))
->> +                      !!(val & ASB_ACK) != enable, 0, 100))
->>           return -ETIMEDOUT;
->>       return 0;
-> 
-
+Krzysztof
 
