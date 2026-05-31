@@ -4,38 +4,38 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 6E1C1CD5BD1
-	for <linux-arm-kernel@archiver.kernel.org>; Sun, 31 May 2026 09:37:14 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id CC029CD6E57
+	for <linux-arm-kernel@archiver.kernel.org>; Sun, 31 May 2026 09:37:16 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
 	MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:
 	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=RpB/ofZVI8aYfi4QDy17DKJQX9fsUwx+3+WYjwsW/4E=; b=12UbRYd1JY9DkuG8AW9XkSDHh/
-	BMuTBYknqIX1tDQeXtgbvrW+TqFzt6uSUiJdjst/ps26nzJUHaFQa9MFqCt+2oQ/QkiqZUzMRqAlk
-	yIizdQ5lO2QxvkhxZPvUy4IV8nP8Rhs9c1sAgqwjV6Dw/HHrUH+fa8QmBGxuNxYvMeX4AadMNMQtC
-	SpV91YG12r4/fgWwvnQX7cuJtDc4LcpCoMYuL9Yv4VyOUAYXnbtqPc6MIl+jn74beo524D2ojLmej
-	fItpiq6awoix5uWzCe6DQ7Fp1MPKY5SUT3vsCDfW6Z9o7Nn8EhSnfHevR3gPnmHwr/Fq5WXY2zfth
-	6o5r5l3A==;
+	bh=ar0N90nh7aOdbVxftACZsIGW+S3DboQEhi1itlPEca8=; b=jBto0b5VN3mTk4GsA3NWSK/Rpf
+	N/Qdv0sEOY+4JTZ9Y+wRyAG+1jyIk2VOa+XmYaag20oeK3fDV77QxtiqLeVpggznMmaAyccdCL/70
+	5zxheOmqSLkgoF9OsusZtoU6yniPwnVeTDFBFiBbiGMAqcbj4k5kXvOizB1oJZVixWRuyNA+Sis9L
+	x6WrUilLkS4pIN+R4ZW3g4gORcg9yJj1fwOw+bSaT0SzCWv3J1QdS80fKXG0oI4ksOjXAUW7N6kjl
+	NY6n1VvkMRThJCB7mQoq76lBQWSMJELvuUPHSA88LQUHCqh+ojtWy5qGgZJbh/eaIAtMButcIEu8u
+	H52KejKg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wTcbU-00000009R2g-0Zk5;
-	Sun, 31 May 2026 09:37:08 +0000
-Received: from out30-98.freemail.mail.aliyun.com ([115.124.30.98])
+	id 1wTcbW-00000009R5Y-1tzw;
+	Sun, 31 May 2026 09:37:10 +0000
+Received: from out30-119.freemail.mail.aliyun.com ([115.124.30.119])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wTcbK-00000009QxG-1fcP
+	id 1wTcbM-00000009Qx7-3yt4
 	for linux-arm-kernel@lists.infradead.org;
-	Sun, 31 May 2026 09:37:01 +0000
+	Sun, 31 May 2026 09:37:03 +0000
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
 	d=linux.alibaba.com; s=default;
-	t=1780220216; h=From:To:Subject:Date:Message-ID:MIME-Version;
-	bh=RpB/ofZVI8aYfi4QDy17DKJQX9fsUwx+3+WYjwsW/4E=;
-	b=tI6aGThWryuxEZHiwSDaxUMe28e5iHEKD4ca24i6jnWNQugL5nPLnoOmn/WDxHuhjblOAzcWDYJelVa8LydovK+lmUWykvj+CuTGKEOPjBtDbCcsCD87tJe2tINysNUzI6Z4ZOUiDw3xIUjAvHQ6o8zY2D/C+Ly9C/OcjrOuqz4=
-X-Alimail-AntiSpam: AC=PASS;BC=-1|-1;BR=01201311R121e4;CH=green;DM=||false|;DS=||;FP=0|-1|-1|-1|0|-1|-1|-1;HT=maildocker-contentspam033045098064;MF=guanghuifeng@linux.alibaba.com;NM=1;PH=DS;RN=27;SR=0;TI=SMTPD_---0X3tRVr2_1780220214;
-Received: from VM20241011-104.tbsite.net(mailfrom:guanghuifeng@linux.alibaba.com fp:SMTPD_---0X3tRVr2_1780220214 cluster:ay36)
+	t=1780220214; h=From:To:Subject:Date:Message-ID:MIME-Version;
+	bh=ar0N90nh7aOdbVxftACZsIGW+S3DboQEhi1itlPEca8=;
+	b=lqAUwjnBKzoog6+E3DnoXk1Z9lBRtlXnuf7wyKR6Hq0XSGqKInDne9NFhnlHGzOxOnvLJZB55jIADq5r34CJ4CadbZfUMW7rYLFup715WtfOXJYokpEhMzPswbFPYGvQe9UPfAbSsaOnIFiz/ViVsoZzYQi0aL2eplXP4sDAmMU=
+X-Alimail-AntiSpam: AC=PASS;BC=-1|-1;BR=01201311R851e4;CH=green;DM=||false|;DS=||;FP=0|-1|-1|-1|0|-1|-1|-1;HT=maildocker-contentspam033037009110;MF=guanghuifeng@linux.alibaba.com;NM=1;PH=DS;RN=27;SR=0;TI=SMTPD_---0X3tRVpJ_1780220209;
+Received: from VM20241011-104.tbsite.net(mailfrom:guanghuifeng@linux.alibaba.com fp:SMTPD_---0X3tRVpJ_1780220209 cluster:ay36)
           by smtp.aliyun-inc.com;
-          Sun, 31 May 2026 17:36:54 +0800
+          Sun, 31 May 2026 17:36:49 +0800
 From: Guanghui Feng <guanghuifeng@linux.alibaba.com>
 To: boris.brezillon@collabora.com,
 	robh@kernel.org,
@@ -64,9 +64,9 @@ Cc: xlpang@linux.alibaba.com,
 	oliver.yang@linux.alibaba.com,
 	shiyu.zsq@linux.alibaba.com,
 	wei.guo.simon@linux.alibaba.com
-Subject: [PATCH 8/9] drm/gpu, iommu/io-pgtable: switch to iova_to_phys_length
-Date: Sun, 31 May 2026 17:36:36 +0800
-Message-ID: <20260531093637.3893199-9-guanghuifeng@linux.alibaba.com>
+Subject: [PATCH 3/9] iommu/generic_pt: implement iova_to_phys_length
+Date: Sun, 31 May 2026 17:36:31 +0800
+Message-ID: <20260531093637.3893199-4-guanghuifeng@linux.alibaba.com>
 X-Mailer: git-send-email 2.43.7
 In-Reply-To: <20260531093637.3893199-1-guanghuifeng@linux.alibaba.com>
 References: <20260529115116.GR2487554@ziepe.ca>
@@ -74,8 +74,8 @@ References: <20260529115116.GR2487554@ziepe.ca>
 MIME-Version: 1.0
 Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260531_023658_851260_19E37F3A 
-X-CRM114-Status: GOOD (  10.36  )
+X-CRM114-CacheID: sfid-20260531_023701_324705_C87B13C8 
+X-CRM114-Status: GOOD (  15.66  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -90,94 +90,144 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Migrate remaining callers of io_pgtable_ops.iova_to_phys:
-- panthor_mmu: use ops->iova_to_phys_length(ops, iova, NULL)
-- panfrost_mmu: same
-- io-pgtable selftests: use iova_to_phys_length with NULL
+Extend the Generic Page Table framework to implement iova_to_phys_length.
+Use pt_entry_oa_lg2sz() to determine PTE block size. Update
+IOMMU_PT_DOMAIN_OPS macro to set .iova_to_phys_length.
 
 Signed-off-by: Guanghui Feng <guanghuifeng@linux.alibaba.com>
 Acked-by: Shiqiang Zhang <shiyu.zsq@linux.alibaba.com>
 Acked-by: Simon Guo <wei.guo.simon@linux.alibaba.com>
 ---
- drivers/gpu/drm/panfrost/panfrost_mmu.c  |  2 +-
- drivers/gpu/drm/panthor/panthor_mmu.c    |  2 +-
- drivers/iommu/io-pgtable-arm-selftests.c | 12 ++++++------
- 3 files changed, 8 insertions(+), 8 deletions(-)
+ drivers/iommu/generic_pt/iommu_pt.h | 49 ++++++++++++++++++-----------
+ include/linux/generic_pt/iommu.h    | 13 ++++----
+ 2 files changed, 37 insertions(+), 25 deletions(-)
 
-diff --git a/drivers/gpu/drm/panfrost/panfrost_mmu.c b/drivers/gpu/drm/panfrost/panfrost_mmu.c
-index 4a3162c3b659..b7c420eb76ec 100644
---- a/drivers/gpu/drm/panfrost/panfrost_mmu.c
-+++ b/drivers/gpu/drm/panfrost/panfrost_mmu.c
-@@ -514,7 +514,7 @@ void panfrost_mmu_unmap(struct panfrost_gem_mapping *mapping)
+diff --git a/drivers/iommu/generic_pt/iommu_pt.h b/drivers/iommu/generic_pt/iommu_pt.h
+index dc91fb4e2f61..b4213b4947f2 100644
+--- a/drivers/iommu/generic_pt/iommu_pt.h
++++ b/drivers/iommu/generic_pt/iommu_pt.h
+@@ -145,13 +145,18 @@ static inline unsigned int compute_best_pgsize(struct pt_state *pts,
+ 				      pts->range->va, pts->range->last_va, oa);
+ }
  
- 		if (bo->is_heap)
- 			pgcount = 1;
--		if (!bo->is_heap || ops->iova_to_phys(ops, iova)) {
-+		if (!bo->is_heap || ops->iova_to_phys_length(ops, iova, NULL)) {
- 			unmapped_page = ops->unmap_pages(ops, iova, pgsize, pgcount, NULL);
- 			WARN_ON(unmapped_page != pgsize * pgcount);
- 		}
-diff --git a/drivers/gpu/drm/panthor/panthor_mmu.c b/drivers/gpu/drm/panthor/panthor_mmu.c
-index 75d98dad7b1d..05bc7ec95931 100644
---- a/drivers/gpu/drm/panthor/panthor_mmu.c
-+++ b/drivers/gpu/drm/panthor/panthor_mmu.c
-@@ -903,7 +903,7 @@ static void panthor_vm_unmap_pages(struct panthor_vm *vm, u64 iova, u64 size)
- 			 * are out-of-sync. This is not supposed to happen, hence the
- 			 * above WARN_ON().
- 			 */
--			while (!ops->iova_to_phys(ops, iova + unmapped_sz) &&
-+			while (!ops->iova_to_phys_length(ops, iova + unmapped_sz, NULL) &&
- 			       unmapped_sz < pgsize * pgcount)
- 				unmapped_sz += SZ_4K;
+-static __always_inline int __do_iova_to_phys(struct pt_range *range, void *arg,
+-					     unsigned int level,
+-					     struct pt_table_p *table,
+-					     pt_level_fn_t descend_fn)
++struct iova_to_phys_length_data {
++	pt_oaddr_t phys;
++	size_t length;
++};
++
++static __always_inline int __do_iova_to_phys_length(struct pt_range *range,
++					       void *arg, unsigned int level,
++					       struct pt_table_p *table,
++					       pt_level_fn_t descend_fn)
+ {
+ 	struct pt_state pts = pt_init(range, level, table);
+-	pt_oaddr_t *res = arg;
++	struct iova_to_phys_length_data *data = arg;
  
-diff --git a/drivers/iommu/io-pgtable-arm-selftests.c b/drivers/iommu/io-pgtable-arm-selftests.c
-index 334e70350924..d1d0529f711d 100644
---- a/drivers/iommu/io-pgtable-arm-selftests.c
-+++ b/drivers/iommu/io-pgtable-arm-selftests.c
-@@ -72,13 +72,13 @@ static int arm_lpae_run_tests(struct kunit *test, struct io_pgtable_cfg *cfg)
- 		 * Initial sanity checks.
- 		 * Empty page tables shouldn't provide any translations.
- 		 */
--		if (ops->iova_to_phys(ops, 42))
-+		if (ops->iova_to_phys_length(ops, 42, NULL))
- 			return __FAIL(test, i);
+ 	switch (pt_load_single_entry(&pts)) {
+ 	case PT_ENTRY_EMPTY:
+@@ -159,45 +164,51 @@ static __always_inline int __do_iova_to_phys(struct pt_range *range, void *arg,
+ 	case PT_ENTRY_TABLE:
+ 		return pt_descend(&pts, arg, descend_fn);
+ 	case PT_ENTRY_OA:
+-		*res = pt_entry_oa_exact(&pts);
++		data->phys = pt_entry_oa_exact(&pts);
++		data->length = BIT(pt_entry_oa_lg2sz(&pts));
+ 		return 0;
+ 	}
+ 	return -ENOENT;
+ }
+-PT_MAKE_LEVELS(__iova_to_phys, __do_iova_to_phys);
++PT_MAKE_LEVELS(__iova_to_phys_length, __do_iova_to_phys_length);
  
--		if (ops->iova_to_phys(ops, SZ_1G + 42))
-+		if (ops->iova_to_phys_length(ops, SZ_1G + 42, NULL))
- 			return __FAIL(test, i);
+ /**
+- * iova_to_phys() - Return the output address for the given IOVA
++ * iova_to_phys_length() - Translate IOVA returning both phys and page size
+  * @domain: Table to query
+  * @iova: IO virtual address to query
++ * @mapped_length: Output for the PTE page size in bytes
+  *
+- * Determine the output address from the given IOVA. @iova may have any
+- * alignment, the returned physical will be adjusted with any sub page offset.
++ * Walk the IOMMU page table to translate @iova to a physical address while
++ * also returning the page size of the PTE entry through @mapped_length.
++ * This combines iova_to_phys and page size query into a single page table walk.
+  *
+  * Context: The caller must hold a read range lock that includes @iova.
+  *
+- * Return: 0 if there is no translation for the given iova.
++ * Return: The physical address, or 0 if there is no translation.
+  */
+-phys_addr_t DOMAIN_NS(iova_to_phys)(struct iommu_domain *domain,
+-				    dma_addr_t iova)
++phys_addr_t DOMAIN_NS(iova_to_phys_length)(struct iommu_domain *domain,
++					    dma_addr_t iova,
++					    size_t *mapped_length)
+ {
+ 	struct pt_iommu *iommu_table =
+ 		container_of(domain, struct pt_iommu, domain);
+ 	struct pt_range range;
+-	pt_oaddr_t res;
++	struct iova_to_phys_length_data data;
+ 	int ret;
  
--		if (ops->iova_to_phys(ops, SZ_2G + 42))
-+		if (ops->iova_to_phys_length(ops, SZ_2G + 42, NULL))
- 			return __FAIL(test, i);
+ 	ret = make_range(common_from_iommu(iommu_table), &range, iova, 1);
+ 	if (ret)
+-		return ret;
++		return 0;
  
- 		/*
-@@ -100,7 +100,7 @@ static int arm_lpae_run_tests(struct kunit *test, struct io_pgtable_cfg *cfg)
- 					    GFP_KERNEL, &mapped))
- 				return __FAIL(test, i);
+-	ret = pt_walk_range(&range, __iova_to_phys, &res);
+-	/* PHYS_ADDR_MAX would be a better error code */
++	ret = pt_walk_range(&range, __iova_to_phys_length, &data);
+ 	if (ret)
+ 		return 0;
+-	return res;
++
++	if (mapped_length)
++		*mapped_length = data.length;
++	return data.phys;
+ }
+-EXPORT_SYMBOL_NS_GPL(DOMAIN_NS(iova_to_phys), "GENERIC_PT_IOMMU");
++EXPORT_SYMBOL_NS_GPL(DOMAIN_NS(iova_to_phys_length), "GENERIC_PT_IOMMU");
  
--			if (ops->iova_to_phys(ops, iova + 42) != (iova + 42))
-+			if (ops->iova_to_phys_length(ops, iova + 42, NULL) != (iova + 42))
- 				return __FAIL(test, i);
+ struct pt_iommu_dirty_args {
+ 	struct iommu_dirty_bitmap *dirty;
+diff --git a/include/linux/generic_pt/iommu.h b/include/linux/generic_pt/iommu.h
+index dd0edd02a48a..859b853e9dc7 100644
+--- a/include/linux/generic_pt/iommu.h
++++ b/include/linux/generic_pt/iommu.h
+@@ -249,8 +249,9 @@ struct pt_iommu_cfg {
  
- 			iova += SZ_1G;
-@@ -114,7 +114,7 @@ static int arm_lpae_run_tests(struct kunit *test, struct io_pgtable_cfg *cfg)
- 			if (ops->unmap_pages(ops, iova, size, 1, NULL) != size)
- 				return __FAIL(test, i);
+ /* Generate the exported function signatures from iommu_pt.h */
+ #define IOMMU_PROTOTYPES(fmt)                                                  \
+-	phys_addr_t pt_iommu_##fmt##_iova_to_phys(struct iommu_domain *domain, \
+-						  dma_addr_t iova);            \
++	phys_addr_t pt_iommu_##fmt##_iova_to_phys_length(			\
++		struct iommu_domain *domain, dma_addr_t iova,			\
++		size_t *mapped_length);						\
+ 	int pt_iommu_##fmt##_read_and_clear_dirty(                             \
+ 		struct iommu_domain *domain, unsigned long iova, size_t size,  \
+ 		unsigned long flags, struct iommu_dirty_bitmap *dirty);        \
+@@ -267,11 +268,11 @@ struct pt_iommu_cfg {
+ 	IOMMU_PROTOTYPES(fmt)
  
--			if (ops->iova_to_phys(ops, iova + 42))
-+			if (ops->iova_to_phys_length(ops, iova + 42, NULL))
- 				return __FAIL(test, i);
+ /*
+- * A driver uses IOMMU_PT_DOMAIN_OPS to populate the iommu_domain_ops for the
+- * iommu_pt
++ * A driver uses IOMMU_PT_DOMAIN_OPS to populate the iommu_domain_ops for
++ * the iommu_pt
+  */
+-#define IOMMU_PT_DOMAIN_OPS(fmt)                        \
+-	.iova_to_phys = &pt_iommu_##fmt##_iova_to_phys
++#define IOMMU_PT_DOMAIN_OPS(fmt)					\
++	.iova_to_phys_length = &pt_iommu_##fmt##_iova_to_phys_length
+ #define IOMMU_PT_DIRTY_OPS(fmt) \
+ 	.read_and_clear_dirty = &pt_iommu_##fmt##_read_and_clear_dirty
  
- 			/* Remap full block */
-@@ -122,7 +122,7 @@ static int arm_lpae_run_tests(struct kunit *test, struct io_pgtable_cfg *cfg)
- 					   IOMMU_WRITE, GFP_KERNEL, &mapped))
- 				return __FAIL(test, i);
- 
--			if (ops->iova_to_phys(ops, iova + 42) != (iova + 42))
-+			if (ops->iova_to_phys_length(ops, iova + 42, NULL) != (iova + 42))
- 				return __FAIL(test, i);
- 
- 			iova += SZ_1G;
 -- 
 2.43.7
 
