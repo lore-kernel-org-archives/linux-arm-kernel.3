@@ -4,96 +4,55 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id D0DEFCD6E60
-	for <linux-arm-kernel@archiver.kernel.org>; Sun, 31 May 2026 15:26:19 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id C9AF6CD6E5D
+	for <linux-arm-kernel@archiver.kernel.org>; Sun, 31 May 2026 15:26:23 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:References
-	:Message-Id:Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:
-	From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=h/JC/lCvJB29DmlH+qRhnlQ7JKVcjCcbMoFC+b+6/88=; b=sSWvkAE1gAOTQoRei8QUM8Sk39
-	xnBg7RqArBGghbddpSQWqgL8snEs1Urho53ev7I6UXdQ1Rleu+x4wnZPJfvlG01JZA92Styw+zytc
-	hY72eju8u6zWuVGvVdf5hv25nYAQXw0swIq1k7kRoGAGP5MWOmYHabat5v8/aPhpFtW3ZtFDDPtZ0
-	wELHmbsrzJyB0ImohYUa48i5y7Scm/AIdMpqJKP3/1/So43wZffwAE5TtL+Ss3X6oo/c/v6hl0VYM
-	NZve0PZyzLIYPDC409QjZYu8PFnR3FLFeBX6mzTrrq6/Q+dloAtvr9YvFN0nBW17HhqdFzbmPWbXz
-	sHmFwpUQ==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=Di1SkVeensE68rhHjiGO1dahyj2mqu6/cETPjqdLbcc=; b=Kh+k6TuLDU2tyfzTUeOZQHkWQE
+	ASlp5iTOhrM1xhd1Fj7C7C3ucp60IOSuSi22lfoj6o07Ln4cgL6Vm1v9OR1pNZ8krxA8YrTuuSf+e
+	ogSjKfrEbNeD2b1UffEnG7wh3hCSrph904vnCAvu1gyG2QHKPicu33DLsAWEty3QKUKYR0q1YnFIg
+	dlN60u1NnPE4Y39sDFKinqgma6KL468a45uE2q7aVZRyijyAmu1QZYkAOdqwrVs6HlKmS92hBL5ig
+	2FAe39APTxQVPOwkY4y9orRRiVVZzo4pNFwRJqsKAujaXFqDxLZ49ygdiyzpz+WQM1QHgSmWBBJY/
+	JfNyHh/w==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wTi3F-00000009geC-08ve;
+	id 1wTi3F-00000009gfF-2Fno;
 	Sun, 31 May 2026 15:26:09 +0000
-Received: from mail-wr1-x42a.google.com ([2a00:1450:4864:20::42a])
+Received: from tor.source.kernel.org ([2600:3c04:e001:324:0:1991:8:25])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wTi38-00000009gac-0hLN
+	id 1wTi3C-00000009gck-3oqC
 	for linux-arm-kernel@lists.infradead.org;
-	Sun, 31 May 2026 15:26:03 +0000
-Received: by mail-wr1-x42a.google.com with SMTP id ffacd0b85a97d-45ef1629ff4so1699223f8f.0
-        for <linux-arm-kernel@lists.infradead.org>; Sun, 31 May 2026 08:26:01 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=baylibre.com; s=google; t=1780241160; x=1780845960; darn=lists.infradead.org;
-        h=cc:to:in-reply-to:references:message-id:content-transfer-encoding
-         :mime-version:subject:date:from:from:to:cc:subject:date:message-id
-         :reply-to;
-        bh=h/JC/lCvJB29DmlH+qRhnlQ7JKVcjCcbMoFC+b+6/88=;
-        b=gOiP/eHM4YgLvfsVPOTq8Eb5o9+W3KB1MVXKBPdSoT8NyGeL97N52OyHjdVtFullCU
-         XS7Zj+y3og7xHkWhM5NgbwyJ0GnihqijLTul3+dxJ2btpJ8NlVW9W4NUyx3m5LJ1uqar
-         zL0Gra7VdCM0+ETi6ipBGsbjHs1RRTDCvDZPbnsYkB/CsnooOdaOfE4H9hn40iEY7chG
-         ywW2oY11i10clQRYpHVxXaIyAVOUXbVfyzVSVaBWGeuw9hDpKyvCnPMg408NOezZBk2t
-         SGKD1pqq28iWFC/eDfQ/Vyeo1vRedlYz/rdDYmVRSM4d1we4zRIkIza0yZ5o3pmU2mY4
-         AMyQ==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20251104; t=1780241160; x=1780845960;
-        h=cc:to:in-reply-to:references:message-id:content-transfer-encoding
-         :mime-version:subject:date:from:x-gm-gg:x-gm-message-state:from:to
-         :cc:subject:date:message-id:reply-to;
-        bh=h/JC/lCvJB29DmlH+qRhnlQ7JKVcjCcbMoFC+b+6/88=;
-        b=tISEWl26VVbJpGtqGPJqCx0pww4UHR017FBIHq2wvXubbKz5jX77JeyLbDXd1N80No
-         MuIKng17KLiduFO4R9Tr7IjnsViiGRONNf8jnf04BT2WD+cliKqFZNfd37kUWurw5Uul
-         ROelVSyPaWs0IUgK87QhBirfTW71Ro0yHqH6GId6WC4Q4fQm4JMdMuHDxQRmMn9sF57s
-         ijSa7H8xnrnibKC9SeZkz2dCZEKc4H3Ow7g/Srbqj294EyPNx/lZ42f67D4BHq7ijrIL
-         CPJJ2b1wm8vFFYvvaoL8FqTU5rYCRFvxs/YFHwz6LBivLa6rjaIlAbzkMYjQUXmf+gHi
-         zgoQ==
-X-Forwarded-Encrypted: i=1; AFNElJ9h1/VNU6ZkTC0VaV8frW5nI61pJdGTgD/Ai+JVnsJJRgKo7oo6H5ES/wQ0L0SAGLI9hVyR7qMGm4/xoPT+NLhc@lists.infradead.org
-X-Gm-Message-State: AOJu0YzAsJxwF+Kv18zEO/fX9FOTAuENslvxQKVjCsfuKgOw7C7bAYFT
-	JyDmhWhbhLjumizgjGTWrlXL9qv2NP5NeiuaGRS/VqC13YLOI24zbKdIcROmONxauOA=
-X-Gm-Gg: Acq92OGBcXEYtxIHD8jwBm2vRBTWAl6A3A7vqdHkql37qCc/8qjob6WnSRE8ZOfDCX+
-	0/Sp6ejoPxvlELffl0rFq9EjcltDsAEbEznpZkIbEElgMWPYP+nmnTfm6hpQX+p0MkiV/V4RNRJ
-	zZ+sLkeLmd1UwD3ecPhbN07zVQpZQIbIsjZwMAdbeLOn2JS4IwIHEzqwPsuglhvthWwOeX/Voq+
-	WnQcs+TQsvd7c4JkZ2/j5QrU05rDxor1EoOahrdC1kKHpVQMrXNDECAOrvEKdhASxLOdbtbRJ3y
-	lbizwIEE2dpXT+urh55UfQXtAibfMs6tZ6S3BwCr07q9gcKqdORI33T10IupJP11B5s+w1peIkm
-	1JTVwIvRnzBoZ9YJsLAksUWQZpGBkkCHP/YqcOch5luVWfQ9foi+TlWEaCAdIMhmKedYDReJdVW
-	pcikiE7fOkmOO4B9kUVm8U+0OPcj92WzRzf2DHDkuZbg==
-X-Received: by 2002:a5d:624e:0:b0:45d:3aa3:7f76 with SMTP id ffacd0b85a97d-45ef6b836a9mr11291781f8f.33.1780241160201;
-        Sun, 31 May 2026 08:26:00 -0700 (PDT)
-Received: from [192.168.0.2] ([2a07:7e81:7daa:0:202:c9ff:fe53:eda4])
-        by smtp.gmail.com with ESMTPSA id ffacd0b85a97d-45ef354cf0dsm18526622f8f.17.2026.05.31.08.25.58
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Sun, 31 May 2026 08:25:59 -0700 (PDT)
-From: Angelo Dureghello <adureghello@baylibre.com>
-X-Google-Original-From: Angelo Dureghello <adureghello@baylibre.org>
-Date: Sun, 31 May 2026 17:25:55 +0200
-Subject: [PATCH v4 02/11] m68k: mcf5441x: add clock for DAC channel 1
+	Sun, 31 May 2026 15:26:07 +0000
+Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
+	by tor.source.kernel.org (Postfix) with ESMTP id B88E16020F;
+	Sun, 31 May 2026 15:26:05 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id C017D1F0089B;
+	Sun, 31 May 2026 15:26:04 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=linuxfoundation.org;
+	s=korg; t=1780241165;
+	bh=Di1SkVeensE68rhHjiGO1dahyj2mqu6/cETPjqdLbcc=;
+	h=Date:From:To:Cc:Subject:References:In-Reply-To;
+	b=0RhIDHWxuR/gBz86SE/3nyKYg0MJEFuMA3eMpwnathr+EzeUBYKT5rmr7fYa/WnCL
+	 1wkwiGHEojoC6HSDJweVD5LefC40OrhWyFm9a8MQ+X1ctNi0NFnpHwC4Z8SFtly1F0
+	 fgxdGtABIe6yY79DUP/keHC7cPsGHOaBXW903sZo=
+Date: Sun, 31 May 2026 17:25:10 +0200
+From: Greg KH <gregkh@linuxfoundation.org>
+To: Grewstad <dogestad24@gmail.com>
+Cc: jic23@kernel.org, jacobsfeder@gmail.com, linux-staging@lists.linux.dev,
+	linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org,
+	hjk@hansjkoch.de, davem@davemloft.net, netdev@vger.kernel.org
+Subject: Re: [RFC] drivers/staging/axis-fifo: TODO file and subsystem
+ direction
+Message-ID: <2026053145-bungee-flyover-840a@gregkh>
+References: <CAD03fjaBJGtNATBxaYO-PAxdKC=HxYgE+M7HQ_a0O+3Sp9Mruw@mail.gmail.com>
 MIME-Version: 1.0
-Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: 7bit
-Message-Id: <20260531-wip-stmark2-dac-v4-2-7e65ab4215dd@baylibre.com>
-References: <20260531-wip-stmark2-dac-v4-0-7e65ab4215dd@baylibre.com>
-In-Reply-To: <20260531-wip-stmark2-dac-v4-0-7e65ab4215dd@baylibre.com>
-To: Greg Ungerer <gerg@linux-m68k.org>, 
- Geert Uytterhoeven <geert@linux-m68k.org>, Steven King <sfking@fdwdc.com>, 
- Arnd Bergmann <arnd@arndb.de>, Maxime Coquelin <mcoquelin.stm32@gmail.com>, 
- Alexandre Torgue <alexandre.torgue@foss.st.com>, 
- Jonathan Cameron <jic23@kernel.org>, David Lechner <dlechner@baylibre.com>, 
- =?utf-8?q?Nuno_S=C3=A1?= <nuno.sa@analog.com>, 
- Andy Shevchenko <andy@kernel.org>
-Cc: Greg Ungerer <gerg@uclinux.org>, linux-m68k@lists.linux-m68k.org, 
- linux-kernel@vger.kernel.org, linux-stm32@st-md-mailman.stormreply.com, 
- linux-arm-kernel@lists.infradead.org, linux-iio@vger.kernel.org, 
- Angelo Dureghello <adureghello@baylibre.com>
-X-Mailer: b4 0.15.2
-X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260531_082602_227853_09247E3A 
-X-CRM114-Status: GOOD (  10.67  )
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+In-Reply-To: <CAD03fjaBJGtNATBxaYO-PAxdKC=HxYgE+M7HQ_a0O+3Sp9Mruw@mail.gmail.com>
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -108,45 +67,48 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-From: Angelo Dureghello <adureghello@baylibre.com>
+On Sun, May 31, 2026 at 08:20:35PM +0530, Grewstad wrote:
+> Dear Maintainers,
+> 
+> I am interested in contributing to the Xilinx AXI-Stream FIFO driver
+> located in drivers/staging/axis-fifo.
+> 
+> While reviewing the driver, I noticed that it does not currently
+> contain a TODO file describing the work required for graduation from
+> staging. I would like to create such a file, but before doing so I
+> would appreciate guidance on the expected long-term direction for the
+> driver.
+> 
+> The driver currently exposes a custom userspace ABI through a
+> miscdevice. While this provides a generic interface to the FIFO, it
+> does not integrate with existing kernel subsystem tooling. One possible
+> incremental improvement in this area could be a transition from
+> miscdevice to a proper character device (cdev) interface, to allow for
+> a more clearly defined and maintainable userspace ABI.
 
-Add missing clock for mcf5441x DAC channel 1.
+There really is no difference between a miscdevice and a character
+device, the interaction from user/kernel is the same.
 
-Signed-off-by: Angelo Dureghello <adureghello@baylibre.com>
----
- arch/m68k/coldfire/m5441x.c | 3 +++
- 1 file changed, 3 insertions(+)
+> Some possible directions that came to mind are:
+> 
+> - UIO, if the intent is to provide userspace control over a generic
+>   AXI-stream FIFO with minimal kernel policy.
 
-diff --git a/arch/m68k/coldfire/m5441x.c b/arch/m68k/coldfire/m5441x.c
-index 613b0275d9d8..5b5e09ecf487 100644
---- a/arch/m68k/coldfire/m5441x.c
-+++ b/arch/m68k/coldfire/m5441x.c
-@@ -44,6 +44,7 @@ DEFINE_CLK(0, "mcfpit.3", 35, MCF_BUSCLK);
- DEFINE_CLK(0, "mcfeport.0", 36, MCF_CLK);
- DEFINE_CLK(0, "mcfadc.0", 37, MCF_CLK);
- DEFINE_CLK(0, "mcfdac.0", 38, MCF_CLK);
-+DEFINE_CLK(0, "mcfdac.1", 39, MCF_CLK);
- DEFINE_CLK(0, "mcfrtc.0", 42, MCF_CLK);
- DEFINE_CLK(0, "mcfsim.0", 43, MCF_CLK);
- DEFINE_CLK(0, "mcfusb-otg.0", 44, MCF_CLK);
-@@ -106,6 +107,7 @@ static struct clk_lookup m5411x_clk_lookup[] = {
- 	CLKDEV_INIT("mcfeport.0", NULL, &__clk_0_36),
- 	CLKDEV_INIT("mcfadc.0", NULL, &__clk_0_37),
- 	CLKDEV_INIT("mcfdac.0", NULL, &__clk_0_38),
-+	CLKDEV_INIT("mcfdac.1", NULL, &__clk_0_39),
- 	CLKDEV_INIT("mcfrtc.0", NULL, &__clk_0_42),
- 	CLKDEV_INIT("mcfsim.0", NULL, &__clk_0_43),
- 	CLKDEV_INIT("mcfusb-otg.0", NULL, &__clk_0_44),
-@@ -176,6 +178,7 @@ static struct clk * const disable_clks[] __initconst = {
- 	&__clk_0_35, /* pit.3 */
- 	&__clk_0_37, /* adc */
- 	&__clk_0_38, /* dac.0 */
-+	&__clk_0_39, /* dac.1 */
- 	&__clk_0_44, /* usb otg */
- 	&__clk_0_45, /* usb host */
- 	&__clk_0_47, /* ssi.0 */
+UIO provides a mmap of a device to userspace where it is controlled
+directly.  Probably not what you want to do here right?
 
--- 
-2.54.0
+> - IIO, for data acquisition or SDR-oriented applications that could
+>   benefit from existing buffer infrastructure and userspace tooling.
 
+Is that what this device is?
+
+> - Networking, for packet-oriented AXI-stream use cases.
+
+WHat really is this device for?  What is the goal of this hardware and
+how is it used today?  Do you have the hardware to test with it?  Who
+uses it?
+
+thanks,
+
+greg k-h
 
