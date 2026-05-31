@@ -4,44 +4,44 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 0CDBECD6E52
-	for <linux-arm-kernel@archiver.kernel.org>; Sun, 31 May 2026 19:23:14 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 0053FCD6E56
+	for <linux-arm-kernel@archiver.kernel.org>; Sun, 31 May 2026 19:23:16 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
 	MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:
 	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=PtE9W6YDGCs/tmCEdA/v//PZCwP2DZ4Ut/SmazPBmMI=; b=jO3qiLiIWwMVPljfD23ghG1Jc5
-	NOt3uvOZxz6dGv7IkxAFN3ePz2cNBzmKAcOyAVMoRp93zBvsJl85qEbP7hbwSniHUO6ZOZ53UNUjr
-	Xiu9tmfb2q4HGU1cdKRDEPArjJIDsDzZ0adiIpUXmoMiXFcEp72PiDhI908Piff0nYk5s4ZJTvlJE
-	rxzjIQrrrzH7l4x+DtGWFc0S4P6YRpUB8mVaFz1mlBM1d27TYEXpfPLxelvD2wFi7qOYP0r3gvV70
-	7lDfQI08L3ndffduLKpiKi0pOUTMPhj7CDwpRY+P5eaZsadvlAxLc8naKNpbfh6+5x3bld/1XsiVz
-	lWlxCdwQ==;
+	bh=drqfjg2nZ2DWxQu7emk2SfhIy7vMmsaoIWRnmhbe+wg=; b=pUNe9TB6ZrxsfMdghB781oWdP3
+	BwhAcjGeW48crYuNPuUtntl5RpAFoimqYW1Yx7q6xasi2OEAmVLB1BO0VWXMtl+EIQUZyuTiwFUZM
+	PaeROpnDqPXZhxtSEvQT1DFKljPxewADJEpgsglri5dmaE7C7iQWo7bAmnPXWQsCNOfPQA1XMcyhS
+	OS6sxzE1HCvdw+GdMSiB45/3i8dNFCgdCuzWb5Fqtgnyv9J7FJ974qgGKskugzacyOmJ85Ui4Y2eo
+	45S61Ia724pK/SEmMOHqsSYk1xBOLnog1LZElMq4LezJdXIvGfzzUX/seuYbauw3T3X5tdyhaYrgt
+	L+q00/lQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wTlka-00000009qhZ-3wvQ;
-	Sun, 31 May 2026 19:23:08 +0000
-Received: from tor.source.kernel.org ([2600:3c04:e001:324:0:1991:8:25])
+	id 1wTlkb-00000009qhq-05xn;
+	Sun, 31 May 2026 19:23:09 +0000
+Received: from tor.source.kernel.org ([172.105.4.254])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wTlkU-00000009qfk-3ybD
+	id 1wTlkV-00000009qgQ-2zSi
 	for linux-arm-kernel@lists.infradead.org;
 	Sun, 31 May 2026 19:23:03 +0000
 Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
-	by tor.source.kernel.org (Postfix) with ESMTP id F30E460204;
-	Sun, 31 May 2026 19:23:01 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 669511F00899;
-	Sun, 31 May 2026 19:23:01 +0000 (UTC)
+	by tor.source.kernel.org (Postfix) with ESMTP id 2DA79601FF;
+	Sun, 31 May 2026 19:23:03 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 9B6F61F00893;
+	Sun, 31 May 2026 19:23:02 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1780255381;
-	bh=PtE9W6YDGCs/tmCEdA/v//PZCwP2DZ4Ut/SmazPBmMI=;
+	s=k20260515; t=1780255382;
+	bh=drqfjg2nZ2DWxQu7emk2SfhIy7vMmsaoIWRnmhbe+wg=;
 	h=From:To:Cc:Subject:Date:In-Reply-To:References;
-	b=lf1+BpJJetBlzxhsWVzuilb3Nd3BeVKnK7YHF21V+2KTIiS2BiqV/Rjl+9c7mw7Dh
-	 cbM+dJuibiV/qBPhNudfbR9pmMK76p9I4xPwC6EaH44YjquJlAs0s56PLzggb6OTp1
-	 utOLGRYxluyMk3RKikW1cnhTOaiwb1/0izvp5aVAkjVszSYlqaZ9MXFDNnDaTWbbtL
-	 2JdVWOYnObNwsp08NXBoLIskUx4tWepT5/omfym72zLPk+N5V9HnZWDWV2I8J15gvB
-	 A9m7hn2bLRpm83sCsQJjMmD25IEtw2xX7LFZdhnkUOnZoq5U9fZjB9u/Kh8D0F5zJ1
-	 4SdpqkC0s2qlw==
+	b=ko/tba3HLKucRJKVb3n0g3z/DuDY3BwGUbsgQq5qmDji6k2rtknzK3v1XdF/n1ncS
+	 KkLOlk1cBZV+gTSjYpH+VKue3FcrF8L5ehR4iWlPd2UFnyXlupEcQmCUIWBRfdZXpv
+	 O72ubfn8Is/ge2oVoCQq3Z3qWroJcyMGYXfKivzsadsM2pnTWCh6DvUKVUKhVNRY8J
+	 gqVdaHtXv/vRrzrqpBSpBP7Hc2gm2OOHfxjeKhR2wPlckbbjrtD1vWjs9NN7Cksj/p
+	 vUH1W+E0f71DQNyNey/AjnAk7obXtDpgLEdXF8T74+bNJGE2WszX6UBRCt7WLPU7h6
+	 oEg2cxsT681IA==
 From: Eric Biggers <ebiggers@kernel.org>
 To: linux-crypto@vger.kernel.org,
 	Herbert Xu <herbert@gondor.apana.org.au>
@@ -51,11 +51,10 @@ Cc: linux-kernel@vger.kernel.org,
 	Olivia Mackall <olivia@selenic.com>,
 	Michal Simek <michal.simek@amd.com>,
 	linux-arm-kernel@lists.infradead.org,
-	Eric Biggers <ebiggers@kernel.org>,
-	stable@vger.kernel.org
-Subject: [PATCH 1/4] crypto: xilinx-trng - Remove crypto_rng interface
-Date: Sun, 31 May 2026 12:17:35 -0700
-Message-ID: <20260531191738.55843-2-ebiggers@kernel.org>
+	Eric Biggers <ebiggers@kernel.org>
+Subject: [PATCH 4/4] hwrng: xilinx - Move xilinx-rng into drivers/char/hw_random/
+Date: Sun, 31 May 2026 12:17:38 -0700
+Message-ID: <20260531191738.55843-5-ebiggers@kernel.org>
 X-Mailer: git-send-email 2.54.0
 In-Reply-To: <20260531191738.55843-1-ebiggers@kernel.org>
 References: <20260531191738.55843-1-ebiggers@kernel.org>
@@ -75,234 +74,143 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Implementing the crypto_rng interface has no purpose, as it isn't used
-in practice.  It's being removed from other drivers too.  Just remove
-it.  This leaves hwrng, which is actually used.
+Since this file just implements a hwrng driver, move it into
+drivers/char/hw_random/.  Rename the kconfig option accordingly as well.
 
-Tagging with 'Cc stable' due to the bugs that this removes:
-
-  - xtrng_trng_generate() sometimes returned success even when it didn't
-    fill in all the bytes.
-
-  - It was possible for xtrng_trng_generate() and
-    xtrng_hwrng_trng_read() to run concurrently and interfere with each
-    other, as the locking code in xtrng_hwrng_trng_read() was broken.
-
-Fixes: 8979744aca80 ("crypto: xilinx - Add TRNG driver for Versal")
-Cc: stable@vger.kernel.org
 Signed-off-by: Eric Biggers <ebiggers@kernel.org>
 ---
- drivers/crypto/Kconfig              |  1 -
- drivers/crypto/xilinx/xilinx-trng.c | 85 ++---------------------------
- 2 files changed, 4 insertions(+), 82 deletions(-)
+ MAINTAINERS                                          |  2 +-
+ arch/arm64/configs/defconfig                         |  2 +-
+ drivers/char/hw_random/Kconfig                       | 11 +++++++++++
+ drivers/char/hw_random/Makefile                      |  1 +
+ .../{crypto/xilinx => char/hw_random}/xilinx-trng.c  |  0
+ drivers/crypto/Kconfig                               | 12 ------------
+ drivers/crypto/xilinx/Makefile                       |  1 -
+ 7 files changed, 14 insertions(+), 15 deletions(-)
+ rename drivers/{crypto/xilinx => char/hw_random}/xilinx-trng.c (100%)
 
+diff --git a/MAINTAINERS b/MAINTAINERS
+index 882214b0e7db..a593e78c30fc 100644
+--- a/MAINTAINERS
++++ b/MAINTAINERS
+@@ -29218,11 +29218,11 @@ F:	include/uapi/misc/xilinx_sdfec.h
+ 
+ XILINX TRNG DRIVER
+ M:	Mounika Botcha <mounika.botcha@amd.com>
+ M:	Harsh Jain <h.jain@amd.com>
+ S:	Maintained
+-F:	drivers/crypto/xilinx/xilinx-trng.c
++F:	drivers/char/hw_random/xilinx-trng.c
+ 
+ XILINX UARTLITE SERIAL DRIVER
+ M:	Peter Korsgaard <jacmet@sunsite.dk>
+ L:	linux-serial@vger.kernel.org
+ S:	Maintained
+diff --git a/arch/arm64/configs/defconfig b/arch/arm64/configs/defconfig
+index bb930cce7233..d8fb11e4c36d 100644
+--- a/arch/arm64/configs/defconfig
++++ b/arch/arm64/configs/defconfig
+@@ -549,10 +549,11 @@ CONFIG_IPMI_HANDLER=m
+ CONFIG_IPMI_DEVICE_INTERFACE=m
+ CONFIG_IPMI_SI=m
+ CONFIG_HW_RANDOM=y
+ CONFIG_HW_RANDOM_VIRTIO=y
+ CONFIG_HW_RANDOM_QCOM=m
++CONFIG_HW_RANDOM_XILINX=m
+ CONFIG_TCG_TPM=y
+ CONFIG_TCG_TIS=m
+ CONFIG_TCG_TIS_SPI=m
+ CONFIG_TCG_TIS_SPI_CR50=y
+ CONFIG_TCG_TIS_I2C_CR50=m
+@@ -1953,11 +1954,10 @@ CONFIG_CRYPTO_AES_ARM64_CE_CCM=y
+ CONFIG_CRYPTO_DEV_SUN8I_CE=m
+ CONFIG_CRYPTO_DEV_FSL_CAAM=m
+ CONFIG_CRYPTO_DEV_FSL_DPAA2_CAAM=m
+ CONFIG_CRYPTO_DEV_QCE=m
+ CONFIG_CRYPTO_DEV_TEGRA=m
+-CONFIG_CRYPTO_DEV_XILINX_TRNG=m
+ CONFIG_CRYPTO_DEV_ZYNQMP_AES=m
+ CONFIG_CRYPTO_DEV_ZYNQMP_SHA3=m
+ CONFIG_CRYPTO_DEV_CCREE=m
+ CONFIG_CRYPTO_DEV_HISI_SEC2=m
+ CONFIG_CRYPTO_DEV_HISI_ZIP=m
+diff --git a/drivers/char/hw_random/Kconfig b/drivers/char/hw_random/Kconfig
+index 7102e03dcf0a..e0a53ba558a0 100644
+--- a/drivers/char/hw_random/Kconfig
++++ b/drivers/char/hw_random/Kconfig
+@@ -624,10 +624,21 @@ config HW_RANDOM_QCOM
+ 	  Generator hardware found on some Qualcomm SoCs.
+ 
+ 	  To compile this driver as a module, choose M here. The
+ 	  module will be called qcom-rng. If unsure, say N.
+ 
++config HW_RANDOM_XILINX
++	tristate "Support for Xilinx True Random Generator"
++	depends on ZYNQMP_FIRMWARE || COMPILE_TEST
++	select CRYPTO_LIB_SHA512
++	help
++	  Xilinx Versal SoC driver provides kernel-side support for True Random Number
++	  Generator and Pseudo random Number in CTR_DRBG mode as defined in NIST SP800-90A.
++
++	  To compile this driver as a module, choose M here: the module
++	  will be called xilinx-trng.
++
+ endif # HW_RANDOM
+ 
+ config UML_RANDOM
+ 	depends on UML
+ 	select HW_RANDOM
+diff --git a/drivers/char/hw_random/Makefile b/drivers/char/hw_random/Makefile
+index 605ba8df5a8f..470004ad841a 100644
+--- a/drivers/char/hw_random/Makefile
++++ b/drivers/char/hw_random/Makefile
+@@ -51,5 +51,6 @@ obj-$(CONFIG_HW_RANDOM_ARM_SMCCC_TRNG) += arm_smccc_trng.o
+ obj-$(CONFIG_HW_RANDOM_CN10K) += cn10k-rng.o
+ obj-$(CONFIG_HW_RANDOM_POLARFIRE_SOC) += mpfs-rng.o
+ obj-$(CONFIG_HW_RANDOM_ROCKCHIP) += rockchip-rng.o
+ obj-$(CONFIG_HW_RANDOM_JH7110) += jh7110-trng.o
+ obj-$(CONFIG_HW_RANDOM_QCOM) += qcom-rng.o
++obj-$(CONFIG_HW_RANDOM_XILINX) += xilinx-trng.o
+diff --git a/drivers/crypto/xilinx/xilinx-trng.c b/drivers/char/hw_random/xilinx-trng.c
+similarity index 100%
+rename from drivers/crypto/xilinx/xilinx-trng.c
+rename to drivers/char/hw_random/xilinx-trng.c
 diff --git a/drivers/crypto/Kconfig b/drivers/crypto/Kconfig
-index 07f0fa3341fc..26194c33cb32 100644
+index ad6427f08d4f..451d61b33143 100644
 --- a/drivers/crypto/Kconfig
 +++ b/drivers/crypto/Kconfig
-@@ -708,11 +708,10 @@ config CRYPTO_DEV_TEGRA
+@@ -704,22 +704,10 @@ config CRYPTO_DEV_TEGRA
  
- config CRYPTO_DEV_XILINX_TRNG
- 	tristate "Support for Xilinx True Random Generator"
- 	depends on ZYNQMP_FIRMWARE || COMPILE_TEST
- 	select CRYPTO_DF80090A
--	select CRYPTO_RNG
- 	select HW_RANDOM
  	help
- 	  Xilinx Versal SoC driver provides kernel-side support for True Random Number
- 	  Generator and Pseudo random Number in CTR_DRBG mode as defined in NIST SP800-90A.
+ 	  Select this to enable Tegra Security Engine which accelerates various
+ 	  AES encryption/decryption and HASH algorithms.
  
-diff --git a/drivers/crypto/xilinx/xilinx-trng.c b/drivers/crypto/xilinx/xilinx-trng.c
-index 43a4832f07e7..a35643baa489 100644
---- a/drivers/crypto/xilinx/xilinx-trng.c
-+++ b/drivers/crypto/xilinx/xilinx-trng.c
-@@ -4,25 +4,22 @@
-  * Copyright (c) 2024 - 2025 Advanced Micro Devices, Inc.
-  */
- 
- #include <linux/bitfield.h>
- #include <linux/clk.h>
--#include <linux/crypto.h>
- #include <linux/delay.h>
- #include <linux/firmware/xlnx-zynqmp.h>
- #include <linux/hw_random.h>
- #include <linux/io.h>
- #include <linux/iopoll.h>
- #include <linux/kernel.h>
- #include <linux/module.h>
--#include <linux/mutex.h>
- #include <linux/mod_devicetable.h>
- #include <linux/platform_device.h>
- #include <crypto/aes.h>
- #include <crypto/df_sp80090a.h>
- #include <crypto/internal/cipher.h>
--#include <crypto/internal/rng.h>
- 
- /* TRNG Registers Offsets */
- #define TRNG_STATUS_OFFSET			0x4U
- #define TRNG_CTRL_OFFSET			0x8U
- #define TRNG_EXT_SEED_OFFSET			0x40U
-@@ -58,20 +55,13 @@
- struct xilinx_rng {
- 	void __iomem *rng_base;
- 	struct device *dev;
- 	unsigned char *scratchpadbuf;
- 	struct aes_enckey *aeskey;
--	struct mutex lock;	/* Protect access to TRNG device */
- 	struct hwrng trng;
- };
- 
--struct xilinx_rng_ctx {
--	struct xilinx_rng *rng;
--};
+-config CRYPTO_DEV_XILINX_TRNG
+-	tristate "Support for Xilinx True Random Generator"
+-	depends on ZYNQMP_FIRMWARE || COMPILE_TEST
+-	select CRYPTO_LIB_SHA512
+-	select HW_RANDOM
+-	help
+-	  Xilinx Versal SoC driver provides kernel-side support for True Random Number
+-	  Generator and Pseudo random Number in CTR_DRBG mode as defined in NIST SP800-90A.
 -
--static struct xilinx_rng *xilinx_rng_dev;
+-	  To compile this driver as a module, choose M here: the module
+-	  will be called xilinx-trng.
 -
- static void xtrng_readwrite32(void __iomem *addr, u32 mask, u8 value)
- {
- 	u32 val;
- 
- 	val = ioread32(addr);
-@@ -243,74 +233,25 @@ static int xtrng_random_bytes_generate(struct xilinx_rng *rng, u8 *rand_buf_ptr,
- 	}
- 
- 	return nbytes;
- }
- 
--static int xtrng_trng_generate(struct crypto_rng *tfm, const u8 *src, u32 slen,
--			       u8 *dst, u32 dlen)
--{
--	struct xilinx_rng_ctx *ctx = crypto_rng_ctx(tfm);
--	int ret;
--
--	mutex_lock(&ctx->rng->lock);
--	ret = xtrng_random_bytes_generate(ctx->rng, dst, dlen, true);
--	mutex_unlock(&ctx->rng->lock);
--
--	return ret < 0 ? ret : 0;
--}
--
--static int xtrng_trng_seed(struct crypto_rng *tfm, const u8 *seed, unsigned int slen)
--{
--	return 0;
--}
--
--static int xtrng_trng_init(struct crypto_tfm *rtfm)
--{
--	struct xilinx_rng_ctx *ctx = crypto_tfm_ctx(rtfm);
--
--	ctx->rng = xilinx_rng_dev;
--
--	return 0;
--}
--
--static struct rng_alg xtrng_trng_alg = {
--	.generate = xtrng_trng_generate,
--	.seed = xtrng_trng_seed,
--	.seedsize = 0,
--	.base = {
--		.cra_name = "stdrng",
--		.cra_driver_name = "xilinx-trng",
--		.cra_priority = 300,
--		.cra_ctxsize = sizeof(struct xilinx_rng_ctx),
--		.cra_module = THIS_MODULE,
--		.cra_init = xtrng_trng_init,
--	},
--};
--
- static int xtrng_hwrng_trng_read(struct hwrng *hwrng, void *data, size_t max, bool wait)
- {
- 	u8 buf[TRNG_SEC_STRENGTH_BYTES];
- 	struct xilinx_rng *rng;
- 	int ret = -EINVAL, i = 0;
- 
- 	rng = container_of(hwrng, struct xilinx_rng, trng);
--	/* Return in case wait not set and lock not available. */
--	if (!mutex_trylock(&rng->lock) && !wait)
--		return 0;
--	else if (!mutex_is_locked(&rng->lock) && wait)
--		mutex_lock(&rng->lock);
--
- 	while (i < max) {
- 		ret = xtrng_random_bytes_generate(rng, buf, TRNG_SEC_STRENGTH_BYTES, wait);
- 		if (ret < 0)
- 			break;
- 
- 		memcpy(data + i, buf, min_t(int, ret, (max - i)));
- 		i += min_t(int, ret, (max - i));
- 	}
--	mutex_unlock(&rng->lock);
--
- 	return ret;
- }
- 
- static int xtrng_hwrng_register(struct hwrng *trng)
- {
-@@ -352,60 +293,42 @@ static int xtrng_probe(struct platform_device *pdev)
- 	if (!rng->aeskey)
- 		return -ENOMEM;
- 
- 	sb_size = crypto_drbg_ctr_df_datalen(TRNG_SEED_LEN_BYTES, AES_BLOCK_SIZE);
- 	rng->scratchpadbuf = devm_kzalloc(&pdev->dev, sb_size, GFP_KERNEL);
--	if (!rng->scratchpadbuf) {
--		ret = -ENOMEM;
--		goto end;
--	}
-+	if (!rng->scratchpadbuf)
-+		return -ENOMEM;
- 
- 	xtrng_trng_reset(rng->rng_base);
- 	ret = xtrng_reseed_internal(rng);
- 	if (ret) {
- 		dev_err(&pdev->dev, "TRNG Seed fail\n");
--		goto end;
--	}
--
--	xilinx_rng_dev = rng;
--	mutex_init(&rng->lock);
--	ret = crypto_register_rng(&xtrng_trng_alg);
--	if (ret) {
--		dev_err(&pdev->dev, "Crypto Random device registration failed: %d\n", ret);
--		goto end;
-+		return ret;
- 	}
- 
- 	ret = xtrng_hwrng_register(&rng->trng);
- 	if (ret) {
- 		dev_err(&pdev->dev, "HWRNG device registration failed: %d\n", ret);
--		goto crypto_rng_free;
-+		return ret;
- 	}
- 	platform_set_drvdata(pdev, rng);
- 
- 	return 0;
--
--crypto_rng_free:
--	crypto_unregister_rng(&xtrng_trng_alg);
--
--end:
--	return ret;
- }
- 
- static void xtrng_remove(struct platform_device *pdev)
- {
- 	struct xilinx_rng *rng;
- 	u32 zero[TRNG_NUM_INIT_REGS] = { };
- 
- 	rng = platform_get_drvdata(pdev);
- 	xtrng_hwrng_unregister(&rng->trng);
--	crypto_unregister_rng(&xtrng_trng_alg);
- 	xtrng_write_multiple_registers(rng->rng_base + TRNG_EXT_SEED_OFFSET, zero,
- 				       TRNG_NUM_INIT_REGS);
- 	xtrng_write_multiple_registers(rng->rng_base + TRNG_PER_STRNG_OFFSET, zero,
- 				       TRNG_NUM_INIT_REGS);
- 	xtrng_hold_reset(rng->rng_base);
--	xilinx_rng_dev = NULL;
- }
- 
- static const struct of_device_id xtrng_of_match[] = {
- 	{ .compatible = "xlnx,versal-trng", },
- 	{},
+ config CRYPTO_DEV_ZYNQMP_AES
+ 	tristate "Support for Xilinx ZynqMP AES hw accelerator"
+ 	depends on ZYNQMP_FIRMWARE || COMPILE_TEST
+ 	select CRYPTO_AES
+ 	select CRYPTO_ENGINE
+diff --git a/drivers/crypto/xilinx/Makefile b/drivers/crypto/xilinx/Makefile
+index 9b51636ef75e..730feff5b5f2 100644
+--- a/drivers/crypto/xilinx/Makefile
++++ b/drivers/crypto/xilinx/Makefile
+@@ -1,4 +1,3 @@
+ # SPDX-License-Identifier: GPL-2.0-only
+-obj-$(CONFIG_CRYPTO_DEV_XILINX_TRNG) += xilinx-trng.o
+ obj-$(CONFIG_CRYPTO_DEV_ZYNQMP_AES) += zynqmp-aes-gcm.o
+ obj-$(CONFIG_CRYPTO_DEV_ZYNQMP_SHA3) += zynqmp-sha.o
 -- 
 2.54.0
 
