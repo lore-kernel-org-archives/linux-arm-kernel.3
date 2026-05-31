@@ -4,89 +4,57 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 74CF4CD6E56
-	for <linux-arm-kernel@archiver.kernel.org>; Sun, 31 May 2026 21:08:15 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 5AE7CCD6E55
+	for <linux-arm-kernel@archiver.kernel.org>; Sun, 31 May 2026 22:09:34 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
 	MIME-Version:Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-Type:
 	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
 	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
-	bh=gzLqQR6G4kyvk+M7E6iPCt77xQ+4XBPvUj75BQ/swwo=; b=ecnposnNLfhQcMG6ggpW37e3Yl
-	RTIDi+9oNMDikLLt+bAMLUCeSvuWjjjHh1ceOSt9fhNCL1Ziovz6m8EdoXoWd1fSp6elOS38U8Ij+
-	EhwGA2EZ2/3acWJxDiTqSl6GusGxZMFnZ0bTlVv/Hx6FUtP7NJ0QY3hpxanXNhX9hdqIgDLe3a15m
-	EA//h9PxgwEUIr1a7cM9BxSjRWB2512Hwi9cdl2w/sw6vdKDR82qPCZiqmEC93QC03UzqOc37Rv2m
-	43ufmD7Fd1+yYMXW1nNgOT4wSC/xLKb/pWCU0Q2RSd6CLG+AlalH+pAAd/FP2GzA3XiIOaat1erKZ
-	voH7mGyA==;
+	bh=3d+b2xcvsjVrWaPpn6WtYYoLjMGe7dIwqDd2QcDn+XI=; b=EF1gKIwKCHwdzRAC+uCdhMdumB
+	HNf4idZvFIwPaYbQf6vi+yvNzL5BvxITaBdQuPv24R1AVTeQiu798Y9rdtI1ISrz/7NQuRjvaEXNo
+	buG690P4H7MEePBdX7l1RwlVyapkFW+p5W4ZflSlfk5AJRiwCSap+75NTHEwlbT7XawtUK4sfrnbE
+	IcemT+GJe5kp3OxSrFo5w+VfqBkD+n+n9p32g0wdEowPyLELv1M7YwwRb2Wbe9tf1GD9u/aaeQIZS
+	SjkgM7GHoN57j/4ym9M9bWFxM8TYiGOflJyEkU1nN2kM9PCED++i1SijHmDaZmDNdoAVjrLeDewj/
+	8zFWR0hg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wTnOD-00000009uJm-0EjD;
-	Sun, 31 May 2026 21:08:09 +0000
-Received: from mail-pf1-x42f.google.com ([2607:f8b0:4864:20::42f])
+	id 1wToLU-00000009vQy-0s54;
+	Sun, 31 May 2026 22:09:24 +0000
+Received: from out-176.mta1.migadu.com ([95.215.58.176])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wTnOB-00000009uJR-0VNV
+	id 1wToLQ-00000009vQb-2vTv
 	for linux-arm-kernel@lists.infradead.org;
-	Sun, 31 May 2026 21:08:08 +0000
-Received: by mail-pf1-x42f.google.com with SMTP id d2e1a72fcca58-8422f395a4aso543153b3a.0
-        for <linux-arm-kernel@lists.infradead.org>; Sun, 31 May 2026 14:08:06 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20251104; t=1780261686; x=1780866486; darn=lists.infradead.org;
-        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
-         :to:from:from:to:cc:subject:date:message-id:reply-to;
-        bh=gzLqQR6G4kyvk+M7E6iPCt77xQ+4XBPvUj75BQ/swwo=;
-        b=cuR+BA/7bPH7ffEWG/6vax75JRMjhoKhkpGiCgt/sR7aAreLt3rellx4pgaN4Nj7Qv
-         zySaLiBsUUJsuoU8s9J4i7FAVMP5aW9x2Do5b3fTwIsaxhLFXpgRNpcK7YO2tJZeHgg2
-         FKuHpQeyPJCxytiDzCTShnt9G6XyZu6RcAZ6hOU7JR/K+LBESjzBFDFGaW91Seja77fL
-         Q9SNRkqFqXoraWvc+cUyHlbeiGkvjU8JHP7EWYavs46qh1KfaluoEqsubRMEbXdzbAYy
-         lOb0osCbLjHC/rLfpE264XQC5qqWtm4p7wjJLITssWHrRostl7440Y5C4/RyABmMFbTx
-         1Z+A==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20251104; t=1780261686; x=1780866486;
-        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
-         :to:from:x-gm-gg:x-gm-message-state:from:to:cc:subject:date
-         :message-id:reply-to;
-        bh=gzLqQR6G4kyvk+M7E6iPCt77xQ+4XBPvUj75BQ/swwo=;
-        b=nkYIFoApwI2Hly67wck1UCuYtTYD/HjyorcPTK57amOnH8IrwmxlcfFJy+yGHxL1ch
-         i/tKn8TGbF+a7sIyinQdPy5pD7odMFBueATxPWjPWmORmqgoa5i1VRioR1DNDu3AdxDw
-         C7SYiIGXCKvABAWU2sOKYWq+Scwvu46AMHCB0pS2IvYeFi5KU1VAvCVwKh2ZGwcNmrIW
-         bbXTSP+RxeOZkVYiz4O6j1ouov9EqLKtncN0U3Tcix6kbllvxmcEmNSP1/J7hpostOvF
-         XBUkIxhry49vCirIV5ry1rs2UUyFiXLnLbXXm1vePoMWe8FkmmMpup4PmthV2pInXV4g
-         e29A==
-X-Forwarded-Encrypted: i=1; AFNElJ+gjdO/J7dJOUDngqfnk7RhH1NxB6+jqhcTwrG+NVLGwRzje+LiRmQdJWTrGnvS4LUIMhWHHOPJgr+W0jyNIzm2@lists.infradead.org
-X-Gm-Message-State: AOJu0Yw31b+DgwmQcS+PZrW/0n3gLmxxwb5UJR8IOWGUbJHQ+UmbNzoH
-	CgjTHvr7mFJUMbXCgejHeF6CPKn7EJCwdM5iUxGxKVchzgGB9HXJfXHx
-X-Gm-Gg: Acq92OGHErLm9adzbedqWvb5+Kt+BVVYUfBVfUKGnWqJmUOTmLt3F6761yzIIjyLlP3
-	nSNKctQzCT5DA50GS54WBWnKfOtr60yIqAKtHWHLqPcs9+WCs5O6LtX7rmOml9oAZgJjXUIPJ49
-	KInYBrQNvZ3X36T2kp65Pc5I5OenFIhmPNLjw3Jpi6QqNYPdP9yvPt7W87fFmh7RxAVcRqeFNYK
-	4KS/5g8pDpT/XLNOX3y1q1Wt5FZM2rG6Ev/4FmYawC1fW+u1C1dAyUQadvIbSnGbkgzC6VwsGVJ
-	FbvrlNS4yBTvxU7kwKY/tde8w1/PEOLKS0h6I1DZ50/NsVF4n1qyspO5mtoZuz0NdHqfNeS/3kv
-	7+QR3kAeWR7+h59bypwseUlMfJxZCWoYVYxLXgmsoqHsIUp8b8iMjBxqPwyy6EJt9KYkQVtyif2
-	eYBcNbmnEbYeCXuvGy0SI5o6CcA5dcZlEWgq3TgQFzfhkahG/vt3ykiwx5JQ36FeD8JBf4mBOuN
-	cjz+slbq/+CcdaatSNL/deYy5fpVcDbXsLdc5s+N45e9w==
-X-Received: by 2002:a05:6a00:23d6:b0:835:51fd:b7ea with SMTP id d2e1a72fcca58-84210b3a471mr8981456b3a.19.1780261685744;
-        Sun, 31 May 2026 14:08:05 -0700 (PDT)
-Received: from ryzen ([2601:644:8000:5b5d:7285:c2ff:fe45:8a32])
-        by smtp.gmail.com with ESMTPSA id d2e1a72fcca58-84232ef8172sm4857400b3a.12.2026.05.31.14.08.03
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Sun, 31 May 2026 14:08:05 -0700 (PDT)
-From: Rosen Penev <rosenp@gmail.com>
-To: dmaengine@vger.kernel.org
-Cc: Linus Walleij <linusw@kernel.org>,
-	Vinod Koul <vkoul@kernel.org>,
-	Frank Li <Frank.Li@kernel.org>,
-	Lee Jones <lee@kernel.org>,
-	Arnd Bergmann <arnd@arndb.de>,
-	linux-arm-kernel@lists.infradead.org (moderated list:ARM/NOMADIK/Ux500 ARCHITECTURES),
-	linux-kernel@vger.kernel.org (open list)
-Subject: [PATCH] dmaengine: ste_dma40: fix out-of-bounds access from D40_MEMCPY_MAX_CHANS
-Date: Sun, 31 May 2026 14:07:47 -0700
-Message-ID: <20260531210747.11401-1-rosenp@gmail.com>
-X-Mailer: git-send-email 2.54.0
+	Sun, 31 May 2026 22:09:22 +0000
+X-Report-Abuse: Please report any abuse attempt to abuse@migadu.com and include these headers.
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=linux.dev; s=key1;
+	t=1780265354;
+	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
+	 to:to:cc:cc:mime-version:mime-version:
+	 content-transfer-encoding:content-transfer-encoding;
+	bh=3d+b2xcvsjVrWaPpn6WtYYoLjMGe7dIwqDd2QcDn+XI=;
+	b=wfj553VrOZTCoyYd+rEsZYHjR1OFjh6BOTtCOL0u14gNbkiM2Sbfv/HFD47a+S/9+QI0k5
+	Ub4aEl/2PfafVpVFcNZbxpv2tYLCvYL5aIFCx46NPqSxFGPf++P6n9fYqcVrkcKWMKXvCN
+	+xL1IQce4rhs15YmFgiKxa1FC6cMAUM=
+From: Thorsten Blum <thorsten.blum@linux.dev>
+To: Catalin Marinas <catalin.marinas@arm.com>,
+	Will Deacon <will@kernel.org>
+Cc: Thorsten Blum <thorsten.blum@linux.dev>,
+	linux-arm-kernel@lists.infradead.org,
+	linux-kernel@vger.kernel.org
+Subject: [PATCH] arm64: patching: replace min_t with min in __text_poke
+Date: Mon,  1 Jun 2026 00:08:16 +0200
+Message-ID: <20260531220817.738904-2-thorsten.blum@linux.dev>
 MIME-Version: 1.0
+X-Developer-Signature: v=1; a=openpgp-sha256; l=804; i=thorsten.blum@linux.dev; h=from:subject; bh=XM4Mj8knoES15YzfCHRN5BQR3Hmdw/AP4VY7DvQniQE=; b=owGbwMvMwCUWt7pQ4caZUj3G02pJDFkyGwP9zm+X+53me1vG7cUByc6Z/GY9+Ttu3Sr13vilz eLzAv6ejlIWBjEuBlkxRZYHs37M8C2tqdxkErETZg4rE8gQBi5OAZiI1SSG/74cIhzP+5g7FAJX /zHk3pDccOtqjrJDc0iU5aemlJVySxkZ/r9rPnT+urQWu9g/3s0N+83ZTHiVu3d9llHa4St7/aY 7NwA=
+X-Developer-Key: i=thorsten.blum@linux.dev; a=openpgp; fpr=1D60735E8AEF3BE473B69D84733678FD8DFEEAD4
 Content-Transfer-Encoding: 8bit
+X-Migadu-Flow: FLOW_OUT
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260531_140807_158728_695A4C56 
-X-CRM114-Status: GOOD (  12.44  )
+X-CRM114-CacheID: sfid-20260531_150921_456129_F36D1C71 
+X-CRM114-Status: UNSURE (   8.58  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -101,38 +69,26 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-D40_MEMCPY_MAX_CHANS is defined as 8, but the dma40_memcpy_channels[]
-array only has 6 elements. This mismatch causes an out-of-bounds
-issue:
+Use the simpler min() macro since both values are unsigned and
+compatible.
 
-1. d40_of_probe() accepts up to 8 memcpy channels from DT
-   (num_memcpy > D40_MEMCPY_MAX_CHANS allows 7-8), then writes them
-   into the 6-element dma40_memcpy_channels[], corrupting adjacent
-   stack memory.
-
-Fix by defining D40_MEMCPY_MAX_CHANS as 6 to match the array size.
-
-Fixes: a7dacb68b35a ("dmaengine: ste_dma40: Allow memcpy channels to be configured from DT")
-Assisted-by: Opencode:Big-Pickle
-Signed-off-by: Rosen Penev <rosenp@gmail.com>
+Signed-off-by: Thorsten Blum <thorsten.blum@linux.dev>
 ---
- drivers/dma/ste_dma40.c | 2 +-
- 1 file changed, 1 insertion(+), 1 deletion(-)
+ arch/arm64/kernel/patching.c | 3 +--
+ 1 file changed, 1 insertion(+), 2 deletions(-)
 
-diff --git a/drivers/dma/ste_dma40.c b/drivers/dma/ste_dma40.c
-index 0d9ffa3e2663..c45643b7f415 100644
---- a/drivers/dma/ste_dma40.c
-+++ b/drivers/dma/ste_dma40.c
-@@ -86,7 +86,7 @@ struct stedma40_platform_data {
- #define D40_ALLOC_PHY		BIT(30)
- #define D40_ALLOC_LOG_FREE	0
+diff --git a/arch/arm64/kernel/patching.c b/arch/arm64/kernel/patching.c
+index 1041bc67a3ee..09f019c6547a 100644
+--- a/arch/arm64/kernel/patching.c
++++ b/arch/arm64/kernel/patching.c
+@@ -116,8 +116,7 @@ static void *__text_poke(text_poke_f func, void *addr, void *src, size_t len)
  
--#define D40_MEMCPY_MAX_CHANS	8
-+#define D40_MEMCPY_MAX_CHANS	6
+ 	while (patched < len) {
+ 		ptr = addr + patched;
+-		size = min_t(size_t, PAGE_SIZE - offset_in_page(ptr),
+-			     len - patched);
++		size = min(PAGE_SIZE - offset_in_page(ptr), len - patched);
  
- /* Reserved event lines for memcpy only. */
- #define DB8500_DMA_MEMCPY_EV_0	51
--- 
-2.54.0
-
+ 		waddr = patch_map(ptr, FIX_TEXT_POKE0);
+ 		func(waddr, src, patched, size);
 
