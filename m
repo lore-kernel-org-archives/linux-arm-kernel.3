@@ -4,44 +4,44 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 27DD5CD5BD1
-	for <linux-arm-kernel@archiver.kernel.org>; Sun, 31 May 2026 12:39:43 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 24F40CD5BD1
+	for <linux-arm-kernel@archiver.kernel.org>; Sun, 31 May 2026 12:45:41 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
 	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
 	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=kU3C0Fe5mVTPmf2QmytRlBNptZObb7DHNb86r8nSqWY=; b=SrUSEbrj8itUYp1B+8Z1KHtSAT
-	cdN/iDGE6iXBRrojlljoKT79Iuj4AAhE+851YobzRQTFl+oh8ta86UwCfGN1Fw2yf1giTVfbh8Btd
-	tXXpA3VFvoBi0/s4vGAI+TWF+SPHqXR1l1zZomT+EyrScBzKLtIr/1vf8QsEmS03UgWr1jGyVW1an
-	0k1g6gAtzGYhC9CVgK+h5h3qacPDauzHGN2ZQYnhT3eUix8hisSCcBL7GU012iMCmEmToSTDndD2z
-	Oz9HMrhC0t2cOk+rCnwKA1qFvmbT5yhhRDIPW5o/8hn0LTg2LnXROCRMo7Tw/knzr0v81J9tSccTC
-	pXRbVHHA==;
+	bh=gC7FGBCpOWE8WjlFTBs+odeMD/y+jDDq2vTzWmg11Uc=; b=46HT/4qV04SldHjBiQoXF9c+po
+	dppCm4ue+tKD10virE9kUDgSGhRVMmB63yghFp/SD5wrYcja+ENl0oCTWdDDTBIwBDJAdfvFAksmZ
+	2pMzEXAjWtaCt0nGnXEIBiAdFxeE1GFU37pmSI50ELGcEICPZcALmoT2snlO+la3TCqGtozJs7ivP
+	sAizduuQnPO+UITNjTP0RPoON6maefPAg2m+ndK1pSyryReb6mg21ITDtesIg78COc+cBlDGLBaBc
+	3wjcEbVMuLqMzqBZBW+6wApdUX7dfzEuCHlwHyZ8EJSYqT9xGBgMFWuB0CMwzR7GJyUnndrrwu6fY
+	BPIRsSgg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wTfS5-00000009b5g-0xSZ;
-	Sun, 31 May 2026 12:39:37 +0000
-Received: from tor.source.kernel.org ([2600:3c04:e001:324:0:1991:8:25])
+	id 1wTfXq-00000009bII-3eQ6;
+	Sun, 31 May 2026 12:45:34 +0000
+Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wTfS4-00000009b5V-2phk;
-	Sun, 31 May 2026 12:39:36 +0000
+	id 1wTfXo-00000009bHs-13FT;
+	Sun, 31 May 2026 12:45:33 +0000
 Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
-	by tor.source.kernel.org (Postfix) with ESMTP id A9DFB60123;
-	Sun, 31 May 2026 12:39:35 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id E3BAC1F00893;
-	Sun, 31 May 2026 12:39:34 +0000 (UTC)
+	by sea.source.kernel.org (Postfix) with ESMTP id 93B59409BC;
+	Sun, 31 May 2026 12:45:31 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id F22C71F00893;
+	Sun, 31 May 2026 12:45:30 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1780231175;
-	bh=kU3C0Fe5mVTPmf2QmytRlBNptZObb7DHNb86r8nSqWY=;
+	s=k20260515; t=1780231531;
+	bh=gC7FGBCpOWE8WjlFTBs+odeMD/y+jDDq2vTzWmg11Uc=;
 	h=Date:From:To:Cc:Subject:References:In-Reply-To;
-	b=OePxq/vWO0dyv59ea02eESX7RYIHLkeAHPNtX+O52so2zGz0j2860tEE/AQ3uFEaS
-	 5dmN26dSGYXI121RV0EnD6g3NT2dWKV4GL9PSpiTHywBVmnLRqAku6ywGslEPVdEqx
-	 drhbmvbPVm4CZQMN12+ut89VfcdnL39KrwrfTq0iXF/fcgy2LpdpphapyTux431K/v
-	 STTQH77KNoO3KRb7dKc7EmlScwcbvDUdNwMSOhxLC0vYKCYPexktLz/b7WzhgTIROk
-	 aIB/H5cz8rPQVmeFyh63aJ3d78kDvYjy04d6OW3yQUjwTX81Dm95M6EPuEfevr5BfZ
-	 ZWTPNtX9geyJQ==
-Date: Sun, 31 May 2026 14:39:32 +0200
+	b=MRVQANP5ZCmoB+ChcTpt0dfDi03BobhYrHFPntQQ18rwFD1ZgucagCxBUtSysO07u
+	 KeTnY9qLElXGoClNbK61DaR93hghI3pssrOvLl6RNZDK/Bd7XPWLj2up+4ondYl5es
+	 njSfaPcTaGkpVLT8O1lMHxTmBEqb5jSCHveBlF78RKfOX0GwoCwB3U2gOVedrxx2sr
+	 d0ZZhUiHOrV4kzWgF08zNq5YltDPy6/Sg1/Q1ipPbgCLaEbNVTDxHBoue6doCOWhrc
+	 9c2RLMKlT3y5Kzph9LAWDv+s2k4/efv1Sd5BkrO0YRw+cprm4/2sBAfgUPZnL/knIN
+	 wfEinLVCJ0sWg==
+Date: Sun, 31 May 2026 14:45:23 +0200
 From: Krzysztof Kozlowski <krzk@kernel.org>
 To: Christian Marangi <ansuelsmth@gmail.com>
 Cc: Liam Girdwood <lgirdwood@gmail.com>, Mark Brown <broonie@kernel.org>, 
@@ -53,15 +53,18 @@ Cc: Liam Girdwood <lgirdwood@gmail.com>, Mark Brown <broonie@kernel.org>,
 	Chen-Yu Tsai <wenst@chromium.org>, linux-sound@vger.kernel.org, devicetree@vger.kernel.org, 
 	linux-kernel@vger.kernel.org, linux-arm-kernel@lists.infradead.org, 
 	linux-mediatek@lists.infradead.org
-Subject: Re: [PATCH v3 1/4] ASoC: dt-bindings: Add Airoha AN7581 AFE Sound
- card.
-Message-ID: <20260531-spicy-sassy-woodlouse-b2674e@quoll>
+Subject: Re: [PATCH v3 2/4] ASoC: dt-bindings: Add Airoha AN7581 AFE with
+ WM8960 Codec schema
+Message-ID: <20260531-chirpy-carp-of-promise-ec7dac@quoll>
 References: <20260528174840.28644-1-ansuelsmth@gmail.com>
- <20260528174840.28644-2-ansuelsmth@gmail.com>
+ <20260528174840.28644-3-ansuelsmth@gmail.com>
 MIME-Version: 1.0
 Content-Type: text/plain; charset=utf-8
 Content-Disposition: inline
-In-Reply-To: <20260528174840.28644-2-ansuelsmth@gmail.com>
+In-Reply-To: <20260528174840.28644-3-ansuelsmth@gmail.com>
+X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
+X-CRM114-CacheID: sfid-20260531_054532_332272_19238D8D 
+X-CRM114-Status: GOOD (  18.31  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -76,48 +79,85 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Thu, May 28, 2026 at 07:48:29PM +0200, Christian Marangi wrote:
-> Add YAML schema for Airoha AN7581 AFE SoC sound card.
->
+On Thu, May 28, 2026 at 07:48:30PM +0200, Christian Marangi wrote:
+> Add YAML schema for Airoha AN7581 AFE with the specific WM8960 i2c Codec.
 
-Nit: subject, drop final stop.
+DT schema. There is no YAML schema.
 
+Also, looks like sound card, not AFE... but previous patch said it is
+a sound card (while it was AFE), so completely confusing...
 
+> 
+> This gives example on how to define and connect the AFE driver with the
+> WM9860 for full functionality.
+> 
 > Signed-off-by: Christian Marangi <ansuelsmth@gmail.com>
 > ---
->  .../bindings/sound/airoha,an7581-afe.yaml     | 41 +++++++++++++++++++
->  1 file changed, 41 insertions(+)
->  create mode 100644 Documentation/devicetree/bindings/sound/airoha,an7581-afe.yaml
+>  .../bindings/sound/airoha,an7581-wm8960.yaml  | 71 +++++++++++++++++++
+>  1 file changed, 71 insertions(+)
+>  create mode 100644 Documentation/devicetree/bindings/sound/airoha,an7581-wm8960.yaml
 > 
-> diff --git a/Documentation/devicetree/bindings/sound/airoha,an7581-afe.yaml b/Documentation/devicetree/bindings/sound/airoha,an7581-afe.yaml
+> diff --git a/Documentation/devicetree/bindings/sound/airoha,an7581-wm8960.yaml b/Documentation/devicetree/bindings/sound/airoha,an7581-wm8960.yaml
 > new file mode 100644
-> index 000000000000..80d9e87f1470
+> index 000000000000..b637c294657f
 > --- /dev/null
-> +++ b/Documentation/devicetree/bindings/sound/airoha,an7581-afe.yaml
-> @@ -0,0 +1,41 @@
+> +++ b/Documentation/devicetree/bindings/sound/airoha,an7581-wm8960.yaml
+> @@ -0,0 +1,71 @@
 > +# SPDX-License-Identifier: (GPL-2.0-only OR BSD-2-Clause)
 > +%YAML 1.2
 > +---
-> +$id: http://devicetree.org/schemas/sound/airoha,an7581-afe.yaml#
+> +$id: http://devicetree.org/schemas/sound/airoha,an7581-wm8960.yaml#
 > +$schema: http://devicetree.org/meta-schemas/core.yaml#
 > +
-> +title: Airoha AFE PCM controller for AN7581
+> +title: Airoha AN7581 sound card with WM8960 codec
 > +
 > +maintainers:
 > +  - Christian Marangi <ansuelsmth@gmail.com>
 > +
+> +allOf:
+> +  - $ref: sound-card-common.yaml#
+> +
 > +properties:
 > +  compatible:
-> +    const: airoha,an7581-afe
+> +    const: airoha,an7581-wm8960-sound
 > +
-> +  reg:
-> +    maxItems: 1
+> +  platform:
+> +    type: object
 > +
-> +  interrupts:
-> +    maxItems: 1
 
-This looks incomplete - missing at least clocks. Are you sure that AFE
-here is so limited, comparing to other Mediatek designs?
+additionalProperties go here. Looks at other Mediatek sound cards.
+
+> +    properties:
+> +      sound-dai:
+> +        items:
+> +          - description: The phandle of AN7581 platform.
+> +
+> +    required:
+> +      - sound-dai
+> +
+> +    additionalProperties: false
+> +
+> +  codec:
+> +    type: object
+> +
+> +    properties:
+> +      sound-dai:
+> +        items:
+> +          - description: The phandle of WM8960 i2c codec.
+> +
+> +    required:
+> +      - sound-dai
+> +
+> +    additionalProperties: false
+> +
+> +unevaluatedProperties: false
+
+This goes after "required:".
+
+
+> +
+> +required:
+> +  - compatible
 
 Best regards,
 Krzysztof
