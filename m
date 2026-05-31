@@ -4,57 +4,66 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 3BD1BCD6E56
-	for <linux-arm-kernel@archiver.kernel.org>; Sun, 31 May 2026 09:17:18 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id E7E81CD5BD1
+	for <linux-arm-kernel@archiver.kernel.org>; Sun, 31 May 2026 09:30:02 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:MIME-Version:References:In-Reply-To:Message-ID:Subject:Cc:From:
-	To:Date:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=6Mi/KLOUb5arO23rwQT+9y7j1zQmga8RdlBDubg+76U=; b=OBloeSlurhlU7YO87wkGMWci6v
-	c8ZZvGDVyXunYX82xoPFF6T7Ky/iHVCgkEKLBLZdEUxIG0kXuCdxevcPSs9ySo+xBEA35uTbFh/Z/
-	tM4sNBJSU/4r4RXKtpe/qkn5yZLsbgujUVUwGL+MjabGSPgMq3BHJp+ECM0uVMo0RSydeTCYv4CDi
-	MQtPfeU/fhJ0NVT6P+4ReoXpHgzoEnFW7PcnwdEzlfgbHfY7/O9dPlIzSVjJoKyQd3UjSIed8HSQn
-	nZPLW0ROZl7Go0LjlQulH8/eMANCe2iwk5PWMIntjZ6mAkNHyd+JhNIIrB/ONHsjwVCSbDTjcKGpz
-	wjxF7xTw==;
+	Content-Type:In-Reply-To:From:References:To:Subject:MIME-Version:Date:
+	Message-ID:Reply-To:Cc:Content-ID:Content-Description:Resent-Date:Resent-From
+	:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=4NHIT1ilJJCqNaudxFk22yjTTqDm0QouOPP1Hh+837g=; b=O1GkZVYUJxwbNopoEEXYeyHC4R
+	JUTGDWvCZGZNKbPMx4FJQd/k8poIOLsg8IiieuAY6407dLeQvNYq6lE+qlA9qqQaxNawI9IUxDLRU
+	ECrP11Cwvm9H31ZHWy2KQIS/0C/aDUingQ6JF0uAuI8Bzqfp9ubkFNXq888G+wnSgGkJaxL1/KnNr
+	EV/yc53DWARZlMKXvZBytPaEboeZTf7+4WRgk2aRcy1tjh/v9eUN/M29WrBCutn14DSH5onKL0vpA
+	KI9TSY5Q4klUcA6dD3OzFzw4qijw3Y/fmc2ocFCxx1dnXWdCAHECMYx8IaXauJzS0u7HLjMb6czut
+	JvkmzItA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wTcI9-00000009PyF-11iW;
-	Sun, 31 May 2026 09:17:09 +0000
-Received: from mail-43167.protonmail.ch ([185.70.43.167])
+	id 1wTcUW-00000009QXd-1VgZ;
+	Sun, 31 May 2026 09:29:56 +0000
+Received: from mta.al2klimov.de ([2a01:4f8:c0c:a5b1::1])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wTcI6-00000009PxQ-2plS
+	id 1wTcUT-00000009QWw-3Su7
 	for linux-arm-kernel@lists.infradead.org;
-	Sun, 31 May 2026 09:17:08 +0000
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=protonmail.com;
-	s=protonmail3; t=1780219021; x=1780478221;
-	bh=6Mi/KLOUb5arO23rwQT+9y7j1zQmga8RdlBDubg+76U=;
-	h=Date:To:From:Cc:Subject:Message-ID:In-Reply-To:References:
-	 Feedback-ID:From:To:Cc:Date:Subject:Reply-To:Feedback-ID:
-	 Message-ID:BIMI-Selector;
-	b=kkS0M9o65E9vzU0tAQN3sG+1sNy/wqRGMLlBz6rgYzhRrhrKCYAcix10tZSei36Rq
-	 A49IY34WBaDVMNn7Zt7eyW4Z3ernS+5S/Vwn2OhMTe3ohROjGNJj1xywXCUJ4X2GiW
-	 +ZOD1u1hbuP5jc5AEIZLB702dpCk1xO+PccTCrDCugGA0zfHhMxEhzn8LUt4V2wjP0
-	 K4JH90O8bLjt0AUV3k/ykRjl6LzupDieaAVunXpN7Onl7bNyl9FwsCNyJtXZSz8pfq
-	 BeGeufQuklPkukCPDtABDmasJ33OVFmaoN44yBoDgl74Qj5o6Ph9Mo9rzcr9nGlM3t
-	 dhq+BtB6dMFjg==
-Date: Sun, 31 May 2026 09:16:56 +0000
-To: y.oudjana@protonmail.com
-From: Yassine Oudjana <y.oudjana@protonmail.com>
-Cc: Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>, Conor Dooley <conor+dt@kernel.org>, Matthias Brugger <matthias.bgg@gmail.com>, AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>, Flora Fu <flora.fu@mediatek.com>, Alexandre Mergnat <amergnat@baylibre.com>, Liam Girdwood <lgirdwood@gmail.com>, Mark Brown <broonie@kernel.org>, Dmitry Torokhov <dmitry.torokhov@gmail.com>, devicetree@vger.kernel.org, linux-kernel@vger.kernel.org, linux-arm-kernel@lists.infradead.org, linux-mediatek@lists.infradead.org, linux-input@vger.kernel.org
-Subject: Re: [PATCH v2 0/4] MediaTek MT6735+MT6328 SoC/PMIC pair base support
-Message-ID: <wQ6oaceRZHkMTNpnvLBdrScK2DqHJ1boThn_3lf03guV83pOD24rG4c-a66ziGBrXPj09-xHK_pJoA1QvsP_wxvGZGT3y8KAhnIXaRERtH0=@protonmail.com>
-In-Reply-To: <20260531-mt6735-pwrap-mt6328-pmic-v2-0-dac37bf92894@protonmail.com>
-References: <20260531-mt6735-pwrap-mt6328-pmic-v2-0-dac37bf92894@protonmail.com>
-Feedback-ID: 6882736:user:proton
-X-Pm-Message-ID: 06f8c2a7c3d9eadd276875d922d56e33b78a84b5
+	Sun, 31 May 2026 09:29:55 +0000
+DKIM-Signature: v=1; a=rsa-sha256; c=simple/simple; s=default; bh=Mw0rh43xOAuI
+	SiAf/pF5q/1/WffFeCfnXIJl+eu1Xu8=; h=in-reply-to:from:references:to:
+	subject:date; d=al2klimov.de; b=dYE3x9NkAUO2HLL2sZmqCX+/i0AtdXexhHV8Fm
+	qrO8TvrNCfhx6Ap0e/4+LXvrXOIsQ3ry9eWyO11Woq58bJpGJkBe1hU5MkUurni6diEZ3f
+	jfZMZz4JUAG5yvD+L4Q4f68qFYmrUNk6oTv9GFuW7QEnWsfIhZf0iffeHirfQlrAJfjTlr
+	07IP74Jnm0ucvHI2alJX9SVUoqXiiD+TcVwYQAVt50aO/DV92k3t6Y/vu9UntWbFDD2ZXM
+	ceuvH4c1xUCMNYJEwNi7XKc7rDqcqIpGfR3WzCxp+uIlJCgZOSUwrhiUICWHxNMuMA3HGc
+	uu6mqOvIkEtU8h/y/3p74IIA==
+Received: from [192.168.0.101] (88.215.123.80.dyn.pyur.net [88.215.123.80])
+	by mta.al2klimov.de (OpenSMTPD) with ESMTPSA id 2f391762 (TLSv1.3:TLS_CHACHA20_POLY1305_SHA256:256:NO);
+	Sun, 31 May 2026 09:29:48 +0000 (UTC)
+Message-ID: <ae9d7e2f-05df-497d-9547-ce4722f5e7db@al2klimov.de>
+Date: Sun, 31 May 2026 11:27:47 +0200
 MIME-Version: 1.0
-Content-Type: text/plain; charset=utf-8
-Content-Transfer-Encoding: quoted-printable
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH] clk: samsung: exynos5410: fix refcount leak
+To: Krzysztof Kozlowski <krzk@kernel.org>,
+ Sylwester Nawrocki <s.nawrocki@samsung.com>,
+ Chanwoo Choi <cw00.choi@samsung.com>, Alim Akhtar <alim.akhtar@samsung.com>,
+ Michael Turquette <mturquette@baylibre.com>, Stephen Boyd
+ <sboyd@kernel.org>, Brian Masney <bmasney@redhat.com>,
+ "open list:SAMSUNG SOC CLOCK DRIVERS" <linux-samsung-soc@vger.kernel.org>,
+ "open list:COMMON CLK FRAMEWORK" <linux-clk@vger.kernel.org>,
+ "moderated list:ARM/SAMSUNG S3C, S5P AND EXYNOS ARM ARCHITECTURES"
+ <linux-arm-kernel@lists.infradead.org>,
+ open list <linux-kernel@vger.kernel.org>
+References: <20260526061321.6123-1-grandmaster@al2klimov.de>
+ <54284b18-e310-474e-9b64-63645804c1e0@kernel.org>
+Content-Language: en-US
+From: "Alexander A. Klimov" <grandmaster@al2klimov.de>
+In-Reply-To: <54284b18-e310-474e-9b64-63645804c1e0@kernel.org>
+Content-Type: text/plain; charset=UTF-8; format=flowed
+Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260531_021706_853981_2FD26484 
-X-CRM114-Status: GOOD (  17.00  )
+X-CRM114-CacheID: sfid-20260531_022954_182173_1729BFB1 
+X-CRM114-Status: UNSURE (   6.02  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -69,61 +78,24 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Sunday, May 31st, 2026 at 11:10 AM, Yassine Oudjana via B4 Relay <devnul=
-l+y.oudjana.protonmail.com@kernel.org> wrote:
 
-> These patches are part of a larger effort to support the MT6735 SoC famil=
-y in
-> mainline Linux. More patches (unsent or sent and pending review or revisi=
-on)
-> can be found here[1].
->=20
-> This series adds base support for the MediaTek MT6735 SoC and MT6328 PMIC=
- pair.
-> This includes PMIC wrapper support on the SoC side and regulators and key=
-s on
-> the PMIC side. The PMIC has other blocks such as an audio codec and batte=
-ry
-> charger which can be supported in the future.
->=20
-> Changes since v1:
-> - Fit regulator definitions in 2 lines and 100 characters whenever possib=
-le.
-> - Remove get_mode and set_mode ops for regulators that don't support them=
-.
 
-Forgot to mention:
-- Remove MD register definitions.
-
->=20
-> [1] https://gitlab.com/mt6735-mainline/linux/-/commits/mt6735-staging
->=20
-> Signed-off-by: Yassine Oudjana <y.oudjana@protonmail.com>
-> ---
-> Yassine Oudjana (4):
->       dt-bindings: mediatek: pwrap: Add MT6735 compatible
->       soc: mediatek: pwrap: Add support for MT6735 and MT6328 SoC/PMIC pa=
-ir
->       regulator: Add driver for MediaTek MT6328 PMIC regulators
->       Input: mtk-pmic-keys - Add support for MT6328
->=20
->  .../bindings/soc/mediatek/mediatek,pwrap.yaml      |   1 +
->  drivers/input/keyboard/mtk-pmic-keys.c             |  15 +
->  drivers/regulator/Kconfig                          |   9 +
->  drivers/regulator/Makefile                         |   1 +
->  drivers/regulator/mt6328-regulator.c               | 500 +++++++++++++++=
-++++++
->  drivers/soc/mediatek/mtk-pmic-wrap.c               | 177 +++++++-
->  include/linux/regulator/mt6328-regulator.h         |  49 ++
->  7 files changed, 749 insertions(+), 3 deletions(-)
-> ---
-> base-commit: 7da7f07112610a520567421dd2ffcb51beaefbcc
-> change-id: 20260531-mt6735-pwrap-mt6328-pmic-de481d5c5e89
->=20
-> Best regards,
-> --
-> Yassine Oudjana <y.oudjana@protonmail.com>
->=20
->=20
+On 5/30/26 18:26, Krzysztof Kozlowski wrote:
+> On 26/05/2026 08:13, Alexander A. Klimov wrote:
+>> Every value returned from of_clk_get() is supposed to be cleaned up
+>> via clk_put() once not needed anymore.
+>>
+>> Fixes: be95d2c7d918 ("clk: samsung: Add support for EPLL on exynos5410")
+>> Signed-off-by: Alexander A. Klimov <grandmaster@al2klimov.de>
 > 
+> 
+> Does not apply - you messed somehow sending these.
+
+Strange... copy&paste from
+https://lore.kernel.org/all/20260526061321.6123-1-grandmaster@al2klimov.de/
+(From: ... 2.54.0) applies to Linus' master.
+
+Wait... ! Don't say because I fired all my compiled patches
+at once via git-send-email(1), they assembled to one thread?
+🙈
 
