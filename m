@@ -4,84 +4,68 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 29AF5CD6E57
-	for <linux-arm-kernel@archiver.kernel.org>; Sun, 31 May 2026 16:27:58 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id D857DCD6E57
+	for <linux-arm-kernel@archiver.kernel.org>; Sun, 31 May 2026 16:37:35 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:Cc:To:Subject:Message-ID:Date:From:In-Reply-To:References:
-	MIME-Version:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Content-Type:MIME-Version:References:In-Reply-To:Message-ID:Subject:Cc:To:
+	From:Date:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=b/T/RdXiN7bhTsikP7tDXhBU6HaNdabK8ZTbQ4skuK0=; b=dmfiflX5Hynwr4eFpE4Vh9UOYn
-	lPVvKDGIafOfUv5XPTKkXMNDUO4MoH38hSLWap/rXdll/ZLJ9VMxz0oWjttnWushnoioOZfucpefa
-	LH/uBRBQv+RcA725A7q9HPsCnnGcQdOWHrjUULDxsE3raDGET/O8ih9k8Bb9hQdHYYgZwhemMwQh9
-	VivSsUpN6IMAfYt/fr9zsOSjmNqsUJvnhMMFV9WL4iQ7MP1wQhyFoDX5pzsOXRJOgNkfWZ/0wmkde
-	xOoszi3caAtB2HkTY2mp1MnF5GoGdnSlNXqNC65yvFwYbFvEskWl13pEdE6ehmn3+N0RL900W/DQM
-	q6CIzJAA==;
+	bh=8dPW62n88YQXm3Z36nWQvCD7sx0nKMwKDYpNZjRfzAg=; b=33B7w5aCJMOVJ124ov1xfZWQZK
+	PcOdhCdF3IWAv5KDW/IZ3gPU37Z1YT75utW9a8WxFgJkmEtZV5OPLb54t4wFMEr2OxnYqvZhCYHh8
+	7OaKpX1FvDP5XEGMqJOTMrNpFAT1Y0j3HiYRnUOSuX6BKCIfWWykOSQ8qJco3rxT2lCQzURiD+0qL
+	7QfPRHKop4LJju2zOhE2vGacwWnM0IjMEBOhrjK77xNqAagLiouqaw3GikgQncwC1xUDAWZxUboED
+	CmyjakkimIi8FniBVZhgVC9xpkIrypQaXeALf9e4X30N1mUs3r6MV3J57TfmA209dGavLY5cRYRm8
+	TSnJSetw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wTj0v-00000009kYJ-1sFo;
-	Sun, 31 May 2026 16:27:49 +0000
+	id 1wTjAF-00000009ksQ-1Afi;
+	Sun, 31 May 2026 16:37:27 +0000
 Received: from sea.source.kernel.org ([172.234.252.31])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wTj0t-00000009kXx-1VQM
+	id 1wTjAC-00000009ks1-1KwC
 	for linux-arm-kernel@lists.infradead.org;
-	Sun, 31 May 2026 16:27:48 +0000
+	Sun, 31 May 2026 16:37:25 +0000
 Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
-	by sea.source.kernel.org (Postfix) with ESMTP id 3B91040A28
-	for <linux-arm-kernel@lists.infradead.org>; Sun, 31 May 2026 16:27:46 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 157121F008A0
-	for <linux-arm-kernel@lists.infradead.org>; Sun, 31 May 2026 16:27:46 +0000 (UTC)
+	by sea.source.kernel.org (Postfix) with ESMTP id 8C4DA438B4;
+	Sun, 31 May 2026 16:37:23 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id BDB461F00893;
+	Sun, 31 May 2026 16:37:17 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1780244866;
-	bh=b/T/RdXiN7bhTsikP7tDXhBU6HaNdabK8ZTbQ4skuK0=;
-	h=References:In-Reply-To:From:Date:Subject:To:Cc;
-	b=Vbou+zIiA3Mr4kpYeiYJTqi2gIfmOZkK11YoGOHJXJolFeVAEfBS1YmHpT2wbl7E4
-	 1TtFyx5TF2YuygGadxrQcJ1BbSDjThQNgIQTDV+k7mbJnCEVnmCp/WdYdPgTqysu3r
-	 iMc/SXEPVkZBePzOusjof6PMTt34N5mN/BWjlITLi6GWFVDZrYjjZMV3nyOz0eZh0H
-	 nSY9BsHNYDHM9flWN3Wyu66qytrnINpASR4KeaMgIHf179bUlLCtBEgwXjc2B1+jsG
-	 pI0eIsJ5J4yCzh+imQOSoXBDCyq6QOJRceCoO6RwRvc+V1+Aw4d5g0j4MWmuAfjJGI
-	 iJoGujrTk1fCg==
-Received: by mail-lf1-f42.google.com with SMTP id 2adb3069b0e04-5aa66893e9fso712198e87.1
-        for <linux-arm-kernel@lists.infradead.org>; Sun, 31 May 2026 09:27:46 -0700 (PDT)
-X-Forwarded-Encrypted: i=1; AFNElJ8oyep3TH8BTnBfBb4QWgBrMrMvu+YlzuYYvvbr4E1f24s5jiCVoQHsai93Yl3TCudXw4Vd9TD5xwZ2tQn2ml9E@lists.infradead.org
-X-Gm-Message-State: AOJu0YzdDL6OQKhFrpuFboRwnYh9ujWUvv0PJGlcxoeopj37S9AkiQy2
-	42SkX6gYZYRfZjJAC06RE88GeAWUNo8ThTzgLASk9JeTAAUBvKq0SfmhCV8HakKcnytAGfrsqSH
-	6Eb1qpGfdwpcYvfEWrPlbhpGZRQwMdIh698p+W15S2A==
-X-Received: by 2002:a05:6512:800d:10b0:5a8:fca6:a537 with SMTP id
- 2adb3069b0e04-5aa608ff3d8mr1341020e87.22.1780244864645; Sun, 31 May 2026
- 09:27:44 -0700 (PDT)
+	s=k20260515; t=1780245443;
+	bh=8dPW62n88YQXm3Z36nWQvCD7sx0nKMwKDYpNZjRfzAg=;
+	h=Date:From:To:Cc:Subject:In-Reply-To:References;
+	b=KMWtajpBY0KRKAKVL+H/b4P+QmKnJzbK8NIAENgKdrv84uTTuuCoONUfMnivH38F7
+	 GdjUn2ym94LkI4H7IV2bgIIHxjT080IJjKKqqx/Y1wSbYllh5PTPOUJQwGoF7cIZNh
+	 02cJgw/QcMM3M4jjqJG9U6DSHhsEfhZmM6hRCPDmssTTXvG1q9MiUMScF58txE+/0I
+	 2fxUNYHaZyrTkdJYFMYYzbmk/W9a9sDZchwGcbbfxI3XK68KekzMcgLyHMIXaaPdw0
+	 IUwfqdVW3JZVxPJ0hD5NAGxjB3Uc8c7R0ND9PbBnzlxCxwd1BuWHAaglUvmsI1CjkE
+	 EMBBTUFzNwJjA==
+Date: Sun, 31 May 2026 17:37:12 +0100
+From: Jonathan Cameron <jic23@kernel.org>
+To: Angelo Dureghello <adureghello@baylibre.com>
+Cc: Greg Ungerer <gerg@linux-m68k.org>, Geert Uytterhoeven
+ <geert@linux-m68k.org>, Steven King <sfking@fdwdc.com>, Arnd Bergmann
+ <arnd@arndb.de>, Maxime Coquelin <mcoquelin.stm32@gmail.com>, Alexandre
+ Torgue <alexandre.torgue@foss.st.com>, David Lechner
+ <dlechner@baylibre.com>, Nuno =?UTF-8?B?U8Oh?= <nuno.sa@analog.com>, Andy
+ Shevchenko <andy@kernel.org>, Greg Ungerer <gerg@uclinux.org>,
+ linux-m68k@lists.linux-m68k.org, linux-kernel@vger.kernel.org,
+ linux-stm32@st-md-mailman.stormreply.com,
+ linux-arm-kernel@lists.infradead.org, linux-iio@vger.kernel.org
+Subject: Re: [PATCH v4 11/11] iio: dac: add mcf54415 DAC
+Message-ID: <20260531173712.4295981a@jic23-huawei>
+In-Reply-To: <20260531-wip-stmark2-dac-v4-11-7e65ab4215dd@baylibre.com>
+References: <20260531-wip-stmark2-dac-v4-0-7e65ab4215dd@baylibre.com>
+	<20260531-wip-stmark2-dac-v4-11-7e65ab4215dd@baylibre.com>
+X-Mailer: Claws Mail 4.4.0 (GTK 3.24.52; x86_64-pc-linux-gnu)
 MIME-Version: 1.0
-References: <20260526-qcom-qce-cmd-descr-v19-0-08472fdcbf4a@oss.qualcomm.com> <20260529162251.GB2706@sol>
-In-Reply-To: <20260529162251.GB2706@sol>
-From: Bartosz Golaszewski <brgl@kernel.org>
-Date: Sun, 31 May 2026 18:27:32 +0200
-X-Gmail-Original-Message-ID: <CAMRc=MdJ5GN_Lbi9PeCoW=fNnjCz-WAq66TSa8f=fZGOHFZ41Q@mail.gmail.com>
-X-Gm-Features: AVHnY4KA4mut6jG-LIp_D5JMZD7phc05G5rBuCgHgHRyzFVSAKUzF_CQJazrdyg
-Message-ID: <CAMRc=MdJ5GN_Lbi9PeCoW=fNnjCz-WAq66TSa8f=fZGOHFZ41Q@mail.gmail.com>
-Subject: Re: [PATCH v19 00/14] crypto/dmaengine: qce: introduce BAM locking
- and use DMA for register I/O
-To: Eric Biggers <ebiggers@kernel.org>
-Cc: Bartosz Golaszewski <bartosz.golaszewski@oss.qualcomm.com>, Vinod Koul <vkoul@kernel.org>, 
-	Jonathan Corbet <corbet@lwn.net>, Thara Gopinath <thara.gopinath@gmail.com>, 
-	Herbert Xu <herbert@gondor.apana.org.au>, "David S. Miller" <davem@davemloft.net>, 
-	Udit Tiwari <quic_utiwari@quicinc.com>, Md Sadre Alam <mdalam@qti.qualcomm.com>, 
-	Dmitry Baryshkov <lumag@kernel.org>, Manivannan Sadhasivam <mani@kernel.org>, 
-	Stephan Gerhold <stephan.gerhold@linaro.org>, Bjorn Andersson <andersson@kernel.org>, 
-	Peter Ujfalusi <peter.ujfalusi@gmail.com>, Michal Simek <michal.simek@amd.com>, 
-	Frank Li <Frank.Li@kernel.org>, Andy Gross <agross@codeaurora.org>, 
-	Neil Armstrong <neil.armstrong@linaro.org>, dmaengine@vger.kernel.org, 
-	linux-doc@vger.kernel.org, linux-kernel@vger.kernel.org, 
-	linux-arm-msm@vger.kernel.org, linux-crypto@vger.kernel.org, 
-	linux-arm-kernel@lists.infradead.org, 
-	Bartosz Golaszewski <bartosz.golaszewski@linaro.org>, 
-	Dmitry Baryshkov <dmitry.baryshkov@oss.qualcomm.com>, 
-	Konrad Dybcio <konrad.dybcio@oss.qualcomm.com>
-Content-Type: text/plain; charset="UTF-8"
-Content-Transfer-Encoding: quoted-printable
+Content-Type: text/plain; charset=US-ASCII
+Content-Transfer-Encoding: 7bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260531_092747_442301_771922AE 
-X-CRM114-Status: GOOD (  37.55  )
+X-CRM114-CacheID: sfid-20260531_093724_405261_A7E75F43 
+X-CRM114-Status: GOOD (  35.58  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -96,79 +80,157 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Fri, May 29, 2026 at 6:24=E2=80=AFPM Eric Biggers <ebiggers@kernel.org> =
-wrote:
->
-> On Tue, May 26, 2026 at 03:10:48PM +0200, Bartosz Golaszewski wrote:
-> > I feel like I fell into the trap of trying to address pre-existing
-> > issues reported by sashiko and in the process provoking more reports so
-> > let this be the last iteration where I do this. Vinod can we get this
-> > queued for v7.2 now and iron out any previously existing problems in
-> > tree?
-> >
-> > Merging strategy: there are build-time dependencies between the crypto
-> > and DMA patches so the best approach is for Vinod to create an immutabl=
-e
-> > branch with the DMA part pulled in by the crypto tree.
-> >
-> > This iteration continues to build on top of v12 but uses the BAM's NWD
-> > bit on data descriptors as suggested by Stephan. To that end, there are
-> > some more changes like reversing the order of command and data
-> > descriptors queuedy by the QCE driver.
-> >
-> > Currently the QCE crypto driver accesses the crypto engine registers
-> > directly via CPU. Trust Zone may perform crypto operations simultaneous=
-ly
-> > resulting in a race condition. To remedy that, let's introduce support
-> > for BAM locking/unlocking to the driver. The BAM driver will now wrap
-> > any existing issued descriptor chains with additional descriptors
-> > performing the locking when the client starts the transaction
-> > (dmaengine_issue_pending()). The client wanting to profit from locking
-> > needs to switch to performing register I/O over DMA and communicate the
-> > address to which to perform the dummy writes via a call to
-> > dmaengine_desc_attach_metadata().
-> >
-> > In the specific case of the BAM DMA this translates to sending command
-> > descriptors performing dummy writes with the relevant flags set. The BA=
-M
-> > will then lock all other pipes not related to the current pipe group, a=
-nd
-> > keep handling the current pipe only until it sees the the unlock bit.
-> >
-> > In order for the locking to work correctly, we also need to switch to
-> > using DMA for all register I/O.
-> >
-> > On top of this, the series contains some additional tweaks and
-> > refactoring.
-> >
-> > The goal of this is not to improve the performance but to prepare the
-> > driver for supporting decryption into secure buffers in the future.
-> >
-> > Tested with tcrypt.ko, kcapi and cryptsetup.
-> >
-> > Signed-off-by: Bartosz Golaszewski <bartosz.golaszewski@linaro.org>
-> > Signed-off-by: Bartosz Golaszewski <bartosz.golaszewski@oss.qualcomm.co=
-m>
->
-> None of these fixes are Cc'ed to stable, so stable kernels will remain
-> vulnerable to these race conditions.
->
-> Shouldn't this be preceded by a patch, Cc'ed to stable, that marks the
-> driver as BROKEN?  As discussed in the other thread
-> (https://lore.kernel.org/linux-crypto/20260515-shikra_qcrypto-v1-0-80f07b=
-345c29@oss.qualcomm.com/T/#u),
-> none of the current functionality of this driver is actually useful in
-> Linux.  It's just been causing problems.
->
+On Sun, 31 May 2026 17:26:04 +0200
+Angelo Dureghello <adureghello@baylibre.com> wrote:
 
-I don't believe any of it should be backported. This is not a
-regression, multiple EEs were never supported, so it's a new feature.
-Also: backporting of over 500 diff lines across two subsystems doesn't
-sound like a good idea to me.
+> From: Angelo Dureghello <adureghello@baylibre.com>
+> 
+> Add basic version of mcf54415 DAC driver. DAC is embedded in the cpu and
+> DAC configuration registers are mapped in the internal IO address space.
+> 
+> The DAC accepts a 12-bit digital signal and creates a monotonic 12-bit
+> analog output varying from DAC_VREFL to DAC_VREFH. The DAC module
+> consists of a conversion unit, an output amplifier, and the associated
+> digital control blocks. Default register values for DAC_VREFL and DAC_VREFH
+> are respectively 0 and 0xfff, left untouched in this initial version.
+> 
+> This initial version of the driver is minimalistic, "output raw" only, to
+> be extended in the future. DMA and external sync are disabled, default mode
+> is high speed, default format is right-justified 12bit on 16bit word.
+> 
+> Signed-off-by: Angelo Dureghello <adureghello@baylibre.com>
+https://sashiko.dev/#/patchset/20260531-wip-stmark2-dac-v4-0-7e65ab4215dd%40baylibre.com
+Has some comments.
 
-On the other hand, if marking the driver as BROKEN for the time being
-allows for a faster pace of queuing any changes to it, then I'm for
-it. Let's unmark it once we fix it.
+My assumption is the DAC registers are not going to be wiped out by
+reset, so that one is wrong.
 
-Bart
+For the others they are the fun question of what do we do if resume()
+fails and leaves the device effectively disabled.  I'm not that bothered
+if the answer is everything fails.
+
+So just really minor stuff inline.  
+
+> ---
+> Changes in v2:
+> - remove tests from commit message, moved to patch 0
+> - remove additional blank lines
+> - remove dead code and unused definitions
+> - use regmap
+> - add limit check on raw write
+> - non functional style fixes
+> - add COMPILE_TEST to Kconfig
+> Changes in v3:
+> - add comments where needed
+> - code style changes
+> - remove unneeded variables
+> - use regmap_set_bits where possible
+> - remove macro not needed to define a single channel
+> - set up regmap to big_endian accesses for next patches that will come,
+>   that will adjust ColdFire readx/writex as standard LE (links in 0/x).
+> - add return value check on regmap calls
+> - sashiko: remove unneeded .io_port from regmap init.
+> - sashiko: add select REGMAP_MMIO in Kconfig
+> Changes in v4:
+> - remove unused includes
+> - sashiko: return "ret" as regmap_read ret value in case of error
+> - sashiko: using u32 as regmap_read value
+> - use local variable in mcf54415_dac_init() for better readability
+> - sashiko: check mcf54415_dac_init return value also in resume()
+
+> diff --git a/drivers/iio/dac/mcf54415_dac.c b/drivers/iio/dac/mcf54415_dac.c
+> new file mode 100644
+> index 000000000000..474a2c327fcd
+> --- /dev/null
+> +++ b/drivers/iio/dac/mcf54415_dac.c
+
+> +
+> +static int mcf54415_read_raw(struct iio_dev *indio_dev,
+> +			     struct iio_chan_spec const *chan,
+> +			     int *val, int *val2, long mask)
+> +{
+> +	struct mcf54415_dac *info = iio_priv(indio_dev);
+> +	int ret;
+> +	u32 reg;
+> +
+> +	switch (mask) {
+> +	case IIO_CHAN_INFO_RAW:
+> +		ret = regmap_read(info->map, MCF54415_DAC_DATA, &reg);
+> +		if (ret)
+> +			return ret;
+> +		*val = (int)reg & 0xfff;
+
+Given it's unsigned and the masking means it will fit, I don't see an
+obvious reason for needing the cast. Compiler should be able to tell it
+can always safely assign this.  Maybe GENMASK(11, 0) would be slightly
+nicer than 0xfff but up to you as 3 fs isn't easy to count ;)
+
+> +		return IIO_VAL_INT;
+> +	case IIO_CHAN_INFO_SCALE:
+> +		/* Reference voltage as per ColdFire datasheet is 3.3V */
+> +		*val = 3300 /* mV */;
+> +		*val2 = 12;
+> +		return IIO_VAL_FRACTIONAL_LOG2;
+> +	default:
+> +		return -EINVAL;
+> +	}
+> +}
+
+> +
+> +static int mcf54415_dac_suspend(struct device *dev)
+> +{
+> +	struct mcf54415_dac *info = iio_priv(dev_get_drvdata(dev));
+> +
+> +	mcf54415_dac_exit(info);
+> +	clk_disable_unprepare(info->clk);
+> +
+> +	return 0;
+> +}
+> +
+> +static int mcf54415_dac_resume(struct device *dev)
+> +{
+> +	struct mcf54415_dac *info = iio_priv(dev_get_drvdata(dev));
+> +	int ret;
+> +
+> +	ret = clk_prepare_enable(info->clk);
+> +	if (ret)
+> +		return ret;
+> +
+> +	ret = mcf54415_dac_init(info);
+> +	if (ret) {
+
+Generally we aim for side effect free failure, so I think I agree
+with sashiko that you should be turning off the clk again here.
+Any failure in here should leave device suspended.  That then leaves
+us with a dead clock and the shut down path may still try to access
+the device. 
+
+Anyhow, I'd add the clk_disable_unprepare() call here for consistency
+even though it doesn't really help us with carrying on.
+
+> +		dev_err(dev, "could not resume device\n");
+> +		return ret;
+> +	}
+> +
+> +	return 0;
+> +
+> +}
+> +
+> +static DEFINE_SIMPLE_DEV_PM_OPS(mcf54415_dac_pm_ops,
+> +				mcf54415_dac_suspend, mcf54415_dac_resume);
+> +
+> +static struct platform_driver mcf54415_dac_driver = {
+> +	.probe = mcf54415_dac_probe,
+> +	.driver = {
+> +		.name = "mcf54415_dac",
+> +		.pm = pm_sleep_ptr(&mcf54415_dac_pm_ops),
+> +	},
+> +};
+> +module_platform_driver(mcf54415_dac_driver);
+> +
+> +MODULE_AUTHOR("Angelo Dureghello <angelo@kernel-space.org>");
+> +MODULE_DESCRIPTION("NXP MCF54415 DAC driver");
+> +MODULE_LICENSE("GPL");
+> 
+
 
