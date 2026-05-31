@@ -4,52 +4,61 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 7A6FCCD6E52
-	for <linux-arm-kernel@archiver.kernel.org>; Sun, 31 May 2026 17:48:11 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 99B84CD6E52
+	for <linux-arm-kernel@archiver.kernel.org>; Sun, 31 May 2026 17:50:28 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:References:In-Reply-To:
-	Subject:Cc:To:From:Message-ID:Date:Reply-To:MIME-Version:Content-Type:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=SRhng7ZwRas2P1ADM7h74381kykfPa3pcL8IR8Sgsag=; b=pfGIoHGVPlpa5pYdSCo2w1SCnS
-	uV6O7cWqv6aMM6kknqLrOorWhtCBYi5e8fpTVxfWIgOp1uqN5J1J09twCRkbmK1vIt29OdF2pd+PR
-	dO9xfvHKJZr/RBpxWpPlWVzEtyjO46Y5yG2GHd9QLT5wzFATjptsQhj9RporcSf8OKBp6fEooMX8J
-	PXh/AmKN1EK0Zyu2dKHhnPbj2oe95OGU19G6Iq9+GS/yUySFRPph+59mUduFNHbdUueXxIc8KI0eT
-	f8CQ05mxmE97EX8huoyTWphIcWoZZn/K5sSglXzx7rFCfgSeGo06PsfCG8Nr6rKw82wZvOpZyZBeI
-	ltrflGSA==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:In-Reply-To:References:Cc:To:Subject:From:MIME-Version:Date:
+	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=otpTnBLn4gRxV6ttBmbJsOdpluNyfeULjgffsXkooSg=; b=aBx7XvGYSdxJ/0MuPyzmtGtLOZ
+	CSQd35RRKJBKOE3FXcaPRFSjSfvKJm11twoZ1sbRph7RU9PO0aIpfWz4Wk+AZ57oMc2OBs+fMLz1c
+	igzFZqwHs8MymAZBFqCNAik8ASBgPSzwLnXufrzzbUCkeecu7VZV5BcMUxQ11eKnr7GqczPuctwJX
+	8+8ze2AWlid2CFcAfpbq2BRnuyfHyFwVbkxYXRoYKum5cs0C3w7RSNSKzVEn5ntm8HTBoTxq0S58b
+	hOQNt1cLVvKjnawWHM5E37M/lHV/WqCH/qfcNU1f17VD9JSty3EQ+ZOAGVA4xgds7mbkDgIVMVy4l
+	Yd2crvMg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wTkGZ-00000009nkD-0KRs;
-	Sun, 31 May 2026 17:48:03 +0000
-Received: from tor.source.kernel.org ([2600:3c04:e001:324:0:1991:8:25])
+	id 1wTkIo-00000009npy-1X92;
+	Sun, 31 May 2026 17:50:22 +0000
+Received: from courrier.aliel.fr ([65.21.61.41])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wTkGX-00000009nk6-2OdO
-	for linux-arm-kernel@lists.infradead.org;
-	Sun, 31 May 2026 17:48:01 +0000
-Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
-	by tor.source.kernel.org (Postfix) with ESMTP id CDA4D6008A;
-	Sun, 31 May 2026 17:47:59 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 3CA811F00893;
-	Sun, 31 May 2026 17:47:59 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1780249679;
-	bh=SRhng7ZwRas2P1ADM7h74381kykfPa3pcL8IR8Sgsag=;
-	h=Date:From:To:Cc:Subject:In-Reply-To:References;
-	b=iuDXv0f1iop3nim+N4Thcks0PngriNRgeVPiAgKtBxzypHnxoTMMjLjp/89E9JBRZ
-	 J7oClLQY++qvZPFaL7cOm6gepiOYfT3domo4RNKpi6RmfTbt4FORCfaHxm2ETsL/xi
-	 NqGfxszFTID7uGZw41CWjkVP7+KI1W5ueUQrg5fHeWOpaiKiMbpzVIWCNV/G3S/Kfz
-	 uXzOBEF+equVHqy2k6NFGA1UG/FPQnRZteKEQgm4iUUEcJYruwNY4f+ZMsHxOi6u5J
-	 GhlaseKU9FawVQ+Iy2xlZSW+1IvWgPYeLqfjhqyspX4s4XfERaakiGk82QYGyeXAx+
-	 lTa3BvBR6Kovw==
-Date: Sun, 31 May 2026 07:47:58 -1000
-Message-ID: <8cc56c7a4aa29628b7d17d85be7eadb9@kernel.org>
-From: Tejun Heo <tj@kernel.org>
-To: Alexei Starovoitov <ast@kernel.org>, David Hildenbrand <david@kernel.org>
-Cc: David Vernet <void@manifault.com>, Andrea Righi <arighi@nvidia.com>, Changwoo Min <changwoo@igalia.com>, Andrii Nakryiko <andrii@kernel.org>, Daniel Borkmann <daniel@iogearbox.net>, Martin KaFai Lau <martin.lau@linux.dev>, Kumar Kartikeya Dwivedi <memxor@gmail.com>, Peter Zijlstra <peterz@infradead.org>, Catalin Marinas <catalin.marinas@arm.com>, Will Deacon <will@kernel.org>, Thomas Gleixner <tglx@kernel.org>, Ingo Molnar <mingo@redhat.com>, Borislav Petkov <bp@alien8.de>, Dave Hansen <dave.hansen@linux.intel.com>, Andrew Morton <akpm@linux-foundation.org>, Mike Rapoport <rppt@kernel.org>, Emil Tsalapatis <emil@etsalapatis.com>, sched-ext@lists.linux.dev, bpf@vger.kernel.org, x86@kernel.org, linux-arm-kernel@lists.infradead.org, linux-mm@kvack.org, linux-kernel@vger.kernel.org
-Subject: Re: [PATCH 2/8] bpf: Recover arena kernel faults with scratch page
-In-Reply-To: <ahnedQ33ZH8ogjbC@slm.duckdns.org>
-References: <20260522172219.1423324-1-tj@kernel.org> <20260522172219.1423324-3-tj@kernel.org> <7fd673df-22f3-4d70-a779-ea0b878188b3@kernel.org> <DIUMP21RASZI.2VNQV45RIL209@gmail.com> <3901fe0537edee9d7acdfd91695ead28@kernel.org> <CAADnVQJ+CqAszS2sSVu7gSfA_g4oaTR+SWmLNMX3_8c=OdR7NQ@mail.gmail.com> <ahnedQ33ZH8ogjbC@slm.duckdns.org>
+	id 1wTkIl-00000009npN-2EUF;
+	Sun, 31 May 2026 17:50:21 +0000
+Message-ID: <12d74340-0213-4f7e-a494-10ce147844ad@aliel.fr>
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=aliel.fr;
+	s=courrier-s1; t=1780249805;
+	bh=JQpEJWohU7u2PUrSQq5dK/MO03Qv9YI8notJ93T8T3k=;
+	h=Date:From:Subject:To:Cc:References:In-Reply-To;
+	b=oJVEYD73f39ZQ8iUe8tM1mLjjbNxz4Aw2wpFEEW4h+E5It9PvmKzmqKDYSgM8dRCW
+	 QmdyKnjKhbFuzVWjJHlmL4/ekhXpHSz8AXid6Fwhnpo5Iw5p+qp91UmNnJKACqV0KD
+	 nK/0i3YsiVZdmB2M/Yy7X0I6YpjPuYYVPFIVp+C0=
+Date: Sun, 31 May 2026 19:49:55 +0200
+MIME-Version: 1.0
+User-Agent: Mozilla Thunderbird Beta
+From: Ronald Claveau <linux-kernel-dev@aliel.fr>
+Subject: Re: [PATCH v2] firmware: meson: sm: add stub functions when
+ CONFIG_MESON_SM is disabled
+To: Daniel Lezcano <daniel.lezcano@oss.qualcomm.com>
+Cc: Guillaume La Roque <glaroque@baylibre.com>,
+ Kevin Hilman <khilman@baylibre.com>, Jerome Brunet <jbrunet@baylibre.com>,
+ Martin Blumenstingl <martin.blumenstingl@googlemail.com>,
+ linux-arm-kernel@lists.infradead.org, linux-amlogic@lists.infradead.org,
+ linux-kernel@vger.kernel.org, linux-pm@vger.kernel.org,
+ Mark Brown <broonie@kernel.org>, kernel test robot <lkp@intel.com>,
+ Neil Armstrong <neil.armstrong@linaro.org>,
+ Daniel Lezcano <daniel.lezcano@kernel.org>, Zhang Rui <rui.zhang@intel.com>,
+ "Rafael J. Wysocki" <rafael@kernel.org>, Lukasz Luba <lukasz.luba@arm.com>
+References: <20260531-fix-missing-meson_sm-symbol-v2-1-1def8c3c169f@aliel.fr>
+ <8c11a91b-cfbf-4b9c-a46f-907989bf8305@oss.qualcomm.com>
+Content-Language: en-US
+In-Reply-To: <8c11a91b-cfbf-4b9c-a46f-907989bf8305@oss.qualcomm.com>
+Content-Type: text/plain; charset=UTF-8
+Content-Transfer-Encoding: 8bit
+X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
+X-CRM114-CacheID: sfid-20260531_105020_014105_26310A36 
+X-CRM114-Status: GOOD (  14.34  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -64,43 +73,72 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hello,
+On 5/31/26 10:41 AM, Daniel Lezcano wrote:
+> On 5/31/26 09:51, Ronald Claveau via B4 Relay wrote:
+>> From: Ronald Claveau <linux-kernel-dev@aliel.fr>
+>>
+>> After merging the thermal tree, linux-next build (arm_multi_v7
+>> defconfig) failed like this:
+>>
+>> arm-linux-gnueabihf-ld: drivers/thermal/amlogic_thermal.o: in function
+>> `amlogic_thermal_probe_sm':
+>> /tmp/next/build/drivers/thermal/amlogic_thermal.c:196:(.text+0x2f4):
+>> undefined reference to `meson_sm_get'
+>> arm-linux-gnueabihf-ld: /tmp/next/build/drivers/thermal/
+>> amlogic_thermal.c:205:(.text+0x320): undefined reference to
+>> `meson_sm_get_thermal_calib'
+>>
+>> Add inline stub implementations of meson_sm_get() and
+>> meson_sm_get_thermal_calib() behind an #else guard so that drivers
+>> including this header can be compiled without CONFIG_MESON_SM .
+>>
+>> Fixes: b21d88de6918 ("thermal/drivers/amlogic: Add support for secure
+>> monitor calibration readout")
+>> Closes: https://lore.kernel.org/oe-kbuild-all/202605291530.en7aGn7w-
+>> lkp@intel.com/
+>> Reported-by: Mark Brown <broonie@kernel.org>
+>> Reported-by: kernel test robot <lkp@intel.com>
+>> Signed-off-by: Ronald Claveau <linux-kernel-dev@aliel.fr>
+>> ---
+>> Changes in v2:
+>> - Replace #ifdef CONFIG_MESON_SM by #if IS_ENABLED(CONFIG_MESON_SM)
+>>    to cover builtin and module in config.
+>> - Add missing trailers for kernel test robot.
+>> - Link to v1: https://lore.kernel.org/r/20260530-fix-missing-meson_sm-
+>> symbol-v1-1-3fb672b989d4@aliel.fr
+>> ---
+>>   include/linux/firmware/meson/meson_sm.h | 17 +++++++++++++++++
+>>   1 file changed, 17 insertions(+)
+>>
+>> diff --git a/include/linux/firmware/meson/meson_sm.h b/include/linux/
+>> firmware/meson/meson_sm.h
+>> index 3ebc2bd9a9760..baecdaf263f41 100644
+>> --- a/include/linux/firmware/meson/meson_sm.h
+>> +++ b/include/linux/firmware/meson/meson_sm.h
+>> @@ -27,8 +27,25 @@ int meson_sm_call_write(struct meson_sm_firmware
+>> *fw, void *buffer,
+>>   int meson_sm_call_read(struct meson_sm_firmware *fw, void *buffer,
+>>                  unsigned int bsize, unsigned int cmd_index, u32 arg0,
+>>                  u32 arg1, u32 arg2, u32 arg3, u32 arg4);
+>> +
+>> +#if IS_ENABLED(CONFIG_MESON_SM)
+>> +
+>>   struct meson_sm_firmware *meson_sm_get(struct device_node
+>> *firmware_node);
+>>   int meson_sm_get_thermal_calib(struct meson_sm_firmware *fw, u32
+>> *trim_info,
+>>                      u32 tsensor_id);
+> 
+> Do you really want to compile meson_sm as a module ?
+> 
+> 
+> 
 
-I posted the check removal [1], and Sashiko's review flagged a
-break-before-make problem with it [2] that I think is real.
+I don't want, but if I send a patch to change tristate to bool, it will
+raise a warning because 'm' is not valid.
+If it is accepted to ignore this warning, I can send another patch.
 
-The scratch page is a present PAGE_KERNEL mapping, so having
-apply_range_set_cb() overwrite it via set_pte_at() during
-bpf_arena_alloc_pages() is a valid->valid PFN change. I'm not familiar with
-arm at all. David, my understanding is that's a break-before-make violation
-on arm64, and that on any arch the stale TLB entry keeps resolving to the
-shared scratch page until it's flushed, so a later access can hit scratch
-instead of the new page. Is that what you were worried about?
-
-So instead of just dropping the check, the install should route through an
-invalid entry rather than overwrite in place:
-
-	while (!ptep_try_set(pte, mk_pte(page, PAGE_KERNEL))) {
-		old = ptep_get(pte);
-		if (pte_none(old))
-			continue;
-		if (WARN_ON_ONCE(pte_page(old) != arena->scratch_page))
-			return -EBUSY;
-		ptep_get_and_clear(&init_mm, addr, pte);
-		broke_scratch = true;
-	}
-
-ptep_try_set() only fills a none slot, so the slot goes scratch->none->page
-and never valid->valid, and the loop copes with a concurrent fault
-re-scratching it. This also closes the set_pte_at()-vs-ptep_try_set() race
-I raised earlier, since both sides are now cmpxchg. A broken scratch entry
-was live, so the caller flush_tlb_kernel_range()s those pages when
-broke_scratch is set, like arena_free_pages() already does after clearing.
-
-[1] https://lore.kernel.org/r/20260531165852.555930-1-tj@kernel.org
-[2] https://lore.kernel.org/r/20260531170854.31EA51F00893@smtp.kernel.org
-
-Thanks.
---
-tejun
+-- 
+Best regards,
+Ronald
 
