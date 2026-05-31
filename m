@@ -4,7 +4,7 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 0385CCD6E57
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 10D6FCD6E61
 	for <linux-arm-kernel@archiver.kernel.org>; Sun, 31 May 2026 23:18:12 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
@@ -12,72 +12,71 @@ DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	:Message-Id:Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:
 	From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=Yw1fhfSYYqzCwDV1bdu9APNnKhaP1vTsxLW0x4AdDkE=; b=pYE1KmqDpV+l4tOJ6j6zsWSSYJ
-	cTIplx4B1THd/bMUES1CLCa92GMkyAscL9Jar0bKjDys/GWs6JtpnrI+EhA+ecnfCs3LqI/9rCLjl
-	zM1r3qJWCEyqBV/n8+vKE3zYNAN4FJJWXD5GimWTSsiak62N7wgmeWhs/qvP3ES4hYTKZqmHlPAwA
-	AjolzC4WnWDinZ24ri2fWrRrrIY8Xt0U6a+JtO2tciXJfEoU02wzERUxnwWcpQgLZmoVHe7Uc4ohQ
-	PCpsv3X5v6OOQgZ2M4aaZu1A+QMt1UyZRBAwjTxPd8NIwBK2PFVKkga98/IYmaEMFn+Nfmgcg4/tv
-	LmeKzTbQ==;
+	bh=BlnkV007FI48mXpf+dStqCmocIvL2i8BzMwzQ0j9H8A=; b=CRzJCwcbgpr6dKxc5stogFOLBF
+	ZxGPusPig7jY1vyTuPlVoxfX9uv4FhfeISjnISPPWqgoGuawsKSJPttu0KcaoeCFe7E0uzhB1JVh5
+	3oY0lK/5WPxkApTdfVF9gDmkDT0mCQh+UWCYvcjn5kqSGSRHtMqWYtu2m1iurlbJeMWkFd64sUTwe
+	RxbXG4eP5zjE8k9So8rPCRWvaQydHaGy6CwYs0b7hNUsci/eFWClezqZRDvLtqIPtetlncaQgBAAN
+	ZXNAgQs5pe3ZbVT/PXDW2n3TMm9fWwk8CKNPPWT/PQhdb9Ln4ZP5fx6XfS8TU4hvi/WIOiA2SgoA9
+	j/t2lfIQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wTpPw-00000009wmt-2IcR;
+	id 1wTpPw-00000009wmd-1tak;
 	Sun, 31 May 2026 23:18:04 +0000
-Received: from mail-wm1-x330.google.com ([2a00:1450:4864:20::330])
+Received: from mail-wm1-x332.google.com ([2a00:1450:4864:20::332])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wTpPq-00000009wj1-3UOG
+	id 1wTpPp-00000009wic-1t9i
 	for linux-arm-kernel@lists.infradead.org;
-	Sun, 31 May 2026 23:18:00 +0000
-Received: by mail-wm1-x330.google.com with SMTP id 5b1f17b1804b1-4906238c62eso74786725e9.3
-        for <linux-arm-kernel@lists.infradead.org>; Sun, 31 May 2026 16:17:58 -0700 (PDT)
+	Sun, 31 May 2026 23:17:58 +0000
+Received: by mail-wm1-x332.google.com with SMTP id 5b1f17b1804b1-490a765d410so8695715e9.1
+        for <linux-arm-kernel@lists.infradead.org>; Sun, 31 May 2026 16:17:56 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=thegoodpenguin-co-uk.20251104.gappssmtp.com; s=20251104; t=1780269477; x=1780874277; darn=lists.infradead.org;
+        d=thegoodpenguin-co-uk.20251104.gappssmtp.com; s=20251104; t=1780269475; x=1780874275; darn=lists.infradead.org;
         h=cc:to:in-reply-to:references:message-id:content-transfer-encoding
          :mime-version:subject:date:from:from:to:cc:subject:date:message-id
          :reply-to;
-        bh=Yw1fhfSYYqzCwDV1bdu9APNnKhaP1vTsxLW0x4AdDkE=;
-        b=vXCDTP0E193HnTyoj/xWmXN9PSYRm3gQEheAuOnZ9ywXE36nEen7zjFCpMgU+cAzb3
-         0Vw8+1zHbPLvyL99/gGRygIl4ALtBRx6wh11MNUqNeuqaN8cTGL45ZOVQbAnR5sP+pUc
-         qfaLuGHZ3f80MTDVhGGjUqywZHhh1SKfGrnr7nLUEKxnz40l14060oYLNTIgkpJ2ogpB
-         mt4ND1ublJdn0GcgOtzVE8CxuDWDIwRjOYp0TTJg5i2CI48cyz8DSuWb7sQk3JPytcAe
-         T4VS0iLzFynfp0x+YYa1HjqfjUYW9A9a4rAFGFXytmaTeDpP8w+1rZh96VqC3PJwCjDL
-         Cf/A==
+        bh=BlnkV007FI48mXpf+dStqCmocIvL2i8BzMwzQ0j9H8A=;
+        b=zVrRt5MzAOIsue5nEqt5zYkdfkRXtG5qwGWlRNrMEbZD/zUJEVVBIYYuwvqdxmfJ98
+         aoRqZLn/EKQrmuSGqvVf0kZYNusUxYQdf3VC3u2jz4YcQY+vFcgWEHZNJBEHw4oVnNj1
+         ebWLOO0Cv2nttcSJmZTiBWC/mgTS/l9eP+V5gQAQDmz38LGhLgsaqADHXOasq0o2n29n
+         YGDnPbhFiNEba/9qGOFwf5RJcsPOuImADw2nhlc3G8mb2yS1Q+peBRfJWWVuEKtKWsIV
+         zsrmLCICDD8fwuGTwQ4QwxRdDY9KbMkYP4i8X4uhT3hDmurHLOpi/7f5w4OcDuNPpdrQ
+         Fw4g==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20251104; t=1780269477; x=1780874277;
+        d=1e100.net; s=20251104; t=1780269475; x=1780874275;
         h=cc:to:in-reply-to:references:message-id:content-transfer-encoding
          :mime-version:subject:date:from:x-gm-gg:x-gm-message-state:from:to
          :cc:subject:date:message-id:reply-to;
-        bh=Yw1fhfSYYqzCwDV1bdu9APNnKhaP1vTsxLW0x4AdDkE=;
-        b=UkbaaXJduiHStqeYEMlckg661rWhfivQDL3fhV5TvzF3DvC00RbMkxN2+PAEzTiwJi
-         5vT7/u+tBtaRcBah1X83un2Yb88rGMKAj47+5+FNhIFvVWUpYvm3/7Uef0eOGGlYJQnf
-         alisMfwD57itSkPIeTf1G81oJ8cffvv0he6cNHPzMfT4+ZEHbUc0robwc6G9dzAmBn6I
-         9eT8aQDff2ObxlsC8AfBxJBNKgJAuKCT8aIdnEZ3wiAALxMiaFoEefgwf0qHSuDFAnvA
-         ZyetaferLzYXnmGZfXzAGukBE+TmLP379jCIopyeCNbl34VrIBbMhroDOX2BCRuvyAai
-         G6/g==
-X-Forwarded-Encrypted: i=1; AFNElJ+C34Q6u9dZr4XPD6fZTk95gEmJtGXnAr/08KTsJpZeZWl/wFTZUUSioU1m1Bx4oueDgMH709P/CAA7/GoNGIDB@lists.infradead.org
-X-Gm-Message-State: AOJu0Yy0D5+NQZhjnfqQYGaEjQ0g0cFICTlBhbEH47NIe2UgK6Eapw/b
-	g+4ilZ2jVEs3g4Vmdv2sU4NkIXt/feepEJqlBCQwo9FzlvuwsaLMv2XgCFpYjQCctCI=
-X-Gm-Gg: Acq92OEtirYehLlpwWHypYS5Amg835FKYDPETw64W0J87VaU8cLXIcvWM2yajnDVFIo
-	BJ/dxT+RU/z+homHYKIo9TITzoBoAL4Omk427j0Yq+rEH9MVeUge2OtBc2zZcKZCQ/PQCntNM4E
-	QAARtfDycdeumI0R5bY1w8W8S+T36Yx9ArvaBn5OKAsG/5kdVeiml5OPiJq4F4Zcvs5nw9rL9co
-	xm277MVRb5omXRiKyqFaZfM0VFM+wAz3FsVA+wFFc5FC40CPh0K0cPuhbGCSOz/0Z6asPP/HYK4
-	G12hnJvtKR+/JhWpFqXBS1HW5uRcGaNUwnxPZo53L6M17xNxL+fVr/MbxpFUj3NT7N2/cOxsEmW
-	kksjmYBbDzcIrUkX+v3z77rE/D5h3fSL6j8nKbdcqf/lgAwQboHYauiTWoWbYOci0k4sT54iq7v
-	GZ9D/r9u4HGwcM1ARl0AqCXMUoxjH23uc6XBwv1PtshNmFJd9NQEx4qAcfCfh/PJF3XkXS6d4Td
-	qvZip50kCKlmEADbxVzX1pe2sb2N9iY9dtiEzo+mdUBfVzPMg==
-X-Received: by 2002:a05:600c:6558:b0:48f:d5a0:284e with SMTP id 5b1f17b1804b1-490a294b864mr118910765e9.28.1780269476864;
-        Sun, 31 May 2026 16:17:56 -0700 (PDT)
+        bh=BlnkV007FI48mXpf+dStqCmocIvL2i8BzMwzQ0j9H8A=;
+        b=p3aUnbrYybXPZ3tSygUD0azwF8CydTbPKFrgbT4Hs2wCSnXqcIyaUKOpxa/XrfURx0
+         OmXtVwtIs3EzyJgO/ewvk1C60av+nAGQnPq6i5xx0YWJGb+40+jDdr4yQ8UE/Mjhc5nG
+         qOq9fwqqESOyypGWCEUlUaG8HTaQIX7F6qQcHqznYnlBXgOH1fT0+Hn46pL6pYxvZ8W8
+         ErXLK46C7tew1foKS35nlow6S09/ExoFmpPcH+D/mzpcvXuZ3BAcWvbjhJqXap0kOBdw
+         xo9C42hQSKeG5+/Bxrp2DtmoeneUaIWlXMFCfddBAjYnPovTFfYzjUrwFJAT7XvQmOjH
+         eHvg==
+X-Forwarded-Encrypted: i=1; AFNElJ90r1j96gpX+8MZYsN27o6RbC8Rcv/9m4F1oJGfuqN6bJqYYVQ2JkoL0KsTVPYBAFKlbrfA6sFONzwa2FsqZVqD@lists.infradead.org
+X-Gm-Message-State: AOJu0YzJ3GOazKE644PF0vK5aCKzLB6tvSho2/fayNR2/CAP/zNp7YiH
+	eObcYX8/vBpxF6UlrbDSYahcCH6fVeAzqEFxMPUmaFR0ioTrkcmDxgwEq8gD4WrrkoY=
+X-Gm-Gg: Acq92OFU9CbiDIFSIsGmzXZJfysT5+GHB30AXJJHWYi1b6jPDIMfhA7ez4r5qHCp10s
+	v3A5ZAO5asuFZul22B54IaTPbyNEHsdK85BKFkuEAfeecyC8/8fRiDtk4JZxAQB3cR0PI3Fihiu
+	Ebtpt8LdU2FJWmRB7guQaQnylduKnzQe/EjIaKvwKQgB3l2s/4jRyQxBI+oGWn309vHsfBDQ7Bo
+	jHbcbf+Yw+RKSzGdMgVkRWmdoM0/vxGQufAAxi3ROwaPK/6QwbLQtG76CrQwOb2Eqa31qy9hFBb
+	R/BTNtSevIzHMstnY4WHeraKHMB2hf4yA5XLX88Cm9hcmg4+K31hgGzKJhJoeQABGRrHn9jVUmD
+	EdeFGAxlt/nU2cqgIy69S+jDV4F8lyU/xCJ94k9BY2F/jLnSQwmR8eFLMBeap/wLdMJwgXe+3f7
+	rA/GtjrDY+XEPptYc7vnhA/VQ33be50agtOrZQngRmEgCZSC2ZACDUaVg0yKMDwW6YSkG4+0j5K
+	s2tkBNguqQoPNwIn7wR5Ja4vOD+dUocKGDRNszFsJJ4MOCTEA==
+X-Received: by 2002:a5d:534c:0:b0:45e:73a5:e1ed with SMTP id ffacd0b85a97d-45ef6b5b858mr11489190f8f.27.1780269475497;
+        Sun, 31 May 2026 16:17:55 -0700 (PDT)
 Received: from [127.0.1.1] ([2a00:23c5:7815:1301:f27:e3a8:2334:314d])
-        by smtp.gmail.com with ESMTPSA id ffacd0b85a97d-45ef34b834esm20496544f8f.11.2026.05.31.16.17.55
+        by smtp.gmail.com with ESMTPSA id ffacd0b85a97d-45ef34b834esm20496544f8f.11.2026.05.31.16.17.53
         (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Sun, 31 May 2026 16:17:56 -0700 (PDT)
+        Sun, 31 May 2026 16:17:53 -0700 (PDT)
 From: Andrew Murray <amurray@thegoodpenguin.co.uk>
-Date: Mon, 01 Jun 2026 00:17:38 +0100
-Subject: [PATCH RFC 2/4] printk: deprecate boot_delay in favour of
- printk_delay
+Date: Mon, 01 Jun 2026 00:17:37 +0100
+Subject: [PATCH RFC 1/4] printk: remove BOOT_PRINTK_DELAY config option
 MIME-Version: 1.0
 Content-Type: text/plain; charset="utf-8"
 Content-Transfer-Encoding: 7bit
-Message-Id: <20260601-deprecate_boot_delay-v1-2-c34c187142a6@thegoodpenguin.co.uk>
+Message-Id: <20260601-deprecate_boot_delay-v1-1-c34c187142a6@thegoodpenguin.co.uk>
 References: <20260601-deprecate_boot_delay-v1-0-c34c187142a6@thegoodpenguin.co.uk>
 In-Reply-To: <20260601-deprecate_boot_delay-v1-0-c34c187142a6@thegoodpenguin.co.uk>
 To: Jonathan Corbet <corbet@lwn.net>, 
@@ -98,16 +97,16 @@ Cc: linux-doc@vger.kernel.org, linux-kernel@vger.kernel.org,
  linux-rt-devel@lists.linux.dev, 
  Andrew Murray <amurray@thegoodpenguin.co.uk>
 X-Mailer: b4 0.14.2
-X-Developer-Signature: v=1; a=ed25519-sha256; t=1780269471; l=4252;
+X-Developer-Signature: v=1; a=ed25519-sha256; t=1780269471; l=3823;
  i=amurray@thegoodpenguin.co.uk; s=20250914; h=from:subject:message-id;
- bh=NzyYbeRmipVDUcVFnXEzhSA5L8Fjv+M/rg5sEJLce8g=;
- b=i+GDn9CndzdObBjnvYG9EQGVKMlZ7e6Fy6BNLVupTvtxPnVqFEb/bVi2JyX2zv2+YUvaYE0j4
- OueQHamNr33BR1S1U4QUwBadcLGdUbhjHwzvBhiP9fMeOsqdMoVpSvg
+ bh=5TSr29LSwGDXLwLvDWzxI5WHv1bELD/GcXyz7uzulhE=;
+ b=RpHQjnwPlCMM2VtepAdORdFkPWqzLeIfyeSmjtS5aPXoHK3GX0Pi3LUQVR56kW6L6eodrkBg2
+ zCSx9+ttsm9BHv7/kQjLkxfOiOnRPICyMwRxfmblDJUyamhDHIP9DWi
 X-Developer-Key: i=amurray@thegoodpenguin.co.uk; a=ed25519;
  pk=0SU0Q8S/uEiCdbXbXS+PvJGUCaBG1nDszD+HPU3Js0Q=
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260531_161758_913910_DFF55670 
-X-CRM114-Status: GOOD (  18.98  )
+X-CRM114-CacheID: sfid-20260531_161757_508526_82D5E8C8 
+X-CRM114-Status: GOOD (  20.26  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -126,143 +125,84 @@ The boot_delay (BOOT_PRINTK_DELAY) kernel parameter and printk_delay sysctl
 are two distinct mechanisms for providing similar functionality which add a
 delay prior to each printed printk message.
 
-boot_delay provides a kernel parameter for delaying printk output from
-kernel start through to boot (SYSTEM_RUNNING), whereas printk_delay is
-configurable only via sysctl and thus is only used post boot.
-
-Let's deprecate the boot_delay feature in favour of printk_delay. In order
-to preserve functionality, we'll also extend printk_delay such that it can
-additionally configured via a kernel parameter.
+In preparation of combining them into a single configurable feature, let's
+first remove the kconfig option BOOT_PRINTK_DELAY.
 
 Signed-off-by: Andrew Murray <amurray@thegoodpenguin.co.uk>
 ---
- kernel/printk/printk.c | 75 ++++++++++++++++++++++++++++++++------------------
- 1 file changed, 48 insertions(+), 27 deletions(-)
+ Documentation/admin-guide/kernel-parameters.txt |  2 +-
+ arch/arm/configs/bcm2835_defconfig              |  1 -
+ kernel/printk/printk.c                          |  2 +-
+ lib/Kconfig.debug                               | 18 ------------------
+ 4 files changed, 2 insertions(+), 21 deletions(-)
 
+diff --git a/Documentation/admin-guide/kernel-parameters.txt b/Documentation/admin-guide/kernel-parameters.txt
+index 97007f4f69d4e8f19acaff81c9af8421a09822bf..37b618d176f1c499f457f0d8b5679c29ee7ab177 100644
+--- a/Documentation/admin-guide/kernel-parameters.txt
++++ b/Documentation/admin-guide/kernel-parameters.txt
+@@ -656,7 +656,7 @@ Kernel parameters
+ 
+ 	boot_delay=	[KNL,EARLY]
+ 			Milliseconds to delay each printk during boot.
+-			Only works if CONFIG_BOOT_PRINTK_DELAY is enabled,
++			Only works if GENERIC_CALIBRATE_DELAY is enabled,
+ 			and you may also have to specify "lpj=".  Boot_delay
+ 			values larger than 10 seconds (10000) are assumed
+ 			erroneous and ignored.
+diff --git a/arch/arm/configs/bcm2835_defconfig b/arch/arm/configs/bcm2835_defconfig
+index 4a8ac09843d73280cc42dbbf63fe3cc9f31dacd2..51a1e94d5aa6c22202778082b877a202a6b9c04d 100644
+--- a/arch/arm/configs/bcm2835_defconfig
++++ b/arch/arm/configs/bcm2835_defconfig
+@@ -174,7 +174,6 @@ CONFIG_NLS_UTF8=y
+ CONFIG_DMA_CMA=y
+ CONFIG_CMA_SIZE_MBYTES=32
+ CONFIG_PRINTK_TIME=y
+-CONFIG_BOOT_PRINTK_DELAY=y
+ CONFIG_DYNAMIC_DEBUG=y
+ CONFIG_DEBUG_INFO_DWARF_TOOLCHAIN_DEFAULT=y
+ # CONFIG_ENABLE_MUST_CHECK is not set
 diff --git a/kernel/printk/printk.c b/kernel/printk/printk.c
-index 822fcdff7b21ac00cfa655c3d9b4de2698fcb7d8..ca510b9c76458f5c1e059200060d9d6be4c859b3 100644
+index 0323149548f6a4dbcdd80029478b809d44de9b62..822fcdff7b21ac00cfa655c3d9b4de2698fcb7d8 100644
 --- a/kernel/printk/printk.c
 +++ b/kernel/printk/printk.c
-@@ -1291,40 +1291,28 @@ static bool suppress_message_printing(int level)
+@@ -1289,7 +1289,7 @@ static bool suppress_message_printing(int level)
+ 	return (level >= console_loglevel && !ignore_loglevel);
+ }
  
- #ifdef CONFIG_GENERIC_CALIBRATE_DELAY
+-#ifdef CONFIG_BOOT_PRINTK_DELAY
++#ifdef CONFIG_GENERIC_CALIBRATE_DELAY
  
--static int boot_delay; /* msecs delay after each printk during bootup */
+ static int boot_delay; /* msecs delay after each printk during bootup */
  static unsigned long long loops_per_msec;	/* based on boot_delay */
+diff --git a/lib/Kconfig.debug b/lib/Kconfig.debug
+index 8ff5adcfe1e0a2f13893c92c3b95498fedb83855..fa82d76e7de45e05e5c0d578eaa2e5807bca39d1 100644
+--- a/lib/Kconfig.debug
++++ b/lib/Kconfig.debug
+@@ -99,24 +99,6 @@ config MESSAGE_LOGLEVEL_DEFAULT
+ 	  by default. To change that, use loglevel=<x> in the kernel bootargs,
+ 	  or pick a different CONSOLE_LOGLEVEL_DEFAULT configuration value.
  
--static int __init boot_delay_setup(char *str)
-+static void __init printk_delay_calculate(void)
- {
- 	unsigned long lpj;
- 
- 	lpj = preset_lpj ? preset_lpj : 1000000;	/* some guess */
- 	loops_per_msec = (unsigned long long)lpj / 1000 * HZ;
- 
--	get_option(&str, &boot_delay);
--	if (boot_delay > 10 * 1000)
--		boot_delay = 0;
+-config BOOT_PRINTK_DELAY
+-	bool "Delay each boot printk message by N milliseconds"
+-	depends on DEBUG_KERNEL && PRINTK && GENERIC_CALIBRATE_DELAY
+-	help
+-	  This build option allows you to read kernel boot messages
+-	  by inserting a short delay after each one.  The delay is
+-	  specified in milliseconds on the kernel command line,
+-	  using "boot_delay=N".
 -
--	pr_debug("boot_delay: %u, preset_lpj: %ld, lpj: %lu, "
-+	pr_debug("printk_delay: %u, preset_lpj: %ld, lpj: %lu, "
- 		"HZ: %d, loops_per_msec: %llu\n",
--		boot_delay, preset_lpj, lpj, HZ, loops_per_msec);
--	return 0;
-+		printk_delay_msec, preset_lpj, lpj, HZ, loops_per_msec);
- }
--early_param("boot_delay", boot_delay_setup);
- 
--static void boot_delay_msec(int level)
-+static void early_boot_delay_msec(void)
- {
- 	unsigned long long k;
- 	unsigned long timeout;
--	bool suppress = !is_printk_force_console() &&
--			suppress_message_printing(level);
+-	  It is likely that you would also need to use "lpj=M" to preset
+-	  the "loops per jiffy" value.
+-	  See a previous boot log for the "lpj" value to use for your
+-	  system, and then set "lpj=M" before setting "boot_delay=N".
+-	  NOTE:  Using this option may adversely affect SMP systems.
+-	  I.e., processors other than the first one may not boot up.
+-	  BOOT_PRINTK_DELAY also may cause LOCKUP_DETECTOR to detect
+-	  what it believes to be lockup conditions.
 -
--	if ((boot_delay == 0 || system_state >= SYSTEM_RUNNING) || suppress)
--		return;
- 
--	k = (unsigned long long)loops_per_msec * boot_delay;
-+	k = (unsigned long long)loops_per_msec * printk_delay_msec;
- 
--	timeout = jiffies + msecs_to_jiffies(boot_delay);
-+	timeout = jiffies + msecs_to_jiffies(printk_delay_msec);
- 	while (k) {
- 		k--;
- 		cpu_relax();
-@@ -1339,11 +1327,34 @@ static void boot_delay_msec(int level)
- 	}
- }
- #else
--static inline void boot_delay_msec(int level)
-+static inline void __init printk_delay_calculate(void)
-+{
-+}
-+
-+static inline void early_boot_delay_msec(void)
- {
- }
- #endif
- 
-+static int __init printk_delay_setup(char *str)
-+{
-+	get_option(&str, &printk_delay_msec);
-+	if (printk_delay_msec > 10 * 1000)
-+		printk_delay_msec = 0;
-+
-+	printk_delay_calculate();
-+
-+	return 0;
-+}
-+early_param("printk_delay", printk_delay_setup);
-+
-+static int __init boot_delay_setup(char *str)
-+{
-+	pr_warn("boot_delay will soon be deprecated, please use printk_delay instead");
-+	return printk_delay_setup(str);
-+}
-+early_param("boot_delay", boot_delay_setup);
-+
- static bool printk_time = IS_ENABLED(CONFIG_PRINTK_TIME);
- module_param_named(time, printk_time, bool, S_IRUGO | S_IWUSR);
- 
-@@ -2119,18 +2130,28 @@ static u8 *__printk_recursion_counter(void)
- 
- int printk_delay_msec __read_mostly;
- 
-+static inline void late_boot_delay_msec(void)
-+{
-+	int m = printk_delay_msec;
-+
-+	while (m--) {
-+		mdelay(1);
-+		touch_nmi_watchdog();
-+	}
-+}
-+
- static inline void printk_delay(int level)
- {
--	boot_delay_msec(level);
-+	bool suppress = !is_printk_force_console() &&
-+			suppress_message_printing(level);
- 
--	if (unlikely(printk_delay_msec)) {
--		int m = printk_delay_msec;
-+	if (likely(!printk_delay_msec) || suppress)
-+		return;
- 
--		while (m--) {
--			mdelay(1);
--			touch_nmi_watchdog();
--		}
--	}
-+	if (system_state < SYSTEM_RUNNING)
-+		early_boot_delay_msec();
-+	else
-+		late_boot_delay_msec();
- }
- 
- #define CALLER_ID_MASK 0x80000000
+ config DYNAMIC_DEBUG
+ 	bool "Enable dynamic printk() support"
+ 	default n
 
 -- 
 2.34.1
