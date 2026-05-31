@@ -4,66 +4,77 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id E7E81CD5BD1
-	for <linux-arm-kernel@archiver.kernel.org>; Sun, 31 May 2026 09:30:02 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 5A8D7CD6E57
+	for <linux-arm-kernel@archiver.kernel.org>; Sun, 31 May 2026 09:37:08 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:From:References:To:Subject:MIME-Version:Date:
-	Message-ID:Reply-To:Cc:Content-ID:Content-Description:Resent-Date:Resent-From
-	:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=4NHIT1ilJJCqNaudxFk22yjTTqDm0QouOPP1Hh+837g=; b=O1GkZVYUJxwbNopoEEXYeyHC4R
-	JUTGDWvCZGZNKbPMx4FJQd/k8poIOLsg8IiieuAY6407dLeQvNYq6lE+qlA9qqQaxNawI9IUxDLRU
-	ECrP11Cwvm9H31ZHWy2KQIS/0C/aDUingQ6JF0uAuI8Bzqfp9ubkFNXq888G+wnSgGkJaxL1/KnNr
-	EV/yc53DWARZlMKXvZBytPaEboeZTf7+4WRgk2aRcy1tjh/v9eUN/M29WrBCutn14DSH5onKL0vpA
-	KI9TSY5Q4klUcA6dD3OzFzw4qijw3Y/fmc2ocFCxx1dnXWdCAHECMYx8IaXauJzS0u7HLjMb6czut
-	JvkmzItA==;
+	MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:
+	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=wXubRgIQov6KKC0DBoFpb8dlsukOt/+vAZvDFHs1O38=; b=u/KU5doSmDfqo1dWXdhSuggkam
+	V7W/m5rQ0793m9Ehd1mMG4VQ0RXQMqh3HT+Pl+TQL+iWgFyXVUerLqDIOCUNKQ+F99ixkhNP9WDqh
+	V2Tltstmq0gATwRqRdVtJ5sTmMyx34T1qrBM4mMQeFpxK05BpA71d3Z/151KmCClQHgwzXTOxDbFR
+	f1cD8+Msj9PfjOvX6aNGWzreiT7qjuzr0wjf4SQIXWQ63oo1C1xxHewYz+OuqASw0nEugZsB5//cw
+	/JpHsO145foparN/8LQLLZO2lxwYLeZWIxa21xYtOJnsMJKF2Y3lNexfJ3YSPQCaVJDrl/kcRackz
+	GwjjCZ8Q==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wTcUW-00000009QXd-1VgZ;
-	Sun, 31 May 2026 09:29:56 +0000
-Received: from mta.al2klimov.de ([2a01:4f8:c0c:a5b1::1])
+	id 1wTcbO-00000009R0B-0B2L;
+	Sun, 31 May 2026 09:37:02 +0000
+Received: from out30-111.freemail.mail.aliyun.com ([115.124.30.111])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wTcUT-00000009QWw-3Su7
+	id 1wTcbK-00000009Qwt-0SwG
 	for linux-arm-kernel@lists.infradead.org;
-	Sun, 31 May 2026 09:29:55 +0000
-DKIM-Signature: v=1; a=rsa-sha256; c=simple/simple; s=default; bh=Mw0rh43xOAuI
-	SiAf/pF5q/1/WffFeCfnXIJl+eu1Xu8=; h=in-reply-to:from:references:to:
-	subject:date; d=al2klimov.de; b=dYE3x9NkAUO2HLL2sZmqCX+/i0AtdXexhHV8Fm
-	qrO8TvrNCfhx6Ap0e/4+LXvrXOIsQ3ry9eWyO11Woq58bJpGJkBe1hU5MkUurni6diEZ3f
-	jfZMZz4JUAG5yvD+L4Q4f68qFYmrUNk6oTv9GFuW7QEnWsfIhZf0iffeHirfQlrAJfjTlr
-	07IP74Jnm0ucvHI2alJX9SVUoqXiiD+TcVwYQAVt50aO/DV92k3t6Y/vu9UntWbFDD2ZXM
-	ceuvH4c1xUCMNYJEwNi7XKc7rDqcqIpGfR3WzCxp+uIlJCgZOSUwrhiUICWHxNMuMA3HGc
-	uu6mqOvIkEtU8h/y/3p74IIA==
-Received: from [192.168.0.101] (88.215.123.80.dyn.pyur.net [88.215.123.80])
-	by mta.al2klimov.de (OpenSMTPD) with ESMTPSA id 2f391762 (TLSv1.3:TLS_CHACHA20_POLY1305_SHA256:256:NO);
-	Sun, 31 May 2026 09:29:48 +0000 (UTC)
-Message-ID: <ae9d7e2f-05df-497d-9547-ce4722f5e7db@al2klimov.de>
-Date: Sun, 31 May 2026 11:27:47 +0200
+	Sun, 31 May 2026 09:37:00 +0000
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+	d=linux.alibaba.com; s=default;
+	t=1780220210; h=From:To:Subject:Date:Message-ID:MIME-Version;
+	bh=wXubRgIQov6KKC0DBoFpb8dlsukOt/+vAZvDFHs1O38=;
+	b=R/e9efho6H/2+1/0QbqnqKW+BC+58aqt93rIFoT4gPj1jKHgTT3/bj7uN+0ywCT4bDOmQMfosSXvo037vrl7mHx0DV3a2b/VtK7BBOD+4xSySVjb0DJzuMcD+PVlkokUbPVjPJnaFlGdKjGO/Yesw5H3QxWtKQaCAttPBdaGz2U=
+X-Alimail-AntiSpam: AC=PASS;BC=-1|-1;BR=01201311R831e4;CH=green;DM=||false|;DS=||;FP=0|-1|-1|-1|0|-1|-1|-1;HT=maildocker-contentspam033037033178;MF=guanghuifeng@linux.alibaba.com;NM=1;PH=DS;RN=27;SR=0;TI=SMTPD_---0X3tRVlc_1780220197;
+Received: from VM20241011-104.tbsite.net(mailfrom:guanghuifeng@linux.alibaba.com fp:SMTPD_---0X3tRVlc_1780220197 cluster:ay36)
+          by smtp.aliyun-inc.com;
+          Sun, 31 May 2026 17:36:46 +0800
+From: Guanghui Feng <guanghuifeng@linux.alibaba.com>
+To: boris.brezillon@collabora.com,
+	robh@kernel.org,
+	steven.price@arm.com,
+	adrian.larumbe@collabora.com,
+	maarten.lankhorst@linux.intel.com,
+	mripard@kernel.org,
+	tzimmermann@suse.de,
+	airlied@gmail.com,
+	liviu.dudau@arm.com,
+	joro@8bytes.org,
+	will@kernel.org,
+	robin.murphy@arm.com,
+	alex@shazbot.org,
+	dri-devel@lists.freedesktop.org,
+	linux-kernel@vger.kernel.org,
+	iommu@lists.linux.dev,
+	kvm@vger.kernel.org,
+	linux-arm-kernel@lists.infradead.org,
+	jgg@ziepe.ca,
+	kevin.tian@intel.com,
+	baolu.lu@linux.intel.com,
+	suravee.suthikulpanit@amd.com,
+	dwmw2@infradead.org
+Cc: xlpang@linux.alibaba.com,
+	oliver.yang@linux.alibaba.com,
+	shiyu.zsq@linux.alibaba.com,
+	wei.guo.simon@linux.alibaba.com
+Subject: [PATCH 0/9] iommu: introduce iova_to_phys_length for efficient IOVA-to-physical translation
+Date: Sun, 31 May 2026 17:36:28 +0800
+Message-ID: <20260531093637.3893199-1-guanghuifeng@linux.alibaba.com>
+X-Mailer: git-send-email 2.43.7
+In-Reply-To: <20260529115116.GR2487554@ziepe.ca>
+References: <20260529115116.GR2487554@ziepe.ca>
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH] clk: samsung: exynos5410: fix refcount leak
-To: Krzysztof Kozlowski <krzk@kernel.org>,
- Sylwester Nawrocki <s.nawrocki@samsung.com>,
- Chanwoo Choi <cw00.choi@samsung.com>, Alim Akhtar <alim.akhtar@samsung.com>,
- Michael Turquette <mturquette@baylibre.com>, Stephen Boyd
- <sboyd@kernel.org>, Brian Masney <bmasney@redhat.com>,
- "open list:SAMSUNG SOC CLOCK DRIVERS" <linux-samsung-soc@vger.kernel.org>,
- "open list:COMMON CLK FRAMEWORK" <linux-clk@vger.kernel.org>,
- "moderated list:ARM/SAMSUNG S3C, S5P AND EXYNOS ARM ARCHITECTURES"
- <linux-arm-kernel@lists.infradead.org>,
- open list <linux-kernel@vger.kernel.org>
-References: <20260526061321.6123-1-grandmaster@al2klimov.de>
- <54284b18-e310-474e-9b64-63645804c1e0@kernel.org>
-Content-Language: en-US
-From: "Alexander A. Klimov" <grandmaster@al2klimov.de>
-In-Reply-To: <54284b18-e310-474e-9b64-63645804c1e0@kernel.org>
-Content-Type: text/plain; charset=UTF-8; format=flowed
 Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260531_022954_182173_1729BFB1 
-X-CRM114-Status: UNSURE (   6.02  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20260531_023658_846539_29A4E441 
+X-CRM114-Status: GOOD (  11.17  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -78,24 +89,86 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
+This series introduces a new iova_to_phys_length() interface across the
+IOMMU subsystem that returns both the physical address and the PTE mapping
+page size in a single page-table walk.
 
+Motivation:
 
-On 5/30/26 18:26, Krzysztof Kozlowski wrote:
-> On 26/05/2026 08:13, Alexander A. Klimov wrote:
->> Every value returned from of_clk_get() is supposed to be cleaned up
->> via clk_put() once not needed anymore.
->>
->> Fixes: be95d2c7d918 ("clk: samsung: Add support for EPLL on exynos5410")
->> Signed-off-by: Alexander A. Klimov <grandmaster@al2klimov.de>
-> 
-> 
-> Does not apply - you messed somehow sending these.
+The existing iova_to_phys() only returns a physical address without any
+information about the page size of the underlying PTE mapping. Callers
+like VFIO and iommufd that need to traverse IOVA ranges are forced to
+walk one PAGE_SIZE step at a time, even when the IOMMU has mapped large
+regions using 2MB or 1GB huge pages. This results in O(n) page-table
+walks where O(1) would suffice per mapping entry.
 
-Strange... copy&paste from
-https://lore.kernel.org/all/20260526061321.6123-1-grandmaster@al2klimov.de/
-(From: ... 2.54.0) applies to Linus' master.
+Approach:
 
-Wait... ! Don't say because I fired all my compiled patches
-at once via git-send-email(1), they assembled to one thread?
-🙈
+The new callback .iova_to_phys_length returns the physical address and
+sets *mapped_length to the PTE page size (e.g. 4KB, 2MB, 1GB). This
+allows callers to skip ahead by the actual mapping granularity.
+
+The migration follows an add-migrate-remove pattern to ensure every
+commit in this series compiles independently (bisectable):
+
+  1. Add the new interface with fallback to legacy iova_to_phys
+  2. Migrate all IOMMU drivers (io-pgtable, generic_pt, per-SoC)
+  3. Migrate callers (VFIO, iommufd, DRM)
+  4. Remove the deprecated iova_to_phys from ops structs
+
+Performance impact:
+
+For VFIO unmap of a 2MB region mapped with 2MB pages, this reduces
+page-table walks from 512 (PAGE_SIZE steps) to 1 (one per 2MB PTE),
+a ~512x improvement in that path.
+
+Guanghui Feng (9):
+  iommu: introduce iova_to_phys_length in iommu_domain_ops
+  iommu/io-pgtable: introduce iova_to_phys_length in io_pgtable_ops
+  iommu/generic_pt: implement iova_to_phys_length
+  iommu/arm-smmu: implement iova_to_phys_length
+  iommu: apple-dart/ipmmu/mtk_iommu implement iova_to_phys_length
+  iommu: direct page-table drivers implement iova_to_phys_length
+  vfio/iommufd: use iova_to_phys_length for efficient unmap
+  drm/gpu, iommu/io-pgtable: switch to iova_to_phys_length
+  iommu: remove deprecated iova_to_phys from domain_ops and
+    io_pgtable_ops
+
+ drivers/gpu/drm/panfrost/panfrost_mmu.c       |  2 +-
+ drivers/gpu/drm/panthor/panthor_mmu.c         |  2 +-
+ drivers/iommu/apple-dart.c                    | 11 +--
+ drivers/iommu/arm/arm-smmu-v3/arm-smmu-v3.c   | 10 ++-
+ .../iommu/arm/arm-smmu/arm-smmu-qcom-debug.c  |  2 +-
+ drivers/iommu/arm/arm-smmu/arm-smmu.c         | 13 ++--
+ drivers/iommu/arm/arm-smmu/qcom_iommu.c       | 11 +--
+ drivers/iommu/exynos-iommu.c                  | 21 ++++--
+ drivers/iommu/fsl_pamu_domain.c               | 26 ++++++-
+ drivers/iommu/generic_pt/iommu_pt.h           | 49 ++++++++-----
+ drivers/iommu/io-pgtable-arm-selftests.c      | 12 ++--
+ drivers/iommu/io-pgtable-arm-v7s.c            | 25 ++++---
+ drivers/iommu/io-pgtable-arm.c                | 14 ++--
+ drivers/iommu/io-pgtable-dart.c               | 17 +++--
+ drivers/iommu/iommu.c                         | 30 +++++++-
+ drivers/iommu/iommufd/pages.c                 | 71 +++++++++++++++----
+ drivers/iommu/iommufd/selftest.c              |  2 +-
+ drivers/iommu/ipmmu-vmsa.c                    | 12 ++--
+ drivers/iommu/msm_iommu.c                     | 25 +++++--
+ drivers/iommu/mtk_iommu.c                     | 12 ++--
+ drivers/iommu/mtk_iommu_v1.c                  | 15 +++-
+ drivers/iommu/omap-iommu.c                    | 32 ++++++---
+ drivers/iommu/rockchip-iommu.c                | 11 ++-
+ drivers/iommu/s390-iommu.c                    | 15 ++--
+ drivers/iommu/sprd-iommu.c                    | 13 +++-
+ drivers/iommu/sun50i-iommu.c                  | 13 +++-
+ drivers/iommu/tegra-smmu.c                    | 12 +++-
+ drivers/iommu/virtio-iommu.c                  | 13 +++-
+ drivers/vfio/vfio_iommu_type1.c               | 24 +++++--
+ include/linux/generic_pt/iommu.h              | 13 ++--
+ include/linux/io-pgtable.h                    | 10 ++-
+ include/linux/iommu.h                         | 12 +++-
+ 32 files changed, 404 insertions(+), 146 deletions(-)
+
+-- 
+2.43.7
+
 
