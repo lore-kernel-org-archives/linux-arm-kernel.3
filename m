@@ -4,82 +4,64 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 1FDC8CD6E52
-	for <linux-arm-kernel@archiver.kernel.org>; Sun, 31 May 2026 11:05:30 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 37B67CD5BD1
+	for <linux-arm-kernel@archiver.kernel.org>; Sun, 31 May 2026 11:47:38 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:
-	Content-Transfer-Encoding:MIME-Version:References:In-Reply-To:Message-ID:Date
-	:Subject:CC:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=+9EV4+N9OSTd9oy5C4EYdeYYRZJSTyZIZZaHeEx892Q=; b=Mfu31ZlHnDA/Y/5mmqbaa/CtUE
-	EdSq5/BN4QtAsfZc+S3HTs2/9yU4G9fOt9OQjcNYd4NV2CzrK7esSEw78CJgBJA5qoxJ3TPTMZjAQ
-	ZykZfFwWwE08QGbK4OIz9nAtzqcIsqf3mBT6QP5pUX/ss+CVviKQlOHQurQZquWmmbs2S3JrC59SZ
-	9UFdcMW/ufFej5LekdEkzGOFGYwW8DCPLH8+XrMhWw8HYIgVRGyZHvp4O4XV6KbOP84mOBOLNXEKQ
-	7rSalI47G04onJoQkWRiKLEqZrg4uZoBwSa024RF/G0HauUVXm2w1pbgo1noQ3Uqg8RxiHUIqshR2
-	v8FkT/1g==;
+	bh=ct8HY92i6QZ17YyTCxgrZWO6N6bGL7NsPGPY6sbzL1w=; b=G1qpR11Jq80T25itbzfVH985Lh
+	z9XEFDqdoB6bX63um6buLCxDCWzY9P0EWmg9X/EQsoXDUpxbkpxp/RqmFAlDxoQCF/y+0JaMgGyfz
+	YpRBAjWQpJXjPatRsh3c5GsnJuSzmpEk6Db2jKNlb3ywslwca7SxHlW7FB2duOMaov+sueTWFPm0h
+	qQaPos4Ctr4zHguHNQZ3wT6EJSXxNypUbVaudjkB2exLiEzu4yZYNEF2IeUX/NNyw/TDI91gFmemf
+	NtJf6/8T6gLLl5SEwzeX+w+9I39toz2kQoM7oCVxW0O55ESK423OO2r+sX4xjfGvanpY/FpMwbn59
+	LDE5neUg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wTdys-00000009Wam-3OcK;
-	Sun, 31 May 2026 11:05:22 +0000
-Received: from pdx-out-009.esa.us-west-2.outbound.mail-perimeter.amazon.com ([35.155.198.111])
+	id 1wTedW-00000009YG5-2D3d;
+	Sun, 31 May 2026 11:47:22 +0000
+Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wTdyU-00000009WWv-3ieO
+	id 1wTedU-00000009YFh-2ZoR
 	for linux-arm-kernel@lists.infradead.org;
-	Sun, 31 May 2026 11:05:00 +0000
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-  d=amazon.com; i=@amazon.com; q=dns/txt; s=amazoncorp2;
-  t=1780225498; x=1811761498;
-  h=from:to:cc:subject:date:message-id:in-reply-to:
-   references:mime-version:content-transfer-encoding;
-  bh=+9EV4+N9OSTd9oy5C4EYdeYYRZJSTyZIZZaHeEx892Q=;
-  b=QTlSbJYxCZqJHrBZJCKB2xljLL7Tj6kxlM0bBDV1T2jQh4TDK54Bvhia
-   aX+Amz6q0sCFxN4bivT6Bja/mLIY8zfz3Y/4hAAmgEPpUJI1ul2+qiIi5
-   ZfSwKf1k6oV7BXbz+J13z5XD2w1rfgbqHUlTVQMZu08YpA/l6m/HZ4UYi
-   zF/Jv2cBHSTg3/FhHrgInO8S1Xcs3kZPl11HM1rwrXEVsNqMDSTz991B9
-   O1FI88UtPzf+gPfGuMg4vpinKCnZ03PPTaMfdKzDZw2FcQ2YO65nJ4NBN
-   utxFzijP7wYOrk+N9Bn+8t6DsW+5CmJ7QG11jBLOk99JWqecpJyBrEBYt
-   g==;
-X-CSE-ConnectionGUID: zDCrbvz+RYqHl/czSQDcfw==
-X-CSE-MsgGUID: OUlMgk8pQc6ice2v+Wx7bQ==
-X-IronPort-AV: E=Sophos;i="6.24,179,1774310400"; 
-   d="scan'208";a="20678449"
-Received: from ip-10-5-0-115.us-west-2.compute.internal (HELO smtpout.naws.us-west-2.prod.farcaster.email.amazon.dev) ([10.5.0.115])
-  by internal-pdx-out-009.esa.us-west-2.outbound.mail-perimeter.amazon.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 31 May 2026 11:04:55 +0000
-Received: from EX19MTAUWC001.ant.amazon.com [205.251.233.53:11253]
- by smtpin.naws.us-west-2.prod.farcaster.email.amazon.dev [10.0.19.88:2525] with esmtp (Farcaster)
- id 270f8ccc-515e-4118-877c-7f643db1a86a; Sun, 31 May 2026 11:04:55 +0000 (UTC)
-X-Farcaster-Flow-ID: 270f8ccc-515e-4118-877c-7f643db1a86a
-Received: from EX19D001UWA001.ant.amazon.com (10.13.138.214) by
- EX19MTAUWC001.ant.amazon.com (10.250.64.174) with Microsoft SMTP Server
- (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_128_CBC_SHA) id 15.2.2562.37;
- Sun, 31 May 2026 11:04:55 +0000
-Received: from dev-dsk-avivb-1b-e28f450e.eu-west-1.amazon.com (10.15.33.9) by
- EX19D001UWA001.ant.amazon.com (10.13.138.214) with Microsoft SMTP Server
- (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_128_CBC_SHA) id 15.2.2562.37;
- Sun, 31 May 2026 11:04:53 +0000
-From: Aviv Bakal <avivb@amazon.com>
-To: <robin.murphy@arm.com>, <will@kernel.org>, <mark.rutland@arm.com>
-CC: <linux-arm-kernel@lists.infradead.org>,
-	<linux-perf-users@vger.kernel.org>, <linux-kernel@vger.kernel.org>,
-	<avivb@amazon.com>, <zeev@amazon.com>, <blakgeof@amazon.com>,
-	<ilkka@os.amperecomputing.com>
-Subject: [PATCH v4 2/2] perf/arm-cmn: Add workarounds for CMN-S3 on Graviton5
-Date: Sun, 31 May 2026 14:04:47 +0300
-Message-ID: <20260531110447.10095-3-avivb@amazon.com>
-X-Mailer: git-send-email 2.47.3
-In-Reply-To: <20260531110447.10095-1-avivb@amazon.com>
-References: <20260524153848.16334-1-avivb@amazon.com>
- <20260531110447.10095-1-avivb@amazon.com>
+	Sun, 31 May 2026 11:47:21 +0000
+Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
+	by sea.source.kernel.org (Postfix) with ESMTP id B968C4020D;
+	Sun, 31 May 2026 11:47:19 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 363291F00893;
+	Sun, 31 May 2026 11:47:19 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
+	s=k20260515; t=1780228039;
+	bh=ct8HY92i6QZ17YyTCxgrZWO6N6bGL7NsPGPY6sbzL1w=;
+	h=Date:From:To:Cc:Subject:References:In-Reply-To;
+	b=TnsFonrrBOVdJXLe1AySwEBB+ooQtPGNMReKfpeM7ET3Nt5+omF8h4GU5185mDWSy
+	 ppHIKAR4DsR8dRb+22Ry+cjAyLnA4lJIB+tWwyVCXa9XhH2svVYpkoJ8Cv48RMOsNA
+	 I9wBKL8IeybkWVI/RjH6b5NGPSSpbfKwIJzAvpx9K01WXdO3BiHvxtz8rzYHZKDnFt
+	 OVSItln/t3ZwzEQUTptgDu7tLRUArTc29bIEDRZNcEgl3GbVo+Ep/6RUi57gZ9Omq0
+	 gM1hscwckle8DxzmU3rI2d58VYmUa/yRNMNBII3P67kPLsayflvuweivChd6dzdXBB
+	 k8mSNLi6q8e2A==
+Date: Sun, 31 May 2026 13:47:16 +0200
+From: Krzysztof Kozlowski <krzk@kernel.org>
+To: Richard Zhu <hongxing.zhu@nxp.com>
+Cc: robh@kernel.org, krzk+dt@kernel.org, conor+dt@kernel.org, 
+	bhelgaas@google.com, frank.li@nxp.com, l.stach@pengutronix.de, lpieralisi@kernel.org, 
+	kwilczynski@kernel.org, mani@kernel.org, s.hauer@pengutronix.de, kernel@pengutronix.de, 
+	festevam@gmail.com, linux-pci@vger.kernel.org, linux-arm-kernel@lists.infradead.org, 
+	devicetree@vger.kernel.org, imx@lists.linux.dev, linux-kernel@vger.kernel.org
+Subject: Re: [PATCH v5 1/3] dt-bindings: imx6q-pcie: Add optional interrupt
+ entries for intr, aer and pme
+Message-ID: <20260531-benevolent-malkoha-from-wonderland-cdfafc@quoll>
+References: <20260521093255.61585-1-hongxing.zhu@nxp.com>
+ <20260521093255.61585-2-hongxing.zhu@nxp.com>
 MIME-Version: 1.0
-Content-Transfer-Encoding: 8bit
-Content-Type: text/plain
-X-Originating-IP: [10.15.33.9]
-X-ClientProxiedBy: EX19D036UWB003.ant.amazon.com (10.13.139.172) To
- EX19D001UWA001.ant.amazon.com (10.13.138.214)
+Content-Type: text/plain; charset=utf-8
+Content-Disposition: inline
+In-Reply-To: <20260521093255.61585-2-hongxing.zhu@nxp.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260531_040458_971064_8A57F0D6 
-X-CRM114-Status: GOOD (  17.08  )
+X-CRM114-CacheID: sfid-20260531_044720_693913_5F90BFAC 
+X-CRM114-Status: GOOD (  14.62  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -94,113 +76,45 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Graviton5 uses a customised CMN-S3 implementation where certain
-discovery registers report zeroed fields. Add the following workarounds:
+On Thu, May 21, 2026 at 05:32:53PM +0800, Richard Zhu wrote:
+> The i.MX95 PCIe controller introduces three dedicated hardware interrupt
+> lines:
+> - intr: general controller events
+> - aer: Advanced Error Reporting
+> - pme: Power Management Events
+> 
+> Earlier i.MX PCIe variants (imx6q, imx6sx, imx6qp, imx7d, imx8mm, imx8mp,
+> imx8mq, imx8q) do not have these dedicated interrupt lines.
+> 
+> PCIe basic functionality (enumeration, configuration, and data transfer)
+> works correctly regardless of whether these interrupts are present. Mark
+> these interrupts as optional to maintain backward compatibility with SoCs
+> that lack these hardware interrupt lines.
+> 
+> Signed-off-by: Richard Zhu <hongxing.zhu@nxp.com>
+> Reviewed-by: Frank Li <Frank.Li@nxp.com>
+> ---
+>  Documentation/devicetree/bindings/pci/fsl,imx6q-pcie.yaml | 6 ++++++
+>  1 file changed, 6 insertions(+)
+> 
+> diff --git a/Documentation/devicetree/bindings/pci/fsl,imx6q-pcie.yaml b/Documentation/devicetree/bindings/pci/fsl,imx6q-pcie.yaml
+> index 9d1349855b42..cf709132ff1e 100644
+> --- a/Documentation/devicetree/bindings/pci/fsl,imx6q-pcie.yaml
+> +++ b/Documentation/devicetree/bindings/pci/fsl,imx6q-pcie.yaml
+> @@ -58,12 +58,18 @@ properties:
+>      items:
+>        - description: builtin MSI controller.
+>        - description: builtin DMA controller.
+> +      - description: PCIe event interrupt.
+> +      - description: builtin AER SPI standalone interrupt line.
+> +      - description: builtin PME SPI standalone interrupt line.
 
- - Introduce a dedicated ACPI HID to identify the Graviton5 CMN variant.
- - Derive the DTC domain from the XP node ID, since the unit info
-   register reports it as zero.
- - Set the DTC logical ID from the XP's logical ID, since the node info
-   register's logical ID field is also zeroed.
+Same feedback as before, nothing improved. Schema says imx6q has these
+interrupts, commit msg says otherwise.
 
-Signed-off-by: Aviv Bakal <avivb@amazon.com>
----
- drivers/perf/arm-cmn.c | 32 +++++++++++++++++++++++++++++++-
- 1 file changed, 31 insertions(+), 1 deletion(-)
+Please read entire binding - you would easily guess what is there to do.
+And you already received such comments.
 
-diff --git a/drivers/perf/arm-cmn.c b/drivers/perf/arm-cmn.c
-index f1978a53d1c1..3fb71d9a57eb 100644
---- a/drivers/perf/arm-cmn.c
-+++ b/drivers/perf/arm-cmn.c
-@@ -31,7 +31,8 @@
- #define CMN_CHILD_NODE_ADDR		GENMASK(29, 0)
- #define CMN_CHILD_NODE_EXTERNAL		BIT(31)
- 
--#define CMN_MAX_DIMENSION		12
-+/* Some implementations use a mesh larger than the architectural max of 12 */
-+#define CMN_MAX_DIMENSION		14
- #define CMN_MAX_XPS			(CMN_MAX_DIMENSION * CMN_MAX_DIMENSION)
- #define CMN_MAX_DTMS			(CMN_MAX_XPS + (CMN_MAX_DIMENSION - 1) * 4)
- 
-@@ -214,6 +215,8 @@ enum cmn_part {
- 	PART_CMN700 = 0x43c,
- 	PART_CI700 = 0x43a,
- 	PART_CMN_S3 = 0x43e,
-+	/* Synthetic part number, overridden to PART_CMN_S3 during discovery */
-+	PART_GRAVITON5 = 0xa5,
- };
- 
- /* CMN-600 r0px shouldn't exist in silicon, thankfully */
-@@ -2250,6 +2253,18 @@ static unsigned int arm_cmn_dtc_domain(struct arm_cmn *cmn, void __iomem *xp_reg
- 	return FIELD_GET(CMN_DTM_UNIT_INFO_DTC_DOMAIN, readl_relaxed(xp_region + offset));
- }
- 
-+static unsigned int arm_cmn_graviton5_dtc_domain(u16 xp_id)
-+{
-+	unsigned int x = (xp_id >> 7) & 0xf;
-+	unsigned int y = (xp_id >> 3) & 0xf;
-+
-+	/*
-+	 * The unit info register reads as zero; derive the DTC domain from
-+	 * the XP's mesh coordinates over the 10x14 mesh.
-+	 */
-+	return (x / 5) + (y / 7) * 2;
-+}
-+
- static void arm_cmn_init_node_info(struct arm_cmn *cmn, u32 offset, struct arm_cmn_node *node)
- {
- 	int level;
-@@ -2295,6 +2310,7 @@ static int arm_cmn_discover(struct arm_cmn *cmn, unsigned int rgn_offset)
- 	u64 reg;
- 	int i, j;
- 	size_t sz;
-+	bool graviton5_workaround = false;
- 
- 	arm_cmn_init_node_info(cmn, rgn_offset, &cfg);
- 	if (cfg.type != CMN_TYPE_CFG)
-@@ -2305,6 +2321,13 @@ static int arm_cmn_discover(struct arm_cmn *cmn, unsigned int rgn_offset)
- 	reg = readq_relaxed(cfg_region + CMN_CFGM_PERIPH_ID_01);
- 	part = FIELD_GET(CMN_CFGM_PID0_PART_0, reg);
- 	part |= FIELD_GET(CMN_CFGM_PID1_PART_1, reg) << 8;
-+
-+	/* Graviton5 has a customised CMN-S3 which needs some fixups */
-+	if (cmn->part == PART_GRAVITON5) {
-+		cmn->part = PART_CMN_S3;
-+		graviton5_workaround = true;
-+	}
-+
- 	/* 600AE is close enough that it's not really worth more complexity */
- 	if (part == PART_CMN600AE)
- 		part = PART_CMN600;
-@@ -2394,6 +2417,8 @@ static int arm_cmn_discover(struct arm_cmn *cmn, unsigned int rgn_offset)
- 
- 		if (cmn->part == PART_CMN600)
- 			xp->dtc = -1;
-+		else if (graviton5_workaround)
-+			xp->dtc = arm_cmn_graviton5_dtc_domain(xp->id);
- 		else
- 			xp->dtc = arm_cmn_dtc_domain(cmn, xp_region);
- 
-@@ -2472,6 +2497,10 @@ static int arm_cmn_discover(struct arm_cmn *cmn, unsigned int rgn_offset)
- 
- 			switch (dn->type) {
- 			case CMN_TYPE_DTC:
-+				if (graviton5_workaround) {
-+					/* Node info logical ID is zeroed; use the XP's */
-+					dn->logid = xp->logid;
-+				}
- 				cmn->num_dtcs++;
- 				dn++;
- 				break;
-@@ -2687,6 +2716,7 @@ static const struct acpi_device_id arm_cmn_acpi_match[] = {
- 	{ "ARMHC650" },
- 	{ "ARMHC700" },
- 	{ "ARMHC003" },
-+	{ "AMZN0070", PART_GRAVITON5 },
- 	{}
- };
- MODULE_DEVICE_TABLE(acpi, arm_cmn_acpi_match);
--- 
-2.47.3
+NAK
 
 
