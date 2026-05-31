@@ -4,90 +4,84 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 38391CD6E52
-	for <linux-arm-kernel@archiver.kernel.org>; Sun, 31 May 2026 16:24:05 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 29AF5CD6E57
+	for <linux-arm-kernel@archiver.kernel.org>; Sun, 31 May 2026 16:27:58 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	MIME-Version:Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-Type:
-	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
-	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
-	bh=1LQUsVu/FsRAKce9MkHX/nXfxhg+YMTdjR29j70GgRM=; b=oEX53SAsTnLaQijTjM4vaZmiTp
-	ymUJRTPSs7be2ChhVj68HgSxREBw52GgU/a0mxUbmDk9z0fWm9gRPR6bEhKISgbh/VcSdxOwxySsR
-	u+7G51OmTidI2QH7QF8DXnlp2SGZWWIqxp5D4XNUsgC+BzTFdxT3ncGTne9219tM+llU7Zt+T3kGU
-	cH9980mTo8Ag8xzJPqIWfG78BdjUu7kBL/6eMX/yCXM46ChjiVONHhevBTofnZIADkc9w0Lua1Xdt
-	xvTpUNUBOmYrWZEzlhlr+7xga2Ee65ymW/y+pemymeBM+//c+7FmeMUqVk+LpMOb1NTcZkASJwugs
-	n+l/W8Mg==;
+	Content-Type:Cc:To:Subject:Message-ID:Date:From:In-Reply-To:References:
+	MIME-Version:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=b/T/RdXiN7bhTsikP7tDXhBU6HaNdabK8ZTbQ4skuK0=; b=dmfiflX5Hynwr4eFpE4Vh9UOYn
+	lPVvKDGIafOfUv5XPTKkXMNDUO4MoH38hSLWap/rXdll/ZLJ9VMxz0oWjttnWushnoioOZfucpefa
+	LH/uBRBQv+RcA725A7q9HPsCnnGcQdOWHrjUULDxsE3raDGET/O8ih9k8Bb9hQdHYYgZwhemMwQh9
+	VivSsUpN6IMAfYt/fr9zsOSjmNqsUJvnhMMFV9WL4iQ7MP1wQhyFoDX5pzsOXRJOgNkfWZ/0wmkde
+	xOoszi3caAtB2HkTY2mp1MnF5GoGdnSlNXqNC65yvFwYbFvEskWl13pEdE6ehmn3+N0RL900W/DQM
+	q6CIzJAA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wTixD-00000009kLu-0KhF;
-	Sun, 31 May 2026 16:23:59 +0000
-Received: from mail-ed1-x52a.google.com ([2a00:1450:4864:20::52a])
+	id 1wTj0v-00000009kYJ-1sFo;
+	Sun, 31 May 2026 16:27:49 +0000
+Received: from sea.source.kernel.org ([172.234.252.31])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wTixA-00000009kKy-3AZw
+	id 1wTj0t-00000009kXx-1VQM
 	for linux-arm-kernel@lists.infradead.org;
-	Sun, 31 May 2026 16:23:57 +0000
-Received: by mail-ed1-x52a.google.com with SMTP id 4fb4d7f45d1cf-68b482888c3so4470253a12.0
-        for <linux-arm-kernel@lists.infradead.org>; Sun, 31 May 2026 09:23:56 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20251104; t=1780244635; x=1780849435; darn=lists.infradead.org;
-        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
-         :to:from:from:to:cc:subject:date:message-id:reply-to;
-        bh=1LQUsVu/FsRAKce9MkHX/nXfxhg+YMTdjR29j70GgRM=;
-        b=Q3OJ9gAb9QzOhCs/vKhPs3NKM5hkU0bUw2u3Y90jQO83T76F5WcnmT+GsJYj/g5p4Z
-         Fk/myYWBqUFleGZrjDP/rOLS9R05PPfFilwVocgRw8/XrbpJHk9rLP/lAz7Vwdfxq5+h
-         7OtMKtg4RiR1RcHNwNGTiW9uLv5eQwNwCDro450YAf3bDURUeUVuu0xuNs0Amm3SastV
-         izOJIgdeeXYgtMsnqgvbO/AkJRpCmL2VUsCbAbogKEF4ENSeo+SbXaYZ0DMWmnrJ3kvI
-         zEeLrgAC4NsNZHfTX9uHjl/KBh8SR7DoDEArOIpZ/4FOMuuA8CKEBQtKGbfNLhJT3IWn
-         +feg==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20251104; t=1780244635; x=1780849435;
-        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
-         :to:from:x-gm-gg:x-gm-message-state:from:to:cc:subject:date
-         :message-id:reply-to;
-        bh=1LQUsVu/FsRAKce9MkHX/nXfxhg+YMTdjR29j70GgRM=;
-        b=OKMU1YK5wiN+55/D4w+fejvgMG+LLrGeLEBEYhvoZFGhb0Bh7d8asqIB1SoIl9k9td
-         suwSGQgQK5pLRZI95mz471CKAS0jp1K76fOI53/8AVrs8rOM7/8qdVZbjZD3T4Prwsul
-         WxFmrFLDgmLUvozRzxTZ8AXgt5crGgVbOt+/Ccs8Ew7XzDIH8lKUHRy7zI7LglyPQbHn
-         OdindV0Dfu7EFM8PUQ/jUmXWT+BHcAXejDj/p9OHOo1a1cntluY0CGTD5Eek+2gshuFS
-         ZMtifnnWCmCGhaPk+KJxCI6R+c8LNbERFclY8ayGU37DdqxStLp4iqPYt6S5F4bmWRHN
-         y/Sw==
-X-Forwarded-Encrypted: i=1; AFNElJ9PtD5XMKCAet1adov1/NLvgI2c4DEc/wiXU0L1ffpTVNZ//79n2S6QhchQVvCEs7Lq7y3htTqw2N+vvh7sY4i+@lists.infradead.org
-X-Gm-Message-State: AOJu0YzfWsHwh9WypV98LpXJvnTBRPc8xR1d9ZeQWaT1hgFyAA/frOiS
-	jSEtqQqel07g/ZgNuKAL38SIK7VbENbK323PSjPELoedqqAOtcydiXPK
-X-Gm-Gg: Acq92OF+o6XNcVIDJ0W9aTINt4mFaA0HUJCkceYLx9ssn6YtULg8gxWODThn6kRhKTz
-	QJiKGtT5EjYYKu3jbisqBFScHTIoAmL8GHwRDCWpzpAp5MvL0RY3BTlG1Sg2VEUoIDOr6yRpZ8s
-	eCaSq6V9A7/FG8UgXqC389s3RFC43Xoy5Ka1RG3cFRzh1z3iTVnPAabWG3xbyUWQLmRRvaQ71F3
-	+vvZoAYqJGqo+lKsj/vj3jRhqdcWfzETvvIC5Z+PtxK7AT9rgyUBzJkC/TNN6LWqipLfgtTyDGv
-	0t1oR8vG6btjjJvvyqDiSWkuT4+AwkW7xMP7lT7qyHCthUkjU6PKcg5BD2HPXMx9PU/LJenclL8
-	O0h1AAeOiDIoeip9RrZfHjnGXMG40s+f+q6gKlZm9AFgWAfimNUccw9hgQ2T21NpH7b6AAmpQLd
-	NrnVNyc97XcGKgdNh+9Nir2TJYiYHR07ncWnEycyj7u7QHvcBv9C8VOvBate73CVyxfnf/
-X-Received: by 2002:a17:907:d1e:b0:bc5:2352:555c with SMTP id a640c23a62f3a-beab2372384mr305413266b.14.1780244634733;
-        Sun, 31 May 2026 09:23:54 -0700 (PDT)
-Received: from localhost.localdomain ([77.241.232.0])
-        by smtp.gmail.com with ESMTPSA id a640c23a62f3a-be9d2de536dsm239985766b.15.2026.05.31.09.23.54
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Sun, 31 May 2026 09:23:54 -0700 (PDT)
-From: Luca Leonardo Scorcia <l.scorcia@gmail.com>
-To: linux-mediatek@lists.infradead.org
-Cc: Luca Leonardo Scorcia <l.scorcia@gmail.com>,
-	Sean Wang <sean.wang@kernel.org>,
-	Linus Walleij <linusw@kernel.org>,
-	Matthias Brugger <matthias.bgg@gmail.com>,
-	AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>,
-	Fabien Parent <fparent@baylibre.com>,
-	linux-gpio@vger.kernel.org,
-	linux-kernel@vger.kernel.org,
-	linux-arm-kernel@lists.infradead.org
-Subject: [PATCH] pinctrl: mediatek: mt8167: Fix Schmitt trigger register offset of pins 34-39
-Date: Sun, 31 May 2026 17:23:32 +0100
-Message-ID: <20260531162340.5326-1-l.scorcia@gmail.com>
-X-Mailer: git-send-email 2.43.0
+	Sun, 31 May 2026 16:27:48 +0000
+Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
+	by sea.source.kernel.org (Postfix) with ESMTP id 3B91040A28
+	for <linux-arm-kernel@lists.infradead.org>; Sun, 31 May 2026 16:27:46 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 157121F008A0
+	for <linux-arm-kernel@lists.infradead.org>; Sun, 31 May 2026 16:27:46 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
+	s=k20260515; t=1780244866;
+	bh=b/T/RdXiN7bhTsikP7tDXhBU6HaNdabK8ZTbQ4skuK0=;
+	h=References:In-Reply-To:From:Date:Subject:To:Cc;
+	b=Vbou+zIiA3Mr4kpYeiYJTqi2gIfmOZkK11YoGOHJXJolFeVAEfBS1YmHpT2wbl7E4
+	 1TtFyx5TF2YuygGadxrQcJ1BbSDjThQNgIQTDV+k7mbJnCEVnmCp/WdYdPgTqysu3r
+	 iMc/SXEPVkZBePzOusjof6PMTt34N5mN/BWjlITLi6GWFVDZrYjjZMV3nyOz0eZh0H
+	 nSY9BsHNYDHM9flWN3Wyu66qytrnINpASR4KeaMgIHf179bUlLCtBEgwXjc2B1+jsG
+	 pI0eIsJ5J4yCzh+imQOSoXBDCyq6QOJRceCoO6RwRvc+V1+Aw4d5g0j4MWmuAfjJGI
+	 iJoGujrTk1fCg==
+Received: by mail-lf1-f42.google.com with SMTP id 2adb3069b0e04-5aa66893e9fso712198e87.1
+        for <linux-arm-kernel@lists.infradead.org>; Sun, 31 May 2026 09:27:46 -0700 (PDT)
+X-Forwarded-Encrypted: i=1; AFNElJ8oyep3TH8BTnBfBb4QWgBrMrMvu+YlzuYYvvbr4E1f24s5jiCVoQHsai93Yl3TCudXw4Vd9TD5xwZ2tQn2ml9E@lists.infradead.org
+X-Gm-Message-State: AOJu0YzdDL6OQKhFrpuFboRwnYh9ujWUvv0PJGlcxoeopj37S9AkiQy2
+	42SkX6gYZYRfZjJAC06RE88GeAWUNo8ThTzgLASk9JeTAAUBvKq0SfmhCV8HakKcnytAGfrsqSH
+	6Eb1qpGfdwpcYvfEWrPlbhpGZRQwMdIh698p+W15S2A==
+X-Received: by 2002:a05:6512:800d:10b0:5a8:fca6:a537 with SMTP id
+ 2adb3069b0e04-5aa608ff3d8mr1341020e87.22.1780244864645; Sun, 31 May 2026
+ 09:27:44 -0700 (PDT)
 MIME-Version: 1.0
-Content-Transfer-Encoding: 8bit
+References: <20260526-qcom-qce-cmd-descr-v19-0-08472fdcbf4a@oss.qualcomm.com> <20260529162251.GB2706@sol>
+In-Reply-To: <20260529162251.GB2706@sol>
+From: Bartosz Golaszewski <brgl@kernel.org>
+Date: Sun, 31 May 2026 18:27:32 +0200
+X-Gmail-Original-Message-ID: <CAMRc=MdJ5GN_Lbi9PeCoW=fNnjCz-WAq66TSa8f=fZGOHFZ41Q@mail.gmail.com>
+X-Gm-Features: AVHnY4KA4mut6jG-LIp_D5JMZD7phc05G5rBuCgHgHRyzFVSAKUzF_CQJazrdyg
+Message-ID: <CAMRc=MdJ5GN_Lbi9PeCoW=fNnjCz-WAq66TSa8f=fZGOHFZ41Q@mail.gmail.com>
+Subject: Re: [PATCH v19 00/14] crypto/dmaengine: qce: introduce BAM locking
+ and use DMA for register I/O
+To: Eric Biggers <ebiggers@kernel.org>
+Cc: Bartosz Golaszewski <bartosz.golaszewski@oss.qualcomm.com>, Vinod Koul <vkoul@kernel.org>, 
+	Jonathan Corbet <corbet@lwn.net>, Thara Gopinath <thara.gopinath@gmail.com>, 
+	Herbert Xu <herbert@gondor.apana.org.au>, "David S. Miller" <davem@davemloft.net>, 
+	Udit Tiwari <quic_utiwari@quicinc.com>, Md Sadre Alam <mdalam@qti.qualcomm.com>, 
+	Dmitry Baryshkov <lumag@kernel.org>, Manivannan Sadhasivam <mani@kernel.org>, 
+	Stephan Gerhold <stephan.gerhold@linaro.org>, Bjorn Andersson <andersson@kernel.org>, 
+	Peter Ujfalusi <peter.ujfalusi@gmail.com>, Michal Simek <michal.simek@amd.com>, 
+	Frank Li <Frank.Li@kernel.org>, Andy Gross <agross@codeaurora.org>, 
+	Neil Armstrong <neil.armstrong@linaro.org>, dmaengine@vger.kernel.org, 
+	linux-doc@vger.kernel.org, linux-kernel@vger.kernel.org, 
+	linux-arm-msm@vger.kernel.org, linux-crypto@vger.kernel.org, 
+	linux-arm-kernel@lists.infradead.org, 
+	Bartosz Golaszewski <bartosz.golaszewski@linaro.org>, 
+	Dmitry Baryshkov <dmitry.baryshkov@oss.qualcomm.com>, 
+	Konrad Dybcio <konrad.dybcio@oss.qualcomm.com>
+Content-Type: text/plain; charset="UTF-8"
+Content-Transfer-Encoding: quoted-printable
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260531_092356_796257_E8CBBE50 
-X-CRM114-Status: GOOD (  11.51  )
+X-CRM114-CacheID: sfid-20260531_092747_442301_771922AE 
+X-CRM114-Status: GOOD (  37.55  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -102,29 +96,79 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-The correct Schmitt trigger register offset for pins 34-39 is 0xA00. Value
-was verified with SoC data sheet.
+On Fri, May 29, 2026 at 6:24=E2=80=AFPM Eric Biggers <ebiggers@kernel.org> =
+wrote:
+>
+> On Tue, May 26, 2026 at 03:10:48PM +0200, Bartosz Golaszewski wrote:
+> > I feel like I fell into the trap of trying to address pre-existing
+> > issues reported by sashiko and in the process provoking more reports so
+> > let this be the last iteration where I do this. Vinod can we get this
+> > queued for v7.2 now and iron out any previously existing problems in
+> > tree?
+> >
+> > Merging strategy: there are build-time dependencies between the crypto
+> > and DMA patches so the best approach is for Vinod to create an immutabl=
+e
+> > branch with the DMA part pulled in by the crypto tree.
+> >
+> > This iteration continues to build on top of v12 but uses the BAM's NWD
+> > bit on data descriptors as suggested by Stephan. To that end, there are
+> > some more changes like reversing the order of command and data
+> > descriptors queuedy by the QCE driver.
+> >
+> > Currently the QCE crypto driver accesses the crypto engine registers
+> > directly via CPU. Trust Zone may perform crypto operations simultaneous=
+ly
+> > resulting in a race condition. To remedy that, let's introduce support
+> > for BAM locking/unlocking to the driver. The BAM driver will now wrap
+> > any existing issued descriptor chains with additional descriptors
+> > performing the locking when the client starts the transaction
+> > (dmaengine_issue_pending()). The client wanting to profit from locking
+> > needs to switch to performing register I/O over DMA and communicate the
+> > address to which to perform the dummy writes via a call to
+> > dmaengine_desc_attach_metadata().
+> >
+> > In the specific case of the BAM DMA this translates to sending command
+> > descriptors performing dummy writes with the relevant flags set. The BA=
+M
+> > will then lock all other pipes not related to the current pipe group, a=
+nd
+> > keep handling the current pipe only until it sees the the unlock bit.
+> >
+> > In order for the locking to work correctly, we also need to switch to
+> > using DMA for all register I/O.
+> >
+> > On top of this, the series contains some additional tweaks and
+> > refactoring.
+> >
+> > The goal of this is not to improve the performance but to prepare the
+> > driver for supporting decryption into secure buffers in the future.
+> >
+> > Tested with tcrypt.ko, kcapi and cryptsetup.
+> >
+> > Signed-off-by: Bartosz Golaszewski <bartosz.golaszewski@linaro.org>
+> > Signed-off-by: Bartosz Golaszewski <bartosz.golaszewski@oss.qualcomm.co=
+m>
+>
+> None of these fixes are Cc'ed to stable, so stable kernels will remain
+> vulnerable to these race conditions.
+>
+> Shouldn't this be preceded by a patch, Cc'ed to stable, that marks the
+> driver as BROKEN?  As discussed in the other thread
+> (https://lore.kernel.org/linux-crypto/20260515-shikra_qcrypto-v1-0-80f07b=
+345c29@oss.qualcomm.com/T/#u),
+> none of the current functionality of this driver is actually useful in
+> Linux.  It's just been causing problems.
+>
 
-Signed-off-by: Luca Leonardo Scorcia <l.scorcia@gmail.com>
-Fixes: 82d70627e94a ("pinctrl: mediatek: Add MT8167 Pinctrl driver")
----
- drivers/pinctrl/mediatek/pinctrl-mt8167.c | 2 +-
- 1 file changed, 1 insertion(+), 1 deletion(-)
+I don't believe any of it should be backported. This is not a
+regression, multiple EEs were never supported, so it's a new feature.
+Also: backporting of over 500 diff lines across two subsystems doesn't
+sound like a good idea to me.
 
-diff --git a/drivers/pinctrl/mediatek/pinctrl-mt8167.c b/drivers/pinctrl/mediatek/pinctrl-mt8167.c
-index 143c26622272..c812d614e9d4 100644
---- a/drivers/pinctrl/mediatek/pinctrl-mt8167.c
-+++ b/drivers/pinctrl/mediatek/pinctrl-mt8167.c
-@@ -244,7 +244,7 @@ static const struct mtk_pin_ies_smt_set mt8167_smt_set[] = {
- 	MTK_PIN_IES_SMT_SPEC(24, 25, 0xA00, 12),
- 	MTK_PIN_IES_SMT_SPEC(26, 30, 0xA00, 0),
- 	MTK_PIN_IES_SMT_SPEC(31, 33, 0xA00, 1),
--	MTK_PIN_IES_SMT_SPEC(34, 39, 0xA900, 2),
-+	MTK_PIN_IES_SMT_SPEC(34, 39, 0xA00, 2),
- 	MTK_PIN_IES_SMT_SPEC(40, 40, 0xA10, 11),
- 	MTK_PIN_IES_SMT_SPEC(41, 43, 0xA00, 10),
- 	MTK_PIN_IES_SMT_SPEC(44, 47, 0xA00, 11),
--- 
-2.43.0
+On the other hand, if marking the driver as BROKEN for the time being
+allows for a faster pace of queuing any changes to it, then I'm for
+it. Let's unmark it once we fix it.
 
+Bart
 
