@@ -4,66 +4,68 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 9A17BCD6E52
-	for <linux-arm-kernel@archiver.kernel.org>; Sun, 31 May 2026 12:07:38 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 150B3CD6E52
+	for <linux-arm-kernel@archiver.kernel.org>; Sun, 31 May 2026 12:11:34 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:
-	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=zORGeWuTCNHFb6hRylyD7s9kKaOx02hxKZ8rvXfea0I=; b=Cr3KdTD6+70nXF96rew1FlBqOW
-	O3FnfUAJ/yllzEDTBo8Nbwt7FQN4jtjl9HHOhdr7u9K/+Y5bb6xJBQ9iw3fAXw6xS4GFXPBIX/otm
-	m1GXvtp8//9JWTRAe0ENy8/i4/CrQzMz6j3NljHLZG60oxs6dtdjFtV4m4AcEIjlB4II/fwqh4bXY
-	lQnZf4EOrGJKqAl1A42X6THdwaHA7/ZKo58OBfYjomdVVuihr1qtMyywOnhGsLVIlw2Ust+UCBVt5
-	I2HSqEB/Gh+TA9lKb4uLdzOZNr2Oix2VO4jSBg+pJyuLaKM1lCNggfNIS7duIWXnUVG+re9xkLVI5
-	AUdbZ0mQ==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=P5L7upYeeIi8suDApzBL/oP6wbVic2Bu4SntuPBJZbM=; b=tEFnwi46gSbWmjmEj/Re+AZbfz
+	CObGm/OnDYqlinzINW4iVMKCOr+dqqU/uR65Ygvek5oyI2TyGlLF7a3XC3/qZ8BaChfdTjhIIAAGE
+	Nb+g5xA0KfBVOZx9xcyWnM/CwC3+zddBJZX0Gqr2/HeD0M0rQe5dASSoWFBiOyai0IgMKnuDXDGjb
+	JiDdc1/yfTjPkPBzKEP985OeMPqdIbzMg/bHdX5SrE31QvUYBpI19SuDB0dnY8ylaSAxysvLzoUqu
+	DwZ0gONiHfw3lu/GJQ35+VwAf4zuOl8VwPjxm0dwKaOI5vhdRoOqrpqX3YNqdfV0CndBu2DdSC4Ir
+	Rcz4q90g==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wTewx-00000009Z1h-2vY9;
-	Sun, 31 May 2026 12:07:27 +0000
+	id 1wTf0q-00000009ZHs-0Gw7;
+	Sun, 31 May 2026 12:11:28 +0000
 Received: from tor.source.kernel.org ([2600:3c04:e001:324:0:1991:8:25])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wTewv-00000009Z1P-0CCD
-	for linux-arm-kernel@lists.infradead.org;
-	Sun, 31 May 2026 12:07:25 +0000
+	id 1wTf0o-00000009ZHf-2XVk;
+	Sun, 31 May 2026 12:11:26 +0000
 Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
-	by tor.source.kernel.org (Postfix) with ESMTP id 2B2A460138;
-	Sun, 31 May 2026 12:07:24 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 2F1CD1F0089A;
-	Sun, 31 May 2026 12:07:18 +0000 (UTC)
+	by tor.source.kernel.org (Postfix) with ESMTP id F1EDE60123;
+	Sun, 31 May 2026 12:11:25 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 2CF4C1F00893;
+	Sun, 31 May 2026 12:11:25 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1780229243;
-	bh=zORGeWuTCNHFb6hRylyD7s9kKaOx02hxKZ8rvXfea0I=;
-	h=From:To:Cc:Subject:Date:In-Reply-To:References;
-	b=js4n3+7+v3K5Tv77SQsDR7WI0DUARPFkX1P/3XV1SOpo79lKXoU8vfWJ0W9hBrjDs
-	 JNPGS8fpxpahWtWZ20g6C1M/g5yLqn9AhDSlHJ5aj+p7GOApEm5YcWApxicQ3KJ8b2
-	 YSd1qvhzh+guUELpcARykR/XJW//qvUmcbu6pwp1bnKRjhKCsvRgSIGVPjfar8IOMA
-	 OkMAmERCgdNzEpuxnbI35nRDCnQc2ZobKzXCbu+IJVoqza8rDHsraRder+3qqdoh7m
-	 +48oFGlFf+N7z3k1oT/pPRursveUHdD/OnM4DIMPAkJ0DUWaV5SjAeH+4gOHDs5U2N
-	 uFCuy3XXYqVFw==
-From: Krzysztof Kozlowski <krzk@kernel.org>
-To: Arnd Bergmann <arnd@arndb.de>,
-	Alexandre Belloni <alexandre.belloni@bootlin.com>,
-	Linus Walleij <linusw@kernel.org>,
-	Drew Fustini <fustini@kernel.org>,
-	soc@lists.linux.dev
-Cc: Krzysztof Kozlowski <krzk@kernel.org>,
-	Alim Akhtar <alim.akhtar@samsung.com>,
-	Peter Griffin <peter.griffin@linaro.org>,
-	linux-arm-kernel@lists.infradead.org,
-	linux-samsung-soc@vger.kernel.org,
-	linux-kernel@vger.kernel.org
-Subject: [GIT PULL 2/2] ARM: samsung: mach for v7.2
-Date: Sun, 31 May 2026 14:07:09 +0200
-Message-ID: <20260531120708.21017-4-krzk@kernel.org>
-X-Mailer: git-send-email 2.53.0
-In-Reply-To: <20260531120708.21017-3-krzk@kernel.org>
-References: <20260531120708.21017-3-krzk@kernel.org>
+	s=k20260515; t=1780229485;
+	bh=P5L7upYeeIi8suDApzBL/oP6wbVic2Bu4SntuPBJZbM=;
+	h=Date:From:To:Cc:Subject:References:In-Reply-To;
+	b=X6gMgoUrEyec4TnHgnPYtpD0KiMTOxmWQ30Iuip+GMHsjTyHXL09UuUIaQgnDpk51
+	 gdhvc5RHa40qZS7mKTUt3lqgjUTOmzLBdmGTJxVUw7spriJDkxfo391lcKpCKv2lI1
+	 kXFy27h7w2+kgFUPDAF/icTiMXjz+LzKRmfQSpLtTaoZ7bc4Tt8uWPyHHy6t3/WpM0
+	 a+uFGtnaT+wG7lwqdzE1h9Ddlrz9FWo26rkOyQwvj0ImFz02BJ2+cDQAYjM9cTdLOX
+	 x4wG/GI8E7+Awn19M7VRVnHYBRcWBaMdjwu9xte4C9dCBDHob+/ahg5UcpgcLuICIm
+	 uzM3DDxS+xLVQ==
+Date: Sun, 31 May 2026 14:11:23 +0200
+From: "lorenzo@kernel.org" <lorenzo@kernel.org>
+To: Ryder Lee <Ryder.Lee@mediatek.com>
+Cc: Shayne Chen =?utf-8?B?KOmZs+i7kuS4nik=?= <Shayne.Chen@mediatek.com>,
+	"nbd@nbd.name" <nbd@nbd.name>,
+	AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>,
+	Chui-hao Chiu =?utf-8?B?KOmCseWegua1qSk=?= <Chui-hao.Chiu@mediatek.com>,
+	Sean Wang <Sean.Wang@mediatek.com>,
+	Bo Jiao =?utf-8?B?KOeEpuazoik=?= <Bo.Jiao@mediatek.com>,
+	"matthias.bgg@gmail.com" <matthias.bgg@gmail.com>,
+	"linux-wireless@vger.kernel.org" <linux-wireless@vger.kernel.org>,
+	"linux-arm-kernel@lists.infradead.org" <linux-arm-kernel@lists.infradead.org>,
+	Roy-CH Luo <Roy-CH.Luo@mediatek.com>,
+	"linux-mediatek@lists.infradead.org" <linux-mediatek@lists.infradead.org>,
+	"linux-kernel@vger.kernel.org" <linux-kernel@vger.kernel.org>
+Subject: Re: [PATCH v2] wifi: mt76: mt7996: fix reading zeroed
+ info->control.flags after mt76_tx_status_skb_add()
+Message-ID: <ahwla_obwnwr2cZo@lore-desk>
+References: <20260531-mt76_tx_status_skb_add-overwrite-fix-v2-1-b73c4b4a9798@kernel.org>
+ <ee0e584cb2ad1b536d327eb89342d1646fa96570.camel@mediatek.com>
 MIME-Version: 1.0
-X-Developer-Signature: v=1; a=openpgp-sha256; l=832; i=krzk@kernel.org; h=from:subject; bh=pAo6hBdIG5A1dOfFT71zH2XqG2hBMV9l5Je5Gi8xvQI=; b=owEBbQKS/ZANAwAKAcE3ZuaGi4PXAcsmYgBqHCRtiR3xlZ356nsuc1DBE4XfIARyYSGCdJvsm L2Hm1zX9CaJAjMEAAEKAB0WIQTd0mIoPREbIztuuKjBN2bmhouD1wUCahwkbQAKCRDBN2bmhouD 19IVEACAfFOV73GgiP7yXctThdSml1CzW9Zaj0e8lmr2ojgWWRP59PTCjnECC1tlzo0ccog+71K iKAoc3Nu1R7gLtjC1q5gwVS5gWS3Eyh7JODGJVnIy/iStFzPwLA0r7rBxXN81NGpnYLsT18exxb ANJty5QhCeXzYw/kh6/11BFKXLiKT9OsZ4Uey9XyQKbV+75Nq18OzOdbOl2pTBkMd7PTkMNvRoU 0ce2pr1U9lzkGtJl7HoBJfBmTfeUOtCC6F6NviXPXhh4615al59ygiUwGHw7sNCOmKJKqVOf7si l9S1FTuVOtLiGYtYFtoWgeplkfHaVCkk3amrJWu1JmKlCrCNl3+PJYOgY9LklE3OFD4o5soCy2P m/qjBFNnoW/jP0snJusas1EHGUMU9Hjn5EQ8w1e+Bh11noyr9k/6FjiNsJyU/xX1ngMPum5Qm2n 77eL2RYrpeB/tKmd5cEVtUz5ZOjS2Z+0w5Z3YJkDJUyYdTr1c5N/4DTemR1FcgLTS0bXucbALz/ Frs5viIBxG+s/GB8E+4PWdmMEINLkLdmEOFdxNHW1MuZksi+o6bWLesMHIgN3LbiXJ0dvV4Wyd0 NWSQFlrjfJR3/G2ICI9xX9j7kKptpKwpAyFdDDMuxW5dCHVvL8mYRx8i+s0lf9modO71K6Dh6xK 5qgnMMtGLUdK20Q==
-X-Developer-Key: i=krzk@kernel.org; a=openpgp; fpr=9BD07E0E0C51F8D59677B7541B93437D3B41629B
-Content-Transfer-Encoding: 8bit
+Content-Type: multipart/signed; micalg=pgp-sha512;
+	protocol="application/pgp-signature"; boundary="P2k2XuQn+hFS6sON"
+Content-Disposition: inline
+In-Reply-To: <ee0e584cb2ad1b536d327eb89342d1646fa96570.camel@mediatek.com>
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -78,27 +80,202 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-The following changes since commit 254f49634ee16a731174d2ae34bc50bd5f45e731:
 
-  Linux 7.1-rc1 (2026-04-26 14:19:00 -0700)
+--P2k2XuQn+hFS6sON
+Content-Type: text/plain; charset=iso-8859-1
+Content-Disposition: inline
+Content-Transfer-Encoding: quoted-printable
 
-are available in the Git repository at:
+> On Sun, 2026-05-31 at 10:55 +0200, Lorenzo Bianconi wrote:
+> > mt76_tx_status_skb_add() zeroes the mt76_tx_cb struct stored at
+> > info->status.status_driver_data via memset(). Since info->control and
+> > info->status are members of the same union in ieee80211_tx_info,
+> > this overwrites info->control.flags.
+> > In mt7996_tx_prepare_skb(), mt76_tx_status_skb_add() is called before
+> > mt7996_mac_write_txwi(), which re-reads info->control.flags to
+> > extract
+> > IEEE80211_TX_CTRL_MLO_LINK. Because the field has been zeroed, the
+> > link_id always resolves to 0 for frames using global_wcid, leading to
+> > incorrect TXWI configuration.
+> > Fix this by passing link_id as an explicit parameter to
+> > mt7996_mac_write_txwi(). In mt7996_tx_prepare_skb(), the link_id is
+> > already extracted from info->control.flags before the destructive
+> > mt76_tx_status_skb_add() call. For the beacon and inband discovery
+> > callers in mcu.c, use link_conf->link_id directly.
+> >=20
+> > Fixes: f0b0b239b8f36 ("wifi: mt76: mt7996: rework
+> > mt7996_mac_write_txwi() for MLO support")
+> > Signed-off-by: Lorenzo Bianconi <lorenzo@kernel.org>
+> > ---
+> > Changes in v2:
+> > - Do not use link_id in mt7996_mac_write_txwi if it is
+> > IEEE80211_LINK_UNSPECIFIED
+> > - In mt7996_mac_write_txwi() rely on link_id calculated in
+> > =A0 mt7996_tx_prepare_skb().
+> > - Link to v1:
+> > https://lore.kernel.org/r/20260530-mt76_tx_status_skb_add-overwrite-fix=
+-v1-1-e2c3151c391a@kernel.org
+> > =A0
+> > ---
+> > =A0drivers/net/wireless/mediatek/mt76/mt7996/mac.c=A0=A0=A0 | 14 ++++--=
+------
+> > --
+> > =A0drivers/net/wireless/mediatek/mt76/mt7996/mcu.c=A0=A0=A0 |=A0 5 +++--
+> > =A0drivers/net/wireless/mediatek/mt76/mt7996/mt7996.h |=A0 3 ++-
+> > =A03 files changed, 9 insertions(+), 13 deletions(-)
+> >=20
+> > diff --git a/drivers/net/wireless/mediatek/mt76/mt7996/mac.c
+> > b/drivers/net/wireless/mediatek/mt76/mt7996/mac.c
+> > index c98446057282..95b3078d9667 100644
+> > --- a/drivers/net/wireless/mediatek/mt76/mt7996/mac.c
+> > +++ b/drivers/net/wireless/mediatek/mt76/mt7996/mac.c
+> > @@ -856,7 +856,8 @@ mt7996_mac_write_txwi_80211(struct mt7996_dev
+> > *dev, __le32 *txwi,
+> > =A0void mt7996_mac_write_txwi(struct mt7996_dev *dev, __le32 *txwi,
+> > =A0			=A0=A0 struct sk_buff *skb, struct mt76_wcid
+> > *wcid,
+> > =A0			=A0=A0 struct ieee80211_key_conf *key, int pid,
+> > -			=A0=A0 enum mt76_txq_id qid, u32 changed)
+> > +			=A0=A0 enum mt76_txq_id qid, u32 changed,
+> > +			=A0=A0 unsigned int link_id)
+> > =A0{
+> > =A0	struct ieee80211_hdr *hdr =3D (struct ieee80211_hdr *)skb-
+> > >data;
+> > =A0	struct ieee80211_tx_info *info =3D IEEE80211_SKB_CB(skb);
+> > @@ -866,7 +867,6 @@ void mt7996_mac_write_txwi(struct mt7996_dev
+> > *dev, __le32 *txwi,
+> > =A0	bool is_8023 =3D info->flags &
+> > IEEE80211_TX_CTL_HW_80211_ENCAP;
+> > =A0	struct mt76_vif_link *mlink =3D NULL;
+> > =A0	struct mt7996_vif *mvif;
+> > -	unsigned int link_id;
+> > =A0	u16 tx_count =3D 15;
+> > =A0	u32 val;
+> > =A0	bool inband_disc =3D !!(changed &
+> > (BSS_CHANGED_UNSOL_BCAST_PROBE_RESP |
+> > @@ -874,17 +874,11 @@ void mt7996_mac_write_txwi(struct mt7996_dev
+> > *dev, __le32 *txwi,
+> > =A0	bool beacon =3D !!(changed & (BSS_CHANGED_BEACON |
+> > =A0				=A0=A0=A0 BSS_CHANGED_BEACON_ENABLED)) &&
+> > (!inband_disc);
+> > =A0
+> > -	if (wcid !=3D &dev->mt76.global_wcid)
+> > -		link_id =3D wcid->link_id;
+> > -	else
+> > -		link_id =3D u32_get_bits(info->control.flags,
+> > -				=A0=A0=A0=A0=A0=A0 IEEE80211_TX_CTRL_MLO_LINK);
+> > -
+> > =A0	mvif =3D vif ? (struct mt7996_vif *)vif->drv_priv : NULL;
+> > =A0	if (mvif) {
+> > =A0		if (wcid->offchannel)
+> > =A0			mlink =3D rcu_dereference(mvif-
+> > >mt76.offchannel_link);
+> > -		if (!mlink)
+> > +		if (!mlink && link_id !=3D IEEE80211_LINK_UNSPECIFIED)
+> > =A0			mlink =3D rcu_dereference(mvif-
+> > >mt76.link[link_id]);
+> > =A0	}
+> > =A0
+> > @@ -1096,7 +1090,7 @@ int mt7996_tx_prepare_skb(struct mt76_dev
+> > *mdev, void *txwi_ptr,
+> > =A0	/* Transmit non qos data by 802.11 header and need to fill
+> > txd by host*/
+> > =A0	if (!is_8023 || pid >=3D MT_PACKET_ID_FIRST)
+> > =A0		mt7996_mac_write_txwi(dev, txwi_ptr, tx_info->skb,
+> > wcid, key,
+> > -				=A0=A0=A0=A0=A0 pid, qid, 0);
+> > +				=A0=A0=A0=A0=A0 pid, qid, 0, link_id);
+> > =A0
+> > =A0	/* MT7996 and MT7992 require driver to provide the MAC TXP
+> > for AddBA
+> > =A0	 * req
+> > diff --git a/drivers/net/wireless/mediatek/mt76/mt7996/mcu.c
+> > b/drivers/net/wireless/mediatek/mt76/mt7996/mcu.c
+> > index 8be40d60ad29..a14c63438923 100644
+> > --- a/drivers/net/wireless/mediatek/mt76/mt7996/mcu.c
+> > +++ b/drivers/net/wireless/mediatek/mt76/mt7996/mcu.c
+> > @@ -3103,7 +3103,7 @@ mt7996_mcu_beacon_cont(struct mt7996_dev *dev,
+> > =A0
+> > =A0	buf =3D (u8 *)bcn + sizeof(*bcn);
+> > =A0	mt7996_mac_write_txwi(dev, (__le32 *)buf, skb, wcid, NULL,
+> > 0, 0,
+> > -			=A0=A0=A0=A0=A0 BSS_CHANGED_BEACON);
+> > +			=A0=A0=A0=A0=A0 BSS_CHANGED_BEACON, link_conf-
+> > >link_id);
+> > =A0
+> > =A0	memcpy(buf + MT_TXD_SIZE, skb->data, skb->len);
+> > =A0}
+> > @@ -3249,7 +3249,8 @@ int mt7996_mcu_beacon_inband_discov(struct
+> > mt7996_dev *dev,
+> > =A0
+> > =A0	buf =3D (u8 *)tlv + sizeof(*discov);
+> > =A0
+> > -	mt7996_mac_write_txwi(dev, (__le32 *)buf, skb, wcid, NULL,
+> > 0, 0, changed);
+> > +	mt7996_mac_write_txwi(dev, (__le32 *)buf, skb, wcid, NULL,
+> > 0, 0,
+> > +			=A0=A0=A0=A0=A0 changed, link_conf->link_id);
+> > =A0
+> > =A0	memcpy(buf + MT_TXD_SIZE, skb->data, skb->len);
+> > =A0
+> > diff --git a/drivers/net/wireless/mediatek/mt76/mt7996/mt7996.h
+> > b/drivers/net/wireless/mediatek/mt76/mt7996/mt7996.h
+> > index 0dc4198fcf8b..0d6488522ba7 100644
+> > --- a/drivers/net/wireless/mediatek/mt76/mt7996/mt7996.h
+> > +++ b/drivers/net/wireless/mediatek/mt76/mt7996/mt7996.h
+> > @@ -874,7 +874,8 @@ void mt7996_mac_enable_nf(struct mt7996_dev *dev,
+> > u8 band);
+> > =A0void mt7996_mac_write_txwi(struct mt7996_dev *dev, __le32 *txwi,
+> > =A0			=A0=A0 struct sk_buff *skb, struct mt76_wcid
+> > *wcid,
+> > =A0			=A0=A0 struct ieee80211_key_conf *key, int pid,
+> > -			=A0=A0 enum mt76_txq_id qid, u32 changed);
+> > +			=A0=A0 enum mt76_txq_id qid, u32 changed,
+> > +			=A0=A0 unsigned int link_id);
+> > =A0void mt7996_mac_update_beacons(struct mt7996_phy *phy);
+> > =A0void mt7996_mac_set_coverage_class(struct mt7996_phy *phy);
+> > =A0void mt7996_mac_work(struct work_struct *work);
+> >=20
+> > ---
+> > base-commit: 4913f44167cf35a9536e9eec7352e15b2de0c573
+> > change-id: 20260530-mt76_tx_status_skb_add-overwrite-fix-85818a9bb31f
+> >=20
+> > Best regards,
+> >=20
+> >=20
+> We might expand flags further so this still doesn't solve the issue of
+> flags being cleared - it only works for MLO flag. And the developers
+> still won't easily notice that the flags are being cleared.
 
-  https://git.kernel.org/pub/scm/linux/kernel/git/krzk/linux.git tags/samsung-soc-7.2
+My opinion is we should consider just upstream code and then change it as s=
+oon
+as you post this new feature upstream, but I will let Felix comments on it.
+Moreover, the proposed approach aligns link_id used in mt7996_tx_prepare_sk=
+b()
+to the one used in mt7996_mac_write_txwi() and fix a possible OOB bug in
+mt7996_mac_write_txwi().
 
-for you to fetch changes up to b64cbd3f5d96b143fa9f21d84d381b1bb286339c:
+Regards,
+Lorenzo
 
-  ARM: s3c: use gpio lookup table for LEDs (2026-05-04 19:09:09 +0200)
+> =20
+> Our current approach is to move memset after mt7996_mac_write_txwi().
+> It's more flexible and we don't have to constantly change the function
+> parameters just for the flags.
+>=20
+> Ryder
+>=20
 
-----------------------------------------------------------------
-Samsung mach/soc changes for v7.2
+--P2k2XuQn+hFS6sON
+Content-Type: application/pgp-signature; name=signature.asc
 
-Remove raw GPIO number usage from S3C6410-based crag6410 board.
+-----BEGIN PGP SIGNATURE-----
 
-----------------------------------------------------------------
-Arnd Bergmann (1):
-      ARM: s3c: use gpio lookup table for LEDs
+iHUEABYKAB0WIQTquNwa3Txd3rGGn7Y6cBh0uS2trAUCahwlawAKCRA6cBh0uS2t
+rKORAP4xNNufYg7cAAPnJ9TllbMFutlHnvbgIqWZb1VXVY1LLwEAlIlQ/MTLm3km
+7YBsN8YIUqxvIry/08pV0fgPshColwA=
+=F+cG
+-----END PGP SIGNATURE-----
 
- arch/arm/mach-s3c/mach-crag6410.c | 24 ++++++++++++++++--------
- 1 file changed, 16 insertions(+), 8 deletions(-)
+--P2k2XuQn+hFS6sON--
 
