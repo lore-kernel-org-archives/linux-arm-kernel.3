@@ -4,110 +4,104 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 31055CD6E57
-	for <linux-arm-kernel@archiver.kernel.org>; Sun, 31 May 2026 23:18:27 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 0723DCD6E57
+	for <linux-arm-kernel@archiver.kernel.org>; Sun, 31 May 2026 23:52:02 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:References
-	:Message-Id:Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:
-	From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=65QPkXlxoBn1znpFptZPvrSc/q4l7OLH3BDyCKXpuCk=; b=n4KyPu950LnBMiRHu2jnSifuYe
-	B3KD+dlIUPIzQQEp8OYGFjMktDXdOgDS6usYY3c6Ay2pFVVrAfVp12Rjda+RafaEP5qO1yhNItKWC
-	s6H6P4NL0ICTj6stJh4vQwQ7Fo7Wo2J+UTp+Xkvwmt5eq8EAceH9humlIt3FKHv0Dtcen6zT9mQ/K
-	qbSrsF9NCgXNWHTOsytwl9IJPM1SbnPIvPG1i0FhwKJyhiSrMzi4CTieoT3+WiODt7ssz/4KQKX6d
-	Zut6+w7PoTZaew3uYiMiGQzNvWVcusHNmU2FovDrMVBrIwH+ZchT2/hW6rgSr3SPk2wJ0LwSFCC7m
-	5j/+AW1w==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=jT2+faPEqgvyyrZj7GkiI+MQEalHKPFUv4mZyF5by/U=; b=McdLpxhzDT4gsdklqOEPqa8M58
+	OU83xjnpcG9Xko4nkOJbBmNDnxiqbNkQA3PnL2CUxNIDSVxY0oI5O4JyfMPJRvZm4aBbcFsJza9NM
+	dJkptfMYmTvi3+YNsu1mV8Xksc5fuMd7s7JudN37eheXU+x4dJOD7Y9pWPRfjQba2Mj8kBsqfwbCQ
+	w7xUPZLSmYAE7b3ZBrxsE9GvU/9b5cI+ZthTAy/iYRmoGcE/29wHQGM7N93FO77HTAFWuHL/N5b5n
+	u/UdIbq6Vu/KPEG6tFdV3qfz3hmquDNRzPQzpsOnBlIb4Oqe9ZHyV4j2f8JAXBFqczM+YeRnksGwM
+	i4+6MLXg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wTpQD-00000009wtV-0fEq;
-	Sun, 31 May 2026 23:18:21 +0000
-Received: from mail-wm1-x32d.google.com ([2a00:1450:4864:20::32d])
+	id 1wTpwh-00000009ydA-2tVC;
+	Sun, 31 May 2026 23:51:55 +0000
+Received: from mail-qk1-x72c.google.com ([2607:f8b0:4864:20::72c])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wTpPu-00000009wkh-0uj7
+	id 1wTpwe-00000009yck-2lAo
 	for linux-arm-kernel@lists.infradead.org;
-	Sun, 31 May 2026 23:18:03 +0000
-Received: by mail-wm1-x32d.google.com with SMTP id 5b1f17b1804b1-4904c1ce4c1so104634555e9.3
-        for <linux-arm-kernel@lists.infradead.org>; Sun, 31 May 2026 16:18:01 -0700 (PDT)
+	Sun, 31 May 2026 23:51:54 +0000
+Received: by mail-qk1-x72c.google.com with SMTP id af79cd13be357-914ae4101b4so1244052585a.2
+        for <linux-arm-kernel@lists.infradead.org>; Sun, 31 May 2026 16:51:51 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=thegoodpenguin-co-uk.20251104.gappssmtp.com; s=20251104; t=1780269480; x=1780874280; darn=lists.infradead.org;
-        h=cc:to:in-reply-to:references:message-id:content-transfer-encoding
-         :mime-version:subject:date:from:from:to:cc:subject:date:message-id
-         :reply-to;
-        bh=65QPkXlxoBn1znpFptZPvrSc/q4l7OLH3BDyCKXpuCk=;
-        b=Yt8lP49168NLPn7T3Ombpe4cndyrHUhyDzUDe30+UQrzr+pAMTf6YZ2/SAw/52J+7G
-         27oN6BB7NKOsHQGVCNTZcAZLjy2UKLFYMNoHyQIjC7v7mmfKu+8mke4GmRdCyVo3jI1Z
-         oZ+2B7wagFidnVeLBh13/W9OfwF6c3pGLr0tORA1LJ6oPuZ0mXbs+Wtj8QE7u3sYC783
-         4TZxPGQyqrmJtei2ZjHAKKTrghH6yQUAUUjgDP1BUckjP7XaXuFiytfgqpCVGCt6vprs
-         7SC3bDO/eQNQ0qNIjQUlDQ2kzb1nsThaqHMGdceuL5eVigJwyi2+g3Mql5qGXBJhC5U0
-         aZUA==
+        d=ziepe.ca; s=google; t=1780271511; x=1780876311; darn=lists.infradead.org;
+        h=in-reply-to:content-disposition:mime-version:references:message-id
+         :subject:cc:to:from:date:from:to:cc:subject:date:message-id:reply-to;
+        bh=jT2+faPEqgvyyrZj7GkiI+MQEalHKPFUv4mZyF5by/U=;
+        b=nlKdKAvK2OrhF4cI+lMoQ0I5UGrqhz9oDhuSGRHlWQT1nRyVvNIi+cOXydynx85P57
+         wEwUTg+duGiPvGOkFXOsHx7QMlSDpOZ9dpzCYNvdFODoFi1WyQeXnT9cFMETf/ki47Qy
+         aXly7tEh7saZAooQi8yakUByxyhs9bfXqJlpzi22vVtBhEJztJfU39Ol9sz7As27nuXy
+         0dkKJZtc6gKYDAe/RVwHf5YHrZdT/9pJO1abhU0/YpB0IWn+jaUUdsLOxCAp6yHNGuy0
+         6O7vPoeuCojF4IbqmPDW50U8hNEyUWumAfFwIkv2GrdXxSz2N0geR3EUTQwvqJaG2afA
+         R64w==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20251104; t=1780269480; x=1780874280;
-        h=cc:to:in-reply-to:references:message-id:content-transfer-encoding
-         :mime-version:subject:date:from:x-gm-gg:x-gm-message-state:from:to
-         :cc:subject:date:message-id:reply-to;
-        bh=65QPkXlxoBn1znpFptZPvrSc/q4l7OLH3BDyCKXpuCk=;
-        b=pdk+hnHZfEDOkByEajnq56S7y063Pqn+Q7J+tsLrmWs0sRiAPhfg90rGRZF7e4uRGD
-         aQZTVtvyVSwUhGsVCbPa8raOhPBLDTvLv0u9/fNiC9Pl5TwQYUVxlMvyBuk75l5YPLWb
-         mr7fVbpdXKPIPVe/BsS75JsS+3RRotEoAsv3MrLYstnU8qbdCOshS5djiueYFVB9UcmD
-         GJNmLh7oqP3OxkpfFb6I6+85gGhz/MtcDb/b9i6/A+icM4uaDqieoRRxLHMKakQ2hD04
-         5xQoXioFAGKDZuuASL+o2aTUJZGe+a94vzVs0+FiFkyv+RPbr38ph8ZnEY9yVgz89ifx
-         txiA==
-X-Forwarded-Encrypted: i=1; AFNElJ8bYymkhZdx7ygrgPdK4rBT9rQxqgL4ljiv71gvPghanghO1MDCfKz/Xcv15bDHYfvzQLrV3oZrTQlBY7g5hXnG@lists.infradead.org
-X-Gm-Message-State: AOJu0Yz7o47bJ8jd7B7fN4xz0F5m40ZykfP71a9aW8QCcfE48rV+xwbG
-	gNQKb5FdfHuvj/weku5fudRX/fg06EPZ2iAhtVBIHDGOhdTWMuwZTcpXaizz+jf7kUQ=
-X-Gm-Gg: Acq92OEhIAA7ppUQAqq33p4EyG3Ma8n0LQ+p6swd/iMfuMy2w3M15WXwoF676p8UoXF
-	7//3fXEAEGAcMHV2zCOiAK3o2OjD81zDuLuaBVq+Osr0Ft7HNmeDngmNk8sfCcfQUorj7+KAs6v
-	1ZYO7ljl5pILeJh4XS147N4UqLYiwIsSx0oU1cQk/MrUQyJkBg9Yu7bl5N8eVwGCRDZAjWlo2qw
-	pNruOU/yGW2px5c6ADVbSp1G3AyB7HELhtDApt5mF4V1dfARu5JmSEmfBKTr0TvsxSl+dgM6r2B
-	CImVzWnSOUclNazTooynot0TyYRZzJ8E/SDho9kULbT37dLFfG3Vp0j7FY8fz42hqes74/c6m5O
-	Vwz7TegvfkOFFSxptvJPP6k6fCa3+TFCRXaHjdTC27yBYh8bO90UX6u0M/H7xKumXFP3rF0fYZv
-	nmuZjmuHLirRUIW0iDBi18SET9BlEdXjIpA0nfjZB/4kYiUV1cQmEkOdyXUBFsN6sO9FROo2V2z
-	4XpVCb8zfQ8/M6uW3AYYWnum1vjzqPtltQzdAsSyB+wxk3eLg==
-X-Received: by 2002:a05:6000:22c7:b0:44e:d7f8:3945 with SMTP id ffacd0b85a97d-45ef6b0d5f3mr16986293f8f.13.1780269480458;
-        Sun, 31 May 2026 16:18:00 -0700 (PDT)
-Received: from [127.0.1.1] ([2a00:23c5:7815:1301:f27:e3a8:2334:314d])
-        by smtp.gmail.com with ESMTPSA id ffacd0b85a97d-45ef34b834esm20496544f8f.11.2026.05.31.16.17.59
+        d=1e100.net; s=20251104; t=1780271511; x=1780876311;
+        h=in-reply-to:content-disposition:mime-version:references:message-id
+         :subject:cc:to:from:date:x-gm-gg:x-gm-message-state:from:to:cc
+         :subject:date:message-id:reply-to;
+        bh=jT2+faPEqgvyyrZj7GkiI+MQEalHKPFUv4mZyF5by/U=;
+        b=BfidC1MkTmERwOCWvIIbLVzPYeBAcJqCIUzFPK7gPCBTVJCxL/V1BMongzEl2R6tlP
+         X9JPv81NrO85CQg2+/swnRc30zIhLCuUbypzAK5agfbDBGPfoefve9rV4sXWjFANDptY
+         OC6y3Nh+HUOzDXj73c+sg/imadKuREouqMTT+TXsxgrIXww8ZQ5Edm2I1md6WVE9+hLa
+         uKC/MpJj7OmawUfmDjwJFoyuS8ZDeInEBtKR4Ts0ztwojSAKLGH30FtZE130GsdAHl0e
+         kPGfZUPE5KEANKmuwilfVzksxfGDMGuU12hRRBgqn4HuCXLfBJ9sY59J6FFTgAJRGPZo
+         bbVw==
+X-Forwarded-Encrypted: i=1; AFNElJ/38LV/dG21nYBxjTyQfKy0MlOsCeZTYTEt66rpQnrRcbijqLIP87v44rN4OJB8WhtYhI5KDzQV9agUh+gmYh/E@lists.infradead.org
+X-Gm-Message-State: AOJu0Yz23PGJADVljYtTwcxIfbN6XwIKhGU9dz6pxzr0sYOsaIkdq0Tn
+	nzW0DaKJPc+1fsa8FwVRbqzerfb2kQ83FvjGtsU3UeHEU8skmXcYWFu9oj+DxZ+psJh0UnoxId+
+	F2bML
+X-Gm-Gg: Acq92OFM1FdhsGk7Cv1be+x991fUOP1xBYrU0OMa9dDH6GnUm7huF+6fhZfQuU3hXvW
+	vfZ3zhzcOedhBq8wU7+aWl3HnVpHPXItsTD2zTW7AsG2hyDGjwFlC3Ucdo/y938aiK9vphUApYU
+	5TyVfB4bpVHc90G8RZPufmLM1JuNjwqiahYKMlSSD6YfvSqCYX7J9fDpO2QaldqsGCXPM2evjyA
+	y7N3fJxqB6XH2ksavQckx96MvPJm9qdyVK5FHVbvbATNr0NwbQdHNQrIFKAp1cjJPrPWwn0isBi
+	a1j3Azu/hGl4ZedAlHhgrR1lWumDBTo7FNp2GwRMw9hweZD9JJzXhHv8D79Hl64oR/IrmQFs/JF
+	AOnri1Z3kI5ma/+FKM492+WbVg+1AAxaKi5BIZOgwy/fKvsdSlni/QuErkZWd6re35nzlvYXTM4
+	Lh7Nj4/jDByZfLB/G3n1d9wuoxcPKttaUIWZnP+EPrNItwVCLz9S0u8sp1AVVxDw8+qi4wRjeRc
+	IBHII5WgWjQPMrV
+X-Received: by 2002:a05:620a:439b:b0:913:7bc8:79b9 with SMTP id af79cd13be357-9153d9b617bmr1323643185a.22.1780271510817;
+        Sun, 31 May 2026 16:51:50 -0700 (PDT)
+Received: from ziepe.ca (crbknf0213w-47-54-130-67.pppoe-dynamic.high-speed.nl.bellaliant.net. [47.54.130.67])
+        by smtp.gmail.com with ESMTPSA id af79cd13be357-91532473bb9sm854276585a.11.2026.05.31.16.51.49
         (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Sun, 31 May 2026 16:17:59 -0700 (PDT)
-From: Andrew Murray <amurray@thegoodpenguin.co.uk>
-Date: Mon, 01 Jun 2026 00:17:40 +0100
-Subject: [PATCH RFC 4/4] Documentation/kernel-parameters: add/update
- printk_delay/boot_delay
+        Sun, 31 May 2026 16:51:50 -0700 (PDT)
+Received: from jgg by wakko with local (Exim 4.97)
+	(envelope-from <jgg@ziepe.ca>)
+	id 1wTpwa-00000001LoH-3dmS;
+	Sun, 31 May 2026 20:51:48 -0300
+Date: Sun, 31 May 2026 20:51:48 -0300
+From: Jason Gunthorpe <jgg@ziepe.ca>
+To: Guanghui Feng <guanghuifeng@linux.alibaba.com>
+Cc: boris.brezillon@collabora.com, robh@kernel.org, steven.price@arm.com,
+	adrian.larumbe@collabora.com, maarten.lankhorst@linux.intel.com,
+	mripard@kernel.org, tzimmermann@suse.de, airlied@gmail.com,
+	liviu.dudau@arm.com, joro@8bytes.org, will@kernel.org,
+	robin.murphy@arm.com, alex@shazbot.org,
+	dri-devel@lists.freedesktop.org, linux-kernel@vger.kernel.org,
+	iommu@lists.linux.dev, kvm@vger.kernel.org,
+	linux-arm-kernel@lists.infradead.org, kevin.tian@intel.com,
+	baolu.lu@linux.intel.com, suravee.suthikulpanit@amd.com,
+	dwmw2@infradead.org, xlpang@linux.alibaba.com,
+	oliver.yang@linux.alibaba.com, shiyu.zsq@linux.alibaba.com,
+	wei.guo.simon@linux.alibaba.com
+Subject: Re: [PATCH 1/9] iommu: introduce iova_to_phys_length in
+ iommu_domain_ops
+Message-ID: <20260531235148.GV2487554@ziepe.ca>
+References: <20260529115116.GR2487554@ziepe.ca>
+ <20260531093637.3893199-1-guanghuifeng@linux.alibaba.com>
+ <20260531093637.3893199-2-guanghuifeng@linux.alibaba.com>
 MIME-Version: 1.0
-Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: 7bit
-Message-Id: <20260601-deprecate_boot_delay-v1-4-c34c187142a6@thegoodpenguin.co.uk>
-References: <20260601-deprecate_boot_delay-v1-0-c34c187142a6@thegoodpenguin.co.uk>
-In-Reply-To: <20260601-deprecate_boot_delay-v1-0-c34c187142a6@thegoodpenguin.co.uk>
-To: Jonathan Corbet <corbet@lwn.net>, 
- Shuah Khan <skhan@linuxfoundation.org>, 
- Russell King <linux@armlinux.org.uk>, 
- Florian Fainelli <florian.fainelli@broadcom.com>, 
- Broadcom internal kernel review list <bcm-kernel-feedback-list@broadcom.com>, 
- Ray Jui <rjui@broadcom.com>, Scott Branden <sbranden@broadcom.com>, 
- Petr Mladek <pmladek@suse.com>, Steven Rostedt <rostedt@goodmis.org>, 
- John Ogness <john.ogness@linutronix.de>, 
- Sergey Senozhatsky <senozhatsky@chromium.org>, 
- Andrew Morton <akpm@linux-foundation.org>, 
- Sebastian Andrzej Siewior <bigeasy@linutronix.de>, 
- Clark Williams <clrkwllms@kernel.org>, Randy Dunlap <rdunlap@infradead.org>, 
- Linus Torvalds <torvalds@linux-foundation.org>
-Cc: linux-doc@vger.kernel.org, linux-kernel@vger.kernel.org, 
- linux-arm-kernel@lists.infradead.org, linux-rpi-kernel@lists.infradead.org, 
- linux-rt-devel@lists.linux.dev, 
- Andrew Murray <amurray@thegoodpenguin.co.uk>
-X-Mailer: b4 0.14.2
-X-Developer-Signature: v=1; a=ed25519-sha256; t=1780269471; l=2336;
- i=amurray@thegoodpenguin.co.uk; s=20250914; h=from:subject:message-id;
- bh=J0TSqvvk90SLybR+T1e1sTTGdTS3luxuOAEJPWZwCwc=;
- b=pLwcIzM8QLMrQYFp9ysGPIsBLbpYGr/QADoMsXS4xYve0tkQyYj8MwL5lG38y/JRyr/+m7k7Z
- dt3xNPGzPvaCCrZVvkxNqE0SfFMxQgzlLTNRPTyqg/O1adefKaVGgEH
-X-Developer-Key: i=amurray@thegoodpenguin.co.uk; a=ed25519;
- pk=0SU0Q8S/uEiCdbXbXS+PvJGUCaBG1nDszD+HPU3Js0Q=
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+In-Reply-To: <20260531093637.3893199-2-guanghuifeng@linux.alibaba.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260531_161802_283045_B97FFD0B 
-X-CRM114-Status: GOOD (  13.19  )
+X-CRM114-CacheID: sfid-20260531_165152_820706_543B197B 
+X-CRM114-Status: GOOD (  26.07  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -122,66 +116,92 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-boot_delay has been deprecated in favour of an extended printk_delay,
-let's update kernel-parameters to reflect the addition of printk_delay
-and the deprecation of boot_delay.
+On Sun, May 31, 2026 at 05:36:29PM +0800, Guanghui Feng wrote:
+> Add iova_to_phys_length callback to struct iommu_domain_ops alongside
+> the existing iova_to_phys. The new callback returns both the physical
+> address and the PTE mapping page size in a single page table walk.
+> 
+> Add iommu_iova_to_phys_length() core function that:
+> - Checks ops->iova_to_phys_length first (preferred path)
+> - Falls back to ops->iova_to_phys for unmigrated drivers
+> 
+> This enables callers like VFIO to efficiently traverse IOVA space
+> by actual mapping granularity instead of fixed PAGE_SIZE steps.
+> 
+> Signed-off-by: Guanghui Feng <guanghuifeng@linux.alibaba.com>
+> Acked-by: Shiqiang Zhang <shiyu.zsq@linux.alibaba.com>
+> Acked-by: Simon Guo <wei.guo.simon@linux.alibaba.com>
+> ---
+>  drivers/iommu/iommu.c | 34 ++++++++++++++++++++++++++++++++--
+>  include/linux/iommu.h |  9 +++++++++
+>  2 files changed, 41 insertions(+), 2 deletions(-)
+> 
+> diff --git a/drivers/iommu/iommu.c b/drivers/iommu/iommu.c
+> index d1a9e713d3a0..43323229a1df 100644
+> --- a/drivers/iommu/iommu.c
+> +++ b/drivers/iommu/iommu.c
+> @@ -2545,15 +2545,45 @@ void iommu_detach_group(struct iommu_domain *domain, struct iommu_group *group)
+>  }
+>  EXPORT_SYMBOL_GPL(iommu_detach_group);
+>  
+> -phys_addr_t iommu_iova_to_phys(struct iommu_domain *domain, dma_addr_t iova)
+> +/**
+> + * iommu_iova_to_phys_length - Translate IOVA and return mapping page size
+> + * @domain: IOMMU domain to query
+> + * @iova: IO virtual address to translate
+> + * @mapped_length: Output parameter for the PTE page size (e.g. 4KB/2MB/1GB)
+> + *
+> + * Like iommu_iova_to_phys() but additionally returns the page size of the
+> + * PTE mapping at @iova through @mapped_length.
+> + *
+> + * Return: The physical address for the given IOVA, or 0 if no translation.
+> + */
 
-Signed-off-by: Andrew Murray <amurray@thegoodpenguin.co.uk>
----
- Documentation/admin-guide/kernel-parameters.txt | 31 +++++++++++++++++++++----
- 1 file changed, 26 insertions(+), 5 deletions(-)
+When introducing the new function I would like to fix this 0 error as
+well, it should return PHYS_MAX for error
 
-diff --git a/Documentation/admin-guide/kernel-parameters.txt b/Documentation/admin-guide/kernel-parameters.txt
-index 37b618d176f1c499f457f0d8b5679c29ee7ab177..0d6987a54a4f62a952664512fc8ddb18c6e70f5b 100644
---- a/Documentation/admin-guide/kernel-parameters.txt
-+++ b/Documentation/admin-guide/kernel-parameters.txt
-@@ -655,11 +655,19 @@ Kernel parameters
- 			See Documentation/block/cmdline-partition.rst
- 
- 	boot_delay=	[KNL,EARLY]
--			Milliseconds to delay each printk during boot.
--			Only works if GENERIC_CALIBRATE_DELAY is enabled,
--			and you may also have to specify "lpj=".  Boot_delay
--			values larger than 10 seconds (10000) are assumed
--			erroneous and ignored.
-+			Milliseconds to delay each printk during and post boot.
-+			Boot time delays only work if GENERIC_CALIBRATE_DELAY
-+			is enabled.
-+
-+			Once booted the delay can be removed or adjusted via
-+			the printk_delay sysctl.
-+
-+			Please note that you may also have to specify "lpj=".
-+			Boot_delay values larger than 10 seconds (10000) are
-+			assumed erroneous and ignored.
-+
-+			This will soon be deprecated, please use printk_delay
-+			instead.
- 			Format: integer
- 
- 	bootconfig	[KNL,EARLY]
-@@ -5483,6 +5491,19 @@ Kernel parameters
- 	printk.time=	Show timing data prefixed to each printk message line
- 			Format: <bool>  (1/Y/y=enable, 0/N/n=disable)
- 
-+	printk_delay=	[KNL,EARLY]
-+			Milliseconds to delay each printk during and post boot.
-+			Boot time delays only work if GENERIC_CALIBRATE_DELAY
-+			is enabled.
-+
-+			Once booted the delay can be removed or adjusted via
-+			the printk_delay sysctl.
-+
-+			Please note that you may also have to specify "lpj=".
-+			Boot_delay values larger than 10 seconds (10000) are
-+			assumed erroneous and ignored.
-+			Format: integer
-+
- 	proc_mem.force_override= [KNL]
- 			Format: {always | ptrace | never}
- 			Traditionally /proc/pid/mem allows memory permissions to be
+> +phys_addr_t iommu_iova_to_phys_length(struct iommu_domain *domain,
+> +				       dma_addr_t iova,
+> +				       size_t *mapped_length)
+>  {
+> +	if (mapped_length)
+> +		*mapped_length = 0;
+> +
+>  	if (domain->type == IOMMU_DOMAIN_IDENTITY)
+>  		return iova;
+>  
+>  	if (domain->type == IOMMU_DOMAIN_BLOCKED)
+>  		return 0;
 
--- 
-2.34.1
+Any domain that doesn't have an op should fail, blocked is one example
 
+>  
+> -	return domain->ops->iova_to_phys(domain, iova);
+> +	if (domain->ops->iova_to_phys_length)
+> +		return domain->ops->iova_to_phys_length(domain, iova,
+> +							mapped_length);
+> +
+> +	/* Fallback to legacy iova_to_phys without length info */
+> +	if (domain->ops->iova_to_phys)
+> +		return domain->ops->iova_to_phys(domain, iova);
+
+If it falls back it should return something sensible for the length.
+
+I suggest you approach the patch plan a little differently, the first
+patches should implement the new function and an iommput
+implementation
+
+Arrange things so the normal iova_to_phys calls the new function if it
+is available and discards the length.
+
+Then convert callers that can take advantage of it. Have the fallback
+path also compute the length by iterating internally.
+
+Finally one patch per driver implementing the new op, this could even
+be a second series.
+
+Don't remove iova_to_phys(), it is fine for things that don't need the
+length.
+
+Jason
 
