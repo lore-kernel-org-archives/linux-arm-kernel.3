@@ -4,88 +4,157 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 95400CD6E4C
-	for <linux-arm-kernel@archiver.kernel.org>; Sun, 31 May 2026 02:09:11 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 3B7E9CD6E53
+	for <linux-arm-kernel@archiver.kernel.org>; Sun, 31 May 2026 04:48:58 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:MIME-Version:Message-ID:Date:Subject:Cc:To:From:Reply-To:
-	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
-	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
-	bh=0/I6vtnwODMSXojEn3r4VzFo/02YMNNrJvs59YYPsvk=; b=DoIp/tis2n3MGYwuP/t0DbNv9J
-	yX6Eq8zoCbjFIN6TdqoVdKhPMccrO8JS2AlD4sIHfczceLKIwJ6QcsJX6oErvoZ5dqTofcvX0Hnl3
-	6+oJ6UocQfCfYQKcWYiABZqBxbYomeDV7KZvkzy9Q3atz336IM9GOxY7ppMzLRzcDtjNBtWnGpHrK
-	UycCzAucBcaLV46ZXtEi8rAsDyA41Blm1xQ4O52pLLGGert29BPf8emlb6rjUUBEUnq9rOwvxit7s
-	d5xdd9QnkLv4kymyxSGR1n+kXZtxljmWrpaA7PYBmQ+rGwhF0At03htI9H8SK1mhUNyjqBMBW7Sr6
-	Zp0bj0TQ==;
+	Content-Type:In-Reply-To:References:Cc:To:From:Subject:MIME-Version:Date:
+	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=ebaidKmwGs+8gsq9/tED+PDL0d2FG0p3YyTatOrtOrc=; b=dnURE0+6zegkMJ72C34qcr4qPg
+	SjNrEpRlcV5bEm5LOtBkhLscdM0+4H44JTDLpSf3AuI1LaN1hYrrM6iqDS/DMIf6InN2VHicx5wVT
+	iiDqQYHbavOocMHj7p1g4LVdTrgrc3H51cM6EAYryiWNHEwW8Z5zJIO9bwb5RxsgL363KbKalwSey
+	chUEuRUexYb4m3iXYMAU9teqyv0y+tpifrlkaO6TYedN2pxdfynqzLRgW47gAFxo/6rwTvAkRGecs
+	XWztRU4GBIk6jkzrysQdNYUuKEc8tPYCRL2hdbwCjCzyQsJx1eIkJBndaTgGFuD4DcMcLpWclJl0f
+	0bt98KfA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wTVbt-00000009Aky-0Xsp;
-	Sun, 31 May 2026 02:09:05 +0000
-Received: from mail-qv1-xf2d.google.com ([2607:f8b0:4864:20::f2d])
+	id 1wTY6S-00000009EpG-068d;
+	Sun, 31 May 2026 04:48:48 +0000
+Received: from mx0a-0031df01.pphosted.com ([205.220.168.131])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wTVbq-00000009Akd-3br4
+	id 1wTY6O-00000009EoT-1jqg
 	for linux-arm-kernel@lists.infradead.org;
-	Sun, 31 May 2026 02:09:04 +0000
-Received: by mail-qv1-xf2d.google.com with SMTP id 6a1803df08f44-8cce87d7995so24170116d6.0
-        for <linux-arm-kernel@lists.infradead.org>; Sat, 30 May 2026 19:09:02 -0700 (PDT)
+	Sun, 31 May 2026 04:48:46 +0000
+Received: from pps.filterd (m0279867.ppops.net [127.0.0.1])
+	by mx0a-0031df01.pphosted.com (8.18.1.11/8.18.1.11) with ESMTP id 64V2k0Br415528
+	for <linux-arm-kernel@lists.infradead.org>; Sun, 31 May 2026 04:48:42 GMT
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=qualcomm.com; h=
+	cc:content-transfer-encoding:content-type:date:from:in-reply-to
+	:message-id:mime-version:references:subject:to; s=qcppdkim1; bh=
+	ebaidKmwGs+8gsq9/tED+PDL0d2FG0p3YyTatOrtOrc=; b=VJWlsWwyZap7jo9p
+	+c95UxByQXJIPd8GKlRYl38DlJzBkjE0LaqD/zhRDa/2loQpEJ6o4HQ6/CLVN8X+
+	Aj0XJzpgpSycAdpEPouLTzsHp4d7sQP4+H03mKyu6JyCHYl6/5lLQqfV56jGIib/
+	jrl1A1warljlrMiWGxAQkARxY08Ahh0D9JKN62kRoIMtwslkh3nXywD71AxMeygq
+	DWWEiaFNconLlZqOPm/bxjmXZdeHRMUGUlcsuGEwCsVs847J+lRttqt2dbn3ZicM
+	cOFoRuPxNFOYIDIsnSiBbu/lT6o0B+4K22JyRjZyQLAcfVRPThBvy+r/t9yMiJa/
+	gygqHg==
+Received: from mail-pg1-f200.google.com (mail-pg1-f200.google.com [209.85.215.200])
+	by mx0a-0031df01.pphosted.com (PPS) with ESMTPS id 4efxy7t07b-1
+	(version=TLSv1.3 cipher=TLS_AES_128_GCM_SHA256 bits=128 verify=NOT)
+	for <linux-arm-kernel@lists.infradead.org>; Sun, 31 May 2026 04:48:42 +0000 (GMT)
+Received: by mail-pg1-f200.google.com with SMTP id 41be03b00d2f7-c85a2cde332so102328a12.3
+        for <linux-arm-kernel@lists.infradead.org>; Sat, 30 May 2026 21:48:42 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20251104; t=1780193341; x=1780798141; darn=lists.infradead.org;
-        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
-         :to:from:from:to:cc:subject:date:message-id:reply-to;
-        bh=0/I6vtnwODMSXojEn3r4VzFo/02YMNNrJvs59YYPsvk=;
-        b=VWRgSRRgjbfXz2uVXEYXbh2EnUS3Mi+yldAgAzI2KlA+2Q+FJ/fNFfTIaR/nTsbVbe
-         LBv8IWfzA8wnhom4EcHO9+4qLSoUSW4K7aF8mXoO3GXcjGYPVsHUUxExheBddv7aLC5k
-         bRT5SumkCzaZl1WuBsvYoeEzEL2re16GSOtFQMHwxomPBYONhIP/uEfTgobU4kKAh3yz
-         cJHY6jBHz17IptVrBabZCbSI3wDZPo1yJqLIAcMcokVfPeK02nvrApiQ13Rcmd/KNEyB
-         Q47RByjcz0aB3CWqrOL1e2gbxqTXqHaXsmY2t2eEEwRiTY/zKMhfP57kVmvYXeg7gOIu
-         Vulg==
+        d=oss.qualcomm.com; s=google; t=1780202922; x=1780807722; darn=lists.infradead.org;
+        h=content-transfer-encoding:in-reply-to:content-language:references
+         :cc:to:from:subject:user-agent:mime-version:date:message-id:from:to
+         :cc:subject:date:message-id:reply-to;
+        bh=ebaidKmwGs+8gsq9/tED+PDL0d2FG0p3YyTatOrtOrc=;
+        b=MXIXYE2N8fC2v6eBWYPg/bPYfoFhTjnnvJlvLhi/PSe/VnU/YgATupJ5V4YMPfpvQo
+         oREMJQDD815gv0X89W3BpaiseexW3o9ptWRhwvzf7nMxA0eC5G88TqNT3e6U/L9LeKen
+         iSjuW8Py3Un3m98I5hKd04FLxdAy3ly+HzCkqo72+9a0q3d5M2BprgcW1PgUppYQnTDe
+         X3a2e/t2Jlr+Eg7qeuLtM+O0g6ZsiHyWUSbuFFBiphftIohU5BAqTcb+vms1iS1NYyio
+         VHnOP4ktwT/W4FeUJbqF7yLhn+KToMLjhNhKvMyNnB3JKcn6Sq4dWUuHs7nS51knZiKa
+         RgHg==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20251104; t=1780193341; x=1780798141;
-        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
-         :to:from:x-gm-gg:x-gm-message-state:from:to:cc:subject:date
-         :message-id:reply-to;
-        bh=0/I6vtnwODMSXojEn3r4VzFo/02YMNNrJvs59YYPsvk=;
-        b=eOGPmTqW+RzmzFNXqd74YnfcOL4ED/xTDnPiDhEssjcdlnfVLcHLeVNmUUU1GLsR55
-         Jk8EWQHWiZLvWEgtOyeltAbXVoXCewE5A/8Oaw0YvbZeEUZ02Gn/BeEBeZtu7P3OdDO7
-         L4hBnnJSQR4Hqevgr3h7gEHTbblB9kf8Kr7p7WSy6BXmNo1lIGYcK5/gnDOtFg67UQB5
-         jIeP0CsM6REbIuWeKUofTY+wVpcSBGbQ0YLR5U3xJS0e/RCMrIOi2Qp1Z5t19yA/jDhQ
-         s6iSFNICRjnjJNm4eR5acksWJ91bxA0b5+mD4KsNB6s+/ThlFhBzWg6WYBb9lqiiOAzR
-         xvcw==
-X-Forwarded-Encrypted: i=1; AFNElJ9yvu4q+lh4YKrFa/0ba2HNBrQk4enYrFj2qLssg2lSXEWVPFDm2x5IlFB1ojsmPl5lmpqo8bqlz/y8RA7xBMj7@lists.infradead.org
-X-Gm-Message-State: AOJu0Yy591JG7V4ygUrfdpYpiQMBTlaJKF3kw/byyYbkuemivHun5RKf
-	7mobtqN6vAvLtM5ybDNUVf50c6ZhbbvBmJ0KOmwZJy5rSdNpZ8gVxxvx
-X-Gm-Gg: Acq92OFsuia8XmnzkKKW//Ku8QdqI82I5NNdA3kzr/cugM19mOLEOUh9AJPUUslEdhz
-	L7yWmj2ov8AclA5S36ERixlTZEg5F+D7gArFnzZfkFFQqtx8elr+KbbozAWG1dX07u7B7zlrXxz
-	aWKY5GCcRY/NGPL784fHEzFRjQ4xfKApdHyD74g6girk3sTXk29VVgeqpbJGI3X54PgQ0PBVINO
-	5+eQ6IgZZP9p299tWqHbns6FDgD/rDgZrRJoiFAAWSTBoS90pOPHO3vx1TKDr4dGiu4sytGJtJB
-	DyR7R7DblLWKFG2tERxQQCz3s0E7bC6luwxcaNrVdf+oTMZYH8TMFNjL451CkXid3YEJ1jKd0A/
-	yL96e0/H2+qtG0ICzJnbTe/w+jAHGrEBO7TCStFnkcfAK9QCYmumK303ypvutdMAZ3GclwpgkV2
-	378mUxTI6FvVU0zR4xwmcQOxdu2tTGxFO2xXrOddh8WWZ3iYnyldtPvcd/MgngwnASE16Q7lUjl
-	hf2m4gbM9VUUIIfbH6tuBmZewif2E470v/Jqq3hzwct2g==
-X-Received: by 2002:a05:6214:2605:b0:8cc:de2:3b5d with SMTP id 6a1803df08f44-8ccefb44f63mr92094936d6.16.1780193341380;
-        Sat, 30 May 2026 19:09:01 -0700 (PDT)
-Received: from ryzen ([2601:644:8000:5b5d:7285:c2ff:fe45:8a32])
-        by smtp.gmail.com with ESMTPSA id 6a1803df08f44-8ccea042229sm57814566d6.5.2026.05.30.19.08.59
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Sat, 30 May 2026 19:09:00 -0700 (PDT)
-From: Rosen Penev <rosenp@gmail.com>
-To: dmaengine@vger.kernel.org
-Cc: Linus Walleij <linusw@kernel.org>,
-	Vinod Koul <vkoul@kernel.org>,
-	Frank Li <Frank.Li@kernel.org>,
-	linux-arm-kernel@lists.infradead.org (moderated list:ARM/NOMADIK/Ux500 ARCHITECTURES),
-	linux-kernel@vger.kernel.org (open list)
-Subject: [PATCHv3] dmaengine: ste_dma40: turn d40_base phy_chans into a flexible array
-Date: Sat, 30 May 2026 19:08:43 -0700
-Message-ID: <20260531020843.594892-1-rosenp@gmail.com>
-X-Mailer: git-send-email 2.54.0
+        d=1e100.net; s=20251104; t=1780202922; x=1780807722;
+        h=content-transfer-encoding:in-reply-to:content-language:references
+         :cc:to:from:subject:user-agent:mime-version:date:message-id:x-gm-gg
+         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to;
+        bh=ebaidKmwGs+8gsq9/tED+PDL0d2FG0p3YyTatOrtOrc=;
+        b=QtNmSOHKllH8DtsV6iJfKEeNMkUr3j09DAPMW603821VIaD+K+otHtzSvH5wyt8FJi
+         p431RY99H02p31obv437tjulMzDmSH5u2s9jXkBsC8THTlouuT8yHNdINVP32AId0SHb
+         NOV48kK73vHumhDLAtQCsMv+SKv31E5RQO+CaVLaeZW18B8+5yV1a3apfcxbGYi8eZEv
+         aUM4ezfMwVpmiGI/0aw4DFUYNPXxS2suxo87e5vcJ22QJrg1Q43R0OmfRMLfdnZfhuPK
+         zl4fRJ3LqtUXoFS5z0zwnhhRDqdKK2SnAVFVUgKYm7CLpAumsi6PYMpjCdOiiKGi6IuA
+         8ijQ==
+X-Forwarded-Encrypted: i=1; AFNElJ9oyhcqtM2UVFBGBGi5lE7OawcOL3TfcHpkoshPh6jQZIixBDGXOVLoSB8VgtXWkSs1o8MsKa1JZdDPWWttbJ4e@lists.infradead.org
+X-Gm-Message-State: AOJu0Yz93YQOldFs/kzX4+AkIbHaErHD1ZjZlZRsQOk2fC3a7UBgp/22
+	dh6OvbbEvOwMpCQWXW1GMbAbnuZZH35kbRcjGFVQgdLhgeQ2faR/yfOsrbZnG69ipZpNECjfNA6
+	UFT1ulIcKhJB5FMoQzN45uu0cofgXy8iGHZPrKXvjt6dX5W56jkRyU8qglJhsU0dg45TWwb79ek
+	6P3g==
+X-Gm-Gg: Acq92OETI7svmCYK1cHR8HWc/fgzj6vTwznCUESXNhyxGcHfUQ7Ln1VJ2AdpwiknsG1
+	DtiPx0WTHfKxYmrdNIpwrf8icfCPoIPp3cGXAl7S9PrwRZMxa0EqWhKdOp70z7DuoCFxqxfJ4pZ
+	ADft/J/P1J4yx60UNQSGo8N3kXZ95TWvVaJB4I89kuminrCCzVkihhHwajkNH7COMaPsaitV4cN
+	v+hZuw23Jd5ePQUxX7shmhQPNQ41z4rVUdxMMdnxzdpe+eQ6c5osoW7T2lEqJJPApo+HmEQJWVW
+	oOisZAob8+ALLhDbuU9PiM2vd22B0lKWr441FK1sMSOWQdS09YWCR4GA+gLvKUX4EWh3/EYwRwr
+	/Tvr/sk1xCcPn7StUtGyjZ/u/6v71rOp0SJsLTpr1D7tJhnjcaE9nz8gUo8AooGEUBmtLu7zILn
+	AZAk9EB5AUVZLoNLgQ1s5P
+X-Received: by 2002:a05:6a21:700c:b0:3b2:92e0:f987 with SMTP id adf61e73a8af0-3b427c66ad6mr6162196637.16.1780202921708;
+        Sat, 30 May 2026 21:48:41 -0700 (PDT)
+X-Received: by 2002:a05:6a21:700c:b0:3b2:92e0:f987 with SMTP id adf61e73a8af0-3b427c66ad6mr6162179637.16.1780202921198;
+        Sat, 30 May 2026 21:48:41 -0700 (PDT)
+Received: from [10.133.33.28] (tpe-colo-wan-fw-bordernet.qualcomm.com. [103.229.16.4])
+        by smtp.gmail.com with ESMTPSA id 41be03b00d2f7-c85771a7c24sm6719775a12.2.2026.05.30.21.48.31
+        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
+        Sat, 30 May 2026 21:48:40 -0700 (PDT)
+Message-ID: <64bd6272-6111-4ffa-8a4a-366d0c287693@oss.qualcomm.com>
+Date: Sun, 31 May 2026 12:48:29 +0800
 MIME-Version: 1.0
-Content-Type: text/plain; charset=UTF-8
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH v6 1/2] dt-bindings: ufs: Document static TX Equalization
+ settings properties
+From: Can Guo <can.guo@oss.qualcomm.com>
+To: Krzysztof Kozlowski <krzk@kernel.org>
+Cc: bvanassche@acm.org, beanhuo@micron.com, peter.wang@mediatek.com,
+        martin.petersen@oracle.com, mani@kernel.org,
+        linux-scsi@vger.kernel.org, Alim Akhtar <alim.akhtar@samsung.com>,
+        Avri Altman <avri.altman@wdc.com>, Rob Herring <robh@kernel.org>,
+        Krzysztof Kozlowski <krzk+dt@kernel.org>,
+        Conor Dooley <conor+dt@kernel.org>,
+        Matthias Brugger
+ <matthias.bgg@gmail.com>,
+        AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>,
+        Zhaoming Luo <zhml@posteo.com>,
+        Ram Kumar Dwivedi
+ <quic_rdwivedi@quicinc.com>,
+        "open list:OPEN FIRMWARE AND FLATTENED DEVICE TREE BINDINGS"
+ <devicetree@vger.kernel.org>,
+        open list <linux-kernel@vger.kernel.org>,
+        "moderated list:ARM/Mediatek SoC support:Keyword:mediatek"
+ <linux-arm-kernel@lists.infradead.org>,
+        "moderated list:ARM/Mediatek SoC support:Keyword:mediatek"
+ <linux-mediatek@lists.infradead.org>
+References: <20260529113338.984301-1-can.guo@oss.qualcomm.com>
+ <20260529113338.984301-2-can.guo@oss.qualcomm.com>
+ <20260529-neat-bright-shellfish-eab5e8@quoll>
+ <ada65ce2-6736-44fe-9396-d3ed632274ce@oss.qualcomm.com>
+ <b445e9e3-dfda-45d6-bafb-a2deb3357144@kernel.org>
+ <7d49742a-7602-4f58-8dce-7e02664b783c@oss.qualcomm.com>
+Content-Language: en-US
+In-Reply-To: <7d49742a-7602-4f58-8dce-7e02664b783c@oss.qualcomm.com>
+Content-Type: text/plain; charset=UTF-8; format=flowed
 Content-Transfer-Encoding: 8bit
+X-Authority-Analysis: v=2.4 cv=POg/P/qC c=1 sm=1 tr=0 ts=6a1bbdaa cx=c_pps
+ a=oF/VQ+ItUULfLr/lQ2/icg==:117 a=nuhDOHQX5FNHPW3J6Bj6AA==:17
+ a=IkcTkHD0fZMA:10 a=NGcC8JguVDcA:10 a=s4-Qcg_JpJYA:10
+ a=VkNPw1HP01LnGYTKEx00:22 a=u7WPNUs3qKkmUXheDGA7:22 a=eoimf2acIAo5FJnRuUoq:22
+ a=VwQbUJbxAAAA:8 a=PY6Zn8H8AAAA:8 a=mpaa-ttXAAAA:8 a=EUspDBNiAAAA:8
+ a=yqHtDKZHdI7dvUF-9VUA:9 a=3ZKOabzyN94A:10 a=QEXdDO2ut3YA:10
+ a=3WC7DwWrALyhR5TkjVHa:22 a=ySS05r0LPNlNiX1MMvNp:22
+X-Proofpoint-Spam-Details-Enc: AW1haW4tMjYwNTMxMDA0OSBTYWx0ZWRfXyXyixR7haPW2
+ oGIzf97Ac8Di+hBgnnFx9nKAxBSBtsnATDjJEoQeFE+xOtu3lgMzmsdbyOGk5PEHtlFCnu5myqN
+ 7vLqJCeE7LR0k370VoAXzUmcq7O2Cq0epa2EstVQTlOmX9mheCenuxuKfA5tsif887OE6efai15
+ 7BRRD41qfOsP5gBiszSROLn8bQzN29IHhDHz4CA1/6YSt2dXbgdUvPDDH1dMbTrZdvP5WVdrxps
+ 6pBCDpSq+U2IcKzj9tkxQqM48u/VumKM6j0ORYPHXf01+x6sVkWbaa0C6VXUYDUXdhT9Cp+jGD5
+ 9xz35fkqKFTWRL2sdQprst3qgQkDZwf3j7vVBN1o/HYWFWqzbIg50dB+KL0D8CgwTFVN22/uNio
+ xcyVFPVxNB9CACvBYCIoVr5VHfE83wiNfmUIpU1ToPU3WMP0xK99Jd+Npgx8F3wurviYYYkM9Ya
+ XMwPviyfQXm5bb84uCA==
+X-Proofpoint-ORIG-GUID: rDXPPqr02xmGxtOHy88hTQ-SA0lBkkue
+X-Proofpoint-GUID: rDXPPqr02xmGxtOHy88hTQ-SA0lBkkue
+X-Proofpoint-Virus-Version: vendor=baseguard
+ engine=ICAP:2.0.293,Aquarius:18.0.1143,Hydra:6.1.125,FMLib:17.12.100.49
+ definitions=2026-05-31_02,2026-05-28_03,2025-10-01_01
+X-Proofpoint-Spam-Details: rule=outbound_notspam policy=outbound score=0
+ priorityscore=1501 malwarescore=0 phishscore=0 bulkscore=0 adultscore=0
+ spamscore=0 impostorscore=0 clxscore=1015 suspectscore=0 lowpriorityscore=0
+ classifier=typeunknown authscore=0 authtc= authcc= route=outbound adjust=0
+ reason=mlx scancount=1 engine=8.22.0-2605210000 definitions=main-2605310049
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260530_190902_910783_706FEFFF 
-X-CRM114-Status: GOOD (  15.18  )
+X-CRM114-CacheID: sfid-20260530_214844_496321_C0852660 
+X-CRM114-Status: GOOD (  22.71  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -100,99 +169,135 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Convert the separately-offset phy_chans pointer to a C99 flexible array
-member at the end of struct d40_base, and switch the allocation to
-struct_size(). The log_chans and memcpy_chans slots continue to live
-in the same allocation immediately after phy_chans, indexed via
-base->log_chans. This removes the hand-rolled pointer fixup that
-recomputed phy_chans from base + ALIGN(sizeof(struct d40_base), 4).
 
-The ALIGN(sizeof(struct d40_base), 4) requirement is met implicitly by the
-C compiler when using a flexible array member. With struct d40_chan
-phy_chans[] as the last member, the C standard guarantees
-sizeof(struct d40_base) includes trailing padding to satisfy the alignment
-of the flexible array element type (struct d40_chan). Since struct d40_chan
-contains members like spinlock_t, pointers, and struct dma_chan — all with
-alignment ≥ 4 — the compiler ensures sizeof(struct d40_base) is already a
-multiple of _Alignof(struct d40_chan) >= 4. The struct_size() macro then
-computes sizeof(struct d40_base) + sizeof(struct d40_chan) * num_phy_chans,
-so phy_chans[0] lands at a properly aligned offset without needing the manual
-ALIGN.
 
-Assisted-by: Claude:Opus-4.7
-Signed-off-by: Rosen Penev <rosenp@gmail.com>
----
- v3: add min() calls
- v2: added ALIGN description
- drivers/dma/ste_dma40.c | 14 ++++++++------
- 1 file changed, 8 insertions(+), 6 deletions(-)
+On 5/31/2026 9:41 AM, Can Guo wrote:
+>
+>
+> On 5/31/2026 1:33 AM, Krzysztof Kozlowski wrote:
+>> On 30/05/2026 14:45, Can Guo wrote:
+>>>
+>>> On 5/30/2026 12:58 AM, Krzysztof Kozlowski wrote:
+>>>> On Fri, May 29, 2026 at 04:33:37AM -0700, Can Guo wrote:
+>>>>> UFS v5.0/UFSHCI v5.0 add HS-G6 support (46.6 Gbps/lane) via UniPro 
+>>>>> v3.0
+>>>>> and M-PHY v6.0. In these specs, TX Equalization is defined for all 
+>>>>> High
+>>>>> Speed Gears (not only HS-G6) to compensate channel loss and 
+>>>>> improve signal
+>>>>> integrity at high speed operation.
+>>>>>
+>>>>> For HS-G6, M-PHY uses PAM4 1b1b line coding, Pre-Coding may also be
+>>>>> required depending on channel characteristics.
+>>>>>
+>>>>> Add vendor-neutral DT properties:
+>>>>>
+>>>>> - patternProperties for txeq-preshoot-g[1-6] and 
+>>>>> txeq-deemphasis-g[1-6]
+>>>>> - fixed property tx-precode-enable-g6
+>>>>>
+>>>>> Each property is a uint32 array of per-lane tuples:
+>>>>> <Host_Lane0 Device_Lane0>, [<Host_Lane1 Device_Lane1>]
+>>>>>
+>>>>> Accept 2 or 4 values (x1/x2 lane configs). PreShoot and DeEmphasis 
+>>>>> values
+>>>>> are 0..7. Precode enable values are 0/1 and only applicable to HS-G6.
+>>>>>
+>>>>> Acked-by: Manivannan Sadhasivam <mani@kernel.org>
+>>>>> Reviewed-by: Bean Huo <beanhuo@micron.com>
+>>>>> Reviewed-by: Peter Wang <peter.wang@mediatek.com>
+>>>>> Signed-off-by: Can Guo <can.guo@oss.qualcomm.com>
+>>>>> ---
+>>>>>    .../devicetree/bindings/ufs/ufs-common.yaml   | 45 
+>>>>> +++++++++++++++++++
+>>>>>    1 file changed, 45 insertions(+)
+>>>>>
+>>>>> diff --git a/Documentation/devicetree/bindings/ufs/ufs-common.yaml 
+>>>>> b/Documentation/devicetree/bindings/ufs/ufs-common.yaml
+>>>>> index ed97f5682509..d90cf25adfa5 100644
+>>>>> --- a/Documentation/devicetree/bindings/ufs/ufs-common.yaml
+>>>>> +++ b/Documentation/devicetree/bindings/ufs/ufs-common.yaml
+>>>>> @@ -105,6 +105,51 @@ properties:
+>>>>>          Restricts the UFS controller to rate-a or rate-b for both 
+>>>>> TX and
+>>>>>          RX directions.
+>>>>>    +  tx-precode-enable-g6:
+>>>>> +    $ref: /schemas/types.yaml#/definitions/uint32-array
+>>>>> +    oneOf:
+>>>>> +      - minItems: 2
+>>>>> +        maxItems: 2
+>>>>> +      - minItems: 4
+>>>>> +        maxItems: 4
+>>>>> +    items:
+>>>>> +      enum: [0, 1]
+>>>>> +    description: |
+>>>>> +      Static TX Precode enable values for HS-G6 only.
+>>>>> +      Values are specified as per-lane tuples:
+>>>>> +      <Host_Lane0 Device_Lane0>, [<Host_Lane1 Device_Lane1>].
+>>>> You need to include them in any of applicable examples, otherwise
+>>>> nothing here is validated.
+>>> Hi Krzysztof,
+>>>
+>>> Thanks for the review.
+>>>
+>>> Since no UFS5-capable SoC binding exists upstream yet (the target 
+>>> SoC is
+>> I would imagine cover letter or commit msg would briefly mention that.
+> Thanks for the clarification. Will do.
+>>
+>>> still pre-CS), there is no vendor-specific YAML to attach the 
+>>> example to.
+>>>
+>>> Is a synthetic example directly in ufs-common.yaml OK to you?
+>> Skip example in such case.
+>>
+>>>> Why values cannot be on or off? Or even better: why you cannot just 
+>>>> list
+>>>> all the lanes which has it enabled, assuming disabled is by default?
+>>> Thanks for the suggestions.
+>>>
+>>> For the "just list enabled lanes" suggestion: precode must be 
+>>> configured
+>>> independently for the Host-side TX and Device-side TX transceivers 
+>>> within
+>>> the same physical lane. A lane index list alone cannot capture this
+>>> two-dimensional per-lane state. The tuple format <Host_LaneN 
+>>> Device_LaneN>
+>>> is the minimal encoding that covers both.
+>> Again, why do you need to encode '0'?
+> The tuple is still needed because Precoding is configured per 
+> transmitter-receiver pair,
+> so each lane has two independent states:
+> - Host_TX -> Device_RX
+> - Device_TX -> Host_RX
+> A lane-only enabled list cannot represent directional combinations 
+> like lane0 =
+> (on, off) vs (off, on).
+How about we split into two properties, something like below?
+tx-precode-enable-g6-host-lanes = <0 1>
+tx-precode-enable-g6-device-lanes = <1>
 
-diff --git a/drivers/dma/ste_dma40.c b/drivers/dma/ste_dma40.c
-index 9b803c0aec25..0d9ffa3e2663 100644
---- a/drivers/dma/ste_dma40.c
-+++ b/drivers/dma/ste_dma40.c
-@@ -602,7 +602,6 @@ struct d40_base {
- 	struct dma_device		  dma_both;
- 	struct dma_device		  dma_slave;
- 	struct dma_device		  dma_memcpy;
--	struct d40_chan			 *phy_chans;
- 	struct d40_chan			 *log_chans;
- 	struct d40_chan			**lookup_log_chans;
- 	struct d40_chan			**lookup_phy_chans;
-@@ -621,6 +620,7 @@ struct d40_base {
- 	u32				 *regs_interrupt;
- 	u16				  gcc_pwr_off_mask;
- 	struct d40_gen_dmac		  gen_dmac;
-+	struct d40_chan			 phy_chans[];
- };
+Only listed lanes are enabled; unlisted lanes are disabled by default.
 
- static struct device *chan2dev(struct d40_chan *d40c)
-@@ -3128,6 +3128,7 @@ static int __init d40_hw_detect_init(struct platform_device *pdev,
- 	struct clk *clk;
- 	void __iomem *virtbase;
- 	struct d40_base *base;
-+	size_t alloc_size;
- 	int num_log_chans;
- 	int num_phy_chans;
- 	int num_memcpy_chans;
-@@ -3185,22 +3186,24 @@ static int __init d40_hw_detect_init(struct platform_device *pdev,
- 	else
- 		num_phy_chans = 4 * (readl(virtbase + D40_DREG_ICFG) & 0x7) + 4;
+Are you OK with this approach?
 
-+	num_phy_chans = min(num_phy_chans, STEDMA40_MAX_PHYS);
-+
- 	/* The number of channels used for memcpy */
- 	if (plat_data->num_of_memcpy_chans)
- 		num_memcpy_chans = plat_data->num_of_memcpy_chans;
- 	else
- 		num_memcpy_chans = ARRAY_SIZE(dma40_memcpy_channels);
-
-+	num_memcpy_chans = min(num_memcpy_chans, D40_MEMCPY_MAX_CHANS);
- 	num_log_chans = num_phy_chans * D40_MAX_LOG_CHAN_PER_PHY;
-
- 	dev_info(dev,
- 		 "hardware rev: %d with %d physical and %d logical channels\n",
- 		 rev, num_phy_chans, num_log_chans);
-
--	base = devm_kzalloc(dev,
--		ALIGN(sizeof(struct d40_base), 4) +
--		(num_phy_chans + num_log_chans + num_memcpy_chans) *
--		sizeof(struct d40_chan), GFP_KERNEL);
-+	alloc_size = struct_size(base, phy_chans, num_phy_chans);
-+	alloc_size += sizeof(*base->log_chans) * (num_log_chans + num_memcpy_chans);
-+	base = devm_kzalloc(dev, alloc_size, GFP_KERNEL);
-
- 	if (!base)
- 		return -ENOMEM;
-@@ -3213,7 +3216,6 @@ static int __init d40_hw_detect_init(struct platform_device *pdev,
- 	base->virtbase = virtbase;
- 	base->plat_data = plat_data;
- 	base->dev = dev;
--	base->phy_chans = ((void *)base) + ALIGN(sizeof(struct d40_base), 4);
- 	base->log_chans = &base->phy_chans[num_phy_chans];
-
- 	if (base->plat_data->num_of_phy_chans == 14) {
---
-2.54.0
+Thanks,
+Can Guo.
+>>
+>>> For the "on/off" suggestion: the on/off string pattern is used with
+>>> single-value properties (e.g. LED default-state) read via
+>>> of_property_read_string(). I am not aware of precedent for on/off as a
+>>> string array for per-lane tuples.
+>> git grep string-array. Plenty of precedents.
+> I will keep the per-lane tuple model but switch tx-precode-enable-g6 
+> from 0/1 to
+> "on"/"off" (string array) in v7.
+>
+> Thanks,
+> Can Guo.
+>>
+>> Best regards,
+>> Krzysztof
+>
 
 
