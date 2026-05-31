@@ -4,70 +4,84 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 5C3CFCD6E52
-	for <linux-arm-kernel@archiver.kernel.org>; Sun, 31 May 2026 10:29:24 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 913D7CD5BD1
+	for <linux-arm-kernel@archiver.kernel.org>; Sun, 31 May 2026 10:41:31 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
 	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
 	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=aY8TqNHQ0EabLACieZZHcwq7jIIC+qHpK9YEKIQ+3u8=; b=TuandjdEiWHvou7W93NOFG1IGd
-	n+fUFhjKEVjAi8BzkZPlCxfWpylaB/wUxX1S9EhiyuTXguJEAp6fNQGG3FMKFDrqGcjSRpIKzXb76
-	xwJ5A3RlhIt1OiakTWd6Q2hYdji9xG+VviyGu4ZiFo5aOXdtK+rTfXXie3OR6A8UPLsv8NVYp5JoE
-	nInPutUphJQnL6ddti7tOX1ieIffhB/3CTu+CTTfaCCgPdi3bA5wBZS6ncAkFLhJ85tH5cKCktGEJ
-	GFMPP/FAEjviFTgWVnN4MZ077XISdePoalyywMVEISLydpOh1QDYA44pIJgOh1opSm2lJcCrCouQY
-	+9b4j5ww==;
+	bh=HIpvufQis3WMBz+6BYiN6qKRud7wcllSfCDwRfn/m9Y=; b=WKflhcJNRtNeIV+QYUqELEOLmC
+	x5OQdS7JR3R7xvUbCWDWWRVKzZbLZyN+sqUcTC2tU+2Jeye1ycc3+2aypfA03n46IlSohtvD8cBB7
+	FNSUOwmU9+r9bEHTtDXQrNFJAtraQ3b7ZA7cyGLT+awVIAk6uBfDf/JWLwBudDQCON6qDz/fTnnOW
+	U19Z+VnDmpAybVfTIaRQ79q5ANBOsHJaCK+1QGvD0xnOcW66Z1dTQVjEbA78jFdfGFuTylgA5o/7h
+	ErK6x/2Ur/6QHP9YjXaRMI8Qt39w6aKzqIdKAaYKDmm2lhm1lmh1hYv/R7sjJscJaEqP5ijSZy9Mk
+	SiUsGtMA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wTdPy-00000009UZW-0Aeo;
-	Sun, 31 May 2026 10:29:18 +0000
-Received: from mail-m83254.xmail.ntesmail.com ([156.224.83.254])
+	id 1wTdbg-00000009VPg-18sq;
+	Sun, 31 May 2026 10:41:24 +0000
+Received: from mout.gmx.net ([212.227.15.18])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wTdPv-00000009UYY-17IV;
-	Sun, 31 May 2026 10:29:16 +0000
-Received: from [172.16.12.77] (unknown [61.154.14.86])
-	by smtp.qiye.163.com (Hmail) with ESMTP id 407772b21;
-	Sun, 31 May 2026 18:29:10 +0800 (GMT+08:00)
-Message-ID: <a496ada3-fc3f-4b29-a445-20d5615b67e0@rock-chips.com>
-Date: Sun, 31 May 2026 18:29:10 +0800
+	id 1wTdbc-00000009VP1-45NI;
+	Sun, 31 May 2026 10:41:22 +0000
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=gmx.net;
+	s=s31663417; t=1780224070; x=1780828870; i=wahrenst@gmx.net;
+	bh=HIpvufQis3WMBz+6BYiN6qKRud7wcllSfCDwRfn/m9Y=;
+	h=X-UI-Sender-Class:Message-ID:Date:MIME-Version:Subject:To:Cc:
+	 References:From:In-Reply-To:Content-Type:
+	 Content-Transfer-Encoding:cc:content-transfer-encoding:
+	 content-type:date:from:message-id:mime-version:reply-to:subject:
+	 to;
+	b=A+Th4hDIdBQ+DZaJWcejzlF9cguTSW86jnjkL0MBue032OWcaW0yMPAOS04IEUFc
+	 s0hw0+/kQYEfLvxYGVfU7dzGN0ZLieHWxe3vbHpm2lZRgxbTuWttPvsUbodhLg5ko
+	 39eCCkporizVJ/BYD0hHnGi4QcdDPW+r7T5iph4dbnc+4BpQ7Rw7+VWMfj2fRwYFu
+	 rTTlXTUZR3tuGvnxIGVmMASyd4WxU4PGuOFKzWb9w4jnaP6RgD5uWXH7cKxd18OoG
+	 cnnig22o9gTBP9c5o3OVZtYAT2qEL4fwlein9SwW6GOMN1EdO9MS8enOdI/2yMu5h
+	 oJt7kpz3XjOd8fOWdw==
+X-UI-Sender-Class: 724b4f7f-cbec-4199-ad4e-598c01a50d3a
+Received: from client.hidden.invalid by mail.gmx.net (mrgmx005
+ [212.227.17.190]) with ESMTPSA (Nemesis) id 1Mxm3Q-1xDUOe1MdS-0107uw; Sun, 31
+ May 2026 12:41:10 +0200
+Message-ID: <deecc409-02c1-4393-bc06-1852fc06e4d1@gmx.net>
+Date: Sun, 31 May 2026 12:41:07 +0200
 MIME-Version: 1.0
 User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH v3 2/2] drm/rockchip: dw_dp: Release core resources
-To: Cristian Ciocaltea <cristian.ciocaltea@collabora.com>,
- Sandy Huang <hjc@rock-chips.com>, =?UTF-8?Q?Heiko_St=C3=BCbner?=
- <heiko@sntech.de>, Maarten Lankhorst <maarten.lankhorst@linux.intel.com>,
- Maxime Ripard <mripard@kernel.org>, Thomas Zimmermann <tzimmermann@suse.de>,
- David Airlie <airlied@gmail.com>, Simona Vetter <simona@ffwll.ch>,
- Dmitry Baryshkov <dmitry.baryshkov@oss.qualcomm.com>,
- Dmitry Baryshkov <lumag@kernel.org>, Andrzej Hajda
- <andrzej.hajda@intel.com>, Neil Armstrong <neil.armstrong@linaro.org>,
- Robert Foss <rfoss@kernel.org>,
- Laurent Pinchart <Laurent.pinchart@ideasonboard.com>,
- Jonas Karlman <jonas@kwiboo.se>, Jernej Skrabec <jernej.skrabec@gmail.com>
-Cc: kernel@collabora.com, dri-devel@lists.freedesktop.org,
- linux-arm-kernel@lists.infradead.org, linux-rockchip@lists.infradead.org,
- linux-kernel@vger.kernel.org
-References: <20260327-drm-rk-fixes-v3-0-fd2e6900c08c@collabora.com>
- <20260327-drm-rk-fixes-v3-2-fd2e6900c08c@collabora.com>
+Subject: Re: [PATCH] pmdomain: bcm: bcm2835-power: Raise ASB poll timeout to
+ 100us
+To: =?UTF-8?Q?Ma=C3=ADra_Canal?= <mcanal@igalia.com>,
+ Ulf Hansson <ulfh@kernel.org>,
+ Florian Fainelli <florian.fainelli@broadcom.com>,
+ Broadcom internal kernel review list
+ <bcm-kernel-feedback-list@broadcom.com>, Ray Jui <rjui@broadcom.com>,
+ Scott Branden <sbranden@broadcom.com>
+Cc: linux-pm@vger.kernel.org, linux-rpi-kernel@lists.infradead.org,
+ linux-arm-kernel@lists.infradead.org, kernel-dev@igalia.com
+References: <20260530204636.1115120-1-mcanal@igalia.com>
 Content-Language: en-US
-From: Andy Yan <andy.yan@rock-chips.com>
-In-Reply-To: <20260327-drm-rk-fixes-v3-2-fd2e6900c08c@collabora.com>
+From: Stefan Wahren <wahrenst@gmx.net>
+Autocrypt: addr=wahrenst@gmx.net; keydata=
+ xjMEZ1dOJBYJKwYBBAHaRw8BAQdA7H2MMG3q8FV7kAPko5vOAeaa4UA1I0hMgga1j5iYTTvN
+ IFN0ZWZhbiBXYWhyZW4gPHdhaHJlbnN0QGdteC5uZXQ+wo8EExYIADcWIQT3FXg+ApsOhPDN
+ NNFuwvLLwiAwigUCZ1dOJAUJB4TOAAIbAwQLCQgHBRUICQoLBRYCAwEAAAoJEG7C8svCIDCK
+ JQ4BAP4Y9uuHAxbAhHSQf6UZ+hl5BDznsZVBJvH8cZe2dSZ6AQCNgoc1Lxw1tvPscuC1Jd1C
+ TZomrGfQI47OiiJ3vGktBc44BGdXTiQSCisGAQQBl1UBBQEBB0B5M0B2E2XxySUQhU6emMYx
+ f5QR/BrEK0hs3bLT6Hb9WgMBCAfCfgQYFggAJhYhBPcVeD4Cmw6E8M000W7C8svCIDCKBQJn
+ V04kBQkHhM4AAhsMAAoJEG7C8svCIDCKJxoA/i+kqD5bphZEucrJHw77ujnOQbiKY2rLb0pE
+ aHMQoiECAQDVbj827W1Yai/0XEABIr8Ci6a+/qZ8Vz6MZzL5GJosAA==
+In-Reply-To: <20260530204636.1115120-1-mcanal@igalia.com>
 Content-Type: text/plain; charset=UTF-8; format=flowed
-Content-Transfer-Encoding: 7bit
-X-HM-Tid: 0a9e7d94971009d8kunmdad3b07c2c8c6f
-X-HM-MType: 1
-X-HM-Spam-Status: e1kfGhgUHx5ZQUpXWQgPGg8OCBgUHx5ZQUlOS1dZFg8aDwILHllBWSg2Ly
-	tZV1koWUFITzdXWRgWCB1ZQUpXWS1ZQUlXWQ8JGhUIEh9ZQVlCSk4fVh1DSkIYH0gdSkMaQlYVFA
-	kWGhdVEwETFhoSFyQUDg9ZV1kYEgtZQVlNSlVKTk9VSk9VQ01ZV1kWGg8SFR0UWUFZT0tIVUpLSU
-	9PT0hVSktLVUpCS0tZBg++
-DKIM-Signature: a=rsa-sha256;
-	b=C94mOfwweKdCeNMsAXQxqYki9N9p084rKTujXn86eTRZGwqHKo+W/4qR0JYA0N/PT9Z7G1kGZ1so/srrKImXHZGsQqpSAO5aqoitDW2UuJF9s34gMbTNeQM1REqMtZTm7GvsaypUD1/K+hBTDRfhcjkgpIDjfCAAoa1mwbarHO8=; c=relaxed/relaxed; s=default; d=rock-chips.com; v=1;
-	bh=aY8TqNHQ0EabLACieZZHcwq7jIIC+qHpK9YEKIQ+3u8=;
-	h=date:mime-version:subject:message-id:from;
+Content-Transfer-Encoding: quoted-printable
+X-Provags-ID: V03:K1:SkXGQKCt/zzEkZYlWKNn29YUoF+waE+0aNl+PVFQABDnbDd/1y6
+ 7tyhwd6Gijxmnjbh5VS2gnAwvh0bi8I+oQC7nBqjt8UcdNknllW7dSXlR2enni5VZO0qxL6
+ L+cYngdi/E/WA8JOd/mCp6JWcI689fZS62o+LYkU0zVHWdwFe3PicYUBAqjwMC+rxY0yb1x
+ T8azdX0ou6D3I1uZ5I7uw==
+UI-OutboundReport: notjunk:1;M01:P0:Oxg23FJ7+Lk=;/du8J8sW/EML61kzG5l3UtPjjGs sDyMU0xLh3Mqyw7TwBieIypowq0l9DGvy4aRcswFfwz83DtnwQlhFrD929f3bqqGHOThfUrFi pjzXDvrAfe6ZTtY/XZbu7FYkZ76LbkhtdUjkN/+bCs9cNaCIUcQFFRY9XwIAiailpz7WE3Tb2 yk3KVpGwJW3nwSnxQzUtDxNkyDeN+FKr8DC+9amXlewkt2IDKlrXnd1RNvDCo2XkBnlZPSKW3 tRnebvHTv7YbubUml1qgavqlkYaK2uAGIvJsWVpf77ru4oQAxga069/bIa1Xu4jPSnW2O6D6k v+cwYz65jfYiaXdiEtLxgstz2TVqICxwt3gKG0VsmZshogKF5TeEJbz/LmRS+8QKCTj7YgxDa vSuTcgYvmFOASo1I9MqCvaEzcySVLlaJNoYqMxOfb13BBLH+pMkRfkOoaxTI/tod8Oatj3VwV s/GHDAQ0x9e7RcHS2KSjE0ckxVu6C/QATaf3otxojdm2dxH6ZjxFnCCPo65kS2eHbnZxbUouU iMKIxFsaH0vOrCQuu/mU9gn1Ulp2kAabXUy8+GRuQdd8twpB35pnre4zvkliHPHNrdgxk8jXb 0ZT+//VQaaz+i5ul2ZfxOQXN0DzdQmrr0Y7BVzoRKK0a1em0JUWVkgEUlZISQbYi9xc3wsq3l iGU3+mJ0jLcagyrjWPddll6v22G6/pPHauevtWUpeVVBIavhGlNuBRVHejjP6ZBLk3+NI/THC zgRnWITGpWzLKr4BkukmvptggZn/jd5l9JL0oasGvBpWiu8JMk3DKl0Kvd1JS29vmVuI7vMmS M4I8vQTaQx/w98R/iSpVQ2+OyQl4qUO8knrPzTPPwBRCHUOf02Po+CsBwIZ4sNLqRmSQ+0T9+ qM9Yle+1PaMSJ7XIw/su+GiwJWAnlyOVEc3AA8HoNo/s/AzLIP+HVcqhrqxguRMPaH8AJUdlu VwihjHiLi3LyVsLTJ6KuPFlZ41jq21fUZUL9v+AqNLLeY1et4/LabmRXDQvvBkCdiMqHWfNes 4gsa+sAzdmXAmLhiyNQfYgFDYWr6olCrcUdOz6QPjxdFYx/Lwucz7pUV7x7wXTcU8bq5yTbIW Zfs3CsAK0/loOVX1YC9uRqoMXVBWgBkSg8S6nkJj/gqInC2/82IpdWU7nDx7wz6vyypfQSdPH /+1YVbmo4veqQtHpn4cAk/0ZxBmTtaBrvsBp5qjaxF+eatBcEHuLDwK3VekyX7r0oC7bO2MBo dsqGVlt/w2TA5hUQx+rJZXTfkmkpnc7jFLynhDPicX1/vHp7aUU82tmzGGQubLwhFAZMXv1zA S54NZ1K/i59Ykv40ev2Yqvc3U4kmaCZODja3ENQUkh8Qd/LfIDq3obywaZLiosAA8BrQ0Jc4o DXPNRAQOQwFar4nDz1Hrc6b3gf28db4QFK34cMZ2V/dctH7PlQ6DgFfE5Y1onWfjADr1oJyLS sK4iN4CAWHWPtzdDi0MVCJa2H9NgHBiVmGlxecIQTpF4+hY/CTGfOpOMBcg0mIXv+F7mxpI8B 2o53i+YfzM1bAF0VqDtD8lHrb2nrW+6ptXm+xWgxIR+0m2MPl0rCZp3TXHo/vK+my/Moj3RHR ENHO61cdv0AYhcody6quCZ9waUNlb9PtDWJwUvlTxrvxhtTVQ0eoTAgDh8HO6xVuHPax1hjCc 1kKEv5RCMSYD9BNf0y1+MuycXWFgndR2OLy7zn6CDPAhK1NYt947fsFRe1TkmA5ZagZP+me7l 2liCsSDbgo/sIDJBJ4XNgCsOCqq9n5H5wb0wkBmV39a2deLMLzgEwlbwyLsv8Jg/5yqfOip4P qCEhVyef3pPF6pMZ98FSCiXL6UmuPZw4dvM0JLaW12p3FXbe8zs+g3yC5Ple//t5KWAjENLiH 9mypkd5BI6qdP/+FQSuFAsxroe4TOefzqFJdStu20TBxGWi6kNXo+rP4n9WAPcJJ9bblkynBZ 9IPxeB5hVP/uU9FEZxVh9M1HhS3iMspxr1L4E95mzuc23zTKbz88vHN09oXkEqkBoEk/IO9dy F4eeHbd0lBGVxtKI5Fio+k6UWouhlIvcBph82Nda6OI4v5raV2JdqHSARA+33du0Dvy8yPwfT dDBGgsFmKwh13Ii0LhC8FGT3D2cfPwqhxgGhXw9GIHoWBY+miq1GmmPS9X+e4tOj6TvYVW1iY 7GYkQRg7Wf2WzBxr8phd8WbX/onE8kAArHXp09wyNn4tKDbBocrEXZank+QTnIGHY4jlAK1mc S9e3JbC0NCaMJQqVxhIF9j0Gtrz2MZWN161uArNpljo6vnb/kQWSiyiJSPkg9JP2prCf61806 g+hDJ1v5lkqirG6ASSxYCP7007fWxI6cmCtp1fUDtshNCFy6xLFFQid0T4II5JxYxkkwX1hR8 BVRsa7ftPgB8O2m9q8bg2zS29PLDjWPPGvhJNYEdpBm42CTtsrE1NHFU5tDr6v+JME8kNZwpX S2gBMaqoP+hhEVzXch+YMbFfZikAL4dTAuEpsYeLKBfDiv+IgGlnGIa5JFPJAoWH0i6ahgKMw wpypCPurNwwPQRpmX3y4SK3aWQvTkZZlQBXWbgRV/HViXdJ5vxYHk5atmFVGbL6pXbkdJ6vpL x5y4/TMqxgndDpZRm2IMvoTQOjfma33KGLw7IPMAc3uVRV1nfilNAgvxvh932mB33YmT0KLmu tEien6N9jNrjVpShnlI/Tn5TOO6rDqB4rhUtggJTZR1xF4ZVQ31/zfty55LcVH14nAwXuwMrH NZE/4Nv+TBD13Iyq3ieuWb/1t0YYBJq+5k7qcwsJ1o1cFWiS0HU5V6aHINCXXk9J6VUu+K9X+ QdX8KXk0LQIBQABHDum+CB+L1WlQfoe3iNiqEaToLB2gn1pQ5gCtJL3rV3U++6SdXmQfzaGPx SybVWuTmjR1NJwjj2XyDEgJ5N2I8HxCbgs1IjX1RW/wRTciP2SdlTUrWmB0ZnHzDbqfu+TagP WEha9R4le+HMcuHo+mHRo0FUDXIJrK+rxnmypHRJbxfLjOGrg6Tx8Q4/LRBb6QLfOh2S/jQ1J hxHgxId+HC4lp0Moz8dq+d71BdPdfXl1iSWcoflSq9ynY2rinyDp+Tni56lAT8U8PQXg6i+Rw 4pnRRwbRKN9gwJh0TpCRcpz5J/h09eT9EbtLnGFyYGrMqpHauqQypx/5kFhLwk8jOgkddXcJO KcqV8DID4FoVl6Ga4RgC+BxnlSEaCXRDgyXfpENNOs/4uwqMwETTZoI/uDR4fE2kqPCb0qsh4 H1YNDzWjO2k5jYDoSkFqNtGyRfPc7krsu04/2X3KxLRcw5QpFRvyXlZywFQpR5JedTlLM0KAV 2g+cLzciNeR252oVH//DVWz2n4bRXxv5U+a2SJ5Cre4m/nSNFxn4mtpwqYONlZurmx29BiRfZ V2OROAEkdkIPDX3U5hgR17Gv5btrA9VUqueqNua/80pMzJPehgAvHiyTULeoLLmT4rtiogZ1+ LfjuYWG6Qig44UPLQmOKmSsWsyf68idK1qcyKDYr6igDUdvDMxTP79vS0h0PtQ5ZyWZKOxvRk CHtQymoExyxDkPrcdTY0hESdQFrH79kfmy8hZ6yjOo/n4MSW+eoF1AANRmQOgwGZJLPYvtYOc CXOxhEE7rX7BRDeSDGJblvKIFH/wmvRyM++FCVbCIkTOKuThUX/fnSjD70Z0qCICcr/dGfN70 rFasB04hBZN+XTqZd2rIIzzmiFARcziiJ+JEVeltiiLvyLncfsSPqj906rxx5W3A+2rSHjo2O eWpF2cvpdmaYH/0bxejsiIucXyX+iUJKC/FEx534P0FrllaenK5y5qD8p2D87phMpGrlIr+ts nyUgGu3PhHc2p3VFt+3RZN7KSTpL0zJvbtX5MM61en124JAshgAIN8HUa1Jw3v75HPF0be7zz
+ 1Fs/AjRoHIO18Y5xBHdasNlHCiNWfLwJWd22+l+qN/g4JLubZGNX3COjneQmee8VFyTMyjg8w 3RniN+t9HMWcxBv9tNAu1RjuXT/tTGbejiMvsPUk6IPsSUiOV8L+1UUGnowDGszN8bVF1Ax4E Xq13f6XK0HVOTJ+RyhF++t6/4C+5RP3/EFWiGrh7sr1MRiq/nacOxHzvulg3Jhc5mcSf86YDD LkWumDdM9nJ3WMK9kd2RNJvMn4nbSSEqgJhFcAYp27opSsVqUPKocFzewONw/GxWD6ZDOYxgq nYmpWtDRXxYZ9mQqJfVJatDT1Rdq4K/zXPk6kV+g68H5l9wb6BCBLAF4vTckJ1XsWVYLZW+S4 XrpZIQTSronsV2b8NGspKE7ARirGw3n2o5mFircBZUMXcwCCEn6HrS6VVKTnHP8X5Uhq9nKBP n+Ret5cakBZ6lHJUSBlMGZatKHQMsi+DV3fMUp49q89YR/ahI0fh67ZsxSpzIxPp1uRB3q77a 0CiM+a5doEpgoKF5MkBjscwjx0F6lTtL3jBG9BH2y8QGT0qce/HEUNBOSro8zpDpPumX+EiZw XETQQ1kNDNlZGwZXbHViFGkCm+rTaUErFPZ3c2an/qkgiQ1309MQmU7eum0H4rKultMvCGbrr QmrR3M1/fqQUPSSFoofhmZXXMmxCyTR2qGBf9b5i801fZMHtcW6FzAUdw5rkT3MbLmxhq9oH2 t+hSa+TtH+iabdaesNpj2TlsFMWPvPtZOBPQSjQrutD/dlDtzI9X8uWKMx6ubT/vFdA/gqukR +K0uhcaVMRQO8BIHGWsFLHAbRPT/xvrfXe7UtYB7JAdDYygQNCzLeo2hCcvBx/9h22447q1Ho XHa7DxRYjBnSbj0p6AO1zXx4C9bHzjaM7JEAAtL85fKsodUk2Cb9jn+SMo4lR7gQrMN24nGOO FoYiDc8t3Bs0IF5owhbu2qvR9EkESwkDCGf9/E+8I8F23MNyfPFjd3l94ZtanQ+SOUmk984r6 rAao/Noc1bf8bavytpoFCbWr/2lWJjzpXWsYDLY/4jErMtBu6Y+qOElJL9Yuy5NX2M3JVXuhz 0jOYcLsXuVPtyStlTDoP9qxM6Bbt8zL1GOmz/K8vglR6YIk95vYkvuK1nAWORr+ucd5FYvczi K6RjbACsC36GR5iEfz43O+xGBBylINdidzH3SjzxxP5nShH11lB8QYmMrhVNgDGabIYJmbmER Iofz7qY1mgIjw/HgNqEXNAQI94K+UjS71wwyItwwrxavqtea/5mOGtJp4c4RsfoeMKKfX8/xS 6hn5jP2Mex3eDRC5qRra2h4XED+Y+/9aK5qTOmpskj9RlYeEX5+gMbrCWEJ/OOS54lfAc4Fhe q3TeQWRcQqonIgdDVq4aTiys/tnBpV/hMijFkJJMh65+oLk2r2M8YxfeH0sm8XiHLSAbNsjhG 5DZJhekjSUh3hcudzpZRDU/hRkxoMtZmkzfHS6j8j1WKGav7xUpbAk59/8g9QBGKzGeCPRmwg TXL4b3p2vKCkK6300KAGembUNJYcEiuPBmBV4/kEBqkdrdggw8Oj9zJ0EoGhccCdIp44P9D2C saPN+DttougJ1+Txew8UxMowxZYMeyNSb1TQtS91Cacxia5aiCP//174ebdXSJQvanH+ZCcqf SEPjk4Dbmpm52pyRWk0kam41exs=
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260531_032915_599614_E01EA567 
-X-CRM114-Status: GOOD (  18.42  )
+X-CRM114-CacheID: sfid-20260531_034121_390019_4B62508F 
+X-CRM114-Status: GOOD (  18.90  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -82,99 +96,60 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hello,
+Hi Ma=C3=ADra,
 
-On 3/27/26 08:55, Cristian Ciocaltea wrote:
-> Core resources such as the DisplayPort AUX channel get initialized and
-> registered during dw_dp_bind(), but are never unregistered, which may
-> lead to memory leaks and/or use-after-free:
-> 
-> [  224.661371] BUG: KASAN: slab-use-after-free in device_is_dependent+0xe0/0x2b0
-> [  224.662015] Read of size 8 at addr ffff00011aee8550 by task modprobe/658
-> [  224.662612]
-> [  224.662752] CPU: 7 UID: 0 PID: 658 Comm: modprobe Not tainted 7.0.0-rc2-next-20260305 #14 PREEMPT
-> [  224.662759] Hardware name: Radxa ROCK 5B (DT)
-> [  224.662762] Call trace:
-> [  224.662764]  show_stack+0x20/0x38 (C)
-> [  224.662772]  dump_stack_lvl+0x6c/0x98
-> [  224.662777]  print_report+0x160/0x4b8
-> [  224.662783]  kasan_report+0xb4/0xe0
-> [  224.662790]  __asan_report_load8_noabort+0x20/0x30
-> [  224.662796]  device_is_dependent+0xe0/0x2b0
-> [  224.662802]  device_is_dependent+0x108/0x2b0
-> [  224.662808]  device_link_add+0x1f8/0x10b0
-> [  224.662813]  devm_of_phy_get_by_index+0x120/0x200
-> [  224.662819]  dw_dp_bind+0x34c/0xb10 [dw_dp]
-> [  224.662830]  dw_dp_rockchip_bind+0x194/0x250 [rockchipdrm]
-> [  224.662864]  component_bind_all+0x3a8/0x720
-> [  224.662869]  rockchip_drm_bind+0x120/0x390 [rockchipdrm]
-> [  224.662899]  try_to_bring_up_aggregate_device+0x76c/0x838
-> [  224.662904]  component_master_add_with_match+0x1f4/0x230
-> [  224.662909]  rockchip_drm_platform_probe+0x420/0x538 [rockchipdrm]
-> [  224.662939]  platform_probe+0xe8/0x168
-> [  224.662945]  really_probe+0x340/0x828
-> [  224.662950]  __driver_probe_device+0x2e0/0x350
-> [  224.662954]  driver_probe_device+0x80/0x140
-> [  224.662959]  __driver_attach+0x398/0x460
-> [  224.662964]  bus_for_each_dev+0xe0/0x198
-> [  224.662968]  driver_attach+0x50/0x68
-> [  224.662972]  bus_add_driver+0x2a0/0x4c0
-> [  224.662977]  driver_register+0x294/0x360
-> [  224.662982]  __platform_driver_register+0x7c/0x98
-> [  224.662987]  rockchip_drm_init+0xc4/0xff8 [rockchipdrm]
-> 
-> Since a previous commit exported dw_dp_unbind() function in DW DP core
-> library to take care of the necessary cleanup, use this in the
-> component's unbind() callback, as well as in its bind() error path.
-> 
-> Fixes: d68ba7bac955 ("drm/rockchip: Add RK3588 DPTX output support")
-> Signed-off-by: Cristian Ciocaltea <cristian.ciocaltea@collabora.com>
+Am 30.05.26 um 22:46 schrieb Ma=C3=ADra Canal:
+> Commit 18605b1b936b ("pmdomain: bcm: bcm2835-power: Increase ASB control
+> timeout") raised the ASB handshake polling budget from 1us to 5us.
+> Surveying the pmdomain subsystem, 5us is still one of the smallest polli=
+ng
+> budgets by a wide margin. Comparable handshakes in other drivers use:
+>
+>    - 100us : starfive jh71xx-pmu, apple pmgr-pwrstate
+>    - 1ms   : renesas rcar-sysc, rmobile-sysc (power-on)
+>    - 10ms  : renesas rcar-gen4-sysc, sunxi sun55i-pck600
+>    - 1s    : mediatek mtk-pm-domains, mtk-scpsys
+>
+> Raise the BCM2835 timeout to 100us, matching analogous drivers. 100us is
+> still negligible relative to a power-domain transition and gives the V3D
+> master ASB substantially more headroom to drain under heavy workloads,
+> assuring us that the timeout is enough for any scenario.
+tbh I'm not convinced by this explanation. Starting with a timeout=20
+comparison across different pmdomain driver looks strange to me.
+
+My expectation that the reason for such a patch is that there is some=20
+kind of scenario to trigger unexpected timeouts.
+If this is the case, please provide more information about the scenario=20
+(specific platform, scenario, link to the bug report).
+
+I'm not against the change in general, but please start your commit=20
+message with the problem and not with the solution.
+
+A related question, does it make sense to add an error message here for=20
+the timeout case just like in the rest of the driver?
+
+Best regards
+
+>
+> Signed-off-by: Ma=C3=ADra Canal <mcanal@igalia.com>
 > ---
->   drivers/gpu/drm/rockchip/dw_dp-rockchip.c | 20 +++++++++++++++++---
->   1 file changed, 17 insertions(+), 3 deletions(-)
-> 
-> diff --git a/drivers/gpu/drm/rockchip/dw_dp-rockchip.c b/drivers/gpu/drm/rockchip/dw_dp-rockchip.c
-> index 22c0911f1896..8cba90d2dd56 100644
-> --- a/drivers/gpu/drm/rockchip/dw_dp-rockchip.c
-> +++ b/drivers/gpu/drm/rockchip/dw_dp-rockchip.c
-> @@ -108,14 +108,28 @@ static int dw_dp_rockchip_bind(struct device *dev, struct device *master, void *
->   
->   	connector = drm_bridge_connector_init(drm_dev, encoder);
->   	if (IS_ERR(connector))
-> -		return dev_err_probe(dev, PTR_ERR(connector),
-> -				     "Failed to init bridge connector");
-> +		ret = dev_err_probe(dev, PTR_ERR(connector),
-> +				    "Failed to init bridge connector");
-> +	else
-> +		ret = drm_connector_attach_encoder(connector, encoder);
->   
-> -	return drm_connector_attach_encoder(connector, encoder);
-
-This line has already been removed in the latest code.
-
-
-
-
-> +	if (ret)
-> +		dw_dp_unbind(dp->base);
-> +
-> +	return ret;
-> +}
-> +
-> +static void dw_dp_rockchip_unbind(struct device *dev, struct device *master,
-> +				  void *data)
-> +{
-> +	struct rockchip_dw_dp *dp = dev_get_drvdata(dev);
-> +
-> +	dw_dp_unbind(dp->base);
->   }
->   
->   static const struct component_ops dw_dp_rockchip_component_ops = {
->   	.bind = dw_dp_rockchip_bind,
-> +	.unbind = dw_dp_rockchip_unbind,
->   };
->   
->   static int dw_dp_probe(struct platform_device *pdev)
-> 
+>   drivers/pmdomain/bcm/bcm2835-power.c | 2 +-
+>   1 file changed, 1 insertion(+), 1 deletion(-)
+>
+> diff --git a/drivers/pmdomain/bcm/bcm2835-power.c b/drivers/pmdomain/bcm=
+/bcm2835-power.c
+> index b76d74e3849b..d507bb675e29 100644
+> --- a/drivers/pmdomain/bcm/bcm2835-power.c
+> +++ b/drivers/pmdomain/bcm/bcm2835-power.c
+> @@ -175,7 +175,7 @@ static int bcm2835_asb_control(struct bcm2835_power =
+*power, u32 reg, bool enable
+>   	writel(PM_PASSWORD | val, base + reg);
+>  =20
+>   	if (readl_poll_timeout_atomic(base + reg, val,
+> -				      !!(val & ASB_ACK) !=3D enable, 0, 5))
+> +				      !!(val & ASB_ACK) !=3D enable, 0, 100))
+>   		return -ETIMEDOUT;
+>  =20
+>   	return 0;
 
 
