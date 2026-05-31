@@ -4,38 +4,38 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id B4ECBCD6E5C
-	for <linux-arm-kernel@archiver.kernel.org>; Sun, 31 May 2026 09:37:20 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 94C3ACD6E5D
+	for <linux-arm-kernel@archiver.kernel.org>; Sun, 31 May 2026 09:37:21 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
 	MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:
 	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=WCcyCK7AkmgAFVYPsCQjJr2AQljQ2E/AGKpawKYklUI=; b=J3Eq/tl4F5tpsIu9TYCOVoSPYq
-	m3h95YKFrzwlSfPcvmdFxSvOE+1+dBVyhpn9a/kN+aPKBXYo+F5tpFNuVjxCt/P1UFV5CIdBcpwnR
-	GSERTMLssOKCL2RnEXZID43lZT3DxBY+bFwpFpXd8NKP8/tsoPNKwzuB6i2YgLgldtv9glm81Qy8N
-	a20FRqqC2jo+2uvZ+dmfj/7VBOev16psBNEEkj324fqVovDW1zVMSydXP8SJ4Rxe/4xrz0YV35Vn3
-	2cu8w4GhExx1XhCuQ+sWuMGHdk4Ujin2SbJatGS2t6A217emCA+AQ+Rd9I3LirZZLbyfZbCAmzKP7
-	2U+ucpcQ==;
+	bh=9GYfPp1sU1WLVHRudSCocbfBnHaSnI+DlgtBGa8tOy0=; b=uppufCa8jS267lfbRyjLYdY2Hi
+	nqXbt+b7sCwrxHyPyHXnnTvTxi6ouCSjaDIUjp04pcIwa2yXTyz9rgxQF4zUO8ZEtB8ojWG6jOD3G
+	aOD8JjkbyUD/+PK1scM2DeemyXSSPhVEZhjs8PsbqAXftj/NNz08sXAKQlqoDKnnXNZ/UbqdPUYDo
+	KLuP+mNXY6kdGYmQuvxcgZBtrZJPaCa+5lxn2Pa9aIX8PuJ969Ng65xzfeWybxjWW5RMoE+8VT6l8
+	WeyfezDfXZxM42wc6pMzd8T3yZon5r4c/OvOXlhZQTeETDLuV9Vkmhi2F8NOE1WFTtalTv2gEEAp0
+	6lnuNqCQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wTcbV-00000009R45-2yf2;
-	Sun, 31 May 2026 09:37:09 +0000
-Received: from out30-119.freemail.mail.aliyun.com ([115.124.30.119])
+	id 1wTcbU-00000009R2z-16O4;
+	Sun, 31 May 2026 09:37:08 +0000
+Received: from out30-100.freemail.mail.aliyun.com ([115.124.30.100])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wTcbL-00000009Qx5-085u
+	id 1wTcbK-00000009QxH-18Y0
 	for linux-arm-kernel@lists.infradead.org;
-	Sun, 31 May 2026 09:37:02 +0000
+	Sun, 31 May 2026 09:37:01 +0000
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
 	d=linux.alibaba.com; s=default;
-	t=1780220213; h=From:To:Subject:Date:Message-ID:MIME-Version;
-	bh=WCcyCK7AkmgAFVYPsCQjJr2AQljQ2E/AGKpawKYklUI=;
-	b=F0dMAgT6MkjYz9l17kVw2rR0cliSnDiRLeN2U4kUEQ3FPhuK8v4nyEPo06/BunH2WLKpIAz7AU8misFCrhPYxkiSj9xUujlVPfdUI4B2lkiBrGFoBSDoSR9pLxht9xj+46hEoqE24uteq0KtmzAADYMOtq7EnPaNYJ8xeL5y4qM=
-X-Alimail-AntiSpam: AC=PASS;BC=-1|-1;BR=01201311R191e4;CH=green;DM=||false|;DS=||;FP=0|-1|-1|-1|0|-1|-1|-1;HT=maildocker-contentspam033045098064;MF=guanghuifeng@linux.alibaba.com;NM=1;PH=DS;RN=27;SR=0;TI=SMTPD_---0X3tRVog_1780220207;
-Received: from VM20241011-104.tbsite.net(mailfrom:guanghuifeng@linux.alibaba.com fp:SMTPD_---0X3tRVog_1780220207 cluster:ay36)
+	t=1780220216; h=From:To:Subject:Date:Message-ID:MIME-Version;
+	bh=9GYfPp1sU1WLVHRudSCocbfBnHaSnI+DlgtBGa8tOy0=;
+	b=HMmCPgb/BaDhDk6BYc+IlkEEP3KbeYwKPv0j6na0sLeb9RsKLKMPhU0WMdLIGO0CtnE/6cSTXIpiMD4AHuOZqRBWVPFReL7lmmY36FCcb/Zr2fus/nUV7D2MW/xeOFoMZnLkaxrHEvUg9R4vZPU7E4GFMPZ6PAAITFz+ofShcfs=
+X-Alimail-AntiSpam: AC=PASS;BC=-1|-1;BR=01201311R131e4;CH=green;DM=||false|;DS=||;FP=0|-1|-1|-1|0|-1|-1|-1;HT=maildocker-contentspam033032089153;MF=guanghuifeng@linux.alibaba.com;NM=1;PH=DS;RN=27;SR=0;TI=SMTPD_---0X3tRVqi_1780220213;
+Received: from VM20241011-104.tbsite.net(mailfrom:guanghuifeng@linux.alibaba.com fp:SMTPD_---0X3tRVqi_1780220213 cluster:ay36)
           by smtp.aliyun-inc.com;
-          Sun, 31 May 2026 17:36:48 +0800
+          Sun, 31 May 2026 17:36:53 +0800
 From: Guanghui Feng <guanghuifeng@linux.alibaba.com>
 To: boris.brezillon@collabora.com,
 	robh@kernel.org,
@@ -64,9 +64,9 @@ Cc: xlpang@linux.alibaba.com,
 	oliver.yang@linux.alibaba.com,
 	shiyu.zsq@linux.alibaba.com,
 	wei.guo.simon@linux.alibaba.com
-Subject: [PATCH 2/9] iommu/io-pgtable: introduce iova_to_phys_length in io_pgtable_ops
-Date: Sun, 31 May 2026 17:36:30 +0800
-Message-ID: <20260531093637.3893199-3-guanghuifeng@linux.alibaba.com>
+Subject: [PATCH 7/9] vfio/iommufd: use iova_to_phys_length for efficient unmap
+Date: Sun, 31 May 2026 17:36:35 +0800
+Message-ID: <20260531093637.3893199-8-guanghuifeng@linux.alibaba.com>
 X-Mailer: git-send-email 2.43.7
 In-Reply-To: <20260531093637.3893199-1-guanghuifeng@linux.alibaba.com>
 References: <20260529115116.GR2487554@ziepe.ca>
@@ -74,8 +74,8 @@ References: <20260529115116.GR2487554@ziepe.ca>
 MIME-Version: 1.0
 Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260531_023659_405210_3DF0040B 
-X-CRM114-Status: GOOD (  15.32  )
+X-CRM114-CacheID: sfid-20260531_023658_851973_474FC96C 
+X-CRM114-Status: GOOD (  18.63  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -90,253 +90,174 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Add iova_to_phys_length to struct io_pgtable_ops alongside iova_to_phys.
-The new callback additionally returns the block/page size of the PTE
-entry through the mapped_length parameter.
-
-Implement in all three io-pgtable backends:
-- ARM LPAE: returns ARM_LPAE_BLOCK_SIZE at the resolved level
-- ARM v7s: returns block size derived from level mask
-- DART: returns pgsize_bitmap (single fixed page size)
-
-The old iova_to_phys is kept as a thin wrapper for backward compat.
+Use iommu_iova_to_phys_length() to get PTE page size, allowing
+traversal by actual mapping granularity instead of PAGE_SIZE steps.
 
 Signed-off-by: Guanghui Feng <guanghuifeng@linux.alibaba.com>
 Acked-by: Shiqiang Zhang <shiyu.zsq@linux.alibaba.com>
 Acked-by: Simon Guo <wei.guo.simon@linux.alibaba.com>
 ---
- drivers/iommu/io-pgtable-arm-v7s.c | 30 ++++++++++++++++++++++++------
- drivers/iommu/io-pgtable-arm.c     | 19 ++++++++++++++++++-
- drivers/iommu/io-pgtable-dart.c    | 26 +++++++++++++++++++++-----
- include/linux/io-pgtable.h         |  7 +++++++
- 4 files changed, 70 insertions(+), 12 deletions(-)
+ drivers/iommu/iommufd/pages.c    | 71 ++++++++++++++++++++++++++------
+ drivers/iommu/iommufd/selftest.c |  2 +-
+ drivers/vfio/vfio_iommu_type1.c  | 24 +++++++++--
+ 3 files changed, 80 insertions(+), 17 deletions(-)
 
-diff --git a/drivers/iommu/io-pgtable-arm-v7s.c b/drivers/iommu/io-pgtable-arm-v7s.c
-index 40e33257d3c2..54e8cc673eb6 100644
---- a/drivers/iommu/io-pgtable-arm-v7s.c
-+++ b/drivers/iommu/io-pgtable-arm-v7s.c
-@@ -641,13 +641,25 @@ static size_t arm_v7s_unmap_pages(struct io_pgtable_ops *ops, unsigned long iova
- 	return unmapped;
- }
- 
-+static phys_addr_t arm_v7s_iova_to_phys_length(struct io_pgtable_ops *ops,
-+						unsigned long iova,
-+						size_t *mapped_length);
+diff --git a/drivers/iommu/iommufd/pages.c b/drivers/iommu/iommufd/pages.c
+index 9bdb2945afe1..d67e564035b4 100644
+--- a/drivers/iommu/iommufd/pages.c
++++ b/drivers/iommu/iommufd/pages.c
+@@ -417,17 +417,42 @@ static void batch_from_domain(struct pfn_batch *batch,
+ 	if (start_index == iopt_area_index(area))
+ 		page_offset = area->page_offset;
+ 	while (start_index <= last_index) {
++		size_t pgsize;
++		unsigned long npages;
++		unsigned long i;
 +
- static phys_addr_t arm_v7s_iova_to_phys(struct io_pgtable_ops *ops,
- 					unsigned long iova)
-+{
-+	return arm_v7s_iova_to_phys_length(ops, iova, NULL);
-+}
+ 		/*
+-		 * This is pretty slow, it would be nice to get the page size
+-		 * back from the driver, or have the driver directly fill the
+-		 * batch.
++		 * Use iova_to_phys_length to get both the physical address
++		 * and the PTE page size in a single page table walk, allowing
++		 * us to skip ahead by the contiguous region size instead of
++		 * walking the page tables for every PAGE_SIZE step.
+ 		 */
+-		phys = iommu_iova_to_phys(domain, iova) - page_offset;
+-		if (!batch_add_pfn(batch, PHYS_PFN(phys)))
+-			return;
+-		iova += PAGE_SIZE - page_offset;
++		phys = iommu_iova_to_phys_length(domain, iova, &pgsize) -
++		       page_offset;
++		if (!pgsize || pgsize < PAGE_SIZE)
++			pgsize = PAGE_SIZE;
 +
-+static phys_addr_t arm_v7s_iova_to_phys_length(struct io_pgtable_ops *ops,
-+						unsigned long iova,
-+						size_t *mapped_length)
- {
- 	struct arm_v7s_io_pgtable *data = io_pgtable_ops_to_data(ops);
- 	arm_v7s_iopte *ptep = data->pgd, pte;
- 	int lvl = 0;
- 	u32 mask;
-+	size_t blk_size;
- 
- 	do {
- 		ptep += ARM_V7S_LVL_IDX(iova, ++lvl, &data->iop.cfg);
-@@ -661,6 +673,11 @@ static phys_addr_t arm_v7s_iova_to_phys(struct io_pgtable_ops *ops,
- 	mask = ARM_V7S_LVL_MASK(lvl);
- 	if (arm_v7s_pte_is_cont(pte, lvl))
- 		mask *= ARM_V7S_CONT_PAGES;
++		/*
++		 * Calculate contiguous pages within this PTE from our
++		 * position. phys points to the page-aligned start (backed
++		 * up by page_offset), so pages available = bytes from phys
++		 * to PTE end divided by PAGE_SIZE.
++		 */
++		npages = (pgsize - (iova & (pgsize - 1)) + page_offset) /
++			 PAGE_SIZE;
++		npages = min_t(unsigned long, npages,
++			       last_index - start_index + 1);
++		if (!npages)
++			npages = 1;
 +
-+	blk_size = ~mask + 1U;
-+	if (mapped_length)
-+		*mapped_length = blk_size;
++		for (i = 0; i < npages; i++) {
++			if (!batch_add_pfn(batch, PHYS_PFN(phys) + i))
++				return;
++		}
 +
- 	return iopte_to_paddr(pte, lvl, &data->iop.cfg) | (iova & ~mask);
- }
- 
-@@ -714,6 +731,7 @@ static struct io_pgtable *arm_v7s_alloc_pgtable(struct io_pgtable_cfg *cfg,
- 		.map_pages	= arm_v7s_map_pages,
- 		.unmap_pages	= arm_v7s_unmap_pages,
- 		.iova_to_phys	= arm_v7s_iova_to_phys,
-+		.iova_to_phys_length	= arm_v7s_iova_to_phys_length,
- 	};
- 
- 	/* We have to do this early for __arm_v7s_alloc_table to work... */
-@@ -837,13 +855,13 @@ static int __init arm_v7s_do_selftests(void)
- 	 * Initial sanity checks.
- 	 * Empty page tables shouldn't provide any translations.
- 	 */
--	if (ops->iova_to_phys(ops, 42))
-+	if (ops->iova_to_phys_length(ops, 42, NULL))
- 		return __FAIL(ops);
- 
--	if (ops->iova_to_phys(ops, SZ_1G + 42))
-+	if (ops->iova_to_phys_length(ops, SZ_1G + 42, NULL))
- 		return __FAIL(ops);
- 
--	if (ops->iova_to_phys(ops, SZ_2G + 42))
-+	if (ops->iova_to_phys_length(ops, SZ_2G + 42, NULL))
- 		return __FAIL(ops);
- 
- 	/*
-@@ -864,7 +882,7 @@ static int __init arm_v7s_do_selftests(void)
- 				    &mapped))
- 			return __FAIL(ops);
- 
--		if (ops->iova_to_phys(ops, iova + 42) != (iova + 42))
-+		if (ops->iova_to_phys_length(ops, iova + 42, NULL) != (iova + 42))
- 			return __FAIL(ops);
- 
- 		iova += SZ_16M;
-@@ -878,7 +896,7 @@ static int __init arm_v7s_do_selftests(void)
- 		if (ops->unmap_pages(ops, iova, size, 1, NULL) != size)
- 			return __FAIL(ops);
- 
--		if (ops->iova_to_phys(ops, iova + 42))
-+		if (ops->iova_to_phys_length(ops, iova + 42, NULL))
- 			return __FAIL(ops);
- 
- 		/* Remap full block */
-@@ -886,7 +904,7 @@ static int __init arm_v7s_do_selftests(void)
- 				   GFP_KERNEL, &mapped))
- 			return __FAIL(ops);
- 
--		if (ops->iova_to_phys(ops, iova + 42) != (iova + 42))
-+		if (ops->iova_to_phys_length(ops, iova + 42, NULL) != (iova + 42))
- 			return __FAIL(ops);
- 
- 		iova += SZ_16M;
-diff --git a/drivers/iommu/io-pgtable-arm.c b/drivers/iommu/io-pgtable-arm.c
-index 0208e5897c29..e2ea84669fbf 100644
---- a/drivers/iommu/io-pgtable-arm.c
-+++ b/drivers/iommu/io-pgtable-arm.c
-@@ -731,8 +731,19 @@ static int visit_iova_to_phys(struct io_pgtable_walk_data *walk_data, int lvl,
- 	return 0;
- }
- 
-+static phys_addr_t arm_lpae_iova_to_phys_length(struct io_pgtable_ops *ops,
-+						 unsigned long iova,
-+						 size_t *mapped_length);
-+
- static phys_addr_t arm_lpae_iova_to_phys(struct io_pgtable_ops *ops,
- 					 unsigned long iova)
-+{
-+	return arm_lpae_iova_to_phys_length(ops, iova, NULL);
-+}
-+
-+static phys_addr_t arm_lpae_iova_to_phys_length(struct io_pgtable_ops *ops,
-+						 unsigned long iova,
-+						 size_t *mapped_length)
- {
- 	struct arm_lpae_io_pgtable *data = io_pgtable_ops_to_data(ops);
- 	struct iova_to_phys_data d;
-@@ -742,13 +753,18 @@ static phys_addr_t arm_lpae_iova_to_phys(struct io_pgtable_ops *ops,
- 		.addr = iova,
- 		.end = iova + 1,
- 	};
-+	size_t block_size;
- 	int ret;
- 
- 	ret = __arm_lpae_iopte_walk(data, &walk_data, data->pgd, data->start_level);
- 	if (ret)
- 		return 0;
- 
--	iova &= (ARM_LPAE_BLOCK_SIZE(d.lvl, data) - 1);
-+	block_size = ARM_LPAE_BLOCK_SIZE(d.lvl, data);
-+	if (mapped_length)
-+		*mapped_length = block_size;
-+
-+	iova &= (block_size - 1);
- 	return iopte_to_paddr(d.pte, data) | iova;
- }
- 
-@@ -948,6 +964,7 @@ arm_lpae_alloc_pgtable(struct io_pgtable_cfg *cfg)
- 		.map_pages	= arm_lpae_map_pages,
- 		.unmap_pages	= arm_lpae_unmap_pages,
- 		.iova_to_phys	= arm_lpae_iova_to_phys,
-+		.iova_to_phys_length	= arm_lpae_iova_to_phys_length,
- 		.read_and_clear_dirty = arm_lpae_read_and_clear_dirty,
- 		.pgtable_walk	= arm_lpae_pgtable_walk,
- 	};
-diff --git a/drivers/iommu/io-pgtable-dart.c b/drivers/iommu/io-pgtable-dart.c
-index cbc5d6aa2daa..fa250f5d16ed 100644
---- a/drivers/iommu/io-pgtable-dart.c
-+++ b/drivers/iommu/io-pgtable-dart.c
-@@ -333,11 +333,23 @@ static size_t dart_unmap_pages(struct io_pgtable_ops *ops, unsigned long iova,
- 	return i * pgsize;
- }
- 
-+static phys_addr_t dart_iova_to_phys_length(struct io_pgtable_ops *ops,
-+					    unsigned long iova,
-+					    size_t *mapped_length);
-+
- static phys_addr_t dart_iova_to_phys(struct io_pgtable_ops *ops,
--					 unsigned long iova)
-+				     unsigned long iova)
-+{
-+	return dart_iova_to_phys_length(ops, iova, NULL);
-+}
-+
-+static phys_addr_t dart_iova_to_phys_length(struct io_pgtable_ops *ops,
-+					    unsigned long iova,
-+					    size_t *mapped_length)
- {
- 	struct dart_io_pgtable *data = io_pgtable_ops_to_data(ops);
- 	dart_iopte pte, *ptep;
-+	size_t pgsize;
- 
- 	ptep = dart_get_last(data, iova);
- 
-@@ -350,7 +362,10 @@ static phys_addr_t dart_iova_to_phys(struct io_pgtable_ops *ops,
- 	pte = READ_ONCE(*ptep);
- 	/* Found translation */
- 	if (pte) {
--		iova &= (data->iop.cfg.pgsize_bitmap - 1);
-+		pgsize = data->iop.cfg.pgsize_bitmap;
-+		if (mapped_length)
-+			*mapped_length = pgsize;
-+		iova &= (pgsize - 1);
- 		return iopte_to_paddr(pte, data) | iova;
++		iova += npages * PAGE_SIZE - page_offset;
+ 		page_offset = 0;
+-		start_index++;
++		start_index += npages;
  	}
+ }
  
-@@ -397,9 +412,10 @@ dart_alloc_pgtable(struct io_pgtable_cfg *cfg)
- 	data->bits_per_level = bits_per_level;
+@@ -445,11 +470,33 @@ static struct page **raw_pages_from_domain(struct iommu_domain *domain,
+ 	if (start_index == iopt_area_index(area))
+ 		page_offset = area->page_offset;
+ 	while (start_index <= last_index) {
+-		phys = iommu_iova_to_phys(domain, iova) - page_offset;
+-		*(out_pages++) = pfn_to_page(PHYS_PFN(phys));
+-		iova += PAGE_SIZE - page_offset;
++		size_t pgsize;
++		unsigned long npages;
++		unsigned long i;
++
++		/*
++		 * Resolve the PTE page size together with the physical
++		 * address so we can fill multiple struct page pointers per
++		 * page table walk when the IOMMU uses large pages.
++		 */
++		phys = iommu_iova_to_phys_length(domain, iova, &pgsize) -
++		       page_offset;
++		if (!pgsize || pgsize < PAGE_SIZE)
++			pgsize = PAGE_SIZE;
++
++		npages = (pgsize - (iova & (pgsize - 1)) + page_offset) /
++			 PAGE_SIZE;
++		npages = min_t(unsigned long, npages,
++			       last_index - start_index + 1);
++		if (!npages)
++			npages = 1;
++
++		for (i = 0; i < npages; i++)
++			*(out_pages++) = pfn_to_page(PHYS_PFN(phys) + i);
++
++		iova += npages * PAGE_SIZE - page_offset;
+ 		page_offset = 0;
+-		start_index++;
++		start_index += npages;
+ 	}
+ 	return out_pages;
+ }
+diff --git a/drivers/iommu/iommufd/selftest.c b/drivers/iommu/iommufd/selftest.c
+index af07c642a526..4b9c3ffc9523 100644
+--- a/drivers/iommu/iommufd/selftest.c
++++ b/drivers/iommu/iommufd/selftest.c
+@@ -1214,7 +1214,7 @@ static int iommufd_test_md_check_pa(struct iommufd_ucmd *ucmd,
+ 		pfn = page_to_pfn(pages[0]);
+ 		put_page(pages[0]);
  
- 	data->iop.ops = (struct io_pgtable_ops) {
--		.map_pages	= dart_map_pages,
--		.unmap_pages	= dart_unmap_pages,
--		.iova_to_phys	= dart_iova_to_phys,
-+		.map_pages		= dart_map_pages,
-+		.unmap_pages		= dart_unmap_pages,
-+		.iova_to_phys		= dart_iova_to_phys,
-+		.iova_to_phys_length	= dart_iova_to_phys_length,
- 	};
+-		io_phys = mock->domain.ops->iova_to_phys(&mock->domain, iova);
++		io_phys = iommu_iova_to_phys(&mock->domain, iova);
+ 		if (io_phys !=
+ 		    pfn * PAGE_SIZE + ((uintptr_t)uptr % PAGE_SIZE)) {
+ 			rc = -EINVAL;
+diff --git a/drivers/vfio/vfio_iommu_type1.c b/drivers/vfio/vfio_iommu_type1.c
+index c8151ba54de3..393f9e8f1511 100644
+--- a/drivers/vfio/vfio_iommu_type1.c
++++ b/drivers/vfio/vfio_iommu_type1.c
+@@ -1177,25 +1177,41 @@ static long vfio_unmap_unpin(struct vfio_iommu *iommu, struct vfio_dma *dma,
  
- 	return data;
-diff --git a/include/linux/io-pgtable.h b/include/linux/io-pgtable.h
-index e19872e37e06..42bcdd309b88 100644
---- a/include/linux/io-pgtable.h
-+++ b/include/linux/io-pgtable.h
-@@ -203,6 +203,10 @@ struct arm_lpae_io_pgtable_walk_data {
-  * @map_pages:    Map a physically contiguous range of pages of the same size.
-  * @unmap_pages:  Unmap a range of virtually contiguous pages of the same size.
-  * @iova_to_phys: Translate iova to physical address.
-+ * @iova_to_phys_length: Translate iova to physical address and return the
-+ *			  remaining mapped length from iova to the end of the
-+ *			  mapping entry via @mapped_length. If @mapped_length is
-+ *			  NULL, only the physical address is returned.
-  * @pgtable_walk: (optional) Perform a page table walk for a given iova.
-  * @read_and_clear_dirty: Record dirty info per IOVA. If an IOVA is dirty,
-  *			  clear its dirty state from the PTE unless the
-@@ -220,6 +224,9 @@ struct io_pgtable_ops {
- 			      struct iommu_iotlb_gather *gather);
- 	phys_addr_t (*iova_to_phys)(struct io_pgtable_ops *ops,
- 				    unsigned long iova);
-+	phys_addr_t (*iova_to_phys_length)(struct io_pgtable_ops *ops,
-+					   unsigned long iova,
-+					   size_t *mapped_length);
- 	int (*pgtable_walk)(struct io_pgtable_ops *ops, unsigned long iova, void *wd);
- 	int (*read_and_clear_dirty)(struct io_pgtable_ops *ops,
- 				    unsigned long iova, size_t size,
+ 	iommu_iotlb_gather_init(&iotlb_gather);
+ 	while (pos < dma->size) {
+-		size_t unmapped, len;
++		size_t unmapped, len, pgsize;
+ 		phys_addr_t phys, next;
+ 		dma_addr_t iova = dma->iova + pos;
+ 
+-		phys = iommu_iova_to_phys(domain->domain, iova);
++		/* Single page table walk returns both phys and PTE size */
++		phys = iommu_iova_to_phys_length(domain->domain, iova,
++						  &pgsize);
+ 		if (WARN_ON(!phys)) {
+ 			pos += PAGE_SIZE;
+ 			continue;
+ 		}
++		if (!pgsize || pgsize < PAGE_SIZE)
++			pgsize = PAGE_SIZE;
+ 
+ 		/*
+ 		 * To optimize for fewer iommu_unmap() calls, each of which
+ 		 * may require hardware cache flushing, try to find the
+ 		 * largest contiguous physical memory chunk to unmap.
++		 *
++		 * Calculate remaining contiguous bytes within this PTE from
++		 * our position, then try to join following physically
++		 * contiguous PTEs.
+ 		 */
+-		for (len = PAGE_SIZE; pos + len < dma->size; len += PAGE_SIZE) {
+-			next = iommu_iova_to_phys(domain->domain, iova + len);
++		len = pgsize - (iova & (pgsize - 1));
++		for (; pos + len < dma->size; ) {
++			size_t next_pgsize;
++
++			next = iommu_iova_to_phys_length(domain->domain,
++							  iova + len,
++							  &next_pgsize);
+ 			if (next != phys + len)
+ 				break;
++			if (!next_pgsize || next_pgsize < PAGE_SIZE)
++				next_pgsize = PAGE_SIZE;
++			len += next_pgsize;
+ 		}
+ 
+ 		/*
 -- 
 2.43.7
 
