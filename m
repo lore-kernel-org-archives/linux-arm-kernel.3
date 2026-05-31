@@ -4,76 +4,70 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 6E8D3CD6E5D
-	for <linux-arm-kernel@archiver.kernel.org>; Sun, 31 May 2026 15:46:01 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 16F2CCD6E52
+	for <linux-arm-kernel@archiver.kernel.org>; Sun, 31 May 2026 15:51:23 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:Cc:To:From:
-	Subject:Message-ID:Mime-Version:Date:Reply-To:Content-Transfer-Encoding:
-	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
-	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
-	bh=4HGHSV+ymwGZVts9xs57iGtb0PHiB6C1QG35wARFiWM=; b=lauSBIYcg0x9+M6dzuCWOzCkQ6
-	BXjxLtLnWiI36WX5197BzSa3kFO3gjDtn32Q5/4nLIKUSjCXwTsoxg2HfN5+MX9eSLJ5yD5yTCGLO
-	Za4ePwZ+TC6fHsnbqgDHKX4hfpQ8DamXw+6a60cDX9FREAr4Foe6CIM73HqcvbxHseAMXquQvoiSq
-	UqeRV0NBYD7TOrqd+F+hh0qXiCbZJgc+dZqHsLO3MZtcBwiYME81HqsURiDSNhRQfeEtQ7eINqQtY
-	wQwt/SNETDvSzvBxwlbr5kdf9cmXiKfkmeKe4c/yPIlLHS69iIKv9WsePUy6ntPXQfkE9BDe2pS9J
-	L4QSB7jA==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:
+	Content-Transfer-Encoding:Content-Type:MIME-Version:Message-Id:Date:Subject:
+	From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:
+	List-Owner; bh=wEA0Bbgp1Lh9hZrXgrHbG5c4JJwRefDBjSbZn8Oqiw0=; b=cnN270Dibfzn3j
+	eJ7LBIYzx6kE1plVpnItpfdXw8jlKUbUV8IYgLtVdvTiXu+Xa1D1Xb5IPVLo3sOHh85DMvyIXkwLD
+	JFZ5PMrGZ7FiGN5XqDtgaNGp4C1pYaaulRW1v8l1Rd7jRKICyWqk7o5PqZVlYAZJ2cb+NMFsX9PiB
+	l+gC+RrucHAFNcyOk/d8MS6NSiLhZcfeb0BdSeJDr1VictyxmEtpdOedFaLFEiPmnEbyzjgsjsNky
+	k9S5+7jKNM0HjUFOsA1k4edS7U5bJRGnlTKD0HXlEHrtKGE5C8HoYr5J1jzxqvCjnfyWMkAJyhG5n
+	KOFHyJwomJKhqX/YbGHA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wTiMK-00000009iQU-4BLo;
-	Sun, 31 May 2026 15:45:53 +0000
-Received: from mail-ej1-x649.google.com ([2a00:1450:4864:20::649])
+	id 1wTiRY-00000009ihx-2bAc;
+	Sun, 31 May 2026 15:51:16 +0000
+Received: from tor.source.kernel.org ([2600:3c04:e001:324:0:1991:8:25])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wTiMJ-00000009iPf-1Vyu
-	for linux-arm-kernel@lists.infradead.org;
-	Sun, 31 May 2026 15:45:52 +0000
-Received: by mail-ej1-x649.google.com with SMTP id a640c23a62f3a-beb7c5c1f52so78364766b.2
-        for <linux-arm-kernel@lists.infradead.org>; Sun, 31 May 2026 08:45:50 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=google.com; s=20251104; t=1780242349; x=1780847149; darn=lists.infradead.org;
-        h=cc:to:from:subject:message-id:mime-version:date:from:to:cc:subject
-         :date:message-id:reply-to;
-        bh=4HGHSV+ymwGZVts9xs57iGtb0PHiB6C1QG35wARFiWM=;
-        b=NIifI5DEGyu0PJKui7GmZI9E28VzBvOhF3BtJkfAAmYVjx7bNY5GHRXUt8lDGiVhWE
-         d0nGhGKDz6gwp0XgmxtfqDOQI+Rrl/I9Sokt3yvMSYED4VZkzv2Iuc4e5H9Hy6ct+4TI
-         +4bgYQr0Yq0DRNzjwEGr7lRSAagfjSZ8f7sZLOunO6e6b2IqEt7XFFNtdhh2e9qawwMR
-         nw3IFUZ/mngsCOH47F2Wf9XtKllWJ8j0HEatxhAWV4lzJr3Pyf+++4V/qAxmUseC19CM
-         JQAF3HH2aYz/Wpq/SS6crr6sBtohvymM0SIBz5KY+0cJNpMvQRhqHO9b34iTuxrrLmtp
-         XfIw==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20251104; t=1780242349; x=1780847149;
-        h=cc:to:from:subject:message-id:mime-version:date:x-gm-message-state
-         :from:to:cc:subject:date:message-id:reply-to;
-        bh=4HGHSV+ymwGZVts9xs57iGtb0PHiB6C1QG35wARFiWM=;
-        b=tWhBHZlFO9/9H69O880yoi6mdT+dXv3BuuUxKPwBfKyuMHnI7jK4dTjxO8r8Bszn/h
-         01h3G9Der2vE1wGDfgEmCoOVLlDpaz0R/f4vMQZLARRbDZejsDQxxYxnWaLJg6HwliTi
-         epVvtxBCS9R7us+SzKvsS8sW20knwJNF0T8UGZJjRafJOvYCQW7Wsq5Q1iujcRwrQD5t
-         ZQS37Nwddqyf8/TDWP3OeIla83QjS6znyYNajFZje/WMaZtfgqnE7OrQv0IoB/RHOiHu
-         sxPg/SrCzdsNVpx6brJZVDm8ZQEO3yXSf1hkWoa/026t0ugD53jtC2CFrw5Xpys5dVxi
-         i+/w==
-X-Gm-Message-State: AOJu0Yye63GQVk06oRcD5mi4UzrtSnCftISfVVQjsDwY6MHSuVpuwNtN
-	o27n9rl0Rg8xRKcLb6Glg43sdWrr0ZjIks0q2RUw5xyCJzMmxxTa6A1lnI71n/u61Byuu6RYj2J
-	O4w==
-X-Received: from edqm24.prod.google.com ([2002:aa7:c498:0:b0:68b:eff7:97f1])
- (user=tabba job=prod-delivery.src-stubby-dispatcher) by 2002:a17:907:c10:b0:be2:6e41:ba8f
- with SMTP id a640c23a62f3a-beab5bebadfmr383941866b.44.1780242348882; Sun, 31
- May 2026 08:45:48 -0700 (PDT)
-Date: Sun, 31 May 2026 16:45:48 +0100
-Mime-Version: 1.0
-X-Mailer: git-send-email 2.54.0.929.g9b7fa37559-goog
-Message-ID: <20260531154548.1505799-1-tabba@google.com>
-Subject: [PATCH] KVM: arm64: Flush HCR_EL2.VSE to deliver SErrors to pKVM guests
-From: tabba@google.com
-To: Marc Zyngier <maz@kernel.org>, Oliver Upton <oupton@kernel.org>, Joey Gouly <joey.gouly@arm.com>, 
-	Suzuki K Poulose <suzuki.poulose@arm.com>, Zenghui Yu <yuzenghui@huawei.com>, 
-	Catalin Marinas <catalin.marinas@arm.com>, Will Deacon <will@kernel.org>, 
-	Quentin Perret <qperret@google.com>
-Cc: linux-arm-kernel@lists.infradead.org, kvmarm@lists.linux.dev, 
-	linux-kernel@vger.kernel.org
-Content-Type: text/plain; charset="UTF-8"
-X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260531_084551_430983_BA1DBE49 
-X-CRM114-Status: GOOD (  12.59  )
+	id 1wTiRX-00000009ihn-2npe;
+	Sun, 31 May 2026 15:51:15 +0000
+Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
+	by tor.source.kernel.org (Postfix) with ESMTP id 04274601DE;
+	Sun, 31 May 2026 15:51:15 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 2086F1F00893;
+	Sun, 31 May 2026 15:51:13 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
+	s=k20260515; t=1780242674;
+	bh=wEA0Bbgp1Lh9hZrXgrHbG5c4JJwRefDBjSbZn8Oqiw0=;
+	h=From:Subject:Date:To:Cc;
+	b=oki/6QFUUyyGK9W04e9LbYnAp8ro5HD6cnIuYp9RXShE9o2UxEBQIQEITEoINyf/G
+	 fpFAdrs7kVcKGjFU94AAxNJ799IQqCXSM53GVkyUspmNKtEMOyDPMcgMDcjMp3FKMK
+	 Fa1b5AjetSoIcMgGr/zKL9enQyxkImiAt9Li93uJiQVtZWWRy8HaTfRFEK3ZCQI12P
+	 xHhgd0rghMItWmnCrAysB4N8vE/KnsLcNDpOHlaTD8Lw+D8lcKcR+jUMvDkgJrNM88
+	 cx49SkQzrWFZP0NboStt1ghAXmkDttlYPgxzllbvUCc7fF3XHCKY9yejrGTFGDlNur
+	 ur7c2pbRXTP+A==
+From: Lorenzo Bianconi <lorenzo@kernel.org>
+Subject: [PATCH nf-next v3 0/6] Add IPv4 over IPv6 and SIT flowtable SW
+ acceleration
+Date: Sun, 31 May 2026 17:50:32 +0200
+Message-Id: <20260531-b4-flowtable-sw-accel-ip6ip-v3-0-56a2826f3279@kernel.org>
+MIME-Version: 1.0
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: 7bit
+X-B4-Tracking: v=1; b=H4sIAAAAAAAC/43NSwqDMBSF4a2UjHtLXiako+6jdBDjVUNDlETUI
+ u69wVE7KR0efvjORjImj5lcTxtJOPvsh1iGOJ+I623sEHxTNuGUK1rRCmoJbRiWydYBIS9gncM
+ AflR+BM0oo0K6hklNijAmbP166HcSW4i4TuRRQu/zNKTX8TqzI/91MDOgYKwTxjln0JrbE1PEc
+ BlSd8Az/8TUb4wXTArTNpJrzRV+Yfu+vwE/G5OaHQEAAA==
+X-Change-ID: 20260505-b4-flowtable-sw-accel-ip6ip-7101034cd147
+To: Andrew Lunn <andrew+netdev@lunn.ch>, 
+ "David S. Miller" <davem@davemloft.net>, Eric Dumazet <edumazet@google.com>, 
+ Jakub Kicinski <kuba@kernel.org>, Paolo Abeni <pabeni@redhat.com>, 
+ Felix Fietkau <nbd@nbd.name>, Matthias Brugger <matthias.bgg@gmail.com>, 
+ AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>, 
+ Simon Horman <horms@kernel.org>, David Ahern <dsahern@kernel.org>, 
+ Ido Schimmel <idosch@nvidia.com>, Pablo Neira Ayuso <pablo@netfilter.org>, 
+ Florian Westphal <fw@strlen.de>, Phil Sutter <phil@nwl.cc>, 
+ Shuah Khan <shuah@kernel.org>, Lorenzo Bianconi <lorenzo@kernel.org>
+Cc: linux-arm-kernel@lists.infradead.org, 
+ linux-mediatek@lists.infradead.org, netdev@vger.kernel.org, 
+ netfilter-devel@vger.kernel.org, coreteam@netfilter.org, 
+ linux-kselftest@vger.kernel.org
+X-Mailer: b4 0.14.3
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -88,46 +82,50 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-With pKVM enabled, the host injects a virtual SError by setting
-HCR_EL2.VSE on its vCPU copy, but flush_hyp_vcpu() only flows TWI/TWE
-into the hyp vCPU that runs, so VSE never reaches it and a deferred
-(masked) SError is never delivered. VSE is a host-owned injection
-control, not a trap-configuration bit, so restricting the host's
-trap-register values should not have dropped it. Flow it on entry;
-sync_hyp_vcpu() already copies hcr_el2 back, so delivery is reflected
-to the host.
+Similar to IPIP and IP6I6 tunnels, introduce sw acceleration for IPv4 over
+IPv6 and SIT tunnels in the netfilter flowtable infrastructure.
 
-Fixes: b56680de9c648 ("KVM: arm64: Initialize trap register values in hyp in pKVM")
-Reported-by: Sashiko (local):gemini-3.1-pro
-Signed-off-by: Fuad Tabba <tabba@google.com>
 ---
-Not an urgent fix. I should stop running Sashiko...
----
- arch/arm64/kvm/hyp/nvhe/hyp-main.c | 9 +++++++--
- 1 file changed, 7 insertions(+), 2 deletions(-)
+Changes in v3:
+- Drop nf_flow_tunnel_v4_push and nf_flow_tunnel_v6_push routines
+- Rebase on top of net-next tree.
+- Link to v2: https://lore.kernel.org/r/20260506-b4-flowtable-sw-accel-ip6ip-v2-0-439fd427726e@kernel.org
 
-diff --git a/arch/arm64/kvm/hyp/nvhe/hyp-main.c b/arch/arm64/kvm/hyp/nvhe/hyp-main.c
-index 06db299c37a8..9e4a20df6409 100644
---- a/arch/arm64/kvm/hyp/nvhe/hyp-main.c
-+++ b/arch/arm64/kvm/hyp/nvhe/hyp-main.c
-@@ -129,9 +129,14 @@ static void flush_hyp_vcpu(struct pkvm_hyp_vcpu *hyp_vcpu)
- 	hyp_vcpu->vcpu.arch.ctxt	= host_vcpu->arch.ctxt;
- 
- 	hyp_vcpu->vcpu.arch.mdcr_el2	= host_vcpu->arch.mdcr_el2;
--	hyp_vcpu->vcpu.arch.hcr_el2 &= ~(HCR_TWI | HCR_TWE);
-+	/*
-+	 * HCR_EL2.VSE is host-owned (a pending virtual SError to inject), not a
-+	 * trap-control bit, so it must flow to the hyp vCPU alongside TWI/TWE
-+	 * for the vSError to be delivered. sync_hyp_vcpu() reflects it back.
-+	 */
-+	hyp_vcpu->vcpu.arch.hcr_el2 &= ~(HCR_TWI | HCR_TWE | HCR_VSE);
- 	hyp_vcpu->vcpu.arch.hcr_el2 |= READ_ONCE(host_vcpu->arch.hcr_el2) &
--						 (HCR_TWI | HCR_TWE);
-+						 (HCR_TWI | HCR_TWE | HCR_VSE);
- 
- 	hyp_vcpu->vcpu.arch.iflags	= host_vcpu->arch.iflags;
- 
+Changes in v2:
+- Fix MTU check in nf_flow_offload_forward() and in
+  nf_flow_offload_ipv6_forward()
+- Add SIT sw acceleration support
+- Link to v1: https://lore.kernel.org/r/20260505-b4-flowtable-sw-accel-ip6ip-v1-0-9ac39ccc9ea9@kernel.org
+
+---
+Lorenzo Bianconi (6):
+      net: netfilter: Add ether_type to net_device_path_ctx
+      net: netfilter: Add encap_proto to flow_offload_tunnel
+      net: netfilter: Add IPv4 over IPv6 tunnel flowtable acceleration
+      selftests: netfilter: nft_flowtable.sh: Add IPv4 over IPv6 flowtable selftest
+      net: netfilter: Add SIT tunnel flowtable acceleration
+      selftests: netfilter: nft_flowtable.sh: Add SIT flowtable selftest
+
+ drivers/net/ethernet/airoha/airoha_ppe.c           |  14 +-
+ drivers/net/ethernet/mediatek/mtk_ppe_offload.c    |  13 +-
+ include/linux/netdevice.h                          |   5 +-
+ include/net/netfilter/nf_flow_table.h              |   1 +
+ net/core/dev.c                                     |   6 +-
+ net/ipv4/ipip.c                                    |   1 +
+ net/ipv6/ip6_tunnel.c                              |   6 +-
+ net/ipv6/sit.c                                     |  26 ++
+ net/netfilter/nf_flow_table_core.c                 |  14 +-
+ net/netfilter/nf_flow_table_ip.c                   | 403 +++++++++++++--------
+ net/netfilter/nf_flow_table_path.c                 |  16 +-
+ tools/testing/selftests/net/netfilter/config       |   1 +
+ .../selftests/net/netfilter/nft_flowtable.sh       |  78 +++-
+ 13 files changed, 403 insertions(+), 181 deletions(-)
+---
+base-commit: 8415598365503ced2e3d019491b0a2756c85c494
+change-id: 20260505-b4-flowtable-sw-accel-ip6ip-7101034cd147
+
+Best regards,
 -- 
-2.54.0.929.g9b7fa37559-goog
+Lorenzo Bianconi <lorenzo@kernel.org>
 
 
