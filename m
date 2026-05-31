@@ -4,76 +4,76 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 98801CD6E57
-	for <linux-arm-kernel@archiver.kernel.org>; Sun, 31 May 2026 23:54:32 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id B2634CD6E57
+	for <linux-arm-kernel@archiver.kernel.org>; Sun, 31 May 2026 23:58:46 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
 	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
 	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=IrKWJ1NykkXFbiCeCeA4esCrNiqvK/wMlJLwP88BqrM=; b=IQsr8fLHhLcZAE0jAWxnGA3DB0
-	eJAL8HTD8wZMdJWPqLGjxl2UbZVCfJQ+iueMdWHLbhawQJEvNtjozM8VqIZUOpMOvR3dlECRzeROw
-	vG/6BgVu2PYy1+CeD8YLXlbDHcwmcV0pYuHVk/y9BwmR9jL8iPyoq4FuSEEJyP/5VIt1Ik840aVPJ
-	HNW7qSdynnQAmWFtNHEprsf2No4+jLrIQ0HuoiXPFuKbSIGWK8RTu+5d4At+AYC/08K1tBvtPYcPv
-	JGqds7e2g30/LEPKTax8nmndyA9edGBHGQHo5KCMWY26VCOBt6C1KjnHmb9XL952umsMIgv9HpRZ5
-	FjGs/Kww==;
+	bh=hTfGHM2qB3g/FLyvX8FCIrm9+eNCgSr89Naia4gruos=; b=jnQCTSuWANThqjuUtVjmJMtD2Q
+	p31jcBB8JmUNl9ZJ7tjZMRT1Yg4xYxE4CBMxpa5PTBU5Mos0CSu63UfLHkjyzSGdIsazp9KkptO3+
+	xJzjMXhOdH7HOB349uFjFx+sPBh7YVXJQCS9tWf9k51Z68qqq8XfuM3DxUJjm53iywQuVOXn5eUMy
+	zp5y90XhKr7jo28/JEMWXSlgfxLiAs5rnb7AHiCZDSJ3erbUofQ9QEH6X8/N+hTvKvCUHb+2FgucC
+	URwtdwAfA4cHjTYP0GEblHJkERXSREyY8GLm3riCQcet+RBuDz552/QY9yly14CVezK1ayINpB5mo
+	Ns2648Jw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wTpz8-00000009ykr-09fc;
-	Sun, 31 May 2026 23:54:26 +0000
-Received: from mail-qt1-x82a.google.com ([2607:f8b0:4864:20::82a])
+	id 1wTq3E-00000009yv5-2ElN;
+	Sun, 31 May 2026 23:58:40 +0000
+Received: from mail-qk1-x731.google.com ([2607:f8b0:4864:20::731])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wTpz6-00000009ykY-1Y6A
+	id 1wTq3C-00000009yuk-1QdN
 	for linux-arm-kernel@lists.infradead.org;
-	Sun, 31 May 2026 23:54:25 +0000
-Received: by mail-qt1-x82a.google.com with SMTP id d75a77b69052e-516d61baff3so105916231cf.0
-        for <linux-arm-kernel@lists.infradead.org>; Sun, 31 May 2026 16:54:23 -0700 (PDT)
+	Sun, 31 May 2026 23:58:39 +0000
+Received: by mail-qk1-x731.google.com with SMTP id af79cd13be357-91562bf6c12so19209185a.2
+        for <linux-arm-kernel@lists.infradead.org>; Sun, 31 May 2026 16:58:37 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=ziepe.ca; s=google; t=1780271663; x=1780876463; darn=lists.infradead.org;
+        d=ziepe.ca; s=google; t=1780271917; x=1780876717; darn=lists.infradead.org;
         h=in-reply-to:content-disposition:mime-version:references:message-id
          :subject:cc:to:from:date:from:to:cc:subject:date:message-id:reply-to;
-        bh=IrKWJ1NykkXFbiCeCeA4esCrNiqvK/wMlJLwP88BqrM=;
-        b=BHs9o2Jull3FMXfCQtqoDk1mopnSNyQJGbSmNO9IRK1hlDSgFTpd33mH/mcCDep6iR
-         YqwsLIauWCGhxvYaspaPdKfHFljGgeAdctilzzSluDUgOMQ3g/kjO19nnQ8ZZIdHCDGR
-         r/ERBIYTlX36u4z78bKLxLHWCeXvGLeRUNApjBkZZCRnLzG5MBIeHXPfEGt61vwLpCRr
-         5v978j23/b5/8SBbePEGCMVfwacjQmp4z1vzU0woGPIi0lprRJf76+8WUv2iLIfPQTJT
-         LNv6S1yrz8EUtF0ZQWANTEuRSyLPJw2gr/5PHTqZINXWLN++VLapbI66YjDnBAw/tZDq
-         Orog==
+        bh=hTfGHM2qB3g/FLyvX8FCIrm9+eNCgSr89Naia4gruos=;
+        b=dyE4aE7xclvL4Hrbj87yVf0654DaU7VMS9i5RFrRHi2Q/QaVNfcTiz7xUq6zLlhL2g
+         0Q8QMu6I/Jh4AjYSfu3mV1/WniHVe4D1q/fy/wPsrnwqZm3G21tSvsjpRov3qYi3b/O4
+         YMSdkA/5+W2Vyqs0TmvGYcloIgF1yPi1RGq3EwqxHT52iQzME1TJQK+TSLlxTbQh4e6h
+         0DY4tVIy1IP0y6r+nO6pdk062kzFRjfM63J43qTgYvyTO4YhQkvbA13XKXp3NVBlZXbP
+         xuFF5c185XkdOSo0qKlyWg1tWcxaxYq+yLAh+cFCixpFfaXy5vr+V/f2Oia+RII4ZUQT
+         x4iQ==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20251104; t=1780271663; x=1780876463;
+        d=1e100.net; s=20251104; t=1780271917; x=1780876717;
         h=in-reply-to:content-disposition:mime-version:references:message-id
          :subject:cc:to:from:date:x-gm-gg:x-gm-message-state:from:to:cc
          :subject:date:message-id:reply-to;
-        bh=IrKWJ1NykkXFbiCeCeA4esCrNiqvK/wMlJLwP88BqrM=;
-        b=n+CWilUXmO5jOCA/GiA0hFNbLFzkqmdX7sCAO5eyzzReILN2sp37kNe+TvfCOfyqiL
-         GwtpjMXbfoXYIxtxdcww60kwGmMFEVE6Wo+N6myvbxYHngy6ruxeWk0G3vu2zzzO7bvi
-         FwkH5Hv2JmHsr+jTq/L9IxY4ZxZqkrVFcH4roRhrj4EGrrlRW9+CV1Y/YMxu1U53GelP
-         Fwpz5bqlbb54xoW/d0mM0ojqeoAY9UaXpTMtfzbY+pcenXckZxPFFYj4o19ii1KD6ccq
-         1idzxkKyZlL+H93MLC/ugFx2peJQy3XMNFAoFCCt1nqLnkeqhMxsTnrfpK/i58h29UbZ
-         A1zQ==
-X-Forwarded-Encrypted: i=1; AFNElJ95jJ115CqXJkTwc/Je3/6DxPrnyYm0/DjI7M80uhtzim7fSr/8zLHYv+mnm8pa72DgBxs1iigxCqddOjPrTaM6@lists.infradead.org
-X-Gm-Message-State: AOJu0YzDTx/Q79sOareq3kUaGYSTgdUBkjQLApUNhocdiscpNFoU7+8d
-	+Vdh6i8769dmw96pQPtUs7JufTPp46E2BMm0kndh3V7Mg/yGSo9zO27vlXqNaFA03ZA=
-X-Gm-Gg: Acq92OGQEuagVrPTA2ssS/0TbjqpAj8C7uazvdFXrzY7s8yFZdCBPXAhlXLMSOFvt0A
-	WufzuKiv23uVkXHDh857g1MD4WxMSM2H+crEoau0C0RnqrOrRCvS68iY84dsNg20hPO/acQqOcJ
-	QHNCIQ/nF0C1HdAsgMO++Mf6XcfJHmW0jXp7oM7B2n7ieR4bQ/ZprhRGiBqys2tFhnTkM3QvEBL
-	3Toimwq7IU80lfjCqJgbY6IA3Vun2YBjRSKHpCVBaq2YdCdHztoRXAei7ePI0oQNpK2oHfssgi/
-	cPAelXf3ldo4VJktmChCrI699zbzb44+viyOoqL3+bg7Gq48yVrSvEfEtexYE2c9FOlV3HJ/XV7
-	SFgtXTsNtE4+eOezxDXgrth1x16wk8SwD0dNnV9No/x8xb9tM0QhLNwMD7ycvY5L2hbulIDj8kQ
-	byiHJnQi7mJLB+8wUdFjqBUQShahmno/nT/4Sr1PDZHImdopl4QedlU5fEPndw0H0r04lKRtwj1
-	N8C6Zwbm70wv4vB4NTHECTpsN4=
-X-Received: by 2002:a05:622a:646:b0:516:d943:175e with SMTP id d75a77b69052e-5173a77ad04mr129763061cf.25.1780271663054;
-        Sun, 31 May 2026 16:54:23 -0700 (PDT)
+        bh=hTfGHM2qB3g/FLyvX8FCIrm9+eNCgSr89Naia4gruos=;
+        b=cL3TkX7ghmvYYeqDPmFRkWkBZ7I61k/JaQu8YnSYTuzM8lYXrrqa1pRx9mGwVmwX7S
+         1diHjrIPOfLNPAc00mYORipM4TCqICwaGUnIknGLk3PxzYu7fzRIEyCyBUT9YpQNRnOr
+         PlY9h0fKpYmWFiriNtpUDxOx9+fXGNRal3WZV8rHSQtPSSPS0VSzPNH3Dr22Juumy8w/
+         BMgNVJB9GguifrdHKjbdhvyiucbR4n8dUCBKXIssRAIrZnJfG7CHoBOpP9MILi2VTkMl
+         jNrMN9JRA9b8x3kP88pgOKJ6XoAxrZV208GH5uVaCm4Q3ml9GIpY+0+94WlAPX+RpUuM
+         vUGQ==
+X-Forwarded-Encrypted: i=1; AFNElJ9mRvGrL/Ie4H964P/8yc3+mty/KLNn8m4MRX+7EsxBCVb27WHPpTcOnc8vytiA8ZEpltKXd0mH7eqzg1wOLjg6@lists.infradead.org
+X-Gm-Message-State: AOJu0YzuNVlblVH5qY/gagW4FGWneBXgkAIGkayeiTaBn/GvtrpkYgSM
+	R2Hv+B7jwi8jDK4a3JQ+e0qQ653oaqYl0PkPM23qeGiDMNPWnSfvh1DN7WyfXxDtn54=
+X-Gm-Gg: Acq92OFOOC3my2U1lG4dubfdHt1+C6bf+qYNC18UkgdUV2ufXQDUxFRVdSDN6Ri5A3E
+	ATfEqmZ4nnf/A0ZNWghArJlXQkAkKx7Q2C8+yvaqZSDOXKGZkYfz3/dJU05Qo+uZ1wNAEkpdyw7
+	rEL0r1wS65BE/k5J+cFHTzZD2pISCGmJ/sXGp+crzbI46usYNHikjPxAsxM0hEbs6IjAdCOJaAp
+	t6x/ILckNlui2bc9B93qkR2AXcLeXDzw3fc7wljAig6lCMUKEm7MIjNwrsMyI3d9+RiERsONBqB
+	BfA619wskqM3J1GyZFHzhjDhtGZoj7Z+IQf4lH2yaBnwv+uN7t2NDHdHZIKgIK2cwM7NMOWjgFL
+	dMeI9fA4qHK3pNMFkWWIUpJPC4XBUDdutmfvYkq3wyinKTeyHxyCrUSMQqCxMjNudARWcR0tc7P
+	uuxZTPM93ZUhcjPLzDZqWokNQVB15uK4KLLePkTty3Bsecz4/OA+CyfP+do2Cb7+bktLsokukF3
+	1SHBQGQpTkftQDC
+X-Received: by 2002:a05:620a:bc8:b0:8cd:97de:bb52 with SMTP id af79cd13be357-9153d9703b8mr1495082185a.22.1780271916895;
+        Sun, 31 May 2026 16:58:36 -0700 (PDT)
 Received: from ziepe.ca (crbknf0213w-47-54-130-67.pppoe-dynamic.high-speed.nl.bellaliant.net. [47.54.130.67])
-        by smtp.gmail.com with ESMTPSA id 6a1803df08f44-8ccea1ca972sm78588116d6.30.2026.05.31.16.54.22
+        by smtp.gmail.com with ESMTPSA id af79cd13be357-9153262e2a6sm837284285a.40.2026.05.31.16.58.36
         (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Sun, 31 May 2026 16:54:22 -0700 (PDT)
+        Sun, 31 May 2026 16:58:36 -0700 (PDT)
 Received: from jgg by wakko with local (Exim 4.97)
 	(envelope-from <jgg@ziepe.ca>)
-	id 1wTpz3-00000001Lqf-3yz5;
-	Sun, 31 May 2026 20:54:21 -0300
-Date: Sun, 31 May 2026 20:54:21 -0300
+	id 1wTq39-00000001Lt5-3GHA;
+	Sun, 31 May 2026 20:58:35 -0300
+Date: Sun, 31 May 2026 20:58:35 -0300
 From: Jason Gunthorpe <jgg@ziepe.ca>
 To: Guanghui Feng <guanghuifeng@linux.alibaba.com>
 Cc: boris.brezillon@collabora.com, robh@kernel.org, steven.price@arm.com,
@@ -88,19 +88,19 @@ Cc: boris.brezillon@collabora.com, robh@kernel.org, steven.price@arm.com,
 	dwmw2@infradead.org, xlpang@linux.alibaba.com,
 	oliver.yang@linux.alibaba.com, shiyu.zsq@linux.alibaba.com,
 	wei.guo.simon@linux.alibaba.com
-Subject: Re: [PATCH 3/9] iommu/generic_pt: implement iova_to_phys_length
-Message-ID: <20260531235421.GW2487554@ziepe.ca>
+Subject: Re: [PATCH 7/9] vfio/iommufd: use iova_to_phys_length for efficient
+ unmap
+Message-ID: <20260531235835.GX2487554@ziepe.ca>
 References: <20260529115116.GR2487554@ziepe.ca>
  <20260531093637.3893199-1-guanghuifeng@linux.alibaba.com>
- <20260531093637.3893199-4-guanghuifeng@linux.alibaba.com>
+ <20260531093637.3893199-8-guanghuifeng@linux.alibaba.com>
 MIME-Version: 1.0
 Content-Type: text/plain; charset=us-ascii
 Content-Disposition: inline
-In-Reply-To: <20260531093637.3893199-4-guanghuifeng@linux.alibaba.com>
+In-Reply-To: <20260531093637.3893199-8-guanghuifeng@linux.alibaba.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260531_165424_415626_AEBF4BE2 
-X-CRM114-Status: UNSURE (   8.56  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20260531_165838_390791_7C3C97D9 
+X-CRM114-Status: GOOD (  20.49  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -115,22 +115,69 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Sun, May 31, 2026 at 05:36:31PM +0800, Guanghui Feng wrote:
-> @@ -159,45 +164,51 @@ static __always_inline int __do_iova_to_phys(struct pt_range *range, void *arg,
->  	case PT_ENTRY_TABLE:
->  		return pt_descend(&pts, arg, descend_fn);
->  	case PT_ENTRY_OA:
-> -		*res = pt_entry_oa_exact(&pts);
-> +		data->phys = pt_entry_oa_exact(&pts);
-> +		data->length = BIT(pt_entry_oa_lg2sz(&pts));
+On Sun, May 31, 2026 at 05:36:35PM +0800, Guanghui Feng wrote:
+>  		/*
+> -		 * This is pretty slow, it would be nice to get the page size
+> -		 * back from the driver, or have the driver directly fill the
+> -		 * batch.
+> +		 * Use iova_to_phys_length to get both the physical address
+> +		 * and the PTE page size in a single page table walk, allowing
+> +		 * us to skip ahead by the contiguous region size instead of
+> +		 * walking the page tables for every PAGE_SIZE step.
+>  		 */
+> -		phys = iommu_iova_to_phys(domain, iova) - page_offset;
+> -		if (!batch_add_pfn(batch, PHYS_PFN(phys)))
+> -			return;
+> -		iova += PAGE_SIZE - page_offset;
+> +		phys = iommu_iova_to_phys_length(domain, iova, &pgsize) -
+> +		       page_offset;
+> +		if (!pgsize || pgsize < PAGE_SIZE)
+> +			pgsize = PAGE_SIZE;
 
-BIT is the wrong function, it uses the wrong type. log2_to_int() is
-type'd properly
+It is actually a bug if it returns something < PAGE_SIZE, it should
+WARN_ON and try to continue.
 
-This also needs to keep walking and accumulating length for
-consecutive PTEs until it reaches a non-contiguity.
+> @@ -1177,25 +1177,41 @@ static long vfio_unmap_unpin(struct vfio_iommu *iommu, struct vfio_dma *dma,
+>  
+>  	iommu_iotlb_gather_init(&iotlb_gather);
+>  	while (pos < dma->size) {
+> -		size_t unmapped, len;
+> +		size_t unmapped, len, pgsize;
+>  		phys_addr_t phys, next;
+>  		dma_addr_t iova = dma->iova + pos;
+>  
+> -		phys = iommu_iova_to_phys(domain->domain, iova);
+> +		/* Single page table walk returns both phys and PTE size */
+> +		phys = iommu_iova_to_phys_length(domain->domain, iova,
+> +						  &pgsize);
+>  		if (WARN_ON(!phys)) {
+>  			pos += PAGE_SIZE;
+>  			continue;
+>  		}
+> +		if (!pgsize || pgsize < PAGE_SIZE)
+> +			pgsize = PAGE_SIZE;
+>  
+>  		/*
+>  		 * To optimize for fewer iommu_unmap() calls, each of which
+>  		 * may require hardware cache flushing, try to find the
+>  		 * largest contiguous physical memory chunk to unmap.
+> +		 *
+> +		 * Calculate remaining contiguous bytes within this PTE from
+> +		 * our position, then try to join following physically
+> +		 * contiguous PTEs.
+>  		 */
+> -		for (len = PAGE_SIZE; pos + len < dma->size; len += PAGE_SIZE) {
+> -			next = iommu_iova_to_phys(domain->domain, iova + len);
+> +		len = pgsize - (iova & (pgsize - 1));
+> +		for (; pos + len < dma->size; ) {
+> +			size_t next_pgsize;
 
-The other drivers don't need to have that complexity.
+Things should be arranged so the iommu_iova_to_phys_length() always
+returns the best length, either because it called into iommupt to get
+it or because it accumulated internally on an old driver.
+
+Probably to make this work well the API should include the last
+address to reach so it can stop iterating at the right point.
 
 Jason
 
