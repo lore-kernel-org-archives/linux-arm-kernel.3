@@ -4,95 +4,71 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 32B26CD6E52
-	for <linux-arm-kernel@archiver.kernel.org>; Sun, 31 May 2026 10:25:48 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id EC4B8CD5BD1
+	for <linux-arm-kernel@archiver.kernel.org>; Sun, 31 May 2026 10:27:55 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:
-	Content-Transfer-Encoding:Content-Type:MIME-Version:References:Message-ID:
-	Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=xMYihA9IlT7MGBAsYy2tN6OXn0Itk+3Xj0eqVjjKY/M=; b=i7JE+V3xAzzwwMrRAi9kBWnyMb
-	RGGl0Uquv1O2XP//Ai9Fbjwe5kCpS5Y25hVdqzjeP13wthI6IXTnUxfxe9vnTjOsYUkj41Lac2209
-	lER37a20Ynzxl85plOb1QiOQHRskwdPqMWpufM7Oa+od3BuM6MO967wACbyLbf0Sd8+BBbDgGv2bl
-	HmHR2Cd8aVyJ0ROCk3PnxnZYiFiKiL+OpDoJgbp9RLgJ5ApUhNaiz0TcVZ9SRUD66homqQ+DI5EMa
-	3sQVVrOZ+QibiP+gtc2BALLPQaOcINV4pP+mJmq8mktI6/hreUHC5EIQFpmj0kBHhwWHg3zKpkCPz
-	qhUxTEZA==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
+	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=+ruVGsuPQy0eatTFKb5OBeOFRqUGuVR1RYE/wDl/f+Y=; b=kLlnJix34DGQFKe17t4YVzTjAs
+	O8OXVhkPJ+pBgh/7uaafTTh87UASdLLlNAb1YVNbCHugvFlPhRBrskwFH6vFBxXGBoSvjOTl00Epe
+	EEu+V6FgyZxaZsgmHDcX5ExcF/tZCQFFh0KxLNMGqlDc41YVnaJzwL65VeT/LsjrPNiWiTxmUpTax
+	/wkFpV+KVyADz4lpDImKG1dYycWKW1Wz4ukdSIqJDlvD4wvLQGBHVZL7T02pIjNHMHBse9m4VVMMp
+	5382fgMqAQx9pWyJjo8Kkebv/WoKtsXFSKeFitAT3upFoaCkxymuruDL9h70/WThc5yxZqzsijWqf
+	bBSc4vlg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wTdMS-00000009UA2-1fX9;
-	Sun, 31 May 2026 10:25:40 +0000
-Received: from mail-lj1-x232.google.com ([2a00:1450:4864:20::232])
+	id 1wTdOV-00000009UMt-3Lur;
+	Sun, 31 May 2026 10:27:47 +0000
+Received: from mail-m128136.netease.com ([103.209.128.136])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wTdMP-00000009U9Y-0ycE
-	for linux-arm-kernel@lists.infradead.org;
-	Sun, 31 May 2026 10:25:38 +0000
-Received: by mail-lj1-x232.google.com with SMTP id 38308e7fff4ca-396753f343aso5309321fa.2
-        for <linux-arm-kernel@lists.infradead.org>; Sun, 31 May 2026 03:25:36 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20251104; t=1780223135; x=1780827935; darn=lists.infradead.org;
-        h=in-reply-to:content-transfer-encoding:content-disposition
-         :mime-version:references:message-id:subject:cc:to:from:date:from:to
-         :cc:subject:date:message-id:reply-to;
-        bh=xMYihA9IlT7MGBAsYy2tN6OXn0Itk+3Xj0eqVjjKY/M=;
-        b=KPIoXNtFCcSWl0JquWdUz4DY88Ec4dOaQCLLEnTO93AjP17lL4pyACnBOAcyAnFUne
-         8ANwkhNNmvoE4VLC/oeNJUtqOuejU8okHWAOX7QvN4mwhogqkczCvuW5tNVBg6RH4+o/
-         lDu1SOy8uba/T70WGGT6bhyzc4MLF9tWTfgfGnV/iBjoysiS/x25/27F3oVKqrmnPRWO
-         c2h8yxwELPUPp3qKG9XB48sdd7SSotTvF52OnqTV8F0m8ayF+KcGJwwzrwZvo/T5jdb/
-         9B8W+4quTf+PfsaolWaksH8eaO9DOFHhmIVqYROerC8g0T1Y7LknBhECFmHbE1bSTFxQ
-         1lxQ==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20251104; t=1780223135; x=1780827935;
-        h=in-reply-to:content-transfer-encoding:content-disposition
-         :mime-version:references:message-id:subject:cc:to:from:date:x-gm-gg
-         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to;
-        bh=xMYihA9IlT7MGBAsYy2tN6OXn0Itk+3Xj0eqVjjKY/M=;
-        b=fD2K2jPx4UTsbkY0ANJv3hU0bEll4qXBv2GgFfYyEn+Dk9809Gp7b/UbQEJ0hgzNeh
-         2soQn4PoiNSk022gFJzDwKyIbL6BjYYbXVCvV7/Un3Jlu7n6s4cFvJFA+4sZPni3NRUa
-         Bi+8FX7rfieO8WDJLbAW0eDXF5N+KU9KtEMATITcJiwCDftiQoTy6mkAHqbcRphrs1F8
-         wicSbUH/NdzuRKP/WKPMs3a24fmuUpjZzlMcGGcKZ+8UXzvPPAuK/PNxd7KT/G22RyoJ
-         gHJVeMV8EV6m+hR5WrehdCr0JuwHwN5HnCeoggLQyXLL6BRFHrhTeF+UT+VG1KcBWwQP
-         cqsw==
-X-Forwarded-Encrypted: i=1; AFNElJ9+wr7p3l44gOdK0tFEtCVxf0CL6Jmz7fiMh1abSXL6wBe43ji8GgvgfN6H6CM3e7nYZNXHJcbA4eVz8nf3EP+J@lists.infradead.org
-X-Gm-Message-State: AOJu0YwgR2giZiItudhMBVxgWV9S7KzQbzbU3+eMwFdw4dPI5acnLA73
-	ZXW8uTK+i3Q+ntmvGaVfUnWGuwFh2UKFZDCceEW5DSm1MDbof3fUCZhX
-X-Gm-Gg: Acq92OGLIKRx4gM64pw9y3JS/pp0T2vAtfXYJM+QBUu92C2oUMNM0G8sClA/KZ9W77F
-	QfbdN3aSi9tGNL16xYVFvyd4xduqIMmtopg+guOWrcRcBA0RKgJOAlD61yDzLWnqVPgtuhtjlWl
-	7BWaIXUblwWLNxuiA9ZV4nUNACU3ara+Pm3fuPcxMOucaxKcRbFRd1A3Chm57uv2CEKERkTWwlD
-	KFSBEDWGLEE3Wv1m2+QFNOiKhmQWlOY85XNhxWr9oFVkbr4OkUu68YIio5J+VXoiv90ARc6OYhz
-	Kwd514TUx7zvFnK4XjGBqMlP4uYb/U93NNkJxSNu/GnuJk11O7yyTxQDsTlgUlYl0hEHK4ytSBp
-	z0yBb21h5zK2LFRJKmloArqb0hYhwzU7ysOue5O6Bwr3QGqymQwaDTeKDDDQ8osPHrRRVnwXRWn
-	R0tS1zF+fh3jXH/1Djd/JnxDZpxm+8NNePNaJUmi893gqqZq6hiRDPwEWEbUb9XCjIFOIFT4o=
-X-Received: by 2002:a2e:a548:0:b0:396:78b8:27df with SMTP id 38308e7fff4ca-39678b83166mr6460391fa.8.1780223134727;
-        Sun, 31 May 2026 03:25:34 -0700 (PDT)
-Received: from gmail.com (83-233-6-197.cust.bredband2.com. [83.233.6.197])
-        by smtp.gmail.com with ESMTPSA id 38308e7fff4ca-3965b3cb6fesm14245011fa.14.2026.05.31.03.25.31
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Sun, 31 May 2026 03:25:33 -0700 (PDT)
-Date: Sun, 31 May 2026 12:25:30 +0200
-From: Marcus Folkesson <marcus.folkesson@gmail.com>
-To: Wolfram Sang <wsa+renesas@sang-engineering.com>
-Cc: Peter Rosin <peda@axentia.se>,
-	Michael Hennerich <michael.hennerich@analog.com>,
-	Bartosz Golaszewski <brgl@bgdev.pl>,
-	Andi Shyti <andi.shyti@kernel.org>,
-	Andy Shevchenko <andriy.shevchenko@intel.com>,
-	Bartosz Golaszewski <brgl@kernel.org>, linux-i2c@vger.kernel.org,
-	linux-kernel@vger.kernel.org, linux-arm-kernel@lists.infradead.org
-Subject: Re: [PATCH v9 5/5] docs: i2c: i2c-topology: add section about bus
- speed
-Message-ID: <ahwMmgy8hRaQ-x_7@gmail.com>
-References: <20260324-i2c-mux-v9-0-5292b0608243@gmail.com>
- <20260324-i2c-mux-v9-5-5292b0608243@gmail.com>
- <ahX4_WaqodYt3PmD@shikoro>
+	id 1wTdOQ-00000009UKU-3Ags;
+	Sun, 31 May 2026 10:27:46 +0000
+Received: from [172.16.12.77] (unknown [61.154.14.86])
+	by smtp.qiye.163.com (Hmail) with ESMTP id 407772abc;
+	Sun, 31 May 2026 18:27:27 +0800 (GMT+08:00)
+Message-ID: <9dc8e781-d03b-481b-808c-93b4855aa14c@rock-chips.com>
+Date: Sun, 31 May 2026 18:27:14 +0800
 MIME-Version: 1.0
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-Content-Transfer-Encoding: quoted-printable
-In-Reply-To: <ahX4_WaqodYt3PmD@shikoro>
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH v3 1/2] drm/bridge: synopsys: dw-dp: Support unregistering
+ the AUX channel
+To: Cristian Ciocaltea <cristian.ciocaltea@collabora.com>,
+ Sandy Huang <hjc@rock-chips.com>, =?UTF-8?Q?Heiko_St=C3=BCbner?=
+ <heiko@sntech.de>, Maarten Lankhorst <maarten.lankhorst@linux.intel.com>,
+ Maxime Ripard <mripard@kernel.org>, Thomas Zimmermann <tzimmermann@suse.de>,
+ David Airlie <airlied@gmail.com>, Simona Vetter <simona@ffwll.ch>,
+ Dmitry Baryshkov <dmitry.baryshkov@oss.qualcomm.com>,
+ Dmitry Baryshkov <lumag@kernel.org>, Andrzej Hajda
+ <andrzej.hajda@intel.com>, Neil Armstrong <neil.armstrong@linaro.org>,
+ Robert Foss <rfoss@kernel.org>,
+ Laurent Pinchart <Laurent.pinchart@ideasonboard.com>,
+ Jonas Karlman <jonas@kwiboo.se>, Jernej Skrabec <jernej.skrabec@gmail.com>
+Cc: kernel@collabora.com, dri-devel@lists.freedesktop.org,
+ linux-arm-kernel@lists.infradead.org, linux-rockchip@lists.infradead.org,
+ linux-kernel@vger.kernel.org
+References: <20260327-drm-rk-fixes-v3-0-fd2e6900c08c@collabora.com>
+ <20260327-drm-rk-fixes-v3-1-fd2e6900c08c@collabora.com>
+Content-Language: en-US
+From: Andy Yan <andy.yan@rock-chips.com>
+In-Reply-To: <20260327-drm-rk-fixes-v3-1-fd2e6900c08c@collabora.com>
+Content-Type: text/plain; charset=UTF-8; format=flowed
+Content-Transfer-Encoding: 7bit
+X-HM-Tid: 0a9e7d93036509d8kunm8afc72a22c895f
+X-HM-MType: 1
+X-HM-Spam-Status: e1kfGhgUHx5ZQUpXWQgPGg8OCBgUHx5ZQUlOS1dZFg8aDwILHllBWSg2Ly
+	tZV1koWUFITzdXWRgWCB1ZQUpXWS1ZQUlXWQ8JGhUIEh9ZQVlDSUxCVkpNGRhNTB4eThlCGVYVFA
+	kWGhdVEwETFhoSFyQUDg9ZV1kYEgtZQVlNSlVKTk9VSk9VQ01ZV1kWGg8SFR0UWUFZT0tIVUpLSU
+	9PT0hVSktLVUpCS0tZBg++
+DKIM-Signature: a=rsa-sha256;
+	b=ZIq/YCVtOl35D1xQ8MzmffgcSCqU8+cY9Hu2qI8SbIw+XMakCpttBw0OFii0+PJHSNz8m8krVqk6aGlgYvRrjvC7iGSaNGsh4uVmMBf/cIGxuIvU4pSdx3NRPDEgJjsbuPLXQ5QUW9KSSLfg3tkWJwIT6Q51cpnBX0sbYGmX9B4=; c=relaxed/relaxed; s=default; d=rock-chips.com; v=1;
+	bh=+ruVGsuPQy0eatTFKb5OBeOFRqUGuVR1RYE/wDl/f+Y=;
+	h=date:mime-version:subject:message-id:from;
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260531_032537_326554_A8B2006C 
-X-CRM114-Status: GOOD (  26.13  )
+X-CRM114-CacheID: sfid-20260531_032743_383703_0175E75E 
+X-CRM114-Status: GOOD (  13.40  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -107,123 +83,54 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hi,
+Hello,
 
-On Tue, May 26, 2026 at 09:48:13PM +0200, Wolfram Sang wrote:
->=20
-> > +Multiple muxes in series
-> > +--------------------------
-> > +
-> > +When multiple muxes are used in series the same rules applies.
-> > +
-> > +Transfers to D3 may interleave between select-transfer-deselect to D1,=
- which
-> > +results that the bus speed to D2 or D3 will be at 100KHz.
-> > +
-> > +Transfers to D2 may interleave between select-transfer-deselect to D1,=
- which
-> > +results in that the bus speed to D1 may be at 400kHz as the transfer t=
-o D2
-> > +will set the bus speed to before the transfer to D1 starts.
-> > +
-> > +This is probably a bad topology ::
->=20
-> In documentation, we probably shouldn't say "probably" ;)
+On 3/27/26 08:55, Cristian Ciocaltea wrote:
+> The DisplayPort AUX channel gets initialized and registered during
+> dw_dp_bind(), but it is never unregistered, which may lead to resource
+> leaks and/or use-after-free.
+> 
+> Add the missing dw_dp_unbind() function to allow the users of the
+> library to handle the required cleanup, i.e. unregister the AUX adapter.
+> 
+> Fixes: 86eecc3a9c2e ("drm/bridge: synopsys: Add DW DPTX Controller support library")
+> Signed-off-by: Cristian Ciocaltea <cristian.ciocaltea@collabora.com>
 
-Answer in next mail.
+    Reviewed-by: Andy Yan <andy.yan@rock-chips.com>
 
->=20
-> > +
-> > +                     .----------. 400kHz .----------. 100kHz .--------.
-> > +    .--------.400kHz |   mux-   |--------|   mux-   |--------| dev D1 |
-> > +    |  root  |--+----|  locked  | 400kHz |  locked  |        '--------'
-> > +    '--------'  |    |  mux M1  |--.     |  mux M2  |
-> > +                |    '----------'  |     '----------'
-> > +                |  .--------.      |  .--------.
-> > +                '--| dev D3 |      '--| dev D2 |
-> > +                   '--------'         '--------'
->=20
-> 400kHz leaking to a 100kHz device is bad. I guess we cannot do much
-> about it here because the bus speed is a board specific parameter...
->=20
-> > +Idle state
-> > +-----------
-> > +
-> > +Muxes have an idle state, which is the state the channels are put into=
- when no channel
-> > +is active. The state is typically one of the following:
-> > +
-> > +- All channels are disconnected
-> > +- The last selected channel is left as-is
-> > +- A predefined channel is selected
-> > +
-> > +Muxes that support an idle state where all channels are disconnected a=
-re preferred when using
-> > +different bus speeds. Otherwise high bus speeds may "leak" through to =
-devices that
-> > +may not support that higher speed.
-> > +
-> > +Consider the following example: ::
-> > +
-> > +                          .----------. 100kHz .--------.
-> > +        .--------. 400kHz |   mux-   |--------| dev D1 |
-> > +        |  root  |--+-----|  locked  |        '--------'
-> > +        '--------'  |     |  mux M1  |--. 400kHz .--------.
-> > +                    |     '----------'  '--------| dev D2 |
-> > +                    |  .--------.                '--------'
-> > +                    '--| dev D3 |
-> > +                       '--------'
-> > +
-> > +If the idle state of M1 is:
-> > +
-> > +- All channels disconnected: No problem, D1 and D2 are not affected by=
- communication
-> > +  to D3.
-> > +- Last selected channel: Problem if D1 was the last selected channel. =
-High speed
-> > +  communication to D3 will be "leaked" to D1.
-> > +- Predefined channel: Problem if the predefined channel D1. Set predef=
-ined channel
-> > +  to D2 as D2 may handle 400kHz.
->=20
-> ... unlike here. We have MUX_IDLE_AS_IS and MUX_IDLE_DISCONNECT defined
-> already. And I'd think we should only allow bus speed switching for
-> MUX_IDLE_DISCONNECT to avoid out-of-spec scenarios. Opinions?
+Thanks.
+> ---
+>   drivers/gpu/drm/bridge/synopsys/dw-dp.c | 6 ++++++
+>   include/drm/bridge/dw_dp.h              | 1 +
+>   2 files changed, 7 insertions(+)
+> 
+> diff --git a/drivers/gpu/drm/bridge/synopsys/dw-dp.c b/drivers/gpu/drm/bridge/synopsys/dw-dp.c
+> index 3f4530c117c7..6211ba6ba7bd 100644
+> --- a/drivers/gpu/drm/bridge/synopsys/dw-dp.c
+> +++ b/drivers/gpu/drm/bridge/synopsys/dw-dp.c
+> @@ -2093,6 +2093,12 @@ struct dw_dp *dw_dp_bind(struct device *dev, struct drm_encoder *encoder,
+>   }
+>   EXPORT_SYMBOL_GPL(dw_dp_bind);
+>   
+> +void dw_dp_unbind(struct dw_dp *dp)
+> +{
+> +	drm_dp_aux_unregister(&dp->aux);
+> +}
+> +EXPORT_SYMBOL_GPL(dw_dp_unbind);
+> +
+>   MODULE_AUTHOR("Andy Yan <andyshrk@163.com>");
+>   MODULE_DESCRIPTION("DW DP Core Library");
+>   MODULE_LICENSE("GPL");
+> diff --git a/include/drm/bridge/dw_dp.h b/include/drm/bridge/dw_dp.h
+> index 25363541e69d..22105c3e8e4d 100644
+> --- a/include/drm/bridge/dw_dp.h
+> +++ b/include/drm/bridge/dw_dp.h
+> @@ -24,4 +24,5 @@ struct dw_dp_plat_data {
+>   
+>   struct dw_dp *dw_dp_bind(struct device *dev, struct drm_encoder *encoder,
+>   			 const struct dw_dp_plat_data *plat_data);
+> +void dw_dp_unbind(struct dw_dp *dp);
+>   #endif /* __DW_DP__ */
+> 
 
-Answer in next mail.
-
->=20
-> > +Supported controllers
-> > +-----------------------
-> > +
-> > +Not all I2C controllers support setting the bus speed dynamically.
-> > +At the time of writing, the following controllers have support:
-> > +
-> > +=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=
-=3D=3D=3D=3D=3D   =3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=
-=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=
-=3D
-> > +i2c-davinci                    Supports dynamic bus speed
-> > +=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=
-=3D=3D=3D=3D=3D   =3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=
-=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=
-=3D
->=20
-> This paragaph is easy to get outdated. We can document that only
-> controller drivers with the callback function implemented will work.
-> People then can find out if that applies for their driver...
->=20
-> There are some grammar correction in the Sashiko-review[1]. Most of them
-> look correct to me. Can you have a look at these, too, please?
-
-Sure, thanks for pointing that out. I will update the patch with the
-grammar corrections.
-
->=20
-> [1] https://sashiko.dev/#/patchset/20260324-i2c-mux-v9-0-5292b0608243%40g=
-mail.com
-
-
-Best regards,
-Marcus Folkesson
 
