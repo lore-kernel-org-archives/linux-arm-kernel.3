@@ -4,93 +4,60 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id C30FECD6E56
-	for <linux-arm-kernel@archiver.kernel.org>; Sun, 31 May 2026 19:16:59 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 6C608CD6E56
+	for <linux-arm-kernel@archiver.kernel.org>; Sun, 31 May 2026 19:23:08 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	MIME-Version:Message-Id:Date:Subject:Cc:To:From:Reply-To:Content-Type:
+	MIME-Version:Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-Type:
 	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
 	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
-	bh=ZLcDEufKd/fZiYywVbHN7RhFQw/ohUiqZvEj+O+eN6o=; b=KoTRqFm62DEq2gjt2wTHMO2N6X
-	DoMZ3B//h/Brcq4uGYd09z/KrUm8ACHtbe/xhg615gIWZIRlQqdCPLla40it4ZNKxzAFBAXm4IZPP
-	vqdIjrUUi+s6e4xfst/0vb81PLC3Kpdy1caYGlqWV8P9L4NgnxDeDBC6pkJEIvVaxzTlwolQnld94
-	xJx96sBE3hhz98HuxOFPZXs+vG4mzx/oryHvBjBMFEnmV4j8GR4CpO6NglveyMhhMsm71OeDOJrol
-	+tXgFPhDUy/sCpK9XTGfg3PEhVUe//TeND47zOed7p+GdY+6fGLQ7hcfE4645IdqstKniaj4f/tpQ
-	45pjlI8A==;
+	bh=WN5vnPFviUeFL5NXDKTxF5DmYlONBZ8T8/DEkRn0fw8=; b=AE27R6OetsiR4WcQG70dfxz9Xp
+	lYnUg5SQx/pguYKAkMoNeZkY02NRw+B7qRCq6k1qRmNilshL5dig6B2Ybnt5i/eUKMFIbQPuvBMJ6
+	Jw+Gxa8uy7r8Ggsvoashyl+kjX/P9oGBSLWmymYJ1hBl0nbWv9x6BJqtGU1XgkGyhuHyO15m0wfPj
+	0zpY1+FygOMx8UM8zQRfRSIaA/x0tNSb43gFeCaed/LZXlpk7C/2HDQv9afwuNP14qz1QOc/n1ABy
+	JQeZoxeN48OzjHk67Ma9ohQvPU9YXKO+pabF9ccsfqBzQ6c3MiWbHjrNeRUz0R75Z2//w1wsUeIWz
+	cJ8TGHdQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wTleW-00000009qOi-0h7h;
-	Sun, 31 May 2026 19:16:52 +0000
-Received: from mail-wm1-x329.google.com ([2a00:1450:4864:20::329])
+	id 1wTlkV-00000009qgR-3IPX;
+	Sun, 31 May 2026 19:23:03 +0000
+Received: from tor.source.kernel.org ([172.105.4.254])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wTleT-00000009qOM-16Yp
+	id 1wTlkU-00000009qfj-2Tby
 	for linux-arm-kernel@lists.infradead.org;
-	Sun, 31 May 2026 19:16:50 +0000
-Received: by mail-wm1-x329.google.com with SMTP id 5b1f17b1804b1-490227b682cso8456945e9.3
-        for <linux-arm-kernel@lists.infradead.org>; Sun, 31 May 2026 12:16:48 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20251104; t=1780255007; x=1780859807; darn=lists.infradead.org;
-        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
-         :to:from:from:to:cc:subject:date:message-id:reply-to;
-        bh=ZLcDEufKd/fZiYywVbHN7RhFQw/ohUiqZvEj+O+eN6o=;
-        b=ig1EbodGoBYSb/hlAOAD1wXhRq0kBMqZB9wzm53UVn1Rl359/k1DlPtkwKXcTMrEU5
-         H5xYKqXA4DjS+CPQXWVqnP1AQndlV/g4lfLLl06dEV5n5fVHHbCsCEmdoui9HVMXF0Cj
-         HgWISZOJI1AqAeeh15XjwNhCpjJLOVHAMEF4dQNMJOct+rUeRV5ceBnzABOqqrILC70/
-         v01q3JtacGZBlK9OiK6SiduUhlWY95mZk5N4FS/7w/eh/+WNgf3mb0LDzDFTec737ByJ
-         PhjXppbUSXJyXhOFfZjwRVN7PVZfKqj9Z60xbVvbSAyMMTgoD8NIBPo5xM51TM14+/fh
-         H2lg==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20251104; t=1780255007; x=1780859807;
-        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
-         :to:from:x-gm-gg:x-gm-message-state:from:to:cc:subject:date
-         :message-id:reply-to;
-        bh=ZLcDEufKd/fZiYywVbHN7RhFQw/ohUiqZvEj+O+eN6o=;
-        b=Bf5rR6oPq0AhLQZ5+LkS15I8vjLe1uUhGxKqZ4EpW+qzig0nPLKSEYUx9vJeuzFtDz
-         17nEdg4jO6UjcHO7o70RjtIuURvdigL7SBM1YPl4Md3AfyRCbpniOh0FaGd0gglUAjre
-         Gyc/3PGUMyjvaW6HP8kIMYzwE5b6xAnwhy+PsjxKekkxQfLFJvk0wrq2jkHZbCMvTw4b
-         rk6UR+4RGOlUj7E3cpN7woX5FCz8nXdVLCeTNA9V/ofxQfHtdyGr/Dqg7LC76CQcdkoL
-         aVycU4wSGFP0PAQZ3XIdevtGJSHrRcXGg7lWoT3b1SHsons3KNN/3eiDGZY69AVCMpoF
-         P+Gw==
-X-Forwarded-Encrypted: i=1; AFNElJ9btF9l6t+yF5IyLbsJSOAC6ddQ2KhwlKpR2oeIPc1friePQsyUCKqWYx64PDCk7sU0lmrLaUkxAU0oVstCbcFD@lists.infradead.org
-X-Gm-Message-State: AOJu0YzXMOMe5WuYO/UeD7jInL7dxsovtjN7OrvOzDXbzl+RsjA8QJRk
-	cKeNTA1boJqf8YDwNUrDRDUYXloYN50wQnWvx/TdpS2Zd4uZlb9t1w1g
-X-Gm-Gg: Acq92OFKXXj0f1C7Vfplxs9n6VCXrX6RJl3U9MWhjTcAm6AroPD9C5WjUpTsBrAmYDJ
-	vI5cXBuvBvoKNHJCwD+lg0zyssX4yMAJluHAiiGhYLX7c/qFAtJHzdV+HQXUoWMOtRb7kYLMoVx
-	hq2EcKSol5U3c7j4HDW9ZexaL3jWyopb0aU3AJq9z7dgzR3LpmxEjUluKxKKeCP/5vQpfdIeVwr
-	qPgIsCHCt/arAmBueJCk/iaUOoVOXabMBHZcdfWsx/WVFZQIwXoDCvL1RpKzJoVJbnQpS5Tr4rI
-	ocxOI1h1mNq9fRSCdqHdeQmdu6k8w7/rgnDyGb3+9I0sBuuefrIm6l8AtRuhStETiUjCLNnlx1m
-	dLzYh8IXKl9NDqeK/xL/7fV1AW+epOqebKQepudazTEoltgtBb99N6bgXOxR4zjtByHwbVXh7MP
-	jUCuny4ZE8wRzt0ifwCk6arwyJFx000YumY7jkgWnY1qmfhQ0WTrgSs893Xj79UrLFNJSvIf54d
-	A==
-X-Received: by 2002:a05:6000:4b1e:b0:45e:9520:d73d with SMTP id ffacd0b85a97d-45ef6bd3cfbmr5328250f8f.6.1780255006822;
-        Sun, 31 May 2026 12:16:46 -0700 (PDT)
-Received: from menon.v.cablecom.net (84-74-0-139.dclient.hispeed.ch. [84.74.0.139])
-        by smtp.gmail.com with ESMTPSA id ffacd0b85a97d-45ef34a0674sm18142189f8f.8.2026.05.31.12.16.44
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Sun, 31 May 2026 12:16:46 -0700 (PDT)
-From: Lothar Rubusch <l.rubusch@gmail.com>
-To: thorsten.blum@linux.dev,
-	herbert@gondor.apana.org.au,
-	davem@davemloft.net,
-	nicolas.ferre@microchip.com,
-	alexandre.belloni@bootlin.com,
-	claudiu.beznea@tuxon.dev,
-	ardb@kernel.org,
-	krzk+dt@kernel.org
-Cc: linux-crypto@vger.kernel.org,
+	Sun, 31 May 2026 19:23:02 +0000
+Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
+	by tor.source.kernel.org (Postfix) with ESMTP id 93CB7601FE;
+	Sun, 31 May 2026 19:23:01 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 05D711F00893;
+	Sun, 31 May 2026 19:23:00 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
+	s=k20260515; t=1780255381;
+	bh=WN5vnPFviUeFL5NXDKTxF5DmYlONBZ8T8/DEkRn0fw8=;
+	h=From:To:Cc:Subject:Date;
+	b=dws3z4c5ikBkfSFjo03lEPKwSoWHgcPAbhf9k5unktZ3mh+aPsy4L9BZpZ0dwksA8
+	 XHAPpNzc0rXNaelTshQnFrU6Wuumrraa3dFfyDfWD+/cJ+CbCJcPMfFaqlAskJel0X
+	 cVqQpMiqosVafTcv/drCo37ZULK0CNZn8dEQHkPyO4L5CWPGtEoB4aAmaHVGWtrtHK
+	 yILr4yvSAw0u0BC0CnAzZABaTdS+HORKE9/DUY8HMcdOZv0+o5uvyl5oEHh002aEtL
+	 rYfUY97EFov4bwIHdZEfpOTu6+OS+S8nsG9G6iQrDLozVYPZM3Kz/9+WCOGOU0XXN7
+	 6X0C7V24/pnRQ==
+From: Eric Biggers <ebiggers@kernel.org>
+To: linux-crypto@vger.kernel.org,
+	Herbert Xu <herbert@gondor.apana.org.au>
+Cc: linux-kernel@vger.kernel.org,
+	Mounika Botcha <mounika.botcha@amd.com>,
+	Harsh Jain <h.jain@amd.com>,
+	Olivia Mackall <olivia@selenic.com>,
+	Michal Simek <michal.simek@amd.com>,
 	linux-arm-kernel@lists.infradead.org,
-	linux-kernel@vger.kernel.org,
-	l.rubusch@gmail.com
-Subject: [PATCH v2 1/1] crypto: atmel-sha204a - fix heap info leak on I2C transfer failure
-Date: Sun, 31 May 2026 19:16:42 +0000
-Message-Id: <20260531191642.33827-1-l.rubusch@gmail.com>
-X-Mailer: git-send-email 2.39.5
+	Eric Biggers <ebiggers@kernel.org>
+Subject: [PATCH 0/4] Xilinx TRNG fix and simplification
+Date: Sun, 31 May 2026 12:17:34 -0700
+Message-ID: <20260531191738.55843-1-ebiggers@kernel.org>
+X-Mailer: git-send-email 2.54.0
 MIME-Version: 1.0
 Content-Transfer-Encoding: 8bit
-X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260531_121649_321591_87196627 
-X-CRM114-Status: GOOD (  14.45  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -105,66 +72,45 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-The nonblocking RNG path allocates a work_data structure to track the
-state of an in-flight asynchronous I2C request. This pointer is stored
-in rng->priv and later consumed by the read path once the transaction
-completes.
+This series fixes and greatly simplifies the Xilinx TRNG driver by:
 
-If the underlying I2C transfer fails, the completion callback is invoked
-with a non-zero status. In this case, the allocated work_data is not
-usable for producing RNG output and must not remain associated with the
-hwrng state.
+- Removing the gratuitous crypto_rng interface, leaving just hwrng which
+  is the one that actually matters.
 
-Previously, the failure path only logged a warning but left the pointer
-state uncleared, which can result in subsequent read attempts observing
-stale state and interpreting it as valid completion data.
+- Replacing the really complicated AES based entropy extraction
+  algorithm with a much simpler one.
 
-Fix this by freeing the pending work_data and clearing rng->priv when
-the I2C transaction reports an error. This ensures that failed requests
-do not leave residual state behind that could be interpreted as valid
-RNG data on later reads.
+Note that this mirrors similar changes in other drivers.
 
-The explicit clearing of rng->priv in the error path is retained as a
-defensive measure. While it may overlap with existing state handling in the
-read path, the ownership and lifecycle across asynchronous completion,
-read, and teardown paths is not fully localised. Clearing the pointer
-ensures no stale state remains after a failed transaction.
+Eric Biggers (4):
+  crypto: xilinx-trng - Remove crypto_rng interface
+  crypto: xilinx-trng - Fix return value of xtrng_hwrng_trng_read()
+  crypto: xilinx-trng - Replace crypto_drbg_ctr_df() with HMAC-SHA512
+  hwrng: xilinx - Move xilinx-rng into drivers/char/hw_random/
 
-Fixes: da001fb651b0 ("crypto: atmel-i2c - add support for SHA204A random number generator")
-Signed-off-by: Lothar Rubusch <l.rubusch@gmail.com>
-Reviewed-by: Thorsten Blum <thorsten.blum@linux.dev>
----
-v1 -> v2:
-- Reword commit message for clarity and precision
-- Keep existing error-path cleanup behavior unchanged, update commit msg
+ MAINTAINERS                                   |   2 +-
+ arch/arm64/configs/defconfig                  |   2 +-
+ crypto/Kconfig                                |   5 -
+ crypto/Makefile                               |   2 -
+ crypto/df_sp80090a.c                          | 222 ------------------
+ drivers/char/hw_random/Kconfig                |  11 +
+ drivers/char/hw_random/Makefile               |   1 +
+ .../xilinx => char/hw_random}/xilinx-trng.c   | 134 ++---------
+ drivers/crypto/Kconfig                        |  13 -
+ drivers/crypto/xilinx/Makefile                |   1 -
+ include/crypto/df_sp80090a.h                  |  53 -----
+ 11 files changed, 37 insertions(+), 409 deletions(-)
+ delete mode 100644 crypto/df_sp80090a.c
+ rename drivers/{crypto/xilinx => char/hw_random}/xilinx-trng.c (75%)
+ delete mode 100644 include/crypto/df_sp80090a.h
 
- drivers/crypto/atmel-sha204a.c | 7 ++++++-
- 1 file changed, 6 insertions(+), 1 deletion(-)
-
-diff --git a/drivers/crypto/atmel-sha204a.c b/drivers/crypto/atmel-sha204a.c
-index 4c9af737b33a..20cd915ea8a3 100644
---- a/drivers/crypto/atmel-sha204a.c
-+++ b/drivers/crypto/atmel-sha204a.c
-@@ -31,10 +31,15 @@ static void atmel_sha204a_rng_done(struct atmel_i2c_work_data *work_data,
- 	struct atmel_i2c_client_priv *i2c_priv = work_data->ctx;
- 	struct hwrng *rng = areq;
- 
--	if (status)
-+	if (status) {
- 		dev_warn_ratelimited(&i2c_priv->client->dev,
- 				     "i2c transaction failed (%d)\n",
- 				     status);
-+		kfree(work_data);
-+		rng->priv = 0;
-+		atomic_dec(&i2c_priv->tfm_count);
-+		return;
-+	}
- 
- 	rng->priv = (unsigned long)work_data;
- 	atomic_dec(&i2c_priv->tfm_count);
 
 base-commit: 5624ea54f3ba5c83d2e5503411a31a8be0278c1e
+prerequisite-patch-id: 07e982b663ac3f8312ca524f6b91b5b38661df5e
+prerequisite-patch-id: 72064361a8f36e015ab0b7e1fa4d364b40d90506
+prerequisite-patch-id: 8978b8e0db7f47935e5f6f0aff14a97f55d3073c
+prerequisite-patch-id: 6aa0e3e93a008279d71e535a3d0cf48643f55e19
 -- 
-2.53.0
+2.54.0
 
 
