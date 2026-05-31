@@ -4,68 +4,91 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 150B3CD6E52
-	for <linux-arm-kernel@archiver.kernel.org>; Sun, 31 May 2026 12:11:34 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id C3F84CD6E52
+	for <linux-arm-kernel@archiver.kernel.org>; Sun, 31 May 2026 12:18:32 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=P5L7upYeeIi8suDApzBL/oP6wbVic2Bu4SntuPBJZbM=; b=tEFnwi46gSbWmjmEj/Re+AZbfz
-	CObGm/OnDYqlinzINW4iVMKCOr+dqqU/uR65Ygvek5oyI2TyGlLF7a3XC3/qZ8BaChfdTjhIIAAGE
-	Nb+g5xA0KfBVOZx9xcyWnM/CwC3+zddBJZX0Gqr2/HeD0M0rQe5dASSoWFBiOyai0IgMKnuDXDGjb
-	JiDdc1/yfTjPkPBzKEP985OeMPqdIbzMg/bHdX5SrE31QvUYBpI19SuDB0dnY8ylaSAxysvLzoUqu
-	DwZ0gONiHfw3lu/GJQ35+VwAf4zuOl8VwPjxm0dwKaOI5vhdRoOqrpqX3YNqdfV0CndBu2DdSC4Ir
-	Rcz4q90g==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
+	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=1SIgq8nHu6psw4Php68J+X3M2P+JbJ62dqeHI2I7CMc=; b=NR1r+8g5j9ROkaX911nax19stx
+	87Ah2TSZ9Mj+9QPyPRMuX5v/a+BwTpfF35dNnYnMzVuKO647KenAabxk5hSEUDDayrPuNgytLK+YH
+	w9A4sYHBnmUqKSGv+IBDQ+ExguTitSK+xfLAiPcSk1tk8HH+h5ExfeQiknfZAoE0cUs723d28KtbO
+	mDpbjIg2/0VPi1has+Bna/F8ohGgl0R9rCG/V0HOD+STfMO0towq0w4W8vsFPpCzhKvw1UPqhYF+T
+	emsEQ4ip6ghGx9DkrDBs8YmJX/24aJchhK3C0GwCrixE8t9hg6ldfeylJJrOSL0zO1e3dxJcaTpXA
+	jDid0suA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wTf0q-00000009ZHs-0Gw7;
-	Sun, 31 May 2026 12:11:28 +0000
-Received: from tor.source.kernel.org ([2600:3c04:e001:324:0:1991:8:25])
+	id 1wTf7a-00000009Zgq-08fz;
+	Sun, 31 May 2026 12:18:26 +0000
+Received: from fanzine2.igalia.com ([213.97.179.56])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wTf0o-00000009ZHf-2XVk;
-	Sun, 31 May 2026 12:11:26 +0000
-Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
-	by tor.source.kernel.org (Postfix) with ESMTP id F1EDE60123;
-	Sun, 31 May 2026 12:11:25 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 2CF4C1F00893;
-	Sun, 31 May 2026 12:11:25 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1780229485;
-	bh=P5L7upYeeIi8suDApzBL/oP6wbVic2Bu4SntuPBJZbM=;
-	h=Date:From:To:Cc:Subject:References:In-Reply-To;
-	b=X6gMgoUrEyec4TnHgnPYtpD0KiMTOxmWQ30Iuip+GMHsjTyHXL09UuUIaQgnDpk51
-	 gdhvc5RHa40qZS7mKTUt3lqgjUTOmzLBdmGTJxVUw7spriJDkxfo391lcKpCKv2lI1
-	 kXFy27h7w2+kgFUPDAF/icTiMXjz+LzKRmfQSpLtTaoZ7bc4Tt8uWPyHHy6t3/WpM0
-	 a+uFGtnaT+wG7lwqdzE1h9Ddlrz9FWo26rkOyQwvj0ImFz02BJ2+cDQAYjM9cTdLOX
-	 x4wG/GI8E7+Awn19M7VRVnHYBRcWBaMdjwu9xte4C9dCBDHob+/ahg5UcpgcLuICIm
-	 uzM3DDxS+xLVQ==
-Date: Sun, 31 May 2026 14:11:23 +0200
-From: "lorenzo@kernel.org" <lorenzo@kernel.org>
-To: Ryder Lee <Ryder.Lee@mediatek.com>
-Cc: Shayne Chen =?utf-8?B?KOmZs+i7kuS4nik=?= <Shayne.Chen@mediatek.com>,
-	"nbd@nbd.name" <nbd@nbd.name>,
-	AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>,
-	Chui-hao Chiu =?utf-8?B?KOmCseWegua1qSk=?= <Chui-hao.Chiu@mediatek.com>,
-	Sean Wang <Sean.Wang@mediatek.com>,
-	Bo Jiao =?utf-8?B?KOeEpuazoik=?= <Bo.Jiao@mediatek.com>,
-	"matthias.bgg@gmail.com" <matthias.bgg@gmail.com>,
-	"linux-wireless@vger.kernel.org" <linux-wireless@vger.kernel.org>,
-	"linux-arm-kernel@lists.infradead.org" <linux-arm-kernel@lists.infradead.org>,
-	Roy-CH Luo <Roy-CH.Luo@mediatek.com>,
-	"linux-mediatek@lists.infradead.org" <linux-mediatek@lists.infradead.org>,
-	"linux-kernel@vger.kernel.org" <linux-kernel@vger.kernel.org>
-Subject: Re: [PATCH v2] wifi: mt76: mt7996: fix reading zeroed
- info->control.flags after mt76_tx_status_skb_add()
-Message-ID: <ahwla_obwnwr2cZo@lore-desk>
-References: <20260531-mt76_tx_status_skb_add-overwrite-fix-v2-1-b73c4b4a9798@kernel.org>
- <ee0e584cb2ad1b536d327eb89342d1646fa96570.camel@mediatek.com>
+	id 1wTf7W-00000009ZgG-0rwa;
+	Sun, 31 May 2026 12:18:24 +0000
+DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed; d=igalia.com;
+	s=20170329; h=Content-Transfer-Encoding:Content-Type:In-Reply-To:From:
+	References:Cc:To:Subject:MIME-Version:Date:Message-ID:Sender:Reply-To:
+	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
+	Resent-To:Resent-Cc:Resent-Message-ID:List-Id:List-Help:List-Unsubscribe:
+	List-Subscribe:List-Post:List-Owner:List-Archive;
+	bh=1SIgq8nHu6psw4Php68J+X3M2P+JbJ62dqeHI2I7CMc=; b=KNahn7qtNwDSJ95/VyjhQogG5F
+	gAP843yR+nqj1HlCXX16K3bF0N1+oz944Hv5hFV0jOCNktJ228XdHkWL4I7rALgJOjPW2XNLt3hWG
+	m9AfuFqSu3Z47KS/dbFY2p4LYylbk6gWMr9/oUmZUqeYWUkI9epfKJb0W5R1ruri4h3OUpdWZzM1x
+	4jhS8+d//u74PAy3Ykb38CMhfV7Ru//WTmZg/D8QPCLaZbjgHaYqJnKORlCOxfBuPHBRaHKyFOKGX
+	kNJboHdY3wBSD+iqlQLgPznbfRSEOlWufplTw6dFC8w3noVZ+74mLAlPhH3g+dzM1b8sL0alCcngr
+	Qj6pEZNw==;
+Received: from [189.7.87.67] (helo=[192.168.0.2])
+	by fanzine2.igalia.com with esmtpsa 
+	(Cipher TLS1.3:ECDHE_X25519__RSA_PSS_RSAE_SHA256__AES_128_GCM:128) (Exim)
+	id 1wTf7I-00AZaA-LQ; Sun, 31 May 2026 14:18:08 +0200
+Message-ID: <eba66b9e-520e-4afc-8973-d54b22919d2c@igalia.com>
+Date: Sun, 31 May 2026 09:18:01 -0300
 MIME-Version: 1.0
-Content-Type: multipart/signed; micalg=pgp-sha512;
-	protocol="application/pgp-signature"; boundary="P2k2XuQn+hFS6sON"
-Content-Disposition: inline
-In-Reply-To: <ee0e584cb2ad1b536d327eb89342d1646fa96570.camel@mediatek.com>
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH] pmdomain: bcm: bcm2835-power: Raise ASB poll timeout to
+ 100us
+To: Stefan Wahren <wahrenst@gmx.net>, Ulf Hansson <ulfh@kernel.org>,
+ Florian Fainelli <florian.fainelli@broadcom.com>,
+ Broadcom internal kernel review list
+ <bcm-kernel-feedback-list@broadcom.com>, Ray Jui <rjui@broadcom.com>,
+ Scott Branden <sbranden@broadcom.com>
+Cc: linux-pm@vger.kernel.org, linux-rpi-kernel@lists.infradead.org,
+ linux-arm-kernel@lists.infradead.org, kernel-dev@igalia.com
+References: <20260530204636.1115120-1-mcanal@igalia.com>
+ <deecc409-02c1-4393-bc06-1852fc06e4d1@gmx.net>
+From: =?UTF-8?Q?Ma=C3=ADra_Canal?= <mcanal@igalia.com>
+Content-Language: en-US
+Autocrypt: addr=mcanal@igalia.com; keydata=
+ xsBNBGcCwywBCADgTji02Sv9zjHo26LXKdCaumcSWglfnJ93rwOCNkHfPIBll85LL9G0J7H8
+ /PmEL9y0LPo9/B3fhIpbD8VhSy9Sqz8qVl1oeqSe/rh3M+GceZbFUPpMSk5pNY9wr5raZ63d
+ gJc1cs8XBhuj1EzeE8qbP6JAmsL+NMEmtkkNPfjhX14yqzHDVSqmAFEsh4Vmw6oaTMXvwQ40
+ SkFjtl3sr20y07cJMDe++tFet2fsfKqQNxwiGBZJsjEMO2T+mW7DuV2pKHr9aifWjABY5EPw
+ G7qbrh+hXgfT+njAVg5+BcLz7w9Ju/7iwDMiIY1hx64Ogrpwykj9bXav35GKobicCAwHABEB
+ AAHNIE1hw61yYSBDYW5hbCA8bWNhbmFsQGlnYWxpYS5jb20+wsCRBBMBCAA7FiEE+ORdfQEW
+ dwcppnfRP/MOinaI+qoFAmcCwywCGwMFCwkIBwICIgIGFQoJCAsCBBYCAwECHgcCF4AACgkQ
+ P/MOinaI+qoUBQgAqz2gzUP7K3EBI24+a5FwFlruQGtim85GAJZXToBtzsfGLLVUSCL3aF/5
+ O335Bh6ViSBgxmowIwVJlS/e+L95CkTGzIIMHgyUZfNefR2L3aZA6cgc9z8cfow62Wu8eXnq
+ GM/+WWvrFQb/dBKKuohfBlpThqDWXxhozazCcJYYHradIuOM8zyMtCLDYwPW7Vqmewa+w994
+ 7Lo4CgOhUXVI2jJSBq3sgHEPxiUBOGxvOt1YBg7H9C37BeZYZxFmU8vh7fbOsvhx7Aqu5xV7
+ FG+1ZMfDkv+PixCuGtR5yPPaqU2XdjDC/9mlRWWQTPzg74RLEw5sz/tIHQPPm6ROCACFls7A
+ TQRnAsMsAQgAxTU8dnqzK6vgODTCW2A6SAzcvKztxae4YjRwN1SuGhJR2isJgQHoOH6oCItW
+ Xc1CGAWnci6doh1DJvbbB7uvkQlbeNxeIz0OzHSiB+pb1ssuT31Hz6QZFbX4q+crregPIhr+
+ 0xeDi6Mtu+paYprI7USGFFjDUvJUf36kK0yuF2XUOBlF0beCQ7Jhc+UoI9Akmvl4sHUrZJzX
+ LMeajARnSBXTcig6h6/NFVkr1mi1uuZfIRNCkxCE8QRYebZLSWxBVr3h7dtOUkq2CzL2kRCK
+ T2rKkmYrvBJTqSvfK3Ba7QrDg3szEe+fENpL3gHtH6h/XQF92EOulm5S5o0I+ceREwARAQAB
+ wsB2BBgBCAAgFiEE+ORdfQEWdwcppnfRP/MOinaI+qoFAmcCwywCGwwACgkQP/MOinaI+qpI
+ zQf+NAcNDBXWHGA3lgvYvOU31+ik9bb30xZ7IqK9MIi6TpZqL7cxNwZ+FAK2GbUWhy+/gPkX
+ it2gCAJsjo/QEKJi7Zh8IgHN+jfim942QZOkU+p/YEcvqBvXa0zqW0sYfyAxkrf/OZfTnNNE
+ Tr+uBKNaQGO2vkn5AX5l8zMl9LCH3/Ieaboni35qEhoD/aM0Kpf93PhCvJGbD4n1DnRhrxm1
+ uEdQ6HUjWghEjC+Jh9xUvJco2tUTepw4OwuPxOvtuPTUa1kgixYyG1Jck/67reJzMigeuYFt
+ raV3P8t/6cmtawVjurhnCDuURyhUrjpRhgFp+lW8OGr6pepHol/WFIOQEg==
+In-Reply-To: <deecc409-02c1-4393-bc06-1852fc06e4d1@gmx.net>
+Content-Type: text/plain; charset=UTF-8; format=flowed
+Content-Transfer-Encoding: 8bit
+X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
+X-CRM114-CacheID: sfid-20260531_051822_565982_C3C11295 
+X-CRM114-Status: GOOD (  27.77  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -80,202 +103,94 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
+Hi Stefan,
 
---P2k2XuQn+hFS6sON
-Content-Type: text/plain; charset=iso-8859-1
-Content-Disposition: inline
-Content-Transfer-Encoding: quoted-printable
+On 31/05/26 07:41, Stefan Wahren wrote:
+> Hi Maíra,
+> 
+> Am 30.05.26 um 22:46 schrieb Maíra Canal:
+>> Commit 18605b1b936b ("pmdomain: bcm: bcm2835-power: Increase ASB control
+>> timeout") raised the ASB handshake polling budget from 1us to 5us.
+>> Surveying the pmdomain subsystem, 5us is still one of the smallest 
+>> polling
+>> budgets by a wide margin. Comparable handshakes in other drivers use:
+>>
+>>    - 100us : starfive jh71xx-pmu, apple pmgr-pwrstate
+>>    - 1ms   : renesas rcar-sysc, rmobile-sysc (power-on)
+>>    - 10ms  : renesas rcar-gen4-sysc, sunxi sun55i-pck600
+>>    - 1s    : mediatek mtk-pm-domains, mtk-scpsys
+>>
+>> Raise the BCM2835 timeout to 100us, matching analogous drivers. 100us is
+>> still negligible relative to a power-domain transition and gives the V3D
+>> master ASB substantially more headroom to drain under heavy workloads,
+>> assuring us that the timeout is enough for any scenario.
+> tbh I'm not convinced by this explanation. Starting with a timeout 
+> comparison across different pmdomain driver looks strange to me.
+> 
+> My expectation that the reason for such a patch is that there is some 
+> kind of scenario to trigger unexpected timeouts.
+> If this is the case, please provide more information about the scenario 
+> (specific platform, scenario, link to the bug report).
 
-> On Sun, 2026-05-31 at 10:55 +0200, Lorenzo Bianconi wrote:
-> > mt76_tx_status_skb_add() zeroes the mt76_tx_cb struct stored at
-> > info->status.status_driver_data via memset(). Since info->control and
-> > info->status are members of the same union in ieee80211_tx_info,
-> > this overwrites info->control.flags.
-> > In mt7996_tx_prepare_skb(), mt76_tx_status_skb_add() is called before
-> > mt7996_mac_write_txwi(), which re-reads info->control.flags to
-> > extract
-> > IEEE80211_TX_CTRL_MLO_LINK. Because the field has been zeroed, the
-> > link_id always resolves to 0 for frames using global_wcid, leading to
-> > incorrect TXWI configuration.
-> > Fix this by passing link_id as an explicit parameter to
-> > mt7996_mac_write_txwi(). In mt7996_tx_prepare_skb(), the link_id is
-> > already extracted from info->control.flags before the destructive
-> > mt76_tx_status_skb_add() call. For the beacon and inband discovery
-> > callers in mcu.c, use link_conf->link_id directly.
-> >=20
-> > Fixes: f0b0b239b8f36 ("wifi: mt76: mt7996: rework
-> > mt7996_mac_write_txwi() for MLO support")
-> > Signed-off-by: Lorenzo Bianconi <lorenzo@kernel.org>
-> > ---
-> > Changes in v2:
-> > - Do not use link_id in mt7996_mac_write_txwi if it is
-> > IEEE80211_LINK_UNSPECIFIED
-> > - In mt7996_mac_write_txwi() rely on link_id calculated in
-> > =A0 mt7996_tx_prepare_skb().
-> > - Link to v1:
-> > https://lore.kernel.org/r/20260530-mt76_tx_status_skb_add-overwrite-fix=
--v1-1-e2c3151c391a@kernel.org
-> > =A0
-> > ---
-> > =A0drivers/net/wireless/mediatek/mt76/mt7996/mac.c=A0=A0=A0 | 14 ++++--=
-------
-> > --
-> > =A0drivers/net/wireless/mediatek/mt76/mt7996/mcu.c=A0=A0=A0 |=A0 5 +++--
-> > =A0drivers/net/wireless/mediatek/mt76/mt7996/mt7996.h |=A0 3 ++-
-> > =A03 files changed, 9 insertions(+), 13 deletions(-)
-> >=20
-> > diff --git a/drivers/net/wireless/mediatek/mt76/mt7996/mac.c
-> > b/drivers/net/wireless/mediatek/mt76/mt7996/mac.c
-> > index c98446057282..95b3078d9667 100644
-> > --- a/drivers/net/wireless/mediatek/mt76/mt7996/mac.c
-> > +++ b/drivers/net/wireless/mediatek/mt76/mt7996/mac.c
-> > @@ -856,7 +856,8 @@ mt7996_mac_write_txwi_80211(struct mt7996_dev
-> > *dev, __le32 *txwi,
-> > =A0void mt7996_mac_write_txwi(struct mt7996_dev *dev, __le32 *txwi,
-> > =A0			=A0=A0 struct sk_buff *skb, struct mt76_wcid
-> > *wcid,
-> > =A0			=A0=A0 struct ieee80211_key_conf *key, int pid,
-> > -			=A0=A0 enum mt76_txq_id qid, u32 changed)
-> > +			=A0=A0 enum mt76_txq_id qid, u32 changed,
-> > +			=A0=A0 unsigned int link_id)
-> > =A0{
-> > =A0	struct ieee80211_hdr *hdr =3D (struct ieee80211_hdr *)skb-
-> > >data;
-> > =A0	struct ieee80211_tx_info *info =3D IEEE80211_SKB_CB(skb);
-> > @@ -866,7 +867,6 @@ void mt7996_mac_write_txwi(struct mt7996_dev
-> > *dev, __le32 *txwi,
-> > =A0	bool is_8023 =3D info->flags &
-> > IEEE80211_TX_CTL_HW_80211_ENCAP;
-> > =A0	struct mt76_vif_link *mlink =3D NULL;
-> > =A0	struct mt7996_vif *mvif;
-> > -	unsigned int link_id;
-> > =A0	u16 tx_count =3D 15;
-> > =A0	u32 val;
-> > =A0	bool inband_disc =3D !!(changed &
-> > (BSS_CHANGED_UNSOL_BCAST_PROBE_RESP |
-> > @@ -874,17 +874,11 @@ void mt7996_mac_write_txwi(struct mt7996_dev
-> > *dev, __le32 *txwi,
-> > =A0	bool beacon =3D !!(changed & (BSS_CHANGED_BEACON |
-> > =A0				=A0=A0=A0 BSS_CHANGED_BEACON_ENABLED)) &&
-> > (!inband_disc);
-> > =A0
-> > -	if (wcid !=3D &dev->mt76.global_wcid)
-> > -		link_id =3D wcid->link_id;
-> > -	else
-> > -		link_id =3D u32_get_bits(info->control.flags,
-> > -				=A0=A0=A0=A0=A0=A0 IEEE80211_TX_CTRL_MLO_LINK);
-> > -
-> > =A0	mvif =3D vif ? (struct mt7996_vif *)vif->drv_priv : NULL;
-> > =A0	if (mvif) {
-> > =A0		if (wcid->offchannel)
-> > =A0			mlink =3D rcu_dereference(mvif-
-> > >mt76.offchannel_link);
-> > -		if (!mlink)
-> > +		if (!mlink && link_id !=3D IEEE80211_LINK_UNSPECIFIED)
-> > =A0			mlink =3D rcu_dereference(mvif-
-> > >mt76.link[link_id]);
-> > =A0	}
-> > =A0
-> > @@ -1096,7 +1090,7 @@ int mt7996_tx_prepare_skb(struct mt76_dev
-> > *mdev, void *txwi_ptr,
-> > =A0	/* Transmit non qos data by 802.11 header and need to fill
-> > txd by host*/
-> > =A0	if (!is_8023 || pid >=3D MT_PACKET_ID_FIRST)
-> > =A0		mt7996_mac_write_txwi(dev, txwi_ptr, tx_info->skb,
-> > wcid, key,
-> > -				=A0=A0=A0=A0=A0 pid, qid, 0);
-> > +				=A0=A0=A0=A0=A0 pid, qid, 0, link_id);
-> > =A0
-> > =A0	/* MT7996 and MT7992 require driver to provide the MAC TXP
-> > for AddBA
-> > =A0	 * req
-> > diff --git a/drivers/net/wireless/mediatek/mt76/mt7996/mcu.c
-> > b/drivers/net/wireless/mediatek/mt76/mt7996/mcu.c
-> > index 8be40d60ad29..a14c63438923 100644
-> > --- a/drivers/net/wireless/mediatek/mt76/mt7996/mcu.c
-> > +++ b/drivers/net/wireless/mediatek/mt76/mt7996/mcu.c
-> > @@ -3103,7 +3103,7 @@ mt7996_mcu_beacon_cont(struct mt7996_dev *dev,
-> > =A0
-> > =A0	buf =3D (u8 *)bcn + sizeof(*bcn);
-> > =A0	mt7996_mac_write_txwi(dev, (__le32 *)buf, skb, wcid, NULL,
-> > 0, 0,
-> > -			=A0=A0=A0=A0=A0 BSS_CHANGED_BEACON);
-> > +			=A0=A0=A0=A0=A0 BSS_CHANGED_BEACON, link_conf-
-> > >link_id);
-> > =A0
-> > =A0	memcpy(buf + MT_TXD_SIZE, skb->data, skb->len);
-> > =A0}
-> > @@ -3249,7 +3249,8 @@ int mt7996_mcu_beacon_inband_discov(struct
-> > mt7996_dev *dev,
-> > =A0
-> > =A0	buf =3D (u8 *)tlv + sizeof(*discov);
-> > =A0
-> > -	mt7996_mac_write_txwi(dev, (__le32 *)buf, skb, wcid, NULL,
-> > 0, 0, changed);
-> > +	mt7996_mac_write_txwi(dev, (__le32 *)buf, skb, wcid, NULL,
-> > 0, 0,
-> > +			=A0=A0=A0=A0=A0 changed, link_conf->link_id);
-> > =A0
-> > =A0	memcpy(buf + MT_TXD_SIZE, skb->data, skb->len);
-> > =A0
-> > diff --git a/drivers/net/wireless/mediatek/mt76/mt7996/mt7996.h
-> > b/drivers/net/wireless/mediatek/mt76/mt7996/mt7996.h
-> > index 0dc4198fcf8b..0d6488522ba7 100644
-> > --- a/drivers/net/wireless/mediatek/mt76/mt7996/mt7996.h
-> > +++ b/drivers/net/wireless/mediatek/mt76/mt7996/mt7996.h
-> > @@ -874,7 +874,8 @@ void mt7996_mac_enable_nf(struct mt7996_dev *dev,
-> > u8 band);
-> > =A0void mt7996_mac_write_txwi(struct mt7996_dev *dev, __le32 *txwi,
-> > =A0			=A0=A0 struct sk_buff *skb, struct mt76_wcid
-> > *wcid,
-> > =A0			=A0=A0 struct ieee80211_key_conf *key, int pid,
-> > -			=A0=A0 enum mt76_txq_id qid, u32 changed);
-> > +			=A0=A0 enum mt76_txq_id qid, u32 changed,
-> > +			=A0=A0 unsigned int link_id);
-> > =A0void mt7996_mac_update_beacons(struct mt7996_phy *phy);
-> > =A0void mt7996_mac_set_coverage_class(struct mt7996_phy *phy);
-> > =A0void mt7996_mac_work(struct work_struct *work);
-> >=20
-> > ---
-> > base-commit: 4913f44167cf35a9536e9eec7352e15b2de0c573
-> > change-id: 20260530-mt76_tx_status_skb_add-overwrite-fix-85818a9bb31f
-> >=20
-> > Best regards,
-> >=20
-> >=20
-> We might expand flags further so this still doesn't solve the issue of
-> flags being cleared - it only works for MLO flag. And the developers
-> still won't easily notice that the flags are being cleared.
+The context: I was debugging this issue [1] and initially I had the
+intuition that it could be related to a timeout in the ASB polling loop.
+As I don't have access to the BCM2835 SoC datasheet (the public one
+doesn't have PM information), I started to check other driver's
+handshake timeout to see if ours was comparable to similar drivers. As
+you can see, our timeout is much smaller.
 
-My opinion is we should consider just upstream code and then change it as s=
-oon
-as you post this new feature upstream, but I will let Felix comments on it.
-Moreover, the proposed approach aligns link_id used in mt7996_tx_prepare_sk=
-b()
-to the one used in mt7996_mac_write_txwi() and fix a possible OOB bug in
-mt7996_mac_write_txwi().
+In the end, issue [1] wasn't related to the pmdomain driver, so I don't
+have a specific scenario to trigger this issue. Even though, I sent this
+patch considering the comparison to other drivers with the goal to be
+conservative and use a larger timeout that could accommodate an extreme
+scenario. However, if you believe it's unreasonable, I'm okay dropping
+this patch.
 
-Regards,
-Lorenzo
+Ideally, it would be great to have information from Broadcom on what's
+the largest possible time required to perform a power transition. Maybe
+Florian could help us with that?
 
-> =20
-> Our current approach is to move memset after mt7996_mac_write_txwi().
-> It's more flexible and we don't have to constantly change the function
-> parameters just for the flags.
->=20
-> Ryder
->=20
+[1] 
+https://lore.kernel.org/dri-devel/20260530-v3d-fix-rpi4-freezes-v1-0-c2c8307da6ce@igalia.com/T/
 
---P2k2XuQn+hFS6sON
-Content-Type: application/pgp-signature; name=signature.asc
+> 
+> I'm not against the change in general, but please start your commit 
+> message with the problem and not with the solution.
+> 
+> A related question, does it make sense to add an error message here for 
+> the timeout case just like in the rest of the driver?
 
------BEGIN PGP SIGNATURE-----
+Before commit 18605b1b936b, I was getting a "Failed to disable ASB
+master for v3d" error message, so I believe the error message already
+exists where the function is called.
 
-iHUEABYKAB0WIQTquNwa3Txd3rGGn7Y6cBh0uS2trAUCahwlawAKCRA6cBh0uS2t
-rKORAP4xNNufYg7cAAPnJ9TllbMFutlHnvbgIqWZb1VXVY1LLwEAlIlQ/MTLm3km
-7YBsN8YIUqxvIry/08pV0fgPshColwA=
-=F+cG
------END PGP SIGNATURE-----
+Thanks for your feedback!
 
---P2k2XuQn+hFS6sON--
+Best regards,
+- Maíra
+
+> 
+> Best regards
+> 
+>>
+>> Signed-off-by: Maíra Canal <mcanal@igalia.com>
+>> ---
+>>   drivers/pmdomain/bcm/bcm2835-power.c | 2 +-
+>>   1 file changed, 1 insertion(+), 1 deletion(-)
+>>
+>> diff --git a/drivers/pmdomain/bcm/bcm2835-power.c b/drivers/pmdomain/ 
+>> bcm/bcm2835-power.c
+>> index b76d74e3849b..d507bb675e29 100644
+>> --- a/drivers/pmdomain/bcm/bcm2835-power.c
+>> +++ b/drivers/pmdomain/bcm/bcm2835-power.c
+>> @@ -175,7 +175,7 @@ static int bcm2835_asb_control(struct 
+>> bcm2835_power *power, u32 reg, bool enable
+>>       writel(PM_PASSWORD | val, base + reg);
+>>       if (readl_poll_timeout_atomic(base + reg, val,
+>> -                      !!(val & ASB_ACK) != enable, 0, 5))
+>> +                      !!(val & ASB_ACK) != enable, 0, 100))
+>>           return -ETIMEDOUT;
+>>       return 0;
+> 
+
 
