@@ -4,69 +4,77 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 97197CD6E51
-	for <linux-arm-kernel@archiver.kernel.org>; Sun, 31 May 2026 08:55:42 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 1C6D5CD5BD1
+	for <linux-arm-kernel@archiver.kernel.org>; Sun, 31 May 2026 09:10:54 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:Message-Id:
-	Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:From:
-	Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender
-	:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
-	bh=0vlPUZLJ6qFSfJi2KHBKAuBKAbgSeUs6MvoKLHrh2ec=; b=AKfsWq+R1RhwrhsnysC7xvEsnQ
-	7HxW7vJSLShlhrIcF18irewy9D6o4ujHBJWoXG0+L6UDmhXXS7hDbIUz80xNgyhM4q3AidD/meDs/
-	LIWOsjpimHK8ttF62uC8lJ0QgQrbsSLbMvJCGJfrIvVFRYY2JCLzvmWUfUrx/iBp3V3v+I82NFiMf
-	rsGQCrJQ4gH+Rih7AXFdlpfZhTJZ4YFQXYOV3EHRNnKXJ2/bJHBibB82CJKlQrzXze6vYTGwStLXV
-	GkuimnuIwfqqYB6P0AJ7jfl8VT8eExMpMtSh7ARmCRvqevKPP4kYd65nHBuW8ktxYiCw5ZiQ3bl2U
-	/Q0GESjA==;
+	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Reply-To:List-Subscribe:
+	List-Help:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:
+	References:Message-Id:Content-Transfer-Encoding:Content-Type:MIME-Version:
+	Subject:Date:From:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=P/ULG3n4qVjggsF+Nf4F6Mrzl1eR7BrtHH/iGuAQb74=; b=cRufHvFpKdxg8xRFpkBD349Bin
+	/i/9Uxfm+VD/TFTcMNeUzoWLtaBbuceszEOeTFeTex1/WII+uy4xSa4ABBd7gDiif0VZzWjQyQBbZ
+	nkk08QAwlvk49LeRaZy9XFtrmnaB/VEy1CHUvCxIiUlIbO+pYVZ1xTbaM8W/XDhsg1zarmmv4r6QL
+	SIK39EW7qOcKgU1oJzb5GIBI8ZoN9wa2EltayXaKsX2UPSfGfuvSIl3DqQkz5Ttbdntm/8qt7mBXk
+	0LJaSsArZWuJa8wUNAMcoCP/ZRYgWoKhuCw+o39WmPaptXX8w8Xt3bckZgWhaFBacRnho/H8MHCZk
+	X1njneDQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wTbxH-00000009OdO-168H;
-	Sun, 31 May 2026 08:55:35 +0000
-Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
+	id 1wTcBz-00000009P8S-33Wx;
+	Sun, 31 May 2026 09:10:47 +0000
+Received: from tor.source.kernel.org ([2600:3c04:e001:324:0:1991:8:25])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wTbxF-00000009Ocv-0dGj;
-	Sun, 31 May 2026 08:55:34 +0000
-Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
-	by sea.source.kernel.org (Postfix) with ESMTP id 705EA42D65;
-	Sun, 31 May 2026 08:55:31 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id CBB131F00893;
-	Sun, 31 May 2026 08:55:30 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1780217731;
-	bh=0vlPUZLJ6qFSfJi2KHBKAuBKAbgSeUs6MvoKLHrh2ec=;
-	h=From:Date:Subject:To:Cc;
-	b=kH8qN1cbP4KP/vCQ13fR5Rebqcy0ezYw5dV1VP2w+7fzgEcrrEjdaaMelFeHKOw7q
-	 zPx14egOaT22ib9OvJzJnpx/ydGVnn0KUYi5Vz4mxJ/R5m3JRU0G5VBWOkw2jvo7FO
-	 uhzI0RPoaXS9yPJrvbPU4J9fOYG4nHEWJMXffhbWDagX7hxe5BxrrSHzR5KNo1m0MI
-	 pYnvlQZh6TeTuiTdaJW1C0m1xa0Qoefneb+tWWNuUuEWk3U4aQ/LE/JgopYwzV1vzy
-	 UUQL63RbGK96DSGz1XgoKMWn5UwsCR+03t4y+OYsIXYf58w4vGjZflLzvVgorJNad7
-	 WfBp0vS46vHLA==
-From: Lorenzo Bianconi <lorenzo@kernel.org>
-Date: Sun, 31 May 2026 10:55:04 +0200
-Subject: [PATCH v2] wifi: mt76: mt7996: fix reading zeroed
- info->control.flags after mt76_tx_status_skb_add()
+	id 1wTcBy-00000009P75-0jRA;
+	Sun, 31 May 2026 09:10:46 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by tor.source.kernel.org (Postfix) with ESMTP id 6982560258;
+	Sun, 31 May 2026 09:10:45 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPS id 0D552C2BCF4;
+	Sun, 31 May 2026 09:10:45 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1780218645;
+	bh=2rLn7+BL0CSKSPRXVYOwPg6tEAx5CUi5V4H8JQk/s9A=;
+	h=From:Date:Subject:References:In-Reply-To:To:Cc:Reply-To:From;
+	b=bnL+HwukVlOjF5w77/U7myNt/USmXY6NRrOaZHkxRDb9M/ecMUvKzbtJIw0bi6vgY
+	 XkYoMHkL6NUvCoi9A98i1eoaeUZOuanUI52OF16fsJ3D5HusP6Az7jbq0S4O0gC7kZ
+	 13279qoa0KOS1EJPrJ5ciBbMKUMHA+febP8DCzPqidMwk7ObzB0auW1YvHbmnBEHz4
+	 A22kyMGI3OXmcE+Vmqtq/NtiMGu4fU5RSkVShpZTP44uCUQ41eoKd11BLvUVx2foOv
+	 tEJvx3k/u8XGHgstU8SXiQ8dHV6+Zud8cPXjuQIfcC4Q+UIWDjFOY1N7Q1xRQXyq7D
+	 6jO+aNmdVB34A==
+Received: from aws-us-west-2-korg-lkml-1.web.codeaurora.org (localhost.localdomain [127.0.0.1])
+	by smtp.lore.kernel.org (Postfix) with ESMTP id 07340CD6E57;
+	Sun, 31 May 2026 09:10:45 +0000 (UTC)
+From: Yassine Oudjana via B4 Relay <devnull+y.oudjana.protonmail.com@kernel.org>
+Date: Sun, 31 May 2026 11:10:43 +0200
+Subject: [PATCH v2 2/4] soc: mediatek: pwrap: Add support for MT6735 and
+ MT6328 SoC/PMIC pair
 MIME-Version: 1.0
 Content-Type: text/plain; charset="utf-8"
 Content-Transfer-Encoding: 7bit
-Message-Id: <20260531-mt76_tx_status_skb_add-overwrite-fix-v2-1-b73c4b4a9798@kernel.org>
-X-B4-Tracking: v=1; b=H4sIAAAAAAAC/5WNQQ6CMBAAv2J6toZtA4In/2FIU2CBDUrNtlYM4
- e9WfuBx5jCzCo9M6MXlsArGSJ7cnEAdD6Id7TygpC6xUJkqslxn8hHOhQmL8cGGlzd+aoztOuk
- i8pspoOxpkWVeQmmrptHQi5R6Mia9b2514pF8cPzZrxF+9s9BBAkSVashh1ZXYK8T8oz3k+NB1
- Nu2fQFM2BBi2QAAAA==
-X-Change-ID: 20260530-mt76_tx_status_skb_add-overwrite-fix-85818a9bb31f
-To: Felix Fietkau <nbd@nbd.name>, Ryder Lee <ryder.lee@mediatek.com>, 
- Shayne Chen <shayne.chen@mediatek.com>, Sean Wang <sean.wang@mediatek.com>, 
+Message-Id: <20260531-mt6735-pwrap-mt6328-pmic-v2-2-dac37bf92894@protonmail.com>
+References: <20260531-mt6735-pwrap-mt6328-pmic-v2-0-dac37bf92894@protonmail.com>
+In-Reply-To: <20260531-mt6735-pwrap-mt6328-pmic-v2-0-dac37bf92894@protonmail.com>
+To: Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>, 
+ Conor Dooley <conor+dt@kernel.org>, 
  Matthias Brugger <matthias.bgg@gmail.com>, 
  AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>, 
- Bo Jiao <Bo.Jiao@mediatek.com>, Peter Chiu <chui-hao.chiu@mediatek.com>, 
- Lorenzo Bianconi <lorenzo@kernel.org>
-Cc: Roy Luo <roy-ch.luo@mediatek.com>, linux-wireless@vger.kernel.org, 
- linux-arm-kernel@lists.infradead.org, linux-mediatek@lists.infradead.org, 
- linux-kernel@vger.kernel.org
-X-Mailer: b4 0.14.3
-X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260531_015533_238704_81E17055 
-X-CRM114-Status: GOOD (  12.64  )
+ Flora Fu <flora.fu@mediatek.com>, Alexandre Mergnat <amergnat@baylibre.com>, 
+ Liam Girdwood <lgirdwood@gmail.com>, Mark Brown <broonie@kernel.org>, 
+ Dmitry Torokhov <dmitry.torokhov@gmail.com>
+Cc: Yassine Oudjana <y.oudjana@protonmail.com>, devicetree@vger.kernel.org, 
+ linux-kernel@vger.kernel.org, linux-arm-kernel@lists.infradead.org, 
+ linux-mediatek@lists.infradead.org, linux-input@vger.kernel.org
+X-Mailer: b4 0.15.2
+X-Developer-Signature: v=1; a=ed25519-sha256; t=1780218643; l=9618;
+ i=y.oudjana@protonmail.com; s=20260531; h=from:subject:message-id;
+ bh=4sX0Mc13Y67E7+CkHSrLBQ5VssU6E+LoNwfXa6SDJOY=;
+ b=uZ2KaiWCsnQzgGRnS2AGox7rSF2hzKvF5lZ6gXm5v3a+j29oP4H4cvHKueLEKep/3BZEMeV2J
+ uV5eMgqx09iBo8Nf1Bz3VSAjqK5TqwzIf6vtFzDbWkYbavg8croRITD
+X-Developer-Key: i=y.oudjana@protonmail.com; a=ed25519;
+ pk=sr7uwnyVqGKAIhvwnIwormkDM3d2VNc3VOTEU1GmsEM=
+X-Endpoint-Received: by B4 Relay for y.oudjana@protonmail.com/20260531 with
+ auth_id=802
+X-Original-From: Yassine Oudjana <y.oudjana@protonmail.com>
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -78,132 +86,321 @@ List-Post: <mailto:linux-arm-kernel@lists.infradead.org>
 List-Help: <mailto:linux-arm-kernel-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
  <mailto:linux-arm-kernel-request@lists.infradead.org?subject=subscribe>
+Reply-To: y.oudjana@protonmail.com
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-mt76_tx_status_skb_add() zeroes the mt76_tx_cb struct stored at
-info->status.status_driver_data via memset(). Since info->control and
-info->status are members of the same union in ieee80211_tx_info,
-this overwrites info->control.flags.
-In mt7996_tx_prepare_skb(), mt76_tx_status_skb_add() is called before
-mt7996_mac_write_txwi(), which re-reads info->control.flags to extract
-IEEE80211_TX_CTRL_MLO_LINK. Because the field has been zeroed, the
-link_id always resolves to 0 for frames using global_wcid, leading to
-incorrect TXWI configuration.
-Fix this by passing link_id as an explicit parameter to
-mt7996_mac_write_txwi(). In mt7996_tx_prepare_skb(), the link_id is
-already extracted from info->control.flags before the destructive
-mt76_tx_status_skb_add() call. For the beacon and inband discovery
-callers in mcu.c, use link_conf->link_id directly.
+From: Yassine Oudjana <y.oudjana@protonmail.com>
 
-Fixes: f0b0b239b8f36 ("wifi: mt76: mt7996: rework mt7996_mac_write_txwi() for MLO support")
-Signed-off-by: Lorenzo Bianconi <lorenzo@kernel.org>
----
-Changes in v2:
-- Do not use link_id in mt7996_mac_write_txwi if it is IEEE80211_LINK_UNSPECIFIED
-- In mt7996_mac_write_txwi() rely on link_id calculated in
-  mt7996_tx_prepare_skb().
-- Link to v1: https://lore.kernel.org/r/20260530-mt76_tx_status_skb_add-overwrite-fix-v1-1-e2c3151c391a@kernel.org
----
- drivers/net/wireless/mediatek/mt76/mt7996/mac.c    | 14 ++++----------
- drivers/net/wireless/mediatek/mt76/mt7996/mcu.c    |  5 +++--
- drivers/net/wireless/mediatek/mt76/mt7996/mt7996.h |  3 ++-
- 3 files changed, 9 insertions(+), 13 deletions(-)
+Add register definitions and configuration for the MT6735 SoC and the
+MT6328 PMIC which are commonly paired and communicate through the PMIC
+wrapper.
 
-diff --git a/drivers/net/wireless/mediatek/mt76/mt7996/mac.c b/drivers/net/wireless/mediatek/mt76/mt7996/mac.c
-index c98446057282..95b3078d9667 100644
---- a/drivers/net/wireless/mediatek/mt76/mt7996/mac.c
-+++ b/drivers/net/wireless/mediatek/mt76/mt7996/mac.c
-@@ -856,7 +856,8 @@ mt7996_mac_write_txwi_80211(struct mt7996_dev *dev, __le32 *txwi,
- void mt7996_mac_write_txwi(struct mt7996_dev *dev, __le32 *txwi,
- 			   struct sk_buff *skb, struct mt76_wcid *wcid,
- 			   struct ieee80211_key_conf *key, int pid,
--			   enum mt76_txq_id qid, u32 changed)
-+			   enum mt76_txq_id qid, u32 changed,
-+			   unsigned int link_id)
+Note that the PMIC wrapper on MT6735M has a slightly different register
+map and is therefore NOT compatible with MT6735.
+
+Signed-off-by: Yassine Oudjana <y.oudjana@protonmail.com>
+---
+ drivers/soc/mediatek/mtk-pmic-wrap.c | 177 ++++++++++++++++++++++++++++++++++-
+ 1 file changed, 174 insertions(+), 3 deletions(-)
+
+diff --git a/drivers/soc/mediatek/mtk-pmic-wrap.c b/drivers/soc/mediatek/mtk-pmic-wrap.c
+index 0bcd85826375..0f14dca5609d 100644
+--- a/drivers/soc/mediatek/mtk-pmic-wrap.c
++++ b/drivers/soc/mediatek/mtk-pmic-wrap.c
+@@ -3,6 +3,7 @@
+  * Copyright (c) 2014 MediaTek Inc.
+  * Author: Flora Fu, MediaTek
+  */
++
+ #include <linux/clk.h>
+ #include <linux/interrupt.h>
+ #include <linux/io.h>
+@@ -100,7 +101,7 @@ enum dew_regs {
+ 	PWRAP_DEW_CIPHER_MODE,
+ 	PWRAP_DEW_CIPHER_SWRST,
+ 
+-	/* MT6323 only regs */
++	/* MT6323 and MT6328 only regs */
+ 	PWRAP_DEW_CIPHER_EN,
+ 	PWRAP_DEW_RDDMY_NO,
+ 
+@@ -121,8 +122,10 @@ enum dew_regs {
+ 	PWRAP_RG_SPI_CON13,
+ 	PWRAP_SPISLV_KEY,
+ 
+-	/* MT6359 only regs */
++	/* MT6359 and MT6328 only regs */
+ 	PWRAP_DEW_CRC_SWRST,
++
++	/* MT6359 only regs */
+ 	PWRAP_DEW_RG_EN_RECORD,
+ 	PWRAP_DEW_RECORD_CMD0,
+ 	PWRAP_DEW_RECORD_CMD1,
+@@ -171,6 +174,23 @@ static const u32 mt6323_regs[] = {
+ 	[PWRAP_DEW_RDDMY_NO] =		0x01a4,
+ };
+ 
++static const u32 mt6328_regs[] = {
++	[PWRAP_DEW_DIO_EN] =		0x02d4,
++	[PWRAP_DEW_READ_TEST] =		0x02d6,
++	[PWRAP_DEW_WRITE_TEST] =	0x02d8,
++	[PWRAP_DEW_CRC_SWRST] =		0x02da,
++	[PWRAP_DEW_CRC_EN] =		0x02dc,
++	[PWRAP_DEW_CRC_VAL] =		0x02de,
++	[PWRAP_DEW_MON_GRP_SEL] =	0x02e0,
++	[PWRAP_DEW_CIPHER_KEY_SEL] =	0x02e2,
++	[PWRAP_DEW_CIPHER_IV_SEL] =	0x02e4,
++	[PWRAP_DEW_CIPHER_EN] =		0x02e6,
++	[PWRAP_DEW_CIPHER_RDY] =	0x02e8,
++	[PWRAP_DEW_CIPHER_MODE] =	0x02ea,
++	[PWRAP_DEW_CIPHER_SWRST] =	0x02ec,
++	[PWRAP_DEW_RDDMY_NO] =		0x02ee,
++};
++
+ static const u32 mt6331_regs[] = {
+ 	[PWRAP_DEW_DIO_EN] =		0x018c,
+ 	[PWRAP_DEW_READ_TEST] =		0x018e,
+@@ -394,7 +414,7 @@ enum pwrap_regs {
+ 	PWRAP_ADC_RDATA_ADDR1,
+ 	PWRAP_ADC_RDATA_ADDR2,
+ 
+-	/* MT7622 only regs */
++	/* MT7622 and MT6735 only regs */
+ 	PWRAP_STA,
+ 	PWRAP_CLR,
+ 	PWRAP_DVFS_ADR8,
+@@ -417,6 +437,8 @@ enum pwrap_regs {
+ 	PWRAP_ADC_RDATA_ADDR,
+ 	PWRAP_GPS_STA,
+ 	PWRAP_SW_RST,
++
++	/* MT7622 only regs */
+ 	PWRAP_DVFS_STEP_CTRL0,
+ 	PWRAP_DVFS_STEP_CTRL1,
+ 	PWRAP_DVFS_STEP_CTRL2,
+@@ -481,6 +503,13 @@ enum pwrap_regs {
+ 	/* MT8516 only regs */
+ 	PWRAP_OP_TYPE,
+ 	PWRAP_MSB_FIRST,
++
++	/* MT6735 only regs */
++	PWRAP_WACS3_EN,
++	PWRAP_INIT_DONE3,
++	PWRAP_WACS3_CMD,
++	PWRAP_WACS3_RDATA,
++	PWRAP_WACS3_VLDCLR,
+ };
+ 
+ static const int mt2701_regs[] = {
+@@ -569,6 +598,119 @@ static const int mt2701_regs[] = {
+ 	[PWRAP_ADC_RDATA_ADDR2] =	0x154,
+ };
+ 
++static const int mt6735_regs[] = {
++	[PWRAP_MUX_SEL] =			0x0,
++	[PWRAP_WRAP_EN] =			0x4,
++	[PWRAP_DIO_EN] =			0x8,
++	[PWRAP_SIDLY] =				0xc,
++	[PWRAP_RDDMY] =				0x10,
++	[PWRAP_SI_CK_CON] =			0x14,
++	[PWRAP_CSHEXT_WRITE] =			0x18,
++	[PWRAP_CSHEXT_READ] =			0x1c,
++	[PWRAP_CSLEXT_START] =			0x20,
++	[PWRAP_CSLEXT_END] =			0x24,
++	[PWRAP_STAUPD_PRD] =			0x28,
++	[PWRAP_STAUPD_GRPEN] =			0x2c,
++	[PWRAP_EINT_STA0_ADR] =			0x30,
++	[PWRAP_EINT_STA1_ADR] =			0x34,
++	[PWRAP_STA] =				0x38,
++	[PWRAP_CLR] =				0x3c,
++	[PWRAP_STAUPD_MAN_TRIG] =		0x40,
++	[PWRAP_STAUPD_STA] =			0x44,
++	[PWRAP_WRAP_STA] =			0x48,
++	[PWRAP_HARB_INIT] =			0x4c,
++	[PWRAP_HARB_HPRIO] =			0x50,
++	[PWRAP_HIPRIO_ARB_EN] =			0x54,
++	[PWRAP_HARB_STA0] =			0x58,
++	[PWRAP_HARB_STA1] =			0x5c,
++	[PWRAP_MAN_EN] =			0x60,
++	[PWRAP_MAN_CMD] =			0x64,
++	[PWRAP_MAN_RDATA] =			0x68,
++	[PWRAP_MAN_VLDCLR] =			0x6c,
++	[PWRAP_WACS0_EN] =			0x70,
++	[PWRAP_INIT_DONE0] =			0x74,
++	[PWRAP_WACS0_CMD] =			0x78,
++	[PWRAP_WACS0_RDATA] =			0x7c,
++	[PWRAP_WACS0_VLDCLR] =			0x80,
++	[PWRAP_WACS1_EN] =			0x84,
++	[PWRAP_INIT_DONE1] =			0x88,
++	[PWRAP_WACS1_CMD] =			0x8c,
++	[PWRAP_WACS1_RDATA] =			0x90,
++	[PWRAP_WACS1_VLDCLR] =			0x94,
++	[PWRAP_WACS2_EN] =			0x98,
++	[PWRAP_INIT_DONE2] =			0x9c,
++	[PWRAP_WACS2_CMD] =			0xa0,
++	[PWRAP_WACS2_RDATA] =			0xa4,
++	[PWRAP_WACS2_VLDCLR] =			0xa8,
++	[PWRAP_WACS3_EN] =			0xac,
++	[PWRAP_INIT_DONE3] =			0xb0,
++	[PWRAP_WACS3_CMD] =			0xb4,
++	[PWRAP_WACS3_RDATA] =			0xb8,
++	[PWRAP_WACS3_VLDCLR] =			0xbc,
++	[PWRAP_INT_EN] =			0xc0,
++	[PWRAP_INT_FLG_RAW] =			0xc4,
++	[PWRAP_INT_FLG] =			0xc8,
++	[PWRAP_INT_CLR] =			0xcc,
++	[PWRAP_SIG_ADR] =			0xd0,
++	[PWRAP_SIG_MODE] =			0xd4,
++	[PWRAP_SIG_VALUE] =			0xd8,
++	[PWRAP_SIG_ERRVAL] =			0xdc,
++	[PWRAP_CRC_EN] =			0xe0,
++	[PWRAP_TIMER_EN] =			0xe4,
++	[PWRAP_TIMER_STA] =			0xe8,
++	[PWRAP_WDT_UNIT] =			0xec,
++	[PWRAP_WDT_SRC_EN] =			0xf0,
++	[PWRAP_WDT_FLG] =			0xf4,
++	[PWRAP_DEBUG_INT_SEL] =			0xf8,
++	[PWRAP_DVFS_ADR0] =			0xfc,
++	[PWRAP_DVFS_WDATA0] =			0x100,
++	[PWRAP_DVFS_ADR1] =			0x104,
++	[PWRAP_DVFS_WDATA1] =			0x108,
++	[PWRAP_DVFS_ADR2] =			0x10c,
++	[PWRAP_DVFS_WDATA2] =			0x110,
++	[PWRAP_DVFS_ADR3] =			0x114,
++	[PWRAP_DVFS_WDATA3] =			0x118,
++	[PWRAP_DVFS_ADR4] =			0x11c,
++	[PWRAP_DVFS_WDATA4] =			0x120,
++	[PWRAP_DVFS_ADR5] =			0x124,
++	[PWRAP_DVFS_WDATA5] =			0x128,
++	[PWRAP_DVFS_ADR6] =			0x12c,
++	[PWRAP_DVFS_WDATA6] =			0x130,
++	[PWRAP_DVFS_ADR7] =			0x134,
++	[PWRAP_DVFS_WDATA7] =			0x138,
++	[PWRAP_DVFS_ADR8] =			0x13c,
++	[PWRAP_DVFS_WDATA8] =			0x140,
++	[PWRAP_DVFS_ADR9] =			0x144,
++	[PWRAP_DVFS_WDATA9] =			0x148,
++	[PWRAP_DVFS_ADR10] =			0x14c,
++	[PWRAP_DVFS_WDATA10] =			0x150,
++	[PWRAP_DVFS_ADR11] =			0x154,
++	[PWRAP_DVFS_WDATA11] =			0x158,
++	[PWRAP_DVFS_ADR12] =			0x15c,
++	[PWRAP_DVFS_WDATA12] =			0x160,
++	[PWRAP_DVFS_ADR13] =			0x164,
++	[PWRAP_DVFS_WDATA13] =			0x168,
++	[PWRAP_DVFS_ADR14] =			0x16c,
++	[PWRAP_DVFS_WDATA14] =			0x170,
++	[PWRAP_DVFS_ADR15] =			0x174,
++	[PWRAP_DVFS_WDATA15] =			0x178,
++	[PWRAP_SPMINF_STA] =			0x17c,
++	[PWRAP_CIPHER_KEY_SEL] =		0x180,
++	[PWRAP_CIPHER_IV_SEL] =			0x184,
++	[PWRAP_CIPHER_EN] =			0x188,
++	[PWRAP_CIPHER_RDY] =			0x18c,
++	[PWRAP_CIPHER_MODE] =			0x190,
++	[PWRAP_CIPHER_SWRST] =			0x194,
++	[PWRAP_DCM_EN] =			0x198,
++	[PWRAP_DCM_DBC_PRD] =			0x19c,
++	[PWRAP_EXT_CK] =			0x1a0,
++	[PWRAP_ADC_CMD_ADDR] =			0x1a4,
++	[PWRAP_PWRAP_ADC_CMD] =			0x1a8,
++	[PWRAP_ADC_RDATA_ADDR] =		0x1ac,
++	[PWRAP_GPS_STA] =			0x1b0,
++	[PWRAP_SW_RST] =			0x1b4,
++};
++
+ static const int mt6765_regs[] = {
+ 	[PWRAP_MUX_SEL] =		0x0,
+ 	[PWRAP_WRAP_EN] =		0x4,
+@@ -1302,6 +1444,7 @@ static const int mt8186_regs[] = {
+ 
+ enum pmic_type {
+ 	PMIC_MT6323,
++	PMIC_MT6328,
+ 	PMIC_MT6331,
+ 	PMIC_MT6332,
+ 	PMIC_MT6351,
+@@ -1314,6 +1457,7 @@ enum pmic_type {
+ 
+ enum pwrap_type {
+ 	PWRAP_MT2701,
++	PWRAP_MT6735,
+ 	PWRAP_MT6765,
+ 	PWRAP_MT6779,
+ 	PWRAP_MT6795,
+@@ -1733,6 +1877,10 @@ static void pwrap_init_chip_select_ext(struct pmic_wrapper *wrp, u8 hext_write,
+ static int pwrap_common_init_reg_clock(struct pmic_wrapper *wrp)
  {
- 	struct ieee80211_hdr *hdr = (struct ieee80211_hdr *)skb->data;
- 	struct ieee80211_tx_info *info = IEEE80211_SKB_CB(skb);
-@@ -866,7 +867,6 @@ void mt7996_mac_write_txwi(struct mt7996_dev *dev, __le32 *txwi,
- 	bool is_8023 = info->flags & IEEE80211_TX_CTL_HW_80211_ENCAP;
- 	struct mt76_vif_link *mlink = NULL;
- 	struct mt7996_vif *mvif;
--	unsigned int link_id;
- 	u16 tx_count = 15;
- 	u32 val;
- 	bool inband_disc = !!(changed & (BSS_CHANGED_UNSOL_BCAST_PROBE_RESP |
-@@ -874,17 +874,11 @@ void mt7996_mac_write_txwi(struct mt7996_dev *dev, __le32 *txwi,
- 	bool beacon = !!(changed & (BSS_CHANGED_BEACON |
- 				    BSS_CHANGED_BEACON_ENABLED)) && (!inband_disc);
+ 	switch (wrp->master->type) {
++	case PWRAP_MT6735:
++		pwrap_write(wrp, wrp->slave->dew_regs[PWRAP_DEW_RDDMY_NO], 0x8);
++		pwrap_init_chip_select_ext(wrp, 0, 6, 0, 0);
++		break;
+ 	case PWRAP_MT6795:
+ 		if (wrp->slave->type == PMIC_MT6331) {
+ 			const u32 *dew_regs = wrp->slave->dew_regs;
+@@ -1839,6 +1987,7 @@ static int pwrap_init_cipher(struct pmic_wrapper *wrp)
+ 		pwrap_writel(wrp, 1, PWRAP_CIPHER_START);
+ 		break;
+ 	case PWRAP_MT2701:
++	case PWRAP_MT6735:
+ 	case PWRAP_MT6765:
+ 	case PWRAP_MT6779:
+ 	case PWRAP_MT6795:
+@@ -2194,6 +2343,14 @@ static const struct pwrap_slv_type pmic_mt6323 = {
+ 		PWRAP_SLV_CAP_SECURITY,
+ };
  
--	if (wcid != &dev->mt76.global_wcid)
--		link_id = wcid->link_id;
--	else
--		link_id = u32_get_bits(info->control.flags,
--				       IEEE80211_TX_CTRL_MLO_LINK);
--
- 	mvif = vif ? (struct mt7996_vif *)vif->drv_priv : NULL;
- 	if (mvif) {
- 		if (wcid->offchannel)
- 			mlink = rcu_dereference(mvif->mt76.offchannel_link);
--		if (!mlink)
-+		if (!mlink && link_id != IEEE80211_LINK_UNSPECIFIED)
- 			mlink = rcu_dereference(mvif->mt76.link[link_id]);
- 	}
++static const struct pwrap_slv_type pmic_mt6328 = {
++	.dew_regs = mt6328_regs,
++	.type = PMIC_MT6328,
++	.regops = &pwrap_regops16,
++	.caps = PWRAP_SLV_CAP_SPI | PWRAP_SLV_CAP_DUALIO |
++		PWRAP_SLV_CAP_SECURITY,
++};
++
+ static const struct pwrap_slv_type pmic_mt6331 = {
+ 	.dew_regs = mt6331_regs,
+ 	.type = PMIC_MT6331,
+@@ -2249,6 +2406,7 @@ static const struct pwrap_slv_type pmic_mt6397 = {
  
-@@ -1096,7 +1090,7 @@ int mt7996_tx_prepare_skb(struct mt76_dev *mdev, void *txwi_ptr,
- 	/* Transmit non qos data by 802.11 header and need to fill txd by host*/
- 	if (!is_8023 || pid >= MT_PACKET_ID_FIRST)
- 		mt7996_mac_write_txwi(dev, txwi_ptr, tx_info->skb, wcid, key,
--				      pid, qid, 0);
-+				      pid, qid, 0, link_id);
+ static const struct of_device_id of_slave_match_tbl[] = {
+ 	{ .compatible = "mediatek,mt6323", .data = &pmic_mt6323 },
++	{ .compatible = "mediatek,mt6328", .data = &pmic_mt6328 },
+ 	{ .compatible = "mediatek,mt6331", .data = &pmic_mt6331 },
+ 	{ .compatible = "mediatek,mt6351", .data = &pmic_mt6351 },
+ 	{ .compatible = "mediatek,mt6357", .data = &pmic_mt6357 },
+@@ -2277,6 +2435,18 @@ static const struct pmic_wrapper_type pwrap_mt2701 = {
+ 	.init_soc_specific = pwrap_mt2701_init_soc_specific,
+ };
  
- 	/* MT7996 and MT7992 require driver to provide the MAC TXP for AddBA
- 	 * req
-diff --git a/drivers/net/wireless/mediatek/mt76/mt7996/mcu.c b/drivers/net/wireless/mediatek/mt76/mt7996/mcu.c
-index 8be40d60ad29..a14c63438923 100644
---- a/drivers/net/wireless/mediatek/mt76/mt7996/mcu.c
-+++ b/drivers/net/wireless/mediatek/mt76/mt7996/mcu.c
-@@ -3103,7 +3103,7 @@ mt7996_mcu_beacon_cont(struct mt7996_dev *dev,
++static const struct pmic_wrapper_type pwrap_mt6735 = {
++	.regs = mt6735_regs,
++	.type = PWRAP_MT6735,
++	.arb_en_all = GENMASK(9, 0),
++	.int_en_all = GENMASK(31, 0),
++	.spi_w = PWRAP_MAN_CMD_SPI_WRITE,
++	.wdt_src = PWRAP_WDT_SRC_MASK_ALL,
++	.caps = PWRAP_CAP_RESET | PWRAP_CAP_DCM,
++	.init_reg_clock = pwrap_common_init_reg_clock,
++	.init_soc_specific = NULL,
++};
++
+ static const struct pmic_wrapper_type pwrap_mt6765 = {
+ 	.regs = mt6765_regs,
+ 	.type = PWRAP_MT6765,
+@@ -2446,6 +2616,7 @@ static const struct pmic_wrapper_type pwrap_mt8186 = {
  
- 	buf = (u8 *)bcn + sizeof(*bcn);
- 	mt7996_mac_write_txwi(dev, (__le32 *)buf, skb, wcid, NULL, 0, 0,
--			      BSS_CHANGED_BEACON);
-+			      BSS_CHANGED_BEACON, link_conf->link_id);
- 
- 	memcpy(buf + MT_TXD_SIZE, skb->data, skb->len);
- }
-@@ -3249,7 +3249,8 @@ int mt7996_mcu_beacon_inband_discov(struct mt7996_dev *dev,
- 
- 	buf = (u8 *)tlv + sizeof(*discov);
- 
--	mt7996_mac_write_txwi(dev, (__le32 *)buf, skb, wcid, NULL, 0, 0, changed);
-+	mt7996_mac_write_txwi(dev, (__le32 *)buf, skb, wcid, NULL, 0, 0,
-+			      changed, link_conf->link_id);
- 
- 	memcpy(buf + MT_TXD_SIZE, skb->data, skb->len);
- 
-diff --git a/drivers/net/wireless/mediatek/mt76/mt7996/mt7996.h b/drivers/net/wireless/mediatek/mt76/mt7996/mt7996.h
-index 0dc4198fcf8b..0d6488522ba7 100644
---- a/drivers/net/wireless/mediatek/mt76/mt7996/mt7996.h
-+++ b/drivers/net/wireless/mediatek/mt76/mt7996/mt7996.h
-@@ -874,7 +874,8 @@ void mt7996_mac_enable_nf(struct mt7996_dev *dev, u8 band);
- void mt7996_mac_write_txwi(struct mt7996_dev *dev, __le32 *txwi,
- 			   struct sk_buff *skb, struct mt76_wcid *wcid,
- 			   struct ieee80211_key_conf *key, int pid,
--			   enum mt76_txq_id qid, u32 changed);
-+			   enum mt76_txq_id qid, u32 changed,
-+			   unsigned int link_id);
- void mt7996_mac_update_beacons(struct mt7996_phy *phy);
- void mt7996_mac_set_coverage_class(struct mt7996_phy *phy);
- void mt7996_mac_work(struct work_struct *work);
+ static const struct of_device_id of_pwrap_match_tbl[] = {
+ 	{ .compatible = "mediatek,mt2701-pwrap", .data = &pwrap_mt2701 },
++	{ .compatible = "mediatek,mt6735-pwrap", .data = &pwrap_mt6735 },
+ 	{ .compatible = "mediatek,mt6765-pwrap", .data = &pwrap_mt6765 },
+ 	{ .compatible = "mediatek,mt6779-pwrap", .data = &pwrap_mt6779 },
+ 	{ .compatible = "mediatek,mt6795-pwrap", .data = &pwrap_mt6795 },
 
----
-base-commit: 4913f44167cf35a9536e9eec7352e15b2de0c573
-change-id: 20260530-mt76_tx_status_skb_add-overwrite-fix-85818a9bb31f
-
-Best regards,
 -- 
-Lorenzo Bianconi <lorenzo@kernel.org>
+2.54.0
+
 
 
