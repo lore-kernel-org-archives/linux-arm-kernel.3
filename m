@@ -4,60 +4,67 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id C6485CD6E55
-	for <linux-arm-kernel@archiver.kernel.org>; Sun, 31 May 2026 06:08:57 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id AC507CD5BD1
+	for <linux-arm-kernel@archiver.kernel.org>; Sun, 31 May 2026 07:10:07 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	MIME-Version:Content-Type:References:In-Reply-To:Message-ID:Date:Subject:Cc:
-	To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=EXedMa3F9/2rK2uuNFkuGL7VYJbj96K9c+KvBlzH5Lo=; b=FnArNuknCKP3cb8FtD6MQzaFXM
-	VNCUIow2jlw+RwAD1h5QXQrzy5eTszn7NShl4Env709b+nTStPPzWvutJ12F/KTz0/gFshIwo27yk
-	G/nVxJJFnY5dxAqJVdsUytkP8io5XzNhog54Y4QEmlCc0ajpwbVshEhmKAh/O2Xv2tiJJNVU1sy1O
-	KTIZrjNXi4Ulg0M5pubMdhrbiSDdw9HqeIwziPhna6rlhUuY/7VpcQfAPoZfIWVD5UiBT9XmqDusx
-	9xW8r7PEqrgYGE2MVEdm/ueEZ7VUgVeQ1OEhGiVNQ0xRE3stlsLR8cA5A20ho8abDHduGax+0OllU
-	03n9spqA==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=UG26NKoRdG8Qq2dkwFqK3ASDqtGAcLy5ZudzMubis9M=; b=u/m91VwlhpfpmCBFMoxkeA9KyW
+	mT9mrLEQnsveFl4t4tmIcNXtsG1aFMBhOU4GSWZr3ykEE5/FcSEEe9fnkymjpYZeZL+xZHDOY4KYA
+	B3Ay8bPbgO9E/AFgLWrnxODJzaBSSChvi8AMjO/Ib6f/aSfXVv4mRUrVkmw6r6MKMWNQV+iU01Noi
+	hnpS6VpwTuVeOZwVtbP7snbto8Z9IlhYMPYjxIgmN3J+iitE6fWAc+bMaIsHe3emT2rf8moaglrVv
+	9ok5KinGEx2zBZh3DXCm+2HYVsV4W7Q9aBahvqoht+LWEVNDqz1C6nX+XcIMeleo2D5DehYh0PwOS
+	I/Ymqeow==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wTZLv-00000009H9p-0Stz;
-	Sun, 31 May 2026 06:08:51 +0000
+	id 1wTaJ4-00000009JCH-2BX8;
+	Sun, 31 May 2026 07:09:58 +0000
 Received: from tor.source.kernel.org ([172.105.4.254])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wTZLn-00000009H7j-0Gih
-	for linux-arm-kernel@lists.infradead.org;
-	Sun, 31 May 2026 06:08:43 +0000
+	id 1wTaJ3-00000009JC8-2An2;
+	Sun, 31 May 2026 07:09:57 +0000
 Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
-	by tor.source.kernel.org (Postfix) with ESMTP id 84AA96001A;
-	Sun, 31 May 2026 06:08:42 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id AAC671F00893;
-	Sun, 31 May 2026 06:08:41 +0000 (UTC)
+	by tor.source.kernel.org (Postfix) with ESMTP id B730D601D6;
+	Sun, 31 May 2026 07:09:55 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id E8C001F00893;
+	Sun, 31 May 2026 07:09:54 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1780207722;
-	bh=EXedMa3F9/2rK2uuNFkuGL7VYJbj96K9c+KvBlzH5Lo=;
-	h=From:To:Cc:Subject:Date:In-Reply-To:References;
-	b=fL5zcCN9wlgl719jz+O8g0FbMKXNGhkumsMP9mJPA+9l7+Ua+0rOnTW8RMFt6Z/fT
-	 jKwBWtJfI9KkKurUx4JXUQ5DDuERHLU3StRYakyOwE+WJhKOjDRzQpL1BoCjUaCJgt
-	 MooLA7MYtIPps+M9/R3yp8HGqA+6HriesKehH7Gz/A5V4GktC/8T1xP7qGbZH1uLv2
-	 mGPc7nEXyOC3VcBFvTqs6EQxGM0Zo1w1jN/xnI3i/Z+QpTZbaoC8RmV+sWTIa1v0MV
-	 6+/9Ba1xGXOFL0OSXc7yDkqMnURqyT0XLbAs/Rh2EDCTgqiqUAXIofNTVwqe/d/0yS
-	 hKPBmH6in1ykQ==
-From: Thierry Reding <thierry.reding@kernel.org>
-To: arm@kernel.org,
-	soc@kernel.org
-Cc: Thierry Reding <thierry.reding@kernel.org>,
-	Jon Hunter <jonathanh@nvidia.com>,
-	linux-tegra@vger.kernel.org,
-	linux-arm-kernel@lists.infradead.org
-Subject: [GIT PULL 5/6] ARM: tegra: Device tree changes for v7.2-rc1
-Date: Sun, 31 May 2026 08:08:22 +0200
-Message-ID: <20260531060825.1855391-5-thierry.reding@kernel.org>
-X-Mailer: git-send-email 2.52.0
-In-Reply-To: <20260531060825.1855391-1-thierry.reding@kernel.org>
-References: <20260531060825.1855391-1-thierry.reding@kernel.org>
-Content-Type: text/plain; charset="utf-8"
+	s=k20260515; t=1780211395;
+	bh=UG26NKoRdG8Qq2dkwFqK3ASDqtGAcLy5ZudzMubis9M=;
+	h=Date:From:To:Cc:Subject:References:In-Reply-To;
+	b=UQB77FHVvID3Bio2Dpiw8g4sF0KWJN43d3LG9SwoQlrKiW3z5uEovMlHO6nwXw5pI
+	 Zn65Mgd3kqqmRLuFPzo0obXrLD5hGMx+g5VomywEd/v2qjoXyOKvuXdDkcb41eGn74
+	 ShTvB/cplG6R/cv7P8RQE5MB6TMl9ymw/vLoVcS+eQDhA/iOh9DnQIIfa8Bq3sfxNC
+	 efIqOD4YemY10cQkk00TP0Zl01tmmF22AjOm+N9ABQXtkpuphOftZsH43v/YapnnRX
+	 L0KPxB4KYBqzrd8AcjSt4S1RumFFediF+o+WEx5NTjA17Eb7pA+4RxcnrvXer6m72Y
+	 TSkMNE+JxVMaw==
+Date: Sun, 31 May 2026 09:09:52 +0200
+From: "lorenzo@kernel.org" <lorenzo@kernel.org>
+To: Ryder Lee <Ryder.Lee@mediatek.com>
+Cc: Shayne Chen =?utf-8?B?KOmZs+i7kuS4nik=?= <Shayne.Chen@mediatek.com>,
+	"nbd@nbd.name" <nbd@nbd.name>,
+	AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>,
+	Chui-hao Chiu =?utf-8?B?KOmCseWegua1qSk=?= <Chui-hao.Chiu@mediatek.com>,
+	Sean Wang <Sean.Wang@mediatek.com>,
+	Bo Jiao =?utf-8?B?KOeEpuazoik=?= <Bo.Jiao@mediatek.com>,
+	"matthias.bgg@gmail.com" <matthias.bgg@gmail.com>,
+	"linux-wireless@vger.kernel.org" <linux-wireless@vger.kernel.org>,
+	"linux-arm-kernel@lists.infradead.org" <linux-arm-kernel@lists.infradead.org>,
+	Roy-CH Luo <Roy-CH.Luo@mediatek.com>,
+	"linux-mediatek@lists.infradead.org" <linux-mediatek@lists.infradead.org>
+Subject: Re: [PATCH] wifi: mt76: mt7996: fix reading zeroed
+ info->control.flags after mt76_tx_status_skb_add()
+Message-ID: <ahvewFh2NuB5MO8t@lore-desk>
+References: <20260530-mt76_tx_status_skb_add-overwrite-fix-v1-1-e2c3151c391a@kernel.org>
+ <6be1d6e67bcb5500c9d1e92449ce7757f6166d22.camel@mediatek.com>
 MIME-Version: 1.0
-Content-Transfer-Encoding: 8bit
+Content-Type: multipart/signed; micalg=pgp-sha512;
+	protocol="application/pgp-signature"; boundary="AGJPJ/O6tI6V5QoO"
+Content-Disposition: inline
+In-Reply-To: <6be1d6e67bcb5500c9d1e92449ce7757f6166d22.camel@mediatek.com>
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -72,73 +79,172 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-From: Thierry Reding <thierry.reding@gmail.com>
 
-Hi ARM SoC maintainers,
+--AGJPJ/O6tI6V5QoO
+Content-Type: text/plain; charset=iso-8859-1
+Content-Disposition: inline
+Content-Transfer-Encoding: quoted-printable
 
-The following changes since commit 254f49634ee16a731174d2ae34bc50bd5f45e731:
+> On Sat, 2026-05-30 at 17:25 +0200, Lorenzo Bianconi wrote:
+> > mt76_tx_status_skb_add() zeroes the mt76_tx_cb struct stored at
+> > info->status.status_driver_data via memset(). Since info->control and
+> > info->status are members of the same union in ieee80211_tx_info,
+> > this overwrites info->control.flags.
+> > In mt7996_tx_prepare_skb(), mt76_tx_status_skb_add() is called before
+> > mt7996_mac_write_txwi(), which re-reads info->control.flags to
+> > extract
+> > IEEE80211_TX_CTRL_MLO_LINK. Because the field has been zeroed, the
+> > link_id always resolves to 0 for frames using global_wcid, leading to
+> > incorrect TXWI configuration.
+> > Fix this by passing link_id as an explicit parameter to
+> > mt7996_mac_write_txwi(). In mt7996_tx_prepare_skb(), the link_id is
+> > already extracted from info->control.flags before the destructive
+> > mt76_tx_status_skb_add() call. For the beacon and inband discovery
+> > callers in mcu.c, use link_conf->link_id directly.
+> >=20
+> > Fixes: f0b0b239b8f36 ("wifi: mt76: mt7996: rework
+> > mt7996_mac_write_txwi() for MLO support")
+> > Signed-off-by: Lorenzo Bianconi <lorenzo@kernel.org>
+> > ---
+> > =A0drivers/net/wireless/mediatek/mt76/mt7996/mac.c=A0=A0=A0 | 9 +++----=
+--
+> > =A0drivers/net/wireless/mediatek/mt76/mt7996/mcu.c=A0=A0=A0 | 5 +++--
+> > =A0drivers/net/wireless/mediatek/mt76/mt7996/mt7996.h | 3 ++-
+> > =A03 files changed, 8 insertions(+), 9 deletions(-)
+> >=20
+> > diff --git a/drivers/net/wireless/mediatek/mt76/mt7996/mac.c
+> > b/drivers/net/wireless/mediatek/mt76/mt7996/mac.c
+> > index c98446057282..2d3f80b3e41a 100644
+> > --- a/drivers/net/wireless/mediatek/mt76/mt7996/mac.c
+> > +++ b/drivers/net/wireless/mediatek/mt76/mt7996/mac.c
+> > @@ -856,7 +856,8 @@ mt7996_mac_write_txwi_80211(struct mt7996_dev
+> > *dev, __le32 *txwi,
+> > =A0void mt7996_mac_write_txwi(struct mt7996_dev *dev, __le32 *txwi,
+> > =A0			=A0=A0 struct sk_buff *skb, struct mt76_wcid
+> > *wcid,
+> > =A0			=A0=A0 struct ieee80211_key_conf *key, int pid,
+> > -			=A0=A0 enum mt76_txq_id qid, u32 changed)
+> > +			=A0=A0 enum mt76_txq_id qid, u32 changed,
+> > +			=A0=A0 unsigned int link_id)
+> > =A0{
+> > =A0	struct ieee80211_hdr *hdr =3D (struct ieee80211_hdr *)skb-
+> > >data;
+> > =A0	struct ieee80211_tx_info *info =3D IEEE80211_SKB_CB(skb);
+> > @@ -866,7 +867,6 @@ void mt7996_mac_write_txwi(struct mt7996_dev
+> > *dev, __le32 *txwi,
+> > =A0	bool is_8023 =3D info->flags &
+> > IEEE80211_TX_CTL_HW_80211_ENCAP;
+> > =A0	struct mt76_vif_link *mlink =3D NULL;
+> > =A0	struct mt7996_vif *mvif;
+> > -	unsigned int link_id;
+> > =A0	u16 tx_count =3D 15;
+> > =A0	u32 val;
+> > =A0	bool inband_disc =3D !!(changed &
+> > (BSS_CHANGED_UNSOL_BCAST_PROBE_RESP |
+> > @@ -876,9 +876,6 @@ void mt7996_mac_write_txwi(struct mt7996_dev
+> > *dev, __le32 *txwi,
+> > =A0
+> > =A0	if (wcid !=3D &dev->mt76.global_wcid)
+> > =A0		link_id =3D wcid->link_id;
+> > -	else
+> > -		link_id =3D u32_get_bits(info->control.flags,
+> > -				=A0=A0=A0=A0=A0=A0 IEEE80211_TX_CTRL_MLO_LINK);
+> > =A0
+> > =A0	mvif =3D vif ? (struct mt7996_vif *)vif->drv_priv : NULL;
+> > =A0	if (mvif) {
+> > @@ -1096,7 +1093,7 @@ int mt7996_tx_prepare_skb(struct mt76_dev
+> > *mdev, void *txwi_ptr,
+> > =A0	/* Transmit non qos data by 802.11 header and need to fill
+> > txd by host*/
+> > =A0	if (!is_8023 || pid >=3D MT_PACKET_ID_FIRST)
+> > =A0		mt7996_mac_write_txwi(dev, txwi_ptr, tx_info->skb,
+> > wcid, key,
+> > -				=A0=A0=A0=A0=A0 pid, qid, 0);
+> > +				=A0=A0=A0=A0=A0 pid, qid, 0, link_id);
+> > =A0
+> > =A0	/* MT7996 and MT7992 require driver to provide the MAC TXP
+> > for AddBA
+> > =A0	 * req
+> > diff --git a/drivers/net/wireless/mediatek/mt76/mt7996/mcu.c
+> > b/drivers/net/wireless/mediatek/mt76/mt7996/mcu.c
+> > index 8be40d60ad29..a14c63438923 100644
+> > --- a/drivers/net/wireless/mediatek/mt76/mt7996/mcu.c
+> > +++ b/drivers/net/wireless/mediatek/mt76/mt7996/mcu.c
+> > @@ -3103,7 +3103,7 @@ mt7996_mcu_beacon_cont(struct mt7996_dev *dev,
+> > =A0
+> > =A0	buf =3D (u8 *)bcn + sizeof(*bcn);
+> > =A0	mt7996_mac_write_txwi(dev, (__le32 *)buf, skb, wcid, NULL,
+> > 0, 0,
+> > -			=A0=A0=A0=A0=A0 BSS_CHANGED_BEACON);
+> > +			=A0=A0=A0=A0=A0 BSS_CHANGED_BEACON, link_conf-
+> > >link_id);
+> > =A0
+> > =A0	memcpy(buf + MT_TXD_SIZE, skb->data, skb->len);
+> > =A0}
+> > @@ -3249,7 +3249,8 @@ int mt7996_mcu_beacon_inband_discov(struct
+> > mt7996_dev *dev,
+> > =A0
+> > =A0	buf =3D (u8 *)tlv + sizeof(*discov);
+> > =A0
+> > -	mt7996_mac_write_txwi(dev, (__le32 *)buf, skb, wcid, NULL,
+> > 0, 0, changed);
+> > +	mt7996_mac_write_txwi(dev, (__le32 *)buf, skb, wcid, NULL,
+> > 0, 0,
+> > +			=A0=A0=A0=A0=A0 changed, link_conf->link_id);
+> > =A0
+> > =A0	memcpy(buf + MT_TXD_SIZE, skb->data, skb->len);
+> > =A0
+> > diff --git a/drivers/net/wireless/mediatek/mt76/mt7996/mt7996.h
+> > b/drivers/net/wireless/mediatek/mt76/mt7996/mt7996.h
+> > index 0dc4198fcf8b..0d6488522ba7 100644
+> > --- a/drivers/net/wireless/mediatek/mt76/mt7996/mt7996.h
+> > +++ b/drivers/net/wireless/mediatek/mt76/mt7996/mt7996.h
+> > @@ -874,7 +874,8 @@ void mt7996_mac_enable_nf(struct mt7996_dev *dev,
+> > u8 band);
+> > =A0void mt7996_mac_write_txwi(struct mt7996_dev *dev, __le32 *txwi,
+> > =A0			=A0=A0 struct sk_buff *skb, struct mt76_wcid
+> > *wcid,
+> > =A0			=A0=A0 struct ieee80211_key_conf *key, int pid,
+> > -			=A0=A0 enum mt76_txq_id qid, u32 changed);
+> > +			=A0=A0 enum mt76_txq_id qid, u32 changed,
+> > +			=A0=A0 unsigned int link_id);
+> > =A0void mt7996_mac_update_beacons(struct mt7996_phy *phy);
+> > =A0void mt7996_mac_set_coverage_class(struct mt7996_phy *phy);
+> > =A0void mt7996_mac_work(struct work_struct *work);
+>=20
+> The reason we didn't make the same change is because we use other
+> control flags (IEEE80211_TX_CTRL*) of info->control.flags not just MLO
+> one. So with this change we still need to copy over the other flags and
+> pass them in as well.
 
-  Linux 7.1-rc1 (2026-04-26 14:19:00 -0700)
+Do you mean you are using info->control.flags in mt7996_mac_write_txwi() in
+some downstream code? If so, I guess you can use a similar approach and
+just pass the required field. Copy the full ieee80211_tx_info struct on
+per-packet basis seems unnecessary.
 
-are available in the Git repository at:
+Regards,
+Lorenzo
 
-  git://git.kernel.org/pub/scm/linux/kernel/git/tegra/linux.git tags/tegra-for-7.2-arm-dt
+>=20
+> Ryder
+> >=20
+> > ---
+> > base-commit: 4913f44167cf35a9536e9eec7352e15b2de0c573
+> > change-id: 20260530-mt76_tx_status_skb_add-overwrite-fix-85818a9bb31f
+> >=20
+> > Best regards,
+>=20
 
-for you to fetch changes up to 774bc2764647cfd6b65727cfa978d809f11df392:
+--AGJPJ/O6tI6V5QoO
+Content-Type: application/pgp-signature; name=signature.asc
 
-  ARM: tegra: tf600t: Invert accelerometer calibration matrix (2026-05-29 14:36:18 +0200)
+-----BEGIN PGP SIGNATURE-----
 
-Thanks,
-Thierry
+iHUEABYKAB0WIQTquNwa3Txd3rGGn7Y6cBh0uS2trAUCahvewAAKCRA6cBh0uS2t
+rNHKAQCgF6JS3c6ktKzaI4IBFEI0REHQ4gW0I06DRKni7DzpvgEAzywsMjZzJiQj
+uw/Weyl2/PAYvoAbfLxMrRoXMQBrnQI=
+=xydx
+-----END PGP SIGNATURE-----
 
-----------------------------------------------------------------
-ARM: tegra: Device tree changes for v7.2-rc1
-
-The bulk of this is various improvements for some of the older ASUS and
-LG devices, but there's also support for interconnects on Tegra114 to
-help improve memory frequency scaling.
-
-----------------------------------------------------------------
-Brian Norris (1):
-      ARM: tegra: Add #{address,size}-cells to Chromium-based /firmware
-
-Ion Agorria (1):
-      ARM: tegra: p880: Lower CPU thermal limit
-
-Svyatoslav Ryhel (13):
-      dt-bindings: memory: Document Tegra114 Memory Controller
-      dt-bindings: memory: Document Tegra114 External Memory Controller
-      ARM: tegra: Add EMC OPP and ICC properties to Tegra114 EMC and ACTMON device-tree nodes
-      ARM: tegra: Add DC interconnections for Tegra114
-      ARM: tegra: Configure Tegra114 power domains
-      ARM: tegra: lg-x3: Complete video device graph
-      ARM: tegra: lg-x3: Set PMIC's RTC address
-      ARM: tegra: grouper: Add support for front camera
-      ARM: tegra: transformer: Add support for front camera
-      ARM: tegra: transformers: Add connector node for common trees
-      ARM: tegra: tf600t: Configure panel
-      ARM: tegra: tf600t: Drop backlight regulator
-      ARM: tegra: tf600t: Invert accelerometer calibration matrix
-
-Thierry Reding (1):
-      Merge tag 'memory-controller-drv-tegra-dt-bindings-7.2' of https://git.kernel.org/pub/scm/linux/kernel/git/krzk/linux-mem-ctrl into for-7.2/arm/dt
-
- .../memory-controllers/nvidia,tegra124-emc.yaml    |  174 +--
- .../memory-controllers/nvidia,tegra124-mc.yaml     |   31 +-
- .../boot/dts/nvidia/tegra114-peripherals-opp.dtsi  | 1439 ++++++++++++++++++++
- arch/arm/boot/dts/nvidia/tegra114.dtsi             |  157 +++
- arch/arm/boot/dts/nvidia/tegra124-nyan.dtsi        |    5 +
- arch/arm/boot/dts/nvidia/tegra124-venice2.dts      |    5 +
- .../nvidia/tegra20-asus-transformer-common.dtsi    |   22 +-
- .../nvidia/tegra30-asus-nexus7-grouper-common.dtsi |  128 ++
- .../tegra30-asus-nexus7-grouper-maxim-pmic.dtsi    |    4 +-
- .../tegra30-asus-nexus7-grouper-ti-pmic.dtsi       |    4 +-
- arch/arm/boot/dts/nvidia/tegra30-asus-tf600t.dts   |   71 +-
- .../nvidia/tegra30-asus-transformer-common.dtsi    |  159 ++-
- arch/arm/boot/dts/nvidia/tegra30-lg-p880.dts       |   41 +
- arch/arm/boot/dts/nvidia/tegra30-lg-p895.dts       |   46 +
- arch/arm/boot/dts/nvidia/tegra30-lg-x3.dtsi        |  157 ++-
- include/dt-bindings/memory/tegra114-mc.h           |   67 +
- 16 files changed, 2302 insertions(+), 208 deletions(-)
- create mode 100644 arch/arm/boot/dts/nvidia/tegra114-peripherals-opp.dtsi
+--AGJPJ/O6tI6V5QoO--
 
