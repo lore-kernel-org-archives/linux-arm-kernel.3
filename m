@@ -4,77 +4,76 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 0723DCD6E57
-	for <linux-arm-kernel@archiver.kernel.org>; Sun, 31 May 2026 23:52:02 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 98801CD6E57
+	for <linux-arm-kernel@archiver.kernel.org>; Sun, 31 May 2026 23:54:32 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
 	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
 	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=jT2+faPEqgvyyrZj7GkiI+MQEalHKPFUv4mZyF5by/U=; b=McdLpxhzDT4gsdklqOEPqa8M58
-	OU83xjnpcG9Xko4nkOJbBmNDnxiqbNkQA3PnL2CUxNIDSVxY0oI5O4JyfMPJRvZm4aBbcFsJza9NM
-	dJkptfMYmTvi3+YNsu1mV8Xksc5fuMd7s7JudN37eheXU+x4dJOD7Y9pWPRfjQba2Mj8kBsqfwbCQ
-	w7xUPZLSmYAE7b3ZBrxsE9GvU/9b5cI+ZthTAy/iYRmoGcE/29wHQGM7N93FO77HTAFWuHL/N5b5n
-	u/UdIbq6Vu/KPEG6tFdV3qfz3hmquDNRzPQzpsOnBlIb4Oqe9ZHyV4j2f8JAXBFqczM+YeRnksGwM
-	i4+6MLXg==;
+	bh=IrKWJ1NykkXFbiCeCeA4esCrNiqvK/wMlJLwP88BqrM=; b=IQsr8fLHhLcZAE0jAWxnGA3DB0
+	eJAL8HTD8wZMdJWPqLGjxl2UbZVCfJQ+iueMdWHLbhawQJEvNtjozM8VqIZUOpMOvR3dlECRzeROw
+	vG/6BgVu2PYy1+CeD8YLXlbDHcwmcV0pYuHVk/y9BwmR9jL8iPyoq4FuSEEJyP/5VIt1Ik840aVPJ
+	HNW7qSdynnQAmWFtNHEprsf2No4+jLrIQ0HuoiXPFuKbSIGWK8RTu+5d4At+AYC/08K1tBvtPYcPv
+	JGqds7e2g30/LEPKTax8nmndyA9edGBHGQHo5KCMWY26VCOBt6C1KjnHmb9XL952umsMIgv9HpRZ5
+	FjGs/Kww==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wTpwh-00000009ydA-2tVC;
-	Sun, 31 May 2026 23:51:55 +0000
-Received: from mail-qk1-x72c.google.com ([2607:f8b0:4864:20::72c])
+	id 1wTpz8-00000009ykr-09fc;
+	Sun, 31 May 2026 23:54:26 +0000
+Received: from mail-qt1-x82a.google.com ([2607:f8b0:4864:20::82a])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wTpwe-00000009yck-2lAo
+	id 1wTpz6-00000009ykY-1Y6A
 	for linux-arm-kernel@lists.infradead.org;
-	Sun, 31 May 2026 23:51:54 +0000
-Received: by mail-qk1-x72c.google.com with SMTP id af79cd13be357-914ae4101b4so1244052585a.2
-        for <linux-arm-kernel@lists.infradead.org>; Sun, 31 May 2026 16:51:51 -0700 (PDT)
+	Sun, 31 May 2026 23:54:25 +0000
+Received: by mail-qt1-x82a.google.com with SMTP id d75a77b69052e-516d61baff3so105916231cf.0
+        for <linux-arm-kernel@lists.infradead.org>; Sun, 31 May 2026 16:54:23 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=ziepe.ca; s=google; t=1780271511; x=1780876311; darn=lists.infradead.org;
+        d=ziepe.ca; s=google; t=1780271663; x=1780876463; darn=lists.infradead.org;
         h=in-reply-to:content-disposition:mime-version:references:message-id
          :subject:cc:to:from:date:from:to:cc:subject:date:message-id:reply-to;
-        bh=jT2+faPEqgvyyrZj7GkiI+MQEalHKPFUv4mZyF5by/U=;
-        b=nlKdKAvK2OrhF4cI+lMoQ0I5UGrqhz9oDhuSGRHlWQT1nRyVvNIi+cOXydynx85P57
-         wEwUTg+duGiPvGOkFXOsHx7QMlSDpOZ9dpzCYNvdFODoFi1WyQeXnT9cFMETf/ki47Qy
-         aXly7tEh7saZAooQi8yakUByxyhs9bfXqJlpzi22vVtBhEJztJfU39Ol9sz7As27nuXy
-         0dkKJZtc6gKYDAe/RVwHf5YHrZdT/9pJO1abhU0/YpB0IWn+jaUUdsLOxCAp6yHNGuy0
-         6O7vPoeuCojF4IbqmPDW50U8hNEyUWumAfFwIkv2GrdXxSz2N0geR3EUTQwvqJaG2afA
-         R64w==
+        bh=IrKWJ1NykkXFbiCeCeA4esCrNiqvK/wMlJLwP88BqrM=;
+        b=BHs9o2Jull3FMXfCQtqoDk1mopnSNyQJGbSmNO9IRK1hlDSgFTpd33mH/mcCDep6iR
+         YqwsLIauWCGhxvYaspaPdKfHFljGgeAdctilzzSluDUgOMQ3g/kjO19nnQ8ZZIdHCDGR
+         r/ERBIYTlX36u4z78bKLxLHWCeXvGLeRUNApjBkZZCRnLzG5MBIeHXPfEGt61vwLpCRr
+         5v978j23/b5/8SBbePEGCMVfwacjQmp4z1vzU0woGPIi0lprRJf76+8WUv2iLIfPQTJT
+         LNv6S1yrz8EUtF0ZQWANTEuRSyLPJw2gr/5PHTqZINXWLN++VLapbI66YjDnBAw/tZDq
+         Orog==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20251104; t=1780271511; x=1780876311;
+        d=1e100.net; s=20251104; t=1780271663; x=1780876463;
         h=in-reply-to:content-disposition:mime-version:references:message-id
          :subject:cc:to:from:date:x-gm-gg:x-gm-message-state:from:to:cc
          :subject:date:message-id:reply-to;
-        bh=jT2+faPEqgvyyrZj7GkiI+MQEalHKPFUv4mZyF5by/U=;
-        b=BfidC1MkTmERwOCWvIIbLVzPYeBAcJqCIUzFPK7gPCBTVJCxL/V1BMongzEl2R6tlP
-         X9JPv81NrO85CQg2+/swnRc30zIhLCuUbypzAK5agfbDBGPfoefve9rV4sXWjFANDptY
-         OC6y3Nh+HUOzDXj73c+sg/imadKuREouqMTT+TXsxgrIXww8ZQ5Edm2I1md6WVE9+hLa
-         uKC/MpJj7OmawUfmDjwJFoyuS8ZDeInEBtKR4Ts0ztwojSAKLGH30FtZE130GsdAHl0e
-         kPGfZUPE5KEANKmuwilfVzksxfGDMGuU12hRRBgqn4HuCXLfBJ9sY59J6FFTgAJRGPZo
-         bbVw==
-X-Forwarded-Encrypted: i=1; AFNElJ/38LV/dG21nYBxjTyQfKy0MlOsCeZTYTEt66rpQnrRcbijqLIP87v44rN4OJB8WhtYhI5KDzQV9agUh+gmYh/E@lists.infradead.org
-X-Gm-Message-State: AOJu0Yz23PGJADVljYtTwcxIfbN6XwIKhGU9dz6pxzr0sYOsaIkdq0Tn
-	nzW0DaKJPc+1fsa8FwVRbqzerfb2kQ83FvjGtsU3UeHEU8skmXcYWFu9oj+DxZ+psJh0UnoxId+
-	F2bML
-X-Gm-Gg: Acq92OFM1FdhsGk7Cv1be+x991fUOP1xBYrU0OMa9dDH6GnUm7huF+6fhZfQuU3hXvW
-	vfZ3zhzcOedhBq8wU7+aWl3HnVpHPXItsTD2zTW7AsG2hyDGjwFlC3Ucdo/y938aiK9vphUApYU
-	5TyVfB4bpVHc90G8RZPufmLM1JuNjwqiahYKMlSSD6YfvSqCYX7J9fDpO2QaldqsGCXPM2evjyA
-	y7N3fJxqB6XH2ksavQckx96MvPJm9qdyVK5FHVbvbATNr0NwbQdHNQrIFKAp1cjJPrPWwn0isBi
-	a1j3Azu/hGl4ZedAlHhgrR1lWumDBTo7FNp2GwRMw9hweZD9JJzXhHv8D79Hl64oR/IrmQFs/JF
-	AOnri1Z3kI5ma/+FKM492+WbVg+1AAxaKi5BIZOgwy/fKvsdSlni/QuErkZWd6re35nzlvYXTM4
-	Lh7Nj4/jDByZfLB/G3n1d9wuoxcPKttaUIWZnP+EPrNItwVCLz9S0u8sp1AVVxDw8+qi4wRjeRc
-	IBHII5WgWjQPMrV
-X-Received: by 2002:a05:620a:439b:b0:913:7bc8:79b9 with SMTP id af79cd13be357-9153d9b617bmr1323643185a.22.1780271510817;
-        Sun, 31 May 2026 16:51:50 -0700 (PDT)
+        bh=IrKWJ1NykkXFbiCeCeA4esCrNiqvK/wMlJLwP88BqrM=;
+        b=n+CWilUXmO5jOCA/GiA0hFNbLFzkqmdX7sCAO5eyzzReILN2sp37kNe+TvfCOfyqiL
+         GwtpjMXbfoXYIxtxdcww60kwGmMFEVE6Wo+N6myvbxYHngy6ruxeWk0G3vu2zzzO7bvi
+         FwkH5Hv2JmHsr+jTq/L9IxY4ZxZqkrVFcH4roRhrj4EGrrlRW9+CV1Y/YMxu1U53GelP
+         Fwpz5bqlbb54xoW/d0mM0ojqeoAY9UaXpTMtfzbY+pcenXckZxPFFYj4o19ii1KD6ccq
+         1idzxkKyZlL+H93MLC/ugFx2peJQy3XMNFAoFCCt1nqLnkeqhMxsTnrfpK/i58h29UbZ
+         A1zQ==
+X-Forwarded-Encrypted: i=1; AFNElJ95jJ115CqXJkTwc/Je3/6DxPrnyYm0/DjI7M80uhtzim7fSr/8zLHYv+mnm8pa72DgBxs1iigxCqddOjPrTaM6@lists.infradead.org
+X-Gm-Message-State: AOJu0YzDTx/Q79sOareq3kUaGYSTgdUBkjQLApUNhocdiscpNFoU7+8d
+	+Vdh6i8769dmw96pQPtUs7JufTPp46E2BMm0kndh3V7Mg/yGSo9zO27vlXqNaFA03ZA=
+X-Gm-Gg: Acq92OGQEuagVrPTA2ssS/0TbjqpAj8C7uazvdFXrzY7s8yFZdCBPXAhlXLMSOFvt0A
+	WufzuKiv23uVkXHDh857g1MD4WxMSM2H+crEoau0C0RnqrOrRCvS68iY84dsNg20hPO/acQqOcJ
+	QHNCIQ/nF0C1HdAsgMO++Mf6XcfJHmW0jXp7oM7B2n7ieR4bQ/ZprhRGiBqys2tFhnTkM3QvEBL
+	3Toimwq7IU80lfjCqJgbY6IA3Vun2YBjRSKHpCVBaq2YdCdHztoRXAei7ePI0oQNpK2oHfssgi/
+	cPAelXf3ldo4VJktmChCrI699zbzb44+viyOoqL3+bg7Gq48yVrSvEfEtexYE2c9FOlV3HJ/XV7
+	SFgtXTsNtE4+eOezxDXgrth1x16wk8SwD0dNnV9No/x8xb9tM0QhLNwMD7ycvY5L2hbulIDj8kQ
+	byiHJnQi7mJLB+8wUdFjqBUQShahmno/nT/4Sr1PDZHImdopl4QedlU5fEPndw0H0r04lKRtwj1
+	N8C6Zwbm70wv4vB4NTHECTpsN4=
+X-Received: by 2002:a05:622a:646:b0:516:d943:175e with SMTP id d75a77b69052e-5173a77ad04mr129763061cf.25.1780271663054;
+        Sun, 31 May 2026 16:54:23 -0700 (PDT)
 Received: from ziepe.ca (crbknf0213w-47-54-130-67.pppoe-dynamic.high-speed.nl.bellaliant.net. [47.54.130.67])
-        by smtp.gmail.com with ESMTPSA id af79cd13be357-91532473bb9sm854276585a.11.2026.05.31.16.51.49
+        by smtp.gmail.com with ESMTPSA id 6a1803df08f44-8ccea1ca972sm78588116d6.30.2026.05.31.16.54.22
         (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Sun, 31 May 2026 16:51:50 -0700 (PDT)
+        Sun, 31 May 2026 16:54:22 -0700 (PDT)
 Received: from jgg by wakko with local (Exim 4.97)
 	(envelope-from <jgg@ziepe.ca>)
-	id 1wTpwa-00000001LoH-3dmS;
-	Sun, 31 May 2026 20:51:48 -0300
-Date: Sun, 31 May 2026 20:51:48 -0300
+	id 1wTpz3-00000001Lqf-3yz5;
+	Sun, 31 May 2026 20:54:21 -0300
+Date: Sun, 31 May 2026 20:54:21 -0300
 From: Jason Gunthorpe <jgg@ziepe.ca>
 To: Guanghui Feng <guanghuifeng@linux.alibaba.com>
 Cc: boris.brezillon@collabora.com, robh@kernel.org, steven.price@arm.com,
@@ -89,19 +88,19 @@ Cc: boris.brezillon@collabora.com, robh@kernel.org, steven.price@arm.com,
 	dwmw2@infradead.org, xlpang@linux.alibaba.com,
 	oliver.yang@linux.alibaba.com, shiyu.zsq@linux.alibaba.com,
 	wei.guo.simon@linux.alibaba.com
-Subject: Re: [PATCH 1/9] iommu: introduce iova_to_phys_length in
- iommu_domain_ops
-Message-ID: <20260531235148.GV2487554@ziepe.ca>
+Subject: Re: [PATCH 3/9] iommu/generic_pt: implement iova_to_phys_length
+Message-ID: <20260531235421.GW2487554@ziepe.ca>
 References: <20260529115116.GR2487554@ziepe.ca>
  <20260531093637.3893199-1-guanghuifeng@linux.alibaba.com>
- <20260531093637.3893199-2-guanghuifeng@linux.alibaba.com>
+ <20260531093637.3893199-4-guanghuifeng@linux.alibaba.com>
 MIME-Version: 1.0
 Content-Type: text/plain; charset=us-ascii
 Content-Disposition: inline
-In-Reply-To: <20260531093637.3893199-2-guanghuifeng@linux.alibaba.com>
+In-Reply-To: <20260531093637.3893199-4-guanghuifeng@linux.alibaba.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260531_165152_820706_543B197B 
-X-CRM114-Status: GOOD (  26.07  )
+X-CRM114-CacheID: sfid-20260531_165424_415626_AEBF4BE2 
+X-CRM114-Status: UNSURE (   8.56  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -116,92 +115,22 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Sun, May 31, 2026 at 05:36:29PM +0800, Guanghui Feng wrote:
-> Add iova_to_phys_length callback to struct iommu_domain_ops alongside
-> the existing iova_to_phys. The new callback returns both the physical
-> address and the PTE mapping page size in a single page table walk.
-> 
-> Add iommu_iova_to_phys_length() core function that:
-> - Checks ops->iova_to_phys_length first (preferred path)
-> - Falls back to ops->iova_to_phys for unmigrated drivers
-> 
-> This enables callers like VFIO to efficiently traverse IOVA space
-> by actual mapping granularity instead of fixed PAGE_SIZE steps.
-> 
-> Signed-off-by: Guanghui Feng <guanghuifeng@linux.alibaba.com>
-> Acked-by: Shiqiang Zhang <shiyu.zsq@linux.alibaba.com>
-> Acked-by: Simon Guo <wei.guo.simon@linux.alibaba.com>
-> ---
->  drivers/iommu/iommu.c | 34 ++++++++++++++++++++++++++++++++--
->  include/linux/iommu.h |  9 +++++++++
->  2 files changed, 41 insertions(+), 2 deletions(-)
-> 
-> diff --git a/drivers/iommu/iommu.c b/drivers/iommu/iommu.c
-> index d1a9e713d3a0..43323229a1df 100644
-> --- a/drivers/iommu/iommu.c
-> +++ b/drivers/iommu/iommu.c
-> @@ -2545,15 +2545,45 @@ void iommu_detach_group(struct iommu_domain *domain, struct iommu_group *group)
->  }
->  EXPORT_SYMBOL_GPL(iommu_detach_group);
->  
-> -phys_addr_t iommu_iova_to_phys(struct iommu_domain *domain, dma_addr_t iova)
-> +/**
-> + * iommu_iova_to_phys_length - Translate IOVA and return mapping page size
-> + * @domain: IOMMU domain to query
-> + * @iova: IO virtual address to translate
-> + * @mapped_length: Output parameter for the PTE page size (e.g. 4KB/2MB/1GB)
-> + *
-> + * Like iommu_iova_to_phys() but additionally returns the page size of the
-> + * PTE mapping at @iova through @mapped_length.
-> + *
-> + * Return: The physical address for the given IOVA, or 0 if no translation.
-> + */
+On Sun, May 31, 2026 at 05:36:31PM +0800, Guanghui Feng wrote:
+> @@ -159,45 +164,51 @@ static __always_inline int __do_iova_to_phys(struct pt_range *range, void *arg,
+>  	case PT_ENTRY_TABLE:
+>  		return pt_descend(&pts, arg, descend_fn);
+>  	case PT_ENTRY_OA:
+> -		*res = pt_entry_oa_exact(&pts);
+> +		data->phys = pt_entry_oa_exact(&pts);
+> +		data->length = BIT(pt_entry_oa_lg2sz(&pts));
 
-When introducing the new function I would like to fix this 0 error as
-well, it should return PHYS_MAX for error
+BIT is the wrong function, it uses the wrong type. log2_to_int() is
+type'd properly
 
-> +phys_addr_t iommu_iova_to_phys_length(struct iommu_domain *domain,
-> +				       dma_addr_t iova,
-> +				       size_t *mapped_length)
->  {
-> +	if (mapped_length)
-> +		*mapped_length = 0;
-> +
->  	if (domain->type == IOMMU_DOMAIN_IDENTITY)
->  		return iova;
->  
->  	if (domain->type == IOMMU_DOMAIN_BLOCKED)
->  		return 0;
+This also needs to keep walking and accumulating length for
+consecutive PTEs until it reaches a non-contiguity.
 
-Any domain that doesn't have an op should fail, blocked is one example
-
->  
-> -	return domain->ops->iova_to_phys(domain, iova);
-> +	if (domain->ops->iova_to_phys_length)
-> +		return domain->ops->iova_to_phys_length(domain, iova,
-> +							mapped_length);
-> +
-> +	/* Fallback to legacy iova_to_phys without length info */
-> +	if (domain->ops->iova_to_phys)
-> +		return domain->ops->iova_to_phys(domain, iova);
-
-If it falls back it should return something sensible for the length.
-
-I suggest you approach the patch plan a little differently, the first
-patches should implement the new function and an iommput
-implementation
-
-Arrange things so the normal iova_to_phys calls the new function if it
-is available and discards the length.
-
-Then convert callers that can take advantage of it. Have the fallback
-path also compute the length by iterating internally.
-
-Finally one patch per driver implementing the new op, this could even
-be a second series.
-
-Don't remove iova_to_phys(), it is fine for things that don't need the
-length.
+The other drivers don't need to have that complexity.
 
 Jason
 
