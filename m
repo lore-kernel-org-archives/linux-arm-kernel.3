@@ -4,93 +4,130 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 9F695CD6E55
-	for <linux-arm-kernel@archiver.kernel.org>; Mon,  1 Jun 2026 16:22:18 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id CD63CCD6E57
+	for <linux-arm-kernel@archiver.kernel.org>; Mon,  1 Jun 2026 16:22:20 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:
-	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=YU2lR4C6HulA/xumBMwgTiZI291rJPzss3O8OSIe4FI=; b=i1jxT6J8ImmKCEml0/TRHOF51T
-	hWUY6OTBRXp35aA9V5mNNScH7nRx3dQ7a2TZJ0Qp9ONMwmvIA5Uds5iOeiQy3XzivKUGxQKsFjL/L
-	xysXQRzhHm91HhOgcEtkaPddpOWeaylN1xwL9dEegO0KUo4ogTaxPs00zg43OFJH+54s7yb5ESXHI
-	64T+v3VPHdWKdsWBCDnf1l+bL6CvO1zazESiG4HodI1p2PTYnnJr1XYOyQK5IXyVBxNZ4aHewdo/5
-	pOZp81DwAvJzJD9YnUIkGCw8Xb5p6GmyrAvMrrYln/M5UwdRK933jlF7lhZEUtJU6OLXIrMPj1ndm
-	AjUZ6tfw==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=gZ72TgsJrRv/vGY/p+18ZB9GO9DQ5TW6tac2G606Edg=; b=4iAZQKaZyuvSH7ZfTd4p3Vuqaj
+	169VzraRtVphs2OKcvn/ByDZ3fFd/2pMXpZDrRTumcc6DMVncjc9NKMQmMhGVff2lHI9rn95XXcMr
+	nb/b/RM1ypMWyl9I1mKBSz11DJEvnAVhdoVuuRwJ8/Ji2TY/jW6Sl84JP0w/DL1Q/Yqejp2cOyQ20
+	h1RKTkCC/OqZf/YGu0HzwoMo4oT1O/TqbbM3UXRoDGe9JlZzCUQamIAFdxte8dmHNxg/ZKjG7PLPV
+	BGTzEC1Zps6DfbITLDWuQWpwA00Yek10whQlzz1ITbPdPi/m9ph4AXTdQ/LMBUPCIvEOEeoVQdeWe
+	bQYEa7CQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wU5P2-0000000BTRb-2bAK;
-	Mon, 01 Jun 2026 16:22:12 +0000
-Received: from mail-pl1-x629.google.com ([2607:f8b0:4864:20::629])
+	id 1wU5P3-0000000BTSt-30cD;
+	Mon, 01 Jun 2026 16:22:13 +0000
+Received: from smtp-out2.suse.de ([2a07:de40:b251:101:10:150:64:2])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wU5Oz-0000000BTP5-1U0T
+	id 1wU5P0-0000000BTOU-40zf
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 01 Jun 2026 16:22:11 +0000
-Received: by mail-pl1-x629.google.com with SMTP id d9443c01a7336-2bf22d29dabso25117065ad.2
-        for <linux-arm-kernel@lists.infradead.org>; Mon, 01 Jun 2026 09:22:09 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20251104; t=1780330928; x=1780935728; darn=lists.infradead.org;
-        h=content-transfer-encoding:mime-version:references:in-reply-to
-         :message-id:date:subject:cc:to:from:from:to:cc:subject:date
-         :message-id:reply-to;
-        bh=YU2lR4C6HulA/xumBMwgTiZI291rJPzss3O8OSIe4FI=;
-        b=oWVJCkfvidRwx0j1QTcx1g1nGyXNabURUJoadMTJ+afk8gjReMRkJYpyLUWO0PkyLJ
-         yGwSTAdTiEzRdtpIWeG2ZYPvHB9YcyXnK9K2z+5SaDl5mhI3aNOCQgkch5BkpquzZ1ii
-         pRgv5jn0rlbeAtfJxZmIcYRPKpmJ7n7vmmXjOhEVwpfue86iGNnCAOxmm8Qx5aVsb6T2
-         XzSI+vwj2Q7igysjYps8sS2urtwIU0yPKnNxqS3W3AHCbobaVCIaFBjSfkQTAglJXiHE
-         ggJKrk+ExjrNr7b7DoatMnp6gdA6/9DqprQjAvKn/nCgm+Q8NkPHdP8BnUvXAYX9eroK
-         d43Q==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20251104; t=1780330928; x=1780935728;
-        h=content-transfer-encoding:mime-version:references:in-reply-to
-         :message-id:date:subject:cc:to:from:x-gm-gg:x-gm-message-state:from
-         :to:cc:subject:date:message-id:reply-to;
-        bh=YU2lR4C6HulA/xumBMwgTiZI291rJPzss3O8OSIe4FI=;
-        b=g7tJizVlkjEv2IgRfac8j0F98Twr+Z+VIFeMTmcifI9p1oR1MJmwYNlRYtD7mX1jxw
-         q6gYNd0urRs9ZZ7ks4odLRwRqkkdSL5iuBecYzj9A4mH0VAdl+GP6Wknn5y8NU0lRadR
-         IXDMovdsNzgrz3N9/UT5F8ZTpFv9URkijVDa2dvOfqcCWFCi02BzCqpvsVtAMtten7GR
-         XdzqKbFPKSleI931VZ/tPvhKR1E6zyvggbTGtseH/DzIw8QYXEz1figmWiwp+n5eJg9E
-         1CMvljl4QeRQI1satJfT520wjtzMETLO+dfO23Or1xH0rXYRc3US5uQEV12DFgNtg/EZ
-         fgOw==
-X-Forwarded-Encrypted: i=1; AFNElJ+EQWllkb19B0n4QqhMG50bjYEUweVG4mhoB35Jp8sxQRhn5AmQcmX85m7Ps78v5Ykgr6SZWRtk5D6xIZOx6tj/@lists.infradead.org
-X-Gm-Message-State: AOJu0YwmkMJ0owyPvmLpRrzNd9XVHynEptw/LBswnnwRpO7RgJrmE4qQ
-	4AwobxR/08d2IHgvG9nR490gt5QiFaORDVFcaP66MO0vp5ArM60hQqXM
-X-Gm-Gg: Acq92OGMeT6uLFlRQPGNs7FgWIdrqY92JuTzCGKTFQsp9oGM+VlIrod39I3uSFtdgMA
-	A46Rb9PioP/ls7LXluGk6KmdkZT3YYRHJZ8Q3liF6JVmOyVDrUbHHWMXMOxkvmuNBsSg3UhIkkQ
-	glfX9X0xxSRSB3cfg7a2A9/O28WMHDn8+gPMfKlyJry+TkbFroi8HSPCQWSlaShyyy2ADaqKpqp
-	3LnRqkuPSmksB0e5/WwJUTxctKHci6KBJz8DRH98s34SLqb/KWz/f+1FVWAnE86/GbzcZyELaAj
-	Eq+3K+PISe9b8p3WUwTmDofTZP99knoW39xJRX9JiA7ZCXQFTtIucnATImOfF7cC4eqmtkBPj2f
-	A3WzFScUJEFUammBtPRNkNShRceFcsFxPuODqw/OQJY3umjHLjJ3C4+4QWN7x+Z6m24TIzVj4i7
-	JeMq7Rsqz/4uVIe8xQYSGQoU0L31yjz29b4c6saoUz
-X-Received: by 2002:a17:903:2344:b0:2c0:aef8:23dd with SMTP id d9443c01a7336-2c0aef82687mr112227805ad.22.1780330928509;
-        Mon, 01 Jun 2026 09:22:08 -0700 (PDT)
-Received: from i386.168.1.127 ([2402:a00:163:2ce9:9c6f:e28:3da8:7980])
-        by smtp.gmail.com with ESMTPSA id d9443c01a7336-2bf239e5d83sm116647455ad.8.2026.06.01.09.22.03
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Mon, 01 Jun 2026 09:22:07 -0700 (PDT)
-From: Hrushiraj Gandhi <hrushirajg23@gmail.com>
-To: Heiko Stuebner <heiko@sntech.de>
-Cc: Rob Herring <robh@kernel.org>,
-	Krzysztof Kozlowski <krzk+dt@kernel.org>,
-	Conor Dooley <conor+dt@kernel.org>,
-	devicetree@vger.kernel.org,
-	linux-arm-kernel@lists.infradead.org,
-	linux-rockchip@lists.infradead.org,
-	linux-kernel@vger.kernel.org,
-	Hrushiraj Gandhi <hrushirajg23@gmail.com>
-Subject: [PATCH v6 2/3] dt-bindings: arm: rockchip: add Vicharak Axon board
-Date: Mon,  1 Jun 2026 21:51:41 +0530
-Message-ID: <20260601162143.170030-3-hrushirajg23@gmail.com>
-X-Mailer: git-send-email 2.47.3
-In-Reply-To: <20260601162143.170030-1-hrushirajg23@gmail.com>
-References: <20260601162143.170030-1-hrushirajg23@gmail.com>
+	Mon, 01 Jun 2026 16:22:12 +0000
+Received: from imap1.dmz-prg2.suse.org (unknown [10.150.64.97])
+	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
+	 key-exchange X25519 server-signature RSA-PSS (4096 bits) server-digest SHA256)
+	(No client certificate requested)
+	by smtp-out2.suse.de (Postfix) with ESMTPS id 6CD78686BF;
+	Mon,  1 Jun 2026 16:22:07 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=suse.cz; s=susede2_rsa;
+	t=1780330927; h=from:from:reply-to:date:date:message-id:message-id:to:to:cc:cc:
+	 mime-version:mime-version:content-type:content-type:
+	 in-reply-to:in-reply-to:references:references;
+	bh=gZ72TgsJrRv/vGY/p+18ZB9GO9DQ5TW6tac2G606Edg=;
+	b=DPm/IEwlGpkf8NfyX+80UyDZbZ2hucyaoC16feayRVX7XSuuWtIqBDRm5Om34HWmnazyZl
+	L6rMA++cI7goHDO5iLaBApGIYXhSv/ssJyTq4x+YJNT4h2mOqQJCmlyFNHIKaytsmbGj3I
+	VQ7lqCXTOTJXHiq+kNAOMZFCjg2ixe0=
+DKIM-Signature: v=1; a=ed25519-sha256; c=relaxed/relaxed; d=suse.cz;
+	s=susede2_ed25519; t=1780330927;
+	h=from:from:reply-to:date:date:message-id:message-id:to:to:cc:cc:
+	 mime-version:mime-version:content-type:content-type:
+	 in-reply-to:in-reply-to:references:references;
+	bh=gZ72TgsJrRv/vGY/p+18ZB9GO9DQ5TW6tac2G606Edg=;
+	b=T3+UC3CaTyEWfE5yipWF50DW+yQJdmohfKIaRY+q46sfLFXgCL8qJj6KcxxWxbv6JL7o2B
+	IyCdMbhbiL1n1cBg==
+Authentication-Results: smtp-out2.suse.de;
+	none
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=suse.cz; s=susede2_rsa;
+	t=1780330927; h=from:from:reply-to:date:date:message-id:message-id:to:to:cc:cc:
+	 mime-version:mime-version:content-type:content-type:
+	 in-reply-to:in-reply-to:references:references;
+	bh=gZ72TgsJrRv/vGY/p+18ZB9GO9DQ5TW6tac2G606Edg=;
+	b=DPm/IEwlGpkf8NfyX+80UyDZbZ2hucyaoC16feayRVX7XSuuWtIqBDRm5Om34HWmnazyZl
+	L6rMA++cI7goHDO5iLaBApGIYXhSv/ssJyTq4x+YJNT4h2mOqQJCmlyFNHIKaytsmbGj3I
+	VQ7lqCXTOTJXHiq+kNAOMZFCjg2ixe0=
+DKIM-Signature: v=1; a=ed25519-sha256; c=relaxed/relaxed; d=suse.cz;
+	s=susede2_ed25519; t=1780330927;
+	h=from:from:reply-to:date:date:message-id:message-id:to:to:cc:cc:
+	 mime-version:mime-version:content-type:content-type:
+	 in-reply-to:in-reply-to:references:references;
+	bh=gZ72TgsJrRv/vGY/p+18ZB9GO9DQ5TW6tac2G606Edg=;
+	b=T3+UC3CaTyEWfE5yipWF50DW+yQJdmohfKIaRY+q46sfLFXgCL8qJj6KcxxWxbv6JL7o2B
+	IyCdMbhbiL1n1cBg==
+Received: from imap1.dmz-prg2.suse.org (localhost [127.0.0.1])
+	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
+	 key-exchange X25519 server-signature RSA-PSS (4096 bits) server-digest SHA256)
+	(No client certificate requested)
+	by imap1.dmz-prg2.suse.org (Postfix) with ESMTPS id 5A802779A7;
+	Mon,  1 Jun 2026 16:22:07 +0000 (UTC)
+Received: from dovecot-director2.suse.de ([2a07:de40:b281:106:10:150:64:167])
+	by imap1.dmz-prg2.suse.org with ESMTPSA
+	id hFxsFa+xHWqYdQAAD6G6ig
+	(envelope-from <jack@suse.cz>); Mon, 01 Jun 2026 16:22:07 +0000
+Received: by quack3.suse.cz (Postfix, from userid 1000)
+	id F171AA0EC0; Mon, 01 Jun 2026 18:22:02 +0200 (CEST)
+Date: Mon, 1 Jun 2026 18:22:02 +0200
+From: Jan Kara <jack@suse.cz>
+To: Usama Arif <usama.arif@linux.dev>
+Cc: Andrew Morton <akpm@linux-foundation.org>, david@kernel.org, 
+	willy@infradead.org, ryan.roberts@arm.com, linux-mm@kvack.org, pfalcato@suse.de, 
+	r@hev.cc, jack@suse.cz, Andrew Donnellan <andrew+kernel@donnellan.id.au>, 
+	apopple@nvidia.com, baohua@kernel.org, baolin.wang@linux.alibaba.com, 
+	brauner@kernel.org, catalin.marinas@arm.com, dev.jain@arm.com, kees@kernel.org, 
+	kevin.brodsky@arm.com, lance.yang@linux.dev, "Liam R. Howlett" <liam@infradead.org>, 
+	linux-arm-kernel@lists.infradead.org, linux-fsdevel@vger.kernel.org, linux-kernel@vger.kernel.org, 
+	ljs@kernel.org, mhocko@suse.com, npache@redhat.com, pasha.tatashin@soleen.com, 
+	rmclure@linux.ibm.com, rppt@kernel.org, surenb@google.com, vbabka@kernel.org, 
+	Al Viro <viro@zeniv.linux.org.uk>, ziy@nvidia.com, hannes@cmpxchg.org, kas@kernel.org, 
+	shakeel.butt@linux.dev, kernel-team@meta.com
+Subject: Re: [PATCH v7 2/2] mm: use mapping_max_folio_order() for
+ force_thp_readahead order
+Message-ID: <yoma5mzdqkkcgjnq3qawaeytjx6cjmk7etzxnmkk53mov46sub@ldzkwojakaxs>
+References: <20260601102205.3985788-1-usama.arif@linux.dev>
+ <20260601102205.3985788-3-usama.arif@linux.dev>
 MIME-Version: 1.0
-Content-Transfer-Encoding: 8bit
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+In-Reply-To: <20260601102205.3985788-3-usama.arif@linux.dev>
+X-Spamd-Result: default: False [-2.30 / 50.00];
+	BAYES_HAM(-3.00)[100.00%];
+	SUSPICIOUS_RECIPS(1.50)[];
+	NEURAL_HAM_LONG(-1.00)[-1.000];
+	MID_RHS_NOT_FQDN(0.50)[];
+	NEURAL_HAM_SHORT(-0.20)[-1.000];
+	MIME_GOOD(-0.10)[text/plain];
+	MISSING_XM_UA(0.00)[];
+	FROM_HAS_DN(0.00)[];
+	MIME_TRACE(0.00)[0:+];
+	RCPT_COUNT_TWELVE(0.00)[37];
+	ARC_NA(0.00)[];
+	TO_DN_SOME(0.00)[];
+	RCVD_VIA_SMTP_AUTH(0.00)[];
+	RCVD_COUNT_THREE(0.00)[3];
+	TAGGED_RCPT(0.00)[kernel];
+	TO_MATCH_ENVRCPT_ALL(0.00)[];
+	FROM_EQ_ENVFROM(0.00)[];
+	FUZZY_RATELIMITED(0.00)[rspamd.com];
+	RCVD_TLS_LAST(0.00)[];
+	R_RATELIMIT(0.00)[to_ip_from(RLx3ed8f7q4e9s3nf3mrauhj48)];
+	DKIM_SIGNED(0.00)[suse.cz:s=susede2_rsa,suse.cz:s=susede2_ed25519];
+	DBL_BLOCKED_OPENRESOLVER(0.00)[imap1.dmz-prg2.suse.org:helo,linux.dev:email,suse.com:email,suse.cz:email]
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260601_092209_392970_22F18ADC 
-X-CRM114-Status: UNSURE (   9.99  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20260601_092211_148617_9AFD9F21 
+X-CRM114-Status: GOOD (  32.37  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -105,31 +142,105 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Add the device tree binding for the Vicharak Axon single-board
-computer based on the Rockchip RK3588 SoC.
+On Mon 01-06-26 03:21:18, Usama Arif wrote:
+> The force_thp_readahead path in do_sync_mmap_readahead() is gated on
+> HPAGE_PMD_ORDER <= MAX_PAGECACHE_ORDER and always requests
+> HPAGE_PMD_ORDER / HPAGE_PMD_NR. On configurations where HPAGE_PMD_ORDER
+> exceeds MAX_PAGECACHE_ORDER, notably arm64 with a 64K base page size,
+> VM_HUGEPAGE mappings cannot use this path and fall back to the non-forced
+> mmap readahead path even when the mapping supports useful large folios.
+> 
+> Enable forced readahead for mappings that support large folios and request
+> the max folio order supported by the mapping, capped at 2M.
+> 2MB is chosen as the cap because it matches the PMD size on x86_64
+> and on arm64 with 4K base pages, so the size/memory-pressure tradeoff
+> for folios of that size is already well understood. On arm64 with 16K
+> and 64K base page sizes, 2MB is also the contiguous-PTE (contpte)
+> block size, so the resulting folios coalesce into a single TLB entry
+> and reduce TLB pressure on the readahead path. This will result
+> in 32M folios not being faulted in with 16K base page size for arm64,
+> but with contpte, the performance difference should be negligible.
+> 
+> The final allocation order may still be clamped by page_cache_ra_order()
+> to the mapping and request geometry, but this gives VM_HUGEPAGE mappings
+> on such configurations a large-folio readahead request instead of
+> dropping back to base-page readahead.
+> 
+> Signed-off-by: Usama Arif <usama.arif@linux.dev>
 
-Signed-off-by: Hrushiraj Gandhi <hrushirajg23@gmail.com>
----
- Documentation/devicetree/bindings/arm/rockchip.yaml | 5 +++++
- 1 file changed, 5 insertions(+)
+Looks good to me. Feel free to add:
 
-diff --git a/Documentation/devicetree/bindings/arm/rockchip.yaml b/Documentation/devicetree/bindings/arm/rockchip.yaml
-index 1a9dde18626d..b023d4cc9842 100644
---- a/Documentation/devicetree/bindings/arm/rockchip.yaml
-+++ b/Documentation/devicetree/bindings/arm/rockchip.yaml
-@@ -1306,6 +1306,11 @@ properties:
-           - const: turing,rk1
-           - const: rockchip,rk3588
- 
-+      - description: Vicharak Axon
-+        items:
-+          - const: vicharak,axon
-+          - const: rockchip,rk3588
-+
-       - description: WolfVision PF5 mainboard
-         items:
-           - const: wolfvision,rk3568-pf5
+Reviewed-by: Jan Kara <jack@suse.cz>
+
+								Honza
+
+> ---
+>  mm/filemap.c | 30 ++++++++++++++++++++++--------
+>  1 file changed, 22 insertions(+), 8 deletions(-)
+> 
+> diff --git a/mm/filemap.c b/mm/filemap.c
+> index a16b33e0fc71..9cf89efaf3f1 100644
+> --- a/mm/filemap.c
+> +++ b/mm/filemap.c
+> @@ -3312,14 +3312,26 @@ static struct file *do_sync_mmap_readahead(struct vm_fault *vmf)
+>  	struct file *fpin = NULL;
+>  	vm_flags_t vm_flags = vmf->vma->vm_flags;
+>  	bool force_thp_readahead = false;
+> +	unsigned int thp_order = 0;
+>  	unsigned short mmap_miss;
+>  
+>  	ractl._max_index = vmf->vma->vm_pgoff + vma_pages(vmf->vma) - 1;
+>  
+>  	/* Use the readahead code, even if readahead is disabled */
+> -	if (IS_ENABLED(CONFIG_TRANSPARENT_HUGEPAGE) &&
+> -	    (vm_flags & VM_HUGEPAGE) && HPAGE_PMD_ORDER <= MAX_PAGECACHE_ORDER)
+> -		force_thp_readahead = true;
+> +	if (IS_ENABLED(CONFIG_TRANSPARENT_HUGEPAGE) && (vm_flags & VM_HUGEPAGE)) {
+> +		/*
+> +		 * Cap max THP order at 2MB: this is the common PMD-sized
+> +		 * hugepage size, and it avoids memory pressure from very
+> +		 * large forced readahead when mapping_max_folio_order() is
+> +		 * high (for example, 128MB with 64K base pages on arm64).
+> +		 */
+> +		if (mapping_large_folio_support(mapping)) {
+> +			force_thp_readahead = true;
+> +			thp_order = min_t(unsigned int,
+> +					  mapping_max_folio_order(mapping),
+> +					  get_order(SZ_2M));
+> +		}
+> +	}
+>  
+>  	if (!force_thp_readahead) {
+>  		/*
+> @@ -3354,17 +3366,19 @@ static struct file *do_sync_mmap_readahead(struct vm_fault *vmf)
+>  	}
+>  
+>  	if (force_thp_readahead) {
+> +		unsigned long folio_nr_pages = 1UL << thp_order;
+> +
+>  		fpin = maybe_unlock_mmap_for_io(vmf, fpin);
+> -		ractl._index &= ~((unsigned long)HPAGE_PMD_NR - 1);
+> -		ra->size = HPAGE_PMD_NR;
+> +		ractl._index &= ~(folio_nr_pages - 1);
+> +		ra->size = folio_nr_pages;
+>  		/*
+> -		 * Fetch two PMD folios, so we get the chance to actually
+> +		 * Fetch two folios so we get the chance to actually
+>  		 * readahead, unless we've been told not to.
+>  		 */
+>  		if (!(vm_flags & VM_RAND_READ))
+>  			ra->size *= 2;
+> -		ra->async_size = HPAGE_PMD_NR;
+> -		ra->order = HPAGE_PMD_ORDER;
+> +		ra->async_size = folio_nr_pages;
+> +		ra->order = thp_order;
+>  		page_cache_ra_order(&ractl, ra);
+>  		return fpin;
+>  	}
+> -- 
+> 2.52.0
+> 
 -- 
-2.47.3
-
+Jan Kara <jack@suse.com>
+SUSE Labs, CR
 
