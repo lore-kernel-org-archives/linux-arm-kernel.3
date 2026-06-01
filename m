@@ -4,150 +4,58 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 06861CD5BD1
-	for <linux-arm-kernel@archiver.kernel.org>; Mon,  1 Jun 2026 20:32:05 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 17238CD5BD1
+	for <linux-arm-kernel@archiver.kernel.org>; Mon,  1 Jun 2026 20:35:24 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:
-	Content-Transfer-Encoding:Content-Type:References:In-Reply-To:Message-ID:Date
-	:Subject:Cc:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=DBzKJxcr6Wy3RY02yuVj3aZk+mF3bff1ZCncDrXsJG0=; b=kdyMZkrqfbFzPi17gQoGVNRTmH
-	Sf/5QyIEuVxO5Ftu7yEwKIxEvawGgFTqTYn9Y9xoDK4eBFbxaCt+L8BSYFQ3rpqjhjMZ8ipDVR9a8
-	8Qq1FXhBxENu5cWd9ciDGjFR9QGel5F9os18EowS/9yisPZjW19F3oRwxmaduKoYSeoq21Qq+pLWB
-	HaVmv4T+Vx+GOkUho1VEJ2mIjPoqrmkxag5PG9ftpfr+v6rM7exc3drNLWMem6GjJ/QA6HTI7ojWc
-	vVA1wcXS6eiagom+c3dUAA4U6Czh2QODMQC4x+/u/UyNC4xXpDwvZvVpn0P6YfoZiKChz3GXYnRC+
-	PA1rFq+Q==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	MIME-Version:Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-Type:
+	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
+	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=T/ACLI/O+MEH4QMv4GHRPdBcYwgQV3Hd/E0FFNYu5y8=; b=O7pSNR2C9AFx/lWmAyYRICUkpD
+	MD+pwmXMropYl+/JH7AkJaubjcueBpX27fdwiZw/LITYbAK+PHgxPVh5VT6LnCEee8wNbw6v7oxBL
+	4Zb5YBabsjX+g02g4yLbtk2iXVZdjwVV+9PirWT+fJGbZHeaJMDIO5/DNaGn4zHKE7K2NGZkqevfj
+	mT2CaZ+T5tI1jFVaC3d4KCOD6rjpuXJek7e1Afb0f1jG9pWtM9Pn1J50iJWTiH+VJlQQkKW4iAbnV
+	T1DNs6PyiU+eQZdge9wlwwjsXeN0ghKjo5PaVBP9DWXQo/neGhd0RveEIYggAEl/ehySCxwuTIDQB
+	3iIYDsNQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wU9Ik-0000000BmUE-465f;
-	Mon, 01 Jun 2026 20:31:59 +0000
-Received: from mail-northeuropeazlp170100001.outbound.protection.outlook.com ([2a01:111:f403:c200::1] helo=DB3PR0202CU003.outbound.protection.outlook.com)
+	id 1wU9Lu-0000000BmhM-1iGt;
+	Mon, 01 Jun 2026 20:35:14 +0000
+Received: from mail-106111.protonmail.ch ([79.135.106.111])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wU9Ii-0000000BmTp-2vUu
+	id 1wU9Lr-0000000Bmgp-0KlQ
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 01 Jun 2026 20:31:57 +0000
-ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
- b=FtIUrl6rqRR7G9HZgD6nEDZYOBFv8MqWHUHIjJfy96OoOXNQRgxNxNTiQnyymoGMQuMsK2bXGSOjLp+R/qgN5+qMZDDzxkUxLlqjIuMXCBK2KFPW+a0ydOkCjZgj8GMpq8YW9Id3xn/u2LNusoixAKHVLYza050wxkdpJhlpfWMtup+a7Jp33KtstNJEb/P9EMPeU4kblRfdq+P48hgR6pRdZJs/8SWTElvrWXWveuUf+QgGzK+CqwHoJVrubbjVIyt6GzN4WI6zJ8nfMRFMgtc5Zhos6byDLpP4dQAWDu292i5HeL4TJ+YA/usZeXvrrI8n1KfqyPQKa/2AatMwYw==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
- s=arcselector10001;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
- bh=DBzKJxcr6Wy3RY02yuVj3aZk+mF3bff1ZCncDrXsJG0=;
- b=oo7v0yI4FLiQygiigZQcz+7D9AmWu/a05ZciPqNEeYUHXv18RovRWfVHhlMPqcEzCXZPVletLw2/M1kYd5cgKemkkX86q1rO8AXPUN0XQNGUelK0d72a4yTGF/RoyCuBHqBPBGv3poaU6G7Pz6snhlX1CY4jU/Eh3YEAGCk/zxQp7t24/DXCFCo4rHFaBpd4HyFvbXNEnzND6i6VKy3OAMecSAu+id0ab6rPZrQxuhl/gBiIGvaXQc494LgjFZZ6rSqVP1FBERWHVre2RaE9G4EBq/1CMzinOylRLrN5o/c5jqPXUC2qfHUVAZSAWOJcSGeK6gn2ZG9yN2y1in3Euw==
-ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
- smtp.mailfrom=oss.nxp.com; dmarc=pass action=none header.from=oss.nxp.com;
- dkim=pass header.d=oss.nxp.com; arc=none
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=NXP1.onmicrosoft.com;
- s=selector1-NXP1-onmicrosoft-com;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
- bh=DBzKJxcr6Wy3RY02yuVj3aZk+mF3bff1ZCncDrXsJG0=;
- b=r8+QE1ehiaBpOAw13t/CwWaGp3lplU6GDI8rEHwAyE5no/zuB4MlvFzLLnm8qLpGcJwoa77hVJH9q1I0oxlzKqHNJMs61y7qZgG9IMtYdryEmP4fUw7CKNmZu22i5NkA8LZ1kXYAVXGwJ3QJZuhsYhzGJBGvJ8RL29hCj8Oc5BsoefREpnO43lkD8GXJs+PC+UI2A7DMI/PZN/YTrpdqyPlNFf9wfKE5tkzD1RM0serCa5y72fdb+CarZIBM1ca+sGO/d0jYQ9AXnSzvdlvcQmJENx0xC+S5yDLPZ52y1jHOl3d5i9B6LZGx7bylzrKl697Ln+4Z8oqm0jZcPiErHQ==
-Authentication-Results: dkim=none (message not signed)
- header.d=none;dmarc=none action=none header.from=oss.nxp.com;
-Received: from GV2PR04MB11799.eurprd04.prod.outlook.com (2603:10a6:150:2cf::9)
- by AM0PR04MB7043.eurprd04.prod.outlook.com (2603:10a6:208:19b::20) with
- Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.21.71.16; Mon, 1 Jun 2026
- 20:31:51 +0000
-Received: from GV2PR04MB11799.eurprd04.prod.outlook.com
- ([fe80::2146:83a2:5329:b7c]) by GV2PR04MB11799.eurprd04.prod.outlook.com
- ([fe80::2146:83a2:5329:b7c%6]) with mapi id 15.21.0071.014; Mon, 1 Jun 2026
- 20:31:51 +0000
-From: Frank.Li@oss.nxp.com
-To: Shawn Guo <shawnguo@kernel.org>,
-	Li Yang <leoyang.li@nxp.com>,
-	Rob Herring <robh+dt@kernel.org>,
-	Krzysztof Kozlowski <krzysztof.kozlowski+dt@linaro.org>,
-	Conor Dooley <conor+dt@kernel.org>,
-	Rob Herring <robh@kernel.org>,
-	Krzysztof Kozlowski <krzk+dt@kernel.org>,
-	Sascha Hauer <s.hauer@pengutronix.de>,
-	Pengutronix Kernel Team <kernel@pengutronix.de>,
-	Fabio Estevam <festevam@gmail.com>,
-	Josua Mayer <josua@solid-run.com>
-Cc: Frank Li <Frank.Li@nxp.com>,
-	Yazan Shhady <yazan.shhady@solid-run.com>,
-	Jon Nettleton <jon@solid-run.com>,
+	Mon, 01 Jun 2026 20:35:12 +0000
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=theesfeld.net;
+	s=protonmail2; t=1780346104; x=1780605304;
+	bh=T/ACLI/O+MEH4QMv4GHRPdBcYwgQV3Hd/E0FFNYu5y8=;
+	h=From:To:Cc:Subject:Date:Message-ID:From:To:Cc:Date:Subject:
+	 Reply-To:Feedback-ID:Message-ID:BIMI-Selector;
+	b=iz27cElDwGo3nbW9COmb+WgyYBkzqtzbP53MaBBZOzOhS78IAQW+GyfPLtIte6mra
+	 fgiU9rznEQYrQavt+FDUiLy5Bro9rlxg3A6pn15h8sTTprn9eJM6o0f4Rl0p8dSaq3
+	 Zb+80qhgiLxxJWKIrmVy3tMS3feX2Ti5hboovjN7+SqBHCYNYDgcSL16ND4VjnAPxB
+	 navHfKnXBt48SZ687WPALdDVHjcThNePBcrShxXbdgW682p1OjOmjcT4ZDK66OzaIY
+	 lzltaOO4VTdhGhEnn0+3e4OPZhAmZnabRsOCpTybJ6yeeG7CFr3JV6oC5a331CeGrc
+	 8/Q0Xsee0fJGQ==
+X-Pm-Submission-Id: 4gTm122Rwrz2Scpl
+From: William Theesfeld <william@theesfeld.net>
+To: Michael Turquette <mturquette@baylibre.com>
+Cc: Stephen Boyd <sboyd@kernel.org>,
+	Brian Masney <bmasney@redhat.com>,
+	Michal Simek <michal.simek@amd.com>,
+	linux-clk@vger.kernel.org,
 	linux-arm-kernel@lists.infradead.org,
-	devicetree@vger.kernel.org,
-	linux-kernel@vger.kernel.org,
-	imx@lists.linux.dev
-Subject: Re: [PATCH v7 0/9] arm64: dts: lx2160a: cleanups, add new board, large pci bars
-Date: Mon,  1 Jun 2026 16:31:41 -0400
-Message-ID: <178034456917.460283.14831557030965834362.b4-ty@b4>
-X-Mailer: git-send-email 2.43.0
-In-Reply-To: <20260524-lx2160-pci-v7-0-09370c23b952@solid-run.com>
-References: <20260524-lx2160-pci-v7-0-09370c23b952@solid-run.com>
-Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: 8bit
-X-ClientProxiedBy: PH0PR07CA0108.namprd07.prod.outlook.com
- (2603:10b6:510:4::23) To GV2PR04MB11799.eurprd04.prod.outlook.com
- (2603:10a6:150:2cf::9)
+	linux-kernel@vger.kernel.org
+Subject: [PATCH] clk: zynq: handle kasprintf() failure in periph_clk registration
+Date: Mon,  1 Jun 2026 16:35:00 -0400
+Message-ID: <20260601203500.658135-1-william@theesfeld.net>
+X-Mailer: git-send-email 2.54.0
 MIME-Version: 1.0
-X-MS-PublicTrafficType: Email
-X-MS-TrafficTypeDiagnostic: GV2PR04MB11799:EE_|AM0PR04MB7043:EE_
-X-MS-Office365-Filtering-Correlation-Id: ca4fc7e0-10de-4864-37b1-08dec01ccfa1
-X-LD-Processed: 686ea1d3-bc2b-4c6f-a92c-d99c5c301635,ExtAddr
-X-MS-Exchange-SenderADCheck: 1
-X-MS-Exchange-AntiSpam-Relay: 0
-X-Microsoft-Antispam: BCL:0;ARA:13230040|19092799006|366016|1800799024|7416014|376014|921020|18002099003|22082099003|56012099006|6133799003|11063799006;
-X-Microsoft-Antispam-Message-Info: LQ02kpZjg1jXmdyMqL/TwromjTJvQBeD8MCeKqPtdI1Q8ofDxHr+DLLDADz6RHvbEhii4jEwmNzKKgAGb9KBa/yfC140R6CZNWEUEH6CrbVY/f+TnSo5lEg9cIEcMt2RioSRgtolnr3JEzg+elHuL/zcsVKT9IRREie8ZqYczKHLHXhKKHmIDY+XiUBFKKWP4QEhRmyXdAyVSzR5mTrZmVk+fG/iz6VdXqMRW3NDYNPpg10VaTThrBrnRlGYO2Lb6gGn59B2ShlbX9/1Ufq0U5cjzFftsp6EcQvWq1UoB+ElIBSWcRgdcNt1rdHJVfNICsKPRgi4aBbT7TB0KVjXWU12bV2970sigQCG8F5ORfL9RMN3LJjMJgftNFQ9EnLqvHKVQkND5aZy7ERydliNWmrgPLUICEgaOGvUVHtmItKahOIR7Fda0QM5hO9HdOjzqAZVPAUxLOYgGjxeq80/UFKCvy0rp5Gtoc8S6G4piF99M9USHMQyrg9EUtmLO4MCEovxH2xN7lK6eOGnUWugabeEOsMAsBNt4+ZicXe3cjF7mRF/wIj1Pt9Viqp5XFTXI9ySI5Fb1Me++rKHSwRXEV2SrkpNM/YFs/5niKmWv9wH+0QycSkhr2VUEXu0+s8t8Zie3f2GKwEuEhKmf9zPPscI03Iy/n9x+q7jOwKSmfjypF89euFC3PuVrV30FAqlsNsvztEXa+wAwOpnqSvSJ01D/hQe/lEUKYLZm/qbbHI=
-X-Forefront-Antispam-Report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:GV2PR04MB11799.eurprd04.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(19092799006)(366016)(1800799024)(7416014)(376014)(921020)(18002099003)(22082099003)(56012099006)(6133799003)(11063799006);DIR:OUT;SFP:1101;
-X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
-X-MS-Exchange-AntiSpam-MessageData-0: =?utf-8?B?Q05WTEZaZHJTQVRZQ3FPUk5Ya1U5aEQza1BPNnQyR1dBakJ5RnZQczV2bUYv?=
- =?utf-8?B?cVFtSzAzb3F1ZkNlT3FtQkI0VURwYVR3NCtwZEtkNVdGeUtvM2JTMGI3Q1Vs?=
- =?utf-8?B?YlBQR0ZGUkRDaDhPRzlvYUhad3JIdkVmUjhOOENvVmtMb2NnWGR6NlV3MUlM?=
- =?utf-8?B?ZlV0Z2Zvai9XNlJNbXE4T2ZNdEJ6cCtyRzRyUFZKNXZDZFlQOFNTRjB5YmFS?=
- =?utf-8?B?ak1TRFhPUXYwNWRxS1hxQ1hKOGNMc0VlSnZ2Y3NHazh6dzVDT2dUMVlOd0Z3?=
- =?utf-8?B?Z1JDam9jS0lRTjRLT1FCbVg3TWpUUlE4QmpXOGZKc2RhUkhraVZ4RjNBclJG?=
- =?utf-8?B?ZzBCalFBSW1DR2U2KzUwQis1TStXa29lTFUrZDc5bWpVQi9iN24wQ0tYandh?=
- =?utf-8?B?WG40cnlDNWlsc2dJZzB3bk0zR1cyY0RTWVQ5Zk9LRmtXeThiYkJtd1RWR3I0?=
- =?utf-8?B?L21HZ2ZNanR1MlA0TVVOdTA2NVUxMG9rSEs2aDE0OUUvU3ZXR2hHRngvc1NY?=
- =?utf-8?B?ZnNWVU1lSDhuS25OVEhla3FPZzRyVE9uNTJ3dUVhOXgzYmR6Z0EyMmJYWjU0?=
- =?utf-8?B?OWRFb0ZSa2xpY0hXOTVrelppcFVUV0tmdVVWaXhPQ1EvcVBQUXM4bTBZSVc2?=
- =?utf-8?B?NVhxaGpvQ2xuVTdyT0xIeVpobzJjb1VDR0I4YlJSVmNWRkllbiswRE9CUU1x?=
- =?utf-8?B?aCtNT3dHWXhyV2dHZzI1Nm9icS9WYjJHcm03OVR2YkZFV1JiZ3dwc3RpQ3o1?=
- =?utf-8?B?OVhZbk5TdHlQUFZmd2Y0MkM0czVRNVFOZ3paNnlCNThCNXNQQ2Q3ek5XdTZ0?=
- =?utf-8?B?N0I4MjVPWThZY3lZeG5qQmg3bHh4TmlYbWRNaDFzREI1Rk9vY3cvMWhTOXl4?=
- =?utf-8?B?eVJWd0NNcDlhVHUwNU1NQk9BL0tuSnFaM0JlOW82QkxWMEVQbGZEcEQ5M2Zo?=
- =?utf-8?B?OWFhVDFnOVFWV25YZVVESlIzaENzM0dTUXk0c2FxeGRFMXVmWEprSUtaMi9N?=
- =?utf-8?B?OVcwK05Da0NmWW1TTG4vajhCK2hoUWc2ZlVEYTk0WHpwMWlpVHhZOHQwRUZa?=
- =?utf-8?B?V3pYNnJMWTB6TUladWVUTloyY2ZGaytKeGpoZGlEK1Nvc3U0cCtMQ0tESmhq?=
- =?utf-8?B?QnB6V0tKUWFxVHE4TnR4MDAydUx0emZmRVRxRzR2Z1RWSmdCVE9SQ0FQbldW?=
- =?utf-8?B?Y2hmTld1TmFzSkYwbDREQmJ2K0ZYbGhOejE0U0t6OC9uRDhKNldsTitpZE1B?=
- =?utf-8?B?UThDVmtseGJYMkx1UEo3L2xBcWhzRHFSamRSQ3lJNHFTdmNOSDR1MmtKZjYy?=
- =?utf-8?B?eHYvNmhwV3l0UFJTbXJNWXpXeGpYSVNkdENidWY2WFArUjF3bEQwSUJlVE80?=
- =?utf-8?B?dG5qWkhRenROOXYvKzlyak1GNEZIcVlCMFAzc25xNlUwNXFoTi8wQlJISXp5?=
- =?utf-8?B?azV2SjRUT3NwMENNZkRsWjArWXpCcVF1TjcrYzJtR0hLaXVkbUdYajdaUXpB?=
- =?utf-8?B?TXVVOHNDZWtGWnJnUk1pZy9oNXBETHRZN29OTmhWTXV5MGxORzNSUEdzeVNF?=
- =?utf-8?B?d1R6bjFpVlpUMDlzWWZ1cjM0a3FrSVVIdCtWNlNlR1BnRk5icHR0bGxCb212?=
- =?utf-8?B?MnhhQTltOE9YUDF3UlZ1WkVuTmRUS3czNGQ5SEtxbm8rZVBkOURseXdUOTBq?=
- =?utf-8?B?TStJTnp6NjAxbDR6QnUzdTF6YTBtSTB0VlhkVzJ1dDZMQk9BUzB0bXUrNk1s?=
- =?utf-8?B?KzI5VGEyL2tVOE13emMxZE5XMkR3NGJDbDlmTHc1SEhDaUFCcjdJQmdEMHdE?=
- =?utf-8?B?U1BqbnpXNlBpWVFMRFBFRmJ2ZEdHZ2dnbEx0ZmhXUDZHN2pOclFITXJwUFVP?=
- =?utf-8?B?WlplRTdZNG1jS0dJZWRCczMzR0NjazcyS2pTN2ovVmJTcm9SVWJ5ZXQxOW5i?=
- =?utf-8?B?Y0p2Z2JuS091aENTazgrNXVmVEhlcmRLYmtRSmk0Qnh0ODRyNWlWdFFISzlN?=
- =?utf-8?B?dG81MXc2bFhwL0dZOGxrNmZmQ3NDbURiaGZQSFhVdm0wbTU2KzBQRlltQVNv?=
- =?utf-8?B?M1l1U2EyUVBCNTRhc00wSkFESmdFWlZXeFc0L3RTL25mRDdzNEJEbnVHRUsw?=
- =?utf-8?B?MlVkR3JGeEJvWm41dG9qbFpaSUlqVHpyZEU0ZHp4Yk5JZ0tXTzRsdWFrSE5D?=
- =?utf-8?B?S2FPZU43OU4vQ1FTSzltdVhDVDV2TXMxbjU2d3RKN05pTmtzd21BQnZXREJ1?=
- =?utf-8?B?V09oZ0syMDJVeHhtSmtFMmtJMU5RUGVZT2ZjK3JhRlRmUHFzQjhrY1BjeGIy?=
- =?utf-8?B?RkN5MVFOd0lOaEVQNXZEY2J5TkFlNWNDSUt0eW9DSWhiWTBBWFdYUlk2aXow?=
- =?utf-8?Q?zQNLN4rAy4ktHOIg=3D?=
-X-OriginatorOrg: oss.nxp.com
-X-MS-Exchange-CrossTenant-Network-Message-Id: ca4fc7e0-10de-4864-37b1-08dec01ccfa1
-X-MS-Exchange-CrossTenant-AuthSource: GV2PR04MB11799.eurprd04.prod.outlook.com
-X-MS-Exchange-CrossTenant-AuthAs: Internal
-X-MS-Exchange-CrossTenant-OriginalArrivalTime: 01 Jun 2026 20:31:51.0439
- (UTC)
-X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
-X-MS-Exchange-CrossTenant-Id: 686ea1d3-bc2b-4c6f-a92c-d99c5c301635
-X-MS-Exchange-CrossTenant-MailboxType: HOSTED
-X-MS-Exchange-CrossTenant-UserPrincipalName: uZgCjJluPG13si8Cro45G98IYYilljYX34GlQFZe2an2WejPaCQc7PWgUA65MR2N57O55kdcaZfqyRwEh7Yd7WqbyvPz7OsJ6SIEu4yWKaV9ktYI13h5XY4FdVAJ/l++
-X-MS-Exchange-Transport-CrossTenantHeadersStamped: AM0PR04MB7043
+Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260601_133156_766159_85492C14 
-X-CRM114-Status: GOOD (  10.15  )
+X-CRM114-CacheID: sfid-20260601_133511_279665_E7915A84 
+X-CRM114-Status: GOOD (  11.84  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -162,45 +70,58 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-From: Frank Li <Frank.Li@nxp.com>
+zynq_clk_register_periph_clk() ignores the return value of the two
+kasprintf() calls used to build the mux and divider clock names, and
+passes the resulting (possibly NULL) pointers straight into
+clk_register_mux(), clk_register_divider() and clk_register_gate() as
+the clock '"'name'"' argument.  On allocation failure that name later
+gets dereferenced by the clock framework (e.g. in debugfs name
+formatting), causing a NULL-pointer dereference.
 
+Check both kasprintf() returns.  On failure unwind any allocated name
+buffer and the spinlock, then fall through to the existing err label
+which sets clks[] to ERR_PTR(-ENOMEM).  Freeing the spinlock on the
+error path is correct here because no clk_register_*() call has had
+a chance to take ownership of it; the success path intentionally
+hands it off to the registered clocks.
 
-On Sun, 24 May 2026 16:54:39 +0200, Josua Mayer wrote:
-> This patch-set is made of 3 parts:
->
-> 1. Extend lx2160 pci node ranges to support 16-bit, and large 64-bit
->    bars. LX2160A SoC has always supported this, and SolidRun carried it
->    in vendor fork for several years now.
->
-> 2. Cleanup some status properties in LX2162A Clearfog dts.
->
-> [...]
+The neighbouring zynq_clk_register_fclk() in the same file already
+uses this per-allocation goto-label cleanup pattern; this change
+brings periph_clk into line with it.
 
-Applied, thanks!
+Signed-off-by: William Theesfeld <william@theesfeld.net>
+---
+ drivers/clk/zynq/clkc.c | 8 ++++++++
+ 1 file changed, 8 insertions(+)
 
-[1/9] arm64: dts: lx2160a-rev2: extend 32-bit, and add 64-bit pci regions
-      commit: fe4e8591406fbcaf718500436f01c4c6bf6aaeb9
-[2/9] arm64: dts: lx2162a-clearfog: use rev2 SoC dtsi
-      commit: a95eda05c63a09dde4d2310132544597ba9fa92e
-[3/9] arm64: dts: lx2162a-clearfog: cleanup superfluous status properties
-      commit: 9daef7147485b82998f0edc5f5134d44ea98c9d1
-[4/9] arm64: dts: lx2162a-clearfog: specify sfp ports led colour and function
-      commit: 71f99ff0b675c4679d358e2534a07822012d07de
-[5/9] dt-bindings: arm: fsl: Add solidrun lx2160a twins board
-      commit: 1c4e7398015e248ea80ed40ff02552c56b803e7b
-[6/9] arm64: dts: lx2160a-clearfog-itx: remove redundant dts version tag
-      commit: 81da028c8324bb490943117e1dfacff412847e13
-[7/9] arm64: dts: lx2160a-clearfog-itx: move shared includes to dts
-      commit: a2cb6757f56a4aa91a59403f167163fc6d57d016
-[8/9] arm64: dts: lx2160a-cex7: add usb hub
-      commit: 077ecb51d46b4a41d3c9085c92a1a04a566458c4
-[9/9] arm64: dts: Add support for LX2160 Twins board in single configuration
-      commit: b73fd8c02f95d4e8609ccecca1142ab35577aaf6
+diff --git a/drivers/clk/zynq/clkc.c b/drivers/clk/zynq/clkc.c
+index 6a22cbbc1..777187744 100644
+--- a/drivers/clk/zynq/clkc.c
++++ b/drivers/clk/zynq/clkc.c
+@@ -186,7 +186,11 @@ static void __init zynq_clk_register_periph_clk(enum zynq_clk clk0,
+ 	spin_lock_init(lock);
+ 
+ 	mux_name = kasprintf(GFP_KERNEL, "%s_mux", clk_name0);
++	if (!mux_name)
++		goto err_mux_name;
+ 	div_name = kasprintf(GFP_KERNEL, "%s_div", clk_name0);
++	if (!div_name)
++		goto err_div_name;
+ 
+ 	clk_register_mux(NULL, mux_name, parents, 4,
+ 			CLK_SET_RATE_NO_REPARENT, clk_ctrl, 4, 2, 0, lock);
+@@ -205,6 +209,10 @@ static void __init zynq_clk_register_periph_clk(enum zynq_clk clk0,
+ 
+ 	return;
+ 
++err_div_name:
++	kfree(mux_name);
++err_mux_name:
++	kfree(lock);
+ err:
+ 	clks[clk0] = ERR_PTR(-ENOMEM);
+ 	if (two_gates)
+-- 
+2.54.0
 
-
-Fix typo and small turn commit message. Use term "PCIe"
-
-Best regards,
---
-Frank Li <Frank.Li@nxp.com>
 
