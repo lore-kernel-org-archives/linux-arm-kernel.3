@@ -4,61 +4,107 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id DFABFCD6E56
-	for <linux-arm-kernel@archiver.kernel.org>; Mon,  1 Jun 2026 09:53:51 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 3F40ACD6E56
+	for <linux-arm-kernel@archiver.kernel.org>; Mon,  1 Jun 2026 10:05:35 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
-	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=OAPyRUhyO/q3hcApJCmv7/7vhmxKCeD0Ps8qqrpzuVY=; b=ch5HZqBC6eYHYSjwiS64/J3KNX
-	BgB+xmMf1/kDO4z/9npJnB/L7UFMJMipZdfpaDlHVYTo+8U+zTGxEjeK4o07sb3MJir3Ni81qcQZ3
-	eAbBF5na9bNJjfDSmsfmjjvNlQcQx0o7XdYvozT/qrHqRyrtKS60zYeemILdwzML/3HBdpuOuAOon
-	JY+PvFGWLVXqtxKXJPUd335KiliupCMnKx6ciPvD4tpWkLc7Mw/eLPNw7quJS0FJODDhhlT9K+jZ2
-	OyI0znRid144KUswO/EcBmfFva8m8Y2Xu58zX/VIXtFnJqk9HrFOfrlz1W1vWorQcdR6kWmmyrzdg
-	/0e4g4ag==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:Cc:To:Subject:
+	Message-ID:Date:From:In-Reply-To:References:MIME-Version:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=BdswV/H72I0eIbl7Z3IhvzcEqMAO/9EWXcrHd21kKTE=; b=e7VS397GWVIIsmMiipVpGjM8MO
+	/IJCfjB+zeARtKHzUu07/dpPkVlD8wR9a1ZrGQxBmQwURh8uOlyqmfAsv2/BOTfAUVmfqvA9otu4s
+	3HvhpJo4xJGVbw7Qv7CzddIgFvqFrLa4qznax79b9f6iiV+Vzi7BZrntehYbOgPKecYJ7y9M9njWp
+	XA5vGENs7bvgFgnRvWRSkclt0JEQa/YjPomyYztghXz9MsJ8dt+5rcDaWTMPLBisOdvTdw8n83V/F
+	E0yGnFXPBsrnOUv118DDs2skyfzgOo6UKDhmL9SSDuHRAb8cH/51Dip+AtYFsxAVA3/BiDiM/lg1s
+	k37YKIdA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wTzL7-0000000AZCJ-2SlV;
-	Mon, 01 Jun 2026 09:53:45 +0000
-Received: from foss.arm.com ([217.140.110.172])
-	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wTzL4-0000000AZBm-3J8e
+	id 1wTzWR-0000000AZxF-3Cj6;
+	Mon, 01 Jun 2026 10:05:27 +0000
+Received: from mail-pl1-x62c.google.com ([2607:f8b0:4864:20::62c])
+	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
+	id 1wTzWO-0000000AZwR-0yPp
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 01 Jun 2026 09:53:44 +0000
-Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
-	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id 1AFF81E8D;
-	Mon,  1 Jun 2026 02:53:36 -0700 (PDT)
-Received: from [10.1.38.31] (Suzukis-MBP.cambridge.arm.com [10.1.38.31])
-	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id E7E213F905;
-	Mon,  1 Jun 2026 02:53:39 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=simple/simple; d=arm.com; s=foss;
-	t=1780307621; bh=Pe2ZlJy8oKAD/VulpHzRR75gUtJV5sCF9VpBEoEx/k4=;
-	h=Date:Subject:To:Cc:References:From:In-Reply-To:From;
-	b=kEScZh6UoN7ivaCz/gpnJZG+S6y9uAXQioLOL1RBUVEwiGpvDq1PuYJG3JNnh0VHx
-	 ipdlAv2rtKj/vQJ5Oz48p0C5NDcP+m90ysqeQk1ChdpDq/dnuWCK/H3VpSUZ1KP/3f
-	 T+A2rEfRSe1CIXDcFxp84Rj8MJ1PnRLSKDnUASec=
-Message-ID: <3144c7fb-b41d-4bca-a6a0-eeb9dfddc8b8@arm.com>
-Date: Mon, 1 Jun 2026 10:53:38 +0100
+	Mon, 01 Jun 2026 10:05:25 +0000
+Received: by mail-pl1-x62c.google.com with SMTP id d9443c01a7336-2c0c379e8ffso7825625ad.3
+        for <linux-arm-kernel@lists.infradead.org>; Mon, 01 Jun 2026 03:05:23 -0700 (PDT)
+ARC-Seal: i=1; a=rsa-sha256; t=1780308323; cv=none;
+        d=google.com; s=arc-20240605;
+        b=RGB1pCLPEGYVW6aQV4nl7KOuxLbmxJ+yZoMPsp+MdibGoUtqUeRIcVhM5QJU/ql0dm
+         kPrA5qHP/iOOHQTxn9z7F4Qb4G5WhJGxpsel9YX1IwKh1eEmOguN8fvKA2BlFwkIPJ/Q
+         IQlM28cs4v5N5yxecvzi51LJ55SP++RlbtZHn63oFiJu1winUA5tYg85dFPdlMtUT/yr
+         G4OBsvcVDR93OEgYG+yMhLJBgwfTABBxTLK80GPoX2Gi0H98/VhtPh/tn2lbZByyRq2H
+         rF5TS7KJ1wx2W/MQzgP4adLSEIpg6+QDwGxV9CSpuPKvGir0MLFZ5t+ifoEsZf7EF0B7
+         55rA==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20240605;
+        h=cc:to:subject:message-id:date:from:in-reply-to:references
+         :mime-version:dkim-signature;
+        bh=BdswV/H72I0eIbl7Z3IhvzcEqMAO/9EWXcrHd21kKTE=;
+        fh=WmgKkp4nSq+iQSYrvsDnRR9cXEzIqVXxtw2tydnSgbw=;
+        b=PH+CI3n2r8suioYHpTR+CsfWApqzTgVSrSe81DD4evyzCS0zyOAgbMOzzuzC3soOOW
+         Z502ja60fetjP1KoamwCc7WMY/Ap/WCXDwrNfAVrY1JJKZRJQdGupqkBcs+7mt9gEksO
+         BizbWTRJG2iW/zu88qZxFmj7d+uhUx70Yh9vfrzS0tuh8iBE29p4yhxWqQwcQaOiCOFd
+         trUmSLTWKt3pULeTg14cUW40y6DbYmfqPrHOpU82hMnOdL4NS76jbSixdsgX+M7JNN2w
+         m6PGrJyTRfgElpeh5dS3pc2TxDO2T1YfxlHzb3ZZAIySs01tEPvHyBUgUrs+eMsBeJOJ
+         J51w==;
+        darn=lists.infradead.org
+ARC-Authentication-Results: i=1; mx.google.com; arc=none
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=gmail.com; s=20251104; t=1780308323; x=1780913123; darn=lists.infradead.org;
+        h=cc:to:subject:message-id:date:from:in-reply-to:references
+         :mime-version:from:to:cc:subject:date:message-id:reply-to;
+        bh=BdswV/H72I0eIbl7Z3IhvzcEqMAO/9EWXcrHd21kKTE=;
+        b=VitslqZe2m+70nVBEIVrERuOESpeTTQBU0Ra+8myIcvjXx6BeXrzSVDuhNAsd7db5u
+         OwdF2aHq6pcQCN8wkGhIF2eGdJIanFKv4Ju8UheXnVRei+S2hkQQVZvOZJZCGpdDfh6Z
+         /y9E3rygyobQqwo2IQa+1C5ohRHlh2hQ20JHyLolgxh1OUgUUq+byK+Sq55Sat6iGj/R
+         jq+NOi+1q9yW3/5982RzHuEOMWRWrWJjJ6HsM/eILdcl24QOqtrY2FwlRY39XqTN5TPs
+         5XLHDvUMikmL7N0MNneodzz6MmLLdEB98HZKton5ac8gfsKmVHCgIPuLVyLeUoyLeGb4
+         CKJQ==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20251104; t=1780308323; x=1780913123;
+        h=cc:to:subject:message-id:date:from:in-reply-to:references
+         :mime-version:x-gm-gg:x-gm-message-state:from:to:cc:subject:date
+         :message-id:reply-to;
+        bh=BdswV/H72I0eIbl7Z3IhvzcEqMAO/9EWXcrHd21kKTE=;
+        b=KOdZI56kPE6hqYAEFBwP1yiCy1J3fYg6XNB54XnSuZm/VKjAssKgh/sA2UEISlzvVx
+         f3zUOWphn0zwG9Xq36lid8RvvDJ6LisTgsL3jzJvOomXyGul/9kxSHoq9hnz+t9XXwNX
+         g9IxauBfB83bF0lYPvqVJpI4ok0MHze3q5YZc0DfYGCk3rIU7w4krjk/BR6CVM2Fd54F
+         isTaVAUPqh5OyhiE3navzfiI1tlfwPb4elqjrlvZWT27jblunufnCm1cuRmeW1hEDacs
+         HkSJcfT9usUYEJcDZm/WmUzoLCFQ3NrAW16r+g2XKW5Wj5zqcT2fYHNhCQUsQI0Lw9dh
+         WsaA==
+X-Forwarded-Encrypted: i=1; AFNElJ8QkEfBplLKjLBSOP3pMcnOLs8uA5bTlQhtkpZpafCXb/zSefHJBurlqPaC/AWUO2JbLe9SQMFDmHBdN2Nf6RKu@lists.infradead.org
+X-Gm-Message-State: AOJu0Ywu3bIwfqzfnJeP287iNHScm7RTJ3rjchUEg3zakItJ1DNDpipi
+	nIddPQIZbVFu1CZIFVuYQEVqIkLYgM34L6PXIV5+xabwFOzt2BXYj0ZzYpPVZARQNyu4dyvt/d4
+	EPZPYOqRVfkMuNeTfYVGCTrBRAh7lKKM=
+X-Gm-Gg: Acq92OEhZPSye3p5XlRSkjE0SguwEeJeFMwe8Z6OGcSTuz8uy9QF9m31OitLNh47jkg
+	EJcATNF4fdVy5NK62X29HK4Hg+TbMRBcPHzSxwO37dzlkSpX0KDpGjKLSAkX0i3Y71SbUHpOBXj
+	GX4/QcdG9400ZUHX/bz2ClZ345JhomMXmVmzD89CV36Bax0+YD6MWfBYeqSjQOn9wmvmJq2zMqJ
+	nxdVVroIranJ4q4JysOOKu/r3h5NluJs+c7GiBjxL/sBiMXNJMjCS1xSTE2cPqmypk8WklzBblu
+	7tMo2rJTuawdc+qrlW+6EHqsogn9E93MbCpuRwi4hLwuVdWk
+X-Received: by 2002:a17:902:d483:b0:2b2:4260:109 with SMTP id
+ d9443c01a7336-2bf3684aeb9mr121794295ad.23.1780308322810; Mon, 01 Jun 2026
+ 03:05:22 -0700 (PDT)
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH v7 03/13] coresight: etm4x: introduce
- ETM_MAX_SEQ_TRANSITIONS
-Content-Language: en-GB
-To: Yeoreum Yun <yeoreum.yun@arm.com>, coresight@lists.linaro.org,
- linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org
-Cc: mike.leach@arm.com, james.clark@linaro.org,
- alexander.shishkin@linux.intel.com, leo.yan@arm.com, jie.gan@oss.qualcomm.com
-References: <20260519154812.254884-1-yeoreum.yun@arm.com>
- <20260519154812.254884-4-yeoreum.yun@arm.com>
-From: Suzuki K Poulose <suzuki.poulose@arm.com>
-In-Reply-To: <20260519154812.254884-4-yeoreum.yun@arm.com>
-Content-Type: text/plain; charset=UTF-8; format=flowed
-Content-Transfer-Encoding: 7bit
+References: <20260522100318.73474-1-phucduc.bui@gmail.com> <20260522100318.73474-2-phucduc.bui@gmail.com>
+ <20260530-adventurous-basilisk-of-happiness-def6fa@quoll>
+In-Reply-To: <20260530-adventurous-basilisk-of-happiness-def6fa@quoll>
+From: Bui Duc Phuc <phucduc.bui@gmail.com>
+Date: Mon, 1 Jun 2026 17:05:11 +0700
+X-Gm-Features: AVHnY4K0HX288K_cD5Sf10SY7BujkeLaPeGOHP02VGsc25wWrKbaxn-vW53Y2o0
+Message-ID: <CAABR9nHh5WbC+A-7KV9jKEUbmK8WHgpf=VUk0DJqFrhhQFRpwg@mail.gmail.com>
+Subject: Re: [PATCH 1/3] ASoC: dt-bindings: rockchip-spdif: Correct SPDIF
+ clock descriptions
+To: Krzysztof Kozlowski <krzk@kernel.org>
+Cc: broonie@kernel.org, lgirdwood@gmail.com, perex@perex.cz, tiwai@suse.com, 
+	heiko@sntech.de, linux-arm-kernel@lists.infradead.org, 
+	linux-kernel@vger.kernel.org, linux-sound@vger.kernel.org, 
+	linux-rockchip@lists.infradead.org, robh@kernel.org, krzk+dt@kernel.org, 
+	conor+dt@kernel.org, devicetree@vger.kernel.org
+Content-Type: text/plain; charset="UTF-8"
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260601_025342_923960_A45F2F1E 
-X-CRM114-Status: GOOD (  16.53  )
+X-CRM114-CacheID: sfid-20260601_030524_276134_773A9B3A 
+X-CRM114-Status: GOOD (  16.06  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -73,74 +119,40 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On 19/05/2026 16:48, Yeoreum Yun wrote:
-> According to IHI006H Embedded Trace Macrocell Architecture
-> Specification [0], n could be 0-2 for TCRSEQEVR<n> when
-> TCRIDR5.NUMSEQSTATE is 0b100.
-> 
-> Therefore, introduce ETM_MAX_SEQ_TRANSITIONS macro and apply this
-> in TCRSEQEVR<n> relevant fields.
-> 
-> Link: https://developer.arm.com/documentation/ihi0064/latest/ [0]
-> Suggestedby: Leo Yan <leo.yan@arm.com>
-> Signed-off-by: Yeoreum Yun <yeoreum.yun@arm.com>
-> ---
->   drivers/hwtracing/coresight/coresight-etm4x-cfg.c | 2 +-
->   drivers/hwtracing/coresight/coresight-etm4x.h     | 5 +++--
->   2 files changed, 4 insertions(+), 3 deletions(-)
-> 
-> diff --git a/drivers/hwtracing/coresight/coresight-etm4x-cfg.c b/drivers/hwtracing/coresight/coresight-etm4x-cfg.c
-> index c302072b293a..e1a59b434505 100644
-> --- a/drivers/hwtracing/coresight/coresight-etm4x-cfg.c
-> +++ b/drivers/hwtracing/coresight/coresight-etm4x-cfg.c
-> @@ -76,7 +76,7 @@ static int etm4_cfg_map_reg_offset(struct etmv4_drvdata *drvdata,
->   	} else if ((offset & GENMASK(11, 4)) == TRCSEQEVRn(0)) {
->   		/* sequencer state control registers */
->   		idx = (offset & GENMASK(3, 0)) / 4;
-> -		if (idx < ETM_MAX_SEQ_STATES) {
-> +		if (idx < ETM_MAX_SEQ_TRANSITIONS) {
->   			reg_csdev->driver_regval = &drvcfg->seq_ctrl[idx];
->   			err = 0;
->   		}
-> diff --git a/drivers/hwtracing/coresight/coresight-etm4x.h b/drivers/hwtracing/coresight/coresight-etm4x.h
-> index 89d81ce4e04e..60e08ab085c5 100644
-> --- a/drivers/hwtracing/coresight/coresight-etm4x.h
-> +++ b/drivers/hwtracing/coresight/coresight-etm4x.h
-> @@ -614,6 +614,7 @@ static inline u32 etm4_res_sel_pair(u8 res_sel_idx)
->   #define ETM_MAX_NR_PE			8
->   #define ETMv4_MAX_CNTR			4
->   #define ETM_MAX_SEQ_STATES		4
-> +#define ETM_MAX_SEQ_TRANSITIONS		(ETM_MAX_SEQ_STATES - 1)
+Hi Krzysztof,
 
-Similar to the other comment on the patch, please don't tie this to 
-SEQ_STATES. Simpl define.
+Thank you for your review .
 
-#define ETM_MAX_SEQ_CTRLS		3
+> So example is wrong?
+>
+> What about all the users?
 
+I only updated the internal description text to match the existing clock-names.
+The clock ordering (mclk followed by hclk) remains unchanged,
+so external .dts files and the example section at the end of the
+binding are unaffected.
 
-Suzuki
+> Please wrap commit message according to Linux coding style / submission
+> process (neither too early nor over the limit):
+> https://elixir.bootlin.com/linux/v6.4-rc1/source/Documentation/process/submitting-patches.rst#L597
+>
 
+Thank you for the guidance. I will address this in v2.
 
->   #define ETM_MAX_EXT_INP_SEL		4
->   #define ETM_MAX_EXT_INP			256
->   #define ETM_MAX_EXT_OUT			4
-> @@ -877,7 +878,7 @@ struct etmv4_config {
->   	u32				vipcssctlr;
->   	u8				seq_idx;
->   	u8				syncfreq;
-> -	u32				seq_ctrl[ETM_MAX_SEQ_STATES];
-> +	u32				seq_ctrl[ETM_MAX_SEQ_TRANSITIONS];
->   	u32				seq_rst;
->   	u32				seq_state;
->   	u8				cntr_idx;
-> @@ -928,7 +929,7 @@ struct etmv4_save_state {
->   	u32	trcvissctlr;
->   	u32	trcvipcssctlr;
->   
-> -	u32	trcseqevr[ETM_MAX_SEQ_STATES];
-> +	u32	trcseqevr[ETM_MAX_SEQ_TRANSITIONS];
->   	u32	trcseqrstevr;
->   	u32	trcseqstr;
->   	u32	trcextinselr;
+> > The clock descriptions are currently swapped relative to the
+> > clock names used by the driver.
+>
+> Why would order of clock names in the driver matter here? I do not
+> understand that explanation.
+>
 
+I inferred that 'hclk' is the bus clock from the driver, which uses
+devm_regmap_init_mmio_clk() with 'hclk',
+and this matches the description found in several Rockchip datasheets.
+However, I understand that the binding should be described
+independently of the driver implementation.
+Therefore, I'll drop this description in the next revision.
+
+Best Regards,
+Phuc
 
