@@ -4,83 +4,72 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 36DA3CD5BD1
-	for <linux-arm-kernel@archiver.kernel.org>; Mon,  1 Jun 2026 07:01:06 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id D88CDCD6E4C
+	for <linux-arm-kernel@archiver.kernel.org>; Mon,  1 Jun 2026 07:03:43 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
-	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=CoyU632BOmUsjvPTjI8ta/BdSy7eUSXw5co/oz5o+jo=; b=k5mfRRJGPVhdexN/IK9UsAHapg
-	xVn9qodDVnLVgyTHXYb+tW8s/Uz9e0YRkn+oyJP/oo4urveYrnRnJpLhqRjDASYc28t4XJvPUC6RG
-	IxZ/G+YGzOJTTkAp2zMv14+ZvyfBVc4SqOzEj/8I5rPEyec17hN6VFcn5b2U83jq9QyLldoeRc/vh
-	PQw6SBA9uusIR26hb3H7ZQ3DiUoboL6zJl9MLAzC5RXCc8+FefHk3w9sLqu5LCEUTWuXmGj2f/eom
-	usEM0TWTDaKLkD45Z+lT65kgAnvGkiCARt91cd41HwPoMyBwwNVF+TQuC+7Ns6d58SVULeOEM9b50
-	6CER4ySA==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:
+	Content-Transfer-Encoding:Content-Type:References:In-Reply-To:Date:Cc:To:From
+	:Subject:Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=QLCPiUeXBpuiNP7Dd5XfYFOCbvsBtllxZtOQ2WJE6js=; b=Vsq1Vx7nhAHyJC1bm7K/8zd1Sn
+	R7YyzphcYyCQgyzvWWBab7FWDSMkfpB3c6IOgLyChgBYkc4UoCHAHOEcp7x/3btpK0l88txfxCjiY
+	+Scf4CldImpdUu8KO/BUpDuLGHdSujW6ZK5YIWFeTvKKs2dg+TaPVFlSCmpOS16b4PtJsks9KVlU9
+	7CLdeLOf8REmsTse6H/WHC9BsxcMEQOWHB+8wMK1WpRid1d9al5PS5lHjCteKUPdN3r2JWMqslvMb
+	7rx9wNtASjT0q0cVy0bk/NXq5qWC6podQpnIUDFFhlyREh/u1/fczZeId7V0bUlAl8+3AN8gwmcJP
+	VfdnYDDA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wTwdu-0000000AGLD-40Hc;
-	Mon, 01 Jun 2026 07:00:58 +0000
-Received: from dggsgout11.his.huawei.com ([45.249.212.51])
+	id 1wTwgT-0000000AGiM-1aVU;
+	Mon, 01 Jun 2026 07:03:37 +0000
+Received: from sender4-op-o12.zoho.com ([136.143.188.12])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wTwdq-0000000AGJh-2SH9
-	for linux-arm-kernel@lists.infradead.org;
-	Mon, 01 Jun 2026 07:00:58 +0000
-Received: from mail.maildlp.com (unknown [172.19.163.198])
-	by dggsgout11.his.huawei.com (SkyGuard) with ESMTPS id 4gTPxG2xJvzYQtfp
-	for <linux-arm-kernel@lists.infradead.org>; Mon,  1 Jun 2026 15:00:34 +0800 (CST)
-Received: from mail02.huawei.com (unknown [10.116.40.112])
-	by mail.maildlp.com (Postfix) with ESMTP id 3194B40574
-	for <linux-arm-kernel@lists.infradead.org>; Mon,  1 Jun 2026 15:00:37 +0800 (CST)
-Received: from [10.174.179.37] (unknown [10.174.179.37])
-	by APP1 (Coremail) with SMTP id cCh0CgBHlzwRLh1q90nbAA--.18715S3;
-	Mon, 01 Jun 2026 15:00:35 +0800 (CST)
-Message-ID: <2e77b153-e8c7-80e4-2b7f-dd5591c3b63d@huaweicloud.com>
-Date: Mon, 1 Jun 2026 15:00:33 +0800
+	id 1wTwgQ-0000000AGhk-3v5u;
+	Mon, 01 Jun 2026 07:03:36 +0000
+ARC-Seal: i=1; a=rsa-sha256; t=1780297408; cv=none; 
+	d=zohomail.com; s=zohoarc; 
+	b=fkMe4pbAWpDntsPu1e74bIEM/oqdRyymB/ChZzBA6Ij+MKejLq01j2fZQmoEL+g1NV926gogTPw+zAT+DykEsfF5m4IC79eDvt5R7gYyVDE9LoYBUqUulzEtZw/iqLmWcHbPJAB8TCC+uXU4X4qFPl6T4hwRvyYjcoRi7jCRcQc=
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=zohomail.com; s=zohoarc; 
+	t=1780297408; h=Content-Type:Content-Transfer-Encoding:Cc:Cc:Date:Date:From:From:In-Reply-To:MIME-Version:Message-ID:References:Subject:Subject:To:To:Message-Id:Reply-To; 
+	bh=QLCPiUeXBpuiNP7Dd5XfYFOCbvsBtllxZtOQ2WJE6js=; 
+	b=GLoctPx0OnzfMSZFc/CciDZFpqWgg3fo60qW7DyweCgmJn8yFIzhMLzrGqHZGcmXN0rFFZoZn5RTywEE7kSpmnLcHLpEHMg+iiJNYpcsC5g4bdCIjckN3kvD225QtLpZn4B8C66NRhqEIP7oaKGDpY+4GBG42y1/JD9C18Zbm28=
+ARC-Authentication-Results: i=1; mx.zohomail.com;
+	dkim=pass  header.i=icenowy.me;
+	spf=pass  smtp.mailfrom=uwu@icenowy.me;
+	dmarc=pass header.from=<uwu@icenowy.me>
+DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed; t=1780297408;
+	s=zmail2; d=icenowy.me; i=uwu@icenowy.me;
+	h=Message-ID:Subject:Subject:From:From:To:To:Cc:Cc:Date:Date:In-Reply-To:References:Content-Type:Content-Transfer-Encoding:MIME-Version:Message-Id:Reply-To;
+	bh=QLCPiUeXBpuiNP7Dd5XfYFOCbvsBtllxZtOQ2WJE6js=;
+	b=L6KHJt0SJcleHALx/I8/21KXoJ0EFDVPZeaH1b+NPRTvnTIyzdzig/I8bjRH4azw
+	Y399K/dPQTfEhc1EjvVaQ1XGv/eQiDGQR02iMBQSFcE59fIfQu76GzCLvswt9a9Ui9k
+	U1t+7MI8xoS5Kp81nn87gJ3UYwyUir/6L1cTej5QeechPhHyI5BZSTmT7ZHrR/9dsPs
+	3QMZhFimNPV92HiroyDWd12O4dHqDnVkkCkgYm910k7KH8NnxxsD+2WjicqxeLw+lFz
+	oBSzvRrS1PP48Od39az8YISdjjozoKNdjCdUSqjYyAgm0AaDyza2gVweEhOYs4xjFI5
+	YzvwjnLYag==
+Received: by mx.zohomail.com with SMTPS id 1780297406409465.9604788970639;
+	Mon, 1 Jun 2026 00:03:26 -0700 (PDT)
+Message-ID: <1e61d12528c7c0a8b8d05f9d789b5b40024e8001.camel@icenowy.me>
+Subject: Re: [PATCH] media: mtk-jpeg: fix use-after-free in release path due
+ to uncancelled work
+From: Icenowy Zheng <uwu@icenowy.me>
+To: Fan Wu <fanwu01@zju.edu.cn>, bin.liu@mediatek.com, mchehab@kernel.org, 
+	matthias.bgg@gmail.com, angelogioacchino.delregno@collabora.com
+Cc: irui.wang@mediatek.com, kyrie.wu@mediatek.com, hverkuil@kernel.org, 
+	linux-media@vger.kernel.org, linux-kernel@vger.kernel.org, 
+	linux-arm-kernel@lists.infradead.org, linux-mediatek@lists.infradead.org
+Date: Mon, 01 Jun 2026 15:03:19 +0800
+In-Reply-To: <20260304031934.147483-1-fanwu01@zju.edu.cn>
+References: <20260304031934.147483-1-fanwu01@zju.edu.cn>
+Organization: Anthon Open-Source Community
+Content-Type: text/plain; charset="UTF-8"
+Content-Transfer-Encoding: quoted-printable
+User-Agent: Evolution 3.58.3 
 MIME-Version: 1.0
-User-Agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:102.0) Gecko/20100101
- Thunderbird/102.11.0
-Subject: Re: [PATCH v2] arm64: kernel: Unify CNP disable workaround into
- ARM64_WORKAROUND_DISABLE_CNP
-Content-Language: en-US
-To: Vladimir Murzin <vladimir.murzin@arm.com>, xuwei5@huawei.com,
- wangyushan12@huawei.com, maz@kernel.org, skhan@linuxfoundation.org,
- miko.lenczewski@arm.com, lucaswei@google.com, broonie@kernel.org,
- thuth@redhat.com, ryan.roberts@arm.com, tongtiangen@huawei.com,
- oupton@kernel.org, kuninori.morimoto.gx@renesas.com, mark.rutland@arm.com,
- will@kernel.org, corbet@lwn.net, catalin.marinas@arm.com,
- kevin.brodsky@arm.com, lpieralisi@kernel.org, yangyicong@hisilicon.com,
- james.clark@linaro.org, yeoreum.yun@arm.com
-Cc: linux-doc@vger.kernel.org, wangkefeng.wang@huawei.com,
- linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org
-References: <20260529063132.766491-1-zengheng@huaweicloud.com>
- <1e107eba-e28c-4fbf-80dc-808b8c3f4bb5@arm.com>
-From: Zeng Heng <zengheng@huaweicloud.com>
-In-Reply-To: <1e107eba-e28c-4fbf-80dc-808b8c3f4bb5@arm.com>
-Content-Type: text/plain; charset=UTF-8; format=flowed
-Content-Transfer-Encoding: 7bit
-X-CM-TRANSID: cCh0CgBHlzwRLh1q90nbAA--.18715S3
-X-Coremail-Antispam: 1UD129KBjvJXoW3Gry7Zw43uFWkGFykJF1fJFb_yoWDXr1xpr
-	13Jr4fJF1UWF15JryUXw1UJr1Yyan3Gw1Ygr1UK340qr1YyryUZr48X34xZFWvqrykWr48
-	GF1qkr15ZF1jyrDanT9S1TB71UUUUU7qnTZGkaVYY2UrUUUUjbIjqfuFe4nvWSU5nxnvy2
-	9KBjDU0xBIdaVrnRJUUU9Ib4IE77IF4wAFF20E14v26rWj6s0DM7CY07I20VC2zVCF04k2
-	6cxKx2IYs7xG6r1S6rWUM7CIcVAFz4kK6r1j6r18M28lY4IEw2IIxxk0rwA2F7IY1VAKz4
-	vEj48ve4kI8wA2z4x0Y4vE2Ix0cI8IcVAFwI0_tr0E3s1l84ACjcxK6xIIjxv20xvEc7Cj
-	xVAFwI0_Gr1j6F4UJwA2z4x0Y4vEx4A2jsIE14v26rxl6s0DM28EF7xvwVC2z280aVCY1x
-	0267AKxVW0oVCq3wAS0I0E0xvYzxvE52x082IY62kv0487Mc02F40EFcxC0VAKzVAqx4xG
-	6I80ewAv7VC0I7IYx2IY67AKxVWUJVWUGwAv7VC2z280aVAFwI0_Jr0_Gr1lOx8S6xCaFV
-	Cjc4AY6r1j6r4UM4x0Y48IcVAKI48JM4IIrI8v6xkF7I0E8cxan2IY04v7Mxk0xIA0c2IE
-	e2xFo4CEbIxvr21lc7CjxVAaw2AFwI0_GFv_Wryl42xK82IYc2Ij64vIr41l4I8I3I0E4I
-	kC6x0Yz7v_Jr0_Gr1lx2IqxVAqx4xG67AKxVWUJVWUGwC20s026x8GjcxK67AKxVWUGVWU
-	WwC2zVAF1VAY17CE14v26r4a6rW5MIIYrxkI7VAKI48JMIIF0xvE2Ix0cI8IcVAFwI0_Jr
-	0_JF4lIxAIcVC0I7IYx2IY6xkF7I0E14v26r4j6F4UMIIF0xvE42xK8VAvwI8IcIk0rVWU
-	JVWUCwCI42IY6I8E87Iv67AKxVWUJVW8JwCI42IY6I8E87Iv6xkF7I0E14v26r4j6r4UJb
-	IYCTnIWIevJa73UjIFyTuYvjxUIF4iUUUUU
-X-CM-SenderInfo: p2hqwxhhqjqx5xdzvxpfor3voofrz/
+X-ZohoMailClient: External
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260601_000055_004469_859EE741 
-X-CRM114-Status: GOOD (  26.21  )
+X-CRM114-CacheID: sfid-20260601_000335_034484_27B95064 
+X-CRM114-Status: GOOD (  18.70  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -95,240 +84,185 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hi Vladimir,
+=E5=9C=A8 2026-03-04=E4=B8=89=E7=9A=84 03:19 +0000=EF=BC=8CFan Wu=E5=86=99=
+=E9=81=93=EF=BC=9A
+> The mtk_jpeg_release() function frees the context structure (ctx)
+> without
+> first cancelling any pending or running work in ctx->jpeg_work. This
+> creates a race window where the workqueue callback may still be
+> accessing
+> the context memory after it has been freed.
 
-On 2026/5/29 17:17, Vladimir Murzin wrote:
-> Hi,
->
-> On 5/29/26 07:31, Zeng Heng wrote:
->> From: Zeng Heng <zengheng4@huawei.com>
->>
->> HiSilicon HIP09 implements TLB entry matching behavior that deviates
->> from the ARM architecture specification when the CnP (Common not Private)
->> bit is set in TTBRx_ELx.
->>
->> When TTBRx.CNP=1, TLB entries may be incorrectly shared between CPU
->> cores, leading to TLB conflicts and stale mappings. This breaks
->> coherency and can result in incorrect translations.
->>
->> Add the hardware erratum workaround (Hisilicon erratum 162100125) to
->> disable CNP on affected HIP09 cores.
->>
->> Merge the existing NVIDIA Carmel and the HiSilicon HIP09 CNP errata
->> workarounds into a single generic capability ARM64_WORKAROUND_DISABLE_CNP.
->>
->> Both NVIDIA Carmel and HiSilicon HIP09 have hardware errata where
->> CNP (Common Not Private) behavior differs from the ARM specification,
->> causing incorrect TLB entry sharing between cores. The existing
->> NVIDIA_CARMEL_CNP_ERRATUM and the newly added HISILICON_ERRATUM_162100125
->> are now both handled by the unified ARM64_WORKAROUND_DISABLE_CNP.
->>
->> Co-developed-by: Tong Tiangen <tongtiangen@huawei.com>
->> Signed-off-by: Tong Tiangen <tongtiangen@huawei.com>
->> Signed-off-by: Zeng Heng <zengheng4@huawei.com>
->> ---
->> v1: https://lore.kernel.org/all/20260526015720.206854-1-zengheng@huaweicloud.com/
->>
->> Changes in v2:
->>    - Unify CNP disable workaround into ARM64_WORKAROUND_DISABLE_CNP
->> ---
->>
->>   Documentation/arch/arm64/silicon-errata.rst |  4 +++-
->>   arch/arm64/Kconfig                          | 17 ++++++++++++-----
->>   arch/arm64/include/asm/cpucaps.h            |  4 ++--
->>   arch/arm64/kernel/cpu_errata.c              | 17 ++++++++++++-----
->>   arch/arm64/kernel/cpufeature.c              |  2 +-
->>   arch/arm64/tools/cpucaps                    |  2 +-
->>   6 files changed, 31 insertions(+), 15 deletions(-)
->>
->> diff --git a/Documentation/arch/arm64/silicon-errata.rst b/Documentation/arch/arm64/silicon-errata.rst
->> index 211119ce7adc..b4565e1a726d 100644
->> --- a/Documentation/arch/arm64/silicon-errata.rst
->> +++ b/Documentation/arch/arm64/silicon-errata.rst
->> @@ -254,7 +254,7 @@ stable kernels.
->>   | Marvell        | ARM-MMU-500     | #582743         | N/A                         |
->>   +----------------+-----------------+-----------------+-----------------------------+
->>   +----------------+-----------------+-----------------+-----------------------------+
->> -| NVIDIA         | Carmel Core     | N/A             | NVIDIA_CARMEL_CNP_ERRATUM   |
->> +| NVIDIA         | Carmel Core     | N/A             | ARM64_WORKAROUND_DISABLE_CNP|
->>   +----------------+-----------------+-----------------+-----------------------------+
->>   | NVIDIA         | T241 GICv3/4.x  | T241-FABRIC-4   | N/A                         |
->>   +----------------+-----------------+-----------------+-----------------------------+
->> @@ -284,6 +284,8 @@ stable kernels.
->>   +----------------+-----------------+-----------------+-----------------------------+
->>   | Hisilicon      | Hip09           | #162100801      | HISILICON_ERRATUM_162100801 |
->>   +----------------+-----------------+-----------------+-----------------------------+
->> +| Hisilicon      | Hip09           | #162100125      | ARM64_WORKAROUND_DISABLE_CNP|
->> ++----------------+-----------------+-----------------+-----------------------------+
->>   +----------------+-----------------+-----------------+-----------------------------+
->>   | Qualcomm Tech. | Kryo/Falkor v1  | E1003           | QCOM_FALKOR_ERRATUM_1003    |
->>   +----------------+-----------------+-----------------+-----------------------------+
->> diff --git a/arch/arm64/Kconfig b/arch/arm64/Kconfig
->> index fe60738e5943..dc0bd32ea2d1 100644
->> --- a/arch/arm64/Kconfig
->> +++ b/arch/arm64/Kconfig
->> @@ -1315,13 +1315,20 @@ config QCOM_FALKOR_ERRATUM_E1041
->>
->>   	  If unsure, say Y.
->>
->> -config NVIDIA_CARMEL_CNP_ERRATUM
->> -	bool "NVIDIA Carmel CNP: CNP on Carmel semantically different than ARM cores"
->> +config ARM64_WORKAROUND_DISABLE_CNP
->> +	bool "Disable CNP on affected CPUs"
->>   	default y
->>   	help
->> -	  If CNP is enabled on Carmel cores, non-sharable TLBIs on a core will not
->> -	  invalidate shared TLB entries installed by a different core, as it would
->> -	  on standard ARM cores.
->> +	  This option disables the CNP (Common Not Private) feature on CPUs
->> +	  that have hardware errata affecting CNP behavior.
->> +
->> +	  On NVIDIA Carmel cores, CNP behaves differently than on standard ARM
->> +	  cores: non-shareable TLBIs on a core may not invalidate shared TLB
->> +	  entries installed by a different core.
->> +
->> +	  On Hisilicon HIP09 cores, TLB entries may be incorrectly shared
->> +	  between cores when TTBRx.CNP=1, leading to TLB conflicts and
->> +	  stale mappings.
->>
->>   	  If unsure, say Y.
->>
-> I'm afraid we cannot swap one config with another. Instead, we need to follow
-> established pattern for sharing workaround, something like
->
-> diff --git a/arch/arm64/Kconfig b/arch/arm64/Kconfig
-> index 378e50fef247..68eb2993cfd3 100644
-> --- a/arch/arm64/Kconfig
-> +++ b/arch/arm64/Kconfig
-> @@ -1315,9 +1315,13 @@ config QCOM_FALKOR_ERRATUM_E1041
->   
->            If unsure, say Y.
->   
-> +config ARM64_WORKAROUND_DISABLE_CNP
-> +       bool
-> +
->   config NVIDIA_CARMEL_CNP_ERRATUM
->          bool "NVIDIA Carmel CNP: CNP on Carmel semantically different than ARM cores"
->          default y
-> +       select ARM64_WORKAROUND_DISABLE_CNP
->          help
->            If CNP is enabled on Carmel cores, non-sharable TLBIs on a core will not
->            invalidate shared TLB entries installed by a different core, as it would
->
->
-> and related changes for generalisation of the workaround - that would to be patch 1/2.
->
-> Then we can easily wire-up your errata with something like
->
-> +config HISILICON_ERRATUM_162100125
-> +       bool "Hisilicon erratum 162100125"
-> +       default y
-> +       select ARM64_WORKAROUND_DISABLE_CNP
-> +       help
-> +         On HiSilicon HIP09, TLB entry matching behavior when CNP
-> +         (TTBRx.CNP=1) is enabled differs from the ARM architecture
-> +         specification.
-> +
-> +         TLB entries may be incorrectly shared between CPUs, potentially
-> +         causing TLB conflicts and stale mappings.
-> +
-> +         Disable CNP support for affected HiSilicon HIP09 cores.
-> +
-> +         If unsure, say Y.
->
-> and related update in documentation and MIDR list - that would be patch 2/2
->
-> Thanks
-> Vladimir
+This patch leads to frequent kernel warning on my mt8188-geralt-ciri
+device:
 
-I mistakenly over-merged and replaced CONFIG_NVIDIA_CARMEL_CNP_ERRATUM.
+```
+[   42.493013] ------------[ cut here ]------------
+[   42.497645] WARNING: kernel/workqueue.c:4302 at
+__flush_work+0x34c/0x380, CPU#2: wireplumber/1100
+[   42.506521] Modules linked in: snd_seq_dummy snd_hrtimer snd_seq
+snd_seq_device aes_ce_ccm rfcomm hid_himax(OE) bnep mtk_vcodec_dec_hw
+btusb memconsole_coreboot btmtk btrtl btbcm vpd_sysfs cbmem
+nf_conntrack_netbios_ns memconsole framebuffer_coreboot btintel
+nf_conntrack_broadcast nft_fib_inet bluetooth nft_fib_ipv4 nft_fib_ipv6
+nft_fib mt7921e nft_reject_inet mt7921_common nf_reject_ipv4
+nf_reject_ipv6 mt792x_lib nft_reject mt76_connac_lib mt76 nft_ct
+mtk_jpeg mt8188_mt6359 snd_soc_hdmi_codec mtk_vcodec_dec airoha_eth
+mt6359_accdet v4l2_vp9 airoha_npu mtk_jpeg_enc_hw mtk_vcodec_enc
+snd_soc_mt6359 v4l2_h264 mac80211 nft_chain_nat mtk_vcodec_dbgfs
+mtk_jpeg_dec_hw mtk_vcodec_common mtk_vpu cfg80211 ip6table_nat
+mtk_mdp3 ip6table_mangle v4l2_mem2mem ip6table_raw ofpart
+videobuf2_dma_contig dsa_core videobuf2_memops phylink
+ip6table_security hsr cmdlinepart videobuf2_v4l2 videobuf2_common
+iptable_nat nf_nat bridge videodev cros_ec_sensors spi_nor nf_conntrack
+stp mc cros_ec_sensors_core llc mtd
+[   42.506764]  industrialio_triggered_buffer kfifo_buf nf_defrag_ipv6
+snd_sof_mt8186 rfkill mtk_adsp_common nf_defrag_ipv4 iptable_mangle
+mtk_adsp_ipc snd_soc_es8326 snd_soc_max98390 iptable_raw
+snd_sof_xtensa_dsp mediatek_cpufreq_hw iptable_security snd_sof_of
+snd_soc_mt8188_afe snd_sof snd_soc_dmic snd_soc_mtk_common
+snd_sof_utils mt6359_auxadc snd_soc_core snd_compress ac97_bus mtk_scp
+mt6577_auxadc snd_pcm_dmaengine snd_pcm mtk_rpmsg lvts_thermal
+nf_tables mtk_scp_ipi snd_timer industrialio rpmsg_core snd
+ip6table_filter coreboot_table soundcore ip6_tables iptable_filter
+ip_tables x_tables joydev mousedev qrtr tun sch_fq_codel fuse nfnetlink
+onboard_usb_dev panel_himax_hx83102 cros_usbpd_charger cros_ec_hwmon
+cros_ec_sysfs cros_ec_sensorhub cros_usbpd_notify sbs_battery
+gpio_cros_ec hwmon cros_charge_control cros_ec_chardev
+cros_usbpd_logger cros_ec_debugfs hid_google_hammer hid_multitouch
+hid_vivaldi_common cros_ec_keyb i2c_cros_ec_tunnel hid_generic
+led_class cros_ec_dev rtc_mt6397 mt6359_regulator
+[   42.594635]  tpm_tis_i2c_cr50 xhci_mtk_hcd i2c_hid_of tpm_tis_spi
+i2c_hid tpm_tis_core cros_ec_spi cros_ec clk_mt8188_vdo1
+clk_mt8188_vdo0 cros_ec_proto mt6397 clk_mt8188_vpp0 clk_mt8188_vpp1
+mtk_dp ghash_ce phy_mtk_dp drm_dp_aux_bus phy_mtk_tphy sm4 mediatek_drm
+drm_dma_helper drm_display_helper cec clk_mt8188_ipe clk_mt8188_venc
+rc_core clk_mt8188_vdec clk_mt8188_cam clk_mt8188_img clk_mt8188_ccu
+clk_mt8188_wpe panfrost mtk_mmsys mtk_mutex governor_simpleondemand
+phy_mtk_mipi_dsi_drv clk_mt8188_mfg mtk_cmdq_helper nvmem_mtk_efuse
+gpu_sched mtk_smi spi_mtk_nor mtu3 clk_mt8188_imp_iic_wrap mtk_sd roles
+mmc_hsq udc_core cqhci spmi_mtk_pmif i2c_mt65xx spmi_devres
+pwm_mtk_disp spi_mt65xx clk_mt8188_peri_ao clk_mt8188_adsp_audio26m
+clk_mt8188_infra_ao spmi clk_mt8188_apmixedsys mtk_pmic_wrap mtk_wdt
+mtk_adsp_mailbox mtk_iommu clk_mt8188_topckgen mtk_cmdq_mailbox fixed
+ramoops pwm_bl i2c_dev aes_neon_bs aes_neon_blk aes_ce_blk
+[   42.765118] CPU: 2 UID: 975 PID: 1100 Comm: wireplumber Tainted: G=20
+W  OE       7.0.10-aosc-main #1 PREEMPT(lazy)=20
+[   42.775983] Tainted: [W]=3DWARN, [O]=3DOOT_MODULE, [E]=3DUNSIGNED_MODULE
+[   42.782155] Hardware name: Google Ciri sku1 board (DT)
+[   42.787286] pstate: 60400009 (nZCv daif +PAN -UAO -TCO -DIT -SSBS
+BTYPE=3D--)
+[   42.794243] pc : __flush_work+0x34c/0x380
+[   42.798251] lr : __cancel_work_sync+0x90/0xe0
+[   42.802604] sp : ffff8000854f3980
+[   42.805912] x29: ffff8000854f39e0 x28: ffff0000c9530000 x27:
+0000000000000000
+[   42.813048] x26: 0000000000000000 x25: 0000000000000000 x24:
+0000000000000001
+[   42.820183] x23: ffffb0d11de2bd40 x22: ffff0000c98db6c0 x21:
+0000000000000001
+[   42.827319] x20: 0000000000000000 x19: ffff0000c2679f20 x18:
+ffff8000851ad068
+[   42.834454] x17: 0000000000000000 x16: 0000000000000000 x15:
+0000000000000000
+[   42.841588] x14: 0000000000000000 x13: 0000000000000000 x12:
+0000000000000000
+[   42.848723] x11: 0000000000000000 x10: 0000000000000000 x9 :
+ffffb0d11993da28
+[   42.855858] x8 : 0000000000000000 x7 : 0000000000000000 x6 :
+0000000000000000
+[   42.862992] x5 : 0000000000000000 x4 : 0000000000000000 x3 :
+0000000000000000
+[   42.870126] x2 : 0000000000000000 x1 : 0000000000000000 x0 :
+0000000000000000
+[   42.877262] Call trace:
+[   42.879704]  __flush_work+0x34c/0x380 (P)
+[   42.883713]  __cancel_work_sync+0x90/0xe0
+[   42.887719]  cancel_work_sync+0x20/0x50
+[   42.891551]  mtk_jpeg_release+0x38/0xb0 [mtk_jpeg]
+[   42.896348]  v4l2_release+0x94/0x118 [videodev]
+[   42.900910]  __fput+0xec/0x330
+[   42.903968]  fput_close_sync+0x44/0x160
+[   42.907803]  __arm64_sys_close+0x44/0xa0
+[   42.911723]  invoke_syscall.constprop.0+0x60/0xf0
+[   42.916426]  el0_svc_common.constprop.0+0x114/0x140
+[   42.921302]  do_el0_svc+0x28/0x58
+[   42.924614]  el0_svc+0x44/0x1e0
+[   42.927754]  el0t_64_sync_handler+0xc0/0x108
+[   42.932019]  el0t_64_sync+0x1b8/0x1c0
+[   42.935680] ---[ end trace 0000000000000000 ]---
 
-Thank you for your review and for providing the detailed suggestions.
+```
 
+Thanks,
+Icenowy
 
-Best regards,
-Zeng Heng
-
->   
->> diff --git a/arch/arm64/include/asm/cpucaps.h b/arch/arm64/include/asm/cpucaps.h
->> index d0d3cdd5763c..25c61cda901c 100644
->> --- a/arch/arm64/include/asm/cpucaps.h
->> +++ b/arch/arm64/include/asm/cpucaps.h
->> @@ -58,8 +58,8 @@ cpucap_is_possible(const unsigned int cap)
->>   		return IS_ENABLED(CONFIG_ARM64_ERRATUM_2658417);
->>   	case ARM64_WORKAROUND_CAVIUM_23154:
->>   		return IS_ENABLED(CONFIG_CAVIUM_ERRATUM_23154);
->> -	case ARM64_WORKAROUND_NVIDIA_CARMEL_CNP:
->> -		return IS_ENABLED(CONFIG_NVIDIA_CARMEL_CNP_ERRATUM);
->> +	case ARM64_WORKAROUND_DISABLE_CNP:
->> +		return IS_ENABLED(CONFIG_ARM64_WORKAROUND_DISABLE_CNP);
->>   	case ARM64_WORKAROUND_REPEAT_TLBI:
->>   		return IS_ENABLED(CONFIG_ARM64_WORKAROUND_REPEAT_TLBI);
->>   	case ARM64_WORKAROUND_SPECULATIVE_SSBS:
->> diff --git a/arch/arm64/kernel/cpu_errata.c b/arch/arm64/kernel/cpu_errata.c
->> index 5377e4c2eba2..675cd059165c 100644
->> --- a/arch/arm64/kernel/cpu_errata.c
->> +++ b/arch/arm64/kernel/cpu_errata.c
->> @@ -394,6 +394,14 @@ static const struct arm64_cpu_capabilities qcom_erratum_1003_list[] = {
->>   };
->>   #endif
->>
->> +#ifdef CONFIG_ARM64_WORKAROUND_DISABLE_CNP
->> +static const struct midr_range cnp_erratum_cpus[] = {
->> +	MIDR_ALL_VERSIONS(MIDR_NVIDIA_CARMEL),
->> +	MIDR_ALL_VERSIONS(MIDR_HISI_HIP09),
->> +	{},
->> +};
->> +#endif
->> +
->>   #ifdef CONFIG_ARM64_WORKAROUND_CLEAN_CACHE
->>   static const struct midr_range workaround_clean_cache[] = {
->>   #if	defined(CONFIG_ARM64_ERRATUM_826319) || \
->> @@ -801,12 +809,11 @@ const struct arm64_cpu_capabilities arm64_errata[] = {
->>   				  1, 0),
->>   	},
->>   #endif
->> -#ifdef CONFIG_NVIDIA_CARMEL_CNP_ERRATUM
->> +#ifdef CONFIG_ARM64_WORKAROUND_DISABLE_CNP
->>   	{
->> -		/* NVIDIA Carmel */
->> -		.desc = "NVIDIA Carmel CNP erratum",
->> -		.capability = ARM64_WORKAROUND_NVIDIA_CARMEL_CNP,
->> -		ERRATA_MIDR_ALL_VERSIONS(MIDR_NVIDIA_CARMEL),
->> +		.desc = "NVIDIA Carmel CNP erratum, or Hisilicon erratum 162100125",
->> +		.capability = ARM64_WORKAROUND_DISABLE_CNP,
->> +		ERRATA_MIDR_RANGE_LIST(cnp_erratum_cpus),
->>   	},
->>   #endif
->>   #ifdef CONFIG_ARM64_WORKAROUND_TRBE_OVERWRITE_FILL_MODE
->> diff --git a/arch/arm64/kernel/cpufeature.c b/arch/arm64/kernel/cpufeature.c
->> index 6d53bb15cf7b..20c5f24f74a9 100644
->> --- a/arch/arm64/kernel/cpufeature.c
->> +++ b/arch/arm64/kernel/cpufeature.c
->> @@ -1785,7 +1785,7 @@ has_useable_cnp(const struct arm64_cpu_capabilities *entry, int scope)
->>   	if (is_kdump_kernel())
->>   		return false;
->>
->> -	if (cpus_have_cap(ARM64_WORKAROUND_NVIDIA_CARMEL_CNP))
->> +	if (cpus_have_cap(ARM64_WORKAROUND_DISABLE_CNP))
->>   		return false;
->>
->>   	return has_cpuid_feature(entry, scope);
->> diff --git a/arch/arm64/tools/cpucaps b/arch/arm64/tools/cpucaps
->> index 811c2479e82d..9b85a84f6fd4 100644
->> --- a/arch/arm64/tools/cpucaps
->> +++ b/arch/arm64/tools/cpucaps
->> @@ -120,7 +120,7 @@ WORKAROUND_CAVIUM_TX2_219_PRFM
->>   WORKAROUND_CAVIUM_TX2_219_TVM
->>   WORKAROUND_CLEAN_CACHE
->>   WORKAROUND_DEVICE_LOAD_ACQUIRE
->> -WORKAROUND_NVIDIA_CARMEL_CNP
->> +WORKAROUND_DISABLE_CNP
->>   WORKAROUND_PMUV3_IMPDEF_TRAPS
->>   WORKAROUND_QCOM_FALKOR_E1003
->>   WORKAROUND_QCOM_ORYON_CNTVOFF
->> --
->> 2.43.0
->>
-
+>=20
+> Race condition:
+>=20
+> =C2=A0=C2=A0=C2=A0 CPU 0 (release)=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=
+=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=
+ CPU 1 (workqueue)
+> =C2=A0=C2=A0=C2=A0 ----------------=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=
+=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0 --=
+----------------
+> =C2=A0=C2=A0=C2=A0 close()
+> =C2=A0=C2=A0=C2=A0=C2=A0=C2=A0 mtk_jpeg_release()
+> =C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=
+=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=
+=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=
+=C2=A0 mtk_jpegenc_worker()
+> =C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=
+=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=
+=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=
+=C2=A0=C2=A0=C2=A0 ctx =3D work->data
+> =C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=
+=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=
+=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=
+=C2=A0=C2=A0=C2=A0 // accessing ctx
+>=20
+> =C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0 kfree(ctx)=C2=A0 // freed!
+> =C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=
+=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=
+=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=
+=C2=A0=C2=A0=C2=A0 access ctx=C2=A0 // UAF!
+>=20
+> The work is queued via queue_work() during JPEG encode/decode
+> operations
+> (via mtk_jpeg_device_run). If the device is closed while work is
+> pending
+> or running, the work handler will access freed memory.
+>=20
+> Fix this by calling cancel_work_sync() BEFORE acquiring the mutex.
+> This
+> ordering is critical: if cancel_work_sync() is called after
+> mutex_lock(),
+> and the work handler also tries to acquire the same mutex, it would
+> cause
+> a deadlock.
+>=20
+> Note: The open error path does NOT need cancel_work_sync() because
+> INIT_WORK() only initializes the work structure - it does not
+> schedule
+> it. Work is only scheduled later during ioctl operations.
+>=20
+> Fixes: 5fb1c2361e56 ("mtk-jpegenc: add jpeg encode worker interface")
+> Signed-off-by: Fan Wu <fanwu01@zju.edu.cn>
+> ---
+> =C2=A0drivers/media/platform/mediatek/jpeg/mtk_jpeg_core.c | 1 +
+> =C2=A01 file changed, 1 insertion(+)
+>=20
+> diff --git a/drivers/media/platform/mediatek/jpeg/mtk_jpeg_core.c
+> b/drivers/media/platform/mediatek/jpeg/mtk_jpeg_core.c
+> index c01124a349f6..8c684756d5fc 100644
+> --- a/drivers/media/platform/mediatek/jpeg/mtk_jpeg_core.c
+> +++ b/drivers/media/platform/mediatek/jpeg/mtk_jpeg_core.c
+> @@ -1202,6 +1202,7 @@ static int mtk_jpeg_release(struct file *file)
+> =C2=A0	struct mtk_jpeg_dev *jpeg =3D video_drvdata(file);
+> =C2=A0	struct mtk_jpeg_ctx *ctx =3D mtk_jpeg_file_to_ctx(file);
+> =C2=A0
+> +	cancel_work_sync(&ctx->jpeg_work);
+> =C2=A0	mutex_lock(&jpeg->lock);
+> =C2=A0	v4l2_m2m_ctx_release(ctx->fh.m2m_ctx);
+> =C2=A0	v4l2_ctrl_handler_free(&ctx->ctrl_hdl);
 
