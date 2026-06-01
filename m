@@ -4,109 +4,65 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 9AD84CD5BD1
-	for <linux-arm-kernel@archiver.kernel.org>; Mon,  1 Jun 2026 01:53:35 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id C9B75CD6E56
+	for <linux-arm-kernel@archiver.kernel.org>; Mon,  1 Jun 2026 01:55:48 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
 	Content-Type:In-Reply-To:From:References:CC:To:Subject:MIME-Version:Date:
 	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=NJYbbLzK9EefT64p05anlG1DGPE+frac7uWyR7nFhaY=; b=UW3/QJkU6WdPky9EuQUao1nhRD
-	W5D9Akgkjf+zuKTHk2CPP96gSmWz1RIaago0uvBbSSWeKrBjmKGEpn7MbJD+GrIiECyzd7TqqEVhQ
-	eDOyJEm7G4Bjlra0ytzsOxC/QYhEYTZzPzEw6Al8KSQxZMxLQJu6KIkEpTBRegYDDvZ6W5A/NeezI
-	V7xByF/66EQbfIG8P9grwuSxuvvy34FQuH8TNxsUbxbz3zo6YKHJabomkvPB5yTbE/pIerXk3rLy7
-	5GqTQI852i9ZrXBzir+K7eBR/9n2zUvV1hgxZVtjveL9SRS5opWUbyyIVd/vbidzKUukpnhWLNMr+
-	rVBfs/cw==;
+	bh=1T6q+bU+4SE3b8DbUpUDY+ZGz+nJwHqsg4RxW3JE0Ug=; b=dov8RpOzHFY7Xkbj7sS+lR8E+Y
+	5oe+6qLWymgAydgzKQ5LJSYBaiSFm6LU43nFBEdibdzCwT4qIBhmVlc0F2eSY1WtaY8Hrjxslt+LP
+	C8tD+G4uieU7L+v7X6wilb59E4nPzfkRvSYvHnbkV91E9S/6ADxnMlz4sGt08J7nktgcMkGWxdP4N
+	8TukFZsaYFQQSSA1wA+OPLydl9azizO5Otv4cdBK9fTS86vkSiHMBcaDdTwh1ISKg6WPfP4a1mpw+
+	hTe5dt/xpsLvUqg9tTMOqSL6mRkuJpdxf040F8gSAnBqxkCIapZvd/0GSVqObXyQhfyZ2N+YlIZLR
+	Dggw9E+Q==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wTrqI-0000000A2Ap-25I6;
-	Mon, 01 Jun 2026 01:53:26 +0000
-Received: from mx0b-0031df01.pphosted.com ([205.220.180.131])
+	id 1wTrsS-0000000A2JT-3BEY;
+	Mon, 01 Jun 2026 01:55:40 +0000
+Received: from canpmsgout09.his.huawei.com ([113.46.200.224])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wTrqF-0000000A2AS-28r1
+	id 1wTrsO-0000000A2Ic-43YU
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 01 Jun 2026 01:53:24 +0000
-Received: from pps.filterd (m0279869.ppops.net [127.0.0.1])
-	by mx0a-0031df01.pphosted.com (8.18.1.11/8.18.1.11) with ESMTP id 64VMD4BC2718818;
-	Mon, 1 Jun 2026 01:53:16 GMT
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=quicinc.com; h=
-	cc:content-transfer-encoding:content-type:date:from:in-reply-to
-	:message-id:mime-version:references:subject:to; s=qcppdkim1; bh=
-	NJYbbLzK9EefT64p05anlG1DGPE+frac7uWyR7nFhaY=; b=PEd+vJ4eMz8/T2ey
-	ccldjgkQjcxPVqEDnSN1z7jdg/lihUj3phQ7jFoFdAn8rQbq9HM3cysDlYne4sXe
-	8YlaadfFeXE8EYCwk9tDgYkEEeRc6pB3EUiRV67QpWLqAMCdpCmxqtruZH3m9dTu
-	pJ4+aj/wOOzuuTz+kaWeZ5nZ8dUoMKbeSTACwLwrz0Zmxl6uy8NfaufCXBb/uIQ6
-	o0weavbrsnExNIkydUQ2xeDjg3oUcvHqxUHT16G+BOd1IhOXEEi8g1WQ6LbfLUyo
-	kPAoQJ0sTjH3OjOksEzIVeFq+ankNpi8WeKyR7Ef+2lgNEUhy/uN26SL9aJtaIkl
-	Z+w9NQ==
-Received: from nasanppmta02.qualcomm.com (i-global254.qualcomm.com [199.106.103.254])
-	by mx0a-0031df01.pphosted.com (PPS) with ESMTPS id 4efpw7n9hu-1
-	(version=TLSv1.2 cipher=ECDHE-RSA-AES256-GCM-SHA384 bits=256 verify=NOT);
-	Mon, 01 Jun 2026 01:53:15 +0000 (GMT)
-Received: from nasanex01a.na.qualcomm.com (nasanex01a.na.qualcomm.com [10.52.223.231])
-	by NASANPPMTA02.qualcomm.com (8.18.1.7/8.18.1.7) with ESMTPS id 6511rEKv008708
-	(version=TLSv1.2 cipher=ECDHE-RSA-AES256-GCM-SHA384 bits=256 verify=NOT);
-	Mon, 1 Jun 2026 01:53:14 GMT
-Received: from [10.233.71.148] (10.80.80.8) by nasanex01a.na.qualcomm.com
- (10.52.223.231) with Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.2.2562.17; Sun, 31 May
- 2026 18:53:11 -0700
-Message-ID: <e4b25ab7-a50e-416c-b2dd-1c8e8ef40019@quicinc.com>
-Date: Mon, 1 Jun 2026 09:53:09 +0800
+	Mon, 01 Jun 2026 01:55:39 +0000
+Received: from mail.maildlp.com (unknown [172.19.163.214])
+	by canpmsgout09.his.huawei.com (SkyGuard) with ESMTPS id 4gTH0D21PCz1cyPZ;
+	Mon,  1 Jun 2026 09:47:40 +0800 (CST)
+Received: from kwepemf200017.china.huawei.com (unknown [7.202.181.10])
+	by mail.maildlp.com (Postfix) with ESMTPS id 9254A4056C;
+	Mon,  1 Jun 2026 09:55:27 +0800 (CST)
+Received: from [10.67.121.58] (10.67.121.58) by kwepemf200017.china.huawei.com
+ (7.202.181.10) with Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.2.1544.11; Mon, 1 Jun
+ 2026 09:55:26 +0800
+Message-ID: <1a12e1cb-d30c-4da9-81d1-46b1bb4a30d2@hisilicon.com>
+Date: Mon, 1 Jun 2026 09:55:26 +0800
 MIME-Version: 1.0
 User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH v9 2/4] coresight: cti: use __reg_addr() helper for
- register access
-To: Leo Yan <leo.yan@arm.com>, Yingchao Deng <yingchao.deng@oss.qualcomm.com>
-CC: Suzuki K Poulose <suzuki.poulose@arm.com>,
-        Mike Leach
-	<mike.leach@arm.com>, James Clark <james.clark@linaro.org>,
-        "Alexander
- Shishkin" <alexander.shishkin@linux.intel.com>,
-        <coresight@lists.linaro.org>, <linux-arm-kernel@lists.infradead.org>,
-        <linux-kernel@vger.kernel.org>, <linux-arm-msm@vger.kernel.org>,
-        <jinlong.mao@oss.qualcomm.com>, <tingwei.zhang@oss.qualcomm.com>,
-        <jie.gan@oss.qualcomm.com>, Yingchao Deng
-	<quic_yingdeng@quicinc.com>
-References: <20260521-extended_cti-v9-0-d21f4f92c51e@oss.qualcomm.com>
- <20260521-extended_cti-v9-2-d21f4f92c51e@oss.qualcomm.com>
- <20260529144055.GK101133@e132581.arm.com>
+Subject: Re: [PATCH v3 3/4] devfreq: Factor out devfreq_set_governor()
+To: "zhenglifeng (A)" <zhenglifeng1@huawei.com>, <cwchoi00@gmail.com>,
+	<cw00.choi@samsung.com>, <myungjoo.ham@samsung.com>,
+	<kyungmin.park@samsung.com>, <linux-pm@vger.kernel.org>,
+	<linux-arm-kernel@lists.infradead.org>
+CC: <linuxarm@huawei.com>, <tianyaxiong@kylinos.cn>,
+	<zhangpengjie2@huawei.com>, <lihuisong@huawei.com>,
+	<prime.zeng@hisilicon.com>
+References: <20260519113251.3745140-1-zhanjie9@hisilicon.com>
+ <20260519113251.3745140-4-zhanjie9@hisilicon.com>
+ <fdc3886e-7e5b-46e3-a1c9-48e2c2b596c9@huawei.com>
 Content-Language: en-US
-From: "Yingchao Deng (Consultant)" <quic_yingdeng@quicinc.com>
-In-Reply-To: <20260529144055.GK101133@e132581.arm.com>
-Content-Type: text/plain; charset="UTF-8"; format=flowed
+From: Jie Zhan <zhanjie9@hisilicon.com>
+In-Reply-To: <fdc3886e-7e5b-46e3-a1c9-48e2c2b596c9@huawei.com>
+Content-Type: text/plain; charset="UTF-8"
 Content-Transfer-Encoding: 7bit
-X-Originating-IP: [10.80.80.8]
-X-ClientProxiedBy: nasanex01b.na.qualcomm.com (10.46.141.250) To
- nasanex01a.na.qualcomm.com (10.52.223.231)
-X-QCInternal: smtphost
-X-Proofpoint-GUID: 3uacSbypB3AIsYf0Uhq2w69alFu_BQNp
-X-Proofpoint-ORIG-GUID: 3uacSbypB3AIsYf0Uhq2w69alFu_BQNp
-X-Authority-Analysis: v=2.4 cv=bNIm5v+Z c=1 sm=1 tr=0 ts=6a1ce60b cx=c_pps
- a=JYp8KDb2vCoCEuGobkYCKw==:117 a=JYp8KDb2vCoCEuGobkYCKw==:17
- a=GEpy-HfZoHoA:10 a=IkcTkHD0fZMA:10 a=FelO9ux0wxsA:10
- a=VkNPw1HP01LnGYTKEx00:22 a=u7WPNUs3qKkmUXheDGA7:22 a=_glEPmIy2e8OvE2BGh3C:22
- a=OcBUPQTv9d3dhylU4BIA:9 a=QEXdDO2ut3YA:10
-X-Proofpoint-Spam-Details-Enc: AW1haW4tMjYwNjAxMDAxNiBTYWx0ZWRfX78AoZme1zhjJ
- BZ/KjFBats99yD1iCvEc+w5GrkO4sVBP6NBXH1FHBvAO64CxNpI2wd3Te8nIUkZLxQ65/BGOY9/
- kyF9sSqj35ILb58hIn8KRoxeqnjilODCgDH9ORFXxexczQLL5Y5M6/dVERQ1xrC/WMSq6oI/Ji7
- Pg8bkBSauffZOkvfF1FZgNlY9j1IGCMDLq21Rw4U4OsV4KAez5vzAE0jjH+7cSgtoCwo18mo4Iv
- aq8V7ySK1dY8AspOqlnF4u+cmKolvy6Te3DyoBaNKb1+iBU4EVOf7Z7/FNYOdPe/djXN9r3aplC
- v1feC3Gh6YgROgYVQNL7Wa0dr82Ljel1zTf3aTT7Na+aXTh7LD/GVOZCLdSEuMaIqPvSngouDIJ
- hodtGeJ6I1lTaFOyP3qU2PCWGCa1RL+XKnCqWcavqKzrRlZPtQloumOYx4edwstwlNe0X2Fj+LE
- pFi+JQhWzBYKef3f2eg==
-X-Proofpoint-Virus-Version: vendor=baseguard
- engine=ICAP:2.0.293,Aquarius:18.0.1143,Hydra:6.1.125,FMLib:17.12.100.49
- definitions=2026-06-01_01,2026-05-28_03,2025-10-01_01
-X-Proofpoint-Spam-Details: rule=outbound_notspam policy=outbound score=0
- suspectscore=0 impostorscore=0 phishscore=0 adultscore=0 malwarescore=0
- bulkscore=0 priorityscore=1501 lowpriorityscore=0 spamscore=0 clxscore=1015
- classifier=typeunknown authscore=0 authtc= authcc= route=outbound adjust=0
- reason=mlx scancount=1 engine=8.22.0-2605210000 definitions=main-2606010016
+X-Originating-IP: [10.67.121.58]
+X-ClientProxiedBy: kwepems500001.china.huawei.com (7.221.188.70) To
+ kwepemf200017.china.huawei.com (7.202.181.10)
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260531_185323_706779_F2361A5D 
-X-CRM114-Status: GOOD (  26.34  )
+X-CRM114-CacheID: sfid-20260531_185537_342410_1A1CC31B 
+X-CRM114-Status: GOOD (  18.76  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -122,185 +78,90 @@ Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
 
-On 5/29/2026 10:40 PM, Leo Yan wrote:
-> On Thu, May 21, 2026 at 08:16:28PM +0800, Yingchao Deng wrote:
->
-> [...]
->
->> +static void __iomem *__reg_addr(struct cti_drvdata *drvdata, u32 off,
->> +				u32 index)
+
+On 5/21/2026 4:06 PM, zhenglifeng (A) wrote:
+> On 5/19/2026 7:32 PM, Jie Zhan wrote:
+>> governor_store() and devfreq_add_device() contain similar logic for setting
+>> a governor when devfreq->governor is NULL.  Merge this into a common
+>> function, devfreq_set_governor(), to reduce code duplication and unify the
+>> entry of setting governors.
+>>
+>> This also prepares for further changes that get / put a module refcount of
+>> the active governor and prevent the governor module from being unloaded
+>> while it's in use.
+>>
+>> Signed-off-by: Jie Zhan <zhanjie9@hisilicon.com>
+>> ---
+>>  drivers/devfreq/devfreq.c | 117 ++++++++++++++++++--------------------
+>>  1 file changed, 56 insertions(+), 61 deletions(-)
+>>
+>> diff --git a/drivers/devfreq/devfreq.c b/drivers/devfreq/devfreq.c
+>> index 53c40d795a13..9e3e6a7348f8 100644
+>> --- a/drivers/devfreq/devfreq.c
+>> +++ b/drivers/devfreq/devfreq.c
+>> @@ -318,6 +318,59 @@ static struct devfreq_governor *try_then_request_governor(const char *name)
+>>  	return governor;
+>>  }
+>>  
+>> +static int devfreq_set_governor(struct devfreq *df,
+>> +				const struct devfreq_governor *new_gov)
 >> +{
->> +	return drvdata->base + off + sizeof(u32) * index;
->> +}
+>> +	const struct devfreq_governor *old_gov;
+>> +	struct device *dev;
+>> +	int ret;
 >> +
->> +#define reg_addr(drvdata, off)		__reg_addr((drvdata), (off), 0)
->> +#define reg_index_addr(drvdata, off, i)	__reg_addr((drvdata), (off), (i))
->> -u32 cti_read_single_reg(struct cti_drvdata *drvdata, int offset)
->> +u32 cti_read_single_reg(struct cti_drvdata *drvdata, u32 off, u32 index)
->>   {
->> -	int val;
->> +	u32 val;
->>   
->>   	CS_UNLOCK(drvdata->base);
->> -	val = readl_relaxed(drvdata->base + offset);
->> +	val = readl_relaxed(reg_index_addr(drvdata, off, index));
->>   	CS_LOCK(drvdata->base);
->>   
->>   	return val;
->>   }
->>   
->> -void cti_write_single_reg(struct cti_drvdata *drvdata, int offset, u32 value)
->> +void cti_write_single_reg(struct cti_drvdata *drvdata, u32 off, u32 index,
->> +			  u32 value)
->>   {
->>   	CS_UNLOCK(drvdata->base);
->> -	writel_relaxed(value, drvdata->base + offset);
->> +	writel_relaxed(value, reg_index_addr(drvdata, off, index));
->>   	CS_LOCK(drvdata->base);
->>   }
-> I prefer to move the register helpers into coresight-cti.h and add two
-> additional helpers: cti_read_single_reg_index() and
-> cti_write_single_reg_index().
->
-> I also found circular dependency between coresight-cti.h and qcom-cti.h.
-> Since qcom-cti.h only contains register definitions and a small inline
-> function for register conversion, we can simply fold it into
-> coresight-cti.h and dismiss the circular dependency.
->
-> Based on this idea, I played around with the code a bit (see the snippet
-> below). Would you be okay with applying this approach to patches 02/03?
-> If have any questions, please let me know.
->
-> ---8<---
->
-> --- a/drivers/hwtracing/coresight/coresight-cti.h
-> +++ b/drivers/hwtracing/coresight/coresight-cti.h
-> @@ -60,6 +60,31 @@ struct fwnode_handle;
->    */
->   #define CTIINOUTEN_MAX		128
->   
-> +/* QCOM CTI extension */
-> +#define QCOM_ARCHITECT		0x477
-> +
-> +#define QCOM_CTIINTACK		0x020
-> +#define QCOM_CTIAPPSET		0x004
-> +#define QCOM_CTIAPPCLEAR	0x008
-> +#define QCOM_CTIAPPPULSE	0x00C
-> +#define QCOM_CTIINEN		0x400
-> +#define QCOM_CTIOUTEN		0x800
-> +#define QCOM_CTITRIGINSTATUS	0x040
-> +#define QCOM_CTITRIGOUTSTATUS	0x060
-> +#define QCOM_CTICHINSTATUS	0x080
-> +#define QCOM_CTICHOUTSTATUS	0x084
-> +#define QCOM_CTIGATE		0x088
-> +#define QCOM_ASICCTL		0x08C
-> +/* Integration test registers */
-> +#define QCOM_ITCHINACK		0xE70
-> +#define QCOM_ITTRIGINACK	0xE80
-> +#define QCOM_ITCHOUT		0xE74
-> +#define QCOM_ITTRIGOUT		0xEA0
-> +#define QCOM_ITCHOUTACK		0xE78
-> +#define QCOM_ITTRIGOUTACK	0xEC0
-> +#define QCOM_ITCHIN		0xE7C
-> +#define QCOM_ITTRIGIN		0xEE0
-> +
->   /**
->    * Group of related trigger signals
->    *
-> @@ -222,9 +247,8 @@ int cti_enable(struct coresight_device *csdev, enum cs_mode mode,
->   int cti_disable(struct coresight_device *csdev, struct coresight_path *path);
->   void cti_write_all_hw_regs(struct cti_drvdata *drvdata);
->   void cti_write_intack(struct device *dev, u32 ackval);
-> -void cti_write_single_reg(struct cti_drvdata *drvdata, u32 off, u32 index,
-> -			  u32 value);
-> -u32 cti_read_single_reg(struct cti_drvdata *drvdata, u32 off, u32 index);
->   int cti_channel_trig_op(struct device *dev, enum cti_chan_op op,
->   			enum cti_trig_dir direction, u32 channel_idx,
->   			u32 trigger_idx);
-> @@ -237,6 +261,78 @@ struct coresight_platform_data *
->   coresight_cti_get_platform_data(struct device *dev);
->   const char *cti_plat_get_node_name(struct fwnode_handle *fwnode);
->   
-> +static inline u32 cti_qcom_reg_off(u32 offset)
-> +{
-> +	switch (offset) {
-> +	case CTIINTACK:		return QCOM_CTIINTACK;
-> +	case CTIAPPSET:		return QCOM_CTIAPPSET;
-> +	case CTIAPPCLEAR:	return QCOM_CTIAPPCLEAR;
-> +	case CTIAPPPULSE:	return QCOM_CTIAPPPULSE;
-> +	case CTIINEN:		return QCOM_CTIINEN;
-> +	case CTIOUTEN:		return QCOM_CTIOUTEN;
-> +	case CTITRIGINSTATUS:	return QCOM_CTITRIGINSTATUS;
-> +	case CTITRIGOUTSTATUS:	return QCOM_CTITRIGOUTSTATUS;
-> +	case CTICHINSTATUS:	return QCOM_CTICHINSTATUS;
-> +	case CTICHOUTSTATUS:	return QCOM_CTICHOUTSTATUS;
-> +	case CTIGATE:		return QCOM_CTIGATE;
-> +	case ASICCTL:		return QCOM_ASICCTL;
-> +	case ITCHINACK:		return QCOM_ITCHINACK;
-> +	case ITTRIGINACK:	return QCOM_ITTRIGINACK;
-> +	case ITCHOUT:		return QCOM_ITCHOUT;
-> +	case ITTRIGOUT:		return QCOM_ITTRIGOUT;
-> +	case ITCHOUTACK:	return QCOM_ITCHOUTACK;
-> +	case ITTRIGOUTACK:	return QCOM_ITTRIGOUTACK;
-> +	case ITCHIN:		return QCOM_ITCHIN;
-> +	case ITTRIGIN:		return QCOM_ITTRIGIN;
-> +
-> +	default:
-> +		return offset;
-> +	}
-> +}
-> +
-> +static inline void __iomem *__reg_addr(struct cti_drvdata *drvdata,
-> +				       u32 off, u32 index)
-> +{
-> +	if (unlikely(drvdata->is_qcom_cti))
-> +		off = cti_qcom_reg_off(off);
-> +
-> +	return drvdata->base + off + index * sizeof(u32);
-> +}
-> +
-> +#define reg_addr(drvdata, off)		__reg_addr((drvdata), (off), 0)
-> +#define reg_index_addr(drvdata, off, i)	__reg_addr((drvdata), (off), (i))
-> +
-> +static inline u32 cti_read_single_reg_index(struct cti_drvdata *drvdata,
-> +					    u32 off, u32 index)
-> +{
-> +	u32 val;
-> +
-> +	CS_UNLOCK(drvdata->base);
-> +	val = readl_relaxed(reg_index_addr(drvdata, off, index));
-> +	CS_LOCK(drvdata->base);
-> +
-> +	return val;
-> +}
-> +
-> +static inline u32 cti_read_single_reg(struct cti_drvdata *drvdata, u32 off)
-> +{
-> +	return cti_read_single_reg_index(drvdata, off, 0);
-> +}
-> +
-> +static inline void cti_write_single_reg_index(struct cti_drvdata *drvdata,
-> +					      u32 off, u32 index, u32 value)
-> +{
-> +	CS_UNLOCK(drvdata->base);
-> +	writel_relaxed(value, reg_index_addr(drvdata, off, index));
-> +	CS_LOCK(drvdata->base);
-> +}
-> +
-> +static inline void cti_write_single_reg(struct cti_drvdata *drvdata,
-> +					u32 off, u32 value)
-> +{
-> +	cti_write_single_reg_index(drvdata, off, 0, value);
-> +}
-> +
->   /* Check if a cti device is enabled */
->   static inline bool cti_is_active(struct cti_config *cfg)
->   {
-Thanks for the detailed suggestion and the reference implementation,
-the approach looks clean. I'll adopt it in v11.
+>> +	lockdep_assert_held(&devfreq_list_lock);
+>> +
+>> +	old_gov = df->governor;
+>> +	dev = &df->dev;
+>> +
+>> +	if (old_gov) {
+>> +		if (old_gov == new_gov)
+>> +			return 0;
+>> +
+>> +		if (IS_SUPPORTED_FLAG(old_gov->flags, IMMUTABLE) ||
+>> +		    IS_SUPPORTED_FLAG(new_gov->flags, IMMUTABLE))
+>> +			return -EINVAL;
+>> +
+>> +		/* Stop the current governor */
+>> +		ret = df->governor->event_handler(df, DEVFREQ_GOV_STOP, NULL);
+>> +		if (ret) {
+>> +			dev_warn(dev, "%s: Governor %s not stopped(%d)\n",
+>> +				 __func__, df->governor->name, ret);
+>> +			return ret;
+>> +		}
+>> +	}
+>> +
+>> +	/* Start the new governor */
+>> +	df->governor = new_gov;
+>> +	ret = df->governor->event_handler(df, DEVFREQ_GOV_START, NULL);
+>> +	if (ret) {
+>> +		dev_warn(dev, "%s: Governor %s not started(%d)\n",
+>> +			 __func__, df->governor->name, ret);
+>> +
+>> +		/* Restore previous governor */
+>> +		df->governor = old_gov;
+>> +		if (!df->governor)
+>> +			return ret;
+>> +
+>> +		ret = df->governor->event_handler(df, DEVFREQ_GOV_START, NULL);
+>> +		if (ret) {
+>> +			dev_err(dev, "%s: restore Governor %s failed (%d)\n",
+>> +				__func__, df->governor->name, ret);
+>> +			df->governor = NULL;
+>> +			return ret;
+>> +		}
+>> +	}
+>> +
+>> +	return sysfs_update_group(&df->dev.kobj, &gov_attr_group);
+> 
+> Here is a little problem which is not introduced by this patch. When
+> starting new governor fails but restoring old governor succeeds, this
+> function will return 0. This might lead users to believe that the governor
+> has been successfully modified.
+> 
+Yes, good catch.  This suppresses the error code.
 
-
-Thanks,
-Yingchao
-
+I think, from a quick glance, the path of restoring the old governor should
+discard the return value of event_handler() and skip updating sysfs.
 
