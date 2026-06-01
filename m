@@ -4,94 +4,60 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 6CDE8CD6E56
-	for <linux-arm-kernel@archiver.kernel.org>; Mon,  1 Jun 2026 09:29:47 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 22358CD6E56
+	for <linux-arm-kernel@archiver.kernel.org>; Mon,  1 Jun 2026 09:40:37 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:MIME-Version:Message-ID:Date:Subject:CC:To:From:Reply-To:
-	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
-	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
-	bh=HpjtZmFXsxidBZJjFQYAS6CBJU5vUaHDo+8aVLCph/E=; b=pM+QBFIsyWtiT/g9b8mgje7QxR
-	V3W65yd8cufgM5E6Lu5kTFg1YNbK/+fRmRqrYNQNBu2UhZNRxmYwqxa1bvd0/cpjA4QzZRzsuVXyx
-	XPYZs4vYJJnJl4STKhyugbm+vPc3ZuvVGRK9ksZ8yDQw2vtNUYU1erFdzKUx2c0KwMvV1lGMz0YYZ
-	yk6KdYmGc9KoZW8vyiEBl6PY76aBcgnjayAsCFpFIzihk+jiCcrggkHiekHeqDEl/oIdltQMRVa/U
-	G6FmusKx9LE0dPjUFgBnD6+uvFBDPE1kEDJnwKAbjlCmBLcje9BhtviGrlC2dLXDr+Vc1iEjf80Ew
-	MyLj2LfQ==;
+	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
+	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=NOxRpAwPGQOmMQ2+XtIV1QAhB800Tg5+iL6MG5fKuOk=; b=mbpW0p7VHBdAz8LGdbJgBRB+m+
+	+neBoDvwW9WQ9xtKM8Pvv7TjFhY2zGJ6pDCG+9Y6+Y2bkkKEBjkOeqPzhYqYHlJR/kOiPULNITmhn
+	Pgwb1zvf/NxT9GyKQj5V+mJBosMo5snXGwE/mRr0rQKKX2gxXStueLc6zp97I30+8NXKcOhibw6QE
+	6WJ3gtv0+jjxn8qF8/AEQ9fGujRhQGa4xgNkfLR4ENz/EauqLBgGst8HplFeRshH8y+CIMQ9SxnpV
+	blSG4Z46I3kcdsJ+Nj2BnGmewlp4cdsChCBMmdmAb8h8L/E5DBLanCSdntIEqpd/Ipv9ib7DjGGKi
+	dmbBvcpA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wTyxo-0000000AUkh-14im;
-	Mon, 01 Jun 2026 09:29:40 +0000
-Received: from desiato.infradead.org ([2001:8b0:10b:1:d65d:64ff:fe57:4e05])
-	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wTyxn-0000000AUkV-1NuY
-	for linux-arm-kernel@bombadil.infradead.org;
-	Mon, 01 Jun 2026 09:29:39 +0000
-DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=infradead.org; s=desiato.20200630; h=Content-Transfer-Encoding:Content-Type
-	:MIME-Version:Message-ID:Date:Subject:CC:To:From:Sender:Reply-To:Content-ID:
-	Content-Description:In-Reply-To:References;
-	bh=HpjtZmFXsxidBZJjFQYAS6CBJU5vUaHDo+8aVLCph/E=; b=KuMN+lvw5aGZAQVHSmyowBLbHl
-	Ysihu39ayXfrzrKX76Rvz6MeApN0Q9u4Nq1utbmtp9uwVIQn2jkkdRL3i/qTst+hVjc6vZCNkoFIP
-	/fcggzOnx9iHuKXhXQtebQL/aV1psdNY8DY57jqVMAWCv/m0I23nSCzyYr+1pZ2Qj6IjZ2VXokOgK
-	4lWSUFSUKi2kH6A6IxSDWRFZN1kvnh8G6RZa/NUcAcME3PEfC4CxIC62u8fqcv3Bh5ds47UYF4+5S
-	p1b0fiOzcir8L1TMpwjzopmMJuTyzpA94rHA3SRGYPIXSj3plApAuLf0C700BhELSVQm/zB2MlaS2
-	R6tmRUHA==;
-Received: from pdx-out-012.esa.us-west-2.outbound.mail-perimeter.amazon.com ([35.162.73.231])
-	by desiato.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wTyxi-00000006EFw-48F1
+	id 1wTz8I-0000000AVQq-10s5;
+	Mon, 01 Jun 2026 09:40:30 +0000
+Received: from foss.arm.com ([217.140.110.172])
+	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
+	id 1wTz8F-0000000AVQ8-1Tfx
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 01 Jun 2026 09:29:38 +0000
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-  d=amazon.de; i=@amazon.de; q=dns/txt; s=amazoncorp2;
-  t=1780306175; x=1811842175;
-  h=from:to:cc:subject:date:message-id:mime-version:
-   content-transfer-encoding;
-  bh=HpjtZmFXsxidBZJjFQYAS6CBJU5vUaHDo+8aVLCph/E=;
-  b=qRZpc04m/8Ri5ImGpRc/oemVt9vYiS7C9YvWSyUNs+78UK1hqV49g+xT
-   6Gcp21hZ6LFxcYEhHSbn2GdIxsnKBl5Bf245H0poMAT1wO5Hw0RiWDrPV
-   eCh5g0nJaFu7TcyvetAS302jXgFskQAid/ZZumznqTwDrcOHPfs72DqlC
-   EilF9oWBpjlinDRJ5L3jIFCTshEL5tCozYtEVMaZwMTjBePJ6cOfEb3AA
-   ecjSmPC5tjWRGMt+Dv4F8asmjTXT2SYD1LXnuOK4CXH4EuMM6rHGLm8mh
-   TUQIjthHJGnf7YppcRua2OnFtaw0ZUhDWPqFJ3CcppGs3a7raWxSUvo4/
-   w==;
-X-CSE-ConnectionGUID: paRINLUsTfCt7XNNg/2Yiw==
-X-CSE-MsgGUID: CQMjXlMvR9aNle3Z+GucdA==
-X-IronPort-AV: E=Sophos;i="6.24,181,1774310400"; 
-   d="scan'208";a="20629402"
-Received: from ip-10-5-0-115.us-west-2.compute.internal (HELO smtpout.naws.us-west-2.prod.farcaster.email.amazon.dev) ([10.5.0.115])
-  by internal-pdx-out-012.esa.us-west-2.outbound.mail-perimeter.amazon.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 01 Jun 2026 09:29:26 +0000
-Received: from EX19MTAUWA002.ant.amazon.com [205.251.233.178:16247]
- by smtpin.naws.us-west-2.prod.farcaster.email.amazon.dev [10.0.6.91:2525] with esmtp (Farcaster)
- id bb685c7a-870e-4d2d-aad3-f6d9fb73e6b5; Mon, 1 Jun 2026 09:29:26 +0000 (UTC)
-X-Farcaster-Flow-ID: bb685c7a-870e-4d2d-aad3-f6d9fb73e6b5
-Received: from EX19D001UWA001.ant.amazon.com (10.13.138.214) by
- EX19MTAUWA002.ant.amazon.com (10.250.64.202) with Microsoft SMTP Server
- (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_128_CBC_SHA) id 15.2.2562.37;
- Mon, 1 Jun 2026 09:29:26 +0000
-Received: from dev-dsk-gyokhan-1b-83b48b3c.eu-west-1.amazon.com (10.13.234.1)
- by EX19D001UWA001.ant.amazon.com (10.13.138.214) with Microsoft SMTP Server
- (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_128_CBC_SHA) id 15.2.2562.37;
- Mon, 1 Jun 2026 09:29:24 +0000
-From: Gyokhan Kochmarla <gyokhan@amazon.de>
-To: <stable@vger.kernel.org>
-CC: <gregkh@linuxfoundation.org>, <sudeep.holla@arm.com>,
-	<sebastianene@google.com>, <linux-arm-kernel@lists.infradead.org>, "Sudeep
- Holla" <sudeep.holla@kernel.org>, Gyokhan Kochmarla <gyokhan@amazon.de>
-Subject: firmware: arm_ffa: Align RxTx buffer size before mapping
-Date: Mon, 1 Jun 2026 09:29:18 +0000
-Message-ID: <20260601092918.11031-1-gyokhan@amazon.de>
-X-Mailer: git-send-email 2.47.3
+	Mon, 01 Jun 2026 09:40:29 +0000
+Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
+	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id C0B4D1E7D;
+	Mon,  1 Jun 2026 02:40:18 -0700 (PDT)
+Received: from [10.1.38.31] (Suzukis-MBP.cambridge.arm.com [10.1.38.31])
+	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id 5E8C63F905;
+	Mon,  1 Jun 2026 02:40:22 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=simple/simple; d=arm.com; s=foss;
+	t=1780306823; bh=/PunQOQOGZr0cguW84hctJAcukPoGGGdroDtXEehzYw=;
+	h=Date:Subject:To:Cc:References:From:In-Reply-To:From;
+	b=cKMWApKHwqa5uNW+nPisUy8nRxtwNPsDOTsNwqw7UnMpc33Os+/mr009Bg/TLT9sK
+	 KeDbS8Ba+3Ao0BEQb0hvobwpK58y42yaMyI+8TYN4MAC13Rqv8USqCvASyj19Tz70G
+	 IywB778dJSv1L+kpUS6hbFibgijl3E3WeZ03PSV4=
+Message-ID: <3155a54e-f0df-49d7-9cf7-6f1c0f826f31@arm.com>
+Date: Mon, 1 Jun 2026 10:40:20 +0100
 MIME-Version: 1.0
-X-Originating-IP: [10.13.234.1]
-X-ClientProxiedBy: EX19D039UWB001.ant.amazon.com (10.13.138.119) To
- EX19D001UWA001.ant.amazon.com (10.13.138.214)
-Content-Type: text/plain; charset="us-ascii"
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH v7 02/13] coresight: etm4x: fix underflow for nrseqstate
+Content-Language: en-GB
+To: Yeoreum Yun <yeoreum.yun@arm.com>, coresight@lists.linaro.org,
+ linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org
+Cc: mike.leach@arm.com, james.clark@linaro.org,
+ alexander.shishkin@linux.intel.com, leo.yan@arm.com, jie.gan@oss.qualcomm.com
+References: <20260519154812.254884-1-yeoreum.yun@arm.com>
+ <20260519154812.254884-3-yeoreum.yun@arm.com>
+From: Suzuki K Poulose <suzuki.poulose@arm.com>
+In-Reply-To: <20260519154812.254884-3-yeoreum.yun@arm.com>
+Content-Type: text/plain; charset=UTF-8; format=flowed
 Content-Transfer-Encoding: 7bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260601_102936_146157_FA84D5D5 
-X-CRM114-Status: UNSURE (   8.84  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20260601_024027_669311_2895FBD5 
+X-CRM114-Status: GOOD (  17.28  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -106,55 +72,86 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-From: Sudeep Holla <sudeep.holla@kernel.org>
+On 19/05/2026 16:48, Yeoreum Yun wrote:
+> TCRSEQEVR<n> is implemented only when TCRIDR5.NUMSEQSTATE is 0b100,
+> in which case n ranges from 0 to 2; otherwise, TCRIDR5.NUMSEQSTATE is 0b000.
+> 
+> Therefore, drvdata->nrseqstate should be checked before entering the loop.
 
-commit 0399e3f872ca3d78044bb715a73ea645806d2c7b upstream.
+for (i = 0; i < drvdata->nrseqstate - 1; i++)
 
-Commit 83210251fd70 ("firmware: arm_ffa: Use the correct buffer size during
-RXTX_MAP") advertises PAGE_ALIGN(rxtx_bufsz) to firmware when mapping the
-buffers but the driver continues to stores the minimum FF-A buffer size
-in drv_info->rxtx_bufsz which is used elsewhere in the driver.
+Wouldn't that check cover the case ? (provided i is signed int ?)
 
-Align the size before storing it so that the allocation, validation and
-FFA_RXTX_MAP all use the same buffer size.
+Suzuki
 
-Fixes: 83210251fd70 ("firmware: arm_ffa: Use the correct buffer size during RXTX_MAP")
-Cc: Sebastian Ene <sebastianene@google.com>
-Link: https://sashiko.dev/#/patchset/20260402113939.930221-1-sebastianene@google.com
-Reviewed-by: Sebastian Ene <sebastianene@google.com>
-Link: https://patch.msgid.link/20260428-ffa_fixes-v2-9-8595ae450034@kernel.org
-Signed-off-by: Sudeep Holla <sudeep.holla@kernel.org>
-Signed-off-by: Gyokhan Kochmarla <gyokhan@amazon.de>
-
-diff --git a/drivers/firmware/arm_ffa/driver.c b/drivers/firmware/arm_ffa/driver.c
---- a/drivers/firmware/arm_ffa/driver.c
-+++ b/drivers/firmware/arm_ffa/driver.c
-@@ -2059,6 +2059,7 @@ static int __init ffa_init(void)
- 			rxtx_bufsz = SZ_4K;
- 	}
- 
-+	rxtx_bufsz = PAGE_ALIGN(rxtx_bufsz);
- 	drv_info->rxtx_bufsz = rxtx_bufsz;
- 	drv_info->rx_buffer = alloc_pages_exact(rxtx_bufsz, GFP_KERNEL);
- 	if (!drv_info->rx_buffer) {
-@@ -2074,7 +2075,7 @@ static int __init ffa_init(void)
- 
- 	ret = ffa_rxtx_map(virt_to_phys(drv_info->tx_buffer),
- 			   virt_to_phys(drv_info->rx_buffer),
--			   PAGE_ALIGN(rxtx_bufsz) / FFA_PAGE_SIZE);
-+			   rxtx_bufsz / FFA_PAGE_SIZE);
- 	if (ret) {
- 		pr_err("failed to register FFA RxTx buffers\n");
- 		goto free_pages;
-
-
-
-Amazon Web Services Development Center Germany GmbH
-Tamara-Danz-Str. 13
-10243 Berlin
-Geschaeftsfuehrung: Christof Hellmis, Andreas Stieger
-Eingetragen am Amtsgericht Charlottenburg unter HRB 257764 B
-Sitz: Berlin
-Ust-ID: DE 365 538 597
+> 
+> Link: https://developer.arm.com/documentation/ihi0064/latest/ [0]
+> Fixes: 2e1cdfe184b5 ("coresight-etm4x: Adding CoreSight ETM4x driver")
+> Reviewed-by: Leo Yan <leo.yan@arm.com>
+> Signed-off-by: Yeoreum Yun <yeoreum.yun@arm.com>
+> ---
+>   .../hwtracing/coresight/coresight-etm4x-core.c | 18 ++++++++++--------
+>   .../coresight/coresight-etm4x-sysfs.c          |  2 ++
+>   2 files changed, 12 insertions(+), 8 deletions(-)
+> 
+> diff --git a/drivers/hwtracing/coresight/coresight-etm4x-core.c b/drivers/hwtracing/coresight/coresight-etm4x-core.c
+> index 1e3b0344dc00..94b9385e964a 100644
+> --- a/drivers/hwtracing/coresight/coresight-etm4x-core.c
+> +++ b/drivers/hwtracing/coresight/coresight-etm4x-core.c
+> @@ -542,9 +542,11 @@ static int etm4_enable_hw(struct etmv4_drvdata *drvdata)
+>   	etm4x_relaxed_write32(csa, config->vissctlr, TRCVISSCTLR);
+>   	if (drvdata->nr_pe_cmp)
+>   		etm4x_relaxed_write32(csa, config->vipcssctlr, TRCVIPCSSCTLR);
+> -	for (i = 0; i < drvdata->nrseqstate - 1; i++)
+> -		etm4x_relaxed_write32(csa, config->seq_ctrl[i], TRCSEQEVRn(i));
+> +
+>   	if (drvdata->nrseqstate) {
+> +		for (i = 0; i < drvdata->nrseqstate - 1; i++)
+> +			etm4x_relaxed_write32(csa, config->seq_ctrl[i], TRCSEQEVRn(i));
+> +
+>   		etm4x_relaxed_write32(csa, config->seq_rst, TRCSEQRSTEVR);
+>   		etm4x_relaxed_write32(csa, config->seq_state, TRCSEQSTR);
+>   	}
+> @@ -1896,10 +1898,10 @@ static int etm4_cpu_save(struct coresight_device *csdev)
+>   	if (drvdata->nr_pe_cmp)
+>   		state->trcvipcssctlr = etm4x_read32(csa, TRCVIPCSSCTLR);
+>   
+> -	for (i = 0; i < drvdata->nrseqstate - 1; i++)
+> -		state->trcseqevr[i] = etm4x_read32(csa, TRCSEQEVRn(i));
+> -
+>   	if (drvdata->nrseqstate) {
+> +		for (i = 0; i < drvdata->nrseqstate - 1; i++)
+> +			state->trcseqevr[i] = etm4x_read32(csa, TRCSEQEVRn(i));
+> +
+>   		state->trcseqrstevr = etm4x_read32(csa, TRCSEQRSTEVR);
+>   		state->trcseqstr = etm4x_read32(csa, TRCSEQSTR);
+>   	}
+> @@ -2009,10 +2011,10 @@ static void etm4_cpu_restore(struct coresight_device *csdev)
+>   	if (drvdata->nr_pe_cmp)
+>   		etm4x_relaxed_write32(csa, state->trcvipcssctlr, TRCVIPCSSCTLR);
+>   
+> -	for (i = 0; i < drvdata->nrseqstate - 1; i++)
+> -		etm4x_relaxed_write32(csa, state->trcseqevr[i], TRCSEQEVRn(i));
+> -
+>   	if (drvdata->nrseqstate) {
+> +		for (i = 0; i < drvdata->nrseqstate - 1; i++)
+> +			etm4x_relaxed_write32(csa, state->trcseqevr[i], TRCSEQEVRn(i));
+> +
+>   		etm4x_relaxed_write32(csa, state->trcseqrstevr, TRCSEQRSTEVR);
+>   		etm4x_relaxed_write32(csa, state->trcseqstr, TRCSEQSTR);
+>   	}
+> diff --git a/drivers/hwtracing/coresight/coresight-etm4x-sysfs.c b/drivers/hwtracing/coresight/coresight-etm4x-sysfs.c
+> index e9eeea6240d5..0e1ad175aa1e 100644
+> --- a/drivers/hwtracing/coresight/coresight-etm4x-sysfs.c
+> +++ b/drivers/hwtracing/coresight/coresight-etm4x-sysfs.c
+> @@ -1395,6 +1395,8 @@ static ssize_t seq_idx_store(struct device *dev,
+>   	struct etmv4_drvdata *drvdata = dev_get_drvdata(dev->parent);
+>   	struct etmv4_config *config = &drvdata->config;
+>   
+> +	if (!drvdata->nrseqstate)
+> +		return -ENOTSUPP;
+>   	if (kstrtoul(buf, 16, &val))
+>   		return -EINVAL;
+>   	if (val >= drvdata->nrseqstate - 1)
 
 
