@@ -4,90 +4,109 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id B97C8CD6E57
-	for <linux-arm-kernel@archiver.kernel.org>; Mon,  1 Jun 2026 00:50:47 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 9AD84CD5BD1
+	for <linux-arm-kernel@archiver.kernel.org>; Mon,  1 Jun 2026 01:53:35 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=cg6Y3xqfBKjzaemeU2L9Q5dBdOV9FXfEg49CMyYPN/s=; b=JHih5CwJVy/m4jzMRWE4uYGEri
-	5aydiAldMoq7byPtewRCdNbbvl8eT1dI7tejP1Z1itPc4b3mXBCpYho3Y6YGgir6WTwA5VlwIR/zX
-	XOSDA7mj/OP3rxy2ptnZgZqfs/3PevaYW014k7tGA+pVRCO9OOVbFZOgjMEBrBb8OCjDsqaCTiekr
-	zL3nCVgBL2FAr8Fy67xmrZcyrs8ECYNAWz2xCnkj5Knf5PQiJP3GvmzoCKDsdFNvLF3ktCw9iTDrS
-	yoER80QlQNuwaJoB92T+G2TB98+MPxvkkftcvceJAauzz5wzCyE/P03+H39dOi2zscZroEMR5Mmw4
-	lXn3sfyw==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:In-Reply-To:From:References:CC:To:Subject:MIME-Version:Date:
+	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=NJYbbLzK9EefT64p05anlG1DGPE+frac7uWyR7nFhaY=; b=UW3/QJkU6WdPky9EuQUao1nhRD
+	W5D9Akgkjf+zuKTHk2CPP96gSmWz1RIaago0uvBbSSWeKrBjmKGEpn7MbJD+GrIiECyzd7TqqEVhQ
+	eDOyJEm7G4Bjlra0ytzsOxC/QYhEYTZzPzEw6Al8KSQxZMxLQJu6KIkEpTBRegYDDvZ6W5A/NeezI
+	V7xByF/66EQbfIG8P9grwuSxuvvy34FQuH8TNxsUbxbz3zo6YKHJabomkvPB5yTbE/pIerXk3rLy7
+	5GqTQI852i9ZrXBzir+K7eBR/9n2zUvV1hgxZVtjveL9SRS5opWUbyyIVd/vbidzKUukpnhWLNMr+
+	rVBfs/cw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wTqrZ-0000000A0HT-2c2T;
-	Mon, 01 Jun 2026 00:50:41 +0000
-Received: from mail-pj1-x1030.google.com ([2607:f8b0:4864:20::1030])
+	id 1wTrqI-0000000A2Ap-25I6;
+	Mon, 01 Jun 2026 01:53:26 +0000
+Received: from mx0b-0031df01.pphosted.com ([205.220.180.131])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wTqrX-0000000A0Gy-1zWl
+	id 1wTrqF-0000000A2AS-28r1
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 01 Jun 2026 00:50:40 +0000
-Received: by mail-pj1-x1030.google.com with SMTP id 98e67ed59e1d1-36da8439078so492320a91.2
-        for <linux-arm-kernel@lists.infradead.org>; Sun, 31 May 2026 17:50:39 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20251104; t=1780275038; x=1780879838; darn=lists.infradead.org;
-        h=in-reply-to:content-disposition:mime-version:references:message-id
-         :subject:cc:to:from:date:from:to:cc:subject:date:message-id:reply-to;
-        bh=cg6Y3xqfBKjzaemeU2L9Q5dBdOV9FXfEg49CMyYPN/s=;
-        b=bwUiLlI5yZw+YgCwtt2vdYaRjZcK/+rvHGjcXrHynqkp62kEAo7+oTzBqWGEK+4Sc8
-         c73jFJwH2tnnvCoESbILbbYRPA31opy16xGSiBWiVBgyJ2ekMRdmhAEdOA4vJT5zbZot
-         MK4Y1KLFVrKav1zfCnqj6q2LZW68NOb5g4JtITDKFUxEcvNLsxojG+9yTrfWfwXKLKBc
-         s/+7XEYT1n1qFFtQd8f1rNp1iFcH2vK5zWxitoOvuXbI/gpIFix+nigoEJ771MH+wCi5
-         UvAxO01ysE22eOwk5nOcOco3eaRUn4tfO76YqNqJWIVcgOLMsr9kQR0stiT71geTfEiG
-         cRfQ==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20251104; t=1780275038; x=1780879838;
-        h=in-reply-to:content-disposition:mime-version:references:message-id
-         :subject:cc:to:from:date:x-gm-gg:x-gm-message-state:from:to:cc
-         :subject:date:message-id:reply-to;
-        bh=cg6Y3xqfBKjzaemeU2L9Q5dBdOV9FXfEg49CMyYPN/s=;
-        b=V+CkNKdXlGu+JYW96R2NbstmG4Ye19vpOfMA8FekOjZphkVrpPR/YOKDHhJPP9a7Ze
-         g/bVih7QIRtRAKTiWfgWD89+ob3ni7V+S1BKrxnxHu+N/aDIcmH+CmJ6ER+qsTTfZxLQ
-         1XIqsEwoIX+jjdzKQ3ohFNo6A72cTMJS+iKkOuQFWkQdoZGogqCVV9Fi9wZjHNRamjoM
-         s828ntTNUHNxx1mnvaFOMcLEq5Cjcoxh15hiLpWKrcYZJ0efrVcfjz4tRwrZgzkweULJ
-         1qUSCddrqInPtNFyFBDe+hI7Z5L1FK1o1X2UsG9aY5vdmBPk/fQx2tMHrWjpngcXot0h
-         tq2w==
-X-Forwarded-Encrypted: i=1; AFNElJ+/6M8qr/0uWW/irtqpZ4SoaS+45HbnxgayA36OIltK50y9OhaW+M9bV3coLOdzV/NrLy3VcCZ9ZsTRWNBrNh5Y@lists.infradead.org
-X-Gm-Message-State: AOJu0YzWNKaLwIIfNDiNjagkbtREhAEhwNCbAfHmIFM2WrqyW2LgpPyl
-	0Ii6EIr8Yo7mo4A7ECgze9oATgNevwIy5W23rdroCpC1ynqOH8XOW76f
-X-Gm-Gg: Acq92OHChjxfT2jhEAEKVPFwxS19FSFDiGw2yTZEP1Vo7XeT+A4kP1zSv6G0taXg3tM
-	BCJngB2Z6cyI2ik5kID/eunghhqqDvDWfzjQq/XT1SfVDv+AFjBZaocYGIfOgfscCDKVpXMeRzO
-	bRHzrvzF+gcy0NaipLgElVXuvwFDrI/Sxx9kYZvTwdCTeLuLFh1KKKSToP9BBW4+ICIMjVSGVsi
-	isNyQTp8aN469uBqwccNXtBOiOA0YiANDSgiHO/HuTSZMbDhwmRSyaEbdJ0QBC8efKljFSaXgwi
-	LZyuJVwZIqKaqpgN9zzN61OicvV86R6z+uwJ9IbBkMc2ETnU8jpXuo31MJ+22kesvkOVaSeiHGz
-	Fai6iokLeU0aL/s3FLsEWbTHXwAb33qpdGgWxNWRCN6SCZQcj8uFMcuS27hmktIOIkyVzk/Kiop
-	51XmWdvQ4+1CoWNWTP89pUvFVxJI+9KxLCBA==
-X-Received: by 2002:a17:90b:2586:b0:36d:b424:4f17 with SMTP id 98e67ed59e1d1-36db4245eb0mr1990613a91.1.1780275038259;
-        Sun, 31 May 2026 17:50:38 -0700 (PDT)
-Received: from localhost ([2001:19f0:8001:1b2d:5400:5ff:fefa:a95d])
-        by smtp.gmail.com with ESMTPSA id 98e67ed59e1d1-36bbdb5c91bsm5313469a91.1.2026.05.31.17.50.37
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Sun, 31 May 2026 17:50:37 -0700 (PDT)
-Date: Mon, 1 Jun 2026 08:50:22 +0800
-From: Inochi Amaoto <inochiama@gmail.com>
-To: Tian Zheng <zhengtian10@huawei.com>, maz@kernel.org, oupton@kernel.org, 
-	catalin.marinas@arm.com, corbet@lwn.net, pbonzini@redhat.com, will@kernel.org
-Cc: yuzenghui@huawei.com, wangzhou1@hisilicon.com, liuyonglong@huawei.com, 
-	Jonathan.Cameron@huawei.com, yezhenyu2@huawei.com, linuxarm@huawei.com, joey.gouly@arm.com, 
-	kvmarm@lists.linux.dev, kvm@vger.kernel.org, linux-arm-kernel@lists.infradead.org, 
-	linux-doc@vger.kernel.org, linux-kernel@vger.kernel.org, skhan@linuxfoundation.org, 
-	suzuki.poulose@arm.com, leo.bras@arm.com, Inochi Amaoto <inochiama@gmail.com>
-Subject: Re: [PATCH v3 3/5] KVM: arm64: Add support for FEAT_HDBSS
-Message-ID: <ahzUUDAMoHtDFJD3@inochi.infowork>
-References: <20260225040421.2683931-1-zhengtian10@huawei.com>
- <20260225040421.2683931-4-zhengtian10@huawei.com>
+	Mon, 01 Jun 2026 01:53:24 +0000
+Received: from pps.filterd (m0279869.ppops.net [127.0.0.1])
+	by mx0a-0031df01.pphosted.com (8.18.1.11/8.18.1.11) with ESMTP id 64VMD4BC2718818;
+	Mon, 1 Jun 2026 01:53:16 GMT
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=quicinc.com; h=
+	cc:content-transfer-encoding:content-type:date:from:in-reply-to
+	:message-id:mime-version:references:subject:to; s=qcppdkim1; bh=
+	NJYbbLzK9EefT64p05anlG1DGPE+frac7uWyR7nFhaY=; b=PEd+vJ4eMz8/T2ey
+	ccldjgkQjcxPVqEDnSN1z7jdg/lihUj3phQ7jFoFdAn8rQbq9HM3cysDlYne4sXe
+	8YlaadfFeXE8EYCwk9tDgYkEEeRc6pB3EUiRV67QpWLqAMCdpCmxqtruZH3m9dTu
+	pJ4+aj/wOOzuuTz+kaWeZ5nZ8dUoMKbeSTACwLwrz0Zmxl6uy8NfaufCXBb/uIQ6
+	o0weavbrsnExNIkydUQ2xeDjg3oUcvHqxUHT16G+BOd1IhOXEEi8g1WQ6LbfLUyo
+	kPAoQJ0sTjH3OjOksEzIVeFq+ankNpi8WeKyR7Ef+2lgNEUhy/uN26SL9aJtaIkl
+	Z+w9NQ==
+Received: from nasanppmta02.qualcomm.com (i-global254.qualcomm.com [199.106.103.254])
+	by mx0a-0031df01.pphosted.com (PPS) with ESMTPS id 4efpw7n9hu-1
+	(version=TLSv1.2 cipher=ECDHE-RSA-AES256-GCM-SHA384 bits=256 verify=NOT);
+	Mon, 01 Jun 2026 01:53:15 +0000 (GMT)
+Received: from nasanex01a.na.qualcomm.com (nasanex01a.na.qualcomm.com [10.52.223.231])
+	by NASANPPMTA02.qualcomm.com (8.18.1.7/8.18.1.7) with ESMTPS id 6511rEKv008708
+	(version=TLSv1.2 cipher=ECDHE-RSA-AES256-GCM-SHA384 bits=256 verify=NOT);
+	Mon, 1 Jun 2026 01:53:14 GMT
+Received: from [10.233.71.148] (10.80.80.8) by nasanex01a.na.qualcomm.com
+ (10.52.223.231) with Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.2.2562.17; Sun, 31 May
+ 2026 18:53:11 -0700
+Message-ID: <e4b25ab7-a50e-416c-b2dd-1c8e8ef40019@quicinc.com>
+Date: Mon, 1 Jun 2026 09:53:09 +0800
 MIME-Version: 1.0
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-In-Reply-To: <20260225040421.2683931-4-zhengtian10@huawei.com>
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH v9 2/4] coresight: cti: use __reg_addr() helper for
+ register access
+To: Leo Yan <leo.yan@arm.com>, Yingchao Deng <yingchao.deng@oss.qualcomm.com>
+CC: Suzuki K Poulose <suzuki.poulose@arm.com>,
+        Mike Leach
+	<mike.leach@arm.com>, James Clark <james.clark@linaro.org>,
+        "Alexander
+ Shishkin" <alexander.shishkin@linux.intel.com>,
+        <coresight@lists.linaro.org>, <linux-arm-kernel@lists.infradead.org>,
+        <linux-kernel@vger.kernel.org>, <linux-arm-msm@vger.kernel.org>,
+        <jinlong.mao@oss.qualcomm.com>, <tingwei.zhang@oss.qualcomm.com>,
+        <jie.gan@oss.qualcomm.com>, Yingchao Deng
+	<quic_yingdeng@quicinc.com>
+References: <20260521-extended_cti-v9-0-d21f4f92c51e@oss.qualcomm.com>
+ <20260521-extended_cti-v9-2-d21f4f92c51e@oss.qualcomm.com>
+ <20260529144055.GK101133@e132581.arm.com>
+Content-Language: en-US
+From: "Yingchao Deng (Consultant)" <quic_yingdeng@quicinc.com>
+In-Reply-To: <20260529144055.GK101133@e132581.arm.com>
+Content-Type: text/plain; charset="UTF-8"; format=flowed
+Content-Transfer-Encoding: 7bit
+X-Originating-IP: [10.80.80.8]
+X-ClientProxiedBy: nasanex01b.na.qualcomm.com (10.46.141.250) To
+ nasanex01a.na.qualcomm.com (10.52.223.231)
+X-QCInternal: smtphost
+X-Proofpoint-GUID: 3uacSbypB3AIsYf0Uhq2w69alFu_BQNp
+X-Proofpoint-ORIG-GUID: 3uacSbypB3AIsYf0Uhq2w69alFu_BQNp
+X-Authority-Analysis: v=2.4 cv=bNIm5v+Z c=1 sm=1 tr=0 ts=6a1ce60b cx=c_pps
+ a=JYp8KDb2vCoCEuGobkYCKw==:117 a=JYp8KDb2vCoCEuGobkYCKw==:17
+ a=GEpy-HfZoHoA:10 a=IkcTkHD0fZMA:10 a=FelO9ux0wxsA:10
+ a=VkNPw1HP01LnGYTKEx00:22 a=u7WPNUs3qKkmUXheDGA7:22 a=_glEPmIy2e8OvE2BGh3C:22
+ a=OcBUPQTv9d3dhylU4BIA:9 a=QEXdDO2ut3YA:10
+X-Proofpoint-Spam-Details-Enc: AW1haW4tMjYwNjAxMDAxNiBTYWx0ZWRfX78AoZme1zhjJ
+ BZ/KjFBats99yD1iCvEc+w5GrkO4sVBP6NBXH1FHBvAO64CxNpI2wd3Te8nIUkZLxQ65/BGOY9/
+ kyF9sSqj35ILb58hIn8KRoxeqnjilODCgDH9ORFXxexczQLL5Y5M6/dVERQ1xrC/WMSq6oI/Ji7
+ Pg8bkBSauffZOkvfF1FZgNlY9j1IGCMDLq21Rw4U4OsV4KAez5vzAE0jjH+7cSgtoCwo18mo4Iv
+ aq8V7ySK1dY8AspOqlnF4u+cmKolvy6Te3DyoBaNKb1+iBU4EVOf7Z7/FNYOdPe/djXN9r3aplC
+ v1feC3Gh6YgROgYVQNL7Wa0dr82Ljel1zTf3aTT7Na+aXTh7LD/GVOZCLdSEuMaIqPvSngouDIJ
+ hodtGeJ6I1lTaFOyP3qU2PCWGCa1RL+XKnCqWcavqKzrRlZPtQloumOYx4edwstwlNe0X2Fj+LE
+ pFi+JQhWzBYKef3f2eg==
+X-Proofpoint-Virus-Version: vendor=baseguard
+ engine=ICAP:2.0.293,Aquarius:18.0.1143,Hydra:6.1.125,FMLib:17.12.100.49
+ definitions=2026-06-01_01,2026-05-28_03,2025-10-01_01
+X-Proofpoint-Spam-Details: rule=outbound_notspam policy=outbound score=0
+ suspectscore=0 impostorscore=0 phishscore=0 adultscore=0 malwarescore=0
+ bulkscore=0 priorityscore=1501 lowpriorityscore=0 spamscore=0 clxscore=1015
+ classifier=typeunknown authscore=0 authtc= authcc= route=outbound adjust=0
+ reason=mlx scancount=1 engine=8.22.0-2605210000 definitions=main-2606010016
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260531_175039_522768_940EC1CD 
-X-CRM114-Status: GOOD (  26.41  )
+X-CRM114-CacheID: sfid-20260531_185323_706779_F2361A5D 
+X-CRM114-Status: GOOD (  26.34  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -102,132 +121,186 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Wed, Feb 25, 2026 at 12:04:19PM +0800, Tian Zheng wrote:
-> From: eillon <yezhenyu2@huawei.com>
-> 
-> Armv9.5 introduces the Hardware Dirty Bit State Structure (HDBSS) feature,
-> indicated by ID_AA64MMFR1_EL1.HAFDBS == 0b0100. A CPU capability is added
-> to notify the user of the feature.
-> 
-> Add KVM_CAP_ARM_HW_DIRTY_STATE_TRACK ioctl and basic framework for
-> ARM64 HDBSS support. Since the HDBSS buffer size is configurable and
-> cannot be determined at KVM initialization, an IOCTL interface is
-> required.
-> 
-> Actually exposing the new capability to user space happens in a later
-> patch.
-> 
-> Signed-off-by: eillon <yezhenyu2@huawei.com>
-> Signed-off-by: Tian Zheng <zhengtian10@huawei.com>
-> ---
->  arch/arm64/include/asm/cpufeature.h |  5 +++++
->  arch/arm64/kernel/cpufeature.c      | 12 ++++++++++++
->  arch/arm64/tools/cpucaps            |  1 +
->  include/uapi/linux/kvm.h            |  1 +
->  tools/include/uapi/linux/kvm.h      |  1 +
->  5 files changed, 20 insertions(+)
-> 
-> diff --git a/arch/arm64/include/asm/cpufeature.h b/arch/arm64/include/asm/cpufeature.h
-> index 4de51f8d92cb..dcc2e2cad5ad 100644
-> --- a/arch/arm64/include/asm/cpufeature.h
-> +++ b/arch/arm64/include/asm/cpufeature.h
-> @@ -856,6 +856,11 @@ static inline bool system_supports_haft(void)
->  	return cpus_have_final_cap(ARM64_HAFT);
->  }
-> 
-> +static inline bool system_supports_hdbss(void)
+
+On 5/29/2026 10:40 PM, Leo Yan wrote:
+> On Thu, May 21, 2026 at 08:16:28PM +0800, Yingchao Deng wrote:
+>
+> [...]
+>
+>> +static void __iomem *__reg_addr(struct cti_drvdata *drvdata, u32 off,
+>> +				u32 index)
+>> +{
+>> +	return drvdata->base + off + sizeof(u32) * index;
+>> +}
+>> +
+>> +#define reg_addr(drvdata, off)		__reg_addr((drvdata), (off), 0)
+>> +#define reg_index_addr(drvdata, off, i)	__reg_addr((drvdata), (off), (i))
+>> -u32 cti_read_single_reg(struct cti_drvdata *drvdata, int offset)
+>> +u32 cti_read_single_reg(struct cti_drvdata *drvdata, u32 off, u32 index)
+>>   {
+>> -	int val;
+>> +	u32 val;
+>>   
+>>   	CS_UNLOCK(drvdata->base);
+>> -	val = readl_relaxed(drvdata->base + offset);
+>> +	val = readl_relaxed(reg_index_addr(drvdata, off, index));
+>>   	CS_LOCK(drvdata->base);
+>>   
+>>   	return val;
+>>   }
+>>   
+>> -void cti_write_single_reg(struct cti_drvdata *drvdata, int offset, u32 value)
+>> +void cti_write_single_reg(struct cti_drvdata *drvdata, u32 off, u32 index,
+>> +			  u32 value)
+>>   {
+>>   	CS_UNLOCK(drvdata->base);
+>> -	writel_relaxed(value, drvdata->base + offset);
+>> +	writel_relaxed(value, reg_index_addr(drvdata, off, index));
+>>   	CS_LOCK(drvdata->base);
+>>   }
+> I prefer to move the register helpers into coresight-cti.h and add two
+> additional helpers: cti_read_single_reg_index() and
+> cti_write_single_reg_index().
+>
+> I also found circular dependency between coresight-cti.h and qcom-cti.h.
+> Since qcom-cti.h only contains register definitions and a small inline
+> function for register conversion, we can simply fold it into
+> coresight-cti.h and dismiss the circular dependency.
+>
+> Based on this idea, I played around with the code a bit (see the snippet
+> below). Would you be okay with applying this approach to patches 02/03?
+> If have any questions, please let me know.
+>
+> ---8<---
+>
+> --- a/drivers/hwtracing/coresight/coresight-cti.h
+> +++ b/drivers/hwtracing/coresight/coresight-cti.h
+> @@ -60,6 +60,31 @@ struct fwnode_handle;
+>    */
+>   #define CTIINOUTEN_MAX		128
+>   
+> +/* QCOM CTI extension */
+> +#define QCOM_ARCHITECT		0x477
+> +
+> +#define QCOM_CTIINTACK		0x020
+> +#define QCOM_CTIAPPSET		0x004
+> +#define QCOM_CTIAPPCLEAR	0x008
+> +#define QCOM_CTIAPPPULSE	0x00C
+> +#define QCOM_CTIINEN		0x400
+> +#define QCOM_CTIOUTEN		0x800
+> +#define QCOM_CTITRIGINSTATUS	0x040
+> +#define QCOM_CTITRIGOUTSTATUS	0x060
+> +#define QCOM_CTICHINSTATUS	0x080
+> +#define QCOM_CTICHOUTSTATUS	0x084
+> +#define QCOM_CTIGATE		0x088
+> +#define QCOM_ASICCTL		0x08C
+> +/* Integration test registers */
+> +#define QCOM_ITCHINACK		0xE70
+> +#define QCOM_ITTRIGINACK	0xE80
+> +#define QCOM_ITCHOUT		0xE74
+> +#define QCOM_ITTRIGOUT		0xEA0
+> +#define QCOM_ITCHOUTACK		0xE78
+> +#define QCOM_ITTRIGOUTACK	0xEC0
+> +#define QCOM_ITCHIN		0xE7C
+> +#define QCOM_ITTRIGIN		0xEE0
+> +
+>   /**
+>    * Group of related trigger signals
+>    *
+> @@ -222,9 +247,8 @@ int cti_enable(struct coresight_device *csdev, enum cs_mode mode,
+>   int cti_disable(struct coresight_device *csdev, struct coresight_path *path);
+>   void cti_write_all_hw_regs(struct cti_drvdata *drvdata);
+>   void cti_write_intack(struct device *dev, u32 ackval);
+> -void cti_write_single_reg(struct cti_drvdata *drvdata, u32 off, u32 index,
+> -			  u32 value);
+> -u32 cti_read_single_reg(struct cti_drvdata *drvdata, u32 off, u32 index);
+>   int cti_channel_trig_op(struct device *dev, enum cti_chan_op op,
+>   			enum cti_trig_dir direction, u32 channel_idx,
+>   			u32 trigger_idx);
+> @@ -237,6 +261,78 @@ struct coresight_platform_data *
+>   coresight_cti_get_platform_data(struct device *dev);
+>   const char *cti_plat_get_node_name(struct fwnode_handle *fwnode);
+>   
+> +static inline u32 cti_qcom_reg_off(u32 offset)
 > +{
-> +	return cpus_have_final_cap(ARM64_HAS_HDBSS);
+> +	switch (offset) {
+> +	case CTIINTACK:		return QCOM_CTIINTACK;
+> +	case CTIAPPSET:		return QCOM_CTIAPPSET;
+> +	case CTIAPPCLEAR:	return QCOM_CTIAPPCLEAR;
+> +	case CTIAPPPULSE:	return QCOM_CTIAPPPULSE;
+> +	case CTIINEN:		return QCOM_CTIINEN;
+> +	case CTIOUTEN:		return QCOM_CTIOUTEN;
+> +	case CTITRIGINSTATUS:	return QCOM_CTITRIGINSTATUS;
+> +	case CTITRIGOUTSTATUS:	return QCOM_CTITRIGOUTSTATUS;
+> +	case CTICHINSTATUS:	return QCOM_CTICHINSTATUS;
+> +	case CTICHOUTSTATUS:	return QCOM_CTICHOUTSTATUS;
+> +	case CTIGATE:		return QCOM_CTIGATE;
+> +	case ASICCTL:		return QCOM_ASICCTL;
+> +	case ITCHINACK:		return QCOM_ITCHINACK;
+> +	case ITTRIGINACK:	return QCOM_ITTRIGINACK;
+> +	case ITCHOUT:		return QCOM_ITCHOUT;
+> +	case ITTRIGOUT:		return QCOM_ITTRIGOUT;
+> +	case ITCHOUTACK:	return QCOM_ITCHOUTACK;
+> +	case ITTRIGOUTACK:	return QCOM_ITTRIGOUTACK;
+> +	case ITCHIN:		return QCOM_ITCHIN;
+> +	case ITTRIGIN:		return QCOM_ITTRIGIN;
+> +
+> +	default:
+> +		return offset;
+> +	}
 > +}
 > +
->  static __always_inline bool system_supports_mpam(void)
->  {
->  	return alternative_has_cap_unlikely(ARM64_MPAM);
-> diff --git a/arch/arm64/kernel/cpufeature.c b/arch/arm64/kernel/cpufeature.c
-> index c31f8e17732a..348b0afffc3e 100644
-> --- a/arch/arm64/kernel/cpufeature.c
-> +++ b/arch/arm64/kernel/cpufeature.c
-> @@ -2124,6 +2124,11 @@ static bool hvhe_possible(const struct arm64_cpu_capabilities *entry,
->  	return arm64_test_sw_feature_override(ARM64_SW_FEATURE_OVERRIDE_HVHE);
->  }
-> 
-> +static bool has_vhe_hdbss(const struct arm64_cpu_capabilities *entry, int cope)
+> +static inline void __iomem *__reg_addr(struct cti_drvdata *drvdata,
+> +				       u32 off, u32 index)
 > +{
-> +	return is_kernel_in_hyp_mode() && has_cpuid_feature(entry, cope);
+> +	if (unlikely(drvdata->is_qcom_cti))
+> +		off = cti_qcom_reg_off(off);
+> +
+> +	return drvdata->base + off + index * sizeof(u32);
 > +}
 > +
->  bool cpu_supports_bbml2_noabort(void)
->  {
->  	/*
-> @@ -2759,6 +2764,13 @@ static const struct arm64_cpu_capabilities arm64_features[] = {
->  		ARM64_CPUID_FIELDS(ID_AA64MMFR1_EL1, HAFDBS, HAFT)
->  	},
->  #endif
-> +	{
-> +		.desc = "Hardware Dirty state tracking structure (HDBSS)",
-> +		.type = ARM64_CPUCAP_SYSTEM_FEATURE,
-> +		.capability = ARM64_HAS_HDBSS,
-> +		.matches = has_vhe_hdbss,
-> +		ARM64_CPUID_FIELDS(ID_AA64MMFR1_EL1, HAFDBS, HDBSS)
-> +	},
->  	{
->  		.desc = "CRC32 instructions",
->  		.capability = ARM64_HAS_CRC32,
-> diff --git a/arch/arm64/tools/cpucaps b/arch/arm64/tools/cpucaps
-> index 7261553b644b..f6ece5b85532 100644
-> --- a/arch/arm64/tools/cpucaps
-> +++ b/arch/arm64/tools/cpucaps
-> @@ -68,6 +68,7 @@ HAS_VA52
->  HAS_VIRT_HOST_EXTN
->  HAS_WFXT
->  HAS_XNX
-> +HAS_HDBSS
->  HAFT
->  HW_DBM
->  KVM_HVHE
+> +#define reg_addr(drvdata, off)		__reg_addr((drvdata), (off), 0)
+> +#define reg_index_addr(drvdata, off, i)	__reg_addr((drvdata), (off), (i))
+> +
+> +static inline u32 cti_read_single_reg_index(struct cti_drvdata *drvdata,
+> +					    u32 off, u32 index)
+> +{
+> +	u32 val;
+> +
+> +	CS_UNLOCK(drvdata->base);
+> +	val = readl_relaxed(reg_index_addr(drvdata, off, index));
+> +	CS_LOCK(drvdata->base);
+> +
+> +	return val;
+> +}
+> +
+> +static inline u32 cti_read_single_reg(struct cti_drvdata *drvdata, u32 off)
+> +{
+> +	return cti_read_single_reg_index(drvdata, off, 0);
+> +}
+> +
+> +static inline void cti_write_single_reg_index(struct cti_drvdata *drvdata,
+> +					      u32 off, u32 index, u32 value)
+> +{
+> +	CS_UNLOCK(drvdata->base);
+> +	writel_relaxed(value, reg_index_addr(drvdata, off, index));
+> +	CS_LOCK(drvdata->base);
+> +}
+> +
+> +static inline void cti_write_single_reg(struct cti_drvdata *drvdata,
+> +					u32 off, u32 value)
+> +{
+> +	cti_write_single_reg_index(drvdata, off, 0, value);
+> +}
+> +
+>   /* Check if a cti device is enabled */
+>   static inline bool cti_is_active(struct cti_config *cfg)
+>   {
+Thanks for the detailed suggestion and the reference implementation,
+the approach looks clean. I'll adopt it in v11.
 
 
-> diff --git a/include/uapi/linux/kvm.h b/include/uapi/linux/kvm.h
-> index 65500f5db379..15ee42cdbd51 100644
-> --- a/include/uapi/linux/kvm.h
-> +++ b/include/uapi/linux/kvm.h
-> @@ -985,6 +985,7 @@ struct kvm_enable_cap {
->  #define KVM_CAP_ARM_SEA_TO_USER 245
->  #define KVM_CAP_S390_USER_OPEREXEC 246
->  #define KVM_CAP_S390_KEYOP 247
-> +#define KVM_CAP_ARM_HW_DIRTY_STATE_TRACK 248
-> 
->  struct kvm_irq_routing_irqchip {
->  	__u32 irqchip;
-> diff --git a/tools/include/uapi/linux/kvm.h b/tools/include/uapi/linux/kvm.h
-> index dddb781b0507..93e0a1e14dc7 100644
-> --- a/tools/include/uapi/linux/kvm.h
-> +++ b/tools/include/uapi/linux/kvm.h
-> @@ -974,6 +974,7 @@ struct kvm_enable_cap {
->  #define KVM_CAP_GUEST_MEMFD_FLAGS 244
->  #define KVM_CAP_ARM_SEA_TO_USER 245
->  #define KVM_CAP_S390_USER_OPEREXEC 246
-> +#define KVM_CAP_ARM_HW_DIRTY_STATE_TRACK 248
-> 
->  struct kvm_irq_routing_irqchip {
->  	__u32 irqchip;
-> --
-> 2.33.0
-> 
+Thanks,
+Yingchao
 
-Instead of having these architecture specific capability, I wonder if
-we can add a generic capability like "KVM_CAP_HW_DIRTY_STATE", so
-other architecture supports similar things can reuse this capability,
-
-For this generic thing I suggest, the getter returns the max support 
-entry count (or the buffer size) it supports like the dirty ring
-capability. And the setter just let the architecture set the parameters
-based on the user request. 
-
-This should do no harm to this implement, as everything still depends
-on the architecture behavior, and leave room for other architecture
-to reuse this.
-
-Regards,
-Inochi
 
