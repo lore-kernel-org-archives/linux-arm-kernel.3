@@ -4,69 +4,50 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 95162CD6E57
-	for <linux-arm-kernel@archiver.kernel.org>; Mon,  1 Jun 2026 13:16:18 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 1BC1ECD6E5D
+	for <linux-arm-kernel@archiver.kernel.org>; Mon,  1 Jun 2026 13:18:34 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=BWtIneBIlQhjcv6vSIMhHxV3eQvlE53NKWO7dJEV4a8=; b=hwvw6E2AEEnnHHZh5fTI8ltLdL
-	pdGqj8U+VTUjnVP0bnLwcddsYKlVxUfT48HADSbOSsJiyvsGFFxD7vKjiYA1BKa8QsFGAkrvfzUWz
-	raD20Wyg7nsyQ/ujgb8b162+RpfZyCATB2kDEmA2ltRym/G5WlNoCVO9ZMXQnKaG6R571TXV+RH4U
-	vaxUrOK2FtJP8DpAd2i3ExLt2o9JZEdBtvm1oLfjyySBfL/3GEqoE+L+mRQcKIDcdaZZ/UCouRQ9n
-	3Q8cOGKM4RnFywUBvMGEAFzaobRqG5YIZWBm/8uTBw/HmY6i9IZcgEA/sxQIytgJKfYZaKi3l7RLN
-	v8iV+17w==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	MIME-Version:Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-Type:
+	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
+	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=d64jsQFCzmAyp4LTXdkRVT3Shxl615R26cNlBzuDIPI=; b=ql1Bg+8S5vPSw+Jm9LCz8jSmlR
+	bfSGZu0+WN3q+ywr3Md92AKU5RFKSdMI4JQAtBy7keU/EN6FCXS/B2FOEDljf+eWuMsGhcWES58/o
+	GWh2COXfSGI02u1pWjFJ7md72SqRXeOkplVV+QrXeClu/xO8knvkEhhghYp8bib7axh65Bc9uYIPE
+	ubL9F2KdBOlSPD6Z76ZJTuPNxvVzExmdsDY1vY/zGqIxcDA/g9miRU647MeheRZ097ieH9k9xLExu
+	I7+/zReWmu1GSIsD07ruUm7O+0+55pw5FAAuAv7UedVkdg1kvdV9PQeGqgQ5pVnFC+G3XOtn81N8g
+	XQ3HJLMg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wU2V1-0000000BBzC-3QNc;
-	Mon, 01 Jun 2026 13:16:11 +0000
+	id 1wU2XC-0000000BCG8-14Qz;
+	Mon, 01 Jun 2026 13:18:26 +0000
 Received: from sea.source.kernel.org ([172.234.252.31])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wU2V0-0000000BByp-0Cfk;
-	Mon, 01 Jun 2026 13:16:11 +0000
+	id 1wU2XA-0000000BCFZ-0YKa
+	for linux-arm-kernel@lists.infradead.org;
+	Mon, 01 Jun 2026 13:18:25 +0000
 Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
-	by sea.source.kernel.org (Postfix) with ESMTP id 1A42142CED;
-	Mon,  1 Jun 2026 13:16:09 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 314501F00893;
-	Mon,  1 Jun 2026 13:16:06 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1780319769;
-	bh=BWtIneBIlQhjcv6vSIMhHxV3eQvlE53NKWO7dJEV4a8=;
-	h=Date:From:To:Cc:Subject:References:In-Reply-To;
-	b=WD2m4k22PhkVpk0bEbkTalKbbpJ2MYHUEElNlmNa4Maq/ZPJGoV8uvaMA/Qtf5gIT
-	 M1wky4nad7SMAO9zhgQrAekKrDuXZqWJurxQIQgnx6bXfQSARqJjROqTh0K5BH2le5
-	 ftEimi3lGlcYQbhNBk0RAtP1/NcZK+how9NV7pzmHg2ymlBIztZCQzXyfPPEtYv/4E
-	 khyS6PhKisPkdgkqhteL6laPYLa5l/uyZafayRJ9ZUfHYiRqonGIfRmLWPeSnyjG+M
-	 HJ1eY7ACypRFdgzhUz0f9GGlNCS9GSdyp38Ao4SgCtMguCewRCoXh74sR3+dtPyt9/
-	 E8w+j++UsPylQ==
-Date: Mon, 1 Jun 2026 14:16:03 +0100
-From: Mark Brown <broonie@kernel.org>
-To: y.oudjana@protonmail.com
-Cc: Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>,
-	Conor Dooley <conor+dt@kernel.org>,
-	Matthias Brugger <matthias.bgg@gmail.com>,
-	AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>,
-	Flora Fu <flora.fu@mediatek.com>,
-	Alexandre Mergnat <amergnat@baylibre.com>,
-	Liam Girdwood <lgirdwood@gmail.com>,
-	Dmitry Torokhov <dmitry.torokhov@gmail.com>,
-	devicetree@vger.kernel.org, linux-kernel@vger.kernel.org,
+	by sea.source.kernel.org (Postfix) with ESMTP id 864F8442E9;
+	Mon,  1 Jun 2026 13:18:23 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 2914B1F00893;
+	Mon,  1 Jun 2026 13:18:21 +0000 (UTC)
+From: Geert Uytterhoeven <geert+renesas@glider.be>
+To: soc@lists.linux.dev,
+	soc <soc@kernel.org>
+Cc: Magnus Damm <magnus.damm@gmail.com>,
 	linux-arm-kernel@lists.infradead.org,
-	linux-mediatek@lists.infradead.org, linux-input@vger.kernel.org
-Subject: Re: [PATCH v2 0/4] MediaTek MT6735+MT6328 SoC/PMIC pair base support
-Message-ID: <169f4676-07f6-46d4-9478-55af4de1e6a0@sirena.org.uk>
-References: <20260531-mt6735-pwrap-mt6328-pmic-v2-0-dac37bf92894@protonmail.com>
+	linux-renesas-soc@vger.kernel.org,
+	Geert Uytterhoeven <geert+renesas@glider.be>
+Subject: [GIT PULL 0/2] Renesas SoC updates for v7.2 (take two)
+Date: Mon,  1 Jun 2026 15:18:17 +0200
+Message-ID: <cover.178031911driver8.git.geert+renesas@glider.be>
+X-Mailer: git-send-email 2.43.0
 MIME-Version: 1.0
-Content-Type: multipart/signed; micalg=pgp-sha512;
-	protocol="application/pgp-signature"; boundary="c2/ypeZQb3Jmpy3Y"
-Content-Disposition: inline
-In-Reply-To: <20260531-mt6735-pwrap-mt6328-pmic-v2-0-dac37bf92894@protonmail.com>
-X-Cookie: Have a nice day!
+Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260601_061610_105784_81597418 
-X-CRM114-Status: GOOD (  11.15  )
+X-CRM114-CacheID: sfid-20260601_061824_187260_11589D79 
+X-CRM114-Status: GOOD (  16.62  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -81,35 +62,46 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
+	Hi SoC folks,
 
---c2/ypeZQb3Jmpy3Y
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
+This is my second pull request for the inclusion of Renesas SoC updates
+for v7.2.
 
-On Sun, May 31, 2026 at 11:10:41AM +0200, Yassine Oudjana via B4 Relay wrote:
-> These patches are part of a larger effort to support the MT6735 SoC family in
-> mainline Linux. More patches (unsent or sent and pending review or revision)
-> can be found here[1].
+It consists of 2 parts:
 
-Please send patches for unrelated subsystems as separate serieses to
-each subsystem unless there's a depdendency, making everything into a
-cross subsystem series just makes it harder to work out what's supposed
-to happen.
+  [GIT PULL 1/2] Renesas driver updates for v7.2 (take two)
 
---c2/ypeZQb3Jmpy3Y
-Content-Type: application/pgp-signature; name="signature.asc"
+    - Identify the R-Car M3Le SoC,
+    - Add Multifunctional Interface (MFIS) support for R-Car V4H and V4M.
 
------BEGIN PGP SIGNATURE-----
+  [GIT PULL 2/2] Renesas DTS updates for v7.2 (take two)
 
-iQEzBAABCgAdFiEEreZoqmdXGLWf4p/qJNaLcl1Uh9AFAmodhhIACgkQJNaLcl1U
-h9DICQf/R2lYrAwOVaBt02e0o2KXDCOg7XUNcak0rKzUO6DJv/i+DBjYEr9yT8tc
-rGMsTpjPtmINDcIZBmSo3+yMjUMusP3PofGq3KtYhS2Sw08sVOzrFoItEUcpt1do
-tgcsj3U87khkp9maizKvOi9wxe9N0g1mked+B/ejcHXmYqFcEfCpSWg/TLzUM5je
-ggYinIghnIfrE8odn66Vda4OwVITZVy3QamQwnXsrCuv11MbS3uKuzO1Xdrdwexb
-ySiGSWUKCxKqeWUsqclavQjnQQHVShAjku304mKF0uOZ3UJmsLPIbvbMr18VhMkL
-ndY1hQKyOYiBfJDe4ykrwxnVINhGng==
-=Vvm7
------END PGP SIGNATURE-----
+    - Add timer (MTU3) and xSPI FLASH support for the RZ/T2H and RZ/N2H
+      SoCs and their EVK boards,
+    - Add PCIe support for the RZ/V2N SoC and the RZ/V2N EVK board,
+    - Add support for the R-Car M3Le SoC and the Geist development board,
+    - Specify ethernet PHY reset timings on various R-Car boards,
+    - Add (more) serial, I2C, DMA, and sound support for the RZ/G3L SoC,
+    - Add PSCI, Multifunctional Interface (MFIS), and SCMI support for the
+      R-Car X5H SoC and Ironhide development board,
+    - Add serial DMA support for the RZ/G2L SoC,
+    - Add keyboard, I2C, Versa clock, and audio support for the RZ/G3L
+      SMARC SoM and EVK boards,
+    - Miscellaneous fixes and improvements.
 
---c2/ypeZQb3Jmpy3Y--
+Note that the second PR includes DT binding definitions for R-Car X5H,
+which are shared by driver and DT source files.
+
+Thanks for pulling!
+
+Gr{oetje,eeting}s,
+
+						Geert
+
+--
+Geert Uytterhoeven -- There's lots of Linux beyond ia32 -- geert@linux-m68k.org
+
+In personal conversations with technical people, I call myself a hacker. But
+when I'm talking to journalists I just say "programmer" or something like that.
+							    -- Linus Torvalds
 
