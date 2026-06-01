@@ -4,61 +4,78 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 79075CD5BD1
-	for <linux-arm-kernel@archiver.kernel.org>; Mon,  1 Jun 2026 11:52:53 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id F20E8CD5BD1
+	for <linux-arm-kernel@archiver.kernel.org>; Mon,  1 Jun 2026 11:56:27 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
 	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
 	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=vqEmRj//FT7GlpzPh3z5e+KqZRb5Ig8Av9dWGoCy/MU=; b=xPsctSOFYTWEC5b9RcOTobodwz
-	+HGBOP5x75/pz1WBEac4mfds7tdSiGL00bJ6mouf4qT3fRfgl0TG0p0fK6AEpFceXcp1h/jBC5Z0Y
-	ymWB2LwKs3MGccIEY+J98WxS+oGnwJLr3nT0Ts9GGiycyLXx1n36AkgWAbsxw8vR0C8QTVv0xae71
-	z8HIP+z/FcTtyRdG4oXL3Le1WlA8/FnE0GNK6hhBoJUF4PyvciirGS3PIuQMkXDSPy5O3EC2Bn3jY
-	6bpC6H3ILZudGlTG0hq5AaAGESekKK4JEaXkK59SJichzv29kvBOojEIjwMsPnBSfR9dWxpLtC/Zn
-	CadnoX7Q==;
+	bh=NhicfsH5K90NxOsrnACheuqKG+2D1PbU+GtDXc1tNpE=; b=d1gRO/wlo7LLjAuHCJ8/D25s7m
+	NJ1EkccDbb1/2/oyt5Wr71nCbf3WrhqKkOvvVphFYQqTu1rrEUWDdH8yxLKNOhASA3xaK4pb5jpIw
+	wpea4Tig34VsbQmiXpMAPStBN1HrMkhOPKRrVvjCRPtl2I1Udq7KJxE226wl+uHUuy0EKXm01BxKU
+	hiv8saae2gLoyxSJDkvixZjS5A+E7PE9Hwr0rvB2xczX0XsjGSOFVYUAjuXfxJjqhStSiigNSAMpn
+	ESwKpXYu0Dtu9WslLXtArPA90xqA068K80kMPtV2jbzc/BGl4hOLzrS2+HF5JG3x02l/oobPueRnR
+	oV7DIoGg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wU1CG-0000000Am2F-45T1;
-	Mon, 01 Jun 2026 11:52:44 +0000
-Received: from foss.arm.com ([217.140.110.172])
-	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wU1CE-0000000Am1n-1DAi
-	for linux-arm-kernel@lists.infradead.org;
-	Mon, 01 Jun 2026 11:52:43 +0000
-Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
-	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id 25B15176C;
-	Mon,  1 Jun 2026 04:52:36 -0700 (PDT)
-Received: from e129823.arm.com (e129823.arm.com [10.1.197.6])
-	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id B0E643F632;
-	Mon,  1 Jun 2026 04:52:39 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=simple/simple; d=arm.com; s=foss;
-	t=1780314761; bh=VuGKz419dGEK1hMd/gw21IOIjBsYgnj6iKHmM0ZlWb0=;
-	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
-	b=avulxCYdZe1mmF8e34Yp9UfY7IbnXgIvyANzLy24F2HSCNJfMPxGxUYdv8KMgPwse
-	 T847OVzkXCflrILpTe0GCro5fey1o1UKQUjUOitYcVO5Ks/hmsx5eHbATeCUaPAy5C
-	 OkCUmEreqORHGlMSs8DCVeDxRxB4SZfHP7K7ZKlk=
-Date: Mon, 1 Jun 2026 12:52:37 +0100
-From: Yeoreum Yun <yeoreum.yun@arm.com>
-To: Suzuki K Poulose <suzuki.poulose@arm.com>
-Cc: coresight@lists.linaro.org, linux-arm-kernel@lists.infradead.org,
-	linux-kernel@vger.kernel.org, mike.leach@arm.com,
-	james.clark@linaro.org, alexander.shishkin@linux.intel.com,
-	leo.yan@arm.com, jie.gan@oss.qualcomm.com
-Subject: Re: [PATCH v7 05/13] coresight: etm4x: exclude ss_status from
- drvdata->config
-Message-ID: <ah1yhaZgddq+8fCW@e129823.arm.com>
-References: <20260519154812.254884-1-yeoreum.yun@arm.com>
- <20260519154812.254884-6-yeoreum.yun@arm.com>
- <55b306e3-1e33-4a5b-a2ce-043132db7154@arm.com>
+	id 1wU1Fl-0000000AmQw-2Fdc;
+	Mon, 01 Jun 2026 11:56:21 +0000
+Received: from sender4-pp-f112.zoho.com ([136.143.188.112])
+	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
+	id 1wU1Fj-0000000AmQA-19jt;
+	Mon, 01 Jun 2026 11:56:20 +0000
+ARC-Seal: i=1; a=rsa-sha256; t=1780314945; cv=none; 
+	d=zohomail.com; s=zohoarc; 
+	b=FNRftmKnS7T4TSB+t9muQC7THXzDRm3zS59CpQmQXcfR+lD+sjK+3tcrJhNzULSvMP9iFe6zhia6Er7/3D0+ORHk/jkvrq6OqgErsItAuS0JGYtsajOfUPlgChS+89Yd/E67QrR6yXLqLSKOa5NKv55NaBJaHuYMpv0Sij0NibY=
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=zohomail.com; s=zohoarc; 
+	t=1780314945; h=Content-Type:Cc:Cc:Date:Date:From:From:In-Reply-To:MIME-Version:Message-ID:References:Subject:Subject:To:To:Message-Id:Reply-To; 
+	bh=NhicfsH5K90NxOsrnACheuqKG+2D1PbU+GtDXc1tNpE=; 
+	b=UPvYofb/4uqXxIKz930hU65li2WDA/0umEcWJiCaq63BDNRizgQKDD4r4gKELhgFKIDeyOoI8TsXRqenSrhWTEvcTJIbA+DJt9dTGtNa1N9Lfxj2nAwF++/+9V0cQLkLjNbFt5autS3UbHwhMPXwmjq3lEJMp+ySzHYS6K5IIqk=
+ARC-Authentication-Results: i=1; mx.zohomail.com;
+	dkim=pass  header.i=collabora.com;
+	spf=pass  smtp.mailfrom=sebastian.reichel@collabora.com;
+	dmarc=pass header.from=<sebastian.reichel@collabora.com>
+DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed; t=1780314945;
+	s=zohomail; d=collabora.com; i=sebastian.reichel@collabora.com;
+	h=Date:Date:From:From:To:To:Cc:Cc:Subject:Subject:Message-ID:References:MIME-Version:Content-Type:In-Reply-To:Message-Id:Reply-To;
+	bh=NhicfsH5K90NxOsrnACheuqKG+2D1PbU+GtDXc1tNpE=;
+	b=GF2oyKWgegPpU7BqIuuEq9O1/RNy2sKIo3tJI+XAAgmkFH1teZa2kBFt1ewppfhY
+	FTcXN9GE3Q9TuTAr4N8+B4lGE+E+w6nImJl+d38IyBttQEPH3y4roDTwGUaGPd51cu9
+	lRud7zprKpvKYfeeGSa6Z2/17tVg9IWskRJAhg+o=
+Received: by mx.zohomail.com with SMTPS id 178031494377259.66847238214382;
+	Mon, 1 Jun 2026 04:55:43 -0700 (PDT)
+Received: by venus (Postfix, from userid 1000)
+	id 04019181D80; Mon, 01 Jun 2026 13:55:36 +0200 (CEST)
+Date: Mon, 1 Jun 2026 13:55:36 +0200
+From: Sebastian Reichel <sebastian.reichel@collabora.com>
+To: Damon Ding <damon.ding@rock-chips.com>
+Cc: hjc@rock-chips.com, heiko@sntech.de, andy.yan@rock-chips.com, 
+	maarten.lankhorst@linux.intel.com, mripard@kernel.org, tzimmermann@suse.de, airlied@gmail.com, 
+	simona@ffwll.ch, robh@kernel.org, krzk+dt@kernel.org, conor+dt@kernel.org, 
+	andrzej.hajda@intel.com, neil.armstrong@linaro.org, rfoss@kernel.org, 
+	Laurent.pinchart@ideasonboard.com, jonas@kwiboo.se, jernej.skrabec@gmail.com, 
+	nicolas.frattaroli@collabora.com, cristian.ciocaltea@collabora.com, 
+	dmitry.baryshkov@oss.qualcomm.com, luca.ceresoli@bootlin.com, dianders@chromium.org, 
+	m.szyprowski@samsung.com, dri-devel@lists.freedesktop.org, devicetree@vger.kernel.org, 
+	linux-arm-kernel@lists.infradead.org, linux-rockchip@lists.infradead.org, linux-kernel@vger.kernel.org
+Subject: Re: [PATCH v4 1/3] dt-bindings: display: bridge: analogix-dp: Add
+ data-lanes support for endpoint
+Message-ID: <ah1y8hRl9M40YNfF@venus>
+References: <20260529040530.741336-1-damon.ding@rock-chips.com>
+ <20260529040530.741336-2-damon.ding@rock-chips.com>
 MIME-Version: 1.0
-Content-Type: text/plain; charset=us-ascii
+Content-Type: multipart/signed; micalg=pgp-sha512;
+	protocol="application/pgp-signature"; boundary="l4yu2mk2qw7tpdei"
 Content-Disposition: inline
-In-Reply-To: <55b306e3-1e33-4a5b-a2ce-043132db7154@arm.com>
+In-Reply-To: <20260529040530.741336-2-damon.ding@rock-chips.com>
+X-Zoho-Virus-Status: 1
+X-Zoho-AV-Stamp: zmail-av-0.2.2.1.5.2/280.300.36
+X-ZohoMailClient: External
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260601_045242_485942_AA958749 
-X-CRM114-Status: GOOD (  41.98  )
+X-CRM114-CacheID: sfid-20260601_045619_349034_321975DC 
+X-CRM114-Status: GOOD (  21.89  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -73,207 +90,129 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hi Suzuki,
 
-> On 19/05/2026 16:48, Yeoreum Yun wrote:
-> > The purpose of TRCSSCSRn register is to show status of
-> > the corresponding Single-shot Comparator Control and input supports.
-> > That means writable field's purpose for reset or restore from idle status
-> > not for configuration.
-> > 
-> > Therefore, exclude ss_status from drvdata->config and move it to drvdata.
-> 
-> TRCSSCSRn has two different types of fields.
-> 
-> 1. Capability
-> 2. Status
-> 
-> Moving the entire register from "config" to a common dangling place looks
-> like shifting the problem to me.
-> 
-> Could we do something like :
-> 
-> 1. Split the fields to two.
->   a. Store only the capability information in etmv4_caps. Bits[4:0]
->   b. Store the Status bit in drvdata->config , as it is really matters
->      to the session ? Bits[31:30]
-> 
-> Add a helper to write/read the TRCSSSRn which would apply/mask the bits from
-> drvdata->etmv4_caps->fields to the Status/Pending
+--l4yu2mk2qw7tpdei
+Content-Type: text/plain; protected-headers=v1; charset=us-ascii
+Content-Disposition: inline
+Content-Transfer-Encoding: quoted-printable
+Subject: Re: [PATCH v4 1/3] dt-bindings: display: bridge: analogix-dp: Add
+ data-lanes support for endpoint
+MIME-Version: 1.0
 
-Well. I'm not sure about whether we need to this.
-When I remind of discussion with Leo, The Status and Pending bits should
-be preserved in the *same* session theoretically However, Unitil today
-In case of *perf* it doesn't keep but always cleared at the time of
-resuming session and this behavior haven't reported any issue yet.
+Hi,
 
-TBH, I don't have any idea how perf could utilise those bits except
-the current use case for  the sysfs to show the bit via *status* file.
+On Fri, May 29, 2026 at 12:05:28PM +0800, Damon Ding wrote:
+> Add data-lanes property support to the port@1 endpoint for physical
+> lane mapping configuration.
+>=20
+> Lane mapping is mainly used for below scenarios:
+> 1. Correct PCB lane swap and differential line routing crossover
+>    without hardware changes;
+> 2. Adapt mismatched lane pin definitions between SoC and eDP panel;
+> 3. Support multiple panel hardware variants on the same board
+>    by configuring data-lanes in device tree only.
+>=20
+> Additionally, add data-lanes setting in Rockchip eDP DT node example
+> to show actual lane mapping usage.
+>=20
+> Signed-off-by: Damon Ding <damon.ding@rock-chips.com>
+>=20
+> ---
 
-Futhermore, IMHO, config isn't good place for the Status/Pending bits
-since those fields are not *configrable* fields so I think it would be
-better to locate saving information for the status and pending bits on
-drvdata or by defining other fields.
+Reviewed-by: Sebastian Reichel <sebastian.reichel@collabora.com>
 
-But, until we find some usage of those bits in perf, I think we can
-delay this separation you suggest and it might be better to keep as-is
-for the purpose of showing the status/pending bits when sysfs session is
-finished.
+Greetings,
 
-Am I missing something?
+-- Sebastian
 
-> 
-> Suzuki
-> 
-> > 
-> > Signed-off-by: Yeoreum Yun <yeoreum.yun@arm.com>
-> > ---
-> >   .../hwtracing/coresight/coresight-etm4x-cfg.c    |  1 -
-> >   .../hwtracing/coresight/coresight-etm4x-core.c   | 16 +++++++++-------
-> >   .../hwtracing/coresight/coresight-etm4x-sysfs.c  | 10 +++++-----
-> >   drivers/hwtracing/coresight/coresight-etm4x.h    |  7 ++++++-
-> >   4 files changed, 20 insertions(+), 14 deletions(-)
-> > 
-> > diff --git a/drivers/hwtracing/coresight/coresight-etm4x-cfg.c b/drivers/hwtracing/coresight/coresight-etm4x-cfg.c
-> > index e1a59b434505..9b4947d75fde 100644
-> > --- a/drivers/hwtracing/coresight/coresight-etm4x-cfg.c
-> > +++ b/drivers/hwtracing/coresight/coresight-etm4x-cfg.c
-> > @@ -86,7 +86,6 @@ static int etm4_cfg_map_reg_offset(struct etmv4_drvdata *drvdata,
-> >   		off_mask =  (offset & GENMASK(11, 5));
-> >   		do {
-> >   			CHECKREGIDX(TRCSSCCRn(0), ss_ctrl, idx, off_mask);
-> > -			CHECKREGIDX(TRCSSCSRn(0), ss_status, idx, off_mask);
-> >   			CHECKREGIDX(TRCSSPCICRn(0), ss_pe_cmp, idx, off_mask);
-> >   		} while (0);
-> >   	} else if ((offset >= TRCCIDCVRn(0)) && (offset <= TRCVMIDCVRn(7))) {
-> > diff --git a/drivers/hwtracing/coresight/coresight-etm4x-core.c b/drivers/hwtracing/coresight/coresight-etm4x-core.c
-> > index 53fbc4826628..7783c97b53e8 100644
-> > --- a/drivers/hwtracing/coresight/coresight-etm4x-core.c
-> > +++ b/drivers/hwtracing/coresight/coresight-etm4x-core.c
-> > @@ -95,7 +95,7 @@ static bool etm4x_sspcicrn_present(struct etmv4_drvdata *drvdata, int n)
-> >   	const struct etmv4_caps *caps = &drvdata->caps;
-> >   	return (n < caps->nr_ss_cmp) && caps->nr_pe_cmp &&
-> > -	       (drvdata->config.ss_status[n] & TRCSSCSRn_PC);
-> > +	       (drvdata->ss_status[n] & TRCSSCSRn_PC);
-> >   }
-> >   u64 etm4x_sysreg_read(u32 offset, bool _relaxed, bool _64bit)
-> > @@ -571,11 +571,11 @@ static int etm4_enable_hw(struct etmv4_drvdata *drvdata)
-> >   		etm4x_relaxed_write32(csa, config->res_ctrl[i], TRCRSCTLRn(i));
-> >   	for (i = 0; i < caps->nr_ss_cmp; i++) {
-> > -		/* always clear status bit on restart if using single-shot */
-> > +		/* always clear status and pending bits on restart if using single-shot */
-> >   		if (config->ss_ctrl[i] || config->ss_pe_cmp[i])
-> > -			config->ss_status[i] &= ~TRCSSCSRn_STATUS;
-> > +			drvdata->ss_status[i] &= ~(TRCSSCSRn_STATUS | TRCSSCSRn_PENDING);
-> >   		etm4x_relaxed_write32(csa, config->ss_ctrl[i], TRCSSCCRn(i));
-> > -		etm4x_relaxed_write32(csa, config->ss_status[i], TRCSSCSRn(i));
-> > +		etm4x_relaxed_write32(csa, drvdata->ss_status[i], TRCSSCSRn(i));
-> >   		if (etm4x_sspcicrn_present(drvdata, i))
-> >   			etm4x_relaxed_write32(csa, config->ss_pe_cmp[i], TRCSSPCICRn(i));
-> >   	}
-> > @@ -772,6 +772,7 @@ static int etm4_parse_event_config(struct coresight_device *csdev,
-> >   	/* Clear configuration from previous run */
-> >   	memset(config, 0, sizeof(struct etmv4_config));
-> > +
-> >   	if (attr->exclude_kernel)
-> >   		config->mode = ETM_MODE_EXCL_KERN;
-> > @@ -1064,7 +1065,7 @@ static void etm4_disable_hw(struct etmv4_drvdata *drvdata)
-> >   	/* read the status of the single shot comparators */
-> >   	for (i = 0; i < caps->nr_ss_cmp; i++) {
-> > -		config->ss_status[i] =
-> > +		drvdata->ss_status[i] =
-> >   			etm4x_relaxed_read32(csa, TRCSSCSRn(i));
-> >   	}
-> > @@ -1497,8 +1498,9 @@ static void etm4_init_arch_data(void *info)
-> >   	 */
-> >   	caps->nr_ss_cmp = FIELD_GET(TRCIDR4_NUMSSCC_MASK, etmidr4);
-> >   	for (i = 0; i < caps->nr_ss_cmp; i++) {
-> > -		drvdata->config.ss_status[i] =
-> > -			etm4x_relaxed_read32(csa, TRCSSCSRn(i));
-> > +		drvdata->ss_status[i] = etm4x_relaxed_read32(csa, TRCSSCSRn(i));
-> > +		drvdata->ss_status[i] &= (TRCSSCSRn_PC | TRCSSCSRn_DV |
-> > +					  TRCSSCSRn_DA | TRCSSCSRn_INST);
-> >   	}
-> >   	/* NUMCIDC, bits[27:24] number of Context ID comparators for tracing */
-> >   	caps->numcidc = FIELD_GET(TRCIDR4_NUMCIDC_MASK, etmidr4);
-> > diff --git a/drivers/hwtracing/coresight/coresight-etm4x-sysfs.c b/drivers/hwtracing/coresight/coresight-etm4x-sysfs.c
-> > index 7de3c58a47b4..71e95d152ee6 100644
-> > --- a/drivers/hwtracing/coresight/coresight-etm4x-sysfs.c
-> > +++ b/drivers/hwtracing/coresight/coresight-etm4x-sysfs.c
-> > @@ -1829,8 +1829,8 @@ static ssize_t sshot_ctrl_store(struct device *dev,
-> >   	raw_spin_lock(&drvdata->spinlock);
-> >   	idx = config->ss_idx;
-> >   	config->ss_ctrl[idx] = FIELD_PREP(TRCSSCCRn_SAC_ARC_RST_MASK, val);
-> > -	/* must clear bit 31 in related status register on programming */
-> > -	config->ss_status[idx] &= ~TRCSSCSRn_STATUS;
-> > +	/* must clear bit 31 and 30 in related status register on programming */
-> > +	drvdata->ss_status[idx] &= ~(TRCSSCSRn_STATUS | TRCSSCSRn_PENDING);
-> >   	raw_spin_unlock(&drvdata->spinlock);
-> >   	return size;
-> >   }
-> > @@ -1844,7 +1844,7 @@ static ssize_t sshot_status_show(struct device *dev,
-> >   	struct etmv4_config *config = &drvdata->config;
-> >   	raw_spin_lock(&drvdata->spinlock);
-> > -	val = config->ss_status[config->ss_idx];
-> > +	val = drvdata->ss_status[config->ss_idx];
-> >   	raw_spin_unlock(&drvdata->spinlock);
-> >   	return scnprintf(buf, PAGE_SIZE, "%#lx\n", val);
-> >   }
-> > @@ -1879,8 +1879,8 @@ static ssize_t sshot_pe_ctrl_store(struct device *dev,
-> >   	raw_spin_lock(&drvdata->spinlock);
-> >   	idx = config->ss_idx;
-> >   	config->ss_pe_cmp[idx] = FIELD_PREP(TRCSSPCICRn_PC_MASK, val);
-> > -	/* must clear bit 31 in related status register on programming */
-> > -	config->ss_status[idx] &= ~TRCSSCSRn_STATUS;
-> > +	/* must clear bit 31 and 30 in related status register on programming */
-> > +	drvdata->ss_status[idx] &= ~(TRCSSCSRn_STATUS | TRCSSCSRn_PENDING);
-> >   	raw_spin_unlock(&drvdata->spinlock);
-> >   	return size;
-> >   }
-> > diff --git a/drivers/hwtracing/coresight/coresight-etm4x.h b/drivers/hwtracing/coresight/coresight-etm4x.h
-> > index 6d4fbae78448..43db1eb6f8cd 100644
-> > --- a/drivers/hwtracing/coresight/coresight-etm4x.h
-> > +++ b/drivers/hwtracing/coresight/coresight-etm4x.h
-> > @@ -213,6 +213,7 @@
-> >   #define TRCACATRn_EXLEVEL_MASK			GENMASK(14, 8)
-> >   #define TRCSSCSRn_STATUS			BIT(31)
-> > +#define TRCSSCSRn_PENDING			BIT(30)
-> >   #define TRCSSCCRn_SAC_ARC_RST_MASK		GENMASK(24, 0)
-> >   #define TRCSSPCICRn_PC_MASK			GENMASK(7, 0)
-> > @@ -730,6 +731,9 @@ static inline u32 etm4_res_sel_pair(u8 res_sel_idx)
-> >   #define ETM_DEFAULT_ADDR_COMP		0
-> >   #define TRCSSCSRn_PC			BIT(3)
-> > +#define TRCSSCSRn_DV			BIT(2)
-> > +#define TRCSSCSRn_DA			BIT(1)
-> > +#define TRCSSCSRn_INST			BIT(0)
-> >   /* PowerDown Control Register bits */
-> >   #define TRCPDCR_PU			BIT(3)
-> > @@ -978,7 +982,6 @@ struct etmv4_config {
-> >   	u32				res_ctrl[ETM_MAX_RES_SEL]; /* TRCRSCTLRn */
-> >   	u8				ss_idx;
-> >   	u32				ss_ctrl[ETM_MAX_SS_CMP];
-> > -	u32				ss_status[ETM_MAX_SS_CMP];
-> >   	u32				ss_pe_cmp[ETM_MAX_SS_CMP];
-> >   	u8				addr_idx;
-> >   	u64				addr_val[ETM_MAX_SINGLE_ADDR_CMP];
-> > @@ -1073,6 +1076,7 @@ struct etmv4_save_state {
-> >    * @config:	structure holding configuration parameters.
-> >    * @save_state:	State to be preserved across power loss
-> >    * @paused:	Indicates if the trace unit is paused.
-> > + * @ss_status:	The status of the corresponding single-shot comparator.
-> >    * @arch_features: Bitmap of arch features of etmv4 devices.
-> >    */
-> >   struct etmv4_drvdata {
-> > @@ -1092,6 +1096,7 @@ struct etmv4_drvdata {
-> >   	u64				trfcr;
-> >   	struct etmv4_config		config;
-> >   	struct etmv4_save_state		*save_state;
-> > +	u32				ss_status[ETM_MAX_SS_CMP];
-> >   	DECLARE_BITMAP(arch_features, ETM4_IMPDEF_FEATURE_MAX);
-> >   };
-> 
+> Changes in v2:
+> - Add lane mapping application scenarios in commit message.
+> - Remove redundant deprecated property 'data-lanes' for eDP node.
+> - Update port@1 $ref to /schemas/graph.yaml#/$defs/port-base.
+>=20
+> Changes in v3:
+> - Squash data-lanes adjustment of Rockchip eDP DT example into this
+>   commit.
+> - Add unevaluatedProperties: false to both the port@1 and endpoint
+>   nodes.
+> ---
+>  .../bindings/display/bridge/analogix,dp.yaml  | 19 ++++++++++++++-----
+>  .../rockchip/rockchip,analogix-dp.yaml        |  1 +
+>  2 files changed, 15 insertions(+), 5 deletions(-)
+>=20
+> diff --git a/Documentation/devicetree/bindings/display/bridge/analogix,dp=
+=2Eyaml b/Documentation/devicetree/bindings/display/bridge/analogix,dp.yaml
+> index 62f0521b0924..ecf206871cdd 100644
+> --- a/Documentation/devicetree/bindings/display/bridge/analogix,dp.yaml
+> +++ b/Documentation/devicetree/bindings/display/bridge/analogix,dp.yaml
+> @@ -42,13 +42,22 @@ properties:
+>      properties:
+>        port@0:
+>          $ref: /schemas/graph.yaml#/properties/port
+> -        description:
+> -          Input node to receive pixel data.
+> +        description: Input node to receive pixel data.
+> =20
+>        port@1:
+> -        $ref: /schemas/graph.yaml#/properties/port
+> -        description:
+> -          Port node with one endpoint connected to a dp-connector node.
+> +        $ref: /schemas/graph.yaml#/$defs/port-base
+> +        unevaluatedProperties: false
+> +        description: Port node with one endpoint connected to sink devic=
+e node.
+> +        properties:
+> +          endpoint:
+> +            $ref: /schemas/media/video-interfaces.yaml#
+> +            unevaluatedProperties: false
+> +            properties:
+> +              data-lanes:
+> +                minItems: 1
+> +                maxItems: 4
+> +                items:
+> +                  enum: [ 0, 1, 2, 3 ]
+> =20
+>      required:
+>        - port@0
+> diff --git a/Documentation/devicetree/bindings/display/rockchip/rockchip,=
+analogix-dp.yaml b/Documentation/devicetree/bindings/display/rockchip/rockc=
+hip,analogix-dp.yaml
+> index d99b23b88cc5..f690ee393fdb 100644
+> --- a/Documentation/devicetree/bindings/display/rockchip/rockchip,analogi=
+x-dp.yaml
+> +++ b/Documentation/devicetree/bindings/display/rockchip/rockchip,analogi=
+x-dp.yaml
+> @@ -117,6 +117,7 @@ examples:
+>            reg =3D <1>;
+> =20
+>            edp_out_panel: endpoint {
+> +            data-lanes =3D <0 1>;
+>              remote-endpoint =3D <&panel_in_edp>;
+>            };
+>          };
+> --=20
+> 2.34.1
+>=20
 
--- 
-Sincerely,
-Yeoreum Yun
+--l4yu2mk2qw7tpdei
+Content-Type: application/pgp-signature; name="signature.asc"
+
+-----BEGIN PGP SIGNATURE-----
+
+iQIzBAABCgAdFiEE72YNB0Y/i3JqeVQT2O7X88g7+poFAmodczQACgkQ2O7X88g7
++prqbg//W/6q4iL4Z+96KG17dC3Romdv0RIDL4hqiVccAYjIRdOxOyCXB/3Zvt1K
+v76++g9tq+K89vejb04n5m0qNsnQshLsMqpD9yS4naPQg7wIQMuGsra87qAkhozF
+lFeImUWIMSS/2dbagApnsatXBrQOkXTky+zkyBNmTe71txgkB401J/MUlBJyz70w
+9NUjYAR6bb+8I5WDJUaTbkvu8zjEsAYMQ8PW59+D3aFkn2n/bLHqBqRQDSFyP28T
+J1GZqwZhSCp3dO2PLLzs4M8tAyowz498gApB8zLo9/yG57U4yBzdrrskbx9MVYUn
+/kZMFRzbUbaqwqwwWcVjb/C19iMS5T3iTNLfbenJ7v8HHoOHDRqFXEeoMI1FdCKM
+piUuysqVp/Ub7omiD2myBAPwJ8wuEAaUaKV/bcmC76oU7yX2iCB8xZFkbKuEvVB9
+UFEpje/F4gWwP3tK+uoqRLDoQ7pxpcCg81WBWKnCNRqavfD/OfalFth4W9ClaUSQ
+UjNqx7xF5o2zrxUd5BxTuiNnJjalo3olhcD3c3nVSgdvvHQOdpU4iAp91nAU7whm
+U+9eq0CE326GKt+hQSdKH3GbqqxUSf6tQ/KypdlFIhPunpzUoARdE1HrwIYbyO5O
+GJ2sUtue3CQZ3nl0/SyuZIJB1jEGMBA5sigFw6TvOZrilwm4GyI=
+=I06R
+-----END PGP SIGNATURE-----
+
+--l4yu2mk2qw7tpdei--
 
