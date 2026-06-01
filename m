@@ -4,152 +4,59 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 5529DCD5BD1
-	for <linux-arm-kernel@archiver.kernel.org>; Mon,  1 Jun 2026 18:52:37 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 830CFCD5BD1
+	for <linux-arm-kernel@archiver.kernel.org>; Mon,  1 Jun 2026 19:08:19 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:
-	Content-Transfer-Encoding:Content-Type:References:In-Reply-To:Message-ID:Date
-	:Subject:Cc:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=couy/oFOZiCRG/97FkLUlV7aXFUJePUbkSx2VdZ/P/Q=; b=46SeDrNlG3DuSAFrLVpxdYcZGk
-	J922aEqhdHrwrjFvVc4cZZo/vrHinw0F6aqS7khX2tqIRnkkvG/TPJzsoJ5BQ/B3pd1UjDPpr6U9/
-	5nScr9OgLbGuKaI4inNlTRx4BZMCxX/ONH30g6xrQEIvxKjpJBrvO4/joFBGkhiEi/NbXDucI1NCO
-	OVyUU0P/QvCWxMyUQPsu1br3YpHWe2MEVnJ4kixO8Gkuh5f9s/Q29xoWJq2HVMsYHtC5B5Zl+59l4
-	GHorr66jIVEhRAIrNusFgCG4vRGcKRTR8AL9i859u0oRblzntDF44cWzrMY8AmUWnDR8dsgIAewZJ
-	q0dWm/Yg==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:MIME-Version:
+	Message-ID:Subject:Cc:To:From:Date:Reply-To:Content-Transfer-Encoding:
+	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
+	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=5BBooQ+POiDj884MIiobYfemB6cKypHIDePShLGDwAA=; b=e/xcyXrNulOzCwXuwRRPyrzVKK
+	bktFIP2OhaGS/gwNlDydbDGpSPSiy2VjwtiYG29wmE1sjSeF/iyvxQAwDLn3BHdycNa2DkIzbmADi
+	tK2KqY27VPTD8vxPd/Jzg600/14qVPcx53n9XojkD0zU7CqygC7wd2ButIHck+cRuTXVd1I3srXCy
+	GL6BEyhThpztbJ8/qRpBE7twrvH/IBFgTDlt+GvQ9udfOikQnz9Xzb3SKRZrhxhzyff2Ut2AAKSFZ
+	05Ex9qh+OqboxUoghewCn77CWZH/6jp8smdVsFf3WCwJhGnKEMnjpI6r++dLDaqtQqIj09nrb/JeF
+	1hLqFTnA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wU7kS-0000000BgQd-39sa;
-	Mon, 01 Jun 2026 18:52:28 +0000
-Received: from mail-northeuropeazon11011041.outbound.protection.outlook.com ([52.101.65.41] helo=DU2PR03CU002.outbound.protection.outlook.com)
+	id 1wU7zf-0000000BhEc-0g0K;
+	Mon, 01 Jun 2026 19:08:11 +0000
+Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wU7kQ-0000000BgPu-0OI0
+	id 1wU7zb-0000000BhEF-3wpj
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 01 Jun 2026 18:52:27 +0000
-ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
- b=bGQrYkhd21wRg/rdnkXXXam+hAxcWt8dKSy7Q+SPCGWSZ5fS12R3S+ilLb/X2L61F24hXWAVI5InBSWbqYAtnCGuVi+u6SY4ybH0DC8qJL2zBcELiSMX3sgK27Y9inYXWSX8TB4pO8y9Uihh2yslcqDx56zFAqCgcQGtD4pEtKeNocLmcOrqpULNohQ/P1YofRx7wXGlxPhLSq59hO+PPrq9ZgQgV/JeFq2XSzqkkuMxsCaO7SumMmw2Hqxc1h+WAblGlokMy5pDubZV0d0dj9BKM3RABlu7Cs3Xu3dJjdqdcuiOhf4SKWCnfgptX/kEv8U9nrMbdzAP0vRfUnminA==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
- s=arcselector10001;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
- bh=couy/oFOZiCRG/97FkLUlV7aXFUJePUbkSx2VdZ/P/Q=;
- b=vPm2sYxVHACudv4cJa3pY8ePVaYfsvfayFLBXtO5KIl6K3iq5SGKZBZf1990KlfuuZAzux2trH7+JN/cN009GKSH5Vi2NIRa8CECP7n2rArsTlvJ/LCZPL/2b/qc72lC6P2qIu6yqo9rHY0iFFY5Ph3J2eaBIjMVi/LOicUIAM+EIpK2eBQJnufT0v6MItGgvZ7sA1atGPEy9hDqBPWxudOgFjQAH+CrSGSCKYlrXeYBWO9sV+ePcoXN5weG1575xSRH+KPM1kbNW+KTgGkGfWBSbTqIBIX0B7Q6PCje3rqifT6vCLy8A+Zw240IXyBXHUoCTE5nVIWJ5+fUu8FEDA==
-ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
- smtp.mailfrom=oss.nxp.com; dmarc=pass action=none header.from=oss.nxp.com;
- dkim=pass header.d=oss.nxp.com; arc=none
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=NXP1.onmicrosoft.com;
- s=selector1-NXP1-onmicrosoft-com;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
- bh=couy/oFOZiCRG/97FkLUlV7aXFUJePUbkSx2VdZ/P/Q=;
- b=R24A4mtARlIxLE8o77CegYSsUrIRgXJj5LibXpe5sRogV6BKyWM0QmZ/TtCqK5nBi7zFWQUIWBc05USIdVdVklmpc3BaYihciliwSdopSwLXnC2xUnxgwIofQ4ZbuMdUkSzjzcxYu8jLVJyU/6Gx9dTNYr4TKEncmJLRoajxtzV7YT798FV3Vi87CRHZRfyMwHtgwHyRnPfQneQpbnceidmyj4LZGn97oimngF5hb2ssqDsCtmV9UwUjzq8N27knCynH8lfHIXtHHpIy/6d8gKb4kNdjhaiEgxL+eQH1G2axb8Rwf2ZBSTXlnop/yN90LAYtwdaqG8srvJ7HA7sJjw==
-Authentication-Results: dkim=none (message not signed)
- header.d=none;dmarc=none action=none header.from=oss.nxp.com;
-Received: from GV2PR04MB11799.eurprd04.prod.outlook.com (2603:10a6:150:2cf::9)
- by GVXPR04MB10921.eurprd04.prod.outlook.com (2603:10a6:150:227::16) with
- Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.21.71.16; Mon, 1 Jun 2026
- 18:52:18 +0000
-Received: from GV2PR04MB11799.eurprd04.prod.outlook.com
- ([fe80::2146:83a2:5329:b7c]) by GV2PR04MB11799.eurprd04.prod.outlook.com
- ([fe80::2146:83a2:5329:b7c%6]) with mapi id 15.21.0071.014; Mon, 1 Jun 2026
- 18:52:18 +0000
-From: Frank.Li@oss.nxp.com
-To: Chester Lin <chester62515@gmail.com>,
-	Matthias Brugger <mbrugger@suse.com>,
-	Ghennadi Procopciuc <ghennadi.procopciuc@oss.nxp.com>,
-	Sascha Hauer <s.hauer@pengutronix.de>,
-	Fabio Estevam <festevam@gmail.com>,
-	Rob Herring <robh@kernel.org>,
-	Krzysztof Kozlowski <krzk+dt@kernel.org>,
-	Conor Dooley <conor+dt@kernel.org>,
-	Khristine Andreea Barbulescu <khristineandreea.barbulescu@oss.nxp.com>
-Cc: Frank Li <Frank.Li@nxp.com>,
-	Pengutronix Kernel Team <kernel@pengutronix.de>,
-	linux-arm-kernel@lists.infradead.org,
-	imx@lists.linux.dev,
-	devicetree@vger.kernel.org,
-	linux-kernel@vger.kernel.org,
-	NXP S32 Linux <s32@nxp.com>,
-	Christophe Lizzi <clizzi@redhat.com>,
-	Alberto Ruiz <aruizrui@redhat.com>,
-	Enric Balletbo <eballetb@redhat.com>
-Subject: Re: [PATCH v2 0/1] add SAR ADC DTS support for S32G2/S32G3 SoCs
-Date: Mon,  1 Jun 2026 14:52:10 -0400
-Message-ID: <178033992458.279833.17993672738559869740.b4-ty@b4>
-X-Mailer: git-send-email 2.43.0
-In-Reply-To: <20260514082639.1181240-1-khristineandreea.barbulescu@oss.nxp.com>
-References: <20260514082639.1181240-1-khristineandreea.barbulescu@oss.nxp.com>
-Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: 8bit
-X-ClientProxiedBy: PH7PR10CA0007.namprd10.prod.outlook.com
- (2603:10b6:510:23d::7) To GV2PR04MB11799.eurprd04.prod.outlook.com
- (2603:10a6:150:2cf::9)
+	Mon, 01 Jun 2026 19:08:09 +0000
+Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
+	by sea.source.kernel.org (Postfix) with ESMTP id B2CD243730;
+	Mon,  1 Jun 2026 19:08:06 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 4A4AF1F00893;
+	Mon,  1 Jun 2026 19:08:05 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
+	s=k20260515; t=1780340886;
+	bh=5BBooQ+POiDj884MIiobYfemB6cKypHIDePShLGDwAA=;
+	h=Date:From:To:Cc:Subject;
+	b=lBM3ebbe9lmiNelN1SZsZyIQSG0p8EK04o1Wgb6+YGsr5Wg6fEIGbsm4MTlvyTPDy
+	 Byr9a2TILbEzLQkx0p+KszgyZJLPSWQ0bCrhFZVeWJcseFsK17n9PN6ykzRNLYUbUA
+	 Ga2vhcJ1jQ3rq/KtN9m1C6iEo+nCrTrPKDzSziboMtAhCoHpSVB6iiqbmVWnvm7Gt/
+	 d+Re7CsZjqrxvgkxYeyLPeFuLe2mRQyrU7lwpezY+i/YKmGlSZ38tezYXgrdvPtLC1
+	 iRb3ACgZerQ0B0QK9gVwEbKL6QicBj7FOltQmbEchNTsh4wsSCX53E2F9DkYxdT4nb
+	 4MJkIULoRcV6A==
+Date: Tue, 2 Jun 2026 03:08:01 +0800
+From: Chen-Yu Tsai <wens@kernel.org>
+To: soc@kernel.org
+Cc: Chen-Yu Tsai <wens@kernel.org>, Jernej Skrabec <jernej@kernel.org>,
+	Samuel Holland <samuel@sholland.org>, linux-sunxi@lists.linux.dev,
+	linux-arm-kernel@lists.infradead.org
+Subject: [GIT PULL] Allwinner Driver Changes for 7.2
+Message-ID: <ah3YkTZAR2GXlC3x@home.wens.tw>
 MIME-Version: 1.0
-X-MS-PublicTrafficType: Email
-X-MS-TrafficTypeDiagnostic: GV2PR04MB11799:EE_|GVXPR04MB10921:EE_
-X-MS-Office365-Filtering-Correlation-Id: 65645248-5563-4574-724e-08dec00ee76e
-X-LD-Processed: 686ea1d3-bc2b-4c6f-a92c-d99c5c301635,ExtAddr
-X-MS-Exchange-SenderADCheck: 1
-X-MS-Exchange-AntiSpam-Relay: 0
-X-Microsoft-Antispam: BCL:0;ARA:13230040|19092799006|366016|376014|7416014|1800799024|18002099003|22082099003|56012099006|11063799006;
-X-Microsoft-Antispam-Message-Info: nYKxCb2uF1bUjOW6dqwvoNQYYQTA++8/v6sKQUfy/dLdgQr3ypE/PEpCUI/QrdYfT96Hvjyp8rbDqQSb3Ck8InUeu/6jvfDx1BJ1GV7yMW3oUBSh0zNqX7aK71os1C0eYc/TKKFyWjtKw4OS+PLJ/v7A/Aqj7+O9GwO2ZP+a6dPMXAWrld/OHbeP0FI62zN1BiScHLvDLeYlL0gnc6oiMrDtsKUDkXJ+JXNIWzQfRQsC3lzSX2RZ0iTkj259IMSTaUbzHN5BuJnYi46yg70D3TtDlOfk5uVJVE/5Dw+5Bg9jdwk2MGYS+5yLCz3RO8wqy02YaaAzkQg6cB1gnl+SFSVMZeb/MBCalzVRdUJ2aAh2GUK3dZZFChdhw3XSUQTvwnGVb9Ibm5R/JKMP/lkvlq/IVeGBZIDilSfG2BCDHdwr91b04leMQeMsTnLpm+S6pOZge7yNdaLTXpFWX9jWy8alr+vGFaHjExqVy1CRqwP1NACaJ2bwN1e8HoGaOBM4EY/P49/1rrq0q868SJ6oQHTMqQa/yy4NJU3b66rFj5bwV9K9yFk0WhKhQ+ODXAmfqUtKkrd34RAoBrgofIhl7BYFqvEKZY1NiKmphMotRZzio/SOIzEcp9Z+G/jkxt0igzzdSNsAMYgKbM0sKGR2HmDmRggCVeeftD/uhzPWqcq8NC849ZzMPgMxWpDksdg3
-X-Forefront-Antispam-Report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:GV2PR04MB11799.eurprd04.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(19092799006)(366016)(376014)(7416014)(1800799024)(18002099003)(22082099003)(56012099006)(11063799006);DIR:OUT;SFP:1101;
-X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
-X-MS-Exchange-AntiSpam-MessageData-0: =?utf-8?B?TGRZand0V3lWOFVoWGowN25qdVJxS0FLTGpnNjhOSTB0d3JmQkR2cmVhQXlP?=
- =?utf-8?B?RUxWSU9zYzVyWHlIR09JdXFtbk8yOG5UT3ErSUFIcDdWcVRDK0FoRklLcU10?=
- =?utf-8?B?VmFrWkU5c1JRTGNucUlSWlhsNU9rRE1TNzF4QkJPNkJLNTZYNmM5eHpTdEQz?=
- =?utf-8?B?aktpYkFsK2xjQXdFRGNjK0d1WGJDbUt4QjhZdGRYQWFNYXdBdmRjMTdrbFhF?=
- =?utf-8?B?elhMc2ZpdDFjNmFWdDh3eTRXK3U2VXJWM0tSN1ZFOFVzUnZEVkJlNmc4TzQr?=
- =?utf-8?B?Q0ZidU5TQTFPbVBNOS9SWHlGQ0YwVndiTWlBODJxeFFCczN4aDNJT3NjcjFY?=
- =?utf-8?B?ZlBIcWxYc1kva21ISGgweHNFQVVJRjRqRjhtY3pwUTRxbTJBcEhXWG1WWWI4?=
- =?utf-8?B?MC9zMksvb0RuRXVGUDd3ZmtjSllGR3Jya2F0M2kxcWlENnM0d2NDNXlmbEhO?=
- =?utf-8?B?Z296Sy8wZTRYVExNQ0t3UVlqVzYzOXBFTUsrUlpMbkFlY0dwTDV2N1VqMU9B?=
- =?utf-8?B?eWh5Z2FtQ1RBN2lIYlBVdWliWVBoMEF5dXU1c2lMNHdVUDhmR3NPUnhOSzlj?=
- =?utf-8?B?Y3hEZkthakJsUWVrT21CQkpWRTJscEJXTkxybk95VXdWUnlTV2NzTUdwVU5D?=
- =?utf-8?B?NHZZK1lGVUI3SnJ1Y0s2Ty9Nd3VmYWpvdFhSRWlCY0tCM3NGUFJwTGFMY251?=
- =?utf-8?B?OFlqU2NLVkpBeXNyTGphTHFmK3g5YTFlVFg3UUFneWw2WGFkR01DK1Jmb0Qy?=
- =?utf-8?B?ZmEvOXZTTE04Z2ltT1Y1bzArNVZ6VWpuTEZEVExGSUpyMjBRSUxTNkFVK2tG?=
- =?utf-8?B?YTE1ckIwMWJPL1g3ekMzeGJobXRsTWpaYnNIcW5SOHEveUhsUjhiSTFaTXdk?=
- =?utf-8?B?RU4xUXFtbXFpWXRnYlpTQTJGS2JxbXdkWXZQQ3o3SlhIU25DN1F1Y3c2QTdV?=
- =?utf-8?B?ZHROeXNhWFh4VVhHTUxmRnhEOEtLT0pLY0VlOVVtWk16M1pwQWVaUFJIQ2pw?=
- =?utf-8?B?NHhmblhPVUNjeCt5N212ZVZUeHJvTFRadTU3ZkZodzYxNllWUm1WVmxwalBq?=
- =?utf-8?B?clhwL1pMVUR1UVlTMS9VUDA0d2kvekZqVXVuN09xWTVlS3ZSQ0FsU1BoZ0FC?=
- =?utf-8?B?S3pVV2lTUmVTZXhjKy83VjJGUXZlcjBjdGdmVjhteE5YV2ZTWXpleEpjdTE2?=
- =?utf-8?B?b1pENUd0amFCdGc0bEg0TDJ0MnpFcW9uWE9BTWVRekJ6TldydlgxY2JuSEdM?=
- =?utf-8?B?elVPZzdvOVR2bFlhVy9pc01nSDEyL0Jlb2dJbUVOaEF1NFZiZDN5NmkrQ0hF?=
- =?utf-8?B?UURackFjaDZGTGhELzBvOWpXT210QnZHT2FNNE1vTWNlYncvQ1lOT1VmSHh3?=
- =?utf-8?B?N0IyYy9mUXFaSldHOWJuQ2Jrd3FQRjIxSHFHK3NHZVJzUnFSQXI1S3hyVGZG?=
- =?utf-8?B?V3BhaERFMFZmVStYc09IZXdKNCs5N2V6QVVpZ1RtYnBSNlAvN2tRMmgrRzdN?=
- =?utf-8?B?SDdXSkxRWUpoUG91ZVlkeWhsYXY1aXNsMzFaK2tBVXdoTC9uTitaZDZUWktn?=
- =?utf-8?B?ZGx3UG83NmFNd2hXZ0w2V1NCdG5PYm90MEpFL0tnOVBoRHhyVzltZ2FYdG0r?=
- =?utf-8?B?SUN1SmZwQVRTamJpSDhlK2tyMkJhbDl5T3VHQnNhbHdTeHQ0akcxcjBJVVJ2?=
- =?utf-8?B?RUNmSitqZGxSOGNNL1NFVklHTnQ3T1g1MU1HVlZJNlc2Z1FsVnhTVmhOUnoy?=
- =?utf-8?B?Kzg5RE5mMjJCbklkRWNkOStZOEliK29LMGEvOUQ4V2NEMFVWOFJvYU5EUkg4?=
- =?utf-8?B?NjJPMTg1QkI2ZU1aRnFxZEduMVA0TXk3VG9nZTRUM0RCSzE5U0FIOWpIdVA5?=
- =?utf-8?B?S0dabmFzeWFIajNHbFVlVXA0N3lVakI3OC9ZV2dCVmZjWFN2UTVOOTFZZHVK?=
- =?utf-8?B?RjhFYU1YK0NRMDZYeWVlbnBwV3JZbGowaXVmc2FTb1NqbWNHNnZJdHR3UVcx?=
- =?utf-8?B?ZVc0Rm9pV3lYTFJNM3U5bkJnZVJOTmIzb1IxaCtza3Fva0htN0JwZVJ1dWpD?=
- =?utf-8?B?dlU0ZTYyWlJpSzV0UzI5VkFPRDdsbHUvaldMRFhFS3JqRHQ5Q05FcnUvL21k?=
- =?utf-8?B?YWdZLzNYL2o2Z3l0ZWtraHluSHBJSUMyU0tUWit5b0YyOHZjZkc5d2xpTHlp?=
- =?utf-8?B?RFFmMk5nVit0b2x4NThETlBVQ0ozR1pGRUNaN09RSTVPWkZMN293NFJ0ZE1w?=
- =?utf-8?B?RmhqNnhydHgrQThGWUpBSU9WL3grRFAzMFFjQUxoQWs3eStYb1JaUEZsdzEz?=
- =?utf-8?B?bUgwUXptNktqRitod3d5cGdYbVF6OFVrOXd5c2lYZ2paRG5XeGZ1Znc1RFB4?=
- =?utf-8?Q?SrqLFBo2Erx8OS2g=3D?=
-X-OriginatorOrg: oss.nxp.com
-X-MS-Exchange-CrossTenant-Network-Message-Id: 65645248-5563-4574-724e-08dec00ee76e
-X-MS-Exchange-CrossTenant-AuthSource: GV2PR04MB11799.eurprd04.prod.outlook.com
-X-MS-Exchange-CrossTenant-AuthAs: Internal
-X-MS-Exchange-CrossTenant-OriginalArrivalTime: 01 Jun 2026 18:52:18.0496
- (UTC)
-X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
-X-MS-Exchange-CrossTenant-Id: 686ea1d3-bc2b-4c6f-a92c-d99c5c301635
-X-MS-Exchange-CrossTenant-MailboxType: HOSTED
-X-MS-Exchange-CrossTenant-UserPrincipalName: ieBIqyMcbKD1bT6+NodXrTxLzxGfKA7yf4eXI3GfiSx9XxrEmupqxTvb+o5XA4n/NslA5ZUnaSFAzb99Z/31m+AYOm/EZ08B0lXCDE5CjYia3WR4tzPSXpthr8rxEgDL
-X-MS-Exchange-Transport-CrossTenantHeadersStamped: GVXPR04MB10921
+Content-Type: multipart/signed; micalg=pgp-sha512;
+	protocol="application/pgp-signature"; boundary="VfsGAi0BIhPgGehB"
+Content-Disposition: inline
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260601_115226_139719_CBC79666 
-X-CRM114-Status: UNSURE (   8.85  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20260601_120808_029177_62ED4FAE 
+X-CRM114-Status: GOOD (  10.50  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -164,26 +71,71 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-From: Frank Li <Frank.Li@nxp.com>
 
+--VfsGAi0BIhPgGehB
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
 
-On Thu, 14 May 2026 10:26:38 +0200, Khristine Andreea Barbulescu wrote:
-> This patchset aims to add one change to the S32G2/S32G3 dtsi support:
-> - Add SAR ADC dts support for S32G SoC based boards
-> 
-> v2 -> v1:
-> - drop 'vref' property from ADC nodes
-> - reorder 'adc1' node to maintain ascending
-> unit address order
-> 
-> [...]
+The following changes since commit 254f49634ee16a731174d2ae34bc50bd5f45e731:
 
-Applied, thanks!
+  Linux 7.1-rc1 (2026-04-26 14:19:00 -0700)
 
-[1/1] arm64: dts: s32g: add SAR ADC support for s32g2 and s32g3
-      commit: a9882a7623490cc4c562d2e98f9e017c98060e12
+are available in the Git repository at:
 
-Best regards,
--- 
-Frank Li <Frank.Li@nxp.com>
+  https://git.kernel.org/pub/scm/linux/kernel/git/sunxi/linux.git tags/sunxi-drivers-for-7.2
+
+for you to fetch changes up to 61192938a5870ac36edae81e4775b680dcf02c61:
+
+  bus: sunxi-rsb: Always check register address validity (2026-05-25 06:37:11 +0800)
+
+----------------------------------------------------------------
+Allwinner driver changes for 7.2
+
+Mostly changes to the SRAM driver to allow for one SRAM region to be
+"claimed" by multiple changes. When a region is "claimed" it is removed
+or disconnected from the CPU's view. This is needed on the H6 and H616,
+which have one alias region seemingly shared between the video codec
+engine and the display engine.
+
+One minor fix for the RSB driver is also included.
+
+----------------------------------------------------------------
+Chen-Yu Tsai (6):
+      dt-bindings: sram: Document Allwinner H616 VE SRAM
+      dt-bindings: sram: sunxi-sram: Add H616 SRAM regions
+      soc: sunxi: sram: Const-ify sunxi_sram_func data and references
+      soc: sunxi: sram: Allow SRAM to be claimed multiple times
+      soc: sunxi: sram: Support claiming multiple regions per device
+      soc: sunxi: sram: Add H616 SRAM regions
+
+Samuel Holland (1):
+      bus: sunxi-rsb: Always check register address validity
+
+ .../sram/allwinner,sun4i-a10-system-control.yaml   |   5 +-
+ Documentation/devicetree/bindings/sram/sram.yaml   |   1 +
+ drivers/bus/sunxi-rsb.c                            |   3 +
+ drivers/soc/sunxi/sunxi_sram.c                     | 196 +++++++++++++--------
+ 4 files changed, 127 insertions(+), 78 deletions(-)
+
+--VfsGAi0BIhPgGehB
+Content-Type: application/pgp-signature; name="signature.asc"
+
+-----BEGIN PGP SIGNATURE-----
+
+iQIzBAABCgAdFiEE2nN1m/hhnkhOWjtHOJpUIZwPJDAFAmod2JEACgkQOJpUIZwP
+JDAwzg/9FDd9z1H9vB3wTj2ptls9aWIdVQ1kIinzaIl3/AzoSdJXNevbei+l0njd
+plqY6KeJIT8DDIR9d548fEFsQt5E7LIrDXxSx+lk+VfynjFlORlCwTNM8DbqtRMB
+hw5iAZAm8krS/QP3CRMgZ/wKzwwNLabjdLDB+7lDGVBxAIQOoOuSqU/CSpWrro8u
+mCY1M2xYN4yf1Hn8+dwAgKBEp+DbmlZCuD2SFWM4JeII2jNKTaq1P88pVGHpZsTe
+Kf07EppN4gllUIrHoPchRzoumuUG2ix5/CtseEm2D8MUDLwPqDPt0U0uwERhvJ5W
+U3QGN24gtcX7CyMhfoA8Gowbn0+0j/1EnlNBS4UY8frdHItbXMDcwgrTvA0M1eEe
+FbyNKqD2/a8kwEn2avghaWu/qL7+CPoU3YB0A3aJyfRZbXPL6lL1BHZ1GcEWPa8y
+WqmS3GwbeJ5Za2dI9BG7f45rpF2cfntUbVclMO28LsI9uDTaFCO7WcLxeMrY7Ipy
+jwd4bQhynnM3d8qS2f/628+jGQ9qmjmaGAfyOrusrkYLqHpRI9wiq7kMSzCcy/5t
+n58YlYxoNNeivq4ZOZPvL+/jVDOFGE/aNfoJT6xjA/WYjtdZ4hBZT7/+GRWHOckN
+VBmYdIkScoL/FPdLyx1mUcUGT8NhfPpbH6kGWCyWm69k0nLqKro=
+=Bcm6
+-----END PGP SIGNATURE-----
+
+--VfsGAi0BIhPgGehB--
 
