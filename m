@@ -4,147 +4,67 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id B380ACD5BD1
-	for <linux-arm-kernel@archiver.kernel.org>; Mon,  1 Jun 2026 19:19:11 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 4E618CD5BD1
+	for <linux-arm-kernel@archiver.kernel.org>; Mon,  1 Jun 2026 19:20:03 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:
-	Content-Transfer-Encoding:Content-Type:References:In-Reply-To:Message-ID:Date
-	:Subject:Cc:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=dCtt3XikWPqeSPm8K5b8FqM7md5h66TZC2wLngIwL6g=; b=iG0CQYXwMoLnMZu+e5fLJDI8vw
-	AZIE6JNykf1sG3KidjJHlJvzpuYo2HeGIzkdjkecK+HfwfLEpGwROSeuFYw0h6MvJ/jVAz8+6KcCq
-	k+JQGoXP/Hps7rFDj/AnpyvkJvv3m/SA6BnsIDRr+iMJ9eCEdT6sC5rOwrTqT6t6UgTWsJfcz4FmV
-	30lO4EKt3ebb+GoenLVwsKnbM+EKW/yAya5WnrarD5DGj7fagiqolzpe87PHPSDDu3C4UEKkd1/1c
-	Yz8e8NOQ7xcdhBj8fMklnMS4Uu07Qx3iId+nzA30Fy6Jq/GjaSgE0qOIDIn0007UU2nsjjafZCjdH
-	sSqkQDHw==;
+	bh=NhFxldIBjPBUTua/YfxeMMHdCARnPekS5WZgGemC+8Q=; b=2XbcjVA1a2uAc/sscN/NeB5H4g
+	X8NvCfIW6Lp13TI0KBwZSYH4K+m92b2Y+M7rkxzZAEiFdgnJNB90uHzUcANUOMrZLCMqvn5GUE5ML
+	IngMtTzS7U8gy1ZYHvxHMHtUbxAXHTc9r+FiylcOcPt3mO8d85JEPOiGwdheUGleIqr0tsyVVw5UX
+	t5I7iiT44YlTtKjmbMFVB6eBusy5vWJ1qWwM40ph1PXjqP98fextff5mZh5LBBaI5qU+Zwzf22gce
+	BNOSsrPL2v35nTBegjXwVWyKRdYlALWaUwLBRZnWwNIaQdaqIP7EWKWRPQG0WYfvO09eOfEQ+Ww96
+	mdQBLXdA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wU8A9-0000000Bi5E-2U9g;
-	Mon, 01 Jun 2026 19:19:01 +0000
-Received: from mail-norwayeastazon11013021.outbound.protection.outlook.com ([40.107.159.21] helo=OSPPR02CU001.outbound.protection.outlook.com)
+	id 1wU8B2-0000000BiBU-3Zy9;
+	Mon, 01 Jun 2026 19:19:56 +0000
+Received: from sea.source.kernel.org ([172.234.252.31])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wU8A7-0000000Bi4Y-04iU
+	id 1wU8B0-0000000BiB3-0bJC
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 01 Jun 2026 19:19:00 +0000
-ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
- b=FDI7+sVhmN75w7BlhUY8Vi8MzFTYzOoaZpgUsoKeNJ6OoypDCzYNBWkRbYAKLsMhPZDc3eBkfy4FLq8/vxcHM1KR7i/Rt8tTNJ7qHFKSRyvP7BKC7bp/qMoRNztlzsK89LCXJDCBzPWQqqnjpy+y/FxpJ5KLONcsYWh7uiQCnH4ZYhbi00SIOTKs584+BOP5u7Z02YVDbOUDcZ/uRWiipzkZ7wIwyVXBHkk/tiutZId6zwwzLCoNS+Lj8bp4gWdOiPel8cE6sMNCfFt3bdxw/VR3KTKCjHepQS4p/IbYYudQUFV87i20BDqUUGEZde7mvtIaA/VuX5NqLCOl6fru4g==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
- s=arcselector10001;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
- bh=dCtt3XikWPqeSPm8K5b8FqM7md5h66TZC2wLngIwL6g=;
- b=qVkdUt9g7pdq8FoJ2ERdWJtRjyggizF0+WQv8bOaUCsxgjZoa2pI4Ep4pyE18707axqC1y8FAbFlbgUizJY1OGOtab46mjUniXvKmQMb52wzhkKNSQ8MmN1ksWq8sTajmvQy+ZxUTvHp49r0DVmv6P2gN9pTRrrzFgN9byoL6UiDO3t7Ub06c1BaUHw8tqlIueUvMp8zpKoB8gi7ZVKyHp29+1tYwRM9zypB0ChDiKdprOHOxhBTvHctHf7bkuIC5yc2fJKHhCQSIJi8EmQxrZlg4ArWgmdMe+moA71lDOuIpEQw1rGzdnEBQ5YQfbb7TBd3iD+8TEzWZy6AmmiuGA==
-ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
- smtp.mailfrom=oss.nxp.com; dmarc=pass action=none header.from=oss.nxp.com;
- dkim=pass header.d=oss.nxp.com; arc=none
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=NXP1.onmicrosoft.com;
- s=selector1-NXP1-onmicrosoft-com;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
- bh=dCtt3XikWPqeSPm8K5b8FqM7md5h66TZC2wLngIwL6g=;
- b=KPxvC0VYSCmPov9xZjPzlfvhRGGCHFXB2FMThYkFYt9H1m4a8wLYU+QARbeCV/4Oyo4IOo7J5ojUIfn5GB7UhrfQrYxxxVXoBv9I5mpCTmqjOL3T92OufqEtCiajqNTO2ufW36QfzIT3vE+mIM1smbmXcJ09lJdL4+7X4FaCT/lK18A3Q/VctqyP0uHZ7s+kTA5IE9+NakFsJAMRxEvXHr2kexOEHkmE5PImrvDfcVtX8NVCkF4NktaOQ1qCbQwIWF6zW7hg67RkuTiiaV+NNOgzT7h2HccC1A6oKzNQ+pyW2XX7eFJQhn2HmFXCnp3Zam4FQFoyUrqi7d1PEI2Icw==
-Authentication-Results: dkim=none (message not signed)
- header.d=none;dmarc=none action=none header.from=oss.nxp.com;
-Received: from GV2PR04MB11799.eurprd04.prod.outlook.com (2603:10a6:150:2cf::9)
- by PAXPR04MB9105.eurprd04.prod.outlook.com (2603:10a6:102:225::9) with
- Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.21.71.16; Mon, 1 Jun 2026
- 19:18:53 +0000
-Received: from GV2PR04MB11799.eurprd04.prod.outlook.com
- ([fe80::2146:83a2:5329:b7c]) by GV2PR04MB11799.eurprd04.prod.outlook.com
- ([fe80::2146:83a2:5329:b7c%6]) with mapi id 15.21.0071.014; Mon, 1 Jun 2026
- 19:18:53 +0000
-From: Frank.Li@oss.nxp.com
-To: Rob Herring <robh@kernel.org>,
-	Krzysztof Kozlowski <krzk+dt@kernel.org>,
-	Conor Dooley <conor+dt@kernel.org>,
-	Sascha Hauer <s.hauer@pengutronix.de>,
-	Pengutronix Kernel Team <kernel@pengutronix.de>,
-	Fabio Estevam <festevam@gmail.com>,
-	Ye Li <ye.li@nxp.com>,
-	Jacky Bai <ping.bai@nxp.com>,
-	Peng Fan <peng.fan@nxp.com>,
-	Joy Zou <joy.zou@nxp.com>
-Cc: Frank Li <Frank.Li@nxp.com>,
-	devicetree@vger.kernel.org,
-	imx@lists.linux.dev,
-	linux-arm-kernel@lists.infradead.org,
+	Mon, 01 Jun 2026 19:19:55 +0000
+Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
+	by sea.source.kernel.org (Postfix) with ESMTP id D52EC406BA;
+	Mon,  1 Jun 2026 19:19:53 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 923771F0089B;
+	Mon,  1 Jun 2026 19:19:53 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
+	s=k20260515; t=1780341593;
+	bh=NhFxldIBjPBUTua/YfxeMMHdCARnPekS5WZgGemC+8Q=;
+	h=Date:From:To:Cc:Subject:References:In-Reply-To;
+	b=CwF7GgViXVTYL1XEQ2gUlw926h25cBeIJxhIIw1viptMID57r7cX+f0DUXabsu03t
+	 4BRMGy9VA/EfK7NbtHNvjQVSexU5wREpbHtorKHQ4zB+ZB3dxOdkXfBJPb2M38WeoB
+	 es4OPC998fhMoOcv5Uk97ngxz5MPBtr/FyrlkP0vrkTX3lXcKtAFsY3X7Ypy8AxG8i
+	 Jab/oU53bM1AZwe6qZHvszeaLbwE3wxPo+A1f6GZBPG6/hAZsXkorDD3A6k+ImBVPs
+	 LH3n7Kv7N07piD1tddbkO76DNN+4NsHWnM0qG5pv1Crz+hAljaFYZRzmaiCes3H+g6
+	 tig2fe2IztQ1g==
+Date: Mon, 1 Jun 2026 12:19:52 -0700
+From: Oliver Upton <oupton@kernel.org>
+To: Fuad Tabba <tabba@google.com>
+Cc: Marc Zyngier <maz@kernel.org>, Joey Gouly <joey.gouly@arm.com>,
+	Suzuki K Poulose <suzuki.poulose@arm.com>,
+	Zenghui Yu <yuzenghui@huawei.com>,
+	Catalin Marinas <catalin.marinas@arm.com>,
+	Will Deacon <will@kernel.org>, Quentin Perret <qperret@google.com>,
+	linux-arm-kernel@lists.infradead.org, kvmarm@lists.linux.dev,
 	linux-kernel@vger.kernel.org
-Subject: Re: [PATCH 0/5] arm64: dts: imx91-11x11-evk/imx91-9x9-qsb: misc cleanups and improvements
-Date: Mon,  1 Jun 2026 15:18:45 -0400
-Message-ID: <178034151520.341765.17801970640473394139.b4-ty@b4>
-X-Mailer: git-send-email 2.43.0
-In-Reply-To: <20260519-b4-imx91-qsb-opt-v1-0-9b416d2dc224@nxp.com>
-References: <20260519-b4-imx91-qsb-opt-v1-0-9b416d2dc224@nxp.com>
-Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: 8bit
-X-ClientProxiedBy: SA1PR02CA0007.namprd02.prod.outlook.com
- (2603:10b6:806:2cf::18) To GV2PR04MB11799.eurprd04.prod.outlook.com
- (2603:10a6:150:2cf::9)
+Subject: Re: [PATCH] KVM: arm64: Flush HCR_EL2.VSE to deliver SErrors to pKVM
+ guests
+Message-ID: <ah3bWEOQUB27gMS3@kernel.org>
+References: <20260531154548.1505799-1-tabba@google.com>
+ <ah3agGh1s61HKiPG@kernel.org>
+ <CA+EHjTyLWoM6_pSzC4bqN+EKpuAtDoKOZN39B0UMR_Va5Af_XQ@mail.gmail.com>
 MIME-Version: 1.0
-X-MS-PublicTrafficType: Email
-X-MS-TrafficTypeDiagnostic: GV2PR04MB11799:EE_|PAXPR04MB9105:EE_
-X-MS-Office365-Filtering-Correlation-Id: c93612e8-93da-4808-7d15-08dec0129df7
-X-MS-Exchange-SenderADCheck: 1
-X-MS-Exchange-AntiSpam-Relay: 0
-X-Microsoft-Antispam: BCL:0;ARA:13230040|1800799024|7416014|366016|376014|19092799006|921020|11063799006|3023799007|6133799003|18002099003|22082099003|56012099006;
-X-Microsoft-Antispam-Message-Info: eQ5yPv9RU2OsRSE3b+pgm6KrKMRM5JFyk5WYNk1phcsiCx/D+Twax50xIf57GW3LdbG5E4UtJQA0PP5/M/gv223I+XJbLK7MOXWGsjWL7SkbdZuDtKqJ1PCWzhDYZXbUQeUwfDgUaIl2J17Ly8WGhJZ2WjEhpHlql8NFIpKDKYnPS0y0R02cWV40pq4dCcIJzgnYvVUM5NV1KvebZv0hW8TJL9eRKk3GUnVIoeV1oJ+mk3+QjNfXRJQji/AVeSC6HLiBJ2K0g96bpBKcgEztlMEL7gLxwt/BOUaT9jsxhtiwog2iZJX0RiGGxGczB8FK+M5n91iz/wWXUzqQSvSOUbmMQhEng8oyyWCAbcrI5kDXRn5Th/EbixqZC1D4wo5IubxhIbIjvgK8+QgxblQju36JBKf37olQvZLIMB4WoQvCRQLQYNMwrFGL/I/3FpLH6qABfrwKSEm7N48rZg8X31ncmMDwX0H4qF8iFJ5rYi2Z92BiC0WRCTXMAuBD2P9ySa7P9btyg8wltf6vkMJ1zfJ+yDeDINLqk/pVlghajZR0Vwhqaxi5UKsBaPPsOKBXKSozs1YeMGNItqzrjJbByybMWUxzDCIJDZPd+D3Nr9cLUDQ/YGW50+QuW2sUKO/My9qtkhppi9Fg2V37qZVB7rCo8fhJYg6TzsQ7Rtm6dAqUmob5B8a2km9KsOc8gi5ea1wYqVbQel2tryFhg7m500W9VgJOJFta6l1a14jUr2o=
-X-Forefront-Antispam-Report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:GV2PR04MB11799.eurprd04.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(1800799024)(7416014)(366016)(376014)(19092799006)(921020)(11063799006)(3023799007)(6133799003)(18002099003)(22082099003)(56012099006);DIR:OUT;SFP:1101;
-X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
-X-MS-Exchange-AntiSpam-MessageData-0: =?utf-8?B?Q1pOQVUvalNjMlQ0blpaTlRMenJFbUJvdDlOdjJxT0tYTnk4amIxeXZ3YXM0?=
- =?utf-8?B?bDRGT3dUdE9GTExkc3BmbVdvRnJYSUZtTXd0S3UxTHRtMHFjQ2t4OXp0VG13?=
- =?utf-8?B?YWtlMEpiWVZEeVFkL1pUaTVQdDNLcCsrZWhDSUhSMGhSanBaOWowby9jQnRQ?=
- =?utf-8?B?dDBtQzMvM1MxM3pDWmFZVnEzUTROMVZ4ajY3ZWdrL1F6Y3Y4ZHhvVlRXNjdU?=
- =?utf-8?B?UGJIeElmUWFWZTI4cEF6MlFtUlFKME01bDBob3d6VkZBaWpZY1B1Q1hMRkkx?=
- =?utf-8?B?OEFHUEZPTUZlWmw1Q2wwNXZZNE9uSVZ1bU1hNWlKd0JGdDVXT1lOaHRFdFRF?=
- =?utf-8?B?amVWZEZXR2VybkxuZ2JVWVdCc0ZEemhaVEVMNkFmN3IvZ0wzWWVKWTVoUlQ1?=
- =?utf-8?B?dXlQckI3T2lSNE9tM0tMWm5acTdMNjNpNWFjc2dTMUNUNVNDcldYaXJiaDBE?=
- =?utf-8?B?SVhIWFhZeURPUWZCN0g5dTVpenVibzlVdEpZNjlWeklDUE9HZjNvQWsvc2l4?=
- =?utf-8?B?M0o1NXZTV2IySTRNckh1aWI1a3BlUlZXMnZmRFYrUDdONEE3RUpUbVBtaTNt?=
- =?utf-8?B?NVBtMTVJdTJBQ0F2SGcvbWxJU3ZTTEMxU1Rpai90MENJYkt5ak92N0JIVXlt?=
- =?utf-8?B?VEZWc0ttOS90S05sS2xFejhIQWUyVFhhWU1mZzkyc1VrZmdUUG5mZlpGdm00?=
- =?utf-8?B?UXpLdjVOOFJDekM1SVI0OTRyS0Q4dEJ0VldkRlEyODFuM21zTG0wZWlzRnFh?=
- =?utf-8?B?VFhCS3FvZE9ZMTRLcm00QTQreFFJNS9kZTMrNTVyMjgwd1Q2SXp0ZGhxK1Fv?=
- =?utf-8?B?UHJtUDZMTUg4TzR5TmJ4NE8yajEzUFc3TWt6ZHJyWjBGWEZYSnlKR0s2cHNR?=
- =?utf-8?B?d204NFMyMG1xMFBLVTRMSWswTG9KVW9LUUIrbWh3N3R1cVV3cXNXTVp3SWhw?=
- =?utf-8?B?c1Azd0JIemNMM1Qzd1lTb2t1STJQWWh1emppZzZWem1XZTIzS21GMXdMZnl6?=
- =?utf-8?B?eE5OS2RWOEFrelNia2lnOCsxU0dVTTFvUm5ZS2tyUGtla0tHWThrbS8zZTdp?=
- =?utf-8?B?WG5meFJNTEJ2Z25SY01zQ1EvK0xMM0NXeTNNd04rVXI0VjhrZUtFZE5QVWd4?=
- =?utf-8?B?ejVlbXlEVjVJSEkrYlBCOTdWREJncmVrWjlONVJlY3dpQzVZbmQ5cWZjM1dm?=
- =?utf-8?B?c3pQWXlER0RLU2lxbzZNTjg2N2l6TU93djFUcVQraEp2Tk9GaGxvZEVKMXJG?=
- =?utf-8?B?cnMzcElqZEZQMEZxTVFPWW93SUxFYXdOK1NhS3Q1dGd5L1hIYSszUE9HRjBk?=
- =?utf-8?B?ck81SkNjMkpmVXlSejhDb3A3M0ZqTW1qd3l4dmFQV2EzQjJpTElQM2RidHBj?=
- =?utf-8?B?dm9oZmhPZVVyL2hCeUNSbGtzT0hjREhabFVxbHRsYXMxbTV5UE9UVW5JWFht?=
- =?utf-8?B?SW5FdTFUMXFUT1ZVMGFqaUEva1RqZTNwNlYxTEQ0YTZXNkJsWkkrVjZMSGVD?=
- =?utf-8?B?VzFEL0lWU1B4MThGb2cyRTJBMTlUQkEwMmtKNnZ4NGplckpXdDdaMGFUQXpI?=
- =?utf-8?B?aEtIdUpCUXV6QlpzVUNVZlFhaUV2NVlVK3Y1UTlEMmQ2c3ZEeTBMV1FlTU5H?=
- =?utf-8?B?cnd3YW5LblpmVHZOMXJ2anpGY3JBR25mSEVpd3lqYUN6YmUrU2o2d0ZqZlJU?=
- =?utf-8?B?OTBQdUVDaEVhN2xabzkzcFNzbS8zUjdaQ05manhRMUtRc0I4TG56aWpCeXBL?=
- =?utf-8?B?OUZ3K3dmSjFXdE1QdlZIMTc0VlEyOVZRc3FHZ0VKcDlBRFJ6WDJ3SlVEeElS?=
- =?utf-8?B?NXE0V2lNV3VtTUgxNVU4bThtM25WTVRQa0J3MVU1QnB1eURXWGxDNTlJK2dm?=
- =?utf-8?B?USt1amhrWG5sMTF0RkpRcG5RWjN2eisyd3pEaDc3TUJCWW1oZzRydkYvR2Va?=
- =?utf-8?B?SXFhMk1yMjRzREdNMEdNTzFXQm5lVC84aEpGT0dVOFU0L296WUZaYXJwSFNj?=
- =?utf-8?B?b3pCMGJidTJUMXlEUC9HSEtrKytqR1NMS1VvY1pUR05wbVlhN0NFOURCdXdL?=
- =?utf-8?B?NUthWnhkYTU2RzRQUDlPV1hmU3NxYXRoR2RHVHpYZDFXN242anJoZ0ZVYXY4?=
- =?utf-8?B?UHBMdDBuVGN1cVJKck91WlJINllGbDBGelhvTVBFU3dMRjJNTm9seklpYXRn?=
- =?utf-8?B?RVFvR3BoKzM1TkFObFV0WktFN0pmcTYxbkY3WVRHb3pDOU1CT0ExcGRzSGZW?=
- =?utf-8?B?RTQrYjJRWmhqK3JtU0lmallsdWd5SFUxSTI0NW11MW1GM1RFRVBJcWI0RG1D?=
- =?utf-8?B?dFpvc3pNRTRJcHN5VGdCZWx4TDlBZGJUQWhPVmNyN3YyVi9aU3FwWlBmd09n?=
- =?utf-8?Q?3P6ev80YORo2w1R7Z9sHCzjmeBQUzvzU+/fvY?=
-X-OriginatorOrg: oss.nxp.com
-X-MS-Exchange-CrossTenant-Network-Message-Id: c93612e8-93da-4808-7d15-08dec0129df7
-X-MS-Exchange-CrossTenant-AuthSource: GV2PR04MB11799.eurprd04.prod.outlook.com
-X-MS-Exchange-CrossTenant-AuthAs: Internal
-X-MS-Exchange-CrossTenant-OriginalArrivalTime: 01 Jun 2026 19:18:53.1115
- (UTC)
-X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
-X-MS-Exchange-CrossTenant-Id: 686ea1d3-bc2b-4c6f-a92c-d99c5c301635
-X-MS-Exchange-CrossTenant-MailboxType: HOSTED
-X-MS-Exchange-CrossTenant-UserPrincipalName: hF2u8N5F02sFBWCbNLKhFYdzb6AHq1MPcwl3vrsZBw9wKamrLzQ6hTfFIVMPn9n0oImkiHmT6pTLDFAAmxttPoPb2SHjicqi+wewQxGXLRbPp0by2HkRgkH1JqTn8A4o
-X-MS-Exchange-Transport-CrossTenantHeadersStamped: PAXPR04MB9105
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+In-Reply-To: <CA+EHjTyLWoM6_pSzC4bqN+EKpuAtDoKOZN39B0UMR_Va5Af_XQ@mail.gmail.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260601_121859_061572_59A8E4CA 
-X-CRM114-Status: UNSURE (   8.35  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20260601_121954_219112_726A065B 
+X-CRM114-Status: GOOD (  27.61  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -159,34 +79,68 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-From: Frank Li <Frank.Li@nxp.com>
-
-
-On Tue, 19 May 2026 19:15:14 +0800, Joy Zou wrote:
-> Remove unused clock-frequency property from mdio node for i.MX91 QSB.
+On Mon, Jun 01, 2026 at 08:17:18PM +0100, Fuad Tabba wrote:
+> On Mon, 1 Jun 2026 at 20:16, Oliver Upton <oupton@kernel.org> wrote:
+> >
+> > On Sun, May 31, 2026 at 04:45:48PM +0100, tabba@google.com wrote:
+> > > With pKVM enabled, the host injects a virtual SError by setting
+> > > HCR_EL2.VSE on its vCPU copy, but flush_hyp_vcpu() only flows TWI/TWE
+> > > into the hyp vCPU that runs, so VSE never reaches it and a deferred
+> > > (masked) SError is never delivered. VSE is a host-owned injection
+> > > control, not a trap-configuration bit, so restricting the host's
+> > > trap-register values should not have dropped it. Flow it on entry;
+> > > sync_hyp_vcpu() already copies hcr_el2 back, so delivery is reflected
+> > > to the host.
+> >
+> > Might be worth mentioning that flush_hyp_vcpu() also forwards VSESR_EL2
+> > from the host since that bit is _just_ out of context of this diff :)
 > 
-> Add watchdog pinctrl configuration for i.MX91 EVK and QSB to support
-> external reset output.
-> 
-> Add Ethernet PHY reset GPIO configuration for i.MX91 EVK and QSB to
-> ensure proper PHY initialization.
-> 
-> [...]
+> Sure, would you like me to respin? Or would one of the maintainers
+> kindly add that? :)
 
-Applied, thanks!
+Marc is kindly dealing with the tree for the time being so hopefully
+he can throw it in.
 
-[1/5] arm64: dts: imx91-9x9-qsb: remove unused property clock-frequency from mdio node
-      commit: 8b09eeeef7648d85e5d6000f13e525bd1dead215
-[2/5] arm64: dts: imx91-9x9-qsb: add pinctrl for wdog3 reset
-      commit: 4d0aa213f8be3c36cfc16120824bf703a60b3b4c
-[3/5] arm64: dts: imx91-11x11-evk: add pinctrl for wdog3 reset
-      commit: cb8daa45598ef55b38307b44cf972266930092be
-[4/5] arm64: dts: imx91-11x11-evk: add reset gpios for ethernet PHYs
-      commit: a396a30648e07645b4306d7813dc1b4c82a03e72
-[5/5] arm64: dts: imx91-9x9-qsb: add reset gpios for ethernet PHYs
-      commit: f46fd2f936b7606035edb1fc12d24db4066d5fb9
+Thanks,
+Oliver
 
-Best regards,
--- 
-Frank Li <Frank.Li@nxp.com>
+> > > Fixes: b56680de9c648 ("KVM: arm64: Initialize trap register values in hyp in pKVM")
+> > > Reported-by: Sashiko (local):gemini-3.1-pro
+> > > Signed-off-by: Fuad Tabba <tabba@google.com>
+> >
+> > Reviewed-by: Oliver Upton <oupton@kernel.org>
+> >
+> > Thanks,
+> > Oliver
+> >
+> > > ---
+> > > Not an urgent fix. I should stop running Sashiko...
+> > > ---
+> > >  arch/arm64/kvm/hyp/nvhe/hyp-main.c | 9 +++++++--
+> > >  1 file changed, 7 insertions(+), 2 deletions(-)
+> > >
+> > > diff --git a/arch/arm64/kvm/hyp/nvhe/hyp-main.c b/arch/arm64/kvm/hyp/nvhe/hyp-main.c
+> > > index 06db299c37a8..9e4a20df6409 100644
+> > > --- a/arch/arm64/kvm/hyp/nvhe/hyp-main.c
+> > > +++ b/arch/arm64/kvm/hyp/nvhe/hyp-main.c
+> > > @@ -129,9 +129,14 @@ static void flush_hyp_vcpu(struct pkvm_hyp_vcpu *hyp_vcpu)
+> > >       hyp_vcpu->vcpu.arch.ctxt        = host_vcpu->arch.ctxt;
+> > >
+> > >       hyp_vcpu->vcpu.arch.mdcr_el2    = host_vcpu->arch.mdcr_el2;
+> > > -     hyp_vcpu->vcpu.arch.hcr_el2 &= ~(HCR_TWI | HCR_TWE);
+> > > +     /*
+> > > +      * HCR_EL2.VSE is host-owned (a pending virtual SError to inject), not a
+> > > +      * trap-control bit, so it must flow to the hyp vCPU alongside TWI/TWE
+> > > +      * for the vSError to be delivered. sync_hyp_vcpu() reflects it back.
+> > > +      */
+> > > +     hyp_vcpu->vcpu.arch.hcr_el2 &= ~(HCR_TWI | HCR_TWE | HCR_VSE);
+> > >       hyp_vcpu->vcpu.arch.hcr_el2 |= READ_ONCE(host_vcpu->arch.hcr_el2) &
+> > > -                                              (HCR_TWI | HCR_TWE);
+> > > +                                              (HCR_TWI | HCR_TWE | HCR_VSE);
+> > >
+> > >       hyp_vcpu->vcpu.arch.iflags      = host_vcpu->arch.iflags;
+> > >
+> > > --
+> > > 2.54.0.929.g9b7fa37559-goog
+> > >
 
