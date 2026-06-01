@@ -4,65 +4,69 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 366CDCD6E55
-	for <linux-arm-kernel@archiver.kernel.org>; Mon,  1 Jun 2026 11:00:44 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 29DFDCD6E55
+	for <linux-arm-kernel@archiver.kernel.org>; Mon,  1 Jun 2026 11:03:22 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
-	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=szKM+xo2CtG53S4RQ+h02A+npZXUcLB6AowO29QwZPs=; b=48smAQbqkcGG6FAJ3ylTPxNwpS
-	8otvpd3vVHh1WlwtE8J7sU9HsFQTv3ep30p6HpV3Q9YkXA3G0Y/PEKbQW/hb2KGvOwh3lJ6O6DKA0
-	WqlVyvD+M76h2vGAiSLQl12aFtwGEweRHNLj1FRaoEEleJ4h2Yo0S3uTFz0xVlvxEUaaSnjUGMJPr
-	y1lXCE8DDRA9NYx8bhkp3d+HQMz6cE1uqrPvWlN3DDWD8IP/ERWVM9NU4To2Utrcrs3got9L6Lcig
-	Jv6mWmFzhUQZx68UjE1gzv2ti/zdd4gWdYcndxcFgqaNRh86jrlvOryzHnRNLGymuTu8KdWUmEPxR
-	EqFlQUNQ==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=ayyGuPXNbzMLe8mQZepDWEiqCjn5ZdZsLi7kFkvJiOo=; b=H+YWPCkdhBKhV20WxIiALNKvGc
+	t0RgJnyvEalYJWDSxyCVKaztQyD26zLAR+Vv/Xy0HVfXlgtmF98sREOIm+2ciItzFT6A6pa7hfB9N
+	DrOC96M9hFVPOvkRu19tgr4vSK5BpxUvaTXKwB3Hrs+O8iwyFH3rBfGDce3mG/t4BAEN9GlsJ8Tz+
+	danCxPirtkD6SsQaQ6KlhakPztpmwdH87MRwbjvGe9+brv6Iy1OLJmHIKimnvfsATDmcK2oB7wybh
+	p2v1o92JAIiw/YtMe94kKKnsUuad8m4XEjWJZcRMxN27igCsX878WxzednmJFpjfnk+vWlBg/l+Ui
+	6R+QylLA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wU0No-0000000Agmw-2I7Z;
-	Mon, 01 Jun 2026 11:00:36 +0000
-Received: from mail-m15596.qiye.163.com ([101.71.155.96])
-	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wU0Nl-0000000Agll-2aN2;
-	Mon, 01 Jun 2026 11:00:35 +0000
-Received: from [172.16.12.77] (unknown [61.154.14.86])
-	by smtp.qiye.163.com (Hmail) with ESMTP id 4097835ba;
-	Mon, 1 Jun 2026 18:45:28 +0800 (GMT+08:00)
-Message-ID: <a92af1c4-cd0e-4d31-9fd1-7e9cae6bb1d1@rock-chips.com>
-Date: Mon, 1 Jun 2026 18:45:28 +0800
+	id 1wU0QM-0000000AhAO-3aFU;
+	Mon, 01 Jun 2026 11:03:14 +0000
+Received: from foss.arm.com ([217.140.110.172])
+	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
+	id 1wU0QL-0000000AhA1-188o
+	for linux-arm-kernel@lists.infradead.org;
+	Mon, 01 Jun 2026 11:03:14 +0000
+Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
+	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id E75391E7D;
+	Mon,  1 Jun 2026 04:03:05 -0700 (PDT)
+Received: from localhost (e132581.arm.com [10.1.196.87])
+	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id 78C693F632;
+	Mon,  1 Jun 2026 04:03:10 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=simple/simple; d=arm.com; s=foss;
+	t=1780311790; bh=Gn/MPnQncWjyVKr1C8mFGSS5/tSH4yD2SL94sLUzlG0=;
+	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
+	b=fhKvFbbVn3oyAQ1xfG8opZ7YgHS/Fi4eQfWZZUiQwELi8O1NmWx6DhTEPkEAARcyM
+	 7+oDtUKwTJ+Du1Rj9JKoM6Q0qoFK69fSnCn5VgflkkWfJhOv5rA/r16N6WbFvgdSYV
+	 stoJeMjLB9zOxHjaCvzy2IexjtP+A/b1C3xf+H84=
+Date: Mon, 1 Jun 2026 12:03:08 +0100
+From: Leo Yan <leo.yan@arm.com>
+To: Arnaldo Carvalho de Melo <acme@kernel.org>
+Cc: John Garry <john.g.garry@oracle.com>, Will Deacon <will@kernel.org>,
+	James Clark <james.clark@linaro.org>,
+	Mike Leach <mike.leach@arm.com>,
+	Suzuki K Poulose <suzuki.poulose@arm.com>,
+	Namhyung Kim <namhyung@kernel.org>,
+	Mark Rutland <mark.rutland@arm.com>,
+	Alexander Shishkin <alexander.shishkin@linux.intel.com>,
+	Jiri Olsa <jolsa@kernel.org>, Ian Rogers <irogers@google.com>,
+	Adrian Hunter <adrian.hunter@intel.com>,
+	Al Grant <al.grant@arm.com>,
+	Paschalis Mpeis <paschalis.mpeis@arm.com>,
+	Amir Ayupov <aaupov@fb.com>, linux-arm-kernel@lists.infradead.org,
+	coresight@lists.linaro.org, linux-perf-users@vger.kernel.org,
+	Leo Yan <leo.yan@linux.dev>
+Subject: Re: [PATCH v6 0/8] perf cs-etm: Support thread stack and callchain
+Message-ID: <20260601110308.GN101133@e132581.arm.com>
+References: <20260526-b4-arm_cs_callchain_support_v1-v6-0-f9f49f53c9dd@arm.com>
+ <ahmpSnDTJ14_BNiv@x1>
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH 2/5] drm/rockchip: vop2: Wait for layer cfg done before
- switching LAYERSEL_REGDONE_SEL
-To: Cristian Ciocaltea <cristian.ciocaltea@collabora.com>,
- Sandy Huang <hjc@rock-chips.com>, =?UTF-8?Q?Heiko_St=C3=BCbner?=
- <heiko@sntech.de>, Maarten Lankhorst <maarten.lankhorst@linux.intel.com>,
- Maxime Ripard <mripard@kernel.org>, Thomas Zimmermann <tzimmermann@suse.de>,
- David Airlie <airlied@gmail.com>, Simona Vetter <simona@ffwll.ch>
-Cc: kernel@collabora.com, dri-devel@lists.freedesktop.org,
- linux-arm-kernel@lists.infradead.org, linux-rockchip@lists.infradead.org,
- linux-kernel@vger.kernel.org
-References: <20260504-vop2-layer-cfg-tmout-v1-0-730226a7331e@collabora.com>
- <20260504-vop2-layer-cfg-tmout-v1-2-730226a7331e@collabora.com>
-Content-Language: en-US
-From: Andy Yan <andy.yan@rock-chips.com>
-In-Reply-To: <20260504-vop2-layer-cfg-tmout-v1-2-730226a7331e@collabora.com>
-Content-Type: text/plain; charset=UTF-8; format=flowed
-Content-Transfer-Encoding: 7bit
-X-HM-Tid: 0a9e82c9e0e709d8kunmad12aac138cee1
-X-HM-MType: 1
-X-HM-Spam-Status: e1kfGhgUHx5ZQUpXWQgPGg8OCBgUHx5ZQUlOS1dZFg8aDwILHllBWSg2Ly
-	tZV1koWUFITzdXWRgWCB1ZQUpXWS1ZQUlXWQ8JGhUIEh9ZQVlDGUxKVk1JHhlCQ01KTkxLSFYVFA
-	kWGhdVEwETFhoSFyQUDg9ZV1kYEgtZQVlNSlVKTk9VSk9VQ01ZV1kWGg8SFR0UWUFZT0tIVUpLSU
-	9PT0hVSktLVUpCS0tZBg++
-DKIM-Signature: a=rsa-sha256;
-	b=BfXqXNyopum9m3NwZ3/eLvgDX/aWRtwx81UaXfNhBs/h5/HxoDhhncez6cfRAWAHnc/Vwd9lvbGj6wLRIWR3Ylgs82gcHezYHfcWMPBEzr5O5UuzfgX21toLVYA6gNXbgvCqBBq6keqTxKZGXDLBosAcXbIMOL+FUBNHcP/azD0=; c=relaxed/relaxed; s=default; d=rock-chips.com; v=1;
-	bh=szKM+xo2CtG53S4RQ+h02A+npZXUcLB6AowO29QwZPs=;
-	h=date:mime-version:subject:message-id:from;
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+In-Reply-To: <ahmpSnDTJ14_BNiv@x1>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260601_040033_859291_47FAED16 
-X-CRM114-Status: GOOD (  15.88  )
+X-CRM114-CacheID: sfid-20260601_040313_345680_BC43D0C1 
+X-CRM114-Status: GOOD (  12.74  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -77,67 +81,20 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hello,
+Hi Arnaldo,
 
-On 5/5/26 02:24, Cristian Ciocaltea wrote:
-> LAYERSEL_REGDONE_SEL mask of RK3568_OVL_CTRL register controls which
-> Video Port (VP) vsync latches the shared RK3568_OVL_{LAYER|PORT}_SEL
-> shadow registers into the active configuration.
+On Fri, May 29, 2026 at 11:57:14AM -0300, Arnaldo Carvalho de Melo wrote:
+> On Tue, May 26, 2026 at 05:59:36PM +0100, Leo Yan wrote:
+> > This series adds thread-stack and synthesized callchain support for Arm
+> > CoreSight, which comes from older series [1] but heavily rewritten.
 > 
-> rk3568_vop2_setup_layer_mixer() overwrites LAYERSEL_REGDONE_SEL to the
-> current VP ID before waiting for the previous VP layer configuration to
-> take effect.  As a consequence, the previous VP vsync can no longer
-> trigger the latch, so the wait polls a value that might never appear.
+> Hi Leo,
 > 
-> Move the layer cfg done wait before the RK3568_OVL_CTRL write so the
-> previous VP vsync can still commit the pending configuration.
-> 
-> Fixes: 3e89a8c68354 ("drm/rockchip: vop2: Fix the update of LAYER/PORT select registers when there are multi display output on rk3588/rk3568")
-> Signed-off-by: Cristian Ciocaltea <cristian.ciocaltea@collabora.com>
+> 	Please add what changed from v5, v4, etc.
 
-   
-    Reviewed-by: Andy Yan <andy.yan@rock-chips.com>
-> ---
->   drivers/gpu/drm/rockchip/rockchip_vop2_reg.c | 19 ++++++++++---------
->   1 file changed, 10 insertions(+), 9 deletions(-)
-> 
-> diff --git a/drivers/gpu/drm/rockchip/rockchip_vop2_reg.c b/drivers/gpu/drm/rockchip/rockchip_vop2_reg.c
-> index edca0fb16e08..5206f01ec787 100644
-> --- a/drivers/gpu/drm/rockchip/rockchip_vop2_reg.c
-> +++ b/drivers/gpu/drm/rockchip/rockchip_vop2_reg.c
-> @@ -2289,15 +2289,6 @@ static void rk3568_vop2_setup_layer_mixer(struct vop2_video_port *vp)
->   	 *    lead to the configuration of the previous VP being take effect along with the VSYNC
->   	 *    of the new VP.
->   	 */
-> -	if (layer_sel != old_layer_sel || port_sel != old_port_sel)
-> -		ovl_ctrl |= FIELD_PREP(RK3568_OVL_CTRL__LAYERSEL_REGDONE_SEL, vp->id);
-> -	vop2_writel(vop2, RK3568_OVL_CTRL, ovl_ctrl);
-> -
-> -	if (port_sel != old_port_sel) {
-> -		vop2_writel(vop2, RK3568_OVL_PORT_SEL, port_sel);
-> -		vop2_cfg_done(vp);
-> -		rk3568_vop2_wait_for_port_mux_done(vop2);
-> -	}
->   
->   	if (layer_sel != old_layer_sel && atv_layer_sel != old_layer_sel) {
->   		cfg_done = vop2_readl(vop2, RK3568_REG_CFG_DONE);
-> @@ -2310,6 +2301,16 @@ static void rk3568_vop2_setup_layer_mixer(struct vop2_video_port *vp)
->   			rk3568_vop2_wait_for_layer_cfg_done(vop2, old_layer_sel);
->   	}
->   
-> +	if (layer_sel != old_layer_sel || port_sel != old_port_sel)
-> +		ovl_ctrl |= FIELD_PREP(RK3568_OVL_CTRL__LAYERSEL_REGDONE_SEL, vp->id);
-> +	vop2_writel(vop2, RK3568_OVL_CTRL, ovl_ctrl);
-> +
-> +	if (port_sel != old_port_sel) {
-> +		vop2_writel(vop2, RK3568_OVL_PORT_SEL, port_sel);
-> +		vop2_cfg_done(vp);
-> +		rk3568_vop2_wait_for_port_mux_done(vop2);
-> +	}
-> +
->   	vop2_writel(vop2, RK3568_OVL_LAYER_SEL, layer_sel);
->   	mutex_unlock(&vop2->ovl_lock);
->   }
-> 
+Will do. I am waiting a bit for James' workload test series, I might
+rebase on it and send a new version.
 
+Thanks,
+Leo
 
