@@ -4,83 +4,83 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id B940DCD6E56
-	for <linux-arm-kernel@archiver.kernel.org>; Mon,  1 Jun 2026 10:43:52 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 454ACCD6E55
+	for <linux-arm-kernel@archiver.kernel.org>; Mon,  1 Jun 2026 10:48:38 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
-	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=BdxzfLXr6/G/k/tGtVLcYYbC4QvrQHAxO2smMCOSTy4=; b=mvF0HLjNMe6E9VreW+xoMLStsL
-	GUHqmQhjqM13WZDmLyngOOVVTxdx58Ap5CooU8w4EPu2AYn5c3YV0lYcEd0gQ20rHSVz6wGmOPWHT
-	K4qL9kDQGfnpcXWu5GF04fyQ5eNsTxRfvNWZX4dTGIVuCnwJMI6kvC7FcWZCLKJL6eT7A7njnBp2v
-	O7nyqVUM3wT3qEVsjxix9rRvMVOSRTXGzOqaYgzIKEhpdej70fZeJ8WJv67nrKoTSaaKDrsAnzGH0
-	c/gnC/0+5t5F7PUKb55Ug6h0bupdnSEsstwXZVGOmaeF7eOJfz6jbKkQ7Yqb74mX/jV4tleyzc2Gw
-	rro5b1sw==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:
+	Content-Transfer-Encoding:Content-Type:MIME-Version:References:Message-ID:
+	Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=DND/VxlREnIMV/BHBmA7o3UorgoYPAYDa9JA71INeWY=; b=RtE1NKWhBznKMbUlCR9LMqqdN/
+	7Jgvc6vJefuu3wFhV2NDCaV1Bd2zt4w5VFXNmP9XrQV1uBrbtGidUT40vlqEfxFv3XLTx/zUUNvyv
+	y6zo8dtJWQNz5uJkLdzXIFCrooafbEgpUUzAHS7CoigixDhjyAkPm6CS9ohR5umZyf7uWS2BnsPdN
+	mngBxOXTgydMIQhtsgOIcKf0wSH8gMoUrFHW1BAMB96Y4Uh9sDa33MWLvqjksCCFjkFjxSM7MN7Fb
+	V4ETD7pizRDPpwQ3izbwRM0vqlMZoJFbg7OBRtROt+oluwb2bhISPmxBqVmGdII6SgBYk0RALCqgd
+	e+hcOHYw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wU07V-0000000AeAx-21GZ;
-	Mon, 01 Jun 2026 10:43:45 +0000
+	id 1wU0C8-0000000AekH-0Frn;
+	Mon, 01 Jun 2026 10:48:32 +0000
 Received: from desiato.infradead.org ([2001:8b0:10b:1:d65d:64ff:fe57:4e05])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wU07U-0000000AeAQ-0CPL
+	id 1wU0C6-0000000Aejy-40WA
 	for linux-arm-kernel@bombadil.infradead.org;
-	Mon, 01 Jun 2026 10:43:44 +0000
+	Mon, 01 Jun 2026 10:48:30 +0000
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=infradead.org; s=desiato.20200630; h=Content-Transfer-Encoding:Content-Type
-	:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:Message-ID:
+	d=infradead.org; s=desiato.20200630; h=In-Reply-To:Content-Transfer-Encoding:
+	Content-Type:MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:
 	Sender:Reply-To:Content-ID:Content-Description;
-	bh=BdxzfLXr6/G/k/tGtVLcYYbC4QvrQHAxO2smMCOSTy4=; b=HY4NLnzK19OaVFqYxVE5YLSGsg
-	v0R0zF/xT3r7Scse+0B7IaDUoi2QUmtZfpaPIjVPzPOlUd3GKtv4ZMu6AYrDEF9I8PYSasVuovTwB
-	WGipJP9w5cyR+jI7t1F0dQh4G9jRn6SKZTRcwCtJgy3smGGNy9jzsmx4sNuwlzROPS0nMOAo6/1Yk
-	lvrZdFQfbX0Xl/ia+cPfOjKvfh6wRibOu7Yitc5BSoiGQQFjR5eYROQIM7CQceKZ1hJuO/zNVAjwe
-	M0Pyhjg05f0mviyDeM0AOTksOCqwpDlmQbOZnfvsl0/RNHa5uRikhlSZNWWaHOMEfErUmUotkyL3Z
-	za/HQ5Fw==;
+	bh=DND/VxlREnIMV/BHBmA7o3UorgoYPAYDa9JA71INeWY=; b=G90FabTJVApzqe650va42nsXw2
+	DGOia66ZkkkiWkclF72XbAVt4g+7Hk2t5Q9S24PE7AW5R9D+pFLikz3e6m+U7dLZX7QurRGKghJFa
+	0WhyOUq4Nbf1+4Pa6Bxpxp49RSP2LMTTG/dCoDbC+zqIC+4B2PfwHlI2Ey/e1zJCJKv7e0Uf1Wp+2
+	fK6L3esSECgSqE3/9hkLPIzyU6jpDiBZdNot+fE4gr8B+w8m3XfQXBmKSunlaNOgQhslEjqJwdKW2
+	ywO5HqLhYIKYjuX/DVxEsIPPxCNkWNZsBGn8abpCMhdZqziNUIbIonyVPHXXiiBuRfaTQxGuylYY6
+	IJ31VDPQ==;
 Received: from foss.arm.com ([217.140.110.172])
 	by desiato.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wU07Q-00000006RQ6-2ewW
+	id 1wU0C3-00000006S7z-0zBD
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 01 Jun 2026 10:43:42 +0000
+	Mon, 01 Jun 2026 10:48:29 +0000
 Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
-	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id EB1D41516;
-	Mon,  1 Jun 2026 03:43:34 -0700 (PDT)
-Received: from [10.57.94.8] (unknown [10.57.94.8])
-	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id 38E4D3F905;
-	Mon,  1 Jun 2026 03:43:32 -0700 (PDT)
+	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id 1D7C1176B;
+	Mon,  1 Jun 2026 03:48:20 -0700 (PDT)
+Received: from localhost (e132581.arm.com [10.1.196.87])
+	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id 5D2023F905;
+	Mon,  1 Jun 2026 03:48:24 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=simple/simple; d=arm.com; s=foss;
-	t=1780310619; bh=C3+Nupy9epvTU9YJN+UUOeTEoo2XErmrS9cELXLEaTU=;
-	h=Date:Subject:To:Cc:References:From:In-Reply-To:From;
-	b=ATGD2KEFk9zH6A/3/wbmsLo8Bk16zruKAja2MWpstRHrcKrUHTc7cCqmaTsy1kze4
-	 vG+kAYpgRYGrfxsVM+k07lFcID8aETdcpIWAaY6POEOlyHhT7SAbyCaNPXgf688bb2
-	 NWAccF9tR54IJl/TxpZC5Vs/Yx5VmFz06QrmL7VQ=
-Message-ID: <e9187fdb-b4dc-4b82-8783-fe1eb221d885@arm.com>
-Date: Mon, 1 Jun 2026 12:43:29 +0200
+	t=1780310905; bh=vq7v/eZo0978WXJgs9YTv2H2GgZImRyHXcQrp2ees5k=;
+	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
+	b=pAJIFqJhF/tTwSYuujWia2xGW7MdCs5MYXG9HuSEV7fVkdK6ORU1xbE6eJluGBQik
+	 V39B9fMAurHhqpKyTseAABX2HThb5zRLI/vb6myCiA0OMICZyYYjUqEAyllxMOpGN+
+	 Uw31s4wnFLwOfftaFrkGXTEruaAhyOiO4EOAokoY=
+Date: Mon, 1 Jun 2026 11:48:21 +0100
+From: Leo Yan <leo.yan@arm.com>
+To: "Yingchao Deng (Consultant)" <quic_yingdeng@quicinc.com>
+Cc: Yingchao Deng <yingchao.deng@oss.qualcomm.com>,
+	Suzuki K Poulose <suzuki.poulose@arm.com>,
+	Mike Leach <mike.leach@arm.com>,
+	James Clark <james.clark@linaro.org>,
+	Alexander Shishkin <alexander.shishkin@linux.intel.com>,
+	coresight@lists.linaro.org, linux-arm-kernel@lists.infradead.org,
+	linux-kernel@vger.kernel.org, linux-arm-msm@vger.kernel.org,
+	jinlong.mao@oss.qualcomm.com, tingwei.zhang@oss.qualcomm.com,
+	jie.gan@oss.qualcomm.com
+Subject: Re: [PATCH v9 4/4] coresight: cti: expose banked sysfs registers for
+ Qualcomm extended CTI
+Message-ID: <20260601104821.GM101133@e132581.arm.com>
+References: <20260521-extended_cti-v9-0-d21f4f92c51e@oss.qualcomm.com>
+ <20260521-extended_cti-v9-4-d21f4f92c51e@oss.qualcomm.com>
+ <20260529153200.GL101133@e132581.arm.com>
+ <84614238-35dd-4b10-8267-488d840033c4@quicinc.com>
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH v7 15/15] arm64: mm: Unmap kernel data/bss entirely from
- the linear map
-To: Ard Biesheuvel <ardb+git@google.com>, linux-arm-kernel@lists.infradead.org
-Cc: linux-kernel@vger.kernel.org, will@kernel.org, catalin.marinas@arm.com,
- mark.rutland@arm.com, Ard Biesheuvel <ardb@kernel.org>,
- Ryan Roberts <ryan.roberts@arm.com>,
- Anshuman Khandual <anshuman.khandual@arm.com>,
- Liz Prucka <lizprucka@google.com>, Seth Jenkins <sethjenkins@google.com>,
- Kees Cook <kees@kernel.org>, Mike Rapoport <rppt@kernel.org>,
- David Hildenbrand <david@kernel.org>,
- Andrew Morton <akpm@linux-foundation.org>, Jann Horn <jannh@google.com>,
- linux-mm@kvack.org, linux-hardening@vger.kernel.org,
- linuxppc-dev@lists.ozlabs.org, linux-sh@vger.kernel.org
-References: <20260529150150.1670604-17-ardb+git@google.com>
- <20260529150150.1670604-32-ardb+git@google.com>
-From: Kevin Brodsky <kevin.brodsky@arm.com>
-Content-Language: en-GB
-In-Reply-To: <20260529150150.1670604-32-ardb+git@google.com>
-Content-Type: text/plain; charset=UTF-8
-Content-Transfer-Encoding: 7bit
+Content-Type: text/plain; charset=utf-8
+Content-Disposition: inline
+Content-Transfer-Encoding: 8bit
+In-Reply-To: <84614238-35dd-4b10-8267-488d840033c4@quicinc.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260601_114341_286831_DF2CC561 
-X-CRM114-Status: GOOD (  29.99  )
+X-CRM114-CacheID: sfid-20260601_114828_130289_F2C0E574 
+X-CRM114-Status: GOOD (  13.50  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -95,119 +95,96 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On 29/05/2026 17:02, Ard Biesheuvel wrote:
-> From: Ard Biesheuvel <ardb@kernel.org>
->
-> The linear aliases of the kernel text and rodata are also mapped
-> read-only in the linear map. Given that the contents of these regions
-> are mostly identical to the version in the loadable image, mapping them
-> read-only and leaving their contents visible is a reasonable hardening
-> measure.
->
-> Data and bss, however, are now also mapped read-only but the contents of
-> these regions are more likely to contain data that we'd rather not leak.
-> So let's unmap these entirely in the linear map when the kernel is
-> running normally.
->
-> When going into hibernation or waking up from it, these regions need to
-> be mapped, so map the region initially, and toggle the valid bit so
-> map/unmap the region as needed.
+On Mon, Jun 01, 2026 at 10:08:55AM +0800, Yingchao Deng (Consultant) wrote:
 
-s/so map/to map/? Also not sure what "initially" is referring to here.
+[...]
 
-Otherwise:
+>   I noticed that among the new sysfs knobs in this series, the
+>   integration test registers (ittrigin[1-3], ittrigout[1-3],
+>   ittrigoutack[1-3], ittriginack[1-3]) have no existing documentation
+>   for their base (index-0) counterparts, which were added long before
+>   this series.
 
-Reviewed-by: Kevin Brodsky <kevin.brodsky@arm.com>
+Ah, thanks for pointing out the missed piece!
 
-I don't know much about hibernation though, would be good for someone
-knowledgeable to have a look.
+>   Two options for patch 5/5:
+> 
+>     (a) Document only the knobs whose base versions are already
+>         documented (triginstatus[1-3] and trigoutstatus[1-3]).
+> 
+>     (b) Document everything in patch 5/5 — both the new indexed
+>         variants and the previously missing base IT register entries.
 
-- Kevin
+Please use option (b). Could you fold the code piece below into patch 5?
 
-> Doing so is required because pages covering the kernel image are marked
-> as PageReserved, and therefore disregarded for snapshotting by the
-> hibernate logic unless they are mapped.
->
-> Signed-off-by: Ard Biesheuvel <ardb@kernel.org>
-> ---
->  arch/arm64/mm/mmu.c | 45 ++++++++++++++++++--
->  1 file changed, 41 insertions(+), 4 deletions(-)
->
-> diff --git a/arch/arm64/mm/mmu.c b/arch/arm64/mm/mmu.c
-> index 7b18dc2f1721..07a6fa210171 100644
-> --- a/arch/arm64/mm/mmu.c
-> +++ b/arch/arm64/mm/mmu.c
-> @@ -24,6 +24,7 @@
->  #include <linux/mm.h>
->  #include <linux/vmalloc.h>
->  #include <linux/set_memory.h>
-> +#include <linux/suspend.h>
->  #include <linux/kfence.h>
->  #include <linux/pkeys.h>
->  #include <linux/mm_inline.h>
-> @@ -1056,6 +1057,29 @@ static void __init __map_memblock(phys_addr_t start, phys_addr_t end,
->  				 end - start, prot, early_pgtable_alloc, flags);
->  }
->  
-> +static void mark_linear_data_alias_valid(bool valid)
-> +{
-> +	set_memory_valid((unsigned long)lm_alias(__init_end),
-> +			 (unsigned long)(__bss_stop - __init_end) / PAGE_SIZE,
-> +			 valid);
-> +}
-> +
-> +static int arm64_hibernate_pm_notify(struct notifier_block *nb,
-> +				     unsigned long mode, void *unused)
-> +{
-> +	switch (mode) {
-> +	default:
-> +		break;
-> +	case PM_POST_HIBERNATION:
-> +		mark_linear_data_alias_valid(false);
-> +		break;
-> +	case PM_HIBERNATION_PREPARE:
-> +		mark_linear_data_alias_valid(true);
-> +		break;
-> +	}
-> +	return 0;
-> +}
-> +
->  void __init mark_linear_text_alias_ro(void)
->  {
->  	/*
-> @@ -1064,6 +1088,21 @@ void __init mark_linear_text_alias_ro(void)
->  	update_mapping_prot(__pa_symbol(_text), (unsigned long)lm_alias(_text),
->  			    (unsigned long)__init_begin - (unsigned long)_text,
->  			    PAGE_KERNEL_RO);
-> +
-> +	/*
-> +	 * Register a PM notifier to remap the linear alias of data/bss as
-> +	 * valid read-only before hibernation. This is needed because the
-> +	 * snapshot logic disregards PageReserved pages (such as the ones
-> +	 * covering the kernel image) unless they are mapped in the linear
-> +	 * map.
-> +	 */
-> +	if (IS_ENABLED(CONFIG_HIBERNATION)) {
-> +		static struct notifier_block nb = {
-> +			.notifier_call = arm64_hibernate_pm_notify
-> +		};
-> +
-> +		register_pm_notifier(&nb);
-> +	}
->  }
->  
->  #ifdef CONFIG_KFENCE
-> @@ -1193,10 +1232,8 @@ static void __init map_mem(void)
->  			       flags);
->  	}
->  
-> -	/* Map the kernel data/bss read-only in the linear map */
-> -	__map_memblock(init_end, kernel_end, PAGE_KERNEL_RO, flags);
-> -	flush_tlb_kernel_range((unsigned long)lm_alias(__init_end),
-> -			       (unsigned long)lm_alias(__bss_stop));
-> +	/* Map the kernel data/bss as invalid in the linear map */
-> +	mark_linear_data_alias_valid(false);
->  }
->  
->  void mark_rodata_ro(void)
+Note, we cannot merge ittrigin and ittrigin[1-3] into a single entry
+because they were introduced in different kernel versions.
+
+@Mike, if any chance you could give a review on this?
+
+---8<---
+
+--- a/Documentation/ABI/testing/sysfs-bus-coresight-devices-cti
++++ b/Documentation/ABI/testing/sysfs-bus-coresight-devices-cti
+@@ -134,6 +134,60 @@ KernelVersion:	5.7
+ Contact:	Mike Leach or Mathieu Poirier
+ Description:	(Read) read current status of output trigger signals.
+ 
++What:		/sys/bus/coresight/devices/<cti-name>/regs/itctrl
++Date:		March 2020
++KernelVersion	5.7
++Contact:	coresight@lists.linaro.org
++Description:	(RW) Control integration mode.
++
++What:		/sys/bus/coresight/devices/<cti-name>/regs/itchin
++Date:		March 2020
++KernelVersion	5.7
++Contact:	coresight@lists.linaro.org
++Description:	(Read) Read the values of the CTCHIN inputs.
++
++What:		/sys/bus/coresight/devices/<cti-name>/regs/itchinack
++Date:		March 2020
++KernelVersion	5.7
++Contact:	coresight@lists.linaro.org
++Description:	(Write) Write the value of the CTCHINACK input.
++
++What:		/sys/bus/coresight/devices/<cti-name>/regs/ittrigin
++Date:		March 2020
++KernelVersion	5.7
++Contact:	coresight@lists.linaro.org
++Description:	(Read) Read the values of the CTTRIGIN inputs.
++
++What:		/sys/bus/coresight/devices/<cti-name>/regs/ittriginack
++Date:		March 2020
++KernelVersion	5.7
++Contact:	coresight@lists.linaro.org
++Description:	(Write) Write the value of the CTTRIGINACK input.
++
++What:		/sys/bus/coresight/devices/<cti-name>/regs/itchout
++Date:		March 2020
++KernelVersion	5.7
++Contact:	coresight@lists.linaro.org
++Description:	(RW) Read or write the value of the CTCHOUT outputs.
++
++What:		/sys/bus/coresight/devices/<cti-name>/regs/itchoutack
++Date:		March 2020
++KernelVersion	5.7
++Contact:	coresight@lists.linaro.org
++Description:	(Read) Read the value of the CTCHOUTACK input.
++
++What:		/sys/bus/coresight/devices/<cti-name>/regs/ittrigout
++Date:		March 2020
++KernelVersion	5.7
++Contact:	coresight@lists.linaro.org
++Description:	(RW) Read or write the value of the CTTRIGOUT outputs.
++
++What:		/sys/bus/coresight/devices/<cti-name>/regs/ittrigoutack
++Date:		March 2020
++KernelVersion	5.7
++Contact:	coresight@lists.linaro.org
++Description:	(Read) Read the value of the CTTRIGOUTACK input.
++
+ What:		/sys/bus/coresight/devices/<cti-name>/channels/trigin_attach
+ Date:		March 2020
+ KernelVersion:	5.7
 
