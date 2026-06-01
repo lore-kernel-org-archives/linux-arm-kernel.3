@@ -4,152 +4,93 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 6CF53CD6E56
-	for <linux-arm-kernel@archiver.kernel.org>; Mon,  1 Jun 2026 09:05:03 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id BBBEFCD5BD1
+	for <linux-arm-kernel@archiver.kernel.org>; Mon,  1 Jun 2026 09:05:56 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:
-	Content-Transfer-Encoding:Content-Type:In-Reply-To:From:References:Cc:To:
-	Subject:Date:Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=BuOhiZbwnwad/+u/eGXQfHXWI5NfzU7WUNYe+EGZueo=; b=okoFovYscwQt99XNekbL03+JzF
-	n2ZAaBa0kRBK703wgxZQNog1X1qDCFDjbN6fcph+DOgcQ6B2Ru7xAIsp+c4fKF3AMwTsCIUHEEcXI
-	i1nZvJxAJ4h/YBHPvqh7V8lQcmdwA/IrEWar2ecVSWPKzkcBhEiMwNN0cQGxcBVm2mrNUbpKSKi9j
-	meCTZWjO2DzrZmToD0E6Nsrz5fYzhfIH2Vb6ixsonJuz5ERKwr2+XhFGBQy8HZTYynQtIL6j2JPgl
-	x3jXjJV35Wp6TehKngTpifyD7kxyfA70gnXjUuBhfWVHjdGUzlD395jOqUcpxsv3xQKajPJPogF7S
-	BHnHtLgg==;
+	bh=KRRfPVi4EwVZIHCExLSylYrDcSDk+EWjJ7iY8GJ8iRw=; b=rH09/QEUgCFho1fhR6gkY7Ubvg
+	Z4Oq+9xQ9J/GG7V5QP4U6FbxI1JXeKhFntjV144A/I0o6DBCiAYa4852XSAtwXn+V2n21VNHOQwaQ
+	JOYtW7T5HjiqU/khM/eDvTiH89OtrUr/QnQ9kevaHsWHw5wi6VSqobpAfUA9OJ/szkEfuPQ1EmAOi
+	cF7wAtpJKVVPGXytkKaEaEi086gZKV8MgHsv3sYjnQj7WePJM19jyE2l/DiJd1D5hHDU58pRexdwl
+	NEnvh4KJQXpL3txQuCkNI1vweSt/mviDm+LIZRisXWMYp7iBwKUcAEhqYBvEo/hSRqv2XY9ydvcWQ
+	mfFq6Vtg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wTyZs-0000000ARxi-0jy7;
-	Mon, 01 Jun 2026 09:04:56 +0000
-Received: from desiato.infradead.org ([2001:8b0:10b:1:d65d:64ff:fe57:4e05])
+	id 1wTyak-0000000AS4T-1Qly;
+	Mon, 01 Jun 2026 09:05:50 +0000
+Received: from mail-pf1-x431.google.com ([2607:f8b0:4864:20::431])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wTyZq-0000000ARxb-3ksf
-	for linux-arm-kernel@bombadil.infradead.org;
-	Mon, 01 Jun 2026 09:04:55 +0000
-DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=infradead.org; s=desiato.20200630; h=MIME-Version:Content-Transfer-Encoding
-	:Content-Type:In-Reply-To:From:References:Cc:To:Subject:Date:Message-ID:
-	Sender:Reply-To:Content-ID:Content-Description;
-	bh=BuOhiZbwnwad/+u/eGXQfHXWI5NfzU7WUNYe+EGZueo=; b=Ab+DXZWvitearB1C5sP6XYxAvM
-	7DM4QbnGnkt81TiCXicxoyFP0pGb3rTyoCtO1vXB5x87oeo0kq6FvXjnEK70gy/PxkNOV6Ut6sEDS
-	gaSB1iPNXis/kuBEbsEeXlBhydKmLBux2qzAxE/9STZPM3pn4b0vYQxNmBcihhkcy5Uw4/mGY8FE4
-	J6hI4Mq7I7430cFEh3uvpHu9hHzuXhXb7xrRCNuJhsar0RbKXubQfU6vHHxcEG+/zqbcb4M2+3fpq
-	OYN6byAsJhpNRQ7XXPrrQsh94R3W+ZG1nSnQ99z4RC9U8ES/1/t4hFF/NoW1bmMWrDV1N7bMVSxgc
-	Eq8npvxw==;
-Received: from mail-westus3azon11012021.outbound.protection.outlook.com ([40.107.209.21] helo=PH8PR06CU001.outbound.protection.outlook.com)
-	by desiato.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wTyZn-00000006AZB-2YmZ
+	id 1wTyai-0000000AS3j-069z
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 01 Jun 2026 09:04:53 +0000
-ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
- b=qXDoDZ1zt9/MeZBh+QbQTGOzy3wR96YEGylNqFuzISi0yDaKYLo647nppmRSiywLQisrXV4fIVX/UpDi2QaB8PUIFq2aSdQxc6yVESV8MemEu0IlmdIWyfC7ETIkaQVLP3WSbEvSYHIjM13eqj6XaLH0klvzZbJvYk17Sff5LyLbVkxTURrmm1Hmi+/4177szZVeU3QKNjgIs/Swdxsllww6SRENevRsRro26/B7YVgspJqlYWKD2UooPjM39h+zlxBiV55oOEqLabQBhTwvjLBJnRZE52WYlQbA6oHzW2ttT2CGo+ytSTuhHKnVWKlUmV0OUH7srE2CNkOiuHr1bw==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
- s=arcselector10001;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
- bh=BuOhiZbwnwad/+u/eGXQfHXWI5NfzU7WUNYe+EGZueo=;
- b=A1Z+bFzHki+vcdGgL4rbolbaHTA4Lu4NwJsj94WJ0NOxNUnbJfdGEnAvbHqByQPZ5XN9Zm7c5pZ5MoaTN0VwKEQJXngEgeMbSpco4g/clv3jz2t7JMFjHkFDOZJ671fHPZRXypX8q3vVbAx4iq7X4IDchvaj74V8BgaljvQa136d3qXaVWdS3m5mR5nPMFUkz1NUobfEapV5QxCDGygt6wQn70n9VrKKyzp4UcmTU4nlEOWz2dNHa1RpbmXLWb/c6LWkpi3Qw9+xVB/IRj4D6n2qyiTQPdijz6sY57oi+64or1cDlM0sq3ASPhZq48NoqVHY2cUwC44tzANrCAx3hA==
-ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
- smtp.mailfrom=nvidia.com; dmarc=pass action=none header.from=nvidia.com;
- dkim=pass header.d=nvidia.com; arc=none
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=Nvidia.com;
- s=selector2;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
- bh=BuOhiZbwnwad/+u/eGXQfHXWI5NfzU7WUNYe+EGZueo=;
- b=jhxu7BlYmFYiZWFwRf4ID0ptKjAd85qrlfsfPNO21soh4cHrDBtwijw0nC3RK9jzGdObRW8virjR+y57xpwRKVUiNpO2FomBGvdnHY2BhV8CrA5wsHq187JQtJSGm99io1BxD1H+fuiD4JKXjWGuqyyWRge1se2IvbW4jVnRDRlcAVgROgMQ/nYkGk2HKC031HK4FAHZRKqZ6dW9e9UqzrnlfYZMNo2uWiYr0FvtBcbnU9SVIIJ2m34cvysZ1B1uKZUcaLfEZ+wKZgfuzPEpaJUjiblonNWMOH9EyRxJGz0DuplM6l4MzGNCPPv5WQZfa7EP4dZdDjbeKPzBDtNzMw==
-Authentication-Results: dkim=none (message not signed)
- header.d=none;dmarc=none action=none header.from=nvidia.com;
-Received: from BN5PR12MB9511.namprd12.prod.outlook.com (2603:10b6:408:2a9::14)
- by CH3PR12MB7523.namprd12.prod.outlook.com (2603:10b6:610:148::13) with
- Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.21.71.16; Mon, 1 Jun 2026
- 09:04:44 +0000
-Received: from BN5PR12MB9511.namprd12.prod.outlook.com
- ([fe80::4d8d:5f91:6c3c:dc8c]) by BN5PR12MB9511.namprd12.prod.outlook.com
- ([fe80::4d8d:5f91:6c3c:dc8c%4]) with mapi id 15.21.0071.014; Mon, 1 Jun 2026
- 09:04:43 +0000
-Message-ID: <ee6321cd-44f5-4ce7-aa32-27e1fb886238@nvidia.com>
-Date: Mon, 1 Jun 2026 14:34:37 +0530
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH v2 1/2] iommu/arm-smmu-v3: Detect Tegra264 erratum
-To: Nicolin Chen <nicolinc@nvidia.com>
-Cc: will@kernel.org, robin.murphy@arm.com, joro@8bytes.org, jgg@ziepe.ca,
- linux-arm-kernel@lists.infradead.org, iommu@lists.linux.dev,
- linux-kernel@vger.kernel.org, linux-tegra@vger.kernel.org
-References: <20260529140830.629738-1-amhetre@nvidia.com>
- <20260529140830.629738-2-amhetre@nvidia.com>
- <ahoFbo7KNHiHh+D6@Asurada-Nvidia>
-Content-Language: en-US
-From: Ashish Mhetre <amhetre@nvidia.com>
-In-Reply-To: <ahoFbo7KNHiHh+D6@Asurada-Nvidia>
-Content-Type: text/plain; charset=UTF-8; format=flowed
-Content-Transfer-Encoding: 7bit
-X-ClientProxiedBy: SJ0PR13CA0172.namprd13.prod.outlook.com
- (2603:10b6:a03:2c7::27) To BN5PR12MB9511.namprd12.prod.outlook.com
- (2603:10b6:408:2a9::14)
+	Mon, 01 Jun 2026 09:05:49 +0000
+Received: by mail-pf1-x431.google.com with SMTP id d2e1a72fcca58-8422f148dfcso581167b3a.3
+        for <linux-arm-kernel@lists.infradead.org>; Mon, 01 Jun 2026 02:05:47 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=gmail.com; s=20251104; t=1780304747; x=1780909547; darn=lists.infradead.org;
+        h=in-reply-to:content-disposition:mime-version:references:message-id
+         :subject:cc:to:from:date:from:to:cc:subject:date:message-id:reply-to;
+        bh=KRRfPVi4EwVZIHCExLSylYrDcSDk+EWjJ7iY8GJ8iRw=;
+        b=j7wBDOvoWDhxdBfThaSE/5B8h2KCKv1nSzkpJ3oQCBUBdZhkPZ1ta4KaToinqZN8cG
+         skK05g2gHYL1JdX0vketnXDnb4zsgCawPE/hkhkc/os9y9WP6BAxAyYiWXM2TMKjIxSe
+         d6FI/4m1KwcZP44C8XqCvqESS1LPUJ9MDjUSKtlGCRhAu2igF32dAonVc4BJmV1dcang
+         6Pkrk1y3ZHCNwxwgT1GgPx4yMyvAmAdnSRntKJMu5Oi5wMx2zAwO9hpNYkdx7MA7wKmB
+         1Zltq5T9jQrVL4iiLZDqLetp9bHvx6WiNXTugIM5Am3tWPz1pjL2xmu8pvwEoUM3wwyR
+         meFA==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20251104; t=1780304747; x=1780909547;
+        h=in-reply-to:content-disposition:mime-version:references:message-id
+         :subject:cc:to:from:date:x-gm-gg:x-gm-message-state:from:to:cc
+         :subject:date:message-id:reply-to;
+        bh=KRRfPVi4EwVZIHCExLSylYrDcSDk+EWjJ7iY8GJ8iRw=;
+        b=gmHrkF60BaGC/wzwyV3IcFiCFSXdYQaomP4MTwfODqVLKv9l5AmwtnvY9+WVMDCJqR
+         fD5JH9SqM0/0tUYLouDA0f55xuC4UcncP62UPDq/ogdRCiZSwRvSiyjrNtpGnipmZGkv
+         yHvCGpd/ml/DYntroc8jGSD5Zc4DxfhtuzO+wxd+f4S7EPbLYOd6f6UvReQZX6n5D/uF
+         VKEGE+25GR9WXo++TZ3SSqTvcipzbUChHl/jg5Avz9x0RFveQRIOcTflb4hBlWrRj01f
+         fvZMwgoeuqohBP9MnRgLQ4X6NeJahGf7XsZIHoutb+LK3Q0qNfrsVDtaVKBPAvoHtkzV
+         uyQQ==
+X-Forwarded-Encrypted: i=1; AFNElJ/y27GYnTE0Dr+8Qw4iWX0yTD2llmoPFVBCA9GtZ4uybyw3rViLgTqWElgImxCGtJZceeDSH67BiO5PPJ1mGNyK@lists.infradead.org
+X-Gm-Message-State: AOJu0YwpkBzsS0Ridv6pTCYhK/H2V7lBnwTLmrPEEJZcXRS58ntzndoz
+	Q4GS9S+KuzO33YfjtsttyF8mm2UaisxOUV9lmFyRJvFlcfEbzMvT22x8
+X-Gm-Gg: Acq92OHPcrJtRjSN51WBVsl34c1VFN5hIjSjERDFMVEy/Zmlbt4+JG7tG5f5U/6rGS1
+	WFOUWnRF0kTm9uxQ0Ue559L5sOPNXpUfo+3LqUv6Q8Z3UAnGDluXf2ZWm0qkjYlfijkc1RiaUMS
+	fdZOPAILgaCOtIr4EtptAp02TP3VDqT9oOQA2uizrnZ/Lv0+N7x61RCU7Am2CbvSjQ2BAsJ4cT+
+	KnpQ9XJuIHi3RnkrrhEQUhcRs8qT6b2afrb1I/flNQqtrIFJtGSUv66ZJ2YZ5qqREjkGNnt6LVy
+	HeIQueTZ/39Pa3rMDosbmoZiL7C0uV0zU9nCyJBy7e3YofXcynK44LhQclpWboeSq3RsO8+Ej07
+	PLzPjz6I6+mImVMFKoq3MN2Bh65gCrY+3TF+q+G3MM47fIMGqmDrkEDOuTssZimcLZ3JJtgF9IC
+	HW+veHcOUcKvv1pHKMVD08NO7JgSAXcYqUcw==
+X-Received: by 2002:a05:6a00:3985:b0:83e:f228:b112 with SMTP id d2e1a72fcca58-842254930ffmr9458175b3a.34.1780304747105;
+        Mon, 01 Jun 2026 02:05:47 -0700 (PDT)
+Received: from localhost ([2001:19f0:8001:1b2d:5400:5ff:fefa:a95d])
+        by smtp.gmail.com with ESMTPSA id d2e1a72fcca58-842487f60f9sm3717745b3a.8.2026.06.01.02.05.46
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Mon, 01 Jun 2026 02:05:46 -0700 (PDT)
+Date: Mon, 1 Jun 2026 17:05:29 +0800
+From: Inochi Amaoto <inochiama@gmail.com>
+To: Marc Zyngier <maz@kernel.org>, Inochi Amaoto <inochiama@gmail.com>
+Cc: Tian Zheng <zhengtian10@huawei.com>, oupton@kernel.org, 
+	catalin.marinas@arm.com, corbet@lwn.net, pbonzini@redhat.com, will@kernel.org, 
+	yuzenghui@huawei.com, wangzhou1@hisilicon.com, liuyonglong@huawei.com, 
+	Jonathan.Cameron@huawei.com, yezhenyu2@huawei.com, linuxarm@huawei.com, joey.gouly@arm.com, 
+	kvmarm@lists.linux.dev, kvm@vger.kernel.org, linux-arm-kernel@lists.infradead.org, 
+	linux-doc@vger.kernel.org, linux-kernel@vger.kernel.org, skhan@linuxfoundation.org, 
+	suzuki.poulose@arm.com, leo.bras@arm.com
+Subject: Re: [PATCH v3 3/5] KVM: arm64: Add support for FEAT_HDBSS
+Message-ID: <ah1KLrpYBXSMM91H@inochi.infowork>
+References: <20260225040421.2683931-1-zhengtian10@huawei.com>
+ <20260225040421.2683931-4-zhengtian10@huawei.com>
+ <ahzUUDAMoHtDFJD3@inochi.infowork>
+ <864ijmvdpy.wl-maz@kernel.org>
 MIME-Version: 1.0
-X-MS-PublicTrafficType: Email
-X-MS-TrafficTypeDiagnostic: BN5PR12MB9511:EE_|CH3PR12MB7523:EE_
-X-MS-Office365-Filtering-Correlation-Id: 64d7c581-43d8-46f8-3761-08debfbcd262
-X-MS-Exchange-SenderADCheck: 1
-X-MS-Exchange-AntiSpam-Relay: 0
-X-Microsoft-Antispam: BCL:0;ARA:13230040|366016|376014|1800799024|11063799006|18002099003|22082099003|56012099006|4143699003;
-X-Microsoft-Antispam-Message-Info: aLAkNsDT4K1n6R60EURrvCB+tJqQC0B61i+uD8FwQKQxkuCIUwinc4Cr7+u69EVZS2ipXPsdt0yzqYouGbZuqT/gs9XrjUGi5O7BS5qo+HEr08qqsoCqB3iTCzY4NtFBwDwm0GrTT0BI6J9Eo00GJOb4QHl+M9D2KWK4nz9sZKsJUazlkqOaM4PeVdJpDhQmK1vqq4nToNTo8XnVZq1FGLPFuPd9W8xS4RqK15jgu6pEHefFvgzUhc+KwhhqeCOkXanFZAS6tKzKM4MyNERjTB0rpO4gm94j9Se3SPSlPHhZpa04qaFhnMwztf0oEq0YZdeToInKUWlGtgcO0KiwAYmO1YNb4ofAbSlGgUmeOmvqm8gU+6TmNwSTnPRGxGKWmJgCjn0cj8wNT3RR/nATh7gCAR9ENZhwqsCQyHXOCjcauSn/a/9rIRT/n0xuLhXb5NkdPqMrK8Et5x4ZWHJcSKvEXJBdNf+QpydSc7H9c95nIE4bb22UuSz36MLIpEHSB1JzGImwXORcqEjgYbcaQa0OsFYtl++5Q5swQ0dJz/PhflW7xl+SUKQ64p2k6A2GvEJ85zt2DqoJkrxyeuVVfjB3BNxpxaL/Sm+ycCXNV87o5lgHJTdBs8wLe9kukzK69wwE89Ce9waVMBIQH2kt5pnhkjDBy+u2GtMu57uJDsrDcfifgFy4zA2dApCAdT5i7535VVM+y07f1gZB6aj/+w==
-X-Forefront-Antispam-Report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:BN5PR12MB9511.namprd12.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(366016)(376014)(1800799024)(11063799006)(18002099003)(22082099003)(56012099006)(4143699003);DIR:OUT;SFP:1101;
-X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
-X-MS-Exchange-AntiSpam-MessageData-0: =?utf-8?B?RXlkYnJDd1lqRjREQVR6ZWJJZXk2RzJ2ditVT0N0RG81MThaaUNjSFNMeEZy?=
- =?utf-8?B?VG52ZGpVbTlpYTBMZmpOY1g0OXRTTHlldnB3SE5LNk5GQUFLOHhIZ2F4U200?=
- =?utf-8?B?N3VndWtQcjltaUdGaUhJMkVXNy9zaDJtbXNsZjYvZ29qR0FxekhBTUJoQVpO?=
- =?utf-8?B?QW1vUnNoa3BZRHJEbzZ6VTduUmIvMFZDWWNwY3BiVC9UWUlPelhOSG4xWWMv?=
- =?utf-8?B?U1dhN2Nhd0RDSUVyM3ptdVFIOVJnRitkMThTVTByd05kcVVSU2czMzVFQmxo?=
- =?utf-8?B?R0x0amtFRnNZL0hzNkRhMjA0SkRwbitaMnJnNFl2aExLeXhpM25CSi9DVy93?=
- =?utf-8?B?SVdqd2RkZE44aGhYWkhBMTkyVXlYVTVTdWlUVjBpMmRJU2d2bDcvSWoreFg5?=
- =?utf-8?B?bVZNZEtXRitCUFRzNTVUVzVpRzI0emxZckt5Ti9oUzQzY0xsajBuVVY2TElB?=
- =?utf-8?B?TVN2YURERTEvUTBicm9jWUxDYi9JeDBaaGFIYVVVVHZQZjExTy9zc29VdlhW?=
- =?utf-8?B?clZOYWpLRmtNUGgxT2VHdjgvVE1Hd0gvOEpKQytKSWplRzF1cjN4SThoNkZK?=
- =?utf-8?B?UUVmMUVYWGF5bUZSQzRXb2Q0cmRyQnU1SUhZRDJ0TFRsSkl5LzJUSFppcjhj?=
- =?utf-8?B?MGd0N0pkQ0hYcDhNSGM4Mm1DUnFnRDNDY25OdnM3OW5nZmVFVzVZaTBRQk56?=
- =?utf-8?B?Q2dWZ3R1dFcxenJqdnVKRjArVVVzZVRQeVNOcGFXcDAzMnNNRnZVWWhGMHBV?=
- =?utf-8?B?a0RwYW1WaDNSRWNxcmN3RlN1V2I2RU9PUUtKZ2ZSOFQ1d1dLbTdqV3JBZ2dT?=
- =?utf-8?B?WWpycStiQUlUTDU5bXduSko0NWdnS1VOZ2ljRHNnbnpVdFhTUndtNXo1dTJF?=
- =?utf-8?B?cURZL3l0REZRTFJRUnhNYmljbzJSSnEvNHdaVEhwZ1pUZ1dvdldZT29tLy9H?=
- =?utf-8?B?d3RXUzhBeityVWNmNEVhRUhuMzg2WHdaY1Q3V25RcVZHRjVRZERaU0g0VGNZ?=
- =?utf-8?B?TCtIeHNvWmgrRms4RHV0ODJ2UDJYOVBqQXZNM3pNWWp0UGR1WDZwRFA2VHNn?=
- =?utf-8?B?YVVCZnJsdlF1azNVWWlaQ0trRXZQenZUeUl4OWpNMWI4enM1WDFNSE1WU0Ez?=
- =?utf-8?B?d2dzWmtIM3JQb1pEOHFJa3lTbTFwL3gyNWVUR21IdE0vMnRSdXdKL0RJSGhx?=
- =?utf-8?B?bUZTZEpacjMyN2FZeGgrWnE1Mmo4Zis4RzllbVFGUVNCMVJTZVBzNTh2bnJj?=
- =?utf-8?B?eGNHUytUVk0vU2VwVEtoZDdRRGtqSkJrWnpUR3pTSjE0alV4bjUzblBtbDBh?=
- =?utf-8?B?ZWVSWThZRmgzazl6cWlaRExNRnZNTEZ1RHM3N2xmcytYVGZXN25nTWlSdytl?=
- =?utf-8?B?OHkxRzI0NVRaNkFKeWdvWkdFb1BLZ2xRSGUra1BGdm5UZkhkWXhzNTJOUXJT?=
- =?utf-8?B?QmhKKzdGYjBPVDByNWM1aWVSM1MzY3lTRVE1SUd3enlJWXlsQTZObk1pZjg4?=
- =?utf-8?B?UWFSalVKNHg4YkVtT0pBS0JXTm42WHhrcm9Ka0piQlFZY0ZjcjVrSW41b3ht?=
- =?utf-8?B?cjJaM0lGakZBVHhNWE1hTXJ2UloyeWJtSlBFRitvR0N5K0UxZDNRU2trRHZi?=
- =?utf-8?B?ME9TVFU1NlFrN2xxdGpoZlFKak9ldmd4OTVybUxUUmV4ZUVmeUE5cTY3RFhD?=
- =?utf-8?B?VDNqczJUZE5wRFN2WnRGVzg4TklwWFErWDVIQ0lHVGtranFCQTdEZ0M3Q0JV?=
- =?utf-8?B?MlJsWHR5eGNqQlVobm9UakRMclBZektpV1JCVHdyUU0zNVpzYWVmYUU3R2Y5?=
- =?utf-8?B?Rm1iM0t3clRzaXlVY2tycWhYUGlNaytPM25QdU80amFWaE9oVUlSOXZwS1d2?=
- =?utf-8?B?Y085TTJ2LzU1OVh5aXlGbS9ZdGhhaEJUSCtJdGR6UHp2clM0QjFQWDR1VlJO?=
- =?utf-8?B?WUxuMEYyRmZwR3JLYWZOSHIrVk5OeVBUUHpMdE02TmtDTEZONHBzdVBTQ0Ez?=
- =?utf-8?B?R3RKLzFvTUprK3dmZWhUTmhzV0oxNnpWTnV3WFl1cVpWUzMvcEtCSzZsaU0x?=
- =?utf-8?B?cnI0QVZmMkZGTE9DNGlKZ3RKT0VGSU5ra0lzZnlvWkR5UFZTSENPb1JrVFp2?=
- =?utf-8?B?SVRIWXBiSFZiRlU2LzhudjNvK3FxVnU5NFYyVXJSak5xRlJUWWZwZzdtcmtt?=
- =?utf-8?B?L2VFSjVwNWtNK3ZuR1g2Q1NWSHZ5bUJKYlhQUVBXdXNYOTBsZk00SVkxVVBi?=
- =?utf-8?B?T3haWkdZWE9wc3ZHTStCbTNPVDA4SDhhSmFzTXptYUtodHJIUk5Idzc3SGtU?=
- =?utf-8?B?K1lRazJpbGZlRU5sckhscStRbVBlbW90K0lqZW1OUC9zSTF2eUxFZz09?=
-X-OriginatorOrg: Nvidia.com
-X-MS-Exchange-CrossTenant-Network-Message-Id: 64d7c581-43d8-46f8-3761-08debfbcd262
-X-MS-Exchange-CrossTenant-AuthSource: BN5PR12MB9511.namprd12.prod.outlook.com
-X-MS-Exchange-CrossTenant-AuthAs: Internal
-X-MS-Exchange-CrossTenant-OriginalArrivalTime: 01 Jun 2026 09:04:43.8580
- (UTC)
-X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
-X-MS-Exchange-CrossTenant-Id: 43083d15-7273-40c1-b7db-39efd9ccc17a
-X-MS-Exchange-CrossTenant-MailboxType: HOSTED
-X-MS-Exchange-CrossTenant-UserPrincipalName: YneRyTMW62EpPtq+b6GbngqJYNuKRaGHWG5mDGB2niiRGavbx76ADuQSk/SxIxb/b4Lm5kGH3umJ5aabEAlksA==
-X-MS-Exchange-Transport-CrossTenantHeadersStamped: CH3PR12MB7523
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+In-Reply-To: <864ijmvdpy.wl-maz@kernel.org>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260601_100452_037650_87EF5525 
-X-CRM114-Status: GOOD (  13.32  )
+X-CRM114-CacheID: sfid-20260601_020548_074350_29176CE2 
+X-CRM114-Status: GOOD (  40.63  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -164,31 +105,170 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
+On Mon, Jun 01, 2026 at 09:58:49AM +0100, Marc Zyngier wrote:
+> On Mon, 01 Jun 2026 01:50:22 +0100,
+> Inochi Amaoto <inochiama@gmail.com> wrote:
+> > 
+> > On Wed, Feb 25, 2026 at 12:04:19PM +0800, Tian Zheng wrote:
+> > > From: eillon <yezhenyu2@huawei.com>
+> > > 
+> > > Armv9.5 introduces the Hardware Dirty Bit State Structure (HDBSS) feature,
+> > > indicated by ID_AA64MMFR1_EL1.HAFDBS == 0b0100. A CPU capability is added
+> > > to notify the user of the feature.
+> > > 
+> > > Add KVM_CAP_ARM_HW_DIRTY_STATE_TRACK ioctl and basic framework for
+> > > ARM64 HDBSS support. Since the HDBSS buffer size is configurable and
+> > > cannot be determined at KVM initialization, an IOCTL interface is
+> > > required.
+> > > 
+> > > Actually exposing the new capability to user space happens in a later
+> > > patch.
+> > > 
+> > > Signed-off-by: eillon <yezhenyu2@huawei.com>
+> > > Signed-off-by: Tian Zheng <zhengtian10@huawei.com>
+> > > ---
+> > >  arch/arm64/include/asm/cpufeature.h |  5 +++++
+> > >  arch/arm64/kernel/cpufeature.c      | 12 ++++++++++++
+> > >  arch/arm64/tools/cpucaps            |  1 +
+> > >  include/uapi/linux/kvm.h            |  1 +
+> > >  tools/include/uapi/linux/kvm.h      |  1 +
+> > >  5 files changed, 20 insertions(+)
+> > > 
+> > > diff --git a/arch/arm64/include/asm/cpufeature.h b/arch/arm64/include/asm/cpufeature.h
+> > > index 4de51f8d92cb..dcc2e2cad5ad 100644
+> > > --- a/arch/arm64/include/asm/cpufeature.h
+> > > +++ b/arch/arm64/include/asm/cpufeature.h
+> > > @@ -856,6 +856,11 @@ static inline bool system_supports_haft(void)
+> > >  	return cpus_have_final_cap(ARM64_HAFT);
+> > >  }
+> > > 
+> > > +static inline bool system_supports_hdbss(void)
+> > > +{
+> > > +	return cpus_have_final_cap(ARM64_HAS_HDBSS);
+> > > +}
+> > > +
+> > >  static __always_inline bool system_supports_mpam(void)
+> > >  {
+> > >  	return alternative_has_cap_unlikely(ARM64_MPAM);
+> > > diff --git a/arch/arm64/kernel/cpufeature.c b/arch/arm64/kernel/cpufeature.c
+> > > index c31f8e17732a..348b0afffc3e 100644
+> > > --- a/arch/arm64/kernel/cpufeature.c
+> > > +++ b/arch/arm64/kernel/cpufeature.c
+> > > @@ -2124,6 +2124,11 @@ static bool hvhe_possible(const struct arm64_cpu_capabilities *entry,
+> > >  	return arm64_test_sw_feature_override(ARM64_SW_FEATURE_OVERRIDE_HVHE);
+> > >  }
+> > > 
+> > > +static bool has_vhe_hdbss(const struct arm64_cpu_capabilities *entry, int cope)
+> > > +{
+> > > +	return is_kernel_in_hyp_mode() && has_cpuid_feature(entry, cope);
+> > > +}
+> > > +
+> > >  bool cpu_supports_bbml2_noabort(void)
+> > >  {
+> > >  	/*
+> > > @@ -2759,6 +2764,13 @@ static const struct arm64_cpu_capabilities arm64_features[] = {
+> > >  		ARM64_CPUID_FIELDS(ID_AA64MMFR1_EL1, HAFDBS, HAFT)
+> > >  	},
+> > >  #endif
+> > > +	{
+> > > +		.desc = "Hardware Dirty state tracking structure (HDBSS)",
+> > > +		.type = ARM64_CPUCAP_SYSTEM_FEATURE,
+> > > +		.capability = ARM64_HAS_HDBSS,
+> > > +		.matches = has_vhe_hdbss,
+> > > +		ARM64_CPUID_FIELDS(ID_AA64MMFR1_EL1, HAFDBS, HDBSS)
+> > > +	},
+> > >  	{
+> > >  		.desc = "CRC32 instructions",
+> > >  		.capability = ARM64_HAS_CRC32,
+> > > diff --git a/arch/arm64/tools/cpucaps b/arch/arm64/tools/cpucaps
+> > > index 7261553b644b..f6ece5b85532 100644
+> > > --- a/arch/arm64/tools/cpucaps
+> > > +++ b/arch/arm64/tools/cpucaps
+> > > @@ -68,6 +68,7 @@ HAS_VA52
+> > >  HAS_VIRT_HOST_EXTN
+> > >  HAS_WFXT
+> > >  HAS_XNX
+> > > +HAS_HDBSS
+> > >  HAFT
+> > >  HW_DBM
+> > >  KVM_HVHE
+> > 
+> > 
+> > > diff --git a/include/uapi/linux/kvm.h b/include/uapi/linux/kvm.h
+> > > index 65500f5db379..15ee42cdbd51 100644
+> > > --- a/include/uapi/linux/kvm.h
+> > > +++ b/include/uapi/linux/kvm.h
+> > > @@ -985,6 +985,7 @@ struct kvm_enable_cap {
+> > >  #define KVM_CAP_ARM_SEA_TO_USER 245
+> > >  #define KVM_CAP_S390_USER_OPEREXEC 246
+> > >  #define KVM_CAP_S390_KEYOP 247
+> > > +#define KVM_CAP_ARM_HW_DIRTY_STATE_TRACK 248
+> > > 
+> > >  struct kvm_irq_routing_irqchip {
+> > >  	__u32 irqchip;
+> > > diff --git a/tools/include/uapi/linux/kvm.h b/tools/include/uapi/linux/kvm.h
+> > > index dddb781b0507..93e0a1e14dc7 100644
+> > > --- a/tools/include/uapi/linux/kvm.h
+> > > +++ b/tools/include/uapi/linux/kvm.h
+> > > @@ -974,6 +974,7 @@ struct kvm_enable_cap {
+> > >  #define KVM_CAP_GUEST_MEMFD_FLAGS 244
+> > >  #define KVM_CAP_ARM_SEA_TO_USER 245
+> > >  #define KVM_CAP_S390_USER_OPEREXEC 246
+> > > +#define KVM_CAP_ARM_HW_DIRTY_STATE_TRACK 248
+> > > 
+> > >  struct kvm_irq_routing_irqchip {
+> > >  	__u32 irqchip;
+> > > --
+> > > 2.33.0
+> > > 
+> > 
+> > Instead of having these architecture specific capability, I wonder if
+> > we can add a generic capability like "KVM_CAP_HW_DIRTY_STATE", so
+> > other architecture supports similar things can reuse this capability,
+> 
+> What of the existing stuff doing the same thing? x86's PML, to start
+> with?
+> 
 
+In fact I think the HDBSS is the first one with non-fixed size.
+Although there is a in process RISC-V extension for it, there will
+be a long story to make it ratified.
 
-On 5/30/2026 3:00 AM, Nicolin Chen wrote:
-> On Fri, May 29, 2026 at 02:08:29PM +0000, Ashish Mhetre wrote:
->> Tegra264 SMMU is affected by erratum where a TLB entry can survive an
->> invalidation that races with concurrent traffic targeting the same
->> entry. The hardware-recommended software workaround is to issue every
->> CFGI/TLBI command (each followed by CMD_SYNC) twice. The second issue is
->> guaranteed to evict the entry. ATC_INV is not affected and must not be
->> doubled.
->>
->> The erratum is not flagged by any SMMUv3 IDR/IIDR register, so it cannot
->> be detected from hardware register. Tegra264 boots from device tree only
->> and has no ACPI/IORT support, so detection is through device tree only.
->>
->> Add the ARM_SMMU_OPT_TLBI_TWICE option and set it on instances matching
->> the existing "nvidia,tegra264-smmu" compatible. No callers consume the
->> option yet, next patch wires the workaround into the CMDQ issue paths.
-> I was told to avoid "patch": once a patch is applied it becomes
-> a commit. So, maybe "a subsequent change will wire".
+> > For this generic thing I suggest, the getter returns the max support 
+> > entry count (or the buffer size) it supports like the dirty ring
+> > capability. And the setter just let the architecture set the parameters
+> > based on the user request.
+> 
+> This looks wrong on a number of levels.
+> 
+> - If you want something generic, there is the existing dirty
+>   log/bitmap. How this stuff is populated is none of the user's
+>   business (trapping write accesses, dirty bit collection from the
+>   PTs, or HW-generated log), and we don't need an extra feature for
+>   it. Performance will obviously suck, but that's what you pay for
+>   something abstracted and cross-architecture.
+> 
+> - If you want something architecture specific, then it can't be
+>   generic, by definition. You get the raw speed and compatibility with
+>   other arch-specific extensions.
+> 
 
-Sure, I'll update it in next version.
+OK, I agree, it is better to keep this thing arch-specific. Doing a
+generic thing does not benefit too much, I have made a mistake on
+it. Thanks for your kindly explanation.
 
->> Signed-off-by: Ashish Mhetre <amhetre@nvidia.com>
-> Reviewed-by: Nicolin Chen <nicolinc@nvidia.com>
+> > This should do no harm to this implement, as everything still depends
+> > on the architecture behavior, and leave room for other architecture
+> > to reuse this.
+> 
+> Again, the generic framework exists, you just have to implement the
+> backend you want.
+> 
+> 	M.
+> 
+> -- 
+> Without deviation from the norm, progress is not possible.
 
-Thanks Nicolin.
+Regards,
+Inochi
 
