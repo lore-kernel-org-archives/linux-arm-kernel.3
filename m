@@ -4,65 +4,61 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 83DB6CD6E55
-	for <linux-arm-kernel@archiver.kernel.org>; Mon,  1 Jun 2026 11:06:46 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id B7AA1CD6E56
+	for <linux-arm-kernel@archiver.kernel.org>; Mon,  1 Jun 2026 11:14:42 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
-	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=0QmX1T5Z1Z1Mon9lysEvu1tgyuq7ma2gqfZkpuoX2E4=; b=VmDYWCES52ulUGvFUWfi3B+Sbj
-	CYyhS+szqJfyvgV4LQUYtuDp0itJMvPA3+YIckCULIAO8uGly2C66PNxRxcSn8vtiATthRPEhGFg2
-	+c720LiKZAVPslYC/EcEvnpkbWIS8flACNtdPIYgTDZ14MqdxrsjfEyYsxKdaBpLcELXWYpU43kug
-	vjxMOs2VmkZDliNpj0alDL9+pFVRXg1pX7p+iyrwbUql/MYl9Yz6JIYtrRGswx39h4WBT20glYHZJ
-	uvHJIOzfKWBHEOE8t81MqiPtUO7Bv1gY6c3l4LNt4bLOWPe04S56yF69kzh+GBDgGNCtFLmNQ6YuW
-	tWemw5ZA==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=HyBD7qMw7VjTmJIE91aXLdMK1dsXEgSx9AIVT38E86I=; b=PCVcF+2f7YFsGpfTES3UusgVXR
+	VgWP/NbdIMhcKy4S7b+3yXFU81r+nj4RJlNffw9ugT42vxNFdDwDzetwidfZOFPnZeySc3zuxNFp7
+	bEq9jE4DsNKTQsgukD0mjpc/0DdyAzhQfdGru0sz3wsvym8Y3feII94TK+Eq7wvKOsIkQRwJqzO67
+	/sBmgD3QCEeJ+AM1IYRAbQryyO7n3R0aolMEdrCnddZsH923BMA7HDUyOo3xr07s2xp6WCp54Crk8
+	xPnV0sQxfLs2Q+R7TqjldgCLJBRQCsTuguV742QXzxa1EhjAbXZSX2JeP7Py8imOwip/SR1307YMH
+	OsMDYOeg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wU0Tf-0000000AhbF-13WU;
-	Mon, 01 Jun 2026 11:06:39 +0000
+	id 1wU0bL-0000000AiDn-025h;
+	Mon, 01 Jun 2026 11:14:35 +0000
 Received: from foss.arm.com ([217.140.110.172])
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wU0Tc-0000000AhaR-23OD
+	id 1wU0bI-0000000AiDK-0SDj
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 01 Jun 2026 11:06:37 +0000
+	Mon, 01 Jun 2026 11:14:33 +0000
 Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
-	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id 064561E7D;
-	Mon,  1 Jun 2026 04:06:29 -0700 (PDT)
-Received: from [10.164.19.28] (unknown [10.164.19.28])
-	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id 3E1123F632;
-	Mon,  1 Jun 2026 04:06:28 -0700 (PDT)
+	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id 5921C1E7D;
+	Mon,  1 Jun 2026 04:14:25 -0700 (PDT)
+Received: from e129823.arm.com (e129823.arm.com [10.1.197.6])
+	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id D9ADD3F632;
+	Mon,  1 Jun 2026 04:14:28 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=simple/simple; d=arm.com; s=foss;
-	t=1780311993; bh=rIPCRJlF3C5CGybciFVEHG8kM8P9Y/ochm5Nk/iXQLA=;
-	h=Date:Subject:To:Cc:References:From:In-Reply-To:From;
-	b=l6m577XdcFp83GD11AjZtBk9/x8HVwX6Ol04tR2Bdgz1+7hCiLXGiRbqT8axEXbFf
-	 kE9xwaZFqE+GQKddJq6yGwpqqS2+dXTVbFKMhcxwC5PZRCgArJ1h64IlrNE8PUE91X
-	 p06wQOo7mkNU7qeLlwGG1tCmc9n7PCivgQLkKbA0=
-Message-ID: <2000d7c9-3188-4539-ba9e-654d6460e21d@arm.com>
-Date: Mon, 1 Jun 2026 16:36:26 +0530
+	t=1780312470; bh=MJEmhjOmdUj3v3YoxPjxOovy5nrKF3eormxGdl+E/Y4=;
+	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
+	b=jZYygagVVpaHZP1QTAw4ZTR76Kg+S8BF/9T8dYGv5ddpFsKYXV84i0eiG1ifAQIxy
+	 vR1N6llyGApuNLVLKNxwl7ocwv6NjRGYdUSVaxKErK7e3ISEhLnYSSvZtZYIF9TR/4
+	 E12p4XVIHf5qmWOyjV8TbJJcxC0p37ytkZK3Py68=
+Date: Mon, 1 Jun 2026 12:14:26 +0100
+From: Yeoreum Yun <yeoreum.yun@arm.com>
+To: Suzuki K Poulose <suzuki.poulose@arm.com>
+Cc: coresight@lists.linaro.org, linux-arm-kernel@lists.infradead.org,
+	linux-kernel@vger.kernel.org, mike.leach@arm.com,
+	james.clark@linaro.org, alexander.shishkin@linux.intel.com,
+	leo.yan@arm.com, jie.gan@oss.qualcomm.com
+Subject: Re: [PATCH v7 03/13] coresight: etm4x: introduce
+ ETM_MAX_SEQ_TRANSITIONS
+Message-ID: <ah1pkoQG1oa2Ow2X@e129823.arm.com>
+References: <20260519154812.254884-1-yeoreum.yun@arm.com>
+ <20260519154812.254884-4-yeoreum.yun@arm.com>
+ <3144c7fb-b41d-4bca-a6a0-eeb9dfddc8b8@arm.com>
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [RFC V2 13/14] arm64/mm: Add an abstraction level for tlbi_op
-To: Anshuman Khandual <anshuman.khandual@arm.com>,
- linux-arm-kernel@lists.infradead.org
-Cc: Catalin Marinas <catalin.marinas@arm.com>, Will Deacon <will@kernel.org>,
- Ryan Roberts <ryan.roberts@arm.com>, Mark Rutland <mark.rutland@arm.com>,
- Lorenzo Stoakes <lorenzo.stoakes@oracle.com>,
- Andrew Morton <akpm@linux-foundation.org>,
- David Hildenbrand <david@kernel.org>, Mike Rapoport <rppt@kernel.org>,
- Linu Cherian <linu.cherian@arm.com>, Usama Arif <usama.arif@linux.dev>,
- linux-kernel@vger.kernel.org, linux-mm@kvack.org
-References: <20260513044547.4128549-1-anshuman.khandual@arm.com>
- <20260513044547.4128549-14-anshuman.khandual@arm.com>
-Content-Language: en-US
-From: Dev Jain <dev.jain@arm.com>
-In-Reply-To: <20260513044547.4128549-14-anshuman.khandual@arm.com>
-Content-Type: text/plain; charset=UTF-8
-Content-Transfer-Encoding: 7bit
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+In-Reply-To: <3144c7fb-b41d-4bca-a6a0-eeb9dfddc8b8@arm.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260601_040636_618664_4F112D58 
-X-CRM114-Status: GOOD (  16.10  )
+X-CRM114-CacheID: sfid-20260601_041432_184056_D0942F1E 
+X-CRM114-Status: GOOD (  19.09  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -77,151 +73,56 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-
-
-On 13/05/26 10:15 am, Anshuman Khandual wrote:
-> From: Linu Cherian <linu.cherian@arm.com>
+On Mon, Jun 01, 2026 at 10:53:38AM +0100, Suzuki K Poulose wrote:
+> On 19/05/2026 16:48, Yeoreum Yun wrote:
+> > According to IHI006H Embedded Trace Macrocell Architecture
+> > Specification [0], n could be 0-2 for TCRSEQEVR<n> when
+> > TCRIDR5.NUMSEQSTATE is 0b100.
+> > 
+> > Therefore, introduce ETM_MAX_SEQ_TRANSITIONS macro and apply this
+> > in TCRSEQEVR<n> relevant fields.
+> > 
+> > Link: https://developer.arm.com/documentation/ihi0064/latest/ [0]
+> > Suggestedby: Leo Yan <leo.yan@arm.com>
+> > Signed-off-by: Yeoreum Yun <yeoreum.yun@arm.com>
+> > ---
+> >   drivers/hwtracing/coresight/coresight-etm4x-cfg.c | 2 +-
+> >   drivers/hwtracing/coresight/coresight-etm4x.h     | 5 +++--
+> >   2 files changed, 4 insertions(+), 3 deletions(-)
+> > 
+> > diff --git a/drivers/hwtracing/coresight/coresight-etm4x-cfg.c b/drivers/hwtracing/coresight/coresight-etm4x-cfg.c
+> > index c302072b293a..e1a59b434505 100644
+> > --- a/drivers/hwtracing/coresight/coresight-etm4x-cfg.c
+> > +++ b/drivers/hwtracing/coresight/coresight-etm4x-cfg.c
+> > @@ -76,7 +76,7 @@ static int etm4_cfg_map_reg_offset(struct etmv4_drvdata *drvdata,
+> >   	} else if ((offset & GENMASK(11, 4)) == TRCSEQEVRn(0)) {
+> >   		/* sequencer state control registers */
+> >   		idx = (offset & GENMASK(3, 0)) / 4;
+> > -		if (idx < ETM_MAX_SEQ_STATES) {
+> > +		if (idx < ETM_MAX_SEQ_TRANSITIONS) {
+> >   			reg_csdev->driver_regval = &drvcfg->seq_ctrl[idx];
+> >   			err = 0;
+> >   		}
+> > diff --git a/drivers/hwtracing/coresight/coresight-etm4x.h b/drivers/hwtracing/coresight/coresight-etm4x.h
+> > index 89d81ce4e04e..60e08ab085c5 100644
+> > --- a/drivers/hwtracing/coresight/coresight-etm4x.h
+> > +++ b/drivers/hwtracing/coresight/coresight-etm4x.h
+> > @@ -614,6 +614,7 @@ static inline u32 etm4_res_sel_pair(u8 res_sel_idx)
+> >   #define ETM_MAX_NR_PE			8
+> >   #define ETMv4_MAX_CNTR			4
+> >   #define ETM_MAX_SEQ_STATES		4
+> > +#define ETM_MAX_SEQ_TRANSITIONS		(ETM_MAX_SEQ_STATES - 1)
 > 
-> With FEAT_D128, a new instruction aka TLBIP is being introduced for the TLB
-> range operations which has an argument size of 128 bit.
+> Similar to the other comment on the patch, please don't tie this to
+> SEQ_STATES. Simpl define.
 > 
-> Add an abstraction level to void (*tlbi_op)(u64 arg) helpers to support the
-> D128 variations when applicable.
-> 
-> No functional changes are introduced with this patch.
-> 
-> Signed-off-by: Linu Cherian <linu.cherian@arm.com>
-> Signed-off-by: Anshuman Khandual <anshuman.khandual@arm.com>
-> ---
->  arch/arm64/include/asm/tlbflush.h | 70 ++++++++++++++++---------------
->  1 file changed, 37 insertions(+), 33 deletions(-)
-> 
-> diff --git a/arch/arm64/include/asm/tlbflush.h b/arch/arm64/include/asm/tlbflush.h
-> index c0bf5b398041..361d74ef8016 100644
-> --- a/arch/arm64/include/asm/tlbflush.h
-> +++ b/arch/arm64/include/asm/tlbflush.h
-> @@ -162,49 +162,53 @@ static inline void sme_dvmsync_batch(struct arch_tlbflush_unmap_batch *batch)
->  
->  #define TLBI_TTL_UNKNOWN	INT_MAX
->  
-> -typedef void (*tlbi_op)(u64 arg);
-> +typedef u64 tlbi_args_t;
-> +#define __tlbi_wrapper(op, arg)		__tlbi(op, arg)
-> +#define __tlbi_user_wrapper(op, arg)	__tlbi_user(op, arg)
+> #define ETM_MAX_SEQ_CTRLS		3
 
-The suffix "wrapper" sounds weird. How about "emit"?
+Okay. I'll untie them. Thanks!
 
->  
-> -static __always_inline void vae1is(u64 arg)
-> +typedef void (*tlbi_op)(tlbi_args_t arg);
-> +
-> +static __always_inline void vae1is(tlbi_args_t arg)
->  {
-> -	__tlbi(vae1is, arg);
-> -	__tlbi_user(vae1is, arg);
-> +	__tlbi_wrapper(vae1is, arg);
-> +	__tlbi_user_wrapper(vae1is, arg);
->  }
->  
-> -static __always_inline void vae2is(u64 arg)
-> +static __always_inline void vae2is(tlbi_args_t arg)
->  {
-> -	__tlbi(vae2is, arg);
-> +	__tlbi_wrapper(vae2is, arg);
->  }
->  
-> -static __always_inline void vale1(u64 arg)
-> +static __always_inline void vale1(tlbi_args_t arg)
->  {
-> -	__tlbi(vale1, arg);
-> -	__tlbi_user(vale1, arg);
-> +	__tlbi_wrapper(vale1, arg);
-> +	__tlbi_user_wrapper(vale1, arg);
->  }
->  
-> -static __always_inline void vale1is(u64 arg)
-> +static __always_inline void vale1is(tlbi_args_t arg)
->  {
-> -	__tlbi(vale1is, arg);
-> -	__tlbi_user(vale1is, arg);
-> +	__tlbi_wrapper(vale1is, arg);
-> +	__tlbi_user_wrapper(vale1is, arg);
->  }
->  
-> -static __always_inline void vale2is(u64 arg)
-> +static __always_inline void vale2is(tlbi_args_t arg)
->  {
-> -	__tlbi(vale2is, arg);
-> +	__tlbi_wrapper(vale2is, arg);
->  }
->  
-> -static __always_inline void vaale1is(u64 arg)
-> +static __always_inline void vaale1is(tlbi_args_t arg)
->  {
-> -	__tlbi(vaale1is, arg);
-> +	__tlbi_wrapper(vaale1is, arg);
->  }
->  
-> -static __always_inline void ipas2e1(u64 arg)
-> +static __always_inline void ipas2e1(tlbi_args_t arg)
->  {
-> -	__tlbi(ipas2e1, arg);
-> +	__tlbi_wrapper(ipas2e1, arg);
->  }
->  
-> -static __always_inline void ipas2e1is(u64 arg)
-> +static __always_inline void ipas2e1is(tlbi_args_t arg)
->  {
-> -	__tlbi(ipas2e1is, arg);
-> +	__tlbi_wrapper(ipas2e1is, arg);
->  }
->  
->  static __always_inline void __tlbi_level_asid(tlbi_op op, u64 addr, u32 level,
-> @@ -475,32 +479,32 @@ static inline void arch_tlbbatch_flush(struct arch_tlbflush_unmap_batch *batch)
->   *    operations can only span an even number of pages. We save this for last to
->   *    ensure 64KB start alignment is maintained for the LPA2 case.
->   */
-> -static __always_inline void rvae1is(u64 arg)
-> +static __always_inline void rvae1is(tlbi_args_t arg)
->  {
-> -	__tlbi(rvae1is, arg);
-> -	__tlbi_user(rvae1is, arg);
-> +	__tlbi_wrapper(rvae1is, arg);
-> +	__tlbi_user_wrapper(rvae1is, arg);
->  }
->  
-> -static __always_inline void rvale1(u64 arg)
-> +static __always_inline void rvale1(tlbi_args_t arg)
->  {
-> -	__tlbi(rvale1, arg);
-> -	__tlbi_user(rvale1, arg);
-> +	__tlbi_wrapper(rvale1, arg);
-> +	__tlbi_user_wrapper(rvale1, arg);
->  }
->  
-> -static __always_inline void rvale1is(u64 arg)
-> +static __always_inline void rvale1is(tlbi_args_t arg)
->  {
-> -	__tlbi(rvale1is, arg);
-> -	__tlbi_user(rvale1is, arg);
-> +	__tlbi_wrapper(rvale1is, arg);
-> +	__tlbi_user_wrapper(rvale1is, arg);
->  }
->  
-> -static __always_inline void rvaale1is(u64 arg)
-> +static __always_inline void rvaale1is(tlbi_args_t arg)
->  {
-> -	__tlbi(rvaale1is, arg);
-> +	__tlbi_wrapper(rvaale1is, arg);
->  }
->  
-> -static __always_inline void ripas2e1is(u64 arg)
-> +static __always_inline void ripas2e1is(tlbi_args_t arg)
->  {
-> -	__tlbi(ripas2e1is, arg);
-> +	__tlbi_wrapper(ripas2e1is, arg);
->  }
->  
->  static __always_inline void __tlbi_range(tlbi_op op, u64 addr,
+[...]
 
+-- 
+Sincerely,
+Yeoreum Yun
 
