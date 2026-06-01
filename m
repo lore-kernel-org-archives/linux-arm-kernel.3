@@ -4,110 +4,70 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 751A3CD6E55
-	for <linux-arm-kernel@archiver.kernel.org>; Mon,  1 Jun 2026 13:49:15 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 789DFCD5BD1
+	for <linux-arm-kernel@archiver.kernel.org>; Mon,  1 Jun 2026 14:15:01 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
 	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
 	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=J8MuTbax1OpDSMhFOx3LhMmqnI78KaFW068v5tAv4+o=; b=E3x1+pHRimk6QinpnOoYqiYUqQ
-	ll0Haf9D3CpzEN50PJrm7QTx2s2Nv9fVBvyCv9BPiJfRyeeBBt7U9zTIEZD88uNTM3HfArJMexQfU
-	gaWfjfT3S6JCPYnRGPpj/PdSWY6NHM0P7+ZvzTx7mfzBVs0KX6Od2Nwp4LCgRU+D165Qea5iUCfBy
-	F4gpFnICYcWMg4UY2F7nlxvsbXc5bM4spX3UFGsrSm10DyU/fXcs4AJ5pMj2OIYxDRJr7ZKpVSYyd
-	0HJ3SVRxTrm+zecnBYWA1IfPj7MK7E73bSWBjDbebpcRsqS754p3Xn63GzusxZzizTLJVSCHsifFf
-	t2sxdrZw==;
+	bh=Jba/OcUQqUC+iKtXDpfu65FCyEQVy/d/ssT/VTffXaE=; b=X0RrxWPQdfH5VWGrZ0czmMUxrp
+	uldIyZbyDDkKRoWGHlSCNoN4O+RTWXT4ps9Ah6/WlMQg227jgcrmXPCqgu3TU/u4fH6pHaEN/aHsI
+	TPsFcQiC1TE8inTM+dOEAcV2HsZeRXy2Fpyv5J6qzLtYP5YDuyQaWBGwUCa5dmfRWuY9LCyrX6ewt
+	kpUoJ/HTZVM8PpMcPnxxcPo71Xf0pS+iuSXN3SRNuralOjzTv5ptQ6gxk61XkzyX/zxXraGequbIm
+	01dVEH8dCFdQ6npN1dbUlvNJffhCWdti3JwapcJsV5m5H06BUMnqacbdkegHC17bKbWPAOJzea64Q
+	LwnSQfaA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wU30v-0000000BEOh-1usv;
-	Mon, 01 Jun 2026 13:49:09 +0000
-Received: from tor.source.kernel.org ([172.105.4.254])
+	id 1wU3Pq-0000000BFxa-3ZES;
+	Mon, 01 Jun 2026 14:14:54 +0000
+Received: from out30-97.freemail.mail.aliyun.com ([115.124.30.97])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wU30t-0000000BEOS-3ElG
+	id 1wU3Pm-0000000BFwc-2j5K
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 01 Jun 2026 13:49:07 +0000
-Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
-	by tor.source.kernel.org (Postfix) with ESMTP id 3AD8D6014C;
-	Mon,  1 Jun 2026 13:49:07 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 4A96A1F00893;
-	Mon,  1 Jun 2026 13:49:02 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1780321746;
-	bh=J8MuTbax1OpDSMhFOx3LhMmqnI78KaFW068v5tAv4+o=;
-	h=Date:Subject:To:Cc:References:From:In-Reply-To;
-	b=o0sfzR162SZSavIyVSshFEI2HSXfICi4mMh2AHcrpeNw/Apq93kpeNNncZwQhxUl3
-	 5JtWWblZ9adw1HL9epdagwm+PrTY+dMU3zxEB6zLIv+YZKfhWF6J2ehaoBd0aJl8xo
-	 2ygjGPjWmggQ6AujluI5hNW9kN/T1ovneN/sMhwqE4jNtTRd7f+IOIct/fUSDu8MES
-	 fjNNc8chRjPuIao7ywI6mlawKV9rUUh/FdoxenP4t8V9ldxht/o8MfgcxF0sIponRB
-	 xMowtEWLSp6B4J8kHHpb9L6h7/b/dH+ET/FCeX04Mua62D3ZyZXf6xuhUwyvI7ufli
-	 hX7v2DjHvKmAw==
-Message-ID: <929875a2-9e94-4dbc-9c98-b342ccc3f4e2@kernel.org>
-Date: Mon, 1 Jun 2026 15:49:00 +0200
+	Mon, 01 Jun 2026 14:14:54 +0000
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+	d=linux.alibaba.com; s=default;
+	t=1780323283; h=Message-ID:Date:MIME-Version:Subject:To:From:Content-Type;
+	bh=Jba/OcUQqUC+iKtXDpfu65FCyEQVy/d/ssT/VTffXaE=;
+	b=JDL2lfAoBtaJyXEbnGmCiNQvAQmNDPT9Ti1hYdbBSKY9GCc3B0z2FlXRxQyX8x2jV3JzlYYv6ipuHU+aVPkOJf1bQAgdhOrV7v+CrkMdbhxX9i2J90hKZ+4oSioMP3dGLQBKEN+1JGSCp9Fch8BBGz1IjyjySLEjReL7Gr5c26A=
+X-Alimail-AntiSpam: AC=PASS;BC=-1|-1;BR=01201311R681e4;CH=green;DM=||false|;DS=||;FP=0|-1|-1|-1|0|-1|-1|-1;HT=maildocker-contentspam033045098064;MF=guanghuifeng@linux.alibaba.com;NM=1;PH=DS;RN=28;SR=0;TI=SMTPD_---0X40RrRa_1780323268;
+Received: from 30.221.133.117(mailfrom:guanghuifeng@linux.alibaba.com fp:SMTPD_---0X40RrRa_1780323268 cluster:ay36)
+          by smtp.aliyun-inc.com;
+          Mon, 01 Jun 2026 22:14:37 +0800
+Message-ID: <ff2a4364-8463-42cb-9a2b-fae1ef64c423@linux.alibaba.com>
+Date: Mon, 1 Jun 2026 22:14:27 +0800
 MIME-Version: 1.0
 User-Agent: Mozilla Thunderbird
-Subject: Re: [RFC PATCH 1/3] mm: make persistent huge zero folio read-only
-To: Dave Hansen <dave.hansen@intel.com>,
- Xueyuan chen <xueyuan.chen21@gmail.com>, akpm@linux-foundation.org,
- linux-mm@kvack.org
-Cc: linux-kernel@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
- x86@kernel.org, catalin.marinas@arm.com, will@kernel.org, tglx@kernel.org,
- mingo@redhat.com, bp@alien8.de, dave.hansen@linux.intel.com, hpa@zytor.com,
- ljs@kernel.org, ziy@nvidia.com, baolin.wang@linux.alibaba.com,
- ryan.roberts@arm.com, dev.jain@arm.com, lance.yang@linux.dev,
- yang@os.amperecomputing.com, jannh@google.com
-References: <20260527035607.14919-1-xueyuan.chen21@gmail.com>
- <20260527035607.14919-2-xueyuan.chen21@gmail.com>
- <4e0696ee-895c-486d-aacc-71146f0e9047@intel.com>
-From: "David Hildenbrand (Arm)" <david@kernel.org>
-Content-Language: en-US
-Autocrypt: addr=david@kernel.org; keydata=
- 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
- qIws/H2t
-In-Reply-To: <4e0696ee-895c-486d-aacc-71146f0e9047@intel.com>
-Content-Type: text/plain; charset=UTF-8
-Content-Transfer-Encoding: 7bit
+Subject: Re: [PATCH 1/9] iommu: introduce iova_to_phys_length in
+ iommu_domain_ops
+To: Jason Gunthorpe <jgg@ziepe.ca>
+Cc: boris.brezillon@collabora.com, robh@kernel.org, steven.price@arm.com,
+ adrian.larumbe@collabora.com, maarten.lankhorst@linux.intel.com,
+ mripard@kernel.org, tzimmermann@suse.de, airlied@gmail.com,
+ liviu.dudau@arm.com, joro@8bytes.org, will@kernel.org, robin.murphy@arm.com,
+ alex@shazbot.org, dri-devel@lists.freedesktop.org,
+ linux-kernel@vger.kernel.org, iommu@lists.linux.dev, kvm@vger.kernel.org,
+ linux-arm-kernel@lists.infradead.org, kevin.tian@intel.com,
+ baolu.lu@linux.intel.com, suravee.suthikulpanit@amd.com,
+ dwmw2@infradead.org, xlpang@linux.alibaba.com,
+ oliver.yang@linux.alibaba.com, shiyu.zsq@linux.alibaba.com,
+ wei.guo.simon@linux.alibaba.com,
+ alikernel-developer <alikernel-developer@linux.alibaba.com>
+References: <20260529115116.GR2487554@ziepe.ca>
+ <20260531093637.3893199-1-guanghuifeng@linux.alibaba.com>
+ <20260531093637.3893199-2-guanghuifeng@linux.alibaba.com>
+ <20260531235148.GV2487554@ziepe.ca>
+ <a0875d9f-4aed-4164-861c-6fbbdfe04080@linux.alibaba.com>
+ <20260601134322.GY2487554@ziepe.ca>
+From: "guanghuifeng@linux.alibaba.com" <guanghuifeng@linux.alibaba.com>
+In-Reply-To: <20260601134322.GY2487554@ziepe.ca>
+Content-Type: text/plain; charset=UTF-8; format=flowed
+Content-Transfer-Encoding: 8bit
+X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
+X-CRM114-CacheID: sfid-20260601_071451_419527_B613F84C 
+X-CRM114-Status: GOOD (  16.53  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -122,33 +82,66 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On 5/27/26 17:55, Dave Hansen wrote:
-> On 5/26/26 20:56, Xueyuan chen wrote:> +#ifdef
-> CONFIG_READONLY_HUGE_ZERO_FOLIO
->> +bool __init arch_make_huge_zero_folio_readonly(struct folio *folio);
->> +#endif
-> 
-> All of the #ifdeffery needs to die, IMNHO.
-> 
-> This function is also a bad idea. There is nothing "huge zero" specific
-> about it. It takes any old folio and tries to make it read only.
-> 
-> Just make it:
-> 
-> 	bool __init arch_make_folio_readonly(struct folio *folio)
-> 
 
-I'm not sure whether we want a folio-based interface, though.
+在 2026/6/1 21:43, Jason Gunthorpe 写道:
+> On Mon, Jun 01, 2026 at 04:41:48PM +0800, guanghuifeng@linux.alibaba.com wrote:
+>>>> +/**
+>>>> + * iommu_iova_to_phys_length - Translate IOVA and return mapping page size
+>>>> + * @domain: IOMMU domain to query
+>>>> + * @iova: IO virtual address to translate
+>>>> + * @mapped_length: Output parameter for the PTE page size (e.g. 4KB/2MB/1GB)
+>>>> + *
+>>>> + * Like iommu_iova_to_phys() but additionally returns the page size of the
+>>>> + * PTE mapping at @iova through @mapped_length.
+>>>> + *
+>>>> + * Return: The physical address for the given IOVA, or 0 if no translation.
+>>>> + */
+>>> When introducing the new function I would like to fix this 0 error as
+>>> well, it should return PHYS_MAX for error
+>> Implementations such as arm_smmu_iova_to_phys/DOMAIN_NS(iova_to_phys)
+>> all use a return value of 0 as an invalid state, so 0 is used as the
+>> representation of an invalid state to maintain compatibility.
+> I know, but this bad choice has already caused bugs so if we are
+> changing everything I would prefer we fix it.
 
-This will likely be the only folio (that will actually have a "struct folio" in
-the future) compound page we'll ever mark read-only ... whereby I'd guess we'd
-want other non-folio pages to be read-only in the future (encryption keys etc,
-maybe?).
+OK, there are a lot of changes in the current commit. This issue will be 
+fixed in a subsequent series patch.
 
-So I'd instead use a page-range based interface or sth like that.
-
--- 
-Cheers,
-
-David
+>>>> +phys_addr_t iommu_iova_to_phys_length(struct iommu_domain *domain,
+>>>> +				       dma_addr_t iova,
+>>>> +				       size_t *mapped_length)
+>>>>    {
+>>>> +	if (mapped_length)
+>>>> +		*mapped_length = 0;
+>>>> +
+>>>>    	if (domain->type == IOMMU_DOMAIN_IDENTITY)
+>>>>    		return iova;
+>>>>    	if (domain->type == IOMMU_DOMAIN_BLOCKED)
+>>>>    		return 0;
+>>> Any domain that doesn't have an op should fail, blocked is one example
+>> In accordance with the implementation of iommu_iova_to_phys, it returns a
+>> phy value of 0 in invalid states.
+> Detect the invalid states by looking at ops not domain->type
+>
+>>> I suggest you approach the patch plan a little differently, the first
+>>> patches should implement the new function and an iommput
+>>> implementation
+>>>
+>>> Arrange things so the normal iova_to_phys calls the new function if it
+>>> is available and discards the length.
+>>>
+>>> Then convert callers that can take advantage of it. Have the fallback
+>>> path also compute the length by iterating internally.
+>>>
+>>> Finally one patch per driver implementing the new op, this could even
+>>> be a second series.
+>>>
+>>> Don't remove iova_to_phys(), it is fine for things that don't need the
+>>> length.
+>> Does this mean retaining the iommu_iova_to_phys implementation but
+>> implementing it through domain->ops->iova_to_phys_length (mapped_length is
+>> NULL)?
+> Yes
+>
+> Jason
 
