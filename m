@@ -4,57 +4,60 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 72B72CD6E55
-	for <linux-arm-kernel@archiver.kernel.org>; Mon,  1 Jun 2026 19:10:04 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 444A0CD5BD1
+	for <linux-arm-kernel@archiver.kernel.org>; Mon,  1 Jun 2026 19:14:22 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:MIME-Version:
-	Message-ID:Subject:Cc:To:From:Date:Reply-To:Content-Transfer-Encoding:
-	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
-	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
-	bh=W43qI/57Dq34auorc7rm5R4Kf1qpPgs0LDeJ2dQV7M4=; b=QKQ/6JEYsKwhf7uXge/BccBYd2
-	tNXtzRbV7+wInP7rgGM9gkhd/ZftI5XZl3kLSutbHW7jhXXc8cV/ZWSf73KPjxD7L8RZlP5YWHYLf
-	orlrxOG/ZM9pXhgSbAKj2BZtvOYfCoSxmIfQwbVuUQ1DvV7ehI0GHQtgeLHSMDIZ+MPRw8MG1Z9BX
-	lqhW/WoMyw1edE6/e+c4AcckFFMgTF0Qkh8skjWcnjYsQ7RyMkPa1twi9Pa7fOFqMQESbaNrbux/2
-	VPNxegaN0ZzkAr0L+Uj2YsKyEOJyXlhqmo6e/NYEsjjlfuUhb8z12BPpvZb7gIyAXYVkA2b1nkbm5
-	ouga96RA==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=JUQ1Hc+I/Aj1c96UteOUubDPVimXUERGAR0RBwprXqQ=; b=lMW7K/2KKziPCgNg5dbbRaifpR
+	XiBsAAoc1Qvto6WhrhlMldDfq5+fgmwDD0LB9nlm3kYHpR+DsGB0refcHt9O5jXCCm+Yg7fD2Wf2i
+	WgIW5I9ME/1mxO3XoLo5xROGr9qtMs4tz1SoW/QUu5Npm561jD7D98Cwk7H1px6vAXtl46x+Ut8aL
+	bkMLb5SRlBkzWGhe+Htn/52ROYhCpBl+kgH8JZhiCT3F/0sM6Nck/37DFPgKExX041J64f0gSoTe+
+	H3Uoj+IQUYMiK0klDfhYchqu3zm+bTCXY3qy5HJWa/rU5mD7v4I6efW/TpabomkKlhkb6kCeBJHOS
+	G2wOorSQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wU81O-0000000BhQx-1qCy;
-	Mon, 01 Jun 2026 19:09:58 +0000
-Received: from tor.source.kernel.org ([2600:3c04:e001:324:0:1991:8:25])
+	id 1wU85X-0000000BhfJ-35Uu;
+	Mon, 01 Jun 2026 19:14:15 +0000
+Received: from out-171.mta0.migadu.com ([91.218.175.171])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wU81N-0000000BhQm-3enE
+	id 1wU85V-0000000Bhea-0ise
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 01 Jun 2026 19:09:57 +0000
-Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
-	by tor.source.kernel.org (Postfix) with ESMTP id 2A4F4600AA;
-	Mon,  1 Jun 2026 19:09:57 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 5C8D91F00893;
-	Mon,  1 Jun 2026 19:09:55 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1780340996;
-	bh=W43qI/57Dq34auorc7rm5R4Kf1qpPgs0LDeJ2dQV7M4=;
-	h=Date:From:To:Cc:Subject;
-	b=JYFjMXiTbTwgfk2vu8SK6JiKGJNyCAywoTY0e5JJUjtqH2PKQhxhDQOlm7Iagwy7O
-	 jTuX8o4YgPLbvC351hyUVHPn+O2SLgdRzmfDbbpdIg6e1aryHrBat2DVGKo1uFM5h4
-	 FO9m7maUkpOv95jAJI1ZybfvbeeZwmr4Kxfl0pv8yMQyLFj6h5MJHoRMWvCVQ0lNzc
-	 xT3TUIZas7Fy2865h0hEAebi5DVBLNEDMJi0AVs3waehoX9b+N1Y7aaOM7q9J5Jkw1
-	 ZaYnIfXFd1OIQHs2juZZxLQPqkJOAFwceQBSq37UyKFMpoSC0+uhUU2XpO1dR5fFAW
-	 1Dr41pr1nEfkA==
-Date: Tue, 2 Jun 2026 03:09:52 +0800
-From: Chen-Yu Tsai <wens@kernel.org>
-To: soc@kernel.org
-Cc: Chen-Yu Tsai <wens@kernel.org>, Jernej Skrabec <jernej@kernel.org>,
-	Samuel Holland <samuel@sholland.org>, linux-sunxi@lists.linux.dev,
-	linux-arm-kernel@lists.infradead.org,
-	Stephen Boyd <sboyd@kernel.org>
-Subject: [GIT PULL] Allwinner DT Changes for 7.2
-Message-ID: <ah3ZAPLzh8ORGmpH@home.wens.tw>
+	Mon, 01 Jun 2026 19:14:15 +0000
+Date: Mon, 1 Jun 2026 21:13:49 +0200
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=linux.dev; s=key1;
+	t=1780341234;
+	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
+	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
+	 in-reply-to:in-reply-to:references:references;
+	bh=JUQ1Hc+I/Aj1c96UteOUubDPVimXUERGAR0RBwprXqQ=;
+	b=TCr0M55f+cj+zWkW4XfeG+iVrtQgcElmfxJcHPG6EuXGJ5WkOgA0QaNKeFlHzvWRPQ5n/I
+	q4OeObswfaAesrI3w77ZkRXoDC2fM9Naa8JlDRTPW0VtmfK3qoo9JCvmuT7Tx5UW9sWVkI
+	lGvHf6qF/7IUEoYnZ1qaAhtfEzhyZzM=
+X-Report-Abuse: Please report any abuse attempt to abuse@migadu.com and include these headers.
+From: Thorsten Blum <thorsten.blum@linux.dev>
+To: Herbert Xu <herbert@gondor.apana.org.au>,
+	"David S. Miller" <davem@davemloft.net>,
+	Nicolas Ferre <nicolas.ferre@microchip.com>,
+	Alexandre Belloni <alexandre.belloni@bootlin.com>,
+	Claudiu Beznea <claudiu.beznea@tuxon.dev>
+Cc: linux-crypto@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
+	linux-kernel@vger.kernel.org
+Subject: Re: [PATCH] crypto: atmel-tdes - use min3 to simplify sg_copy and
+ crypt_start
+Message-ID: <ah3Z7bFWz512AgTU@linux.dev>
+References: <20260525092927.818586-2-thorsten.blum@linux.dev>
 MIME-Version: 1.0
-Content-Type: multipart/signed; micalg=pgp-sha512;
-	protocol="application/pgp-signature"; boundary="SU/u6IheFArjYhKz"
+Content-Type: text/plain; charset=us-ascii
 Content-Disposition: inline
+In-Reply-To: <20260525092927.818586-2-thorsten.blum@linux.dev>
+X-Migadu-Flow: FLOW_OUT
+X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
+X-CRM114-CacheID: sfid-20260601_121413_503187_AD723D0F 
+X-CRM114-Status: GOOD (  17.41  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -69,104 +72,45 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
+On Mon, May 25, 2026 at 11:29:27AM +0200, Thorsten Blum wrote:
+> Replace multiple min() and min_t() calls with min3() to simplify the
+> code. Using min3() instead of min_t() in atmel_tdes_crypt_start() is
+> safe since the values are all unsigned and compatible.
+> 
+> Signed-off-by: Thorsten Blum <thorsten.blum@linux.dev>
+> ---
+>  drivers/crypto/atmel-tdes.c | 7 +++----
+>  1 file changed, 3 insertions(+), 4 deletions(-)
+> 
+> diff --git a/drivers/crypto/atmel-tdes.c b/drivers/crypto/atmel-tdes.c
+> index 643e507f9c02..834c6d3e1b06 100644
+> --- a/drivers/crypto/atmel-tdes.c
+> +++ b/drivers/crypto/atmel-tdes.c
+> @@ -143,8 +143,7 @@ static int atmel_tdes_sg_copy(struct scatterlist **sg, size_t *offset,
+>  	size_t count, off = 0;
+>  
+>  	while (buflen && total) {
+> -		count = min((*sg)->length - *offset, total);
+> -		count = min(count, buflen);
+> +		count = min3((*sg)->length - *offset, total, buflen);
+>  
+>  		if (!count)
+>  			return off;
+> @@ -469,8 +468,8 @@ static int atmel_tdes_crypt_start(struct atmel_tdes_dev *dd)
+>  
+>  
+>  	if (fast)  {
+> -		count = min_t(size_t, dd->total, sg_dma_len(dd->in_sg));
+> -		count = min_t(size_t, count, sg_dma_len(dd->out_sg));
+> +		count = min3(sg_dma_len(dd->in_sg), sg_dma_len(dd->out_sg),
+> +			     dd->total);
+>  
+>  		err = dma_map_sg(dd->dev, dd->in_sg, 1, DMA_TO_DEVICE);
+>  		if (!err) {
 
---SU/u6IheFArjYhKz
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
+This should probably be dropped for now because of this fix:
+https://lore.kernel.org/lkml/20260531204115.689052-3-thorsten.blum@linux.dev/
 
-The following changes since commit 254f49634ee16a731174d2ae34bc50bd5f45e731:
-
-  Linux 7.1-rc1 (2026-04-26 14:19:00 -0700)
-
-are available in the Git repository at:
-
-  https://git.kernel.org/pub/scm/linux/kernel/git/sunxi/linux.git tags/sunxi-dt-for-7.2
-
-for you to fetch changes up to 44cf19e41c769720750dbb8752aca75c247e565f:
-
-  arm64: dts: allwinner: a523: add gpadc node (2026-05-25 05:02:58 +0800)
-
-
-As mentioned in the tag, this pull request contains a change that should
-be shared between the soc and clk trees. However since I don't have any
-clk changes to send this cycle, I think it can just go through the soc
-tree without any issues.
-
-----------------------------------------------------------------
-Allwinner device tree changes for 7.2
-
-Some changes for old chips and some for recent ones.
-
-- A83T gained the MIPI CSI-2 receiver
-- overlays enabled for Pine64 boards
-- V3s gained the MBUS interconnect
-- D1s / T113 and H616 gained the high speed timer
-- T113s watchdog enabled (for reboot)
-- H616 gained proper SRAM regions
-- A523 family gained EL2 virtual timer interrupt and GPADC
-
-This tag also contains a clk DT binding change that changes a private
-header of the clk driver to export some extra clocks to the device tree
-on the V3s.
-
-----------------------------------------------------------------
-Chen-Yu Tsai (1):
-      Merge branch 'sunxi/shared-clk-dt-ids-for-7.2' into sunxi/dt-for-7.2
-
-Jernej Skrabec (1):
-      arm64: dts: allwinner: sun50i-h616: Add SRAM nodes
-
-Marc Zyngier (1):
-      arm64: dts: allwinner: Add EL2 virtual timer interrupt
-
-Michal Piekos (4):
-      riscv: dts: allwinner: d1s-t113: add hstimer node
-      arm64: dts: allwinner: h616: add hstimer node
-      arm: dts: allwinner: t113s: enable watchdog for reboot
-      arm64: dts: allwinner: a523: add gpadc node
-
-Paul Kocialkowski (5):
-      clk: sunxi-ng: v3s: Export MBUS and DRAM clocks to the public header
-      dt-bindings: media: sun6i-a31-csi: Add optional interconnect properties
-      dt-bindings: media: sun6i-a31-isp: Add optional interconnect properties
-      ARM: dts: sun8i: v3s: Add mbus node to represent the interconnect
-      ARM: dts: sun8i: a83t: Add MIPI CSI-2 controller node
-
-Peter Robinson (1):
-      arm64: dts: allwinner: sun50i-a64: Enable DT overlays
-
- .../bindings/media/allwinner,sun6i-a31-csi.yaml    |  6 +++
- .../bindings/media/allwinner,sun6i-a31-isp.yaml    |  6 +++
- arch/arm/boot/dts/allwinner/sun8i-a83t.dtsi        | 43 ++++++++++++++++++++++
- arch/arm/boot/dts/allwinner/sun8i-t113s.dtsi       |  4 ++
- arch/arm/boot/dts/allwinner/sun8i-v3s.dtsi         | 15 ++++++++
- arch/arm64/boot/dts/allwinner/Makefile             |  6 +++
- arch/arm64/boot/dts/allwinner/sun50i-h616.dtsi     | 38 ++++++++++++++++++-
- arch/arm64/boot/dts/allwinner/sun55i-a523.dtsi     | 16 +++++++-
- arch/riscv/boot/dts/allwinner/sunxi-d1s-t113.dtsi  |  9 +++++
- drivers/clk/sunxi-ng/ccu-sun8i-v3s.h               |  4 --
- include/dt-bindings/clock/sun8i-v3s-ccu.h          |  4 +-
- 11 files changed, 143 insertions(+), 8 deletions(-)
-
---SU/u6IheFArjYhKz
-Content-Type: application/pgp-signature; name="signature.asc"
-
------BEGIN PGP SIGNATURE-----
-
-iQIzBAABCgAdFiEE2nN1m/hhnkhOWjtHOJpUIZwPJDAFAmod2QAACgkQOJpUIZwP
-JDBE7BAAhgTSkzIg3EDmxIDjfjZ4N7NoRIkrn/5E8EyHdBkkCDrZYioibHuPmnzh
-pDSkuab3Jk6ZRbEXTvyoxHZbjU7Ed33bbuRv7ISDs058iJCDhgUs8uuI0Y3XbBSi
-5CYYIJMf800oG09rNFYr9F8IEgiBU7qi2uTJxCHa9Rjvm64NOUnXhE5D/m5PhfbU
-9e/+d1C4sixqgtNE36w6h7l+rGH3Ow51NM2f+D41mSRcuYATEC7EmpmdHpuF0lEn
-gi57YQuQnfa3zmMvm9G0RSKoMiuC7zoxEEibXQkYfXtbwh+WbD/NbLrblFftRk6I
-M5eFVDKKrduTJzkOzwvfxqTMhgURmR/XVa/DAYv324bJbz4cLml251GV+PJIl8jD
-LjkIuS9qeHSDD8fd2T1LM3NGeGX3y3TYyGQm7k1oMr2g8UGRxatP4JcwGEF+PhQE
-GPOEabV1pN3tYNecbs4C7B/B1Er2pKmyrz+v+qyRHi74Tdqq0P9fDiGx0exzODb6
-Nmh4GnSdJ3IhtBvCHknKo+CoZP1xsfQGlJl/TvizANN+NBnqFLZ8wSmnyzHRGirH
-xnfCy41UviL2niTNRGNFhPXCqFftt1NuORZXVAMDs/ciN+ROYoL41ZEU/eJnYQo/
-CixzCK6ZA/azao6Ra/CYOs6iBrHSP9eebA+D4tqvK9/YDXrLkFw=
-=4TaZ
------END PGP SIGNATURE-----
-
---SU/u6IheFArjYhKz--
+Thanks,
+Thorsten
 
