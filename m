@@ -4,31 +4,31 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 5ACECCD5BD1
-	for <linux-arm-kernel@archiver.kernel.org>; Mon,  1 Jun 2026 06:52:04 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 1665FCD6E4C
+	for <linux-arm-kernel@archiver.kernel.org>; Mon,  1 Jun 2026 06:52:05 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
 	MIME-Version:References:In-Reply-To:Message-Id:Date:Subject:Cc:To:From:
 	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=y9jiAV7nJYVINfhoPhgzP8Bt0PPOyyTicmKndbXdNQY=; b=iTgETz27OONYSAl/cYh13l0Y7Y
-	hKyoYEVP8SyaccqMVV3asdMPT5BUop7I6ugwJ21HNbX49GWSZIvvqX7gq5f9nWIq8b7GZXPD7QLqa
-	p+sE+Kqt3lE2Lyix5FifJR6nmQLjcCUSbf/dNLAJXFE6M2dTCTbGpiIWdysDVFqW5k9JUlQZ4v4lZ
-	LYl5TwDfeYcdgoh6OLPxo4z6Dl1/XIa2XjW4eLb/2jb+uplb8fgqBJC4YDdtgVv41JjyPMCEi9qft
-	85Z0kWjlJViozStdpzADek9z6xy+a798qESIWXbjaNlQCkd7iXsWixIj07WPwBD34JHwSHhHOh9wX
-	vXsW1TSQ==;
+	bh=K1DLY9Im8emQ1pvFmDCS9X34Zpvqnm1ezAB2dEZJU7I=; b=d8AcjS2vfDM62PKXTRkP4hBjZY
+	5KGAlnW0gr9YkcLKH+h3fGSLjC78RJn/uEu9VTGRiMZkftHgQKkWERBcjBBTN7wsBM5uIK3sTs3YG
+	mjE58u2DeEpYj1pPam23dANoM/9z6teyfYu03W1b2u7TX7/3TLZqizXd5O5uyvffktQ5RsYXvBuOW
+	GPUFkZRUBiZQ0sEmuem1vFuAjTEEJ4N3LT1JH5eGN15dZToleYxDWo6A2GoO5UMpHtJaWOLBa2sEF
+	XPt6oJ1GDA5cHDK2oyB2gnUnw3MZjWZs+eeBJBQGfoFNCEDkMs9Y34RdeuAa68jfbs+kpYsSEQrjH
+	OMHe8PeA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wTwVC-0000000AF8H-1v7q;
+	id 1wTwVC-0000000AF7N-07u7;
 	Mon, 01 Jun 2026 06:51:58 +0000
-Received: from mail-m81145.netease.com ([47.88.81.145])
+Received: from mail-m81111.xmail.ntesmail.com ([156.224.81.111])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wTwUc-0000000AEcX-1IOn;
-	Mon, 01 Jun 2026 06:51:23 +0000
+	id 1wTwUZ-0000000AEaT-1gEE;
+	Mon, 01 Jun 2026 06:51:20 +0000
 Received: from zyb-HP-ProDesk-680-G2-MT.. (unknown [61.154.14.86])
-	by smtp.qiye.163.com (Hmail) with ESMTP id 408ded0ae;
-	Mon, 1 Jun 2026 14:51:17 +0800 (GMT+08:00)
+	by smtp.qiye.163.com (Hmail) with ESMTP id 408ded09a;
+	Mon, 1 Jun 2026 14:51:14 +0800 (GMT+08:00)
 From: Damon Ding <damon.ding@rock-chips.com>
 To: hjc@rock-chips.com,
 	heiko@sntech.de,
@@ -60,27 +60,27 @@ Cc: Laurent.pinchart@ideasonboard.com,
 	linux-rockchip@lists.infradead.org,
 	linux-kernel@vger.kernel.org,
 	Damon Ding <damon.ding@rock-chips.com>
-Subject: [PATCH v10 10/11] drm/bridge: analogix_dp: Add support for RK3576
-Date: Mon,  1 Jun 2026 14:50:59 +0800
-Message-Id: <20260601065100.1103873-11-damon.ding@rock-chips.com>
+Subject: [PATCH v10 08/11] arm64: dts: rockchip: Add eDP node for RK3576
+Date: Mon,  1 Jun 2026 14:50:57 +0800
+Message-Id: <20260601065100.1103873-9-damon.ding@rock-chips.com>
 X-Mailer: git-send-email 2.34.1
 In-Reply-To: <20260601065100.1103873-1-damon.ding@rock-chips.com>
 References: <20260601065100.1103873-1-damon.ding@rock-chips.com>
 MIME-Version: 1.0
 Content-Transfer-Encoding: 8bit
-X-HM-Tid: 0a9e81f378a603a8kunm111da268257e88
+X-HM-Tid: 0a9e81f36e7e03a8kunm111da268257e56
 X-HM-MType: 1
 X-HM-Spam-Status: e1kfGhgUHx5ZQUpXWQgPGg8OCBgUHx5ZQUlOS1dZFg8aDwILHllBWSg2Ly
-	tZV1koWUFITzdXWRgWCB1ZQUpXWS1ZQUlXWQ8JGhUIEh9ZQVlCTEwdVhhMGh1LQkJNH05PGVYVFA
+	tZV1koWUFITzdXWRgWCB1ZQUpXWS1ZQUlXWQ8JGhUIEh9ZQVkZQx5PVk5OH01DHkkeH0oaH1YVFA
 	kWGhdVEwETFhoSFyQUDg9ZV1kYEgtZQVlNSlVKTk9VSk9VQ01ZV1kWGg8SFR0UWUFZT0tIVUpLSE
 	pKQk1VSktLVUpCWQY+
 DKIM-Signature: a=rsa-sha256;
-	b=B7I7J8mSu2E70qiYYffFkOdDltRY2aLcED1AxTAePJkTA/btmpe4aYx+RbwPRu2RgB8doCmRSy0BLPdAnjPCY8IaPA/kKwwP4WBPkF8ERT/wSYul6Ljwpiv9n1PK8S1sdXuD+DKT4kmAsVgPlZih7rtAW0i/tzi4nSH2srB49gQ=; c=relaxed/relaxed; s=default; d=rock-chips.com; v=1;
-	bh=y9jiAV7nJYVINfhoPhgzP8Bt0PPOyyTicmKndbXdNQY=;
+	b=KLe1rr3dZVxW81aCSXZgLN/D1IEwQ6c2h9YYa6mtNPTEo10nkEV43Az7NARNcSa5e/QuQ38RLD9N6tDEOVC8CP+XiwN5oD2rdNjDTuvfOIWrJBSwUHXI/Jm9zh3biedJuyfuda8K+6q5KU5Tj/ovELp4SP7dn0PQq8LYvWgSbxM=; c=relaxed/relaxed; s=default; d=rock-chips.com; v=1;
+	bh=K1DLY9Im8emQ1pvFmDCS9X34Zpvqnm1ezAB2dEZJU7I=;
 	h=date:mime-version:subject:message-id:from;
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260531_235122_871658_8DC10DC6 
-X-CRM114-Status: UNSURE (   8.50  )
+X-CRM114-CacheID: sfid-20260531_235119_739973_8CE57BA5 
+X-CRM114-Status: UNSURE (   8.44  )
 X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
@@ -96,59 +96,65 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Add RK3576_EDP device type entry and extend Rockchip check
-to match existing hardware capabilities shared with RK3588.
+Add full device tree definition for the integrated eDP controller
+on RK3576, following the existing RK3588 hardware layout.
 
-Set identical maximum link rate and lane count parameters
-for RK3576 eDP controller to reuse existing RK3588 config.
+Configure required register range, clocks, interrupt, phy, power
+domain, reset and grf properties to fully describe the controller.
 
-Reviewed-by: Luca Ceresoli <luca.ceresoli@bootlin.com>
 Signed-off-by: Damon Ding <damon.ding@rock-chips.com>
+Reviewed-by: Nicolas Frattaroli <nicolas.frattaroli@collabora.com>
 
 ---
 
-Changes in v3:
+Changes in v2:
 - Add Reviewed-by tag.
 
 Changes in v4:
 - Modify the commit msg.
 ---
- drivers/gpu/drm/bridge/analogix/analogix_dp_core.c | 1 +
- include/drm/bridge/analogix_dp.h                   | 2 ++
- 2 files changed, 3 insertions(+)
+ arch/arm64/boot/dts/rockchip/rk3576.dtsi | 28 ++++++++++++++++++++++++
+ 1 file changed, 28 insertions(+)
 
-diff --git a/drivers/gpu/drm/bridge/analogix/analogix_dp_core.c b/drivers/gpu/drm/bridge/analogix/analogix_dp_core.c
-index 116de3bd83a3..c8eb3511f92a 100644
---- a/drivers/gpu/drm/bridge/analogix/analogix_dp_core.c
-+++ b/drivers/gpu/drm/bridge/analogix/analogix_dp_core.c
-@@ -1249,6 +1249,7 @@ static int analogix_dp_dt_parse_pdata(struct analogix_dp_device *dp)
- 		video_info->max_link_rate = 0x0A;
- 		video_info->max_lane_count = 0x04;
- 		break;
-+	case RK3576_EDP:
- 	case RK3588_EDP:
- 		video_info->max_link_rate = 0x14;
- 		video_info->max_lane_count = 0x04;
-diff --git a/include/drm/bridge/analogix_dp.h b/include/drm/bridge/analogix_dp.h
-index 7b670dd769e9..0e0b87abee59 100644
---- a/include/drm/bridge/analogix_dp.h
-+++ b/include/drm/bridge/analogix_dp.h
-@@ -16,6 +16,7 @@ enum analogix_dp_devtype {
- 	EXYNOS_DP,
- 	RK3288_DP,
- 	RK3399_EDP,
-+	RK3576_EDP,
- 	RK3588_EDP,
- };
+diff --git a/arch/arm64/boot/dts/rockchip/rk3576.dtsi b/arch/arm64/boot/dts/rockchip/rk3576.dtsi
+index 28175d8200d5..733449cb88b1 100644
+--- a/arch/arm64/boot/dts/rockchip/rk3576.dtsi
++++ b/arch/arm64/boot/dts/rockchip/rk3576.dtsi
+@@ -1496,6 +1496,34 @@ hdmi_out: port@1 {
+ 			};
+ 		};
  
-@@ -24,6 +25,7 @@ static inline bool analogix_dp_is_rockchip(enum analogix_dp_devtype type)
- 	switch (type) {
- 	case RK3288_DP:
- 	case RK3399_EDP:
-+	case RK3576_EDP:
- 	case RK3588_EDP:
- 		return true;
- 	default:
++		edp: edp@27dc0000 {
++			compatible = "rockchip,rk3576-edp";
++			reg = <0x0 0x27dc0000 0x0 0x1000>;
++			clocks = <&cru CLK_EDP0_24M>, <&cru PCLK_EDP0>, <&cru HCLK_VO0_ROOT>;
++			clock-names = "dp", "pclk", "hclk";
++			interrupts = <GIC_SPI 365 IRQ_TYPE_LEVEL_HIGH>;
++			phys = <&hdptxphy>;
++			phy-names = "dp";
++			power-domains = <&power RK3576_PD_VO0>;
++			resets = <&cru SRST_EDP0_24M>, <&cru SRST_P_EDP0>;
++			reset-names = "dp", "apb";
++			rockchip,grf = <&vo0_grf>;
++			status = "disabled";
++
++			ports {
++				#address-cells = <1>;
++				#size-cells = <0>;
++
++				edp_in: port@0 {
++					reg = <0>;
++				};
++
++				edp_out: port@1 {
++					reg = <1>;
++				};
++			};
++		};
++
+ 		dp: dp@27e40000 {
+ 			compatible = "rockchip,rk3576-dp";
+ 			reg = <0x0 0x27e40000 0x0 0x30000>;
 -- 
 2.34.1
 
