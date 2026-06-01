@@ -4,66 +4,68 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 29E24CD6E55
-	for <linux-arm-kernel@archiver.kernel.org>; Mon,  1 Jun 2026 23:10:39 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 54F7FCD6E55
+	for <linux-arm-kernel@archiver.kernel.org>; Mon,  1 Jun 2026 23:11:47 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:Mime-Version:References:In-Reply-To:Message-Id:Subject:Cc:To:
-	From:Date:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=jmSU8+clGd9Vdr+0PQ5FxeSQ2EfOINrntLzTOj1OVhQ=; b=jum3TRCmXlc7eu5VB7CrPkSH3O
-	zpe0+hurh24603/+SwlPh8t9Cd7xq6Fgkj6tZqiQp/LMYc4RuHh83CdPosd7NFTXCgIEXGq06mkpj
-	s74nD3vYJ4XbC+oWUv1YNKP+2v1vhet7UbMzh+mhEdsK7GnFDV92fQdqJpeJQCu4GtS36MhXb5zmz
-	pzci/9PnZmX65rYWNeTJlgKjTQJ+B7lO0g1KcaByJ0Ak6JBKvQ8cCn3Zo4hN0nvfTE4KaVOrXYp04
-	VlJ2/YjZG6pb7i4hiejfBFfVouL+KTv5qECUUMf+RFVFliVflWP2LQ7AryVR67mHYr1AwybAeSker
-	c4wJKE+w==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=u0uVl58P/+LhtePaVxc1OfDLsvpS/SYXpeqwBFFbzSU=; b=kxFNzAcTVW0PQIMCBhdixU/H+2
+	McH46PTsvPeGBIrLJYapmqR1ZHCZpy4WylPfyJQLUDdIaxt4jw4lKGBCF/Xlk8Qk3cAjQL/ZQXOYw
+	o1n/A+mHd0AL26CppG+FVVjBAteZX3Z+oDUD0JYpI6WL0bWGOb3Mf2s6rSfR8KTMcpK+3Lkbaasyo
+	BIX/B7NY2ROOWVu9js6Dx58Tqb0wKct16ThlVPyKsAC4RX8ESMabCq7cFwlWbpDOgp7oYwgiPt8B1
+	MyiLdAAw47mstJVcdwRiui5bbcucOAzEKG4w0r7Xq18SuuKjXrQpi72/xNW+7MVd1pWd0+xuREyKv
+	+R43u9HA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wUBmA-0000000C2Nr-4AmL;
-	Mon, 01 Jun 2026 23:10:31 +0000
-Received: from tor.source.kernel.org ([172.105.4.254])
+	id 1wUBnJ-0000000C2Un-1hHs;
+	Mon, 01 Jun 2026 23:11:41 +0000
+Received: from sea.source.kernel.org ([172.234.252.31])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wUBm9-0000000C2Nl-1w25
-	for linux-arm-kernel@lists.infradead.org;
-	Mon, 01 Jun 2026 23:10:29 +0000
+	id 1wUBnH-0000000C2UI-2IkS;
+	Mon, 01 Jun 2026 23:11:40 +0000
 Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
-	by tor.source.kernel.org (Postfix) with ESMTP id 7CBA16001A;
-	Mon,  1 Jun 2026 23:10:28 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 1D1BE1F00893;
-	Mon,  1 Jun 2026 23:10:27 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-	d=linux-foundation.org; s=korg; t=1780355428;
-	bh=jmSU8+clGd9Vdr+0PQ5FxeSQ2EfOINrntLzTOj1OVhQ=;
-	h=Date:From:To:Cc:Subject:In-Reply-To:References;
-	b=UcuLTdYFJ45yGbhwq4JqV5rRBlsI2KOcUsj2hzI4QVrvlWpfknsw0mxnUG2kgHyGl
-	 NKwBt+ok4mnD9QE2zdnUuN8BofrNb4vxTM73veVHbmfpu/tnvvYh3qwpGKcANbxpiY
-	 ErXU92C50RKmfHmskjHokRs/Z0jxFNI5K9MXFzx4=
-Date: Mon, 1 Jun 2026 16:10:26 -0700
-From: Andrew Morton <akpm@linux-foundation.org>
-To: Usama Arif <usama.arif@linux.dev>
-Cc: david@kernel.org, willy@infradead.org, ryan.roberts@arm.com,
- linux-mm@kvack.org, pfalcato@suse.de, r@hev.cc, jack@suse.cz, Andrew
- Donnellan <andrew+kernel@donnellan.id.au>, apopple@nvidia.com,
- baohua@kernel.org, baolin.wang@linux.alibaba.com, brauner@kernel.org,
- catalin.marinas@arm.com, dev.jain@arm.com, kees@kernel.org,
- kevin.brodsky@arm.com, lance.yang@linux.dev, Liam R. Howlett
- <liam@infradead.org>, linux-arm-kernel@lists.infradead.org,
- linux-fsdevel@vger.kernel.org, linux-kernel@vger.kernel.org,
- ljs@kernel.org, mhocko@suse.com, npache@redhat.com,
- pasha.tatashin@soleen.com, rmclure@linux.ibm.com, rppt@kernel.org,
- surenb@google.com, vbabka@kernel.org, Al Viro <viro@zeniv.linux.org.uk>,
- ziy@nvidia.com, hannes@cmpxchg.org, kas@kernel.org, shakeel.butt@linux.dev,
- kernel-team@meta.com
-Subject: Re: [PATCH v7 0/2] mm: improve large folio readahead for exec
- memory
-Message-Id: <20260601161026.d5905786bbd3a26d62be88c3@linux-foundation.org>
-In-Reply-To: <20260601102205.3985788-1-usama.arif@linux.dev>
-References: <20260601102205.3985788-1-usama.arif@linux.dev>
-X-Mailer: Sylpheed 3.8.0beta1 (GTK+ 2.24.33; x86_64-pc-linux-gnu)
-Mime-Version: 1.0
-Content-Type: text/plain; charset=US-ASCII
-Content-Transfer-Encoding: 7bit
+	by sea.source.kernel.org (Postfix) with ESMTP id DCDA044589;
+	Mon,  1 Jun 2026 23:11:38 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 9C7D61F00893;
+	Mon,  1 Jun 2026 23:11:38 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
+	s=k20260515; t=1780355498;
+	bh=u0uVl58P/+LhtePaVxc1OfDLsvpS/SYXpeqwBFFbzSU=;
+	h=Date:From:To:Cc:Subject:References:In-Reply-To;
+	b=fGL4zNAtKMHnY544PXECwX2aMFMp24rQEYuUfQs+q21l93HzpIoRz52ZpUN9uwl/c
+	 QoiugUZR1nUBv6FmnjvfYpNQH+WM0id3NatUQeZS7gmM77UqWgWCnDgloXPPUM+q6b
+	 EqvWD8Iwdz2ig7V078bAd9ClTS2Rwhnq0K/E82D/kLa8WxO3WtTvzDE3hW7/NV4hn3
+	 0fwhsepFhBiUJjLnTbY2PoJcanlPDjS33wSP7UO3Kkfl9U+T2Qre7WgeccSvtYofEa
+	 d1hYkbXkCDdi9kkFX4q+1PJfxHkP0OohnKITG8PZ8cu5VfqakCLak+bmY4a6imtF52
+	 ZQ5pS14t8q1/A==
+Date: Mon, 1 Jun 2026 18:11:38 -0500
+From: "Rob Herring (Arm)" <robh@kernel.org>
+To: Lorenzo Bianconi <lorenzo@kernel.org>
+Cc: Eric Dumazet <edumazet@google.com>,
+	Benjamin Larsson <benjamin.larsson@genexis.eu>,
+	Krzysztof Kozlowski <krzk+dt@kernel.org>,
+	devicetree@vger.kernel.org, Andrew Lunn <andrew+netdev@lunn.ch>,
+	linux-arm-kernel@lists.infradead.org, netdev@vger.kernel.org,
+	linux-mediatek@lists.infradead.org, Paolo Abeni <pabeni@redhat.com>,
+	Jakub Kicinski <kuba@kernel.org>,
+	Conor Dooley <conor+dt@kernel.org>,
+	"David S. Miller" <davem@davemloft.net>,
+	Christian Marangi <ansuelsmth@gmail.com>
+Subject: Re: [PATCH net-next v8 01/10] dt-bindings: net: airoha: Add GDM port
+ ethernet child node
+Message-ID: <178035548342.162634.13411632527297449694.robh@kernel.org>
+References: <20260519-airoha-eth-multi-serdes-v8-0-6bd70e329df6@kernel.org>
+ <20260519-airoha-eth-multi-serdes-v8-1-6bd70e329df6@kernel.org>
+MIME-Version: 1.0
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+In-Reply-To: <20260519-airoha-eth-multi-serdes-v8-1-6bd70e329df6@kernel.org>
+X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
+X-CRM114-CacheID: sfid-20260601_161139_607417_D776F613 
+X-CRM114-Status: GOOD (  13.37  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -78,63 +80,26 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Mon,  1 Jun 2026 03:21:16 -0700 Usama Arif <usama.arif@linux.dev> wrote:
 
-> Hopefully this is the last revision. The only change from the previous
-> revision is that the logic for deciding THP order was simplified and
-> the max is now capped to 2M. Thanks Pedro and Jan for the suggestion
-> and the dicusssion!
+On Tue, 19 May 2026 10:57:44 +0200, Lorenzo Bianconi wrote:
+> EN7581 and AN7583 SoCs support connecting multiple external SerDes to GDM3
+> or GDM4 ports via a hw arbiter that manages the traffic in a TDM manner.
+> As a result multiple net_devices can connect to the same GDM{3,4} port
+> and there is a theoretical "1:n" relation between GDM ports and
+> net_devices.
+> Introduce the ethernet node child of a specific GDM port in order to model
+> a given net_device that is connected via the external arbiter to the
+> GDM{3,4} port. This new ethernet node is defined by the "airoha,eth-port"
+> compatible string. Please note GDM1 and GDM2 does not support the
+> connection with the external arbiter and they are represented by an
+> ethernet node defined by the "airoha,eth-mac" compatible string.
 > 
-> The benchmark results on Neoverse V2 (Grace), arm64 with 64K base pages,
-> 512MB executable file on ext4, averaged over 3 runs:
+> Signed-off-by: Lorenzo Bianconi <lorenzo@kernel.org>
+> ---
+>  .../devicetree/bindings/net/airoha,en7581-eth.yaml | 56 +++++++++++++++++++++-
+>  1 file changed, 55 insertions(+), 1 deletion(-)
 > 
->   Phase      | Baseline     | Patched      | Improvement
->   -----------|--------------|--------------|------------------
->   Cold fault | 83.4 ms      | 41.3 ms      | 50% faster
->   Random     | 76.0 ms      | 58.3 ms      | 23% faster
-> 
-> The patches are on top of mm-unstable from 28 May
-> (8a74e22643189e0ae339afc91110ddb4cab1941b) which include patch [1]
-> that make mmap_miss accounting symmetric for VM_SEQ_READ which was pointed
-> out by sashiko in the previous revision.
 
-We lost the [0/N] cover letter.  Please do retain (and maintain!) that
-across revisions.  I used the one from the v6 patchset.
-
-> v6 -> v7: https://lore.kernel.org/all/20260528165635.2068012-1-usama.arif@linux.dev/
-> - Simplify logic and just cap the max THP order to 2M (Pedro and Jan)
-
-Here's how v7 altered mm.git:
-
-
- mm/filemap.c |   15 +++++----------
- 1 file changed, 5 insertions(+), 10 deletions(-)
-
---- a/mm/filemap.c~b
-+++ a/mm/filemap.c
-@@ -3320,17 +3320,12 @@ static struct file *do_sync_mmap_readahe
- 	/* Use the readahead code, even if readahead is disabled */
- 	if (IS_ENABLED(CONFIG_TRANSPARENT_HUGEPAGE) && (vm_flags & VM_HUGEPAGE)) {
- 		/*
--		 * Preserve PMD-sized readahead where it already fits in
--		 * the page cache. Otherwise cap the new fallback path at
--		 * 2MB: this is the common PMD-sized hugepage size, and it
--		 * avoids memory pressure from very large forced readahead
--		 * when mapping_max_folio_order() is high (for example,
--		 * 128MB with 64K base pages on arm64).
-+		 * Cap max THP order at 2MB: this is the common PMD-sized
-+		 * hugepage size, and it avoids memory pressure from very
-+		 * large forced readahead when mapping_max_folio_order() is
-+		 * high (for example, 128MB with 64K base pages on arm64).
- 		 */
--		if (HPAGE_PMD_ORDER <= MAX_PAGECACHE_ORDER) {
--			force_thp_readahead = true;
--			thp_order = HPAGE_PMD_ORDER;
--		} else if (mapping_large_folio_support(mapping)) {
-+		if (mapping_large_folio_support(mapping)) {
- 			force_thp_readahead = true;
- 			thp_order = min_t(unsigned int,
- 					  mapping_max_folio_order(mapping),
-_
+Reviewed-by: Rob Herring (Arm) <robh@kernel.org>
 
 
