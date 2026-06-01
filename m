@@ -4,125 +4,72 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id E0ECBCD6E55
-	for <linux-arm-kernel@archiver.kernel.org>; Mon,  1 Jun 2026 17:11:54 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id C4EA2CD5BD1
+	for <linux-arm-kernel@archiver.kernel.org>; Mon,  1 Jun 2026 17:34:35 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:In-Reply-To:
-	Content-Type:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
 	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=++kqqwUGRuzuDV17oRUe+jZS3mI5pYuxMV/bU49FRSI=; b=Ga9sOJ5fQBpo9elBdj0zudDVwp
-	tns+pKLG57ky1xhPHqPu+bc63jYrBJC/ejICj+D6IHIdRMBcSwFfueRHkeOWYKtudmkxHpn/iFinh
-	IJmLDCtIIxfI9pYmiqe58e+ynu9zY+Pe5JUv/21sopeGCJ6/Dxr5EgRZJUsPLPq7G8M1uiV0IFFcI
-	OFVLzam9MyqcpXGPTXR//f9yUzF3C+S/v37mpSGRXaRsjFq94NT6EcMS9EH9z06wa7FGGs/9r5uH8
-	GA7kegQbQxzrMFYQbAuLLb0ZRrP/i5JUh2UI5lOigabYf5EifQbji8PDiiDo9dcVlBPiRD5GmA1h6
-	H6ztUcFQ==;
+	bh=ftUmG+OMtMYx53fAFYMFIhG4FIOY7nTZCL8KELWvf00=; b=lgIhZR+ep2Bg9stH38mqr+yMnv
+	DjLPK30uAPqmYbIjAWPQ0IUi9/L3fFd6U6DxtmePfW6HL6yyJBlMA/PXwWM/ZIY5zkiCuB+ZbBgdA
+	FPzVVXTwzdIiONdhki92ingP9PYVeKc5FC7FnqW9lUQC75CnPuy1SAGtpdzHcFiwgeHjio5awCFlw
+	5gVjjG6yC3mwdnQXB0MZHJlNfddfLRNB1uvAmWOzJkeNowT1fsJLLgDKqdRbgzoAFLhGyUdnRX6Di
+	lOrEuhiqinGZVm6SISWQJSSqmOhKQzAZZ7beFWnhKjStCnwiXyMaEaHrryqj72Ys9ZLbh+zf9YiyB
+	Xhf0J+kw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wU6B2-0000000BYjW-21Jl;
-	Mon, 01 Jun 2026 17:11:48 +0000
-Received: from mail-francecentralazlp170130007.outbound.protection.outlook.com ([2a01:111:f403:c20a::7] helo=PA4PR04CU001.outbound.protection.outlook.com)
+	id 1wU6Wx-0000000BaRL-20Un;
+	Mon, 01 Jun 2026 17:34:27 +0000
+Received: from sender4-pp-f112.zoho.com ([136.143.188.112])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wU6Az-0000000BYj1-3ue4
-	for linux-arm-kernel@lists.infradead.org;
-	Mon, 01 Jun 2026 17:11:46 +0000
-ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
- b=f7wv+mxVjC5JzMxMC4LbsWuP4jA8nr3uFqlo+0IF3Eun1soEzAkycXhmwRlUg+elQqefZv8uSgkN3VDXRqAyenjFAb1EIY890zTw62MDMv2ftzTEjD0ASatoLj9yiaR5sKY+zAKl3YcURy4R93PBcdj8OzBWeonR9/gUGlfu+fuRAxDkL754qdblHXb+PJ7Yr+eWXZ8tX8Wa0DK0ZjvY7+Ct9dDartiZ+x+t1IQl+YEi3A+WBuUY7RbRNajqBlA6UH0N75ljqjQYQu0DOm+1mZf1fj/OlCs8bDeLBJsD7L19bRPyzTNOJaIY4JGOKDMb2fIlq3OxvKijjBiOpch7EA==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
- s=arcselector10001;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
- bh=++kqqwUGRuzuDV17oRUe+jZS3mI5pYuxMV/bU49FRSI=;
- b=sDxbrqy2gII2Q0zzb842B3KiJqULUWwFUJgbySIIzk+kZa7uptDGXcdQXGphad4hKOQiXkfNE5KMKlLs9lpN/eTec/mJEeT+k8DZqGezbZ6Qyx0ayden4fmX/nN9JiL2kg2LPee/sAVIE659e+7fNV5hfJC2PhRnm7QzXNBVNhvJeZS01Mxfs4wplnoCialEsTDnaQR5dTuqKsgLERGf+/gBwJOuJeBQYwYihwfUJDbfCzb5Nmp0PlSLRsPQsFhl+b+b2KJJqirASGT7dLOqL/KQWCZhvoFLQBtkAdkLY9jU5kGnWMHSi3IRAk10tiZKq0YyXVnljVHkBmcfWOGUew==
-ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
- smtp.mailfrom=nxp.com; dmarc=pass action=none header.from=nxp.com; dkim=pass
- header.d=nxp.com; arc=none
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=nxp.com; s=selector1;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
- bh=++kqqwUGRuzuDV17oRUe+jZS3mI5pYuxMV/bU49FRSI=;
- b=XY3dm83Op4KjX0+afvfRLNW068moTdvDfwXCf2pJn4hJXa8aF11MdJ8hFSP/B1NDrj7FRZufMXeDfCwGJkPCRdK3fwdvqUwOWYv23NXqiT4YA9ORgufvtQUOGwIXpF8/JjLMizEyxHrasfQ2jgCp9VJjaCw+IemafWigpieNDMxk61L9OmsWb2fXkI77QZJKt54HDt3lHW1+2O6MWlBGGsLR/Q1hDBfUA0ZiWgmq3RNGvix/CVq+dTc/w+Mj57sidXzmccu2BSfFWV8cJ9SVCtDGdp6haOmu9fewkUJspWSXOsse3h17701GcI5sTKf/8+4iPNF/UK7lvxZt+HjITQ==
-Authentication-Results: dkim=none (message not signed)
- header.d=none;dmarc=none action=none header.from=nxp.com;
-Received: from PA4PR04MB9366.eurprd04.prod.outlook.com (2603:10a6:102:2a9::8)
- by AM9PR04MB8226.eurprd04.prod.outlook.com (2603:10a6:20b:3ea::20) with
- Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.21.71.16; Mon, 1 Jun 2026
- 17:11:40 +0000
-Received: from PA4PR04MB9366.eurprd04.prod.outlook.com
- ([fe80::75e4:8143:ddbc:6588]) by PA4PR04MB9366.eurprd04.prod.outlook.com
- ([fe80::75e4:8143:ddbc:6588%3]) with mapi id 15.21.0071.015; Mon, 1 Jun 2026
- 17:11:40 +0000
-Date: Mon, 1 Jun 2026 13:11:33 -0400
-From: Frank Li <Frank.li@nxp.com>
-To: "Sherry Sun (OSS)" <sherry.sun@oss.nxp.com>
-Cc: s.hauer@pengutronix.de, kernel@pengutronix.de, festevam@gmail.com,
-	robh@kernel.org, krzk+dt@kernel.org, conor+dt@kernel.org,
-	imx@lists.linux.dev, linux-arm-kernel@lists.infradead.org,
-	devicetree@vger.kernel.org, linux-kernel@vger.kernel.org
-Subject: Re: [PATCH] arm64: dts: imx943-evk-sdwifi: add a new dtso to support
- SDIW612 WiFi
-Message-ID: <ah29RV8eZEScKixA@lizhi-Precision-Tower-5810>
-References: <20260519053942.249129-1-sherry.sun@oss.nxp.com>
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-In-Reply-To: <20260519053942.249129-1-sherry.sun@oss.nxp.com>
-X-ClientProxiedBy: PH0P220CA0014.NAMP220.PROD.OUTLOOK.COM
- (2603:10b6:510:d3::28) To PA4PR04MB9366.eurprd04.prod.outlook.com
- (2603:10a6:102:2a9::8)
+	id 1wU6Wv-0000000BaQk-38rD;
+	Mon, 01 Jun 2026 17:34:26 +0000
+ARC-Seal: i=1; a=rsa-sha256; t=1780335259; cv=none; 
+	d=zohomail.com; s=zohoarc; 
+	b=KUjHSEAqyzDpBW9ytMwE6RzfWmygkd76KDpyIdA9AnxWV8XpoLyatlMjcX5EWqG5mTCmR45o/M0EccPXpJlOHymH7jlMY2Qp0Fd9ScY6FTQlQVxLrkS0+xrnJXoKWIK+DHldupwueiKTwcIRnMIItWk6VBZu1lAQrlNehjCTiTk=
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=zohomail.com; s=zohoarc; 
+	t=1780335259; h=Content-Type:Cc:Cc:Date:Date:From:From:In-Reply-To:MIME-Version:Message-ID:References:Subject:Subject:To:To:Message-Id:Reply-To; 
+	bh=ftUmG+OMtMYx53fAFYMFIhG4FIOY7nTZCL8KELWvf00=; 
+	b=H7I2iBmsE6lM9LNn/n+P9s2hLIgmCwhfagLCPDmzOsNpGXDBWPn7BDfyPeGHuwjWtFlhJLnzu25A7UiPAzAYLs3k+Dq36UWxhNiD0wupdzXReXQkkRKPd1N3LEl16e8w8LiMkDGYz5M75I7Yg/PTI08JANNP6bkQRmS9Vx1kOJw=
+ARC-Authentication-Results: i=1; mx.zohomail.com;
+	dkim=pass  header.i=collabora.com;
+	spf=pass  smtp.mailfrom=sebastian.reichel@collabora.com;
+	dmarc=pass header.from=<sebastian.reichel@collabora.com>
+DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed; t=1780335259;
+	s=zohomail; d=collabora.com; i=sebastian.reichel@collabora.com;
+	h=Date:Date:From:From:To:To:Cc:Cc:Subject:Subject:Message-ID:References:MIME-Version:Content-Type:In-Reply-To:Message-Id:Reply-To;
+	bh=ftUmG+OMtMYx53fAFYMFIhG4FIOY7nTZCL8KELWvf00=;
+	b=LnSokZIrKPfrUEv0YKR+nIoe4mqL4SO+3q3ENkXFsDv6gdqdvV54KkjWebFCUvQR
+	aQFE9GMeJ8JrfS4+Y9TQbyBN/LpTJlXeF1yFLC8yPxuAzrcRuaUZWk1NZdf8L4edD1k
+	tf0jbDxd76+HBLYqr+HppjeR9DJw+zvP+1z7PG0E=
+Received: by mx.zohomail.com with SMTPS id 1780335257580567.7189231938526;
+	Mon, 1 Jun 2026 10:34:17 -0700 (PDT)
+Received: by venus (Postfix, from userid 1000)
+	id BD4E6182618; Mon, 01 Jun 2026 19:34:13 +0200 (CEST)
+Date: Mon, 1 Jun 2026 19:34:13 +0200
+From: Sebastian Reichel <sebastian.reichel@collabora.com>
+To: =?utf-8?Q?C=C3=A1ssio?= Gabriel <cassiogabrielcontato@gmail.com>
+Cc: Liam Girdwood <lgirdwood@gmail.com>, Mark Brown <broonie@kernel.org>, 
+	Takashi Iwai <tiwai@suse.com>, Jaroslav Kysela <perex@perex.cz>, 
+	Heiko Stuebner <heiko@sntech.de>, linux-sound@vger.kernel.org, 
+	linux-arm-kernel@lists.infradead.org, linux-rockchip@lists.infradead.org, linux-kernel@vger.kernel.org
+Subject: Re: [PATCH] ASoC: rockchip: i2s: Use managed hclk and runtime PM
+ cleanup
+Message-ID: <ah3Ccc6D3c7sxg6U@venus>
+References: <20260521-asoc-rockchip-i2s-devm-cleanup-v1-1-9319bd781393@gmail.com>
 MIME-Version: 1.0
-X-MS-PublicTrafficType: Email
-X-MS-TrafficTypeDiagnostic: PA4PR04MB9366:EE_|AM9PR04MB8226:EE_
-X-MS-Office365-Filtering-Correlation-Id: f5e90d92-e05e-40f9-a570-08dec000d8c8
-X-MS-Exchange-SenderADCheck: 1
-X-MS-Exchange-AntiSpam-Relay: 0
-X-Microsoft-Antispam: BCL:0;ARA:13230040|366016|19092799006|1800799024|376014|7416014|52116014|18002099003|22082099003|6133799003|11063799006|56012099006|38350700014;
-X-Microsoft-Antispam-Message-Info: pnY+zpfDTsjyazZyYjL7huFencJtJAS1VSEWAI3ZGFXRpoet0tbs3XEo4EFlcYAX07JYvrGlP/xutM3OV6y5DUihRNMbI6BdCGCgEZeDKbavjcmP4+gKYhcYClh6t0IxmgN1DaiqsmKf4YN6da3urq1miEOpa5NQL4p0SSabC1GDlYapIAQz1kP4k8t87xOsCDio52sD/l2V0QLnOCxtzJJzoIfYuESud8pWY5HoEFcxe3jpVnhCc4HOMYOMsXblQKh8EuL/OvsrnCqBjixCt1kHrda9HpaSmGXlNGhcja5pyr6v+WPuLC++VCh68Tpt8W2H4IlVW+5aCSJIsAJ+Gja7NXkgnTL2258xXjKHPsvf1nFThrKJl2k5hH5W8+TQPJBBXltZOlYIN5rK9x80QxhL5nl02Gg8+f3viMSHBF/QmM8wHj0QgrzD2sTPGZORF+EBe6O8oBvE+sabIia3Zpn9aZtWo0uFKsEy0jsA3qSziNehU2GDsm+KzrC3+ZEGk05pTFJL7i+EgiWFdlacgwMETwvlSopWLvUK+DYw30IDee//DCEclJWUtCDt51WGBeDFM2ocvxUxrLyOAvyTfib4m0OTlYxPkUZlgWKf6Mg4Y78icTpaUnlBU877jOWQbsKFoWjkys9NoOapVAdIcrwWTh9pk/Q7hgcpi+FNQ72zjrFlfwVulcSXopYZxNtyqAT1/wr2O7CEx8rjz2BA9pgIhf15XDRMVxMWmO9a24XKk2DLhiY+3316/JmSzDZz
-X-Forefront-Antispam-Report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:PA4PR04MB9366.eurprd04.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(366016)(19092799006)(1800799024)(376014)(7416014)(52116014)(18002099003)(22082099003)(6133799003)(11063799006)(56012099006)(38350700014);DIR:OUT;SFP:1101;
-X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
-X-MS-Exchange-AntiSpam-MessageData-0: =?us-ascii?Q?1F+riYHp3zLcwFiNNvGS3luhEfXbJXED1MyEHgh0u4Cee4ZHUVWZQ/+qI05W?=
- =?us-ascii?Q?etmSkC2YCNOODvOsIfprMG8sW31V/wNJkTt89cDYmHa7Pi81N/Eue5+daElh?=
- =?us-ascii?Q?vky5ZU6jNNxEDy0VVg9XvE+mSQFj5R4sCHyFaZI2JKg0dDUdGQ9w1WMOQRKZ?=
- =?us-ascii?Q?gvRMckK5dxdR6mSp0aTI5Fcsn26FQSwENocSF20ITp2Z+8H+HU07/ndaTHo2?=
- =?us-ascii?Q?Nxjj76RENxvYjT+/s4R8wIRdRv3uMt1t6c/NCGeML/loCNyIhBLCZogfr4Yh?=
- =?us-ascii?Q?CWK/crbL45ZW4Xv+m0VObtjhxF2HQHvkOHEkOVp9oml+DD5xYdmBJhs+BKbM?=
- =?us-ascii?Q?dEfcgeOr4Xok3hH7fV7rbF1qvPs5MlXXxZTFwWJWsXrTeawtl1f1+GQ0zztx?=
- =?us-ascii?Q?oFj3jAuu2j1p1WfivYVac9rjtBk1CKq4n1MHVwS16UlXZnOMNYcLn1DDUdsu?=
- =?us-ascii?Q?OyH8RYbRy1YwEto9zSf15zC/Qa/mBKT/cZqsP3Zo073MX4dwigeLoU+GYtBy?=
- =?us-ascii?Q?9eibxGQ4Kx65GtINZ73ByvbfIOkUXIs+onowFiZ+ynVAJVLxfkjaGSH8ix1V?=
- =?us-ascii?Q?wasA13byyqm45vFjW7lsaa7hdtJDQBxMx8JOeBfpOFtkNFAJUpGsTaHrYTDu?=
- =?us-ascii?Q?WS/CwLSNdyIYCj/Zkt3UmAlLRBzqSAgql4f9qNxQN4Vf0NYZ4dxkiiXJiDW/?=
- =?us-ascii?Q?IffCK920/G/JniFJn2j6b2Z3EsYDWPOL/Jpsrc0Sn6eCJ1U8w2Er4RQvZayq?=
- =?us-ascii?Q?kCRN5LyGORnxmeMslh8Ap6Rgo8YWsZ2gXw0BqMxOrOL8pVh2AXtjfaMHuDZV?=
- =?us-ascii?Q?BMa/1S2dfH2c7Vzeb7XHuO0MwWa7wiNQahlUYRuqBkD2HPn8m2TR/daLLcCB?=
- =?us-ascii?Q?esmiABi17rRUtEWWvbb/IkDApsHfgKuIlyrT3nnOm9Mt+Eh7TA5Dky550sWI?=
- =?us-ascii?Q?JPxaIyLOQPIGTrYl5TJAfls8triqoALKkZZfY3Wk043BX8dm93n0etD9/9s7?=
- =?us-ascii?Q?CB9Qt+N4dfqmlCokhWOcsoX1RlAunxO9VLOlHSO+cuFksNP/grAGmGATGRTq?=
- =?us-ascii?Q?jfWK1TTNZ1cWgS0AcCZbeO7Jrmf4YMviLOdk0wmHvCpJ5FNZk0naIbNLTc6k?=
- =?us-ascii?Q?wiZv30ru0EimK6qMDyT6V9ZVOFZdyHOPvjeXYnkemmi2DDhng42vnThN5XZJ?=
- =?us-ascii?Q?JlIunC+qwd7vOdE6WdCLAoUQm5tdFLzB1F+rIM/ckXv7YVu9oGG98B4z0jVS?=
- =?us-ascii?Q?DQdpvdz9MJtxK8fIBpKQ/QKd6B1L7FzQC1EieyFN2MpWTm78m0jQNKc/B+5Z?=
- =?us-ascii?Q?2Nhri8dzt6d089gIayJcRbQb5aElOilJDVI4L5XNsf01BaH+9KkNdlCm1PoA?=
- =?us-ascii?Q?jS6yEfX89smE9azISMX7Nwlvz/bYdXubWuUtd4agP+1WJ9yDnJSgNlMwdSsa?=
- =?us-ascii?Q?Hk6pTQnUbqTV3sqt8eM4/NtJTRvQxFlNUKEfWzDBVsnNPexpjhVH6ZbSjX8e?=
- =?us-ascii?Q?i1TzkQmpX7nB9PpTaAeCrlSjUtM6jYjbMIW6cIvsCQHY5bgrlw7ys0Utzt0B?=
- =?us-ascii?Q?/ukP2jiLW66XxTn0eqUUm1nuPAb9h3TnPZOw+peVgf5AAyadkq5KCtUmLLCA?=
- =?us-ascii?Q?zGnSCIoaP3lCq/pliZatkbzfwhvsD/F++RatDaaWsnmArhN/mJaFxdcloOWb?=
- =?us-ascii?Q?fFL3ftZxeSuoyS99ecygBZm3VqjStTP54N7OQJCgNlqDzG5bCNYSPxFphRqT?=
- =?us-ascii?Q?xYPxsJnqAQ=3D=3D?=
-X-OriginatorOrg: nxp.com
-X-MS-Exchange-CrossTenant-Network-Message-Id: f5e90d92-e05e-40f9-a570-08dec000d8c8
-X-MS-Exchange-CrossTenant-AuthSource: PA4PR04MB9366.eurprd04.prod.outlook.com
-X-MS-Exchange-CrossTenant-AuthAs: Internal
-X-MS-Exchange-CrossTenant-OriginalArrivalTime: 01 Jun 2026 17:11:40.4493
- (UTC)
-X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
-X-MS-Exchange-CrossTenant-Id: 686ea1d3-bc2b-4c6f-a92c-d99c5c301635
-X-MS-Exchange-CrossTenant-MailboxType: HOSTED
-X-MS-Exchange-CrossTenant-UserPrincipalName: 70J7wEBrPZzNHZauUVKDTIbm/JiuYG9w89jr6A7X/ilUG0bgM1j8NLDbzSCYaxH/v7uEzMlwPIOtnyh6U/vFcQ==
-X-MS-Exchange-Transport-CrossTenantHeadersStamped: AM9PR04MB8226
+Content-Type: multipart/signed; micalg=pgp-sha512;
+	protocol="application/pgp-signature"; boundary="ofxtbn4d6r6smg75"
+Content-Disposition: inline
+In-Reply-To: <20260521-asoc-rockchip-i2s-devm-cleanup-v1-1-9319bd781393@gmail.com>
+X-Zoho-Virus-Status: 1
+X-Zoho-AV-Stamp: zmail-av-0.2.2.1.5.2/280.325.56
+X-ZohoMailClient: External
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260601_101145_973398_34C8F5CF 
-X-CRM114-Status: GOOD (  21.71  )
+X-CRM114-CacheID: sfid-20260601_103425_824699_794E2E48 
+X-CRM114-Status: GOOD (  30.39  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -137,83 +84,230 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Tue, May 19, 2026 at 01:39:42PM +0800, Sherry Sun (OSS) wrote:
-> From: Sherry Sun <sherry.sun@nxp.com>
->
-> Add a new imx943-evk-sdwifi.dtso to support SDIW612 WiFi chip on
-> imx943-evk board, the default imx943-evk.dtb is used to support PCIE
-> AW693 WiFi.
->
-> Use separate dts for SDIW612 and PCIe AW693 WiFi to avoid the shared
-> regulator between SDIO and PCIe buses, the random probe order between
-> the two buses may break the PCIe initialization sequence which cause
-> AW693 has probability of failing to detect.
 
-Mani said M.2 Key E patch already applied. Dose use M.2 Key E fix this
-problem?
+--ofxtbn4d6r6smg75
+Content-Type: text/plain; protected-headers=v1; charset=iso-8859-1
+Content-Disposition: inline
+Content-Transfer-Encoding: quoted-printable
+Subject: Re: [PATCH] ASoC: rockchip: i2s: Use managed hclk and runtime PM
+ cleanup
+MIME-Version: 1.0
 
-Frank
+Hi,
 
->
-> Signed-off-by: Sherry Sun <sherry.sun@nxp.com>
+On Thu, May 21, 2026 at 11:30:07PM -0300, C=E1ssio Gabriel wrote:
+> The Rockchip I2S driver mixes devm-managed probe resources with manual
+> runtime PM and hclk cleanup.  This leaves the remove path doing runtime PM
+> shutdown and clock disable before devm-managed ASoC and PCM resources are
+> released.
+>=20
+> Keep the bus clock enabled for the device lifetime with
+> devm_clk_get_enabled(), and move the runtime PM teardown into devres so t=
+he
+> unwind order matches the managed registrations.  This also removes the
+> remove callback, which only existed for cleanup.
+>=20
+> Use a devm action for the final runtime suspend and register it before the
+> managed runtime PM action, so teardown disables runtime PM before forcing
+> the device into the suspended state.
+>=20
+> Signed-off-by: C=E1ssio Gabriel <cassiogabrielcontato@gmail.com>
 > ---
->  arch/arm64/boot/dts/freescale/Makefile            |  3 +++
->  .../boot/dts/freescale/imx943-evk-sdwifi.dtso     | 15 +++++++++++++++
->  arch/arm64/boot/dts/freescale/imx943-evk.dts      |  2 +-
->  3 files changed, 19 insertions(+), 1 deletion(-)
->  create mode 100644 arch/arm64/boot/dts/freescale/imx943-evk-sdwifi.dtso
->
-> diff --git a/arch/arm64/boot/dts/freescale/Makefile b/arch/arm64/boot/dts/freescale/Makefile
-> index 0a4dabac5de4..657e0915ca69 100644
-> --- a/arch/arm64/boot/dts/freescale/Makefile
-> +++ b/arch/arm64/boot/dts/freescale/Makefile
-> @@ -516,6 +516,9 @@ imx943-evk-pcie0-ep-dtbs += imx943-evk.dtb imx-pcie0-ep.dtbo
->  imx943-evk-pcie1-ep-dtbs += imx943-evk.dtb imx-pcie1-ep.dtbo
->  dtb-$(CONFIG_ARCH_MXC) += imx943-evk-pcie0-ep.dtb imx943-evk-pcie1-ep.dtb
->
-> +imx943-evk-sdwifi-dtbs := imx943-evk.dtb imx943-evk-sdwifi.dtbo
-> +dtb-$(CONFIG_ARCH_MXC) += imx943-evk-sdwifi.dtb
-> +
->  dtb-$(CONFIG_ARCH_MXC) += imx95-15x15-ab2.dtb
->  dtb-$(CONFIG_ARCH_MXC) += imx95-15x15-evk.dtb
->  dtb-$(CONFIG_ARCH_MXC) += imx95-15x15-frdm.dtb
-> diff --git a/arch/arm64/boot/dts/freescale/imx943-evk-sdwifi.dtso b/arch/arm64/boot/dts/freescale/imx943-evk-sdwifi.dtso
-> new file mode 100644
-> index 000000000000..59cc1c27b9b9
-> --- /dev/null
-> +++ b/arch/arm64/boot/dts/freescale/imx943-evk-sdwifi.dtso
-> @@ -0,0 +1,15 @@
-> +// SPDX-License-Identifier: (GPL-2.0+ OR MIT)
-> +/*
-> + * Copyright 2026 NXP
-> + */
-> +
-> +/dts-v1/;
-> +/plugin/;
-> +
-> +&pcie0 {
-> +	status = "disabled";
-> +};
-> +
-> +&usdhc3 {
-> +	status = "okay";
-> +};
-> diff --git a/arch/arm64/boot/dts/freescale/imx943-evk.dts b/arch/arm64/boot/dts/freescale/imx943-evk.dts
-> index fe4fc512d95d..1346a6a56883 100644
-> --- a/arch/arm64/boot/dts/freescale/imx943-evk.dts
-> +++ b/arch/arm64/boot/dts/freescale/imx943-evk.dts
-> @@ -1153,7 +1153,7 @@ &usdhc3 {
->  	keep-power-in-suspend;
->  	non-removable;
->  	wakeup-source;
-> -	status = "okay";
-> +	status = "disabled";
+
+Reviewed-by: Sebastian Reichel <sebastian.reichel@collabora.com>
+
+Greetings,
+
+-- Sebastian
+
+>  sound/soc/rockchip/rockchip_i2s.c | 68 +++++++++++++++------------------=
+------
+>  1 file changed, 26 insertions(+), 42 deletions(-)
+>=20
+> diff --git a/sound/soc/rockchip/rockchip_i2s.c b/sound/soc/rockchip/rockc=
+hip_i2s.c
+> index 49ff86b35ef1..4e3af0f37941 100644
+> --- a/sound/soc/rockchip/rockchip_i2s.c
+> +++ b/sound/soc/rockchip/rockchip_i2s.c
+> @@ -664,6 +664,14 @@ static const struct of_device_id rockchip_i2s_match[=
+] __maybe_unused =3D {
 >  };
->
->  &wdog3 {
->
-> base-commit: 5f9e9f83aee0fa8f2124c6f192505de2cdf7c5dc
-> --
-> 2.37.1
->
+>  MODULE_DEVICE_TABLE(of, rockchip_i2s_match);
+> =20
+> +static void rockchip_i2s_suspend(void *data)
+> +{
+> +	struct device *dev =3D data;
+> +
+> +	if (!pm_runtime_status_suspended(dev))
+> +		i2s_runtime_suspend(dev);
+> +}
+> +
+>  static int rockchip_i2s_init_dai(struct rk_i2s_dev *i2s, struct resource=
+ *res,
+>  				 struct snd_soc_dai_driver **dp)
+>  {
+> @@ -758,37 +766,28 @@ static int rockchip_i2s_probe(struct platform_devic=
+e *pdev)
+>  	}
+> =20
+>  	/* try to prepare related clocks */
+> -	i2s->hclk =3D devm_clk_get(&pdev->dev, "i2s_hclk");
+> +	i2s->hclk =3D devm_clk_get_enabled(&pdev->dev, "i2s_hclk");
+>  	if (IS_ERR(i2s->hclk)) {
+>  		dev_err(&pdev->dev, "Can't retrieve i2s bus clock\n");
+>  		return PTR_ERR(i2s->hclk);
+>  	}
+> -	ret =3D clk_prepare_enable(i2s->hclk);
+> -	if (ret) {
+> -		dev_err(i2s->dev, "hclock enable failed %d\n", ret);
+> -		return ret;
+> -	}
+> =20
+>  	i2s->mclk =3D devm_clk_get(&pdev->dev, "i2s_clk");
+>  	if (IS_ERR(i2s->mclk)) {
+>  		dev_err(&pdev->dev, "Can't retrieve i2s master clock\n");
+> -		ret =3D PTR_ERR(i2s->mclk);
+> -		goto err_clk;
+> +		return PTR_ERR(i2s->mclk);
+>  	}
+> =20
+>  	regs =3D devm_platform_get_and_ioremap_resource(pdev, 0, &res);
+> -	if (IS_ERR(regs)) {
+> -		ret =3D PTR_ERR(regs);
+> -		goto err_clk;
+> -	}
+> +	if (IS_ERR(regs))
+> +		return PTR_ERR(regs);
+> =20
+>  	i2s->regmap =3D devm_regmap_init_mmio(&pdev->dev, regs,
+>  					    &rockchip_i2s_regmap_config);
+>  	if (IS_ERR(i2s->regmap)) {
+>  		dev_err(&pdev->dev,
+>  			"Failed to initialise managed register map\n");
+> -		ret =3D PTR_ERR(i2s->regmap);
+> -		goto err_clk;
+> +		return PTR_ERR(i2s->regmap);
+>  	}
+> =20
+>  	i2s->bclk_ratio =3D 64;
+> @@ -799,8 +798,7 @@ static int rockchip_i2s_probe(struct platform_device =
+*pdev)
+>  			i2s->bclk_off =3D pinctrl_lookup_state(i2s->pinctrl, "bclk_off");
+>  			if (IS_ERR_OR_NULL(i2s->bclk_off)) {
+>  				dev_err(&pdev->dev, "failed to find i2s bclk_off\n");
+> -				ret =3D -EINVAL;
+> -				goto err_clk;
+> +				return -EINVAL;
+>  			}
+>  		}
+>  	} else {
+> @@ -811,16 +809,23 @@ static int rockchip_i2s_probe(struct platform_devic=
+e *pdev)
+> =20
+>  	dev_set_drvdata(&pdev->dev, i2s);
+> =20
+> -	pm_runtime_enable(&pdev->dev);
+> +	ret =3D devm_add_action(&pdev->dev, rockchip_i2s_suspend, &pdev->dev);
+> +	if (ret)
+> +		return ret;
+> +
+> +	ret =3D devm_pm_runtime_enable(&pdev->dev);
+> +	if (ret)
+> +		return ret;
+> +
+>  	if (!pm_runtime_enabled(&pdev->dev)) {
+>  		ret =3D i2s_runtime_resume(&pdev->dev);
+>  		if (ret)
+> -			goto err_pm_disable;
+> +			return ret;
+>  	}
+> =20
+>  	ret =3D rockchip_i2s_init_dai(i2s, res, &dai);
+>  	if (ret)
+> -		goto err_pm_disable;
+> +		return ret;
+> =20
+>  	ret =3D devm_snd_soc_register_component(&pdev->dev,
+>  					      &rockchip_i2s_component,
+> @@ -828,36 +833,16 @@ static int rockchip_i2s_probe(struct platform_devic=
+e *pdev)
+> =20
+>  	if (ret) {
+>  		dev_err(&pdev->dev, "Could not register DAI\n");
+> -		goto err_suspend;
+> +		return ret;
+>  	}
+> =20
+>  	ret =3D devm_snd_dmaengine_pcm_register(&pdev->dev, NULL, 0);
+>  	if (ret) {
+>  		dev_err(&pdev->dev, "Could not register PCM\n");
+> -		goto err_suspend;
+> +		return ret;
+>  	}
+> =20
+>  	return 0;
+> -
+> -err_suspend:
+> -	if (!pm_runtime_status_suspended(&pdev->dev))
+> -		i2s_runtime_suspend(&pdev->dev);
+> -err_pm_disable:
+> -	pm_runtime_disable(&pdev->dev);
+> -err_clk:
+> -	clk_disable_unprepare(i2s->hclk);
+> -	return ret;
+> -}
+> -
+> -static void rockchip_i2s_remove(struct platform_device *pdev)
+> -{
+> -	struct rk_i2s_dev *i2s =3D dev_get_drvdata(&pdev->dev);
+> -
+> -	pm_runtime_disable(&pdev->dev);
+> -	if (!pm_runtime_status_suspended(&pdev->dev))
+> -		i2s_runtime_suspend(&pdev->dev);
+> -
+> -	clk_disable_unprepare(i2s->hclk);
+>  }
+> =20
+>  static const struct dev_pm_ops rockchip_i2s_pm_ops =3D {
+> @@ -866,7 +851,6 @@ static const struct dev_pm_ops rockchip_i2s_pm_ops =
+=3D {
+> =20
+>  static struct platform_driver rockchip_i2s_driver =3D {
+>  	.probe =3D rockchip_i2s_probe,
+> -	.remove =3D rockchip_i2s_remove,
+>  	.driver =3D {
+>  		.name =3D DRV_NAME,
+>  		.of_match_table =3D of_match_ptr(rockchip_i2s_match),
+>=20
+> ---
+> base-commit: 40cc9602caf2539369bd3dd7d66ee67e204e75ef
+> change-id: 20260521-asoc-rockchip-i2s-devm-cleanup-6cade5f495e5
+>=20
+> Best regards,
+> -- =20
+> C=E1ssio Gabriel <cassiogabrielcontato@gmail.com>
+>=20
+>=20
+
+--ofxtbn4d6r6smg75
+Content-Type: application/pgp-signature; name="signature.asc"
+
+-----BEGIN PGP SIGNATURE-----
+
+iQIzBAABCgAdFiEE72YNB0Y/i3JqeVQT2O7X88g7+poFAmodwo4ACgkQ2O7X88g7
++prfDQ/9HZBSvaYcBXn13fk4Ncegbv8u6RLBL8+prh7UNIBxmyyI+dJVHC+pk/m9
+HrrrJMK42wZ226eFsozZXx0wxA7Fl3+4LgsRKCrjY7kDJjkPXSVmdLjivD3vlJri
+EGxShZv1rUXEboJdHjZamO7RBsvnNoOpmxLVkKxvYsl7LCpWFIbTGUN/v4xexi3N
+bmSvb0dEpD9+1Hte9ty5/WTfIYPaJxYQTC6jMFYmBGBxTjSK9VpD3bNJrZgaM4Ja
+ra0p4HxglgZJl/ab+Lp2qwu6mRqFnJnlhwjsv5wdsrqn6wu6ldiNmoY5JfHSZBE4
+xV+K8FRf0LKBtqWfz9f+3r3V7Jd3FniIcW6/5CuGGBaAuaCqUxe/Clgc5rPMl+AS
+sWMNXIEKG/zAmM1SGb8P48Qx6H7aEAzYyCNb0riZQ+wr5zuxKnlFVKfdanP0Tk/d
+oBOCMnu8TGpzxIt/oIzia7avlPuC1QIi46NE3SQ3ngRngrZcJBajAhDpseUfVEAR
+aQQf9vVr6UxrfYi1okaYDgtAeY40SI1cnZjzggzrA9+i0EvEqMv3F0LLb9X9ajG7
+JQ8V1s2DckE3AGeKOGn3eTIKh2u32rk2PWXWy9mO7LDK+LWsr2i6Q8TeT96QsrgQ
+wa1XZsZ8r5kiyooYHjLC5Z1m/lECrps9Bqy+rEVyyfBijrIqq1I=
+=Nry6
+-----END PGP SIGNATURE-----
+
+--ofxtbn4d6r6smg75--
 
