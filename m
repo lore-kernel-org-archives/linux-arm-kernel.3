@@ -4,52 +4,89 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 4D85DCD6E57
-	for <linux-arm-kernel@archiver.kernel.org>; Mon,  1 Jun 2026 13:18:35 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id A1FC3CD6E55
+	for <linux-arm-kernel@archiver.kernel.org>; Mon,  1 Jun 2026 13:25:59 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:
-	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=/hGlmcsCdLZLCc4orI5sQhoYqEb9Qu2Ye7shpr3Getg=; b=SiUoRGfgv5AVyzMlx6BSCpnrXN
-	vyujoYXFtqxThELECRmqJZhxqKaiBSZNULjIe/iGvS92qD1le7Ai+1Szubk7Ba3nl0KfjorFXCKa9
-	9Lx+NqDoeSKiccbEwZkRTX5ikvnv5FVPbeiboN7MNcWUgHfTnjulgVhIn1bSdOUVoUUSGC02SJG+Y
-	y/74hS4AhvoyMbX4wCe8dvawZRbEzPcMfL55agRbg4HzHrOcI+IFJ5tuBBVWciq0qdWzsyKKHzkye
-	8n8pVKqj9eGoAw0dvco0WcfZPFJZO46dnop3p2qJfvXIljFepEMjtry84P4KVSCZ9LmWiruyMYLap
-	gmQpXWqg==;
+	MIME-Version:Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-Type:
+	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
+	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=DnHBZf9FwnOpjIKwf/TmkrH6aiNn+aT//tH7U9Z8tL0=; b=YbtgekABW8TnlLZiH/w7RPijbh
+	DQSEORV67E+cwifSpvG57QW4J/57BC9A9+mzxVqCdZ23LvB0v+Kj78y2GvjYRrEXEx1U7ArQ8BSL7
+	RLLYBV5LlLDbU03dgzwGd9AKCbbq2ytfN/d2PbrTqgoRI+oMifMfJxRFxXCOimqkSunTn2a3ZsCiW
+	V6umsLDPX9JtCG7TuZnrt/kuXSs23dD6h7GHdWWGPJJFn8ddok+EptbRBQNqMIfSC2tYV6ysjjTtj
+	vo8H9xX721QLvN61jUj7Mdw/HvkgzIPnzo+IA1eMBJYSDSPXVAy+z7q/Yqsn2y/iijJjy3h35jHsx
+	BRD62FkA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wU2XF-0000000BCHZ-0YFn;
-	Mon, 01 Jun 2026 13:18:29 +0000
-Received: from sea.source.kernel.org ([172.234.252.31])
+	id 1wU2eN-0000000BChv-44ML;
+	Mon, 01 Jun 2026 13:25:51 +0000
+Received: from mail-pj1-x102d.google.com ([2607:f8b0:4864:20::102d])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wU2XD-0000000BCG9-0kXc
+	id 1wU2eL-0000000BCh8-2Yzq
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 01 Jun 2026 13:18:28 +0000
-Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
-	by sea.source.kernel.org (Postfix) with ESMTP id DFAF7405B0;
-	Mon,  1 Jun 2026 13:18:26 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 7EF6E1F00893;
-	Mon,  1 Jun 2026 13:18:25 +0000 (UTC)
-From: Geert Uytterhoeven <geert+renesas@glider.be>
-To: soc@lists.linux.dev,
-	soc <soc@kernel.org>
-Cc: Magnus Damm <magnus.damm@gmail.com>,
+	Mon, 01 Jun 2026 13:25:51 +0000
+Received: by mail-pj1-x102d.google.com with SMTP id 98e67ed59e1d1-36bb3551f6eso3006160a91.1
+        for <linux-arm-kernel@lists.infradead.org>; Mon, 01 Jun 2026 06:25:49 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=gmail.com; s=20251104; t=1780320349; x=1780925149; darn=lists.infradead.org;
+        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
+         :to:from:from:to:cc:subject:date:message-id:reply-to;
+        bh=DnHBZf9FwnOpjIKwf/TmkrH6aiNn+aT//tH7U9Z8tL0=;
+        b=p4CvhBs32nHr4NRqquMMmrUKU0VK6t1BSTp/eo0QqQS1lKv5soQALxAh7KUSPBOn6m
+         2d9QmYkfkxoc0OoDtmZiOrA2ov8oDqUkg8dCs0d2PGM8XBWBkiNtg2ZhdXRWCIew2RSn
+         y2qaVfO77rQyfV0Sr6jiSxhTa6Is2fp5SXscIjh1dfMT4PwhKrfcMOfTPmLRDD/XtEp4
+         pAQN7bdAPDBHGAUyBvb9ZF/QZ59EyuxlJHv6LaXPAAk5Fg69WpLbKwCoIBwHy1BKWIyE
+         yjlg6UKn0+29YGl7/9IBnPrsK3yNKs+vvM9H1JVL3wLiZ/CI7x7KrZCCr8IPeLVeuolc
+         Zuiw==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20251104; t=1780320349; x=1780925149;
+        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
+         :to:from:x-gm-gg:x-gm-message-state:from:to:cc:subject:date
+         :message-id:reply-to;
+        bh=DnHBZf9FwnOpjIKwf/TmkrH6aiNn+aT//tH7U9Z8tL0=;
+        b=ZXtp9hiclxBESYxUZSYgu56Jsquekthp+X0Rtkc4VNXqf8Pd/nIeAMUr2yMnzWVS3d
+         7Ps7MzNzr3/U/qmi9kWDM6pJMtAfGODfZVSG6XeW/zMlXtnOsWu86aqJNsQtzlWEiMqE
+         dtrpAZYhxvtqikGHcVfFF1QDlDv//ZukADWB8h+AMh6Nytgcoi2g/qk+VGLmIUDxHpaz
+         KQ+8N1hOvfYmnYtzG01u6BZGGG/n8heKCyM9sc4kruzBAsYLGCBUa+DY74LreZhRkvKJ
+         yZkMBdG3YgaZwFzqK9ZF0iPz7nZNj4Rnz88Kal28uw7XsQqkiSg2uhRTYPSsDsmR9sHo
+         5eFw==
+X-Forwarded-Encrypted: i=1; AFNElJ97yELmM2TQfWF1n10M76ZzgB3LUK35iBkUeghICpbBlbxZJwMcoo2dpWiCP+rHlFkcSe+kxOnizUppitRGCygO@lists.infradead.org
+X-Gm-Message-State: AOJu0YzAl8hFzCerowk1NYofvG65ip/f0oWLRe17iCKeGm3ExclJS5Ym
+	fLghqnIpxxXxcxtsxEF6Wq+SwgismnWfx7anA7ehRdnv6SybMK0BRccI
+X-Gm-Gg: Acq92OG78ty6XP4iV3kWvCq6/UsOWOaqaPKP+SNr4yCCuX0mkciTKxZtewspBFb4OXG
+	WE6jBPHHPsQ5GmoVFFkR6dm5PnTZBQVKG7XVN28IjQjhiP2HFQzClZhye0BxuKtaZBg9TTqKJl0
+	36KeKaIcAg4QynRwgf0HHsu/GrxeEXVtgCh9ZgQ0jSj/ucF4HAW+XgR/UYxBl4rZqOwowJF5VN1
+	IVA67mogLyLTV87DzkrUS5SLNSl8+wFFio22Ak3myqdw7TwNPtaI/8D+BVT/6FGw48F9O9JNWNA
+	cAu0+K5tLKawJVdDH6kC0Qa2Dv+t1MV10aTxu3kCRY6k62e6Z40cchGGEIVsy2eZe1vfewIG/Ca
+	x8MtKoiKMlBldSaoO7Jo3RJn0nsHXAyoZ4Tb2Qivm/C3fdeBKTYDV4g5MzdU11oaNi1Qv0yoHPj
+	Y1Knu9w3KRJjDxmhSgw4il9LAwdC3sOacVogKokWlm
+X-Received: by 2002:a17:90b:5704:b0:36a:f612:e6a3 with SMTP id 98e67ed59e1d1-36c501b8fb2mr11081482a91.17.1780320348705;
+        Mon, 01 Jun 2026 06:25:48 -0700 (PDT)
+Received: from i386.168.1.127 ([2402:a00:163:2ce9:9c6f:e28:3da8:7980])
+        by smtp.gmail.com with ESMTPSA id 98e67ed59e1d1-36bc02d0a22sm11444234a91.8.2026.06.01.06.25.41
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Mon, 01 Jun 2026 06:25:46 -0700 (PDT)
+From: Hrushiraj Gandhi <hrushirajg23@gmail.com>
+To: Heiko Stuebner <heiko@sntech.de>
+Cc: Rob Herring <robh@kernel.org>,
+	Krzysztof Kozlowski <krzk+dt@kernel.org>,
+	Conor Dooley <conor+dt@kernel.org>,
+	devicetree@vger.kernel.org,
 	linux-arm-kernel@lists.infradead.org,
-	linux-renesas-soc@vger.kernel.org,
-	Geert Uytterhoeven <geert+renesas@glider.be>
-Subject: [GIT PULL 2/2] Renesas DTS updates for v7.2 (take two)
-Date: Mon,  1 Jun 2026 15:18:19 +0200
-Message-ID: <cover.1780319122.git.geert+renesas@glider.be>
-X-Mailer: git-send-email 2.43.0
-In-Reply-To: <cover.178031911driver8.git.geert+renesas@glider.be>
-References: <cover.178031911driver8.git.geert+renesas@glider.be>
+	linux-rockchip@lists.infradead.org,
+	linux-kernel@vger.kernel.org,
+	Hrushiraj Gandhi <hrushirajg23@gmail.com>
+Subject: [PATCH v2 0/2] arm64: dts: rockchip: add Vicharak Axon board support
+Date: Mon,  1 Jun 2026 18:55:27 +0530
+Message-ID: <20260601132529.139172-1-hrushirajg23@gmail.com>
+X-Mailer: git-send-email 2.47.3
 MIME-Version: 1.0
 Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260601_061827_276022_A89FA97B 
-X-CRM114-Status: GOOD (  15.03  )
+X-CRM114-CacheID: sfid-20260601_062549_676726_C6A88C53 
+X-CRM114-Status: GOOD (  11.17  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -64,162 +101,48 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-The following changes since commit 44f1ef06ceec55b7704c7d773d6136ca8b90f8b7:
+This series adds initial device tree support for the Vicharak Axon
+single-board computer, which is based on the Rockchip RK3588 SoC.
 
-  ARM: dts: renesas: r8a73a4: Describe coresight on R-Mobile APE6 (2026-05-15 11:35:25 +0200)
+The Vicharak Axon is a feature-rich SBC targeting developer and embedded
+use cases. It ships with:
 
-are available in the Git repository at:
+  - Rockchip RK3588 (4x Cortex-A76 + 4x Cortex-A55)
+  - RK806 PMIC providing all SoC power domains
+  - eMMC 5.1 (on-board) and microSD slot
+  - Gigabit Ethernet via RGMII (RTL8211F)
+  - Dual HDMI 2.1 output and one HDMI 2.0 input (receiver)
+  - PCIe 3.0 x4 and two PCIe 2.0 slots
+  - SATA 3.0
+  - SDIO Wi-Fi
+  - USB 2.0 host ports (EHCI/OHCI)
+  - NXP PCA9554 I/O expander for status LEDs
+  - Haoyu HYM8563 RTC
 
-  git://git.kernel.org/pub/scm/linux/kernel/git/geert/renesas-devel.git tags/renesas-dts-for-v7.2-tag2
+Changes since v1:
+- Renamed the dts file from rk3588-axon.dts to rk3588-vicharak-axon.dts
+- Added binding patches for the board (rockchip.yaml) and vendor (vendor-prefixes.yaml)
+- Renamed regulator nodes to the standard `regulator-name` pattern
+- Removed `mem-supply` properties and phandles from cpu nodes (vendor-kernel specific)
+- Fixed pcie20_avdd0v85 vin-supply mismatch
+- Removed obsolete `regulator-compatible` property
+- Removed invalid `regulator-init-microvolt` property
+- Removed dangling `enable-active-high` properties from fixed regulators
+- Cleaned up unneeded i2c3 / es8388 nodes
+- Added missing `vpcie3v3-supply` properties to PCIe nodes
 
-for you to fetch changes up to 0d4ed954061efc3e47fa889d3de0675f933f438f:
+Hrushiraj Gandhi (2):
+  arm64: dts: rockchip: add Vicharak Axon board
+  dt-bindings: arm: rockchip: add Vicharak Axon board
 
-  arm64: dts: renesas: r9a08g046l48-smarc: Enable audio (2026-05-31 10:52:23 +0200)
+ .../devicetree/bindings/arm/rockchip.yaml     |    5 +
+ .../devicetree/bindings/vendor-prefixes.yaml  |    2 +
+ arch/arm64/boot/dts/rockchip/Makefile         |    1 +
+ .../dts/rockchip/rk3588-vicharak-axon.dts     | 1038 +++++++++++++++++
+ 4 files changed, 1046 insertions(+)
+ create mode 100644 arch/arm64/boot/dts/rockchip/rk3588-vicharak-axon.dts
 
-----------------------------------------------------------------
-Renesas DTS updates for v7.2 (take two)
+-- 
+2.47.3
 
-  - Add timer (MTU3) and xSPI FLASH support for the RZ/T2H and RZ/N2H
-    SoCs and their EVK boards,
-  - Add PCIe support for the RZ/V2N SoC and the RZ/V2N EVK board,
-  - Add support for the R-Car M3Le SoC and the Geist development board,
-  - Specify ethernet PHY reset timings on various R-Car boards,
-  - Add (more) serial, I2C, DMA, and sound support for the RZ/G3L SoC,
-  - Add PSCI, Multifunctional Interface (MFIS), and SCMI support for the
-    R-Car X5H SoC and Ironhide development board,
-  - Add serial DMA support for the RZ/G2L SoC,
-  - Add keyboard, I2C, Versa clock, and audio support for the RZ/G3L
-    SMARC SoM and EVK boards,
-  - Miscellaneous fixes and improvements.
-
-Note that this includes DT binding definitions for R-Car X5H, which are
-shared by driver and DT source files.
-
-Thanks for pulling!
-
-----------------------------------------------------------------
-Biju Das (14):
-      arm64: dts: renesas: r9a08g046: Add scif{1..5} device nodes
-      arm64: dts: renesas: r9a08g046: Add i2c{0..3} device nodes
-      arm64: dts: renesas: r9a08g046: Add DMAC node
-      arm64: dts: renesas: r9a08g046: Add SSI support
-      arm64: dts: renesas: r9a08g046: Add audio clock nodes
-      arm64: dts: renesas: r9a08g046: Add rsci{0..3} device nodes
-      arm64: dts: renesas: r9a07g043: Add max-frequency to SDHI nodes
-      arm64: dts: renesas: r9a07g044: Add max-frequency to SDHI nodes
-      arm64: dts: renesas: r9a07g054: Add max-frequency to SDHI nodes
-      arm64: dts: renesas: rzg3e-smarc-som: Sort GMAC pinmux entries
-      arm64: dts: renesas: r9a08g046l48-smarc: Add gpio keys
-      arm64: dts: renesas: r9a08g046l48-smarc: Enable I2C{2,3} devices
-      arm64: dts: renesas: rzg3l-smarc-som: Enable Versa clock generator
-      arm64: dts: renesas: r9a08g046l48-smarc: Enable audio
-
-Claudiu Beznea (1):
-      arm64: dts: renesas: r9a07g044: Add DMA properties to serial nodes
-
-Cosmin Tanislav (3):
-      arm64: dts: renesas: r9a07g0{43,44,54}: Remove TCIU8 interrupt from MTU3
-      arm64: dts: renesas: r9a09g077: Add MTU3 support
-      arm64: dts: renesas: r9a09g087: Add MTU3 support
-
-Fabrizio Castro (1):
-      arm64: dts: renesas: rzt2h-n2h-evk: Configure eMMC/SDHI pins
-
-Geert Uytterhoeven (1):
-      Merge tag 'renesas-r8a78000-dt-binding-defs-tag1' into renesas-dts-for-v7.2
-
-Kuninori Morimoto (2):
-      arm64: dts: renesas: r8a78000: Add MFIS, MFIS-SCP, and transport nodes
-      arm64: dts: renesas: ironhide: Enable to use SCMI
-
-Lad Prabhakar (8):
-      arm64: dts: renesas: rz-smarc-du-adv7513: Simplify DU port configuration
-      arm64: dts: renesas: r9a09g056: Add PCIe node
-      arm64: dts: renesas: r9a09g056n48-rzv2n-evk: Enable PCIe
-      arm64: dts: renesas: r9a09g057h44-rzv2h-evk: Add alias for on-SoC RTC
-      arm64: dts: renesas: r9a09g056n48-rzv2n-evk: Add alias for on-SoC RTC
-      arm64: dts: renesas: r9a09g077: Add xSPI nodes
-      arm64: dts: renesas: r9a09g087: Add xSPI nodes
-      arm64: dts: renesas: rzt2h-n2h-evk: Enable xSPI nodes
-
-Marek Vasut (22):
-      arm64: dts: renesas: Simplify AA1024XD12 display DTO
-      dt-bindings: clock: cirrus,cs2000-cp: Document CS2500
-      dt-bindings: soc: renesas: Document R-Car R8A779MD Geist
-      arm64: dts: renesas: draak: Rename clk-multiplier to clock-controller
-      arm64: dts: renesas: ebisu: Rename clk-multiplier to clock-controller
-      arm64: dts: renesas: hihope: Rename clk-multiplier to clock-controller
-      arm64: dts: renesas: salvator-common: Rename clk-multiplier to clock-controller
-      arm64: dts: renesas: ulcb: Rename clk-multiplier to clock-controller
-      arm64: dts: renesas: salvator-common: Specify ethernet PHY reset timings
-      arm64: dts: renesas: ulcb: Specify ethernet PHY reset timings
-      arm64: dts: renesas: eagle: Specify ethernet PHY reset timings
-      arm64: dts: renesas: v3msk: Specify ethernet PHY reset timings
-      arm64: dts: renesas: condor-common: Specify ethernet PHY reset timings
-      arm64: dts: renesas: v3hsk: Specify ethernet PHY reset timings
-      arm64: dts: renesas: ebisu: Specify ethernet PHY reset timings
-      arm64: dts: renesas: draak: Specify ethernet PHY reset timings
-      arm64: dts: renesas: falcon: Specify ethernet PHY reset timings
-      arm64: dts: renesas: white-hawk: Specify ethernet PHY reset timings
-      arm64: dts: renesas: gray-hawk: Specify ethernet PHY reset timings
-      arm64: dts: renesas: r8a78000: Add PSCI node
-      arm64: dts: renesas: r8a78000: Fix GIC-720AE View 1 Redistributor description
-      arm64: dts: renesas: ironhide: Describe all reserved memory
-
-Nguyen Tran (2):
-      arm64: dts: renesas: r8a779md: Add Renesas R-Car R8A779MD M3Le DTs
-      arm64: dts: renesas: r8a779md: Add support for R-Car M3Le R8A779MD Geist
-
-Tommaso Merciai (2):
-      arm64: dts: renesas: r9a09g047: Add fcpvd{0,1} nodes
-      arm64: dts: renesas: r9a09g047: Add vspd{0,1} nodes
-
-Wolfram Sang (1):
-      dt-bindings: soc: renesas: Document MFIS IP core
-
- .../bindings/clock/cirrus,cs2000-cp.yaml           |  11 +-
- .../soc/renesas/renesas,r8a78000-mfis.yaml         | 187 ++++++
- .../devicetree/bindings/soc/renesas/renesas.yaml   |   6 +
- arch/arm64/boot/dts/renesas/Makefile               |   1 +
- arch/arm64/boot/dts/renesas/condor-common.dtsi     |   2 +
- .../dts/renesas/draak-ebisu-panel-aa104xd12.dtso   |  33 +-
- arch/arm64/boot/dts/renesas/draak.dtsi             |   4 +-
- arch/arm64/boot/dts/renesas/ebisu.dtsi             |   4 +-
- arch/arm64/boot/dts/renesas/gray-hawk-single.dtsi  |   2 +
- arch/arm64/boot/dts/renesas/hihope-rev4.dtsi       |   2 +-
- arch/arm64/boot/dts/renesas/panel-aa104xd12.dtsi   |  64 +-
- arch/arm64/boot/dts/renesas/r8a77970-eagle.dts     |   2 +
- arch/arm64/boot/dts/renesas/r8a77970-v3msk.dts     |   2 +
- arch/arm64/boot/dts/renesas/r8a77980-v3hsk.dts     |   2 +
- arch/arm64/boot/dts/renesas/r8a779a0-falcon.dts    |   2 +
- arch/arm64/boot/dts/renesas/r8a779md-geist.dts     | 720 +++++++++++++++++++++
- arch/arm64/boot/dts/renesas/r8a779md.dtsi          |  59 ++
- arch/arm64/boot/dts/renesas/r8a78000-ironhide.dts  |  65 +-
- arch/arm64/boot/dts/renesas/r8a78000.dtsi          | 170 ++++-
- arch/arm64/boot/dts/renesas/r9a07g043.dtsi         |   7 +-
- arch/arm64/boot/dts/renesas/r9a07g044.dtsi         |  17 +-
- arch/arm64/boot/dts/renesas/r9a07g054.dtsi         |   7 +-
- arch/arm64/boot/dts/renesas/r9a08g046.dtsi         | 384 ++++++++++-
- arch/arm64/boot/dts/renesas/r9a08g046l48-smarc.dts | 127 +++-
- arch/arm64/boot/dts/renesas/r9a09g047.dtsi         |  52 ++
- arch/arm64/boot/dts/renesas/r9a09g056.dtsi         |  69 ++
- .../boot/dts/renesas/r9a09g056n48-rzv2n-evk.dts    |  24 +
- .../boot/dts/renesas/r9a09g057h44-rzv2h-evk.dts    |   1 +
- arch/arm64/boot/dts/renesas/r9a09g077.dtsi         | 108 ++++
- .../boot/dts/renesas/r9a09g077m44-rzt2h-evk.dts    |  15 +
- arch/arm64/boot/dts/renesas/r9a09g087.dtsi         | 108 ++++
- .../boot/dts/renesas/rz-smarc-du-adv7513.dtsi      |  15 +-
- arch/arm64/boot/dts/renesas/rzg3e-smarc-som.dtsi   |  49 +-
- arch/arm64/boot/dts/renesas/rzg3l-smarc-som.dtsi   |  72 +++
- .../boot/dts/renesas/rzt2h-n2h-evk-common.dtsi     | 274 +++++++-
- arch/arm64/boot/dts/renesas/salvator-common.dtsi   |   4 +-
- .../boot/dts/renesas/salvator-panel-aa104xd12.dtso |  33 +-
- arch/arm64/boot/dts/renesas/ulcb.dtsi              |   4 +-
- .../boot/dts/renesas/white-hawk-cpu-common.dtsi    |   2 +
- include/dt-bindings/soc/renesas,r8a78000-mfis.h    |  28 +
- 40 files changed, 2575 insertions(+), 163 deletions(-)
- create mode 100644 Documentation/devicetree/bindings/soc/renesas/renesas,r8a78000-mfis.yaml
- create mode 100644 arch/arm64/boot/dts/renesas/r8a779md-geist.dts
- create mode 100644 arch/arm64/boot/dts/renesas/r8a779md.dtsi
- create mode 100644 include/dt-bindings/soc/renesas,r8a78000-mfis.h
 
