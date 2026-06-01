@@ -4,75 +4,74 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id EFA10CD6E62
-	for <linux-arm-kernel@archiver.kernel.org>; Mon,  1 Jun 2026 10:35:27 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id CDC7DCD6E56
+	for <linux-arm-kernel@archiver.kernel.org>; Mon,  1 Jun 2026 10:41:33 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:
-	Content-Transfer-Encoding:Content-Type:MIME-Version:References:Message-ID:
-	Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:Resent-Date:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=oDUgrIyB02FM5mea3gf7dEX+Hdw7+v6D42bl2KCdIiE=; b=2qgHjqRIrtEuM0TBNTBSHOfXVf
-	9l7vGZas5UL3UUMMEbeXkwkdyYhlfnu/ohjf8okQxUTACuT6cDkcWXjPHHkYGRJf+w8mBuH19hK4g
-	eINBLewb8zz8ZsnEfd2FOkC6Qgp2XF0sUpELMdghlVmi8lOWYsZkRpqVSDmfyfJOLjcrsWHsu8Aas
-	J/8p9lvY2X70dz6JS8p/NbaKtldUkPjz6tq4CoYlidqHRIh/uurzyNuxdfC5Dy4LnJ2kWGC7kNvGv
-	c023ClJEMnYYKHDR6LgVxvrCXljWgUAsyuDkcRgnf27/36j72hGs2VYzR5R4ZcL2cFUqgaMBjpC7e
-	aDqv+Qsg==;
+	bh=+sldHCJrVX7HHPNnZ6TyMOXSdYqXeIyil59tqXzT91Q=; b=X/ayrYmGflZenx5MNos3kBOQDU
+	5QezdBqDrvaOC4ZBI5CaZij2FbKAJBqhIz1A8hTZE1C7WlHcSjteRNsCli69nsRyyyvzKwOx/ULcd
+	ij7LTUXmHdKSo7CPA0JxiGGt1Ap7jVHS4TszSTRB4BZ/k3IbYNc2S7El6fkaGxK8oZumEDB2rvSx2
+	aIDerbysv5OJM8ZxgGIeDUq9pFf7aUVqLyu/2XFtPW1uFOIzU9dtDUB7ezg9Q/5HQFwRkTkseiQnX
+	ATy2Qs6VfDCAsX8K/hcvnWX/aIrxtryXryPyKwHyGWQRC+a7kznuLQC3c9eaUoR+09uFjHyhsDekU
+	5ojxapyA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wTzzN-0000000AdJy-1Obm;
-	Mon, 01 Jun 2026 10:35:21 +0000
-Received: from mail-pl1-x62c.google.com ([2607:f8b0:4864:20::62c])
+	id 1wU05F-0000000AdsO-3zeU;
+	Mon, 01 Jun 2026 10:41:25 +0000
+Received: from mail-pl1-x629.google.com ([2607:f8b0:4864:20::629])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wTzzL-0000000AdJT-36P7
+	id 1wU05E-0000000Adrz-0JQq
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 01 Jun 2026 10:35:20 +0000
-Received: by mail-pl1-x62c.google.com with SMTP id d9443c01a7336-2bf2911f93cso535ad.1
-        for <linux-arm-kernel@lists.infradead.org>; Mon, 01 Jun 2026 03:35:19 -0700 (PDT)
+	Mon, 01 Jun 2026 10:41:25 +0000
+Received: by mail-pl1-x629.google.com with SMTP id d9443c01a7336-2bf22c18ad3so135ad.0
+        for <linux-arm-kernel@lists.infradead.org>; Mon, 01 Jun 2026 03:41:23 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=google.com; s=20251104; t=1780310119; x=1780914919; darn=lists.infradead.org;
-        h=in-reply-to:content-transfer-encoding:content-disposition
-         :mime-version:references:message-id:subject:cc:to:from:date:from:to
-         :cc:subject:date:message-id:reply-to;
-        bh=oDUgrIyB02FM5mea3gf7dEX+Hdw7+v6D42bl2KCdIiE=;
-        b=cHBEVXgfKbZ3iXot4As6Z2YnyJ7jvE/mbuzKSwsaZi8paEJkUI8jBbxnxu2xj2GEmG
-         wx/5cjOoI7l6KDM6Acnv3A6FO6/uXqM3Aqy1+6fU7fxrIo82PYzPWUIiptwt98f26rkD
-         KcuUFqzJZTTeWXd6nTtRhE0SNCybgVrfQecxnY0uzCU9aZxpSTS9G5yRADRXJ/qMAreO
-         s4W97hwjUppM+M/TNEVP2e9h0RcvO9FcOkWAuCdZ7LNxrgo5G9SxHw9zp+G84qRf84eJ
-         bR03adswCsCyKqwHscf/V5xhdsen8nDMqq+/Dx+7RIiNndpb49eEGtHf8MvM8lRBEJpw
-         zT/Q==
+        d=google.com; s=20251104; t=1780310483; x=1780915283; darn=lists.infradead.org;
+        h=in-reply-to:content-disposition:mime-version:references:message-id
+         :subject:cc:to:from:date:from:to:cc:subject:date:message-id:reply-to;
+        bh=+sldHCJrVX7HHPNnZ6TyMOXSdYqXeIyil59tqXzT91Q=;
+        b=CDaON2eZzw6J/seArAflbFxrNhMXmJ2cjBfVd1NkqIF4HfRj3UHQ8BYxjsgKWqaqQ1
+         KQ6Krm0aVx1Li2VG2D/7b7MM+RCYc0j4CZyvcTXGfyiFfOsmgnVw1T5wJM//w3blX46/
+         mOIBKJGEwKMAC7cjGAXRgthDfh3vfmKCNaM4RsCQMH9/bylCrG4aLR3eqHfzj2NM9btU
+         1Z0djlkxQCNZoEcqpXVHgVJMqRrq1LuJ7ISn0RSVQiy91hPMYTu4eQGxn4goASjzOyYK
+         yxyyWX5/QTtCEnpMZWEHRoT+80jGTO2yEq9fqSWb1UhgSsseGz8FmMSN/0t+pQa8hRyP
+         CSMA==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20251104; t=1780310119; x=1780914919;
-        h=in-reply-to:content-transfer-encoding:content-disposition
-         :mime-version:references:message-id:subject:cc:to:from:date:x-gm-gg
-         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to;
-        bh=oDUgrIyB02FM5mea3gf7dEX+Hdw7+v6D42bl2KCdIiE=;
-        b=Hwj152OaemNvu89kJWCCzIjgxUNL/SGlz2EAClBN1FmNbOAq1KxZI5+HseLWE9Xpa9
-         Yod7ait3TLjjcDJU+88xgGnhGtM20MbCKmrHXLhAVvNciCd39G3cNxjX6i2+ZnioUDls
-         hEUXFov1UELYUlRy+zXBQb8Qj/5eaF9jh8DiC6glTojYAlwp4EpWjDMcW3Z8h+kuxInZ
-         0MrH2U+MKwZ7lKJm1rzpbjMbZd9yaCJr98OQyFrJWoYY1b2W6Gz1rm1ztnY9TSbB+Rdw
-         gEqCPBImEA006PjkEbX0OI9uI8tEd0uzEE+DRSd6VTxrCm0pA5E5HHrqB0X8nGwxHU+j
-         Otmw==
-X-Forwarded-Encrypted: i=1; AFNElJ/xK06PtVuvUvOuPriW+yZ143AfbHASxvFsQtaNIRqq6yR9MXBrLZiIB9Qn/S/WwHJWFdozkx+xEWOaBP/hyzBv@lists.infradead.org
-X-Gm-Message-State: AOJu0Yyr698or36zoMcfflI+KyzEoFk0u/CEgyzJ+fTAwOjwf+Ye+i39
-	r0bbK0ZiGyCSiPgnRn13pv0HO/g+RVMpkp6lahTUj2IEKAMT1yk9OJvJj7eL8/rNTA==
-X-Gm-Gg: Acq92OFitkKLoQojg/s3JLTRdX+D4sJ2SBrcV/KFhNFe/wDFY6cfrUZfTBKSsQf7Gf2
-	wF6GwQsQ2MBJiTr6LeS/s7dhaK42upQPuqlu7MXq0/0aaeO2sRQyQ9k22HgCPNOf9kk4HgZsj4s
-	Air34Fc5lWFXvtSRx5UGzQQe/ADYl07dhEWMhKgS0k31YtV2MARIIjXJsuSnpbGgLsAZ2AwvAbR
-	ojf1e2ELv7+cHLRSfBUmVuSpb7BM6g8ITB+6VPjvtTaoGg1Amvzq9wh+NBR01Fv287fdyWnVyws
-	f4JxwFn2VH4uPUMDj1aW6rv4fJY3odGc40YILvHvQVCHtkH9QX2d0tHWzAWS1FS1vInKogmTf5H
-	8NCoRHpvizXOaJmw8gtoOUlz/Q+yplVmCnkdK+NXzykDvReamq2ZV+6eXYecV3ghoKHkJ8tKYPx
-	VY4V/TrYONSbwkefKGqtOPuM+HsItkFskFRahR3NCTcUnLvZ97k+LVihF+e1lalwIi9lz608Q=
-X-Received: by 2002:a17:903:15c8:b0:2b4:58ad:e987 with SMTP id d9443c01a7336-2c07cb4cf8dmr4904775ad.17.1780310118403;
-        Mon, 01 Jun 2026 03:35:18 -0700 (PDT)
+        d=1e100.net; s=20251104; t=1780310483; x=1780915283;
+        h=in-reply-to:content-disposition:mime-version:references:message-id
+         :subject:cc:to:from:date:x-gm-gg:x-gm-message-state:from:to:cc
+         :subject:date:message-id:reply-to;
+        bh=+sldHCJrVX7HHPNnZ6TyMOXSdYqXeIyil59tqXzT91Q=;
+        b=gzgdiFQioRrUZjlgKRgY1fO6hV/DGZmIC2rJ6AIJNlzM/i13Cyj9AH/YqGlUnsvHvs
+         4ZQm4eZqKft7OoobmzEwVjwOlmmO47uRfXw/Kgo27Tq1M/I9gZDjNSIU5ZLggp16jOdC
+         4Nrzu9lim9cK7Ri8+nyqyJx3N5NYU+7Q11vEtKbxJwSWK4OMtQ2PV89kdoFd7ezUIROF
+         m9lw87fcAf+loAVesDolsJ0asZSWZZmLxOI0J7O5jlghQmkJG98bN9T9g6Dz05nkFVgt
+         aXsvkyqe99Ip81b3uWzQYWYNG6O4suoZ2442gPe7nCbW2nQcTCE5hYjJLTVGm6lAKljv
+         Td/A==
+X-Forwarded-Encrypted: i=1; AFNElJ9FlHNQwMABECdRTBg074VMSnCtDRk94bsJmbjtJQyhJtfp5Vy/9ogj1S9lp6MvqVmJl3/NFQrXV5xdl1Y8WwBz@lists.infradead.org
+X-Gm-Message-State: AOJu0YwpsvySGCs5xvQdeqAdiWAuvAYUnLPtMfZ7pTi/NydNhmyOA5XQ
+	OJLPUay9IkIVPPezECIRGUl20rBDTqAl8qweHxU5/mYWNLfZnStqf5mUFCLvm9IYzw==
+X-Gm-Gg: Acq92OGSKQKJKpv8nTYejDarB4T3mjzKiqwmRlydbhpyjUiW7XBD+7I7JPFKvwyZ+k5
+	CwRu0VAHvImqMSlqeKFViZardJbguGkBmmrn69w+DRLfbcfOwkUVJMYwqAoj0OZXHRhHsQSV7BE
+	KSmh85rKWU9PwTKWKqzj25lczaVCNp3IYPd9A3LdMRUwBXttdNbMkQ+VW5dVd0fJXbN6Zl/CrYZ
+	4L+05qwmbsn4PL9FhpWMES0lvXDe2K3HG26KmvfP9XrQ/SX+RatFzI7RcyuXmFJaWE8w+x7TvMM
+	+EkdMWJfgr7nmhCqNp+7oeTHztPtVdSOv+RvcNI8YZxGrRGqOqIX1nUrr5NzNibBYCSJsnPxQ9i
+	AyrEnNhtnASGWQRlgRVjidu4CdKcPQrn5x8BZ1801uwGhItiJ6Yl9OqxnxgLHsVVTzSKBtBsDc9
+	uCmhwxwLN8tBcsbceO9lydf52+ECNYde+FjRibZmoxqs9ePCSR6dPBWD9/M0SBlYyuZNrkSxE=
+X-Received: by 2002:a17:902:da81:b0:2c0:c14c:bf37 with SMTP id d9443c01a7336-2c0c14cc181mr2103265ad.16.1780310482513;
+        Mon, 01 Jun 2026 03:41:22 -0700 (PDT)
 Received: from google.com (199.255.142.34.bc.googleusercontent.com. [34.142.255.199])
-        by smtp.gmail.com with ESMTPSA id d2e1a72fcca58-84214affe29sm9720174b3a.3.2026.06.01.03.35.13
+        by smtp.gmail.com with ESMTPSA id d2e1a72fcca58-84246844780sm4225556b3a.30.2026.06.01.03.41.18
         (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Mon, 01 Jun 2026 03:35:17 -0700 (PDT)
-Date: Mon, 1 Jun 2026 10:35:10 +0000
+        Mon, 01 Jun 2026 03:41:21 -0700 (PDT)
+Date: Mon, 1 Jun 2026 10:41:14 +0000
 From: Pranjal Shrivastava <praan@google.com>
-To: Ankit Soni <Ankit.Soni@amd.com>
-Cc: Vasant Hegde <vasant.hegde@amd.com>, iommu@lists.linux.dev,
+To: Vasant Hegde <vasant.hegde@amd.com>
+Cc: Ankit Soni <Ankit.Soni@amd.com>, iommu@lists.linux.dev,
 	linux-pci@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
 	linux-kernel@vger.kernel.org, Joerg Roedel <joro@8bytes.org>,
 	Will Deacon <will@kernel.org>, Bjorn Helgaas <bhelgaas@google.com>,
@@ -87,20 +86,19 @@ Cc: Vasant Hegde <vasant.hegde@amd.com>, iommu@lists.linux.dev,
 	Pasha Tatashin <pasha.tatashin@soleen.com>,
 	Mostafa Saleh <smostafa@google.com>
 Subject: Re: [PATCH v6 6/6] iommu/amd: Fail probe on ATS configuration failure
-Message-ID: <ah1gXgPIdVXBzo_w@google.com>
+Message-ID: <ah1hyp0oB5iJenQt@google.com>
 References: <20260529111208.387412-1-praan@google.com>
  <20260529111208.387412-7-praan@google.com>
  <unqzyef2n26wdf6tmc6vvwvpsgv244uvz7cxji4scymqmoofyb@trkzr7ix5bog>
  <ah0kyi5asHpnrpgC@google.com>
- <drmnqcya6v6wtcazil4wojno2crp4obywudycl45uvqszp66ms@5t5uj2624dor>
+ <6086ebd5-4538-4b85-bbd3-84df9c6198d2@amd.com>
 MIME-Version: 1.0
-Content-Type: text/plain; charset=utf-8
+Content-Type: text/plain; charset=us-ascii
 Content-Disposition: inline
-Content-Transfer-Encoding: 8bit
-In-Reply-To: <drmnqcya6v6wtcazil4wojno2crp4obywudycl45uvqszp66ms@5t5uj2624dor>
+In-Reply-To: <6086ebd5-4538-4b85-bbd3-84df9c6198d2@amd.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260601_033519_779346_D50893A9 
-X-CRM114-Status: GOOD (  16.79  )
+X-CRM114-CacheID: sfid-20260601_034124_147425_42418584 
+X-CRM114-Status: GOOD (  37.86  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -115,37 +113,87 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Mon, Jun 01, 2026 at 08:17:23AM +0000, Ankit Soni wrote:
-> 
+On Mon, Jun 01, 2026 at 02:58:11PM +0530, Vasant Hegde wrote:
 > Hi Pranjal,
 > 
-> Plan looks good. One pushback: I don't think you need the
-> amd_iommu_restore_msi_domain() helper.
+> On 6/1/2026 11:50 AM, Pranjal Shrivastava wrote:
+> > On Mon, Jun 01, 2026 at 06:00:15AM +0000, Ankit Soni wrote:
+> > 
+[...]
+> > Hi Ankit,
+> > 
+> > Ack. Sashiko made me realize that this regresses IRQ mapping for AMD,
+> > and I agree that the call to iommu_ignore_device() is a bit too 
+> > aggressive as it  wipes the rlookup_table entry required for IRQ 
+> > remapping, particularly in PD_MODE_NONE.
+> > 
+> > I was thinkig to address this in the next version as follows:
+> > 
+> > 1. Split the probe error paths:
+> >    - Proper init failures (like iommu_init_device) will continue to call
+> >      iommu_ignore_device(). I will fix the double invocation here.
+> > 
+> >    - Config failures (like ATS mismatch or PD_MODE_NONE) will return an
+> >      an error but skip caling  iommu_ignore_device(), preserving the
+> >      rlookup_table entry for IRQ remapping.
 > 
-> If point 1 preserves rlookup_table on the PD_MODE_NONE and
-> pci_prepare_ats() failure paths, dev->msi_domain pointing at
-> iommu->ir_domain stays functional - irq_remapping_alloc() /
-> __rlookup_amd_iommu() find the iommu and the chain works.
-> So fixing rlookup makes the MSI assignment correct, 
-> not dangling - no restore needed.
+> I was reviewing v5 last Friday and decided to fix probe() code as its been long
+> time I wanted to cleanup this code.  I have a patch series which pretty much
+> does this.
+> 
+> I haven't fixed iommu_ignore_device() code, but should be simple to fix it.
+> we can use amd_iommu_make_clear_dte / amd_iommu_update_dte. It will set the
+> dte.tv=0 and essentially blocks all DMAs.
+> 
+> If you already have the patches then please go ahead, else I can post the series
+> this week.
 
-Ack. That makes sense—if we preserve the rlookup_table entry, the MSI
-the MSI domain mapping remains functionally correct and the chain
-stays intact. Thank you for clarifying that.
+Hi Vasant,
+
+I have drafted the fixes (including the alias clearing order and the 
+atomic DTE updates for iommu_ignore_device), 
+
+I'll go ahead and post them as a separate preparatory series soon.
+I'm also happy to incorporate any of your existing patches if you'd
+like?
 
 > 
-> On splitting: While patches 1-5 are essentially settled. I'd lean 
-> toward pulling AMD into a separate follow-up so the rest doesn't wait,
-> but defer to Vasant/Suravee on that.
-
-Ack. I agree with the suggestion to pull the AMD-specific work into a
-separate follow-up series. 
-
 > 
-> +Vasant
+> > 
+> > 2. Resolve the Use-After-Free (UAF):
+> >    To prevent the UAF on the "DMA-only" failure path, I will ensure that
+> >    the hardware Device Table Entry (DTE) is set to a safe state (like
+> >    blocked or bypass) and the dev_data->dev pointer is cleared, as the
+> >    IOMMU core does not invoke release_device() after a probe failure.
+> > 
+> > 3. Fix iommu_ignore_device() infrastructure:
+> >    I will address the pre-existing bugs identified by Sashiko:
+> >    - Fix clearing order (calling setup_aliases before clearing the
+> >      rlookup_table).
+> >    - Replace the non-atomic memset() on the hardware dev_table with an
+> >      atomic DTE update.
+> > 
+> > That said, I'm investigating the safest way to revert the MSI domain
+> > assignment on probe failure to avoid the dangling domain issue pointed
+> > out by Sashiko. Maybe we can add an amd_iommu_restore_msi_domain() helper
+> > to revert the assignment made in amd_iommu_set_pci_msi_domain() on probe
+> > failure?
+> > 
+> > Please, let me know if that sounds okay?
+> > 
+> > Also, I'm wondering if I should send this as a separate series specific 
+> > to AMD which is unrelated to this one? Or maybe handle AMD IOMMU in a
+> > separate series altogether. Let me know if you (and Vasanth / Suravee) 
+> > would prefer that?
+> 
+> Lets separate out AMD fixes part as its not related to this series.
+> 
+> If you want to keep this patch then just the "iommu_ignore_device" part that
+> should be OK -OR- if you want to drop entirely and pick it up with AMD specific
+> series that's also works for me.
 
-Apologies for missing the CC! I thought I had Joerg's latest tree and
-get_maintainers would automatically add Vasant.
+Ack. I guess a separate series to handle AMD IOMMU sounds better. I'll
+post one soon.
 
 Thanks,
 Praan
