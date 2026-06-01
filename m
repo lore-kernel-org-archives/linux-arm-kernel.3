@@ -4,84 +4,62 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 38AA6CD5BD1
-	for <linux-arm-kernel@archiver.kernel.org>; Mon,  1 Jun 2026 17:37:19 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 1511BCD6E55
+	for <linux-arm-kernel@archiver.kernel.org>; Mon,  1 Jun 2026 17:48:59 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:Cc:To:Subject:
-	Message-ID:Date:From:In-Reply-To:References:MIME-Version:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=f9sxbisFtWpwoKU7G3mS5YfDApAUtM0f1mz57V6Gziw=; b=oEk0RPRd7molJyqx9wh1h9X32x
-	Ytf/aOC/M9n3R+PG2ykDcBADnJaw2Rjl8bdiHSEJYYvtCtp46Wl31fiZ8awAkXN7WnIpXecGV+wOO
-	I+I3M4WiHLvq5aOAiDU0Nq+6m8lPa6rEXUPtr2yv8ywABYaOZF3kxNILeRkcU4BhdHPJCbIuIxIbe
-	IhmaNygHghx/wd/91iQJz4bi0c9au3tQsF0ouaM6nFWWFDT0sYJ7jZG9WqHQkXcWQUsgQAZY96Xph
-	nLHFpZVReKGgkrTjqaHFit1Gni7IrRyXDhWrkqc7rrJPed2+0kr3UT+ajq61aHzRqheiJaKvfg9MB
-	Tkh543Hg==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
+	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=YKRFzYvXWuNL9Vqrh3NvKjoD05ULnG52YciFxh7iz+Y=; b=PrLMKWFLdXSOE4VkzHbWIeOIAe
+	WNadW5PpJHt+H6KFz7eQImAeGkEG9z2fzorgBLb69YL7b5yCZgpSzHv13T2I3bx8etLD4iNrKLXbU
+	I2BtyxjK63sNr90BNFru3BHUOgrw2nnoSWPq7mjuPsQf48Yvwj/ElJFtdVSHar9y+NZgBv5VZ+NXd
+	Xx28xXmjGUtjiIBowRHNKXz+5ECZnwtIRqJk0KwuTGeY7DVKIJ9dGWxiX2UNKAZJ6zTRMyMSBf08V
+	6D4TVFQnGSiEPwdbqp4ZUYdlFSL1a9suTu5RdLcywnkVb4+zC13DYgKdOaJbTH20+YJpQvFzmtiLB
+	lmfMiEKw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wU6Zd-0000000BaqB-0YLp;
-	Mon, 01 Jun 2026 17:37:13 +0000
-Received: from mail-vk1-f173.google.com ([209.85.221.173])
-	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wU6ZZ-0000000Bapb-3oXV
+	id 1wU6ku-0000000Bbzm-26Ce;
+	Mon, 01 Jun 2026 17:48:52 +0000
+Received: from foss.arm.com ([217.140.110.172])
+	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
+	id 1wU6kp-0000000Bbyu-3sY6
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 01 Jun 2026 17:37:11 +0000
-Received: by mail-vk1-f173.google.com with SMTP id 71dfb90a1353d-59ebf30a91dso598942e0c.1
-        for <linux-arm-kernel@lists.infradead.org>; Mon, 01 Jun 2026 10:37:09 -0700 (PDT)
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20251104; t=1780335428; x=1780940228;
-        h=cc:to:subject:message-id:date:from:in-reply-to:references
-         :mime-version:x-gm-gg:x-gm-message-state:from:to:cc:subject:date
-         :message-id:reply-to;
-        bh=f9sxbisFtWpwoKU7G3mS5YfDApAUtM0f1mz57V6Gziw=;
-        b=JDvNeEyqDfL/OKiEe7u7aKyrW8tK6+naQLd7Wn9wBj7yr+m9++ao5jr50AxsusyVBt
-         QGUdGLzooO42KBI7mN0JGnhlgn3beZWXOr6T6QkhBGBvQ5XT33itoo5sTLetdqJRDXPd
-         TrafjmyObplnNQCKgIpGrkVH5ICHi4sQQY2XuXg4Ikdosq25vtNxey/aH5rJITKTSQNE
-         Ys3em+gFIt5ZWafH0dlo+Fwr5bhO6rmhhlYpo3psHWq+4yELcaOcmnsQY46QVDouKbGO
-         yUbKDhsPiVFT/WhAXLHIZY/z55xkmEruSK1mjWcU8NmGYk88efSzbjxtMn01GucKfR/a
-         WZ9g==
-X-Forwarded-Encrypted: i=1; AFNElJ8p3CyknfirZx45XS63mH2BwuM152A+Fzjj1U00XiOBpGNTGo+JqffQQGQ5jX8NCLc+OtB0dEdyvFSLGyzcji1N@lists.infradead.org
-X-Gm-Message-State: AOJu0Yy7xAfrBx1IPsCRtjnwRcF0o7t8m5gWgxaC5SfTpCcXE0SqFp3t
-	Wxv/z5DCMY//V95vbqV5ArFEU8RZG5bXlVCdKIaBl0yIZTzek+tNihPX6xmccMIw
-X-Gm-Gg: Acq92OEom+BHjE2ae87pvkhQmRs13lhWzH2nEnHsYbeMWgNVsMt0miTXJL5Ion58bOC
-	nvcEcUyP1p1QeDw8lTvL3Xoqbb4FMOKqnP/fsXeCRmzG3kvXUirCKSEAAD2JAH3jcJjItjRnHwg
-	hDtBd3cXQq7XWi6svA1CyIXKXmekLz60UIOhNQ5WMTzzV6z+h9ayNKz/pSnuJC0MV4j9a1B2PwE
-	BcGl7yytk33bE1ojQuYUJqyPCStlqq1K3JMeW0Vk6P6n2i53teMLv/MlVryYGjeOSjtSNoTF3iU
-	1nxU03T/0eD83xyoLml93BBv/3LJJheH05seWMxQWn8zi7s0zrQcmG5lxR5FLCnNgCxiVcUGKpB
-	Pn27q9vG35GM3ak3P8c3AjSRvhPoveFeh8kbtXT8d2Kr+xT1+FfC171p1mO8XT2oVbDzyDKFzKi
-	s24oK8054eVS2ehADIzUwFI3Zd1ODWauKxJpiKGKw5bICAl67DiuuZxC9VrKaDCJ4DauLlXm7Yv
-	Co=
-X-Received: by 2002:a05:6122:6084:b0:56d:9e98:4676 with SMTP id 71dfb90a1353d-59bfe3e8573mr5350316e0c.13.1780335427822;
-        Mon, 01 Jun 2026 10:37:07 -0700 (PDT)
-Received: from mail-vk1-f178.google.com (mail-vk1-f178.google.com. [209.85.221.178])
-        by smtp.gmail.com with ESMTPSA id 71dfb90a1353d-599d3c978e3sm7704293e0c.2.2026.06.01.10.37.07
-        for <linux-arm-kernel@lists.infradead.org>
-        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
-        Mon, 01 Jun 2026 10:37:07 -0700 (PDT)
-Received: by mail-vk1-f178.google.com with SMTP id 71dfb90a1353d-59b40115f06so1153604e0c.0
-        for <linux-arm-kernel@lists.infradead.org>; Mon, 01 Jun 2026 10:37:07 -0700 (PDT)
-X-Forwarded-Encrypted: i=1; AFNElJ/QppIJNBvo4oE2W4yCRdDTXX4WFgFZ/SxbCyWDk3Gfi50GFuQt+0uQpCFOOFUfSkj+eEHrU2c1793wj5M+ij01@lists.infradead.org
-X-Received: by 2002:a05:6122:a26:b0:575:29ef:7df8 with SMTP id
- 71dfb90a1353d-59bf84c927amr5742975e0c.2.1780335426878; Mon, 01 Jun 2026
- 10:37:06 -0700 (PDT)
+	Mon, 01 Jun 2026 17:48:49 +0000
+Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
+	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id E7032175D;
+	Mon,  1 Jun 2026 10:48:38 -0700 (PDT)
+Received: from [10.57.36.65] (unknown [10.57.36.65])
+	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id 5FC213F7D8;
+	Mon,  1 Jun 2026 10:48:42 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=simple/simple; d=arm.com; s=foss;
+	t=1780336123; bh=OpzHICScFogskndyr2+DyN1dxiPGmzVPdDXVPfFt2kE=;
+	h=Date:Subject:To:Cc:References:From:In-Reply-To:From;
+	b=mpZWNuiqI2HXeRxY/CAO7WyiRRhaHAFJJivZEEl2i1t7Z44zAfp2IRFVsfNX0+5Jv
+	 A33U8QuTySQuK3bbL8vp+tCFLhLbsKPGAiz/327mpls++d+PpMMXRajFcFvmF1txEv
+	 qewt3Jwdyv01/x2IPtkPZOGBIkJntPja3uFtC32Y=
+Message-ID: <2eccafbc-f215-4021-8491-31e5835de49e@arm.com>
+Date: Mon, 1 Jun 2026 18:48:41 +0100
 MIME-Version: 1.0
-References: <cover.178031911driver8.git.geert+renesas@glider.be> <ah2t8FPZpJCF6CL7@shikoro>
-In-Reply-To: <ah2t8FPZpJCF6CL7@shikoro>
-From: Geert Uytterhoeven <geert@linux-m68k.org>
-Date: Mon, 1 Jun 2026 19:36:55 +0200
-X-Gmail-Original-Message-ID: <CAMuHMdXFUObHJSaFg5Xb359AWwFejtA5n-Hn2dF4WFtC5-eXgg@mail.gmail.com>
-X-Gm-Features: AVHnY4LGrjuiK8Yupb4kRE62mimooYo_V8U0dBYQY870ZETHUqYjUyV_8zVtMJo
-Message-ID: <CAMuHMdXFUObHJSaFg5Xb359AWwFejtA5n-Hn2dF4WFtC5-eXgg@mail.gmail.com>
-Subject: Re: [GIT PULL 0/2] Renesas SoC updates for v7.2 (take two)
-To: Wolfram Sang <wsa+renesas@sang-engineering.com>
-Cc: soc@lists.linux.dev, soc <soc@kernel.org>, 
-	Magnus Damm <magnus.damm@gmail.com>, linux-arm-kernel@lists.infradead.org, 
-	linux-renesas-soc@vger.kernel.org
-Content-Type: text/plain; charset="UTF-8"
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH v4 2/2] perf/arm-cmn: Add workarounds for CMN-S3 on
+ Graviton5
+To: Aviv Bakal <avivb@amazon.com>, will@kernel.org, mark.rutland@arm.com
+Cc: linux-arm-kernel@lists.infradead.org, linux-perf-users@vger.kernel.org,
+ linux-kernel@vger.kernel.org, zeev@amazon.com, blakgeof@amazon.com,
+ ilkka@os.amperecomputing.com
+References: <20260524153848.16334-1-avivb@amazon.com>
+ <20260531110447.10095-1-avivb@amazon.com>
+ <20260531110447.10095-3-avivb@amazon.com>
+From: Robin Murphy <robin.murphy@arm.com>
+Content-Language: en-GB
+In-Reply-To: <20260531110447.10095-3-avivb@amazon.com>
+Content-Type: text/plain; charset=UTF-8; format=flowed
+Content-Transfer-Encoding: 7bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260601_103709_961622_09D4274F 
-X-CRM114-Status: GOOD (  27.41  )
+X-CRM114-CacheID: sfid-20260601_104848_130414_28C036EC 
+X-CRM114-Status: GOOD (  24.84  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -96,63 +74,114 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hi Wolfram,
+On 2026-05-31 12:04 pm, Aviv Bakal wrote:
+> Graviton5 uses a customised CMN-S3 implementation where certain
+> discovery registers report zeroed fields. Add the following workarounds:
+> 
+>   - Introduce a dedicated ACPI HID to identify the Graviton5 CMN variant.
+>   - Derive the DTC domain from the XP node ID, since the unit info
+>     register reports it as zero.
+>   - Set the DTC logical ID from the XP's logical ID, since the node info
+>     register's logical ID field is also zeroed.
 
-On Mon, 1 Jun 2026 at 18:06, Wolfram Sang
-<wsa+renesas@sang-engineering.com> wrote:
-> On Mon, Jun 01, 2026 at 03:18:17PM +0200, Geert Uytterhoeven wrote:
-> > This is my second pull request for the inclusion of Renesas SoC updates
-> > for v7.2.
-> >
-> > It consists of 2 parts:
-> >
-> >   [GIT PULL 1/2] Renesas driver updates for v7.2 (take two)
-> >
-> >     - Identify the R-Car M3Le SoC,
-> >     - Add Multifunctional Interface (MFIS) support for R-Car V4H and V4M.
->
-> The bindings patch for this V4H update...
+Reviewed-by: Robin Murphy <robin.murphy@arm.com>
 
-[A]
+> Signed-off-by: Aviv Bakal <avivb@amazon.com>
+> ---
+>   drivers/perf/arm-cmn.c | 32 +++++++++++++++++++++++++++++++-
+>   1 file changed, 31 insertions(+), 1 deletion(-)
+> 
+> diff --git a/drivers/perf/arm-cmn.c b/drivers/perf/arm-cmn.c
+> index f1978a53d1c1..3fb71d9a57eb 100644
+> --- a/drivers/perf/arm-cmn.c
+> +++ b/drivers/perf/arm-cmn.c
+> @@ -31,7 +31,8 @@
+>   #define CMN_CHILD_NODE_ADDR		GENMASK(29, 0)
+>   #define CMN_CHILD_NODE_EXTERNAL		BIT(31)
+>   
+> -#define CMN_MAX_DIMENSION		12
+> +/* Some implementations use a mesh larger than the architectural max of 12 */
+> +#define CMN_MAX_DIMENSION		14
+>   #define CMN_MAX_XPS			(CMN_MAX_DIMENSION * CMN_MAX_DIMENSION)
+>   #define CMN_MAX_DTMS			(CMN_MAX_XPS + (CMN_MAX_DIMENSION - 1) * 4)
+>   
+> @@ -214,6 +215,8 @@ enum cmn_part {
+>   	PART_CMN700 = 0x43c,
+>   	PART_CI700 = 0x43a,
+>   	PART_CMN_S3 = 0x43e,
+> +	/* Synthetic part number, overridden to PART_CMN_S3 during discovery */
+> +	PART_GRAVITON5 = 0xa5,
+>   };
+>   
+>   /* CMN-600 r0px shouldn't exist in silicon, thankfully */
+> @@ -2250,6 +2253,18 @@ static unsigned int arm_cmn_dtc_domain(struct arm_cmn *cmn, void __iomem *xp_reg
+>   	return FIELD_GET(CMN_DTM_UNIT_INFO_DTC_DOMAIN, readl_relaxed(xp_region + offset));
+>   }
+>   
+> +static unsigned int arm_cmn_graviton5_dtc_domain(u16 xp_id)
+> +{
+> +	unsigned int x = (xp_id >> 7) & 0xf;
+> +	unsigned int y = (xp_id >> 3) & 0xf;
+> +
+> +	/*
+> +	 * The unit info register reads as zero; derive the DTC domain from
+> +	 * the XP's mesh coordinates over the 10x14 mesh.
+> +	 */
+> +	return (x / 5) + (y / 7) * 2;
+> +}
+> +
+>   static void arm_cmn_init_node_info(struct arm_cmn *cmn, u32 offset, struct arm_cmn_node *node)
+>   {
+>   	int level;
+> @@ -2295,6 +2310,7 @@ static int arm_cmn_discover(struct arm_cmn *cmn, unsigned int rgn_offset)
+>   	u64 reg;
+>   	int i, j;
+>   	size_t sz;
+> +	bool graviton5_workaround = false;
+>   
+>   	arm_cmn_init_node_info(cmn, rgn_offset, &cfg);
+>   	if (cfg.type != CMN_TYPE_CFG)
+> @@ -2305,6 +2321,13 @@ static int arm_cmn_discover(struct arm_cmn *cmn, unsigned int rgn_offset)
+>   	reg = readq_relaxed(cfg_region + CMN_CFGM_PERIPH_ID_01);
+>   	part = FIELD_GET(CMN_CFGM_PID0_PART_0, reg);
+>   	part |= FIELD_GET(CMN_CFGM_PID1_PART_1, reg) << 8;
+> +
+> +	/* Graviton5 has a customised CMN-S3 which needs some fixups */
+> +	if (cmn->part == PART_GRAVITON5) {
+> +		cmn->part = PART_CMN_S3;
+> +		graviton5_workaround = true;
+> +	}
+> +
+>   	/* 600AE is close enough that it's not really worth more complexity */
+>   	if (part == PART_CMN600AE)
+>   		part = PART_CMN600;
+> @@ -2394,6 +2417,8 @@ static int arm_cmn_discover(struct arm_cmn *cmn, unsigned int rgn_offset)
+>   
+>   		if (cmn->part == PART_CMN600)
+>   			xp->dtc = -1;
+> +		else if (graviton5_workaround)
+> +			xp->dtc = arm_cmn_graviton5_dtc_domain(xp->id);
+>   		else
+>   			xp->dtc = arm_cmn_dtc_domain(cmn, xp_region);
+>   
+> @@ -2472,6 +2497,10 @@ static int arm_cmn_discover(struct arm_cmn *cmn, unsigned int rgn_offset)
+>   
+>   			switch (dn->type) {
+>   			case CMN_TYPE_DTC:
+> +				if (graviton5_workaround) {
+> +					/* Node info logical ID is zeroed; use the XP's */
+> +					dn->logid = xp->logid;
+> +				}
+>   				cmn->num_dtcs++;
+>   				dn++;
+>   				break;
+> @@ -2687,6 +2716,7 @@ static const struct acpi_device_id arm_cmn_acpi_match[] = {
+>   	{ "ARMHC650" },
+>   	{ "ARMHC700" },
+>   	{ "ARMHC003" },
+> +	{ "AMZN0070", PART_GRAVITON5 },
+>   	{}
+>   };
+>   MODULE_DEVICE_TABLE(acpi, arm_cmn_acpi_match);
 
-> >   [GIT PULL 2/2] Renesas DTS updates for v7.2 (take two)
-> >
-> >     - Add timer (MTU3) and xSPI FLASH support for the RZ/T2H and RZ/N2H
-> >       SoCs and their EVK boards,
-> >     - Add PCIe support for the RZ/V2N SoC and the RZ/V2N EVK board,
-> >     - Add support for the R-Car M3Le SoC and the Geist development board,
-> >     - Specify ethernet PHY reset timings on various R-Car boards,
-> >     - Add (more) serial, I2C, DMA, and sound support for the RZ/G3L SoC,
-> >     - Add PSCI, Multifunctional Interface (MFIS), and SCMI support for the
-> >       R-Car X5H SoC and Ironhide development board,
->
-> ... depends on the initial X5H binding addition in this pull request.
-
-[B]
-
->
-> >     - Add serial DMA support for the RZ/G2L SoC,
-> >     - Add keyboard, I2C, Versa clock, and audio support for the RZ/G3L
-> >       SMARC SoM and EVK boards,
-> >     - Miscellaneous fixes and improvements.
->
-> I am confused, does this really work?
-
-Thanks for your comments!
-
-[A] does not depend on [B].  Both [A] and [B] depend on commit
-0f63ba15dde8748e ("dt-bindings: soc: renesas: Document MFIS IP core"),
-which was merged through renesas-r8a78000-dt-binding-defs-tag1 in both
-renesas-drivers-for-v7.2 and renesas-dts-for-v7.2.
-
-Gr{oetje,eeting}s,
-
-                        Geert
-
--- 
-Geert Uytterhoeven -- There's lots of Linux beyond ia32 -- geert@linux-m68k.org
-
-In personal conversations with technical people, I call myself a hacker. But
-when I'm talking to journalists I just say "programmer" or something like that.
-                                -- Linus Torvalds
 
