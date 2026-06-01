@@ -4,78 +4,114 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 995C4CD6E55
-	for <linux-arm-kernel@archiver.kernel.org>; Mon,  1 Jun 2026 15:44:56 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 94F3FCD6E55
+	for <linux-arm-kernel@archiver.kernel.org>; Mon,  1 Jun 2026 15:46:45 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:References:From:
-	To:Cc:Subject:Message-Id:Date:Content-Type:Content-Transfer-Encoding:
-	Mime-Version:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
+	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=vjUe9OR3qvJ4tcQD/mGNwFMxVbel1aCfVYAXd+ym47g=; b=wBwWqPhE8qg11t9e16D5hQhDmw
-	hHTgLR48uJfxPz7ZkKBjpPZaViVRmgWi7X3WaLRANWEDlvL3HbnSLLdpcagptNOxf7Xj/6FHMCCaP
-	KTnPI6ZleD+dIgRTHFHz+K/sNnzLwj0H8r+8B62aq1wf1qCoATjuGLe23mdQrtSaa0jcWTYZGfr11
-	3LOJZeL/BqKZ9pw228JtmNCnkpX1/SCfQXxYjkEK1ty3cag+KTiGxB2tNOgeIi697crIwtv2EI98p
-	1jRC0QcU30G0TsMtmhxeX0woK+66OA5xITzKcOtPC2VsnfANX/gOGM02KW92g4KRVUdASqoiJbMbA
-	MDEF+SlA==;
+	bh=+PZyLMmZBGq0lNbALF3xmrMJy0VM7McUCcXTF9FzQnQ=; b=1ZhlRFHMSXmTnGaNbELDied9YU
+	WZkgDC9D1CVvf5oAKqS5vDLwVoy2PdLRliYSFB9Vlr9tlEn+7IlBb7JBB/YBx2oIoSOqIEyXHSCBo
+	qJ9grB8mZIvQJOIHBHsebcTOoQXat9HEXQMB/KKYJOuvIcZy+AsB8FlQOMQy9bJXgo9yJgbyK3nP9
+	jpLT5NnZR/642kd1vIZ9Ui1Zv66aJck3de+cU87Qd+ziMb9JoHx5WMmmZw4XyPEXpmEYZ8Mt/9+Tx
+	LyfR6Dd5IUyhi9W8+Bt9BRlSrICDwLgUIn0OXG1jlBuJRpMd59dJadAusDbW0yipCVkzt1DB3GZh5
+	TtiGvGxA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wU4or-0000000BOtz-4AyG;
-	Mon, 01 Jun 2026 15:44:50 +0000
-Received: from smtpout-04.galae.net ([185.171.202.116])
+	id 1wU4qc-0000000BPBN-1D52;
+	Mon, 01 Jun 2026 15:46:38 +0000
+Received: from sea.source.kernel.org ([172.234.252.31])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wU4oo-0000000BOsk-2WLE
+	id 1wU4qZ-0000000BPAY-3EQB
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 01 Jun 2026 15:44:49 +0000
-Received: from smtpout-01.galae.net (smtpout-01.galae.net [212.83.139.233])
-	by smtpout-04.galae.net (Postfix) with ESMTPS id 98795C62479;
-	Mon,  1 Jun 2026 15:44:45 +0000 (UTC)
-Received: from mail.galae.net (mail.galae.net [212.83.136.155])
-	by smtpout-01.galae.net (Postfix) with ESMTPS id 683506026B;
-	Mon,  1 Jun 2026 15:44:43 +0000 (UTC)
-Received: from [127.0.0.1] (localhost [127.0.0.1]) by localhost (Mailerdaemon) with ESMTPSA id B45D910888A84;
-	Mon,  1 Jun 2026 17:44:32 +0200 (CEST)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=bootlin.com; s=dkim;
-	t=1780328681; h=from:subject:date:message-id:to:cc:mime-version:content-type:
-	 content-transfer-encoding:in-reply-to:references;
-	bh=vjUe9OR3qvJ4tcQD/mGNwFMxVbel1aCfVYAXd+ym47g=;
-	b=q+T9gBgcPSug6dFbRNGMm4UBGtGM19XF0M3FXAjtiK+iwyXRzNpMAxuTjZzLhql/rZUq1f
-	yqR/QHu2wdCecwnPN1RdCZNH0M0uptv+rYGj5mgNfha82AyiQJvzhazvPKdcgwC5qwcGXz
-	KBUKGeqaz7WdqKtbVK5XBMsU/wREbZXoto6Kv3xNuSZ7n862CVHfm4r37cwe2ZlaR0wrz5
-	CTHY9diKKZ4teLgU1CqlzzLXT9UU2aL0kf3qSrILC5VRRs8kSdRS+2oswiJK2WogmikIaH
-	JyY58fczpyVTB6EozruKVPVaqp9CtqcgZ1Ygm/JdXKsQoN3qDm+Om1btMuzONQ==
-Mime-Version: 1.0
-Content-Transfer-Encoding: quoted-printable
+	Mon, 01 Jun 2026 15:46:36 +0000
+Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
+	by sea.source.kernel.org (Postfix) with ESMTP id 0C93844342;
+	Mon,  1 Jun 2026 15:46:35 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 6E3411F00893;
+	Mon,  1 Jun 2026 15:46:29 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
+	s=k20260515; t=1780328794;
+	bh=+PZyLMmZBGq0lNbALF3xmrMJy0VM7McUCcXTF9FzQnQ=;
+	h=Date:Subject:To:Cc:References:From:In-Reply-To;
+	b=DmC1Ux43Yo2uzBrTN9Nkt/+7feAF97Tn2ZFy51PUjV7C5QpLrET/wsB+hl78Eoefb
+	 IvjDgSgBnUlVETwpkXRB/KsnLRXs1r4SwwZonL2+uI/XwaB5IPkZDlVZrlbGY/PsrJ
+	 krH16VbOz0ySObXNbBZiUDwgkq1kPBhZOdXCraY53mjhhiu07oWyf6vmf3IL+Kmu1v
+	 noBVrDAJZuyH8oBskjsEJ+CVSTs4a25x0Ny5lo9htJezMeezdmZ+5D94aXDrtwaXEV
+	 ZcD31tEC3pzGK+rcg6WeXsa6YZp1OJiXiCtFgvs604GFcj+FZV8Roiw8Kmy3P+HkhO
+	 qiEmRgqGLgx+g==
+Message-ID: <9979fa87-88ef-4baf-8592-502ff4888085@kernel.org>
+Date: Mon, 1 Jun 2026 17:46:27 +0200
+MIME-Version: 1.0
+User-Agent: Mozilla Thunderbird
+Subject: Re: [RFC PATCH 1/3] mm: make persistent huge zero folio read-only
+To: Lance Yang <lance.yang@linux.dev>, Dave Hansen <dave.hansen@intel.com>,
+ Xueyuan chen <xueyuan.chen21@gmail.com>
+Cc: linux-kernel@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
+ x86@kernel.org, catalin.marinas@arm.com, will@kernel.org, tglx@kernel.org,
+ mingo@redhat.com, bp@alien8.de, dave.hansen@linux.intel.com, hpa@zytor.com,
+ ljs@kernel.org, ziy@nvidia.com, baolin.wang@linux.alibaba.com,
+ akpm@linux-foundation.org, ryan.roberts@arm.com, dev.jain@arm.com,
+ yang@os.amperecomputing.com, jannh@google.com, linux-mm@kvack.org
+References: <20260527035607.14919-1-xueyuan.chen21@gmail.com>
+ <20260527035607.14919-2-xueyuan.chen21@gmail.com>
+ <4e0696ee-895c-486d-aacc-71146f0e9047@intel.com>
+ <929875a2-9e94-4dbc-9c98-b342ccc3f4e2@kernel.org>
+ <bbecce76-c677-4045-b0d1-ba822b84dcf5@linux.dev>
+From: "David Hildenbrand (Arm)" <david@kernel.org>
+Content-Language: en-US
+Autocrypt: addr=david@kernel.org; keydata=
+ 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
+ qIws/H2t
+In-Reply-To: <bbecce76-c677-4045-b0d1-ba822b84dcf5@linux.dev>
 Content-Type: text/plain; charset=UTF-8
-Date: Mon, 01 Jun 2026 17:44:31 +0200
-Message-Id: <DIXTUCXAU68V.1T7X89LMEUF2F@bootlin.com>
-Subject: Re: [PATCH 00/37] drm bridge hotplug
-Cc: "Hui Pu" <Hui.Pu@gehealthcare.com>, "Ian Ray"
- <ian.ray@gehealthcare.com>, "Thomas Petazzoni"
- <thomas.petazzoni@bootlin.com>, <dri-devel@lists.freedesktop.org>,
- <linux-kernel@vger.kernel.org>, <imx@lists.linux.dev>,
- <linux-arm-kernel@lists.infradead.org>
-To: "Luca Ceresoli" <luca.ceresoli@bootlin.com>, "Maarten Lankhorst"
- <maarten.lankhorst@linux.intel.com>, "Maxime Ripard" <mripard@kernel.org>,
- "Thomas Zimmermann" <tzimmermann@suse.de>, "David Airlie"
- <airlied@gmail.com>, "Simona Vetter" <simona@ffwll.ch>, "Andrzej Hajda"
- <andrzej.hajda@intel.com>, "Neil Armstrong" <neil.armstrong@linaro.org>,
- "Robert Foss" <rfoss@kernel.org>, "Laurent Pinchart"
- <Laurent.pinchart@ideasonboard.com>, "Jonas Karlman" <jonas@kwiboo.se>,
- "Jernej Skrabec" <jernej.skrabec@gmail.com>, "Inki Dae"
- <inki.dae@samsung.com>, "Jagan Teki" <jagan@amarulasolutions.com>, "Marek
- Szyprowski" <m.szyprowski@samsung.com>, "Marek Vasut" <marex@denx.de>,
- "Stefan Agner" <stefan@agner.ch>, "Frank Li" <Frank.Li@nxp.com>, "Sascha
- Hauer" <s.hauer@pengutronix.de>, "Pengutronix Kernel Team"
- <kernel@pengutronix.de>, "Fabio Estevam" <festevam@gmail.com>
-From: "Luca Ceresoli" <luca.ceresoli@bootlin.com>
-X-Mailer: aerc 0.21.0
-References: <20260519-drm-bridge-hotplug-v1-0-45e2bdb3dfb4@bootlin.com>
-In-Reply-To: <20260519-drm-bridge-hotplug-v1-0-45e2bdb3dfb4@bootlin.com>
-X-Last-TLS-Session-Version: TLSv1.3
+Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260601_084447_006035_34DA08E8 
-X-CRM114-Status: GOOD (  50.51  )
+X-CRM114-CacheID: sfid-20260601_084635_870461_4B766378 
+X-CRM114-Status: GOOD (  12.00  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -90,429 +126,46 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hello,
+On 6/1/26 17:43, Lance Yang wrote:
+> 
+> 
+> On 2026/6/1 21:49, David Hildenbrand (Arm) wrote:
+>> On 5/27/26 17:55, Dave Hansen wrote:
+>>> CONFIG_READONLY_HUGE_ZERO_FOLIO
+>>>
+>>> All of the #ifdeffery needs to die, IMNHO.
+>>>
+>>> This function is also a bad idea. There is nothing "huge zero" specific
+>>> about it. It takes any old folio and tries to make it read only.
+>>>
+>>> Just make it:
+>>>
+>>>     bool __init arch_make_folio_readonly(struct folio *folio)
+>>>
+>>
+>> I'm not sure whether we want a folio-based interface, though.
+>>
+>> This will likely be the only folio (that will actually have a "struct folio" in
+>> the future) compound page we'll ever mark read-only ... whereby I'd guess we'd
+>> want other non-folio pages to be read-only in the future (encryption keys etc,
+>> maybe?).
+>>
+>> So I'd instead use a page-range based interface or sth like that.
+> 
+> Just to check, did you mean something like:
+> 
+> bool arch_make_pages_readonly(struct page *page, int nr_pages);
+> 
+> ?
+> 
+> So it can work on pages as well, not only folios :)
 
-I presented this series last Friday during the Display Next Hackfest
-2026. Here's a summary of the discussion.
+Yes, that would have been my first idea if we want to easily allow other reuse
+in the future. Of course, we could add a folio wrapper that will likely mostly
+be used by a single user ... :)
 
-The discussion was mostly with Dmitry Baryshkov (major contributor to the
-drm_bridge_connector code) and a bit with Paul Kocialkowski and
-others. Thanks all!
+-- 
+Cheers,
 
-The proposal to extend the drm_bridge_connector to implement hotplug, and
-the general architecture proposed, raised no objection. So I'm going to
-continue with this approach.
-
-There were various implementation aspects discussed, which will be my
-focus in the coming weeks:
-
- * The requirement that bridge drivers (the last bridge before the
-   hotplug connector, at least) must return -EPROBE_DEFER when the next
-   bridge is not present is risky: some drivers might just defer during
-   their probe, potentially generating defer loops.
-
-   * Alternative discussed: bridge drivers can expose info about how to
-     find the next bridge (the fwnode perhaps) using a new API, keeping the
-     existing untouched. Maybe they could also expose the previous driver
-     fwnode, even though it currently seems unnecessary.
-
-   * There are various options about how such new API should look like:
-     during registration (drm_bridge_add()? too early for some complex
-     drivers?), at attach time (maybe too late?) or as a new callback
-     (called when?). In all cases this new API would be a superset of the
-     .is_tail callback proposed in patch 30, which would then become
-     unnecessary.
-
- * Dmitry asked whether all the attach chain could be entirely moved to the
-   drm_bridge_connector for drivers using it. Worth investigating.
-
-   * I did a quick investigation after the event and it would work nicely
-     for many drivers but some are tricky. Needs more understanding.
-
- * The added drm_atomic_shutdown() is wrong, it would stop streaming on
-   all outputs on the card. But it is probably unnecessary, just removing
-   the connector should be enough.
-
-That's all according to my notes. Feel free to reply in case I forgot
-anything or something is wrong. Expect a v2 in the coming weeks with the
-above changes, or discussion in case of unexpected issues.
-
-Kind regards,
-Luca
-
-
-On Tue May 19, 2026 at 12:37 PM CEST, Luca Ceresoli wrote:
-> Hello,
->
-> this series adds support for Linux-based devices with a DRM pipeline whos=
-e
-> final components, including one or more bridges, can be hot-plugged and
-> hot-unplugged.
->
-> TL;DR:
->
->  * This new approach is totally different from the one proposed in the
->    past [0], and the code is an almost completely rewrite
->  * If you already know the use case, feel free to skip to the "Design"
->    section below
->
-> Use case
-> =3D=3D=3D=3D=3D=3D=3D=3D
->
-> This series targets as its first use case a professional product (GE SUNH=
-)
-> that is composed of a "main" part, with the main SoC and able to work
-> autonomously with limited features, and an optional "add-on" that enables
-> more features by adding more hardware peripherals.
->
-> The hotplug connector has a MIPI DSI bus. The addon has a DSI-to-LVDS
-> bridge and an LVDS panel attached to it. Different addon models can have
-> different components. As a consequence, a DRM bridge must be added and
-> removed at runtime without tearing down the whole card. This is currently
-> not possible, and this series enables it.
->
-> DRM already supports pipelines whose display can be removed, but all the
-> components preceding it (all the display controller and any bridges) are
-> assumed to be fixed and cannot be plugged, removed or modified at
-> runtime. Additionally, dynamic drm_connectors are supported for DP MST.
->
-> This picture summarizes the DRM structure implemented by this series:
->
->  .------------------------.
->  |   DISPLAY CONTROLLER   |
->  | .---------.   .------. |
->  | | ENCODER |<--| CRTC | |
->  | '---------'   '------' |
->  '------|-----------------'
->         |              MACHANICAL
->         |DSI            HOTPLUG
->         V              CONNECTOR
->    .---------.        .--.    .-.        .---------.         .-------.
->    | 0 to N  |        | _|   _| |        | 1 to N  |         |       |
->    | BRIDGES |--DSI-->||_   |_  |--DSI-->| BRIDGES |--LVDS-->| PANEL |
->    |         |        |  |    | |        |         |         |       |
->    '---------'        '--'    '-'        '---------'         '-------'
->
->  [--- fixed components --]  [----------- removable add-on -----------]
->
-> The video bus is MIPI DSI in the example and in the implementation provid=
-ed
-> by this series, but the implementation is meant to allow generalization t=
-o
-> other video busses without native hotplug support, such as parallel video
-> and LVDS. Addons which terminate with a HDMI/DP connector are possible to=
-o.
->
-> =3D=3D Design
->
-> The old approach [0] was based on a hotplug-bridge driver, connected
-> between the last fixed bridge and the first removable bridge.
->
-> That approach has been rejected, and this new approach is based on a
-> central place to handle DRM hotplug, not a specific driver.
->
-> The drm_bridge_connector is nowadays the recommended way to implement DRM
-> connectors when a chain of bridges is used. It takes care of adding the
-> drm_connector when the pipeline is composed by an arbitrarily long chain =
-of
-> bridges, which it scans to properly implement the drm_connector
-> operations.
->
-> As such the drm_bridge_connector looked like the ideal component to
-> implement DRM bridge hotplug.
->
-> This series augments the drm_bridge_connector code to be able to create a=
-nd
-> destroy the drm_connector reacting on hot(un)plug events.
->
-> =3D=3D Series description
->
-> This series has many preparatory patches: to make the drm_bridge_connecto=
-r
-> code allocate the drm_connector dynamically and to prepare various other
-> parts of the involved DRM code.
->
-> In current code the last bridge in the encoder chain is always assumed to
-> complete the pipeline. There is no way for a bridge to tell "I'm currentl=
-y
-> the last bridge in the encoder chain, but I need an next bridge to
-> work". This series has some patches to allow such a behaviour:
->
->  * bridges can now report whether they conclude the pipeline or not (I
->    propose the "tail bridge" naming to tell this)
->  * returning -EPROBE_DEFER on bridge attach is not considered a hard erro=
-r
->    anymore, it's normal when the next bridge is needed but not yet presen=
-t
->
-> Compared to the hotplug-bridge approach, now bridge drivers need a bit of
-> adaptation in order to support that the following bridge is
-> hotpluggable. So there are a few changes to the samsung-dsim bridge drive=
-r,
-> which in the hardware I'm working on is the last fixed bridge.
->
-> Finally, as the current drm_bridge_connector API is unable to support
-> hotplug, a new API is added to enable the new features. This makes existi=
-ng
-> drivers not affected by the changes. The last patch shows to changes need=
-ed
-> to an encoder driver to switch to the new API enabling hotplug support.
->
-> =3D=3D Series layout
->
->  1. Add a dynamic variant of drm_connector_hdmi_init()
->     (needed for the bridge-connector to allocate the connector dynamicall=
-y)
->
->      * drm/connector: split drmm_connector_hdmi_init() in 3 parts
->      * drm/connector: add drm_connector_hdmi_dynamic_init()
->
->  2. bridge-connector: split the long drm_bridge_connector_init() in vario=
-us
->     parts in preparation to be called in different ways
->
->      * drm/display: bridge-connector: rename variable for consistency
->      * drm/display: bridge-connector: store the drm_device pointer
->      * drm/display: bridge-connector: split code creating the connector t=
-o a subfunction
->      * drm/display: bridge-connector: use a drm_bridge_connector internal=
-ly, not a drm_connector
->      * drm/display: bridge-connector: extract drm_bridge_connector_get_br=
-idges()
->      * drm/display: bridge-connector: return int from drm_bridge_connecto=
-r_get_bridges()
->      * drm/display: bridge-connector: extract drm_bridge_connector_init_h=
-dmi_audio_cec()
->      * drm/display: bridge-connector: return int from drm_bridge_connecto=
-r_init_hdmi_audio_cec()
->      * drm/display: bridge-connector: return int from drm_bridge_connecto=
-r_add_connector()
->
->  3. bridge-connector: create the drm_connector dynamically
->
->      * drm/display: bridge-connector: hoist error management to common co=
-de
->      * drm/display: bridge-connector: move drm_bridge_connector_put_bridg=
-es() definition eariler
->      * drm/display: bridge-connector: add non-drmm variant of drm_bridge_=
-connector_put_bridges()
->      * drm/display: bridge-connector: allocate the connector dynamically
->      * drm/display: bridge-connector: move per-connector fields to the dy=
-namic connector
->      * drm/display: bridge-connector: protect dynconn creation and destru=
-ction with a mutex
->
->  4. samsung-dsim: prepare driver to work when the following bridge is hot=
-pluggable
->
->      * drm/bridge: samsung-dsim: remove the panel_bridge on host_detach
->      * drm/bridge: samsung-dsim: move drm_bridge_add() call to probe
->      * drm/bridge: samsung-dsim: attach: return -EPROBE_DEFER is next bri=
-dge not yet available
->
->  5. Misc preparation work
->
->      * drm/bridge: initialize chain_node list head on allocation
->      * drm/bridge: initialize chain_node list head on detach and attach e=
-rrors
->
->  6. drm_bridge: stop pipeline when a bridge is removed
->
->      * drm/encoder: add drm_encoder_cleanup_from()
->      * drm/atomic: move drm_atomic_helper_disable_all() and drm_atomic_he=
-lper_shutdown() from drm_atomic_helper to drm_atomic
->      * drm/bridge: shutdown and cleanup on bridge unplug
->
->  7. Add notifier mechanism to let common code (the bridge-connector)
->     take actions on hotplug events
->
->      * drm: event-notifier: add mechanism to notify about hotplug events
->      * drm/bridge: notify about detached bridges
->      * drm/mipi-dsi: turn DRM_MIPI_DSI into a tristate
->      * drm/mipi-dsi: notify about DSI attach
->
->  8. Allow common code to know when the pipeline is complete
->
->      * drm/bridge: add drm_bridge_is_tail() to know whether a bridge comp=
-letes the pipeline
->      * drm/bridge: panel: implement .is_tail
->      * drm/bridge: display-connector: implement .is_tail
->      * drm/bridge: samsung-dsim: implement .is_tail
->      * drm/bridge: ti-sn65dsi83: implement .is_tail
->
->  9. Allow probing incomplete pipelines
->
->      * drm/bridge: drm_bridge_attach(): don't fail on -EPROBE_DEFER
->
->  10. Implement bridge hotplug in bridge-connector, enable it in a driver
->
->      * drm/display: bridge-connector: handle bridge hotplug
->      * drm/mxsfb/lcdif: enable bridge hotplug
->
-> =3D=3D Grand plan
->
-> This is part of the work to support hotplug of DRM bridges. The grand pla=
-n
-> was discussed in [0].
->
-> Here's the work breakdown (=E2=9E=9C marks the current series):
->
->  1. =E2=80=A6 add refcounting to DRM bridges struct drm_bridge,
->       based on devm_drm_bridge_alloc()
->     A. =E2=9C=94 add new alloc API and refcounting (v6.16)
->     B. =E2=9C=94 convert all bridge drivers to new API (v6.17)
->     C. =E2=9C=94 kunit tests (v6.17)
->     D. =E2=9C=94 add get/put to drm_bridge_add/remove() + attach/detach()
->          and warn on old allocation pattern (v6.17)
->     E. =E2=80=A6 add get/put on drm_bridge accessors
->        1. =E2=9C=94 drm_bridge_chain_get_first_bridge(), add cleanup acti=
-on (v6.18)
->        2. =E2=9C=94 drm_bridge_get_prev_bridge() (v6.18)
->        3. =E2=9C=94 drm_bridge_get_next_bridge() (v6.19)
->        4. =E2=9C=94 drm_for_each_bridge_in_chain() (v6.19)
->        5. =E2=9C=94 drm_bridge_connector_init (v6.19)
->        6. =E2=9C=94 protect encoder bridge chain with a mutex (v7.2)
->        7. =E2=9C=94 of_drm_find_bridge
->           a. =E2=9C=94 add of_drm_get_bridge() (v7.0),
->                convert basic direct users (v7.0-v7.1)
->           b. =E2=9C=94 convert direct of_drm_get_bridge() users, part 2 (=
-v7.0)
->           c. =E2=9C=94 convert direct of_drm_get_bridge() users, part 3 (=
-v7.0)
->           d. =E2=9C=94 convert direct of_drm_get_bridge() users, part 4 (=
-v7.1-v7.2)
->           e. =E2=9C=94 bridge-only drm_of_find_panel_or_bridge() users (v=
-7.2)
->        8.   drm_of_find_panel_or_bridge, *_of_get_bridge
->        9. =E2=9C=94 enforce drm_bridge_add before drm_bridge_attach (v6.1=
-9)
->     F. =E2=9C=94 debugfs improvements
->        1. =E2=9C=94 add top-level 'bridges' file (v6.16)
->        2. =E2=9C=94 show refcount and list lingering bridges (v6.19)
->  2. =E2=80=A6 handle gracefully atomic updates during bridge removal
->     A. =E2=9C=94 Add drm_bridge_enter/exit() to protect device resources =
-(v7.0)
->     B. =E2=80=A6 protect private_obj removal from list
->     C. =E2=9C=94 Add drm_bridge_clear_and_put() (v7.1)
->  3. =E2=80=A6 DSI host-device driver interaction
->  4. =E2=9C=94 removing the need for the "always-disconnected" connector
->  5. =E2=9C=94 Migrate i.MX LCDIF driver to bridge-connector (v7.2)
->  6. =E2=9E=9C DRM bridge hotplug
->     A. =E2=9E=9C Bridge hotplug management in the DRM core
->        1. =E2=9C=94 bridge-connector: attach encoder to the connector (v7=
-.2)
->        2. =E2=9E=9C drm bridge hotplug
->     B.   Device tree description
->
-> [0] https://lore.kernel.org/lkml/20250206-hotplug-drm-bridge-v6-0-9d6f2c9=
-c3058@bootlin.com/#t
->
-> =3D=3D Dependencies
->
-> This series depends on:
->
->  * "drm/atomic: drm_atomic_private_obj_fini: protect private_obj removal
->     from list"
->    - https://lore.kernel.org/lkml/20260324-drm-bridge-atomic-vs-remove-pr=
-ivate_obj-v3-1-64deefe84044@bootlin.com/
->    - Reason: avoid sporadic deadlock
->
-> Signed-off-by: Luca Ceresoli <luca.ceresoli@bootlin.com>
-> ---
-> Luca Ceresoli (37):
->       drm/connector: split drmm_connector_hdmi_init() in 3 parts
->       drm/connector: add drm_connector_hdmi_dynamic_init()
->       drm/display: bridge-connector: rename variable for consistency
->       drm/display: bridge-connector: store the drm_device pointer
->       drm/display: bridge-connector: split code creating the connector to=
- a subfunction
->       drm/display: bridge-connector: use a drm_bridge_connector internall=
-y, not a drm_connector
->       drm/display: bridge-connector: extract drm_bridge_connector_get_bri=
-dges()
->       drm/display: bridge-connector: return int from drm_bridge_connector=
-_get_bridges()
->       drm/display: bridge-connector: extract drm_bridge_connector_init_hd=
-mi_audio_cec()
->       drm/display: bridge-connector: return int from drm_bridge_connector=
-_init_hdmi_audio_cec()
->       drm/display: bridge-connector: return int from drm_bridge_connector=
-_add_connector()
->       drm/display: bridge-connector: hoist error management to common cod=
-e
->       drm/display: bridge-connector: move drm_bridge_connector_put_bridge=
-s() definition eariler
->       drm/display: bridge-connector: add non-drmm variant of drm_bridge_c=
-onnector_put_bridges()
->       drm/display: bridge-connector: allocate the connector dynamically
->       drm/display: bridge-connector: move per-connector fields to the dyn=
-amic connector
->       drm/display: bridge-connector: protect dynconn creation and destruc=
-tion with a mutex
->       drm/bridge: samsung-dsim: remove the panel_bridge on host_detach
->       drm/bridge: samsung-dsim: move drm_bridge_add() call to probe
->       drm/bridge: samsung-dsim: attach: return -EPROBE_DEFER is next brid=
-ge not yet available
->       drm/bridge: initialize chain_node list head on allocation
->       drm/bridge: initialize chain_node list head on detach and attach er=
-rors
->       drm/encoder: add drm_encoder_cleanup_from()
->       drm/atomic: move drm_atomic_helper_disable_all() and drm_atomic_hel=
-per_shutdown() from drm_atomic_helper to drm_atomic
->       drm/bridge: shutdown and cleanup on bridge unplug
->       drm: event-notifier: add mechanism to notify about hotplug events
->       drm/bridge: notify about detached bridges
->       drm/mipi-dsi: turn DRM_MIPI_DSI into a tristate
->       drm/mipi-dsi: notify about DSI attach
->       drm/bridge: add drm_bridge_is_tail() to know whether a bridge compl=
-etes the pipeline
->       drm/bridge: panel: implement .is_tail
->       drm/bridge: display-connector: implement .is_tail
->       drm/bridge: samsung-dsim: implement .is_tail
->       drm/bridge: ti-sn65dsi83: implement .is_tail
->       drm/bridge: drm_bridge_attach(): don't fail on -EPROBE_DEFER
->       drm/display: bridge-connector: handle bridge hotplug
->       drm/mxsfb/lcdif: enable bridge hotplug
->
->  drivers/gpu/drm/Kconfig                        |   7 +-
->  drivers/gpu/drm/Makefile                       |   2 +
->  drivers/gpu/drm/bridge/display-connector.c     |   7 +
->  drivers/gpu/drm/bridge/panel.c                 |   8 +-
->  drivers/gpu/drm/bridge/samsung-dsim.c          |  36 +-
->  drivers/gpu/drm/bridge/ti-sn65dsi83.c          |   7 +
->  drivers/gpu/drm/display/drm_bridge_connector.c | 835 +++++++++++++++++--=
-------
->  drivers/gpu/drm/drm_atomic.c                   | 115 ++++
->  drivers/gpu/drm/drm_atomic_helper.c            |  76 +--
->  drivers/gpu/drm/drm_bridge.c                   |  47 +-
->  drivers/gpu/drm/drm_connector.c                | 155 +++--
->  drivers/gpu/drm/drm_encoder.c                  |  38 ++
->  drivers/gpu/drm/drm_event_notifier.c           |  58 ++
->  drivers/gpu/drm/drm_mipi_dsi.c                 |   3 +
->  drivers/gpu/drm/mxsfb/lcdif_drv.c              |   8 +-
->  include/drm/bridge/samsung-dsim.h              |   2 +
->  include/drm/drm_atomic.h                       |   3 +
->  include/drm/drm_bridge.h                       |  19 +
->  include/drm/drm_bridge_connector.h             |   2 +
->  include/drm/drm_connector.h                    |   9 +
->  include/drm/drm_encoder.h                      |   1 +
->  include/drm/drm_event_notifier.h               |  36 ++
->  22 files changed, 1078 insertions(+), 396 deletions(-)
-> ---
-> base-commit: 289b9a790d52a6865db3006f07922a9191faa54e
-> change-id: 20260515-drm-bridge-hotplug-46265d3a2f85
->
-> Best regards,
-> --
-> Luca Ceresoli, Bootlin
-> Embedded Linux and Kernel engineering
-> https://bootlin.com
-
-
-
-
---
-Luca Ceresoli, Bootlin
-Embedded Linux and Kernel engineering
-https://bootlin.com
+David
 
