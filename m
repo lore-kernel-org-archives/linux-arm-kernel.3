@@ -4,124 +4,83 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 5C641CD6E4C
-	for <linux-arm-kernel@archiver.kernel.org>; Mon,  1 Jun 2026 08:49:42 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 83062CD6E4C
+	for <linux-arm-kernel@archiver.kernel.org>; Mon,  1 Jun 2026 08:50:34 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:
-	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
+	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=zs9Ftk//Eli+AipH1EmAF2SPdnVVPcjuiC9Ml1N6W44=; b=TvvOy8DuE7ls2nGuX0pc2PabhM
-	qWEAoDpXBVuH55AvNmkZl2DAbxhjxIMlay/2MgtpOdVOP07e2RvYn6eDEgrDVMXBlb1vZ0U8eeM7Q
-	kqHldcdl9TC2eMrZ4M5hsqeBUiyqqgQ9xnC4WLFOz3M7EstasCmnvCk2aHPYuIQxxCLFbd9/D+gSW
-	8mpoII2t81eB2aXzYPcBuLhs1zs7iviVQ34WnN+YoonnuP26yck8zo3RvPzeBIG36dt5aQJZhMs7Y
-	Ym0rJ0wwl+b6LITw4Dl29BSnoEdiBiUoqU1MQMwitATQAhFReOTLvTfC2CctD/7nofBRJe3cphCBY
-	fH5dUYtA==;
+	bh=DuybiQ/g1mzURYqU/R/u++5xvPmxYJh7gPDdhIv90d4=; b=KO0oq+ZHh3Dm7UpQNz/B5RjAzS
+	YTbwtTlyWKO9LW2Hg1Y51uf75RQrHcftA/phVlmN2LOTTXziX9C1BMgTT1T5XaBipkXTmoggJSnh2
+	dLR4iAicHDYEs7xudZMtmDiiu7OEXP/jSuJNKrRcRD2LNiP+E5G/KCLDpKwWMSJZUKL6WijdbJ1x+
+	6ngyjR2yeyDdxsaFXrK8rMVqJJcnrkBBGDynu/1lLNceJie1JCX+mJJClhNbZ8Gx3GdP+a8+ZkROI
+	yvtu49fsHWO+Dcr/mL9awUieshR+XooLG5x8jBTgZgdMKpv3lnNMeGSGvUn9z7OO3BjWD8VriRu8F
+	PvY/wEzQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wTyL1-0000000AQAj-0FhJ;
-	Mon, 01 Jun 2026 08:49:35 +0000
-Received: from desiato.infradead.org ([2001:8b0:10b:1:d65d:64ff:fe57:4e05])
+	id 1wTyLr-0000000AQZZ-0vYp;
+	Mon, 01 Jun 2026 08:50:27 +0000
+Received: from dggsgout11.his.huawei.com ([45.249.212.51])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wTyKz-0000000AQ8q-1UAw
-	for linux-arm-kernel@bombadil.infradead.org;
-	Mon, 01 Jun 2026 08:49:33 +0000
-DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=infradead.org; s=desiato.20200630; h=Content-Transfer-Encoding:MIME-Version
-	:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:Sender:Reply-To:
-	Content-Type:Content-ID:Content-Description;
-	bh=zs9Ftk//Eli+AipH1EmAF2SPdnVVPcjuiC9Ml1N6W44=; b=ddTPq3/EVuoyVM/+GTNJR+s+nv
-	B/R50sVNt2SdZf6Qt81+d9k2xWqD+hsxkXn8NkIm0xMArH6CRweFqo5FAmQi/Y3nuIYuR6RmcJ7Uv
-	zSpiHXpzUrcU0ZsGiW3NUst/UeQvH8a8pg9cBfCUxaDk/Nd3ojBu59VcBl1fUvLEpgwXHiZN3qjyU
-	N7VIBRCkKwCV96W1+93rWvJxje6c6RBBrBNTCC2m4N0l9LGGFaVz28UL1Lc/X9rRpKJiiYoBNR1TR
-	M1V+h8AUMURfXC4XG6XHj8HGJQKPtzj1FZLuTdRF961zYDf9pqzc/ye1dSIhfUk//MpgIu8w4grcu
-	Wqdgf8lg==;
-Received: from mail-pf1-x434.google.com ([2607:f8b0:4864:20::434])
-	by desiato.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wTyKv-000000067n4-15x8
+	id 1wTyLn-0000000AQXG-0CO3
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 01 Jun 2026 08:49:31 +0000
-Received: by mail-pf1-x434.google.com with SMTP id d2e1a72fcca58-8422f148dfcso573454b3a.3
-        for <linux-arm-kernel@lists.infradead.org>; Mon, 01 Jun 2026 01:49:29 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=bytedance.com; s=google; t=1780303768; x=1780908568; darn=lists.infradead.org;
-        h=content-transfer-encoding:mime-version:references:in-reply-to
-         :message-id:date:subject:cc:to:from:from:to:cc:subject:date
-         :message-id:reply-to;
-        bh=zs9Ftk//Eli+AipH1EmAF2SPdnVVPcjuiC9Ml1N6W44=;
-        b=lK2D7vQpGaZVME7t3tQ3bvny416SR8vrOkN55PS6TLxF5WKs8cMQU2FsTLGNmqWOuN
-         CThluGzvSus6IrioaMgJ4KpMMPIB42X6sfHvX2F4N1Wr27hOGYakZBLufnfUWmUmV0RB
-         RVTDiMScgPi5RTh2ox4SrdQwmYnX/nhNcfXyDu3ZGxleE8MiSioP34BUE2veAdvKjaZ2
-         CXCkyRICQVPGRqwwQwNsw+GSgiDYO259AEBGebfHQBHDN6ZqBrIIKMJkOLzcG1DyKyEO
-         kn1ZmJ8mDUoWzhc9awNoJxhy0uYoDGHc67gwevHeYYFjKGjAErkRh9IPgdjtlYVdPip9
-         IgGw==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20251104; t=1780303768; x=1780908568;
-        h=content-transfer-encoding:mime-version:references:in-reply-to
-         :message-id:date:subject:cc:to:from:x-gm-gg:x-gm-message-state:from
-         :to:cc:subject:date:message-id:reply-to;
-        bh=zs9Ftk//Eli+AipH1EmAF2SPdnVVPcjuiC9Ml1N6W44=;
-        b=fs5JuGf7yyDuTmZdQXDtAXth18+OXJ7cF7YgPYZIvAdJ0rX6mpmRv33WvEDPKkCL/d
-         B03joHb+nWvZpIhaa1R0YztMBozXt1FCPvXvWFblohOEb0klXVk/3B06rzZci+NUm1tf
-         Hz5/+uduJ/iZMbfXsQkEkQOjq+ZKBbjLn/dUNXMOJ5CiERGK61EfCZBqTpJ7quPWNh5L
-         /C3RMB5GQgcuEKcrWIkeFWPVCJfDnTi4kXBv6R1Si7tSy6RIluBQ+IziCA8kaed9wRmb
-         w1ykNq5iSgyMmLeTs3Jqp8NLIwRqwSPFMQ+FOmu37hGb4Utvig1zSAqKa94YuXpOAXDN
-         e7Hg==
-X-Forwarded-Encrypted: i=1; AFNElJ8PFFDNaov6lUHuVM5ZvxDL2ks8pq6X7fdtwoMLy4QGavqxCdliWEvPxq+RCw37tsH7Hoskz0rHdcnx8JpaS055@lists.infradead.org
-X-Gm-Message-State: AOJu0YwFzQy2mrZAHySUwrUZ/onu7ET8yxUIH9o5/QoFJXkIMxPPkizj
-	W2obKeUcIG4vKRx5U7Tuy4yG3tbFaQyyCYXl82Vog59RFb0yXPkBB7O8l/j2kTggJiY=
-X-Gm-Gg: Acq92OHwftHK0VcZBxQdcU0UDf1k/nYw1XoDOVWcXEble0HmLY+TogwIFjuFoZzUzPy
-	I7k7HUrhSOebejJeGjELAY4OyFzKjp1SVxOiccuTPi21M3YIcQ5Wpcw1POFRBMDI+WnrxcXZJFN
-	gv6FW8CHDoFYLWdU0dDwOq+ZPfU702ApNm9oFWmDLyCF+Uv5hMQR20HC6hwvwokr2GSBmagh6XY
-	9/9bIoEbEznJssvdmVLEpRt7oOzVGBZpSZAi5ZhGBVaZssWRadF/LVz8SrvWGvM5AnFm/xGphZ8
-	I4LEIQTGap7gNbk0NpdWGgEAEs4U63Vx5zuZYZZn5EKLFm5rXpftQf6RPW9Oys1xZWGlgCnf7hN
-	DVYFCnoLdVNowVL+1IGEX7VQG8SsZWYb7q330YZXj0dWkowajZnp17+1WiIiDRym4uWXZ9UB16q
-	jQjA00Mc7hIOvp8lVsnumBPbXbKOUvafWs19JF1GHAJs1zizDWnAUT4w==
-X-Received: by 2002:a05:6a00:4c8b:b0:842:43d1:4b41 with SMTP id d2e1a72fcca58-84243d15007mr4884011b3a.47.1780303767463;
-        Mon, 01 Jun 2026 01:49:27 -0700 (PDT)
-Received: from n232-176-004.byted.org ([36.110.163.96])
-        by smtp.gmail.com with ESMTPSA id d2e1a72fcca58-84232ef8172sm6316230b3a.12.2026.06.01.01.49.21
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Mon, 01 Jun 2026 01:49:26 -0700 (PDT)
-From: Muchun Song <songmuchun@bytedance.com>
-To: Andrew Morton <akpm@linux-foundation.org>,
-	David Hildenbrand <david@kernel.org>,
-	Catalin Marinas <catalin.marinas@arm.com>,
-	Will Deacon <will@kernel.org>,
-	Palmer Dabbelt <palmer@dabbelt.com>,
-	Paul Walmsley <pjw@kernel.org>,
-	Huacai Chen <chenhuacai@kernel.org>,
-	Andreas Larsson <andreas@gaisler.com>,
-	"David S. Miller" <davem@davemloft.net>
-Cc: Muchun Song <muchun.song@linux.dev>,
-	Muchun Song <songmuchun@bytedance.com>,
-	linux-mm@kvack.org,
-	linux-kernel@vger.kernel.org,
-	linux-arm-kernel@lists.infradead.org,
-	linux-riscv@lists.infradead.org,
-	loongarch@lists.linux.dev,
-	sparclinux@vger.kernel.org,
-	Alexandre Ghiti <alex@ghiti.fr>,
-	Albert Ou <aou@eecs.berkeley.edu>,
-	WANG Xuerui <kernel@xen0n.name>,
-	Lorenzo Stoakes <ljs@kernel.org>,
-	"Liam R. Howlett" <liam@infradead.org>,
-	Vlastimil Babka <vbabka@kernel.org>,
-	Mike Rapoport <rppt@kernel.org>,
-	Suren Baghdasaryan <surenb@google.com>,
-	Michal Hocko <mhocko@suse.com>
-Subject: [PATCH v3 5/5] sparc/mm: drop vmemmap_check_pmd helper and use generic code
-Date: Mon,  1 Jun 2026 16:48:44 +0800
-Message-ID: <20260601084845.3792171-6-songmuchun@bytedance.com>
-X-Mailer: git-send-email 2.54.0
-In-Reply-To: <20260601084845.3792171-1-songmuchun@bytedance.com>
-References: <20260601084845.3792171-1-songmuchun@bytedance.com>
+	Mon, 01 Jun 2026 08:50:25 +0000
+Received: from mail.maildlp.com (unknown [172.19.163.170])
+	by dggsgout11.his.huawei.com (SkyGuard) with ESMTPS id 4gTSMn3y26zYQv2d
+	for <linux-arm-kernel@lists.infradead.org>; Mon,  1 Jun 2026 16:50:13 +0800 (CST)
+Received: from mail02.huawei.com (unknown [10.116.40.112])
+	by mail.maildlp.com (Postfix) with ESMTP id 7586E4056E
+	for <linux-arm-kernel@lists.infradead.org>; Mon,  1 Jun 2026 16:50:16 +0800 (CST)
+Received: from [10.174.179.37] (unknown [10.174.179.37])
+	by APP1 (Coremail) with SMTP id cCh0CgB3ej_ERx1qVW7kAA--.45078S3;
+	Mon, 01 Jun 2026 16:50:14 +0800 (CST)
+Message-ID: <58ffd225-c9d0-b2f6-eefe-13c056746faa@huaweicloud.com>
+Date: Mon, 1 Jun 2026 16:50:11 +0800
 MIME-Version: 1.0
-Content-Transfer-Encoding: 8bit
+User-Agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:102.0) Gecko/20100101
+ Thunderbird/102.11.0
+Subject: Re: [PATCH v2] arm64: kernel: Unify CNP disable workaround into
+ ARM64_WORKAROUND_DISABLE_CNP
+Content-Language: en-US
+To: Vladimir Murzin <vladimir.murzin@arm.com>, xuwei5@huawei.com,
+ wangyushan12@huawei.com, maz@kernel.org, skhan@linuxfoundation.org,
+ miko.lenczewski@arm.com, lucaswei@google.com, broonie@kernel.org,
+ thuth@redhat.com, ryan.roberts@arm.com, tongtiangen@huawei.com,
+ oupton@kernel.org, kuninori.morimoto.gx@renesas.com, mark.rutland@arm.com,
+ will@kernel.org, corbet@lwn.net, catalin.marinas@arm.com,
+ kevin.brodsky@arm.com, lpieralisi@kernel.org, yangyicong@hisilicon.com,
+ james.clark@linaro.org, yeoreum.yun@arm.com
+Cc: linux-doc@vger.kernel.org, wangkefeng.wang@huawei.com,
+ linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org
+References: <20260529063132.766491-1-zengheng@huaweicloud.com>
+ <1e107eba-e28c-4fbf-80dc-808b8c3f4bb5@arm.com>
+From: Zeng Heng <zengheng@huaweicloud.com>
+In-Reply-To: <1e107eba-e28c-4fbf-80dc-808b8c3f4bb5@arm.com>
+Content-Type: text/plain; charset=UTF-8; format=flowed
+Content-Transfer-Encoding: 7bit
+X-CM-TRANSID: cCh0CgB3ej_ERx1qVW7kAA--.45078S3
+X-Coremail-Antispam: 1UD129KBjvJXoWfJw4DKFykXFy7KF1UGw1UAwb_yoWDCF45pr
+	13Jr43JF1UWF15JryUXw1UJr1Yyan3Gw1Ygr1UK340qr1YyryUAF48X34xZFWvqrykWr48
+	JF1qkr15ZF1jyrDanT9S1TB71UUUUU7qnTZGkaVYY2UrUUUUjbIjqfuFe4nvWSU5nxnvy2
+	9KBjDU0xBIdaVrnRJUUU9Ib4IE77IF4wAFF20E14v26rWj6s0DM7CY07I20VC2zVCF04k2
+	6cxKx2IYs7xG6r1S6rWUM7CIcVAFz4kK6r1j6r18M28lY4IEw2IIxxk0rwA2F7IY1VAKz4
+	vEj48ve4kI8wA2z4x0Y4vE2Ix0cI8IcVAFwI0_Ar0_tr1l84ACjcxK6xIIjxv20xvEc7Cj
+	xVAFwI0_Gr1j6F4UJwA2z4x0Y4vEx4A2jsIE14v26rxl6s0DM28EF7xvwVC2z280aVCY1x
+	0267AKxVW0oVCq3wAS0I0E0xvYzxvE52x082IY62kv0487Mc02F40EFcxC0VAKzVAqx4xG
+	6I80ewAv7VC0I7IYx2IY67AKxVWUJVWUGwAv7VC2z280aVAFwI0_Jr0_Gr1lOx8S6xCaFV
+	Cjc4AY6r1j6r4UM4x0Y48IcVAKI48JM4IIrI8v6xkF7I0E8cxan2IY04v7Mxk0xIA0c2IE
+	e2xFo4CEbIxvr21lc7CjxVAaw2AFwI0_GFv_Wryl42xK82IYc2Ij64vIr41l4I8I3I0E4I
+	kC6x0Yz7v_Jr0_Gr1lx2IqxVAqx4xG67AKxVWUJVWUGwC20s026x8GjcxK67AKxVWUGVWU
+	WwC2zVAF1VAY17CE14v26r4a6rW5MIIYrxkI7VAKI48JMIIF0xvE2Ix0cI8IcVAFwI0_Jr
+	0_JF4lIxAIcVC0I7IYx2IY6xkF7I0E14v26r4j6F4UMIIF0xvE42xK8VAvwI8IcIk0rVWU
+	JVWUCwCI42IY6I8E87Iv67AKxVWUJVW8JwCI42IY6I8E87Iv6xkF7I0E14v26r4j6r4UJb
+	IYCTnIWIevJa73UjIFyTuYvjxUIF4iUUUUU
+X-CM-SenderInfo: p2hqwxhhqjqx5xdzvxpfor3voofrz/
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260601_094929_624390_F71BD279 
-X-CRM114-Status: GOOD (  10.19  )
+X-CRM114-CacheID: sfid-20260601_015023_457894_5E626ED0 
+X-CRM114-Status: GOOD (  26.38  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -136,36 +95,247 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-The generic implementations now suffice; remove the sparc copies.
+Hi Vladimir,
 
-Signed-off-by: Muchun Song <songmuchun@bytedance.com>
----
- arch/sparc/mm/init_64.c | 11 -----------
- 1 file changed, 11 deletions(-)
+On 2026/5/29 17:17, Vladimir Murzin wrote:
+> Hi,
+>
+> On 5/29/26 07:31, Zeng Heng wrote:
+>> From: Zeng Heng <zengheng4@huawei.com>
+>>
+>> HiSilicon HIP09 implements TLB entry matching behavior that deviates
+>> from the ARM architecture specification when the CnP (Common not Private)
+>> bit is set in TTBRx_ELx.
+>>
+>> When TTBRx.CNP=1, TLB entries may be incorrectly shared between CPU
+>> cores, leading to TLB conflicts and stale mappings. This breaks
+>> coherency and can result in incorrect translations.
+>>
+>> Add the hardware erratum workaround (Hisilicon erratum 162100125) to
+>> disable CNP on affected HIP09 cores.
+>>
+>> Merge the existing NVIDIA Carmel and the HiSilicon HIP09 CNP errata
+>> workarounds into a single generic capability ARM64_WORKAROUND_DISABLE_CNP.
+>>
+>> Both NVIDIA Carmel and HiSilicon HIP09 have hardware errata where
+>> CNP (Common Not Private) behavior differs from the ARM specification,
+>> causing incorrect TLB entry sharing between cores. The existing
+>> NVIDIA_CARMEL_CNP_ERRATUM and the newly added HISILICON_ERRATUM_162100125
+>> are now both handled by the unified ARM64_WORKAROUND_DISABLE_CNP.
+>>
+>> Co-developed-by: Tong Tiangen <tongtiangen@huawei.com>
+>> Signed-off-by: Tong Tiangen <tongtiangen@huawei.com>
+>> Signed-off-by: Zeng Heng <zengheng4@huawei.com>
+>> ---
+>> v1: https://lore.kernel.org/all/20260526015720.206854-1-zengheng@huaweicloud.com/
+>>
+>> Changes in v2:
+>>    - Unify CNP disable workaround into ARM64_WORKAROUND_DISABLE_CNP
+>> ---
+>>
+>>   Documentation/arch/arm64/silicon-errata.rst |  4 +++-
+>>   arch/arm64/Kconfig                          | 17 ++++++++++++-----
+>>   arch/arm64/include/asm/cpucaps.h            |  4 ++--
+>>   arch/arm64/kernel/cpu_errata.c              | 17 ++++++++++++-----
+>>   arch/arm64/kernel/cpufeature.c              |  2 +-
+>>   arch/arm64/tools/cpucaps                    |  2 +-
+>>   6 files changed, 31 insertions(+), 15 deletions(-)
+>>
+>> diff --git a/Documentation/arch/arm64/silicon-errata.rst b/Documentation/arch/arm64/silicon-errata.rst
+>> index 211119ce7adc..b4565e1a726d 100644
+>> --- a/Documentation/arch/arm64/silicon-errata.rst
+>> +++ b/Documentation/arch/arm64/silicon-errata.rst
+>> @@ -254,7 +254,7 @@ stable kernels.
+>>   | Marvell        | ARM-MMU-500     | #582743         | N/A                         |
+>>   +----------------+-----------------+-----------------+-----------------------------+
+>>   +----------------+-----------------+-----------------+-----------------------------+
+>> -| NVIDIA         | Carmel Core     | N/A             | NVIDIA_CARMEL_CNP_ERRATUM   |
+>> +| NVIDIA         | Carmel Core     | N/A             | ARM64_WORKAROUND_DISABLE_CNP|
+>>   +----------------+-----------------+-----------------+-----------------------------+
+>>   | NVIDIA         | T241 GICv3/4.x  | T241-FABRIC-4   | N/A                         |
+>>   +----------------+-----------------+-----------------+-----------------------------+
+>> @@ -284,6 +284,8 @@ stable kernels.
+>>   +----------------+-----------------+-----------------+-----------------------------+
+>>   | Hisilicon      | Hip09           | #162100801      | HISILICON_ERRATUM_162100801 |
+>>   +----------------+-----------------+-----------------+-----------------------------+
+>> +| Hisilicon      | Hip09           | #162100125      | ARM64_WORKAROUND_DISABLE_CNP|
+>> ++----------------+-----------------+-----------------+-----------------------------+
+>>   +----------------+-----------------+-----------------+-----------------------------+
+>>   | Qualcomm Tech. | Kryo/Falkor v1  | E1003           | QCOM_FALKOR_ERRATUM_1003    |
+>>   +----------------+-----------------+-----------------+-----------------------------+
+>> diff --git a/arch/arm64/Kconfig b/arch/arm64/Kconfig
+>> index fe60738e5943..dc0bd32ea2d1 100644
+>> --- a/arch/arm64/Kconfig
+>> +++ b/arch/arm64/Kconfig
+>> @@ -1315,13 +1315,20 @@ config QCOM_FALKOR_ERRATUM_E1041
+>>
+>>   	  If unsure, say Y.
+>>
+>> -config NVIDIA_CARMEL_CNP_ERRATUM
+>> -	bool "NVIDIA Carmel CNP: CNP on Carmel semantically different than ARM cores"
+>> +config ARM64_WORKAROUND_DISABLE_CNP
+>> +	bool "Disable CNP on affected CPUs"
+>>   	default y
+>>   	help
+>> -	  If CNP is enabled on Carmel cores, non-sharable TLBIs on a core will not
+>> -	  invalidate shared TLB entries installed by a different core, as it would
+>> -	  on standard ARM cores.
+>> +	  This option disables the CNP (Common Not Private) feature on CPUs
+>> +	  that have hardware errata affecting CNP behavior.
+>> +
+>> +	  On NVIDIA Carmel cores, CNP behaves differently than on standard ARM
+>> +	  cores: non-shareable TLBIs on a core may not invalidate shared TLB
+>> +	  entries installed by a different core.
+>> +
+>> +	  On Hisilicon HIP09 cores, TLB entries may be incorrectly shared
+>> +	  between cores when TTBRx.CNP=1, leading to TLB conflicts and
+>> +	  stale mappings.
+>>
+>>   	  If unsure, say Y.
+>>
+> I'm afraid we cannot swap one config with another. Instead, we need to follow
+> established pattern for sharing workaround, something like
+>
+> diff --git a/arch/arm64/Kconfig b/arch/arm64/Kconfig
+> index 378e50fef247..68eb2993cfd3 100644
+> --- a/arch/arm64/Kconfig
+> +++ b/arch/arm64/Kconfig
+> @@ -1315,9 +1315,13 @@ config QCOM_FALKOR_ERRATUM_E1041
+>   
+>            If unsure, say Y.
+>   
+> +config ARM64_WORKAROUND_DISABLE_CNP
+> +       bool
+> +
+>   config NVIDIA_CARMEL_CNP_ERRATUM
+>          bool "NVIDIA Carmel CNP: CNP on Carmel semantically different than ARM cores"
+>          default y
+> +       select ARM64_WORKAROUND_DISABLE_CNP
+>          help
+>            If CNP is enabled on Carmel cores, non-sharable TLBIs on a core will not
+>            invalidate shared TLB entries installed by a different core, as it would
+>
+>
+> and related changes for generalisation of the workaround - that would to be patch 1/2.
+>
+> Then we can easily wire-up your errata with something like
+>
+> +config HISILICON_ERRATUM_162100125
+> +       bool "Hisilicon erratum 162100125"
+> +       default y
+> +       select ARM64_WORKAROUND_DISABLE_CNP
+> +       help
+> +         On HiSilicon HIP09, TLB entry matching behavior when CNP
+> +         (TTBRx.CNP=1) is enabled differs from the ARM architecture
+> +         specification.
+> +
+> +         TLB entries may be incorrectly shared between CPUs, potentially
+> +         causing TLB conflicts and stale mappings.
+> +
+> +         Disable CNP support for affected HiSilicon HIP09 cores.
+> +
+> +         If unsure, say Y.
+>
+> and related update in documentation and MIDR list - that would be patch 2/2
+>
+> Thanks
+> Vladimir
+>   
+>> diff --git a/arch/arm64/include/asm/cpucaps.h b/arch/arm64/include/asm/cpucaps.h
+>> index d0d3cdd5763c..25c61cda901c 100644
+>> --- a/arch/arm64/include/asm/cpucaps.h
+>> +++ b/arch/arm64/include/asm/cpucaps.h
+>> @@ -58,8 +58,8 @@ cpucap_is_possible(const unsigned int cap)
+>>   		return IS_ENABLED(CONFIG_ARM64_ERRATUM_2658417);
+>>   	case ARM64_WORKAROUND_CAVIUM_23154:
+>>   		return IS_ENABLED(CONFIG_CAVIUM_ERRATUM_23154);
+>> -	case ARM64_WORKAROUND_NVIDIA_CARMEL_CNP:
+>> -		return IS_ENABLED(CONFIG_NVIDIA_CARMEL_CNP_ERRATUM);
+>> +	case ARM64_WORKAROUND_DISABLE_CNP:
+>> +		return IS_ENABLED(CONFIG_ARM64_WORKAROUND_DISABLE_CNP);
+>>   	case ARM64_WORKAROUND_REPEAT_TLBI:
+>>   		return IS_ENABLED(CONFIG_ARM64_WORKAROUND_REPEAT_TLBI);
+>>   	case ARM64_WORKAROUND_SPECULATIVE_SSBS:
+>> diff --git a/arch/arm64/kernel/cpu_errata.c b/arch/arm64/kernel/cpu_errata.c
+>> index 5377e4c2eba2..675cd059165c 100644
+>> --- a/arch/arm64/kernel/cpu_errata.c
+>> +++ b/arch/arm64/kernel/cpu_errata.c
+>> @@ -394,6 +394,14 @@ static const struct arm64_cpu_capabilities qcom_erratum_1003_list[] = {
+>>   };
+>>   #endif
+>>
+>> +#ifdef CONFIG_ARM64_WORKAROUND_DISABLE_CNP
+>> +static const struct midr_range cnp_erratum_cpus[] = {
+>> +	MIDR_ALL_VERSIONS(MIDR_NVIDIA_CARMEL),
+>> +	MIDR_ALL_VERSIONS(MIDR_HISI_HIP09),
+>> +	{},
+>> +};
+>> +#endif
+>> +
+>>   #ifdef CONFIG_ARM64_WORKAROUND_CLEAN_CACHE
+>>   static const struct midr_range workaround_clean_cache[] = {
+>>   #if	defined(CONFIG_ARM64_ERRATUM_826319) || \
+>> @@ -801,12 +809,11 @@ const struct arm64_cpu_capabilities arm64_errata[] = {
+>>   				  1, 0),
+>>   	},
+>>   #endif
+>> -#ifdef CONFIG_NVIDIA_CARMEL_CNP_ERRATUM
+>> +#ifdef CONFIG_ARM64_WORKAROUND_DISABLE_CNP
+>>   	{
+>> -		/* NVIDIA Carmel */
+>> -		.desc = "NVIDIA Carmel CNP erratum",
+>> -		.capability = ARM64_WORKAROUND_NVIDIA_CARMEL_CNP,
+>> -		ERRATA_MIDR_ALL_VERSIONS(MIDR_NVIDIA_CARMEL),
+>> +		.desc = "NVIDIA Carmel CNP erratum, or Hisilicon erratum 162100125",
+>> +		.capability = ARM64_WORKAROUND_DISABLE_CNP,
+>> +		ERRATA_MIDR_RANGE_LIST(cnp_erratum_cpus),
+>>   	},
+>>   #endif
+>>   #ifdef CONFIG_ARM64_WORKAROUND_TRBE_OVERWRITE_FILL_MODE
+>> diff --git a/arch/arm64/kernel/cpufeature.c b/arch/arm64/kernel/cpufeature.c
+>> index 6d53bb15cf7b..20c5f24f74a9 100644
+>> --- a/arch/arm64/kernel/cpufeature.c
+>> +++ b/arch/arm64/kernel/cpufeature.c
+>> @@ -1785,7 +1785,7 @@ has_useable_cnp(const struct arm64_cpu_capabilities *entry, int scope)
+>>   	if (is_kdump_kernel())
+>>   		return false;
+>>
+>> -	if (cpus_have_cap(ARM64_WORKAROUND_NVIDIA_CARMEL_CNP))
+>> +	if (cpus_have_cap(ARM64_WORKAROUND_DISABLE_CNP))
 
-diff --git a/arch/sparc/mm/init_64.c b/arch/sparc/mm/init_64.c
-index 3b679b1d1d72..103db4683b16 100644
---- a/arch/sparc/mm/init_64.c
-+++ b/arch/sparc/mm/init_64.c
-@@ -2559,17 +2559,6 @@ void __meminit vmemmap_set_pmd(pmd_t *pmd, void *p, int node,
- 	pmd_val(*pmd) = pte_base | __pa(p);
- }
- 
--int __meminit vmemmap_check_pmd(pmd_t *pmdp, int node,
--				unsigned long addr, unsigned long next)
--{
--	int large = pmd_leaf(*pmdp);
--
--	if (large)
--		vmemmap_verify((pte_t *)pmdp, node, addr, next);
--
--	return large;
--}
--
- int __meminit vmemmap_populate(unsigned long vstart, unsigned long vend,
- 			       int node, struct vmem_altmap *altmap)
- {
--- 
-2.54.0
+Here, ARM64_WORKAROUND_DISABLE_CNP comes from arch/arm64/tools/cpucaps,
+not from arch/arm64/Kconfig. Therefore, if we do not replace WORKAROUND_NVIDIA_CARMEL_CNP
+in arch/arm64/tools/cpucaps, we will have to continue adding a redundant
+WORKAROUND_DISABLE_CNP along with its corresponding redundant logic.
+
+I prefer to keep CONFIG_ARM64_WORKAROUND_NVIDIA_CARMEL_CNP in arch/arm64/Kconfig
+and replace WORKAROUND_NVIDIA_CARMEL_CNP in arch/arm64/tools/cpucaps.
+
+I would like to confirm whether the above aligns with your expectations.
+
+
+Best regards,
+Zeng Heng
+
+
+>>   		return false;
+>>
+>>   	return has_cpuid_feature(entry, scope);
+>> diff --git a/arch/arm64/tools/cpucaps b/arch/arm64/tools/cpucaps
+>> index 811c2479e82d..9b85a84f6fd4 100644
+>> --- a/arch/arm64/tools/cpucaps
+>> +++ b/arch/arm64/tools/cpucaps
+>> @@ -120,7 +120,7 @@ WORKAROUND_CAVIUM_TX2_219_PRFM
+>>   WORKAROUND_CAVIUM_TX2_219_TVM
+>>   WORKAROUND_CLEAN_CACHE
+>>   WORKAROUND_DEVICE_LOAD_ACQUIRE
+>> -WORKAROUND_NVIDIA_CARMEL_CNP
+>> +WORKAROUND_DISABLE_CNP
+>>   WORKAROUND_PMUV3_IMPDEF_TRAPS
+>>   WORKAROUND_QCOM_FALKOR_E1003
+>>   WORKAROUND_QCOM_ORYON_CNTVOFF
+>> --
+>> 2.43.0
+>>
 
 
