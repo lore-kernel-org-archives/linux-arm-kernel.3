@@ -4,72 +4,110 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 23434CD5BD1
-	for <linux-arm-kernel@archiver.kernel.org>; Mon,  1 Jun 2026 13:45:09 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 751A3CD6E55
+	for <linux-arm-kernel@archiver.kernel.org>; Mon,  1 Jun 2026 13:49:15 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Message-ID:MIME-Version:
-	Content-Type:Content-Transfer-Encoding:References:In-Reply-To:Subject:Cc:To:
-	From:Date:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
+	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=oXODjuqrY4OBNW73p3++vJQePAvD2CddI9jj9bMuC9U=; b=fg/Opk0JAvfqJhR5FjiCpfGTVW
-	InCe21kQ4lH3D8Dtqh/hPJR+Mo1BkUSwEFOY20YifmXZl++70qEIk/F66PVlv9D0aK83ljUsY+JPu
-	l71mDrBq3uwPtIAC7wu9QTv8JgrXZ8FNIez/z6/GybMvZiHeQL5vEK4JqqPfuI5XyZ20lWWNUnHJS
-	qewaH1rXt2XO/IUVNUox78ZhjCcneClNj5V8M2sKAUoeFmfA85EmjiXdnUoRA2NbraMfcv1u8EwQz
-	FlfgzaBgUxX0LqAYKWrU2YfiRM5wDkkVVXPswkR43zQW1214z41cDeQim99GWsylEGJsY/Aqx55OJ
-	RIzi840Q==;
+	bh=J8MuTbax1OpDSMhFOx3LhMmqnI78KaFW068v5tAv4+o=; b=E3x1+pHRimk6QinpnOoYqiYUqQ
+	ll0Haf9D3CpzEN50PJrm7QTx2s2Nv9fVBvyCv9BPiJfRyeeBBt7U9zTIEZD88uNTM3HfArJMexQfU
+	gaWfjfT3S6JCPYnRGPpj/PdSWY6NHM0P7+ZvzTx7mfzBVs0KX6Od2Nwp4LCgRU+D165Qea5iUCfBy
+	F4gpFnICYcWMg4UY2F7nlxvsbXc5bM4spX3UFGsrSm10DyU/fXcs4AJ5pMj2OIYxDRJr7ZKpVSYyd
+	0HJ3SVRxTrm+zecnBYWA1IfPj7MK7E73bSWBjDbebpcRsqS754p3Xn63GzusxZzizTLJVSCHsifFf
+	t2sxdrZw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wU2ww-0000000BE5A-2teH;
-	Mon, 01 Jun 2026 13:45:02 +0000
-Received: from m16.mail.163.com ([117.135.210.4])
+	id 1wU30v-0000000BEOh-1usv;
+	Mon, 01 Jun 2026 13:49:09 +0000
+Received: from tor.source.kernel.org ([172.105.4.254])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wU2wt-0000000BE44-1Krn;
-	Mon, 01 Jun 2026 13:45:01 +0000
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=163.com;
-	s=s110527; h=Date:From:To:Subject:Content-Type:MIME-Version:
-	Message-ID; bh=oXODjuqrY4OBNW73p3++vJQePAvD2CddI9jj9bMuC9U=; b=N
-	kqfjVGTMhJtZs6BaN/bpi1eK9gxiOQbO9W7+kp7SPmHco1+Ac3WcJG2fSRl2S2DL
-	hPysTQkGX6t4UnzvLvt6QeAuNoQCl7QHMQASsPWjrK/CHtETaw+fCsE53oOEPzEn
-	o4JNoYhinzSy3a+7fR+mFhVU06d5avW7cdgRmWVad4=
-Received: from andyshrk$163.com ( [61.154.14.86] ) by
- ajax-webmail-wmsvr-40-120 (Coremail) ; Mon, 1 Jun 2026 21:44:15 +0800 (CST)
-X-Originating-IP: [61.154.14.86]
-Date: Mon, 1 Jun 2026 21:44:15 +0800 (CST)
-From: "Andy Yan" <andyshrk@163.com>
-To: "Cristian Ciocaltea" <cristian.ciocaltea@collabora.com>
-Cc: "Sandy Huang" <hjc@rock-chips.com>,
-	=?UTF-8?Q?Heiko_St=C3=BCbner?= <heiko@sntech.de>,
-	"Andy Yan" <andy.yan@rock-chips.com>,
-	"Maarten Lankhorst" <maarten.lankhorst@linux.intel.com>,
-	"Maxime Ripard" <mripard@kernel.org>,
-	"Thomas Zimmermann" <tzimmermann@suse.de>,
-	"David Airlie" <airlied@gmail.com>,
-	"Simona Vetter" <simona@ffwll.ch>, kernel@collabora.com,
-	dri-devel@lists.freedesktop.org,
-	linux-arm-kernel@lists.infradead.org,
-	linux-rockchip@lists.infradead.org, linux-kernel@vger.kernel.org
-Subject: Re:[PATCH 0/2] YUV support for VOP2 background color
-X-Priority: 3
-X-Mailer: Coremail Webmail Server Version 2023.4-cmXT build
- 20260403(27802f6d) Copyright (c) 2002-2026 www.mailtech.cn 163com
-In-Reply-To: <20260524-vop2-bg-yuv-v1-0-dcb6a52923f5@collabora.com>
-References: <20260524-vop2-bg-yuv-v1-0-dcb6a52923f5@collabora.com>
-X-CM-CTRLMSGS: FN07+3BsdXM9MTc4MDMyMTQ1NTA1MF9kNmRjY2YzNjU0MmEwNTIyYjc0YWExM
- mI1MmZiMDMyMg==
-X-NTES-SC: AL_Qu2TAv+Zvkwu4yObYukfmUgWjuw/WsG1v/Ul1YBSP556jDLp4yQsdlhFB13k6v+RMTGlqAieVTxg0OFXWa1WfaYt+PjPcFvWK/NZy9+E76AqHw==
-Content-Transfer-Encoding: base64
-Content-Type: text/plain; charset=UTF-8
+	id 1wU30t-0000000BEOS-3ElG
+	for linux-arm-kernel@lists.infradead.org;
+	Mon, 01 Jun 2026 13:49:07 +0000
+Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
+	by tor.source.kernel.org (Postfix) with ESMTP id 3AD8D6014C;
+	Mon,  1 Jun 2026 13:49:07 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 4A96A1F00893;
+	Mon,  1 Jun 2026 13:49:02 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
+	s=k20260515; t=1780321746;
+	bh=J8MuTbax1OpDSMhFOx3LhMmqnI78KaFW068v5tAv4+o=;
+	h=Date:Subject:To:Cc:References:From:In-Reply-To;
+	b=o0sfzR162SZSavIyVSshFEI2HSXfICi4mMh2AHcrpeNw/Apq93kpeNNncZwQhxUl3
+	 5JtWWblZ9adw1HL9epdagwm+PrTY+dMU3zxEB6zLIv+YZKfhWF6J2ehaoBd0aJl8xo
+	 2ygjGPjWmggQ6AujluI5hNW9kN/T1ovneN/sMhwqE4jNtTRd7f+IOIct/fUSDu8MES
+	 fjNNc8chRjPuIao7ywI6mlawKV9rUUh/FdoxenP4t8V9ldxht/o8MfgcxF0sIponRB
+	 xMowtEWLSp6B4J8kHHpb9L6h7/b/dH+ET/FCeX04Mua62D3ZyZXf6xuhUwyvI7ufli
+	 hX7v2DjHvKmAw==
+Message-ID: <929875a2-9e94-4dbc-9c98-b342ccc3f4e2@kernel.org>
+Date: Mon, 1 Jun 2026 15:49:00 +0200
 MIME-Version: 1.0
-Message-ID: <8061cc0.a9f1.19e836d8cf0.Coremail.andyshrk@163.com>
-X-Coremail-Locale: zh_CN
-X-CM-TRANSID: eCgvCgD3_0ivjB1q9MivAA--.26891W
-X-CM-SenderInfo: 5dqg52xkunqiywtou0bp/xtbCxg8wjmodjK9X4AAA3U
-X-Coremail-Antispam: 1U5529EdanIXcx71UUUUU7vcSsGvfC2KfnxnUU==
-X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260601_064459_845804_37618D3E 
-X-CRM114-Status: UNSURE (   5.97  )
-X-CRM114-Notice: Please train this message.
+User-Agent: Mozilla Thunderbird
+Subject: Re: [RFC PATCH 1/3] mm: make persistent huge zero folio read-only
+To: Dave Hansen <dave.hansen@intel.com>,
+ Xueyuan chen <xueyuan.chen21@gmail.com>, akpm@linux-foundation.org,
+ linux-mm@kvack.org
+Cc: linux-kernel@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
+ x86@kernel.org, catalin.marinas@arm.com, will@kernel.org, tglx@kernel.org,
+ mingo@redhat.com, bp@alien8.de, dave.hansen@linux.intel.com, hpa@zytor.com,
+ ljs@kernel.org, ziy@nvidia.com, baolin.wang@linux.alibaba.com,
+ ryan.roberts@arm.com, dev.jain@arm.com, lance.yang@linux.dev,
+ yang@os.amperecomputing.com, jannh@google.com
+References: <20260527035607.14919-1-xueyuan.chen21@gmail.com>
+ <20260527035607.14919-2-xueyuan.chen21@gmail.com>
+ <4e0696ee-895c-486d-aacc-71146f0e9047@intel.com>
+From: "David Hildenbrand (Arm)" <david@kernel.org>
+Content-Language: en-US
+Autocrypt: addr=david@kernel.org; keydata=
+ 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
+ qIws/H2t
+In-Reply-To: <4e0696ee-895c-486d-aacc-71146f0e9047@intel.com>
+Content-Type: text/plain; charset=UTF-8
+Content-Transfer-Encoding: 7bit
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -84,25 +122,33 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-CkhlbGxvIENyaXN0aWFuLAoKQXQgMjAyNi0wNS0yNSAwMDoyNzoyNywgIkNyaXN0aWFuIENpb2Nh
-bHRlYSIgPGNyaXN0aWFuLmNpb2NhbHRlYUBjb2xsYWJvcmEuY29tPiB3cm90ZToKPlNpbmNlIGNv
-bW1pdCBiZWM3Y2JmYTdkNGYgKCJkcm0vcm9ja2NoaXA6IHZvcDI6IFN1cHBvcnQgc2V0dGluZyBj
-dXN0b20KPmJhY2tncm91bmQgY29sb3IiKSB0aGUgVk9QMiBkaXNwbGF5IGNvbnRyb2xsZXIgYWxs
-b3dzIGNvbmZpZ3VyaW5nIHRoZQo+YmFja2dyb3VuZCBjb2xvciBvZiBlYWNoIHZpZGVvIG91dHB1
-dCBwb3J0Lgo+Cj5Ib3dldmVyLCB0aGlzIGlzIGN1cnJlbnRseSBsaW1pdGVkIHRvIFJHQiBmb3Jt
-YXRzLiAgV2hlbiBvcGVyYXRpbmcgaW4KPllVViBvdmVybGF5IG1vZGUsIHRoZSBjb2xvciBtdXN0
-IGJlIHByb2dyYW1tZWQgdXNpbmcgWVVWIGZvcm1hdC4KPgo+QWRkIHRoZSBuZWNlc3NhcnkgUkdC
-LXRvLVlDYkNyIGNvbnZlcnNpb24gbG9naWMsIGNvdmVyaW5nIGFsbCBjb2xvcgo+c3BhY2VzIHN1
-cHBvcnRlZCBieSB0aGUgZGlzcGxheSBjb250cm9sbGVyOiBCVDYwMUwsIEJUNjAxRiwgQlQ3MDlM
-IGFuZAo+QlQyMDIwTC4KPgoKCkRvIHlvdSBjdXJyZW50bHkgaGF2ZSBhIGJyYW5jaCB0aGF0IG1h
-a2VzIGR3LWhkbWktcXAgb3V0cHV0IGluIFlVViBtb2RlID8KCj5TaWduZWQtb2ZmLWJ5OiBDcmlz
-dGlhbiBDaW9jYWx0ZWEgPGNyaXN0aWFuLmNpb2NhbHRlYUBjb2xsYWJvcmEuY29tPgo+LS0tCj5D
-cmlzdGlhbiBDaW9jYWx0ZWEgKDIpOgo+ICAgICAgZHJtL3JvY2tjaGlwOiB2b3AyOiBSZW5hbWUg
-Q1NDX0JUMjAyMCB0byBDU0NfQlQyMDIwTAo+ICAgICAgZHJtL3JvY2tjaGlwOiB2b3AyOiBBZGQg
-WVVWIHN1cHBvcnQgdG8gYmFja2dyb3VuZCBjb2xvcgo+Cj4gZHJpdmVycy9ncHUvZHJtL3JvY2tj
-aGlwL3JvY2tjaGlwX2RybV92b3AyLmMgfCAxNTQgKysrKysrKysrKysrKysrKysrKysrKysrLS0t
-Cj4gZHJpdmVycy9ncHUvZHJtL3JvY2tjaGlwL3JvY2tjaGlwX2RybV92b3AyLmggfCAgIDIgKy0K
-PiAyIGZpbGVzIGNoYW5nZWQsIDEzOSBpbnNlcnRpb25zKCspLCAxNyBkZWxldGlvbnMoLSkKPi0t
-LQo+YmFzZS1jb21taXQ6IDIxM2M5MmFjOTcxN2U0OTUxZjA1MmE0OTlmOTFjODkzMDI4ODk4MTMK
-PmNoYW5nZS1pZDogMjAyNjA1MjQtdm9wMi1iZy15dXYtMWIwZTZhMDljNTc5Cj4K
+On 5/27/26 17:55, Dave Hansen wrote:
+> On 5/26/26 20:56, Xueyuan chen wrote:> +#ifdef
+> CONFIG_READONLY_HUGE_ZERO_FOLIO
+>> +bool __init arch_make_huge_zero_folio_readonly(struct folio *folio);
+>> +#endif
+> 
+> All of the #ifdeffery needs to die, IMNHO.
+> 
+> This function is also a bad idea. There is nothing "huge zero" specific
+> about it. It takes any old folio and tries to make it read only.
+> 
+> Just make it:
+> 
+> 	bool __init arch_make_folio_readonly(struct folio *folio)
+> 
+
+I'm not sure whether we want a folio-based interface, though.
+
+This will likely be the only folio (that will actually have a "struct folio" in
+the future) compound page we'll ever mark read-only ... whereby I'd guess we'd
+want other non-folio pages to be read-only in the future (encryption keys etc,
+maybe?).
+
+So I'd instead use a page-range based interface or sth like that.
+
+-- 
+Cheers,
+
+David
 
