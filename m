@@ -4,62 +4,74 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 0A930CD6E55
-	for <linux-arm-kernel@archiver.kernel.org>; Mon,  1 Jun 2026 20:06:31 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 65333CD6E55
+	for <linux-arm-kernel@archiver.kernel.org>; Mon,  1 Jun 2026 20:10:12 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:MIME-Version:
+	References:Message-ID:In-Reply-To:Subject:cc:To:From:Date:Reply-To:
 	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=CWHMpsxWnohP4Px+QryuliaXaq7V2BV1HAII16bRoaE=; b=hgiopXWStsoiIx9RKtIyRKb4AC
-	xNt6QzKlu6/IX69WUCHsEY3kUVucma5rNpuh3NO13Qfsx8v9hVT7rUO6Dji1W0XhhIrE3Rmad4dEy
-	BTq1ELaKoq6n3aOgP2FpvJzaJXUrxXDHjQ9N+f3o4uikIYvL0SL0uTlGTk8vOy8Ft7sMngenNorT0
-	aU0fb3P9n4z9MgqPeEB/yVG7KBDllIwtCgrbY2AjdkrLlWwjf7EP4WnHyGbd323xSDJxyTgEUDRwy
-	VjiaB446NjSQPhBD3Wef1Eg+CLx3EOM8L0J5DCstgss/VsIGxmzP2o44YVcRRJROmYo3EP5bK9g5c
-	CAavDxrg==;
+	bh=eDXJ86FB/Xnvqi9RF8rrZVf1GrIi8kltJ1EOvKoDwfg=; b=V1Ge7VXIhLLQBZWL9GDh3+GvGx
+	Tq5q7mNlWEJI7PtR665DNbySyR4FXlgjobkJ2va6dX3ilpzZ0mtPD9wDVOHXOQAuQzNuDjziQcreA
+	ZvCPgAfVoPZoZ/9npXTQaUDCTFa+ZBNcvxHno0bD9t8NXeK5k4y0oCN6YtONtx0CNbfHCx6e/wvLV
+	8e7vQDRbC1M/LFHiWYqrO6cxRSywMTrqyX4gngkMewznOhhvw6o/dYaS9a+7CbKzAV0pHsByl85pv
+	4pAHZ1BGz816UbusRJtZmdfrCAqrOekaI0s6Rvg83vfTJ86eNipuE8E+AHhBPTL9zuNwDyd1tjbzZ
+	Cs9X2KzQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wU8tw-0000000Bkcb-21hM;
-	Mon, 01 Jun 2026 20:06:20 +0000
-Received: from tor.source.kernel.org ([2600:3c04:e001:324:0:1991:8:25])
-	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wU8tv-0000000Bkbu-0xjy
-	for linux-arm-kernel@lists.infradead.org;
-	Mon, 01 Jun 2026 20:06:19 +0000
-Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
-	by tor.source.kernel.org (Postfix) with ESMTP id AD1D6601E5;
-	Mon,  1 Jun 2026 20:06:18 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 375E01F00899;
-	Mon,  1 Jun 2026 20:06:18 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1780344378;
-	bh=CWHMpsxWnohP4Px+QryuliaXaq7V2BV1HAII16bRoaE=;
-	h=Date:From:To:Cc:Subject:References:In-Reply-To;
-	b=KVTHEsmOSMN+SRz4NIUG1DEoFBhGVQCBBAqR/W/sprFelK/BkAYEHNbvDVQmqEwmU
-	 iDO9SBnHwz5A/1vREXsMEK2Rg+UUiKEbwLw+t+YoPUlAg+pTDmfbdDqZLLX8oQjUpS
-	 wfxlspOINYDHUhQcPyhlewInq39MxtIfqVUykBvH4XTuYhj3e3OV2vEZQSrbXb5mBA
-	 2Imqw8JfqCZFTqCQsmGFZr2R2ICNvs/kuNP794H9J+hU/b+UcUGRCde5k63TA+BO8j
-	 VFXdS/OiXoJA66kBKw+K6MvDyEn04cErjnsnvtiDQCRuSbEVGlbgt7kCcBBtJIV45i
-	 hGfpQ3iV9eYtg==
-Date: Mon, 1 Jun 2026 13:06:17 -0700
-From: Oliver Upton <oupton@kernel.org>
-To: Congkai Tan <congkai@amazon.com>
-Cc: kvmarm@lists.linux.dev, linux-arm-kernel@lists.infradead.org,
-	Marc Zyngier <maz@kernel.org>, Joey Gouly <joey.gouly@arm.com>,
-	Suzuki K Poulose <suzuki.poulose@arm.com>,
-	Zenghui Yu <yuzenghui@huawei.com>,
-	Catalin Marinas <catalin.marinas@arm.com>,
-	Will Deacon <will@kernel.org>, Mark Rutland <mark.rutland@arm.com>,
-	Haris Okanovic <harisokn@amazon.com>,
-	Geoff Blake <blakgeof@amazon.com>, linux-kernel@vger.kernel.org
-Subject: Re: [PATCH] KVM: arm64: Expose PMMIR_EL1.SLOTS to guests
-Message-ID: <ah3mObchzwb80_3S@kernel.org>
-References: <20260601193954.2103455-1-congkai@amazon.com>
+	id 1wU8xS-0000000BktU-3tUX;
+	Mon, 01 Jun 2026 20:09:58 +0000
+Received: from linux.microsoft.com ([13.77.154.182])
+	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
+	id 1wU8xQ-0000000Bksz-42Tn;
+	Mon, 01 Jun 2026 20:09:58 +0000
+Received: by linux.microsoft.com (Postfix, from userid 1241)
+	id 7E93A20B7166; Mon,  1 Jun 2026 13:09:41 -0700 (PDT)
+DKIM-Filter: OpenDKIM Filter v2.11.0 linux.microsoft.com 7E93A20B7166
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=linux.microsoft.com;
+	s=default; t=1780344581;
+	bh=eDXJ86FB/Xnvqi9RF8rrZVf1GrIi8kltJ1EOvKoDwfg=;
+	h=Date:From:To:cc:Subject:In-Reply-To:References:From;
+	b=HJp+sRV7Z+MPOGir5B+cVGDJgSKPlmbFixBaKBsui3oAaZjlZBs+SpoXYgUhogRkt
+	 2V69j+/mhNBX90+hxId+3srtlmItfZ4xvOVH6zQix9CSW4B3cF4dMKO1vETTdCKdTk
+	 t0hko/RYjtgxX/S0C1zWqVZwqNlBNpYmi1ctKyps=
+Received: from localhost (localhost [127.0.0.1])
+	by linux.microsoft.com (Postfix) with ESMTP id 7B665307029C;
+	Mon,  1 Jun 2026 13:09:41 -0700 (PDT)
+Date: Mon, 1 Jun 2026 13:09:41 -0700 (PDT)
+From: Jork Loeser <jloeser@linux.microsoft.com>
+To: Mike Rapoport <rppt@kernel.org>
+cc: linux-hyperv@vger.kernel.org, linux-mm@kvack.org, 
+    kexec@lists.infradead.org, "K. Y. Srinivasan" <kys@microsoft.com>, 
+    Haiyang Zhang <haiyangz@microsoft.com>, Wei Liu <wei.liu@kernel.org>, 
+    Dexuan Cui <decui@microsoft.com>, Long Li <longli@microsoft.com>, 
+    Pasha Tatashin <pasha.tatashin@soleen.com>, 
+    Pratyush Yadav <pratyush@kernel.org>, Alexander Graf <graf@amazon.com>, 
+    Jason Miu <jasonmiu@google.com>, Andrew Morton <akpm@linux-foundation.org>, 
+    David Hildenbrand <david@kernel.org>, Muchun Song <muchun.song@linux.dev>, 
+    Oscar Salvador <osalvador@suse.de>, Baoquan He <bhe@redhat.com>, 
+    Catalin Marinas <catalin.marinas@arm.com>, Will Deacon <will@kernel.org>, 
+    Thomas Gleixner <tglx@kernel.org>, Ingo Molnar <mingo@redhat.com>, 
+    Borislav Petkov <bp@alien8.de>, Dave Hansen <dave.hansen@linux.intel.com>, 
+    "H. Peter Anvin" <hpa@zytor.com>, Kees Cook <kees@kernel.org>, 
+    Ran Xiaokai <ran.xiaokai@zte.com.cn>, 
+    Justinien Bouron <jbouron@amazon.com>, 
+    Sourabh Jain <sourabhjain@linux.ibm.com>, Pingfan Liu <piliu@redhat.com>, 
+    "Rafael J. Wysocki" <rafael.j.wysocki@intel.com>, 
+    Mario Limonciello <mario.limonciello@amd.com>, 
+    linux-arm-kernel@lists.infradead.org, x86@kernel.org, 
+    linux-kernel@vger.kernel.org, Michael Kelley <mhklinux@outlook.com>
+Subject: Re: [RFC PATCH 00/20] mshv: enable kexec with Hyper-V donated pages
+ and partitions
+In-Reply-To: <ahxrc4pTvVU20RTX@kernel.org>
+Message-ID: <f9d95fb1-ef3-d4a-19e4-afe7cdde5d1f@linux.microsoft.com>
+References: <20260528004204.1484584-1-jloeser@linux.microsoft.com> <ahxrc4pTvVU20RTX@kernel.org>
 MIME-Version: 1.0
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-In-Reply-To: <20260601193954.2103455-1-congkai@amazon.com>
+Content-Type: text/plain; charset=US-ASCII; format=flowed
+X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
+X-CRM114-CacheID: sfid-20260601_130957_056144_FCC9124B 
+X-CRM114-Status: GOOD (  17.03  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -74,107 +86,46 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hi Congkai,
 
-On Mon, Jun 01, 2026 at 07:39:54PM +0000, Congkai Tan wrote:
-> Commit 46081078feb4 ("KVM: arm64: Upgrade PMU support to ARMv8.4")
-> trapped PMMIR_EL1 as RAZ/WI and masked STALL_SLOT* from PMCEID1 to
-> discourage guests from relying on a register they could not read.
-> 
-> Forward the SLOTS field of PMMIR_EL1 so that the perf userspace tool
-> can read the correct value from
-> /sys/bus/event_source/devices/armv8_pmuv3_0/caps/slots. Today, perf
-> stat fails with message "Failure to read '#slots'" because it can
-> only read 0x0 from the sysfs location, causing the parsing failure
-> of the default metrics.
-> 
-> Fix this by:
-> 1. Adding an access_pmmir() handler that reads arm_pmu->reg_pmmir
->    and returns a masked value containing only the SLOTS field [7:0]
->    to the guest. Other PMMIR_EL1 fields are kept as RAZ to limit
->    the extra information that this change exposes; individual
->    fields can be unmasked as KVM gains support for each feature.
-> 2. Removing the STALL_SLOT, STALL_SLOT_FRONTEND and STALL_SLOT_BACKEND
->    mask in PMCEID1. The mask existed to hide these events under the
->    sysfs events/ directory when PMMIR_EL1 was RAZ; with SLOTS now
->    readable they should be correctly exposed.
-> 
-> Tested on Graviton 2 (Neoverse N1, pre-PMUv3p4), Graviton 3
-> (Neoverse V1) and Graviton 4 (Neoverse V2) metal hosts with QEMU:
-> caps/slots reads 0x00000008 in guests on Graviton 3/4 and 0x00000000
-> on Graviton 2 (correct for pre-PMUv3p4). perf stat correctly
-> evaluates the default metrics.
-> 
-> Fixes: 46081078feb4 ("KVM: arm64: Upgrade PMU support to ARMv8.4")
-> Cc: stable@vger.kernel.org
 
-This is not stable-worthy, nor is it a bugfix. As KVM presently does not
-implement the STALL_SLOTS* events, PMMIR_EL0.SLOTS = 0 is a legal
-implementation of FEAT_PMUv3p4.
+On Sun, 31 May 2026, Mike Rapoport wrote:
 
-> ---
->  arch/arm64/kvm/pmu-emul.c | 11 +----------
->  arch/arm64/kvm/sys_regs.c | 26 ++++++++++++++++++++++++--
->  2 files changed, 25 insertions(+), 12 deletions(-)
-> 
-> diff --git a/arch/arm64/kvm/pmu-emul.c b/arch/arm64/kvm/pmu-emul.c
-> index e1860acae641..bafd5a258927 100644
-> --- a/arch/arm64/kvm/pmu-emul.c
-> +++ b/arch/arm64/kvm/pmu-emul.c
-> @@ -864,16 +864,7 @@ static u64 compute_pmceid0(struct arm_pmu *pmu)
->  
->  static u64 compute_pmceid1(struct arm_pmu *pmu)
->  {
-> -	u64 val = __compute_pmceid(pmu, 1);
-> -
-> -	/*
-> -	 * Don't advertise STALL_SLOT*, as PMMIR_EL0 is handled
-> -	 * as RAZ
-> -	 */
-> -	val &= ~(BIT_ULL(ARMV8_PMUV3_PERFCTR_STALL_SLOT - 32) |
-> -		 BIT_ULL(ARMV8_PMUV3_PERFCTR_STALL_SLOT_FRONTEND - 32) |
-> -		 BIT_ULL(ARMV8_PMUV3_PERFCTR_STALL_SLOT_BACKEND - 32));
-> -	return val;
-> +	return __compute_pmceid(pmu, 1);
->  }
+> Hi Jork,
 
-Make the change to PMCEID1 in a separate patch from PMMIR_EL1.
+>>  - A freeze mechanism to lock the tree before serializing for kexec
+>>    (patch 13).
+>
+> There were a lot of effort to make KHO stateless and drop the requirement
+> for finalization/freeze.
+>
+> Why is this necessary to add a freeze mechanism to kho_radix_tree?
+> If it's a hard requirement of mshv maybe the freeze part should be handled
+> there?
 
-> +/*
-> + * Expose only PMMIR_EL1.SLOTS to the guest, which is consumed by perf in its
-> + * topdown default metric group. Other PMMIR_EL1 fields remain RAZ. Future
-> + * patches can extend the exposed mask incrementally as KVM gains support for
-> + * those features.
-> + */
-> +static bool access_pmmir(struct kvm_vcpu *vcpu, struct sys_reg_params *p,
-> +			 const struct sys_reg_desc *r)
-> +{
-> +	struct arm_pmu *cpu_pmu = vcpu->kvm->arch.arm_pmu;
-> +
-> +	if (p->is_write)
-> +		return write_to_read_only(vcpu, p, r);
-> +
-> +	if (check_pmu_access_disabled(vcpu, 0))
-> +		return false;
-> +
-> +	p->regval = cpu_pmu->reg_pmmir & ARMV8_PMU_SLOTS;
-> +	return true;
-> +}
-> +
+Good feedback. It's a safety-net so we do not accidentally donate pages 
+without being able to track them. Thought it might be a good generic 
+feature. Let me keep it in the MSHV driver.
 
-We can't change the value of PMMIR_EL1 unconditionally since older KVM
-treated this register as RAZ/WI. This also mixes poorly with the default
-PMU garbage that we have since as the value of the register can change
-based on where KVM_ARM_VCPU_INIT gets called...
+>> Patch 13:      Radix tree freeze and del_key() error reporting
+>
+> del_key() error reporting sounds like something we'd want to avoid.
+> del_key() is called on "freeing" path and during error handling, it would
+> be hard if at all possible to deal with errors from del_key().
 
-Considering everything, I'd like to see this wired up where:
+I hear you. Stating "yeah, it can only really fail if the key isn't there, 
+or it's frozen, but not due to other things, so don't bother to check the 
+return code if you are sure" is an odd contract. With the freeze-logic 
+moving into MSHV, will revert to no-error.
 
- - PMMIR_EL1.SLOTS takes the value of the underlying hardware PMU only
-   if the VMM explicitly selects a particular PMU implementation
+>> Patch 19:      Export kexec_in_progress for modules
+>
+> Isn't there another way to differentiate kexec reboot?
 
- - KVM allows userspace to set PMMIR_EL1.SLOTS=0 for backwards
-   compatibility
+I could not find one, unfortunately.
 
-Thanks,
-Oliver
+> Sincerely yours,
+> Mike.
+
+Best,
+Jork
 
