@@ -4,55 +4,91 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 859D0CD5BD1
-	for <linux-arm-kernel@archiver.kernel.org>; Mon,  1 Jun 2026 12:51:35 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 3BAB5CD6E5D
+	for <linux-arm-kernel@archiver.kernel.org>; Mon,  1 Jun 2026 12:52:35 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:
-	Content-Transfer-Encoding:MIME-Version:References:In-Reply-To:Message-ID:Date
-	:Subject:Cc:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=ipOTjP7LXkH4pE0+RZI23Zur3lgBYVWldPcYkb4vemU=; b=DmQprft42Sje8tjRGxydjVsjib
-	iX0QysttMG26CyVT/rRWCNZIrOiiYqi2Iu2BZQla5wGKLiBHY/dRXxaQmObcr7fRwOr304T7ZViX2
-	PNJMePHQ0yHVL8wr7vA8P2nDoNt5+182zmcsebYIOR5Ni1D/CebSWiLqpGmF49Z99Afd+0G5HflSf
-	HNr8+VMZ55Q7FSLaFo1uFMMhIEIj0NqTnkYz//GDkqctVo+cg5auJLH0UZVb2zm5YWooCZMO4yGq2
-	KIIPsm9SnwPgit030E87ZPjEf4mk6zX2KaUsRc+XUPjXp8zplVW8//n8rNytAVhFU+qyStebPfC/w
-	t8pXDjHA==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:
+	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=JpFJ2vgllIWj4FqG6DXjRM527rlfnB9NVugM5813YTM=; b=mxAHAyZ+ihLNTTUjIIeUjjo6gA
+	hx9hyuA4Npe2SINSQ5hRusNs1bARwqRIzXNlEdOZDoKiUAvSOTyTDoz8rVNA+Ne25MTKs/eRFSw1a
+	od3YZs7iWUq1CULTecbQHlpua5CT3TOnyD5T0TN2FMB8blXsPnRGI7rexUCmLMKatGinsCb5kv4Qs
+	EdjW0e3ZzdAg85ldfJ1PSzbiYz4eHNSCN9oVJQ5WjLaw71nEpndyCg6hfyBRbW2y6uRw4cai6DKA+
+	rDzFTqCWunA53BiDjjHVInClmMGmTBDRLV/5phRmerWyiYpUppeUOLd+M4VZZCpxjwY6K/l3HN7PQ
+	7CMWqo7A==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wU275-0000000BATs-4AJ9;
-	Mon, 01 Jun 2026 12:51:27 +0000
-Received: from gloria.sntech.de ([185.11.138.130])
+	id 1wU284-0000000BAcY-17xW;
+	Mon, 01 Jun 2026 12:52:28 +0000
+Received: from mail-pl1-x634.google.com ([2607:f8b0:4864:20::634])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wU273-0000000BATR-1eSx;
-	Mon, 01 Jun 2026 12:51:26 +0000
-DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed; d=sntech.de;
-	s=gloria202408; h=Content-Type:Content-Transfer-Encoding:MIME-Version:
-	References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:Reply-To;
-	bh=ipOTjP7LXkH4pE0+RZI23Zur3lgBYVWldPcYkb4vemU=; b=o5DN2HeWo+QQqsoPWET0z5Yz2u
-	PVYCdJAu1TR+65E60gMED+5VJhdwoQ44aFFfChAG4LLZTmd0y3WFaHp/QCkcmLH0/fiO3AHo177sB
-	F83N8esdzgVidMGWbOIuN1MSDHBwHsxs9BZ88rN8abPfl5E4I7YigqjOUxSkSu5NB86jSsp3tnSEf
-	Oa/okvRtx+yYJ4UFg2BMyBfnk8JNFlYaAiSdHanIr0DY3QpR3i/kzx3tricLhrjajNfbYcQCEfPPH
-	8peeTD0vvDRQW7Ta7jfHwJaq7bVPVQYI5hPIT3zKl8USKZ8MhKTFX5fmK+OmjCSfZjliFjNCbUrJ1
-	Og3s3lZQ==;
-From: Heiko Stuebner <heiko@sntech.de>
-To: Hrushiraj Gandhi <hrushirajg23@gmail.com>
-Cc: Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>,
- Conor Dooley <conor+dt@kernel.org>, devicetree@vger.kernel.org,
- linux-arm-kernel@lists.infradead.org, linux-rockchip@lists.infradead.org,
- linux-kernel@vger.kernel.org, Hrushiraj Gandhi <hrushirajg23@gmail.com>
-Subject: Re: [PATCH 1/1] arm64: dts: rockchip: add Vicharak Axon board
-Date: Mon, 01 Jun 2026 14:51:22 +0200
-Message-ID: <10605990.5OynTdThKG@phil>
-In-Reply-To: <20260601123603.129679-2-hrushirajg23@gmail.com>
-References: <20260601123603.129679-1-hrushirajg23@gmail.com>
- <20260601123603.129679-2-hrushirajg23@gmail.com>
+	id 1wU281-0000000BAbd-1QXO
+	for linux-arm-kernel@lists.infradead.org;
+	Mon, 01 Jun 2026 12:52:27 +0000
+Received: by mail-pl1-x634.google.com with SMTP id d9443c01a7336-2be1dd4af34so147577585ad.1
+        for <linux-arm-kernel@lists.infradead.org>; Mon, 01 Jun 2026 05:52:24 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=gmail.com; s=20251104; t=1780318343; x=1780923143; darn=lists.infradead.org;
+        h=content-transfer-encoding:mime-version:references:in-reply-to
+         :message-id:date:subject:cc:to:from:from:to:cc:subject:date
+         :message-id:reply-to;
+        bh=JpFJ2vgllIWj4FqG6DXjRM527rlfnB9NVugM5813YTM=;
+        b=BUsHfWoiOyDo7DAmLMIDirGGZ+mD95HZ6lN8o3x8bLYPJrCiOgXlcLkhPC5Cl6wn+w
+         n8502AvTNlp8LDQLEmJHi/NNVVO2JUz31C8AzbO2WTBT2ALhlyvHbfPIfzLCMblbYfzJ
+         4LgR3I6na6m+NJlbRCl51PcSpTp8R/DNDTAdEAfypHcMh1VUZyOIbyVdcDRjrgylpBc6
+         VLnL6Xyop7fh8EQX8IpahmOlg4SYWLBJc/s+/p6bF47Bcrpq+S7WUdUmevJhHgP+0NTT
+         Sb6Qew0D4CyQrGrWv9sdGsEJT4a2+M4nQWmBuUTtXrKFbBStjJgpqBwUQT+QMoIW8Jcq
+         aGEA==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20251104; t=1780318343; x=1780923143;
+        h=content-transfer-encoding:mime-version:references:in-reply-to
+         :message-id:date:subject:cc:to:from:x-gm-gg:x-gm-message-state:from
+         :to:cc:subject:date:message-id:reply-to;
+        bh=JpFJ2vgllIWj4FqG6DXjRM527rlfnB9NVugM5813YTM=;
+        b=q4mWEqaGt9FBE2rmgI/IkAVhlBUlT5ocLAzYsNN1PLkJDrVlfC6kc70M6qkNsfwxTI
+         EZm8UHG8P9j3uC8hvU7reymDlTr78HngOvjtoBBHToD+jeRm/2aTq0ptlPCUIrd99xK0
+         8wEVvSMaSKFlvhgMULbuQ76mUWlpZnd55XnTfa97OghCrlcUgok/HRGwAVJM8HaDnmUR
+         h/wPbxwm/6dcVv1nsRuqsKC+1bKnxYCTx351IidDjiaJsMgYTc0kweLeHMCnNWK+fQSJ
+         C4skOHeUSyiOowRG4Fao5Cq7IrFqcP6Z8RdDGjF6hGMvqRfiVsm+61skc8+pGVjVfQAL
+         VqzA==
+X-Forwarded-Encrypted: i=1; AFNElJ8N2nJ/NydWL611hL1lC/41evj15awHO/GYz5mkp8/c0aA0eDiv4GllW3B6xaXyL1XBSUb4aWP5jv4+85mVjfHZ@lists.infradead.org
+X-Gm-Message-State: AOJu0YwmPp5+armtOc40Z7UZFPobpmwCvS9AfpbeZC7xxB4z7w/alGOY
+	Y8Wy0q6lroKma4ouZhv+9py9wCLWrD6sbLmpn22t/d9fQ2fSzUf19f4d
+X-Gm-Gg: Acq92OGf5VwCbcOiC/kVrFmEm5bSuwLWf1oMaCpkhcB1iJabPmzc+thS+Buw2B6zA8p
+	mlB4lrEq90HqyzPc76wqKgobYEliBCZzjPeK42GkWwTHWXy+cNHD11w/msk5kXmQTMyu02tYdHk
+	8Lv7ZfrDliYdF/ncKTcVUcqo7MjhtLLNGlZWp+ByE1TORi0bGIUct6Vq0s34b8xk5i78X1Z0sHj
+	0/bAZoz6BVqc5mkLCZ86L5HMa4KPJ6XDG//H/mZtsZWUmi8ZgbEQ9O5GSyClGcA4XviHGvqnxpk
+	owKIcCDeYPdk968r0uvo9SbUAw4lBtFKGmqBbf4w0X3neG6ogyrNSc21W1/WcArFYn9/wYGeLxa
+	tqgYzGLSNT/ckG1r1ow+rn5VN13qpslufBuRhoEFkkVh7jDVM9Rwkj32o9jJ0IHm9KoN3H3b3IR
+	EgOroH9ipqgD4/RQxDLxjb9cNZKbWV867qz0IXf14xLpwF4/xka0Y6qiBVjXtlxroeXIY=
+X-Received: by 2002:a17:903:1905:b0:2bf:281f:19ec with SMTP id d9443c01a7336-2bf36803dccmr130037915ad.24.1780318342942;
+        Mon, 01 Jun 2026 05:52:22 -0700 (PDT)
+Received: from LAPTOP-97G9G880.domain.name ([106.222.200.157])
+        by smtp.gmail.com with ESMTPSA id d9443c01a7336-2bf7b6609f5sm85932415ad.60.2026.06.01.05.52.19
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Mon, 01 Jun 2026 05:52:22 -0700 (PDT)
+From: Karthikeyan KS <karthiproffesional@gmail.com>
+To: andrew@codeconstruct.com.au
+Cc: joel@jms.id.au,
+	andrew@aj.id.au,
+	linux-arm-kernel@lists.infradead.org,
+	linux-aspeed@lists.ozlabs.org,
+	linux-kernel@vger.kernel.org,
+	Karthikeyan KS <karthiproffesional@gmail.com>,
+	stable@vger.kernel.org
+Subject: [PATCH v4] soc: aspeed: lpc-snoop: Fix usercopy overflow in snoop_file_read
+Date: Mon,  1 Jun 2026 12:52:13 +0000
+Message-ID: <20260601125214.2071019-1-karthiproffesional@gmail.com>
+X-Mailer: git-send-email 2.43.0
+In-Reply-To: <1e2b77c7916259e3e269d19f637c29427c175350.camel@codeconstruct.com.au>
+References: <1e2b77c7916259e3e269d19f637c29427c175350.camel@codeconstruct.com.au>
 MIME-Version: 1.0
-Content-Transfer-Encoding: quoted-printable
-Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260601_055125_589927_F1ABBF33 
-X-CRM114-Status: GOOD (  17.02  )
+X-CRM114-CacheID: sfid-20260601_055225_436268_6AD07723 
+X-CRM114-Status: GOOD (  18.69  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -67,161 +103,129 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hi,
+put_fifo_with_discard() acts as both producer and consumer on the kfifo:
+it calls kfifo_skip() (advances out) and kfifo_put() (advances in) from
+the IRQ handler without synchronizing with snoop_file_read(), which also
+consumes via kfifo_to_user(). On SMP systems this concurrent access can
+leave (in - out) larger than the ring buffer, so __kfifo_to_user()'s clamp
+to (in - out) is ineffective and kfifo_copy_to_user() can attempt a
+copy_to_user() past the kmalloc-2k backing store:
 
-Am Montag, 1. Juni 2026, 14:36:03 Mitteleurop=C3=A4ische Sommerzeit schrieb=
- Hrushiraj Gandhi:
-> Add initial support for the Vicharak Axon single-board computer based on
-> the Rockchip RK3588 SoC.
->=20
-> The board supports:
->=20
-> - eMMC storage
-> - microSD card
-> - Gigabit Ethernet
-> - HDMI output (dual HDMI)
-> - HDMI input
-> - USB 2.0 host ports
-> - PCIe 2.0 slots
-> - PCIe 3.0 x4 slot
-> - SATA
-> - RTC
-> - Status LEDs
->=20
-> The board uses an RK806 PMIC and provides the regulators required by
-> the RK3588 SoC.
->=20
-> Signed-off-by: Hrushiraj Gandhi <hrushirajg23@gmail.com>
-> ---
->  arch/arm64/boot/dts/rockchip/Makefile        |    1 +
->  arch/arm64/boot/dts/rockchip/rk3588-axon.dts | 1069 ++++++++++++++++++
-
-this is missing the addition of the board dt binding.
-(in a separate patch)
-
-Please see how other boards are handled in the git histoy.
+  usercopy: Kernel memory exposure attempt detected from SLUB object
+  'kmalloc-2k' (offset 0, size 2049)!
+  kernel BUG at mm/usercopy.c!
+  Call trace:
+   usercopy_abort
+   __check_heap_object
+   __check_object_size
+   kfifo_copy_to_user
+   __kfifo_to_user
+   snoop_file_read
+   vfs_read
 
 
->  2 files changed, 1070 insertions(+)
->  create mode 100644 arch/arm64/boot/dts/rockchip/rk3588-axon.dts
->=20
-> diff --git a/arch/arm64/boot/dts/rockchip/Makefile b/arch/arm64/boot/dts/=
-rockchip/Makefile
-> index cb55c6b70d0e..503927ffa849 100644
-> --- a/arch/arm64/boot/dts/rockchip/Makefile
-> +++ b/arch/arm64/boot/dts/rockchip/Makefile
-> @@ -179,6 +179,7 @@ dtb-$(CONFIG_ARCH_ROCKCHIP) +=3D rk3576-rock-4d.dtb
->  dtb-$(CONFIG_ARCH_ROCKCHIP) +=3D rk3582-radxa-e52c.dtb
->  dtb-$(CONFIG_ARCH_ROCKCHIP) +=3D rk3588-armsom-sige7.dtb
->  dtb-$(CONFIG_ARCH_ROCKCHIP) +=3D rk3588-armsom-w3.dtb
-> +dtb-$(CONFIG_ARCH_ROCKCHIP) +=3D rk3588-axon.dtb
->  dtb-$(CONFIG_ARCH_ROCKCHIP) +=3D rk3588-coolpi-cm5-evb.dtb
->  dtb-$(CONFIG_ARCH_ROCKCHIP) +=3D rk3588-coolpi-cm5-genbook.dtb
->  dtb-$(CONFIG_ARCH_ROCKCHIP) +=3D rk3588-edgeble-neu6a-io.dtb
-> diff --git a/arch/arm64/boot/dts/rockchip/rk3588-axon.dts b/arch/arm64/bo=
-ot/dts/rockchip/rk3588-axon.dts
+Serialize kfifo access with a per-channel spinlock. copy_to_user()
+runs after dropping the lock, since it may sleep on a page fault.
 
-please name that
-rk3588-vicharak-axon.dts
+Fixes: 3772e5da4454 ("drivers/misc: Aspeed LPC snoop output using misc chardev")
+Cc: stable@vger.kernel.org
+Signed-off-by: Karthikeyan KS <karthiproffesional@gmail.com>
+---
+Andrew,
 
+Thanks for the review.
 
-> new file mode 100644
-> index 000000000000..dcab9462f51b
-> --- /dev/null
-> +++ b/arch/arm64/boot/dts/rockchip/rk3588-axon.dts
-> @@ -0,0 +1,1069 @@
-> +// SPDX-License-Identifier: (GPL-2.0+ OR MIT)
-> +
-> +/dts-v1/;
-> +
-> +#include <dt-bindings/gpio/gpio.h>
-> +#include <dt-bindings/input/linux-event-codes.h>
-> +#include <dt-bindings/leds/common.h>
-> +#include <dt-bindings/pinctrl/rockchip.h>
-> +#include <dt-bindings/soc/rockchip,vop2.h>
-> +#include <dt-bindings/usb/pd.h>
-> +#include "rk3588.dtsi"
-> +
-> +/ {
-> +	model =3D "Vicharak Axon";
-> +	compatible =3D "vicharak,axon", "rockchip,rk3588";
-> +
-> +	aliases {
-> +		mmc0 =3D &sdmmc;
-> +		mmc1 =3D &sdhci;
-> +		mmc2 =3D &sdio;
-> +		serial2 =3D &uart2;
-> +	};
-> +
-> +	chosen {
-> +		stdout-path =3D "serial2:1500000n8";
-> +	};
-> +
-> +	hdmi0-con {
-> +		compatible =3D "hdmi-connector";
-> +		type =3D "a";
-> +
-> +		port {
-> +			hdmi0_con_in: endpoint {
-> +				remote-endpoint =3D <&hdmi0_out_con>;
-> +			};
-> +		};
-> +	};
-> +
-> +	hdmi1-con {
-> +		compatible =3D "hdmi-connector";
-> +		type =3D "a";
-> +
-> +		port {
-> +			hdmi1_con_in: endpoint {
-> +				remote-endpoint =3D <&hdmi1_out_con>;
-> +			};
-> +		};
-> +	};
-> +
-> +	leds {
-> +		compatible =3D "gpio-leds";
-> +		status =3D "okay";
-> +
-> +		power_led: power-led {
-> +			color =3D <LED_COLOR_ID_GREEN>;
-> +			function =3D LED_FUNCTION_STATUS;
-> +			gpios =3D <&pca9554 0 GPIO_ACTIVE_HIGH>;
-> +			linux,default-trigger =3D "heartbeat";
-> +		};
-> +
-> +		status_led: status-led {
-> +			color =3D <LED_COLOR_ID_RED>;
-> +			function =3D LED_FUNCTION_STATUS;
-> +			gpios =3D <&pca9554 1 GPIO_ACTIVE_HIGH>;
-> +			linux,default-trigger =3D "none";
-> +		};
-> +	};
-> +
-> +	pcie20_avdd0v85: pcie20-avdd0v85-regulator {
+> This seems inappropriate and I expect is flagged if you compile with
+> CONFIG_PROVE_LOCKING=y or CONFIG_DEBUG_ATOMIC_SLEEP=y
 
-regulator nodes, should be like "pcie20_avdd0v85: regulator-pcie20-avdd0v85=
- {"
+v4 drains the kfifo into a kernel buffer via kfifo_out() under
+the lock, then performs copy_to_user() after dropping it.
+(cf. drivers/gpio/gpiolib-cdev.c, which drains under its event lock
+and copies outside it.)
 
-> +&cpu_b0 {
-> +	cpu-supply =3D <&vdd_cpu_big0_s0>;
-> +	mem-supply =3D <&vdd_cpu_big0_mem_s0>;
+> ensure you develop, build and test on recent releases
 
-mem-supply for cpu-cores is vendor-kernel stuff (and it's the same
-regulator anyway), so please
-=2D drop those properties,
-=2D drop the phandle
+Tested on both v7.1-rc5 and v7.1-rc6 with PROVE_LOCKING,
+DEBUG_ATOMIC_SLEEP and HARDENED_USERCOPY enabled: read path
+round-trips correctly, no lockdep splats, no atomic-sleep
+warnings, no usercopy aborts.
 
-and run
-make ARCH=3Darm64 CHECK_DTBS=3Dy rockchip/rk3588-axon.dtb
+Changes since v3:
+- Replaced kfifo_to_user() with kfifo_out() + copy_to_user()
+  to avoid sleeping under spinlock
+- Rebased onto v7.1-rc6
 
-and fix all the reported issues please.
+ drivers/soc/aspeed/aspeed-lpc-snoop.c | 24 ++++++++++++++++++++----
+ 1 file changed, 20 insertions(+), 4 deletions(-)
 
-
-Thanks
-Heiko
-
-
-
+diff --git a/drivers/soc/aspeed/aspeed-lpc-snoop.c b/drivers/soc/aspeed/aspeed-lpc-snoop.c
+index b03310c0830d..0fe463020e25 100644
+--- a/drivers/soc/aspeed/aspeed-lpc-snoop.c
++++ b/drivers/soc/aspeed/aspeed-lpc-snoop.c
+@@ -74,6 +74,7 @@ struct aspeed_lpc_snoop_channel_cfg {
+ struct aspeed_lpc_snoop_channel {
+ 	const struct aspeed_lpc_snoop_channel_cfg *cfg;
+ 	bool enabled;
++	spinlock_t		lock;
+ 	struct kfifo		fifo;
+ 	wait_queue_head_t	wq;
+ 	struct miscdevice	miscdev;
+@@ -115,6 +116,7 @@ static ssize_t snoop_file_read(struct file *file, char __user *buffer,
+ {
+ 	struct aspeed_lpc_snoop_channel *chan = snoop_file_to_chan(file);
+ 	unsigned int copied;
++	u8 *buf;
+ 	int ret = 0;
+ 
+ 	if (kfifo_is_empty(&chan->fifo)) {
+@@ -125,11 +127,22 @@ static ssize_t snoop_file_read(struct file *file, char __user *buffer,
+ 		if (ret == -ERESTARTSYS)
+ 			return -EINTR;
+ 	}
+-	ret = kfifo_to_user(&chan->fifo, buffer, count, &copied);
+-	if (ret)
+-		return ret;
+ 
+-	return copied;
++	buf = kmalloc(SNOOP_FIFO_SIZE, GFP_KERNEL);
++	if (!buf)
++		return -ENOMEM;
++
++	spin_lock_irq(&chan->lock);
++	copied = kfifo_out(&chan->fifo, buf,
++			   min_t(size_t, count, SNOOP_FIFO_SIZE));
++	spin_unlock_irq(&chan->lock);
++
++	ret = copied;
++	if (copied && copy_to_user(buffer, buf, copied))
++		ret = -EFAULT;
++
++	kfree(buf);
++	return ret;
+ }
+ 
+ static __poll_t snoop_file_poll(struct file *file,
+@@ -153,9 +166,11 @@ static void put_fifo_with_discard(struct aspeed_lpc_snoop_channel *chan, u8 val)
+ {
+ 	if (!kfifo_initialized(&chan->fifo))
+ 		return;
++	spin_lock(&chan->lock);
+ 	if (kfifo_is_full(&chan->fifo))
+ 		kfifo_skip(&chan->fifo);
+ 	kfifo_put(&chan->fifo, val);
++	spin_unlock(&chan->lock);
+ 	wake_up_interruptible(&chan->wq);
+ }
+ 
+@@ -228,6 +243,7 @@ static int aspeed_lpc_enable_snoop(struct device *dev,
+ 		return -EBUSY;
+ 
+ 	init_waitqueue_head(&channel->wq);
++	spin_lock_init(&channel->lock);
+ 
+ 	channel->cfg = cfg;
+ 	channel->miscdev.minor = MISC_DYNAMIC_MINOR;
+-- 
+2.43.0
 
 
