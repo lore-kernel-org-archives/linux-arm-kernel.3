@@ -4,58 +4,79 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id A0EE3CD5BD1
-	for <linux-arm-kernel@archiver.kernel.org>; Mon,  1 Jun 2026 21:43:05 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id B256DCD5BD1
+	for <linux-arm-kernel@archiver.kernel.org>; Mon,  1 Jun 2026 21:59:29 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:Cc:To:From:
+	Subject:Message-ID:References:Mime-Version:In-Reply-To:Date:Reply-To:
 	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=KbRRQ6UrReGZ9CEz+b0Ya6nhw8Mi+MGNVxgZl4wtQvY=; b=P/LyqC4EXRzd28q6Bq2Tmwu8st
-	+jFqMixLyOdakPaLTAiUBFauP4Sk98y/+DU/aCeKgFWx5s/D6NCROCvvOB9Z6CKrkm741M08cep9y
-	UDOdgWtIjt1VonqWXvE/IqQpdqbFLHDxgZ7lDE0sqbljfY4Org4ybkYKcdOIR0epA67miozmc9Aov
-	+O5amIcGHk5xWKKu90aARqjspIMVTuKbKiTKOfcWk2mvgVxXGm7DCt5mr2UeHSX9LguL5dBd2FvGK
-	DgarJOcYAMNncrg9veTkWo9TKilayQUoAk/4DchJBu3ZPhS4wLHgNVYkJRGi2Y7Vnn+LfiiHqbRcq
-	2tLGA6/g==;
+	bh=UiMB5GJ3G5FDErhVSMyBY6oKC/dH+Rh8Dxtui0QM9OY=; b=YESV861bxps1WRCekpXErYPX8B
+	aTsra92KM46UYGWjTxTlY6IDzBzbAFKqEGvIIDZV5ipqgpUcutU4ReLdYSCtTVKy77ZjgBWG1ynts
+	ceAzY/PxT57jvB5jYG5ddtpe8iAsGUZbdoPx/GWCi23r4uFO0c4bIAXu4apa745LzI/bijwuyuUR1
+	G3KZQrEr71YfPW1iF37tvxTnDSvSXO+kl5r7fcpBOMRbWhQE3LWTjuLwvurbfIjnfpjeDRjnLXwxT
+	RLwdWI34lDYP0aG7qlvrdprgU+M4ybskLZPGES2Wre62Cs9haeg6Oah1V0isza57SuAAbUAl/FBFt
+	5lyTACVw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wUAPR-0000000Bs98-2UuT;
-	Mon, 01 Jun 2026 21:42:57 +0000
-Received: from out-177.mta0.migadu.com ([91.218.175.177])
+	id 1wUAfK-0000000BtGy-0HyA;
+	Mon, 01 Jun 2026 21:59:22 +0000
+Received: from mail-pg1-x549.google.com ([2607:f8b0:4864:20::549])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wUAPP-0000000Bs8k-1RHN
+	id 1wUAfH-0000000BtFo-3pQF
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 01 Jun 2026 21:42:56 +0000
-Date: Mon, 1 Jun 2026 23:42:45 +0200
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=linux.dev; s=key1;
-	t=1780350171;
-	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
-	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
-	 in-reply-to:in-reply-to:references:references;
-	bh=KbRRQ6UrReGZ9CEz+b0Ya6nhw8Mi+MGNVxgZl4wtQvY=;
-	b=pwWujJDscJ+QSlmOJpum5zso1mLfyH+KmNwql+rQJRpqJ+35ngOvk3Z9RaSaTH29CHYxOU
-	MA4dHIg6zZdSRpHbEL+igqopQNyip9C4dFzFG0n1W+NtymSYJ9T5RQg9ZNPlmonJpG7DRT
-	OhK+uv3GXcUOg4zzh8fpbOTkLU0T6mE=
-X-Report-Abuse: Please report any abuse attempt to abuse@migadu.com and include these headers.
-From: Thorsten Blum <thorsten.blum@linux.dev>
-To: Lothar Rubusch <l.rubusch@gmail.com>
-Cc: herbert@gondor.apana.org.au, davem@davemloft.net,
-	nicolas.ferre@microchip.com, alexandre.belloni@bootlin.com,
-	claudiu.beznea@tuxon.dev, tudor.ambarus@linaro.org,
-	krzk+dt@kernel.org, linux-crypto@vger.kernel.org,
-	linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org
-Subject: Re: [PATCH 1/1] crypto: atmel-ecc - fix use after free situation
-Message-ID: <ah381bcuVfN8PQr0@linux.dev>
-References: <20260529092703.33086-1-l.rubusch@gmail.com>
-MIME-Version: 1.0
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-In-Reply-To: <20260529092703.33086-1-l.rubusch@gmail.com>
-X-Migadu-Flow: FLOW_OUT
+	Mon, 01 Jun 2026 21:59:21 +0000
+Received: by mail-pg1-x549.google.com with SMTP id 41be03b00d2f7-c857fa2706aso1442240a12.2
+        for <linux-arm-kernel@lists.infradead.org>; Mon, 01 Jun 2026 14:59:19 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=google.com; s=20251104; t=1780351158; x=1780955958; darn=lists.infradead.org;
+        h=cc:to:from:subject:message-id:references:mime-version:in-reply-to
+         :date:from:to:cc:subject:date:message-id:reply-to;
+        bh=UiMB5GJ3G5FDErhVSMyBY6oKC/dH+Rh8Dxtui0QM9OY=;
+        b=ZmZFQNsTr5bH4G9W1i0cA5yDG78lOXrFzGYD7e41+3IT/o6hIuLWHvdQ/LIjkCLMVP
+         Y2yTgNNFJ6Wn8TpGGFYHStuGABhuDWSI6FvDcODcSHDfKwhhUDalj+bT+Q/9HUkXYQGB
+         Pf6bSzLS6A8Mbr6PTWWrw5/ySBNKvDa62pMMzVwFdkrUynvQ/Mrr3MAuVxnnCsUXrf08
+         weL3dhy0V3bZF1YjJ07oOXcdONyWoapjJpo1aPTsrw/Nt2oRPRU/uPVTkEWccFFxN/v4
+         KEubU+NpjI3kTJY42wYybR92peC5ogHDm6VaLd707qcu+Y22BDjFT3GO3Sf0x6ADxKmf
+         e09Q==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20251104; t=1780351158; x=1780955958;
+        h=cc:to:from:subject:message-id:references:mime-version:in-reply-to
+         :date:x-gm-message-state:from:to:cc:subject:date:message-id:reply-to;
+        bh=UiMB5GJ3G5FDErhVSMyBY6oKC/dH+Rh8Dxtui0QM9OY=;
+        b=A8ZSmBKtuG+RXQ8EEnbQGj9E6LgiBHfWlnKysBjALLzOCanKpR+yFY7SnvwHABTU1r
+         h4oItpoDABu0A2K2TNehtvXc7zCN235RNeTKQq5rWwdLyBm79HRr475k4B7qF33jDQaz
+         TLPfqZcyOW+jFMMeq/gb5ydHNwyTGiCKRANdcx9eOrY+ra9JgprA0GCEPmkadsz6TbFK
+         xLs0b16bFhnPsmgmtF2WND6sw6Ircn2mxgnyUaY8qFSzYR16XQd1BOfpQFgDm+TZ1w7C
+         ubpmLZdIKurcOJz3yYSCX1w60dpLIkJefuVlIOk6D0wiw2pPJDAkD5fcuFJ6p4Obmhsj
+         hS4Q==
+X-Forwarded-Encrypted: i=1; AFNElJ/Nj+4lwEIrlo8LF29Xcc/KTrbN16A68cTNIfwCslwKSXZxqTJnd8Tb283bKgGudQoX2XIIPh5lfBdS3Dv+fBbK@lists.infradead.org
+X-Gm-Message-State: AOJu0Yz8UNGy84MoznguZau+EMq3ko+Ylmx38jaNpNokg7dtJ1FS34CM
+	jfuUtMric6QdyfXC17Zz1n5tae+jYyeFJXOGI2oM9/XIEyBmaulim9Tu1edzxKOXJqsS0kRDiLG
+	icg==
+X-Received: from pgcl27.prod.google.com ([2002:a63:701b:0:b0:c85:104d:a751])
+ (user=praan job=prod-delivery.src-stubby-dispatcher) by 2002:a05:6a21:7a96:b0:3b1:884a:c3d5
+ with SMTP id adf61e73a8af0-3b42823a975mr14463013637.24.1780351158251; Mon, 01
+ Jun 2026 14:59:18 -0700 (PDT)
+Date: Mon,  1 Jun 2026 21:59:00 +0000
+In-Reply-To: <20260601215909.3958732-1-praan@google.com>
+Mime-Version: 1.0
+References: <20260601215909.3958732-1-praan@google.com>
+X-Mailer: git-send-email 2.54.0.1013.g208068f2d8-goog
+Message-ID: <20260601215909.3958732-4-praan@google.com>
+Subject: [PATCH v8 03/12] iommu/tegra241-cmdqv: Add a helper to drain VCMDQs
+From: Pranjal Shrivastava <praan@google.com>
+To: iommu@lists.linux.dev
+Cc: Will Deacon <will@kernel.org>, Joerg Roedel <joro@8bytes.org>, 
+	Robin Murphy <robin.murphy@arm.com>, Jason Gunthorpe <jgg@ziepe.ca>, Mostafa Saleh <smostafa@google.com>, 
+	Nicolin Chen <nicolinc@nvidia.com>, Daniel Mentz <danielmentz@google.com>, 
+	Ashish Mhetre <amhetre@nvidia.com>, linux-arm-kernel@lists.infradead.org, 
+	Pranjal Shrivastava <praan@google.com>
+Content-Type: text/plain; charset="UTF-8"
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260601_144255_600553_935E4C5A 
-X-CRM114-Status: GOOD (  25.82  )
+X-CRM114-CacheID: sfid-20260601_145919_953965_A50BC9E8 
+X-CRM114-Status: GOOD (  18.00  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -70,104 +91,98 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Fri, May 29, 2026 at 09:27:03AM +0000, Lothar Rubusch wrote:
-> Fixes a possible race condition, when having multiple of such devices
-> attached (identified by sashiko feedback).
-> 
-> The Scenario:
->     Thread A (Device 1 Probe): Successfully adds i2c_priv to the global
->              list (Line 324). The lock is released.
->     Thread B (An active crypto request): Concurrently calls
->               atmel_ecc_i2c_client_alloc(). It scans the global list, sees
->               Device 1, and assigns a crypto job to it.
->     Thread A: Moves to line 332. crypto_register_kpp() fails (e.g., out of
->               memory or name clash).
->     Thread A: Enters the error path. It removes Device 1 from the list and
->               frees the i2c_priv memory.
->     Thread B: Is still actively trying to talk to the I2C hardware using
->               the i2c_priv pointer it grabbed in Step 2. The memory is now
->               gone. Result: Kernel crash (Use-After-Free).
-> 
-> Fixes: 11105693fa05 ("crypto: atmel-ecc - introduce Microchip / Atmel ECC driver")
-> Signed-off-by: Lothar Rubusch <l.rubusch@gmail.com>
-> ---
->  drivers/crypto/atmel-ecc.c | 10 ++++++++++
->  drivers/crypto/atmel-i2c.h |  2 ++
->  2 files changed, 12 insertions(+)
-> 
-> diff --git a/drivers/crypto/atmel-ecc.c b/drivers/crypto/atmel-ecc.c
-> index 0ca02995a1de..d391fe1462f6 100644
-> --- a/drivers/crypto/atmel-ecc.c
-> +++ b/drivers/crypto/atmel-ecc.c
-> @@ -218,6 +218,8 @@ static struct i2c_client *atmel_ecc_i2c_client_alloc(void)
->  
->  	list_for_each_entry(i2c_priv, &driver_data.i2c_client_list,
->  			    i2c_client_list_node) {
-> +		if (!i2c_priv->ready)
-> +			continue;
->  		tfm_cnt = atomic_read(&i2c_priv->tfm_count);
->  		if (tfm_cnt < min_tfm_cnt) {
->  			min_tfm_cnt = tfm_cnt;
-> @@ -322,20 +324,24 @@ static int atmel_ecc_probe(struct i2c_client *client)
->  		return ret;
->  
->  	i2c_priv = i2c_get_clientdata(client);
-> +	i2c_priv->ready = false;
->  
->  	spin_lock(&driver_data.i2c_list_lock);
->  	list_add_tail(&i2c_priv->i2c_client_list_node,
->  		      &driver_data.i2c_client_list);
-> +	i2c_priv->ready = true;
->  	spin_unlock(&driver_data.i2c_list_lock);
->  
->  	ret = crypto_register_kpp(&atmel_ecdh_nist_p256);
->  	if (ret) {
->  		spin_lock(&driver_data.i2c_list_lock);
-> +		i2c_priv->ready = false;
->  		list_del(&i2c_priv->i2c_client_list_node);
->  		spin_unlock(&driver_data.i2c_list_lock);
->  
->  		dev_err(&client->dev, "%s alg registration failed\n",
->  			atmel_ecdh_nist_p256.base.cra_driver_name);
-> +		return ret;
->  	} else {
->  		dev_info(&client->dev, "atmel ecc algorithms registered in /proc/crypto\n");
->  	}
-> @@ -347,6 +353,10 @@ static void atmel_ecc_remove(struct i2c_client *client)
->  {
->  	struct atmel_i2c_client_priv *i2c_priv = i2c_get_clientdata(client);
->  
-> +	spin_lock(&driver_data.i2c_list_lock);
-> +	i2c_priv->ready = false;
-> +	spin_unlock(&driver_data.i2c_list_lock);
-> +
->  	/* Return EBUSY if i2c client already allocated. */
->  	if (atomic_read(&i2c_priv->tfm_count)) {
->  		/*
-> diff --git a/drivers/crypto/atmel-i2c.h b/drivers/crypto/atmel-i2c.h
-> index 72f04c15682f..e3b12030f9c4 100644
-> --- a/drivers/crypto/atmel-i2c.h
-> +++ b/drivers/crypto/atmel-i2c.h
-> @@ -129,6 +129,7 @@ struct atmel_ecc_driver_data {
->   * @wake_token_sz       : size in bytes of the wake_token
->   * @tfm_count           : number of active crypto transformations on i2c client
->   * @hwrng               : hold the hardware generated rng
-> + * @ready               : hw client is ready to use
->   *
->   * Reads and writes from/to the i2c client are sequential. The first byte
->   * transmitted to the device is treated as the byte size. Any attempt to send
-> @@ -145,6 +146,7 @@ struct atmel_i2c_client_priv {
->  	size_t wake_token_sz;
->  	atomic_t tfm_count ____cacheline_aligned;
->  	struct hwrng hwrng;
-> +	bool ready;
->  };
+The tegra241-cmdqv driver supports vCMDQs which need to be drained
+before suspending the SMMU. The current driver implementation only uses
+VINTF0 for vCMDQs owned by the kernel which need to be drained. Add a
+helper that drains all the enabled vCMDQs under VINTF0.
 
-I don't think the ready flag fixes the race. A concurrent tfm can still
-bind to the shared I2C client after atmel_ecc_probe() adds it to the
-global list and marks it as ready, but before crypto_register_kpp()
-fails.
+Add another function ptr to arm_smmu_impl_ops to drain implementation
+specified queues and call it within `arm_smmu_drain_queues`.
 
-Thanks,
-Thorsten
+Reviewed-by: Nicolin Chen <nicolinc@nvidia.com>
+Signed-off-by: Pranjal Shrivastava <praan@google.com>
+---
+ drivers/iommu/arm/arm-smmu-v3/arm-smmu-v3.c   |  7 +++++
+ drivers/iommu/arm/arm-smmu-v3/arm-smmu-v3.h   |  1 +
+ .../iommu/arm/arm-smmu-v3/tegra241-cmdqv.c    | 27 +++++++++++++++++++
+ 3 files changed, 35 insertions(+)
+
+diff --git a/drivers/iommu/arm/arm-smmu-v3/arm-smmu-v3.c b/drivers/iommu/arm/arm-smmu-v3/arm-smmu-v3.c
+index 0e77ef1e4523..8682be5060ed 100644
+--- a/drivers/iommu/arm/arm-smmu-v3/arm-smmu-v3.c
++++ b/drivers/iommu/arm/arm-smmu-v3/arm-smmu-v3.c
+@@ -915,6 +915,13 @@ static int arm_smmu_drain_queues(struct arm_smmu_device *smmu)
+ 	 */
+ 	ret = arm_smmu_queue_poll_until_empty(smmu, &smmu->cmdq.q);
+ 
++	if (ret)
++		goto out;
++
++	/* Drain all implementation-specific queues */
++	if (smmu->impl_ops && smmu->impl_ops->drain_queues)
++		ret = smmu->impl_ops->drain_queues(smmu);
++out:
+ 	return ret;
+ }
+ 
+diff --git a/drivers/iommu/arm/arm-smmu-v3/arm-smmu-v3.h b/drivers/iommu/arm/arm-smmu-v3/arm-smmu-v3.h
+index c855ab4962ed..24d5e28eea88 100644
+--- a/drivers/iommu/arm/arm-smmu-v3/arm-smmu-v3.h
++++ b/drivers/iommu/arm/arm-smmu-v3/arm-smmu-v3.h
+@@ -885,6 +885,7 @@ struct arm_smmu_impl_ops {
+ 	size_t (*get_viommu_size)(enum iommu_viommu_type viommu_type);
+ 	int (*vsmmu_init)(struct arm_vsmmu *vsmmu,
+ 			  const struct iommu_user_data *user_data);
++	int (*drain_queues)(struct arm_smmu_device *smmu);
+ };
+ 
+ /* An SMMUv3 instance */
+diff --git a/drivers/iommu/arm/arm-smmu-v3/tegra241-cmdqv.c b/drivers/iommu/arm/arm-smmu-v3/tegra241-cmdqv.c
+index 67be62a6e764..cb1e75e4ee91 100644
+--- a/drivers/iommu/arm/arm-smmu-v3/tegra241-cmdqv.c
++++ b/drivers/iommu/arm/arm-smmu-v3/tegra241-cmdqv.c
+@@ -414,6 +414,32 @@ tegra241_cmdqv_get_cmdq(struct arm_smmu_device *smmu,
+ 	return &vcmdq->cmdq;
+ }
+ 
++static int tegra241_cmdqv_drain_vintf0_lvcmdqs(struct arm_smmu_device *smmu)
++{
++	struct tegra241_cmdqv *cmdqv =
++		container_of(smmu, struct tegra241_cmdqv, smmu);
++	struct tegra241_vintf *vintf = cmdqv->vintfs[0];
++	int ret = 0;
++	u16 lidx;
++
++	/* Kernel only uses VINTF0. Return if it's disabled */
++	if (!READ_ONCE(vintf->enabled))
++		return 0;
++
++	for (lidx = 0; lidx < cmdqv->num_lvcmdqs_per_vintf; lidx++) {
++		struct tegra241_vcmdq *vcmdq = vintf->lvcmdqs[lidx];
++
++		if (!vcmdq || !READ_ONCE(vcmdq->enabled))
++			continue;
++
++		ret = arm_smmu_queue_poll_until_empty(smmu, &vcmdq->cmdq.q);
++		if (ret)
++			break;
++	}
++
++	return ret;
++}
++
+ /* HW Reset Functions */
+ 
+ /*
+@@ -845,6 +871,7 @@ static struct arm_smmu_impl_ops tegra241_cmdqv_impl_ops = {
+ 	.get_secondary_cmdq = tegra241_cmdqv_get_cmdq,
+ 	.device_reset = tegra241_cmdqv_hw_reset,
+ 	.device_remove = tegra241_cmdqv_remove,
++	.drain_queues = tegra241_cmdqv_drain_vintf0_lvcmdqs,
+ 	/* For user-space use */
+ 	.hw_info = tegra241_cmdqv_hw_info,
+ 	.get_viommu_size = tegra241_cmdqv_get_vintf_size,
+-- 
+2.54.0.1013.g208068f2d8-goog
+
 
