@@ -4,59 +4,72 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 5EED6CD6E4C
-	for <linux-arm-kernel@archiver.kernel.org>; Mon,  1 Jun 2026 03:50:28 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 44063CD6E4C
+	for <linux-arm-kernel@archiver.kernel.org>; Mon,  1 Jun 2026 04:07:00 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
 	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
 	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=wE3smo4p4YoVassR8C6QT2y2mbOa5aaDGD+r1mVRjEs=; b=ejD/6PY9XkEbiZtOpoOIQxDK7g
-	XbZ/S1+2CFrEg5oKwpV0r/FI6jLFYMfeHFDbVY/lJPbDcs4Hgxega5BUomhdVKlz7bWBvDhsZTi9o
-	sn48m+USZ2xvahHpIOWH31PkuN7ScB2sr0xuxsHkD51siry/XaV9rSiUqSEwFtep9Oka28rJBDM5c
-	BVQr0hKLHbqdJ6usXwUhxJyEVC+XjmnCAbWondE7mqakf7ZP14eUFQ6DoS7n5YGmf+dl82JpfaF7R
-	y09zTsCX7lQK7N77LneKjFaGC+cr0P+DWzqUyj4LJpLoaMp8sfAGaVONMNmfv08KGuk+OghC0xe+l
-	O8NfSfsQ==;
+	bh=Tga5971EEa630O6n+PhHzaOHaTe0vvPmQiFQjog/n0Q=; b=u7nWqJ8SLu20IsOreq74zuCgHv
+	eaYppprGSwJM5z6reYE+ITmZ39fvXUIweQOQquYLr9IlUxU245XRD3fbmZlJQw9Zj6Ah8W5SAvVwG
+	zrl0bYtmnQjSHpASYwahySjK6tarx2hJlMGgT6nE4NztBB9sxHmcl4m50P0f9FYMg3l9aOHKY4y4F
+	Syp53JwvR4VfwdbFvu1mZNzhnjKaXlYsKuTAuyTdM5RaeTfK077crA0zHmgfbNwFQyVhulu4t1Ozg
+	b+NBTMUywDcrMSk55qgb0PdtTkax33I2/uN1Hft3TarWqDHcPRdsJ+Mhb3U0H/FayC4LkVNH/CZZ8
+	Zw9X/kTA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wTtfN-0000000A6ey-3HF7;
-	Mon, 01 Jun 2026 03:50:17 +0000
-Received: from foss.arm.com ([217.140.110.172])
-	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wTtfJ-0000000A6eM-1hmY
-	for linux-arm-kernel@lists.infradead.org;
-	Mon, 01 Jun 2026 03:50:15 +0000
-Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
-	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id 6710F1E8D;
-	Sun, 31 May 2026 20:50:03 -0700 (PDT)
-Received: from [10.164.18.45] (unknown [10.164.18.45])
-	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id 1B3733F93E;
-	Sun, 31 May 2026 20:50:05 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=simple/simple; d=arm.com; s=foss;
-	t=1780285808; bh=JdIDh7oDA4YqsglCX3nuBCSak6XOIkofRzyydFCz6hc=;
-	h=Date:Subject:To:Cc:References:From:In-Reply-To:From;
-	b=L1sFNeiFgPIs0nS7w1vLogD2ZEYk6dsFvINDtlgoaPd/Wj1pKjX3jH1HUdBuPcTrz
-	 vJ/ISGzLzcauXra7S5bub/fkjHXTDwduA/W3Ig/ZaqDJJYoOZKhOONwvyFvDdo+cwm
-	 uHZeMLATXPYUGPcKUftixHwFtYxg51ERjEPY7L0s=
-Message-ID: <7352c69a-556b-4cc2-ae65-0ed227da9f8a@arm.com>
-Date: Mon, 1 Jun 2026 09:20:02 +0530
+	id 1wTtvN-0000000A7AZ-17ne;
+	Mon, 01 Jun 2026 04:06:49 +0000
+Received: from mail-m254108.xmail.ntesmail.com ([103.129.254.108])
+	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
+	id 1wTtvI-0000000A79q-1FQm;
+	Mon, 01 Jun 2026 04:06:48 +0000
+Received: from [172.16.12.77] (unknown [61.154.14.86])
+	by smtp.qiye.163.com (Hmail) with ESMTP id 40886331e;
+	Mon, 1 Jun 2026 12:06:37 +0800 (GMT+08:00)
+Message-ID: <9a7855a7-6b0c-4aa2-8516-13d94beabac6@rock-chips.com>
+Date: Mon, 1 Jun 2026 12:06:37 +0800
 MIME-Version: 1.0
 User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH V2] arm64/mm: Rename ptdesc_t
-To: linux-arm-kernel@lists.infradead.org
-Cc: Catalin Marinas <catalin.marinas@arm.com>, Will Deacon <will@kernel.org>,
- David Hildenbrand <david@kernel.org>, Mike Rapoport <rppt@kernel.org>,
- linux-efi@vger.kernel.org, linux-kernel@vger.kernel.org
-References: <20260520063417.2363417-1-anshuman.khandual@arm.com>
+Subject: Re: [PATCH v5 05/10] drm/bridge: dw-hdmi-qp: Add HDMI 2.0 SCDC
+ scrambling and high TMDS clock ratio support
+To: Cristian Ciocaltea <cristian.ciocaltea@collabora.com>,
+ Andrzej Hajda <andrzej.hajda@intel.com>,
+ Neil Armstrong <neil.armstrong@linaro.org>, Robert Foss <rfoss@kernel.org>,
+ Laurent Pinchart <Laurent.pinchart@ideasonboard.com>,
+ Jonas Karlman <jonas@kwiboo.se>, Jernej Skrabec <jernej.skrabec@gmail.com>,
+ Maarten Lankhorst <maarten.lankhorst@linux.intel.com>,
+ Maxime Ripard <mripard@kernel.org>, Thomas Zimmermann <tzimmermann@suse.de>,
+ David Airlie <airlied@gmail.com>, Simona Vetter <simona@ffwll.ch>,
+ Sandy Huang <hjc@rock-chips.com>, =?UTF-8?Q?Heiko_St=C3=BCbner?=
+ <heiko@sntech.de>
+Cc: kernel@collabora.com, dri-devel@lists.freedesktop.org,
+ linux-kernel@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
+ linux-rockchip@lists.infradead.org,
+ Diederik de Haas <diederik@cknow-tech.com>,
+ Maud Spierings <maud_spierings@hotmail.com>
+References: <20260426-dw-hdmi-qp-scramb-v5-0-d778e70c317b@collabora.com>
+ <20260426-dw-hdmi-qp-scramb-v5-5-d778e70c317b@collabora.com>
 Content-Language: en-US
-From: Anshuman Khandual <anshuman.khandual@arm.com>
-In-Reply-To: <20260520063417.2363417-1-anshuman.khandual@arm.com>
-Content-Type: text/plain; charset=UTF-8
+From: Andy Yan <andy.yan@rock-chips.com>
+In-Reply-To: <20260426-dw-hdmi-qp-scramb-v5-5-d778e70c317b@collabora.com>
+Content-Type: text/plain; charset=UTF-8; format=flowed
 Content-Transfer-Encoding: 7bit
+X-HM-Tid: 0a9e815cb66b09d8kunm1304045b34b196
+X-HM-MType: 1
+X-HM-Spam-Status: e1kfGhgUHx5ZQUpXWQgPGg8OCBgUHx5ZQUlOS1dZFg8aDwILHllBWSg2Ly
+	tZV1koWUFITzdXWRgWCB1ZQUpXWS1ZQUlXWQ8JGhUIEh9ZQVkaSxlMVkxCSBpDQ00fGklJTVYVFA
+	kWGhdVEwETFhoSFyQUDg9ZV1kYEgtZQVlNSlVKTk9VSk9VQ01ZV1kWGg8SFR0UWUFZT0tIVUpLSU
+	9PT0hVSktLVUpCS0tZBg++
+DKIM-Signature: a=rsa-sha256;
+	b=QQov8Rb4dnNQBMbsVmDBFtU6l/xXf8ishvwt3UTIx9DJPlxOJx45/2rfVpGoJdwjJWBhUBPxCEnWzmLOsMJ+jqHutehOIcywAkJRcAQ5HrBDkNRgzoblh8R29PrLlVnlyl0hzZXEXpU8m87T67X+NrBlw6OKqZnnqlIiXgUMvaQ=; c=relaxed/relaxed; s=default; d=rock-chips.com; v=1;
+	bh=Tga5971EEa630O6n+PhHzaOHaTe0vvPmQiFQjog/n0Q=;
+	h=date:mime-version:subject:message-id:from;
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260531_205013_614890_80D11BA4 
-X-CRM114-Status: GOOD (  31.37  )
+X-CRM114-CacheID: sfid-20260531_210645_825556_D602AF60 
+X-CRM114-Status: GOOD (  27.75  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -71,261 +84,330 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On 20/05/26 12:04 PM, Anshuman Khandual wrote:
-> ptdesc_t sounds very similar to the core MM struct ptdesc which is actually
-> the memory descriptor for page table allocations. Hence rename this typedef
-> element as ptval_t instead for better clarity and separation.
+Hello,
+
+On 4/26/26 08:20, Cristian Ciocaltea wrote:
+> Enable HDMI 2.0 display modes (e.g. 4K@60Hz) by adding SCDC management
+> for the high TMDS clock ratio and scrambling, required when the TMDS
+> character rate exceeds the 340 MHz HDMI 1.4b limit.
 > 
-> Cc: Catalin Marinas <catalin.marinas@arm.com>
-> Cc: Will Deacon <will@kernel.org>
-> Cc: David Hildenbrand <david@kernel.org>
-> Cc: Mike Rapoport <rppt@kernel.org>
-> Cc: linux-efi@vger.kernel.org
-> Cc: linux-kernel@vger.kernel.org
-> Cc: linux-arm-kernel@lists.infradead.org
-> Acked-by: Mike Rapoport (Microsoft) <rppt@kernel.org>
-> Acked-by: David Hildenbrand (Arm) <david@kernel.org>
-> Suggested-by: David Hildenbrand (Arm) <david@kernel.org>
-> Signed-off-by: Anshuman Khandual <anshuman.khandual@arm.com>
+> A periodic work item monitors the sink's scrambling status to recover
+> from sink-side resets.  On hotplug detect, if SCDC scrambling state is
+> out of sync with the driver, trigger a CRTC reset to re-establish the
+> link.
+> 
+> Reject modes requiring TMDS rates above 600 MHz, as those fall in the
+> HDMI 2.1 FRL domain which is not supported. In no_hpd configurations,
+> further restrict to 340 MHz since SCDC requires a connected sink.
+> 
+> Tested-by: Diederik de Haas <diederik@cknow-tech.com>
+> Tested-by: Maud Spierings <maud_spierings@hotmail.com>
+> Signed-off-by: Cristian Ciocaltea <cristian.ciocaltea@collabora.com>
 > ---
-> This patch applies on v7.1-rc4.
+>   drivers/gpu/drm/bridge/synopsys/dw-hdmi-qp.c | 188 ++++++++++++++++++++++++---
+>   1 file changed, 172 insertions(+), 16 deletions(-)
 > 
-> Changes in V2:
-> 
-> - Renamed pxxval_t as ptval_t per Mike and David
-> 
-> Changes in V1:
-> 
-> https://lore.kernel.org/all/20260430034933.541634-1-anshuman.khandual@arm.com/
-> 
->  arch/arm64/include/asm/io.h            |  2 +-
->  arch/arm64/include/asm/pgtable-types.h | 14 +++++++-------
->  arch/arm64/include/asm/ptdump.h        |  8 ++++----
->  arch/arm64/include/asm/tlbflush.h      |  4 ++--
->  arch/arm64/kernel/efi.c                |  4 ++--
->  arch/arm64/kernel/pi/map_kernel.c      |  2 +-
->  arch/arm64/kernel/pi/map_range.c       |  4 ++--
->  arch/arm64/kernel/pi/pi.h              |  2 +-
->  arch/arm64/mm/mmap.c                   |  4 ++--
->  arch/arm64/mm/pageattr.c               |  2 +-
->  arch/arm64/mm/ptdump.c                 |  2 +-
->  11 files changed, 24 insertions(+), 24 deletions(-)
-> 
-> diff --git a/arch/arm64/include/asm/io.h b/arch/arm64/include/asm/io.h
-> index 8cbd1e96fd50..21c8e400107c 100644
-> --- a/arch/arm64/include/asm/io.h
-> +++ b/arch/arm64/include/asm/io.h
-> @@ -270,7 +270,7 @@ static inline void __iomem *ioremap_prot(phys_addr_t phys, size_t size,
->  					 pgprot_t user_prot)
->  {
->  	pgprot_t prot;
-> -	ptdesc_t user_prot_val = pgprot_val(user_prot);
-> +	ptval_t user_prot_val = pgprot_val(user_prot);
->  
->  	if (WARN_ON_ONCE(!(user_prot_val & PTE_USER)))
->  		return NULL;
-> diff --git a/arch/arm64/include/asm/pgtable-types.h b/arch/arm64/include/asm/pgtable-types.h
-> index 265e8301d7ba..2f2f5527930f 100644
-> --- a/arch/arm64/include/asm/pgtable-types.h
-> +++ b/arch/arm64/include/asm/pgtable-types.h
-> @@ -17,13 +17,13 @@
->   * Generic page table descriptor format from which
->   * all level specific descriptors can be derived.
->   */
-> -typedef u64 ptdesc_t;
-> +typedef u64 ptval_t;
->  
-> -typedef ptdesc_t pteval_t;
-> -typedef ptdesc_t pmdval_t;
-> -typedef ptdesc_t pudval_t;
-> -typedef ptdesc_t p4dval_t;
-> -typedef ptdesc_t pgdval_t;
-> +typedef ptval_t pteval_t;
-> +typedef ptval_t pmdval_t;
-> +typedef ptval_t pudval_t;
-> +typedef ptval_t p4dval_t;
-> +typedef ptval_t pgdval_t;
->  
->  /*
->   * These are used to make use of C type-checking..
-> @@ -54,7 +54,7 @@ typedef struct { pgdval_t pgd; } pgd_t;
->  #define pgd_val(x)	((x).pgd)
->  #define __pgd(x)	((pgd_t) { (x) } )
->  
-> -typedef struct { ptdesc_t pgprot; } pgprot_t;
-> +typedef struct { ptval_t pgprot; } pgprot_t;
->  #define pgprot_val(x)	((x).pgprot)
->  #define __pgprot(x)	((pgprot_t) { (x) } )
->  
-> diff --git a/arch/arm64/include/asm/ptdump.h b/arch/arm64/include/asm/ptdump.h
-> index baff24004459..5b374a6ab34a 100644
-> --- a/arch/arm64/include/asm/ptdump.h
-> +++ b/arch/arm64/include/asm/ptdump.h
-> @@ -26,8 +26,8 @@ struct ptdump_info {
->  };
->  
->  struct ptdump_prot_bits {
-> -	ptdesc_t	mask;
-> -	ptdesc_t	val;
-> +	ptval_t	mask;
-> +	ptval_t	val;
->  	const char	*set;
->  	const char	*clear;
->  };
-> @@ -36,7 +36,7 @@ struct ptdump_pg_level {
->  	const struct ptdump_prot_bits *bits;
->  	char name[4];
->  	int num;
-> -	ptdesc_t mask;
-> +	ptval_t mask;
->  };
->  
->  /*
-> @@ -53,7 +53,7 @@ struct ptdump_pg_state {
->  	const struct mm_struct *mm;
->  	unsigned long start_address;
->  	int level;
-> -	ptdesc_t current_prot;
-> +	ptval_t current_prot;
->  	bool check_wx;
->  	unsigned long wx_pages;
->  	unsigned long uxn_pages;
-> diff --git a/arch/arm64/include/asm/tlbflush.h b/arch/arm64/include/asm/tlbflush.h
-> index c0bf5b398041..d52ac8c17190 100644
-> --- a/arch/arm64/include/asm/tlbflush.h
-> +++ b/arch/arm64/include/asm/tlbflush.h
-> @@ -725,9 +725,9 @@ static inline void arch_tlbbatch_add_pending(struct arch_tlbflush_unmap_batch *b
->  	sme_dvmsync_add_pending(batch, mm);
->  }
->  
-> -static inline bool __pte_flags_need_flush(ptdesc_t oldval, ptdesc_t newval)
-> +static inline bool __pte_flags_need_flush(ptval_t oldval, ptval_t newval)
->  {
-> -	ptdesc_t diff = oldval ^ newval;
-> +	ptval_t diff = oldval ^ newval;
->  
->  	/* invalid to valid transition requires no flush */
->  	if (!(oldval & PTE_VALID))
-> diff --git a/arch/arm64/kernel/efi.c b/arch/arm64/kernel/efi.c
-> index a81cb4aa4738..30cd7f804398 100644
-> --- a/arch/arm64/kernel/efi.c
-> +++ b/arch/arm64/kernel/efi.c
-> @@ -31,7 +31,7 @@ static bool region_is_misaligned(const efi_memory_desc_t *md)
->   * executable, everything else can be mapped with the XN bits
->   * set. Also take the new (optional) RO/XP bits into account.
->   */
-> -static __init ptdesc_t create_mapping_protection(efi_memory_desc_t *md)
-> +static __init ptval_t create_mapping_protection(efi_memory_desc_t *md)
->  {
->  	u64 attr = md->attribute;
->  	u32 type = md->type;
-> @@ -85,7 +85,7 @@ static __init ptdesc_t create_mapping_protection(efi_memory_desc_t *md)
->  
->  int __init efi_create_mapping(struct mm_struct *mm, efi_memory_desc_t *md)
->  {
-> -	ptdesc_t prot_val = create_mapping_protection(md);
-> +	ptval_t prot_val = create_mapping_protection(md);
->  	bool page_mappings_only = (md->type == EFI_RUNTIME_SERVICES_CODE ||
->  				   md->type == EFI_RUNTIME_SERVICES_DATA);
->  
-> diff --git a/arch/arm64/kernel/pi/map_kernel.c b/arch/arm64/kernel/pi/map_kernel.c
-> index a852264958c3..fb44cbdd2f29 100644
-> --- a/arch/arm64/kernel/pi/map_kernel.c
-> +++ b/arch/arm64/kernel/pi/map_kernel.c
-> @@ -165,7 +165,7 @@ static void noinline __section(".idmap.text") set_ttbr0_for_lpa2(phys_addr_t ttb
->  static void __init remap_idmap_for_lpa2(void)
->  {
->  	/* clear the bits that change meaning once LPA2 is turned on */
-> -	ptdesc_t mask = PTE_SHARED;
-> +	ptval_t mask = PTE_SHARED;
->  
->  	/*
->  	 * We have to clear bits [9:8] in all block or page descriptors in the
-> diff --git a/arch/arm64/kernel/pi/map_range.c b/arch/arm64/kernel/pi/map_range.c
-> index de52cd85c691..761b14893f74 100644
-> --- a/arch/arm64/kernel/pi/map_range.c
-> +++ b/arch/arm64/kernel/pi/map_range.c
-> @@ -31,7 +31,7 @@ void __init map_range(phys_addr_t *pte, u64 start, u64 end, phys_addr_t pa,
->  		      u64 va_offset)
->  {
->  	u64 cmask = (level == 3) ? CONT_PTE_SIZE - 1 : U64_MAX;
-> -	ptdesc_t protval = pgprot_val(prot) & ~PTE_TYPE_MASK;
-> +	ptval_t protval = pgprot_val(prot) & ~PTE_TYPE_MASK;
->  	int lshift = (3 - level) * PTDESC_TABLE_SHIFT;
->  	u64 lmask = (PAGE_SIZE << lshift) - 1;
->  
-> @@ -88,7 +88,7 @@ void __init map_range(phys_addr_t *pte, u64 start, u64 end, phys_addr_t pa,
->  	}
->  }
->  
-> -asmlinkage phys_addr_t __init create_init_idmap(pgd_t *pg_dir, ptdesc_t clrmask)
-> +asmlinkage phys_addr_t __init create_init_idmap(pgd_t *pg_dir, ptval_t clrmask)
->  {
->  	phys_addr_t ptep = (phys_addr_t)pg_dir + PAGE_SIZE; /* MMU is off */
->  	pgprot_t text_prot = PAGE_KERNEL_ROX;
-> diff --git a/arch/arm64/kernel/pi/pi.h b/arch/arm64/kernel/pi/pi.h
-> index aec3172d4003..5dfd8484d200 100644
-> --- a/arch/arm64/kernel/pi/pi.h
-> +++ b/arch/arm64/kernel/pi/pi.h
-> @@ -35,4 +35,4 @@ void map_range(phys_addr_t *pte, u64 start, u64 end, phys_addr_t pa,
->  
->  asmlinkage void early_map_kernel(u64 boot_status, phys_addr_t fdt);
->  
-> -asmlinkage phys_addr_t create_init_idmap(pgd_t *pgd, ptdesc_t clrmask);
-> +asmlinkage phys_addr_t create_init_idmap(pgd_t *pgd, ptval_t clrmask);
-> diff --git a/arch/arm64/mm/mmap.c b/arch/arm64/mm/mmap.c
-> index 92b2f5097a96..32e0771d6477 100644
-> --- a/arch/arm64/mm/mmap.c
-> +++ b/arch/arm64/mm/mmap.c
-> @@ -34,7 +34,7 @@ static pgprot_t protection_map[16] __ro_after_init = {
->  	[VM_SHARED | VM_EXEC | VM_WRITE | VM_READ]	= PAGE_SHARED_EXEC
->  };
->  
-> -static ptdesc_t gcs_page_prot __ro_after_init = _PAGE_GCS_RO;
-> +static ptval_t gcs_page_prot __ro_after_init = _PAGE_GCS_RO;
->  
->  /*
->   * You really shouldn't be using read() or write() on /dev/mem.  This might go
-> @@ -87,7 +87,7 @@ arch_initcall(adjust_protection_map);
->  
->  pgprot_t vm_get_page_prot(vm_flags_t vm_flags)
->  {
-> -	ptdesc_t prot;
-> +	ptval_t prot;
->  
->  	/* Short circuit GCS to avoid bloating the table. */
->  	if (system_supports_gcs() && (vm_flags & VM_SHADOW_STACK)) {
-> diff --git a/arch/arm64/mm/pageattr.c b/arch/arm64/mm/pageattr.c
-> index ce035e1b4eaf..bbe98ac9ad8c 100644
-> --- a/arch/arm64/mm/pageattr.c
-> +++ b/arch/arm64/mm/pageattr.c
-> @@ -21,7 +21,7 @@ struct page_change_data {
->  	pgprot_t clear_mask;
->  };
->  
-> -static ptdesc_t set_pageattr_masks(ptdesc_t val, struct mm_walk *walk)
-> +static ptval_t set_pageattr_masks(ptval_t val, struct mm_walk *walk)
->  {
->  	struct page_change_data *masks = walk->private;
->  
-> diff --git a/arch/arm64/mm/ptdump.c b/arch/arm64/mm/ptdump.c
-> index ab9899ca1e5f..1c20144700d7 100644
-> --- a/arch/arm64/mm/ptdump.c
-> +++ b/arch/arm64/mm/ptdump.c
-> @@ -194,7 +194,7 @@ void note_page(struct ptdump_state *pt_st, unsigned long addr, int level,
->  	struct ptdump_pg_state *st = container_of(pt_st, struct ptdump_pg_state, ptdump);
->  	struct ptdump_pg_level *pg_level = st->pg_level;
->  	static const char units[] = "KMGTPE";
-> -	ptdesc_t prot = 0;
-> +	ptval_t prot = 0;
->  
->  	/* check if the current level has been folded dynamically */
->  	if (st->mm && ((level == 1 && mm_p4d_folded(st->mm)) ||
+> diff --git a/drivers/gpu/drm/bridge/synopsys/dw-hdmi-qp.c b/drivers/gpu/drm/bridge/synopsys/dw-hdmi-qp.c
+> index d649a1cf07f5..c482a8e7da25 100644
+> --- a/drivers/gpu/drm/bridge/synopsys/dw-hdmi-qp.c
+> +++ b/drivers/gpu/drm/bridge/synopsys/dw-hdmi-qp.c
+> @@ -2,6 +2,7 @@
+>   /*
+>    * Copyright (c) 2021-2022 Rockchip Electronics Co., Ltd.
+>    * Copyright (c) 2024 Collabora Ltd.
+> + * Copyright (c) 2025 Amazon.com, Inc. or its affiliates.
+>    *
+>    * Author: Algea Cao <algea.cao@rock-chips.com>
+>    * Author: Cristian Ciocaltea <cristian.ciocaltea@collabora.com>
+> @@ -21,9 +22,11 @@
+>   #include <drm/display/drm_hdmi_helper.h>
+>   #include <drm/display/drm_hdmi_cec_helper.h>
+>   #include <drm/display/drm_hdmi_state_helper.h>
+> +#include <drm/display/drm_scdc_helper.h>
+>   #include <drm/drm_atomic.h>
+>   #include <drm/drm_atomic_helper.h>
+>   #include <drm/drm_bridge.h>
+> +#include <drm/drm_bridge_helper.h>
+>   #include <drm/drm_connector.h>
+>   #include <drm/drm_edid.h>
+>   #include <drm/drm_modes.h>
+> @@ -39,7 +42,9 @@
+>   #define DDC_SEGMENT_ADDR	0x30
+>   
+>   #define HDMI14_MAX_TMDSCLK	340000000
+> +#define HDMI20_MAX_TMDSRATE	600000000
+>   
+> +#define SCDC_MAX_SOURCE_VERSION	0x1
+>   #define SCRAMB_POLL_DELAY_MS	3000
+>   
+>   /*
+> @@ -164,6 +169,11 @@ struct dw_hdmi_qp {
+>   	} phy;
+>   
+>   	unsigned long ref_clk_rate;
+> +
+> +	struct drm_connector *curr_conn;
+> +	struct delayed_work scramb_work;
+> +	bool scramb_enabled;
+> +
+>   	struct regmap *regm;
+>   	int main_irq;
+>   
+> @@ -749,28 +759,124 @@ static struct i2c_adapter *dw_hdmi_qp_i2c_adapter(struct dw_hdmi_qp *hdmi)
+>   	return adap;
+>   }
+>   
+> +static bool dw_hdmi_qp_supports_scrambling(struct drm_display_info *display)
+> +{
+> +	if (!display->is_hdmi)
+> +		return false;
+> +
+> +	return display->hdmi.scdc.supported &&
+> +		display->hdmi.scdc.scrambling.supported;
+> +}
+> +
+> +static int dw_hdmi_qp_set_scramb(struct dw_hdmi_qp *hdmi)
+> +{
+> +	bool done;
+> +
+> +	dev_dbg(hdmi->dev, "set scrambling\n");
+> +
+> +	done = drm_scdc_set_high_tmds_clock_ratio(hdmi->curr_conn, true);
+> +	if (!done)
+> +		return -EIO;
+> +
+> +	done = drm_scdc_set_scrambling(hdmi->curr_conn, true);
+> +	if (!done) {
+> +		drm_scdc_set_high_tmds_clock_ratio(hdmi->curr_conn, false);
+> +		return -EIO;
+> +	}
+> +
+> +	schedule_delayed_work(&hdmi->scramb_work,
+> +			      msecs_to_jiffies(SCRAMB_POLL_DELAY_MS));
+> +	return 0;
+> +}
+> +
+> +static void dw_hdmi_qp_scramb_work(struct work_struct *work)
+> +{
+> +	struct dw_hdmi_qp *hdmi = container_of(to_delayed_work(work),
+> +					       struct dw_hdmi_qp,
+> +					       scramb_work);
+> +	if (READ_ONCE(hdmi->scramb_enabled) &&
+> +	    !drm_scdc_get_scrambling_status(hdmi->curr_conn))
+> +		dw_hdmi_qp_set_scramb(hdmi);
+> +}
+> +
+> +static void dw_hdmi_qp_enable_scramb(struct dw_hdmi_qp *hdmi)
+> +{
+> +	int ret;
+> +	u8 ver;
+> +
+> +	if (!dw_hdmi_qp_supports_scrambling(&hdmi->curr_conn->display_info))
+> +		return;
+> +
+> +	ret = drm_scdc_readb(hdmi->bridge.ddc, SCDC_SINK_VERSION, &ver);
+> +	if (ret) {
+> +		dev_err(hdmi->dev, "Failed to read SCDC_SINK_VERSION: %d\n", ret);
+> +		return;
+> +	}
+> +
+> +	ret = drm_scdc_writeb(hdmi->bridge.ddc, SCDC_SOURCE_VERSION,
+> +			      min_t(u8, ver, SCDC_MAX_SOURCE_VERSION));
+> +	if (ret) {
+> +		dev_err(hdmi->dev, "Failed to write SCDC_SOURCE_VERSION: %d\n", ret);
+> +		return;
+> +	}
+> +
+> +	WRITE_ONCE(hdmi->scramb_enabled, true);
+> +
+> +	ret = dw_hdmi_qp_set_scramb(hdmi);
+> +	if (ret) {
+> +		hdmi->scramb_enabled = false;
+> +		return;
+> +	}
+> +
+> +	dw_hdmi_qp_write(hdmi, 1, SCRAMB_CONFIG0);
+> +
+> +	/* Wait at least 1 ms before resuming TMDS transmission */
+> +	usleep_range(1000, 5000);
+> +}
+> +
+> +static void dw_hdmi_qp_disable_scramb(struct dw_hdmi_qp *hdmi)
+> +{
+> +	if (!hdmi->scramb_enabled)
+> +		return;
+> +
+> +	dev_dbg(hdmi->dev, "disable scrambling\n");
+> +
+> +	WRITE_ONCE(hdmi->scramb_enabled, false);
+> +	cancel_delayed_work_sync(&hdmi->scramb_work);
+> +
+> +	dw_hdmi_qp_write(hdmi, 0, SCRAMB_CONFIG0);
+> +
+> +	if (hdmi->curr_conn->status == connector_status_connected) {
+> +		drm_scdc_set_scrambling(hdmi->curr_conn, false);
+> +		drm_scdc_set_high_tmds_clock_ratio(hdmi->curr_conn, false);
+> +	}
+> +}
+> +
+>   static void dw_hdmi_qp_bridge_atomic_enable(struct drm_bridge *bridge,
+>   					    struct drm_atomic_state *state)
+>   {
+>   	struct dw_hdmi_qp *hdmi = bridge->driver_private;
+>   	struct drm_connector_state *conn_state;
+> -	struct drm_connector *connector;
+>   	unsigned int op_mode;
+>   
+> -	connector = drm_atomic_get_new_connector_for_encoder(state, bridge->encoder);
+> -	if (WARN_ON(!connector))
+> +	hdmi->curr_conn = drm_atomic_get_new_connector_for_encoder(state,
+> +								   bridge->encoder);
+> +	if (WARN_ON(!hdmi->curr_conn))
+>   		return;
+>   
+> -	conn_state = drm_atomic_get_new_connector_state(state, connector);
+> +	conn_state = drm_atomic_get_new_connector_state(state, hdmi->curr_conn);
+>   	if (WARN_ON(!conn_state))
+>   		return;
+>   
+> -	if (connector->display_info.is_hdmi) {
+> +	if (hdmi->curr_conn->display_info.is_hdmi) {
+>   		dev_dbg(hdmi->dev, "%s mode=HDMI %s rate=%llu bpc=%u\n", __func__,
+>   			drm_hdmi_connector_get_output_format_name(conn_state->hdmi.output_format),
+>   			conn_state->hdmi.tmds_char_rate, conn_state->hdmi.output_bpc);
+>   		op_mode = 0;
+>   		hdmi->tmds_char_rate = conn_state->hdmi.tmds_char_rate;
+> +
+> +		if (conn_state->hdmi.tmds_char_rate > HDMI14_MAX_TMDSCLK)
+> +			dw_hdmi_qp_enable_scramb(hdmi);
+>   	} else {
+>   		dev_dbg(hdmi->dev, "%s mode=DVI\n", __func__);
+>   		op_mode = OPMODE_DVI;
+> @@ -781,7 +887,7 @@ static void dw_hdmi_qp_bridge_atomic_enable(struct drm_bridge *bridge,
+>   	dw_hdmi_qp_mod(hdmi, HDCP2_BYPASS, HDCP2_BYPASS, HDCP2LOGIC_CONFIG0);
+>   	dw_hdmi_qp_mod(hdmi, op_mode, OPMODE_DVI, LINK_CONFIG0);
+>   
+> -	drm_atomic_helper_connector_hdmi_update_infoframes(connector, state);
+> +	drm_atomic_helper_connector_hdmi_update_infoframes(hdmi->curr_conn, state);
+>   }
+>   
+>   static void dw_hdmi_qp_bridge_atomic_disable(struct drm_bridge *bridge,
+> @@ -791,14 +897,49 @@ static void dw_hdmi_qp_bridge_atomic_disable(struct drm_bridge *bridge,
+>   
+>   	hdmi->tmds_char_rate = 0;
+>   
+> +	dw_hdmi_qp_disable_scramb(hdmi);
+> +
+> +	hdmi->curr_conn = NULL;
+>   	hdmi->phy.ops->disable(hdmi, hdmi->phy.data);
+>   }
+>   
+> -static enum drm_connector_status
+> -dw_hdmi_qp_bridge_detect(struct drm_bridge *bridge, struct drm_connector *connector)
+> +static int dw_hdmi_qp_reset_crtc(struct dw_hdmi_qp *hdmi,
+> +				 struct drm_connector *connector,
+> +				 struct drm_modeset_acquire_ctx *ctx)
+> +{
+> +	u8 config;
+> +	int ret;
+> +
+> +	ret = drm_scdc_readb(hdmi->bridge.ddc, SCDC_TMDS_CONFIG, &config);
+> +	if (ret < 0) {
+> +		dev_err(hdmi->dev, "Failed to read TMDS config: %d\n", ret);
+> +		return ret;
+> +	}
+> +
+> +	if (!!(config & SCDC_SCRAMBLING_ENABLE) == hdmi->scramb_enabled)
+> +		return 0;
+> +
+> +	drm_atomic_helper_connector_hdmi_hotplug(connector,
+> +						 connector_status_connected);
+> +	/*
+> +	 * Conform to HDMI 2.0 spec by ensuring scrambled data is not sent
+> +	 * before configuring the sink scrambling, as well as suspending any
+> +	 * TMDS transmission while changing the TMDS clock rate in the sink.
+> +	 */
+> +
+> +	dev_dbg(hdmi->dev, "resetting crtc\n");
+> +
+> +	return drm_bridge_helper_reset_crtc(&hdmi->bridge, ctx);
+> +}
+> +
+> +static int dw_hdmi_qp_bridge_detect_ctx(struct drm_bridge *bridge,
+> +					struct drm_connector *connector,
+> +					struct drm_modeset_acquire_ctx *ctx)
+>   {
+>   	struct dw_hdmi_qp *hdmi = bridge->driver_private;
+> +	enum drm_connector_status status;
+>   	const struct drm_edid *drm_edid;
+> +	int ret;
+>   
+>   	if (hdmi->no_hpd) {
+>   		drm_edid = drm_edid_read_ddc(connector, bridge->ddc);
+> @@ -808,7 +949,20 @@ dw_hdmi_qp_bridge_detect(struct drm_bridge *bridge, struct drm_connector *connec
+>   			return connector_status_disconnected;
+>   	}
+>   
+> -	return hdmi->phy.ops->read_hpd(hdmi, hdmi->phy.data);
+> +	status = hdmi->phy.ops->read_hpd(hdmi, hdmi->phy.data);
+> +
+> +	dev_dbg(hdmi->dev, "%s status=%d scramb=%d\n", __func__,
+> +		status, hdmi->scramb_enabled);
+> +
+> +	if (status == connector_status_connected && hdmi->scramb_enabled) {
+> +		ret = dw_hdmi_qp_reset_crtc(hdmi, connector, ctx);
+> +		if (ret == -EDEADLK)
+> +			return ret;
+> +		if (ret < 0)
+> +			status = connector_status_unknown;
+> +	}
+> +
+> +	return status;
+>   }
+>   
+>   static const struct drm_edid *
+> @@ -832,12 +986,12 @@ dw_hdmi_qp_bridge_tmds_char_rate_valid(const struct drm_bridge *bridge,
+>   {
+>   	struct dw_hdmi_qp *hdmi = bridge->driver_private;
+>   
+> -	/*
+> -	 * TODO: when hdmi->no_hpd is 1 we must not support modes that
+> -	 * require scrambling, including every mode with a clock above
+> -	 * HDMI14_MAX_TMDSCLK.
+> -	 */
+> -	if (rate > HDMI14_MAX_TMDSCLK) {
 
-Hello Catalin/Will,
+The locally defined HDMI14_MAX_TMDSCLK has been removed, we should now use HDMI_1_3_CHAR_RATE_MAX,
+and I think we should apply the same change to HDMI20_MAX_TMDSRATE
 
-Any update on this patch ? Could this be pulled in for the next merge
-window so that all D128 patches can be rebased as required. Thank you.
 
-- Anshuman
+> +	if (hdmi->no_hpd && rate > HDMI14_MAX_TMDSCLK) {
+> +		dev_dbg(hdmi->dev, "Unsupported TMDS char rate in no_hpd mode: %lld\n", rate);
+> +		return MODE_CLOCK_HIGH;
+> +	}
+> +
+> +	if (rate > HDMI20_MAX_TMDSRATE) {
+>   		dev_dbg(hdmi->dev, "Unsupported TMDS char rate: %lld\n", rate);
+>   		return MODE_CLOCK_HIGH;
+>   	}
+> @@ -1197,7 +1351,7 @@ static const struct drm_bridge_funcs dw_hdmi_qp_bridge_funcs = {
+>   	.atomic_reset = drm_atomic_helper_bridge_reset,
+>   	.atomic_enable = dw_hdmi_qp_bridge_atomic_enable,
+>   	.atomic_disable = dw_hdmi_qp_bridge_atomic_disable,
+> -	.detect = dw_hdmi_qp_bridge_detect,
+> +	.detect_ctx = dw_hdmi_qp_bridge_detect_ctx,
+>   	.edid_read = dw_hdmi_qp_bridge_edid_read,
+>   	.hdmi_tmds_char_rate_valid = dw_hdmi_qp_bridge_tmds_char_rate_valid,
+>   	.hdmi_clear_avi_infoframe = dw_hdmi_qp_bridge_clear_avi_infoframe,
+> @@ -1287,6 +1441,8 @@ struct dw_hdmi_qp *dw_hdmi_qp_bind(struct platform_device *pdev,
+>   	if (IS_ERR(hdmi))
+>   		return ERR_CAST(hdmi);
+>   
+> +	INIT_DELAYED_WORK(&hdmi->scramb_work, dw_hdmi_qp_scramb_work);
+> +
+>   	hdmi->dev = dev;
+>   
+>   	regs = devm_platform_ioremap_resource(pdev, 0);
+> 
+
 
