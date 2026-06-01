@@ -4,77 +4,118 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 9BD2FCD6E55
-	for <linux-arm-kernel@archiver.kernel.org>; Mon,  1 Jun 2026 18:37:43 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 56FE0CD5BD1
+	for <linux-arm-kernel@archiver.kernel.org>; Mon,  1 Jun 2026 18:37:49 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	MIME-Version:Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-Type:
-	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
-	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
-	bh=453LPwlZ8/0XDh2NTel4qFyIHs7frDqHpyzC5sHiGyg=; b=RgOEXEhnlZxg2UxcDU8OSQRq8Y
-	yfM2e8GkN0VBF5OiRIeqQI42NdjmZjcM8kXFemEooObp6UeL//OhjvTro20bt17d375pQp1eudAf+
-	CbmVUGois3tb3kbjBfKaURp3cnUwUJS6Sc6L+g/UUMfa0dbHFaKcETIxtGfZC4sUrzJ7t2KaL4yi4
-	FWZtwSrj5Rs9jJiVLyt8qbqLy9VpZHHMNV9amTJ3p0T7bo4lUAyScqSe4EyS1xy771ccLEp4MbVp+
-	jKqn9qh4agnBmmcdoIcjBhc0HGUach9GQAT/p+bkjq/iuhA+iDNBKcHKxGHkA2TFhs3Ik123sH42p
-	RFK3eYdg==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:CC:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=/M00uHPrpXxNXVNsPXsHUP5eB6DH2kYr3bGxAcpGoJk=; b=CTAau2mehpyg3x4JWL4VIdn2UP
+	CxyssD7lZswxugKYZhHSsJ2U179Gux1MHJTfa0hSQ8eFYpT4+hNN+1x4US6B5ad3u+IuhnPpYD66X
+	zc/j+FZM7KedIniPtMS/yKoYgW7jt0EM6wQZs06nYKjbyITIqI37BacdVtZ6aC32tf9wZqllpqI1k
+	Z6wrpX/3s/hRvEV4F10wTurzI8gFtLyChZd8fIIufQ+P16PBF0C2ygtucPSDlhH7lwELtZeFN/q+m
+	5Cy92mNeFjBKDs/ihhZRpcvbEqoZiqkFwjL2D4/eHScXIuVrnVxyLzuBAm1lJWInYZVf5BPh4+KU8
+	Xf3ecRkg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wU7W1-0000000Bfdj-0wSR;
-	Mon, 01 Jun 2026 18:37:33 +0000
-Received: from tor.source.kernel.org ([2600:3c04:e001:324:0:1991:8:25])
+	id 1wU7WB-0000000Bffh-1Q1A;
+	Mon, 01 Jun 2026 18:37:43 +0000
+Received: from mail-westcentralusazlp170130007.outbound.protection.outlook.com ([2a01:111:f403:c112::7] helo=CY3PR05CU001.outbound.protection.outlook.com)
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wU7Vz-0000000BfdZ-0yoX
+	id 1wU7W9-0000000Bfef-0C06
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 01 Jun 2026 18:37:31 +0000
-Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
-	by tor.source.kernel.org (Postfix) with ESMTP id 77D34600AA;
-	Mon,  1 Jun 2026 18:37:30 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id F091C1F00893;
-	Mon,  1 Jun 2026 18:37:29 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1780339050;
-	bh=453LPwlZ8/0XDh2NTel4qFyIHs7frDqHpyzC5sHiGyg=;
-	h=From:To:Cc:Subject:Date;
-	b=AeGFnrrsK0E5ty6ct0u3gW1VReUmbexgBW8yoXoczN3DxBHadkBk6Lt6cLL27yoji
-	 TD1au2oJ5rgsPB625hifuG8gVWIBPcbCDrzp1n8n35hCsjzKOaTyqRT0ItaNZwMlAY
-	 f/73X4KLIu4ok1+/RZGsXdm2QoT0qZ1jwuYRLF3o+3Wpdb+EV34DBTnALMJwS+qNyI
-	 cTCahpNQQz9nE6Yvd6nY5uBKHMvFkDjtmLAdrYfLYnJUSiI+40RGegaBz8hCYfPYl7
-	 u8DuXmy6UZwlxyhDHuYg+BXR8YRybd3v9alFTqrTU68jWbLzX9R+PwvzjFdY7RZCD2
-	 CzjYu29f8VVLA==
-From: Tejun Heo <tj@kernel.org>
-To: void@manifault.com,
-	arighi@nvidia.com,
-	changwoo@igalia.com,
-	ast@kernel.org,
-	andrii@kernel.org,
-	daniel@iogearbox.net,
-	martin.lau@linux.dev,
-	memxor@gmail.com
-Cc: peterz@infradead.org,
-	catalin.marinas@arm.com,
-	will@kernel.org,
-	tglx@kernel.org,
-	mingo@redhat.com,
-	bp@alien8.de,
-	dave.hansen@linux.intel.com,
-	akpm@linux-foundation.org,
-	david@kernel.org,
-	rppt@kernel.org,
-	emil@etsalapatis.com,
-	sched-ext@lists.linux.dev,
-	bpf@vger.kernel.org,
-	x86@kernel.org,
-	linux-arm-kernel@lists.infradead.org,
-	linux-mm@kvack.org,
-	linux-kernel@vger.kernel.org,
-	Tejun Heo <tj@kernel.org>
-Subject: [PATCH bpf-next] bpf: Replace scratch PTE atomically when allocating arena pages
-Date: Mon,  1 Jun 2026 08:37:28 -1000
-Message-ID: <20260601183728.1800490-1-tj@kernel.org>
-X-Mailer: git-send-email 2.54.0
+	Mon, 01 Jun 2026 18:37:42 +0000
+ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
+ b=XTpmloNUJ5SBhu7SemmzvDvg/gUjsiYcyd1lZZk3I20X52cbnlxbIhgj7iMyIQe3YBmteqNVSAVwoInhOVblQ5rECpBHHgRXp9Tt4gAECFGkWo+7g683cQASE5rkIy+ymNOOFiZHEBecdZh9tZCzuHlMwvXpKwyvUgg/o955VqzT7uvEtlyMaYvKkWiC17SiIfWp+R2ZQW3h+LqRJyzrZLWBtRJfg4pcRTJ6ZrBclEXYOFMTqwWC2po9m4fOaLkcRPbrWm1HYWixf9Z8sxVrEKYKsFfrVhXY1zSlC3vEaylgoN2vKrz8veucKRpvDezNzwG4Dg25ttvjcOsqlEylXg==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
+ s=arcselector10001;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
+ bh=/M00uHPrpXxNXVNsPXsHUP5eB6DH2kYr3bGxAcpGoJk=;
+ b=yQ6XINDgTz3xCr0xH8TzcNsRT+gc24eVoGl8Pqe+sRW9FHo5ec7sxXZMEbvcOdTPaBazxE/aKlBO+bGCHfPfWFXpt9abBXwpmHyLIvc9Y0U4sOu86Zp+3aQUehtVgK5q+40XYkjlZO8r9D41D//XfyghpZgvVrUWfOHOayUCSYyI4qsvf62xznWLj7MKEh7Kg+Fi4BSxUaERwj7oZfe1hlwx9/D2foYclPBzr2QwhHUj5VyOMajiCmFGnqnFV1u+ynNfBkvMh4c+CF6z4TgnTVq7dMI19SmcOVT56HFB4E4YBaTmUrbB3v4v4zkn+3NZx96ARZJUaSv8gKmYW4CXgw==
+ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass (sender ip is
+ 216.228.117.160) smtp.rcpttodomain=kernel.org smtp.mailfrom=nvidia.com;
+ dmarc=pass (p=reject sp=reject pct=100) action=none header.from=nvidia.com;
+ dkim=none (message not signed); arc=none (0)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=Nvidia.com;
+ s=selector2;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
+ bh=/M00uHPrpXxNXVNsPXsHUP5eB6DH2kYr3bGxAcpGoJk=;
+ b=tiGj2YC5o+/PMpXvuVJr81G3qkCbs4VcDoXhjQmFUCOzJ0zTYh986HCrW9UXjTW760ZpMfOlmwKVUDMKaEW4iLrFGC8O5U5DD86e3VnoKjodypv3qz2I8+Wcpw1HCwSmORe5d4N7XmrbxhrTMFjCE6ctc2YVVqDVPqTRCAfdBujJUpwhBsWLkqQ5UXSVLhLu4qyjKcc4dghj2BFDnPSwGQsJXVicuvJK9u6VZAyh3xDveGFoE/3YPxtv1+28WvsIX08qWgZ4OKJacFJVbe7JPhpNRE5o6lqMIzaxmNCre8/fvejZjlsOIOfPmZI68QMPvkNAG9+myhSCGU/0EI/SfA==
+Received: from SJ0PR03CA0371.namprd03.prod.outlook.com (2603:10b6:a03:3a1::16)
+ by IA1PR12MB7757.namprd12.prod.outlook.com (2603:10b6:208:422::17) with
+ Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.21.71.15; Mon, 1 Jun 2026
+ 18:37:33 +0000
+Received: from SJ1PEPF000026C3.namprd04.prod.outlook.com
+ (2603:10b6:a03:3a1:cafe::8b) by SJ0PR03CA0371.outlook.office365.com
+ (2603:10b6:a03:3a1::16) with Microsoft SMTP Server (version=TLS1_3,
+ cipher=TLS_AES_256_GCM_SHA384) id 15.21.71.16 via Frontend Transport; Mon, 1
+ Jun 2026 18:37:32 +0000
+X-MS-Exchange-Authentication-Results: spf=pass (sender IP is 216.228.117.160)
+ smtp.mailfrom=nvidia.com; dkim=none (message not signed)
+ header.d=none;dmarc=pass action=none header.from=nvidia.com;
+Received-SPF: Pass (protection.outlook.com: domain of nvidia.com designates
+ 216.228.117.160 as permitted sender) receiver=protection.outlook.com;
+ client-ip=216.228.117.160; helo=mail.nvidia.com; pr=C
+Received: from mail.nvidia.com (216.228.117.160) by
+ SJ1PEPF000026C3.mail.protection.outlook.com (10.167.244.100) with Microsoft
+ SMTP Server (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
+ 15.21.92.5 via Frontend Transport; Mon, 1 Jun 2026 18:37:32 +0000
+Received: from rnnvmail204.nvidia.com (10.129.68.6) by mail.nvidia.com
+ (10.129.200.66) with Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.2.2562.20; Mon, 1 Jun
+ 2026 11:37:05 -0700
+Received: from rnnvmail205.nvidia.com (10.129.68.10) by rnnvmail204.nvidia.com
+ (10.129.68.6) with Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.2.2562.20; Mon, 1 Jun
+ 2026 11:37:05 -0700
+Received: from Asurada-Nvidia (10.127.8.9) by mail.nvidia.com (10.129.68.10)
+ with Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.2.2562.20 via Frontend
+ Transport; Mon, 1 Jun 2026 11:37:04 -0700
+Date: Mon, 1 Jun 2026 11:37:02 -0700
+From: Nicolin Chen <nicolinc@nvidia.com>
+To: Ashish Mhetre <amhetre@nvidia.com>
+CC: <will@kernel.org>, <robin.murphy@arm.com>, <joro@8bytes.org>,
+	<jgg@ziepe.ca>, <linux-arm-kernel@lists.infradead.org>,
+	<iommu@lists.linux.dev>, <linux-kernel@vger.kernel.org>,
+	<linux-tegra@vger.kernel.org>
+Subject: Re: [PATCH v3 3/3] iommu/arm-smmu-v3: Issue CFGI/TLBI twice on
+ Tegra264
+Message-ID: <ah3RTuCc0sCNE/eY@Asurada-Nvidia>
+References: <20260601104845.995005-1-amhetre@nvidia.com>
+ <20260601104845.995005-4-amhetre@nvidia.com>
 MIME-Version: 1.0
-Content-Transfer-Encoding: 8bit
+Content-Type: text/plain; charset="us-ascii"
+Content-Disposition: inline
+In-Reply-To: <20260601104845.995005-4-amhetre@nvidia.com>
+X-NV-OnPremToCloud: ExternallySecured
+X-EOPAttributedMessage: 0
+X-MS-PublicTrafficType: Email
+X-MS-TrafficTypeDiagnostic: SJ1PEPF000026C3:EE_|IA1PR12MB7757:EE_
+X-MS-Office365-Filtering-Correlation-Id: a8b3a662-cc5a-4626-9868-08dec00cd7de
+X-MS-Exchange-SenderADCheck: 1
+X-MS-Exchange-AntiSpam-Relay: 0
+X-Microsoft-Antispam: BCL:0;ARA:13230040|1800799024|36860700016|82310400026|376014|18002099003|22082099003|56012099006|4143699003|11063799006|3023799007;
+X-Microsoft-Antispam-Message-Info: unBglECXLg3wa8TM3s3l+ksEqDCNU1hlc90L5nNfAVNblSXxEvrrcdSG4+AUv521i/1Q0c8id2ddcHcx2gSskZFPfBXleRqkwxQuL4fATV5WJcFhEr0zPOcdLk8wfNXu4AWTWVEM1WpxM/wHQtrde/8RTjPGMoHZy1Qai53tkjisq8E6TBxbZPe5nZwkPzfC4n0JxOTwv77mb6YzAPaD9hjlPdvhuzVHwuzV/JhQewZ7wxoOJiivzeKR8S/dRtu/NN8K2rO9ab91dNs207DzcTMDPn3QGX/MQcz5fJgJdeE0AUDq6mhETmVbDAHSS8m6+xTsDyDsZNbzU7EFlhqWrhZY7FKTooq9w//1XjtSYB0vW50L9s3t8UxzM5L1N7gnxhYv5PA9JhODDb+ZxNuAm19LVBh+gojG6Ghy+zSIkyP5cVd3CJGcb1aGUjWzqyTvuhe1isFVPiCdk1yWOzEoFRWiWOSQ6s0Q2VKBn2f4fwn0Da3fW8KDulU+LQvadbKOVBOBOD0b4imSJCUUh/gIygikqTz4/PXxWE3ZV1Jt4/Duy914rFEXrrv2nCnf1iny3K/KwumI5g7KAdXdLN2Q/IcCs9SAZRE/pJc0wvmMttm8qs4IT/mF/VcxBxL5hAeRqL+YA6WD7wgufXSaP7tcmYGHZJ5EfnpfdbZ+DIzIq/W0tcoR9s3oLai/eSwXVcnNCyZwQVpINRc167EAU2xMqQaAcJ1ElZDsAQVeK9faq4Y=
+X-Forefront-Antispam-Report: CIP:216.228.117.160;CTRY:US;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:mail.nvidia.com;PTR:dc6edge1.nvidia.com;CAT:NONE;SFS:(13230040)(1800799024)(36860700016)(82310400026)(376014)(18002099003)(22082099003)(56012099006)(4143699003)(11063799006)(3023799007);DIR:OUT;SFP:1101;
+X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
+X-MS-Exchange-AntiSpam-MessageData-0: vq0kAIM9HKH4B4GBa7HKA1LEgRLNgDeP2Z/6nl7VDg+A/96v6CXtV9F8ozBVUjditYC7iAGcjWAam+PMxmUeB+Qq+lOkDgZqlznCXV0FtyJLgdOJcnNSIGSOBYh2WDEpLCYvdLWwtq/Qds+0cBloHM9oXiwciYwh+C4uQjxyRWJoUhJNjkDwOTlnHfq8VIg/EM1znI5trvG9d0UjUv810YYSyzUQ3PvFmqecbg+oqJpbWif5rQMr+0w40mxw1H0STA55V9lJh9ig6rz4byDXUGSzb3D0YRQXi/f4vaIBBhGZ0y9durAb/tXO62wu4+q3qtxU0w9mRaEvsUgv5h7cVHCoSSZVMsbr//LiURsA90k9ZDQ4rU2ivlx/nuln474bqF4a/AJE8jnG4zRF2mLsnqiDALKA2HpcmkJuKEmaCeFjabh/YV6mx3Yi43FIivHj
+X-OriginatorOrg: Nvidia.com
+X-MS-Exchange-CrossTenant-OriginalArrivalTime: 01 Jun 2026 18:37:32.5583
+ (UTC)
+X-MS-Exchange-CrossTenant-Network-Message-Id: a8b3a662-cc5a-4626-9868-08dec00cd7de
+X-MS-Exchange-CrossTenant-Id: 43083d15-7273-40c1-b7db-39efd9ccc17a
+X-MS-Exchange-CrossTenant-OriginalAttributedTenantConnectingIp: TenantId=43083d15-7273-40c1-b7db-39efd9ccc17a;Ip=[216.228.117.160];Helo=[mail.nvidia.com]
+X-MS-Exchange-CrossTenant-AuthSource: SJ1PEPF000026C3.namprd04.prod.outlook.com
+X-MS-Exchange-CrossTenant-AuthAs: Anonymous
+X-MS-Exchange-CrossTenant-FromEntityHeader: HybridOnPrem
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: IA1PR12MB7757
+X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
+X-CRM114-CacheID: sfid-20260601_113741_092080_A33FBD88 
+X-CRM114-Status: GOOD (  11.67  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -89,163 +130,27 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-apply_range_set_cb() maps the pages for a new arena allocation and returned
--EBUSY when the target PTE was already populated. Kernel-fault recovery
-leaves the per-arena scratch page in unallocated arena PTEs, so a later
-bpf_arena_alloc_pages() over such a page hits that -EBUSY, and every
-subsequent allocation of it fails the same way. Allocation must install the
-real page over scratch instead.
+On Mon, Jun 01, 2026 at 10:48:45AM +0000, Ashish Mhetre wrote:
+> Apply the workaround for Tegra264 erratum ARM_SMMU_OPT_TLBI_TWICE by
+> issuing every CFGI/TLBI cmdlist twice on affected SMMU instances, with
+> CMD_SYNC after each. The erratum requires this exact sequencing:
+> 
+>     TLBI/CFGI ... CMD_SYNC TLBI/CFGI ... CMD_SYNC
+> 
+> Rename the existing arm_smmu_cmdq_issue_cmdlist() to
+> __arm_smmu_cmdq_issue_cmdlist() and add a thin wrapper that, on
+> affected SMMUs and when @sync is true, re-issues the same cmdlist a
+> second time when arm_smmu_cmd_needs_tlbi_twice() is true.
+> 
+> For the in-tree batching path, register the Tegra264 condition with
+> arm_smmu_cmdq_batch_force_sync() so that a full batch carrying
+> CFGI/TLBI commands flushes with sync=true.
+> 
+> For iommufd VSMMU path add an arm_vsmmu_can_batch_cmd() predicate that
+> splits the iommufd batch at cmd which doesn't need doubling.
+> 
+> Suggested-by: Nicolin Chen <nicolinc@nvidia.com>
+> Signed-off-by: Ashish Mhetre <amhetre@nvidia.com>
 
-Overwriting the scratch PTE in place is a valid->valid change, which arm64
-forbids without break-before-make. Route through an invalid entry instead:
-ptep_try_set() fills only a none slot, so the PTE goes scratch->none->page.
-On finding scratch, clear it and flush_tlb_before_set() before retrying. The
-new flush_tlb_before_set() is a no-op except on arches like arm64 that need
-the break-before-make TLB invalidate. The loop also copes with a concurrent
-fault re-scratching the slot.
-
-Arches without ptep_try_set() never install the scratch page, so keep the
-must-be-empty check and set_pte_at() for them.
-
-Fixes: dc11a4dba246 ("bpf: Recover arena kernel faults with scratch page")
-Signed-off-by: Tejun Heo <tj@kernel.org>
-Cc: Alexei Starovoitov <ast@kernel.org>
-Cc: David Hildenbrand <david@kernel.org>
----
-
- arch/arm64/include/asm/pgtable.h |   11 +++++++++++
- include/linux/pgtable.h          |   18 ++++++++++++++++++
- kernel/bpf/arena.c               |   38 +++++++++++++++++++++++++++++++++-----
- 3 files changed, 62 insertions(+), 5 deletions(-)
-
-diff --git a/arch/arm64/include/asm/pgtable.h b/arch/arm64/include/asm/pgtable.h
-index 984f050..3ce0f2a 100644
---- a/arch/arm64/include/asm/pgtable.h
-+++ b/arch/arm64/include/asm/pgtable.h
-@@ -1842,6 +1842,17 @@ static inline bool ptep_try_set(pte_t *ptep, pte_t new_pte)
- }
- #define ptep_try_set ptep_try_set
- 
-+/*
-+ * arm64 mandates break-before-make: a cleared kernel PTE must have its TLB
-+ * invalidated before a different page is installed in its place. The broadcast
-+ * TLBI is an instruction, not an IPI, so this is safe with interrupts disabled.
-+ */
-+static inline void flush_tlb_before_set(unsigned long addr)
-+{
-+	flush_tlb_kernel_range(addr, addr + PAGE_SIZE);
-+}
-+#define flush_tlb_before_set flush_tlb_before_set
-+
- #define test_and_clear_young_ptes test_and_clear_young_ptes
- static inline bool test_and_clear_young_ptes(struct vm_area_struct *vma,
- 		unsigned long addr, pte_t *ptep, unsigned int nr)
-diff --git a/include/linux/pgtable.h b/include/linux/pgtable.h
-index b5739bb..4c6c408 100644
---- a/include/linux/pgtable.h
-+++ b/include/linux/pgtable.h
-@@ -1061,6 +1061,24 @@ static inline bool ptep_try_set(pte_t *ptep, pte_t new_pte)
- }
- #endif
- 
-+#ifndef flush_tlb_before_set
-+/**
-+ * flush_tlb_before_set - invalidate a kernel PTE's TLB before re-setting it
-+ * @addr: kernel virtual address whose PTE was just cleared
-+ *
-+ * Some architectures (e.g. arm64) do not allow a live page-table entry to be
-+ * repointed at a different page in one step. The old entry must first be made
-+ * invalid and its translation flushed from every TLB, and only then may the new
-+ * entry be written.
-+ *
-+ * This is only for the lockless atomic kernel-PTE installers (ptep_try_set()).
-+ * It must be callable with interrupts disabled.
-+ */
-+static inline void flush_tlb_before_set(unsigned long addr)
-+{
-+}
-+#endif
-+
- #ifndef wrprotect_ptes
- /**
-  * wrprotect_ptes - Write-protect PTEs that map consecutive pages of the same
-diff --git a/kernel/bpf/arena.c b/kernel/bpf/arena.c
-index 1727503..b6ac5a9 100644
---- a/kernel/bpf/arena.c
-+++ b/kernel/bpf/arena.c
-@@ -142,6 +142,7 @@ static long compute_pgoff(struct bpf_arena *arena, long uaddr)
- 
- struct apply_range_data {
- 	struct page **pages;
-+	struct page *scratch_page;
- 	int i;
- };
- 
-@@ -154,19 +155,44 @@ static int apply_range_set_cb(pte_t *pte, unsigned long addr, void *data)
- {
- 	struct apply_range_data *d = data;
- 	struct page *page;
-+	pte_t pteval;
- 
- 	if (!data)
- 		return 0;
--	/* sanity check */
--	if (unlikely(!pte_none(ptep_get(pte))))
--		return -EBUSY;
- 
- 	page = d->pages[d->i];
- 	/* paranoia, similar to vmap_pages_pte_range() */
- 	if (WARN_ON_ONCE(!pfn_valid(page_to_pfn(page))))
- 		return -EINVAL;
- 
--	set_pte_at(&init_mm, addr, pte, mk_pte(page, PAGE_KERNEL));
-+	pteval = mk_pte(page, PAGE_KERNEL);
-+#ifdef ptep_try_set
-+	/*
-+	 * Kernel-fault recovery may have installed the scratch page here, and
-+	 * some architectures (arm64) prohibit valid->valid PTE transitions.
-+	 * Install atomically into a none slot. If scratch is present, clear it
-+	 * and flush_tlb_before_set() (break-before-make) before retrying.
-+	 */
-+	while (!ptep_try_set(pte, pteval)) {
-+		pte_t old = ptep_get(pte);
-+
-+		if (pte_none(old))
-+			continue;
-+		if (WARN_ON_ONCE(pte_page(old) != d->scratch_page))
-+			return -EBUSY;
-+		ptep_get_and_clear(&init_mm, addr, pte);
-+		flush_tlb_before_set(addr);
-+	}
-+#else
-+	/*
-+	 * Without ptep_try_set() there is no atomic installer, but such arches
-+	 * also do not wire up bpf_arena_handle_page_fault(), so no scratch page
-+	 * is ever installed and the slot is always none here.
-+	 */
-+	if (unlikely(!pte_none(ptep_get(pte))))
-+		return -EBUSY;
-+	set_pte_at(&init_mm, addr, pte, pteval);
-+#endif
- 	d->i++;
- 	return 0;
- }
-@@ -475,7 +501,8 @@ static vm_fault_t arena_vm_fault(struct vm_fault *vmf)
- 	if (ret)
- 		goto out_sigsegv_memcg;
- 
--	struct apply_range_data data = { .pages = &page, .i = 0 };
-+	struct apply_range_data data = { .pages = &page, .i = 0,
-+					 .scratch_page = arena->scratch_page };
- 	/* Account into memcg of the process that created bpf_arena */
- 	ret = bpf_map_alloc_pages(map, NUMA_NO_NODE, 1, &page);
- 	if (ret) {
-@@ -665,6 +692,7 @@ static long arena_alloc_pages(struct bpf_arena *arena, long uaddr, long page_cnt
- 		return 0;
- 	}
- 	data.pages = pages;
-+	data.scratch_page = arena->scratch_page;
- 
- 	if (raw_res_spin_lock_irqsave(&arena->spinlock, flags))
- 		goto out_free_pages;
+Reviewed-by: Nicolin Chen <nicolinc@nvidia.com>
 
