@@ -4,49 +4,49 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id DE607CD6E56
-	for <linux-arm-kernel@archiver.kernel.org>; Mon,  1 Jun 2026 12:23:09 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id A4789CD5BD1
+	for <linux-arm-kernel@archiver.kernel.org>; Mon,  1 Jun 2026 12:23:24 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
 	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
 	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=2HJYM3dNzF5LORInRRkOcTckUxVkdRL/1E6g7brQZRI=; b=ynoPcxXSdfjnOG9U3zeWz7Xzwl
-	d3ID2N6l8Y2CNyMPmYA7rHsq/l6oDhWDjWQ9/4faU/KS6YjNAro6eawGBxHQsPi8C+W2oCdE7gHRv
-	PeTqbiu+glHhnGSwyWoK7K1nPCeMhS0CVMETSbmGt75qEjrg4mKbohEcesiIDMFFjdilzgRemYCPy
-	VFbN9sN0A+pDhvCiA9stS3QvfRK+L5tQNniNJghBPeW8rRWS49u+kjoTyt8DU3m1yZ0yesePpWpt+
-	u/r+gXjwdWFTiPR6GctfwPda6a8gB0LDd64Tmyjn3ly1yCQQmOMT6nyBzy6Gcs1fRsXyHYbInpKcS
-	6qWByBcw==;
+	bh=nJCaoM91VpKZfWQWP/5PUdBhVElKt1iDyT7TnkO/j00=; b=rCXqIXQpU8+ntw2B7TZwx5dKGS
+	cqg1zH1fzTRbJxSbIzwEOGgplSa0voGxlCD7JRSfwkzuTbunfdkMHL57y55UBbRSAm53ISdHwl2wc
+	pgEuz2JRVEK3S38lg41DUGYfKSy3xIjEN/TVOBvgovltOoflfsAdXO2TxquKGe/pF3h1q3S/bfhFR
+	BO+FnsiMrjjQzaWpk8zu5HnJzRgA0z1XpElcwA4mni6GCvCWqyi7xduAVpFG0P3zwMGqL3WE6nhJh
+	JZ8utQBCfXtqcU3Y21Q6f9kGKZW/nyOr9AraYpPweL4XnK1VaR93qU2tzsU/D7eLoMCX8AZxZQUR9
+	K72k6yjw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wU1fb-0000000B6rC-14T8;
-	Mon, 01 Jun 2026 12:23:03 +0000
-Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
+	id 1wU1fq-0000000B6vQ-2dse;
+	Mon, 01 Jun 2026 12:23:18 +0000
+Received: from sea.source.kernel.org ([172.234.252.31])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wU1fY-0000000B6qQ-296i;
-	Mon, 01 Jun 2026 12:23:01 +0000
+	id 1wU1fo-0000000B6uN-1NHY;
+	Mon, 01 Jun 2026 12:23:17 +0000
 Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
-	by sea.source.kernel.org (Postfix) with ESMTP id 22FDD43730;
-	Mon,  1 Jun 2026 12:23:00 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 2F0ED1F00898;
-	Mon,  1 Jun 2026 12:22:53 +0000 (UTC)
+	by sea.source.kernel.org (Postfix) with ESMTP id 831F440B63;
+	Mon,  1 Jun 2026 12:23:15 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id D4FAC1F00893;
+	Mon,  1 Jun 2026 12:23:09 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1780316580;
-	bh=2HJYM3dNzF5LORInRRkOcTckUxVkdRL/1E6g7brQZRI=;
+	s=k20260515; t=1780316595;
+	bh=nJCaoM91VpKZfWQWP/5PUdBhVElKt1iDyT7TnkO/j00=;
 	h=Date:Subject:To:Cc:References:From:In-Reply-To;
-	b=HZ3/nOybNpQqn0VWCdJ2o/JEoKM5S5V32oi7n7pgsEbQHunMGrVGX/HLFHrTnWLHp
-	 TH9t7N53LRFcLDUhY1wmjXCVr8VKlLfC8xgVuIgm1WZFJaBNVv1/BcyuAT4tV4dBut
-	 d98zL8IwhBmWtTeTTBtXvqk9h+9KCqHW2PSEibV5EYrzX4NiM5zFe/etvUptu1g+G6
-	 ZoDvZDh01VdKnmb62ATtqUPMivusVohx2G34SOXtciUYaYP1iwy21J8kTDyUMaVahX
-	 i2ra0fXDTeknDXQ2P+LrkhpdhouEW/Bg2iz3DC7RdrI/LHEcSiyBw2ju1w08pXaLDy
-	 4BVj1LSte2+dA==
-Message-ID: <db8d440d-c8a1-4f77-b5d9-00bab8737f12@kernel.org>
-Date: Mon, 1 Jun 2026 14:22:52 +0200
+	b=J6Qh0QtILNf67i7Bca2/p59Xf4vTiAbfvsb2nezebefYadRAp0p9yWFug/E12s1jD
+	 RQvXWD4MSepeDA9QX0uC2wG4HjENaCS8GNifYaTqB/bY2KdWthhslFdCnMWk29pUCC
+	 R2vdEDETX2GkLw5N7k5vZNZgflMkksMyLL8nKCJ/NYml9hBve0TEEPXWkRMTCYKgMj
+	 ssQLCkU/O8+jBOXJu57NfQ2Mkr2UG00LCi304riFqeGL54E02Y/p4omgSdNe167K5t
+	 ZLrz/YoHBzIslYWCLKvZm6gUWzbNW2QfPhsgg1CKk89OYjLHIlyFF5tBV4MJlshJhM
+	 ezMshiJz2UAMQ==
+Message-ID: <c9783e61-cbc0-449a-9a0b-db40fb335e99@kernel.org>
+Date: Mon, 1 Jun 2026 14:23:08 +0200
 MIME-Version: 1.0
 User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH v3 1/5] mm/sparse-vmemmap: provide generic
- vmemmap_set_pmd() and vmemmap_check_pmd()
+Subject: Re: [PATCH v3 2/5] arm64/mm: drop vmemmap_pmd helpers and use generic
+ code
 To: Muchun Song <songmuchun@bytedance.com>,
  Andrew Morton <akpm@linux-foundation.org>,
  Catalin Marinas <catalin.marinas@arm.com>, Will Deacon <will@kernel.org>,
@@ -62,7 +62,7 @@ Cc: Muchun Song <muchun.song@linux.dev>, linux-mm@kvack.org,
  Vlastimil Babka <vbabka@kernel.org>, Mike Rapoport <rppt@kernel.org>,
  Suren Baghdasaryan <surenb@google.com>, Michal Hocko <mhocko@suse.com>
 References: <20260601084845.3792171-1-songmuchun@bytedance.com>
- <20260601084845.3792171-2-songmuchun@bytedance.com>
+ <20260601084845.3792171-3-songmuchun@bytedance.com>
 From: "David Hildenbrand (Arm)" <david@kernel.org>
 Content-Language: en-US
 Autocrypt: addr=david@kernel.org; keydata=
@@ -109,12 +109,13 @@ Autocrypt: addr=david@kernel.org; keydata=
  3iyY2Nsd7JxfKu1PRhCGwXzRw5TlfEsoRI7V9A8isUCoqE2Dzh3FvYHVeX4Us+bRL/oqareJ
  CIFqgYMyvHj7Q06kTKmauOe4Nf0l0qEkIuIzfoLJ3qr5UyXc2hLtWyT9Ir+lYlX9efqh7mOY
  qIws/H2t
-In-Reply-To: <20260601084845.3792171-2-songmuchun@bytedance.com>
+In-Reply-To: <20260601084845.3792171-3-songmuchun@bytedance.com>
 Content-Type: text/plain; charset=UTF-8
 Content-Transfer-Encoding: 7bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260601_052300_591941_916DED9F 
-X-CRM114-Status: GOOD (  15.38  )
+X-CRM114-CacheID: sfid-20260601_052316_409675_7CC6EB63 
+X-CRM114-Status: UNSURE (   5.75  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -130,42 +131,13 @@ Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
 On 6/1/26 10:48, Muchun Song wrote:
-> The two weak functions are currently no-ops on every architecture,
-> forcing each platform that needs them to duplicate the same handful
-> of lines.  Provide a generic implementation:
-> 
-> - vmemmap_set_pmd() simply sets a huge PMD with PAGE_KERNEL protection.
-> 
-> - vmemmap_check_pmd() verifies that the PMD is present and leaf,
->   then calls the existing vmemmap_verify() helper.
-> 
-> Architectures that need special handling can continue to override the
-> weak symbols; everyone else gets the standard version for free.
+> The generic implementations now suffice; remove the arm64 copies.
 > 
 > Signed-off-by: Muchun Song <songmuchun@bytedance.com>
+> Acked-by: Will Deacon <will@kernel.org>
 > ---
-> v2->v3:
-> - Replace BUG_ON() with WARN_ON_ONCE() in vmemmap_set_pmd()
-> ---
->  mm/sparse-vmemmap.c | 7 ++++++-
->  1 file changed, 6 insertions(+), 1 deletion(-)
-> 
-> diff --git a/mm/sparse-vmemmap.c b/mm/sparse-vmemmap.c
-> index 112ccf9c71ca..99e2be39671b 100644
-> --- a/mm/sparse-vmemmap.c
-> +++ b/mm/sparse-vmemmap.c
-> @@ -386,12 +386,17 @@ int __meminit vmemmap_populate_hvo(unsigned long addr, unsigned long end,
->  void __weak __meminit vmemmap_set_pmd(pmd_t *pmd, void *p, int node,
->  				      unsigned long addr, unsigned long next)
->  {
-> +	WARN_ON_ONCE(!pmd_set_huge(pmd, virt_to_phys(p), PAGE_KERNEL));
 
-
-Not sure if a VM_WARN_ON_ONCE() would be appropriate. (then, we have to move the
-pmd_set_huge() out of the statement).
-
-Acked-by: David Hildenbrand (Arm) <david@kernel.org>
-
+Reviewed-by: David Hildenbrand (Arm) <david@kernel.org>
 
 -- 
 Cheers,
