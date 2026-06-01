@@ -4,81 +4,131 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 8A994CD6E55
-	for <linux-arm-kernel@archiver.kernel.org>; Mon,  1 Jun 2026 22:09:42 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id B6E2ACD5BD1
+	for <linux-arm-kernel@archiver.kernel.org>; Mon,  1 Jun 2026 22:11:40 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:In-Reply-To:
+	Content-Type:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
 	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=1lK1yNZdrKT8RuPFT6vih0wWSf1jo44LoNBqX+KfL0M=; b=L4JYMV3qKhq9P2M6VWWNIB2ZfO
-	81X4zXyzLfnrJ0CTNZhs9fbEj220Y0dsQsnoJx8gvaVcIV9Ex9zppLx3fMapCCijjrJTbWpQmgjg3
-	HHyL/rm1gZK8XvZIpaw2tubHeqpC3eiF64hXkiDzIzCmg71RKWpRAm1Yr5PitjSXVZtsmTlP8fqZ3
-	3Fo2pZ4YooegIt42E4Uc0eWLQmTIeiihvR0DCPhTL27xVyKXG08mBQBnNLjTxQNWGFD107KeYNfmA
-	gb7a5e/wzg5xzbgiStdz1x04oIy+zehFormShk1xOpAxCyzvvSRXJjpLgq3cSZMEPOzUlMqBj0/eY
-	CTptamYw==;
+	bh=SNSHreha00E0q7a3YgiMGWNxhQ+RxE7lv+Mz8X0dzZw=; b=J+6kvG452ArQded5A9pMNxFrCE
+	FhCpxsw66yl4V3M8ITTFjQo25Jf+sY0aiHmb04tGpRr/bElulLzguaa5DqF2+LUbDjpDPZGAOJrcF
+	8H9QVRTmEcGYj8WgHfoHmoGZBENMHP4fe+xDPy8BNlNMPeR1SoitActNAsKf92p+W8eou5BB79u0s
+	+rihDTvs54Zi1a6C7Jstyq/nSaATZ3mdnerGIURcB/sQtqfSV715qHOzcH7ocFaG0k/oAhzl7e78P
+	Ysk8pJ+hjxQ7zmp50W+J1twXS2MjMAzCQRdUBkvS0OoJar8T/OMSD5+p0xB33x7q4OfN7sy/9h3Is
+	7O8Mw+Wg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wUApC-0000000Buxw-2oLQ;
-	Mon, 01 Jun 2026 22:09:34 +0000
-Received: from sender4-pp-f112.zoho.com ([136.143.188.112])
+	id 1wUAr8-0000000BvEz-0Cg2;
+	Mon, 01 Jun 2026 22:11:34 +0000
+Received: from mail-westeuropeazlp170110003.outbound.protection.outlook.com ([2a01:111:f403:c201::3] helo=AS8PR04CU009.outbound.protection.outlook.com)
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wUAp9-0000000BuxB-27F2;
-	Mon, 01 Jun 2026 22:09:33 +0000
-ARC-Seal: i=1; a=rsa-sha256; t=1780351738; cv=none; 
-	d=zohomail.com; s=zohoarc; 
-	b=DFTvSjlq6jnIXNf0M9KS2sJ/lMP29aQTGqrIezRk3x0RGNMbLqF03kl/DA4yD8aJsNSkH1COokzAXzNNXe71ZJVxyHB+AGlcVdEch2FxEhpUeOqe1CnU/Uz2dPd/FMfYt3l9Wpriicp8dRyO/R2fOQWzHTNznefdxS8HMEtTTmo=
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=zohomail.com; s=zohoarc; 
-	t=1780351738; h=Content-Type:Cc:Cc:Date:Date:From:From:In-Reply-To:MIME-Version:Message-ID:References:Subject:Subject:To:To:Message-Id:Reply-To; 
-	bh=1lK1yNZdrKT8RuPFT6vih0wWSf1jo44LoNBqX+KfL0M=; 
-	b=KH/4V1Ldup46P6gqKWWlb8LM0fPlt2BDHkk813kn6x7F7A0vc44ppp5HUCFuF3LbFwGglUkfI4MpOkIZ/n2Wfel8CIQekOrw42gr5P+zy8du1QWfeuQ5qZ9VzWVM03b4iexSdd8wfqde7urVU+0ks5FHGqkiROvoeDcVyXXlcI0=
-ARC-Authentication-Results: i=1; mx.zohomail.com;
-	dkim=pass  header.i=collabora.com;
-	spf=pass  smtp.mailfrom=sebastian.reichel@collabora.com;
-	dmarc=pass header.from=<sebastian.reichel@collabora.com>
-DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed; t=1780351737;
-	s=zohomail; d=collabora.com; i=sebastian.reichel@collabora.com;
-	h=Date:Date:From:From:To:To:Cc:Cc:Subject:Subject:Message-ID:References:MIME-Version:Content-Type:In-Reply-To:Message-Id:Reply-To;
-	bh=1lK1yNZdrKT8RuPFT6vih0wWSf1jo44LoNBqX+KfL0M=;
-	b=BUIQ3fbngH6E2GT5G7rpUSBewxAJyxIl+lR3yFYwvtS2tqoPkRt7+/Muq5CFSNaL
-	mV6NLFOKmwKjS6jyoO/Wjw5dePkldz5YHfYGq0wbVLSyK6vPS9caCalpe7Tp2HCHLWC
-	sX1JY7n/mW01G2j7r4weTdsWLFO2IWm3ZmbWPssc=
-Received: by mx.zohomail.com with SMTPS id 1780351733835755.6229336935343;
-	Mon, 1 Jun 2026 15:08:53 -0700 (PDT)
-Received: by venus (Postfix, from userid 1000)
-	id D5550183854; Tue, 02 Jun 2026 00:08:46 +0200 (CEST)
-Date: Tue, 2 Jun 2026 00:08:46 +0200
-From: Sebastian Reichel <sebastian.reichel@collabora.com>
-To: Chaoyi Chen <kernel@airkyi.com>
-Cc: Andrzej Hajda <andrzej.hajda@intel.com>, 
-	Neil Armstrong <neil.armstrong@linaro.org>, Robert Foss <rfoss@kernel.org>, 
-	Laurent Pinchart <Laurent.pinchart@ideasonboard.com>, Jonas Karlman <jonas@kwiboo.se>, 
-	Jernej Skrabec <jernej.skrabec@gmail.com>, Maarten Lankhorst <maarten.lankhorst@linux.intel.com>, 
-	Maxime Ripard <mripard@kernel.org>, Thomas Zimmermann <tzimmermann@suse.de>, 
-	David Airlie <airlied@gmail.com>, Simona Vetter <simona@ffwll.ch>, 
-	Sandy Huang <hjc@rock-chips.com>, Heiko =?utf-8?Q?St=C3=BCbner?= <heiko@sntech.de>, 
-	Andy Yan <andy.yan@rock-chips.com>, Vinod Koul <vkoul@kernel.org>, 
-	Heikki Krogerus <heikki.krogerus@linux.intel.com>, Dmitry Baryshkov <dmitry.baryshkov@oss.qualcomm.com>, 
-	Luca Ceresoli <luca.ceresoli@bootlin.com>, linux-kernel@vger.kernel.org, dri-devel@lists.freedesktop.org, 
-	linux-arm-kernel@lists.infradead.org, linux-rockchip@lists.infradead.org, 
-	linux-phy@lists.infradead.org, Chaoyi Chen <chaoyi.chen@rock-chips.com>
-Subject: Re: [PATCH 1/5] drm/bridge: Implement generic USB Type-C DP HPD
- bridge
-Message-ID: <ah3-auKugGCVojOp@venus>
-References: <20260521032854.103-1-kernel@airkyi.com>
- <20260521032854.103-2-kernel@airkyi.com>
-MIME-Version: 1.0
-Content-Type: multipart/signed; micalg=pgp-sha512;
-	protocol="application/pgp-signature"; boundary="2wjtyeyqji5ix4fa"
+	id 1wUAr5-0000000BvEX-3dAu
+	for linux-arm-kernel@lists.infradead.org;
+	Mon, 01 Jun 2026 22:11:33 +0000
+ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
+ b=lNhtDuaiKA1/QPT4C5dqzCvwomq8mxqygBB3/gZ5piccQl3UTqH4pO8S9A+CDf3kjv0GdzWRJ6BYi3mz42h9SwVZBuZGHvmXmYotPF0GPQYaNcavDJRrdbtPFU0MOnWkkUK+/Li/4vrAzq1qmzSNTtvbLwSb1H8adAnx+piENkadcoVVMbvAVncdoAa3jzt0ieHOSDmQ0ZW+3SzPbc/Rru3hNOG74S+8C5TDN6tNsDB06x/xu45rXZYDIziIq1HHfedq296LPjh58ZtBccEroxSV2KVaIZDwk8fiLGQCfuXhiS+XaTjnjGijJDNwO7QeDCMlhmN5/4MqFbyGnz51XQ==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
+ s=arcselector10001;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
+ bh=SNSHreha00E0q7a3YgiMGWNxhQ+RxE7lv+Mz8X0dzZw=;
+ b=JRsLsBgxOIL9I3eNUMYhGoh2ZiuwF83X5wNIcwcMFT2faiiUQ8LSHeVdkPKTBkbu2/dL/cqm/QhXB3ZP2INFJ3Zzba9WU+4XdIa+uqJ2ry7U0ssJ5VXev2Vd49iQyZ8Ym9dSnwiVEYhFGqZuhK/UBMVe6UxeZ0pH/4nh17u0p2hCv6d7XLq7sfluMieAR7ea+cH4xfsuDkSBVejasKwWtpgzWU5RKpTZ1IK/QLuCpQpyV5NsbHFgl9nKY+bMKUiSHkjUXjDh3T2iEOZjbxNHV+y0QiwWZew39E++i60b+/v0OQtEe3oMablolrghcxd+0u8yC0UQPHIVRoKg53tJIA==
+ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
+ smtp.mailfrom=nxp.com; dmarc=pass action=none header.from=nxp.com; dkim=pass
+ header.d=nxp.com; arc=none
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=nxp.com; s=selector1;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
+ bh=SNSHreha00E0q7a3YgiMGWNxhQ+RxE7lv+Mz8X0dzZw=;
+ b=nvUOzdQwfxR3admB+piHXVAtFZqc5nsSeAummssZ+Zmd7y5TxgfxUjPWJV6etcFIkKjR801UufYUvH4PZRpe1Q6DoJDRnTLCOh4AjqPEMEPDqk2yEgFalyN3mDEBegRmSDleDN0hBAHhXDp+SiNqYQuAvtdaVt3M3fLyKsGPYKQDJ22QMcuarYSIkr6nIREx/5Qp/Ia04Tz4mWlGZt9LXuA/IsYjNh8I4uFKYO8+NChfgJmy+jfTfcPzEtdnV5RnA+0S3mzH6ni721slwThFfkjO2QuB00qo50sErNz9MWd9jcYUXIZfOuLahhMCru4v5DNu5eRyFstdIoN0FvBqGw==
+Authentication-Results: dkim=none (message not signed)
+ header.d=none;dmarc=none action=none header.from=nxp.com;
+Received: from PA4PR04MB9366.eurprd04.prod.outlook.com (2603:10a6:102:2a9::8)
+ by OSKPR04MB11416.eurprd04.prod.outlook.com (2603:10a6:e10:9b::6) with
+ Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.21.71.15; Mon, 1 Jun 2026
+ 22:11:27 +0000
+Received: from PA4PR04MB9366.eurprd04.prod.outlook.com
+ ([fe80::75e4:8143:ddbc:6588]) by PA4PR04MB9366.eurprd04.prod.outlook.com
+ ([fe80::75e4:8143:ddbc:6588%3]) with mapi id 15.21.0071.015; Mon, 1 Jun 2026
+ 22:11:27 +0000
+Date: Mon, 1 Jun 2026 18:11:20 -0400
+From: Frank Li <Frank.li@nxp.com>
+To: Frank.Li@oss.nxp.com
+Cc: Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>,
+	Conor Dooley <conor+dt@kernel.org>,
+	Sascha Hauer <s.hauer@pengutronix.de>,
+	Pengutronix Kernel Team <kernel@pengutronix.de>,
+	Fabio Estevam <festevam@gmail.com>, Shawn Guo <shawnguo@kernel.org>,
+	Alexander Stein <alexander.stein@ew.tq-group.com>,
+	linux@ew.tq-group.com, devicetree@vger.kernel.org,
+	imx@lists.linux.dev, linux-arm-kernel@lists.infradead.org,
+	linux-kernel@vger.kernel.org
+Subject: Re: [PATCH 1/1] arm64: dts: tqma8mpql-mba8mpxl: configure sai clock
+ in sound card as well
+Message-ID: <ah4DiKUIblJBBdFG@lizhi-Precision-Tower-5810>
+References: <20260522112247.1046944-1-alexander.stein@ew.tq-group.com>
+ <178034369688.425543.4889711119103789584.b4-ty@b4>
+Content-Type: text/plain; charset=us-ascii
 Content-Disposition: inline
-In-Reply-To: <20260521032854.103-2-kernel@airkyi.com>
-X-Zoho-Virus-Status: 1
-X-Zoho-AV-Stamp: zmail-av-0.2.2.1.5.2/280.325.56
-X-ZohoMailClient: External
+In-Reply-To: <178034369688.425543.4889711119103789584.b4-ty@b4>
+X-ClientProxiedBy: SA1P222CA0173.NAMP222.PROD.OUTLOOK.COM
+ (2603:10b6:806:3c3::16) To PA4PR04MB9366.eurprd04.prod.outlook.com
+ (2603:10a6:102:2a9::8)
+MIME-Version: 1.0
+X-MS-PublicTrafficType: Email
+X-MS-TrafficTypeDiagnostic: PA4PR04MB9366:EE_|OSKPR04MB11416:EE_
+X-MS-Office365-Filtering-Correlation-Id: ec07d8d2-60a7-4927-7ad5-08dec02ab9be
+X-MS-Exchange-SenderADCheck: 1
+X-MS-Exchange-AntiSpam-Relay: 0
+X-Microsoft-Antispam: BCL:0;ARA:13230040|1800799024|366016|19092799006|7416014|52116014|376014|38350700014|4143699003|3023799007|56012099006|11063799006|6133799003|18002099003|22082099003;
+X-Microsoft-Antispam-Message-Info: ikAYWw0F7bcLCXkH08UIleDug8CKbK+e20MhRJFRzh1QX2y5UPlhLXmMsQUW3MDuRdrgdDjiw3WSu6XqtsXwC0zyG0UeUg/YNc7aOG/XixhNR5ARFzh2zPubHg7ZGh+b75ldjuxeFRBlJpNh0LYYMyjN19ghujnXycWpU8PK9LTcfyZgQY8NxRf8H8mgs3AKCSWjqooC4laQsQHnQsuUDAA27QnQx2t6MdjtOJXRj0hMdWa6/dvGxxLiEB+09Dm/0GNNFv9OrKo4lIVIkwNy+twX4p+RoiVykuz/i6t8opkzNtu2yvx/Jpk/f/jz2W9nJR/xlzL4Nl7FvJtNPtwl9WNfol9WjfsRD+jG/gURZ0FlPCzNH+LNxLd+O7OLhQj82L6Di28lLO4hDRXUjVGHt2+sYDDHgFpAQ+1JRMOas1I9Da8MFHgPyg88yrAh9Yt4vKdyYsq6Il/u9MI/xJexCPCzbo4xq3J8GsnvYQvtQ4QeIo3Mtel1IMFEbZC0DfR0WDsZOpPkkwm4opg+iR5DHnWhDdIwoEoAAOrPyzuBAG4GHnv2JjfuurxJTsupv1LYow4AAhDSj0SA/AWK7+V+dbfgyoa2SqRqloB0Z+2mpo6Y4/nrPst28oVqwUQ5lyOb+dGxlBXjgF5pttNHQOYE89pDAIDoOgSYei48q2r8ih3TlwdvUVUhmVo1tIRNc660
+X-Forefront-Antispam-Report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:PA4PR04MB9366.eurprd04.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(1800799024)(366016)(19092799006)(7416014)(52116014)(376014)(38350700014)(4143699003)(3023799007)(56012099006)(11063799006)(6133799003)(18002099003)(22082099003);DIR:OUT;SFP:1101;
+X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
+X-MS-Exchange-AntiSpam-MessageData-0: =?us-ascii?Q?kwMklmBPHiM1QXGlgNhvJmHFkyRzJu28EKLV2Xqh0t4c7aeBzoB8JJwJC9cu?=
+ =?us-ascii?Q?aIdjwkFMmWx6KD4YGGFgJe5/atbRM7GtqK8LLSc+hDEEBMFYyVudrrj9cAJx?=
+ =?us-ascii?Q?fI8+keE/iMtENCBOMx8jFt8XXmYgDSp9LcWAcqnFWhYFjVVk4QlbJtZ3a3+C?=
+ =?us-ascii?Q?V1XkCGYixAO8Qqwkfh3tOVxMs2GBr/b2KFrUH0ZWplIfkfgH4MuOTacTp51Q?=
+ =?us-ascii?Q?cBGVf5BDqeNkyJoaVc1l3vHvgY+LBbwS+Or+yVa8ODr4+Sbkayret0ZC1IDY?=
+ =?us-ascii?Q?6MzW2SFrHRA83wSKNMF1cW0PL/LNv4VLvW31cEtu6SDL2CInRzFSivFKgXqC?=
+ =?us-ascii?Q?IUoehNksvQtwjzPH8y5B6QE/QrC7TBw9J1KlhfkBaYCG7zia6llZ2ybkGjZm?=
+ =?us-ascii?Q?P7lCiCNmaixd72jDq2MLSxOM6RjRwljOF15taws/iSAV0fPomEZzdGmkO4Qc?=
+ =?us-ascii?Q?hNKdJX74r8S4rEJjyQ3NBFtkcRBTvAzcWYY4TYbeP13gEK7C/ubwILXZDIX1?=
+ =?us-ascii?Q?ad/+gmDvBdrqMHEb1+eTNUETonVALIyN28Hn8K1ooKEwNMAkRVdxq0PSzQnG?=
+ =?us-ascii?Q?b52d0Zs2zeUh9VR1fkuszcSlK16lEwKgYjJ5T9Mijbx0EHt8/RhSbPEH5Afe?=
+ =?us-ascii?Q?UHmtKwPEaPXMW5vqlPbaecOWewqmjq8BBtENuzG5utenJ9bs06Mf4kayRNVQ?=
+ =?us-ascii?Q?UTEWmuQkfLVmjTIYiWq20pS2XH6cTX7amWBFzwPc2GeP0N7gZEPP6ttnoHYu?=
+ =?us-ascii?Q?bD0NHyLFwGfGH3RZq1YPhVvTgqdnR6ud4AsNEA8j8lM+J/H9WdzvxAv8F/fk?=
+ =?us-ascii?Q?WSb6X5X14ilzNRLaUg4EizVMapr1GlWCZt81ZOd8nZaDNppWTKnSX/TLtgD2?=
+ =?us-ascii?Q?fVBST10kEE9qo5eIw9stSwILwfaLi0H1hNvlxFc0f7hyG5dvQi4TraEZRMs3?=
+ =?us-ascii?Q?DT0tH+NmFWE7fYjRt7LQZ/T4Ml0gS6Ff9kR0UuhVor9lW43Z2ra1CUZsU2FM?=
+ =?us-ascii?Q?EaYZ1r/q+AHMneBLwZwPhzyR/DGnlZ2ZhYzE+iHAfjXPxgwoN7CjghL00qYS?=
+ =?us-ascii?Q?Su2APz6h0dI/mq9vm7AK0IqnSmH4p+7EKIENMuuhcSjSPHXxoD8hOOBRw3Eq?=
+ =?us-ascii?Q?YyM6XWRc1+Yzl1K/3xED3jk3z98BpE2amxar9h5wevm0uVuZ9YFNuBo8exT1?=
+ =?us-ascii?Q?9NXOjMOxCZzPXosyi8TyWc4HeNkKQV2QjCvLVS2KK3UMk9AqH16BGlR6Or6E?=
+ =?us-ascii?Q?8J+xbk1B/cp3X7Da+ZivkGRij3HaaK/4yOOISxGxuctB1BltlcXOOg9zXzzV?=
+ =?us-ascii?Q?907CMbcX0Ft3cKlNl2hngahRQX/o/tzDzO1dJRSql2HUBCo5H+fLaoswDBJC?=
+ =?us-ascii?Q?YBljjEtfuUgmCJUmINNyKyhmIAl2Bt6k5UXG0xGleurSOEnhi3JhJVLmGB0K?=
+ =?us-ascii?Q?U++ArINx8aaWbNFo3+54P7uinuqLhn5CiF6njLfC4xITtlb4vHRxqS3h9Y/S?=
+ =?us-ascii?Q?QIWuhOV20Dmx54M2spfs1IY4T+U7R/gRVtF0vtMpUksea/OOzme3DggMUJb7?=
+ =?us-ascii?Q?fUzwqqowMDNJGE80hexd7KsYG3bXtherF2633Yh4f/RAi8GYF/yjzz2WZOv0?=
+ =?us-ascii?Q?pL68weHqJIbuNMzgQ+BFerLtlsL9h8Z5wssCwpaOjHXP7gw4nwhxfcwk/cNh?=
+ =?us-ascii?Q?Y/ItU9Jh0sB9BSCoFns5xhHytzWeaFExx+pSNtxfjMxa7HvwhRvQe23/ZFbV?=
+ =?us-ascii?Q?/witkBxF0w=3D=3D?=
+X-OriginatorOrg: nxp.com
+X-MS-Exchange-CrossTenant-Network-Message-Id: ec07d8d2-60a7-4927-7ad5-08dec02ab9be
+X-MS-Exchange-CrossTenant-AuthSource: PA4PR04MB9366.eurprd04.prod.outlook.com
+X-MS-Exchange-CrossTenant-AuthAs: Internal
+X-MS-Exchange-CrossTenant-OriginalArrivalTime: 01 Jun 2026 22:11:27.2021
+ (UTC)
+X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
+X-MS-Exchange-CrossTenant-Id: 686ea1d3-bc2b-4c6f-a92c-d99c5c301635
+X-MS-Exchange-CrossTenant-MailboxType: HOSTED
+X-MS-Exchange-CrossTenant-UserPrincipalName: Nu4Vf5HlqFV1K/kjAzHgJZHypvMFHUkwQlNLgiUhgk7Z1QLlOoZFqWV6NrmmwRBAVNcurEox8QhKa9nCvATRag==
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: OSKPR04MB11416
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260601_150931_576774_A2AD378D 
-X-CRM114-Status: GOOD (  34.26  )
+X-CRM114-CacheID: sfid-20260601_151131_914878_C7196F53 
+X-CRM114-Status: GOOD (  14.84  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -93,185 +143,34 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
+On Mon, Jun 01, 2026 at 03:55:06PM -0400, Frank.Li@oss.nxp.com wrote:
+> From: Frank Li <Frank.Li@nxp.com>
+>
+>
+> On Fri, 22 May 2026 13:22:46 +0200, Alexander Stein wrote:
+> > With deferrable card binding the sound card driver tries to
+> > get the mclk configuration before it is setup in sai3 node.
+> > Fix this by setting the mclk config for the sound card as well.
+>
+> Applied, thanks!
+>
+> [1/1] arm64: dts: tqma8mpql-mba8mpxl: configure sai clock in sound card as well
+>       commit: 9abd06007c314cfd065ac13b0f382d624befcf23
 
---2wjtyeyqji5ix4fa
-Content-Type: text/plain; protected-headers=v1; charset=us-ascii
-Content-Disposition: inline
-Content-Transfer-Encoding: quoted-printable
-Subject: Re: [PATCH 1/5] drm/bridge: Implement generic USB Type-C DP HPD
- bridge
-MIME-Version: 1.0
+I have to drop it because it cause CHECK_DTBS waring
 
-Hi,
+/home/lizhi/source/linux-imx/arch/arm64/boot/dts/freescale/imx8mp-tqma8mpql-mba8mpxl.dtb: sound (fsl,imx-audio-tlv320aic32x4): Unevaluated properties are not allowed ('assigned-clock-parents', 'assigned-clock-rates', 'assigned-clocks' were unexpected)
+	from schema $id: http://devicetree.org/schemas/sound/fsl-asoc-card.yaml
+/home/lizhi/source/linux-imx/arch/arm64/boot/dts/freescale/imx8mp-tqma8mpql-mba8mpxl.dtb: sound (fsl,imx-audio-tlv320aic32x4): 'anyOf' conditional failed, one must be fixed:
+	'clocks' is a required property
+	'#clock-cells' is a required property
+	from schema $id: http://devicetree.org/schemas/clock/clock.yaml
+  DTC [C] arch/arm64/boot/dts/freescale/imx8mp-verdin-nonwifi-dahlia.dtb
 
-On Thu, May 21, 2026 at 11:28:50AM +0800, Chaoyi Chen wrote:
-> From: Chaoyi Chen <chaoyi.chen@rock-chips.com>
->=20
-> The HPD function of Type-C DP is implemented through
-> drm_connector_oob_hotplug_event(). For embedded DP, it is required
-> that the DRM connector fwnode corresponds to the Type-C port fwnode.
->=20
-> To describe the relationship between the DP controller and the Type-C
-> port device, we usually using drm_bridge to build a bridge chain.
->=20
-> Now several USB-C controller drivers have already implemented the DP
-> HPD bridge function provided by aux-hpd-bridge.c, it will build a DP
-> HPD bridge on USB-C connector port device.
->=20
-> But this requires the USB-C controller driver to manually register the
-> HPD bridge. If the driver does not implement this feature, the bridge
-> will not be create.
->=20
-> So this patch implements a generic DP HPD bridge based on
-> aux-hpd-bridge.c. It will monitor Type-C bus events, and when a
-> Type-C port device containing the DP svid is registered, it will
-> create an HPD bridge for it without the need for the USB-C controller
-> driver to implement it.
->=20
-> Signed-off-by: Chaoyi Chen <chaoyi.chen@rock-chips.com>
-> Reviewed-by: Heikki Krogerus <heikki.krogerus@linux.intel.com>
-> ---
->  drivers/gpu/drm/bridge/Kconfig                | 10 ++++
->  drivers/gpu/drm/bridge/Makefile               |  1 +
->  .../gpu/drm/bridge/aux-hpd-typec-dp-bridge.c  | 49 +++++++++++++++++++
+Frank
 
-Doesn't this require removing the manual registration of the HPD
-auxillary bridge in the USB-C controller drivers to avoid that
-two bridges are registered for them?
-
->  3 files changed, 60 insertions(+)
->  create mode 100644 drivers/gpu/drm/bridge/aux-hpd-typec-dp-bridge.c
->=20
-> diff --git a/drivers/gpu/drm/bridge/Kconfig b/drivers/gpu/drm/bridge/Kcon=
-fig
-> index c3209b0f4678..d92e93875793 100644
-> --- a/drivers/gpu/drm/bridge/Kconfig
-> +++ b/drivers/gpu/drm/bridge/Kconfig
-> @@ -30,6 +30,16 @@ config DRM_AUX_HPD_BRIDGE
->  	  Simple bridge that terminates the bridge chain and provides HPD
->  	  support.
-> =20
-> +if DRM_AUX_HPD_BRIDGE
-> +config DRM_AUX_HPD_TYPEC_BRIDGE
-> +	tristate
-> +	depends on TYPEC || !TYPEC
-> +	default TYPEC
-> +	help
-> +	  Simple bridge that terminates the bridge chain and provides HPD
-> +	  support. It build bridge on each USB-C connector device node.
-> +endif
-> +
->  menu "Display Interface Bridges"
->  	depends on DRM && DRM_BRIDGE
-> =20
-> diff --git a/drivers/gpu/drm/bridge/Makefile b/drivers/gpu/drm/bridge/Mak=
-efile
-> index beab5b695a6e..c4761526ba0a 100644
-> --- a/drivers/gpu/drm/bridge/Makefile
-> +++ b/drivers/gpu/drm/bridge/Makefile
-> @@ -1,6 +1,7 @@
->  # SPDX-License-Identifier: GPL-2.0
->  obj-$(CONFIG_DRM_AUX_BRIDGE) +=3D aux-bridge.o
->  obj-$(CONFIG_DRM_AUX_HPD_BRIDGE) +=3D aux-hpd-bridge.o
-> +obj-$(CONFIG_DRM_AUX_HPD_TYPEC_BRIDGE) +=3D aux-hpd-typec-dp-bridge.o
->  obj-$(CONFIG_DRM_CHIPONE_ICN6211) +=3D chipone-icn6211.o
->  obj-$(CONFIG_DRM_CHRONTEL_CH7033) +=3D chrontel-ch7033.o
->  obj-$(CONFIG_DRM_CROS_EC_ANX7688) +=3D cros-ec-anx7688.o
-> diff --git a/drivers/gpu/drm/bridge/aux-hpd-typec-dp-bridge.c b/drivers/g=
-pu/drm/bridge/aux-hpd-typec-dp-bridge.c
-> new file mode 100644
-> index 000000000000..d915e0fb0668
-> --- /dev/null
-> +++ b/drivers/gpu/drm/bridge/aux-hpd-typec-dp-bridge.c
-> @@ -0,0 +1,49 @@
-> +// SPDX-License-Identifier: GPL-2.0+
-> +#include <linux/of.h>
-> +#include <linux/usb/typec_altmode.h>
-> +#include <linux/usb/typec_dp.h>
-> +
-> +#include <drm/bridge/aux-bridge.h>
-> +
-> +static int drm_typec_bus_event(struct notifier_block *nb,
-> +			       unsigned long action, void *data)
-> +{
-> +	struct device *dev =3D (struct device *)data;
-> +	struct typec_altmode *alt =3D to_typec_altmode(dev);
-> +
-> +	if (action !=3D BUS_NOTIFY_ADD_DEVICE)
-> +		goto done;
-> +
-> +	/*
-> +	 * alt->dev.parent->parent : USB-C controller device
-> +	 * alt->dev.parent         : USB-C connector device
-> +	 */
-> +	if (is_typec_port_altmode(&alt->dev) && alt->svid =3D=3D USB_TYPEC_DP_S=
-ID)
-> +		drm_dp_hpd_bridge_register(alt->dev.parent->parent,
-> +					   to_of_node(alt->dev.parent->fwnode));
-
-IIUIC this is called when the USB-C controller spawns a sub-device
-for the DP AltMode and then registers a HPD bridge to the USB-C
-controller itself. Wouldn't that register new HPD bridges on every
-USB-C replug?
-
-Also doesn't this result in the bridge not being registered when
-nothing is plugged and thus the DRM pipeline not being able to bind
-properly?
-
-Greetings,
-
--- Sebastian
-
-> +
-> +done:
-> +	return NOTIFY_OK;
-> +}
-> +
-> +static struct notifier_block drm_typec_event_nb =3D {
-> +	.notifier_call =3D drm_typec_bus_event,
-> +};
-> +
-> +static void drm_aux_hpd_typec_dp_bridge_module_exit(void)
-> +{
-> +	bus_unregister_notifier(&typec_bus, &drm_typec_event_nb);
-> +}
-> +
-> +static int __init drm_aux_hpd_typec_dp_bridge_module_init(void)
-> +{
-> +	bus_register_notifier(&typec_bus, &drm_typec_event_nb);
-> +
-> +	return 0;
-> +}
-> +
-> +module_init(drm_aux_hpd_typec_dp_bridge_module_init);
-> +module_exit(drm_aux_hpd_typec_dp_bridge_module_exit);
-> +
-> +MODULE_DESCRIPTION("DRM TYPEC DP HPD BRIDGE");
-> +MODULE_LICENSE("GPL");
-> --=20
-> 2.53.0
->=20
->=20
-
---2wjtyeyqji5ix4fa
-Content-Type: application/pgp-signature; name="signature.asc"
-
------BEGIN PGP SIGNATURE-----
-
-iQIzBAABCgAdFiEE72YNB0Y/i3JqeVQT2O7X88g7+poFAmoeAusACgkQ2O7X88g7
-+poFDhAAqmoRFuBnWXN9ThmBhdcTbKmP9xRiRbmFvKqyJCJGzQ3m9vJWXeRgnm2p
-xp0Pd6zOCm4m4snw4PElFYmAJACJZbKD19oPGRUy7ClzIHqyQUmh/DweeHexRcwb
-iS7XC9qxSrCmkWu2/CVYnIVDb+YeC7/aMwjMG5nn6PL3i0ftBqiMGM2TFbka3O+1
-THzO03GrjEl3f2mNJm2HYI//Lsl27+WXebGweEhyGtZIoI+BGi3uCMLq7afmeKc+
-BhTXSJAjHQDo76RglJLBiOi1PfeLQT8SLxu6cfqTIrjVnBoy7iPTtopTpuQK5a8g
-nVh8C7wuSwHhO0FAp2kt6JeFYTzLRQj6YCdMdzIS8fw9vc9dSKgwFhTk6wDbDzds
-Z6qmigIPYvawBo3cWy20RHQynxXchqaKbSqT9IJ3QxdHgGiNdPc5AzrS3V/Oyi/s
-q4QWtaqoLN1qCTGVNOnqJ+1vQhzBuLZCZJt/g8nlJMYSVUe0RYGXRUjOgK9f1B97
-Vc1myj5dNB1u5EwcRhcDopxmw6S95GqAPZydo9yduYUIj2Uu5adlFGDZiaJMoZvz
-w/51Wmp/n+azkiSyBhjPLr9ieZD/WKuUpbAwzeLv/B9cL+L2i3n1PtAwwj/W3Tgx
-VP8/olbfezC3hFV6Wwzap+LPLW91JARUpjYwZuptpDcuDDfsVho=
-=0qDd
------END PGP SIGNATURE-----
-
---2wjtyeyqji5ix4fa--
+>
+> Best regards,
+> --
+> Frank Li <Frank.Li@nxp.com>
 
