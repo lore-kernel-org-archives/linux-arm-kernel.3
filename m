@@ -4,95 +4,109 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id D7907CD5BD1
-	for <linux-arm-kernel@archiver.kernel.org>; Mon,  1 Jun 2026 14:57:35 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 6A5D0CD6E64
+	for <linux-arm-kernel@archiver.kernel.org>; Mon,  1 Jun 2026 14:58:57 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:
-	Content-Transfer-Encoding:Content-Type:MIME-Version:References:Message-ID:
-	Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=gfecz+ZWs/BTOXCnvzAkst5tZtXH0lgY7BHeUFyc1xs=; b=avAZigw+NWi3eFvTQwXdDDXSWQ
-	WCflJnprvfAqAwBXQCG51r1FbXtjwoO9Ksxr1/RGbHWpkJ6X16C+N7mpmqbnVhWP9fF0zj6QDEDms
-	RiNW7OjTzGqrRU4Nw2PxwCdrhYLw/MItJMK4QqSGZwPvu/NM4r4auNSydXheVDNgHhnG4hadNsMmY
-	/9vHN2h9q+CwEhfmeTexmxjC32kTbTaXetW8h+uVlwnKNt6n6bm/68WBBwGRo1Ged/8GlsNctM5In
-	f+kKSOcxorQXHJpAmWJg2BNwnU3SM7EvhhZ3WDnMybtREWLoE1iV6SC1cGyl7oPOXVil/pDIexU1k
-	n3wX9vMw==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
+	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=Qq6eAfjOAZ4Lfq7LauQf4bjJ3RlF5Fcl+6rJ1tXLLa4=; b=fdaXuul15sE5SXwlEd6MJDfhiJ
+	u041kAh26dmeYoWoXA1OdlLSkvuu8srb0EfBa7Q0bPhIA8kRQ5lluH50raeo2yd3m4UKjfUW0RygT
+	xLgj0JTfJuASZT03V3AmKyCJG28iHX17fmQ/mm6EERhGYVJp9kaLRbCzPaA2A9lUfhR2+qirNq2AJ
+	okvhqyrq64YZw6VkEWnTdLbkd8M6F5bZOHEcHbfk+p7/Upr6nYbt/mo1WArKudBgWRVVxl2W0iV53
+	3+ekXUrXCsjn/kKW7DwhWGBad0yNVueKcQA9yDWVzm/MTQtULWXGhDKT75VhX/zf+7IW+zD0iMXBZ
+	zlKvt28w==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wU453-0000000BKFX-3BuG;
-	Mon, 01 Jun 2026 14:57:29 +0000
-Received: from mail-wr1-x429.google.com ([2a00:1450:4864:20::429])
+	id 1wU46M-0000000BKOz-054O;
+	Mon, 01 Jun 2026 14:58:50 +0000
+Received: from mail-wm1-x32f.google.com ([2a00:1450:4864:20::32f])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wU450-0000000BKEh-3JqH
+	id 1wU46J-0000000BKOG-2mex
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 01 Jun 2026 14:57:28 +0000
-Received: by mail-wr1-x429.google.com with SMTP id ffacd0b85a97d-45ee5cdbd28so2681501f8f.1
-        for <linux-arm-kernel@lists.infradead.org>; Mon, 01 Jun 2026 07:57:25 -0700 (PDT)
+	Mon, 01 Jun 2026 14:58:48 +0000
+Received: by mail-wm1-x32f.google.com with SMTP id 5b1f17b1804b1-490686877a1so59929115e9.0
+        for <linux-arm-kernel@lists.infradead.org>; Mon, 01 Jun 2026 07:58:47 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20251104; t=1780325845; x=1780930645; darn=lists.infradead.org;
-        h=in-reply-to:content-transfer-encoding:content-disposition
-         :mime-version:references:message-id:subject:cc:to:from:date:from:to
-         :cc:subject:date:message-id:reply-to;
-        bh=gfecz+ZWs/BTOXCnvzAkst5tZtXH0lgY7BHeUFyc1xs=;
-        b=KB4oJ2p80RVFvXFXxZ7L65XS2V4IiLVqeBHhQAIzxo8iQIbUhBga6NDP3XGqkw6r9U
-         x/wu75/J0zSGUwJGN6kHBBs5w8XbzacJt3xSt23kdoI9pi2GH7laEGpRrzhL2/Ri/Fys
-         ZuaTorLFRHntl7I8zfKXXlpG+q3PI3OMDuOwXERGpgUBrYbDq679WgYJpWHfX4js2am1
-         KAEpQ8wH0quWK8vU3mlsmYACjbV1uJKK401F84vf4LAQWGa7ofwlg38C/YkwXIxMlGtd
-         jpSQd3erhTm8Kahj3prQhbzfc99yEtJwAUjOF8Fp9H3PfDWonXwIJuMJ2lT7E+9/Onos
-         ocug==
+        d=linaro.org; s=google; t=1780325925; x=1780930725; darn=lists.infradead.org;
+        h=content-transfer-encoding:in-reply-to:content-language:from
+         :references:cc:to:subject:user-agent:mime-version:date:message-id
+         :from:to:cc:subject:date:message-id:reply-to;
+        bh=Qq6eAfjOAZ4Lfq7LauQf4bjJ3RlF5Fcl+6rJ1tXLLa4=;
+        b=GFUgTvLMYlXEWEEZovCWZ8kwEVlBU/AcQj6jsZNIDCMhW6JVWloxAJBrIA7J4MdRlQ
+         6fn4JaiXG5p0tcpngLloi/a2XU9o/ddGDsWeeapwPihN7AWJEjBLDW0QDhI9z/LWe2bW
+         r35pwSUAxBwnjyZ6OCWQCg+E7LqzIwOSqa6nJnD2qKBS9nqtTNSP+1jZ47/JswGuhEbK
+         LjmFkkQNPsgU5u4YPfP4jAeJr3LtAzJlY+BIDM9EYYJQbVkfhWmljjGx+vP/9TGJoTzP
+         bcQI3wblpATILJhYga1cmy+SPGd7Qv+i70UfFrIVRqKzQzHbyXBwxRd8Z3qP1dEhekJU
+         I8eA==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20251104; t=1780325845; x=1780930645;
-        h=in-reply-to:content-transfer-encoding:content-disposition
-         :mime-version:references:message-id:subject:cc:to:from:date:x-gm-gg
-         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to;
-        bh=gfecz+ZWs/BTOXCnvzAkst5tZtXH0lgY7BHeUFyc1xs=;
-        b=sS90YPGgNP7s5HP0GVdiZBZCr2/sPRj8pgigDlTXroLy5irvUKla2YYNkINhQ0nEzR
-         nrZQfu5sy7tDEEIwSA0+MyFLrisKQSjHU+T8sdkE0h1PH8rlDT0gnPfayexDK1LzcYnE
-         CinmX9quncoa836mhtA+wZPEKk3sQSPGFF6HnjSccBUP1kVCDo2iE7UNamsQVGER7OAX
-         fL+fYwTJf3Y089Xev3fE8hxgy8VTySMnYHaC8yVcA8NGw9KZz2Qr5jUgJmAtrglbye6c
-         lrDmPXNSiSSXgxfYZDi1ZuoA+pS57HBPThxvFZYeIfMPHtl7skp91eYUZ0tw3h+e7/O/
-         SMbA==
-X-Forwarded-Encrypted: i=1; AFNElJ/H8vp2Rg3UV1sFdE+qr73sAoKX+cBCXIW7Dam586ITLwN+Ox/HgcMYnj3hhE4JmL4AVKrIaTOHZoawdyz+7fCZ@lists.infradead.org
-X-Gm-Message-State: AOJu0Yy19rzpmEvIQ9C8KT+Znr2GYz7xCn0Frr89XJvgHhGFeAfKt3dJ
-	HtuB5cmQnKXpY2IbQ039q4/pqkwCf6vIjzo2assFXimyvckLs2lc1nez
-X-Gm-Gg: Acq92OFKi0doj6UpGdLbWp+HjHLTYVhfTJQfCbqoDcxdN6GxBrlJVbbxhw7hzo/h25T
-	4+50XUE7YfS/+uNBLZI7jJ6CGPwjZ0RGq55fGfWH9PjSesaTST09C5gAwbnID5RqRHelpes0RPL
-	L6u764JEPp1HsmOrSvNvigmOSd3dIK0NPUU8dYNAV/ClrL8eHyOzS7i8Bch+gbV0Li9sP36OTFl
-	H5fKDE3Wn6pzdd39fzJbt/kySYJrgxJBprhm8M6VkQ/HSORgeKXLfW/Ew5CYYwiLnn/OTklg8wc
-	4B/m6AQg0/1r2ktSa+CQ7H35kOhSDJQTFPEvZ3CGNc5gQ0cEi4OWwh/bvsRHebmACrfgG/RxLhU
-	ToBKPlk7iAoFvFK6FcfqmYWk/jNKEjaStT828d1zmPFtp4Tokg5gWSN/lwcJMgcMPUKhpX7s6PW
-	rhq3u1IhTC3L7BoJYmYXTLHmhjQi+AyeS87w==
-X-Received: by 2002:a5d:59c6:0:b0:45e:e936:5e30 with SMTP id ffacd0b85a97d-45ef6e696cbmr18803207f8f.6.1780325844434;
-        Mon, 01 Jun 2026 07:57:24 -0700 (PDT)
-Received: from Red ([2a01:cb1d:897:7800:4a02:2aff:fe07:1efc])
-        by smtp.googlemail.com with ESMTPSA id ffacd0b85a97d-45ef34a03f8sm27548200f8f.7.2026.06.01.07.57.23
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Mon, 01 Jun 2026 07:57:23 -0700 (PDT)
-Date: Mon, 1 Jun 2026 16:57:21 +0200
-From: Corentin Labbe <clabbe.montjoie@gmail.com>
-To: Eric Biggers <ebiggers@kernel.org>
-Cc: Tianchu Chen <tianchu.chen@linux.dev>, herbert@gondor.apana.org.au,
-	davem@davemloft.net, wens@kernel.org, jernej.skrabec@gmail.com,
-	samuel@sholland.org, linux-crypto@vger.kernel.org,
-	linux-arm-kernel@lists.infradead.org, linux-sunxi@lists.linux.dev,
-	linux-kernel@vger.kernel.org
-Subject: Re: [PATCH v2] crypto: sun4i-ss - clamp PRNG seed length to prevent
- heap overflow
-Message-ID: <ah2d0RyZcVp614_k@Red>
-References: <af749a8447bd7f0e9dd26ca6c87e9c6afecb09d9@linux.dev>
- <4d4407c05835a50413fa1e974e3aa3f4abfe2d5b@linux.dev>
- <20260529161057.GA2706@sol>
- <ahnIbpBLyn5z_siT@Red>
- <20260529173341.GA566433@google.com>
+        d=1e100.net; s=20251104; t=1780325925; x=1780930725;
+        h=content-transfer-encoding:in-reply-to:content-language:from
+         :references:cc:to:subject:user-agent:mime-version:date:message-id
+         :x-gm-gg:x-gm-message-state:from:to:cc:subject:date:message-id
+         :reply-to;
+        bh=Qq6eAfjOAZ4Lfq7LauQf4bjJ3RlF5Fcl+6rJ1tXLLa4=;
+        b=HePihPwugIn+6UITSr7amJxr95mE/pAUfoYD/V+WTQMuapgTtDLEdAPa0bjCOYxXz2
+         RsefK7LTJRd8fOYhDyQHOBIwhM4PNXJH8dUek6kvZcpLuNYcLkrIhk3GQUalwuSvRSeG
+         wn6WRovcRrpDVr5zZRWsMgJCv1XP2GZeTurw2ZjH8mIMZjvi01c8KCi+yqBwdLO0DfHm
+         7CmMZyQ8b75cMUgooK7CglEJSNMDbuyo14/QC1P2d8C9UvI3hrEDPV6srzGsrTwNjqOV
+         tm83C2B04p2EwUkLLtDm6KaGvPDfN/uoRuQFUA46UOvEKOWvYUpCaPtMnwvBTysT6e79
+         uhdA==
+X-Forwarded-Encrypted: i=1; AFNElJ/RoM+JpGswiYmL+wg3T7n4w8sA/kxnzMZ6Dmn40KGTuqwbF9tO1YYls8ABkphi2aY5hjlRY4upw5kRZwWSGtlH@lists.infradead.org
+X-Gm-Message-State: AOJu0Yzb4H6TGK9x593aFvXEIYNIdlsV3yJmd0EQWfUFPjTkQLviskp6
+	eVIKXizsBQA+GmDb1GIiT9I/L35us548xIPO+wwsYO5/jZZrK8d9BtuLgVdmtwdoZ5E=
+X-Gm-Gg: Acq92OEIxxzXqhcrPKpPIGUNQZhz06yDcd2fPVZn9fOAUyUNKgAUptziFcSbVD98se0
+	GkFaO87AwgSpa3I2Wvvpnh06VkNAktgpQ5Y2Tc6AnP3ZAhy/7ZkEz81zm08dUHoxXTDrE+3GFU5
+	lDMUsXX2fqs5Oiaq3KRz9pyPr2PKtPDIpFdqh5XRKg6RQiDLTF6Bx9iWerCFCn0PRipUimoKsbS
+	U7km3qBjTNLPnb6d1j6cNnnCEHq24w440xvBvaE8rpQ7bpHmKLdQNhbc0qfnNJu0J5N0SU8WdMi
+	s9XYuTTUkSi5OWp6VNb97P0kGC303bmi082MRthRGE7PcHURtvxBe3yV9yatju9SsAPhyAmNraj
+	v3RQ3uqFDh8VrktzeDuLBEZQGPdBZcW509cNhND9fbD8DleI4WoH9CF/Dfh0XyhkKUje7ONYN8d
+	kkmjNrromfNIIxr4toMWQKYUcHuP3DD7L/44Amy7y9KXDjuQ==
+X-Received: by 2002:a05:600c:564a:b0:490:53b0:9e5a with SMTP id 5b1f17b1804b1-4909c11c15cmr174298335e9.5.1780325925446;
+        Mon, 01 Jun 2026 07:58:45 -0700 (PDT)
+Received: from [192.168.0.101] ([109.76.233.76])
+        by smtp.gmail.com with ESMTPSA id ffacd0b85a97d-45ef32fabcasm25172652f8f.0.2026.06.01.07.58.44
+        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
+        Mon, 01 Jun 2026 07:58:45 -0700 (PDT)
+Message-ID: <2d7430bc-1bb5-47ff-95c7-c5c4d880cdf2@linaro.org>
+Date: Mon, 1 Jun 2026 15:58:43 +0100
 MIME-Version: 1.0
-Content-Type: text/plain; charset=iso-8859-1
-Content-Disposition: inline
-Content-Transfer-Encoding: 8bit
-In-Reply-To: <20260529173341.GA566433@google.com>
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH 4/8] arm64: dts: qcom: shikra: Add CAMSS node
+To: Loic Poulain <loic.poulain@oss.qualcomm.com>
+Cc: Nihal Kumar Gupta <nihal.gupta@oss.qualcomm.com>,
+ Vikram Sharma <vikram.sharma@oss.qualcomm.com>, bod@kernel.org,
+ Vladimir Zapolskiy <vladimir.zapolskiy@linaro.org>,
+ Mauro Carvalho Chehab <mchehab@kernel.org>, Rob Herring <robh@kernel.org>,
+ Krzysztof Kozlowski <krzk+dt@kernel.org>, Conor Dooley
+ <conor+dt@kernel.org>, Robert Foss <rfoss@kernel.org>,
+ Andi Shyti <andi.shyti@kernel.org>, Bjorn Andersson <andersson@kernel.org>,
+ Konrad Dybcio <konradybcio@kernel.org>, Frank Li <Frank.Li@nxp.com>,
+ Sascha Hauer <s.hauer@pengutronix.de>,
+ Pengutronix Kernel Team <kernel@pengutronix.de>,
+ Fabio Estevam <festevam@gmail.com>, linux-arm-msm@vger.kernel.org,
+ linux-media@vger.kernel.org, devicetree@vger.kernel.org,
+ linux-kernel@vger.kernel.org, linux-i2c@vger.kernel.org,
+ imx@lists.linux.dev, linux-arm-kernel@lists.infradead.org,
+ Suresh Vankadara <quic_svankada@quicinc.com>
+References: <20260526-shikra-camss-review-v1-0-645d2c8c75a7@qti.qualcomm.com>
+ <20260526-shikra-camss-review-v1-4-645d2c8c75a7@qti.qualcomm.com>
+ <178000689150.4557.11759359941436928903.b4-reply@b4>
+ <df00e8d8-21ab-415f-815e-608eb7ab0967@oss.qualcomm.com>
+ <23d2a824-e894-4c26-8bd1-02bbb8a7c6d1@linaro.org>
+ <f7403443-3c0c-45d2-8235-46c70883a296@oss.qualcomm.com>
+ <203e09db-ba37-4d75-b984-227298f55d80@linaro.org>
+ <CAFEp6-3prh88NTK5U1HAARmQr203LVcbW4hoo_zuK4Qof4BAzg@mail.gmail.com>
+From: Bryan O'Donoghue <bryan.odonoghue@linaro.org>
+Content-Language: en-US
+In-Reply-To: <CAFEp6-3prh88NTK5U1HAARmQr203LVcbW4hoo_zuK4Qof4BAzg@mail.gmail.com>
+Content-Type: text/plain; charset=UTF-8; format=flowed
+Content-Transfer-Encoding: 7bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260601_075726_875473_61732D83 
-X-CRM114-Status: GOOD (  24.19  )
+X-CRM114-CacheID: sfid-20260601_075847_724686_1FB2A076 
+X-CRM114-Status: GOOD (  13.13  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -107,52 +121,47 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Le Fri, May 29, 2026 at 05:33:41PM +0000, Eric Biggers a écrit :
-> On Fri, May 29, 2026 at 07:10:06PM +0200, Corentin Labbe wrote:
-> > Le Fri, May 29, 2026 at 09:10:57AM -0700, Eric Biggers a écrit :
-> > > On Fri, May 29, 2026 at 08:08:01AM +0000, Tianchu Chen wrote:
-> > > > From: Tianchu Chen <flynnnchen@tencent.com>
-> > > > 
-> > > > sun4i_ss_prng_seed() copies the user-supplied seed into ss->seed
-> > > > using the user-provided length with no bounds check. The crypto core
-> > > > does not enforce slen <= seedsize before calling into the driver, so a
-> > > > userspace caller via AF_ALG setsockopt(ALG_SET_KEY) can pass up to
-> > > > sysctl_optmem_max bytes, overflowing the fixed-size buffer and
-> > > > corrupting adjacent heap memory.
-> > > > 
-> > > > Clamp the copy length to the buffer size, matching the approach used by
-> > > > loongson-rng for oversized seeds.
-> > > > 
-> > > > Discovered by Atuin - Automated Vulnerability Discovery Engine.
-> > > > 
-> > > > Fixes: 6298e948215f ("crypto: sunxi-ss - Add Allwinner Security System crypto accelerator")
-> > > > Cc: stable@vger.kernel.org
-> > > > Signed-off-by: Tianchu Chen <flynnnchen@tencent.com>
-> > > > ---
-> > > > v2: Silently clamp oversized seeds with min_t instead of returning
-> > > >     -EINVAL (Herbert Xu).
-> > > 
-> > > sun4i-ss-prng.c is useless, is still broken, and should just be deleted.
-> > 
-> > Hello
-> > 
-> > useless ? clearly no, it helped a lot on devices where it is.
-> 
-> The only way this code is reachable is via "rng" algorithm type in
-> AF_ALG, which is almost never used.  Everyone just uses the regular
-> Linux RNG (/dev/random etc) instead, as they should.
-> 
-> In fact, anyone were to accidentally use this it would be a security
-> vulnerability, seeing as sun4i_ss_prng_generate() doesn't actually fill
-> in all the bytes that were requested.  It also doesn't wait for the FIFO
-> to be ready when reading data from it.
-> 
-> Is it possible that there's a misunderstanding here and you think this
-> provides entropy to the regular Linux RNG?  It doesn't.  hwrng does
-> that, crypto_rng does not.
-> 
+On 01/06/2026 15:27, Loic Poulain wrote:
+>> Yes I think CDM should be a standalone block and BTW use standard DMA
+>> APIs with its own IOMMU entry.
+> Interesting, so CDM should be a dedicated subnode as well, and not
+> part of the OPE?
+> Then, If we want to use it from OPE at some point we would need some
+> 'cdm' phandle in OPE node.
 
-I believe to have used rngd for that. ( or something like that)
+Your question makes me think again.
 
-Anyway, I understand why want to remove it.
+CAMSS:
+- IFE/CDM
+- IFE Lite/CDM
+
+HFI/BPS/IPE
+- BPS/CDM
+- IPE/CDM
+
+OPE:
+- OPE/CDM
+
+I believe those are the mappings of the various SIDs too.
+
+Come to think of it there is every reason to model the CDM block as
+
+cdm-ife0@ {
+     iommus = <IFE0_SID>;
+};
+
+cdm-ope0@ {
+     iommus = <etc>;
+}
+
+And then do use the dma engine API to shift data. I don't see why the 
+IFE, OPE or BPS needs to map the IOMMUs and if you are using the BPS via 
+HFI you'd simply leave the cdm-bps@ {} disabled in your dtsi anyway.
+
+We should excise CDM IOMMUs unless/until we come to implement CDMs as 
+standalone nodes.
+
+I'm open to being corrected of course :)
+---
+bod
 
