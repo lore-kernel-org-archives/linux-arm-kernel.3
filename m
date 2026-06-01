@@ -4,160 +4,95 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id E0333CD6E60
-	for <linux-arm-kernel@archiver.kernel.org>; Mon,  1 Jun 2026 20:36:42 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id C98EECD5BD1
+	for <linux-arm-kernel@archiver.kernel.org>; Mon,  1 Jun 2026 20:40:09 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:
-	Content-Transfer-Encoding:Content-Type:References:In-Reply-To:Message-ID:Date
-	:Subject:Cc:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=lSgOQt7jdfRERUZlsJnmJON800HbW5sCVXxY8ujBDLs=; b=SB9IRXIgOjL2O8Fn/zCTwFEaG1
-	0uHmgj7/eR26ceqtm456YGUHgEN/A0vGWFUIh6L03euXlTRD7S/Z5CfoRQWx4nlDm8jJxZEj7hrTD
-	BFhiTC7hS9lxTmvxf153CFzz08pYwmEAlTBgxrxKEvSeTO5x2h9yrDFWzR3fe1gjgPdPWvdu3eOxK
-	pM81obw+1pnsqBk1TVkmLwcXY3GXTfECkR9ZQyei02+zWyRDbHpuFcLhCF2dvF4ozc2awarYabSRk
-	p3GHHspI1wuXPIkn0LPuSTBT6aWLHpxh3B9rpz9BQK8WKukCc3ukS8cNqtbX6I2zsrs+VKG58meL8
-	DgW6C3fg==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:Subject:References:In-Reply-To:Message-Id:Cc:To:From:Date:
+	MIME-Version:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=KjDPQTzWZgJz5hUkpxM6NuNPlWaV6iGvvvHZkVbr2qM=; b=SawSi2oOHQ/aCrbAQrybae04QF
+	fm7VGzwmVRem8ycC0ZkwZxXHpP0pHVWy4hDYWxsdjq+qvoeIH5xwnJrTxMh2KYaJoDcDEHHMducCJ
+	XnsnkNFwxb/4yRwkkh16Nm6ySwO4kZsLrpmNcg8IeNu4unKznZ95Bgrr8jxDQVmsmsnBxKbmzUaa+
+	OxmzQ87r3foBVCUcMtDwT5FGgNgsk3t08hifbCdYldjPojHFPnpAnaDsXZwqWqQW6IJkptitKDolX
+	jqPNMSJRlfA5bW+dE7+6jjSv5DVWSlNafDl0lMpVbwFfoYVSvztuQ1Ad1MkZYEErrTRnJ3hV/RJU7
+	v+uloa/Q==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wU9NE-0000000BmyX-3OZ0;
-	Mon, 01 Jun 2026 20:36:36 +0000
-Received: from mail-northeuropeazon11012026.outbound.protection.outlook.com ([52.101.66.26] helo=DUZPR83CU001.outbound.protection.outlook.com)
+	id 1wU9QY-0000000BoYy-3VRY;
+	Mon, 01 Jun 2026 20:40:02 +0000
+Received: from fout-a6-smtp.messagingengine.com ([103.168.172.149])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wU9NB-0000000BmtZ-2Rn6
+	id 1wU9QV-0000000BoXz-2FBt
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 01 Jun 2026 20:36:35 +0000
-ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
- b=LcnMYZ/scZFUuMH5sN105DN/WLfoQkiu6KSuehs1X/jsaoAz5/linRAjcpzXX9xbj4jRdgw+3v3fXTcXiVWT7/YOWtCglBhrjO1BpuOwqZmuk6lHhyxvtSP5K3x/jeQlQ7V/YXEKObwOAICm+uXO4jU44FLVRC34KQf23QFf/LKztoFrxlCVL7aetifbViYdGTyVDVYF1vidiaC4O9Mc0jv3AjA3zsYXHwiAlNk6Lai8MnumuI+DcBjATWr2CSjQfvh4Or1/O6uoBRleY6+IHZfLWZPiTtYG0LkAP8PElJE3uITsNNCyapTvMeFb6Cf/MqYn8aWUPrrNnDe1lxuibA==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
- s=arcselector10001;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
- bh=lSgOQt7jdfRERUZlsJnmJON800HbW5sCVXxY8ujBDLs=;
- b=waPpEI025Qnw8GFu8W3gtj2oMhf3fy7k4hZpUzUhw669dKlVyD1ytAbfWRL+swA3oUp/2sO31SXXzxeAJt+XcrPulxD5hnUZJUcdkBYCxhyDW3JJ6xnGRJO3fXGx+74MwJdqTSW1xpiJ/C6n79v86LRAhHEL1LNJVt+Sr7MJL6aKX+r0zqGFeXCAZQpIs6lFw7Bt12sMtZVzisL4v0z4xlMZvjKf3pKp1E2QCX+Rat5Hu5YJBG5O4VVS0VxJGZ4RKDMSXc1pwIi4MdrA3Foe16KUZIxm/Uq86qhdQXZz1tXrHPcxGH+KsYF7EhS+Ar7PsQ9l4XH2RpA2EmWIoOO6BQ==
-ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
- smtp.mailfrom=oss.nxp.com; dmarc=pass action=none header.from=oss.nxp.com;
- dkim=pass header.d=oss.nxp.com; arc=none
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=NXP1.onmicrosoft.com;
- s=selector1-NXP1-onmicrosoft-com;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
- bh=lSgOQt7jdfRERUZlsJnmJON800HbW5sCVXxY8ujBDLs=;
- b=MfWLJQOjbYviCSs+QKrCdi8/b2R1/NHC6htXeQR5icgD0jW18SSRyNTiotY/3eInO1mL0nkUem5LNTClBJU1FpTLx5mBJhKsuMvj6X2J9GkleWCAX/6I1a/SuPF90URfio7PkQpT06m5BR3nRZcZJpHNusOaArrIEyYBDLaByEvfgGHtHQBpfY/SjvhnHrvOp0GlTzdRDbJgxyBRL4Gopx5q9LSwt7B4IanA76EIdVhI5P+SDQFHhkEIZvkn0/5xznOTxguLfhYfwUfrBHMCeH+2y6dg6z+QdS/Ra7PnPtVan1sDkzVVl96XdEXzna+0eJVBgYiwT/a8AaEV1Bc0Dw==
-Authentication-Results: dkim=none (message not signed)
- header.d=none;dmarc=none action=none header.from=oss.nxp.com;
-Received: from GV2PR04MB11799.eurprd04.prod.outlook.com (2603:10a6:150:2cf::9)
- by AM0PR04MB7043.eurprd04.prod.outlook.com (2603:10a6:208:19b::20) with
- Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.21.71.16; Mon, 1 Jun 2026
- 20:36:28 +0000
-Received: from GV2PR04MB11799.eurprd04.prod.outlook.com
- ([fe80::2146:83a2:5329:b7c]) by GV2PR04MB11799.eurprd04.prod.outlook.com
- ([fe80::2146:83a2:5329:b7c%6]) with mapi id 15.21.0071.014; Mon, 1 Jun 2026
- 20:36:28 +0000
-From: Frank.Li@oss.nxp.com
-To: Rob Herring <robh@kernel.org>,
-	Krzysztof Kozlowski <krzk+dt@kernel.org>,
-	Conor Dooley <conor+dt@kernel.org>,
-	Shawn Guo <shawnguo@kernel.org>,
-	Sascha Hauer <s.hauer@pengutronix.de>,
-	Pengutronix Kernel Team <kernel@pengutronix.de>,
-	Fabio Estevam <festevam@gmail.com>,
-	Andrew Lunn <andrew@lunn.ch>,
-	Vladimir Oltean <olteanv@gmail.com>,
-	"David S. Miller" <davem@davemloft.net>,
-	Eric Dumazet <edumazet@google.com>,
-	Jakub Kicinski <kuba@kernel.org>,
-	Paolo Abeni <pabeni@redhat.com>,
-	Josua Mayer <josua@solid-run.com>
-Cc: Frank Li <Frank.Li@nxp.com>,
-	Yazan Shhady <yazan.shhady@solid-run.com>,
-	Mikhail Anikin <mikhail.anikin@solid-run.com>,
-	Alexander Dahl <ada@thorsis.com>,
-	devicetree@vger.kernel.org,
-	linux-kernel@vger.kernel.org,
-	imx@lists.linux.dev,
-	linux-arm-kernel@lists.infradead.org,
-	Vladimir Oltean <vladimir.oltean@nxp.com>,
-	Conor Dooley <conor.dooley@microchip.com>,
-	Krzysztof Kozlowski <krzk@kernel.org>,
-	netdev@vger.kernel.org,
-	Krzysztof Kozlowski <krzysztof.kozlowski@oss.qualcomm.com>
-Subject: Re: [PATCH v6 0/2] arm64: dts: imx8dxl: Add SolidRun SoM and HummingBoard
-Date: Mon,  1 Jun 2026 16:36:21 -0400
-Message-ID: <178034617107.522644.17438294893077437359.b4-ty@b4>
-X-Mailer: git-send-email 2.43.0
-In-Reply-To: <20260524-imx8dxl-sr-som-v6-0-37932c6eb7e4@solid-run.com>
-References: <20260524-imx8dxl-sr-som-v6-0-37932c6eb7e4@solid-run.com>
-Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: 8bit
-X-ClientProxiedBy: SN7PR04CA0189.namprd04.prod.outlook.com
- (2603:10b6:806:126::14) To GV2PR04MB11799.eurprd04.prod.outlook.com
- (2603:10a6:150:2cf::9)
+	Mon, 01 Jun 2026 20:40:01 +0000
+Received: from phl-compute-04.internal (phl-compute-04.internal [10.202.2.44])
+	by mailfout.phl.internal (Postfix) with ESMTP id 6F7ABEC0096;
+	Mon,  1 Jun 2026 16:39:58 -0400 (EDT)
+Received: from phl-imap-05 ([10.202.2.95])
+  by phl-compute-04.internal (MEProxy); Mon, 01 Jun 2026 16:39:58 -0400
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=arndb.de; h=cc
+	:cc:content-transfer-encoding:content-type:content-type:date
+	:date:from:from:in-reply-to:in-reply-to:message-id:mime-version
+	:references:reply-to:subject:subject:to:to; s=fm3; t=1780346398;
+	 x=1780432798; bh=KjDPQTzWZgJz5hUkpxM6NuNPlWaV6iGvvvHZkVbr2qM=; b=
+	eWJDqxGPAtFjEdSVmZY4J622llJrXbYMLYgbpMcwFbygTFtCdOVSYasqaJm8Zxyr
+	1uCTVFymzRXuJ02kYq4zPhyDmzhE9qLoNqtnzJmwe86cu6PKI0vbJZvKniX2zJ7w
+	agYdHJddAkOr919SgU/PDNDS6q0n4fvvBFeqnpoZNHbyMgpyAnQYJG6zUqcuqA7M
+	UeDPAGivLh4NnC6B1ABSBEtTbUcrYyExUzHmQswlv2UbU6E18tJRQSfUX/gGP1xB
+	kVI/dKPzF/SXfrHTuWSkW6429ETs8zz4B7dnZClTEFCFbendfqf0Cu1Av+4JSB7t
+	B93skT5XELDqBY+KAcJOEw==
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=
+	messagingengine.com; h=cc:cc:content-transfer-encoding
+	:content-type:content-type:date:date:feedback-id:feedback-id
+	:from:from:in-reply-to:in-reply-to:message-id:mime-version
+	:references:reply-to:subject:subject:to:to:x-me-proxy
+	:x-me-sender:x-me-sender:x-sasl-enc; s=fm1; t=1780346398; x=
+	1780432798; bh=KjDPQTzWZgJz5hUkpxM6NuNPlWaV6iGvvvHZkVbr2qM=; b=H
+	fBY7E3MWeja328cgtxscYL97ZfX3h2fmwNwio7McM1ebi0mo9DSBmFdf97Mnc2r4
+	0r4Ry1lx0YtxLJ+ETelWlOG5tgLDKYSQHRvrtdvlLsq3xyuV5jOAFyT8fElW7uw+
+	4LaT+xBOv/c52pboyKIooraeeKDkiHbRUsWrgYBO83aydYDVAMCKqsdNI9S0bK26
+	kRuWsCY5JbFtrud4qW1lSwDreDA/iZ2oveDFQl63yYQnU+oIqhZjXVZaTIPHuMxY
+	Kw+N2ibwG7Qs6zBE/xDss45vErJFKgyy3hPHYxaWdFVaFxxLFIQg15UmV8MnTH4Z
+	9z48uiHiQOCePBmlWKL8Q==
+X-ME-Sender: <xms:Hu4daoNub5iPtLrcqQVBLF7tnBW3ACKF2qdO_kJOJ0kVQSYBk_09Eg>
+    <xme:Hu4dapyTDluyT0dxtnKsHcDfmWdjwvvAAvpBnpN2GlO6XdrLC6vB8XTbm-GeP0ued
+    X2HNgp_SPx3sK2BQVHpg0AiGnz2LIdll0Dt2bXA0IkRy1XvS3plok8>
+X-ME-Proxy-Cause: dmFkZTEWdFgTB/a1EXR3n+DHCYsPeOwAGlI+f8u79hdOcqaflmwEeLZ1XGHgmFWttt+yLl
+    28v+hhkpCjDuPdg8e3sQCJIFAYRgvKylemfqi7r2EndfBrv77oQ761C8xrLxhbeE+bsj3v
+    TAenEDXvx2nQb4tY5PRUA58yTAG3LmV010UwgUlS/zhZeQPEmMGY8GVZty4umkqG84s6wV
+    /L21+tj8B7pJETB8vf3StkS1r9gJW2gT4lRLyM/iWee2QmOanodV9tBi0rtYwl4lieewA3
+    Jgxe3xna1N13P34L2ZoRWsfcDF1drjOcp/nrzht/m+l/rgibXh2Sw232MZUXNNiR/+ygeh
+    p+2osWEICOTvadAp0J719ZmHqIBBPG1uLN+VQDVUS45UZdrT7FcQ1hFJ21yu0P249Ksi+J
+    du9ZH5kzIVvlYZMQoJVbKTw+ZysC/e5K097K+PmYKOUh6prURNcGf24T3CK7etiK9oTN7I
+    xbhTxyn0OPMDQzV8bZlI++UKbB1kM0+LCtlFH+SMFiozU01nBtjjoyIMWiB7RabwOrIcrp
+    +Y8LFMBqD9Idfbky47MtZ9NMKuHAjXv2FeODy1lGn9Gdc1gI2Qv32IDwzdNeoWbNtDSw+/
+    TC2C+jdqZe4qYJdgT8+DdA2np6Pnb9QqvJYCSETaStdo5swfYGGXmR9G344A
+X-ME-Proxy: <xmx:Hu4daoLQ1r7PyBecGvbD4ACeaWlpnHjX_mhbIrryyn-0OFEKKbniVg>
+    <xmx:Hu4dav4Wbh24UZSe8vSOc5m8rmFs5QdXHFITSIdDmYHnu_hpUSVv4g>
+    <xmx:Hu4darx5EVHhn5L3ySn-rSQJTr7yl14WalxrnvcrYOsVgsZTPbu5Og>
+    <xmx:Hu4dajY-sYO5JrkP6OYj4IqXzEVDbXeD3ZffW9szLm8c3ctasYKUrA>
+    <xmx:Hu4dau3_QYW4vzGe_FBIbLwNgMJvOhYcLwAhl_TjfUjJCuA--XgG6311>
+Feedback-ID: i56a14606:Fastmail
+Received: by mailuser.phl.internal (Postfix, from userid 501)
+	id EFA1C182007A; Mon,  1 Jun 2026 16:39:57 -0400 (EDT)
+X-Mailer: MessagingEngine.com Webmail Interface
 MIME-Version: 1.0
-X-MS-PublicTrafficType: Email
-X-MS-TrafficTypeDiagnostic: GV2PR04MB11799:EE_|AM0PR04MB7043:EE_
-X-MS-Office365-Filtering-Correlation-Id: 6907269f-7fab-4aed-1bbb-08dec01d74bd
-X-LD-Processed: 686ea1d3-bc2b-4c6f-a92c-d99c5c301635,ExtAddr
-X-MS-Exchange-SenderADCheck: 1
-X-MS-Exchange-AntiSpam-Relay: 0
-X-Microsoft-Antispam: BCL:0;ARA:13230040|19092799006|366016|1800799024|7416014|376014|921020|18002099003|22082099003|56012099006|11063799006;
-X-Microsoft-Antispam-Message-Info: D+sVSzktzbvoMix4UHywEedASl99SFVaIfUdv5lShc9vOmO5X5aLHT7dwhqc4ryJcpLHNrYLXDo7x/tzF6dk1W6n/fZUkps/4TAKm6IlwPNdFB4RH7uEdLmjJptBL73hbYYLgg4qpkYt+0dcLbq5k+TrNXDdinKBdg4VQiq8NDLhtLdkm23pvjECb1dMV04l01zdFG+wNBRB73VHuq1pkLeVwihM3+Y6CaIeF3KpTcVrbFkVyicN9Tn6vvdqYHAi5v77LxpVnhmNEMupeuPbb9vboXAh0abqK5h7aNWs9X/NU6Ihu/79Ntvkvnk4HytgevVkmsFy9nbH5TvcDcElu+fFnXLqEP8bBvbojFtztSwumFv7k91/oz/IYlugnt0JvS8Xk/cHawCzTX2sUrSR8hBDipUipL1bgodOCA3AuFE0EMCpfp/vvKbvtcQrZ1p+RsNgVpveJuG/+HncjfC9tfOKAsge/MNT4f7owB7sot/ma9ChEzDZJO2ItEV0Dw2gps5Cev89vZ63CfIoArmLeBze41B+uPe5w3wnxTlX2nml0eD8+G577MYfgvLfLzbEPtUAmal7GFp3AxWYEfX6J0Q8/1XJaMail/o0qEDZXQTXDqgbdyi0TSvyT0ig5e7YZEHznexZYAWC+jfM9sG8S+ilApDzC1ZNXvaU6OA5pjUt9lT6QMP635PGCq/ac+uInjw88BTyahRnKPlGtoNXXgsIiBhJgLTGti2jmhtMsq4=
-X-Forefront-Antispam-Report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:GV2PR04MB11799.eurprd04.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(19092799006)(366016)(1800799024)(7416014)(376014)(921020)(18002099003)(22082099003)(56012099006)(11063799006);DIR:OUT;SFP:1101;
-X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
-X-MS-Exchange-AntiSpam-MessageData-0: =?utf-8?B?Y21TcDMwUmNtOFRHZGxxeHRZK0RHSy9aSiswWElvblVGQ2Z4aUV6TWtHd0d2?=
- =?utf-8?B?TGc4V0tJMDBKTGF5eDBPSHM1Yzl4OEFBa0ZCVWlNcVJTeVJSR0dXYWNDN01S?=
- =?utf-8?B?ZjZpRnlPeTBSd3F5M0ZheHVuZURCU0ZQNmhvQUZlNVMvS2VYd0pkaG0vM2Rt?=
- =?utf-8?B?bDVCd1AvcXlKTklPRFdsOERRUzRGeFE0NUNVR0FPM0xDNmxRcUlIdXU3WC9C?=
- =?utf-8?B?V3U1TkxrQkNQQURxcHdWeFdXZ3RDMW1JOUwyOFFzKzBBZFhOWThhV2xXMWkv?=
- =?utf-8?B?VDluak5pUU5iVXpVOFQvS1A2My9HY2tZdGhsZjM1R2ZUZEM5VGFEMm9Wazhy?=
- =?utf-8?B?a045M24wc1VMUGpCLzJsUWxuN1J1VTIyamJZSEZvZEo4UnBYbmdiNUl1YkU5?=
- =?utf-8?B?K3p3MmpEWVZvNWJrcGoyWEZFYzJmZGw4NXhmVVhYSFZzNXdzd3c2QjVMWk9a?=
- =?utf-8?B?TFVCUWNNK0h3Y2VCeFREODEvTmFNWHcwS0R6aGlweE5xbGV3M1JZek9GM05v?=
- =?utf-8?B?eDl1WCtLeGJGdllqNjZ5NVNIQ0hvYkE3VVRRck13MFFiVXdBZUlBendsbGN2?=
- =?utf-8?B?UW5CM1pDN3B3NEJ4U0svWmI0UGd6ejhybk5aS01KZzYyaDdpTFQrTTdjYnJS?=
- =?utf-8?B?UWZVT3BuYjdTbTFKekswWUJjNFpXRnNDcVowZ2s5RGRVUUxQQ1ROWmN0a0xx?=
- =?utf-8?B?ektna3dSdGFZalpsK1RjMElvRHdFQVBCcUF3RW5vTXRJV2xRSi9DWlZpazFi?=
- =?utf-8?B?dlJtZGFpYzE3ZUlzNXFEK2VEQ0JobkdkT1pmZjBoaTF2ak9KcHFwb3BrRlBL?=
- =?utf-8?B?Y3gwdW5kNGt6Q08rajlqd1NQNk0vTzhuODdwb0I5d2xGc25qb0x1Kzg1a2FZ?=
- =?utf-8?B?U2RFSTNncEV6T1c1UXNKNjdRdU1wZ0tBbmgxL1NVd09Vend1NUdkb3plazEz?=
- =?utf-8?B?UlNIQ3R1Wm05ZzNkMStuVWpsNGxmSVNUL1pVb2hXQ2haM3Zrek9ldGpuUEFQ?=
- =?utf-8?B?QjEreEVYSitqR1hMOEVzNzFIYXI3NXFpVWVnMFdGdHh0cHVpMDVad01ScFJl?=
- =?utf-8?B?MUQvTkUxYkl1aVI2WGN5UHoxdWpKNGxGa0FXNXlNWXErUzJmc0syOTJheHdM?=
- =?utf-8?B?dWRoSUNZQVRQcXpwSkE4dityRWNHcUhQaC8xVTNpb2tuaTRvZzdRd1hZdDlH?=
- =?utf-8?B?dXRoTHQvdG94WCtqWW82bmxkcHdVRjNYaVd2UDJBWWpadDlaZHB6RVRXeDRN?=
- =?utf-8?B?RjJqcU9Yck5XOEEveFFPdzBhclVRcXRNV1ROYkNxRjVWNkE5bkdvci9WeDJB?=
- =?utf-8?B?R0wyZW1sc2ZtZVpGMXpHSFRscnZMQ0FBOWsvV1pmU0QveTdDOTRVNG5Camhr?=
- =?utf-8?B?OGFETTloSm90RHhPb0dXNDUvSlJBcDZwM0ltbHdnaEFxVEMwaXFmK2FrMWJj?=
- =?utf-8?B?RjU1SlpMYWJKNE02ZEdKUDVFMVBaQUpYODZzUDA0MTBQRkFrcWg5NzAxcHVX?=
- =?utf-8?B?QWVJVFNycktxQVhCdGg3YkM5eUUzclYyOG5NUE8wZ3hhUDFZNGdTTmx3YWww?=
- =?utf-8?B?aGFsS2hBNmhDeDJqMUE5Nk5qeFRWay9FcVd4aXlaNlUyTzZIM2Y0MXNGNDdv?=
- =?utf-8?B?OU5hdS9MNFIzcHBXTmRybFFkNnhYUFlYV2RmVjZUdUZ0ekZTamRJNjFmN2gr?=
- =?utf-8?B?MVBxdytDenRETGUxdUhxOGJZakpZRSsxNEtTWC9GQm9TS0hYNjh0S0NwSXli?=
- =?utf-8?B?Q0cxa3FIWDVMeGs5aHZTUG1MaE5XaGRObVhoR0tlUXE5Q213ZVJoU3BnM2xM?=
- =?utf-8?B?NTVZSVNVVk9Bb29PalpQWWZkdDdGMkdhaTJhaVp1bFhPamtpTmJrNTMzd1FR?=
- =?utf-8?B?eGtVQU5hZmFBVWhMTzZmVUFHcWM0T0E1d2M3RWdoN00rZFNYTU1HeE5oK1NM?=
- =?utf-8?B?b2FwWXo2MlljTWlyRzNjekJxSTdWZmg5SS9KRXE1cm1pQnRGVU9LNXBzUDY4?=
- =?utf-8?B?V3I2L3pBcTF0UXlYZlMvNDNCZ0dTTGtkVHk5OHd3L0cyekpiOFRtajQvdll2?=
- =?utf-8?B?eXlyU2RnbjdmR1J5UEFLR0loOElYODU4S1pwRDZyVE9XT2REUTJKaHdoTThL?=
- =?utf-8?B?VFB2a2lQWFZ6QkV6Z0V0WHZZRi9MUS9nTEJ6aTdZdTBxQ2RBaTBETUhEM0g5?=
- =?utf-8?B?eEtuYnora0JMS3RNUFAxa2kxejUvRGFDU1pVSVUxR1dGNmljVSs4L290U0pq?=
- =?utf-8?B?eE1BVFN4Y1lueUJUNm9qUlRJOFIvQ09uZ0RrVkxUNUJtR1phcE1NMnFRTjNi?=
- =?utf-8?B?NzY0bWZ6bzA2d25wbGpkUDR2NW5OUWN6N1c1VEhaZlpIaHZ6Vm5TVVZTaDUx?=
- =?utf-8?Q?Bpta/f+V3xW9CfdGPnC5AAWJsh0zBU2TEovwi?=
-X-OriginatorOrg: oss.nxp.com
-X-MS-Exchange-CrossTenant-Network-Message-Id: 6907269f-7fab-4aed-1bbb-08dec01d74bd
-X-MS-Exchange-CrossTenant-AuthSource: GV2PR04MB11799.eurprd04.prod.outlook.com
-X-MS-Exchange-CrossTenant-AuthAs: Internal
-X-MS-Exchange-CrossTenant-OriginalArrivalTime: 01 Jun 2026 20:36:27.9903
- (UTC)
-X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
-X-MS-Exchange-CrossTenant-Id: 686ea1d3-bc2b-4c6f-a92c-d99c5c301635
-X-MS-Exchange-CrossTenant-MailboxType: HOSTED
-X-MS-Exchange-CrossTenant-UserPrincipalName: p2NpKkGAQWIFoVuvPhupG9P/Il2M5ykIVCCksg19KOIxRL6uUgpx+1xuqErNC5GS+Rrqh7TiQeU3UOruAh8lP6GjgNLfxXEzbcho7QbtKQoBJvnK9IQhbPNqJnBbzRYQ
-X-MS-Exchange-Transport-CrossTenantHeadersStamped: AM0PR04MB7043
+X-ThreadId: AXmBUbiQg2Mg
+Date: Mon, 01 Jun 2026 22:39:36 +0200
+From: "Arnd Bergmann" <arnd@arndb.de>
+To: "Michal Simek" <monstr@monstr.eu>, "SoC Team" <soc@kernel.org>
+Cc: linux-arm <linux-arm-kernel@lists.infradead.org>
+Message-Id: <b56b09af-cd0a-4061-8cce-5e8a50033b4f@app.fastmail.com>
+In-Reply-To: <CAHTX3dKWE6DOPLXPq31wRiXfjac0TVqSOAOLP8itHoGYpF9eBA@mail.gmail.com>
+References: <CAHTX3dKWE6DOPLXPq31wRiXfjac0TVqSOAOLP8itHoGYpF9eBA@mail.gmail.com>
+Subject: Re: [GIT PULL] arm64: AMD/Xilinx SOC changes for v7.2
+Content-Type: text/plain
+Content-Transfer-Encoding: 7bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260601_133633_694058_BF53C927 
-X-CRM114-Status: UNSURE (   8.80  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20260601_134000_000240_580398E1 
+X-CRM114-Status: GOOD (  10.91  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -172,28 +107,33 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-From: Frank Li <Frank.Li@nxp.com>
+On Fri, May 29, 2026, at 12:15, Michal Simek wrote:
+> ----------------------------------------------------------------
+> arm64: Xilinx SOC changes for 7.2
+>
+> firmware:
+> - Add CSU register discovery with sysfs interface
 
+I looked at the contents here, and I'm not too fond of adding
+low-level register access interfaces to firmware drivers,
+that is usually a bad idea because it ties the interface
+to a particular platform.
 
-On Sun, 24 May 2026 14:03:08 +0200, Josua Mayer wrote:
-> Add bindings and description for SolidRUn i.MX8DXL based SoM and
-> HummingBoard Telematics.
-> 
-> Modify SJA1110 Ethernet Switch bindings to allow SPI Mode 0.
-> 
-> This patch-set is based on v7.0-rc2, because rc1 was experiencing
-> deadlocks with imx8qxp clock driver.
-> 
-> [...]
+I have no idea what 'CSU registers' are and the ABI
+description does not really explain that either.
 
-Applied, thanks!
+What type of userspace would access those, and why can't
+this be done in a portable way?
 
-[1/2] dt-bindings: arm: fsl: Add SolidRun i.MX8DXL SoM and HummingBoard
-      commit: 5576da12dac3f360737a4fee990add0d42e2fc83
-[2/2] arm64: dts: imx8dxl: Add SolidRun SoM and HummingBoard
-      commit: e8a17d1cc036bb73a4f8f87def569502e7e2ea48
+> zynqmp_power:
+> - Fix race condition in event registration
+> - Fix shutdown and free rx mailbox channel
 
-Best regards,
--- 
-Frank Li <Frank.Li@nxp.com>
+No objections here, though they look like bugfixes that
+may be 7.1 material. Up to you, but don't be shy about
+sending things as bugfixes when they address real
+problems, it's better than waiting for the merge window
+and then immediately asking for a backport.
+
+      Arnd
 
