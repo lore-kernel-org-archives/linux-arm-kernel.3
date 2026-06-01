@@ -4,147 +4,75 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id C2F59CD5BD1
-	for <linux-arm-kernel@archiver.kernel.org>; Mon,  1 Jun 2026 16:14:41 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id DFBA2CD5BD1
+	for <linux-arm-kernel@archiver.kernel.org>; Mon,  1 Jun 2026 16:18:39 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:
-	Content-Transfer-Encoding:Content-Type:References:In-Reply-To:Message-ID:Date
-	:Subject:Cc:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=B6Vr694o+3gExkauFUDXr2az5ATeJvCXuPHa4osED4E=; b=XB1zBLMOikwp2PeafujZu39k12
-	PYQuRdCReXTHmyPQ78fH55M3LSK+U5RbH8g36pBHgZq/SVO60/B+5LCwm5C52Gj5plRRUHsmBXeDB
-	DeyDbWUw7qOFDrvAFNFJX1Ti9sXzcmvP7Y2KxixUNyYpz7gYBsz2kyTpj3/zBYETK7EqONqESA51P
-	nh3WOPRkLCao+ec6npl/DXTWO/d007VwKlg7cESbkXwTANT1+bjp5HSJMua8Hjhpe3l0EdIV+VDKL
-	6sWfrfc2NXNmvil82X8fESeEEm0+x6KWIeDICu+JcTPI3xQdR9rj6Sf+5qz5B9Bd3DMoyl+/OBUEG
-	58ruj5Dg==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
+	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=fJZwHBlIWaVYPF8vygrFg9lljHY6FPv3NF+DSCaap04=; b=MZrLEoNRke0uhobNxbi4kRQtrf
+	Jk7xKxsbU1HoF099RMqKrxyKFy0hrXsDwZab1lNWslIvxoUPGpi+zZCOhl1oDkaI45tVe6SlCCLiB
+	boVLoWavAhrCf1ZXWpVQA/VxG/5vmC7V5ZJTovoV5tIaXxP9csvDLIW8JsVU0a/paiku60fpklifa
+	t/cCdidU/wJfHMScHq6qMJZBacrwMmTbeL4fVSqSOH+RH1slRXgcT9w+zqKqJNkys8Odu0B7spsGp
+	chsve/gQv/s8urYpW1MFv+qHYzMTU77Dk8LcEjslH5msrB3Sf4H4Y8olCHQ+shZ9n0AJFTRzzakoK
+	Gske0z5A==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wU5Hf-0000000BSGt-3CxL;
-	Mon, 01 Jun 2026 16:14:35 +0000
-Received: from mail-northeuropeazon11011055.outbound.protection.outlook.com ([52.101.65.55] helo=DU2PR03CU002.outbound.protection.outlook.com)
+	id 1wU5LU-0000000BSlJ-1TpE;
+	Mon, 01 Jun 2026 16:18:32 +0000
+Received: from fanzine2.igalia.com ([213.97.179.56])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wU5Hd-0000000BSF7-0u49
+	id 1wU5LQ-0000000BSk8-1Ye2
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 01 Jun 2026 16:14:34 +0000
-ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
- b=o/cgZCLY2H+/A675Em7X6OOIWTFHqjSbVilxTg8ekw5SMMWLl6VSYMUWcmzfkbBugCZs0SIILY8HP+QqhUFK5aTybXyiHku9WW52QrC6/vHv7blEcptyIwqFpwTPKVtNfZSc2fXXBuoLMmmlFP54hMWmZFH7kXPUFPs+W0p0sUvyfTU1sWEz2LTpWspEBKLQBdg9gKc/iKCkMvTo3uCyqEkX1xbM6L01YcDL2JjVn21P7tzKFaoLPAZEJ0RY06c/GnJ4Og0VDcDivT/CBVUX90zrv7GHSXHSJUl9iJaNcact4fufcv31oXrPN2NBp15amES2LlCPqmsRSjfXPXHoWA==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
- s=arcselector10001;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
- bh=B6Vr694o+3gExkauFUDXr2az5ATeJvCXuPHa4osED4E=;
- b=cvfsxC9LycvXOGlz8rlJYe1yuQVgtiSPnRY6WC2RXfAyWSKA4o6LmAybuVkh8kmsE5x8rxr5EtbD/FK0IS1K2NHtP6Ji+UCLCuGDA6Z6Tvw0F+yNhSGQ3YBFbfeI0Ej3DM6S8lU1hDWuWYT0VpI6Ob/NGqySJjzpz2OosAMJU8FQOqf78yiDKirA8GFZN5tAVh/YsAZlRvP9EOpAsEPzkpEZqW9cu3hJVk8nGVdOu/7LIovH2NIjB+HiJl1oCAWru7wRhnFFXjFQMS1zMoKc+ODzMGW31mHpWNytyJS50iU56ZIrP27zX6cXhWSZJpgiIDBATsuquJl83feuhe9A+A==
-ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
- smtp.mailfrom=oss.nxp.com; dmarc=pass action=none header.from=oss.nxp.com;
- dkim=pass header.d=oss.nxp.com; arc=none
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=NXP1.onmicrosoft.com;
- s=selector1-NXP1-onmicrosoft-com;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
- bh=B6Vr694o+3gExkauFUDXr2az5ATeJvCXuPHa4osED4E=;
- b=gHVqC2WIHrK82/JzMbgqByQFSnQMouFN9kfAEaUU8HRGHkpkKPNs7PDxPrwPY0pIq+Gy3BL3qvOUOfz2/ulsFV7WGOTRS7dxBbcivGeAyBq1pUKB7rd53SqpmSX98ZbEYFNaMaJtdWLqIIybcm3bT+zl5vCmWG2iQzMgD12hj3iDVYoeI7APwwqOkLYDmHX7/jmwMH33xh8YS7StXxhdHhXi0HRFITqsWLWsDfSybnMavYb5HlBCZzOgmG8hQ7FEBIj75cNmDD/OYAkV/MjtHt8S+Se6o35BNVUmv5rwKqP/eRULGh3uTfHQE1KVdQbrxlhQz0jGvHmlc4g1shbMMQ==
-Authentication-Results: dkim=none (message not signed)
- header.d=none;dmarc=none action=none header.from=oss.nxp.com;
-Received: from GV2PR04MB11799.eurprd04.prod.outlook.com (2603:10a6:150:2cf::9)
- by VI2PR04MB11195.eurprd04.prod.outlook.com (2603:10a6:800:291::20) with
- Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.21.71.15; Mon, 1 Jun 2026
- 16:14:26 +0000
-Received: from GV2PR04MB11799.eurprd04.prod.outlook.com
- ([fe80::2146:83a2:5329:b7c]) by GV2PR04MB11799.eurprd04.prod.outlook.com
- ([fe80::2146:83a2:5329:b7c%6]) with mapi id 15.21.0071.014; Mon, 1 Jun 2026
- 16:14:26 +0000
-From: Frank.Li@oss.nxp.com
-To: Conor Dooley <conor+dt@kernel.org>,
-	devicetree@vger.kernel.org,
-	Frieder Schrempf <frieder.schrempf@kontron.de>,
-	imx@lists.linux.dev,
-	Krzysztof Kozlowski <krzk+dt@kernel.org>,
-	linux-arm-kernel@lists.infradead.org,
-	linux-kernel@vger.kernel.org,
-	Rob Herring <robh@kernel.org>,
-	Sascha Hauer <s.hauer@pengutronix.de>,
-	Shawn Guo <shawnguo@kernel.org>,
-	Frieder Schrempf <frieder@fris.de>
-Cc: Frank Li <Frank.Li@nxp.com>,
-	Annette Kobou <annette.kobou@kontron.de>,
-	Fabio Estevam <festevam@gmail.com>,
-	Pengutronix Kernel Team <kernel@pengutronix.de>
-Subject: Re: [PATCH] arm64: dts: imx8mp-kontron: Reduce EERAM SPI clock frequency
-Date: Mon,  1 Jun 2026 12:14:16 -0400
-Message-ID: <178033044898.4105283.7224864649196000490.b4-ty@b4>
-X-Mailer: git-send-email 2.43.0
-In-Reply-To: <20260513132533.589783-1-frieder@fris.de>
-References: <20260513132533.589783-1-frieder@fris.de>
-Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: 8bit
-X-ClientProxiedBy: SA0PR11CA0185.namprd11.prod.outlook.com
- (2603:10b6:806:1bc::10) To GV2PR04MB11799.eurprd04.prod.outlook.com
- (2603:10a6:150:2cf::9)
+	Mon, 01 Jun 2026 16:18:30 +0000
+DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed; d=igalia.com;
+	s=20170329; h=Content-Transfer-Encoding:Content-Type:In-Reply-To:From:
+	References:Cc:To:Subject:MIME-Version:Date:Message-ID:Sender:Reply-To:
+	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
+	Resent-To:Resent-Cc:Resent-Message-ID:List-Id:List-Help:List-Unsubscribe:
+	List-Subscribe:List-Post:List-Owner:List-Archive;
+	bh=fJZwHBlIWaVYPF8vygrFg9lljHY6FPv3NF+DSCaap04=; b=n77TsKRMNIYCQvziJZDQgDPZj8
+	ch2YgEyPpWEvLvIkddOI/GIEScSlRTqv9BHqxLpLMh7zC0GUtKGlRzNqUQPbDZRGG34obWh7274IO
+	B+7VDNm1DUwjHXXJzK+33Lxh+tV2Ou6TsBtMrj6LUHLOQCg89keCABC0zRi4PflDv6oX4RTke3Lpw
+	qqdrVrZF1cFrXDNf59OswVDsWGdn3GsbGLrX78pI6MWz2Io6Jz5XJb11dUuAcC7NpavdJ/OgZFq42
+	4VJow5UsiC3Q0AMEXHgTyjE0EGEqODFO83UTr82O6jlaXqwdBhZAhJMJrYRPabGbWnykA4o59C+ac
+	sGceAO7A==;
+Received: from [177.172.121.54] (helo=[192.168.15.100])
+	by fanzine2.igalia.com with esmtpsa 
+	(Cipher TLS1.3:ECDHE_X25519__RSA_PSS_RSAE_SHA256__AES_128_GCM:128) (Exim)
+	id 1wU5Ke-00B6HW-N9; Mon, 01 Jun 2026 18:17:40 +0200
+Message-ID: <ae090604-4ea0-416e-b79b-6a4f5eba4e85@igalia.com>
+Date: Mon, 1 Jun 2026 13:17:33 -0300
 MIME-Version: 1.0
-X-MS-PublicTrafficType: Email
-X-MS-TrafficTypeDiagnostic: GV2PR04MB11799:EE_|VI2PR04MB11195:EE_
-X-MS-Office365-Filtering-Correlation-Id: 4e1ab8e5-c9b2-4329-ebf8-08debff8d9e9
-X-MS-Exchange-SenderADCheck: 1
-X-MS-Exchange-AntiSpam-Relay: 0
-X-Microsoft-Antispam: BCL:0;ARA:13230040|1800799024|19092799006|366016|7416014|376014|921020|18002099003|22082099003|56012099006|11063799006;
-X-Microsoft-Antispam-Message-Info: 9x9GFS+wCxGJ3q9Xz0fu/z9Xkf+n0rvRu5YVnHPEWG7Vx7Ggae6rjXd7/CB2eJvqDV8xTETg2T9zRFTSEedl+UghWFwgFBYPnkM+V16NCLoJ1FeFx1+z+R76Qc8fFCsAlrQ/vfPkTP+SNHJLy1vLaNsn4K5eEn+dqTtrEYi+smu7KwIheWZKFnG1JoEbYuDtYRSruWru3mIz/O2evsiwX4us4aCn5lCdvALwX2BZFR3JVqrL/d1j9nXon5jigzttaExnJSkqI51ruvW9AGU7wyilLq0CErruMSAkPUuVtgAQAncgBw60wl0B7xVh/mSTzlmVMe/HyeV1lrgTQB7WkWMebpvE6RlFULiAUtP0X9XS7KWxs3otvvLSL7TBpt/AKvt1CpHIVLwTK9af+GkAXf9Bg/YCg1vd2nOLhw+kR+4c2Omm54JCEv3V4cBK/UahNd9FI9lsVsA9tecbdara+2AguMQNhflC+PR1PWDDpKn66fLAUmR7ClFL5IUMg5ehToUPJBqmB0VCJEKLbyLoTUhz3p8KwfPJJvMzv10slsDjA5zlnj462JDkpWV0RgpY+GcbU0WNya0YXkEYy4uMRWC6Bzjs7LOfHDA5nRfOobQzSTOLwplHufEyIR0TvvxdGlmpO4d4iTCAHfpXMC8sYSJTYbYQYeDPqt0NAnpHchMQp98sKHjOr4duUJHZa3Q3bhsezqVTREMQg/AR9BagTOTWta8RFrRFgSK0SyddRuA=
-X-Forefront-Antispam-Report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:GV2PR04MB11799.eurprd04.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(1800799024)(19092799006)(366016)(7416014)(376014)(921020)(18002099003)(22082099003)(56012099006)(11063799006);DIR:OUT;SFP:1101;
-X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
-X-MS-Exchange-AntiSpam-MessageData-0: =?utf-8?B?WjBkRFlCekRhQU9QbkR0dVpWdFdFTVlwQ3E3SU1heGs1T1VjTi94dkZrb1I4?=
- =?utf-8?B?UlJ1bnNocG1uaGtHT0JDdVg3L3RCaDk5R1dSeXRBei9KOE9SV21YYS8zbk11?=
- =?utf-8?B?WTczMWFhOUROaG9VNUptbE9zamlYTnUxODdOTFNVNTQ4bXhnaXpIaS9jVlZL?=
- =?utf-8?B?L0VEU24zcVo1dlhGR3FscUdNUmhIQkVJVE9nZkRoazl4b1R4eFZpZmtiaUd5?=
- =?utf-8?B?TkRFN3Y4UzBHMmIzWlBjdWJyMG1CekJKZkMzZTlFbXVuUExqWUVWYVVpMHpn?=
- =?utf-8?B?WFF0L3RZakFGdjZuc0M0QjZoNTRrZ3ZFM2lJay85VUZNa2MxbUg2d3c4aTAz?=
- =?utf-8?B?cS9mTlBZK1g5S0RRQmtmMUJRUHcxangzMjNaTVBtdTRweFl0L2xSTllQWVN5?=
- =?utf-8?B?aDN5V2EzdUNuMHJOYXduRy94dDBSeitjeERva1Fzd1lnNjdHRS9BSFU0YmhW?=
- =?utf-8?B?aW94Uk90UnRSZzF2SzZwUW9nQ2tmR3FONkl3ODVtWmdiQVFSbGhXT0xsUEQx?=
- =?utf-8?B?NERBUXlsQXZEdFlGYlJwMm9WS25KRlRQYmp3clZBVEdjUEJLbytLQjJXdktj?=
- =?utf-8?B?Ni9NdFc5OGpQcjV5Tjk1MGFHdmc4aVRhOXpSYm9KUThHanlLMkVKMGFvNHN5?=
- =?utf-8?B?eEpWVTllWnEzTEc3c3RrbFRwUUxVZW5KRGJSdEpUcm5CWXBpY01Ha1BTbk8v?=
- =?utf-8?B?cnZnY3lTTXRLZ1pROVdKckxkVUJFNzQrUVo3eFMvcUVzUk9kTWI1QmtQNDUr?=
- =?utf-8?B?YUZwOEk1eUdsOThQV0R6dGN6VW1RMFI5VEVTN1dXak9IemRmc2tkcGZpVVFS?=
- =?utf-8?B?SjVVTmZXRzVzTk44dVE0MUNqbGZCd2JIVG1RcGJRejR3UktGcWlNSFUvRTBp?=
- =?utf-8?B?TCtyL0dydStMTGtvUnRIaDdxemF6SVROQTdlbHF3a2IrS3IvOHRETVRlWkVk?=
- =?utf-8?B?eFlBbkpMZXR3UGtRZjNuVS93dmtNT2tVNXhHWE9tako3cnN6YmI4aWh0S1lK?=
- =?utf-8?B?MVFqMUdqbWFISG5HUjVkV08wZ0VQcVI2N1JQNktEdThUSEd3WDJGYUY4YVZB?=
- =?utf-8?B?dUxNYlFydDZHWFYwRlcwS0FqMjByd1NoaEpXV0J2NUV2aXJ0MmV6L2UzZUpu?=
- =?utf-8?B?V1BjaWRBL2lZS1oxVHVRSFFjVUxGcmltTkxuaE92REVEVTI1S1dhWVFFQm05?=
- =?utf-8?B?M3JHbVBrTEVzaGE1bUh1VUdzYnNhbUJXd0lJd3BEUEVwNFFBM0dHV0NKUDk4?=
- =?utf-8?B?RjNMK1dFbmpIWjlUVzROQzJ1dDJoaWJydnU4cmh6NzdzRG5JZkFqaUpPQlE0?=
- =?utf-8?B?dGUwaUdFVjBIeGR4RkpTalhVS0lvdVJocEVMbWxqS3I1aWUvZXhtUjEvSTFL?=
- =?utf-8?B?dkVDSmhYbHQ3QXRvUlZRdXRHM05VZGorTTM2eXcrUm0yMGlEOFpQVC9pMmxx?=
- =?utf-8?B?RHI4L01MS0VQcW5kSExaNDZmbFpjbkNJMjhYbnBZdGpVNFU2RHRxc20zWXBK?=
- =?utf-8?B?NXJDRzBOQVNrMzErby80azg1S2FmR290enBvVW8zZXN5emtUaDdpaVM1dW1t?=
- =?utf-8?B?VlZid29hTkhPVnE3T1JVOU5zcVRaQkx3ejBHTzZMVkE3WTQwem84T2xheHNS?=
- =?utf-8?B?YjZwamo3eG1ybG9wZGovQTlZVFcyZTZEZmJReGZxMy9VZDIrUGlUU1d2cE4w?=
- =?utf-8?B?eFplUXdaZENyR3ZWdlgyWW04VEkyWFVpSkNXSFJmMis4cFBLV3ZqWTlZSEJt?=
- =?utf-8?B?R1hDTXFseUlNOWg2RHB4UDcrRVJodndKaGt4SzRQcjBpSUVWMUlkQTM1Z1lx?=
- =?utf-8?B?clFUUnViM3pEYlMzSnJ3d3lsWlN1UllpWVcvZWV5eDNMNWNkQkwrd2orTzdL?=
- =?utf-8?B?K0tqTW1GU2xvWkdHS0VmZmlhME9wcHBGdlhtbEtnSWZlMVBocnQ2b2JjeG9y?=
- =?utf-8?B?NUZjOG5yaDh6cUpsZTA1bmowQS9pdy9xSnVLZ1lFOGFFMk9ueDVwbDZVck95?=
- =?utf-8?B?b0ZTSEwwdFFXb2o0UUZ6Q2ZFaitNMEsxTEltUmJUakV3QXRJemJGb2h4K0ta?=
- =?utf-8?B?MENOWGx2UFVicDhrWXFZOHZQd0s2djdYYXRqNFJmZDFyY3BORlI3Zk5JRGlj?=
- =?utf-8?B?a3hVbjZrWVMxZVE1a2JCSDJJTDZBL2QwWjN4Tm5pYVc1ck1iTFRWYkFybjFy?=
- =?utf-8?B?M1pTYktXSjZlOVYrRUd4MHdyYkNiTXNhUXB5czZIRGFHSmtnRHp0UC83TFdT?=
- =?utf-8?B?dGo2ejVkc0wwVzNpSzZNNkFpQktJQmo5b3hJY0ZWZTFsenNTRlZhVHc4L3FU?=
- =?utf-8?B?c3NJd2MzcndOeU03VzlZR2dmelJGNFZUMFcvV1pGMk5LZHZIUWxGbTY2M2lT?=
- =?utf-8?Q?aiEHxAFVeXnjqOZk=3D?=
-X-OriginatorOrg: oss.nxp.com
-X-MS-Exchange-CrossTenant-Network-Message-Id: 4e1ab8e5-c9b2-4329-ebf8-08debff8d9e9
-X-MS-Exchange-CrossTenant-AuthSource: GV2PR04MB11799.eurprd04.prod.outlook.com
-X-MS-Exchange-CrossTenant-AuthAs: Internal
-X-MS-Exchange-CrossTenant-OriginalArrivalTime: 01 Jun 2026 16:14:26.3990
- (UTC)
-X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
-X-MS-Exchange-CrossTenant-Id: 686ea1d3-bc2b-4c6f-a92c-d99c5c301635
-X-MS-Exchange-CrossTenant-MailboxType: HOSTED
-X-MS-Exchange-CrossTenant-UserPrincipalName: Pk/hTA4dmPd4ibcB49WhvqUYcK9jQuIji52rw/DyR8sU01EvvP05PHW2Lbr0IWIGpEXrsCY8Fu5HMfAt0ztyRgJB7II6DZptKackRCTFlirHqJ2HYtjlYFeVG0JRyJx2
-X-MS-Exchange-Transport-CrossTenantHeadersStamped: VI2PR04MB11195
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH v3 1/5] arm64: vdso: Prepare for robust futex unlock
+ support
+To: =?UTF-8?Q?Thomas_Wei=C3=9Fschuh?= <linux@weissschuh.net>
+Cc: Catalin Marinas <catalin.marinas@arm.com>, Will Deacon <will@kernel.org>,
+ Thomas Gleixner <tglx@kernel.org>, Mark Rutland <mark.rutland@arm.com>,
+ Mathieu Desnoyers <mathieu.desnoyers@efficios.com>,
+ Sebastian Andrzej Siewior <bigeasy@linutronix.de>,
+ Carlos O'Donell <carlos@redhat.com>, Peter Zijlstra <peterz@infradead.org>,
+ Florian Weimer <fweimer@redhat.com>, Rich Felker <dalias@aerifal.cx>,
+ Torvald Riegel <triegel@redhat.com>, Darren Hart <dvhart@infradead.org>,
+ Ingo Molnar <mingo@kernel.org>, Davidlohr Bueso <dave@stgolabs.net>,
+ Arnd Bergmann <arnd@arndb.de>, "Liam R . Howlett" <Liam.Howlett@oracle.com>,
+ Uros Bizjak <ubizjak@gmail.com>, linux-arm-kernel@lists.infradead.org,
+ linux-kernel@vger.kernel.org, linux-arch@vger.kernel.org,
+ kernel-dev@igalia.com
+References: <20260529-tonyk-robust_arm-v3-0-a6f02684d4fe@igalia.com>
+ <20260529-tonyk-robust_arm-v3-1-a6f02684d4fe@igalia.com>
+ <b23ab875-fd4c-4095-a661-6a19b6a070e3@t-8ch.de>
+Content-Language: en-US
+From: =?UTF-8?Q?Andr=C3=A9_Almeida?= <andrealmeid@igalia.com>
+In-Reply-To: <b23ab875-fd4c-4095-a661-6a19b6a070e3@t-8ch.de>
+Content-Type: text/plain; charset=UTF-8; format=flowed
+Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260601_091433_255055_53F01E41 
-X-CRM114-Status: UNSURE (   7.29  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20260601_091828_776460_7CDD2A6D 
+X-CRM114-Status: GOOD (  31.63  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -159,20 +87,148 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-From: Frank Li <Frank.Li@nxp.com>
+Em 29/05/2026 14:16, Thomas Weißschuh escreveu:
+> On 2026-05-29 13:33:53-0300, André Almeida wrote:
+>> There will be a VDSO function to unlock non-contended robust futexes in
+>> user space. The unlock sequence is racy vs. clearing the list_pending_op
+>> pointer in the task's robust list head. To plug this race the kernel needs
+>> to know the critical section window so it can clear the pointer when the
+>> task is interrupted within that race window. The window is determined by
+>> labels in the inline assembly.
+>>
+>> Signed-off-by: André Almeida <andrealmeid@igalia.com>
+>> ---
+>> Notes:
+>>   - The diff futex_set_vdso_cs_range() should happen in the commit that
+>>   introduced it, and rebase will clear it from here
+>>   - So far I couldn't figure out why current->rseq.event.user_irq is never set in
+>>   aarch64
+> 
+> Why not put these unrelated changes into their own commits?
+> It makes reviewing and integrating it into the original series easier.
+> 
 
+OK, I will separated them for a next version. But hopefully those 
+changes won't be needed for the next one.
 
-On Wed, 13 May 2026 15:25:31 +0200, Frieder Schrempf wrote:
-> There is an onboard level shifter for the SPI signals that causes
-> additional propagation delay and renders the SPI transmission
-> unreliable at 20 MHz. Reduce the clock frequency to a safe value.
+>> v3:
+>>   - Fix adding vdso base addr twice
+>>   - Call vdso_futex_robust_unlock_update_ips() on remap as well
+>> v2:
+>>   - Fixed linker not finding VDSO symbols
+>> ---
+>>   arch/arm64/kernel/vdso.c          | 25 +++++++++++++++++++++++++
+>>   arch/arm64/kernel/vdso/vdso.lds.S |  5 +++++
+>>   arch/x86/entry/vdso/vma.c         |  4 ++--
+>>   include/linux/futex.h             | 13 ++-----------
+>>   4 files changed, 34 insertions(+), 13 deletions(-)
+>>
+>> diff --git a/arch/arm64/kernel/vdso.c b/arch/arm64/kernel/vdso.c
+>> index 592dd8668de4..76f22ea8e181 100644
+>> --- a/arch/arm64/kernel/vdso.c
+>> +++ b/arch/arm64/kernel/vdso.c
+>> @@ -11,6 +11,7 @@
+>>   #include <linux/clocksource.h>
+>>   #include <linux/elf.h>
+>>   #include <linux/err.h>
+>> +#include <linux/futex.h>
+>>   #include <linux/errno.h>
+>>   #include <linux/gfp.h>
+>>   #include <linux/kernel.h>
+>> @@ -57,11 +58,31 @@ static struct vdso_abi_info vdso_info[] __ro_after_init = {
+>>   #endif /* CONFIG_COMPAT_VDSO */
+>>   };
+>>   
+>> +#ifdef CONFIG_FUTEX_ROBUST_UNLOCK
+>> +static void vdso_futex_robust_unlock_update_ips(enum vdso_abi abi, struct mm_struct *mm)
+>> +{
+>> +	unsigned long vdso = (unsigned long) mm->context.vdso;
+>> +	struct futex_mm_data *fd = &mm->futex;
+>> +	uintptr_t success, end;
+>> +
+>> +	if (abi == VDSO_ABI_AA64) {
+>> +		success = (uintptr_t) VDSO_SYMBOL(vdso, futex_list64_try_unlock_cs_success);
+>> +		end = (uintptr_t) VDSO_SYMBOL(vdso, futex_list64_try_unlock_cs_end);
+>> +
+>> +		futex_set_vdso_cs_range(fd, 0, success, end, false);
+>> +	}
+>> +}
+>> +#else
+>> +static inline void vdso_futex_robust_unlock_update_ips(enum vdso_abi abi, struct mm_struct *mm) { }
+>> +#endif /* CONFIG_FUTEX_ROBUST_UNLOCK */
+>> +
+>>   static int vdso_mremap(const struct vm_special_mapping *sm,
+>>   		struct vm_area_struct *new_vma)
+>>   {
+>>   	current->mm->context.vdso = (void *)new_vma->vm_start;
+>>   
+>> +	vdso_futex_robust_unlock_update_ips(VDSO_ABI_AA64, current->mm);
+>> +
+>>   	return 0;
+>>   }
+>>   
+>> @@ -134,6 +155,8 @@ static int __setup_additional_pages(enum vdso_abi abi,
+>>   	if (IS_ERR(ret))
+>>   		goto up_fail;
+>>   
+>> +	vdso_futex_robust_unlock_update_ips(abi, mm);
+>> +
+>>   	return 0;
+>>   
+>>   up_fail:
+>> @@ -159,6 +182,8 @@ static int aarch32_sigpage_mremap(const struct vm_special_mapping *sm,
+>>   {
+>>   	current->mm->context.sigpage = (void *)new_vma->vm_start;
+>>   
+>> +	vdso_futex_robust_unlock_update_ips(VDSO_ABI_AA32, current->mm);
+> 
+> This is for the sigpage remap, not the vDSO, is it really necessary?
+> If yes it should be part of the later VDSO_ABI_AA32 patch IMO.
+> 
 
-Applied, thanks!
+Ok, I don't think it moves the vDSO indeed.
 
-[1/1] arm64: dts: imx8mp-kontron: Reduce EERAM SPI clock frequency
-      commit: 8c0910ba1adb5ee729b6331090ab1a45a6782205
+> 
+> If there is a way for a 64-bit application to call 32-bit syscalls then
+> the 64-bit vDSO also needs the 32-bit functions. See:
+> [0] https://lore.kernel.org/lkml/875x4zw4bp.ffs@tglx/
+> 
 
-Best regards,
--- 
-Frank Li <Frank.Li@nxp.com>
+I believe this is true for x86, but not for aarch64. Currently x86 apps 
+running on top of arm64 have no way to register a 32 bit list, but this 
+will change with the upcoming multi list feature.
+>>   	return 0;
+>>   }
+>>   
+>> diff --git a/arch/arm64/kernel/vdso/vdso.lds.S b/arch/arm64/kernel/vdso/vdso.lds.S
+>> index 52314be29191..8633aafe6b81 100644
+>> --- a/arch/arm64/kernel/vdso/vdso.lds.S
+>> +++ b/arch/arm64/kernel/vdso/vdso.lds.S
+>> @@ -104,6 +104,7 @@ VERSION
+>>   		__kernel_clock_gettime;
+>>   		__kernel_clock_getres;
+>>   		__kernel_getrandom;
+>> +		__vdso_futex_robust_list64_try_unlock;
+> 
+> Guard behind CONFIG_FUTEX_ROBUST_UNLOCK ?
+> 
+> ld.lld fails when a function mentioned in the linker script is missing.
+
+Yes, you are right, thanks for the review!
+
+> 
+>>   	local: *;
+>>   	};
+>>   }
+>> @@ -112,3 +113,7 @@ VERSION
+>>    * Make the sigreturn code visible to the kernel.
+>>    */
+>>   VDSO_sigtramp		= __kernel_rt_sigreturn;
+>> +
+>> +VDSO_futex_list64_try_unlock_cs_start = __futex_list64_try_unlock_cs_start;
+>> +VDSO_futex_list64_try_unlock_cs_success = __futex_list64_try_unlock_cs_success;
+>> +VDSO_futex_list64_try_unlock_cs_end = __futex_list64_try_unlock_cs_end;
+> 
+> (...)
+
 
