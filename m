@@ -4,115 +4,62 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 59342CD5BD1
-	for <linux-arm-kernel@archiver.kernel.org>; Mon,  1 Jun 2026 18:18:52 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id D80DCCD6E55
+	for <linux-arm-kernel@archiver.kernel.org>; Mon,  1 Jun 2026 18:24:11 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:Cc:To:Subject:Message-ID:Date:From:In-Reply-To:References:
-	MIME-Version:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
+	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=59cFMsdGN50Z23cJPSQ1lnNSZqcYCB0qfK8q0FcI+dI=; b=b1sF670/6JNhtiPhUbnPCUNHyU
-	b46/hwWdwLRUGsnTRuKhTiA3Cd+zd3+qeh/Yphhct+z1Cg24C9PWuq0x/cpwpRQeABdr2ViHZi0zQ
-	aNqFejT5PBhysseOnWgk+NhKzvhvRS74cGalD8VLunglAmB1sYox2E/h2gmY0YOP5/wcqptsvj9H6
-	AP4ftggpSPfLeotz8LFlmYOdpBPR2BFmP5Kl3QUjXpxEm/z0N6VxO7iDMALUxU5XHF/MzlCXKZPL1
-	O0YK9CHIEMTWcMjQ2UBWGRpDFN94ei7o/ck2Fn4AUIS0mz77fVLVDnL4D6JJmWfTE/8rx+4D8XSo0
-	BLUezcOA==;
+	bh=HWlS1CJ5alSHP0Fi0UWO+/0sI54dX/fQPMmgx5Gapew=; b=B9khd7WxjkU0wQiuH17DnaVZ1K
+	GupATWegA378U9QDfaAFLdInI1DkDX1QVVxWn2VV0KT+rlL6S3jlfMBX1Ayxo3mlbAX/nJ9HaTa4d
+	sAKW1066+/GmC6SclI6vvW0JObDTBUxfrr0eh7hoNY7bZZjWHlQrrdKZU5K4b2Du31nnSmD/gSrUq
+	NIH8zVjwOxYdemJtGKslTv5h3h0oQECh3Mf7X3ktFX5UcS8Z0NFmS6s6U9MpSaElq6Ous/Y8OpbHi
+	8ILOU6NnA0oOv7hzFFtiWZqXu2f1VcUTuuIcCdSde7yn4AKZyCkr9QT5bLvVeafdqsA2uIq+XF/RF
+	R9GidAAA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wU7Dp-0000000BeZu-3ZxY;
-	Mon, 01 Jun 2026 18:18:45 +0000
-Received: from mail-ed1-x530.google.com ([2a00:1450:4864:20::530])
-	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wU7Dm-0000000BeZH-3ZAe
+	id 1wU7Iz-0000000BevK-1ph1;
+	Mon, 01 Jun 2026 18:24:05 +0000
+Received: from foss.arm.com ([217.140.110.172])
+	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
+	id 1wU7Iw-0000000Beuz-3LUh
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 01 Jun 2026 18:18:44 +0000
-Received: by mail-ed1-x530.google.com with SMTP id 4fb4d7f45d1cf-68d22476e88so126a12.0
-        for <linux-arm-kernel@lists.infradead.org>; Mon, 01 Jun 2026 11:18:42 -0700 (PDT)
-ARC-Seal: i=1; a=rsa-sha256; t=1780337921; cv=none;
-        d=google.com; s=arc-20240605;
-        b=OTlWehbAJWNIcWj2Cqo4y1hTC2+uQ9SElJXALxIwxlvMUfmQyheGV3NPSbENzpq44S
-         INcXqfCl8gIXGCsFDGwxQuyZ+Vik3evVf86EohEmkSS8XnQ7w7HfrQLC6Zrs6H0O87aG
-         GnvCvog4DTWNw5Asn7Xu0kWftF7Y/HJNdw8atTKd0gcAXQwLS7oxiz0IDn+yJfgayiJe
-         VNjyS+OCgEtqen0XKc3z6ckfIXUjuaFMDBAO2NkErz+hAQJmOsf8bAHXDEkLN+HZinND
-         zLOvLdnwTGG4opYNNjn/P548xRBNVsUlXRhgqWyMC/20aGpC8r1iee5UDmfZ7S10+fr4
-         cCRg==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20240605;
-        h=content-transfer-encoding:cc:to:subject:message-id:date:from
-         :in-reply-to:references:mime-version:dkim-signature;
-        bh=59cFMsdGN50Z23cJPSQ1lnNSZqcYCB0qfK8q0FcI+dI=;
-        fh=mxwuzY/e1UykjvL1nw3865WkGC5TXLWD2SpGj/xtqVg=;
-        b=UkED0I+KJ5AGRBxw3GQhybuVH+/De/dkFjxa//Fc7NwPlNDh3TOvVYXrGDqdbnZdde
-         TYlzAfS7STzZzPHPRZoQ/PYHmnYc86Y+JrK4wFHoDzETKCGVajDAPeLuICWmLXEyGVsb
-         V7AdYoefM7MmmSbSjDHxWlxfvaRYtKlS0FbHs6P8Roc9UKbXUmy6jqaqR/J7Z4ZQ58ci
-         uidAT0BbnnyPaY7+dGmf4O54mRfxSbDq903LziC2BHEiUb1Yb10lMhcLYuC7NKWl8SbU
-         5YSlTkku2lVDM7MCM9wNHfYDvtH5rq77andmioJMyhgF9MMiA0e7A7CKdCcJLSfJluUp
-         T/yQ==;
-        darn=lists.infradead.org
-ARC-Authentication-Results: i=1; mx.google.com; arc=none
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=google.com; s=20251104; t=1780337921; x=1780942721; darn=lists.infradead.org;
-        h=content-transfer-encoding:cc:to:subject:message-id:date:from
-         :in-reply-to:references:mime-version:from:to:cc:subject:date
-         :message-id:reply-to;
-        bh=59cFMsdGN50Z23cJPSQ1lnNSZqcYCB0qfK8q0FcI+dI=;
-        b=iVfFMh+ula01JczkfFhEnEoYxk2Vgpiux+llylNfwxWjNQMhunaSAb0yCvCVmQ0Gzt
-         SLbAz8LwUdQiGtWQik9z737Gw8A0RfliGX04jV5raZfJKiipdPJS3oLfYPuDQOc2vGwK
-         5pEFEsgEhSh3pgumFkK2uw1zsdSDwNk3a3jzIniR4iVe8VYPCWcSpPVRPBHzHn5yiX4Q
-         wrw/gpN4V6khME2JCt/ipoz6Umkp9KemnTYF28f86X3DovBxwgs0I8rB8mLMuPktX+7n
-         VMXdk8vOTzHqqTTDsjIKDdSGbQRtzy0JltyHhWFWzu2a3X44wa4iCi3EimAvxcbPnORJ
-         9qrg==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20251104; t=1780337921; x=1780942721;
-        h=content-transfer-encoding:cc:to:subject:message-id:date:from
-         :in-reply-to:references:mime-version:x-gm-gg:x-gm-message-state:from
-         :to:cc:subject:date:message-id:reply-to;
-        bh=59cFMsdGN50Z23cJPSQ1lnNSZqcYCB0qfK8q0FcI+dI=;
-        b=ZDX2izA4nx46ptPoGyZlvMK3Qj3uZi0Ibeb3d/cajJtK6Z/qf04f7YvVR5gYFnAZ0M
-         51hiYTwGkL6bh/xC0k3GiSCQgNuF4xxpEc9RLDd+HIwMTY60YRpB0+zHGhMgFXTTWSSb
-         DCn9q+MEg7xI/oN8eMtXHS2o5GuIp6NiBRmmqQ3ezD3YpscgdeJfRQ72cewmxv5+WKP8
-         2xcnrYjB9mKkaVIZaC+xZQdIbjwDIxeqVJ/SiN3cffnRbp96t1vJHgfKEvS5SfTBY+ef
-         AS1+yIYdIFtR/vUme/9LxtsTitqRhtSbL9oYu1u2bwlr+foKsVmiR1Yge9fF8sJPrSW/
-         AQQA==
-X-Forwarded-Encrypted: i=1; AFNElJ++xoXfO8g8cH3ljfBjn6q7zLoQcbV2r8TAwqHgnsCyA5RMuohWUBs0MwsTXV4aLUCzNfVjDaXfDXhlnATbYmA1@lists.infradead.org
-X-Gm-Message-State: AOJu0Yz8uxxm7o0hXEiqu7yZp+pFLZlBPRr2EHFONMh0THPnPU58Sutw
-	4Loxofrzs7ERSxvfIr+aQ1iOz0YX3JLjBikF4tfLgFWsqk5CNt61j/T9yxxm5DEeSSeq/acphGH
-	ytE3Qz+Zj9Xw7gkd3Igm2405S9x62bezX3fa9sr0R
-X-Gm-Gg: Acq92OFCniY0Ck3s72iwGOYGRlbby31ksa4bYYfs44gkJnel1wOAzdDhV2VkFARth8B
-	STKh2oCmn/4Rcx+yZECQRNe2GRWnSBqm3Jbxf9brHmIZqVwK9ba0UmLbq0vasSmnzT6YwW8TD+G
-	zr5g9IDiRp9CGWUcDJv+jDye13nMcpr7+Iy8u0MnpM2lJy6G0DHBKxBJMOAqnjJN6HxQw1TFytS
-	E5w2sa/RwOGgJVm7r57DA1uj7ikyan1nkrk+gfH3vHsGdk38IS2nCPPZ84lk84Z2bk51ZXS/Epe
-	79XHzPuWIK0L/cOZ+wOuhv8k92NJJgfkMfbSOMUgT5ZJHHku
-X-Received: by 2002:a05:6402:21cc:b0:671:fff6:f82c with SMTP id
- 4fb4d7f45d1cf-68de2cae1e0mr7831a12.2.1780337920407; Mon, 01 Jun 2026 11:18:40
- -0700 (PDT)
+	Mon, 01 Jun 2026 18:24:04 +0000
+Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
+	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id 3CD3B1BA8;
+	Mon,  1 Jun 2026 11:23:55 -0700 (PDT)
+Received: from [10.57.36.65] (unknown [10.57.36.65])
+	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id C6FDB3F632;
+	Mon,  1 Jun 2026 11:23:58 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=simple/simple; d=arm.com; s=foss;
+	t=1780338240; bh=1F7fg/tEvp/FvUfG5iI5KCJsJYyIJR+YYPZox5LYG2Y=;
+	h=Date:Subject:To:Cc:References:From:In-Reply-To:From;
+	b=GbcxeAijqdZzVNCpLR680yLf2eIORskdf2ZWNmSznuwe2cL4sHhHTSwhNZujK0+Tf
+	 LlOTv0A4LCBDYfnxgOqK3q3M0iT7a815YxMCqQlVzf8Fk/ZpumH5oUiHVvwprigKi3
+	 j4Z8Emw1016utYplgyLgfP++/S2TsYfurtHZIxyU=
+Message-ID: <3dd451b2-6d80-4636-a832-35b24411df2b@arm.com>
+Date: Mon, 1 Jun 2026 19:23:57 +0100
 MIME-Version: 1.0
-References: <20260527214510.3907973-1-xur@google.com> <20260527214510.3907973-3-xur@google.com>
- <178010203122.3743687.12531843798236779880.b4-review@b4>
-In-Reply-To: <178010203122.3743687.12531843798236779880.b4-review@b4>
-From: Rong Xu <xur@google.com>
-Date: Mon, 1 Jun 2026 11:18:27 -0700
-X-Gm-Features: AVHnY4Ka7L1qdwrv0z3rpuj3tWqUqBGydQxqUqYlMLvtTifJn-zPac3RV5uNXJ8
-Message-ID: <CAF1bQ=RNokHJtf=8RGKyP12jNPKUvyztJVRaDZ2fnXSVzZ3L5g@mail.gmail.com>
-Subject: Re: [PATCH v3 2/2] kconfig: Remove the architecture specific config
- for Propeller
-To: Nathan Chancellor <nathan@kernel.org>
-Cc: Yabin Cui <yabinc@google.com>, Will Deacon <will@kernel.org>, Han Shen <shenhan@google.com>, 
-	Thomas Gleixner <tglx@linutronix.de>, Ingo Molnar <mingo@redhat.com>, Borislav Petkov <bp@alien8.de>, 
-	Dave Hansen <dave.hansen@linux.intel.com>, "H. Peter Anvin" <hpa@zytor.com>, Kees Cook <kees@kernel.org>, 
-	Nicolas Schier <nicolas.schier@linux.dev>, Linus Walleij <linusw@kernel.org>, 
-	Arnd Bergmann <arnd@arndb.de>, Mathieu Desnoyers <mathieu.desnoyers@efficios.com>, 
-	Miguel Ojeda <ojeda@kernel.org>, Peter Zijlstra <peterz@infradead.org>, 
-	Jinjie Ruan <ruanjinjie@huawei.com>, Lukas Bulwahn <lukas.bulwahn@redhat.com>, 
-	linux-kernel@vger.kernel.org, Juergen Gross <jgross@suse.com>, 
-	Helge Deller <deller@gmx.de>, Ryan Roberts <ryan.roberts@arm.com>, Marc Zyngier <maz@kernel.org>, 
-	Ard Biesheuvel <ardb@kernel.org>, Vincent Donnefort <vdonnefort@google.com>, 
-	Alice Ryhl <aliceryhl@google.com>, x86@kernel.org, linux-arm-kernel@lists.infradead.org
-Content-Type: text/plain; charset="UTF-8"
-Content-Transfer-Encoding: quoted-printable
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH v4 1/2] perf/arm-cmn: Move DTM index data out of
+ hw_perf_event
+To: Aviv Bakal <avivb@amazon.com>, will@kernel.org, mark.rutland@arm.com
+Cc: linux-arm-kernel@lists.infradead.org, linux-perf-users@vger.kernel.org,
+ linux-kernel@vger.kernel.org, zeev@amazon.com, blakgeof@amazon.com,
+ ilkka@os.amperecomputing.com
+References: <20260524153848.16334-1-avivb@amazon.com>
+ <20260531110447.10095-1-avivb@amazon.com>
+ <20260531110447.10095-2-avivb@amazon.com>
+From: Robin Murphy <robin.murphy@arm.com>
+Content-Language: en-GB
+In-Reply-To: <20260531110447.10095-2-avivb@amazon.com>
+Content-Type: text/plain; charset=UTF-8; format=flowed
+Content-Transfer-Encoding: 7bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260601_111842_950781_A7E5FE1E 
-X-CRM114-Status: GOOD (  29.41  )
+X-CRM114-CacheID: sfid-20260601_112402_949555_1705B351 
+X-CRM114-Status: GOOD (  26.36  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -127,142 +74,261 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Thanks Nathan for the review! My response is inlined.
+On 2026-05-31 12:04 pm, Aviv Bakal wrote:
+> The amount of data we need to store all the per-DTM counter and
+> watchpoint allocations is already testing the limits of hw_perf_event,
+> and future CMNs are only likely to keep growing larger, so move these
+> arrays out to separate memory allocations. As part of that we can use
+> an explicit union for allocating cycle counters to dtc_cycles events,
+> which is arguably nicer anyway.
 
-On Fri, May 29, 2026 at 5:47=E2=80=AFPM Nathan Chancellor <nathan@kernel.or=
-g> wrote:
->
-> On Wed, 27 May 2026 14:45:08 -0700, xur@google.com <xur@google.com> wrote=
-:
-> > diff --git a/arch/Kconfig b/arch/Kconfig
-> > index e510c585ea84..e4eaca9c917c 100644
-> > --- a/arch/Kconfig
-> > +++ b/arch/Kconfig
-> > @@ -879,12 +879,8 @@ config AUTOFDO_CLANG
-> >
-> >         If unsure, say N.
-> >
-> > -config ARCH_SUPPORTS_PROPELLER_CLANG
-> > -     bool
-> > -
-> >  config PROPELLER_CLANG
-> >       bool "Enable Clang's Propeller build"
-> > -     depends on ARCH_SUPPORTS_PROPELLER_CLANG
->
-> It does not look like '' or its predecessor,
-> '-fbasic-block-sections=3Dlabels', are supported by all architectures?
-> This will break allmodconfig for some architectures in that case, so
-> this needs to addressed with some other dependency.
+Nit: not that I'm particularly precious about it, but this has lost my 
+original authorship - I really should leave the technically-redundant 
+"From:" line in when I post inline patches, as frankly even I prefer to 
+just copy-paste the patch part rather than export the whole mail with 
+its original headers for `git am --scissors`...
 
-Thanks for catching this. Yes. -fbasic-block-address-map currently
-only supports Arm64 and X86_64 as of now.
-We thought people would only enable this config if they knew Propeller
-was supported on that architecture.
-But the allmodconfig build breaks this assumption.  I think I have to
-keep this config for propeller, and make arm64 opt-in.
+Thanks,
+Robin.
 
->
->   | $ make -skj"$(nproc)" ARCH=3Darm LLVM=3D1 mrproper allmodconfig all
->   | ...
->   | clang: error: unsupported option '-fbasic-block-address-map' for targ=
-et 'armv6k-unknown-linux-gnueabi'
->   | ...
->   |
->   | $ make -skj"$(nproc)" ARCH=3Ds390 LLVM=3D1 mrproper allmodconfig all
->   | ...
->   | clang: error: unsupported option '-fbasic-block-address-map' for targ=
-et 's390x-unknown-linux-gnu'
->   | ...
->
-> Maybe something like
->
->   depends on CC_IS_CLANG && $(cc-option,-fbasic-block-address-map)
->
-> then cleaning up scripts/Makefile.propeller to use it exclusively?
+> Signed-off-by: Robin Murphy <robin.murphy@arm.com>
+> Signed-off-by: Aviv Bakal <avivb@amazon.com>
+> ---
+>   drivers/perf/arm-cmn.c | 89 ++++++++++++++++++++++++++++--------------
+>   1 file changed, 59 insertions(+), 30 deletions(-)
+> 
+> diff --git a/drivers/perf/arm-cmn.c b/drivers/perf/arm-cmn.c
+> index f5305c8fdca4..f1978a53d1c1 100644
+> --- a/drivers/perf/arm-cmn.c
+> +++ b/drivers/perf/arm-cmn.c
+> @@ -597,17 +597,14 @@ static void arm_cmn_debugfs_init(struct arm_cmn *cmn, int id) {}
+>   
+>   struct arm_cmn_hw_event {
+>   	struct arm_cmn_node *dn;
+> -	u64 dtm_idx[DIV_ROUND_UP(CMN_MAX_NODES_PER_EVENT * 2, 64)];
+> +	union {
+> +		u64 *dtm_idx;
+> +		int cc_idx;
+> +	};
+> +	unsigned long *wp_idx;
+>   	s8 dtc_idx[CMN_MAX_DTCS];
+>   	u8 num_dns;
+>   	u8 dtm_offset;
+> -
+> -	/*
+> -	 * WP config registers are divided to UP and DOWN events. We need to
+> -	 * keep to track only one of them.
+> -	 */
+> -	DECLARE_BITMAP(wp_idx, CMN_MAX_XPS);
+> -
+>   	bool wide_sel;
+>   	enum cmn_filter_select filter_sel;
+>   };
+> @@ -625,25 +622,42 @@ static struct arm_cmn_hw_event *to_cmn_hw(struct perf_event *event)
+>   	return (struct arm_cmn_hw_event *)&event->hw;
+>   }
+>   
+> -static void arm_cmn_set_index(u64 x[], unsigned int pos, unsigned int val)
+> +static void arm_cmn_set_dtm_idx(struct arm_cmn_hw_event *hw, unsigned int pos, unsigned int val)
+>   {
+> -	x[pos / 32] |= (u64)val << ((pos % 32) * 2);
+> +	hw->dtm_idx[pos / 32] |= (u64)val << ((pos % 32) * 2);
+>   }
+>   
+> -static unsigned int arm_cmn_get_index(u64 x[], unsigned int pos)
+> +static unsigned int arm_cmn_get_dtm_idx(struct arm_cmn_hw_event *hw, unsigned int pos)
+>   {
+> -	return (x[pos / 32] >> ((pos % 32) * 2)) & 3;
+> +	return (hw->dtm_idx[pos / 32] >> ((pos % 32) * 2)) & 3;
+>   }
+>   
+> -static void arm_cmn_set_wp_idx(unsigned long *wp_idx, unsigned int pos, bool val)
+> +static u64 *arm_cmn_alloc_dtm_idx(void)
+> +{
+> +	return kzalloc(DIV_ROUND_UP(CMN_MAX_NODES_PER_EVENT * 2, 64) * sizeof(u64), GFP_KERNEL);
+> +}
+> +
+> +static void arm_cmn_set_wp_idx(struct arm_cmn_hw_event *hw, unsigned int pos, bool val)
+>   {
+>   	if (val)
+> -		set_bit(pos, wp_idx);
+> +		set_bit(pos, hw->wp_idx);
+> +}
+> +
+> +static unsigned int arm_cmn_get_wp_idx(struct arm_cmn_hw_event *hw, unsigned int pos)
+> +{
+> +	return test_bit(pos, hw->wp_idx);
+> +}
+> +
+> +static unsigned long *arm_cmn_alloc_wp_idx(void)
+> +{
+> +	return bitmap_zalloc(CMN_MAX_XPS, GFP_KERNEL);
+>   }
+>   
+> -static unsigned int arm_cmn_get_wp_idx(unsigned long *wp_idx, unsigned int pos)
+> +static void arm_cmn_clear_idx(struct arm_cmn_hw_event *hw)
+>   {
+> -	return test_bit(pos, wp_idx);
+> +	memset(hw->dtm_idx, 0, DIV_ROUND_UP(CMN_MAX_NODES_PER_EVENT * 2, 64) * sizeof(u64));
+> +	if (hw->wp_idx)
+> +		bitmap_zero(hw->wp_idx, CMN_MAX_XPS);
+>   }
+>   
+>   struct arm_cmn_event_attr {
+> @@ -1376,7 +1390,7 @@ static int arm_cmn_get_assigned_wp_idx(struct perf_event *event,
+>   				       struct arm_cmn_hw_event *hw,
+>   				       unsigned int pos)
+>   {
+> -	return CMN_EVENT_EVENTID(event) + arm_cmn_get_wp_idx(hw->wp_idx, pos);
+> +	return CMN_EVENT_EVENTID(event) + arm_cmn_get_wp_idx(hw, pos);
+>   }
+>   
+>   static void arm_cmn_claim_wp_idx(struct arm_cmn_dtm *dtm,
+> @@ -1387,7 +1401,7 @@ static void arm_cmn_claim_wp_idx(struct arm_cmn_dtm *dtm,
+>   	struct arm_cmn_hw_event *hw = to_cmn_hw(event);
+>   
+>   	dtm->wp_event[wp_idx] = hw->dtc_idx[dtc];
+> -	arm_cmn_set_wp_idx(hw->wp_idx, pos, wp_idx - CMN_EVENT_EVENTID(event));
+> +	arm_cmn_set_wp_idx(hw, pos, wp_idx - CMN_EVENT_EVENTID(event));
+>   }
+>   
+>   static u32 arm_cmn_wp_config(struct perf_event *event, int wp_idx)
+> @@ -1458,7 +1472,7 @@ static u64 arm_cmn_read_dtm(struct arm_cmn *cmn, struct arm_cmn_hw_event *hw,
+>   			dtm = &cmn->dtms[dn->dtm] + hw->dtm_offset;
+>   			reg = readq_relaxed(dtm->base + offset);
+>   		}
+> -		dtm_idx = arm_cmn_get_index(hw->dtm_idx, i);
+> +		dtm_idx = arm_cmn_get_dtm_idx(hw, i);
+>   		count += (u16)(reg >> (dtm_idx * 16));
+>   	}
+>   	return count;
+> @@ -1505,7 +1519,7 @@ static void arm_cmn_event_read(struct perf_event *event)
+>   	unsigned long flags;
+>   
+>   	if (CMN_EVENT_TYPE(event) == CMN_TYPE_DTC) {
+> -		delta = arm_cmn_read_cc(cmn->dtc + hw->dtc_idx[0]);
+> +		delta = arm_cmn_read_cc(cmn->dtc + hw->cc_idx);
+>   		local64_add(delta, &event->count);
+>   		return;
+>   	}
+> @@ -1572,7 +1586,7 @@ static void arm_cmn_event_start(struct perf_event *event, int flags)
+>   	int i;
+>   
+>   	if (type == CMN_TYPE_DTC) {
+> -		struct arm_cmn_dtc *dtc = cmn->dtc + hw->dtc_idx[0];
+> +		struct arm_cmn_dtc *dtc = cmn->dtc + hw->cc_idx;
+>   
+>   		writel_relaxed(CMN_DT_DTC_CTL_DT_EN | CMN_DT_DTC_CTL_CG_DISABLE,
+>   			       dtc->base + CMN_DT_DTC_CTL);
+> @@ -1590,7 +1604,7 @@ static void arm_cmn_event_start(struct perf_event *event, int flags)
+>   			writeq_relaxed(mask, base + CMN_DTM_WPn_MASK(wp_idx));
+>   		}
+>   	} else for_each_hw_dn(hw, dn, i) {
+> -		int dtm_idx = arm_cmn_get_index(hw->dtm_idx, i);
+> +		int dtm_idx = arm_cmn_get_dtm_idx(hw, i);
+>   
+>   		arm_cmn_set_event_sel_lo(dn, dtm_idx, CMN_EVENT_EVENTID(event),
+>   					 hw->wide_sel);
+> @@ -1606,7 +1620,7 @@ static void arm_cmn_event_stop(struct perf_event *event, int flags)
+>   	int i;
+>   
+>   	if (type == CMN_TYPE_DTC) {
+> -		struct arm_cmn_dtc *dtc = cmn->dtc + hw->dtc_idx[0];
+> +		struct arm_cmn_dtc *dtc = cmn->dtc + hw->cc_idx;
+>   
+>   		dtc->cc_active = false;
+>   		writel_relaxed(CMN_DT_DTC_CTL_DT_EN, dtc->base + CMN_DT_DTC_CTL);
+> @@ -1619,7 +1633,7 @@ static void arm_cmn_event_stop(struct perf_event *event, int flags)
+>   			writeq_relaxed(~0ULL, base + CMN_DTM_WPn_VAL(wp_idx));
+>   		}
+>   	} else for_each_hw_dn(hw, dn, i) {
+> -		int dtm_idx = arm_cmn_get_index(hw->dtm_idx, i);
+> +		int dtm_idx = arm_cmn_get_dtm_idx(hw, i);
+>   
+>   		arm_cmn_set_event_sel_lo(dn, dtm_idx, 0, hw->wide_sel);
+>   	}
+> @@ -1763,6 +1777,14 @@ static enum cmn_filter_select arm_cmn_filter_sel(const struct arm_cmn *cmn,
+>   }
+>   
+>   
+> +static void arm_cmn_event_destroy(struct perf_event *event)
+> +{
+> +	struct arm_cmn_hw_event *hw = to_cmn_hw(event);
+> +
+> +	kfree(hw->dtm_idx);
+> +	bitmap_free(hw->wp_idx);
+> +}
+> +
+>   static int arm_cmn_event_init(struct perf_event *event)
+>   {
+>   	struct arm_cmn *cmn = to_cmn(event->pmu);
+> @@ -1787,6 +1809,11 @@ static int arm_cmn_event_init(struct perf_event *event)
+>   	if (type == CMN_TYPE_DTC)
+>   		return arm_cmn_validate_group(cmn, event);
+>   
+> +	event->destroy = arm_cmn_event_destroy;
+> +	hw->dtm_idx = arm_cmn_alloc_dtm_idx();
+> +	if (!hw->dtm_idx)
+> +		return -ENOMEM;
+> +
+>   	eventid = CMN_EVENT_EVENTID(event);
+>   	/* For watchpoints we need the actual XP node here */
+>   	if (type == CMN_TYPE_WP) {
+> @@ -1797,6 +1824,9 @@ static int arm_cmn_event_init(struct perf_event *event)
+>   		/* ...but the DTM may depend on which port we're watching */
+>   		if (cmn->multi_dtm)
+>   			hw->dtm_offset = CMN_EVENT_WP_DEV_SEL(event) / 2;
+> +		hw->wp_idx = arm_cmn_alloc_wp_idx();
+> +		if (!hw->wp_idx)
+> +			return -ENOMEM;
+>   	} else if (type == CMN_TYPE_XP &&
+>   		   (cmn->part == PART_CMN700 || cmn->part == PART_CMN_S3)) {
+>   		hw->wide_sel = true;
+> @@ -1847,7 +1877,7 @@ static void arm_cmn_event_clear(struct arm_cmn *cmn, struct perf_event *event,
+>   
+>   	while (i--) {
+>   		struct arm_cmn_dtm *dtm = &cmn->dtms[hw->dn[i].dtm] + hw->dtm_offset;
+> -		unsigned int dtm_idx = arm_cmn_get_index(hw->dtm_idx, i);
+> +		unsigned int dtm_idx = arm_cmn_get_dtm_idx(hw, i);
+>   
+>   		if (type == CMN_TYPE_WP) {
+>   			int wp_idx = arm_cmn_get_assigned_wp_idx(event, hw, i);
+> @@ -1861,8 +1891,7 @@ static void arm_cmn_event_clear(struct arm_cmn *cmn, struct perf_event *event,
+>   		dtm->pmu_config_low &= ~CMN__PMEVCNT_PAIRED(dtm_idx);
+>   		writel_relaxed(dtm->pmu_config_low, dtm->base + CMN_DTM_PMU_CONFIG);
+>   	}
+> -	memset(hw->dtm_idx, 0, sizeof(hw->dtm_idx));
+> -	memset(hw->wp_idx, 0, sizeof(hw->wp_idx));
+> +	arm_cmn_clear_idx(hw);
+>   
+>   	for_each_hw_dtc_idx(hw, j, idx)
+>   		cmn->dtc[j].counters[idx] = NULL;
+> @@ -1882,7 +1911,7 @@ static int arm_cmn_event_add(struct perf_event *event, int flags)
+>   				return -ENOSPC;
+>   
+>   		cmn->dtc[i].cycles = event;
+> -		hw->dtc_idx[0] = i;
+> +		hw->cc_idx = i;
+>   
+>   		if (flags & PERF_EF_START)
+>   			arm_cmn_event_start(event, 0);
+> @@ -1947,7 +1976,7 @@ static int arm_cmn_event_add(struct perf_event *event, int flags)
+>   				goto free_dtms;
+>   		}
+>   
+> -		arm_cmn_set_index(hw->dtm_idx, i, dtm_idx);
+> +		arm_cmn_set_dtm_idx(hw, i, dtm_idx);
+>   
+>   		dtm->input_sel[dtm_idx] = input_sel;
+>   		shift = CMN__PMEVCNTn_GLOBAL_NUM_SHIFT(dtm_idx);
+> @@ -1980,7 +2009,7 @@ static void arm_cmn_event_del(struct perf_event *event, int flags)
+>   	arm_cmn_event_stop(event, PERF_EF_UPDATE);
+>   
+>   	if (type == CMN_TYPE_DTC)
+> -		cmn->dtc[hw->dtc_idx[0]].cycles = NULL;
+> +		cmn->dtc[hw->cc_idx].cycles = NULL;
+>   	else
+>   		arm_cmn_event_clear(cmn, event, hw->num_dns);
+>   }
 
-I think keep ARCH_SUPPORTS_PROPELLER_CLANG is cleaner.
-
->
-> >
-> > diff --git a/arch/arm64/kernel/vmlinux.lds.S b/arch/arm64/kernel/vmlinu=
-x.lds.S
-> > index e1ac876200a3..44a42e7c66cf 100644
-> > --- a/arch/arm64/kernel/vmlinux.lds.S
-> > +++ b/arch/arm64/kernel/vmlinux.lds.S
-> > @@ -368,6 +368,9 @@ SECTIONS
-> >
-> >       STABS_DEBUG
-> >       DWARF_DEBUG
-> > +#ifdef CONFIG_PROPELLER_CLANG
-> > +        .llvm_bb_addr_map : { *(.llvm_bb_addr_map) }
->
-> I would prefer to take the opportunity to consolidate this into
-> include/asm-generic/vmlinux.lds.h with something like this:
->
->   | diff --git a/arch/arm64/kernel/vmlinux.lds.S b/arch/arm64/kernel/vmli=
-nux.lds.S
->   | index 44a42e7c66cf..8aaf404980a7 100644
->   | --- a/arch/arm64/kernel/vmlinux.lds.S
->   | +++ b/arch/arm64/kernel/vmlinux.lds.S
->   | @@ -368,9 +368,7 @@ SECTIONS
->   |
->   |     STABS_DEBUG
->   |     DWARF_DEBUG
->   | -#ifdef CONFIG_PROPELLER_CLANG
->   | -        .llvm_bb_addr_map : { *(.llvm_bb_addr_map) }
->   | -#endif
->   | +   PROPELLER_DATA
->   |     MODINFO
->   |     ELF_DETAILS
->   |
->   | diff --git a/arch/x86/kernel/vmlinux.lds.S b/arch/x86/kernel/vmlinux.=
-lds.S
->   | index 4711a35e706c..d93611675d8a 100644
->   | --- a/arch/x86/kernel/vmlinux.lds.S
->   | +++ b/arch/x86/kernel/vmlinux.lds.S
->   | @@ -423,9 +423,7 @@ SECTIONS
->   |
->   |     STABS_DEBUG
->   |     DWARF_DEBUG
->   | -#ifdef CONFIG_PROPELLER_CLANG
->   | -   .llvm_bb_addr_map : { *(.llvm_bb_addr_map) }
->   | -#endif
->   | +   PROPELLER_DATA
->   |
->   |     MODINFO
->   |     ELF_DETAILS
->   | diff --git a/include/asm-generic/vmlinux.lds.h b/include/asm-generic/=
-vmlinux.lds.h
->   | index 60c8c22fd3e4..7a157a1320b9 100644
->   | --- a/include/asm-generic/vmlinux.lds.h
->   | +++ b/include/asm-generic/vmlinux.lds.h
->   | @@ -1011,6 +1011,13 @@
->   |  #define PERCPU_DECRYPTED_SECTION
->   |  #endif
->   |
->   | +#ifdef CONFIG_PROPELLER_CLANG
->   | +#define PROPELLER_DATA                                              =
-       \
->   | +   .llvm_bb_addr_map : { *(.llvm_bb_addr_map) }
->   | +#else
->   | +#define PROPELLER_DATA
->   | +#endif
->   | +
->   |
->   |  /*
->   |   * Default discarded sections.
->
-> That keeps the ifdef in one place and makes it easy to add this to other
-> architecture linker scripts as they gain support for Propeller. Are
-> there any other architectures that need this added? Or are arm64 and
-> x86_64 the only supported architectures?
-
-I think this is good idea to move to vmlinux.lds.h. I'll change the
-patch accordingly.
-
->
-> --
-> Cheers,
-> Nathan
->
 
