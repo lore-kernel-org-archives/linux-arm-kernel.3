@@ -4,71 +4,59 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 781A0CD5BD1
-	for <linux-arm-kernel@archiver.kernel.org>; Mon,  1 Jun 2026 02:59:59 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 5EED6CD6E4C
+	for <linux-arm-kernel@archiver.kernel.org>; Mon,  1 Jun 2026 03:50:28 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
 	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
 	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=bTGq6JyMOqNz9AcHQ+pp9TTBnC1HlbtzjBlhQULSRac=; b=bYuEIFXfsLhl21DmdlfxzM5SPT
-	2ghtkr4Id2KuffCvRGhKm94MSaXf42AGTuqHg/SwAmrGqeBb8pPh25LTiwQZrF+4pQayta47oFmvX
-	45b8gNsYGRYAkdGPwsxImal26weJi4/aeqsimdZrFFCPxypwA2SgEdA42lHC6IT1/cluZxKdNgltb
-	w94Sg4pIklBWx/0EtDYRMcGSoLMCXAuMio1cnoDjvQaK78O58pi0K/nTUF4nlGmRjenoJnDM0FYTX
-	IqQ/pfYJB0jp3qqvsL7lpC96jlGdvCKtYKMcXWvSqb7+bIuX7RiswAj+PieZWUNSp0hxX78g3eV3R
-	sOutZrCw==;
+	bh=wE3smo4p4YoVassR8C6QT2y2mbOa5aaDGD+r1mVRjEs=; b=ejD/6PY9XkEbiZtOpoOIQxDK7g
+	XbZ/S1+2CFrEg5oKwpV0r/FI6jLFYMfeHFDbVY/lJPbDcs4Hgxega5BUomhdVKlz7bWBvDhsZTi9o
+	sn48m+USZ2xvahHpIOWH31PkuN7ScB2sr0xuxsHkD51siry/XaV9rSiUqSEwFtep9Oka28rJBDM5c
+	BVQr0hKLHbqdJ6usXwUhxJyEVC+XjmnCAbWondE7mqakf7ZP14eUFQ6DoS7n5YGmf+dl82JpfaF7R
+	y09zTsCX7lQK7N77LneKjFaGC+cr0P+DWzqUyj4LJpLoaMp8sfAGaVONMNmfv08KGuk+OghC0xe+l
+	O8NfSfsQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wTssX-0000000A4ca-1wx2;
-	Mon, 01 Jun 2026 02:59:49 +0000
-Received: from mail-m81153.xmail.ntesmail.com ([156.224.81.153])
-	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wTssS-0000000A4bQ-2pKt;
-	Mon, 01 Jun 2026 02:59:48 +0000
-Received: from [172.16.12.74] (unknown [61.154.14.86])
-	by smtp.qiye.163.com (Hmail) with ESMTP id 4085afb39;
-	Mon, 1 Jun 2026 10:59:28 +0800 (GMT+08:00)
-Message-ID: <17160115-6c30-434b-9dab-b768110cd8d6@rock-chips.com>
-Date: Mon, 1 Jun 2026 10:59:27 +0800
+	id 1wTtfN-0000000A6ey-3HF7;
+	Mon, 01 Jun 2026 03:50:17 +0000
+Received: from foss.arm.com ([217.140.110.172])
+	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
+	id 1wTtfJ-0000000A6eM-1hmY
+	for linux-arm-kernel@lists.infradead.org;
+	Mon, 01 Jun 2026 03:50:15 +0000
+Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
+	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id 6710F1E8D;
+	Sun, 31 May 2026 20:50:03 -0700 (PDT)
+Received: from [10.164.18.45] (unknown [10.164.18.45])
+	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id 1B3733F93E;
+	Sun, 31 May 2026 20:50:05 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=simple/simple; d=arm.com; s=foss;
+	t=1780285808; bh=JdIDh7oDA4YqsglCX3nuBCSak6XOIkofRzyydFCz6hc=;
+	h=Date:Subject:To:Cc:References:From:In-Reply-To:From;
+	b=L1sFNeiFgPIs0nS7w1vLogD2ZEYk6dsFvINDtlgoaPd/Wj1pKjX3jH1HUdBuPcTrz
+	 vJ/ISGzLzcauXra7S5bub/fkjHXTDwduA/W3Ig/ZaqDJJYoOZKhOONwvyFvDdo+cwm
+	 uHZeMLATXPYUGPcKUftixHwFtYxg51ERjEPY7L0s=
+Message-ID: <7352c69a-556b-4cc2-ae65-0ed227da9f8a@arm.com>
+Date: Mon, 1 Jun 2026 09:20:02 +0530
 MIME-Version: 1.0
 User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH v4 2/3] drm/bridge: analogix_dp: Add validation for
- samsung,lane-count property
-To: Luca Ceresoli <luca.ceresoli@bootlin.com>
-Cc: hjc@rock-chips.com, heiko@sntech.de, andy.yan@rock-chips.com,
- maarten.lankhorst@linux.intel.com, mripard@kernel.org, tzimmermann@suse.de,
- airlied@gmail.com, simona@ffwll.ch, robh@kernel.org, krzk+dt@kernel.org,
- conor+dt@kernel.org, andrzej.hajda@intel.com, neil.armstrong@linaro.org,
- rfoss@kernel.org, Laurent.pinchart@ideasonboard.com, jonas@kwiboo.se,
- jernej.skrabec@gmail.com, nicolas.frattaroli@collabora.com,
- cristian.ciocaltea@collabora.com, sebastian.reichel@collabora.com,
- dmitry.baryshkov@oss.qualcomm.com, dianders@chromium.org,
- m.szyprowski@samsung.com, dri-devel@lists.freedesktop.org,
- devicetree@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
- linux-rockchip@lists.infradead.org, linux-kernel@vger.kernel.org
-References: <20260529040530.741336-1-damon.ding@rock-chips.com>
- <20260529040530.741336-3-damon.ding@rock-chips.com>
- <178014803941.21632.16225608049285101452.b4-review@b4>
- <DIW1WGLL0GW5.1BGU194UXN0HO@bootlin.com>
+Subject: Re: [PATCH V2] arm64/mm: Rename ptdesc_t
+To: linux-arm-kernel@lists.infradead.org
+Cc: Catalin Marinas <catalin.marinas@arm.com>, Will Deacon <will@kernel.org>,
+ David Hildenbrand <david@kernel.org>, Mike Rapoport <rppt@kernel.org>,
+ linux-efi@vger.kernel.org, linux-kernel@vger.kernel.org
+References: <20260520063417.2363417-1-anshuman.khandual@arm.com>
 Content-Language: en-US
-From: Damon Ding <damon.ding@rock-chips.com>
-In-Reply-To: <DIW1WGLL0GW5.1BGU194UXN0HO@bootlin.com>
-Content-Type: text/plain; charset=UTF-8; format=flowed
+From: Anshuman Khandual <anshuman.khandual@arm.com>
+In-Reply-To: <20260520063417.2363417-1-anshuman.khandual@arm.com>
+Content-Type: text/plain; charset=UTF-8
 Content-Transfer-Encoding: 7bit
-X-HM-Tid: 0a9e811f3b2303a8kunm571bef1e23b414
-X-HM-MType: 1
-X-HM-Spam-Status: e1kfGhgUHx5ZQUpXWQgPGg8OCBgUHx5ZQUlOS1dZFg8aDwILHllBWSg2Ly
-	tZV1koWUFITzdXWRgWCB1ZQUpXWS1ZQUlXWQ8JGhUIEh9ZQVkZSUoYVktPSEtLQh4aSE5PS1YVFA
-	kWGhdVEwETFhoSFyQUDg9ZV1kYEgtZQVlNSlVKTk9VSk9VQ01ZV1kWGg8SFR0UWUFZT0tIVUpLSE
-	pKQk1VSktLVUpCWQY+
-DKIM-Signature: a=rsa-sha256;
-	b=beycXQzUpN7FPhJ+fAnFKBz1/vzWYNCiv9XZmeqLZiDZFkrCqTaI560sy9/RjK386Vd55Uvdy77o8wkoVWe8DVjcwK8gjQHQNRMKZ5MguiLr9lmkNp7QbE/7RLqe3MGSIIjEk3btRd0IeXbEkiBb4MwuEV55/9WdY+TB9L3Xc9Y=; c=relaxed/relaxed; s=default; d=rock-chips.com; v=1;
-	bh=bTGq6JyMOqNz9AcHQ+pp9TTBnC1HlbtzjBlhQULSRac=;
-	h=date:mime-version:subject:message-id:from;
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260531_195945_346952_BE17F718 
-X-CRM114-Status: GOOD (  22.72  )
+X-CRM114-CacheID: sfid-20260531_205013_614890_80D11BA4 
+X-CRM114-Status: GOOD (  31.37  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -83,88 +71,261 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hi Luca,
-
-On 5/30/2026 9:38 PM, Luca Ceresoli wrote:
-> On Sat May 30, 2026 at 3:33 PM CEST, Luca Ceresoli wrote:
->> On Fri, 29 May 2026 12:05:29 +0800, Damon Ding <damon.ding@rock-chips.com> wrote:
->>
->> Hello Damon,
->>
->>>
->>> diff --git a/drivers/gpu/drm/bridge/analogix/analogix_dp_core.c b/drivers/gpu/drm/bridge/analogix/analogix_dp_core.c
->>> index 8cf6b73bceac..699a7f380c56 100644
->>> --- a/drivers/gpu/drm/bridge/analogix/analogix_dp_core.c
->>> +++ b/drivers/gpu/drm/bridge/analogix/analogix_dp_core.c
->>> @@ -1260,8 +1261,16 @@ static int analogix_dp_dt_parse_pdata(struct analogix_dp_device *dp)
->>>   		 */
->>>   		of_property_read_u32(dp_node, "samsung,link-rate",
->>>   				     &video_info->max_link_rate);
->>> -		of_property_read_u32(dp_node, "samsung,lane-count",
->>> -				     &video_info->max_lane_count);
->>> +		ret = of_property_read_u32(dp_node, "samsung,lane-count",
->>> +					   &video_info->max_lane_count);
->>> +		if (!ret) {
->>> +			if (video_info->max_lane_count == 0 ||
->>> +			    video_info->max_lane_count > LANE_COUNT4) {
->>
->> This sashiko report seems to me valid.
+On 20/05/26 12:04 PM, Anshuman Khandual wrote:
+> ptdesc_t sounds very similar to the core MM struct ptdesc which is actually
+> the memory descriptor for page table allocations. Hence rename this typedef
+> element as ptval_t instead for better clarity and separation.
 > 
-> Meh, messed up with 'b4 review' :-/ Apologies
+> Cc: Catalin Marinas <catalin.marinas@arm.com>
+> Cc: Will Deacon <will@kernel.org>
+> Cc: David Hildenbrand <david@kernel.org>
+> Cc: Mike Rapoport <rppt@kernel.org>
+> Cc: linux-efi@vger.kernel.org
+> Cc: linux-kernel@vger.kernel.org
+> Cc: linux-arm-kernel@lists.infradead.org
+> Acked-by: Mike Rapoport (Microsoft) <rppt@kernel.org>
+> Acked-by: David Hildenbrand (Arm) <david@kernel.org>
+> Suggested-by: David Hildenbrand (Arm) <david@kernel.org>
+> Signed-off-by: Anshuman Khandual <anshuman.khandual@arm.com>
+> ---
+> This patch applies on v7.1-rc4.
 > 
-> "This sashiko report" [0] was about an enum being signed, so '== 0' could miss
-> negative numbers coming from bogus DT values higher than 1^31.
+> Changes in V2:
 > 
-
-Ah, I agree. It would be better to add a new inline function to validate 
-that the lane count passed from DT is exactly 1, 2, or 4, just as 
-Sashiko suggested.
-
->>
->> But I'n no DP expert, I have no idea whether this ther one is valid.
+> - Renamed pxxval_t as ptval_t per Mike and David
 > 
-> And this was about "Additionally, does this check inadvertently allow 3,
-> which is an invalid DisplayPort lane count?"
+> Changes in V1:
 > 
-
-Yes, the DisplayPort specification only allows lane counts of 1, 2, or 
-4. I did miss the check for the invalid value 3 in the current code.
-
-(BTW: I did not find a common helper function in drm_dp_helper.h to 
-validate valid DP lane counts (1, 2, 4). I'm not sure if it would be 
-better to add a generic lane count validation function to the DP helper 
-library instead, to avoid duplicating the same functionality across 
-individual DP drivers. Perhaps other DP experts could provide some 
-advice on this.)
-
->>> +				dev_err(dp->dev, "samsung,lane-count = %d is out of range\n",
->>> +					video_info->max_lane_count);
->>> +				return -EINVAL;
->>> +			}
->>> +		}
->>
->> As reported by sashiko, 'count == 0' should be 'count <= 0', being an enum.
->>
->> Additionally I'd avoid the nested if, and I think using dev_err_probe() is
->> correct here (we are only called by probe functions), so it all could
->> become:
->>
->>     if (ret || count <= 0 || count > LANE_COUNT0)
->>          return dev_err_probe(...);
->>
->> There are other sashiko reports to patch 3, and at least one seems valid to
->> me. Can you either fix them in the next iteration or elaborate on why the
->> code is correct there?
-
-Yes, I will add a helper function to validate the valid lane counts (1, 
-2, 4) and use dev_err_probe() instead in next version.
-
+> https://lore.kernel.org/all/20260430034933.541634-1-anshuman.khandual@arm.com/
 > 
-> [0] https://sashiko.dev/#/patchset/20260529040530.741336-1-damon.ding%40rock-chips.com
+>  arch/arm64/include/asm/io.h            |  2 +-
+>  arch/arm64/include/asm/pgtable-types.h | 14 +++++++-------
+>  arch/arm64/include/asm/ptdump.h        |  8 ++++----
+>  arch/arm64/include/asm/tlbflush.h      |  4 ++--
+>  arch/arm64/kernel/efi.c                |  4 ++--
+>  arch/arm64/kernel/pi/map_kernel.c      |  2 +-
+>  arch/arm64/kernel/pi/map_range.c       |  4 ++--
+>  arch/arm64/kernel/pi/pi.h              |  2 +-
+>  arch/arm64/mm/mmap.c                   |  4 ++--
+>  arch/arm64/mm/pageattr.c               |  2 +-
+>  arch/arm64/mm/ptdump.c                 |  2 +-
+>  11 files changed, 24 insertions(+), 24 deletions(-)
 > 
-> 
+> diff --git a/arch/arm64/include/asm/io.h b/arch/arm64/include/asm/io.h
+> index 8cbd1e96fd50..21c8e400107c 100644
+> --- a/arch/arm64/include/asm/io.h
+> +++ b/arch/arm64/include/asm/io.h
+> @@ -270,7 +270,7 @@ static inline void __iomem *ioremap_prot(phys_addr_t phys, size_t size,
+>  					 pgprot_t user_prot)
+>  {
+>  	pgprot_t prot;
+> -	ptdesc_t user_prot_val = pgprot_val(user_prot);
+> +	ptval_t user_prot_val = pgprot_val(user_prot);
+>  
+>  	if (WARN_ON_ONCE(!(user_prot_val & PTE_USER)))
+>  		return NULL;
+> diff --git a/arch/arm64/include/asm/pgtable-types.h b/arch/arm64/include/asm/pgtable-types.h
+> index 265e8301d7ba..2f2f5527930f 100644
+> --- a/arch/arm64/include/asm/pgtable-types.h
+> +++ b/arch/arm64/include/asm/pgtable-types.h
+> @@ -17,13 +17,13 @@
+>   * Generic page table descriptor format from which
+>   * all level specific descriptors can be derived.
+>   */
+> -typedef u64 ptdesc_t;
+> +typedef u64 ptval_t;
+>  
+> -typedef ptdesc_t pteval_t;
+> -typedef ptdesc_t pmdval_t;
+> -typedef ptdesc_t pudval_t;
+> -typedef ptdesc_t p4dval_t;
+> -typedef ptdesc_t pgdval_t;
+> +typedef ptval_t pteval_t;
+> +typedef ptval_t pmdval_t;
+> +typedef ptval_t pudval_t;
+> +typedef ptval_t p4dval_t;
+> +typedef ptval_t pgdval_t;
+>  
+>  /*
+>   * These are used to make use of C type-checking..
+> @@ -54,7 +54,7 @@ typedef struct { pgdval_t pgd; } pgd_t;
+>  #define pgd_val(x)	((x).pgd)
+>  #define __pgd(x)	((pgd_t) { (x) } )
+>  
+> -typedef struct { ptdesc_t pgprot; } pgprot_t;
+> +typedef struct { ptval_t pgprot; } pgprot_t;
+>  #define pgprot_val(x)	((x).pgprot)
+>  #define __pgprot(x)	((pgprot_t) { (x) } )
+>  
+> diff --git a/arch/arm64/include/asm/ptdump.h b/arch/arm64/include/asm/ptdump.h
+> index baff24004459..5b374a6ab34a 100644
+> --- a/arch/arm64/include/asm/ptdump.h
+> +++ b/arch/arm64/include/asm/ptdump.h
+> @@ -26,8 +26,8 @@ struct ptdump_info {
+>  };
+>  
+>  struct ptdump_prot_bits {
+> -	ptdesc_t	mask;
+> -	ptdesc_t	val;
+> +	ptval_t	mask;
+> +	ptval_t	val;
+>  	const char	*set;
+>  	const char	*clear;
+>  };
+> @@ -36,7 +36,7 @@ struct ptdump_pg_level {
+>  	const struct ptdump_prot_bits *bits;
+>  	char name[4];
+>  	int num;
+> -	ptdesc_t mask;
+> +	ptval_t mask;
+>  };
+>  
+>  /*
+> @@ -53,7 +53,7 @@ struct ptdump_pg_state {
+>  	const struct mm_struct *mm;
+>  	unsigned long start_address;
+>  	int level;
+> -	ptdesc_t current_prot;
+> +	ptval_t current_prot;
+>  	bool check_wx;
+>  	unsigned long wx_pages;
+>  	unsigned long uxn_pages;
+> diff --git a/arch/arm64/include/asm/tlbflush.h b/arch/arm64/include/asm/tlbflush.h
+> index c0bf5b398041..d52ac8c17190 100644
+> --- a/arch/arm64/include/asm/tlbflush.h
+> +++ b/arch/arm64/include/asm/tlbflush.h
+> @@ -725,9 +725,9 @@ static inline void arch_tlbbatch_add_pending(struct arch_tlbflush_unmap_batch *b
+>  	sme_dvmsync_add_pending(batch, mm);
+>  }
+>  
+> -static inline bool __pte_flags_need_flush(ptdesc_t oldval, ptdesc_t newval)
+> +static inline bool __pte_flags_need_flush(ptval_t oldval, ptval_t newval)
+>  {
+> -	ptdesc_t diff = oldval ^ newval;
+> +	ptval_t diff = oldval ^ newval;
+>  
+>  	/* invalid to valid transition requires no flush */
+>  	if (!(oldval & PTE_VALID))
+> diff --git a/arch/arm64/kernel/efi.c b/arch/arm64/kernel/efi.c
+> index a81cb4aa4738..30cd7f804398 100644
+> --- a/arch/arm64/kernel/efi.c
+> +++ b/arch/arm64/kernel/efi.c
+> @@ -31,7 +31,7 @@ static bool region_is_misaligned(const efi_memory_desc_t *md)
+>   * executable, everything else can be mapped with the XN bits
+>   * set. Also take the new (optional) RO/XP bits into account.
+>   */
+> -static __init ptdesc_t create_mapping_protection(efi_memory_desc_t *md)
+> +static __init ptval_t create_mapping_protection(efi_memory_desc_t *md)
+>  {
+>  	u64 attr = md->attribute;
+>  	u32 type = md->type;
+> @@ -85,7 +85,7 @@ static __init ptdesc_t create_mapping_protection(efi_memory_desc_t *md)
+>  
+>  int __init efi_create_mapping(struct mm_struct *mm, efi_memory_desc_t *md)
+>  {
+> -	ptdesc_t prot_val = create_mapping_protection(md);
+> +	ptval_t prot_val = create_mapping_protection(md);
+>  	bool page_mappings_only = (md->type == EFI_RUNTIME_SERVICES_CODE ||
+>  				   md->type == EFI_RUNTIME_SERVICES_DATA);
+>  
+> diff --git a/arch/arm64/kernel/pi/map_kernel.c b/arch/arm64/kernel/pi/map_kernel.c
+> index a852264958c3..fb44cbdd2f29 100644
+> --- a/arch/arm64/kernel/pi/map_kernel.c
+> +++ b/arch/arm64/kernel/pi/map_kernel.c
+> @@ -165,7 +165,7 @@ static void noinline __section(".idmap.text") set_ttbr0_for_lpa2(phys_addr_t ttb
+>  static void __init remap_idmap_for_lpa2(void)
+>  {
+>  	/* clear the bits that change meaning once LPA2 is turned on */
+> -	ptdesc_t mask = PTE_SHARED;
+> +	ptval_t mask = PTE_SHARED;
+>  
+>  	/*
+>  	 * We have to clear bits [9:8] in all block or page descriptors in the
+> diff --git a/arch/arm64/kernel/pi/map_range.c b/arch/arm64/kernel/pi/map_range.c
+> index de52cd85c691..761b14893f74 100644
+> --- a/arch/arm64/kernel/pi/map_range.c
+> +++ b/arch/arm64/kernel/pi/map_range.c
+> @@ -31,7 +31,7 @@ void __init map_range(phys_addr_t *pte, u64 start, u64 end, phys_addr_t pa,
+>  		      u64 va_offset)
+>  {
+>  	u64 cmask = (level == 3) ? CONT_PTE_SIZE - 1 : U64_MAX;
+> -	ptdesc_t protval = pgprot_val(prot) & ~PTE_TYPE_MASK;
+> +	ptval_t protval = pgprot_val(prot) & ~PTE_TYPE_MASK;
+>  	int lshift = (3 - level) * PTDESC_TABLE_SHIFT;
+>  	u64 lmask = (PAGE_SIZE << lshift) - 1;
+>  
+> @@ -88,7 +88,7 @@ void __init map_range(phys_addr_t *pte, u64 start, u64 end, phys_addr_t pa,
+>  	}
+>  }
+>  
+> -asmlinkage phys_addr_t __init create_init_idmap(pgd_t *pg_dir, ptdesc_t clrmask)
+> +asmlinkage phys_addr_t __init create_init_idmap(pgd_t *pg_dir, ptval_t clrmask)
+>  {
+>  	phys_addr_t ptep = (phys_addr_t)pg_dir + PAGE_SIZE; /* MMU is off */
+>  	pgprot_t text_prot = PAGE_KERNEL_ROX;
+> diff --git a/arch/arm64/kernel/pi/pi.h b/arch/arm64/kernel/pi/pi.h
+> index aec3172d4003..5dfd8484d200 100644
+> --- a/arch/arm64/kernel/pi/pi.h
+> +++ b/arch/arm64/kernel/pi/pi.h
+> @@ -35,4 +35,4 @@ void map_range(phys_addr_t *pte, u64 start, u64 end, phys_addr_t pa,
+>  
+>  asmlinkage void early_map_kernel(u64 boot_status, phys_addr_t fdt);
+>  
+> -asmlinkage phys_addr_t create_init_idmap(pgd_t *pgd, ptdesc_t clrmask);
+> +asmlinkage phys_addr_t create_init_idmap(pgd_t *pgd, ptval_t clrmask);
+> diff --git a/arch/arm64/mm/mmap.c b/arch/arm64/mm/mmap.c
+> index 92b2f5097a96..32e0771d6477 100644
+> --- a/arch/arm64/mm/mmap.c
+> +++ b/arch/arm64/mm/mmap.c
+> @@ -34,7 +34,7 @@ static pgprot_t protection_map[16] __ro_after_init = {
+>  	[VM_SHARED | VM_EXEC | VM_WRITE | VM_READ]	= PAGE_SHARED_EXEC
+>  };
+>  
+> -static ptdesc_t gcs_page_prot __ro_after_init = _PAGE_GCS_RO;
+> +static ptval_t gcs_page_prot __ro_after_init = _PAGE_GCS_RO;
+>  
+>  /*
+>   * You really shouldn't be using read() or write() on /dev/mem.  This might go
+> @@ -87,7 +87,7 @@ arch_initcall(adjust_protection_map);
+>  
+>  pgprot_t vm_get_page_prot(vm_flags_t vm_flags)
+>  {
+> -	ptdesc_t prot;
+> +	ptval_t prot;
+>  
+>  	/* Short circuit GCS to avoid bloating the table. */
+>  	if (system_supports_gcs() && (vm_flags & VM_SHADOW_STACK)) {
+> diff --git a/arch/arm64/mm/pageattr.c b/arch/arm64/mm/pageattr.c
+> index ce035e1b4eaf..bbe98ac9ad8c 100644
+> --- a/arch/arm64/mm/pageattr.c
+> +++ b/arch/arm64/mm/pageattr.c
+> @@ -21,7 +21,7 @@ struct page_change_data {
+>  	pgprot_t clear_mask;
+>  };
+>  
+> -static ptdesc_t set_pageattr_masks(ptdesc_t val, struct mm_walk *walk)
+> +static ptval_t set_pageattr_masks(ptval_t val, struct mm_walk *walk)
+>  {
+>  	struct page_change_data *masks = walk->private;
+>  
+> diff --git a/arch/arm64/mm/ptdump.c b/arch/arm64/mm/ptdump.c
+> index ab9899ca1e5f..1c20144700d7 100644
+> --- a/arch/arm64/mm/ptdump.c
+> +++ b/arch/arm64/mm/ptdump.c
+> @@ -194,7 +194,7 @@ void note_page(struct ptdump_state *pt_st, unsigned long addr, int level,
+>  	struct ptdump_pg_state *st = container_of(pt_st, struct ptdump_pg_state, ptdump);
+>  	struct ptdump_pg_level *pg_level = st->pg_level;
+>  	static const char units[] = "KMGTPE";
+> -	ptdesc_t prot = 0;
+> +	ptval_t prot = 0;
+>  
+>  	/* check if the current level has been folded dynamically */
+>  	if (st->mm && ((level == 1 && mm_p4d_folded(st->mm)) ||
 
-Best regards,
-Damon
+Hello Catalin/Will,
 
+Any update on this patch ? Could this be pulled in for the next merge
+window so that all D128 patches can be rebased as required. Thank you.
+
+- Anshuman
 
