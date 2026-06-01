@@ -4,145 +4,83 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 7ED59CD6E56
-	for <linux-arm-kernel@archiver.kernel.org>; Mon,  1 Jun 2026 11:28:44 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id C9847CD6E56
+	for <linux-arm-kernel@archiver.kernel.org>; Mon,  1 Jun 2026 11:39:42 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:
-	Content-Transfer-Encoding:Content-Type:In-Reply-To:From:References:Cc:To:
-	Subject:Date:Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=/FwfKb5gW+OgOU6wWzRQpOQtoJqb7kcmC/pMUFkZ1zs=; b=IvDu4qu97tSNBJeC7gTpT8q5Bn
-	j/1ujqYOD3qnSqWshSg6o7DtFJGL/+kElNh9kPo02h+TcKYabHpaiNiPYdz4qGktXzfjoAqiebx+W
-	vOXiVbCUAg8zGBJqU0Y74YO01kkEzXw3ae1SdkxQHVBg8OYnRbSjCBAD2KUFEOWhZzoE/hNZMX+i6
-	S8+vde1sbM9lkIfp+nH1HIlbY1LrD51Jl6PqEg0jJwcjzttwS6GhOHdgtz45rnj1np2Jgv4y9hpCt
-	gp1Gp45+IxOgkLd8WP1UM+76vP5rt65CK4UcDaCC3ZaVoSmpUk1a3fyt3LiUPQ1ZB3WvkJDN/TBq8
-	4XE4doBQ==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	MIME-Version:Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-Type:
+	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
+	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=XxrgoZ+nc2RW0uxcOjuabHAwk7p3VP8+2bqMXrJ39Ks=; b=oii+xeE/DFuu99C4BQUXUMRQXG
+	t/q70/WKMv2ox/OcINzl9xl8RZML6sjlGJlsUtzPG1U2gX/+r5wG7BIaVAbZystoSwqtsdo/OvZtZ
+	HLNB8tMKIOdeN7z10h6ktHmBGBi7buP9aLrvdcizIL9GvbhIFhNnLk1DtHYC9yc+dRn7/NiyxPTm0
+	ZIdmthwcosU9+Z+GK2qIifRdvR5Z7lrcvHtimTg3fe+CAjwMxYZP5RLRqKDjn7/rfSa6x2LyWILPd
+	bjVYylZsdOvi0krM+EAuJT/m0s+HpiUZju2lZ4dAWPrpuA0zk9xBY9vcJpWfGIpcAQS0MjXEON9Jz
+	K/IdD3UQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wU0ov-0000000AkCj-3FI4;
-	Mon, 01 Jun 2026 11:28:37 +0000
-Received: from mail-westeuropeazon11011067.outbound.protection.outlook.com ([52.101.70.67] helo=AS8PR04CU009.outbound.protection.outlook.com)
+	id 1wU0zY-0000000Al4X-0cec;
+	Mon, 01 Jun 2026 11:39:36 +0000
+Received: from mout-p-102.mailbox.org ([2001:67c:2050:0:465::102])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wU0os-0000000AkCL-4A0B
+	id 1wU0zU-0000000Al3Y-3Eod
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 01 Jun 2026 11:28:36 +0000
-ARC-Seal: i=2; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=pass;
- b=YiveOJ9Ggv29NMJLBFLuVXBlt18EmEz/RnKmFscIEUyI5iH9VucvrGHrzvpjY1wX/GY/OX8VrxzwoHCBvO2Fqu4i2KSfAqWnAKgtj/e3F9bXDCJaaDXSqCs5LNLu29LeyrZpMxdVNMD5hjExScYC3cqG54VozQspnv69W+DYdSwYLCxHBG+5HfAQLtg55jHz6hWObafDM9MNZapyuAwzxJpGQHJ89UI5DkEQKyOdxBthP+a2uyjGtv0GnkDnb1qjUeL4dEQmoaBRVmPTK4KhAD0VLQ3iKZV8rKS8S1x0BBsunSMBT2hJZBTYpeOJsnT6ZvnpyZaGfpNWJ4Uth/DlLQ==
-ARC-Message-Signature: i=2; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
- s=arcselector10001;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
- bh=/FwfKb5gW+OgOU6wWzRQpOQtoJqb7kcmC/pMUFkZ1zs=;
- b=MAyoGD3ZId7bxsirD3s1qjiXf4wE5/3DEZjnp2eoUd0SM9vEc0+otx8FZnmFpKkvgFTxWEb9wvGna2GEQt26ZEjxV9JU1QCf5uv78+K2KBF86DXkzkNPuRYn8VZKKsrVp2tBm94rPqHxoJbc2pTSvskozGOAuU5D01JGz9CJS2fbvSPFoQ6hzouvxPSI/D6W0P7g5/JGwm2bBEpQzA4c6t2RZ427XLDJSPLYFrlla2SgHLKwm7ylKpUu8s071NXeGz55ZZdciYLr59bu8VPKTZcIlHis5iFKGkpuyyHi6IX6mJEklKDWbC6qA/0XXJ6HZB8PzgSVAa5pyPmIrb66rA==
-ARC-Authentication-Results: i=2; mx.microsoft.com 1; spf=pass (sender ip is
- 4.158.2.129) smtp.rcpttodomain=lists.linaro.org smtp.mailfrom=arm.com;
- dmarc=pass (p=none sp=none pct=100) action=none header.from=arm.com;
- dkim=pass (signature was verified) header.d=arm.com; arc=pass (0 oda=1 ltdi=1
- spf=[1,1,smtp.mailfrom=arm.com] dkim=[1,1,header.d=arm.com]
- dmarc=[1,1,header.from=arm.com])
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=arm.com; s=selector1;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
- bh=/FwfKb5gW+OgOU6wWzRQpOQtoJqb7kcmC/pMUFkZ1zs=;
- b=JcgY1HV6yPnrm7U23SLbMt1uYwI5EGBJQEw+j7QarlRYjgu+Uh6MFYEG+57mQEwFOwfaMTJq2ZVrf9XNjUL1KGFft09s9U2k7FTdq+Fxrw9jXpljSrLQfQ/yibpcNPHQlCocCGtcFd5H4+SM+8hqsUKnvUL/b/AwOW5PmX7uh9o=
-Received: from DUZP191CA0061.EURP191.PROD.OUTLOOK.COM (2603:10a6:10:4fa::16)
- by DU0PR08MB9751.eurprd08.prod.outlook.com (2603:10a6:10:445::17) with
- Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.21.71.16; Mon, 1 Jun 2026
- 11:28:26 +0000
-Received: from DU2PEPF0001E9C5.eurprd03.prod.outlook.com
- (2603:10a6:10:4fa:cafe::9d) by DUZP191CA0061.outlook.office365.com
- (2603:10a6:10:4fa::16) with Microsoft SMTP Server (version=TLS1_3,
- cipher=TLS_AES_256_GCM_SHA384) id 15.21.71.16 via Frontend Transport; Mon, 1
- Jun 2026 11:28:23 +0000
-X-MS-Exchange-Authentication-Results: spf=pass (sender IP is 4.158.2.129)
- smtp.mailfrom=arm.com; dkim=pass (signature was verified)
- header.d=arm.com;dmarc=pass action=none header.from=arm.com;
-Received-SPF: Pass (protection.outlook.com: domain of arm.com designates
- 4.158.2.129 as permitted sender) receiver=protection.outlook.com;
- client-ip=4.158.2.129; helo=outbound-uk1.az.dlp.m.darktrace.com; pr=C
-Received: from outbound-uk1.az.dlp.m.darktrace.com (4.158.2.129) by
- DU2PEPF0001E9C5.mail.protection.outlook.com (10.167.8.74) with Microsoft SMTP
- Server (version=TLS1_3, cipher=TLS_AES_256_GCM_SHA384) id 15.21.71.7 via
- Frontend Transport; Mon, 1 Jun 2026 11:28:23 +0000
-ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
- b=aJSTsHBi5go3F79sRC9oTbyLvC39GSihSbEp7D1bQ/H8sYt4QzWMJI0LvWLwZzGA8uUMD3hJnrnmbBOm/15JeA53mYSRv1qAQdoa5rHGO6hHdaAXb7jPnk+IDqp0dAZ6qAGoyUeRSZstn/oQiX0mizxuOs5dcVoKhBgPbsd9t7pnaWNGyKZojWISCqDVxIFB+WUULq7cBDOmxaakmBkyog8+XrlmXGKcsC3MjqFht36EM97w1DwuN0CQHaNLMRcl8bANDvQBEoZeXcrlDiZnlLzBy6C4Zt267MxpopB5xjSYKG8+PpZxtTTiYesNNlfinZmFg90AusAfFWM5foXPug==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
- s=arcselector10001;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
- bh=/FwfKb5gW+OgOU6wWzRQpOQtoJqb7kcmC/pMUFkZ1zs=;
- b=NQ/r3EB7QkndBUfPPvbXChAgTSO+BbC/AhMraWj948j3ZvO2qhDBOn6RAD2WIALmQ9B0LVoB7OBMc2O7MY+1KLWYF3P8sNf0Y//KXId062gwPwEgQnBuNAOhFZjL0V6YQ22gYRfPF1jgjy1vG2QeaovnY3e8F8/7LvS9OHuagiXPouJgklbznFkL0iM6wzDI1FBP8x5trWvIog/uDnY7sH8kd5gUoqA8NDGMCPs8mDyovce3DNBVCuAeSDwv0NJolBebifesiCAVr00iVjeoAGSwCljRmsTD1SiFidODmhmaXDbdTEYQwYbi6oXhZxcjXNj2CRFezNOytgB0s6zgkw==
-ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
- smtp.mailfrom=arm.com; dmarc=pass action=none header.from=arm.com; dkim=pass
- header.d=arm.com; arc=none
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=arm.com; s=selector1;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
- bh=/FwfKb5gW+OgOU6wWzRQpOQtoJqb7kcmC/pMUFkZ1zs=;
- b=JcgY1HV6yPnrm7U23SLbMt1uYwI5EGBJQEw+j7QarlRYjgu+Uh6MFYEG+57mQEwFOwfaMTJq2ZVrf9XNjUL1KGFft09s9U2k7FTdq+Fxrw9jXpljSrLQfQ/yibpcNPHQlCocCGtcFd5H4+SM+8hqsUKnvUL/b/AwOW5PmX7uh9o=
-Authentication-Results-Original: dkim=none (message not signed)
- header.d=none;dmarc=none action=none header.from=arm.com;
-Received: from PAWPR08MB10975.eurprd08.prod.outlook.com (2603:10a6:102:46e::7)
- by FRRPR08MB11966.eurprd08.prod.outlook.com (2603:10a6:d10:1d0::9) with
- Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.21.71.16; Mon, 1 Jun 2026
- 11:27:21 +0000
-Received: from PAWPR08MB10975.eurprd08.prod.outlook.com
- ([fe80::3c7a:9a64:14bc:ce15]) by PAWPR08MB10975.eurprd08.prod.outlook.com
- ([fe80::3c7a:9a64:14bc:ce15%7]) with mapi id 15.21.0071.015; Mon, 1 Jun 2026
- 11:27:21 +0000
-Message-ID: <55b306e3-1e33-4a5b-a2ce-043132db7154@arm.com>
-Date: Mon, 1 Jun 2026 12:27:20 +0100
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH v7 05/13] coresight: etm4x: exclude ss_status from
- drvdata->config
-To: Yeoreum Yun <yeoreum.yun@arm.com>, coresight@lists.linaro.org,
- linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org
-Cc: mike.leach@arm.com, james.clark@linaro.org,
- alexander.shishkin@linux.intel.com, leo.yan@arm.com, jie.gan@oss.qualcomm.com
-References: <20260519154812.254884-1-yeoreum.yun@arm.com>
- <20260519154812.254884-6-yeoreum.yun@arm.com>
-Content-Language: en-US
-From: Suzuki K Poulose <suzuki.poulose@arm.com>
-In-Reply-To: <20260519154812.254884-6-yeoreum.yun@arm.com>
-Content-Type: text/plain; charset=UTF-8; format=flowed
-Content-Transfer-Encoding: 7bit
-X-ClientProxiedBy: PR3P189CA0061.EURP189.PROD.OUTLOOK.COM
- (2603:10a6:102:b4::6) To PAWPR08MB10975.eurprd08.prod.outlook.com
- (2603:10a6:102:46e::7)
+	Mon, 01 Jun 2026 11:39:34 +0000
+Received: from smtp1.mailbox.org (smtp1.mailbox.org [IPv6:2001:67c:2050:b231:465::1])
+	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
+	 key-exchange X25519 server-signature RSA-PSS (4096 bits) server-digest SHA256)
+	(No client certificate requested)
+	by mout-p-102.mailbox.org (Postfix) with ESMTPS id 4gTX743Mcsz9vDB;
+	Mon,  1 Jun 2026 13:39:28 +0200 (CEST)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=mailbox.org; s=mail20150812;
+	t=1780313968;
+	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
+	 to:to:cc:cc:mime-version:mime-version:
+	 content-transfer-encoding:content-transfer-encoding;
+	bh=XxrgoZ+nc2RW0uxcOjuabHAwk7p3VP8+2bqMXrJ39Ks=;
+	b=be8wmpxdlxU7iEYeGhrAGv85VtawF3x4n6x+m9vkn0BXDKBbN9mwG9UUqmW3JuBlsApYdY
+	2e1AS3wCGeKCb+oAb8CLwnhsxbxKpXP+Kz9PlxVvcC+bpM8XBpSVMCXNhAyVgR6XMVQR23
+	vbpQRXPKggz2AEMeFTI65B485uNUObdCzJ65Q9iucWVV6Q/69oTYOavkL+i+L92Or/Tt30
+	4bMYZwlItnjC86XgLBMAtdl5fw5jUw3xm/hilLKC07uzdFpPGsnckLv9VgZ9OL59W9agvl
+	cB/0LPKPWK8pMXWNQehPAg6ZZilZ0p1eFVDhJbmFj/EEmN1I/6a9jJ/TxbZWgA==
+Authentication-Results: outgoing_mbo_mout;
+	dkim=pass header.d=mailbox.org header.s=mail20150812 header.b=WrsJPmTO;
+	spf=pass (outgoing_mbo_mout: domain of marek.vasut+renesas@mailbox.org designates 2001:67c:2050:b231:465::1 as permitted sender) smtp.mailfrom=marek.vasut+renesas@mailbox.org
+From: Marek Vasut <marek.vasut+renesas@mailbox.org>
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=mailbox.org; s=mail20150812;
+	t=1780313967;
+	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
+	 to:to:cc:cc:mime-version:mime-version:
+	 content-transfer-encoding:content-transfer-encoding;
+	bh=XxrgoZ+nc2RW0uxcOjuabHAwk7p3VP8+2bqMXrJ39Ks=;
+	b=WrsJPmTO683K9T91scDLcwy7xNy7qdnCl610OhxPHPdEyCZmEBqSrzjdlQwCMN6fLGt6wd
+	h7EdVBrkMMr86n2VR4pXTELwNE96Y9PRTpczPeJ3OUTBt6x23eDgw5JVeRwHfs4a+3OJxd
+	67HEeW+UlaFpcmYLq87PNAQABFpnsvNewG2pE33JB8SAKM/wJ0Tlsaxh+2Xj9N+4pMjypB
+	7SPi4vetUOQRyGmhA6aIXvjuSYXg2R00izOi+QUsG+5lRTliZJ65OOrn/ZRqMheBKgAdZy
+	/PglDpctlLhPeZvEFrEfpdhsv91kfRrxsONrMk+iPBtJ5lEa0Yp8WNP6OehJlA==
+To: linux-arm-kernel@lists.infradead.org
+Cc: Marek Vasut <marek.vasut+renesas@mailbox.org>,
+	Conor Dooley <conor+dt@kernel.org>,
+	Geert Uytterhoeven <geert+renesas@glider.be>,
+	Krzysztof Kozlowski <krzk+dt@kernel.org>,
+	Magnus Damm <magnus.damm@gmail.com>,
+	Rob Herring <robh@kernel.org>,
+	devicetree@vger.kernel.org,
+	linux-kernel@vger.kernel.org,
+	linux-renesas-soc@vger.kernel.org
+Subject: [PATCH] arm64: dts: renesas: r8a78000: Enable application CPU cores via PSCI
+Date: Mon,  1 Jun 2026 13:38:51 +0200
+Message-ID: <20260601113919.8327-1-marek.vasut+renesas@mailbox.org>
 MIME-Version: 1.0
-X-MS-TrafficTypeDiagnostic: PAWPR08MB10975:EE_|FRRPR08MB11966:EE_|DU2PEPF0001E9C5:EE_|DU0PR08MB9751:EE_
-X-MS-Office365-Filtering-Correlation-Id: 5abe1147-37cc-4a15-3594-08debfd0e419
-X-LD-Processed: f34e5979-57d9-4aaa-ad4d-b122a662184d,ExtAddr,ExtAddr
-x-checkrecipientrouted: true
-NoDisclaimer: true
-X-MS-Exchange-SenderADCheck: 1
-X-MS-Exchange-AntiSpam-Relay: 0
-X-Microsoft-Antispam-Untrusted: BCL:0;ARA:13230040|376014|366016|1800799024|22082099003|18002099003|4143699003|56012099006|11063799006|6133799003|3023799007;
-X-Microsoft-Antispam-Message-Info-Original: cHhGGpNw53I8xvv/BmHMuXUW6MZIm0lSYatv3xkcNEeH607mVqILpRXrShJdA70ZTbOxpzi5/seXNxN3H8N5cvwFuXZR0NLSO2TmBl0+DCZ1IAJ4p0LqmE2BQAf+ESjft2o7phsZip/00nJ70N/+KMheEuAcejneCm9+l2LSTWjQesO+PUrMUY4h8TaY9AR+6YkRrpn+gSsKgl/Z7YLKyz5u6otmQD5tAh0rz5wQ/GOWMd9I5y1UxzKn6EYUiTm3LeNTY2vX6dniAnvEYFCd/VtwC9OOKPPiaMREug6u8dRsQ73a1yC5CgS9ktMyW2JqEMsMJihg6sGJPKt53IWFxhM8Zj6cdZeDA5mAnQ3NdTaWMMksP6QFTKa6lYJyskJvSCuWOAPSKEHxA3adzZ71I2ha5XpO3+7ORFJ6aOsiccvJkeR8lZxqnHzTzan1WRcwAyfAegmeE9chu6dgOz5c2Fkqu+rEJuH8guWX8h44cRbpAYWrr+ehE7qps4dXjFfC+/iLQLWGHdwNaF0DjatbWeK/B7fxyHez79n4t+MP3Mk/mFYunFTc6EhktRpN8emXaimKDi6DfS3/mN3SARFVHlksC5+7xjlbwi5NpHlImzDVUBz07fXioMWP6qWJc6XDtKdmwo0inIa1zoDaCiHB30Bt/460J3ar5tPu/br6qS3LMbfKqKS43rEp3ljoW1AB
-X-Forefront-Antispam-Report-Untrusted: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:PAWPR08MB10975.eurprd08.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(376014)(366016)(1800799024)(22082099003)(18002099003)(4143699003)(56012099006)(11063799006)(6133799003)(3023799007);DIR:OUT;SFP:1101;
-X-Exchange-RoutingPolicyChecked: FpcYgsqaq/qKzxs33KpDa6emc90va93H+mKU9zRrwCAZ8Y1fdzD+52Ni6lBB8ObjfSLLlWxWaohhn68FPWdP2KgyCVmaa1tKEa9ejG9SPMajtx676aIVsO4Qxe62982yc/Eoz3jkYIQQWWGYDzDb5G0jNp2ntYy11KVAvgZGs891Fi1a1zPXY3JCcsPbCpguC4LepPI2wha59npjn1yUhfn8SJcbdLtlNY7J/5OUuSkjd8NEszOhX1KBfP72QG+chrXDU2xw8XTaMG+PoLRghgoxul70bX5TgH11Lf/bDcCigiJoUo+DGoDNWrnSt1AmhITWsDaBLH23acsbKE4KcA==
-X-MS-Exchange-Transport-CrossTenantHeadersStamped: FRRPR08MB11966
-X-EOPAttributedMessage: 0
-X-MS-Exchange-Transport-CrossTenantHeadersStripped: DU2PEPF0001E9C5.eurprd03.prod.outlook.com
-X-MS-PublicTrafficType: Email
-X-MS-Office365-Filtering-Correlation-Id-Prvs: 1ccf8309-befa-497a-3b76-08debfd0bf0d
-X-Microsoft-Antispam: BCL:0;ARA:13230040|14060799003|1800799024|82310400026|376014|35042699022|36860700016|18002099003|22082099003|4143699003|6133799003|56012099006|3023799007|11063799006;
-X-Microsoft-Antispam-Message-Info: 50x+dizgh8ttVvJi+jlsihQszeDkqkbVAFAqnzPqDLQ9j0rASzLQr2LGR1lg4CBxebOsVv4fp9smlS2w0yfqtIBncpWsoOf+deSWVgd7MZNikRCBCEmxaIfWRQWVfoYUakYZ6bIKAL9mLDLPIseSVefQSP5M3pWEm7FcY4vSwaP3MEWbfxsts0vbSKJZisHk/TQ5pfb4oWz9/cuHOQ8qdqRBCUatdvgFPO0cCHOI1fCkZ6eCGg/RVOJ98Vulmhe+nflBsm2mXXR2GMAgpKhWRrSqnj8ctzGLoav6Lfbt92X375M8WgSGUWLI+WHeCPFDvllUbkPbylc0xnvhFVLzRaElRNYlc29OxGJ0JbvpPG42YxLQaKyOvfCozjb7utb5DCUw80Q0XSjmgke7mhfREOiHEs73csXGUQg5Q/IEWdJaFEiwPilOkmlqTIdts3Di3qv/wUlzUQ4HxobbEvNZ9egZY4GNiL1tMM2z1UzSDAsjZNKicKOIuLaVKA1ilYzv4trBLThUxnRuTHHfve5gD4lKMYYAppByogA+l40JUhVecMm97H1ShEzbVJ3h6EcvK4qv3FvYTSWiXu2CAsq6KNOFHxdBYLEenTTkSmf67wAJGCxZupPXuiNH4USJ2cGjIQb5xNG5SQAX6CCBrEBRw2dbb9mr85yUj14tYZddMUs9Vb10bvlcME+pj2GGvM8gSnHh+MTzJF3Ca7g15VF/m8aqsGn3R8sR4Aei6ITvKQQ=
-X-Forefront-Antispam-Report: CIP:4.158.2.129;CTRY:GB;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:outbound-uk1.az.dlp.m.darktrace.com;PTR:InfoDomainNonexistent;CAT:NONE;SFS:(13230040)(14060799003)(1800799024)(82310400026)(376014)(35042699022)(36860700016)(18002099003)(22082099003)(4143699003)(6133799003)(56012099006)(3023799007)(11063799006);DIR:OUT;SFP:1101;
-X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
-X-MS-Exchange-AntiSpam-MessageData-0: 4C75cbnv2oyfAiWT33S3VOm/hUrTc1P64bFV5kb/mXOFw1itFB7SgzBfFORmwbX45iurC0NupzFmlTLtZhy6g7CFYP50DUOGFMfdbgWWiQFCnGu/XHb4pblmNNwdq7QrZCfQ136IZxRhOd0TVfRpwYZn6FwJwh0xSnI2XTpJ+EHjo5zsYWXOIwZXJEh7kNRtoYkwcBUhfpEEs5FMHG9eWXXj85mXCZK8yRLK08GCUghQ11GVTHkTdCYZPJ3NG4h0JfroMO27iQ+bfkm/ryTCi6e2x4SEddJsU7RHZ4nrUGh6m6w4tg6ZJ5PT7oMSZD/da9lKd/PqhGV9ZXjXTqA3pUDhSqn2XP/DD9Ij8sYiVRMVFW9dZUwm3g4yEM6ue51oZeirFEezahoy3Jyn2gE4e3jNfh7OoSVxHCwGg5QxjXlejR0FvVw2S14wj2zd60WY
-X-OriginatorOrg: arm.com
-X-MS-Exchange-CrossTenant-OriginalArrivalTime: 01 Jun 2026 11:28:23.3074
- (UTC)
-X-MS-Exchange-CrossTenant-Network-Message-Id: 5abe1147-37cc-4a15-3594-08debfd0e419
-X-MS-Exchange-CrossTenant-Id: f34e5979-57d9-4aaa-ad4d-b122a662184d
-X-MS-Exchange-CrossTenant-OriginalAttributedTenantConnectingIp: TenantId=f34e5979-57d9-4aaa-ad4d-b122a662184d;Ip=[4.158.2.129];Helo=[outbound-uk1.az.dlp.m.darktrace.com]
-X-MS-Exchange-CrossTenant-AuthSource: DU2PEPF0001E9C5.eurprd03.prod.outlook.com
-X-MS-Exchange-CrossTenant-AuthAs: Anonymous
-X-MS-Exchange-CrossTenant-FromEntityHeader: HybridOnPrem
-X-MS-Exchange-Transport-CrossTenantHeadersStamped: DU0PR08MB9751
+Content-Transfer-Encoding: 8bit
+X-MBO-RS-ID: 0ffa117923e49be64e7
+X-MBO-RS-META: 6t6yf5ce5dbmbzistm9f7tgmeqcmfg53
+X-Rspamd-Queue-Id: 4gTX743Mcsz9vDB
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260601_042835_352766_D172C48D 
-X-CRM114-Status: GOOD (  22.65  )
+X-CRM114-CacheID: sfid-20260601_043932_954862_E204E44B 
+X-CRM114-Status: UNSURE (   7.47  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -157,194 +95,289 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hi Levi,
+Add PSCI "enable-method" DT property to all application CPU cores.
+This allows the OS to bring application CPU cores up and down.
 
-On 19/05/2026 16:48, Yeoreum Yun wrote:
-> The purpose of TRCSSCSRn register is to show status of
-> the corresponding Single-shot Comparator Control and input supports.
-> That means writable field's purpose for reset or restore from idle status
-> not for configuration.
-> 
-> Therefore, exclude ss_status from drvdata->config and move it to drvdata.
+Signed-off-by: Marek Vasut <marek.vasut+renesas@mailbox.org>
+---
+Cc: Conor Dooley <conor+dt@kernel.org>
+Cc: Geert Uytterhoeven <geert+renesas@glider.be>
+Cc: Krzysztof Kozlowski <krzk+dt@kernel.org>
+Cc: Magnus Damm <magnus.damm@gmail.com>
+Cc: Rob Herring <robh@kernel.org>
+Cc: devicetree@vger.kernel.org
+Cc: linux-kernel@vger.kernel.org
+Cc: linux-renesas-soc@vger.kernel.org
+---
+NOTE: This depends mainline TFA 2.15 or newer (or SDK TFA version
+      which includes b950bc09f5e9 ("plat: rcar_gen5: Fix multicore
+      boot by ensuring fixed address for plat_secondary_reset"))
+      and on SDK 4.32 or newer SCP firmware.
+---
+ arch/arm64/boot/dts/renesas/r8a78000.dtsi | 32 +++++++++++++++++++++++
+ 1 file changed, 32 insertions(+)
 
-TRCSSCSRn has two different types of fields.
-
-1. Capability
-2. Status
-
-Moving the entire register from "config" to a common dangling place 
-looks like shifting the problem to me.
-
-Could we do something like :
-
-1. Split the fields to two.
-   a. Store only the capability information in etmv4_caps. Bits[4:0]
-   b. Store the Status bit in drvdata->config , as it is really matters
-      to the session ? Bits[31:30]
-
-Add a helper to write/read the TRCSSSRn which would apply/mask the bits 
-from drvdata->etmv4_caps->fields to the Status/Pending
-
-Suzuki
-
-> 
-> Signed-off-by: Yeoreum Yun <yeoreum.yun@arm.com>
-> ---
->   .../hwtracing/coresight/coresight-etm4x-cfg.c    |  1 -
->   .../hwtracing/coresight/coresight-etm4x-core.c   | 16 +++++++++-------
->   .../hwtracing/coresight/coresight-etm4x-sysfs.c  | 10 +++++-----
->   drivers/hwtracing/coresight/coresight-etm4x.h    |  7 ++++++-
->   4 files changed, 20 insertions(+), 14 deletions(-)
-> 
-> diff --git a/drivers/hwtracing/coresight/coresight-etm4x-cfg.c b/drivers/hwtracing/coresight/coresight-etm4x-cfg.c
-> index e1a59b434505..9b4947d75fde 100644
-> --- a/drivers/hwtracing/coresight/coresight-etm4x-cfg.c
-> +++ b/drivers/hwtracing/coresight/coresight-etm4x-cfg.c
-> @@ -86,7 +86,6 @@ static int etm4_cfg_map_reg_offset(struct etmv4_drvdata *drvdata,
->   		off_mask =  (offset & GENMASK(11, 5));
->   		do {
->   			CHECKREGIDX(TRCSSCCRn(0), ss_ctrl, idx, off_mask);
-> -			CHECKREGIDX(TRCSSCSRn(0), ss_status, idx, off_mask);
->   			CHECKREGIDX(TRCSSPCICRn(0), ss_pe_cmp, idx, off_mask);
->   		} while (0);
->   	} else if ((offset >= TRCCIDCVRn(0)) && (offset <= TRCVMIDCVRn(7))) {
-> diff --git a/drivers/hwtracing/coresight/coresight-etm4x-core.c b/drivers/hwtracing/coresight/coresight-etm4x-core.c
-> index 53fbc4826628..7783c97b53e8 100644
-> --- a/drivers/hwtracing/coresight/coresight-etm4x-core.c
-> +++ b/drivers/hwtracing/coresight/coresight-etm4x-core.c
-> @@ -95,7 +95,7 @@ static bool etm4x_sspcicrn_present(struct etmv4_drvdata *drvdata, int n)
->   	const struct etmv4_caps *caps = &drvdata->caps;
->   
->   	return (n < caps->nr_ss_cmp) && caps->nr_pe_cmp &&
-> -	       (drvdata->config.ss_status[n] & TRCSSCSRn_PC);
-> +	       (drvdata->ss_status[n] & TRCSSCSRn_PC);
->   }
->   
->   u64 etm4x_sysreg_read(u32 offset, bool _relaxed, bool _64bit)
-> @@ -571,11 +571,11 @@ static int etm4_enable_hw(struct etmv4_drvdata *drvdata)
->   		etm4x_relaxed_write32(csa, config->res_ctrl[i], TRCRSCTLRn(i));
->   
->   	for (i = 0; i < caps->nr_ss_cmp; i++) {
-> -		/* always clear status bit on restart if using single-shot */
-> +		/* always clear status and pending bits on restart if using single-shot */
->   		if (config->ss_ctrl[i] || config->ss_pe_cmp[i])
-> -			config->ss_status[i] &= ~TRCSSCSRn_STATUS;
-> +			drvdata->ss_status[i] &= ~(TRCSSCSRn_STATUS | TRCSSCSRn_PENDING);
->   		etm4x_relaxed_write32(csa, config->ss_ctrl[i], TRCSSCCRn(i));
-> -		etm4x_relaxed_write32(csa, config->ss_status[i], TRCSSCSRn(i));
-> +		etm4x_relaxed_write32(csa, drvdata->ss_status[i], TRCSSCSRn(i));
->   		if (etm4x_sspcicrn_present(drvdata, i))
->   			etm4x_relaxed_write32(csa, config->ss_pe_cmp[i], TRCSSPCICRn(i));
->   	}
-> @@ -772,6 +772,7 @@ static int etm4_parse_event_config(struct coresight_device *csdev,
->   	/* Clear configuration from previous run */
->   	memset(config, 0, sizeof(struct etmv4_config));
->   
-> +
->   	if (attr->exclude_kernel)
->   		config->mode = ETM_MODE_EXCL_KERN;
->   
-> @@ -1064,7 +1065,7 @@ static void etm4_disable_hw(struct etmv4_drvdata *drvdata)
->   
->   	/* read the status of the single shot comparators */
->   	for (i = 0; i < caps->nr_ss_cmp; i++) {
-> -		config->ss_status[i] =
-> +		drvdata->ss_status[i] =
->   			etm4x_relaxed_read32(csa, TRCSSCSRn(i));
->   	}
->   
-> @@ -1497,8 +1498,9 @@ static void etm4_init_arch_data(void *info)
->   	 */
->   	caps->nr_ss_cmp = FIELD_GET(TRCIDR4_NUMSSCC_MASK, etmidr4);
->   	for (i = 0; i < caps->nr_ss_cmp; i++) {
-> -		drvdata->config.ss_status[i] =
-> -			etm4x_relaxed_read32(csa, TRCSSCSRn(i));
-> +		drvdata->ss_status[i] = etm4x_relaxed_read32(csa, TRCSSCSRn(i));
-> +		drvdata->ss_status[i] &= (TRCSSCSRn_PC | TRCSSCSRn_DV |
-> +					  TRCSSCSRn_DA | TRCSSCSRn_INST);
->   	}
->   	/* NUMCIDC, bits[27:24] number of Context ID comparators for tracing */
->   	caps->numcidc = FIELD_GET(TRCIDR4_NUMCIDC_MASK, etmidr4);
-> diff --git a/drivers/hwtracing/coresight/coresight-etm4x-sysfs.c b/drivers/hwtracing/coresight/coresight-etm4x-sysfs.c
-> index 7de3c58a47b4..71e95d152ee6 100644
-> --- a/drivers/hwtracing/coresight/coresight-etm4x-sysfs.c
-> +++ b/drivers/hwtracing/coresight/coresight-etm4x-sysfs.c
-> @@ -1829,8 +1829,8 @@ static ssize_t sshot_ctrl_store(struct device *dev,
->   	raw_spin_lock(&drvdata->spinlock);
->   	idx = config->ss_idx;
->   	config->ss_ctrl[idx] = FIELD_PREP(TRCSSCCRn_SAC_ARC_RST_MASK, val);
-> -	/* must clear bit 31 in related status register on programming */
-> -	config->ss_status[idx] &= ~TRCSSCSRn_STATUS;
-> +	/* must clear bit 31 and 30 in related status register on programming */
-> +	drvdata->ss_status[idx] &= ~(TRCSSCSRn_STATUS | TRCSSCSRn_PENDING);
->   	raw_spin_unlock(&drvdata->spinlock);
->   	return size;
->   }
-> @@ -1844,7 +1844,7 @@ static ssize_t sshot_status_show(struct device *dev,
->   	struct etmv4_config *config = &drvdata->config;
->   
->   	raw_spin_lock(&drvdata->spinlock);
-> -	val = config->ss_status[config->ss_idx];
-> +	val = drvdata->ss_status[config->ss_idx];
->   	raw_spin_unlock(&drvdata->spinlock);
->   	return scnprintf(buf, PAGE_SIZE, "%#lx\n", val);
->   }
-> @@ -1879,8 +1879,8 @@ static ssize_t sshot_pe_ctrl_store(struct device *dev,
->   	raw_spin_lock(&drvdata->spinlock);
->   	idx = config->ss_idx;
->   	config->ss_pe_cmp[idx] = FIELD_PREP(TRCSSPCICRn_PC_MASK, val);
-> -	/* must clear bit 31 in related status register on programming */
-> -	config->ss_status[idx] &= ~TRCSSCSRn_STATUS;
-> +	/* must clear bit 31 and 30 in related status register on programming */
-> +	drvdata->ss_status[idx] &= ~(TRCSSCSRn_STATUS | TRCSSCSRn_PENDING);
->   	raw_spin_unlock(&drvdata->spinlock);
->   	return size;
->   }
-> diff --git a/drivers/hwtracing/coresight/coresight-etm4x.h b/drivers/hwtracing/coresight/coresight-etm4x.h
-> index 6d4fbae78448..43db1eb6f8cd 100644
-> --- a/drivers/hwtracing/coresight/coresight-etm4x.h
-> +++ b/drivers/hwtracing/coresight/coresight-etm4x.h
-> @@ -213,6 +213,7 @@
->   #define TRCACATRn_EXLEVEL_MASK			GENMASK(14, 8)
->   
->   #define TRCSSCSRn_STATUS			BIT(31)
-> +#define TRCSSCSRn_PENDING			BIT(30)
->   #define TRCSSCCRn_SAC_ARC_RST_MASK		GENMASK(24, 0)
->   
->   #define TRCSSPCICRn_PC_MASK			GENMASK(7, 0)
-> @@ -730,6 +731,9 @@ static inline u32 etm4_res_sel_pair(u8 res_sel_idx)
->   #define ETM_DEFAULT_ADDR_COMP		0
->   
->   #define TRCSSCSRn_PC			BIT(3)
-> +#define TRCSSCSRn_DV			BIT(2)
-> +#define TRCSSCSRn_DA			BIT(1)
-> +#define TRCSSCSRn_INST			BIT(0)
->   
->   /* PowerDown Control Register bits */
->   #define TRCPDCR_PU			BIT(3)
-> @@ -978,7 +982,6 @@ struct etmv4_config {
->   	u32				res_ctrl[ETM_MAX_RES_SEL]; /* TRCRSCTLRn */
->   	u8				ss_idx;
->   	u32				ss_ctrl[ETM_MAX_SS_CMP];
-> -	u32				ss_status[ETM_MAX_SS_CMP];
->   	u32				ss_pe_cmp[ETM_MAX_SS_CMP];
->   	u8				addr_idx;
->   	u64				addr_val[ETM_MAX_SINGLE_ADDR_CMP];
-> @@ -1073,6 +1076,7 @@ struct etmv4_save_state {
->    * @config:	structure holding configuration parameters.
->    * @save_state:	State to be preserved across power loss
->    * @paused:	Indicates if the trace unit is paused.
-> + * @ss_status:	The status of the corresponding single-shot comparator.
->    * @arch_features: Bitmap of arch features of etmv4 devices.
->    */
->   struct etmv4_drvdata {
-> @@ -1092,6 +1096,7 @@ struct etmv4_drvdata {
->   	u64				trfcr;
->   	struct etmv4_config		config;
->   	struct etmv4_save_state		*save_state;
-> +	u32				ss_status[ETM_MAX_SS_CMP];
->   	DECLARE_BITMAP(arch_features, ETM4_IMPDEF_FEATURE_MAX);
->   };
->   
+diff --git a/arch/arm64/boot/dts/renesas/r8a78000.dtsi b/arch/arm64/boot/dts/renesas/r8a78000.dtsi
+index 7780fb4e8351d..fb71974ef3905 100644
+--- a/arch/arm64/boot/dts/renesas/r8a78000.dtsi
++++ b/arch/arm64/boot/dts/renesas/r8a78000.dtsi
+@@ -143,6 +143,7 @@ a720_0: cpu@0 {
+ 			compatible = "arm,cortex-a720ae";
+ 			reg = <0x0 0x0>;
+ 			device_type = "cpu";
++			enable-method = "psci";
+ 			next-level-cache = <&L2_CA720_0>;
+ 		};
+ 
+@@ -150,6 +151,7 @@ a720_1: cpu@100 {
+ 			compatible = "arm,cortex-a720ae";
+ 			reg = <0x0 0x100>;
+ 			device_type = "cpu";
++			enable-method = "psci";
+ 			next-level-cache = <&L2_CA720_1>;
+ 		};
+ 
+@@ -157,6 +159,7 @@ a720_2: cpu@200 {
+ 			compatible = "arm,cortex-a720ae";
+ 			reg = <0x0 0x200>;
+ 			device_type = "cpu";
++			enable-method = "psci";
+ 			next-level-cache = <&L2_CA720_2>;
+ 		};
+ 
+@@ -164,6 +167,7 @@ a720_3: cpu@300 {
+ 			compatible = "arm,cortex-a720ae";
+ 			reg = <0x0 0x300>;
+ 			device_type = "cpu";
++			enable-method = "psci";
+ 			next-level-cache = <&L2_CA720_3>;
+ 		};
+ 
+@@ -171,6 +175,7 @@ a720_4: cpu@10000 {
+ 			compatible = "arm,cortex-a720ae";
+ 			reg = <0x0 0x10000>;
+ 			device_type = "cpu";
++			enable-method = "psci";
+ 			next-level-cache = <&L2_CA720_4>;
+ 		};
+ 
+@@ -178,6 +183,7 @@ a720_5: cpu@10100 {
+ 			compatible = "arm,cortex-a720ae";
+ 			reg = <0x0 0x10100>;
+ 			device_type = "cpu";
++			enable-method = "psci";
+ 			next-level-cache = <&L2_CA720_5>;
+ 		};
+ 
+@@ -185,6 +191,7 @@ a720_6: cpu@10200 {
+ 			compatible = "arm,cortex-a720ae";
+ 			reg = <0x0 0x10200>;
+ 			device_type = "cpu";
++			enable-method = "psci";
+ 			next-level-cache = <&L2_CA720_6>;
+ 		};
+ 
+@@ -192,6 +199,7 @@ a720_7: cpu@10300 {
+ 			compatible = "arm,cortex-a720ae";
+ 			reg = <0x0 0x10300>;
+ 			device_type = "cpu";
++			enable-method = "psci";
+ 			next-level-cache = <&L2_CA720_7>;
+ 		};
+ 
+@@ -199,6 +207,7 @@ a720_8: cpu@20000 {
+ 			compatible = "arm,cortex-a720ae";
+ 			reg = <0x0 0x20000>;
+ 			device_type = "cpu";
++			enable-method = "psci";
+ 			next-level-cache = <&L2_CA720_8>;
+ 		};
+ 
+@@ -206,6 +215,7 @@ a720_9: cpu@20100 {
+ 			compatible = "arm,cortex-a720ae";
+ 			reg = <0x0 0x20100>;
+ 			device_type = "cpu";
++			enable-method = "psci";
+ 			next-level-cache = <&L2_CA720_9>;
+ 		};
+ 
+@@ -213,6 +223,7 @@ a720_10: cpu@20200 {
+ 			compatible = "arm,cortex-a720ae";
+ 			reg = <0x0 0x20200>;
+ 			device_type = "cpu";
++			enable-method = "psci";
+ 			next-level-cache = <&L2_CA720_10>;
+ 		};
+ 
+@@ -220,6 +231,7 @@ a720_11: cpu@20300 {
+ 			compatible = "arm,cortex-a720ae";
+ 			reg = <0x0 0x20300>;
+ 			device_type = "cpu";
++			enable-method = "psci";
+ 			next-level-cache = <&L2_CA720_11>;
+ 		};
+ 
+@@ -227,6 +239,7 @@ a720_12: cpu@30000 {
+ 			compatible = "arm,cortex-a720ae";
+ 			reg = <0x0 0x30000>;
+ 			device_type = "cpu";
++			enable-method = "psci";
+ 			next-level-cache = <&L2_CA720_12>;
+ 		};
+ 
+@@ -234,6 +247,7 @@ a720_13: cpu@30100 {
+ 			compatible = "arm,cortex-a720ae";
+ 			reg = <0x0 0x30100>;
+ 			device_type = "cpu";
++			enable-method = "psci";
+ 			next-level-cache = <&L2_CA720_13>;
+ 		};
+ 
+@@ -241,6 +255,7 @@ a720_14: cpu@30200 {
+ 			compatible = "arm,cortex-a720ae";
+ 			reg = <0x0 0x30200>;
+ 			device_type = "cpu";
++			enable-method = "psci";
+ 			next-level-cache = <&L2_CA720_14>;
+ 		};
+ 
+@@ -248,6 +263,7 @@ a720_15: cpu@30300 {
+ 			compatible = "arm,cortex-a720ae";
+ 			reg = <0x0 0x30300>;
+ 			device_type = "cpu";
++			enable-method = "psci";
+ 			next-level-cache = <&L2_CA720_15>;
+ 		};
+ 
+@@ -255,6 +271,7 @@ a720_16: cpu@40000 {
+ 			compatible = "arm,cortex-a720ae";
+ 			reg = <0x0 0x40000>;
+ 			device_type = "cpu";
++			enable-method = "psci";
+ 			next-level-cache = <&L2_CA720_16>;
+ 		};
+ 
+@@ -262,6 +279,7 @@ a720_17: cpu@40100 {
+ 			compatible = "arm,cortex-a720ae";
+ 			reg = <0x0 0x40100>;
+ 			device_type = "cpu";
++			enable-method = "psci";
+ 			next-level-cache = <&L2_CA720_17>;
+ 		};
+ 
+@@ -269,6 +287,7 @@ a720_18: cpu@40200 {
+ 			compatible = "arm,cortex-a720ae";
+ 			reg = <0x0 0x40200>;
+ 			device_type = "cpu";
++			enable-method = "psci";
+ 			next-level-cache = <&L2_CA720_18>;
+ 		};
+ 
+@@ -276,6 +295,7 @@ a720_19: cpu@40300 {
+ 			compatible = "arm,cortex-a720ae";
+ 			reg = <0x0 0x40300>;
+ 			device_type = "cpu";
++			enable-method = "psci";
+ 			next-level-cache = <&L2_CA720_19>;
+ 		};
+ 
+@@ -283,6 +303,7 @@ a720_20: cpu@50000 {
+ 			compatible = "arm,cortex-a720ae";
+ 			reg = <0x0 0x50000>;
+ 			device_type = "cpu";
++			enable-method = "psci";
+ 			next-level-cache = <&L2_CA720_20>;
+ 		};
+ 
+@@ -290,6 +311,7 @@ a720_21: cpu@50100 {
+ 			compatible = "arm,cortex-a720ae";
+ 			reg = <0x0 0x50100>;
+ 			device_type = "cpu";
++			enable-method = "psci";
+ 			next-level-cache = <&L2_CA720_21>;
+ 		};
+ 
+@@ -297,6 +319,7 @@ a720_22: cpu@50200 {
+ 			compatible = "arm,cortex-a720ae";
+ 			reg = <0x0 0x50200>;
+ 			device_type = "cpu";
++			enable-method = "psci";
+ 			next-level-cache = <&L2_CA720_22>;
+ 		};
+ 
+@@ -304,6 +327,7 @@ a720_23: cpu@50300 {
+ 			compatible = "arm,cortex-a720ae";
+ 			reg = <0x0 0x50300>;
+ 			device_type = "cpu";
++			enable-method = "psci";
+ 			next-level-cache = <&L2_CA720_23>;
+ 		};
+ 
+@@ -311,6 +335,7 @@ a720_24: cpu@60000 {
+ 			compatible = "arm,cortex-a720ae";
+ 			reg = <0x0 0x60000>;
+ 			device_type = "cpu";
++			enable-method = "psci";
+ 			next-level-cache = <&L2_CA720_24>;
+ 		};
+ 
+@@ -318,6 +343,7 @@ a720_25: cpu@60100 {
+ 			compatible = "arm,cortex-a720ae";
+ 			reg = <0x0 0x60100>;
+ 			device_type = "cpu";
++			enable-method = "psci";
+ 			next-level-cache = <&L2_CA720_25>;
+ 		};
+ 
+@@ -325,6 +351,7 @@ a720_26: cpu@60200 {
+ 			compatible = "arm,cortex-a720ae";
+ 			reg = <0x0 0x60200>;
+ 			device_type = "cpu";
++			enable-method = "psci";
+ 			next-level-cache = <&L2_CA720_26>;
+ 		};
+ 
+@@ -332,6 +359,7 @@ a720_27: cpu@60300 {
+ 			compatible = "arm,cortex-a720ae";
+ 			reg = <0x0 0x60300>;
+ 			device_type = "cpu";
++			enable-method = "psci";
+ 			next-level-cache = <&L2_CA720_27>;
+ 		};
+ 
+@@ -339,6 +367,7 @@ a720_28: cpu@70000 {
+ 			compatible = "arm,cortex-a720ae";
+ 			reg = <0x0 0x70000>;
+ 			device_type = "cpu";
++			enable-method = "psci";
+ 			next-level-cache = <&L2_CA720_28>;
+ 		};
+ 
+@@ -346,6 +375,7 @@ a720_29: cpu@70100 {
+ 			compatible = "arm,cortex-a720ae";
+ 			reg = <0x0 0x70100>;
+ 			device_type = "cpu";
++			enable-method = "psci";
+ 			next-level-cache = <&L2_CA720_29>;
+ 		};
+ 
+@@ -353,6 +383,7 @@ a720_30: cpu@70200 {
+ 			compatible = "arm,cortex-a720ae";
+ 			reg = <0x0 0x70200>;
+ 			device_type = "cpu";
++			enable-method = "psci";
+ 			next-level-cache = <&L2_CA720_30>;
+ 		};
+ 
+@@ -360,6 +391,7 @@ a720_31: cpu@70300 {
+ 			compatible = "arm,cortex-a720ae";
+ 			reg = <0x0 0x70300>;
+ 			device_type = "cpu";
++			enable-method = "psci";
+ 			next-level-cache = <&L2_CA720_31>;
+ 		};
+ 
+-- 
+2.53.0
 
 
