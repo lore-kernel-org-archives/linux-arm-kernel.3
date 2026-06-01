@@ -4,75 +4,57 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 134FCCD6E61
-	for <linux-arm-kernel@archiver.kernel.org>; Mon,  1 Jun 2026 10:08:26 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id A90B1CD6E60
+	for <linux-arm-kernel@archiver.kernel.org>; Mon,  1 Jun 2026 10:10:43 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=rajaosXHuJHIaYK3T3csqioDStDpmpeCVfagtDiv81I=; b=IYLaNzisSSK1q63sbqUqK+Pn0F
-	053r+27pgmBUym43vFRUJ03aWeZJWXK7XRMDPUT6QYs1EP2s3O937Dy00HG0IoqkvGBx/K5XF7zrN
-	eAT5U+ITPadKXRRkfA6pB29OScSfmyc6DXD4AhGuprADzAptiGLtlYU+7FjF03ch714mv8d7xQqB0
-	tYLVHJscoqvR0XyRjAh5ZayQ30GaxQkM2mVCxyhxRs6NRfMa2SaaOn7YrpUNG2ekkG8Si95dQjZwu
-	siaVAiWIYHwaKByuVKJAQILX/9SPsuaDnrNwFnDCZULn5S0IQaVpginCb4P51bEu0dTpq/Vj2KK3Y
-	/CjyRqsw==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	MIME-Version:Message-Id:Date:Subject:Cc:To:From:Reply-To:Content-Type:
+	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
+	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=gTgFSoq2ZXhS/3bNDaqJc5eErf0PuEjjFgt3xhkf7SU=; b=KNZQ9Fq4RvR+2Fth+Z1lXsHaBt
+	5gL0DDb5pPimEXO1pA5SPasB2TCsfTTwMiXqBnH+4/ZWShiDm+LDRiwW+TI7Vdcwtx12rdJsIlL/9
+	Of+HaRxNevBMw4ovMbe/MPcZnadd4OeassC6Ias6JGQE/ihAOFuxEAEs9qxXHrT0EZUINBchCe3Ng
+	QyOBLYNI9/K2rw6LZINyJ5NRUizPkLdNCOdpjIioS2OkBzbAvR7Vv6nvJG5y9KwanmblZL7gmi0en
+	f1+OoKdDdFUciJuNKZ3KjWdy1IX4PNPIP9jLIDIr/VbxDHq+ClpnH1wYt1r5VQZqQAM79QjO0maJJ
+	ir6/1NOA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wTzZC-0000000AaCM-1DnQ;
-	Mon, 01 Jun 2026 10:08:18 +0000
-Received: from desiato.infradead.org ([2001:8b0:10b:1:d65d:64ff:fe57:4e05])
+	id 1wTzbO-0000000AaKU-2Sie;
+	Mon, 01 Jun 2026 10:10:34 +0000
+Received: from mail-m83190.xmail.ntesmail.com ([156.224.83.190])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wTzZB-0000000AaCD-1R65
-	for linux-arm-kernel@bombadil.infradead.org;
-	Mon, 01 Jun 2026 10:08:17 +0000
-DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=infradead.org; s=desiato.20200630; h=In-Reply-To:Content-Type:MIME-Version:
-	References:Message-ID:Subject:Cc:To:From:Date:Sender:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description;
-	bh=rajaosXHuJHIaYK3T3csqioDStDpmpeCVfagtDiv81I=; b=A8Q7YXLPOSR8WyHXKJWypjFMHk
-	iaCp/5NxuEqWM2MuxsMcQP9R/Mf/Pq3iZwSLGCMkHAlO8qhiOM/0fKuSJUX42YY7cw4HKeM6K7kJR
-	5+9GWN/TCZUSmb+pt5RcoDzJZOoSYT+m1ZY50xn2zs2wGqMj4LhRC5C2LxM0+Xszb0nG7BbApTD2r
-	y0JsZ7TjX+4ymzdedh4o2sc+KyX0BaVOIZjWBtmziouAXJySH/i3oblegu28Nq9NBHlrxFcP3rHjF
-	irR2csmqS5Gelu07R2IDhTxv3U5tYR9RVV6SfwlhphtLnIEtbqZmFhP88EgeeMa3/LOsn2r+xOYjU
-	9ljcJ5DQ==;
-Received: from foss.arm.com ([217.140.110.172])
-	by desiato.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wTzZ7-00000006Kv7-2hhn
-	for linux-arm-kernel@lists.infradead.org;
-	Mon, 01 Jun 2026 10:08:16 +0000
-Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
-	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id 327F51E8D;
-	Mon,  1 Jun 2026 03:08:07 -0700 (PDT)
-Received: from e129823.arm.com (e129823.arm.com [10.1.197.6])
-	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id C138E3F905;
-	Mon,  1 Jun 2026 03:08:10 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=simple/simple; d=arm.com; s=foss;
-	t=1780308492; bh=hV53Qdv1PgmYKFUIbcP2hKzzjioGX7FNtwUP59NL6Fo=;
-	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
-	b=gULyG36LVZfyyA7V7yPtUPaKe33/BGwN9mrHMgaYh/EXweaKU9Je1zzvpopajG7QA
-	 nwdzvEWQsiidFuJzkT1gFyVrzVNlUiLyX3XgncquqexY8f8IMLuG65XXqoOIoiiXTR
-	 aquEUe98PTF9FKm5gPbFv+AxV69vDr37M+kU7Zhk=
-Date: Mon, 1 Jun 2026 11:08:08 +0100
-From: Yeoreum Yun <yeoreum.yun@arm.com>
-To: Suzuki K Poulose <suzuki.poulose@arm.com>
-Cc: coresight@lists.linaro.org, linux-arm-kernel@lists.infradead.org,
-	linux-kernel@vger.kernel.org, mike.leach@arm.com,
-	james.clark@linaro.org, alexander.shishkin@linux.intel.com,
-	leo.yan@arm.com, jie.gan@oss.qualcomm.com
-Subject: Re: [PATCH v7 02/13] coresight: etm4x: fix underflow for nrseqstate
-Message-ID: <ah1aCFTgshh9klDM@e129823.arm.com>
-References: <20260519154812.254884-1-yeoreum.yun@arm.com>
- <20260519154812.254884-3-yeoreum.yun@arm.com>
- <3155a54e-f0df-49d7-9cf7-6f1c0f826f31@arm.com>
+	id 1wTzbK-0000000AaJW-1trJ;
+	Mon, 01 Jun 2026 10:10:33 +0000
+Received: from Vostro-3710.. (unknown [113.80.141.91])
+	by smtp.qiye.163.com (Hmail) with ESMTP id 40955f675;
+	Mon, 1 Jun 2026 18:10:16 +0800 (GMT+08:00)
+From: Chukun Pan <amadeus@jmu.edu.cn>
+To: Heiko Stuebner <heiko@sntech.de>
+Cc: Rob Herring <robh@kernel.org>,
+	Chukun Pan <amadeus@jmu.edu.cn>,
+	Conor Dooley <conor+dt@kernel.org>,
+	Krzysztof Kozlowski <krzk+dt@kernel.org>,
+	linux-arm-kernel@lists.infradead.org,
+	linux-rockchip@lists.infradead.org,
+	linux-kernel@vger.kernel.org,
+	devicetree@vger.kernel.org
+Subject: [PATCH 1/1] arm64: dts: rockchip: enable button for Radxa E25
+Date: Mon,  1 Jun 2026 18:10:00 +0800
+Message-Id: <20260601101000.2076721-1-amadeus@jmu.edu.cn>
+X-Mailer: git-send-email 2.34.1
 MIME-Version: 1.0
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-In-Reply-To: <3155a54e-f0df-49d7-9cf7-6f1c0f826f31@arm.com>
+Content-Transfer-Encoding: 8bit
+X-HM-Tid: 0a9e82a9a5a303a2kunmcf3995f0174ea3
+X-HM-MType: 10
+X-HM-Spam-Status: e1kfGhgUHx5ZQUpXWQgPGg8OCBgUHx5ZQUlOS1dZFg8aDwILHllBWSg2Ly
+	tZV1koWUFITzdXWRgWCB1ZQUpXWS1ZQUlXWQ8JGhUIEh9ZQVkaTUwZVkNDQ0hOGE1NGR1NHVYeHw
+	5VEwETFhoSFyQUDg9ZV1kYEgtZQVlKSkhVQ0tVSk9KVUJKWVdZFhoPEhUdFFlBWU9LSFVKS0lCQ0
+	NMVUpLS1VLWQY+
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260601_110814_307655_41D17713 
-X-CRM114-Status: GOOD (  20.62  )
+X-CRM114-CacheID: sfid-20260601_031030_775635_DD934578 
+X-CRM114-Status: UNSURE (   7.79  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -87,91 +69,46 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-> On 19/05/2026 16:48, Yeoreum Yun wrote:
-> > TCRSEQEVR<n> is implemented only when TCRIDR5.NUMSEQSTATE is 0b100,
-> > in which case n ranges from 0 to 2; otherwise, TCRIDR5.NUMSEQSTATE is 0b000.
-> > 
-> > Therefore, drvdata->nrseqstate should be checked before entering the loop.
-> 
-> for (i = 0; i < drvdata->nrseqstate - 1; i++)
-> 
-> Wouldn't that check cover the case ? (provided i is signed int ?)
-> 
-> Suzuki
+The Radxa E25 board has an ADC button. Enable it.
 
-Unfortunately, the drvdata->nrseqstate is u8 but i is signed int.
-I think in this case it would iterate 255 times (0xff).
+Signed-off-by: Chukun Pan <amadeus@jmu.edu.cn>
+---
+ arch/arm64/boot/dts/rockchip/rk3568-radxa-e25.dts | 14 ++++++++++++++
+ 1 file changed, 14 insertions(+)
 
-> 
-> > 
-> > Link: https://developer.arm.com/documentation/ihi0064/latest/ [0]
-> > Fixes: 2e1cdfe184b5 ("coresight-etm4x: Adding CoreSight ETM4x driver")
-> > Reviewed-by: Leo Yan <leo.yan@arm.com>
-> > Signed-off-by: Yeoreum Yun <yeoreum.yun@arm.com>
-> > ---
-> >   .../hwtracing/coresight/coresight-etm4x-core.c | 18 ++++++++++--------
-> >   .../coresight/coresight-etm4x-sysfs.c          |  2 ++
-> >   2 files changed, 12 insertions(+), 8 deletions(-)
-> > 
-> > diff --git a/drivers/hwtracing/coresight/coresight-etm4x-core.c b/drivers/hwtracing/coresight/coresight-etm4x-core.c
-> > index 1e3b0344dc00..94b9385e964a 100644
-> > --- a/drivers/hwtracing/coresight/coresight-etm4x-core.c
-> > +++ b/drivers/hwtracing/coresight/coresight-etm4x-core.c
-> > @@ -542,9 +542,11 @@ static int etm4_enable_hw(struct etmv4_drvdata *drvdata)
-> >   	etm4x_relaxed_write32(csa, config->vissctlr, TRCVISSCTLR);
-> >   	if (drvdata->nr_pe_cmp)
-> >   		etm4x_relaxed_write32(csa, config->vipcssctlr, TRCVIPCSSCTLR);
-> > -	for (i = 0; i < drvdata->nrseqstate - 1; i++)
-> > -		etm4x_relaxed_write32(csa, config->seq_ctrl[i], TRCSEQEVRn(i));
-> > +
-> >   	if (drvdata->nrseqstate) {
-> > +		for (i = 0; i < drvdata->nrseqstate - 1; i++)
-> > +			etm4x_relaxed_write32(csa, config->seq_ctrl[i], TRCSEQEVRn(i));
-> > +
-> >   		etm4x_relaxed_write32(csa, config->seq_rst, TRCSEQRSTEVR);
-> >   		etm4x_relaxed_write32(csa, config->seq_state, TRCSEQSTR);
-> >   	}
-> > @@ -1896,10 +1898,10 @@ static int etm4_cpu_save(struct coresight_device *csdev)
-> >   	if (drvdata->nr_pe_cmp)
-> >   		state->trcvipcssctlr = etm4x_read32(csa, TRCVIPCSSCTLR);
-> > -	for (i = 0; i < drvdata->nrseqstate - 1; i++)
-> > -		state->trcseqevr[i] = etm4x_read32(csa, TRCSEQEVRn(i));
-> > -
-> >   	if (drvdata->nrseqstate) {
-> > +		for (i = 0; i < drvdata->nrseqstate - 1; i++)
-> > +			state->trcseqevr[i] = etm4x_read32(csa, TRCSEQEVRn(i));
-> > +
-> >   		state->trcseqrstevr = etm4x_read32(csa, TRCSEQRSTEVR);
-> >   		state->trcseqstr = etm4x_read32(csa, TRCSEQSTR);
-> >   	}
-> > @@ -2009,10 +2011,10 @@ static void etm4_cpu_restore(struct coresight_device *csdev)
-> >   	if (drvdata->nr_pe_cmp)
-> >   		etm4x_relaxed_write32(csa, state->trcvipcssctlr, TRCVIPCSSCTLR);
-> > -	for (i = 0; i < drvdata->nrseqstate - 1; i++)
-> > -		etm4x_relaxed_write32(csa, state->trcseqevr[i], TRCSEQEVRn(i));
-> > -
-> >   	if (drvdata->nrseqstate) {
-> > +		for (i = 0; i < drvdata->nrseqstate - 1; i++)
-> > +			etm4x_relaxed_write32(csa, state->trcseqevr[i], TRCSEQEVRn(i));
-> > +
-> >   		etm4x_relaxed_write32(csa, state->trcseqrstevr, TRCSEQRSTEVR);
-> >   		etm4x_relaxed_write32(csa, state->trcseqstr, TRCSEQSTR);
-> >   	}
-> > diff --git a/drivers/hwtracing/coresight/coresight-etm4x-sysfs.c b/drivers/hwtracing/coresight/coresight-etm4x-sysfs.c
-> > index e9eeea6240d5..0e1ad175aa1e 100644
-> > --- a/drivers/hwtracing/coresight/coresight-etm4x-sysfs.c
-> > +++ b/drivers/hwtracing/coresight/coresight-etm4x-sysfs.c
-> > @@ -1395,6 +1395,8 @@ static ssize_t seq_idx_store(struct device *dev,
-> >   	struct etmv4_drvdata *drvdata = dev_get_drvdata(dev->parent);
-> >   	struct etmv4_config *config = &drvdata->config;
-> > +	if (!drvdata->nrseqstate)
-> > +		return -ENOTSUPP;
-> >   	if (kstrtoul(buf, 16, &val))
-> >   		return -EINVAL;
-> >   	if (val >= drvdata->nrseqstate - 1)
-> 
-
+diff --git a/arch/arm64/boot/dts/rockchip/rk3568-radxa-e25.dts b/arch/arm64/boot/dts/rockchip/rk3568-radxa-e25.dts
+index 98cfa3abb809..a091c3a44747 100644
+--- a/arch/arm64/boot/dts/rockchip/rk3568-radxa-e25.dts
++++ b/arch/arm64/boot/dts/rockchip/rk3568-radxa-e25.dts
+@@ -1,6 +1,7 @@
+ // SPDX-License-Identifier: (GPL-2.0+ OR MIT)
+ 
+ /dts-v1/;
++#include <dt-bindings/input/input.h>
+ #include "rk3568-radxa-cm3i.dtsi"
+ 
+ / {
+@@ -11,6 +12,19 @@ aliases {
+ 		mmc1 = &sdmmc0;
+ 	};
+ 
++	adc-keys {
++		compatible = "adc-keys";
++		io-channels = <&saradc 0>;
++		io-channel-names = "buttons";
++		keyup-threshold-microvolt = <1800000>;
++
++		button-recovery {
++			label = "Recovery";
++			linux,code = <KEY_VENDOR>;
++			press-threshold-microvolt = <0>;
++		};
++	};
++
+ 	pwm-leds {
+ 		compatible = "pwm-leds-multicolor";
+ 
 -- 
-Sincerely,
-Yeoreum Yun
+2.34.1
+
 
