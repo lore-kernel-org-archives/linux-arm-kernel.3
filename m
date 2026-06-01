@@ -4,83 +4,79 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 15439CD5BD1
-	for <linux-arm-kernel@archiver.kernel.org>; Mon,  1 Jun 2026 06:56:30 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id A4EE1CD6E4C
+	for <linux-arm-kernel@archiver.kernel.org>; Mon,  1 Jun 2026 06:59:09 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	MIME-Version:References:In-Reply-To:Message-Id:Date:Subject:Cc:To:From:
-	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Content-Type:MIME-Version:Message-ID:Date:References:In-Reply-To:Subject:Cc:
+	To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=yJZuY68i6MDKTHNn2ykBZ5f5HU1REKA2FFFIWObwSW8=; b=boLxWUgESQseG0NQRZN4VRgwpL
-	rRIcHbVysaOGmDgMF2OaK0Cgk3YMulf7nW3r+iIqroslIRibt4MYMEQE/8pBNXHwAMoztgvQ+eHb3
-	yo+AdKGaxE3Dct7LMQx4Gg0dMG546eBqW5MPhV9cP2Og1zksrgNS+0O4wtI0MunQ7/lv/H8gVWLVT
-	R68ZFhYnRyCasurQP3EMIttEeWHnF8zYNc47L8/T8ibPY+W3skuXMBVEmrw6rXntpEcVBiN9LGGEh
-	+leBYF2EXs19wSo0ivUSEdH7JL0rWUZDYKlnMTtHphg97xSpghFSRsRhedhAZCVMAnyqgjMKTThM/
-	6eEzIPdw==;
+	bh=mIIouX9atwC8TO7vo2wcLgAJzq/cTaHoTN8DO5/T+0Q=; b=GxdKcSh/a756YhOMwhmvN3Xw44
+	Vcp+DpaokmHaDv+6V38egCRHR7tFafkbV01ALgS0DIlf1ctVyI+WgUtbsg6Sxzaq62bzl4rNWSD7c
+	GZ8yg4OrV1wkOszbhJE8HBwna7VOwuuGIb16k4wQ2KUsTDLnmFTR2KDnWKp5yjLm7LhwdINEYlkIH
+	dK4B+Jz2hJyBQRP5+szbzlWe7Xu7utixGCxoY3jNXdniQiaPIVi4pOHAQUxMCRx4tBG77cNG7o+8a
+	WZLN3BozX5oQDk8DBzHdwXoJjqHd+zWZpjoBBwye6Ppg/PmM9FKXCcCBMCv4VDeWk97wjW+dbgOVd
+	STuTuzYw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wTwZS-0000000AFoI-1kKQ;
-	Mon, 01 Jun 2026 06:56:22 +0000
-Received: from mail-m15577.qiye.163.com ([101.71.155.77])
+	id 1wTwc2-0000000AG4e-2p6A;
+	Mon, 01 Jun 2026 06:59:02 +0000
+Received: from smtpout-03.galae.net ([185.246.85.4])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wTwZP-0000000AFnM-2x2W;
-	Mon, 01 Jun 2026 06:56:21 +0000
-Received: from zyb-HP-ProDesk-680-G2-MT.. (unknown [61.154.14.86])
-	by smtp.qiye.163.com (Hmail) with ESMTP id 408ded083;
-	Mon, 1 Jun 2026 14:51:12 +0800 (GMT+08:00)
-From: Damon Ding <damon.ding@rock-chips.com>
-To: hjc@rock-chips.com,
-	heiko@sntech.de,
-	andy.yan@rock-chips.com,
-	maarten.lankhorst@linux.intel.com,
-	mripard@kernel.org,
-	tzimmermann@suse.de,
-	airlied@gmail.com,
-	simona@ffwll.ch,
-	robh@kernel.org,
-	krzk+dt@kernel.org,
-	conor+dt@kernel.org,
-	andrzej.hajda@intel.com,
-	neil.armstrong@linaro.org,
-	rfoss@kernel.org
-Cc: Laurent.pinchart@ideasonboard.com,
-	jonas@kwiboo.se,
-	jernej.skrabec@gmail.com,
-	nicolas.frattaroli@collabora.com,
-	cristian.ciocaltea@collabora.com,
-	sebastian.reichel@collabora.com,
-	dmitry.baryshkov@oss.qualcomm.com,
-	luca.ceresoli@bootlin.com,
-	dianders@chromium.org,
-	m.szyprowski@samsung.com,
-	dri-devel@lists.freedesktop.org,
-	devicetree@vger.kernel.org,
-	linux-arm-kernel@lists.infradead.org,
-	linux-rockchip@lists.infradead.org,
-	linux-kernel@vger.kernel.org,
-	Damon Ding <damon.ding@rock-chips.com>
-Subject: [PATCH v10 06/11] drm/rockchip: analogix_dp: Fix OF node reference leak via auto cleanup
-Date: Mon,  1 Jun 2026 14:50:55 +0800
-Message-Id: <20260601065100.1103873-7-damon.ding@rock-chips.com>
-X-Mailer: git-send-email 2.34.1
-In-Reply-To: <20260601065100.1103873-1-damon.ding@rock-chips.com>
-References: <20260601065100.1103873-1-damon.ding@rock-chips.com>
+	id 1wTwbz-0000000AG48-1F2a
+	for linux-arm-kernel@lists.infradead.org;
+	Mon, 01 Jun 2026 06:59:01 +0000
+Received: from smtpout-01.galae.net (smtpout-01.galae.net [212.83.139.233])
+	by smtpout-03.galae.net (Postfix) with ESMTPS id BFA4A4E42DCE;
+	Mon,  1 Jun 2026 06:58:55 +0000 (UTC)
+Received: from mail.galae.net (mail.galae.net [212.83.136.155])
+	by smtpout-01.galae.net (Postfix) with ESMTPS id 7D9CC602AB;
+	Mon,  1 Jun 2026 06:58:55 +0000 (UTC)
+Received: from [127.0.0.1] (localhost [127.0.0.1]) by localhost (Mailerdaemon) with ESMTPSA id 10E1110888CCD;
+	Mon,  1 Jun 2026 08:58:43 +0200 (CEST)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=bootlin.com; s=dkim;
+	t=1780297133; h=from:subject:date:message-id:to:cc:mime-version:content-type:
+	 content-transfer-encoding:in-reply-to:references;
+	bh=mIIouX9atwC8TO7vo2wcLgAJzq/cTaHoTN8DO5/T+0Q=;
+	b=HQBfHFbhqkjsF4pCV3oiBNQaeiPV0l/QdDp1DfBvD4+AlikHlQ0c1ENujAD7kqhbiXt15J
+	KM0NSuc3onfrGwhRq2qpaIY1OCeASQkJMl29QvQ8eJLCab4THNCEzm9I78Hs4LTONYY9Ai
+	440QtMOWoPVqQ7wOxY5TW0MIO+2RJ0NmUXhVKy8JSl17UmJGfWwmWx8VenwiCp5ESB915T
+	6Rysm7UilOxHXF38ffSIzePeikeaqumzH5jT2U2FEwVDiPuy99pq4ACd5uSHFsHDPC1b/7
+	C+jZQgL9Ry69ECOdwhNnAXHZIbJdVe8aeVsQiq6SlMDaNusrvR1gdQtmw7A4mA==
+From: Gregory CLEMENT <gregory.clement@bootlin.com>
+To: Jun Yan <jerrysteve1101@gmail.com>, linusw@kernel.org,
+ dmitry.baryshkov@oss.qualcomm.com, Lee Jones <lee@kernel.org>, Pavel
+ Machek <pavel@kernel.org>, Rob Herring <robh@kernel.org>, Krzysztof
+ Kozlowski <krzk+dt@kernel.org>, Conor Dooley <conor+dt@kernel.org>, Bjorn
+ Andersson <andersson@kernel.org>, Konrad Dybcio <konradybcio@kernel.org>,
+ Andrew Lunn <andrew@lunn.ch>, Sebastian Hesselbarth
+ <sebastian.hesselbarth@gmail.com>, Bartosz Golaszewski <brgl@kernel.org>,
+ Vincent Knecht <vincent.knecht@mailoo.org>, Grant Feng <von81@163.com>,
+ Andre Przywara <andre.przywara@arm.com>, Baruch Siach <baruch@tkos.co.il>,
+ Shawn Guo <shawnguo@kernel.org>, Paul Barker <paul.barker@sancloud.com>,
+ Robert Marko <robert.marko@sartura.hr>
+Cc: Jun Yan <jerrysteve1101@gmail.com>, Pavel Machek <pavel@ucw.cz>,
+ Krzysztof Kozlowski <krzk@kernel.org>, Wei Xu <xuwei5@hisilicon.com>,
+ Geert Uytterhoeven <geert+renesas@glider.be>, Patrice Chotard
+ <patrice.chotard@foss.st.com>, linux-leds@vger.kernel.org,
+ devicetree@vger.kernel.org, linux-kernel@vger.kernel.org,
+ linux-arm-msm@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
+ linux-gpio@vger.kernel.org
+Subject: Re: [PATCH v2 6/6] arm64: dts: marvell: armada-7040-mochabin: Fix
+ is31fl3199 shutdown GPIO polarity
+In-Reply-To: <20260525144629.498630-7-jerrysteve1101@gmail.com>
+References: <20260525144629.498630-1-jerrysteve1101@gmail.com>
+ <20260525144629.498630-7-jerrysteve1101@gmail.com>
+Date: Mon, 01 Jun 2026 08:58:43 +0200
+Message-ID: <8733z621cs.fsf@BLaptop.bootlin.com>
 MIME-Version: 1.0
-Content-Transfer-Encoding: 8bit
-X-HM-Tid: 0a9e81f363b403a8kunm111da268257e31
-X-HM-MType: 1
-X-HM-Spam-Status: e1kfGhgUHx5ZQUpXWQgPGg8OCBgUHx5ZQUlOS1dZFg8aDwILHllBWSg2Ly
-	tZV1koWUFITzdXWRgWCB1ZQUpXWS1ZQUlXWQ8JGhUIEh9ZQVlCTBhDVk9LH0JLGBkfTUxNSVYVFA
-	kWGhdVEwETFhoSFyQUDg9ZV1kYEgtZQVlNSlVKTk9VSk9VQ01ZV1kWGg8SFR0UWUFZT0tIVUpLSE
-	pKQk1VSktLVUpCWQY+
-DKIM-Signature: a=rsa-sha256;
-	b=deFm5InC/687QsO2wD9nxR5fYYZQR36H5WyR7KJF0KeTUyaPkU8STH2VQz9pvWnj+2TE+JLIUqml7W+sBG58qJPg7nIH26eVRdsz0uOZkpOrBsfWXBoefa1qhQuMveCPVho4oNMRF65guiFZTdh8hDTp8lOke0EzfjvWwkH81kY=; c=relaxed/relaxed; s=default; d=rock-chips.com; v=1;
-	bh=yJZuY68i6MDKTHNn2ykBZ5f5HU1REKA2FFFIWObwSW8=;
-	h=date:mime-version:subject:message-id:from;
+Content-Type: text/plain; charset=utf-8
+Content-Transfer-Encoding: quoted-printable
+X-Last-TLS-Session-Version: TLSv1.3
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260531_235619_956885_7445D472 
-X-CRM114-Status: GOOD (  10.07  )
+X-CRM114-CacheID: sfid-20260531_235859_484567_9FA2ACF7 
+X-CRM114-Status: GOOD (  12.97  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -95,69 +91,45 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Sashiko reported a reference leak in rockchip_dp_drm_encoder_enable(),
-the of_get_child_by_name() function does not call of_node_put() in a
-symmetrical way [1].
+Hello,
 
-Fix the device node reference leak by using __free(device_node) to
-automatically manage of_node_put() for all device nodes.
+> The is31fl3199 shutdown pin is active-low [1]. Correct the GPIO flags
+> from GPIO_ACTIVE_HIGH to GPIO_ACTIVE_LOW to match the hardware.
+>
+> [1] https://lumissil.com/assets/pdf/core/IS31FL3199_DS.pdf
+>
+> Fixes: 737929191283 ("arm64: dts: marvell: add Globalscale MOCHAbin")
+> Signed-off-by: Jun Yan <jerrysteve1101@gmail.com>
 
-Fixes: 729f8eefdcad ("drm/rockchip: analogix_dp: Add support for RK3588")
-Link: https://sashiko.dev/#/patchset/20260527024336.191433-1-damon.ding@rock-chips.com?part=5 #1
-Signed-off-by: Damon Ding <damon.ding@rock-chips.com>
----
- drivers/gpu/drm/rockchip/analogix_dp-rockchip.c | 16 ++++++++++------
- 1 file changed, 10 insertions(+), 6 deletions(-)
+What happens if this patch is merged before the driver LED patch? Will
+it break something?
 
-diff --git a/drivers/gpu/drm/rockchip/analogix_dp-rockchip.c b/drivers/gpu/drm/rockchip/analogix_dp-rockchip.c
-index d2af5eb29dbb..b1ed25cefe5e 100644
---- a/drivers/gpu/drm/rockchip/analogix_dp-rockchip.c
-+++ b/drivers/gpu/drm/rockchip/analogix_dp-rockchip.c
-@@ -8,6 +8,7 @@
-  *         Jeff Chen <jeff.chen@rock-chips.com>
-  */
- 
-+#include <linux/cleanup.h>
- #include <linux/component.h>
- #include <linux/mfd/syscon.h>
- #include <linux/of.h>
-@@ -206,7 +207,6 @@ static void rockchip_dp_drm_encoder_enable(struct drm_encoder *encoder,
- 	struct drm_crtc *crtc;
- 	struct drm_crtc_state *old_crtc_state;
- 	struct of_endpoint endpoint;
--	struct device_node *remote_port, *remote_port_parent;
- 	char name[32];
- 	u32 port_id;
- 	int ret;
-@@ -230,18 +230,22 @@ static void rockchip_dp_drm_encoder_enable(struct drm_encoder *encoder,
- 	if (ret < 0)
- 		return;
- 
--	remote_port_parent = of_graph_get_remote_port_parent(endpoint.local_node);
-+	struct device_node *remote_port_parent __free(device_node) =
-+		of_graph_get_remote_port_parent(endpoint.local_node);
- 	if (remote_port_parent) {
--		if (of_get_child_by_name(remote_port_parent, "ports")) {
--			remote_port = of_graph_get_remote_port(endpoint.local_node);
-+		struct device_node *ports __free(device_node) =
-+			of_get_child_by_name(remote_port_parent, "ports");
-+
-+		if (ports) {
-+			struct device_node *remote_port __free(device_node) =
-+				of_graph_get_remote_port(endpoint.local_node);
-+
- 			of_property_read_u32(remote_port, "reg", &port_id);
--			of_node_put(remote_port);
- 			sprintf(name, "%s vp%d", remote_port_parent->full_name, port_id);
- 		} else {
- 			sprintf(name, "%s %s",
- 				remote_port_parent->full_name, endpoint.id ? "vopl" : "vopb");
- 		}
--		of_node_put(remote_port_parent);
- 
- 		DRM_DEV_DEBUG(dp->dev, "vop %s output to dp\n", (ret) ? "LIT" : "BIG");
- 	}
--- 
-2.34.1
+Gregory
 
+> ---
+>  arch/arm64/boot/dts/marvell/armada-7040-mochabin.dts | 2 +-
+>  1 file changed, 1 insertion(+), 1 deletion(-)
+>
+> diff --git a/arch/arm64/boot/dts/marvell/armada-7040-mochabin.dts b/arch/=
+arm64/boot/dts/marvell/armada-7040-mochabin.dts
+> index 6bdc4f1e6939..cf690a85cc2a 100644
+> --- a/arch/arm64/boot/dts/marvell/armada-7040-mochabin.dts
+> +++ b/arch/arm64/boot/dts/marvell/armada-7040-mochabin.dts
+> @@ -236,7 +236,7 @@ leds@64 {
+>  		#size-cells =3D <0>;
+>  		pinctrl-names =3D "default";
+>  		pinctrl-0 =3D <&is31_sdb_pins>;
+> -		shutdown-gpios =3D <&cp0_gpio1 30 GPIO_ACTIVE_HIGH>;
+> +		shutdown-gpios =3D <&cp0_gpio1 30 GPIO_ACTIVE_LOW>;
+>  		reg =3D <0x64>;
+>=20=20
+>  		led1_red: led@1 {
+> --=20
+> 2.54.0
+>
+
+--=20
+Gr=C3=A9gory CLEMENT, Bootlin
+Embedded Linux and Kernel engineering
+https://bootlin.com
 
