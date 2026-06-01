@@ -4,86 +4,86 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 56818CD5BD1
-	for <linux-arm-kernel@archiver.kernel.org>; Mon,  1 Jun 2026 08:49:21 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 72207CD5BD1
+	for <linux-arm-kernel@archiver.kernel.org>; Mon,  1 Jun 2026 08:49:27 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
 	MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:
 	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=ct8LTm9E0tar8OtNDyCoaad0P31p+YAvHyjb0MDrcWY=; b=ZP+vUQXX5CMHkzGl8Uk8wQqPZ8
-	PNjJ34E6ISluwr42givOht5ofECidHeDm/zXF2kvP7HtyciYF+Zi8QQPdpTItuTUTanLX3enJRPRn
-	zitqGTUX801p/W3EN2xpm/uKImvtRrwG7JnOZnE2hbPITsRWZE5HNa4k8cCQhb9U1OUek57q2tNc+
-	ygYZbfdGzML2yHuA+sDrYsBUJ3Ei23DwoYrzhYPQNOIeJJdV9wHf8c0JLDsHPNXLNnCi0/jeucQeA
-	Z8cA/qQppmO3733TqHFxu+xk5ZYA3VkqIXyOoAykTtwtA2wg0NUXApG6HQEOLExdWLUaB0lXZHLpn
-	8u21C/1A==;
+	bh=q8b/yYnv8ZH41kctmwMZLOttDvAzW7LNe3UEG0HH1sI=; b=vUa7yjOGAuRrHr+Z/shHofulxA
+	xH18FhxfWdX2bLcPR2syJnvVvsly3we2nuaMyqH1/X9xMxq4Us1U4Mg2vQqfwi52c4uPI2Yy+Yv3J
+	F8zhAMpW/6XiT9F87SlWHeendLSYIHgQWgQqQeuCzzjGp6DvVQtizv6xgW1L0oLm3YIG6mTn7gvmu
+	II/AjxtiO0MFf3uieG+JRFj24pd8MjLgV8Edop8z8S8P/RIu/QfxiN+ZesZslb8Xuhm31WwN/0VqZ
+	BOpOxBNQawoQQHjJ3jDr5pmFDgO7ZDFf6pLEbO6LuhxOo3aPROjYfjdEahHTmHm7jwLwpbByVz42h
+	9GCCKnOw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wTyKh-0000000APt2-1071;
-	Mon, 01 Jun 2026 08:49:15 +0000
+	id 1wTyKn-0000000APx6-1NCf;
+	Mon, 01 Jun 2026 08:49:21 +0000
 Received: from desiato.infradead.org ([2001:8b0:10b:1:d65d:64ff:fe57:4e05])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wTyKf-0000000APqx-0pNr
+	id 1wTyKl-0000000APvO-1B7g
 	for linux-arm-kernel@bombadil.infradead.org;
-	Mon, 01 Jun 2026 08:49:13 +0000
+	Mon, 01 Jun 2026 08:49:19 +0000
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=infradead.org; s=desiato.20200630; h=Content-Transfer-Encoding:MIME-Version
 	:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:Sender:Reply-To:
 	Content-Type:Content-ID:Content-Description;
-	bh=ct8LTm9E0tar8OtNDyCoaad0P31p+YAvHyjb0MDrcWY=; b=aiORj0+R68FwfnVtHValMlC3II
-	BCxYcnV06oAHHio6NmPADZxFqSauSi5qiC767epJx8WdkRChPm/W0h7Uh3fN7a0o4YoxLRucPk9aI
-	9ms5Hx3sm5/8tFzLiOB9QNscxXS0PWsofQCPy4a7Icj8Q83QcU1tNMmxFWrJs+N7RC/JetTdHP/5V
-	PRJEa8wgAP+MFZtxmGNQzvb6w8dmj3y/DlheydNRtfioM0CUau9zgzvGGar7jhq78NmaEq3v4asCI
-	imeyioKfPHCuUsFdEsL0JcKbUtUAz6XmFbCY4TrbkQcEyIzRhzr1Pu4IyBOdOy9AXC4y2F8jBTYTb
-	Njrn7A4g==;
-Received: from mail-pf1-x435.google.com ([2607:f8b0:4864:20::435])
+	bh=q8b/yYnv8ZH41kctmwMZLOttDvAzW7LNe3UEG0HH1sI=; b=qxpkWs52FyeHPpDx2YM1QT3wn1
+	eAqXx0uThX6rsw4VuGZSMQa5HhpR+B4OalssDWNGoYfQCskm2bfN48blrYdHcI4YxaISLq5InQnpR
+	wMbFmL2bT56lM8yo9KcdmudN4H7tOyp2rJpsoEHVLAZx8OD6BuoA4OSp2NBl7VxBSKa8nmTub00bL
+	ayb0GINckIp0D49YHuDoX9qk0hrYOPyi9awCbmSEUnrHKqSaNv1ooWhQUhOTarDpkPmHeGT85AkU6
+	Zm3Hh+/MhbgaYHsDH82wz1cSeoqTLw7C2B0SdYMFdLgeY5HIlpAwsZO/c5vqAMu20SReAyam0ezpZ
+	BY8OdnmA==;
+Received: from mail-pg1-x52f.google.com ([2607:f8b0:4864:20::52f])
 	by desiato.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wTyKb-000000067fH-257A
+	id 1wTyKi-000000067ho-020x
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 01 Jun 2026 08:49:12 +0000
-Received: by mail-pf1-x435.google.com with SMTP id d2e1a72fcca58-841882f8f4bso3300042b3a.0
-        for <linux-arm-kernel@lists.infradead.org>; Mon, 01 Jun 2026 01:49:09 -0700 (PDT)
+	Mon, 01 Jun 2026 08:49:18 +0000
+Received: by mail-pg1-x52f.google.com with SMTP id 41be03b00d2f7-c8571db044eso1896417a12.2
+        for <linux-arm-kernel@lists.infradead.org>; Mon, 01 Jun 2026 01:49:15 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=bytedance.com; s=google; t=1780303748; x=1780908548; darn=lists.infradead.org;
+        d=bytedance.com; s=google; t=1780303754; x=1780908554; darn=lists.infradead.org;
         h=content-transfer-encoding:mime-version:references:in-reply-to
          :message-id:date:subject:cc:to:from:from:to:cc:subject:date
          :message-id:reply-to;
-        bh=ct8LTm9E0tar8OtNDyCoaad0P31p+YAvHyjb0MDrcWY=;
-        b=EnzPx4XpZ5BxLnAef+Q6fJQVux2whXm6HUBGdAKkFeDSZNk2r/BZXqILAw9FXVihTk
-         RiEhgBi2rTX3vyTpTuF3pWmChCyPunUQzC3pfJvNadT6c0ChifkrSbfDIp2ocYGgD5Dv
-         ozXyRslPf/+j2DRYf1ACkhBl3NGv4AQboj9GK4+6hzlEGyp1cqg/HAPUA1l9pu1gB5Ct
-         T0YFVhvlRSpUuei5dUL0kkdYqhLJFlSNEcy05l+ps/XbjVR6n9E8TJ42VPDDT5Zq4UVW
-         wYwPMPqj3FaTY6Rxd7a8lOvlOotxiERPKLkyoP73nqppY+BNDsIbAFeWXWmEYUewc8ZG
-         ME5g==
+        bh=q8b/yYnv8ZH41kctmwMZLOttDvAzW7LNe3UEG0HH1sI=;
+        b=C3j7T1vSqO3N7lUr0N3C3lqzAly22BrIrB5o5v1VKSKU9i0oTthiRyeqHdMYPy0Qu/
+         sI7hjkTWOhQQHUyZcETRYHYsXO7nb+H4BVFV8S/T7hXCNT+cDPZax0LtJ/F+WCcAjbDM
+         YsVmpKPZbgZHmQcHTnnvrKhoek30miKp4AhuHHku9k/uzfzePSbEDroZbQ2v5rkFa2yn
+         nCjTpBzGaHHi1T2yaYgV3C8tAZ7Nu5k5uPJE5Hh8/nSaK4yvsUgKhWUbTNi/PS+hQUqg
+         B5bs+a547XO+XL5j/FvSsXPelzPKWKqEodPrd+oDwNoY0OKz36yejz4iUsfzYweidBJV
+         +ohw==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20251104; t=1780303748; x=1780908548;
+        d=1e100.net; s=20251104; t=1780303754; x=1780908554;
         h=content-transfer-encoding:mime-version:references:in-reply-to
          :message-id:date:subject:cc:to:from:x-gm-gg:x-gm-message-state:from
          :to:cc:subject:date:message-id:reply-to;
-        bh=ct8LTm9E0tar8OtNDyCoaad0P31p+YAvHyjb0MDrcWY=;
-        b=Fn49AQX7eDnoj2wvxX9lkkvlnBevRVdasEKmOLMAwPdsuwaftMESyWKqZevL8kU4/7
-         EVVKEKo0ZYXdFBMZCjrrqD7C9DlaN3V7CmdpLLTRgqXu0e39vsqWrlZS3uSa7ZBe3dP5
-         +HFYrYd+GFNDRhwCIW8n9fZPx55h50NC/f4nH1382BHrcw1NP3v4YsgC+QIhWjA8NiBA
-         LIwLHIEyKWDEzZc5qb1+DUofDneBAc9JhLbr02WEJCeJf6yGdb2iiq512wVI8quSbpmg
-         J1pAW08Kt6Yzv8SoSu0kB1Xppx9gNHrn9gslSUKJqr2aEWcBGuXFuUhJ2VLKLLMY2+MH
-         D+FA==
-X-Forwarded-Encrypted: i=1; AFNElJ+mfkSSDVAJ/Kzvb84S9BakJd/MEAszv4AQtJvBHueqVorhOymGbsljJN3Xa5qhMe41uvVlGfThJaHqOqLI60Gj@lists.infradead.org
-X-Gm-Message-State: AOJu0YxMVN1v9QIqzEFj7gHXznVzxsGHyyeykw9jfMS+C9UdC1XkAe97
-	zLKFbam3VOPn6ZLf0eCcz1oZJYw53KbV9EcfSD7Wv4WgXUvRSGLqamiWlaECNyvRIuU=
-X-Gm-Gg: Acq92OFGwA6MOxYO7v2lnmkIQW0C4tlOeuNxBGIh/piHkcvknDafKGHazflblLxMa6u
-	xwWo+EZB/n4z12+HvvlGSarHRvgJOnrnhci32dT23jzlGfDjdj4RuoXzhR4W+erTC9YrwG5WkWf
-	xxWMXtb1ZqcJzQTOor4oO6FodwPOJtSUuyV61ZbMjf19lbcnn1GHLTVUcPjjJ8onriVwHpI5ofJ
-	A76QjIjhOBBb0dh+Gcubi4PttVD8opauGm++US6bZKiUFtD2IxxGFp4djb41KmsOUrjQmUFYYHr
-	n2MM64ZTiuvgvi1isuhaa4ekcbgzqCeFkuF3w2oBqiWsOdBcUpfsIlqcfoieXrMNu98h0tzjjyM
-	gQnOmmkybl22VIjHWvutqqw+kaRokUyBRVrMZmyFWhj1vpTLRPeZXxFYkN9AMCMoYMXmmia3yb+
-	mUBGb5WJA9Y+VtKS7DzJt6XI+8u+dQxTDPOczZ7yC5UiCd4MSv2rYuWg==
-X-Received: by 2002:a05:6a00:3903:b0:842:2382:a0ea with SMTP id d2e1a72fcca58-8422535fc9bmr8854602b3a.14.1780303747688;
-        Mon, 01 Jun 2026 01:49:07 -0700 (PDT)
+        bh=q8b/yYnv8ZH41kctmwMZLOttDvAzW7LNe3UEG0HH1sI=;
+        b=q1NmUo2VkqBUb4GU8qpX4+nuhd4WoC1mOZd3LEnPJUNq6BY58d6iwTB6matzE6chpk
+         FhRyU2Q80pjr8x26mFly2QgeHPCQWgZW+bjjMC+SKEKTndiQStcZ+CmwMGjRTfF/bWyF
+         PixCpu7cQRiq6TCLpFU/J2S5CtdWRXOVs7ciPbUGKA22SAvJANk+rWfNVVVdSLwTV3GL
+         jSxzEAlnHvpc0ni5ESxR3jbI3h+I7VfCEh3bjXeMMMWFpnnzCejgDwn+k8K06dViffhd
+         7UGyLtK55qXH1DIpwN/uH4MKABrngReJvKxX+WQVPsGbSftqLWJz+/hzMksSPUqvtAoS
+         1ytw==
+X-Forwarded-Encrypted: i=1; AFNElJ9xG2w5bKY5A4s6ZZSV71T2uAVZpBSnFCB9bFx3jXI0LuUKM0IMuHdZ9DV4ZSNk4/enrQpCIwq4sTjPzeUVsx7X@lists.infradead.org
+X-Gm-Message-State: AOJu0Yy8rqOCaCPHVOL3qG4YbK5SLvUpt7V2nJcK0e3q/NVOuUSZ5nx/
+	za+nns/Ym6Xn/5/PpYzVoNFYntMQiqFn2XqXankrll+fHaWG3hRVIsVDUw4tvRFygEM=
+X-Gm-Gg: Acq92OF+JEw696/mM4wO7dCSyTLXkmBtjapaXbBxrpSYJo8HruDnuGA4Pgr+6hvBxKH
+	HT5js8+3t6RK4/Skr1C+mfyBONP4V9itHRj7Ca9yPQcVExnLIIjzIGeqgmQcCRKOeh7QI5z9lNn
+	0AfRgYnZI9us/XrFnGTbGYcEPipGbQhNsbCnlPh7K0YvhGptjj4RlR7BHfirujpVBzEXa85bfy/
+	JgY6SHcuFZrVgimGH1o9+ocgYbv/+blrXfKUksKHYCFyBJgf5suaxIDtK8tPMosKZDizkoLTwm4
+	j9p/eOE7oyzLLh5HRNdQnH4M+bFyPJFAFx0l6WsjAhAfR/L1eRnak9YO3K2PdHqtjA3G5Y8AkjU
+	9l2B4tQ9B784kKD06PTwhqxYpBbjicSUh1el03BxyB7+UNxr12Ib0dSxk71VQKQ7PS6PEATYBGu
+	6FsIkB5Qjpu5bSANi6/eGAoA3odeb6GozhcPIgmJCxQxj117rXQgPubw==
+X-Received: by 2002:a05:6a21:8ccb:b0:38b:eadd:449a with SMTP id adf61e73a8af0-3b428242975mr12005378637.38.1780303754272;
+        Mon, 01 Jun 2026 01:49:14 -0700 (PDT)
 Received: from n232-176-004.byted.org ([36.110.163.96])
-        by smtp.gmail.com with ESMTPSA id d2e1a72fcca58-84232ef8172sm6316230b3a.12.2026.06.01.01.49.01
+        by smtp.gmail.com with ESMTPSA id d2e1a72fcca58-84232ef8172sm6316230b3a.12.2026.06.01.01.49.08
         (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Mon, 01 Jun 2026 01:49:07 -0700 (PDT)
+        Mon, 01 Jun 2026 01:49:13 -0700 (PDT)
 From: Muchun Song <songmuchun@bytedance.com>
 To: Andrew Morton <akpm@linux-foundation.org>,
 	David Hildenbrand <david@kernel.org>,
@@ -111,17 +111,17 @@ Cc: Muchun Song <muchun.song@linux.dev>,
 	Mike Rapoport <rppt@kernel.org>,
 	Suren Baghdasaryan <surenb@google.com>,
 	Michal Hocko <mhocko@suse.com>
-Subject: [PATCH v3 2/5] arm64/mm: drop vmemmap_pmd helpers and use generic code
-Date: Mon,  1 Jun 2026 16:48:41 +0800
-Message-ID: <20260601084845.3792171-3-songmuchun@bytedance.com>
+Subject: [PATCH v3 3/5] riscv/mm: drop vmemmap_pmd helpers and use generic code
+Date: Mon,  1 Jun 2026 16:48:42 +0800
+Message-ID: <20260601084845.3792171-4-songmuchun@bytedance.com>
 X-Mailer: git-send-email 2.54.0
 In-Reply-To: <20260601084845.3792171-1-songmuchun@bytedance.com>
 References: <20260601084845.3792171-1-songmuchun@bytedance.com>
 MIME-Version: 1.0
 Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260601_094909_922395_1A0217DE 
-X-CRM114-Status: UNSURE (   9.73  )
+X-CRM114-CacheID: sfid-20260601_094916_411200_0AC7AD7C 
+X-CRM114-Status: UNSURE (   9.92  )
 X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
@@ -137,41 +137,36 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-The generic implementations now suffice; remove the arm64 copies.
+The generic implementations now suffice; remove the riscv copies.
 
 Signed-off-by: Muchun Song <songmuchun@bytedance.com>
-Acked-by: Will Deacon <will@kernel.org>
 ---
-v2->v3:
-- Collect Acked-by from Will Deacon
----
- arch/arm64/mm/mmu.c | 14 --------------
- 1 file changed, 14 deletions(-)
+ arch/riscv/mm/init.c | 13 -------------
+ 1 file changed, 13 deletions(-)
 
-diff --git a/arch/arm64/mm/mmu.c b/arch/arm64/mm/mmu.c
-index 24388e5c727d..ea10b0ebecd7 100644
---- a/arch/arm64/mm/mmu.c
-+++ b/arch/arm64/mm/mmu.c
-@@ -1776,20 +1776,6 @@ static void free_empty_tables(unsigned long addr, unsigned long end,
+diff --git a/arch/riscv/mm/init.c b/arch/riscv/mm/init.c
+index 885f1db4e9bf..5f680eb83e86 100644
+--- a/arch/riscv/mm/init.c
++++ b/arch/riscv/mm/init.c
+@@ -1359,19 +1359,6 @@ void __init misc_mem_init(void)
  }
- #endif
  
--void __meminit vmemmap_set_pmd(pmd_t *pmdp, void *p, int node,
+ #ifdef CONFIG_SPARSEMEM_VMEMMAP
+-void __meminit vmemmap_set_pmd(pmd_t *pmd, void *p, int node,
 -			       unsigned long addr, unsigned long next)
 -{
--	pmd_set_huge(pmdp, __pa(p), __pgprot(PROT_SECT_NORMAL));
+-	pmd_set_huge(pmd, virt_to_phys(p), PAGE_KERNEL);
 -}
 -
 -int __meminit vmemmap_check_pmd(pmd_t *pmdp, int node,
 -				unsigned long addr, unsigned long next)
 -{
 -	vmemmap_verify((pte_t *)pmdp, node, addr, next);
--
--	return pmd_leaf(READ_ONCE(*pmdp));
+-	return 1;
 -}
 -
  int __meminit vmemmap_populate(unsigned long start, unsigned long end, int node,
- 		struct vmem_altmap *altmap)
+ 			       struct vmem_altmap *altmap)
  {
 -- 
 2.54.0
