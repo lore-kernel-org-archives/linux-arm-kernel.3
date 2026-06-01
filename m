@@ -4,98 +4,81 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 3A70BCD5BD1
-	for <linux-arm-kernel@archiver.kernel.org>; Mon,  1 Jun 2026 06:49:12 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 77441CD6E62
+	for <linux-arm-kernel@archiver.kernel.org>; Mon,  1 Jun 2026 06:51:24 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
-	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=pGxbL9faVDVgrvfQsBar+KVqQ+FJr+nh53Wa1vgTsOQ=; b=H53Q+MmOz5iIBkAXdZ8s3n3PzT
-	go/Z5BglUeAEWMRQ9EiE58JP0tPE1/Kh5h5dmgOLPF78mJ17GM5k6nh0nyGJYAFA6Y49yepXG1LdA
-	m3INrad++nPi2qtoNeghBWjQ9m07wem0V0FEKdhLq0d/vSOv94XR6+ZiGr0dR3UISDP32yw3qJlxA
-	QKWrNPpyyJdfO2vWKxfTnUC+cDdSlg0YyecA7gQsWu/Fh+EPxBdCag1FR4SC0rvkGuHANKsJLrOcF
-	aMDZRPNhsN4dZl0Lej5hke654ykibvOCCz14BufMyllSTtu/dhMBpc2zpkYCny703YnHm9WduJgvV
-	AGdP9QNQ==;
+	MIME-Version:Message-Id:Date:Subject:Cc:To:From:Reply-To:Content-Type:
+	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
+	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=B0wiE8GgyXz8eIceQeCC4HinJBNyLgrIHBKykFHjKJ4=; b=GJym/gR6fQoZVtBQS9lR+nVomo
+	O+EKiFsLygXm328k26nfvAxyIf96BeDRj81H4cguB5LX1Mn+U1hERGpdNJ9kKBw0juV9VaDyRyzOt
+	wHfYHk7P3inLx6LHBFgSyrkuMhM4inVDMyzQ/19348iu6i5PF+gyI6mx5DkCxcw7VQJmSqIZsaLsC
+	KunaX3CmPYfzF2rmckg+VKQzFJFEwAong7EblgvogrEZupqpwLmqo9mvpurYzBCqIdzTDVjEJLEIl
+	C+V2eJJ8BXKoL9s9JuhcV2Z9bDyvo5sSdt4sJEVz3hIei9ArCgFZLU30lJTDXDj2Q53jKvH4xLBRJ
+	6wWCHVRA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wTwSP-0000000AEJm-41UZ;
-	Mon, 01 Jun 2026 06:49:05 +0000
-Received: from mail-lj1-x22f.google.com ([2a00:1450:4864:20::22f])
+	id 1wTwUV-0000000AEZJ-1KLT;
+	Mon, 01 Jun 2026 06:51:15 +0000
+Received: from mail-m128197.netease.com ([103.209.128.197])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wTwSN-0000000AEIt-0DqM
-	for linux-arm-kernel@lists.infradead.org;
-	Mon, 01 Jun 2026 06:49:04 +0000
-Received: by mail-lj1-x22f.google.com with SMTP id 38308e7fff4ca-39677242021so9969141fa.1
-        for <linux-arm-kernel@lists.infradead.org>; Sun, 31 May 2026 23:49:02 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20251104; t=1780296541; x=1780901341; darn=lists.infradead.org;
-        h=content-transfer-encoding:in-reply-to:from:content-language
-         :references:cc:to:subject:user-agent:mime-version:date:message-id
-         :from:to:cc:subject:date:message-id:reply-to;
-        bh=pGxbL9faVDVgrvfQsBar+KVqQ+FJr+nh53Wa1vgTsOQ=;
-        b=Hjyt1ZCeRCMed90zRoUthEntF26gW6CEcgOVWGMEf/iz7m5+QUB6jTA2+aUe3DB3rG
-         S1ZI+QmVvBg/KgZ/qdW3mbgUN1z03uj7V5vKH56sar2makEAvQ4CyCz9IeVxDVOwFZz+
-         +sHJ/qOI4hVYIKVGxUD3RFgPrCedUIV2z3ugtyz8jIZRnqAiVNMN/1SB1bsdq1JUtqk5
-         dwKf0b0LdPbngEkBQ461KDXUHzeaR/DeC4tsnpsdgHcLl7SkeZn2cq2+m9PO3lU40t2H
-         wys0zXj6Hnh/bFCFim3tcdBQk5itxiu15zcntMyJWGhcVh2cJ/eZncETVgB2FVMtDdvB
-         CrdQ==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20251104; t=1780296541; x=1780901341;
-        h=content-transfer-encoding:in-reply-to:from:content-language
-         :references:cc:to:subject:user-agent:mime-version:date:message-id
-         :x-gm-gg:x-gm-message-state:from:to:cc:subject:date:message-id
-         :reply-to;
-        bh=pGxbL9faVDVgrvfQsBar+KVqQ+FJr+nh53Wa1vgTsOQ=;
-        b=Ayj/dbw8wiB45FZjdXdL/tX9ZzxcdOriORlvY41prx0W6HSiVUTr8m/OsjGVTZ0502
-         PdBHdTcC1p6BleJjotb0jMKiVKiIw65KkrhyCqxcvANZa9+ylMZS75hzZ7tvtRSF2fNu
-         zvxi/sZ9ymqLIGiUQu1FHoiOQi0wq2qpVbV+uj+n3e4GlSIdPxx5Casoub8TJ60ywPva
-         u2DVJMOtkUL9EEmNVAq+/Kra8ngv/hf+w0ApOHkcxGvvQUXaymdwdBgKjkbjn+d3C1F3
-         3SClyNzu9iajFkMTiq5b749wlZHFhcWVurb8zq9HP70pXD2nS+hdeQWRJi+e+zHFKVaq
-         Ld8w==
-X-Forwarded-Encrypted: i=1; AFNElJ/oIFd8SzN4QlUiJOQ1aPAWSRbtMwqS0d5rbfh821gCDRiQ7wqOhhs4iP7AfjWRYudNChkODK2LjtXCr57pGQC3@lists.infradead.org
-X-Gm-Message-State: AOJu0YxUy9qB+4UXWIccO9Bdb/vhPkrT6kFg5lX9QhB8smu/aa/1WPTF
-	fWWOaMZYW0b80+amJkOlDpGvJZ2yIO9ClGd3vWCa6mrJbmcQ3QmBo0ic
-X-Gm-Gg: Acq92OHVYAb8+spX+BIslWtXgQRGDb31Pkn5tJPQO/azdL1jiW895Sj2Xa1cpo7Daw+
-	5DNOlzMOT8sJRrD72oElc7zPM6agDXV/XfKrFUAlwwxlfqoaSjm+YD65KHNMHKRntaPinF2RCAH
-	XDC6DuEWPEC8vc+LBwhzF1UfRYfrMeX86h95ITIA+lvwCdVLaMOIMQr/b5fog0Ug7Xj8Kg1W1wL
-	TJm0oSaJeNw8xBANUIfpaTSFCBY3KMk7Ot7owIGtk+Yn/ljxbqzMR3kadLmYDGLhwWeRNORya6p
-	JUISPkTjxVaOUk4Ac9V6hHVwSP1W22VbKKqabCwEcxV0ixZAidlS7RPWKNLRUTwfD9Hb1EGLf2q
-	JaOGyo93KnUymTl973Ff1u5OvOyqWsbjvmijkGKCX41/KqlpWcTjJhrSZGotAvdU5p7hqC0I+MB
-	uUF/lYB3VdcK1T+KZ8ocSHDvd/Ckha464OYj5N4blRDewl+1lQSXxMQdexQxzv4FbSF3qi9jCqw
-	b6wcdjEzj9h/8H6MJc=
-X-Received: by 2002:a05:6512:2306:b0:5a3:f25f:cc30 with SMTP id 2adb3069b0e04-5aa60a32f56mr3289885e87.32.1780296540285;
-        Sun, 31 May 2026 23:49:00 -0700 (PDT)
-Received: from ?IPV6:2a10:a5c0:800d:dd00:8fdf:935a:2c85:d703? ([2a10:a5c0:800d:dd00:8fdf:935a:2c85:d703])
-        by smtp.gmail.com with ESMTPSA id 2adb3069b0e04-5aa5b793e24sm1898970e87.73.2026.05.31.23.48.59
-        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
-        Sun, 31 May 2026 23:48:59 -0700 (PDT)
-Message-ID: <b509c623-a47f-4216-9202-2c542f3c2e7b@gmail.com>
-Date: Mon, 1 Jun 2026 09:48:58 +0300
+	id 1wTwUR-0000000AEXZ-25Va;
+	Mon, 01 Jun 2026 06:51:14 +0000
+Received: from zyb-HP-ProDesk-680-G2-MT.. (unknown [61.154.14.86])
+	by smtp.qiye.163.com (Hmail) with ESMTP id 408ded03f;
+	Mon, 1 Jun 2026 14:51:04 +0800 (GMT+08:00)
+From: Damon Ding <damon.ding@rock-chips.com>
+To: hjc@rock-chips.com,
+	heiko@sntech.de,
+	andy.yan@rock-chips.com,
+	maarten.lankhorst@linux.intel.com,
+	mripard@kernel.org,
+	tzimmermann@suse.de,
+	airlied@gmail.com,
+	simona@ffwll.ch,
+	robh@kernel.org,
+	krzk+dt@kernel.org,
+	conor+dt@kernel.org,
+	andrzej.hajda@intel.com,
+	neil.armstrong@linaro.org,
+	rfoss@kernel.org
+Cc: Laurent.pinchart@ideasonboard.com,
+	jonas@kwiboo.se,
+	jernej.skrabec@gmail.com,
+	nicolas.frattaroli@collabora.com,
+	cristian.ciocaltea@collabora.com,
+	sebastian.reichel@collabora.com,
+	dmitry.baryshkov@oss.qualcomm.com,
+	luca.ceresoli@bootlin.com,
+	dianders@chromium.org,
+	m.szyprowski@samsung.com,
+	dri-devel@lists.freedesktop.org,
+	devicetree@vger.kernel.org,
+	linux-arm-kernel@lists.infradead.org,
+	linux-rockchip@lists.infradead.org,
+	linux-kernel@vger.kernel.org,
+	Damon Ding <damon.ding@rock-chips.com>
+Subject: [PATCH v10 00/11] Add eDP support for RK3576
+Date: Mon,  1 Jun 2026 14:50:49 +0800
+Message-Id: <20260601065100.1103873-1-damon.ding@rock-chips.com>
+X-Mailer: git-send-email 2.34.1
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH v1 4/6] power: Use named initializers for
- platform_device_id arrays
-To: =?UTF-8?Q?Uwe_Kleine-K=C3=B6nig_=28The_Capable_Hub=29?=
- <u.kleine-koenig@baylibre.com>, Sebastian Reichel <sre@kernel.org>
-Cc: Yixun Lan <dlan@kernel.org>, Andreas Kemnade <andreas@kemnade.info>,
- Sven Peter <sven@kernel.org>, Janne Grunau <j@jannau.net>,
- Neal Gompa <neal@gompa.dev>, Amit Sunil Dhamne <amitsd@google.com>,
- Samuel Kayode <samkay014@gmail.com>, linux-pm@vger.kernel.org,
- linux-riscv@lists.infradead.org, spacemit@lists.linux.dev,
- linux-kernel@vger.kernel.org, asahi@lists.linux.dev,
- linux-arm-kernel@lists.infradead.org, imx@lists.linux.dev
-References: <cover.1780048925.git.u.kleine-koenig@baylibre.com>
- <1ceacf4f9c3f827bcad85b378aa04cdca1c04635.1780048925.git.u.kleine-koenig@baylibre.com>
-Content-Language: en-US, en-AU, en-GB, en-BW
-From: Matti Vaittinen <mazziesaccount@gmail.com>
-In-Reply-To: <1ceacf4f9c3f827bcad85b378aa04cdca1c04635.1780048925.git.u.kleine-koenig@baylibre.com>
-Content-Type: text/plain; charset=UTF-8; format=flowed
 Content-Transfer-Encoding: 8bit
+X-HM-Tid: 0a9e81f344ad03a8kunm111da268257dd3
+X-HM-MType: 1
+X-HM-Spam-Status: e1kfGhgUHx5ZQUpXWQgPGg8OCBgUHx5ZQUlOS1dZFg8aDwILHllBWSg2Ly
+	tZV1koWUFITzdXWRgWCB1ZQUpXWS1ZQUlXWQ8JGhUIEh9ZQVkZSkIZVktLTkgdGEsYGEpJGVYVFA
+	kWGhdVEwETFhoSFyQUDg9ZV1kYEgtZQVlNSlVKTk9VSk9VQ01ZV1kWGg8SFR0UWUFZT0tIVUpLSE
+	pKQk1VSktLVUpCWQY+
+DKIM-Signature: a=rsa-sha256;
+	b=BbEFmojqL5VuWNR/cP/JHKYZGtkKTBQPNDakZkYZftYU2sRev9DDh51Wbt9c2yXBsAgIWDNe2pNxfSuM20F9QTQZoac5kzhw65vcb9qGLOggxpsw0lpXPrytSp7R83FtA49PaLeuYGovGLaH3BRkFGKWHKTMoPcibWrtlieebS0=; c=relaxed/relaxed; s=default; d=rock-chips.com; v=1;
+	bh=B0wiE8GgyXz8eIceQeCC4HinJBNyLgrIHBKykFHjKJ4=;
+	h=date:mime-version:subject:message-id:from;
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260531_234903_110533_038E081B 
-X-CRM114-Status: UNSURE (   8.33  )
+X-CRM114-CacheID: sfid-20260531_235112_085121_826A0FC9 
+X-CRM114-Status: UNSURE (   9.88  )
 X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
@@ -111,24 +94,74 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On 29/05/2026 13:18, Uwe Kleine-König (The Capable Hub) wrote:
-> Named initializers are better readable and more robust to changes of the
-> struct definition. This robustness is relevant for a planned change to
-> struct platform_device_id replacing .driver_data by an anonymous union.
-> 
-> While touching these arrays unify spacing and usage of commas.
-> 
-> Signed-off-by: Uwe Kleine-König (The Capable Hub) <u.kleine-koenig@baylibre.com>
+Patch 1-5 are to add missing clock "hclk" for RK3588 eDP nodes.
+Patch 6 is to use automatic cleanup to fix OF node reference leak
+        reported by Sashiko.
+Patch 7-8 are to add the RK3576 eDP node.
+Patch 9-11 are to support the RK3576 Analogix DP controller.
 
-Reviewed-by: Matti Vaittinen <mazziesaccount@gmail.com>
+Damon Ding (11):
+  dt-bindings: display: rockchip: analogix-dp: Fix hclk as third clock
+    for RK3588
+  dt-bindings: display: rockchip: analogix-dp: Add per-clock
+    descriptions
+  arm64: dts: rockchip: Add missing hclk for RK3588 eDP0
+  arm64: dts: rockchip: Add missing hclk for RK3588 eDP1
+  drm/rockchip: analogix_dp: Enable hclk for RK3588
+  drm/rockchip: analogix_dp: Fix OF node reference leak via auto cleanup
+  dt-bindings: display: rockchip: analogix-dp: Add support for RK3576
+  arm64: dts: rockchip: Add eDP node for RK3576
+  drm/bridge: analogix_dp: Rename and simplify is_rockchip()
+  drm/bridge: analogix_dp: Add support for RK3576
+  drm/rockchip: analogix_dp: Add support for RK3576
 
-Yours,
-	-- Matti
+ .../rockchip/rockchip,analogix-dp.yaml        | 47 ++++++++++++++++++-
+ arch/arm64/boot/dts/rockchip/rk3576.dtsi      | 28 +++++++++++
+ arch/arm64/boot/dts/rockchip/rk3588-base.dtsi |  4 +-
+ .../arm64/boot/dts/rockchip/rk3588-extra.dtsi |  4 +-
+ .../drm/bridge/analogix/analogix_dp_core.c    |  3 +-
+ .../gpu/drm/bridge/analogix/analogix_dp_reg.c | 18 +++----
+ .../gpu/drm/rockchip/analogix_dp-rockchip.c   | 31 +++++++++---
+ include/drm/bridge/analogix_dp.h              | 13 ++++-
+ 8 files changed, 124 insertions(+), 24 deletions(-)
+
+---
+
+Changes in v2:
+- Split out separate patches to add the "hclk" clock reference.
+- Split out separate patches to enable the "hclk" clock.
+- Add Reviewed-by tag.
+
+Changes in v3:
+- Add a patch to expand descriptions for clocks of the eDP node.
+- Add Reviewed-by tag.
+
+Changes in v4:
+- Modify commit msg.
+
+Changes in v5:
+- Enforce the correct third clock name on a per-compatible basis.
+- Modify the commit msg simultaneously.
+- Add Acked-by tag.
+
+Changes in v6:
+- Expand more detail commit msg about using hclk instead of grf clock.
+
+Changes in v7:
+- List all valid clock names at the top level, and constrain the clock
+  count for each platform with minItems/maxItems in allOf.
+
+Changes in v8:
+- Fix indentation to 10 for enum in clock-names property.
+
+Changes in v9:
+- Restore the explicit clock-names for RK3399 and RK3588 eDP dt-bindings.
+
+Changes in v10:
+- Use automatic cleanup to fix OF node reference leak reported by
+  Sashiko.
 
 -- 
-Matti Vaittinen
-Linux kernel developer at ROHM Semiconductors
-Oulu Finland
+2.34.1
 
-~~ When things go utterly wrong vim users can always type :help! ~~
 
