@@ -4,98 +4,62 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 4CBA7CD5BD1
-	for <linux-arm-kernel@archiver.kernel.org>; Mon,  1 Jun 2026 12:27:57 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id BCBB9CD5BD1
+	for <linux-arm-kernel@archiver.kernel.org>; Mon,  1 Jun 2026 12:29:27 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:To:References:Message-Id:
-	Content-Transfer-Encoding:Cc:Date:In-Reply-To:From:Subject:Mime-Version:
-	Content-Type:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=9SZo5S/dgDqG8hXBhyprQZKAwoZuXhbxuoMvMnMzdUE=; b=kEvrNbBXAW4rgHKAyniTM6LT5U
-	Coq5vgoaSFoEEMi8P4J1LKQlTMF90HWCPX3wZ0IzUpC/XJfYnOPZDiSy0mF4XMEoboeoO+ZuCgyXz
-	iZzaxbpUZzXqbenDUhn25hzSwCMPywZJd2Djhd+R4XjyysF/gwqSu0jZUDIYnJnQGdKuUTVz4vFrG
-	0azxJVcgjr56zhR1FxW3JDdustIRFLE7sZEl2WHVSFCqS9IgkS+r6SRtIM3JISJSrz58mghus0bAW
-	sTgAuXKYohRnc/h0f+vBIgvs08k5wbOrDbXdJqj+l1cVMWF0dUfy1XXYbQsKWQCHvs5FaAxf1kzvO
-	RIR9mwgw==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:
+	Content-Transfer-Encoding:Content-Type:MIME-Version:References:Message-ID:
+	Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=iUNcxP5vUlsQw11K7iw0C8/gbeiciIxg4PjeApBK+Jo=; b=Slyo4B4jDGVPwVgUxZRaLtJjFQ
+	D9HCByO6bgxBt3cNoAdQi/1JaMzFmoQscPfMZKCLFBhfTEwnIXPQQvJJh9XmpbVZ/yPUQAaJJiU1P
+	aa3uhU+R/o5gdHwJmb/O0yZJYAFx93zE+o/Ee0mrQvFlWw/QuokOkMUIF7oaNYdssGDjooPcMqXBd
+	TytK/fdA+6c9DHV+AzB3ddIWdEBQBoJaYVpS7yyflJfYLpIX8+4OlOUS2F5yLyg8iZKNht6vJEg+p
+	jwO8sDSnyQyznY8MpB2VdUw6V5Nq73mVXFS4sV3sav384O7HAHbb44xnKuPhQ1LjlYTwp10WRGwNL
+	WHbmmgyA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wU1kE-0000000B7wx-3gEw;
-	Mon, 01 Jun 2026 12:27:50 +0000
-Received: from desiato.infradead.org ([2001:8b0:10b:1:d65d:64ff:fe57:4e05])
+	id 1wU1lh-0000000B8FL-1bl1;
+	Mon, 01 Jun 2026 12:29:21 +0000
+Received: from vps0.lunn.ch ([156.67.10.101])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wU1kD-0000000B7wj-03ek
-	for linux-arm-kernel@bombadil.infradead.org;
-	Mon, 01 Jun 2026 12:27:49 +0000
-DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=infradead.org; s=desiato.20200630; h=To:References:Message-Id:
-	Content-Transfer-Encoding:Cc:Date:In-Reply-To:From:Subject:Mime-Version:
-	Content-Type:Sender:Reply-To:Content-ID:Content-Description;
-	bh=9SZo5S/dgDqG8hXBhyprQZKAwoZuXhbxuoMvMnMzdUE=; b=SupQ/wrItu6aI0Gxs0n1DIlL9v
-	nWuMI3WMpMalKp/Mf+QDEiVO7DdG+gECWU6t6EumFKJLUMNUkJK/JErbRZkkZ96aozVJjySWPzX7T
-	ObQafITRP902iQx1H+4WayhiBQOHDf68MuCc1eOAan53O18Js1PoeJ34Y3MPGXwdCYUKU/hJ8Ortc
-	KKkYph0Wzb2LHYv2dVkoeycQKTF3gKcnbmStOV6XXyQrz5jLOX2o7rFwYAkjr4Jv2uSbyw137qpwd
-	tKB0qYpTPS4vuZKyjx96lnbgzomB69JkAr4bwaTyor3ce1/Cf+t3OW1+AmAHXrp4bmzl4Rn4/pD+5
-	vSljlEgA==;
-Received: from out-171.mta1.migadu.com ([2001:41d0:203:375::ab])
-	by desiato.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wU1k9-00000006gdG-3B1A
+	id 1wU1le-0000000B8EZ-1TcO
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 01 Jun 2026 12:27:47 +0000
-Content-Type: text/plain;
-	charset=us-ascii
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=linux.dev; s=key1;
-	t=1780316852;
-	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
-	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
-	 content-transfer-encoding:content-transfer-encoding:
-	 in-reply-to:in-reply-to:references:references;
-	bh=9SZo5S/dgDqG8hXBhyprQZKAwoZuXhbxuoMvMnMzdUE=;
-	b=taJxZziKn4woYglDXIvNCebPtG3Ett1MjiIFDKupB8/vwlbR/030Sh3VZlm77BCTnpmoG/
-	rKoPBIkFdC9v9EftiInYZUlXr+q/jFF/8okro3ZtUpL84t5w/njL0YRB0TN1eiiMzWl6HF
-	ljUQhnWpMMyGxM8ydCYaS7vcjT7YQjI=
-Mime-Version: 1.0 (Mac OS X Mail 16.0 \(3864.600.51.1.1\))
-Subject: Re: [PATCH v3 4/5] loongarch/mm: drop vmemmap_check_pmd helper and
- use generic code
-X-Report-Abuse: Please report any abuse attempt to abuse@migadu.com and include these headers.
-From: Muchun Song <muchun.song@linux.dev>
-In-Reply-To: <8c60f9bb-7a4a-4340-b414-9f7fbef4150c@kernel.org>
-Date: Mon, 1 Jun 2026 20:26:47 +0800
-Cc: Muchun Song <songmuchun@bytedance.com>,
- Andrew Morton <akpm@linux-foundation.org>,
- Catalin Marinas <catalin.marinas@arm.com>,
- Will Deacon <will@kernel.org>,
- Palmer Dabbelt <palmer@dabbelt.com>,
- Paul Walmsley <pjw@kernel.org>,
- Huacai Chen <chenhuacai@kernel.org>,
- Andreas Larsson <andreas@gaisler.com>,
- "David S. Miller" <davem@davemloft.net>,
- linux-mm@kvack.org,
- linux-kernel@vger.kernel.org,
- linux-arm-kernel@lists.infradead.org,
- linux-riscv@lists.infradead.org,
- loongarch@lists.linux.dev,
- sparclinux@vger.kernel.org,
- Alexandre Ghiti <alex@ghiti.fr>,
- Albert Ou <aou@eecs.berkeley.edu>,
- WANG Xuerui <kernel@xen0n.name>,
- Lorenzo Stoakes <ljs@kernel.org>,
- "Liam R. Howlett" <liam@infradead.org>,
- Vlastimil Babka <vbabka@kernel.org>,
- Mike Rapoport <rppt@kernel.org>,
- Suren Baghdasaryan <surenb@google.com>,
- Michal Hocko <mhocko@suse.com>
-Content-Transfer-Encoding: 7bit
-Message-Id: <0C8C9C2B-2EDA-47DB-AC54-237F2127A6A8@linux.dev>
-References: <20260601084845.3792171-1-songmuchun@bytedance.com>
- <20260601084845.3792171-5-songmuchun@bytedance.com>
- <8c60f9bb-7a4a-4340-b414-9f7fbef4150c@kernel.org>
-To: "David Hildenbrand (Arm)" <david@kernel.org>
-X-Migadu-Flow: FLOW_OUT
+	Mon, 01 Jun 2026 12:29:20 +0000
+DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed; d=lunn.ch;
+	s=20171124; h=In-Reply-To:Content-Transfer-Encoding:Content-Disposition:
+	Content-Type:MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:From:
+	Sender:Reply-To:Subject:Date:Message-ID:To:Cc:MIME-Version:Content-Type:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Content-Disposition:
+	In-Reply-To:References; bh=iUNcxP5vUlsQw11K7iw0C8/gbeiciIxg4PjeApBK+Jo=; b=T8
+	Gpi6UGVu9AekjAumqqzMy7OkcbToxxlkqLfNI+lDKx5ijWT96PNJ3sKmBJrssAm7nDzvsSobk2Y7b
+	0eF5hrE0Npnc63i4+vJSmgWtkOwMoUrKqhweKPtkoI1c4SszjTn43MelZI5LNcQ5+Olrtzv502npz
+	zhd2vutXPkvjPuk=;
+Received: from andrew by vps0.lunn.ch with local (Exim 4.94.2)
+	(envelope-from <andrew@lunn.ch>)
+	id 1wU1lP-005V96-1j; Mon, 01 Jun 2026 14:29:03 +0200
+Date: Mon, 1 Jun 2026 14:29:03 +0200
+From: Andrew Lunn <andrew@lunn.ch>
+To: Grewstad <dogestad24@gmail.com>
+Cc: gregkh@linuxfoundation.org, jic23@kernel.org, jacobsfeder@gmail.com,
+	linux-staging@lists.linux.dev, linux-arm-kernel@lists.infradead.org,
+	linux-kernel@vger.kernel.org, hjk@hansjkoch.de, davem@davemloft.net,
+	netdev@vger.kernel.org
+Subject: Re: [RFC] drivers/staging/axis-fifo: TODO file and subsystem
+ direction
+Message-ID: <8f7eb9c7-6695-450c-81c4-fb96643adbc2@lunn.ch>
+References: <CAD03fjaBJGtNATBxaYO-PAxdKC=HxYgE+M7HQ_a0O+3Sp9Mruw@mail.gmail.com>
+ <84d8f2a1-6562-47a9-93d7-2d7ff33c31c0@lunn.ch>
+ <CAD03fjah2GMedDtauPQjP0++3USpy6tm3AUemgAjVHS=5Nirtg@mail.gmail.com>
+MIME-Version: 1.0
+Content-Type: text/plain; charset=utf-8
+Content-Disposition: inline
+Content-Transfer-Encoding: 8bit
+In-Reply-To: <CAD03fjah2GMedDtauPQjP0++3USpy6tm3AUemgAjVHS=5Nirtg@mail.gmail.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260601_132746_297137_C6A32869 
-X-CRM114-Status: UNSURE (   9.89  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20260601_052918_392480_2C8F34BD 
+X-CRM114-Status: GOOD (  18.80  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -110,28 +74,43 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-
-
-> On Jun 1, 2026, at 20:24, David Hildenbrand (Arm) <david@kernel.org> wrote:
+On Mon, Jun 01, 2026 at 11:35:14AM +0530, Grewstad wrote:
+> On Mon, Jun 1, 2026 at 1:22 AM Andrew Lunn <andrew@lunn.ch> wrote:
+> >
+> >
+> > In addition to what GregKH said, look at the vendor information:
+> >
+> > https://docs.amd.com/r/en-US/pg080-axi-fifo-mm-s/Core-Overview
+> >
+> >   The AXI4-Stream FIFO core was designed to provide memory-mapped
+> >   access to an AXI4-Stream interface connected to other IP (such as
+> >   the AXI Ethernet core). Systems must be built through the AMD
+> >   Vivado™ Design Suite to attach the AXI4-Stream FIFO core, AXI
+> >   Ethernet core ...
+> >
+> > when used for Ethernet, a uAPI is not needed. The FIFO driver would
+> > just expose an kernel internal API the Ethernet driver would use. Are
+> > there any Ethernet devices using it? Is there a driver for the AXI
+> > Ethernet core?
 > 
-> On 6/1/26 10:48, Muchun Song wrote:
->> The generic implementations now suffice; remove the loongarch copies.
-> 
-> You are only removing a single function? So "copy"
+> As I said to Greg K-H, it's 'chameleon' hardware because we don't know
+> what it'll be used for. It could be SDR or Ethernet or whatever it is
+> programmed for. The main thing is that it is a streaming interface.
+> But we cannot assume the use case.
 
-Yes. I copied the commit message from other commit and forgot to update
-accordingly.
+Flip that around. What is it actually used for today? Make sure it has
+the correct APIs needed for what it does now. New APIs can always be
+added latter, especially if they are in-kernel, code to glue it to an
+Ethernet driver for example. 
 
-> 
-> 
-> Reviewed-by: David Hildenbrand (Arm) <david@kernel.org>
+However, a grep for XIL_AXIS_FIFO suggests nothing in-kernel actually
+uses it.
 
-Thanks.
+Are there any real users from user space? You talk about SDR, does GNU
+Radio use it? Using what hardware?
 
-> 
-> -- 
-> Cheers,
-> 
-> David
+If you have no idea how the code is used, you cannot say what the
+correct interface is....
 
+	Andrew
 
