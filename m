@@ -4,68 +4,63 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 6A365CD6E4C
-	for <linux-arm-kernel@archiver.kernel.org>; Mon,  1 Jun 2026 06:26:32 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 47EC8CD6E4C
+	for <linux-arm-kernel@archiver.kernel.org>; Mon,  1 Jun 2026 06:36:43 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
-	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Content-Type:MIME-Version:Message-ID:Date:References:In-Reply-To:Subject:Cc:
+	To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=ilE3N4BOTdn9nDgsIqVIX55BotssAoPQjZsa6oIPMLY=; b=DzXLHjT9hZErp4B9QXMsTVgYpp
-	V3X2WLc9o/TDOxEjO4+AHvmt4PSDK7U5XjbRn8UsiNoORwGRuTjdwRFJpAI34Bg1H0GLbmzqEDoyr
-	kl6uLasNK1sTa5t/YfAHbB52qqrOU2ocN5BtmfjhJs0WgIUyAy2O55Z49Nzw/7T8CXfk6jBAgJ6KC
-	m2KD2D57+jsDwdOzelkMlsQbigJyzro+euIfGgvUOYVNlnOEM3ZgEECie/30bdYdbmOisIPp4rQcZ
-	nY2Mc79eVCuHfNcuvzhJf8xMXs0wHAXxsjmnR7cS/w9RaJ6FhpaYo4M5YipXk/VsBBE58dPUR8ttw
-	WWA4yglw==;
+	bh=9lAiVDVucdMqAYUaIsz2zKP8mWiCqDtisp/U8q8163k=; b=TYWSAWG94sAwL4bXTjH6ZWtuxv
+	kC/HKXAIPHlugoqg1xhOC7eAFQEK6Z5GjxwEWiV/EB/BquTqUQarFUxDz8ggBirdRG/6fbf/XIPkm
+	J8hXXMj+wr0U7SZQFRbpvEdZFeFnKPYClJdHys46R5pmuS2wsl90wGmAc/0CBJDlz3rOTtwHmz+u5
+	SNoYh+9z/kGOZjLxe24ZasF4oONUhIeGVjJQxjf4Uq+HmfLZQ2ty71f5vYZ+Iqa9Zl952Ias7ypKa
+	Dc0l76z0y8K7aQtb3q70tgW5xfDKjIH4t5spsBBYCwedg1Tx3i2Vr2yCM57z/WHq8DANXE4YPYLum
+	KWHiK9vA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wTw6U-0000000ACjF-0ZGR;
-	Mon, 01 Jun 2026 06:26:26 +0000
-Received: from foss.arm.com ([217.140.110.172])
-	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wTw6R-0000000ACim-1NIc
+	id 1wTwGJ-0000000ADYn-0rsD;
+	Mon, 01 Jun 2026 06:36:35 +0000
+Received: from smtpout-04.galae.net ([185.171.202.116])
+	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
+	id 1wTwGG-0000000ADY2-0ltS
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 01 Jun 2026 06:26:24 +0000
-Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
-	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id 88BA0267F;
-	Sun, 31 May 2026 23:26:16 -0700 (PDT)
-Received: from [10.164.18.45] (unknown [10.164.18.45])
-	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id E34D03F905;
-	Sun, 31 May 2026 23:26:16 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=simple/simple; d=arm.com; s=foss;
-	t=1780295181; bh=3+mbuSOPINRIL9Kin6A2TyWfF8smoqgqWi2QxpvIA04=;
-	h=Date:Subject:To:Cc:References:From:In-Reply-To:From;
-	b=UDWGUBrqwtsm4H1kD96qnayD0Gt/6wSVCIxG5vO5Csj9ooOqWdtqv2TeXpxpgnnkD
-	 JaX1+6lMgNLdmd3e7hD13QzppuwXLD7Jmq9oTWar6RVvfw6ik0y113eW97KQYI2P0g
-	 dygsfiUREkcoUVD64lZgCrEQV8KPI7LXd7k6GL/w=
-Message-ID: <1e50b8f4-22ae-4ff7-aac9-fa3242bb23ca@arm.com>
-Date: Mon, 1 Jun 2026 11:56:13 +0530
+	Mon, 01 Jun 2026 06:36:34 +0000
+Received: from smtpout-01.galae.net (smtpout-01.galae.net [212.83.139.233])
+	by smtpout-04.galae.net (Postfix) with ESMTPS id 30BC4C6247C;
+	Mon,  1 Jun 2026 06:36:29 +0000 (UTC)
+Received: from mail.galae.net (mail.galae.net [212.83.136.155])
+	by smtpout-01.galae.net (Postfix) with ESMTPS id 4FD84602AB;
+	Mon,  1 Jun 2026 06:36:27 +0000 (UTC)
+Received: from [127.0.0.1] (localhost [127.0.0.1]) by localhost (Mailerdaemon) with ESMTPSA id 84CD110888CCD;
+	Mon,  1 Jun 2026 08:36:23 +0200 (CEST)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=bootlin.com; s=dkim;
+	t=1780295786; h=from:subject:date:message-id:to:cc:mime-version:content-type:
+	 content-transfer-encoding:in-reply-to:references;
+	bh=9lAiVDVucdMqAYUaIsz2zKP8mWiCqDtisp/U8q8163k=;
+	b=Dhk9yDVfNkedeNz7hp8xqZpj2QnRayEzUOh3+WbPWJpOPOzIMjDFrrQVtHNrLljczMX+Wy
+	yIrE2MgaDFmSHdOsBF9M5jJz8CHFdQ0APZc0ISVfcvyFbkO99ty6i8e/dFhePO/hE9QJUr
+	sggvIER9E8H1HjdjM4BiCTTGblGLqdBXtNYVXhrJbxsF1ZvDP8Z8mbP5rv9K9AnB49+r/s
+	yPjqYhOzpVPn4kvxjlWdmInZDve9waV5LIsNiJqvXQTdkAb2Y0iiIipG9FsVYnMPpu+xPF
+	QIUXqnZur8uJOoAOCW5E1bc3qPDqDodFyD4wDdfdrHecSatCZKwuGiHPgwGXtw==
+From: Gregory CLEMENT <gregory.clement@bootlin.com>
+To: Martin Kaiser <martin@kaiser.cx>, Andrew Lunn <andrew@lunn.ch>
+Cc: linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org,
+ Martin Kaiser <martin@kaiser.cx>
+Subject: Re: [PATCH 0/2] arm: mvebu: two simple cleanups
+In-Reply-To: <20260502121438.116288-1-martin@kaiser.cx>
+References: <20260502121438.116288-1-martin@kaiser.cx>
+Date: Mon, 01 Jun 2026 08:36:22 +0200
+Message-ID: <87bjdu22e1.fsf@BLaptop.bootlin.com>
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [RFC V2 01/14] mm: Abstract printing of pxd_val()
-To: David Laight <david.laight.linux@gmail.com>,
- Dave Hansen <dave.hansen@intel.com>
-Cc: linux-arm-kernel@lists.infradead.org,
- Catalin Marinas <catalin.marinas@arm.com>, Will Deacon <will@kernel.org>,
- Ryan Roberts <ryan.roberts@arm.com>, Mark Rutland <mark.rutland@arm.com>,
- Lorenzo Stoakes <lorenzo.stoakes@oracle.com>,
- Andrew Morton <akpm@linux-foundation.org>,
- David Hildenbrand <david@kernel.org>, Mike Rapoport <rppt@kernel.org>,
- Linu Cherian <linu.cherian@arm.com>, Usama Arif <usama.arif@linux.dev>,
- linux-kernel@vger.kernel.org, linux-mm@kvack.org
-References: <20260513044547.4128549-1-anshuman.khandual@arm.com>
- <20260513044547.4128549-2-anshuman.khandual@arm.com>
- <74f66e30-ab3d-4352-89ef-1bccc7e9daeb@intel.com>
- <20260521104206.1c7d3fe0@pumpkin>
-Content-Language: en-US
-From: Anshuman Khandual <anshuman.khandual@arm.com>
-In-Reply-To: <20260521104206.1c7d3fe0@pumpkin>
-Content-Type: text/plain; charset=UTF-8
-Content-Transfer-Encoding: 7bit
+Content-Type: text/plain; charset=utf-8
+Content-Transfer-Encoding: quoted-printable
+X-Last-TLS-Session-Version: TLSv1.3
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260531_232623_456771_CE23CCAF 
-X-CRM114-Status: GOOD (  12.41  )
+X-CRM114-CacheID: sfid-20260531_233632_393637_37E3289B 
+X-CRM114-Status: UNSURE (   6.76  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -80,37 +75,31 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
+Martin Kaiser <martin@kaiser.cx> writes:
 
+> Two small patches that simplify the devicetree parsing in
+> arch/arm/mach-mvebu/coherency.c.
+>
+> Martin Kaiser (2):
+>   ARM: mvebu: drop unnecessary NULL check
+>   ARM: mvebu: simplify of_node_put calls
+>
 
-On 21/05/26 3:12 PM, David Laight wrote:
-> On Tue, 19 May 2026 07:28:17 -0700
-> Dave Hansen <dave.hansen@intel.com> wrote:
-> 
->> On 5/12/26 21:45, Anshuman Khandual wrote:
->>>  	if (!p4d_present(p4d) || p4d_leaf(p4d)) {
->>> -		pr_alert("pgd:%08llx p4d:%08llx\n", pgdv, p4dv);
->>> +		pr_alert("pgd:%" __PRIpxx " p4d:%" __PRIpxx "\n",
->>> +			 __PRIpxx_args(pgdv), __PRIpxx_args(p4dv));
->>>  		return;
->>>  	}  
->>
->> That's not the most readable result. Could a printk() format specifier
->> make this nicer? Maybe use "%pT"?
->>
->> 	pr_alert("pgd:%pT p4d:%pT\n", &pgd, &p4d);
->>
->> I _think_ it could even get rid of the p??v variables.
->>
-> 
-> Adding another %p variant that is only used in a few places just makes
-> it all harder to read.
-> Perhaps a local helper that lets you do:
-> 	char pdgv_buf[??]:
-> 	pr_alert("... %s ...", ... fmt_pdgv(pdgv_buf, pdgv) ...)
-> might be a reasonable compromise.
+Applied on mvebu/arm
 
-But will not that also create a similar code churn as adding %p variant ?
-As mentioned earlier a draft implementation could be found here.
+Thanks,
 
-https://lore.kernel.org/all/1d694f9d-4f40-428b-aa28-9d6e0febd54c@arm.com/
+Gregory
+
+>  arch/arm/mach-mvebu/coherency.c | 9 ++-------
+>  1 file changed, 2 insertions(+), 7 deletions(-)
+>
+> --=20
+> 2.43.7
+>
+
+--=20
+Gr=C3=A9gory CLEMENT, Bootlin
+Embedded Linux and Kernel engineering
+https://bootlin.com
 
