@@ -4,53 +4,53 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id D95D9CD6E55
-	for <linux-arm-kernel@archiver.kernel.org>; Mon,  1 Jun 2026 22:45:24 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 1FC38CD6E69
+	for <linux-arm-kernel@archiver.kernel.org>; Mon,  1 Jun 2026 22:45:25 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:References
 	:Message-Id:Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:
 	From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=Tm2VHiGgE02AiafDAdBgBBcxmDkPRVXXTrYESYA0XhU=; b=qSYc2DnrmvqpLNuE60Y2Vn9EX/
-	MaRuioBsxlQ4fvHQwhGsHAgtlrnIfv2kBY5NFO1C9LFgxNbjY7TUKwydKp6L6CVW5c5iIqx0S+bqN
-	0Psyi6al+rSbcRpgNbovxclg24KABAxjMEZRjX3MXEHdepXBm1VFXFv/mLlqtVLvKw5h0GzltlITm
-	68NaGznFY4NSzbvb5SaElWt+zBXc/+DSPK/BBsK2X69tHfkJR/XpCKkIkvXPljoVzwow4f5lY907w
-	VTSTh5FLojjiSK531JcYsMGVcvzWKGRrLeEK6G9gI7dt2/PA06wzqb42NtwsGM0mbdsHoS8cD/wxx
-	yN4MxuiQ==;
+	bh=JzubTtUlrSWzR8Qngas6Aa6DpUz6JqorkI4ASboXSNY=; b=Oa0sETA3gE54FDjAeXfOf+NIOz
+	K8hXRGx4+Pw/8Vs8PpD7sBqvUxmqQDEjQGiu8t3wsye61q2CZqvsb2c7dXKXDUngCCywMSYuXFVxj
+	vycw+PV17Y17El3dmBM1fhCl18Yz/TSjPWu9Y2UPJ6Gv18rkDrUOdU0jRi+In9MO6cgElj2DM0qC1
+	nROrDUgTqhoIws2o5AYhjF3vcLMeSFFOaGH1pPoBQU9EmCWCYWSUKHDikTE3v3VUudAJ8oy4HOZR3
+	fJZZd581Fvax3YOQsOdr6KgOeN5gFknOVsDy8wSy4OvsSf8+xtICEWlPjvovDDDOSqxUfgaJF5Vp5
+	ivX8Ryqg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wUBNk-0000000By2f-0b5V;
-	Mon, 01 Jun 2026 22:45:16 +0000
-Received: from bali.collaboradmins.com ([148.251.105.195])
+	id 1wUBNl-0000000By43-2DN9;
+	Mon, 01 Jun 2026 22:45:17 +0000
+Received: from bali.collaboradmins.com ([2a01:4f8:201:9162::2])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wUBNh-0000000By0a-3Cjc;
+	id 1wUBNi-0000000By0r-2U24;
 	Mon, 01 Jun 2026 22:45:15 +0000
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=collabora.com;
-	s=mail; t=1780353911;
-	bh=1TxawDU3yjqoMhD2RXj7CT9lQcvokN1vb2eWoTYf5Z4=;
+	s=mail; t=1780353912;
+	bh=rpL3MHwmbukVAMlSNrXnpHWWnXcNs/kbJP+qO9PfFXw=;
 	h=From:Date:Subject:References:In-Reply-To:To:Cc:From;
-	b=TSOvRfFw5F3RtSqH3MW9Q5fC8Y58+untt3VP+tevALOHtUb5jwKJhjoHnOaeiwymu
-	 BIvlgQ00gYQwP55hA3+aQKsVInMQ5ky8I1KUs0c2xBoQeJSYP9a8h8BcOKqL+Xm3NG
-	 XcuAauYfJEBgBrnDlhKFnXOYgGqURxU4YTdHDgsJgXcChjAYdWB9WYrkAku2KKlXNf
-	 ApB1jdqevU9Z7zUEwmN/6y9/h8I6cNXMhi7KaDlhlurDYbl4a9XHhPc6mf2kE44zvi
-	 XN1zDxD9DeXOgcIW1oqCDwbZxxuTKyx5eNRtNljtEaYmClqxPbbMcyx/91dye7HBIf
-	 hqPXgpW2a9lrg==
+	b=I1v1vuS5ZqOMXJ1VecZnWOGHAFaqHZFuKyUmSOcDNY3/4SZ+nM7yBeo3Jyx/NED7S
+	 rKmkH3SBRA9bHzL1p+KyiJh08WevT+WZ5gDZQXAjl9+/h66ylEjb7oMU2uqY9/5sAo
+	 EarPIsmu47wefj2cQRciNErVejVeo4A3bEaFPdB6ShGGB/38RblVfymFYjGAXe7eTg
+	 azV8zgrro4rKn90UPQ2Ihg8Pho8eekTjhrVW84+ea+cM00fXS4sZIOWxCw3XOfoSA/
+	 MxU4AU+B7fb20pHLVioFtN0awq+YqRDN2pZa+x3LZ13ULwr1DNlW0iP7gtvjCzffHb
+	 d17VbA7bYh4Fw==
 Received: from localhost (unknown [100.64.0.241])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange ECDHE (prime256v1) server-signature RSA-PSS (4096 bits) server-digest SHA256)
 	(No client certificate requested)
 	(Authenticated sender: cristicc)
-	by bali.collaboradmins.com (Postfix) with ESMTPSA id 078C017E01B6;
-	Tue,  2 Jun 2026 00:45:11 +0200 (CEST)
+	by bali.collaboradmins.com (Postfix) with ESMTPSA id 86BC617E0A6C;
+	Tue,  2 Jun 2026 00:45:12 +0200 (CEST)
 From: Cristian Ciocaltea <cristian.ciocaltea@collabora.com>
-Date: Tue, 02 Jun 2026 01:44:01 +0300
-Subject: [PATCH v7 01/30] drm/fb-helper: Remove unused local variable in
- hotplug_event()
+Date: Tue, 02 Jun 2026 01:44:03 +0300
+Subject: [PATCH v7 03/30] drm/display: scdc_helper: Add macro for
+ connector-prefixed debug messages
 MIME-Version: 1.0
 Content-Type: text/plain; charset="utf-8"
 Content-Transfer-Encoding: 7bit
-Message-Id: <20260602-dw-hdmi-qp-scramb-v7-1-445eb54ee1ed@collabora.com>
+Message-Id: <20260602-dw-hdmi-qp-scramb-v7-3-445eb54ee1ed@collabora.com>
 References: <20260602-dw-hdmi-qp-scramb-v7-0-445eb54ee1ed@collabora.com>
 In-Reply-To: <20260602-dw-hdmi-qp-scramb-v7-0-445eb54ee1ed@collabora.com>
 To: Maarten Lankhorst <maarten.lankhorst@linux.intel.com>, 
@@ -71,8 +71,9 @@ Cc: kernel@collabora.com, dri-devel@lists.freedesktop.org,
  linux-rockchip@lists.infradead.org
 X-Mailer: b4 0.15.2
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260601_154513_952636_6126365C 
-X-CRM114-Status: GOOD (  11.14  )
+X-CRM114-CacheID: sfid-20260601_154514_805745_F7B4AD17 
+X-CRM114-Status: UNSURE (   8.73  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -87,49 +88,85 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Remove the 'err' local variable in drm_fb_helper_hotplug_event() which
-only stores a return value that is never used beyond the immediate
-return statement.  This simplifies the code without behavior changes.
+Introduce the drm_scdc_dbg() wrapper over drm_dbg_kms() to help getting
+rid of the boilerplate around prefixing the debug messages with the
+connector information.
 
 Signed-off-by: Cristian Ciocaltea <cristian.ciocaltea@collabora.com>
 ---
- drivers/gpu/drm/drm_fb_helper.c | 11 +++--------
- 1 file changed, 3 insertions(+), 8 deletions(-)
+ drivers/gpu/drm/display/drm_scdc_helper.c | 24 +++++++++---------------
+ 1 file changed, 9 insertions(+), 15 deletions(-)
 
-diff --git a/drivers/gpu/drm/drm_fb_helper.c b/drivers/gpu/drm/drm_fb_helper.c
-index 7b11a582f8ec..3316bb00a662 100644
---- a/drivers/gpu/drm/drm_fb_helper.c
-+++ b/drivers/gpu/drm/drm_fb_helper.c
-@@ -1744,21 +1744,17 @@ EXPORT_SYMBOL(drm_fb_helper_initial_config);
-  */
- int drm_fb_helper_hotplug_event(struct drm_fb_helper *fb_helper)
- {
--	int err = 0;
--
- 	if (!drm_fbdev_emulation || !fb_helper)
- 		return 0;
+diff --git a/drivers/gpu/drm/display/drm_scdc_helper.c b/drivers/gpu/drm/display/drm_scdc_helper.c
+index df878aad4a36..cb6632346aad 100644
+--- a/drivers/gpu/drm/display/drm_scdc_helper.c
++++ b/drivers/gpu/drm/display/drm_scdc_helper.c
+@@ -55,6 +55,10 @@
  
- 	mutex_lock(&fb_helper->lock);
--	if (fb_helper->deferred_setup) {
--		err = __drm_fb_helper_initial_config_and_unlock(fb_helper);
--		return err;
--	}
-+	if (fb_helper->deferred_setup)
-+		return __drm_fb_helper_initial_config_and_unlock(fb_helper);
+ #define SCDC_I2C_SLAVE_ADDRESS 0x54
  
- 	if (!fb_helper->fb || !drm_master_internal_acquire(fb_helper->dev)) {
- 		fb_helper->delayed_hotplug = true;
- 		mutex_unlock(&fb_helper->lock);
--		return err;
-+		return 0;
++#define drm_scdc_dbg(connector, fmt, ...)					\
++	drm_dbg_kms((connector)->dev, "[CONNECTOR:%d:%s] " fmt,			\
++		    (connector)->base.id, (connector)->name, ##__VA_ARGS__)
++
+ /**
+  * drm_scdc_read - read a block of data from SCDC
+  * @adapter: I2C controller
+@@ -158,9 +162,7 @@ bool drm_scdc_get_scrambling_status(struct drm_connector *connector)
+ 
+ 	ret = drm_scdc_readb(connector->ddc, SCDC_SCRAMBLER_STATUS, &status);
+ 	if (ret < 0) {
+-		drm_dbg_kms(connector->dev,
+-			    "[CONNECTOR:%d:%s] Failed to read scrambling status: %d\n",
+-			    connector->base.id, connector->name, ret);
++		drm_scdc_dbg(connector, "Failed to read scrambling status: %d\n", ret);
+ 		return false;
  	}
  
- 	drm_master_internal_release(fb_helper->dev);
-@@ -1802,4 +1798,3 @@ bool drm_fb_helper_gem_is_fb(const struct drm_fb_helper *fb_helper,
- 	return gem == obj;
- }
- EXPORT_SYMBOL_GPL(drm_fb_helper_gem_is_fb);
--
+@@ -188,9 +190,7 @@ bool drm_scdc_set_scrambling(struct drm_connector *connector,
+ 
+ 	ret = drm_scdc_readb(connector->ddc, SCDC_TMDS_CONFIG, &config);
+ 	if (ret < 0) {
+-		drm_dbg_kms(connector->dev,
+-			    "[CONNECTOR:%d:%s] Failed to read TMDS config: %d\n",
+-			    connector->base.id, connector->name, ret);
++		drm_scdc_dbg(connector, "Failed to read TMDS config: %d\n", ret);
+ 		return false;
+ 	}
+ 
+@@ -201,9 +201,7 @@ bool drm_scdc_set_scrambling(struct drm_connector *connector,
+ 
+ 	ret = drm_scdc_writeb(connector->ddc, SCDC_TMDS_CONFIG, config);
+ 	if (ret < 0) {
+-		drm_dbg_kms(connector->dev,
+-			    "[CONNECTOR:%d:%s] Failed to enable scrambling: %d\n",
+-			    connector->base.id, connector->name, ret);
++		drm_scdc_dbg(connector, "Failed to enable scrambling: %d\n", ret);
+ 		return false;
+ 	}
+ 
+@@ -248,9 +246,7 @@ bool drm_scdc_set_high_tmds_clock_ratio(struct drm_connector *connector,
+ 
+ 	ret = drm_scdc_readb(connector->ddc, SCDC_TMDS_CONFIG, &config);
+ 	if (ret < 0) {
+-		drm_dbg_kms(connector->dev,
+-			    "[CONNECTOR:%d:%s] Failed to read TMDS config: %d\n",
+-			    connector->base.id, connector->name, ret);
++		drm_scdc_dbg(connector, "Failed to read TMDS config: %d\n", ret);
+ 		return false;
+ 	}
+ 
+@@ -261,9 +257,7 @@ bool drm_scdc_set_high_tmds_clock_ratio(struct drm_connector *connector,
+ 
+ 	ret = drm_scdc_writeb(connector->ddc, SCDC_TMDS_CONFIG, config);
+ 	if (ret < 0) {
+-		drm_dbg_kms(connector->dev,
+-			    "[CONNECTOR:%d:%s] Failed to set TMDS clock ratio: %d\n",
+-			    connector->base.id, connector->name, ret);
++		drm_scdc_dbg(connector, "Failed to set TMDS clock ratio: %d\n", ret);
+ 		return false;
+ 	}
+ 
 
 -- 
 2.54.0
