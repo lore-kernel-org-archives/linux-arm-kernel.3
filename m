@@ -4,66 +4,81 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 76BADCD5BD1
-	for <linux-arm-kernel@archiver.kernel.org>; Mon,  1 Jun 2026 15:47:51 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id F3109CD6E55
+	for <linux-arm-kernel@archiver.kernel.org>; Mon,  1 Jun 2026 15:49:06 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:
-	Content-Transfer-Encoding:Content-Type:MIME-Version:References:Message-ID:
-	Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=UZaQZA/YkXwhmlYNR9C5TH/86ysytbwmJ3KoYCamO5U=; b=Eur2yS7PPVUHioi1EFm7muvD1/
-	SHWhytG0k/nrdXIw85EEi/lpiwxpUAsJRb/Msoa4OrTlhfTDW3nAD88cD/jye6eYz/pib6ocuWQKV
-	3MxYErTHmJpvXZZIWc94bSttU6W+k1thHtuMNDMOfEdZX7+OtX7/PDk8VE3/viOshR+laqt0A3Vz5
-	2doPte//5asSaymLn8dziTCYw/p6KtGDCZ/SPJEgYomXUfVlZjGqmgr1Zsd5F6LQ7QFyB7oF66W9q
-	nxLaMyo6RiypUaW30FFbOeEAWMVNUzj80VUfnYrOyyA1NvTP54HMl1++y0UbrZJmU9eqXqp/+isXe
-	x6rVSaYg==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:References:
+	Subject:From:To:Cc:Message-Id:Date:Content-Type:Content-Transfer-Encoding:
+	Mime-Version:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=eLYLsBb0ONwXHUDdcmFlUMyOyjoSEmiNVpHJ/FyPVxM=; b=AInOzBIPx+1h/FZMTzkysFsgRK
+	7DR8KbehzfeJF40IPFxMP3HdpRwy3vi8A/LIHZrtDjtjfukfWOEDzLZZoYP2EVutfS5RQFLR/Uxwc
+	REly+5owiDN2pOYk96dLuQ09yncYm/fPhxYihbvNON0LmH/P386TX2rR0tYu8BSdPnmJ2gj6DqOR0
+	hks4Q17KbKfsghXhrsq7/XuC85IuykKGD6Kodwi3mOLPfPcxCNpgr6lsjftp0EDkCIlE2lj8l2Wg+
+	cCEqABa73NYIXEUhr0EGc2eZeuvtSzdmC8y8U4NYP6SDsmN03gBT4gO8lUbVR+GgKA+SqQYUzdFkD
+	lLYpqoEQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wU4rh-0000000BPNX-2L7w;
-	Mon, 01 Jun 2026 15:47:45 +0000
-Received: from tor.source.kernel.org ([172.105.4.254])
+	id 1wU4st-0000000BPUk-3KpY;
+	Mon, 01 Jun 2026 15:48:59 +0000
+Received: from sea.source.kernel.org ([172.234.252.31])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wU4rg-0000000BPNM-0Mmv
+	id 1wU4sr-0000000BPUM-1JFf
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 01 Jun 2026 15:47:44 +0000
+	Mon, 01 Jun 2026 15:48:58 +0000
 Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
-	by tor.source.kernel.org (Postfix) with ESMTP id 28B34601E3;
-	Mon,  1 Jun 2026 15:47:43 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 701171F00893;
-	Mon,  1 Jun 2026 15:47:42 +0000 (UTC)
+	by sea.source.kernel.org (Postfix) with ESMTP id AA9CB40B84;
+	Mon,  1 Jun 2026 15:48:56 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id D38CA1F00893;
+	Mon,  1 Jun 2026 15:48:49 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1780328862;
-	bh=UZaQZA/YkXwhmlYNR9C5TH/86ysytbwmJ3KoYCamO5U=;
-	h=Date:From:To:Cc:Subject:References:In-Reply-To;
-	b=REhd2V2yu6dndNqAWxs9F06Fld5Yu5uNtFEFSpX6COUw+oYOYdG8ik7nUDUY4IO2Y
-	 RNp2O50il4BV9lVKLGtfPtcmdE4fBtlZ+Jk8BS0WzK3zdi3jILLlcTZLq8dxwBQ1rE
-	 3hU0Szkaif/riuT80PGpsRvLOSd+fyZdWBkTph6oWds7FDm23FmJgYEXwZiMj3rVNf
-	 WGay+zjVXH32/oXVoJ9vTEoavrNnto6ikOr9PGUjzSBqZb+sd7nJTkhITCJWOdWxVM
-	 64o/jDDeuMo2rl1llgTpesKungho/t3Qgi8ASgTOPLoVuu9BXSRHKi3QFx79gGq9dZ
-	 auKQasjFMiZmg==
-Date: Mon, 1 Jun 2026 15:47:40 +0000
-From: Eric Biggers <ebiggers@kernel.org>
-To: Corentin Labbe <clabbe.montjoie@gmail.com>
-Cc: Tianchu Chen <tianchu.chen@linux.dev>, herbert@gondor.apana.org.au,
-	davem@davemloft.net, wens@kernel.org, jernej.skrabec@gmail.com,
-	samuel@sholland.org, linux-crypto@vger.kernel.org,
-	linux-arm-kernel@lists.infradead.org, linux-sunxi@lists.linux.dev,
-	linux-kernel@vger.kernel.org
-Subject: Re: [PATCH v2] crypto: sun4i-ss - clamp PRNG seed length to prevent
- heap overflow
-Message-ID: <20260601154740.GA17375@google.com>
-References: <af749a8447bd7f0e9dd26ca6c87e9c6afecb09d9@linux.dev>
- <4d4407c05835a50413fa1e974e3aa3f4abfe2d5b@linux.dev>
- <20260529161057.GA2706@sol>
- <ahnIbpBLyn5z_siT@Red>
- <20260529173341.GA566433@google.com>
- <ah2d0RyZcVp614_k@Red>
-MIME-Version: 1.0
-Content-Type: text/plain; charset=iso-8859-1
-Content-Disposition: inline
-Content-Transfer-Encoding: 8bit
-In-Reply-To: <ah2d0RyZcVp614_k@Red>
+	s=k20260515; t=1780328936;
+	bh=eLYLsBb0ONwXHUDdcmFlUMyOyjoSEmiNVpHJ/FyPVxM=;
+	h=Date:Cc:To:From:Subject:References:In-Reply-To;
+	b=NECP3/zXoYK3LReSlsYz4ooKpK2nD/slHDnOEauFsl1dp0cnGLUjr2KviU0/1iYcf
+	 4mYZ4YhVkFcwOd+mXk4T0azDsLoyFTQAI9sjMQ8/ItH+NXHoi4x/Oc5QmmFbVKkuf3
+	 0Suh6cOnN9uHkDKOQpqYoMnwBifVyM4RrNKGg/pNPJvSskssbjES0SQg5W4pP2Kibr
+	 +9sjXhTSnU3zfmZnqm2UyD1lYNdmu9vKaFNcvhVcYy2FiEcB+a6zm/deWOmB+iX19M
+	 GiFjDdiigMlZ5B0aifU0iZx0lx5JiESjDADJqZ2Hi66N9IndK/10/38kij7W83cN1R
+	 +otxfT1jkffXA==
+Mime-Version: 1.0
+Content-Transfer-Encoding: quoted-printable
+Content-Type: text/plain; charset=UTF-8
+Date: Mon, 01 Jun 2026 17:48:48 +0200
+Message-Id: <DIXTXMSCSRPD.DKCTO34P6APU@kernel.org>
+Cc: "Gary Guo" <gary@garyguo.net>, "Petr Pavlu" <petr.pavlu@suse.com>,
+ "Rahul Bukte" <rahul.bukte@sony.com>, <linux-kernel@vger.kernel.org>,
+ <coresight@lists.linaro.org>, <linux-arm-kernel@lists.infradead.org>,
+ <driver-core@lists.linux.dev>, <rust-for-linux@vger.kernel.org>,
+ <linux-doc@vger.kernel.org>, "Daniel Palmer" <daniel.palmer@sony.com>, "Tim
+ Bird" <tim.bird@sony.com>, <linux-modules@vger.kernel.org>,
+ <linux-tegra@vger.kernel.org>, "Sumit Gupta" <sumitg@nvidia.com>, "James
+ Clark" <james.clark@linaro.org>, "Alexander Shishkin"
+ <alexander.shishkin@linux.intel.com>, "Greg Kroah-Hartman"
+ <gregkh@linuxfoundation.org>, "Rafael J. Wysocki" <rafael@kernel.org>,
+ "Miguel Ojeda" <ojeda@kernel.org>, "Boqun Feng" <boqun@kernel.org>,
+ =?utf-8?q?Bj=C3=B6rn_Roy_Baron?= <bjorn3_gh@protonmail.com>, "Benno Lossin"
+ <lossin@kernel.org>, "Andreas Hindborg" <a.hindborg@kernel.org>, "Alice
+ Ryhl" <aliceryhl@google.com>, "Trevor Gross" <tmgross@umich.edu>, "Jonathan
+ Corbet" <corbet@lwn.net>, "Shuah Khan" <skhan@linuxfoundation.org>, "Luis
+ Chamberlain" <mcgrof@kernel.org>, "Daniel Gomez" <da.gomez@kernel.org>,
+ "Sami Tolvanen" <samitolvanen@google.com>, "Aaron Tomlin"
+ <atomlin@atomlin.com>, "Mike Leach" <mike.leach@arm.com>, "Leo Yan"
+ <leo.yan@arm.com>, "Thierry Reding" <thierry.reding@kernel.org>, "Jonathan
+ Hunter" <jonathanh@nvidia.com>
+To: "Shashank Balaji" <shashank.mahadasyam@sony.com>, "Suzuki K Poulose"
+ <suzuki.poulose@arm.com>
+From: "Danilo Krummrich" <dakr@kernel.org>
+Subject: Re: [PATCH v6] kernel: param: initialize module_kset in a
+ pure_initcall
+References: <ahEd4iC-2hqUbMy3@JPC00244420>
+ <20260601101942.4002661-1-shashank.mahadasyam@sony.com>
+In-Reply-To: <20260601101942.4002661-1-shashank.mahadasyam@sony.com>
+X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
+X-CRM114-CacheID: sfid-20260601_084857_389072_721FE468 
+X-CRM114-Status: UNSURE (   7.50  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -78,57 +93,20 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Mon, Jun 01, 2026 at 04:57:21PM +0200, Corentin Labbe wrote:
-> Le Fri, May 29, 2026 at 05:33:41PM +0000, Eric Biggers a écrit :
-> > On Fri, May 29, 2026 at 07:10:06PM +0200, Corentin Labbe wrote:
-> > > Le Fri, May 29, 2026 at 09:10:57AM -0700, Eric Biggers a écrit :
-> > > > On Fri, May 29, 2026 at 08:08:01AM +0000, Tianchu Chen wrote:
-> > > > > From: Tianchu Chen <flynnnchen@tencent.com>
-> > > > > 
-> > > > > sun4i_ss_prng_seed() copies the user-supplied seed into ss->seed
-> > > > > using the user-provided length with no bounds check. The crypto core
-> > > > > does not enforce slen <= seedsize before calling into the driver, so a
-> > > > > userspace caller via AF_ALG setsockopt(ALG_SET_KEY) can pass up to
-> > > > > sysctl_optmem_max bytes, overflowing the fixed-size buffer and
-> > > > > corrupting adjacent heap memory.
-> > > > > 
-> > > > > Clamp the copy length to the buffer size, matching the approach used by
-> > > > > loongson-rng for oversized seeds.
-> > > > > 
-> > > > > Discovered by Atuin - Automated Vulnerability Discovery Engine.
-> > > > > 
-> > > > > Fixes: 6298e948215f ("crypto: sunxi-ss - Add Allwinner Security System crypto accelerator")
-> > > > > Cc: stable@vger.kernel.org
-> > > > > Signed-off-by: Tianchu Chen <flynnnchen@tencent.com>
-> > > > > ---
-> > > > > v2: Silently clamp oversized seeds with min_t instead of returning
-> > > > >     -EINVAL (Herbert Xu).
-> > > > 
-> > > > sun4i-ss-prng.c is useless, is still broken, and should just be deleted.
-> > > 
-> > > Hello
-> > > 
-> > > useless ? clearly no, it helped a lot on devices where it is.
-> > 
-> > The only way this code is reachable is via "rng" algorithm type in
-> > AF_ALG, which is almost never used.  Everyone just uses the regular
-> > Linux RNG (/dev/random etc) instead, as they should.
-> > 
-> > In fact, anyone were to accidentally use this it would be a security
-> > vulnerability, seeing as sun4i_ss_prng_generate() doesn't actually fill
-> > in all the bytes that were requested.  It also doesn't wait for the FIFO
-> > to be ready when reading data from it.
-> > 
-> > Is it possible that there's a misunderstanding here and you think this
-> > provides entropy to the regular Linux RNG?  It doesn't.  hwrng does
-> > that, crypto_rng does not.
-> > 
-> 
-> I believe to have used rngd for that. ( or something like that)
-> 
-> Anyway, I understand why want to remove it.
+On Mon Jun 1, 2026 at 12:19 PM CEST, Shashank Balaji wrote:
+> Danilo, I'm assuming this series goes through driver-core. Could you plea=
+se
+> pick up this version of this patch and the v5 of the others?
 
-rngd doesn't use AF_ALG.  So no, it couldn't have used this driver.
+Yes, that's fine. It would be nice to have an ACK from Suzuki for the cores=
+ight
+changes though.
 
-- Eric
+Suzuki, is this fine with you?
+
+Also, for the future, please don't send new versions as a reply to previous
+versions, bus as a new thread.
+
+Thanks,
+Danilo
 
