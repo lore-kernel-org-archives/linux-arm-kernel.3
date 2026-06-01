@@ -4,135 +4,89 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 7CD02CD6E56
-	for <linux-arm-kernel@archiver.kernel.org>; Mon,  1 Jun 2026 12:32:46 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 8ED4ACD6E56
+	for <linux-arm-kernel@archiver.kernel.org>; Mon,  1 Jun 2026 12:36:38 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:In-Reply-To:
-	Content-Type:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=veWpZLRFgtcf1cqOGFfc/hdT/FRLRZwStZHNwnxIOz0=; b=sko2CEsNxzKNaziFgq3RzmMMf2
-	mH0qNkB/gV88iKQOx3CI56rQsFHcHogGrliyMtZaJPrKzAESswnCeavQIjqeQ8HViX8SRQOu5eAzE
-	Vfj2AJDIHqQ6anfL8TvZuG210QinrxJIQ2Xgeq4XgEV6BzHR/WcU9yfBHn1T6e+LOQVDAlzFA6GMX
-	3g+53sVd4CWJdeWB6mgKROX5NLeVkKep3Z1oeJLYEqWZw6IzBR7hX3t9OAGnrvq5L+t/LWIEE9wK2
-	0TkOJrDFa+o7AFnjuUNzaAZGLMVKWHnzxidRjRGN27yvsbY4u7SnsAFn5nx6JznrDA545jlSdotUP
-	FFM8mFRA==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	MIME-Version:Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-Type:
+	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
+	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=ulq7zD4ctN0+5WRFW+oZ1/qxY6rbHFNEsFrgeGiPH/c=; b=vnGxAfuWb+sOajJgZ6uzkAzuYi
+	6mkAr+9CIfkcWNuz7XTvrrgYTlxe6I+Ib1t9LvBlHdx3acCvcmmdHeB8uvsqPviPLEBb5FwR8Nxic
+	XVKy8FEoq9zzHxWHqOiqbWSWDscZTRKcjLWHejERSDVYJ1IcJKNHfW/gxTXihYLXkWUqG8SuL40fD
+	Kt7xlmMKANDJMhice4T4YMNaxIAugWgr95GfhQ0eSb7OlvBlayucI0/OXeImdbL4SX+bvDQizFT3m
+	8luGcJdAD1V8D9IAZORR8p4exQjz+PNIqLR/O+qONq5lgNaKPmSD76eVVb4NnIgB+SoEv77Kk4UU1
+	GSa8KueQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wU1ou-0000000B8mv-27WG;
-	Mon, 01 Jun 2026 12:32:40 +0000
-Received: from mail-westus3azlp170100009.outbound.protection.outlook.com ([2a01:111:f403:c107::9] helo=PH7PR06CU001.outbound.protection.outlook.com)
+	id 1wU1sa-0000000B94V-0lE4;
+	Mon, 01 Jun 2026 12:36:28 +0000
+Received: from mail-pf1-x429.google.com ([2607:f8b0:4864:20::429])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wU1os-0000000B8mW-3atI
+	id 1wU1sX-0000000B943-3TlE
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 01 Jun 2026 12:32:40 +0000
-ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
- b=Dzymx3uS6OEWVmaWbNy0mW9ZluFs+aQ2dXYLtey1bCseAmt5nNrZkV9/Gxd2186/iPlgeJAAjwDFjis3Uu4/CTdcx/a/+WXYbWztBn+6Bw55QdncWM1z3bS06DlxlK3PsNp7puj4Nr75nM/MrrG6HLbsZjP524lz5GZo/57uRMc3AqOuXQJ4OkBAtBzy935CsLAEeiM8A5pGwuQ8tCIIsDpU9+cTJaD3rwVrT/V9I5L5lMa/4rGi5JAwxm9QE+3sk/ZuJ/dGoZbFqLDwJjEz2j/WNVuZ5sjsvJ92fFMHaBlzgo41MZY9DaOwEtohU1NLvzr/sXjK6I303OZnQWiy6A==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
- s=arcselector10001;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
- bh=veWpZLRFgtcf1cqOGFfc/hdT/FRLRZwStZHNwnxIOz0=;
- b=XHgcEZctZI69aTWfwzhWRoBq7Mqh45fQdJh1GUH4RYIFbXwYjNjqqKUQ9Y4z/ywPx8757FPzsHl7TfWrxmfSaEZDV7dKht3LRXmM2rw9utvBELZlqGeA1ATiA7e6LXqd7/w0IQ62Lx+DwXAqe8t7XdEK6mRGJ2zA6BAY9XKaXHHlmuNjL4pCUavzgFe73ugMEX4d3tWusp6Eb0IWS+yiKZkTSS5hgWZT1bAyfXr/CNElnwlOzuYl6KFyORmS1M61h6cq4l4uWmsxiNHXlNi+ynB3xTxBuMSZ3NYaGaG3xSE5uHlrfFgd+8YeqNVbafJNGzoRBkOoMEUpmiUkICmltA==
-ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
- smtp.mailfrom=nvidia.com; dmarc=pass action=none header.from=nvidia.com;
- dkim=pass header.d=nvidia.com; arc=none
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=Nvidia.com;
- s=selector2;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
- bh=veWpZLRFgtcf1cqOGFfc/hdT/FRLRZwStZHNwnxIOz0=;
- b=IYkq6Or9cfY7BMGXGkyWSkN2/7qzijllrHdLwVLl1oQGAE5a0x2jotmASFtcgLHWrVvjMGGifMTS5TpFc/2IWgeeJvmYiTbJ1PwDIOjsOK/pace2e/asXGhrScmOmK5a/mNc15RyXw7mglhpo6LfOiMoa156vO6BmKQzgKam7264gTvyQzNagJJoeEMje7BfBDnA/wck/+70Dc4agcfJyFfsQHG62OpFJMfsdNsuNWPJs3bZMgXyk7ur6LMVGNRcMVfr+ZktA4evJsd49P8cIwZ0POx6D9RVj5sY6bW5cIotq80bsjgrTMaBlzwMhsS0Wc+7Be17l2vx+HKyLgie9w==
-Authentication-Results: dkim=none (message not signed)
- header.d=none;dmarc=none action=none header.from=nvidia.com;
-Received: from LV8PR12MB9620.namprd12.prod.outlook.com (2603:10b6:408:2a1::19)
- by CYYPR12MB8655.namprd12.prod.outlook.com (2603:10b6:930:c4::19) with
- Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.21.71.16; Mon, 1 Jun 2026
- 12:32:32 +0000
-Received: from LV8PR12MB9620.namprd12.prod.outlook.com
- ([fe80::299d:f5e0:3550:1528]) by LV8PR12MB9620.namprd12.prod.outlook.com
- ([fe80::299d:f5e0:3550:1528%4]) with mapi id 15.21.0071.011; Mon, 1 Jun 2026
- 12:32:32 +0000
-Date: Mon, 1 Jun 2026 09:32:31 -0300
-From: Jason Gunthorpe <jgg@nvidia.com>
-To: Nicolin Chen <nicolinc@nvidia.com>
-Cc: Will Deacon <will@kernel.org>, Robin Murphy <robin.murphy@arm.com>,
-	Joerg Roedel <joro@8bytes.org>, Bjorn Helgaas <bhelgaas@google.com>,
-	"Rafael J . Wysocki" <rafael@kernel.org>,
-	Len Brown <lenb@kernel.org>, Pranjal Shrivastava <praan@google.com>,
-	Mostafa Saleh <smostafa@google.com>,
-	Lu Baolu <baolu.lu@linux.intel.com>,
-	Kevin Tian <kevin.tian@intel.com>,
-	linux-arm-kernel@lists.infradead.org, iommu@lists.linux.dev,
-	linux-kernel@vger.kernel.org, linux-acpi@vger.kernel.org,
-	linux-pci@vger.kernel.org, vsethi@nvidia.com,
-	Shuai Xue <xueshuai@linux.alibaba.com>
-Subject: Re: [PATCH v4 18/24] iommu/arm-smmu-v3: Introduce master->ats_broken
- flag
-Message-ID: <20260601123231.GG3195266@nvidia.com>
-References: <cover.1779161849.git.nicolinc@nvidia.com>
- <49dde0a2e2dc88e421a3010956db33d47cc92aa8.1779161849.git.nicolinc@nvidia.com>
- <20260519120658.GB3477375@nvidia.com>
- <aho9DB6it2R5O5Nm@Asurada-Nvidia>
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-In-Reply-To: <aho9DB6it2R5O5Nm@Asurada-Nvidia>
-X-ClientProxiedBy: YT4P288CA0011.CANP288.PROD.OUTLOOK.COM
- (2603:10b6:b01:d4::22) To LV8PR12MB9620.namprd12.prod.outlook.com
- (2603:10b6:408:2a1::19)
+	Mon, 01 Jun 2026 12:36:26 +0000
+Received: by mail-pf1-x429.google.com with SMTP id d2e1a72fcca58-8423f53332aso422326b3a.3
+        for <linux-arm-kernel@lists.infradead.org>; Mon, 01 Jun 2026 05:36:25 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=gmail.com; s=20251104; t=1780317384; x=1780922184; darn=lists.infradead.org;
+        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
+         :to:from:from:to:cc:subject:date:message-id:reply-to;
+        bh=ulq7zD4ctN0+5WRFW+oZ1/qxY6rbHFNEsFrgeGiPH/c=;
+        b=VL235ipEAdyoamaxmOMItG24hzmYhrGqZDa31yzQrZU8jXBOslqODFp0CaTwaEgn56
+         8eFt4wOa7C2LbMQtinE13TBElwu1efHFammIJWblZA8uSq4L8WSN++d11aSPikhEhr06
+         og00vLx7P+AEnEYnkyP5CsGgRk9VMNF75N30skSs6JEG7VcTx4wKsrM2D5plaauiD/JY
+         3D7ocuLdp0rj51e4AgfqCox4rAbGwg1kcRO1btr/cplMUqekvvjp1ttnpG8WBFcNc3He
+         i5cMuAnEHg0ioTDRwuTGl4cqXXd5KnOF6ep9akTaYLqGpmbJBRqu3IYXZvZC8c8Q6x38
+         lC5A==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20251104; t=1780317384; x=1780922184;
+        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
+         :to:from:x-gm-gg:x-gm-message-state:from:to:cc:subject:date
+         :message-id:reply-to;
+        bh=ulq7zD4ctN0+5WRFW+oZ1/qxY6rbHFNEsFrgeGiPH/c=;
+        b=bjIhjNmQp4egb0SpyyKTzTG57CYKuCJZL6EjnNA2j/iq2tuKxMiu0gXle32WGlcb6q
+         Jeds4erMKcywh3jIQgZK2n9uHwdcx+buGHqioJLmCkDT5XLwa5OLtEauPvSu2+XxInoy
+         +T5T/ybNa4lXCc17BMGIYbucQ8wNSq+04hVb5lO1gmdyAyy+OsY50Ga7fNJQE/nOuWmZ
+         4ZG/kdybUrYhcoMYWzhGuXrPqiv9mKp3ViwPyyqHXf9t9PAjIwezPCcJilUEvVnRXgRb
+         CjOJLFwktOaOSQw9hw0HZ81Vyb5KsipeRDzDuGFJdzVmTfCELJayIYoLXxM94IK56nM3
+         STzA==
+X-Forwarded-Encrypted: i=1; AFNElJ/4CcmPeV0qfl5J1uku1v+EejgqogsXeI1lPw4/re20ePNbqsDTmU2xZ/6paVz8yFptDi1fyG5v7/7cSjk+8pdx@lists.infradead.org
+X-Gm-Message-State: AOJu0Yx3R8iEdQj1Wtr412JTPNaWJ08dNC+rCOLkcmhQ59jUfj6BOUZn
+	yduruzNR0m/vQCUvBVIN4K+CtvqSsYKWeO5+lpnEmSEODd5BJ1uVoQvt
+X-Gm-Gg: Acq92OEx8A/GD9VnYeqBfD9MedKA97tbWLfGphdYI4/otk3BuO1SuxbcwdreHPKmIaR
+	HqVH3w6UGSPg6ZT7lfRz+6m8sRDD5nDCehfI+zqRxr7sZxkFk/h/60JSap82WClLClcNzoVgmwN
+	Q7g+l1Z5cnWfqrIEPIq074t5FbZO2AVJtnu0b0hyFFOnwFSHCxy51xsceILfc5op3RvjnX3Tvt+
+	Z7zou50hHpiCYALvUCl/ZwiGJAoEUu9OwPtwxaEAUakyKQObZs6jJaZgI0/c0FJjmxv0qR8sSul
+	Z5msgI8Jn4/im1M9LiaNHqiUT9fd+mvuAp5710O/FqfHjY8w3SIVR1RVHfWlxR4wEObSxJAqTYQ
+	2quvyp8ADD7k6dC34kNyw/AmsW92BqGbgoC5VtkZoO2StpXzkHCyBd21bnQuwxIaHzl9SDYFEEK
+	eKwRat5RQfP41i+I5O6Gd5HZdldL35zEhQcd9e6vACBE7xbnzoSS0=
+X-Received: by 2002:a05:6a00:4296:b0:82f:5726:be23 with SMTP id d2e1a72fcca58-8422575fed2mr10037266b3a.49.1780317384389;
+        Mon, 01 Jun 2026 05:36:24 -0700 (PDT)
+Received: from i386.168.1.127 ([2402:a00:163:2ce9:9c6f:e28:3da8:7980])
+        by smtp.gmail.com with ESMTPSA id d2e1a72fcca58-8424defc024sm3765997b3a.47.2026.06.01.05.36.17
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Mon, 01 Jun 2026 05:36:21 -0700 (PDT)
+From: Hrushiraj Gandhi <hrushirajg23@gmail.com>
+To: Heiko Stuebner <heiko@sntech.de>
+Cc: Rob Herring <robh@kernel.org>,
+	Krzysztof Kozlowski <krzk+dt@kernel.org>,
+	Conor Dooley <conor+dt@kernel.org>,
+	devicetree@vger.kernel.org,
+	linux-arm-kernel@lists.infradead.org,
+	linux-rockchip@lists.infradead.org,
+	linux-kernel@vger.kernel.org,
+	Hrushiraj Gandhi <hrushirajg23@gmail.com>
+Subject: [PATCH 0/1] arm64: dts: rockchip: add Vicharak Axon board support
+Date: Mon,  1 Jun 2026 18:06:02 +0530
+Message-ID: <20260601123603.129679-1-hrushirajg23@gmail.com>
+X-Mailer: git-send-email 2.47.3
 MIME-Version: 1.0
-X-MS-PublicTrafficType: Email
-X-MS-TrafficTypeDiagnostic: LV8PR12MB9620:EE_|CYYPR12MB8655:EE_
-X-MS-Office365-Filtering-Correlation-Id: e17a9a48-2d9b-46b9-b5fb-08debfd9da1d
-X-MS-Exchange-SenderADCheck: 1
-X-MS-Exchange-AntiSpam-Relay: 0
-X-Microsoft-Antispam: BCL:0;ARA:13230040|7416014|376014|1800799024|366016|18002099003|22082099003|56012099006|4143699003|11063799006;
-X-Microsoft-Antispam-Message-Info: Lw7mMCzWKKuaNNpIw3spDsGcgb5t91enzTuoYLeir1EsPEYMf7ekmSyHCQxz6O2fvaQzzznh8WUMmgE6xl48LbU+lm30p8yP5eKT67Y34BzhKNuXtCFLbAx46tFo/uZjZD3qookGlF0TXgzEf1Fq5nHtPzf8xgR52HQ4OSvnfBGuyIRdrHNTYByPxfQT3XQCNC4mU9VTJUZfs267q3uz6pzeXMwUSlgYAwMwi4aBQChbIPSEbHH4g9B88Jsw/qPXtprezn5EoPmIMZm9zHfDiJmKR5+ywD4M/ogIE00ZH0tORMAiOYqB6tK7BAE4pSHaV/1RUcoTUjySHyWsL3YyQUqHCYwHsZ9Kf9qER9aqbOjM9ran35KwKBSarSqSEu5vzuDoPxS97uvuwJM9aNww0UEgm6mX2xvG8CAxlLWeAgD8c1gfQzj6yq+ZWzWi7YvEGrPIu7sf6Xe0cA1jtwR57VWnSMp7tHXSlIFyexaguP4eQ/LpTLqTUS5TRt7n9p01Fyl1Dk5nXHMlk3/b4uXukSx1Agg+HjTSwYwrKyrQEvubeOSxDlR/dBn98JEoYvzPLESG7Nyz9BLKrJlES38CME3TLVdf67zGWdnj9j+DJndv+xgAdnDt4RuHMJvKbsGxmFJhOXowlEE59zXA4URCgsgY9hV/X1qsbdkTFtPU1ZAeb+QEI4CLdZJasuRB9bAF
-X-Forefront-Antispam-Report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:LV8PR12MB9620.namprd12.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(7416014)(376014)(1800799024)(366016)(18002099003)(22082099003)(56012099006)(4143699003)(11063799006);DIR:OUT;SFP:1101;
-X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
-X-MS-Exchange-AntiSpam-MessageData-0: =?us-ascii?Q?fny4AcMMtKThkPfVxMKCse0javtsPFEbp5uHDvQ2Yya+q3gMENaCGq0fgHog?=
- =?us-ascii?Q?VVJOcgIHyrxDBCz02GUsWJQD/QLtM9UbCzUSTdptxja0yWUDsLABZlvmYV7Y?=
- =?us-ascii?Q?wpWpSgvz71O5QGwEX9X1Av/BuxZIUNGqfbm8e41JhLXb295OQhyQUXD2UgLg?=
- =?us-ascii?Q?SEOfa/0ScLHK/HbEsasOIl9eI1/J9UFt2fRjQxLLuGqlQUn4hs0T11W9fH7r?=
- =?us-ascii?Q?WkzCsTUtP45yucZl1TVzIPY8Z2cc4G0//sCy2d8Ib3c3HsvOoGkfZ8Fhp51h?=
- =?us-ascii?Q?fGn/KKY79rG/WLhm9pM2LbvFkViMfw82uAaJm3aoZuDMhhQhYK4NGcoeOg3J?=
- =?us-ascii?Q?t1cv9BsHJUe1W8wJwoDAdE7KqIXAKugCpbTYYjhBwEGYTxVcXICbyKs4jHkT?=
- =?us-ascii?Q?3nzw6VHJFRY2UII29DZMZcx9vgHJOEoO44KjXH+y+jF+mamHjkXUiXCCoZlx?=
- =?us-ascii?Q?rWlA0QzLp/i9nIivljObp5Etu3hTfnilm4FJhtj5aCRZ/M0T+LszkNLEzRGh?=
- =?us-ascii?Q?JPmOdZOC9AZukMrUBbYwreLb6D+3nkkIqMF2pc+A2GfKDXNc+5TgbZGtBRhj?=
- =?us-ascii?Q?Go45kVkCHXfzwUqVPuOOkw7RxLFlrTDzuMrdAgLa6lymYpTzg9jIFKDzxAT+?=
- =?us-ascii?Q?4wIvhg9qSBZCNRgPO2zB1P2sBETN85lUXY3DyVsLooePMJttiXAneD2wKYr1?=
- =?us-ascii?Q?L4NjzUfA0eiEBSwd7SzRkG/JwiS62ue0PDnLgFKcAuzvNqR0kBahVbmFHN3C?=
- =?us-ascii?Q?VIwcJAN0/VQSRh3Wht1nubcl2tsD+Sq20r6V9aVbyUTEbLZk/UQE9bQwiL5G?=
- =?us-ascii?Q?43VwR8MgC/OwnVVHvdKDei/L4e4ra/GPPjTP1QJCKACohs66M6/R/XiF9s5l?=
- =?us-ascii?Q?WhDopGo1NkZrxKCDcGDe/qODBUmJhFS3eOEhIuyXZ73tFDEostwGbYSsdL3A?=
- =?us-ascii?Q?yeF01uTS4jm6XbrP6i9Van6ykMzQdodUdu/UGfQqye4dwaNdwH46R9Zb9TMW?=
- =?us-ascii?Q?XC4qGaesl4rENILv31l3+9XF6eevnVZhZuZ6Vot/ppkoLc+VxjqP5k6DxiZE?=
- =?us-ascii?Q?FbedlyiCW2aaM85l1U+9dnXRGVKTZ2WipQY3gkbXkD/mviaX1AfuLrsDTWtj?=
- =?us-ascii?Q?nlPagyShF6nQPx67tGWA4c0c3khhRR5PgkzD92zSofuILCdEV+Vq+wC7kNe6?=
- =?us-ascii?Q?mUs+O/F0wMeH5oGUjLkOzQeSwyjXg41StpPCaSDw3MvjWu8mnPLJ02xs1n6u?=
- =?us-ascii?Q?fk2ncIGW+jPtg0qoxr8XBTZGjppif+QLV+7V9EUZ+ON2pJvTtpj7mZqS4Kuo?=
- =?us-ascii?Q?ALHxk5ySa0YSW+c/6ILVTxA2dZZKEnCdtTGT+nZyIIYx9sd9nB/Syr81Vk5l?=
- =?us-ascii?Q?Kus0JRZDzYndtxB7X5U97VGWqHfY74XhNqO9D5Y94zeqcYm1SyWDsCPF2SW9?=
- =?us-ascii?Q?Ntwpfc6xR7vq/U0PVv1Czr9j7wNaLn7p7NDxbFep+nNk+5bVFe1vsc6kyUNT?=
- =?us-ascii?Q?3Ic+fvi801XlNrChZ5CgX5RQnlCfWtSwhOpt+m0R1Jae51gN2xfn6ueRdJq2?=
- =?us-ascii?Q?YZcMt/7326spDCd4h7ZtZgdRa4F+D6zrJxMm/QN4QDIBRrxxF7cY69ZU3Ya9?=
- =?us-ascii?Q?tQLd81v7ik2A9bq4x+WAYM7VLJirH8WFPrP1cJd1RFIlluZyae/+Lz3iQycy?=
- =?us-ascii?Q?UoWE73K2OaO21cq+raevZehac+bOHB+1pTFFc9x6SVjENsv5?=
-X-OriginatorOrg: Nvidia.com
-X-MS-Exchange-CrossTenant-Network-Message-Id: e17a9a48-2d9b-46b9-b5fb-08debfd9da1d
-X-MS-Exchange-CrossTenant-AuthSource: LV8PR12MB9620.namprd12.prod.outlook.com
-X-MS-Exchange-CrossTenant-AuthAs: Internal
-X-MS-Exchange-CrossTenant-OriginalArrivalTime: 01 Jun 2026 12:32:32.3423
- (UTC)
-X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
-X-MS-Exchange-CrossTenant-Id: 43083d15-7273-40c1-b7db-39efd9ccc17a
-X-MS-Exchange-CrossTenant-MailboxType: HOSTED
-X-MS-Exchange-CrossTenant-UserPrincipalName: UJWeiiP4Qf5uAkN3jOfzC/HVIcsIEU6sc/WsmQmjU2vUsK4XjcHQEeTQD/eBuOHt
-X-MS-Exchange-Transport-CrossTenantHeadersStamped: CYYPR12MB8655
+Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260601_053238_922476_87A5C9B6 
-X-CRM114-Status: GOOD (  25.05  )
+X-CRM114-CacheID: sfid-20260601_053625_869080_CBD232F1 
+X-CRM114-Status: GOOD (  11.69  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -147,54 +101,37 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Fri, May 29, 2026 at 06:27:40PM -0700, Nicolin Chen wrote:
-> On Tue, May 19, 2026 at 09:06:58AM -0300, Jason Gunthorpe wrote:
-> > On Mon, May 18, 2026 at 08:39:01PM -0700, Nicolin Chen wrote:
-> > > diff --git a/drivers/iommu/arm/arm-smmu-v3/arm-smmu-v3.c b/drivers/iommu/arm/arm-smmu-v3/arm-smmu-v3.c
-> > > index cde2ff2dcc49b..638956e2535b4 100644
-> > > --- a/drivers/iommu/arm/arm-smmu-v3/arm-smmu-v3.c
-> > > +++ b/drivers/iommu/arm/arm-smmu-v3/arm-smmu-v3.c
-> > > @@ -2429,6 +2429,10 @@ static int arm_smmu_atc_inv_master(struct arm_smmu_master *master,
-> > >  	struct arm_smmu_cmd cmd;
-> > >  	struct arm_smmu_cmdq_batch cmds;
-> > >  
-> > > +	/* Do not issue ATC_INV that will definitely time out */
-> > > +	if (READ_ONCE(master->ats_broken))
-> > > +		return 0;
-> > > +
-> > >  	cmd = arm_smmu_make_cmd_atc_inv_all(0, IOMMU_NO_PASID);
-> > >  	arm_smmu_cmdq_batch_init_cmd(master->smmu, &cmds, &cmd);
-> > >  	for (i = 0; i < master->num_streams; i++)
-> > > @@ -2651,12 +2655,18 @@ static void __arm_smmu_domain_inv_range(struct arm_smmu_invs *invs,
-> > >  						       cur->id));
-> > >  			break;
-> > >  		case INV_TYPE_ATS:
-> > > +			/* Do not issue ATC_INV that will definitely time out */
-> > > +			if (READ_ONCE(cur->master->ats_broken))
-> > > +				break;
-> > 
-> > Yuk, this should be a bool in the invs list, not the master.
-> > 
-> > If the flow is to have the core code always attach a blocked domain before
-> > reset_done then the invs list will naturally fix itself.
-> 
-> So I've tried INV_TYPE_ATS_BROKEN: during per-domain invalidation,
-> each batch is built from domain->invs so it can carry the "invs";
-> if the batch times out, we can immediately mutate its ATS entries.
-> 
-> But I realized a limitation. E.g., if a device attaches to two SVA
-> domains on two SSIDs. An invalidation timing out on one of the SVA
-> domains could mark INV_TYPE_ATS_BROKEN in its own invs, but not in
-> the other SVA domain's invs?
+This series adds initial device tree support for the Vicharak Axon
+single-board computer, which is based on the Rockchip RK3588 SoC.
 
-You'd have to mark all the S1's sharing the STE.
+The Vicharak Axon is a feature-rich SBC targeting developer and embedded
+use cases. It ships with:
 
-> So, it seems that master->ats_broken is still a cleaner solution?
+  - Rockchip RK3588 (4x Cortex-A76 + 4x Cortex-A55)
+  - RK806 PMIC providing all SoC power domains
+  - eMMC 5.1 (on-board) and microSD slot
+  - Gigabit Ethernet via RGMII (RTL8211F)
+  - Dual HDMI 2.1 output and one HDMI 2.0 input (receiver)
+  - PCIe 3.0 x4 and two PCIe 2.0 slots
+  - SATA 3.0
+  - SDIO Wi-Fi
+  - USB 2.0 host ports (EHCI/OHCI)
+  - NXP PCA9554 I/O expander for status LEDs
+  - Haoyu HYM8563 RTC
 
-I don't want the invs code touching master, that is against the entire
-design.
+This patch adds the DTS file and wires it into the Makefile. Binding
+documentation for the vendor prefix "vicharak" and the compatible string
+"vicharak,axon" will be submitted as a follow-up to this series.
 
-Maybe a flag in the invs list itself is sufficient.
+Hrushiraj Gandhi (1):
+  arm64: dts: rockchip: add Vicharak Axon board
 
-Jason
+ arch/arm64/boot/dts/rockchip/Makefile        |    1 +
+ arch/arm64/boot/dts/rockchip/rk3588-axon.dts | 1069 ++++++++++++++++++
+ 2 files changed, 1070 insertions(+)
+ create mode 100644 arch/arm64/boot/dts/rockchip/rk3588-axon.dts
+
+-- 
+2.47.3
+
 
