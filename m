@@ -4,89 +4,96 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 96D8ECD6E60
-	for <linux-arm-kernel@archiver.kernel.org>; Mon,  1 Jun 2026 08:59:02 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 3E07CCD5BD1
+	for <linux-arm-kernel@archiver.kernel.org>; Mon,  1 Jun 2026 09:03:56 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:MIME-Version:
-	References:In-Reply-To:Subject:Cc:To:From:Message-ID:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=xra6mQWqXCsVf4c8tbH8WKrL3dgsr6GJMrhvvtsvEsE=; b=VyCEQs8EwmFSuHjErOwy5ogN6v
-	y+ueq9Q+KZTFWVd18+enG9kaA/XlpCN9PuYGHeJQ5lrjG1zioHn0KguTVbKCLkfetX3EjynzxkKFz
-	xG9Zcp3AOcUrSRlWCxANcEXUXr32mjBwkZs3+jGIjOJPkkGrLiHBTxOfiixj2+HBy2DPoOiNvZpTO
-	yDAV5VarS+zMknLOK13TeAGVnEFCW5nra50qlahlZsR8JLr4AN/v1RDenJuhZn/KXQmVaWX4qv4VY
-	YYRuKRP3a5F+H1IDxkfCsSaqDE6bAZ5VGAntyWbp+qn7H1tNgHcB7RsUwOmEacNVM0Um8sSdrY0Do
-	Jgc03Png==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:
+	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=4DjmUwOCGOcB+Zvv7fk+Re0YCdBWlSozkc1Kn99ViNo=; b=rxUFFBITsO4080wY/nxkCpcuI2
+	750o66NWWyJ8LbfKX1Vd1lTnme/XtOtczOMZF1e5FEEe+znNBfEf6pfo7zXEWCZ9LpaqEspnYom6W
+	4hFo8kX5Cjzc2fYaSX2MZbx0B5cecJn5s4/gDxEnBvXHaJT2kJIPaE7gATPnV4PDIjZbC9DZQgSWc
+	K3TAGokIfLRpWydt9cnSGMHVya2RSNwFXhxN0UF1iQ/UaR91bjpIAie7lBjtCV56q3s9BjTMu5BGS
+	xC1T6GnmDRnkQiFxOHO3duruvbUKNsFJDW7NvwYby0SsIK5lwacFbpi2NsT/1gPA3g2BJgfNhd3Ld
+	mH1y0vdw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wTyU4-0000000ARPm-1J1j;
-	Mon, 01 Jun 2026 08:58:56 +0000
-Received: from tor.source.kernel.org ([2600:3c04:e001:324:0:1991:8:25])
+	id 1wTyYl-0000000ARqp-3zGG;
+	Mon, 01 Jun 2026 09:03:47 +0000
+Received: from mail-wm1-x335.google.com ([2a00:1450:4864:20::335])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wTyU2-0000000ARPR-3wo7
+	id 1wTyYj-0000000ARqX-1aYf
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 01 Jun 2026 08:58:55 +0000
-Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
-	by tor.source.kernel.org (Postfix) with ESMTP id 8515860098;
-	Mon,  1 Jun 2026 08:58:53 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 393B31F00893;
-	Mon,  1 Jun 2026 08:58:53 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1780304333;
-	bh=xra6mQWqXCsVf4c8tbH8WKrL3dgsr6GJMrhvvtsvEsE=;
-	h=Date:From:To:Cc:Subject:In-Reply-To:References;
-	b=XVPNXXAHjn6v1kFuX0uFalR/tJQcBjcbUwzftVX5kR/SRafza64knp513ByJJYsGx
-	 Bg4CzjUH/S5vFR3Kq44FkD0wgXIKplTCmPAAntc9SDhCpp5zdDer87iFF9A3M0H1Ng
-	 6b2YPqP8BjckxNalyDzH5IwG/9GDgnsXAiylfMiHQs2bxfCcgy0Z8VE4uLE0R6Ko9u
-	 Dgp4RVt4LgCFplNSL4OILuiJd3IPBZWtAGafHxkVJifquLfpD/ewGJ1BgX4j+wN8Z1
-	 FZAsiZ3EzduwkLZORh3NzJqdPok5ZIRQ+dMvu13RMpmhmLLrnxDDY5lDDullwViSvQ
-	 Aj0MK2TY9UsLQ==
-Received: from sofa.misterjones.org ([185.219.108.64] helo=goblin-girl.misterjones.org)
-	by disco-boy.misterjones.org with esmtpsa  (TLS1.3) tls TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384
-	(Exim 4.98.2)
-	(envelope-from <maz@kernel.org>)
-	id 1wTyTy-000000087FY-3HQP;
-	Mon, 01 Jun 2026 08:58:50 +0000
-Date: Mon, 01 Jun 2026 09:58:49 +0100
-Message-ID: <864ijmvdpy.wl-maz@kernel.org>
-From: Marc Zyngier <maz@kernel.org>
-To: Inochi Amaoto <inochiama@gmail.com>
-Cc: Tian Zheng <zhengtian10@huawei.com>,
-	oupton@kernel.org,
-	catalin.marinas@arm.com,
-	corbet@lwn.net,
-	pbonzini@redhat.com,
-	will@kernel.org,
-	yuzenghui@huawei.com,
-	wangzhou1@hisilicon.com,
-	liuyonglong@huawei.com,
-	Jonathan.Cameron@huawei.com,
-	yezhenyu2@huawei.com,
-	linuxarm@huawei.com,
-	joey.gouly@arm.com,
-	kvmarm@lists.linux.dev,
-	kvm@vger.kernel.org,
+	Mon, 01 Jun 2026 09:03:46 +0000
+Received: by mail-wm1-x335.google.com with SMTP id 5b1f17b1804b1-490a7627033so9346295e9.0
+        for <linux-arm-kernel@lists.infradead.org>; Mon, 01 Jun 2026 02:03:44 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=suse.com; s=google; t=1780304623; x=1780909423; darn=lists.infradead.org;
+        h=content-transfer-encoding:mime-version:references:in-reply-to
+         :message-id:date:subject:cc:to:from:from:to:cc:subject:date
+         :message-id:reply-to;
+        bh=4DjmUwOCGOcB+Zvv7fk+Re0YCdBWlSozkc1Kn99ViNo=;
+        b=GRQH/MVgDKxscq0Ay7JwnwN1flDxfaK95IQ7ZdXw6LXDSKQ0cX61DRBEowyWb4jV2h
+         wGrWbPtoz2KMDKFf7MfvNJC8fzEQE2X0NDapUZh4TSUOxFY21gqR3uhq1M9mKUeBpziq
+         LI3Lwca28ACe7tYiWFE7e7HAGg4Jp4BX42aV3s/VUEHye9EQqmGqKSY9MNLGeeRE+90D
+         Ib0Rx9EcftBrWib7yx/uaJgtnZDtkzqDA6t0w+K2YezkmYI2kOc7BrWHf1qO2yfk9uFh
+         tbl31MF4+AlO+cVtvv3cSaLf6bt0Kup/Q7EiSHN4dAgTIdWT/euMHDwWEM1bthhq1V5p
+         USuA==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20251104; t=1780304623; x=1780909423;
+        h=content-transfer-encoding:mime-version:references:in-reply-to
+         :message-id:date:subject:cc:to:from:x-gm-gg:x-gm-message-state:from
+         :to:cc:subject:date:message-id:reply-to;
+        bh=4DjmUwOCGOcB+Zvv7fk+Re0YCdBWlSozkc1Kn99ViNo=;
+        b=T0eb4bQw156jg6mB6Tsoz1Rm4bonC/5baBXBBcR35zyv+lccD8CDFpUvtM3uimhOgJ
+         a/k10phoABarYR7jDZD74NEYU31oI8r9TvDtdXG9YYxPdOfqH6RyyEDfnc4J58CwRV2O
+         wA96wlaZzw4hvPXfd79WF9EqHpA588p/4CQI9OOGVVsPddcLIJv0mMcoCxphpxWanNeP
+         voQeJaVubdnH2qwzAbuCbIxnRuas4l9pQE2PgcUu8pyQ0vow1B/CEqb1FWugTXgY0TQ7
+         9NUgJwd78XNpLBv4vtUI75lSJSrnrxGk736NStQpCtO7z7P3D+DYitSvnHbqdGT9t9gj
+         pqyg==
+X-Forwarded-Encrypted: i=1; AFNElJ+jwpx5iuHBpl4zx9hg+BimnntQI4I1Dmf6zdeW6WfkN7WC12mvGz4NOpWYmu8f/3MrWWCPTv6RwbUCjXlU+rho@lists.infradead.org
+X-Gm-Message-State: AOJu0Yw5wNoqU7adiRLnlFLZfLfZMQE6oM7D6s51/gjxqAlXMrFv8bI9
+	NYmRoz76+t4Ob4CGvzicsHfOOTQS7DJOepaRplOP9QARrXsFf1vLCg1mHjwf2/4FfMSQMtfx0Wl
+	LviPnxkA=
+X-Gm-Gg: Acq92OHbzP9BlTCPHrVgvVAmEurOgzyaqjNH9ceVFongANC1l6UVrNEh8OyXR8aCS6a
+	s7FfpAviY19WdEgic5EwZ/zfDipVgoAJjx4oW5LPAaNWmoTJig2tjDT/KhuDkqY7Qmn1QZKZPuG
+	WOEIKSHIcGmrN8Pr5nPUBqm+KHex+fZWyb53o0epy+3l73B4eeKPg00lohgNeY7Fqv1gHdKk9pW
+	CdcIDeOhDPRze4cfjcIcP+kqO6GCVumQzYqDazuD3IXJitm9BzeMQL1n01+BcCgPIR3MGlmFqcH
+	hthuu/HcqdEm66Fw0dJNxUGDe8jGF4Gl5FxyoVEIjCYdL06cXaaFeBmKJcLnEZ1oqVMFcNq6jf7
+	LUzgY5BpSq++l6eI8MZ7FVwwDppK4NO5385zhV2PT6cyYPVmkuinn+m+QPaz/lBFN95mcySxzeC
+	o0UW0kd0nt8VlgvFsOSJb1xZLrpa0DgzhHzvoWLJZFjBvwOJdHq/h59/yJagBqfonpaAB6
+X-Received: by 2002:a05:600c:458f:b0:48a:5546:61a1 with SMTP id 5b1f17b1804b1-490a2915aedmr194248805e9.15.1780304622657;
+        Mon, 01 Jun 2026 02:03:42 -0700 (PDT)
+Received: from localhost.localdomain ([2a00:6d43:105:c401:e307:1a37:2e76:ce91])
+        by smtp.gmail.com with ESMTPSA id 5b1f17b1804b1-4909c127befsm74525925e9.31.2026.06.01.02.03.41
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Mon, 01 Jun 2026 02:03:42 -0700 (PDT)
+From: Marco Crivellari <marco.crivellari@suse.com>
+To: l.rubusch@gmail.com
+Cc: alexandre.belloni@bootlin.com,
+	claudiu.beznea@tuxon.dev,
+	davem@davemloft.net,
+	herbert@gondor.apana.org.au,
 	linux-arm-kernel@lists.infradead.org,
-	linux-doc@vger.kernel.org,
+	linux-crypto@vger.kernel.org,
 	linux-kernel@vger.kernel.org,
-	skhan@linuxfoundation.org,
-	suzuki.poulose@arm.com,
-	leo.bras@arm.com
-Subject: Re: [PATCH v3 3/5] KVM: arm64: Add support for FEAT_HDBSS
-In-Reply-To: <ahzUUDAMoHtDFJD3@inochi.infowork>
-References: <20260225040421.2683931-1-zhengtian10@huawei.com>
-	<20260225040421.2683931-4-zhengtian10@huawei.com>
-	<ahzUUDAMoHtDFJD3@inochi.infowork>
-User-Agent: Wanderlust/2.15.9 (Almost Unreal) SEMI-EPG/1.14.7 (Harue)
- FLIM-LB/1.14.9 (=?UTF-8?B?R29qxY0=?=) APEL-LB/10.8 EasyPG/1.0.0 Emacs/30.1
- (aarch64-unknown-linux-gnu) MULE/6.0 (HANACHIRUSATO)
-MIME-Version: 1.0 (generated by SEMI-EPG 1.14.7 - "Harue")
-Content-Type: text/plain; charset=US-ASCII
-X-SA-Exim-Connect-IP: 185.219.108.64
-X-SA-Exim-Rcpt-To: inochiama@gmail.com, zhengtian10@huawei.com, oupton@kernel.org, catalin.marinas@arm.com, corbet@lwn.net, pbonzini@redhat.com, will@kernel.org, yuzenghui@huawei.com, wangzhou1@hisilicon.com, liuyonglong@huawei.com, Jonathan.Cameron@huawei.com, yezhenyu2@huawei.com, linuxarm@huawei.com, joey.gouly@arm.com, kvmarm@lists.linux.dev, kvm@vger.kernel.org, linux-arm-kernel@lists.infradead.org, linux-doc@vger.kernel.org, linux-kernel@vger.kernel.org, skhan@linuxfoundation.org, suzuki.poulose@arm.com, leo.bras@arm.com
-X-SA-Exim-Mail-From: maz@kernel.org
-X-SA-Exim-Scanned: No (on disco-boy.misterjones.org); SAEximRunCond expanded to false
+	nicolas.ferre@microchip.com,
+	thorsten.blum@linux.dev,
+	Marco Crivellari <marco.crivellari@suse.com>
+Subject: Re: [PATCH 10/12] crypto: atmel - update workqueue flags and add flush on exit
+Date: Mon,  1 Jun 2026 11:03:29 +0200
+Message-ID: <20260601090329.52616-1-marco.crivellari@suse.com>
+X-Mailer: git-send-email 2.54.0
+In-Reply-To: <20260512224349.64621-11-l.rubusch@gmail.com>
+References: <20260512224349.64621-11-l.rubusch@gmail.com>
+MIME-Version: 1.0
+Content-Transfer-Encoding: 8bit
+X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
+X-CRM114-CacheID: sfid-20260601_020345_420697_9CF04CB0 
+X-CRM114-Status: UNSURE (   8.31  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -101,156 +108,16 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Mon, 01 Jun 2026 01:50:22 +0100,
-Inochi Amaoto <inochiama@gmail.com> wrote:
-> 
-> On Wed, Feb 25, 2026 at 12:04:19PM +0800, Tian Zheng wrote:
-> > From: eillon <yezhenyu2@huawei.com>
-> > 
-> > Armv9.5 introduces the Hardware Dirty Bit State Structure (HDBSS) feature,
-> > indicated by ID_AA64MMFR1_EL1.HAFDBS == 0b0100. A CPU capability is added
-> > to notify the user of the feature.
-> > 
-> > Add KVM_CAP_ARM_HW_DIRTY_STATE_TRACK ioctl and basic framework for
-> > ARM64 HDBSS support. Since the HDBSS buffer size is configurable and
-> > cannot be determined at KVM initialization, an IOCTL interface is
-> > required.
-> > 
-> > Actually exposing the new capability to user space happens in a later
-> > patch.
-> > 
-> > Signed-off-by: eillon <yezhenyu2@huawei.com>
-> > Signed-off-by: Tian Zheng <zhengtian10@huawei.com>
-> > ---
-> >  arch/arm64/include/asm/cpufeature.h |  5 +++++
-> >  arch/arm64/kernel/cpufeature.c      | 12 ++++++++++++
-> >  arch/arm64/tools/cpucaps            |  1 +
-> >  include/uapi/linux/kvm.h            |  1 +
-> >  tools/include/uapi/linux/kvm.h      |  1 +
-> >  5 files changed, 20 insertions(+)
-> > 
-> > diff --git a/arch/arm64/include/asm/cpufeature.h b/arch/arm64/include/asm/cpufeature.h
-> > index 4de51f8d92cb..dcc2e2cad5ad 100644
-> > --- a/arch/arm64/include/asm/cpufeature.h
-> > +++ b/arch/arm64/include/asm/cpufeature.h
-> > @@ -856,6 +856,11 @@ static inline bool system_supports_haft(void)
-> >  	return cpus_have_final_cap(ARM64_HAFT);
-> >  }
-> > 
-> > +static inline bool system_supports_hdbss(void)
-> > +{
-> > +	return cpus_have_final_cap(ARM64_HAS_HDBSS);
-> > +}
-> > +
-> >  static __always_inline bool system_supports_mpam(void)
-> >  {
-> >  	return alternative_has_cap_unlikely(ARM64_MPAM);
-> > diff --git a/arch/arm64/kernel/cpufeature.c b/arch/arm64/kernel/cpufeature.c
-> > index c31f8e17732a..348b0afffc3e 100644
-> > --- a/arch/arm64/kernel/cpufeature.c
-> > +++ b/arch/arm64/kernel/cpufeature.c
-> > @@ -2124,6 +2124,11 @@ static bool hvhe_possible(const struct arm64_cpu_capabilities *entry,
-> >  	return arm64_test_sw_feature_override(ARM64_SW_FEATURE_OVERRIDE_HVHE);
-> >  }
-> > 
-> > +static bool has_vhe_hdbss(const struct arm64_cpu_capabilities *entry, int cope)
-> > +{
-> > +	return is_kernel_in_hyp_mode() && has_cpuid_feature(entry, cope);
-> > +}
-> > +
-> >  bool cpu_supports_bbml2_noabort(void)
-> >  {
-> >  	/*
-> > @@ -2759,6 +2764,13 @@ static const struct arm64_cpu_capabilities arm64_features[] = {
-> >  		ARM64_CPUID_FIELDS(ID_AA64MMFR1_EL1, HAFDBS, HAFT)
-> >  	},
-> >  #endif
-> > +	{
-> > +		.desc = "Hardware Dirty state tracking structure (HDBSS)",
-> > +		.type = ARM64_CPUCAP_SYSTEM_FEATURE,
-> > +		.capability = ARM64_HAS_HDBSS,
-> > +		.matches = has_vhe_hdbss,
-> > +		ARM64_CPUID_FIELDS(ID_AA64MMFR1_EL1, HAFDBS, HDBSS)
-> > +	},
-> >  	{
-> >  		.desc = "CRC32 instructions",
-> >  		.capability = ARM64_HAS_CRC32,
-> > diff --git a/arch/arm64/tools/cpucaps b/arch/arm64/tools/cpucaps
-> > index 7261553b644b..f6ece5b85532 100644
-> > --- a/arch/arm64/tools/cpucaps
-> > +++ b/arch/arm64/tools/cpucaps
-> > @@ -68,6 +68,7 @@ HAS_VA52
-> >  HAS_VIRT_HOST_EXTN
-> >  HAS_WFXT
-> >  HAS_XNX
-> > +HAS_HDBSS
-> >  HAFT
-> >  HW_DBM
-> >  KVM_HVHE
-> 
-> 
-> > diff --git a/include/uapi/linux/kvm.h b/include/uapi/linux/kvm.h
-> > index 65500f5db379..15ee42cdbd51 100644
-> > --- a/include/uapi/linux/kvm.h
-> > +++ b/include/uapi/linux/kvm.h
-> > @@ -985,6 +985,7 @@ struct kvm_enable_cap {
-> >  #define KVM_CAP_ARM_SEA_TO_USER 245
-> >  #define KVM_CAP_S390_USER_OPEREXEC 246
-> >  #define KVM_CAP_S390_KEYOP 247
-> > +#define KVM_CAP_ARM_HW_DIRTY_STATE_TRACK 248
-> > 
-> >  struct kvm_irq_routing_irqchip {
-> >  	__u32 irqchip;
-> > diff --git a/tools/include/uapi/linux/kvm.h b/tools/include/uapi/linux/kvm.h
-> > index dddb781b0507..93e0a1e14dc7 100644
-> > --- a/tools/include/uapi/linux/kvm.h
-> > +++ b/tools/include/uapi/linux/kvm.h
-> > @@ -974,6 +974,7 @@ struct kvm_enable_cap {
-> >  #define KVM_CAP_GUEST_MEMFD_FLAGS 244
-> >  #define KVM_CAP_ARM_SEA_TO_USER 245
-> >  #define KVM_CAP_S390_USER_OPEREXEC 246
-> > +#define KVM_CAP_ARM_HW_DIRTY_STATE_TRACK 248
-> > 
-> >  struct kvm_irq_routing_irqchip {
-> >  	__u32 irqchip;
-> > --
-> > 2.33.0
-> > 
-> 
-> Instead of having these architecture specific capability, I wonder if
-> we can add a generic capability like "KVM_CAP_HW_DIRTY_STATE", so
-> other architecture supports similar things can reuse this capability,
+Hi,
 
-What of the existing stuff doing the same thing? x86's PML, to start
-with?
+> Update workqueue initialization to use WQ_MEM_RECLAIM instead of
+> WQ_PERCPU
 
-> For this generic thing I suggest, the getter returns the max support 
-> entry count (or the buffer size) it supports like the dirty ring
-> capability. And the setter just let the architecture set the parameters
-> based on the user request.
+Not sure if you're working on this series right now, but this must keep
+the WQ_PERCPU flag. WQ_PERCPU has been added to mark explicitly mark
+workqueue that are per-CPU (it is the complement of WQ_UNBOUND).
 
-This looks wrong on a number of levels.
 
-- If you want something generic, there is the existing dirty
-  log/bitmap. How this stuff is populated is none of the user's
-  business (trapping write accesses, dirty bit collection from the
-  PTs, or HW-generated log), and we don't need an extra feature for
-  it. Performance will obviously suck, but that's what you pay for
-  something abstracted and cross-architecture.
+Thanks!
 
-- If you want something architecture specific, then it can't be
-  generic, by definition. You get the raw speed and compatibility with
-  other arch-specific extensions.
-
-> This should do no harm to this implement, as everything still depends
-> on the architecture behavior, and leave room for other architecture
-> to reuse this.
-
-Again, the generic framework exists, you just have to implement the
-backend you want.
-
-	M.
-
--- 
-Without deviation from the norm, progress is not possible.
 
