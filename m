@@ -4,7 +4,7 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 7BC8BCD6E55
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id CFC78CD5BD1
 	for <linux-arm-kernel@archiver.kernel.org>; Mon,  1 Jun 2026 14:16:11 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
@@ -12,45 +12,45 @@ DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	:Message-Id:Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:
 	From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=oVvHuOhjIXUrVYlNJs/TCcWdl1BNBMgO8o9W3lfGs40=; b=JIFIKJ3wDsr/lZ7O6RtgqOCsEX
-	HM96M4lBGTRsUNzE5sy2UgkisLBr4QrGhxNO0mxeudOOcx1Go57/4PbfXzlENc2u6A+OKBvXq22Yz
-	oitVFc/OqD89arYXe/HWbI4wIOaXPoAF7DptbsdfzAyy4/I9KWymeHoCZuqBQLTAGo9eI7YQ6MZTb
-	H2RslKRKNu4x/ZCksgixpMDfEy/dtEN5Q2rwbNc4Q7CgRXjTFr1i3vqkXfzZPPSnBEv/0RZQfWBlT
-	cc5e2qXSLZeJ6pq307K66n17iPQ2TsfuLPd24I0/6y4infGVzzo8fmPQFQUqYP8rQP5tgArDa4g/g
-	Rl0R/EMg==;
+	bh=q3AoNcnojKs4cAbHWMhEPlTgaq2dqzmJFE1S/9AauT0=; b=fiVGGuYbVhm8lC4B5fJ2aLu3q5
+	LAjLT6WzMGybD/3MQq4tWOVhrC99PniMoWmKmlTtE/TNdb3eyjVpzlUQLFElW8tTuduhAO+S5bS9f
+	1PBiiDT5S/s2REycRHs2A6HyELigCUpNROurUeBFkmm9Vy0WTWTPagC1/E0el+aWr6k6fT5ROzgQV
+	D1wEsH+PivRZpHuUo+o0NsoJkKssGywK8p4YRMfsWUk5XZG0MMGgN6wHnwcSNDtiYzhZFWjVFnY6Z
+	59JTTi4I5XyUmUhO88i6Mo/aMnOv8kFCCOpzDe+0UgFKKpv3HKX+VxH/sOaReWhVAw9Om4cFC5WTT
+	IRYBBEMQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wU3Qz-0000000BGBd-2NEj;
+	id 1wU3Qz-0000000BGC5-3ak0;
 	Mon, 01 Jun 2026 14:16:05 +0000
 Received: from bali.collaboradmins.com ([2a01:4f8:201:9162::2])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wU3Qu-0000000BG7K-1tDI;
+	id 1wU3Qv-0000000BG7O-1b4k;
 	Mon, 01 Jun 2026 14:16:04 +0000
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=collabora.com;
-	s=mail; t=1780323358;
-	bh=DkikAVnGKjgORZv1zSE8GU2JMUsgiMIzW92OS9cpAWg=;
+	s=mail; t=1780323359;
+	bh=Pa+PA8v51EYbf+V47125p/KH0Zpl+EITvm6DO69UpXA=;
 	h=From:Date:Subject:References:In-Reply-To:To:Cc:From;
-	b=cwOFAqKTxBtdxPm+OE3h+fY2K8ab3TygTZagINNtjnQQX4Nmvev2uzqJhqQ4M+vh+
-	 7Kz1lQYCl2A79zYCI75Wafx0CHEEQ1fb1FeOPYtxmDZdjDQovq/T8NS5s+28S/6lCf
-	 3aUZL+N7uOdoBZSzDFb4FPADJQvccTYUhEZifDNu3IZ4HiYxEP9fDH8oP3zro7HZOt
-	 2ws/TA5vwnkMF4WYtdvZ2Q9+pl6pX2afBZiBMKYmmjvqnjPNmwr4o2EiyTAlUxXXyV
-	 UTcS2zDDJNhQvRFI2l7h8axXX+4LFHc+b2zClBgdodEIiiCctbHQvhim30N0TiOeJm
-	 s8PzI5MEVIt7w==
+	b=VL5BVZVPqG2laTq6+DfN5rpqUnzegz0cO+UcSH+j1Spr44Uq/VR5j+dyRkNGKCF2K
+	 0Mbh3hBG4gWhFomw21/Jcn2HnVN8Cm8oGr/G5AkAILwUoB/+DWuWF+/cKkbzx+MEJR
+	 axVJ8vuzZ45baaU4QdysNKQ3WXE8L1MEd+H112+CUpizo2waAswoz7nmgqJJW/jQZq
+	 PPYkmWCL4686s3RbWZ3lSvZJUvXnbbQeHVBsl2QFyZ/z0xlajhkrX0VA20i4rKReQc
+	 NwNcVgu9ktnrypvjCUC3+bElNuY9j1Hix1GsE0+liIm1E2FCixZrp8Mb7OkpzzNPHb
+	 ytMXGEd+ToLog==
 Received: from yukiji.home (unknown [100.64.0.131])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange X25519 server-signature RSA-PSS (4096 bits) server-digest SHA256)
 	(No client certificate requested)
 	(Authenticated sender: laeyraud)
-	by bali.collaboradmins.com (Postfix) with ESMTPSA id C38A417E0DD3;
-	Mon,  1 Jun 2026 16:15:57 +0200 (CEST)
+	by bali.collaboradmins.com (Postfix) with ESMTPSA id BA78117E0DE6;
+	Mon,  1 Jun 2026 16:15:58 +0200 (CEST)
 From: Louis-Alexis Eyraud <louisalexis.eyraud@collabora.com>
-Date: Mon, 01 Jun 2026 16:15:46 +0200
-Subject: [PATCH 2/3] arm64: dts: mediatek: mt8395-genio-common: Add MT6365
+Date: Mon, 01 Jun 2026 16:15:47 +0200
+Subject: [PATCH 3/3] arm64: dts: mediatek: mt8395-radxa-nio-12l: Add MT6365
  PMIC supplies
 MIME-Version: 1.0
 Content-Type: text/plain; charset="utf-8"
 Content-Transfer-Encoding: 7bit
-Message-Id: <20260601-mtk-genio-mt6359-pmic-supplies-v1-2-05750080ba59@collabora.com>
+Message-Id: <20260601-mtk-genio-mt6359-pmic-supplies-v1-3-05750080ba59@collabora.com>
 References: <20260601-mtk-genio-mt6359-pmic-supplies-v1-0-05750080ba59@collabora.com>
 In-Reply-To: <20260601-mtk-genio-mt6359-pmic-supplies-v1-0-05750080ba59@collabora.com>
 To: Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>, 
@@ -62,16 +62,16 @@ Cc: kernel@collabora.com, devicetree@vger.kernel.org,
  linux-mediatek@lists.infradead.org, 
  Louis-Alexis Eyraud <louisalexis.eyraud@collabora.com>
 X-Mailer: b4 0.14.3
-X-Developer-Signature: v=1; a=ed25519-sha256; t=1780323355; l=1563;
+X-Developer-Signature: v=1; a=ed25519-sha256; t=1780323355; l=1493;
  i=louisalexis.eyraud@collabora.com; s=20250113; h=from:subject:message-id;
- bh=DkikAVnGKjgORZv1zSE8GU2JMUsgiMIzW92OS9cpAWg=;
- b=br6iI46Ej/vA1ql7cMF+1KrsEEYXK6UJ3bxDFT63ouElWb/vPrikd5zpUo9AUVhVpyY4pjI5S
- xaDacGAwGgjDgCB33lcsNB4r1MaJe/zc356HcaunarcoYjcZGGVzdXi
+ bh=Pa+PA8v51EYbf+V47125p/KH0Zpl+EITvm6DO69UpXA=;
+ b=vd1g1BQrXWu7S6wkbp9pfGNOg+4EN626LfvC7QvQkYRAguFuisrhS9dDeldeCPENvlGj+IiSj
+ cy6hUlRirh/AOiaQuLoo9d03GcDgE8/Y52eLvY5BLm+gik6NfZbQ5do
 X-Developer-Key: i=louisalexis.eyraud@collabora.com; a=ed25519;
  pk=CHFBDB2Kqh4EHc6JIqFn69GhxJJAzc0Zr4e8QxtumuM=
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260601_071600_640495_A82DC2A0 
-X-CRM114-Status: UNSURE (   8.90  )
+X-CRM114-CacheID: sfid-20260601_071601_579866_3B04232F 
+X-CRM114-Status: UNSURE (   9.09  )
 X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
@@ -87,38 +87,37 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Mediatek Genio 1200 EVK board integrates a MT6365 PMIC, that has a
-number of power inputs for its various buck and LDO regulators.
+Radxa NIO-12L EVK board integrates a MT6365 PMIC, that has a number of
+power inputs for its various buck and LDO regulators.
 
-Add the supplies for this PMIC regulators to the board common
-definition include file.
+Add the supplies for this PMIC regulators to the board devicetree file.
 
 Signed-off-by: Louis-Alexis Eyraud <louisalexis.eyraud@collabora.com>
 ---
- arch/arm64/boot/dts/mediatek/mt8395-genio-common.dtsi | 17 +++++++++++++++++
+ arch/arm64/boot/dts/mediatek/mt8395-radxa-nio-12l.dts | 17 +++++++++++++++++
  1 file changed, 17 insertions(+)
 
-diff --git a/arch/arm64/boot/dts/mediatek/mt8395-genio-common.dtsi b/arch/arm64/boot/dts/mediatek/mt8395-genio-common.dtsi
-index edc5539bebde..7ea45b6bc663 100644
---- a/arch/arm64/boot/dts/mediatek/mt8395-genio-common.dtsi
-+++ b/arch/arm64/boot/dts/mediatek/mt8395-genio-common.dtsi
-@@ -1170,6 +1170,23 @@ pins {
+diff --git a/arch/arm64/boot/dts/mediatek/mt8395-radxa-nio-12l.dts b/arch/arm64/boot/dts/mediatek/mt8395-radxa-nio-12l.dts
+index b279eed1bfc3..9cf0315da035 100644
+--- a/arch/arm64/boot/dts/mediatek/mt8395-radxa-nio-12l.dts
++++ b/arch/arm64/boot/dts/mediatek/mt8395-radxa-nio-12l.dts
+@@ -1033,6 +1033,23 @@ &pciephy {
  
  &pmic {
  	interrupts-extended = <&pio 222 IRQ_TYPE_LEVEL_HIGH>;
-+	vsys-smps-supply = <&reg_vsys>;
-+	vsys-vcore-supply = <&reg_vsys>;
-+	vsys-vgpu11-supply = <&reg_vsys>;
-+	vsys-vgpu12-supply = <&reg_vsys>;
-+	vsys-vpa-supply = <&reg_vsys>;
-+	vsys-vproc1-supply = <&reg_vsys>;
-+	vsys-vproc2-supply = <&reg_vsys>;
-+	vsys-vpu-supply = <&reg_vsys>;
-+	vsys-vs1-supply = <&reg_vsys>;
-+	vsys-vs2-supply = <&reg_vsys>;
-+	vsys-vmodem-supply = <&reg_vsys>;
-+	vsys-ldo1-supply = <&reg_vsys_buck>;
-+	vsys-ldo2-supply = <&reg_vsys_buck>;
++	vsys-smps-supply = <&vsys>;
++	vsys-vcore-supply = <&vsys>;
++	vsys-vgpu11-supply = <&vsys>;
++	vsys-vgpu12-supply = <&vsys>;
++	vsys-vpa-supply = <&vsys>;
++	vsys-vproc1-supply = <&vsys>;
++	vsys-vproc2-supply = <&vsys>;
++	vsys-vpu-supply = <&vsys>;
++	vsys-vs1-supply = <&vsys>;
++	vsys-vs2-supply = <&vsys>;
++	vsys-vmodem-supply = <&vsys>;
++	vsys-ldo1-supply = <&vsys_buck>;
++	vsys-ldo2-supply = <&vsys_buck>;
 +	vs1-ldo1-supply = <&mt6359_vs1_buck_reg>;
 +	vs1-ldo2-supply = <&mt6359_vs1_buck_reg>;
 +	vs2-ldo1-supply = <&mt6359_vs2_buck_reg>;
