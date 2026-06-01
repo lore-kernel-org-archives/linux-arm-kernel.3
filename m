@@ -4,74 +4,120 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 1D67FCD5BD1
-	for <linux-arm-kernel@archiver.kernel.org>; Mon,  1 Jun 2026 05:58:51 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 3E393CD5BD1
+	for <linux-arm-kernel@archiver.kernel.org>; Mon,  1 Jun 2026 06:00:47 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	MIME-Version:References:Message-ID:Subject:CC:To:From:Date:Reply-To:
 	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=N8ZmOAtQgvXuoLmKd6WCIumh3x0pvVxkYVcX8hy5mGg=; b=pwDyYcM/V5T6gXHhlMnazGWb2K
-	NSFCdYpT3gQDQi9HAXjZaHv22TS1JF/ipEy2kUxL98cNx88K6ZWu/kJejDNPPPR+OHIkfTKkodqK3
-	GRrBWUnKUfsCCNums698HI1iO8P0mWh5TpnNWWrRvcxLoFhVVC1YbSwRSTZBe9z2GAvyEgU/7UnrE
-	t8L8/TpBVcgD6/qgljFook2knfNwsczNB3vu1fpD63HP3iv1MfuI6p0L0AMxunz5/ElsFl4vpZTC+
-	UN/ATpZZYdZ+6cFhbhsK9HYUMbrIFsF4Kq5JzVwPvIqwZMdBcUxzqWbudUt7D7AK2PwM8XdqzVYLK
-	/VI633Ng==;
+	bh=VxCZADAd+XREcoFQpsPm53rlCtvs9Z1bnuL5QFg3aSY=; b=z082RiXb4Mn6Cb85dbQbh2VSpl
+	UV9pVHBz3r1eOgGa7SA8PUq4DvbIHIzSDUOSLx7WmtQ2EmRmHEV/YdM4vc7RJ4AOcoSSegWku8Oxf
+	T0RttlUydFxBvAfvw2OgNVuUkyu77xPVCsS1J8hgkETDQM1z38H57AppP7B44qUbIl2IXmsMp2yMH
+	PBSBaSBZwMZgbxt029UHPbLKmYHd6fsJGnBGYA4r63XHEFRRokczc0bGRR0zkUzlw4Vt3JGlXLewq
+	S87fV7Go+nOQI+x6z52YUb9mQfAjtXUodjc5rjqbp2+mGxnz1SG5XYblCzAUIrZmwq7kExc4Zp5Zz
+	T1nE+umg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wTvff-0000000AAmw-2jfg;
-	Mon, 01 Jun 2026 05:58:43 +0000
-Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
+	id 1wTvhZ-0000000AAzj-0WnB;
+	Mon, 01 Jun 2026 06:00:41 +0000
+Received: from mail-westcentralusazlp170100005.outbound.protection.outlook.com ([2a01:111:f403:c112::5] helo=CY7PR03CU001.outbound.protection.outlook.com)
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wTvfd-0000000AAmO-0RJC;
-	Mon, 01 Jun 2026 05:58:42 +0000
-Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
-	by sea.source.kernel.org (Postfix) with ESMTP id 33670415FE;
-	Mon,  1 Jun 2026 05:58:40 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 1DD361F00893;
-	Mon,  1 Jun 2026 05:58:38 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1780293520;
-	bh=N8ZmOAtQgvXuoLmKd6WCIumh3x0pvVxkYVcX8hy5mGg=;
-	h=Date:From:To:Cc:Subject:References:In-Reply-To;
-	b=TX5kBpWogNBnq7ueXJBbRDG8RSiNQDJYQsZsVJwAw+Sx0ec5M2tfUdiR51Vqqw5jn
-	 JnUO4Dg67KKMRNHS1GnWVVqS1ptyGmtdJrtaDl3tjLIPHwb64pDhJnIuAJU55/IKzn
-	 7aCIwjaoKQHla2d/N/C6yV1jVXWzLSFb8XsIqnWT1yqoKZVVCEUMJCc19zFhmYzdon
-	 snynCKO/dAgGkM4PsZ98pWd54qURST2GDjaUkOkoCMhZFp0FBnlKwHyUdoZ++e5xQ4
-	 Nf9kX6MDL3sv5m36Hh8D2PrH3uN32dpUQm+5yaaqrwRH5yszxkXtvl8FjHGXAoxwmp
-	 ZTQeKagSpkzOA==
-Date: Mon, 1 Jun 2026 07:56:41 +0200
-From: "lorenzo@kernel.org" <lorenzo@kernel.org>
-To: Ryder Lee <Ryder.Lee@mediatek.com>
-Cc: Shayne Chen =?utf-8?B?KOmZs+i7kuS4nik=?= <Shayne.Chen@mediatek.com>,
-	"nbd@nbd.name" <nbd@nbd.name>, Roy-CH Luo <Roy-CH.Luo@mediatek.com>,
-	Chui-hao Chiu =?utf-8?B?KOmCseWegua1qSk=?= <Chui-hao.Chiu@mediatek.com>,
-	AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>,
-	"linux-kernel@vger.kernel.org" <linux-kernel@vger.kernel.org>,
-	"linux-wireless@vger.kernel.org" <linux-wireless@vger.kernel.org>,
-	Sean Wang <Sean.Wang@mediatek.com>,
-	Bo Jiao =?utf-8?B?KOeEpuazoik=?= <Bo.Jiao@mediatek.com>,
-	"linux-mediatek@lists.infradead.org" <linux-mediatek@lists.infradead.org>,
-	"matthias.bgg@gmail.com" <matthias.bgg@gmail.com>,
-	"linux-arm-kernel@lists.infradead.org" <linux-arm-kernel@lists.infradead.org>
-Subject: Re: [PATCH v2] wifi: mt76: mt7996: fix reading zeroed
- info->control.flags after mt76_tx_status_skb_add()
-Message-ID: <ah0fGek5y8Nha0kd@lore-rh-laptop>
-References: <20260531-mt76_tx_status_skb_add-overwrite-fix-v2-1-b73c4b4a9798@kernel.org>
- <ee0e584cb2ad1b536d327eb89342d1646fa96570.camel@mediatek.com>
- <ahwla_obwnwr2cZo@lore-desk>
- <44c54ed4da0d294c567b3b0ad750f082a6f1be9f.camel@mediatek.com>
- <ahwzwHDF7fT9t7hP@lore-desk>
- <7f02be7c4f919413718a0218b3792d4b0a222ca3.camel@mediatek.com>
+	id 1wTvhU-0000000AAzE-1buq
+	for linux-arm-kernel@lists.infradead.org;
+	Mon, 01 Jun 2026 06:00:40 +0000
+ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
+ b=ANJNxC05UaOn8OF70vbUjdi0imfkOk7uK6VCyttLaFaCeME52/EB7XC99gq/njcBg/j0xTEQ7N9nv92WsdKptWWihwA/35AOi38XQBNTi0F+LFN7eCKeJx+Rqo7PAC47trngikNqreL9Q6HDoZl+aAB7XDL2NRKjqT+sKixDJvsYDkxvWFvXHB/Yz85vWT6BFIXSV9ogbOH7cj9kLN2/jmMLrU+mZ2L7num3c9tCBwe8fzhMtOhpvY2HGLU1znwFs6/tvRrUrP5aI1AZpFMCAks9K8pJVAp6AnOFW98g4YuBQMc49mxbCJ3VwgAkEF7vlSMDZWub5HnIhjClhfs/uQ==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
+ s=arcselector10001;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
+ bh=VxCZADAd+XREcoFQpsPm53rlCtvs9Z1bnuL5QFg3aSY=;
+ b=C0QBTo6aHhneFskcfMJhCxvc8T/ELyLXaetErjDxS0aV6ENKTGH0bXMyr17YvIHXfoA+A1r88eWtUbYZRNIQKJiwgUyCVyiJXW+pEc3sfiRpE/NwxPTgcUuZJhlkhn+RFGmf1ezyLTGHygqsw2BX0T3GyYmfFbUmF+Ow/TtpYPtNLIbOOWiqvkr9Rkqf4ZMkIE58gMQujcyqIbbNsWSMANF54N1YsM2o4cizk2BH4s1QAByewdEQuu2G0dzHbXU7ibzrZcQDBm/a9SX6rR0kIdL5ZJOpVNsJPD2X9wYbZ9M1tkNH36773pPvKQ67M5cd7SFqwRuXsc8l95s7hvv9qQ==
+ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass (sender ip is
+ 165.204.84.17) smtp.rcpttodomain=google.com smtp.mailfrom=amd.com; dmarc=pass
+ (p=quarantine sp=quarantine pct=100) action=none header.from=amd.com;
+ dkim=none (message not signed); arc=none (0)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=amd.com; s=selector1;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
+ bh=VxCZADAd+XREcoFQpsPm53rlCtvs9Z1bnuL5QFg3aSY=;
+ b=Tk0Aww9wmus56ceYpo5qmXwC+dAAOiM/nwXxBjXhU2nWPdRuPxLdO5Etjuykjvwf/qFwwCefD0qGmG/uKgM5NkuCwAnSqEx3bFFx+msKlESdwCHj/XlEneW6D1aHCcH6RvsovwdoNO/DSu1Ebdv7qqFn2VP9QaQQCuA7JQMHdtw=
+Received: from DS1P221CA0028.NAMP221.PROD.OUTLOOK.COM (2603:10b6:8:242::15) by
+ PH7PR12MB5734.namprd12.prod.outlook.com (2603:10b6:510:1e1::6) with Microsoft
+ SMTP Server (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
+ 15.21.71.16; Mon, 1 Jun 2026 06:00:27 +0000
+Received: from CH3PEPF00000013.namprd21.prod.outlook.com
+ (2603:10b6:8:242:cafe::90) by DS1P221CA0028.outlook.office365.com
+ (2603:10b6:8:242::15) with Microsoft SMTP Server (version=TLS1_3,
+ cipher=TLS_AES_256_GCM_SHA384) id 15.21.48.18 via Frontend Transport; Mon, 1
+ Jun 2026 06:00:26 +0000
+X-MS-Exchange-Authentication-Results: spf=pass (sender IP is 165.204.84.17)
+ smtp.mailfrom=amd.com; dkim=none (message not signed)
+ header.d=none;dmarc=pass action=none header.from=amd.com;
+Received-SPF: Pass (protection.outlook.com: domain of amd.com designates
+ 165.204.84.17 as permitted sender) receiver=protection.outlook.com;
+ client-ip=165.204.84.17; helo=satlexmb08.amd.com; pr=C
+Received: from satlexmb08.amd.com (165.204.84.17) by
+ CH3PEPF00000013.mail.protection.outlook.com (10.167.244.118) with Microsoft
+ SMTP Server (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
+ 15.21.92.0 via Frontend Transport; Mon, 1 Jun 2026 06:00:26 +0000
+Received: from satlexmb10.amd.com (10.181.42.219) by satlexmb08.amd.com
+ (10.181.42.217) with Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.2.2562.41; Mon, 1 Jun
+ 2026 01:00:25 -0500
+Received: from satlexmb07.amd.com (10.181.42.216) by satlexmb10.amd.com
+ (10.181.42.219) with Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.2.2562.41; Mon, 1 Jun
+ 2026 01:00:25 -0500
+Received: from amd.com (10.180.168.240) by satlexmb07.amd.com (10.181.42.216)
+ with Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.2.2562.41 via Frontend
+ Transport; Mon, 1 Jun 2026 01:00:20 -0500
+Date: Mon, 1 Jun 2026 06:00:15 +0000
+From: Ankit Soni <Ankit.Soni@amd.com>
+To: Pranjal Shrivastava <praan@google.com>
+CC: <iommu@lists.linux.dev>, <linux-pci@vger.kernel.org>,
+	<linux-arm-kernel@lists.infradead.org>, <linux-kernel@vger.kernel.org>, Joerg
+ Roedel <joro@8bytes.org>, Will Deacon <will@kernel.org>, "Bjorn Helgaas"
+	<bhelgaas@google.com>, David Woodhouse <dwmw2@infradead.org>, "Lu Baolu"
+	<baolu.lu@linux.intel.com>, Robin Murphy <robin.murphy@arm.com>, Suravee
+ Suthikulpanit <suravee.suthikulpanit@amd.com>, Jason Gunthorpe
+	<jgg@ziepe.ca>, Nicolin Chen <nicolinc@nvidia.com>, David Matlack
+	<dmatlack@google.com>, Samiullah Khawaja <skhawaja@google.com>, Daniel Mentz
+	<danielmentz@google.com>, Pasha Tatashin <pasha.tatashin@soleen.com>, Mostafa
+ Saleh <smostafa@google.com>
+Subject: Re: [PATCH v6 6/6] iommu/amd: Fail probe on ATS configuration failure
+Message-ID: <unqzyef2n26wdf6tmc6vvwvpsgv244uvz7cxji4scymqmoofyb@trkzr7ix5bog>
+References: <20260529111208.387412-1-praan@google.com>
+ <20260529111208.387412-7-praan@google.com>
 MIME-Version: 1.0
-Content-Type: multipart/signed; micalg=pgp-sha512;
-	protocol="application/pgp-signature"; boundary="wzjsFj6KDcPkGXlo"
+Content-Type: text/plain; charset="us-ascii"
 Content-Disposition: inline
-In-Reply-To: <7f02be7c4f919413718a0218b3792d4b0a222ca3.camel@mediatek.com>
+In-Reply-To: <20260529111208.387412-7-praan@google.com>
+X-EOPAttributedMessage: 0
+X-MS-PublicTrafficType: Email
+X-MS-TrafficTypeDiagnostic: CH3PEPF00000013:EE_|PH7PR12MB5734:EE_
+X-MS-Office365-Filtering-Correlation-Id: e1ab607c-2b61-4697-53f7-08debfa31382
+X-MS-Exchange-SenderADCheck: 1
+X-MS-Exchange-AntiSpam-Relay: 0
+X-Microsoft-Antispam: BCL:0;ARA:13230040|1800799024|376014|7416014|36860700016|82310400026|6133799003|22082099003|18002099003|11063799006|4143699003|5023799004|56012099006|13003099007;
+X-Microsoft-Antispam-Message-Info: SdIgMHKw/P2Rphjt5gLFd5nsWC0L0MVmbnEyj9njVlooMUgHmv0INA6TZzv8ZcoEiUxd45E4/Gdf1Tu5Id2JvVsp2hMy2XF3PfvlZWwhkzEuKGZoF579R+ESqRd0uh0Yu0fwHwfSOcBmoL6iU2Ti72S5T5wr/zaNXhlI49xv/yUdP/CVMm6vnNoneFCpXBdy8kjzmzXROy8lfThHrGeeC4rBJmQJFUYaxD6oOXWO8ObdOOrM/PLxCiSD6ESLM6oq6EhNjNxK2wxtp2zttnjMqFd4l/4wWYL5a9heFaPMaUwcTBZJsh/YSZlSjJNL3UR5vBzf46KYDPMqNPpyW+6uXVGizPpHfQRkISce3hCCg1vb8X0nRhr/FB5Eac8lme3+ch3kt4RruGN0GuSn+l/0/Hcl7dX6kFRFOi88Ma/qfF7GnuUhjC/RO1+XPCBMGCxmrlt6/931ZAB4z8TP/2EeN0WWGt9D4qYLMLa8/XpsSoOAzp9UHg4mvJnqzY9t/nwPnQcHt7f3NLOOYWYsDUFUnhNCzfh1aBGrZ3OcEv0kXdAUMjHHaeffmz2xedt1FazRy4Xst0rEygqd6Saqz4BJtrkfblKli+d1S7E8QGmqHo03moGU0LPaJmCninrU1+IJZsgm5/+bQ2fhGYbblhcrf0KnPrhHR1ilU/DglNRWqgftTqZrUsHJ9MAp79oO7vT/Kunfo0TPElwSGPccHLm7t/1dR0uf/5si2udrG4xHNz1LUB6+NUnkzqRq+DBDMsO7
+X-Forefront-Antispam-Report: CIP:165.204.84.17;CTRY:US;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:satlexmb08.amd.com;PTR:InfoDomainNonexistent;CAT:NONE;SFS:(13230040)(1800799024)(376014)(7416014)(36860700016)(82310400026)(6133799003)(22082099003)(18002099003)(11063799006)(4143699003)(5023799004)(56012099006)(13003099007);DIR:OUT;SFP:1101;
+X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
+X-MS-Exchange-AntiSpam-MessageData-0: ICPZV7EvLJdmwerwwXQF/FcVklmtfW7Z/ywAQdV+nRQl67X3E3L8kNNl2ZeGuXYOG0azqERzxmHIwZ1PsDxL6erlPtdljfyN31vkg6orcq+uCr4wpCW0SdVbwj1EK2Q2YIvaTOeeExNX7sFk/8AJ8DOlLN0eWDduYiIRhawYllZEIPLtklg4muWRLU87u5mh4KSs8IoNv3xQ5Vgf5TaRpZiKN9e14E3iGbxeBGVvj1oV9WozvgG3Kfg4jFyj9CeRnonDplrxb1GHuIuuWz7Ta0p/nME9FMnH3QQGYmVln41vdxZMPw2wfJlxe58dE+++qaPM2AyBA5t4YCLHFGSgCns6jnp/AY9sCUMwU5Ju+Ke3w/bDEAFN14/knVg2Aa4H6o0iOlcq7PmIPUPse3eGJcMo4c2bctlFeVVLg3HdpBzCDhkneXOJaSc2qk7HoN3k
+X-OriginatorOrg: amd.com
+X-MS-Exchange-CrossTenant-OriginalArrivalTime: 01 Jun 2026 06:00:26.0472
+ (UTC)
+X-MS-Exchange-CrossTenant-Network-Message-Id: e1ab607c-2b61-4697-53f7-08debfa31382
+X-MS-Exchange-CrossTenant-Id: 3dd8961f-e488-4e60-8e11-a82d994e183d
+X-MS-Exchange-CrossTenant-OriginalAttributedTenantConnectingIp: TenantId=3dd8961f-e488-4e60-8e11-a82d994e183d;Ip=[165.204.84.17];Helo=[satlexmb08.amd.com]
+X-MS-Exchange-CrossTenant-AuthSource: CH3PEPF00000013.namprd21.prod.outlook.com
+X-MS-Exchange-CrossTenant-AuthAs: Anonymous
+X-MS-Exchange-CrossTenant-FromEntityHeader: HybridOnPrem
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: PH7PR12MB5734
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260531_225841_192973_2F17B809 
-X-CRM114-Status: GOOD (  49.71  )
+X-CRM114-CacheID: sfid-20260531_230036_430577_2C2FBD91 
+X-CRM114-Status: GOOD (  25.97  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -86,304 +132,97 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
+On Fri, May 29, 2026 at 11:12:08AM +0000, Pranjal Shrivastava wrote:
+> Update the AMD IOMMU driver to handle ATS configuration and enablement
+> more strictly. Specifically, update the device probe to fail if
+> pci_prepare_ats() returns an error. This ensures that any ATS-capable
+> master reaching the attach phase is guaranteed to have a valid config.
+> 
+> Additionally, update pdev_enable_cap_ats() to WARN_ON() if pci_enable_ats
+> fails. Since earlier checks in the probe phase preclude config-related
+> failures, any failure during hardware enablement is considered a kernel
+> bug.
+> 
+> Fix a pre-existing Use-After-Free risk by ensuring iommu_ignore_device()
+> is called on all probe failures after iommu_init_device().
+> 
+> Signed-off-by: Pranjal Shrivastava <praan@google.com>
+> ---
+>  drivers/iommu/amd/iommu.c | 30 ++++++++++++++++++++++++------
+>  1 file changed, 24 insertions(+), 6 deletions(-)
+> 
+> diff --git a/drivers/iommu/amd/iommu.c b/drivers/iommu/amd/iommu.c
+> index 84cad43dc188..b74c4504bee3 100644
+> --- a/drivers/iommu/amd/iommu.c
+> +++ b/drivers/iommu/amd/iommu.c
+> @@ -570,10 +570,16 @@ static inline int pdev_enable_cap_ats(struct pci_dev *pdev)
+>  	if (amd_iommu_iotlb_sup &&
+>  	    (dev_data->flags & AMD_IOMMU_DEVICE_FLAG_ATS_SUP)) {
+>  		ret = pci_enable_ats(pdev, PAGE_SHIFT);
+> -		if (!ret) {
+> -			dev_data->ats_enabled = 1;
+> -			dev_data->ats_qdep    = pci_ats_queue_depth(pdev);
+> -		}
+> +		/*
+> +		 * pci_enable_ats() should not fail here because earlier checks
+> +		 * have already verified support and configuration.
+> +		 */
+> +		if (WARN_ON(ret))
+> +			return ret;
+> +
+> +		dev_data->ats_enabled = 1;
+> +		dev_data->ats_qdep    = pci_ats_queue_depth(pdev);
+> +		ret = 0;
+>  	}
+>  
+>  	return ret;
+> @@ -2502,10 +2508,22 @@ static struct iommu_device *amd_iommu_probe_device(struct device *dev)
+>  	else
+>  		dev_data->max_irqs = MAX_IRQS_PER_TABLE_512;
+>  
+> -	if (dev_is_pci(dev))
+> -		pci_prepare_ats(to_pci_dev(dev), PAGE_SHIFT);
+> +	if (dev_is_pci(dev)) {
+> +		struct pci_dev *pdev = to_pci_dev(dev);
+> +
+> +		if (pci_ats_supported(pdev)) {
+> +			ret = pci_prepare_ats(pdev, PAGE_SHIFT);
+> +			if (ret) {
+> +				iommu_dev = ERR_PTR(ret);
+> +				goto out_err;
+> +			}
+> +		}
+> +	}
+>  
+>  out_err:
+> +	if (IS_ERR(iommu_dev))
+> +		iommu_ignore_device(iommu, dev);
+> +
+>  	return iommu_dev;
+>  }
+>  
 
---wzjsFj6KDcPkGXlo
-Content-Type: text/plain; charset=iso-8859-1
-Content-Disposition: inline
-Content-Transfer-Encoding: quoted-printable
+Hi,
+This regresses IRQ remapping in the PD_MODE_NONE branch. By design
+rlookup_table[devid] must stay valid for IR - init.c:2257 documents
+this: "Do not return an error to enable IRQ remapping ...". Pre-patch
+the PD_MODE_NONE branch returned ERR_PTR(-ENODEV) without nulling
+rlookup, precisely so irq_remapping_alloc() / __rlookup_amd_iommu()
+keep working; this unconditional cleanup violates that.
+The new pci_prepare_ats() failure path has the same shape:
+amd_iommu_set_pci_msi_domain() ran earlier and parented dev->msi_domain
+on iommu->ir_domain, but on this new out_err that's not unwound. So
+nulling rlookup_table[devid] makes irq_remapping_alloc() return -EINVAL
+on the first MSI alloc for the device. Sashiko also flagged this in [1];
 
-On May 31, Ryder Lee wrote:
-> On Sun, 2026-05-31 at 15:12 +0200, lorenzo@kernel.org wrote:
-> > On May 31, Ryder Lee wrote:
-> > > On Sun, 2026-05-31 at 14:11 +0200, lorenzo@kernel.org=A0wrote:
-> > > > > On Sun, 2026-05-31 at 10:55 +0200, Lorenzo Bianconi wrote:
-> > > > > > mt76_tx_status_skb_add() zeroes the mt76_tx_cb struct stored
-> > > > > > at
-> > > > > > info->status.status_driver_data via memset(). Since info-
-> > > > > > >control
-> > > > > > and
-> > > > > > info->status are members of the same union in
-> > > > > > ieee80211_tx_info,
-> > > > > > this overwrites info->control.flags.
-> > > > > > In mt7996_tx_prepare_skb(), mt76_tx_status_skb_add() is
-> > > > > > called
-> > > > > > before
-> > > > > > mt7996_mac_write_txwi(), which re-reads info->control.flags
-> > > > > > to
-> > > > > > extract
-> > > > > > IEEE80211_TX_CTRL_MLO_LINK. Because the field has been
-> > > > > > zeroed,
-> > > > > > the
-> > > > > > link_id always resolves to 0 for frames using global_wcid,
-> > > > > > leading to
-> > > > > > incorrect TXWI configuration.
-> > > > > > Fix this by passing link_id as an explicit parameter to
-> > > > > > mt7996_mac_write_txwi(). In mt7996_tx_prepare_skb(), the
-> > > > > > link_id
-> > > > > > is
-> > > > > > already extracted from info->control.flags before the
-> > > > > > destructive
-> > > > > > mt76_tx_status_skb_add() call. For the beacon and inband
-> > > > > > discovery
-> > > > > > callers in mcu.c, use link_conf->link_id directly.
-> > > > > >=20
-> > > > > > Fixes: f0b0b239b8f36 ("wifi: mt76: mt7996: rework
-> > > > > > mt7996_mac_write_txwi() for MLO support")
-> > > > > > Signed-off-by: Lorenzo Bianconi <lorenzo@kernel.org>
-> > > > > > ---
-> > > > > > Changes in v2:
-> > > > > > - Do not use link_id in mt7996_mac_write_txwi if it is
-> > > > > > IEEE80211_LINK_UNSPECIFIED
-> > > > > > - In mt7996_mac_write_txwi() rely on link_id calculated in
-> > > > > > =A0 mt7996_tx_prepare_skb().
-> > > > > > - Link to v1:
-> > > > > > https://lore.kernel.org/r/20260530-mt76_tx_status_skb_add-overw=
-rite-fix-v1-1-e2c3151c391a@kernel.org
-> > > > > > =A0
-> > > > > > ---
-> > > > > > =A0drivers/net/wireless/mediatek/mt76/mt7996/mac.c=A0=A0=A0 | 14
-> > > > > > ++++----
-> > > > > > ----
-> > > > > > --
-> > > > > > =A0drivers/net/wireless/mediatek/mt76/mt7996/mcu.c=A0=A0=A0 |=
-=A0 5 +++-
-> > > > > > -
-> > > > > > =A0drivers/net/wireless/mediatek/mt76/mt7996/mt7996.h |=A0 3 ++-
-> > > > > > =A03 files changed, 9 insertions(+), 13 deletions(-)
-> > > > > >=20
-> > > > > > diff --git a/drivers/net/wireless/mediatek/mt76/mt7996/mac.c
-> > > > > > b/drivers/net/wireless/mediatek/mt76/mt7996/mac.c
-> > > > > > index c98446057282..95b3078d9667 100644
-> > > > > > --- a/drivers/net/wireless/mediatek/mt76/mt7996/mac.c
-> > > > > > +++ b/drivers/net/wireless/mediatek/mt76/mt7996/mac.c
-> > > > > > @@ -856,7 +856,8 @@ mt7996_mac_write_txwi_80211(struct
-> > > > > > mt7996_dev
-> > > > > > *dev, __le32 *txwi,
-> > > > > > =A0void mt7996_mac_write_txwi(struct mt7996_dev *dev, __le32
-> > > > > > *txwi,
-> > > > > > =A0			=A0=A0 struct sk_buff *skb, struct
-> > > > > > mt76_wcid
-> > > > > > *wcid,
-> > > > > > =A0			=A0=A0 struct ieee80211_key_conf *key,
-> > > > > > int
-> > > > > > pid,
-> > > > > > -			=A0=A0 enum mt76_txq_id qid, u32
-> > > > > > changed)
-> > > > > > +			=A0=A0 enum mt76_txq_id qid, u32
-> > > > > > changed,
-> > > > > > +			=A0=A0 unsigned int link_id)
-> > > > > > =A0{
-> > > > > > =A0	struct ieee80211_hdr *hdr =3D (struct ieee80211_hdr
-> > > > > > *)skb-
-> > > > > > > data;
-> > > > > > =A0	struct ieee80211_tx_info *info =3D
-> > > > > > IEEE80211_SKB_CB(skb);
-> > > > > > @@ -866,7 +867,6 @@ void mt7996_mac_write_txwi(struct
-> > > > > > mt7996_dev
-> > > > > > *dev, __le32 *txwi,
-> > > > > > =A0	bool is_8023 =3D info->flags &
-> > > > > > IEEE80211_TX_CTL_HW_80211_ENCAP;
-> > > > > > =A0	struct mt76_vif_link *mlink =3D NULL;
-> > > > > > =A0	struct mt7996_vif *mvif;
-> > > > > > -	unsigned int link_id;
-> > > > > > =A0	u16 tx_count =3D 15;
-> > > > > > =A0	u32 val;
-> > > > > > =A0	bool inband_disc =3D !!(changed &
-> > > > > > (BSS_CHANGED_UNSOL_BCAST_PROBE_RESP |
-> > > > > > @@ -874,17 +874,11 @@ void mt7996_mac_write_txwi(struct
-> > > > > > mt7996_dev
-> > > > > > *dev, __le32 *txwi,
-> > > > > > =A0	bool beacon =3D !!(changed & (BSS_CHANGED_BEACON |
-> > > > > > =A0				=A0=A0=A0
-> > > > > > BSS_CHANGED_BEACON_ENABLED))
-> > > > > > &&
-> > > > > > (!inband_disc);
-> > > > > > =A0
-> > > > > > -	if (wcid !=3D &dev->mt76.global_wcid)
-> > > > > > -		link_id =3D wcid->link_id;
-> > > > > > -	else
-> > > > > > -		link_id =3D u32_get_bits(info->control.flags,
-> > > > > > -				=A0=A0=A0=A0=A0=A0
-> > > > > > IEEE80211_TX_CTRL_MLO_LINK);
-> > > > > > -
-> > > > > > =A0	mvif =3D vif ? (struct mt7996_vif *)vif->drv_priv :
-> > > > > > NULL;
-> > > > > > =A0	if (mvif) {
-> > > > > > =A0		if (wcid->offchannel)
-> > > > > > =A0			mlink =3D rcu_dereference(mvif-
-> > > > > > > mt76.offchannel_link);
-> > > > > > -		if (!mlink)
-> > > > > > +		if (!mlink && link_id !=3D
-> > > > > > IEEE80211_LINK_UNSPECIFIED)
-> > > > > > =A0			mlink =3D rcu_dereference(mvif-
-> > > > > > > mt76.link[link_id]);
-> > > > > > =A0	}
-> > > > > > =A0
-> > > > > > @@ -1096,7 +1090,7 @@ int mt7996_tx_prepare_skb(struct
-> > > > > > mt76_dev
-> > > > > > *mdev, void *txwi_ptr,
-> > > > > > =A0	/* Transmit non qos data by 802.11 header and need
-> > > > > > to
-> > > > > > fill
-> > > > > > txd by host*/
-> > > > > > =A0	if (!is_8023 || pid >=3D MT_PACKET_ID_FIRST)
-> > > > > > =A0		mt7996_mac_write_txwi(dev, txwi_ptr,
-> > > > > > tx_info-
-> > > > > > > skb,
-> > > > > > wcid, key,
-> > > > > > -				=A0=A0=A0=A0=A0 pid, qid, 0);
-> > > > > > +				=A0=A0=A0=A0=A0 pid, qid, 0, link_id);
-> > > > > > =A0
-> > > > > > =A0	/* MT7996 and MT7992 require driver to provide the
-> > > > > > MAC
-> > > > > > TXP
-> > > > > > for AddBA
-> > > > > > =A0	 * req
-> > > > > > diff --git a/drivers/net/wireless/mediatek/mt76/mt7996/mcu.c
-> > > > > > b/drivers/net/wireless/mediatek/mt76/mt7996/mcu.c
-> > > > > > index 8be40d60ad29..a14c63438923 100644
-> > > > > > --- a/drivers/net/wireless/mediatek/mt76/mt7996/mcu.c
-> > > > > > +++ b/drivers/net/wireless/mediatek/mt76/mt7996/mcu.c
-> > > > > > @@ -3103,7 +3103,7 @@ mt7996_mcu_beacon_cont(struct
-> > > > > > mt7996_dev
-> > > > > > *dev,
-> > > > > > =A0
-> > > > > > =A0	buf =3D (u8 *)bcn + sizeof(*bcn);
-> > > > > > =A0	mt7996_mac_write_txwi(dev, (__le32 *)buf, skb, wcid,
-> > > > > > NULL,
-> > > > > > 0, 0,
-> > > > > > -			=A0=A0=A0=A0=A0 BSS_CHANGED_BEACON);
-> > > > > > +			=A0=A0=A0=A0=A0 BSS_CHANGED_BEACON, link_conf-
-> > > > > > > link_id);
-> > > > > > =A0
-> > > > > > =A0	memcpy(buf + MT_TXD_SIZE, skb->data, skb->len);
-> > > > > > =A0}
-> > > > > > @@ -3249,7 +3249,8 @@ int
-> > > > > > mt7996_mcu_beacon_inband_discov(struct
-> > > > > > mt7996_dev *dev,
-> > > > > > =A0
-> > > > > > =A0	buf =3D (u8 *)tlv + sizeof(*discov);
-> > > > > > =A0
-> > > > > > -	mt7996_mac_write_txwi(dev, (__le32 *)buf, skb, wcid,
-> > > > > > NULL,
-> > > > > > 0, 0, changed);
-> > > > > > +	mt7996_mac_write_txwi(dev, (__le32 *)buf, skb, wcid,
-> > > > > > NULL,
-> > > > > > 0, 0,
-> > > > > > +			=A0=A0=A0=A0=A0 changed, link_conf->link_id);
-> > > > > > =A0
-> > > > > > =A0	memcpy(buf + MT_TXD_SIZE, skb->data, skb->len);
-> > > > > > =A0
-> > > > > > diff --git
-> > > > > > a/drivers/net/wireless/mediatek/mt76/mt7996/mt7996.h
-> > > > > > b/drivers/net/wireless/mediatek/mt76/mt7996/mt7996.h
-> > > > > > index 0dc4198fcf8b..0d6488522ba7 100644
-> > > > > > --- a/drivers/net/wireless/mediatek/mt76/mt7996/mt7996.h
-> > > > > > +++ b/drivers/net/wireless/mediatek/mt76/mt7996/mt7996.h
-> > > > > > @@ -874,7 +874,8 @@ void mt7996_mac_enable_nf(struct
-> > > > > > mt7996_dev
-> > > > > > *dev,
-> > > > > > u8 band);
-> > > > > > =A0void mt7996_mac_write_txwi(struct mt7996_dev *dev, __le32
-> > > > > > *txwi,
-> > > > > > =A0			=A0=A0 struct sk_buff *skb, struct
-> > > > > > mt76_wcid
-> > > > > > *wcid,
-> > > > > > =A0			=A0=A0 struct ieee80211_key_conf *key,
-> > > > > > int
-> > > > > > pid,
-> > > > > > -			=A0=A0 enum mt76_txq_id qid, u32
-> > > > > > changed);
-> > > > > > +			=A0=A0 enum mt76_txq_id qid, u32
-> > > > > > changed,
-> > > > > > +			=A0=A0 unsigned int link_id);
-> > > > > > =A0void mt7996_mac_update_beacons(struct mt7996_phy *phy);
-> > > > > > =A0void mt7996_mac_set_coverage_class(struct mt7996_phy *phy);
-> > > > > > =A0void mt7996_mac_work(struct work_struct *work);
-> > > > > >=20
-> > > > > > ---
-> > > > > > base-commit: 4913f44167cf35a9536e9eec7352e15b2de0c573
-> > > > > > change-id: 20260530-mt76_tx_status_skb_add-overwrite-fix-
-> > > > > > 85818a9bb31f
-> > > > > >=20
-> > > > > > Best regards,
-> > > > > >=20
-> > > > > >=20
-> > > > > We might expand flags further so this still doesn't solve the
-> > > > > issue
-> > > > > of
-> > > > > flags being cleared - it only works for MLO flag. And the
-> > > > > developers
-> > > > > still won't easily notice that the flags are being cleared.
-> > > >=20
-> > > > My opinion is we should consider just upstream code and then
-> > > > change
-> > > > it as soon
-> > > > as you post this new feature upstream, but I will let Felix
-> > > > comments
-> > > > on it.
-> > > > Moreover, the proposed approach aligns link_id used in
-> > > > mt7996_tx_prepare_skb()
-> > > > to the one used in mt7996_mac_write_txwi() and fix a possible OOB
-> > > > bug
-> > > > in
-> > > > mt7996_mac_write_txwi().
-> > > >=20
-> > > > Regards,
-> > > > Lorenzo
-> > > >=20
-> > > > >=20
-> > >=20
-> > > Just to tie in with this patch subject - I'm just thinking of a way
-> > > to
-> > > solve this once and for all. If the problem is reading zeroed info-
-> > > > control.flags, wouldn't it be better to just pass a u32 flags,
-> > > something like this:
-> > >=20
-> > > u32 flags =3D info->control.flags
-> > >=20
-> > > mt7996_mac_write_txwi(dev, (__le32 *)buf, skb, wcid, NULL, 0, 0,
-> > > 			=A0=A0=A0=A0=A0 changed, flags);
-> > >=20
-> > > We can use all flags then.
-> >=20
-> > what about link_id? Should it be the same between
-> > mt7996_tx_prepare_skb()
-> > and mt7996_mac_write_txwi()?
-> >=20
-> >=20
-> =20
-> I mean the link_id is only corresponds to one specific flags bit of
-> mac80211_tx_control_flags. But there are other bits that aren't
-> handled. Wouldn't u32 flags make it more cleaner?
+Also if iommu_init_device() branch fails, iommu_ignore_device() will be
+called twice.
 
-Yes, I got your point, but my concern is if we need to sync link_id between
-mt7996_tx_prepare_skb() and mt7996_mac_write_txwi(). If so, I guess it is
-much better to pass link_id explicitly to mt7996_mac_write_txwi() since it
-does not just depended on mac80211_tx_control_flags and I think we should
-not duplicate the logic in mt7996_mac_write_txwi(). Got my point?
-If in the future (not required now) we need to pass mac80211_tx_control_fla=
-gs
-to mt7996_mac_write_txwi(), we will do it easily.
+[1] https://lore.kernel.org/r/20260529153216.2AD1E1F00899@smtp.kernel.org
 
-Regards,
-Lorenzo
+-Ankit
 
->=20
-> Ryder
->=20
->=20
-
---wzjsFj6KDcPkGXlo
-Content-Type: application/pgp-signature; name=signature.asc
-
------BEGIN PGP SIGNATURE-----
-
-iHUEABYKAB0WIQTquNwa3Txd3rGGn7Y6cBh0uS2trAUCah0fFgAKCRA6cBh0uS2t
-rEUJAP9cw7n0ld9kt7adipEUeq8Xa+Mo1z5RCm5s8tUkFyHaogD+PFq1JsPllni7
-lolW/EqZMwI69tCxVZdr80J41s02Vws=
-=st0d
------END PGP SIGNATURE-----
-
---wzjsFj6KDcPkGXlo--
+> -- 
+> 2.54.0.823.g6e5bcc1fc9-goog
+> 
 
