@@ -4,146 +4,85 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id D2F8ECD5BD1
-	for <linux-arm-kernel@archiver.kernel.org>; Mon,  1 Jun 2026 14:52:27 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 17836CD5BD1
+	for <linux-arm-kernel@archiver.kernel.org>; Mon,  1 Jun 2026 14:53:41 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:
-	Content-Transfer-Encoding:Content-Type:References:In-Reply-To:Message-ID:Date
-	:Subject:Cc:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=kum7I7xZcRKfWLGpcK9a4oVLMTP7iPN3cULQ/AknAlg=; b=FODyWcSrOoWd1vZe+neIh87Ra+
-	34m3eBR+JdH6Mo+I7sUGbFoiah5ogk5dxnrlAy78vHWAFzK9zYgfbcJnWIP25NGBsnRmon7O0fEf9
-	blfE9tkN3uciKwFexRB2cPBtGqi4au8cKbLsOOmYMGpqsL2OETFLz83wZTuL7kOMVMcGRMLWQLo1L
-	RWJJr+pMdC1kn2cfbDlLArolDAeCwSBEqYtRIyLV5OScRh4VzqdPnQyyE3hfvwOlrXopnns0VsAth
-	f3STVsi0TKWoYfYvHQXpB+pcnrOfc0PIV+nLEgM2YvYL2O8fHpvhJnDd821j3QDumUn1nxtn1QZIK
-	5AqHWtFA==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:MIME-Version:
+	Message-ID:Subject:Cc:To:From:Date:Reply-To:Content-Transfer-Encoding:
+	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
+	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=MrfSnj/PLsXTbxRf/etluSw853v8MTiPenNyLUiYWok=; b=SPBVWEa+GbE0HqxQhxKxWvz4UR
+	VmdbBTRRWUL37hqeXnaV0j/5CywWKrNG16Xi4oCc7o8BlDrA8o+MvUhWgg/a9Y+t/SVorXwq6QjV8
+	VBjuo6108v/qfoTudT8vWNxAXTY3X0CqvWxSebaX9bCzau9jH7+/L+YSX8ilIbAOplm0DtG1c3lbg
+	DDuHZQ/qTLntSV8M7yYTNE0O3SnDz1YtApSUQcwWSSFED6SWyYfIhPBCZnNL757H/66Lvk8JuH7PS
+	bo9THLMUiw4152u10cQOIdgoUrACa/Sk+ALHfdOHALuMo//YKSSOovf0+F2K3poSeEDfF5f3S9iHS
+	MI6Ck/Jg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wU405-0000000BJWU-3W0E;
-	Mon, 01 Jun 2026 14:52:21 +0000
-Received: from mail-northeuropeazon11011067.outbound.protection.outlook.com ([52.101.65.67] helo=DU2PR03CU002.outbound.protection.outlook.com)
+	id 1wU41H-0000000BJlM-0Nni;
+	Mon, 01 Jun 2026 14:53:35 +0000
+Received: from mail-pf1-x434.google.com ([2607:f8b0:4864:20::434])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wU404-0000000BJUn-0sHB
+	id 1wU41E-0000000BJkJ-432C
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 01 Jun 2026 14:52:21 +0000
-ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
- b=gFofs1ee2SV3l+Ean5OQuIfqokyB/EChk5YFKd6KuyT+cOp5sByUgpY+9UpYrAjhoM1f/ijeSaPehf3isXG5X8mO3foA/1iSLx7h2469HHYPfLAwY/v80fHFKR7BXSiF3sU2Ph5P80JCudtcioP9/61QxpkyzNCV3a9H/AL305gxlipndfNyel2fqgb7a/a1UNYzZRk7UFjoPibchU4/nm4A8j0w0bswS8mDCuqNbW/cU3JmC1PU9q2nD2jbKoBz1CDo+unCyM8shx/REYAPdN1RTOVaebTU2qPfiXA7bWAvffmPz5wZgRgh4hdPgOb+BsVDkOPOnRgJ8PmZDFtP9Q==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
- s=arcselector10001;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
- bh=kum7I7xZcRKfWLGpcK9a4oVLMTP7iPN3cULQ/AknAlg=;
- b=EpwV2GNTqVN/6RBQ5bSI1gkgIgCSURSCyhTxoZbUl0SY5QLvHrfqoflULF3Ubk1qlBXFBcmo9OshvXmWs1iK/5hldY/gMqY0uDXFCi2ZT1LmQuR74cBBNg3CcOQ1Fcij6ScOshAfwA5qdKZdxN01K5yMzJHHNvq4RIVGpwzaCzpkr3pGvq6hUiA8mWjHw6pvkc0nClP7L8liF1FNNX3/BmLaWAhsGBGOzUHEXTosNiLAnVt8VQ2LoZl3nnd2v7vgB/HHvV610RjiS5wU1t19YaemP4H2oUan5dY7RUlJkG5+BvJWDewvqPiozEIwSiw3ovAuzp9Sfbx5Tuo8yTtfZA==
-ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
- smtp.mailfrom=oss.nxp.com; dmarc=pass action=none header.from=oss.nxp.com;
- dkim=pass header.d=oss.nxp.com; arc=none
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=NXP1.onmicrosoft.com;
- s=selector1-NXP1-onmicrosoft-com;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
- bh=kum7I7xZcRKfWLGpcK9a4oVLMTP7iPN3cULQ/AknAlg=;
- b=BDlzrtWoAmsHcBTjT451L9SH8n3lkF2C/Vgkk2KY5IoIPWG8Y0fmQ06Cih0cGRljAmZPh955LYIVzebm6L2FGfKvu1dsi8GmCFhd/PTjLXSqDzg+ldRvst5I3jZilel7nMsfYLpJBlVytocSjHzDTywe0XRBj5R91EdgznliKrQeUbTq5JiHTnDrgkTmPsAPA66CcM6sKqZdkSe+n4KWqKK7cqkKskjIKH5c20sl3gIWcZUx42q7g3Al31WcrOKfwy675LaSDSoItsSbj6B5bJnJax7JHQTi6rJTBApMNhpGBmFCsBgncbCvEMkBe8yZywg2U+/Cj3egQy+sPNMV4g==
-Authentication-Results: dkim=none (message not signed)
- header.d=none;dmarc=none action=none header.from=oss.nxp.com;
-Received: from GV2PR04MB11799.eurprd04.prod.outlook.com (2603:10a6:150:2cf::9)
- by VI1PR04MB10026.eurprd04.prod.outlook.com (2603:10a6:800:1df::6) with
- Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.21.71.15; Mon, 1 Jun 2026
- 14:52:17 +0000
-Received: from GV2PR04MB11799.eurprd04.prod.outlook.com
- ([fe80::2146:83a2:5329:b7c]) by GV2PR04MB11799.eurprd04.prod.outlook.com
- ([fe80::2146:83a2:5329:b7c%6]) with mapi id 15.21.0071.014; Mon, 1 Jun 2026
- 14:52:16 +0000
-From: Frank.Li@oss.nxp.com
-To: linux-arm-kernel@lists.infradead.org,
-	Marek Vasut <marex@nabladev.com>
-Cc: Frank Li <Frank.Li@nxp.com>,
-	Christoph Niedermaier <cniedermaier@dh-electronics.com>,
-	Conor Dooley <conor+dt@kernel.org>,
-	Fabio Estevam <festevam@gmail.com>,
-	Krzysztof Kozlowski <krzk+dt@kernel.org>,
-	Pengutronix Kernel Team <kernel@pengutronix.de>,
-	Rob Herring <robh@kernel.org>,
-	Sascha Hauer <s.hauer@pengutronix.de>,
-	devicetree@vger.kernel.org,
-	imx@lists.linux.dev,
-	kernel@dh-electronics.com,
-	linux-kernel@vger.kernel.org
-Subject: Re: [PATCH v3] arm64: dts: imx8mp: Add DT overlays for DH i.MX8M Plus DHCOM SoM and boards
-Date: Mon,  1 Jun 2026 10:51:59 -0400
-Message-ID: <178032549989.3914057.9286728278681213512.b4-ty@b4>
-X-Mailer: git-send-email 2.43.0
-In-Reply-To: <20260326044411.222907-1-marex@nabladev.com>
-References: <20260326044411.222907-1-marex@nabladev.com>
-Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: 8bit
-X-ClientProxiedBy: SA9PR11CA0006.namprd11.prod.outlook.com
- (2603:10b6:806:6e::11) To GV2PR04MB11799.eurprd04.prod.outlook.com
- (2603:10a6:150:2cf::9)
+	Mon, 01 Jun 2026 14:53:34 +0000
+Received: by mail-pf1-x434.google.com with SMTP id d2e1a72fcca58-8422a92b6d6so893576b3a.1
+        for <linux-arm-kernel@lists.infradead.org>; Mon, 01 Jun 2026 07:53:32 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=gmail.com; s=20251104; t=1780325612; x=1780930412; darn=lists.infradead.org;
+        h=content-disposition:mime-version:message-id:subject:cc:to:from:date
+         :from:to:cc:subject:date:message-id:reply-to;
+        bh=MrfSnj/PLsXTbxRf/etluSw853v8MTiPenNyLUiYWok=;
+        b=bCI6vjY3eJf/4GXn2xX2rLmLZ0PmIvHtjI7GGohIdtZUIBctP8MYXVmTHHtcsQLrwo
+         SMUa1vlG8tkl/ROayQEBxKAlkHy+IfDIT9EheDe9ChnGgGzJqP6HM5c9h/M7Q069NEh0
+         zA/Q1R5pvtf24qpBt8ZC93HBh0hjNmFQGm8et+1Q7rciFAOKYiFa1S703rktTmhFspLW
+         mhKtZN3tPbkTm04NjhJbK29XZkmNOysd5dVAFO0tqDSVm4MUrMEq51exCRpI/e3Nj1Y0
+         vhFN3RXE6LeDljBR7UmH08c7CG17weJF56bE1rrnctq1CvplIGH/jpgThXUYo3d8KmYP
+         955A==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20251104; t=1780325612; x=1780930412;
+        h=content-disposition:mime-version:message-id:subject:cc:to:from:date
+         :x-gm-gg:x-gm-message-state:from:to:cc:subject:date:message-id
+         :reply-to;
+        bh=MrfSnj/PLsXTbxRf/etluSw853v8MTiPenNyLUiYWok=;
+        b=HiTJohBL/8OULfn25vt3rADcWD8F/wQNgS6vpHLs7jr0ui909puTdv5YBvUUbovfDA
+         DfCwMZdFERXL+6sNRkdoJgJy1JAOSamZxtY/FQjd7S4EF4bni3JnHX9t1mPUmhuPamyX
+         isZS5SrZTGVn5PuKTgM1aetZtTaOus7S9NljHp5zwzb4AMjA2Wa+nODHjpE5KKpzwxA6
+         pYiZNFA0l3NKErOEZOiP9TiRbEpdM78AFkcprD892vbOmWoEXpMYoZWdo+wFLUztK9EK
+         Gn7aU09PQA+tdhMxYo1EoE98nX7ZjPq/Zx5GVtvfSY675H1PpvO0xARFpeUkBI1OfXw8
+         yQDQ==
+X-Gm-Message-State: AOJu0YwHWUbTCncfLoK+0OFD+2YcvKHFgWMe2bo36OGHoxnRt7HnDRdy
+	SgvPzGvUh192fH/80QEcXG+PMWwajTB3aFibdqIiEvCsj15QDpvHsd2a
+X-Gm-Gg: Acq92OEA3ktp4xT47/qxdLsAkJfbulBqgA/JKVUohUW68p8cT0bykpc2mXUaJdlveXe
+	dakaCmaOOW1q8/5BVJrmFKaY1FbSIvv+2xiRq1bhSfxlGAjx7lmef54lnbWaPIpLpR1x718u3j9
+	z9mMNTHv5quLYOhu6NIq52PaNRQ2rFbW9TcMF1U9U5HiBVhLsSqotwzIp3Lop5ZfQU85a3ML1JY
+	t6Ehv9yXEZPZ3KyjspoQCJuQrZuVR8U5ZOVMhUlEc3q/SRih6+8hJcRQnW3tDTGpL6aMKn9WCEn
+	iKGDjpTDbpJbLRFvEYnDWsd72813QxYJNCkktlGYL7OIo3AVBG6aT4y90+bA0EYniGQ6BZ911T4
+	fomeJnOBxqPkhtznxQP5Kx7Ti5EXfTIa11PPi2nMPCZp/aVaZrTyUnAwWWeokFYKKiN1xMdSq8v
+	7nu40VaLYtzW28uB2qR477M9xPlaedM4FO6Pzu9nvGpS/KyvmT0NnIKg==
+X-Received: by 2002:a05:6a00:1310:b0:82f:51e8:b38e with SMTP id d2e1a72fcca58-84210c54cccmr11705575b3a.24.1780325611586;
+        Mon, 01 Jun 2026 07:53:31 -0700 (PDT)
+Received: from v4bel ([58.123.110.97])
+        by smtp.gmail.com with ESMTPSA id d2e1a72fcca58-8422e712309sm7686388b3a.59.2026.06.01.07.53.28
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Mon, 01 Jun 2026 07:53:30 -0700 (PDT)
+Date: Mon, 1 Jun 2026 23:53:26 +0900
+From: Hyunwoo Kim <imv4bel@gmail.com>
+To: maz@kernel.org, oupton@kernel.org, joey.gouly@arm.com,
+	seiden@linux.ibm.com, suzuki.poulose@arm.com, yuzenghui@huawei.com,
+	catalin.marinas@arm.com, will@kernel.org, kees@kernel.org
+Cc: linux-arm-kernel@lists.infradead.org, kvmarm@lists.linux.dev,
+	linux-kernel@vger.kernel.org, imv4bel@gmail.com
+Subject: [PATCH] KVM: arm64: vgic-its: Drop the translation cache reference
+ only for the erased entry
+Message-ID: <ah2c5lu4JbUg7dj-@v4bel>
 MIME-Version: 1.0
-X-MS-PublicTrafficType: Email
-X-MS-TrafficTypeDiagnostic: GV2PR04MB11799:EE_|VI1PR04MB10026:EE_
-X-MS-Office365-Filtering-Correlation-Id: b830bd87-db18-4283-ee5d-08debfed5fac
-X-MS-Exchange-SenderADCheck: 1
-X-MS-Exchange-AntiSpam-Relay: 0
-X-Microsoft-Antispam: BCL:0;ARA:13230040|366016|7416014|376014|19092799006|1800799024|56012099006|11063799006|18002099003|22082099003;
-X-Microsoft-Antispam-Message-Info: G7c2QTLvQ5aO80z4M4fHJMUrzSg9AbK3W4aMXrhyeRtK2tw+CqS6vwKl53k1D6TQWqh15hUyjnTO7Xc8NzCwaCQAwrY4Ne7x5zZlm4U8HsiwmoN6T2gEYdw3Fadd/yew0nIafEO6igsajeq/67jn7ufLvKOGXzdP0YsS2UH7ZLanJfBo37+3qeKfieULT1VkbH63WfIwWcuE2qP04y9BBz3MsYf2vzxRDSo8yJPGVRMMMZoLM1Nx7XVpfeoccaLUNmGSgcS0mvdbSjZpIbr5e68rfZKooZBUYvEaxaw9ojs1s9CfuBkLsGE28mJPYV36RVWQFQvkgPgl9STIUsfH30W1bHp7AL6jYedq4QD1eQMiDIHrs6BUh1ZjiRyc9lfUYfcv48DSbqtfiuHzbKSD2TvDttOFfWC+fl6NX0v8xSt+3xhRMCAF958LH0P3dbYQdntpwYvyrrqPzR+8GlkbVs+tdCKbATJzkWKdiTzeVxunpqCBuE89b6wRWd25hhsewLs/2qtZroCoHkXRRKNWr/yb6NQOzdxzXpvqA9rYmHtrHOr+HdEuyy0KfhF+GJq+GgqzaMv0YpiWVICS5sHJ4JRVvnf1UuN9LGJkohoXC/a8ay1ifkhRgFfA0XHuHVf3Jd1Y6knypqpSmjZ8i+W9kXiUIDpOUqeukb9PUdCPdvvLFYdEyIDxfk9jv9TsBTbj
-X-Forefront-Antispam-Report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:GV2PR04MB11799.eurprd04.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(366016)(7416014)(376014)(19092799006)(1800799024)(56012099006)(11063799006)(18002099003)(22082099003);DIR:OUT;SFP:1101;
-X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
-X-MS-Exchange-AntiSpam-MessageData-0: =?utf-8?B?YXM2UTU5MHBBUDlGeCtNSUdNTlIzbmM3RlBFdEJScGRIaXM4ekN6QjhmUUVz?=
- =?utf-8?B?Q011WVhnRU1qcUVobUtsdkhVb21DS2hOTEIvZjBZMEh3S056WEZqVVVqZHdn?=
- =?utf-8?B?SnJmNUZGTFpiSkRJU0hqSW4rTWFxcWNXek85MHpOMWJhNGNhL3hOK2dpQXVH?=
- =?utf-8?B?clMzakFmVXArTld0Yk9UeGIwWlhaTEUrbUxNNENwQXNpNlV6aXAwWlRpT294?=
- =?utf-8?B?UFBEb09iVVRBdDZPcU04dDJTSm1iMkNFQUx2V0VEV0dlZE9PNDQ4dlZESGQw?=
- =?utf-8?B?ZkNjUUlKOU1Fclp5QW94QzEyOEg5RjZOTnBhWjVPL2x5cXg1aWM0Z0c2K0NW?=
- =?utf-8?B?ZUE5NnJCWllLQTZCUUdFZXQ4UFp5WnB0SHEyeVVzZ3RxbWlzRjluSnBTZjNE?=
- =?utf-8?B?a0FVWDFLOVNqZVRkQnp4a0Z4TUxITWhJSmVsUDhtZW02QzA0emxjTUpSaVNB?=
- =?utf-8?B?RFA3YThZK3g3WEZYMVdVOXpQZGFEYkY2Z3kvb2VKMUwxQXpwdFFUZ2ROWEhZ?=
- =?utf-8?B?ZWU2SG56UDNMTVRKMDlwU0p2bE5kWEJmS0owcWxjZ0dpZTBzcWtNRmVnUXhO?=
- =?utf-8?B?MUo3ZXNCK293VFdSWnRUYjloM1E2M0NIbGtYVDUvcnVOeVNLVjFwQjc4cjAx?=
- =?utf-8?B?Z25uVXRUTXJ1a2VwODlsd2VKc0R5dUk5eWlmOUlNZitUSWRjZVlIOHMxNW8r?=
- =?utf-8?B?Y1ErZkM2VWxDK1NZc2RaU0NrZzNhRkhFd2FKSWJZTm8veG5DWkFRUDBRWGdm?=
- =?utf-8?B?L2wxalZ5ZFZONkxnbWU5dDdKbmpmajRtYlFjVHVrS1RzVGFvUzZvL1lGWVE3?=
- =?utf-8?B?MU53bCtSY1VFY0RVZVdnS2NKZmhzOGdDN01icS9Ga0hPZzBMdjdMU1R2WGlR?=
- =?utf-8?B?UlZ1WitxMnhJOUdFY0RxS2YxZVljUFE4cEFYeGp0emlXdTkxK1BVaGpOVUZ6?=
- =?utf-8?B?Tk54N2lid2ptamJPNFQwTVZEOERqR3BMM0lTZjd6VlJDWlpCWVZTTlpPYjFa?=
- =?utf-8?B?Mnc2TmlmT3ZtallZZ2J4blJFbDM1K1l5eVhxdGlHanI1K1FWZklVM2FteGVP?=
- =?utf-8?B?MFdQUHlrVDFJN3htSWcwTDFiVC9RdnRmcUxXWlJlVCszemo1QlpMd1J2VjBH?=
- =?utf-8?B?anEyTzkxWkkwcUZsYzdmYmFqdDRXOTJwRDNKejhlMndTcSs1RjB4d3ZKaHc4?=
- =?utf-8?B?SjR2aGZvT1lTUEk0S21LYWJ1d3Z4bjZUdG9qeGhJVDRKWDZrQm9hT1BoeVpU?=
- =?utf-8?B?SHhnTmhFbjNMSjRBM05yc08rUVFyd0t2R2FJd1lnWGtEMmptTE5SaTZhSDYw?=
- =?utf-8?B?ZkNqZFZXYmhzanZYbm5YTU9iZFg0V1QrWndXeUFKbmUrY20yWG9lZGZ6TDlP?=
- =?utf-8?B?eXZtbjdvSzVvTW53V3lVTE9mc0pKb2ZNWWV5eXpQak5sR2ptWVZpWnh1ODFU?=
- =?utf-8?B?OGJLTk9URGJjRElnd0paT1FCc2J6TjJqRkI2dE9kMmo1bDg0OWtETzh0bHE5?=
- =?utf-8?B?OStLaXpNUGVDdDR4b2ZIb3dCblJsb3RSRHN1U29Ob2FKWDFkKzgzMG1aUmZU?=
- =?utf-8?B?SVdDL05XTy9RaUs1SXhuMFprd0ExWUtSTmFsZmFtQnAwZ3FmcTd5Ums2d1o3?=
- =?utf-8?B?SXRYOWowZE9SS3VPb3U2WVg2NDUwVy9uc2hZeXF1UVdiNGdMV2FKd3VRRlZv?=
- =?utf-8?B?SlFjVng1OTZaYjhTWnQzeTdnZkJVZkxKejF5U0lYN3g2cXY3U2RsWWYvQVFP?=
- =?utf-8?B?dnB2Q09sMkwvRTZEenVTazlidkV0Wlo0WTBMZVVnOHZOWFFHSmdmLzV5SnJo?=
- =?utf-8?B?WFJjRjFIbDFKR3BlaDR3aGFydTlmOFQ2bUpqak15Z3IvazNPSndHNDlpQS9r?=
- =?utf-8?B?QXBwVVlOMEhnVXo0MTMyeTJQZ0Q4SmlzdjE4WDYzcnhvbUJBUDNrc2ZzNThw?=
- =?utf-8?B?VUV2dFVCL2grcDhIZm5CSmMremhiaUo2SXBWaHIyNDIvK1M1T2x2SHpKK29T?=
- =?utf-8?B?aWxBbDc2NGpmQzlRQyswOFJtZU1FWVBPcS95cGVwa3ptcGlWaGpGckY1R3BF?=
- =?utf-8?B?eE5ReXZMcEhvbHVwcHBxeUhSZ0tCMkRFRTR0VEVPb1ZGTXQyUzBSeDVNVzUz?=
- =?utf-8?B?SVEvUm9QUlgyMDZKL2k5UjUyM29rQW5wTWlqMmxueHpON09sNnMvWUY0RjUz?=
- =?utf-8?B?YmxPcTFoVHpwSWtxMHZPUFFLdlYyQVNFUHZRWkxDQ1kvR2hjMTkyUHRyaGRR?=
- =?utf-8?B?YUlvUm1wbnNLbnVEdVMxL015Qm8xbEVtdytEcUdYLzJYSFdBMW9JT29WUk1P?=
- =?utf-8?B?YXI0Zk1WMnhPVVNEV1c3bXViV0M5bkFSWFczNWM3N2M5OE5VS3VyV2VxMlEw?=
- =?utf-8?Q?Ki+aqSD9f9uJRLbA=3D?=
-X-OriginatorOrg: oss.nxp.com
-X-MS-Exchange-CrossTenant-Network-Message-Id: b830bd87-db18-4283-ee5d-08debfed5fac
-X-MS-Exchange-CrossTenant-AuthSource: GV2PR04MB11799.eurprd04.prod.outlook.com
-X-MS-Exchange-CrossTenant-AuthAs: Internal
-X-MS-Exchange-CrossTenant-OriginalArrivalTime: 01 Jun 2026 14:52:16.8815
- (UTC)
-X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
-X-MS-Exchange-CrossTenant-Id: 686ea1d3-bc2b-4c6f-a92c-d99c5c301635
-X-MS-Exchange-CrossTenant-MailboxType: HOSTED
-X-MS-Exchange-CrossTenant-UserPrincipalName: YofV6mewyVog75XqyprCiYcDy/QmxTkM1uIdQXqQD5GmwB1lC6XzutmJL5zJCbyQhiBAVq2cy2LsfkRJEQamauYKGHzQBnwNjJkXO/b7ES/2HwekirFKwTNJQO6We+iC
-X-MS-Exchange-Transport-CrossTenantHeadersStamped: VI1PR04MB10026
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260601_075220_252080_090E024E 
-X-CRM114-Status: UNSURE (   8.16  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20260601_075333_005513_2209E67F 
+X-CRM114-Status: GOOD (  17.01  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -158,39 +97,48 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-From: Frank Li <Frank.Li@nxp.com>
+vgic_its_invalidate_cache() walks the per-ITS translation cache with
+xa_for_each() and drops the cache's reference on each entry with
+vgic_put_irq(). It puts the iterated pointer, though, rather than the
+value returned by xa_erase().
 
+The function is called from contexts that do not exclude one another: the
+ITS command handlers hold its_lock, the GITS_CTLR write path holds
+cmd_lock, and the path that clears EnableLPIs in a redistributor's
+GICR_CTLR holds neither. Two or more of them can drain the same cache
+concurrently, and if each one observes the same entry, erases it and then
+puts it, the single reference the cache holds on that entry is dropped
+more than once. The entry can then be freed while an ITE still maps it.
 
-On Thu, 26 Mar 2026 05:43:21 +0100, Marek Vasut wrote:
-> Add DT overlays to support DH i.MX8M Plus DHCOM SoM variants and carrier
-> board expansion modules. The following DT overlays are implemented:
-> - SoM:
->   - DH 660-x00 SoM with 1xRMII PHY
->   - DH 660-x00 SoM with 2xRMII PHY
-> - PDK2:
->   - DH 505-200 Display board in edge connector X12 via direct LVDS
->   - DH 531-100 SPI/I2C board in header X21
->   - DH 531-200 SPI/I2C board in header X22
->   - DH 560-200 Display board in edge connector X12
-> - PDK3:
->   - DH 505-200 Display board in edge connector X36 via direct LVDS
->   - DH 531-100 SPI/I2C board in header X40
->   - DH 531-200 SPI/I2C board in header X41
->   - DH 560-300 Display board in edge connector X36
->   - EA muRata 2AE M.2 A/E-Key card in connector X20
->   - NXP SPF-29853-C1 MINISASTOCSI with OV5640 sensor in connector X31
->   - NXP SPF-29853-C1 MINISASTOCSI with OV5640 sensor in connector X29
-> - PicoITX:
->   - DH 626-100 Display board in edge connector X2
-> 
-> [...]
+xa_erase() is atomic and returns the previous entry, so put only the entry
+that this context actually removed. The cache reference is then dropped
+exactly once per entry even when the invalidations run concurrently, and
+the behavior is unchanged when only one context runs.
 
-Applied, thanks!
+Fixes: 8201d1028caa ("KVM: arm64: vgic-its: Maintain a translation cache per ITS")
+Signed-off-by: Hyunwoo Kim <imv4bel@gmail.com>
+---
+ arch/arm64/kvm/vgic/vgic-its.c | 6 ++++--
+ 1 file changed, 4 insertions(+), 2 deletions(-)
 
-[1/1] arm64: dts: imx8mp: Add DT overlays for DH i.MX8M Plus DHCOM SoM and boards
-      commit: 244b25e43c15b6d9e5b5c0f5187743eb2fe7a5b8
-
-Best regards,
+diff --git a/arch/arm64/kvm/vgic/vgic-its.c b/arch/arm64/kvm/vgic/vgic-its.c
+index 1d7e5d560af4..1e3706ac3b8e 100644
+--- a/arch/arm64/kvm/vgic/vgic-its.c
++++ b/arch/arm64/kvm/vgic/vgic-its.c
+@@ -597,8 +597,10 @@ static void vgic_its_invalidate_cache(struct vgic_its *its)
+ 	unsigned long idx;
+ 
+ 	xa_for_each(&its->translation_cache, idx, irq) {
+-		xa_erase(&its->translation_cache, idx);
+-		vgic_put_irq(kvm, irq);
++		/* Only the context that erases the entry drops its cache ref. */
++		irq = xa_erase(&its->translation_cache, idx);
++		if (irq)
++			vgic_put_irq(kvm, irq);
+ 	}
+ }
+ 
 -- 
-Frank Li <Frank.Li@nxp.com>
+2.43.0
+
 
