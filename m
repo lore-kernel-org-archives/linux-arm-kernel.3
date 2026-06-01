@@ -4,62 +4,101 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 2F051CD6E56
-	for <linux-arm-kernel@archiver.kernel.org>; Mon,  1 Jun 2026 10:15:43 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 830B7CD6E60
+	for <linux-arm-kernel@archiver.kernel.org>; Mon,  1 Jun 2026 10:20:09 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=eYpzqSZGHxpfXsSp418zJGiUJe93BtLMmqDp8Lw9Tu4=; b=k1F45m2C7WSSlL5FRUdptx+sU0
-	x/RNAaf4HSv7o24jnKfGDcoN4NAgOTyzXbef9SBAKXM6Q7Dmpq+mwv5xOPFYLN1sJFVHMiDkAUduU
-	+tPPuppsOkF/ygmLaGYwEaHfFKLjhFEJ92rHevElDi7Uqcm6QP4w1gldR3xyd+dzUFHAQAKaPY9VE
-	e5u9BgedfyCAJvBa6CyFDgBwYUq9JX6EcMVYGYmsDA52/pOBNnUeWl48/WjvqaIO4IsHaaRn5uULi
-	RdXZ/PfqIXYzQUGNRCUGudZSUpme8dErbKmF5iUrzvQntEpGKCkbs2ymgccVzxhBdTcU/oHMhGUG4
-	148Wn67w==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:
+	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=0rHdH/6OzUvgw/Z1d6llxooirf3DGCf2wJCl22Zrk6k=; b=Zm/8B0s3Iw8LnANSjcc+uvsKQ4
+	JaZpRu7aP3KQZlsJaE0CdH4obnh2i93gLIXv5yjLCwobAULldg27WXAvrwoHHsZUFWtncJoz6z9c+
+	TMtnMayhfXoJXAh0FPJQrf/VRoOJDy6TnD05XuGn1ObxTLFkuC/NzKgJ9PgFaEcj0Bh+jXSubwX5P
+	NYxSx3qn1L5g50eBdwUyr5cWH+34asjj8pg7KlzAFGs1Nk6xvbU9wuyWTkUo3QcY42JvtY4f3LVHE
+	xhxPihXIU0fQmgYUn1MHToPy/3fKYIgQeM+7Z3IATfD/ZnbFFNe7K5lEnTBRL2iAmiOQKgjCtbXrG
+	wNQYsRhg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wTzgG-0000000Aato-2Rfv;
-	Mon, 01 Jun 2026 10:15:36 +0000
-Received: from foss.arm.com ([217.140.110.172])
-	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wTzgD-0000000AatG-1ckk
+	id 1wTzkY-0000000Ab9g-0MKb;
+	Mon, 01 Jun 2026 10:20:02 +0000
+Received: from jpms-ob02-os7.noc.sony.co.jp ([2001:cf8:acf:41::8])
+	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
+	id 1wTzkU-0000000Ab8o-21Mo
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 01 Jun 2026 10:15:34 +0000
-Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
-	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id 85D8A1E8D;
-	Mon,  1 Jun 2026 03:15:27 -0700 (PDT)
-Received: from e129823.arm.com (e129823.arm.com [10.1.197.6])
-	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id 08E033F905;
-	Mon,  1 Jun 2026 03:15:30 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=simple/simple; d=arm.com; s=foss;
-	t=1780308932; bh=fX0ONQk0U/Ob9Dja3BN0MNUNMDOTy0beVX1kCqYBiFI=;
-	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
-	b=phAAoWjmco9sCEpORh7EBp1xvBX19ZW/YmrR5xFdaSdjpTgzdSzDcVz1rekYdboK7
-	 xvSZHUrNjnQw8kZCzxyWEDT5krwf8ZjkyODN2NvBZwEkSAcYuwpt0jUCu9Ikk6v30k
-	 Ygu+sxE1Vl+C4yJQ4P00R7+6muh71Mvg9btJFlCI=
-Date: Mon, 1 Jun 2026 11:15:28 +0100
-From: Yeoreum Yun <yeoreum.yun@arm.com>
-To: Suzuki K Poulose <suzuki.poulose@arm.com>
-Cc: coresight@lists.linaro.org, linux-arm-kernel@lists.infradead.org,
-	linux-kernel@vger.kernel.org, mike.leach@arm.com,
-	james.clark@linaro.org, alexander.shishkin@linux.intel.com,
-	leo.yan@arm.com, jie.gan@oss.qualcomm.com
-Subject: Re: [PATCH v7 02/13] coresight: etm4x: fix underflow for nrseqstate
-Message-ID: <ah1bwOSCMrwfrRwD@e129823.arm.com>
-References: <20260519154812.254884-1-yeoreum.yun@arm.com>
- <20260519154812.254884-3-yeoreum.yun@arm.com>
- <3155a54e-f0df-49d7-9cf7-6f1c0f826f31@arm.com>
- <ah1aCFTgshh9klDM@e129823.arm.com>
- <0974242f-6102-49ec-b87b-763931eb9aef@arm.com>
+	Mon, 01 Jun 2026 10:20:00 +0000
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+  d=sony.com; s=s1jp; t=1780309198; x=1811845198;
+  h=from:to:cc:subject:date:message-id:in-reply-to:
+   references:mime-version:content-transfer-encoding;
+  bh=0rHdH/6OzUvgw/Z1d6llxooirf3DGCf2wJCl22Zrk6k=;
+  b=vXRMUmaZtNOFF5jniDHLf/OoPRtBQP5Gwi2dmYDIZWtu8g0ppTcf9Su2
+   bDSwv4zZmA0EBquA4gGPjXutJAX/W8M20LOGAvt+s8dVd8zd7c5r2BsAK
+   NwFzuVZ7gWGRhnqdXqmwFhNjXgYxFvPh0mVZa9WE/SpRAQ0zia//YbVLO
+   WuJwecO105AIV7sWwFvN05X2ngRlIIRpAcncRuNXzdXXb5k3wdejqgWUX
+   3lHyZAOkVusAs0vAEP+Vf3DUPpzCfCkQ8WfSyiiNrf3LeQipWaffFIhIZ
+   48nGvQ64beXDWdyE0k0W/KFw/ZGhXOn0C5uvI/S9Y5/FRyTlL+q5m4MYI
+   g==;
+X-CSE-ConnectionGUID: wgDUJjoSTa+2rwTgbl/fIg==
+X-CSE-MsgGUID: y0GQRAflS2y3BV9SdeqmLg==
+Received: from unknown (HELO jpmta-ob01-os7.noc.sony.co.jp) ([IPv6:2001:cf8:acf:1104::6])
+  by jpms-ob02-os7.noc.sony.co.jp with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 01 Jun 2026 19:19:53 +0900
+X-CSE-ConnectionGUID: sNjFdX7LQYSLb2PshMkn2Q==
+X-CSE-MsgGUID: WqV8hNo5ShCKx694VddLQw==
+X-IronPort-AV: E=Sophos;i="6.24,181,1774278000"; 
+   d="scan'208";a="69757146"
+Received: from unknown (HELO JPC00244420..) ([IPv6:2001:cf8:1:573:0:dddd:6b3e:119e])
+  by jpmta-ob01-os7.noc.sony.co.jp with ESMTP; 01 Jun 2026 19:19:52 +0900
+From: Shashank Balaji <shashank.mahadasyam@sony.com>
+To: "Gary Guo" <gary@garyguo.net>,
+	"Danilo Krummrich" <dakr@kernel.org>,
+	"Petr Pavlu" <petr.pavlu@suse.com>
+Cc: Shashank Balaji <shashank.mahadasyam@sony.com>,
+	Rahul Bukte <rahul.bukte@sony.com>,
+	linux-kernel@vger.kernel.org,
+	coresight@lists.linaro.org,
+	linux-arm-kernel@lists.infradead.org,
+	driver-core@lists.linux.dev,
+	rust-for-linux@vger.kernel.org,
+	linux-doc@vger.kernel.org,
+	Daniel Palmer <daniel.palmer@sony.com>,
+	Tim Bird <tim.bird@sony.com>,
+	linux-modules@vger.kernel.org,
+	linux-tegra@vger.kernel.org,
+	Sumit Gupta <sumitg@nvidia.com>,
+	"Suzuki K Poulose" <suzuki.poulose@arm.com>,
+	"James Clark" <james.clark@linaro.org>,
+	"Alexander Shishkin" <alexander.shishkin@linux.intel.com>,
+	"Greg Kroah-Hartman" <gregkh@linuxfoundation.org>,
+	"Rafael J. Wysocki" <rafael@kernel.org>,
+	"Miguel Ojeda" <ojeda@kernel.org>,
+	"Boqun Feng" <boqun@kernel.org>,
+	=?UTF-8?q?Bj=C3=B6rn=20Roy=20Baron?= <bjorn3_gh@protonmail.com>,
+	"Benno Lossin" <lossin@kernel.org>,
+	"Andreas Hindborg" <a.hindborg@kernel.org>,
+	"Alice Ryhl" <aliceryhl@google.com>,
+	"Trevor Gross" <tmgross@umich.edu>,
+	"Jonathan Corbet" <corbet@lwn.net>,
+	"Shuah Khan" <skhan@linuxfoundation.org>,
+	"Luis Chamberlain" <mcgrof@kernel.org>,
+	"Daniel Gomez" <da.gomez@kernel.org>,
+	"Sami Tolvanen" <samitolvanen@google.com>,
+	"Aaron Tomlin" <atomlin@atomlin.com>,
+	"Mike Leach" <mike.leach@arm.com>,
+	"Leo Yan" <leo.yan@arm.com>,
+	"Thierry Reding" <thierry.reding@kernel.org>,
+	"Jonathan Hunter" <jonathanh@nvidia.com>
+Subject: [PATCH v6] kernel: param: initialize module_kset in a pure_initcall
+Date: Mon,  1 Jun 2026 19:19:41 +0900
+Message-ID: <20260601101942.4002661-1-shashank.mahadasyam@sony.com>
+X-Mailer: git-send-email 2.43.0
+In-Reply-To: <ahEd4iC-2hqUbMy3@JPC00244420>
+References: 
 MIME-Version: 1.0
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-In-Reply-To: <0974242f-6102-49ec-b87b-763931eb9aef@arm.com>
+Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260601_031533_508364_059CE2A9 
-X-CRM114-Status: GOOD (  24.25  )
+X-CRM114-CacheID: sfid-20260601_031958_757479_A263AE7F 
+X-CRM114-Status: GOOD (  17.70  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -74,103 +113,61 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-> On 01/06/2026 11:08, Yeoreum Yun wrote:
-> > > On 19/05/2026 16:48, Yeoreum Yun wrote:
-> > > > TCRSEQEVR<n> is implemented only when TCRIDR5.NUMSEQSTATE is 0b100,
-> > > > in which case n ranges from 0 to 2; otherwise, TCRIDR5.NUMSEQSTATE is 0b000.
-> > > > 
-> > > > Therefore, drvdata->nrseqstate should be checked before entering the loop.
-> > > 
-> > > for (i = 0; i < drvdata->nrseqstate - 1; i++)
-> > > 
-> > > Wouldn't that check cover the case ? (provided i is signed int ?)
-> > > 
-> > > Suzuki
-> > 
-> > Unfortunately, the drvdata->nrseqstate is u8 but i is signed int.
-> > I think in this case it would iterate 255 times (0xff).
-> 
-> Then why not fix it to signed ? Anyways, please see my other comment. We
-> shouldn't be relying on nrseqstate for the number of seq_ctrl registers.
+Commit "driver core: platform: set mod_name in driver registration" will set
+struct device_driver's mod_name member for platform driver registration. For a
+driver to be registered with its mod_name set, module_kset needs to be
+initialized, which currently happens in a subsys_initcall in param_sysfs_init().
+The tegra cbb drivers register themselves before module_kset init, in a
+core_initcall. This works currently because lookup_or_create_module_kobject(),
+which dereferences module_kset via kset_find_obj(), is not called if mod_name
+is not set, which is the case now.
 
-Yeap. I confirmed that. I think it's enough with the nr_seq_ctrl.
+So in preparation for the commit "driver core: platform: set mod_name in driver registration",
+move module_kset init to pure_initcall level, ensuring it happens before tegra
+cbb driver registration.
 
-Thanks!
+Suggested-by: Gary Guo <gary@garyguo.net>
+Reviewed-by: Gary Guo <gary@garyguo.net>
+Co-developed-by: Rahul Bukte <rahul.bukte@sony.com>
+Signed-off-by: Rahul Bukte <rahul.bukte@sony.com>
+Signed-off-by: Shashank Balaji <shashank.mahadasyam@sony.com>
+---
+I'm sending v6 of just this patch to add the comment suggested by Petr and pick
+up Gary's Reviewed-by. The rest of the patches are the same as v5.
 
-> 
-> > 
-> > > 
-> > > > 
-> > > > Link: https://developer.arm.com/documentation/ihi0064/latest/ [0]
-> > > > Fixes: 2e1cdfe184b5 ("coresight-etm4x: Adding CoreSight ETM4x driver")
-> > > > Reviewed-by: Leo Yan <leo.yan@arm.com>
-> > > > Signed-off-by: Yeoreum Yun <yeoreum.yun@arm.com>
-> > > > ---
-> > > >    .../hwtracing/coresight/coresight-etm4x-core.c | 18 ++++++++++--------
-> > > >    .../coresight/coresight-etm4x-sysfs.c          |  2 ++
-> > > >    2 files changed, 12 insertions(+), 8 deletions(-)
-> > > > 
-> > > > diff --git a/drivers/hwtracing/coresight/coresight-etm4x-core.c b/drivers/hwtracing/coresight/coresight-etm4x-core.c
-> > > > index 1e3b0344dc00..94b9385e964a 100644
-> > > > --- a/drivers/hwtracing/coresight/coresight-etm4x-core.c
-> > > > +++ b/drivers/hwtracing/coresight/coresight-etm4x-core.c
-> > > > @@ -542,9 +542,11 @@ static int etm4_enable_hw(struct etmv4_drvdata *drvdata)
-> > > >    	etm4x_relaxed_write32(csa, config->vissctlr, TRCVISSCTLR);
-> > > >    	if (drvdata->nr_pe_cmp)
-> > > >    		etm4x_relaxed_write32(csa, config->vipcssctlr, TRCVIPCSSCTLR);
-> > > > -	for (i = 0; i < drvdata->nrseqstate - 1; i++)
-> > > > -		etm4x_relaxed_write32(csa, config->seq_ctrl[i], TRCSEQEVRn(i));
-> > > > +
-> > > >    	if (drvdata->nrseqstate) {
-> > > > +		for (i = 0; i < drvdata->nrseqstate - 1; i++)
-> > > > +			etm4x_relaxed_write32(csa, config->seq_ctrl[i], TRCSEQEVRn(i));
-> > > > +
-> > > >    		etm4x_relaxed_write32(csa, config->seq_rst, TRCSEQRSTEVR);
-> > > >    		etm4x_relaxed_write32(csa, config->seq_state, TRCSEQSTR);
-> > > >    	}
-> > > > @@ -1896,10 +1898,10 @@ static int etm4_cpu_save(struct coresight_device *csdev)
-> > > >    	if (drvdata->nr_pe_cmp)
-> > > >    		state->trcvipcssctlr = etm4x_read32(csa, TRCVIPCSSCTLR);
-> > > > -	for (i = 0; i < drvdata->nrseqstate - 1; i++)
-> > > > -		state->trcseqevr[i] = etm4x_read32(csa, TRCSEQEVRn(i));
-> > > > -
-> > > >    	if (drvdata->nrseqstate) {
-> > > > +		for (i = 0; i < drvdata->nrseqstate - 1; i++)
-> > > > +			state->trcseqevr[i] = etm4x_read32(csa, TRCSEQEVRn(i));
-> > > > +
-> > > >    		state->trcseqrstevr = etm4x_read32(csa, TRCSEQRSTEVR);
-> > > >    		state->trcseqstr = etm4x_read32(csa, TRCSEQSTR);
-> > > >    	}
-> > > > @@ -2009,10 +2011,10 @@ static void etm4_cpu_restore(struct coresight_device *csdev)
-> > > >    	if (drvdata->nr_pe_cmp)
-> > > >    		etm4x_relaxed_write32(csa, state->trcvipcssctlr, TRCVIPCSSCTLR);
-> > > > -	for (i = 0; i < drvdata->nrseqstate - 1; i++)
-> > > > -		etm4x_relaxed_write32(csa, state->trcseqevr[i], TRCSEQEVRn(i));
-> > > > -
-> > > >    	if (drvdata->nrseqstate) {
-> > > > +		for (i = 0; i < drvdata->nrseqstate - 1; i++)
-> > > > +			etm4x_relaxed_write32(csa, state->trcseqevr[i], TRCSEQEVRn(i));
-> > > > +
-> > > >    		etm4x_relaxed_write32(csa, state->trcseqrstevr, TRCSEQRSTEVR);
-> > > >    		etm4x_relaxed_write32(csa, state->trcseqstr, TRCSEQSTR);
-> > > >    	}
-> > > > diff --git a/drivers/hwtracing/coresight/coresight-etm4x-sysfs.c b/drivers/hwtracing/coresight/coresight-etm4x-sysfs.c
-> > > > index e9eeea6240d5..0e1ad175aa1e 100644
-> > > > --- a/drivers/hwtracing/coresight/coresight-etm4x-sysfs.c
-> > > > +++ b/drivers/hwtracing/coresight/coresight-etm4x-sysfs.c
-> > > > @@ -1395,6 +1395,8 @@ static ssize_t seq_idx_store(struct device *dev,
-> > > >    	struct etmv4_drvdata *drvdata = dev_get_drvdata(dev->parent);
-> > > >    	struct etmv4_config *config = &drvdata->config;
-> > > > +	if (!drvdata->nrseqstate)
-> > > > +		return -ENOTSUPP;
-> > > >    	if (kstrtoul(buf, 16, &val))
-> > > >    		return -EINVAL;
-> > > >    	if (val >= drvdata->nrseqstate - 1)
-> > > 
-> > 
-> 
+Danilo, I'm assuming this series goes through driver-core. Could you please pick
+up this version of this patch and the v5 of the others?
+---
+ kernel/params.c | 8 ++++----
+ 1 file changed, 4 insertions(+), 4 deletions(-)
 
+diff --git a/kernel/params.c b/kernel/params.c
+index 74d620bc2521..a668863a4bb6 100644
+--- a/kernel/params.c
++++ b/kernel/params.c
+@@ -942,9 +942,9 @@ const struct kobj_type module_ktype = {
+ /*
+  * param_sysfs_init - create "module" kset
+  *
+- * This must be done before the initramfs is unpacked and
+- * request_module() thus becomes possible, because otherwise the
+- * module load would fail in mod_sysfs_init.
++ * This must be done before any driver registration so that when a driver comes
++ * from a built-in module, the driver core can add the module under /sys/module
++ * and create the associated driver symlinks.
+  */
+ static int __init param_sysfs_init(void)
+ {
+@@ -957,7 +957,7 @@ static int __init param_sysfs_init(void)
+ 
+ 	return 0;
+ }
+-subsys_initcall(param_sysfs_init);
++pure_initcall(param_sysfs_init);
+ 
+ /*
+  * param_sysfs_builtin_init - add sysfs version and parameter
 -- 
-Sincerely,
-Yeoreum Yun
+2.43.0
+
 
