@@ -4,120 +4,107 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 3E393CD5BD1
-	for <linux-arm-kernel@archiver.kernel.org>; Mon,  1 Jun 2026 06:00:47 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 853EECD6E4C
+	for <linux-arm-kernel@archiver.kernel.org>; Mon,  1 Jun 2026 06:05:39 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:CC:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=VxCZADAd+XREcoFQpsPm53rlCtvs9Z1bnuL5QFg3aSY=; b=z082RiXb4Mn6Cb85dbQbh2VSpl
-	UV9pVHBz3r1eOgGa7SA8PUq4DvbIHIzSDUOSLx7WmtQ2EmRmHEV/YdM4vc7RJ4AOcoSSegWku8Oxf
-	T0RttlUydFxBvAfvw2OgNVuUkyu77xPVCsS1J8hgkETDQM1z38H57AppP7B44qUbIl2IXmsMp2yMH
-	PBSBaSBZwMZgbxt029UHPbLKmYHd6fsJGnBGYA4r63XHEFRRokczc0bGRR0zkUzlw4Vt3JGlXLewq
-	S87fV7Go+nOQI+x6z52YUb9mQfAjtXUodjc5rjqbp2+mGxnz1SG5XYblCzAUIrZmwq7kExc4Zp5Zz
-	T1nE+umg==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:Cc:To:Subject:Message-ID:Date:From:In-Reply-To:References:
+	MIME-Version:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=glLTXShkm5YP1+5MR78Yj0KypTdD3fdo1XmOBdHITCM=; b=vsAHyoJMr9PGg72jUm3S2POKKr
+	tOn61i3jWQdmuwNtyLJKP/QFDwkerSIyTHQuM4pln12emUI7PGnsAxhV5mLqR/FF+dCn6Cq51uO7N
+	ncoczzCcWp80gDM/F75MXGandyclbM6fSIe3e1C6B3YUka0eWUku0rqQuJEUCWyPiDvVhdeNszlLV
+	o4PV9ORGLoOQ/f6UwdadTjnvPRVfJE8X9PzLxxdPM/FGtpT6ULQu7+lWLPjoch0ZODWK9SgQRa0AI
+	dkVskr3dyjuOmab4PkT84MSMVkr2daJULgBEMQjPeSoappCUI14/w5cGsUGlKVjpGdBvqjJDPI4uq
+	HhHSIJaw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wTvhZ-0000000AAzj-0WnB;
-	Mon, 01 Jun 2026 06:00:41 +0000
-Received: from mail-westcentralusazlp170100005.outbound.protection.outlook.com ([2a01:111:f403:c112::5] helo=CY7PR03CU001.outbound.protection.outlook.com)
+	id 1wTvmF-0000000ABFX-3oty;
+	Mon, 01 Jun 2026 06:05:31 +0000
+Received: from mail-pj1-x102e.google.com ([2607:f8b0:4864:20::102e])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wTvhU-0000000AAzE-1buq
+	id 1wTvmB-0000000ABFC-3KVr
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 01 Jun 2026 06:00:40 +0000
-ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
- b=ANJNxC05UaOn8OF70vbUjdi0imfkOk7uK6VCyttLaFaCeME52/EB7XC99gq/njcBg/j0xTEQ7N9nv92WsdKptWWihwA/35AOi38XQBNTi0F+LFN7eCKeJx+Rqo7PAC47trngikNqreL9Q6HDoZl+aAB7XDL2NRKjqT+sKixDJvsYDkxvWFvXHB/Yz85vWT6BFIXSV9ogbOH7cj9kLN2/jmMLrU+mZ2L7num3c9tCBwe8fzhMtOhpvY2HGLU1znwFs6/tvRrUrP5aI1AZpFMCAks9K8pJVAp6AnOFW98g4YuBQMc49mxbCJ3VwgAkEF7vlSMDZWub5HnIhjClhfs/uQ==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
- s=arcselector10001;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
- bh=VxCZADAd+XREcoFQpsPm53rlCtvs9Z1bnuL5QFg3aSY=;
- b=C0QBTo6aHhneFskcfMJhCxvc8T/ELyLXaetErjDxS0aV6ENKTGH0bXMyr17YvIHXfoA+A1r88eWtUbYZRNIQKJiwgUyCVyiJXW+pEc3sfiRpE/NwxPTgcUuZJhlkhn+RFGmf1ezyLTGHygqsw2BX0T3GyYmfFbUmF+Ow/TtpYPtNLIbOOWiqvkr9Rkqf4ZMkIE58gMQujcyqIbbNsWSMANF54N1YsM2o4cizk2BH4s1QAByewdEQuu2G0dzHbXU7ibzrZcQDBm/a9SX6rR0kIdL5ZJOpVNsJPD2X9wYbZ9M1tkNH36773pPvKQ67M5cd7SFqwRuXsc8l95s7hvv9qQ==
-ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass (sender ip is
- 165.204.84.17) smtp.rcpttodomain=google.com smtp.mailfrom=amd.com; dmarc=pass
- (p=quarantine sp=quarantine pct=100) action=none header.from=amd.com;
- dkim=none (message not signed); arc=none (0)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=amd.com; s=selector1;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
- bh=VxCZADAd+XREcoFQpsPm53rlCtvs9Z1bnuL5QFg3aSY=;
- b=Tk0Aww9wmus56ceYpo5qmXwC+dAAOiM/nwXxBjXhU2nWPdRuPxLdO5Etjuykjvwf/qFwwCefD0qGmG/uKgM5NkuCwAnSqEx3bFFx+msKlESdwCHj/XlEneW6D1aHCcH6RvsovwdoNO/DSu1Ebdv7qqFn2VP9QaQQCuA7JQMHdtw=
-Received: from DS1P221CA0028.NAMP221.PROD.OUTLOOK.COM (2603:10b6:8:242::15) by
- PH7PR12MB5734.namprd12.prod.outlook.com (2603:10b6:510:1e1::6) with Microsoft
- SMTP Server (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
- 15.21.71.16; Mon, 1 Jun 2026 06:00:27 +0000
-Received: from CH3PEPF00000013.namprd21.prod.outlook.com
- (2603:10b6:8:242:cafe::90) by DS1P221CA0028.outlook.office365.com
- (2603:10b6:8:242::15) with Microsoft SMTP Server (version=TLS1_3,
- cipher=TLS_AES_256_GCM_SHA384) id 15.21.48.18 via Frontend Transport; Mon, 1
- Jun 2026 06:00:26 +0000
-X-MS-Exchange-Authentication-Results: spf=pass (sender IP is 165.204.84.17)
- smtp.mailfrom=amd.com; dkim=none (message not signed)
- header.d=none;dmarc=pass action=none header.from=amd.com;
-Received-SPF: Pass (protection.outlook.com: domain of amd.com designates
- 165.204.84.17 as permitted sender) receiver=protection.outlook.com;
- client-ip=165.204.84.17; helo=satlexmb08.amd.com; pr=C
-Received: from satlexmb08.amd.com (165.204.84.17) by
- CH3PEPF00000013.mail.protection.outlook.com (10.167.244.118) with Microsoft
- SMTP Server (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
- 15.21.92.0 via Frontend Transport; Mon, 1 Jun 2026 06:00:26 +0000
-Received: from satlexmb10.amd.com (10.181.42.219) by satlexmb08.amd.com
- (10.181.42.217) with Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.2.2562.41; Mon, 1 Jun
- 2026 01:00:25 -0500
-Received: from satlexmb07.amd.com (10.181.42.216) by satlexmb10.amd.com
- (10.181.42.219) with Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.2.2562.41; Mon, 1 Jun
- 2026 01:00:25 -0500
-Received: from amd.com (10.180.168.240) by satlexmb07.amd.com (10.181.42.216)
- with Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.2.2562.41 via Frontend
- Transport; Mon, 1 Jun 2026 01:00:20 -0500
-Date: Mon, 1 Jun 2026 06:00:15 +0000
-From: Ankit Soni <Ankit.Soni@amd.com>
-To: Pranjal Shrivastava <praan@google.com>
-CC: <iommu@lists.linux.dev>, <linux-pci@vger.kernel.org>,
-	<linux-arm-kernel@lists.infradead.org>, <linux-kernel@vger.kernel.org>, Joerg
- Roedel <joro@8bytes.org>, Will Deacon <will@kernel.org>, "Bjorn Helgaas"
-	<bhelgaas@google.com>, David Woodhouse <dwmw2@infradead.org>, "Lu Baolu"
-	<baolu.lu@linux.intel.com>, Robin Murphy <robin.murphy@arm.com>, Suravee
- Suthikulpanit <suravee.suthikulpanit@amd.com>, Jason Gunthorpe
-	<jgg@ziepe.ca>, Nicolin Chen <nicolinc@nvidia.com>, David Matlack
-	<dmatlack@google.com>, Samiullah Khawaja <skhawaja@google.com>, Daniel Mentz
-	<danielmentz@google.com>, Pasha Tatashin <pasha.tatashin@soleen.com>, Mostafa
- Saleh <smostafa@google.com>
-Subject: Re: [PATCH v6 6/6] iommu/amd: Fail probe on ATS configuration failure
-Message-ID: <unqzyef2n26wdf6tmc6vvwvpsgv244uvz7cxji4scymqmoofyb@trkzr7ix5bog>
-References: <20260529111208.387412-1-praan@google.com>
- <20260529111208.387412-7-praan@google.com>
+	Mon, 01 Jun 2026 06:05:29 +0000
+Received: by mail-pj1-x102e.google.com with SMTP id 98e67ed59e1d1-36b9ec98144so2198218a91.1
+        for <linux-arm-kernel@lists.infradead.org>; Sun, 31 May 2026 23:05:27 -0700 (PDT)
+ARC-Seal: i=1; a=rsa-sha256; t=1780293927; cv=none;
+        d=google.com; s=arc-20240605;
+        b=Rme6eFSbE5DFcemH6Tojy2DA5b6HcK5Pjj0eWfeL9CLyPqtEWpsmrDCCu0KfAoCvcS
+         wZ277yfjDaYEAglIOksbA9831KTKAj00huo+ZVAG1FsI25Xp/qfWPqYHZCYo25L+QINH
+         ttm4qo3Vh0xetIoQ4r7DlV+NbjOacARB2iz0tnitDQemxFqDfYjAb/Qmm8i+n0fGdXQg
+         aTxE5tgZ9A9hq0AiAIXnlcq+sP+doGwwkY5DcRBcoV8utvAjWEYKJqTSAuB1RrXV8+/W
+         B8X5tfeNL5xM2tbe4hTcO0R2l9MfA/aBb6XXuzQXRC9pl+c1ss9mwLAv+XFNXU3zuIJt
+         zynA==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20240605;
+        h=content-transfer-encoding:cc:to:subject:message-id:date:from
+         :in-reply-to:references:mime-version:dkim-signature;
+        bh=glLTXShkm5YP1+5MR78Yj0KypTdD3fdo1XmOBdHITCM=;
+        fh=1L6L5ZlysIsnmEbD95TH1/5G9rU0w/ZeRlu2cLic7+8=;
+        b=LcHwNkANULE5nKyvnmR78MYRpxpr09J2XWuEYiiSo5OdJD6kjabDyjXvCiWSK31pFF
+         Hf0dTcqLpyCjJrR9xs2oEv0RtbZt3rjU30+rnHgnlyhKHfq0L8w6wERk3HiAW69cbVKh
+         2DwqAgS/8SgkMMlLU1czTxUtsF5RhhNKho+P0e4F1AdJKQ3XL5pKzdPmXngMRcZbA45z
+         sP8CpEwRp6rZc2ATadab0HvbtLPF5s1KVuaH2ASejABDo2jUlOZlgklP1A0s93FSA7gD
+         2u3khBo4iBZU3fl5CRUNDNVbG7Ss80BTtvBKOzjEjIR3YAJnq3TH46z39DpSk6WiKXp3
+         g2iA==;
+        darn=lists.infradead.org
+ARC-Authentication-Results: i=1; mx.google.com; arc=none
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=gmail.com; s=20251104; t=1780293927; x=1780898727; darn=lists.infradead.org;
+        h=content-transfer-encoding:cc:to:subject:message-id:date:from
+         :in-reply-to:references:mime-version:from:to:cc:subject:date
+         :message-id:reply-to;
+        bh=glLTXShkm5YP1+5MR78Yj0KypTdD3fdo1XmOBdHITCM=;
+        b=B4rvrMqiCC0/ZWMEulZOuSBa0RPyEMpf15aMfu0+YfnRu+VFzZnUE3sfepqGL//itW
+         vJKAM7jmD1j8hPUho/bnhgczxpE/yLqyoOh/+oicg1vvx9UDfDabb02HZIVWUoZ+RxZG
+         01PBwZ1G9ItRZkMWla/j2Pw/ypsZxv3WvcbIBtX4D31G6bW+6Y/4VzR9s4vuf7O6Cpqt
+         9rZf+J1/SidQOfAoE1vYqQz5neG4YgF8qOzvk8mc9gn4dMDZ5oUipQHrvp9m8PcwA34F
+         /iqnqXCKFm4n9jLkw4a+3+sEwGxKQPtx2EmNOFSV8JdlH3rWO/nnFbCCleKb652+O6b3
+         uMNA==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20251104; t=1780293927; x=1780898727;
+        h=content-transfer-encoding:cc:to:subject:message-id:date:from
+         :in-reply-to:references:mime-version:x-gm-gg:x-gm-message-state:from
+         :to:cc:subject:date:message-id:reply-to;
+        bh=glLTXShkm5YP1+5MR78Yj0KypTdD3fdo1XmOBdHITCM=;
+        b=HC/aeP8u01l1+iT9W5Mk0pE+EKdoSd8yhuVPbtBiSKryuGk8x+Xgm/41xYKgDE3rP7
+         /R2h+8kjyHLHXF111bI+N+Xd+NwfDkFdrOBOjC8Kb26It91tg0WxBDSYKKiIFRdRf1ac
+         1ZNWhCm1wmLbvw5rS7speCB4V0DGCLPKlXHDLHFE7DNR9Tpc16HewROtFarzaO2zfwJ1
+         6L0vDNE4C95PkTbxa48G/xCKtwV2fH6Z7H+YXblIKglQ1iNJRwZF0gSAHJwlQo3Z28RU
+         GTEbQ55IDZsYqYxLufN53ZhySMTCszn+L+GOk8424dpuWCR+w7w3WO8y5k9aD/PAvKI8
+         Ke1A==
+X-Forwarded-Encrypted: i=1; AFNElJ96suXomGBuKlV8kJmv4isp7YCiGbgHD7mVtJF60u2omr9XV/T86WONDc9ptHYBMSyEsns4ExTn8t8NukbxFMBp@lists.infradead.org
+X-Gm-Message-State: AOJu0YxBX6d/5BeBNFp4Y7ersLIpn39A7qHYRrReOW45rUOdyjLR5QwT
+	DQktNJ3X7mrg+/qP/BySAPkQr9LRwnO/XzOCiSdeg7+A1INWxnTGdTrZbi9l9g4loyuCNA2UFov
+	XlReVRuHKXwtD3HSYLIQPrQ0ORI567R4=
+X-Gm-Gg: Acq92OHy1e7VpRriLGi0i4pRCjcI6fW9QRRx+j8MCObAo2uY2b/egrcgBaCC39rGF3c
+	zEtWu0XvJCeO4/3NuDZHUhJs8L3ukWYWHu6bMl0iSCCEwa6lg1oRWoDZZ8FE8+rmLF/YE9hm+4K
+	XPFqPLIkWOs9Qq7hajZpXC3fJshIXijStaWT0AoU35pmTJ24TpY1T3EBJskvibozCoXoOQZXu0S
+	zuWU9InShKMyNXWgrSTXHICQHMMzVLBb+c5U3LS2WYUfVybR5i8OHxMAmXCfOgCWdvgoCqioShG
+	FkXnaIko6xwP5cq81tc=
+X-Received: by 2002:a17:90b:5704:b0:368:b01c:85a0 with SMTP id
+ 98e67ed59e1d1-36c501db7b8mr9360839a91.14.1780293926650; Sun, 31 May 2026
+ 23:05:26 -0700 (PDT)
 MIME-Version: 1.0
-Content-Type: text/plain; charset="us-ascii"
-Content-Disposition: inline
-In-Reply-To: <20260529111208.387412-7-praan@google.com>
-X-EOPAttributedMessage: 0
-X-MS-PublicTrafficType: Email
-X-MS-TrafficTypeDiagnostic: CH3PEPF00000013:EE_|PH7PR12MB5734:EE_
-X-MS-Office365-Filtering-Correlation-Id: e1ab607c-2b61-4697-53f7-08debfa31382
-X-MS-Exchange-SenderADCheck: 1
-X-MS-Exchange-AntiSpam-Relay: 0
-X-Microsoft-Antispam: BCL:0;ARA:13230040|1800799024|376014|7416014|36860700016|82310400026|6133799003|22082099003|18002099003|11063799006|4143699003|5023799004|56012099006|13003099007;
-X-Microsoft-Antispam-Message-Info: SdIgMHKw/P2Rphjt5gLFd5nsWC0L0MVmbnEyj9njVlooMUgHmv0INA6TZzv8ZcoEiUxd45E4/Gdf1Tu5Id2JvVsp2hMy2XF3PfvlZWwhkzEuKGZoF579R+ESqRd0uh0Yu0fwHwfSOcBmoL6iU2Ti72S5T5wr/zaNXhlI49xv/yUdP/CVMm6vnNoneFCpXBdy8kjzmzXROy8lfThHrGeeC4rBJmQJFUYaxD6oOXWO8ObdOOrM/PLxCiSD6ESLM6oq6EhNjNxK2wxtp2zttnjMqFd4l/4wWYL5a9heFaPMaUwcTBZJsh/YSZlSjJNL3UR5vBzf46KYDPMqNPpyW+6uXVGizPpHfQRkISce3hCCg1vb8X0nRhr/FB5Eac8lme3+ch3kt4RruGN0GuSn+l/0/Hcl7dX6kFRFOi88Ma/qfF7GnuUhjC/RO1+XPCBMGCxmrlt6/931ZAB4z8TP/2EeN0WWGt9D4qYLMLa8/XpsSoOAzp9UHg4mvJnqzY9t/nwPnQcHt7f3NLOOYWYsDUFUnhNCzfh1aBGrZ3OcEv0kXdAUMjHHaeffmz2xedt1FazRy4Xst0rEygqd6Saqz4BJtrkfblKli+d1S7E8QGmqHo03moGU0LPaJmCninrU1+IJZsgm5/+bQ2fhGYbblhcrf0KnPrhHR1ilU/DglNRWqgftTqZrUsHJ9MAp79oO7vT/Kunfo0TPElwSGPccHLm7t/1dR0uf/5si2udrG4xHNz1LUB6+NUnkzqRq+DBDMsO7
-X-Forefront-Antispam-Report: CIP:165.204.84.17;CTRY:US;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:satlexmb08.amd.com;PTR:InfoDomainNonexistent;CAT:NONE;SFS:(13230040)(1800799024)(376014)(7416014)(36860700016)(82310400026)(6133799003)(22082099003)(18002099003)(11063799006)(4143699003)(5023799004)(56012099006)(13003099007);DIR:OUT;SFP:1101;
-X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
-X-MS-Exchange-AntiSpam-MessageData-0: ICPZV7EvLJdmwerwwXQF/FcVklmtfW7Z/ywAQdV+nRQl67X3E3L8kNNl2ZeGuXYOG0azqERzxmHIwZ1PsDxL6erlPtdljfyN31vkg6orcq+uCr4wpCW0SdVbwj1EK2Q2YIvaTOeeExNX7sFk/8AJ8DOlLN0eWDduYiIRhawYllZEIPLtklg4muWRLU87u5mh4KSs8IoNv3xQ5Vgf5TaRpZiKN9e14E3iGbxeBGVvj1oV9WozvgG3Kfg4jFyj9CeRnonDplrxb1GHuIuuWz7Ta0p/nME9FMnH3QQGYmVln41vdxZMPw2wfJlxe58dE+++qaPM2AyBA5t4YCLHFGSgCns6jnp/AY9sCUMwU5Ju+Ke3w/bDEAFN14/knVg2Aa4H6o0iOlcq7PmIPUPse3eGJcMo4c2bctlFeVVLg3HdpBzCDhkneXOJaSc2qk7HoN3k
-X-OriginatorOrg: amd.com
-X-MS-Exchange-CrossTenant-OriginalArrivalTime: 01 Jun 2026 06:00:26.0472
- (UTC)
-X-MS-Exchange-CrossTenant-Network-Message-Id: e1ab607c-2b61-4697-53f7-08debfa31382
-X-MS-Exchange-CrossTenant-Id: 3dd8961f-e488-4e60-8e11-a82d994e183d
-X-MS-Exchange-CrossTenant-OriginalAttributedTenantConnectingIp: TenantId=3dd8961f-e488-4e60-8e11-a82d994e183d;Ip=[165.204.84.17];Helo=[satlexmb08.amd.com]
-X-MS-Exchange-CrossTenant-AuthSource: CH3PEPF00000013.namprd21.prod.outlook.com
-X-MS-Exchange-CrossTenant-AuthAs: Anonymous
-X-MS-Exchange-CrossTenant-FromEntityHeader: HybridOnPrem
-X-MS-Exchange-Transport-CrossTenantHeadersStamped: PH7PR12MB5734
+References: <CAD03fjaBJGtNATBxaYO-PAxdKC=HxYgE+M7HQ_a0O+3Sp9Mruw@mail.gmail.com>
+ <84d8f2a1-6562-47a9-93d7-2d7ff33c31c0@lunn.ch>
+In-Reply-To: <84d8f2a1-6562-47a9-93d7-2d7ff33c31c0@lunn.ch>
+From: Grewstad <dogestad24@gmail.com>
+Date: Mon, 1 Jun 2026 11:35:14 +0530
+X-Gm-Features: AVHnY4LKTOZKUlPxUKSEpglGPR9NoZNvIqTRTd9Vh-G5jAMDbvZ2ZfNVIZn_hGU
+Message-ID: <CAD03fjah2GMedDtauPQjP0++3USpy6tm3AUemgAjVHS=5Nirtg@mail.gmail.com>
+Subject: Re: [RFC] drivers/staging/axis-fifo: TODO file and subsystem direction
+To: Andrew Lunn <andrew@lunn.ch>
+Cc: gregkh@linuxfoundation.org, jic23@kernel.org, jacobsfeder@gmail.com, 
+	linux-staging@lists.linux.dev, linux-arm-kernel@lists.infradead.org, 
+	linux-kernel@vger.kernel.org, hjk@hansjkoch.de, davem@davemloft.net, 
+	netdev@vger.kernel.org
+Content-Type: text/plain; charset="UTF-8"
+Content-Transfer-Encoding: quoted-printable
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260531_230036_430577_2C2FBD91 
-X-CRM114-Status: GOOD (  25.97  )
+X-CRM114-CacheID: sfid-20260531_230527_889363_E212675A 
+X-CRM114-Status: GOOD (  21.16  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -132,97 +119,63 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Fri, May 29, 2026 at 11:12:08AM +0000, Pranjal Shrivastava wrote:
-> Update the AMD IOMMU driver to handle ATS configuration and enablement
-> more strictly. Specifically, update the device probe to fail if
-> pci_prepare_ats() returns an error. This ensures that any ATS-capable
-> master reaching the attach phase is guaranteed to have a valid config.
-> 
-> Additionally, update pdev_enable_cap_ats() to WARN_ON() if pci_enable_ats
-> fails. Since earlier checks in the probe phase preclude config-related
-> failures, any failure during hardware enablement is considered a kernel
-> bug.
-> 
-> Fix a pre-existing Use-After-Free risk by ensuring iommu_ignore_device()
-> is called on all probe failures after iommu_init_device().
-> 
-> Signed-off-by: Pranjal Shrivastava <praan@google.com>
-> ---
->  drivers/iommu/amd/iommu.c | 30 ++++++++++++++++++++++++------
->  1 file changed, 24 insertions(+), 6 deletions(-)
-> 
-> diff --git a/drivers/iommu/amd/iommu.c b/drivers/iommu/amd/iommu.c
-> index 84cad43dc188..b74c4504bee3 100644
-> --- a/drivers/iommu/amd/iommu.c
-> +++ b/drivers/iommu/amd/iommu.c
-> @@ -570,10 +570,16 @@ static inline int pdev_enable_cap_ats(struct pci_dev *pdev)
->  	if (amd_iommu_iotlb_sup &&
->  	    (dev_data->flags & AMD_IOMMU_DEVICE_FLAG_ATS_SUP)) {
->  		ret = pci_enable_ats(pdev, PAGE_SHIFT);
-> -		if (!ret) {
-> -			dev_data->ats_enabled = 1;
-> -			dev_data->ats_qdep    = pci_ats_queue_depth(pdev);
-> -		}
-> +		/*
-> +		 * pci_enable_ats() should not fail here because earlier checks
-> +		 * have already verified support and configuration.
-> +		 */
-> +		if (WARN_ON(ret))
-> +			return ret;
-> +
-> +		dev_data->ats_enabled = 1;
-> +		dev_data->ats_qdep    = pci_ats_queue_depth(pdev);
-> +		ret = 0;
->  	}
->  
->  	return ret;
-> @@ -2502,10 +2508,22 @@ static struct iommu_device *amd_iommu_probe_device(struct device *dev)
->  	else
->  		dev_data->max_irqs = MAX_IRQS_PER_TABLE_512;
->  
-> -	if (dev_is_pci(dev))
-> -		pci_prepare_ats(to_pci_dev(dev), PAGE_SHIFT);
-> +	if (dev_is_pci(dev)) {
-> +		struct pci_dev *pdev = to_pci_dev(dev);
-> +
-> +		if (pci_ats_supported(pdev)) {
-> +			ret = pci_prepare_ats(pdev, PAGE_SHIFT);
-> +			if (ret) {
-> +				iommu_dev = ERR_PTR(ret);
-> +				goto out_err;
-> +			}
-> +		}
-> +	}
->  
->  out_err:
-> +	if (IS_ERR(iommu_dev))
-> +		iommu_ignore_device(iommu, dev);
-> +
->  	return iommu_dev;
->  }
->  
+On Mon, Jun 1, 2026 at 1:22=E2=80=AFAM Andrew Lunn <andrew@lunn.ch> wrote:
+>
+>
+> In addition to what GregKH said, look at the vendor information:
+>
+> https://docs.amd.com/r/en-US/pg080-axi-fifo-mm-s/Core-Overview
+>
+>   The AXI4-Stream FIFO core was designed to provide memory-mapped
+>   access to an AXI4-Stream interface connected to other IP (such as
+>   the AXI Ethernet core). Systems must be built through the AMD
+>   Vivado=E2=84=A2 Design Suite to attach the AXI4-Stream FIFO core, AXI
+>   Ethernet core ...
+>
+> when used for Ethernet, a uAPI is not needed. The FIFO driver would
+> just expose an kernel internal API the Ethernet driver would use. Are
+> there any Ethernet devices using it? Is there a driver for the AXI
+> Ethernet core?
 
-Hi,
-This regresses IRQ remapping in the PD_MODE_NONE branch. By design
-rlookup_table[devid] must stay valid for IR - init.c:2257 documents
-this: "Do not return an error to enable IRQ remapping ...". Pre-patch
-the PD_MODE_NONE branch returned ERR_PTR(-ENODEV) without nulling
-rlookup, precisely so irq_remapping_alloc() / __rlookup_amd_iommu()
-keep working; this unconditional cleanup violates that.
-The new pci_prepare_ats() failure path has the same shape:
-amd_iommu_set_pci_msi_domain() ran earlier and parented dev->msi_domain
-on iommu->ir_domain, but on this new out_err that's not unwound. So
-nulling rlookup_table[devid] makes irq_remapping_alloc() return -EINVAL
-on the first MSI alloc for the device. Sashiko also flagged this in [1];
+As I said to Greg K-H, it's 'chameleon' hardware because we don't know
+what it'll be used for. It could be SDR or Ethernet or whatever it is
+programmed for. The main thing is that it is a streaming interface.
+But we cannot assume the use case.
 
-Also if iommu_init_device() branch fails, iommu_ignore_device() will be
-called twice.
+> Does drivers/net/ethernet/xilinx/* duplicate the same
+> code? xilinx_axienet_main.c says:
+>
+>  * TODO:
+>  *  - Add Axi Fifo support.
+>
+> which could be this.
+>
+> As GregKH said, find some hardware using these IP cores, or synthesise
+> your own, and then work on the driver.
+>
+>         Andrew
 
-[1] https://lore.kernel.org/r/20260529153216.2AD1E1F00899@smtp.kernel.org
+Yes, the Axinet driver's TODO suggests adding AXI FIFO support.
+Currently, it routes
+packets through the AXI DMA engine, but the TODO mentions:
 
--Ankit
+ * TODO:
+ *  - Add Axi Fifo support.
+ * - Factor out Axi DMA code into a separate driver.
 
-> -- 
-> 2.54.0.823.g6e5bcc1fc9-goog
-> 
+This suggests that the AXI FIFO is merely a different configuration of
+the axinet
+driver, allowing a Xilinx AXI FIFO device to be used for ethernet.
+
+It does not, however, establish how the AXI Stream FIFO IP is intended to b=
+e
+used outside of the Ethernet context. Since the AXI Stream FIFO is a
+general-purpose IP block used in a variety of FPGA designs, it is not yet
+clear whether the Ethernet use case fully defines its role in the kernel, o=
+r
+whether it should be treated as a more general streaming component with
+multiple potential consumers.
+
+Thanks,
+Arihan Bhor
 
