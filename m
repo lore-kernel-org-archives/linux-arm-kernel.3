@@ -4,101 +4,146 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 06E6ACD5BD1
-	for <linux-arm-kernel@archiver.kernel.org>; Mon,  1 Jun 2026 14:42:43 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 7DF44CD6E57
+	for <linux-arm-kernel@archiver.kernel.org>; Mon,  1 Jun 2026 14:52:27 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:
+	Content-Transfer-Encoding:Content-Type:References:In-Reply-To:Message-ID:Date
+	:Subject:Cc:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=I0dhUfw0XKND2zjq9zxpBDoT9bHm0cEZAjiXz5KStSE=; b=dXVkhcj6B5obUj/F72PCrQJR0y
-	zVfiCldC7JphfrqcFK5g+NrlkXRe7CVbaQn2VZYkzZMV2+QKvZmoStz6X1DDntBv1qxoRDUu/hCSp
-	tlNrYDUxZvTR5Tnw2ZNLCfnbdY6g5p+tYdHRKWbXaOzAyrB14PoJ6C0eiqbWGOzuWODgcqJd64IVJ
-	1HxWims/sviEtj7+K9JWpyPKResDvbpjhrykkdJ4FEb7geWuvz3m2IWHWxjIT6BAoJx+YtsURiTMT
-	FwgYDChNj+ity7lbg4o4ia4Tog8DZX6o0c2HyzHd0uPJlFE90O9e09kA9Fs8XwDePanX59NjKmLfc
-	zQJJ+vRg==;
+	bh=l4FbC88icyep+r7/dP5/Scb/Nd+NdsLND46gzlO9XhM=; b=xZX2YIkD4Dc17wo3d4we11Zkf4
+	18yfvRgXePhPv35+F32+zUcmErMvuloU8dqV7cGDyveMijRu1IQBgfHIzIdq7T5H8a69K3f5Crkvu
+	yOGhPfCjL3qdWTpX4kKDanE1B4Gs9uxXzLcUHfiimqB1TeXddcL6U8kv9FUFjeMSLkRpG3ee4nfuJ
+	rKPYcjUfgCVAutD8d+2rv6U7J/k5+lD+JOf3BJrbWnTJZKaZArkvDU4zToi6FzOya4EraZfZF9+3U
+	CTIda51KbRImoNE2KmFzZxl9A6HnPQ2Tx4f2jTr1lzAffQoFbo+VqRoQHI2U4svhiHkrcW6EhP37m
+	9ye1bidQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wU3qe-0000000BIu0-1qLv;
-	Mon, 01 Jun 2026 14:42:36 +0000
-Received: from mail-pl1-x631.google.com ([2607:f8b0:4864:20::631])
+	id 1wU404-0000000BJVh-2pZR;
+	Mon, 01 Jun 2026 14:52:20 +0000
+Received: from mail-northeuropeazon11011067.outbound.protection.outlook.com ([52.101.65.67] helo=DU2PR03CU002.outbound.protection.outlook.com)
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wU3qc-0000000BItc-2YNm
+	id 1wU402-0000000BJUn-1dWj
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 01 Jun 2026 14:42:35 +0000
-Received: by mail-pl1-x631.google.com with SMTP id d9443c01a7336-2bf125989f2so27391455ad.3
-        for <linux-arm-kernel@lists.infradead.org>; Mon, 01 Jun 2026 07:42:33 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=linaro.org; s=google; t=1780324953; x=1780929753; darn=lists.infradead.org;
-        h=in-reply-to:content-disposition:mime-version:references:message-id
-         :subject:cc:to:from:date:from:to:cc:subject:date:message-id:reply-to;
-        bh=I0dhUfw0XKND2zjq9zxpBDoT9bHm0cEZAjiXz5KStSE=;
-        b=NSDaWICuAZkM+Ol0l8Sj23gLI/jPR0BWP5iVtAc6dZa1MDucR/xaDKlSL7e8ccIeqx
-         7FsnRs2IqSIrbJeWHWoEmgMb6s6r5YVtpOGYwS6rufHx7/o5ks9cGpPUJujOhoJTd+Mz
-         IyLl5YwIC/ht/n2Tz2LW8hVyyzmb4XbfEYrSmYkzUdoWcVrXHbmLUSx3JAhLlg0jpQwX
-         tkGHxMI8xKqqyKvbDsFt9JMg2IBD1HoxOApwZZPYaiSq5Fv/kQ8MIagrhPAqMJv8Lagr
-         20Dh3iSuUbykRMQ0Zi/ZzEjmZC/33aKS+QgdpgP849LrFHbusMrGFxk8+rYtEpAGvPVD
-         ez7w==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20251104; t=1780324953; x=1780929753;
-        h=in-reply-to:content-disposition:mime-version:references:message-id
-         :subject:cc:to:from:date:x-gm-gg:x-gm-message-state:from:to:cc
-         :subject:date:message-id:reply-to;
-        bh=I0dhUfw0XKND2zjq9zxpBDoT9bHm0cEZAjiXz5KStSE=;
-        b=rkCxcqj3mE6JtDm7uizlcRkF911kj3DnTjcxYn7BIm2SWBepAIo1iCrKG/0pmJJOGP
-         HjRSBK30ZHp2V80njrC4cLZj8Cka1cc9j/gSSPAuftgn11CNhJQDz9ghHxK36gpKnytB
-         vqDPKcqcZ8UF0T06oyC9z4jP4sWfpEgCTWrgSrQQt7pGFHr/16GvEHhOTBubb6SwIAMA
-         dLoALc8qIEhv3sra0eY3yIoZb1wNEtnLf9JF/SOdYHZXoXK/nrIL6qct1FYnsVZ8ZBQ4
-         DRkIacr0YqTcJGHkUL4FixiVNujrj/PthbpnvK+siVfkxnvCxgUEUpGtple8yzw0T2h9
-         wrYQ==
-X-Forwarded-Encrypted: i=1; AFNElJ8UavEMLpFGgplHtB84WoElHyJiV1uiHZgNoibKKdNNpr/eBpPWMsnSaILbTVCmohP4PnGGU5AGibrar00Xn+l7@lists.infradead.org
-X-Gm-Message-State: AOJu0YwHHs21P3HYA/HMOrJhP9dU7dbjlMvqffugcFfs9zVgyIVSNhMu
-	H6ABmjhOW+PqRmGjF85BnDto0Tu45SPqHSD3RdQrALGHZRi1IOBXzxCjtb7e6OCqlIc=
-X-Gm-Gg: Acq92OHDWuPE6Ev4Hk2itFyJ9MWmF8pt/RYUzjl8G9AVj3cFD70WAu/LZf0KwxiLGV8
-	Lxata/C8Xk+xMfXwc3hQcSxm5eV9iXiPl0HN7b/5Lv6BRtBJXLW0dnN0l28ZyoAZsXa0ij0+eAM
-	0LU6slE+LTN+GnR2mpSw0+MRLC81KFv9c2xhL/i7Rxm/l8GwKrM4vFr/jkrkHJVVhq5isiKuPEw
-	Ii91HW1r+L60l1zxzf8aGQ7rG8klvhVNzw+lpanrlNSQnwrzmyKlrrxKnkyC4Dt000Xfy0yuwGz
-	2Cvx7+fTGaprhzB271xdpjHhN7fJhSHwdAQy0JkPgO5EvRvQIdffjpTw4+W/RC9ofs582nF+b2x
-	vXYs/2LPyP6go9p755JsbDfDosG95fCVCAlUWWMuEDXaz6ewQiG3TBAMgZbGHaHSlVcS1va1wzU
-	9Dvv1vSQFdO0W5ojlhMXLN4ZMOI23Gongl8dkTELui9tJvaliz
-X-Received: by 2002:a17:902:e74b:b0:2bd:63dc:b7ad with SMTP id d9443c01a7336-2bf3679ebc4mr132076775ad.2.1780324953150;
-        Mon, 01 Jun 2026 07:42:33 -0700 (PDT)
-Received: from p14s ([2604:3d09:148c:c800:86cc:b476:3696:fced])
-        by smtp.gmail.com with ESMTPSA id d9443c01a7336-2bf23c0842esm107038115ad.57.2026.06.01.07.42.31
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Mon, 01 Jun 2026 07:42:32 -0700 (PDT)
-Date: Mon, 1 Jun 2026 08:42:29 -0600
-From: Mathieu Poirier <mathieu.poirier@linaro.org>
-To: Ben Levinsky <ben.levinsky@amd.com>, arnaud.pouliquen@foss.st.com,
-	daniel.baluta@nxp.com, peng.fan@oss.nxp.com
-Cc: Bjorn Andersson <andersson@kernel.org>,
-	linux-remoteproc@vger.kernel.org, Frank Li <Frank.Li@nxp.com>,
-	Sascha Hauer <s.hauer@pengutronix.de>,
-	Pengutronix Kernel Team <kernel@pengutronix.de>,
+	Mon, 01 Jun 2026 14:52:19 +0000
+ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
+ b=jik/RmzvS0pdpg3nY8EH1d1SLX3GFR5Blvo5gSLEVk10x5ZuWXly1xa8MdLKD2XYvV/qfRdcQnPcrpDQKTDW8oVd/VbZSvGuLgpb33skX5wrZg/DKEBcJtSWpb27oJBqO+anWbMmLwW93aYc/9ed1+JlV9N92F+Q97TxLRlka3CREO4+4xJ5DmwAhj8367GNa+55cViixgYrwgYDZLS1gOOi6DjbCJePGHbNVW+UvDZ4xhA89w4JK60CyKOmBF2iP0GOtaqUPLvwQrFlyT9uJMFs2xjY8whxzRe9AhR4xqHSGUeMQgp7aMDOmHZcwZufegLr3aHMHrEA8+b0HK4G0w==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
+ s=arcselector10001;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
+ bh=l4FbC88icyep+r7/dP5/Scb/Nd+NdsLND46gzlO9XhM=;
+ b=SP788MAFK58GacNoBLXaKGa0X+EyUKv/rkwbEeWjaHfCEG9T59HYYQpPJHWRJ2erfD7asPzAMCBBpu3Dr4iZl1tJk0POgBu2xmD5xDU4xBfNk1P6h9h0LTRl0dxPsdxE43bNWbjp+7YcferAtb/sfA8y9UReWHCG7fM0ybjBkSX852AYEKw516bZKtdCYLX12OLp0dzDncMB6WUz7dyWt2HleKaYSr/PQRvk7bVdXeEeHpBZcvzbAa/zYw/rCT+YqDmsCZwp/6fp6CvuqZVYMHRWdoJIC7AUN2DArOrOKYeWW3flXeP/Lm/lO8XBk/vfd+G7aV+6XTUsPS0iZnelUg==
+ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
+ smtp.mailfrom=oss.nxp.com; dmarc=pass action=none header.from=oss.nxp.com;
+ dkim=pass header.d=oss.nxp.com; arc=none
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=NXP1.onmicrosoft.com;
+ s=selector1-NXP1-onmicrosoft-com;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
+ bh=l4FbC88icyep+r7/dP5/Scb/Nd+NdsLND46gzlO9XhM=;
+ b=QLOePfdVUaWAj5u/OhW6nr9Nh0K0z3yFmVmr/Zr1xUIN3uU1rUdQyY66IaQfZ4mMKYvHTELAKZdfgM4C9FE+0xtQOVJ1oDK1gA++kdCoqW/cSxR1qdNzaVY4LQOoSZuJgM7PGwrGxrIDqTB1knr5ja3ngzekDMcsaINHW/RFtFERBulr0a+zs1b9zu+kGe0ovdEGd7RwZkK7L4Pe05JTwPd/Eq8q/zjHDgYEx1BkEiW2oNBAA6b7crfBccXcNC70CiB+NwSZFtVMvNVwO2m68wrdMRygW0SJsC3xiCRKq0zxqErYOPbICDB5C/UTEVncE0+PUdumXSh1NZzCvPANbQ==
+Authentication-Results: dkim=none (message not signed)
+ header.d=none;dmarc=none action=none header.from=oss.nxp.com;
+Received: from GV2PR04MB11799.eurprd04.prod.outlook.com (2603:10a6:150:2cf::9)
+ by VI1PR04MB10026.eurprd04.prod.outlook.com (2603:10a6:800:1df::6) with
+ Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.21.71.15; Mon, 1 Jun 2026
+ 14:52:10 +0000
+Received: from GV2PR04MB11799.eurprd04.prod.outlook.com
+ ([fe80::2146:83a2:5329:b7c]) by GV2PR04MB11799.eurprd04.prod.outlook.com
+ ([fe80::2146:83a2:5329:b7c%6]) with mapi id 15.21.0071.014; Mon, 1 Jun 2026
+ 14:52:09 +0000
+From: Frank.Li@oss.nxp.com
+To: linux-arm-kernel@lists.infradead.org,
+	Marek Vasut <marex@nabladev.com>
+Cc: Frank Li <Frank.Li@nxp.com>,
+	Christoph Niedermaier <cniedermaier@dh-electronics.com>,
+	Conor Dooley <conor+dt@kernel.org>,
 	Fabio Estevam <festevam@gmail.com>,
-	Geert Uytterhoeven <geert+renesas@glider.be>,
-	Magnus Damm <magnus.damm@gmail.com>,
-	Patrice Chotard <patrice.chotard@foss.st.com>,
-	Maxime Coquelin <mcoquelin.stm32@gmail.com>,
-	Alexandre Torgue <alexandre.torgue@foss.st.com>,
-	Arnaud Pouliquen <arnaud.pouliquen@foss.st.com>,
-	Daniel Baluta <daniel.baluta@nxp.com>,
-	Tanmay Shah <tanmay.shah@amd.com>, imx@lists.linux.dev,
-	linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org,
-	linux-renesas-soc@vger.kernel.org,
-	linux-stm32@st-md-mailman.stormreply.com
-Subject: Re: [PATCH v3 0/5] remoteproc: cleanup shared carveout and
- resource-table helpers
-Message-ID: <ah2aVdlsLqy9aeHP@p14s>
-References: <20260529021637.2077602-1-ben.levinsky@amd.com>
+	Krzysztof Kozlowski <krzk+dt@kernel.org>,
+	Pengutronix Kernel Team <kernel@pengutronix.de>,
+	Rob Herring <robh@kernel.org>,
+	Sascha Hauer <s.hauer@pengutronix.de>,
+	devicetree@vger.kernel.org,
+	imx@lists.linux.dev,
+	kernel@dh-electronics.com,
+	linux-kernel@vger.kernel.org
+Subject: Re: [PATCH v2] arm64: dts: imx8mp: Add DT overlays for DH i.MX8M Plus DHCOM SoM and boards
+Date: Mon,  1 Jun 2026 10:51:58 -0400
+Message-ID: <178032549988.3914057.11721734182930821482.b4-ty@b4>
+X-Mailer: git-send-email 2.43.0
+In-Reply-To: <20260324190544.74531-1-marex@nabladev.com>
+References: <20260324190544.74531-1-marex@nabladev.com>
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: 8bit
+X-ClientProxiedBy: SN7PR04CA0080.namprd04.prod.outlook.com
+ (2603:10b6:806:121::25) To GV2PR04MB11799.eurprd04.prod.outlook.com
+ (2603:10a6:150:2cf::9)
 MIME-Version: 1.0
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-In-Reply-To: <20260529021637.2077602-1-ben.levinsky@amd.com>
+X-MS-PublicTrafficType: Email
+X-MS-TrafficTypeDiagnostic: GV2PR04MB11799:EE_|VI1PR04MB10026:EE_
+X-MS-Office365-Filtering-Correlation-Id: b49c1386-0fb0-4805-53fc-08debfed5b55
+X-MS-Exchange-SenderADCheck: 1
+X-MS-Exchange-AntiSpam-Relay: 0
+X-Microsoft-Antispam: BCL:0;ARA:13230040|366016|7416014|376014|19092799006|1800799024|56012099006|11063799006|18002099003|22082099003;
+X-Microsoft-Antispam-Message-Info: hIYptQOQ7dWWV9503TuhHT07deiuYEt1QSHsS7Pm8QRdRnI9uT5rRk/TjTdAjgdUZi7/0uFECt6ti3K05Yu7hxHNPhbdxy7NQNuJKUI5Igr9/LrqgzBETRVjUCs1Re9OQYCNjPmYFUjwO8NaqLsYOtNekkdpBXNkLPaC8wVPdxEwdqCCuDh2qS6PruPHr2KvIRGb8hZybxn/8P6Yiir4n1fiOFBI7sqwD9QxPFJB+VPpw4wER+Z2HOLwP7NHZhxTJUlgN2hqBi+kgKG7cSAHrTvfDeHY1V5Ct5p7TSPW2FszbsH3P+CVXZTUhlopZfUVqiC1yJySvHxh7Y4VntJCyqOBr4KXhM6TpasepMNVeYDTj2AmRDuVmKbpEsxLWodRzoXuYuClBOaqhn9HHuxPU2kCB6ZB8MjZwwVFCPWyjfC/NkJdIySPtcApaDD8lDz0FSG+VQoNIxyFOoHfQyMqmKIWQMPP3g0BbNnKWikxxgIJeM9Q83NduMoszysZn7IYtbBTXYMkL9i2dDE+uekN7CkIVVbiPGjK5S1VfwwcKmjo1BM2iesmutk+jfsgC0S3y7ySCfrJcMAWPn43HaMu1ulwd2/I0KcxWw9aitx9C4jwuf+d0STkR5w31ZzCk9OOk4VgoogwXdCWqdlAPJiJV+5wYq+vWlaaikXQbJ0Kwf+9ZLjX46/TQIFUUwNAYTqI
+X-Forefront-Antispam-Report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:GV2PR04MB11799.eurprd04.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(366016)(7416014)(376014)(19092799006)(1800799024)(56012099006)(11063799006)(18002099003)(22082099003);DIR:OUT;SFP:1101;
+X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
+X-MS-Exchange-AntiSpam-MessageData-0: =?utf-8?B?a2QyTWhVK3pJc0ZyVVNwa2NDNE81alo0OXdzRnZNOWg2TWdnTzdiSXhtd3c1?=
+ =?utf-8?B?aHFINU0yZGU2T3dvR0tFajN6L0pHU3pYRjYzeVRlVXlORE5MaEhhVzBQM2FQ?=
+ =?utf-8?B?T2Q5NWhUalNtSEtKcmVkVCs1dGk1NGhqNmxua3VBd1B5RHM5TG01TGpPbDVL?=
+ =?utf-8?B?T016ZW1HOFFQeXZobDRrb0c0ZlltMUFzbXhDVzEvZUNIQWp4eFJFTjQzN1JZ?=
+ =?utf-8?B?UDVqMjNiOUhhbDFsZWp4K1NkSFR2TWF0S1M0aHhDSytoWmNUdi9qL2xBWVpS?=
+ =?utf-8?B?S3Y5eWZ1Z0h3a2xpS0hUR1hZdWs3UlYwS0E3UUZZZWRDaUJHeS9rYzEyUDRP?=
+ =?utf-8?B?ZGJLd05WNXNCMkdVUzVzQU13WjJPdm5pNW9vUUVCRHRLSGdGTjY2ZDRreUZN?=
+ =?utf-8?B?TUJQWUd0bUhlMGpKM0hzbHRrTHdObEV5V1pSNy80VVJUQm1RcDNXajVuSExu?=
+ =?utf-8?B?NEZLNUY5Wng4K2RUcDlpU0hNZ3BtYjI4RXVtQzMzNmZnQVdhREo3RW5EOHNl?=
+ =?utf-8?B?N0IwL3YvQ2hlVmtrVFhBTmVNQVZVTFgzcnRKbm5RcG5PV3pzbEQvcUd0cWZ5?=
+ =?utf-8?B?YWxpZWlGQkhrOGZINW9iWjV5dDJKcWdXcHZSYnNERkdZbXlIclJyTlhQTEc5?=
+ =?utf-8?B?QldzaXh5VkJBOWV0bkx1MXFQTFdsWXAzeXhRdzhiVFQyS2ZsYmNyOWFWQXhK?=
+ =?utf-8?B?YXl0NmNIbVpHWDAzNHZtYTJXaVJpR2sva1lNT2ZobXNZSS9RLy9MSnM1bVE0?=
+ =?utf-8?B?U2xKbS9obzlqQU5SUXNTb1FhRG80ZDczaVA2MWE0NFVtbFNlb0oyVWxzdG1a?=
+ =?utf-8?B?RUM4U1R1N0piZnBJTnEzM1c0UVgwdWliVjBvOHVEY2hPTU5qbGRDQVBaenY4?=
+ =?utf-8?B?dGZ1TlptV3B4VFRkc2JyODU2OGNBZ2dwTkdPay9CZEc2UjAxM0J0QjdQRmZF?=
+ =?utf-8?B?ZjFkODFMUFN5RTJodHpWNWQwejJKbHcvY0pjdmZ3VkZHUVFZbFM2U2hLTGwv?=
+ =?utf-8?B?d0E5c1F2bWhDZ3h5cXczTGFBbzRIUmRybnBFR29IUjRpQlJ6ZjlsY2dkeUh0?=
+ =?utf-8?B?VG40OExJRDlxQjJUYXdHdDhETW1IZWtwcWQxREtaaStEcVVOQVYvNm5LTEFT?=
+ =?utf-8?B?Z01aNXgyWlQralZQeVFNZU4ySDlYakNlRVllRnl2RDZndXdUL0lXSE14SUh1?=
+ =?utf-8?B?TjBIR2c0aDJQdDB3RnhpckljZkFLVVFwUlhYU3ZyUGQ5TmI0eFpBaE1UcTBP?=
+ =?utf-8?B?NzdVdkREZG5vUzZ3VEVWbEo4Y3Q0N0JXOGN5NnoxcGxneXRDM0ZFQ2l2YlAz?=
+ =?utf-8?B?RG0zMEt4aUIyekVYZGVCWHNCa1ltVTUrZS9oaVFJeDV6L1VJbUUvS0M1OTUx?=
+ =?utf-8?B?VGszVjFhVlUwOXNkUEhRMmFkRittUDVCQkcwaGc4cmxBZ3RZK0NpN0dOVFNU?=
+ =?utf-8?B?S2VOZEp6ajJOWHVqWXFWVU1Ob1F0QWpkb002aWhjUk1aUHFFMDRsUDJXc2xM?=
+ =?utf-8?B?NS9IaEV2cDluVE9oSkFXN1BGTHRlZ2t6V3J2Rnh2S0JISkc3bGJQeFNJTGJH?=
+ =?utf-8?B?aldJMnFKUEVyT3J5d2EzQTIyQUI1WGRlVE14dXdNelhjUENRYnczbHRUaXJ1?=
+ =?utf-8?B?TGM1T0pPL2JSM3FKbjZwekRFelY2NElrTkpsSGtYeGVmWTBENWQ3dXJ3alVK?=
+ =?utf-8?B?TC9SSjFjV0JFY3NqUlhkTnJCb3NZQjE4Q29IVGwwb1dZU1NJNVltdXFjMlBZ?=
+ =?utf-8?B?Vkp5WlJVc1dTa3JXT2F6eHIraHVWVnVSUUI5MnltSDNZaEp5Q3dzNUFtcGxj?=
+ =?utf-8?B?dk44ZVBKWFJIZlpiTE1pVTRuN04rRWtIUHBVdlB2NzJlbWZHWjVZbEpicHFW?=
+ =?utf-8?B?T2gvK09wbWY2cFhvRzZsblc5dU16RDdaRi8zV3p5MzIrdllGYnZXRzZLWVhs?=
+ =?utf-8?B?MVhiMmo5My84SzVpMklyc3FOZEluYjJoYkRUVVlINzhvb2E5RVJMRGFqSlJU?=
+ =?utf-8?B?SkMwaE1TNWJCR2xwS0QyMC9kaUUyaEJXVGNxMC9QWFc5S3RoamZKdzZzak4x?=
+ =?utf-8?B?N1hCaHdJUmhJcnZZR3h2eWF4RkUrSHZlcUdTTGdOVGt4dlFkT2lwZmcwY2xt?=
+ =?utf-8?B?M2cxSEVNbXY4Vm0xN1dPYXVqRjFzNWNSMUZDMDJTYkZpcm1Oa3RyZ0VucHJ6?=
+ =?utf-8?B?TGQwbkkyZVlMMDRoN3dsc1p2dVdsSGpoSXlBRVhsRjNWL3ZoaVZvU1h0ZFRo?=
+ =?utf-8?B?RjZObm9HS1hOeE03bk5pbGZIaVFzWlBtRGxGakVyTlJLT2MzVk44bTFoc2JJ?=
+ =?utf-8?B?bUc4eTRiTzdiVHZuTEgrRUpFeENZK1J2K2o4bDNPNHB6TmdWQStldmR4YXoy?=
+ =?utf-8?Q?0+4IvOvpRuHeEe5+Yip79+Y8okFPTv9W/Ouo7?=
+X-OriginatorOrg: oss.nxp.com
+X-MS-Exchange-CrossTenant-Network-Message-Id: b49c1386-0fb0-4805-53fc-08debfed5b55
+X-MS-Exchange-CrossTenant-AuthSource: GV2PR04MB11799.eurprd04.prod.outlook.com
+X-MS-Exchange-CrossTenant-AuthAs: Internal
+X-MS-Exchange-CrossTenant-OriginalArrivalTime: 01 Jun 2026 14:52:09.8171
+ (UTC)
+X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
+X-MS-Exchange-CrossTenant-Id: 686ea1d3-bc2b-4c6f-a92c-d99c5c301635
+X-MS-Exchange-CrossTenant-MailboxType: HOSTED
+X-MS-Exchange-CrossTenant-UserPrincipalName: Esqv17z9CdfIjn/snb1JvR77Nz7Ht/2hvrDELfolE3iozYF5ttQg8dxfQRPB649017hpjwB7SV72zvpIuA8Aq92+wBesM+aFG18XAu8Y7C8QxXE0XWTRenm0x0bE6cpe
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: VI1PR04MB10026
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260601_074234_697619_99FD2C39 
-X-CRM114-Status: GOOD (  32.09  )
+X-CRM114-CacheID: sfid-20260601_075218_437492_DC0715E9 
+X-CRM114-Status: UNSURE (   8.38  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -113,104 +158,39 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Good morning,
+From: Frank Li <Frank.Li@nxp.com>
 
-On Thu, May 28, 2026 at 07:16:32PM -0700, Ben Levinsky wrote:
-> This series is a preparatory remoteproc cleanup split out from review of
-> the AMD BRAM-based remoteproc series.
-> 
-> During review, there was a request to move the duplicated plain
-> ioremap_wc()/iounmap() carveout callbacks into common code and to
-> factor the "missing resource table is OK" ELF parsing path into a
-> common helper as well. There was also a request to send that cleanup as
-> its own patchset first, with the AMD BRAM series respun afterwards on
-> top once this cleanup is merged.
-> 
-> This version keeps the same overall cleanup goals as v2, but reworks
-> the optional resource-table pieces based on follow-up review:
-> 
->   - reshape the optional resource-table helper in patch 4 into the thin
->     parse_fw() wrapper form suggested on the thread
->   - switch the patch 5 clients over to that helper shape directly,
->     without post-helper rproc->table_ptr checks
->   - keep the driver-local parse_fw() wrappers and their existing log
->     messages and severity choices
->   - retain as much of the existing per-driver parse_fw() logic and code
->     placement as possible while moving the missing-table handling
->     through the shared helper
-> 
-> This series now does that in five patches:
-> 
->   1. add common subsystem-private callbacks for the exact-match
->      wc-ioremap carveout case
->   2. switch the in-tree exact-match users over to those callbacks
->   3. mark carveouts mapped through the shared wc-ioremap helper as
->      iomem so the framework uses the proper I/O accessors
->   4. add a common helper for drivers that treat a missing ELF resource
->      table as optional while keeping per-driver logging decisions local
->   5. switch the matching in-tree drivers over to that helper while
->      keeping thin local parse_fw() wrappers
-> 
-> For the carveout map/unmap cleanup, this series covers the exact-match
-> users called out in review: xlnx_r5_remoteproc, rcar_rproc,
-> st_remoteproc, stm32_rproc, imx_rproc, and imx_dsp_rproc. The zynqmp R5
-> TCM mapping path is left alone because it also clears the mapped memory
-> and is not an exact match.
-> 
-> For the optional resource-table handling, this series converts
-> xlnx_r5_remoteproc, rcar_rproc, stm32_rproc, imx_rproc, and
-> imx_dsp_rproc. st_remoteproc is intentionally left unchanged because its
-> parse_fw() callback also builds carveouts and is therefore not a direct
-> match for the helper introduced here.
-> 
-> Changes in v3:
->   - rework patch 4 so the optional resource-table helper matches the
->     thin-wrapper form suggested in review
->   - note that patch 4 still triggers a checkpatch --strict warning for
->     the flow-control macro form, but that implementation follows the
->     maintainer's review suggestion for the thin parse_fw() wrapper shape
->   - update patch 5 to use that helper shape directly in the client
->     parse_fw() callbacks
->   - drop the post-helper rproc->table_ptr checks from the converted
->     drivers
->   - keep the converted parse_fw() wrappers otherwise close to their
->     existing structure and placement
->   - test xlnx_r5_remoteproc on the latest tree with firmware images
->     both with and without an ELF resource table
-> 
-> Changes in v2:
->   - split the mem->is_iomem change out into a separate patch
->   - add a common error message on ioremap_wc() failure
->   - drop logging from the optional resource-table helper
->   - keep driver-local parse_fw() wrappers to preserve per-platform
->     missing-resource-table logging policy
-> 
-> Ben Levinsky (5):
->   remoteproc: add common wc-ioremap carveout callbacks
->   remoteproc: switch exact-match drivers to wc-ioremap callbacks
->   remoteproc: mark wc-ioremap carveouts as iomem
->   remoteproc: add helper for optional ELF resource tables
->   remoteproc: switch drivers to optional resource-table helper
-> 
->  drivers/remoteproc/imx_dsp_rproc.c       | 41 +++-----------
->  drivers/remoteproc/imx_rproc.c           | 40 ++------------
->  drivers/remoteproc/rcar_rproc.c          | 41 ++------------
->  drivers/remoteproc/remoteproc_internal.h | 38 +++++++++++++
->  drivers/remoteproc/st_remoteproc.c       | 31 +----------
->  drivers/remoteproc/stm32_rproc.c         | 39 ++-----------
->  drivers/remoteproc/xlnx_r5_remoteproc.c  | 70 +++++-------------------
 
-This set looks good to me.  I am fine with the checkpatch warning on the macro -
-given the redundancy it avoids, I think it can be tolerated.
-
-Wolfram has already indicated he wanted to test these changes - Arnaud, Daniel
-and Peng, please do the same for your platforms.
-
-Thanks,
-Mathieu
-
->  7 files changed, 73 insertions(+), 227 deletions(-)
+On Tue, 24 Mar 2026 20:04:19 +0100, Marek Vasut wrote:
+> Add DT overlays to support DH i.MX8M Plus DHCOM SoM variants and carrier
+> board expansion modules. The following DT overlays are implemented:
+> - SoM:
+>   - DH 660-x00 SoM with 1xRMII PHY
+>   - DH 660-x00 SoM with 2xRMII PHY
+> - PDK2:
+>   - DH 505-200 Display board in edge connector X12 via direct LVDS
+>   - DH 531-100 SPI/I2C board in header X21
+>   - DH 531-200 SPI/I2C board in header X22
+>   - DH 560-200 Display board in edge connector X12
+> - PDK3:
+>   - DH 505-200 Display board in edge connector X36 via direct LVDS
+>   - DH 531-100 SPI/I2C board in header X40
+>   - DH 531-200 SPI/I2C board in header X41
+>   - DH 560-300 Display board in edge connector X36
+>   - EA muRata 2AE M.2 A/E-Key card in connector X20
+>   - NXP SPF-29853-C1 MINISASTOCSI with OV5640 sensor in connector X31
+>   - NXP SPF-29853-C1 MINISASTOCSI with OV5640 sensor in connector X29
+> - PicoITX:
+>   - DH 626-100 Display board in edge connector X2
 > 
-> -- 
-> 2.34.1
+> [...]
+
+Applied, thanks!
+
+[1/1] arm64: dts: imx8mp: Add DT overlays for DH i.MX8M Plus DHCOM SoM and boards
+      commit: 244b25e43c15b6d9e5b5c0f5187743eb2fe7a5b8
+
+Best regards,
+-- 
+Frank Li <Frank.Li@nxp.com>
 
