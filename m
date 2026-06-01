@@ -4,63 +4,65 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 92401CD5BD1
-	for <linux-arm-kernel@archiver.kernel.org>; Mon,  1 Jun 2026 15:38:24 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 3E82CCD6E55
+	for <linux-arm-kernel@archiver.kernel.org>; Mon,  1 Jun 2026 15:44:37 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
 	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
 	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=xvHFBLmhjdXJvQykPtca/ld+HESt+gxIgGOBRPO8Zls=; b=paflww7JLmKofwZ6kJ4xaYOCio
-	cl8MDZTkrSdayUHhkWuJv0MV8KtfvleBhU6S39ovn8txgbkxpi1NQliHWklEjmKpGF/1mh1AFI9Jv
-	PibyFUu/T7wUWvs6iAYsw7/uzVbkY/7kHMfvOp5DboAMkD54f5hc0J/wHoQqey+nEZHEpyUWn9EF1
-	jZ5wEIUpmcLy/o+UtLeNG5M86XItQ6S4AE3C/BW+VtTbPFAcqZFvjeo6LvtFeaNvH9KaZZfJOvxc0
-	bS/c3D/MUvxHxUIjAofF86G6h+mWVh/iN1uMpZY8qlEUXQjllSyzcaG2QezpmiMVex30alAqEw/Gy
-	toykrOiQ==;
+	bh=mgxgY8d+G/6RTOQ+BJPpqzlDf4UdD5DQTydgCd5fyJg=; b=AIPl71wd5PQN9adupmGn01ROv6
+	kkmW6NVyCx6GX86wXwGykaaWxMFI2PxL2VV/bVxHUX0g8/4/RNwKITH1uK/TIGr9IoX5nrA5p1ESf
+	SuSwEuutdNAzHl2k6KpgPQLPE6OgBirX3hK5Ya1tIH0WqByCQZjWC2TlTI6t35pnRqTFHzhcOqA5D
+	u4SGhMAnCrfQCMiT8hwgTH5cU/maxPdRK1pFhjWWBp9yEuI0q40isTD8tBEB2DPSxu8SUtg/aHhx7
+	t02u4hGNIwjbCAcyVjkj7Oz2u3qJf8D361kPdCdR5hlEjJy14QeaLahqnSglYp1iIMhvRwgAFsjBg
+	c9egTWGA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wU4iW-0000000BOND-0S6G;
-	Mon, 01 Jun 2026 15:38:16 +0000
-Received: from foss.arm.com ([217.140.110.172])
-	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wU4iT-0000000BOMX-0hhf
+	id 1wU4oX-0000000BOqA-3jrG;
+	Mon, 01 Jun 2026 15:44:29 +0000
+Received: from out-183.mta0.migadu.com ([91.218.175.183])
+	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
+	id 1wU4oV-0000000BOpD-0kZg
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 01 Jun 2026 15:38:14 +0000
-Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
-	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id 21CC5176B;
-	Mon,  1 Jun 2026 08:38:06 -0700 (PDT)
-Received: from [10.57.23.191] (unknown [10.57.23.191])
-	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id 6A0BB3F7D8;
-	Mon,  1 Jun 2026 08:38:09 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=simple/simple; d=arm.com; s=foss;
-	t=1780328291; bh=3l8Vc5R9Bi1ixojxBE46H8yg68kJNmr2sfBWPBBkUi8=;
-	h=Date:Subject:To:Cc:References:From:In-Reply-To:From;
-	b=e9nSRsev/i4tl6Qjj8pBo/hLtGe99k7+//Hi599TVugzVmx5uxuvtItZOIqmXRdll
-	 h0NYoxFfDfyrW9wTn3CPUQCWmBOH0z2EamWy5AFLjgrF2ODI9a8AA5QIDkY3L6YEXV
-	 AxjseB/B7O/xqizWRhGhB09zY4MORAA7jd9+io1M=
-Message-ID: <ec8ee107-5793-4551-a903-081ddddfa2ab@arm.com>
-Date: Mon, 1 Jun 2026 16:38:07 +0100
+	Mon, 01 Jun 2026 15:44:28 +0000
+Message-ID: <bbecce76-c677-4045-b0d1-ba822b84dcf5@linux.dev>
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=linux.dev; s=key1;
+	t=1780328656;
+	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
+	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
+	 content-transfer-encoding:content-transfer-encoding:
+	 in-reply-to:in-reply-to:references:references;
+	bh=mgxgY8d+G/6RTOQ+BJPpqzlDf4UdD5DQTydgCd5fyJg=;
+	b=SW2HVAvw2yZu4I9MOOCod0UfssJYy4pt1A9hpEgVLqAe2/h1H9PZfGvrqmQ/pQbWApbAVx
+	B2oofFQxFPT+jwLRowiWeqH/MqwmXVsj9A2gLQChaPYxKS5mCUEsoS/sy7zrgP4Ss71B8M
+	J/USgdBKjwLAy16nGeLo9BqWWNTSL38=
+Date: Mon, 1 Jun 2026 23:43:56 +0800
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH v7 08/13] coresight: etm4x: fix inconsistencies with sysfs
- configuration
-Content-Language: en-GB
-To: Yeoreum Yun <yeoreum.yun@arm.com>, Leo Yan <leo.yan@arm.com>
-Cc: coresight@lists.linaro.org, linux-arm-kernel@lists.infradead.org,
- linux-kernel@vger.kernel.org, mike.leach@arm.com, james.clark@linaro.org,
- alexander.shishkin@linux.intel.com, jie.gan@oss.qualcomm.com
-References: <20260519154812.254884-1-yeoreum.yun@arm.com>
- <20260519154812.254884-9-yeoreum.yun@arm.com>
- <20260528140943.GE101133@e132581.arm.com> <ahhQsTNok65e6K0F@e129823.arm.com>
- <20260528145637.GG101133@e132581.arm.com> <ahhdtB2oUQvAcrr5@e129823.arm.com>
-From: Suzuki K Poulose <suzuki.poulose@arm.com>
-In-Reply-To: <ahhdtB2oUQvAcrr5@e129823.arm.com>
+Subject: Re: [RFC PATCH 1/3] mm: make persistent huge zero folio read-only
+Content-Language: en-US
+To: "David Hildenbrand (Arm)" <david@kernel.org>,
+ Dave Hansen <dave.hansen@intel.com>, Xueyuan chen <xueyuan.chen21@gmail.com>
+Cc: linux-kernel@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
+ x86@kernel.org, catalin.marinas@arm.com, will@kernel.org, tglx@kernel.org,
+ mingo@redhat.com, bp@alien8.de, dave.hansen@linux.intel.com, hpa@zytor.com,
+ ljs@kernel.org, ziy@nvidia.com, baolin.wang@linux.alibaba.com,
+ akpm@linux-foundation.org, ryan.roberts@arm.com, dev.jain@arm.com,
+ yang@os.amperecomputing.com, jannh@google.com, linux-mm@kvack.org
+References: <20260527035607.14919-1-xueyuan.chen21@gmail.com>
+ <20260527035607.14919-2-xueyuan.chen21@gmail.com>
+ <4e0696ee-895c-486d-aacc-71146f0e9047@intel.com>
+ <929875a2-9e94-4dbc-9c98-b342ccc3f4e2@kernel.org>
+X-Report-Abuse: Please report any abuse attempt to abuse@migadu.com and include these headers.
+From: Lance Yang <lance.yang@linux.dev>
+In-Reply-To: <929875a2-9e94-4dbc-9c98-b342ccc3f4e2@kernel.org>
 Content-Type: text/plain; charset=UTF-8; format=flowed
 Content-Transfer-Encoding: 7bit
+X-Migadu-Flow: FLOW_OUT
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260601_083813_495270_79895EAA 
-X-CRM114-Status: GOOD (  38.78  )
+X-CRM114-CacheID: sfid-20260601_084427_379023_BA03A060 
+X-CRM114-Status: GOOD (  11.17  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -75,162 +77,39 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On 28/05/2026 16:22, Yeoreum Yun wrote:
->> On Thu, May 28, 2026 at 03:26:57PM +0100, Yeoreum Yun wrote:
->>
->> [...]
->>
->>>>> @@ -47,7 +47,7 @@ static int etm4_cfg_map_reg_offset(struct etmv4_drvdata *drvdata,
->>>>>   				   struct cscfg_regval_csdev *reg_csdev, u32 offset)
->>>>>   {
->>>>>   	int err = -EINVAL, idx;
->>>>> -	struct etmv4_config *drvcfg = &drvdata->config;
->>>>> +	struct etmv4_config *drvcfg = &drvdata->active_config;
->>>>
->>>> Wouldn't it make more sense to keep using drvdata->config for cfgfs?
->>>> This would avoid cfgfs updating the active configuration while a session
->>>> is enabled.
->>>>
->>>> My understanding is after refactoring cfgfs, we will never expose
->>>> active_config or config anymore so this should not an issue. Before
->>>> that, maybe we just keep to use config so can avoid mess.
->>>
->>> I don't think so. since the cfgfs's config is updated right before
->>> enable and in this patchset, It's applied after "take the mode".
->>>
->>> If we do it into drvdta->config, then contention would be increased
->>> with the access of sysfs and that nullifies almost this patch purpose
->>> and because of we use "one config" this makes a corruption with perf
->>> and sysfs.
->>
->> Here have two different contention: the contention between sysfs and
->> cfgfs, and the contention between cfgfs and a runtime config (active
->> config). My suggestion is to avoid the later contention, which is the
->> main idea in this series that avoid the runtime config is modified in
->> the middle of a session.
-> 
-> What I mean the *latter* contention is also pre-existed even in the
-> former (Just think about the access via configfs to modify parameter
-> while enabling the cfgfs configuration) and this is known issue
-> and should be resolved with another patchset (might we can set a flag
-> to disable store operation via conifgfs while "activation") and
-> make drvdata->config for cscfg just increase the "contention" for lock.
-
-We don't need to resolve it. We consume what is available at the time of
-enable. If the user changes this it doesn't matter, we don't have to
-honor the request. (Similar to what we do for the size of the ETR
-buffer for sysfs mode)
 
 
-Suzuki
+On 2026/6/1 21:49, David Hildenbrand (Arm) wrote:
+> On 5/27/26 17:55, Dave Hansen wrote:
+>> On 5/26/26 20:56, Xueyuan chen wrote:> +#ifdef
+>> CONFIG_READONLY_HUGE_ZERO_FOLIO
+>>> +bool __init arch_make_huge_zero_folio_readonly(struct folio *folio);
+>>> +#endif
+>>
+>> All of the #ifdeffery needs to die, IMNHO.
+>>
+>> This function is also a bad idea. There is nothing "huge zero" specific
+>> about it. It takes any old folio and tries to make it read only.
+>>
+>> Just make it:
+>>
+>> 	bool __init arch_make_folio_readonly(struct folio *folio)
+>>
+> 
+> I'm not sure whether we want a folio-based interface, though.
+> 
+> This will likely be the only folio (that will actually have a "struct folio" in
+> the future) compound page we'll ever mark read-only ... whereby I'd guess we'd
+> want other non-folio pages to be read-only in the future (encryption keys etc,
+> maybe?).
+> 
+> So I'd instead use a page-range based interface or sth like that.
 
-  > And this patch series main idea is not for contention between
-> *cfgfs* and *runtime configuration* but the corruption for racebetween
-> *sysfs and perf configuration* when it applies for the sharing one
-> configuration.
-> 
-> That's why this is different problem what you said and that is pre-exist
-> one. except above case (configfs vs activate cfgfs config),
-> I don't believe there is no contention to be modified *runtime* while
-> applying the cscfg config into active config and above case might be
-> reolved simply by some flag to prevent current value of each feat.
-> 
-> What contention scenario do you mean?
-> 
->>>>>   static void etm4_enable_sysfs_smp_call(void *info)
->>>>>   {
->>>>>   	struct etm4_enable_arg *arg = info;
->>>>> +	struct etmv4_drvdata *drvdata;
->>>>>   	struct coresight_device *csdev;
->>>>> +	unsigned long cfg_hash;
->>>>> +	int preset;
->>>>>   
->>>>>   	if (WARN_ON(!arg))
->>>>>   		return;
->>>>>   
->>>>> -	csdev = arg->drvdata->csdev;
->>>>> +	drvdata = arg->drvdata;
->>>>> +	csdev = drvdata->csdev;
->>>>>   	if (!coresight_take_mode(csdev, CS_MODE_SYSFS)) {
->>>>>   		/* Someone is already using the tracer */
->>>>>   		arg->rc = -EBUSY;
->>>>>   		return;
->>>>>   	}
->>>>>   
->>>>> -	arg->rc = etm4_enable_hw(arg->drvdata);
->>>>> +	/* enable any config activated by configfs */
->>>>> +	cscfg_config_sysfs_get_active_cfg(&cfg_hash, &preset);
->>>>>   
->>>>> -	/* The tracer didn't start */
->>>>> +	drvdata->active_config = arg->config;
->>>>
->>>> Can move this down to just before drvdata->trcid assignment so cscfg
->>>> operations can be put together?
->>>
->>> No. Copy the arg->config must be before cscfg_csdev_enable_active_config().
->>> If that's after, it overrides the "preset" and this is different from
->>> the former behavior.
->>
->> Please copy config first, then do cscfg stuffs.
-> 
-> It's already did. the chuck of config is:
->    - cscfg_config_sysfs_get_active_cfg()
->    - drvdata->active_config copy
->    - cscfg_csdev_enable_active_config()
-> 
-> Why do I need to seperate the copying the config though it's a part of
-> "setting" configuration chunk?
-> 
->>
->>>>> +	arg->rc = etm4_enable_hw(drvdata);
->>>>>   	if (arg->rc) {
->>>>> -		coresight_set_mode(csdev, CS_MODE_DISABLED);
->>>>> -		return;
->>>>> +		cscfg_csdev_disable_active_config(csdev);
->>>>> +		goto err;
->>>>
->>>> Add a new goto tag (like err_enable_hw) for the disable_active_config
->>>> rollback?
->>>
->>> This is only place where cscfg_csdev_disable_active_config().
->>> Why do we need to goto for cleanup where there is no duplication?
->>
->> It is about to use a central place for handling errors.
-> 
-> I don't think so. cscfg_csdev_disable_active_config() should be called
-> when cscfg_csdev_enable_active_config() is succssed seem not to be
-> called freely when cscfg_csdev_enable_active_config() isn't call.
-> IOW, for the central place, it makes a another variable to differenciate
-> each case and this seems more ugly.
-> 
-> What the benefit for this?
-> 
->>
->>>>> @@ -1449,7 +1458,7 @@ static void etm4_init_arch_data(void *info)
->>>>>   
->>>>>   	/* EXLEVEL_S, bits[19:16] Secure state instruction tracing */
->>>>>   	caps->s_ex_level = FIELD_GET(TRCIDR3_EXLEVEL_S_MASK, etmidr3);
->>>>> -	drvdata->config.s_ex_level = caps->s_ex_level;
->>>>> +	config->s_ex_level = caps->s_ex_level;
->>>>
->>>> config->s_ex_level is redundant and not really a configuration item.
->>>> We should use caps->s_ex_level instead of config->s_ex_level wherever
->>>> it is used.
->>>
->>> Agree, but this includes it should change the omse function
->>> declations to pass "caps" argument:
->>>    - etm4_set_comparator_filter()
->>>    - etm4_set_start_stop_filter()
->>>
->>> If that's okay, I'll respin with it.
->>
->> This is fine for me.
-> 
-> Okay.
-> 
->>
->> Thanks,
->> Leo
-> 
+Just to check, did you mean something like:
 
+bool arch_make_pages_readonly(struct page *page, int nr_pages);
+
+?
+
+So it can work on pages as well, not only folios :)
 
