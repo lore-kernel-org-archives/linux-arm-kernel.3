@@ -4,103 +4,93 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 4B5E5CD6E55
-	for <linux-arm-kernel@archiver.kernel.org>; Mon,  1 Jun 2026 15:20:50 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id DE070CD6E57
+	for <linux-arm-kernel@archiver.kernel.org>; Mon,  1 Jun 2026 15:27:40 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:In-Reply-To:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=YG9WjUJbD5swPb1xxJphH03w07XnwcgfExEp30NwV30=; b=KYZxId7xCgc2r800eqAwW+Q1un
-	DDJTSDSGLwInCqBiWgbJw+zNz8bB9XWWZvFNfH5o5QKErcdlJpm+psHPIEiYSPvVwZPmGcIhf61Md
-	mYwoge15HqMM72be5om0LXsu7rAbnYu+FuG0/OsB+uW2XanEoM38fVhXS7He+vU0ezcLIllH25Sk/
-	gXo7Cxwtce33xRxsUn48X83O0hhAgz9c0OAGcnBo+GGkkRcHKgOxQ35NLtrRfX3ZrhY15FEhzrKLD
-	GdixWBq9Y46ynYrCXLAEMJgk5mWT1aGYOuuSYA+BgTFVBg4Z0SrS9l7Z43HdEpnzObMIW1IhEFoxP
-	5n51etJQ==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	MIME-Version:Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-Type:
+	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
+	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=gGzIR3Ya12RsZQy65tkjnFhcSYwdslivQxR7gOO4emA=; b=MZzZyp4O8mwxWeMMFJcAw1Y/GX
+	+S3cLsAEr3e84Lzy90xb5jRFoNziorGwADGPHYlHdXdiZ2U42wyFCwStMd5+C862+VdtJuWDDpLtN
+	2zaWfnGIztZRZ6opOFLflaGQnlKEnzu+0lx7VgyNRfmnhKFcUSpr9y0UR1woWEVin+nPrKoppraw1
+	4S7zRuOhxyRuEHYhU32fyWD8E6saYZi4MiuUROUQL/EShIYelWzUbsK9ru/KZEsKQTs2ClyjX+qsB
+	v6x0ih+U+BPXO2YJzRGAQlRZQX6xkORC5q1o8q0jhtu9rubwYwYbka7SuuMLHv/pamq86mo9Mny1n
+	tRdHMJ4A==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wU4RU-0000000BN4b-053w;
-	Mon, 01 Jun 2026 15:20:40 +0000
-Received: from us-smtp-delivery-124.mimecast.com ([170.10.133.124])
+	id 1wU4Y7-0000000BNVz-0oES;
+	Mon, 01 Jun 2026 15:27:31 +0000
+Received: from mail-wm1-x32b.google.com ([2a00:1450:4864:20::32b])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wU4RS-0000000BN3i-0Myf
+	id 1wU4Y4-0000000BNUh-0auy
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 01 Jun 2026 15:20:39 +0000
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=redhat.com;
-	s=mimecast20190719; t=1780327235;
-	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
-	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
-	 in-reply-to:in-reply-to:references:references;
-	bh=YG9WjUJbD5swPb1xxJphH03w07XnwcgfExEp30NwV30=;
-	b=XaEkn9CH68qO8XuLU1lca9XUZp2GCa2iZDS7zCNXmItCPP8Hy4MumNzcIRxpZ44nbw/OOr
-	TL9L0aS8Yv2l7xjwIGc0L4GIWLAi2SgDUxTI4YvGnZII+Jch746kpMyxIaNwfLlAZyfXh1
-	TD1tFKlhG+sU+koSIQ8wo/Scaq4V180=
-Received: from mail-qt1-f197.google.com (mail-qt1-f197.google.com
- [209.85.160.197]) by relay.mimecast.com with ESMTP with STARTTLS
- (version=TLSv1.3, cipher=TLS_AES_256_GCM_SHA384) id
- us-mta-360-ABQSejBuMgqZc1Eb-8BvGA-1; Mon, 01 Jun 2026 11:20:34 -0400
-X-MC-Unique: ABQSejBuMgqZc1Eb-8BvGA-1
-X-Mimecast-MFC-AGG-ID: ABQSejBuMgqZc1Eb-8BvGA_1780327234
-Received: by mail-qt1-f197.google.com with SMTP id d75a77b69052e-5175bb9d47fso15468421cf.0
-        for <linux-arm-kernel@lists.infradead.org>; Mon, 01 Jun 2026 08:20:34 -0700 (PDT)
+	Mon, 01 Jun 2026 15:27:29 +0000
+Received: by mail-wm1-x32b.google.com with SMTP id 5b1f17b1804b1-4903997fcb5so105874005e9.2
+        for <linux-arm-kernel@lists.infradead.org>; Mon, 01 Jun 2026 08:27:27 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=gmail.com; s=20251104; t=1780327646; x=1780932446; darn=lists.infradead.org;
+        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
+         :to:from:from:to:cc:subject:date:message-id:reply-to;
+        bh=gGzIR3Ya12RsZQy65tkjnFhcSYwdslivQxR7gOO4emA=;
+        b=F4J6yM2BdF1qVlpxX3fOhv7cXcMNnt2i4gzfuR1ochDzWeMYeIefy6N+kSvXVa+nDu
+         3ehQO/jfwpSC+LVMA9IrE7jSjkgUy3D6piAMKFKwfna35hw7ZtpGQGFMS+za02ASyLwA
+         FgGKIW1xXIaeRdIJ7FliB6xDgXN0p0pR1Xf9HzDxwPY2fHGKCgI1xqfj8g9mAmQDpkb4
+         9kfgBUFhpzwl5oSdUUCM7ZFMkA8UBzFkPqu1xP1J72W7SakhNedcXOkLqB6HSax0AsE0
+         9wD3wLT2qtZO29XV2nmuk+FuHoP9HsEGESBbIUN0w1OethJpHsqWio5Gd4U4SZJp9Evd
+         sGow==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20251104; t=1780327234; x=1780932034;
-        h=user-agent:in-reply-to:content-disposition:mime-version:references
-         :message-id:subject:cc:to:from:date:x-gm-gg:x-gm-message-state:from
-         :to:cc:subject:date:message-id:reply-to;
-        bh=YG9WjUJbD5swPb1xxJphH03w07XnwcgfExEp30NwV30=;
-        b=Br42OhNcD6b//0JWg2JOipfYagIkbu5yyGRFEMQ6FeX/yfM2Zaj00jyI1FONJT8neX
-         9P5SnXbFVKZCMq2eRsf2yfeWs+KzmmlFgdDSjf775xLfTZ/2Q3yZEsxzK+LZu4z1rOx9
-         HnhvgfT6l1+A8Vxexx3DfA+kKZxJe/1CCCYrdhG8lkAdyv8muuso1no9zxPtFoIPt2r5
-         dUyzrs5qhT9b/YOltf3LedNxxasML9TXuvMYRQEA19vWs1ICVsQSIXeG7RyuCEKVXLob
-         MyaG1ZY3RqtgwwnXmljhgEiNeIEF/XxErXACcAoGOORVDsGEtQYNjEk2Put97gF2Jt8p
-         XHFQ==
-X-Forwarded-Encrypted: i=1; AFNElJ/ILrZQcZeP5ROCFEWeLWiEITpFryNsIiUGLCmnxei4/TAmhoNISg7IzDOzBOyDm2wWlWSTA0IDtYqSC1sxQyb8@lists.infradead.org
-X-Gm-Message-State: AOJu0YzMF1LpC++J1DQph+Knv3HoYDgRCiNoR9c5ol9/M2lJKOfIiNtA
-	F2FRPI1rAn11ZyJHcPskJXvGqynSc/LThVEgIi3/7XSvoMrmygdFQdOQn1fgVsicyrbsuR0r2gB
-	xAR3NWJIEbCzqYjGYov9sHzvzLvREM5TY/XPFn+Nij78dK5qPSCYJM1mb30rWafChbr4FC0nfAs
-	ZMq+Sv7wOH
-X-Gm-Gg: Acq92OEn5RCwH2i0UCcRDKVOzJOJDpgXnXji2b6zP8MCv6wacHeQwnOEI0wncrjSQTE
-	ZsoMhkrVlyf3IcxMX11GEdkix1/h0r14z2/1AtkD1h20QjF5NOdxB6hH2eQEF42NIo9x0aptYoI
-	dwqnKqM2usD2DuvIt+pRTlY/IDJqIhPaX/sTbDcs2JEVy1mjkFSrrM6Q8BoakRcxXaZYUsq7Daa
-	7TRK87vSZD3KOyNq1jy8aHR0zhWv8hA/eabOLbJcZg6UupSp5CDZiUh3hbnzjAQxMbU3EYS07dx
-	eXwdFEssSsM+AJpoEWRLqb45+3TKJHjzgHr40kWpFH1K29K8sf9y2255dUmPA7Bl+9opjfqqg9B
-	I3nMKDfqS81XisDsOBWxLr+9vZ/83HUFcE1LgIQxv+nWA5VP3Q2rmFNtkVaJjTAXWXYQ=
-X-Received: by 2002:a05:622a:d0e:b0:516:e517:6dd3 with SMTP id d75a77b69052e-5173a851999mr140710041cf.40.1780327232794;
-        Mon, 01 Jun 2026 08:20:32 -0700 (PDT)
-X-Received: by 2002:a05:622a:d0e:b0:516:e517:6dd3 with SMTP id d75a77b69052e-5173a851999mr140709551cf.40.1780327232413;
-        Mon, 01 Jun 2026 08:20:32 -0700 (PDT)
-Received: from redhat.com (c-73-183-52-120.hsd1.pa.comcast.net. [73.183.52.120])
-        by smtp.gmail.com with ESMTPSA id d75a77b69052e-51741b2df92sm58039471cf.9.2026.06.01.08.20.30
+        d=1e100.net; s=20251104; t=1780327646; x=1780932446;
+        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
+         :to:from:x-gm-gg:x-gm-message-state:from:to:cc:subject:date
+         :message-id:reply-to;
+        bh=gGzIR3Ya12RsZQy65tkjnFhcSYwdslivQxR7gOO4emA=;
+        b=PxZHP61npo31czFjyn5qFgTqJJVsgo7+fdy/IA8Vc4UTgHsxb4ZrSKZQlLU6dwToeW
+         bvxcfasBFCbIsijBBdUvn/DJ03lDE/aBY6YE8vT9UVJ3O8NLnPmICYf3/DSTeEcvMxMh
+         nhSOjd1Dkwct+YFc2j2W4/BubDveaX8r4ht+omZSku3L2fDUCFLuFo61NdneOzap5+5E
+         2MfI2viOLSF7dFjTHsObivZW4g75A0k5hL4+Jux7OniUA/Ij8whZ2P0TcljVsnvqoY5e
+         1F3WrfEoUsxghCi/calMyZ3NHVO/KSVWz0J/y7Lz2Fo52wxUcpUhXTiYJ6dgNI9UUL4s
+         LNwQ==
+X-Forwarded-Encrypted: i=1; AFNElJ9Z9B7hs7q9/JJtYlA3fUD70OpaaJFC1+fxJOIFTDe6blID6SrwhPT29YzRI4uKvbDk+ZxzliWUpFtObgWkAIvm@lists.infradead.org
+X-Gm-Message-State: AOJu0Yw9x3UuvLxBKSPtm70tah1KKF0r7JpOCiKZwUXmrpHs32tzbJ3w
+	Qrm2M+29fEsgQh25E427VBLawArpKBVaSpwCPjgQnCIIfCgH97aMQ3707/qQPP8UQTU=
+X-Gm-Gg: Acq92OF8c1OnhRxkt3jjzGjTUc7uZzZKX+lO7QoLMjKGF59348FSA4a16YCLvA+jbp+
+	ejvMr+dJSXbD6HAIbUbpq/39ApsxiCKu6orIVsNASxkHmodhyb+dQ6yhgkEJK7nSEDUjar5i86w
+	eYWs8nt4m/2y5NVgSvSpCKkgyrqnzPqlyv4vjMGcD5M2cgs5op6iixdwSDv55x4KRnKVdtLg7Ah
+	qleBiLUpJ5SZTlEOuljNMUL+c+Sz1WizBlEy3+vY2jwk/FgRwhTSx7/f7XsWeWfc5n0hItCwk3d
+	9r20B406fGemdrJO8B4N9JPgILE3RYoMcfMqCb61VkwB2GHSed8DHOW00tUlpRmXGUwGHbxDVPw
+	CL8XNBS4RTPsGFuJthT3inZmAGf6/ZlFMGMZn5vX2qWqq83Q8jvRJjMssC4I41G4dXfb1Q/ZTYV
+	vHQONT+yVO/SrZMg9JVaDTYQ9yWHo=
+X-Received: by 2002:a05:600c:c285:b0:48e:5fb8:f80f with SMTP id 5b1f17b1804b1-490a2966ce7mr127746435e9.24.1780327646037;
+        Mon, 01 Jun 2026 08:27:26 -0700 (PDT)
+Received: from luca-vm.. ([81.56.18.151])
+        by smtp.gmail.com with ESMTPSA id 5b1f17b1804b1-490ad63b34dsm14041635e9.27.2026.06.01.08.27.24
         (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Mon, 01 Jun 2026 08:20:31 -0700 (PDT)
-Date: Mon, 1 Jun 2026 11:20:29 -0400
-From: Brian Masney <bmasney@redhat.com>
-To: Yuho Choi <dbgh9129@gmail.com>
-Cc: Michael Turquette <mturquette@baylibre.com>,
-	Stephen Boyd <sboyd@kernel.org>,
-	Nicolas Ferre <nicolas.ferre@microchip.com>,
-	Alexandre Belloni <alexandre.belloni@bootlin.com>,
-	Claudiu Beznea <claudiu.beznea@tuxon.dev>,
-	Kees Cook <kees@kernel.org>,
-	"Rafael J. Wysocki (Intel)" <rafael@kernel.org>,
-	Thierry Reding <treding@nvidia.com>, linux-clk@vger.kernel.org,
-	linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org
-Subject: Re: [PATCH v1] clk: at91: keep securam node alive while mapping it
-Message-ID: <ah2jPV0IvbV6yQ6x@redhat.com>
-References: <20260529042051.1626978-1-dbgh9129@gmail.com>
+        Mon, 01 Jun 2026 08:27:25 -0700 (PDT)
+From: Luca Leonardo Scorcia <l.scorcia@gmail.com>
+To: linux-mediatek@lists.infradead.org
+Cc: Luca Leonardo Scorcia <l.scorcia@gmail.com>,
+	Linus Walleij <linusw@kernel.org>,
+	Rob Herring <robh@kernel.org>,
+	Krzysztof Kozlowski <krzk+dt@kernel.org>,
+	Conor Dooley <conor+dt@kernel.org>,
+	Matthias Brugger <matthias.bgg@gmail.com>,
+	AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>,
+	Sean Wang <sean.wang@kernel.org>,
+	linux-gpio@vger.kernel.org,
+	devicetree@vger.kernel.org,
+	linux-kernel@vger.kernel.org,
+	linux-arm-kernel@lists.infradead.org
+Subject: [PATCH] dt-bindings: pinctrl: mediatek: mt6795: document the slew-rate property
+Date: Mon,  1 Jun 2026 17:26:42 +0200
+Message-ID: <20260601152707.29039-1-l.scorcia@gmail.com>
+X-Mailer: git-send-email 2.43.0
 MIME-Version: 1.0
-In-Reply-To: <20260529042051.1626978-1-dbgh9129@gmail.com>
-User-Agent: Mutt/2.3.1 (2026-03-20)
-X-Mimecast-Spam-Score: 0
-X-Mimecast-MFC-PROC-ID: Ru3bXdI2mDGroTB4fhwbx7GYZMEip9DirUqk5GA05Ts_1780327234
-X-Mimecast-Originator: redhat.com
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
+Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260601_082038_306399_8A3FD5B9 
-X-CRM114-Status: GOOD (  11.84  )
+X-CRM114-CacheID: sfid-20260601_082728_187133_540410C4 
+X-CRM114-Status: GOOD (  10.22  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -115,20 +105,34 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Fri, May 29, 2026 at 12:20:51AM -0400, Yuho Choi wrote:
-> pmc_register_ops() gets an owned reference to the
-> "atmel,sama5d2-securam" node with of_find_compatible_node().  The
-> success path dropped that reference before passing the node to
-> of_iomap(), leaving of_iomap() to consume a node pointer after the caller
-> had released its reference.
-> 
-> Move of_node_put() after of_iomap() so the node remains referenced for
-> the mapping operation.  The unavailable-node error path already releases
-> the reference.
-> 
-> Fixes: 4d21be864092 ("clk: at91: pmc: execute suspend/resume only for backup mode")
-> Signed-off-by: Yuho Choi <dbgh9129@gmail.com>
+The driver for MT6795 pinctrl already supports the slew-rate property.
+Add its description to the documentation.
 
-Reviewed-by: Brian Masney <bmasney@redhat.com>
+Signed-off-by: Luca Leonardo Scorcia <l.scorcia@gmail.com>
+---
+ .../bindings/pinctrl/mediatek,mt6795-pinctrl.yaml         | 8 ++++++++
+ 1 file changed, 8 insertions(+)
+
+diff --git a/Documentation/devicetree/bindings/pinctrl/mediatek,mt6795-pinctrl.yaml b/Documentation/devicetree/bindings/pinctrl/mediatek,mt6795-pinctrl.yaml
+index 68e91c05f122..9a937f414cc9 100644
+--- a/Documentation/devicetree/bindings/pinctrl/mediatek,mt6795-pinctrl.yaml
++++ b/Documentation/devicetree/bindings/pinctrl/mediatek,mt6795-pinctrl.yaml
+@@ -152,6 +152,14 @@ patternProperties:
+             $ref: /schemas/types.yaml#/definitions/uint32
+             enum: [0, 1, 2, 3]
+ 
++          slew-rate:
++            description: |
++              Set the slew rate. Valid arguments are described as below:
++              0: Normal slew rate
++              1: Slower slew
++            $ref: /schemas/types.yaml#/definitions/uint32
++            enum: [0, 1]
++
+         required:
+           - pinmux
+ 
+-- 
+2.43.0
 
 
