@@ -4,89 +4,120 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id DCCF3CD5BD1
-	for <linux-arm-kernel@archiver.kernel.org>; Mon,  1 Jun 2026 08:18:41 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id CAB59CD6E4C
+	for <linux-arm-kernel@archiver.kernel.org>; Mon,  1 Jun 2026 08:20:33 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:Cc:To:Subject:
-	Message-ID:Date:From:In-Reply-To:References:MIME-Version:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=Z6bsjRyMlYCGVZWYk2Y60sUCqRedkIR0Vi6kAvx0wUs=; b=yxwXXKtBtZWr2DcPOO264ss3RP
-	++zP7tZHX7clBWWg/+fpZJFxvQYXapyt4b4kAPq4d/1Q0I7d0R+FfanEoHUzutFMuHLDn6VWq3/FY
-	OW7nyv+YPL3mA4PigWCnMzkO8/u1JdvHFCTtjeVR7tSLX/fP3P3ETuPpo+DalfOlxRbzTFLlEEZFX
-	8iXNsYMj45TQrI5OPI2t7VefsuoKYykVm+C690+0PMqrCv7Zs1aX5Mm4t2iwvzLxmpadMvp3xNxCM
-	fVWoaTXq65IeWeFvORJX0em6s+cdohNlAKgrJth8LAGOWnDrGiSOo1UNP4I0XBowZ/J7HwWFogU9b
-	Gp4sf9cA==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
+	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=Gx69hvLqO7Iq+reOjxvgeItjgoqp4W1U2TCI06K/nr0=; b=BZCXbF15mBxPJAr8plkBd0e6JD
+	4EXn1M/6O2J23O58SF4syb/e9W+XGJiegM/rHt9dll3+EMhS00FHaNiBzR8u2bEmk3VvLVXpBSobD
+	jZI8Wuwg3Fmn3d4qCaQNGh2RsHSKmz9Ay61hJ2GBuHsEVvY/+M6FtFF3ZNfCx6WCacbzp9VGJprPm
+	J19Pw7RCN6wb1z6SQ18b2+0jttcu2jQi0Gei5rVOrcCoroEBpkLzkMb/RPiLoywxfSAMvV/a7ZscP
+	RnRX8CcHZa5XrjnRfGMET+FRhKKXxYppYQmewjy/hFAMAUtBLGHheUBhqTpeNk5b7x8Cd/yBE085l
+	x8HHJmyg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wTxr0-0000000ALLp-1Qce;
-	Mon, 01 Jun 2026 08:18:34 +0000
-Received: from mail-qk1-f170.google.com ([209.85.222.170])
+	id 1wTxso-0000000ALT7-2KvT;
+	Mon, 01 Jun 2026 08:20:26 +0000
+Received: from tor.source.kernel.org ([172.105.4.254])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wTxqv-0000000ALKw-0xej
+	id 1wTxsn-0000000ALSq-2VGg
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 01 Jun 2026 08:18:31 +0000
-Received: by mail-qk1-f170.google.com with SMTP id af79cd13be357-914cf9248ceso724054385a.1
-        for <linux-arm-kernel@lists.infradead.org>; Mon, 01 Jun 2026 01:18:28 -0700 (PDT)
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20251104; t=1780301908; x=1780906708;
-        h=cc:to:subject:message-id:date:from:in-reply-to:references
-         :mime-version:x-gm-gg:x-gm-message-state:from:to:cc:subject:date
-         :message-id:reply-to;
-        bh=Z6bsjRyMlYCGVZWYk2Y60sUCqRedkIR0Vi6kAvx0wUs=;
-        b=rO2bCGNfUwA7wQgbkJyy7YRgIfWcUPYHbCfFQKBm0xXJWwZLyP0oHZpIHAQGVjb9LC
-         rlS0iMovCzz/a0W2hYpZud+y2faP9Ke5O5RWgBQth9yC0JJR3Rl+MOuUb4L3NBTd2U/F
-         ORwVNGR+FWxCVYSmOyFnwBqQ0dt60rjz4E43gTnqU7NY2+fJ667HOdqM4MAblXfp30nh
-         IgWcsnPRaTYAd9isDcxYS/89xzuB+o+VZK7i/RIA65+EYOdxYqgSAaKO6yS/uDvvufeC
-         c8smmprT7uyxEbYPXFsFYU+TWy/o/GaRyCXNndx9v4QZu7pOrwG062Aw8jInGtOWt5Fo
-         hwug==
-X-Gm-Message-State: AOJu0YzIcUN0knT8ZdysY+kQps5r6x9BLysV8FaJ4W0rQl8CO6EgHSnO
-	RmznR++pJxTXsXlViA7jq0s8J9p2rSBXZFM9A1RLwqGM1PYXY+rA8o1WoLrpl6J2
-X-Gm-Gg: Acq92OEKUs0QPvpacFA38cRCmd0sZCRFZEosJ3Siz1l+QYLSEbZ5nxOzOTD9FnvZ3WK
-	6i/vkOFCsWOU16nuNIPj5uSn95XtVGUmth1R1CQcBcY7kC4BqhOqIM6SwLgPrahpjSIDW7jJlDS
-	l2PMqfVD3U/nOBfoXKM+jsSAXGrBZjtAN0H3+zuiq7s1GEKbimLWn6FNTQESfeTRFyDyP3vnI3h
-	v0RDo2k56hj8V7AzudJoHsF536eUEhvNW5Diyb1NMjgE0rBeO+avTt1zoJCpFw+OLKq8lsqShGa
-	0AyqwrpT1E+jQghb2vgmGfarUITgIwDEGRLXg/o6CnrTmZekMel6XinNjZvC7TgRTd1hfMt6xxZ
-	D7uY4IDHTfXRjx/tle2rbXanTMzUP3uxjP07i0NUC783xYzwV4sNJBd9/rEV1tbyRFJRSwCuzwY
-	INzc+p4SqKqKWUrjWxI1b/ukyPwn5BjqQn4FFYF4NL4B99gzeb4jqfGPVexyd6stIfajBysII=
-X-Received: by 2002:a05:620a:3712:b0:913:dcd2:f136 with SMTP id af79cd13be357-9153dcb676cmr1647540285a.59.1780301907844;
-        Mon, 01 Jun 2026 01:18:27 -0700 (PDT)
-Received: from mail-qv1-f47.google.com (mail-qv1-f47.google.com. [209.85.219.47])
-        by smtp.gmail.com with ESMTPSA id af79cd13be357-91532486089sm954959985a.17.2026.06.01.01.18.27
-        for <linux-arm-kernel@lists.infradead.org>
-        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
-        Mon, 01 Jun 2026 01:18:27 -0700 (PDT)
-Received: by mail-qv1-f47.google.com with SMTP id 6a1803df08f44-8cbe69b122bso102290726d6.2
-        for <linux-arm-kernel@lists.infradead.org>; Mon, 01 Jun 2026 01:18:27 -0700 (PDT)
-X-Received: by 2002:a05:6102:3ed4:b0:639:4bb7:c916 with SMTP id
- ada2fe7eead31-6c67682807bmr3734166137.3.1780301518249; Mon, 01 Jun 2026
- 01:11:58 -0700 (PDT)
+	Mon, 01 Jun 2026 08:20:25 +0000
+Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
+	by tor.source.kernel.org (Postfix) with ESMTP id C3ACC601D9;
+	Mon,  1 Jun 2026 08:20:24 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id D33CB1F00893;
+	Mon,  1 Jun 2026 08:20:15 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
+	s=k20260515; t=1780302024;
+	bh=Gx69hvLqO7Iq+reOjxvgeItjgoqp4W1U2TCI06K/nr0=;
+	h=Date:Subject:To:Cc:References:From:In-Reply-To;
+	b=lR6pwctGRKEPmciGTRkvsIh2kTaQLjsZIZuuM85DAdJxHg84XDMhysIKnHs/pnIUB
+	 pIoQ2VsbnfF/ia47yGAT9WHSxy6r8ITUGE+VXzYdWo6uAf8DCPrIThkIo77fveDX9f
+	 61GTuykUutfzCsLMzZR6vTOVgHwTgHtHTjIA0agjVVVSLs+3uTS0Ix3TtjwS9uS/IJ
+	 scANRSunH07mrnBOiw2bgNVmzAz+WKL1FwcDHncsVcSY0mHQ592paAk7cBoe9t72Gy
+	 fPDqNttvrsqYoS46BDdnkv0/3xCeMFPf9z6qsSQmRlFBASeUHL9nJxGTE/zWpSZ7+H
+	 cP1pKAgER5GOw==
+Message-ID: <6aa6061c-1b87-4322-9abe-ad5bd1c74a70@kernel.org>
+Date: Mon, 1 Jun 2026 10:20:13 +0200
 MIME-Version: 1.0
-References: <20260529150150.1670604-17-ardb+git@google.com> <20260529150150.1670604-29-ardb+git@google.com>
-In-Reply-To: <20260529150150.1670604-29-ardb+git@google.com>
-From: Geert Uytterhoeven <geert@linux-m68k.org>
-Date: Mon, 1 Jun 2026 10:11:45 +0200
-X-Gmail-Original-Message-ID: <CAMuHMdXp0qp38vHJTDFMrY-AUDXPSJtc5Dds_qu58FSeS_242w@mail.gmail.com>
-X-Gm-Features: AVHnY4I0grL2HGASleAgF6ybT4VX0NqDy8gokQJ4KkNhvH_ouOMg7ryFWIbyvcA
-Message-ID: <CAMuHMdXp0qp38vHJTDFMrY-AUDXPSJtc5Dds_qu58FSeS_242w@mail.gmail.com>
-Subject: Re: [PATCH v7 12/15] sh: Drop cache flush of the zero page at boot
-To: Ard Biesheuvel <ardb+git@google.com>
-Cc: linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org, 
-	will@kernel.org, catalin.marinas@arm.com, mark.rutland@arm.com, 
-	Ard Biesheuvel <ardb@kernel.org>, Ryan Roberts <ryan.roberts@arm.com>, 
-	Anshuman Khandual <anshuman.khandual@arm.com>, Kevin Brodsky <kevin.brodsky@arm.com>, 
-	Liz Prucka <lizprucka@google.com>, Seth Jenkins <sethjenkins@google.com>, 
-	Kees Cook <kees@kernel.org>, Mike Rapoport <rppt@kernel.org>, David Hildenbrand <david@kernel.org>, 
-	Andrew Morton <akpm@linux-foundation.org>, Jann Horn <jannh@google.com>, linux-mm@kvack.org, 
-	linux-hardening@vger.kernel.org, linuxppc-dev@lists.ozlabs.org, 
-	linux-sh@vger.kernel.org, Yoshinori Sato <ysato@users.sourceforge.jp>, 
-	Rich Felker <dalias@libc.org>, John Paul Adrian Glaubitz <glaubitz@physik.fu-berlin.de>, 
-	Geert Uytterhoeven <geert+renesas@glider.be>
-Content-Type: text/plain; charset="UTF-8"
-X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260601_011829_274915_AB704E3A 
-X-CRM114-Status: GOOD (  19.95  )
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH v2 2/6] leds: is31fl319x: Fix shutdown GPIO initial state
+ and remove redundant startup pulse
+To: Jun Yan <jerrysteve1101@gmail.com>, linusw@kernel.org,
+ dmitry.baryshkov@oss.qualcomm.com, Lee Jones <lee@kernel.org>,
+ Pavel Machek <pavel@kernel.org>, Rob Herring <robh@kernel.org>,
+ Krzysztof Kozlowski <krzk+dt@kernel.org>, Conor Dooley
+ <conor+dt@kernel.org>, Bjorn Andersson <andersson@kernel.org>,
+ Konrad Dybcio <konradybcio@kernel.org>, Andrew Lunn <andrew@lunn.ch>,
+ Gregory Clement <gregory.clement@bootlin.com>,
+ Sebastian Hesselbarth <sebastian.hesselbarth@gmail.com>,
+ Bartosz Golaszewski <brgl@kernel.org>,
+ Vincent Knecht <vincent.knecht@mailoo.org>, Grant Feng <von81@163.com>,
+ Andre Przywara <andre.przywara@arm.com>,
+ Geert Uytterhoeven <geert+renesas@glider.be>,
+ Viresh Kumar <viresh.kumar@linaro.org>,
+ Florian Fainelli <f.fainelli@gmail.com>,
+ Robert Marko <robert.marko@sartura.hr>
+Cc: Pavel Machek <pavel@ucw.cz>, Shawn Guo <shawnguo@kernel.org>,
+ Michal Simek <michal.simek@amd.com>, Heiko Stuebner <heiko@sntech.de>,
+ linux-leds@vger.kernel.org, devicetree@vger.kernel.org,
+ linux-kernel@vger.kernel.org, linux-arm-msm@vger.kernel.org,
+ linux-arm-kernel@lists.infradead.org, linux-gpio@vger.kernel.org
+References: <20260525144629.498630-1-jerrysteve1101@gmail.com>
+ <20260525144629.498630-3-jerrysteve1101@gmail.com>
+From: Krzysztof Kozlowski <krzk@kernel.org>
+Content-Language: en-US
+Autocrypt: addr=krzk@kernel.org; keydata=
+ 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 a/A=
+In-Reply-To: <20260525144629.498630-3-jerrysteve1101@gmail.com>
+Content-Type: text/plain; charset=UTF-8
+Content-Transfer-Encoding: 7bit
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -101,38 +132,48 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Fri, 29 May 2026 at 17:02, Ard Biesheuvel <ardb+git@google.com> wrote:
-> From: Ard Biesheuvel <ardb@kernel.org>
->
-> SuperH performs cache maintenance on the zero page during boot,
-> presumably because before commit
->
->   6215d9f4470f ("arch, mm: consolidate empty_zero_page")
->
-> the zero page did double duty as a boot params region, and was cleared
-> separately, as it was not part of BSS. The memset() in question was
-> dropped by that commit, but the __flush_wback_region() call remained.
->
-> As empty_zero_page[] has been moved to BSS, it can be treated as any
-> other BSS memory, and so the cache flush can be dropped.
->
-> Cc: Yoshinori Sato <ysato@users.sourceforge.jp>
-> Cc: Rich Felker <dalias@libc.org>
-> Cc: John Paul Adrian Glaubitz <glaubitz@physik.fu-berlin.de>
-> Cc: Mike Rapoport <rppt@kernel.org>
-> Cc: Geert Uytterhoeven <geert+renesas@glider.be>
-> Signed-off-by: Ard Biesheuvel <ardb@kernel.org>
+On 25/05/2026 16:46, Jun Yan wrote:
+> 1. Per IS31FL319x datasheet [1], the hardware shutdown pin (SDB) is
+> active-low.
+> 
+> Fix incorrect initial GPIO level to properly release the chip from shutdown
+> state.
+> 
+> 2. According to datasheet [1] definition:
+>   Shutdown mode can either be used as a means of
+>   reducing power consumption or generating a flashing
+>   display (repeatedly entering and leaving shutdown
+>   mode). During shutdown mode all registers retain their
+>   data.
+> shutdown mode does NOT perform chip reset.A dedicated software reset is
+> already implemented in driver by writing 0 to reset chip.
+> 
+> Remove redundant unnecessary toggling of the shutdown GPIO.
+> 
+> [1] https://lumissil.com/assets/pdf/core/IS31FL3193_DS.pdf
+> 
+> Fixes: dddb4e38c6ba ("leds: is31fl319x: Add shutdown pin and generate a 5ms low pulse when startup")
+> Signed-off-by: Jun Yan <jerrysteve1101@gmail.com>
+> ---
+>  drivers/leds/leds-is31fl319x.c | 11 ++++-------
+>  1 file changed, 4 insertions(+), 7 deletions(-)
+> 
+> diff --git a/drivers/leds/leds-is31fl319x.c b/drivers/leds/leds-is31fl319x.c
+> index e411cee06dab..41087ed262cb 100644
+> --- a/drivers/leds/leds-is31fl319x.c
+> +++ b/drivers/leds/leds-is31fl319x.c
+> @@ -396,7 +396,10 @@ static int is31fl319x_parse_fw(struct device *dev, struct is31fl319x_chip *is31)
+>  	int count;
+>  	int ret;
+>  
+> -	is31->shutdown_gpio = devm_gpiod_get_optional(dev, "shutdown", GPIOD_OUT_HIGH);
+> +	/* Driving this GPIO line low (in fact high) takes the chip out of shutdown,
+> +	 * as it is flagged as GPIO_ACTIVE_LOW in provider (such as the device tree).
+> +	 */
+> +	is31->shutdown_gpio = devm_gpiod_get_optional(dev, "shutdown", GPIOD_OUT_LOW);
 
-Reviewed-by: Geert Uytterhoeven <geert+renesas@glider.be>
+That's ABI break.
 
-Gr{oetje,eeting}s,
-
-                        Geert
-
--- 
-Geert Uytterhoeven -- There's lots of Linux beyond ia32 -- geert@linux-m68k.org
-
-In personal conversations with technical people, I call myself a hacker. But
-when I'm talking to journalists I just say "programmer" or something like that.
-                                -- Linus Torvalds
+Best regards,
+Krzysztof
 
