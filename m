@@ -4,72 +4,72 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id CAB59CD6E4C
-	for <linux-arm-kernel@archiver.kernel.org>; Mon,  1 Jun 2026 08:20:33 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 3CC29CD6E4C
+	for <linux-arm-kernel@archiver.kernel.org>; Mon,  1 Jun 2026 08:21:46 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
 	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
 	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=Gx69hvLqO7Iq+reOjxvgeItjgoqp4W1U2TCI06K/nr0=; b=BZCXbF15mBxPJAr8plkBd0e6JD
-	4EXn1M/6O2J23O58SF4syb/e9W+XGJiegM/rHt9dll3+EMhS00FHaNiBzR8u2bEmk3VvLVXpBSobD
-	jZI8Wuwg3Fmn3d4qCaQNGh2RsHSKmz9Ay61hJ2GBuHsEVvY/+M6FtFF3ZNfCx6WCacbzp9VGJprPm
-	J19Pw7RCN6wb1z6SQ18b2+0jttcu2jQi0Gei5rVOrcCoroEBpkLzkMb/RPiLoywxfSAMvV/a7ZscP
-	RnRX8CcHZa5XrjnRfGMET+FRhKKXxYppYQmewjy/hFAMAUtBLGHheUBhqTpeNk5b7x8Cd/yBE085l
-	x8HHJmyg==;
+	bh=gEwf6DK4DDpX8f464rLcR/JXh/kcLHGVx4z5emjwqdA=; b=V9AUYbfZLABrFOY35KBkce9HZ6
+	6Bdv6jucVP6IKOodOFvIP881admvpI1KwKAI0oq7IkOBQscc18ZP1R9eUvuu7aaNcLna0AmeFU4Rj
+	t9+LwtBpQQNonswmOLx325uYug+bB18iWo5xGY6IwUzV7FRH5KsqzqcR8m+l8ePuH+DVIX40ARQ9v
+	lXKGxQsMma5YdDyIn9wM+cdT681ZHeJ66Y+EN7LN3vT+0oShJefXUCKE6xRTrFaDiIJkMarMb+wfB
+	sWIxIt0DM7V39tSU+tcCTjmSKlu/HlPoqv2qXpq5GNaxUvMK95Djl6ABVUmUH6xyZlgLevkdyo/0v
+	an78eEDg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wTxso-0000000ALT7-2KvT;
-	Mon, 01 Jun 2026 08:20:26 +0000
-Received: from tor.source.kernel.org ([172.105.4.254])
+	id 1wTxty-0000000ALd1-34hg;
+	Mon, 01 Jun 2026 08:21:38 +0000
+Received: from tor.source.kernel.org ([2600:3c04:e001:324:0:1991:8:25])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wTxsn-0000000ALSq-2VGg
+	id 1wTxtx-0000000ALcs-2Zx4
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 01 Jun 2026 08:20:25 +0000
+	Mon, 01 Jun 2026 08:21:37 +0000
 Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
-	by tor.source.kernel.org (Postfix) with ESMTP id C3ACC601D9;
-	Mon,  1 Jun 2026 08:20:24 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id D33CB1F00893;
-	Mon,  1 Jun 2026 08:20:15 +0000 (UTC)
+	by tor.source.kernel.org (Postfix) with ESMTP id 850FD601DB;
+	Mon,  1 Jun 2026 08:21:36 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 047181F00893;
+	Mon,  1 Jun 2026 08:21:25 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1780302024;
-	bh=Gx69hvLqO7Iq+reOjxvgeItjgoqp4W1U2TCI06K/nr0=;
+	s=k20260515; t=1780302096;
+	bh=gEwf6DK4DDpX8f464rLcR/JXh/kcLHGVx4z5emjwqdA=;
 	h=Date:Subject:To:Cc:References:From:In-Reply-To;
-	b=lR6pwctGRKEPmciGTRkvsIh2kTaQLjsZIZuuM85DAdJxHg84XDMhysIKnHs/pnIUB
-	 pIoQ2VsbnfF/ia47yGAT9WHSxy6r8ITUGE+VXzYdWo6uAf8DCPrIThkIo77fveDX9f
-	 61GTuykUutfzCsLMzZR6vTOVgHwTgHtHTjIA0agjVVVSLs+3uTS0Ix3TtjwS9uS/IJ
-	 scANRSunH07mrnBOiw2bgNVmzAz+WKL1FwcDHncsVcSY0mHQ592paAk7cBoe9t72Gy
-	 fPDqNttvrsqYoS46BDdnkv0/3xCeMFPf9z6qsSQmRlFBASeUHL9nJxGTE/zWpSZ7+H
-	 cP1pKAgER5GOw==
-Message-ID: <6aa6061c-1b87-4322-9abe-ad5bd1c74a70@kernel.org>
-Date: Mon, 1 Jun 2026 10:20:13 +0200
+	b=KtedyBDM6J/O/Gy3NTFLGJ+TG24SqaG5sHk+lNAzjCPWB9L1qvbfN80sJW1ZvQmka
+	 SD1dzCu0ZyZr59ulFyq9BvoWciGmOaKhGemLOHIpK001SRR/K1D7LBwkoYf00NoO/F
+	 9aWMBSExCpN8caWTQWrXo06tokGQfPLkdCjmoSl4xKpUvWENct1INz+evxK0blu5hJ
+	 trsCusRZ0fwgMetKzLg1ytE80f4ZiifLMALf/AyAowHGn9NDwC0S7S+98rNEOiMNl5
+	 K2aOv7ecTy7pmCTArcg/3ilhkeZ1A5cG12oiETre2uerhzxxroRCCBFEVxnDao0Y1F
+	 5rWA3+5b+KUxg==
+Message-ID: <fb9f6959-f9d8-4e3c-a952-5338a375fe4b@kernel.org>
+Date: Mon, 1 Jun 2026 10:21:23 +0200
 MIME-Version: 1.0
 User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH v2 2/6] leds: is31fl319x: Fix shutdown GPIO initial state
- and remove redundant startup pulse
-To: Jun Yan <jerrysteve1101@gmail.com>, linusw@kernel.org,
+Subject: Re: [PATCH v2 6/6] arm64: dts: marvell: armada-7040-mochabin: Fix
+ is31fl3199 shutdown GPIO polarity
+To: Gregory CLEMENT <gregory.clement@bootlin.com>,
+ Jun Yan <jerrysteve1101@gmail.com>, linusw@kernel.org,
  dmitry.baryshkov@oss.qualcomm.com, Lee Jones <lee@kernel.org>,
  Pavel Machek <pavel@kernel.org>, Rob Herring <robh@kernel.org>,
  Krzysztof Kozlowski <krzk+dt@kernel.org>, Conor Dooley
  <conor+dt@kernel.org>, Bjorn Andersson <andersson@kernel.org>,
  Konrad Dybcio <konradybcio@kernel.org>, Andrew Lunn <andrew@lunn.ch>,
- Gregory Clement <gregory.clement@bootlin.com>,
  Sebastian Hesselbarth <sebastian.hesselbarth@gmail.com>,
  Bartosz Golaszewski <brgl@kernel.org>,
  Vincent Knecht <vincent.knecht@mailoo.org>, Grant Feng <von81@163.com>,
- Andre Przywara <andre.przywara@arm.com>,
- Geert Uytterhoeven <geert+renesas@glider.be>,
- Viresh Kumar <viresh.kumar@linaro.org>,
- Florian Fainelli <f.fainelli@gmail.com>,
+ Andre Przywara <andre.przywara@arm.com>, Baruch Siach <baruch@tkos.co.il>,
+ Shawn Guo <shawnguo@kernel.org>, Paul Barker <paul.barker@sancloud.com>,
  Robert Marko <robert.marko@sartura.hr>
-Cc: Pavel Machek <pavel@ucw.cz>, Shawn Guo <shawnguo@kernel.org>,
- Michal Simek <michal.simek@amd.com>, Heiko Stuebner <heiko@sntech.de>,
- linux-leds@vger.kernel.org, devicetree@vger.kernel.org,
- linux-kernel@vger.kernel.org, linux-arm-msm@vger.kernel.org,
- linux-arm-kernel@lists.infradead.org, linux-gpio@vger.kernel.org
+Cc: Pavel Machek <pavel@ucw.cz>, Wei Xu <xuwei5@hisilicon.com>,
+ Geert Uytterhoeven <geert+renesas@glider.be>,
+ Patrice Chotard <patrice.chotard@foss.st.com>, linux-leds@vger.kernel.org,
+ devicetree@vger.kernel.org, linux-kernel@vger.kernel.org,
+ linux-arm-msm@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
+ linux-gpio@vger.kernel.org
 References: <20260525144629.498630-1-jerrysteve1101@gmail.com>
- <20260525144629.498630-3-jerrysteve1101@gmail.com>
+ <20260525144629.498630-7-jerrysteve1101@gmail.com>
+ <8733z621cs.fsf@BLaptop.bootlin.com>
 From: Krzysztof Kozlowski <krzk@kernel.org>
 Content-Language: en-US
 Autocrypt: addr=krzk@kernel.org; keydata=
@@ -115,7 +115,7 @@ Autocrypt: addr=krzk@kernel.org; keydata=
  jWt87ecuHlpL3uuQ0ZZNWqHgZoQLXoqC2ZV5KrtKWb/jyiFX/sxSrodALf0zf+tfHv0FZWT2
  zHjUqd0t4njD/UOsuIMOQn4Ig0SdivYPfZukb5cdasKJukG1NOpbW7yRNivaCnfZz6dTawXw
  XRIV/KDsHQiyVxKvN73bThKhONkcX2LWuD928tAR6XMM2G5ovxLe09vuOzzfTWQDsm++9UKF a/A=
-In-Reply-To: <20260525144629.498630-3-jerrysteve1101@gmail.com>
+In-Reply-To: <8733z621cs.fsf@BLaptop.bootlin.com>
 Content-Type: text/plain; charset=UTF-8
 Content-Transfer-Encoding: 7bit
 X-BeenThere: linux-arm-kernel@lists.infradead.org
@@ -132,47 +132,26 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On 25/05/2026 16:46, Jun Yan wrote:
-> 1. Per IS31FL319x datasheet [1], the hardware shutdown pin (SDB) is
-> active-low.
+On 01/06/2026 08:58, Gregory CLEMENT wrote:
+> Hello,
 > 
-> Fix incorrect initial GPIO level to properly release the chip from shutdown
-> state.
+>> The is31fl3199 shutdown pin is active-low [1]. Correct the GPIO flags
+>> from GPIO_ACTIVE_HIGH to GPIO_ACTIVE_LOW to match the hardware.
+>>
+>> [1] https://lumissil.com/assets/pdf/core/IS31FL3199_DS.pdf
+>>
+>> Fixes: 737929191283 ("arm64: dts: marvell: add Globalscale MOCHAbin")
+>> Signed-off-by: Jun Yan <jerrysteve1101@gmail.com>
 > 
-> 2. According to datasheet [1] definition:
->   Shutdown mode can either be used as a means of
->   reducing power consumption or generating a flashing
->   display (repeatedly entering and leaving shutdown
->   mode). During shutdown mode all registers retain their
->   data.
-> shutdown mode does NOT perform chip reset.A dedicated software reset is
-> already implemented in driver by writing 0 to reset chip.
+> What happens if this patch is merged before the driver LED patch? Will
+> it break something?
 > 
-> Remove redundant unnecessary toggling of the shutdown GPIO.
-> 
-> [1] https://lumissil.com/assets/pdf/core/IS31FL3193_DS.pdf
-> 
-> Fixes: dddb4e38c6ba ("leds: is31fl319x: Add shutdown pin and generate a 5ms low pulse when startup")
-> Signed-off-by: Jun Yan <jerrysteve1101@gmail.com>
-> ---
->  drivers/leds/leds-is31fl319x.c | 11 ++++-------
->  1 file changed, 4 insertions(+), 7 deletions(-)
-> 
-> diff --git a/drivers/leds/leds-is31fl319x.c b/drivers/leds/leds-is31fl319x.c
-> index e411cee06dab..41087ed262cb 100644
-> --- a/drivers/leds/leds-is31fl319x.c
-> +++ b/drivers/leds/leds-is31fl319x.c
-> @@ -396,7 +396,10 @@ static int is31fl319x_parse_fw(struct device *dev, struct is31fl319x_chip *is31)
->  	int count;
->  	int ret;
->  
-> -	is31->shutdown_gpio = devm_gpiod_get_optional(dev, "shutdown", GPIOD_OUT_HIGH);
-> +	/* Driving this GPIO line low (in fact high) takes the chip out of shutdown,
-> +	 * as it is flagged as GPIO_ACTIVE_LOW in provider (such as the device tree).
-> +	 */
-> +	is31->shutdown_gpio = devm_gpiod_get_optional(dev, "shutdown", GPIOD_OUT_LOW);
 
-That's ABI break.
+What if this patch is merged by a different maintainer, not LED? What if
+this  patch is merged by the same LED maintainer (not allowed, but let's
+discuss) but is not squashed into LED driver?
+
+IOW, entire set like breaking users.
 
 Best regards,
 Krzysztof
