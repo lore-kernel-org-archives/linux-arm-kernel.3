@@ -4,62 +4,75 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 1511BCD6E55
-	for <linux-arm-kernel@archiver.kernel.org>; Mon,  1 Jun 2026 17:48:59 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 6649FCD5BD1
+	for <linux-arm-kernel@archiver.kernel.org>; Mon,  1 Jun 2026 17:53:31 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
-	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Content-Type:Cc:To:Subject:Message-ID:Date:From:In-Reply-To:References:
+	MIME-Version:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=YKRFzYvXWuNL9Vqrh3NvKjoD05ULnG52YciFxh7iz+Y=; b=PrLMKWFLdXSOE4VkzHbWIeOIAe
-	WNadW5PpJHt+H6KFz7eQImAeGkEG9z2fzorgBLb69YL7b5yCZgpSzHv13T2I3bx8etLD4iNrKLXbU
-	I2BtyxjK63sNr90BNFru3BHUOgrw2nnoSWPq7mjuPsQf48Yvwj/ElJFtdVSHar9y+NZgBv5VZ+NXd
-	Xx28xXmjGUtjiIBowRHNKXz+5ECZnwtIRqJk0KwuTGeY7DVKIJ9dGWxiX2UNKAZJ6zTRMyMSBf08V
-	6D4TVFQnGSiEPwdbqp4ZUYdlFSL1a9suTu5RdLcywnkVb4+zC13DYgKdOaJbTH20+YJpQvFzmtiLB
-	lmfMiEKw==;
+	bh=WZ/IhhKarGkjsev1ebvJY6DbVpgdipumlxcq7yohLJc=; b=zFSvGHOcdm1sE8bpUrYR+XDPWy
+	nuKJg234cEkgoFgOzLyFFINTKZM4GHC5+0cKcO60HLc8iZI056yv3hvACejAtZN+oPsFQXOKn0l9D
+	3DjWUDcZCDvrDLAciB1jZhHoioWWLTyQH7mlyk7XfUM5S1Lqe0NPWP/awsVTVOyUYS1S/gCVqFmuU
+	7EffrmyvdV4uO86Z0NZdQX0nClLzoOPGOSkJqPVHBvSqpUhXikxQH3JykXvL5qVtupGnat4EPKjfy
+	yArYRuy73wpe8ecTQlLV8pnFHsxlLRSaew3QF2foN1CVaoTYXcdEDHR5XSi7scLgIsAXoVqmB0vS5
+	JuEECXPA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wU6ku-0000000Bbzm-26Ce;
-	Mon, 01 Jun 2026 17:48:52 +0000
-Received: from foss.arm.com ([217.140.110.172])
-	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wU6kp-0000000Bbyu-3sY6
+	id 1wU6pJ-0000000BcOS-0Rvu;
+	Mon, 01 Jun 2026 17:53:25 +0000
+Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
+	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
+	id 1wU6pF-0000000BcNa-38Th
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 01 Jun 2026 17:48:49 +0000
-Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
-	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id E7032175D;
-	Mon,  1 Jun 2026 10:48:38 -0700 (PDT)
-Received: from [10.57.36.65] (unknown [10.57.36.65])
-	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id 5FC213F7D8;
-	Mon,  1 Jun 2026 10:48:42 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=simple/simple; d=arm.com; s=foss;
-	t=1780336123; bh=OpzHICScFogskndyr2+DyN1dxiPGmzVPdDXVPfFt2kE=;
-	h=Date:Subject:To:Cc:References:From:In-Reply-To:From;
-	b=mpZWNuiqI2HXeRxY/CAO7WyiRRhaHAFJJivZEEl2i1t7Z44zAfp2IRFVsfNX0+5Jv
-	 A33U8QuTySQuK3bbL8vp+tCFLhLbsKPGAiz/327mpls++d+PpMMXRajFcFvmF1txEv
-	 qewt3Jwdyv01/x2IPtkPZOGBIkJntPja3uFtC32Y=
-Message-ID: <2eccafbc-f215-4021-8491-31e5835de49e@arm.com>
-Date: Mon, 1 Jun 2026 18:48:41 +0100
+	Mon, 01 Jun 2026 17:53:23 +0000
+Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
+	by sea.source.kernel.org (Postfix) with ESMTP id CBDB843B50
+	for <linux-arm-kernel@lists.infradead.org>; Mon,  1 Jun 2026 17:53:20 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id B05AF1F0089A
+	for <linux-arm-kernel@lists.infradead.org>; Mon,  1 Jun 2026 17:53:20 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
+	s=k20260515; t=1780336400;
+	bh=WZ/IhhKarGkjsev1ebvJY6DbVpgdipumlxcq7yohLJc=;
+	h=References:In-Reply-To:From:Date:Subject:To:Cc;
+	b=nr+gO/iRezHfQIb24kdU3vqS4vOhiseSZ6xa7VjdriTDL9IbS2aIb/ojqPcIAIVZJ
+	 qWxMunqkAm0wsMP6jrIO/7UlDOaNeH7hF27BB4N0afm/wO9bfvems0F28Ck8HW4I+I
+	 1VZF0t3infumq2ZX4u/zQHt/PMjvFZ4IZqx4HURNlzc9NZpclnCutWKA5Cokv/j6kG
+	 ELynKCEyyuody05IlXgmfcbAQ6oOGK+gk/WUOluQn2EVVq+2EAE+oJyrNgd7hIwZCm
+	 jMB+R6lwKZxxHw05OWX4JAKdOMWqYxmirNq7GgfqF9+TPyFy45+DAFZj52CCaauQaz
+	 rQpGjHtF9aadw==
+Received: by mail-lf1-f47.google.com with SMTP id 2adb3069b0e04-5aa66893e9fso1828478e87.1
+        for <linux-arm-kernel@lists.infradead.org>; Mon, 01 Jun 2026 10:53:20 -0700 (PDT)
+X-Forwarded-Encrypted: i=1; AFNElJ8dptfe+NzKtNdiIFoM0lqtXkkPBvwXT3O03USWSASx1lkLVibsbjEVg3c2WIC+rDIEb1Q3LCBIWUNaQWqspUjN@lists.infradead.org
+X-Gm-Message-State: AOJu0YzQzBCPyqc9kMxxxMkO2SIHxTDAfeB0OqjQcLeblhBrS9hVtOFX
+	iK9UFOoPT+7FiJhLKvVzhj6aYOAf98tXuFv0jGrMSkJVgjF6LAmj+YhYDy4hSmHwsuOrjXNnUnm
+	SR3CGt/BTdYGzCF+2+hmW9CWEE+VqrD8=
+X-Received: by 2002:a05:6512:3094:b0:5aa:6f47:32a0 with SMTP id
+ 2adb3069b0e04-5aa6f47362cmr1141285e87.11.1780336399508; Mon, 01 Jun 2026
+ 10:53:19 -0700 (PDT)
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH v4 2/2] perf/arm-cmn: Add workarounds for CMN-S3 on
- Graviton5
-To: Aviv Bakal <avivb@amazon.com>, will@kernel.org, mark.rutland@arm.com
-Cc: linux-arm-kernel@lists.infradead.org, linux-perf-users@vger.kernel.org,
- linux-kernel@vger.kernel.org, zeev@amazon.com, blakgeof@amazon.com,
- ilkka@os.amperecomputing.com
-References: <20260524153848.16334-1-avivb@amazon.com>
- <20260531110447.10095-1-avivb@amazon.com>
- <20260531110447.10095-3-avivb@amazon.com>
-From: Robin Murphy <robin.murphy@arm.com>
-Content-Language: en-GB
-In-Reply-To: <20260531110447.10095-3-avivb@amazon.com>
-Content-Type: text/plain; charset=UTF-8; format=flowed
-Content-Transfer-Encoding: 7bit
+References: <20260601152707.29039-1-l.scorcia@gmail.com>
+In-Reply-To: <20260601152707.29039-1-l.scorcia@gmail.com>
+From: Linus Walleij <linusw@kernel.org>
+Date: Mon, 1 Jun 2026 19:53:06 +0200
+X-Gmail-Original-Message-ID: <CAD++jL=oF_43jwV830p42yOke_tZb-MKomp9fVoQ5EtnQHGzNA@mail.gmail.com>
+X-Gm-Features: AVHnY4I49xiJB05RGboGIRNa8JpcA6v3sUBoiJTKtDzGmvM3jaAvFsRby97G7MQ
+Message-ID: <CAD++jL=oF_43jwV830p42yOke_tZb-MKomp9fVoQ5EtnQHGzNA@mail.gmail.com>
+Subject: Re: [PATCH] dt-bindings: pinctrl: mediatek: mt6795: document the
+ slew-rate property
+To: Luca Leonardo Scorcia <l.scorcia@gmail.com>
+Cc: linux-mediatek@lists.infradead.org, Rob Herring <robh@kernel.org>, 
+	Krzysztof Kozlowski <krzk+dt@kernel.org>, Conor Dooley <conor+dt@kernel.org>, 
+	Matthias Brugger <matthias.bgg@gmail.com>, 
+	AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>, Sean Wang <sean.wang@kernel.org>, 
+	linux-gpio@vger.kernel.org, devicetree@vger.kernel.org, 
+	linux-kernel@vger.kernel.org, linux-arm-kernel@lists.infradead.org
+Content-Type: text/plain; charset="UTF-8"
+Content-Transfer-Encoding: quoted-printable
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260601_104848_130414_28C036EC 
-X-CRM114-Status: GOOD (  24.84  )
+X-CRM114-CacheID: sfid-20260601_105321_797019_E9621E78 
+X-CRM114-Status: GOOD (  14.42  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -74,114 +87,41 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On 2026-05-31 12:04 pm, Aviv Bakal wrote:
-> Graviton5 uses a customised CMN-S3 implementation where certain
-> discovery registers report zeroed fields. Add the following workarounds:
-> 
->   - Introduce a dedicated ACPI HID to identify the Graviton5 CMN variant.
->   - Derive the DTC domain from the XP node ID, since the unit info
->     register reports it as zero.
->   - Set the DTC logical ID from the XP's logical ID, since the node info
->     register's logical ID field is also zeroed.
+Hi Luca,
 
-Reviewed-by: Robin Murphy <robin.murphy@arm.com>
+thanks for your patch!
 
-> Signed-off-by: Aviv Bakal <avivb@amazon.com>
-> ---
->   drivers/perf/arm-cmn.c | 32 +++++++++++++++++++++++++++++++-
->   1 file changed, 31 insertions(+), 1 deletion(-)
-> 
-> diff --git a/drivers/perf/arm-cmn.c b/drivers/perf/arm-cmn.c
-> index f1978a53d1c1..3fb71d9a57eb 100644
-> --- a/drivers/perf/arm-cmn.c
-> +++ b/drivers/perf/arm-cmn.c
-> @@ -31,7 +31,8 @@
->   #define CMN_CHILD_NODE_ADDR		GENMASK(29, 0)
->   #define CMN_CHILD_NODE_EXTERNAL		BIT(31)
->   
-> -#define CMN_MAX_DIMENSION		12
-> +/* Some implementations use a mesh larger than the architectural max of 12 */
-> +#define CMN_MAX_DIMENSION		14
->   #define CMN_MAX_XPS			(CMN_MAX_DIMENSION * CMN_MAX_DIMENSION)
->   #define CMN_MAX_DTMS			(CMN_MAX_XPS + (CMN_MAX_DIMENSION - 1) * 4)
->   
-> @@ -214,6 +215,8 @@ enum cmn_part {
->   	PART_CMN700 = 0x43c,
->   	PART_CI700 = 0x43a,
->   	PART_CMN_S3 = 0x43e,
-> +	/* Synthetic part number, overridden to PART_CMN_S3 during discovery */
-> +	PART_GRAVITON5 = 0xa5,
->   };
->   
->   /* CMN-600 r0px shouldn't exist in silicon, thankfully */
-> @@ -2250,6 +2253,18 @@ static unsigned int arm_cmn_dtc_domain(struct arm_cmn *cmn, void __iomem *xp_reg
->   	return FIELD_GET(CMN_DTM_UNIT_INFO_DTC_DOMAIN, readl_relaxed(xp_region + offset));
->   }
->   
-> +static unsigned int arm_cmn_graviton5_dtc_domain(u16 xp_id)
-> +{
-> +	unsigned int x = (xp_id >> 7) & 0xf;
-> +	unsigned int y = (xp_id >> 3) & 0xf;
-> +
-> +	/*
-> +	 * The unit info register reads as zero; derive the DTC domain from
-> +	 * the XP's mesh coordinates over the 10x14 mesh.
-> +	 */
-> +	return (x / 5) + (y / 7) * 2;
-> +}
-> +
->   static void arm_cmn_init_node_info(struct arm_cmn *cmn, u32 offset, struct arm_cmn_node *node)
->   {
->   	int level;
-> @@ -2295,6 +2310,7 @@ static int arm_cmn_discover(struct arm_cmn *cmn, unsigned int rgn_offset)
->   	u64 reg;
->   	int i, j;
->   	size_t sz;
-> +	bool graviton5_workaround = false;
->   
->   	arm_cmn_init_node_info(cmn, rgn_offset, &cfg);
->   	if (cfg.type != CMN_TYPE_CFG)
-> @@ -2305,6 +2321,13 @@ static int arm_cmn_discover(struct arm_cmn *cmn, unsigned int rgn_offset)
->   	reg = readq_relaxed(cfg_region + CMN_CFGM_PERIPH_ID_01);
->   	part = FIELD_GET(CMN_CFGM_PID0_PART_0, reg);
->   	part |= FIELD_GET(CMN_CFGM_PID1_PART_1, reg) << 8;
-> +
-> +	/* Graviton5 has a customised CMN-S3 which needs some fixups */
-> +	if (cmn->part == PART_GRAVITON5) {
-> +		cmn->part = PART_CMN_S3;
-> +		graviton5_workaround = true;
-> +	}
-> +
->   	/* 600AE is close enough that it's not really worth more complexity */
->   	if (part == PART_CMN600AE)
->   		part = PART_CMN600;
-> @@ -2394,6 +2417,8 @@ static int arm_cmn_discover(struct arm_cmn *cmn, unsigned int rgn_offset)
->   
->   		if (cmn->part == PART_CMN600)
->   			xp->dtc = -1;
-> +		else if (graviton5_workaround)
-> +			xp->dtc = arm_cmn_graviton5_dtc_domain(xp->id);
->   		else
->   			xp->dtc = arm_cmn_dtc_domain(cmn, xp_region);
->   
-> @@ -2472,6 +2497,10 @@ static int arm_cmn_discover(struct arm_cmn *cmn, unsigned int rgn_offset)
->   
->   			switch (dn->type) {
->   			case CMN_TYPE_DTC:
-> +				if (graviton5_workaround) {
-> +					/* Node info logical ID is zeroed; use the XP's */
-> +					dn->logid = xp->logid;
-> +				}
->   				cmn->num_dtcs++;
->   				dn++;
->   				break;
-> @@ -2687,6 +2716,7 @@ static const struct acpi_device_id arm_cmn_acpi_match[] = {
->   	{ "ARMHC650" },
->   	{ "ARMHC700" },
->   	{ "ARMHC003" },
-> +	{ "AMZN0070", PART_GRAVITON5 },
->   	{}
->   };
->   MODULE_DEVICE_TABLE(acpi, arm_cmn_acpi_match);
+On Mon, Jun 1, 2026 at 5:27=E2=80=AFPM Luca Leonardo Scorcia
+<l.scorcia@gmail.com> wrote:
 
+> The driver for MT6795 pinctrl already supports the slew-rate property.
+> Add its description to the documentation.
+>
+> Signed-off-by: Luca Leonardo Scorcia <l.scorcia@gmail.com>
+(...)
+> +          slew-rate:
+> +            description: |
+> +              Set the slew rate. Valid arguments are described as below:
+> +              0: Normal slew rate
+> +              1: Slower slew
+> +            $ref: /schemas/types.yaml#/definitions/uint32
+> +            enum: [0, 1]
+
+Ideally slew-rate is V/s (or V/us, any suitable prefixes).
+
+Of course that would vary for any capacitance on the output line,
+so that value would be for an infinite impedance (open circuit).
+
+Do you know that value for the SoC to you can express it like
+this and translate it in the driver?
+
+Maybe we should even invent something like
+slew-rate-volt-per-microsecond =3D <...>; to push this into
+SI units.
+
+That said, there are many SoC:s doing what you're doing
+above so it's no strict requirement.
+
+Yours,
+Linus Walleij
 
