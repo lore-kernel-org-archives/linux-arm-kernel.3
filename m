@@ -4,60 +4,61 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id E0EE1CD6E56
-	for <linux-arm-kernel@archiver.kernel.org>; Mon,  1 Jun 2026 09:52:58 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id DFABFCD6E56
+	for <linux-arm-kernel@archiver.kernel.org>; Mon,  1 Jun 2026 09:53:51 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
 	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
 	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=s3hOLoL80Rg0mGQt/eifQj/gsfVePmxrgHiSgEhcEUg=; b=FTEFPdsCL+/GLNNr4rCJJW6R+I
-	lkKnAeyGNvcw56AbWF8jY4ZmiwgVRnB0szsuftMUREy3kSqSUAaM1RDGL8cMK+jk0xt7xt2eJi5e3
-	b1AtQx+jXTregmxf7/Vj85DlG7uOSXKzuagzhETH1fSA8/xpgcTGgmpq5zhXjipI6wmQ0wH04gcAE
-	XntjN5OHtlsvyKQhi55sc0Y7T+MVP6uuT4h81aSj0h1+zIYk3tJmNkyy3s4FENtt/HwCeKfQ4fUWP
-	mqj5ZyxrBqGLqKFUrgpSXe8mcOG5DQ13sX1G9C1tVKxioaYiq2LDJNC3Z+GjwZ2Z3lFP/XZtWiLrb
-	7+SqdBjw==;
+	bh=OAPyRUhyO/q3hcApJCmv7/7vhmxKCeD0Ps8qqrpzuVY=; b=ch5HZqBC6eYHYSjwiS64/J3KNX
+	BgB+xmMf1/kDO4z/9npJnB/L7UFMJMipZdfpaDlHVYTo+8U+zTGxEjeK4o07sb3MJir3Ni81qcQZ3
+	eAbBF5na9bNJjfDSmsfmjjvNlQcQx0o7XdYvozT/qrHqRyrtKS60zYeemILdwzML/3HBdpuOuAOon
+	JY+PvFGWLVXqtxKXJPUd335KiliupCMnKx6ciPvD4tpWkLc7Mw/eLPNw7quJS0FJODDhhlT9K+jZ2
+	OyI0znRid144KUswO/EcBmfFva8m8Y2Xu58zX/VIXtFnJqk9HrFOfrlz1W1vWorQcdR6kWmmyrzdg
+	/0e4g4ag==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wTzKG-0000000AZ6S-1p6U;
-	Mon, 01 Jun 2026 09:52:52 +0000
+	id 1wTzL7-0000000AZCJ-2SlV;
+	Mon, 01 Jun 2026 09:53:45 +0000
 Received: from foss.arm.com ([217.140.110.172])
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wTzKD-0000000AZ63-1nlo
+	id 1wTzL4-0000000AZBm-3J8e
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 01 Jun 2026 09:52:50 +0000
+	Mon, 01 Jun 2026 09:53:44 +0000
 Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
-	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id D03631682;
-	Mon,  1 Jun 2026 02:52:42 -0700 (PDT)
+	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id 1AFF81E8D;
+	Mon,  1 Jun 2026 02:53:36 -0700 (PDT)
 Received: from [10.1.38.31] (Suzukis-MBP.cambridge.arm.com [10.1.38.31])
-	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id AC22C3F905;
-	Mon,  1 Jun 2026 02:52:46 -0700 (PDT)
+	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id E7E213F905;
+	Mon,  1 Jun 2026 02:53:39 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=simple/simple; d=arm.com; s=foss;
-	t=1780307567; bh=LFDJQmDrINHw4OwHKny0l67PJC4qq1iRplJcbH2pqlw=;
+	t=1780307621; bh=Pe2ZlJy8oKAD/VulpHzRR75gUtJV5sCF9VpBEoEx/k4=;
 	h=Date:Subject:To:Cc:References:From:In-Reply-To:From;
-	b=gbnsSzK1VxRgugA3da6ax6XRunC1jQ0BRaH0MPkaPDmH9hpAljqekOdMutsEkBjjD
-	 SzR2E3Cl5Eaxz0CigYZBlQIJH0WqtpBvQ0M2HiqMYeibDHg24rM+PZH9CGa3t7Sxxv
-	 ytg8zZGJMIara9iGNvlkZnpcNWyjAS5GWfxxsUxE=
-Message-ID: <24427ef2-8d32-4c29-b652-bf1019e04f40@arm.com>
-Date: Mon, 1 Jun 2026 10:52:45 +0100
+	b=kEScZh6UoN7ivaCz/gpnJZG+S6y9uAXQioLOL1RBUVEwiGpvDq1PuYJG3JNnh0VHx
+	 ipdlAv2rtKj/vQJ5Oz48p0C5NDcP+m90ysqeQk1ChdpDq/dnuWCK/H3VpSUZ1KP/3f
+	 T+A2rEfRSe1CIXDcFxp84Rj8MJ1PnRLSKDnUASec=
+Message-ID: <3144c7fb-b41d-4bca-a6a0-eeb9dfddc8b8@arm.com>
+Date: Mon, 1 Jun 2026 10:53:38 +0100
 MIME-Version: 1.0
 User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH v7 02/13] coresight: etm4x: fix underflow for nrseqstate
+Subject: Re: [PATCH v7 03/13] coresight: etm4x: introduce
+ ETM_MAX_SEQ_TRANSITIONS
 Content-Language: en-GB
 To: Yeoreum Yun <yeoreum.yun@arm.com>, coresight@lists.linaro.org,
  linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org
 Cc: mike.leach@arm.com, james.clark@linaro.org,
  alexander.shishkin@linux.intel.com, leo.yan@arm.com, jie.gan@oss.qualcomm.com
 References: <20260519154812.254884-1-yeoreum.yun@arm.com>
- <20260519154812.254884-3-yeoreum.yun@arm.com>
+ <20260519154812.254884-4-yeoreum.yun@arm.com>
 From: Suzuki K Poulose <suzuki.poulose@arm.com>
-In-Reply-To: <20260519154812.254884-3-yeoreum.yun@arm.com>
+In-Reply-To: <20260519154812.254884-4-yeoreum.yun@arm.com>
 Content-Type: text/plain; charset=UTF-8; format=flowed
 Content-Transfer-Encoding: 7bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260601_025249_554187_8973E1E8 
-X-CRM114-Status: GOOD (  17.87  )
+X-CRM114-CacheID: sfid-20260601_025342_923960_A45F2F1E 
+X-CRM114-Status: GOOD (  16.53  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -73,98 +74,73 @@ Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
 On 19/05/2026 16:48, Yeoreum Yun wrote:
-> TCRSEQEVR<n> is implemented only when TCRIDR5.NUMSEQSTATE is 0b100,
-> in which case n ranges from 0 to 2; otherwise, TCRIDR5.NUMSEQSTATE is 0b000.
+> According to IHI006H Embedded Trace Macrocell Architecture
+> Specification [0], n could be 0-2 for TCRSEQEVR<n> when
+> TCRIDR5.NUMSEQSTATE is 0b100.
 > 
-> Therefore, drvdata->nrseqstate should be checked before entering the loop.
-
-s/TCR/TRC/g ^^^ and every other patch in the series. Seem like you have 
-been playing with the MMU code ;-)
-
-
+> Therefore, introduce ETM_MAX_SEQ_TRANSITIONS macro and apply this
+> in TCRSEQEVR<n> relevant fields.
 > 
 > Link: https://developer.arm.com/documentation/ihi0064/latest/ [0]
-> Fixes: 2e1cdfe184b5 ("coresight-etm4x: Adding CoreSight ETM4x driver")
-> Reviewed-by: Leo Yan <leo.yan@arm.com>
+> Suggestedby: Leo Yan <leo.yan@arm.com>
 > Signed-off-by: Yeoreum Yun <yeoreum.yun@arm.com>
 > ---
->   .../hwtracing/coresight/coresight-etm4x-core.c | 18 ++++++++++--------
->   .../coresight/coresight-etm4x-sysfs.c          |  2 ++
->   2 files changed, 12 insertions(+), 8 deletions(-)
+>   drivers/hwtracing/coresight/coresight-etm4x-cfg.c | 2 +-
+>   drivers/hwtracing/coresight/coresight-etm4x.h     | 5 +++--
+>   2 files changed, 4 insertions(+), 3 deletions(-)
 > 
-> diff --git a/drivers/hwtracing/coresight/coresight-etm4x-core.c b/drivers/hwtracing/coresight/coresight-etm4x-core.c
-> index 1e3b0344dc00..94b9385e964a 100644
-> --- a/drivers/hwtracing/coresight/coresight-etm4x-core.c
-> +++ b/drivers/hwtracing/coresight/coresight-etm4x-core.c
-> @@ -542,9 +542,11 @@ static int etm4_enable_hw(struct etmv4_drvdata *drvdata)
->   	etm4x_relaxed_write32(csa, config->vissctlr, TRCVISSCTLR);
->   	if (drvdata->nr_pe_cmp)
->   		etm4x_relaxed_write32(csa, config->vipcssctlr, TRCVIPCSSCTLR);
-> -	for (i = 0; i < drvdata->nrseqstate - 1; i++)
-> -		etm4x_relaxed_write32(csa, config->seq_ctrl[i], TRCSEQEVRn(i));
-> +
->   	if (drvdata->nrseqstate) {
-> +		for (i = 0; i < drvdata->nrseqstate - 1; i++)
-> +			etm4x_relaxed_write32(csa, config->seq_ctrl[i], TRCSEQEVRn(i));
+> diff --git a/drivers/hwtracing/coresight/coresight-etm4x-cfg.c b/drivers/hwtracing/coresight/coresight-etm4x-cfg.c
+> index c302072b293a..e1a59b434505 100644
+> --- a/drivers/hwtracing/coresight/coresight-etm4x-cfg.c
+> +++ b/drivers/hwtracing/coresight/coresight-etm4x-cfg.c
+> @@ -76,7 +76,7 @@ static int etm4_cfg_map_reg_offset(struct etmv4_drvdata *drvdata,
+>   	} else if ((offset & GENMASK(11, 4)) == TRCSEQEVRn(0)) {
+>   		/* sequencer state control registers */
+>   		idx = (offset & GENMASK(3, 0)) / 4;
+> -		if (idx < ETM_MAX_SEQ_STATES) {
+> +		if (idx < ETM_MAX_SEQ_TRANSITIONS) {
+>   			reg_csdev->driver_regval = &drvcfg->seq_ctrl[idx];
+>   			err = 0;
+>   		}
+> diff --git a/drivers/hwtracing/coresight/coresight-etm4x.h b/drivers/hwtracing/coresight/coresight-etm4x.h
+> index 89d81ce4e04e..60e08ab085c5 100644
+> --- a/drivers/hwtracing/coresight/coresight-etm4x.h
+> +++ b/drivers/hwtracing/coresight/coresight-etm4x.h
+> @@ -614,6 +614,7 @@ static inline u32 etm4_res_sel_pair(u8 res_sel_idx)
+>   #define ETM_MAX_NR_PE			8
+>   #define ETMv4_MAX_CNTR			4
+>   #define ETM_MAX_SEQ_STATES		4
+> +#define ETM_MAX_SEQ_TRANSITIONS		(ETM_MAX_SEQ_STATES - 1)
 
-Looking at this again, I think we are contemplating two different values 
-from a single variable (blame the architecture). Instead, we should:
+Similar to the other comment on the patch, please don't tie this to 
+SEQ_STATES. Simpl define.
 
-1. Disconnect number of TRCSEQEVRn from drvdata->nrseqstate, and add 
-nr_seq_ctrls to drvdata and initialise this at probe.
+#define ETM_MAX_SEQ_CTRLS		3
 
-
-for (i = 0; i < drvdata->nr_seq_ctrls; i++)
 
 Suzuki
 
 
-
-
-> +
->   		etm4x_relaxed_write32(csa, config->seq_rst, TRCSEQRSTEVR);
->   		etm4x_relaxed_write32(csa, config->seq_state, TRCSEQSTR);
->   	}
-> @@ -1896,10 +1898,10 @@ static int etm4_cpu_save(struct coresight_device *csdev)
->   	if (drvdata->nr_pe_cmp)
->   		state->trcvipcssctlr = etm4x_read32(csa, TRCVIPCSSCTLR);
+>   #define ETM_MAX_EXT_INP_SEL		4
+>   #define ETM_MAX_EXT_INP			256
+>   #define ETM_MAX_EXT_OUT			4
+> @@ -877,7 +878,7 @@ struct etmv4_config {
+>   	u32				vipcssctlr;
+>   	u8				seq_idx;
+>   	u8				syncfreq;
+> -	u32				seq_ctrl[ETM_MAX_SEQ_STATES];
+> +	u32				seq_ctrl[ETM_MAX_SEQ_TRANSITIONS];
+>   	u32				seq_rst;
+>   	u32				seq_state;
+>   	u8				cntr_idx;
+> @@ -928,7 +929,7 @@ struct etmv4_save_state {
+>   	u32	trcvissctlr;
+>   	u32	trcvipcssctlr;
 >   
-> -	for (i = 0; i < drvdata->nrseqstate - 1; i++)
-> -		state->trcseqevr[i] = etm4x_read32(csa, TRCSEQEVRn(i));
-> -
->   	if (drvdata->nrseqstate) {
-> +		for (i = 0; i < drvdata->nrseqstate - 1; i++)
-> +			state->trcseqevr[i] = etm4x_read32(csa, TRCSEQEVRn(i));
-> +
->   		state->trcseqrstevr = etm4x_read32(csa, TRCSEQRSTEVR);
->   		state->trcseqstr = etm4x_read32(csa, TRCSEQSTR);
->   	}
-> @@ -2009,10 +2011,10 @@ static void etm4_cpu_restore(struct coresight_device *csdev)
->   	if (drvdata->nr_pe_cmp)
->   		etm4x_relaxed_write32(csa, state->trcvipcssctlr, TRCVIPCSSCTLR);
->   
-> -	for (i = 0; i < drvdata->nrseqstate - 1; i++)
-> -		etm4x_relaxed_write32(csa, state->trcseqevr[i], TRCSEQEVRn(i));
-> -
->   	if (drvdata->nrseqstate) {
-> +		for (i = 0; i < drvdata->nrseqstate - 1; i++)
-> +			etm4x_relaxed_write32(csa, state->trcseqevr[i], TRCSEQEVRn(i));
-> +
->   		etm4x_relaxed_write32(csa, state->trcseqrstevr, TRCSEQRSTEVR);
->   		etm4x_relaxed_write32(csa, state->trcseqstr, TRCSEQSTR);
->   	}
-> diff --git a/drivers/hwtracing/coresight/coresight-etm4x-sysfs.c b/drivers/hwtracing/coresight/coresight-etm4x-sysfs.c
-> index e9eeea6240d5..0e1ad175aa1e 100644
-> --- a/drivers/hwtracing/coresight/coresight-etm4x-sysfs.c
-> +++ b/drivers/hwtracing/coresight/coresight-etm4x-sysfs.c
-> @@ -1395,6 +1395,8 @@ static ssize_t seq_idx_store(struct device *dev,
->   	struct etmv4_drvdata *drvdata = dev_get_drvdata(dev->parent);
->   	struct etmv4_config *config = &drvdata->config;
->   
-> +	if (!drvdata->nrseqstate)
-> +		return -ENOTSUPP;
->   	if (kstrtoul(buf, 16, &val))
->   		return -EINVAL;
->   	if (val >= drvdata->nrseqstate - 1)
+> -	u32	trcseqevr[ETM_MAX_SEQ_STATES];
+> +	u32	trcseqevr[ETM_MAX_SEQ_TRANSITIONS];
+>   	u32	trcseqrstevr;
+>   	u32	trcseqstr;
+>   	u32	trcextinselr;
 
 
