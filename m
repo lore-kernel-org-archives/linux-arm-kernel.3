@@ -4,75 +4,77 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id BA01DCD6E55
-	for <linux-arm-kernel@archiver.kernel.org>; Mon,  1 Jun 2026 16:22:48 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id E567ECD6E55
+	for <linux-arm-kernel@archiver.kernel.org>; Mon,  1 Jun 2026 16:29:39 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
 	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
 	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=XGTfXQpJJgOvUWnNJBWL9rDECpWQG2T8jJ/gmcDpZ9g=; b=1tJQzsDm+cL6a3o6S/6KcSvfif
-	B0yKSjUre5JYsRyw0dqGBZZ/4QtoU4XPJ5M78CTzcXwdv9G4SWQllxcx4uHYGrmviuEy2r/CllnOI
-	bzCe2q4HMH92SLaBpi7GXrC8vwfdI4VyL0VojcxY/VI9rgBVFEYeqP1bW1DA+8GzTN3aUKldMN7B6
-	Zi8Z43lbo0g74Jy/RL71KczMN1Hqq218+BmvKq1tq4wZuYmqUassf+qUam13B6uIahqB3KuKun3JL
-	cSV5lL5vMei+jG9PR4KA+RwTQpN1426KCCrbhaOnF8H15G24ru+WxrWQYErnESjdRydcqJ8jxlhDm
-	IXzUsTWw==;
+	bh=f5grpTLjdLEKgMKQnQs2cBqM6Bai6N+nsrE/JCwOT0s=; b=zFSTzDgEQCnOJxpW+BHpX6z3Hu
+	ILxdQDPbgiiTA1bPKyUIg+057DbJRzNyaGJF7YCkIEMHok7V2NnhFw0maSN6DN4/d5c/Xgb8A2FJE
+	ssEuJun5g5jSSeF/BjL6U9gjeQXwuAF5ot17X1NGInqaCivjKc+QhiBA97IuVK4XjAG9/FIb/B+8d
+	i/7ysKrEJSq5Uguqof1WUdptmSKY4++QoPe5wkRhesAkkwelEaOPoIg2+uLWlgnHCrWlvVqIaUJmj
+	deMGtX+q5n0YPX8e+EXNnDUt+fUpEN+6Bc1pjsJVVVE+M1kwQaTNVLZLRcr+n4WdgBrsrFhovLapd
+	Ezixjw2A==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wU5PV-0000000BTop-1y3B;
-	Mon, 01 Jun 2026 16:22:41 +0000
-Received: from fanzine2.igalia.com ([213.97.179.56])
+	id 1wU5W9-0000000BUNW-0b8R;
+	Mon, 01 Jun 2026 16:29:33 +0000
+Received: from bali.collaboradmins.com ([2a01:4f8:201:9162::2])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wU5PS-0000000BTmk-39n8
-	for linux-arm-kernel@lists.infradead.org;
-	Mon, 01 Jun 2026 16:22:40 +0000
-DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed; d=igalia.com;
-	s=20170329; h=Content-Transfer-Encoding:Content-Type:In-Reply-To:From:
-	References:Cc:To:Subject:MIME-Version:Date:Message-ID:Sender:Reply-To:
-	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
-	Resent-To:Resent-Cc:Resent-Message-ID:List-Id:List-Help:List-Unsubscribe:
-	List-Subscribe:List-Post:List-Owner:List-Archive;
-	bh=XGTfXQpJJgOvUWnNJBWL9rDECpWQG2T8jJ/gmcDpZ9g=; b=VtkZTt3vePlJjjQtqvEdRnQTYl
-	8dNcmgt3dQ3hPxoENlfLakdKRdiRvICFEpPetNFVi2/G9fa9kxeeUDgAqN6W9J6q//e/W8m3X7KcM
-	kgj4b1QosMxaiO+JTRwRI4J26UVdLEpNB0cHvOvZTdfjA3jIrqAeXKGbLJdGMUWxzpRPjUXdsKRlF
-	TgSh23LDOOB2lxgg+nM/H1fJzCzYJGTDUrJ/Lnw5bfOX34mFZEmI6gNvsI2fTblm7Zt/d4m7Xk2t1
-	OCCFZKHEvOACf2YFxXPVfGryCw5dvKGhGnq/zDXZoKzREn/415MdZ9Soj+tnu5FJBKUOjP1S1sSWl
-	csI7rklw==;
-Received: from [177.172.121.54] (helo=[192.168.15.100])
-	by fanzine2.igalia.com with esmtpsa 
-	(Cipher TLS1.3:ECDHE_X25519__RSA_PSS_RSAE_SHA256__AES_128_GCM:128) (Exim)
-	id 1wU5PP-00B6P0-Dk; Mon, 01 Jun 2026 18:22:35 +0200
-Message-ID: <798c75ba-615d-48d1-bc04-53bc40bc6503@igalia.com>
-Date: Mon, 1 Jun 2026 13:22:28 -0300
+	id 1wU5W6-0000000BUMm-1sPW;
+	Mon, 01 Jun 2026 16:29:31 +0000
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=collabora.com;
+	s=mail; t=1780331365;
+	bh=PZdBZiNLVlObz9gIrGHHxQf6Y+iC4DcySdXN9+n6CRY=;
+	h=Date:Subject:To:Cc:References:From:In-Reply-To:From;
+	b=pr5OgAn/UEt4PWmI+wiOEBwRWMriWCL5/bihJWujDGLVriMS6CRzxjKXj1mPcqvfC
+	 r6kznu2r94sxfHvK5P1s0vyaqKbCLtrMv1mkPAsfY4y9MzX/5S77dljyhQ9Eo/g+Ai
+	 yBy3TgxWm0zkFhXgWmvrFvnb/0e2M6jhYVzARpEoHO5hB9JbT72mFx6wmy1dpReWXI
+	 6igJBLRgPj0Scx2BRxGMQx0QOnFA1KmSkW0ZCHnLCtuU/YeQJZbQQv99hiyQdsrB4g
+	 1zBhW1L8CCKyThvLEJrVTQ5ZZQfzUCAcsTGsK/7aCLwl9lgtvxySDGoNcDSoFEeq4y
+	 ga3CnwA0Dut3A==
+Received: from [100.64.0.241] (unknown [100.64.0.241])
+	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
+	 key-exchange X25519 server-signature RSA-PSS (4096 bits))
+	(No client certificate requested)
+	(Authenticated sender: cristicc)
+	by bali.collaboradmins.com (Postfix) with ESMTPSA id C139317E03A6;
+	Mon,  1 Jun 2026 18:29:24 +0200 (CEST)
+Message-ID: <b0fc7c12-51e3-4bb7-9ed7-fda1a30d4e9d@collabora.com>
+Date: Mon, 1 Jun 2026 19:29:24 +0300
 MIME-Version: 1.0
 User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH v3 2/5] arm64: vdso: Implement
- __vdso_futex_robust_try_unlock()
-To: Mathieu Desnoyers <mathieu.desnoyers@efficios.com>
-Cc: linux-arm-kernel@lists.infradead.org, Rich Felker <dalias@aerifal.cx>,
- Florian Weimer <fweimer@redhat.com>, Thomas Gleixner <tglx@kernel.org>,
- Peter Zijlstra <peterz@infradead.org>, Davidlohr Bueso <dave@stgolabs.net>,
- Sebastian Andrzej Siewior <bigeasy@linutronix.de>,
- Carlos O'Donell <carlos@redhat.com>, =?UTF-8?Q?Thomas_Wei=C3=9Fschuh?=
- <linux@weissschuh.net>, Will Deacon <will@kernel.org>,
- Catalin Marinas <catalin.marinas@arm.com>, Uros Bizjak <ubizjak@gmail.com>,
- Arnd Bergmann <arnd@arndb.de>, Darren Hart <dvhart@infradead.org>,
- "Liam R . Howlett" <Liam.Howlett@oracle.com>,
- Torvald Riegel <triegel@redhat.com>, Ingo Molnar <mingo@kernel.org>,
- linux-kernel@vger.kernel.org, linux-arch@vger.kernel.org,
- kernel-dev@igalia.com, Mark Rutland <mark.rutland@arm.com>
-References: <20260529-tonyk-robust_arm-v3-0-a6f02684d4fe@igalia.com>
- <20260529-tonyk-robust_arm-v3-2-a6f02684d4fe@igalia.com>
- <844b56fe-b5d4-42b2-ae8e-ce07980d0f50@efficios.com>
+Subject: Re: [PATCH v5 05/10] drm/bridge: dw-hdmi-qp: Add HDMI 2.0 SCDC
+ scrambling and high TMDS clock ratio support
+To: Andy Yan <andy.yan@rock-chips.com>,
+ Andrzej Hajda <andrzej.hajda@intel.com>,
+ Neil Armstrong <neil.armstrong@linaro.org>, Robert Foss <rfoss@kernel.org>,
+ Laurent Pinchart <Laurent.pinchart@ideasonboard.com>,
+ Jonas Karlman <jonas@kwiboo.se>, Jernej Skrabec <jernej.skrabec@gmail.com>,
+ Maarten Lankhorst <maarten.lankhorst@linux.intel.com>,
+ Maxime Ripard <mripard@kernel.org>, Thomas Zimmermann <tzimmermann@suse.de>,
+ David Airlie <airlied@gmail.com>, Simona Vetter <simona@ffwll.ch>,
+ Sandy Huang <hjc@rock-chips.com>, =?UTF-8?Q?Heiko_St=C3=BCbner?=
+ <heiko@sntech.de>
+Cc: kernel@collabora.com, dri-devel@lists.freedesktop.org,
+ linux-kernel@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
+ linux-rockchip@lists.infradead.org,
+ Diederik de Haas <diederik@cknow-tech.com>,
+ Maud Spierings <maud_spierings@hotmail.com>
+References: <20260426-dw-hdmi-qp-scramb-v5-0-d778e70c317b@collabora.com>
+ <20260426-dw-hdmi-qp-scramb-v5-5-d778e70c317b@collabora.com>
+ <9a7855a7-6b0c-4aa2-8516-13d94beabac6@rock-chips.com>
 Content-Language: en-US
-From: =?UTF-8?Q?Andr=C3=A9_Almeida?= <andrealmeid@igalia.com>
-In-Reply-To: <844b56fe-b5d4-42b2-ae8e-ce07980d0f50@efficios.com>
-Content-Type: text/plain; charset=UTF-8; format=flowed
-Content-Transfer-Encoding: 8bit
+From: Cristian Ciocaltea <cristian.ciocaltea@collabora.com>
+In-Reply-To: <9a7855a7-6b0c-4aa2-8516-13d94beabac6@rock-chips.com>
+Content-Type: text/plain; charset=UTF-8
+Content-Transfer-Encoding: 7bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260601_092238_796761_E0F65B7C 
-X-CRM114-Status: GOOD (  12.61  )
+X-CRM114-CacheID: sfid-20260601_092930_735425_4E57ECDC 
+X-CRM114-Status: GOOD (  15.23  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -87,56 +89,54 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Em 29/05/2026 14:47, Mathieu Desnoyers escreveu:
-> On 2026-05-29 12:33, André Almeida wrote:
->> Based on the x86 implementation, implement the vDSO function for 
->> unlocking
->> a robust futex correctly.
->>
->> Commit xxxxxxxxxxxx ("x86/vdso: Implement 
->> __vdso_futex_robust_try_unlock()") has
->> the full explanation about why this mechanism is needed.
->>
->> The unlock assembly sequence for arm64 is:
->>
->>     __vdso_futex_robust_list64_try_unlock:
->>     retry:
->>         ldxr    w8, [x0] // Load the value from *futex
->>         cmp    w1, w8   // Compare with TID
->>         b.ne    __vdso_futex_list64_try_unlock_cs_end
->>         stlxr    w9, wzr, [x0] // Try to zero *futex
+Hi Andy,
+
+On 6/1/26 7:06 AM, Andy Yan wrote:
+> Hello,
 > 
-> So it looks like stlxr can be successful, and the process is killed
-> right here. This is not within the start/end critical section, so the
-> fixup is missed ? Or am I missing something ?
+> On 4/26/26 08:20, Cristian Ciocaltea wrote:
+>> Enable HDMI 2.0 display modes (e.g. 4K@60Hz) by adding SCDC management
+>> for the high TMDS clock ratio and scrambling, required when the TMDS
+>> character rate exceeds the 340 MHz HDMI 1.4b limit.
+>>
+>> A periodic work item monitors the sink's scrambling status to recover
+>> from sink-side resets.  On hotplug detect, if SCDC scrambling state is
+>> out of sync with the driver, trigger a CRTC reset to re-establish the
+>> link.
+>>
+>> Reject modes requiring TMDS rates above 600 MHz, as those fall in the
+>> HDMI 2.1 FRL domain which is not supported. In no_hpd configurations,
+>> further restrict to 340 MHz since SCDC requires a connected sink.
+>>
+>> Tested-by: Diederik de Haas <diederik@cknow-tech.com>
+>> Tested-by: Maud Spierings <maud_spierings@hotmail.com>
+>> Signed-off-by: Cristian Ciocaltea <cristian.ciocaltea@collabora.com>
+>> ---
+>>   drivers/gpu/drm/bridge/synopsys/dw-hdmi-qp.c | 188 ++++++++++++++++++++++++---
+>>   1 file changed, 172 insertions(+), 16 deletions(-)
+
+[...]
+
+>>   }
+>>     static const struct drm_edid *
+>> @@ -832,12 +986,12 @@ dw_hdmi_qp_bridge_tmds_char_rate_valid(const struct drm_bridge *bridge,
+>>   {
+>>       struct dw_hdmi_qp *hdmi = bridge->driver_private;
+>>   -    /*
+>> -     * TODO: when hdmi->no_hpd is 1 we must not support modes that
+>> -     * require scrambling, including every mode with a clock above
+>> -     * HDMI14_MAX_TMDSCLK.
+>> -     */
+>> -    if (rate > HDMI14_MAX_TMDSCLK) {
 > 
+> The locally defined HDMI14_MAX_TMDSCLK has been removed, we should now use
+> HDMI_1_3_CHAR_RATE_MAX, and I think we should apply the same change to
+> HDMI20_MAX_TMDSRATE
 
-As me and Mathieu discussed on IRC, this should be the right thing to do 
-here:
+Yep, already addressed in my local dev branch.  Please note this revision is
+obsolete, there's already v6 available and I'm going to submit v7 a bit later
+today.
 
-  - Move the critical section label one instruction above to include 
-`cbnz` on it
-  - Use the result register as the check for the store success, not the 
-zero flag register.
-
-So it will look like this:
-
-	__vdso_futex_robust_list64_try_unlock:
-	retry:
-		ldxr	w8, [x0] // Load the value from *futex
-		cmp	w1, w8   // Compare with TID
-		b.ne	__vdso_futex_list64_try_unlock_cs_end
-		stlxr	w9, wzr, [x0] // Try to zero *futex
-	__vdso_futex_list64_try_unlock_cs_start:
-		cbnz	w9, retry
-		str	xzr, [x2] // After zeroing *futex, zero *op_pending
-	__vdso_futex_list64_try_unlock_cs_end>:
-
-The decision regarding if the pointer should be cleared or not lies on 
-checking the result register:
-
-	return (regs->user_regs[9]) ? NULL :
-		(void __user *) regs->user_regs.regs[2];
-
-Thanks for the review!
+Thanks,
+Cristian
 
