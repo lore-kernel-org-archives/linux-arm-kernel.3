@@ -4,75 +4,71 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 6649FCD5BD1
-	for <linux-arm-kernel@archiver.kernel.org>; Mon,  1 Jun 2026 17:53:31 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 2DC8FCD6E60
+	for <linux-arm-kernel@archiver.kernel.org>; Mon,  1 Jun 2026 18:00:45 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:Cc:To:Subject:Message-ID:Date:From:In-Reply-To:References:
-	MIME-Version:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=WZ/IhhKarGkjsev1ebvJY6DbVpgdipumlxcq7yohLJc=; b=zFSvGHOcdm1sE8bpUrYR+XDPWy
-	nuKJg234cEkgoFgOzLyFFINTKZM4GHC5+0cKcO60HLc8iZI056yv3hvACejAtZN+oPsFQXOKn0l9D
-	3DjWUDcZCDvrDLAciB1jZhHoioWWLTyQH7mlyk7XfUM5S1Lqe0NPWP/awsVTVOyUYS1S/gCVqFmuU
-	7EffrmyvdV4uO86Z0NZdQX0nClLzoOPGOSkJqPVHBvSqpUhXikxQH3JykXvL5qVtupGnat4EPKjfy
-	yArYRuy73wpe8ecTQlLV8pnFHsxlLRSaew3QF2foN1CVaoTYXcdEDHR5XSi7scLgIsAXoVqmB0vS5
-	JuEECXPA==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:
+	Content-Transfer-Encoding:Content-Type:MIME-Version:Message-Id:Date:Subject:
+	From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:
+	List-Owner; bh=KiqfZFOz259aUEoNXA+PD+xHuOUOQFTzoPCeQ4T7w38=; b=u3+5GdBexLEk8u
+	uWO+eoEy7TbQYXr9KXuRyHb1CPg3pzHD07U8iAVMI2dRA8ODM05RW+pIgAlLfxA9mETiSc//0th0H
+	VnIG4VoFkyWR3Uc+WJpYGL5Ixr9k8UBslI2CiWuuFsS7A9gzzve5cJVJPr32gEDvYvoEHTpthPwxq
+	h2/A+yp+Fhc2j/jKnlER6aiKBe01MW4FFyKu158wth37ONWM0w0aetBN7qO0VKZoh4p2r7pEqUKZi
+	qcCZIP+NBPYXiuIqtI2TiOEFDFERFQgQCFGiHMU3trLQS5UkiV3nKPZkRqTq9CaB6JAzFY3YK2qLk
+	0aQcpDWtP5avUYn7xdVg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wU6pJ-0000000BcOS-0Rvu;
-	Mon, 01 Jun 2026 17:53:25 +0000
-Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
+	id 1wU6wJ-0000000Bd45-1FLx;
+	Mon, 01 Jun 2026 18:00:39 +0000
+Received: from bali.collaboradmins.com ([2a01:4f8:201:9162::2])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wU6pF-0000000BcNa-38Th
-	for linux-arm-kernel@lists.infradead.org;
-	Mon, 01 Jun 2026 17:53:23 +0000
-Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
-	by sea.source.kernel.org (Postfix) with ESMTP id CBDB843B50
-	for <linux-arm-kernel@lists.infradead.org>; Mon,  1 Jun 2026 17:53:20 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id B05AF1F0089A
-	for <linux-arm-kernel@lists.infradead.org>; Mon,  1 Jun 2026 17:53:20 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1780336400;
-	bh=WZ/IhhKarGkjsev1ebvJY6DbVpgdipumlxcq7yohLJc=;
-	h=References:In-Reply-To:From:Date:Subject:To:Cc;
-	b=nr+gO/iRezHfQIb24kdU3vqS4vOhiseSZ6xa7VjdriTDL9IbS2aIb/ojqPcIAIVZJ
-	 qWxMunqkAm0wsMP6jrIO/7UlDOaNeH7hF27BB4N0afm/wO9bfvems0F28Ck8HW4I+I
-	 1VZF0t3infumq2ZX4u/zQHt/PMjvFZ4IZqx4HURNlzc9NZpclnCutWKA5Cokv/j6kG
-	 ELynKCEyyuody05IlXgmfcbAQ6oOGK+gk/WUOluQn2EVVq+2EAE+oJyrNgd7hIwZCm
-	 jMB+R6lwKZxxHw05OWX4JAKdOMWqYxmirNq7GgfqF9+TPyFy45+DAFZj52CCaauQaz
-	 rQpGjHtF9aadw==
-Received: by mail-lf1-f47.google.com with SMTP id 2adb3069b0e04-5aa66893e9fso1828478e87.1
-        for <linux-arm-kernel@lists.infradead.org>; Mon, 01 Jun 2026 10:53:20 -0700 (PDT)
-X-Forwarded-Encrypted: i=1; AFNElJ8dptfe+NzKtNdiIFoM0lqtXkkPBvwXT3O03USWSASx1lkLVibsbjEVg3c2WIC+rDIEb1Q3LCBIWUNaQWqspUjN@lists.infradead.org
-X-Gm-Message-State: AOJu0YzQzBCPyqc9kMxxxMkO2SIHxTDAfeB0OqjQcLeblhBrS9hVtOFX
-	iK9UFOoPT+7FiJhLKvVzhj6aYOAf98tXuFv0jGrMSkJVgjF6LAmj+YhYDy4hSmHwsuOrjXNnUnm
-	SR3CGt/BTdYGzCF+2+hmW9CWEE+VqrD8=
-X-Received: by 2002:a05:6512:3094:b0:5aa:6f47:32a0 with SMTP id
- 2adb3069b0e04-5aa6f47362cmr1141285e87.11.1780336399508; Mon, 01 Jun 2026
- 10:53:19 -0700 (PDT)
+	id 1wU6wF-0000000Bd2a-1YHn;
+	Mon, 01 Jun 2026 18:00:36 +0000
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=collabora.com;
+	s=mail; t=1780336832;
+	bh=f3hUMNFcEdyqeQuUHaPUg6wYaJ5ED/dmqbO5zRa5LnM=;
+	h=From:Subject:Date:To:Cc:From;
+	b=kGIUJ8ve3/hI+JQuzo60CZ83t7lc3FfA6ay+h3etetqrznxwIkEW4spp7rfFmdSxS
+	 IIv7VBp2eGjVhVm/YTyZT8BEfUnHxvLjzAqbUsr1/GrExPomvXqMvH82qdvSIHNWb9
+	 wqY021pJKPqh9Hb3VrKFL18ey8VV0zzUNIcHzqSuJhbX4H5FaIPUoivzYCqTQwgTAQ
+	 WmYQRU15/4kzc/xsz4J0C7OegRSQaNJfBDZRlcVDA0V2YHi/Z0p/0JOc3v2XF+hFHN
+	 7SFKpRa3AcWCLCk7Eb914qC2qHZCuevZdF8Kck/DrFFHmsFbI9HK5NhPOLKnPpAdMN
+	 iWK57FPpVIqUQ==
+Received: from localhost (unknown [100.64.0.241])
+	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
+	 key-exchange ECDHE (prime256v1) server-signature RSA-PSS (4096 bits) server-digest SHA256)
+	(No client certificate requested)
+	(Authenticated sender: cristicc)
+	by bali.collaboradmins.com (Postfix) with ESMTPSA id 62CF417E03DA;
+	Mon,  1 Jun 2026 20:00:32 +0200 (CEST)
+From: Cristian Ciocaltea <cristian.ciocaltea@collabora.com>
+Subject: [PATCH v2 0/2] YUV support for VOP2 background color
+Date: Mon, 01 Jun 2026 21:00:02 +0300
+Message-Id: <20260601-vop2-bg-yuv-v2-0-e5aef1d16fec@collabora.com>
 MIME-Version: 1.0
-References: <20260601152707.29039-1-l.scorcia@gmail.com>
-In-Reply-To: <20260601152707.29039-1-l.scorcia@gmail.com>
-From: Linus Walleij <linusw@kernel.org>
-Date: Mon, 1 Jun 2026 19:53:06 +0200
-X-Gmail-Original-Message-ID: <CAD++jL=oF_43jwV830p42yOke_tZb-MKomp9fVoQ5EtnQHGzNA@mail.gmail.com>
-X-Gm-Features: AVHnY4I49xiJB05RGboGIRNa8JpcA6v3sUBoiJTKtDzGmvM3jaAvFsRby97G7MQ
-Message-ID: <CAD++jL=oF_43jwV830p42yOke_tZb-MKomp9fVoQ5EtnQHGzNA@mail.gmail.com>
-Subject: Re: [PATCH] dt-bindings: pinctrl: mediatek: mt6795: document the
- slew-rate property
-To: Luca Leonardo Scorcia <l.scorcia@gmail.com>
-Cc: linux-mediatek@lists.infradead.org, Rob Herring <robh@kernel.org>, 
-	Krzysztof Kozlowski <krzk+dt@kernel.org>, Conor Dooley <conor+dt@kernel.org>, 
-	Matthias Brugger <matthias.bgg@gmail.com>, 
-	AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>, Sean Wang <sean.wang@kernel.org>, 
-	linux-gpio@vger.kernel.org, devicetree@vger.kernel.org, 
-	linux-kernel@vger.kernel.org, linux-arm-kernel@lists.infradead.org
-Content-Type: text/plain; charset="UTF-8"
-Content-Transfer-Encoding: quoted-printable
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: 8bit
+X-B4-Tracking: v=1; b=H4sIAAAAAAAC/22NQQ6CMBBFr0Jm7ZgyWgyuvIdh0ZYBapCSFhoJ4
+ e4W3Lp8yfvvrxDYWw5wz1bwHG2wbkhApwxMp4aW0daJgQQVQtIVoxsJdYvLHDHXggslSiNvJaT
+ F6Lmxn6P2rH4cZv1iM+2J3ehsmJxfjruY797/csxRYG10oSSVdGnkw7i+V9p5dTbuDdW2bV/F8
+ 53YvAAAAA==
+X-Change-ID: 20260524-vop2-bg-yuv-1b0e6a09c579
+To: Sandy Huang <hjc@rock-chips.com>, 
+ =?utf-8?q?Heiko_St=C3=BCbner?= <heiko@sntech.de>, 
+ Andy Yan <andy.yan@rock-chips.com>, 
+ Maarten Lankhorst <maarten.lankhorst@linux.intel.com>, 
+ Maxime Ripard <mripard@kernel.org>, Thomas Zimmermann <tzimmermann@suse.de>, 
+ David Airlie <airlied@gmail.com>, Simona Vetter <simona@ffwll.ch>
+Cc: kernel@collabora.com, dri-devel@lists.freedesktop.org, 
+ linux-arm-kernel@lists.infradead.org, linux-rockchip@lists.infradead.org, 
+ linux-kernel@vger.kernel.org
+X-Mailer: b4 0.15.2
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260601_105321_797019_E9621E78 
-X-CRM114-Status: GOOD (  14.42  )
+X-CRM114-CacheID: sfid-20260601_110035_572389_A9AE085B 
+X-CRM114-Status: UNSURE (   9.44  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -87,41 +83,50 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hi Luca,
+Since commit bec7cbfa7d4f ("drm/rockchip: vop2: Support setting custom
+background color") the VOP2 display controller allows configuring the
+background color of each video output port.
 
-thanks for your patch!
+However, this is currently limited to RGB formats.  When operating in
+YUV overlay mode, the color must be programmed using YUV format.
 
-On Mon, Jun 1, 2026 at 5:27=E2=80=AFPM Luca Leonardo Scorcia
-<l.scorcia@gmail.com> wrote:
+Add the necessary RGB-to-YCbCr conversion logic, covering all color
+spaces supported by the display controller: BT601L, BT601F, BT709L and
+BT2020L.
 
-> The driver for MT6795 pinctrl already supports the slew-rate property.
-> Add its description to the documentation.
->
-> Signed-off-by: Luca Leonardo Scorcia <l.scorcia@gmail.com>
-(...)
-> +          slew-rate:
-> +            description: |
-> +              Set the slew rate. Valid arguments are described as below:
-> +              0: Normal slew rate
-> +              1: Slower slew
-> +            $ref: /schemas/types.yaml#/definitions/uint32
-> +            enum: [0, 1]
+Signed-off-by: Cristian Ciocaltea <cristian.ciocaltea@collabora.com>
+---
+Changes in v2:
+- Used vop2_convert_csc_mode() helper to address an issue reported by
+  vcstate->color_space holds a V4L2 colorspace enum
+- Rebased onto latest drm-misc-next
+- Link to v1: https://patch.msgid.link/20260524-vop2-bg-yuv-v1-0-dcb6a52923f5@collabora.com
 
-Ideally slew-rate is V/s (or V/us, any suitable prefixes).
+To: Sandy Huang <hjc@rock-chips.com>
+To: Heiko Stübner <heiko@sntech.de>
+To: Andy Yan <andy.yan@rock-chips.com>
+To: Maarten Lankhorst <maarten.lankhorst@linux.intel.com>
+To: Maxime Ripard <mripard@kernel.org>
+To: Thomas Zimmermann <tzimmermann@suse.de>
+To: David Airlie <airlied@gmail.com>
+To: Simona Vetter <simona@ffwll.ch>
+Cc: kernel@collabora.com
+Cc: dri-devel@lists.freedesktop.org
+Cc: linux-arm-kernel@lists.infradead.org
+Cc: linux-rockchip@lists.infradead.org
+Cc: linux-kernel@vger.kernel.org
+Sashiko: vop2_rgb16_to_yuv16() expects an enum vop_csc_format, but
 
-Of course that would vary for any capacitance on the output line,
-so that value would be for an infinite impedance (open circuit).
+---
+Cristian Ciocaltea (2):
+      drm/rockchip: vop2: Rename CSC_BT2020 to CSC_BT2020L
+      drm/rockchip: vop2: Add YUV support to background color
 
-Do you know that value for the SoC to you can express it like
-this and translate it in the driver?
+ drivers/gpu/drm/rockchip/rockchip_drm_vop2.c | 155 ++++++++++++++++++++++++---
+ drivers/gpu/drm/rockchip/rockchip_drm_vop2.h |   2 +-
+ 2 files changed, 140 insertions(+), 17 deletions(-)
+---
+base-commit: e84b07e0a30b371117f9a1120a4645c213f39cd9
+change-id: 20260524-vop2-bg-yuv-1b0e6a09c579
 
-Maybe we should even invent something like
-slew-rate-volt-per-microsecond =3D <...>; to push this into
-SI units.
-
-That said, there are many SoC:s doing what you're doing
-above so it's no strict requirement.
-
-Yours,
-Linus Walleij
 
