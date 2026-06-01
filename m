@@ -4,58 +4,160 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 17238CD5BD1
-	for <linux-arm-kernel@archiver.kernel.org>; Mon,  1 Jun 2026 20:35:24 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id E0333CD6E60
+	for <linux-arm-kernel@archiver.kernel.org>; Mon,  1 Jun 2026 20:36:42 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	MIME-Version:Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-Type:
-	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
-	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
-	bh=T/ACLI/O+MEH4QMv4GHRPdBcYwgQV3Hd/E0FFNYu5y8=; b=O7pSNR2C9AFx/lWmAyYRICUkpD
-	MD+pwmXMropYl+/JH7AkJaubjcueBpX27fdwiZw/LITYbAK+PHgxPVh5VT6LnCEee8wNbw6v7oxBL
-	4Zb5YBabsjX+g02g4yLbtk2iXVZdjwVV+9PirWT+fJGbZHeaJMDIO5/DNaGn4zHKE7K2NGZkqevfj
-	mT2CaZ+T5tI1jFVaC3d4KCOD6rjpuXJek7e1Afb0f1jG9pWtM9Pn1J50iJWTiH+VJlQQkKW4iAbnV
-	T1DNs6PyiU+eQZdge9wlwwjsXeN0ghKjo5PaVBP9DWXQo/neGhd0RveEIYggAEl/ehySCxwuTIDQB
-	3iIYDsNQ==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:
+	Content-Transfer-Encoding:Content-Type:References:In-Reply-To:Message-ID:Date
+	:Subject:Cc:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=lSgOQt7jdfRERUZlsJnmJON800HbW5sCVXxY8ujBDLs=; b=SB9IRXIgOjL2O8Fn/zCTwFEaG1
+	0uHmgj7/eR26ceqtm456YGUHgEN/A0vGWFUIh6L03euXlTRD7S/Z5CfoRQWx4nlDm8jJxZEj7hrTD
+	BFhiTC7hS9lxTmvxf153CFzz08pYwmEAlTBgxrxKEvSeTO5x2h9yrDFWzR3fe1gjgPdPWvdu3eOxK
+	pM81obw+1pnsqBk1TVkmLwcXY3GXTfECkR9ZQyei02+zWyRDbHpuFcLhCF2dvF4ozc2awarYabSRk
+	p3GHHspI1wuXPIkn0LPuSTBT6aWLHpxh3B9rpz9BQK8WKukCc3ukS8cNqtbX6I2zsrs+VKG58meL8
+	DgW6C3fg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wU9Lu-0000000BmhM-1iGt;
-	Mon, 01 Jun 2026 20:35:14 +0000
-Received: from mail-106111.protonmail.ch ([79.135.106.111])
+	id 1wU9NE-0000000BmyX-3OZ0;
+	Mon, 01 Jun 2026 20:36:36 +0000
+Received: from mail-northeuropeazon11012026.outbound.protection.outlook.com ([52.101.66.26] helo=DUZPR83CU001.outbound.protection.outlook.com)
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wU9Lr-0000000Bmgp-0KlQ
+	id 1wU9NB-0000000BmtZ-2Rn6
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 01 Jun 2026 20:35:12 +0000
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=theesfeld.net;
-	s=protonmail2; t=1780346104; x=1780605304;
-	bh=T/ACLI/O+MEH4QMv4GHRPdBcYwgQV3Hd/E0FFNYu5y8=;
-	h=From:To:Cc:Subject:Date:Message-ID:From:To:Cc:Date:Subject:
-	 Reply-To:Feedback-ID:Message-ID:BIMI-Selector;
-	b=iz27cElDwGo3nbW9COmb+WgyYBkzqtzbP53MaBBZOzOhS78IAQW+GyfPLtIte6mra
-	 fgiU9rznEQYrQavt+FDUiLy5Bro9rlxg3A6pn15h8sTTprn9eJM6o0f4Rl0p8dSaq3
-	 Zb+80qhgiLxxJWKIrmVy3tMS3feX2Ti5hboovjN7+SqBHCYNYDgcSL16ND4VjnAPxB
-	 navHfKnXBt48SZ687WPALdDVHjcThNePBcrShxXbdgW682p1OjOmjcT4ZDK66OzaIY
-	 lzltaOO4VTdhGhEnn0+3e4OPZhAmZnabRsOCpTybJ6yeeG7CFr3JV6oC5a331CeGrc
-	 8/Q0Xsee0fJGQ==
-X-Pm-Submission-Id: 4gTm122Rwrz2Scpl
-From: William Theesfeld <william@theesfeld.net>
-To: Michael Turquette <mturquette@baylibre.com>
-Cc: Stephen Boyd <sboyd@kernel.org>,
-	Brian Masney <bmasney@redhat.com>,
-	Michal Simek <michal.simek@amd.com>,
-	linux-clk@vger.kernel.org,
+	Mon, 01 Jun 2026 20:36:35 +0000
+ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
+ b=LcnMYZ/scZFUuMH5sN105DN/WLfoQkiu6KSuehs1X/jsaoAz5/linRAjcpzXX9xbj4jRdgw+3v3fXTcXiVWT7/YOWtCglBhrjO1BpuOwqZmuk6lHhyxvtSP5K3x/jeQlQ7V/YXEKObwOAICm+uXO4jU44FLVRC34KQf23QFf/LKztoFrxlCVL7aetifbViYdGTyVDVYF1vidiaC4O9Mc0jv3AjA3zsYXHwiAlNk6Lai8MnumuI+DcBjATWr2CSjQfvh4Or1/O6uoBRleY6+IHZfLWZPiTtYG0LkAP8PElJE3uITsNNCyapTvMeFb6Cf/MqYn8aWUPrrNnDe1lxuibA==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
+ s=arcselector10001;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
+ bh=lSgOQt7jdfRERUZlsJnmJON800HbW5sCVXxY8ujBDLs=;
+ b=waPpEI025Qnw8GFu8W3gtj2oMhf3fy7k4hZpUzUhw669dKlVyD1ytAbfWRL+swA3oUp/2sO31SXXzxeAJt+XcrPulxD5hnUZJUcdkBYCxhyDW3JJ6xnGRJO3fXGx+74MwJdqTSW1xpiJ/C6n79v86LRAhHEL1LNJVt+Sr7MJL6aKX+r0zqGFeXCAZQpIs6lFw7Bt12sMtZVzisL4v0z4xlMZvjKf3pKp1E2QCX+Rat5Hu5YJBG5O4VVS0VxJGZ4RKDMSXc1pwIi4MdrA3Foe16KUZIxm/Uq86qhdQXZz1tXrHPcxGH+KsYF7EhS+Ar7PsQ9l4XH2RpA2EmWIoOO6BQ==
+ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
+ smtp.mailfrom=oss.nxp.com; dmarc=pass action=none header.from=oss.nxp.com;
+ dkim=pass header.d=oss.nxp.com; arc=none
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=NXP1.onmicrosoft.com;
+ s=selector1-NXP1-onmicrosoft-com;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
+ bh=lSgOQt7jdfRERUZlsJnmJON800HbW5sCVXxY8ujBDLs=;
+ b=MfWLJQOjbYviCSs+QKrCdi8/b2R1/NHC6htXeQR5icgD0jW18SSRyNTiotY/3eInO1mL0nkUem5LNTClBJU1FpTLx5mBJhKsuMvj6X2J9GkleWCAX/6I1a/SuPF90URfio7PkQpT06m5BR3nRZcZJpHNusOaArrIEyYBDLaByEvfgGHtHQBpfY/SjvhnHrvOp0GlTzdRDbJgxyBRL4Gopx5q9LSwt7B4IanA76EIdVhI5P+SDQFHhkEIZvkn0/5xznOTxguLfhYfwUfrBHMCeH+2y6dg6z+QdS/Ra7PnPtVan1sDkzVVl96XdEXzna+0eJVBgYiwT/a8AaEV1Bc0Dw==
+Authentication-Results: dkim=none (message not signed)
+ header.d=none;dmarc=none action=none header.from=oss.nxp.com;
+Received: from GV2PR04MB11799.eurprd04.prod.outlook.com (2603:10a6:150:2cf::9)
+ by AM0PR04MB7043.eurprd04.prod.outlook.com (2603:10a6:208:19b::20) with
+ Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.21.71.16; Mon, 1 Jun 2026
+ 20:36:28 +0000
+Received: from GV2PR04MB11799.eurprd04.prod.outlook.com
+ ([fe80::2146:83a2:5329:b7c]) by GV2PR04MB11799.eurprd04.prod.outlook.com
+ ([fe80::2146:83a2:5329:b7c%6]) with mapi id 15.21.0071.014; Mon, 1 Jun 2026
+ 20:36:28 +0000
+From: Frank.Li@oss.nxp.com
+To: Rob Herring <robh@kernel.org>,
+	Krzysztof Kozlowski <krzk+dt@kernel.org>,
+	Conor Dooley <conor+dt@kernel.org>,
+	Shawn Guo <shawnguo@kernel.org>,
+	Sascha Hauer <s.hauer@pengutronix.de>,
+	Pengutronix Kernel Team <kernel@pengutronix.de>,
+	Fabio Estevam <festevam@gmail.com>,
+	Andrew Lunn <andrew@lunn.ch>,
+	Vladimir Oltean <olteanv@gmail.com>,
+	"David S. Miller" <davem@davemloft.net>,
+	Eric Dumazet <edumazet@google.com>,
+	Jakub Kicinski <kuba@kernel.org>,
+	Paolo Abeni <pabeni@redhat.com>,
+	Josua Mayer <josua@solid-run.com>
+Cc: Frank Li <Frank.Li@nxp.com>,
+	Yazan Shhady <yazan.shhady@solid-run.com>,
+	Mikhail Anikin <mikhail.anikin@solid-run.com>,
+	Alexander Dahl <ada@thorsis.com>,
+	devicetree@vger.kernel.org,
+	linux-kernel@vger.kernel.org,
+	imx@lists.linux.dev,
 	linux-arm-kernel@lists.infradead.org,
-	linux-kernel@vger.kernel.org
-Subject: [PATCH] clk: zynq: handle kasprintf() failure in periph_clk registration
-Date: Mon,  1 Jun 2026 16:35:00 -0400
-Message-ID: <20260601203500.658135-1-william@theesfeld.net>
-X-Mailer: git-send-email 2.54.0
-MIME-Version: 1.0
+	Vladimir Oltean <vladimir.oltean@nxp.com>,
+	Conor Dooley <conor.dooley@microchip.com>,
+	Krzysztof Kozlowski <krzk@kernel.org>,
+	netdev@vger.kernel.org,
+	Krzysztof Kozlowski <krzysztof.kozlowski@oss.qualcomm.com>
+Subject: Re: [PATCH v6 0/2] arm64: dts: imx8dxl: Add SolidRun SoM and HummingBoard
+Date: Mon,  1 Jun 2026 16:36:21 -0400
+Message-ID: <178034617107.522644.17438294893077437359.b4-ty@b4>
+X-Mailer: git-send-email 2.43.0
+In-Reply-To: <20260524-imx8dxl-sr-som-v6-0-37932c6eb7e4@solid-run.com>
+References: <20260524-imx8dxl-sr-som-v6-0-37932c6eb7e4@solid-run.com>
+Content-Type: text/plain; charset="utf-8"
 Content-Transfer-Encoding: 8bit
+X-ClientProxiedBy: SN7PR04CA0189.namprd04.prod.outlook.com
+ (2603:10b6:806:126::14) To GV2PR04MB11799.eurprd04.prod.outlook.com
+ (2603:10a6:150:2cf::9)
+MIME-Version: 1.0
+X-MS-PublicTrafficType: Email
+X-MS-TrafficTypeDiagnostic: GV2PR04MB11799:EE_|AM0PR04MB7043:EE_
+X-MS-Office365-Filtering-Correlation-Id: 6907269f-7fab-4aed-1bbb-08dec01d74bd
+X-LD-Processed: 686ea1d3-bc2b-4c6f-a92c-d99c5c301635,ExtAddr
+X-MS-Exchange-SenderADCheck: 1
+X-MS-Exchange-AntiSpam-Relay: 0
+X-Microsoft-Antispam: BCL:0;ARA:13230040|19092799006|366016|1800799024|7416014|376014|921020|18002099003|22082099003|56012099006|11063799006;
+X-Microsoft-Antispam-Message-Info: D+sVSzktzbvoMix4UHywEedASl99SFVaIfUdv5lShc9vOmO5X5aLHT7dwhqc4ryJcpLHNrYLXDo7x/tzF6dk1W6n/fZUkps/4TAKm6IlwPNdFB4RH7uEdLmjJptBL73hbYYLgg4qpkYt+0dcLbq5k+TrNXDdinKBdg4VQiq8NDLhtLdkm23pvjECb1dMV04l01zdFG+wNBRB73VHuq1pkLeVwihM3+Y6CaIeF3KpTcVrbFkVyicN9Tn6vvdqYHAi5v77LxpVnhmNEMupeuPbb9vboXAh0abqK5h7aNWs9X/NU6Ihu/79Ntvkvnk4HytgevVkmsFy9nbH5TvcDcElu+fFnXLqEP8bBvbojFtztSwumFv7k91/oz/IYlugnt0JvS8Xk/cHawCzTX2sUrSR8hBDipUipL1bgodOCA3AuFE0EMCpfp/vvKbvtcQrZ1p+RsNgVpveJuG/+HncjfC9tfOKAsge/MNT4f7owB7sot/ma9ChEzDZJO2ItEV0Dw2gps5Cev89vZ63CfIoArmLeBze41B+uPe5w3wnxTlX2nml0eD8+G577MYfgvLfLzbEPtUAmal7GFp3AxWYEfX6J0Q8/1XJaMail/o0qEDZXQTXDqgbdyi0TSvyT0ig5e7YZEHznexZYAWC+jfM9sG8S+ilApDzC1ZNXvaU6OA5pjUt9lT6QMP635PGCq/ac+uInjw88BTyahRnKPlGtoNXXgsIiBhJgLTGti2jmhtMsq4=
+X-Forefront-Antispam-Report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:GV2PR04MB11799.eurprd04.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(19092799006)(366016)(1800799024)(7416014)(376014)(921020)(18002099003)(22082099003)(56012099006)(11063799006);DIR:OUT;SFP:1101;
+X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
+X-MS-Exchange-AntiSpam-MessageData-0: =?utf-8?B?Y21TcDMwUmNtOFRHZGxxeHRZK0RHSy9aSiswWElvblVGQ2Z4aUV6TWtHd0d2?=
+ =?utf-8?B?TGc4V0tJMDBKTGF5eDBPSHM1Yzl4OEFBa0ZCVWlNcVJTeVJSR0dXYWNDN01S?=
+ =?utf-8?B?ZjZpRnlPeTBSd3F5M0ZheHVuZURCU0ZQNmhvQUZlNVMvS2VYd0pkaG0vM2Rt?=
+ =?utf-8?B?bDVCd1AvcXlKTklPRFdsOERRUzRGeFE0NUNVR0FPM0xDNmxRcUlIdXU3WC9C?=
+ =?utf-8?B?V3U1TkxrQkNQQURxcHdWeFdXZ3RDMW1JOUwyOFFzKzBBZFhOWThhV2xXMWkv?=
+ =?utf-8?B?VDluak5pUU5iVXpVOFQvS1A2My9HY2tZdGhsZjM1R2ZUZEM5VGFEMm9Wazhy?=
+ =?utf-8?B?a045M24wc1VMUGpCLzJsUWxuN1J1VTIyamJZSEZvZEo4UnBYbmdiNUl1YkU5?=
+ =?utf-8?B?K3p3MmpEWVZvNWJrcGoyWEZFYzJmZGw4NXhmVVhYSFZzNXdzd3c2QjVMWk9a?=
+ =?utf-8?B?TFVCUWNNK0h3Y2VCeFREODEvTmFNWHcwS0R6aGlweE5xbGV3M1JZek9GM05v?=
+ =?utf-8?B?eDl1WCtLeGJGdllqNjZ5NVNIQ0hvYkE3VVRRck13MFFiVXdBZUlBendsbGN2?=
+ =?utf-8?B?UW5CM1pDN3B3NEJ4U0svWmI0UGd6ejhybk5aS01KZzYyaDdpTFQrTTdjYnJS?=
+ =?utf-8?B?UWZVT3BuYjdTbTFKekswWUJjNFpXRnNDcVowZ2s5RGRVUUxQQ1ROWmN0a0xx?=
+ =?utf-8?B?ektna3dSdGFZalpsK1RjMElvRHdFQVBCcUF3RW5vTXRJV2xRSi9DWlZpazFi?=
+ =?utf-8?B?dlJtZGFpYzE3ZUlzNXFEK2VEQ0JobkdkT1pmZjBoaTF2ak9KcHFwb3BrRlBL?=
+ =?utf-8?B?Y3gwdW5kNGt6Q08rajlqd1NQNk0vTzhuODdwb0I5d2xGc25qb0x1Kzg1a2FZ?=
+ =?utf-8?B?U2RFSTNncEV6T1c1UXNKNjdRdU1wZ0tBbmgxL1NVd09Vend1NUdkb3plazEz?=
+ =?utf-8?B?UlNIQ3R1Wm05ZzNkMStuVWpsNGxmSVNUL1pVb2hXQ2haM3Zrek9ldGpuUEFQ?=
+ =?utf-8?B?QjEreEVYSitqR1hMOEVzNzFIYXI3NXFpVWVnMFdGdHh0cHVpMDVad01ScFJl?=
+ =?utf-8?B?MUQvTkUxYkl1aVI2WGN5UHoxdWpKNGxGa0FXNXlNWXErUzJmc0syOTJheHdM?=
+ =?utf-8?B?dWRoSUNZQVRQcXpwSkE4dityRWNHcUhQaC8xVTNpb2tuaTRvZzdRd1hZdDlH?=
+ =?utf-8?B?dXRoTHQvdG94WCtqWW82bmxkcHdVRjNYaVd2UDJBWWpadDlaZHB6RVRXeDRN?=
+ =?utf-8?B?RjJqcU9Yck5XOEEveFFPdzBhclVRcXRNV1ROYkNxRjVWNkE5bkdvci9WeDJB?=
+ =?utf-8?B?R0wyZW1sc2ZtZVpGMXpHSFRscnZMQ0FBOWsvV1pmU0QveTdDOTRVNG5Camhr?=
+ =?utf-8?B?OGFETTloSm90RHhPb0dXNDUvSlJBcDZwM0ltbHdnaEFxVEMwaXFmK2FrMWJj?=
+ =?utf-8?B?RjU1SlpMYWJKNE02ZEdKUDVFMVBaQUpYODZzUDA0MTBQRkFrcWg5NzAxcHVX?=
+ =?utf-8?B?QWVJVFNycktxQVhCdGg3YkM5eUUzclYyOG5NUE8wZ3hhUDFZNGdTTmx3YWww?=
+ =?utf-8?B?aGFsS2hBNmhDeDJqMUE5Nk5qeFRWay9FcVd4aXlaNlUyTzZIM2Y0MXNGNDdv?=
+ =?utf-8?B?OU5hdS9MNFIzcHBXTmRybFFkNnhYUFlYV2RmVjZUdUZ0ekZTamRJNjFmN2gr?=
+ =?utf-8?B?MVBxdytDenRETGUxdUhxOGJZakpZRSsxNEtTWC9GQm9TS0hYNjh0S0NwSXli?=
+ =?utf-8?B?Q0cxa3FIWDVMeGs5aHZTUG1MaE5XaGRObVhoR0tlUXE5Q213ZVJoU3BnM2xM?=
+ =?utf-8?B?NTVZSVNVVk9Bb29PalpQWWZkdDdGMkdhaTJhaVp1bFhPamtpTmJrNTMzd1FR?=
+ =?utf-8?B?eGtVQU5hZmFBVWhMTzZmVUFHcWM0T0E1d2M3RWdoN00rZFNYTU1HeE5oK1NM?=
+ =?utf-8?B?b2FwWXo2MlljTWlyRzNjekJxSTdWZmg5SS9KRXE1cm1pQnRGVU9LNXBzUDY4?=
+ =?utf-8?B?V3I2L3pBcTF0UXlYZlMvNDNCZ0dTTGtkVHk5OHd3L0cyekpiOFRtajQvdll2?=
+ =?utf-8?B?eXlyU2RnbjdmR1J5UEFLR0loOElYODU4S1pwRDZyVE9XT2REUTJKaHdoTThL?=
+ =?utf-8?B?VFB2a2lQWFZ6QkV6Z0V0WHZZRi9MUS9nTEJ6aTdZdTBxQ2RBaTBETUhEM0g5?=
+ =?utf-8?B?eEtuYnora0JMS3RNUFAxa2kxejUvRGFDU1pVSVUxR1dGNmljVSs4L290U0pq?=
+ =?utf-8?B?eE1BVFN4Y1lueUJUNm9qUlRJOFIvQ09uZ0RrVkxUNUJtR1phcE1NMnFRTjNi?=
+ =?utf-8?B?NzY0bWZ6bzA2d25wbGpkUDR2NW5OUWN6N1c1VEhaZlpIaHZ6Vm5TVVZTaDUx?=
+ =?utf-8?Q?Bpta/f+V3xW9CfdGPnC5AAWJsh0zBU2TEovwi?=
+X-OriginatorOrg: oss.nxp.com
+X-MS-Exchange-CrossTenant-Network-Message-Id: 6907269f-7fab-4aed-1bbb-08dec01d74bd
+X-MS-Exchange-CrossTenant-AuthSource: GV2PR04MB11799.eurprd04.prod.outlook.com
+X-MS-Exchange-CrossTenant-AuthAs: Internal
+X-MS-Exchange-CrossTenant-OriginalArrivalTime: 01 Jun 2026 20:36:27.9903
+ (UTC)
+X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
+X-MS-Exchange-CrossTenant-Id: 686ea1d3-bc2b-4c6f-a92c-d99c5c301635
+X-MS-Exchange-CrossTenant-MailboxType: HOSTED
+X-MS-Exchange-CrossTenant-UserPrincipalName: p2NpKkGAQWIFoVuvPhupG9P/Il2M5ykIVCCksg19KOIxRL6uUgpx+1xuqErNC5GS+Rrqh7TiQeU3UOruAh8lP6GjgNLfxXEzbcho7QbtKQoBJvnK9IQhbPNqJnBbzRYQ
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: AM0PR04MB7043
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260601_133511_279665_E7915A84 
-X-CRM114-Status: GOOD (  11.84  )
+X-CRM114-CacheID: sfid-20260601_133633_694058_BF53C927 
+X-CRM114-Status: UNSURE (   8.80  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -70,58 +172,28 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-zynq_clk_register_periph_clk() ignores the return value of the two
-kasprintf() calls used to build the mux and divider clock names, and
-passes the resulting (possibly NULL) pointers straight into
-clk_register_mux(), clk_register_divider() and clk_register_gate() as
-the clock '"'name'"' argument.  On allocation failure that name later
-gets dereferenced by the clock framework (e.g. in debugfs name
-formatting), causing a NULL-pointer dereference.
+From: Frank Li <Frank.Li@nxp.com>
 
-Check both kasprintf() returns.  On failure unwind any allocated name
-buffer and the spinlock, then fall through to the existing err label
-which sets clks[] to ERR_PTR(-ENOMEM).  Freeing the spinlock on the
-error path is correct here because no clk_register_*() call has had
-a chance to take ownership of it; the success path intentionally
-hands it off to the registered clocks.
 
-The neighbouring zynq_clk_register_fclk() in the same file already
-uses this per-allocation goto-label cleanup pattern; this change
-brings periph_clk into line with it.
+On Sun, 24 May 2026 14:03:08 +0200, Josua Mayer wrote:
+> Add bindings and description for SolidRUn i.MX8DXL based SoM and
+> HummingBoard Telematics.
+> 
+> Modify SJA1110 Ethernet Switch bindings to allow SPI Mode 0.
+> 
+> This patch-set is based on v7.0-rc2, because rc1 was experiencing
+> deadlocks with imx8qxp clock driver.
+> 
+> [...]
 
-Signed-off-by: William Theesfeld <william@theesfeld.net>
----
- drivers/clk/zynq/clkc.c | 8 ++++++++
- 1 file changed, 8 insertions(+)
+Applied, thanks!
 
-diff --git a/drivers/clk/zynq/clkc.c b/drivers/clk/zynq/clkc.c
-index 6a22cbbc1..777187744 100644
---- a/drivers/clk/zynq/clkc.c
-+++ b/drivers/clk/zynq/clkc.c
-@@ -186,7 +186,11 @@ static void __init zynq_clk_register_periph_clk(enum zynq_clk clk0,
- 	spin_lock_init(lock);
- 
- 	mux_name = kasprintf(GFP_KERNEL, "%s_mux", clk_name0);
-+	if (!mux_name)
-+		goto err_mux_name;
- 	div_name = kasprintf(GFP_KERNEL, "%s_div", clk_name0);
-+	if (!div_name)
-+		goto err_div_name;
- 
- 	clk_register_mux(NULL, mux_name, parents, 4,
- 			CLK_SET_RATE_NO_REPARENT, clk_ctrl, 4, 2, 0, lock);
-@@ -205,6 +209,10 @@ static void __init zynq_clk_register_periph_clk(enum zynq_clk clk0,
- 
- 	return;
- 
-+err_div_name:
-+	kfree(mux_name);
-+err_mux_name:
-+	kfree(lock);
- err:
- 	clks[clk0] = ERR_PTR(-ENOMEM);
- 	if (two_gates)
+[1/2] dt-bindings: arm: fsl: Add SolidRun i.MX8DXL SoM and HummingBoard
+      commit: 5576da12dac3f360737a4fee990add0d42e2fc83
+[2/2] arm64: dts: imx8dxl: Add SolidRun SoM and HummingBoard
+      commit: e8a17d1cc036bb73a4f8f87def569502e7e2ea48
+
+Best regards,
 -- 
-2.54.0
-
+Frank Li <Frank.Li@nxp.com>
 
