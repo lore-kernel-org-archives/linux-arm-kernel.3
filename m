@@ -4,82 +4,81 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 5EC81CD5BD1
-	for <linux-arm-kernel@archiver.kernel.org>; Mon,  1 Jun 2026 22:28:26 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 0E6A3CD6E55
+	for <linux-arm-kernel@archiver.kernel.org>; Mon,  1 Jun 2026 22:28:39 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
 	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
 	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=t9kW9wxmbYR0zK6wTk5cssPV12k29fXpKDHVyEt5l6g=; b=xSiar7ZUYmLcGEMWKgazqBFQ5L
-	O9YvLVE9ByvbV6TcltHqEI2tRcxWmWT4L+zbSkcXAoFEjUu6JhYVZrWjlhkMABOdeGO47Udr9rQQE
-	P1WqKTFrLkQoh5UvfFEik+0AP8WPZsFXa+DB8Bg3qgqLrbpaXCe8hdMG7MewnZN296WseSv5tKGEg
-	qIPeSMuaYcu+DR04MtOKi4RSGYIizRq3Gf5Z07PTvbdFub18oCLpfvDh7eK1+433f5QYmBKi4Za5P
-	U3L6hVwEeqfZebgvxrNqI6gXoIZx0dH0gkDwMigC8POoiPdWqySeUYlgRHYyy1IEuPqnk2fPt8fwA
-	OXr2sueg==;
+	bh=BUpb7HT4m15XVVBLdFS9FongkPN47oZiE3d0bUHdpT8=; b=fb9kHYsB9xNAK8XIBownHfCaqU
+	0s7yjMBqNErBDopqxlCOaRqZ9dJfmz3aROumX1olZdH6btzOflBWfeHiPe001ne00z9EmRMickqFd
+	qzjR40CfMP9aeapuv06gsPAjY8PAR9xiD9EdfPfvD2fSvgUWAXN1Ywuor0zZ0YFs2y8uAhYAsQUhZ
+	GNaA7eWx1esij/JMo7Q9AGxStCCGpbADx3+l1CPqcuY851yKFDgh+ASGwjyoZIM4eA/v4ytI5mJ/3
+	iydrXuBH+sh+Tgdo0ufEC2dF5f9BBnjzq1V9jbBH003yoApijpc7TszitWzIwGG2O50HDkbbXTNi9
+	aK3IYATg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wUB7L-0000000BwH9-3iMa;
-	Mon, 01 Jun 2026 22:28:19 +0000
-Received: from tor.source.kernel.org ([2600:3c04:e001:324:0:1991:8:25])
+	id 1wUB7Z-0000000BwKG-0JYq;
+	Mon, 01 Jun 2026 22:28:33 +0000
+Received: from sender4-pp-f112.zoho.com ([136.143.188.112])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wUB7K-0000000BwGq-0xuD
-	for linux-arm-kernel@lists.infradead.org;
-	Mon, 01 Jun 2026 22:28:18 +0000
-Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
-	by tor.source.kernel.org (Postfix) with ESMTP id 54B276001D;
-	Mon,  1 Jun 2026 22:28:17 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 9F3D71F00893;
-	Mon,  1 Jun 2026 22:28:16 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1780352897;
-	bh=t9kW9wxmbYR0zK6wTk5cssPV12k29fXpKDHVyEt5l6g=;
-	h=Date:From:To:Cc:Subject:References:In-Reply-To;
-	b=kkEMaOzk11QJr+Q7Sr/AQBjqPi1yH/uZhUKLQJj1zni60iihNwEZy8zCtJ4CboOJd
-	 73A8dNgNWdmoZfGgoE6rFir6mtHM05eSZ5PPzyq4pRHkMzD584vIdBRn9Daain4l8i
-	 ntv/VxdH1CXhptzix/FwRz4d/+E138PMtZv3hDF+32WMbjomSSA+GvQo3YBOcnEbgP
-	 NWGp297AQqntrIqiUhSp9V5Gtd0xSBbnLcLHpbp1jtlgjk6EawzCHjM4lSIctypMAs
-	 gB49wFWNUQ6lDrObYrMIKmdybuUNUaanjBhBRFnAfhiP5Ir0Oyg2ULplrVZEb5qdf3
-	 oyPpwbAZshTgQ==
-Date: Mon, 1 Jun 2026 15:28:15 -0700
-From: Oliver Upton <oupton@kernel.org>
-To: Steffen Eiden <seiden@linux.ibm.com>
-Cc: kvm@vger.kernel.org, kvmarm@lists.linux.dev,
-	linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org,
-	linux-s390@vger.kernel.org,
-	Alexander Gordeev <agordeev@linux.ibm.com>,
-	Andreas Grapentin <gra@linux.ibm.com>,
-	Arnd Bergmann <arnd@arndb.de>,
-	Catalin Marinas <catalin.marinas@arm.com>,
-	Christian Borntraeger <borntraeger@linux.ibm.com>,
-	Claudio Imbrenda <imbrenda@linux.ibm.com>,
-	David Hildenbrand <david@kernel.org>,
-	Friedrich Welter <fritz@linux.ibm.com>,
-	Gautam Gala <ggala@linux.ibm.com>,
-	Hariharan Mari <hari55@linux.ibm.com>,
-	Heiko Carstens <hca@linux.ibm.com>,
-	Hendrik Brueckner <brueckner@linux.ibm.com>,
-	Ilya Leoshkevich <iii@linux.ibm.com>,
-	Janosch Frank <frankja@linux.ibm.com>,
-	Joey Gouly <joey.gouly@arm.com>, Marc Zyngier <maz@kernel.org>,
-	Nico Boehr <nrb@linux.ibm.com>,
-	Nina Schoetterl-Glausch <oss@nina.schoetterlglausch.eu>,
-	Paolo Bonzini <pbonzini@redhat.com>,
-	Suzuki K Poulose <suzuki.poulose@arm.com>,
-	Sven Schnelle <svens@linux.ibm.com>,
-	Ulrich Weigand <Ulrich.Weigand@de.ibm.com>,
-	Vasily Gorbik <gor@linux.ibm.com>, Will Deacon <will@kernel.org>,
-	Zenghui Yu <yuzenghui@huawei.com>
-Subject: Re: [PATCH v1 09/26] KVM: arm64: Refactor idreg caching into
- dedicated structure
-Message-ID: <ah4Hf7IiX77uiGfn@kernel.org>
-References: <20260529155601.2927240-1-seiden@linux.ibm.com>
- <20260529155601.2927240-10-seiden@linux.ibm.com>
+	id 1wUB7V-0000000BwJ4-1o3u;
+	Mon, 01 Jun 2026 22:28:31 +0000
+ARC-Seal: i=1; a=rsa-sha256; t=1780352881; cv=none; 
+	d=zohomail.com; s=zohoarc; 
+	b=PVFgPC70ErGaEqeSeHjwE2C+cB5bHar7/PSYof40VZPvXovCrOnKYTpSgecOjAGXESM2WrhArffEO92DABYXv/MxbRDraiE7udlw7YgdvRhBGAU3KmANVRwlbkpczO2MMZQ7Vm1iPXuajjfOtdgAlP0Xkfgy4HUhBxCpr7E6xuE=
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=zohomail.com; s=zohoarc; 
+	t=1780352881; h=Content-Type:Cc:Cc:Date:Date:From:From:In-Reply-To:MIME-Version:Message-ID:References:Subject:Subject:To:To:Message-Id:Reply-To; 
+	bh=BUpb7HT4m15XVVBLdFS9FongkPN47oZiE3d0bUHdpT8=; 
+	b=WGgU/IrWHyxgNT2lx0ISRqqyAsgubwNaSJyyd3guT6LnC49oBN12F8r2MX7BSAwyYh6l2VAQqzMApiW7oi1WEqC7hv4+iAYS517knha5cKALMtajpIKgd/c0IXuQ4t2ZyvTKVxdUOkwRgGjsCpRTK4AxONpOzzrdE31ZG/vjKE4=
+ARC-Authentication-Results: i=1; mx.zohomail.com;
+	dkim=pass  header.i=collabora.com;
+	spf=pass  smtp.mailfrom=sebastian.reichel@collabora.com;
+	dmarc=pass header.from=<sebastian.reichel@collabora.com>
+DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed; t=1780352881;
+	s=zohomail; d=collabora.com; i=sebastian.reichel@collabora.com;
+	h=Date:Date:From:From:To:To:Cc:Cc:Subject:Subject:Message-ID:References:MIME-Version:Content-Type:In-Reply-To:Message-Id:Reply-To;
+	bh=BUpb7HT4m15XVVBLdFS9FongkPN47oZiE3d0bUHdpT8=;
+	b=I/NlyQ3Q6+Ye1gVvzV2ArOX9glIRXM7xR5m/PVVvimlFqn9UmtHhH71v7AoywFON
+	zNXCzPKXKy02ILEhHbM2H4o3PqosEYlGIoevZfh7HKy9bUDKsDUTOPZyeJgqIe1l0TD
+	qkREDonolDGSFmZ/rc/UWG1Xx1vydAuLYFirsjA4=
+Received: by mx.zohomail.com with SMTPS id 1780352878700771.4001220854549;
+	Mon, 1 Jun 2026 15:27:58 -0700 (PDT)
+Received: by venus (Postfix, from userid 1000)
+	id 8CFFE183854; Tue, 02 Jun 2026 00:27:51 +0200 (CEST)
+Date: Tue, 2 Jun 2026 00:27:51 +0200
+From: Sebastian Reichel <sebastian.reichel@collabora.com>
+To: Chaoyi Chen <kernel@airkyi.com>
+Cc: Andrzej Hajda <andrzej.hajda@intel.com>, 
+	Neil Armstrong <neil.armstrong@linaro.org>, Robert Foss <rfoss@kernel.org>, 
+	Laurent Pinchart <Laurent.pinchart@ideasonboard.com>, Jonas Karlman <jonas@kwiboo.se>, 
+	Jernej Skrabec <jernej.skrabec@gmail.com>, Maarten Lankhorst <maarten.lankhorst@linux.intel.com>, 
+	Maxime Ripard <mripard@kernel.org>, Thomas Zimmermann <tzimmermann@suse.de>, 
+	David Airlie <airlied@gmail.com>, Simona Vetter <simona@ffwll.ch>, 
+	Sandy Huang <hjc@rock-chips.com>, Heiko =?utf-8?Q?St=C3=BCbner?= <heiko@sntech.de>, 
+	Andy Yan <andy.yan@rock-chips.com>, Vinod Koul <vkoul@kernel.org>, 
+	Heikki Krogerus <heikki.krogerus@linux.intel.com>, Dmitry Baryshkov <dmitry.baryshkov@oss.qualcomm.com>, 
+	Luca Ceresoli <luca.ceresoli@bootlin.com>, linux-kernel@vger.kernel.org, dri-devel@lists.freedesktop.org, 
+	linux-arm-kernel@lists.infradead.org, linux-rockchip@lists.infradead.org, 
+	linux-phy@lists.infradead.org, Chaoyi Chen <chaoyi.chen@rock-chips.com>
+Subject: Re: [PATCH 2/5] drm/bridge: aux: Add
+ drm_aux_bridge_register_from_node()
+Message-ID: <ah4HP0VuZEFUaLlt@venus>
+References: <20260521032854.103-1-kernel@airkyi.com>
+ <20260521032854.103-3-kernel@airkyi.com>
 MIME-Version: 1.0
-Content-Type: text/plain; charset=us-ascii
+Content-Type: multipart/signed; micalg=pgp-sha512;
+	protocol="application/pgp-signature"; boundary="2xib44wq3r7nfz4n"
 Content-Disposition: inline
-In-Reply-To: <20260529155601.2927240-10-seiden@linux.ibm.com>
+In-Reply-To: <20260521032854.103-3-kernel@airkyi.com>
+X-Zoho-Virus-Status: 1
+X-Zoho-AV-Stamp: zmail-av-0.2.2.1.5.2/280.325.56
+X-ZohoMailClient: External
+X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
+X-CRM114-CacheID: sfid-20260601_152829_505081_414A5659 
+X-CRM114-Status: GOOD (  24.49  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -94,142 +93,152 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Fri, May 29, 2026 at 05:55:42PM +0200, Steffen Eiden wrote:
-> +struct kvm_vm_id_regs {
-> +	/*
-> +	 * Emulated CPU ID registers per VM
-> +	 * (Op0, Op1, CRn, CRm, Op2) of the ID registers to be saved in it
-> +	 * is (3, 0, 0, crm, op2), where 1<=crm<8, 0<=op2<8.
-> +	 *
-> +	 * These emulated idregs are VM-wide, but accessed from the context of a vCPU.
-> +	 * Atomic access to multiple idregs are guarded by kvm_arch.config_lock.
-> +	 */
-> +#define IDREG_IDX(id)		(((sys_reg_CRm(id) - 1) << 3) | sys_reg_Op2(id))
-> +#define KVM_ARM_ID_REG_NUM	(IDREG_IDX(sys_reg(3, 0, 0, 7, 7)) + 1)
-> +	u64 normal[KVM_ARM_ID_REG_NUM];
 
-nit: ftr_reg would be slightly more clear.
+--2xib44wq3r7nfz4n
+Content-Type: text/plain; protected-headers=v1; charset=us-ascii
+Content-Disposition: inline
+Content-Transfer-Encoding: quoted-printable
+Subject: Re: [PATCH 2/5] drm/bridge: aux: Add
+ drm_aux_bridge_register_from_node()
+MIME-Version: 1.0
 
-Thanks,
-Oliver
+Hi,
 
-> +	u64 midr_el1;
-> +	u64 revidr_el1;
-> +	u64 aidr_el1;
-> +	u64 ctr_el0;
-> +};
+On Thu, May 21, 2026 at 11:28:51AM +0800, Chaoyi Chen wrote:
+> From: Chaoyi Chen <chaoyi.chen@rock-chips.com>
+>=20
+> The drm_aux_bridge_register() uses the device->of_node as the
+> bridge->of_node.
+>=20
+> This patch adds drm_aux_bridge_register_from_node() to allow
+> specifying the of_node corresponding to the bridge.
+>=20
+> Signed-off-by: Chaoyi Chen <chaoyi.chen@rock-chips.com>
+> Reviewed-by: Neil Armstrong <neil.armstrong@linaro.org>
+> ---
+
+Reviewed-by: Sebastian Reichel <sebastian.reichel@collabora.com>
+
+Greetings,
+
+-- Sebastian
+
+>  drivers/gpu/drm/bridge/aux-bridge.c | 24 ++++++++++++++++++++++--
+>  include/drm/bridge/aux-bridge.h     |  6 ++++++
+>  2 files changed, 28 insertions(+), 2 deletions(-)
+>=20
+> diff --git a/drivers/gpu/drm/bridge/aux-bridge.c b/drivers/gpu/drm/bridge=
+/aux-bridge.c
+> index 1ed21a8713bf..f50283abed5f 100644
+> --- a/drivers/gpu/drm/bridge/aux-bridge.c
+> +++ b/drivers/gpu/drm/bridge/aux-bridge.c
+> @@ -35,6 +35,7 @@ static void drm_aux_bridge_unregister_adev(void *_adev)
+>  /**
+>   * drm_aux_bridge_register - Create a simple bridge device to link the c=
+hain
+>   * @parent: device instance providing this bridge
+> + * @np: device node pointer corresponding to this bridge instance
+>   *
+>   * Creates a simple DRM bridge that doesn't implement any drm_bridge
+>   * operations. Such bridges merely fill a place in the bridge chain link=
+ing
+> @@ -42,7 +43,7 @@ static void drm_aux_bridge_unregister_adev(void *_adev)
+>   *
+>   * Return: zero on success, negative error code on failure
+>   */
+> -int drm_aux_bridge_register(struct device *parent)
+> +int drm_aux_bridge_register_from_node(struct device *parent, struct devi=
+ce_node *np)
+>  {
+>  	struct auxiliary_device *adev;
+>  	int ret;
+> @@ -62,7 +63,10 @@ int drm_aux_bridge_register(struct device *parent)
+>  	adev->dev.parent =3D parent;
+>  	adev->dev.release =3D drm_aux_bridge_release;
+> =20
+> -	device_set_of_node_from_dev(&adev->dev, parent);
+> +	if (np)
+> +		device_set_node(&adev->dev, of_fwnode_handle(np));
+> +	else
+> +		device_set_of_node_from_dev(&adev->dev, parent);
+> =20
+>  	ret =3D auxiliary_device_init(adev);
+>  	if (ret) {
+> @@ -80,6 +84,22 @@ int drm_aux_bridge_register(struct device *parent)
+> =20
+>  	return devm_add_action_or_reset(parent, drm_aux_bridge_unregister_adev,=
+ adev);
+>  }
+> +EXPORT_SYMBOL_GPL(drm_aux_bridge_register_from_node);
 > +
-> +static inline u64 *__vm_id_reg(struct kvm_vm_id_regs *id_regs, u32 reg)
+> +/**
+> + * drm_aux_bridge_register - Create a simple bridge device to link the c=
+hain
+> + * @parent: device instance providing this bridge
+> + *
+> + * Creates a simple DRM bridge that doesn't implement any drm_bridge
+> + * operations. Such bridges merely fill a place in the bridge chain link=
+ing
+> + * surrounding DRM bridges.
+> + *
+> + * Return: zero on success, negative error code on failure
+> + */
+> +int drm_aux_bridge_register(struct device *parent)
+> +{
+> +	return drm_aux_bridge_register_from_node(parent, NULL);
+> +}
+>  EXPORT_SYMBOL_GPL(drm_aux_bridge_register);
+> =20
+>  struct drm_aux_bridge_data {
+> diff --git a/include/drm/bridge/aux-bridge.h b/include/drm/bridge/aux-bri=
+dge.h
+> index c2f5a855512f..7dd1f17a1354 100644
+> --- a/include/drm/bridge/aux-bridge.h
+> +++ b/include/drm/bridge/aux-bridge.h
+> @@ -13,11 +13,17 @@ struct auxiliary_device;
+> =20
+>  #if IS_ENABLED(CONFIG_DRM_AUX_BRIDGE)
+>  int drm_aux_bridge_register(struct device *parent);
+> +int drm_aux_bridge_register_from_node(struct device *parent, struct devi=
+ce_node *np);
+>  #else
+>  static inline int drm_aux_bridge_register(struct device *parent)
 >  {
->  	switch (reg) {
->  	case sys_reg(3, 0, 0, 1, 0) ... sys_reg(3, 0, 0, 7, 7):
-> -		return &ka->id_regs[IDREG_IDX(reg)];
-> +		return &id_regs->normal[IDREG_IDX(reg)];
->  	case SYS_CTR_EL0:
-> -		return &ka->ctr_el0;
-> +		return &id_regs->ctr_el0;
->  	case SYS_MIDR_EL1:
-> -		return &ka->midr_el1;
-> +		return &id_regs->midr_el1;
->  	case SYS_REVIDR_EL1:
-> -		return &ka->revidr_el1;
-> +		return &id_regs->revidr_el1;
->  	case SYS_AIDR_EL1:
-> -		return &ka->aidr_el1;
-> +		return &id_regs->aidr_el1;
->  	default:
->  		WARN_ON_ONCE(1);
->  		return NULL;
-> @@ -1419,7 +1423,7 @@ static inline u64 *__vm_id_reg(struct kvm_arch *ka, u32 reg)
->  }
->  
->  #define kvm_read_vm_id_reg(kvm, reg)					\
-> -	({ u64 __val = *__vm_id_reg(&(kvm)->arch, reg); __val; })
-> +	({ u64 __val = *__vm_id_reg(&(kvm)->arch.id_regs, reg); __val; })
->  
->  void kvm_set_vm_id_reg(struct kvm *kvm, u32 reg, u64 val);
->  
-> diff --git a/arch/arm64/kvm/config.c b/arch/arm64/kvm/config.c
-> index 014fe04daabf..58a439c3ab9c 100644
-> --- a/arch/arm64/kvm/config.c
-> +++ b/arch/arm64/kvm/config.c
-> @@ -1398,7 +1398,7 @@ void __init check_feature_map(void)
->  
->  static bool idreg_feat_match(struct kvm *kvm, const struct reg_bits_to_feat_map *map)
->  {
-> -	u64 regval = kvm->arch.id_regs[map->regidx];
-> +	u64 regval = kvm->arch.id_regs.normal[map->regidx];
->  	u64 regfld = (regval >> map->shift) & GENMASK(map->width - 1, 0);
->  
->  	if (map->sign) {
-> diff --git a/arch/arm64/kvm/hyp/nvhe/pkvm.c b/arch/arm64/kvm/hyp/nvhe/pkvm.c
-> index eb1c10120f9f..94620f142f42 100644
-> --- a/arch/arm64/kvm/hyp/nvhe/pkvm.c
-> +++ b/arch/arm64/kvm/hyp/nvhe/pkvm.c
-> @@ -343,7 +343,7 @@ static void pkvm_init_features_from_host(struct pkvm_hyp_vm *hyp_vm, const struc
->  	DECLARE_BITMAP(allowed_features, KVM_VCPU_MAX_FEATURES);
->  
->  	/* CTR_EL0 is always under host control, even for protected VMs. */
-> -	hyp_vm->kvm.arch.ctr_el0 = host_kvm->arch.ctr_el0;
-> +	hyp_vm->kvm.arch.id_regs.ctr_el0 = host_kvm->arch.id_regs.ctr_el0;
->  
->  	/* Preserve the vgic model so that GICv3 emulation works */
->  	hyp_vm->kvm.arch.vgic.vgic_model = host_kvm->arch.vgic.vgic_model;
-> @@ -358,7 +358,7 @@ static void pkvm_init_features_from_host(struct pkvm_hyp_vm *hyp_vm, const struc
->  			    KVM_VCPU_MAX_FEATURES);
->  
->  		if (test_bit(KVM_ARCH_FLAG_WRITABLE_IMP_ID_REGS, &host_arch_flags))
-> -			hyp_vm->kvm.arch.midr_el1 = host_kvm->arch.midr_el1;
-> +			hyp_vm->kvm.arch.id_regs.midr_el1 = host_kvm->arch.id_regs.midr_el1;
->  
->  		return;
->  	}
-> @@ -493,7 +493,8 @@ static int vm_copy_id_regs(struct pkvm_hyp_vcpu *hyp_vcpu)
->  	if (test_and_set_bit(KVM_ARCH_FLAG_ID_REGS_INITIALIZED, &kvm->arch.flags))
->  		return 0;
->  
-> -	memcpy(kvm->arch.id_regs, host_kvm->arch.id_regs, sizeof(kvm->arch.id_regs));
-> +	memcpy(kvm->arch.id_regs.normal, host_kvm->arch.id_regs.normal,
-> +	       sizeof(kvm->arch.id_regs.normal));
->  
 >  	return 0;
 >  }
-> diff --git a/arch/arm64/kvm/hyp/nvhe/sys_regs.c b/arch/arm64/kvm/hyp/nvhe/sys_regs.c
-> index b5a0de84ce01..e8d773d38905 100644
-> --- a/arch/arm64/kvm/hyp/nvhe/sys_regs.c
-> +++ b/arch/arm64/kvm/hyp/nvhe/sys_regs.c
-> @@ -292,7 +292,7 @@ static u64 read_id_reg(const struct kvm_vcpu *vcpu,
->  		return 0;
->  
->  	if (reg >= sys_reg(3, 0, 0, 1, 0) && reg <= sys_reg(3, 0, 0, 7, 7))
-> -		return kvm->arch.id_regs[IDREG_IDX(reg)];
-> +		return kvm->arch.id_regs.normal[IDREG_IDX(reg)];
->  
->  	return 0;
->  }
-> @@ -543,7 +543,7 @@ void kvm_init_pvm_id_regs(struct kvm_vcpu *vcpu)
->  	 * for protected VMs.
->  	 */
->  	for (r = sys_reg(3, 0, 0, 4, 0); r <= sys_reg(3, 0, 0, 7, 7); r += sys_reg(0, 0, 0, 0, 1))
-> -		ka->id_regs[IDREG_IDX(r)] = pvm_calc_id_reg(vcpu, r);
-> +		ka->id_regs.normal[IDREG_IDX(r)] = pvm_calc_id_reg(vcpu, r);
->  
->  	set_bit(KVM_ARCH_FLAG_ID_REGS_INITIALIZED, &kvm->arch.flags);
->  }
-> diff --git a/arch/arm64/kvm/sys_regs.c b/arch/arm64/kvm/sys_regs.c
-> index b9aa892616ab..195ecdac7bd6 100644
-> --- a/arch/arm64/kvm/sys_regs.c
-> +++ b/arch/arm64/kvm/sys_regs.c
-> @@ -2477,7 +2477,7 @@ static int set_id_reg(struct kvm_vcpu *vcpu, const struct sys_reg_desc *rd,
->  
->  void kvm_set_vm_id_reg(struct kvm *kvm, u32 reg, u64 val)
->  {
-> -	u64 *p = __vm_id_reg(&kvm->arch, reg);
-> +	u64 *p = __vm_id_reg(&kvm->arch.id_regs, reg);
->  
->  	lockdep_assert_held(&kvm->arch.config_lock);
->  
-> -- 
+> +
+> +static inline int drm_aux_bridge_register_from_node(struct device *paren=
+t, struct device_node *np)
+> +{
+> +	return 0;
+> +}
+>  #endif
+> =20
+>  #if IS_ENABLED(CONFIG_DRM_AUX_HPD_BRIDGE)
+> --=20
 > 2.53.0
-> 
+>=20
+>=20
+
+--2xib44wq3r7nfz4n
+Content-Type: application/pgp-signature; name="signature.asc"
+
+-----BEGIN PGP SIGNATURE-----
+
+iQIzBAABCgAdFiEE72YNB0Y/i3JqeVQT2O7X88g7+poFAmoeB18ACgkQ2O7X88g7
++ppogQ//WqinHkPcYFScjtlm9f1ggBxhA9aLxXMnPrZaONmiRW25hCm83sEXJU4H
+g/uQA6oeHUzF3zuaZ4U2ObSMC8X6CBSTbzPZ5LpKZxE1767quTuqL92tNgiyYfwr
+Jm1EJdNzw/Ij/X4D8D3V7fyqJEbr/YhMMsNRX32RPJXyz8sq7rWs7UORhJL9H83N
++v62SxuuL6dTn5f1B60Bjq5zdL/pq2pxrdgDzd+QiRVX6u/4UIlk1iP5NM+Wgchc
+WsPwbUOryyXkVhAu+TAvC+nKxxYg4fuQdC+dnmgXnLc0CaKfOZf8MChaRhVxKhOT
+CAqamGlaWX8kEiPcUNk83H6qFA36zJcpzS+H2vwceJqzW/WfE/WrBj5r2KvTs+Ze
+OTYAr+BRXA/193Mqd5VuvZ8dzldMj4SdygcuYfoNOl43nFs/UJxs/KyEH7KHtLXp
+kyfTlskWVlm7ddDXI2SSBaoftjI/ZmcuT6Sd0lJH+fYTqsQfePz3pZIb9hRK36Es
++3ASREKLL9x/2C0eM++BVx6jK8KAlE3tlO8xNgi/0pLnW/vUI4Zvm6UNftxY6gIo
+wfpY1pWgWlz4MVBCHA2ifWqUmU86zuFVOuLsQVriO6R9PfaqkuG53ZX7Dmobh4iY
+oZOEX5QW60mRzh+zeTWiOQ0IklFhzR7bUEG/GH313hqf+scDbsU=
+=aeh0
+-----END PGP SIGNATURE-----
+
+--2xib44wq3r7nfz4n--
 
