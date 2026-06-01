@@ -4,83 +4,117 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 454ACCD6E55
-	for <linux-arm-kernel@archiver.kernel.org>; Mon,  1 Jun 2026 10:48:38 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 5CD8BCD6E56
+	for <linux-arm-kernel@archiver.kernel.org>; Mon,  1 Jun 2026 10:49:15 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:
-	Content-Transfer-Encoding:Content-Type:MIME-Version:References:Message-ID:
-	Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:Resent-Date:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:
+	Content-Transfer-Encoding:MIME-Version:References:In-Reply-To:Message-ID:Date
+	:Subject:CC:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=DND/VxlREnIMV/BHBmA7o3UorgoYPAYDa9JA71INeWY=; b=RtE1NKWhBznKMbUlCR9LMqqdN/
-	7Jgvc6vJefuu3wFhV2NDCaV1Bd2zt4w5VFXNmP9XrQV1uBrbtGidUT40vlqEfxFv3XLTx/zUUNvyv
-	y6zo8dtJWQNz5uJkLdzXIFCrooafbEgpUUzAHS7CoigixDhjyAkPm6CS9ohR5umZyf7uWS2BnsPdN
-	mngBxOXTgydMIQhtsgOIcKf0wSH8gMoUrFHW1BAMB96Y4Uh9sDa33MWLvqjksCCFjkFjxSM7MN7Fb
-	V4ETD7pizRDPpwQ3izbwRM0vqlMZoJFbg7OBRtROt+oluwb2bhISPmxBqVmGdII6SgBYk0RALCqgd
-	e+hcOHYw==;
+	bh=q6jTRTil8r0amgpoQzoNkjOKV+KT8dF40vkuibwtKSg=; b=FmfxsmXnn3JujD7ReEbX3d2Wkn
+	BjXKI9RDGDhXvUHi+1HmNSddYxW/18xDKRFvExZlEE1426xZN/mPI2pHcB5PiDd2Pb5W3JbekwxT8
+	uayRklt96y9gigzGUEKLppDMJXORe1U0v847JAfBeAlrlpcrjMAEWqlnTri0zzvzBIM9jF3cHzMDc
+	P9SkJplm1Rrcl6k1EzjVEcG5apN58jVsDjthbQThG0clqDeT1j5foGpVEs4QChR3J3SpXAayLdJKh
+	XYv5ZUFCY1Oppreps7/7BEUvtfuRmt4DpNI7s1v5Xqwrcz9hkLoIfBetKf08g6oAmGpKqsnccn4q8
+	3yzsZsAA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wU0C8-0000000AekH-0Frn;
-	Mon, 01 Jun 2026 10:48:32 +0000
-Received: from desiato.infradead.org ([2001:8b0:10b:1:d65d:64ff:fe57:4e05])
+	id 1wU0Cj-0000000Aeow-19Sy;
+	Mon, 01 Jun 2026 10:49:09 +0000
+Received: from mail-westusazon11012022.outbound.protection.outlook.com ([52.101.43.22] helo=SJ2PR03CU001.outbound.protection.outlook.com)
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wU0C6-0000000Aejy-40WA
-	for linux-arm-kernel@bombadil.infradead.org;
-	Mon, 01 Jun 2026 10:48:30 +0000
-DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=infradead.org; s=desiato.20200630; h=In-Reply-To:Content-Transfer-Encoding:
-	Content-Type:MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:
-	Sender:Reply-To:Content-ID:Content-Description;
-	bh=DND/VxlREnIMV/BHBmA7o3UorgoYPAYDa9JA71INeWY=; b=G90FabTJVApzqe650va42nsXw2
-	DGOia66ZkkkiWkclF72XbAVt4g+7Hk2t5Q9S24PE7AW5R9D+pFLikz3e6m+U7dLZX7QurRGKghJFa
-	0WhyOUq4Nbf1+4Pa6Bxpxp49RSP2LMTTG/dCoDbC+zqIC+4B2PfwHlI2Ey/e1zJCJKv7e0Uf1Wp+2
-	fK6L3esSECgSqE3/9hkLPIzyU6jpDiBZdNot+fE4gr8B+w8m3XfQXBmKSunlaNOgQhslEjqJwdKW2
-	ywO5HqLhYIKYjuX/DVxEsIPPxCNkWNZsBGn8abpCMhdZqziNUIbIonyVPHXXiiBuRfaTQxGuylYY6
-	IJ31VDPQ==;
-Received: from foss.arm.com ([217.140.110.172])
-	by desiato.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wU0C3-00000006S7z-0zBD
+	id 1wU0Cg-0000000AeoE-0oce
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 01 Jun 2026 10:48:29 +0000
-Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
-	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id 1D7C1176B;
-	Mon,  1 Jun 2026 03:48:20 -0700 (PDT)
-Received: from localhost (e132581.arm.com [10.1.196.87])
-	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id 5D2023F905;
-	Mon,  1 Jun 2026 03:48:24 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=simple/simple; d=arm.com; s=foss;
-	t=1780310905; bh=vq7v/eZo0978WXJgs9YTv2H2GgZImRyHXcQrp2ees5k=;
-	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
-	b=pAJIFqJhF/tTwSYuujWia2xGW7MdCs5MYXG9HuSEV7fVkdK6ORU1xbE6eJluGBQik
-	 V39B9fMAurHhqpKyTseAABX2HThb5zRLI/vb6myCiA0OMICZyYYjUqEAyllxMOpGN+
-	 Uw31s4wnFLwOfftaFrkGXTEruaAhyOiO4EOAokoY=
-Date: Mon, 1 Jun 2026 11:48:21 +0100
-From: Leo Yan <leo.yan@arm.com>
-To: "Yingchao Deng (Consultant)" <quic_yingdeng@quicinc.com>
-Cc: Yingchao Deng <yingchao.deng@oss.qualcomm.com>,
-	Suzuki K Poulose <suzuki.poulose@arm.com>,
-	Mike Leach <mike.leach@arm.com>,
-	James Clark <james.clark@linaro.org>,
-	Alexander Shishkin <alexander.shishkin@linux.intel.com>,
-	coresight@lists.linaro.org, linux-arm-kernel@lists.infradead.org,
-	linux-kernel@vger.kernel.org, linux-arm-msm@vger.kernel.org,
-	jinlong.mao@oss.qualcomm.com, tingwei.zhang@oss.qualcomm.com,
-	jie.gan@oss.qualcomm.com
-Subject: Re: [PATCH v9 4/4] coresight: cti: expose banked sysfs registers for
- Qualcomm extended CTI
-Message-ID: <20260601104821.GM101133@e132581.arm.com>
-References: <20260521-extended_cti-v9-0-d21f4f92c51e@oss.qualcomm.com>
- <20260521-extended_cti-v9-4-d21f4f92c51e@oss.qualcomm.com>
- <20260529153200.GL101133@e132581.arm.com>
- <84614238-35dd-4b10-8267-488d840033c4@quicinc.com>
+	Mon, 01 Jun 2026 10:49:07 +0000
+ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
+ b=Z48FJiDWJuoeKZoyf40QiqyDeumOSs/NCxy6zHeTozKk7brMZd1m2oeRKYbdrwj9GxybN+VfvzJvHY90kxRXnNg0aaAHjEHebATTcEhGbkDK5s+DwJDDXXNJLuxLIqFZI8+qlS5xVUH0HqCbFPY1KHe7q75I2lE+Ba/NUgj0HMLWQjQfAKgTLduoLWy+NhLuphgxiuo+pXEttVJJURzIxdcwTqZ+5PRhCCyXGv0AaA+M3Bm4xQY88b5UI/9xKGUCz7R2IXO9Z/U0z+msXtr2hztPRUssmBYVQ5tK9Gu3clvA6k7IiOca/byvbDKYvs91fXvv8u08RppWvFYy5fbFxQ==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
+ s=arcselector10001;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
+ bh=q6jTRTil8r0amgpoQzoNkjOKV+KT8dF40vkuibwtKSg=;
+ b=OhNW4TdUJFMsMHHuAQQTSPcppgWB7XlaGRn7oxN+WLHYi9ysEQwobsPF4ny+cdOdbgYBcADT+72/Du2RtgBy34XxHz/9Aj27QJ76uRvC2yJyR5xc5BGuTuILti2wmd4b1VttegT9Dx/5sQTGB5m/Pyn1Jfb/qmr297dSwtN6ujDESNgRKXYO+jfKUURR4I48ehXHV51I3wsM8MZHneUcJZyZuv42hCkFu+Zz2xmFrXjZwTCB/7rbgXXDzqQYrtnc3J1gQkLsawlj8xrHBp95NA9/I/rEC0DVk1ysiXoV+oK4Wo7vjVq2qJayrjDdGKsNjR1kFIIQ/tlRnBO9XJSheQ==
+ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass (sender ip is
+ 216.228.118.232) smtp.rcpttodomain=kernel.org smtp.mailfrom=nvidia.com;
+ dmarc=pass (p=reject sp=reject pct=100) action=none header.from=nvidia.com;
+ dkim=none (message not signed); arc=none (0)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=Nvidia.com;
+ s=selector2;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
+ bh=q6jTRTil8r0amgpoQzoNkjOKV+KT8dF40vkuibwtKSg=;
+ b=Hf4RkrtYcDzO+yH279hlgDOKoRoM3G911zmRktmCqNUghf4hqwGKYZb1mKB+rTp/uhjkhxMKdVAiGRBptE8yk7w4IUTkBjAvGJ6rpjc+deuInmK8HsshvesBCXywwOtsSTNCqR3C6PWgLWvgtvUYBEyRfoRBXHSJEFOytqejLLXQtBlO8+Qs5KVokiZPN3n/rdoheEC9y7Hn+mgeXoSNKxDjuPgTrN+zStbdG1M6+/qfCab1/PT2CMsM2/whYhDjQ5TrKNpxUP9neoXA5e3D74MRiUA4bJiSq5zSq/08nJG2sDLmBvU+xJirGskYNfhoaSAgy3wqRWQt7C43DA9JGQ==
+Received: from SJ0PR03CA0298.namprd03.prod.outlook.com (2603:10b6:a03:39e::33)
+ by MN2PR12MB4335.namprd12.prod.outlook.com (2603:10b6:208:1d4::13) with
+ Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.21.71.16; Mon, 1 Jun 2026
+ 10:48:59 +0000
+Received: from SJ1PEPF000023D7.namprd21.prod.outlook.com
+ (2603:10b6:a03:39e:cafe::3e) by SJ0PR03CA0298.outlook.office365.com
+ (2603:10b6:a03:39e::33) with Microsoft SMTP Server (version=TLS1_3,
+ cipher=TLS_AES_256_GCM_SHA384) id 15.21.71.17 via Frontend Transport; Mon, 1
+ Jun 2026 10:48:59 +0000
+X-MS-Exchange-Authentication-Results: spf=pass (sender IP is 216.228.118.232)
+ smtp.mailfrom=nvidia.com; dkim=none (message not signed)
+ header.d=none;dmarc=pass action=none header.from=nvidia.com;
+Received-SPF: Pass (protection.outlook.com: domain of nvidia.com designates
+ 216.228.118.232 as permitted sender) receiver=protection.outlook.com;
+ client-ip=216.228.118.232; helo=mail.nvidia.com; pr=C
+Received: from mail.nvidia.com (216.228.118.232) by
+ SJ1PEPF000023D7.mail.protection.outlook.com (10.167.244.72) with Microsoft
+ SMTP Server (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
+ 15.21.92.0 via Frontend Transport; Mon, 1 Jun 2026 10:48:59 +0000
+Received: from drhqmail203.nvidia.com (10.126.190.182) by mail.nvidia.com
+ (10.127.129.5) with Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.2.2562.20; Mon, 1 Jun
+ 2026 03:48:48 -0700
+Received: from drhqmail202.nvidia.com (10.126.190.181) by
+ drhqmail203.nvidia.com (10.126.190.182) with Microsoft SMTP Server
+ (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
+ 15.2.2562.20; Mon, 1 Jun 2026 03:48:48 -0700
+Received: from build-amhetre-focal-20250829.internal (10.127.8.12) by
+ mail.nvidia.com (10.126.190.181) with Microsoft SMTP Server id 15.2.2562.20
+ via Frontend Transport; Mon, 1 Jun 2026 03:48:48 -0700
+From: Ashish Mhetre <amhetre@nvidia.com>
+To: <will@kernel.org>, <robin.murphy@arm.com>, <joro@8bytes.org>,
+	<jgg@ziepe.ca>, <nicolinc@nvidia.com>
+CC: <linux-arm-kernel@lists.infradead.org>, <iommu@lists.linux.dev>,
+	<linux-kernel@vger.kernel.org>, <linux-tegra@vger.kernel.org>, Ashish Mhetre
+	<amhetre@nvidia.com>
+Subject: [PATCH v3 1/3] iommu/arm-smmu-v3: Factor out CMDQ batch force-sync conditions
+Date: Mon, 1 Jun 2026 10:48:43 +0000
+Message-ID: <20260601104845.995005-2-amhetre@nvidia.com>
+X-Mailer: git-send-email 2.50.1
+In-Reply-To: <20260601104845.995005-1-amhetre@nvidia.com>
+References: <20260601104845.995005-1-amhetre@nvidia.com>
 MIME-Version: 1.0
-Content-Type: text/plain; charset=utf-8
-Content-Disposition: inline
+X-NVConfidentiality: public
 Content-Transfer-Encoding: 8bit
-In-Reply-To: <84614238-35dd-4b10-8267-488d840033c4@quicinc.com>
+Content-Type: text/plain
+X-NV-OnPremToCloud: ExternallySecured
+X-EOPAttributedMessage: 0
+X-MS-PublicTrafficType: Email
+X-MS-TrafficTypeDiagnostic: SJ1PEPF000023D7:EE_|MN2PR12MB4335:EE_
+X-MS-Office365-Filtering-Correlation-Id: 21caffa8-edd4-44f6-e3fa-08debfcb62e8
+X-MS-Exchange-SenderADCheck: 1
+X-MS-Exchange-AntiSpam-Relay: 0
+X-Microsoft-Antispam: BCL:0;ARA:13230040|82310400026|1800799024|376014|36860700016|18002099003|22082099003|56012099006|11063799006;
+X-Microsoft-Antispam-Message-Info: d3DtTG3SO8+2BDERgkO2SVI882oDTEY+R3E81mh8XwprE7W+kdXfdqpizSZ2TyK8odrIATEr71BG7+yQJzAn0TPwL2U9OtUc2o8leZhSzE5qe06400bANnqbpXxCGimnbKpQ5QnYg2B06PCok7oPEjTfmjCK0Ajqi/qHPb+rnhdAfig76STZivlUAcDvth1oWAulKSv69gvfaN4AToWHlG39bu6n1ubZg81dvBDjhjaDOixqupNL15lgp9kEUZynaMkoi15evabRwsMnrfdnV7Tq/7AzfrLYpw+kq0emwmV1CVRwKbLw+7bsNunf+dxGOivVqAWXgCqPTd8bCmc6hmDlkPZDNyN7DqHJrvqYz/rReT0Xe1WAbiBGZFclfl+A7AIimRyWXo3I1VTyck3B/El061mqQev0MTtzCH5w2L01VlepGqI6qeGWJkc20F6DgVbMjiEEYUf7T+ycstHTTWhndThRMfV8WuPaxekmhP7GRkYg3+2rtX2D5TxmvYpULudF7QcXdch2hmkvjkI5uiMGAdvwBU9/eBjaxweUdl8MWouHPFb+nZxeZUntQ5Iu+WKdxv5dMvaEv3sC/PSKmnvkvIVbf2ynts+NvJMysj0VhcF3Zoo0w94JU5qWV2khoF0Z4d7yOw2uWDi6S0svT6rtQPeA4fQqvVyjbiwUdajPnXclkurIrwRJbPMnioWcFi1uHbGIx7wYkJcnKQ1n/CtxkcqNfv7RsFIQ2+EnEtY=
+X-Forefront-Antispam-Report: CIP:216.228.118.232;CTRY:US;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:mail.nvidia.com;PTR:dc7edge1.nvidia.com;CAT:NONE;SFS:(13230040)(82310400026)(1800799024)(376014)(36860700016)(18002099003)(22082099003)(56012099006)(11063799006);DIR:OUT;SFP:1101;
+X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
+X-MS-Exchange-AntiSpam-MessageData-0: iTIs9+ghRE2+Lp2dp99DgnTDMsw9ZMdCwT9LiRShv0qXbKCsR0rYqIUtWEyRhU4p5T3VCS+zunUBPUqvCP3l8pMY5GMTGE/oS/pSiNs0QVHc1XoGBHbiBGQVaN/Jv0G931MkEnWobMzk4F7S6km7Tg9rDlC9T6X9lqLQfOCdgn6pSPgdBLa3AwlmH+zLZipMci5+Of61kFQi8f+KDYit7WRzOCqVaOFwdOycDM9ZgCT4qV2GB6CMvhHOFQjKYq+hdmkhwmz72bP56ZMdmczPEt2Eqo8SXOmhUJSPuEKVyjds35G5eXh9Hq+6KSSrXPw5DcJopX5xbO6ZnQ3oii6dhvWxdSlafDuJrQMqUXBZiZRZLcSGspibXKHznrXPG54pUoUJOaDQwkt97cc6LoMm/zdzE2mGjh1uvdNsejWxfu5EM+Y9OiBPzro86+z4BIMX
+X-OriginatorOrg: Nvidia.com
+X-MS-Exchange-CrossTenant-OriginalArrivalTime: 01 Jun 2026 10:48:59.1594
+ (UTC)
+X-MS-Exchange-CrossTenant-Network-Message-Id: 21caffa8-edd4-44f6-e3fa-08debfcb62e8
+X-MS-Exchange-CrossTenant-Id: 43083d15-7273-40c1-b7db-39efd9ccc17a
+X-MS-Exchange-CrossTenant-OriginalAttributedTenantConnectingIp: TenantId=43083d15-7273-40c1-b7db-39efd9ccc17a;Ip=[216.228.118.232];Helo=[mail.nvidia.com]
+X-MS-Exchange-CrossTenant-AuthSource: SJ1PEPF000023D7.namprd21.prod.outlook.com
+X-MS-Exchange-CrossTenant-AuthAs: Anonymous
+X-MS-Exchange-CrossTenant-FromEntityHeader: HybridOnPrem
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: MN2PR12MB4335
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260601_114828_130289_F2C0E574 
-X-CRM114-Status: GOOD (  13.50  )
+X-CRM114-CacheID: sfid-20260601_034906_244547_D9DC7B16 
+X-CRM114-Status: GOOD (  12.29  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -95,96 +129,68 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Mon, Jun 01, 2026 at 10:08:55AM +0800, Yingchao Deng (Consultant) wrote:
+From: Nicolin Chen <nicolinc@nvidia.com>
 
-[...]
+arm_smmu_cmdq_batch_add_cmd_p() carries two distinct reasons for
+flushing the current batch with a CMD_SYNC before appending the
+new command:
 
->   I noticed that among the new sysfs knobs in this series, the
->   integration test registers (ittrigin[1-3], ittrigout[1-3],
->   ittrigoutack[1-3], ittriginack[1-3]) have no existing documentation
->   for their base (index-0) counterparts, which were added long before
->   this series.
+  - The batch's pre-assigned cmdq does not support the new command.
+  - The Arm erratum 2812531 workaround (ARM_SMMU_OPT_CMDQ_FORCE_SYNC)
+    forces a SYNC at one entry before the batch is full.
 
-Ah, thanks for pointing out the missed piece!
+Lift those checks into a new arm_smmu_cmdq_batch_force_sync() helper
+so that adding another force-sync condition becomes a one-line
+addition. No functional change.
 
->   Two options for patch 5/5:
-> 
->     (a) Document only the knobs whose base versions are already
->         documented (triginstatus[1-3] and trigoutstatus[1-3]).
-> 
->     (b) Document everything in patch 5/5 — both the new indexed
->         variants and the previously missing base IT register entries.
+Signed-off-by: Nicolin Chen <nicolinc@nvidia.com>
+Signed-off-by: Ashish Mhetre <amhetre@nvidia.com>
+---
+ drivers/iommu/arm/arm-smmu-v3/arm-smmu-v3.c | 26 ++++++++++++++++-----
+ 1 file changed, 20 insertions(+), 6 deletions(-)
 
-Please use option (b). Could you fold the code piece below into patch 5?
-
-Note, we cannot merge ittrigin and ittrigin[1-3] into a single entry
-because they were introduced in different kernel versions.
-
-@Mike, if any chance you could give a review on this?
-
----8<---
-
---- a/Documentation/ABI/testing/sysfs-bus-coresight-devices-cti
-+++ b/Documentation/ABI/testing/sysfs-bus-coresight-devices-cti
-@@ -134,6 +134,60 @@ KernelVersion:	5.7
- Contact:	Mike Leach or Mathieu Poirier
- Description:	(Read) read current status of output trigger signals.
+diff --git a/drivers/iommu/arm/arm-smmu-v3/arm-smmu-v3.c b/drivers/iommu/arm/arm-smmu-v3/arm-smmu-v3.c
+index 9be589d14a3b..4d29bd343460 100644
+--- a/drivers/iommu/arm/arm-smmu-v3/arm-smmu-v3.c
++++ b/drivers/iommu/arm/arm-smmu-v3/arm-smmu-v3.c
+@@ -847,16 +847,30 @@ static void arm_smmu_cmdq_batch_init_cmd(struct arm_smmu_device *smmu,
+ 	cmds->cmdq = arm_smmu_get_cmdq(smmu, cmd);
+ }
  
-+What:		/sys/bus/coresight/devices/<cti-name>/regs/itctrl
-+Date:		March 2020
-+KernelVersion	5.7
-+Contact:	coresight@lists.linaro.org
-+Description:	(RW) Control integration mode.
++static bool arm_smmu_cmdq_batch_force_sync(struct arm_smmu_device *smmu,
++					   struct arm_smmu_cmdq_batch *cmds,
++					   struct arm_smmu_cmd *cmd)
++{
++	if (!cmds->num)
++		return false;
 +
-+What:		/sys/bus/coresight/devices/<cti-name>/regs/itchin
-+Date:		March 2020
-+KernelVersion	5.7
-+Contact:	coresight@lists.linaro.org
-+Description:	(Read) Read the values of the CTCHIN inputs.
++	/* The batch's pre-assigned cmdq doesn't support the new command */
++	if (!arm_smmu_cmdq_supports_cmd(cmds->cmdq, cmd))
++		return true;
 +
-+What:		/sys/bus/coresight/devices/<cti-name>/regs/itchinack
-+Date:		March 2020
-+KernelVersion	5.7
-+Contact:	coresight@lists.linaro.org
-+Description:	(Write) Write the value of the CTCHINACK input.
++	/* Arm erratum 2812531 */
++	if (cmds->num == CMDQ_BATCH_ENTRIES - 1 &&
++	    (smmu->options & ARM_SMMU_OPT_CMDQ_FORCE_SYNC))
++		return true;
 +
-+What:		/sys/bus/coresight/devices/<cti-name>/regs/ittrigin
-+Date:		March 2020
-+KernelVersion	5.7
-+Contact:	coresight@lists.linaro.org
-+Description:	(Read) Read the values of the CTTRIGIN inputs.
++	return false;
++}
 +
-+What:		/sys/bus/coresight/devices/<cti-name>/regs/ittriginack
-+Date:		March 2020
-+KernelVersion	5.7
-+Contact:	coresight@lists.linaro.org
-+Description:	(Write) Write the value of the CTTRIGINACK input.
-+
-+What:		/sys/bus/coresight/devices/<cti-name>/regs/itchout
-+Date:		March 2020
-+KernelVersion	5.7
-+Contact:	coresight@lists.linaro.org
-+Description:	(RW) Read or write the value of the CTCHOUT outputs.
-+
-+What:		/sys/bus/coresight/devices/<cti-name>/regs/itchoutack
-+Date:		March 2020
-+KernelVersion	5.7
-+Contact:	coresight@lists.linaro.org
-+Description:	(Read) Read the value of the CTCHOUTACK input.
-+
-+What:		/sys/bus/coresight/devices/<cti-name>/regs/ittrigout
-+Date:		March 2020
-+KernelVersion	5.7
-+Contact:	coresight@lists.linaro.org
-+Description:	(RW) Read or write the value of the CTTRIGOUT outputs.
-+
-+What:		/sys/bus/coresight/devices/<cti-name>/regs/ittrigoutack
-+Date:		March 2020
-+KernelVersion	5.7
-+Contact:	coresight@lists.linaro.org
-+Description:	(Read) Read the value of the CTTRIGOUTACK input.
-+
- What:		/sys/bus/coresight/devices/<cti-name>/channels/trigin_attach
- Date:		March 2020
- KernelVersion:	5.7
+ static void arm_smmu_cmdq_batch_add_cmd_p(struct arm_smmu_device *smmu,
+ 					  struct arm_smmu_cmdq_batch *cmds,
+ 					  struct arm_smmu_cmd *cmd)
+ {
+-	bool force_sync = (cmds->num == CMDQ_BATCH_ENTRIES - 1) &&
+-			  (smmu->options & ARM_SMMU_OPT_CMDQ_FORCE_SYNC);
+-	bool unsupported_cmd;
+-
+-	unsupported_cmd = !arm_smmu_cmdq_supports_cmd(cmds->cmdq, cmd);
+-	if (force_sync || unsupported_cmd) {
++	if (arm_smmu_cmdq_batch_force_sync(smmu, cmds, cmd)) {
+ 		arm_smmu_cmdq_issue_cmdlist(smmu, cmds->cmdq, cmds->cmds,
+ 					    cmds->num, true);
+ 		arm_smmu_cmdq_batch_init_cmd(smmu, cmds, cmd);
+-- 
+2.50.1
+
 
