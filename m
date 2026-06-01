@@ -4,71 +4,62 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 347A1CD5BD1
-	for <linux-arm-kernel@archiver.kernel.org>; Mon,  1 Jun 2026 20:06:23 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 0A930CD6E55
+	for <linux-arm-kernel@archiver.kernel.org>; Mon,  1 Jun 2026 20:06:31 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:Cc:To:Subject:Message-ID:Date:From:In-Reply-To:References:
-	MIME-Version:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=s14BrCNKw5biHzAbTs/7/BHxIivmPKRyhGyt3zFJ42s=; b=N1g/V7mVQ6zxbQGmuC5Ijx7Syk
-	2mzVAMfkLwk5we8GOkiYcbVjFXwpSxpCEt0vdhEzXmLpL1IRWIaw7tRSYz3SjAruGR1RdL0WF6hMa
-	WS85TsLFBaD4JorBZZ+rhde2oFZtYWhXOahrA7XP9hpCRFT+3CpCFAha/4G1CN+WZKs+Ysp74I44w
-	3829+RoPNKh8cO9U6rVgGYcOWtBaOlvH2/6uQ3vmJJsgVDRd+1DBFOocZPvz1qsiKI2HTbVUocLtK
-	67D/DTRJaaf3YD29KWhom5P2Cv44ddAdjexKNsWpFGbEpd/XfVQo48EEf5OGGW3UlaFoe0ZuaSLgG
-	K0lY/9Dg==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=CWHMpsxWnohP4Px+QryuliaXaq7V2BV1HAII16bRoaE=; b=hgiopXWStsoiIx9RKtIyRKb4AC
+	xNt6QzKlu6/IX69WUCHsEY3kUVucma5rNpuh3NO13Qfsx8v9hVT7rUO6Dji1W0XhhIrE3Rmad4dEy
+	BTq1ELaKoq6n3aOgP2FpvJzaJXUrxXDHjQ9N+f3o4uikIYvL0SL0uTlGTk8vOy8Ft7sMngenNorT0
+	aU0fb3P9n4z9MgqPeEB/yVG7KBDllIwtCgrbY2AjdkrLlWwjf7EP4WnHyGbd323xSDJxyTgEUDRwy
+	VjiaB446NjSQPhBD3Wef1Eg+CLx3EOM8L0J5DCstgss/VsIGxmzP2o44YVcRRJROmYo3EP5bK9g5c
+	CAavDxrg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wU8tt-0000000BkbZ-1dU1;
-	Mon, 01 Jun 2026 20:06:17 +0000
-Received: from sea.source.kernel.org ([172.234.252.31])
+	id 1wU8tw-0000000Bkcb-21hM;
+	Mon, 01 Jun 2026 20:06:20 +0000
+Received: from tor.source.kernel.org ([2600:3c04:e001:324:0:1991:8:25])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wU8tq-0000000Bkb4-3pz9
+	id 1wU8tv-0000000Bkbu-0xjy
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 01 Jun 2026 20:06:16 +0000
+	Mon, 01 Jun 2026 20:06:19 +0000
 Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
-	by sea.source.kernel.org (Postfix) with ESMTP id 55E30402C7
-	for <linux-arm-kernel@lists.infradead.org>; Mon,  1 Jun 2026 20:06:14 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 3A41D1F00893
-	for <linux-arm-kernel@lists.infradead.org>; Mon,  1 Jun 2026 20:06:14 +0000 (UTC)
+	by tor.source.kernel.org (Postfix) with ESMTP id AD1D6601E5;
+	Mon,  1 Jun 2026 20:06:18 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 375E01F00899;
+	Mon,  1 Jun 2026 20:06:18 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1780344374;
-	bh=s14BrCNKw5biHzAbTs/7/BHxIivmPKRyhGyt3zFJ42s=;
-	h=References:In-Reply-To:From:Date:Subject:To:Cc;
-	b=kLQxdGdNOe4WAEbHBkITeF72kb2AlxBmTVmE3SUR+hxPNzSrxMJ3Dc2M8M3fwuDhb
-	 dMA+dyw0besE/LJl+JFci2ecBZdwLXJJZGxXRrkuJZMNIUUTCF2nHBuDrLlLHIGvwp
-	 1x3YsaXmjrQt2XDXtF3TV5gijfYdJq52cj2KoouXuMbbzvE2AOxMLEtQk2HB13VbfD
-	 LUYlJvdW0+ZLC0IdPNdLNIppnxjLDAvwdNlAec2Oc1VPhxr4OUIZFhZBMt2zakDqjX
-	 FKiliHyUxtDVmdvCqgyx8TGYSIga8SqoYqU7l0ywT/PQJGktU0i7Dj1qKwIgrXLtcy
-	 Ct35td3mH45zg==
-Received: by mail-lf1-f45.google.com with SMTP id 2adb3069b0e04-5aa5e0d57e5so2010430e87.1
-        for <linux-arm-kernel@lists.infradead.org>; Mon, 01 Jun 2026 13:06:14 -0700 (PDT)
-X-Forwarded-Encrypted: i=1; AFNElJ9FlPk+1pKlWb0q5+TYczshhevAjHSe+OF7E0q68kcFZ/upTGlYk1/D8UwfCWxiEP50NWR63CBsb29LQHML3CnR@lists.infradead.org
-X-Gm-Message-State: AOJu0YwH3xzReKTnHHys6VaL2AL3q1rNmfExu/XxNUbRrkxPlH5FddhF
-	mDi/cHm2V7a1B3ThueLM0vv+W3819xnJrHOsrGJ06EZ3KZmex0e2dEtr/xm6FfgNLJc/oZl/QH3
-	KBK1TlgQyoeIyrHxQM2hmHFyf8HGZ5g0=
-X-Received: by 2002:a05:6512:1250:b0:5aa:6cfc:771e with SMTP id
- 2adb3069b0e04-5aa6cfc7c86mr1598474e87.2.1780344373039; Mon, 01 Jun 2026
- 13:06:13 -0700 (PDT)
+	s=k20260515; t=1780344378;
+	bh=CWHMpsxWnohP4Px+QryuliaXaq7V2BV1HAII16bRoaE=;
+	h=Date:From:To:Cc:Subject:References:In-Reply-To;
+	b=KVTHEsmOSMN+SRz4NIUG1DEoFBhGVQCBBAqR/W/sprFelK/BkAYEHNbvDVQmqEwmU
+	 iDO9SBnHwz5A/1vREXsMEK2Rg+UUiKEbwLw+t+YoPUlAg+pTDmfbdDqZLLX8oQjUpS
+	 wfxlspOINYDHUhQcPyhlewInq39MxtIfqVUykBvH4XTuYhj3e3OV2vEZQSrbXb5mBA
+	 2Imqw8JfqCZFTqCQsmGFZr2R2ICNvs/kuNP794H9J+hU/b+UcUGRCde5k63TA+BO8j
+	 VFXdS/OiXoJA66kBKw+K6MvDyEn04cErjnsnvtiDQCRuSbEVGlbgt7kCcBBtJIV45i
+	 hGfpQ3iV9eYtg==
+Date: Mon, 1 Jun 2026 13:06:17 -0700
+From: Oliver Upton <oupton@kernel.org>
+To: Congkai Tan <congkai@amazon.com>
+Cc: kvmarm@lists.linux.dev, linux-arm-kernel@lists.infradead.org,
+	Marc Zyngier <maz@kernel.org>, Joey Gouly <joey.gouly@arm.com>,
+	Suzuki K Poulose <suzuki.poulose@arm.com>,
+	Zenghui Yu <yuzenghui@huawei.com>,
+	Catalin Marinas <catalin.marinas@arm.com>,
+	Will Deacon <will@kernel.org>, Mark Rutland <mark.rutland@arm.com>,
+	Haris Okanovic <harisokn@amazon.com>,
+	Geoff Blake <blakgeof@amazon.com>, linux-kernel@vger.kernel.org
+Subject: Re: [PATCH] KVM: arm64: Expose PMMIR_EL1.SLOTS to guests
+Message-ID: <ah3mObchzwb80_3S@kernel.org>
+References: <20260601193954.2103455-1-congkai@amazon.com>
 MIME-Version: 1.0
-References: <16fc7412-c470-4f3f-b6c8-55c35698a424@linaro.org>
-In-Reply-To: <16fc7412-c470-4f3f-b6c8-55c35698a424@linaro.org>
-From: Linus Walleij <linusw@kernel.org>
-Date: Mon, 1 Jun 2026 22:06:00 +0200
-X-Gmail-Original-Message-ID: <CAD++jLkiZD6tyUW6k2wt_TD3MeLNVDZNa0N+Rhwb0mAAGfLMvA@mail.gmail.com>
-X-Gm-Features: AVHnY4K0SnpwSd7TlxazfH13zL4pKXTV_yuQj-jItkV28NmyUihecMzf4bInR58
-Message-ID: <CAD++jLkiZD6tyUW6k2wt_TD3MeLNVDZNa0N+Rhwb0mAAGfLMvA@mail.gmail.com>
-Subject: Re: [GIT PULL] amlogic ARM64 DT updates for v7.2 take 1
-To: Neil Armstrong <neil.armstrong@linaro.org>
-Cc: soc@kernel.org, arm@kernel.org, linux-amlogic@lists.infradead.org, 
-	linux-arm-kernel@lists.infradead.org
-Content-Type: text/plain; charset="UTF-8"
-Content-Transfer-Encoding: quoted-printable
-X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260601_130614_997105_D8D69220 
-X-CRM114-Status: UNSURE (   9.00  )
-X-CRM114-Notice: Please train this message.
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+In-Reply-To: <20260601193954.2103455-1-congkai@amazon.com>
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -83,47 +74,107 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hi Neil,
+Hi Congkai,
 
-thanks for your pull request!
+On Mon, Jun 01, 2026 at 07:39:54PM +0000, Congkai Tan wrote:
+> Commit 46081078feb4 ("KVM: arm64: Upgrade PMU support to ARMv8.4")
+> trapped PMMIR_EL1 as RAZ/WI and masked STALL_SLOT* from PMCEID1 to
+> discourage guests from relying on a register they could not read.
+> 
+> Forward the SLOTS field of PMMIR_EL1 so that the perf userspace tool
+> can read the correct value from
+> /sys/bus/event_source/devices/armv8_pmuv3_0/caps/slots. Today, perf
+> stat fails with message "Failure to read '#slots'" because it can
+> only read 0x0 from the sysfs location, causing the parsing failure
+> of the default metrics.
+> 
+> Fix this by:
+> 1. Adding an access_pmmir() handler that reads arm_pmu->reg_pmmir
+>    and returns a masked value containing only the SLOTS field [7:0]
+>    to the guest. Other PMMIR_EL1 fields are kept as RAZ to limit
+>    the extra information that this change exposes; individual
+>    fields can be unmasked as KVM gains support for each feature.
+> 2. Removing the STALL_SLOT, STALL_SLOT_FRONTEND and STALL_SLOT_BACKEND
+>    mask in PMCEID1. The mask existed to hide these events under the
+>    sysfs events/ directory when PMMIR_EL1 was RAZ; with SLOTS now
+>    readable they should be correctly exposed.
+> 
+> Tested on Graviton 2 (Neoverse N1, pre-PMUv3p4), Graviton 3
+> (Neoverse V1) and Graviton 4 (Neoverse V2) metal hosts with QEMU:
+> caps/slots reads 0x00000008 in guests on Graviton 3/4 and 0x00000000
+> on Graviton 2 (correct for pre-PMUv3p4). perf stat correctly
+> evaluates the default metrics.
+> 
+> Fixes: 46081078feb4 ("KVM: arm64: Upgrade PMU support to ARMv8.4")
+> Cc: stable@vger.kernel.org
 
-On Thu, May 21, 2026 at 3:19=E2=80=AFPM Neil Armstrong
-<neil.armstrong@linaro.org> wrote:
+This is not stable-worthy, nor is it a bugfix. As KVM presently does not
+implement the STALL_SLOTS* events, PMMIR_EL0.SLOTS = 0 is a legal
+implementation of FEAT_PMUv3p4.
 
->        arm64: dts: amlogic: t7: khadas-vim4: Remove invalid property
+> ---
+>  arch/arm64/kvm/pmu-emul.c | 11 +----------
+>  arch/arm64/kvm/sys_regs.c | 26 ++++++++++++++++++++++++--
+>  2 files changed, 25 insertions(+), 12 deletions(-)
+> 
+> diff --git a/arch/arm64/kvm/pmu-emul.c b/arch/arm64/kvm/pmu-emul.c
+> index e1860acae641..bafd5a258927 100644
+> --- a/arch/arm64/kvm/pmu-emul.c
+> +++ b/arch/arm64/kvm/pmu-emul.c
+> @@ -864,16 +864,7 @@ static u64 compute_pmceid0(struct arm_pmu *pmu)
+>  
+>  static u64 compute_pmceid1(struct arm_pmu *pmu)
+>  {
+> -	u64 val = __compute_pmceid(pmu, 1);
+> -
+> -	/*
+> -	 * Don't advertise STALL_SLOT*, as PMMIR_EL0 is handled
+> -	 * as RAZ
+> -	 */
+> -	val &= ~(BIT_ULL(ARMV8_PMUV3_PERFCTR_STALL_SLOT - 32) |
+> -		 BIT_ULL(ARMV8_PMUV3_PERFCTR_STALL_SLOT_FRONTEND - 32) |
+> -		 BIT_ULL(ARMV8_PMUV3_PERFCTR_STALL_SLOT_BACKEND - 32));
+> -	return val;
+> +	return __compute_pmceid(pmu, 1);
+>  }
 
-This commit has a problematic Fixes:
+Make the change to PMCEID1 in a separate patch from PMMIR_EL1.
 
-commit 6f14ba3c3fa3d67b72e052f431f6776470eb2cbd
-Author: Ronald Claveau <linux-kernel-dev@aliel.fr>
-Date:   Mon Mar 30 14:11:21 2026 +0200
+> +/*
+> + * Expose only PMMIR_EL1.SLOTS to the guest, which is consumed by perf in its
+> + * topdown default metric group. Other PMMIR_EL1 fields remain RAZ. Future
+> + * patches can extend the exposed mask incrementally as KVM gains support for
+> + * those features.
+> + */
+> +static bool access_pmmir(struct kvm_vcpu *vcpu, struct sys_reg_params *p,
+> +			 const struct sys_reg_desc *r)
+> +{
+> +	struct arm_pmu *cpu_pmu = vcpu->kvm->arch.arm_pmu;
+> +
+> +	if (p->is_write)
+> +		return write_to_read_only(vcpu, p, r);
+> +
+> +	if (check_pmu_access_disabled(vcpu, 0))
+> +		return false;
+> +
+> +	p->regval = cpu_pmu->reg_pmmir & ARMV8_PMU_SLOTS;
+> +	return true;
+> +}
+> +
 
-    arm64: dts: amlogic: t7: khadas-vim4: Remove invalid property
+We can't change the value of PMMIR_EL1 unconditionally since older KVM
+treated this register as RAZ/WI. This also mixes poorly with the default
+PMU garbage that we have since as the value of the register can change
+based on where KVM_ARM_VCPU_INIT gets called...
 
-    Fix introduced invalid property for Khadas VIM4 sdcard regulator.
+Considering everything, I'd like to see this wired up where:
 
-    arch/arm64/boot/dts/amlogic/amlogic-t7-a311d2-khadas-vim4.dtb:
-regulator-sdcard-3v3 (regulator-fixed): Unevaluated properties are not
-allowed ('enable-active-low' was unexpected)
+ - PMMIR_EL1.SLOTS takes the value of the underlying hardware PMU only
+   if the VMM explicitly selects a particular PMU implementation
 
-    Reported-by: kernel test robot <lkp@intel.com>
-    Closes: https://lore.kernel.org/oe-kbuild-all/202603290828.5gt393t6-lkp=
-@intel.com/
-    Fixes: 60eff75ac67b ("arm64: dts: amlogic: t7: khadas-vim4: Add
-power regulators")
-    Reviewed-by: Krzysztof Kozlowski <krzysztof.kozlowski@oss.qualcomm.com>
-    Signed-off-by: Ronald Claveau <linux-kernel-dev@aliel.fr>
-    Link: https://patch.msgid.link/20260330-fix-invalid-property-v2-1-228c5=
-1c8de93@aliel.fr
-    Signed-off-by: Neil Armstrong <neil.armstrong@linaro.org>
+ - KVM allows userspace to set PMMIR_EL1.SLOTS=0 for backwards
+   compatibility
 
-Commit 60eff75ac67b does not exist in the SoC tree nor in Torvalds'
-tree.
-
-What's up here, it looks incorrect?
-
-Can you look into it?
-
-Yours,
-Linus Walleij
+Thanks,
+Oliver
 
