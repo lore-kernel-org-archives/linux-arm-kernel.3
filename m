@@ -4,62 +4,59 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 57F9CCD5BD1
-	for <linux-arm-kernel@archiver.kernel.org>; Mon,  1 Jun 2026 15:54:17 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 30509CD5BD1
+	for <linux-arm-kernel@archiver.kernel.org>; Mon,  1 Jun 2026 16:06:29 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
 	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
 	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=eFK98zJBVlExZPZ7BYPDcuAkfMaYtqhrE5uX7SuoqxU=; b=3PQl1qUS4W+TyoXEwOV2/Q8iHx
-	vGFIJbzwJ7qJYoN+YfNDZHKoX2uMAmuMn4vIh9lm1pAoDPQyEwquUMH/KbDGGWWMyAyRskbs9Y+lx
-	OWnhhT1E5Jvg1gLFDL6JfXSDYqNdBErKHIzGxv70kW0ckOYmkf10bwVu2jkiVQs2OGEAZZlGTKloI
-	xKjO/uAsr2Sb2ZGlh/99fkutmhB3z7e0R2QLdA7MduzMkQpKsdFcVXodYIH7e6uVffSxNbw1TZyQc
-	MNCbiTu5vefApJLRj0A+Quy8jAlSDPCRexJYFGbrtmf23/mcxVyD8eBrvS4nlhUEnp1xqPpitmKxo
-	YtZSq3JQ==;
+	bh=kS/140q1KYIt9nS75TO3Zn/k6H05m95K0Z3RWECza+U=; b=urkG46P+pf2n2aW4XI9u2sEAcb
+	01zbR/9NKLiARJrj1fkGox3mA3m7gD/lpR4WzKY/kxC1JvpRS6jRtc3q2q3o5x8ORI84U40sliqDY
+	QuF5SxKo9AQSTwdtBCzsZi1GU1BvuVcd5dIYTfupFt/MYfq0tkJIvOaRjeg4sbvG2U489r+cMBKY5
+	qLHgra2fthi/CfA+9xhyDX0kf255LKJO3OTDIbGz4yw86GKbrwgvnKQFUvbR6sj7QRBay19/pnteG
+	RF4JX7eJgvBmu+Mg3dOARixTHIqNOU2HN1YuV551soCDJnraMrVGObwPA08/xH5iYddM856+nxmrd
+	FV6sNlkA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wU4xu-0000000BQ0v-3S5q;
-	Mon, 01 Jun 2026 15:54:11 +0000
-Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
+	id 1wU59f-0000000BQl5-2Jja;
+	Mon, 01 Jun 2026 16:06:19 +0000
+Received: from zeus03.de ([194.117.254.33] helo=mail.zeus03.de)
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wU4xs-0000000BQ0E-0LWa
+	id 1wU59b-0000000BQkV-2SKM
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 01 Jun 2026 15:54:09 +0000
-Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
-	by sea.source.kernel.org (Postfix) with ESMTP id 0ECCD40B4B;
-	Mon,  1 Jun 2026 15:54:06 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 7C9EB1F00898;
-	Mon,  1 Jun 2026 15:54:05 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1780329245;
-	bh=eFK98zJBVlExZPZ7BYPDcuAkfMaYtqhrE5uX7SuoqxU=;
-	h=Date:From:To:Cc:Subject:References:In-Reply-To;
-	b=b2Z6eq++QWvIC1YxNs1Ew6Po6agmLyUDGb0pdVyijseE+LFJWf4Jcm43ScTjaNq/M
-	 NSVeA9ZrKi4Xo7Hvb64/jo0zR6k9r9XkStJzqGe1oWzmLcaUbIAyDdQDzLChJScbI8
-	 0qqIf7ZD6VcXIhAu3hhIj18lmdUPnFfgmdQNnLafgloWR/ZvBjl/4Twuy3l56d/ksV
-	 KOQ60LzUlo/sW9HGYxF5wT/K5zuPA8/Xj8V9+ehZigk+w/DvShiqRCjSkXuM0QBFiY
-	 CuZmWRRkEtTisN25GtmADlxBeH1KMy6KoxO3sTSzim7h05Nh0X4QdcZUN4MJHVARo2
-	 7e5YA/4o7gA8Q==
-Date: Mon, 1 Jun 2026 15:54:03 +0000
-From: Eric Biggers <ebiggers@kernel.org>
-To: Tianchu Chen <tianchu.chen@linux.dev>
-Cc: clabbe.montjoie@gmail.com, herbert@gondor.apana.org.au,
-	jernej.skrabec@gmail.com, linux-arm-kernel@lists.infradead.org,
-	linux-crypto@vger.kernel.org, linux-kernel@vger.kernel.org,
-	linux-sunxi@lists.linux.dev, samuel@sholland.org,
-	stable@vger.kernel.org, wens@kernel.org
-Subject: Re: [PATCH] crypto: sun4i-ss - Remove insecure and unused rng_alg
-Message-ID: <20260601155403.GB17375@google.com>
-References: <d52449abfd8e1e46c8bfe9ebdc00d931fc0e4147@linux.dev>
+	Mon, 01 Jun 2026 16:06:18 +0000
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=
+	sang-engineering.com; h=date:from:to:cc:subject:message-id
+	:references:mime-version:content-type:in-reply-to; s=k1; bh=kS/1
+	40q1KYIt9nS75TO3Zn/k6H05m95K0Z3RWECza+U=; b=EHYuhi30bul1KP9zXjp4
+	GDnp5GGNa1psLSTEmTfucGVCKjbBv3durzxCKcSG1suyZm4q5BSOQopiW0nOOonS
+	4kmQjce0jdUS8dMxly0Uc+c0geap/4IrCvul/r5DuSEahdofmXoh4XaKb3/bpJ1n
+	R+3nQC94OB/LZLa8r9qfxzPtMzcuaiY6NjPeXgliPko5Lwoqf9B8c9wSNBNC57kC
+	CsORTnYVMT3tSe3KCEiq/xhUVQhC94YeqSRA+clyr28ewbaxIIb/97yDP6wlPnMV
+	q2Xxy6KDt/1XhMBlkhxOoE7LdvhFpeBGn7DUjL1IMOzIApEok0v1IxXBIESi77wT
+	1w==
+Received: (qmail 2553433 invoked from network); 1 Jun 2026 18:06:09 +0200
+Received: by mail.zeus03.de with ESMTPSA (TLS_AES_256_GCM_SHA384 encrypted, authenticated); 1 Jun 2026 18:06:09 +0200
+X-UD-Smtp-Session: l3s3148p1@ZhpjXzNTSoYujnub
+Date: Mon, 1 Jun 2026 18:06:08 +0200
+From: Wolfram Sang <wsa+renesas@sang-engineering.com>
+To: Geert Uytterhoeven <geert+renesas@glider.be>
+Cc: soc@lists.linux.dev, soc <soc@kernel.org>,
+	Magnus Damm <magnus.damm@gmail.com>,
+	linux-arm-kernel@lists.infradead.org,
+	linux-renesas-soc@vger.kernel.org
+Subject: Re: [GIT PULL 0/2] Renesas SoC updates for v7.2 (take two)
+Message-ID: <ah2t8FPZpJCF6CL7@shikoro>
+References: <cover.178031911driver8.git.geert+renesas@glider.be>
 MIME-Version: 1.0
 Content-Type: text/plain; charset=us-ascii
 Content-Disposition: inline
-In-Reply-To: <d52449abfd8e1e46c8bfe9ebdc00d931fc0e4147@linux.dev>
+In-Reply-To: <cover.178031911driver8.git.geert+renesas@glider.be>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260601_085408_143746_1D681641 
-X-CRM114-Status: GOOD (  19.72  )
+X-CRM114-CacheID: sfid-20260601_090616_495320_A197032C 
+X-CRM114-Status: GOOD (  15.23  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -74,44 +71,46 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Mon, Jun 01, 2026 at 09:19:23AM +0000, Tianchu Chen wrote:
-> From: Tianchu Chen <flynnnchen@tencent.com>
-> In-Reply-To: <20260529193648.18172-1-ebiggers@kernel.org>
-> References: <20260529193648.18172-1-ebiggers@kernel.org>
-> 
-> On Fri, May 29, 2026 at 12:36:48PM -0700, Eric Biggers wrote:
-> > Remove sun4i_ss_rng, as it is insecure and unused:
-> >
-> > - It has multiple vulnerabilities.  sun4i_ss_prng_seed() is missing
-> >   locking and has a buffer overflow.
-> 
-> Thanks for cleaning this up.
-> 
-> For the record, the sun4i_ss_prng_seed() buffer overflow you mention here
-> is the same issue we reported earlier with a targeted fix:
->   https://lore.kernel.org/linux-crypto/20260529194152.GA3628@quark/
-> 
-> It is an unauthenticated, unbounded memcpy() into the 24-byte ss->seed[]
-> buffer, reachable from any user via AF_ALG ALG_SET_KEY with no privileges
-> on affected Allwinner sun4i hardware.
-> 
-> Please note that this should be treated as a security fix. For the earlier
-> stable releases, keeping the rng_alg but adding a proper bounds check in
-> sun4i_ss_prng_seed() might still be a preferable option to consider.
-> 
-> Given the above, would you mind adding the following trailers to the commit
-> message?  Besides crediting the discovery and report, they would also make
-> this security issue easier to track and reference across the stable trees:
-> 
->   Discovered by Atuin - Automated Vulnerability Discovery Engine
->   Reported-by: Tianchu Chen <flynnnchen@tencent.com>
+Hi Geert,
 
-Yes I'll add those, sorry for forgetting them.
+On Mon, Jun 01, 2026 at 03:18:17PM +0200, Geert Uytterhoeven wrote:
+> 	Hi SoC folks,
+> 
+> This is my second pull request for the inclusion of Renesas SoC updates
+> for v7.2.
+> 
+> It consists of 2 parts:
+> 
+>   [GIT PULL 1/2] Renesas driver updates for v7.2 (take two)
+> 
+>     - Identify the R-Car M3Le SoC,
+>     - Add Multifunctional Interface (MFIS) support for R-Car V4H and V4M.
 
-I do think we should proceed with removal, seeing as this driver is
-unused, and I found three additional vulnerabilities in it.  So four
-security fixes would be needed.  But then we'd be removing the driver
-anyway due to it being pointless, so it would just be busy work.
+The bindings patch for this V4H update...
 
-- Eric
+> 
+>   [GIT PULL 2/2] Renesas DTS updates for v7.2 (take two)
+> 
+>     - Add timer (MTU3) and xSPI FLASH support for the RZ/T2H and RZ/N2H
+>       SoCs and their EVK boards,
+>     - Add PCIe support for the RZ/V2N SoC and the RZ/V2N EVK board,
+>     - Add support for the R-Car M3Le SoC and the Geist development board,
+>     - Specify ethernet PHY reset timings on various R-Car boards,
+>     - Add (more) serial, I2C, DMA, and sound support for the RZ/G3L SoC,
+>     - Add PSCI, Multifunctional Interface (MFIS), and SCMI support for the
+>       R-Car X5H SoC and Ironhide development board,
+
+... depends on the initial X5H binding addition in this pull request.
+
+>     - Add serial DMA support for the RZ/G2L SoC,
+>     - Add keyboard, I2C, Versa clock, and audio support for the RZ/G3L
+>       SMARC SoM and EVK boards,
+>     - Miscellaneous fixes and improvements.
+
+I am confused, does this really work?
+
+Thanks for your work,
+
+   Wolfram
+
 
