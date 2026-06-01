@@ -4,70 +4,107 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 789DFCD5BD1
-	for <linux-arm-kernel@archiver.kernel.org>; Mon,  1 Jun 2026 14:15:01 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id ABA4FCD5BD1
+	for <linux-arm-kernel@archiver.kernel.org>; Mon,  1 Jun 2026 14:15:46 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
 	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
 	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=Jba/OcUQqUC+iKtXDpfu65FCyEQVy/d/ssT/VTffXaE=; b=X0RrxWPQdfH5VWGrZ0czmMUxrp
-	uldIyZbyDDkKRoWGHlSCNoN4O+RTWXT4ps9Ah6/WlMQg227jgcrmXPCqgu3TU/u4fH6pHaEN/aHsI
-	TPsFcQiC1TE8inTM+dOEAcV2HsZeRXy2Fpyv5J6qzLtYP5YDuyQaWBGwUCa5dmfRWuY9LCyrX6ewt
-	kpUoJ/HTZVM8PpMcPnxxcPo71Xf0pS+iuSXN3SRNuralOjzTv5ptQ6gxk61XkzyX/zxXraGequbIm
-	01dVEH8dCFdQ6npN1dbUlvNJffhCWdti3JwapcJsV5m5H06BUMnqacbdkegHC17bKbWPAOJzea64Q
-	LwnSQfaA==;
+	bh=vaUY+wznT6I0Vd1tbKHFAPphi09g/5Uz9b/r1spWPtc=; b=FOWC69Ceb/Sss/rHykk62LB2ls
+	BhUXYlu8O6woPwW4wdU7TEhilRL53Cum8JN/CIlryPncdgxh8qk94nKn2MdqnXCVWrs0NQ1CfxWb+
+	zgEi1I3RmgG93hzvzhuWbbfNQ6how8I9wZCwI79poZplRTGJGLrCcay/1b9RLXB3nX7BeAARIZ6SI
+	FRyr9trbHg6TPuKSXhKR8AuzC1TfOHdxZANcEqdWlRXMGpg+f4ZCDJZEglHT/d8HGwxvs56N4E5C+
+	d+rCbyevLD0Sf06STK5LjC3iFBo3IvyLLLa8GygRqDJJP4grDeNA1LZwoXPYtc1jNe8FiyTn1BNcP
+	9/TpfxwA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wU3Pq-0000000BFxa-3ZES;
-	Mon, 01 Jun 2026 14:14:54 +0000
-Received: from out30-97.freemail.mail.aliyun.com ([115.124.30.97])
+	id 1wU3QZ-0000000BG3m-48qF;
+	Mon, 01 Jun 2026 14:15:39 +0000
+Received: from mail-wr1-x42f.google.com ([2a00:1450:4864:20::42f])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wU3Pm-0000000BFwc-2j5K
+	id 1wU3QX-0000000BG3D-0zHS
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 01 Jun 2026 14:14:54 +0000
+	Mon, 01 Jun 2026 14:15:38 +0000
+Received: by mail-wr1-x42f.google.com with SMTP id ffacd0b85a97d-45ee1a56328so4780925f8f.3
+        for <linux-arm-kernel@lists.infradead.org>; Mon, 01 Jun 2026 07:15:36 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-	d=linux.alibaba.com; s=default;
-	t=1780323283; h=Message-ID:Date:MIME-Version:Subject:To:From:Content-Type;
-	bh=Jba/OcUQqUC+iKtXDpfu65FCyEQVy/d/ssT/VTffXaE=;
-	b=JDL2lfAoBtaJyXEbnGmCiNQvAQmNDPT9Ti1hYdbBSKY9GCc3B0z2FlXRxQyX8x2jV3JzlYYv6ipuHU+aVPkOJf1bQAgdhOrV7v+CrkMdbhxX9i2J90hKZ+4oSioMP3dGLQBKEN+1JGSCp9Fch8BBGz1IjyjySLEjReL7Gr5c26A=
-X-Alimail-AntiSpam: AC=PASS;BC=-1|-1;BR=01201311R681e4;CH=green;DM=||false|;DS=||;FP=0|-1|-1|-1|0|-1|-1|-1;HT=maildocker-contentspam033045098064;MF=guanghuifeng@linux.alibaba.com;NM=1;PH=DS;RN=28;SR=0;TI=SMTPD_---0X40RrRa_1780323268;
-Received: from 30.221.133.117(mailfrom:guanghuifeng@linux.alibaba.com fp:SMTPD_---0X40RrRa_1780323268 cluster:ay36)
-          by smtp.aliyun-inc.com;
-          Mon, 01 Jun 2026 22:14:37 +0800
-Message-ID: <ff2a4364-8463-42cb-9a2b-fae1ef64c423@linux.alibaba.com>
-Date: Mon, 1 Jun 2026 22:14:27 +0800
+        d=linaro.org; s=google; t=1780323335; x=1780928135; darn=lists.infradead.org;
+        h=content-transfer-encoding:in-reply-to:content-language:from
+         :references:cc:to:subject:user-agent:mime-version:date:message-id
+         :from:to:cc:subject:date:message-id:reply-to;
+        bh=vaUY+wznT6I0Vd1tbKHFAPphi09g/5Uz9b/r1spWPtc=;
+        b=TPOTcGatfvPVTkCndLtAg0JK2Rtzny6XelcDXZITAIqGX+bY8wMDmO4EvJ2gPKpYMV
+         dRweBMKhFV0JoNBKvJbHC/8hIVtSZ4va1ZSojThJ8z066wUBV4iVc45qNDo8EitLdj82
+         IcDkv3oSr4RF/h7gb069uP/DtHnwVw8CHoZXYgItgNTH+5AsBAhy+C6tBwnRLkqlavfL
+         zQP11PNwVKBkRCg72LjDWOfMIQjbV1uhaPFzvXU1Zs2E3D4qWjB1/fxh0kvsT3trMTCy
+         mooPv9ABHVWNk4CQNRAqIHxd+Tvw0lUvBjdgx7Rv5ZantT/Zwjl93qSi0pt7yBQhzhmf
+         fJpA==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20251104; t=1780323335; x=1780928135;
+        h=content-transfer-encoding:in-reply-to:content-language:from
+         :references:cc:to:subject:user-agent:mime-version:date:message-id
+         :x-gm-gg:x-gm-message-state:from:to:cc:subject:date:message-id
+         :reply-to;
+        bh=vaUY+wznT6I0Vd1tbKHFAPphi09g/5Uz9b/r1spWPtc=;
+        b=E4s+3CByhThzckfwuUF4t59+roODIWVfll+WKBPiCQLP3onsayNJTBLW6cWmgDr/M/
+         4BEZWvJWUZn0wDq5Cxake/gVaTmIBYEW5VRuTB/YA3VBx/xgkidKDjbnIuvwXmpzRdpA
+         hFQvxdyrRMjPmGcVjaMFp4iZAxIH4eKNh8pmVs9iN9PmNMTBWhimFpsUeeaLZO0QAk3u
+         89aXe2SHjimgRqEEdfVZpFoy/vGY+G+7bkim/7dr1A0g3BPgKOUteAE6yPMU5lUGLPAm
+         w+sSQZzMLhzZDesKgJvPn+kA2CCb/jT2zr0GLe7tk42DF8zwASRJsIY8Skgzh4chNac3
+         WR4g==
+X-Forwarded-Encrypted: i=1; AFNElJ9/AwM7fAFMH0S7njkGBSPmvzeJq6gA1Y4pyGuDIx0AYdheurukDqQHhkJMdPFVeB7DVQAcKDJcSu9ADXvGHB3T@lists.infradead.org
+X-Gm-Message-State: AOJu0YxbfoglN9NGXt7xLbNQWySy7IzEUYk/HVh+LUWlWZJmGCfCPe9A
+	2vn1uQfcFAScyulj8Cc+HAC8SAU2w1IGGYUK+kGSFM+6le0tkQEGgZNLSEuy7uTvGSw=
+X-Gm-Gg: Acq92OEsgtuIDaRS53YRy5nFZ7/n1/tSQgxgNym9h2dNJIfgTMUxvsfxxnI8iCgbNTI
+	TFgBsJrjywZfIgo14cPB92wAf4AKra7gcCc7Q3rNh7w4zH4V9l/pd8gbM5mCmWEpNadKvaAkpPP
+	CYnEx/466ZH3LemIxT24O9S12Vlo0ugj2Ub3vgLLdetAKRvPc5kze9EUC3mucfLSJNqiJ3Y2GG6
+	HeuzWetXcVo0JnNPn9AQf3kqJf9ZyB1E2Mvw0P8ojh2nNki3Nn4sRHgYSJrUG8kfx5NSEO0J2Zx
+	VzUd/dCvn6hedgVBzg9NsNWKq7mff9T428fBxJHQprwTJmbuyqnWX4TJk/4tW5MX37guP0IbFyF
+	Bb0ijbMNGmekp0OYcqdQ2HHcRXc6CGywYAZirrM7jYzRYR1y8JOMNVV8erXxUo/ZGuss0Jp2029
+	bqm6S+kxlyGysxjlbrtA58nR+vJwp3NVlYnPevHQm1p7vbLo35tAL2ZCFZ
+X-Received: by 2002:a05:6000:4610:b0:43d:50c:6f33 with SMTP id ffacd0b85a97d-45ef6b670e1mr21405913f8f.26.1780323334783;
+        Mon, 01 Jun 2026 07:15:34 -0700 (PDT)
+Received: from [192.168.0.101] ([109.76.233.76])
+        by smtp.gmail.com with ESMTPSA id ffacd0b85a97d-45ef34b47eesm27847640f8f.9.2026.06.01.07.15.33
+        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
+        Mon, 01 Jun 2026 07:15:33 -0700 (PDT)
+Message-ID: <203e09db-ba37-4d75-b984-227298f55d80@linaro.org>
+Date: Mon, 1 Jun 2026 15:15:32 +0100
 MIME-Version: 1.0
 User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH 1/9] iommu: introduce iova_to_phys_length in
- iommu_domain_ops
-To: Jason Gunthorpe <jgg@ziepe.ca>
-Cc: boris.brezillon@collabora.com, robh@kernel.org, steven.price@arm.com,
- adrian.larumbe@collabora.com, maarten.lankhorst@linux.intel.com,
- mripard@kernel.org, tzimmermann@suse.de, airlied@gmail.com,
- liviu.dudau@arm.com, joro@8bytes.org, will@kernel.org, robin.murphy@arm.com,
- alex@shazbot.org, dri-devel@lists.freedesktop.org,
- linux-kernel@vger.kernel.org, iommu@lists.linux.dev, kvm@vger.kernel.org,
- linux-arm-kernel@lists.infradead.org, kevin.tian@intel.com,
- baolu.lu@linux.intel.com, suravee.suthikulpanit@amd.com,
- dwmw2@infradead.org, xlpang@linux.alibaba.com,
- oliver.yang@linux.alibaba.com, shiyu.zsq@linux.alibaba.com,
- wei.guo.simon@linux.alibaba.com,
- alikernel-developer <alikernel-developer@linux.alibaba.com>
-References: <20260529115116.GR2487554@ziepe.ca>
- <20260531093637.3893199-1-guanghuifeng@linux.alibaba.com>
- <20260531093637.3893199-2-guanghuifeng@linux.alibaba.com>
- <20260531235148.GV2487554@ziepe.ca>
- <a0875d9f-4aed-4164-861c-6fbbdfe04080@linux.alibaba.com>
- <20260601134322.GY2487554@ziepe.ca>
-From: "guanghuifeng@linux.alibaba.com" <guanghuifeng@linux.alibaba.com>
-In-Reply-To: <20260601134322.GY2487554@ziepe.ca>
+Subject: Re: [PATCH 4/8] arm64: dts: qcom: shikra: Add CAMSS node
+To: Nihal Kumar Gupta <nihal.gupta@oss.qualcomm.com>,
+ Vikram Sharma <vikram.sharma@oss.qualcomm.com>, bod@kernel.org
+Cc: Vladimir Zapolskiy <vladimir.zapolskiy@linaro.org>,
+ Loic Poulain <loic.poulain@oss.qualcomm.com>,
+ Mauro Carvalho Chehab <mchehab@kernel.org>, Rob Herring <robh@kernel.org>,
+ Krzysztof Kozlowski <krzk+dt@kernel.org>, Conor Dooley
+ <conor+dt@kernel.org>, Robert Foss <rfoss@kernel.org>,
+ Andi Shyti <andi.shyti@kernel.org>, Bjorn Andersson <andersson@kernel.org>,
+ Konrad Dybcio <konradybcio@kernel.org>, Frank Li <Frank.Li@nxp.com>,
+ Sascha Hauer <s.hauer@pengutronix.de>,
+ Pengutronix Kernel Team <kernel@pengutronix.de>,
+ Fabio Estevam <festevam@gmail.com>, linux-arm-msm@vger.kernel.org,
+ linux-media@vger.kernel.org, devicetree@vger.kernel.org,
+ linux-kernel@vger.kernel.org, linux-i2c@vger.kernel.org,
+ imx@lists.linux.dev, linux-arm-kernel@lists.infradead.org,
+ Suresh Vankadara <quic_svankada@quicinc.com>
+References: <20260526-shikra-camss-review-v1-0-645d2c8c75a7@qti.qualcomm.com>
+ <20260526-shikra-camss-review-v1-4-645d2c8c75a7@qti.qualcomm.com>
+ <178000689150.4557.11759359941436928903.b4-reply@b4>
+ <df00e8d8-21ab-415f-815e-608eb7ab0967@oss.qualcomm.com>
+ <23d2a824-e894-4c26-8bd1-02bbb8a7c6d1@linaro.org>
+ <f7403443-3c0c-45d2-8235-46c70883a296@oss.qualcomm.com>
+From: Bryan O'Donoghue <bryan.odonoghue@linaro.org>
+Content-Language: en-US
+In-Reply-To: <f7403443-3c0c-45d2-8235-46c70883a296@oss.qualcomm.com>
 Content-Type: text/plain; charset=UTF-8; format=flowed
 Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260601_071451_419527_B613F84C 
-X-CRM114-Status: GOOD (  16.53  )
+X-CRM114-CacheID: sfid-20260601_071537_293524_93051455 
+X-CRM114-Status: GOOD (  14.73  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -82,66 +119,55 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
+On 01/06/2026 07:42, Nihal Kumar Gupta wrote:
+> Here is the full IOMMU SID list for both platforms:
+> Agatti (QCM2290):
+> - 0x0400 0x00 — VFE non-protected
+> - 0x0800 0x00 — CDM non-protected
+> - 0x0820 0x00 — OPE read non-protected
+> - 0x0840 0x00 — OPE write non-protected
+> 
+> Shikra:
+> - 0x0400 0x00 — VFE non-protected
+> - 0x0600 0x00 — CDM non-protected
+> - 0x0620 0x00 — OPE read non-protected
+> - 0x0640 0x00 — OPE write non-protected
 
-在 2026/6/1 21:43, Jason Gunthorpe 写道:
-> On Mon, Jun 01, 2026 at 04:41:48PM +0800, guanghuifeng@linux.alibaba.com wrote:
->>>> +/**
->>>> + * iommu_iova_to_phys_length - Translate IOVA and return mapping page size
->>>> + * @domain: IOMMU domain to query
->>>> + * @iova: IO virtual address to translate
->>>> + * @mapped_length: Output parameter for the PTE page size (e.g. 4KB/2MB/1GB)
->>>> + *
->>>> + * Like iommu_iova_to_phys() but additionally returns the page size of the
->>>> + * PTE mapping at @iova through @mapped_length.
->>>> + *
->>>> + * Return: The physical address for the given IOVA, or 0 if no translation.
->>>> + */
->>> When introducing the new function I would like to fix this 0 error as
->>> well, it should return PHYS_MAX for error
->> Implementations such as arm_smmu_iova_to_phys/DOMAIN_NS(iova_to_phys)
->> all use a return value of 0 as an invalid state, so 0 is used as the
->> representation of an invalid state to maintain compatibility.
-> I know, but this bad choice has already caused bugs so if we are
-> changing everything I would prefer we fix it.
+What this tells me is that the Agatti binding is incorrect for addition 
+of OPE as a separate device.
 
-OK, there are a lot of changes in the current commit. This issue will be 
-fixed in a subsequent series patch.
+> Only VFE SID (0x0400) is shared between the two platforms.
 
->>>> +phys_addr_t iommu_iova_to_phys_length(struct iommu_domain *domain,
->>>> +				       dma_addr_t iova,
->>>> +				       size_t *mapped_length)
->>>>    {
->>>> +	if (mapped_length)
->>>> +		*mapped_length = 0;
->>>> +
->>>>    	if (domain->type == IOMMU_DOMAIN_IDENTITY)
->>>>    		return iova;
->>>>    	if (domain->type == IOMMU_DOMAIN_BLOCKED)
->>>>    		return 0;
->>> Any domain that doesn't have an op should fail, blocked is one example
->> In accordance with the implementation of iommu_iova_to_phys, it returns a
->> phy value of 0 in invalid states.
-> Detect the invalid states by looking at ops not domain->type
->
->>> I suggest you approach the patch plan a little differently, the first
->>> patches should implement the new function and an iommput
->>> implementation
->>>
->>> Arrange things so the normal iova_to_phys calls the new function if it
->>> is available and discards the length.
->>>
->>> Then convert callers that can take advantage of it. Have the fallback
->>> path also compute the length by iterating internally.
->>>
->>> Finally one patch per driver implementing the new op, this could even
->>> be a second series.
->>>
->>> Don't remove iova_to_phys(), it is fine for things that don't need the
->>> length.
->> Does this mean retaining the iommu_iova_to_phys implementation but
->> implementing it through domain->ops->iova_to_phys_length (mapped_length is
->> NULL)?
-> Yes
->
-> Jason
+Both platforms have the same IOMMU list, its just that you are 
+correcting a bug in Agatti's defintion.
+
+Again only IFE SIDs should be included in CAMSS...
+
+> The current Shikra submission enumerates only the VFE SID.
+
+Great, this is what we want.
+
+I think for future submissions we need to be commenting, naming, 
+something each IOMMU entry as we have a problem now in Agatti and a 
+legacy problem - already - in VIDC as a result of misallocated IOMMU 
+entries.
+> Should CDM and OPE each get a separate YAML binding like [1], or
+> should both be part of the CAMSS YAML binding? If part of CAMSS,
+> please confirm and we will add their SIDs in the DTS in the next revision.
+> [1]https://lore.kernel.org/all/20260508-camss-isp-ope-v3-9- 
+> bb1055274603@oss.qualcomm.com/
+
+Yes I think CDM should be a standalone block and BTW use standard DMA 
+APIs with its own IOMMU entry.
+
+Similarly so OPE.
+
+The CAMSS node should only contain the IFE SIDs.
+
+So, actually I think your IOMMU defintion is correct but Agatti is not.
+
+Sigh.
+
+---
+bod
 
