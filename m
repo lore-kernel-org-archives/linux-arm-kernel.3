@@ -4,145 +4,94 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 4364ECD6E56
-	for <linux-arm-kernel@archiver.kernel.org>; Mon,  1 Jun 2026 09:28:41 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 6CDE8CD6E56
+	for <linux-arm-kernel@archiver.kernel.org>; Mon,  1 Jun 2026 09:29:47 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:
-	Content-Transfer-Encoding:Content-Type:In-Reply-To:From:References:Cc:To:
-	Subject:Date:Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=y5iLfSOXdTwYwTH3oUqnfKyenANT6QfUdPIYo8KX0n8=; b=xLyZXEunL6VbCRK5cLDqxlISdw
-	HtEKO5InBQmL8+oCukdUnxyyDWLmWy0P8jztxEXn/1rTZdohZWYzVO57zcEe2sbeC5HMeuDQHCLz6
-	L5YOXSvd5IRDPLcMEATX59qtV0eTxzUTI0qsbF1Y/4g/JEMNBHZl3byylM0JyFhTwVNytvvlVdO72
-	oOVXATqGIQ3q7qdC8xNjIi9yqQNdLZdprRfCXPa4WHkgg3/IlcLKYv2NFsszKOOLoHN+nq4tDudeX
-	4Xddmk8TVi/y39wVh6Qe/DntMEElGCJeywfg7qTRMH4bHKQIDxhx7eMh3+s0tvRwlnlV5aR+TQEw9
-	LQA1qbYQ==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:MIME-Version:Message-ID:Date:Subject:CC:To:From:Reply-To:
+	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
+	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=HpjtZmFXsxidBZJjFQYAS6CBJU5vUaHDo+8aVLCph/E=; b=pM+QBFIsyWtiT/g9b8mgje7QxR
+	V3W65yd8cufgM5E6Lu5kTFg1YNbK/+fRmRqrYNQNBu2UhZNRxmYwqxa1bvd0/cpjA4QzZRzsuVXyx
+	XPYZs4vYJJnJl4STKhyugbm+vPc3ZuvVGRK9ksZ8yDQw2vtNUYU1erFdzKUx2c0KwMvV1lGMz0YYZ
+	yk6KdYmGc9KoZW8vyiEBl6PY76aBcgnjayAsCFpFIzihk+jiCcrggkHiekHeqDEl/oIdltQMRVa/U
+	G6FmusKx9LE0dPjUFgBnD6+uvFBDPE1kEDJnwKAbjlCmBLcje9BhtviGrlC2dLXDr+Vc1iEjf80Ew
+	MyLj2LfQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wTywk-0000000AUbW-40ch;
-	Mon, 01 Jun 2026 09:28:34 +0000
-Received: from mail-eastusazlp170120007.outbound.protection.outlook.com ([2a01:111:f403:c101::7] helo=BL0PR03CU003.outbound.protection.outlook.com)
+	id 1wTyxo-0000000AUkh-14im;
+	Mon, 01 Jun 2026 09:29:40 +0000
+Received: from desiato.infradead.org ([2001:8b0:10b:1:d65d:64ff:fe57:4e05])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wTywh-0000000AUav-410I
+	id 1wTyxn-0000000AUkV-1NuY
+	for linux-arm-kernel@bombadil.infradead.org;
+	Mon, 01 Jun 2026 09:29:39 +0000
+DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
+	d=infradead.org; s=desiato.20200630; h=Content-Transfer-Encoding:Content-Type
+	:MIME-Version:Message-ID:Date:Subject:CC:To:From:Sender:Reply-To:Content-ID:
+	Content-Description:In-Reply-To:References;
+	bh=HpjtZmFXsxidBZJjFQYAS6CBJU5vUaHDo+8aVLCph/E=; b=KuMN+lvw5aGZAQVHSmyowBLbHl
+	Ysihu39ayXfrzrKX76Rvz6MeApN0Q9u4Nq1utbmtp9uwVIQn2jkkdRL3i/qTst+hVjc6vZCNkoFIP
+	/fcggzOnx9iHuKXhXQtebQL/aV1psdNY8DY57jqVMAWCv/m0I23nSCzyYr+1pZ2Qj6IjZ2VXokOgK
+	4lWSUFSUKi2kH6A6IxSDWRFZN1kvnh8G6RZa/NUcAcME3PEfC4CxIC62u8fqcv3Bh5ds47UYF4+5S
+	p1b0fiOzcir8L1TMpwjzopmMJuTyzpA94rHA3SRGYPIXSj3plApAuLf0C700BhELSVQm/zB2MlaS2
+	R6tmRUHA==;
+Received: from pdx-out-012.esa.us-west-2.outbound.mail-perimeter.amazon.com ([35.162.73.231])
+	by desiato.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
+	id 1wTyxi-00000006EFw-48F1
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 01 Jun 2026 09:28:33 +0000
-ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
- b=Kg9uQ88OVJ+1aU5ANeOsMdFLjIvt5I/iQT1BKb1Fms5ic2RL8ALMq++K2lr40ha6AOBsP7E9QHOPOBzNllpiXupYA33ENxDRTVsJyWCJCrWZXEgEddNAu3RcQnbeypfmr/8Evtlam/spphVlbZ8SOcX8U9ELCs54eading72wcABSqc5fhJ+tH3RV0gG6Fl0zX7HrYGZh/V5eT3mE9XelwEclQjt2zsZgsrszlOIXj6lMiI9U54fFJcDkj1ZiMVMe/VV5QG8PX5fUKl7zMKHCIOMbIMCWc0k/ewZtqNuFWYNveQ4vq5EjJd0Qcw4oQpfwVHwIpyjk+KnIrsWy0EEOg==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
- s=arcselector10001;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
- bh=y5iLfSOXdTwYwTH3oUqnfKyenANT6QfUdPIYo8KX0n8=;
- b=OuwlIHTuqeLkXHRQ+/Ap6rtzFmnqg88vMTSt6CGBmhKHgUuBvsyhyPCPDwydjMu4Gje/UF/TxyxsUROnCEugKR3YpG0ycq5Cqh9mWAMyXlD6Eenme518O1AnWl1LWSVRYJjHwDExOZxxozXGQDv/YUr1YOCVDZtxZak+X/iM6/AtGXycyRMJIciqx6K8CAs4oWITMaeEC8rAmzMYQZeXpE/1ha+T9N0nL74qMRMN8OwvauGVg1gudWC9XC7wUV2UAEJHUDjS/N30a61dVlb6G1fh+YGvJSaTDekb8rSyLsJBcbpL4XCrxkabLMO+xqANp2E5g6gi7K6nhLZM+F3mEA==
-ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
- smtp.mailfrom=amd.com; dmarc=pass action=none header.from=amd.com; dkim=pass
- header.d=amd.com; arc=none
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=amd.com; s=selector1;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
- bh=y5iLfSOXdTwYwTH3oUqnfKyenANT6QfUdPIYo8KX0n8=;
- b=NIuIjXjLMfHVkT0lxXJ/Lveahg1Y4u/6fw06mcE7XCg5suDjqbPI3sCeC5hlbv7R8EYYs58qY5DYg45cBMbp05R+W30jNyOZvwDkWC6fmwjgu9c5peH48g8QffhCrrPuqiMHZRPsHM4osUcOqaBw+wfV392jU4Rq+BSdeHHa2XQ=
-Authentication-Results: dkim=none (message not signed)
- header.d=none;dmarc=none action=none header.from=amd.com;
-Received: from PH7SPRMB0112.namprd12.prod.outlook.com (2603:10b6:510:27b::15)
- by SA1PR12MB7175.namprd12.prod.outlook.com (2603:10b6:806:2b2::19) with
- Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.21.71.16; Mon, 1 Jun 2026
- 09:28:22 +0000
-Received: from PH7SPRMB0112.namprd12.prod.outlook.com
- ([fe80::f703:24e0:b20d:6333]) by PH7SPRMB0112.namprd12.prod.outlook.com
- ([fe80::f703:24e0:b20d:6333%5]) with mapi id 15.21.0071.014; Mon, 1 Jun 2026
- 09:28:21 +0000
-Message-ID: <6086ebd5-4538-4b85-bbd3-84df9c6198d2@amd.com>
-Date: Mon, 1 Jun 2026 14:58:11 +0530
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH v6 6/6] iommu/amd: Fail probe on ATS configuration failure
-To: Pranjal Shrivastava <praan@google.com>, Ankit Soni <Ankit.Soni@amd.com>
-Cc: iommu@lists.linux.dev, linux-pci@vger.kernel.org,
- linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org,
- Joerg Roedel <joro@8bytes.org>, Will Deacon <will@kernel.org>,
- Bjorn Helgaas <bhelgaas@google.com>, David Woodhouse <dwmw2@infradead.org>,
- Lu Baolu <baolu.lu@linux.intel.com>, Robin Murphy <robin.murphy@arm.com>,
- Suravee Suthikulpanit <suravee.suthikulpanit@amd.com>,
- Jason Gunthorpe <jgg@ziepe.ca>, Nicolin Chen <nicolinc@nvidia.com>,
- David Matlack <dmatlack@google.com>, Samiullah Khawaja
- <skhawaja@google.com>, Daniel Mentz <danielmentz@google.com>,
- Pasha Tatashin <pasha.tatashin@soleen.com>,
- Mostafa Saleh <smostafa@google.com>
-References: <20260529111208.387412-1-praan@google.com>
- <20260529111208.387412-7-praan@google.com>
- <unqzyef2n26wdf6tmc6vvwvpsgv244uvz7cxji4scymqmoofyb@trkzr7ix5bog>
- <ah0kyi5asHpnrpgC@google.com>
-Content-Language: en-US
-From: Vasant Hegde <vasant.hegde@amd.com>
-In-Reply-To: <ah0kyi5asHpnrpgC@google.com>
-Content-Type: text/plain; charset=UTF-8
-Content-Transfer-Encoding: 7bit
-X-ClientProxiedBy: PN4P287CA0073.INDP287.PROD.OUTLOOK.COM
- (2603:1096:c01:26b::9) To PH7SPRMB0112.namprd12.prod.outlook.com
- (2603:10b6:510:27b::15)
+	Mon, 01 Jun 2026 09:29:38 +0000
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+  d=amazon.de; i=@amazon.de; q=dns/txt; s=amazoncorp2;
+  t=1780306175; x=1811842175;
+  h=from:to:cc:subject:date:message-id:mime-version:
+   content-transfer-encoding;
+  bh=HpjtZmFXsxidBZJjFQYAS6CBJU5vUaHDo+8aVLCph/E=;
+  b=qRZpc04m/8Ri5ImGpRc/oemVt9vYiS7C9YvWSyUNs+78UK1hqV49g+xT
+   6Gcp21hZ6LFxcYEhHSbn2GdIxsnKBl5Bf245H0poMAT1wO5Hw0RiWDrPV
+   eCh5g0nJaFu7TcyvetAS302jXgFskQAid/ZZumznqTwDrcOHPfs72DqlC
+   EilF9oWBpjlinDRJ5L3jIFCTshEL5tCozYtEVMaZwMTjBePJ6cOfEb3AA
+   ecjSmPC5tjWRGMt+Dv4F8asmjTXT2SYD1LXnuOK4CXH4EuMM6rHGLm8mh
+   TUQIjthHJGnf7YppcRua2OnFtaw0ZUhDWPqFJ3CcppGs3a7raWxSUvo4/
+   w==;
+X-CSE-ConnectionGUID: paRINLUsTfCt7XNNg/2Yiw==
+X-CSE-MsgGUID: CQMjXlMvR9aNle3Z+GucdA==
+X-IronPort-AV: E=Sophos;i="6.24,181,1774310400"; 
+   d="scan'208";a="20629402"
+Received: from ip-10-5-0-115.us-west-2.compute.internal (HELO smtpout.naws.us-west-2.prod.farcaster.email.amazon.dev) ([10.5.0.115])
+  by internal-pdx-out-012.esa.us-west-2.outbound.mail-perimeter.amazon.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 01 Jun 2026 09:29:26 +0000
+Received: from EX19MTAUWA002.ant.amazon.com [205.251.233.178:16247]
+ by smtpin.naws.us-west-2.prod.farcaster.email.amazon.dev [10.0.6.91:2525] with esmtp (Farcaster)
+ id bb685c7a-870e-4d2d-aad3-f6d9fb73e6b5; Mon, 1 Jun 2026 09:29:26 +0000 (UTC)
+X-Farcaster-Flow-ID: bb685c7a-870e-4d2d-aad3-f6d9fb73e6b5
+Received: from EX19D001UWA001.ant.amazon.com (10.13.138.214) by
+ EX19MTAUWA002.ant.amazon.com (10.250.64.202) with Microsoft SMTP Server
+ (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_128_CBC_SHA) id 15.2.2562.37;
+ Mon, 1 Jun 2026 09:29:26 +0000
+Received: from dev-dsk-gyokhan-1b-83b48b3c.eu-west-1.amazon.com (10.13.234.1)
+ by EX19D001UWA001.ant.amazon.com (10.13.138.214) with Microsoft SMTP Server
+ (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_128_CBC_SHA) id 15.2.2562.37;
+ Mon, 1 Jun 2026 09:29:24 +0000
+From: Gyokhan Kochmarla <gyokhan@amazon.de>
+To: <stable@vger.kernel.org>
+CC: <gregkh@linuxfoundation.org>, <sudeep.holla@arm.com>,
+	<sebastianene@google.com>, <linux-arm-kernel@lists.infradead.org>, "Sudeep
+ Holla" <sudeep.holla@kernel.org>, Gyokhan Kochmarla <gyokhan@amazon.de>
+Subject: firmware: arm_ffa: Align RxTx buffer size before mapping
+Date: Mon, 1 Jun 2026 09:29:18 +0000
+Message-ID: <20260601092918.11031-1-gyokhan@amazon.de>
+X-Mailer: git-send-email 2.47.3
 MIME-Version: 1.0
-X-MS-PublicTrafficType: Email
-X-MS-TrafficTypeDiagnostic: PH7SPRMB0112:EE_|SA1PR12MB7175:EE_
-X-MS-Office365-Filtering-Correlation-Id: 2f28fb05-f85f-4723-2ee4-08debfc01f88
-X-MS-Exchange-SenderADCheck: 1
-X-MS-Exchange-AntiSpam-Relay: 0
-X-Microsoft-Antispam: BCL:0;ARA:13230040|366016|1800799024|7416014|376014|6133799003|22082099003|18002099003|56012099006|5023799004|4143699003|11063799006;
-X-Microsoft-Antispam-Message-Info: Xa72h98P9eN/EMYtyZkvjWWwmXPg2EmSVnJRLRU0jsi4dGV2ZsoV1cWY+Fc1zEa3epzc3beSr2y9N+5E6pB8cIFYgrb9KWeyI+6+E+04UFgY8TpvVUUtFqmirZNPqLqHDnLwBH1cMIvU1TQMItq0e98mP6PLng+Yz+JzwZqbj8xng9MFr1/1Gzjq3V4i+37o77qIlv38HfztXs1Q/GNKX07yxYI6WrCNphIbXJiz4g0YWzAp73stL1QpKN4hTPlMhLCqdVahw7S9lzZMGl6B8K2iaqms27jd3/UiNYAFKcoaJCs6ycgzqtZQtWhCSnQ3Y9hCJZBuduHmqyeznVWXfkIuxhWs2HPOqLn6lXSM2XOh4bsVFEBCwqPSzyyx+1tDCaSoH5o5Nc6cYb5Z3jnTd/q7LgJ/CU9y2A8IqdnhCgCz8rf4hiX6A4JjksIkEddkOPNNUujSP/IqKA81kmWFPnj/YMS7OhM4hFFcN/lI/pg69EJJsuBNFd2SJamyaqx3qsYKRoOHW0LtB/iO3FdrVYxx5dwGphshaIqK5i4Eoj7fzQMecx12XYLndfEzMzotYm5x0nhzq0x7tfppbMKG/2uWazIsuzZLJT6nDz9Za94EZiEeDSmT3fEzXnqSBjA8i5XzaKn+SNjPg2SttfvrDKqnj88n6hM6LLnmk7ZFUFNk52+J84/SJ949bBKOfNyH
-X-Forefront-Antispam-Report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:PH7SPRMB0112.namprd12.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(366016)(1800799024)(7416014)(376014)(6133799003)(22082099003)(18002099003)(56012099006)(5023799004)(4143699003)(11063799006);DIR:OUT;SFP:1101;
-X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
-X-MS-Exchange-AntiSpam-MessageData-0: =?utf-8?B?REFsb1lCeWhsbEFjRU1uR2V4dFViMC83TnJ4ckZuYWNma3E4RWlLWnBlTkgz?=
- =?utf-8?B?Z1FvR1ZkNTAwSnBtUjh6NkZnZkpOZVE1R1V6a0tVV3JhTUx5RE1YdWdNelEx?=
- =?utf-8?B?Vm5FQkVyYkk2SExVY1lka0pFb3MzTHB5VWZuZmlVaUNlU1E3ZEVpaDhjdUxE?=
- =?utf-8?B?Q3Y2N3psb3ZRbmdjTklVQzA4QkFkZEppK3JlZngwMkVvS0I5TGtFcDZINFNN?=
- =?utf-8?B?QXlNdWhlVmRQWUtjdnZDVmhSempNMWc1NnNqQ25pY3NkSG81SXJpTC95amN3?=
- =?utf-8?B?eWx2VEJvLzVGWExkUS95WWd6QzlNYlV0eFJwZWNMWUMwK2FaNkZWNE5LMmpr?=
- =?utf-8?B?YXYxQ1BHSmRVbGdyWURFUU90ODNQN0RCcnpqRmJqZUxIcE9VSlc5TEphQmxH?=
- =?utf-8?B?VS9HWlk0UjJNRlVLNUNEZzdRREduMjRZWHkyd0VoVlVvRklNSzMyMWt6VkE4?=
- =?utf-8?B?cy9kODloakUxV3VvRzhLb0pyNkp3UHhIa2JJV3UrNTBnT2RLVjIzdVJobE9r?=
- =?utf-8?B?ampMbzNqdGNkRi9xWjVudjQ0djdCYUlYOFpsTjFZNUVLWkpoUko0T0pwMGpC?=
- =?utf-8?B?MFZDYjhiSkZkK1g0VWJZRlIyNjZPb1FPK1ZNb0svT2pIWUhUd1VzQ1BoMCtu?=
- =?utf-8?B?YmVVMG13R2ltcVJ5RTl4Zk5UVHlZL2JyZnBVaEpybTdYc3NSQWpjaGlHc3cx?=
- =?utf-8?B?T2RIS2NiNyswcnZEcWNFQVFDN0ZpcVZ2dWFoek13TUE5ZG1VNDFvT0JHYnJn?=
- =?utf-8?B?bTJrYXhRSjhzWkNZellGaWhxcEJxWXNRRXV5a1VmUlRxbFU3VkNvU3RpZGdI?=
- =?utf-8?B?QXpBU3hWZm10c0dWQlZaYkxVTmdybmRycDc0Ym03RjR5VzM0S2RmMmJrMDN0?=
- =?utf-8?B?Y0piU2JKT1RsR3ZKQUdPUENLOWFBVEN0c0IrZ2d3cnVEK2JFVEdnM2hUeVZh?=
- =?utf-8?B?SmNneUp5YU9HZGNhZ2tONGpkTDFaZXExR1F6KytFdXVGRGw1R2ZTY2VjbEhH?=
- =?utf-8?B?a0R4ZkR0b1F0L1lxSGM5Vm5DNWpSL1YvZi9zcVZtUXVaOCs0V3BFTHVzSDdx?=
- =?utf-8?B?dHMwMUQyNEtHeGEzVE9haVdUSENkTkxXWnpMdUhmMVVBVGUxTlI3NlFmZFFo?=
- =?utf-8?B?NEF4cUZSM3crU2kyVDUwYnM3TUJsSWVrcFgvSDRzVStaM0xaMDhYRjhrc0ZO?=
- =?utf-8?B?Z040QSs1K2xyS2R6MnRoVUVXOFdCRzFQM3dtTDBlVElTVUtiaWFDbnA1WmhT?=
- =?utf-8?B?d0EyVDRkT1VMenUvakN4TzhBU2pGMkMyRzVSbHV2NW10VUJJd0xndW1tRXpa?=
- =?utf-8?B?T0RYZ0k0d3hwODJXRXVCRENkUytleTJ6cFBQV3VtUnp0MXV5VHgxWGo4K2pp?=
- =?utf-8?B?V3lYc2kxbnJFZFV6UXBXUGhSbmpHeUhUMWtHSWxrQzdmWWlHQ0NrNklZUTJr?=
- =?utf-8?B?WStIYTFtaEZFSm84eGYxVGNCYXREL013alJkVjZEbmNNVVdrendvMEZxUVlT?=
- =?utf-8?B?UXJMNXk0NmRzRUxON2N3b2NuUkJDQzVjMllIOWo3TERNU2JIREhuN3JVQjFk?=
- =?utf-8?B?UUozbGx2UldMSXNRZnpmZVQwcFZ6bHZ2OXI3bEMrZ3hwRnZUTHpWSHhGTXNn?=
- =?utf-8?B?bmNEUFhvZjhhZU1lak1hVkxQWkNnbTFtWlBLNzY5M05nazNJMlRpSnVOeTdv?=
- =?utf-8?B?QUh5MDMwWStkUUpPSmdQdGo3d0JEVlFNOXhJdW83S0lURy9YMTBJbVo4eUhh?=
- =?utf-8?B?Y2FyQzdYQkNuZWh6Q3crc0QzMUpTYm54OEcybEk3M01tS1lnSklhYk1neTFD?=
- =?utf-8?B?eEluVWlyQ3VTUlFqWUNhemcrZXJlVGNGai9Ub2xTZHAyc2J5enIwU0ZSWG1q?=
- =?utf-8?B?cHVuUXJlbEpicmFsbFhXeW1ubnRvblltUUZCRlNYdk1hWC90cFhLS2JLbUZx?=
- =?utf-8?B?WEFpZ1VKNSs1cjYvakdHckxPcXFJNE5qaUV1MkhQNmo5TjJyL0d0dEY4V05O?=
- =?utf-8?B?U3A3eHhGU3pPMlRQOWppT3o0OFc5SDc1QWpIUGNudzdyQ0V3YjhHYTF0S0VO?=
- =?utf-8?B?Wm96ekFvSlgzaFIwN2VqcTdKNlZQNEZNNlpDWHl2aGVoV1JoeGhKTXBEMTlx?=
- =?utf-8?B?UmtONWI5b2ptYkF5eFBGclJ6dldmalhPNW1TMCtXaUx3ZFNScktoN1lXL1lp?=
- =?utf-8?B?YUxTNHdOb0toZndMN1hnZUZjU2o5WUlLQjlKN3FoenJrQmY1RkxRUzZuMnF6?=
- =?utf-8?B?MUpzbkRac2hDVFJvajNtekpETGNEa1NlOHIzd0s2Mk9Kdm85d3pnOWpCT1JT?=
- =?utf-8?B?OGIySm5GYjh0MndNUXNBejRNblF4UHBDdm1BVXN6V1BDN3pqN2pzUT09?=
-X-OriginatorOrg: amd.com
-X-MS-Exchange-CrossTenant-Network-Message-Id: 2f28fb05-f85f-4723-2ee4-08debfc01f88
-X-MS-Exchange-CrossTenant-AuthSource: PH7SPRMB0112.namprd12.prod.outlook.com
-X-MS-Exchange-CrossTenant-AuthAs: Internal
-X-MS-Exchange-CrossTenant-OriginalArrivalTime: 01 Jun 2026 09:28:21.8045
- (UTC)
-X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
-X-MS-Exchange-CrossTenant-Id: 3dd8961f-e488-4e60-8e11-a82d994e183d
-X-MS-Exchange-CrossTenant-MailboxType: HOSTED
-X-MS-Exchange-CrossTenant-UserPrincipalName: JJHc7T/+xfxy98TuNpS3b1Hk0QgDWNrZVYQmDepx9Q9myTKA89TiLq7fDSJ+gQuf9BR1wdlHhmaCh+QF1Ef2gw==
-X-MS-Exchange-Transport-CrossTenantHeadersStamped: SA1PR12MB7175
+X-Originating-IP: [10.13.234.1]
+X-ClientProxiedBy: EX19D039UWB001.ant.amazon.com (10.13.138.119) To
+ EX19D001UWA001.ant.amazon.com (10.13.138.214)
+Content-Type: text/plain; charset="us-ascii"
+Content-Transfer-Encoding: 7bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260601_022832_044506_7DAAAEEF 
-X-CRM114-Status: GOOD (  34.37  )
+X-CRM114-CacheID: sfid-20260601_102936_146157_FA84D5D5 
+X-CRM114-Status: UNSURE (   8.84  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -157,115 +106,55 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hi Pranjal,
+From: Sudeep Holla <sudeep.holla@kernel.org>
 
-On 6/1/2026 11:50 AM, Pranjal Shrivastava wrote:
-> On Mon, Jun 01, 2026 at 06:00:15AM +0000, Ankit Soni wrote:
->>> @@ -2502,10 +2508,22 @@ static struct iommu_device *amd_iommu_probe_device(struct device *dev)
->>>  	else
->>>  		dev_data->max_irqs = MAX_IRQS_PER_TABLE_512;
->>>  
->>> -	if (dev_is_pci(dev))
->>> -		pci_prepare_ats(to_pci_dev(dev), PAGE_SHIFT);
->>> +	if (dev_is_pci(dev)) {
->>> +		struct pci_dev *pdev = to_pci_dev(dev);
->>> +
->>> +		if (pci_ats_supported(pdev)) {
->>> +			ret = pci_prepare_ats(pdev, PAGE_SHIFT);
->>> +			if (ret) {
->>> +				iommu_dev = ERR_PTR(ret);
->>> +				goto out_err;
->>> +			}
->>> +		}
->>> +	}
->>>  
->>>  out_err:
->>> +	if (IS_ERR(iommu_dev))
->>> +		iommu_ignore_device(iommu, dev);
->>> +
->>>  	return iommu_dev;
->>>  }
->>>  
->>
->> Hi,
->> This regresses IRQ remapping in the PD_MODE_NONE branch. By design
->> rlookup_table[devid] must stay valid for IR - init.c:2257 documents
->> this: "Do not return an error to enable IRQ remapping ...". Pre-patch
->> the PD_MODE_NONE branch returned ERR_PTR(-ENODEV) without nulling
->> rlookup, precisely so irq_remapping_alloc() / __rlookup_amd_iommu()
->> keep working; this unconditional cleanup violates that.
->> The new pci_prepare_ats() failure path has the same shape:
->> amd_iommu_set_pci_msi_domain() ran earlier and parented dev->msi_domain
->> on iommu->ir_domain, but on this new out_err that's not unwound. So
->> nulling rlookup_table[devid] makes irq_remapping_alloc() return -EINVAL
->> on the first MSI alloc for the device. Sashiko also flagged this in [1];
->>
->> Also if iommu_init_device() branch fails, iommu_ignore_device() will be
->> called twice.
->>
-> 
-> Hi Ankit,
-> 
-> Ack. Sashiko made me realize that this regresses IRQ mapping for AMD,
-> and I agree that the call to iommu_ignore_device() is a bit too 
-> aggressive as it  wipes the rlookup_table entry required for IRQ 
-> remapping, particularly in PD_MODE_NONE.
-> 
-> I was thinkig to address this in the next version as follows:
-> 
-> 1. Split the probe error paths:
->    - Proper init failures (like iommu_init_device) will continue to call
->      iommu_ignore_device(). I will fix the double invocation here.
-> 
->    - Config failures (like ATS mismatch or PD_MODE_NONE) will return an
->      an error but skip caling  iommu_ignore_device(), preserving the
->      rlookup_table entry for IRQ remapping.
+commit 0399e3f872ca3d78044bb715a73ea645806d2c7b upstream.
 
-I was reviewing v5 last Friday and decided to fix probe() code as its been long
-time I wanted to cleanup this code.  I have a patch series which pretty much
-does this.
+Commit 83210251fd70 ("firmware: arm_ffa: Use the correct buffer size during
+RXTX_MAP") advertises PAGE_ALIGN(rxtx_bufsz) to firmware when mapping the
+buffers but the driver continues to stores the minimum FF-A buffer size
+in drv_info->rxtx_bufsz which is used elsewhere in the driver.
 
-I haven't fixed iommu_ignore_device() code, but should be simple to fix it.
-we can use amd_iommu_make_clear_dte / amd_iommu_update_dte. It will set the
-dte.tv=0 and essentially blocks all DMAs.
+Align the size before storing it so that the allocation, validation and
+FFA_RXTX_MAP all use the same buffer size.
 
-If you already have the patches then please go ahead, else I can post the series
-this week.
+Fixes: 83210251fd70 ("firmware: arm_ffa: Use the correct buffer size during RXTX_MAP")
+Cc: Sebastian Ene <sebastianene@google.com>
+Link: https://sashiko.dev/#/patchset/20260402113939.930221-1-sebastianene@google.com
+Reviewed-by: Sebastian Ene <sebastianene@google.com>
+Link: https://patch.msgid.link/20260428-ffa_fixes-v2-9-8595ae450034@kernel.org
+Signed-off-by: Sudeep Holla <sudeep.holla@kernel.org>
+Signed-off-by: Gyokhan Kochmarla <gyokhan@amazon.de>
+
+diff --git a/drivers/firmware/arm_ffa/driver.c b/drivers/firmware/arm_ffa/driver.c
+--- a/drivers/firmware/arm_ffa/driver.c
++++ b/drivers/firmware/arm_ffa/driver.c
+@@ -2059,6 +2059,7 @@ static int __init ffa_init(void)
+ 			rxtx_bufsz = SZ_4K;
+ 	}
+ 
++	rxtx_bufsz = PAGE_ALIGN(rxtx_bufsz);
+ 	drv_info->rxtx_bufsz = rxtx_bufsz;
+ 	drv_info->rx_buffer = alloc_pages_exact(rxtx_bufsz, GFP_KERNEL);
+ 	if (!drv_info->rx_buffer) {
+@@ -2074,7 +2075,7 @@ static int __init ffa_init(void)
+ 
+ 	ret = ffa_rxtx_map(virt_to_phys(drv_info->tx_buffer),
+ 			   virt_to_phys(drv_info->rx_buffer),
+-			   PAGE_ALIGN(rxtx_bufsz) / FFA_PAGE_SIZE);
++			   rxtx_bufsz / FFA_PAGE_SIZE);
+ 	if (ret) {
+ 		pr_err("failed to register FFA RxTx buffers\n");
+ 		goto free_pages;
 
 
-> 
-> 2. Resolve the Use-After-Free (UAF):
->    To prevent the UAF on the "DMA-only" failure path, I will ensure that
->    the hardware Device Table Entry (DTE) is set to a safe state (like
->    blocked or bypass) and the dev_data->dev pointer is cleared, as the
->    IOMMU core does not invoke release_device() after a probe failure.
-> 
-> 3. Fix iommu_ignore_device() infrastructure:
->    I will address the pre-existing bugs identified by Sashiko:
->    - Fix clearing order (calling setup_aliases before clearing the
->      rlookup_table).
->    - Replace the non-atomic memset() on the hardware dev_table with an
->      atomic DTE update.
-> 
-> That said, I'm investigating the safest way to revert the MSI domain
-> assignment on probe failure to avoid the dangling domain issue pointed
-> out by Sashiko. Maybe we can add an amd_iommu_restore_msi_domain() helper
-> to revert the assignment made in amd_iommu_set_pci_msi_domain() on probe
-> failure?
-> 
-> Please, let me know if that sounds okay?
-> 
-> Also, I'm wondering if I should send this as a separate series specific 
-> to AMD which is unrelated to this one? Or maybe handle AMD IOMMU in a
-> separate series altogether. Let me know if you (and Vasanth / Suravee) 
-> would prefer that?
 
-Lets separate out AMD fixes part as its not related to this series.
-
-If you want to keep this patch then just the "iommu_ignore_device" part that
-should be OK -OR- if you want to drop entirely and pick it up with AMD specific
-series that's also works for me.
-
--Vasant
+Amazon Web Services Development Center Germany GmbH
+Tamara-Danz-Str. 13
+10243 Berlin
+Geschaeftsfuehrung: Christof Hellmis, Andreas Stieger
+Eingetragen am Amtsgericht Charlottenburg unter HRB 257764 B
+Sitz: Berlin
+Ust-ID: DE 365 538 597
 
 
