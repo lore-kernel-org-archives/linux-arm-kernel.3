@@ -4,60 +4,57 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 22358CD6E56
-	for <linux-arm-kernel@archiver.kernel.org>; Mon,  1 Jun 2026 09:40:37 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 6D625CD6E56
+	for <linux-arm-kernel@archiver.kernel.org>; Mon,  1 Jun 2026 09:42:01 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
-	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=NOxRpAwPGQOmMQ2+XtIV1QAhB800Tg5+iL6MG5fKuOk=; b=mbpW0p7VHBdAz8LGdbJgBRB+m+
-	+neBoDvwW9WQ9xtKM8Pvv7TjFhY2zGJ6pDCG+9Y6+Y2bkkKEBjkOeqPzhYqYHlJR/kOiPULNITmhn
-	Pgwb1zvf/NxT9GyKQj5V+mJBosMo5snXGwE/mRr0rQKKX2gxXStueLc6zp97I30+8NXKcOhibw6QE
-	6WJ3gtv0+jjxn8qF8/AEQ9fGujRhQGa4xgNkfLR4ENz/EauqLBgGst8HplFeRshH8y+CIMQ9SxnpV
-	blSG4Z46I3kcdsJ+Nj2BnGmewlp4cdsChCBMmdmAb8h8L/E5DBLanCSdntIEqpd/Ipv9ib7DjGGKi
-	dmbBvcpA==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=j2ClisWBsJN6oKxDvmkUZLOrb+GmAmbBsM5VjRJdbOA=; b=g15UN4E16PJwwuMtXQJFbPmMAc
+	jp6UZEk5HnoMDsJenaasMuvLssl+uKBYTH8TDb7Lb6r1gUSmSFurYvjcwsYQX5jvASk7QC9t+aDhs
+	az/FDeQt4nqzucNYtv5JANEH32JCW4bFQFN2iiTKs4xGf+4vfYuCdO1YgoJ1mFZrUoOWVlXXAcQP3
+	aJz0rcIlLFNepmP2VwpySXQyrDuT2fejekSQdo/bFZwQB9TMkLR/t7GUXMP55L02LA3uW1Dcl5OOd
+	JEq60dmoya0i7EnCvVof9JrKpvp7wVdYag+TXFcwYfR0W45kycJLGUwa90UUxRO++Ycsec/ntyJkk
+	JjIMXovQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wTz8I-0000000AVQq-10s5;
-	Mon, 01 Jun 2026 09:40:30 +0000
-Received: from foss.arm.com ([217.140.110.172])
-	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wTz8F-0000000AVQ8-1Tfx
+	id 1wTz9f-0000000AVb3-2AK0;
+	Mon, 01 Jun 2026 09:41:55 +0000
+Received: from tor.source.kernel.org ([2600:3c04:e001:324:0:1991:8:25])
+	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
+	id 1wTz9d-0000000AVab-3AyD
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 01 Jun 2026 09:40:29 +0000
-Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
-	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id C0B4D1E7D;
-	Mon,  1 Jun 2026 02:40:18 -0700 (PDT)
-Received: from [10.1.38.31] (Suzukis-MBP.cambridge.arm.com [10.1.38.31])
-	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id 5E8C63F905;
-	Mon,  1 Jun 2026 02:40:22 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=simple/simple; d=arm.com; s=foss;
-	t=1780306823; bh=/PunQOQOGZr0cguW84hctJAcukPoGGGdroDtXEehzYw=;
-	h=Date:Subject:To:Cc:References:From:In-Reply-To:From;
-	b=cKMWApKHwqa5uNW+nPisUy8nRxtwNPsDOTsNwqw7UnMpc33Os+/mr009Bg/TLT9sK
-	 KeDbS8Ba+3Ao0BEQb0hvobwpK58y42yaMyI+8TYN4MAC13Rqv8USqCvASyj19Tz70G
-	 IywB778dJSv1L+kpUS6hbFibgijl3E3WeZ03PSV4=
-Message-ID: <3155a54e-f0df-49d7-9cf7-6f1c0f826f31@arm.com>
-Date: Mon, 1 Jun 2026 10:40:20 +0100
+	Mon, 01 Jun 2026 09:41:53 +0000
+Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
+	by tor.source.kernel.org (Postfix) with ESMTP id EF36E60018;
+	Mon,  1 Jun 2026 09:41:52 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 92B3E1F00893;
+	Mon,  1 Jun 2026 09:41:51 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
+	s=k20260515; t=1780306912;
+	bh=j2ClisWBsJN6oKxDvmkUZLOrb+GmAmbBsM5VjRJdbOA=;
+	h=Date:From:To:Cc:Subject:References:In-Reply-To;
+	b=SA5wPr46OGRYVU+kDH9qwBFg/rH4gpCroiTWSeihbgTsuiEU4R0aTcKGgJb2UxR71
+	 RRTZ96wWYy9zCNz0SMguYXIk0LmUcLFe1Am1SF4rLSyLgcRCbyAxod/GRglg/U/Ob7
+	 W8CrpfR0jZbavsbOPYvjRMqWiDCdPbOgXntIsRDmF1fzGBX8ASon3dbvd7AEaf2P3i
+	 X/b8IHYaMBfxN0cawKhFmOhOfdoFP8OdjO98cKzLuW6zU63M3UMyIyaGJurgctSlpR
+	 R+pcucpFws+jFAOxlhV/3E0BTULsjQtSpaLW3GdTm1+uJ5CuI3Hudcsli3dzr5Et/g
+	 J4OlVt091aVpg==
+Date: Mon, 1 Jun 2026 10:41:49 +0100
+From: Sudeep Holla <sudeep.holla@kernel.org>
+To: Gyokhan Kochmarla <gyokhan@amazon.de>
+Cc: stable@vger.kernel.org, gregkh@linuxfoundation.org,
+	Sudeep Holla <sudeep.holla@kernel.org>, sebastianene@google.com,
+	linux-arm-kernel@lists.infradead.org
+Subject: Re: firmware: arm_ffa: Align RxTx buffer size before mapping
+Message-ID: <20260601-spicy-weightless-chachalaca-a2aceb@sudeepholla>
+References: <20260601092918.11031-1-gyokhan@amazon.de>
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH v7 02/13] coresight: etm4x: fix underflow for nrseqstate
-Content-Language: en-GB
-To: Yeoreum Yun <yeoreum.yun@arm.com>, coresight@lists.linaro.org,
- linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org
-Cc: mike.leach@arm.com, james.clark@linaro.org,
- alexander.shishkin@linux.intel.com, leo.yan@arm.com, jie.gan@oss.qualcomm.com
-References: <20260519154812.254884-1-yeoreum.yun@arm.com>
- <20260519154812.254884-3-yeoreum.yun@arm.com>
-From: Suzuki K Poulose <suzuki.poulose@arm.com>
-In-Reply-To: <20260519154812.254884-3-yeoreum.yun@arm.com>
-Content-Type: text/plain; charset=UTF-8; format=flowed
-Content-Transfer-Encoding: 7bit
-X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260601_024027_669311_2895FBD5 
-X-CRM114-Status: GOOD (  17.28  )
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+In-Reply-To: <20260601092918.11031-1-gyokhan@amazon.de>
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -72,86 +69,25 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On 19/05/2026 16:48, Yeoreum Yun wrote:
-> TCRSEQEVR<n> is implemented only when TCRIDR5.NUMSEQSTATE is 0b100,
-> in which case n ranges from 0 to 2; otherwise, TCRIDR5.NUMSEQSTATE is 0b000.
+On Mon, Jun 01, 2026 at 09:29:18AM +0000, Gyokhan Kochmarla wrote:
+> From: Sudeep Holla <sudeep.holla@kernel.org>
 > 
-> Therefore, drvdata->nrseqstate should be checked before entering the loop.
-
-for (i = 0; i < drvdata->nrseqstate - 1; i++)
-
-Wouldn't that check cover the case ? (provided i is signed int ?)
-
-Suzuki
-
+> commit 0399e3f872ca3d78044bb715a73ea645806d2c7b upstream.
 > 
-> Link: https://developer.arm.com/documentation/ihi0064/latest/ [0]
-> Fixes: 2e1cdfe184b5 ("coresight-etm4x: Adding CoreSight ETM4x driver")
-> Reviewed-by: Leo Yan <leo.yan@arm.com>
-> Signed-off-by: Yeoreum Yun <yeoreum.yun@arm.com>
-> ---
->   .../hwtracing/coresight/coresight-etm4x-core.c | 18 ++++++++++--------
->   .../coresight/coresight-etm4x-sysfs.c          |  2 ++
->   2 files changed, 12 insertions(+), 8 deletions(-)
+> Commit 83210251fd70 ("firmware: arm_ffa: Use the correct buffer size during
+> RXTX_MAP") advertises PAGE_ALIGN(rxtx_bufsz) to firmware when mapping the
+> buffers but the driver continues to stores the minimum FF-A buffer size
+> in drv_info->rxtx_bufsz which is used elsewhere in the driver.
 > 
-> diff --git a/drivers/hwtracing/coresight/coresight-etm4x-core.c b/drivers/hwtracing/coresight/coresight-etm4x-core.c
-> index 1e3b0344dc00..94b9385e964a 100644
-> --- a/drivers/hwtracing/coresight/coresight-etm4x-core.c
-> +++ b/drivers/hwtracing/coresight/coresight-etm4x-core.c
-> @@ -542,9 +542,11 @@ static int etm4_enable_hw(struct etmv4_drvdata *drvdata)
->   	etm4x_relaxed_write32(csa, config->vissctlr, TRCVISSCTLR);
->   	if (drvdata->nr_pe_cmp)
->   		etm4x_relaxed_write32(csa, config->vipcssctlr, TRCVIPCSSCTLR);
-> -	for (i = 0; i < drvdata->nrseqstate - 1; i++)
-> -		etm4x_relaxed_write32(csa, config->seq_ctrl[i], TRCSEQEVRn(i));
-> +
->   	if (drvdata->nrseqstate) {
-> +		for (i = 0; i < drvdata->nrseqstate - 1; i++)
-> +			etm4x_relaxed_write32(csa, config->seq_ctrl[i], TRCSEQEVRn(i));
-> +
->   		etm4x_relaxed_write32(csa, config->seq_rst, TRCSEQRSTEVR);
->   		etm4x_relaxed_write32(csa, config->seq_state, TRCSEQSTR);
->   	}
-> @@ -1896,10 +1898,10 @@ static int etm4_cpu_save(struct coresight_device *csdev)
->   	if (drvdata->nr_pe_cmp)
->   		state->trcvipcssctlr = etm4x_read32(csa, TRCVIPCSSCTLR);
->   
-> -	for (i = 0; i < drvdata->nrseqstate - 1; i++)
-> -		state->trcseqevr[i] = etm4x_read32(csa, TRCSEQEVRn(i));
-> -
->   	if (drvdata->nrseqstate) {
-> +		for (i = 0; i < drvdata->nrseqstate - 1; i++)
-> +			state->trcseqevr[i] = etm4x_read32(csa, TRCSEQEVRn(i));
-> +
->   		state->trcseqrstevr = etm4x_read32(csa, TRCSEQRSTEVR);
->   		state->trcseqstr = etm4x_read32(csa, TRCSEQSTR);
->   	}
-> @@ -2009,10 +2011,10 @@ static void etm4_cpu_restore(struct coresight_device *csdev)
->   	if (drvdata->nr_pe_cmp)
->   		etm4x_relaxed_write32(csa, state->trcvipcssctlr, TRCVIPCSSCTLR);
->   
-> -	for (i = 0; i < drvdata->nrseqstate - 1; i++)
-> -		etm4x_relaxed_write32(csa, state->trcseqevr[i], TRCSEQEVRn(i));
-> -
->   	if (drvdata->nrseqstate) {
-> +		for (i = 0; i < drvdata->nrseqstate - 1; i++)
-> +			etm4x_relaxed_write32(csa, state->trcseqevr[i], TRCSEQEVRn(i));
-> +
->   		etm4x_relaxed_write32(csa, state->trcseqrstevr, TRCSEQRSTEVR);
->   		etm4x_relaxed_write32(csa, state->trcseqstr, TRCSEQSTR);
->   	}
-> diff --git a/drivers/hwtracing/coresight/coresight-etm4x-sysfs.c b/drivers/hwtracing/coresight/coresight-etm4x-sysfs.c
-> index e9eeea6240d5..0e1ad175aa1e 100644
-> --- a/drivers/hwtracing/coresight/coresight-etm4x-sysfs.c
-> +++ b/drivers/hwtracing/coresight/coresight-etm4x-sysfs.c
-> @@ -1395,6 +1395,8 @@ static ssize_t seq_idx_store(struct device *dev,
->   	struct etmv4_drvdata *drvdata = dev_get_drvdata(dev->parent);
->   	struct etmv4_config *config = &drvdata->config;
->   
-> +	if (!drvdata->nrseqstate)
-> +		return -ENOTSUPP;
->   	if (kstrtoul(buf, 16, &val))
->   		return -EINVAL;
->   	if (val >= drvdata->nrseqstate - 1)
+> Align the size before storing it so that the allocation, validation and
+> FFA_RXTX_MAP all use the same buffer size.
+> 
+> Fixes: 83210251fd70 ("firmware: arm_ffa: Use the correct buffer size during RXTX_MAP")
 
+Because of the fixes tag, it was already backported/queued to v7.0, v6.18
+and v6.12. May I ask what was the intention of posting ?
+
+-- 
+Regards,
+Sudeep
 
