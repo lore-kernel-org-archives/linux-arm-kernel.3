@@ -4,70 +4,86 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id F0A0BCD5BD1
-	for <linux-arm-kernel@archiver.kernel.org>; Mon,  1 Jun 2026 08:49:06 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id EB03DCD6E4C
+	for <linux-arm-kernel@archiver.kernel.org>; Mon,  1 Jun 2026 08:49:12 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	MIME-Version:Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-Type:
-	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
-	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
-	bh=1haIEjJUB66z54EoqIjtLZBJBg9TY7RS+jT0B9dn0/g=; b=VLXAZTY13l1fk5wghrzFT0GNUv
-	USLG5GGNgRCKq0UB4Fx0fefAhdBjFNrNNAAjQUH4PdTJnxmJzbd4iGy5KW7nfNe9mNwoIWiU6ASe+
-	fciKGaOix2A6jsYmND+rYJRtrUKhLTQcUnyuz5l2R80J8soeIoOdhXhJBLj30Q5HEYOO1IxsebMBZ
-	hKyJYLFIeCzPRywm4BsjEdDVYmwHKIBGCWwvmDvdjgNSxLghkZaj+DtReMomPi9aNrIWzMVIRh5ig
-	87/aWIEq2GLL9x50Is8Wxyxw7witadtW+DRX3Pg65ia8M19OV3g4eeFnRlmKhhyG2I9YUV34obflV
-	St8I5aZw==;
+	MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:
+	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=8iZQN+oxehRhbRDFp2Djf7RG6EvHlnyDB08mWf0NvrQ=; b=Z8qRql3LB03+BGoJrW/dYnZS2Y
+	m94v3Rn0Tk18yKXfkq/whqKOGbH0ap95nGoLphrvkCcjaqaBD3zumG3MtbOpu7m9MjaIzYo1jANkP
+	7wO7wBrAUhx6ZPfukhuLRX4k6ok2bmlMzjRq4Hi1mrRau9IaiGTSFajpcw1SK/4KEuuxNn27IZ8nM
+	3h5+UF2ZBOe2Vj84I+Lx6UEHSs8hIKZefnkx1223ryjolx0gSj64tGHR5FZJJmOMoVg6B1ZNBAUPQ
+	7A8tW5HxA3gCFzXLTl1yJMvWCcAkDvZT9Lh8ktu3OotTGfezBjMnQdw8HRWjyl9nVnZQpjBCpeLl+
+	MuY+Apdg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wTyKS-0000000APki-3ELs;
-	Mon, 01 Jun 2026 08:49:00 +0000
-Received: from mail-pf1-x430.google.com ([2607:f8b0:4864:20::430])
+	id 1wTyKY-0000000APn8-3zq2;
+	Mon, 01 Jun 2026 08:49:06 +0000
+Received: from desiato.infradead.org ([2001:8b0:10b:1:d65d:64ff:fe57:4e05])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wTyKQ-0000000APkG-03pN
+	id 1wTyKX-0000000APm2-28xf
+	for linux-arm-kernel@bombadil.infradead.org;
+	Mon, 01 Jun 2026 08:49:05 +0000
+DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
+	d=infradead.org; s=desiato.20200630; h=Content-Transfer-Encoding:MIME-Version
+	:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:Sender:Reply-To:
+	Content-Type:Content-ID:Content-Description;
+	bh=8iZQN+oxehRhbRDFp2Djf7RG6EvHlnyDB08mWf0NvrQ=; b=UIYCJn0yZqA46vUy2vlTXT/jPi
+	LDk/sJmVYd43rsfPZCfY2fWgp0/dvrTqN0EREkVpmfshfniSfELUtmr5UbGqJw+hPx5v6LAq/6evH
+	D/KEPJ34Oq4f3CdZCvKS3f6q8AbCu9StYzhOKhJ+NIdyalUmRFkkZBKxmENWMXpkSC/eEw/2oDBbU
+	9XgjSKp+5AvaQnmLaoUatlh95ZO1dIEtAbaUYtj+mDGaXYDkPx0JlnzMaFOR6TJKRGN30l3e6L6Zs
+	/fbupH5IU6MPweyqeKZbioi2SB1ZNGNCZZcNmoy4z0wMpyufut9IPDxuamzCXOySNhrt4q/aVj+UU
+	YGjfNKiA==;
+Received: from mail-pf1-x42d.google.com ([2607:f8b0:4864:20::42d])
+	by desiato.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
+	id 1wTyKU-000000067cM-1vEa
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 01 Jun 2026 08:48:59 +0000
-Received: by mail-pf1-x430.google.com with SMTP id d2e1a72fcca58-842319576d5so539510b3a.1
-        for <linux-arm-kernel@lists.infradead.org>; Mon, 01 Jun 2026 01:48:55 -0700 (PDT)
+	Mon, 01 Jun 2026 08:49:04 +0000
+Received: by mail-pf1-x42d.google.com with SMTP id d2e1a72fcca58-8423f420455so361890b3a.3
+        for <linux-arm-kernel@lists.infradead.org>; Mon, 01 Jun 2026 01:49:02 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=bytedance.com; s=google; t=1780303735; x=1780908535; darn=lists.infradead.org;
-        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
-         :to:from:from:to:cc:subject:date:message-id:reply-to;
-        bh=1haIEjJUB66z54EoqIjtLZBJBg9TY7RS+jT0B9dn0/g=;
-        b=fQBA0uH7eFLIGtIPsBMnwGJtIhP08HeQDWZi8uDunaubHp+7Ch2DGHCVwmD/x+PS/4
-         tGgdpJfFqpZyJmpvXX/nLDj/q3gJbRj51HrK4lbEuOu0KD1eREeDakO//UPRQKe3DEIl
-         5SBjUs9Ib8LtSMH0J8WQ3AUrYc+lHmte/D2ig71y0fUCuat5dOqnE4jzIEwXirXtO0Rk
-         DDdGbY2bAoyz9AKQMo8Py7UsVQksmtG1gjuiAAq+na38nzrT7MWr5mQVFKyilBCApoNN
-         S2mLJRY0Dp/PXuS4+9NBiawsuAJd6XjibZCkxqNz7bsWdOHdvyynCXx9+kBTJscnEi39
-         +w6g==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20251104; t=1780303735; x=1780908535;
-        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
-         :to:from:x-gm-gg:x-gm-message-state:from:to:cc:subject:date
+        d=bytedance.com; s=google; t=1780303741; x=1780908541; darn=lists.infradead.org;
+        h=content-transfer-encoding:mime-version:references:in-reply-to
+         :message-id:date:subject:cc:to:from:from:to:cc:subject:date
          :message-id:reply-to;
-        bh=1haIEjJUB66z54EoqIjtLZBJBg9TY7RS+jT0B9dn0/g=;
-        b=RQ9IfzrgLFyc9xxyjE4uzmZmpfhynyo7FWn/Nf55VhOrIRd/UTh3xtSceTQb9QhaXb
-         EXh1xY9UO0eISvVc8rAIcX9wAZQ2jC85UAEUz9sht0P4ldyVAGULt1Dnigs6V4JvbgqC
-         m0V5FMr9JcGcaHnwFtcNDwX8xfP9sJmHXH/eWZD2xX/fpdZ0pWxkOR9Xh4h5Qoq4i78Z
-         ABueUQhWUwYVdS0Q+411tic9UevN+f03zRrErgWxQyuKhg/ldmiyox/7wMqziAGgAumW
-         EcAhKGDZIvMDYc0xgH9gvCUUSYGTuMqcgKSm/Un28LIYy9Gn37jtSoLXTmuYjrGpysgm
-         w4kw==
-X-Forwarded-Encrypted: i=1; AFNElJ+0D1mRO1J2q1pERTiDhuWWkd57vdKeVy1PFfmxiZv8AzsjlQOeRwDSF3kKwgsZ/FwXE51HBJoGr3WOVKYv/wg5@lists.infradead.org
-X-Gm-Message-State: AOJu0YxjVxctn+RZJoVQWorN9ng7tNQh9thdhrlFBveNg6CrlZ1laNsj
-	ZV8GjoSCje9FXc2hTj8ZGNMsGOBbbaWMEHsBgTwHoJlqvPA6+BBG6aZFBzKKxwYihSY=
-X-Gm-Gg: Acq92OHQNQ5gfRq/U2fOGlomXyWfxt2m1b+c2+vTOkgBLccL40FMPHuOmL92WJoj2Dn
-	3xvhHV4yTTq8dVJAeH+ZJObhj4EIuU21O1bUE8wnn6LjQoKBLjcWAyE17WYS1orYj8x0sxuV3AC
-	3sIVH0LjsYXNdhnfbiUvsEM6rV/1N22Pfh8gbk9uLCcPsfWUXiWoXYg/nDU5ICQzRnmkoWrvxub
-	vLGADLMQzvB6GadFFedFu2ZjqwvhsqndImj69eLWvAQUY8umLgyrf2zjjfdKqCwecb/H4ILy9pD
-	lAupGYTl30edFKotaK4e95I5xcISioy59MIKBKq6Fn8j9aruK/70GRV0C15o0YuIxjpIadrjd8T
-	PROz2p3baEyAKMd8R9+dtVOq9mfZuuCXTyGmAIB4lhJWGN77BnxbhC4LA1gZu/EVP32F6t1qpcz
-	u3cWJE4tnNnxetM5KBDhliWmYb4vs8GVID4GAH4JLxYlKxKDE9042xAQ==
-X-Received: by 2002:a05:6a00:1822:b0:81e:f1c3:89df with SMTP id d2e1a72fcca58-8422575fc22mr8798151b3a.50.1780303734571;
-        Mon, 01 Jun 2026 01:48:54 -0700 (PDT)
+        bh=8iZQN+oxehRhbRDFp2Djf7RG6EvHlnyDB08mWf0NvrQ=;
+        b=CAohNwVT3FgCYvmkTgvtbsvTn7ogfms7JZaqbS0o/B2cRw1QhKWTc94iWPJjoNBmS3
+         6jqtrEPJbGlcDAormnUJW19PGjuALnAjLGSBA0TE3Rm2inRivAkUVykjO3n9ikzNW8b3
+         oRRsfLjrJhSnKGIK1eDWMuSIN4MCTN45wic44B2mpY1kN7tlxg157nQoqrrFhoDHmUrY
+         LRO0CmqP8EZBqi3eDfgUqmNj4Tu0Du6qkT6y87NHV/FaEt44Dsfu3K9m2v3u08slmaZq
+         pHbbwZUQp+nw+y5RwEPW+uFq4GjfRggXb1usuHLD6EuVIadOOmsyeSgJL0AGOY4LMWLa
+         tlFQ==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20251104; t=1780303741; x=1780908541;
+        h=content-transfer-encoding:mime-version:references:in-reply-to
+         :message-id:date:subject:cc:to:from:x-gm-gg:x-gm-message-state:from
+         :to:cc:subject:date:message-id:reply-to;
+        bh=8iZQN+oxehRhbRDFp2Djf7RG6EvHlnyDB08mWf0NvrQ=;
+        b=mPn6fw8G23qzFJnWzVDmGni8kCGEK3xU97C8ayn8ulGlC1KiL/5W8CObzrnSF/cEx0
+         ZFKrChb5s2hdQlaN4POwvapzLfSC8ylTugDYbOoP/Ackh+ibwPPcZqawmBeud3Y7FMxd
+         0N7vR5NSzyz73duod4EX172bwhWgtXDIo7OA+rIzbKHB72Wf7Ha2HwARHhNVERC35XVp
+         DUnDebJX1RXU6dtcTRvuud0ECPWggQpn9oSSRHd3u30kANeHdx7tQsxJGS++ibE21H7b
+         HsdAWZy7ujFi1JXuy0tEzheuD1t6icbSm3UEMyyLcGBnUbCk4O24xMvM4flnvP2DiLi1
+         a57g==
+X-Forwarded-Encrypted: i=1; AFNElJ93WYbJNRmRDgODmHwwY2UtDAPtqMdZSWFPcmBalQFiyMi8urETJH9aKTKtUi6MX0gssvj72/9en9RBKKN4wbsU@lists.infradead.org
+X-Gm-Message-State: AOJu0Yz84u0QXOKDM5BF1HkZcii+maL8TX4r4ht3Qe3leAxQsPD7ltD7
+	BCQocoZEA7FKvHCsidekbVieGNmjQlMGWxexawnmGKrOE2mM7e29lZH3ad6i1pICGww=
+X-Gm-Gg: Acq92OFHK2ClaGi/9WdS1SFy/Avh+0pnmwZ8INQngHR8CGYwhMxgca+TNiDINZ8j6ay
+	IsXRlsZWE38xCmFggWtV6U3DiF10q583USsh1SMkiSayB2QvKq1U/3zXpTDqrMMNiLXSqzyaJ16
+	Ms5rhPpmQUxyyX9PbMX7o1TLm0gXiW9pZzstJ3dbvF9rNPpmKRACeF4TXzGgddP0xLgMF2yF/1W
+	bAezIvobVrpth75r9O1q9WcCZ8reg+4Mx4yf0F+cEq5FiqTowlz26JC4Q1jA0+jP5VW3qfQu7id
+	GVl/l5tBK75vZOABgweygR2btIJGV/zF+WAjnGsX0DICZGn+dc7fveH/emDxp8NCQM+K5C3ACAZ
+	dIXCHg3X/v7OJaYXU7FoVCfMAQCKsppgJWBkKh2tbEK2on6Ux0BsCMoKSLAjUUaB3vyO2tCvYCC
+	MwPvkIXcCfGKGrPoylBEVesWuXogh3Kyxu+RNDSEWUw4vBC+JYssarEA==
+X-Received: by 2002:aa7:9a86:0:b0:83c:928:6e5a with SMTP id d2e1a72fcca58-84225376b00mr9579300b3a.13.1780303741104;
+        Mon, 01 Jun 2026 01:49:01 -0700 (PDT)
 Received: from n232-176-004.byted.org ([36.110.163.96])
-        by smtp.gmail.com with ESMTPSA id d2e1a72fcca58-84232ef8172sm6316230b3a.12.2026.06.01.01.48.48
+        by smtp.gmail.com with ESMTPSA id d2e1a72fcca58-84232ef8172sm6316230b3a.12.2026.06.01.01.48.54
         (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Mon, 01 Jun 2026 01:48:53 -0700 (PDT)
+        Mon, 01 Jun 2026 01:49:00 -0700 (PDT)
 From: Muchun Song <songmuchun@bytedance.com>
 To: Andrew Morton <akpm@linux-foundation.org>,
 	David Hildenbrand <david@kernel.org>,
@@ -95,16 +111,17 @@ Cc: Muchun Song <muchun.song@linux.dev>,
 	Mike Rapoport <rppt@kernel.org>,
 	Suren Baghdasaryan <surenb@google.com>,
 	Michal Hocko <mhocko@suse.com>
-Subject: [PATCH v3 0/5] mm/sparse-vmemmap: Provide generic vmemmap_set_pmd() and vmemmap_check_pmd()
-Date: Mon,  1 Jun 2026 16:48:39 +0800
-Message-ID: <20260601084845.3792171-1-songmuchun@bytedance.com>
+Subject: [PATCH v3 1/5] mm/sparse-vmemmap: provide generic vmemmap_set_pmd() and vmemmap_check_pmd()
+Date: Mon,  1 Jun 2026 16:48:40 +0800
+Message-ID: <20260601084845.3792171-2-songmuchun@bytedance.com>
 X-Mailer: git-send-email 2.54.0
+In-Reply-To: <20260601084845.3792171-1-songmuchun@bytedance.com>
+References: <20260601084845.3792171-1-songmuchun@bytedance.com>
 MIME-Version: 1.0
 Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260601_014858_080166_7BF75A14 
-X-CRM114-Status: UNSURE (   8.85  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20260601_094902_935807_A31A7317 
+X-CRM114-Status: GOOD (  12.15  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -119,40 +136,49 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-The weak vmemmap_set_pmd() and vmemmap_check_pmd() hooks are
-currently no-ops in the generic code, which leaves architectures that
-need PMD-level handling to open-code the same logic locally.
+The two weak functions are currently no-ops on every architecture,
+forcing each platform that needs them to duplicate the same handful
+of lines.  Provide a generic implementation:
 
-This series provides generic implementations for both helpers in
-mm/sparse-vmemmap.c. vmemmap_set_pmd() installs a huge PMD with
-PAGE_KERNEL protection, and vmemmap_check_pmd() verifies a present
-leaf PMD before reusing the existing vmemmap_verify() helper.
+- vmemmap_set_pmd() simply sets a huge PMD with PAGE_KERNEL protection.
 
-With those generic helpers in place, patches 2-5 remove the now
-redundant arch-specific implementations from arm64, riscv, loongarch,
-and sparc.
+- vmemmap_check_pmd() verifies that the PMD is present and leaf,
+  then calls the existing vmemmap_verify() helper.
 
-v2 -> v3:
-- Replace BUG_ON() with WARN_ON_ONCE() in patch 1
-- Add Will Deacon's Acked-by to patch 2
+Architectures that need special handling can continue to override the
+weak symbols; everyone else gets the standard version for free.
 
-Muchun Song (5):
-  mm/sparse-vmemmap: provide generic vmemmap_set_pmd() and
-    vmemmap_check_pmd()
-  arm64/mm: drop vmemmap_pmd helpers and use generic code
-  riscv/mm: drop vmemmap_pmd helpers and use generic code
-  loongarch/mm: drop vmemmap_check_pmd helper and use generic code
-  sparc/mm: drop vmemmap_check_pmd helper and use generic code
+Signed-off-by: Muchun Song <songmuchun@bytedance.com>
+---
+v2->v3:
+- Replace BUG_ON() with WARN_ON_ONCE() in vmemmap_set_pmd()
+---
+ mm/sparse-vmemmap.c | 7 ++++++-
+ 1 file changed, 6 insertions(+), 1 deletion(-)
 
- arch/arm64/mm/mmu.c      | 14 --------------
- arch/loongarch/mm/init.c | 11 -----------
- arch/riscv/mm/init.c     | 13 -------------
- arch/sparc/mm/init_64.c  | 11 -----------
- mm/sparse-vmemmap.c      |  7 ++++++-
- 5 files changed, 6 insertions(+), 50 deletions(-)
-
-
-base-commit: 7da7f07112610a520567421dd2ffcb51beaefbcc
+diff --git a/mm/sparse-vmemmap.c b/mm/sparse-vmemmap.c
+index 112ccf9c71ca..99e2be39671b 100644
+--- a/mm/sparse-vmemmap.c
++++ b/mm/sparse-vmemmap.c
+@@ -386,12 +386,17 @@ int __meminit vmemmap_populate_hvo(unsigned long addr, unsigned long end,
+ void __weak __meminit vmemmap_set_pmd(pmd_t *pmd, void *p, int node,
+ 				      unsigned long addr, unsigned long next)
+ {
++	WARN_ON_ONCE(!pmd_set_huge(pmd, virt_to_phys(p), PAGE_KERNEL));
+ }
+ 
+ int __weak __meminit vmemmap_check_pmd(pmd_t *pmd, int node,
+ 				       unsigned long addr, unsigned long next)
+ {
+-	return 0;
++	if (!pmd_leaf(pmdp_get(pmd)))
++		return 0;
++	vmemmap_verify((pte_t *)pmd, node, addr, next);
++
++	return 1;
+ }
+ 
+ int __meminit vmemmap_populate_hugepages(unsigned long start, unsigned long end,
 -- 
 2.54.0
 
