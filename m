@@ -4,63 +4,57 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id E63C4CD6E55
-	for <linux-arm-kernel@archiver.kernel.org>; Mon,  1 Jun 2026 19:09:09 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 72B72CD6E55
+	for <linux-arm-kernel@archiver.kernel.org>; Mon,  1 Jun 2026 19:10:04 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=elXuand+n/viDgsywhdjTLL4Sq6m2LCvhd5nnF4PGAE=; b=MlJnp55hZD9l2AL3MNhD7pOpMe
-	QcuhA4OidnNTK+ZZAHTmpMdpoh0iq4v0UR50V4oAZ5sJHQiXA8jrYtm0O9MSf5gn5rdo4+2JlxFM4
-	VId5f3erOb68cqcsq7LtVGBKqpz9jQytIv4ecTf8As6bgjUdFNLgU9LSIdD/ToCPSRwXogsxfIPEJ
-	A5BEeKpYJap7SvL2CusKzVQiWUeX8iQcDSge+Yufp9VNymuWt1I6Zw+Iaplv+3QvtQU0C4Ytcwpaj
-	JZsLcRtTQ3qEIDT2MWTXtM9zueI3OJM9I1LpWVt78kalR7zMAgMkoCT1YiFdLzRbEi3p5uiGshqym
-	NTpIfG3g==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:MIME-Version:
+	Message-ID:Subject:Cc:To:From:Date:Reply-To:Content-Transfer-Encoding:
+	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
+	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=W43qI/57Dq34auorc7rm5R4Kf1qpPgs0LDeJ2dQV7M4=; b=QKQ/6JEYsKwhf7uXge/BccBYd2
+	tNXtzRbV7+wInP7rgGM9gkhd/ZftI5XZl3kLSutbHW7jhXXc8cV/ZWSf73KPjxD7L8RZlP5YWHYLf
+	orlrxOG/ZM9pXhgSbAKj2BZtvOYfCoSxmIfQwbVuUQ1DvV7ehI0GHQtgeLHSMDIZ+MPRw8MG1Z9BX
+	lqhW/WoMyw1edE6/e+c4AcckFFMgTF0Qkh8skjWcnjYsQ7RyMkPa1twi9Pa7fOFqMQESbaNrbux/2
+	VPNxegaN0ZzkAr0L+Uj2YsKyEOJyXlhqmo6e/NYEsjjlfuUhb8z12BPpvZb7gIyAXYVkA2b1nkbm5
+	ouga96RA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wU80R-0000000BhJa-1EQQ;
-	Mon, 01 Jun 2026 19:08:59 +0000
-Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
+	id 1wU81O-0000000BhQx-1qCy;
+	Mon, 01 Jun 2026 19:09:58 +0000
+Received: from tor.source.kernel.org ([2600:3c04:e001:324:0:1991:8:25])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wU80P-0000000BhJ4-3BOl
+	id 1wU81N-0000000BhQm-3enE
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 01 Jun 2026 19:08:58 +0000
+	Mon, 01 Jun 2026 19:09:57 +0000
 Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
-	by sea.source.kernel.org (Postfix) with ESMTP id 13BFC40E2B;
-	Mon,  1 Jun 2026 19:08:57 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id C29501F00898;
-	Mon,  1 Jun 2026 19:08:56 +0000 (UTC)
+	by tor.source.kernel.org (Postfix) with ESMTP id 2A4F4600AA;
+	Mon,  1 Jun 2026 19:09:57 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 5C8D91F00893;
+	Mon,  1 Jun 2026 19:09:55 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1780340937;
-	bh=elXuand+n/viDgsywhdjTLL4Sq6m2LCvhd5nnF4PGAE=;
-	h=Date:From:To:Cc:Subject:References:In-Reply-To;
-	b=mD5ROBonnzUew3QCRjyhq+2GxLjZyXfTZHazuIgIgTKTCtPXlSpXOq2KTubw6Bafo
-	 QQ1/jINkJySUG5j5QeHnxk/9GsW+g/QRB+iU1nS/HrWUqoF2M8w8e2wsi2vjCPiT0D
-	 IltrUTYgiyn+GTxaIEx9FU9Ea/eDBFHTyLK3rkARAprsPrUUyD+ikKTg4YPS2Q5zvy
-	 L7kXogwHSq5F9+C1bdWYar3dIK7rmQLvmiqi3V/2hFPoi1jSY13/NNiRUePLmgpk7M
-	 YbbaeYe2Mu7Eg6aiv4Z4jrVem1AfqSuLYs0YAHTyHbvaR2zg6j15n64S0/oLfFMzD6
-	 Ik1b337U8R9Bg==
-Date: Mon, 1 Jun 2026 12:08:55 -0700
-From: Oliver Upton <oupton@kernel.org>
-To: Hyunwoo Kim <imv4bel@gmail.com>
-Cc: maz@kernel.org, joey.gouly@arm.com, seiden@linux.ibm.com,
-	suzuki.poulose@arm.com, yuzenghui@huawei.com,
-	catalin.marinas@arm.com, will@kernel.org, kees@kernel.org,
-	linux-arm-kernel@lists.infradead.org, kvmarm@lists.linux.dev,
-	linux-kernel@vger.kernel.org
-Subject: Re: [PATCH] KVM: arm64: vgic-its: Drop the translation cache
- reference only for the erased entry
-Message-ID: <ah3Yx0fjguUdCk_G@kernel.org>
-References: <ah2c5lu4JbUg7dj-@v4bel>
+	s=k20260515; t=1780340996;
+	bh=W43qI/57Dq34auorc7rm5R4Kf1qpPgs0LDeJ2dQV7M4=;
+	h=Date:From:To:Cc:Subject;
+	b=JYFjMXiTbTwgfk2vu8SK6JiKGJNyCAywoTY0e5JJUjtqH2PKQhxhDQOlm7Iagwy7O
+	 jTuX8o4YgPLbvC351hyUVHPn+O2SLgdRzmfDbbpdIg6e1aryHrBat2DVGKo1uFM5h4
+	 FO9m7maUkpOv95jAJI1ZybfvbeeZwmr4Kxfl0pv8yMQyLFj6h5MJHoRMWvCVQ0lNzc
+	 xT3TUIZas7Fy2865h0hEAebi5DVBLNEDMJi0AVs3waehoX9b+N1Y7aaOM7q9J5Jkw1
+	 ZaYnIfXFd1OIQHs2juZZxLQPqkJOAFwceQBSq37UyKFMpoSC0+uhUU2XpO1dR5fFAW
+	 1Dr41pr1nEfkA==
+Date: Tue, 2 Jun 2026 03:09:52 +0800
+From: Chen-Yu Tsai <wens@kernel.org>
+To: soc@kernel.org
+Cc: Chen-Yu Tsai <wens@kernel.org>, Jernej Skrabec <jernej@kernel.org>,
+	Samuel Holland <samuel@sholland.org>, linux-sunxi@lists.linux.dev,
+	linux-arm-kernel@lists.infradead.org,
+	Stephen Boyd <sboyd@kernel.org>
+Subject: [GIT PULL] Allwinner DT Changes for 7.2
+Message-ID: <ah3ZAPLzh8ORGmpH@home.wens.tw>
 MIME-Version: 1.0
-Content-Type: text/plain; charset=us-ascii
+Content-Type: multipart/signed; micalg=pgp-sha512;
+	protocol="application/pgp-signature"; boundary="SU/u6IheFArjYhKz"
 Content-Disposition: inline
-In-Reply-To: <ah2c5lu4JbUg7dj-@v4bel>
-X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260601_120857_840175_88D180AC 
-X-CRM114-Status: GOOD (  28.47  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -75,110 +69,104 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hi Hyunwoo,
 
-Nice find.
+--SU/u6IheFArjYhKz
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
 
-On Mon, Jun 01, 2026 at 11:53:26PM +0900, Hyunwoo Kim wrote:
-> vgic_its_invalidate_cache() walks the per-ITS translation cache with
-> xa_for_each() and drops the cache's reference on each entry with
-> vgic_put_irq(). It puts the iterated pointer, though, rather than the
-> value returned by xa_erase().
-> 
-> The function is called from contexts that do not exclude one another: the
-> ITS command handlers hold its_lock, the GITS_CTLR write path holds
-> cmd_lock, and the path that clears EnableLPIs in a redistributor's
-> GICR_CTLR holds neither. Two or more of them can drain the same cache
-> concurrently, and if each one observes the same entry, erases it and then
-> puts it, the single reference the cache holds on that entry is dropped
-> more than once. The entry can then be freed while an ITE still maps it.
-> 
-> xa_erase() is atomic and returns the previous entry, so put only the entry
-> that this context actually removed. The cache reference is then dropped
-> exactly once per entry even when the invalidations run concurrently, and
-> the behavior is unchanged when only one context runs.
+The following changes since commit 254f49634ee16a731174d2ae34bc50bd5f45e731:
 
-Next time:
+  Linux 7.1-rc1 (2026-04-26 14:19:00 -0700)
 
-Cc: stable@vger.kernel.org
+are available in the Git repository at:
 
-> Fixes: 8201d1028caa ("KVM: arm64: vgic-its: Maintain a translation cache per ITS")
-> Signed-off-by: Hyunwoo Kim <imv4bel@gmail.com>
-> ---
->  arch/arm64/kvm/vgic/vgic-its.c | 6 ++++--
->  1 file changed, 4 insertions(+), 2 deletions(-)
-> 
-> diff --git a/arch/arm64/kvm/vgic/vgic-its.c b/arch/arm64/kvm/vgic/vgic-its.c
-> index 1d7e5d560af4..1e3706ac3b8e 100644
-> --- a/arch/arm64/kvm/vgic/vgic-its.c
-> +++ b/arch/arm64/kvm/vgic/vgic-its.c
-> @@ -597,8 +597,10 @@ static void vgic_its_invalidate_cache(struct vgic_its *its)
->  	unsigned long idx;
->  
->  	xa_for_each(&its->translation_cache, idx, irq) {
-> -		xa_erase(&its->translation_cache, idx);
-> -		vgic_put_irq(kvm, irq);
-> +		/* Only the context that erases the entry drops its cache ref. */
-> +		irq = xa_erase(&its->translation_cache, idx);
-> +		if (irq)
-> +			vgic_put_irq(kvm, irq);
->  	}
->  }
+  https://git.kernel.org/pub/scm/linux/kernel/git/sunxi/linux.git tags/sunxi-dt-for-7.2
 
-This definitely works but TBH I'd rather just plug the subtle race and
-do invalidations behind the its_lock since it already nests with the
-cmd_lock.
+for you to fetch changes up to 44cf19e41c769720750dbb8752aca75c247e565f:
 
-Could you give this a spin?
+  arm64: dts: allwinner: a523: add gpadc node (2026-05-25 05:02:58 +0800)
 
-diff --git a/arch/arm64/kvm/vgic/vgic-its.c b/arch/arm64/kvm/vgic/vgic-its.c
-index 2ea9f1c7ebcd..b2225da212ec 100644
---- a/arch/arm64/kvm/vgic/vgic-its.c
-+++ b/arch/arm64/kvm/vgic/vgic-its.c
-@@ -596,6 +596,8 @@ static void vgic_its_invalidate_cache(struct vgic_its *its)
- 	struct vgic_irq *irq;
- 	unsigned long idx;
- 
-+	lockdep_assert_held(&its->its_lock);
-+
- 	xa_for_each(&its->translation_cache, idx, irq) {
- 		xa_erase(&its->translation_cache, idx);
- 		vgic_put_irq(kvm, irq);
-@@ -607,17 +609,16 @@ void vgic_its_invalidate_all_caches(struct kvm *kvm)
- 	struct kvm_device *dev;
- 	struct vgic_its *its;
- 
--	rcu_read_lock();
-+	guard(mutex)(&kvm->lock);
- 
--	list_for_each_entry_rcu(dev, &kvm->devices, vm_node) {
-+	list_for_each_entry(dev, &kvm->devices, vm_node) {
- 		if (dev->ops != &kvm_arm_vgic_its_ops)
- 			continue;
- 
- 		its = dev->private;
-+		guard(mutex)(&its->its_lock);
- 		vgic_its_invalidate_cache(its);
- 	}
--
--	rcu_read_unlock();
- }
- 
- int vgic_its_resolve_lpi(struct kvm *kvm, struct vgic_its *its,
-@@ -1725,8 +1726,10 @@ static void vgic_mmio_write_its_ctlr(struct kvm *kvm, struct vgic_its *its,
- 		goto out;
- 
- 	its->enabled = !!(val & GITS_CTLR_ENABLE);
--	if (!its->enabled)
-+	if (!its->enabled) {
-+		guard(mutex)(&its->its_lock);
- 		vgic_its_invalidate_cache(its);
-+	}
- 
- 	/*
- 	 * Try to process any pending commands. This function bails out early
 
---
-Thanks,
-Oliver
+As mentioned in the tag, this pull request contains a change that should
+be shared between the soc and clk trees. However since I don't have any
+clk changes to send this cycle, I think it can just go through the soc
+tree without any issues.
+
+----------------------------------------------------------------
+Allwinner device tree changes for 7.2
+
+Some changes for old chips and some for recent ones.
+
+- A83T gained the MIPI CSI-2 receiver
+- overlays enabled for Pine64 boards
+- V3s gained the MBUS interconnect
+- D1s / T113 and H616 gained the high speed timer
+- T113s watchdog enabled (for reboot)
+- H616 gained proper SRAM regions
+- A523 family gained EL2 virtual timer interrupt and GPADC
+
+This tag also contains a clk DT binding change that changes a private
+header of the clk driver to export some extra clocks to the device tree
+on the V3s.
+
+----------------------------------------------------------------
+Chen-Yu Tsai (1):
+      Merge branch 'sunxi/shared-clk-dt-ids-for-7.2' into sunxi/dt-for-7.2
+
+Jernej Skrabec (1):
+      arm64: dts: allwinner: sun50i-h616: Add SRAM nodes
+
+Marc Zyngier (1):
+      arm64: dts: allwinner: Add EL2 virtual timer interrupt
+
+Michal Piekos (4):
+      riscv: dts: allwinner: d1s-t113: add hstimer node
+      arm64: dts: allwinner: h616: add hstimer node
+      arm: dts: allwinner: t113s: enable watchdog for reboot
+      arm64: dts: allwinner: a523: add gpadc node
+
+Paul Kocialkowski (5):
+      clk: sunxi-ng: v3s: Export MBUS and DRAM clocks to the public header
+      dt-bindings: media: sun6i-a31-csi: Add optional interconnect properties
+      dt-bindings: media: sun6i-a31-isp: Add optional interconnect properties
+      ARM: dts: sun8i: v3s: Add mbus node to represent the interconnect
+      ARM: dts: sun8i: a83t: Add MIPI CSI-2 controller node
+
+Peter Robinson (1):
+      arm64: dts: allwinner: sun50i-a64: Enable DT overlays
+
+ .../bindings/media/allwinner,sun6i-a31-csi.yaml    |  6 +++
+ .../bindings/media/allwinner,sun6i-a31-isp.yaml    |  6 +++
+ arch/arm/boot/dts/allwinner/sun8i-a83t.dtsi        | 43 ++++++++++++++++++++++
+ arch/arm/boot/dts/allwinner/sun8i-t113s.dtsi       |  4 ++
+ arch/arm/boot/dts/allwinner/sun8i-v3s.dtsi         | 15 ++++++++
+ arch/arm64/boot/dts/allwinner/Makefile             |  6 +++
+ arch/arm64/boot/dts/allwinner/sun50i-h616.dtsi     | 38 ++++++++++++++++++-
+ arch/arm64/boot/dts/allwinner/sun55i-a523.dtsi     | 16 +++++++-
+ arch/riscv/boot/dts/allwinner/sunxi-d1s-t113.dtsi  |  9 +++++
+ drivers/clk/sunxi-ng/ccu-sun8i-v3s.h               |  4 --
+ include/dt-bindings/clock/sun8i-v3s-ccu.h          |  4 +-
+ 11 files changed, 143 insertions(+), 8 deletions(-)
+
+--SU/u6IheFArjYhKz
+Content-Type: application/pgp-signature; name="signature.asc"
+
+-----BEGIN PGP SIGNATURE-----
+
+iQIzBAABCgAdFiEE2nN1m/hhnkhOWjtHOJpUIZwPJDAFAmod2QAACgkQOJpUIZwP
+JDBE7BAAhgTSkzIg3EDmxIDjfjZ4N7NoRIkrn/5E8EyHdBkkCDrZYioibHuPmnzh
+pDSkuab3Jk6ZRbEXTvyoxHZbjU7Ed33bbuRv7ISDs058iJCDhgUs8uuI0Y3XbBSi
+5CYYIJMf800oG09rNFYr9F8IEgiBU7qi2uTJxCHa9Rjvm64NOUnXhE5D/m5PhfbU
+9e/+d1C4sixqgtNE36w6h7l+rGH3Ow51NM2f+D41mSRcuYATEC7EmpmdHpuF0lEn
+gi57YQuQnfa3zmMvm9G0RSKoMiuC7zoxEEibXQkYfXtbwh+WbD/NbLrblFftRk6I
+M5eFVDKKrduTJzkOzwvfxqTMhgURmR/XVa/DAYv324bJbz4cLml251GV+PJIl8jD
+LjkIuS9qeHSDD8fd2T1LM3NGeGX3y3TYyGQm7k1oMr2g8UGRxatP4JcwGEF+PhQE
+GPOEabV1pN3tYNecbs4C7B/B1Er2pKmyrz+v+qyRHi74Tdqq0P9fDiGx0exzODb6
+Nmh4GnSdJ3IhtBvCHknKo+CoZP1xsfQGlJl/TvizANN+NBnqFLZ8wSmnyzHRGirH
+xnfCy41UviL2niTNRGNFhPXCqFftt1NuORZXVAMDs/ciN+ROYoL41ZEU/eJnYQo/
+CixzCK6ZA/azao6Ra/CYOs6iBrHSP9eebA+D4tqvK9/YDXrLkFw=
+=4TaZ
+-----END PGP SIGNATURE-----
+
+--SU/u6IheFArjYhKz--
 
