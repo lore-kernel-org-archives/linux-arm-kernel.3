@@ -4,60 +4,65 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 444A0CD5BD1
-	for <linux-arm-kernel@archiver.kernel.org>; Mon,  1 Jun 2026 19:14:22 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id D8607CD6E55
+	for <linux-arm-kernel@archiver.kernel.org>; Mon,  1 Jun 2026 19:16:27 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
 	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
 	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=JUQ1Hc+I/Aj1c96UteOUubDPVimXUERGAR0RBwprXqQ=; b=lMW7K/2KKziPCgNg5dbbRaifpR
-	XiBsAAoc1Qvto6WhrhlMldDfq5+fgmwDD0LB9nlm3kYHpR+DsGB0refcHt9O5jXCCm+Yg7fD2Wf2i
-	WgIW5I9ME/1mxO3XoLo5xROGr9qtMs4tz1SoW/QUu5Npm561jD7D98Cwk7H1px6vAXtl46x+Ut8aL
-	bkMLb5SRlBkzWGhe+Htn/52ROYhCpBl+kgH8JZhiCT3F/0sM6Nck/37DFPgKExX041J64f0gSoTe+
-	H3Uoj+IQUYMiK0klDfhYchqu3zm+bTCXY3qy5HJWa/rU5mD7v4I6efW/TpabomkKlhkb6kCeBJHOS
-	G2wOorSQ==;
+	bh=3Py+hXu1RT6jBoYKS4W+9qHiEMV6Utt4FtLuxKrveNs=; b=WqVdqIirtxeXDBQ6JO5xn47tRg
+	yKywzhhJCs6V0EsBZ9PDkjyNSXDcEaZasl/LwU4q1BOTtJ4cOODzJ4lquODS47oOF3llu/N2ygbKy
+	34vyLkSc4Qb1SqFNURVXLPSV2LJKPzpB0Sp5I3cnumSSMuxlV71ynjhXh09dTWTzxrkp5Z/NG7Ao0
+	k0Pw4E8OWyMchl8VzhHjq2YEpEfdnH/6jVN2f9HnWr86gBEQhJ07pbm13Rj7nHzn3NPm8sNHaXHw3
+	xc8EwPC1kNWmQwiC3l3Tt9xKGoK/6bzaxtv8pR24t547HXkod14YnmLp7u8Bi3rzgXsCXlW5gkaum
+	f8fK2NRA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wU85X-0000000BhfJ-35Uu;
-	Mon, 01 Jun 2026 19:14:15 +0000
-Received: from out-171.mta0.migadu.com ([91.218.175.171])
+	id 1wU87Z-0000000BhmM-04eT;
+	Mon, 01 Jun 2026 19:16:21 +0000
+Received: from sea.source.kernel.org ([172.234.252.31])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wU85V-0000000Bhea-0ise
+	id 1wU87W-0000000Bhlz-2AiR
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 01 Jun 2026 19:14:15 +0000
-Date: Mon, 1 Jun 2026 21:13:49 +0200
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=linux.dev; s=key1;
-	t=1780341234;
-	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
-	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
-	 in-reply-to:in-reply-to:references:references;
-	bh=JUQ1Hc+I/Aj1c96UteOUubDPVimXUERGAR0RBwprXqQ=;
-	b=TCr0M55f+cj+zWkW4XfeG+iVrtQgcElmfxJcHPG6EuXGJ5WkOgA0QaNKeFlHzvWRPQ5n/I
-	q4OeObswfaAesrI3w77ZkRXoDC2fM9Naa8JlDRTPW0VtmfK3qoo9JCvmuT7Tx5UW9sWVkI
-	lGvHf6qF/7IUEoYnZ1qaAhtfEzhyZzM=
-X-Report-Abuse: Please report any abuse attempt to abuse@migadu.com and include these headers.
-From: Thorsten Blum <thorsten.blum@linux.dev>
-To: Herbert Xu <herbert@gondor.apana.org.au>,
-	"David S. Miller" <davem@davemloft.net>,
-	Nicolas Ferre <nicolas.ferre@microchip.com>,
-	Alexandre Belloni <alexandre.belloni@bootlin.com>,
-	Claudiu Beznea <claudiu.beznea@tuxon.dev>
-Cc: linux-crypto@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
+	Mon, 01 Jun 2026 19:16:19 +0000
+Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
+	by sea.source.kernel.org (Postfix) with ESMTP id CE5B5438A5;
+	Mon,  1 Jun 2026 19:16:17 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 93D951F00893;
+	Mon,  1 Jun 2026 19:16:17 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
+	s=k20260515; t=1780341377;
+	bh=3Py+hXu1RT6jBoYKS4W+9qHiEMV6Utt4FtLuxKrveNs=;
+	h=Date:From:To:Cc:Subject:References:In-Reply-To;
+	b=erERrhzwbrBFn4Q6+juSPsSdsefRY/T0KH39K7jN9NHt1RIMTWFGqzmulVPhAbAzm
+	 hZ/yPZivbJgaJwBPKGoqxmAm2F6eFiW0XBaciJfyRMiVF5+SkgJZpY2+9YsJbbCqoo
+	 TiuiKT5L/ImCZM/GNai0IjM25SGU/o/1IwMOCpxjqWQW6cDnjgb74FfidHZ95Zf6hb
+	 skqPiA91AoESwFEWnujFugJECfLJqKM5U93A/v+M9h58S5w3mUWEFsj/TwrX19GxNo
+	 XG0DLAJ7Yzd4KsiVeBgooMeodrhIA+e1gup3TTSdpM/BRokj3De0SN45Cb+WZomn93
+	 4RJzKRCwrHKMg==
+Date: Mon, 1 Jun 2026 12:16:16 -0700
+From: Oliver Upton <oupton@kernel.org>
+To: tabba@google.com
+Cc: Marc Zyngier <maz@kernel.org>, Joey Gouly <joey.gouly@arm.com>,
+	Suzuki K Poulose <suzuki.poulose@arm.com>,
+	Zenghui Yu <yuzenghui@huawei.com>,
+	Catalin Marinas <catalin.marinas@arm.com>,
+	Will Deacon <will@kernel.org>, Quentin Perret <qperret@google.com>,
+	linux-arm-kernel@lists.infradead.org, kvmarm@lists.linux.dev,
 	linux-kernel@vger.kernel.org
-Subject: Re: [PATCH] crypto: atmel-tdes - use min3 to simplify sg_copy and
- crypt_start
-Message-ID: <ah3Z7bFWz512AgTU@linux.dev>
-References: <20260525092927.818586-2-thorsten.blum@linux.dev>
+Subject: Re: [PATCH] KVM: arm64: Flush HCR_EL2.VSE to deliver SErrors to pKVM
+ guests
+Message-ID: <ah3agGh1s61HKiPG@kernel.org>
+References: <20260531154548.1505799-1-tabba@google.com>
 MIME-Version: 1.0
 Content-Type: text/plain; charset=us-ascii
 Content-Disposition: inline
-In-Reply-To: <20260525092927.818586-2-thorsten.blum@linux.dev>
-X-Migadu-Flow: FLOW_OUT
+In-Reply-To: <20260531154548.1505799-1-tabba@google.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260601_121413_503187_AD723D0F 
-X-CRM114-Status: GOOD (  17.41  )
+X-CRM114-CacheID: sfid-20260601_121618_578009_2D238A47 
+X-CRM114-Status: GOOD (  19.62  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -72,45 +77,56 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Mon, May 25, 2026 at 11:29:27AM +0200, Thorsten Blum wrote:
-> Replace multiple min() and min_t() calls with min3() to simplify the
-> code. Using min3() instead of min_t() in atmel_tdes_crypt_start() is
-> safe since the values are all unsigned and compatible.
-> 
-> Signed-off-by: Thorsten Blum <thorsten.blum@linux.dev>
-> ---
->  drivers/crypto/atmel-tdes.c | 7 +++----
->  1 file changed, 3 insertions(+), 4 deletions(-)
-> 
-> diff --git a/drivers/crypto/atmel-tdes.c b/drivers/crypto/atmel-tdes.c
-> index 643e507f9c02..834c6d3e1b06 100644
-> --- a/drivers/crypto/atmel-tdes.c
-> +++ b/drivers/crypto/atmel-tdes.c
-> @@ -143,8 +143,7 @@ static int atmel_tdes_sg_copy(struct scatterlist **sg, size_t *offset,
->  	size_t count, off = 0;
->  
->  	while (buflen && total) {
-> -		count = min((*sg)->length - *offset, total);
-> -		count = min(count, buflen);
-> +		count = min3((*sg)->length - *offset, total, buflen);
->  
->  		if (!count)
->  			return off;
-> @@ -469,8 +468,8 @@ static int atmel_tdes_crypt_start(struct atmel_tdes_dev *dd)
->  
->  
->  	if (fast)  {
-> -		count = min_t(size_t, dd->total, sg_dma_len(dd->in_sg));
-> -		count = min_t(size_t, count, sg_dma_len(dd->out_sg));
-> +		count = min3(sg_dma_len(dd->in_sg), sg_dma_len(dd->out_sg),
-> +			     dd->total);
->  
->  		err = dma_map_sg(dd->dev, dd->in_sg, 1, DMA_TO_DEVICE);
->  		if (!err) {
+On Sun, May 31, 2026 at 04:45:48PM +0100, tabba@google.com wrote:
+> With pKVM enabled, the host injects a virtual SError by setting
+> HCR_EL2.VSE on its vCPU copy, but flush_hyp_vcpu() only flows TWI/TWE
+> into the hyp vCPU that runs, so VSE never reaches it and a deferred
+> (masked) SError is never delivered. VSE is a host-owned injection
+> control, not a trap-configuration bit, so restricting the host's
+> trap-register values should not have dropped it. Flow it on entry;
+> sync_hyp_vcpu() already copies hcr_el2 back, so delivery is reflected
+> to the host.
 
-This should probably be dropped for now because of this fix:
-https://lore.kernel.org/lkml/20260531204115.689052-3-thorsten.blum@linux.dev/
+Might be worth mentioning that flush_hyp_vcpu() also forwards VSESR_EL2
+from the host since that bit is _just_ out of context of this diff :)
+
+> Fixes: b56680de9c648 ("KVM: arm64: Initialize trap register values in hyp in pKVM")
+> Reported-by: Sashiko (local):gemini-3.1-pro
+> Signed-off-by: Fuad Tabba <tabba@google.com>
+
+Reviewed-by: Oliver Upton <oupton@kernel.org>
 
 Thanks,
-Thorsten
+Oliver
+
+> ---
+> Not an urgent fix. I should stop running Sashiko...
+> ---
+>  arch/arm64/kvm/hyp/nvhe/hyp-main.c | 9 +++++++--
+>  1 file changed, 7 insertions(+), 2 deletions(-)
+> 
+> diff --git a/arch/arm64/kvm/hyp/nvhe/hyp-main.c b/arch/arm64/kvm/hyp/nvhe/hyp-main.c
+> index 06db299c37a8..9e4a20df6409 100644
+> --- a/arch/arm64/kvm/hyp/nvhe/hyp-main.c
+> +++ b/arch/arm64/kvm/hyp/nvhe/hyp-main.c
+> @@ -129,9 +129,14 @@ static void flush_hyp_vcpu(struct pkvm_hyp_vcpu *hyp_vcpu)
+>  	hyp_vcpu->vcpu.arch.ctxt	= host_vcpu->arch.ctxt;
+>  
+>  	hyp_vcpu->vcpu.arch.mdcr_el2	= host_vcpu->arch.mdcr_el2;
+> -	hyp_vcpu->vcpu.arch.hcr_el2 &= ~(HCR_TWI | HCR_TWE);
+> +	/*
+> +	 * HCR_EL2.VSE is host-owned (a pending virtual SError to inject), not a
+> +	 * trap-control bit, so it must flow to the hyp vCPU alongside TWI/TWE
+> +	 * for the vSError to be delivered. sync_hyp_vcpu() reflects it back.
+> +	 */
+> +	hyp_vcpu->vcpu.arch.hcr_el2 &= ~(HCR_TWI | HCR_TWE | HCR_VSE);
+>  	hyp_vcpu->vcpu.arch.hcr_el2 |= READ_ONCE(host_vcpu->arch.hcr_el2) &
+> -						 (HCR_TWI | HCR_TWE);
+> +						 (HCR_TWI | HCR_TWE | HCR_VSE);
+>  
+>  	hyp_vcpu->vcpu.arch.iflags	= host_vcpu->arch.iflags;
+>  
+> -- 
+> 2.54.0.929.g9b7fa37559-goog
+> 
 
