@@ -4,67 +4,67 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 61A38CD6E65
-	for <linux-arm-kernel@archiver.kernel.org>; Mon,  1 Jun 2026 22:46:17 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 09075CD6E66
+	for <linux-arm-kernel@archiver.kernel.org>; Mon,  1 Jun 2026 22:46:18 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:References
 	:Message-Id:Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:
 	From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=gAR+oMl81da0V1CPLjgkk9BrdSm9lIBRwDygoNzW3lk=; b=nwcG10ICD4ET40n/6ZyOtSx1o9
-	poMnR0uoWcbnCseEdDbmTtPda2bsYnmz6HkOowsW1TvewQTthKmGzhlq0PYZ7idchbnDhBiAwua5J
-	+0afNnUhw0Vhq+jc8reJ96K3qMZGRKjG3TosfmMCPNgSWQNpld7tui+uydIzHf5DipcWvhQFM3wga
-	Ap/DKpXEPbxBOYVvRZOthT498rKRKIdEvIYlJH5HaIholuF19Izrwo3+2KfCZhIkBFiuMbMLzu/rB
-	ZFYIQxDCoa5DRQBQ4FsGIt9PtjvPJ482V4U5dTAXenW/Fxo06x5FIXg6sPzmYBfHgRuaJ/dE5P/6z
-	Fi5S4oxA==;
+	bh=858e5b7LqdgZ6vBMa4bHGrEPn27Ah0I/1eUP1gxyBaA=; b=vSmljwT7/cy3gWU/Psg7nkwDY1
+	XjeKRsgt0eJKUjUOE/s01x3BKaZ0Urg9V1SJxcZG+0fnWf1RTeWT1CD2r2JxcoHIx52wIRlMjvo6P
+	h/fqXGW02/7A3/3GFRz1OAxMOygRberRDM/o2CUmeSZ7iyuuXZptMvmbEqb4+qk42vbbnrhA0fMxy
+	Dt2NmkeL31MYX2gl9XT7NfvudAEDeTTfgrbbja2NRDU2/e50in4MAsyxsSjVtuvEjaHfDStfnyVb5
+	Uap9wn6fjTRixgYIj2AijcSVAUngRIIyh8+vOcB4PA/vVvlZFCvRVbA79sscWJZox9vOU3tKAr6hJ
+	x3k2Slag==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wUBOb-0000000C04x-0D3h;
+	id 1wUBOb-0000000C06e-2A3y;
 	Mon, 01 Jun 2026 22:46:09 +0000
-Received: from casper.infradead.org ([2001:8b0:10b:1236::1])
+Received: from desiato.infradead.org ([2001:8b0:10b:1:d65d:64ff:fe57:4e05])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wUBO7-0000000BylG-2Gmb;
-	Mon, 01 Jun 2026 22:45:42 +0000
+	id 1wUBOE-0000000Byup-1d5D;
+	Mon, 01 Jun 2026 22:45:46 +0000
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=infradead.org; s=casper.20170209; h=Cc:To:In-Reply-To:References:Message-Id
-	:Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:From:Sender
-	:Reply-To:Content-ID:Content-Description;
-	bh=gAR+oMl81da0V1CPLjgkk9BrdSm9lIBRwDygoNzW3lk=; b=hHKdZaav8RuYGmdPqOrC7CGHCm
-	14mnsCrjlLQaz7cCUfgVLghdt3wPhosxep9cPC3mlYPIKesnHGkfTG2RqsSFZqNHYSmbZyny3Ti8X
-	r17JIXGNB//MnvNSDYzF03oSQ0DNTA2bjI2ErAKXHGy+mR+ujxlhPDxaaITM6ixCjcyzynjC+UdUG
-	w8u8YYHhKSqDqV4flV36a0n7gjuEljeLZ7XnYYKLLhGcYG4/Ezj+8nx62bdLLO6gEn4q9yLrleFFF
-	MhcFk9KMFkYGABrloKMVUJ1S24vdEfc777YDvoW6bCBDqj+OXpnUM2yKUG/RHNQ+wTR21EY8Po8Zs
-	SJRmXIuQ==;
-Received: from bali.collaboradmins.com ([148.251.105.195])
-	by casper.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wUBO3-00000000tVm-3ZJY;
-	Mon, 01 Jun 2026 22:45:38 +0000
+	d=infradead.org; s=desiato.20200630; h=Cc:To:In-Reply-To:References:
+	Message-Id:Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:
+	From:Sender:Reply-To:Content-ID:Content-Description;
+	bh=858e5b7LqdgZ6vBMa4bHGrEPn27Ah0I/1eUP1gxyBaA=; b=XfC3X4GhANsuEp2urGvZEqAMhc
+	LIFBQI/t7k2U+xvzlf1iqgXjGrKYDLB/7qba0icA6B+CvOhtn5IuNZT/ft+hOrGci4Q2Fb/feb1C1
+	p/KI0wpaEdXT/vWGpUqRAaMgv46uUKmtrwPltK1aCNhBozgDO6rhrydrNXxYePVrxURxQyme72CwZ
+	sCVTeBlVMZUB3cee3fo6HpsnJ5RDDy6p/x1D6Ba1WWV6F/RExaZtb7IitiytoXZDU1F1H8T3T/PaG
+	Um3n/4UidZsDKuvc9nuZDSgIMr0yqz4MNLJc9gLEPKfwOjNeK+Y/kL5x2Zw0d58Oo28M640CIH/yY
+	tGQnMJpQ==;
+Received: from bali.collaboradmins.com ([2a01:4f8:201:9162::2])
+	by desiato.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
+	id 1wUBO4-00000007sfo-2gU9;
+	Mon, 01 Jun 2026 22:45:42 +0000
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=collabora.com;
-	s=mail; t=1780353932;
-	bh=PPWygKHxfd4EJbA3pkJAWqPU2JXfwPO9D/9ypsXFy/s=;
+	s=mail; t=1780353931;
+	bh=W9tdDgg2EQqozZD3LL3IaBrdwUPqaxVbVRoj+UPs6tA=;
 	h=From:Date:Subject:References:In-Reply-To:To:Cc:From;
-	b=cC1oNJ5CoPf+mHv6BlQa0SUyo+gBYJ5KFNTZpPyJ5TlLjbd2ZgsooVHY/4Ul6fHVG
-	 /2NQ3tqMAVrwYyovSg3gfN5RMZ3ll76Q+gBIupAK8t+rf7TMPiHo8kLhNuRrROT0Ut
-	 ZUtr+MaO8oam8ErMNMwTWw8BevpNPw6XPd2Z3gbasj5dYjzCBHR8iWQOuvt06RDGN7
-	 oq1K+zxtb9fSs8O+MIRD6KZaWnoHplUudTXyFIjbt0THygwaYLuSVrGcDSxFtUAa/d
-	 DL1hH1cfG1K/2CDRgIVkySGxvll6gPh5WXNy3a80JWh6DupsaGjduiz17A/FOOCNuK
-	 9+lEhyKZfVRag==
+	b=K3uzFQyxAz0uXPAhkwIzduYktV/go2ZdhRzbBF6tcsUTx2mO1+XKzER2dXLmBtFG7
+	 TJjgSnMeKzm9ZHpJOZP1tsRf5NxEtaadpnoxbQ4d6DIt/WFwIpn9ArNtjASoQ74F8q
+	 iqtYFnQEOtNKUU2UWfkOVrIbUIdSLvOxrWUdqul1fD8ElA18k2FpT/mLHzcDBuk2Fu
+	 7t8hxCRdnN3O556mqp0UtQP+NNI2nkZh/gDjQu9uOu6AUh1rw6RKT9IQkKscsHdaTo
+	 G0YTfal0ygm3o67xjocWIEw7rcqJUNYWSbi+HoD4jGpFxhx2Un+wdNRJuft4Ktm7CE
+	 p+IR+yeDi2RMQ==
 Received: from localhost (unknown [100.64.0.241])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange ECDHE (prime256v1) server-signature RSA-PSS (4096 bits) server-digest SHA256)
 	(No client certificate requested)
 	(Authenticated sender: cristicc)
-	by bali.collaboradmins.com (Postfix) with ESMTPSA id 18B5017E0D07;
-	Tue,  2 Jun 2026 00:45:32 +0200 (CEST)
+	by bali.collaboradmins.com (Postfix) with ESMTPSA id 5C0B817E0B66;
+	Tue,  2 Jun 2026 00:45:31 +0200 (CEST)
 From: Cristian Ciocaltea <cristian.ciocaltea@collabora.com>
-Date: Tue, 02 Jun 2026 01:44:29 +0300
-Subject: [PATCH v7 29/30] drm/tests: edid: Fix conformity for 1080p+4K
- YUV420 200MHz EDID
+Date: Tue, 02 Jun 2026 01:44:28 +0300
+Subject: [PATCH v7 28/30] drm/tests: hdmi_state_helper: Add HDMI 2.0
+ scrambling tests
 MIME-Version: 1.0
 Content-Type: text/plain; charset="utf-8"
 Content-Transfer-Encoding: 7bit
-Message-Id: <20260602-dw-hdmi-qp-scramb-v7-29-445eb54ee1ed@collabora.com>
+Message-Id: <20260602-dw-hdmi-qp-scramb-v7-28-445eb54ee1ed@collabora.com>
 References: <20260602-dw-hdmi-qp-scramb-v7-0-445eb54ee1ed@collabora.com>
 In-Reply-To: <20260602-dw-hdmi-qp-scramb-v7-0-445eb54ee1ed@collabora.com>
 To: Maarten Lankhorst <maarten.lankhorst@linux.intel.com>, 
@@ -85,8 +85,8 @@ Cc: kernel@collabora.com, dri-devel@lists.freedesktop.org,
  linux-rockchip@lists.infradead.org
 X-Mailer: b4 0.15.2
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260601_234536_388379_349D0EA5 
-X-CRM114-Status: GOOD (  14.71  )
+X-CRM114-CacheID: sfid-20260601_234538_518502_6085685F 
+X-CRM114-Status: GOOD (  16.81  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -101,204 +101,291 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-The test EDID added by commit 58fe1d78605e ("drm/tests: hdmi: Provide
-EDID supporting 4K@30Hz with YUV420 only") fails 'edid-decode --check'
-(v1.33.0) with the following issues:
+Cover the newly introduced HDMI 2.0 source-scrambler plumbing in the
+drm_hdmi_state_helper code with the following KUnit tests:
 
-  Warnings:
+- drm_test_check_scrambler_needed_low_rate verifies that a mode with
+  TMDS rate <= 340 MHz never sets conn_state->hdmi.scrambler_needed,
+  even when both endpoints advertise scrambling support.
 
-  Block 1, CTA-861 Extension Block:
-    IT Video Formats are overscanned by default, but normally this should be underscanned.
-    YCbCr 4:2:0 Video Data Block: Some YCbCr 4:2:0 timings are invalid for HDMI 2.1
-      (which requires an RGB timings pixel rate >= 590 MHz).
-  EDID:
-    Base EDID: Some timings are out of range of the Monitor Ranges:
-      Maximum Clock: 297.000 MHz (Monitor: 170.000 MHz)
-    CTA-861: Multiple native progressive timings are defined.
+- drm_test_check_scrambler_needed_high_rate verifies that a mode with
+  TMDS rate > 340 MHz makes the helper set scrambler_needed.
 
-  Failures:
+- drm_test_check_scrambler_needed_high_rate_no_adv verifies that a mode
+  with TMDS rate > 340 MHz never sets scrambler_needed when source does
+  not advertise scrambling support, regardless of sink scrambling
+  advertisement.
 
-  Block 0, Base EDID:
-    Vendor & Product Identification: EDID 1.3 does not support week 0xff.
-  Block 1, CTA-861 Extension Block:
-    Vendor-Specific Data Block (HDMI Forum), OUI C4-5D-D8: Max TMDS rate is > 0 and <= 340 or > 600.
-    YCbCr 4:2:0 Capability Map Data Block: Empty Capability Map.
-    YCbCr 4:2:0 Video Data Block: YCbCr 4:2:0-only VIC 95 is also a regular VIC.
-    Missing VCDB, needed for Set Selectable RGB Quantization to avoid interop issues.
-  EDID:
-    CTA-861: The maximum HDMI TMDS clock is 200000 kHz, but one or more video timings go up to 297000 kHz.
-
-Address them while preserving the advertised maximum resolutions, BPC
-and TMDS clock used by the existing KUnit tests:
-
-- Week 0xff is not valid for EDID 1.3; set it to 0x00 so that the Model
-  year field becomes a regular Year of Manufacture.
-- The HDMI Forum VSDB Max TMDS Character Rate must be 0 when no rate
-  above 340 MHz is supported.  The HDMI VSDB still advertises 200 MHz as
-  Max TMDS Clock.
-- VIC 95 (3840x2160@30Hz) was reported as YUV420-only but was listed in
-  both the regular Video Data Block and the YCbCr 4:2:0 Video Data
-  Block.  Drop it from the regular VDB (so it stays advertised in the
-  4:2:0 VDB only) and remove the now unnecessary empty YCbCr 4:2:0
-  Capability Map Data Block.
-- Add a Video Capability Data Block advertising selectable RGB and YCC
-  quantization range plus underscan for IT/CE formats; also set the 'IT
-  Video Formats Underscanned' bit in the CTA-861 extension header to
-  match.
-- Bump the Display Range Limits max pixel clock from 170 MHz to 300 MHz
-  so it covers the 297 MHz pixel rate of VIC 95.
-- Drop the 'native' flag from VIC 16 in the Video Data Block so it is no
-  longer flagged as a second native progressive timing alongside the
-  preferred DTD.
-
-The only remaining warning is HDMI 2.1 related and can be ignored, as it
-requires that any mode listed in the YCbCr 4:2:0 Video Data Block must
-have a corresponding RGB pixel clock >= 590 MHz.
+To match the behaviour drm_bridge_connector_init() applies to bridges
+that implement source-scrambling callbacks, the __connector_hdmi_init()
+helper now infers connector->hdmi.scrambling_supported from the presence
+of .scrambler_enable and .scrambler_disable in the supplied
+drm_connector_hdmi_funcs, mirroring how connector capability should be
+wired up in real drivers.
 
 Signed-off-by: Cristian Ciocaltea <cristian.ciocaltea@collabora.com>
 ---
- drivers/gpu/drm/tests/drm_kunit_edid.h | 65 +++++++++++++++++++++-------------
- 1 file changed, 41 insertions(+), 24 deletions(-)
+ drivers/gpu/drm/tests/drm_hdmi_state_helper_test.c | 219 +++++++++++++++++++++
+ 1 file changed, 219 insertions(+)
 
-diff --git a/drivers/gpu/drm/tests/drm_kunit_edid.h b/drivers/gpu/drm/tests/drm_kunit_edid.h
-index 9b318f7d364e..618b42d2fd8e 100644
---- a/drivers/gpu/drm/tests/drm_kunit_edid.h
-+++ b/drivers/gpu/drm/tests/drm_kunit_edid.h
-@@ -758,22 +758,22 @@ static const unsigned char test_edid_hdmi_1080p_rgb_yuv_dc_max_340mhz[] = {
-  * edid-decode (hex):
-  *
-  * 00 ff ff ff ff ff ff 00 31 d8 34 00 00 00 00 00
-- * ff 23 01 03 80 60 36 78 0f ee 91 a3 54 4c 99 26
-+ * 00 23 01 03 80 60 36 78 0f ee 91 a3 54 4c 99 26
-  * 0f 50 54 20 00 00 01 01 01 01 01 01 01 01 01 01
-  * 01 01 01 01 01 01 02 3a 80 18 71 38 2d 40 58 2c
-  * 45 00 c0 1c 32 00 00 1e 00 00 00 fc 00 54 65 73
-  * 74 20 45 44 49 44 0a 20 20 20 00 00 00 fd 00 18
-- * 55 18 5e 11 00 0a 20 20 20 20 20 20 00 00 00 10
-- * 00 00 00 00 00 00 00 00 00 00 00 00 00 00 01 bb
-+ * 55 18 5e 1e 00 0a 20 20 20 20 20 20 00 00 00 10
-+ * 00 00 00 00 00 00 00 00 00 00 00 00 00 00 01 ad
-  *
-- * 02 03 29 31 42 90 5f 6c 03 0c 00 10 00 78 28 20
-- * 00 00 01 03 6d d8 5d c4 01 28 80 07 00 00 00 00
-- * 00 00 e3 0f 00 00 e2 0e 5f 00 00 00 00 00 00 00
-+ * 02 03 27 b1 41 10 6c 03 0c 00 10 00 78 28 20 00
-+ * 00 01 03 6d d8 5d c4 01 00 80 07 00 00 00 00 00
-+ * 00 e2 00 ca e2 0e 5f 00 00 00 00 00 00 00 00 00
-  * 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00
-  * 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00
-  * 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00
-  * 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00
-- * 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 ca
-+ * 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 9a
-  *
-  * ----------------
-  *
-@@ -782,7 +782,7 @@ static const unsigned char test_edid_hdmi_1080p_rgb_yuv_dc_max_340mhz[] = {
-  *   Vendor & Product Identification:
-  *     Manufacturer: LNX
-  *     Model: 52
-- *     Model year: 2025
-+ *     Made in: 2025
-  *   Basic Display Parameters & Features:
-  *     Digital display
-  *     Maximum image size: 96 cm x 54 cm
-@@ -805,21 +805,21 @@ static const unsigned char test_edid_hdmi_1080p_rgb_yuv_dc_max_340mhz[] = {
-  *                  Vfront    4 Vsync   5 Vback   36 Vpol P
-  *     Display Product Name: 'Test EDID'
-  *     Display Range Limits:
-- *       Monitor ranges (GTF): 24-85 Hz V, 24-94 kHz H, max dotclock 170 MHz
-+ *       Monitor ranges (GTF): 24-85 Hz V, 24-94 kHz H, max dotclock 300 MHz
-  *     Dummy Descriptor:
-  *   Extension blocks: 1
-- * Checksum: 0xbb
-+ * Checksum: 0xad
-  *
-  * ----------------
-  *
-  * Block 1, CTA-861 Extension Block:
-  *   Revision: 3
-+ *   Underscans IT Video Formats by default
-  *   Supports YCbCr 4:4:4
-  *   Supports YCbCr 4:2:2
-  *   Native detailed modes: 1
-  *   Video Data Block:
-- *     VIC  16:  1920x1080   60.000000 Hz  16:9     67.500 kHz    148.500000 MHz (native)
-- *     VIC  95:  3840x2160   30.000000 Hz  16:9     67.500 kHz    297.000000 MHz
-+ *     VIC  16:  1920x1080   60.000000 Hz  16:9     67.500 kHz    148.500000 MHz
-  *   Vendor-Specific Data Block (HDMI), OUI 00-0C-03:
-  *     Source physical address: 1.0.0.0
-  *     DC_48bit
-@@ -830,40 +830,57 @@ static const unsigned char test_edid_hdmi_1080p_rgb_yuv_dc_max_340mhz[] = {
-  *     Extended HDMI video details:
-  *   Vendor-Specific Data Block (HDMI Forum), OUI C4-5D-D8:
-  *     Version: 1
-- *     Maximum TMDS Character Rate: 200 MHz
-  *     SCDC Present
-  *     Supports 16-bits/component Deep Color 4:2:0 Pixel Encoding
-  *     Supports 12-bits/component Deep Color 4:2:0 Pixel Encoding
-  *     Supports 10-bits/component Deep Color 4:2:0 Pixel Encoding
-- *   YCbCr 4:2:0 Capability Map Data Block:
-- *     Empty Capability Map
-+ *     VRRmin: 0 Hz
-+ *     VRRmax: 0 Hz
-+ *   Video Capability Data Block:
-+ *     YCbCr quantization: Selectable (via AVI YQ)
-+ *     RGB quantization: Selectable (via AVI Q)
-+ *     PT scan behavior: No Data
-+ *     IT scan behavior: Always Underscanned
-+ *     CE scan behavior: Always Underscanned
-  *   YCbCr 4:2:0 Video Data Block:
-  *     VIC  95:  3840x2160   30.000000 Hz  16:9     67.500 kHz    297.000000 MHz
-- * Checksum: 0xca
-+ * Checksum: 0x9a  Unused space in Extension Block: 88 bytes
-+ *
-+ * ----------------
-+ *
-+ * edid-decode 1.33.0
-+ *
-+ * Warnings:
-+ *
-+ * Block 1, CTA-861 Extension Block:
-+ *   YCbCr 4:2:0 Video Data Block: Some YCbCr 4:2:0 timings are invalid for HDMI 2.1
-+ *     (which requires an RGB timings pixel rate >= 590 MHz).
-+ *
-+ * EDID conformity: PASS
-  */
- static const unsigned char test_edid_hdmi_1080p_rgb_yuv_4k_yuv420_dc_max_200mhz[] = {
- 	0x00, 0xff, 0xff, 0xff, 0xff, 0xff, 0xff, 0x00, 0x31, 0xd8, 0x34, 0x00,
--	0x00, 0x00, 0x00, 0x00, 0xff, 0x23, 0x01, 0x03, 0x80, 0x60, 0x36, 0x78,
-+	0x00, 0x00, 0x00, 0x00, 0x00, 0x23, 0x01, 0x03, 0x80, 0x60, 0x36, 0x78,
- 	0x0f, 0xee, 0x91, 0xa3, 0x54, 0x4c, 0x99, 0x26, 0x0f, 0x50, 0x54, 0x20,
- 	0x00, 0x00, 0x01, 0x01, 0x01, 0x01, 0x01, 0x01, 0x01, 0x01, 0x01, 0x01,
- 	0x01, 0x01, 0x01, 0x01, 0x01, 0x01, 0x02, 0x3a, 0x80, 0x18, 0x71, 0x38,
- 	0x2d, 0x40, 0x58, 0x2c, 0x45, 0x00, 0xc0, 0x1c, 0x32, 0x00, 0x00, 0x1e,
- 	0x00, 0x00, 0x00, 0xfc, 0x00, 0x54, 0x65, 0x73, 0x74, 0x20, 0x45, 0x44,
- 	0x49, 0x44, 0x0a, 0x20, 0x20, 0x20, 0x00, 0x00, 0x00, 0xfd, 0x00, 0x18,
--	0x55, 0x18, 0x5e, 0x11, 0x00, 0x0a, 0x20, 0x20, 0x20, 0x20, 0x20, 0x20,
-+	0x55, 0x18, 0x5e, 0x1e, 0x00, 0x0a, 0x20, 0x20, 0x20, 0x20, 0x20, 0x20,
- 	0x00, 0x00, 0x00, 0x10, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00,
--	0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x01, 0xbb, 0x02, 0x03, 0x29, 0x31,
--	0x42, 0x90, 0x5f, 0x6c, 0x03, 0x0c, 0x00, 0x10, 0x00, 0x78, 0x28, 0x20,
--	0x00, 0x00, 0x01, 0x03, 0x6d, 0xd8, 0x5d, 0xc4, 0x01, 0x28, 0x80, 0x07,
--	0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0xe3, 0x0f, 0x00, 0x00, 0xe2, 0x0e,
--	0x5f, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00,
-+	0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x01, 0xad, 0x02, 0x03, 0x27, 0xb1,
-+	0x41, 0x10, 0x6c, 0x03, 0x0c, 0x00, 0x10, 0x00, 0x78, 0x28, 0x20, 0x00,
-+	0x00, 0x01, 0x03, 0x6d, 0xd8, 0x5d, 0xc4, 0x01, 0x00, 0x80, 0x07, 0x00,
-+	0x00, 0x00, 0x00, 0x00, 0x00, 0xe2, 0x00, 0xca, 0xe2, 0x0e, 0x5f, 0x00,
- 	0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00,
- 	0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00,
- 	0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00,
- 	0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00,
- 	0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00,
- 	0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00,
--	0x00, 0x00, 0x00, 0xca
-+	0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00,
-+	0x00, 0x00, 0x00, 0x9a,
+diff --git a/drivers/gpu/drm/tests/drm_hdmi_state_helper_test.c b/drivers/gpu/drm/tests/drm_hdmi_state_helper_test.c
+index e89e1af7a811..98cd42f429cb 100644
+--- a/drivers/gpu/drm/tests/drm_hdmi_state_helper_test.c
++++ b/drivers/gpu/drm/tests/drm_hdmi_state_helper_test.c
+@@ -20,6 +20,8 @@
+ #include <drm/display/drm_hdmi_helper.h>
+ #include <drm/display/drm_hdmi_state_helper.h>
+ 
++#include <linux/hdmi.h>
++
+ #include "../drm_crtc_internal.h"
+ 
+ #include <kunit/test.h>
+@@ -140,6 +142,29 @@ static const struct drm_connector_hdmi_funcs reject_100mhz_connector_hdmi_funcs
+ 	},
  };
  
- /*
++static int accept_scrambler_enable(struct drm_connector *connector)
++{
++	return 0;
++}
++
++static int accept_scrambler_disable(struct drm_connector *connector)
++{
++	return 0;
++}
++
++static const struct drm_connector_hdmi_funcs scrambler_connector_hdmi_funcs = {
++	.scrambler_enable	 = accept_scrambler_enable,
++	.scrambler_disable	 = accept_scrambler_disable,
++	.avi = {
++		.clear_infoframe = accept_infoframe_clear_infoframe,
++		.write_infoframe = accept_infoframe_write_infoframe,
++	},
++	.hdmi = {
++		.clear_infoframe = accept_infoframe_clear_infoframe,
++		.write_infoframe = accept_infoframe_write_infoframe,
++	},
++};
++
+ static int dummy_connector_get_modes(struct drm_connector *connector)
+ {
+ 	struct drm_atomic_helper_connector_hdmi_priv *priv =
+@@ -240,6 +265,8 @@ __connector_hdmi_init(struct kunit *test,
+ 
+ 	conn = &priv->connector;
+ 	conn->ycbcr_420_allowed = !!(formats & BIT(DRM_OUTPUT_COLOR_FORMAT_YCBCR420));
++	conn->hdmi.scrambler_supported = hdmi_funcs->scrambler_enable &&
++					 hdmi_funcs->scrambler_disable;
+ 
+ 	ret = drmm_connector_hdmi_init(drm, conn,
+ 				       "Vendor", "Product",
+@@ -2198,6 +2225,195 @@ static void drm_test_check_disable_connector(struct kunit *test)
+ 	drm_modeset_acquire_fini(&ctx);
+ }
+ 
++/*
++ * Test that a sub-340 MHz TMDS character rate does not set
++ * conn_state->hdmi.scrambler_needed, even when the source
++ * and the sink both support scrambling.
++ */
++static void drm_test_check_scrambler_needed_low_rate(struct kunit *test)
++{
++	struct drm_atomic_helper_connector_hdmi_priv *priv;
++	struct drm_modeset_acquire_ctx ctx;
++	struct drm_connector_state *conn_state;
++	struct drm_display_info *info;
++	struct drm_display_mode *low_rate_mode;
++	struct drm_connector *conn;
++	struct drm_device *drm;
++	struct drm_crtc *crtc;
++	unsigned long long rate;
++	int ret;
++
++	priv = drm_kunit_helper_connector_hdmi_init_with_edid_funcs(test,
++				BIT(DRM_OUTPUT_COLOR_FORMAT_RGB444),
++				8,
++				&scrambler_connector_hdmi_funcs,
++				test_edid_hdmi_4k_rgb_yuv420_dc_max_600mhz);
++	KUNIT_ASSERT_NOT_NULL(test, priv);
++
++	drm = &priv->drm;
++	crtc = priv->crtc;
++	conn = &priv->connector;
++	info = &conn->display_info;
++	KUNIT_ASSERT_TRUE(test, conn->hdmi.scrambler_supported);
++	KUNIT_ASSERT_TRUE(test, info->is_hdmi);
++	KUNIT_ASSERT_TRUE(test, info->hdmi.scdc.supported);
++	KUNIT_ASSERT_TRUE(test, info->hdmi.scdc.scrambling.supported);
++
++	low_rate_mode = drm_kunit_display_mode_from_cea_vic(test, drm, 16);
++	KUNIT_ASSERT_NOT_NULL(test, low_rate_mode);
++
++	rate = drm_hdmi_compute_mode_clock(low_rate_mode, 8, DRM_OUTPUT_COLOR_FORMAT_RGB444);
++	KUNIT_ASSERT_LT(test, rate, HDMI_1_3_TMDS_CHAR_RATE_MAX_HZ);
++
++	drm_modeset_acquire_init(&ctx, 0);
++
++retry_conn_enable:
++	ret = drm_kunit_helper_enable_crtc_connector(test, drm, crtc, conn,
++						     low_rate_mode, &ctx);
++	if (ret == -EDEADLK) {
++		ret = drm_modeset_backoff(&ctx);
++		if (!ret)
++			goto retry_conn_enable;
++	}
++	KUNIT_ASSERT_EQ(test, ret, 0);
++
++	conn_state = conn->state;
++	KUNIT_ASSERT_NOT_NULL(test, conn_state);
++
++	KUNIT_EXPECT_LE(test, conn_state->hdmi.tmds_char_rate,
++			HDMI_1_3_TMDS_CHAR_RATE_MAX_HZ);
++	KUNIT_EXPECT_FALSE(test, conn_state->hdmi.scrambler_needed);
++
++	drm_modeset_drop_locks(&ctx);
++	drm_modeset_acquire_fini(&ctx);
++}
++
++/*
++ * Test that an over-340 MHz TMDS character rate sets
++ * conn_state->hdmi.scrambler_needed when both source
++ * and sink advertise scrambling support.
++ */
++static void drm_test_check_scrambler_needed_high_rate(struct kunit *test)
++{
++	struct drm_atomic_helper_connector_hdmi_priv *priv;
++	struct drm_modeset_acquire_ctx ctx;
++	struct drm_connector_state *conn_state;
++	struct drm_display_info *info;
++	struct drm_display_mode *preferred;
++	struct drm_connector *conn;
++	struct drm_device *drm;
++	struct drm_crtc *crtc;
++	unsigned long long rate;
++	int ret;
++
++	priv = drm_kunit_helper_connector_hdmi_init_with_edid_funcs(test,
++				BIT(DRM_OUTPUT_COLOR_FORMAT_RGB444),
++				8,
++				&scrambler_connector_hdmi_funcs,
++				test_edid_hdmi_4k_rgb_yuv420_dc_max_600mhz);
++	KUNIT_ASSERT_NOT_NULL(test, priv);
++
++	drm = &priv->drm;
++	crtc = priv->crtc;
++	conn = &priv->connector;
++	info = &conn->display_info;
++	KUNIT_ASSERT_TRUE(test, conn->hdmi.scrambler_supported);
++	KUNIT_ASSERT_TRUE(test, info->is_hdmi);
++	KUNIT_ASSERT_TRUE(test, info->hdmi.scdc.supported);
++	KUNIT_ASSERT_TRUE(test, info->hdmi.scdc.scrambling.supported);
++
++	preferred = find_preferred_mode(conn);
++	KUNIT_ASSERT_NOT_NULL(test, preferred);
++
++	rate = drm_hdmi_compute_mode_clock(preferred, 8, DRM_OUTPUT_COLOR_FORMAT_RGB444);
++	KUNIT_ASSERT_GT(test, rate, HDMI_1_3_TMDS_CHAR_RATE_MAX_HZ);
++
++	drm_modeset_acquire_init(&ctx, 0);
++
++retry_conn_enable:
++	ret = drm_kunit_helper_enable_crtc_connector(test, drm, crtc, conn,
++						     preferred, &ctx);
++	if (ret == -EDEADLK) {
++		ret = drm_modeset_backoff(&ctx);
++		if (!ret)
++			goto retry_conn_enable;
++	}
++	KUNIT_ASSERT_EQ(test, ret, 0);
++
++	conn_state = conn->state;
++	KUNIT_ASSERT_NOT_NULL(test, conn_state);
++
++	KUNIT_EXPECT_GT(test, conn_state->hdmi.tmds_char_rate,
++			HDMI_1_3_TMDS_CHAR_RATE_MAX_HZ);
++	KUNIT_EXPECT_TRUE(test, conn_state->hdmi.scrambler_needed);
++
++	drm_modeset_drop_locks(&ctx);
++	drm_modeset_acquire_fini(&ctx);
++}
++
++/*
++ * Test that an over-340 MHz TMDS character rate does not set
++ * conn_state->hdmi.scrambler_needed when the source does not
++ * advertise scrambling support, even if the sink does.
++ */
++static void drm_test_check_scrambler_needed_high_rate_no_adv(struct kunit *test)
++{
++	struct drm_atomic_helper_connector_hdmi_priv *priv;
++	struct drm_modeset_acquire_ctx ctx;
++	struct drm_connector_state *conn_state;
++	struct drm_display_info *info;
++	struct drm_display_mode *preferred;
++	struct drm_connector *conn;
++	struct drm_device *drm;
++	struct drm_crtc *crtc;
++	unsigned long long rate;
++	int ret;
++
++	priv = drm_kunit_helper_connector_hdmi_init_with_edid_funcs(test,
++				BIT(DRM_OUTPUT_COLOR_FORMAT_RGB444),
++				8,
++				&dummy_connector_hdmi_funcs,
++				test_edid_hdmi_4k_rgb_yuv420_dc_max_600mhz);
++	KUNIT_ASSERT_NOT_NULL(test, priv);
++
++	drm = &priv->drm;
++	crtc = priv->crtc;
++	conn = &priv->connector;
++	info = &conn->display_info;
++	KUNIT_ASSERT_FALSE(test, conn->hdmi.scrambler_supported);
++	KUNIT_ASSERT_TRUE(test, info->is_hdmi);
++	KUNIT_ASSERT_TRUE(test, info->hdmi.scdc.supported);
++	KUNIT_ASSERT_TRUE(test, info->hdmi.scdc.scrambling.supported);
++
++	preferred = find_preferred_mode(conn);
++	KUNIT_ASSERT_NOT_NULL(test, preferred);
++
++	rate = drm_hdmi_compute_mode_clock(preferred, 8, DRM_OUTPUT_COLOR_FORMAT_RGB444);
++	KUNIT_ASSERT_GT(test, rate, HDMI_1_3_TMDS_CHAR_RATE_MAX_HZ);
++
++	drm_modeset_acquire_init(&ctx, 0);
++
++retry_conn_enable:
++	ret = drm_kunit_helper_enable_crtc_connector(test, drm, crtc, conn,
++						     preferred, &ctx);
++	if (ret == -EDEADLK) {
++		ret = drm_modeset_backoff(&ctx);
++		if (!ret)
++			goto retry_conn_enable;
++	}
++	KUNIT_ASSERT_EQ(test, ret, 0);
++
++	conn_state = conn->state;
++	KUNIT_ASSERT_NOT_NULL(test, conn_state);
++
++	KUNIT_EXPECT_GT(test, conn_state->hdmi.tmds_char_rate,
++			HDMI_1_3_TMDS_CHAR_RATE_MAX_HZ);
++	KUNIT_EXPECT_FALSE(test, conn_state->hdmi.scrambler_needed);
++
++	drm_modeset_drop_locks(&ctx);
++	drm_modeset_acquire_fini(&ctx);
++}
++
+ static struct kunit_case drm_atomic_helper_connector_hdmi_check_tests[] = {
+ 	KUNIT_CASE(drm_test_check_broadcast_rgb_auto_cea_mode),
+ 	KUNIT_CASE(drm_test_check_broadcast_rgb_auto_cea_mode_vic_1),
+@@ -2227,6 +2443,9 @@ static struct kunit_case drm_atomic_helper_connector_hdmi_check_tests[] = {
+ 	KUNIT_CASE(drm_test_check_tmds_char_rate_rgb_8bpc),
+ 	KUNIT_CASE(drm_test_check_tmds_char_rate_rgb_10bpc),
+ 	KUNIT_CASE(drm_test_check_tmds_char_rate_rgb_12bpc),
++	KUNIT_CASE(drm_test_check_scrambler_needed_low_rate),
++	KUNIT_CASE(drm_test_check_scrambler_needed_high_rate),
++	KUNIT_CASE(drm_test_check_scrambler_needed_high_rate_no_adv),
+ 	/*
+ 	 * TODO: We should have tests to check that a change in the
+ 	 * format triggers a CRTC mode change just like we do for the
 
 -- 
 2.54.0
