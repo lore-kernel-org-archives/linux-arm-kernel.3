@@ -4,59 +4,63 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 830CFCD5BD1
-	for <linux-arm-kernel@archiver.kernel.org>; Mon,  1 Jun 2026 19:08:19 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id E63C4CD6E55
+	for <linux-arm-kernel@archiver.kernel.org>; Mon,  1 Jun 2026 19:09:09 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:MIME-Version:
-	Message-ID:Subject:Cc:To:From:Date:Reply-To:Content-Transfer-Encoding:
-	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
-	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
-	bh=5BBooQ+POiDj884MIiobYfemB6cKypHIDePShLGDwAA=; b=e/xcyXrNulOzCwXuwRRPyrzVKK
-	bktFIP2OhaGS/gwNlDydbDGpSPSiy2VjwtiYG29wmE1sjSeF/iyvxQAwDLn3BHdycNa2DkIzbmADi
-	tK2KqY27VPTD8vxPd/Jzg600/14qVPcx53n9XojkD0zU7CqygC7wd2ButIHck+cRuTXVd1I3srXCy
-	GL6BEyhThpztbJ8/qRpBE7twrvH/IBFgTDlt+GvQ9udfOikQnz9Xzb3SKRZrhxhzyff2Ut2AAKSFZ
-	05Ex9qh+OqboxUoghewCn77CWZH/6jp8smdVsFf3WCwJhGnKEMnjpI6r++dLDaqtQqIj09nrb/JeF
-	1hLqFTnA==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=elXuand+n/viDgsywhdjTLL4Sq6m2LCvhd5nnF4PGAE=; b=MlJnp55hZD9l2AL3MNhD7pOpMe
+	QcuhA4OidnNTK+ZZAHTmpMdpoh0iq4v0UR50V4oAZ5sJHQiXA8jrYtm0O9MSf5gn5rdo4+2JlxFM4
+	VId5f3erOb68cqcsq7LtVGBKqpz9jQytIv4ecTf8As6bgjUdFNLgU9LSIdD/ToCPSRwXogsxfIPEJ
+	A5BEeKpYJap7SvL2CusKzVQiWUeX8iQcDSge+Yufp9VNymuWt1I6Zw+Iaplv+3QvtQU0C4Ytcwpaj
+	JZsLcRtTQ3qEIDT2MWTXtM9zueI3OJM9I1LpWVt78kalR7zMAgMkoCT1YiFdLzRbEi3p5uiGshqym
+	NTpIfG3g==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wU7zf-0000000BhEc-0g0K;
-	Mon, 01 Jun 2026 19:08:11 +0000
+	id 1wU80R-0000000BhJa-1EQQ;
+	Mon, 01 Jun 2026 19:08:59 +0000
 Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wU7zb-0000000BhEF-3wpj
+	id 1wU80P-0000000BhJ4-3BOl
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 01 Jun 2026 19:08:09 +0000
+	Mon, 01 Jun 2026 19:08:58 +0000
 Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
-	by sea.source.kernel.org (Postfix) with ESMTP id B2CD243730;
-	Mon,  1 Jun 2026 19:08:06 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 4A4AF1F00893;
-	Mon,  1 Jun 2026 19:08:05 +0000 (UTC)
+	by sea.source.kernel.org (Postfix) with ESMTP id 13BFC40E2B;
+	Mon,  1 Jun 2026 19:08:57 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id C29501F00898;
+	Mon,  1 Jun 2026 19:08:56 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1780340886;
-	bh=5BBooQ+POiDj884MIiobYfemB6cKypHIDePShLGDwAA=;
-	h=Date:From:To:Cc:Subject;
-	b=lBM3ebbe9lmiNelN1SZsZyIQSG0p8EK04o1Wgb6+YGsr5Wg6fEIGbsm4MTlvyTPDy
-	 Byr9a2TILbEzLQkx0p+KszgyZJLPSWQ0bCrhFZVeWJcseFsK17n9PN6ykzRNLYUbUA
-	 Ga2vhcJ1jQ3rq/KtN9m1C6iEo+nCrTrPKDzSziboMtAhCoHpSVB6iiqbmVWnvm7Gt/
-	 d+Re7CsZjqrxvgkxYeyLPeFuLe2mRQyrU7lwpezY+i/YKmGlSZ38tezYXgrdvPtLC1
-	 iRb3ACgZerQ0B0QK9gVwEbKL6QicBj7FOltQmbEchNTsh4wsSCX53E2F9DkYxdT4nb
-	 4MJkIULoRcV6A==
-Date: Tue, 2 Jun 2026 03:08:01 +0800
-From: Chen-Yu Tsai <wens@kernel.org>
-To: soc@kernel.org
-Cc: Chen-Yu Tsai <wens@kernel.org>, Jernej Skrabec <jernej@kernel.org>,
-	Samuel Holland <samuel@sholland.org>, linux-sunxi@lists.linux.dev,
-	linux-arm-kernel@lists.infradead.org
-Subject: [GIT PULL] Allwinner Driver Changes for 7.2
-Message-ID: <ah3YkTZAR2GXlC3x@home.wens.tw>
+	s=k20260515; t=1780340937;
+	bh=elXuand+n/viDgsywhdjTLL4Sq6m2LCvhd5nnF4PGAE=;
+	h=Date:From:To:Cc:Subject:References:In-Reply-To;
+	b=mD5ROBonnzUew3QCRjyhq+2GxLjZyXfTZHazuIgIgTKTCtPXlSpXOq2KTubw6Bafo
+	 QQ1/jINkJySUG5j5QeHnxk/9GsW+g/QRB+iU1nS/HrWUqoF2M8w8e2wsi2vjCPiT0D
+	 IltrUTYgiyn+GTxaIEx9FU9Ea/eDBFHTyLK3rkARAprsPrUUyD+ikKTg4YPS2Q5zvy
+	 L7kXogwHSq5F9+C1bdWYar3dIK7rmQLvmiqi3V/2hFPoi1jSY13/NNiRUePLmgpk7M
+	 YbbaeYe2Mu7Eg6aiv4Z4jrVem1AfqSuLYs0YAHTyHbvaR2zg6j15n64S0/oLfFMzD6
+	 Ik1b337U8R9Bg==
+Date: Mon, 1 Jun 2026 12:08:55 -0700
+From: Oliver Upton <oupton@kernel.org>
+To: Hyunwoo Kim <imv4bel@gmail.com>
+Cc: maz@kernel.org, joey.gouly@arm.com, seiden@linux.ibm.com,
+	suzuki.poulose@arm.com, yuzenghui@huawei.com,
+	catalin.marinas@arm.com, will@kernel.org, kees@kernel.org,
+	linux-arm-kernel@lists.infradead.org, kvmarm@lists.linux.dev,
+	linux-kernel@vger.kernel.org
+Subject: Re: [PATCH] KVM: arm64: vgic-its: Drop the translation cache
+ reference only for the erased entry
+Message-ID: <ah3Yx0fjguUdCk_G@kernel.org>
+References: <ah2c5lu4JbUg7dj-@v4bel>
 MIME-Version: 1.0
-Content-Type: multipart/signed; micalg=pgp-sha512;
-	protocol="application/pgp-signature"; boundary="VfsGAi0BIhPgGehB"
+Content-Type: text/plain; charset=us-ascii
 Content-Disposition: inline
+In-Reply-To: <ah2c5lu4JbUg7dj-@v4bel>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260601_120808_029177_62ED4FAE 
-X-CRM114-Status: GOOD (  10.50  )
+X-CRM114-CacheID: sfid-20260601_120857_840175_88D180AC 
+X-CRM114-Status: GOOD (  28.47  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -71,71 +75,110 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
+Hi Hyunwoo,
 
---VfsGAi0BIhPgGehB
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
+Nice find.
 
-The following changes since commit 254f49634ee16a731174d2ae34bc50bd5f45e731:
+On Mon, Jun 01, 2026 at 11:53:26PM +0900, Hyunwoo Kim wrote:
+> vgic_its_invalidate_cache() walks the per-ITS translation cache with
+> xa_for_each() and drops the cache's reference on each entry with
+> vgic_put_irq(). It puts the iterated pointer, though, rather than the
+> value returned by xa_erase().
+> 
+> The function is called from contexts that do not exclude one another: the
+> ITS command handlers hold its_lock, the GITS_CTLR write path holds
+> cmd_lock, and the path that clears EnableLPIs in a redistributor's
+> GICR_CTLR holds neither. Two or more of them can drain the same cache
+> concurrently, and if each one observes the same entry, erases it and then
+> puts it, the single reference the cache holds on that entry is dropped
+> more than once. The entry can then be freed while an ITE still maps it.
+> 
+> xa_erase() is atomic and returns the previous entry, so put only the entry
+> that this context actually removed. The cache reference is then dropped
+> exactly once per entry even when the invalidations run concurrently, and
+> the behavior is unchanged when only one context runs.
 
-  Linux 7.1-rc1 (2026-04-26 14:19:00 -0700)
+Next time:
 
-are available in the Git repository at:
+Cc: stable@vger.kernel.org
 
-  https://git.kernel.org/pub/scm/linux/kernel/git/sunxi/linux.git tags/sunxi-drivers-for-7.2
+> Fixes: 8201d1028caa ("KVM: arm64: vgic-its: Maintain a translation cache per ITS")
+> Signed-off-by: Hyunwoo Kim <imv4bel@gmail.com>
+> ---
+>  arch/arm64/kvm/vgic/vgic-its.c | 6 ++++--
+>  1 file changed, 4 insertions(+), 2 deletions(-)
+> 
+> diff --git a/arch/arm64/kvm/vgic/vgic-its.c b/arch/arm64/kvm/vgic/vgic-its.c
+> index 1d7e5d560af4..1e3706ac3b8e 100644
+> --- a/arch/arm64/kvm/vgic/vgic-its.c
+> +++ b/arch/arm64/kvm/vgic/vgic-its.c
+> @@ -597,8 +597,10 @@ static void vgic_its_invalidate_cache(struct vgic_its *its)
+>  	unsigned long idx;
+>  
+>  	xa_for_each(&its->translation_cache, idx, irq) {
+> -		xa_erase(&its->translation_cache, idx);
+> -		vgic_put_irq(kvm, irq);
+> +		/* Only the context that erases the entry drops its cache ref. */
+> +		irq = xa_erase(&its->translation_cache, idx);
+> +		if (irq)
+> +			vgic_put_irq(kvm, irq);
+>  	}
+>  }
 
-for you to fetch changes up to 61192938a5870ac36edae81e4775b680dcf02c61:
+This definitely works but TBH I'd rather just plug the subtle race and
+do invalidations behind the its_lock since it already nests with the
+cmd_lock.
 
-  bus: sunxi-rsb: Always check register address validity (2026-05-25 06:37:11 +0800)
+Could you give this a spin?
 
-----------------------------------------------------------------
-Allwinner driver changes for 7.2
+diff --git a/arch/arm64/kvm/vgic/vgic-its.c b/arch/arm64/kvm/vgic/vgic-its.c
+index 2ea9f1c7ebcd..b2225da212ec 100644
+--- a/arch/arm64/kvm/vgic/vgic-its.c
++++ b/arch/arm64/kvm/vgic/vgic-its.c
+@@ -596,6 +596,8 @@ static void vgic_its_invalidate_cache(struct vgic_its *its)
+ 	struct vgic_irq *irq;
+ 	unsigned long idx;
+ 
++	lockdep_assert_held(&its->its_lock);
++
+ 	xa_for_each(&its->translation_cache, idx, irq) {
+ 		xa_erase(&its->translation_cache, idx);
+ 		vgic_put_irq(kvm, irq);
+@@ -607,17 +609,16 @@ void vgic_its_invalidate_all_caches(struct kvm *kvm)
+ 	struct kvm_device *dev;
+ 	struct vgic_its *its;
+ 
+-	rcu_read_lock();
++	guard(mutex)(&kvm->lock);
+ 
+-	list_for_each_entry_rcu(dev, &kvm->devices, vm_node) {
++	list_for_each_entry(dev, &kvm->devices, vm_node) {
+ 		if (dev->ops != &kvm_arm_vgic_its_ops)
+ 			continue;
+ 
+ 		its = dev->private;
++		guard(mutex)(&its->its_lock);
+ 		vgic_its_invalidate_cache(its);
+ 	}
+-
+-	rcu_read_unlock();
+ }
+ 
+ int vgic_its_resolve_lpi(struct kvm *kvm, struct vgic_its *its,
+@@ -1725,8 +1726,10 @@ static void vgic_mmio_write_its_ctlr(struct kvm *kvm, struct vgic_its *its,
+ 		goto out;
+ 
+ 	its->enabled = !!(val & GITS_CTLR_ENABLE);
+-	if (!its->enabled)
++	if (!its->enabled) {
++		guard(mutex)(&its->its_lock);
+ 		vgic_its_invalidate_cache(its);
++	}
+ 
+ 	/*
+ 	 * Try to process any pending commands. This function bails out early
 
-Mostly changes to the SRAM driver to allow for one SRAM region to be
-"claimed" by multiple changes. When a region is "claimed" it is removed
-or disconnected from the CPU's view. This is needed on the H6 and H616,
-which have one alias region seemingly shared between the video codec
-engine and the display engine.
-
-One minor fix for the RSB driver is also included.
-
-----------------------------------------------------------------
-Chen-Yu Tsai (6):
-      dt-bindings: sram: Document Allwinner H616 VE SRAM
-      dt-bindings: sram: sunxi-sram: Add H616 SRAM regions
-      soc: sunxi: sram: Const-ify sunxi_sram_func data and references
-      soc: sunxi: sram: Allow SRAM to be claimed multiple times
-      soc: sunxi: sram: Support claiming multiple regions per device
-      soc: sunxi: sram: Add H616 SRAM regions
-
-Samuel Holland (1):
-      bus: sunxi-rsb: Always check register address validity
-
- .../sram/allwinner,sun4i-a10-system-control.yaml   |   5 +-
- Documentation/devicetree/bindings/sram/sram.yaml   |   1 +
- drivers/bus/sunxi-rsb.c                            |   3 +
- drivers/soc/sunxi/sunxi_sram.c                     | 196 +++++++++++++--------
- 4 files changed, 127 insertions(+), 78 deletions(-)
-
---VfsGAi0BIhPgGehB
-Content-Type: application/pgp-signature; name="signature.asc"
-
------BEGIN PGP SIGNATURE-----
-
-iQIzBAABCgAdFiEE2nN1m/hhnkhOWjtHOJpUIZwPJDAFAmod2JEACgkQOJpUIZwP
-JDAwzg/9FDd9z1H9vB3wTj2ptls9aWIdVQ1kIinzaIl3/AzoSdJXNevbei+l0njd
-plqY6KeJIT8DDIR9d548fEFsQt5E7LIrDXxSx+lk+VfynjFlORlCwTNM8DbqtRMB
-hw5iAZAm8krS/QP3CRMgZ/wKzwwNLabjdLDB+7lDGVBxAIQOoOuSqU/CSpWrro8u
-mCY1M2xYN4yf1Hn8+dwAgKBEp+DbmlZCuD2SFWM4JeII2jNKTaq1P88pVGHpZsTe
-Kf07EppN4gllUIrHoPchRzoumuUG2ix5/CtseEm2D8MUDLwPqDPt0U0uwERhvJ5W
-U3QGN24gtcX7CyMhfoA8Gowbn0+0j/1EnlNBS4UY8frdHItbXMDcwgrTvA0M1eEe
-FbyNKqD2/a8kwEn2avghaWu/qL7+CPoU3YB0A3aJyfRZbXPL6lL1BHZ1GcEWPa8y
-WqmS3GwbeJ5Za2dI9BG7f45rpF2cfntUbVclMO28LsI9uDTaFCO7WcLxeMrY7Ipy
-jwd4bQhynnM3d8qS2f/628+jGQ9qmjmaGAfyOrusrkYLqHpRI9wiq7kMSzCcy/5t
-n58YlYxoNNeivq4ZOZPvL+/jVDOFGE/aNfoJT6xjA/WYjtdZ4hBZT7/+GRWHOckN
-VBmYdIkScoL/FPdLyx1mUcUGT8NhfPpbH6kGWCyWm69k0nLqKro=
-=Bcm6
------END PGP SIGNATURE-----
-
---VfsGAi0BIhPgGehB--
+--
+Thanks,
+Oliver
 
