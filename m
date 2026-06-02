@@ -4,107 +4,107 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 985A7CD6E4A
-	for <linux-arm-kernel@archiver.kernel.org>; Tue,  2 Jun 2026 08:52:09 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id F1F34C5DF71
+	for <linux-arm-kernel@archiver.kernel.org>; Tue,  2 Jun 2026 08:54:25 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
 	Content-Type:Cc:To:Subject:Message-ID:Date:From:In-Reply-To:References:
 	MIME-Version:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=NiRZYLqdYuU6SFpoVEk8+QM9CW1MlZECjVChvA6J5qk=; b=SNWCzBnYEQ4vJ6/RX1gcFIoJBi
-	H0aGfLz7bh6LZ587K1xoWH193p7sqr1jmbJUyJwgY/4qmkm6rY+sLxsVsg3M6uvT5H4IDZpiq53tf
-	ZYj+B6jOmCLZvDHpFHEFGsuY4XloNZbtOsjGCDJ6Fi4ZQYivux4hoNKwSVBehTfPlZSJ4LRwo5v5f
-	z28tLp+qyDpb9H3fxHmToceZUiWYY9KrO0VAfRk1GGf42XAoEB+WW/pInXFxfVGeLQX6yeC/oZc/o
-	xYaauyoX95CoND4Slmw7555jqHUINzXdNDfoxCu2nYUh0o7vVQDzn4IU5JOFRxs906bdttk4T3f0N
-	EaflJFug==;
+	bh=rks7RgU8lnN1tl1OcZKY8fr3t/XyAMQZ/mP+r7NDPTc=; b=XAPfKqi6ASNDf7hhU21p1sYAMu
+	02WzmotiJeJNiQMZnA41bzmE40uHSymEv2vZWQLPRmnpiYG+7FBwYuH7kM574P4+ajBAe1j1YM+RV
+	mw5G97vebnONqQbWjY9YhFxOlcbRfobvgEo2PEfYuJbNT8cNgnCTt/a0kr+VmvtgOK8ux83Igc9ru
+	zU17DmBKscLFSzZ5k0lr3bDYm2ousPPsWwsBKm4WvvG1MceNQkVrfj5TuB8PnvPOwwavY1ZQ0mylG
+	PToA+ml0JX6CLWA4EYHn/5wyerxtxQ7JAS/rnbbOvmTQRCb9u6hPVeA7drGfLU43dbC3HihTa8iNA
+	WuZB+hhg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wUKqw-0000000CbRi-1roi;
-	Tue, 02 Jun 2026 08:52:02 +0000
-Received: from mail-ed1-x52a.google.com ([2a00:1450:4864:20::52a])
+	id 1wUKt3-0000000Cbc6-3vkh;
+	Tue, 02 Jun 2026 08:54:13 +0000
+Received: from mail-ed1-x534.google.com ([2a00:1450:4864:20::534])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wUKqr-0000000CbRC-44kr
+	id 1wUKt1-0000000CbbG-00Dv
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 02 Jun 2026 08:52:00 +0000
-Received: by mail-ed1-x52a.google.com with SMTP id 4fb4d7f45d1cf-68c1653ea0cso5995030a12.2
-        for <linux-arm-kernel@lists.infradead.org>; Tue, 02 Jun 2026 01:51:57 -0700 (PDT)
-ARC-Seal: i=1; a=rsa-sha256; t=1780390316; cv=none;
+	Tue, 02 Jun 2026 08:54:12 +0000
+Received: by mail-ed1-x534.google.com with SMTP id 4fb4d7f45d1cf-68d233bf083so3573212a12.1
+        for <linux-arm-kernel@lists.infradead.org>; Tue, 02 Jun 2026 01:54:10 -0700 (PDT)
+ARC-Seal: i=1; a=rsa-sha256; t=1780390449; cv=none;
         d=google.com; s=arc-20240605;
-        b=ZS/XdFrfFwiqNyU/Y1FoJIt5s41kQhQE2vZkjvHL+yYWQPxIS5hHe5zyWDeyKQKQIy
-         EXQCNiQoNN+isS0aSd3fTMrLxNEHR4Ne7jlx+pIDsvWVnIldGNni5Vq5PUjHlccSlm53
-         tFp5BpbxDfOuSTjx7iiNp1lSdnn0BfCaeoovEehSzTLx7L0TtN2iMAky2FLr/5HZ9F3r
-         Ad2PcInOmzgPBSfRzZffk4Z8hZBIsobi16DkGPnyrdkczi1q4hJDax90Cvv1paN3fA51
-         gPlBc3gwbxQoL3l8CanX9D5D5RAH/5a0WOgRLWX3YNs5Sl3B8U7MWK/5UaTYiHUPwuFv
-         fZdw==
+        b=cKHkDSxTlkco4entOSO/A4Y3gxCAVwBKzAbzOK1UQeJ8KClYhW6gNpoZIWquwRr7jb
+         ADPyKnGVnwUCZAgvliWyzPRaiIem/QMLAks0krtD+Y42UMBjcmazVpXQCKVDjUMazYbw
+         yP1iJcr39Ymzev2n5TMLNZuRixBqY9j/T7bBCfGleREIAU/G009OZN3wJG2OWTy2dcYt
+         ffa3PtRyHgAsFvKA5Cx9MeQA4iREeM+UgAr64cfdfWKwQljv+zsv0bXt3yHxOIlifGfu
+         mZ7/AXRxqjHORTEqxmgxw/xL9HczgGQGr76bEK5cwFCRVdbu8X5023I/IlSVROMYzaLA
+         NyxA==
 ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20240605;
         h=content-transfer-encoding:cc:to:subject:message-id:date:from
          :in-reply-to:references:mime-version:dkim-signature;
-        bh=NiRZYLqdYuU6SFpoVEk8+QM9CW1MlZECjVChvA6J5qk=;
-        fh=h8FErJBnycs8ZBHamMHLCcoUkBq9A2OVhEG9psprKYY=;
-        b=L9TGlwwxjsPUd/tULx58fXjHEz+ypsRlT6Le5iv5HBWeV2RUN6f/nQ/MaPIGhnNvOk
-         ttM5P6LsiLLdki2GKz+tTnZPvlhXMSodL96TafmVLfO7fE19MxDLEttTmCrIf6lFFG5I
-         63WWD1wbwpr6jCrLHFQfcOkT0djfZnxvcxvQgLWS/Zyw0xlto1vqCPy7A59lzuhPTuQE
-         qgMgxsYcTyZoIowfhyXaiR3qHwHdIf/y1aS8McuuR7iOLHL/BxqHv9cfetli+DcZ/f/L
-         JQkAVjlrLcOsg5X5SqQ99v7FQSQvKEG8wp6gwIj1l8Tm/QgfGjhqNpGyXei30EH2gHOt
-         3YuQ==;
+        bh=rks7RgU8lnN1tl1OcZKY8fr3t/XyAMQZ/mP+r7NDPTc=;
+        fh=Ipk2j40+RdMv4SFeZIOD2gMpjjCR7rmCZZrneMzlXYg=;
+        b=AXP+MaV1lbVudOBBINd5I+PgXQKt1wAUyDau85bO6oUuQ9FvdJh+zo2vSLIdNcNQWA
+         cxTEIHcxXR0Q+Jjkp0TO2sxoJQI6QxiuFfLKlhc8uuUSKRSycuIKdNfZdDsnDyoCiIg6
+         AOus73SapcTxTLK2QQTOWBxGceiE+0TVfJ0xWpnjwYYVuMu6fuglmua7awU2njTAOpqO
+         ZqGtKELfZFERBYdRhis1TkQhUZ392iGN+VANC+pmXK4CzErNeYTaSFKREe3DW+2uZB0D
+         aM+sbKiyPwMs/NhqTfF7utM5s1dqjC6ZwGiINR3xQwXY/zsE9IRq/MkkYidmAzqRChfI
+         ODcg==;
         darn=lists.infradead.org
 ARC-Authentication-Results: i=1; mx.google.com; arc=none
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20251104; t=1780390316; x=1780995116; darn=lists.infradead.org;
+        d=gmail.com; s=20251104; t=1780390449; x=1780995249; darn=lists.infradead.org;
         h=content-transfer-encoding:cc:to:subject:message-id:date:from
          :in-reply-to:references:mime-version:from:to:cc:subject:date
          :message-id:reply-to;
-        bh=NiRZYLqdYuU6SFpoVEk8+QM9CW1MlZECjVChvA6J5qk=;
-        b=BtopiBwRJmBFHEZF0gB7pAEoIPLM4+5nZ4opKPjuJeS7c86vpBRGNTfYlpzeysIvnA
-         wcJMF7poEdeuHWPI0y6gkIyAKrVJWfFtMLl1K4tMVRD83Implib2YWedbYaLWr5CNopo
-         ZkzwCqWGYtTKrquUl9sXiYvy8Ak+RVZmScXgvQ8fMu2ldR5hvSJsWzT1NJNKGjlV9AOh
-         f4I/px/E1ga/Ut+VbzQ8pwOl5JxBxLjT4OkNu8BC5s8IKM6WS2cYYdBT00OR/ffG8DWi
-         xdVCpVeCEYreWbacwoxI0NoVIlYokykcGZ/mQuyS6SSsdKfvkMQn8LPD8ryr+VcOD86h
-         r5Hg==
+        bh=rks7RgU8lnN1tl1OcZKY8fr3t/XyAMQZ/mP+r7NDPTc=;
+        b=GWvTW9FdPkQl51XHx/V5Gl+jNeVmthBKHuyrM51wf9ydKGEYgT58/EiSiWEf9KQZsu
+         XLU8pigKOEkrG9nGcPKdlMVBW9CYEvRpAnuPJ5mafFyKY26WIIVeaC7yU7AiU84bytW1
+         Yk/zRjrgBAU5MBPc5/zRnnDPp7AxTLhJ+0WNYQChhKXTlxBMWL8dJM34sc2BKds0umqJ
+         4V67OIL4dy8Ym5i8SG0YCNo/Q9/lrDoWnsHmG0MmSQVEKWG5ZC4JMye3Lx5SJRuFZWUJ
+         gbMt2zc06rKFmqCdUeenZTsU3HkmX/u7m4jXe57UqwoT+txH5Aac/gwLH7UPqrs+vnH6
+         s5Ew==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20251104; t=1780390316; x=1780995116;
+        d=1e100.net; s=20251104; t=1780390449; x=1780995249;
         h=content-transfer-encoding:cc:to:subject:message-id:date:from
          :in-reply-to:references:mime-version:x-gm-gg:x-gm-message-state:from
          :to:cc:subject:date:message-id:reply-to;
-        bh=NiRZYLqdYuU6SFpoVEk8+QM9CW1MlZECjVChvA6J5qk=;
-        b=A/A8lciELzWdt/OCFuUyd+3gyydKXaU0PuoQgRMG511grGoq4SR5HDBx0iNO8orkNX
-         X+LN6LWEuJU9AdQXjawZC9xpFocz9Lk0/3hptrKxMEY9ICiR3A+V0wk/RNDNw2EgdyFc
-         s4wNhYTTvfgEpYWt6W9tP37Ke4pIqE9vpfYgBGigbKpTJ0bztnWqlX8CLk5NzIQrCMBb
-         8zLW6aTsQssLh/RrEtItLOWpCcWn4ek2B1MMXFa/cjmMotCz3n1MI8KzwkJpadkbln6Q
-         jHQv8+YJNKWFmTMHV83BnWqT97g20UcuSn4kMT77H3HVtaJmmnYXULG3P885kt5IWNcO
-         4Dog==
-X-Forwarded-Encrypted: i=1; AFNElJ8uc6OyIuJfsGpSrqrQ3uVwD59Hp2ifpp6izGGbA5Ef30om7o3EA/kOkHSlarkPZ1hTj94lCBXnAu7pNMFKUoBF@lists.infradead.org
-X-Gm-Message-State: AOJu0YxpDW63t2y4S0NtUM7C89agkjG2HnFl1+dVF3VYvGDzmiAdChJF
-	u9+KMCRrTaQFrYl7yVFZf97KriktxIJ71J7NVNSDU09Awhqj6T+hgQYl3HN346NktK3cYNE4EBH
-	ZGM8GY3oRoGomisccy6ge9QwbLmn5cN4=
-X-Gm-Gg: Acq92OFoB5ZSAWX3GLJ4rW0zFLQ+3iI088LdDQf9tO6x+JGEsi6UQZGsVLMVOKLeJ35
-	kYAim3X+yCuvSTxrfInV802YvlYJ/skYHfUueDmTWRTI0LCnznNzgmhyGaae9m9/1fz8lWA924j
-	U/hlvcsaRka11EzF/SHXu9dvIL/FhH38aYVlP+iLnl/eopz3vMxHrnNunRAneOCL8MWnfNx0qmw
-	QRil3JL/3CGxbzbTDdjqOnnpqceTIs8C04l1afWgqLrUfBM7Mh3YmbsF/b3VBcLDotL9SLL1Ugc
-	SqFXWUNyZqfB2oU/GhO41TD7BdHOKGMcVdDKkocdS3Vhgi+RU6BOmq9oD9dPKlPOg06A/cJlwwb
-	IaOCk9fO7UvRRI7jgXBetm7hwI0sdt0XbbYUTYmiBco4r2kYbx86B59+lLNgKPdBvh/U2
-X-Received: by 2002:a05:6402:2b99:b0:68c:33e9:bf71 with SMTP id
- 4fb4d7f45d1cf-68c8ae14309mr7505543a12.11.1780390315907; Tue, 02 Jun 2026
- 01:51:55 -0700 (PDT)
+        bh=rks7RgU8lnN1tl1OcZKY8fr3t/XyAMQZ/mP+r7NDPTc=;
+        b=hZrl9UHv9GDJ4AhRT9dMRYL68CakfzUnKfcVfwQVCa0PyzvoIp4sQNeFppQ/tlD5dn
+         DLzyozui1m5Lrr7YUbI+3uAeVr/XY6cJKXGLnhfGEEDwOwppF29D1AF0kUZRgADcDQGP
+         niC0JiUEVL+nwFRlEoroQuqh+MqyWejxFYqBN3qSVYx1ictHpDHlGiBq78dXinqfFsYc
+         EDNUTGDmgPES4oWlqy3dmPBk7qs9XtWblv12SCSMk2fIfHtQHAdfVIk3bRIAEQEjG6w8
+         cWbsPpFonrk2Gow9s3ChpUcAEyYyc1wliA42UCdx1vW0nxLz/hi/TmUiaNTGEU5z6ktB
+         7aLA==
+X-Forwarded-Encrypted: i=1; AFNElJ/B4d4SFPv6Iz2NvP1EIC5psqrX0mTzgPffnR+0b0NQi5L4uVq8JT0D1E0NL3JRzUQgt+6Lr+Inc92fXADc/d+p@lists.infradead.org
+X-Gm-Message-State: AOJu0YxpE5Ej5sX8I2Dd+YiHF33Xhwx9jzqGxdjNZ34ZgEsI1FKNcxE7
+	UdabfK3I0r8Lx0XSmVLzv3Hnp+zBfa5Gh541aQ8gvMkpO1dJ53P9vqiYAdiwKe4QCriTbJTDsBs
+	sQyFqC4rDg3wj+bGhcWwbDG+c0gEF+2Y=
+X-Gm-Gg: Acq92OF4FMvbPUUzjEN0+GnqRzyY3/fZ36wtQLz8wSRpFpknbhDPiW3qU6J/pEbual4
+	EAMUkGdz8mBgsRyMrh1SPUOzRUhXsATlcZfhjJDP2kPuKg2sG65QuUPhRc2KrF074eRmnjDHPeb
+	ocHxtW6s9uphbin+HNw8mJMcL8dM/71YJDsOfOsMbYY7qRS4oycW5EQusWawWn9bNZt+XnhJn33
+	O1qDz5fP7kmazNlYSU1nd+xMLR73jCbl+iby79iDgbKbTkYJFQqB09mZMqMNgfHPC8NFTKCVhdV
+	0G+cKb7gOUGGlg9LkbTPiNwRWMu5/aUP9KVwApztL+S/3fHzje43yda1c9yfb7AbEfVz+OzPWQ8
+	in8dukoloqtxpgSyZb9qSCkmdxWl57+lnRwG7GYGle1LJmxWgBVc89IATA0PHu6lF7nj9
+X-Received: by 2002:a05:6402:3554:b0:68b:f026:f381 with SMTP id
+ 4fb4d7f45d1cf-68c8ab2e567mr7105442a12.8.1780390448854; Tue, 02 Jun 2026
+ 01:54:08 -0700 (PDT)
 MIME-Version: 1.0
-References: <20260602035907.623599-1-rosenp@gmail.com> <79ccbd62-9aa3-41a6-a8db-1737672a8aab@amd.com>
- <CAKxU2N-M+vDeDKtYa6=M-4kazOUrGTrwJfHoF6Z+od1OZ-VBpw@mail.gmail.com> <b9e06f81-2b18-4cc3-8974-6df9063b02cf@amd.com>
-In-Reply-To: <b9e06f81-2b18-4cc3-8974-6df9063b02cf@amd.com>
+References: <20260531210747.11401-1-rosenp@gmail.com> <CAD++jLk3HmmTBfjLaVKBcRi87EmAdzs9BGy6teerJ-rN92MtCg@mail.gmail.com>
+In-Reply-To: <CAD++jLk3HmmTBfjLaVKBcRi87EmAdzs9BGy6teerJ-rN92MtCg@mail.gmail.com>
 From: Rosen Penev <rosenp@gmail.com>
-Date: Tue, 2 Jun 2026 01:51:43 -0700
-X-Gm-Features: AVHnY4IFc2FGJF-yhzYHXra0k2OW5pWoFypg9qZSsndqoXXRhQu8ezFeHabdJu8
-Message-ID: <CAKxU2N-PVmXw3ha-W1Gs9SLpfaJea3X2dPGQYhCwEBGNtYAwYA@mail.gmail.com>
-Subject: Re: [PATCH] Input: xilinx_ps2 - replace in_be32/out_be32 with ioread32be/iowrite32be
-To: Michal Simek <michal.simek@amd.com>
-Cc: linux-input@vger.kernel.org, Dmitry Torokhov <dmitry.torokhov@gmail.com>, 
-	chleroy@kernel.org, open list <linux-kernel@vger.kernel.org>, 
-	"moderated list:ARM/ZYNQ ARCHITECTURE" <linux-arm-kernel@lists.infradead.org>
+Date: Tue, 2 Jun 2026 01:53:57 -0700
+X-Gm-Features: AVHnY4KscwoQmk_hWxdvXdiz9lrBDSO5kvhYw84zUg0Fx_ut4kbOFRTKcKnGsdY
+Message-ID: <CAKxU2N9BKyz-8y2Jyrv9xFpCWL4euv3uCZXBrQdT7mWn3q6eMQ@mail.gmail.com>
+Subject: Re: [PATCH] dmaengine: ste_dma40: fix out-of-bounds access from D40_MEMCPY_MAX_CHANS
+To: Linus Walleij <linusw@kernel.org>
+Cc: dmaengine@vger.kernel.org, Vinod Koul <vkoul@kernel.org>, 
+	Frank Li <Frank.Li@kernel.org>, Lee Jones <lee@kernel.org>, Arnd Bergmann <arnd@arndb.de>, 
+	"moderated list:ARM/NOMADIK/Ux500 ARCHITECTURES" <linux-arm-kernel@lists.infradead.org>, 
+	open list <linux-kernel@vger.kernel.org>
 Content-Type: text/plain; charset="UTF-8"
 Content-Transfer-Encoding: quoted-printable
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260602_015158_093988_609ED4DB 
-X-CRM114-Status: GOOD (  18.89  )
+X-CRM114-CacheID: sfid-20260602_015411_062154_FC77B99B 
+X-CRM114-Status: GOOD (  12.92  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -119,45 +119,33 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Tue, Jun 2, 2026 at 1:34=E2=80=AFAM Michal Simek <michal.simek@amd.com> =
-wrote:
+On Tue, Jun 2, 2026 at 1:48=E2=80=AFAM Linus Walleij <linusw@kernel.org> wr=
+ote:
 >
+> On Sun, May 31, 2026 at 11:08=E2=80=AFPM Rosen Penev <rosenp@gmail.com> w=
+rote:
 >
+> > D40_MEMCPY_MAX_CHANS is defined as 8, but the dma40_memcpy_channels[]
+> > array only has 6 elements. This mismatch causes an out-of-bounds
+> > issue:
+> >
+> > 1. d40_of_probe() accepts up to 8 memcpy channels from DT
+> >    (num_memcpy > D40_MEMCPY_MAX_CHANS allows 7-8), then writes them
+> >    into the 6-element dma40_memcpy_channels[], corrupting adjacent
+> >    stack memory.
+> >
+> > Fix by defining D40_MEMCPY_MAX_CHANS as 6 to match the array size.
+> >
+> > Fixes: a7dacb68b35a ("dmaengine: ste_dma40: Allow memcpy channels to be=
+ configured from DT")
+> > Assisted-by: Opencode:Big-Pickle
+> > Signed-off-by: Rosen Penev <rosenp@gmail.com>
 >
-> On 6/2/26 10:27, Rosen Penev wrote:
-> > On Mon, Jun 1, 2026 at 11:23=E2=80=AFPM Michal Simek <michal.simek@amd.=
-com> wrote:
-> >>
-> >>
-> >>
-> >> On 6/2/26 05:59, Rosen Penev wrote:
-> >>> Mechanical conversion of the ppc4xx-specific accessors to the generic
-> >>> portable helpers.
-> >>>
-> >>> Allows enabling COMPILE_TEST for extra compile coverage.
-> >>>
-> >>> Assisted-by: opencode:big-pickle
-> >>> Signed-off-by: Rosen Penev <rosenp@gmail.com>
-> >>> ---
-> >>>    drivers/input/serio/Kconfig      |  2 +-
-> >>>    drivers/input/serio/xilinx_ps2.c | 24 ++++++++++++------------
-> >>
-> >> I don't think that anybody is really using this driver and would be be=
-tter to
-> >> just remove it.
-> >> If not, no issue with that changes.
-> > I have no problem with removing.
+> Excellent find Rosen!
+All credit is to our robot overl-i mean sashiko. I'm under the
+impression nothing can get merged unless it's happy.
+> Reviewed-by: Linus Walleij <linusw@kernel.org>
 >
-> Can you please send a patch for it?
-Out of curiosity, I made a deep research AI prompt. Last known user it
-gave me was from 2012. Github code search however gave me a user from
-5 or 6 years ago.
-
-https://github.com/danielkasza/9444/blob/master/firmware/xilinx-fpga/genesy=
-s2.dts
-
-Maybe someone knows more.
->
-> Thanks,
-> Michal
+> Yours,
+> Linus Walleij
 
