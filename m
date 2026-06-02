@@ -4,124 +4,63 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id D4618CD6E4A
-	for <linux-arm-kernel@archiver.kernel.org>; Tue,  2 Jun 2026 10:59:05 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 3F61DCD6E57
+	for <linux-arm-kernel@archiver.kernel.org>; Tue,  2 Jun 2026 11:01:17 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:
-	Content-Transfer-Encoding:Content-Type:In-Reply-To:References:Message-ID:Date
-	:Subject:CC:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=MAOU/H4rP3vMD5JkGQ/N6kaHM6Ob1xXG95h7Yn8X/I8=; b=Ckv3iLjA42bHOZEoONgvYwqJNC
-	R6+HaJTI6axvVRKzlfsDoYSrxNuRFQWCpVmyMdDwkQXee27z6UYK5XT7E8WwtGByR2fWFoFif2Jih
-	nHW5Lpm7WArQyWjkwsnaXUGccfw8ZrSsEUnnNxwJ5ukoE+9crwAGaO1XxkCMVkuV/7dSWUpNzURs6
-	Jpn6JLA2MNuvoM+mpMGmFBIrmLFL9f/ebuEpkabM139XxDQVSOA6BGB9+Xc+jdM+jmIGZTf1VEznP
-	rFfAZZkKlcxvNjKWfdutYD0je0+KrvNNfrRpIJg16GlsLEAqf7D1wHvQF6ifJ1rUnGTRavA9HrgiG
-	JzITCoqg==;
+	bh=HF0gJsXf4ZRvJK6q3TUKZ70SjvpLfDlE5OPGUg+NXCw=; b=n8HPnSKq1fBwtJc/WWeZxkojuQ
+	9PhDR3P2aBIohyOykLGT2AfAGmvCOOwnLK7iOp5UNh3Cl+CnYu7cK0jwS3ttCTfL+npSM8OLT/fkS
+	Ngr602xb6uvF5DQ5wr8k66to3Sxas4xEC3Nx9Hn3J3Yud563NCHgnFoO/U5nbh44N4x/dNUmCuQ6d
+	rpMvLPQ0zkORtX/EJ5V0pcoLRuVqzsP/HeLdUVLwGiPqS/kuMP8vsyhnMINYSLBpKFt6kFPmVv0qu
+	DqhLYnI+RV1mo3LZixOQHm/6UnD/weObm2Qd2v2X2CaFLMiOtuh5lB08VMur/ZRcttd5TbWCqF6oC
+	+zcxzp5Q==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wUMpj-0000000CqSe-1mmR;
-	Tue, 02 Jun 2026 10:58:55 +0000
-Received: from exmail3.compal.com ([59.120.207.196] helo=tpecef21.compal.com)
+	id 1wUMrv-0000000Cqhi-1lsh;
+	Tue, 02 Jun 2026 11:01:11 +0000
+Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wUMpf-0000000CqRs-3vDz;
-	Tue, 02 Jun 2026 10:58:54 +0000
-X-UUID: 0550078a5e7211f1b2470fb4f881575f-20260602
-X-CID-P-RULE: Release_Ham
-X-CID-O-INFO: VERSION:1.3.15,REQID:3503611f-c3d8-4c26-bc8b-5dd21fcc196a,IP:0,U
-	RL:0,TC:0,Content:0,EDM:0,RT:0,SF:0,FILE:0,BULK:0,RULE:Release_Ham,ACTION:
-	release,TS:0
-X-CID-META: VersionHash:e276073,CLOUDID:6629ffd6-0b04-449f-bc4f-a909b8df9b02,B
-	ulkID:nil,BulkQuantity:0,Recheck:0,SF:80|81|82|83|102|110|111|836|865|888|
-	898,TC:-5,Content:-10|0|15|50,EDM:-3,IP:nil,URL:99|1,File:130,RT:0,Bulk:ni
-	l,QS:nil,BEC:nil,COL:0,OSI:0,OSA:0,AV:0,LES:1,SPR:NO,DKR:0,DKP:0,BRR:0,BRE
-	:0,ARC:0
-X-CID-BVR: 2,SSN|SDN
-X-CID-BAS: 2,SSN|SDN,0,_
-X-CID-FACTOR: TF_CID_SPAM_ULS,TF_CID_SPAM_SNR
-X-CID-RHF: D41D8CD98F00B204E9800998ECF8427E
-X-UUID: 0550078a5e7211f1b2470fb4f881575f-20260602
-Received: from sdmg11.sdbg.compal.com [(10.113.168.9)] by tpecef21.compal.com
-	(envelope-from <jackbb_wu@compal.com>)
-	(Generic MTA with TLSv1.3 TLS_AES_256_GCM_SHA384 256/256)
-	with ESMTP id 1757077939; Tue, 02 Jun 2026 18:58:43 +0800
-X-UUID: 032bf1445e7211f1943831befd1aa4bc-20260602
-X-CID-P-RULE: Release_Ham
-X-CID-O-INFO: VERSION:1.3.15,REQID:b2ed9818-399c-4c40-83a8-13e3fd1ae099,IP:0,U
-	RL:0,TC:0,Content:0,EDM:0,RT:0,SF:0,FILE:0,BULK:0,RULE:Release_Ham,ACTION:
-	release,TS:0
-X-CID-META: VersionHash:e276073,CLOUDID:4429ffd6-0b04-449f-bc4f-a909b8df9b02,B
-	ulkID:nil,BulkQuantity:0,Recheck:0,SF:80|81|82|83|102|110|111|836|865|888|
-	898,TC:-5,Content:-10|0|15|50,EDM:-3,IP:nil,URL:99|1,File:130,RT:0,Bulk:ni
-	l,QS:nil,BEC:nil,COL:0,OSI:0,OSA:0,AV:0,LES:1,SPR:NO,DKR:0,DKP:0,BRR:0,BRE
-	:0,ARC:0
-X-CID-BVR: 2,SSN|SDN
-X-CID-BAS: 2,SSN|SDN,0,_
-X-CID-FACTOR: TF_CID_SPAM_ULS,TF_CID_SPAM_SNR
-X-CID-RHF: D41D8CD98F00B204E9800998ECF8427E
-X-UUID: 032bf1445e7211f1943831befd1aa4bc-20260602
-Received: from sdbmbx11.tpe.compalcomm.com [(10.113.2.135)] by sdmg11.sdbg.compal.com
-	(envelope-from <jackbb_wu@compal.com>)
-	(Compal Mail Service with TLSv1.2 ECDHE-RSA-AES128-SHA 128/128)
-	with ESMTP id 1693711392; Tue, 02 Jun 2026 18:58:39 +0800
-Received: from SDBMBX13.tpe.compalcomm.com (10.113.2.137) by
- SDBMBX11.tpe.compalcomm.com (10.113.2.135) with Microsoft SMTP Server
- (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_128_CBC_SHA) id 15.2.2562.29;
- Tue, 2 Jun 2026 18:58:37 +0800
-Received: from SDBMBX13.tpe.compalcomm.com ([fe80::ea2a:c2b2:8475:8d69]) by
- SDBMBX13.tpe.compalcomm.com ([fe80::ea2a:c2b2:8475:8d69%11]) with mapi id
- 15.02.2562.029; Tue, 2 Jun 2026 18:58:37 +0800
-From: "Wu. JackBB (GSM)" <JackBB_Wu@compal.com>
-To: Jakub Kicinski <kuba@kernel.org>, Jack Wu via B4 Relay
-	<devnull+jackbb_wu.compal.com@kernel.org>
-CC: Loic Poulain <loic.poulain@oss.qualcomm.com>, Sergey Ryazanov
-	<ryazanov.s.a@gmail.com>, Johannes Berg <johannes@sipsolutions.net>, "Andrew
- Lunn" <andrew+netdev@lunn.ch>, "David S. Miller" <davem@davemloft.net>, "Eric
- Dumazet" <edumazet@google.com>, Paolo Abeni <pabeni@redhat.com>, Wen-Zhi
- Huang <wen-zhi.huang@mediatek.com>, Shi-Wei Yeh <shi-wei.yeh@mediatek.com>,
-	"Minano Tseng" <Minano.tseng@mediatek.com>, Matthias Brugger
-	<matthias.bgg@gmail.com>, AngeloGioacchino Del Regno
-	<angelogioacchino.delregno@collabora.com>, "Simon Horman" <horms@kernel.org>,
-	Jonathan Corbet <corbet@lwn.net>, Shuah Khan <skhan@linuxfoundation.org>,
-	"linux-kernel@vger.kernel.org" <linux-kernel@vger.kernel.org>,
-	"netdev@vger.kernel.org" <netdev@vger.kernel.org>,
-	"linux-arm-kernel@lists.infradead.org"
-	<linux-arm-kernel@lists.infradead.org>, "linux-mediatek@lists.infradead.org"
-	<linux-mediatek@lists.infradead.org>, "linux-doc@vger.kernel.org"
-	<linux-doc@vger.kernel.org>
-Subject: RE: [External Mail] Re: [PATCH 00/11] net: wwan: t9xx: Add MediaTek
- T9XX WWAN driver
-Thread-Topic: [External Mail] Re: [PATCH 00/11] net: wwan: t9xx: Add MediaTek
- T9XX WWAN driver
-Thread-Index: AQHc8iePJegWnmu1bUi94DWo9+PN/LYrGJEz
-Date: Tue, 2 Jun 2026 10:58:37 +0000
-Message-ID: <c279aea41ecf41c6aca4314a2f4e306b@compal.com>
-References: <20260529-t9xx_driver_v1-v1-0-bdbfe2c01e57@compal.com>,<20260601173401.2c892526@kernel.org>
-In-Reply-To: <20260601173401.2c892526@kernel.org>
-Accept-Language: zh-TW, en-US
-Content-Language: zh-TW
-X-MS-Has-Attach: 
-X-MS-TNEF-Correlator: 
-x-originating-ip: [10.113.2.241]
-x-tm-as-product-ver: SMEX-14.0.0.3239-9.1.2019-29982.005
-x-tm-as-result: No-10--20.911500-8.000000
-x-tmase-matchedrid: 13nEecSBt9Euv++HU7VXryRFbfQbCufdN0X64jGy2dbVc/AFNTvLS9XY
-	nKy9ZqbG0wNjG7j2lpfWtteiDVXz7mpW0A+eYNud4WMcbQqR5OFkrVIXZHd52KloHyDFpaEsbxq
-	9W35blN9+M8NObIEDkCLCiAPpH5Zk/7zDDoXJoQ2DhqUecocKp5Wa6EbToghtwd4te8L2vhKVPE
-	hvdlk+CqeenaCmQghS8mtEegHTuKyGtpiI1cumNtTSGjubFor4a3FVQe5d4zvlNADTSrHglS1A/
-	qnDlqGPFpzeGnmPO0/7sEGacnICGo1g3zDt1sv5v9rSd36EgULA931+mNd9sJs7gkGWoKY36QLg
-	e8Tcpn0=
-x-tm-as-user-approved-sender: No
-x-tm-as-user-blocked-sender: No
-x-tmase-result: 10--20.911500-8.000000
-x-tmase-version: SMEX-14.0.0.3239-9.1.2019-29982.005
-x-tm-snts-smtp: 3683968551714F2E1CC524964F4B12B68B09CA53E3CB9515879F16383EF833F72000:8
-Content-Type: text/plain; charset="big5"
-Content-Transfer-Encoding: base64
+	id 1wUMrt-0000000Cqh2-2SJQ
+	for linux-arm-kernel@lists.infradead.org;
+	Tue, 02 Jun 2026 11:01:10 +0000
+Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
+	by sea.source.kernel.org (Postfix) with ESMTP id 3AAB241AFD;
+	Tue,  2 Jun 2026 11:01:09 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 813CC1F0089A;
+	Tue,  2 Jun 2026 11:01:07 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
+	s=k20260515; t=1780398069;
+	bh=HF0gJsXf4ZRvJK6q3TUKZ70SjvpLfDlE5OPGUg+NXCw=;
+	h=Date:From:To:Cc:Subject:References:In-Reply-To;
+	b=CY1ggTCWVpa6Zin+p+oIadJ1UBlPgT9j4WFmd9F+IuKVnl1NjTceWNeSbN0kd5wcX
+	 UM+P+HuvUsjMtWgNi3EC9NyoPWOqjJS8T8u4JPJeoT9YW67fJF4p3tm9MkRo8gGPW+
+	 7i/26zH5RfFJO/bZb+fjxHvGfnPxFsLaw+3DbY0EJcEUCZxwASC5EWvKSTtPL+rIec
+	 1AibHH56/Cfn5FVG2xB+2ezw7ZlxR5qsu68uY1Bta0OPkkCvs3fyQx8M27PUwzgFpH
+	 YAofl47SlWySX71huCaRhV05pSSL6Be323cUokNcffXsgUSEDhj7xQhMOz8mWBvPYe
+	 7XW3rx8ihFi2w==
+Date: Tue, 2 Jun 2026 12:01:04 +0100
+From: Will Deacon <will@kernel.org>
+To: Kohei Enju <enju.kohei@fujitsu.com>
+Cc: Catalin Marinas <catalin.marinas@arm.com>,
+	Sami Mujawar <sami.mujawar@arm.com>, Gavin Shan <gshan@redhat.com>,
+	Steven Price <steven.price@arm.com>,
+	Suzuki K Poulose <suzuki.poulose@arm.com>,
+	linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org
+Subject: Re: [PATCH v2] virt: arm-cca-guest: use raw variant of
+ smp_processor_id() in arm_cca_report_new()
+Message-ID: <ah638FZAyCSqtzMi@willie-the-truck>
+References: <20260519101217.155740-1-enju.kohei@fujitsu.com>
 MIME-Version: 1.0
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+In-Reply-To: <20260519101217.155740-1-enju.kohei@fujitsu.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260602_035852_373499_E2D63AB2 
-X-CRM114-Status: GOOD (  11.29  )
+X-CRM114-CacheID: sfid-20260602_040109_649674_79A0CF9C 
+X-CRM114-Status: GOOD (  16.48  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -136,41 +75,35 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-SGkgSmFrdWIsDQoNCj4gT24gRnJpLCAyOSBNYXkgMjAyNiAxODozMTozOSArMDgwMCBKYWNrIFd1
-IHZpYSBCNCBSZWxheSB3cm90ZToNCj4gPiA0MyBmaWxlcyBjaGFuZ2VkLCAxNDc2MSBpbnNlcnRp
-b25zKCspDQo+DQo+IFBsZWFzZSB0cnkgdG8gY3V0IHRoaXMgZG93biB0byB+NWtMb0MgZm9yIHRo
-ZSBpbml0aWFsIHN1Ym1pc3Npb24uDQo+IFdoYXRldmVyIHRoZSBhYnNvbHV0ZSBtaW5pbXVtIHNl
-bnNpYmxlIGNodW5rIG9mIGNvZGUgaXMuDQo+DQo+IEVhY2ggcGF0Y2ggbXVzdCBidWlsZCBjbGVh
-bmx5IHdpdGggVz0xDQoNCldlJ3ZlIGFscmVhZHkgcmVkdWNlZCB0aGlzIHNpZ25pZmljYW50bHkg
-ZnJvbSB0aGUgb3JpZ2luYWwgNDFrIExvQw0KZG93biB0byB+MTQuN2sgYnkgc3RyaXBwaW5nIG91
-dCBub24tZXNzZW50aWFsIGZlYXR1cmVzIHN1Y2ggYXMNCmV4Y2VwdGlvbiBoYW5kbGluZywgbWVt
-b3J5IGxvZ2dpbmcsIGRldmxpbmssIHN0YXRpc3RpY3MsIGRlYnVnDQp0cmFjaW5nLCBhbmQgb3Ro
-ZXJzLg0KDQpXZSBldmVuIHJlbW92ZWQgc29tZSBhcmd1YWJseSBuZWNlc3NhcnkgZmVhdHVyZXMg
-KFBNLCBtZGxvZywNCnRocm91Z2hwdXQgb3B0aW1pemF0aW9ucykgdGhhdCB3ZSBwbGFuIHRvIHN1
-Ym1pdCBhcyBmb2xsb3ctdXANCnNlcmllcy4NCg0KTm90ZSB0aGF0IHRoZSBsaW5lIGNvdW50IG1h
-eSBzbGlnaHRseSBpbmNyZWFzZSBpbiB2MiwgYXMgd2UgcGxhbg0KdG8gYWRkIG1pc3Npbmcga2Rv
-YyBjb21tZW50cyBiYXNlZCBvbiByZXZpZXcgZmVlZGJhY2suDQoNCkZvciByZWZlcmVuY2UsIHRo
-ZSB0N3h4IGRyaXZlciAodHdvIGdlbmVyYXRpb25zIG9sZGVyLCBzaW1wbGVyIEhXKQ0KaGFkIGFu
-IGluaXRpYWwgc3VibWlzc2lvbiBvZiB+MTEuM2sgTG9DIFsxXS4gVGhlIHQ5eHggaGFyZHdhcmUg
-aXMNCm1vcmUgY29tcGxleCwgc28gd2UgYmVsaWV2ZSBiZWluZyBpbiBhIHNpbWlsYXIgcmFuZ2Ug
-aXMgcmVhc29uYWJsZS4NCg0KV2UnZCBsaWtlIHRvIGtlZXAgdGhlIGRyaXZlciBmdW5jdGlvbmFs
-IGFuZCByZXZpZXdhYmxlIGluIGl0cw0KY3VycmVudCBzY29wZS4gRG8geW91IGhhdmUgYW55IHN1
-Z2dlc3Rpb25zIG9uIGhvdyB3ZSBjb3VsZCBmdXJ0aGVyDQpyZWR1Y2UgdGhlIHNpemUgd2hpbGUg
-bWFpbnRhaW5pbmcgYSB3b3JraW5nIGluaXRpYWwgc3VibWlzc2lvbj8NCg0KWzFdIGh0dHBzOi8v
-cGF0Y2h3b3JrLmtlcm5lbC5vcmcvcHJvamVjdC9uZXRkZXZicGYvY292ZXIvMjAyMjA1MDYxODEz
-MTAuMjE4MzgyOS0xLXJpY2FyZG8ubWFydGluZXpAbGludXguaW50ZWwuY29tLw0KDQpUaGFua3Mu
-DQoNCg0KPT09PT09PT09PT09PT09PT09PT09PT09PT09PT09PT09PT09PT09PT09PT09PT09PT09
-PT09PT09PT09PT09PT09PT09PT09PT09PT09PT09PT09PT09PT09PT09PT09PT09PT09PT09PT09
-PT09PT09PT09PT09PT09PT09PT09PT09PT09PT09PT09PT09PT09PT09PT09PT09PT09PQ0KVGhp
-cyBtZXNzYWdlIG1heSBjb250YWluIGluZm9ybWF0aW9uIHdoaWNoIGlzIHByaXZhdGUsIHByaXZp
-bGVnZWQgb3IgY29uZmlkZW50aWFsIG9mIENvbXBhbCBFbGVjdHJvbmljcywgSW5jLiBJZiB5b3Ug
-YXJlIG5vdCB0aGUgaW50ZW5kZWQgcmVjaXBpZW50IG9mIHRoaXMgbWVzc2FnZSwgcGxlYXNlIG5v
-dGlmeSB0aGUgc2VuZGVyIGFuZCBkZXN0cm95L2RlbGV0ZSB0aGUgbWVzc2FnZS4gQW55IHJldmll
-dywgcmV0cmFuc21pc3Npb24sIGRpc3NlbWluYXRpb24gb3Igb3RoZXIgdXNlIG9mLCBvciB0YWtp
-bmcgb2YgYW55IGFjdGlvbiBpbiByZWxpYW5jZSB1cG9uIHRoaXMgaW5mb3JtYXRpb24sIGJ5IHBl
-cnNvbnMgb3IgZW50aXRpZXMgb3RoZXIgdGhhbiB0aGUgaW50ZW5kZWQgcmVjaXBpZW50IGlzIHBy
-b2hpYml0ZWQuDQo9PT09PT09PT09PT09PT09PT09PT09PT09PT09PT09PT09PT09PT09PT09PT09
-PT09PT09PT09PT09PT09PT09PT09PT09PT09PT09PT09PT09PT09PT09PT09PT09PT09PT09PT09
-PT09PT09PT09PT09PT09PT09PT09PT09PT09PT09PT09PT09PT09PT09PT09PT09PT09PT09PT09
-DQo=
+On Tue, May 19, 2026 at 07:12:08PM +0900, Kohei Enju wrote:
+> With CONFIG_DEBUG_PREEMPT=y, smp_processor_id() becomes an alias of
+> debug_smp_processor_id(). This debug function complains when certain
+> conditions that ensure CPU ID stability are not met, specifically when
+> it's called from a preemptible context.
+> 
+> In arm_cca_report_new(), which runs in a preemptible context,
+> smp_processor_id() triggers a splat [0] due to this.
+> 
+> However, the CPU ID obtained here is used as the target CPU for
+> smp_call_function_single() to designate a specific CPU for subsequent
+> operations, not to assert that the current thread will continue to
+> execute on the same CPU. Therefore, snapshotting the CPU ID itself is
+> correct, and thus there's no actual harm except for the splat.
+> 
+> Use raw_smp_processor_id() instead, to directly retrieve the current CPU
+> ID without the debug checks, avoiding the unnecessary warning message
+> while preserving the correct functional behavior.
+
+That's pretty disgusting imo so I'd like to see some more justification
+for this approach.
+
+> Note that while migrate_disable() would pin the task to the current CPU,
+> this path should not block CPU hotplug events. Therefore, we snapshot
+> the current CPU ID and accept that smp_call_function_single() may fail
+> if the CPU goes offline.
+
+Why shouldn't it block CPU hotplug events? What happens if the CPU goes
+offline and comes back online again during the loop of continue calls?
+
+Will
 
