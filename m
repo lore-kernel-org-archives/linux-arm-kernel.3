@@ -4,7 +4,7 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 3C749CD6E57
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 8CBF1CD6E68
 	for <linux-arm-kernel@archiver.kernel.org>; Tue,  2 Jun 2026 13:25:17 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Reply-To:List-Subscribe:
@@ -12,47 +12,47 @@ DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	References:Message-Id:Content-Transfer-Encoding:Content-Type:MIME-Version:
 	Subject:Date:From:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=D6gquGGgLgO+WovyzPeXpu39UWQ0ZoG7dv8HxT/OM8A=; b=IY6A5mM9VZsgLFE1EN5qGa/WzV
-	GAvi0aGG3xhq7Kz7rvEhiEy7Z+fnQeHG0EMVAWHOufy7S06o5xogYCH/eQ8cOf/yCIrQUGBmC9wix
-	fGpz+t1CH3Kn6kU273zE3Gq3jMVkzkReFTuN8ST4vRx8snIWcKOJmj4/G6le4v8NaPCyrBQwlV70d
-	JxSL832/7wzA14DFFCJCaJusU+hLIxHETLp7zQEtZhEP9P05UMJ9ApgABhoa6IGd9IzX5R/eHKtLv
-	SkUhwdAUkcyxi+fOgMP+WW7tpkvjW1dviGrZLNco7qywSb1kTT3Qgdz3GVMzi65nE5YrfcVPXun2f
-	39kro70g==;
+	bh=6zK3xk2yZo53VPvYzSpZ2PWjU0ZQuUZEgekgDa8WCxk=; b=4cXRFJN/YAMiJMcPBzwgtL6pkq
+	1+inLPTQ2mkHGk8oAkIlLYvkkJB7u6AxcS9H9vUoHM/DJGR/q5xOZintk6wqEYHwNqSBjkkK/r/ee
+	P0uRotM8zL7tJBY9a0LnQS+Ew5MTzhgysez97FVHWiGp476ya5LqcioEaJWMSCq0IqZoDJ/yKSkXO
+	rQWcPfkHeJZHYPmyx2Ght5b8a4ORgp73tTlSu50qMpQyMOVQqw77CelxxRlPQw6RwMtYQBBFj6Jom
+	XhQKY62vaDO04wOtZlufv3YpvUloeN3IHquhqdRbPYqP2JFzibJZrAd953RMLB/iVKdNwBmulhgEh
+	dHuXXBBw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wUP7F-0000000D5mr-1Ui7;
+	id 1wUP7F-0000000D5nD-2D37;
 	Tue, 02 Jun 2026 13:25:09 +0000
 Received: from sea.source.kernel.org ([172.234.252.31])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wUP7B-0000000D5it-3Mp4
+	id 1wUP7B-0000000D5ix-3L25
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 02 Jun 2026 13:25:06 +0000
+	Tue, 02 Jun 2026 13:25:08 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by sea.source.kernel.org (Postfix) with ESMTP id B90B044555;
+	by sea.source.kernel.org (Postfix) with ESMTP id E1DD8445C8;
 	Tue,  2 Jun 2026 13:25:04 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPS id 89ECAC2BCC9;
+Received: by smtp.kernel.org (Postfix) with ESMTPS id C396BC2BCF6;
 	Tue,  2 Jun 2026 13:25:04 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
 	s=k20201202; t=1780406704;
-	bh=0B2cjxvLooufr1CsGKSgDR7A32ZSE9y3xVQJvm8b+Cs=;
+	bh=EjotxEbMB+szyjtOIRNVh8lq/E3vDcvELOmiSw0FuEw=;
 	h=From:Date:Subject:References:In-Reply-To:To:Cc:Reply-To:From;
-	b=iIliYIeRFoJm1ilhjjng+HRx2lTC7n2PPO02C9Zxjv1jaL1uwnpm1mlXG9RMso40Q
-	 dO22FgD/P6+sBfrM/G8uYebeGhh7rY1ojLOlJAEHplMe0ZcrVyENZldPtzR9z89edW
-	 //GOtZ8WoYej4sHsl2qMZ1crSk4n//JIqpwccq+RT2atA8mS3XMX2Q4d7jbtyG/3Hi
-	 tt+1KiNIo6uy7nANeFU8dP4cfiPjHd4l9g9gRQCAvcbj2VGHjS1Yv3Fh3YIvCMc/vI
-	 zKB2cMxalQz6Pk9pf75jNJObKWiYzZwrmKf433aHHsE9nRkS/dhivp3zCedQmazePX
-	 zIx2SYDLidC/A==
+	b=NSmsgLwcyb8Jga/Le8HYzEuPxeHnWmLT+6DhHWI+Ol1ceSN0T9AUskv60qLN+uWqg
+	 BXs4QS0nPQ+HbGsttNqO9cUr4FVdr5+lYMWlw2PtOV5VF8sTtemhpKwoiRo7TJHQba
+	 pziqWp4UT7yQS77mXScqVexscDTxH6zZl0JRazeo9UnZWcSwqU8fThp+tHwRaHhv+H
+	 b75PKTdt6xuRyisCznystZG+7ADJJBTnV2Nfcv2gXqyAkxrpcLeVy0nMPggE/1SMOU
+	 F7V5plg5G3E/aPpDnp2qNzoVf7EmJQQR5qaGioJCsrYeZqlClGvIukRli3uS6r44Li
+	 OtMKlYGK5leqQ==
 Received: from aws-us-west-2-korg-lkml-1.web.codeaurora.org (localhost.localdomain [127.0.0.1])
-	by smtp.lore.kernel.org (Postfix) with ESMTP id 741FCCD6E4A;
+	by smtp.lore.kernel.org (Postfix) with ESMTP id BC404CD6E64;
 	Tue,  2 Jun 2026 13:25:04 +0000 (UTC)
 From: Colin Huang via B4 Relay <devnull+u8813345.gmail.com@kernel.org>
-Date: Tue, 02 Jun 2026 21:24:56 +0800
-Subject: [PATCH v3 1/9] dt-bindings: arm: aspeed: add Anacapa EVT1 EVT2 DVT
- board
+Date: Tue, 02 Jun 2026 21:25:00 +0800
+Subject: [PATCH v3 5/9] ARM: dts: aspeed: anacapa: add additional EEPROM
+ node for SCM
 MIME-Version: 1.0
 Content-Type: text/plain; charset="utf-8"
 Content-Transfer-Encoding: 7bit
-Message-Id: <20260602-anacapa-devlop-phase-devicetree-v3-1-7c93c5df8d9b@gmail.com>
+Message-Id: <20260602-anacapa-devlop-phase-devicetree-v3-5-7c93c5df8d9b@gmail.com>
 References: <20260602-anacapa-devlop-phase-devicetree-v3-0-7c93c5df8d9b@gmail.com>
 In-Reply-To: <20260602-anacapa-devlop-phase-devicetree-v3-0-7c93c5df8d9b@gmail.com>
 To: Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>, 
@@ -62,19 +62,19 @@ Cc: devicetree@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
  linux-aspeed@lists.ozlabs.org, linux-kernel@vger.kernel.org, 
  colin.huang2@amd.com, Colin Huang <u8813345@gmail.com>
 X-Mailer: b4 0.14.3
-X-Developer-Signature: v=1; a=ed25519-sha256; t=1780406700; l=932;
+X-Developer-Signature: v=1; a=ed25519-sha256; t=1780406700; l=1254;
  i=u8813345@gmail.com; s=20260202; h=from:subject:message-id;
- bh=Mdgtp8BwSQD3eHvGI9wfdGeT4rx+6rxoxRX7WxtcMqI=;
- b=/tNsTUJPyHrZBJTcMMXijcmXOk3XEJwsxiYcMXQ+5GitFkdQGXwUwI/DXnOOxpjX9F2uNXg63
- r2dJJ8J1MvDCpTIlPGxvW1uGZErAuD7TJrF1HlZi1cnPQG9hwNuUMo1
+ bh=JNSi9zvNDBr20hXdrUAD8fki2+glqxRtqyS9+sPSXtI=;
+ b=7qxVVc2K+G5UI7RLH/zsUDCta5GZfv382bCspCgoqEXC1NFTk4UV8+rp/7akLxMJBUw6beR8J
+ YHOFQJ7QH3VA1Irad2bjEVXXMo63pmsj4OgcJGlkoeFXtghTsEcOGsd
 X-Developer-Key: i=u8813345@gmail.com; a=ed25519;
  pk=Zlg0WqpCw4qbswOqamTBTXIchwR/3SnYZpy7rjaGMdQ=
 X-Endpoint-Received: by B4 Relay for u8813345@gmail.com/20260202 with
  auth_id=761
 X-Original-From: Colin Huang <u8813345@gmail.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260602_062505_874731_EBC9D78A 
-X-CRM114-Status: UNSURE (   7.76  )
+X-CRM114-CacheID: sfid-20260602_062505_891212_0F11212B 
+X-CRM114-Status: UNSURE (   9.96  )
 X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
@@ -93,27 +93,43 @@ Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.i
 
 From: Colin Huang <u8813345@gmail.com>
 
-Document Anacapa BMC EVT1, EVT2, and DVT compatibles.
+The SCM FRU EEPROM I2C address differs between SCM revisions:
+- Rev B uses address 0x50
+- Rev C/D/E/F and later use address 0x51
+
+Add an additional AT24C128 EEPROM node at 0x51 on i2c9 so the same
+device tree can support multiple SCM revisions.
 
 Signed-off-by: Colin Huang <u8813345@gmail.com>
 ---
- Documentation/devicetree/bindings/arm/aspeed/aspeed.yaml | 3 +++
- 1 file changed, 3 insertions(+)
+ arch/arm/boot/dts/aspeed/aspeed-bmc-facebook-anacapa-evt1.dts | 9 +++++++++
+ 1 file changed, 9 insertions(+)
 
-diff --git a/Documentation/devicetree/bindings/arm/aspeed/aspeed.yaml b/Documentation/devicetree/bindings/arm/aspeed/aspeed.yaml
-index 9ba195b8f22d..d3e9d9a2f881 100644
---- a/Documentation/devicetree/bindings/arm/aspeed/aspeed.yaml
-+++ b/Documentation/devicetree/bindings/arm/aspeed/aspeed.yaml
-@@ -84,6 +84,9 @@ properties:
-               - asus,ast2600-kommando-ipmi-card
-               - asus,x4tf-bmc
-               - facebook,anacapa-bmc
-+              - facebook,anacapa-bmc-evt1
-+              - facebook,anacapa-bmc-evt2
-+              - facebook,anacapa-bmc-dvt
-               - facebook,bletchley-bmc
-               - facebook,catalina-bmc
-               - facebook,clemente-bmc
+diff --git a/arch/arm/boot/dts/aspeed/aspeed-bmc-facebook-anacapa-evt1.dts b/arch/arm/boot/dts/aspeed/aspeed-bmc-facebook-anacapa-evt1.dts
+index 9314ee493c61..1d2f46e83be8 100644
+--- a/arch/arm/boot/dts/aspeed/aspeed-bmc-facebook-anacapa-evt1.dts
++++ b/arch/arm/boot/dts/aspeed/aspeed-bmc-facebook-anacapa-evt1.dts
+@@ -593,11 +593,20 @@ &i2c9 {
+ 	status = "okay";
+ 
+ 	// SCM FRU
++	// | DC-SCM Rev        | Slave address of eeprom  |
++	// |-------------------|--------------------------|
++	// | Rev B             | 0x50                     |
++	// | Rev C/D/E/F/above | 0x51                     |
+ 	eeprom@50 {
+ 		compatible = "atmel,24c128";
+ 		reg = <0x50>;
+ 	};
+ 
++	eeprom@51 {
++		compatible = "atmel,24c128";
++		reg = <0x51>;
++	};
++
+ 	// BSM FRU
+ 	eeprom@56 {
+ 		compatible = "atmel,24c64";
 
 -- 
 2.34.1
