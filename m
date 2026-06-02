@@ -4,59 +4,97 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 40DA5CD6E60
-	for <linux-arm-kernel@archiver.kernel.org>; Tue,  2 Jun 2026 14:52:09 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 14311CD6E57
+	for <linux-arm-kernel@archiver.kernel.org>; Tue,  2 Jun 2026 14:58:22 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:MIME-Version:
+	References:In-Reply-To:Subject:Cc:To:From:Message-ID:Date:Reply-To:
 	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=xGKT2H9oAVokplmogttxa64EvESiPBnR+MF25iKS56I=; b=uxOiRHKCRI3JPtdUKfOafJ8EdJ
-	I9hCgDpzetBzKgdztKD9rtxRihld+FEJtw3Dfvlq6oL7/fS2NKi3rZ9pYNZky0KkTNOrzYsoh//9s
-	Wavl9rg+b3A+FvIPQrMaMbKSXiz5PoeYUuwdI/DWNWVRDoB+GY8kkHl0cD95Jx5c8RBLXtFZkdKQd
-	LG6+iu8X8HG6/B7sqUynYjRFFwknBc/1kVxJrlrJ1QnHGcw6X2OXzjFMkaF/v3Z0PHlY6AyO+pOHg
-	60S86eBPgfXijI/s5GPRKtKVHIQQ7YyhNsOKu+FI1jm6P7utK5ZyXCnAGEYCZntY5Ipr6w//7b/Ys
-	uG/0/oHA==;
+	bh=DnM2hO41RX1ZjYT2K0TjVIZOoePCgu/n2TLpxGi/ANw=; b=NToAsQ+H/+bEieyoAkxujii66v
+	tUlnkWcIO4RjehUk0Q2zNAg3lwZz73aFIMD+z8epkBzouopdL+T7M9wgDN6PVfzKnrf/xPmWTaLML
+	b334Y7ywVMLpxDFbExp92vc/1a6V/W4EjK/PC8TZ90qUDlu64qfF1JVczI3DTEixmOUi9ZYeELFy3
+	8MGWX90WNaFho2XGabc8JLk6pqdJfmKh0tpwDJ6iARqpJnqu6mK/3CoPB1MV44SSMEqyccTfZBAE0
+	jGiqZENMtASlqz6rDuTrE+fNXXevXy3wJqkXMphZJunTn29JiDYQuyTnH5VsA6q83lGboJynTC/bz
+	KGmtRo6g==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wUQTJ-0000000DDj7-3FIx;
-	Tue, 02 Jun 2026 14:52:01 +0000
-Received: from sea.source.kernel.org ([172.234.252.31])
+	id 1wUQZM-0000000DEB5-2S3o;
+	Tue, 02 Jun 2026 14:58:16 +0000
+Received: from tor.source.kernel.org ([2600:3c04:e001:324:0:1991:8:25])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wUQTH-0000000DDii-1u2y
+	id 1wUQZK-0000000DEAw-44nq
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 02 Jun 2026 14:52:00 +0000
+	Tue, 02 Jun 2026 14:58:15 +0000
 Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
-	by sea.source.kernel.org (Postfix) with ESMTP id 2BEE943D41;
-	Tue,  2 Jun 2026 14:51:59 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id C18E51F00898;
-	Tue,  2 Jun 2026 14:51:57 +0000 (UTC)
+	by tor.source.kernel.org (Postfix) with ESMTP id EA1716001A;
+	Tue,  2 Jun 2026 14:58:13 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 957A71F00893;
+	Tue,  2 Jun 2026 14:58:13 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1780411919;
-	bh=xGKT2H9oAVokplmogttxa64EvESiPBnR+MF25iKS56I=;
-	h=Date:From:To:Cc:Subject:References:In-Reply-To;
-	b=FA9PPqvBdIGb4pG0zB9lk0F6AvuqOvkWRIIve5mL+5kjKZBXObpADjkhMqWdT1QxL
-	 j3rIK24SVpkXDle8LLaI/cRAy58+ZJzsHgONBjV+tHmm0p9XGCvP1phnmqiwSQwEE6
-	 MAiNyOjgHI3B/ziUMS9EaNA8v5H66OUx63Y+7JZecaY6/2R2hob3imz8wxuCTbxWxD
-	 kTLaa2TlZD8j3BtK8Wvc4i0zRsloMYGnPzDQ2y1KkJ+EjqQYfkBOKA4uSTvG2pAze3
-	 v60BhJ0M4oXf4TmGKxhxG1LdRxsiJBewP6Sp/AMcerTBZe4tKpXR1FNk3OuxX+FB1b
-	 csmkyREEaeC4w==
-Date: Tue, 2 Jun 2026 15:51:54 +0100
-From: Will Deacon <will@kernel.org>
-To: Yang Shi <yang@os.amperecomputing.com>
-Cc: catalin.marinas@arm.com, ryan.roberts@arm.com, cl@gentwo.org,
-	linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org
-Subject: Re: [v7 PATCH] arm64: mm: show direct mapping use in /proc/meminfo
-Message-ID: <ah7uCj2V11MnAlaR@willie-the-truck>
-References: <20260519163657.1259416-1-yang@os.amperecomputing.com>
-MIME-Version: 1.0
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-In-Reply-To: <20260519163657.1259416-1-yang@os.amperecomputing.com>
-X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260602_075159_551501_26885DB7 
-X-CRM114-Status: GOOD (  19.26  )
+	s=k20260515; t=1780412293;
+	bh=DnM2hO41RX1ZjYT2K0TjVIZOoePCgu/n2TLpxGi/ANw=;
+	h=Date:From:To:Cc:Subject:In-Reply-To:References;
+	b=dUjAXOVAK+ks3hrv+Xa685ts0MW2Cl+aSZOl+l2Szs7WY1c9D6SvOlw3sE9mYacz0
+	 n43WjYamFByyiiCExlI5ilvpZHWIGxqrMKsmokFnr5mw8+Y7DSUPTffryjzWlW741p
+	 pqgU1q19ny15e1j228qYReoiHWBTzmggf4ohzcjbZqFcOk2+yCOA4Nf2bsi/y8OMem
+	 a8/gKXDQrAFQwza0edc/eiefAzd70BZvfONWdljFPhtsL05epaN907a4idbsqUzy3Z
+	 iwH/fqeAp2wNJ2h9/dBHnfxz7aY9KCBsZGPdZSE+iBSdiYxJUqDA7ctTm4MV199biX
+	 FOIEZHiyz2Iig==
+Received: from sofa.misterjones.org ([185.219.108.64] helo=goblin-girl.misterjones.org)
+	by disco-boy.misterjones.org with esmtpsa  (TLS1.3) tls TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384
+	(Exim 4.98.2)
+	(envelope-from <maz@kernel.org>)
+	id 1wUQZG-00000008e1B-22sE;
+	Tue, 02 Jun 2026 14:58:10 +0000
+Date: Tue, 02 Jun 2026 15:58:09 +0100
+Message-ID: <8633z5ugzi.wl-maz@kernel.org>
+From: Marc Zyngier <maz@kernel.org>
+To: Daniel Lezcano <daniel.lezcano@kernel.org>,
+	linux-arm-kernel@lists.infradead.org,
+	linux-acpi@vger.kernel.org,
+	linux-kernel@vger.kernel.org,
+	devicetree@vger.kernel.org
+Cc: Lorenzo Pieralisi <lpieralisi@kernel.org>,	Hanjun Guo
+ <guohanjun@huawei.com>,	Sudeep Holla <sudeep.holla@kernel.org>,	Catalin
+ Marinas <catalin.marinas@arm.com>,	Will Deacon <will@kernel.org>,
+	"Rafael J. Wysocki" <rafael@kernel.org>,	Mark Rutland
+ <mark.rutland@arm.com>,	Thomas Gleixner <tglx@kernel.org>,	Rob Herring
+ <robh@kernel.org>,	Krzysztof Kozlowski <krzk+dt@kernel.org>,	Conor Dooley
+ <conor+dt@kernel.org>,	Chen-Yu Tsai <wens@kernel.org>,	Jernej Skrabec
+ <jernej.skrabec@gmail.com>,	Samuel Holland <samuel@sholland.org>,	Neil
+ Armstrong <neil.armstrong@linaro.org>,	Kevin Hilman <khilman@baylibre.com>,
+	Jerome Brunet <jbrunet@baylibre.com>,	Martin Blumenstingl
+ <martin.blumenstingl@googlemail.com>,	Ge Gordon <gordon.ge@bst.ai>,	BST
+ Linux Kernel Upstream Group <bst-upstream@bstai.top>,	Jesper Nilsson
+ <jesper.nilsson@axis.com>,	Lars Persson <lars.persson@axis.com>,	Alim
+ Akhtar <alim.akhtar@samsung.com>,	Ivaylo Ivanov
+ <ivo.ivanov.ivanov1@gmail.com>,	Frank Li <Frank.Li@nxp.com>,	Sascha Hauer
+ <s.hauer@pengutronix.de>,	Pengutronix Kernel Team <kernel@pengutronix.de>,
+	Fabio Estevam <festevam@gmail.com>,	Dinh Nguyen <dinguyen@kernel.org>,
+	Matthias Brugger <matthias.bgg@gmail.com>,	AngeloGioacchino Del Regno
+ <angelogioacchino.delregno@collabora.com>,	Thierry Reding
+ <thierry.reding@kernel.org>,	Jonathan Hunter <jonathanh@nvidia.com>,	Bjorn
+ Andersson <andersson@kernel.org>,	Konrad Dybcio <konradybcio@kernel.org>,
+	Andreas =?UTF-8?B?RsOkcmJlcg==?= <afaerber@suse.de>,	=?UTF-8?B?Ill1LUNo?=
+ =?UTF-8?B?dW4gTGluIFvmnpfnpZDlkJtdIg==?= <eleanor.lin@realtek.com>,	Heiko
+ Stuebner <heiko@sntech.de>,	Shawn Lin <shawn.lin@rock-chips.com>,	Orson
+ Zhai <orsonzhai@gmail.com>,	Baolin Wang <baolin.wang@linux.alibaba.com>,
+	Michal Simek <michal.simek@amd.com>
+Subject: Re: [PATCH v3 00/17] arm64: Use EL2 virtual timer when running VHE
+In-Reply-To: <20260523140242.586031-1-maz@kernel.org>
+References: <20260523140242.586031-1-maz@kernel.org>
+User-Agent: Wanderlust/2.15.9 (Almost Unreal) SEMI-EPG/1.14.7 (Harue)
+ FLIM-LB/1.14.9 (=?UTF-8?B?R29qxY0=?=) APEL-LB/10.8 EasyPG/1.0.0 Emacs/30.1
+ (aarch64-unknown-linux-gnu) MULE/6.0 (HANACHIRUSATO)
+MIME-Version: 1.0 (generated by SEMI-EPG 1.14.7 - "Harue")
+Content-Type: text/plain; charset=US-ASCII
+X-SA-Exim-Connect-IP: 185.219.108.64
+X-SA-Exim-Rcpt-To: daniel.lezcano@kernel.org, linux-arm-kernel@lists.infradead.org, linux-acpi@vger.kernel.org, linux-kernel@vger.kernel.org, devicetree@vger.kernel.org, lpieralisi@kernel.org, guohanjun@huawei.com, sudeep.holla@kernel.org, catalin.marinas@arm.com, will@kernel.org, rafael@kernel.org, mark.rutland@arm.com, tglx@kernel.org, robh@kernel.org, krzk+dt@kernel.org, conor+dt@kernel.org, wens@kernel.org, jernej.skrabec@gmail.com, samuel@sholland.org, neil.armstrong@linaro.org, khilman@baylibre.com, jbrunet@baylibre.com, martin.blumenstingl@googlemail.com, gordon.ge@bst.ai, bst-upstream@bstai.top, jesper.nilsson@axis.com, lars.persson@axis.com, alim.akhtar@samsung.com, ivo.ivanov.ivanov1@gmail.com, Frank.Li@nxp.com, s.hauer@pengutronix.de, kernel@pengutronix.de, festevam@gmail.com, dinguyen@kernel.org, matthias.bgg@gmail.com, angelogioacchino.delregno@collabora.com, thierry.reding@kernel.org, jonathanh@nvidia.com, andersson@kernel.org, konradybcio@kernel.org, afaerber@suse.de, 
+ eleanor.lin@realtek.com, heiko@sntech.de, shawn.lin@rock-chips.com, orsonzhai@gmail.com, baolin.wang@linux.alibaba.com, michal.simek@amd.com
+X-SA-Exim-Mail-From: maz@kernel.org
+X-SA-Exim-Scanned: No (on disco-boy.misterjones.org); SAEximRunCond expanded to false
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -71,44 +109,32 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Tue, May 19, 2026 at 09:36:57AM -0700, Yang Shi wrote:
-> Since commit a166563e7ec3 ("arm64: mm: support large block mapping when
-> rodata=full"), the direct mapping may be split on some machines instead
-> keeping static since boot. It makes more sense to show the direct mapping
-> use in /proc/meminfo than before.
-> This patch will make /proc/meminfo show the direct mapping use like the
-> below (4K base page size):
-> DirectMap4K:       94792 kB
-> DirectMap64K:     134208 kB
-> DirectMap2M:     1173504 kB
-> DirectMap32M:    5636096 kB
-> DirectMap1G:    529530880 kB
+On Sat, 23 May 2026 15:02:25 +0100,
+Marc Zyngier <maz@kernel.org> wrote:
 > 
-> Although just the machines which support BBML2_NOABORT can split the
-> direct mapping, show it on all machines regardless of BBML2_NOABORT so
-> that the users have consistent view in order to avoid confusion.
+> This is the third version of the series initially posted at [1],
+> which
 > 
-> Although ptdump also can tell the direct map use, but it needs to dump
-> the whole kernel page table. It is costly and overkilling. It is also
-> in debugfs which may not be enabled by all distros. So showing direct
-> map use in /proc/meminfo seems more convenient and has less overhead.
+> - updates the ACPI GTDT parsing to deal the v3 layout and the EL2
+>   virtual timer,
+> - moves the architected timer driver to use it when running VHE,
+> - fixes a number of DTs to reflect the reality of the HW.
 > 
-> Signed-off-by: Yang Shi <yang@os.amperecomputing.com>
-> ---
->  arch/arm64/mm/mmu.c | 192 +++++++++++++++++++++++++++++++++++++++-----
->  1 file changed, 171 insertions(+), 21 deletions(-)
+> This results in significant performance uplift in deeper nested virt
+> scenarios, at no overhead to the host.
 > 
-> v7: * Rebased to v7.1-rc4
->     * Changed "dm" to "lm" to follow ARM convention per Will
->     * Used __is_lm_alias() instead of reinventing a new helper per Will
+> Patches based on -rc3, tested on Amlogic SM1, QC X1E, Ampere Altra,
+> and Apple M2, as well as KVM NV guests.
 
-Thanks, but Sashiko has pointed out a few nasty issues:
+[...]
 
-https://sashiko.dev/#/patchset/20260519163657.1259416-1-yang@os.amperecomputing.com
+Daniel, can you please pick the first 3 patches? Or would you rather
+have them routed via the arm64 tree?
 
-In particular, the potential for races updating the shared counters and
-double-accounting of entries due to permission changes look like
-interesting things to check.
+Thanks,
 
-Will
+	M.
+
+-- 
+Without deviation from the norm, progress is not possible.
 
