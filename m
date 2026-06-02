@@ -4,129 +4,77 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 67141CD6E57
-	for <linux-arm-kernel@archiver.kernel.org>; Tue,  2 Jun 2026 09:32:08 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 46FA6CD6E4A
+	for <linux-arm-kernel@archiver.kernel.org>; Tue,  2 Jun 2026 09:33:52 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=WJm6ApGKzkKEwcgHKyf0jD9MBtlkYjEx4H0AHzDW9eE=; b=R9PpRssAViPP2CMurO72ddzABa
-	JcBYsSxp5nloShbtdRpQnA3NiSZuf98oiLLYIw96x96KldPuSMT0e49mO5jHGIbvjrglSB2DjHauG
-	WoaOxDzs9CBrUfDffMiNv01smIEUWbKylX7LM6nnoHR0W+k8M/kdUoS6aIVhW0Zy/1O+egKbofxJs
-	RBv8HmptWe362zHcYjcTIoyxgTmhATQoysic/pLCV4ovAwYrGpXU92uPl7eQDG00c2gP6wEb2L2n+
-	X/q8sizF7Z/kQaMHtLOwwCrV69PTD6/LtVGBpjIyLze2empzq1QzKA1ruB6a5oU40A46m2gTE1rVE
-	p45zK3kw==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	MIME-Version:Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-Type:
+	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
+	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=ll7wsI/Em/Jn1sDgGc7GNu+RMvSzQcPU87sVEyRKPIs=; b=bIA8GcE1p6S0tfb5rotXcJ1+Th
+	wmSINMKGa3pCjZ25T6ie9wy4mnqaPa86A3VSLCeGvyuikNGWkUhqiSiSzOHExpIXTf39GwSo0qpsq
+	B5HtzKmhMojrvzXruqHGDggYmf1jAJOOwovoNzSMS/EIinC6NXAJeu5k0qQPciRzX22WqTWFygSUp
+	+6pb09bY4Rfw/U8sh2Eu6wy+8FUn9heO4odQHJAJXJgVuMl16RrmJouuHDtaxtRxxAAmmGnvf3/3R
+	4z3R19LEt726CVnTWGWRitJAOi7ra4hBsnUxVRcWGFnz3LmRL0pQFCU4StWRrcT9DjJTe5IVirc19
+	ICE/m9sw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wULTd-0000000CftN-2pUC;
-	Tue, 02 Jun 2026 09:32:01 +0000
-Received: from mx0b-001b2d01.pphosted.com ([148.163.158.5])
+	id 1wULVJ-0000000Cg2o-40s4;
+	Tue, 02 Jun 2026 09:33:45 +0000
+Received: from www537.your-server.de ([188.40.3.216])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wULTb-0000000Cfss-0bC3
+	id 1wULVF-0000000Cg1l-48KX
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 02 Jun 2026 09:32:00 +0000
-Received: from pps.filterd (m0356516.ppops.net [127.0.0.1])
-	by mx0a-001b2d01.pphosted.com (8.18.1.11/8.18.1.11) with ESMTP id 6527V5c63295133;
-	Tue, 2 Jun 2026 09:31:41 GMT
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=ibm.com; h=cc
-	:content-type:date:from:in-reply-to:message-id:mime-version
-	:references:subject:to; s=pp1; bh=WJm6ApGKzkKEwcgHKyf0jD9MBtlkYj
-	Ex4H0AHzDW9eE=; b=l+xomWIK0Wq/E3Qmh5M/Qa5Hg9vz3Dby5OZC/T+ea4kynl
-	gAbetBvgebQYozhB3j84HFl+y1JnIDw14XV39nhN+TQvXrdYDCFROXHwvSciRsy/
-	sEMEHUdG5ha4E52FiYkjg6XUb2dYUisuut/zO/cKNLkWvjRLufioCofWY6YwJc04
-	4naPjx7U2I5YP6q2v1iUPdskZBZnfV1HbQfd9AXJZQz1pUEdag0v8K5vk5lUPeuV
-	BgIcV51neP/HPcS9wOMmoL5U37wf+cpf6LL3K0VDpdGrBmJhk0WmAqxrxvm6VFb5
-	XGhnuTkpZZTVva4a7ni2k8KGKOvgtIyerx9RgACA==
-Received: from ppma21.wdc07v.mail.ibm.com (5b.69.3da9.ip4.static.sl-reverse.com [169.61.105.91])
-	by mx0a-001b2d01.pphosted.com (PPS) with ESMTPS id 4efnahmyt8-1
-	(version=TLSv1.2 cipher=ECDHE-RSA-AES256-GCM-SHA384 bits=256 verify=NOT);
-	Tue, 02 Jun 2026 09:31:41 +0000 (GMT)
-Received: from pps.filterd (ppma21.wdc07v.mail.ibm.com [127.0.0.1])
-	by ppma21.wdc07v.mail.ibm.com (8.18.1.7/8.18.1.7) with ESMTP id 6529O5pD006737;
-	Tue, 2 Jun 2026 09:31:40 GMT
-Received: from smtprelay06.fra02v.mail.ibm.com ([9.218.2.230])
-	by ppma21.wdc07v.mail.ibm.com (PPS) with ESMTPS id 4egb7k2j23-1
-	(version=TLSv1.2 cipher=ECDHE-RSA-AES256-GCM-SHA384 bits=256 verify=NOT);
-	Tue, 02 Jun 2026 09:31:40 +0000 (GMT)
-Received: from smtpav02.fra02v.mail.ibm.com (smtpav02.fra02v.mail.ibm.com [10.20.54.101])
-	by smtprelay06.fra02v.mail.ibm.com (8.14.9/8.14.9/NCO v10.0) with ESMTP id 6529VXP530933318
-	(version=TLSv1/SSLv3 cipher=DHE-RSA-AES256-GCM-SHA384 bits=256 verify=OK);
-	Tue, 2 Jun 2026 09:31:33 GMT
-Received: from smtpav02.fra02v.mail.ibm.com (unknown [127.0.0.1])
-	by IMSVA (Postfix) with ESMTP id B2A872004B;
-	Tue,  2 Jun 2026 09:31:33 +0000 (GMT)
-Received: from smtpav02.fra02v.mail.ibm.com (unknown [127.0.0.1])
-	by IMSVA (Postfix) with ESMTP id 863C220043;
-	Tue,  2 Jun 2026 09:31:33 +0000 (GMT)
-Received: from localhost (unknown [9.111.42.7])
-	by smtpav02.fra02v.mail.ibm.com (Postfix) with ESMTP;
-	Tue,  2 Jun 2026 09:31:33 +0000 (GMT)
-Date: Tue, 2 Jun 2026 11:31:33 +0200
-From: Andreas Grapentin <gra@linux.ibm.com>
-To: Oliver Upton <oupton@kernel.org>
-Cc: Steffen Eiden <seiden@linux.ibm.com>, kvm@vger.kernel.org,
-        kvmarm@lists.linux.dev, linux-arm-kernel@lists.infradead.org,
-        linux-kernel@vger.kernel.org, linux-s390@vger.kernel.org,
-        Alexander Gordeev <agordeev@linux.ibm.com>,
-        Arnd Bergmann <arnd@arndb.de>,
-        Catalin Marinas <catalin.marinas@arm.com>,
-        Christian Borntraeger <borntraeger@linux.ibm.com>,
-        Claudio Imbrenda <imbrenda@linux.ibm.com>,
-        David Hildenbrand <david@kernel.org>,
-        Friedrich Welter <fritz@linux.ibm.com>,
-        Gautam Gala <ggala@linux.ibm.com>,
-        Hariharan Mari <hari55@linux.ibm.com>,
-        Heiko Carstens <hca@linux.ibm.com>,
-        Hendrik Brueckner <brueckner@linux.ibm.com>,
-        Ilya Leoshkevich <iii@linux.ibm.com>,
-        Janosch Frank <frankja@linux.ibm.com>, Joey Gouly <joey.gouly@arm.com>,
-        Marc Zyngier <maz@kernel.org>, Nico Boehr <nrb@linux.ibm.com>,
-        Nina Schoetterl-Glausch <oss@nina.schoetterlglausch.eu>,
-        Paolo Bonzini <pbonzini@redhat.com>,
-        Suzuki K Poulose <suzuki.poulose@arm.com>,
-        Sven Schnelle <svens@linux.ibm.com>,
-        Ulrich Weigand <Ulrich.Weigand@de.ibm.com>,
-        Vasily Gorbik <gor@linux.ibm.com>, Will Deacon <will@kernel.org>,
-        Zenghui Yu <yuzenghui@huawei.com>
-Subject: Re: [PATCH v1 10/26] KVM: arm64: Fix set_oslsr_el1 to write to
- OSLAR_EL1
-Message-ID: <ah6fmaSnsM_o8NcR@li-d8547bcc-2d90-11b2-a85c-a70f2a37009a.ibm.com>
-References: <20260529155601.2927240-1-seiden@linux.ibm.com>
- <20260529155601.2927240-11-seiden@linux.ibm.com>
- <ah4F7dAEA7LFz5fN@kernel.org>
+	Tue, 02 Jun 2026 09:33:44 +0000
+DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
+	d=ew.tq-group.com; s=default2602; h=Content-Transfer-Encoding:MIME-Version:
+	Message-ID:Date:Subject:Cc:To:From:Sender:Reply-To:Content-Type:Content-ID:
+	Content-Description:Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc
+	:Resent-Message-ID:In-Reply-To:References;
+	bh=ll7wsI/Em/Jn1sDgGc7GNu+RMvSzQcPU87sVEyRKPIs=; b=O/35tX7GuXF/+1DjOrDR+8DuZd
+	clwUabfnWXg7PoWht4TLnZzlrTF6Bo6WFicrWHs4ue+yPICeMGPb6r48LMcMd93Jmuq7fkOXy+kh4
+	ny66V1r6q2ck9SUosZ2A8WEbJnhH37IzGxEd6dtvkwyDeYF3iPCeVnZW4RyQGxQMEdfg+QF2jJlOK
+	C/BEpGLVcARGzYyim+id3eNSgxnxk8HSrTzgKiVCkBYdgScpCdVRwcofrBtiWS9d2WvqUZgIwx0v1
+	AnA37WpgzJAZUcGZY9ateRit5Bh30caPp2hqJhPgYOOkBSztLMKUW9wJdPQBLks9vstEpe6fV7/7v
+	C948ogZw==;
+Received: from sslproxy06.your-server.de ([78.46.172.3])
+	by www537.your-server.de with esmtpsa  (TLS1.3) tls TLS_AES_256_GCM_SHA384
+	(Exim 4.96.2)
+	(envelope-from <alexander.stein@ew.tq-group.com>)
+	id 1wULV8-0000ZI-2W;
+	Tue, 02 Jun 2026 11:33:34 +0200
+Received: from localhost ([127.0.0.1])
+	by sslproxy06.your-server.de with esmtpsa  (TLS1.3) tls TLS_AES_256_GCM_SHA384
+	(Exim 4.96)
+	(envelope-from <alexander.stein@ew.tq-group.com>)
+	id 1wULV7-000HOK-1r;
+	Tue, 02 Jun 2026 11:33:34 +0200
+From: Alexander Stein <alexander.stein@ew.tq-group.com>
+To: Rob Herring <robh@kernel.org>,
+	Krzysztof Kozlowski <krzk+dt@kernel.org>,
+	Conor Dooley <conor+dt@kernel.org>,
+	Frank Li <Frank.Li@nxp.com>,
+	Sascha Hauer <s.hauer@pengutronix.de>,
+	Pengutronix Kernel Team <kernel@pengutronix.de>,
+	Fabio Estevam <festevam@gmail.com>,
+	Alexander Stein <alexander.stein@ew.tq-group.com>,
+	Shawn Guo <shawnguo@kernel.org>
+Cc: linux@ew.tq-group.com,
+	devicetree@vger.kernel.org,
+	imx@lists.linux.dev,
+	linux-arm-kernel@lists.infradead.org,
+	linux-kernel@vger.kernel.org
+Subject: [PATCH v2 1/1] arm64: dts: tqma8mpql-mba8mpxl: configure sai clock in audio codec as well
+Date: Tue,  2 Jun 2026 11:33:30 +0200
+Message-ID: <20260602093331.1698756-1-alexander.stein@ew.tq-group.com>
+X-Mailer: git-send-email 2.43.0
 MIME-Version: 1.0
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-In-Reply-To: <ah4F7dAEA7LFz5fN@kernel.org>
-X-TM-AS-GCONF: 00
-X-Proofpoint-Spam-Details-Enc: AW1haW4tMjYwNjAyMDA4NSBTYWx0ZWRfX181A+AGJbeaJ
- 8ee4QN6Pl/iBbMATYkWypcyDwv6rUrkLP5JzfF7elSisdcNiLdyb/GH/XLGmsEIojCMBlMmZl1W
- J5f0tMDzUXrw/APH/4C+ne3LmOeaPgyRU7G9Wr/QMZW1gyo6mXjXgH308urEAZDt8Ozc+ngigPJ
- wwKCBu88QTWK3bM2kyMRCWnLNHbxsjdIiNXAiYhxOghTJ9GKhKyoj55EdC0bd5PXpRZ4VGVMrrp
- 8yWeSy1L5jVDOSrPQxyUYnpiTYgEK3xbqUQSywWCN7bZz7Po0xmLBFFLaPeLP7s9H+DGf4UfNvC
- mSHoVMJTnRPUl5UGdOk2+pgPv+T7kMmUnfqYVab5j9f4BprRxQmEc8l1blBRvstLGNAW2XcAWrx
- ELKmit3Op2fgvb349mJAFb1CUe3kjfAZwLwJKq9r4nOF1dqb/0fnnVG5E+g+EVOhLMFqifarP02
- c1g4o1q97OFnAvS2ZlQ==
-X-Proofpoint-ORIG-GUID: UcBU39xqv_22mUun1G5fgwQbsPs36BwG
-X-Authority-Analysis: v=2.4 cv=cOzQdFeN c=1 sm=1 tr=0 ts=6a1ea2fd cx=c_pps
- a=GFwsV6G8L6GxiO2Y/PsHdQ==:117 a=GFwsV6G8L6GxiO2Y/PsHdQ==:17
- a=kj9zAlcOel0A:10 a=FelO9ux0wxsA:10 a=VkNPw1HP01LnGYTKEx00:22
- a=RnoormkPH1_aCDwRdu11:22 a=Y2IxJ9c9Rs8Kov3niI8_:22 a=EMFgzdqWpYFkXg4I9EcA:9
- a=CjuIK1q_8ugA:10
-X-Proofpoint-GUID: UcBU39xqv_22mUun1G5fgwQbsPs36BwG
-X-Proofpoint-Virus-Version: vendor=baseguard
- engine=ICAP:2.0.293,Aquarius:18.0.1143,Hydra:6.1.125,FMLib:17.12.100.49
- definitions=2026-06-01_07,2026-05-28_03,2025-10-01_01
-X-Proofpoint-Spam-Details: rule=outbound_notspam policy=outbound score=0
- clxscore=1011 impostorscore=0 lowpriorityscore=0 spamscore=0 bulkscore=0
- malwarescore=0 phishscore=0 suspectscore=0 priorityscore=1501 adultscore=0
- classifier=typeunknown authscore=0 authtc= authcc= route=outbound adjust=0
- reason=mlx scancount=1 engine=8.22.0-2605210000 definitions=main-2606020085
+Content-Transfer-Encoding: 8bit
+X-Virus-Scanned: Clear (ClamAV 1.4.3/28019/Tue Jun  2 08:33:27 2026)
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260602_023159_337892_30346902 
-X-CRM114-Status: GOOD (  18.41  )
+X-CRM114-CacheID: sfid-20260602_023342_132627_EB301805 
+X-CRM114-Status: GOOD (  10.42  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -141,31 +89,34 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Jun 01 26, Oliver Upton wrote:
-> The current behavior of KVM is correct. KVM treats OSLSR_EL1 as the
-> stateful representation of the OS lock and is RO from the guest POV.
-> 
-> We keep the UAPI straightforward by making this register RW from
-> userspace, such that the VMM can directly write back the value returned
-> from KVM_GET_ONE_REG.
-> 
-> Do you have another reason for using OSLAR_EL1 as the canonical
-> representation?
+With deferrable card binding the sound card driver tries to
+get the mclk configuration before it is setup in sai3 node.
+Fix this by setting the sai clock config for the audio codec as well.
 
-Ah, thanks for pointing that out!
+Fixes: d8f9d8126582 ("arm64: dts: imx8mp: Add analog audio output on i.MX8MP TQMa8MPxL/MBa8MPxL")
+Signed-off-by: Alexander Stein <alexander.stein@ew.tq-group.com>
+---
+Changes in v2:
+* Set the clock source in the audio codec instead
 
-this change must have bled into the shared KVM code by mistake, it was
-supposed to live in the s390 specific code because it deals with an s390
-specific quirk. It was not intended for this change to have any impact
-on the native arm64 KVM implementation.
+ arch/arm64/boot/dts/freescale/imx8mp-tqma8mpql-mba8mpxl.dts | 3 +++
+ 1 file changed, 3 insertions(+)
 
-on s390, we need to map the userspace writes of OSLSR_EL1 to OSLAR_EL1,
-because OSLSR_EL1 is write-only for the facilities that are available to
-us to write system registers. But that detail should be confined to an
-s390-specific implementation of set_oslsr_el1.
+diff --git a/arch/arm64/boot/dts/freescale/imx8mp-tqma8mpql-mba8mpxl.dts b/arch/arm64/boot/dts/freescale/imx8mp-tqma8mpql-mba8mpxl.dts
+index 890d1e525a489..6b0f944095e7c 100644
+--- a/arch/arm64/boot/dts/freescale/imx8mp-tqma8mpql-mba8mpxl.dts
++++ b/arch/arm64/boot/dts/freescale/imx8mp-tqma8mpql-mba8mpxl.dts
+@@ -609,6 +609,9 @@ tlv320aic3x04: audio-codec@18 {
+ 		reset-gpios = <&gpio4 29 GPIO_ACTIVE_LOW>;
+ 		iov-supply = <&reg_vcc_1v8>;
+ 		ldoin-supply = <&reg_vcc_3v3>;
++		assigned-clocks = <&clk IMX8MP_CLK_SAI3>;
++		assigned-clock-parents = <&clk IMX8MP_AUDIO_PLL1_OUT>;
++		assigned-clock-rates = <12288000>;
+ 	};
+ 
+ 	se97_1c: temperature-sensor@1c {
+-- 
+2.43.0
 
-We'll amend this for v2.
-
-Best,
-Andreas
 
