@@ -4,62 +4,67 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 332C2CD6E4A
-	for <linux-arm-kernel@archiver.kernel.org>; Tue,  2 Jun 2026 09:21:53 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id EFC92CD6E57
+	for <linux-arm-kernel@archiver.kernel.org>; Tue,  2 Jun 2026 09:23:57 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:References
-	:Message-Id:Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:
-	From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
+	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=obMdtfq8yyD+RDfcY5uRCDLbGcKdITdA1JJXlKjuEGo=; b=BN20jAlF2jIcLVbVdC3plmEyR9
-	IV1XUyfUcelUo4CRgJtoI/Gi24+UuenDNLcWkRSHl/fYMNuD2IbZ7TQmUCwe0cHtQq8EQEHyUnFrN
-	qqGPgWgaeKIvjh8KW9N1IXtMlkVeWtDs+UQaeo2XeXevW1nIGtVSHCm80LicR92wY21eLaLdJTIY0
-	RY02Rph36/IWJACUwi10LTfMCIg3UWpLByDawaTBTku65rZEIUcKqDYq6xeQl2oZctXP8PafXhiFV
-	t36nbRkJNZ1QXMtXcpNsR1ywx7pGCtH8w+cK4KAlqZUp7EBp8OvYjErzO6iiM+Q0xVJ1vnt3ZdSXk
-	bjq9S4+A==;
+	bh=iOndO+2N7Yiw+5dLGk9DJX/TXgsj6y/c95Ng1CFjVJ0=; b=1k2A5khHfC5ogh+LKxsjMklkCD
+	i/Sv4iKbccGuY6rVNbsXaCbbb+C8G6l5HL8vpzurbjExv5jx91ARrjv32u0zXCsvnwdudLe8kIK2A
+	Yg95OJTDzBtMflUcvqUx3s1CuoF5F7JThUwahzPGwawKQjP3FSyM6u47XaWQIXeWK3ei7iSpsEhJk
+	I/2wH2TR3nGUyU4A6rLHea6/JK02frwN1334CzsWHAsjk9c/+1TwGSMUOtBAcUPd5ZWp6Kx62KggC
+	ONEGlssEQU5nKRO0tQ4W8o3cFeaUKtgpNVoyzglM8shE9Cm9R8FtMyAgZOuJfIMiXkNNTRlcH7T6/
+	4CbycP3A==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wULJj-0000000Cdqt-1F4J;
-	Tue, 02 Jun 2026 09:21:47 +0000
-Received: from tor.source.kernel.org ([2600:3c04:e001:324:0:1991:8:25])
-	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wULJi-0000000CdqH-03Qd;
-	Tue, 02 Jun 2026 09:21:46 +0000
-Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
-	by tor.source.kernel.org (Postfix) with ESMTP id 777C86001A;
-	Tue,  2 Jun 2026 09:21:45 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id AF9151F00893;
-	Tue,  2 Jun 2026 09:21:44 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1780392105;
-	bh=obMdtfq8yyD+RDfcY5uRCDLbGcKdITdA1JJXlKjuEGo=;
-	h=From:Date:Subject:References:In-Reply-To:To:Cc;
-	b=AVSpq1LQRepemHfmkyFioF6JpRG4mvHRmAL7gjJOpxJDYv+QqlPPCXsgv8nAKfcWX
-	 nd/Oh8nUT6mvSZ8Htm6cRdov5GDWZpJOhawiRmJgKEroe4aGYSwKdKpwC4UNj/y+mb
-	 Z+Btyc/KSqveIkFm6nXkC4y2m2EQG1mAJw9wIX8RdCemmEsAz12uhrnUrip0YVonjp
-	 B2LRiFCEuupz3NM7+ui+I4uZwT18cZPeDvGhvh0tAgBRhNPNM9gBQU1mw/SzPvYfHy
-	 W6V6WKrF+hdkQc4eICsaz8Ha2p+F9iZ+ZQvlY9C+5ZW7dI/ROostQQndH0fUdYdemM
-	 CjwMsh3m1Wj8w==
-From: Lorenzo Bianconi <lorenzo@kernel.org>
-Date: Tue, 02 Jun 2026 11:21:05 +0200
-Subject: [PATCH net 2/2] net: ethernet: mtk_eth_soc: Fix use-after-free in
- metadata dst teardown
+	id 1wULLj-0000000CeJ7-13Kb;
+	Tue, 02 Jun 2026 09:23:51 +0000
+Received: from foss.arm.com ([217.140.110.172])
+	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
+	id 1wULLh-0000000CeI7-00q4
+	for linux-arm-kernel@lists.infradead.org;
+	Tue, 02 Jun 2026 09:23:50 +0000
+Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
+	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id 40382176C;
+	Tue,  2 Jun 2026 02:23:41 -0700 (PDT)
+Received: from [10.1.25.162] (e121487-lin.cambridge.arm.com [10.1.25.162])
+	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id B93343F7D8;
+	Tue,  2 Jun 2026 02:23:40 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=simple/simple; d=arm.com; s=foss;
+	t=1780392226; bh=JYLwjXmYcxH3kk2e5lgXAWOwqnnPFbGyXbkuriopX9A=;
+	h=Date:Subject:To:Cc:References:From:In-Reply-To:From;
+	b=rg/247HMSOTY/Xu7/CSwI4ntSc1V00Rbmo8U+L1q4BSnB7HUcfyOz4ovhKeZKj4mM
+	 Knfw7QqOTl+ANiq4xJvDxZ4AIolP1pjplnnHkWoP/ngTTAXgn3B68Lbsv1eKPy1IXw
+	 eUHSeFIXdYQv+HbmyEnzdN6gGRaQ8usuWSXP1cBU=
+Message-ID: <701c88b1-c172-4fee-ba56-18bbe940016f@arm.com>
+Date: Tue, 2 Jun 2026 10:23:38 +0100
 MIME-Version: 1.0
-Content-Type: text/plain; charset="utf-8"
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH v3 1/2] arm64: cpufeature: Add WORKAROUND_DISABLE_CNP
+ capability
+To: Zeng Heng <zengheng@huaweicloud.com>, xuwei5@huawei.com,
+ wangyushan12@huawei.com, yangyicong@hisilicon.com, maz@kernel.org,
+ yeoreum.yun@arm.com, miko.lenczewski@arm.com, james.clark@linaro.org,
+ corbet@lwn.net, skhan@linuxfoundation.org, kuninori.morimoto.gx@renesas.com,
+ lucaswei@google.com, catalin.marinas@arm.com, broonie@kernel.org,
+ lpieralisi@kernel.org, thuth@redhat.com, kevin.brodsky@arm.com,
+ tongtiangen@huawei.com, oupton@kernel.org, ryan.roberts@arm.com,
+ mark.rutland@arm.com, will@kernel.org, Sascha.Bischoff@arm.com
+Cc: linux-arm-kernel@lists.infradead.org, wangkefeng.wang@huawei.com,
+ linux-doc@vger.kernel.org, linux-kernel@vger.kernel.org
+References: <20260601112000.1145391-1-zengheng@huaweicloud.com>
+ <20260601112000.1145391-2-zengheng@huaweicloud.com>
+Content-Language: en-GB
+From: Vladimir Murzin <vladimir.murzin@arm.com>
+In-Reply-To: <20260601112000.1145391-2-zengheng@huaweicloud.com>
+Content-Type: text/plain; charset=UTF-8
 Content-Transfer-Encoding: 7bit
-Message-Id: <20260602-airoha-mtk-metadata-uaf-fix-v1-2-3aaa99d83351@kernel.org>
-References: <20260602-airoha-mtk-metadata-uaf-fix-v1-0-3aaa99d83351@kernel.org>
-In-Reply-To: <20260602-airoha-mtk-metadata-uaf-fix-v1-0-3aaa99d83351@kernel.org>
-To: Andrew Lunn <andrew+netdev@lunn.ch>, 
- "David S. Miller" <davem@davemloft.net>, Eric Dumazet <edumazet@google.com>, 
- Jakub Kicinski <kuba@kernel.org>, Paolo Abeni <pabeni@redhat.com>, 
- Felix Fietkau <nbd@nbd.name>, Matthias Brugger <matthias.bgg@gmail.com>, 
- AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>
-Cc: Florian Westphal <fw@strlen.de>, linux-arm-kernel@lists.infradead.org, 
- linux-mediatek@lists.infradead.org, netdev@vger.kernel.org, 
- Lorenzo Bianconi <lorenzo@kernel.org>
-X-Mailer: b4 0.14.3
+X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
+X-CRM114-CacheID: sfid-20260602_022349_277707_C5048D90 
+X-CRM114-Status: GOOD (  18.41  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -74,40 +79,110 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-mtk_free_dev() calls metadata_dst_free() which frees the metadata_dst
-with kfree() immediately, bypassing the RCU grace period.
-In the RX path, skb_dst_set_noref() sets a non-refcounted pointer from
-the skb to the metadata_dst. This function requires RCU read-side
-protection and the dst must remain valid until all RCU readers complete.
-Since metadata_dst_free() calls kfree() directly, a use-after-free can
-occur if any skb still holds a noref pointer to the dst when the driver
-tears it down.
-Replace metadata_dst_free() with dst_release() which properly goes
-through the refcount path: when the refcount drops to zero, it schedules
-the actual free via call_rcu_hurry(), ensuring all RCU readers have
-completed before the memory is freed.
+On 6/1/26 12:19, Zeng Heng wrote:
+> From: Zeng Heng <zengheng4@huawei.com>
+> 
+> The NVIDIA Carmel CNP erratum is not the only case requiring CNP to be
+> disabled. Abstract this into a common WORKAROUND_DISABLE_CNP capability
+> to facilitate adding errata for future chips and reduce duplicate
+> checks in has_useable_cnp().
+> 
+> This serves as a prerequisite for the subsequent Hisilicon erratum
+> 162100125.
+> 
+> Suggested-by: Vladimir Murzin <vladimir.murzin@arm.com>
+> Signed-off-by: Zeng Heng <zengheng4@huawei.com>
+> ---
+>  arch/arm64/Kconfig               | 4 ++++
+>  arch/arm64/include/asm/cpucaps.h | 4 ++--
+>  arch/arm64/kernel/cpu_errata.c   | 4 ++--
+>  arch/arm64/kernel/cpufeature.c   | 2 +-
+>  arch/arm64/tools/cpucaps         | 2 +-
+>  5 files changed, 10 insertions(+), 6 deletions(-)
+> 
+> diff --git a/arch/arm64/Kconfig b/arch/arm64/Kconfig
+> index fe60738e5943..f297517a83b9 100644
+> --- a/arch/arm64/Kconfig
+> +++ b/arch/arm64/Kconfig
+> @@ -1315,9 +1315,13 @@ config QCOM_FALKOR_ERRATUM_E1041
+> 
+>  	  If unsure, say Y.
+> 
+> +config ARM64_WORKAROUND_DISABLE_CNP
+> +	bool
+> +
+>  config NVIDIA_CARMEL_CNP_ERRATUM
+>  	bool "NVIDIA Carmel CNP: CNP on Carmel semantically different than ARM cores"
+>  	default y
+> +	select ARM64_WORKAROUND_DISABLE_CNP
+>  	help
+>  	  If CNP is enabled on Carmel cores, non-sharable TLBIs on a core will not
+>  	  invalidate shared TLB entries installed by a different core, as it would
+> diff --git a/arch/arm64/include/asm/cpucaps.h b/arch/arm64/include/asm/cpucaps.h
+> index d0d3cdd5763c..25c61cda901c 100644
+> --- a/arch/arm64/include/asm/cpucaps.h
+> +++ b/arch/arm64/include/asm/cpucaps.h
+> @@ -58,8 +58,8 @@ cpucap_is_possible(const unsigned int cap)
+>  		return IS_ENABLED(CONFIG_ARM64_ERRATUM_2658417);
+>  	case ARM64_WORKAROUND_CAVIUM_23154:
+>  		return IS_ENABLED(CONFIG_CAVIUM_ERRATUM_23154);
+> -	case ARM64_WORKAROUND_NVIDIA_CARMEL_CNP:
+> -		return IS_ENABLED(CONFIG_NVIDIA_CARMEL_CNP_ERRATUM);
+> +	case ARM64_WORKAROUND_DISABLE_CNP:
+> +		return IS_ENABLED(CONFIG_ARM64_WORKAROUND_DISABLE_CNP);
+>  	case ARM64_WORKAROUND_REPEAT_TLBI:
+>  		return IS_ENABLED(CONFIG_ARM64_WORKAROUND_REPEAT_TLBI);
+>  	case ARM64_WORKAROUND_SPECULATIVE_SSBS:
+> diff --git a/arch/arm64/kernel/cpu_errata.c b/arch/arm64/kernel/cpu_errata.c
+> index 5377e4c2eba2..b0db946568b7 100644
+> --- a/arch/arm64/kernel/cpu_errata.c
+> +++ b/arch/arm64/kernel/cpu_errata.c
+> @@ -801,11 +801,11 @@ const struct arm64_cpu_capabilities arm64_errata[] = {
+>  				  1, 0),
+>  	},
+>  #endif
+> -#ifdef CONFIG_NVIDIA_CARMEL_CNP_ERRATUM
+> +#ifdef CONFIG_ARM64_WORKAROUND_DISABLE_CNP
+>  	{
+>  		/* NVIDIA Carmel */
+>  		.desc = "NVIDIA Carmel CNP erratum",
+> -		.capability = ARM64_WORKAROUND_NVIDIA_CARMEL_CNP,
+> +		.capability = ARM64_WORKAROUND_DISABLE_CNP,
+>  		ERRATA_MIDR_ALL_VERSIONS(MIDR_NVIDIA_CARMEL),
+>  	},
+>  #endif
+> diff --git a/arch/arm64/kernel/cpufeature.c b/arch/arm64/kernel/cpufeature.c
+> index 6d53bb15cf7b..20c5f24f74a9 100644
+> --- a/arch/arm64/kernel/cpufeature.c
+> +++ b/arch/arm64/kernel/cpufeature.c
+> @@ -1785,7 +1785,7 @@ has_useable_cnp(const struct arm64_cpu_capabilities *entry, int scope)
+>  	if (is_kdump_kernel())
+>  		return false;
+> 
+> -	if (cpus_have_cap(ARM64_WORKAROUND_NVIDIA_CARMEL_CNP))
+> +	if (cpus_have_cap(ARM64_WORKAROUND_DISABLE_CNP))
+>  		return false;
+> 
+>  	return has_cpuid_feature(entry, scope);
+> diff --git a/arch/arm64/tools/cpucaps b/arch/arm64/tools/cpucaps
+> index 811c2479e82d..9b85a84f6fd4 100644
+> --- a/arch/arm64/tools/cpucaps
+> +++ b/arch/arm64/tools/cpucaps
+> @@ -120,7 +120,7 @@ WORKAROUND_CAVIUM_TX2_219_PRFM
+>  WORKAROUND_CAVIUM_TX2_219_TVM
+>  WORKAROUND_CLEAN_CACHE
+>  WORKAROUND_DEVICE_LOAD_ACQUIRE
+> -WORKAROUND_NVIDIA_CARMEL_CNP
+> +WORKAROUND_DISABLE_CNP
+>  WORKAROUND_PMUV3_IMPDEF_TRAPS
+>  WORKAROUND_QCOM_FALKOR_E1003
+>  WORKAROUND_QCOM_ORYON_CNTVOFF
+> --
+> 2.43.0
+> 
 
-Fixes: 2d7605a72906 ("net: ethernet: mtk_eth_soc: enable hardware DSA untagging")
-Signed-off-by: Lorenzo Bianconi <lorenzo@kernel.org>
----
- drivers/net/ethernet/mediatek/mtk_eth_soc.c | 2 +-
- 1 file changed, 1 insertion(+), 1 deletion(-)
+FWIW,
 
-diff --git a/drivers/net/ethernet/mediatek/mtk_eth_soc.c b/drivers/net/ethernet/mediatek/mtk_eth_soc.c
-index 8d225bc9f063..7d771168b990 100644
---- a/drivers/net/ethernet/mediatek/mtk_eth_soc.c
-+++ b/drivers/net/ethernet/mediatek/mtk_eth_soc.c
-@@ -4491,7 +4491,7 @@ static int mtk_free_dev(struct mtk_eth *eth)
- 	for (i = 0; i < ARRAY_SIZE(eth->dsa_meta); i++) {
- 		if (!eth->dsa_meta[i])
- 			break;
--		metadata_dst_free(eth->dsa_meta[i]);
-+		dst_release(&eth->dsa_meta[i]->dst);
- 	}
- 
- 	return 0;
-
--- 
-2.54.0
+Reviewed-by: Vladimir Murzin <vladimir.murzin@arm.com>
 
 
