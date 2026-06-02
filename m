@@ -4,60 +4,81 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id A6C5DCD6E57
-	for <linux-arm-kernel@archiver.kernel.org>; Tue,  2 Jun 2026 14:19:49 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 8F148CD6E60
+	for <linux-arm-kernel@archiver.kernel.org>; Tue,  2 Jun 2026 14:24:14 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=OVkm8/BDlFWsYBkVSTAlVasEzQcuvOcvwlypHG8CVV8=; b=bpn3mBxe8DVnKNhis53lx6tn9m
-	C+T+uXgczLHGzOdq9n85wRp0lNKrgkWTECeIHjZSlCV+duRrK66RM7RSIv/18kQx95g5/sBiFFOU1
-	jvwE7tYM+luK4uINfIVr2etV0ngA0ofxVM22+UH+JlxlD3WPFwhu09Ylv+WzRp/Mp+lOlEXQbk+Qe
-	2CKZAwXCsF44UyQMyvhV2iozpIQa8/bOosZOyBu1ysjdrmGXrhT5rm03FynltjGs5liqJdky4ZQu9
-	OYxgzEdPX/6S8TrnMlZrD6Nv1zEaUJDQAVskTWpKV0ntFOIj6m9WeruC4avBml1775iCIRY3lbSdO
-	Ac32FHnQ==;
+	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Reply-To:List-Subscribe:
+	List-Help:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:Message-Id:
+	Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:From:
+	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
+	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=87iWthhsXI0KBP5pxDKO9wFfPz1O68kzRBZHmC2bf2Q=; b=X2cWTOOXaLrnY9xTSNh/rd0tNW
+	3rXiWUJGpanhG3dccoP6tp8fvXMaFskEA4yIPFRSgscyV/81+kRpo9gSJu6pijnJjfcEZPxo/yodt
+	wMRzrcBTFAHFOjd8SKcJvrvMqOxI5NQHfuuapDFbxgbSYN56Hh87smbptZi6wxRp60yiGzxnp018w
+	O2o61xWgoZ2XEYTGcvnGxFOCfTTV0kKUb6KU6hEFS+Ae+HO9oPqVGPpRW3LWpAv7bRIOjYdHQxsKi
+	oKMzHJU0Vy2TMrhIB5wBEUoylAVH1cbDC09lqewseuvW781mDVtwdBoHeEycLFkt8X2uOfZBlCCs2
+	zioaAP4w==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wUPy2-0000000DAda-0VC0;
-	Tue, 02 Jun 2026 14:19:42 +0000
-Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
+	id 1wUQ2K-0000000DAxs-2lqN;
+	Tue, 02 Jun 2026 14:24:08 +0000
+Received: from tor.source.kernel.org ([172.105.4.254])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wUPy0-0000000DAdD-1Kcn
-	for linux-arm-kernel@lists.infradead.org;
-	Tue, 02 Jun 2026 14:19:41 +0000
-Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
-	by sea.source.kernel.org (Postfix) with ESMTP id CFC9B41B27;
-	Tue,  2 Jun 2026 14:19:39 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id E9FFC1F00898;
-	Tue,  2 Jun 2026 14:19:38 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1780409979;
-	bh=OVkm8/BDlFWsYBkVSTAlVasEzQcuvOcvwlypHG8CVV8=;
-	h=Date:From:To:Cc:Subject:References:In-Reply-To;
-	b=ghsmBWQwQSlHW0/ktMkKdpvWmx7mBjscnBAlvaoXJ7V5xqdimXqBLPCyjp7hfQFx0
-	 MSvx+ZIol/m5pdCC59FQKHT1Di9bSw73IRe/lZP24LbKDnAF2OYeASfjP9DCZY6+pl
-	 1mKvPawlLge9Zr9m3Hz/9OFykB0PGG0L1XyVbFuvhPadSAORQxcLrm98U+nqVGg2i6
-	 AfRi8mE7mxda0hCfVQp3rHTsOtFU9o6ELO1WtDxEw4dBA0dMi3k7oIdJXl6FkFVbt1
-	 j1WLJsFK/nMYGUVVnTFtVA9oqF42+a9fBZx1cxAV8Ftt2b4EFgXuHpBn3jy5w10tOL
-	 cRkCGhPmjzJdQ==
-Date: Tue, 2 Jun 2026 15:19:35 +0100
-From: Will Deacon <will@kernel.org>
-To: Catalin Marinas <catalin.marinas@arm.com>
-Cc: linux-arm-kernel@lists.infradead.org, Yeoreum Yun <yeoreum.yun@arm.com>
-Subject: Re: [PATCH] arm64: futex: Consolidate 'old == new' check in
- __lsui_cmpxchg32()
-Message-ID: <ah7md1ha86Anr7nb@willie-the-truck>
-References: <20260519090823.7216-1-will@kernel.org>
- <agx9DmAbHdAoSlWU@arm.com>
+	id 1wUQ2J-0000000DAxY-1X95;
+	Tue, 02 Jun 2026 14:24:07 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by tor.source.kernel.org (Postfix) with ESMTP id 9851060120;
+	Tue,  2 Jun 2026 14:24:06 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPS id 3EF18C2BCB4;
+	Tue,  2 Jun 2026 14:24:06 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1780410246;
+	bh=vaUgDr1RsviakGOYzlCjQ60oKkDSx69btm1l/dxlknk=;
+	h=From:Date:Subject:To:Cc:Reply-To:From;
+	b=eNxuXUsri6tijJ8q/ycYLYL0UUGj/L2NEO0UwBzXWuSHMKHc/Gw1p6EneoCK7c8Nw
+	 a4pBeVrAJ4Tk0fGE+KI+iO/KKuvbY5SbdVskol9Fzdj8vMfFLAiPmi2W3d/dYqcubE
+	 nsyKrHNx8zOoeksWqVVMy6q0AWRS13P+25XOHzjqygArEFYI8X9vHsmye48rPRUHSW
+	 oJFYEs6LCXuLOJaSQk4uB4HlQNHmkZXLkvf3iSklEzxzGHy0WjZo7GC1q6xNCyyokw
+	 N9ItNto9XKvptJX/auWVhVOCY8d706erm85jK4VQX5PUV2PUNL0+1M8kWDJCBoK1nU
+	 fYyvOQikNZPxA==
+Received: from aws-us-west-2-korg-lkml-1.web.codeaurora.org (localhost.localdomain [127.0.0.1])
+	by smtp.lore.kernel.org (Postfix) with ESMTP id 1FBC1CD6E60;
+	Tue,  2 Jun 2026 14:24:06 +0000 (UTC)
+From: Ronald Claveau via B4 Relay <devnull+linux-kernel-dev.aliel.fr@kernel.org>
+Date: Tue, 02 Jun 2026 16:19:20 +0200
+Subject: [PATCH v3] thermal: amlogic: add missing dependency on MESON_SM
 MIME-Version: 1.0
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-In-Reply-To: <agx9DmAbHdAoSlWU@arm.com>
-X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260602_071940_740688_F0C71B97 
-X-CRM114-Status: GOOD (  22.23  )
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: 7bit
+Message-Id: <20260602-fix-missing-meson_sm-symbol-v3-1-6f7f69cd7d6c@aliel.fr>
+X-B4-Tracking: v=1; b=H4sIAAAAAAAC/33NQQ6DIBCF4asY1qUBbEG66j2aplEBnUSwYRpSY
+ 7x70XThyuX/MvlmJmgjWCS3YibRJkAYQ47yVJC2r0NnKZjcRDAh2VVo6uBLPSBC6Ki3OIYXeoq
+ Tb8aBKqWkYUYbJRnJwjvafL7pj2fuHvAzxml7lvi6/t2SHbqJU05L10glGl1pc7nXA9jh7CJZ2
+ ST2FD+mRKa4sa5qy5ZL7XbUsiw/nGGjcxABAAA=
+X-Change-ID: 20260529-fix-missing-meson_sm-symbol-7776d0d9d760
+To: Neil Armstrong <neil.armstrong@linaro.org>, 
+ Daniel Lezcano <daniel.lezcano@kernel.org>, Zhang Rui <rui.zhang@intel.com>, 
+ "Rafael J. Wysocki" <rafael@kernel.org>, Lukasz Luba <lukasz.luba@arm.com>
+Cc: Guillaume La Roque <glaroque@baylibre.com>, 
+ Kevin Hilman <khilman@baylibre.com>, Jerome Brunet <jbrunet@baylibre.com>, 
+ Martin Blumenstingl <martin.blumenstingl@googlemail.com>, 
+ linux-arm-kernel@lists.infradead.org, linux-amlogic@lists.infradead.org, 
+ linux-kernel@vger.kernel.org, linux-pm@vger.kernel.org, 
+ Mark Brown <broonie@kernel.org>, kernel test robot <lkp@intel.com>, 
+ Ronald Claveau <linux-kernel-dev@aliel.fr>
+X-Mailer: b4 0.14.3
+X-Developer-Signature: v=1; a=openpgp-sha256; l=1769;
+ i=linux-kernel-dev@aliel.fr; h=from:subject:message-id;
+ bh=Ugj/bC+OamV3jyF8WcVc9eTJZxuCATwhl48WC6wVttE=;
+ b=owGbwMvMwCWm1SvKXP3cUInxtFoSQ5bc88YZf93YKuZbvUs0urjHhjFyltZXW8tXjJrH173aH
+ 8wqovmqo5SFQYyLQVZMkaV/ruWJd5ePnvm6Rz0FZg4rE8gQBi5OAZhIhRHDP7upL/kyYjSthN9t
+ V4/k/yC493zz9qe5b7r2HD1fMOP35k0Mf7gjVVZsajNQ618UsM587vaA6X9u7Qxb6mX9+nMz04t
+ 9v/gA
+X-Developer-Key: i=linux-kernel-dev@aliel.fr; a=openpgp;
+ fpr=DFD863F61375BF917F0012173953305EF1D0EC3E
+X-Endpoint-Received: by B4 Relay for linux-kernel-dev@aliel.fr/default with
+ auth_id=744
+X-Original-From: Ronald Claveau <linux-kernel-dev@aliel.fr>
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -69,62 +90,59 @@ List-Post: <mailto:linux-arm-kernel@lists.infradead.org>
 List-Help: <mailto:linux-arm-kernel-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
  <mailto:linux-arm-kernel-request@lists.infradead.org?subject=subscribe>
+Reply-To: linux-kernel-dev@aliel.fr
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Tue, May 19, 2026 at 04:09:02PM +0100, Catalin Marinas wrote:
-> On Tue, May 19, 2026 at 10:08:22AM +0100, Will Deacon wrote:
-> > The LSUI futex implementation relies on a cmpxchg() loop to implement
-> > FUTEX_OP_XOR, as the architecture doesn't provide unprivileged *EOR
-> > atomics. Since the unprivileged 'CAST' instructions used to implement
-> > the cmpxchg() can only operate on 64-bit memory locations, the
-> > __lsui_cmpxchg32() helper function performs a song and dance to marshall
-> > the 32-bit futex value into the correct part of a 64-bit register and
-> > fill the remaining bytes with the neighbouring data.
-> 
-> IIRC, the reason for the current __lsui_cmpxchg32() was not EOR but the
-> expected futex_atomic_cmpxchg_inatomic() semantics. Looking at it again,
-> we have wake_futex_pi() that does something else if the ret is 0 but the
-> value differs. Looking at it again, the caller of wake_futex_pi()
-> retries on -EAGAIN anyway, so I don't see a correctness issue, it will
-> eventually hit the condition.
+From: Ronald Claveau <linux-kernel-dev@aliel.fr>
 
-Hmm, but I think that means my patch does change the behaviour of
-wake_futex_pi() in an undesirable way. For example, futex_unlock_pi()
-will go round the retry loop for any change in the futex value, whereas
-before we would go back to userspace only if the TID changed.
+The amlogic thermal driver calls meson_sm_get() and
+meson_sm_get_thermal_calib() which are exported by the meson_sm
+driver. Without CONFIG_MESON_SM enabled, the build fails with
+undefined references to these symbols.
 
-So I think we should swallow the -EAGAIN for the CAS-based cmpxchg() if
-the futex word has changed, along the lines of the diff below.
+Add a proper Kconfig dependency on MESON_SM instead of relying on
+stub functions, which makes the dependency explicit and prevents
+invalid configurations.
 
-Will
+Closes: https://lore.kernel.org/oe-kbuild-all/202605291530.en7aGn7w-lkp@intel.com/
+Reported-by: Mark Brown <broonie@kernel.org>
+Reported-by: kernel test robot <lkp@intel.com>
+Signed-off-by: Ronald Claveau <linux-kernel-dev@aliel.fr>
+---
+Changes in v3:
+- Add a dependency on MESON_SM instead of stub functions.
+- Link to v2: https://lore.kernel.org/r/20260531-fix-missing-meson_sm-symbol-v2-1-1def8c3c169f@aliel.fr
 
---->8
+Changes in v2:
+- Replace #ifdef CONFIG_MESON_SM by #if IS_ENABLED(CONFIG_MESON_SM)
+  to cover builtin and module in config.
+- Add missing trailers for kernel test robot.
+- Link to v1: https://lore.kernel.org/r/20260530-fix-missing-meson_sm-symbol-v1-1-3fb672b989d4@aliel.fr
+---
+ drivers/thermal/Kconfig | 1 +
+ 1 file changed, 1 insertion(+)
 
-diff --git a/arch/arm64/include/asm/futex.h b/arch/arm64/include/asm/futex.h
-index db84a7b2de74..79c6d86c38a9 100644
---- a/arch/arm64/include/asm/futex.h
-+++ b/arch/arm64/include/asm/futex.h
-@@ -215,14 +215,14 @@ __lsui_futex_atomic_eor(int oparg, u32 __user *uaddr, int *oval)
- static __always_inline int
- __lsui_futex_cmpxchg(u32 __user *uaddr, u32 oldval, u32 newval, u32 *oval)
- {
-+       u32 curval = oldval;
-        int ret;
- 
--       /*
--        * Callers of futex_atomic_cmpxchg_inatomic() already retry on
--        * -EAGAIN, no need for another loop of max retries.
--        */
--       ret = __lsui_cmpxchg32(uaddr, &oldval, newval);
--       *oval = oldval;
-+       ret = __lsui_cmpxchg32(uaddr, &curval, newval);
-+       if (ret == -EAGAIN && curval != oldval)
-+               ret = 0;
-+
-+       *oval = curval;
-        return ret;
- }
- #endif /* CONFIG_ARM64_LSUI */
+diff --git a/drivers/thermal/Kconfig b/drivers/thermal/Kconfig
+index 1c4a5cd5a23ee..810eeccedfbab 100644
+--- a/drivers/thermal/Kconfig
++++ b/drivers/thermal/Kconfig
+@@ -436,6 +436,7 @@ config AMLOGIC_THERMAL
+ 	tristate "Amlogic Thermal Support"
+ 	default ARCH_MESON
+ 	depends on OF && ARCH_MESON
++	depends on MESON_SM
+ 	help
+ 	  If you say yes here you get support for Amlogic Thermal
+ 	  for G12 SoC Family.
+
+---
+base-commit: 3929405c64376a8a54c794e8a4485023b108a97e
+change-id: 20260529-fix-missing-meson_sm-symbol-7776d0d9d760
+
+Best regards,
+-- 
+Ronald Claveau <linux-kernel-dev@aliel.fr>
+
 
 
