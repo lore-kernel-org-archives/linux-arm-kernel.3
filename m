@@ -4,38 +4,38 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id AA64DCD6E61
-	for <linux-arm-kernel@archiver.kernel.org>; Tue,  2 Jun 2026 07:16:13 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 154B8CD6E4A
+	for <linux-arm-kernel@archiver.kernel.org>; Tue,  2 Jun 2026 07:16:17 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:
-	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Content-Type:MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:
+	To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=itObtE7tOGkEONQAFJ+mBj1BRHYMUlPupZz3p9rp7M0=; b=T3n5WYNOiOLif2tpblYQc6+QYg
-	TCMwB3wzn/gE5k+0yZs/KZlS2x8iAYmNbjZ+RpcoBRO5wn2iqBM4s7AhqVSi3Fov/PkRFiOe0elTx
-	yS09QNPjvxUusWK1mZg68ZbMhmmKVaJTILpyKZichLDbArRhg0EsXOhTyqQri0Qu+g0Z6YjvQayAI
-	OfTO24iOst4z12EItsTw22yZy5sz7vVwzlN4wLo4XUH8MtrlvGdeRuB0ONqKXDFd9LxliaQBaAWHN
-	MaA4B8MhHbmiPqKF0Zc7ifAI2dSC1B7uoamo8EjcmibaMz14Higkb0Vnutwo+68xaZr8PORmCZ6LP
-	AsnviPzA==;
+	bh=kbx4Eivf9wzreQZFZq4e6akKl81b9F+2yXP+5FfPTTs=; b=tfP8WeYltlM7ww6dVo7wyD4r8O
+	0i3x4YXfptZ2dmYVY45MR/1uKPboNI+IeDLesjOOon/MEsOj7aXp9TDReVMaIn2ezeDBhJLORGd6c
+	gFpp7r5th/jLUcIVaSL21YUNWFtnvXVjZND+B8pgs9rQz0c0p3Agd/Nxs7M99BBQmrOhncUtaaNGG
+	mRwgX7zj8E75HI6Wf4/LRXbwVWASRmPk1wPVpvNMeBF6pAc8WfqjwYWN0Caouie5Q68eTYtVDv01e
+	p//RLJfHROgOg7BwAuEu1UweJ/4GX81a0Kt+RfYeB3x/hcbGA917tuQ53oRJC7Pod1IgjC8pk1Qfs
+	reznL2Gw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wUJM6-0000000CQzk-3uMT;
-	Tue, 02 Jun 2026 07:16:06 +0000
-Received: from out30-101.freemail.mail.aliyun.com ([115.124.30.101])
-	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wUJM1-0000000CQwx-2ACc
-	for linux-arm-kernel@lists.infradead.org;
+	id 1wUJM3-0000000CQyO-3upk;
 	Tue, 02 Jun 2026 07:16:04 +0000
+Received: from out30-118.freemail.mail.aliyun.com ([115.124.30.118])
+	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
+	id 1wUJM0-0000000CQxD-05ks
+	for linux-arm-kernel@lists.infradead.org;
+	Tue, 02 Jun 2026 07:16:01 +0000
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
 	d=linux.alibaba.com; s=default;
-	t=1780384554; h=From:To:Subject:Date:Message-ID:MIME-Version;
-	bh=itObtE7tOGkEONQAFJ+mBj1BRHYMUlPupZz3p9rp7M0=;
-	b=MAKjpgPMkEW0XsX8KAcppZ/unr4krYZGPzqMsgNVWt84UjqpC3YfJggMIxHWsj/X3cZnKaqe+wotHWva1FpuOxoLzJTZN3X+yDsHISCZzSyNvWn+xWFMs0yvuRMOa2GK5A0C079yr4Z3PglUdxir2bYPy7dDJ0uWvpWaowR3Q8I=
-X-Alimail-AntiSpam: AC=PASS;BC=-1|-1;BR=01201311R231e4;CH=green;DM=||false|;DS=||;FP=0|-1|-1|-1|0|-1|-1|-1;HT=maildocker-contentspam033045133197;MF=tianruidong@linux.alibaba.com;NM=1;PH=DS;RN=20;SR=0;TI=SMTPD_---0X43R2YA_1780384546;
-Received: from t50a05405.sqa.eu95.tbsite.net(mailfrom:tianruidong@linux.alibaba.com fp:SMTPD_---0X43R2YA_1780384546 cluster:ay36)
+	t=1780384557; h=From:To:Subject:Date:Message-ID:MIME-Version:Content-Type;
+	bh=kbx4Eivf9wzreQZFZq4e6akKl81b9F+2yXP+5FfPTTs=;
+	b=Pw1Sewjot4GGscQCrA3ZoNOQaR84TBjEM9T+c1zdOkU89l4Zuq1QTn4ekKVbINDcrUdSZs7oWA97lpxpyhODVtkuIlCKpEeB3E43Hqlt+9cQoiEi4vueTFiR7KF6h4y0Q52zqZ0xQ9EaJe3XMccfW2QO/d6iK0fdSHnAhVXcTSI=
+X-Alimail-AntiSpam: AC=PASS;BC=-1|-1;BR=01201311R161e4;CH=green;DM=||false|;DS=||;FP=0|-1|-1|-1|0|-1|-1|-1;HT=maildocker-contentspam011083073210;MF=tianruidong@linux.alibaba.com;NM=1;PH=DS;RN=20;SR=0;TI=SMTPD_---0X43R2ZE_1780384549;
+Received: from t50a05405.sqa.eu95.tbsite.net(mailfrom:tianruidong@linux.alibaba.com fp:SMTPD_---0X43R2ZE_1780384549 cluster:ay36)
           by smtp.aliyun-inc.com;
-          Tue, 02 Jun 2026 15:15:48 +0800
+          Tue, 02 Jun 2026 15:15:52 +0800
 From: Ruidong Tian <tianruidong@linux.alibaba.com>
 To: Catalin Marinas <catalin.marinas@arm.com>,
 	Will Deacon <will@kernel.org>,
@@ -57,17 +57,18 @@ Cc: linux-acpi@vger.kernel.org,
 	zhuo.song@linux.alibaba.com,
 	oliver.yang@linux.alibaba.com,
 	Ruidong Tian <tianruidong@linux.alibaba.com>
-Subject: [PATCH v7 01/16] ACPI/AEST: Register arm64_ras platform devices from AEST v2
-Date: Tue,  2 Jun 2026 15:15:24 +0800
-Message-ID: <20260602071540.3711528-2-tianruidong@linux.alibaba.com>
+Subject: [PATCH v7 02/16] arm64: ras: Add probe/remove for arm64_ras driver
+Date: Tue,  2 Jun 2026 15:15:25 +0800
+Message-ID: <20260602071540.3711528-3-tianruidong@linux.alibaba.com>
 X-Mailer: git-send-email 2.43.7
 In-Reply-To: <20260602071540.3711528-1-tianruidong@linux.alibaba.com>
 References: <20260602071540.3711528-1-tianruidong@linux.alibaba.com>
 MIME-Version: 1.0
+Content-Type: text/plain; charset=UTF-8
 Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260602_001602_004938_937A3F57 
-X-CRM114-Status: GOOD (  23.25  )
+X-CRM114-CacheID: sfid-20260602_001600_563038_8C0BDC91 
+X-CRM114-Status: GOOD (  29.48  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -82,87 +83,136 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Parse the ARM Error Source Table (AEST) v2 [1] and present each
-error-source node to the RAS subsystem as a generic platform device.
+Introduce the back-end platform driver that binds to the devices
+created by the AEST front-end. Driver input is taken exclusively from
+fwnode properties, so the same probe path serves any future front-end
+(DT, hand-rolled) without conditional code.
 
-Rather than letting the RAS driver consume AEST-specific structures
-directly, all per-node metadata (interface type, register bases,
-group format, record bitmaps, GSIVs, vendor data) is conveyed via
-fwnode software-node properties. This keeps every AEST encoding
-detail in the ACPI front-end and lets the same back-end driver bind
-unchanged when a Device Tree front-end is added later.
+The probe builds two layers of state:
 
-If the interface flags indicate an associated ACPI namespace device
-(AEST_XFACE_FLAG_ERROR_DEVICE), the companion ACPI device is looked up
-and attached so that downstream drivers can reach it.
+  - struct ras_node:   one AEST error source
+  - struct ras_record: one error record inside a node
 
-[1]: https://developer.arm.com/documentation/den0085/0200/
+This split mirrors the hardware: a node owns the shared MMIO/ERRGSR
+window and policy, while records are the unit at which errors are
+reported, masked and polled. Later patches plug interrupts, decoding,
+storm mitigation and userspace ABI onto these two objects without
+touching the front-end.
 
+Signed-off-by: Umang Chheda <umang.chheda@oss.qualcomm.com>
 Signed-off-by: Ruidong Tian <tianruidong@linux.alibaba.com>
 ---
- MAINTAINERS                 |   8 ++
- drivers/acpi/arm64/Kconfig  |  10 ++
- drivers/acpi/arm64/Makefile |   1 +
- drivers/acpi/arm64/aest.c   | 256 ++++++++++++++++++++++++++++++++++++
- include/linux/acpi_aest.h   |  19 +++
- 5 files changed, 294 insertions(+)
- create mode 100644 drivers/acpi/arm64/aest.c
- create mode 100644 include/linux/acpi_aest.h
+ MAINTAINERS                  |   2 +
+ arch/arm64/include/asm/ras.h |  15 ++
+ drivers/ras/Kconfig          |   1 +
+ drivers/ras/Makefile         |   1 +
+ drivers/ras/arm64/Kconfig    |  16 +++
+ drivers/ras/arm64/Makefile   |   5 +
+ drivers/ras/arm64/ras-core.c | 266 +++++++++++++++++++++++++++++++++++
+ drivers/ras/arm64/ras.h      | 104 ++++++++++++++
+ include/linux/acpi_aest.h    |   3 +
+ 9 files changed, 413 insertions(+)
+ create mode 100644 arch/arm64/include/asm/ras.h
+ create mode 100644 drivers/ras/arm64/Kconfig
+ create mode 100644 drivers/ras/arm64/Makefile
+ create mode 100644 drivers/ras/arm64/ras-core.c
+ create mode 100644 drivers/ras/arm64/ras.h
 
 diff --git a/MAINTAINERS b/MAINTAINERS
-index c3fe46d7c4bc..16c80a7ea72c 100644
+index 16c80a7ea72c..766d1240b465 100644
 --- a/MAINTAINERS
 +++ b/MAINTAINERS
-@@ -344,6 +344,14 @@ S:	Maintained
- F:	drivers/acpi/arm64
- F:	include/linux/acpi_iort.h
- 
-+ACPI AEST
-+M:	Ruidong Tian <tianruidong@linux.alibaba.com>
-+L:	linux-acpi@vger.kernel.org
-+L:	linux-arm-kernel@lists.infradead.org
-+S:	Supported
-+F:	drivers/acpi/arm64/aest.c
-+F:	include/linux/acpi_aest.h
-+
- ACPI FOR RISC-V (ACPI/riscv)
- M:	Sunil V L <sunilvl@ventanamicro.com>
+@@ -349,7 +349,9 @@ M:	Ruidong Tian <tianruidong@linux.alibaba.com>
  L:	linux-acpi@vger.kernel.org
-diff --git a/drivers/acpi/arm64/Kconfig b/drivers/acpi/arm64/Kconfig
-index f2fd79f22e7d..49b487bba928 100644
---- a/drivers/acpi/arm64/Kconfig
-+++ b/drivers/acpi/arm64/Kconfig
-@@ -24,3 +24,13 @@ config ACPI_APMT
+ L:	linux-arm-kernel@lists.infradead.org
+ S:	Supported
++F:	arch/arm64/include/asm/ras.h
+ F:	drivers/acpi/arm64/aest.c
++F:	drivers/ras/arm64/
+ F:	include/linux/acpi_aest.h
  
- config ACPI_MPAM
- 	bool
-+
-+config ACPI_AEST
-+	bool "ARM Error Source Table Support"
-+	depends on ARM64_RAS_EXTN
-+	help
-+	  The Arm Error Source Table (AEST) provides details on ACPI
-+	  extensions that enable kernel-first handling of errors in a
-+	  system that supports the Armv8 RAS extensions.
-+
-+	  If set, the kernel will report and log hardware errors.
-diff --git a/drivers/acpi/arm64/Makefile b/drivers/acpi/arm64/Makefile
-index 9390b57cb564..bad77fdbf8dd 100644
---- a/drivers/acpi/arm64/Makefile
-+++ b/drivers/acpi/arm64/Makefile
-@@ -7,5 +7,6 @@ obj-$(CONFIG_ACPI_IORT) 	+= iort.o
- obj-$(CONFIG_ACPI_MPAM) 	+= mpam.o
- obj-$(CONFIG_ACPI_PROCESSOR_IDLE) += cpuidle.o
- obj-$(CONFIG_ARM_AMBA)		+= amba.o
-+obj-$(CONFIG_ACPI_AEST) 	+= aest.o
- obj-y				+= dma.o init.o
- obj-y				+= thermal_cpufreq.o
-diff --git a/drivers/acpi/arm64/aest.c b/drivers/acpi/arm64/aest.c
+ ACPI FOR RISC-V (ACPI/riscv)
+diff --git a/arch/arm64/include/asm/ras.h b/arch/arm64/include/asm/ras.h
 new file mode 100644
-index 000000000000..8cf24467d0c2
+index 000000000000..b6640b9972bf
 --- /dev/null
-+++ b/drivers/acpi/arm64/aest.c
-@@ -0,0 +1,256 @@
++++ b/arch/arm64/include/asm/ras.h
+@@ -0,0 +1,15 @@
++/* SPDX-License-Identifier: GPL-2.0 */
++#ifndef __ASM_RAS_H
++#define __ASM_RAS_H
++
++#include <linux/types.h>
++
++struct ras_ext_regs {
++	u64 err_fr;
++	u64 err_ctlr;
++	u64 err_status;
++	u64 err_addr;
++	u64 err_misc[4];
++};
++
++#endif /* __ASM_RAS_H */
+diff --git a/drivers/ras/Kconfig b/drivers/ras/Kconfig
+index fc4f4bb94a4c..61e545993609 100644
+--- a/drivers/ras/Kconfig
++++ b/drivers/ras/Kconfig
+@@ -33,6 +33,7 @@ if RAS
+ 
+ source "arch/x86/ras/Kconfig"
+ source "drivers/ras/amd/atl/Kconfig"
++source "drivers/ras/arm64/Kconfig"
+ 
+ config RAS_FMPM
+ 	tristate "FRU Memory Poison Manager"
+diff --git a/drivers/ras/Makefile b/drivers/ras/Makefile
+index 11f95d59d397..1b62a3017fa3 100644
+--- a/drivers/ras/Makefile
++++ b/drivers/ras/Makefile
+@@ -5,3 +5,4 @@ obj-$(CONFIG_RAS_CEC)	+= cec.o
+ 
+ obj-$(CONFIG_RAS_FMPM)	+= amd/fmpm.o
+ obj-y			+= amd/atl/
++obj-$(CONFIG_ARM64_RAS_DRIVER)	+= arm64/
+diff --git a/drivers/ras/arm64/Kconfig b/drivers/ras/arm64/Kconfig
+new file mode 100644
+index 000000000000..dcdeaa216d67
+--- /dev/null
++++ b/drivers/ras/arm64/Kconfig
+@@ -0,0 +1,16 @@
++# SPDX-License-Identifier: GPL-2.0
++#
++# ARM Error Source Table Support
++#
++# Copyright (c) 2025, Alibaba Group.
++#
++
++config ARM64_RAS_DRIVER
++	tristate "ARM64 RAS Driver"
++	depends on ARM64 && ACPI_AEST && RAS
++	help
++	  This is the RAS driver for the arm64 architecture. It depends on
++	  the Arm Error Source Table (AEST) to provide basic register and
++	  interrupt information.
++
++	  If set, the kernel will report and process hardware errors.
+diff --git a/drivers/ras/arm64/Makefile b/drivers/ras/arm64/Makefile
+new file mode 100644
+index 000000000000..c5387f05a067
+--- /dev/null
++++ b/drivers/ras/arm64/Makefile
+@@ -0,0 +1,5 @@
++# SPDX-License-Identifier: GPL-2.0-only
++
++obj-$(CONFIG_ARM64_RAS_DRIVER) 	+= arm64_ras.o
++
++arm64_ras-y		:= ras-core.o
+diff --git a/drivers/ras/arm64/ras-core.c b/drivers/ras/arm64/ras-core.c
+new file mode 100644
+index 000000000000..b5448f4a841f
+--- /dev/null
++++ b/drivers/ras/arm64/ras-core.c
+@@ -0,0 +1,266 @@
 +// SPDX-License-Identifier: GPL-2.0
 +/*
 + * ARM Error Source Table Support
@@ -170,280 +220,387 @@ index 000000000000..8cf24467d0c2
 + * Copyright (c) 2025, Alibaba Group.
 + */
 +
-+#include <linux/cleanup.h>
++#include <linux/module.h>
 +#include <linux/platform_device.h>
-+#include <linux/property.h>
-+#include <linux/acpi_aest.h>
++#include <linux/ras.h>
 +
-+#include "init.h"
++#include "ras.h"
 +
 +#undef pr_fmt
-+#define pr_fmt(fmt) "ACPI AEST: " fmt
++#define pr_fmt(fmt) "arm64_ras: " fmt
 +
-+/*
-+ * Fill the per-AEST-entry inner properties (node-type / interface-type /
-+ * group-format / record bitmaps / register bases ...).
-+ */
-+static int __init
-+aest_init_node_props(struct acpi_aest_hdr *hdr, struct property_entry *props,
-+		     int *p, struct platform_device *pdev)
++static const char *const ras_node_name[] = {
++	[ACPI_AEST_PROCESSOR_ERROR_NODE] = "processor",
++	[ACPI_AEST_MEMORY_ERROR_NODE] = "memory",
++	[ACPI_AEST_SMMU_ERROR_NODE] = "smmu",
++	[ACPI_AEST_VENDOR_ERROR_NODE] = "vendor",
++	[ACPI_AEST_GIC_ERROR_NODE] = "gic",
++	[ACPI_AEST_PCIE_ERROR_NODE] = "pcie",
++	[ACPI_AEST_PROXY_ERROR_NODE] = "proxy",
++};
++
++const struct ras_group ras_group_config[] = {
++	[ACPI_AEST_NODE_GROUP_FORMAT_4K] = {
++		.errgsr_num = ERXGROUP_4K_ERRGSR_NUM,
++		.size = ERXGROUP_4K_SIZE,
++		.errgsr_offset = ERXGROUP_4K_OFFSET,
++	},
++	[ACPI_AEST_NODE_GROUP_FORMAT_16K] = {
++		.errgsr_num = ERXGROUP_16K_ERRGSR_NUM,
++		.size = ERXGROUP_16K_SIZE,
++		.errgsr_offset = ERXGROUP_16K_OFFSET,
++	},
++	[ACPI_AEST_NODE_GROUP_FORMAT_64K] = {
++		.errgsr_num = ERXGROUP_64K_ERRGSR_NUM,
++		.size = ERXGROUP_64K_SIZE,
++		.errgsr_offset = ERXGROUP_64K_OFFSET,
++	},
++};
++
++static int ras_init_record(struct ras_record *record, int i, struct ras_node *node)
 +{
-+	struct acpi_aest_node_interface_header *interface;
-+	struct acpi_aest_node_interface_common *common = NULL;
-+	u64 *record_implemented = NULL;
-+	u64 *status_reporting = NULL;
-+	u64 *addressing_mode = NULL;
-+	int group_len = 0, i;
-+	size_t len;
++	record->name = devm_kasprintf(node->dev, GFP_KERNEL, "record%d", i);
++	if (!record->name)
++		return -ENOMEM;
 +
-+	interface = ACPI_ADD_PTR(struct acpi_aest_node_interface_header,
-+				 hdr, hdr->node_interface_offset);
-+	switch (interface->group_format) {
-+	case ACPI_AEST_NODE_GROUP_FORMAT_4K: {
-+		struct acpi_aest_node_interface_4k *itf =
-+			(struct acpi_aest_node_interface_4k *)(interface + 1);
++	if (node->base)
++		record->regs_base = node->base + sizeof(struct ras_ext_regs) * i;
 +
-+		record_implemented = &itf->error_record_implemented;
-+		status_reporting   = &itf->error_status_reporting;
-+		addressing_mode    = &itf->addressing_mode;
-+		group_len = 1;
-+		common = &itf->common;
-+		break;
-+	}
-+	case ACPI_AEST_NODE_GROUP_FORMAT_16K: {
-+		struct acpi_aest_node_interface_16k *itf =
-+			(struct acpi_aest_node_interface_16k *)(interface + 1);
-+
-+		record_implemented = itf->error_record_implemented;
-+		status_reporting   = itf->error_status_reporting;
-+		addressing_mode    = itf->addressing_mode;
-+		group_len = 4;
-+		common = &itf->common;
-+		break;
-+	}
-+	case ACPI_AEST_NODE_GROUP_FORMAT_64K: {
-+		struct acpi_aest_node_interface_64k *itf =
-+			(struct acpi_aest_node_interface_64k *)(interface + 1);
-+
-+		record_implemented = itf->error_record_implemented;
-+		status_reporting   = itf->error_status_reporting;
-+		addressing_mode    = itf->addressing_mode;
-+		group_len = 14;
-+		common = &itf->common;
-+		break;
-+	}
-+	default:
-+		pr_err("invalid group format: %d\n", interface->group_format);
-+		return -EINVAL;
-+	}
-+
-+	if (interface->flags & AEST_XFACE_FLAG_ERROR_DEVICE) {
-+		struct acpi_device *companion;
-+		char uid[16];
-+		int n;
-+
-+		n = snprintf(uid, sizeof(uid), "%u",
-+			     common->error_node_device);
-+		if (n > 0 && n < sizeof(uid)) {
-+			companion = acpi_dev_get_first_match_dev("ARMHE000",
-+								 uid, -1);
-+			if (companion) {
-+				ACPI_COMPANION_SET(&pdev->dev, companion);
-+				acpi_dev_put(companion);
-+			} else {
-+				pr_debug("MSC.%u: missing namespace entry\n",
-+					 common->error_node_device);
-+			}
-+		}
-+	}
-+
-+	props[(*p)++] = PROPERTY_ENTRY_U8("arm,node-type", hdr->type);
-+	props[(*p)++] = PROPERTY_ENTRY_U8("arm,group-format",
-+					  interface->group_format);
-+	props[(*p)++] = PROPERTY_ENTRY_U32("arm,error-records-count",
-+					   interface->error_record_count);
-+	props[(*p)++] = PROPERTY_ENTRY_U32("arm,error-records-index",
-+					   interface->error_record_index);
-+	props[(*p)++] = PROPERTY_ENTRY_U32("arm,interface-flags",
-+					   interface->flags);
-+	props[(*p)++] = PROPERTY_ENTRY_U64_ARRAY_LEN("arm,record-implemented",
-+						     record_implemented,
-+						     group_len);
-+	props[(*p)++] = PROPERTY_ENTRY_U64_ARRAY_LEN("arm,status-reporting",
-+						     status_reporting,
-+						     group_len);
-+	props[(*p)++] = PROPERTY_ENTRY_U64("arm,error-group-base",
-+					   common->error_group_register_base);
-+
-+	len = hdr->node_interface_offset - hdr->node_specific_offset;
-+	props[(*p)++] =
-+		PROPERTY_ENTRY_U8_ARRAY_LEN("arm,node-specific-data",
-+					    ACPI_ADD_PTR(u8, hdr, hdr->node_specific_offset), len);
++	record->index = i;
++	record->node = node;
 +
 +	return 0;
 +}
 +
-+static int __init
-+aest_create_node_fwnode(struct acpi_aest_hdr *hdr, struct platform_device *pdev)
++static char *alloc_ras_node_name(struct ras_node *node)
 +{
-+	struct property_entry props[10] = { };
-+	int p = 0;
++	char *name;
++	struct acpi_aest_processor *processor = NULL;
++
++	switch (node->type) {
++	case ACPI_AEST_PROCESSOR_ERROR_NODE:
++		processor = (struct acpi_aest_processor *)node->specific_data;
++
++		/*
++		 * Shared/global processor nodes (e.g. cluster L3 cache, DSU)
++		 * have processor_id=0 and use smp_processor_id() at error-log
++		 * time — using processor_id in the name would produce the same
++		 * "processor.0" string for every shared node and every CPU0
++		 * per-PE node, making logs ambiguous.
++		 *
++		 * For shared/global nodes, build the name from the resource
++		 * type and the device id so each node gets a unique, meaningful
++		 * name (e.g. "processor.cache.1", "processor.tlb.2").
++		 *
++		 * For per-PE nodes, keep the original "processor.<mpidr>" form.
++		 */
++		if (processor->flags &
++		    (ACPI_AEST_PROC_FLAG_SHARED | ACPI_AEST_PROC_FLAG_GLOBAL)) {
++			static const char *const res_name[] = {
++				[ACPI_AEST_CACHE_RESOURCE]   = "cache",
++				[ACPI_AEST_TLB_RESOURCE]     = "tlb",
++				[ACPI_AEST_GENERIC_RESOURCE] = "generic",
++			};
++			u8 rtype = processor->resource_type;
++			const char *rstr = (rtype < ARRAY_SIZE(res_name) &&
++				res_name[rtype]) ? res_name[rtype] : "unknown";
++
++			name = devm_kasprintf(node->dev, GFP_KERNEL,
++					      "%s.%s.%x",
++					      ras_node_name[node->type],
++					      rstr,
++					      *(u32 *)(processor + 1));
++		} else {
++			name = devm_kasprintf(node->dev, GFP_KERNEL,
++					      "%s.%d",
++					      ras_node_name[node->type],
++					      processor->processor_id);
++		}
++		break;
++	case ACPI_AEST_MEMORY_ERROR_NODE:
++	case ACPI_AEST_SMMU_ERROR_NODE:
++	case ACPI_AEST_VENDOR_ERROR_NODE:
++	case ACPI_AEST_GIC_ERROR_NODE:
++	case ACPI_AEST_PCIE_ERROR_NODE:
++	case ACPI_AEST_PROXY_ERROR_NODE:
++		name = devm_kasprintf(node->dev, GFP_KERNEL, "%s.%llx",
++				      ras_node_name[node->type], node->addr);
++		break;
++	default:
++		dev_warn(node->dev, "unknown AEST node type %u\n", node->type);
++		return NULL;
++	}
++
++	return name;
++}
++
++static int ras_node_set_errgsr(struct ras_node *node, phys_addr_t base)
++{
++	phys_addr_t errgsr_base;
 +	int ret;
 +
-+	ret = aest_init_node_props(hdr, props, &p, pdev);
++	if (!(node->flags & AEST_XFACE_FLAG_ERROR_GROUP)) {
++		node->errgsr = node->base + node->group->errgsr_offset;
++		return 0;
++	}
++
++	ret = device_property_read_u64(node->dev, "arm,error-group-base",
++				       &errgsr_base);
++	if (ret || !errgsr_base)
++		return -EINVAL;
++
++	node->errgsr = errgsr_base - base + node->base;
++	return 0;
++}
++
++static struct ras_node *ras_init_node(struct platform_device *pdev)
++{
++	int i, ret = 0;
++	struct device *dev = &pdev->dev;
++	struct resource *mem;
++	struct ras_node *node;
++
++	node = devm_kzalloc(&pdev->dev, sizeof(*node), GFP_KERNEL);
++	if (!node)
++		return ERR_PTR(-ENOMEM);
++
++	node->dev = &pdev->dev;
++
++	ret = ret ?: device_property_read_u8(dev, "arm,node-type", &node->type);
++	ret = ret ?: device_property_read_u8(dev, "arm,group-format", &node->group_format);
++	ret = ret ?: device_property_read_u32(dev, "arm,interface-flags", &node->flags);
++	ret = ret ?: device_property_read_u32(dev, "arm,error-records-count", &node->record_count);
++	ret = ret ?: device_property_read_u32(dev, "arm,error-records-index", &node->record_index);
 +	if (ret)
-+		return ret;
++		return ERR_PTR(ret);
++	node->group = &ras_group_config[node->group_format];
 +
-+	return device_create_managed_software_node(&pdev->dev, props, NULL);
-+}
-+
-+static int aest_node_mem_size(u8 group_format)
-+{
-+	switch (group_format) {
-+	case ACPI_AEST_NODE_GROUP_FORMAT_4K:
-+		return SZ_4K;
-+	case ACPI_AEST_NODE_GROUP_FORMAT_16K:
-+		return SZ_16K;
-+	case ACPI_AEST_NODE_GROUP_FORMAT_64K:
-+		return SZ_64K;
-+	default:
-+		return SZ_4K;
-+	}
-+}
-+
-+DEFINE_FREE(res, struct resource *, if (_T) kfree(_T))
-+
-+static struct platform_device *__init
-+acpi_aest_alloc_pdev(struct acpi_aest_hdr *aest_hdr)
-+{
-+	struct platform_device *pdev __free(platform_device_put) =
-+		platform_device_alloc("arm64_ras", PLATFORM_DEVID_AUTO);
-+	struct resource *res __free(res) = NULL;
-+	struct acpi_aest_node_interface_header *interface;
-+	int ret, j = 0;
-+
-+	if (!pdev)
++	node->record_implemented = devm_bitmap_zalloc(dev,
++					node->group->errgsr_num * BITS_PER_TYPE(u64),
++					GFP_KERNEL);
++	if (!node->record_implemented)
++		return ERR_PTR(-ENOMEM);
++	node->status_reporting = devm_bitmap_zalloc(dev,
++					node->group->errgsr_num * BITS_PER_TYPE(u64),
++					GFP_KERNEL);
++	if (!node->status_reporting)
 +		return ERR_PTR(-ENOMEM);
 +
-+	res = kcalloc(1, sizeof(*res), GFP_KERNEL);
-+	if (!res)
-+		return ERR_PTR(-ENOMEM);
-+
-+	interface = ACPI_ADD_PTR(struct acpi_aest_node_interface_header,
-+				 aest_hdr, aest_hdr->node_interface_offset);
-+	if (interface->type != ACPI_AEST_NODE_SYSTEM_REGISTER) {
-+		res[j].name = AEST_NODE_NAME;
-+		res[j].start = interface->address;
-+		res[j].end = res[j].start + aest_node_mem_size(interface->group_format) - 1;
-+		res[j].flags = IORESOURCE_MEM;
-+		j++;
-+	}
-+
-+	ret = platform_device_add_resources(pdev, res, j);
++	ret = device_property_read_u64_array(dev, "arm,record-implemented",
++					     (u64 *)node->record_implemented,
++					     node->group->errgsr_num);
++	ret = ret ?: device_property_read_u64_array(dev, "arm,status-reporting",
++						    (u64 *)node->status_reporting,
++						    node->group->errgsr_num);
 +	if (ret)
 +		return ERR_PTR(ret);
 +
-+	return_ptr(pdev);
++	node->specific_data_size = device_property_count_u8(dev, "arm,node-specific-data");
++	if (node->specific_data_size > 0) {
++		node->specific_data = devm_kzalloc(dev, node->specific_data_size, GFP_KERNEL);
++		if (!node->specific_data)
++			return ERR_PTR(-ENOMEM);
++		ret = device_property_read_u8_array(dev, "arm,node-specific-data",
++						    node->specific_data,
++						    node->specific_data_size);
++		if (ret)
++			return ERR_PTR(ret);
++	}
++
++	mem = platform_get_resource(to_platform_device(dev), IORESOURCE_MEM, 0);
++	if (mem) {
++		node->addr = mem->start;
++		node->base = devm_ioremap(node->dev, mem->start, resource_size(mem));
++		if (!node->base)
++			return ERR_PTR(-ENOMEM);
++
++		ret = ras_node_set_errgsr(node, mem->start);
++		if (ret)
++			return ERR_PTR(ret);
++	}
++
++	node->name = alloc_ras_node_name(node);
++	if (!node->name)
++		return ERR_PTR(-ENOMEM);
++
++	node->records = devm_kcalloc(node->dev, node->record_count,
++				     sizeof(struct ras_record), GFP_KERNEL);
++	if (!node->records)
++		return ERR_PTR(-ENOMEM);
++
++	for (i = 0; i < node->record_count; i++) {
++		ret = ras_init_record(&node->records[i],
++				      i + node->record_index, node);
++		if (ret)
++			return ERR_PTR(ret);
++	}
++	ras_node_dbg(node, "base: %llx\n", node->addr);
++	return node;
 +}
 +
-+static int __init acpi_aest_init_node(struct acpi_aest_hdr *aest_hdr)
++static int arm64_ras_probe(struct platform_device *pdev)
 +{
-+	struct platform_device *pdev __free(platform_device_put) = NULL;
 +	int ret;
++	struct ras_node *node;
 +
-+	pdev = acpi_aest_alloc_pdev(aest_hdr);
-+	if (IS_ERR(pdev))
-+		return PTR_ERR(pdev);
++	node = ras_init_node(pdev);
++	if (IS_ERR(node))
++		return PTR_ERR(node);
 +
-+	ret = aest_create_node_fwnode(aest_hdr, pdev);
++	ret = dev_set_name(&pdev->dev, "%s%d", ras_node_name[node->type],
++			   pdev->id);
 +	if (ret)
 +		return ret;
 +
-+	ret = platform_device_add(pdev);
-+	if (ret)
-+		return ret;
-+	pr_debug("Platform device added for AEST node: %s.%d\n",
-+		 pdev->name, pdev->id);
-+	retain_and_null_ptr(pdev);
++	platform_set_drvdata(pdev, node);
 +
 +	return 0;
 +}
 +
-+static int __init acpi_aest_init_nodes(struct acpi_table_header *aest_table)
++static struct platform_driver arm64_ras_driver = {
++	.driver	= {
++		.name	= "arm64_ras",
++	},
++	.probe	= arm64_ras_probe,
++};
++
++static int __init arm64_ras_init(void)
 +{
-+	struct acpi_aest_hdr *aest_node, *aest_end;
-+	struct acpi_table_aest *aest;
-+	int rc;
-+
-+	aest = (struct acpi_table_aest *)aest_table;
-+	aest_node = ACPI_ADD_PTR(struct acpi_aest_hdr, aest,
-+				 sizeof(struct acpi_table_header));
-+	aest_end = ACPI_ADD_PTR(struct acpi_aest_hdr, aest, aest_table->length);
-+
-+	while (aest_node < aest_end) {
-+		if (((u64)aest_node + aest_node->length) > (u64)aest_end) {
-+			pr_warn(FW_WARN
-+				"AEST node pointer overflow, bad table.\n");
-+			return -EINVAL;
-+		}
-+
-+		rc = acpi_aest_init_node(aest_node);
-+		if (rc)
-+			return rc;
-+
-+		aest_node = ACPI_ADD_PTR(struct acpi_aest_hdr, aest_node,
-+					 aest_node->length);
-+	}
-+
-+	return 0;
++	return platform_driver_register(&arm64_ras_driver);
 +}
++module_init(arm64_ras_init);
 +
-+static int __init acpi_aest_init(void)
++static void __exit arm64_ras_exit(void)
 +{
-+	int ret;
-+
-+	if (acpi_disabled)
-+		return 0;
-+
-+	struct acpi_table_header *aest_table __free(acpi_put_table) =
-+		acpi_get_table_pointer(ACPI_SIG_AEST, 0);
-+	if (IS_ERR(aest_table))
-+		return 0;
-+
-+	ret = acpi_aest_init_nodes(aest_table);
-+	if (ret) {
-+		pr_err("Failed init aest node %d\n", ret);
-+		return ret;
-+	}
-+
-+	return 0;
++	platform_driver_unregister(&arm64_ras_driver);
 +}
-+subsys_initcall_sync(acpi_aest_init);
-diff --git a/include/linux/acpi_aest.h b/include/linux/acpi_aest.h
++module_exit(arm64_ras_exit);
++
++MODULE_DESCRIPTION("ARM RAS Driver");
++MODULE_AUTHOR("Ruidong Tian <tianruidong@linux.alibaba.com>");
++MODULE_LICENSE("GPL");
+diff --git a/drivers/ras/arm64/ras.h b/drivers/ras/arm64/ras.h
 new file mode 100644
-index 000000000000..e485a6236891
+index 000000000000..3d83f8b26da7
 --- /dev/null
-+++ b/include/linux/acpi_aest.h
-@@ -0,0 +1,19 @@
++++ b/drivers/ras/arm64/ras.h
+@@ -0,0 +1,104 @@
 +/* SPDX-License-Identifier: GPL-2.0 */
-+#ifndef __ACPI_AEST_H__
-+#define __ACPI_AEST_H__
++/*
++ * ARM Error Source Table Support
++ *
++ * Copyright (c) 2025, Alibaba Group.
++ */
 +
-+#include <linux/acpi.h>
++#ifndef _DRIVERS_RAS_ARM64_RAS_H_
++#define _DRIVERS_RAS_ARM64_RAS_H_
 +
-+/* AEST resource name */
-+#define AEST_NODE_NAME "AEST:NODE"
++#include <linux/acpi_aest.h>
++#include <asm/ras.h>
 +
-+/* AEST interface */
-+#define AEST_XFACE_FLAG_SHARED		BIT(0)
-+#define AEST_XFACE_FLAG_CLEAR_MISC	BIT(1)
-+#define AEST_XFACE_FLAG_ERROR_DEVICE	BIT(2)
-+#define AEST_XFACE_FLAG_AFFINITY	BIT(3)
-+#define AEST_XFACE_FLAG_ERROR_GROUP	BIT(4)
-+#define AEST_XFACE_FLAG_FAULT_INJECT	BIT(5)
-+#define AEST_XFACE_FLAG_INT_CONFIG	BIT(6)
++#define ras_node_err(__node, format, ...)                          \
++	dev_err((__node)->dev, "%s: " format, (__node)->name, \
++		##__VA_ARGS__)
++#define ras_node_info(__node, format, ...)                          \
++	dev_info((__node)->dev, "%s: " format, (__node)->name, \
++		 ##__VA_ARGS__)
++#define ras_node_dbg(__node, format, ...)                          \
++	dev_dbg((__node)->dev, "%s: " format, (__node)->name, \
++		##__VA_ARGS__)
 +
-+#endif /* __ACPI_AEST_H__ */
++#define ras_record_err(__record, format, ...)                  \
++	dev_err((__record)->node->dev, "%s: %s: " format, \
++		(__record)->node->name, (__record)->name, ##__VA_ARGS__)
++#define ras_record_info(__record, format, ...)                  \
++	dev_info((__record)->node->dev, "%s: %s: " format, \
++		 (__record)->node->name, (__record)->name, ##__VA_ARGS__)
++#define ras_record_dbg(__record, format, ...)                  \
++	dev_dbg((__record)->node->dev, "%s: %s: " format, \
++		(__record)->node->name, (__record)->name, ##__VA_ARGS__)
++
++#define ERXGROUP_4K_OFFSET		0xE00
++#define ERXGROUP_16K_OFFSET		0x3800
++#define ERXGROUP_64K_OFFSET		0xE000
++#define ERXGROUP_4K_SIZE		SZ_4K
++#define ERXGROUP_16K_SIZE		SZ_16K
++#define ERXGROUP_64K_SIZE		SZ_64K
++#define ERXGROUP_4K_ERRGSR_NUM		1
++#define ERXGROUP_16K_ERRGSR_NUM		4
++#define ERXGROUP_64K_ERRGSR_NUM		14
++
++struct ras_record {
++	char *name;
++	void __iomem *regs_base;
++	struct ras_node *node;
++
++	int index;
++};
++
++struct ras_group {
++	int errgsr_num;
++	size_t size;
++	u64 errgsr_offset;
++};
++
++extern const struct ras_group ras_group_config[];
++
++struct ras_node {
++	char *name;
++
++	struct device *dev;
++	const struct ras_group *group;
++
++	void __iomem *base;
++	void __iomem *errgsr;
++	phys_addr_t addr;
++
++	u8 *specific_data;
++	/*
++	 * This bitmap indicates which of the error records within this error
++	 * node must be polled for error status.
++	 * Bit[n] of this field pertains to error record corresponding to
++	 * index n in this error group.
++	 * Bit[n] = 0b: Error record at index n needs to be polled.
++	 * Bit[n] = 1b: Error record at index n does not need to be polled.
++	 */
++	unsigned long *record_implemented;
++	/*
++	 * This bitmap indicates which of the error records within this error
++	 * node support error status reporting using ERRGSR register.
++	 * Bit[n] of this field pertains to error record corresponding to
++	 * index n in this error group.
++	 * Bit[n] = 0b: Error record at index n supports error status reporting
++	 *              through ERRGSR.S.
++	 * Bit[n] = 1b: Error record at index n does not support error reporting
++	 *              through the ERRGSR.S bit. If this error record is
++	 *              implemented, then it must be polled explicitly for
++	 *              error events.
++	 */
++	unsigned long *status_reporting;
++	struct ras_record *records;
++
++	u32 specific_data_size;
++	u32 record_count;
++	u32 record_index;
++	u32 flags;
++
++	u8 type;
++	u8 group_format;
++};
++
++#endif /* _DRIVERS_RAS_ARM64_RAS_H_ */
+diff --git a/include/linux/acpi_aest.h b/include/linux/acpi_aest.h
+index e485a6236891..df6369bcc96b 100644
+--- a/include/linux/acpi_aest.h
++++ b/include/linux/acpi_aest.h
+@@ -16,4 +16,7 @@
+ #define AEST_XFACE_FLAG_FAULT_INJECT	BIT(5)
+ #define AEST_XFACE_FLAG_INT_CONFIG	BIT(6)
+ 
++#define ACPI_AEST_PROC_FLAG_GLOBAL	BIT(0)
++#define ACPI_AEST_PROC_FLAG_SHARED	BIT(1)
++
+ #endif /* __ACPI_AEST_H__ */
 -- 
 2.51.2.612.gdc70283dfc
 
