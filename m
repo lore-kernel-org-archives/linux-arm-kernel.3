@@ -4,64 +4,107 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 0CAB8CD6E68
-	for <linux-arm-kernel@archiver.kernel.org>; Tue,  2 Jun 2026 15:13:03 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id F1387CD6E57
+	for <linux-arm-kernel@archiver.kernel.org>; Tue,  2 Jun 2026 15:27:47 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	MIME-Version:References:In-Reply-To:Message-Id:Date:Subject:Cc:To:From:
-	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Content-Type:Cc:To:Subject:Message-ID:Date:From:In-Reply-To:References:
+	MIME-Version:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=F49OSS5bs7a/D/wVRTFCSH8kWfDg8dXYDAqfUwYVqn0=; b=CqnqbpccELhh3WM6QSTlHl4S69
-	7Rd4yhTXi/veyKSrL8je40nXMKZ4c32vRaaMDUAe30FAxSk2qNAbT496ACYKV/9znuDkDuH65nQbD
-	YiSVqVflVwxqqjXbah7bsQgMbngaSYv5NHu7K3aI1ImpWn5mDueH0d1Gc/h1dTpJwXRvb/V4kHooO
-	eEnlx89gnkZcEEe1XAtiS2JzPBXWum2VRkm1or6QIUPKNJP1lgzYqAg0aTwi2EsZAPHDkYC+eOkUe
-	Ub5ZrM/AYhev7UphMdJr0RsfWpi/rXD2ql7BbrFCu4ktAZ5CpK9tdIIhIk++8cz2A61OjLKuiD0N1
-	KM9O6NQA==;
+	bh=IoL22FIeKfAXh+SYG0vrRqgXDdNNko8Yfwwz9xbVvfg=; b=0e4rRorB6rRcxxFNGubOge2kpP
+	p0gH2tIAFgFADAv+Mk7BH6DPwOtYNx70s0EKFkk/woY+XfQXOFtS5I/3gu5u6jIhXqPpX3L2ibScn
+	EEnwRZOn5H+v7v4yJPk4VqY4aw+itjjmuEnDT9fXORzVm9XJX6ZP+gsWq+uCvpxZpmDh7823XS1rM
+	+HS7iyg4m1/9QBf6+ooyAlHKCPjoGV0NOlZKXcd9YELnYtOTWMnF6ArZaRRawfmHW5UC4Wg68xoWy
+	qbaBZmy9mI3mT875EgRKRF6OL6VRoHWxMFRtQ3JOZbDjfSrs1NsTKBR8BiClukraa45rmQkp4wShR
+	kAcg6U0A==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wUQnJ-0000000DGyr-05rR;
-	Tue, 02 Jun 2026 15:12:41 +0000
-Received: from foss.arm.com ([217.140.110.172])
-	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wUQnG-0000000DGgM-3MMz
+	id 1wUR1m-0000000DKf5-19B0;
+	Tue, 02 Jun 2026 15:27:38 +0000
+Received: from mail-qt1-x833.google.com ([2607:f8b0:4864:20::833])
+	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
+	id 1wUR1j-0000000DKei-3KM8
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 02 Jun 2026 15:12:40 +0000
-Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
-	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id 110AB3573;
-	Tue,  2 Jun 2026 08:12:33 -0700 (PDT)
-Received: from lakrids.cambridge.arm.com (usa-sjc-imap-foss1.foss.arm.com [10.121.207.14])
-	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPA id 96B293F905;
-	Tue,  2 Jun 2026 08:12:36 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=simple/simple; d=arm.com; s=foss;
-	t=1780413158; bh=nyI/MWvbW9cBiP8Zqy0CFatZ6tgrBS9taC5/Beh+R14=;
-	h=From:To:Cc:Subject:Date:In-Reply-To:References:From;
-	b=ad3y24tuZcwG5MCGt1YRGsGghzjm6g+QY4w2ixkh4DiUpquxdqyzIRnQ6Ra2iemk+
-	 LdxWT4WRs4bC+ktX2eTfDUzZ6KTZOpGfsEQfYUXeIlqnvLKqS3oVae91MAYUgWPH7I
-	 XgTqF2o0isE7SlG8P75obzfUOkUMV7FpuIxNdSPc=
-From: Mark Rutland <mark.rutland@arm.com>
-To: linux-arm-kernel@lists.infradead.org,
-	kvmarm@lists.linux.dev
-Cc: broonie@kernel.org,
-	catalin.marinas@arm.com,
-	james.morse@arm.com,
-	mark.rutland@arm.com,
-	maz@kernel.org,
-	oupton@kernel.org,
-	tabba@google.com,
-	vladimir.murzin@arm.com,
-	will@kernel.org
-Subject: [PATCH v3 17/18] arm64: fpsimd: Move SME save/restore inline
-Date: Tue,  2 Jun 2026 16:11:49 +0100
-Message-Id: <20260602151150.925126-18-mark.rutland@arm.com>
-X-Mailer: git-send-email 2.30.2
-In-Reply-To: <20260602151150.925126-1-mark.rutland@arm.com>
-References: <20260602151150.925126-1-mark.rutland@arm.com>
+	Tue, 02 Jun 2026 15:27:37 +0000
+Received: by mail-qt1-x833.google.com with SMTP id d75a77b69052e-5175d339e8bso551cf.0
+        for <linux-arm-kernel@lists.infradead.org>; Tue, 02 Jun 2026 08:27:35 -0700 (PDT)
+ARC-Seal: i=1; a=rsa-sha256; t=1780414054; cv=none;
+        d=google.com; s=arc-20240605;
+        b=JEGvShVQ/kJcdovvwb7Aa7iHCBx1uppMSNCNE9/qCAI9TSyU3fM6uM7188V37K+Dqz
+         IwAWWttabln1iswhLkG1m7qEo3LYYAnDyd6zI7MOJNRWH8iUmOA5Z048LKlYxC3oT3dV
+         qlON6x399GzkVkLGQiIEcDz5Ro0IMcGMiKp877SNxWLF0J7pNZ+A7ibvwebqNuhUXCqN
+         P1dGT/qEa553SX5Mu/PfSjCqDWfqUKz9y8Eo8vX4lcgaeDxWj1y7tnWJRbAcEm0bseiJ
+         yDW0L4Fzb63aEvac5CgcTvhGN6GaurXWTfLjk8oRfQ82w0sVTcszw/w3DEsivTZbyoQi
+         Xjyg==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20240605;
+        h=content-transfer-encoding:cc:to:subject:message-id:date:from
+         :in-reply-to:references:mime-version:dkim-signature;
+        bh=IoL22FIeKfAXh+SYG0vrRqgXDdNNko8Yfwwz9xbVvfg=;
+        fh=kRnrvTFvxV/nezvmLhMEtSAJd+pSvYSOwdyH7wsfTIk=;
+        b=lNU18demR3nKhxSYhyCppA36TC/EA6WIthV2Lk6hE05GtVeQKjFrtUB4DclZDthclp
+         7u869i5KQ0GM/lYtURHKIoRtKMPHx6VbzpFdAJQoveITVL/vGRdJmNtafWMQCo85Jgf3
+         S9UkrrTpbpRgC3rXVm33FbwMNwklECeLJ5MC+X2s5WkxHLG9iKVn53L79V91wty9jQC9
+         WyZzlT3sT0M+FXLxMfejxHZvSZsvhTY3NpCSLEWRDxNMg6wPwb1CaSdM+H3NngPX/t7k
+         xGFz4EgNfMqHZhja4zVjbgAjZdp6KH3S4XakpB2YrfVUut5RCzshMBpSdOYCvCT6O0TV
+         OlMQ==;
+        darn=lists.infradead.org
+ARC-Authentication-Results: i=1; mx.google.com; arc=none
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=google.com; s=20251104; t=1780414054; x=1781018854; darn=lists.infradead.org;
+        h=content-transfer-encoding:cc:to:subject:message-id:date:from
+         :in-reply-to:references:mime-version:from:to:cc:subject:date
+         :message-id:reply-to;
+        bh=IoL22FIeKfAXh+SYG0vrRqgXDdNNko8Yfwwz9xbVvfg=;
+        b=jf/bYhbh0zaz/Ymd5qLxLAwBq2TDfa7I8UpGhMHK+quHb5ptd4ieyXWNS98vx23xu6
+         +fDM6cHIHAouudjfvjyYGcrAaPMDSrln/WAZ42X/XlttVCEkh2kXN7g4hsuFPPOcDGRD
+         Gcg7NrpjjRb427d6wk6otjVddFiPhzKggLHUb4ZOTfladKrbcS0vsGyHvWKgBZlCztl8
+         Z1K77XMmptZrfNwuSX3HxKrMA4JTQ611CC36maYt9coUExoMJneZ0KVVpv3sVLTb4O8H
+         c9JNcsSgcXHBqJPnBxbBC8Ael9EE0JViJ6nLvKDokPLrQDZCHmkhE1ZIm1EVyFUdca2h
+         p7jA==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20251104; t=1780414054; x=1781018854;
+        h=content-transfer-encoding:cc:to:subject:message-id:date:from
+         :in-reply-to:references:mime-version:x-gm-gg:x-gm-message-state:from
+         :to:cc:subject:date:message-id:reply-to;
+        bh=IoL22FIeKfAXh+SYG0vrRqgXDdNNko8Yfwwz9xbVvfg=;
+        b=pcYCxFIu07Vzq56pk71H+P4N0OnOTsJ/J07Fxsf7pQg41KJf/RnKJmyHweQcyq38me
+         4n+K8kc/o+nxMEWF32vQoCpc9yVcv3JHs4Xkd2x2QxMtBMUTDPLTrKxCw/wGXLQhovTD
+         ON7yWkaTT5Z3AAwJJ0zLcbiGGsH6MhjPEXPC05KVfi2h8WSb12Q2EP8cRxSW4GzTFvLy
+         oK3ikxw31Aytm+k4JdL6wPLj9DudR7wydLYZrktgDJqZY+eM2lX4ik4dwkxgnmfigimV
+         80sMKLxEOyYEdUhv5e6y/PvoZE88GjwW55mWm8Z2kZFBW7/bGpF0GMt2dPYaDoAl3TkL
+         E4TQ==
+X-Forwarded-Encrypted: i=1; AFNElJ8Lpse8TJl4SuHpUQgiDeJx3UMEE1AtH0/9XMN50na8omB0GOXFbVhGvC9SPqRxgAZBhf7yDdEJ5MSP2PADOQ3L@lists.infradead.org
+X-Gm-Message-State: AOJu0Yw4ZP03+Jo/Knq/WlWVVJvTII/i7nOeAZ16qsyoazqfnva37BUJ
+	BpfWbcko3kb3bd4xS0zJwe4ZztE/Jfwaoc92S+fRQtf4PEDg0Outc1NjryqesQOmBE23p9wUbP3
+	BvGZ6yIwrYuuYL2QBxTcon3+a5cbPWhRtm/Xb6SLV
+X-Gm-Gg: Acq92OHym9qfWoSklzo9t8yIrORNt9cC0l5iObK70FlcuKKPSx8GPg6gpKpCnvf5f9d
+	JyiYN78Tbw8apWcGBJiBzzUp4u1wzDx2Mzf6MhK/1aDoAehw7xlCqKdWpoO7wAwIvwoXWF7MJqK
+	GivuqdqMOCBGCTePWn/29VZyWRUUGDC7+1Nx8PFFjq6J7GfEI69GjtDNYp7OuQEyhdZ0qB7unXD
+	ND/WTgNAP0kz5DPrBrs4jHkozt65NHb1uQnRWbmC5bC3z1EFejTWfRRJ4Xh4amTe30nL6nlp5Fy
+	Hgzlvm8oSO9teaIn0CAtMyuLUw==
+X-Received: by 2002:ac8:5497:0:b0:516:4f62:85ef with SMTP id
+ d75a77b69052e-517670ffcadmr12205751cf.20.1780414053704; Tue, 02 Jun 2026
+ 08:27:33 -0700 (PDT)
 MIME-Version: 1.0
-Content-Transfer-Encoding: 8bit
+References: <20260601215909.3958732-1-praan@google.com> <20260601215909.3958732-10-praan@google.com>
+In-Reply-To: <20260601215909.3958732-10-praan@google.com>
+From: Daniel Mentz <danielmentz@google.com>
+Date: Tue, 2 Jun 2026 08:27:22 -0700
+X-Gm-Features: AVHnY4JtchXYcXtVOWWrA9WzUeBrl1Y_b5SMm__JOC9anLOCtO0FRHxOlKdqsXA
+Message-ID: <CAE2F3rCTHZOiSx5tTVmLmubJ4SUDtXvCX6oLqsdEsPAFTKJZ4A@mail.gmail.com>
+Subject: Re: [PATCH v8 09/12] iommu/arm-smmu-v3: Implement pm_runtime & system
+ sleep ops
+To: Pranjal Shrivastava <praan@google.com>
+Cc: iommu@lists.linux.dev, Will Deacon <will@kernel.org>, Joerg Roedel <joro@8bytes.org>, 
+	Robin Murphy <robin.murphy@arm.com>, Jason Gunthorpe <jgg@ziepe.ca>, Mostafa Saleh <smostafa@google.com>, 
+	Nicolin Chen <nicolinc@nvidia.com>, Ashish Mhetre <amhetre@nvidia.com>, 
+	linux-arm-kernel@lists.infradead.org
+Content-Type: text/plain; charset="UTF-8"
+Content-Transfer-Encoding: quoted-printable
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260602_081238_955925_F105A0AF 
-X-CRM114-Status: GOOD (  20.83  )
+X-CRM114-CacheID: sfid-20260602_082735_871617_F0F56039 
+X-CRM114-Status: GOOD (  10.92  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -76,339 +119,39 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Currently the SVE register save/restore sequences are written in
-out-of-line assembly routines. While this works, it's somewhat painful:
+On Mon, Jun 1, 2026 at 2:59=E2=80=AFPM Pranjal Shrivastava <praan@google.co=
+m> wrote:
+> +static inline u32 arm_smmu_cmdq_owner_prod_idx(struct arm_smmu_cmdq *cmd=
+q)
+> +{
+> +       return atomic_read(&cmdq->owner_prod) & CMDQ_PROD_IDX_MASK;
 
-* For KVM to use the sequences, portions of the logic will need to be
-  duplicated in KVM hyp code. While the common logic can be shared in
-  assembly macros, this is very likely to lead to unnecessary divergence
-  and be a maintenance burden.
+Is this masking necessary? Can't we just use
+atomic_read(&cmdq->owner_prod) as is? The only place in
+arm_smmu_cmdq_issue_cmdlist() that writes to cmdq->owner_prod already
+applied CMDQ_PROD_IDX_MASK.
 
-* For historical reasons, the assembly macros take some register
-  arguments as numerical indices (e.g. "sme_save_za 0, x2, 12" uses x0, x1, and
-  x12), which is simply confusing.
+> +}
+> +
 
-* Address generation and control flow are far clearer in C than in
-  assembly.
+> @@ -4839,6 +4876,10 @@ static int arm_smmu_device_reset(struct arm_smmu_d=
+evice *smmu)
+>                 return ret;
+>         }
+>
+> +       /* Clear any flags from the previous life */
+> +       atomic_andnot(CMDQ_PROD_STOP_FLAG, &smmu->cmdq.owner_prod);
 
-* The assembly sequences can't be instrumented, and so it's harder than
-  necessary to catch memory safety issues.
+Same. I believe CMDQ_PROD_STOP_FLAG will never be set in
+smmu->cmdq.owner_prod. Hence, clearing it shouldn't be necessary.
 
-To handle the above, move the SME register save/restore sequences
-to inline assembly.
-
-Neither GCC nor LLVM instrument memory arguments to inline assembly, so
-explicit instrumentation is added in the same manner as other assembly
-routines. This instrumentation is implicitly disabled by Kbuild for nVHE
-hyp code.
-
-Signed-off-by: Mark Rutland <mark.rutland@arm.com>
-Reviewed-by: Vladimir Murzin <vladimir.murzin@arm.com>
-Cc: Catalin Marinas <catalin.marinas@arm.com>
-Cc: Fuad Tabba <tabba@google.com>
-Cc: James Morse <james.morse@arm.com>
-Cc: Marc Zyngier <maz@kernel.org>
-Cc: Mark Brown <broonie@kernel.org>
-Cc: Oliver Upton <oupton@kernel.org>
-Cc: Will Deacon <will@kernel.org>
----
- arch/arm64/include/asm/fpsimd.h       | 106 +++++++++++++++++++++++++-
- arch/arm64/include/asm/fpsimdmacros.h |  76 ------------------
- arch/arm64/kernel/Makefile            |   2 +-
- arch/arm64/kernel/entry-fpsimd.S      |  48 ------------
- 4 files changed, 104 insertions(+), 128 deletions(-)
- delete mode 100644 arch/arm64/kernel/entry-fpsimd.S
-
-diff --git a/arch/arm64/include/asm/fpsimd.h b/arch/arm64/include/asm/fpsimd.h
-index 9dfe53204ebfb..a67d5774e6728 100644
---- a/arch/arm64/include/asm/fpsimd.h
-+++ b/arch/arm64/include/asm/fpsimd.h
-@@ -356,9 +356,6 @@ static inline void sve_flush_live(void)
- 	);
- }
- 
--extern void sme_save_state(struct arm64_sme_state *state, int zt);
--extern void sme_load_state(const struct arm64_sme_state *state, int zt);
--
- struct arm64_cpu_capabilities;
- extern void cpu_enable_fpsimd(const struct arm64_cpu_capabilities *__unused);
- extern void cpu_enable_sve(const struct arm64_cpu_capabilities *__unused);
-@@ -638,6 +635,106 @@ static inline size_t __sme_state_size(unsigned int sme_vl)
- 	return size;
- }
- 
-+static inline void __sme_save_za(struct arm64_sme_state *state, unsigned long svl)
-+{
-+	/*
-+	 * The <Wv> argument to LDR/STR (array vector) can only encode W12-W15.
-+	 * The "Ucj" constraint exists for this, but is only supported by GCC
-+	 * 14.1.0+ and LLVM 18.1.0+.
-+	 */
-+	register unsigned int v asm ("w12");
-+
-+	instrument_write(state, svl * svl);
-+	for (v = 0; v < svl; v++) {
-+		void *pav = (void *)state + v * svl;
-+
-+		asm volatile(
-+		__SME_PREAMBLE
-+		"	str	za[%w[v], #0], [%[pav]]\n"
-+		:
-+		: [v] "r" (v),
-+		  [pav] "r" (pav)
-+		: "memory"
-+		);
-+	}
-+}
-+
-+static inline void __sme_load_za(const struct arm64_sme_state *state, unsigned long svl)
-+{
-+	/* See comment in __sme_save_za */
-+	register unsigned int v asm ("w12");
-+
-+	instrument_read(state, svl * svl);
-+	for (v = 0; v < svl; v++) {
-+		void *pav = (void *)state + v * svl;
-+
-+		asm volatile(
-+		__SME_PREAMBLE
-+		"	ldr	za[%w[v], #0], [%[pav]]\n"
-+		:
-+		: [v] "r" (v),
-+		  [pav] "r" (pav)
-+		: "memory"
-+		);
-+	}
-+}
-+
-+static inline void __sme_save_zt(struct arm64_sme_state *state, unsigned long svl)
-+{
-+	void *pzt = (void *)state + svl * svl;
-+
-+	instrument_write(pzt, 64);
-+	asm volatile(
-+	__DEFINE_ASM_GPR_NUMS
-+	/*
-+	 * STR ZT0, [<Xn|SP>]
-+	 * Supported by binutils 2.41+.
-+	 * Supported by LLVM 16+
-+	 */
-+	"	.inst	0xe13f8000 | ((.L__gpr_num_%[pzt]) << 5)\n"
-+	:
-+	: [pzt] "r" (pzt)
-+	: "memory"
-+	);
-+}
-+
-+static inline void __sme_load_zt(const struct arm64_sme_state *state, unsigned long svl)
-+{
-+	void *pzt = (void *)state + svl * svl;
-+
-+	instrument_read(pzt, 64);
-+	asm volatile(
-+	__DEFINE_ASM_GPR_NUMS
-+	/*
-+	 * LDR ZT0, [<Xn|SP>]
-+	 * Supported by binutils 2.41+.
-+	 * Supported by LLVM 16+
-+	 */
-+	"	.inst	0xe11f8000 | ((.L__gpr_num_%[pzt]) << 5)\n"
-+	:
-+	: [pzt] "r" (pzt)
-+	: "memory"
-+	);
-+}
-+
-+static inline void sme_save_state(struct arm64_sme_state *state, bool zt)
-+{
-+	unsigned long svl = sme_get_vl();
-+
-+	__sme_save_za(state, svl);
-+	if (zt)
-+		__sme_save_zt(state, svl);
-+}
-+
-+static inline void sme_load_state(const struct arm64_sme_state *state, bool zt)
-+{
-+	unsigned long svl = sme_get_vl();
-+
-+	__sme_load_za(state, svl);
-+	if (zt)
-+		__sme_load_zt(state, svl);
-+}
-+
- /*
-  * Return how many bytes of memory are required to store the full SME
-  * specific state for task, given task's currently configured vector
-@@ -694,6 +791,9 @@ static inline size_t sme_state_size(struct task_struct const *task)
- 	return 0;
- }
- 
-+static inline void sme_save_state(struct arm64_sme_state *state, bool zt) { BUILD_BUG(); }
-+static inline void sme_load_state(const struct arm64_sme_state *state, bool zt) { BUILD_BUG(); }
-+
- static inline void sme_enter_from_user_mode(void) { }
- static inline void sme_exit_to_user_mode(void) { }
- 
-diff --git a/arch/arm64/include/asm/fpsimdmacros.h b/arch/arm64/include/asm/fpsimdmacros.h
-index 9e352b5c6b764..a763fd03ffef3 100644
---- a/arch/arm64/include/asm/fpsimdmacros.h
-+++ b/arch/arm64/include/asm/fpsimdmacros.h
-@@ -40,60 +40,6 @@
- 	.endif
- .endm
- 
--/* Deprecated macros for SME instructions */
--
--/* RDSVL X\nx, #\imm */
--.macro _sme_rdsvl nx, imm
--	.arch_extension sme
--	rdsvl x\nx, #\imm
--.endm
--
--/*
-- * STR (vector from ZA array):
-- *	STR ZA[W\nw, #\offset], [X\nxbase, #\offset, MUL VL]
-- */
--.macro _sme_str_zav nw, nxbase, offset=0
--	.arch_extension sme
--	str	za[w\nw, #\offset], [x\nxbase, #\offset, MUL VL]
--.endm
--
--/*
-- * LDR (vector to ZA array):
-- *	LDR ZA[w\nw, #\offset], [X\nxbase, #\offset, MUL VL]
-- */
--.macro _sme_ldr_zav nw, nxbase, offset=0
--	.arch_extension sme
--	ldr	za[w\nw, #\offset], [x\nxbase, #\offset, MUL VL]
--.endm
--
--/*
-- * SME2 instruction encodings for older assemblers.
-- * Supported by binutils 2.41+.
-- * Supported by LLVM 16+
-- */
--
--/*
-- * LDR (ZT0)
-- *
-- *	LDR ZT0, nx
-- */
--.macro _ldr_zt nx
--	_check_general_reg \nx
--	.inst	0xe11f8000	\
--		 | (\nx << 5)
--.endm
--
--/*
-- * STR (ZT0)
-- *
-- *	STR ZT0, nx
-- */
--.macro _str_zt nx
--	_check_general_reg \nx
--	.inst	0xe13f8000		\
--		| (\nx << 5)
--.endm
--
- .macro __for from:req, to:req
- 	.if (\from) == (\to)
- 		_for__body %\from
-@@ -116,25 +62,3 @@
- 
- 	.purgem _for__body
- .endm
--
--.macro sme_save_za nxbase, xvl, nw
--	mov	w\nw, #0
--
--423:
--	_sme_str_zav \nw, \nxbase
--	add	x\nxbase, x\nxbase, \xvl
--	add	x\nw, x\nw, #1
--	cmp	\xvl, x\nw
--	bne	423b
--.endm
--
--.macro sme_load_za nxbase, xvl, nw
--	mov	w\nw, #0
--
--423:
--	_sme_ldr_zav \nw, \nxbase
--	add	x\nxbase, x\nxbase, \xvl
--	add	x\nw, x\nw, #1
--	cmp	\xvl, x\nw
--	bne	423b
--.endm
-diff --git a/arch/arm64/kernel/Makefile b/arch/arm64/kernel/Makefile
-index 74b76bb704523..d2690c3ec5288 100644
---- a/arch/arm64/kernel/Makefile
-+++ b/arch/arm64/kernel/Makefile
-@@ -27,7 +27,7 @@ KCOV_INSTRUMENT_idle.o := n
- 
- # Object file lists.
- obj-y			:= debug-monitors.o entry.o irq.o fpsimd.o		\
--			   entry-common.o entry-fpsimd.o process.o ptrace.o	\
-+			   entry-common.o process.o ptrace.o			\
- 			   setup.o signal.o sys.o stacktrace.o time.o traps.o	\
- 			   io.o vdso.o hyp-stub.o psci.o cpu_ops.o		\
- 			   return_address.o cpuinfo.o cpu_errata.o		\
-diff --git a/arch/arm64/kernel/entry-fpsimd.S b/arch/arm64/kernel/entry-fpsimd.S
-deleted file mode 100644
-index bff941eea9566..0000000000000
---- a/arch/arm64/kernel/entry-fpsimd.S
-+++ /dev/null
-@@ -1,48 +0,0 @@
--/* SPDX-License-Identifier: GPL-2.0-only */
--/*
-- * FP/SIMD state saving and restoring
-- *
-- * Copyright (C) 2012 ARM Ltd.
-- * Author: Catalin Marinas <catalin.marinas@arm.com>
-- */
--
--#include <linux/linkage.h>
--
--#include <asm/assembler.h>
--#include <asm/fpsimdmacros.h>
--
--#ifdef CONFIG_ARM64_SME
--
--/*
-- * Save the ZA and ZT state
-- *
-- * x0 - pointer to buffer for state
-- * x1 - number of ZT registers to save
-- */
--SYM_FUNC_START(sme_save_state)
--	_sme_rdsvl	2, 1		// x2 = VL/8
--	sme_save_za 0, x2, 12		// Leaves x0 pointing to the end of ZA
--
--	cbz	x1, 1f
--	_str_zt 0
--1:
--	ret
--SYM_FUNC_END(sme_save_state)
--
--/*
-- * Load the ZA and ZT state
-- *
-- * x0 - pointer to buffer for state
-- * x1 - number of ZT registers to save
-- */
--SYM_FUNC_START(sme_load_state)
--	_sme_rdsvl	2, 1		// x2 = VL/8
--	sme_load_za 0, x2, 12		// Leaves x0 pointing to the end of ZA
--
--	cbz	x1, 1f
--	_ldr_zt 0
--1:
--	ret
--SYM_FUNC_END(sme_load_state)
--
--#endif /* CONFIG_ARM64_SME */
--- 
-2.30.2
-
+> +       atomic_andnot(CMDQ_PROD_STOP_FLAG, &smmu->cmdq.q.llq.atomic.prod)=
+;
+> +
+>         /* Invalidate any cached configuration */
+>         arm_smmu_cmdq_issue_cmd_with_sync(smmu, arm_smmu_make_cmd_cfgi_al=
+l());
+>
+> @@ -4898,6 +4939,21 @@ static int arm_smmu_device_reset(struct arm_smmu_d=
+evice *smmu)
 
