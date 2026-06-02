@@ -4,71 +4,132 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 42295CD6E57
-	for <linux-arm-kernel@archiver.kernel.org>; Tue,  2 Jun 2026 07:16:51 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id AA95BC5DF71
+	for <linux-arm-kernel@archiver.kernel.org>; Tue,  2 Jun 2026 07:19:04 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:
-	To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=h2pWtpjptei4P784Opv68R55ZKackwdCfjKjGSRIiNQ=; b=roXRmbQvWKKRgvHG7eXTqkTcp7
-	2d4MaYfUzTExQUcKWrqxFKGSZMib0CATWO4y6Aki2GNLtTavmhI73Mo8955kKEiScF2122uF/A0Nc
-	7xqVU1W8aAxnTdVdDGMdJvhc9PrEyWZZ2fjaR4q+q1Br0j/6ayNwjgWrg5uH/I5MjM/OfSWBYJMMF
-	ORwXFk5G3xnhxq8d/0/Ki73EwUD6h2y2yGFCYnUYpeLpUM7C1Azr3m5GmCMBgqXJ72w8epVn4pBT+
-	XwX3FrZAPaUgcM62Ns2rCQMyrIGSCp01tac9bXHDtLM5CztBwLV9/H8jEvuLolgZazoRw+oAta3F4
-	E8/2sScQ==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:In-Reply-To:
+	Content-Type:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=mU0Wpltx3VpSxMzo0TcyvwSF8ZBYZHheiDrIdv9g9Ug=; b=YAqE8RdOOVyl6h/yMvDifDuXeR
+	XX4Z5GIIJ5ihVP//8nj7sRVYKzpZMghk7Qu/34lZttMwrec4FM9pcjCJiKQG9fnQsAxm588LyMNU5
+	MZHDMvMpfibUXNjJpD5oWMAdgjCeiNhkgb0qFs1C6Ecs95cU5B7sNkkpJgZzP1/TpOhyTB47lAr9C
+	DgUqQ/sNy5eGhMdn4GjXVu8xOAxyPGwx+MWnEZxtuAmp7cHo3c7GCWU/Y/yZKMrwMXTCBL3TfwZo4
+	74oBEc4ChHxASkikaigssIuJpIO1gUbczWa17p2HsN6Z7IYc65M3rKcVFn4swfHutCwdC2cJOjyXj
+	oXl+VhYQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wUJMc-0000000CRZd-3CQc;
-	Tue, 02 Jun 2026 07:16:39 +0000
-Received: from out30-112.freemail.mail.aliyun.com ([115.124.30.112])
+	id 1wUJOm-0000000CSOa-0IYm;
+	Tue, 02 Jun 2026 07:18:52 +0000
+Received: from mail-francesouthazlp170110003.outbound.protection.outlook.com ([2a01:111:f403:c207::3] helo=MRWPR03CU001.outbound.protection.outlook.com)
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wUJMQ-0000000CRBS-2X1E
+	id 1wUJOj-0000000CSNo-0kJD
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 02 Jun 2026 07:16:30 +0000
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-	d=linux.alibaba.com; s=default;
-	t=1780384576; h=From:To:Subject:Date:Message-ID:MIME-Version:Content-Type;
-	bh=h2pWtpjptei4P784Opv68R55ZKackwdCfjKjGSRIiNQ=;
-	b=gY3Wt7feqo9rBB3iP1KHoFap53MUK1R34atzpnNtr3BOoHZAD7VEOowR453a2wITI3Pc73uBXoq0GDjox+4YNd6fpgmOAX9TdLAmescDlhjRWbeBjTGBfnGnyr2lI1wbVUMxpDnQw6qGY5ubNIdVYZKrBQDDOn/e/L0LpcfCvPg=
-X-Alimail-AntiSpam: AC=PASS;BC=-1|-1;BR=01201311R121e4;CH=green;DM=||false|;DS=||;FP=0|-1|-1|-1|0|-1|-1|-1;HT=maildocker-contentspam033037026112;MF=tianruidong@linux.alibaba.com;NM=1;PH=DS;RN=20;SR=0;TI=SMTPD_---0X43R2gc_1780384574;
-Received: from t50a05405.sqa.eu95.tbsite.net(mailfrom:tianruidong@linux.alibaba.com fp:SMTPD_---0X43R2gc_1780384574 cluster:ay36)
-          by smtp.aliyun-inc.com;
-          Tue, 02 Jun 2026 15:16:15 +0800
-From: Ruidong Tian <tianruidong@linux.alibaba.com>
-To: Catalin Marinas <catalin.marinas@arm.com>,
-	Will Deacon <will@kernel.org>,
-	Lorenzo Pieralisi <lpieralisi@kernel.org>,
-	Hanjun Guo <guohanjun@huawei.com>,
-	Sudeep Holla <sudeep.holla@kernel.org>,
-	"Rafael J . Wysocki" <rafael@kernel.org>,
-	Len Brown <lenb@kernel.org>,
-	Tony Luck <tony.luck@intel.com>,
-	Borislav Petkov <bp@alien8.de>,
-	Thomas Gleixner <tglx@kernel.org>,
-	Peter Zijlstra <peterz@infradead.org>,
-	Robin Murphy <robin.murphy@arm.com>,
-	Umang Chheda <umang.chheda@oss.qualcomm.com>
-Cc: linux-acpi@vger.kernel.org,
-	linux-arm-kernel@lists.infradead.org,
-	linux-kernel@vger.kernel.org,
-	linux-edac@vger.kernel.org,
-	zhuo.song@linux.alibaba.com,
-	oliver.yang@linux.alibaba.com,
-	Ruidong Tian <tianruidong@linux.alibaba.com>
-Subject: [PATCH v7 14/16] arm64: ras: support vendor node CMN700
-Date: Tue,  2 Jun 2026 15:15:37 +0800
-Message-ID: <20260602071540.3711528-15-tianruidong@linux.alibaba.com>
-X-Mailer: git-send-email 2.43.7
-In-Reply-To: <20260602071540.3711528-1-tianruidong@linux.alibaba.com>
-References: <20260602071540.3711528-1-tianruidong@linux.alibaba.com>
+	Tue, 02 Jun 2026 07:18:50 +0000
+ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
+ b=x4BdhPhEmZIIWvfb4k20l3BzooPxY+edFmv84ZQHTwXcBXHVzQcqUOowE3TM8jhqXbQ1DOFAIqlIPg18YKpC0o2zurxk735kNhqwf1YqtSZ4b1tp0p/kA1Os2UXr5rZkSuDqcxKj4313iPdlC27AMFoZqPgL998sFIKWNstoOMyPwbw0jh8eGruAYuRPge4nAyG0ZPPSxDSJ25IPEC1fOGsNiZrEZET4cKTyVVxtEhBlKNyQXbkzKSKQ7kK6QAmYcqSiHQXNh4i1npijJUeM78QYsVP2w5wkBpxyf6UJ1a4oG1sQCw26c5Zkfh+HTz6wTLJ2UO6pzWSghofSzp/+3A==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
+ s=arcselector10001;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
+ bh=mU0Wpltx3VpSxMzo0TcyvwSF8ZBYZHheiDrIdv9g9Ug=;
+ b=rnkdlIu46WqsFPFrbqfm3E8t97VZJ0jr29NkPr2NZvFZy3yu2MMeUJCMrjEPABJowTzmI7reexbgF3nlynoVG7VUgODgTQDJgd4L6MZGG0U6gtqLcz2bGmZ3XLs/ZBUhLOQ3eAygq4apovntnsmASs46rgFnOFH2TYBknYoHrmqd9hAMvgaZO7bb3+OpbFIR8blsKj6+TNF0MXOgt8ds4dLSQZu70OAUF7FhInF//r2H+UqPwfj3+Ocy+KDHuTsI//r2PbXfysg076JpXV6wGpF9qXHELelFN51eXddtr7u2NH6wGVt+ShIIH1z8xy4KQpiOHLo1Y5kz14rNt+bVFA==
+ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
+ smtp.mailfrom=oss.nxp.com; dmarc=pass action=none header.from=oss.nxp.com;
+ dkim=pass header.d=oss.nxp.com; arc=none
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=NXP1.onmicrosoft.com;
+ s=selector1-NXP1-onmicrosoft-com;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
+ bh=mU0Wpltx3VpSxMzo0TcyvwSF8ZBYZHheiDrIdv9g9Ug=;
+ b=sEyr3UyRbGmDyeYVK5CCl2hEpomNxyqZQMHkOfsyHYjuG3n2uCF0beDJx+b2Hl0T5OyN5nskvtJHr5ei6SfwPhJP8Xm0BA6z54J5xkM1jiEJ/luQ7G0P1gg1xlx+uU2A+y6bFUJW9i15h8VS3xwytxQwNUtir+3iCcvUiZTr0m9HHYWsobmK7dXQUS55xCXMQQw4+MWLzqKubvnLZxv7/TkQcDLedTS+KBd7xbqcKFkJEB/U21v1tLB3sy0GJfSsAbprYQiDKO37xes34EE5JULqp1TzAjUL4tKIOOjPK4J6dBnNpVTtjxfAA0PvkmW5M5/1O9J5dTWgF+b06xqkcA==
+Authentication-Results: dkim=none (message not signed)
+ header.d=none;dmarc=none action=none header.from=oss.nxp.com;
+Received: from GV2PR04MB12318.eurprd04.prod.outlook.com
+ (2603:10a6:150:32b::19) by PA6PR04MB11872.eurprd04.prod.outlook.com
+ (2603:10a6:102:518::14) with Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.21.71.16; Tue, 2 Jun 2026
+ 07:18:41 +0000
+Received: from GV2PR04MB12318.eurprd04.prod.outlook.com
+ ([fe80::a498:2b5a:cbdb:d6fa]) by GV2PR04MB12318.eurprd04.prod.outlook.com
+ ([fe80::a498:2b5a:cbdb:d6fa%5]) with mapi id 15.21.0092.006; Tue, 2 Jun 2026
+ 07:18:41 +0000
+Date: Tue, 2 Jun 2026 10:18:35 +0300
+From: Laurentiu Palcu <laurentiu.palcu@oss.nxp.com>
+To: Rosen Penev <rosenp@gmail.com>
+Cc: dri-devel@lists.freedesktop.org, Lucas Stach <l.stach@pengutronix.de>, 
+	Maarten Lankhorst <maarten.lankhorst@linux.intel.com>, Maxime Ripard <mripard@kernel.org>, 
+	Thomas Zimmermann <tzimmermann@suse.de>, David Airlie <airlied@gmail.com>, 
+	Simona Vetter <simona@ffwll.ch>, Frank Li <Frank.Li@nxp.com>, 
+	Sascha Hauer <s.hauer@pengutronix.de>, Pengutronix Kernel Team <kernel@pengutronix.de>, 
+	Fabio Estevam <festevam@gmail.com>, 
+	"open list:ARM/FREESCALE IMX / MXC ARM ARCHITECTURE" <imx@lists.linux.dev>, 
+	"moderated list:ARM/FREESCALE IMX / MXC ARM ARCHITECTURE" <linux-arm-kernel@lists.infradead.org>, open list <linux-kernel@vger.kernel.org>
+Subject: Re: [PATCH] drm/imx/dcss: add missing kernel-doc parameters for
+ scaler functions
+Message-ID: <rjx5f3hwi34s7vzoibo74e7ih5yskuj3y4fmejqyy575yshlk7@aj64vn2dxalr>
+References: <20260530195925.5477-1-rosenp@gmail.com>
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+In-Reply-To: <20260530195925.5477-1-rosenp@gmail.com>
+X-ClientProxiedBy: FR4P281CA0110.DEUP281.PROD.OUTLOOK.COM
+ (2603:10a6:d10:bb::18) To GV2PR04MB12318.eurprd04.prod.outlook.com
+ (2603:10a6:150:32b::19)
 MIME-Version: 1.0
-Content-Type: text/plain; charset=UTF-8
-Content-Transfer-Encoding: 8bit
+X-MS-Exchange-MessageSentRepresentingType: 1
+X-MS-PublicTrafficType: Email
+X-MS-TrafficTypeDiagnostic: GV2PR04MB12318:EE_|PA6PR04MB11872:EE_
+X-MS-Office365-Filtering-Correlation-Id: 5be47786-fb20-464e-f253-08dec0772c3e
+X-MS-Exchange-SharedMailbox-RoutingAgent-Processed: True
+X-MS-Exchange-SenderADCheck: 1
+X-MS-Exchange-AntiSpam-Relay: 0
+X-Microsoft-Antispam: BCL:0;ARA:13230040|1800799024|366016|19092799006|376014|7416014|3023799007|22082099003|18002099003|11063799006|56012099006;
+X-Microsoft-Antispam-Message-Info: v+2zIRD1iNORS0sO3Zt3l7L+DBISvdVVpH8F/s/LYSSeClrDjUyEjM12/LAoVoj1/EowELQXNuI+zmg/DVhV2DejwOrXY1KtM62dNC5HrNnZhye7ANXGLRpUf+NOASJhUxztPPxFMhBRnNJHxZCW1avBMD2m1u+/7CtRATYP3xuDr7vL7V7dM5pEif/9lDsJlfBLmneQo1X0eDSFqvVdWei1w4Qu4lr54uQXUqKyRuIr1TlMzev26OOgp+ZKbWmpN36akz7cmjpNwQi795oOlm4A2QjP7V/EbHFaheqcD2IvlqWG8i8BAyjs1lYfyMa0IdTDX/d3hgbjC8E23/V6wJOh7ckoHgIM2SOrycjV+GLxa94r7pUSUgUt0t2gqVKJlK3MMxL29cX7YsuWTzdf1DTjW2L4WTDd9VWxmfelZ0uFB1JsP9FdaQfllwHM7cyO1rSrjPjiu3GshDMaKuaPLDFfpdrJosdJZoLpjc6JKitrPYamz9miNegoj9/+vC0erfVpaknIRwfvFKTa+8ZJ31fbu6Uvb9dLGKqOsCpkPjb+CGZSw/lHJ8m1G5G6k1WrJLuZE9DCW7VPyjFtoxe66BJpdZ3qTaHjMMKin52/WxvR/AArQSdtoC1MZnWSpFuCHR+YShLyLvsj9kH5hpL198ZaRsY9wTqfHCXkdptm18pvdfopgcn9Yj4tXAwbKTel6vryAo2/jr+WRI9oGntEtg==
+X-Forefront-Antispam-Report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:GV2PR04MB12318.eurprd04.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(1800799024)(366016)(19092799006)(376014)(7416014)(3023799007)(22082099003)(18002099003)(11063799006)(56012099006);DIR:OUT;SFP:1101;
+X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
+X-MS-Exchange-AntiSpam-MessageData-0: =?us-ascii?Q?UeQtqwttM6WKwmWrc3+zU84Y+F0v60bUVKXb+5f7b/2t0QlMuHihAlpjPFQ1?=
+ =?us-ascii?Q?a1NzHnKpHfgV3X+FIdZ/Xb7yfYTyq6i8AU60xrb10E27jvfWUw0x/WVqwLb9?=
+ =?us-ascii?Q?25BOjL9xGwGIN0RuiTTmfJZheaT0aizIymh+jHXifYf+ts2kHk7ukuYTpQIT?=
+ =?us-ascii?Q?Fx2QQIN2diOWfLPS5igvf+WabCESG2629o99DZ6k9tue8Xr/jRlrEj7PsQ14?=
+ =?us-ascii?Q?VJXLjCyPSopNM5bNQTAm0Nfj7GDbN3AIAjo3upHq6908Stc6lV3sOZL2+4Kk?=
+ =?us-ascii?Q?UjZXts0jSnmdxFmHUd4GrePA1m4vPgxGfaxbSshUpbxFLEucOK3EFgduiT3y?=
+ =?us-ascii?Q?FU3tbXLhMuvW2zSjlO+u8yeunYyH07CfbSbg9TiKK4VXUgxNa4IfPgKGTTMY?=
+ =?us-ascii?Q?dDHKsfTVZJAbXdZqVjhqyI8yo02kXtDdPEHuGA9oR+/vHRwGUYGqVYJLYdHD?=
+ =?us-ascii?Q?OtUcmqqASoZdQ0Px4QD8d+jEVaXtNXaP6Saj4nR0YCoOT4Scg79aLHkmWp7u?=
+ =?us-ascii?Q?FUYhX99mJkYTByovCmfIfx1SD6YMO1KA/bL0F8OFtYK4IgJY5LTP7g2/cQu7?=
+ =?us-ascii?Q?u0JhtGZxPOfrskJRQXiIfe+1ZbZnE58hTXDV6y4t3dQ02PHyevBriMm4Nk75?=
+ =?us-ascii?Q?cnQR41nSn0WS9zVwzE20udnvsqSbA47VUO6j00SSnehfgplcG5gc9+cTmQkH?=
+ =?us-ascii?Q?Wvhgqzmp28GH5L/Itd41nsI1TsoGOoFog3DUjXWlfpuKqjy4RPv/tom2NulL?=
+ =?us-ascii?Q?6ls3Qw/Oxp8j+d2lSHR1qefDVbrD7KdH0US8u4Cf5G/ICw5yT6rpVLInqsG/?=
+ =?us-ascii?Q?fYgB4f7VuL8aWSwuqt8PJzKMOc2u0H9ifx8byRDjtT9dR/JUKyJLsFeqUCCg?=
+ =?us-ascii?Q?q1uNB3qWdUr1Lux6bjvKUCUCNitYzPuDh1aLkn/879E9TX4rF+Es4RvDz/SA?=
+ =?us-ascii?Q?sUt55B/83D4J/035jhJjZpN1nrfQvgi+33Ac/zsmakm4OCvfp3A2nBaqp8CY?=
+ =?us-ascii?Q?jja0hAA6av5UsjTyTzrF5dojupVBzg9Km7cIwpDtKBne6naMc9NOw8IJjV+w?=
+ =?us-ascii?Q?x1P11YdZWcn8lRE8yGY5hC04S+v/3QrVvSAFAy9CVuimcAxD2OSBDyXyBXOI?=
+ =?us-ascii?Q?gKktJxYBddfO/xzRpuuY5BeeDufY2es3pbbKq1TiqyDNc0iRHhVInQRpIAwX?=
+ =?us-ascii?Q?3cetip1ClqBcRWI5WcE2DGaDwZfZ1ZFQORcKVoAF/MHzc9kRb8CQRcCfjQ6q?=
+ =?us-ascii?Q?+EWtlBrkCqAC1CY+lvE83aKC9/rO7pLQZMQZhj8Bw/6z2pciecQL6g+MIvv5?=
+ =?us-ascii?Q?aM2gKGI5HY3IdoDmpxJilIlNrWaog1KYk2pfY76P1sTIfrvWdpMQqbBEVOSR?=
+ =?us-ascii?Q?U2/YJXJQjrEjmtnX8dJkxjDhAvXSWTyk+oOoQZcEHu6VugpXUy6c64UEhWUk?=
+ =?us-ascii?Q?1pcUUMyG8EzoC+RvffEVkN32G0DLrsGv3V8oTWKIFsPIzxAMPRv5lgiHTSJ6?=
+ =?us-ascii?Q?grbqPSwLzTj6Tgo5XYhIA6J9iTHUtmIMnCN2vFMO0zoXL1E3sm+gS/c8dJLD?=
+ =?us-ascii?Q?SxlkxBa3dafMFAVdoBi7kNBRmXJKwsZIShT3OcSSHoKyDfE60tMj4SWOs68d?=
+ =?us-ascii?Q?9Ym79B6EacQd348fA773oBZ5M6NEZ40LvZeSDPesQC8R+rCXlD5j+1c8HBtN?=
+ =?us-ascii?Q?9hbluV4q3C5Qsw2Nl3cluL3IXX8uvYM9sKxBFHIf7jr4gzWI52LEAScwTz7t?=
+ =?us-ascii?Q?9spv1yRuJs4UnHrlqsLHVai6BeSG1xM=3D?=
+X-OriginatorOrg: oss.nxp.com
+X-MS-Exchange-CrossTenant-Network-Message-Id: 5be47786-fb20-464e-f253-08dec0772c3e
+X-MS-Exchange-CrossTenant-AuthSource: GV2PR04MB12318.eurprd04.prod.outlook.com
+X-MS-Exchange-CrossTenant-AuthAs: Internal
+X-MS-Exchange-CrossTenant-OriginalArrivalTime: 02 Jun 2026 07:18:41.2954
+ (UTC)
+X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
+X-MS-Exchange-CrossTenant-Id: 686ea1d3-bc2b-4c6f-a92c-d99c5c301635
+X-MS-Exchange-CrossTenant-MailboxType: HOSTED
+X-MS-Exchange-CrossTenant-UserPrincipalName: +Fo/3ZyKZyVE3M2NpKRZIYli8WMZ+i8/ZFho6h4/MdN2bODLkTzdEUSoqqymw9WHUAYmisD1L0xW4YEGOjwwAg==
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: PA6PR04MB11872
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260602_001627_903567_C0675344 
-X-CRM114-Status: GOOD (  30.08  )
+X-CRM114-CacheID: sfid-20260602_001849_331974_6C6F4A8A 
+X-CRM114-Status: GOOD (  16.73  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -83,850 +144,49 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-The CMN (Coherent Mesh Network) architecture incorporates five distinct
-device types. Each device type is associated with an error group register
-set.
+Hi,
 
-CMN's error records utilize a memory-mapped single error record view [1].
-Critically, one error record corresponds to one AEST node, implying that
-a single CMN instance can generate hundreds of AEST nodes. To manage this
-scale, this driver introduces a virtual ras node, which represents an
-entire CMN device, such as an HNI or HNF. This allows an HNF ras node,
-for instance, to leverage its errgsr register to pinpoint which specific
-error record has reported an error.
+There was already a fix sent for this:
+https://lore.kernel.org/all/20260406180013.2442096-1-yiconghui@gmail.com/
 
-[1]: https://developer.arm.com/documentation/102308/latest/
+On Sat, May 30, 2026 at 12:59:25PM -0700, Rosen Penev wrote:
+> dcss_scaler_gaussian_filter() was missing @phase0_identity and
+> dcss_scaler_filter_design() was missing @phase0_identity and
+> @nn_interpolation in their kernel-doc comments.
+> 
+> Assisted-by: Opencode:Big-pickle
+> Signed-off-by: Rosen Penev <rosenp@gmail.com>
+> ---
+>  drivers/gpu/drm/imx/dcss/dcss-scaler.c | 3 +++
+>  1 file changed, 3 insertions(+)
+> 
+> diff --git a/drivers/gpu/drm/imx/dcss/dcss-scaler.c b/drivers/gpu/drm/imx/dcss/dcss-scaler.c
+> index 32c3f46b21da..e48b3117efb9 100644
+> --- a/drivers/gpu/drm/imx/dcss/dcss-scaler.c
+> +++ b/drivers/gpu/drm/imx/dcss/dcss-scaler.c
+> @@ -166,6 +166,7 @@ static int exp_approx_q(int x)
+>   * dcss_scaler_gaussian_filter() - Generate gaussian prototype filter.
+>   * @fc_q: fixed-point cutoff frequency normalized to range [0, 1]
+>   * @use_5_taps: indicates whether to use 5 taps or 7 taps
+> + * @phase0_identity: use identity filter for phase 0
+>   * @coef: output filter coefficients
+>   */
+>  static void dcss_scaler_gaussian_filter(int fc_q, bool use_5_taps,
+> @@ -262,7 +263,9 @@ static void dcss_scaler_nearest_neighbor_filter(bool use_5_taps,
+>   * @src_length: length of input
+>   * @dst_length: length of output
+>   * @use_5_taps: 0 for 7 taps per phase, 1 for 5 taps
+> + * @phase0_identity: use identity filter for phase 0
+>   * @coef: output coefficients
+> + * @nn_interpolation: use nearest neighbor interpolation
+>   */
+>  static void dcss_scaler_filter_design(int src_length, int dst_length,
+>  				      bool use_5_taps, bool phase0_identity,
+> --
+> 2.54.0
+> 
 
-Signed-off-by: Ruidong Tian <tianruidong@linux.alibaba.com>
----
- drivers/acpi/arm64/aest.c    | 111 ++++++++-
- drivers/ras/arm64/Makefile   |   1 +
- drivers/ras/arm64/ras-cmn.c  | 469 +++++++++++++++++++++++++++++++++++
- drivers/ras/arm64/ras-core.c |  48 +++-
- drivers/ras/arm64/ras.h      |  29 +++
- 5 files changed, 650 insertions(+), 8 deletions(-)
- create mode 100644 drivers/ras/arm64/ras-cmn.c
-
-diff --git a/drivers/acpi/arm64/aest.c b/drivers/acpi/arm64/aest.c
-index 1b020ab7eccd..1c68c83ccf4a 100644
---- a/drivers/acpi/arm64/aest.c
-+++ b/drivers/acpi/arm64/aest.c
-@@ -5,6 +5,7 @@
-  * Copyright (c) 2025, Alibaba Group.
-  */
- 
-+#include <linux/xarray.h>
- #include <linux/cleanup.h>
- #include <linux/platform_device.h>
- #include <linux/property.h>
-@@ -173,6 +174,10 @@ aest_init_node_props(struct acpi_aest_hdr *hdr, struct property_entry *props,
- 	return 0;
- }
- 
-+/*
-+ * Non-vendor path: attach all per-entry properties as the platform device's
-+ * primary fwnode (single-layer structure).
-+ */
- static int __init
- aest_create_node_fwnode(struct acpi_aest_hdr *hdr, struct platform_device *pdev)
- {
-@@ -187,6 +192,51 @@ aest_create_node_fwnode(struct acpi_aest_hdr *hdr, struct platform_device *pdev)
- 	return device_create_managed_software_node(&pdev->dev, props, NULL);
- }
- 
-+/*
-+ * CMN700 path (double-layer structure):
-+ *   - first_time: create the parent fwnode on @pdev carrying the vendor
-+ *     identification (HID/UID);
-+ *   - always:     hang a child swnode under @pdev's primary fwnode for the
-+ *     current AEST entry, so that multiple AEST entries sharing the same
-+ *     HID/UID accumulate as siblings under one platform device.
-+ */
-+static int __init
-+aest_create_cmn700_fwnode(struct acpi_aest_hdr *hdr,
-+			  struct platform_device *pdev, bool first_time)
-+{
-+	struct acpi_aest_node_interface_header *interface;
-+	struct property_entry child_props[17] = { };
-+	struct fwnode_handle *child;
-+	int p = 0;
-+	int ret;
-+
-+	ret = aest_init_node_props(hdr, child_props, &p, pdev);
-+	if (ret)
-+		return ret;
-+
-+	if (first_time) {
-+		ret = device_create_managed_software_node(&pdev->dev, child_props, NULL);
-+		if (ret)
-+			return ret;
-+	}
-+
-+	interface = ACPI_ADD_PTR(struct acpi_aest_node_interface_header,
-+				 hdr, hdr->node_interface_offset);
-+
-+	child_props[p++] = PROPERTY_ENTRY_U64("arm,record-base", interface->address);
-+	/*
-+	 * Hang the per-entry properties as a child swnode under the platform
-+	 * device's primary fwnode. AEST platform devices live for the whole
-+	 * system lifetime, so we intentionally do not track child fwnodes for
-+	 * removal here.
-+	 */
-+	child = fwnode_create_software_node(child_props, dev_fwnode(&pdev->dev));
-+	if (IS_ERR(child))
-+		return PTR_ERR(child);
-+
-+	return 0;
-+}
-+
- static int aest_node_mem_size(u8 group_format)
- {
- 	switch (group_format) {
-@@ -264,9 +314,60 @@ static int __init acpi_aest_init_node(struct acpi_aest_hdr *aest_hdr)
- 	return 0;
- }
- 
-+static DEFINE_XARRAY(aest_cmn700_groups);
-+static int __init acpi_aest_init_cmn700_node(struct acpi_aest_hdr *aest_hdr)
-+{
-+	struct acpi_aest_vendor_v2 *vendor;
-+	struct platform_device *existing;
-+	int ret;
-+
-+	vendor = ACPI_ADD_PTR(struct acpi_aest_vendor_v2, aest_hdr,
-+			      aest_hdr->node_specific_offset);
-+
-+	/*
-+	 * If a previous AEST entry already produced a platform device for
-+	 * the same vendor HID/UID, just append a child swnode for the
-+	 * current entry under that pdev's primary fwnode and return.
-+	 */
-+	existing = xa_load(&aest_cmn700_groups, vendor->acpi_uid);
-+	if (existing)
-+		return aest_create_cmn700_fwnode(aest_hdr, existing, false);
-+
-+	struct platform_device *pdev __free(platform_device_put) =
-+		acpi_aest_alloc_pdev(aest_hdr);
-+	if (IS_ERR(pdev))
-+		return PTR_ERR(pdev);
-+
-+	ret = aest_create_cmn700_fwnode(aest_hdr, pdev, true);
-+	if (ret)
-+		return ret;
-+
-+	ret = platform_device_add(pdev);
-+	if (ret)
-+		return ret;
-+
-+	/* pdev is now owned by the driver core; release the cleanup-managed put. */
-+	struct platform_device *added = no_free_ptr(pdev);
-+
-+	ret = xa_err(xa_store(&aest_cmn700_groups, vendor->acpi_uid, added, GFP_KERNEL));
-+	if (ret)
-+		return ret;
-+
-+	pr_debug("Platform device added for AEST vendor node: %s.%d\n",
-+		 added->name, added->id);
-+
-+	return 0;
-+}
-+
-+static int __init is_acpi_aest_cmn_node(struct acpi_aest_vendor_v2 *vendor)
-+{
-+	return strncmp(vendor->acpi_hid, "ARMHC701", 8) == 0;
-+}
-+
- static int __init acpi_aest_init_nodes(struct acpi_table_header *aest_table)
- {
- 	struct acpi_aest_hdr *aest_node, *aest_end;
-+	struct acpi_aest_vendor_v2 *vendor;
- 	struct acpi_table_aest *aest;
- 	int rc;
- 
-@@ -281,8 +382,14 @@ static int __init acpi_aest_init_nodes(struct acpi_table_header *aest_table)
- 				"AEST node pointer overflow, bad table.\n");
- 			return -EINVAL;
- 		}
--
--		rc = acpi_aest_init_node(aest_node);
-+		vendor = ACPI_ADD_PTR(struct acpi_aest_vendor_v2, aest_node,
-+				      aest_node->node_specific_offset);
-+
-+		if (aest_node->type == ACPI_AEST_VENDOR_ERROR_NODE &&
-+		    is_acpi_aest_cmn_node(vendor))
-+			rc = acpi_aest_init_cmn700_node(aest_node);
-+		else
-+			rc = acpi_aest_init_node(aest_node);
- 		if (rc)
- 			return rc;
- 
-diff --git a/drivers/ras/arm64/Makefile b/drivers/ras/arm64/Makefile
-index 2f3119ac3ec5..0e4c7421c131 100644
---- a/drivers/ras/arm64/Makefile
-+++ b/drivers/ras/arm64/Makefile
-@@ -5,3 +5,4 @@ obj-$(CONFIG_ARM64_RAS_DRIVER) 	+= arm64_ras.o
- arm64_ras-y		:= ras-core.o
- arm64_ras-y		+= ras-sysfs.o
- arm64_ras-y		+= ras-inject.o
-+arm64_ras-y		+= ras-cmn.o
-diff --git a/drivers/ras/arm64/ras-cmn.c b/drivers/ras/arm64/ras-cmn.c
-new file mode 100644
-index 000000000000..109cdc46a717
---- /dev/null
-+++ b/drivers/ras/arm64/ras-cmn.c
-@@ -0,0 +1,469 @@
-+// SPDX-License-Identifier: GPL-2.0
-+/*
-+ * ARM Error Source Table CMN-700 Support
-+ *
-+ * Copyright (c) 2025, Alibaba Inc
-+ *
-+ * CMN-700 exposes 6 RAS-relevant device types (HN-I, HN-F, XP, SBSX,
-+ * RN-D/CXRA, MTSX). Each device type owns an error group register set
-+ * holding a set of error records.
-+ *
-+ * CMN uses the memory-mapped single-record view, so every AEST node
-+ * corresponds to exactly one CMN error record - a single mesh can
-+ * yield hundreds of AEST entries. Per Arm ACPI Spec[1] §2.6.3.4 the
-+ * device type is recovered from the AEST vendor-specific data. This
-+ * driver enumerates every CMN AEST entry, reads the CMN node-info
-+ * register and stitches all entries of the same type into one
-+ * aggregate ras_node carrying many ras_records (one per logic_id).
-+ *
-+ * Each CMN instance owns its own error interrupt. The shared FHI/ERI
-+ * lines are registered per ras_node with IRQF_SHARED, so every
-+ * per-type handler runs and locates the offending record by walking
-+ * the error group registers - mirroring CMN Spec[2] §3.8.
-+ *
-+ * The CMN RAS topology is:
-+ *
-+ *                     +----+
-+ *                  -->|XP  |     ......
-+ *                  |  +----+
-+ *                  |
-+ *                  |  +----+     ......
-+ *                  |  |HNI |     +----------------+
-+ *                  |  +----+   ->|record/AEST node|
-+ *                  |           | +----------------+
-+ *  +------------+  |  +----+   |    .
-+ *  |CMN Instance|--|  |HNF |---|    .
-+ *  +------------+  |  +----+   |    .
-+ *                  |           | +----------------+
-+ *                  |  +----+   ->|record/AEST node|
-+ *                  |  |SBSX|     +----------------+
-+ *                  |  +----+     ......
-+ *                  |
-+ *                  |  +----+
-+ *                  -->|RND |     ......   (also MTSX)
-+ *                     +----+
-+ *
-+ * All addressing needed to reach the CMN RAS register block, the CMN
-+ * node-info register and the CMN ERRGSR is taken from AEST.
-+ *
-+ *   PERIPHBASE = ERRFR_addr - ERRFR_offset_in_register_block
-+ *                           - register_block_offset_within_CMN
-+ *              = record_base - 0x3100 - cmn_node_offset
-+ *
-+ * where the CMN-700 record register block places ERRFR at offset 0x3100
-+ * (CMN-700 TRM[2]). The AEST "arm,node-specific-data" payload carries
-+ * two u64s used by this driver: [0..7] = hnd_offset (locates the
-+ * per-type ERRGSR via cmn_config->errgsr_offset()), [8..15] =
-+ * cmn_node_offset (offset of this node's register block within CMN).
-+ *
-+ * Per CMN-700 erratum #2732981, ERRGSR for HN-I / HN-S / SBSX is
-+ * broken; for those types the per-record status_reporting bit is left
-+ * set so the core polls the records instead of reading ERRGSR.
-+ *
-+ * AEST topology consumed by this driver (see drivers/acpi/arm64/aest.c):
-+ *
-+ *   pdev (arm64_ras, dev_name = "cmn700")
-+ *   ├── primary fwnode  :
-+ *   └── child swnode x N: per-AEST-entry properties:
-+ *                            arm,interface-type
-+ *                            arm,record-base
-+ *                            arm,node-specific-data[]  (vendor data)
-+ *
-+ * Each child swnode corresponds to one AEST node, i.e. one CMN error
-+ * record identified by (node_type, logic_id).
-+ *
-+ * [1] Arm ACPI for Armv8/Armv9: https://developer.arm.com/documentation/den0093/latest
-+ * [2] CMN-700 TRM (Arm 102308): https://developer.arm.com/documentation/102308/latest
-+ */
-+
-+#include <linux/bitops.h>
-+#include <linux/interrupt.h>
-+#include <linux/platform_device.h>
-+#include <linux/property.h>
-+#include <linux/unaligned.h>
-+
-+#include "ras.h"
-+
-+
-+#define CMN_NODE_INFO			0x0000
-+#define CMN_NI_NODE_TYPE		GENMASK_ULL(15, 0)
-+#define CMN_NI_NODE_ID			GENMASK_ULL(31, 16)
-+#define CMN_NI_LOGICAL_ID		GENMASK_ULL(47, 32)
-+
-+/* Subset of CMN node types relevant to RAS */
-+enum cmn_ras_node_type {
-+	CMN_TYPE_HNI	= 0x4,
-+	CMN_TYPE_HNF	= 0x5,
-+	CMN_TYPE_XP	= 0x6,
-+	CMN_TYPE_SBSX	= 0x7,
-+	CMN_TYPE_MTSX	= 0x10,
-+	CMN_TYPE_CXRA	= 0x100,
-+	CMN_TYPE_CXHA	= 0x101,
-+	CMN_TYPE_CCHA	= 0x104,
-+	CMN_TYPE_HNS	= 0x200,
-+};
-+
-+/*
-+ * Offset of ERRFR within the CMN-700 RAS register block.
-+ * AEST's interface->address points at ERRFR; subtracting this plus the
-+ * cmn_node_offset (vendor-specific-data[8..15]) yields PERIPHBASE.
-+ */
-+#define CMN_ERRFR_OFFSET_IN_REGBLK	0x3100
-+
-+#define CMN_RAS_DEV_NUM			6
-+#define CMN700_ERRGSR_NUM		8
-+#define CMN_ERRGSR_OFFSET		0x3000
-+
-+struct cmn_vendor_data {
-+	struct acpi_aest_vendor_v2 vendor;
-+	int node_type;
-+	int node_id;
-+	int logic_id;
-+};
-+
-+struct cmn_config {
-+	int errgsr_num;
-+	int dev_num;
-+	const int *node_id_map;
-+	const char *const *node_name;
-+	int (*errgsr_mapping)(int errgsr_bit);
-+	u64 (*errgsr_offset)(u64 hnd_offset, int node_idx);
-+};
-+
-+static const char *const cmn700_node_name[] = {
-+	[CMN_TYPE_HNI]	= "HNI",
-+	[CMN_TYPE_HNF]	= "HNF",
-+	[CMN_TYPE_XP]	= "XP",
-+	[CMN_TYPE_SBSX]	= "SBSX",
-+	[CMN_TYPE_CXRA]	= "RND",
-+	[CMN_TYPE_MTSX]	= "MTSX",
-+};
-+
-+static const int cmn700_node_id_map[] = {
-+	[CMN_TYPE_HNI]	= 1,
-+	[CMN_TYPE_HNF]	= 2,
-+	[CMN_TYPE_XP]	= 0,
-+	[CMN_TYPE_SBSX]	= 3,
-+	[CMN_TYPE_CXRA]	= 4,
-+	[CMN_TYPE_MTSX]	= 5,
-+};
-+
-+static u64 cmn700_errgsr_offset(u64 hnd_offset, int node_idx)
-+{
-+	return hnd_offset + CMN_ERRGSR_OFFSET +
-+	       (node_idx * 2) * CMN700_ERRGSR_NUM * 8;
-+}
-+
-+static int cmn700_errgsr_mapping(int errgsr_bit)
-+{
-+	return errgsr_bit / 2;
-+}
-+
-+static struct cmn_config cmn700_config = {
-+	.errgsr_num	= CMN700_ERRGSR_NUM,
-+	.dev_num	= CMN_RAS_DEV_NUM,
-+	.node_name	= cmn700_node_name,
-+	.node_id_map	= cmn700_node_id_map,
-+	.errgsr_mapping	= cmn700_errgsr_mapping,
-+	.errgsr_offset	= cmn700_errgsr_offset,
-+};
-+
-+static struct cmn_config *cmn_config;
-+
-+
-+static int cmn_init_vendor_data(struct device *dev, struct cmn_vendor_data *vendor_data,
-+				u64 *errgsr_addr, u64 record_base)
-+{
-+	struct acpi_aest_vendor_v2 vendor;
-+	u64 cmn_node_offset, reg, logic_id, type, node_id;
-+	u64 hnd_offset, periphbase;
-+	void __iomem *cmn_node_base;
-+	struct fwnode_handle *child = dev_fwnode(dev);
-+
-+	fwnode_property_read_u8_array(child, "arm,node-specific-data",
-+				       (u8 *)&vendor, sizeof(vendor));
-+
-+	hnd_offset = get_unaligned_le64(&vendor.vendor_specific_data[0]);
-+	cmn_node_offset = get_unaligned_le64(&vendor.vendor_specific_data[8]);
-+
-+	periphbase = record_base - CMN_ERRFR_OFFSET_IN_REGBLK - cmn_node_offset;
-+
-+	cmn_node_base = devm_ioremap(dev, periphbase + cmn_node_offset +
-+			    CMN_NODE_INFO, SZ_4K);
-+	if (!cmn_node_base)
-+		return -ENOMEM;
-+
-+	reg = readq_relaxed(cmn_node_base);
-+	logic_id = FIELD_GET(CMN_NI_LOGICAL_ID, reg);
-+	type = FIELD_GET(CMN_NI_NODE_TYPE, reg);
-+	node_id = FIELD_GET(CMN_NI_NODE_ID, reg);
-+
-+	if (type >= ARRAY_SIZE(cmn700_node_id_map) ||
-+	    !cmn_config->node_name[type]) {
-+		dev_dbg(dev, "Skipping unsupported CMN node type %llx\n", type);
-+		return -ENODEV;
-+	}
-+
-+	*errgsr_addr = periphbase + cmn_config->errgsr_offset(hnd_offset,
-+							      cmn_config->node_id_map[type]);
-+
-+	vendor_data->vendor = vendor;
-+	vendor_data->node_type = type;
-+	vendor_data->node_id = node_id;
-+	vendor_data->logic_id = logic_id;
-+
-+	devm_iounmap(dev, cmn_node_base);
-+
-+	dev_dbg(dev, "periphbase %llx, node_offset %llx, logic_id %llx, type %llx, node_id %llx\n",
-+		periphbase, cmn_node_offset, logic_id, type, node_id);
-+
-+	return 0;
-+}
-+
-+/*
-+ * Initialise one ras_node (representing one CMN node *type*, e.g. HN-F).
-+ * Per CMN-700 erratum #2732981, ERRGSR for HN-I / HN-S / SBSX is broken;
-+ * AEST conveys this via the per-record "Error group-based status reporting
-+ * supported" flag (bit0 of arm,status-reporting). When that bit is 0 we
-+ * leave node->errgsr NULL so the core polls instead of reading ERRGSR.
-+ */
-+static int cmn_init_node(struct platform_device *pdev,
-+			 struct ras_node *cmn_node, u64 type, u64 errgsr_addr)
-+{
-+	struct device *dev = &pdev->dev;
-+	int ret;
-+
-+	cmn_node->dev = dev;
-+	cmn_node->type = ACPI_AEST_VENDOR_ERROR_NODE;
-+	cmn_node->name = devm_kasprintf(dev, GFP_KERNEL, "%s.%llx",
-+					cmn_config->node_name[type], errgsr_addr);
-+	if (!cmn_node->name)
-+		return -ENOMEM;
-+
-+	/* CMN700 just support version 1 */
-+	cmn_node->version = 1;
-+	cmn_node->errgsr = devm_ioremap(dev, errgsr_addr, cmn_config->errgsr_num * 8);
-+	if (!cmn_node->errgsr)
-+		return -ENOMEM;
-+
-+	cmn_node->errgsr_num = cmn_config->errgsr_num;
-+	cmn_node->errgsr_mapping = cmn_config->errgsr_mapping;
-+	cmn_node->record_count = cmn_config->errgsr_num * BITS_PER_LONG / 2;
-+	cmn_node->record_implemented = devm_bitmap_zalloc(
-+		dev, cmn_node->record_count, GFP_KERNEL);
-+	if (!cmn_node->record_implemented)
-+		return -ENOMEM;
-+	bitmap_set(cmn_node->record_implemented, 0, cmn_node->record_count);
-+
-+	cmn_node->status_reporting = devm_bitmap_zalloc(
-+		dev, cmn_node->record_count, GFP_KERNEL);
-+	if (!cmn_node->status_reporting)
-+		return -ENOMEM;
-+	bitmap_set(cmn_node->status_reporting, 0, cmn_node->record_count);
-+	/* If !errgsr_supported leave bitmap zero so all records are polled. */
-+
-+	cmn_node->records = devm_kcalloc(dev, cmn_node->record_count,
-+					 sizeof(struct ras_record), GFP_KERNEL);
-+	if (!cmn_node->records)
-+		return -ENOMEM;
-+
-+	cmn_node->specific_data_size = device_property_count_u8(dev,
-+								"arm,node-specific-data");
-+	if (cmn_node->specific_data_size > 0) {
-+		cmn_node->specific_data = devm_kzalloc(dev, cmn_node->specific_data_size,
-+						       GFP_KERNEL);
-+		if (!cmn_node->specific_data)
-+			return -ENOMEM;
-+		ret = device_property_read_u8_array(dev, "arm,node-specific-data",
-+						    cmn_node->specific_data,
-+						    cmn_node->specific_data_size);
-+		if (ret)
-+			return ret;
-+	}
-+
-+	ras_node_dbg(cmn_node, "Init with errgsr %llx\n", errgsr_addr);
-+	return 0;
-+}
-+
-+/*
-+ * Process one AEST record (one child fwnode) and stitch it into the
-+ * appropriate per-type ras_node. The ras_node is initialised lazily on the
-+ * first record observed for that type.
-+ */
-+static int cmn_init_record(struct platform_device *pdev, struct ras_node *nodes,
-+			   struct fwnode_handle *child)
-+{
-+	struct device *dev = &pdev->dev;
-+	u64 errgsr_addr, record_base;
-+	struct cmn_vendor_data *vendor_data;
-+	struct ras_node *cmn_node;
-+	struct ras_record *record;
-+	int ret, node_index;
-+	u8 interface_type;
-+
-+
-+	ret = fwnode_property_read_u8(child, "arm,interface-type",
-+				      &interface_type);
-+	if (ret)
-+		return ret;
-+	if (interface_type != ACPI_AEST_NODE_SINGLE_RECORD_MEMORY_MAPPED) {
-+		dev_err(dev, "CMN only supports single-record memory mapped\n");
-+		return -ENODEV;
-+	}
-+
-+	ret = fwnode_property_read_u64(child, "arm,record-base",
-+				       &record_base);
-+	if (ret)
-+		return ret;
-+
-+	vendor_data = devm_kzalloc(dev, sizeof(*vendor_data), GFP_KERNEL);
-+	if (!vendor_data)
-+		return -ENOMEM;
-+
-+	ret = cmn_init_vendor_data(dev, vendor_data, &errgsr_addr, record_base);
-+	if (ret)
-+		return ret;
-+
-+	node_index = cmn_config->node_id_map[vendor_data->node_type];
-+
-+	cmn_node = &nodes[node_index];
-+	if (!cmn_node->name) {
-+		ret = cmn_init_node(pdev, cmn_node, vendor_data->node_type, errgsr_addr);
-+		if (ret)
-+			return ret;
-+	}
-+
-+	if (vendor_data->logic_id >= cmn_node->record_count) {
-+		dev_warn(dev, "logic_id %u exceeds record_count %u\n",
-+			 vendor_data->logic_id, cmn_node->record_count);
-+		return 0;
-+	}
-+
-+	/*
-+	 * CMN-700 stitches several single-mapping AEST nodes into one
-+	 * aggregate ras_node, so the record_implemented / status_reporting
-+	 * bitmaps that ACPI normally provides per group are absent here
-+	 * and must be populated by the driver: clear the bit at this
-+	 * record's logic_id slot to mark it implemented (and reporting).
-+	 */
-+	clear_bit(vendor_data->logic_id, cmn_node->record_implemented);
-+	/* CMN-700 erratum #2732981, ERRGSR for HN-I / HN-S / SBSX is broken */
-+	if (vendor_data->node_type != CMN_TYPE_HNI &&
-+	    vendor_data->node_type != CMN_TYPE_HNS &&
-+	    vendor_data->node_type != CMN_TYPE_SBSX)
-+		clear_bit(vendor_data->logic_id, cmn_node->status_reporting);
-+
-+	record = &cmn_node->records[vendor_data->logic_id];
-+	record->name = devm_kasprintf(dev, GFP_KERNEL, "record%d", vendor_data->logic_id);
-+	if (!record->name)
-+		return -ENOMEM;
-+	record->regs_base = devm_ioremap(dev,
-+					 (resource_size_t)record_base,
-+					 sizeof(struct ras_ext_regs));
-+	if (!record->regs_base)
-+		return -ENOMEM;
-+	record->node = cmn_node;
-+	record->index = vendor_data->logic_id;
-+	record->access = &ras_access[interface_type];
-+
-+	record->vendor_data = vendor_data;
-+	record->vendor_data_size = sizeof(*vendor_data);
-+
-+	ras_record_dbg(record, "base %llx\n", record_base);
-+	return 0;
-+}
-+
-+/*
-+ * Vendor pdev (CMN) carries one shared fhi/eri pair. Register it on each
-+ * populated ras_node with IRQF_SHARED so all per-type handlers run, and
-+ * enable per-record FI/CFI/UI in ERXCTLR via the shared ras_enable_irq.
-+ */
-+static int cmn_register_record_irq(struct platform_device *pdev,
-+				   struct ras_node *nodes)
-+{
-+	struct device *dev = &pdev->dev;
-+	int fhi_irq, eri_irq, i, ret;
-+
-+	fhi_irq = platform_get_irq_byname_optional(pdev, AEST_FHI_NAME);
-+	eri_irq = platform_get_irq_byname_optional(pdev, AEST_ERI_NAME);
-+	if (fhi_irq <= 0 && eri_irq <= 0)
-+		return 0;
-+
-+	for (i = 0; i < cmn_config->dev_num; i++) {
-+		struct ras_node *n = &nodes[i];
-+		char *desc;
-+
-+		if (!n->name)		/* slot not used by this CMN */
-+			continue;
-+
-+		desc = devm_kasprintf(dev, GFP_KERNEL, "arm64_ras.%s.%s",
-+				      dev_name(dev), n->name);
-+		if (!desc)
-+			return -ENOMEM;
-+
-+		if (fhi_irq > 0) {
-+			ret = devm_request_irq(dev, fhi_irq, ras_irq_func,
-+					       IRQF_SHARED, desc, n);
-+			if (ret)
-+				return ret;
-+			n->irq[0] = fhi_irq;
-+		}
-+		if (eri_irq > 0) {
-+			ret = devm_request_irq(dev, eri_irq, ras_irq_func,
-+					       IRQF_SHARED, desc, n);
-+			if (ret)
-+				return ret;
-+			n->irq[1] = eri_irq;
-+		}
-+	}
-+	return 0;
-+}
-+
-+/* Common entry point: walk every child swnode under @pdev. */
-+static int cmn_probe(struct platform_device *pdev)
-+{
-+	struct device *dev = &pdev->dev;
-+	struct fwnode_handle *child;
-+	struct ras_node *nodes;
-+	int ret;
-+
-+	nodes = devm_kcalloc(dev, cmn_config->dev_num, sizeof(*nodes),
-+				GFP_KERNEL);
-+	if (!nodes)
-+		return -ENOMEM;
-+
-+	/*
-+	 * In CMN-700, each AEST node is a single mapping record, so
-+	 * treat every child fwnode as one record rather than a node
-+	 * with multiple records underneath.
-+	 */
-+	device_for_each_child_node(dev, child) {
-+		ret = cmn_init_record(pdev, nodes, child);
-+		if (ret) {
-+			fwnode_handle_put(child);
-+			return ret;
-+		}
-+	}
-+
-+	ret = cmn_register_record_irq(pdev, nodes);
-+	if (ret)
-+		return ret;
-+
-+	platform_set_drvdata(pdev, nodes);
-+
-+	for (int i = 0; i < cmn_config->dev_num; i++) {
-+		ras_online_node(&nodes[i]);
-+		ras_node_init_debugfs(&nodes[i]);
-+	}
-+
-+	return 0;
-+}
-+
-+int ras_cmn700_probe(struct platform_device *pdev)
-+{
-+	cmn_config = &cmn700_config;
-+
-+	dev_set_name(&pdev->dev, "cmn700");
-+
-+	return cmn_probe(pdev);
-+}
-diff --git a/drivers/ras/arm64/ras-core.c b/drivers/ras/arm64/ras-core.c
-index 8cde26ab95de..2fb645659694 100644
---- a/drivers/ras/arm64/ras-core.c
-+++ b/drivers/ras/arm64/ras-core.c
-@@ -284,6 +284,7 @@ static void ras_node_foreach_poll_record(void (*func)(struct ras_record *, void
- 					 struct ras_node *node, void *data)
- {
- 	int i;
-+
- 	/*
- 	 * Per AEST spec:
- 	 *  - record_implemented: bitmap of records that are actually
-@@ -310,7 +311,7 @@ static void ras_node_foreach_poll_record(void (*func)(struct ras_record *, void
- 
- static int ras_proc(struct ras_node *node)
- {
--	int count = 0, i, j, size = node->record_count;
-+	int count = 0, i, j, size = node->record_count, record_idx;
- 	u64 err_group = 0;
- 
- 	ras_node_foreach_poll_record(ras_proc_record, node, &count);
-@@ -321,24 +322,27 @@ static int ras_proc(struct ras_node *node)
- 	ras_node_dbg(node, "Report bitmap %*pb\n", size, node->status_reporting);
- 	for (i = 0; i < BITS_TO_U64(size); i++) {
- 		err_group = readq_relaxed((void *)node->errgsr + i * 8);
--		ras_node_dbg(node, "errgsr[%d]: 0x%llx\n", i, err_group);
- 
- 		for_each_set_bit(j, (unsigned long *)&err_group, BITS_PER_LONG) {
-+			record_idx = node->errgsr_mapping(i * BITS_PER_LONG + j);
-+			ras_node_dbg(node, "errgsr[%d]: bit %d occur error\n",
-+				      i, record_idx);
- 			/*
- 			 * Error group base is only valid in Memory Map node,
- 			 * so driver do not need to write select register and
- 			 * sync.
- 			 */
--			if (test_bit(i * BITS_PER_LONG + j, node->status_reporting))
-+			if (test_bit(record_idx, node->status_reporting))
- 				continue;
--			ras_proc_record(&node->records[j], &count, false);
-+			ras_proc_record(&node->records[record_idx],
-+					&count, false);
- 		}
- 	}
- 
- 	return count;
- }
- 
--static irqreturn_t ras_irq_func(int irq, void *input)
-+irqreturn_t ras_irq_func(int irq, void *input)
- {
- 	struct ras_node *node = input;
- 
-@@ -529,7 +533,7 @@ static void ras_online_record(struct ras_record *record, void *data, bool __unus
- 	ras_enable_irq(record);
- }
- 
--static void ras_online_node(struct ras_node *node)
-+void ras_online_node(struct ras_node *node)
- {
- 	int count = 0;
- 
-@@ -808,6 +812,7 @@ static struct ras_node *ras_init_node(struct platform_device *pdev)
- 		return ERR_PTR(-EINVAL);
- 	}
- 
-+	node->errgsr_mapping = default_errgsr_mapping;
- 	node->name = alloc_ras_node_name(node);
- 	if (!node->name)
- 		return ERR_PTR(-ENOMEM);
-@@ -877,10 +882,41 @@ static int ras_setup_irq(struct platform_device *pdev, struct ras_node *node)
- 	return 0;
- }
- 
-+static struct ras_vendor_match vendor_match[] = {
-+	{ "ARMHC701", &ras_cmn700_probe },
-+	{  },
-+};
-+
-+static int
-+ras_vendor_probe(struct platform_device *pdev)
-+{
-+	int i;
-+	struct acpi_aest_vendor_v2 vendor;
-+
-+	device_property_read_u8_array(&pdev->dev, "arm,node-specific-data",
-+				      (u8 *)&vendor, sizeof(vendor));
-+
-+	dev_dbg(&pdev->dev, "Try to probe vendor node %s\n", vendor.acpi_hid);
-+	for (i = 0; i < ARRAY_SIZE(vendor_match); i++) {
-+		if (!strncmp(vendor_match[i].hid, vendor.acpi_hid, 8))
-+			return vendor_match[i].probe(pdev);
-+	}
-+
-+	return -ENODEV;
-+}
-+
- static int arm64_ras_probe(struct platform_device *pdev)
- {
- 	int ret;
- 	struct ras_node *node;
-+	u8 type;
-+
-+	ret = device_property_read_u8(&pdev->dev, "arm,node-type", &type);
-+	if (ret)
-+		return ret;
-+
-+	if (type == ACPI_AEST_VENDOR_ERROR_NODE)
-+		return ras_vendor_probe(pdev);
- 
- 	node = ras_init_node(pdev);
- 	if (IS_ERR(node))
-diff --git a/drivers/ras/arm64/ras.h b/drivers/ras/arm64/ras.h
-index 8a0d2909fe4b..75aa4ac83a41 100644
---- a/drivers/ras/arm64/ras.h
-+++ b/drivers/ras/arm64/ras.h
-@@ -9,6 +9,7 @@
- #define _DRIVERS_RAS_ARM64_RAS_H_
- 
- #include <linux/acpi_aest.h>
-+#include <linux/interrupt.h>
- #include <asm/ras.h>
- #include <linux/debugfs.h>
- 
-@@ -98,6 +99,8 @@ struct ras_record {
- 	struct ras_node *node;
- 	const struct ras_access *access;
- 	struct dentry *debugfs;
-+	void *vendor_data;
-+	size_t vendor_data_size;
- 
- 	struct ce_threshold ce;
- 	enum ras_ce_threshold threshold_type;
-@@ -177,6 +180,18 @@ struct ras_node {
- 	 * into SPA
- 	 */
- 	unsigned long *addressing_mode;
-+	/*
-+	 * Usually bit[n] in errgsr indicates [n]th error record within this
-+	 * error node report error. But some compoent may have different rules.
-+	 * For example, CMN700 TRM 4.3.5.12 say:
-+	 *	``` Error occurs when the index is even and Fault
-+	 *	    occurs when the index is odd. ```
-+	 *	Bit[n]: record[n] report ERROR.
-+	 *	Bit[n + 1]: record[n] report FAULT.
-+	 * errgsr_mapping function is used to map errgsr bit to record index
-+	 * for various components.
-+	 */
-+	int (*errgsr_mapping)(int errgsr_bit);
- 	struct ras_record *records;
- 
- 	u32 specific_data_size;
-@@ -184,6 +199,7 @@ struct ras_node {
- 	u32 record_index;
- 	u32 flags;
- 	int version;
-+	int errgsr_num;
- 
- 	u8 type;
- 	u8 access_type;
-@@ -301,8 +317,21 @@ static inline void ras_sync(struct ras_node *node)
- 		isb();
- }
- 
-+static inline int default_errgsr_mapping(int errgsr_bit)
-+{
-+	return errgsr_bit;
-+}
-+
-+struct ras_vendor_match {
-+	char hid[ACPI_ID_LEN];
-+	int (*probe)(struct platform_device *pdev);
-+};
-+
- void ras_node_init_debugfs(struct ras_node *node);
- void ras_inject_init_debugfs(struct ras_record *record);
- void ras_proc_record(struct ras_record *record, void *data, bool fake);
-+irqreturn_t ras_irq_func(int irq, void *input);
-+void ras_online_node(struct ras_node *node);
-+int ras_cmn700_probe(struct platform_device *pdev);
- 
- #endif /* _DRIVERS_RAS_ARM64_RAS_H_ */
 -- 
-2.51.2.612.gdc70283dfc
-
+Thanks,
+Laurentiu
 
