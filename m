@@ -4,37 +4,37 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 845FFCD6E5D
-	for <linux-arm-kernel@archiver.kernel.org>; Tue,  2 Jun 2026 21:00:08 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 180ECCD6E5D
+	for <linux-arm-kernel@archiver.kernel.org>; Tue,  2 Jun 2026 21:02:29 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:
 	Content-Transfer-Encoding:MIME-Version:References:In-Reply-To:Message-ID:Date
 	:Subject:Cc:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=gdnGze8I+ROg9ZF+rqMhgnzW1lOwo0q/HCgzLDR7Li4=; b=AUCvuMmsYDAs97fKlbo/7fKgxE
-	G/iU/nccXkS4eul+jiXDUURo3x6itYmczwdN46AsDxUx2l0vdEdF1vA0SaiIjP+G2q8pW4VCLbddl
-	+udrX+qPkWGU0OfJQpzDkjq5oSRbIAiTwHMlFAeVn9OCpXbE8JxZLXYsZqLBoZ08t0oWMU0R5fL0J
-	SXVuncDGS3LjCivqfj0Mgv5z1tct13vE5MYREtMUyIacnvtCwLtsYyx8Oy4g6305+/SZ5gLThTXSZ
-	kwjM7VaDu+jUsYaAibnC2osuU1nupZvwjULE/1DegY2VnRmiJ2/LuiMGBy4VolVKLL+gDr9SAM0K6
-	RZxpvcgQ==;
+	bh=NyPSyRLUOFZ5pN/SoGqXQdqwGa+JGoFeCCOZJivTsn8=; b=26rXy5Dkn+qCg+UofZCr2O7HQd
+	ZWAG3GWQJ2oVg3Hmg05c02r3ZSa/2OHR4nW+uT0MS2ZYH2hW9LjjhX7Y7hn5ZHgBRTS+qfPj6iRUm
+	7s7Dcs9bqeezg4nUhRmNwRv2Xxnu/YwMRULM8WRGf0CrwgXLedVfboFQAqrLLamcy6Io2xloMWISJ
+	QpzYKcuj3oRda3uPGjZ/SF6sAGNHdas8M2/uFObynmcCfdU/ggdepc5RtjjcB959V1QxSayLoNTR8
+	fZmJPYajnKjt8S4GCwZRHyQ0j4Q8OZyUlhiTjkqsGUaEFi9b80uazILn763qi5KbgAglcdVgtl23Z
+	p2E+YUCQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wUWDR-0000000Dn1o-03dA;
-	Tue, 02 Jun 2026 21:00:01 +0000
+	id 1wUWFj-0000000DnPC-2NSY;
+	Tue, 02 Jun 2026 21:02:23 +0000
 Received: from gloria.sntech.de ([185.11.138.130])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wUWDK-0000000DmzA-2g4P;
-	Tue, 02 Jun 2026 20:59:59 +0000
+	id 1wUWFh-0000000DnOh-35Cz;
+	Tue, 02 Jun 2026 21:02:22 +0000
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed; d=sntech.de;
 	s=gloria202408; h=Content-Type:Content-Transfer-Encoding:MIME-Version:
 	References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:Reply-To;
-	bh=gdnGze8I+ROg9ZF+rqMhgnzW1lOwo0q/HCgzLDR7Li4=; b=eN/qgfbUu5LYjEDPu3bQBRNWJT
-	nDng4lbq0YaU0YNm1apXfmZav0rAq3YPs1VjngWgjaOflt6FwOPUkk44Rd/Zsypp9nBqmc0wS/Prd
-	X1Tf2b/PdsGDQYgpeR0N9ZBVCNtiG7BDIXrsx/YwqX1IHKi+Q2o8ek3ifAIjCad9zQ+Srx3OIuSMO
-	uHDnSDOXCbdorbcZ5lxxyhOlugDpfukBs7cZAvOhI90RbW/XjJWi6z8CiE+moIFU8ODTg+iuzaWiF
-	6S25iu+JRMlbIPOepXrNn66zp3555eg7FLUP3d7reL/9n+NUxuf90bnQYmzjG9j0GqyFf5CehjG1m
-	bIJ5dPmw==;
+	bh=NyPSyRLUOFZ5pN/SoGqXQdqwGa+JGoFeCCOZJivTsn8=; b=BHMrXHkrVaEX4fAoOWSvgiF4om
+	/u4wFEh0HbB21HLqcwBI2wNR0UQaqIVhsmYq6hGG4F9YMwwFAf14hXCsvvuq1TYGAhT3Omb0jrKKz
+	XVCfVXbdPhkqFA6jBE8SF6t96CjwxGI6As7ZDHpha6GBKKGcYH8yTssbdFxYbLtt1fFsyrbe/n89Y
+	2tJqoqQ0inusrDVXbJ5NrenuDVc6pAJUr8aN1jqyvX1caeVuAgXvUlR6pA+pkZ2UZpq41NqljO4e8
+	WhPKFNdOMUNMyIsfKAB34adwmhRYiYfjaYwgr54UuajxtVRcsfFT6CDV/RAXmp/zL7gKKi+gXYXXS
+	ZUkudMFg==;
 From: Heiko Stuebner <heiko@sntech.de>
 To: Sandy Huang <hjc@rock-chips.com>, Andy Yan <andy.yan@rock-chips.com>,
  Maarten Lankhorst <maarten.lankhorst@linux.intel.com>,
@@ -44,17 +44,19 @@ To: Sandy Huang <hjc@rock-chips.com>, Andy Yan <andy.yan@rock-chips.com>,
 Cc: dri-devel@lists.freedesktop.org, linux-arm-kernel@lists.infradead.org,
  linux-rockchip@lists.infradead.org, linux-kernel@vger.kernel.org,
  Chaoyi Chen <chaoyi.chen@rock-chips.com>
-Subject: Re: [PATCH 1/2] drm/rockchip: dsi: Add maximum per lane bit rate calculation
-Date: Tue, 02 Jun 2026 22:59:38 +0200
-Message-ID: <4888940.6M6d0yLqnL@phil>
-In-Reply-To: <20260324085838.90-1-kernel@airkyi.com>
+Subject: Re: [PATCH 2/2] drm/rockchip: dsi: Add dphy_get_timing support for multiple
+ PHY types
+Date: Tue, 02 Jun 2026 23:02:13 +0200
+Message-ID: <7091445.e8TTKsaY2g@phil>
+In-Reply-To: <20260324085838.90-2-kernel@airkyi.com>
 References: <20260324085838.90-1-kernel@airkyi.com>
+ <20260324085838.90-2-kernel@airkyi.com>
 MIME-Version: 1.0
 Content-Transfer-Encoding: quoted-printable
 Content-Type: text/plain; charset="utf-8"
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260602_135954_825159_DB9FF3B8 
-X-CRM114-Status: GOOD (  21.50  )
+X-CRM114-CacheID: sfid-20260602_140221_794390_57861D98 
+X-CRM114-Status: GOOD (  20.48  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -69,195 +71,79 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Am Dienstag, 24. M=C3=A4rz 2026, 09:58:37 Mitteleurop=C3=A4ische Sommerzeit=
+Am Dienstag, 24. M=C3=A4rz 2026, 09:58:38 Mitteleurop=C3=A4ische Sommerzeit=
  schrieb Chaoyi Chen:
 > From: Chaoyi Chen <chaoyi.chen@rock-chips.com>
 >=20
-> Different chips have varying support for the maximum bit rate per lane.
+> Currently, there are generally two types of DPHY for Rockchip. One is
+> the DPHY used by RK3288/RK3399, whose timing is described by Table A-3
+> High-Speed Transition Times in the databook. The other is the DPHY used
+> by PX30 and its successors. If its timing is still described using
+> RK3288/RK3399, it may not perform correctly on some DSI panel.
 >=20
-> Add calculation for the maximum per lane bit rate for various chip
-> platforms, and relax the bandwidth margin requirements.
+> Add dphy_get_timing for different D-PHY types to adapt to timing
+> differences.
 >=20
 > Signed-off-by: Chaoyi Chen <chaoyi.chen@rock-chips.com>
 > ---
->  .../gpu/drm/rockchip/dw-mipi-dsi-rockchip.c   | 21 +++++++++++++++----
->  1 file changed, 17 insertions(+), 4 deletions(-)
+>  .../gpu/drm/rockchip/dw-mipi-dsi-rockchip.c   | 45 ++++++++++++++++++-
+>  1 file changed, 43 insertions(+), 2 deletions(-)
 >=20
 > diff --git a/drivers/gpu/drm/rockchip/dw-mipi-dsi-rockchip.c b/drivers/gp=
 u/drm/rockchip/dw-mipi-dsi-rockchip.c
-> index 3547d91b25d3..d3bacfae174e 100644
+> index d3bacfae174e..2d1c9e54ff85 100644
 > --- a/drivers/gpu/drm/rockchip/dw-mipi-dsi-rockchip.c
 > +++ b/drivers/gpu/drm/rockchip/dw-mipi-dsi-rockchip.c
-> @@ -268,6 +268,7 @@ struct rockchip_dw_dsi_chip_data {
-> =20
->  	unsigned int flags;
->  	unsigned int max_data_lanes;
-> +	unsigned long max_bit_rate_per_lane;
+> @@ -247,6 +247,7 @@ enum {
+>  	BIASEXTR_127_7,
 >  };
 > =20
->  struct dw_mipi_dsi_rockchip {
-> @@ -565,7 +566,7 @@ dw_mipi_dsi_get_lane_mbps(void *priv_data, const stru=
-ct drm_display_mode *mode,
->  	int bpp;
->  	unsigned long mpclk, tmp;
->  	unsigned int target_mbps =3D 1000;
-> -	unsigned int max_mbps =3D dppa_map[ARRAY_SIZE(dppa_map) - 1].max_mbps;
-> +	unsigned int max_mbps;
->  	unsigned long best_freq =3D 0;
->  	unsigned long fvco_min, fvco_max, fin, fout;
->  	unsigned int min_prediv, max_prediv;
-> @@ -573,6 +574,7 @@ dw_mipi_dsi_get_lane_mbps(void *priv_data, const stru=
-ct drm_display_mode *mode,
->  	unsigned long _fbdiv, best_fbdiv;
->  	unsigned long min_delta =3D ULONG_MAX;
+> +struct dw_mipi_dsi_rockchip;
+>  struct rockchip_dw_dsi_chip_data {
+>  	u32 reg;
 > =20
-> +	max_mbps =3D dsi->cdata->max_bit_rate_per_lane;
-
-I may be blind, but how do the values come together?
-In the dppa_map table we have mbps values of 89 to 1500
-(MHz)
-
-While below the values set are
-	.max_bit_rate_per_lane =3D 1500000000UL,
-in Hz I guess
-
-And I don't see the needed conversion somehow.
-
-
->  	dsi->format =3D format;
->  	bpp =3D mipi_dsi_pixel_format_to_bpp(dsi->format);
->  	if (bpp < 0) {
-> @@ -584,8 +586,8 @@ dw_mipi_dsi_get_lane_mbps(void *priv_data, const stru=
-ct drm_display_mode *mode,
+> @@ -262,6 +263,9 @@ struct rockchip_dw_dsi_chip_data {
+>  	u32 lanecfg2_grf_reg;
+>  	u32 lanecfg2;
 > =20
->  	mpclk =3D DIV_ROUND_UP(mode->clock, MSEC_PER_SEC);
->  	if (mpclk) {
-> -		/* take 1 / 0.8, since mbps must big than bandwidth of RGB */
-> -		tmp =3D mpclk * (bpp / lanes) * 10 / 8;
-> +		/* take 1 / 0.9, since mbps must big than bandwidth of RGB */
-> +		tmp =3D mpclk * (bpp / lanes) * 10 / 9;
+> +	int (*dphy_get_timing)(struct dw_mipi_dsi_rockchip *dsi, unsigned int l=
+ane_mbps,
+> +			       struct dw_mipi_dsi_dphy_timing *timing);
+> +
+>  	int (*dphy_rx_init)(struct phy *phy);
+>  	int (*dphy_rx_power_on)(struct phy *phy);
+>  	int (*dphy_rx_power_off)(struct phy *phy);
+> @@ -721,8 +725,9 @@ static struct hstt hstt_table[] =3D {
+>  };
+> =20
+>  static int
+> -dw_mipi_dsi_phy_get_timing(void *priv_data, unsigned int lane_mbps,
+> -			   struct dw_mipi_dsi_dphy_timing *timing)
+> +dw_mipi_dsi_phy_rk3288_get_timing(struct dw_mipi_dsi_rockchip *dsi,
+> +				  unsigned int lane_mbps,
+> +				  struct dw_mipi_dsi_dphy_timing *timing)
+>  {
+>  	int i;
+> =20
+> @@ -738,6 +743,32 @@ dw_mipi_dsi_phy_get_timing(void *priv_data, unsigned=
+ int lane_mbps,
+>  	return 0;
+>  }
+> =20
+> +static const struct dw_mipi_dsi_dphy_timing dphy_timing_px30 =3D {
+> +	.clk_lp2hs =3D 0x40,
+> +	.clk_hs2lp =3D 0x40,
+> +	.data_lp2hs =3D 0x10,
+> +	.data_hs2lp =3D 0x14,
+> +};
 
-Please do this in a separate patch, especially as I would expect some
-sort of explanation on why this is ok to do.
+so just to make sure, the timing on the px30 (and later) variant is the
+same for all lane speeds?
+
+Please include that bit in the commit description
 
 Thanks
 Heiko
-
->  		if (tmp < max_mbps)
->  			target_mbps =3D tmp;
->  		else
-> @@ -595,7 +597,7 @@ dw_mipi_dsi_get_lane_mbps(void *priv_data, const stru=
-ct drm_display_mode *mode,
-> =20
->  	/* for external phy only a the mipi_dphy_config is necessary */
->  	if (dsi->phy) {
-> -		phy_mipi_dphy_get_default_config(mode->clock * 1000 * 10 / 8,
-> +		phy_mipi_dphy_get_default_config(mode->clock * 1000 * 10 / 9,
->  						 bpp, lanes,
->  						 &dsi->phy_opts.mipi_dphy);
->  		dsi->lane_mbps =3D target_mbps;
-> @@ -1503,6 +1505,7 @@ static const struct rockchip_dw_dsi_chip_data px30_=
-chip_data[] =3D {
->  						PX30_DSI_FORCETXSTOPMODE), 0),
-> =20
->  		.max_data_lanes =3D 4,
-> +		.max_bit_rate_per_lane =3D 1000000000UL,
->  	},
->  	{ /* sentinel */ }
->  };
-> @@ -1515,6 +1518,7 @@ static const struct rockchip_dw_dsi_chip_data rk312=
-8_chip_data[] =3D {
->  						RK3128_DSI_FORCERXMODE |
->  						RK3128_DSI_FORCETXSTOPMODE), 0),
->  		.max_data_lanes =3D 4,
-> +		.max_bit_rate_per_lane =3D 1000000000UL,
->  	},
->  	{ /* sentinel */ }
->  };
-> @@ -1527,6 +1531,7 @@ static const struct rockchip_dw_dsi_chip_data rk328=
-8_chip_data[] =3D {
->  		.lcdsel_lit =3D FIELD_PREP_WM16_CONST(RK3288_DSI0_LCDC_SEL, 1),
-> =20
->  		.max_data_lanes =3D 4,
-> +		.max_bit_rate_per_lane =3D 1500000000UL,
->  	},
->  	{
->  		.reg =3D 0xff964000,
-> @@ -1535,6 +1540,7 @@ static const struct rockchip_dw_dsi_chip_data rk328=
-8_chip_data[] =3D {
->  		.lcdsel_lit =3D FIELD_PREP_WM16_CONST(RK3288_DSI1_LCDC_SEL, 1),
-> =20
->  		.max_data_lanes =3D 4,
-> +		.max_bit_rate_per_lane =3D 1500000000UL,
->  	},
->  	{ /* sentinel */ }
->  };
-> @@ -1547,6 +1553,7 @@ static const struct rockchip_dw_dsi_chip_data rk336=
-8_chip_data[] =3D {
->  						RK3368_DSI_FORCETXSTOPMODE |
->  						RK3368_DSI_FORCERXMODE), 0),
->  		.max_data_lanes =3D 4,
-> +		.max_bit_rate_per_lane =3D 1500000000UL,
->  	},
->  	{ /* sentinel */ }
->  };
-> @@ -1634,6 +1641,7 @@ static const struct rockchip_dw_dsi_chip_data rk339=
-9_chip_data[] =3D {
-> =20
->  		.flags =3D DW_MIPI_NEEDS_PHY_CFG_CLK | DW_MIPI_NEEDS_GRF_CLK,
->  		.max_data_lanes =3D 4,
-> +		.max_bit_rate_per_lane =3D 1500000000UL,
->  	},
->  	{
->  		.reg =3D 0xff968000,
-> @@ -1658,6 +1666,7 @@ static const struct rockchip_dw_dsi_chip_data rk339=
-9_chip_data[] =3D {
-> =20
->  		.flags =3D DW_MIPI_NEEDS_PHY_CFG_CLK | DW_MIPI_NEEDS_GRF_CLK,
->  		.max_data_lanes =3D 4,
-> +		.max_bit_rate_per_lane =3D 1500000000UL,
-> =20
->  		.dphy_rx_init =3D rk3399_dphy_tx1rx1_init,
->  		.dphy_rx_power_on =3D rk3399_dphy_tx1rx1_power_on,
-> @@ -1674,6 +1683,7 @@ static const struct rockchip_dw_dsi_chip_data rk350=
-6_chip_data[] =3D {
->  			     FIELD_PREP_WM16_CONST(RK3506_DSI_FORCERXMODE, 0) |
->  			     FIELD_PREP_WM16_CONST(RK3506_DSI_FORCETXSTOPMODE, 0)),
->  		.max_data_lanes =3D 2,
-> +		.max_bit_rate_per_lane =3D 1500000000UL,
->  	},
->  	{ /* sentinel */ }
->  };
-> @@ -1687,6 +1697,7 @@ static const struct rockchip_dw_dsi_chip_data rk356=
-8_chip_data[] =3D {
->  			     FIELD_PREP_WM16_CONST(RK3568_DSI0_TURNDISABLE, 0) |
->  			     FIELD_PREP_WM16_CONST(RK3568_DSI0_FORCERXMODE, 0)),
->  		.max_data_lanes =3D 4,
-> +		.max_bit_rate_per_lane =3D 1200000000UL,
->  	},
->  	{
->  		.reg =3D 0xfe070000,
-> @@ -1696,6 +1707,7 @@ static const struct rockchip_dw_dsi_chip_data rk356=
-8_chip_data[] =3D {
->  			     FIELD_PREP_WM16_CONST(RK3568_DSI1_TURNDISABLE, 0) |
->  			     FIELD_PREP_WM16_CONST(RK3568_DSI1_FORCERXMODE, 0)),
->  		.max_data_lanes =3D 4,
-> +		.max_bit_rate_per_lane =3D 1200000000UL,
->  	},
->  	{ /* sentinel */ }
->  };
-> @@ -1708,6 +1720,7 @@ static const struct rockchip_dw_dsi_chip_data rv112=
-6_chip_data[] =3D {
->  			     FIELD_PREP_WM16_CONST(RV1126_DSI_FORCERXMODE, 0) |
->  			     FIELD_PREP_WM16_CONST(RV1126_DSI_FORCETXSTOPMODE, 0)),
->  		.max_data_lanes =3D 4,
-> +		.max_bit_rate_per_lane =3D 1000000000UL,
->  	},
->  	{ /* sentinel */ }
->  };
->=20
-
-
 
 
 
