@@ -4,126 +4,74 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id C8E29CD6E4A
-	for <linux-arm-kernel@archiver.kernel.org>; Tue,  2 Jun 2026 13:22:35 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 27241CD6E57
+	for <linux-arm-kernel@archiver.kernel.org>; Tue,  2 Jun 2026 13:25:13 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:In-Reply-To:
-	Content-Type:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=3tBd5qtlQQM6qlQnK4AAZQbphq/ZXnGIATGeRrlMWqc=; b=NIenbDMFPwdqkyED4taJXDe99c
-	qH4UEXk0ctv9JtUW1znWNwyArTkEsiL9XTuMTais3T8RKfgqo5XD1i97uwQ44vxZIRRkTWOHNd16k
-	tmNf4kNz1hB8qGhzZDqF/+Nfsz2dJrHCpIrSWRmeoLi7MkgJOB+fdxYVFYEc3lGPwSeYioF5dTD+D
-	LAw2Tgip05vUrz+EiZCQfaS/4/h3jfEs2f1+8Z830n1bvmNHnx/YzjbDH3SR5EGKGJy9hwkmuKnVJ
-	pQXWphSurkit3oFCmFDMCenWuKYNDvgoMsIfQWxWWpqm2Xt5lytNUFKR9UNWoJzb+4t8+czysUhx8
-	6gifS5jQ==;
+	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Reply-To:List-Subscribe:
+	List-Help:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:
+	References:Message-Id:Content-Transfer-Encoding:Content-Type:MIME-Version:
+	Subject:Date:From:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=6WBdBakXihmY/GJUxoEkzfwKpzjkYRjehER8DzO1pXk=; b=fhVzY2TNytFw6v4//5TVYgAYD4
+	rBMYI92+8h3WOkmGxZ965a3TjNRwMlAHQOLfYK4UMvo1nlzL69I6SOEi84K82GyYU1T9kUjOwpr3q
+	xpdm/IlSysg1+fd/5ZeVRkiQ5R7CnAH2NdpE7HbOssCnS+2HQfgpGB2H6yVaCe+0VswZtBObsO19q
+	rOdeCXQiphaBczxuONyAtk9DBzElDc1E9Z1kfEC4hKBU/fltaDKSBYvT42RU7DopRpKaWAvVGuh9p
+	4ljwyeOmjK75u03A8zxboEDQ+MUqM4F7OheycGWv/mzIYr8E6omuG/zUHrhUR+ExmcaibR0ZxHbow
+	Xtz6+p8A==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wUP4f-0000000D5aB-1RmX;
-	Tue, 02 Jun 2026 13:22:29 +0000
-Received: from mail-francesouthazon11011028.outbound.protection.outlook.com ([40.107.130.28] helo=MRWPR03CU001.outbound.protection.outlook.com)
+	id 1wUP7C-0000000D5kC-35Rc;
+	Tue, 02 Jun 2026 13:25:06 +0000
+Received: from tor.source.kernel.org ([2600:3c04:e001:324:0:1991:8:25])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wUP4d-0000000D5ZS-2VXv;
-	Tue, 02 Jun 2026 13:22:28 +0000
-ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
- b=IrInHiNirwltngvpuVeXOutgPKhmOtpCxOUWdCPdFLQD+zerVObxWv9iKYI5Pyr3MO3F9FRjjtbx0r/XlsJIhwN5pVJQvLj/4Sz3WqbiuXnVFP6YPir7LexvfdrmIj0mhOHpOqKSQWesjeFLR6EdS1t+n74ektMxUvnFyeCLuk2Xy1iOb7OYahh2sFuLJURzE84TY2W9YwViWctNED+x6tWIeXrRSIfFb6vYkr+DnNxtjt2AKb0Xp2hI+c5iPNAVngY2mpe0Zx3bsW3pCjNjjCR65Qd8yEg9JHkuJfguaUwHNOJ89jQ8vsuPF7eEl2ewkGUSvdVWeZpHLW0+HsqBYg==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
- s=arcselector10001;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
- bh=3tBd5qtlQQM6qlQnK4AAZQbphq/ZXnGIATGeRrlMWqc=;
- b=qa6JchrIu8o+0C4RqKjxdbgQCqqrBKO5QQZl3wkHFH+7JF5wE1PI5NqLo2tJDZRZV/NBMeBw6DM+blfRLFCgxXBHivSV6vg1zC54ahfwzOpsiz8Fm9Hhu52QhGyLSvDSFxMYWv3qvIK3L5eZZI1WaewQNOqFuhbqVyuqF5yeXSzNS2UDBSFVZYnjp5wT3EQ5C0oceXuuIAaTrI/hdNqZ5GCYhPTleuQgj5xISgCOt/KsDzvr57HQoZz8/Hw843cDDiJyeNXSQCyHSUVzLxd0skbMWrAQu0rp4LgO9NM9GUviawqXCkVyRP4eUzLX9mZFAc/qkzS3nrY7VWJ9a9T1CQ==
-ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
- smtp.mailfrom=nxp.com; dmarc=pass action=none header.from=nxp.com; dkim=pass
- header.d=nxp.com; arc=none
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=nxp.com; s=selector1;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
- bh=3tBd5qtlQQM6qlQnK4AAZQbphq/ZXnGIATGeRrlMWqc=;
- b=JRUwY1C3vSNQNVFa2lRUcMf1O49l/6nht/j2c6eBukJ4f6SgQ1TUpkvasa5Iarx0u+zZuFhma+CwBdMv+gvzdhkzFN9VmPCtMnFYvq74RTLUpOrUxDehp/r5NqALVxqb6+y3QHLotHuytRq/MlN24bkfY3OgsYmnz1SKppldwAe+5sPbU/ibWpy/3BWwiAdE2d4nyrKI1TC3C0mnckBqJBHiSS++je4XUMcyKJF5viECbtbxqvjDCwpUNukemlxaNtQ1srB33sedSaQlIqSsUawZOfDsqCBJRIM5YDL+INSwBbnXDmNcrv25OvG/DlwSYE8EGKapTiys7BK9epotsw==
-Authentication-Results: dkim=none (message not signed)
- header.d=none;dmarc=none action=none header.from=nxp.com;
-Received: from PA4PR04MB9366.eurprd04.prod.outlook.com (2603:10a6:102:2a9::8)
- by GV2PR04MB11591.eurprd04.prod.outlook.com (2603:10a6:150:2b0::8) with
- Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.21.71.16; Tue, 2 Jun 2026
- 13:22:22 +0000
-Received: from PA4PR04MB9366.eurprd04.prod.outlook.com
- ([fe80::75e4:8143:ddbc:6588]) by PA4PR04MB9366.eurprd04.prod.outlook.com
- ([fe80::75e4:8143:ddbc:6588%3]) with mapi id 15.21.0071.015; Tue, 2 Jun 2026
- 13:22:22 +0000
-Date: Tue, 2 Jun 2026 09:22:15 -0400
-From: Frank Li <Frank.li@nxp.com>
-To: Felix Gu <ustc.gu@gmail.com>
-Cc: Vinod Koul <vkoul@kernel.org>,
-	Neil Armstrong <neil.armstrong@linaro.org>,
-	Sascha Hauer <s.hauer@pengutronix.de>,
-	Pengutronix Kernel Team <kernel@pengutronix.de>,
-	Fabio Estevam <festevam@gmail.com>, Xu Yang <xu.yang_2@nxp.com>,
-	linux-phy@lists.infradead.org, imx@lists.linux.dev,
-	linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org
-Subject: Re: [PATCH] phy: fsl-imx8mq-usb: fix vbus regulator leak on error
- paths
-Message-ID: <ah7ZB308_yD7aomh@lizhi-Precision-Tower-5810>
-References: <20260602-imx9mq-v1-1-e58b912923d2@gmail.com>
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-In-Reply-To: <20260602-imx9mq-v1-1-e58b912923d2@gmail.com>
-X-ClientProxiedBy: SA9PR13CA0008.namprd13.prod.outlook.com
- (2603:10b6:806:21::13) To PA4PR04MB9366.eurprd04.prod.outlook.com
- (2603:10a6:102:2a9::8)
+	id 1wUP7B-0000000D5iz-33qA
+	for linux-arm-kernel@lists.infradead.org;
+	Tue, 02 Jun 2026 13:25:05 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by tor.source.kernel.org (Postfix) with ESMTP id 159E860145;
+	Tue,  2 Jun 2026 13:25:05 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPS id B5396C2BCFB;
+	Tue,  2 Jun 2026 13:25:04 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1780406704;
+	bh=llREHz/Ut+hQdQkpSFZF+fPnWztP0SkUaAfxensGHXU=;
+	h=From:Date:Subject:References:In-Reply-To:To:Cc:Reply-To:From;
+	b=t/3oS2bQx3Qz26Thsr/oNR+z61x6rh+qLmSTro0K53zRp7/n8hrdRKUQqEPU4svVb
+	 nds41hXlAPfk+84WupbouTNmJl/DYEJE24eyBMs6458SBKFpJPSDNE/nuX4MEwuFAx
+	 /jQWQ6V0V7ecPCvm72xyDmThLqrXc3btbQzLx78CoROKKV/ZOtVVzdoKfBt3Em6Roc
+	 AjCqMPrkiw8IlfiNmIBwvC1GVY5SDPuFWoARvB1rsp4Ki8XEWQc47whVxRQLQe0ybq
+	 xo2yxVUjFbChqROYg2WT2WsOqlg6ZMWnQL3MHuutv8LZ+GXCogG8jeevDX1P/O6VAd
+	 ww4GIY9vCY7Yw==
+Received: from aws-us-west-2-korg-lkml-1.web.codeaurora.org (localhost.localdomain [127.0.0.1])
+	by smtp.lore.kernel.org (Postfix) with ESMTP id AA27FCD6E4A;
+	Tue,  2 Jun 2026 13:25:04 +0000 (UTC)
+From: Colin Huang via B4 Relay <devnull+u8813345.gmail.com@kernel.org>
+Date: Tue, 02 Jun 2026 21:24:59 +0800
+Subject: [PATCH v3 4/9] ARM: dts: aspeed: anacapa: add DVT devicetree
+ inheriting EVT2
 MIME-Version: 1.0
-X-MS-PublicTrafficType: Email
-X-MS-TrafficTypeDiagnostic: PA4PR04MB9366:EE_|GV2PR04MB11591:EE_
-X-MS-Office365-Filtering-Correlation-Id: 7c6aaf11-22c3-427a-a0d3-08dec0a9fa8e
-X-MS-Exchange-SenderADCheck: 1
-X-MS-Exchange-AntiSpam-Relay: 0
-X-Microsoft-Antispam: BCL:0;ARA:13230040|366016|19092799006|52116014|376014|7416014|1800799024|38350700014|18002099003|3023799007|22082099003|56012099006|11063799006;
-X-Microsoft-Antispam-Message-Info: bMkBW565VfdZGfKFhWLIBhQOvl7miLl7r5e1Sib90doVMXeXWl1OT8TPMVxx4afm0dUwhV6Ko4KeWK+TlkKtM8Rp7Sj7HNR66uoaeiCekLwCfCa86/1XGzRsTpXeEAxRi0xxASRWwKcb3niFoFZW/JwMEfZddpSbJaCH+M7sUP+bIMQiZz/2MM/WcRikzIJCjjoa9JKS2FMtcrf5vrpAtjmj+hqm+wL7NKH2whPlqkIuXXEnu/5buFjyf7najpzFpu0x+Q4cZZIzYgvx+1XpmD43E1KIy1gF/4ifI50WMapb42klTxkWrpRzK/fp969AUP6STc+KhWcQ17xAYVgF2rdcSO4ba61DCQx/hzk3AnG9e33yn1TPi1Otx6fZtz5iGkPraSzG13HjbodmzrwTr/WPUJYmMFzmzJw4O8BV5erEVvL19v4PC3WIHY/etgOlSmJ9RTz3a//TWaHcQSGMwAlj2tnyy95XLxXBe+MZKv3heVMWpJo4OvPkz2PJ4ox6KM6ZAY91EQmJ4jlWZx7r3lQauu6849ViMD8Pr4PXDe9Dll4IIXfpOchIFjs4jm8MVXdpgKHmb/IN4RpeHfsLKWl9rPcRv8CqubpD9u1fSO23Fn9NH9W1gxyrE5q15OG+jvq3vwI9lXey2oi1A9FkYOzvLACp5X5YEw6VCSfdcFjrM+IQqd5YeTw/RC8+yVMqpa5b4WzaPfT2tnSdyIgW/4Vj61IBCl3PsD87tYn6EO871oYflbAk0BDWAEdpyROl
-X-Forefront-Antispam-Report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:PA4PR04MB9366.eurprd04.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(366016)(19092799006)(52116014)(376014)(7416014)(1800799024)(38350700014)(18002099003)(3023799007)(22082099003)(56012099006)(11063799006);DIR:OUT;SFP:1101;
-X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
-X-MS-Exchange-AntiSpam-MessageData-0: =?us-ascii?Q?ACqeLoxl22BwfxLtLwCQHy/yEnBYlD/eSrvktj/ATtv0NaOHfIJL8QEdxAIR?=
- =?us-ascii?Q?qUhsGJbLSXALifbqsvj7NpP5qmaGQX6wBR95sqe6DEMsgn1/W8I1CBmZZ152?=
- =?us-ascii?Q?knCREFZHq5J/9yJf6YDfwN7jVitvHobM1C6W1OOZpqEs4+MJLLV+qY8ynKLa?=
- =?us-ascii?Q?ubt8nB6kjNuiYouz7RgRzDQMXtQ+Vo5+12uZSjVpiVurvdxjb9kRRxSjwjjl?=
- =?us-ascii?Q?g5lg9KGWbWsDNBFhePKRuerDsa2GammmF7/C3uT4jYzQNFyVyaoSncAnR4xT?=
- =?us-ascii?Q?v2618aNiHUkhT2X/Xiz1bvXZIillgiz75HwwgsicNd8JF+zSoVso615yAHJr?=
- =?us-ascii?Q?DX9FSUVgqohoUt2s6q0Hz09odJiolmYb4BYdWNb89Be+kAjyJZybUXTMr8yq?=
- =?us-ascii?Q?/YALm6La91qaqMpW7ojd1LX5z4berl/sSxbAI/kulnJWvUzZ4rNQ4n2aFghf?=
- =?us-ascii?Q?QsOm8/D481CqVo1OSzbzHw2dN/2+35UvFCFky15TT1xL7aXYiUdGa0Ldm4nJ?=
- =?us-ascii?Q?w6c4kgI0KxC06UhxuQ96tptnflulkFM8uR06qgmIbDbCNOc0yOE+3h56z+sP?=
- =?us-ascii?Q?FDnMr9hM5QsuMUl4H4qyE5Gj2GzkrofNnKphqhT+Zli5JIjCu3GILq/ng8t8?=
- =?us-ascii?Q?w3jJzdLtMv6tE+IhmCMs2Oj75RDdVnhNx0zlvUlsbnhPx0M2m1YaXlAhyhOs?=
- =?us-ascii?Q?ltwUlI3rRGIIotn/tOg/oaIZZsxBvXLWa3KbVVXSp9IdiqJDjHqmwqlMXDiK?=
- =?us-ascii?Q?DonyIbkOnFx+pK9cUqSenad/i8+hdschUdM5uDBPYkfX1afmKST1ShCJ4+4f?=
- =?us-ascii?Q?oG3DouG1LOXOOcZE/rGJi2TK+qqrneg0zO7iOWEle32ftTvHNBk1d2T/uoDW?=
- =?us-ascii?Q?mo8iUkCkWzD7cC8PQMSuTDdcOiKkvvaWr3wX5SF5frofLvpGr6/YzXTpvisa?=
- =?us-ascii?Q?Lo/ITqH1HXD998OPql+ZJRXArYUHUL00yaMrqxUbgIqF3CiFJHchU85vNOga?=
- =?us-ascii?Q?uTW+iPc2FEsX+Fn7+rMCLBmNNMp8jTUoycGxEvDyozN2SNtDppkK2Nm6h/QL?=
- =?us-ascii?Q?MwKdUjtvSxelhn4WknqlF5Eg63OgWt5PF7q3jv/JykDnxEci/JxqfGAnfQ65?=
- =?us-ascii?Q?ApWpQl0sgTfjYW6Ll4TSqCcUDcko3jy7vV/+XWo1LGmiqNhlnhxuX/025eVb?=
- =?us-ascii?Q?GOFm2HGM1x7WjW/9ygu6MIuMlshtd/n42C0NJ2bQRkgF1F8So2DGrC5Zndmv?=
- =?us-ascii?Q?Mtddc8ngrSqomM3BjQHqkQIh2I3blvdTF+KFg0UzqeG0i+eBP35oplZUAo5M?=
- =?us-ascii?Q?ktG4bXzdUavXF/NTvfSvWzCz6UcMzbOjNATtD1i5EXTIrPO7jnAj8LfUd8iT?=
- =?us-ascii?Q?UBYRLNGhKETvT5gjogfaj67nyuiifos4ywkpm7riC+QloqPa5fN+X//U5FHr?=
- =?us-ascii?Q?Rymqq0sR+xBgW9pp/w0FeXmhHywgAed5l3MaBADd9U2h1l0NxYd7ZPKnZpXZ?=
- =?us-ascii?Q?PlKyR/WMkuQhxb6G3BXdX6Af2XLhmWyTBwm9dlk3JEIJg9rFMKyJ94ksSp/W?=
- =?us-ascii?Q?eG8Cbj9Gc3Ab4P2FH+wmLEf43jkMQcERloODP85TfaV4vjqOuDl9K1MfbAMK?=
- =?us-ascii?Q?WNHJyGSNqDeERGfauTWeROya2VbLVYHpVXOtbNDFXO3alkoqTrz0/UsMhW34?=
- =?us-ascii?Q?c6USxygV1d7abRk4U/IW3maTwBhbQ0f8A6PjGSPXcScK+Rzv?=
-X-OriginatorOrg: nxp.com
-X-MS-Exchange-CrossTenant-Network-Message-Id: 7c6aaf11-22c3-427a-a0d3-08dec0a9fa8e
-X-MS-Exchange-CrossTenant-AuthSource: PA4PR04MB9366.eurprd04.prod.outlook.com
-X-MS-Exchange-CrossTenant-AuthAs: Internal
-X-MS-Exchange-CrossTenant-OriginalArrivalTime: 02 Jun 2026 13:22:22.0524
- (UTC)
-X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
-X-MS-Exchange-CrossTenant-Id: 686ea1d3-bc2b-4c6f-a92c-d99c5c301635
-X-MS-Exchange-CrossTenant-MailboxType: HOSTED
-X-MS-Exchange-CrossTenant-UserPrincipalName: HerZrxx2AI2JWzRHSZ3qoFhri4SQa+WG3BQgVmjGiJAIXUAGd1UyYA2EpulcPEa6vxsDehEH1A31Yn/pgcwigA==
-X-MS-Exchange-Transport-CrossTenantHeadersStamped: GV2PR04MB11591
-X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260602_062227_647494_EEFA9846 
-X-CRM114-Status: GOOD (  19.94  )
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: 7bit
+Message-Id: <20260602-anacapa-devlop-phase-devicetree-v3-4-7c93c5df8d9b@gmail.com>
+References: <20260602-anacapa-devlop-phase-devicetree-v3-0-7c93c5df8d9b@gmail.com>
+In-Reply-To: <20260602-anacapa-devlop-phase-devicetree-v3-0-7c93c5df8d9b@gmail.com>
+To: Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>, 
+ Conor Dooley <conor+dt@kernel.org>, Joel Stanley <joel@jms.id.au>, 
+ Andrew Jeffery <andrew@codeconstruct.com.au>
+Cc: devicetree@vger.kernel.org, linux-arm-kernel@lists.infradead.org, 
+ linux-aspeed@lists.ozlabs.org, linux-kernel@vger.kernel.org, 
+ colin.huang2@amd.com, Colin Huang <u8813345@gmail.com>
+X-Mailer: b4 0.14.3
+X-Developer-Signature: v=1; a=ed25519-sha256; t=1780406700; l=6004;
+ i=u8813345@gmail.com; s=20260202; h=from:subject:message-id;
+ bh=4qBFnetVkREYSIu12suaMhNwE7VlH8Jb8tWdL8ayTVM=;
+ b=y4Ut/IWY6TCuDjo7AuJdNB+H+w0A5uQ76yXjqgGzhKx/3Z5t0AUeRAdSgmqT/6/n8cZCkFlg/
+ i6gB8BSAipBDWZO9jDbsxjd2HnP8/VWplsQB55e35O1/YC9YusoHiPg
+X-Developer-Key: i=u8813345@gmail.com; a=ed25519;
+ pk=Zlg0WqpCw4qbswOqamTBTXIchwR/3SnYZpy7rjaGMdQ=
+X-Endpoint-Received: by B4 Relay for u8813345@gmail.com/20260202 with
+ auth_id=761
+X-Original-From: Colin Huang <u8813345@gmail.com>
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -135,69 +83,219 @@ List-Post: <mailto:linux-arm-kernel@lists.infradead.org>
 List-Help: <mailto:linux-arm-kernel-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
  <mailto:linux-arm-kernel-request@lists.infradead.org?subject=subscribe>
+Reply-To: u8813345@gmail.com
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Tue, Jun 02, 2026 at 09:14:33PM +0800, Felix Gu wrote:
-> In imx8mq_phy_power_on(), if clk_prepare_enable() fails after
-> regulator_enable() has succeeded, the vbus regulator is left
-> enabled. The same issue exists for the alt_clk error path.
->
-> Fix both by converting to the standard goto-based cleanup
-> pattern, ensuring the regulator is disabled when any
-> subsequent step fails.
->
-> Fixes: 3b64ea4768e7 ("phy: fsl-imx8mq-usb: support alternate reference clock")
-> Signed-off-by: Felix Gu <ustc.gu@gmail.com>
-> ---
+From: Colin Huang <u8813345@gmail.com>
 
-Reviewed-by: Frank Li <Frank.Li@nxp.com>
+Add a development-phase devicetree for the Facebook Anacapa BMC DVT
+hardware revision and update the Anacapa wrapper DTS to reference
+it.
 
->  drivers/phy/freescale/phy-fsl-imx8mq-usb.c | 15 ++++++++++-----
->  1 file changed, 10 insertions(+), 5 deletions(-)
->
-> diff --git a/drivers/phy/freescale/phy-fsl-imx8mq-usb.c b/drivers/phy/freescale/phy-fsl-imx8mq-usb.c
-> index b05d80e849a1..e45e4f16057e 100644
-> --- a/drivers/phy/freescale/phy-fsl-imx8mq-usb.c
-> +++ b/drivers/phy/freescale/phy-fsl-imx8mq-usb.c
-> @@ -627,13 +627,11 @@ static int imx8mq_phy_power_on(struct phy *phy)
->
->  	ret = clk_prepare_enable(imx_phy->clk);
->  	if (ret)
-> -		return ret;
-> +		goto disable_vbus;
->
->  	ret = clk_prepare_enable(imx_phy->alt_clk);
-> -	if (ret) {
-> -		clk_disable_unprepare(imx_phy->clk);
-> -		return ret;
-> -	}
-> +	if (ret)
-> +		goto disable_clk;
->
->  	/* Disable rx term override */
->  	value = readl(imx_phy->base + PHY_CTRL6);
-> @@ -641,6 +639,13 @@ static int imx8mq_phy_power_on(struct phy *phy)
->  	writel(value, imx_phy->base + PHY_CTRL6);
->
->  	return 0;
-> +
-> +disable_clk:
-> +	clk_disable_unprepare(imx_phy->clk);
-> +disable_vbus:
-> +	regulator_disable(imx_phy->vbus);
-> +
-> +	return ret;
->  }
->
->  static int imx8mq_phy_power_off(struct phy *phy)
->
-> ---
-> base-commit: 08484c504b55a98bd100527fbe10a3caf55ff3ff
-> change-id: 20260602-imx9mq-30169239b590
->
-> Best regards,
-> --
-> Felix Gu <ustc.gu@gmail.com>
->
+Signed-off-by: Colin Huang <u8813345@gmail.com>
+---
+ .../dts/aspeed/aspeed-bmc-facebook-anacapa-dvt.dts | 178 +++++++++++++++++++++
+ .../dts/aspeed/aspeed-bmc-facebook-anacapa.dts     |   2 +-
+ 2 files changed, 179 insertions(+), 1 deletion(-)
+
+diff --git a/arch/arm/boot/dts/aspeed/aspeed-bmc-facebook-anacapa-dvt.dts b/arch/arm/boot/dts/aspeed/aspeed-bmc-facebook-anacapa-dvt.dts
+new file mode 100644
+index 000000000000..0eb547ad0ec1
+--- /dev/null
++++ b/arch/arm/boot/dts/aspeed/aspeed-bmc-facebook-anacapa-dvt.dts
+@@ -0,0 +1,178 @@
++// SPDX-License-Identifier: GPL-2.0-or-later
++
++/dts-v1/;
++#include "aspeed-bmc-facebook-anacapa-evt2.dts"
++
++/ {
++	model = "Facebook Anacapa BMC";
++	compatible = "facebook,anacapa-bmc-dvt", "aspeed,ast2600";
++};
++
++&sgpiom0 {
++	ngpios = <128>;
++	bus-frequency = <2000000>;
++	gpio-line-names =
++	/*in - out */
++	/* A0-A7 line 0-15 */
++	"L_FNIC_FLT", "FM_CPU0_SYS_RESET_N",
++	"L_BNIC0_FLT", "CPU0_KBRST_N",
++	"L_BNIC1_FLT", "FM_CPU0_PROCHOT_trigger_N",
++	"L_BNIC2_FLT", "FM_CLR_CMOS_R_P0",
++	"L_BNIC3_FLT", "Force_I3C_SEL",
++	"L_RTM_SW_FLT", "SYSTEM_Force_Run_AC_Cycle",
++	"", "",
++	"", "",
++
++	/* B0-B7 line 16-31 */
++	"Channel0_leakage_EAM3", "FM_CPU_FPGA_JTAG_MUX_SEL",
++	"Channel1_leakage_EAM0", "FM_SCM_JTAG_MUX_SEL",
++	"Channel2_leakage_Manifold1", "FM_BRIDGE_JTAG_MUX_SEL",
++	"Channel5_leakage_present_EAM1", "FM_CPU0_NMI_SYNC_FLOOD_N",
++	"Channel4_leakage_Manifold2", "BMC_AINIC0_WP_R2_L",
++	"Channel5_leakage_EAM1", "BMC_AINIC1_WP_R2_L",
++	"Channel6_leakage_CPU_DIMM", "CPLD_BUF_R_AGPIO330",
++	"Channel7_leakage_EAM2", "CPLD_BUF_R_AGPIO331",
++
++	/* C0-C7 line 32-47 */
++	"RSVD_RMC_GPIO3", "RTM_MUX_L",
++	"LEAK_DETECT_RMC_N", "RTM_MUX_R",
++	"HDR_P0_NMI_BTN_BUF_R_N", "FPGA_JTAG_SCM_DBREQ_N",
++	"Channel6_leakage_present_CPU_DIMM", "whdt_sel",
++	"R_EAM0_NIC_CBL_PRSNT_L", "JTAG_CPLD_TRST_R_N",
++	"R_EAM1_NIC_CBL_PRSNT_L", "",
++	"L_EAM0_NIC_CBL_PRSNT_L", "",
++	"L_EAM1_NIC_CBL_PRSNT_L", "",
++
++	/* D0-D7 line 48-63 */
++	"Channel0_leakage_present_EAM3", "",
++	"Channel1_leakage_present_EAM0", "",
++	"Channel2_leakage_present_Manifold1", "",
++	"Channel4_leakage_present_Manifold2", "",
++	"AMC_BRD_PRSNT_CPLD_L", "",
++	"Channel7_leakage_present_EAM2", "",
++	"", "",
++	"", "",
++
++	/* E0-E7 line 64-79 */
++	"L_PRSNT_B_FENIC_R2_N", "",
++	"L_PRSNT_B_BENIC0_R2_N", "",
++	"L_PRSNT_B_BENIC1_R2_N", "",
++	"L_PRSNT_B_BENIC2_R2_N", "",
++	"L_PRSNT_B_BENIC3_R2_N", "",
++	"", "",
++	"", "",
++	"", "",
++
++	/* F0-F7 line 80-95 */
++	"R_PRSNT_B_FENIC_R2_N", "SGPIO_READY",
++	"R_PRSNT_B_BENIC0_R2_N", "",
++	"R_PRSNT_B_BENIC1_R2_N", "",
++	"R_PRSNT_B_BENIC2_R2_N", "",
++	"R_PRSNT_B_BENIC3_R2_N", "",
++	"", "",
++	"", "",
++	"", "",
++
++	/* G0-G7 line 96-111 */
++	"L_PRSNT_EDSFF0_N", "",
++	"L_PRSNT_EDSFF1_N", "",
++	"R_PRSNT_EDSFF2_N", "",
++	"R_PRSNT_EDSFF3_N", "",
++	"HPM_EDSFF_PG", "",
++	"", "",
++	"P12V_PWR_CABLE_PRSNT_L_R", "FM_BMC_READY_PLD",
++	"PRSNT_NFC_BOARD_R", "",
++
++	/* H0-H7 line 112-127 */
++	"R_FNIC_FLT", "",
++	"R_BNIC0_FLT", "",
++	"R_BNIC1_FLT", "",
++	"R_BNIC2_FLT", "",
++	"R_BNIC3_FLT", "",
++	"R_RTM_SW_FLT", "",
++	"RBB_Cable_Present", "",
++	"LBB_Cable_Present", "",
++
++	/* I0-I7 line 128-143 */
++	"EAM0_BRD_PRSNT_R_L", "",
++	"EAM1_BRD_PRSNT_R_L", "",
++	"EAM2_BRD_PRSNT_R_L", "",
++	"EAM3_BRD_PRSNT_R_L", "",
++	"FM_TPM_PRSNT_R_N", "",
++	"PDB_L_PRSNT_R_N", "",
++	"PRSNT_EDSFF_BOOT_N", "",
++	"PRSNT_CPU0_N", "",
++
++	/* J0-J7 line 144-159 */
++	"PRSNT_L_BRIDGE_R", "",
++	"PRSNT_R_BRIDGE_R", "",
++	"BRIDGE_L_MAIN_PG_R", "",
++	"BRIDGE_R_MAIN_PG_R", "",
++	"BRIDGE_L_STBY_PG_R", "",
++	"BRIDGE_R_STBY_PG_R", "",
++	"IRQ_NFC_BOARD_R", "",
++	"RSMRST_N", "",
++
++	/* K0-K7 line 160-175 */
++	"ADC_I2C_ALERT_N", "",
++	"TEMP_I2C_ALERT_R_L", "",
++	"CPU0_VR_SMB_ALERT_CPLD_N", "",
++	"COVER_INTRUDER_R_N", "",
++	"HANDLE_INTRUDER_CPLD_N", "",
++	"IRQ_MCIO_CPLD_WAKE_R_N", "",
++	"APML_CPU0_ALERT_R_N", "",
++	"PDB_ALERT_R_N", "",
++
++	/* L0-L7 line 176-191 */
++	"L_EDSFF0_PG", "",
++	"L_EDSFF1_PG", "",
++	"R_EDSFF2_PG", "",
++	"R_EDSFF3_PG", "",
++	"HPM_CPLD_HEART_BIT", "",
++	"RBB_CPLD_HEART_BIT", "",
++	"LBB_CPLD_HEART_BIT", "",
++	"FM_BIOS_POST_CMPLT_R_N", "",
++
++	/* M0-M7 line 192-207 */
++	"EAM0_SMERR_CPLD_R_L", "",
++	"EAM1_SMERR_CPLD_R_L", "",
++	"EAM2_SMERR_CPLD_R_L", "",
++	"EAM3_SMERR_CPLD_R_L", "",
++	"CPU0_SMERR_N_R", "",
++	"CPU0_NV_SAVE_N_R", "",
++	"PDB_PWR_LOSS_CPLD_N", "",
++	"IRQ_BMC_SMI_ACTIVE_R_N", "",
++
++	/* N0-N7 line 208-223 */
++	"AMCROT_BMC_S5_RDY_R", "",
++	"AMC_RDY_R", "",
++	"AMC_STBY_PGOOD_R", "",
++	"CPU_AMC_SLP_S5_R_L", "",
++	"AMC_CPU_EAMPG_R", "",
++	"DIMM_PMIC_PG_TIMEOUT", "",
++	"EAM_MOD_PWR_GD_TIMEOUT", "",
++	"CPLD_AMC_STBY_PWR_EN", "",
++
++	/* O0-O7 line 224-239 */
++	"HPM_PWR_FAIL", "Port80_b0",
++	"FM_DIMM_IP_FAIL", "Port80_b1",
++	"FM_DIMM_AH_FAIL", "Port80_b2",
++	"AMC_THERMTRIP_ASSERT", "Port80_b3",
++	"CPU_THERMTRIP_ASSERT", "Port80_b4",
++	"PVDDCR_SOC_P0_OCP_L", "Port80_b5",
++	"CPLD_SGPIO_RDY", "Port80_b6",
++	"FM_MAIN_PWREN_RMC_EN_ISO", "Port80_b7",
++
++	/* P0-P7 line 240-255 */
++	"CPU0_SLP_S5_N_R", "NFC_VEN",
++	"CPU0_SLP_S3_N_R", "",
++	"FM_CPU0_PWRGD", "",
++	"PWRGD_RMC", "",
++	"FM_RST_CPU0_RESET_N", "RBB_CPLD_RISCV_RST",
++	"FM_PWRGD_CPU0_PWROK", "LBB_CPLD_RISCV_RST",
++	"AMC_FAIL", "HPM_CPLD_RISCV_RST",
++	"S0_ON", "";
++
++	status = "okay";
++};
++
+diff --git a/arch/arm/boot/dts/aspeed/aspeed-bmc-facebook-anacapa.dts b/arch/arm/boot/dts/aspeed/aspeed-bmc-facebook-anacapa.dts
+index 1848ca347621..c74b211c42e6 100644
+--- a/arch/arm/boot/dts/aspeed/aspeed-bmc-facebook-anacapa.dts
++++ b/arch/arm/boot/dts/aspeed/aspeed-bmc-facebook-anacapa.dts
+@@ -1,4 +1,4 @@
+ // SPDX-License-Identifier: GPL-2.0-or-later
+ 
+-#include "aspeed-bmc-facebook-anacapa-evt2.dts"
++#include "aspeed-bmc-facebook-anacapa-dvt.dts"
+ 
+
+-- 
+2.34.1
+
+
 
