@@ -4,69 +4,66 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 3564DCD6E68
-	for <linux-arm-kernel@archiver.kernel.org>; Tue,  2 Jun 2026 16:21:57 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id D9C9ECD6E64
+	for <linux-arm-kernel@archiver.kernel.org>; Tue,  2 Jun 2026 16:24:59 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
 	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
 	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=UHhslRdCb64uAeyYNctM3W9sIiDue6c1zUXUsmVQdDw=; b=o9MzYkp4ALb7pVbHEsrogjWMA8
-	coWtwXAoc+bSTU2wn3tK7B2CtgrDSPLMcuWIF+k/BgPuPn1tFWhWfmVol8FSacMsnqexly+Z/nO3M
-	pWyRFogYiZehPpqQCKMzf50AGcM5hBJB2Ert/Pd6t8wSyOMSfwtMzTuAJKP2uodT8AHr9HlyQqXJg
-	18wPqHvbr332h1UNRp9apqRkoYosaEQuY6V0tlMbBycNGsbqiGuBPPgChQ4I4KXO8gqpaRS5xbpAJ
-	namQmM+VPip7HwkqPMBda1POYquMGGVwxmGNL8voTjRjCjrBJ5oRZXcAcF8ujQV7xCGNiSuDkBik9
-	yxIl1zNQ==;
+	bh=ARchzyUNZAbw3oM5o7JzGNUTWxidv0kmAjA3GG9Rj+I=; b=4OkpVl3FgrewqTzcM1rhEFZJgB
+	ONCiuudnptKMknPUkTHqoL4s/sD/54xUb0kVwIRqho+qUWAMr+3EX+7d0lM7WjVYdXTbupSbBRM6R
+	XrT0FSufJLIz+yJWuIF5j5C8L/12dtxJpZVokpYItBePAh0aM8XiODwG3zj34YVaa2WanRLy8q3Bb
+	5GvKAs3p+Q8/+aBlByXoplMJ4kPAMPR9j/54iWfzAaFgKtRLRmTBnJlg8tG58fxyfupXCxbOXLPqi
+	nqN0B0zJBRnxT1V+MHDt0nnoOxDPdID4Wy7eWu4iND+z8zdm78rseRWSHgfi7JvcNBl/vEUtVv1pH
+	F+lQ32tA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wURsF-0000000DQbl-1D7z;
-	Tue, 02 Jun 2026 16:21:51 +0000
-Received: from tor.source.kernel.org ([172.105.4.254])
+	id 1wURvB-0000000DQw0-3OS5;
+	Tue, 02 Jun 2026 16:24:53 +0000
+Received: from tor.source.kernel.org ([2600:3c04:e001:324:0:1991:8:25])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wURsE-0000000DQb7-14CU;
-	Tue, 02 Jun 2026 16:21:50 +0000
+	id 1wURvA-0000000DQvQ-0poq;
+	Tue, 02 Jun 2026 16:24:52 +0000
 Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
-	by tor.source.kernel.org (Postfix) with ESMTP id 900AE6001A;
-	Tue,  2 Jun 2026 16:21:49 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 294731F00893;
-	Tue,  2 Jun 2026 16:21:46 +0000 (UTC)
+	by tor.source.kernel.org (Postfix) with ESMTP id 808B96001A;
+	Tue,  2 Jun 2026 16:24:51 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 112731F00893;
+	Tue,  2 Jun 2026 16:24:51 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1780417309;
-	bh=UHhslRdCb64uAeyYNctM3W9sIiDue6c1zUXUsmVQdDw=;
+	s=k20260515; t=1780417491;
+	bh=ARchzyUNZAbw3oM5o7JzGNUTWxidv0kmAjA3GG9Rj+I=;
 	h=Date:From:To:Cc:Subject:References:In-Reply-To;
-	b=i6OMW+cKx7zXo90uE8WPiS/OcVuI7uDGylbGIqiWQu/iVicaSM+DeEqQXJGZgk1OM
-	 IwDdZDUjqr9ntqqtBnHhSlVGJ3pjMA5BuvXq52ZMR7U7t3oZQUNF8jtZk+ZwcRP9hc
-	 D61ZQrbLjbtT5RO3hyuYOkE7XNJAIp/9EfedL7TXY87GOrYpVa/Sv5OVr/lSqUti5d
-	 72u7DVutWn4bGcGII3fkV4HtfWPqmtqV7oJK0yYoPS9cthoXN2w+wtVcLxSGNSg6XS
-	 v6M/90d4HVUGBK/JsRPbA15VcpcWK0jZYLMglbsTdx8mWmoqkjwg+39Vo6paf66FZ6
-	 7Qy55uJv251Ig==
-Date: Tue, 2 Jun 2026 17:21:44 +0100
-From: Conor Dooley <conor@kernel.org>
-To: rva333@protonmail.com
-Cc: Jonathan Cameron <jic23@kernel.org>,
-	David Lechner <dlechner@baylibre.com>,
-	Nuno =?iso-8859-1?Q?S=E1?= <nuno.sa@analog.com>,
-	Andy Shevchenko <andy@kernel.org>, Rob Herring <robh@kernel.org>,
-	Krzysztof Kozlowski <krzk+dt@kernel.org>,
-	Conor Dooley <conor+dt@kernel.org>,
-	Matthias Brugger <matthias.bgg@gmail.com>,
-	AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>,
-	Lee Jones <lee@kernel.org>, linux-iio@vger.kernel.org,
-	devicetree@vger.kernel.org, linux-kernel@vger.kernel.org,
-	linux-arm-kernel@lists.infradead.org,
-	linux-mediatek@lists.infradead.org,
-	Ben Grisdale <bengris32@protonmail.ch>
-Subject: Re: [PATCH 1/4] dt-bindings: iio: adc: mediatek,mt6359-auxadc: add
- mt6323 PMIC AUXADC
-Message-ID: <20260602-paramedic-savor-d18b45241914@spud>
-References: <20260602-mt6323-adc-v1-0-68ec737508ee@protonmail.com>
- <20260602-mt6323-adc-v1-1-68ec737508ee@protonmail.com>
+	b=hWgXm3gqMKY1cga0sOGDmfX5tuur2FyZ2+UBKReLheii8J6pYT4NdM8Jm0IdJQTQn
+	 YWb5GtNBHGO5azMu8v0S2CijL/q9nO0etmifndyKMg/5hUFS6st/r1flJP8/8tttch
+	 THCbDFAXfUiokcjRZ8qLXphB/uxFsMKIq/qqcvhpFYvqfilke+/F4bnb9zSexfdfMJ
+	 PBW5qll4e5sf/7LoTMSvRxiI3pFmz3IHO5uXBSfN1L/ZrofDyZuS5elvTeSfdzxzJ/
+	 QHyYqEaWl9xKmA0OOuDM8nLNcMlZp52JjLzyOmS/xiU9ZsWzbevIAWWlCjMz0sBFvA
+	 xnlna8VtJdPPA==
+Date: Tue, 2 Jun 2026 11:24:50 -0500
+From: Rob Herring <robh@kernel.org>
+To: Wandun Chen <chenwandun1@gmail.com>
+Cc: linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org,
+	loongarch@lists.linux.dev, linux-riscv@lists.infradead.org,
+	devicetree@vger.kernel.org, kexec@lists.infradead.org,
+	iommu@lists.linux.dev, zhaomeijing@lixiang.com,
+	catalin.marinas@arm.com, will@kernel.org, chenhuacai@kernel.org,
+	kernel@xen0n.name, pjw@kernel.org, palmer@dabbelt.com,
+	aou@eecs.berkeley.edu, alex@ghiti.fr, saravanak@kernel.org,
+	akpm@linux-foundation.org, bhe@redhat.com, rppt@kernel.org,
+	pasha.tatashin@soleen.com, pratyush@kernel.org,
+	ruirui.yang@linux.dev, m.szyprowski@samsung.com,
+	robin.murphy@arm.com, quic_obabatun@quicinc.com
+Subject: Re: [PATCH v3 03/11] of: reserved_mem: avoid post-init UAF when
+ alloc_reserved_mem_array() fails
+Message-ID: <20260602162450.GA442759-robh@kernel.org>
+References: <20260527032917.3385849-1-chenwandun1@gmail.com>
+ <20260527032917.3385849-4-chenwandun1@gmail.com>
 MIME-Version: 1.0
-Content-Type: multipart/signed; micalg=pgp-sha512;
-	protocol="application/pgp-signature"; boundary="IJiwimoZW+P1otaL"
+Content-Type: text/plain; charset=us-ascii
 Content-Disposition: inline
-In-Reply-To: <20260602-mt6323-adc-v1-1-68ec737508ee@protonmail.com>
+In-Reply-To: <20260527032917.3385849-4-chenwandun1@gmail.com>
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -81,24 +78,68 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
+On Wed, May 27, 2026 at 11:29:09AM +0800, Wandun Chen wrote:
+> From: Wandun Chen <chenwandun@lixiang.com>
+> 
+> The global pointer 'reserved_mem' continues to reference the
+> reserved_mem_array which lives in __initdata if
+> alloc_reserved_mem_array() fails. of_reserved_mem_lookup() is
+> exported for post-init use, that would dereference freed memory
+> and trigger a use-after-free.
+> 
+> So reset reserved_mem_count to 0 when alloc_reserved_mem_array()
+> fails.
+> 
+> Fixes: 00c9a452a235 ("of: reserved_mem: Add code to dynamically allocate reserved_mem array")
 
---IJiwimoZW+P1otaL
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
+Fixes should come first in a series.
 
-Acked-by: Conor Dooley <conor.dooley@microchip.com>
-pw-bot: not-applicable
+> Signed-off-by: Wandun Chen <chenwandun@lixiang.com>
+> ---
+>  drivers/of/of_reserved_mem.c | 20 ++++++++++++++------
+>  1 file changed, 14 insertions(+), 6 deletions(-)
+> 
+> diff --git a/drivers/of/of_reserved_mem.c b/drivers/of/of_reserved_mem.c
+> index 313cbc57aa45..6d479381ff1f 100644
+> --- a/drivers/of/of_reserved_mem.c
+> +++ b/drivers/of/of_reserved_mem.c
+> @@ -69,29 +69,31 @@ static int __init early_init_dt_alloc_reserved_memory_arch(phys_addr_t size,
+>   * the initial static array is copied over to this new array and
+>   * the new array is used from this point on.
+>   */
+> -static void __init alloc_reserved_mem_array(void)
+> +static bool __init alloc_reserved_mem_array(void)
+>  {
+>  	struct reserved_mem *new_array;
+>  	size_t alloc_size, copy_size, memset_size;
+>  
+> +	if (!total_reserved_mem_cnt)
+> +		return true;
+> +
+>  	alloc_size = array_size(total_reserved_mem_cnt, sizeof(*new_array));
+>  	if (alloc_size == SIZE_MAX) {
+>  		pr_err("Failed to allocate memory for reserved_mem array with err: %d", -EOVERFLOW);
+> -		return;
+> +		goto fail;
+>  	}
+>  
+>  	new_array = memblock_alloc(alloc_size, SMP_CACHE_BYTES);
+>  	if (!new_array) {
+>  		pr_err("Failed to allocate memory for reserved_mem array with err: %d", -ENOMEM);
+> -		return;
+> +		goto fail;
+>  	}
+>  
+>  	copy_size = array_size(reserved_mem_count, sizeof(*new_array));
+>  	if (copy_size == SIZE_MAX) {
+>  		memblock_free(new_array, alloc_size);
+> -		total_reserved_mem_cnt = MAX_RESERVED_REGIONS;
+>  		pr_err("Failed to allocate memory for reserved_mem array with err: %d", -EOVERFLOW);
 
---IJiwimoZW+P1otaL
-Content-Type: application/pgp-signature; name="signature.asc"
+These prints could be moved to 'fail'. Perhaps instead of just printing 
+an error value, you can return the error value instead of boolean.
 
------BEGIN PGP SIGNATURE-----
+If you respin just this patch, I can pick it up for 7.2.
 
-iHUEABYKAB0WIQRh246EGq/8RLhDjO14tDGHoIJi0gUCah8DGAAKCRB4tDGHoIJi
-0kW+AQCQIb8fbQspyzRXQ31z317U3glZxhw+7Cyj4mh7Xu2LSgD/Q+ATNfJMuTbI
-u1ybBxzqgJ6j/WnDdxqpZN+NAU2qIww=
-=Hak5
------END PGP SIGNATURE-----
-
---IJiwimoZW+P1otaL--
+Rob
 
