@@ -4,70 +4,84 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 2F1AACD6E4A
-	for <linux-arm-kernel@archiver.kernel.org>; Tue,  2 Jun 2026 09:34:20 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 21D3ACD6E57
+	for <linux-arm-kernel@archiver.kernel.org>; Tue,  2 Jun 2026 09:40:06 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
 	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
 	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=0PgKu/MhXV92fdaOPawC1vOXdcv4sVC0hsvmah/4e8Y=; b=o+MPROY3y7f2VO2jgX4kqDwESf
-	eJxeny0IhypzFqUrWJJT9tudG7wQLBUNm8kUy46jCDHp8+5+yIZcGRp5K8/OcK4Tujpw/cF7ShbsU
-	PfrvH+la/FV4QR8HwdgRTifNWWA35fHhqg9+4VqIpRX7K8wXb2g/v2kDKauBfbW6Wb7UDpRlUGS3H
-	W0AFumGUksZtFXzhjI7TfmyGzG0+kb5csynuK2FeJAHUPHHNi9xKyEW7ii7YT5DkXOHOo+c5XEdp3
-	Jm0yRG8bxChu5oUOc8Ooq5PmK4mZb4HsPF+YrduZ/WBLHmLBH65pxY4GoLuGYQb44z71F5W9twNO4
-	746Fa+lw==;
+	bh=b8ggIna0sbQOSPbI2RMjkyAsvw39Pak1O+w/BfpIbBw=; b=I9O1JbgVRLSJfNQFMF7sYz1xG2
+	aVy7GE1RDzojyJEQy1XuJnbUj7M7O92z/83B2p12doKTOarkRzpH6CxyMLNXnbT+z7rb0T79krk+y
+	B2NFCr/A7ozwmZ7cUmgCrZJsu2IJFqmh2LMLT0Lmw78H5bjapeEzAs1urJmrbUq5ZbSQOXAyuvkG8
+	8q2ULWqPT+CpDEzFj5OMOyWvn5whklSFWh4qZMIJsM30Qivth5xOWiaKex62LFUtist5WAU34O792
+	ZEXz2pwZH33sx1jtbz1rcQ5Hx46uGJAKIKd9Vuuf4N4V5AcVfj8ciNZWFCHs7vnVGIGOxh+p0y4zY
+	9/a6Xi5A==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wULVm-0000000Cg6B-0nlv;
-	Tue, 02 Jun 2026 09:34:14 +0000
-Received: from tor.source.kernel.org ([172.105.4.254])
+	id 1wULbL-0000000CgfZ-0Vtv;
+	Tue, 02 Jun 2026 09:39:59 +0000
+Received: from mgamail.intel.com ([198.175.65.15])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wULVj-0000000Cg5R-47jK;
-	Tue, 02 Jun 2026 09:34:12 +0000
-Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
-	by tor.source.kernel.org (Postfix) with ESMTP id 557536001A;
-	Tue,  2 Jun 2026 09:34:11 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 8CDA81F00893;
-	Tue,  2 Jun 2026 09:34:04 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1780392851;
-	bh=0PgKu/MhXV92fdaOPawC1vOXdcv4sVC0hsvmah/4e8Y=;
-	h=Date:From:To:Cc:Subject:References:In-Reply-To;
-	b=KH5cT3/d1fW7mKTPUXP2hJf3hqjzw8svhzdezKnm8uDo4NbITku1tcc4lgSDjgCnQ
-	 LzoUKYJhDN2BgKJZVqXrTz9wXYbOVdWAntoJqPrxf4WCHj/PeYLX9uMDR7+GZolZr5
-	 68FAvxXuuSkAlZZ5ixjIEQEXa/aiyQmCfunPFE2j+qmVfSBZl0YJC8GFWOwYBNsFHg
-	 FIsTovKWHP0jaHKp91YmXvpwbu27upGLBcRgjel2izDC/4xZY4FGhFLHlDig1d8Ibf
-	 ipIx7HBOjEWNbarMhA7Z8LcEl9VRxhvrmOho3XVlzdpNJGdgt2fiEYoNBjjc9/8g4j
-	 BjoxvWi8ygLNQ==
-Date: Tue, 2 Jun 2026 12:34:01 +0300
-From: Mike Rapoport <rppt@kernel.org>
-To: Baoquan He <baoquan.he@linux.dev>
-Cc: Will Deacon <will@kernel.org>, Wandun Chen <chenwandun1@gmail.com>,
-	linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org,
-	loongarch@lists.linux.dev, linux-riscv@lists.infradead.org,
-	devicetree@vger.kernel.org, kexec@lists.infradead.org,
-	iommu@lists.linux.dev, zhaomeijing@lixiang.com,
-	catalin.marinas@arm.com, chenhuacai@kernel.org, kernel@xen0n.name,
-	pjw@kernel.org, palmer@dabbelt.com, aou@eecs.berkeley.edu,
-	alex@ghiti.fr, robh@kernel.org, saravanak@kernel.org,
-	akpm@linux-foundation.org, bhe@redhat.com,
-	pasha.tatashin@soleen.com, pratyush@kernel.org,
-	ruirui.yang@linux.dev, m.szyprowski@samsung.com,
-	robin.murphy@arm.com, quic_obabatun@quicinc.com
-Subject: Re: [PATCH v3 09/11] arm64: kdump: exclude non-dumpable reserved
- memory regions from vmcore
-Message-ID: <ah6jiWwwC6DDSJXd@kernel.org>
-References: <20260527032917.3385849-1-chenwandun1@gmail.com>
- <20260527032917.3385849-10-chenwandun1@gmail.com>
- <ahmr-UjoApj2j5JS@willie-the-truck>
- <ahsPcv8G1BR9rLah@kernel.org>
- <ah0R8pEIyuk4N2Is@MiWiFi-R3L-srv>
+	id 1wULak-0000000CgeY-46Gm
+	for linux-arm-kernel@lists.infradead.org;
+	Tue, 02 Jun 2026 09:39:57 +0000
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple;
+  d=intel.com; i=@intel.com; q=dns/txt; s=Intel;
+  t=1780393163; x=1811929163;
+  h=date:from:to:cc:subject:message-id:references:
+   mime-version:in-reply-to;
+  bh=5oC8ksAHTf+xBVKyW06yVS5MRSz5ZtAoCm0qkxSJeZQ=;
+  b=anAfl9sZRTXk9XITFCRcEdKloCnlhxXPxO2Fx6I1TAyb/tp1rPb89mra
+   wKCxvlBUOTK+qgxyJk8V18nLIBwE2ga8nNKnwkc+mj+t4RvHmp7XS0cts
+   vCArkpS9BtA7Phk8wuwMqGjHmGphH2dOdSPyw0AKXM2pmKYxzDDKtanoa
+   8ZoxX+4A+jqXoi/ws5iggzagsGQB3AuvUuU0XeVT2kcNlvfCh/Xdzfd07
+   fGiRqGAGvj8w/LUMn1JR53hTC4s79lUnP7xFCMClRHSnonlyivLdfXWcG
+   4xYrtU5mJ80wrO2xIrWLNLlms0xE4EIaL9gvrVCDlIWbgOn62OooN6Qjz
+   A==;
+X-CSE-ConnectionGUID: 9txq93o7QOy0wNdp7pMUig==
+X-CSE-MsgGUID: KsgXZkGSTYGAGFYx6e9iwQ==
+X-IronPort-AV: E=McAfee;i="6800,10657,11804"; a="84797712"
+X-IronPort-AV: E=Sophos;i="6.24,183,1774335600"; 
+   d="scan'208";a="84797712"
+Received: from fmviesa001.fm.intel.com ([10.60.135.141])
+  by orvoesa107.jf.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 02 Jun 2026 02:39:22 -0700
+X-CSE-ConnectionGUID: gSzDEjBvT1axWlMMHfCJ4A==
+X-CSE-MsgGUID: N47fI6AOTuSPh76YjMJXmw==
+X-ExtLoop1: 1
+X-IronPort-AV: E=Sophos;i="6.24,183,1774335600"; 
+   d="scan'208";a="267722861"
+Received: from mkosciow-mobl1.ger.corp.intel.com (HELO localhost) ([10.245.245.229])
+  by smtpauth.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 02 Jun 2026 02:39:18 -0700
+Date: Tue, 2 Jun 2026 12:39:15 +0300
+From: Andy Shevchenko <andriy.shevchenko@intel.com>
+To: Angelo Dureghello <adureghello@baylibre.com>
+Cc: Greg Ungerer <gerg@linux-m68k.org>,
+	Geert Uytterhoeven <geert@linux-m68k.org>,
+	Steven King <sfking@fdwdc.com>, Arnd Bergmann <arnd@arndb.de>,
+	Maxime Coquelin <mcoquelin.stm32@gmail.com>,
+	Alexandre Torgue <alexandre.torgue@foss.st.com>,
+	Jonathan Cameron <jic23@kernel.org>,
+	David Lechner <dlechner@baylibre.com>,
+	Nuno =?iso-8859-1?Q?S=E1?= <nuno.sa@analog.com>,
+	Andy Shevchenko <andy@kernel.org>, Greg Ungerer <gerg@uclinux.org>,
+	linux-m68k@lists.linux-m68k.org, linux-kernel@vger.kernel.org,
+	linux-stm32@st-md-mailman.stormreply.com,
+	linux-arm-kernel@lists.infradead.org, linux-iio@vger.kernel.org
+Subject: Re: [PATCH v4 11/11] iio: dac: add mcf54415 DAC
+Message-ID: <ah6kw-oTM9jgkWBL@ashevche-desk.local>
+References: <20260531-wip-stmark2-dac-v4-0-7e65ab4215dd@baylibre.com>
+ <20260531-wip-stmark2-dac-v4-11-7e65ab4215dd@baylibre.com>
 MIME-Version: 1.0
 Content-Type: text/plain; charset=us-ascii
 Content-Disposition: inline
-In-Reply-To: <ah0R8pEIyuk4N2Is@MiWiFi-R3L-srv>
+In-Reply-To: <20260531-wip-stmark2-dac-v4-11-7e65ab4215dd@baylibre.com>
+Organization: Intel Finland Oy - BIC 0357606-4 - c/o Alberga Business Park, 6
+ krs, Bertel Jungin Aukio 5, 02600 Espoo
+X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
+X-CRM114-CacheID: sfid-20260602_023923_057002_64FB4BA2 
+X-CRM114-Status: GOOD (  23.95  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -82,31 +96,199 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hi Baoquan,
+On Sun, May 31, 2026 at 05:26:04PM +0200, Angelo Dureghello wrote:
 
-On Mon, Jun 01, 2026 at 01:00:34PM +0800, Baoquan He wrote:
-> On 05/30/26 at 07:25pm, Mike Rapoport wrote:
-> > On Fri, May 29, 2026 at 04:08:41PM +0100, Will Deacon wrote:
-> > > On Wed, May 27, 2026 at 11:29:15AM +0800, Wandun Chen wrote:
-> ...snip...
-> > There are patches that move common code to kernel/crash_core.c:
-> > 
-> > https://lore.kernel.org/all/20260525084932.934910-1-ruanjinjie@huawei.com
-> >  
-> > Review from arch maintainers would be helpful there ;-)
+> Add basic version of mcf54415 DAC driver. DAC is embedded in the cpu and
+
+CPU
+
+(or maybe you wanted use 'SoC' acronym)
+
+> DAC configuration registers are mapped in the internal IO address space.
 > 
-> Before, Andrew would put patch candidates into his mm tree and trigger
-> testing. If any adjustment, he would take them off. Can we do the
-> similar thing for kexec/kdump patches, unless the patches are objected
-> explicitly?
+> The DAC accepts a 12-bit digital signal and creates a monotonic 12-bit
+> analog output varying from DAC_VREFL to DAC_VREFH. The DAC module
+> consists of a conversion unit, an output amplifier, and the associated
+> digital control blocks. Default register values for DAC_VREFL and DAC_VREFH
+> are respectively 0 and 0xfff, left untouched in this initial version.
+> 
+> This initial version of the driver is minimalistic, "output raw" only, to
+> be extended in the future. DMA and external sync are disabled, default mode
+> is high speed, default format is right-justified 12bit on 16bit word.
 
-Yes, we can add patches that look reasonable and expose them in -next.
-Now is too late in the release cycle, let's start with it after -rc1.
- 
-> Thanks
-> Baoquan
+Be consistent: 12-bit on 16-bit
+
+...
+
+> Changes in v4:
+> - remove unused includes
+> - sashiko: return "ret" as regmap_read ret value in case of error
+
+> - sashiko: using u32 as regmap_read value
+
+Why? regmap API uses 'unsigned int'. Then you can take out any bits, fields,
+et cetera from it into fixed-width type of variables.
+
+> - use local variable in mcf54415_dac_init() for better readability
+> - sashiko: check mcf54415_dac_init return value also in resume()
+
+...
+
+> +#include <linux/bitfield.h>
+> +#include <linux/bits.h>
+> +#include <linux/clk.h>
+
+> +#include <linux/compiler_types.h>
+
+Drop this (see below).
+
+> +#include <linux/delay.h>
+> +#include <linux/err.h>
+> +#include <linux/io.h>
+> +#include <linux/module.h>
+> +#include <linux/platform_device.h>
+> +#include <linux/regmap.h>
+
++ types.h (it also guarantees compile_types.h).
+
+...
+
+> +static int mcf54415_dac_init(struct mcf54415_dac *info)
+> +{
+> +	int ret;
+> +	u16 val = MCF54415_DAC_CR_FILT | FIELD_PREP(MCF54415_DAC_CR_WMLVL, 1);
+
+Can we move towards reversed xmas tree order?
+
+	u16 val = MCF54415_DAC_CR_FILT | FIELD_PREP(MCF54415_DAC_CR_WMLVL, 1);
+	int ret;
+
+> +	/* Fixed defaults and enable DAC (bit 0 set to 0) */
+> +	ret = regmap_write(info->map, MCF54415_DAC_CR, val);
+> +	if (ret)
+> +		return ret;
+> +
+> +	/* DAC is ready after 12us, from RM table 40-3  */
+> +	fsleep(12);
+> +
+> +	return 0;
+> +}
+
+...
+
+> +static int mcf54415_write_raw(struct iio_dev *indio_dev,
+> +			      struct iio_chan_spec const *chan,
+> +			      int val, int val2, long mask)
+> +{
+> +	struct mcf54415_dac *info = iio_priv(indio_dev);
+> +
+> +	switch (mask) {
+> +	case IIO_CHAN_INFO_RAW:
+> +		/* Check based on RM 30.3.2 (DACn_DATA) reg. resolution */
+> +		if (val < 0 || val > 4095)
+> +			return -EINVAL;
+> +		return regmap_write(info->map, MCF54415_DAC_DATA, val);
+
+So, for example, -1 will be written as 0xffffffff (with the respective bits
+taken into account). Is it a problem?
+
+> +	default:
+> +		return -EINVAL;
+> +	}
+> +}
+
+...
+
+> +static int mcf54415_dac_probe(struct platform_device *pdev)
+> +{
+> +	struct device *dev = &pdev->dev;
+> +	struct iio_dev *indio_dev;
+> +	struct mcf54415_dac *info;
+> +	void __iomem *regs;
+> +	int ret;
+> +
+> +	indio_dev = devm_iio_device_alloc(dev, sizeof(*info));
+> +	if (!indio_dev)
+> +		return -ENOMEM;
+> +
+> +	info = iio_priv(indio_dev);
+> +
+> +	regs = devm_platform_ioremap_resource(pdev, 0);
+> +	if (IS_ERR(regs))
+> +		return dev_err_probe(dev, PTR_ERR(regs),
+> +				     "failed to get io regs\n");
+
+One line. It's more than decade that checkpatch stopped complaining on
+the trailing string literals.
+
+> +	info->map = devm_regmap_init_mmio(dev, regs,
+> +					  &mcf54415_dac_regmap_config);
+
+One line (yes, 82 characters).
+
+> +	if (IS_ERR(info->map))
+> +		return PTR_ERR(info->map);
+> +
+> +	info->clk = devm_clk_get_enabled(dev, "dac");
+> +	if (IS_ERR(info->clk))
+> +		return dev_err_probe(dev, PTR_ERR(info->clk),
+> +				     "failed getting clock\n");
+
+Also one line.
+
+> +	platform_set_drvdata(pdev, indio_dev);
+> +
+> +	indio_dev->name = "mcf54415";
+> +	indio_dev->info = &mcf54415_dac_iio_info;
+> +	indio_dev->modes = INDIO_DIRECT_MODE;
+> +	indio_dev->channels = &mcf54415_dac_iio_channel;
+> +	indio_dev->num_channels = 1;
+> +
+> +	ret = mcf54415_dac_init(info);
+> +	if (ret)
+> +		return ret;
+> +
+> +	ret = devm_add_action_or_reset(dev, mcf54415_dac_exit, info);
+> +	if (ret)
+> +		return ret;
+> +
+> +	return devm_iio_device_register(dev, indio_dev);
+> +}
+
+...
+
+> +static int mcf54415_dac_resume(struct device *dev)
+> +{
+> +	struct mcf54415_dac *info = iio_priv(dev_get_drvdata(dev));
+> +	int ret;
+> +
+> +	ret = clk_prepare_enable(info->clk);
+> +	if (ret)
+> +		return ret;
+> +
+> +	ret = mcf54415_dac_init(info);
+> +	if (ret) {
+> +		dev_err(dev, "could not resume device\n");
+> +		return ret;
+> +	}
+> +
+> +	return 0;
+
+> +
+
+Besides stray blank line the above can be
+
+	ret = mcf54415_dac_init(info);
+	if (ret)
+		dev_err(dev, "could not resume device\n");
+
+	return ret;
+
+> +}
 
 -- 
-Sincerely yours,
-Mike.
+With Best Regards,
+Andy Shevchenko
+
+
 
