@@ -4,145 +4,132 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id CE1CDCD6E60
-	for <linux-arm-kernel@archiver.kernel.org>; Tue,  2 Jun 2026 17:39:02 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id AA2E6CD6E60
+	for <linux-arm-kernel@archiver.kernel.org>; Tue,  2 Jun 2026 17:46:49 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:
-	Content-Transfer-Encoding:Content-Type:References:In-Reply-To:Message-ID:Date
-	:Subject:Cc:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=s+bjb8pBuGzZ0gB+ramnibklBUi8/zdxzYrcccrO2/A=; b=mM3aohUc8Q+LrJcmzYmNHWASEg
-	dk3EOraGNY1PAkpy30Wwfgjxcu6SQjQqGU8dZkGQXH0iDE1iz8dMbVuZzzuKA9CVGy6ay25O/X/B+
-	EjS0rZgmiPGOZ/P5rvsHm+E50mPoHXzh+s51YhvE4gJjxwzdoJYQhCRclPe3k94gwtLzdaQjS3xPr
-	yWjA0k21+7dcWsto9HutfYc6MbxhY2nBxewdWDojJUdqBghLHbMMDjYV+bwLPEQqGKbBa1crdrnnd
-	UtLqA2i2XpznU+3em6tZbkzztQmtF5mT6rEtXrjQSp4pALL6MIdXdaPq20Kc6M9kuAHtGzrfQZe+g
-	5K3nAuJg==;
+	bh=AuMw0XP6ELPe+cm6ErdVU/bLeUkouF/KNF0MaMkAslk=; b=0MI2T39uxAT3m8z+i+PJzq+qOw
+	i10+sYQwP5TD1EMBhgDlSymz0vykcksNQaOpGLpn1qjW2xg8QipBsmf6E20QiGfohOTKIJf4DPJAv
+	R6yuo3Cb6+6cpHhKwBmnDh2QiPf4fNAVXifl5WLHLQhgh7H59Ic6HKW28Sw/HtEuiSvBtvTT1uEoe
+	ZrL+ZydhV0+lRNK5XSsYG+xjWSTNNTz7d2PZH2ANW/cxV4+uGPFXrgkr80rS3PLGIOARpAjFobBH2
+	JSpH0FRUvTeuNHjrvV3FE3bX3fHIzSIXmCNMNMYT46i5/PMXhexTB6K4yOqSU2LYaKN/LeufuzckG
+	JXy0ZF/A==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wUT4q-0000000DbQ7-2d0u;
-	Tue, 02 Jun 2026 17:38:56 +0000
-Received: from mail-northeuropeazon11011069.outbound.protection.outlook.com ([52.101.65.69] helo=DU2PR03CU002.outbound.protection.outlook.com)
+	id 1wUTCM-0000000DbfH-1Vjr;
+	Tue, 02 Jun 2026 17:46:42 +0000
+Received: from smtp-out1.suse.de ([195.135.223.130])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wUT4o-0000000DbPj-2D9d
+	id 1wUTCJ-0000000Dbep-44d0
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 02 Jun 2026 17:38:55 +0000
-ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
- b=WpBCoZq0WbrQey7UvxXcBCYWpbdhgWXcQz3aPdSfYHb7oifM3+MZr0+sWfDh6vOIFvTXC6XqqNwdymt+b2Y3uFzohgJQ3RbusRtLjWyaEKHNYua9rbu2OHqcfaUR03qxRxyH7ulUit25UDjionjzHfff6qkK9fsab/fA+NqfI8B7Qqe8z3kZZnkUe+RBvIJJH9F3jTNl2lS4D0Ati2b/ILft71lH743TzFppG6FBkYDG0phtbWnCNsyEOGj5bsv6sOthXBEA3I2Ugnq8LYTwb3UV5VvSiLvNewKFahvkC0SrGfevf2snxtASvL91BVnyspof9u7TgtHKWlgHstL7og==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
- s=arcselector10001;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
- bh=s+bjb8pBuGzZ0gB+ramnibklBUi8/zdxzYrcccrO2/A=;
- b=dekWn7FnBha1ldpet8EexedKhCJ8jQXzW1UwmLeqxApvocPtreT3ZV4hbBoh+aymXnfx9ELAA759Ao93G32p7OC1uYsniKjSZ5AtbJlJdEG0aBqYhZ8ULFtBeNzyVwt+FVPZAgwjbb1tCXWj4z063YYEewou8k040byo2kYPEaGhc+SjNhruvXh9RkAqk/piRXNvvWLe3+cQjsZjaTD1fNFuOevFiXRf55ccdnzLMxjkiRNj/f4sQjkOw+WtoYTZNoNvJ3mFiFE9rXdHDKmyDSszYBEHU+5NCWDsC1z2EQyWHq3c6TnqjVrXju2gzB3N7nqKS/qKh4pflxxE7X9tYQ==
-ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
- smtp.mailfrom=oss.nxp.com; dmarc=pass action=none header.from=oss.nxp.com;
- dkim=pass header.d=oss.nxp.com; arc=none
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=NXP1.onmicrosoft.com;
- s=selector1-NXP1-onmicrosoft-com;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
- bh=s+bjb8pBuGzZ0gB+ramnibklBUi8/zdxzYrcccrO2/A=;
- b=MtcIGtvGRZFtJ7LHq8lkvil4MDqmRoHFH8KIv/KoLKE9wEUsxzCBYBC6YMnmR3CGID/OALPy+daKvnQCue6/G2+ZrANeXt+frd4g4BVXoAr6CyggeTYbhHJGciooo1g9MCd9iWHrhiy9FvhjTNcnlPMwzOLrnunBf5aeGhNfdUv7fpe5Mj3y2bmTOgMEyHY6bDuNf5aV6XlCZp42DWyNypJP//ns9/Gi7NCqmoi6cOhUxZQg5qaTkgJrIFwGE7rb7VRiQ+kU4/Y3uWqLSc85Wamc+yRnQrd62N4rNgCbndE9MaGZgbuzfj02rWwIjzS4nodLY5XjDzwKFI9TL1GmOQ==
-Authentication-Results: dkim=none (message not signed)
- header.d=none;dmarc=none action=none header.from=oss.nxp.com;
-Received: from GV2PR04MB11799.eurprd04.prod.outlook.com (2603:10a6:150:2cf::9)
- by GV1PR04MB10702.eurprd04.prod.outlook.com (2603:10a6:150:211::21) with
- Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.21.71.16; Tue, 2 Jun 2026
- 17:38:50 +0000
-Received: from GV2PR04MB11799.eurprd04.prod.outlook.com
- ([fe80::2146:83a2:5329:b7c]) by GV2PR04MB11799.eurprd04.prod.outlook.com
- ([fe80::2146:83a2:5329:b7c%6]) with mapi id 15.21.0092.006; Tue, 2 Jun 2026
- 17:38:50 +0000
-From: Frank.Li@oss.nxp.com
-To: Pengutronix Kernel Team <kernel@pengutronix.de>,
-	Fabio Estevam <festevam@gmail.com>,
-	linux@ew.tq-group.com,
-	devicetree@vger.kernel.org,
-	imx@lists.linux.dev,
-	linux-arm-kernel@lists.infradead.org,
-	linux-kernel@vger.kernel.org,
-	Alexander Feilke <Alexander.Feilke@ew.tq-group.com>
-Cc: Frank Li <Frank.Li@nxp.com>,
-	Rob Herring <robh@kernel.org>,
-	Krzysztof Kozlowski <krzk+dt@kernel.org>,
-	Conor Dooley <conor+dt@kernel.org>,
-	Sascha Hauer <s.hauer@pengutronix.de>
-Subject: Re: [PATCH] ARM: dts: imx7: add nvmem-layout
-Date: Tue,  2 Jun 2026 13:38:42 -0400
-Message-ID: <178042191833.3444635.17578938563345180383.b4-ty@b4>
-X-Mailer: git-send-email 2.43.0
-In-Reply-To: <20260527093719.160777-1-Alexander.Feilke@ew.tq-group.com>
-References: <20260527093719.160777-1-Alexander.Feilke@ew.tq-group.com>
-Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: 8bit
-X-ClientProxiedBy: SN7PR04CA0192.namprd04.prod.outlook.com
- (2603:10b6:806:126::17) To GV2PR04MB11799.eurprd04.prod.outlook.com
- (2603:10a6:150:2cf::9)
+	Tue, 02 Jun 2026 17:46:41 +0000
+Received: from imap1.dmz-prg2.suse.org (unknown [10.150.64.97])
+	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
+	 key-exchange X25519 server-signature RSA-PSS (4096 bits) server-digest SHA256)
+	(No client certificate requested)
+	by smtp-out1.suse.de (Postfix) with ESMTPS id EC1C66B23F;
+	Tue,  2 Jun 2026 17:46:37 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=suse.de; s=susede2_rsa;
+	t=1780422398; h=from:from:reply-to:date:date:message-id:message-id:to:to:cc:cc:
+	 mime-version:mime-version:content-type:content-type:
+	 in-reply-to:in-reply-to:references:references;
+	bh=AuMw0XP6ELPe+cm6ErdVU/bLeUkouF/KNF0MaMkAslk=;
+	b=nK22Too0AOrBD1x0yqMvCNHtXGpYGbXIQIh+9JuUbolbu13rClZ7cEQwCVBEpCxAkz2+lR
+	k4xJpxwuKski9CsGzogPozU0Fisoo8I7swxmWrj/TH9ywRAzy1VqTzhEkbivRWptnob7Qd
+	50Bew2HN5IOFfjFmh+m2e2yGhmOFj3g=
+DKIM-Signature: v=1; a=ed25519-sha256; c=relaxed/relaxed; d=suse.de;
+	s=susede2_ed25519; t=1780422398;
+	h=from:from:reply-to:date:date:message-id:message-id:to:to:cc:cc:
+	 mime-version:mime-version:content-type:content-type:
+	 in-reply-to:in-reply-to:references:references;
+	bh=AuMw0XP6ELPe+cm6ErdVU/bLeUkouF/KNF0MaMkAslk=;
+	b=BzM/vvSp8Wf+nGps5rztT0j5NRDpOX38AkDy6Sp3Zw5XOy1fO3Q84wm7WW2uhp9lEYqFKJ
+	SLqNDJisMJ7wdJAQ==
+Authentication-Results: smtp-out1.suse.de;
+	none
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=suse.de; s=susede2_rsa;
+	t=1780422397; h=from:from:reply-to:date:date:message-id:message-id:to:to:cc:cc:
+	 mime-version:mime-version:content-type:content-type:
+	 in-reply-to:in-reply-to:references:references;
+	bh=AuMw0XP6ELPe+cm6ErdVU/bLeUkouF/KNF0MaMkAslk=;
+	b=k1DfIejHfWIM44A9nh6+tWNpezMinj8qDvSYvYf5YznRvrhQowYoRTECcUp5tJEJJnbdwl
+	J/Q1ECVuYdqwqEzdI7HfuOmr12HLti8Qq3Y+q3QNck8POi3mmK1sWBVM04B12afvzmrppV
+	7NEuoUfOeSnKqbL4oXabunIqOFzlksM=
+DKIM-Signature: v=1; a=ed25519-sha256; c=relaxed/relaxed; d=suse.de;
+	s=susede2_ed25519; t=1780422397;
+	h=from:from:reply-to:date:date:message-id:message-id:to:to:cc:cc:
+	 mime-version:mime-version:content-type:content-type:
+	 in-reply-to:in-reply-to:references:references;
+	bh=AuMw0XP6ELPe+cm6ErdVU/bLeUkouF/KNF0MaMkAslk=;
+	b=ilnX90mNyOgzvxbmB+RGPk4idEuuUy+9VUNbLgKyXZ6tuGm0J27Xbi0tNjRfS6TVhIVsdK
+	N2jYntLd7bomCuCw==
+Received: from imap1.dmz-prg2.suse.org (localhost [127.0.0.1])
+	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
+	 key-exchange X25519 server-signature RSA-PSS (4096 bits) server-digest SHA256)
+	(No client certificate requested)
+	by imap1.dmz-prg2.suse.org (Postfix) with ESMTPS id A3AFC779A7;
+	Tue,  2 Jun 2026 17:46:35 +0000 (UTC)
+Received: from dovecot-director2.suse.de ([2a07:de40:b281:106:10:150:64:167])
+	by imap1.dmz-prg2.suse.org with ESMTPSA
+	id /eemI/sWH2oCNAAAD6G6ig
+	(envelope-from <pfalcato@suse.de>); Tue, 02 Jun 2026 17:46:35 +0000
+Date: Tue, 2 Jun 2026 18:46:33 +0100
+From: Pedro Falcato <pfalcato@suse.de>
+To: Usama Arif <usama.arif@linux.dev>
+Cc: willy@infradead.org, jack@suse.cz, 
+	Andrew Morton <akpm@linux-foundation.org>, david@kernel.org, ryan.roberts@arm.com, linux-mm@kvack.org, 
+	r@hev.cc, Andrew Donnellan <andrew+kernel@donnellan.id.au>, 
+	apopple@nvidia.com, baohua@kernel.org, baolin.wang@linux.alibaba.com, 
+	brauner@kernel.org, catalin.marinas@arm.com, dev.jain@arm.com, kees@kernel.org, 
+	kevin.brodsky@arm.com, lance.yang@linux.dev, "Liam R. Howlett" <liam@infradead.org>, 
+	linux-arm-kernel@lists.infradead.org, linux-fsdevel@vger.kernel.org, linux-kernel@vger.kernel.org, 
+	ljs@kernel.org, mhocko@suse.com, npache@redhat.com, pasha.tatashin@soleen.com, 
+	rmclure@linux.ibm.com, rppt@kernel.org, surenb@google.com, vbabka@kernel.org, 
+	Al Viro <viro@zeniv.linux.org.uk>, wilts.infradead.org@pedro-suse.lan, ziy@nvidia.com, 
+	hannes@cmpxchg.org, kas@kernel.org, shakeel.butt@linux.dev, kernel-team@meta.com
+Subject: Re: [PATCH v6 2/2] mm: use mapping_max_folio_order() for
+ force_thp_readahead order
+Message-ID: <ah8UmnLyUOKflNz3@pedro-suse>
+References: <20260528165635.2068012-1-usama.arif@linux.dev>
+ <20260528165635.2068012-3-usama.arif@linux.dev>
+ <ahlh2vdHEGo6ZSot@pedro-suse.lan>
+ <cc9a1cf7-7b96-439a-b0be-ecdcf27b5da5@linux.dev>
+ <ahmSolHvUChl-3vM@pedro-suse.lan>
+ <185f1caf-b33d-4467-beb5-51bd8520ac78@linux.dev>
 MIME-Version: 1.0
-X-MS-PublicTrafficType: Email
-X-MS-TrafficTypeDiagnostic: GV2PR04MB11799:EE_|GV1PR04MB10702:EE_
-X-MS-Office365-Filtering-Correlation-Id: 0181f631-9dc6-46d0-be3e-08dec0cdce92
-X-MS-Exchange-SenderADCheck: 1
-X-MS-Exchange-AntiSpam-Relay: 0
-X-Microsoft-Antispam: BCL:0;ARA:13230040|1800799024|19092799006|376014|7416014|366016|22082099003|18002099003|11063799006|56012099006;
-X-Microsoft-Antispam-Message-Info: ycktSpLPRkjx+vUAKr94C2ZT7hX4RMMbZAW/3W6YbptaFI9RRnpYKaCUrSfjE89G3YaJjxn0K0c/qWOlihI70y5rE78dES11xwFnBuMiYxxOiudSnGS3iYmggifVeLKczUDY8jW9RXwuhIBxcKBtJLG5A5u40lVRUJLBrGYryAmAi9IxYdZX5GSSWYgiX+1FA/V2rJ+cF06rTNpCIp9NXPwmCSW8zraumKob5rJyYGRrdE5vxGNI9ruOyGa+H+0/ZRmtl82Boi8Z/pPWUZXzOMgo8AFtK4vDTfhNxA3gg48KoopPl1ye06yJT/YxMw7B/aPYQ6CYRHLoi/8ZP4yd6Y6lvxBu+xqzyRQQqZqeWVhNSsx9SzCAQ6qCqeEBSEkjbREAUkoQM73NRn9jY5RCUdr3UpxtetlEPAIRlI2qTXeZ6FYLABsJfk1exWgxcWGPP9jsfJiBDNzluYU0W+mLkwUIMMSrxNq+LSIKPEPvhnbrDwkemU0O1rGdWutKVQkm3+8mZG2DkIJ5K9Wre0EYYXD828YGRYQd0B4Guy1W4uvCosQbncv5EZMpXJ3xmzdnpmMXgPz94ac75J0Gc6YrzNQx9qHpySG0w5/l3NyE2rjHNcGRFDrm7/e3Hc64eXq03KkmShSArQZTagEme0OVf+O5TOGev1Orpdv8LkN2d5JC7CNkA17hgXsRsiWFlUuy
-X-Forefront-Antispam-Report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:GV2PR04MB11799.eurprd04.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(1800799024)(19092799006)(376014)(7416014)(366016)(22082099003)(18002099003)(11063799006)(56012099006);DIR:OUT;SFP:1101;
-X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
-X-MS-Exchange-AntiSpam-MessageData-0: =?utf-8?B?WnN0UVJxeVpRdnE4SmxhSVVFVm16allmVUpxTGRBTmd6MmdVUEtORys1MGZM?=
- =?utf-8?B?Si9jQkVwUGVSQXlHZ3JSb2dGK1hXQnhUSC9sL0dBWFRSWU1BS1VVMDlIN3Jq?=
- =?utf-8?B?Um5nK29IY25MY3FtYzFlQVcxcTdaSW0vUVlPQ2lrSjllTmtFbHZzeUNaOHFz?=
- =?utf-8?B?RUQycTJjb1AvSXlLSTJ5MGUvaTRIdlBTN0xaNmZzR1pxM202VjhGcHB2d3dp?=
- =?utf-8?B?QjhqYXZtTVIyTmZLRk56akZNYUhEejVNelFaSFU5Z0t4OHY1MXpJY1BZbUln?=
- =?utf-8?B?bTZzYk9hK0Z5RzZHdVZOazBoVjJtdDhoNjZzUXR0eTZjTVlqZnRJaVZjbzNP?=
- =?utf-8?B?aG0yWDV2MU9kRmNOT2RSSlRnNXl3MmlHV3ZiL1hTNlZUUE1xeGc2Mk1aU2Rn?=
- =?utf-8?B?eHdhVHZCSnVIS0oyNTdMMkxuaWlmSnBHL2l5aHkvOHRYRlFvTWpXR0l4aG53?=
- =?utf-8?B?K1V0ZzBoRjZCTUZUN0VZb3Y1WWNvLzh1TFNJWEsyMjZCWjEzT3FqcTNqTzhZ?=
- =?utf-8?B?djBQUU9PN1RUL2x1R0xpV3RlUUJvemxxVGMwZC9FWDdyWFVyemcvM0ZHT2Z0?=
- =?utf-8?B?MTVISjMvUjExRGg1U2NwUW1tZ29QSUtFUDZTekpZemlVYytpRXpuNEQ3cmdi?=
- =?utf-8?B?L00xZ21FQ2FVcjUxY0FOeUh6TXBJZDBLbTJjMmR6bVdQY2RhTlFiZTFvSjkx?=
- =?utf-8?B?S2J4MVBrOUo3V3NqcEY3eWZnZ2dWblRJcWVEZ0wrOTFGZDlNTHVaNEppVGdH?=
- =?utf-8?B?V0YrK3ZEMGpkamxUR29Ea2xFUFZFdlBYeElqOFF4MTFnV2lsM1VSZG4rc3hp?=
- =?utf-8?B?ekh6ZlNFenNTTXJhUDZtTkhzYmd0Q0picVdiWW5uS0Z0UDdYQTkzRlFqOFBQ?=
- =?utf-8?B?Qms2TVpNSWhQZkFteDZ0a0ROSFVOSjFQNnJFa2QzdzB0bDNqQkIrbzFVaklk?=
- =?utf-8?B?VFEzeUNEUzdoWXg1RzhvN0lLY2dNNTZuR0E5b0kzb1ZnRm1rZ1duUFNLWWJu?=
- =?utf-8?B?SGJxWHIyTWxkQ2JZVkxDdE1DSWJsdDdEaXVwOHkwSVJCZ2JvM0hHbGNIb3Nu?=
- =?utf-8?B?SVp2NUx5UTFBRXpGa1VISlJ4cmlTaEhvTWhObDYzRi9aWlNFZytqVmNrc2ha?=
- =?utf-8?B?RGxvc1lnMXBnWGczbXhWSUxjcXlrbTZXbUZuRVowTXNSMWRrV3ZQMEtEMUFk?=
- =?utf-8?B?OThmT002eE5FUC9xTWg5Z2dMQ3Nsa1JuQkpUbWtDQ2RjNmFsbWduVkxScTRG?=
- =?utf-8?B?b210bU5Ia0M3a0tyM1R5LzA3bHNlNmFzd0NBRWZxQnFKZ0ZpRHoyRXZLNXpK?=
- =?utf-8?B?MnUyK1k3U3NWS0Z6cmpPTjdxSlBtU3ZRTndSTDZwUURraHRiZTdoazFLcFZG?=
- =?utf-8?B?VmtQU21rSktyRDZENnNuNktPVDBvUjZTeTc1MjlvMTZwUkVSRC9xNlNnd2hD?=
- =?utf-8?B?L1ZCb3hQaWRpa2o1L2J5ZHlZZGF6UTlLa1dxT0pvRk5QWVZLSHRuQWdjMnkz?=
- =?utf-8?B?US9aRHMxLzBVdkJkMjBSekIydUJ2b0xSUXUyc2QwRjhjRFZ5dGRkZlJ2K0ZG?=
- =?utf-8?B?Qnk2OWMwRzYxUWoxNDV6YkFLVEhFMi90M2RaQ3AvSVFZUTZoajlMcjcxVDIr?=
- =?utf-8?B?NVplR0NzV05aT1JFSmFPLzdoUHB2d3pSVzlWVjFodW1IbFVFUkN5UkVLUEVy?=
- =?utf-8?B?MU80NzArcjVXL05Pc0gyaDFxNzc4bUdGTXA0dXhMWHh0M2dsUzBFMHNvVUhY?=
- =?utf-8?B?UzJWSjRsdzNwMS9LRzV4TDRuYkVYRzB3dEVHdlhWVGx6M2hnaHl2dVRtd1V5?=
- =?utf-8?B?Wm9mbmx2Y01DWHZoWldUNU9uYTg3TEx5dnFvRXA4Q0kwYzROb05iVGlNMjc0?=
- =?utf-8?B?WHFPY1JWT1p5dXBQbU52RHN1TU0vMm14VThpNzhrd1RpRW1qbGY0WklRTy9T?=
- =?utf-8?B?SnoycS93d0tXM2dMTVU1WmdmY05qc1R5Mmw1emltN0xCNUtkcEw5cEJjSStV?=
- =?utf-8?B?SGgrTUxSSTlQdi9NdkJUcmkreGZnQzFyemh4Y3FBQzl5N0RlQlpPemtUTEE1?=
- =?utf-8?B?YUU5c1d3TDNSZmlvenMweHdtamdyWjJPdFFFUGZvQjRTT3BmSFVOWlVidUh5?=
- =?utf-8?B?bW8vZkdrVHBQTEg1bFYyTEh0Nk9ScEEzMk1xSnNRRGFYWXBYMSsrZ0lqNDd4?=
- =?utf-8?B?eVUzZTNJVlA2THlsTVMvZmNmTXVmQjBMYTNzaUFrVnlOZnVxUzFVS2c3VXM4?=
- =?utf-8?B?Qk5XVzJBUnB1TWx5MW1lY282RkRvWEVFQ01JTlBHalFEQ1UvK1h2Q0JnQ0xL?=
- =?utf-8?B?NTE4R1ZHekNSS3lMU2NyZm1ZR0lqMEdsVzA0U2RjVUZpMXRoK1JiUThBbEVz?=
- =?utf-8?Q?92kgPzVpWBLs+iAMQ2F+wOsvxDxr36m4IOPqP?=
-X-OriginatorOrg: oss.nxp.com
-X-MS-Exchange-CrossTenant-Network-Message-Id: 0181f631-9dc6-46d0-be3e-08dec0cdce92
-X-MS-Exchange-CrossTenant-AuthSource: GV2PR04MB11799.eurprd04.prod.outlook.com
-X-MS-Exchange-CrossTenant-AuthAs: Internal
-X-MS-Exchange-CrossTenant-OriginalArrivalTime: 02 Jun 2026 17:38:50.2767
- (UTC)
-X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
-X-MS-Exchange-CrossTenant-Id: 686ea1d3-bc2b-4c6f-a92c-d99c5c301635
-X-MS-Exchange-CrossTenant-MailboxType: HOSTED
-X-MS-Exchange-CrossTenant-UserPrincipalName: Axr0XwO8rPscFcdxa5ewSwviXMuprFpNBmHGs3q72gBKH8jca9k7RBVuv1CCEcS0nhidL7Fy9IKhYBZsezwLqwVYXZHVD4ju5aqOatK7CeQJkDDLUrglmRmnMsutolpM
-X-MS-Exchange-Transport-CrossTenantHeadersStamped: GV1PR04MB10702
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+In-Reply-To: <185f1caf-b33d-4467-beb5-51bd8520ac78@linux.dev>
+X-Spamd-Result: default: False [-2.30 / 50.00];
+	BAYES_HAM(-3.00)[100.00%];
+	SUSPICIOUS_RECIPS(1.50)[];
+	NEURAL_HAM_LONG(-1.00)[-1.000];
+	MID_RHS_NOT_FQDN(0.50)[];
+	NEURAL_HAM_SHORT(-0.20)[-1.000];
+	MIME_GOOD(-0.10)[text/plain];
+	MISSING_XM_UA(0.00)[];
+	ARC_NA(0.00)[];
+	MIME_TRACE(0.00)[0:+];
+	RCPT_COUNT_TWELVE(0.00)[37];
+	RCVD_VIA_SMTP_AUTH(0.00)[];
+	TO_DN_SOME(0.00)[];
+	FUZZY_RATELIMITED(0.00)[rspamd.com];
+	RCVD_TLS_ALL(0.00)[];
+	R_RATELIMIT(0.00)[to_ip_from(RLxu57a9hfgn7tttf5jiwuqe5o)];
+	FROM_EQ_ENVFROM(0.00)[];
+	FROM_HAS_DN(0.00)[];
+	TAGGED_RCPT(0.00)[kernel];
+	TO_MATCH_ENVRCPT_ALL(0.00)[];
+	DKIM_SIGNED(0.00)[suse.de:s=susede2_rsa,suse.de:s=susede2_ed25519];
+	RCVD_COUNT_TWO(0.00)[2];
+	DBL_BLOCKED_OPENRESOLVER(0.00)[imap1.dmz-prg2.suse.org:helo,linux.dev:email]
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260602_103854_567661_7EC4D8FF 
-X-CRM114-Status: UNSURE (   7.30  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20260602_104640_168423_90803508 
+X-CRM114-Status: GOOD (  47.56  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -157,19 +144,138 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-From: Frank Li <Frank.Li@nxp.com>
+On Fri, May 29, 2026 at 03:11:54PM +0100, Usama Arif wrote:
+> 
+> 
+> On 29/05/2026 14:40, Pedro Falcato wrote:
+> > On Fri, May 29, 2026 at 01:19:03PM +0100, Usama Arif wrote:
+> >>
+> >>
+> >> On 29/05/2026 11:01, Pedro Falcato wrote:
+> >>> On Thu, May 28, 2026 at 09:55:20AM -0700, Usama Arif wrote:
+> >>>> The force_thp_readahead path in do_sync_mmap_readahead() is gated on
+> >>>> HPAGE_PMD_ORDER <= MAX_PAGECACHE_ORDER and always requests
+> >>>> HPAGE_PMD_ORDER / HPAGE_PMD_NR. On configurations where HPAGE_PMD_ORDER
+> >>>> exceeds MAX_PAGECACHE_ORDER, notably arm64 with a 64K base page size,
+> >>>> VM_HUGEPAGE mappings cannot use this path and fall back to the non-forced
+> >>>> mmap readahead path even when the mapping supports useful large folios.
+> >>>>
+> >>>> Keep the existing PMD-sized behavior when HPAGE_PMD_ORDER fits in the
+> >>>> page cache. When it does not, enable forced readahead for mappings that
+> >>>> support large folios and request an order capped by both
+> >>>> mapping_max_folio_order(mapping) and 2MB.
+> >>>>
+> >>>> 2MB is chosen as the cap because it matches the PMD size on x86_64
+> >>>> and on arm64 with 4K or 16K base pages, so the size/memory-pressure
+> >>>
+> >>> 16K base page size's PMDs should be 32M, no? Am I misunderstanding what
+> >>> you mean here?
+> >>>
+> >>
+> >> Yes, should have just said 4K. Messed up when rewriting the commit
+> >> message. Andrew Thanks for merging in mm-new, would it be possible
+> >> to remove "or 16K" from the commit message. I can send a new revision
+> >> as well if that is easier and preferred.
+> >>
+> >>>> tradeoff for folios of that size is already well understood. On arm64
+> >>>> with a 64K base page size, 2MB is also the contiguous-PTE (contpte)
+> >>>> block size, so the resulting folios coalesce into a single TLB entry
+> >>>> and reduce TLB pressure on the readahead path.
+> >>>>
+> >>>> The final allocation order may still be clamped by page_cache_ra_order()
+> >>>> to the mapping and request geometry, but this gives VM_HUGEPAGE mappings
+> >>>> on such configurations a large-folio readahead request instead of
+> >>>> dropping back to base-page readahead.
+> >>>>
+> >>>> Signed-off-by: Usama Arif <usama.arif@linux.dev>
+> >>>> ---
+> >>>>  mm/filemap.c | 27 +++++++++++++++++++--------
+> >>>>  1 file changed, 19 insertions(+), 8 deletions(-)
+> >>>>
+> >>>> diff --git a/mm/filemap.c b/mm/filemap.c
+> >>>> index a16b33e0fc71..bfb891d9da1f 100644
+> >>>> --- a/mm/filemap.c
+> >>>> +++ b/mm/filemap.c
+> >>>> @@ -3312,14 +3312,23 @@ static struct file *do_sync_mmap_readahead(struct vm_fault *vmf)
+> >>>>  	struct file *fpin = NULL;
+> >>>>  	vm_flags_t vm_flags = vmf->vma->vm_flags;
+> >>>>  	bool force_thp_readahead = false;
+> >>>> +	unsigned int thp_order = 0;
+> >>>>  	unsigned short mmap_miss;
+> >>>>  
+> >>>>  	ractl._max_index = vmf->vma->vm_pgoff + vma_pages(vmf->vma) - 1;
+> >>>>  
+> >>>>  	/* Use the readahead code, even if readahead is disabled */
+> >>>> -	if (IS_ENABLED(CONFIG_TRANSPARENT_HUGEPAGE) &&
+> >>>> -	    (vm_flags & VM_HUGEPAGE) && HPAGE_PMD_ORDER <= MAX_PAGECACHE_ORDER)
+> >>>> -		force_thp_readahead = true;
+> >>>> +	if (IS_ENABLED(CONFIG_TRANSPARENT_HUGEPAGE) && (vm_flags & VM_HUGEPAGE)) {
+> >>>> +		if (HPAGE_PMD_ORDER <= MAX_PAGECACHE_ORDER) {
+> >>>> +			force_thp_readahead = true;
+> >>>> +			thp_order = HPAGE_PMD_ORDER;
+> >>>> +		} else if (mapping_large_folio_support(mapping)) {
+> >>>> +			force_thp_readahead = true;
+> >>>> +			thp_order = min_t(unsigned int,
+> >>>> +					  mapping_max_folio_order(mapping),
+> >>>> +					  get_order(SZ_2M));
+> >>>
+> >>> This looks somewhat arbitrary to me (as does the old logic). It seems more
+> >>> natural (correct?) to do this:
+> >>>
+> >>> 	if (THP_ENABLED && (vm_flags & VM_HUGEPAGE)) {
+> >>> 		if (mapping_large_folio_support(mapping)) {
+> >>> 			force_thp_readahead = true;
+> >>> 			/*
+> >>> 			 * Cap THP readahead to either the max folio order the
+> >>> 			 * mapping supports, or the max order the page cache
+> >>> 			 * supports (useless to try more), or the hugepage PMD
+> >>> 			 * order (CPU can't benefit from larger).
+> >>> 			 */
+> >>> 			thp_order = min3(mapping_max_folio_order(mapping),
+> >>> 					MAX_PAGECACHE_ORDER, HPAGE_PMD_ORDER);
+> >>> 		}
+> >>> 	}
+> >>>
+> >>
+> >> So this can result in extreme memory pressure. For example, on 64K base page size,
+> >> with HPAGE_PMD_ORDER = 13 (512M) and MAX_PAGECACHE_ORDER = 11 (128M), this will evaluate
+> >> THP order to 128M. I think Jan mentioned in previous versions that there are already
+> >> reports of high memory pressure due to large file folios, and we are seeing this
+> >> in our fleet as well with xfs.
+> >>
+> >> I chose 2M cap as that is what most (not all) architectures which currently support this
+> >> hugepage code flow are currently used to, and on archs + base page size combination which
+> >> just evaluate this code to base page, for example 64K base page size, it will provide a
+> >> performance uplift without causing excessive memory pressure.
+> > 
+> > For what it's worth, memory pressure is still a problem even on 2MB folios. But
+> > yes, I understand.
+> > 
+> > For what it's worth, I don't think it's such a big issue in this case - you're
+> > asking for THPs, and you're getting them - though maybe not efficiently because
+> > these aren't at the PMD level. But this is also true for e.g x86 where an
+> > an order-3 folio or order-7 folio are completely useless for the hardware, since
+> > there is no mTHP to speak of (and, with that, you also lose PG_active and
+> > PG_reference precision as you only keep one of each for each folio, amongst
+> > other tradeoffs).
+> > 
+> 
+> So there is hardware TLB coalescing on almost every new AMD CPU, I believe it is
+> at 32kB, and we would benefit from that. On top of that, we would reduce pagefaults.
 
+(just addressing this, because everything else was addressed in some other ways
+and I'm just going through my email backlog; my apologies for the delay)
 
-On Wed, 27 May 2026 11:37:17 +0200, Alexander Feilke wrote:
-> TQMa7 has board-information located in EEPROM at offset 0x20.
-> Add necessary nodes and properties for nvmem cell.
+AMD's TLB coalescing feature requires (as far as I know) A and D bits to match
+for every PTE in the cluster. Which means you need to effectively touch every
+page in that 32KB cluster (that was then later reduced to 16KB in zen3 if I'm
+not mistaken). And as soon as you write to one of them, the D bit gets set and
+the TLB entry needs to be torn down. So it's usefulness is unfortunately
+limited.
 
-Applied, thanks!
+But yes, we do reduce page faults. Though I have to wonder how much that matters
+in a world where we have fault-around.
 
-[1/1] ARM: dts: imx7: add nvmem-layout
-      commit: da6662e9933880124ff6e8eea73e73a775d9ac65
-
-Best regards,
 -- 
-Frank Li <Frank.Li@nxp.com>
+Pedro
 
