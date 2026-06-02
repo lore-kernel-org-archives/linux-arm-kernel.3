@@ -4,144 +4,87 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id EAA19C5DF71
-	for <linux-arm-kernel@archiver.kernel.org>; Tue,  2 Jun 2026 03:53:18 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 8F789C5DF71
+	for <linux-arm-kernel@archiver.kernel.org>; Tue,  2 Jun 2026 03:57:44 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:
-	Content-Transfer-Encoding:Content-Type:In-Reply-To:From:References:Cc:To:
-	Subject:Date:Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=Jd1xLPH7fGL2n9HtcOdHne6UzjM4ZQwxBD81p7Hpmr4=; b=hK1MisYHOxVZsQX0CdspngAntA
-	PS3Ott2y9Kv2gaLVMj4XDfNYXvaMrZy3vQQe5ZwS+C5IGVaa4E0NpS7p4odxSWg00oUt3x9FR8rWX
-	3OlsU5BITzBQxuOTyXZhVZK9nBNp8aVr1kndetO3ziReVWcKV8qvmKMkC7kS4r4Xx/9IyscKtP3Te
-	I7pgHuW9r41BWFF9NMrB0PWSZmnrnfuy5LBnNfoJ31Y5szC4Uno5+GXW9lu3Xt9WVGmZFPf7peL+O
-	/8pX+Srb3DtJ7Fxx84NpFxq4e8+ptnI8kpK2SQsFpAGHUgaNvxRZrK8lcJDwJ8Q6hFBy/M+zL1YrI
-	WEwS6o8w==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	MIME-Version:Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-Type:
+	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
+	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=L/gVhnU14M/p0ZMwZg/RsV196bE2QM0dbYtkR3fkmAc=; b=v17JDodix2tUyRe09SOwtFSeSs
+	DQMsF8trSmu981R5RAQJn+2PR6oOgWSmiBV3p3GO6K9e7RodJOeaygqOdRE8N+DlZ1BLTw1rxwmQj
+	0iti5C/ScSlFcxxAWfJv18mtvw5I9Yu0BW7JGHLoW8g7sL1C409zShxgJyqu4f5DJaK5I1tWrbB2g
+	xZsXKPnhRNAbz7HhPJGgoDHhZay5f97OG6Fh+LO+eqYGjxnqoHJEJMXe2ew5l4d/CoH8unk2pmVvf
+	3Ihuoc4oPlJT206PjzVNmmSRjYkef/7O8a6wkHT/LeaNWVnrXXI9FYUnlABY+P4pPZ0zFERG6EnNE
+	x2LOvwXQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wUGBk-0000000CFYy-3Jt2;
-	Tue, 02 Jun 2026 03:53:12 +0000
-Received: from mail-swedencentralazlp170130007.outbound.protection.outlook.com ([2a01:111:f403:c202::7] helo=GVXPR05CU001.outbound.protection.outlook.com)
+	id 1wUGG2-0000000CFl2-1VZn;
+	Tue, 02 Jun 2026 03:57:38 +0000
+Received: from mail-pg1-x534.google.com ([2607:f8b0:4864:20::534])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wUGBi-0000000CFY7-1xxc
+	id 1wUGG0-0000000CFkh-0ViN
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 02 Jun 2026 03:53:11 +0000
-ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
- b=vYi1uAoe1bKD7sPAVVMeIM1dBXFJ518MbjYMyvmvBErhQJm487vPbBQDDAXJ3aMB7p3I/SW7g19IjfVsnrGXPSB8LmNtReAxsGJcJfJMruHJi7kNgYSHYTGxBYPiI/9ZbApBNA35V7hbe+lh8RYI+OcDIpjJGg+a1ZcmT9QB69ynB1ZR9IZ63bCBRlp87vufw0iECapgC0ugsDO2jEh5A6kygdccHhjSk8mTNpQCjO4rCzi6svI0dbhmAW+FeMSU6WK5L+ZNNkMnYW3i2IWwGeruKft1vMu+6w47Vr9EJNe2NPfRjkNLEv+6BTtB5jYu320Ux2rllJMG79OCMRO3Nw==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
- s=arcselector10001;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
- bh=Jd1xLPH7fGL2n9HtcOdHne6UzjM4ZQwxBD81p7Hpmr4=;
- b=fmRXlHSKty0+x7xjmZ9I0FAsD5fUEJBjs0PDDuZL+m2L6qRellb3q2UqQYZfBccKTgJdSk2iLrf7mLv5qhblC4RBBGpYsG7sm4B8Qz+KvI2zjW/CI+wSSu0y5yAGM5I4r6kVi3pdHDr1b2xVkVUnxOWpk/Ivp68hmghle6hq67hg5xFNn2Lwp2QXdi1T9ab5055Z+/nfHo4BA0Gr2Ir0OIbeqGgeG4d0Wo2YfPS/67+OLLavOYSZv9MwrKxwCIFPhuu3/M8OfrHjIxdDjQkhbkrbC5NzfLherMOvM/BxECiOQvlVtEqVt8iBdG5TzT644E/LkXJneE087i2/ykQ4tQ==
-ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
- smtp.mailfrom=oss.nxp.com; dmarc=pass action=none header.from=oss.nxp.com;
- dkim=pass header.d=oss.nxp.com; arc=none
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=NXP1.onmicrosoft.com;
- s=selector1-NXP1-onmicrosoft-com;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
- bh=Jd1xLPH7fGL2n9HtcOdHne6UzjM4ZQwxBD81p7Hpmr4=;
- b=X9TMboZwdn20MlDqbhXmlnLPXwBD0iJKRONFFBHKDUURsngNqTvFfxEcsjVKtmdNQmvOXlpXoar3nBMdGnzKE+qQQW5XQejCXMBsnZxWWmM6H2EtDAoMEx7Ixp28zeaT6efb7XqkvtDzSKDjGNqJTkAHAM5rGZfhVZdZ4rr11Xyp3mG3sGvJ59R2aQpLk/IJywR95ZpTR6b2EBxTQ734/DFrDJCnkxNilIO5gQX800J7/Ow5Aw2hOg4/ShBpOocG7iavyTvl75mfXuEXj3DjZ+GmzSPmpqyIojvpJOnvXyT+nsF8MvCa/1UCfTwWY5/Df2dmUYWGGfLo3Oo9PpKFrw==
-Authentication-Results: dkim=none (message not signed)
- header.d=none;dmarc=none action=none header.from=oss.nxp.com;
-Received: from MRWPR04MB12117.eurprd04.prod.outlook.com (2603:10a6:501:97::14)
- by VE1PR04MB7343.eurprd04.prod.outlook.com (2603:10a6:800:1a2::18) with
- Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.21.71.16; Tue, 2 Jun 2026
- 03:53:01 +0000
-Received: from MRWPR04MB12117.eurprd04.prod.outlook.com
- ([fe80::9a10:5b39:708:7f43]) by MRWPR04MB12117.eurprd04.prod.outlook.com
- ([fe80::9a10:5b39:708:7f43%6]) with mapi id 15.21.0071.015; Tue, 2 Jun 2026
- 03:53:00 +0000
-Message-ID: <67b71676-8e78-44f4-ac84-9ae812a2a729@oss.nxp.com>
-Date: Tue, 2 Jun 2026 11:52:47 +0800
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH v4 0/2] Add NXP FRDM-IMX95-PRO board support
-To: Frank Li <Frank.li@nxp.com>, Joseph Guo <qijian.guo@nxp.com>
-Cc: Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>,
- Conor Dooley <conor+dt@kernel.org>, Shawn Guo <shawnguo@kernel.org>,
- Sascha Hauer <s.hauer@pengutronix.de>,
- Pengutronix Kernel Team <kernel@pengutronix.de>,
- Fabio Estevam <festevam@gmail.com>, devicetree@vger.kernel.org,
- linux-kernel@vger.kernel.org, imx@lists.linux.dev,
- linux-arm-kernel@lists.infradead.org, xinyu.chen@nxp.com,
- justin.jiang@nxp.com, Daniel Baluta <daniel.baluta@nxp.com>,
- Conor Dooley <conor.dooley@microchip.com>
-References: <20260518-imx95_frdm_pro-v4-0-975346555a9b@nxp.com>
- <ah26BWPDtZrirG_4@lizhi-Precision-Tower-5810>
-Content-Language: en-US
-From: "Joseph Guo (OSS)" <qijian.guo@oss.nxp.com>
-In-Reply-To: <ah26BWPDtZrirG_4@lizhi-Precision-Tower-5810>
-Content-Type: text/plain; charset=UTF-8
-Content-Transfer-Encoding: 7bit
-X-ClientProxiedBy: MA0PR01CA0069.INDPRD01.PROD.OUTLOOK.COM
- (2603:1096:a01:ad::10) To MRWPR04MB12117.eurprd04.prod.outlook.com
- (2603:10a6:501:97::14)
+	Tue, 02 Jun 2026 03:57:37 +0000
+Received: by mail-pg1-x534.google.com with SMTP id 41be03b00d2f7-c8584e80bd9so1027952a12.3
+        for <linux-arm-kernel@lists.infradead.org>; Mon, 01 Jun 2026 20:57:35 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=gmail.com; s=20251104; t=1780372655; x=1780977455; darn=lists.infradead.org;
+        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
+         :to:from:from:to:cc:subject:date:message-id:reply-to;
+        bh=L/gVhnU14M/p0ZMwZg/RsV196bE2QM0dbYtkR3fkmAc=;
+        b=FYRKmBrGKm8KyivRVN8oBMvcrx2UHy0/wFS+QS7XcSHx1M/B4ThM2bSiYrPEqLDp82
+         oagshqxX241i3WvltoPEbrvm0ALPL0WU1ZISV77FGgrj6wh36Hw4JK+jjpHv1nTwvjtv
+         VLu3RmXqE8oDFs7Q0dp5hZwxG/ZPxo3bbLCjyrVo3O7t+RVdbra0VJaD6fEHuscyiGLh
+         IsBw3HQ4IVAssSPJtOor7R+konYzOR/MKJxtkwlDpj8kSgB1T/icXoa9dD87cGasf6P2
+         RMbjE4qLZvPjm18NtYs+wf7W6+9edm452aMYvphSEfX6mDvPfxo/AQUnLIB2RQ2BPeU5
+         XGRg==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20251104; t=1780372655; x=1780977455;
+        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
+         :to:from:x-gm-gg:x-gm-message-state:from:to:cc:subject:date
+         :message-id:reply-to;
+        bh=L/gVhnU14M/p0ZMwZg/RsV196bE2QM0dbYtkR3fkmAc=;
+        b=eh6JQdV4x1LKjCfc339gtpR7p1tC0KJkICvgjuZhG+MCgu5y3etUBwvHOOJGLZnp54
+         cELNEFYepxnIo4epaX/39Vv+F8aymeLk9MU2HDFABdsY7flLr0lT1tr1J/HQV/ybIaDm
+         G9FnF4p2bY3rr3VZ2Tmg7Rk2NM9pA4JnW7AoRuCXsmnRVU5Ff029cYji0xy6SqfJva56
+         YPOW+R6dQxIcPNLZVl4X5wdHmOy7Q06BHJwGv/c1PQBE2Y/KK+usYEYXtmQgXtj3H2+0
+         rPI29L9/N74UgaZ9RdK7Xxf/PzrPP3de51p/jBAiagBSsvhiQCdUka1yjYz2zILfl08k
+         FH8Q==
+X-Forwarded-Encrypted: i=1; AFNElJ84ZozXgjqfcJrN0oeQeo6mxDN7ULK8AxAR1ZJqDEtyXF9DxtatunV6aVJ49ndop6C/E26QDZQf9t4IAyHrg5Xz@lists.infradead.org
+X-Gm-Message-State: AOJu0Yx2spAhovwRlYVTk2t+JX95AvFp6atKBdDLYw4HxVapsimbKQYK
+	7qH6IiNcrnzLJ5Gbi63AvjQx/mA50JYhmAhURtYZ7JITzxZqbeYHDXUV
+X-Gm-Gg: Acq92OES+UL080lWp85Gikwt7Tq3RwLfN8g+HkkIJtAL2/BTPQF1iDTh3GfitG2XqDv
+	mxNiCVtBV5BtnP66IuaROee2aGaCwEMFhTzmAs056pZDY/7CdzeyV4aD+1f64bh7Zi5Fj+4dsZ2
+	/pG6fP2IEH79UVRf4X7hnp88mKpmVGmQCes7DjSdJbB/6xGAql0ZSKZ1utaeKoww8FxWfooOPEO
+	0jmK4HI3xlaMDSaUpTXhCLzXgUPV2fzE6JyiEAo4/V+rLo0II/s/jo8wjJYsU3SV6bIogxKwJCD
+	oWRTaMe8GegpvaolLlQxLFQYARzYYyfYPVXlR2iRB/waBjAZSLFSFiCjAYLmWFWLrlEnVMKftlw
+	0300nP2rGeHgNQu5sHJC2WXlJUXzn+pe46YhBgF0E6kMpHvhzKZaHy8R0QztQo9H3rxoSr5jJ2Y
+	NK2eAxUPlT+pIR7VhdDNfvRtGc/xr0X+Q/V+trk+Aqz7jER0AEFk7hThsdqaoejwegrngd+WgAJ
+	NGQWqQTMHaidatYzsHgO4r9zAWjgtooUOSx+s2c6A5X/g==
+X-Received: by 2002:a05:6300:614a:b0:3b4:65ad:b417 with SMTP id adf61e73a8af0-3b465add073mr6923450637.45.1780372655144;
+        Mon, 01 Jun 2026 20:57:35 -0700 (PDT)
+Received: from ryzen ([2601:644:8000:5b5d:7285:c2ff:fe45:8a32])
+        by smtp.gmail.com with ESMTPSA id d2e1a72fcca58-84214b00d64sm11576668b3a.10.2026.06.01.20.57.34
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Mon, 01 Jun 2026 20:57:34 -0700 (PDT)
+From: Rosen Penev <rosenp@gmail.com>
+To: linux-kernel@vger.kernel.org
+Cc: Arnd Bergmann <arnd@arndb.de>,
+	chleroy@kernel.org,
+	Greg Kroah-Hartman <gregkh@linuxfoundation.org>,
+	Michal Simek <michal.simek@amd.com>,
+	linux-arm-kernel@lists.infradead.org (moderated list:ARM/ZYNQ ARCHITECTURE)
+Subject: [PATCH] char: xilinx_hwicap: replace in_be32/out_be32 with ioread32be/iowrite32be
+Date: Mon,  1 Jun 2026 20:57:17 -0700
+Message-ID: <20260602035717.623208-1-rosenp@gmail.com>
+X-Mailer: git-send-email 2.54.0
 MIME-Version: 1.0
-X-MS-Exchange-MessageSentRepresentingType: 1
-X-MS-PublicTrafficType: Email
-X-MS-TrafficTypeDiagnostic: MRWPR04MB12117:EE_|VE1PR04MB7343:EE_
-X-MS-Office365-Filtering-Correlation-Id: 58d4b09a-c155-4abe-a7ad-08dec05a706e
-X-MS-Exchange-SharedMailbox-RoutingAgent-Processed: True
-X-MS-Exchange-SenderADCheck: 1
-X-MS-Exchange-AntiSpam-Relay: 0
-X-Microsoft-Antispam: BCL:0;ARA:13230040|19092799006|366016|376014|1800799024|7416014|22082099003|18002099003|4143699003|11063799006|56012099006;
-X-Microsoft-Antispam-Message-Info: 3u53mgLTJoFG63LsPPQar/kFi89ZIEQbKhBwaGRCWGe7EDGefblSBSOFaDWR/jd4ilvtOn3C6G7pZVuuara9XRGal/KS4sYMZ3ceFvuHsBsxn2tV6ZaxW3NRThlTxo4JXfq1AukDIip+4Ka0qbSyM/oBw3SKQ30bcnvaUwP7S4PTAHfexp0Y6NLriuBuo7DXkwAprhgCv8NF76O4mxT8OxD1i9xfPIV4uuSeQQEWmUDB/wH918Y/b0UG98lMMJ2+5vpQ19nl3le1+6lTDDAZvZ/G9E0vpBjXiX6K1R25UBJOPl6ivqbP0/1/8QtFuF+4mih8hPoBg9HkQjvz57KAKZxfFJBoI9yAVpAOyThwjimwYDLgqwvD81n8v3Zj6j//WL57hPo91+7C4IKBHilV5dSXiIUWSvsik6trm6ZzeFd1oqs3zPvcc7QGmeM8AEG6AZD5yW930QdFrOtKpH4haTEDD/fXTW4RC6lYSWf/mhQLR9DWYGD9xQV1iNE93eV2XgeHaJI/rwMJkizEGMIFM1XqDGrAgr7+5dbCsmv9OGxq/5hAtsb1u0n3tPuz0GpdkrNV8u98kHiaXPRMrZtaZvq7vpl0pvpV7bS/AGZkPQQ4rujA/00Ww33GFEBxVyUlrvdesb78Go7ks1tPIoVkM83hsmQKhmVFOvLuG/sjysp9xRU26n57hkIT9DN+4Hd6+hKpb+e50FhnVAQwx7q+QA==
-X-Forefront-Antispam-Report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:MRWPR04MB12117.eurprd04.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(19092799006)(366016)(376014)(1800799024)(7416014)(22082099003)(18002099003)(4143699003)(11063799006)(56012099006);DIR:OUT;SFP:1101;
-X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
-X-MS-Exchange-AntiSpam-MessageData-0: =?utf-8?B?MGkveWEyMG13ZkZiQitNeXFRWVhXSXJESWt4Ym8wOTdjeGNBZlpsSHM2VDc5?=
- =?utf-8?B?aGtlR3NnZzAxakVSWmpEbWlLRUFualFHeEt3YVNlSnBZUmJGNGxzSFFKa3Ji?=
- =?utf-8?B?am9jcWoxUzNPTjljQmJlb09SOWp4RkpxL21JUEZ4UDJyMGRXVGxQMmh6Rnpn?=
- =?utf-8?B?YnAveHltdEJpb25ZQjhPblZ2eXRWRC9lU085OHkzVzJGNWIxT3pIM3lGWU13?=
- =?utf-8?B?N0F4cHQvZ3hCMnFUWlZ1L0FOUXl6aDVjU0loMmR0UXUzYlV4TS9xRlk2N05L?=
- =?utf-8?B?THdOaTJ4SVdZRkIwNzZiRUdNYjZCSG5Sd20xTmg4NUdsaVhLMDlLQXZ2dGl3?=
- =?utf-8?B?MnlqeFZ1NVFvYnViVG5UUThOS0VtWFFzSTNvbTNPQk5kaFQ2di9mSGpMOEtu?=
- =?utf-8?B?OFJxYkQvK2gyTFJVcExEdkZPRTZjdlJZY3d4bFZqK2FqMFZLVThqZ3FpYjda?=
- =?utf-8?B?ejBzMHVwSnFVZUhTeisxeVJyVld5S0hTeHoyY0JWQ1QyaWdoeS9mR1JoWXA3?=
- =?utf-8?B?Ti9sU2hXem9pRWJRZHZDR0NHUzlxLzd2V0RsTnRmZmRWQTJIYmNoQzc3Y3N6?=
- =?utf-8?B?WXZxZFNrTnlLTmRneWwzVG0wNlY5WDY2QWEweEY3cUJYSDdHODVtMW9WOWtt?=
- =?utf-8?B?c2llOWhueTEzanZ4S1BkNDNPcWs5MFRYb3dDUnI1TXgwUGtyeXNUSkNEQTAv?=
- =?utf-8?B?NkEweVFFVG9LQnM4ZXNBd28xMmM1UEQ1SGFYQWpKRFhDZ05BZEFJb2JibUN1?=
- =?utf-8?B?ajkza0RFZ1RDaURxRENJQ3JGUUNuTWQ4NVBjdUtUVTFSbCtjWC9pMkt4Z3cz?=
- =?utf-8?B?QUtSb0pyUGdHNU1BeURRZVp5dFdLN1pEVGErNDk3SXErcUEvbUloK2wydUJy?=
- =?utf-8?B?RWFPNEdCdndaVlhOQ0I5YXVkM080ZnpoNUVpRkRPTkV4K1FwQWtMTUhWV3lP?=
- =?utf-8?B?NnBRSzd2UklWQWxLaGhHUVVvOEJCd25zRG9WZnJRTVExVHpuZmZ0U2ZkZ2R0?=
- =?utf-8?B?ZXhlSDliTmlkNEdIV3BSSUhrVGZxSUs3SWt1VXFFS040aFpkTnFidm5zKzVP?=
- =?utf-8?B?WXMvREpha1JNWTRobmRUSTM5SGFPQm1EU0ZEOVlua0M4Qm42TE1WUmROb1I2?=
- =?utf-8?B?WHlld2g0cFNUMDA3K0F2SXRoZTAwRFo3a0tMVGkvelZhZkxyeERpZXdOYWtU?=
- =?utf-8?B?MlFscnZ0TjNCWmJuNVdNbEN5NlFsM0Z6ZDNTZENCcEJHbzViTjJwczN1dlZ4?=
- =?utf-8?B?VFM1c0FKQjNTak8wY2NGSVNUNVd5UTJ3bWxIM2cxRnZxcEx0ZlJzTWovbVJL?=
- =?utf-8?B?bDJiMHBGSVBqd2VEK2hiL3ZFWEs5d0FuVUxvSzYvN3Y1eVBIWld5c3RqTk5p?=
- =?utf-8?B?SzZzTzV1VExzUTAxZzBUUVUzVkxOT0dEenVSREpOd0pycEg1WHNpL3FGMVdQ?=
- =?utf-8?B?RU8raGdCU3NrdHFidjNCRWJVeWhTazVSV2V3eEUzTllpNG9vSTRndEVRYzZD?=
- =?utf-8?B?L0l0SWgyVkpSU05YUGlQeXYwT1RxeHcyNldUN1JCcTFPL3c4cEVzVGgzZXRy?=
- =?utf-8?B?OXBFaFRsK2FLdjlsSDVsQmhtLzQwQ3dwU0RuWHI3MjFINGxFcGduUTRadTFZ?=
- =?utf-8?B?U2I0d05vVG1zMWw5VDBUNFFvUk84dVNsRE92SSt6b0xnaU9LK3JrZW9nSTBM?=
- =?utf-8?B?aEhOMUlPQ21CcEVVelk1YzhOVEZnei9QTHI1L1BDNjNxbG1EcXR6amZrdWxz?=
- =?utf-8?B?L3JYa0dWWnkreFd2V0IwMUo4RmwvS2FKWWg1S1RhZitpc2dTTTZjYWkxdXR3?=
- =?utf-8?B?OWJmaTlkcVladGpKeEJ3L3kvd1BHU0tGamZETVVrL0dObnBETXBhVjdEV3A0?=
- =?utf-8?B?MGpoQ1FGdUc1clk1b1FqV09MbzB0NE9PbDdaMy9NQ0s2Ynd2bERTZGJsOEcy?=
- =?utf-8?B?eGp4UksrUzV0QklhSENkWXg2T0JZY3ZVVGdJaDVlVkZBWThTVlNuZWFnbjk2?=
- =?utf-8?B?MjR6M2FsekxWZUlRK0V5elR0MnVCK2NVL0VSbGtPblVDaDByU0J6bXp4ci9P?=
- =?utf-8?B?N1lSM2wxcFZFeXVjK3Q4bDc2Q0Z3MXFoYlJjNm5kYzIxMkxmc3JMd0dVUE00?=
- =?utf-8?B?eDBzS244Q3R3ZjNoVVczQnBYc1d3VXRmeGpQbFliRDd4TUNXVndLa1pXNjRQ?=
- =?utf-8?B?QXlrZ0FkV29VajdDTEVXbHh4aWM5NlVWd0V2c3krZk05VCswSlNoRHA0bjdh?=
- =?utf-8?B?YXIza1BNQ3BmbDg5cm5iekhZUkVRM3RqUkdPZmgxWG94YUphcmRHc01zU1Rr?=
- =?utf-8?B?Wk9xdXJkZCtpU2M4WmNPUEMySGp1NDdJaUhHOGVHdHpnQ3h4Mjd4UT09?=
-X-OriginatorOrg: oss.nxp.com
-X-MS-Exchange-CrossTenant-Network-Message-Id: 58d4b09a-c155-4abe-a7ad-08dec05a706e
-X-MS-Exchange-CrossTenant-AuthSource: MRWPR04MB12117.eurprd04.prod.outlook.com
-X-MS-Exchange-CrossTenant-AuthAs: Internal
-X-MS-Exchange-CrossTenant-OriginalArrivalTime: 02 Jun 2026 03:53:00.7986
- (UTC)
-X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
-X-MS-Exchange-CrossTenant-Id: 686ea1d3-bc2b-4c6f-a92c-d99c5c301635
-X-MS-Exchange-CrossTenant-MailboxType: HOSTED
-X-MS-Exchange-CrossTenant-UserPrincipalName: 6eo4o30rD7TtQLcZUNAd/eIZSNHbWEJ6wY6xyQPpstqE8/PF3aXbjnsA/fklh+DUQ00fLiznSpYQVuaGMPewTA==
-X-MS-Exchange-Transport-CrossTenantHeadersStamped: VE1PR04MB7343
+Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260601_205310_519858_E4F522A5 
-X-CRM114-Status: GOOD (  15.15  )
+X-CRM114-CacheID: sfid-20260601_205736_173063_A95BEBC2 
+X-CRM114-Status: GOOD (  15.32  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -156,62 +99,227 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On 6/2/2026 12:57 AM, Frank Li wrote:
-> On Mon, May 18, 2026 at 11:58:18AM +0900, Joseph Guo wrote:
->> This patchset add Devicetree support for NXP FRDM-IMX95-PRO
->> development board based on i.MX95 19x19 SoC.
->>
->> Signed-off-by: Joseph Guo <qijian.guo@nxp.com>
->> ---
->> Changes in v4:
->> - Correct underscores in node names
->> - Correct 'silent-gpio' of can_phy to GPIO_ACTIVE_HIGH
->> - Fix typo in pinctrl_pcal6416
->> - Link to v3: https://lore.kernel.org/r/20260509-imx95_frdm_pro-v3-0-96290b471396@nxp.com
->>
->> Changes in v3:
->> - Change status of CAN1 to reserved
->> - Remove unused pinctrl
->> - Explain difference with i.MX95 15x15 FRDM in message
->> - Link to v2: https://lore.kernel.org/r/20260428-imx95_frdm_pro-v2-0-434240b652f4@nxp.com
->>
->> Changes in v2:
->> - Run dt-format to reformat the node order
->> - Change compatible of mqs to audio-graph-card2
->> - Add imx95-19x19-frdm-pro in Makefile
->> - Link to v1: https://lore.kernel.org/r/20260318-imx95_frdm_pro-v1-0-8c00e59f0b1b@nxp.com
->>
->> ---
->> Joseph Guo (2):
->>       dt-bindings: arm: fsl: Add i.MX95 19x19 FRDM PRO board
->>       arm64: dts: freescale: add i.MX95 19x19 FRDM PRO board dts
->>
->>  Documentation/devicetree/bindings/arm/fsl.yaml     |    1 +
->>  arch/arm64/boot/dts/freescale/Makefile             |    1 +
->>  .../boot/dts/freescale/imx95-19x19-frdm-pro.dts    | 1021 ++++++++++++++++++++
->>  3 files changed, 1023 insertions(+)
->> ---
->> base-commit: 7109a2155340cc7b21f27e832ece6df03592f2e8
+Mechanical conversion of the ppc4xx-specific accessors to the generic
+portable helpers.
 
-Hi Frank,
+As a result, COMPILE_TEST is added for extra compile coverage.
 
-My patchset is based on linux-next.
-V5 rebase on imx/dt64 has been sent.
+Assisted-by: opencode:big-pickle
+Signed-off-by: Rosen Penev <rosenp@gmail.com>
+---
+ drivers/char/Kconfig                     |  2 +-
+ drivers/char/xilinx_hwicap/buffer_icap.c | 16 +++++------
+ drivers/char/xilinx_hwicap/fifo_icap.c   | 34 +++++++++++-------------
+ 3 files changed, 24 insertions(+), 28 deletions(-)
 
-Regards,
-Joseph
-> 
-> where this commit hash? I can't apply whole patch and can't find this
-> commit.
-> 
-> Can you rebase to https://git.kernel.org/pub/scm/linux/kernel/git/frank.li/linux.git/log/?h=imx/dt64
-> 
-> Frank
-> 
->> change-id: 20260311-imx95_frdm_pro-7a8d03b50982
->>
->> Best regards,
->> --
->> Joseph Guo <qijian.guo@nxp.com>
->>
+diff --git a/drivers/char/Kconfig b/drivers/char/Kconfig
+index 9865227af167..b892bcf28af4 100644
+--- a/drivers/char/Kconfig
++++ b/drivers/char/Kconfig
+@@ -201,7 +201,7 @@ source "drivers/char/hw_random/Kconfig"
+ 
+ config XILINX_HWICAP
+ 	tristate "Xilinx HWICAP Support"
+-	depends on MICROBLAZE
++	depends on MICROBLAZE || COMPILE_TEST
+ 	help
+ 	  This option enables support for Xilinx Internal Configuration
+ 	  Access Port (ICAP) driver.  The ICAP is used on Xilinx Virtex
+diff --git a/drivers/char/xilinx_hwicap/buffer_icap.c b/drivers/char/xilinx_hwicap/buffer_icap.c
+index 35981cae1afa..24e73f1502c2 100644
+--- a/drivers/char/xilinx_hwicap/buffer_icap.c
++++ b/drivers/char/xilinx_hwicap/buffer_icap.c
+@@ -87,7 +87,7 @@
+  **/
+ u32 buffer_icap_get_status(struct hwicap_drvdata *drvdata)
+ {
+-	return in_be32(drvdata->base_address + XHI_STATUS_REG_OFFSET);
++	return ioread32be(drvdata->base_address + XHI_STATUS_REG_OFFSET);
+ }
+ 
+ /**
+@@ -101,7 +101,7 @@ u32 buffer_icap_get_status(struct hwicap_drvdata *drvdata)
+ static inline u32 buffer_icap_get_bram(void __iomem *base_address,
+ 		u32 offset)
+ {
+-	return in_be32(base_address + (offset << 2));
++	return ioread32be(base_address + (offset << 2));
+ }
+ 
+ /**
+@@ -114,7 +114,7 @@ static inline u32 buffer_icap_get_bram(void __iomem *base_address,
+  **/
+ static inline bool buffer_icap_busy(void __iomem *base_address)
+ {
+-	u32 status = in_be32(base_address + XHI_STATUS_REG_OFFSET);
++	u32 status = ioread32be(base_address + XHI_STATUS_REG_OFFSET);
+ 	return (status & 1) == XHI_NOT_FINISHED;
+ }
+ 
+@@ -129,7 +129,7 @@ static inline bool buffer_icap_busy(void __iomem *base_address)
+ static inline void buffer_icap_set_size(void __iomem *base_address,
+ 		u32 data)
+ {
+-	out_be32(base_address + XHI_SIZE_REG_OFFSET, data);
++	iowrite32be(data, base_address + XHI_SIZE_REG_OFFSET);
+ }
+ 
+ /**
+@@ -143,7 +143,7 @@ static inline void buffer_icap_set_size(void __iomem *base_address,
+ static inline void buffer_icap_set_offset(void __iomem *base_address,
+ 		u32 data)
+ {
+-	out_be32(base_address + XHI_BRAM_OFFSET_REG_OFFSET, data);
++	iowrite32be(data, base_address + XHI_BRAM_OFFSET_REG_OFFSET);
+ }
+ 
+ /**
+@@ -159,7 +159,7 @@ static inline void buffer_icap_set_offset(void __iomem *base_address,
+ static inline void buffer_icap_set_rnc(void __iomem *base_address,
+ 		u32 data)
+ {
+-	out_be32(base_address + XHI_RNC_REG_OFFSET, data);
++	iowrite32be(data, base_address + XHI_RNC_REG_OFFSET);
+ }
+ 
+ /**
+@@ -174,7 +174,7 @@ static inline void buffer_icap_set_rnc(void __iomem *base_address,
+ static inline void buffer_icap_set_bram(void __iomem *base_address,
+ 		u32 offset, u32 data)
+ {
+-	out_be32(base_address + (offset << 2), data);
++	iowrite32be(data, base_address + (offset << 2));
+ }
+ 
+ /**
+@@ -255,7 +255,7 @@ static int buffer_icap_device_write(struct hwicap_drvdata *drvdata,
+  **/
+ void buffer_icap_reset(struct hwicap_drvdata *drvdata)
+ {
+-    out_be32(drvdata->base_address + XHI_STATUS_REG_OFFSET, 0xFEFE);
++    iowrite32be(0xFEFE, drvdata->base_address + XHI_STATUS_REG_OFFSET);
+ }
+ 
+ /**
+diff --git a/drivers/char/xilinx_hwicap/fifo_icap.c b/drivers/char/xilinx_hwicap/fifo_icap.c
+index 7bd786fa1be8..928ee4ca3012 100644
+--- a/drivers/char/xilinx_hwicap/fifo_icap.c
++++ b/drivers/char/xilinx_hwicap/fifo_icap.c
+@@ -94,7 +94,7 @@ static inline void fifo_icap_fifo_write(struct hwicap_drvdata *drvdata,
+ 		u32 data)
+ {
+ 	dev_dbg(drvdata->dev, "fifo_write: %x\n", data);
+-	out_be32(drvdata->base_address + XHI_WF_OFFSET, data);
++	iowrite32be(data, drvdata->base_address + XHI_WF_OFFSET);
+ }
+ 
+ /**
+@@ -107,7 +107,7 @@ static inline void fifo_icap_fifo_write(struct hwicap_drvdata *drvdata,
+  **/
+ static inline u32 fifo_icap_fifo_read(struct hwicap_drvdata *drvdata)
+ {
+-	u32 data = in_be32(drvdata->base_address + XHI_RF_OFFSET);
++	u32 data = ioread32be(drvdata->base_address + XHI_RF_OFFSET);
+ 	dev_dbg(drvdata->dev, "fifo_read: %x\n", data);
+ 	return data;
+ }
+@@ -120,7 +120,7 @@ static inline u32 fifo_icap_fifo_read(struct hwicap_drvdata *drvdata)
+ static inline void fifo_icap_set_read_size(struct hwicap_drvdata *drvdata,
+ 		u32 data)
+ {
+-	out_be32(drvdata->base_address + XHI_SZ_OFFSET, data);
++	iowrite32be(data, drvdata->base_address + XHI_SZ_OFFSET);
+ }
+ 
+ /**
+@@ -129,7 +129,7 @@ static inline void fifo_icap_set_read_size(struct hwicap_drvdata *drvdata,
+  **/
+ static inline void fifo_icap_start_config(struct hwicap_drvdata *drvdata)
+ {
+-	out_be32(drvdata->base_address + XHI_CR_OFFSET, XHI_CR_WRITE_MASK);
++	iowrite32be(XHI_CR_WRITE_MASK, drvdata->base_address + XHI_CR_OFFSET);
+ 	dev_dbg(drvdata->dev, "configuration started\n");
+ }
+ 
+@@ -139,7 +139,7 @@ static inline void fifo_icap_start_config(struct hwicap_drvdata *drvdata)
+  **/
+ static inline void fifo_icap_start_readback(struct hwicap_drvdata *drvdata)
+ {
+-	out_be32(drvdata->base_address + XHI_CR_OFFSET, XHI_CR_READ_MASK);
++	iowrite32be(XHI_CR_READ_MASK, drvdata->base_address + XHI_CR_OFFSET);
+ 	dev_dbg(drvdata->dev, "readback started\n");
+ }
+ 
+@@ -163,7 +163,7 @@ static inline void fifo_icap_start_readback(struct hwicap_drvdata *drvdata)
+  **/
+ u32 fifo_icap_get_status(struct hwicap_drvdata *drvdata)
+ {
+-	u32 status = in_be32(drvdata->base_address + XHI_SR_OFFSET);
++	u32 status = ioread32be(drvdata->base_address + XHI_SR_OFFSET);
+ 	dev_dbg(drvdata->dev, "Getting status = %x\n", status);
+ 	return status;
+ }
+@@ -177,7 +177,7 @@ u32 fifo_icap_get_status(struct hwicap_drvdata *drvdata)
+  **/
+ static inline u32 fifo_icap_busy(struct hwicap_drvdata *drvdata)
+ {
+-	u32 status = in_be32(drvdata->base_address + XHI_SR_OFFSET);
++	u32 status = ioread32be(drvdata->base_address + XHI_SR_OFFSET);
+ 	return (status & XHI_SR_DONE_MASK) ? 0 : 1;
+ }
+ 
+@@ -190,7 +190,7 @@ static inline u32 fifo_icap_busy(struct hwicap_drvdata *drvdata)
+ static inline u32 fifo_icap_write_fifo_vacancy(
+ 		struct hwicap_drvdata *drvdata)
+ {
+-	return in_be32(drvdata->base_address + XHI_WFV_OFFSET);
++	return ioread32be(drvdata->base_address + XHI_WFV_OFFSET);
+ }
+ 
+ /**
+@@ -202,7 +202,7 @@ static inline u32 fifo_icap_write_fifo_vacancy(
+ static inline u32 fifo_icap_read_fifo_occupancy(
+ 		struct hwicap_drvdata *drvdata)
+ {
+-	return in_be32(drvdata->base_address + XHI_RFO_OFFSET);
++	return ioread32be(drvdata->base_address + XHI_RFO_OFFSET);
+ }
+ 
+ /**
+@@ -372,13 +372,11 @@ void fifo_icap_reset(struct hwicap_drvdata *drvdata)
+ 	 * Reset the device by setting/clearing the RESET bit in the
+ 	 * Control Register.
+ 	 */
+-	reg_data = in_be32(drvdata->base_address + XHI_CR_OFFSET);
++	reg_data = ioread32be(drvdata->base_address + XHI_CR_OFFSET);
+ 
+-	out_be32(drvdata->base_address + XHI_CR_OFFSET,
+-				reg_data | XHI_CR_SW_RESET_MASK);
++	iowrite32be(reg_data | XHI_CR_SW_RESET_MASK, drvdata->base_address + XHI_CR_OFFSET);
+ 
+-	out_be32(drvdata->base_address + XHI_CR_OFFSET,
+-				reg_data & (~XHI_CR_SW_RESET_MASK));
++	iowrite32be(reg_data & (~XHI_CR_SW_RESET_MASK), drvdata->base_address + XHI_CR_OFFSET);
+ 
+ }
+ 
+@@ -393,12 +391,10 @@ void fifo_icap_flush_fifo(struct hwicap_drvdata *drvdata)
+ 	 * Flush the FIFO by setting/clearing the FIFO Clear bit in the
+ 	 * Control Register.
+ 	 */
+-	reg_data = in_be32(drvdata->base_address + XHI_CR_OFFSET);
++	reg_data = ioread32be(drvdata->base_address + XHI_CR_OFFSET);
+ 
+-	out_be32(drvdata->base_address + XHI_CR_OFFSET,
+-				reg_data | XHI_CR_FIFO_CLR_MASK);
++	iowrite32be(reg_data | XHI_CR_FIFO_CLR_MASK, drvdata->base_address + XHI_CR_OFFSET);
+ 
+-	out_be32(drvdata->base_address + XHI_CR_OFFSET,
+-				reg_data & (~XHI_CR_FIFO_CLR_MASK));
++	iowrite32be(reg_data & (~XHI_CR_FIFO_CLR_MASK), drvdata->base_address + XHI_CR_OFFSET);
+ }
+ 
+-- 
+2.54.0
+
 
