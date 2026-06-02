@@ -4,75 +4,82 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id EF24CCD6E4A
-	for <linux-arm-kernel@archiver.kernel.org>; Wed,  3 Jun 2026 07:04:56 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 2C319CD6E4A
+	for <linux-arm-kernel@archiver.kernel.org>; Wed,  3 Jun 2026 07:05:03 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
 	Content-Type:MIME-Version:Date:Message-Id:Subject:References:In-Reply-To:Cc:
 	To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=HuZ3SHNNN1Vp5xAZShrxNbWTVQQOQNa2kom6jaAnmeQ=; b=UEPT8XRn3FaDxxaLj3d82xfRQg
-	f24aKGDPrm13+F3e7UHwyhxZSDtLkplud1hl8BlOZiAJLZwQhN3BFtmbxu28g/zjxDR7pde5Z3B4s
-	PPyB+072+OJdrAdsvPpb51GD9bAK2nGTK7OSkw+X+RT+9YfO8CFPlujLIm6PVXCT3DK1gLPBuVZmt
-	NLYbG+mUcyXcxIwzdiXM/GUyMcMbwjKo3z992aWfJg525T5HR7iTzfClknVtjUpOEZXn1gpdMxrO5
-	ZoopAt4RL4E3LBWiFJ+IJgvlroZTzpWvuSWaX04dC13EN4Obib/PUDj3g7tYAxM9XWZJrfLKnoJWJ
-	K8y4ndJQ==;
+	bh=Z6/ckCFcgr4XWtYBVVRtL+Ct7dfjpf8dESf8wUMG9iA=; b=Wy8w6TfmWd2y8YgKfHQG8GitCH
+	dspfPGlgRJBiuRTxXgqoQE5JQVmNy7F71HHWRbZgrUFqoFCCzWjpKiShU7ibOMSiZTcjAIcdK7BSC
+	8XTFcHIrdFlKb94pjrQ+g6A8pGv8YdiS0ngWyYmROz1MvDMlyAQsKvECxcy9538U21BXJ24J9VEMD
+	gQpOp0JEl8PCr4vcH7QAMPtX1VRGH77ukCwSoabI53cG/qTeUE2sYLH7GKA6dpGAdbOP9IpQ3l8I6
+	NgjwoA7Yjh3RlwDU1I4n/lMOq4R7sbkNCScnzuosi3KS4yMhkg6rNtiTEA2/AA5Sg3FZOQ8oK6nK9
+	Q6/n9LnA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wUfel-0000000EQfr-0SVz;
-	Wed, 03 Jun 2026 07:04:51 +0000
-Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
+	id 1wUfer-0000000EQjl-0rhA;
+	Wed, 03 Jun 2026 07:04:57 +0000
+Received: from tor.source.kernel.org ([172.105.4.254])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wUfej-0000000EQep-03lm
-	for linux-arm-kernel@lists.infradead.org;
-	Wed, 03 Jun 2026 07:04:50 +0000
+	id 1wUfeq-0000000EQjD-24IB;
+	Wed, 03 Jun 2026 07:04:56 +0000
 Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
-	by sea.source.kernel.org (Postfix) with ESMTP id 33A64437E2;
-	Wed,  3 Jun 2026 07:04:48 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 7FA911F00893;
-	Wed,  3 Jun 2026 07:04:46 +0000 (UTC)
+	by tor.source.kernel.org (Postfix) with ESMTP id E497D60221;
+	Wed,  3 Jun 2026 07:04:55 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id F2AB01F00893;
+	Wed,  3 Jun 2026 07:04:50 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1780470288;
-	bh=HuZ3SHNNN1Vp5xAZShrxNbWTVQQOQNa2kom6jaAnmeQ=;
+	s=k20260515; t=1780470295;
+	bh=Z6/ckCFcgr4XWtYBVVRtL+Ct7dfjpf8dESf8wUMG9iA=;
 	h=From:To:Cc:In-Reply-To:References:Subject:Date;
-	b=Os1CMoqFAVp25r+y0UsHwP/rILviNs6D1TqqUk97aqhLXOnJNQ52iRpgp1WXoQUt+
-	 o92XjnqgDhq6+rtAtC9O5qxK8itHZNX4IR5U6/Tv0tKMvBz7fw9OTGMnZ59y1cI1za
-	 RZWenFbgKuNSpR7EgbL3oWJrSGoTFhLA0ro8mcv7lQrVvivXI6oPr7BB8/h46qW6TP
-	 IjLobi7wngBMmKoOvFKmtc+EVR1SivAJEp1gvFoON7d43ahF0ciKs+xGC1yzSabCBV
-	 Kzfn5CUEndwuswPHT5kkRV63+Fed7+t5/lXR8628fidzr1/DzEDmJx5xtsajmW+aEM
-	 TUizz1IrC43ng==
+	b=k7GUF5l8oVabuD+5BF+MS3uw4cnRpVWa0H9A8XsabOvcehxVWo/UOmOl7lbVnx/xR
+	 vXTAqLIG03CbQJJvJ2Xudfmx2KTlfBE6II/bziCPeyHDEx3ItGbaKDCU2iNhpmhj8X
+	 nhyCi7ALSVu5THk832x+1HOlZHA+bDbNQ4LNIEUb8XQkl3nuN04yr2yrsLI87QXKVC
+	 b6+r/7zveWoKebATm7JJZqLTqcgpWRZF7yf74WcjFe56NfWlWrc+8wotLW9P9EGYl1
+	 47PVl5HfiM1W4WxxR6r5SnR11WQglvtEUpxZ3E79C6zLpJpLfkUsgNLUK9ux1E7oqt
+	 lQCmLonveBqVw==
 From: Mark Brown <broonie@kernel.org>
-To: Sudeep Holla <sudeep.holla@kernel.org>, 
- Liam Girdwood <lgirdwood@gmail.com>, Wentao Liang <vulab@iscas.ac.cn>
-Cc: Cristian Marussi <cristian.marussi@arm.com>, arm-scmi@vger.kernel.org, 
- linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org, 
- stable@vger.kernel.org
-In-Reply-To: <20260527104850.872415-1-vulab@iscas.ac.cn>
-References: <20260527104850.872415-1-vulab@iscas.ac.cn>
-Subject: Re: [PATCH v2] regulator: scmi: fix of_node refcount leak in
- scmi_regulator_probe()
-Message-Id: <178041278238.93058.12658086457449189653.b4-ty@b4>
-Date: Tue, 02 Jun 2026 16:06:22 +0100
+To: Liam Girdwood <lgirdwood@gmail.com>, 
+ =?utf-8?q?Uwe_Kleine-K=C3=B6nig_=28The_Capable_Hub=29?= <u.kleine-koenig@baylibre.com>
+Cc: Chanwoo Choi <cw00.choi@samsung.com>, 
+ Krzysztof Kozlowski <krzk@kernel.org>, 
+ Javier Martinez Canillas <javier@dowhile0.org>, 
+ Matthias Brugger <matthias.bgg@gmail.com>, 
+ AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>, 
+ =?utf-8?q?Andr=C3=A9_Draszik?= <andre.draszik@linaro.org>, 
+ linux-kernel@vger.kernel.org, linux-arm-kernel@lists.infradead.org, 
+ linux-mediatek@lists.infradead.org, linux-samsung-soc@vger.kernel.org, 
+ Karel Balej <balejk@matfyz.cz>, Matti Vaittinen <mazziesaccount@gmail.com>, 
+ Marek Vasut <marek.vasut+renesas@gmail.com>, 
+ Samuel Kayode <samkay014@gmail.com>, Aaro Koskinen <aaro.koskinen@iki.fi>, 
+ Andreas Kemnade <andreas@kemnade.info>, Kevin Hilman <khilman@baylibre.com>, 
+ Roger Quadros <rogerq@kernel.org>, Tony Lindgren <tony@atomide.com>, 
+ linux-renesas-soc@vger.kernel.org, imx@lists.linux.dev, 
+ linux-arm-msm@vger.kernel.org, linux-omap@vger.kernel.org
+In-Reply-To: <cover.1779878004.git.u.kleine-koenig@baylibre.com>
+References: <cover.1779878004.git.u.kleine-koenig@baylibre.com>
+Subject: Re: [PATCH v1 0/3] regulator: Use named initializers for
+ platform_device_id arrays
+Message-Id: <178041297263.93058.3488426549945445903.b4-ty@b4>
+Date: Tue, 02 Jun 2026 16:09:32 +0100
 MIME-Version: 1.0
 Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: 7bit
+Content-Transfer-Encoding: 8bit
 X-Mailer: b4 0.16-dev
-X-Developer-Signature: v=1; a=openpgp-sha256; l=1162; i=broonie@kernel.org;
- h=from:subject:message-id; bh=JXDHK1AFoV/Cp0lzh3E7j29/nW3z5+WpwgzOwTPLyKs=;
- b=owEBbQGS/pANAwAKASTWi3JdVIfQAcsmYgBqH9INn4KqB7mJVRdOy2hkfe089055/c2uSL1s0
- UdLkYiA/O6JATMEAAEKAB0WIQSt5miqZ1cYtZ/in+ok1otyXVSH0AUCah/SDQAKCRAk1otyXVSH
- 0A47B/9qQm3n3K/t3R1jGMr56sD02MC/VGb2KtA4cjUvQCwJcv7Kf7N2SdNcS1lsCqkvOe+XlhH
- a5L311HyBKqp4uspIQ1IyoZC6t2xWG/+LBynoecUPD0vwQju7WC5cggjAG/Ur4pvh/h4Z4oQijZ
- GkmTN0hNFh90wriHcTR6QwSzdC2C3hm+MP+iPe29IgzAriasZJOXyHac9l0HVTEd1pTXHQpkQ3/
- dbV6SKbeycfNSGL5VFOCOgmjihihq8eQ6ldECGGmZglxQvhg4woaMi/EjbOYPQApIZUOmGTau7V
- OULNeCtuKB2YSqfUzOWH010b5oKhTEesKMIxrC0fDOYBoLPY
+X-Developer-Signature: v=1; a=openpgp-sha256; l=1683; i=broonie@kernel.org;
+ h=from:subject:message-id; bh=bTVy3FAIZsqQF1unUBLrL1Tiy1sS6gTQkrGyju0A2UI=;
+ b=owEBbQGS/pANAwAKASTWi3JdVIfQAcsmYgBqH9IR+5XenVVA9mLHD2HeO7sMNeqC+VxerFOpf
+ IwsWOpOWzOJATMEAAEKAB0WIQSt5miqZ1cYtZ/in+ok1otyXVSH0AUCah/SEQAKCRAk1otyXVSH
+ 0IP9CACDwCfsHAyOc8wD19LkmpqTPvPL3MCjfuetPTU/gdAUVVKU3hJDg0mrEFSFtECISuQKNp+
+ IDZhuxqSzlFO9vZYfTxelGP2i+YDA5qKrvSVWhUh/o2ocvKdqAkCTAbqKDoAO+zPRKhLq8LdQA4
+ 3vAQ7MaG3XwQh+DPYWKKOf3XpJSfpAewhEfaGYKG8ZCqwCZJM8KNvEUXW4sjxWfxA0b5+BEiNj8
+ VtqKQ41+jd8pBtR8CP3onpyOFmb1T4iAKTxhxbub7qPgS9U4TjBvYRFo5RlcuC6CP8ulHLffsFV
+ uaG1JcYy7gUAXHRu8KISbRgIZxYDYJgHHdl9F7pN7BIG+fMS
 X-Developer-Key: i=broonie@kernel.org; a=openpgp;
  fpr=3F2568AAC26998F9E813A1C5C3F436CA30F5D8EB
-X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260603_000449_081506_E1317BFA 
-X-CRM114-Status: UNSURE (   9.40  )
-X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -87,8 +94,16 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Wed, 27 May 2026 10:48:50 +0000, Wentao Liang wrote:
-> regulator: scmi: fix of_node refcount leak in scmi_regulator_probe()
+On Wed, 27 May 2026 12:47:43 +0200, Uwe Kleine-König (The Capable Hub) wrote:
+> regulator: Use named initializers for platform_device_id arrays
+> 
+> Hello,
+> 
+> this series targets to use named initializers for platform_device_id
+> arrays. In general these are better readable for humans and more robust
+> to changes in the respective struct definition.
+> 
+> [...]
 
 Applied to
 
@@ -96,8 +111,12 @@ Applied to
 
 Thanks!
 
-[1/1] regulator: scmi: fix of_node refcount leak in scmi_regulator_probe()
-      https://git.kernel.org/broonie/regulator/c/fa11039d6cdf
+[1/3] regulator: Drop unused assignment of platform_device_id driver data
+      https://git.kernel.org/broonie/regulator/c/4079e9d91b40
+[2/3] regulator: Use named initializers for platform_device_id arrays
+      https://git.kernel.org/broonie/regulator/c/d35028340d75
+[3/3] regulator: Unify usage of space and comma in platform_device_id arrays
+      https://git.kernel.org/broonie/regulator/c/0eb17367814a
 
 All being well this means that it will be integrated into the linux-next
 tree (usually sometime in the next 24 hours) and sent to Linus during
