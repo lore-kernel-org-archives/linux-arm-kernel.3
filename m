@@ -4,74 +4,144 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id A7754CD6E57
-	for <linux-arm-kernel@archiver.kernel.org>; Tue,  2 Jun 2026 18:38:50 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 3A3EECD6E5D
+	for <linux-arm-kernel@archiver.kernel.org>; Tue,  2 Jun 2026 18:44:58 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:Message-Id:
-	Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:From:
-	Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender
-	:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
-	bh=o6QSHn+bWpbFxZV+XX27moTnu4Gwm7clToWp0ddbfl0=; b=MefDNzgiatB6+EZ+FAy9VfUxbM
-	sJ3WgwV56hgrPH8l16YQaEygoNz3dhSHaYw/itYmgtJ+0rnSCEatDxo9v8RAJdiuIuz//9J3nTRc5
-	BUyDV+hgg9ZLCzeEl2xygJ6WU0yr0l98rkrvk2wUmYy1Sn8hubiGvBi/rmpDa/SjYrLyxHHH8f86h
-	Cvo7Jcb3h8AUKH8tOMGou6PvJtQK6t1mjEtjSNkGqlOquNcmxDwQrAVMcpV+ja1FOK0+A50cip5xL
-	DxM6m2oSzx0dbpgxxpxtl82sFDXE6rev67WT619tHxidOZcWbz0VMFYwBcRX+uGSOp0E7IMoZfjBa
-	L+dZ+EkA==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:
+	Content-Transfer-Encoding:Content-Type:In-Reply-To:From:References:Cc:To:
+	Subject:Date:Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=NfVMaxWhzAfXEBlq2sUdrZMFVA1/k7cw4GZZBgxfaRA=; b=dimFcVq4oOXMQsA30SNfOBpHT8
+	aUVlZrs2Qd6azWftPziwERuizStnjnOHYtbJWaik8f7dysFdXLFFJW4zZs7sbuZUYrApSe2hAFGEk
+	e6GXnLmocXPnFGM8qR9X2/bHGLmOPbY4WXHzRYXDGakN3i9sF2Nnt3qSKGBdjkMVs5GO3RXD29Q/A
+	db9tVvyfGGNedxBtSYV3IlohMT5BeldVhqvvpoXwx4xVqN3f1llBqOpQ2ageJUFLk3trsQ6cOmyb6
+	MSfx9YYiPpwjwUH6QCYD0qhn+v+A0U8KQYUX1Rt6Tl3efmS/c+v8Zdcc40Bs2o39TqOUqLLnRccvK
+	XfaSfGvA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wUU0h-0000000DeE5-38P6;
-	Tue, 02 Jun 2026 18:38:43 +0000
-Received: from sender4-op-o15.zoho.com ([136.143.188.15])
+	id 1wUU6d-0000000Debv-1iRK;
+	Tue, 02 Jun 2026 18:44:51 +0000
+Received: from mail-westus2azlp170100005.outbound.protection.outlook.com ([2a01:111:f403:c005::5] helo=CO1PR03CU002.outbound.protection.outlook.com)
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wUU0f-0000000DeDY-0kUi;
-	Tue, 02 Jun 2026 18:38:42 +0000
-ARC-Seal: i=1; a=rsa-sha256; t=1780425508; cv=none; 
-	d=zohomail.com; s=zohoarc; 
-	b=TvA/v8z3zJpF6ASip88x0r5DmZ+Ubddx5xhoYTPwmXl0KG9ySNblDLqt8b1bYDScnyEdZqW/WJp16M1UybL1Zohx6qIBtyCEF5SIXFWBXGz5wl9h9BbZoZcdw3RXCrS7YAD9fCgC9zfSfPKPIPsmnur0kIMc/QOfcRWxCHH9G+Q=
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=zohomail.com; s=zohoarc; 
-	t=1780425508; h=Content-Type:Content-Transfer-Encoding:Cc:Cc:Date:Date:From:From:MIME-Version:Message-ID:Subject:Subject:To:To:Message-Id:Reply-To; 
-	bh=o6QSHn+bWpbFxZV+XX27moTnu4Gwm7clToWp0ddbfl0=; 
-	b=djO7bNSIgCdP6AXpFPqS/mImLg4ffyO1uTzNsrtF7CSoE0Rd3ht4f5W+OoUpZZOLwPYCgBjTQF+XEEl5QTteEvofZEj08xy5ZXQ65dPBsANgr4N86epH/EO4r6bsr7+U5Gqscv3OjhkDbHdG09Jn55VLnW7D1fEOeY6tuyHVi5E=
-ARC-Authentication-Results: i=1; mx.zohomail.com;
-	dkim=pass  header.i=rong.moe;
-	spf=pass  smtp.mailfrom=i@rong.moe;
-	dmarc=pass header.from=<i@rong.moe>
-DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed; t=1780425508;
-	s=zmail2048; d=rong.moe; i=i@rong.moe;
-	h=From:From:Date:Date:Subject:Subject:MIME-Version:Content-Type:Content-Transfer-Encoding:Message-Id:Message-Id:To:To:Cc:Cc:Reply-To;
-	bh=o6QSHn+bWpbFxZV+XX27moTnu4Gwm7clToWp0ddbfl0=;
-	b=qIDsWr5jZkzSVcnuQikmp3szrn+vZTVeytDgrP5qLV1h9QBPI9JYm+zXTtFs4KPM
-	/DyOo0a1Qf4Lx02FLWAWafu/Uju1/8AGysTNxfxOYWu9OKU6wuzx9jf3B55ro8q0Nb8
-	Yz+3z1Gc6SuCG3J1Dbqnh0FXGaWQIarqIKu9167ADv3kYzv8qcN9IuZI5wS0wLm8gQe
-	wL9+mO507Xw/KdS7aIDycT7syCwf4EE5oHlX+D7UYo9p6FoPkWWCgcQdpQiVXJN+6EU
-	GQP/zVf7UycquEFzss7M/VTFFBXp77ZQuecvoxZDkebKC16i4qV6CB5gcV24tqEK7hP
-	lDwmTwDA9A==
-Received: by mx.zohomail.com with SMTPS id 1780425506915761.0970031020775;
-	Tue, 2 Jun 2026 11:38:26 -0700 (PDT)
-From: Rong Zhang <i@rong.moe>
-Date: Wed, 03 Jun 2026 02:38:10 +0800
-Subject: [PATCH] Bluetooth: btmtk: Disable remote wakeup for MT7922/MT7925
+	id 1wUU6b-0000000DebF-0fEH
+	for linux-arm-kernel@lists.infradead.org;
+	Tue, 02 Jun 2026 18:44:50 +0000
+ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
+ b=VzC/kpq20wNbDqiVx1frzBP2PQtBuprjqB40/9yc2EnJQtqSvtfBye+T9v+teeFyqhKhWeCJGvzId2w8m/wvc6BjT50zuJLWohAEX4Qb+NnaG37TZpyZN5GGH0b846t4MJyOLmIwvYoFAX2fQe5BvvVgnwUmDve+Hwv3tjyDq4bMNDUEBwGwRBnmDE7tNmQhl2pRPC35Rq9LiUh+GDXndRv5GrDUP55WISq6G0Nm/3QESbx7AHIoquq7TmpVlJCFD4TWzcBb+MVK4KczPt+HYhrwdN/mOAH+ok07gmIEUkiuwB3HhnozZPkxYbvag7XTGWHJ0PKRAjbeIdwDR6XaJw==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
+ s=arcselector10001;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
+ bh=NfVMaxWhzAfXEBlq2sUdrZMFVA1/k7cw4GZZBgxfaRA=;
+ b=rg/NPKu8x6ziPvusX5sjcA7/m92yR5HYHdrZrtcjaOBh3Q7uuloIzRUCimnwT1gxoymwDwuI9fjUZ4ETjHlyTbnFBebEWb20a+QRedp090VQtwO8QB6Sdr0AtBeRhwqAjWqt9M31QEW8kTN3BqVOP9xmgKxEXxgphMGARerV9D0KCSnO3XIAyb6NtehqtLQUd5Mp5qQZgygayRWOXyvNOZnV4qYg+FeykIRex+qEq/nh8tHQSujtyzA90P6qrmnN32t3RCZqYNU7K1uEJUoKhmBOBH8BvLrawf9c9YUAnh+EHtgTQ6zlash0sJiWHLVy/MYlUx/vF+INSgAkdkXWRA==
+ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
+ smtp.mailfrom=os.amperecomputing.com; dmarc=pass action=none
+ header.from=amperemail.onmicrosoft.com; dkim=pass
+ header.d=amperemail.onmicrosoft.com; arc=none
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+ d=amperemail.onmicrosoft.com; s=selector1-amperemail-onmicrosoft-com;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
+ bh=NfVMaxWhzAfXEBlq2sUdrZMFVA1/k7cw4GZZBgxfaRA=;
+ b=AAXmWjQaxguWilL/NfLNZdpz66bD5fcqunlDJWwXg6gNQNcMFuSDZuvToZOVCxZSM29uMBa0G0NoQlv0X9Q6N9LQcchLUykenOisabIr02IcxFS6h5oVqyfU3x7Loalzhqvm/xHNxvbCRa5Ed/hq0eyTH7IC39orZrIhbUchfWg=
+Authentication-Results: dkim=none (message not signed)
+ header.d=none;dmarc=none action=none header.from=amperemail.onmicrosoft.com;
+Received: from BN3PR01MB9212.prod.exchangelabs.com (2603:10b6:408:2cb::8) by
+ BY1PR01MB8683.prod.exchangelabs.com (2603:10b6:a03:5a9::9) with Microsoft
+ SMTP Server (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
+ 15.21.71.15; Tue, 2 Jun 2026 18:44:42 +0000
+Received: from BN3PR01MB9212.prod.exchangelabs.com
+ ([fe80::44f3:1050:dce8:1ea9]) by BN3PR01MB9212.prod.exchangelabs.com
+ ([fe80::44f3:1050:dce8:1ea9%5]) with mapi id 15.21.0092.006; Tue, 2 Jun 2026
+ 18:44:42 +0000
+Message-ID: <fdbc6d16-88af-4c6b-9e21-e01294c270b3@amperemail.onmicrosoft.com>
+Date: Tue, 2 Jun 2026 14:44:35 -0400
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH v02] mailbox: pcc: report errors for PCC clients
+To: Sudeep Holla <sudeep.holla@kernel.org>,
+ Adam Young <admiyo@os.amperecomputing.com>
+Cc: Jassi Brar <jassisinghbrar@gmail.com>, linux-kernel@vger.kernel.org,
+ linux-hwmon@vger.kernel.org, "Rafael J . Wysocki" <rafael@kernel.org>,
+ Len Brown <lenb@kernel.org>, linux-acpi@vger.kernel.org,
+ Andi Shyti <andi.shyti@kernel.org>, Guenter Roeck <linux@roeck-us.net>,
+ Huisong Li <lihuisong@huawei.com>, MyungJoo Ham <myungjoo.ham@samsung.com>,
+ Kyungmin Park <kyungmin.park@samsung.com>,
+ Chanwoo Choi <cw00.choi@samsung.com>, linux-arm-kernel@lists.infradead.org
+References: <20260518193006.27425-1-admiyo@os.amperecomputing.com>
+ <20260519-inquisitive-teal-yak-56abd1@sudeepholla>
+Content-Language: en-US
+From: Adam Young <admiyo@amperemail.onmicrosoft.com>
+In-Reply-To: <20260519-inquisitive-teal-yak-56abd1@sudeepholla>
+Content-Type: text/plain; charset=UTF-8; format=flowed
+Content-Transfer-Encoding: 8bit
+X-ClientProxiedBy: SJ0PR13CA0079.namprd13.prod.outlook.com
+ (2603:10b6:a03:2c4::24) To BN3PR01MB9212.prod.exchangelabs.com
+ (2603:10b6:408:2cb::8)
 MIME-Version: 1.0
-Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: 7bit
-Message-Id: <20260603-btmtk-remote-wakeup-v1-1-5c1006442f36@rong.moe>
-X-B4-Tracking: v=1; b=H4sIABEjH2oC/yXMSw6CMBRG4a2QO/YObJsIboU4KPUvXgmP9IEmh
- L1bYfgNztkoIggi3auNAlaJMk8F10tF7mWnHizPYrJGKaW15i6NaeCAcU7gjx2QFzaN8cY1N+v
- rmkq5BHj5Htf2cTrm7g2X/iva9x8Aib94dwAAAA==
-X-Change-ID: a4222333-btmtk-remote-wakeup-494f4c97af88
-To: Marcel Holtmann <marcel@holtmann.org>, 
- Luiz Augusto von Dentz <luiz.dentz@gmail.com>, 
- Matthias Brugger <matthias.bgg@gmail.com>, 
- AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>
-Cc: linux-bluetooth@vger.kernel.org, linux-kernel@vger.kernel.org, 
- linux-arm-kernel@lists.infradead.org, linux-mediatek@lists.infradead.org, 
- Rong Zhang <i@rong.moe>
-X-Mailer: b4 0.16-dev-d5d98
-X-ZohoMailClient: External
+X-MS-PublicTrafficType: Email
+X-MS-TrafficTypeDiagnostic: BN3PR01MB9212:EE_|BY1PR01MB8683:EE_
+X-MS-Office365-Filtering-Correlation-Id: 217b8982-d36f-4f42-3217-08dec0d70224
+X-MS-Exchange-AtpMessageProperties: SA
+X-MS-Exchange-SenderADCheck: 1
+X-MS-Exchange-AntiSpam-Relay: 0
+X-Microsoft-Antispam: BCL:0;ARA:13230040|7416014|366016|10070799003|1800799024|376014|55112099003|22082099003|6133799003|11063799006|56012099006|4143699003|18002099003;
+X-Microsoft-Antispam-Message-Info: 25vC8gSZeus0bDPHMAXnuiWBZYSs5O9tTyIRTs0zqIgOi7fLzg5eb8zt+ZqCa+k1RId2irBaZ1AbtKl8cDx/5h2iTWJPkrrr4bFpdEaSw7O8oVYw21OCjTfFKzVX7Q8eOVBys8c1Pk00v0mmKFFTaFXAbJuv+zhJn/Rkg9Rx2LwGxVY649OES8Oui3wb1PGAL1+yKzGyYbB1FmJLd4Fa7kj8YiuOnLRRRUF2p73LJ1nOTX9wRbhI4AqjZ/I8lR5U6C/giqxylnHep1ss0WNyYKpj6C2g8UX/vYvQ72MyKZnKLUDXwE8pLAKHO/ZULE1WpoN8g4Cm5JQv5hHAzQ0Z8aFBoZyv7ss0FSi0M3c6hxXvCKvlS1O9qxpFnT1f7sH6IcX1RcP27OVv3JqwmdkkHmIGptQVvWLN2a1BWINt6j7siwY5Oe6tGR6XOWD8uscOW/OhleJr3Oihc9unr/jHG6wO0pPgypKBOV53/VZSb3qMrADCXqbrUhGrUiii6axnREens/jRx5QC6G7l4O04CrdALXSrbBF3DG/Lx9OhnkDQ3LgZpV0rvaN2aSSLMUGz9nwzQ+cU4QH0yf9q0mld57nTNbHW93iJnonpoa0i/d4bQmakXVPDX/cJZ8ArET1JUQ4mQvYKHmpbjZAmikM1X8OLgZbzYgeasoHTeP6aUmLf/j9viEe6OCDW6CH0b5hO
+X-Forefront-Antispam-Report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:BN3PR01MB9212.prod.exchangelabs.com;PTR:;CAT:NONE;SFS:(13230040)(7416014)(366016)(10070799003)(1800799024)(376014)(55112099003)(22082099003)(6133799003)(11063799006)(56012099006)(4143699003)(18002099003);DIR:OUT;SFP:1102;
+X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 2
+X-MS-Exchange-AntiSpam-MessageData-0: =?utf-8?B?OHdVMHZTNUJMTmFucVRPRWJQanhJTDdUaGsrZktVazNlN2VSbkxVUVNQMnhV?=
+ =?utf-8?B?TkhKZkpONHhQM1V4US9YTERzOVd5UllHTFN0UmR3cXJNODN3bjVmcU9wNVM3?=
+ =?utf-8?B?VkpJdjRKcEdLSm81TWxnTjZTRG1TdWNUKytzQkczcXBJWjI5eUlPR0JEdVFR?=
+ =?utf-8?B?bm5GdjhmR0lhblhJcHdtNktmN3JENWFTWEt0WjN0Y21GelYvK2ZpTitjUmRM?=
+ =?utf-8?B?OTAyUGRBNnEwWUVYVlhoZ1lYbGNrVUd5OTJjZXd5VEdBVVNtcnh4Y0p6ZnMv?=
+ =?utf-8?B?SGM4VGwzRXZSaHlDYmZUMVc0OERYTlpRNjNNd3I1a2RtbUo4ZWNYSlVtWEpy?=
+ =?utf-8?B?RmthUWRtMHl1NE9TQkk4OG5CMXNsTzVqV1JBNFJwWFRveHRqWDhzY0JFVERC?=
+ =?utf-8?B?ZFBKNDVOeDE1Z1Z6QUxxREcwTVZGbWpHakFBK3d1eld3S1BYRzY0ZEhuZ0sv?=
+ =?utf-8?B?Tnl6VWwrS0Z4TVA4S0haN1FYUFlJTEZ4blZCSDltdWJoNUw0SHd5ZVpjN2s4?=
+ =?utf-8?B?Skhrd1MwdjIxaDlJTlY3Rjd1bzNUNHI3VGxVSkp3Q1RoZ0xXa0lBbE01QnJ0?=
+ =?utf-8?B?VHhNck51bm9uazBmNjVWNWQweUR5a0w5R05CMVQxNHV1RHQrZkFOam9POTJR?=
+ =?utf-8?B?Tmw1aUl4TmwwSjBJT3FoTUhuWnFnVEU0Tk5kQ2NJdDR6ZGRsVkIrU1YwbmlP?=
+ =?utf-8?B?REQycjhDcTJWMWdpeTRjWFNEMVE0ZE5CekJVUmJBQWJTSGRnVjJVd1ZqeTFC?=
+ =?utf-8?B?RTIyak4yVU9VUWRTT1VVVTVUeC9aR2dCYVkyM0poalk2RjRaZzFBSURYRVFl?=
+ =?utf-8?B?ejRUR1VJTkYyNUxkeEdvYVlieU45c2xwN0hucjlGMU9tNGZQWlcxNmo2ZG9T?=
+ =?utf-8?B?blI4eW5QOFVvRTVmZkVjcUFzd3NRVWZoNU5zV2ZXU2krNXdzWlEvZ1lFUjNX?=
+ =?utf-8?B?VE5DRlFJcVFmUU0wQU9wYlhwR05YcFdYb0c5OWVxamg4YUVDcWZrSHp3a2M0?=
+ =?utf-8?B?L0pWdzllM0FKUXI3djcwRmJCT3dwVWZTdlUrbmZUWERDeEk3Yzg2R1NyYTln?=
+ =?utf-8?B?b25ucDNZWS96eFhEWVhpK3VjUzJBbXdTcWxIOTV5azZrOTl6SlFGSjd3am80?=
+ =?utf-8?B?ZDRlSTNqYzMyeXVlTnowWWJZRk5tdnpLRE1IWGJUbUFxRDFNUGpQUmFpMEtW?=
+ =?utf-8?B?SnVPQTZCOVIxci9WWm5jczNxNlBhNjhPaVgvenU1dGErUnUxZTRHellhK2pY?=
+ =?utf-8?B?bFpWS1VSU1h1VFhySitLQStmNmNtQXZhVzBqM3dGZkJNZC9OMjk1QzlEN2Z1?=
+ =?utf-8?B?eG1ETlMwVS9oUVNHQkJJRkFrczlMZ0llV0lFQzZRQXBwajZDaEZ2enBydytq?=
+ =?utf-8?B?dDI4MVJrKy9sYlR5a1dkaGwyQldiVzVLTHMwcVM2MkJUQVBWVFBsSy9lU0R4?=
+ =?utf-8?B?djQ0QWxEMWZDRGpkSkpSYndhSTZBTFZNb1Faa0twTTIzMjZTcnFvSERkNkNq?=
+ =?utf-8?B?VlhHbE9HdGtVWGladVR1aGQyWVNLRHdyZG5QcGR5enRjQW8yMzVQWDRTNFI2?=
+ =?utf-8?B?YVdxMFhUQUZCMVFNcjRhS0EyY0d3TG5UZFhKbmdKQVJyckI1R096RUdxUlRX?=
+ =?utf-8?B?czZPbk1iTm13YzAwcklreTJuc2F6RFpDTFgvdjFkVGttTk1kNy9lN1ZqZTYy?=
+ =?utf-8?B?N1pFM1ZvQzA0bTBMMjljalNqWFZpdFlsc3drOUpoNVRaRnpZSWs2SjM3a0R4?=
+ =?utf-8?B?eG1sNFU2bkZtTzg3M2xzdk9rTjNaQXN4bmpTWTN5Q2pSQVg1eitqVXhtaEx6?=
+ =?utf-8?B?NWxYdTRvY01QanIvNWh6dWdEeDZZNFY2OENqMzNyZzlHL0hRbjk4Yk1ENlE2?=
+ =?utf-8?B?TE5oWHdmZ0lzOFBqR2FzVUlDd1g1NzNpcy8xUE1XaFpsMzBJWGVEUEFiTmMw?=
+ =?utf-8?B?R1dRc21EZk1NQXV2NGxvTXB1Zktrak9qelRUSXBGUGRmd3YwZHdPNEdpWHZE?=
+ =?utf-8?B?WlFRdlB1UVYvbVBhM0lUYVFZUi9Ma3lXQmlCcFB4azI1SnAvMFBPbkJ1Yy81?=
+ =?utf-8?B?SG55Y0JvYXpXNkVUdGN0OUlGd01CZW9DOEtlSkZjL2daMUtrbEh0WEt0aEFD?=
+ =?utf-8?B?OVd2ZkYyTEFuVTMvUlprRnhJdGl5eWxiQ3FjVTNpK21VNzhMOEJPMUwvQWhQ?=
+ =?utf-8?B?VlhVa0hZT1R4WUNkdHJRZFdIY25ENXlXWmdMYTZUeGM0dHhBRDB4R3VUQmND?=
+ =?utf-8?B?M0FlVVdpZXdsL0FrZXNxT1JVT0hBcE9rbktlKzBWUDJlSnh3Q2lFL2IyS01V?=
+ =?utf-8?B?WlNxV0xuRnpPMVY0N1BKU3pVUlQ4TE92ZmM3dGJtVmowNDE2ME82Mjh5aUZ3?=
+ =?utf-8?Q?b1du+SblF+UXD8sHWW/xRDcsVCAB+FCclc9VYD4POtac6?=
+X-MS-Exchange-AntiSpam-MessageData-1: RovAOotpXvLNk0+RSc2DxvooH6xg/RUeJJTvirZyaTQxH/pGd6xVXgHR
+X-OriginatorOrg: amperemail.onmicrosoft.com
+X-MS-Exchange-CrossTenant-Network-Message-Id: 217b8982-d36f-4f42-3217-08dec0d70224
+X-MS-Exchange-CrossTenant-AuthSource: BN3PR01MB9212.prod.exchangelabs.com
+X-MS-Exchange-CrossTenant-AuthAs: Internal
+X-MS-Exchange-CrossTenant-OriginalArrivalTime: 02 Jun 2026 18:44:42.1603
+ (UTC)
+X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
+X-MS-Exchange-CrossTenant-Id: 3bc2b170-fd94-476d-b0ce-4229bdc904a7
+X-MS-Exchange-CrossTenant-MailboxType: HOSTED
+X-MS-Exchange-CrossTenant-UserPrincipalName: tgEwOdv8kboJnuZ0xJfM0mEa1TmY222sy+g1WYVRaXr6K9VZKoCHyP7v5O6LAl8hWoNeQkxXm6YVwbFNU+PGNpDdQJ2GR/kloaXGTOAXZy+ylf6I8RO2sG8c2LeSuS1A
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: BY1PR01MB8683
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260602_113841_279967_9F5D65C5 
-X-CRM114-Status: GOOD (  11.91  )
+X-CRM114-CacheID: sfid-20260602_114449_203819_BF9F4D5A 
+X-CRM114-Status: GOOD (  26.40  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -86,115 +156,90 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-These NICs are often reported to lose their Bluetooth interfaces, i.e,
-their USB interfaces suddenly become completely unresponsive, causing
-the USB core to reset them, only to find that they are no longer
-accessible. A power cycle is required to make the Bluetooth interfaces
-recover.
+I am geting ready to resubmit this patch along with a series of other 
+PCC based changes that show how it is necessary
 
-After some investigations, I found that their USB autosuspend remote
-wakeup capabilities are so broken that they are precisely the culprit
-behind the issue:
+for MCTP-PCC.
 
-  [27452.608056] hub 3-0:1.0: state 7 ports 5 chg 0000 evt 0020
-  [27452.702018] usb 3-5: usb wakeup-resume
-  [27452.716038] usb 3-5: Waited 0ms for CONNECT
-  [27452.716642] usb 3-5: finish resume
-  /* usbmon showed that the device was completely unresponsive to any
-     URBs after the remote wakeup */
-  [27457.836030] usb 3-5: retry with reset-resume
-  [27457.956046] usb 3-5: reset high-speed USB device number 4 using xhci_hcd
-  [27463.332047] usb 3-5: device descriptor read/64, error -110
-  [27478.948117] usb 3-5: device descriptor read/64, error -110
-  [27479.172430] usb 3-5: reset high-speed USB device number 4 using xhci_hcd
-  [27484.332035] usb 3-5: device descriptor read/64, error -110
-  [27499.940039] usb 3-5: device descriptor read/64, error -110
-  [27500.164060] usb 3-5: reset high-speed USB device number 4 using xhci_hcd
-  [27505.196142] xhci_hcd 0000:67:00.0: Timeout while waiting for setup device command
-  [27510.576045] xhci_hcd 0000:67:00.0: Timeout while waiting for setup device command
-  [27510.784038] usb 3-5: device not accepting address 4, error -62
-  [27510.912215] usb 3-5: reset high-speed USB device number 4 using xhci_hcd
-  [27515.948307] xhci_hcd 0000:67:00.0: Timeout while waiting for setup device command
-  [27521.324380] xhci_hcd 0000:67:00.0: Timeout while waiting for setup device command
-  [27521.525107] usb 3-5: device not accepting address 4, error -62
-  [27521.525928] usb usb3-port5: logical disconnect
-  [27521.525996] usb 3-5: gone after usb resume? status -19
-  [27521.526230] usb 3-5: can't resume, status -19
-  [27521.526434] usb usb3-port5: logical disconnect
-  [27521.526469] usb usb3-port5: resume, status -19
-  [27521.526493] usb usb3-port5: status 0503, change 0004, 480 Mb/s
-  [27521.526528] usb 3-5: USB disconnect, device number 4
-  [27521.526736] usb 3-5: unregistering device
-  [27521.804029] usb 3-5: new high-speed USB device number 5 using xhci_hcd
-  [27527.076067] usb 3-5: device descriptor read/64, error -110
-  [27542.692027] usb 3-5: device descriptor read/64, error -110
-  [27542.916047] usb 3-5: new high-speed USB device number 6 using xhci_hcd
-  [27548.068043] usb 3-5: device descriptor read/64, error -110
-  [27563.684073] usb 3-5: device descriptor read/64, error -110
-  [27563.792133] usb usb3-port5: attempt power cycle
-  [27563.924381] hub 3-0:1.0: port_wait_reset: err = -11
-  [27563.925213] usb usb3-port5: not enabled, trying reset again...
-  [27564.184398] usb 3-5: new high-speed USB device number 7 using xhci_hcd
-  [27569.196322] xhci_hcd 0000:67:00.0: Timeout while waiting for setup device command
-  [27574.572040] xhci_hcd 0000:67:00.0: Timeout while waiting for setup device command
-  [27574.776053] usb 3-5: device not accepting address 7, error -62
-  [27574.900165] usb 3-5: new high-speed USB device number 8 using xhci_hcd
-  [27579.948039] xhci_hcd 0000:67:00.0: Timeout while waiting for setup device command
-  [27585.324331] xhci_hcd 0000:67:00.0: Timeout while waiting for setup device command
-  [27585.528040] usb 3-5: device not accepting address 8, error -62
-  [27585.528389] usb usb3-port5: unable to enumerate USB device
-  [27585.528424] hub 3-0:1.0: state 7 ports 5 chg 0000 evt 0020
+On 5/19/26 09:23, Sudeep Holla wrote:
+> On Mon, May 18, 2026 at 03:30:06PM -0400, Adam Young wrote:
+>> The tx_done callback function has a return code (rc) parameter
+>> that the tx_done callback can use to determine how to handle an error.
+>> However the IRQ handler was not setting that value if there is an error.
+>>
+>> The following clients are affected:
+>>
+>> drivers/acpi/cppc_acpi.c
+>> drivers/i2c/busses/i2c-xgene-slimpro.c
+>> drivers/hwmon/xgene-hwmon.c
+>> drivers/soc/hisilicon/kunpeng_hccs.c
+>> drivers/devfreq/hisi_uncore_freq.c
+>>
+>> All of these only use the error code to report, so they
+>> are expecting an error code to come thorugh, but they
+>> do not modify behavior based on this code.
+>>
+>> In the case of an error code in the IRQ, the handler was returning
+>> IRQ_NONE which is not correct:  the IRQ handler was matched
+>> to the IRQ.  This mean that multiple error codes returned from
+>> a PCC triggered interrupt would end up disabling the device.
+>>
+>> In addition, if the error code IRQ was coming from a Type4 Device that was
+>> expecting an IRQ response, that device would then be hung.
+>>
+>> Fixes: c45ded7e1135 ("mailbox: pcc: Add support for PCCT extended PCC subspaces(type 3/4)")
+>> Signed-off-by: Adam Young <admiyo@os.amperecomputing.com>
+>>
+>> ---
+>> ---
+>>   drivers/mailbox/pcc.c | 9 +++++----
+>>   1 file changed, 5 insertions(+), 4 deletions(-)
+>>
+>> diff --git a/drivers/mailbox/pcc.c b/drivers/mailbox/pcc.c
+>> index 636879ae1db7..16b9ce087b9e 100644
+>> --- a/drivers/mailbox/pcc.c
+>> +++ b/drivers/mailbox/pcc.c
+>> @@ -314,6 +314,7 @@ static irqreturn_t pcc_mbox_irq(int irq, void *p)
+>>   {
+>>   	struct pcc_chan_info *pchan;
+>>   	struct mbox_chan *chan = p;
+>> +	int rc;
+>>   
+>>   	pchan = chan->con_priv;
+>>   
+>> @@ -327,8 +328,7 @@ static irqreturn_t pcc_mbox_irq(int irq, void *p)
+>>   	if (!pcc_mbox_cmd_complete_check(pchan))
+>>   		return IRQ_NONE;
+>>   
+>> -	if (pcc_mbox_error_check_and_clear(pchan))
+>> -		return IRQ_NONE;
+>> +	rc = pcc_mbox_error_check_and_clear(pchan);
+> I think we may have to skip the check inside pcc_mbox_error_check_and_clear()
+> for Type 4 channel as the spec expects OSPM to ignore it. It is a separate
+> fix, just noting that here.
 
-To reproduce the issue, these conditions must be met:
-- a noisy radio environment (cafe or office) to cause frequent remote
-  wakeup events
-- no Bluetooth device is connected, so autosuspend is not prohibited
-- the Bluetooth interface is opened, so remote wakeup is enabled when
-  the device runs into autosuspend
+I will submit this as a pre-req patch.
 
-Then I can reproduce the issue within sereval hours each time.
 
-Increasing TRSMRCY or setting USB_QUIRK_RESET doesn't help at all.
+>
+>>   
+>>   	/*
+>>   	 * Clear this flag after updating interrupt ack register and just
+>> @@ -337,8 +337,9 @@ static irqreturn_t pcc_mbox_irq(int irq, void *p)
+>>   	 * required to avoid any possible race in updatation of this flag.
+>>   	 */
+>>   	pchan->chan_in_use = false;
+>> -	mbox_chan_received_data(chan, NULL);
+>> -	mbox_chan_txdone(chan, 0);
+>> +	if (!rc)
+>> +		mbox_chan_received_data(chan, NULL);
+> Not sure if making this conditional is good as some platforms may expect
+> it to move the state machine, I am not sure 100% just thinking aloud here.
 
-Since the remote wakeup capability is super broken, just disable it to
-get rid of the troubles. The device can still be autosuspended when
-the bluetooth interface is closed, which won't break the device as
-remote wakeup is unneeded in this case.
+That is currently not the case.  Right now, and error code 
+short-circuits and further execution of the IRC handler.  I think that 
+those drivers would need to be changes to have a tx_done callback instead.
 
-Link: https://bbs.archlinux.org/viewtopic.php?id=308169
-Link: https://bbs.bee-link.com/d/7694-gtr9-pro-ai-max-395-usb-issues
-Signed-off-by: Rong Zhang <i@rong.moe>
----
- drivers/bluetooth/btmtk.c | 10 ++++++++++
- 1 file changed, 10 insertions(+)
 
-diff --git a/drivers/bluetooth/btmtk.c b/drivers/bluetooth/btmtk.c
-index 8ff66b276af0..3d2a8598892b 100644
---- a/drivers/bluetooth/btmtk.c
-+++ b/drivers/bluetooth/btmtk.c
-@@ -1379,6 +1379,16 @@ int btmtk_usb_setup(struct hci_dev *hdev)
- 		break;
- 	case 0x7922:
- 	case 0x7925:
-+		/*
-+		 * A remote wakeup could cause the device completely unresponsive, and
-+		 * recovering from such a state needs a power cycle.
-+		 *
-+		 * Since the remote wakeup capability is super broken, just disable it
-+		 * to get rid of the troubles. The device can still be autosuspended
-+		 * when the bluetooth interface is closed.
-+		 */
-+		device_set_wakeup_capable(&btmtk_data->udev->dev, false);
-+		fallthrough;
- 	case 0x7961:
- 	case 0x7902:
- 	case 0x6639:
-
----
-base-commit: e43ffb69e0438cddd72aaa30898b4dc446f664f8
-change-id: a4222333-btmtk-remote-wakeup-494f4c97af88
-
-Thanks,
-Rong
-
+>
 
