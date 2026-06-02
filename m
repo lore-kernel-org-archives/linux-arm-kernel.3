@@ -4,60 +4,69 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 316DFCD6E5D
-	for <linux-arm-kernel@archiver.kernel.org>; Tue,  2 Jun 2026 19:55:25 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 5B80BCD6E5D
+	for <linux-arm-kernel@archiver.kernel.org>; Tue,  2 Jun 2026 19:58:17 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
 	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
 	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=ftOIpII2o5BHlSrpYjdtnSczjR8NYdTjJYRnMSN/BTM=; b=0BEO6dp3jKvDezKhdqYEUd9hHu
-	EJRca6Dt21gKLwMDoiDyh6dEZgZ69gHmKmC9SS4WWX5Pfd2kO8ChopqJjbkpQlZGs7G1oSAFFEm8K
-	ZnnZYIapIvh4zkWru5R4yzUENJOERKOLKkxC14NPMZMimwNItB2r2OaGwPowTjxfnqoeywSxWvxFT
-	G2EYqUez2ZfHNEqeg/LdPryOxl2l0+LhQLSo/zzoPk6zhhcsJ9nr2rUxDAw6NdM0qCkM6+8iropqi
-	rT8AIFK2iHY2K04++y1FdX8tc9q28orOpUB7bkLEQG3CFatZXUxEcBr/3JG/ININpdwtsCGiJGpYr
-	h94OZCsQ==;
+	bh=fnLig1efP0TuJ12veBvKUYnUO2mrsAHX1oK+MYE3e7Q=; b=uu9d7gL45uWg+8m+BjqMad3ZJ2
+	taGWyhEwt0PGpQXhKvOK9/zHt0kQrqybO4Qh46Z2kaFmhPMEW0k0elYvzC588BRPqFrfyiF5RqJHE
+	l9WzCJA2nFFnIwOG0umatbIU61Wligq47sE8TxDYK+VRQi4FrOSVZiuKM5/qI3can5o3DlyrnjA9r
+	a2LOTdriTAG2kQ3mCSgAodyUXhfwkFnpM9pD2f9q26xc4saY7uq4zJvYBDARbxQMOx1iW21pzVKhv
+	nwPpfflVh58kULd7F1l0OBV9OTQuAQxhKvbLrBUf6c/FPcZNPxhCeVYPDSCOwbL7eZi7Gaej5wFe2
+	MS+m1fWw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wUVCo-0000000DiOg-3VY0;
-	Tue, 02 Jun 2026 19:55:18 +0000
-Received: from tor.source.kernel.org ([172.105.4.254])
+	id 1wUVFa-0000000DiVY-1H45;
+	Tue, 02 Jun 2026 19:58:10 +0000
+Received: from tor.source.kernel.org ([2600:3c04:e001:324:0:1991:8:25])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wUVCn-0000000DiOY-1VSl
-	for linux-arm-kernel@lists.infradead.org;
-	Tue, 02 Jun 2026 19:55:17 +0000
+	id 1wUVFZ-0000000DiVN-04DI;
+	Tue, 02 Jun 2026 19:58:09 +0000
 Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
-	by tor.source.kernel.org (Postfix) with ESMTP id 62E4A60098;
-	Tue,  2 Jun 2026 19:55:16 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 461E91F00893;
-	Tue,  2 Jun 2026 19:55:14 +0000 (UTC)
+	by tor.source.kernel.org (Postfix) with ESMTP id 2073160098;
+	Tue,  2 Jun 2026 19:58:08 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id AD89E1F00893;
+	Tue,  2 Jun 2026 19:58:07 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1780430116;
-	bh=ftOIpII2o5BHlSrpYjdtnSczjR8NYdTjJYRnMSN/BTM=;
+	s=k20260515; t=1780430287;
+	bh=fnLig1efP0TuJ12veBvKUYnUO2mrsAHX1oK+MYE3e7Q=;
 	h=Date:From:To:Cc:Subject:References:In-Reply-To;
-	b=bGOerLGi9R5hKth9QMPVvN8b5Ds4rpn8aJMi2p2Qe5KjZxinm0fUynTnZXzRaMUDC
-	 r9pNx4zbJ6VuFllwfLUpJyxEGxBxdyXiggpPSW1hCVsVFJfiueOVZfdfSw1jR8Hgia
-	 Bpy7b609LIotTjG0zVmaAEP74TXkqY7nj1E/g444K9C+K45X2zPMamz8lCQtiUfYPY
-	 51O85iXZumK49wtOfL5+ONJtxWAQWaTwwOaakRVdpiJAFxIXPr7paXH+xqfnEJDGNA
-	 TWFt+s0rnkr/ibIForY/iVSaCNdZu3eLSGbZh/3LxrovMEP+rsfM/Yp07S0FPwoq58
-	 ApUDj+6WcAFOA==
-Date: Tue, 2 Jun 2026 20:55:10 +0100
-From: Will Deacon <will@kernel.org>
-To: Ashish Mhetre <amhetre@nvidia.com>
-Cc: robin.murphy@arm.com, joro@8bytes.org, jgg@ziepe.ca,
-	nicolinc@nvidia.com, linux-arm-kernel@lists.infradead.org,
-	iommu@lists.linux.dev, linux-kernel@vger.kernel.org,
-	linux-tegra@vger.kernel.org
-Subject: Re: [PATCH v3 1/3] iommu/arm-smmu-v3: Factor out CMDQ batch
- force-sync conditions
-Message-ID: <ah81HhVW7_h9xyDM@willie-the-truck>
-References: <20260601104845.995005-1-amhetre@nvidia.com>
- <20260601104845.995005-2-amhetre@nvidia.com>
+	b=GoR/ooG3A23xypxe/2xIjqhXBgNQL6JSdsjAIy5mcUDJyifn889NEwPXaX9plNUoQ
+	 95s+38nJXC3BmSI6OEEU9xfocEKCy4p3TuYErHQCifEiF5vj2uv69ycot9xDWNk8Uo
+	 lKQgRWyKxyn1v7TCaUc4ZigPwyxw7+23CyRtPwNMCb9g0wGFAEmy64M2jxJBQRt77t
+	 MCghHnNJMLBMEnrPwsa+jZT59Iykyxv3SbFGTk1qCENU3CeqW37zeThZjKl4tlDHWo
+	 waTd9ltZGETh15fjYkBwNpQEtlbfYmE0w6t/84CMFfn9gIPvZkLqmeid/filaiA1Xz
+	 GWL3TLidwOjjw==
+Date: Tue, 2 Jun 2026 14:58:07 -0500
+From: Rob Herring <robh@kernel.org>
+To: Louis-Alexis Eyraud <louisalexis.eyraud@collabora.com>
+Cc: Sen Chu <sen.chu@mediatek.com>, Sean Wang <sean.wang@mediatek.com>,
+	Macpaul Lin <macpaul.lin@mediatek.com>, Lee Jones <lee@kernel.org>,
+	Krzysztof Kozlowski <krzk+dt@kernel.org>,
+	Conor Dooley <conor+dt@kernel.org>,
+	Matthias Brugger <matthias.bgg@gmail.com>,
+	AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>,
+	Dmitry Torokhov <dmitry.torokhov@gmail.com>,
+	Chen Zhong <chen.zhong@mediatek.com>,
+	Jonathan Cameron <jic23@kernel.org>,
+	David Lechner <dlechner@baylibre.com>,
+	Nuno =?iso-8859-1?Q?S=E1?= <nuno.sa@analog.com>,
+	Andy Shevchenko <andy@kernel.org>, kernel@collabora.com,
+	linux-pm@vger.kernel.org, devicetree@vger.kernel.org,
+	linux-kernel@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
+	linux-mediatek@lists.infradead.org, linux-input@vger.kernel.org,
+	linux-iio@vger.kernel.org
+Subject: Re: [PATCH 0/9] MT6365 PMIC support cleanup
+Message-ID: <20260602195807.GA1062343-robh@kernel.org>
+References: <20260429-mediatek-genio-mt6365-cleanup-v1-0-6f43838be92f@collabora.com>
 MIME-Version: 1.0
 Content-Type: text/plain; charset=us-ascii
 Content-Disposition: inline
-In-Reply-To: <20260601104845.995005-2-amhetre@nvidia.com>
+In-Reply-To: <20260429-mediatek-genio-mt6365-cleanup-v1-0-6f43838be92f@collabora.com>
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -72,43 +81,48 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Mon, Jun 01, 2026 at 10:48:43AM +0000, Ashish Mhetre wrote:
-> From: Nicolin Chen <nicolinc@nvidia.com>
+On Wed, Apr 29, 2026 at 11:44:13AM +0200, Louis-Alexis Eyraud wrote:
+> Several Mediatek and Radxa boards, based on MT8370, MT8390 or MT8395
+> SoC, integrate the MT6365 PMIC, that is a MT6359P variant:
+>  - Mediatek Genio 1200-EVK
+>  - Mediatek Genio 700-EVK
+>  - Mediatek Genio 510-EVK
+>  - Radxa NIO-12L
+> It is compatible with the MT6359 PMIC.
 > 
-> arm_smmu_cmdq_batch_add_cmd_p() carries two distinct reasons for
-> flushing the current batch with a CMD_SYNC before appending the
-> new command:
+> But both MT6365 PMIC support and compatibility were never expressed in
+> the dt-bindings and there is no MT6365 include file as well.
+> So, since these board support was introduced, their devicetrees use the
+> mt6359 include file to enable this PMIC support. 
 > 
->   - The batch's pre-assigned cmdq does not support the new command.
->   - The Arm erratum 2812531 workaround (ARM_SMMU_OPT_CMDQ_FORCE_SYNC)
->     forces a SYNC at one entry before the batch is full.
+> The goal of this series is to clean this support by adding the missing
+> compatible strings for this MFD main and subdevices in the dt-bindings,
+> and add a include for MT6365 definitions to replace the MT6359 include
+> in these board devicetrees and for future ones (like Genio 520/720
+> EVKs).
 > 
-> Lift those checks into a new arm_smmu_cmdq_batch_force_sync() helper
-> so that adding another force-sync condition becomes a one-line
-> addition. No functional change.
+> The series is based on linux-next tree (tag: next-20260428) and has
+> been tested on Mediatek Genio 510, 700 and 1200-EVK boards.
 > 
-> Signed-off-by: Nicolin Chen <nicolinc@nvidia.com>
-> Signed-off-by: Ashish Mhetre <amhetre@nvidia.com>
 > ---
->  drivers/iommu/arm/arm-smmu-v3/arm-smmu-v3.c | 26 ++++++++++++++++-----
->  1 file changed, 20 insertions(+), 6 deletions(-)
-> 
-> diff --git a/drivers/iommu/arm/arm-smmu-v3/arm-smmu-v3.c b/drivers/iommu/arm/arm-smmu-v3/arm-smmu-v3.c
-> index 9be589d14a3b..4d29bd343460 100644
-> --- a/drivers/iommu/arm/arm-smmu-v3/arm-smmu-v3.c
-> +++ b/drivers/iommu/arm/arm-smmu-v3/arm-smmu-v3.c
-> @@ -847,16 +847,30 @@ static void arm_smmu_cmdq_batch_init_cmd(struct arm_smmu_device *smmu,
->  	cmds->cmdq = arm_smmu_get_cmdq(smmu, cmd);
->  }
->  
-> +static bool arm_smmu_cmdq_batch_force_sync(struct arm_smmu_device *smmu,
-> +					   struct arm_smmu_cmdq_batch *cmds,
-> +					   struct arm_smmu_cmd *cmd)
-> +{
-> +	if (!cmds->num)
-> +		return false;
+> Louis-Alexis Eyraud (9):
+>       dt-bindings: mfd: mediatek: mt6397: Add rtc for MT6359
+>       dt-bindings: mfd: mediatek: mt6397: Add MT6365 PMIC support
+>       dt-bindings: input: mediatek,pmic-keys: Add MT6365 support
+>       dt-bindings: iio: adc: mt6359: Add MT6365 PMIC AuxADC
 
-This check seems new?
+Applied these 2 to fix warnings in linux-next.
 
-Will
+Angelo, Apply the binding changes along with the .dts changes if they 
+haven't been picked up yet.
+
+Once again, Mediatek warnings are moving in the wrong direction. :(
+
+Rob
+
+>       arm64: dts: mediatek: mt6359: use proper compatible for rtc
+>       arm64: dts: mediatek: add MT6365 PMIC include
+>       arm64: dts: mediatek: mt8390-genio-common: use MT6365 PMIC definitions
+>       arm64: dts: mediatek: mt8395-genio-common: use MT6365 PMIC definitions
+>       arm64: dts: mediatek: mt8395-radxa-nio-12l: use MT6365 PMIC definitions
 
