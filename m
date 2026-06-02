@@ -4,81 +4,81 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id B721ACD6E4A
-	for <linux-arm-kernel@archiver.kernel.org>; Tue,  2 Jun 2026 13:14:54 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 31B76CD6E64
+	for <linux-arm-kernel@archiver.kernel.org>; Tue,  2 Jun 2026 13:14:55 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:CC:To:In-Reply-To:References
 	:Message-ID:Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:
 	From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=5hdltZz20niqAEWoexAYER4FAMnWDSX/Zz+jrN3x+yE=; b=PhRHK3PeshTNJ8eBqixvanMF9x
-	5388BUiPPra/tOrqBt7FTAUgiO++p7Tfv5l6C18VkqVvCx6xxJIq68tyRVgM4MWbaEEGb6yk94qle
-	p8RkwOPZdKcnI+NDW+LUA0TGRJDhjVLkhbUv8ij6egIdoCrcAihzxBbs49837QGx6+3GHr3EGGMzd
-	3N81fSc0CPa8Ak6/vx46Wp8ko7V12hpsNiy/UWbtRSJcIZRCnVg0DGBU482bqliW5r9ORhOgeqD50
-	NOlEn5pdV4tYTb7NjeTeqYG5O1uEUivtX8nrruUv9ZWIhOdSD7hMLDFdecvfH5fgy+pkcofgFC3bP
-	KPRa1t6A==;
+	bh=5OIr+Ol0Hv8QsnTiXbFuxu3dwRP80a5F0HF6qg8A0vs=; b=pMSYaBZ16zOvfoVML/FqvzIvEo
+	hUrvZ3NYeCYcgGsjOAbrSZOi1bGc2cCLrkAiSRzj72iI0vP+8EVHdJdUlqYoXHw0hPulreB23taRB
+	wR/BOKQnGMrhXa8QoPTaxwZCgPXmMXsmlUG4bo2AY46l+f+ni4andKldfo69xYIagltOsI/d8w2O9
+	Pm50qT+smSLk7Akwn7CBhONti4t6BmDleZqflthiFJ5LQU2L3BTM4cwFaGp4mx5SKwPV13lnMTHsv
+	fGwAykuM6+FGYVBqjW7rZaoxo6dimZm0Sj5pEfLW0MnTJ0v+yLkFala4Bb0DXSuRc0PUHsHnczxOg
+	wLfT1XEA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wUOxC-0000000D3ha-2wYD;
-	Tue, 02 Jun 2026 13:14:46 +0000
-Received: from mail-francecentralazon11013042.outbound.protection.outlook.com ([40.107.162.42] helo=PA4PR04CU001.outbound.protection.outlook.com)
+	id 1wUOxF-0000000D3k9-0aqK;
+	Tue, 02 Jun 2026 13:14:49 +0000
+Received: from mail-westeuropeazlp170110003.outbound.protection.outlook.com ([2a01:111:f403:c201::3] helo=AS8PR04CU009.outbound.protection.outlook.com)
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wUOxA-0000000D3eU-04Ek
+	id 1wUOxA-0000000D3f5-49Ct
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 02 Jun 2026 13:14:46 +0000
+	Tue, 02 Jun 2026 13:14:47 +0000
 ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
- b=H/0rhaLJ0+vj9Ph1tAFkQjO6xnvolsGgTLS/NGZvjuhBazc/z49j3e5TKXGRlelS+fbznS0xGZGp9fORhByhe3pMNvz5oS+044qLkMvIGm0i9EyOAh2WOWgVoW5TMP+ExDBY/lshS3pold4ActgqzIg14FJ6tlwNG9eA4r3psZUYCz45mO/Lq6NkDVEjaAL+HKd8PPp1oZOXcohjdajHH8R3t9cnuTFX8leT2piRLUtU2Ph1u3mUhGEyupBkpQqSD5aoVCDwUcy8zjlVyZroX9BR1e/WcMbsepv0SYRE/oXFPoj84173WbF5cXyC94mpdVgGsjD1IpcrgWX9nrRAIg==
+ b=ivQbeHdIVJzVvdDh0Bs21EGJozBVWvinQhiNerw0INVYqez4bdrA4i2pp82KBpeiC15RSyyklmRqahABoxUjQtBt5qHZ9BXMhmvy8FBluYqx/TileJOJJb05WoXkJquKEc2aEYYRKfEOMOx4OIL0iBEiWvuf8fl1JxPq5kSvfTfvay9r/ggBTokXmVzAOROmEMKwT/Lwr6PS+H+RlJF132ly+4FWTo+GVsUgiLlt4ZevRsHeQ+7IL32YcEfBoUSPBwSWdXwVw/pWVHGtXlzEBIw/L/+sH4/FJcaUmtN4TrGsXO0PL3vmzBDCb/uvYAKEQZ+99CQ3xnB7Kv7NBP7PWg==
 ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
  s=arcselector10001;
  h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
- bh=5hdltZz20niqAEWoexAYER4FAMnWDSX/Zz+jrN3x+yE=;
- b=YcpZH2SderBsjYZlQnz1JHLtRIbgRWyJNsrgTRoCjpas46sWkR9OUNI1mDavtRFTu05NMsdN4QGU5SzaFBKrqgYyoLEDN6JvvEVSPTTbeV7pnkxQFNbIeMRrnDNd7O9mMui46ptlSiLel167DSl6gtGqM5vWWBVl3bd99CR5I7inRaF0BDFQIKIwqVwAs1Tc8yum15OaDz0578G4tto0tK5kopmN8tGK5neRbjmsbj27kiTZC9jMbbRfs1FrppkZnmS0gSpo6mHDvuvj6HZbi95SCFxMLR7jQwFzxXc541YOrs/ap/p0mSKdyBuSVE1y0c/4bw5VroEmEUsQp4AaJg==
+ bh=5OIr+Ol0Hv8QsnTiXbFuxu3dwRP80a5F0HF6qg8A0vs=;
+ b=pkpOD9ZuJtzzqAikTecnGn7sUaezdWyyTm+psN99kHyEvTGu57Z1FBkb7DOqoK/3SXiiDOxz+J47Y6aTwLwjw5dfk3bw2chfyWaOPCRjwPINfblL8Vy17uh7Zu3Ol/oo3fXuryEJ/v0/O/qg2sZHTKzCOy0EdXmZKgsDhZUc+ZfWDRlK2RnIokbbfwVpeywY8G1ssJMUZ9l8wgq7oSBsT4pQ8waDsic5jahQG7o9TxI8dfcyNRZdzrie32hb9LfUckJAG4MUnllEn6FTROTuuI6l6TXvuHSDEjOTBcYzUZgQ82TbT0JthO0ADs7Px2kQLBs0z2cXYitvhejgUAjCUQ==
 ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=fail (sender ip is
- 164.130.1.60) smtp.rcpttodomain=vger.kernel.org smtp.mailfrom=foss.st.com;
+ 164.130.1.59) smtp.rcpttodomain=vger.kernel.org smtp.mailfrom=foss.st.com;
  dmarc=fail (p=none sp=none pct=100) action=none header.from=foss.st.com;
  dkim=none (message not signed); arc=none (0)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=foss.st.com;
  s=selector2;
  h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
- bh=5hdltZz20niqAEWoexAYER4FAMnWDSX/Zz+jrN3x+yE=;
- b=cXI76lp7qfDfMcwG0O5f4TFTNtKB5AWWackTq3YvtC/RYHjWeMoYGhTMsoYUczxo9F2KMi2l1xZwzT43PqQjl/D7QSu9DXO5t/PLhG4Z1QoOZJ03/4zP4brWR2i68/4Co4ZnLoac9T1pb/VoBn+MbGMc148PVKi4wYmV+6puI9FjccV34pA8KhKD/k7JFJnA7MrvpEtbMAh5UxP/J/ttxWYmkinAyarDSlCNUKNmGH7OfWpcAc3vUtIWev+J9KLtHdamwIULFGQvcf1w6qysBhGUO3JWoqmybdH7zSRC8f3P98Cyd2CnKome1DvePN32Ph5iQrN9PmFRQCSEndqDKQ==
-Received: from CWLP123CA0101.GBRP123.PROD.OUTLOOK.COM (2603:10a6:401:5f::17)
- by FRWPR10MB9256.EURPRD10.PROD.OUTLOOK.COM (2603:10a6:d10:183::13) with
+ bh=5OIr+Ol0Hv8QsnTiXbFuxu3dwRP80a5F0HF6qg8A0vs=;
+ b=LTbeSodtY0PRZNxbib4By439eFfKEqSJhPXNMY/OyngwaWfbzkRqUOiUzcSQjUgC0HceG5GzolSNR4su8r3IWEI4DW3zm3x5kT6puxUk3Fyy7s7Cr4V5tP41dqAdqlUvkcvyDOIU2WGB4y/RKf7ZMNFzAePmaO7FWMQ+IGNuBKP61ldlw4NCtaNbYazwFAerSPo+W6/J18tNQ7hcoTuq5tUHLiMx5swYScxfDBOBQiIxfNiXKmjkP3bX/vkzr0GJ3BoU7jllCghmdtkfvqI1q/bgk89L++rndhHJLUMlxWuV1yIVGVH5QN6eXmKhoedx+5jFa/oqprg7oPPZa3ZNPg==
+Received: from DUZP191CA0035.EURP191.PROD.OUTLOOK.COM (2603:10a6:10:4f8::27)
+ by GV1PR10MB5891.EURPRD10.PROD.OUTLOOK.COM (2603:10a6:150:57::15) with
  Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.21.71.16; Tue, 2 Jun 2026
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.21.92.7; Tue, 2 Jun 2026
  13:14:39 +0000
-Received: from AMS0EPF00000191.eurprd05.prod.outlook.com
- (2603:10a6:401:5f:cafe::a3) by CWLP123CA0101.outlook.office365.com
- (2603:10a6:401:5f::17) with Microsoft SMTP Server (version=TLS1_3,
- cipher=TLS_AES_256_GCM_SHA384) id 15.21.71.17 via Frontend Transport; Tue, 2
- Jun 2026 13:14:39 +0000
-X-MS-Exchange-Authentication-Results: spf=fail (sender IP is 164.130.1.60)
+Received: from DU6PEPF0000952A.eurprd02.prod.outlook.com
+ (2603:10a6:10:4f8:cafe::4) by DUZP191CA0035.outlook.office365.com
+ (2603:10a6:10:4f8::27) with Microsoft SMTP Server (version=TLS1_3,
+ cipher=TLS_AES_256_GCM_SHA384) id 15.21.92.7 via Frontend Transport; Tue, 2
+ Jun 2026 13:14:38 +0000
+X-MS-Exchange-Authentication-Results: spf=fail (sender IP is 164.130.1.59)
  smtp.mailfrom=foss.st.com; dkim=none (message not signed)
  header.d=none;dmarc=fail action=none header.from=foss.st.com;
 Received-SPF: Fail (protection.outlook.com: domain of foss.st.com does not
- designate 164.130.1.60 as permitted sender) receiver=protection.outlook.com;
- client-ip=164.130.1.60; helo=smtpO365.st.com;
-Received: from smtpO365.st.com (164.130.1.60) by
- AMS0EPF00000191.mail.protection.outlook.com (10.167.16.216) with Microsoft
- SMTP Server (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
- 15.21.92.5 via Frontend Transport; Tue, 2 Jun 2026 13:14:39 +0000
-Received: from STKDAG1NODE2.st.com (10.75.128.133) by smtpO365.st.com
- (10.250.44.72) with Microsoft SMTP Server (version=TLS1_2,
+ designate 164.130.1.59 as permitted sender) receiver=protection.outlook.com;
+ client-ip=164.130.1.59; helo=smtpO365.st.com;
+Received: from smtpO365.st.com (164.130.1.59) by
+ DU6PEPF0000952A.mail.protection.outlook.com (10.167.8.11) with Microsoft SMTP
+ Server (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
+ 15.21.92.5 via Frontend Transport; Tue, 2 Jun 2026 13:14:38 +0000
+Received: from STKDAG1NODE2.st.com (10.75.128.133) by smtpo365.st.com
+ (10.250.44.71) with Microsoft SMTP Server (version=TLS1_2,
  cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.2.2562.35; Tue, 2 Jun
- 2026 15:18:23 +0200
+ 2026 15:18:47 +0200
 Received: from localhost (10.130.77.119) by STKDAG1NODE2.st.com
  (10.75.128.133) with Microsoft SMTP Server (version=TLS1_2,
  cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.2.2562.35; Tue, 2 Jun
  2026 15:14:38 +0200
 From: Alain Volmat <alain.volmat@foss.st.com>
-Date: Tue, 2 Jun 2026 15:14:00 +0200
-Subject: [PATCH v2 03/13] media: stm32: dcmipp: bytecap: protect CMIER
- register access
+Date: Tue, 2 Jun 2026 15:13:59 +0200
+Subject: [PATCH v2 02/13] media: stm32: dcmipp: make dcmipp_state & cmsr2
+ read common
 MIME-Version: 1.0
 Content-Type: text/plain; charset="utf-8"
 Content-Transfer-Encoding: 7bit
-Message-ID: <20260602-stm32-dcmipp-pixel-pipes-support-v2-3-3c76b5f93157@foss.st.com>
+Message-ID: <20260602-stm32-dcmipp-pixel-pipes-support-v2-2-3c76b5f93157@foss.st.com>
 References: <20260602-stm32-dcmipp-pixel-pipes-support-v2-0-3c76b5f93157@foss.st.com>
 In-Reply-To: <20260602-stm32-dcmipp-pixel-pipes-support-v2-0-3c76b5f93157@foss.st.com>
 To: Hugues Fruchet <hugues.fruchet@foss.st.com>, Alain Volmat
@@ -94,29 +94,28 @@ X-ClientProxiedBy: ENXCAS1NODE2.st.com (10.75.128.138) To STKDAG1NODE2.st.com
  (10.75.128.133)
 X-EOPAttributedMessage: 0
 X-MS-PublicTrafficType: Email
-X-MS-TrafficTypeDiagnostic: AMS0EPF00000191:EE_|FRWPR10MB9256:EE_
-X-MS-Office365-Filtering-Correlation-Id: c3c96fb4-f674-408e-81a7-08dec0a8e70f
+X-MS-TrafficTypeDiagnostic: DU6PEPF0000952A:EE_|GV1PR10MB5891:EE_
+X-MS-Office365-Filtering-Correlation-Id: a8d503bd-f0a6-4967-af29-08dec0a8e69d
 X-MS-Exchange-SenderADCheck: 1
 X-MS-Exchange-AntiSpam-Relay: 0
-X-Microsoft-Antispam: BCL:0;ARA:13230040|376014|1800799024|82310400026|36860700016|22082099003|18002099003|11063799006|56012099006;
-X-Microsoft-Antispam-Message-Info: jRyjx7dbOs2zQEpF9KaVkc7yIbAp7xXC2b+BKbmMS4waAN1Ug8XLbF3pI52auMFBuZCnGCJ5z3Jpwx5oNn4VYW9WSGUQbWeT+HNBptPAHst6JaYhsn8/wgGBcj8TtVxJXB789H/ZzVpsn3ShDXNIGazk2APbiEDbqZCXpgWJUBBni0JsndLbbqoBHu+5rocmwcvZhbxp2QQ9wojsmX99LLRb089z7UqZA0FAIWIf2SJtFP7WvsMVg5c6DA23YrHptJFgLK1iXhMRlD+tEigSe+v7iHIdUQJb7zwnqOT+mC+UhzEQZ6tdfJYB0ELQ9Tb23qPOn4WwAjFto1hMd7gxToI3RPSmT4bLJUBTLs7jm3sMq8mPg+AU6z9OUknKc2w1XPkc1RQu93tWU4pSbT6G8mX0jyUM8rJ+AqMlDOqKEwKqIvz5uhOtxnmKZq/wM528wQxE/9QtX1Ncluq9CJz2LwnMc1oAREf9YEl0DN5ZiidAcFDdO2PQW0A2ZCckW7KZnlieF0dGQxClLW4o/bIhRyfx5yNzwo9Sg0cAS/4BoWnAsGqS2Yp7D9DENNPM4n2sNho4mxxhUOI1I9E8E26SBqWqCEJLz4M3IWhKXI+bJ+4W8szTYpLsnmV0HcNvR3hwchkTNkyjgt23z7Ng4B4s54WNaWTPC1KH3nAt7JmGdJhZ3EIBJCj6l+n6DsZV4dLQfyCOhdJKsa77au07YubTOcPTkxiC4QqL8JItJaIK0RI=
-X-Forefront-Antispam-Report: CIP:164.130.1.60;CTRY:IT;LANG:en;SCL:1;SRV:;IPV:CAL;SFV:NSPM;H:smtpO365.st.com;PTR:InfoDomainNonexistent;CAT:NONE;SFS:(13230040)(376014)(1800799024)(82310400026)(36860700016)(22082099003)(18002099003)(11063799006)(56012099006);DIR:OUT;SFP:1101;
+X-Microsoft-Antispam: BCL:0;ARA:13230040|1800799024|36860700016|82310400026|376014|18002099003|11063799006|22082099003|56012099006;
+X-Microsoft-Antispam-Message-Info: gBzoa3/npbs9DFoBMT18qGInV7jbcd6P1OUkZKJinMJFBourm5DckkTtraSvh+Le9Cqn5zsjzHdUWo+nRRZQ5UMHT+UJWqGA6gVJNCiYpUhLd4M4s4JE0hX/jonQKGaAVdDvFyRuPzS8ng2FrK6SWzigpNwqQAvNkjJwMirafqljX3PqD6ThFfTgIp5b8NvD+WU1NO9DokfKnXUEtyxX+4sXcJNnIVjkDm7m45CEWbUVehFrr2XVJejI6QE77KzLHgsuFwsMvsDsl3+jvYrC2CcadCV7h/dbJRPCivUNeJbz7Keum+X74mxebsDJHOSaHD74Tc69GGaQP93HVQ8ls6xVEcDipKb5AMoqkR1ZUay/9FxLN5bK8oWwOdBWDt0nuPw8DtwhYrNqFW9/uNQTLJBB3Qpoyr8Ec/C6Wt4e1cjKXxnFuj1LrBGEjlYwhdbJCA1YVS/KB/HPeTmCD8iFLNgJ3oNSJUqZVME0lne4RT0lTjfBpXVGn1AlBNV7d8sryemAHxRB/u8X7kw/0JioSo5ZRylWquS1pod0THXszg1DWjB4EH3j5tUjpaZKGY1z7s7Va2UgJ7A7Fw62mfK2WjmguGHTf4DIK9UJDl+7VAo/rDFXFK3x/dG0V3y7Tm91vQBRo+P2/a/pGPvib6XWHu3JCD+TUyQIMsUMcW0X7NeD4K5L8Cl66PxX608gmUqm+81vsJge4U2vWcmKVff08LJJORqC75RyjRdGnBVKGPg=
+X-Forefront-Antispam-Report: CIP:164.130.1.59;CTRY:IT;LANG:en;SCL:1;SRV:;IPV:CAL;SFV:NSPM;H:smtpO365.st.com;PTR:InfoDomainNonexistent;CAT:NONE;SFS:(13230040)(1800799024)(36860700016)(82310400026)(376014)(18002099003)(11063799006)(22082099003)(56012099006);DIR:OUT;SFP:1101;
 X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
-X-MS-Exchange-AntiSpam-MessageData-0: R48+SpDs6qFfwcUYY/ULZvq6YP1MwtzxfHDEPGON86ISAIxow36kjZDiGbQDEH3qsTuvMm8s6yh9QrsvVsFPI7H31lU22Ml/+eFEOrbUvvXQP+6tXl/HiF5CBuvOM1SrXnkAuGnWOMCskJUONFPUI2DNk9ZqlgMk92rfeAvfhgqZUYAmbtZotv+sGpv6G+CJmfGPeuXyMgEx9q2BydVGCQ6JgMZ5NBe+PZKbtjQawkpJpTWC6ZG4zTiPKczS1sRMahN+t+usDlMqwrQ9IQdRVNR9DhlkPPrwsSuCX1YoHsdpY/WKppw4CM/DqcDibild3cQplSOjc5wcrdcwbe7+4y+9h9AQeXXKOTrXy1GR4axAfBcdqB1nWT365b3h7yLl9eNGs9+KCuZQMz+ach8LZsRJZ/oN2GoBinVjkSJZtkbPc5k0isLRGZpcOPzIXzOB
+X-MS-Exchange-AntiSpam-MessageData-0: pAvsOskgSrWJpmjvS8QQBts3P1dXFbuDFxKOFhaPBi4omX8u7DQPFMrrZ5xls30oGsyzUNdg4EzlnzcFgksw7VlmdUeFYOIEL44SegHCp/mrj/TwNTMSq+t5ticB7ZBb5WeKRRg6dOzZlMKZG6qoPR5tNE73BxW5aG7ayNR+MRVH4MFoMdm6yNFBiU6RqXmYNlqzir2ljn8Qp2FGCHnTpqu5/VCWEP2cuD2W2vAqCTJqQ29yQp0QZ6/8diyTSyDTtU3t0W6UlfFocBe8Z7QW/X/kl8gZ3SDtoUeL7ehJQ2jKe5VKgkVjgJdhBKw8vxUIbSQ+bzCgaXiJ3ppVqZrZSxf5fCz5prJh6U+ZVRkPwBm1KB5+detX7OwShA5o//sH2+LYu+/ZN+YoIYxf8Du7+BEJ7Lf+q3yeTcbC0Sxuhhhzl334OAR6fXL6uryqrYXS
 X-OriginatorOrg: foss.st.com
-X-MS-Exchange-CrossTenant-OriginalArrivalTime: 02 Jun 2026 13:14:39.5999
+X-MS-Exchange-CrossTenant-OriginalArrivalTime: 02 Jun 2026 13:14:38.8243
  (UTC)
-X-MS-Exchange-CrossTenant-Network-Message-Id: c3c96fb4-f674-408e-81a7-08dec0a8e70f
+X-MS-Exchange-CrossTenant-Network-Message-Id: a8d503bd-f0a6-4967-af29-08dec0a8e69d
 X-MS-Exchange-CrossTenant-Id: 75e027c9-20d5-47d5-b82f-77d7cd041e8f
-X-MS-Exchange-CrossTenant-OriginalAttributedTenantConnectingIp: TenantId=75e027c9-20d5-47d5-b82f-77d7cd041e8f;Ip=[164.130.1.60];Helo=[smtpO365.st.com]
-X-MS-Exchange-CrossTenant-AuthSource: AMS0EPF00000191.eurprd05.prod.outlook.com
+X-MS-Exchange-CrossTenant-OriginalAttributedTenantConnectingIp: TenantId=75e027c9-20d5-47d5-b82f-77d7cd041e8f;Ip=[164.130.1.59];Helo=[smtpO365.st.com]
+X-MS-Exchange-CrossTenant-AuthSource: DU6PEPF0000952A.eurprd02.prod.outlook.com
 X-MS-Exchange-CrossTenant-AuthAs: Anonymous
 X-MS-Exchange-CrossTenant-FromEntityHeader: HybridOnPrem
-X-MS-Exchange-Transport-CrossTenantHeadersStamped: FRWPR10MB9256
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: GV1PR10MB5891
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260602_061444_066944_5D503EFF 
-X-CRM114-Status: UNSURE (   8.80  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20260602_061445_064385_6E84CB3A 
+X-CRM114-Status: GOOD (  14.44  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -131,41 +130,96 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-CMIER register is common between all pipes and thus needs to be
-protected from concurrent access.  The struct v4l2_device structure,
-unique to the whole driver embeds a spin_lock which can also be used
-by the driver itself as explained in its description.  Rely on this
-spin_lock to protect from concurrent access to the CMIER register.
+In preparation of the introduction of the pixel pipes capture devices,
+move struct dcmipp_state into common header and perform
+interrupt status register CMSR2 into the core interrupt handler and
+share the value with each subdevs.
 
 Signed-off-by: Alain Volmat <alain.volmat@foss.st.com>
 ---
- drivers/media/platform/st/stm32/stm32-dcmipp/dcmipp-bytecap.c | 4 ++++
- 1 file changed, 4 insertions(+)
+ drivers/media/platform/st/stm32/stm32-dcmipp/dcmipp-bytecap.c | 11 ++++-------
+ drivers/media/platform/st/stm32/stm32-dcmipp/dcmipp-common.h  |  7 +++++++
+ drivers/media/platform/st/stm32/stm32-dcmipp/dcmipp-core.c    |  7 +++++++
+ 3 files changed, 18 insertions(+), 7 deletions(-)
 
 diff --git a/drivers/media/platform/st/stm32/stm32-dcmipp/dcmipp-bytecap.c b/drivers/media/platform/st/stm32/stm32-dcmipp/dcmipp-bytecap.c
-index 990bbaaf4bda..dac7338dd981 100644
+index 395c0ea72019..990bbaaf4bda 100644
 --- a/drivers/media/platform/st/stm32/stm32-dcmipp/dcmipp-bytecap.c
 +++ b/drivers/media/platform/st/stm32/stm32-dcmipp/dcmipp-bytecap.c
-@@ -436,7 +436,9 @@ static int dcmipp_bytecap_start_streaming(struct vb2_queue *vq,
- 	dcmipp_start_capture(vcap, vcap->next);
+@@ -110,12 +110,6 @@ struct dcmipp_buf {
+ 	struct list_head	list;
+ };
  
- 	/* Enable interruptions */
-+	spin_lock(&vcap->vdev.v4l2_dev->lock);
- 	reg_set(vcap, DCMIPP_CMIER, DCMIPP_CMIER_P0ALL);
-+	spin_unlock(&vcap->vdev.v4l2_dev->lock);
+-enum dcmipp_state {
+-	DCMIPP_STOPPED = 0,
+-	DCMIPP_WAIT_FOR_BUFFER,
+-	DCMIPP_RUNNING,
+-};
+-
+ struct dcmipp_bytecap_device {
+ 	struct dcmipp_ent_device ved;
+ 	struct video_device vdev;
+@@ -797,9 +791,12 @@ static irqreturn_t dcmipp_bytecap_irq_callback(int irq, void *arg)
+ {
+ 	struct dcmipp_bytecap_device *vcap =
+ 			container_of(arg, struct dcmipp_bytecap_device, ved);
++	struct dcmipp_ent_device *ved = arg;
  
- 	vcap->state = DCMIPP_RUNNING;
+ 	/* Store interrupt status register */
+-	vcap->cmsr2 = reg_read(vcap, DCMIPP_CMSR2) & DCMIPP_CMIER_P0ALL;
++	vcap->cmsr2 = ved->cmsr2 & DCMIPP_CMIER_P0ALL;
++	if (!vcap->cmsr2)
++		return IRQ_HANDLED;
+ 	vcap->count.it++;
  
-@@ -492,7 +494,9 @@ static void dcmipp_bytecap_stop_streaming(struct vb2_queue *vq)
- 	media_pipeline_stop(vcap->vdev.entity.pads);
+ 	/* Clear interrupt */
+diff --git a/drivers/media/platform/st/stm32/stm32-dcmipp/dcmipp-common.h b/drivers/media/platform/st/stm32/stm32-dcmipp/dcmipp-common.h
+index e5c0eda8b18a..3c3996472e03 100644
+--- a/drivers/media/platform/st/stm32/stm32-dcmipp/dcmipp-common.h
++++ b/drivers/media/platform/st/stm32/stm32-dcmipp/dcmipp-common.h
+@@ -119,6 +119,13 @@ struct dcmipp_ent_device {
+ 	irq_handler_t handler;
+ 	irqreturn_t handler_ret;
+ 	irq_handler_t thread_fn;
++	u32 cmsr2;
++};
++
++enum dcmipp_state {
++	DCMIPP_STOPPED = 0,
++	DCMIPP_WAIT_FOR_BUFFER,
++	DCMIPP_RUNNING,
+ };
  
- 	/* Disable interruptions */
-+	spin_lock(&vcap->vdev.v4l2_dev->lock);
- 	reg_clear(vcap, DCMIPP_CMIER, DCMIPP_CMIER_P0ALL);
-+	spin_unlock(&vcap->vdev.v4l2_dev->lock);
+ /**
+diff --git a/drivers/media/platform/st/stm32/stm32-dcmipp/dcmipp-core.c b/drivers/media/platform/st/stm32/stm32-dcmipp/dcmipp-core.c
+index dd784cfcaac8..b06a4931ae95 100644
+--- a/drivers/media/platform/st/stm32/stm32-dcmipp/dcmipp-core.c
++++ b/drivers/media/platform/st/stm32/stm32-dcmipp/dcmipp-core.c
+@@ -33,6 +33,8 @@
+ 	.flags = link_flags,					\
+ }
  
- 	/* Stop capture */
- 	reg_clear(vcap, DCMIPP_P0FCTCR, DCMIPP_P0FCTCR_CPTREQ);
++#define DCMIPP_CMSR2	0x3f8
++
+ static inline struct dcmipp_device *
+ notifier_to_dcmipp(struct v4l2_async_notifier *n)
+ {
+@@ -251,10 +253,15 @@ static irqreturn_t dcmipp_irq_callback(int irq, void *arg)
+ 	struct dcmipp_ent_device *ved;
+ 	irqreturn_t ret = IRQ_HANDLED;
+ 	unsigned int i;
++	u32 cmsr2;
++
++	/* Centralized read of CMSR2 */
++	cmsr2 = reg_read(dcmipp, DCMIPP_CMSR2);
+ 
+ 	/* Call irq handler of each entities of pipeline */
+ 	for (i = 0; i < dcmipp->pipe_cfg->num_ents; i++) {
+ 		ved = dcmipp->entity[i];
++		ved->cmsr2 = cmsr2;
+ 		if (ved->handler)
+ 			ved->handler_ret = ved->handler(irq, ved);
+ 		else if (ved->thread_fn)
 
 -- 
 2.43.0
