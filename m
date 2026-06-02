@@ -4,71 +4,71 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 5AB6ACD5BD1
-	for <linux-arm-kernel@archiver.kernel.org>; Tue,  2 Jun 2026 14:13:41 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 188C0CD6E57
+	for <linux-arm-kernel@archiver.kernel.org>; Tue,  2 Jun 2026 14:13:44 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
 	MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:
 	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=7jQ8I6G5OSQI9Zc1AI/cbg9J6IIMEuuRXgGgav8SlWE=; b=gwcamFGsnosMyCeJfioZmk4p2A
-	dj0NkWo42ckervD9jyravQ++jtY6CHwx6/fkRhDqz0iFSc9xKdZL+muXcb7qHeYjYrzaZMN7OUECD
-	hs7BMVlxBAAcUgI3Acwmdd1S21PD/oZpsb6Lztbz66JssEYVXKCyXCaVVJy7rSIxJtRd1RJcvWipV
-	mxmu9Oa6E4hH4zYIsmP15/OCTQVZUTbRkIRgFpBklNocTQ2Cvz8psc8fr2SKgZyNpeBa5aK/tbnHz
-	ssR7gM9PNII/mtPO+EhLz+ZpO4pof8gPPm3naIK7wgxfX+Y9al/XsCuvSSzdm+sOf3TXAm0EhEw3n
-	yzZgIJsg==;
+	bh=GnWXzQAZ0Vo/VANt7mtlbu3rnPUwPJXrj9Dado/eFQI=; b=qtEM8IZOvKIRmM1j9u4Z+VGD6n
+	arCBhM2cQDgvH79JmIUhFntVRhKpMDN+2BiBN+PJ1BZ2Q3QLLoscZSAaLY7R26W5kyvMFKGix9ZgN
+	oIUEYQ9GTKOTNOHeOZ/Hb5P/PuTWGtxr3nBo/NoQUih7IZl8ZKN/4vp9gfG1bViMcBVwJno4gDyGG
+	Cu6iBJNriiPfW8sS2weOumB4tZRRqVKrJJsACdelnLeKZN5CyyyZ1d18JDS2MXKUU9KhUY6GxzTg6
+	fWVs3vLoVZbYZktCzlkpZ5LBY8KPqtq/WN6/diW0h+nC+PmvkPZjzBwz14wNmuxTy39nTvpjER6mq
+	kmdDtDFg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wUPs7-0000000D9uf-13KZ;
-	Tue, 02 Jun 2026 14:13:35 +0000
-Received: from mail-wm1-x333.google.com ([2a00:1450:4864:20::333])
+	id 1wUPs4-0000000D9tQ-3DDu;
+	Tue, 02 Jun 2026 14:13:32 +0000
+Received: from mail-wr1-x435.google.com ([2a00:1450:4864:20::435])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wUPs3-0000000D9sh-3oiY
+	id 1wUPs2-0000000D9sN-1rl2
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 02 Jun 2026 14:13:33 +0000
-Received: by mail-wm1-x333.google.com with SMTP id 5b1f17b1804b1-4903d730b1fso103682305e9.2
-        for <linux-arm-kernel@lists.infradead.org>; Tue, 02 Jun 2026 07:13:31 -0700 (PDT)
+	Tue, 02 Jun 2026 14:13:32 +0000
+Received: by mail-wr1-x435.google.com with SMTP id ffacd0b85a97d-45f3cf907ceso1522709f8f.2
+        for <linux-arm-kernel@lists.infradead.org>; Tue, 02 Jun 2026 07:13:29 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20251104; t=1780409610; x=1781014410; darn=lists.infradead.org;
+        d=gmail.com; s=20251104; t=1780409608; x=1781014408; darn=lists.infradead.org;
         h=content-transfer-encoding:mime-version:references:in-reply-to
          :message-id:date:subject:cc:to:from:from:to:cc:subject:date
          :message-id:reply-to;
-        bh=7jQ8I6G5OSQI9Zc1AI/cbg9J6IIMEuuRXgGgav8SlWE=;
-        b=L/5Pngx/LTgSXf8Up9V/D79EBr2J0OSxrUszE8BUkXA8gE+wcXjpdtFI48tF3d+b2P
-         ttmOrZgFVzIV9IZquKG63/YY0GC9SSLKCcMG4cv1TEA5KWpLIUuh+brHJ7R6KdW9Zq+r
-         OxgIK5VzzsMy9fmaRe+JPN9SSw91UHvQ3Rfp1BxxlLO2Z73+QEk7ePuCtECxU8TX50jd
-         YyFAGyOWhu1V1agRoLn82V1nrnBIMqhj2+wgakEKYcImgKb36jkqryrGLKfTV12GCha9
-         mtjIw1UWmehJLfYYEn6dFwzcEQckdsVN8dGAXkqXlfaL3XDFq5ZG46jeMkLYRUpBs8M3
-         AQEQ==
+        bh=GnWXzQAZ0Vo/VANt7mtlbu3rnPUwPJXrj9Dado/eFQI=;
+        b=SxcHxk58UMwklpkfyvxQmAcyZ+hIbXOjCUr6vV0r5m2C8DwNp1DuNTjSupnCDMVdju
+         qz6o+oHF5WUQpLBWJxG6n/VbnAL6BU+p+DHgtJOoulnh+MAhxvq9+TxUvxYGLGhLjSwR
+         moKUV7VbPNDdbSrmQfkUYgID/5y5hWTqj8o3BYjgG2KN9hRMX30SF6JU9gDg+rE1nnPD
+         cUihvIxqI+qibht2/rN26GBqU8/Fx0Ph+7bcKsY1JVd/RA1DnzKwLPHTRfglJMPOpj4o
+         Vl7AzTiQ+tEvT8LMSPVSdULHltm/t2WXw/s7mDhoM5dqofBGGncBV5ksZXI2Z/7Xy/kw
+         p72A==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20251104; t=1780409610; x=1781014410;
+        d=1e100.net; s=20251104; t=1780409608; x=1781014408;
         h=content-transfer-encoding:mime-version:references:in-reply-to
          :message-id:date:subject:cc:to:from:x-gm-gg:x-gm-message-state:from
          :to:cc:subject:date:message-id:reply-to;
-        bh=7jQ8I6G5OSQI9Zc1AI/cbg9J6IIMEuuRXgGgav8SlWE=;
-        b=VzwrlbbfMQy2CyFDkI+SUMM+Dedkvlkdmu5hNt4KF8W4QWHx6NbT18VVNV25ovbXv0
-         LBYJFkeazUV3nl+JRyjUZnug/xqRiVDHwDTa7D9Flf4+9jltelH0jGPmaZd4UvfyBIIe
-         RhUSiCBtK6a0nsRLL3oyglQR0r0zeO+M9k2D23kOJXg4TirupZ3bcKk0ft/09jnBNiic
-         bYKP2J6uQWqhrjn4ntw8oZktYkwROUPUMeGYte+0PlfpOjS4o1eocKGbKHUO6sclA2zH
-         v8EXce5Txhk5604X8PCnvOoQIRs7oeLUugxOAyWGOD0q/DTXKNP4X7+lFAWJ6Cevda6t
-         1H9w==
-X-Forwarded-Encrypted: i=1; AFNElJ/0/GO8f3Gm6O1evG3lbkf6V+0/rYL5RCD7kfbwwcQbP9uLLXHoXzQN/OQZCSJpJRdUz4k0cT281+UFdzCNywIX@lists.infradead.org
-X-Gm-Message-State: AOJu0YzVg1fphbxhvbE+b5nLRUXLRuyUXBGixyZUPbhmjztE974Y4Uvs
-	87jP8ZdwatnU0Oq6C6pDMDzuIBlNiGmtLxh2az4duirhXsgca6x3xYYu
-X-Gm-Gg: Acq92OFFdu6MCQMJ/rD/XIFs4BxpBOkSVjQyHyUQcenJTKcOTHUeZgI7y8k/7hef4bz
-	ZtS3bF/5tI+Dnc3b+AG9Fc2mH7BDucF33OorbEOLTnd4QhOeot1lNgABqxQltTvTrYBj60EsF23
-	18pVnL60/Bm66miAcXhC3qkKcD4QbtCAiFAfHtY/DRHdn5iy9t/wCA3H5gTi9UKVFvtFM26aeP2
-	Qlqut6MaP3dC4Cthpi3qJW2PBaBEPvSpRpm+DyufT8cHmZPLV8oM2ZmU12aaQ+6kECSTiMc6dGm
-	976AKw2D+MUjUV3ngP5i6z4QMKx87J35K6RPXYeutx8W5A/nq+PCuhMoD7KwOGf6WoDuSEwef4R
-	FMseOSJGzwK2nKNIMvCpFve1045R5lp7GP2RFnPSM7E6extfZnPXtj8xTLgmLfP1xB2kYuDBj1K
-	sCuUHLdFT0ZyaCkOrDtRx0iyoJ6ntdcnYeU405
-X-Received: by 2002:a05:600c:c4a5:b0:490:b432:6f1e with SMTP id 5b1f17b1804b1-490b4327145mr19699815e9.33.1780409609821;
-        Tue, 02 Jun 2026 07:13:29 -0700 (PDT)
+        bh=GnWXzQAZ0Vo/VANt7mtlbu3rnPUwPJXrj9Dado/eFQI=;
+        b=RSx2A6Vxr6q9+9VfI750G4fJfKB7csHJa14yh+fsdOIxAH0kFn68VQfz4wIgJS+9jY
+         pfSb2dQetcSKdShXJd/NfRl84x145FTj7zHdaT+UD83XPsnWrSsBZisiZ3n4oFD7ZZbF
+         vuHnknvFN35HJjNxJKphQAyAZTcQ6Hj7pSkcqHV73mHFpBNcnqM7GHEeSzF/WOJrM7va
+         gdOgEh+slvFVuFLIeZdOPI6PgWANqPUCA9k/cnAEIHX6G0AqkiwU79GUfIQUs17aRKD2
+         FOe/L881d+X+RngayiG/BRMndg9wMpxBDSpJznOQVv9GcIi3UEObzem1+tmxJEiHvBda
+         Xcvw==
+X-Forwarded-Encrypted: i=1; AFNElJ/By2+YFakH5XFesMGdErpmj3wshIT1k/GUXGsG7J73p6i1SrQX//SgBN8v5fJU+Y4yKKaXx/kUeVq9I66bD11p@lists.infradead.org
+X-Gm-Message-State: AOJu0YxS8ekSPYEGciX8ekMQgT8ztcD8UFKRDB3M1DbhS6WDwIW6axhd
+	qQMnuFvfC358iwZwn242DRGsp5wcRHIg1ByPZnRLqN/El5xmde/2VdaA
+X-Gm-Gg: Acq92OFoh3Zk+L3w4wZXRgKSOTpTnHTDcrQhJFugs2wroruhPy6AwFV+/lCdi09zsOO
+	V2D/h17Ih4nlZk+zSCGcLsEDG25J5kM2e88XbG6itu4O35PusnYPxSfokKIx3k4SrBvWYT8aiuI
+	nviCvOjfRHNjqum8Nel2eVKJ0Am796YgSGT7poir7NoQn/akKL0t4S0IuvEbswAptW86rqXplda
+	MxRN/yFnq6Jj2CVCxdRKYcZ19bZfp1W/jmYqSt9N03vWEMfgdEiY6yAFwE3jpYJv5M8U7iTCk5D
+	6oecE3bDsSwMyOYzb7vK190N+vhMcaQZg/+JIqPLPbzeEJ5bbfopeAhWSr7vMRS0pzZnAbd7atW
+	1Fxtz7XktcHlzRCYwe0WZ931iMAcfrpFyE9oKRyfH6wXHk/hpaSQXOLJm5vZ1dKaXxXRuaq5Hml
+	HT/bcFgQKFHG/sktkBiCXV8jxzuQ==
+X-Received: by 2002:a05:600d:8495:20b0:490:44eb:c1dc with SMTP id 5b1f17b1804b1-490a292fbbdmr208200895e9.20.1780409608315;
+        Tue, 02 Jun 2026 07:13:28 -0700 (PDT)
 Received: from vitor-nb ([2001:8a0:c4c6:f00:e8c3:a961:5b26:a2c6])
-        by smtp.gmail.com with ESMTPSA id 5b1f17b1804b1-490b0e0de7bsm60816345e9.3.2026.06.02.07.13.28
+        by smtp.gmail.com with ESMTPSA id 5b1f17b1804b1-490b0e0de7bsm60816345e9.3.2026.06.02.07.13.26
         (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Tue, 02 Jun 2026 07:13:29 -0700 (PDT)
+        Tue, 02 Jun 2026 07:13:27 -0700 (PDT)
 From: Vitor Soares <ivitro@gmail.com>
 To: Nishanth Menon <nm@ti.com>,
 	Vignesh Raghavendra <vigneshr@ti.com>,
@@ -80,17 +80,17 @@ Cc: Vitor Soares <vitor.soares@toradex.com>,
 	linux-arm-kernel@lists.infradead.org,
 	devicetree@vger.kernel.org,
 	linux-kernel@vger.kernel.org
-Subject: [PATCH 2/3] arm64: dts: ti: k3-am62p-verdin: Reserve UART_4 for Cortex-R5F
-Date: Tue,  2 Jun 2026 15:13:12 +0100
-Message-ID: <20260602141311.1366818-7-ivitro@gmail.com>
+Subject: [PATCH 1/3] arm64: dts: ti: k3-am62p-verdin: Add NAU8822 Bridge Tied Load
+Date: Tue,  2 Jun 2026 15:13:11 +0100
+Message-ID: <20260602141311.1366818-6-ivitro@gmail.com>
 X-Mailer: git-send-email 2.54.0
 In-Reply-To: <20260602141311.1366818-5-ivitro@gmail.com>
 References: <20260602141311.1366818-5-ivitro@gmail.com>
 MIME-Version: 1.0
 Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260602_071332_013411_19701396 
-X-CRM114-Status: GOOD (  14.04  )
+X-CRM114-CacheID: sfid-20260602_071330_505379_D75CD378 
+X-CRM114-Status: GOOD (  14.41  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -107,63 +107,66 @@ Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.i
 
 From: Vitor Soares <vitor.soares@toradex.com>
 
-Add a device tree overlay reserving AM62P MCU_UART0 (Verdin UART_4) for
-use by the Cortex-R5F co-processor.
+Add a device tree overlay enabling Bridge Tied Load (BTL) mode on the
+Nuvoton NAU8822 audio codec present on the Verdin Development Board.
+In BTL mode, the two loudspeaker outputs are bridged to deliver higher
+output power on the X28 speaker connector.
 
 Signed-off-by: Vitor Soares <vitor.soares@toradex.com>
 ---
- arch/arm64/boot/dts/ti/Makefile                     |  4 ++++
- .../boot/dts/ti/k3-am62p5-verdin-uart4-mcu.dtso     | 13 +++++++++++++
- 2 files changed, 17 insertions(+)
- create mode 100644 arch/arm64/boot/dts/ti/k3-am62p5-verdin-uart4-mcu.dtso
+ arch/arm64/boot/dts/ti/Makefile                    |  4 ++++
+ .../dts/ti/k3-am62p5-verdin-dev-nau8822-btl.dtso   | 14 ++++++++++++++
+ 2 files changed, 18 insertions(+)
+ create mode 100644 arch/arm64/boot/dts/ti/k3-am62p5-verdin-dev-nau8822-btl.dtso
 
 diff --git a/arch/arm64/boot/dts/ti/Makefile b/arch/arm64/boot/dts/ti/Makefile
-index f2db3c878993..27a56abb1d7f 100644
+index 371f9a043fe5..f2db3c878993 100644
 --- a/arch/arm64/boot/dts/ti/Makefile
 +++ b/arch/arm64/boot/dts/ti/Makefile
-@@ -84,6 +84,7 @@ dtb-$(CONFIG_ARCH_K3) += k3-am62p5-verdin-nonwifi-dev.dtb
+@@ -78,6 +78,7 @@ dtb-$(CONFIG_ARCH_K3) += k3-am62l3-evm.dtb
+ # Boards with AM62Px SoC
+ dtb-$(CONFIG_ARCH_K3) += k3-am62p5-sk.dtb
+ dtb-$(CONFIG_ARCH_K3) += k3-am62p5-var-som-symphony.dtb
++dtb-$(CONFIG_ARCH_K3) += k3-am62p5-verdin-dev-nau8822-btl.dtbo
+ dtb-$(CONFIG_ARCH_K3) += k3-am62p5-verdin-nonwifi-dahlia.dtb
+ dtb-$(CONFIG_ARCH_K3) += k3-am62p5-verdin-nonwifi-dev.dtb
  dtb-$(CONFIG_ARCH_K3) += k3-am62p5-verdin-nonwifi-ivy.dtb
- dtb-$(CONFIG_ARCH_K3) += k3-am62p5-verdin-nonwifi-mallow.dtb
- dtb-$(CONFIG_ARCH_K3) += k3-am62p5-verdin-nonwifi-yavia.dtb
-+dtb-$(CONFIG_ARCH_K3) += k3-am62p5-verdin-uart4-mcu.dtbo
- dtb-$(CONFIG_ARCH_K3) += k3-am62p5-verdin-wifi-dahlia.dtb
- dtb-$(CONFIG_ARCH_K3) += k3-am62p5-verdin-wifi-dev.dtb
- dtb-$(CONFIG_ARCH_K3) += k3-am62p5-verdin-wifi-ivy.dtb
-@@ -277,6 +278,8 @@ k3-am62p5-sk-csi2-tevi-ov5640-dtbs := k3-am62p5-sk.dtb \
+@@ -274,6 +275,8 @@ k3-am62p5-sk-csi2-ov5640-dtbs := k3-am62p5-sk.dtb \
+ 	k3-am62x-sk-csi2-ov5640.dtbo
+ k3-am62p5-sk-csi2-tevi-ov5640-dtbs := k3-am62p5-sk.dtb \
  	k3-am62x-sk-csi2-tevi-ov5640.dtbo
- k3-am62p5-verdin-wifi-dev-nau8822-btl-dtbs := k3-am62p5-verdin-wifi-dev.dtb \
- 	k3-am62p5-verdin-dev-nau8822-btl.dtbo
-+k3-am62p5-verdin-wifi-dev-uart4-mcu-dtbs := k3-am62p5-verdin-wifi-dev.dtb \
-+	k3-am62p5-verdin-uart4-mcu.dtbo
++k3-am62p5-verdin-wifi-dev-nau8822-btl-dtbs := k3-am62p5-verdin-wifi-dev.dtb \
++	k3-am62p5-verdin-dev-nau8822-btl.dtbo
  k3-am642-evm-icssg0-dtbs := \
  	k3-am642-evm.dtb k3-am642-evm-icssg0.dtbo
  k3-am642-evm-icssg1-dualemac-dtbs := \
-@@ -376,6 +379,7 @@ dtb- += k3-am625-beagleplay-csi2-ov5640.dtb \
+@@ -372,6 +375,7 @@ dtb- += k3-am625-beagleplay-csi2-ov5640.dtb \
+ 	k3-am62p5-sk-csi2-imx219.dtb \
  	k3-am62p5-sk-csi2-ov5640.dtb \
  	k3-am62p5-sk-csi2-tevi-ov5640.dtb \
- 	k3-am62p5-verdin-wifi-dev-nau8822-btl.dtb \
-+	k3-am62p5-verdin-wifi-dev-uart4-mcu.dtb \
++	k3-am62p5-verdin-wifi-dev-nau8822-btl.dtb \
  	k3-am642-evm-icssg0.dtb \
  	k3-am642-evm-icssg1-dualemac.dtb \
  	k3-am642-evm-icssg1-dualemac-mii.dtb \
-diff --git a/arch/arm64/boot/dts/ti/k3-am62p5-verdin-uart4-mcu.dtso b/arch/arm64/boot/dts/ti/k3-am62p5-verdin-uart4-mcu.dtso
+diff --git a/arch/arm64/boot/dts/ti/k3-am62p5-verdin-dev-nau8822-btl.dtso b/arch/arm64/boot/dts/ti/k3-am62p5-verdin-dev-nau8822-btl.dtso
 new file mode 100644
-index 000000000000..ad5d6a5c17c4
+index 000000000000..e4b662519a6b
 --- /dev/null
-+++ b/arch/arm64/boot/dts/ti/k3-am62p5-verdin-uart4-mcu.dtso
-@@ -0,0 +1,13 @@
++++ b/arch/arm64/boot/dts/ti/k3-am62p5-verdin-dev-nau8822-btl.dtso
+@@ -0,0 +1,14 @@
 +// SPDX-License-Identifier: GPL-2.0-or-later OR MIT
 +/*
 + * Copyright (c) Toradex
 + *
-+ * Verdin AM62P Cortex-R5F UART
++ * Enable Bridge Tied Load (BTL) speaker mode on the Verdin Development Board,
++ * combining the two loudspeaker outputs for higher output power.
 + */
 +
 +/dts-v1/;
 +/plugin/;
 +
-+&mcu_uart0 {
-+	status = "reserved";
++&nau8822_1a {
++	nuvoton,spk-btl;
 +};
 -- 
 2.54.0
