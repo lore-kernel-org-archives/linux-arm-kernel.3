@@ -4,41 +4,41 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 0EE69CD6E57
-	for <linux-arm-kernel@archiver.kernel.org>; Tue,  2 Jun 2026 15:12:32 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 5757CCD6E60
+	for <linux-arm-kernel@archiver.kernel.org>; Tue,  2 Jun 2026 15:12:33 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
 	MIME-Version:References:In-Reply-To:Message-Id:Date:Subject:Cc:To:From:
 	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=JYIbhdvx9s5wZvGONSyMfDsYe78kY37nUVkqLM9faag=; b=vBsJ3uAd1z1G3aIFu9S/DCaj0Z
-	OhnLj9/kV5RiqaaguaSCMVrlJ4ydEf8OwGsNC/w+J/JDtbOHDw3WU6HjbXE3qh4HQtT8txKtieSoR
-	yMJJjk4mbQIFicBHbxD5oEKLhO+U2VFsL/xH4oQZ9ddxOFuDdGPARP8ZhOGRGlCq+JKHcymB2AQll
-	EIkrq4vD6Hl4CEM/vBaZpPIxF6d+KBB6HJgTqImL+GLtYeQTjjkEjIE6RT1RM8lRwdy2yLQVTB2/5
-	gm3SFfRiUJDStDmGl257scmYGmo5mhhL/PNwD7UBxONobNm/P4Yd24byd4dCVQGtqBkqLqggVPYqS
-	klypR8lw==;
+	bh=LkEqpJkeo0d+Bt79cOK1uUetQ2OYv0MJp805ocnhHkw=; b=S0aSVZ8y7HtkBnq+D3h2mWopGv
+	ahXM9cnImEIxW43+g6q9FK1/HRq42MZ60XfOF7o9myoYqZ8So+dtW0rs9n2EFRg8nMkielU0ta+wE
+	31sX/L8J5+OqfUdCOyA47zrO3RquCI2juXuHr0Br0mKeRRyJXDq9L0OqreM/Z0JRx0ESKbRfHuhyL
+	PdlLj0y/YrhSYb5hvwS44pvapX/tthNoOq1RTpOw3nL2z8z6o/PkhIDTUp1hAZYwZN7QInatJDuCQ
+	LuCM3NpnKolzovnRpQIFALNitPMAo41Q1bdSlwp4coE8nJjX2VJFheU7iwjx2Xd7vSyKTVy/skWO7
+	Ho0C972g==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wUQn1-0000000DGVW-2yIq;
-	Tue, 02 Jun 2026 15:12:23 +0000
+	id 1wUQn5-0000000DGaT-0nmG;
+	Tue, 02 Jun 2026 15:12:27 +0000
 Received: from foss.arm.com ([217.140.110.172])
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wUQmy-0000000DGS0-3Kut
+	id 1wUQn2-0000000DGWq-1xtu
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 02 Jun 2026 15:12:22 +0000
+	Tue, 02 Jun 2026 15:12:25 +0000
 Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
-	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id C671E3573;
-	Tue,  2 Jun 2026 08:12:14 -0700 (PDT)
-Received: from lakrids.cambridge.arm.com (usa-sjc-imap-foss1.foss.arm.com [10.121.207.14])
-	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPA id 59CED3F7D8;
+	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id 257323582;
 	Tue,  2 Jun 2026 08:12:18 -0700 (PDT)
+Received: from lakrids.cambridge.arm.com (usa-sjc-imap-foss1.foss.arm.com [10.121.207.14])
+	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPA id A8A193F7D8;
+	Tue,  2 Jun 2026 08:12:21 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=simple/simple; d=arm.com; s=foss;
-	t=1780413139; bh=tfNiCaPdt6lXy9Oj563avrybTGVNuAd0dPWiS+fz9tk=;
+	t=1780413143; bh=1eQhgk72nu4iO7OJFT9TavJ4ZsTC0pyfvUy/bYwcXkI=;
 	h=From:To:Cc:Subject:Date:In-Reply-To:References:From;
-	b=TB5vboFXf1L+XJlnlFXAEr0pLWp0VQc61XogKihAerCed0ArjIjNTFG3tbrlAT8Ee
-	 lGAoHY6wAP1sdUKk0IpphLPJGiIX+TBQAElvQlDS9VKucod5BSeFkCoxzB37HSFAqp
-	 cyoUHygOcXYP3FajcGKVWu73XJfLP2zfZ46CFrho=
+	b=WdBaYGxklnbN5UYtHrGQczi9i+diQ3Ksp+/6/KzgaEF092+u5xBRTqGMGf8zZuhaJ
+	 evz3eI7wtxsBlcniQWAbVuUoyyy7tKhSGnJqhCJUbyEdxJg5wLKV2d1UPI6zY4Hiv3
+	 ON8CVwiXPISv+Uqk+tzZc5WeUve8SEFmDmww1Me4=
 From: Mark Rutland <mark.rutland@arm.com>
 To: linux-arm-kernel@lists.infradead.org,
 	kvmarm@lists.linux.dev
@@ -51,17 +51,17 @@ Cc: broonie@kernel.org,
 	tabba@google.com,
 	vladimir.murzin@arm.com,
 	will@kernel.org
-Subject: [PATCH v3 06/18] arm64: fpsimd: Remove sve_set_vq() and sme_set_vq()
-Date: Tue,  2 Jun 2026 16:11:38 +0100
-Message-Id: <20260602151150.925126-7-mark.rutland@arm.com>
+Subject: [PATCH v3 08/18] arm64: fpsimd: Use assembler for baseline SME instructions
+Date: Tue,  2 Jun 2026 16:11:40 +0100
+Message-Id: <20260602151150.925126-9-mark.rutland@arm.com>
 X-Mailer: git-send-email 2.30.2
 In-Reply-To: <20260602151150.925126-1-mark.rutland@arm.com>
 References: <20260602151150.925126-1-mark.rutland@arm.com>
 MIME-Version: 1.0
 Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260602_081220_948264_98B40244 
-X-CRM114-Status: GOOD (  14.01  )
+X-CRM114-CacheID: sfid-20260602_081224_762281_C732ACD2 
+X-CRM114-Status: GOOD (  14.88  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -76,19 +76,42 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-The sve_set_vq() and sme_set_vq() assembly functions (and the
-sve_load_vq and sme_load_vq macros they use) are open-coded forms of
-sysreg_clear_set*(). There's no need for these to be implemented
-out-of-line in assembly, and the 'vq_minus_1' argument is unusual and
-confusing.
+We currently support assemblers which do not support SME instructions,
+and have macros to manually encode SME instructions. This was
+necessary historically as SME support was developed before assembler
+support was widely available, but things have changed:
 
-Use sysreg_clear_set_s() directly, where the necessary 'vq - 1' encoding
-is more obviously part of encoding the register value.
+* All currently supported versions of LLVM support baseline SME
+  instructions. Building the kernel requires LLVM 15+, while LLVM 13+
+  supports SME.
 
-For now, sve_flush_live() is left with the unusual vq_minus_1 argument.
-This will be addressed in subsequent patches.
+* GNU binutils has supported baseline SME instructions since 2.38, which
+  was released on 09 February 2022. Toolchains using this or later are
+  widely available. For example Debian 12 (released on 10 June 2023)
+  provides binutils 2.40. Toolchains provided kernel.org provide
+  binutils 2.38+ since the GCC 12.1.0 release (released between 06 May
+  2022 and 17 August 2022).
 
-There should be no functional change as a result of this patch.
+* For various reasons, SME support was marked as BROKEN, and re-enabled
+  in v6.16 (released on 27 July 2025). The earliest support LTS kernel
+  with SME support is v6.18.y, v6.18 was tagged on 30 November 2025, and
+  contemporary toolchains (GCC 15.2 and binutils 2.45) supported
+  baseline SME instructions.
+
+* Any distribution which intends to support SME will presumably have a
+  toolchain that supports baseline SME instructions such that userspace
+  can be built.
+
+Considering the above, there's no practical benefit to allowing SME to
+be built when the toolchain doesn't support baseline SME instructions.
+
+Make CONFIG_ARM64_SME depend on assembler support for SME, and remove
+the manual encoding of SME instructions. The various _sme_<insn> macros
+are kept for now, and will be cleaned up in subsequent patches.
+
+A couple of SME2 instructions require a more recent toolchain, and are
+left as-is for now. I've looked through releases of binutils and LLVM to
+find when support was added, and noted this in a comment.
 
 Signed-off-by: Mark Rutland <mark.rutland@arm.com>
 Reviewed-by: Mark Brown <broonie@kernel.org>
@@ -100,142 +123,96 @@ Cc: Marc Zyngier <maz@kernel.org>
 Cc: Oliver Upton <oupton@kernel.org>
 Cc: Will Deacon <will@kernel.org>
 ---
- arch/arm64/include/asm/fpsimd.h       |  2 --
- arch/arm64/include/asm/fpsimdmacros.h | 22 ----------------------
- arch/arm64/kernel/entry-fpsimd.S      | 10 ----------
- arch/arm64/kernel/fpsimd.c            | 24 +++++++++++++-----------
- 4 files changed, 13 insertions(+), 45 deletions(-)
+ arch/arm64/Kconfig                    |  5 ++++
+ arch/arm64/include/asm/fpsimdmacros.h | 38 +++++++++++----------------
+ 2 files changed, 20 insertions(+), 23 deletions(-)
 
-diff --git a/arch/arm64/include/asm/fpsimd.h b/arch/arm64/include/asm/fpsimd.h
-index d9d00b45ab115..8efa3c0402a7a 100644
---- a/arch/arm64/include/asm/fpsimd.h
-+++ b/arch/arm64/include/asm/fpsimd.h
-@@ -146,8 +146,6 @@ extern void sve_load_state(void const *state, u32 const *pfpsr,
- 			   int restore_ffr);
- extern void sve_flush_live(bool flush_ffr, unsigned long vq_minus_1);
- extern unsigned int sve_get_vl(void);
--extern void sve_set_vq(unsigned long vq_minus_1);
--extern void sme_set_vq(unsigned long vq_minus_1);
- extern void sme_save_state(void *state, int zt);
- extern void sme_load_state(void const *state, int zt);
+diff --git a/arch/arm64/Kconfig b/arch/arm64/Kconfig
+index fe60738e5943b..378e50fef247a 100644
+--- a/arch/arm64/Kconfig
++++ b/arch/arm64/Kconfig
+@@ -2247,10 +2247,15 @@ config ARM64_SVE
+ 	  booting the kernel.  If unsure and you are not observing these
+ 	  symptoms, you should assume that it is safe to say Y.
  
++config AS_HAS_SME
++	# Supported by LLVM 13+ and binutils 2.38+
++	def_bool $(as-instr,.arch_extension sme)
++
+ config ARM64_SME
+ 	bool "ARM Scalable Matrix Extension support"
+ 	default y
+ 	depends on ARM64_SVE
++	depends on AS_HAS_SME
+ 	help
+ 	  The Scalable Matrix Extension (SME) is an extension to the AArch64
+ 	  execution state which utilises a substantial subset of the SVE
 diff --git a/arch/arm64/include/asm/fpsimdmacros.h b/arch/arm64/include/asm/fpsimdmacros.h
-index cda81d009c9bd..adf33d2da40c3 100644
+index 4ba23e493cb69..4a9bf46e52913 100644
 --- a/arch/arm64/include/asm/fpsimdmacros.h
 +++ b/arch/arm64/include/asm/fpsimdmacros.h
-@@ -265,28 +265,6 @@
- 	.purgem _for__body
+@@ -149,46 +149,38 @@
+ 	pfalse	p\np\().b
  .endm
  
--/* Update ZCR_EL1.LEN with the new VQ */
--.macro sve_load_vq xvqminus1, xtmp, xtmp2
--		mrs_s		\xtmp, SYS_ZCR_EL1
--		bic		\xtmp2, \xtmp, ZCR_ELx_LEN_MASK
--		orr		\xtmp2, \xtmp2, \xvqminus1
--		cmp		\xtmp2, \xtmp
--		b.eq		921f
--		msr_s		SYS_ZCR_EL1, \xtmp2	//self-synchronising
--921:
--.endm
--
--/* Update SMCR_EL1.LEN with the new VQ */
--.macro sme_load_vq xvqminus1, xtmp, xtmp2
--		mrs_s		\xtmp, SYS_SMCR_EL1
--		bic		\xtmp2, \xtmp, SMCR_ELx_LEN_MASK
--		orr		\xtmp2, \xtmp2, \xvqminus1
--		cmp		\xtmp2, \xtmp
--		b.eq		921f
--		msr_s		SYS_SMCR_EL1, \xtmp2	//self-synchronising
--921:
--.endm
--
- /* Preserve the first 128-bits of Znz and zero the rest. */
- .macro _sve_flush_z nz
- 	_sve_check_zreg \nz
-diff --git a/arch/arm64/kernel/entry-fpsimd.S b/arch/arm64/kernel/entry-fpsimd.S
-index 6325db1a2179c..88c555745b584 100644
---- a/arch/arm64/kernel/entry-fpsimd.S
-+++ b/arch/arm64/kernel/entry-fpsimd.S
-@@ -62,11 +62,6 @@ SYM_FUNC_START(sve_get_vl)
- 	ret
- SYM_FUNC_END(sve_get_vl)
+-/* SME instruction encodings for non-SME-capable assemblers */
+-/* (pre binutils 2.38/LLVM 13) */
++/* Deprecated macros for SME instructions */
  
--SYM_FUNC_START(sve_set_vq)
--	sve_load_vq x0, x1, x2
--	ret
--SYM_FUNC_END(sve_set_vq)
--
+ /* RDSVL X\nx, #\imm */
+ .macro _sme_rdsvl nx, imm
+-	_check_general_reg \nx
+-	_check_num (\imm), -0x20, 0x1f
+-	.inst	0x04bf5800			\
+-		| (\nx)				\
+-		| (((\imm) & 0x3f) << 5)
++	.arch_extension sme
++	rdsvl x\nx, #\imm
+ .endm
+ 
  /*
-  * Zero all SVE registers but the first 128-bits of each vector
-  *
-@@ -94,11 +89,6 @@ SYM_FUNC_START(sme_get_vl)
- 	ret
- SYM_FUNC_END(sme_get_vl)
+  * STR (vector from ZA array):
+- *	STR ZA[\nw, #\offset], [X\nxbase, #\offset, MUL VL]
++ *	STR ZA[W\nw, #\offset], [X\nxbase, #\offset, MUL VL]
+  */
+ .macro _sme_str_zav nw, nxbase, offset=0
+-	_sme_check_wv \nw
+-	_check_general_reg \nxbase
+-	_check_num (\offset), -0x100, 0xff
+-	.inst	0xe1200000			\
+-		| (((\nw) & 3) << 13)		\
+-		| ((\nxbase) << 5)		\
+-		| ((\offset) & 7)
++	.arch_extension sme
++	str	za[w\nw, #\offset], [x\nxbase, #\offset, MUL VL]
+ .endm
  
--SYM_FUNC_START(sme_set_vq)
--	sme_load_vq x0, x1, x2
--	ret
--SYM_FUNC_END(sme_set_vq)
--
  /*
-  * Save the ZA and ZT state
+  * LDR (vector to ZA array):
+- *	LDR ZA[\nw, #\offset], [X\nxbase, #\offset, MUL VL]
++ *	LDR ZA[w\nw, #\offset], [X\nxbase, #\offset, MUL VL]
+  */
+ .macro _sme_ldr_zav nw, nxbase, offset=0
+-	_sme_check_wv \nw
+-	_check_general_reg \nxbase
+-	_check_num (\offset), -0x100, 0xff
+-	.inst	0xe1000000			\
+-		| (((\nw) & 3) << 13)		\
+-		| ((\nxbase) << 5)		\
+-		| ((\offset) & 7)
++	.arch_extension sme
++	ldr	za[w\nw, #\offset], [x\nxbase, #\offset, MUL VL]
+ .endm
+ 
++/*
++ * SME2 instruction encodings for older assemblers.
++ * Supported by binutils 2.41+.
++ * Supported by LLVM 16+
++ */
++
+ /*
+  * LDR (ZT0)
   *
-diff --git a/arch/arm64/kernel/fpsimd.c b/arch/arm64/kernel/fpsimd.c
-index a8395cb303344..2578c2372c89e 100644
---- a/arch/arm64/kernel/fpsimd.c
-+++ b/arch/arm64/kernel/fpsimd.c
-@@ -377,8 +377,10 @@ static void task_fpsimd_load(void)
- 			if (!thread_sm_enabled(&current->thread))
- 				WARN_ON_ONCE(!test_and_set_thread_flag(TIF_SVE));
- 
--			if (test_thread_flag(TIF_SVE))
--				sve_set_vq(sve_vq_from_vl(task_get_sve_vl(current)) - 1);
-+			if (test_thread_flag(TIF_SVE)) {
-+				unsigned long vq = sve_vq_from_vl(task_get_sve_vl(current));
-+				sysreg_clear_set_s(SYS_ZCR_EL1, ZCR_ELx_LEN, vq - 1);
-+			}
- 
- 			restore_sve_regs = true;
- 			restore_ffr = true;
-@@ -403,8 +405,10 @@ static void task_fpsimd_load(void)
- 		unsigned long sme_vl = task_get_sme_vl(current);
- 
- 		/* Ensure VL is set up for restoring data */
--		if (test_thread_flag(TIF_SME))
--			sme_set_vq(sve_vq_from_vl(sme_vl) - 1);
-+		if (test_thread_flag(TIF_SME)) {
-+			unsigned long vq = sve_vq_from_vl(sme_vl);
-+			sysreg_clear_set_s(SYS_SMCR_EL1, SMCR_ELx_LEN, vq - 1);
-+		}
- 
- 		write_sysreg_s(current->thread.svcr, SYS_SVCR);
- 
-@@ -1332,10 +1336,9 @@ void do_sve_acc(unsigned long esr, struct pt_regs *regs)
- 	 * any effective streaming mode SVE state.
- 	 */
- 	if (!test_thread_flag(TIF_FOREIGN_FPSTATE)) {
--		unsigned long vq_minus_one =
--			sve_vq_from_vl(task_get_sve_vl(current)) - 1;
--		sve_set_vq(vq_minus_one);
--		sve_flush_live(true, vq_minus_one);
-+		unsigned long vq = sve_vq_from_vl(task_get_sve_vl(current));
-+		sysreg_clear_set_s(SYS_ZCR_EL1, ZCR_ELx_LEN, vq - 1);
-+		sve_flush_live(true, vq - 1);
- 		fpsimd_bind_task_to_cpu();
- 	} else {
- 		fpsimd_to_sve(current);
-@@ -1465,9 +1468,8 @@ void do_sme_acc(unsigned long esr, struct pt_regs *regs)
- 		WARN_ON(1);
- 
- 	if (!test_thread_flag(TIF_FOREIGN_FPSTATE)) {
--		unsigned long vq_minus_one =
--			sve_vq_from_vl(task_get_sme_vl(current)) - 1;
--		sme_set_vq(vq_minus_one);
-+		unsigned long vq = sve_vq_from_vl(task_get_sme_vl(current));
-+		sysreg_clear_set_s(SYS_SMCR_EL1, SMCR_ELx_LEN, vq - 1);
- 
- 		fpsimd_bind_task_to_cpu();
- 	} else {
 -- 
 2.30.2
 
