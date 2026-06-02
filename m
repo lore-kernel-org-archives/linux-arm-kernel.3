@@ -4,98 +4,141 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 59249CD6E4A
-	for <linux-arm-kernel@archiver.kernel.org>; Tue,  2 Jun 2026 10:17:15 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 7352ECD6E57
+	for <linux-arm-kernel@archiver.kernel.org>; Tue,  2 Jun 2026 10:24:13 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:
-	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=lT+JLRZTXmUkizcf52XaQYhGVpogr5HSaG3W4C826mA=; b=oflFC9u0WAqXlvgGuDuQ9fUBwr
-	iGOK3O905zTCgR5FVr9IoO+/PgoSjoyFj6cfC465K8AUL2XIVX0aeVI0tVqIxEVXscxCwhE//9RN/
-	99/z51SMcJS7m9IlfjTp2UaFIKBmiTQaPen4r3wW0xo2vlyOQb3n2ZK6prMzDeQdQjQIkvCIL6DVw
-	8NUsi1UG+ZtHJhdIjW7svIhWZkYxGDo6MysuapnklvME0RVMqtmYqHGez/GYgNAN6muVJJNjbVj5t
-	PztG9D1ngvLePDGu3l3c+aRdA27lEu7P+iwwpFv+3ZV0EdUtnqfqKm71Oue3S/XkQjhBftUlBc6lL
-	yVty86fg==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:Content-Type:
+	Content-Transfer-Encoding:Message-Id:Date:Subject:Cc:To:From:Reply-To:
+	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
+	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=9XwRneH+qu7WmXdzObxJHmL1unA5TCAo/MigWIyD68Q=; b=oPzgCYy3cFr1qb7/f9mSZwPlRf
+	ZdcJMw8rU1Ybxykd6v5TiraMHP+E9db50pW7V6Cz66efLJdFJ3uu1wUYfti2HAckuXHOAVxonu0PS
+	EazdYteHWQeq8T6qkHrv4KXvftGYpooom+qdAURGn/wClipyrqSFROMyIf01wBUV5ad1uTKv9Av3A
+	mexExp+5eHtyAfRYRjjzKLcD0iZl2l3/wA+9K9asvsYG/Z5/WYp6oBcvhyLVEt8sZsZRNo4ipCZcM
+	JAPX+AhM+RT7DNE7fBREMvB8doFc5KvS07yaNfKa2B0aRGr13vPljPG5ZHacBbo26gt8qwwBtW0DS
+	esnhtGOg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wUMBH-0000000Ckke-3pGt;
-	Tue, 02 Jun 2026 10:17:09 +0000
-Received: from mail-pl1-x635.google.com ([2607:f8b0:4864:20::635])
+	id 1wUMI1-0000000ClYr-3oa6;
+	Tue, 02 Jun 2026 10:24:05 +0000
+Received: from mail-francesouthazlp170110003.outbound.protection.outlook.com ([2a01:111:f403:c207::3] helo=MRWPR03CU001.outbound.protection.outlook.com)
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wUMBE-0000000CkhK-34Pb
+	id 1wUMHz-0000000ClX1-0ebO
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 02 Jun 2026 10:17:06 +0000
-Received: by mail-pl1-x635.google.com with SMTP id d9443c01a7336-2bf77d4a4e2so12394885ad.1
-        for <linux-arm-kernel@lists.infradead.org>; Tue, 02 Jun 2026 03:17:04 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20251104; t=1780395424; x=1781000224; darn=lists.infradead.org;
-        h=content-transfer-encoding:mime-version:references:in-reply-to
-         :message-id:date:subject:cc:to:from:from:to:cc:subject:date
-         :message-id:reply-to;
-        bh=lT+JLRZTXmUkizcf52XaQYhGVpogr5HSaG3W4C826mA=;
-        b=R6M9rR51nLNP+TPUsa8ofm443+SrhrSSHa7mS+TC7DW6BkJ8XVNJL97Zh9/tFOjC6h
-         iBwaPUZUDGXO72OouPlJn0MYQQM7LmIrp2paFGVGXyZ38SUYHXk/qjx0UdTEtojK9UKm
-         lqFpbrZFb2T8XTzurYqZw8M6CsaC9pf0O5reUm2bYnG5u7GZy/hfCWw+KmBEYZVGp6ZR
-         SxcpTUVntOJwekHqefluApNEcx/XAlM6shlBtcjsXkhh6KXBp/5DlpLznjYBjz9FygOH
-         GFAZAjgX1MTr1UHYknFjBrU5ilh80ULMK2GvwEmeq8nWN8/BJLkyL4/AcQzmkbK7wiHk
-         WDlA==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20251104; t=1780395424; x=1781000224;
-        h=content-transfer-encoding:mime-version:references:in-reply-to
-         :message-id:date:subject:cc:to:from:x-gm-gg:x-gm-message-state:from
-         :to:cc:subject:date:message-id:reply-to;
-        bh=lT+JLRZTXmUkizcf52XaQYhGVpogr5HSaG3W4C826mA=;
-        b=HXKAuGK427r90h2Th4tJ0uLSht71TwrZ/2nZITubgiiQvf3qjZMBsLpsO6aatb8v8b
-         qQL/DaKjcV6MpgmQrxXP32GJnM1aAcB420rfTya92kImtZj4CJBZuPTBHy6GlkyBHBXz
-         3560rpcGzVf64GE0xod+OBVL9ySNJwlUUEG+vC5jcUpZEGUvs/kT8NqV7Wxb2EBcAqJc
-         Mav9bIH9YhN3bNHHmhPHpmYC9qKSrBjBbmUzWUO6XqAnLZ3U1T+GMTd3t+Rj3TGaN2U/
-         LYeeLM7FlemycX92MbYvq/xoFLs8AddpaiuRjD+7iLYYCEy82GwL9mDMLueFp2F0g6vG
-         0B4g==
-X-Forwarded-Encrypted: i=1; AFNElJ/19Sd1U4jH16xGIDC2k75NxHpy6/SQbuW4XY/TS/Olhw9bn4+6Wy22nIDEC4Kf1pA3sLuuftaAY3HwguxCUdjN@lists.infradead.org
-X-Gm-Message-State: AOJu0YyxBW7xXyq9fVv6KIVAuZ8hQR3ueCvKv27OHiVb7cCjwQHRz7Qj
-	UB71D4/I1dgiKTH8kdA6Bp1LIGzM+V4LmVQqU1NUEPMeQ7DSHZKeqMUm
-X-Gm-Gg: Acq92OGUbDBmoB5t6pTmjS4VQuzg6dt7+EDmKGEMZ1+b2nhptIBqV8+pZbFRaNYT8lf
-	dw6jesQSx+90aDw3fkuzkR2X0/lC7qAw6mSPek8LCNyUhJFevAO5a/WGHOkpdQOgwhYaOC+WYHW
-	g4DLdA84PTiRefKUfDHrkKj3hGu9MNbl4P6WCjpv0qNXrB8oMG62+PZbvfYHGFLf8Oe6BDtV/lA
-	bVf1gtmnHytL95tbaiGfI15oIek9No0W2SYH7wxpadTKI96o8cprBeLIWQqvDGvl7chtXhCaxM+
-	oMSE3urbcUgoCUNzWVFX9H9tLEtnj4DKXNpREvh+7C9tdzBclmO2SwFg1WwFNZV9KvNeWmuMln2
-	l3w+9PmBGfrhub+wc0OGAnVUuvLmF+wq0DF9zbqanvdgTgs+DQkRqnSZR3spuLFcIYELBzsrKoZ
-	T0RDa6oKc8tTCBLzF6w6hKFAh0RcGykT0o8kS+/Jiq9kpdA7PvOMnIgDITWDofbSMq5L3R
-X-Received: by 2002:a17:903:3848:b0:2c0:a4c3:d7a with SMTP id d9443c01a7336-2c10ccfb095mr31503255ad.26.1780395423749;
-        Tue, 02 Jun 2026 03:17:03 -0700 (PDT)
-Received: from phuc-desktop.. ([183.91.15.56])
-        by smtp.gmail.com with ESMTPSA id d9443c01a7336-2bf239fd84fsm132766305ad.23.2026.06.02.03.16.59
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Tue, 02 Jun 2026 03:17:03 -0700 (PDT)
-From: phucduc.bui@gmail.com
-To: Heiko Stuebner <heiko@sntech.de>,
-	Mark Brown <broonie@kernel.org>,
-	Liam Girdwood <lgirdwood@gmail.com>,
-	Krzysztof Kozlowski <krzk+dt@kernel.org>
-Cc: Rob Herring <robh@kernel.org>,
-	Conor Dooley <conor+dt@kernel.org>,
-	Jaroslav Kysela <perex@perex.cz>,
-	Takashi Iwai <tiwai@suse.com>,
-	devicetree@vger.kernel.org,
-	linux-sound@vger.kernel.org,
-	linux-rockchip@lists.infradead.org,
+	Tue, 02 Jun 2026 10:24:04 +0000
+ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
+ b=v6qlfXcaSg60yH5PR1vGbN2+X2wIprK6c8XsI3XajaKPueKmkPPnoSmHql5BQwxq9gsY952z7osTkMquY7REhzWzoIFWU6mIecZLb6KFUstewfI6DQWCzeFmmMRItK21KOQEVt1Zz03DlWQ0rhWlHsmSWhQXChCNOzllv7wA+Relx8GQnnqXH1TRFBQoA34t4cEmQMX0uc9BwhcTHRuYf1vwbVnR2FbIsvS31nVyKQ+lBrxPmhjbdwfEUx0fx4cpDp00JiMD14DyMM0HzX4OX61/0NovBozHZBjfVTyuu9Z5uJ+4VgeQ/3HwjrCJQaWBB8dj61GWeY6p/j8w+onnfA==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
+ s=arcselector10001;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
+ bh=9XwRneH+qu7WmXdzObxJHmL1unA5TCAo/MigWIyD68Q=;
+ b=U+hIdLgi/a1fuS4tkmgWbfivHNQ7n/G2mLOzPPVrXwjUQaOiW8sQ7yyQ6OmhrdTNsN/oAZydyy/VdXBbewbLC94h5qOueAbbXb/mek1Awp+bQqSG2mDmRu0CBdx6Z0knHXCf/Y9UylkRNpOWaNP+FxrEmY1Lu5tez+qOu0JAYjcPhy8MuHqBYgxFmPfcAWZKOgxIp9WiQZe0i7U5uyuD5j0sWOn/vFJu5wv9H1yysud678S7u7Gzjnwanimiyhm1rBQbqg+jcIYoYDvJYrfBK5GoCF17wmNKL9thVWtnoTswFplLaPe+eru+BZ15PV1nKx1Mtjr3Iwx2l9i0dG//Hw==
+ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
+ smtp.mailfrom=oss.nxp.com; dmarc=pass action=none header.from=oss.nxp.com;
+ dkim=pass header.d=oss.nxp.com; arc=none
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=NXP1.onmicrosoft.com;
+ s=selector1-NXP1-onmicrosoft-com;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
+ bh=9XwRneH+qu7WmXdzObxJHmL1unA5TCAo/MigWIyD68Q=;
+ b=QjHFA+hS6/uKX5nvzYruxJAuY6C37tH6h6T9ilJBZ1+TJW4TGlJ0QNWWQpd/UABklPZbqgg8/I529nciiDhqVSzoK+Q1Nr0D+4VXKaHn92zc6hkIoT8xixGimug7wTVNhBE6Annr+4u2rYwv4K76kNXj9IGPUXR/tGb4OrCbxVZ/Gy/YEHCMJU2ogTVaSgaOR8tyZxy8ATAOt7bbWLBKzRfa0xV4IXCHyKuOqLi2zdD+4U0radMVdaqPjs0UKYEzr6Wi4uwwDX/Dpe/Cq+lEfX19CEPytsx4ofNvLXKGpw9HaIZShQDiS6U+5xy5+8PEk0X4wjZ20jCvuzL7X1OCUA==
+Authentication-Results: dkim=none (message not signed)
+ header.d=none;dmarc=none action=none header.from=oss.nxp.com;
+Received: from AM9PR04MB8179.eurprd04.prod.outlook.com (2603:10a6:20b:3b5::20)
+ by GV4PR04MB11849.eurprd04.prod.outlook.com (2603:10a6:150:2de::11) with
+ Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.21.71.16; Tue, 2 Jun 2026
+ 10:23:53 +0000
+Received: from AM9PR04MB8179.eurprd04.prod.outlook.com
+ ([fe80::a551:cde0:6730:1d85]) by AM9PR04MB8179.eurprd04.prod.outlook.com
+ ([fe80::a551:cde0:6730:1d85%6]) with mapi id 15.21.0092.006; Tue, 2 Jun 2026
+ 10:23:53 +0000
+From: Khristine Andreea Barbulescu <khristineandreea.barbulescu@oss.nxp.com>
+To: Chester Lin <chester62515@gmail.com>,
+	Matthias Brugger <mbrugger@suse.com>,
+	Ghennadi Procopciuc <ghennadi.procopciuc@oss.nxp.com>,
+	Frank Li <Frank.Li@nxp.com>,
+	Sascha Hauer <s.hauer@pengutronix.de>,
+	Fabio Estevam <festevam@gmail.com>,
+	Rob Herring <robh@kernel.org>,
+	Krzysztof Kozlowski <krzk+dt@kernel.org>,
+	Conor Dooley <conor+dt@kernel.org>
+Cc: Pengutronix Kernel Team <kernel@pengutronix.de>,
 	linux-arm-kernel@lists.infradead.org,
+	imx@lists.linux.dev,
+	devicetree@vger.kernel.org,
 	linux-kernel@vger.kernel.org,
-	bui duc phuc <phucduc.bui@gmail.com>,
-	Sashiko AI Review <sashiko-bot@kernel.org>
-Subject: [PATCH v2 5/5] ASoC: rockchip: rockchip_pdm: Handle runtime PM resume failures in set_fmt
-Date: Tue,  2 Jun 2026 17:16:08 +0700
-Message-ID: <20260602101608.45137-6-phucduc.bui@gmail.com>
-X-Mailer: git-send-email 2.43.0
-In-Reply-To: <20260602101608.45137-1-phucduc.bui@gmail.com>
-References: <20260602101608.45137-1-phucduc.bui@gmail.com>
-MIME-Version: 1.0
+	NXP S32 Linux <s32@nxp.com>,
+	Christophe Lizzi <clizzi@redhat.com>,
+	Alberto Ruiz <aruizrui@redhat.com>,
+	Enric Balletbo <eballetb@redhat.com>
+Subject: [PATCH v4 0/1] add PWM DTS support for S32G2/S32G3 SoCs
+Date: Tue,  2 Jun 2026 12:23:50 +0200
+Message-Id: <20260602102351.3477106-1-khristineandreea.barbulescu@oss.nxp.com>
+X-Mailer: git-send-email 2.34.1
 Content-Transfer-Encoding: 8bit
+Content-Type: text/plain
+X-ClientProxiedBy: FR4P281CA0079.DEUP281.PROD.OUTLOOK.COM
+ (2603:10a6:d10:cd::9) To AM9PR04MB8179.eurprd04.prod.outlook.com
+ (2603:10a6:20b:3b5::20)
+MIME-Version: 1.0
+X-MS-Exchange-MessageSentRepresentingType: 1
+X-MS-PublicTrafficType: Email
+X-MS-TrafficTypeDiagnostic: AM9PR04MB8179:EE_|GV4PR04MB11849:EE_
+X-MS-Office365-Filtering-Correlation-Id: f31adacf-20ff-45f9-9655-08dec0910b73
+X-MS-Exchange-SharedMailbox-RoutingAgent-Processed: True
+X-LD-Processed: 686ea1d3-bc2b-4c6f-a92c-d99c5c301635,ExtAddr
+X-MS-Exchange-SenderADCheck: 1
+X-MS-Exchange-AntiSpam-Relay: 0
+X-Microsoft-Antispam: BCL:0;ARA:13230040|1800799024|376014|7416014|366016|19092799006|18002099003|56012099006|11063799006;
+X-Microsoft-Antispam-Message-Info: kb7ODS2/TpdmdM1yxbhG9zZSnbnTsvhscO63JijCrESsfiuU9CW9PcND/8bqr4iZo1o9h9hqvPUCkMTDG2h2mWcv58y6E273YF/tUK5b3YjyBsM4K5Jp5fRj79sQwoguXQ4MThVEnQHyxpC7qRyDaXdUwPSRPusorO46e4fHJX3W6WVojP+0EQVFikTzjxQu0ldG5L57QuuZRsVrs8rsqjXw+uNAygrJKB4gZwEGaved/BzGkPPVUAp8uK34mzRxzB9GGyRMRtTRLi0TXu07AHtOiyCP8Rk66c9knXBEm2g9KuQCcpBu5RH6C0aMSZ3MtH1whjcviqZ6DJasjBehAgrLQ5CdIoUdGRCNRKam1bYEzUvIY4AXySFd6yBpdEtOt64FksFHIF7wDUJ4N9+FyzNy6MclaeEBeNFnVw5KBgc91XnDuqK+9MAjiMyt98aMS3qr5PGMzzMbnS86cDtqCF8ZgqMbxsbqm9kXH+zUapYbAVTB55etpljethqCyq4RXrTsoYfE0gTZ998Th7rstBN8AdAy/joDSHmWUbgELDsoojR4Ow/AHZCW6lDWWwa/jeHE4jTzq5273u0H2S3sxcDb2NwkJ8XfYulSSUSksPxW8+DjkoGHCMJbeTMoGOtgdIMmEkDwL0XGeOvCLrueKMMRRus/ksri/TWLA1ptaVDq1voBVT+lm5M2klDx9HT3
+X-Forefront-Antispam-Report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:AM9PR04MB8179.eurprd04.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(1800799024)(376014)(7416014)(366016)(19092799006)(18002099003)(56012099006)(11063799006);DIR:OUT;SFP:1101;
+X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
+X-MS-Exchange-AntiSpam-MessageData-0: =?us-ascii?Q?nfHoZNWBCt7JDCayHYIp7gmTyCajbx5DDAGJahOV3uPAFoxdMHFKeCG9RGV3?=
+ =?us-ascii?Q?tApmlbKu3HDxHWg1LeerjuaI+t/D85tecflCIWYjIjbonSJlgwdy5CXZpeUP?=
+ =?us-ascii?Q?xPgGxOEfCYfHfyGrDavcbZHKvs4iE7O4xHsIL+60Ogwjf8K0LXMIV3Gr49gC?=
+ =?us-ascii?Q?QRGFKjRLRFb9iZ7xOjMK/7j0T57+uV+wMaWSHhNV423noCMaYD0STkZrPDfG?=
+ =?us-ascii?Q?IeFkuVOymoMRbncH4djrGP1XQ5ZfV+Pb+3N5hfh3vvE5rXdPdrAoC+uwaSLT?=
+ =?us-ascii?Q?Ug4fzYQTR6Ymv0pT3Q95j9BPqj66yrHvjWNlfY3l8PxAnL3eflK7LZzyU2lo?=
+ =?us-ascii?Q?B9Mh10QoYQrB07tbisiokRdOjldofD/gnQ5wo5lPKWZaB9wfTaJCWcuSwfY1?=
+ =?us-ascii?Q?4S9OC1VNrNq0HS01NZ7aVgkvRhX2wYT8gHexnZUOWUFuig02+lpFXS7Z3El+?=
+ =?us-ascii?Q?Pk8O16t+w2bRPHyDKuCARp22OQJq+m538fgGgk7XZzmPVxLskjZeRBcmkaLs?=
+ =?us-ascii?Q?B1xm3r8ebZ5FpIP711seXIuiUn6d4WvAOGM7iROxCp1IMMcJxDXPqCH+l4aD?=
+ =?us-ascii?Q?MGHOgJiKI1UsT+6bRGD43LRXUeO+PhrfjQ4xOJXAqbuxXVFFptAygmILHZwD?=
+ =?us-ascii?Q?IB6+x+uPWTwTHtiEYawsjh0De4elaLCCQH0WzLTOpqslVyqWVTDCu5HYNs2w?=
+ =?us-ascii?Q?J0hZse15GijJ2AXUtsYUAhXos6NomONjAKxhifbFvbmxwOqK/6/cicDLiJc3?=
+ =?us-ascii?Q?Ylg6cABoae1daKUdBvxQbfyXMWL59gTwvq1td2PEOrVhafrStNQdjONZ7aVF?=
+ =?us-ascii?Q?nNeXd+3tOuhBZDzs/dTPeQUlrojreyAC7QjBybfDFMzuaDLj6aHdepN0oo0Q?=
+ =?us-ascii?Q?foT2jjh/+djEAa5DjRh07Wo7nFwnMiQimFd1T+Xo/C2oXduTsZQz7VhdUgEm?=
+ =?us-ascii?Q?6PSIE6l6ur7zLR4Byg2PusHSOvIy9oqUc4942rU+xcaJ2OQpOJZNSPz7wc0t?=
+ =?us-ascii?Q?jC28FgwckeSsga6116gcc4LArxn5b97OHORgeejg/XTTE8hwWT1Joig34qAZ?=
+ =?us-ascii?Q?tTUGswfaDZMYwndXTsaEwrbc++9K7/EcC8LpTWphzyPX26W0hrQ9YAKLD6A8?=
+ =?us-ascii?Q?5e1fbn/qJTZY0zoY94oC3oP7RhcNi4xZqm3QVbELM/aLIO++V4nd0NoXhgW2?=
+ =?us-ascii?Q?FH1mVCwfyeVacDQCGNi/n+M1zyFfnpyDAHBWmGnC8MNGDb5np5lcVYqUzFCc?=
+ =?us-ascii?Q?In7jJU/yqB4ZvLTetfrcqcZvFUTVWUpvmzD0N21uX6BsUGJtVGjgFmwO2YJt?=
+ =?us-ascii?Q?hOefTt0LjrBVSZUxzFY2NrMN6pMgsFlD3oSMHDBky5xjUGGg/DkAfAxgGnnu?=
+ =?us-ascii?Q?5Sq+hYBhs9gGEHjqh8Q3LBnS9SxVLjriirH3BQU/k6NwMz2Dr4BHZckLtODu?=
+ =?us-ascii?Q?gV6kEA5sjXJV3LUblvo/Vwe0uNfbJNuUcvm7gEyn2OUmC6sHi1fzUrYFUFn6?=
+ =?us-ascii?Q?qp0xXU/S+5tDpdh82KgDZWuBBI5UAMZZxr0TTth0SWfavUKxB0a3p7PsLg4z?=
+ =?us-ascii?Q?Ub1YjhTc/vPs2hHuL3IDGUIGBbc8CeVoOc78N1NQRw307SL9ploCrkTrSPim?=
+ =?us-ascii?Q?zsUf1uaXhW0Y0L5r8NhCmZEcJWreRlVZ5vlX0CzBEaXyjo24YOTH48jmupY1?=
+ =?us-ascii?Q?qUHhuf/eQel/nUBXIVNrK+7dG8tDijC64phahM2P915A+hdooFg6TfcybOFk?=
+ =?us-ascii?Q?cAqQZ9ZoZwkNfl7wQ0xywNO1QQ32VRjmom/LusMRr4la0LiW85We?=
+X-OriginatorOrg: oss.nxp.com
+X-MS-Exchange-CrossTenant-Network-Message-Id: f31adacf-20ff-45f9-9655-08dec0910b73
+X-MS-Exchange-CrossTenant-AuthSource: AM9PR04MB8179.eurprd04.prod.outlook.com
+X-MS-Exchange-CrossTenant-AuthAs: Internal
+X-MS-Exchange-CrossTenant-OriginalArrivalTime: 02 Jun 2026 10:23:53.0352
+ (UTC)
+X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
+X-MS-Exchange-CrossTenant-Id: 686ea1d3-bc2b-4c6f-a92c-d99c5c301635
+X-MS-Exchange-CrossTenant-MailboxType: HOSTED
+X-MS-Exchange-CrossTenant-UserPrincipalName: PjRmFhQyxOHNOZq2mknRhqOS4nRzFibQ0D86OmG3hUgxRNQvgoP92WLbM1rluH25tz0avg/iKxtEmajSQ7EokMmAPp6modc6OIILNzJVIZ0ocMTbknjk/nvz02D8ok3f
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: GV4PR04MB11849
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260602_031704_801891_C96A24FC 
-X-CRM114-Status: GOOD (  13.81  )
+X-CRM114-CacheID: sfid-20260602_032403_213752_693E8AF8 
+X-CRM114-Status: UNSURE (   8.31  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -110,51 +153,29 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-From: bui duc phuc <phucduc.bui@gmail.com>
+This patchset aims to add one change to the S32G2/S32G3 dtsi support:
+- Add PWM dts support for S32G SoC based boards
 
-rockchip_pdm_set_fmt() calls pm_runtime_get_sync() before accessing
-hardware registers, but ignores its return value.
-If the runtime resume fails, the function continues to perform register
-accesses while the device state is undefined.
-Replace pm_runtime_get_sync() with pm_runtime_resume_and_get() and
-return early on failure to avoid unpowered register accesses.
+v4 -> v3:
+- fix indentantions again
 
-Reported-by: Sashiko AI Review <sashiko-bot@kernel.org>
-Closes: https://lore.kernel.org/all/20260522110302.349421F000E9@smtp.kernel.org/
-Signed-off-by: bui duc phuc <phucduc.bui@gmail.com>
----
+v3 -> v2:
+- remove vendor internal issue tracker
 
-NOTE: This patch is compile-tested only. Please help test if you have 
-    the relevant Rockchip hardware.
+v2 -> v1:
+- fix indentation alignment
+- use hyphens for pwm pinctrl nodes
+- sort pwm nodes alphabetically
 
- sound/soc/rockchip/rockchip_pdm.c | 6 +++++-
- 1 file changed, 5 insertions(+), 1 deletion(-)
+Khristine Andreea Barbulescu (1):
+  arm64: dts: s32g: add PWM support for s32g2 and s32g3
 
-diff --git a/sound/soc/rockchip/rockchip_pdm.c b/sound/soc/rockchip/rockchip_pdm.c
-index 8f78f7bc1806..115e90d3bbfe 100644
---- a/sound/soc/rockchip/rockchip_pdm.c
-+++ b/sound/soc/rockchip/rockchip_pdm.c
-@@ -321,6 +321,7 @@ static int rockchip_pdm_set_fmt(struct snd_soc_dai *cpu_dai,
- {
- 	struct rk_pdm_dev *pdm = to_info(cpu_dai);
- 	unsigned int mask = 0, val = 0;
-+	int ret;
- 
- 	mask = PDM_CKP_MSK;
- 	switch (fmt & SND_SOC_DAIFMT_INV_MASK) {
-@@ -334,7 +335,10 @@ static int rockchip_pdm_set_fmt(struct snd_soc_dai *cpu_dai,
- 		return -EINVAL;
- 	}
- 
--	pm_runtime_get_sync(cpu_dai->dev);
-+	ret = pm_runtime_resume_and_get(cpu_dai->dev);
-+	if (ret)
-+		return ret;
-+
- 	regmap_update_bits(pdm->regmap, PDM_CLK_CTRL, mask, val);
- 	pm_runtime_put(cpu_dai->dev);
- 
+ arch/arm64/boot/dts/freescale/s32g2.dtsi      | 26 +++++++
+ arch/arm64/boot/dts/freescale/s32g3.dtsi      | 28 +++++++
+ .../boot/dts/freescale/s32gxxxa-evb.dtsi      | 78 ++++++++++++++++++-
+ 3 files changed, 131 insertions(+), 1 deletion(-)
+
 -- 
-2.43.0
+2.34.1
 
 
