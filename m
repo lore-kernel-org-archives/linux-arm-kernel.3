@@ -4,41 +4,41 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id B6553CD6E68
-	for <linux-arm-kernel@archiver.kernel.org>; Tue,  2 Jun 2026 15:12:35 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 618A9CD6E60
+	for <linux-arm-kernel@archiver.kernel.org>; Tue,  2 Jun 2026 15:12:38 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
 	MIME-Version:References:In-Reply-To:Message-Id:Date:Subject:Cc:To:From:
 	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=nsGSAEIhyXSnMxVJnQct9jlsNQCNwc3MX87Io0Friyg=; b=Onc63WXs302mzcz981Bhrc1Iao
-	GVVEcjUxgSEhzcbNrqrH3IKqHnnnJr9XbTI9L4/A00VxRpGnAXXzFXfBbn7yUG3Y+uvdtLH+ixZhF
-	KtMz4JXZK3n7tGsDT7FOC+3XCJ9vcpxKEuaSRvhG8Ge7owKysCC6WFsjmQY9aUgrCGPXLMLEemKON
-	34fLS41kVCeybBfZN+hp0fngZinePfo8ObCky8wXNgnroJ+W8nXYW3nBuNY1XhIinQMftwLV7TqfJ
-	1NElnRRFWlq8wjuSE4Ie0kZCU8mr56xMmv8R2kqDubmAGsyQqjOr4jjk86Nsd2k1hLmPE3fVCtRYI
-	SUkx/ebQ==;
+	bh=AuwAl/4jaW6vYo2nNdGtoxAe+gWx/54yXHA8hlDoDtY=; b=2qxFd94OoDqFKEC5z7QjdAiVYD
+	JWc/FsBMNYfgVBM4Wq4tZYWA6Tg/Ya43X9NAQ5+YZUxTFvMZoN7NYTg2RRguXo4c/GdYAoFfg+Rqa
+	kmjCsIPWJ2vweUb83Kwdfe0bK961XcZvqQOnocm+xSVd1xx4Kib0Hw2xpFpAFzAUQW+vWfPn6I5zE
+	MkgauMoqxv0A/V+pYdkg/NhGZJAswYcl8s/cvQh7DUTU0ESqlSO1a/TY7yvQcazCJHMiNMHmBGMcw
+	Ox9oTw1lwSrORWpYkMedxX939cgLo5QneM8mPvonkuCW2J39VJyaprEGYg6zOXdwmrKVARfvY6jv7
+	bI6uzekw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wUQn7-0000000DGdw-1pbe;
-	Tue, 02 Jun 2026 15:12:29 +0000
+	id 1wUQnA-0000000DGiD-0Vde;
+	Tue, 02 Jun 2026 15:12:32 +0000
 Received: from foss.arm.com ([217.140.110.172])
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wUQn4-0000000DGZ0-19ru
+	id 1wUQn4-0000000DGZp-3eOz
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 02 Jun 2026 15:12:27 +0000
+	Tue, 02 Jun 2026 15:12:28 +0000
 Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
-	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id C677E3573;
-	Tue,  2 Jun 2026 08:12:19 -0700 (PDT)
+	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id 71A513582;
+	Tue,  2 Jun 2026 08:12:21 -0700 (PDT)
 Received: from lakrids.cambridge.arm.com (usa-sjc-imap-foss1.foss.arm.com [10.121.207.14])
-	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPA id 5C3D93F7D8;
-	Tue,  2 Jun 2026 08:12:23 -0700 (PDT)
+	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPA id 08A1B3F7D8;
+	Tue,  2 Jun 2026 08:12:24 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=simple/simple; d=arm.com; s=foss;
-	t=1780413144; bh=AGrOd3maVfHw9KqMwfvglX6A7MxlCueuD5iraJcfrUE=;
+	t=1780413146; bh=HHaMa7eLPPxV9UYKX2lfdGQaVhB7wiDgTAc/6rKQFEU=;
 	h=From:To:Cc:Subject:Date:In-Reply-To:References:From;
-	b=RJE9zP1LBfyO2a9sX3jwQdfNHp84mPzRfkyNKpf9XczQvRDCHwftRiFgxVkhdn3zD
-	 j4r2cWbhM1a9kJ/Ma/sBDr3a11AIYE8SkLPs9NGywQ5bhkVe4xsgV0xxgQ3RZLTx3h
-	 LXqAqOgLQ2hJ4vr+Zc556BUhKAIrVWSr2xBsRDo0=
+	b=jtQ+y/bVHQCD+V0huVtW6U7+E9YGjo2vacpldWgp6nmCieGrH1wtqlV1kNoKH2y14
+	 makFNctfDR9ncwT56p8bRgn91qHd/QWxqTWghlB6U8vIucVFPxQz4cXfHw+eSAimsF
+	 BcIhzcLbneuFk0BZJLRzb61sr1xUHZp9itIYE3HY=
 From: Mark Rutland <mark.rutland@arm.com>
 To: linux-arm-kernel@lists.infradead.org,
 	kvmarm@lists.linux.dev
@@ -51,17 +51,18 @@ Cc: broonie@kernel.org,
 	tabba@google.com,
 	vladimir.murzin@arm.com,
 	will@kernel.org
-Subject: [PATCH v3 09/18] arm64: fpsimd: Move sve_get_vl() and sme_get_vl() inline
-Date: Tue,  2 Jun 2026 16:11:41 +0100
-Message-Id: <20260602151150.925126-10-mark.rutland@arm.com>
+Subject: [PATCH v3 10/18] arm64: sysreg: Add FPCR and FPSR
+Date: Tue,  2 Jun 2026 16:11:42 +0100
+Message-Id: <20260602151150.925126-11-mark.rutland@arm.com>
 X-Mailer: git-send-email 2.30.2
 In-Reply-To: <20260602151150.925126-1-mark.rutland@arm.com>
 References: <20260602151150.925126-1-mark.rutland@arm.com>
 MIME-Version: 1.0
 Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260602_081226_407179_30C47E2A 
-X-CRM114-Status: GOOD (  12.79  )
+X-CRM114-CacheID: sfid-20260602_081226_961401_5DEE94E5 
+X-CRM114-Status: UNSURE (   7.28  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -76,16 +77,23 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-The sve_get_vl() and sme_get_vl() functions are wrappers for the RDVL
-and RDSVL instructions respectively. There's no need for those to be
-out-of-line.
+Add sysreg definitions for FPCR and FPSR.
 
-Replace the out-of-line assembly functions with equivalent inline
-functions.
+Some versions of LLVM will refuse to assemble accesses to FPCR and FPSR
+unless the "fp" arch extension is enabled, which we don't currently do
+for read_sysreg() and write_sysreg(). In general, handling feature
+dependencies would complicate read_sysreg() and write_sysreg(), and it's
+simpler to use read_sysreg_s() and write_sysreg_s() instead, requiring
+sysreg definitions.
 
-The _sve_rdvl assembly macro is unused, and so it is removed. The
-_sme_rdsvl assembly macro is still used elsewhere, and so is kept for
-now.
+The values used can be found in ARM ARM issue M.b:
+
+  https://developer.arm.com/documentation/ddi0487/mb/
+
+... in sections:
+
+* C5.2.8 ("FPCR, Floating-point Control Register")
+* C5.2.10 ("FPSR, Floating-point Status Register")
 
 Signed-off-by: Mark Rutland <mark.rutland@arm.com>
 Reviewed-by: Mark Brown <broonie@kernel.org>
@@ -97,117 +105,65 @@ Cc: Marc Zyngier <maz@kernel.org>
 Cc: Oliver Upton <oupton@kernel.org>
 Cc: Will Deacon <will@kernel.org>
 ---
- arch/arm64/include/asm/fpsimd.h       | 31 +++++++++++++++++++++++++--
- arch/arm64/include/asm/fpsimdmacros.h |  6 ------
- arch/arm64/kernel/entry-fpsimd.S      | 10 ---------
- 3 files changed, 29 insertions(+), 18 deletions(-)
+ arch/arm64/tools/sysreg | 45 +++++++++++++++++++++++++++++++++++++++++
+ 1 file changed, 45 insertions(+)
 
-diff --git a/arch/arm64/include/asm/fpsimd.h b/arch/arm64/include/asm/fpsimd.h
-index 8efa3c0402a7a..36cf528e64971 100644
---- a/arch/arm64/include/asm/fpsimd.h
-+++ b/arch/arm64/include/asm/fpsimd.h
-@@ -22,6 +22,9 @@
- #include <linux/stddef.h>
- #include <linux/types.h>
+diff --git a/arch/arm64/tools/sysreg b/arch/arm64/tools/sysreg
+index 6c3ff14e561e6..8b219d6566608 100644
+--- a/arch/arm64/tools/sysreg
++++ b/arch/arm64/tools/sysreg
+@@ -3790,6 +3790,51 @@ Field	1	ZA
+ Field	0	SM
+ EndSysreg
  
-+#define __SVE_PREAMBLE		".arch_extension sve\n"
-+#define __SME_PREAMBLE		".arch_extension sme\n"
++Sysreg	FPCR	3	3	4	4	0
++Res0	63:27
++Field	26	AHP
++Field	25	DN
++Field	24	FZ
++Enum	23:22	RMode
++	0b00	RN
++	0b01	RP
++	0b10	RM
++	0b11	RZ
++EndEnum
++Field	21:20	Stride
++Field	19	FZ16
++Field	18:16	Len
++Field	15	IDE
++Res0	14
++Field	13	EBF
++Field	12	IXE
++Field	11	UFE
++Field	10	OFE
++Field	9	DZE
++Field	8	IOE
++Res0	7:3
++Field	2	NEP
++Field	1	AH
++Field	0	FIZ
++EndSysreg
 +
- /* Masks for extracting the FPSR and FPCR from the FPSCR */
- #define VFP_FPSCR_STAT_MASK	0xf800009f
- #define VFP_FPSCR_CTRL_MASK	0x07f79f00
-@@ -141,11 +144,23 @@ static inline void *thread_zt_state(struct thread_struct *thread)
- 	return thread->sme_state + ZA_SIG_REGS_SIZE(sme_vq);
- }
- 
-+static inline unsigned int sve_get_vl(void)
-+{
-+	unsigned int vl;
++Sysreg	FPSR	3	3	4	4	1
++Res0	63:32
++Field	31	N
++Field	30	Z
++Field	29	C
++Field	28	V
++Field	27	QC
++Res0	26:8
++Field	7	IDC
++Res0	6:5
++Field	4	IXC
++Field	3	UFC
++Field	2	OFC
++Field	1	DZC
++Field	0	IOC
++EndSysreg
 +
-+	asm volatile(
-+	__SVE_PREAMBLE
-+	"	rdvl %x[vl], #1\n"
-+	: [vl] "=r" (vl)
-+	);
-+
-+	return vl;
-+}
-+
- extern void sve_save_state(void *state, u32 *pfpsr, int save_ffr);
- extern void sve_load_state(void const *state, u32 const *pfpsr,
- 			   int restore_ffr);
- extern void sve_flush_live(bool flush_ffr, unsigned long vq_minus_1);
--extern unsigned int sve_get_vl(void);
- extern void sme_save_state(void *state, int zt);
- extern void sme_load_state(void const *state, int zt);
- 
-@@ -400,8 +415,20 @@ static inline int sme_max_virtualisable_vl(void)
- 	return vec_max_virtualisable_vl(ARM64_VEC_SME);
- }
- 
-+static inline unsigned int sme_get_vl(void)
-+{
-+	unsigned int vl;
-+
-+	asm volatile(
-+	__SME_PREAMBLE
-+	"	rdsvl %x[vl], #1\n"
-+	: [vl] "=r" (vl)
-+	);
-+
-+	return vl;
-+}
-+
- extern void sme_alloc(struct task_struct *task, bool flush);
--extern unsigned int sme_get_vl(void);
- extern int sme_set_current_vl(unsigned long arg);
- extern int sme_get_current_vl(void);
- extern void sme_suspend_exit(void);
-diff --git a/arch/arm64/include/asm/fpsimdmacros.h b/arch/arm64/include/asm/fpsimdmacros.h
-index 4a9bf46e52913..c724fcad7ee02 100644
---- a/arch/arm64/include/asm/fpsimdmacros.h
-+++ b/arch/arm64/include/asm/fpsimdmacros.h
-@@ -125,12 +125,6 @@
- 	ldr p\np, [x\nxbase, #\offset, MUL VL]
- .endm
- 
--/* RDVL X\nx, #\imm */
--.macro _sve_rdvl nx, imm
--	.arch_extension sve
--	rdvl x\nx, #\imm
--.endm
--
- /* RDFFR (unpredicated): RDFFR P\np.B */
- .macro _sve_rdffr np
- 	.arch_extension sve
-diff --git a/arch/arm64/kernel/entry-fpsimd.S b/arch/arm64/kernel/entry-fpsimd.S
-index 88c555745b584..7f2d31dff8c17 100644
---- a/arch/arm64/kernel/entry-fpsimd.S
-+++ b/arch/arm64/kernel/entry-fpsimd.S
-@@ -57,11 +57,6 @@ SYM_FUNC_START(sve_load_state)
- 	ret
- SYM_FUNC_END(sve_load_state)
- 
--SYM_FUNC_START(sve_get_vl)
--	_sve_rdvl	0, 1
--	ret
--SYM_FUNC_END(sve_get_vl)
--
- /*
-  * Zero all SVE registers but the first 128-bits of each vector
-  *
-@@ -84,11 +79,6 @@ SYM_FUNC_END(sve_flush_live)
- 
- #ifdef CONFIG_ARM64_SME
- 
--SYM_FUNC_START(sme_get_vl)
--	_sme_rdsvl	0, 1
--	ret
--SYM_FUNC_END(sme_get_vl)
--
- /*
-  * Save the ZA and ZT state
-  *
+ Sysreg	FPMR	3	3	4	4	2
+ Res0	63:38
+ Field	37:32	LSCALE2
 -- 
 2.30.2
 
