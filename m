@@ -4,53 +4,38 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 5068DCD6E57
-	for <linux-arm-kernel@archiver.kernel.org>; Tue,  2 Jun 2026 10:47:34 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 930AACD6E64
+	for <linux-arm-kernel@archiver.kernel.org>; Tue,  2 Jun 2026 10:47:36 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
 	MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:
 	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=dloNw3khkYFpZ8HUOkLSEFcKW6J/1PykK/kcWicIG90=; b=rlh/gpfhUE84JVAcVewb8pt9YI
-	/g4Ob/vBiP12q//a8uUiagDPfe0GRChtylRonh70aHmNH6ScLlGBokhcMdTVq15G1mv/gSDTMQ8aU
-	OrfKXpfEBKwb5xuFid3oCEjlbfxraIf9falQFKCxnIHuex3qHvu0cVYQxc146nmZkWOFPVetXxA19
-	5bAFoKLPRhvpF3IBddETrKWRB9gIRE9hdAVUpKYYh2nolHc4wqnMYN1MfonfH7nJEMA60JoWSuUs1
-	4wTN/Mi3t/h6NxO+Z6jvYcNEaVXutdIjIeI2tuolYEyU28EEBxzBPmqlbnm3VkVp8R4TQZ3nfERs2
-	MVEBpqNg==;
+	bh=C15FwabaXicb3m5vf4ClTn8uJ1VB2DMgTV11Lw9ohJo=; b=0ETR1AA828xAdWURNS8jHWwN64
+	+PaKG3F2DtvoaWfOe2H00360SXfcBjiaMQnt3r/00Z1HtV6DQAhck/XPIs8lobNLMLrARMoYccC2P
+	A8cgVnMpr0ftTky0uzZSHinxGIXRRPLcZcTK59Woykba8is+2Lpkjk4e7X5KmsWXOoq8uzovpw6v4
+	KwqPhPJlbj9dEsDvdplDodubw02pekTn4y27ZeM9vpNjhXDlPOgY4fns5K4u66+dXp8dPZMSmpXzo
+	07QNCmRG/ae56lxOZyZsuDUdh5BPVy2BxP2MIQwA9AIGYm+dRsCy/ykfU9BMHG2g3xUSqGByYInpr
+	P/BVWLjA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wUMed-0000000Cojc-3j1I;
-	Tue, 02 Jun 2026 10:47:27 +0000
-Received: from desiato.infradead.org ([2001:8b0:10b:1:d65d:64ff:fe57:4e05])
+	id 1wUMeg-0000000CoqE-19yY;
+	Tue, 02 Jun 2026 10:47:30 +0000
+Received: from out30-124.freemail.mail.aliyun.com ([115.124.30.124])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wUMea-0000000Coa2-26wm
-	for linux-arm-kernel@bombadil.infradead.org;
-	Tue, 02 Jun 2026 10:47:24 +0000
-DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=infradead.org; s=desiato.20200630; h=Content-Transfer-Encoding:MIME-Version
-	:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:Sender:Reply-To:
-	Content-Type:Content-ID:Content-Description;
-	bh=dloNw3khkYFpZ8HUOkLSEFcKW6J/1PykK/kcWicIG90=; b=j/j21NspChEkORWOGnxbj4onI6
-	T0cgWHbuk4zWjG/7KZ13WRv8TZmMNbbyWBUuyiJLhofU4tcYbge9I30wyl9EiMCxdKkHQ5ao5JOdR
-	2kRePdVgPxaVoVD4gQfRLRVur/XJl0B5lLHxqiACPDboPxY9gUwrwWGLjWkmw2C9vaTKNe+GUV+ED
-	db0SVsLI4wVSti/aT8BdWddR5fO5lZSldByjKZ3EzAxJ4SA736pW0OAbxdcOBlNlfH97fcGLKWa9u
-	25lTuOXQKGCc+Nwu4pOIpRrWsAx7ju2VlGZJ0Cngfz4/AxEnyt4M755Bkn0MjeBwIAY4nwfGv+VZJ
-	PA1eXx3g==;
-Received: from out30-98.freemail.mail.aliyun.com ([115.124.30.98])
-	by desiato.infradead.org with esmtps (Exim 4.99.2 #2 (Red Hat Linux))
-	id 1wUMeW-000000099CR-22TO
+	id 1wUMea-0000000CoWW-0NpV
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 02 Jun 2026 10:47:23 +0000
+	Tue, 02 Jun 2026 10:47:26 +0000
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
 	d=linux.alibaba.com; s=default;
-	t=1780397235; h=From:To:Subject:Date:Message-ID:MIME-Version;
-	bh=dloNw3khkYFpZ8HUOkLSEFcKW6J/1PykK/kcWicIG90=;
-	b=liFEEm3DLA5RcSaKTLq0axu7O5SCFWtUIo9GonM5PoFvjpxdjN5aDXUcYFGVGRcY3qMM4nH6KcEy59UIOqAEEgWW9PH41ff87i4uZeuEHciUxr/hMeLWHKe5H33Xa336NKIf2KYBa/wGlildD04wzX6F/TT9N5sT64B1YfaSCVg=
-X-Alimail-AntiSpam: AC=PASS;BC=-1|-1;BR=01201311R141e4;CH=green;DM=||false|;DS=||;FP=0|-1|-1|-1|0|-1|-1|-1;HT=maildocker-contentspam011083073210;MF=guanghuifeng@linux.alibaba.com;NM=1;PH=DS;RN=28;SR=0;TI=SMTPD_---0X44E98l_1780397232;
-Received: from VM20241011-104.tbsite.net(mailfrom:guanghuifeng@linux.alibaba.com fp:SMTPD_---0X44E98l_1780397232 cluster:ay36)
+	t=1780397242; h=From:To:Subject:Date:Message-ID:MIME-Version;
+	bh=C15FwabaXicb3m5vf4ClTn8uJ1VB2DMgTV11Lw9ohJo=;
+	b=ihGLi8gIiW1yBmCCnFiA546N2d5LHtMsAHblI3+5TirKzUHd3xcj/2ykZtkIMUvQe7qxD71xjiSh21s9+In9XPMJ1UxNkfsAhwMy2IilEMjzuSjPeFCQodoMFa/vF00lR2HIbIinPGc8k1xfD6UpPDWJZKNc7SbYxOMO/lVpmOw=
+X-Alimail-AntiSpam: AC=PASS;BC=-1|-1;BR=01201311R111e4;CH=green;DM=||false|;DS=||;FP=0|-1|-1|-1|0|-1|-1|-1;HT=maildocker-contentspam033037009110;MF=guanghuifeng@linux.alibaba.com;NM=1;PH=DS;RN=28;SR=0;TI=SMTPD_---0X44E9AA_1780397237;
+Received: from VM20241011-104.tbsite.net(mailfrom:guanghuifeng@linux.alibaba.com fp:SMTPD_---0X44E9AA_1780397237 cluster:ay36)
           by smtp.aliyun-inc.com;
-          Tue, 02 Jun 2026 18:47:13 +0800
+          Tue, 02 Jun 2026 18:47:18 +0800
 From: Guanghui Feng <guanghuifeng@linux.alibaba.com>
 To: adrian.larumbe@collabora.com,
 	airlied@gmail.com,
@@ -80,9 +65,9 @@ To: adrian.larumbe@collabora.com,
 	will@kernel.org,
 	xlpang@linux.alibaba.com
 Cc: alikernel-developer@linux.alibaba.com
-Subject: [PATCH v2 25/30] drm/panthor: switch to iova_to_phys_length
-Date: Tue,  2 Jun 2026 18:46:32 +0800
-Message-ID: <20260602104637.1219810-26-guanghuifeng@linux.alibaba.com>
+Subject: [PATCH v2 30/30] iommu: remove iova_to_phys from domain_ops and io_pgtable_ops
+Date: Tue,  2 Jun 2026 18:46:37 +0800
+Message-ID: <20260602104637.1219810-31-guanghuifeng@linux.alibaba.com>
 X-Mailer: git-send-email 2.43.7
 In-Reply-To: <20260602104637.1219810-1-guanghuifeng@linux.alibaba.com>
 References: <20260531093637.3893199-1-guanghuifeng@linux.alibaba.com>
@@ -90,9 +75,8 @@ References: <20260531093637.3893199-1-guanghuifeng@linux.alibaba.com>
 MIME-Version: 1.0
 Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260602_114721_094700_8C70715A 
-X-CRM114-Status: UNSURE (   9.41  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20260602_034724_422074_3B858579 
+X-CRM114-Status: GOOD (  13.12  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -107,27 +91,94 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Migrate panthor_mmu to use ops->iova_to_phys_length(ops, iova, NULL)
-instead of the deprecated ops->iova_to_phys.
+Now that all drivers implement iova_to_phys_length and all callers
+have migrated, remove the deprecated interfaces:
+
+- Remove .iova_to_phys from struct iommu_domain_ops
+- Remove .iova_to_phys from struct io_pgtable_ops
+- Remove fallback path in iommu_iova_to_phys_length()
+- iommu_iova_to_phys() remains as a thin wrapper calling _length with NULL
 
 Signed-off-by: Guanghui Feng <guanghuifeng@linux.alibaba.com>
 ---
- drivers/gpu/drm/panthor/panthor_mmu.c | 2 +-
- 1 file changed, 1 insertion(+), 1 deletion(-)
+ drivers/iommu/iommu.c      | 12 ++----------
+ include/linux/io-pgtable.h |  3 ---
+ include/linux/iommu.h      |  3 ---
+ 3 files changed, 2 insertions(+), 16 deletions(-)
 
-diff --git a/drivers/gpu/drm/panthor/panthor_mmu.c b/drivers/gpu/drm/panthor/panthor_mmu.c
-index 75d98dad7b1d..3b635fc1f651 100644
---- a/drivers/gpu/drm/panthor/panthor_mmu.c
-+++ b/drivers/gpu/drm/panthor/panthor_mmu.c
-@@ -903,7 +903,7 @@ static void panthor_vm_unmap_pages(struct panthor_vm *vm, u64 iova, u64 size)
- 			 * are out-of-sync. This is not supposed to happen, hence the
- 			 * above WARN_ON().
- 			 */
--			while (!ops->iova_to_phys(ops, iova + unmapped_sz) &&
-+			while (ops->iova_to_phys_length(ops, iova + unmapped_sz, NULL) == PHYS_ADDR_MAX &&
- 			       unmapped_sz < pgsize * pgcount)
- 				unmapped_sz += SZ_4K;
+diff --git a/drivers/iommu/iommu.c b/drivers/iommu/iommu.c
+index 1b1aaa53dd16..84893d4c7c60 100644
+--- a/drivers/iommu/iommu.c
++++ b/drivers/iommu/iommu.c
+@@ -2554,7 +2554,7 @@ EXPORT_SYMBOL_GPL(iommu_detach_group);
+  * Like iommu_iova_to_phys() but additionally returns the page size of the
+  * PTE mapping at @iova through @mapped_length.
+  *
+- * Return: The physical address for the given IOVA, or PHYS_ADDR_MAX if no translation.
++ * Return: The physical address for the given IOVA, or 0 if no translation.
+  */
+ phys_addr_t iommu_iova_to_phys_length(struct iommu_domain *domain,
+ 				       dma_addr_t iova,
+@@ -2566,16 +2566,8 @@ phys_addr_t iommu_iova_to_phys_length(struct iommu_domain *domain,
+ 	if (domain->type == IOMMU_DOMAIN_IDENTITY)
+ 		return iova;
  
+-	if (!domain->ops->iova_to_phys_length) {
+-		/* Fallback to legacy iova_to_phys without length info */
+-		if (domain->ops->iova_to_phys) {
+-			phys_addr_t phys = domain->ops->iova_to_phys(domain, iova);
+-			if (phys && mapped_length)
+-				*mapped_length = PAGE_SIZE;
+-			return phys ? phys : PHYS_ADDR_MAX;
+-		}
++	if (!domain->ops->iova_to_phys_length)
+ 		return PHYS_ADDR_MAX;
+-	}
+ 
+ 	return domain->ops->iova_to_phys_length(domain, iova, mapped_length);
+ }
+diff --git a/include/linux/io-pgtable.h b/include/linux/io-pgtable.h
+index 42bcdd309b88..c595f5b51e61 100644
+--- a/include/linux/io-pgtable.h
++++ b/include/linux/io-pgtable.h
+@@ -202,7 +202,6 @@ struct arm_lpae_io_pgtable_walk_data {
+  *
+  * @map_pages:    Map a physically contiguous range of pages of the same size.
+  * @unmap_pages:  Unmap a range of virtually contiguous pages of the same size.
+- * @iova_to_phys: Translate iova to physical address.
+  * @iova_to_phys_length: Translate iova to physical address and return the
+  *			  remaining mapped length from iova to the end of the
+  *			  mapping entry via @mapped_length. If @mapped_length is
+@@ -222,8 +221,6 @@ struct io_pgtable_ops {
+ 	size_t (*unmap_pages)(struct io_pgtable_ops *ops, unsigned long iova,
+ 			      size_t pgsize, size_t pgcount,
+ 			      struct iommu_iotlb_gather *gather);
+-	phys_addr_t (*iova_to_phys)(struct io_pgtable_ops *ops,
+-				    unsigned long iova);
+ 	phys_addr_t (*iova_to_phys_length)(struct io_pgtable_ops *ops,
+ 					   unsigned long iova,
+ 					   size_t *mapped_length);
+diff --git a/include/linux/iommu.h b/include/linux/iommu.h
+index 19da84c2922c..ca585647180b 100644
+--- a/include/linux/iommu.h
++++ b/include/linux/iommu.h
+@@ -746,7 +746,6 @@ struct iommu_ops {
+  *                         array->entry_num to report the number of handled
+  *                         invalidation requests. The driver data structure
+  *                         must be defined in include/uapi/linux/iommufd.h
+- * @iova_to_phys: translate iova to physical address
+  * @iova_to_phys_length: translate iova to physical address and additionally
+  *                       return the page size of the PTE mapping at @iova
+  *                       through @mapped_length.
+@@ -777,8 +776,6 @@ struct iommu_domain_ops {
+ 	int (*cache_invalidate_user)(struct iommu_domain *domain,
+ 				     struct iommu_user_data_array *array);
+ 
+-	phys_addr_t (*iova_to_phys)(struct iommu_domain *domain,
+-				    dma_addr_t iova);
+ 	phys_addr_t (*iova_to_phys_length)(struct iommu_domain *domain,
+ 					    dma_addr_t iova,
+ 					    size_t *mapped_length);
 -- 
 2.43.7
 
