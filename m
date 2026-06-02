@@ -4,57 +4,54 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id F18EECD6E4A
-	for <linux-arm-kernel@archiver.kernel.org>; Tue,  2 Jun 2026 11:33:58 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 55005CD6E5D
+	for <linux-arm-kernel@archiver.kernel.org>; Tue,  2 Jun 2026 11:34:01 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:
-	Content-Transfer-Encoding:Content-Type:MIME-Version:Message-Id:Date:Subject:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:References
+	:Message-Id:Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:
 	From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:
-	List-Owner; bh=MZzE5gk2ciiNwh8D62gBS31R5AnJefl9q3snq9zcyYo=; b=FwlCmZr4fTqv+x
-	Nr/Bc4oEcktON/sz5wzvIf2MH6N9QrEAAZjB/pu6NDx/6LrRxicAm/UlGn9wAQS4sfoVFVTQKQgh0
-	Q5onk3/VET6K4ZryZD6QZbD2GU86PZtelK/hGoQmoPW8JEGYalJ4nj/ANHYpVkFLiASQMnrK6BGaf
-	YV+R6Hxk4CQp64VjIpquN1o43zZGXHLOJ8e22KNHNQHAkoatU4PjX8/MkibOG6oypsgAqyWO2rq6X
-	dT8b/Bgug6d24W/G5/M+GbuwEgzLEDhvBWWYaBaeeTSNGthPyhlQ3B19ytujAkNuC9aZOunCvICz6
-	WbOwdBAD9c9SQ5HEbXsw==;
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=RLfxs01fqKZzYY1ngMrn68+8Jv6wxEviPtfKxnQaO5Y=; b=KMtN500THr1TXUhpl/7QIANGEH
+	ReiA2lXWIo1B3eF7gOiWRxj+3TXEkoLGFeMeWykZEPz8dG43jMxW7v4JZeUo7+RIzkEEJUo0gDDHc
+	LyrWkbEPLqBBxQLaL68ROhnL9zmGaJ1fBRGEEISbrYyxD+G6dOGgf9hbOOcPFBfFply7SabhRw6G+
+	olGHjxpgrBjvjg37X1am4dBK6fP8ZwayYVRRLzzF8/hk4P7WCwPom7SX93NFFiqXwfbj7CRojLPuF
+	+ZNFfC2XvjTYavDfpkwiwRjTJr65cQeDcCwYlIwS2WHIkgvaD5oafjJsL0BYMlB3Wrthht8q+LWVO
+	p1aAuDtQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wUNNY-0000000Csz1-3NDT;
-	Tue, 02 Jun 2026 11:33:52 +0000
-Received: from tor.source.kernel.org ([172.105.4.254])
+	id 1wUNNa-0000000CszT-0MNR;
+	Tue, 02 Jun 2026 11:33:54 +0000
+Received: from tor.source.kernel.org ([2600:3c04:e001:324:0:1991:8:25])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wUNNW-0000000Csyq-1v4D
+	id 1wUNNZ-0000000Csz0-0y6y
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 02 Jun 2026 11:33:50 +0000
+	Tue, 02 Jun 2026 11:33:53 +0000
 Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
-	by tor.source.kernel.org (Postfix) with ESMTP id C844560141;
-	Tue,  2 Jun 2026 11:33:49 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 02AEE1F00893;
-	Tue,  2 Jun 2026 11:33:48 +0000 (UTC)
+	by tor.source.kernel.org (Postfix) with ESMTP id 79F2760142;
+	Tue,  2 Jun 2026 11:33:52 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id A7CAF1F00898;
+	Tue,  2 Jun 2026 11:33:51 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1780400029;
-	bh=MZzE5gk2ciiNwh8D62gBS31R5AnJefl9q3snq9zcyYo=;
-	h=From:Subject:Date:To:Cc;
-	b=owAzFEnicFWBRgJqHkdTWoN1icFPa/bZmfdiwBaDNWDZDMZI5N+GBn1e78fRmTyQk
-	 44eI/v7RkdhhnNQ4To/qj/XdfCZmUYBsoyV9C7UFjJb1rBYKL2aLMz83C5WMkKyzzZ
-	 fPSMVtKW7sDZviz6tFtcSFp41QfC0oBBUZdJUatZsDwNe8cvpIBv1w8cYxEWET7G2G
-	 PTnTZGcT8MLnfmOCVzZKBfgaQiqYtXNbPj/WZ1X1mdFomwUnRjw7/LSyxxME6ob7GN
-	 aBN6/rDXrMh7FDipwiUPz3Nn5AbJZ2iNsq+tabYLvekHHHBsvZ+5aTXtb8Oggb++gi
-	 5K4yu2v18oWgQ==
+	s=k20260515; t=1780400032;
+	bh=RLfxs01fqKZzYY1ngMrn68+8Jv6wxEviPtfKxnQaO5Y=;
+	h=From:Date:Subject:References:In-Reply-To:To:Cc;
+	b=b8Fpy61x/hOy3qij/A5QVYDB4F/lw7SzYFmWjgO617bmxIwFSBU6KakH1cPUwmHt5
+	 vYKnWUd0eOmFOmjIA2XlvuxBdYybqFe6TFyI/TkGz880RvFYKQfqSVl7hgVj3ixLrd
+	 UY+nlGZZQeibqqnYeqgH+3MVYzC3T599RmgUTO0iI0++3giQn/jTXy00ra9kQ7t0hQ
+	 BOID7TAzgONPkMVXVN/N6HbBZ+UBVqzMXpgWpAPMX1pgbFNeH22ktpr4pHY+dWXI8X
+	 ++GA5UmEUf9SsKUifTVwV/I1eXxkS0Fa2Ya37Vr4TyHnGXE180z38B8Vlo+DUK2UFu
+	 NNtnBwdo7C0MA==
 From: Thierry Reding <thierry.reding@kernel.org>
-Subject: [PATCH v6 0/4] PCI: tegra: Add Tegra264 support
-Date: Tue, 02 Jun 2026 13:33:22 +0200
-Message-Id: <20260602-tegra264-pcie-v6-0-edbcfa7a78fe@nvidia.com>
+Date: Tue, 02 Jun 2026 13:33:23 +0200
+Subject: [PATCH v6 1/4] dt-bindings: pci: Strictly distinguish C0 from
+ C1-C5
 MIME-Version: 1.0
 Content-Type: text/plain; charset="utf-8"
 Content-Transfer-Encoding: 7bit
-X-B4-Tracking: v=1; b=H4sIAAAAAAAC/4XQTU7DMBAF4KtUXmPLM/6LWfUeiIWTDOkATSonR
- FRV7o7TLFpg0c3IT5rvjeSLGCkzjeJ5dxGZZh556EvwTzvRHFLfkeS2ZIEavbYa5URdTuitPDV
- MkoxONaFpkw6imFOmN/6+9r28bnn8qt+pmdaSdePA4zTk8/XgDOve1m0ggtcAWiGUt7MS5HRgy
- vmsMrXcd/sPyj19qiF3Yu2e8U6Xic5ao9AFiKgfa3OvPRhXOacwRAc2Ptb2pv//ymyllgiEBDF
- Wgap9P3PLSTXDcePuxh36v9wVXtlUgaljiG34xZdl+QHEd7pFtgEAAA==
-X-Change-ID: 20260402-tegra264-pcie-e30abe23da07
+Message-Id: <20260602-tegra264-pcie-v6-1-edbcfa7a78fe@nvidia.com>
+References: <20260602-tegra264-pcie-v6-0-edbcfa7a78fe@nvidia.com>
+In-Reply-To: <20260602-tegra264-pcie-v6-0-edbcfa7a78fe@nvidia.com>
 To: Bjorn Helgaas <bhelgaas@google.com>, 
  Lorenzo Pieralisi <lpieralisi@kernel.org>, 
  =?utf-8?q?Krzysztof_Wilczy=C5=84ski?= <kwilczynski@kernel.org>, 
@@ -71,23 +68,22 @@ To: Bjorn Helgaas <bhelgaas@google.com>,
  Thierry Reding <thierry.reding@kernel.org>, Aksh Garg <a-garg7@ti.com>
 Cc: linux-pci@vger.kernel.org, devicetree@vger.kernel.org, 
  linux-tegra@vger.kernel.org, linux-kernel@vger.kernel.org, 
- linux-arm-kernel@lists.infradead.org, Thierry Reding <treding@nvidia.com>, 
- Manikanta Maddireddy <mmaddireddy@nvidia.com>
+ linux-arm-kernel@lists.infradead.org, Thierry Reding <treding@nvidia.com>
 X-Mailer: b4 0.15.1
-X-Developer-Signature: v=1; a=openpgp-sha256; l=3197; i=treding@nvidia.com;
- h=from:subject:message-id; bh=KMH2/ojjq+sbTJGjYAXNbmCc7sW0lbLCjB6n1xLpikE=;
- b=owEBbQKS/ZANAwAKAd0jrNd/PrOhAcsmYgBqHr+aOvgqGQG0k6eSTa7z3hs4cYHPs5PzvpZKD
- LCemG2aNq6JAjMEAAEKAB0WIQSI6sMIAUnM98CNyJ/dI6zXfz6zoQUCah6/mgAKCRDdI6zXfz6z
- oRV8D/9QlFkG5wdTVG2PVMh5At6JOV6geS7SFf/6N1DV9ISijGAhn5MGG1biY2iYtsynJXvZebc
- 9q+xRz4qNII+4Me+sR26s6QsAnP7uN+uafxngtmk/a0hjSL2FT9RJZIMdz323IJe9yf8RHUO36v
- LUNBjmBmHWENiC+/fPq8tFNWgWe0zE3sSqUi1SZP0CUeUrvPErSebaVZl7HyOW234CPG4QmWlya
- iSYCXJbwIqkwSdy8iKIof0hVOIAw2Td8mPG4V+8399GV/yknzhCI8IyacLzojoSIDFrVsX85q8p
- vnorZ69nsDQ6wxLjmeYzPu7CfwwxGUtodwxXDfUG/WboYAUjiQuaLaWngjYSN6SaLE8jFf9D+Fx
- KknKOwcvhFequcX1e9a4Jtx7ElPnCKXP0hAwQP1VPk1gXVYPPcLh999pdLrVJXIGdQX59zIHOmP
- R8h+gRwuJuDQGHi8LG78kHNsbhYARRfQr9UtyAxQM5mCrVDK8JwDdGSU57lBqZY9BS1zxH2xaan
- Phv5YPVu9wz+rwo3nihBnUPKpl9/kABlqkcRQQxeYSnkPMabuJ2riMn8MCMuR5SBOQLP6X5/8Ib
- WxCJLMmK+Cl39iYjiloRa09T/rArjOo+THqrslYwZXT0tRwxLCu6RdWS6lTvp0SSoZjDWzfOfWj
- gENYK4HUDB8AWeA==
+X-Developer-Signature: v=1; a=openpgp-sha256; l=5651; i=treding@nvidia.com;
+ h=from:subject:message-id; bh=HQ73QRmbMw9xf+0TO/GJWDfzCo4ksyEEyLTFp+NJTiA=;
+ b=owEBbQKS/ZANAwAKAd0jrNd/PrOhAcsmYgBqHr+alRnFbX4JzLWJh4aEItFMtdZm6QSj2NRbv
+ AN+N8S+JY2JAjMEAAEKAB0WIQSI6sMIAUnM98CNyJ/dI6zXfz6zoQUCah6/mgAKCRDdI6zXfz6z
+ oVVyEACXeRlOORZ+YQ0nsKIXAUE/v1O4Tys/dFxTQpuS3N+1YLT8hWsXlqVBE6NOq3ROho/tO6z
+ Y1fL+F3jZoBLaDw9KzMLkYOQzWobx3DR+Ljka53Qlgtdjss0zsrjTcegzWGLCl7aruXe+Z8hrx0
+ WCXmTH5jOwxjhOMXq+BZ4H6TtJR71lUFEpnQa2miQvG8A+NJb/n/9qXwsyZN34A8RinTw6ojz9H
+ EQxdFW15CK9H0f3qwaGh2QW04b3oN9idf0RgtWpY1rD4HtOjh85EFtfXjqlFTfjKT3poLW1YixL
+ 6H8QjXOTXxWZSvm+AX8bqE0TMKgPnkLRWDw5jtabXTieBqpt4jcNbHK+MWJBdUh5MtGm4oMzA06
+ Fno/YEBjagNLBE5SOVj0oWllUnE9a+GZe2vvT955Za9kjngloxDKpYSu5FH3yyl8il/V6x6ZqtN
+ 3oWOjqh0QMnq/ZaZemM/aulU6bzbZxCB3sSiJ8eY1IW7MVGNSY3G+eQvpnVEqSF8Q8CgYDNtSUJ
+ J+7P8yrrNNcs70rLgvZWUM18cw6+yPzFhasKUWh8mWNgJ2gYNuYPpQgWT78rdt/QqAlitQxw9yM
+ t4n1Qh1ayTrpwhscYzyBjyhiUHqtl4e0gvCoar9YA+iA2aj6GwWf5hJKeG7VWgjlmcxq2oG3kxU
+ vKUrqS8qM1M3qdQ==
 X-Developer-Key: i=treding@nvidia.com; a=openpgp;
  fpr=88EAC3080149CCF7C08DC89FDD23ACD77F3EB3A1
 X-BeenThere: linux-arm-kernel@lists.infradead.org
@@ -104,84 +100,162 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hi,
+From: Thierry Reding <treding@nvidia.com>
 
-this series adds support for the PCIe controllers found on the Tegra264
-SoC. There are six instances, one of which is for internal purposes only
-and the other five are general purpose.
+Instead of using the ECAM registers as the first entry, strictly make a
+distinction between C0 and C1-C5. This is needed because otherwise the
+unit address doesn't match the first "reg" entry. We also cannot change
+the ordering of these nodes to follow the ECAM addresses because that
+would put them outside of their "control bus" hierarchy since the ECAM
+address space is a global one outside of any of the control busses.
 
-The first patch tweaks the DT bindings slightly to avoid new DT compiler
-warnings that slipped through because they are now disabled by default
-(-Wno-unit_address_vs_reg).
-
-Before adding the driver in patch 3, patch 2 introduces some new common
-wait times for PCIe and unifies the way that drivers use them. Finally,
-patch 4 reorders the reg and reg-names property entries to match the
-bindings changes from patch 1.
-
-All of the prerequisites were merged in v7.1-rc1, so this can be applied
-to the PCI tree directly. Optionally I can also pick up patch 4 into the
-Tegra tree, but there should be no conflicts, so feel free to pick this
-up with the rest.
-
-Thanks,
-Thierry
-
+Signed-off-by: Thierry Reding <treding@nvidia.com>
+---
 Changes in v6:
-- address review comments from Sashiko
-- rebase onto v7.1-rc1, adjust DT bindings patch accordingly
-- Link to v5: https://patch.msgid.link/20260526-tegra264-pcie-v5-0-84a813b979d7@nvidia.com
+- add maxItems as suggested by Sashiko
 
 Changes in v5:
-- address review comments for the PCI driver patch
-- Link to v4: https://patch.msgid.link/20260402-tegra264-pcie-v4-0-21e2e19987e8@nvidia.com
+- rebase on top of v7.1-rc1, make it into a fix
 
 Changes in v4:
-- strip out dependencies that are going in through the ARM SoC tree
-- revert bindings to oneOf construct so that we don't produce new DTC
-  warnings
-- Link to v3: https://patch.msgid.link/20260326135855.2795149-1-thierry.reding@kernel.org
-
-Changes in v3:
-- integrate PCI standard wait times patch into the series to maintain
-  bisectability
-- fix review comments from Mikko
-- Link to v2: https://patch.msgid.link/20260320225443.2571920-1-thierry.reding@kernel.org
+- ECAM is outside of the controller's region, so it cannot be the first
+  reg entry, otherwise we get warnings because it doesn't match the
+  unit-address, so revert back to oneOf construct
 
 Changes in v2:
-- fix an issue with sanity-checking disabled BARs
-- address review comments
-- Link to v1: https://patch.msgid.link/20260319160110.2131954-1-thierry.reding@kernel.org
-
-Thanks,
-Thierry
-
+- move ECAM region first and unify C0 vs. C1-C5
+- move unevaluatedProperties to right before the examples
+- add description to clarify the two types of controllers
+- add examples for C0 and C1-C5
 ---
-Thierry Reding (4):
-      dt-bindings: pci: Strictly distinguish C0 from C1-C5
-      PCI: Use standard wait times for PCIe link monitoring
-      PCI: tegra: Add Tegra264 support
-      arm64: tegra: Reorder reg and reg-names to match bindings
+ .../bindings/pci/nvidia,tegra264-pcie.yaml         | 79 +++++++++++++++-------
+ 1 file changed, 54 insertions(+), 25 deletions(-)
 
- .../bindings/pci/nvidia,tegra264-pcie.yaml         |  79 ++-
- arch/arm64/boot/dts/nvidia/tegra264.dtsi           |  48 +-
- drivers/pci/controller/Kconfig                     |   9 +-
- drivers/pci/controller/Makefile                    |   1 +
- .../controller/cadence/pcie-cadence-host-common.c  |   6 +-
- .../pci/controller/cadence/pcie-cadence-lga-regs.h |   5 -
- drivers/pci/controller/mobiveil/pcie-mobiveil.c    |   4 +-
- drivers/pci/controller/mobiveil/pcie-mobiveil.h    |   5 -
- drivers/pci/controller/pci-aardvark.c              |   7 +-
- drivers/pci/controller/pcie-tegra264.c             | 556 +++++++++++++++++++++
- drivers/pci/controller/pcie-xilinx-nwl.c           |   9 +-
- drivers/pci/controller/plda/pcie-starfive.c        |   9 +-
- 12 files changed, 655 insertions(+), 83 deletions(-)
----
-base-commit: 9153998d6bc78594c0c853e0eea84db778855a47
-change-id: 20260402-tegra264-pcie-e30abe23da07
+diff --git a/Documentation/devicetree/bindings/pci/nvidia,tegra264-pcie.yaml b/Documentation/devicetree/bindings/pci/nvidia,tegra264-pcie.yaml
+index dc4f8725c9f5..4e1f219e8695 100644
+--- a/Documentation/devicetree/bindings/pci/nvidia,tegra264-pcie.yaml
++++ b/Documentation/devicetree/bindings/pci/nvidia,tegra264-pcie.yaml
+@@ -10,32 +10,23 @@ maintainers:
+   - Thierry Reding <thierry.reding@gmail.com>
+   - Jon Hunter <jonathanh@nvidia.com>
+ 
++description: |
++  Of the six PCIe controllers found on Tegra264, one (C0) is used for the
++  internal GPU and the other five (C1-C5) are routed to connectors such as
++  PCI or M.2 slots. Therefore the UPHY registers (XPL) exist only for C1
++  through C5, but not for C0.
++
+ properties:
+   compatible:
+     const: nvidia,tegra264-pcie
+ 
+   reg:
+-    description: |
+-      Of the six PCIe controllers found on Tegra264, one (C0) is used for the
+-      internal GPU and the other five (C1-C5) are routed to connectors such as
+-      PCI or M.2 slots. Therefore the UPHY registers (XPL) exist only for C1
+-      through C5, but not for C0.
+     minItems: 4
+-    items:
+-      - description: ECAM-compatible configuration space
+-      - description: application layer registers
+-      - description: transaction layer registers
+-      - description: privileged transaction layer registers
+-      - description: data link/physical layer registers (not available on C0)
++    maxItems: 5
+ 
+   reg-names:
+     minItems: 4
+-    items:
+-      - const: ecam
+-      - const: xal
+-      - const: xtl
+-      - const: xtl-pri
+-      - const: xpl
++    maxItems: 5
+ 
+   interrupts:
+     minItems: 1
+@@ -70,6 +61,44 @@ required:
+ 
+ allOf:
+   - $ref: /schemas/pci/pci-host-bridge.yaml#
++  - oneOf:
++      - description: C0 controller (no UPHY)
++        properties:
++          reg:
++            maxItems: 4
++            items:
++              - description: application layer registers
++              - description: transaction layer registers
++              - description: privileged transaction layer registers
++              - description: ECAM compatible configuration space
++
++          reg-names:
++            maxItems: 4
++            items:
++              - const: xal
++              - const: xtl
++              - const: xtl-pri
++              - const: ecam
++
++      - description: C1-C5 controllers (with UPHY)
++        properties:
++          reg:
++            maxItems: 5
++            items:
++              - description: application layer registers
++              - description: transaction layer registers
++              - description: privileged transaction layer registers
++              - description: data link/physical layer registers
++              - description: ECAM compatible configuration space
++
++          reg-names:
++            maxItems: 5
++            items:
++              - const: xal
++              - const: xtl
++              - const: xtl-pri
++              - const: xpl
++              - const: ecam
+ 
+ unevaluatedProperties: false
+ 
+@@ -81,11 +110,11 @@ examples:
+ 
+       pci@c000000 {
+         compatible = "nvidia,tegra264-pcie";
+-        reg = <0xd0 0xb0000000 0x0 0x10000000>,
+-              <0x00 0x0c000000 0x0 0x00004000>,
++        reg = <0x00 0x0c000000 0x0 0x00004000>,
+               <0x00 0x0c004000 0x0 0x00001000>,
+-              <0x00 0x0c005000 0x0 0x00001000>;
+-        reg-names = "ecam", "xal", "xtl", "xtl-pri";
++              <0x00 0x0c005000 0x0 0x00001000>,
++              <0xd0 0xb0000000 0x0 0x10000000>;
++        reg-names = "xal", "xtl", "xtl-pri", "ecam";
+         #address-cells = <3>;
+         #size-cells = <2>;
+         device_type = "pci";
+@@ -118,12 +147,12 @@ examples:
+ 
+       pci@8400000 {
+         compatible = "nvidia,tegra264-pcie";
+-        reg = <0xa8 0xb0000000 0x0 0x10000000>,
+-              <0x00 0x08400000 0x0 0x00004000>,
++        reg = <0x00 0x08400000 0x0 0x00004000>,
+               <0x00 0x08404000 0x0 0x00001000>,
+               <0x00 0x08405000 0x0 0x00001000>,
+-              <0x00 0x08410000 0x0 0x00010000>;
+-        reg-names = "ecam", "xal", "xtl", "xtl-pri", "xpl";
++              <0x00 0x08410000 0x0 0x00010000>,
++              <0xa8 0xb0000000 0x0 0x10000000>;
++        reg-names = "xal", "xtl", "xtl-pri", "xpl", "ecam";
+         #address-cells = <3>;
+         #size-cells = <2>;
+         device_type = "pci";
 
-Best regards,
---  
-Thierry Reding <treding@nvidia.com>
+-- 
+2.52.0
 
 
