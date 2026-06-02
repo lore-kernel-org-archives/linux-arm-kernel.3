@@ -4,159 +4,133 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 8CFF7CD6E4A
-	for <linux-arm-kernel@archiver.kernel.org>; Tue,  2 Jun 2026 08:05:34 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id D6A7DCD6E4A
+	for <linux-arm-kernel@archiver.kernel.org>; Tue,  2 Jun 2026 08:22:09 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:
-	Content-Transfer-Encoding:Content-Type:In-Reply-To:From:References:Cc:To:
-	Subject:Date:Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=5310TDftYQ6ldwH416jWwpewjp+kWllnfD9IpKfQnmU=; b=LrazXgejRit4gBmG3ebQg8qyYU
-	4/tYp7TGpacoyiwo9oa4rvWjihG29I6I0hsKAtFef2kHFCq0nLDWxBd5bw8cIPhK47ztFq3gikMgZ
-	sUPaLIqAhIdXEQvuyV+ORj2B53m0FG7ks6ADuZ+y+opgF4FSWTk3bVo2x/8WSuncTY1NzPXRHawqQ
-	pqI32PLrbYRfguha/ROlySz3obCZDJ6+BjndJTXHLjYLSN4rNPhiEyghoL8SakeH7gf05nad88CyA
-	GtmxoQp5r0zDhN7nDlnTL8UDDcPFIkxCw4M5GxXg51FLWAFmxbM0okRYxfYuUz+Pze3VaHEJufTmj
-	FwVsn7Vg==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:Content-Type:
+	Content-Transfer-Encoding:Message-ID:Date:Subject:Cc:To:From:Reply-To:
+	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
+	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=l21LslQPLW8LUGN02Yky03iN83kydeI81aeAri7EnbE=; b=QwLwi3Qjr5Ue0DUaePyxsG4quQ
+	XFPhJmBEuM0wOuJVVXpN4XAj+occUtPXLApI7HJz7s6FPBIqpazjElMsMR3+rURimTjGk+ihdkPBR
+	/FePYf/wF9Loy0ymV41PPj+4AomtqlVB2A+zvNvvK1Khg0FTZZwv5n1ysEhpRRbFs+K+/IXMz7Kng
+	jaonMUM/qMINIG0ArV2g91dWtqVcUgKpHQCmqNm1hf4Xz4eINr+LXeEClIg+03TwCtkGp/QRdLkW5
+	f3+V7c3sZ6Kku8Iv4YZJRWftd7UJsBzBQyOegr7WO/6BqjaIZrtoluGQ1SL0g93PmdxLa1FDm5n8j
+	esk8cf6Q==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wUK7r-0000000CXQm-3XMW;
-	Tue, 02 Jun 2026 08:05:27 +0000
-Received: from mail-norwayeastazon11013031.outbound.protection.outlook.com ([40.107.159.31] helo=OSPPR02CU001.outbound.protection.outlook.com)
+	id 1wUKNu-0000000CYRG-3WEb;
+	Tue, 02 Jun 2026 08:22:02 +0000
+Received: from mail-southcentralusazlp170110003.outbound.protection.outlook.com ([2a01:111:f403:c10d::3] helo=SN4PR0501CU005.outbound.protection.outlook.com)
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wUK7p-0000000CXQ3-2YLn
+	id 1wUKNs-0000000CYQZ-0lzf
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 02 Jun 2026 08:05:26 +0000
+	Tue, 02 Jun 2026 08:22:01 +0000
 ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
- b=GH7S5UdX5o28weQCtb05d8ScRLFDkl+N8jfyCCfLqcU2xbuvGyzFj0tmWqls5rbt1WRoMzLZZlErD3xAWGMebJB46sQHbH5UgnemQavpqew1PgsI0T2qTX0vkKhpN90fiZkDkVD7YfiblVUUOXXM2J5AYv0vJae53XzjcyOoiukSmTBPKkdCYREInQl3cwdnZRqDD6ybA6FBnkKQZ3UH/kMpa3I3LH3xy66f0ZTPqMPBuKmbCzvp8CI1ETMHeIqZcYG1Xx/xArLqL3nLIhwu4x/b6IJpb9naPwkU6XQYjNdodFTs3HVg9xyV+4qTbsW5ECTnyT3/6UI3NqJQb8wffA==
+ b=K/JVMXhtXHgc8ZUGkxQWLRboePZXEfLk3vHMKpQybHUmR3p18Rbnbh6hyjpT7eA8Jg0pTddrBeP2hBa2k8uvPM4Ij2nHoZCkwe04TZLSs6OBom0bn+gcy1m7loxEoWIdVmLpsU5o6HZ5Y/BHKHYuTRGmhwkAaBZZJLykJVCEdm9z5sdAwPpmEwY2F7kuMGf774cQ27Yj1SOmh7o5DAuvmFv9VFWEh8IE6g9HgDFDAWtsTzlCnv2CsmD3z6HQIjEZu8Uo0f8bdMJttFle0Jb4MmxKIOn+O4kb7vLoH2GlvwpFe3+TKFPnOo60r9/1+gOvmvps8VDnelzwoUAWUtt66A==
 ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
  s=arcselector10001;
  h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
- bh=5310TDftYQ6ldwH416jWwpewjp+kWllnfD9IpKfQnmU=;
- b=VbIDq+kLhqCP0A+Qw8Y0ga1ITfg4EBpVXHrYnNzTbNhSGcyy3OgYcAtFyJBqXn1a1EX1+v0YGf/+v4zoUj0Mcg++f+gJCL47UMypkHyXYr1goQArQi/7FOxle4DXpqW0zrLKKCADP1xfDPAi8A0wB+DUXFpEzr7U+F4GNQXueklfDIpwmjepAhqbSVartJKAWooDAMo5EkQ9NcKol5GPi8BMl9wGDhIPsIsGEfVsCiriMqHgVpyb5ytJDnWDFEL92UPBElSqDP7YakW43HdYC+zOJha+5qqBxnrma6lbq2LpX/iWcJH4dviezSbHq+bNgqGnrJV5dMpOCgLX5iDJgA==
+ bh=l21LslQPLW8LUGN02Yky03iN83kydeI81aeAri7EnbE=;
+ b=op9m26F5b2btggANp5+oGY5H5OcB0cwqO/gBCepD2EK+5ch3sKyNkUTJNacqM3rKWCEQojRgSJ5FR4BvegsrtAsh5jUjfX6H6O7Ub660moctMoiLueITMBj1bhEzMrKvC8PzjqRSja1591EBjWYQXYlfGpNwRun6D7HEtSqtHxq4wKMI++o9OonMbVligdR/hmSrEZMeRC4LYZ54IoaNzSmbD69TQ/gKc7VCdoV66DJU3NTnpqeiCCJBQ8WgtjzYszOOBbPJTrg9Dn7W9H3mfKJhDaB0/Lqgf/t0V+hwyayDyoxcQcqfrV+axb9lNXyhj1CYQ03JbJS/5CSZGl08GQ==
 ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
- smtp.mailfrom=oss.nxp.com; dmarc=pass action=none header.from=oss.nxp.com;
- dkim=pass header.d=oss.nxp.com; arc=none
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=NXP1.onmicrosoft.com;
- s=selector1-NXP1-onmicrosoft-com;
+ smtp.mailfrom=nvidia.com; dmarc=pass action=none header.from=nvidia.com;
+ dkim=pass header.d=nvidia.com; arc=none
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=Nvidia.com;
+ s=selector2;
  h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
- bh=5310TDftYQ6ldwH416jWwpewjp+kWllnfD9IpKfQnmU=;
- b=jU+2ua4mwvQUticxB67tw6dKrfDS0DdzXqu6jDubAZdScVjUj8pIYPugSpfyQkfe/rkDcF6AOHSbyC2yHji+aNq4yRTIVFJN+4GZQIPX+MxhtknR/Mz6MKBwfthhJysS39dL0oE/Eu/sre8YqLmdXndK6Jh1UAwIjWjA/8pZ8QoP2nsCxG+NhOe+tjKdRP3yI9Mpn94y4smy6CS6/4om40oDROTmx+vrXOwdLvGccUfB4v+kHaFVUiX15yH1R10IYtzIBlYz2f7auhQu6rcMdddfChVPokOO/XcwcLT16PCYT2rhGCKXXr8/fvSE1Ap3qsTY3HU7FTCSobS+XMKi1Q==
+ bh=l21LslQPLW8LUGN02Yky03iN83kydeI81aeAri7EnbE=;
+ b=bVd3hET4MK8xqhQJn3h6XHNTt8soAJZb2BDTu/7hxbhryj1yTp7WMC1OSvmuj0vhuw323uthatW2UswAcMuGsvQ+FnMRTlnzk8KeBl+lMKex78ucDCQwQ+oZTdooTrKlwDM5c5ILroAs1S/AV3/4tTlMirv4l+xz4vSEWIXBFeXebdqZfP0wgxCyLHCZSov+7QUK0tTviDV76uFVg6v0ARuyIyGBYe/t+sMfYhHBK/SlK6g+Nrhnga4jejG+cME60zPkVRwvPdzQ40HnaL2G+zoKpyDr/zDsRYql33oyipT+AwddycU49WhKD2EojkY3gyb5WiyCf4q/65g9RQj2yw==
 Authentication-Results: dkim=none (message not signed)
- header.d=none;dmarc=none action=none header.from=oss.nxp.com;
-Received: from AM9PR04MB8179.eurprd04.prod.outlook.com (2603:10a6:20b:3b5::20)
- by PA1PR04MB10503.eurprd04.prod.outlook.com (2603:10a6:102:446::5) with
+ header.d=none;dmarc=none action=none header.from=nvidia.com;
+Received: from DS7PR12MB9474.namprd12.prod.outlook.com (2603:10b6:8:252::17)
+ by DM6PR12MB4170.namprd12.prod.outlook.com (2603:10b6:5:219::20) with
  Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.21.92.7; Tue, 2 Jun 2026
- 08:05:19 +0000
-Received: from AM9PR04MB8179.eurprd04.prod.outlook.com
- ([fe80::a551:cde0:6730:1d85]) by AM9PR04MB8179.eurprd04.prod.outlook.com
- ([fe80::a551:cde0:6730:1d85%6]) with mapi id 15.21.0092.006; Tue, 2 Jun 2026
- 08:05:19 +0000
-Message-ID: <48494e7b-4cba-4372-9090-f40240d820c4@oss.nxp.com>
-Date: Tue, 2 Jun 2026 11:05:02 +0300
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH v9 6/7] pinctrl: s32cc: implement GPIO functionality
-To: Linus Walleij <linusw@kernel.org>
-Cc: Linus Walleij <linus.walleij@linaro.org>,
- Bartosz Golaszewski <brgl@bgdev.pl>, Rob Herring <robh@kernel.org>,
- Krzysztof Kozlowski <krzk+dt@kernel.org>, Conor Dooley
- <conor+dt@kernel.org>, Chester Lin <chester62515@gmail.com>,
- Matthias Brugger <mbrugger@suse.com>,
- Ghennadi Procopciuc <ghennadi.procopciuc@nxp.com>,
- Larisa Grigore <larisa.grigore@nxp.com>, Lee Jones <lee@kernel.org>,
- Shawn Guo <shawnguo@kernel.org>, Sascha Hauer <s.hauer@pengutronix.de>,
- Fabio Estevam <festevam@gmail.com>, Dong Aisheng <aisheng.dong@nxp.com>,
- Jacky Bai <ping.bai@nxp.com>, Greg Kroah-Hartman
- <gregkh@linuxfoundation.org>, "Rafael J. Wysocki" <rafael@kernel.org>,
- Srinivas Kandagatla <srini@kernel.org>, Alberto Ruiz <aruizrui@redhat.com>,
- Christophe Lizzi <clizzi@redhat.com>, devicetree@vger.kernel.org,
- Enric Balletbo <eballetb@redhat.com>, Eric Chanudet <echanude@redhat.com>,
- imx@lists.linux.dev, linux-arm-kernel@lists.infradead.org,
- linux-gpio@vger.kernel.org, linux-kernel@vger.kernel.org,
- NXP S32 Linux Team <s32@nxp.com>,
- Pengutronix Kernel Team <kernel@pengutronix.de>,
- Vincent Guittot <vincent.guittot@linaro.org>
-References: <20260504131148.3622697-1-khristineandreea.barbulescu@oss.nxp.com>
- <20260504131148.3622697-7-khristineandreea.barbulescu@oss.nxp.com>
- <CAD++jLnk4q7L_cFzz+1gKkAqwhv=TW1_XSepuii7b_PHF7EPqQ@mail.gmail.com>
- <704e9e7b-0f45-4ed3-a686-9e20056eab2a@oss.nxp.com>
- <CAD++jLk-7UqjCsM4jCdRmBMMaNNXe8Gi_E00fJ_MRMsEGQcMZQ@mail.gmail.com>
-Content-Language: en-US
-From: Khristine Andreea Barbulescu <khristineandreea.barbulescu@oss.nxp.com>
-In-Reply-To: <CAD++jLk-7UqjCsM4jCdRmBMMaNNXe8Gi_E00fJ_MRMsEGQcMZQ@mail.gmail.com>
-Content-Type: text/plain; charset=UTF-8
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.21.71.15; Tue, 2 Jun 2026
+ 08:21:52 +0000
+Received: from DS7PR12MB9474.namprd12.prod.outlook.com
+ ([fe80::31ad:931:ef07:8ad7]) by DS7PR12MB9474.namprd12.prod.outlook.com
+ ([fe80::31ad:931:ef07:8ad7%6]) with mapi id 15.21.0071.014; Tue, 2 Jun 2026
+ 08:21:51 +0000
+From: Srirangan Madhavan <smadhavan@nvidia.com>
+To: Mark Rutland <mark.rutland@arm.com>,
+	Lorenzo Pieralisi <lpieralisi@kernel.org>,
+	Sudeep Holla <sudeep.holla@kernel.org>,
+	Conor Dooley <conor@kernel.org>,
+	Jonathan Cameron <jic23@kernel.org>
+Cc: Catalin Marinas <catalin.marinas@arm.com>,
+	Will Deacon <will@kernel.org>,
+	Dan Williams <djbw@kernel.org>,
+	Thierry Reding <treding@nvidia.com>,
+	Jonathan Hunter <jonathanh@nvidia.com>,
+	linux-arm-kernel@lists.infradead.org,
+	linux-kernel@vger.kernel.org,
+	linux-tegra@vger.kernel.org,
+	Srirangan Madhavan <smadhavan@nvidia.com>
+Subject: [PATCH v1 0/2] Add SMCCC cache clean/invalidate provider
+Date: Tue,  2 Jun 2026 08:21:43 +0000
+Message-ID: <20260602082145.404939-1-smadhavan@nvidia.com>
+X-Mailer: git-send-email 2.43.0
 Content-Transfer-Encoding: 8bit
-X-ClientProxiedBy: AS4P191CA0006.EURP191.PROD.OUTLOOK.COM
- (2603:10a6:20b:5d5::17) To AM9PR04MB8179.eurprd04.prod.outlook.com
- (2603:10a6:20b:3b5::20)
+Content-Type: text/plain
+X-ClientProxiedBy: SJ0PR03CA0218.namprd03.prod.outlook.com
+ (2603:10b6:a03:39f::13) To DS7PR12MB9474.namprd12.prod.outlook.com
+ (2603:10b6:8:252::17)
 MIME-Version: 1.0
-X-MS-Exchange-MessageSentRepresentingType: 1
 X-MS-PublicTrafficType: Email
-X-MS-TrafficTypeDiagnostic: AM9PR04MB8179:EE_|PA1PR04MB10503:EE_
-X-MS-Office365-Filtering-Correlation-Id: 74025573-6915-4b09-cc14-08dec07db066
-X-MS-Exchange-SharedMailbox-RoutingAgent-Processed: True
-X-LD-Processed: 686ea1d3-bc2b-4c6f-a92c-d99c5c301635,ExtAddr
+X-MS-TrafficTypeDiagnostic: DS7PR12MB9474:EE_|DM6PR12MB4170:EE_
+X-MS-Office365-Filtering-Correlation-Id: e4e6255b-8900-4423-66ec-08dec07fffc7
 X-MS-Exchange-SenderADCheck: 1
 X-MS-Exchange-AntiSpam-Relay: 0
-X-Microsoft-Antispam: BCL:0;ARA:13230040|1800799024|7416014|376014|366016|19092799006|56012099006|4143699003|3023799007|11063799006|22082099003|6133799003|18002099003;
-X-Microsoft-Antispam-Message-Info: p6Re8mWBEZV1GJJzwxiiMxKBaIgPK6uAR5rfQQsD7wLCK0qlYAVI4TuuKK1cPOm2rkrXTDagbpDyVK5/sIxb88zsNYMFaVvzAiJk5mDIqJeOy0SlIT+jE3e4edRtu3ABEuKA3YLVe/LwMXNNZaBqt7XS4fcpnzHwT4YrJ9qZFbnk+te0CZCda/I1h6qr1itqJEeouTkt6diVMeZ3cDHiSrCnMjuLYvRhRHSS8/tPEVBb9ZPup9Bi0+cZ/ZJyXB/Q2s+51JqBzTiKwyKNqKo1wkMpF9K0Tlon0kDF1HEwqBLAKZsiJf0rMsHOGzejuGgPPhql93rSNhe6isc/WnrQ+I8qiLm107zW1lzr87gwOmc5sP2W2oOm2mxRI2W2lcba+c0rvhTAHTcSXccwoIODJ3IWIM8RaUqT2m3CRnwMJDVvYnLHWyqdyQtGhKzUtUSm5vlu3gqW2shFuUiVZKfrVXQ3n1qTACegU3TkxnSO7vhMwK13S4Vl1ES+/5mTcBOv4PxURkVxWaPyrpO+3XFfV7XVDCG3MXKy26JeewC5klhUM1o6KoPTWSuzCVWAKq4CZxiQuBL0+FX2+Cl6S0P58Lt2LeoonSrVYanQlYyAezh72zHwCRpeiJZ+v6mrA1NwXD2reykeDZWnUAsG27ZVHQsVfp611wu1Tvg1iNuHu+WRDpTSspD5M7ZfoR4Nyvd0
-X-Forefront-Antispam-Report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:AM9PR04MB8179.eurprd04.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(1800799024)(7416014)(376014)(366016)(19092799006)(56012099006)(4143699003)(3023799007)(11063799006)(22082099003)(6133799003)(18002099003);DIR:OUT;SFP:1101;
+X-Microsoft-Antispam: BCL:0;ARA:13230040|7416014|366016|376014|1800799024|6133799003|11063799006|56012099006|18002099003;
+X-Microsoft-Antispam-Message-Info: v94TSqXJ8j3My7d1nERvurRo1/9WUyK2tMfP45kmAeIdVHhB8x4aJDiL6n35O09ZlYQ++/iXsO9cclYOyoiSEaKT2mXrDa6Tp6IstIxMfyxV2/hlY2NQpXmKDreaLqLt7+3TN3+5iLwUBc6DOACygaYSaZ1p1EHnSe882p3wgEBPDsJbkvFzJjxdXIzzuligP2eVXSxt3YyaVIdYQQtwZeLg0JQ6PgfzlDAB760XHSfjRZTlxmeZharQh60ui5fKi0KyTgachZ1OQBeS/zd8RJjb+5hKKEvmZVxuNtRMKm+nnA6YgVTsw22YZTb1wb+vRfyomvtifYD2MGjgqVJrzpSNTvhmQuqZh2jkGcL097tLawrUhsOy/2hV7sfBPgwO/lZLVEsCCW9aHlDSnvlABR9YHsYKVpGbWQe1X7gBpbgWPsKiK48jxImuFmlarcZCo8FSzMv/xDbeuLdyKa8eVOQKwTcyZ7rqxxAXUxPSGANU3fORf9oJR+YvmIFwZHIugdfcrai78wDfHDWq8NA/mpcmcjFWHKp+4T+rT8pkYX4MqBsR8Oq/02e/TsggMdSZxYrGHocADfM/e8TZBwepIi8BQr74qIynpR8Gl9JD6oMGoESaSvraiVnk6irc5KiW4I6kdyuuyQ71k5H18b7bP+We4c6B8c6Y6Wk9C4ac9GrTRSk4bkFsaSJ76p8AfCaATFHGY8Uaa1j8awgdYbCZhQ==
+X-Forefront-Antispam-Report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:DS7PR12MB9474.namprd12.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(7416014)(366016)(376014)(1800799024)(6133799003)(11063799006)(56012099006)(18002099003);DIR:OUT;SFP:1101;
 X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
-X-MS-Exchange-AntiSpam-MessageData-0: =?utf-8?B?bHhzdTFOR0xPVTZoeFJ6V09saG1ueEpyd2VjTURiZWVUSGN4cG5DWHRON1V4?=
- =?utf-8?B?bm1xcmRQNU9XNmFKTWVCUW8yZDJmTFdTT2lJMFNYdUpxOXVhcUxRNTdiUHFN?=
- =?utf-8?B?eWRsMVhuTkVIMC9kc0c3VitEUVlzUTlKbzlHeldBNG5pZUEzM1lveTJZck45?=
- =?utf-8?B?NVVuUzluTWVQQXlsdGhSL2ROdS9ZWDVkYVlOSSsxOUxBOGtoNG0zWnpzYits?=
- =?utf-8?B?Z1pSRkxaY25rNFA1WnhXYmxMOWdWUG93aU50WlVQWTZpWDdrdzR1TUhRRGtR?=
- =?utf-8?B?cmNyQVkzQXZiT0ZtaUErNWk4QnZKYzdNWHNnWGkwdkFadFcxZWJ2SXFkRXo1?=
- =?utf-8?B?SjdIUVF1VWhHMEdaMllkUStORG10ai9PRVgrY1paWGtFMlJBTHlhWFJKc2NL?=
- =?utf-8?B?VXBoT2VCU1AySGV3WFB0Um5lVGp2TW42MDVjSmlmSC9rNjI3Z3kxQnNMOEZj?=
- =?utf-8?B?SnkvODcrMitCMGNZYm15bURmWE1WSUdMS2ZWSzNmbjNrY3hZa3pvZnBxUEpM?=
- =?utf-8?B?RkowV05jWmMzY2R5QXpDenRjczRhVW50cEVIcXNoaXRYTFFZeU9LSFVtMzI2?=
- =?utf-8?B?eEY5aG1UaElUdURVZFAydnlQanU5SVBKZXRnc3FFNjF6TWFyakovbGlGM3hN?=
- =?utf-8?B?VmYyRk5DT0EweGUyRGQ0OHV4cFNseC9pTElZemZQV3BQeGVxZTY3OGNwVG05?=
- =?utf-8?B?cmFqRlVnS1FvOStqRmlCZG91S1dhYSttaWhBNklvakZMNmo1b2RGU3dyOGhQ?=
- =?utf-8?B?Q3BzZktCWENVUXdFeS96cnB2blI5MHJLUXEwUVUvZXNlbDhZdk5oSTBLSnkv?=
- =?utf-8?B?eDRzNGFEdllzN250RGozRXdXd2pmcDZCRitISnBqQ05LaVRYRW1TNm9HK2ND?=
- =?utf-8?B?QmVybTZBUmNkUWhWclptVitrdlZ2Z2RSczYyRjU5Zk0wbEs1TGZZWG9ha0JX?=
- =?utf-8?B?Vm5GUmNOSDBGNzZaaGdkR2pjTG1WOC9ubGxzRHg5ZDlzOExyNlowaHJEakFj?=
- =?utf-8?B?YUpFbzQzZ0U3d3VnbGhGNWJURkFRV1FFaHc2cm5nMmtheE1vL0ZQQTZUQXp4?=
- =?utf-8?B?OVZrdXNDbDJ5dEVLUkJZY2hDeTlpMEVwUExlQjJLV08zQkpHbEZPKzV4Nkla?=
- =?utf-8?B?SWNQbWw0eXNCTFFnOFd5VGp6aExLSnZISlcxek40dTdSQ1BsWFpFbmR6THZR?=
- =?utf-8?B?eDExYW5pQmVmY1hLUmlYeE0wSUwwYTUzajhKNWx3YUxCWVljREJld2F6Q3hP?=
- =?utf-8?B?STl6bEVKL3hvWWZyelNvbk9wS1VjaGVycW5WOGdSR1p6dVVWVytsbUhCNVE3?=
- =?utf-8?B?eTBLUjNvL0tkdEduQzNpVmtRZy9JTXF0Q2RqaTBEYXNXMzJlbHVrSXBRVG0r?=
- =?utf-8?B?V1ljeFNwT1Y5YTFGSjJ5cWQ1UFhvbmk1OGZPM3VIQ3BpeUpMU0s3clVUMmxP?=
- =?utf-8?B?OTBUT1V1VGd3UEhDNTZ5ajB5V0UwVEJ1djlDN2JFc29odGF4dzZYN2FoY01L?=
- =?utf-8?B?bmJWNGNBTGlPdkJpNlNIQnVUWVkwYkhFeXlhUlhPNHh4R08razhqejgvRGNz?=
- =?utf-8?B?YUkxbjUzT25BRTd4bmx6cEtWYVJsUWFDUjcvVXBNcDBZeFZIZHpOZnVrOFVX?=
- =?utf-8?B?Kzh4elIvMHZobUx3bTZLTERrRThZUDNSei8wc3F6eERHQnZQcllxaFliL0pw?=
- =?utf-8?B?ZEhLUWlyZEJHNnFrdkJQOFAwRlJmNDF6cmxaQUp0eHBMK2NJRU5EQnI3SVZQ?=
- =?utf-8?B?RDIyc3p2ZlZpMHd4NmhrVlp4K1hLN2hIWHpRSjZ0YzRNdFhqMmlWdWNETmND?=
- =?utf-8?B?VVNEVS9RNFp4aFlXS3JueVpOMVlCaWhhbytmYTVXVEpYTjNDZmZUYzNad1hF?=
- =?utf-8?B?aWQ3enRjaFlLcE1STlZoUGtkd2FjZ0x3a2ZZREpGaW8ySE5kalBWc3Y4REww?=
- =?utf-8?B?a1o2Nno5M0dBbk5JNUFRVUdRU25ha05ydWh5T1YvZ3piSkRVY3VtcjI2Y2cv?=
- =?utf-8?B?VGhuTU1IUzJnUzlHN25RY3pER2ZuZjJvSXFxRXdYeGZTOWpqeERwdnBpM0or?=
- =?utf-8?B?c2NHdmExUUhKV0k5d2plSmdOaFR6Sk5uTEZQMzdWWk5ZMFVydnBleElNa3ZJ?=
- =?utf-8?B?aW92VjB5WDFmUE5MekhVbnNZUi9pdTdkZFFpR0ZQWHBwZ0pVYWw5anRGZVFM?=
- =?utf-8?B?dE84cGdUMzdIUUg4ZmQwT2tTQm9Db1BlQ09rVHRHVFFucUM1YVhvOTJPTm92?=
- =?utf-8?B?WXFTMzFaNDRLYXlQRkkvdDVVcUhKMFA4MkY0T0ltWFRLNVRnaXIzaTFGSFpq?=
- =?utf-8?B?MmoxSEh2bTFCbHVjMmd4eXdyRktBSFkzWmJZZC9aNUVrV3ozT2t0d3FSVnVD?=
- =?utf-8?Q?HwZgWKqDhHQIdeYLyGYERxPr7DCqdWMk805wh?=
-X-OriginatorOrg: oss.nxp.com
-X-MS-Exchange-CrossTenant-Network-Message-Id: 74025573-6915-4b09-cc14-08dec07db066
-X-MS-Exchange-CrossTenant-AuthSource: AM9PR04MB8179.eurprd04.prod.outlook.com
+X-MS-Exchange-AntiSpam-MessageData-0: =?us-ascii?Q?F3ovDyk6ctBarRb6zxVGK+65f+sCNdvq4hQI4i6rfWAWARzNSH3LmdBJlkV1?=
+ =?us-ascii?Q?JOKAsE/sdMVMtZVEjsmD3rl8cd4A3oagDyONB64i24s5yVweBkEjljBR6KEZ?=
+ =?us-ascii?Q?PeRk/TURk6fFyO6hiS4KO2OZYOX5kLvR/FOaSudSUWo+sLZ/xULNmGBKD3yj?=
+ =?us-ascii?Q?lMpk0ucYcJi5T5882mfEElodc2kssyQAxw4OywKu7ZTB51zENcK/I9/rHHUS?=
+ =?us-ascii?Q?HMnqy1Y8EBszaDdJzf0v/jLF6g5lGWAplarW8mHd2B9IskZ+i/Up8s5JJJM9?=
+ =?us-ascii?Q?ETQ+Ji3pvIsrDnbZALlqXZ8dr2fb6dhoBWn3IpxwM8Rfy14C94El7W2x1I0W?=
+ =?us-ascii?Q?A1e5v6YvMR99poDdCRfQMGguuGnOn0Ao9WcPGxs8bOHm54hkbIleS13YWE6o?=
+ =?us-ascii?Q?D0d9ITDc7/yqhFb80FlUeqietemnLXSUAyq6vrq+0K16mTNd/tjQIbMJ+GCE?=
+ =?us-ascii?Q?qO5HlTJcfxxuZ7C7/D0FeuXSklUsUy4U16NSLuu+Yqc8nyYkwQ3f+hSuIK2b?=
+ =?us-ascii?Q?En+w7n9SVVA7Va1iCZ43YKr9jSW6gMSek4ojb6CHRwvJE53kLjaxGKihhWYS?=
+ =?us-ascii?Q?uCmxmqWsrpVfevldgKDjU9v8yzy82iDGcBEl/QAocC5vH7yb50A0Kmp++yUt?=
+ =?us-ascii?Q?fG0IvG/zgeCZ/Zt9wwmLt0NBFOh6XmZV5YhUVGvglyUQIKa5lH3ZRu40O+8z?=
+ =?us-ascii?Q?+NJQUq6+zEMxWFbcliIWKsK7LrJ29iJnyqDN0sFJaNA0pln0jMl5SL/l7L46?=
+ =?us-ascii?Q?+gGggyiqxWfhUD/tKxDYO2yt61ND4Gaa6lhXSiaxcoNzM+Xz7XNu0paEMIdR?=
+ =?us-ascii?Q?1u8PwzD5UEho/knEFn9RlZ7Yy+DSSRouZuXobPQwhJvIHEajp6ti+23C5mH1?=
+ =?us-ascii?Q?8HVGp5CCCOjfAGcSTzheCH2TSk6ALVq5igabUwGwc92hgWoF4BdWVLwAAN9F?=
+ =?us-ascii?Q?uZUz9IfoD7+THp2oEMT7OY5+vIIHmctUvMTipHZakoQprA+sDz9JISZLKszR?=
+ =?us-ascii?Q?O/HTNZCMNCkCu98tEs+eoNWwfl9IKF815zql2Jeh4qDJZKu283/u6+GsYd3A?=
+ =?us-ascii?Q?N4EcvvmYZuDe+w7/I8/twmChAAURfGH96W/r8oswOwgahoMvCjrt06AMsgCa?=
+ =?us-ascii?Q?+wPmfN7hvWpHyKaRK/rJrckHcrYoXBDlPmd1Zt4O2wplOalEZlHJwwTYyt5n?=
+ =?us-ascii?Q?80JFfDUciPIDTDExEWeu12doSS0geDudFVECADJ7+NW/q332dyLRX67QJF4+?=
+ =?us-ascii?Q?MxkBHRXSOm0oSIMNzeWPr6SHj+JxskDYR3Mqf7WZbkTvOPXBx2pFTXEJqb7N?=
+ =?us-ascii?Q?skBddGmEhi3GrIRAcAItDHDlMk+/vfqxvCcF6B0h3/71JY4OewyNTGlWCs2p?=
+ =?us-ascii?Q?eOwZ5w8EP/GI2px6mQlMAcq9oT7ns1EiT6inMXjeB/ywSNwVqtZhM1KLjgUb?=
+ =?us-ascii?Q?/u+Gh9RgFLgH1ub8INYc/KAqdzd7/G381wG7m5uhVoxfWkX6kqEyDpJF5LLA?=
+ =?us-ascii?Q?+HMePjjSvKMC657VNu05gy/HOkYZOTGz1w+u80dlNg7Q7MpcmJ3/AFkWYgAT?=
+ =?us-ascii?Q?5VRtkZRYWa0cBa31AHPrt7TopI08ozlZkQEVyxwSgezX1yrOuTOFiriFYk8I?=
+ =?us-ascii?Q?3cPf58nui6NN5Ty+F+RZCLiHHBaY8p3Mw2HsK4XHwcSdeiIk2wiAcO6AWSN4?=
+ =?us-ascii?Q?IDVQvlVvKomhWAHKTnEZxMvsgs4b5UjCRi9LWwPq3U64idbkp8jsk0cS0CU3?=
+ =?us-ascii?Q?FXSVTlrlTw=3D=3D?=
+X-OriginatorOrg: Nvidia.com
+X-MS-Exchange-CrossTenant-Network-Message-Id: e4e6255b-8900-4423-66ec-08dec07fffc7
+X-MS-Exchange-CrossTenant-AuthSource: DS7PR12MB9474.namprd12.prod.outlook.com
 X-MS-Exchange-CrossTenant-AuthAs: Internal
-X-MS-Exchange-CrossTenant-OriginalArrivalTime: 02 Jun 2026 08:05:19.8067
+X-MS-Exchange-CrossTenant-OriginalArrivalTime: 02 Jun 2026 08:21:51.8753
  (UTC)
 X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
-X-MS-Exchange-CrossTenant-Id: 686ea1d3-bc2b-4c6f-a92c-d99c5c301635
+X-MS-Exchange-CrossTenant-Id: 43083d15-7273-40c1-b7db-39efd9ccc17a
 X-MS-Exchange-CrossTenant-MailboxType: HOSTED
-X-MS-Exchange-CrossTenant-UserPrincipalName: tNNv74zzhsrmR9mDNOPpIYG0NSBPjreHF6IAeIh8C/xGsEmw+GoS6cSza+B2piD1t79hePCGR2oCM7tDZuq5P2xG9y42Z91nOs0vVDIoa9aeHtwSM2Jyn8TQ32QQymUz
-X-MS-Exchange-Transport-CrossTenantHeadersStamped: PA1PR04MB10503
+X-MS-Exchange-CrossTenant-UserPrincipalName: m688oU5God5z1bGEOIZRXn+blbnWj49Y45kvKgp5UX+N+sCIZZMsiEiA+qjhOahiybYrFQEa0HD6A2qRQmO0UQ==
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: DM6PR12MB4170
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260602_010525_654336_1630C55F 
-X-CRM114-Status: GOOD (  24.20  )
+X-CRM114-CacheID: sfid-20260602_012200_266122_71399472 
+X-CRM114-Status: GOOD (  11.78  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -171,71 +145,66 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On 5/11/2026 11:48 AM, Linus Walleij wrote:
-> On Fri, May 8, 2026 at 11:07 AM Khristine Andreea Barbulescu
-> <khristineandreea.barbulescu@oss.nxp.com> wrote:
-> 
->> I don't think the current driver is a good fit for
->> a full gpio-regmap conversion. Direction and GPIO mux are
->> handled through MSCR/pinctrl state (IBE/OBE/SSS), and the GPIO
->> logic spans multiple register regions across two SIUL2 instances.
-> 
-> I don't see the problem with that?
-> 
->> A conversion would require stronger separation between
->> GPIO and pinctrl, leaving mux restoration entirely
->> to the pinctrl subsystem.
-> 
-> Why is that so? Sorry I don't get the problem here.
-> 
-> The pinmux operations have these callbacks:
-> 
-> static const struct pinmux_ops s32_pmx_ops = {
-> (...)
->         .gpio_request_enable = s32_pmx_gpio_request_enable,
->         .gpio_disable_free = s32_pmx_gpio_disable_free,
->         .gpio_set_direction = s32_pmx_gpio_set_direction,
-> };
-> 
-> So to me it looks like the pinctrl subsystem is *already*
-> handling all the muxing of GPIO lines in these
-> callbacks?
-> 
->> Would it be reasonable to keep the current approach for now
->> and revisit gpio-regmap later if needed?
-> 
-> I'd prefer that you look into it now while you already
-> have all the information at hand and fresh in your mind.
-> 
-> You can forward my comments to your project lead
-> / JIRA instance and say it's Linus' fault you have to spend
-> more time on this right now.
-> 
-> Yours,
-> Linus Walleij
+This series adds an arm64 backend for memregion cache invalidation users
+based on the Arm SMCCC cache clean+invalidate interface.
 
-Hi Linus,
+Per DEN0028, this interface targets systems where a Normal Cacheable
+memory region can be modified in ways that are not handled by usual PE
+coherency mechanisms, and where VA-based CMOs may be too slow or
+insufficient for large ranges and/or system-cache implementations.
 
-The new version (v10) has been updated to use gpio-regmap, with a virtual
-regmap bridge dispatching GPIO accesses to the underlying SIUL2 register
-blocks.
- 
-I am not fully convinced this is the cleanest model, though.
-SIUL2 does not expose GPIO as one regular register space: direction is in
-MSCR, input values are read from PGPDI, and output values are written through
-PGPDO. These are backed by separate regmaps in the driver, while gpio-regmap
-expects a single regmap.
- 
-So the current path becomes:
-  gpio-regmap -> virtual regmap -> MSCR/PGPDI/PGPDO regmap
- 
-The version was updated this way so we can review the approach on top of the
-current code. If this is still the preferred direction, it can be polished
-further. Otherwise, I think direct gpio_chip callbacks using the existing regmap
-helpers might be a simpler fit for this hardware.
- 
-What do you think would be the preferred direction for the next revision?
+Representative use cases include device-backed memory state transitions
+where stale CPU/system cache lines must be invalidated reliably (for
+example secure erase, reset/offline flows, and dynamic memory
+reconfiguration).
 
-Best regards,
-Khristine
+Patch 1 introduces the Arm SMCCC cache clean/invalidate function IDs and
+transient return codes needed by callers [1].
+
+Patch 2 adds a cache maintenance provider that:
+- discovers SMCCC support and attributes at init time
+- registers with the generic cache coherency framework used by
+  cpu_cache_invalidate_memregion()
+- handles transient BUSY/RATE_LIMITED responses with bounded retries
+
+This patch set does not add a software fallback path; when firmware does
+not implement the SMCCC cache maintenance interface, the provider is not
+registered and existing behavior is preserved.
+
+Reference:
+[1] https://developer.arm.com/documentation/den0028/latest
+
+Changes since RFC:
+- Dropped the RFC tag.
+- Moved the provider from arch/arm64/mm to drivers/cache.
+- Added a dedicated CONFIG_ARM_SMCCC_CACHE option under the existing
+  CACHEMAINT_FOR_HOTPLUG menu.
+- Dropped the global-operation coalescing optimization.
+- Dropped provider handling for SMCCC_RET_NOT_REQUIRED.
+- Removed the unnecessary global provider pointer.
+- Removed arm64_ prefixes from static provider-local names.
+- Documented why these SMCCC Arch cache maintenance calls use SMC64.
+- Anchored the SMCCC return-code comment to DEN0028 v1.7.
+- Used fsleep() for retry backoff.
+- Used unsigned long for retry delay values passed to fsleep().
+- Skipped the final backoff sleep when no retry remains.
+- Documented the bounded mutex hold time across the serialized retry
+  sequence.
+- Added mutex_destroy() on the registration failure path.
+
+Srirangan Madhavan (2):
+  arm64: smccc: add cache clean/invalidate IDs and return codes
+  cache: add SMCCC-backed cache invalidate provider
+
+ drivers/cache/Kconfig           |  11 +++
+ drivers/cache/Makefile          |   1 +
+ drivers/cache/arm_smccc_cache.c | 160 ++++++++++++++++++++++++++++++++
+ include/linux/arm-smccc.h       |  21 ++++-
+ tools/include/linux/arm-smccc.h |  21 ++++-
+ 5 files changed, 210 insertions(+), 4 deletions(-)
+ create mode 100644 drivers/cache/arm_smccc_cache.c
+
+base-commit: 3b3bea6d4b9c162f9e555905d96b8c1da67ecd5b
+-- 
+2.43.0
 
