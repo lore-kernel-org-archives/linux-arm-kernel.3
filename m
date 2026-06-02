@@ -4,109 +4,77 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 38753C5DF71
-	for <linux-arm-kernel@archiver.kernel.org>; Tue,  2 Jun 2026 06:38:12 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id BB504CD6E4A
+	for <linux-arm-kernel@archiver.kernel.org>; Tue,  2 Jun 2026 06:43:41 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:Cc:To:Subject:Message-ID:Date:From:In-Reply-To:References:
-	MIME-Version:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=O7nLSxnJo2ojzbc9ZCEria5uzbpX3eTCBAbiyI5bsEg=; b=QgrfOLi64UP8N96A2kpKGwBWra
-	V72FECxmXf7LrqOasAOLjh0mEMCqOh5DHfMz8tEOLReevD+VzUqXd8ZJGWySLSQbpXsNbIVYEmOa9
-	Gs8jrSVLzY+no6T8v7qFn5vKrvNm+oGqgZyQ4VVh0HTwnxyUbCMpnDsIWuOfTbPqah3ft4e91x0Ke
-	hyHUTA6dG4YvtX+a1AeglkHekgf3/yHVzkOWgPg62mpOQtVtfr55SoOFD3NzG00n919OnLB35YWkB
-	rKHwJDLrMko/8y9oMDTyFqVKwC1TTi5+H0vANCyH3Q5WRp+DNjFTvKTk78OYgNyUPyX88lsjoxT1u
-	+JodF63w==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=oVz6SYKqYy1ykUS1fwQECnfl6EKiONJTsloqPqT0xyw=; b=o/bSLqnBpo9Rff1iHQZfTFVuz0
+	lXX8+JvJ4U9MdnWyWVMl44lhI7ts+rWQtqjuzMnyWYMTds5xh4ASOcE3lasQM8la0f+2W/ms9NFWy
+	6CppOJtb/CsjVtadw1g5DHWBRq74hW/ljN2USCplvKrGNkeKZOg46gPctCc/1xRQxNONyjTpJnUYu
+	5jg78/BBJxqXTdnqcw7CyJxoFVv7HkL7gMjNL9PAfenKM7E1h0hhQ92z1bYYMYifBgpcTfg6VZTgg
+	9m/wZ32+ZTZuCs06qJsgcOfYrxmUSm4s+pAPhNWB/i68TegbN5MkD8JTX7sF6ZauQ9tClKladdpu1
+	hbEiT+kQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wUIlJ-0000000COyP-3Dt4;
-	Tue, 02 Jun 2026 06:38:05 +0000
-Received: from mail-pj1-x1032.google.com ([2607:f8b0:4864:20::1032])
+	id 1wUIqd-0000000CPCu-20ib;
+	Tue, 02 Jun 2026 06:43:35 +0000
+Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wUIlG-0000000COxi-08Xa
-	for linux-arm-kernel@lists.infradead.org;
-	Tue, 02 Jun 2026 06:38:04 +0000
-Received: by mail-pj1-x1032.google.com with SMTP id 98e67ed59e1d1-36ad15213fbso5331122a91.0
-        for <linux-arm-kernel@lists.infradead.org>; Mon, 01 Jun 2026 23:38:01 -0700 (PDT)
-ARC-Seal: i=1; a=rsa-sha256; t=1780382281; cv=none;
-        d=google.com; s=arc-20240605;
-        b=Bm6UAxZbaSdbv2el4jePDksoP/Ux/VvdZ+3ifJyzah08FA4sZSp883SzmM6CNAXE6P
-         RWMCNvVo5zNxJCZrJCahnMGk48iayKUy4KDfHhBgMdJid46IrtyhN+u+gKyoXINuykv/
-         XedVa/E3NmCV2lHuQl/RvN3+/iFteAwUqTcbW2pHZl1A+GAjUo1SeQCTZBxK882EdKQC
-         gwlKBaO4pxmt5bICVXWo05wVtXZ2OqCDmYvtmDH+P/TWuiIr8V1txIFAMQ23XNuhxtKI
-         ORhmCyBcF5a2A2sOwaRelOWgzST9tTRMY35mrkSCmGw6u/hS5hxzDTyRHsDk81BM9DAY
-         geNQ==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20240605;
-        h=content-transfer-encoding:cc:to:subject:message-id:date:from
-         :in-reply-to:references:mime-version:dkim-signature;
-        bh=O7nLSxnJo2ojzbc9ZCEria5uzbpX3eTCBAbiyI5bsEg=;
-        fh=g13i+U0oIUSAhfbtXOT6LcpDdZjQeDiRX5K4ka8GoE0=;
-        b=JP7DFwwUzpFNSNRM6or+54rLQICDWGwsbcyfwF0HO//nZPLifEn4DTWgy9ITNT1NC1
-         NUaibZvaGQsQ1EXbOpojfLG9nhGrS13af1CwLsZLoD1m5WfIPNZ+/W1PDQjsK9uyMvzL
-         GszFdzol0M9D980ZMDVkEyfPpdQDfvXMxKX77WK9+MixvXmIsDCi0eUkg86e6PLdA0LQ
-         lwZ9+g2I4YFSKcQSOtHWee7TB5EQcyRtjpC1KtU5VaXRq2K+SixivMGiGuIF1Eu4sfTb
-         kHjR1KtlLP0W+AaTcfFYKF9kdDHgWfxl7Q1Q/ZmfQScVUsD+aEXPszeDuq+cxBzcDBFX
-         FE3Q==;
-        darn=lists.infradead.org
-ARC-Authentication-Results: i=1; mx.google.com; arc=none
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20251104; t=1780382281; x=1780987081; darn=lists.infradead.org;
-        h=content-transfer-encoding:cc:to:subject:message-id:date:from
-         :in-reply-to:references:mime-version:from:to:cc:subject:date
-         :message-id:reply-to;
-        bh=O7nLSxnJo2ojzbc9ZCEria5uzbpX3eTCBAbiyI5bsEg=;
-        b=WebVUxWxdBF1o5cc2A1+zL+bIBtGSMVCJfrvO7o4piL7RR0xIeQhxblua+xGU35WXn
-         eG8shEi/F7xttsU13rEYAUTWkWNR25OwZgbiXmM2pktgGHRK6XFPVWSo9alqTwkv5J96
-         e5oHi9rdCcOHLxR7D1kDqIVzDHRufcQIydvvaF+jak3U7WTgrlsKlXHLAOU4YGmkSymV
-         s1OsnTs/J9H36QKc66uZpGh09+MqNM+ZVgI3EUrz4QkuAejv+0BKO46Rc3blwbgffhk3
-         7AIgQZ8M8S5RGvh1fjIlA3Ejvjkj/uceh13JaRK1bfvG9Fjztb9v9H797LINBUkztLFV
-         MYmw==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20251104; t=1780382281; x=1780987081;
-        h=content-transfer-encoding:cc:to:subject:message-id:date:from
-         :in-reply-to:references:mime-version:x-gm-gg:x-gm-message-state:from
-         :to:cc:subject:date:message-id:reply-to;
-        bh=O7nLSxnJo2ojzbc9ZCEria5uzbpX3eTCBAbiyI5bsEg=;
-        b=aYLad9J0zczJbiXbe9ylC54Sv4e43ZA5IAf464M3uFxWQTOBZ79nb7s+X/dsWakVyO
-         gIRDY+F4y//yNHFY6W6KX38OoXOhKGr6c3gTG1EGMkS6uOClODpxRIZDdjcNEutZghtG
-         sdPwq+XqU/kV21OdcrDF9T4cnYzTyVQo+nHjeYvKNY6hqH+StFGzYVnEJXZmoqGQbJ7m
-         z7booVdjtyODw3hybbvWCkdfP5ytm/Yk63RucruPVpt39qOVJuJhtluAQqlQmVqpbaLe
-         jBOBe+NSDNEW+/aA9M5LhQ+Nezn7+MohbdoQowv0R3sRqWSO45HV2qI5qHVqBgsvvWr6
-         ti4Q==
-X-Forwarded-Encrypted: i=1; AFNElJ/H1chBobj6cfFw2xMlw60/mK4apGoPwUvW4anjKbyprUuaHvlZfpUqOMSeYbPTrmnfjBfnfPauCRuA2SCMUNxK@lists.infradead.org
-X-Gm-Message-State: AOJu0YwFq78ilL3eK8Z++Gp/MD+JsX/A1jKxMCJuLK9InCuC4wrYRQPP
-	O8HXj5cFc68J4TByYjcnOKk5Y7AXd6A5Yc9Z/4K+1u3URhPTQp5uoMothv3yMPvo4IuJmcRvf5m
-	J/X2njeDg7vNWOMZPHIOh13aQ2+9wxLE=
-X-Gm-Gg: Acq92OGHxjps5o0wocJ0h6Lt+QIecBPT1h2YaX20wv4GjfqVbXlx9OlWqWIUMJmRdNw
-	RYbEUVOSMx4MVydGgdrFbrP47GH9TuKVxCA4MJ6ON+9i7bW3Lo3d+VJjsDFvXgv/0oxnvI1dnFR
-	W/6cVGYYdrVfWt2Twey/Donf6lulTyCmBGZy8YGs/FuJefmX7HiSJOu0xoSuUBuF+3UgTRLKcv/
-	tYHyKsMmsoWX+3gsfbTNpVRPTuxBqN3S/u5vvgAMThwwSVtqzedygVWZKdT3M95YTHyjdNmYjTH
-	zeKEU4EMJWBHhaxF7mA=
-X-Received: by 2002:a17:90b:2747:b0:36b:9c70:3367 with SMTP id
- 98e67ed59e1d1-36c501e8716mr14091662a91.17.1780382281075; Mon, 01 Jun 2026
- 23:38:01 -0700 (PDT)
+	id 1wUIqb-0000000CPCT-0NQP;
+	Tue, 02 Jun 2026 06:43:34 +0000
+Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
+	by sea.source.kernel.org (Postfix) with ESMTP id CFAB7435F5;
+	Tue,  2 Jun 2026 06:43:31 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id F1D7F1F00893;
+	Tue,  2 Jun 2026 06:43:30 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
+	s=k20260515; t=1780382611;
+	bh=oVz6SYKqYy1ykUS1fwQECnfl6EKiONJTsloqPqT0xyw=;
+	h=Date:From:To:Cc:Subject:References:In-Reply-To;
+	b=HMrt8VQ8uviRax8hfIijft+UtVgXap1KfnuLZUk9hKw3gmtJtZrF+2F0P9L2zwv6B
+	 OYVkXHe5ymymdtUGoHD8xqvbGWUxJc1bOI2lCCXUDxKLiejmYCSzKI0APvGYSdlZFv
+	 Gbj8qld+TsJLHaPOFGx3DCjpiIQKTEHVGWfqTgnLfquLyY27gmmakOp3nepTSoELKp
+	 ieziZVdbzoSz6bS3HS+dvaaJtnHGWxVjP1KuVUXiEvu7zmmL961jRIMW7GvKczDLnx
+	 gzUFgY6oQ7aHFoPKCFs7zDfZo967XXwqX6FJBwkBxaKAwLNlY8Y+LrEwPR1dhXw0E+
+	 UZQpNVNw7uMpQ==
+Date: Tue, 2 Jun 2026 08:43:27 +0200
+From: "lorenzo@kernel.org" <lorenzo@kernel.org>
+To: Roy Luo <roychl666@gmail.com>
+Cc: Ryder Lee <Ryder.Lee@mediatek.com>,
+	Shayne Chen =?utf-8?B?KOmZs+i7kuS4nik=?= <Shayne.Chen@mediatek.com>,
+	"nbd@nbd.name" <nbd@nbd.name>, Roy-CH Luo <Roy-CH.Luo@mediatek.com>,
+	Chui-hao Chiu =?utf-8?B?KOmCseWegua1qSk=?= <Chui-hao.Chiu@mediatek.com>,
+	AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>,
+	"linux-kernel@vger.kernel.org" <linux-kernel@vger.kernel.org>,
+	"linux-wireless@vger.kernel.org" <linux-wireless@vger.kernel.org>,
+	Sean Wang <Sean.Wang@mediatek.com>,
+	Bo Jiao =?utf-8?B?KOeEpuazoik=?= <Bo.Jiao@mediatek.com>,
+	"linux-mediatek@lists.infradead.org" <linux-mediatek@lists.infradead.org>,
+	"matthias.bgg@gmail.com" <matthias.bgg@gmail.com>,
+	"linux-arm-kernel@lists.infradead.org" <linux-arm-kernel@lists.infradead.org>
+Subject: Re: [PATCH v2] wifi: mt76: mt7996: fix reading zeroed
+ info->control.flags after mt76_tx_status_skb_add()
+Message-ID: <ah57j_SwdVZTc0GR@lore-rh-laptop>
+References: <20260531-mt76_tx_status_skb_add-overwrite-fix-v2-1-b73c4b4a9798@kernel.org>
+ <ee0e584cb2ad1b536d327eb89342d1646fa96570.camel@mediatek.com>
+ <ahwla_obwnwr2cZo@lore-desk>
+ <44c54ed4da0d294c567b3b0ad750f082a6f1be9f.camel@mediatek.com>
+ <ahwzwHDF7fT9t7hP@lore-desk>
+ <7f02be7c4f919413718a0218b3792d4b0a222ca3.camel@mediatek.com>
+ <ah0fGek5y8Nha0kd@lore-rh-laptop>
+ <CAHoxoj+N3AtJgFD8vGP+uDpj6anKMgPBtZGejLDgAz0ZyisSHg@mail.gmail.com>
 MIME-Version: 1.0
-References: <CAD03fjaBJGtNATBxaYO-PAxdKC=HxYgE+M7HQ_a0O+3Sp9Mruw@mail.gmail.com>
- <84d8f2a1-6562-47a9-93d7-2d7ff33c31c0@lunn.ch> <CAD03fjah2GMedDtauPQjP0++3USpy6tm3AUemgAjVHS=5Nirtg@mail.gmail.com>
- <8f7eb9c7-6695-450c-81c4-fb96643adbc2@lunn.ch> <CAD03fja5oG3-BrQoy4+LEmCWPYGW_JWDEkaPndjSVz=PbRj4wg@mail.gmail.com>
- <2026060202-wad-skittle-263f@gregkh>
-In-Reply-To: <2026060202-wad-skittle-263f@gregkh>
-From: Grewstad <dogestad24@gmail.com>
-Date: Tue, 2 Jun 2026 12:07:48 +0530
-X-Gm-Features: AVHnY4KvCpb-kqDRYenuUh8abdPrvzxl2AJlcWi_F64K9qRgblLI8vRI3yS8KdM
-Message-ID: <CAD03fjaHmsYpLj_PU48AW7h=E6XdMpqKsS7wQtDQKnEkGpa93g@mail.gmail.com>
-Subject: Re: [RFC] drivers/staging/axis-fifo: TODO file and subsystem direction
-To: Greg KH <gregkh@linuxfoundation.org>
-Cc: Andrew Lunn <andrew@lunn.ch>, jic23@kernel.org, jacobsfeder@gmail.com, 
-	linux-staging@lists.linux.dev, linux-arm-kernel@lists.infradead.org, 
-	linux-kernel@vger.kernel.org, hjk@hansjkoch.de, davem@davemloft.net, 
-	netdev@vger.kernel.org
-Content-Type: text/plain; charset="UTF-8"
-Content-Transfer-Encoding: quoted-printable
+Content-Type: multipart/signed; micalg=pgp-sha512;
+	protocol="application/pgp-signature"; boundary="vyatZ5JMfhikfHCS"
+Content-Disposition: inline
+In-Reply-To: <CAHoxoj+N3AtJgFD8vGP+uDpj6anKMgPBtZGejLDgAz0ZyisSHg@mail.gmail.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260601_233802_069955_44706B19 
-X-CRM114-Status: GOOD (  10.36  )
+X-CRM114-CacheID: sfid-20260601_234333_193607_08675C3C 
+X-CRM114-Status: GOOD (  26.39  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -121,20 +89,89 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Tue, Jun 2, 2026 at 11:28=E2=80=AFAM Greg KH <gregkh@linuxfoundation.org=
-> wrote:
 
-> If no one is using it, why don't we just delete it then?  It can come
-> back if someone shows a real use-case for it.
+--vyatZ5JMfhikfHCS
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+Content-Transfer-Encoding: quoted-printable
 
-Yes, this is what i was thinking. These boards are generally used for
-development and research teams can probably maintain a patch if
-they really want it. As you said, it can always come back if a
-user-space application depends on it.
+On Jun 01, Roy Luo wrote:
+> > > I mean the link_id is only corresponds to one specific flags bit of
+> > > mac80211_tx_control_flags. But there are other bits that aren't
+> > > handled. Wouldn't u32 flags make it more cleaner?
+> >
+> > Yes, I got your point, but my concern is if we need to sync link_id bet=
+ween
+> > mt7996_tx_prepare_skb() and mt7996_mac_write_txwi(). If so, I guess it =
+is
+> > much better to pass link_id explicitly to mt7996_mac_write_txwi() since=
+ it
+> > does not just depended on mac80211_tx_control_flags and I think we shou=
+ld
+> > not duplicate the logic in mt7996_mac_write_txwi(). Got my point?
+> > If in the future (not required now) we need to pass mac80211_tx_control=
+_flags
+> > to mt7996_mac_write_txwi(), we will do it easily.
+> >
+> > Regards,
+> > Lorenzo
+> >
+> > >
+> > > Ryder
+> > >
+> > >
+>=20
+> Lorenzo,
 
-One drawback that comes to mind is a development group may
-currently be maintaining a proprietary application that depends on it.
+Hi Roy,
 
-Thanks,
-Arihan Bhor
+>=20
+> I got your point and IIUC the problem being addressed in this patch is th=
+at
+> the link id assignment has unnecessary duplicated logic across different
+> places. However, the commit tile "fix reading zeroed info->control.flags"
+> seems a bit misleading to me - this patch does not fully address the prob=
+lem
+> where the info->control.flags is cleared by memset in tx path when its
+> value might still be referenced, the field is still zeroed after
+> mt76_tx_status_skb_add() and whoever reads it afterward would get
+> incorrect value. With this patch, we avoid using the incorrect value for
+> link id, but the root cause remains.
+
+This patch is actually fixing both of the issues since now do not have any
+leftover access to info->control.flags after running mt76_tx_status_skb_add=
+()
+in the mt7996 tx path and it is not required (according to the current mt79=
+96
+codebase) to pass the flags cached value to mt7996_mac_write_txwi(). Howeve=
+r,
+if in the future this will be necessary, I am completely fine with that.
+
+Regards,
+Lorenzo
+
+>=20
+> The issue that Ryder tries to address in
+> https://lore.kernel.org/all/5ecac6a9b7d29526e8438dea105b58f5487c93aa.1778=
+521232.git.ryder.lee@mediatek.com/
+> concerns the overlapping use of info->control and info->status in tx path,
+> and it remains valid even with this link id fix applied. We have to be
+> cautious when dealing with info->control in mt7996 tx path until the issue
+> is fully resolved.
+>=20
+> Regards,
+> Roy
+
+--vyatZ5JMfhikfHCS
+Content-Type: application/pgp-signature; name=signature.asc
+
+-----BEGIN PGP SIGNATURE-----
+
+iHUEABYKAB0WIQTquNwa3Txd3rGGn7Y6cBh0uS2trAUCah57jAAKCRA6cBh0uS2t
+rAmFAQDk/bGX6PjAX+FifRA1xIjx6t2hREKHPBDgAfNVJn2rXAEA+RKD4cI97xcJ
+rWdhiY7wIkB+7003MrfHC78YlcbvXgM=
+=CO5r
+-----END PGP SIGNATURE-----
+
+--vyatZ5JMfhikfHCS--
 
