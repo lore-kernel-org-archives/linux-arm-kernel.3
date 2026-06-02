@@ -4,97 +4,103 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 03F26CD6E57
-	for <linux-arm-kernel@archiver.kernel.org>; Tue,  2 Jun 2026 13:56:16 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 76634CD6E57
+	for <linux-arm-kernel@archiver.kernel.org>; Tue,  2 Jun 2026 14:12:59 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:Cc:To:Subject:
-	Message-ID:Date:From:MIME-Version:Reply-To:Content-Transfer-Encoding:
-	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
-	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
-	bh=t9jtpHRRJE/DKOFfDRogyp/xh/qyYac7Jc/ujWsn6Ik=; b=oxzRr9Nd4KOyHYcvn/l9gnwCEK
-	5uO+/blX7uZdaigVCuTzhwsWXbSqmASZBGiTo0BhlAFMOyV+2Xcf0Jr8MjAqlcDVkRhs1lBKg3IzE
-	37z53g7mlAgdBRmTrpkQw66el+e+KShzw34Vxa4rnQ5TL6WctUQGBU0WC7kQoZwzloElOJ1qviMxg
-	fG0VmGmw1DBN0YrWXeM7rWdedbIPYjnqk4fj4MoliqtP9QdBgnVye6UUetc/SyX6f9xjPuoqu7grA
-	aKdR3Wd6EQyImGJu6lu4sWYBxqE44YoR5RZBoJ1dhoqIzvOXcVsS4Zmf/keFEwBhEGBqGpMxXW9Di
-	zTFTx0kw==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:Message-Id:
+	Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:From:
+	Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender
+	:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=7XCowtVnjKXnbcRNuimTNpT8EiRYTBtdlRiIVINQJ3g=; b=MnmsVNtfdMTaPHfTAKoTTUXhBt
+	98bLpXBrOxAcO750Qzvb4vPfhrBpUx2s8GCG4WrbptUM2jlJXglJOOJ38KbSZXAUwEwJSuhHHHKKi
+	ffvD5dgYug/XFURZf5kXSKOPaZaLxNphm6y+7mh4ExSKrFQH0og3fTuxi8JPJ7Ji3KM2Yrj5S+Y8x
+	OAKBMtlJdnq1RHDeEJfV4228gFM+RsKRUEPlg1F7Xnhz/dwey/KjmeD7w9YKbOOscz/8QP3/IHQTv
+	NjF5kdN/HOxQNGpYFVsgxXm/2HFNlKil3tb0G1/7soRduNkzqHtCNkYunV4UYGdBOrX1hcYv01tKu
+	W8eVogmQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wUPbF-0000000D8lQ-18LR;
-	Tue, 02 Jun 2026 13:56:09 +0000
-Received: from mail-yx1-xb134.google.com ([2607:f8b0:4864:20::b134])
+	id 1wUPrQ-0000000D9mu-1NsO;
+	Tue, 02 Jun 2026 14:12:52 +0000
+Received: from mail-pj1-x102e.google.com ([2607:f8b0:4864:20::102e])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wUPbC-0000000D8l0-0GaY
+	id 1wUPrM-0000000D9lS-26Ef
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 02 Jun 2026 13:56:08 +0000
-Received: by mail-yx1-xb134.google.com with SMTP id 956f58d0204a3-6604176b575so4080250d50.1
-        for <linux-arm-kernel@lists.infradead.org>; Tue, 02 Jun 2026 06:56:05 -0700 (PDT)
-ARC-Seal: i=1; a=rsa-sha256; t=1780408565; cv=none;
-        d=google.com; s=arc-20240605;
-        b=UM4finRoUCgpdoa5kyr76PAcnF0mvRni85C2X5sEjUh3SpYWwB9w/t9/QQAd7d1mkL
-         /EMlJszJu7dWIdiOZgKGYkjI8O05r5irSEdmVv89dYt60sALu/hi4U0FBAMTvF+hgMx3
-         L+I4ZSKyBAYAZ5679qc/Amf8cC4AT7S0EmzrZDEEoZ2P841v+lmwSpxsHy2WifYhcVfL
-         HDGzpPnP0kgKIfBu77r6ZHVglIG6cNymVGroU1WfS8+5e1/FJJo2awXNb32yIQHYgR7N
-         MTtUYXO5GrNZR7fYQUGfNNudLW3e2IzAJx34TjKHCd+JhAZOby1v26SawXjsAX5lx5Fv
-         mk9A==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20240605;
-        h=cc:to:subject:message-id:date:from:mime-version:dkim-signature;
-        bh=t9jtpHRRJE/DKOFfDRogyp/xh/qyYac7Jc/ujWsn6Ik=;
-        fh=ngnzniW9/251Blo+3H7OvJM/allDljIxuXeYmmxYfks=;
-        b=UqKIFtuUwrK3/vV38XrnhCkCRT6pDb3/DfUzvoWziPND4IWRsiDsN79tL/RYX3Lqqk
-         ZI3bccNGaZAfxJWBX7DDZauGMSQb5WRStBeJ/PUwN+ZBMCsr9aV9TbN6eag8j5F3ctEH
-         R043Fr7/X40sSHgOAeiBTY+aLu2YyOoYtMbI03mrPHLqVUM4xYsYdk1NV4+OlXtJP94U
-         Ani0aMRlaPywjo7Wvjf4jcd98vU7YUiLOmckZ7ln4v0aGei9qwD01kDL/FhIkKBTXIzN
-         l5HV2EXbskl+KVYH81Wic9N1gLT8MR2en9I0eXecwWO73R5cDVTSQ5PXWuO+z6g7Szyy
-         urIQ==;
-        darn=lists.infradead.org
-ARC-Authentication-Results: i=1; mx.google.com; arc=none
+	Tue, 02 Jun 2026 14:12:50 +0000
+Received: by mail-pj1-x102e.google.com with SMTP id 98e67ed59e1d1-36ad15213fbso5649098a91.0
+        for <linux-arm-kernel@lists.infradead.org>; Tue, 02 Jun 2026 07:12:48 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=monstr-eu.20251104.gappssmtp.com; s=20251104; t=1780408565; x=1781013365; darn=lists.infradead.org;
-        h=cc:to:subject:message-id:date:from:mime-version:from:to:cc:subject
-         :date:message-id:reply-to;
-        bh=t9jtpHRRJE/DKOFfDRogyp/xh/qyYac7Jc/ujWsn6Ik=;
-        b=EFsH5l4kDvvgZAeUdIgcyyaMIxVdcWSUDg8Jckl8kt9FsltQ2KF+/j89LPGGspo9LM
-         qeEEhFY8FCf44OmK6LpavUs1EnY6ZZSx6bhqvqaMg+JWBYipzIMtIiwrGHnvSH6zf7JO
-         FX2Wtm1LQ02u0Ac6y89USfRWBmOTA7g579jYJJkBnN8i0P6wsoPtXoUcJYluQBR8G7kw
-         QynEQMihachIgqo1Y9QXv44pkmBAZPwJW1kbjsKDvEDfc0hVcJ0pd4Io/5/GWimVwvoh
-         8zSDvBc2WpI2c4M+CUhSomaMX7ac8+CDA9iFqTnlBE5MacFNBJAhmgDLI3A0ZEVOtuTE
-         Lxeg==
+        d=gmail.com; s=20251104; t=1780409567; x=1781014367; darn=lists.infradead.org;
+        h=cc:to:message-id:content-transfer-encoding:mime-version:subject
+         :date:from:from:to:cc:subject:date:message-id:reply-to;
+        bh=7XCowtVnjKXnbcRNuimTNpT8EiRYTBtdlRiIVINQJ3g=;
+        b=IqBte+L5oSUbEQhTvCI0AHl624cYwwrf+c6orztNF+6FxMUV85ugkhal6gGbKXKXe4
+         nuFrY2GGV69Xvj/aurgUF7iy7dzZKuO/56nWbFHs6Hy9c79A1Beuuu9rH9mZlLBuIrCj
+         iB6HlaLwMo91HuuojJM7WwYfNVwHpemDHv++WHh7V1YK2Y4/dCLwHe+MZgrl5/Q7dSN+
+         NJvyP6H3AoMQGZdcDhQGk7/YDVk5NK871grBEeTyFfcRyiJHKPMXBf48PblI19OlPKBq
+         Eowbha7GnWA6yn8MmMJFvPTqHLxxIcUAhEqbMxbijzYQVSq8kmOcN0Hf6jQy0167TXKK
+         BtrA==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20251104; t=1780408565; x=1781013365;
-        h=cc:to:subject:message-id:date:from:mime-version:x-gm-gg
-         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to;
-        bh=t9jtpHRRJE/DKOFfDRogyp/xh/qyYac7Jc/ujWsn6Ik=;
-        b=KTl215dEegto5nANScdlhn4URYGbr8ZDZyv9xwNvxyL6ZKHixIpOY70t6n0ZGYhWk1
-         xzVd0EpjigY034xXSrISfHvinOFbu+7aWYn3oqsB38rK9aEaxiqd1/pbTbl30sTs4/h0
-         kdZihX+TAgVI5qy9tZ4L02MK9ohrqV9zGg0V6PZ7EbWyu+H345nlmYvTUzhq6DXzuVQp
-         m38i+CmHzhZjoLY1zwoS5G55a3ij2jg9fa+I1KSN8kvHCLaeGcpHhERL6z8NPix4yfRL
-         NEwm5qlcYnoa4ipVz8uXJvMcV9aKJABrf6zZOGLhGOyh5UQhH/KjOviGN0Zof2VkmShe
-         gwWw==
-X-Gm-Message-State: AOJu0YyJtT8hNSdDOL6MNsB6/QfLwsnxrnSZy0FmycW1du/9Ct0suJf4
-	R8mhkNVSujcwyGr0kZateCzzBRYpl79J4GGIaMvqSb8Z/IU84wSfDg5XrvgLh9d48TW96LL3X7o
-	KbR9HVn5UsYHEFajZiRcqOO33R7TtOMT67Ec9+uZ0EU5vbbs/HR824W31
-X-Gm-Gg: Acq92OH7hEzZJcIAEOAoFmcfV3+nQ3c9/JeAA1Xt54jMOKHxF3hDdU2ly4HBfLxA5GL
-	NARz5n9wSrxtEGQ3yzpM2xb2xGV1rB733RsmO59aRQZ6nNdi90KkUupZ13G5QGdAPjwPMlufhCv
-	3WWZorfFaqWXUeArv2O+nWXe36FCZGwWp4P0y0PxJT5Ws2YyapuoT9t8BTOZOLH3B5PhmkZlpdf
-	wrCz+WC4hOIAfBYr+v2WxjqnAAmglVgMXeIRYx8Spj4nr6NuUUG0oe2oanxwgcfW/pQsGzkK9uX
-	uFyTAPDpSmVsrexQbMxNmyYX9CdWLH8alfpEF7lZ94DSYqwlWGU=
-X-Received: by 2002:a53:ac81:0:b0:660:55e1:5bb0 with SMTP id
- 956f58d0204a3-6605edd30e6mr13392101d50.22.1780408564617; Tue, 02 Jun 2026
- 06:56:04 -0700 (PDT)
+        d=1e100.net; s=20251104; t=1780409567; x=1781014367;
+        h=cc:to:message-id:content-transfer-encoding:mime-version:subject
+         :date:from:x-gm-gg:x-gm-message-state:from:to:cc:subject:date
+         :message-id:reply-to;
+        bh=7XCowtVnjKXnbcRNuimTNpT8EiRYTBtdlRiIVINQJ3g=;
+        b=PX/TeeBsxswg0kyTKJgHTqwnHyEtNBhmApkQ70oq+TxllGJS58mfG3pbIki7clTjU+
+         ca+VHqX6S9yEtUIdWSqPcUnKM6gbkkYHrB2x+Ud8XWGrUDAO+sS6J5ZA3Ca2tCzVsfAS
+         rrRn8AS4eQAR/fBtUMoGrW30Hn21mN6P5zgjjR9BrSl3AVeqteEdWnPunBJl1BP724jZ
+         7JYnCAhPfGeU6XpMc2a4AjUBgnxTvXYn1yKsb+PKgFxdcFPw703rQ6yE6REHIFcuTw5z
+         K9F2MAVXNSJjUoNcUbW71qbZlAvwevHMTx+mSlZvrfiqniBjXuZsgIzsvGFz1kCgcKh+
+         ROOw==
+X-Forwarded-Encrypted: i=1; AFNElJ+OLLvLOfbBOmFEcV6LRmM+IGxp+Cj4707NGC46GxKJN5pc6UaqrEP4LBQI89xN8b0y/uv18akNP2GxVvEUgBAJ@lists.infradead.org
+X-Gm-Message-State: AOJu0YxsRfxSMJiw+j5qfPCOXeue3SvgCa2Yk0gvzPX2JOLkU9oMWE/M
+	fu//VRg1+EfvSL/lW17LpU/FNwiRNbxf3MNz+9P2MTOx5LWVz2nBIlNW
+X-Gm-Gg: Acq92OG16Xi354OBkQN7BNfPnDID5d3EtqA89A2bh+744AY030BGIPK22YEH00XnSok
+	U+tlBvmaXTBMwYt1+1XpY/iFuGn5JEwnG4JaOVOL+0J6HKZ8y42p0u4hNVKvOGDnoHxs/AvVleJ
+	OO0cOO//7pEUUO4GTmplSGyPl5Qgg22XMq/71XNrleWHXsugTefAz0AqW6T+6uwlA48blzifYYk
+	ewjw/QYKPdt/RudPwzDR9et38xB8PLwfCHTvzLhXRwyRIl+I6rxqhRAEyUNxvYfXa3IC19gD2dJ
+	T6Jk6/FEUgqY4VBNascBIzqux8kn/wHrh37PmEgIYtWYE8L+Yfr1B4MoEMG+GFD6cJ15KKBMv6n
+	8Cy/PidqaMEYc0tgP6ZnksTvJPJybX2q1rz306/zpllUQTQdrkbUyD94HxcZH0gEsEpRvednjXy
+	GWD6/cKYOxNvHQVd3iXAMrzLdyohHm+2Q7ueZ3iQi/EqUwvsYNvxz72sXBmbgzyTzHX1ypTVEVn
+	5cdz8Xkt10tcRzf4ymj3b3frFAx
+X-Received: by 2002:a17:90b:3442:b0:36c:e254:4d5 with SMTP id 98e67ed59e1d1-36ce25410d6mr9832117a91.4.1780409567301;
+        Tue, 02 Jun 2026 07:12:47 -0700 (PDT)
+Received: from junjungu-PC.localdomain ([223.166.246.30])
+        by smtp.gmail.com with ESMTPSA id 98e67ed59e1d1-36dd90415besm3601775a91.0.2026.06.02.07.12.43
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Tue, 02 Jun 2026 07:12:46 -0700 (PDT)
+From: Felix Gu <ustc.gu@gmail.com>
+Date: Tue, 02 Jun 2026 22:12:41 +0800
+Subject: [PATCH] phy: fsl-imx8mq-usb: fix typec switch leak on probe error
+ path
 MIME-Version: 1.0
-From: Michal Simek <monstr@monstr.eu>
-Date: Tue, 2 Jun 2026 15:55:57 +0200
-X-Gm-Features: AVHnY4L18eyVlhjycUY5iNpuboxB-7Rv0SWEmLrcTIjnB41jeLOIdSTZeBHV958
-Message-ID: <CAHTX3dKJBTQ9TF2TeTTjsWBo9bkV=39b5YjTG7j+tqct0Q-E5w@mail.gmail.com>
-Subject: [GIT PULL] arm64: AMD/Xilinx SOC changes for v7.2 v2
-To: SoC Team <soc@kernel.org>
-Cc: linux-arm <linux-arm-kernel@lists.infradead.org>
-Content-Type: text/plain; charset="UTF-8"
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: 7bit
+Message-Id: <20260602-imx8mq-typec-v1-1-3debe9bc77d9@gmail.com>
+X-B4-Tracking: v=1; b=H4sIANjkHmoC/yXMTQ5AMBBA4avIrDWZdtHgKmJBTRmJvxapiLsrl
+ t/ivQs8OSYPRXKBo4M9z1OETBMwfT11JLiNBoVKo0YleAzZuIrtXMgIhbW2spU5ooWYLI4sh29
+ XVr/93gxktvcB9/0A33aWg3AAAAA=
+X-Change-ID: 20260602-imx8mq-typec-20a6f1d1900f
+To: Vinod Koul <vkoul@kernel.org>, 
+ Neil Armstrong <neil.armstrong@linaro.org>, Frank Li <Frank.Li@nxp.com>, 
+ Sascha Hauer <s.hauer@pengutronix.de>, 
+ Pengutronix Kernel Team <kernel@pengutronix.de>, 
+ Fabio Estevam <festevam@gmail.com>, Xu Yang <xu.yang_2@nxp.com>, 
+ Jun Li <jun.li@nxp.com>
+Cc: linux-phy@lists.infradead.org, imx@lists.linux.dev, 
+ linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org, 
+ Felix Gu <ustc.gu@gmail.com>
+X-Mailer: b4 0.15.2
+X-Developer-Signature: v=1; a=ed25519-sha256; t=1780409563; l=2735;
+ i=ustc.gu@gmail.com; h=from:subject:message-id;
+ bh=kpmGkkU11ecTwdVdTxlaGp+lNBsMTsb/Nj9af5UXA/A=;
+ b=4YSIt8pCDNOFocdXGuAudSQFQldGYnUBr8V6MOtFtbIGLD00AcsWNSa6+B/Ptk3ul3742sf1P
+ htOMmlEyovCCgKwh7yZxmffvwspM7qwRIj/dbKpNJgLdmX5jcRHNlr2
+X-Developer-Key: i=ustc.gu@gmail.com; a=ed25519;
+ pk=fjUXwmjchVN7Ja6KGP55IXOzFeCl9edaHoQIEUA+/hw=
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260602_065606_127099_211CBDAD 
-X-CRM114-Status: UNSURE (   8.58  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20260602_071248_550486_3A52C28B 
+X-CRM114-Status: GOOD (  16.29  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -109,46 +115,90 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hi,
+If probe fails after imx95_usb_phy_get_tca() succeeds, the typec
+switch leaks because the only cleanup path was in .remove, which
+never runs on probe failure.
 
-please pull these 2 patches to your tree. I have removed that 2
-problematic patches from my queue.
+Use devm_add_action_or_reset() so the switch is cleaned up on both
+probe failure and driver removal.  The .remove callback and
+imx95_usb_phy_put_tca() are no longer needed.
 
-Thanks,
-Michal
+Fixes: b58f0f86fd61 ("phy: fsl-imx8mq-usb: add tca function driver for imx95")
+Signed-off-by: Felix Gu <ustc.gu@gmail.com>
+---
+ drivers/phy/freescale/phy-fsl-imx8mq-usb.c | 27 ++++++++-------------------
+ 1 file changed, 8 insertions(+), 19 deletions(-)
 
-The following changes since commit 254f49634ee16a731174d2ae34bc50bd5f45e731:
+diff --git a/drivers/phy/freescale/phy-fsl-imx8mq-usb.c b/drivers/phy/freescale/phy-fsl-imx8mq-usb.c
+index b05d80e849a1..8af5a4f85698 100644
+--- a/drivers/phy/freescale/phy-fsl-imx8mq-usb.c
++++ b/drivers/phy/freescale/phy-fsl-imx8mq-usb.c
+@@ -173,8 +173,10 @@ static struct typec_switch_dev *tca_blk_get_typec_switch(struct platform_device
+ 	return sw;
+ }
+ 
+-static void tca_blk_put_typec_switch(struct typec_switch_dev *sw)
++static void tca_blk_put_typec_switch(void *data)
+ {
++	struct typec_switch_dev *sw = data;
++
+ 	typec_switch_unregister(sw);
+ }
+ 
+@@ -248,6 +250,7 @@ static struct tca_blk *imx95_usb_phy_get_tca(struct platform_device *pdev,
+ 	struct device *dev = &pdev->dev;
+ 	struct resource *res;
+ 	struct tca_blk *tca;
++	int ret;
+ 
+ 	res = platform_get_resource(pdev, IORESOURCE_MEM, 1);
+ 	if (!res)
+@@ -266,17 +269,11 @@ static struct tca_blk *imx95_usb_phy_get_tca(struct platform_device *pdev,
+ 	tca->orientation = TYPEC_ORIENTATION_NORMAL;
+ 	tca->sw = tca_blk_get_typec_switch(pdev, imx_phy);
+ 
+-	return tca;
+-}
+-
+-static void imx95_usb_phy_put_tca(struct imx8mq_usb_phy *imx_phy)
+-{
+-	struct tca_blk *tca = imx_phy->tca;
+-
+-	if (!tca)
+-		return;
++	ret = devm_add_action_or_reset(&pdev->dev, tca_blk_put_typec_switch, tca->sw);
++	if (ret)
++		return ERR_PTR(ret);
+ 
+-	tca_blk_put_typec_switch(tca->sw);
++	return tca;
+ }
+ 
+ static u32 phy_tx_vref_tune_from_property(u32 percent)
+@@ -739,16 +736,8 @@ static int imx8mq_usb_phy_probe(struct platform_device *pdev)
+ 	return PTR_ERR_OR_ZERO(phy_provider);
+ }
+ 
+-static void imx8mq_usb_phy_remove(struct platform_device *pdev)
+-{
+-	struct imx8mq_usb_phy *imx_phy = platform_get_drvdata(pdev);
+-
+-	imx95_usb_phy_put_tca(imx_phy);
+-}
+-
+ static struct platform_driver imx8mq_usb_phy_driver = {
+ 	.probe	= imx8mq_usb_phy_probe,
+-	.remove = imx8mq_usb_phy_remove,
+ 	.driver = {
+ 		.name	= "imx8mq-usb-phy",
+ 		.of_match_table	= imx8mq_usb_phy_of_match,
 
-  Linux 7.1-rc1 (2026-04-26 14:19:00 -0700)
+---
+base-commit: 08484c504b55a98bd100527fbe10a3caf55ff3ff
+change-id: 20260602-imx8mq-typec-20a6f1d1900f
 
-are available in the Git repository at:
+Best regards,
+--  
+Felix Gu <ustc.gu@gmail.com>
 
-  https://github.com/Xilinx/linux-xlnx.git tags/zynqmp-soc-for-7.2-v2
-
-for you to fetch changes up to fdee7c66c0d7b6869c36b9f9a915abf29ab5b550:
-
-  soc: xilinx: Shutdown and free rx mailbox channel (2026-04-30 12:50:05 +0200)
-
-----------------------------------------------------------------
-arm64: Xilinx SOC changes for 7.2 v2
-
-zynqmp_power:
-- Fix race condition in event registration
-- Fix shutdown and free rx mailbox channel
-
-----------------------------------------------------------------
-Prasanna Kumar T S M (2):
-      soc: xilinx: Fix race condition in event registration
-      soc: xilinx: Shutdown and free rx mailbox channel
-
- drivers/soc/xilinx/zynqmp_power.c | 47 +++++++++-----------
- 1 file changed, 20 insertions(+), 27 deletions(-)
-
-
--- 
-Michal Simek, Ing. (M.Eng), OpenPGP -> KeyID: FE3D1F91
-w: www.monstr.eu p: +42-0-721842854
-Maintainer of Linux kernel - Xilinx Microblaze
-Maintainer of Linux kernel - Xilinx Zynq ARM and ZynqMP ARM64 SoCs
-U-Boot custodian - Xilinx Microblaze/Zynq/ZynqMP/Versal SoCs
 
