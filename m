@@ -4,73 +4,90 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id C44D9CD6E55
-	for <linux-arm-kernel@archiver.kernel.org>; Tue,  2 Jun 2026 01:28:58 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 02D9BCD6E55
+	for <linux-arm-kernel@archiver.kernel.org>; Tue,  2 Jun 2026 01:32:08 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
-	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=gvBTxmnkMtYSMLhCFymsQ41jj4G+NLVy+qkjJoW9Up0=; b=P2Dwg35fSOrvz+6B+Gc79pAUtI
-	INB+jIou3B2VrvRPot3UUWIEaoUNKpzGOo6Jjhb78eHrvehV1Z5VTxFxJY/1zUQTNjo6mx7Bw6qwz
-	YrvLHoqsAk94B0xb8hy02eUCqWNmlaqKlADnih+HS+BSaBP+m+qX1MHixodDZarNDNgR8H5C+ou2L
-	V3yiyZtuJFfbr+gqnOB4mRzcilKlwX9Q7gudTKaSYS1qAZMj/nBmEuBvLHTr/bkr/mhTsZ1z3iIGi
-	T/U8a7vNcFvFS6qAc8N8u2f+DXUgz066WvqRw5cy51ap5QAaVnPJgDmVbPY5gKmq5zgjexo8L9KAY
-	qxmXkEoA==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=b3xy2uhIBa9uRGlGCKv6RNNnKNeckiaUZ7Fy0PM5Q/c=; b=KQzEY7Xtfypy6FL4rZX3WxuQM5
+	Oah4kGN+C/eQRWKpMC0UqXbReM2QqauLsgp0ZGuqa38rgh8gjUAIU8yOw1oS2Av+09W90AjE4HnPP
+	+NnZQy/lEYYD0lCrfdkOx8N78N3L5wgFYtJwboyZlwwbUCCSNlPWhwtCjTlG+1WZMO+yqUov5dam/
+	L1DLruKPNfrZElYJdhBa4V+Yx/cwfmCYSE2ODaMzpGBtlZBeF5VXJLLTxDWVMpaiK05Nm4pvM7WwL
+	IE9z+iKT3Inb074sTWQ012SQei7MyZeoRazVdU4hnMZrzIKqZk2nfxAzEMAXtlTDLVB7t+VT3cbhR
+	JoYrEEPw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wUDw1-0000000C9Ge-1ELf;
-	Tue, 02 Jun 2026 01:28:49 +0000
-Received: from mail-m128144.netease.com ([103.209.128.144])
+	id 1wUDz7-0000000C9W5-3tNg;
+	Tue, 02 Jun 2026 01:32:01 +0000
+Received: from mail-pl1-x629.google.com ([2607:f8b0:4864:20::629])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wUDvx-0000000C9Fp-0MB1;
-	Tue, 02 Jun 2026 01:28:47 +0000
-Received: from [172.16.12.90] (unknown [61.154.14.86])
-	by smtp.qiye.163.com (Hmail) with ESMTP id 40ab83ee7;
-	Tue, 2 Jun 2026 09:28:33 +0800 (GMT+08:00)
-Message-ID: <bee9fdba-536f-4296-a9be-db35ab8d4172@rock-chips.com>
-Date: Tue, 2 Jun 2026 09:28:32 +0800
+	id 1wUDz5-0000000C9Vf-1wCa
+	for linux-arm-kernel@lists.infradead.org;
+	Tue, 02 Jun 2026 01:32:00 +0000
+Received: by mail-pl1-x629.google.com with SMTP id d9443c01a7336-2c0c2d8b95bso12832565ad.1
+        for <linux-arm-kernel@lists.infradead.org>; Mon, 01 Jun 2026 18:31:59 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=gmail.com; s=20251104; t=1780363918; x=1780968718; darn=lists.infradead.org;
+        h=in-reply-to:content-disposition:mime-version:references:message-id
+         :subject:cc:to:from:date:from:to:cc:subject:date:message-id:reply-to;
+        bh=b3xy2uhIBa9uRGlGCKv6RNNnKNeckiaUZ7Fy0PM5Q/c=;
+        b=cFtVZTkkOS6bREEVKhqshELU6JZ/GxRoAm/UCcaOF8/ZKro9fWO7PTSlXuEZRwjImr
+         Y9XsCqQ4tlhWn3TYhb2TXQDiilcSZ/QlCZYBjqaXVR0nXKAgS+IgTjnfnCNKOyhR1bJ3
+         lpQKXhcINzh6+LMfGYAVSm4qWBHseN9kr82lYYJN8HTYLaXHiStXwTivOA3kLOsLTLXq
+         eJ/2cB5ZOn+cqXe7odJX/qYik37gcqIMYXBY/VA1HcZULlGrgcDB+rLxE/s+T8WP/5ZV
+         3HJ5f8I0NwFrKyxaM0J1YgJsb9snaWTfxxjrp/cNSo3HGk8NJOQ7l9yTYcwb9LB0YmHl
+         FCog==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20251104; t=1780363918; x=1780968718;
+        h=in-reply-to:content-disposition:mime-version:references:message-id
+         :subject:cc:to:from:date:x-gm-gg:x-gm-message-state:from:to:cc
+         :subject:date:message-id:reply-to;
+        bh=b3xy2uhIBa9uRGlGCKv6RNNnKNeckiaUZ7Fy0PM5Q/c=;
+        b=JKBkqEikQE6GoACbycwQpZ8UIuuvq25pTMuKvzRmdQvq44AFZJcYel+Hw2E8JpQuhs
+         qskyFR7O8mZ5lHX4EI5xcEY9Q8jtoqE6MNL4JFYDe9577S98Z35o0YtP670Uag1dguf/
+         5RIY8VGhEncnd0nnyBQ8yBUo2wm9bIk3ATyXVogimYG5AwuznCdN9MlKyZog1srATQXv
+         RXqQ/bVGGZ0cQNgzyq/d7cSBPZKlZ0esCUBkb7MJBCgsu4DtjvchkhMCYbl98JXq8kLu
+         3QXrZMHG3O7vCS/dYAkSr2jfRCK3uoOOkN/0gYy+Q5avlhoILp/6mFZ7bELZPXWt45Z9
+         jymg==
+X-Forwarded-Encrypted: i=1; AFNElJ/x3YMO6gB4Uf1wtXcNHpWvIxHpj0DFCbWmYBQ9qOht7ziebJFsguLVewHlskhdtnkQslSoM2OaS+/zvxeemPvs@lists.infradead.org
+X-Gm-Message-State: AOJu0YzLwbO930aWWgJiRwWQt6HutY7ECFNzH9DJEbjyaYTLnyq5oRZo
+	nwet+qNGWfi3DO5b1tsEHVruHnBCiA1P4ij4sMMdxO70a+HZZfgLErqI
+X-Gm-Gg: Acq92OEL3q2VPiA8NvYO8kenOtmT9+0CGsrUqoX/4gMHEQi3i4WOa/s4Qig//deqaVT
+	uYjjotyEvsGjhuu/sEIOWC5An2dzjsD9p2iYioewFu4Vdn/dgKQ/d92C14G5G/YfWoNZzu4K7fL
+	PL+mw5XZXFmqdNFhSU6dCveicIXziep+y+ocqM38q5OyX9MPuZKEgbNF4NAeAIh0XTejTJZSzja
+	7bp2+Qbu6MT1hcBCZ/uCDcA61Nd2vIsgglk0m6Tpqt8NS7Ajy7fCQjjF+BFhmDyO/nWHsdec4kE
+	FpnSrLZ0gLLCxjJSprYjklJ6cN2Jg7pAZI7IhG1bIIb9Os7F4wg235446AaTzezenoEloEyk833
+	hCYnLvoG7lyOK9afTawm9b8gMVyyxCgY+SFznAuKRpxfR8wSP2xFZGgSVqnr9V9VcCaP0dENA1K
+	aGUDiDyhVsWeg3lrH5WbzFOSbn+uWh+sgFIAsBOensS5cmBC1ckpS/zEcW3INg5p3h
+X-Received: by 2002:a17:903:3884:b0:2bf:33a9:bf4a with SMTP id d9443c01a7336-2bf368a3d92mr163696255ad.38.1780363918317;
+        Mon, 01 Jun 2026 18:31:58 -0700 (PDT)
+Received: from v4bel ([58.123.110.97])
+        by smtp.gmail.com with ESMTPSA id d9443c01a7336-2bf239fd85dsm112089405ad.25.2026.06.01.18.31.55
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Mon, 01 Jun 2026 18:31:57 -0700 (PDT)
+Date: Tue, 2 Jun 2026 10:31:53 +0900
+From: Hyunwoo Kim <imv4bel@gmail.com>
+To: Oliver Upton <oupton@kernel.org>
+Cc: maz@kernel.org, joey.gouly@arm.com, seiden@linux.ibm.com,
+	suzuki.poulose@arm.com, yuzenghui@huawei.com,
+	catalin.marinas@arm.com, will@kernel.org, kees@kernel.org,
+	linux-arm-kernel@lists.infradead.org, kvmarm@lists.linux.dev,
+	linux-kernel@vger.kernel.org, imv4bel@gmail.com
+Subject: Re: [PATCH] KVM: arm64: vgic-its: Drop the translation cache
+ reference only for the erased entry
+Message-ID: <ah4yiavdXTB10P0d@v4bel>
+References: <ah2c5lu4JbUg7dj-@v4bel>
+ <ah3Yx0fjguUdCk_G@kernel.org>
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH 1/5] drm/bridge: Implement generic USB Type-C DP HPD
- bridge
-To: Sebastian Reichel <sebastian.reichel@collabora.com>
-Cc: Andrzej Hajda <andrzej.hajda@intel.com>,
- Neil Armstrong <neil.armstrong@linaro.org>, Robert Foss <rfoss@kernel.org>,
- Laurent Pinchart <Laurent.pinchart@ideasonboard.com>,
- Jonas Karlman <jonas@kwiboo.se>, Jernej Skrabec <jernej.skrabec@gmail.com>,
- Maarten Lankhorst <maarten.lankhorst@linux.intel.com>,
- Maxime Ripard <mripard@kernel.org>, Thomas Zimmermann <tzimmermann@suse.de>,
- David Airlie <airlied@gmail.com>, Simona Vetter <simona@ffwll.ch>,
- Sandy Huang <hjc@rock-chips.com>, =?UTF-8?Q?Heiko_St=C3=BCbner?=
- <heiko@sntech.de>, Andy Yan <andy.yan@rock-chips.com>,
- Vinod Koul <vkoul@kernel.org>,
- Heikki Krogerus <heikki.krogerus@linux.intel.com>,
- Dmitry Baryshkov <dmitry.baryshkov@oss.qualcomm.com>,
- Luca Ceresoli <luca.ceresoli@bootlin.com>, linux-kernel@vger.kernel.org,
- dri-devel@lists.freedesktop.org, linux-arm-kernel@lists.infradead.org,
- linux-rockchip@lists.infradead.org, linux-phy@lists.infradead.org
-References: <20260521032854.103-1-kernel@airkyi.com>
- <20260521032854.103-2-kernel@airkyi.com> <ah3-auKugGCVojOp@venus>
-Content-Language: en-US
-From: Chaoyi Chen <chaoyi.chen@rock-chips.com>
-In-Reply-To: <ah3-auKugGCVojOp@venus>
-Content-Type: text/plain; charset=UTF-8
-Content-Transfer-Encoding: 7bit
-X-HM-Tid: 0a9e85f25b4c03a7kunm8d21327629bc6f
-X-HM-MType: 1
-X-HM-Spam-Status: e1kfGhgUHx5ZQUpXWQgPGg8OCBgUHx5ZQUlOS1dZFg8aDwILHllBWSg2Ly
-	tZV1koWUFITzdXWRgWCB1ZQUpXWS1ZQUlXWQ8JGhUIEh9ZQVkZGRkaVk5KSElOSk9OTk1NS1YVFA
-	kWGhdVEwETFhoSFyQUDg9ZV1kYEgtZQVlNSlVKTk9VSk9VQ01ZV1kWGg8SFR0UWUFZT0tIVUpLSE
-	pKQk1VSktLVUpCWQY+
-DKIM-Signature: a=rsa-sha256;
-	b=R5sU8Xowx13A7b3tEpXEjh68l/6BcGouqkVH9cIcjydpMUe+bcLLnLBhrYB8NITiM2QDaYlcz8cbGbRu8/aEwYC4JinvABAmYkGevvUGt6KfDj8+JwsYZv/3TqtkLPaMIIVZ0S1pykGEATLAaBZHyX6+H1q3JDt8ZFS/sOK4O3o=; c=relaxed/relaxed; s=default; d=rock-chips.com; v=1;
-	bh=gvBTxmnkMtYSMLhCFymsQ41jj4G+NLVy+qkjJoW9Up0=;
-	h=date:mime-version:subject:message-id:from;
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+In-Reply-To: <ah3Yx0fjguUdCk_G@kernel.org>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260601_182845_715212_64E0D7F1 
-X-CRM114-Status: GOOD (  28.24  )
+X-CRM114-CacheID: sfid-20260601_183159_509964_4CFC2C59 
+X-CRM114-Status: GOOD (  37.45  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -85,136 +102,123 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hi Sebastian,
-
-On 6/2/2026 6:08 AM, Sebastian Reichel wrote:
-> Hi,
+On Mon, Jun 01, 2026 at 12:08:55PM -0700, Oliver Upton wrote:
+> Hi Hyunwoo,
 > 
-> On Thu, May 21, 2026 at 11:28:50AM +0800, Chaoyi Chen wrote:
->> From: Chaoyi Chen <chaoyi.chen@rock-chips.com>
->>
->> The HPD function of Type-C DP is implemented through
->> drm_connector_oob_hotplug_event(). For embedded DP, it is required
->> that the DRM connector fwnode corresponds to the Type-C port fwnode.
->>
->> To describe the relationship between the DP controller and the Type-C
->> port device, we usually using drm_bridge to build a bridge chain.
->>
->> Now several USB-C controller drivers have already implemented the DP
->> HPD bridge function provided by aux-hpd-bridge.c, it will build a DP
->> HPD bridge on USB-C connector port device.
->>
->> But this requires the USB-C controller driver to manually register the
->> HPD bridge. If the driver does not implement this feature, the bridge
->> will not be create.
->>
->> So this patch implements a generic DP HPD bridge based on
->> aux-hpd-bridge.c. It will monitor Type-C bus events, and when a
->> Type-C port device containing the DP svid is registered, it will
->> create an HPD bridge for it without the need for the USB-C controller
->> driver to implement it.
->>
->> Signed-off-by: Chaoyi Chen <chaoyi.chen@rock-chips.com>
->> Reviewed-by: Heikki Krogerus <heikki.krogerus@linux.intel.com>
->> ---
->>  drivers/gpu/drm/bridge/Kconfig                | 10 ++++
->>  drivers/gpu/drm/bridge/Makefile               |  1 +
->>  .../gpu/drm/bridge/aux-hpd-typec-dp-bridge.c  | 49 +++++++++++++++++++
+> Nice find.
 > 
-> Doesn't this require removing the manual registration of the HPD
-> auxillary bridge in the USB-C controller drivers to avoid that
-> two bridges are registered for them?
+> On Mon, Jun 01, 2026 at 11:53:26PM +0900, Hyunwoo Kim wrote:
+> > vgic_its_invalidate_cache() walks the per-ITS translation cache with
+> > xa_for_each() and drops the cache's reference on each entry with
+> > vgic_put_irq(). It puts the iterated pointer, though, rather than the
+> > value returned by xa_erase().
+> > 
+> > The function is called from contexts that do not exclude one another: the
+> > ITS command handlers hold its_lock, the GITS_CTLR write path holds
+> > cmd_lock, and the path that clears EnableLPIs in a redistributor's
+> > GICR_CTLR holds neither. Two or more of them can drain the same cache
+> > concurrently, and if each one observes the same entry, erases it and then
+> > puts it, the single reference the cache holds on that entry is dropped
+> > more than once. The entry can then be freed while an ITE still maps it.
+> > 
+> > xa_erase() is atomic and returns the previous entry, so put only the entry
+> > that this context actually removed. The cache reference is then dropped
+> > exactly once per entry even when the invalidations run concurrently, and
+> > the behavior is unchanged when only one context runs.
 > 
-
-I believe this will not affect existing controller drivers,
-as they call drm_bridge_attach during registration. Of course,
-while it won't affect the main bridge chain, you'll still see
-an additional HPD bridge.
-
->>  3 files changed, 60 insertions(+)
->>  create mode 100644 drivers/gpu/drm/bridge/aux-hpd-typec-dp-bridge.c
->>
->> diff --git a/drivers/gpu/drm/bridge/Kconfig b/drivers/gpu/drm/bridge/Kconfig
->> index c3209b0f4678..d92e93875793 100644
->> --- a/drivers/gpu/drm/bridge/Kconfig
->> +++ b/drivers/gpu/drm/bridge/Kconfig
->> @@ -30,6 +30,16 @@ config DRM_AUX_HPD_BRIDGE
->>  	  Simple bridge that terminates the bridge chain and provides HPD
->>  	  support.
->>  
->> +if DRM_AUX_HPD_BRIDGE
->> +config DRM_AUX_HPD_TYPEC_BRIDGE
->> +	tristate
->> +	depends on TYPEC || !TYPEC
->> +	default TYPEC
->> +	help
->> +	  Simple bridge that terminates the bridge chain and provides HPD
->> +	  support. It build bridge on each USB-C connector device node.
->> +endif
->> +
->>  menu "Display Interface Bridges"
->>  	depends on DRM && DRM_BRIDGE
->>  
->> diff --git a/drivers/gpu/drm/bridge/Makefile b/drivers/gpu/drm/bridge/Makefile
->> index beab5b695a6e..c4761526ba0a 100644
->> --- a/drivers/gpu/drm/bridge/Makefile
->> +++ b/drivers/gpu/drm/bridge/Makefile
->> @@ -1,6 +1,7 @@
->>  # SPDX-License-Identifier: GPL-2.0
->>  obj-$(CONFIG_DRM_AUX_BRIDGE) += aux-bridge.o
->>  obj-$(CONFIG_DRM_AUX_HPD_BRIDGE) += aux-hpd-bridge.o
->> +obj-$(CONFIG_DRM_AUX_HPD_TYPEC_BRIDGE) += aux-hpd-typec-dp-bridge.o
->>  obj-$(CONFIG_DRM_CHIPONE_ICN6211) += chipone-icn6211.o
->>  obj-$(CONFIG_DRM_CHRONTEL_CH7033) += chrontel-ch7033.o
->>  obj-$(CONFIG_DRM_CROS_EC_ANX7688) += cros-ec-anx7688.o
->> diff --git a/drivers/gpu/drm/bridge/aux-hpd-typec-dp-bridge.c b/drivers/gpu/drm/bridge/aux-hpd-typec-dp-bridge.c
->> new file mode 100644
->> index 000000000000..d915e0fb0668
->> --- /dev/null
->> +++ b/drivers/gpu/drm/bridge/aux-hpd-typec-dp-bridge.c
->> @@ -0,0 +1,49 @@
->> +// SPDX-License-Identifier: GPL-2.0+
->> +#include <linux/of.h>
->> +#include <linux/usb/typec_altmode.h>
->> +#include <linux/usb/typec_dp.h>
->> +
->> +#include <drm/bridge/aux-bridge.h>
->> +
->> +static int drm_typec_bus_event(struct notifier_block *nb,
->> +			       unsigned long action, void *data)
->> +{
->> +	struct device *dev = (struct device *)data;
->> +	struct typec_altmode *alt = to_typec_altmode(dev);
->> +
->> +	if (action != BUS_NOTIFY_ADD_DEVICE)
->> +		goto done;
->> +
->> +	/*
->> +	 * alt->dev.parent->parent : USB-C controller device
->> +	 * alt->dev.parent         : USB-C connector device
->> +	 */
->> +	if (is_typec_port_altmode(&alt->dev) && alt->svid == USB_TYPEC_DP_SID)
->> +		drm_dp_hpd_bridge_register(alt->dev.parent->parent,
->> +					   to_of_node(alt->dev.parent->fwnode));
+> Next time:
 > 
-> IIUIC this is called when the USB-C controller spawns a sub-device
-> for the DP AltMode and then registers a HPD bridge to the USB-C
-> controller itself. Wouldn't that register new HPD bridges on every
-> USB-C replug?
+> Cc: stable@vger.kernel.org
 > 
-> Also doesn't this result in the bridge not being registered when
-> nothing is plugged and thus the DRM pipeline not being able to bind
-> properly?
->
+> > Fixes: 8201d1028caa ("KVM: arm64: vgic-its: Maintain a translation cache per ITS")
+> > Signed-off-by: Hyunwoo Kim <imv4bel@gmail.com>
+> > ---
+> >  arch/arm64/kvm/vgic/vgic-its.c | 6 ++++--
+> >  1 file changed, 4 insertions(+), 2 deletions(-)
+> > 
+> > diff --git a/arch/arm64/kvm/vgic/vgic-its.c b/arch/arm64/kvm/vgic/vgic-its.c
+> > index 1d7e5d560af4..1e3706ac3b8e 100644
+> > --- a/arch/arm64/kvm/vgic/vgic-its.c
+> > +++ b/arch/arm64/kvm/vgic/vgic-its.c
+> > @@ -597,8 +597,10 @@ static void vgic_its_invalidate_cache(struct vgic_its *its)
+> >  	unsigned long idx;
+> >  
+> >  	xa_for_each(&its->translation_cache, idx, irq) {
+> > -		xa_erase(&its->translation_cache, idx);
+> > -		vgic_put_irq(kvm, irq);
+> > +		/* Only the context that erases the entry drops its cache ref. */
+> > +		irq = xa_erase(&its->translation_cache, idx);
+> > +		if (irq)
+> > +			vgic_put_irq(kvm, irq);
+> >  	}
+> >  }
+> 
+> This definitely works but TBH I'd rather just plug the subtle race and
+> do invalidations behind the its_lock since it already nests with the
+> cmd_lock.
 
-That's a good question. The port altmode device here is only registered
-once during initialization. While the parnter altmode device will
-register and unregister during the plugging and unplugging process.
-So you don't need to worry about that :)
+Thank you for the review.
 
-https://lore.kernel.org/all/4fddba9a-b073-4bca-bd13-64a415f4bc47@rock-chips.com/
+> 
+> Could you give this a spin?
 
--- 
-Best, 
-Chaoyi
+After testing, I've confirmed that this patch approach works well too.
+
+Shall I submit v2 based on this fix?
+
+> 
+> diff --git a/arch/arm64/kvm/vgic/vgic-its.c b/arch/arm64/kvm/vgic/vgic-its.c
+> index 2ea9f1c7ebcd..b2225da212ec 100644
+> --- a/arch/arm64/kvm/vgic/vgic-its.c
+> +++ b/arch/arm64/kvm/vgic/vgic-its.c
+> @@ -596,6 +596,8 @@ static void vgic_its_invalidate_cache(struct vgic_its *its)
+>  	struct vgic_irq *irq;
+>  	unsigned long idx;
+>  
+> +	lockdep_assert_held(&its->its_lock);
+> +
+>  	xa_for_each(&its->translation_cache, idx, irq) {
+>  		xa_erase(&its->translation_cache, idx);
+>  		vgic_put_irq(kvm, irq);
+> @@ -607,17 +609,16 @@ void vgic_its_invalidate_all_caches(struct kvm *kvm)
+>  	struct kvm_device *dev;
+>  	struct vgic_its *its;
+>  
+> -	rcu_read_lock();
+> +	guard(mutex)(&kvm->lock);
+>  
+> -	list_for_each_entry_rcu(dev, &kvm->devices, vm_node) {
+> +	list_for_each_entry(dev, &kvm->devices, vm_node) {
+>  		if (dev->ops != &kvm_arm_vgic_its_ops)
+>  			continue;
+>  
+>  		its = dev->private;
+> +		guard(mutex)(&its->its_lock);
+>  		vgic_its_invalidate_cache(its);
+>  	}
+> -
+> -	rcu_read_unlock();
+>  }
+>  
+>  int vgic_its_resolve_lpi(struct kvm *kvm, struct vgic_its *its,
+> @@ -1725,8 +1726,10 @@ static void vgic_mmio_write_its_ctlr(struct kvm *kvm, struct vgic_its *its,
+>  		goto out;
+>  
+>  	its->enabled = !!(val & GITS_CTLR_ENABLE);
+> -	if (!its->enabled)
+> +	if (!its->enabled) {
+> +		guard(mutex)(&its->its_lock);
+>  		vgic_its_invalidate_cache(its);
+> +	}
+>  
+>  	/*
+>  	 * Try to process any pending commands. This function bails out early
+> 
+> --
+> Thanks,
+> Oliver
+
+
+Best regards,
+Hyunwoo Kim
 
