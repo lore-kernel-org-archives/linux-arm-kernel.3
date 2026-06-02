@@ -4,91 +4,93 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 01AF2CD6E66
-	for <linux-arm-kernel@archiver.kernel.org>; Tue,  2 Jun 2026 11:34:08 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 9E4ACCD6E5D
+	for <linux-arm-kernel@archiver.kernel.org>; Tue,  2 Jun 2026 11:45:05 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:References
-	:Message-Id:Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:
-	From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=QXP0Lk4WLSqnO/9+5RQSK4FKezw1pmUzuzZnns5PaSI=; b=WBcT/ilMMh81GrPb+w3wjErm2k
-	+R6qHQoBCZOYvA6paDNboWdePib5ZRSoMAiJ3SHakOJVA7FEKss48rrcOfwjcPk6OjRjDZ/C1CShK
-	2IrHwfvLF3inQxhueB0K8bVA9ZlzxN85g5ukOd+X/69pkdlMKV5/G3shGzmRcroScdKw4yNT3khp2
-	Xk9ECZBqUgoZDkbAB6V5azn2sVYme5BWCrer11FoZANsqjUcIorlyS/G7AU+jSeOixGOzmX4Z0t8D
-	k0rVCOmfRNIeTYl+RbBdqA+WKGo6nBdoF8qXP8eX0mcRWbxR73m1T3JpmtTD2MepVook3WfXyESeh
-	0xIKfuuw==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	MIME-Version:Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-Type:
+	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
+	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=yMMmEmjYZwsBNnBuWQ83+blc3WIchW2nd/w7lmU2Wns=; b=W70aGdnC8CP4QrasgytwMVohJh
+	XzyXJgopc8VN3q3AcLb2VrB4WvdMKSe9mexWlcBfhOPdQ5cyOqyYU3jRS0uLuf3x2mBeRix1R2w32
+	jAecIyIdnZOBLUiJDncHa3DTNBCjcq4Tes/++ABM4DtJiqNVWoVzE5kB61slAdA9JQl1jgg3hBzO1
+	UtPGpWuWPPDD7TUf9O84A/8ud21VnvV5C7u0cWC17p9ZTpJ1tPRwSkr03ld6ytstB6nN0Yg5qK7Hl
+	S+KKu9WqehZlt2wsFqRgFv0dxjT85ZrniLIzTajwgaRBosL60yGJKx5WVopEEmzZ5SYkFG3A4/PHa
+	bLVgSTQw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wUNNi-0000000Ct4K-05id;
-	Tue, 02 Jun 2026 11:34:02 +0000
-Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
+	id 1wUNYI-0000000Cu7j-2fNC;
+	Tue, 02 Jun 2026 11:44:58 +0000
+Received: from mail-pf1-x435.google.com ([2607:f8b0:4864:20::435])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wUNNg-0000000Ct2j-2Bts
+	id 1wUNYF-0000000Cu77-2J64
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 02 Jun 2026 11:34:01 +0000
-Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
-	by sea.source.kernel.org (Postfix) with ESMTP id 40D5C43EBA;
-	Tue,  2 Jun 2026 11:34:00 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 998471F0089C;
-	Tue,  2 Jun 2026 11:33:59 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1780400040;
-	bh=QXP0Lk4WLSqnO/9+5RQSK4FKezw1pmUzuzZnns5PaSI=;
-	h=From:Date:Subject:References:In-Reply-To:To:Cc;
-	b=kXUkBGFgEYCGm65KPGOwDPkT+ANqUDTB2zw5BuKwVRr0ygfYc+IxoHiIzKslPp1qa
-	 z/5+VRZOh5WkBVdOnvjmEWqPurtuhqi2TS/BrtHiVPHQspFwlJ873UxEESmOv2vSMt
-	 YJH0CCLqtI/EJvDwo+OTdNhU/CYugOVkWL+UAZ/VtXz7OOtUaUVYNP7Z84ugFzBJQs
-	 5U4umGtWo8kNgGmBAf1ObNRO5Blk2mM8lBsGT+xr6JlrYDEPvwqSaeJq5+fuFj93sj
-	 QapMBTARlf6ejTy+17H1g4Yo2p4F3+yYtoJYqAEEHaNvD2bm3BUVDi0Zb+0q9M+wFu
-	 d+nhy/bwt4gyQ==
-From: Thierry Reding <thierry.reding@kernel.org>
-Date: Tue, 02 Jun 2026 13:33:26 +0200
-Subject: [PATCH v6 4/4] arm64: tegra: Reorder reg and reg-names to match
- bindings
+	Tue, 02 Jun 2026 11:44:57 +0000
+Received: by mail-pf1-x435.google.com with SMTP id d2e1a72fcca58-8423f236418so1060130b3a.1
+        for <linux-arm-kernel@lists.infradead.org>; Tue, 02 Jun 2026 04:44:55 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=gmail.com; s=20251104; t=1780400695; x=1781005495; darn=lists.infradead.org;
+        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
+         :to:from:from:to:cc:subject:date:message-id:reply-to;
+        bh=yMMmEmjYZwsBNnBuWQ83+blc3WIchW2nd/w7lmU2Wns=;
+        b=M7AIravKHXOhfwnHFmvCqkjrxMnpQUQgEB0qXfnjm0gScJd+qqR0hOGJ3bURAsF6Ww
+         qjkUl0+/ESlMFUNhGcf5EG8QK8lJah8nhTreT/fEabrCWpJoAg6pS8kz64eJrH8+kRnx
+         o3lIJHGxzGGyJ//InE84aNbV0Jy7Ma53fg5Q8k+uH16BYGw0P3pswmdR+LlRZ04HahSS
+         gfCFd/hZlzW7QEWa6iTVEwpMLFt7Ej4OqViTqKbbVJSV57yXIIARyFwVn7SDehMl9vvr
+         eRuoSsXOoEwo7xTFb8dqxeLd92OuFsowjWTbUoccykvwCj3govZ9KJzE7RjPsweKy1RH
+         qzVw==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20251104; t=1780400695; x=1781005495;
+        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
+         :to:from:x-gm-gg:x-gm-message-state:from:to:cc:subject:date
+         :message-id:reply-to;
+        bh=yMMmEmjYZwsBNnBuWQ83+blc3WIchW2nd/w7lmU2Wns=;
+        b=TKAe+pCCfjOU88ZLbhcNOODkdVVQ+2zIsG7yfmRQr2gL5tc7DGz+Y7Lrkf0nMzzxgn
+         5zEh6mYSND/965huJkABnuQ9efPRjsff7G8YedReFB53b2XXhe/GuuX6A8d3XMGWz7US
+         Vf4G+qQc/IsjdbuqP2mse6rjmYvuw9JCDGU5T6Rm/0lcthKUPcoTrNEZdoaRlFQ8VkXj
+         RRezxBdZYbW5IEkVitdaCFbgF8/4BXojPbLQkpZPckIwm0DB64rWse61SE0HdkKjRP+n
+         GfsZiYLo2JMAi6pUWD85sFuLvmiYXfq1+Xca3mS1noz5YnYTKsLnTT9UYRZ0FGSreCWU
+         9VeQ==
+X-Forwarded-Encrypted: i=1; AFNElJ8yGCRPa0iKzbQv25oVIc13aEvRLtqUaO9uu0ywhucfq+2AYdCDrnWybEicKAL156MQLD+elnP7dI9p1G7F4bR5@lists.infradead.org
+X-Gm-Message-State: AOJu0YyVrDYdw467AVan3ZqyWpkQscZ0D+4/jlQv3rGMg9bXGo44aL5b
+	qLF3S+CGaL26KDNRGLV/xBSK2ofcrlkXSNKg8w49iQp273AgA8ncCh3a
+X-Gm-Gg: Acq92OFpqr1hyOv0qo0bnVhF+E8iUgzuk84iBbKxpRXL+q6RFtdHrAhiEIupkX3mBzL
+	AoGcoQ67tBX7XvsYRUpiseS9p2aghwArMvHtXLbhRUoUmTaBogw5O6JZwsxscErUp4rdXcWCgsi
+	D2Y/0bb5sr8EAzTpFnQo+UteME0+8VwtBrT0avJpZySflQI+4V7zVPbdI9G6KLFpYVXEckjtJwh
+	QOEKN9cQeJe/vgIoOJIGqbWEzl3Te21ydf9w6koPQmD26j9oH7iFwj/VdFJwPT1JcOydI4btXTk
+	iUbDo/22n8EuWf//Yrp+doDEKfUD9whwU3gpwZAcUo9/C7++gmWhnPjfDevgHvu8yXpC6uE2gB7
+	+S/IqAEx/fRUPehZFU/PHwxDepSHhiFza3t5Zye5W74YiZpS+Zo3pz00rMx7DtcaHeyf4xxylqm
+	fO810CqBfapTQcHsf3WN3vM8np7G7IpltPc0KY5RS3hHP0QmGRp3cBwxQn8zsdqTz+KuB7
+X-Received: by 2002:a05:6a00:3762:b0:842:2f3d:dff2 with SMTP id d2e1a72fcca58-8422f3de52amr9540311b3a.34.1780400694676;
+        Tue, 02 Jun 2026 04:44:54 -0700 (PDT)
+Received: from phuc-desktop.. ([183.91.15.56])
+        by smtp.gmail.com with ESMTPSA id d2e1a72fcca58-842263539a3sm12025224b3a.44.2026.06.02.04.44.51
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Tue, 02 Jun 2026 04:44:54 -0700 (PDT)
+From: phucduc.bui@gmail.com
+To: Chen-Yu Tsai <wens@kernel.org>,
+	Liam Girdwood <lgirdwood@gmail.com>,
+	Mark Brown <broonie@kernel.org>
+Cc: Jaroslav Kysela <perex@perex.cz>,
+	Takashi Iwai <tiwai@suse.com>,
+	Jernej Skrabec <jernej.skrabec@gmail.com>,
+	Samuel Holland <samuel@sholland.org>,
+	linux-sound@vger.kernel.org,
+	linux-arm-kernel@lists.infradead.org,
+	linux-sunxi@lists.linux.dev,
+	linux-kernel@vger.kernel.org,
+	bui duc phuc <phucduc.bui@gmail.com>
+Subject: [PATCH v3 0/3] ASoC: sunxi: sun4i-spdif: Cleanup and runtime PM improvements
+Date: Tue,  2 Jun 2026 18:44:34 +0700
+Message-ID: <20260602114437.50324-1-phucduc.bui@gmail.com>
+X-Mailer: git-send-email 2.43.0
 MIME-Version: 1.0
-Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: 7bit
-Message-Id: <20260602-tegra264-pcie-v6-4-edbcfa7a78fe@nvidia.com>
-References: <20260602-tegra264-pcie-v6-0-edbcfa7a78fe@nvidia.com>
-In-Reply-To: <20260602-tegra264-pcie-v6-0-edbcfa7a78fe@nvidia.com>
-To: Bjorn Helgaas <bhelgaas@google.com>, 
- Lorenzo Pieralisi <lpieralisi@kernel.org>, 
- =?utf-8?q?Krzysztof_Wilczy=C5=84ski?= <kwilczynski@kernel.org>, 
- Manivannan Sadhasivam <mani@kernel.org>, Rob Herring <robh@kernel.org>, 
- Krzysztof Kozlowski <krzk+dt@kernel.org>, 
- Conor Dooley <conor+dt@kernel.org>, 
- Thierry Reding <thierry.reding@gmail.com>, 
- Jonathan Hunter <jonathanh@nvidia.com>, 
- Karthikeyan Mitran <m.karthikeyan@mobiveil.co.in>, 
- Hou Zhiqiang <Zhiqiang.Hou@nxp.com>, 
- Thomas Petazzoni <thomas.petazzoni@bootlin.com>, 
- =?utf-8?q?Pali_Roh=C3=A1r?= <pali@kernel.org>, 
- Michal Simek <michal.simek@amd.com>, Kevin Xie <kevin.xie@starfivetech.com>, 
- Thierry Reding <thierry.reding@kernel.org>, Aksh Garg <a-garg7@ti.com>
-Cc: linux-pci@vger.kernel.org, devicetree@vger.kernel.org, 
- linux-tegra@vger.kernel.org, linux-kernel@vger.kernel.org, 
- linux-arm-kernel@lists.infradead.org, Thierry Reding <treding@nvidia.com>
-X-Mailer: b4 0.15.1
-X-Developer-Signature: v=1; a=openpgp-sha256; l=4765; i=treding@nvidia.com;
- h=from:subject:message-id; bh=ltYlWZgcjQpPPeqy9wq2FjpCCCUz1OFaSP+BBIfGYIY=;
- b=owEBbQKS/ZANAwAKAd0jrNd/PrOhAcsmYgBqHr+awhbiDapJGroKc+2dEx6tR0EbTMkD529dn
- jNuPptxT0eJAjMEAAEKAB0WIQSI6sMIAUnM98CNyJ/dI6zXfz6zoQUCah6/mgAKCRDdI6zXfz6z
- oQEtD/wKjnM5GtMKPiiJMJDbSU6UwWzY/nLlloOWknhhyZ3fZaX0B320BMQRqD/67BrTjoVpfoo
- hK41DXfQIHbDCDgseP6U5AUdZPOQaxqd9mGW6M2kJ/0xz57MT492HCjq329sHumCkcU4BEYvczv
- sfADULCpQjO4CsNkuc3kDOB8bfvNjfNFOWZSXQr1YB2a18k82vFKJw4wgZDj6AMsqJZAfzmuOAx
- r3ekRibC6/zR/wEAayi2YckTMSbZsx3vjv3fpibYuohp0bEIWCV2O47SisIeYrhS+ePdUM9u/G0
- clfQLcKiU1skYyRE6ppeNVrQqydol3tD2oO0VV7eNT27ko5orHzCk5h8gblWCGelg9r9zOa+rp8
- UWqBSUua4N3zo9vcwxmHSIybqSr1YIzzJ2BQJQYVu+xokd+lBRKRWN3Z9mmPFNDbadZh4CXIXna
- 3WVqdb6hCzKCU1QYk8RIV0hWo2fSXNqvyDykVwn/Gk6PiMvW4R7cl+Wb/LUGkw2Dyrdect7b2YQ
- lXO0gMgR3fpUk07GTdxk79zJ1q50Md2cwVDOtUBc0UueSaM6tfHms7n41eUcU1VZvTdDmdBNMyv
- 4l8yBKp8OIyI/bnHHLEYErcYG0YiPVa8XoiDdrTYWIKBVJRLOrle9ofczbdno7lwo5rbAALNnwx
- ITyjwSwTYqBkODQ==
-X-Developer-Key: i=treding@nvidia.com; a=openpgp;
- fpr=88EAC3080149CCF7C08DC89FDD23ACD77F3EB3A1
+Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260602_043400_658779_3D97D5F2 
-X-CRM114-Status: GOOD (  11.50  )
+X-CRM114-CacheID: sfid-20260602_044455_593330_B7E81BEF 
+X-CRM114-Status: UNSURE (   9.32  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -103,134 +105,44 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-From: Thierry Reding <treding@nvidia.com>
+From: bui duc phuc <phucduc.bui@gmail.com>
 
-The ECAM region cannot be the first entry in the "reg" property, because
-in that case the unit-address wouldn't match the first entry. The order
-of the nodes can also not be changed to match the ECAM entry because the
-ECAM region is global and outside of any of the control busses.
+Hi,
 
-Signed-off-by: Thierry Reding <treding@nvidia.com>
----
-Changes in v5:
-- rebase onto v7.1-rc1
+This series contains a few improvements for the sun4i-spdif driver,
+including guard() conversions and ensuring the device is resumed
+via runtime PM before kcontrol register accesses.
 
-Changes in v4:
-- revert ECAM "reg" entry order
 
-Changes in v2:
-- order ECAM "reg" entry before others
----
- arch/arm64/boot/dts/nvidia/tegra264.dtsi | 48 ++++++++++++++++----------------
- 1 file changed, 24 insertions(+), 24 deletions(-)
+Link v1:
+https://lore.kernel.org/all/20260513105003.81880-1-phucduc.bui@gmail.com/
 
-diff --git a/arch/arm64/boot/dts/nvidia/tegra264.dtsi b/arch/arm64/boot/dts/nvidia/tegra264.dtsi
-index 8f4350c7793b..4c701abd25a8 100644
---- a/arch/arm64/boot/dts/nvidia/tegra264.dtsi
-+++ b/arch/arm64/boot/dts/nvidia/tegra264.dtsi
-@@ -3513,11 +3513,11 @@ cmdqv4: cmdqv@b200000 {
- 
- 		pci@c000000 {
- 			compatible = "nvidia,tegra264-pcie";
--			reg = <0xd0 0xb0000000 0x0 0x10000000>,
--			      <0x00 0x0c000000 0x0 0x00004000>,
-+			reg = <0x00 0x0c000000 0x0 0x00004000>,
- 			      <0x00 0x0c004000 0x0 0x00001000>,
--			      <0x00 0x0c005000 0x0 0x00001000>;
--			reg-names = "ecam", "xal", "xtl", "xtl-pri";
-+			      <0x00 0x0c005000 0x0 0x00001000>,
-+			      <0xd0 0xb0000000 0x0 0x10000000>;
-+			reg-names = "xal", "xtl", "xtl-pri", "ecam";
- 			#address-cells = <3>;
- 			#size-cells = <2>;
- 			device_type = "pci";
-@@ -3893,12 +3893,12 @@ gpio_uphy: gpio@8300000 {
- 
- 		pci@8400000 {
- 			compatible = "nvidia,tegra264-pcie";
--			reg = <0xa8 0xb0000000 0x0 0x10000000>,
--			      <0x00 0x08400000 0x0 0x00004000>,
-+			reg = <0x00 0x08400000 0x0 0x00004000>,
- 			      <0x00 0x08404000 0x0 0x00001000>,
- 			      <0x00 0x08405000 0x0 0x00001000>,
--			      <0x00 0x08410000 0x0 0x00010000>;
--			reg-names = "ecam", "xal", "xtl", "xtl-pri", "xpl";
-+			      <0x00 0x08410000 0x0 0x00010000>,
-+			      <0xa8 0xb0000000 0x0 0x10000000>;
-+			reg-names = "xal", "xtl", "xtl-pri", "xpl", "ecam";
- 			#address-cells = <3>;
- 			#size-cells = <2>;
- 			device_type = "pci";
-@@ -3925,12 +3925,12 @@ pci@8400000 {
- 
- 		pci@8420000 {
- 			compatible = "nvidia,tegra264-pcie";
--			reg = <0xb0 0xb0000000 0x0 0x10000000>,
--			      <0x00 0x08420000 0x0 0x00004000>,
-+			reg = <0x00 0x08420000 0x0 0x00004000>,
- 			      <0x00 0x08424000 0x0 0x00001000>,
- 			      <0x00 0x08425000 0x0 0x00001000>,
--			      <0x00 0x08430000 0x0 0x00010000>;
--			reg-names = "ecam", "xal", "xtl", "xtl-pri", "xpl";
-+			      <0x00 0x08430000 0x0 0x00010000>,
-+			      <0xb0 0xb0000000 0x0 0x10000000>;
-+			reg-names = "xal", "xtl", "xtl-pri", "xpl", "ecam";
- 			#address-cells = <3>;
- 			#size-cells = <2>;
- 			device_type = "pci";
-@@ -3957,12 +3957,12 @@ pci@8420000 {
- 
- 		pci@8440000 {
- 			compatible = "nvidia,tegra264-pcie";
--			reg = <0xb8 0xb0000000 0x0 0x10000000>,
--			      <0x00 0x08440000 0x0 0x00004000>,
-+			reg = <0x00 0x08440000 0x0 0x00004000>,
- 			      <0x00 0x08444000 0x0 0x00001000>,
- 			      <0x00 0x08445000 0x0 0x00001000>,
--			      <0x00 0x08450000 0x0 0x00010000>;
--			reg-names = "ecam", "xal", "xtl", "xtl-pri", "xpl";
-+			      <0x00 0x08450000 0x0 0x00010000>,
-+			      <0xb8 0xb0000000 0x0 0x10000000>;
-+			reg-names = "xal", "xtl", "xtl-pri", "xpl", "ecam";
- 			#address-cells = <3>;
- 			#size-cells = <2>;
- 			device_type = "pci";
-@@ -3989,12 +3989,12 @@ pci@8440000 {
- 
- 		pci@8460000 {
- 			compatible = "nvidia,tegra264-pcie";
--			reg = <0xc0 0xb0000000 0x0 0x10000000>,
--			      <0x00 0x08460000 0x0 0x00004000>,
-+			reg = <0x00 0x08460000 0x0 0x00004000>,
- 			      <0x00 0x08464000 0x0 0x00001000>,
- 			      <0x00 0x08465000 0x0 0x00001000>,
--			      <0x00 0x08470000 0x0 0x00010000>;
--			reg-names = "ecam", "xal", "xtl", "xtl-pri", "xpl";
-+			      <0x00 0x08470000 0x0 0x00010000>,
-+			      <0xc0 0xb0000000 0x0 0x10000000>;
-+			reg-names = "xal", "xtl", "xtl-pri", "xpl", "ecam";
- 			#address-cells = <3>;
- 			#size-cells = <2>;
- 			device_type = "pci";
-@@ -4021,12 +4021,12 @@ pci@8460000 {
- 
- 		pci@8480000 {
- 			compatible = "nvidia,tegra264-pcie";
--			reg = <0xc8 0xb0000000 0x0 0x10000000>,
--			      <0x00 0x08480000 0x0 0x00004000>,
-+			reg = <0x00 0x08480000 0x0 0x00004000>,
- 			      <0x00 0x08484000 0x0 0x00001000>,
- 			      <0x00 0x08485000 0x0 0x00001000>,
--			      <0x00 0x08490000 0x0 0x00010000>;
--			reg-names = "ecam", "xal", "xtl", "xtl-pri", "xpl";
-+			      <0x00 0x08490000 0x0 0x00010000>,
-+			      <0xc8 0xb0000000 0x0 0x10000000>;
-+			reg-names = "xal", "xtl", "xtl-pri", "xpl", "ecam";
- 			#address-cells = <3>;
- 			#size-cells = <2>;
- 			device_type = "pci";
+Link v2:
+https://lore.kernel.org/all/20260522095401.72915-1-phucduc.bui@gmail.com/
+
+Change in v2:
+ - Switched from using guard() to scoped_guard()
+ - Added runtime PM handling for kcontrol register accesses.
+Change in v3:
+ - Clarify in the commit message that the resume sequence becomes the
+   reverse of the suspend sequence.
+ - Add Reported-by tag from Sashiko AI review.
+
+
+Best Regards,
+Phuc
+
+
+bui duc phuc (3):
+  ASoC: sunxi: sun4i-spdif: Use guard() for spin locks
+  ASoC: sunxi: sun4i-spdif: Resume device before kcontrol register
+    access
+  ASoC: sunxi: sun4i-spdif: Reorder clock enable sequence
+
+ sound/soc/sunxi/sun4i-spdif.c | 76 +++++++++++++++++++----------------
+ 1 file changed, 42 insertions(+), 34 deletions(-)
 
 -- 
-2.52.0
+2.43.0
 
 
