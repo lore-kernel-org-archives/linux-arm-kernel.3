@@ -4,94 +4,92 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id DB9A3CD6E4A
-	for <linux-arm-kernel@archiver.kernel.org>; Tue,  2 Jun 2026 11:32:02 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id F18EECD6E4A
+	for <linux-arm-kernel@archiver.kernel.org>; Tue,  2 Jun 2026 11:33:58 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	MIME-Version:Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-Type:
-	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
-	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
-	bh=rVXTLc2CkVj0LT6iBpJofb0Ww2wTBXQmu/ysCtlatmY=; b=1ExtYspH/IQjvV6/AERmOJpYSL
-	bEjQHXEz1XISjO1Ft+3f7K3edCVEcKXEDeDypX/um9kBD6DAqTvb2wO+sBbGXQH/LhTyqH9KY8Ao5
-	axoiI3EhH/eUOgVENCd93CpLFyfLGmi0S/ZgXMlfNH6YNzqAayMukI7ltXxI5hbF6Cv56lpciJRz0
-	6c0uMMpNeDUwZDdbDNWPYvoXHQgsQzJyQziM+YyBg2ltVfecVNF1XTacwwDp68/kkI4PAXGq9AQu6
-	6kjQcjHEMqDrOQpIToyMfO8kKX7cd5gpSgf6wl7jmuQ8jESdaI+cfFg2LiOTrlQb/8CIng8AewA6x
-	loxMdLdg==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:
+	Content-Transfer-Encoding:Content-Type:MIME-Version:Message-Id:Date:Subject:
+	From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:
+	List-Owner; bh=MZzE5gk2ciiNwh8D62gBS31R5AnJefl9q3snq9zcyYo=; b=FwlCmZr4fTqv+x
+	Nr/Bc4oEcktON/sz5wzvIf2MH6N9QrEAAZjB/pu6NDx/6LrRxicAm/UlGn9wAQS4sfoVFVTQKQgh0
+	Q5onk3/VET6K4ZryZD6QZbD2GU86PZtelK/hGoQmoPW8JEGYalJ4nj/ANHYpVkFLiASQMnrK6BGaf
+	YV+R6Hxk4CQp64VjIpquN1o43zZGXHLOJ8e22KNHNQHAkoatU4PjX8/MkibOG6oypsgAqyWO2rq6X
+	dT8b/Bgug6d24W/G5/M+GbuwEgzLEDhvBWWYaBaeeTSNGthPyhlQ3B19ytujAkNuC9aZOunCvICz6
+	WbOwdBAD9c9SQ5HEbXsw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wUNLg-0000000Csg6-0lPr;
-	Tue, 02 Jun 2026 11:31:56 +0000
-Received: from mail-pj1-x1033.google.com ([2607:f8b0:4864:20::1033])
+	id 1wUNNY-0000000Csz1-3NDT;
+	Tue, 02 Jun 2026 11:33:52 +0000
+Received: from tor.source.kernel.org ([172.105.4.254])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wUNLd-0000000CsfM-2kxh
+	id 1wUNNW-0000000Csyq-1v4D
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 02 Jun 2026 11:31:54 +0000
-Received: by mail-pj1-x1033.google.com with SMTP id 98e67ed59e1d1-36bcf3d2565so2349672a91.3
-        for <linux-arm-kernel@lists.infradead.org>; Tue, 02 Jun 2026 04:31:53 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20251104; t=1780399913; x=1781004713; darn=lists.infradead.org;
-        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
-         :to:from:from:to:cc:subject:date:message-id:reply-to;
-        bh=rVXTLc2CkVj0LT6iBpJofb0Ww2wTBXQmu/ysCtlatmY=;
-        b=T0GOKox2TEmEzbGZeDsQVraVy3Qk8DTd0SBAzQZTKaKn+tZdsnD9VAHtfE1bYHZ9eN
-         XPKh3TZKfG+vFmz77h19K8mt7Vy2BOa20rfrwp663oreBGoyjBtbVlMsn002NHjZCAV/
-         M1JDM5goOMk4RWu1LsnKh2V2x69K5Ldb5DuMEkNQZkhZsVmjrTsp48Q/GGwF/CUnzUry
-         y4fqQgVs1A5YsyYCcJjklF7RMK44NBzSTfNocIvMe7U8nxpQbGOfjiiuAG/uRX31wJvY
-         rP/MIs7fPmIO/lcnM4WK89Tj7eqYbq9VUYsno4iRxrcPcdvAJYR2tOyBnQei4aDSxaGU
-         zoNA==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20251104; t=1780399913; x=1781004713;
-        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
-         :to:from:x-gm-gg:x-gm-message-state:from:to:cc:subject:date
-         :message-id:reply-to;
-        bh=rVXTLc2CkVj0LT6iBpJofb0Ww2wTBXQmu/ysCtlatmY=;
-        b=nCxpEMbkBn+9Nk/VrR6DJRR6ZULJV2FgWRLZO1qJKGeaFONLpSXRAc6qlTCPEHWFDh
-         cPvlWwI2jK/FUd1qJePLsR46Vvhf0RmjRPJsQ6s+FdXOj2RYhCGxPC/xtpS4XuWj1fKR
-         iIdBdZogidikzLqK5a6xLHl7gg5p2lQFNYG3zy23xNSnFGIKzek+MIAF/IQLnZLXC+4k
-         Z2TLHRQeDIcRrAr/rzGlEnAnxBRWiHAzd3/5DRLoePiu/BUgjAJQztghfF2maWRKcMge
-         ccwVTLQE0ciUU+BTiioWyfiFs/pnORO0rOwa4W1rRQgJWKx2BCjrcl3Mlm/dK+67vqQD
-         e4QA==
-X-Forwarded-Encrypted: i=1; AFNElJ8VUjM5gz+G7ZqIdcvttmBJJ6D5B90dOQIrKGOJ5ta6UYVb2C9tcgd+Hd7Vlf5CMn0wGL1DRyZlBSuzr5NbdIIN@lists.infradead.org
-X-Gm-Message-State: AOJu0YyRoJSwShz8GHm7cT0ZYnZ1Q2YwxypiE15giFG5U9U01NhuflGW
-	uA4WPzezoxzSHvcisrNl/2V9jkYRT7P2N+NKji1GkfBVTTMNdHnDVHvC
-X-Gm-Gg: Acq92OGuhQ+F+Fq12Ft+ZiW9Trc40Fiq4SzmB/uGG2Fb/TT60S/QeJUl+zAJqKOCcq5
-	6EBd0U8VdZjhBC1TpaKb5JhrAD9CNei4TaEUZQXxBVXhbvOYAWSibzih98JX38IN5Z/flWxNItu
-	gu1b1y7A2PzIe/IqFUcamJkkHPQmDq1yD4WD2K7WAKK1QL1NCrEcl0zcGVz7ZYxLa5sEd+MEWqg
-	hovGN8s2SGcki9kOMiovUqWZfRx3iFAUNzFWbKuNnwhB8OZrj1h06N2TrguNuzzE9nyCUsENx7+
-	Z9U/xbCEeE7llF63PgI5YOQA0y9ClRsY9KluNNhg1naOCRDYFtZUPrfz7DGwv+3TJ+3b/S8Uisr
-	+iO+lNWS8BefsTahXT4E63Lii/KFmXm/VvCRqNS1liCNlDKKAzluFLFkbpp4sa9/6sB+9qmOWyM
-	s37N+2lvyerLXdCPEf783Etq76Eyuw2IP8JGeVryga1AJ4ic2j/sluIrHIbWBTCRDZxP3Ro1IQh
-	MZJmNk=
-X-Received: by 2002:a17:90a:fc4c:b0:36b:e109:1e63 with SMTP id 98e67ed59e1d1-36c685a8f89mr15745380a91.27.1780399910741;
-        Tue, 02 Jun 2026 04:31:50 -0700 (PDT)
-Received: from phuc-desktop.. ([183.91.15.56])
-        by smtp.gmail.com with ESMTPSA id 98e67ed59e1d1-36dd91820e6sm2617126a91.1.2026.06.02.04.31.47
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Tue, 02 Jun 2026 04:31:50 -0700 (PDT)
-From: phucduc.bui@gmail.com
-To: Ban Tao <fengzheng923@gmail.com>,
-	Liam Girdwood <lgirdwood@gmail.com>,
-	Mark Brown <broonie@kernel.org>
-Cc: Jaroslav Kysela <perex@perex.cz>,
-	Takashi Iwai <tiwai@suse.com>,
-	Chen-Yu Tsai <wens@kernel.org>,
-	Jernej Skrabec <jernej.skrabec@gmail.com>,
-	Samuel Holland <samuel@sholland.org>,
-	linux-sound@vger.kernel.org,
-	linux-arm-kernel@lists.infradead.org,
-	linux-sunxi@lists.linux.dev,
-	linux-kernel@vger.kernel.org,
-	bui duc phuc <phucduc.bui@gmail.com>
-Subject: [PATCH v2] ASoC: sunxi: sun50i-dmic: Reorder clock enable sequence
-Date: Tue,  2 Jun 2026 18:31:36 +0700
-Message-ID: <20260602113136.49494-1-phucduc.bui@gmail.com>
-X-Mailer: git-send-email 2.43.0
+	Tue, 02 Jun 2026 11:33:50 +0000
+Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
+	by tor.source.kernel.org (Postfix) with ESMTP id C844560141;
+	Tue,  2 Jun 2026 11:33:49 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 02AEE1F00893;
+	Tue,  2 Jun 2026 11:33:48 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
+	s=k20260515; t=1780400029;
+	bh=MZzE5gk2ciiNwh8D62gBS31R5AnJefl9q3snq9zcyYo=;
+	h=From:Subject:Date:To:Cc;
+	b=owAzFEnicFWBRgJqHkdTWoN1icFPa/bZmfdiwBaDNWDZDMZI5N+GBn1e78fRmTyQk
+	 44eI/v7RkdhhnNQ4To/qj/XdfCZmUYBsoyV9C7UFjJb1rBYKL2aLMz83C5WMkKyzzZ
+	 fPSMVtKW7sDZviz6tFtcSFp41QfC0oBBUZdJUatZsDwNe8cvpIBv1w8cYxEWET7G2G
+	 PTnTZGcT8MLnfmOCVzZKBfgaQiqYtXNbPj/WZ1X1mdFomwUnRjw7/LSyxxME6ob7GN
+	 aBN6/rDXrMh7FDipwiUPz3Nn5AbJZ2iNsq+tabYLvekHHHBsvZ+5aTXtb8Oggb++gi
+	 5K4yu2v18oWgQ==
+From: Thierry Reding <thierry.reding@kernel.org>
+Subject: [PATCH v6 0/4] PCI: tegra: Add Tegra264 support
+Date: Tue, 02 Jun 2026 13:33:22 +0200
+Message-Id: <20260602-tegra264-pcie-v6-0-edbcfa7a78fe@nvidia.com>
 MIME-Version: 1.0
-Content-Transfer-Encoding: 8bit
-X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260602_043153_703573_300D1E2D 
-X-CRM114-Status: GOOD (  13.02  )
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: 7bit
+X-B4-Tracking: v=1; b=H4sIAAAAAAAC/4XQTU7DMBAF4KtUXmPLM/6LWfUeiIWTDOkATSonR
+ FRV7o7TLFpg0c3IT5rvjeSLGCkzjeJ5dxGZZh556EvwTzvRHFLfkeS2ZIEavbYa5URdTuitPDV
+ MkoxONaFpkw6imFOmN/6+9r28bnn8qt+pmdaSdePA4zTk8/XgDOve1m0ggtcAWiGUt7MS5HRgy
+ vmsMrXcd/sPyj19qiF3Yu2e8U6Xic5ao9AFiKgfa3OvPRhXOacwRAc2Ptb2pv//ymyllgiEBDF
+ Wgap9P3PLSTXDcePuxh36v9wVXtlUgaljiG34xZdl+QHEd7pFtgEAAA==
+X-Change-ID: 20260402-tegra264-pcie-e30abe23da07
+To: Bjorn Helgaas <bhelgaas@google.com>, 
+ Lorenzo Pieralisi <lpieralisi@kernel.org>, 
+ =?utf-8?q?Krzysztof_Wilczy=C5=84ski?= <kwilczynski@kernel.org>, 
+ Manivannan Sadhasivam <mani@kernel.org>, Rob Herring <robh@kernel.org>, 
+ Krzysztof Kozlowski <krzk+dt@kernel.org>, 
+ Conor Dooley <conor+dt@kernel.org>, 
+ Thierry Reding <thierry.reding@gmail.com>, 
+ Jonathan Hunter <jonathanh@nvidia.com>, 
+ Karthikeyan Mitran <m.karthikeyan@mobiveil.co.in>, 
+ Hou Zhiqiang <Zhiqiang.Hou@nxp.com>, 
+ Thomas Petazzoni <thomas.petazzoni@bootlin.com>, 
+ =?utf-8?q?Pali_Roh=C3=A1r?= <pali@kernel.org>, 
+ Michal Simek <michal.simek@amd.com>, Kevin Xie <kevin.xie@starfivetech.com>, 
+ Thierry Reding <thierry.reding@kernel.org>, Aksh Garg <a-garg7@ti.com>
+Cc: linux-pci@vger.kernel.org, devicetree@vger.kernel.org, 
+ linux-tegra@vger.kernel.org, linux-kernel@vger.kernel.org, 
+ linux-arm-kernel@lists.infradead.org, Thierry Reding <treding@nvidia.com>, 
+ Manikanta Maddireddy <mmaddireddy@nvidia.com>
+X-Mailer: b4 0.15.1
+X-Developer-Signature: v=1; a=openpgp-sha256; l=3197; i=treding@nvidia.com;
+ h=from:subject:message-id; bh=KMH2/ojjq+sbTJGjYAXNbmCc7sW0lbLCjB6n1xLpikE=;
+ b=owEBbQKS/ZANAwAKAd0jrNd/PrOhAcsmYgBqHr+aOvgqGQG0k6eSTa7z3hs4cYHPs5PzvpZKD
+ LCemG2aNq6JAjMEAAEKAB0WIQSI6sMIAUnM98CNyJ/dI6zXfz6zoQUCah6/mgAKCRDdI6zXfz6z
+ oRV8D/9QlFkG5wdTVG2PVMh5At6JOV6geS7SFf/6N1DV9ISijGAhn5MGG1biY2iYtsynJXvZebc
+ 9q+xRz4qNII+4Me+sR26s6QsAnP7uN+uafxngtmk/a0hjSL2FT9RJZIMdz323IJe9yf8RHUO36v
+ LUNBjmBmHWENiC+/fPq8tFNWgWe0zE3sSqUi1SZP0CUeUrvPErSebaVZl7HyOW234CPG4QmWlya
+ iSYCXJbwIqkwSdy8iKIof0hVOIAw2Td8mPG4V+8399GV/yknzhCI8IyacLzojoSIDFrVsX85q8p
+ vnorZ69nsDQ6wxLjmeYzPu7CfwwxGUtodwxXDfUG/WboYAUjiQuaLaWngjYSN6SaLE8jFf9D+Fx
+ KknKOwcvhFequcX1e9a4Jtx7ElPnCKXP0hAwQP1VPk1gXVYPPcLh999pdLrVJXIGdQX59zIHOmP
+ R8h+gRwuJuDQGHi8LG78kHNsbhYARRfQr9UtyAxQM5mCrVDK8JwDdGSU57lBqZY9BS1zxH2xaan
+ Phv5YPVu9wz+rwo3nihBnUPKpl9/kABlqkcRQQxeYSnkPMabuJ2riMn8MCMuR5SBOQLP6X5/8Ib
+ WxCJLMmK+Cl39iYjiloRa09T/rArjOo+THqrslYwZXT0tRwxLCu6RdWS6lTvp0SSoZjDWzfOfWj
+ gENYK4HUDB8AWeA==
+X-Developer-Key: i=treding@nvidia.com; a=openpgp;
+ fpr=88EAC3080149CCF7C08DC89FDD23ACD77F3EB3A1
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -106,51 +104,84 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-From: bui duc phuc <phucduc.bui@gmail.com>
+Hi,
 
-Reorder the runtime resume clock enable sequence to match the hardware
-dependency and ensure symmetry with the suspend path.
-The bus clock drives the register interface and must be enabled before
-the DMIC module clock. This aligns the resume sequence to be the
-exact reverse of the suspend sequence.
+this series adds support for the PCIe controllers found on the Tegra264
+SoC. There are six instances, one of which is for internal purposes only
+and the other five are general purpose.
 
-Signed-off-by: bui duc phuc <phucduc.bui@gmail.com>
----
+The first patch tweaks the DT bindings slightly to avoid new DT compiler
+warnings that slipped through because they are now disabled by default
+(-Wno-unit_address_vs_reg).
 
-NOTE: This patch is compile-tested only.
+Before adding the driver in patch 3, patch 2 introduces some new common
+wait times for PCIe and unifies the way that drivers use them. Finally,
+patch 4 reorders the reg and reg-names property entries to match the
+bindings changes from patch 1.
+
+All of the prerequisites were merged in v7.1-rc1, so this can be applied
+to the PCI tree directly. Optionally I can also pick up patch 4 into the
+Tegra tree, but there should be no conflicts, so feel free to pick this
+up with the rest.
+
+Thanks,
+Thierry
+
+Changes in v6:
+- address review comments from Sashiko
+- rebase onto v7.1-rc1, adjust DT bindings patch accordingly
+- Link to v5: https://patch.msgid.link/20260526-tegra264-pcie-v5-0-84a813b979d7@nvidia.com
+
+Changes in v5:
+- address review comments for the PCI driver patch
+- Link to v4: https://patch.msgid.link/20260402-tegra264-pcie-v4-0-21e2e19987e8@nvidia.com
+
+Changes in v4:
+- strip out dependencies that are going in through the ARM SoC tree
+- revert bindings to oneOf construct so that we don't produce new DTC
+  warnings
+- Link to v3: https://patch.msgid.link/20260326135855.2795149-1-thierry.reding@kernel.org
+
+Changes in v3:
+- integrate PCI standard wait times patch into the series to maintain
+  bisectability
+- fix review comments from Mikko
+- Link to v2: https://patch.msgid.link/20260320225443.2571920-1-thierry.reding@kernel.org
+
 Changes in v2:
-  - Clarify in the commit message that the resume sequence becomes the
-    reverse of the suspend sequence.
+- fix an issue with sanity-checking disabled BARs
+- address review comments
+- Link to v1: https://patch.msgid.link/20260319160110.2131954-1-thierry.reding@kernel.org
 
- sound/soc/sunxi/sun50i-dmic.c | 8 ++++----
- 1 file changed, 4 insertions(+), 4 deletions(-)
+Thanks,
+Thierry
 
-diff --git a/sound/soc/sunxi/sun50i-dmic.c b/sound/soc/sunxi/sun50i-dmic.c
-index eddfebe16616..7aff1afdf265 100644
---- a/sound/soc/sunxi/sun50i-dmic.c
-+++ b/sound/soc/sunxi/sun50i-dmic.c
-@@ -323,16 +323,16 @@ static int sun50i_dmic_runtime_suspend(struct device *dev)
- 
- static int sun50i_dmic_runtime_resume(struct device *dev)
- {
--	struct sun50i_dmic_dev *host  = dev_get_drvdata(dev);
-+	struct sun50i_dmic_dev *host = dev_get_drvdata(dev);
- 	int ret;
- 
--	ret = clk_prepare_enable(host->dmic_clk);
-+	ret = clk_prepare_enable(host->bus_clk);
- 	if (ret)
- 		return ret;
- 
--	ret = clk_prepare_enable(host->bus_clk);
-+	ret = clk_prepare_enable(host->dmic_clk);
- 	if (ret) {
--		clk_disable_unprepare(host->dmic_clk);
-+		clk_disable_unprepare(host->bus_clk);
- 		return ret;
- 	}
- 
--- 
-2.43.0
+---
+Thierry Reding (4):
+      dt-bindings: pci: Strictly distinguish C0 from C1-C5
+      PCI: Use standard wait times for PCIe link monitoring
+      PCI: tegra: Add Tegra264 support
+      arm64: tegra: Reorder reg and reg-names to match bindings
+
+ .../bindings/pci/nvidia,tegra264-pcie.yaml         |  79 ++-
+ arch/arm64/boot/dts/nvidia/tegra264.dtsi           |  48 +-
+ drivers/pci/controller/Kconfig                     |   9 +-
+ drivers/pci/controller/Makefile                    |   1 +
+ .../controller/cadence/pcie-cadence-host-common.c  |   6 +-
+ .../pci/controller/cadence/pcie-cadence-lga-regs.h |   5 -
+ drivers/pci/controller/mobiveil/pcie-mobiveil.c    |   4 +-
+ drivers/pci/controller/mobiveil/pcie-mobiveil.h    |   5 -
+ drivers/pci/controller/pci-aardvark.c              |   7 +-
+ drivers/pci/controller/pcie-tegra264.c             | 556 +++++++++++++++++++++
+ drivers/pci/controller/pcie-xilinx-nwl.c           |   9 +-
+ drivers/pci/controller/plda/pcie-starfive.c        |   9 +-
+ 12 files changed, 655 insertions(+), 83 deletions(-)
+---
+base-commit: 9153998d6bc78594c0c853e0eea84db778855a47
+change-id: 20260402-tegra264-pcie-e30abe23da07
+
+Best regards,
+--  
+Thierry Reding <treding@nvidia.com>
 
 
