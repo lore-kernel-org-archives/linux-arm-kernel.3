@@ -4,70 +4,71 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 84A1CCD6E4A
-	for <linux-arm-kernel@archiver.kernel.org>; Tue,  2 Jun 2026 10:16:45 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id E7897CD6E4A
+	for <linux-arm-kernel@archiver.kernel.org>; Tue,  2 Jun 2026 10:16:50 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	MIME-Version:Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-Type:
-	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
-	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
-	bh=4FJlifkRqPEqQqgwEVL3qsdnCft9gZAAhkwAUUbqYm4=; b=AzanIwuVXyt7N/uI26tIpcG6iE
-	T2ZoYwW1eMKG4oGaPeRV3ievhonPyhSiktrS5tjDYJDFja4grhlkcZo9YpxyzuFB4Uie6XYkjTdde
-	I+yGGILqLEVXLtOHputB9FYy/LLTD/6gyNCKWinOhrLvWPMLy1BIeLiwad7Nuu7omzHP5mUAXFTQl
-	pkgvhBCYkhQDW8KfxswUKpANxw4MEYQvfyMgVurUrcXYEqqjaZJw0jaeuKq/rAAnGfX2u5nt6ViXg
-	o+TbQJiKZ4L4s9sZ9kKZQYtE9fMXcSFNB3Q5Ra8O2C82z8JWQOEr1oeRFW8WzHWyV6JdZ4ej/x/NM
-	UXlmWkDQ==;
+	MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:
+	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=itZ+htTWHTauD3C5JTmFzIrqx+Hfh0DDPlT3jqkIXr8=; b=RKUoorQkdeqbned3RxIcpUXGuw
+	XiKeAR+griTIh8i8LhSpgvsqute0cOCofAtFS3ZIFEVEa5diO/RBkGCOCTgDShm1JBBD72Y2hXeBf
+	WwxlecBKBzosZtTR5YJc56ZPK9mWy61Mgn1kUQVbAmzCyXPCiieRhhLSmdEshFSQZNHMKv2e6Wf2j
+	7gM/bEgQteotszIsuRVQ7r2jTvbqKz1+eFI8xShkn7mh0WceRibEotHxDlAsKM3N2JKPC0vYQX1eH
+	NOPt2kyCzAlLd9vgwnekIc6//xFEU0+a52ighZBviJXTagd0uzye32dbVLNSDkFEVW918ON7inEVe
+	lcW/mWSQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wUMAn-0000000CkNs-07pF;
-	Tue, 02 Jun 2026 10:16:37 +0000
-Received: from mail-pl1-x633.google.com ([2607:f8b0:4864:20::633])
+	id 1wUMAt-0000000CkPt-26FU;
+	Tue, 02 Jun 2026 10:16:43 +0000
+Received: from mail-pl1-x62e.google.com ([2607:f8b0:4864:20::62e])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wUMAk-0000000CkMo-36Zn
+	id 1wUMAq-0000000CkOp-45eF
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 02 Jun 2026 10:16:36 +0000
-Received: by mail-pl1-x633.google.com with SMTP id d9443c01a7336-2c0b9328c4aso18418535ad.0
-        for <linux-arm-kernel@lists.infradead.org>; Tue, 02 Jun 2026 03:16:34 -0700 (PDT)
+	Tue, 02 Jun 2026 10:16:42 +0000
+Received: by mail-pl1-x62e.google.com with SMTP id d9443c01a7336-2c0c3543590so15890955ad.2
+        for <linux-arm-kernel@lists.infradead.org>; Tue, 02 Jun 2026 03:16:40 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20251104; t=1780395393; x=1781000193; darn=lists.infradead.org;
-        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
-         :to:from:from:to:cc:subject:date:message-id:reply-to;
-        bh=4FJlifkRqPEqQqgwEVL3qsdnCft9gZAAhkwAUUbqYm4=;
-        b=FuSuRdQbtvdr11DAZ7znVOWpXzfwIuAzlMhhFg1HBbvqF4uQp84oFpFL5hpUrui0LR
-         opEgvDdhbFPSvKeBa1hXlzTc0tkEAmITDeWFL9VRR87zh7gt04iwfCTQsk6NiTCbfUzf
-         /aoCGTqZ3Pfb7ag1A89N7/LmbTxXnDX365fxArv68B7eEz9g91ODO3rV9nGx0rZb6gap
-         /nHWUDMxBOAWsxb6j79LVfMXS4hhP+Ot3nG6pZkccumAqruEKvixMtE5AFq0jH3Swe2P
-         dI1TLmyh+LSZ2Daz+B3Ew+dwqNhfKahRI3hFT8kG1MEwVsr15kZwPL5N9LsduDf1u0CY
-         8IHQ==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20251104; t=1780395393; x=1781000193;
-        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
-         :to:from:x-gm-gg:x-gm-message-state:from:to:cc:subject:date
+        d=gmail.com; s=20251104; t=1780395400; x=1781000200; darn=lists.infradead.org;
+        h=content-transfer-encoding:mime-version:references:in-reply-to
+         :message-id:date:subject:cc:to:from:from:to:cc:subject:date
          :message-id:reply-to;
-        bh=4FJlifkRqPEqQqgwEVL3qsdnCft9gZAAhkwAUUbqYm4=;
-        b=tOyAXE+Z+xGlumuzJY/TuYld0oLQZ6XGP35QcWmwmC2o0qEn1g/w2Hpw32LUb8xx5x
-         g5vEKd/biFd9c/3M00bTpeTnlfhqA2GF3lM74skywGeN3TwFhSH8uM9SL0qDn4DZsW7h
-         THAdQE5ig8VLq2O/EnzDBQJLGbjPc8aPpW2XeX8gfoANHaabL17JeYT/lDQ5s0pZ3dIi
-         A4ui0TXvF77H1cjIpizxC5X3pjwNkl+PfDKn7iOyaNcFVifmY+jjaO3lasBEVDJzj6CF
-         /JuPVqiFkNYQ2q5XtNjhx6O97RVsVvpVAsWEzQxP2Hy01eLxytpjnroZc3H3LtzzOmbm
-         71aw==
-X-Forwarded-Encrypted: i=1; AFNElJ8FaErhJTpZRm6ib+SwrZh1wok+3fOu6Xwqh/wQ/J/GI/L0O0hNUiCg8JZTF0/WAVK+ICGLnyg6bHSD7nuMgA7i@lists.infradead.org
-X-Gm-Message-State: AOJu0YxNFfbnyhTUBbWgErjJhViiu+z6qcRTeMQ+KXaqmuWiKDHernY0
-	GLeVNbNvqIUJ/CB3pQLsw8PRlc0VdTBS0bEin2zCXD0MDp74mJs8OuRE
-X-Gm-Gg: Acq92OF0gaxCDyqSzTscnj/v1F4hUCmNSTBy9c34LeREllwhLjkd0J/kLujMsp4J2KE
-	ut3U1HtCazIrCnsQXHDB6OTk56jPmE1uyVqTt3+MMNxJVXmYRpneZoFgCVzTjjQglErjN84bey3
-	VaNFp8oCKqwY5uxXYT3oPC8sU9/HDkjuHil3wCyfFRx+hSThr/Lt1nTIjFfCEpmEG5L+0NLQ2w1
-	jAqW7eFm8uIVJ0fimxx1SrtroSlexs6VX+hHSzOgeb/4MMu0YEyBPOlnL3rVRUyulnwgZzzFqZe
-	YAGbYeDK6iRsKTwVbmGYkINjYUC6BqrYi8jBiHhsgtT1JC9DNR4OfExpSXHJtiqeHfL4eyxWoq1
-	YG4WS4QMGh+Tklm4m8IMmjGWVv4BBC2SCTHOhcAoAX2vWBTzeY+ej5FTat80VOqRL1Kkpjya/ZV
-	YXAShNkxXkzmFjc0Rryp4Usy+VHtmZhrhKM51HNm8lLmkK4nP5KzZot7BLb4Rgl6FVERCT
-X-Received: by 2002:a17:902:ef49:b0:2c0:db23:4c9 with SMTP id d9443c01a7336-2c0db23074dmr97094065ad.20.1780395393395;
-        Tue, 02 Jun 2026 03:16:33 -0700 (PDT)
+        bh=itZ+htTWHTauD3C5JTmFzIrqx+Hfh0DDPlT3jqkIXr8=;
+        b=qcNRcidrxqqUoMWeMfdpxmKOezW7JfGm6cQL4+gry1379aWNrAMudzitTMtEqBom2f
+         mylyXo7mrTbE7pv6KhZQHYD+sBXoWGItfj9T/dI3/yoi1aoSSYV//CL6zIwm6Jvs3okD
+         zbNLxc7zlXwmpMoFT9dziaaZBnselBOBgN+FNuIzvzUe+d7ngIESvTfa7HO92NJBRZa0
+         wXRDQaa7fuxuRPfgz4DYe9Y6YTHbFkNORVL+vfBz/hKxGtixm9DueEYWdN0wQdvaBdSe
+         K0VcOtZw+s0aK+5WLIKcpI5tFb26WMDB7oM/F57QIHxvmLeqoYgqoxokiMDL7Sp5HDTY
+         z/2A==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20251104; t=1780395400; x=1781000200;
+        h=content-transfer-encoding:mime-version:references:in-reply-to
+         :message-id:date:subject:cc:to:from:x-gm-gg:x-gm-message-state:from
+         :to:cc:subject:date:message-id:reply-to;
+        bh=itZ+htTWHTauD3C5JTmFzIrqx+Hfh0DDPlT3jqkIXr8=;
+        b=hMxaUMxFy+TwOvmbHzqJr5AzBOXFhz4LMnLMugGlY2vXp9dEanwx5LgG4NQCagI8b4
+         YWzzZ21Wzs9DYaGjOnza3na3TiZ64wHWZ6BvCws8YKYwVp6soW4cmna56LySX3G7XAOh
+         TyHNFEf85muisyv1NrXRbqeIfDMsE5ZYPoSM1run7/XlMQObqPRnqCsjjIFe75jqma42
+         kcev36EPi9kTZJvZmPTX3ALpn4bouzWA6IyoojYRoUZIXHfR0CGjWJlC08XhT6QbB0Mc
+         sDlwbQDvGRfLqxcRDWjWddWwdzM7Wes6O2Gr32enXC+pTFEhxtKQr8MjRLMCMTdItKlG
+         y26Q==
+X-Forwarded-Encrypted: i=1; AFNElJ/xK2ioUPFwi+79g2cLK7N2mRg+kEQU0n/cc3BajAOdaPceIx9zm/zU/QQn0rUXd6mDXmHDxNooVqhmV+tRxyGS@lists.infradead.org
+X-Gm-Message-State: AOJu0YzMObUiaaAlQc9o+eZmrtsDRK8hJKBx+OMuhL/BJiuvQ+/6NAHy
+	qL5T9rP2VeB2peEjZ3DCDQuF1KwXDyYF+IZ5qS9WmPU9d5Fy9+nszEN5J+37Sg==
+X-Gm-Gg: Acq92OFjoc61ytt9bi8Wj/ttzbJ/AVlBBhB9Z78eA4h9oIIqSYeSvTqDvj9QoInXoSM
+	H25Lus5QRDx0NBAJOD9tiW0/+pzSMz9Ok6uk4rnyfSexXor0SXxMQ1mMbG1HSunLfcm60TfX59D
+	rKUigMmI9nfC+ra0d59PcOBOW2tBOHdxwY+MbrfsKEjkKiqJntAG6A1JXHLFfMo4PR3Ka3+Ci2C
+	a2y/g/PicELJrzbzLpXHix51vITfCzgQ6FKy+bOTnUhq3NxBEfxSaAVQ5oPuUsoRroDobiOXwfx
+	TxTZ2pLAfF3nSMnYtlbqiw6jjGVApLfqNuueiop5aN+XfEcX+xjJ0vAgAz/Aofn2mPoi4u7Tob/
+	wA+2ino9cCwbKWCaCop6zCyUZeVK+DcseQgADXbUiydtTi7d3D9KQfdzGN7ayhNE9rX1kx6/mdV
+	8f0whYtjG5OT8y+NPpQFV+4qyABogSYYf3m89hPPBlQI4CuXulewHMB0lSDKneM6cYhGRl
+X-Received: by 2002:a17:902:e88c:b0:2bf:30c8:bfa1 with SMTP id d9443c01a7336-2bf368bd8aamr168629675ad.41.1780395399946;
+        Tue, 02 Jun 2026 03:16:39 -0700 (PDT)
 Received: from phuc-desktop.. ([183.91.15.56])
-        by smtp.gmail.com with ESMTPSA id d9443c01a7336-2bf239fd84fsm132766305ad.23.2026.06.02.03.16.28
+        by smtp.gmail.com with ESMTPSA id d9443c01a7336-2bf239fd84fsm132766305ad.23.2026.06.02.03.16.35
         (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Tue, 02 Jun 2026 03:16:32 -0700 (PDT)
+        Tue, 02 Jun 2026 03:16:39 -0700 (PDT)
 From: phucduc.bui@gmail.com
 To: Heiko Stuebner <heiko@sntech.de>,
 	Mark Brown <broonie@kernel.org>,
@@ -83,15 +84,17 @@ Cc: Rob Herring <robh@kernel.org>,
 	linux-arm-kernel@lists.infradead.org,
 	linux-kernel@vger.kernel.org,
 	bui duc phuc <phucduc.bui@gmail.com>
-Subject: [PATCH v2 0/5] ASoC: rockchip: Reorder clock enable sequence
-Date: Tue,  2 Jun 2026 17:16:03 +0700
-Message-ID: <20260602101608.45137-1-phucduc.bui@gmail.com>
+Subject: [PATCH v2 1/5] ASoC: dt-bindings: rockchip-spdif: Correct SPDIF clock descriptions
+Date: Tue,  2 Jun 2026 17:16:04 +0700
+Message-ID: <20260602101608.45137-2-phucduc.bui@gmail.com>
 X-Mailer: git-send-email 2.43.0
+In-Reply-To: <20260602101608.45137-1-phucduc.bui@gmail.com>
+References: <20260602101608.45137-1-phucduc.bui@gmail.com>
 MIME-Version: 1.0
 Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260602_031634_785790_4E103EB4 
-X-CRM114-Status: GOOD (  11.50  )
+X-CRM114-CacheID: sfid-20260602_031641_020589_1D8993D3 
+X-CRM114-Status: GOOD (  12.29  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -108,49 +111,32 @@ Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.i
 
 From: bui duc phuc <phucduc.bui@gmail.com>
 
-Hi all,
+Update the binding descriptions to match the actual clock usage, where
+'mclk' is the controller clock and 'hclk' is the bus clock.
 
-This series reorders the runtime resume clock enable sequence in the 
-Rockchip SPDIF and PDM drivers to enable the bus clock before the 
-functional controller clock.
-
-It also updates the SPDIF DT binding clock descriptions to match the 
-actual clock usage in the driver.
-
-Additionally, this v2 adds two new patches addressing issues reported 
-by the Sashiko AI Review tool regarding regcache sync failure handling 
-and runtime PM resume status validation.
-
-Testing:
-  - Patch 1: Verified (dt_binding_check passed).
-  - Patches 2 to 5: Compile tested only. Please help test if you have 
-    the relevant Rockchip hardware.
+Signed-off-by: bui duc phuc <phucduc.bui@gmail.com>
+---
 
 Changes in v2:
-  - Include two new patches to handle runtime PM resume and regcache sync 
-    failures based on Sashiko AI Review.
   - Update commit message based on Krzysztof's review
-  - Clarify in the commit message that the resume sequence becomes the
-    reverse of the suspend sequence.
 
+ Documentation/devicetree/bindings/sound/rockchip-spdif.yaml | 2 +-
+ 1 file changed, 1 insertion(+), 1 deletion(-)
 
-Best Regards,
-Phuc
-
-bui duc phuc (5):
-  ASoC: dt-bindings: rockchip-spdif: Correct SPDIF clock descriptions
-  ASoC: rockchip: spdif: Reorder clock enable sequence
-  ASoC: rockchip: rockchip_pdm: Reorder clock enable sequence
-  ASoC: rockchip: spdif: Restore regcache cache-only mode on sync
-    failure
-  ASoC: rockchip: rockchip_pdm: Handle runtime PM resume failures in
-    set_fmt
-
- .../bindings/sound/rockchip-spdif.yaml           |  2 +-
- sound/soc/rockchip/rockchip_pdm.c                | 16 ++++++++++------
- sound/soc/rockchip/rockchip_spdif.c              | 11 ++++++-----
- 3 files changed, 17 insertions(+), 12 deletions(-)
-
+diff --git a/Documentation/devicetree/bindings/sound/rockchip-spdif.yaml b/Documentation/devicetree/bindings/sound/rockchip-spdif.yaml
+index 502907dd28b3..b174d7498029 100644
+--- a/Documentation/devicetree/bindings/sound/rockchip-spdif.yaml
++++ b/Documentation/devicetree/bindings/sound/rockchip-spdif.yaml
+@@ -45,8 +45,8 @@ properties:
+ 
+   clocks:
+     items:
+-      - description: clock for SPDIF bus
+       - description: clock for SPDIF controller
++      - description: clock for SPDIF bus
+ 
+   clock-names:
+     items:
 -- 
 2.43.0
 
