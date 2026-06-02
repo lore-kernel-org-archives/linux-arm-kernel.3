@@ -4,93 +4,159 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 4EA65CD6E4A
-	for <linux-arm-kernel@archiver.kernel.org>; Tue,  2 Jun 2026 08:03:36 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 8CFF7CD6E4A
+	for <linux-arm-kernel@archiver.kernel.org>; Tue,  2 Jun 2026 08:05:34 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:Subject:Message-Id:Cc:To:From:Date:MIME-Version:Reply-To:
-	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
-	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
-	bh=lGXmSGFIRxw5W1S4psSWKsImg7Oh95YsvbBNegnem7g=; b=dILfaAfLgMmADuO00tJKDnX3pY
-	zhiaC+cAB/8zgrfhlywYN4s+kBw9e7n9RCz4xePOhTv5hont9E8cEv63dWDGKIcUqy76eZb1gQw10
-	XWhxtQ5SB0nVa4/d6y1yQAB/xKFeJHKiXpyUG48dLeGEaGUa5DFQPQ/sMa663u8tPkDuIwoF7o3mh
-	dluNeE9dyKu5b69eADRYXzZZ+mk5Pf8q5NEO+K/YJvK2Lch5tToBlOCMaka2Ky7Y9WbC4HLLgN8t1
-	gwzgkKHG1PBov11ePws7YWt0Pim6CtmlwQtQifhHVZXsahEzLiS4DHT4HtMc3bIxuiDwyyLvDmhhD
-	947O+tkQ==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:
+	Content-Transfer-Encoding:Content-Type:In-Reply-To:From:References:Cc:To:
+	Subject:Date:Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=5310TDftYQ6ldwH416jWwpewjp+kWllnfD9IpKfQnmU=; b=LrazXgejRit4gBmG3ebQg8qyYU
+	4/tYp7TGpacoyiwo9oa4rvWjihG29I6I0hsKAtFef2kHFCq0nLDWxBd5bw8cIPhK47ztFq3gikMgZ
+	sUPaLIqAhIdXEQvuyV+ORj2B53m0FG7ks6ADuZ+y+opgF4FSWTk3bVo2x/8WSuncTY1NzPXRHawqQ
+	pqI32PLrbYRfguha/ROlySz3obCZDJ6+BjndJTXHLjYLSN4rNPhiEyghoL8SakeH7gf05nad88CyA
+	GtmxoQp5r0zDhN7nDlnTL8UDDcPFIkxCw4M5GxXg51FLWAFmxbM0okRYxfYuUz+Pze3VaHEJufTmj
+	FwVsn7Vg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wUK5x-0000000CXFy-1f1U;
-	Tue, 02 Jun 2026 08:03:29 +0000
-Received: from fout-b2-smtp.messagingengine.com ([202.12.124.145])
+	id 1wUK7r-0000000CXQm-3XMW;
+	Tue, 02 Jun 2026 08:05:27 +0000
+Received: from mail-norwayeastazon11013031.outbound.protection.outlook.com ([40.107.159.31] helo=OSPPR02CU001.outbound.protection.outlook.com)
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wUK5t-0000000CXFU-3xuP
+	id 1wUK7p-0000000CXQ3-2YLn
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 02 Jun 2026 08:03:28 +0000
-Received: from phl-compute-04.internal (phl-compute-04.internal [10.202.2.44])
-	by mailfout.stl.internal (Postfix) with ESMTP id B19E91D00009;
-	Tue,  2 Jun 2026 04:03:24 -0400 (EDT)
-Received: from phl-imap-05 ([10.202.2.95])
-  by phl-compute-04.internal (MEProxy); Tue, 02 Jun 2026 04:03:24 -0400
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=arndb.de; h=cc
-	:cc:content-transfer-encoding:content-type:content-type:date
-	:date:from:from:in-reply-to:message-id:mime-version:reply-to
-	:subject:subject:to:to; s=fm3; t=1780387404; x=1780473804; bh=lG
-	XmSGFIRxw5W1S4psSWKsImg7Oh95YsvbBNegnem7g=; b=Lq6i9H7h30HaajJArR
-	IJvUpDcLVuf//GX+fjV8rWwA7W23frAFyO9KBXg12u1xr9CJTcqLT/ToBefuFgj7
-	QiKL+mDTJwyP+nm/EJtugDsOk+5Bv8AIhS8wuqijUSzodewalaOd4HPfxqY3zdGf
-	RlJOta55lZgLuuRNlvGDlEHr88F11JPsZ7wyb6pZgrHaTWmk3CmdOSs60OAB1qm7
-	6OfbzMGv1vGNJgds53yNiNoiGdjoDf89M7lS6rD0teGTinsBP86zg608xe4v4APM
-	prwhJ3uXychW+DzXgFTsgarkxMvofg8s7T74l4V6Nopmh/RXWuHTRqaeIkNIjZ0Q
-	0zqw==
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=
-	messagingengine.com; h=cc:cc:content-transfer-encoding
-	:content-type:content-type:date:date:feedback-id:feedback-id
-	:from:from:in-reply-to:message-id:mime-version:reply-to:subject
-	:subject:to:to:x-me-proxy:x-me-sender:x-me-sender:x-sasl-enc; s=
-	fm1; t=1780387404; x=1780473804; bh=lGXmSGFIRxw5W1S4psSWKsImg7Oh
-	95YsvbBNegnem7g=; b=aPhoWO/DeWxFjOh4QGX0+NGNHgjfItci/odL2X/5vFb9
-	ZVN8LePxj3f/c3/XWTMlHllr7uwvUidiaUSQmVhQi9M5JTaUQYZ7JKt0JQadD6C4
-	6wsr0P5Z6hV7hsXX17DKoz8Ejc9UfZl35vLwwi/pLyOhg7plLlgDzZPUXvtENEk7
-	EnoYXhBxFqig3gRYvWdYGotHnnM2aD2qj6dSUt9Zk0QGX8ggLCILdq9VVmJM8pB4
-	Ue//IqJBlb49HLi4bsSiv5cuFEUK2K0y6G4ixKTO6M/XcCIUQ70/09HNeJ/MDLB4
-	OqcbqmPRE3I1cisgz5vALgDdUQ7FInJd7E1Osnz4CA==
-X-ME-Sender: <xms:TI4eaqbvnh-KDqW92_fXUY5U6f4Jc47CSoveUXLFfA4wM5ScnP-h8w>
-    <xme:TI4eaoMBkv6QicH0xwJTJYao2jhx4o3PLd2llDZ1LZ5k7QmD8nbgdjIE4ugFp0OME
-    -IGTvwpjPs3rp_cqUn5Xl9HxyraHxtNQgbVdjQ81xxnpWNNum8b5Fw>
-X-ME-Proxy-Cause: dmFkZTFkCBjeOzK27OZlT8TCpLHMh0wPKNivPsBRQ4KXfdCIvBncT0uoU4oljEEx4lnhjP
-    Iymx/e26CX8qEBAB6sL45gGjW5ttfxkWfePDWlMNTsHtRQWCCU0WVbNvy40bsLbQBKy6DS
-    bT4Mp43bqRT2B/bzIicT5vd/8rAW7qPjynn8yPckFB599tU8Kdek288olub1mjfOLnyBVZ
-    n3EM0P8aRIQnBfPtgVCVshgnpnGN8UubxnkHa65iXjX0II974XaZ2ezrrXQqbDT6eOS+i0
-    OmuRpj8Nn/BQ7/7D+sEeyh11x30JkMEPv1iEVPQl8mTz7DdIrTReqYbi2wuyCJ5u2rU6jq
-    lkfkceNbXlQqcXsTv2ASHmcTBpUVk9yPnhugz88vvrFb+PC/hZ4HLF/Ud1/KEkYppwuq5A
-    85SL4IggIq97XLKV6akj2S0tg+rpN80AapF5dyLhiYiWQL090sHJweXa4qT//D+fiwLMPA
-    jNnxZE6BbDuz3+dHmLjXjbWEeh/orIqERYbBI2b5FpdkX4XAUr4xOrS3CCDkqAUaJXYjlJ
-    CTW+cx+zuO//u3RL8GzDls/j53eZ9lUgiay7eH96fcQGDRfHRVbrOYSQ/+TC0XNlrgRGDQ
-    dvQpcsVgV3E8CydP0s/jltFKi/oWSeuzerSwjr7gJY/YapbJlMeOHP1mm8yQ
-X-ME-Proxy: <xmx:TI4eakMZ7f-ApYEZagNf8Xxl8H7WhdNaFknPQUcNZl1aO1aFaCHSHQ>
-    <xmx:TI4eameGfAPFMMuXhGwKfBNje7NAPUjo590CRsN4040s9A-rhJQ1Hw>
-    <xmx:TI4eahvuWhuxEf5pLDuq8O_w_eIRCvUx5PRdw3hBAu_l1DIuLK6hAg>
-    <xmx:TI4eanlgnXcdm6XDZozPzOYSLXIbpd0HgMhGUSiaGBe17EstGtW0iw>
-    <xmx:TI4eamtXSx-xissyFJ83fHShhUllUCmHKCZI1-yeKooP3h9UuUTVNAFZ>
-Feedback-ID: i56a14606:Fastmail
-Received: by mailuser.phl.internal (Postfix, from userid 501)
-	id 21D6A1820082; Tue,  2 Jun 2026 04:03:24 -0400 (EDT)
-X-Mailer: MessagingEngine.com Webmail Interface
+	Tue, 02 Jun 2026 08:05:26 +0000
+ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
+ b=GH7S5UdX5o28weQCtb05d8ScRLFDkl+N8jfyCCfLqcU2xbuvGyzFj0tmWqls5rbt1WRoMzLZZlErD3xAWGMebJB46sQHbH5UgnemQavpqew1PgsI0T2qTX0vkKhpN90fiZkDkVD7YfiblVUUOXXM2J5AYv0vJae53XzjcyOoiukSmTBPKkdCYREInQl3cwdnZRqDD6ybA6FBnkKQZ3UH/kMpa3I3LH3xy66f0ZTPqMPBuKmbCzvp8CI1ETMHeIqZcYG1Xx/xArLqL3nLIhwu4x/b6IJpb9naPwkU6XQYjNdodFTs3HVg9xyV+4qTbsW5ECTnyT3/6UI3NqJQb8wffA==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
+ s=arcselector10001;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
+ bh=5310TDftYQ6ldwH416jWwpewjp+kWllnfD9IpKfQnmU=;
+ b=VbIDq+kLhqCP0A+Qw8Y0ga1ITfg4EBpVXHrYnNzTbNhSGcyy3OgYcAtFyJBqXn1a1EX1+v0YGf/+v4zoUj0Mcg++f+gJCL47UMypkHyXYr1goQArQi/7FOxle4DXpqW0zrLKKCADP1xfDPAi8A0wB+DUXFpEzr7U+F4GNQXueklfDIpwmjepAhqbSVartJKAWooDAMo5EkQ9NcKol5GPi8BMl9wGDhIPsIsGEfVsCiriMqHgVpyb5ytJDnWDFEL92UPBElSqDP7YakW43HdYC+zOJha+5qqBxnrma6lbq2LpX/iWcJH4dviezSbHq+bNgqGnrJV5dMpOCgLX5iDJgA==
+ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
+ smtp.mailfrom=oss.nxp.com; dmarc=pass action=none header.from=oss.nxp.com;
+ dkim=pass header.d=oss.nxp.com; arc=none
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=NXP1.onmicrosoft.com;
+ s=selector1-NXP1-onmicrosoft-com;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
+ bh=5310TDftYQ6ldwH416jWwpewjp+kWllnfD9IpKfQnmU=;
+ b=jU+2ua4mwvQUticxB67tw6dKrfDS0DdzXqu6jDubAZdScVjUj8pIYPugSpfyQkfe/rkDcF6AOHSbyC2yHji+aNq4yRTIVFJN+4GZQIPX+MxhtknR/Mz6MKBwfthhJysS39dL0oE/Eu/sre8YqLmdXndK6Jh1UAwIjWjA/8pZ8QoP2nsCxG+NhOe+tjKdRP3yI9Mpn94y4smy6CS6/4om40oDROTmx+vrXOwdLvGccUfB4v+kHaFVUiX15yH1R10IYtzIBlYz2f7auhQu6rcMdddfChVPokOO/XcwcLT16PCYT2rhGCKXXr8/fvSE1Ap3qsTY3HU7FTCSobS+XMKi1Q==
+Authentication-Results: dkim=none (message not signed)
+ header.d=none;dmarc=none action=none header.from=oss.nxp.com;
+Received: from AM9PR04MB8179.eurprd04.prod.outlook.com (2603:10a6:20b:3b5::20)
+ by PA1PR04MB10503.eurprd04.prod.outlook.com (2603:10a6:102:446::5) with
+ Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.21.92.7; Tue, 2 Jun 2026
+ 08:05:19 +0000
+Received: from AM9PR04MB8179.eurprd04.prod.outlook.com
+ ([fe80::a551:cde0:6730:1d85]) by AM9PR04MB8179.eurprd04.prod.outlook.com
+ ([fe80::a551:cde0:6730:1d85%6]) with mapi id 15.21.0092.006; Tue, 2 Jun 2026
+ 08:05:19 +0000
+Message-ID: <48494e7b-4cba-4372-9090-f40240d820c4@oss.nxp.com>
+Date: Tue, 2 Jun 2026 11:05:02 +0300
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH v9 6/7] pinctrl: s32cc: implement GPIO functionality
+To: Linus Walleij <linusw@kernel.org>
+Cc: Linus Walleij <linus.walleij@linaro.org>,
+ Bartosz Golaszewski <brgl@bgdev.pl>, Rob Herring <robh@kernel.org>,
+ Krzysztof Kozlowski <krzk+dt@kernel.org>, Conor Dooley
+ <conor+dt@kernel.org>, Chester Lin <chester62515@gmail.com>,
+ Matthias Brugger <mbrugger@suse.com>,
+ Ghennadi Procopciuc <ghennadi.procopciuc@nxp.com>,
+ Larisa Grigore <larisa.grigore@nxp.com>, Lee Jones <lee@kernel.org>,
+ Shawn Guo <shawnguo@kernel.org>, Sascha Hauer <s.hauer@pengutronix.de>,
+ Fabio Estevam <festevam@gmail.com>, Dong Aisheng <aisheng.dong@nxp.com>,
+ Jacky Bai <ping.bai@nxp.com>, Greg Kroah-Hartman
+ <gregkh@linuxfoundation.org>, "Rafael J. Wysocki" <rafael@kernel.org>,
+ Srinivas Kandagatla <srini@kernel.org>, Alberto Ruiz <aruizrui@redhat.com>,
+ Christophe Lizzi <clizzi@redhat.com>, devicetree@vger.kernel.org,
+ Enric Balletbo <eballetb@redhat.com>, Eric Chanudet <echanude@redhat.com>,
+ imx@lists.linux.dev, linux-arm-kernel@lists.infradead.org,
+ linux-gpio@vger.kernel.org, linux-kernel@vger.kernel.org,
+ NXP S32 Linux Team <s32@nxp.com>,
+ Pengutronix Kernel Team <kernel@pengutronix.de>,
+ Vincent Guittot <vincent.guittot@linaro.org>
+References: <20260504131148.3622697-1-khristineandreea.barbulescu@oss.nxp.com>
+ <20260504131148.3622697-7-khristineandreea.barbulescu@oss.nxp.com>
+ <CAD++jLnk4q7L_cFzz+1gKkAqwhv=TW1_XSepuii7b_PHF7EPqQ@mail.gmail.com>
+ <704e9e7b-0f45-4ed3-a686-9e20056eab2a@oss.nxp.com>
+ <CAD++jLk-7UqjCsM4jCdRmBMMaNNXe8Gi_E00fJ_MRMsEGQcMZQ@mail.gmail.com>
+Content-Language: en-US
+From: Khristine Andreea Barbulescu <khristineandreea.barbulescu@oss.nxp.com>
+In-Reply-To: <CAD++jLk-7UqjCsM4jCdRmBMMaNNXe8Gi_E00fJ_MRMsEGQcMZQ@mail.gmail.com>
+Content-Type: text/plain; charset=UTF-8
+Content-Transfer-Encoding: 8bit
+X-ClientProxiedBy: AS4P191CA0006.EURP191.PROD.OUTLOOK.COM
+ (2603:10a6:20b:5d5::17) To AM9PR04MB8179.eurprd04.prod.outlook.com
+ (2603:10a6:20b:3b5::20)
 MIME-Version: 1.0
-X-ThreadId: AcNZTq_C4ItF
-Date: Tue, 02 Jun 2026 10:03:23 +0200
-From: "Arnd Bergmann" <arnd@arndb.de>
-To: "Linus Torvalds" <torvalds@linux-foundation.org>
-Cc: soc@lists.linux.dev, linux-arm-kernel@lists.infradead.org,
- linux-kernel@vger.kernel.org
-Message-Id: <7636fe41-9a6c-4494-b0fd-a55387b92f29@app.fastmail.com>
-Subject: [GIT PULL] soc: fixes for 7.1, part 2
-Content-Type: text/plain
-Content-Transfer-Encoding: 7bit
+X-MS-Exchange-MessageSentRepresentingType: 1
+X-MS-PublicTrafficType: Email
+X-MS-TrafficTypeDiagnostic: AM9PR04MB8179:EE_|PA1PR04MB10503:EE_
+X-MS-Office365-Filtering-Correlation-Id: 74025573-6915-4b09-cc14-08dec07db066
+X-MS-Exchange-SharedMailbox-RoutingAgent-Processed: True
+X-LD-Processed: 686ea1d3-bc2b-4c6f-a92c-d99c5c301635,ExtAddr
+X-MS-Exchange-SenderADCheck: 1
+X-MS-Exchange-AntiSpam-Relay: 0
+X-Microsoft-Antispam: BCL:0;ARA:13230040|1800799024|7416014|376014|366016|19092799006|56012099006|4143699003|3023799007|11063799006|22082099003|6133799003|18002099003;
+X-Microsoft-Antispam-Message-Info: p6Re8mWBEZV1GJJzwxiiMxKBaIgPK6uAR5rfQQsD7wLCK0qlYAVI4TuuKK1cPOm2rkrXTDagbpDyVK5/sIxb88zsNYMFaVvzAiJk5mDIqJeOy0SlIT+jE3e4edRtu3ABEuKA3YLVe/LwMXNNZaBqt7XS4fcpnzHwT4YrJ9qZFbnk+te0CZCda/I1h6qr1itqJEeouTkt6diVMeZ3cDHiSrCnMjuLYvRhRHSS8/tPEVBb9ZPup9Bi0+cZ/ZJyXB/Q2s+51JqBzTiKwyKNqKo1wkMpF9K0Tlon0kDF1HEwqBLAKZsiJf0rMsHOGzejuGgPPhql93rSNhe6isc/WnrQ+I8qiLm107zW1lzr87gwOmc5sP2W2oOm2mxRI2W2lcba+c0rvhTAHTcSXccwoIODJ3IWIM8RaUqT2m3CRnwMJDVvYnLHWyqdyQtGhKzUtUSm5vlu3gqW2shFuUiVZKfrVXQ3n1qTACegU3TkxnSO7vhMwK13S4Vl1ES+/5mTcBOv4PxURkVxWaPyrpO+3XFfV7XVDCG3MXKy26JeewC5klhUM1o6KoPTWSuzCVWAKq4CZxiQuBL0+FX2+Cl6S0P58Lt2LeoonSrVYanQlYyAezh72zHwCRpeiJZ+v6mrA1NwXD2reykeDZWnUAsG27ZVHQsVfp611wu1Tvg1iNuHu+WRDpTSspD5M7ZfoR4Nyvd0
+X-Forefront-Antispam-Report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:AM9PR04MB8179.eurprd04.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(1800799024)(7416014)(376014)(366016)(19092799006)(56012099006)(4143699003)(3023799007)(11063799006)(22082099003)(6133799003)(18002099003);DIR:OUT;SFP:1101;
+X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
+X-MS-Exchange-AntiSpam-MessageData-0: =?utf-8?B?bHhzdTFOR0xPVTZoeFJ6V09saG1ueEpyd2VjTURiZWVUSGN4cG5DWHRON1V4?=
+ =?utf-8?B?bm1xcmRQNU9XNmFKTWVCUW8yZDJmTFdTT2lJMFNYdUpxOXVhcUxRNTdiUHFN?=
+ =?utf-8?B?eWRsMVhuTkVIMC9kc0c3VitEUVlzUTlKbzlHeldBNG5pZUEzM1lveTJZck45?=
+ =?utf-8?B?NVVuUzluTWVQQXlsdGhSL2ROdS9ZWDVkYVlOSSsxOUxBOGtoNG0zWnpzYits?=
+ =?utf-8?B?Z1pSRkxaY25rNFA1WnhXYmxMOWdWUG93aU50WlVQWTZpWDdrdzR1TUhRRGtR?=
+ =?utf-8?B?cmNyQVkzQXZiT0ZtaUErNWk4QnZKYzdNWHNnWGkwdkFadFcxZWJ2SXFkRXo1?=
+ =?utf-8?B?SjdIUVF1VWhHMEdaMllkUStORG10ai9PRVgrY1paWGtFMlJBTHlhWFJKc2NL?=
+ =?utf-8?B?VXBoT2VCU1AySGV3WFB0Um5lVGp2TW42MDVjSmlmSC9rNjI3Z3kxQnNMOEZj?=
+ =?utf-8?B?SnkvODcrMitCMGNZYm15bURmWE1WSUdMS2ZWSzNmbjNrY3hZa3pvZnBxUEpM?=
+ =?utf-8?B?RkowV05jWmMzY2R5QXpDenRjczRhVW50cEVIcXNoaXRYTFFZeU9LSFVtMzI2?=
+ =?utf-8?B?eEY5aG1UaElUdURVZFAydnlQanU5SVBKZXRnc3FFNjF6TWFyakovbGlGM3hN?=
+ =?utf-8?B?VmYyRk5DT0EweGUyRGQ0OHV4cFNseC9pTElZemZQV3BQeGVxZTY3OGNwVG05?=
+ =?utf-8?B?cmFqRlVnS1FvOStqRmlCZG91S1dhYSttaWhBNklvakZMNmo1b2RGU3dyOGhQ?=
+ =?utf-8?B?Q3BzZktCWENVUXdFeS96cnB2blI5MHJLUXEwUVUvZXNlbDhZdk5oSTBLSnkv?=
+ =?utf-8?B?eDRzNGFEdllzN250RGozRXdXd2pmcDZCRitISnBqQ05LaVRYRW1TNm9HK2ND?=
+ =?utf-8?B?QmVybTZBUmNkUWhWclptVitrdlZ2Z2RSczYyRjU5Zk0wbEs1TGZZWG9ha0JX?=
+ =?utf-8?B?Vm5GUmNOSDBGNzZaaGdkR2pjTG1WOC9ubGxzRHg5ZDlzOExyNlowaHJEakFj?=
+ =?utf-8?B?YUpFbzQzZ0U3d3VnbGhGNWJURkFRV1FFaHc2cm5nMmtheE1vL0ZQQTZUQXp4?=
+ =?utf-8?B?OVZrdXNDbDJ5dEVLUkJZY2hDeTlpMEVwUExlQjJLV08zQkpHbEZPKzV4Nkla?=
+ =?utf-8?B?SWNQbWw0eXNCTFFnOFd5VGp6aExLSnZISlcxek40dTdSQ1BsWFpFbmR6THZR?=
+ =?utf-8?B?eDExYW5pQmVmY1hLUmlYeE0wSUwwYTUzajhKNWx3YUxCWVljREJld2F6Q3hP?=
+ =?utf-8?B?STl6bEVKL3hvWWZyelNvbk9wS1VjaGVycW5WOGdSR1p6dVVWVytsbUhCNVE3?=
+ =?utf-8?B?eTBLUjNvL0tkdEduQzNpVmtRZy9JTXF0Q2RqaTBEYXNXMzJlbHVrSXBRVG0r?=
+ =?utf-8?B?V1ljeFNwT1Y5YTFGSjJ5cWQ1UFhvbmk1OGZPM3VIQ3BpeUpMU0s3clVUMmxP?=
+ =?utf-8?B?OTBUT1V1VGd3UEhDNTZ5ajB5V0UwVEJ1djlDN2JFc29odGF4dzZYN2FoY01L?=
+ =?utf-8?B?bmJWNGNBTGlPdkJpNlNIQnVUWVkwYkhFeXlhUlhPNHh4R08razhqejgvRGNz?=
+ =?utf-8?B?YUkxbjUzT25BRTd4bmx6cEtWYVJsUWFDUjcvVXBNcDBZeFZIZHpOZnVrOFVX?=
+ =?utf-8?B?Kzh4elIvMHZobUx3bTZLTERrRThZUDNSei8wc3F6eERHQnZQcllxaFliL0pw?=
+ =?utf-8?B?ZEhLUWlyZEJHNnFrdkJQOFAwRlJmNDF6cmxaQUp0eHBMK2NJRU5EQnI3SVZQ?=
+ =?utf-8?B?RDIyc3p2ZlZpMHd4NmhrVlp4K1hLN2hIWHpRSjZ0YzRNdFhqMmlWdWNETmND?=
+ =?utf-8?B?VVNEVS9RNFp4aFlXS3JueVpOMVlCaWhhbytmYTVXVEpYTjNDZmZUYzNad1hF?=
+ =?utf-8?B?aWQ3enRjaFlLcE1STlZoUGtkd2FjZ0x3a2ZZREpGaW8ySE5kalBWc3Y4REww?=
+ =?utf-8?B?a1o2Nno5M0dBbk5JNUFRVUdRU25ha05ydWh5T1YvZ3piSkRVY3VtcjI2Y2cv?=
+ =?utf-8?B?VGhuTU1IUzJnUzlHN25RY3pER2ZuZjJvSXFxRXdYeGZTOWpqeERwdnBpM0or?=
+ =?utf-8?B?c2NHdmExUUhKV0k5d2plSmdOaFR6Sk5uTEZQMzdWWk5ZMFVydnBleElNa3ZJ?=
+ =?utf-8?B?aW92VjB5WDFmUE5MekhVbnNZUi9pdTdkZFFpR0ZQWHBwZ0pVYWw5anRGZVFM?=
+ =?utf-8?B?dE84cGdUMzdIUUg4ZmQwT2tTQm9Db1BlQ09rVHRHVFFucUM1YVhvOTJPTm92?=
+ =?utf-8?B?WXFTMzFaNDRLYXlQRkkvdDVVcUhKMFA4MkY0T0ltWFRLNVRnaXIzaTFGSFpq?=
+ =?utf-8?B?MmoxSEh2bTFCbHVjMmd4eXdyRktBSFkzWmJZZC9aNUVrV3ozT2t0d3FSVnVD?=
+ =?utf-8?Q?HwZgWKqDhHQIdeYLyGYERxPr7DCqdWMk805wh?=
+X-OriginatorOrg: oss.nxp.com
+X-MS-Exchange-CrossTenant-Network-Message-Id: 74025573-6915-4b09-cc14-08dec07db066
+X-MS-Exchange-CrossTenant-AuthSource: AM9PR04MB8179.eurprd04.prod.outlook.com
+X-MS-Exchange-CrossTenant-AuthAs: Internal
+X-MS-Exchange-CrossTenant-OriginalArrivalTime: 02 Jun 2026 08:05:19.8067
+ (UTC)
+X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
+X-MS-Exchange-CrossTenant-Id: 686ea1d3-bc2b-4c6f-a92c-d99c5c301635
+X-MS-Exchange-CrossTenant-MailboxType: HOSTED
+X-MS-Exchange-CrossTenant-UserPrincipalName: tNNv74zzhsrmR9mDNOPpIYG0NSBPjreHF6IAeIh8C/xGsEmw+GoS6cSza+B2piD1t79hePCGR2oCM7tDZuq5P2xG9y42Z91nOs0vVDIoa9aeHtwSM2Jyn8TQ32QQymUz
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: PA1PR04MB10503
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260602_010326_390673_44A1C7D6 
-X-CRM114-Status: GOOD (  14.19  )
+X-CRM114-CacheID: sfid-20260602_010525_654336_1630C55F 
+X-CRM114-Status: GOOD (  24.20  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -105,136 +171,71 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-The following changes since commit 7fd2df204f342fc17d1a0bfcd474b24232fb0f32:
+On 5/11/2026 11:48 AM, Linus Walleij wrote:
+> On Fri, May 8, 2026 at 11:07 AM Khristine Andreea Barbulescu
+> <khristineandreea.barbulescu@oss.nxp.com> wrote:
+> 
+>> I don't think the current driver is a good fit for
+>> a full gpio-regmap conversion. Direction and GPIO mux are
+>> handled through MSCR/pinctrl state (IBE/OBE/SSS), and the GPIO
+>> logic spans multiple register regions across two SIUL2 instances.
+> 
+> I don't see the problem with that?
+> 
+>> A conversion would require stronger separation between
+>> GPIO and pinctrl, leaving mux restoration entirely
+>> to the pinctrl subsystem.
+> 
+> Why is that so? Sorry I don't get the problem here.
+> 
+> The pinmux operations have these callbacks:
+> 
+> static const struct pinmux_ops s32_pmx_ops = {
+> (...)
+>         .gpio_request_enable = s32_pmx_gpio_request_enable,
+>         .gpio_disable_free = s32_pmx_gpio_disable_free,
+>         .gpio_set_direction = s32_pmx_gpio_set_direction,
+> };
+> 
+> So to me it looks like the pinctrl subsystem is *already*
+> handling all the muxing of GPIO lines in these
+> callbacks?
+> 
+>> Would it be reasonable to keep the current approach for now
+>> and revisit gpio-regmap later if needed?
+> 
+> I'd prefer that you look into it now while you already
+> have all the information at hand and fresh in your mind.
+> 
+> You can forward my comments to your project lead
+> / JIRA instance and say it's Linus' fault you have to spend
+> more time on this right now.
+> 
+> Yours,
+> Linus Walleij
 
-  Linux 7.1-rc2 (2026-05-03 14:21:25 -0700)
+Hi Linus,
 
-are available in the Git repository at:
+The new version (v10) has been updated to use gpio-regmap, with a virtual
+regmap bridge dispatching GPIO accesses to the underlying SIUL2 register
+blocks.
+ 
+I am not fully convinced this is the cleanest model, though.
+SIUL2 does not expose GPIO as one regular register space: direction is in
+MSCR, input values are read from PGPDI, and output values are written through
+PGPDO. These are backed by separate regmaps in the driver, while gpio-regmap
+expects a single regmap.
+ 
+So the current path becomes:
+  gpio-regmap -> virtual regmap -> MSCR/PGPDI/PGPDO regmap
+ 
+The version was updated this way so we can review the approach on top of the
+current code. If this is still the preferred direction, it can be polished
+further. Otherwise, I think direct gpio_chip callbacks using the existing regmap
+helpers might be a simpler fit for this hardware.
+ 
+What do you think would be the preferred direction for the next revision?
 
-  https://git.kernel.org/pub/scm/linux/kernel/git/soc/soc.git tags/soc-fixes-7.1-2
-
-for you to fetch changes up to fce4668a01227abb2c60e3202cf866137fbfcef2:
-
-  Merge tag 'socfpga_fix_for_v7.1' of git://git.kernel.org/pub/scm/linux/kernel/git/dinguyen/linux into arm/fixes (2026-06-01 16:25:19 +0200)
-
-----------------------------------------------------------------
-soc: fixes for 7.1, part 2
-
-Following the previous set of fixes, this addresses another significant
-number of small issues found in firmware drivers (tee, optee, qcomtee,
-qcom ice, exynos acpm) drivers through various tools. This is about
-error handling, resource leaks, concurrency and a use-after-free bug.
-
-The fixes for the Qualcomm ICE driver also introduce interface changes
-in the UFS and MMC drivers using it.
-
-Outside of firmware drivers, there are a few fixes across the tree:
-
- - Minor driver code mistakes in the Atmel EBI memory controller,
-   the i.MX soc ID driver and socfpga boot logic
-
- - A defconfig change to avoid a boot time regression on multiple
-   qualcomm boards
-
- - Device tree fixes for qualcomm, at91 and gemini, addressing
-   mostly minor configuration mistakes
-
-----------------------------------------------------------------
-Abel Vesa (1):
-      arm64: dts: qcom: glymur: Drop RPMh CXO clocks from QMP PHYs
-
-Alexander Dahl (1):
-      memory: atmel-ebi: Allow deferred probing
-
-Amirreza Zarrabi (1):
-      tee: optee: prevent use-after-free when the client exits before the supplicant
-
-Arnd Bergmann (12):
-      tee: fix tee_ioctl_object_invoke_arg padding
-      Merge tag 'tee-fixes-for-v7.1' of git://git.kernel.org/pub/scm/linux/kernel/git/jenswi/linux-tee into arm/fixes
-      Merge tag 'optee-fix-for-v7.1' of git://git.kernel.org/pub/scm/linux/kernel/git/jenswi/linux-tee into arm/fixes
-      Merge tag 'qcomtee-fix-for-v7.1' of git://git.kernel.org/pub/scm/linux/kernel/git/jenswi/linux-tee into arm/fixes
-      Merge tag 'qcom-drivers-fixes-for-7.1' of https://git.kernel.org/pub/scm/linux/kernel/git/qcom/linux into arm/fixes
-      Merge tag 'qcom-arm64-fixes-for-7.1' of https://git.kernel.org/pub/scm/linux/kernel/git/qcom/linux into arm/fixes
-      Merge tag 'qcom-arm64-defconfig-fixes-for-7.1' of https://git.kernel.org/pub/scm/linux/kernel/git/qcom/linux into arm/fixes
-      Merge tag 'imx-soc-fixes-for-v7.1' of git://git.kernel.org/pub/scm/linux/kernel/git/frank.li/linux into arm/fixes
-      Merge tag 'samsung-drivers-fixes-7.1-2' of https://git.kernel.org/pub/scm/linux/kernel/git/krzk/linux into arm/fixes
-      Merge tag 'memory-controller-drv-fixes-7.1' of https://git.kernel.org/pub/scm/linux/kernel/git/krzk/linux-mem-ctrl into arm/fixes
-      Merge tag 'at91-fixes-7.1' of https://git.kernel.org/pub/scm/linux/kernel/git/at91/linux into arm/fixes
-      Merge tag 'socfpga_fix_for_v7.1' of git://git.kernel.org/pub/scm/linux/kernel/git/dinguyen/linux into arm/fixes
-
-Bjorn Andersson (3):
-      Merge branch '20260416-qcom_ice_power_and_clk_vote-v5-1-5ccf5d7e2846@oss.qualcomm.com' into drivers-fixes-for-7.1
-      Merge branch '20260518-qcom-ice-fix-v7-0-2a595382185b@oss.qualcomm.com' into drivers-for-7.2
-      Merge branch '20260416-qcom_ice_power_and_clk_vote-v5-13-5ccf5d7e2846@oss.qualcomm.com' into arm64-fixes-for-7.1
-
-Georgiy Osokin (1):
-      tee: shm: fix shm leak in register_shm_helper()
-
-Harshal Dev (4):
-      dt-bindings: crypto: qcom,ice: Fix missing power-domain and iface clk
-      soc: qcom: ice: Allow explicit votes on 'iface' clock for ICE
-      arm64: dts: qcom: milos: Add power-domain and iface clk for ice node
-      arm64: dts: qcom: eliza: Add power-domain and iface clk for ice node
-
-Linus Walleij (1):
-      ARM: dts: gemini: Fix partition offsets
-
-Manivannan Sadhasivam (7):
-      soc: qcom: ice: Fix race between qcom_ice_probe() and of_qcom_ice_get()
-      soc: qcom: ice: Return -ENODEV if the ICE platform device is not found
-      soc: qcom: ice: Return proper error codes from devm_of_qcom_ice_get() instead of NULL
-      mmc: sdhci-msm: Remove NULL check from devm_of_qcom_ice_get()
-      scsi: ufs: ufs-qcom: Remove NULL check from devm_of_qcom_ice_get()
-      arm64: defconfig: Enable PCI M.2 power sequencing driver
-      soc: qcom: ice: Fix the error code when 'qcom,ice' property is not found
-
-Mihai Sain (1):
-      ARM: dts: microchip: sam9x7: fix GMAC clock configuration
-
-Peng Fan (1):
-      soc: imx8m: Fix match data lookup for soc device
-
-Qihang (1):
-      tee: fix params_from_user() error path in tee_ioctl_supp_recv
-
-Robertus Diawan Chris (1):
-      tee: qcomtee: add missing va_end in early return qcomtee_object_user_init()
-
-Tudor Ambarus (5):
-      firmware: samsung: acpm: Fix cross-thread RX length corruption
-      firmware: samsung: acpm: Fix mailbox channel leak on probe error
-      firmware: samsung: acpm: Fix false timeouts and Use-After-Free in polling
-      firmware: samsung: acpm: Fix missing LKMM barriers in sequence allocator
-      firmware: samsung: acpm: Fix infinite loop on sequence number exhaustion
-
-Val Packett (1):
-      arm64: dts: qcom: x1-dell-thena: remove i2c20 (battery SMBus) and reserve its pins
-
-Yuho Choi (1):
-      ARM: socfpga: Fix OF node refcount leak in SMP setup
-
- .../bindings/crypto/qcom,inline-crypto-engine.yaml |  35 ++++-
- arch/arm/boot/dts/gemini/gemini-sl93512r.dts       |   2 +-
- arch/arm/boot/dts/gemini/gemini-sq201.dts          |   2 +-
- arch/arm/boot/dts/microchip/sam9x7.dtsi            |   6 +-
- arch/arm/mach-socfpga/platsmp.c                    |   1 +
- arch/arm64/boot/dts/qcom/eliza.dtsi                |   6 +-
- arch/arm64/boot/dts/qcom/glymur.dtsi               |  20 +--
- arch/arm64/boot/dts/qcom/milos.dtsi                |   6 +-
- arch/arm64/boot/dts/qcom/x1-dell-thena.dtsi        |   7 +-
- arch/arm64/configs/defconfig                       |   1 +
- drivers/firmware/samsung/exynos-acpm-dvfs.c        |   3 +
- drivers/firmware/samsung/exynos-acpm.c             | 141 ++++++++++++++-------
- drivers/memory/atmel-ebi.c                         |   3 +-
- drivers/mmc/host/sdhci-msm.c                       |  10 +-
- drivers/soc/imx/soc-imx8m.c                        |   2 +-
- drivers/soc/qcom/ice.c                             |  66 +++++++---
- drivers/tee/optee/supp.c                           | 107 +++++++++++-----
- drivers/tee/qcomtee/core.c                         |   6 +-
- drivers/tee/tee_core.c                             |  56 ++++----
- drivers/tee/tee_shm.c                              |   2 +-
- drivers/ufs/host/ufs-qcom.c                        |  10 +-
- include/uapi/linux/tee.h                           |   1 +
- 22 files changed, 327 insertions(+), 166 deletions(-)
+Best regards,
+Khristine
 
