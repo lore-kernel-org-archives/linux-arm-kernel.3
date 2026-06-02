@@ -4,128 +4,125 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id A5589CD6E68
-	for <linux-arm-kernel@archiver.kernel.org>; Tue,  2 Jun 2026 17:12:20 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id A0035CD5BD1
+	for <linux-arm-kernel@archiver.kernel.org>; Tue,  2 Jun 2026 17:20:05 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:In-Reply-To:
 	Content-Type:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
 	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=B02Ax93Z1yuHpqEb94Gq3NGS0+VHotmpGOnzFWTGwjU=; b=149FTKri9ng8RZRAs4zeoLhj8U
-	g6mjYnhbVztRwwO21wlokZ45nyFBeXdOaB6icmCWVrSGqBn/5XEmVygspmX5lfcLe5s/nzd+q7Wje
-	Ielwlu+DnSpN3dH9mifZ52pL0fo6FGIj5W47iD4EMxcpvDuFPkjW4ITZ+jnXTlOBhAObg3yWuxfSS
-	vv7rjcUGAutGVf/tT7j7juj+kVZcKd0ykMjhT2DNK4TeeWXHPwJOunWhY6mgt9ulcigytVpfMscDd
-	EwTobkE8Jre+zlSViQu95H8ngKkve3i0Y/FLJd//Fiv/pKupDw0fPbqkAc+nnYTzm2SQ9zdEkDTFG
-	N4hQl22Q==;
+	bh=ZTb8znVohmtZFCwn9Sqrd6v8AwR+X9WEr6QdFg4SbiI=; b=rP4DgDUUyQexa+RnOWLk8A/joz
+	i4sFqPdZnUtKWkPrEdbFreJjtWDz+4PUntobJ7ajCbmDp2HVfIVVqWpRPgFxTAbjGgFApbpxVO42x
+	e6f+r0r0iOK1BolyNoljmSftwHhjJyeHMUw8TmC0lklRqiZ0Z9fA2kxGo3biGBaL+ErA0Gkq83FWc
+	qSWX2qDO5WEcrifsUUVsaqqiyvMQ9cYs95nZGDnda9vlFSGi8kAct+fVodGFoL3/f7nYrsu3XioYt
+	xBCoe46KPNCVk856vO6jW3gkscD2tvKUZjWJWAe+oehc0q8w4SbUB7Mn/JxduKQuX4tOdLFEdMaX0
+	+GC5xrAQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wUSf0-0000000DYsJ-2NHX;
-	Tue, 02 Jun 2026 17:12:14 +0000
-Received: from mail-eastus2azlp170110003.outbound.protection.outlook.com ([2a01:111:f403:c110::3] helo=BN8PR05CU002.outbound.protection.outlook.com)
+	id 1wUSmT-0000000DZg4-3c7X;
+	Tue, 02 Jun 2026 17:19:57 +0000
+Received: from mail-westus2azlp170120002.outbound.protection.outlook.com ([2a01:111:f403:c007::2] helo=MW6PR02CU001.outbound.protection.outlook.com)
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wUSey-0000000DYra-1CB2
+	id 1wUSmR-0000000DZfR-1F2t
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 02 Jun 2026 17:12:13 +0000
+	Tue, 02 Jun 2026 17:19:56 +0000
 ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
- b=v+pnM1DX3Fj7zQdHeffYmXUKxwABsNRsz44H1NC9UYT0ALwoDESAPsnzrRPNT/C69ebJv+JxGNrelg8dq6Ll8x6e/1luTfA4hmtzfV8UraNl8vBAIHdxNSfCKh2ypluvJ5gccfo29xBCr1vDBLxnFqoRkbsdHW8/xnNtKKstvXxZuvzOk9IR8iom7+g7iytbHEQPFyadaB5bsBytZXgsHeJ7aLCAjWsvkIVsDUmDsrWQ0xuODxLc3sgmln1JL6l0n0zm2oT8Ap9xIw7nfz0aUlS/asi2GAVYSeyj5rAZ9vpe4mh1xBZ3TtJaaCTAm86T7Jmi9dQACRgH7WtLlN2Zww==
+ b=FN57ZUEZrVqEeoA5bChxxzoQ7losTILSR1Ld1XwWxs7AZSVsfNZ76xIc0lF3LY43IW9Tt4JM0QMCOC+xk76mjCF6MxtfFRbbT9tW46OaOTyTkQcl5HxnXoek8nfYqqzEAIJnRfxVoKxs6lQyuSnoAfL2v6P6IL6GaYJ5OBnh5N5aSsN6YfXvTn+yYnv0vpE8M0uQXu7SsQCBPm1IPzBdDHRwy9hPxrByt+KzS6W6p/q/L1UdwUo8ctrqQ4qRsoMGijwBXdL3UPfLOcBi+M/G9a6Z9JjmQ8ecUMIHZ3dRlHYsGw7tLWsRs9qCGuB7HctsYPMHpc4YO5ww4lhJoB7+Wg==
 ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
  s=arcselector10001;
  h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
- bh=B02Ax93Z1yuHpqEb94Gq3NGS0+VHotmpGOnzFWTGwjU=;
- b=r1Zv8dDjmgBHcDVYC/egInngD/4rZn7qBrarpErtVutXADbO5uNpJ0iBVTk2LcvzvyqQoOhNWh6Rwn8tvT2Mm6G7L9fz0iykB4AYgYzUgUcqHfwclDbQ8sOoOszQsle4lT1Ss4kRmuu1Myxs8GK8EZZJ7bu8/LKubA8tqJs8FRFAQRH6854TnPuUm+UIgeq+A3j6Nib4Cy/p9P6/vpTI73/lbkJWOuhmFQmTfJn3iugNdZSOCFSYmBDOZm3ZE10EsL1Ifnu9Rq4XV3z5Me8RG6tBu3JAqQJLtsWNT5gvZj/0LKGpI+QemzZElKI8ZH2WYwc2NxUAo5p6OTfNW9t/HA==
+ bh=ZTb8znVohmtZFCwn9Sqrd6v8AwR+X9WEr6QdFg4SbiI=;
+ b=MEUopYTTfQ/TbOqKmX8jmzKgOmdcAptk5zyrUvjZlJSfMOSs06vMDKk4lGDW8PFFhU3q77zyW+t7Pi3mkRY50q5XJ5G7nkw/m/x6QthqMw7+DNLHaI9OkhtsCerj4RNJL5O8wmy0EQRPt5XEKMmS/sQq6Z8wMswLLsf+vzFS26crSKA3uLafufkBx7vGV16XSpi2zeEY7dWSXQO+eux8FrM5i9Tpal6MFTmLBw1wa3v/avMh90syRWqQ31+Su646jqdrNh+/Vg2vlh0/0pGFrG0WkkhDHeHoFxTaZYpq9Qd+hJVgkz+JFwybE3EaNBv0tJaZwnEoObTy+J7FJ7hu5w==
 ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
  smtp.mailfrom=nvidia.com; dmarc=pass action=none header.from=nvidia.com;
  dkim=pass header.d=nvidia.com; arc=none
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=Nvidia.com;
  s=selector2;
  h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
- bh=B02Ax93Z1yuHpqEb94Gq3NGS0+VHotmpGOnzFWTGwjU=;
- b=skxhpUow4mOIK0VCJWHISQopPoMUGruB8w8PW5f6EwPnvST8OqB+yqWqsy6idj5MDUxtmOaNyuyW8t5+U30HELRnANmE8CEji7mdKmvDpaARe/UImdWTP8xVaANhD5CzK/JvXi/G2wZUE3kFPAV2B3iOe294f+JnOD+h+3z/bvYzFIVeB5AKk83emS9N/yvZKV9RObXCSNxdm3YUhW6VcpGNPd0+iECO8PiR8FqKdfekT+N3eSY1BJ5ks/lqVO8ec06FPTa3W7mcYWgnZ7NuuqPt8limnrNuhGNO/VJ4KeOnqEN+5k6E554BVpav+6dlXmmXvg3FsbQxvLNqE34BKQ==
+ bh=ZTb8znVohmtZFCwn9Sqrd6v8AwR+X9WEr6QdFg4SbiI=;
+ b=ajlY7ZqwP1kntEPxiO5SGiBgZET4ncUQIttFqC635ylYfCmNHVhNdVyGmTMsKSTdNM6fmSNcuKl3EJ9ki8VJZ/Juv/N7yS8J32dsT3v9zodmVUuzuB01Gx+RAELLCOM08khyaS6vRLqzWekdYFJwKTXMxQ4YA8N5zHDY/kZ0uUczeM6AE94SYer9HHwjVJQwgRW+glTgvLevuJxZGYKrRG/vAVr3vqIBeS8uUUAQUefo1p7NgxIDGzJFxPuSVKzg06tla527uBk33YRmdObSODV6HZO1hvzt2E6TBG9fwBi5MaSPuiC+dysEJGcjd4T8yN5qUrQhwfFE2DjJE9eueg==
 Authentication-Results: dkim=none (message not signed)
  header.d=none;dmarc=none action=none header.from=nvidia.com;
 Received: from DS0PR12MB8768.namprd12.prod.outlook.com (2603:10b6:8:14f::20)
- by CH1PPF946CC24FA.namprd12.prod.outlook.com (2603:10b6:61f:fc00::61c) with
+ by SN7PR12MB6840.namprd12.prod.outlook.com (2603:10b6:806:264::14) with
  Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.21.71.16; Tue, 2 Jun 2026
- 17:12:07 +0000
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.21.92.7; Tue, 2 Jun 2026
+ 17:19:48 +0000
 Received: from DS0PR12MB8768.namprd12.prod.outlook.com
  ([fe80::c16b:c351:2fc7:95e5]) by DS0PR12MB8768.namprd12.prod.outlook.com
  ([fe80::c16b:c351:2fc7:95e5%7]) with mapi id 15.21.0048.016; Tue, 2 Jun 2026
- 17:12:06 +0000
-Date: Tue, 2 Jun 2026 12:12:05 -0500
+ 17:19:48 +0000
+Date: Tue, 2 Jun 2026 12:19:44 -0500
 From: Seth Forshee <sforshee@nvidia.com>
 To: Sudeep Holla <sudeep.holla@kernel.org>
 Cc: Sebastian Ene <sebastianene@google.com>,
 	linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org
-Subject: Re: [PATCH 2/2] firmware: arm_ffa: Fall back to minimum buffer size
- if RXTX_MAP fails
-Message-ID: <ah8O5cwJQ11u1qA4@omni-lfn-logwh>
+Subject: Re: [PATCH 0/2] firmware: arm_ffa: Fix RXTX_MAP buffer size
+ regressions
+Message-ID: <ah8QsECNLte8sHib@omni-lfn-logwh>
 References: <20260601-b4-ffa-rxtx-map-fixes-v1-0-c071b12ae05c@nvidia.com>
- <20260601-b4-ffa-rxtx-map-fixes-v1-2-c071b12ae05c@nvidia.com>
- <20260602-defiant-perfect-bustard-cbf22e@sudeepholla>
- <ah8DDVyxO0vNH-nb@omni-lfn-logwh>
- <20260602-original-ocelot-of-witchcraft-dcdb96@sudeepholla>
+ <20260602-fuzzy-adamant-catfish-3afaeb@sudeepholla>
 Content-Type: text/plain; charset=us-ascii
 Content-Disposition: inline
-In-Reply-To: <20260602-original-ocelot-of-witchcraft-dcdb96@sudeepholla>
-X-ClientProxiedBy: DS7PR06CA0013.namprd06.prod.outlook.com
- (2603:10b6:8:2a::13) To DS0PR12MB8768.namprd12.prod.outlook.com
+In-Reply-To: <20260602-fuzzy-adamant-catfish-3afaeb@sudeepholla>
+X-ClientProxiedBy: MW4PR03CA0182.namprd03.prod.outlook.com
+ (2603:10b6:303:b8::7) To DS0PR12MB8768.namprd12.prod.outlook.com
  (2603:10b6:8:14f::20)
 MIME-Version: 1.0
 X-MS-PublicTrafficType: Email
-X-MS-TrafficTypeDiagnostic: DS0PR12MB8768:EE_|CH1PPF946CC24FA:EE_
-X-MS-Office365-Filtering-Correlation-Id: 358c0e6e-2a34-449e-c57a-08dec0ca12f7
+X-MS-TrafficTypeDiagnostic: DS0PR12MB8768:EE_|SN7PR12MB6840:EE_
+X-MS-Office365-Filtering-Correlation-Id: 3cb16863-1f7a-4066-3ae9-08dec0cb2632
 X-MS-Exchange-SenderADCheck: 1
 X-MS-Exchange-AntiSpam-Relay: 0
-X-Microsoft-Antispam: BCL:0;ARA:13230040|1800799024|376014|366016|18002099003|22082099003|3023799007|56012099006|11063799006|4143699003;
-X-Microsoft-Antispam-Message-Info: PUBo3kWTYpfAH8vvY+carO0wTnDwDRg8Dd79f+a+x0Qs1MqID2IG/RNbietwGZp8I2DsZSIvtn4/WLYat+qT9GKiSNWzt114Fut3Tv9IdmBjaa0OpPhSZjDqHeCyUnGnDLAKyK7MxbOVb2oJWvxxqrFssdbkgUH1ZgeO+UKyV9lxdfHLTpgJaWu+Fr8dvSfRGLHRDJcbNcSYjpaRPw5HzItxY9o7lh5R/L7j8OiaUTslC0s3JgtybMFycksh28DzUP4GuMiQrhYL4IljwSk/TgqCxfbCWiNpn/8/U+M7Y3BbcHtCyAEed4u8z7p8P4t0Oho8+YCcjSoYDEVjxQHtWlsl952/nCS1oiBcv2hc3AdU8FSuRIh5ySbdHvYVaiCwsq/76VG2MHjWS5Uols8zUGTitb/w3yAwWcNsuSwjolsQJ+eEujeCvKpp0QY1DWka3hYLMbgN8wPBYz+HEXt2iFIXlFj2di5gQxApR6lZgKUrXrwElFVFdFlP2tliYVH6Ia7Ko6i1wHK+5xXDT2My60EjzkEK7oFeZLSt2+CCmcacCXGxmd5VH1RwOPQ7o7YZMwYQCkMWE7yf3yyylxdps+0ipsh7fZbAuslmNl5mBgRd8BwVQ1ldixE/VmAztd/r+Q6JdZZ5m2l5gx6+7YMhE0zA78gaHxxFmQvHEVGwpuyHwNJuO5KZFn5ia9x2sldp
-X-Forefront-Antispam-Report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:DS0PR12MB8768.namprd12.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(1800799024)(376014)(366016)(18002099003)(22082099003)(3023799007)(56012099006)(11063799006)(4143699003);DIR:OUT;SFP:1101;
+X-Microsoft-Antispam: BCL:0;ARA:13230040|376014|1800799024|366016|22082099003|18002099003|3023799007|56012099006|4143699003|11063799006;
+X-Microsoft-Antispam-Message-Info: KofbKHxoRqosYUt0FD+XFap9rrLw4F1nkmlpi5+GwtN/pqhk+u62MUca4GMuUCebehn6I38M74JHr40KxP2gs05M4XdMsQx7r9Mv58Ziyt9qNG99zAu/ZRNLrDc76O+b8f2IRtpvcXDxtRRBweALKygM41d+D4S8OfwGdUdbgfJh/s8tmCrtQgkOpU3poTicVgrDzTDh4f3++NSCjegvyYNuHoQjtj3dfJglfN+CRiqljrYhfm8XMziDLXGRIdPUaZlIRZyy8gAVdU36RCv3fxPBhnTvPuX5ufWPPINoJXZKdifLLh+kHRjJy+MydSfftfimcj1fAu9bhFSjPQHmtjViViJhJ+sMw2OHWdaCeS/pqOyB7wstBAx47fc3dPM4I5TQEY1+vtsiSM3E2UwAYgj1erQ488xERTFIWZ9ca0TfezZsEbdwEmmDdcD/59Rp+AXI+pPnRLzZYgyZ39J+TVkB3mRcjxhpNg/fmG7yk/JxrRNxXXwO+ZVJvAN2ArnH81FxXAgFJd+jYyIcf45YVP8j2KoXw0O6JsHBQSXfiIBXs2j7mKZtrzHaMofapLsIltt6WPIBZG5Y3Vfwxr32XksiaidSZ43/Q/qMYVC9p7YPC7rwKq2j5BN+0vgyLtBH/AkvgReB+QJ1wCmqBB6RBG+qGKOFU9nrez85c3baHRqakn8/B7CfSkV8UK8YHGPu
+X-Forefront-Antispam-Report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:DS0PR12MB8768.namprd12.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(376014)(1800799024)(366016)(22082099003)(18002099003)(3023799007)(56012099006)(4143699003)(11063799006);DIR:OUT;SFP:1101;
 X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
-X-MS-Exchange-AntiSpam-MessageData-0: =?us-ascii?Q?hRgMNJpfx7xhRdhQ7cZBZLYw0eEATGW5lQnZzUqevb9v5E8byvQzjafOHUAG?=
- =?us-ascii?Q?Bx99gcITzRSNmWKccVoQv7A7JGIwq06gCFueF/+EyadDZclcZfRzgp2bFgx+?=
- =?us-ascii?Q?zsiTFybEHH9CQLxxsgA1cyyxSvh+KJn/Da6vdd9JQ6+VxCBJSiPrToyxKEfu?=
- =?us-ascii?Q?a3GZmzip6hrpqfke3zyoDZ4Annfvlpp5FvH1LaEo1Yfn+NGqJpHFXJCCAw1v?=
- =?us-ascii?Q?uz1A028/s9Y+U4VpV6riAg/ZULLGCdIRFI81HMuA3ObpgC1HVtxzR+7kgrro?=
- =?us-ascii?Q?EQO1uxaexaIirY1wjxXg5wqi8WxpWZ4jta/MAKgKUmBTDEdR6gtYqiajjrZ+?=
- =?us-ascii?Q?Yg2rB1YVzEb2P0QKXhCfO/yVP7dlScOT95dMwpRA3GeUXQSVFKFL1O7Df8zJ?=
- =?us-ascii?Q?1D3fNRbZcfkiiRSGK85ACWC4PQia705rlKHU6Ol2pYz1J/Xy6uQgXd8bFTP0?=
- =?us-ascii?Q?gNAXtTt12ynJ6lF7NRGmzKtCLSdo6zflRpONoNTzrKvXJQivRrw4aXtTzLJH?=
- =?us-ascii?Q?+N0qCA79PUYXJz3Gt0BU1y2DwUI+762iMnIy8dkZT39uJsHUHstl1aKfYs4c?=
- =?us-ascii?Q?3FJxeZUpWZP42709hWITIqPsaAKP80KfGrlSzsnN3B+VFiD2ickBUjM8QnjC?=
- =?us-ascii?Q?DhJK9JMO6KCBdrebJDSTER7Kc1Hliv7X7kJicQnV5YTb7jzqif9m4HcWzehY?=
- =?us-ascii?Q?vlQa3UcIvVTxWrGr2QY86Yvgg8axUKeeSA6B7QwQ4la7vCyycK6OqF56HwRT?=
- =?us-ascii?Q?mme+s7/eV/ix9Z/q3k3JufWt4+Y+7qjhPA1idKBIPyXu8NqVZkiHtvNg/Tjr?=
- =?us-ascii?Q?xN1rvbBvzaY+OQjgVQBXS8dJTH/Ut3tEKw2Nl41UxgizE5KzmUHlfWT/si/c?=
- =?us-ascii?Q?6CxohSgxT9U4hyGcV0OS9afFMgJOAVyNZAXnI+EDacN2BSOrCVJ4JnU6VkJi?=
- =?us-ascii?Q?nM6AA+lOZS7fXPs2p8NRhTCl2boEQ3y+tYVZ/1JGuxd9YR4d6Tpg0GFs2Fno?=
- =?us-ascii?Q?aTyiv44jYR54jDu6drKNX/ZHpVQAmd31K2DC9pEYcTvCDbXhk6I8R8zHoebD?=
- =?us-ascii?Q?ea7UbuoMDwjt9apUSgnEjyUsLDXplC4RinmF5mgNGNQJLcsSaQ+qah28QORZ?=
- =?us-ascii?Q?zjWFzxTGqpZZRoZHrZYxrvGqa9XbZX657f12ySe3hyobxmvTrEq6I5wBDQNs?=
- =?us-ascii?Q?pgUouAPLj9h0hP1LjyWmTbfe5NgypA/RDuxzUS1V1vHZMaCfDx6N1mm+TBp1?=
- =?us-ascii?Q?13hh1474LAmt3sMLZjnr1Q+NQRjsgbZi2dQHmO3R3bS6FIL2f1431LXfAOmo?=
- =?us-ascii?Q?UfnTgYIo07OMcLRw+cO8XyKlc8L0vDVpYQw/H3nj4NCxBV3hukRMaJkc0iqH?=
- =?us-ascii?Q?tv/uNwJiHgAeuKjNrG1wQL+yWbxkQnZWxXs/I23iGVbu2tbaggcpaIIvWAXi?=
- =?us-ascii?Q?rZXQQly+kAZOWc8D5TqSobWvO6XHE/NHcOWVssiMqzWXy2+PJlzo/U8eW6zG?=
- =?us-ascii?Q?nn0vRD+8PfVIpb2peZa4+edjXF4T43A2/pMfTiUNU5bv5GOAI6Vv+6i1g/Sp?=
- =?us-ascii?Q?wUDtKdnHW8yQ6TwdRQx/vHjFMmqgs2qQYLKoW75/0y+hCULMGnsIUhZG+9TS?=
- =?us-ascii?Q?PYShJ4RX171nMaTFNh7IKsu1tX7uw6SybYG1oA9gjLsy6roYKX+2GxoatgXi?=
- =?us-ascii?Q?KTf+cEg8ylENncbv2Tb+EfAxncvIxdyO0OTzCNqsZk5GDMDg7AV48MtU/wwB?=
- =?us-ascii?Q?9Xm2w5mDWw=3D=3D?=
+X-MS-Exchange-AntiSpam-MessageData-0: =?us-ascii?Q?EtKlUuTWskxav4pzaHBQUqZZTUuIW5Fxc0B2EmQW3jkUpOq4LIuWH6w1I40X?=
+ =?us-ascii?Q?5PPGburEyFeOkWep0HMSDxHzYOnRtIn6q5RtvYWHRttGfhE0FeRuIIYcZlge?=
+ =?us-ascii?Q?8v9NQwOBr5HzP3e8qfj6/ch6gM6TPC47AWHE2TWREP/FqwogQee9G/12LD90?=
+ =?us-ascii?Q?02fxaCwZv0gePDFING6DSqLDPwBiHBRbEXKiPKMwszw1cECb/Qnll1cHmkGu?=
+ =?us-ascii?Q?v/ra3s2g6O7oJ5buQSBzMJ+1+mHLkhLA+r4xZRnly5T803dJqEgpA5uTshJn?=
+ =?us-ascii?Q?pS9FeGHNWuQdvnxn9SD1S8Lx+emawwwySyEnU8mgH4s5HUOvVNWvhC/ICY2X?=
+ =?us-ascii?Q?7qpjPxsGd+5veJGI5jiSKPvaucWNWniLXEemMzBSMw6tdkUwrNDTJmjE8CWI?=
+ =?us-ascii?Q?Kxc7FSGkvNJLlDjXsEUSjFZGGtUVYKzvmBqxHJsBhSiLS1tit/icQEp880vu?=
+ =?us-ascii?Q?0rD/5yJwY3SHDl2XmH1x7kgoCzUCdtd1zApLeoieDFCWL70cedmryrjDpa/J?=
+ =?us-ascii?Q?B4XNr2UytQhSbfOhhIT9PrxCMV+RSmx8V4NwxqdrBhIeXhDabbu/tIf2gMXX?=
+ =?us-ascii?Q?db9jo1nqgOl8WtWKtY7kZJLx/B7c0ak2zZDB2GRGhB8XYaxAZG05G0BJbuWI?=
+ =?us-ascii?Q?Hy3SQUbHn/tkO5ohqRvvu2KfQKA/u301kIl8xLco2HerByDclz15s/Fzzt+9?=
+ =?us-ascii?Q?1EONXtA+Q5sEmsuCZXoPieyrKFWyVdBM1TVz3z5kClzTEk6HVAmK3z7xj6Z3?=
+ =?us-ascii?Q?F/ND8MdufhcaugMLdudLeXjsg4yEHfwZp7ulw4f9JrbQ3TgCuM2EeLCRZLjb?=
+ =?us-ascii?Q?y2beYyMUZy/VPckrg+YJFseselyfeeucOAVq4dECC9WRKEk45oLkVEwPTBna?=
+ =?us-ascii?Q?yoj0/qx5k2pb7iBXaW6N9AR0ZTnuhbmPQqTXXype3u1/b5jSHGdicYxeI34i?=
+ =?us-ascii?Q?kO8sEOk/BgdobFdW28NTxzvnoHBreG5Z4acXuYxJkRPI5iI+NtEvNfcuolr0?=
+ =?us-ascii?Q?JZ+fHjk9n/Zd5yCftUCQvGvog9gmc9JpcvSx8htsYo02+NVNjDU0asOk8zox?=
+ =?us-ascii?Q?oxeePr/xDR7mkBWuE8maROM5owTwz+qA4Btumh203D1Thh/Z40Th9FpVnmy+?=
+ =?us-ascii?Q?IU04Kx/oJlpVahyJne1/b1lt+qKzdrgGsbkip7tj2e+6WJrocxH23o/resTM?=
+ =?us-ascii?Q?NgQGmeE6HgPSnM+BRF0EZjwil3vpxBE1t0wd/f8uITzd63rYkIwhCAGHpV1T?=
+ =?us-ascii?Q?tdm8oRNwkqFbPsVLULPScQGVHSU7XRHOaXxPHcwp1BTSzDtvAO+sH/ykZYFc?=
+ =?us-ascii?Q?YGvRKCge8Ds4AJt/xBxO4Z1DcI/G7S20p/tRy3dybxHR7Y4YcseTW7bmjkyJ?=
+ =?us-ascii?Q?nAt5wth9GvmSJzhP0cGjuemsvqmf58zngWedcyRCjLM3xgxY3iMxINfU93/I?=
+ =?us-ascii?Q?ZUhAIAZTUMbfj0whBF2VlwqZX1ePNYZlv/WDPiuzrfZLFiIrc7DnqbxhxN7q?=
+ =?us-ascii?Q?G3KkBoTr2D6qZ6V2m/HPqBQieMz98kkwNkMjaWWE4e8UZM9TJJTEKOj4V4WY?=
+ =?us-ascii?Q?zKD6gSjbYhfaMC0ywP8zDCFXdtOf0BjdXJYMATYvEgLEKyQCzvkMdYvriv27?=
+ =?us-ascii?Q?WcE9zlcsM4KyhTglz3LYMsuCVmy7NHQ5ootkWuM+DDnwuFx67+HUGReilKgY?=
+ =?us-ascii?Q?BiaJdMEXzFcBLpUGEnbi14fREwmHmLMQkNOjtazttC+6t+5PTM+fISUB+kdI?=
+ =?us-ascii?Q?+hKp6WfqeQ=3D=3D?=
 X-OriginatorOrg: Nvidia.com
-X-MS-Exchange-CrossTenant-Network-Message-Id: 358c0e6e-2a34-449e-c57a-08dec0ca12f7
+X-MS-Exchange-CrossTenant-Network-Message-Id: 3cb16863-1f7a-4066-3ae9-08dec0cb2632
 X-MS-Exchange-CrossTenant-AuthSource: DS0PR12MB8768.namprd12.prod.outlook.com
 X-MS-Exchange-CrossTenant-AuthAs: Internal
-X-MS-Exchange-CrossTenant-OriginalArrivalTime: 02 Jun 2026 17:12:06.8790
+X-MS-Exchange-CrossTenant-OriginalArrivalTime: 02 Jun 2026 17:19:48.6181
  (UTC)
 X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
 X-MS-Exchange-CrossTenant-Id: 43083d15-7273-40c1-b7db-39efd9ccc17a
 X-MS-Exchange-CrossTenant-MailboxType: HOSTED
-X-MS-Exchange-CrossTenant-UserPrincipalName: Mi5y/p3comW7ZLDHUyisKyzSmD8Ynb3xRYE3cHFwBmm+nrCW5hnkR13sXHPkk4+NTOotAykP1g1R9iO1SgjqZQ==
-X-MS-Exchange-Transport-CrossTenantHeadersStamped: CH1PPF946CC24FA
+X-MS-Exchange-CrossTenant-UserPrincipalName: lYGY1Q7NxdszTOztA8DHTT7XGw9QUsL6qxEYFXgC3CiApcbU1cLYBA97O6ULrj8e6mt70lZFVdTWpjeRLzBH4Q==
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: SN7PR12MB6840
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260602_101212_330277_23C2D27B 
-X-CRM114-Status: GOOD (  25.34  )
+X-CRM114-CacheID: sfid-20260602_101955_349005_991526BD 
+X-CRM114-Status: GOOD (  33.67  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -140,40 +137,130 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Tue, Jun 02, 2026 at 05:29:37PM +0100, Sudeep Holla wrote:
-> On Tue, Jun 02, 2026 at 11:21:33AM -0500, Seth Forshee wrote:
-> > On Tue, Jun 02, 2026 at 04:48:11PM +0100, Sudeep Holla wrote:
-> > > On Mon, Jun 01, 2026 at 03:45:12PM -0500, Seth Forshee wrote:
-> > > > FFA_FEATURES only supports a maximum size value for RXTX_MAP in v1.2+.
-> > > > Older implementations may still reject larger sizes, which can happen
-> > > > when the minimum size is rounded up to the page size when PAGE_SIZE >
-> > > > 4K.
-> > > > 
-> > > > Fall back to the minimum size when RXTX_MAP fails with
-> > > > INVALID_PARAMETERS to fix the regression on these platforms. This also
-> > > > has the side effect of falling back for v1.2+ with a maximum of 0 (i.e.
-> > > > no maximum), where the rounded-up value isn't expected to be rejected,
-> > > > but there's no harm in retrying with a smaller size and it might even be
-> > > > of benefit for a non-compliant SPMC.
-> > > > 
-> > > 
-> > > Is this needed on any of your platforms ? I don't want to push a solution
-> > > or fallback/workaround if there are no users for it.
+On Tue, Jun 02, 2026 at 05:51:10PM +0100, Sudeep Holla wrote:
+> On Mon, Jun 01, 2026 at 03:45:10PM -0500, Seth Forshee wrote:
+> > Commit 83210251fd70 ("firmware: arm_ffa: Use the correct buffer size
+> > during RXTX_MAP") caused a regression for some FF-A implementations. It
+> > has the effect of passing the size of the page-aligned buffers to
+> > FFA_RXTX_MAP, which may be larger than the maximum size supported by the
+> > SPMC. When this happens FFA_RXTX_MAP will fail with INVALID_PARAMETERS.
 > > 
-> > Yes, we have platforms for which commit 83210251fd70 causes RXTX_MAP
-> > failures with page sizes larger than 4K.
-> >
+> > The following patches deal with two distinct scenarios which lead to
+> > this issue. With FF-A v1.2+, FFA_FEATURES can specify a maximum supported
+> > RX/TX buffer size, so patch 1 decodes this field and honors the maximum if
+> > specified. For FF-A v1.1 and earlier the maximum is unknown, so patch 2
+> > deals with this by first attempting FFA_RXTX_MAP with the page-aligned
+> > buffer size (preserving the behavior introduced by commit 83210251fd70).
+> > If this fails due to invalid parameters it retries with the minimum buffer
+> > size from FFA_FEATURES.
+> > 
+> > Testing was done with FF-A v1.1 and v1.2 implementations, both of which
+> > reject buffer sizes larger than 4K. Both implementations were tested with
+> > 4K, 16K, and 64K pages. Without these patches, probe fails for page sizes
+> > larger than 4K with the message "failed to register FFA RxTx buffers."
+> > With the patches probe succeeds for all page sizes.
+> > 
+> > The patches are based on for-next/ffa/fixes.
 > 
-> And they are FF-A v1.1 or doesn't set max_buf size ? Sorry for being
-> pedantic, just want to be sure it is useful on real platforms before
-> pushing it as fix/workaround.
+> for-next/ffa/updates has patches queued for v7.2.
+> 
+> > 
+> > Signed-off-by: Seth Forshee <sforshee@nvidia.com>
+> > ---
+> > Seth Forshee (2):
+> >       firmware: arm_ffa: Honor maximum RX/TX buffer size
+> >       firmware: arm_ffa: Fall back to minimum buffer size if RXTX_MAP fails
+> > 
+> >  drivers/firmware/arm_ffa/driver.c | 51 ++++++++++++++++++++++++++++++++++-----
+> >  1 file changed, 45 insertions(+), 6 deletions(-)
+> 
+> Wondering if these 2 fixes can be merged into one and simplified something
+> like(untested) patch below(rebased on linux-next or for-next/ffa/updates)
 
-Yes, sorry, that's information I should have included. Some were v1.1,
-don't set max buf size, and did fail with 64K pages. While I tested the
-fix with 16K pages for thoroughness, I did not try to reproduce the
-problem with that page size, so I can't say whether or not that would
-succeed. But either way there's still a problem, and I figure that going
-with the minimum size in that case is the surest bet.
+From a quick review, yes, I think that looks like it should work. I'll
+give it a closer look and some testing.
 
 Seth
+
+> 
+> Regards,
+> Sudeep
+> 
+> -->8
+> diff --git a/drivers/firmware/arm_ffa/driver.c b/drivers/firmware/arm_ffa/driver.c
+> index 0f468362c288..5ffe21c568b7 100644
+> --- a/drivers/firmware/arm_ffa/driver.c
+> +++ b/drivers/firmware/arm_ffa/driver.c
+> @@ -32,6 +32,7 @@
+>  #include <linux/interrupt.h>
+>  #include <linux/io.h>
+>  #include <linux/kernel.h>
+> +#include <linux/minmax.h>
+>  #include <linux/module.h>
+>  #include <linux/mm.h>
+>  #include <linux/mutex.h>
+> @@ -59,7 +60,9 @@
+>         (FIELD_PREP(SENDER_ID_MASK, (s)) | FIELD_PREP(RECEIVER_ID_MASK, (r)))
+> 
+>  #define RXTX_MAP_MIN_BUFSZ_MASK        GENMASK(1, 0)
+> -#define RXTX_MAP_MIN_BUFSZ(x)  ((x) & RXTX_MAP_MIN_BUFSZ_MASK)
+> +#define RXTX_MAP_MAX_BUFSZ_MASK        GENMASK(31, 16)
+> +#define RXTX_MAP_MIN_BUFSZ(x)  (FIELD_GET(RXTX_MAP_MIN_BUFSZ_MASK, (x)))
+> +#define RXTX_MAP_MAX_BUFSZ(x)  (FIELD_GET(RXTX_MAP_MAX_BUFSZ_MASK, (x)))
+> 
+>  #define FFA_MAX_NOTIFICATIONS          64
+> 
+> @@ -2101,7 +2104,7 @@ static int ffa_probe(struct platform_device *pdev)
+>  {
+>         int ret;
+>         u32 buf_sz;
+> -       size_t rxtx_bufsz = SZ_4K;
+> +       size_t rxtx_min_bufsz = SZ_4K, rxtx_bufsz, rxtx_max_bufsz = 0;
+> 
+>         if (IS_BUILTIN(CONFIG_ARM_FFA_TRANSPORT) &&
+>             is_protected_kvm_enabled() && !is_pkvm_initialized())
+> @@ -2132,15 +2135,18 @@ static int ffa_probe(struct platform_device *pdev)
+>         ret = ffa_features(FFA_FN_NATIVE(RXTX_MAP), 0, &buf_sz, NULL);
+>         if (!ret) {
+>                 if (RXTX_MAP_MIN_BUFSZ(buf_sz) == 1)
+> -                       rxtx_bufsz = SZ_64K;
+> +                       rxtx_min_bufsz = SZ_64K;
+>                 else if (RXTX_MAP_MIN_BUFSZ(buf_sz) == 2)
+> -                       rxtx_bufsz = SZ_16K;
+> +                       rxtx_min_bufsz = SZ_16K;
+>                 else
+> -                       rxtx_bufsz = SZ_4K;
+> +                       rxtx_min_bufsz = SZ_4K;
+> +
+> +               rxtx_max_bufsz = RXTX_MAP_MAX_BUFSZ(buf_sz) * SZ_4K;
+> +               if (rxtx_max_bufsz != 0 && rxtx_max_bufsz < rxtx_min_bufsz)
+> +                       rxtx_max_bufsz = rxtx_min_bufsz;
+>         }
+> 
+> -       rxtx_bufsz = PAGE_ALIGN(rxtx_bufsz);
+> -       drv_info->rxtx_bufsz = rxtx_bufsz;
+> +       rxtx_bufsz = min_not_zero(PAGE_ALIGN(rxtx_min_bufsz), rxtx_max_bufsz);
+>         drv_info->rx_buffer = alloc_pages_exact(rxtx_bufsz, GFP_KERNEL);
+>         if (!drv_info->rx_buffer) {
+>                 ret = -ENOMEM;
+> @@ -2156,10 +2162,17 @@ static int ffa_probe(struct platform_device *pdev)
+>         ret = ffa_rxtx_map(virt_to_phys(drv_info->tx_buffer),
+>                            virt_to_phys(drv_info->rx_buffer),
+>                            rxtx_bufsz / FFA_PAGE_SIZE);
+> +       if (ret == -EINVAL && !rxtx_max_bufsz && rxtx_min_bufsz < rxtx_bufsz) {
+> +               rxtx_bufsz = rxtx_min_bufsz;
+> +               ret = ffa_rxtx_map(virt_to_phys(drv_info->tx_buffer),
+> +                                  virt_to_phys(drv_info->rx_buffer),
+> +                                  rxtx_bufsz / FFA_PAGE_SIZE);
+> +       }
+>         if (ret) {
+>                 pr_err("failed to register FFA RxTx buffers\n");
+>                 goto free_pages;
+>         }
+> +       drv_info->rxtx_bufsz = rxtx_bufsz;
+> 
+>         mutex_init(&drv_info->rx_lock);
+>         mutex_init(&drv_info->tx_lock);
+> 
+> 
 
