@@ -4,70 +4,59 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id BC757CD6E4A
-	for <linux-arm-kernel@archiver.kernel.org>; Tue,  2 Jun 2026 12:47:20 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 28211CD6E4A
+	for <linux-arm-kernel@archiver.kernel.org>; Tue,  2 Jun 2026 12:54:26 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
 	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
 	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=4TjPJ17gEtcnTt4IawZJaVkXbQlEiP6t8vVeLN4N89Q=; b=Xjs2IEP2/moZ1AED6wX3/6Smeb
-	R+01cD/T85JEKWbbAWkJEGzHyyfuJx2NR2OhYIq0dp9HA5pB/DhuS6jCDixTEH5zV8tP6quesRliW
-	/QfFL1T5nKHwvkQo7RDoFyC8rQcXIhQM009v2PB4W79AqJanXqI72BNdV8R4jKrKx/xZ7pF8rUSa6
-	SbnjldmNW4t50b1RT+j1ze86YP7oAw7xmdrPKCu1Df71ZNDshsrOkkAYodm6ay9T0ZpnUsT533jPo
-	9ZmmQUGKmuDNJM2s48cleLXw3Rgvyjj0HkU8GC6hQB/yoVme8wvPPjYhBLSvXOBtavfXQAKzzHLTp
-	uEigkBXQ==;
+	bh=TuIVDcZuJzoCwT1ZOsuB5NzdjH1SzRB+pSXSxMDUWpE=; b=umHNNy+9eiYb+g/DKMPntAo9pH
+	b9AnLuGY49d8LezGHbfyJuEVh/sbfbmA4uG6tW6x1OEZ0BKnxZOyLvjzLjrOt511NzcmT099Wpidu
+	tlOsLpZAfl6Fev6PfREOEdTM+dlP6tYgsgzlJiHAQX/ttZ6XEBn5g3H6wWUJsEbfRxZWXx+skvyvi
+	LFj+60seNEHjYW8MDj7KXMiJstfppYh5Ixygxb48hwI4lQnaWwWiEgPOqm11XyQHn3bVgGkkuaPND
+	iGHk62sH1d9oQbRt8cpth63x7OECcAomItxCqheYstj6OEqaywTKjBJ7PdlLGqIL69Oi6z6ScJ7+K
+	VLKRqW3Q==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wUOWY-0000000D16T-3oYs;
-	Tue, 02 Jun 2026 12:47:14 +0000
-Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
+	id 1wUOdO-0000000D1kB-0PKP;
+	Tue, 02 Jun 2026 12:54:18 +0000
+Received: from vps0.lunn.ch ([156.67.10.101])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wUOWV-0000000D13O-3kbi
+	id 1wUOdM-0000000D1jp-1Nmm
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 02 Jun 2026 12:47:13 +0000
-Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
-	by sea.source.kernel.org (Postfix) with ESMTP id 4CE5B44062;
-	Tue,  2 Jun 2026 12:47:11 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 28A211F00893;
-	Tue,  2 Jun 2026 12:47:06 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1780404431;
-	bh=4TjPJ17gEtcnTt4IawZJaVkXbQlEiP6t8vVeLN4N89Q=;
-	h=Date:From:To:Cc:Subject:References:In-Reply-To;
-	b=bmADCqcmlTljvi3P17MrJrPZo0FsPvj93FnANV3ryXgXPv9XIVOp0hYwh3MoUrbLD
-	 uPwrfdoYk8yMwg6SCxxGQYPrW8JR1OrN48Pw2vOOJ6LrDJXzLZ6JyqVdZoveV3gilY
-	 pqMlMlxVr0DnAnYpm5MEwr9S9r4yzjaVIJJzN/pm6yq+iyMc5JnePZbEE0oPDdgNBK
-	 2KYaRwUe2rnRAasxp6uDW0F5YF6OqMgJymUZ/63HTKzAp/IZvuheJXqcQgPrAw5rbn
-	 QL2SLtpR4thMxcjkUPoFiyJL2omK9SCN2MKmAyu6LbNRHI3bc/gwz9yKUYF/EZdfvs
-	 WFj+L4XkkisFQ==
-Date: Tue, 2 Jun 2026 13:47:03 +0100
-From: Will Deacon <will@kernel.org>
-To: Jinjie Ruan <ruanjinjie@huawei.com>
-Cc: catalin.marinas@arm.com, corbet@lwn.net, skhan@linuxfoundation.org,
-	punit.agrawal@oss.qualcomm.com, jic23@kernel.org,
-	osama.abdelkader@gmail.com, chenl311@chinatelecom.cn,
-	fengchengwen@huawei.com, suzuki.poulose@arm.com, maz@kernel.org,
-	lpieralisi@kernel.org, timothy.hayes@arm.com,
-	sascha.bischoff@arm.com, arnd@arndb.de, mrigendra.chaubey@gmail.com,
-	pierre.gondois@arm.com, dietmar.eggemann@arm.com,
-	yangyicong@hisilicon.com, sudeep.holla@kernel.org,
-	linux-arm-kernel@lists.infradead.org, linux-doc@vger.kernel.org,
-	linux-kernel@vger.kernel.org
-Subject: Re: [PATCH v3] cpu/hotplug: Fix NULL kobject warning in
- cpuhp_smt_enable()
-Message-ID: <ah7Qx6UmfJzlph6F@willie-the-truck>
-References: <20260520022023.126670-1-ruanjinjie@huawei.com>
- <ah65zXlOH6a9geD9@willie-the-truck>
- <37bc3f0c-adeb-41b8-9b26-fabe43f47e6a@huawei.com>
+	Tue, 02 Jun 2026 12:54:17 +0000
+DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed; d=lunn.ch;
+	s=20171124; h=In-Reply-To:Content-Disposition:Content-Type:MIME-Version:
+	References:Message-ID:Subject:Cc:To:From:Date:From:Sender:Reply-To:Subject:
+	Date:Message-ID:To:Cc:MIME-Version:Content-Type:Content-Transfer-Encoding:
+	Content-ID:Content-Description:Content-Disposition:In-Reply-To:References;
+	bh=TuIVDcZuJzoCwT1ZOsuB5NzdjH1SzRB+pSXSxMDUWpE=; b=REi3cfCUof3hFc32AU98C+iOK5
+	XWxDzR7/7hF0xQKcwc7gaOXz93TUpEGPV1N3ayF1rNA57Z5wxKVdyIO4btANOLG007QwEDaw4TrE9
+	c2Dfu8hMQCC0K2vGWZDjfYYVyG0o9ppzstfi0l573+HXkciw5cIvh3jE8jYOF2Begvic=;
+Received: from andrew by vps0.lunn.ch with local (Exim 4.94.2)
+	(envelope-from <andrew@lunn.ch>)
+	id 1wUOd9-005goR-KX; Tue, 02 Jun 2026 14:54:03 +0200
+Date: Tue, 2 Jun 2026 14:54:03 +0200
+From: Andrew Lunn <andrew@lunn.ch>
+To: muhammad.nazim.amirul.nazle.asmade@altera.com
+Cc: netdev@vger.kernel.org, andrew+netdev@lunn.ch, davem@davemloft.net,
+	edumazet@google.com, kuba@kernel.org, pabeni@redhat.com,
+	mcoquelin.stm32@gmail.com, alexandre.torgue@foss.st.com,
+	rmk+kernel@armlinux.org.uk, maxime.chevallier@bootlin.com,
+	linux-stm32@st-md-mailman.stormreply.com,
+	linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org
+Subject: Re: [PATCH v3] net: stmmac: Improve Tx timer arm logic further
+Message-ID: <9730021d-0d8e-4728-abd8-7e722349ea33@lunn.ch>
+References: <20260529064659.32287-1-muhammad.nazim.amirul.nazle.asmade@altera.com>
 MIME-Version: 1.0
 Content-Type: text/plain; charset=us-ascii
 Content-Disposition: inline
-In-Reply-To: <37bc3f0c-adeb-41b8-9b26-fabe43f47e6a@huawei.com>
+In-Reply-To: <20260529064659.32287-1-muhammad.nazim.amirul.nazle.asmade@altera.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260602_054712_046517_CF01EA7D 
-X-CRM114-Status: GOOD (  18.51  )
+X-CRM114-CacheID: sfid-20260602_055416_369289_4F969596 
+X-CRM114-Status: GOOD (  12.90  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -82,51 +71,39 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Tue, Jun 02, 2026 at 08:14:26PM +0800, Jinjie Ruan wrote:
-> On 6/2/2026 7:09 PM, Will Deacon wrote:
-> > Please can you check the Sashiko review comment?
-> > 
-> > https://sashiko.dev/#/patchset/20260520022023.126670-1-ruanjinjie@huawei.com
+On Thu, May 28, 2026 at 11:46:59PM -0700, muhammad.nazim.amirul.nazle.asmade@altera.com wrote:
+> From: Nazim Amirul <muhammad.nazim.amirul.nazle.asmade@altera.com>
 > 
-> On arm64, arch_unregister_cpu() enforces a safety block against physical
-> CPU hot-removal by aborting early if cpu_present() is true but the
-> device is no longer physically present, thereby skipping
-> unregister_cpu() and leaking the sysfs device node.
-> If acpi_unmap_cpu() blindly clears the present bit while the sysfs
-> device remains registered, a subsequent hot-add attempt will see the
-> valid leaked device pointer, skip acpi_processor_hotadd_init() (and thus
-> skip acpi_map_cpu()), leaving the hot-added CPU permanently absent and
-> deadlocked.
+> Calling hrtimer_start() on an already-active txtimer is unnecessary
+> and expensive. Skip the restart if the timer is already active by
+> adding an hrtimer_active() check before hrtimer_start().
 > 
-> Hi, Will,
+> Previously, each packet reset the timer to tx_coal_timer in the future,
+> acting as a sliding window that delayed NAPI under burst traffic. With
+> this change, an already-active timer is left to fire sooner, scheduling
+> NAPI within tx_coal_timer of the first packet and freeing TX descriptors
+> earlier.
 > 
-> what do you think about fix it like this?
+> There is no race concern: hrtimer_start() is internally serialized and
+> safe to call on an active timer. In the event of a race between
+> hrtimer_active() and hrtimer_start(), the worst case is calling
+> hrtimer_start() on an already-active timer, which is identical to the
+> pre-patch behaviour.
 > 
-> --- a/arch/arm64/kernel/acpi.c
-> +++ b/arch/arm64/kernel/acpi.c
-> @@ -455,7 +455,6 @@ EXPORT_SYMBOL(acpi_map_cpu);
+> Performance on Cyclone V with dwmac-socfpga (iperf3 -u -b 0 -l 64):
+>   Before: ~45200 pps
+>   After:  ~52300 pps (~15% improvement)
 > 
->  int acpi_unmap_cpu(int cpu)
->  {
-> -       set_cpu_present(cpu, false);
->         return 0;
->  }
->  EXPORT_SYMBOL(acpi_unmap_cpu);
-> diff --git a/arch/arm64/kernel/smp.c b/arch/arm64/kernel/smp.c
-> index 5932e5b30b71..507c6d761434 100644
-> --- a/arch/arm64/kernel/smp.c
-> +++ b/arch/arm64/kernel/smp.c
-> @@ -554,6 +554,7 @@ void arch_unregister_cpu(int cpu)
->         }
+> Additionally, ~10% improvement in UDP throughput observed on Agilex5,
+> with hrtimer CPU usage reduced from ~8% to ~0.6%.
 > 
->         unregister_cpu(c);
-> +       set_cpu_present(cpu, false);
->  }
->  #endif /* CONFIG_ACPI_HOTPLUG_CPU */
+> Signed-off-by: Rohan G Thomas <rohan.g.thomas@altera.com>
+> Tested-by: Maxime Chevallier <maxime.chevallier@bootlin.com>
+> Reviewed-by: Maxime Chevallier <maxime.chevallier@bootlin.com>
+> Reviewed-by: Jacob Keller <jacob.e.keller@intel.com>
+> Signed-off-by: Nazim Amirul <muhammad.nazim.amirul.nazle.asmade@altera.com>
 
-Hmm, not sure. Doesn't that break error handling cleanup paths that
-expect acpi_unmap_cpu() to undo acpi_map_cpu()? See
-acpi_processor_hotadd_init(), for example.
+Reviewed-by: Andrew Lunn <andrew@lunn.ch>
 
-Will
+    Andrew
 
