@@ -4,121 +4,62 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 04F6ECD6E4A
-	for <linux-arm-kernel@archiver.kernel.org>; Tue,  2 Jun 2026 05:52:14 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id E23FACD6E60
+	for <linux-arm-kernel@archiver.kernel.org>; Tue,  2 Jun 2026 05:54:31 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:CC:To:From:Date:Reply-To:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
 	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=NiTQQWbU4B9jgXX8d2+E5sDmH3E61F31BLko8FFniD4=; b=D3Benzis+4K/BAR9oqEQ4omhNu
-	ZkGBvkbxR1tbDKNsFFV5JdcgA6bfgDE0EXza5zvhtxy9oWDi5FaVJ/xbsZoXIAPiBRzSQvnHZ5lpB
-	04bNZi8PUbkmFjyIICWj225bgso6KV3SH/WTzOI1m3i2+8SteCkS8q6pCFjQ8qmNR69/OOapzcvzA
-	J39sCvY7DeTWddiK51oNMdK1zWcDgcz/2+cYKIx5Fm5l22Q518MD1gRHlfAgWB1lHARD7PCrWJ3aL
-	v853iTYPwvDg8x3vIJvV4lhLDoAMGhQu5tXbeC5Pb8fiPGYKoDQwdAAPZP8/fIrKb0O9L89esfzzp
-	Hpe+umdQ==;
+	bh=Dxgi0jgxHF8ZOJD3E0wYhy+yjP1j3xhNtbRyo2XZKFg=; b=eW4E0I25GKBBjJEgxhoo3GFEWn
+	OiLrL2R1yj7qimHQrUnj1L5wO6iFedSgTsJxmSWAPaALpRDi8ntsp210hgToekIdNnK0FSBryrs0Y
+	CT4Eq4BFz+jnMWhLx0roYaEYSO97FXJ0HNOmLXU0HtIacqdJaBWbvRHkV2ExsHc9jE3mcL9/dGvUq
+	TYa6svvQshJwLTQZjo+1SJv5BPM7pcHe51Tz/d5GOGwGadpwWAUIIHmcu6gNxs+5A4moZ7QxUIA04
+	O0yjQDpYp5Joca7k3KJ980ufhhrxjhG792K8rOKwxaqTgBZN10WJjP9TDwXSWEGqbViPbd9w11dCD
+	0e9/1gXw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wUI2m-0000000CLb2-2eWv;
-	Tue, 02 Jun 2026 05:52:04 +0000
-Received: from mail-southcentralusazon11011039.outbound.protection.outlook.com ([40.93.194.39] helo=SN4PR0501CU005.outbound.protection.outlook.com)
+	id 1wUI54-0000000CLhO-0AY9;
+	Tue, 02 Jun 2026 05:54:26 +0000
+Received: from tor.source.kernel.org ([2600:3c04:e001:324:0:1991:8:25])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wUI2k-0000000CLai-2vFQ
+	id 1wUI52-0000000CLhB-2RWw
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 02 Jun 2026 05:52:03 +0000
-ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
- b=kIZdKO3TpBgtvnRC9bseKde067fQKGzyFypgyiPRF9ssWJrhUaAm+tU4TsQrVr006SH997iCfuy4Cj06A2WaMr3BdS4fnajFWGCj6vdhTETGNBst9Jyv7mr1Ocx+RWdTIT9UeZmSqDVGZPka/gEzx7btoEoygUlk9D5kwuJ5VXgvNefDyWei5yIJbHNwiFRKCL41WWqKHP+FPEYv3Nl+exScOoZEvX3q+MAfhGThNOJM8BF5hNswzP4JW4x+QANUsVc5A533nDuyagCUX6gKy2i0XOpfjk4oF2rHPB7srO21rE6LYOHTQZGGK2WtMNZkQL8hdSy8R5ffwlXCKplz+A==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
- s=arcselector10001;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
- bh=NiTQQWbU4B9jgXX8d2+E5sDmH3E61F31BLko8FFniD4=;
- b=ksH1tvhyb8/Y8ndn1d+PRN1YWI8bngn0BS3jTcLG5oKUb5QqkuZ8dhu+mF2eULYtioz5doDIqgWZno/cmxXeNI/YTJRSuk+eowCZD5PCPcJ+dll1Ol6fqrL61An8wHAmqVkmw+YEgtGhyMyQvam2MVLw33ekNkeKIzo9BvSlXPKgVZKCSOf7x2h7WiDzNyNxg24rTfLK1+AcDpC8J+6JHSThfBSEwp4FxnT5flr9eGvO1m//LpqL1e5lsSjH6zHzE1TJNrwx2rEyU1+yOh/XALFpGsJruQXh3EONnSket7dF5YWarJB091wIpFpsZnSjF32IVB8Qw4bmgHYa4xqbug==
-ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass (sender ip is
- 216.228.118.232) smtp.rcpttodomain=google.com smtp.mailfrom=nvidia.com;
- dmarc=pass (p=reject sp=reject pct=100) action=none header.from=nvidia.com;
- dkim=none (message not signed); arc=none (0)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=Nvidia.com;
- s=selector2;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
- bh=NiTQQWbU4B9jgXX8d2+E5sDmH3E61F31BLko8FFniD4=;
- b=butW9jhYLCRp7EZf6OF7lEhYXpTd5hpY+9hy+l3KUzz90pkZjErzdPJcwnEIxFATultcpgTY3RCXwGyqzypEWXKHRqw/xj9N2fqjOvDPBedZ0aOGbiAZV5qjylzG76EapuOEXK+W1IPSBeB4msg5VbEzHMpM7cqN+klsqSQdY+UbSPbmZFc7MNxCXhYUcDRQ2w3vadv9scIGr87cwgToc5mlyN0ZX6/BYJx0tGzP2dmn2dECWcZxjeF5Wk9p7A0I86MtzA0hkRkU2iUL8tA9mKlBdD4ehUSzL4i1LdTj9BV1KECM+4/2xVFyKMxyW+7dN37wpPMpxWCDTiGmx5T0UA==
-Received: from DS7PR03CA0236.namprd03.prod.outlook.com (2603:10b6:5:3ba::31)
- by SA1PR12MB8858.namprd12.prod.outlook.com (2603:10b6:806:385::7) with
- Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.21.71.14; Tue, 2 Jun 2026
- 05:51:51 +0000
-Received: from CY4PEPF0000E9D3.namprd03.prod.outlook.com
- (2603:10b6:5:3ba:cafe::72) by DS7PR03CA0236.outlook.office365.com
- (2603:10b6:5:3ba::31) with Microsoft SMTP Server (version=TLS1_3,
- cipher=TLS_AES_256_GCM_SHA384) id 15.21.92.7 via Frontend Transport; Tue, 2
- Jun 2026 05:51:51 +0000
-X-MS-Exchange-Authentication-Results: spf=pass (sender IP is 216.228.118.232)
- smtp.mailfrom=nvidia.com; dkim=none (message not signed)
- header.d=none;dmarc=pass action=none header.from=nvidia.com;
-Received-SPF: Pass (protection.outlook.com: domain of nvidia.com designates
- 216.228.118.232 as permitted sender) receiver=protection.outlook.com;
- client-ip=216.228.118.232; helo=mail.nvidia.com; pr=C
-Received: from mail.nvidia.com (216.228.118.232) by
- CY4PEPF0000E9D3.mail.protection.outlook.com (10.167.241.138) with Microsoft
- SMTP Server (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
- 15.21.92.5 via Frontend Transport; Tue, 2 Jun 2026 05:51:51 +0000
-Received: from drhqmail201.nvidia.com (10.126.190.180) by mail.nvidia.com
- (10.127.129.5) with Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.2.2562.20; Mon, 1 Jun
- 2026 22:51:36 -0700
-Received: from drhqmail201.nvidia.com (10.126.190.180) by
- drhqmail201.nvidia.com (10.126.190.180) with Microsoft SMTP Server
- (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
- 15.2.2562.20; Mon, 1 Jun 2026 22:51:35 -0700
-Received: from Asurada-Nvidia (10.127.8.9) by mail.nvidia.com (10.126.190.180)
- with Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.2.2562.20 via Frontend
- Transport; Mon, 1 Jun 2026 22:51:35 -0700
-Date: Mon, 1 Jun 2026 22:51:34 -0700
-From: Nicolin Chen <nicolinc@nvidia.com>
-To: Pranjal Shrivastava <praan@google.com>
-CC: <iommu@lists.linux.dev>, Will Deacon <will@kernel.org>, Joerg Roedel
-	<joro@8bytes.org>, Robin Murphy <robin.murphy@arm.com>, Jason Gunthorpe
-	<jgg@ziepe.ca>, Mostafa Saleh <smostafa@google.com>, Daniel Mentz
-	<danielmentz@google.com>, Ashish Mhetre <amhetre@nvidia.com>,
-	<linux-arm-kernel@lists.infradead.org>
-Subject: Re: [PATCH v8 11/12] iommu/arm-smmu-v3: Invoke pm_runtime before hw
- access
-Message-ID: <ah5vZl3zcC6YPeZ5@Asurada-Nvidia>
-References: <20260601215909.3958732-1-praan@google.com>
- <20260601215909.3958732-12-praan@google.com>
- <ah4isiGhSScKMotO@Asurada-Nvidia>
- <ah5VOE5vuEPwr4oQ@google.com>
+	Tue, 02 Jun 2026 05:54:24 +0000
+Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
+	by tor.source.kernel.org (Postfix) with ESMTP id A9DF8600AA;
+	Tue,  2 Jun 2026 05:54:23 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 3C2961F00898;
+	Tue,  2 Jun 2026 05:54:23 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
+	s=k20260515; t=1780379663;
+	bh=Dxgi0jgxHF8ZOJD3E0wYhy+yjP1j3xhNtbRyo2XZKFg=;
+	h=Date:From:To:Cc:Subject:References:In-Reply-To;
+	b=hyUYuEaZIBffvstbIQtU4xBRLFyatjz177ACyR/00AmIyTLww57nMlfTZqm7JvaFc
+	 WptNFndbT9ABnMbAA8D1h45MzsemcWKb76lgHevcDTzBsUFitxJNyEp39LoXP/gCL6
+	 DPBXPT0TFN4yCb9C2tZwUyap62F8y6VZvvo+oha/p/83XthtXihrPxwLwbYdanYQgN
+	 bbjhcCk8CvPOkbSvtzbHwjiHxdGntgTOpa6qzWlxgRle3YvCRE8iPhDOFmq45IhCtt
+	 FkGRZ2jkUZ9ouerlUZR7MLBV5sjRJXbRATfWCC9XYbwZy8fuyrdnOVNEW6hh3PkK/I
+	 j4pgkeRqfLdHQ==
+Date: Mon, 1 Jun 2026 22:54:22 -0700
+From: Oliver Upton <oupton@kernel.org>
+To: Hyunwoo Kim <imv4bel@gmail.com>
+Cc: maz@kernel.org, joey.gouly@arm.com, seiden@linux.ibm.com,
+	suzuki.poulose@arm.com, yuzenghui@huawei.com,
+	catalin.marinas@arm.com, will@kernel.org, kees@kernel.org,
+	linux-arm-kernel@lists.infradead.org, kvmarm@lists.linux.dev,
+	linux-kernel@vger.kernel.org
+Subject: Re: [PATCH] KVM: arm64: vgic-its: Drop the translation cache
+ reference only for the erased entry
+Message-ID: <ah5wDnNJ7AKGLDxh@kernel.org>
+References: <ah2c5lu4JbUg7dj-@v4bel>
+ <ah3Yx0fjguUdCk_G@kernel.org>
+ <ah4yiavdXTB10P0d@v4bel>
 MIME-Version: 1.0
-Content-Type: text/plain; charset="us-ascii"
+Content-Type: text/plain; charset=us-ascii
 Content-Disposition: inline
-In-Reply-To: <ah5VOE5vuEPwr4oQ@google.com>
-X-NV-OnPremToCloud: ExternallySecured
-X-EOPAttributedMessage: 0
-X-MS-PublicTrafficType: Email
-X-MS-TrafficTypeDiagnostic: CY4PEPF0000E9D3:EE_|SA1PR12MB8858:EE_
-X-MS-Office365-Filtering-Correlation-Id: 2a60d7ae-c282-4d18-f349-08dec06b0b03
-X-MS-Exchange-SenderADCheck: 1
-X-MS-Exchange-AntiSpam-Relay: 0
-X-Microsoft-Antispam: BCL:0;ARA:13230040|1800799024|376014|36860700016|82310400026|18002099003|22082099003|4143699003|11063799006|56012099006;
-X-Microsoft-Antispam-Message-Info: mk2p/mmRj6JIw1Loo9G369QyYTLh45vQD8SpG5F1VPpVO8MeEuReS/QViQlZq/hpH/7Bs6FdCdXqT7wtd7UP72ajI3N+oS0B9W8hLr2df0zX/hOoYmqrtM1248TGb15xk9KWhSZWzDoabEJbBG5IaS5ZHm8erp3hBZHQWcWSoTGmYOsT79LLwJUmIqhBYk2idg8ra8d/XaMHkSIwRD2POdX+//nFXWFsX6bxf3L/E0YegtVBPDQJ+VbyRhLZ5ZBR0bAQ0d+NMED4KManLEcXHcQNjMwwhE+246WPnsV5CvjoBmxY6V2WIPNuDA6qdBho2Gnv/AUDG0OkN61dwjVSARAU/VYZf8lnckqZVlmZikC+XHQ49xWsS+DEVcO8jw/YvnLEGKvrv5vwKmH20yIqsFdJRHyrUTrshSNGUPhbWZ0nny+yhjR2ogTbbwHxtrGVfTijwP6l/9hQvciZ76UlqSYUqnf8upIqLpQXtXhyqR+uOca+4Zs78LaKJRPeGq420jCHEbWUEvpSU5Fbi/BtcND08ndT2wC8gBnZI84Bt3wGEsIRjm2KrwVyx/UEyNxi4U8Nt0EspmPiMHvIRWdlG8shsYa3NuMT6zO14fSN6CX5KskXmb3uxQ9fEw3LX0QOwX/VjRI6u6yNThRMTq2jpwfEFMrg2WWuenJG+97v4I9VCp464ZLtjn8UvNa4BTxjhz0C8ttfq2a+uaRD/t5JcNxd+3louzZZssRHqaYFT5A=
-X-Forefront-Antispam-Report: CIP:216.228.118.232;CTRY:US;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:mail.nvidia.com;PTR:dc7edge1.nvidia.com;CAT:NONE;SFS:(13230040)(1800799024)(376014)(36860700016)(82310400026)(18002099003)(22082099003)(4143699003)(11063799006)(56012099006);DIR:OUT;SFP:1101;
-X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
-X-MS-Exchange-AntiSpam-MessageData-0: QrSY9XX9twaeA764VT7zpM7OzwMjncnfP2jixA+WayPN2H0GwrXHIV8xflrQ44Ud8sKqZiCkFSwXiBNrtQRn/3bJWbEX7VozCgrxS9Zn2BBcgq7B93MXgWPx3gdxozVUwqRmFJiGWJuc/CHLSEKYXfiVqw7AJN3b/nx7O0xYZWij0zmvlBjDoDuYv6f3/aPlKksvRQbDLm75ppbsvZT7g8TvExxD0AteHPypcO2twboOFQRUcs+NO+6aoQhR7Dt3hn0EYo60Glc+ERXYUU6C0V0BL4nmeHXR9LFPLitvvXKsTONOYqaE6DTZ7DFXFCEdOz982xiOiUSu1WtGDEpp/+FRxDTUQ0v+k8Xe0l7joG19UGcmte5lWyOEq9uFmXq8r7E3km+0lbnXhqQ69igjGtHJgbJYSxRs3Wld0wTFwc9+F+ZwG/nQoHEZovUlW4hy
-X-OriginatorOrg: Nvidia.com
-X-MS-Exchange-CrossTenant-OriginalArrivalTime: 02 Jun 2026 05:51:51.0608
- (UTC)
-X-MS-Exchange-CrossTenant-Network-Message-Id: 2a60d7ae-c282-4d18-f349-08dec06b0b03
-X-MS-Exchange-CrossTenant-Id: 43083d15-7273-40c1-b7db-39efd9ccc17a
-X-MS-Exchange-CrossTenant-OriginalAttributedTenantConnectingIp: TenantId=43083d15-7273-40c1-b7db-39efd9ccc17a;Ip=[216.228.118.232];Helo=[mail.nvidia.com]
-X-MS-Exchange-CrossTenant-AuthSource: CY4PEPF0000E9D3.namprd03.prod.outlook.com
-X-MS-Exchange-CrossTenant-AuthAs: Anonymous
-X-MS-Exchange-CrossTenant-FromEntityHeader: HybridOnPrem
-X-MS-Exchange-Transport-CrossTenantHeadersStamped: SA1PR12MB8858
-X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260601_225202_738678_AA8DCC6C 
-X-CRM114-Status: GOOD (  16.04  )
+In-Reply-To: <ah4yiavdXTB10P0d@v4bel>
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -133,38 +74,73 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Tue, Jun 02, 2026 at 03:59:52AM +0000, Pranjal Shrivastava wrote:
-> On Mon, Jun 01, 2026 at 05:24:18PM -0700, Nicolin Chen wrote:
-> > On Mon, Jun 01, 2026 at 09:59:08PM +0000, Pranjal Shrivastava wrote:
-> > > -static inline bool arm_smmu_can_elide(struct arm_smmu_device *smmu)
-> > > +static inline bool arm_smmu_cmdq_can_elide(struct arm_smmu_device *smmu)
-> > >  {
-> > >  	return !!Q_STOP(READ_ONCE(smmu->cmdq.q.llq.prod));
+On Tue, Jun 02, 2026 at 10:31:53AM +0900, Hyunwoo Kim wrote:
+> On Mon, Jun 01, 2026 at 12:08:55PM -0700, Oliver Upton wrote:
+> > Hi Hyunwoo,
+> > 
+> > Nice find.
+> > 
+> > On Mon, Jun 01, 2026 at 11:53:26PM +0900, Hyunwoo Kim wrote:
+> > > vgic_its_invalidate_cache() walks the per-ITS translation cache with
+> > > xa_for_each() and drops the cache's reference on each entry with
+> > > vgic_put_irq(). It puts the iterated pointer, though, rather than the
+> > > value returned by xa_erase().
+> > > 
+> > > The function is called from contexts that do not exclude one another: the
+> > > ITS command handlers hold its_lock, the GITS_CTLR write path holds
+> > > cmd_lock, and the path that clears EnableLPIs in a redistributor's
+> > > GICR_CTLR holds neither. Two or more of them can drain the same cache
+> > > concurrently, and if each one observes the same entry, erases it and then
+> > > puts it, the single reference the cache holds on that entry is dropped
+> > > more than once. The entry can then be freed while an ITE still maps it.
+> > > 
+> > > xa_erase() is atomic and returns the previous entry, so put only the entry
+> > > that this context actually removed. The cache reference is then dropped
+> > > exactly once per entry even when the invalidations run concurrently, and
+> > > the behavior is unchanged when only one context runs.
+> > 
+> > Next time:
+> > 
+> > Cc: stable@vger.kernel.org
+> > 
+> > > Fixes: 8201d1028caa ("KVM: arm64: vgic-its: Maintain a translation cache per ITS")
+> > > Signed-off-by: Hyunwoo Kim <imv4bel@gmail.com>
+> > > ---
+> > >  arch/arm64/kvm/vgic/vgic-its.c | 6 ++++--
+> > >  1 file changed, 4 insertions(+), 2 deletions(-)
+> > > 
+> > > diff --git a/arch/arm64/kvm/vgic/vgic-its.c b/arch/arm64/kvm/vgic/vgic-its.c
+> > > index 1d7e5d560af4..1e3706ac3b8e 100644
+> > > --- a/arch/arm64/kvm/vgic/vgic-its.c
+> > > +++ b/arch/arm64/kvm/vgic/vgic-its.c
+> > > @@ -597,8 +597,10 @@ static void vgic_its_invalidate_cache(struct vgic_its *its)
+> > >  	unsigned long idx;
+> > >  
+> > >  	xa_for_each(&its->translation_cache, idx, irq) {
+> > > -		xa_erase(&its->translation_cache, idx);
+> > > -		vgic_put_irq(kvm, irq);
+> > > +		/* Only the context that erases the entry drops its cache ref. */
+> > > +		irq = xa_erase(&its->translation_cache, idx);
+> > > +		if (irq)
+> > > +			vgic_put_irq(kvm, irq);
+> > >  	}
 > > >  }
 > > 
-> > Can it be named perfectly at the beginning?
+> > This definitely works but TBH I'd rather just plug the subtle race and
+> > do invalidations behind the its_lock since it already nests with the
+> > cmd_lock.
 > 
-> Ack.
+> Thank you for the review.
 > 
 > > 
-> > And again, should it check Q_STOP in vcmdq?
+> > Could you give this a spin?
 > 
-> I don't think so.. the primary CMDQ's STOP_FLAG should act as a proxy for
-> the SMMU's global power state. Since all queues (primary and secondary)
-> are gated synchronously during suspend after SMMUEN=0, and ungated before
-> SMMUEN=1 (i.e.before the caching can begin). Checking the primary queue 
-> should suffice..
+> After testing, I've confirmed that this patch approach works well too.
+> 
+> Shall I submit v2 based on this fix?
 
-Should leave a note inline to elaborate why we only check primary
-cmdq only.
+Yes, please do.
 
-[...]
-> We can also decide to drop the can_elide checks from invs_array and
-> atc_inv_master altogether, leaving gerror & page_response the only
-> remaining call-sites, both of which don't use secondary queues.
-
-That's not true.. In the host mode, any command will be issued to
-vcmdq. IOW, primary queue might not be used at all.
-
-Nicolin
+Thanks,
+Oliver
 
