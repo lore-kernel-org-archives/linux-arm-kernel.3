@@ -4,38 +4,38 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 9C5A9CD6E69
-	for <linux-arm-kernel@archiver.kernel.org>; Tue,  2 Jun 2026 10:47:30 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id A033DCD6E57
+	for <linux-arm-kernel@archiver.kernel.org>; Tue,  2 Jun 2026 10:47:31 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
 	MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:
 	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=FtoAZ4ObIrgN8RB/Z4MrgWEyJCArPPBpz4yofnEwwtU=; b=FZIVrTuOF9RCwhkXP3K85NpKsP
-	j+JuPImbm3WVqRl42bIMcum57VTytedlWzazSRZmJSlxnHkqzVyqs0ahgwCB4eVJChxMHbWaKHT1u
-	13hc2EG2h9CEDGTMeEMqWmi2+x3l/YWBJzN9kHEx8v+hEn3o1AKUXwpo3jtvkYR1YmM8LD2iMFpul
-	y8bkUu05GTuakke/mucClzqZY7dsBBeiGGXhr3lHYM+MQqwxQavr5NrY9MrAbdTS0O26nJ6PIvs+t
-	G3uz1oE4Fc9FNJ20he3Ejo18/68vQDfZvFXy2/st2AQDZ46ycWBxIN6jQAL/XZIgRJ7Xrj4YGNDQ4
-	Smt6Yt4w==;
+	bh=Dmq5VZlTiHIu0DAcakOaUjD+KNjRLd5oRgXasfLjiiI=; b=udc6DvZNT6ob4a7Y/zsThJLEy7
+	3szxbffpv7PG2mwrMsf67ItKHOExtC0QQtGJvrPOs1bHy3K1bp0AhytK3oRM4+LrH9gava2ZMH3Ct
+	28Wk3eK994sQdiaSXg1HzLNsWD0ku/FyHD7vbAHVeWzCz2F8A1IYLzDVGYg9xn/RP9z2GxCUVzEKW
+	0x17tNTqqBGctFkx5GvI9fXLyCp/Kd4fTIzcGMr/1iRykOOEOpnuahaDOh5htHWk0JbJDUR8qaiJl
+	2BuVIH7BlwOmR1VypQeqAaTGYu3l+6mCc5SnoIYE+xitR0LFCdZj3QdKqcWlbqsX0oExcM7R9lupl
+	b2joHtvg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wUMeY-0000000CoX4-39d5;
-	Tue, 02 Jun 2026 10:47:22 +0000
-Received: from out30-130.freemail.mail.aliyun.com ([115.124.30.130])
+	id 1wUMeT-0000000CoLb-2L37;
+	Tue, 02 Jun 2026 10:47:17 +0000
+Received: from out30-124.freemail.mail.aliyun.com ([115.124.30.124])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wUMeU-0000000CoLJ-3lJv
+	id 1wUMeN-0000000Co3A-21I5
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 02 Jun 2026 10:47:21 +0000
+	Tue, 02 Jun 2026 10:47:15 +0000
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
 	d=linux.alibaba.com; s=default;
-	t=1780397236; h=From:To:Subject:Date:Message-ID:MIME-Version;
-	bh=FtoAZ4ObIrgN8RB/Z4MrgWEyJCArPPBpz4yofnEwwtU=;
-	b=cARLhbUEDHW8HzSoTo1RpHxukxpFCaDCXs1HO1YjokxCMmyEhvzEnR2ZWLWlhmxImtI+5v/qFtLHK6RZrFmgfuRsCLPWo55eLEE1tZ73n7lvHoZ+NmUHDxKs7SErZrMZgUrM2iS0VV0Q8c8bELD7KNr870s/kyL2ZxIfwl0hNKk=
-X-Alimail-AntiSpam: AC=PASS;BC=-1|-1;BR=01201311R201e4;CH=green;DM=||false|;DS=||;FP=0|-1|-1|-1|0|-1|-1|-1;HT=maildocker-contentspam033045133197;MF=guanghuifeng@linux.alibaba.com;NM=1;PH=DS;RN=28;SR=0;TI=SMTPD_---0X44E98Q_1780397231;
-Received: from VM20241011-104.tbsite.net(mailfrom:guanghuifeng@linux.alibaba.com fp:SMTPD_---0X44E98Q_1780397231 cluster:ay36)
+	t=1780397229; h=From:To:Subject:Date:Message-ID:MIME-Version;
+	bh=Dmq5VZlTiHIu0DAcakOaUjD+KNjRLd5oRgXasfLjiiI=;
+	b=XHS10kZF5bTHkqVtJX6j9hiT7GJ4TzXAypFSDmgvGnb7NjuMgLru8UypByoNCN8R7jM2p4ump0EpDAYwnkxDBs2BF2/Kdhurbj4VBeywLxBFh2KVFxbSzj9W2sP3IumLWbKJ4IokeAcG9PhCRCzJLr2CFwr4U7bbSAA2tf2lpZQ=
+X-Alimail-AntiSpam: AC=PASS;BC=-1|-1;BR=01201311R121e4;CH=green;DM=||false|;DS=||;FP=0|-1|-1|-1|0|-1|-1|-1;HT=maildocker-contentspam033045133197;MF=guanghuifeng@linux.alibaba.com;NM=1;PH=DS;RN=28;SR=0;TI=SMTPD_---0X44E97N_1780397226;
+Received: from VM20241011-104.tbsite.net(mailfrom:guanghuifeng@linux.alibaba.com fp:SMTPD_---0X44E97N_1780397226 cluster:ay36)
           by smtp.aliyun-inc.com;
-          Tue, 02 Jun 2026 18:47:12 +0800
+          Tue, 02 Jun 2026 18:47:06 +0800
 From: Guanghui Feng <guanghuifeng@linux.alibaba.com>
 To: adrian.larumbe@collabora.com,
 	airlied@gmail.com,
@@ -65,9 +65,9 @@ To: adrian.larumbe@collabora.com,
 	will@kernel.org,
 	xlpang@linux.alibaba.com
 Cc: alikernel-developer@linux.alibaba.com
-Subject: [PATCH v2 24/30] drm/panfrost: switch to iova_to_phys_length
-Date: Tue,  2 Jun 2026 18:46:31 +0800
-Message-ID: <20260602104637.1219810-25-guanghuifeng@linux.alibaba.com>
+Subject: [PATCH v2 19/30] iommu/sprd: implement iova_to_phys_length
+Date: Tue,  2 Jun 2026 18:46:26 +0800
+Message-ID: <20260602104637.1219810-20-guanghuifeng@linux.alibaba.com>
 X-Mailer: git-send-email 2.43.7
 In-Reply-To: <20260602104637.1219810-1-guanghuifeng@linux.alibaba.com>
 References: <20260531093637.3893199-1-guanghuifeng@linux.alibaba.com>
@@ -75,8 +75,8 @@ References: <20260531093637.3893199-1-guanghuifeng@linux.alibaba.com>
 MIME-Version: 1.0
 Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260602_034719_282972_9C3AF9E3 
-X-CRM114-Status: UNSURE (   9.09  )
+X-CRM114-CacheID: sfid-20260602_034711_702957_1CB6F937 
+X-CRM114-Status: UNSURE (   9.76  )
 X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
@@ -92,27 +92,65 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Migrate panfrost_mmu to use ops->iova_to_phys_length(ops, iova, NULL)
-instead of the deprecated ops->iova_to_phys.
+Implement iova_to_phys_length for Spreadtrum IOMMU driver,
+returning the actual PTE mapping size.
 
 Signed-off-by: Guanghui Feng <guanghuifeng@linux.alibaba.com>
 ---
- drivers/gpu/drm/panfrost/panfrost_mmu.c | 2 +-
- 1 file changed, 1 insertion(+), 1 deletion(-)
+ drivers/iommu/sprd-iommu.c | 20 +++++++++++++++-----
+ 1 file changed, 15 insertions(+), 5 deletions(-)
 
-diff --git a/drivers/gpu/drm/panfrost/panfrost_mmu.c b/drivers/gpu/drm/panfrost/panfrost_mmu.c
-index 4a3162c3b659..aa0bc82deaf6 100644
---- a/drivers/gpu/drm/panfrost/panfrost_mmu.c
-+++ b/drivers/gpu/drm/panfrost/panfrost_mmu.c
-@@ -514,7 +514,7 @@ void panfrost_mmu_unmap(struct panfrost_gem_mapping *mapping)
+diff --git a/drivers/iommu/sprd-iommu.c b/drivers/iommu/sprd-iommu.c
+index c1a34445d244..f8dbe24c332a 100644
+--- a/drivers/iommu/sprd-iommu.c
++++ b/drivers/iommu/sprd-iommu.c
+@@ -366,8 +366,9 @@ static void sprd_iommu_sync(struct iommu_domain *domain,
+ 	sprd_iommu_sync_map(domain, 0, 0);
+ }
  
- 		if (bo->is_heap)
- 			pgcount = 1;
--		if (!bo->is_heap || ops->iova_to_phys(ops, iova)) {
-+		if (!bo->is_heap || ops->iova_to_phys_length(ops, iova, NULL) != PHYS_ADDR_MAX) {
- 			unmapped_page = ops->unmap_pages(ops, iova, pgsize, pgcount, NULL);
- 			WARN_ON(unmapped_page != pgsize * pgcount);
- 		}
+-static phys_addr_t sprd_iommu_iova_to_phys(struct iommu_domain *domain,
+-					   dma_addr_t iova)
++static phys_addr_t sprd_iommu_iova_to_phys_length(struct iommu_domain *domain,
++						  dma_addr_t iova,
++						  size_t *mapped_length)
+ {
+ 	struct sprd_iommu_domain *dom = to_sprd_domain(domain);
+ 	unsigned long flags;
+@@ -375,14 +376,23 @@ static phys_addr_t sprd_iommu_iova_to_phys(struct iommu_domain *domain,
+ 	unsigned long start = domain->geometry.aperture_start;
+ 	unsigned long end = domain->geometry.aperture_end;
+ 
++	if (mapped_length)
++		*mapped_length = 0;
++
+ 	if (WARN_ON(iova < start || iova > end))
+-		return 0;
++		return PHYS_ADDR_MAX;
+ 
+ 	spin_lock_irqsave(&dom->pgtlock, flags);
+ 	pa = *(dom->pgt_va + ((iova - start) >> SPRD_IOMMU_PAGE_SHIFT));
+-	pa = (pa << SPRD_IOMMU_PAGE_SHIFT) + ((iova - start) & (SPRD_IOMMU_PAGE_SIZE - 1));
+ 	spin_unlock_irqrestore(&dom->pgtlock, flags);
+ 
++	if (!pa)
++		return PHYS_ADDR_MAX;
++
++	pa = (pa << SPRD_IOMMU_PAGE_SHIFT) + ((iova - start) & (SPRD_IOMMU_PAGE_SIZE - 1));
++	if (mapped_length)
++		*mapped_length = SPRD_IOMMU_PAGE_SIZE;
++
+ 	return pa;
+ }
+ 
+@@ -420,7 +430,7 @@ static const struct iommu_ops sprd_iommu_ops = {
+ 		.unmap_pages	= sprd_iommu_unmap,
+ 		.iotlb_sync_map	= sprd_iommu_sync_map,
+ 		.iotlb_sync	= sprd_iommu_sync,
+-		.iova_to_phys	= sprd_iommu_iova_to_phys,
++		.iova_to_phys_length	= sprd_iommu_iova_to_phys_length,
+ 		.free		= sprd_iommu_domain_free,
+ 	}
+ };
 -- 
 2.43.7
 
