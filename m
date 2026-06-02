@@ -4,95 +4,90 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 29749CD6E64
-	for <linux-arm-kernel@archiver.kernel.org>; Tue,  2 Jun 2026 11:45:19 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 5F766CD6E5D
+	for <linux-arm-kernel@archiver.kernel.org>; Tue,  2 Jun 2026 11:51:49 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:
-	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=CFWD1rv/Hg1YLyvj0G8HeVU1rR/ze4TuYTUo6+4aG1k=; b=K8KfpGv2ZIppAdXEHjm4fZe1dM
-	nJQCZVNYmp7GYeUCwUar/xoiPleR7KrWZxflEnCInMVHCgGusNoUpPzXpZ0CcI+k1kD4d592EVEkt
-	yku4ArTjv04M2O7FTxfkjAL2zUbW60LDTBxEdxcid+T6q/MiIriz9yD/AurkQCyJXYgNop6In3W5r
-	DO6NfPbucqRMboxq7LxClcjKg2iQUu37DzlDMqqurtbquCMIFRnyDDvxdsHuUfRV1EMdJ0eg5mojA
-	ndPaUqEE0kPl7MgmJfvgKGXIZ/6pkwSYn+a90CbFxGHDLqYtcs0TLOH0APjPqGvPDcpdkExZvvAfB
-	vBMs7cCg==;
+	MIME-Version:Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-Type:
+	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
+	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=7im3CUG3zSzSawz5dX5Ezc+o8cBVuqZtJiTJ2Y8aJ68=; b=wQydPAJqGfHLb0LoRNWjgaRdj3
+	MW1ySBT2+InXc/oB67UEz5/YFdKb1Vw1d7HBzC831U65L2wgJuAsStqCRwtKL3BDEEos+6ig3/BsE
+	vhYtT76wSDljYKXhMMLpa3vt+Gib0LpSX57ZAqXGdgV3vkur8WZX1tsUuo6M2HKdBI58/tpMyF+jA
+	A0B1sWVzm2dlA/eloAWUlPLLq0d8GgiRZxUZwmEkSxjE76oBpHg3DoeR0G44O1v/sIlZmDwItmplE
+	R+4Entk4SZXbIKh2oUiSFrYajsQ7D7NDpJWxTJkeZOGsw8SqLdxNyB6ggc4eonb7znQTHM3FLaMDY
+	nXNDLu3w==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wUNYX-0000000CuCv-0Dz7;
-	Tue, 02 Jun 2026 11:45:13 +0000
-Received: from mail-pf1-x429.google.com ([2607:f8b0:4864:20::429])
+	id 1wUNep-0000000Cump-01hA;
+	Tue, 02 Jun 2026 11:51:43 +0000
+Received: from mail-wm1-x332.google.com ([2a00:1450:4864:20::332])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wUNYV-0000000CuBp-1Bbq
+	id 1wUNem-0000000Culr-2AuX
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 02 Jun 2026 11:45:12 +0000
-Received: by mail-pf1-x429.google.com with SMTP id d2e1a72fcca58-8423efad617so1121057b3a.0
-        for <linux-arm-kernel@lists.infradead.org>; Tue, 02 Jun 2026 04:45:11 -0700 (PDT)
+	Tue, 02 Jun 2026 11:51:42 +0000
+Received: by mail-wm1-x332.google.com with SMTP id 5b1f17b1804b1-490af320e2aso13448195e9.2
+        for <linux-arm-kernel@lists.infradead.org>; Tue, 02 Jun 2026 04:51:39 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20251104; t=1780400710; x=1781005510; darn=lists.infradead.org;
-        h=content-transfer-encoding:mime-version:references:in-reply-to
-         :message-id:date:subject:cc:to:from:from:to:cc:subject:date
-         :message-id:reply-to;
-        bh=CFWD1rv/Hg1YLyvj0G8HeVU1rR/ze4TuYTUo6+4aG1k=;
-        b=gyuKAKhC2ozQM8P9QkrQJ+J4OZehUuwLWdxpw8xo438dRbUiaGn17s/X8CHPP9sEq5
-         hIGZsXOo4eiVM2W6jSbKkRY0F2Gpx1TaeM5azauaBJda4mIeVeIc7PyIhsQaG+E5KtPU
-         G4oAeAa/gThXEW2bIz5/URbY3C+SH1ufFijYntk5+YkfEjH1yMYBbOPmIngamwMmKU3R
-         p48ivqG8LV3qP5uOolpzhgWtBok+VVWfRLd9fxf9+RPBupUwroACRXBC5vY3RkTjsHeZ
-         ApDoYemUEyLkBiqS3Vmf/lg02hWSXcNKSWs+9jbaOHhh139f3E1jNcO/aQWGLGHqusL9
-         iv3Q==
+        d=gmail.com; s=20251104; t=1780401098; x=1781005898; darn=lists.infradead.org;
+        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
+         :to:from:from:to:cc:subject:date:message-id:reply-to;
+        bh=7im3CUG3zSzSawz5dX5Ezc+o8cBVuqZtJiTJ2Y8aJ68=;
+        b=W9GE2XOCRyaqREowN6asKsM1JAEDiFmjZbflM4UxEXTpE9P72kMtTtQZD/KkM3DX7B
+         Q+UsXsCJADXS0w9027BY3jom7cJbBv5XBfURqEbdY6RndP0H5sM1iMetIFxynEOAjL17
+         a9BcMWyraY+FQ7x0UEPmrSR4qkqaY9LhtG5Cqj4X5M6AWsQ3b3IcR2KFrXDGtTLAWRu/
+         00IrbCxKHOsqBGOAI0s2kfcENTyuPaDApkszpPh4NNm4fgDF/rr4sGHnMlwa5gRQUHmY
+         A1EFBV5wACnmJj8vthpnt55X6B/jIVRduNFqNin9cqqi4wNeYhVcHOsN8nNDvTGFYv3d
+         zLiA==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20251104; t=1780400710; x=1781005510;
-        h=content-transfer-encoding:mime-version:references:in-reply-to
-         :message-id:date:subject:cc:to:from:x-gm-gg:x-gm-message-state:from
-         :to:cc:subject:date:message-id:reply-to;
-        bh=CFWD1rv/Hg1YLyvj0G8HeVU1rR/ze4TuYTUo6+4aG1k=;
-        b=X1y6vx+S43oJPCxyiazfK2DGnVvnEuGa639Iff9cXWfZosnfQy5JLFWtnDXsnhX34J
-         7fv+nDzeQiuxTJDILBJN5g3f51A5mJ2fFew/w9f3NlHZvILQHIKWuPEBzFQqJ+9jA4BK
-         GRjf+xr+J6mSTdDBJhELvrMcEsqVWfyHsxM4nT27WNcJSpzJPdpUtxxBAK0VKE6GCMCe
-         LRkPfDKktQKCQUOMLIeJWd0OTeWSV5MTxFRATY0HJ5iwuRpG3hhuxb9FLNTQfokAPHfe
-         dvwbK+T2vqaHVidNQIm76gXJ/RoWoYq+dOn0Bi236qUwYqCiXLu7cp6NQjGcQqUvh5Lb
-         OaMA==
-X-Forwarded-Encrypted: i=1; AFNElJ8WUD1det9BEA0h3af+DYLo9kt1dRHviPtrNoBIciQ4xDKJqNPTcBZFXhBv4ATKZcZeoUqFJa+khtsyD6d1M1zU@lists.infradead.org
-X-Gm-Message-State: AOJu0Yylo+R7A0b3dunQE0MKZdd0Q6h68LQ3wGAdaXBhMQBH+z5MCh8z
-	Ko5xt68EDg73zei0hKE5ZrPHZxV+2NT2iUgDDMFdD6CQDe4fWx41buJB
-X-Gm-Gg: Acq92OG1LvvitGuYDj+lanaKRkW3QGjsno8K51ZVeJVnlZnFkNIj3/JRNs3YZ7pENYV
-	Twr8hrQtQJk0VGMv6u9j0E8ucHiHFNTWM81beMy1tzvI0/KL9tvnH/Y7TjeXBa26eOFP8hbULuG
-	7Psc0V3Ttvop4q4traIdOZI4U8p09SjPo+YrSOHK/EJBITDgDz1zhHk4dX52x2KkjYdP9Wp/sVI
-	oLyiOlzMIwtaeWpN35NSXKjN+xTA6gaNwPYyRfKbJ555Bt7Gs0Q5IudGP99FfLpL0EQW6MvTgP9
-	p98CCl4xbaYs37fOxK1CRLOL9u3SkKRU+wWYyv2h8X+lZufm0N+9CWgtFZJtqj1APRcJwuGeGcZ
-	UedCtIcIkuctJ0NndT/PvD2aEG4hgNFFzSWvXprKYjVSh7bb+cxqUFimCVqC+DgwKih7sarXe9s
-	qRWIZ4xzyHlWPVBHhn5MThM/Udu/Q6FLNbiNJwGUWApqNr5YqCNMvwSdU8YEjkt46mt4LR
-X-Received: by 2002:a05:6a00:2d09:b0:842:6004:3fd9 with SMTP id d2e1a72fcca58-842600445ccmr6078561b3a.29.1780400709999;
-        Tue, 02 Jun 2026 04:45:09 -0700 (PDT)
-Received: from phuc-desktop.. ([183.91.15.56])
-        by smtp.gmail.com with ESMTPSA id d2e1a72fcca58-842263539a3sm12025224b3a.44.2026.06.02.04.45.06
+        d=1e100.net; s=20251104; t=1780401098; x=1781005898;
+        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
+         :to:from:x-gm-gg:x-gm-message-state:from:to:cc:subject:date
+         :message-id:reply-to;
+        bh=7im3CUG3zSzSawz5dX5Ezc+o8cBVuqZtJiTJ2Y8aJ68=;
+        b=laxZs2kN8tp58NFWTww5HCSGQSxtupZqzfc0wGpx5hSDRcEIHexcTtX0OtOlKf2eYe
+         dMjlLq4V1yVhJM0R51b7K5VM7SOyFArVB9kjAbKP1M6/5uvaRUXuypn5Jadv+OTN+bDC
+         NC/ftrAXQPQZQpPaAf7eMLw5ksVBnzk1BKAKu91xjNgACsf3lG10EIyVkeTMHW7CzD6k
+         MNMWUb5JacG/OxACYYu5jPtfs5o0ZtGA8HLfhZRCoMXEA+alyaryrmyAM+JjYW8in7zz
+         7LXsDMm7p2myAcr5WNBtkM3jebBPa8hgdp7qCJVRslvzL2La1JE5vmvZL2SBfceZE9G5
+         KFhg==
+X-Forwarded-Encrypted: i=1; AFNElJ/19BszDKcnowGhDpRDJ/L2R2LTf99Bsu3UV5R8YRXb94KV7xgolp0SfHAJI87/8bwpstYiSs2aiwQITUZPlFKQ@lists.infradead.org
+X-Gm-Message-State: AOJu0YxkDaAuogrddEFZptNoaKadDdM/mE4eslo4iIniM3ELSGD+L92a
+	1JUEcJu3EoNKhb79+Whkwtqjw0BlwZF1cHd6stjUltZp15pq1DeSIvqP
+X-Gm-Gg: Acq92OHaPNEiHvdRtedc0a65WisFo1ehP/8fwvyjXYMrtPNECxZ/Z5lGJJiuQgsvDsv
+	/ZganLFpT5qDkYHgZOSIcvDuPw4oOFQ1FMfmfScC5LFLdMAVjbAtDFkxnUun+LOR/IfowMg+t/3
+	hAx4HF5CuXdQ6KJosdbQ10LNXvRzZGQXVPH6QzxbpSMOqRMdD3uDgqfLT7ESsi1pWw9iEu/xvb/
+	/h/dZYYEeHbVFov+2B9vUJbnUrtMpV/i9DhnR54+9rsMGFtHTaTtjsvcnC7B8N22mqdC0IItYUl
+	Xe0y3v0e0C+6dCvtZ9pBrC4Zp809U0tuuhImn0+Jq9yi0cPPZ0cdw9ENweuuM3h57x4FFBh4x4J
+	IvpHL1YpHugF8SJ5V96BNolgw7uKnkQFPGSs8YwTk3XTVFCDVQmBSHlQrvxeiGKMjcnFGrd6VYW
+	xIooyo1yL82orDqrZOlLxGVaGZ5U67/JpJHEoV
+X-Received: by 2002:a05:600c:3b10:b0:490:b0df:9eac with SMTP id 5b1f17b1804b1-490b0dfa72bmr59783675e9.3.1780401097928;
+        Tue, 02 Jun 2026 04:51:37 -0700 (PDT)
+Received: from vitor-nb ([2001:8a0:c4c6:f00:e8c3:a961:5b26:a2c6])
+        by smtp.gmail.com with ESMTPSA id 5b1f17b1804b1-4909c152570sm139480015e9.9.2026.06.02.04.51.36
         (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Tue, 02 Jun 2026 04:45:09 -0700 (PDT)
-From: phucduc.bui@gmail.com
-To: Chen-Yu Tsai <wens@kernel.org>,
-	Liam Girdwood <lgirdwood@gmail.com>,
-	Mark Brown <broonie@kernel.org>
-Cc: Jaroslav Kysela <perex@perex.cz>,
-	Takashi Iwai <tiwai@suse.com>,
-	Jernej Skrabec <jernej.skrabec@gmail.com>,
-	Samuel Holland <samuel@sholland.org>,
-	linux-sound@vger.kernel.org,
+        Tue, 02 Jun 2026 04:51:37 -0700 (PDT)
+From: Vitor Soares <ivitro@gmail.com>
+To: Nishanth Menon <nm@ti.com>,
+	Vignesh Raghavendra <vigneshr@ti.com>,
+	Tero Kristo <kristo@kernel.org>,
+	Rob Herring <robh@kernel.org>,
+	Krzysztof Kozlowski <krzk+dt@kernel.org>,
+	Conor Dooley <conor+dt@kernel.org>
+Cc: Vitor Soares <vitor.soares@toradex.com>,
 	linux-arm-kernel@lists.infradead.org,
-	linux-sunxi@lists.linux.dev,
-	linux-kernel@vger.kernel.org,
-	bui duc phuc <phucduc.bui@gmail.com>
-Subject: [PATCH v3 3/3] ASoC: sunxi: sun4i-spdif: Reorder clock enable sequence
-Date: Tue,  2 Jun 2026 18:44:37 +0700
-Message-ID: <20260602114437.50324-4-phucduc.bui@gmail.com>
-X-Mailer: git-send-email 2.43.0
-In-Reply-To: <20260602114437.50324-1-phucduc.bui@gmail.com>
-References: <20260602114437.50324-1-phucduc.bui@gmail.com>
+	devicetree@vger.kernel.org,
+	linux-kernel@vger.kernel.org
+Subject: [PATCH v2 0/7] arm64: dts: ti: k3-am69-aquila: Add display and peripheral overlays
+Date: Tue,  2 Jun 2026 12:51:23 +0100
+Message-ID: <20260602115123.1324474-9-ivitro@gmail.com>
+X-Mailer: git-send-email 2.54.0
 MIME-Version: 1.0
 Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260602_044511_332369_5CE3900F 
-X-CRM114-Status: GOOD (  13.52  )
+X-CRM114-CacheID: sfid-20260602_045140_581739_1B464BC2 
+X-CRM114-Status: GOOD (  12.18  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -107,50 +102,79 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-From: bui duc phuc <phucduc.bui@gmail.com>
+From: Vitor Soares <vitor.soares@toradex.com>
 
-Reorder the runtime resume clock enable sequence to match the hardware
-dependency and ensure symmetry with the suspend path.
-The APB bus clock drives the register interface and must be enabled before
-the functional module clock. This aligns the resume sequence to be the
-exact reverse of the suspend sequence.
+This series adds device tree overlays for the Toradex Aquila AM69
+platform. The overlays cover display adapters, DSI displays, and OV5640
+CSI camera modules available through the Toradex accessory ecosystem.
 
-Signed-off-by: bui duc phuc <phucduc.bui@gmail.com>
+Display additions cover three configurations:
+- DSI-to-HDMI adapter based on the LT8912B
+- DSI-to-LVDS adapter based on the SN65DSI84 with the Toradex Capacitive
+  Touch Display 10.1" LVDS
+- DSI driving the Toradex Capacitive Touch Display 7" and 10.1" DSI
+
+For the OV5640 camera overlays, both the current Toradex CSI Camera Set
+5MP OV5640 with a 27 MHz oscillator and the legacy CSI Module 5MP OV5640
+with a 24 MHz oscillator are supported.
+
+This series depends on the Riverdi vendor prefix and panel-lvds binding
+patches, which have been applied to drm-misc-next:
+
+https://gitlab.freedesktop.org/drm/misc/kernel/-/commit/3764568dd2e621850c8c2a34dd8a88096ae73e72
+https://gitlab.freedesktop.org/drm/misc/kernel/-/commit/3c3c5fb9b36836d279ebe370189d68a0a3387362
+
 ---
+Changes in v2:
+- Fix missing main_ehrpwm5 enable in Capacitive Touch Display 10.1" and
+  7" DSI overlays for the Clover board.
+- Reorder remote-endpoint property in DSI-to-LVDS bridge endpoint.
+- Reorder supply properties in OV5640 CSI camera nodes and rename clock
+  node to match binding preferred node name pattern.
+- Link v1: https://lore.kernel.org/all/20260529120853.636015-9-ivitro@gmail.com/
 
-NOTE: This patch is compile-tested only.
-Changes in v3:
-  - Clarify in the commit message that the resume sequence becomes the
-    reverse of the suspend sequence.
+Vitor Soares (7):
+  arm64: dts: ti: k3-am69-aquila: Add Toradex DSI to HDMI Adapter
+  arm64: dts: ti: k3-am69-aquila: Add DSI to LVDS adapter with 10.1"
+    display
+  arm64: dts: ti: k3-am69-aquila: Add Toradex Capacitive Touch Display
+    10.1" DSI with adapter
+  arm64: dts: ti: k3-am69-aquila: Add Toradex Capacitive Touch Display
+    7" DSI with adapter
+  arm64: dts: ti: k3-am69-aquila: Add Toradex Capacitive Touch Display
+    10.1" DSI
+  arm64: dts: ti: k3-am69-aquila: Add Toradex Capacitive Touch Display
+    7" DSI
+  arm64: dts: ti: k3-am69-aquila: Add Toradex OV5640 CSI cameras
 
- sound/soc/sunxi/sun4i-spdif.c | 8 ++++----
- 1 file changed, 4 insertions(+), 4 deletions(-)
+ arch/arm64/boot/dts/ti/Makefile               |  43 +++++
+ ...la-adapter-panel-cap-touch-10inch-dsi.dtso | 155 +++++++++++++++++
+ ...ila-adapter-panel-cap-touch-7inch-dsi.dtso | 155 +++++++++++++++++
+ .../ti/k3-am69-aquila-csi1-ov5640-24mhz.dtso  |  18 ++
+ .../dts/ti/k3-am69-aquila-csi1-ov5640.dtsi    |  76 +++++++++
+ .../dts/ti/k3-am69-aquila-csi1-ov5640.dtso    |  19 +++
+ .../ti/k3-am69-aquila-csi2-ov5640-24mhz.dtso  |  18 ++
+ .../dts/ti/k3-am69-aquila-csi2-ov5640.dtsi    |  76 +++++++++
+ .../dts/ti/k3-am69-aquila-csi2-ov5640.dtso    |  19 +++
+ .../dts/ti/k3-am69-aquila-dsi-to-hdmi.dtso    | 115 +++++++++++++
+ ...la-dsi-to-lvds-panel-cap-touch-10inch.dtso | 142 ++++++++++++++++
+ ...m69-aquila-panel-cap-touch-10inch-dsi.dtso | 158 ++++++++++++++++++
+ ...am69-aquila-panel-cap-touch-7inch-dsi.dtso | 158 ++++++++++++++++++
+ 13 files changed, 1152 insertions(+)
+ create mode 100644 arch/arm64/boot/dts/ti/k3-am69-aquila-adapter-panel-cap-touch-10inch-dsi.dtso
+ create mode 100644 arch/arm64/boot/dts/ti/k3-am69-aquila-adapter-panel-cap-touch-7inch-dsi.dtso
+ create mode 100644 arch/arm64/boot/dts/ti/k3-am69-aquila-csi1-ov5640-24mhz.dtso
+ create mode 100644 arch/arm64/boot/dts/ti/k3-am69-aquila-csi1-ov5640.dtsi
+ create mode 100644 arch/arm64/boot/dts/ti/k3-am69-aquila-csi1-ov5640.dtso
+ create mode 100644 arch/arm64/boot/dts/ti/k3-am69-aquila-csi2-ov5640-24mhz.dtso
+ create mode 100644 arch/arm64/boot/dts/ti/k3-am69-aquila-csi2-ov5640.dtsi
+ create mode 100644 arch/arm64/boot/dts/ti/k3-am69-aquila-csi2-ov5640.dtso
+ create mode 100644 arch/arm64/boot/dts/ti/k3-am69-aquila-dsi-to-hdmi.dtso
+ create mode 100644 arch/arm64/boot/dts/ti/k3-am69-aquila-dsi-to-lvds-panel-cap-touch-10inch.dtso
+ create mode 100644 arch/arm64/boot/dts/ti/k3-am69-aquila-panel-cap-touch-10inch-dsi.dtso
+ create mode 100644 arch/arm64/boot/dts/ti/k3-am69-aquila-panel-cap-touch-7inch-dsi.dtso
 
-diff --git a/sound/soc/sunxi/sun4i-spdif.c b/sound/soc/sunxi/sun4i-spdif.c
-index f54eb14c9ed8..102db1a2afbb 100644
---- a/sound/soc/sunxi/sun4i-spdif.c
-+++ b/sound/soc/sunxi/sun4i-spdif.c
-@@ -643,15 +643,15 @@ static int sun4i_spdif_runtime_suspend(struct device *dev)
- 
- static int sun4i_spdif_runtime_resume(struct device *dev)
- {
--	struct sun4i_spdif_dev *host  = dev_get_drvdata(dev);
-+	struct sun4i_spdif_dev *host = dev_get_drvdata(dev);
- 	int ret;
- 
--	ret = clk_prepare_enable(host->spdif_clk);
-+	ret = clk_prepare_enable(host->apb_clk);
- 	if (ret)
- 		return ret;
--	ret = clk_prepare_enable(host->apb_clk);
-+	ret = clk_prepare_enable(host->spdif_clk);
- 	if (ret)
--		clk_disable_unprepare(host->spdif_clk);
-+		clk_disable_unprepare(host->apb_clk);
- 
- 	return ret;
- }
 -- 
-2.43.0
+2.54.0
 
 
