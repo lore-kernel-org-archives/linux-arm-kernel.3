@@ -4,82 +4,80 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id AC712CD6E60
-	for <linux-arm-kernel@archiver.kernel.org>; Tue,  2 Jun 2026 17:01:31 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id E08D8CD5BD1
+	for <linux-arm-kernel@archiver.kernel.org>; Tue,  2 Jun 2026 17:01:35 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:
-	Content-Transfer-Encoding:Content-Type:MIME-Version:Message-Id:Date:Subject:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:References
+	:Message-Id:Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:
 	From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:
-	List-Owner; bh=ivGt1S0OiiOp249bVc4Q7TnMYrm/Fs6AUzb1TqWbuUM=; b=bP0ERZ1GqvpW+y
-	5wbY0gmvM1Iql/qx9B2lble5vFwjQnQ5ANjMSFHTMfTn6QHEix9pxaDWwkf/EjcFL0opu+RxJC+7o
-	MNEG440YHxBa6QxMa76TBXxcDQ3jzEzsJ36g2vMAWCLAuSMOkCJGswh6ragqSKa8C3vMn9YfnoVwj
-	JAuu2i1+bZT9MS6ew3yQAS1YlTm8G7EZKtLyzV6QE9NtmO7Vwvo3WYzBYbPwtzesjaOYsZ+m2GX35
-	aJ11Yr5WQ18St6EAlR9cR+xIicmJopi4qOlHh0ur9LS0WSAQqZ37UJ6EIZhLwovPOIR8TIcbICnqj
-	TgoxFwcfW/KCfS6KKJhw==;
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=cTm3whJEPVR1V6vQN57Lc8lY18BNxkH1NXZKiaHL+cg=; b=gzToXYNymnzlzo25OcqzitqT/c
+	TDSTt/V5SsJHG2+xTy+3E3caVvK7nBcvBoIcZgLFDcCQ9tCU6jlBcatxlGwHnZ3Y6Yo2vB/e/DEwl
+	JTtwthNc3gVSeF6PlKT1gRnokc4YphPIQXO+tY7X2VyXe71cqr4l90zZIWJnKQzPqRLJPnsu8Dula
+	E3kuCX2v9wBuMNPA+uJf+52zNCnVQrIvwso+ibZQbI5fEmh94HWpuFqYdn21fIQfi5uPjdMWtqSQh
+	AXm2pC0TWMpdUj8zwbNJhrLBfUun1cKR8/Ge/2eo76vqb3qV+k9vyRRLuAYAzdXmHyR9bfsh8OkMx
+	ntVslvUw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wUSUW-0000000DWQx-0svj;
-	Tue, 02 Jun 2026 17:01:24 +0000
-Received: from mail-wm1-x32e.google.com ([2a00:1450:4864:20::32e])
+	id 1wUSUa-0000000DWWM-2ZLY;
+	Tue, 02 Jun 2026 17:01:28 +0000
+Received: from mail-wm1-x336.google.com ([2a00:1450:4864:20::336])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wUSUS-0000000DWNS-2Ybu
+	id 1wUSUX-0000000DWRy-3Ero
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 02 Jun 2026 17:01:22 +0000
-Received: by mail-wm1-x32e.google.com with SMTP id 5b1f17b1804b1-490ac357c55so23328045e9.1
-        for <linux-arm-kernel@lists.infradead.org>; Tue, 02 Jun 2026 10:01:18 -0700 (PDT)
+	Tue, 02 Jun 2026 17:01:27 +0000
+Received: by mail-wm1-x336.google.com with SMTP id 5b1f17b1804b1-49050ff7cbdso108199465e9.2
+        for <linux-arm-kernel@lists.infradead.org>; Tue, 02 Jun 2026 10:01:25 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=flipper.net; s=google; t=1780419677; x=1781024477; darn=lists.infradead.org;
-        h=cc:to:content-transfer-encoding:mime-version:message-id:date
-         :subject:from:from:to:cc:subject:date:message-id:reply-to;
-        bh=ivGt1S0OiiOp249bVc4Q7TnMYrm/Fs6AUzb1TqWbuUM=;
-        b=LXXXvaT3qLJaVvQqCzwlqsfPjoKZCv7l05xdMt43ZlTDI197cIOG2pLC4C2MNt/RNe
-         yawVlgF+RD9AwHCoIpi9QktelUXJK653IZhsP+GdFlKvXbjnSokpvbrFAGN30UIBrwyp
-         ibAE2gfxwx0io7oix5lICgZ/lfzQqZaNgHoOWFvOkAK6NWXjP3zyPKGvEslcRf3xLiGE
-         LmKKNkMXicvjp6yigvtIq1/LuoqMGiv3uP/pq0HOI7N8I4+NAIALeIBZ9m12XCD96ndU
-         I7QMty+/n0Ui/NMYzQ4yWr9qSrRhhZoGpJUIocSwjv9WwpjVpeQxp/GuYGbWU4wx83PG
-         YeRQ==
+        d=flipper.net; s=google; t=1780419684; x=1781024484; darn=lists.infradead.org;
+        h=cc:to:in-reply-to:references:message-id:content-transfer-encoding
+         :mime-version:subject:date:from:from:to:cc:subject:date:message-id
+         :reply-to;
+        bh=cTm3whJEPVR1V6vQN57Lc8lY18BNxkH1NXZKiaHL+cg=;
+        b=Y+yAHm6Atn/Om6qbhvo/mNJJOpGAsxzTzdtBcGbZRgMHuVwzMhTOJLyP/PDAtIHpk5
+         o98RDhNllmUAOatiK7l9EBIGYpB4O277zptx24wYHaJI+q1gPUdS5J260AJJ3zLWXzC9
+         N1y7ndM+WjWdtK5L47dj8ijEC5pxT92mjqxlnjkoFG5nFnd8bCN8Pc2YylXqWD7ktxYE
+         0XTZtA14Jpm/5NiKJmaz16POG3VF0DRUkbfojRsQGjWfzvUctlWpUO3PSWcawzo0Iw11
+         SzZNWV+ds7GytidHeOO9VpShaMn9irtE2UeyHZcvBbpmruQVXtxnMqqWZQfN0egQX8qK
+         u3Rg==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20251104; t=1780419677; x=1781024477;
-        h=cc:to:content-transfer-encoding:mime-version:message-id:date
-         :subject:from:x-gm-gg:x-gm-message-state:from:to:cc:subject:date
-         :message-id:reply-to;
-        bh=ivGt1S0OiiOp249bVc4Q7TnMYrm/Fs6AUzb1TqWbuUM=;
-        b=LkYfPfQaGUZEy9GGRS/v73eb+b5kyFZ4XrnCfyemyg3XBhUz8h1zKZpWyYinSqZn1y
-         HqCfqjajDPjbzsxan1WtyGU/w+AXsDN0U/b087RlVx+jMBOGb8JBLBql1oAFadGOUuQ8
-         HTqWMJodAGduCADaKKX/eMPfXZoxQqeywgZPFDcNwFxBcrpLC1nriIfJ7+78FTRwCSlC
-         Lp6cikF9P1IKcDlD8EOlhdwaPazBRw8xwe0LX85Rk6EbKBuJdQ3YM/TF2HhVW8LCHmS7
-         56/APavHO+YKfF7vED6cW+xSkpUKzXThhjVLh88rQCINTl6wmP1huuAv2RuHehiWXlgD
-         OBmw==
-X-Forwarded-Encrypted: i=1; AFNElJ/WzYFl5aBSdESRAhCdzcGiujUHAJ+TwC9Gy3fL46+v+BJFddEl9KEStrwmNJMRY4WHZFb5ITIbaSCZqO3st9uI@lists.infradead.org
-X-Gm-Message-State: AOJu0Yy2geJDG0Ue3ZtB2gpan+bfoa7z/6HlNvz+/JhfaMF3bE2cHBno
-	WhGx9hbnnUyjcZHuaDNX9IywmBUKluRwuWWg1R9Hi8J/btgJbdJmSicliM8/RmVoToU=
-X-Gm-Gg: Acq92OF024WVJ7/F/H13NBwM9Pv5p+tecN8g7OB8uKqeua0jalNTBVNeI8BmYV5j9iJ
-	YkcEkKn+Je2g63VI5bt7Jq+9K3YgEgx7tXGrM2NfYTeUr28JDCjSL/6F9JpPiMhHztplp6bGfj1
-	wfthqcY7pQuXLQ/K7lLwTJdXLkUR6Bv89kX/R2o57GIlXT8P6ZuYdJzDLrx4QWLMHUY+0ndhHvg
-	0neRzANn4GEZoNCudq+cPwsVKJxa2XGusIC/AiY1UjWR4ouBXZuQkmc70EYuGAyoVFDmXEj8Z0Y
-	095uxgmv17N8PQc4xCUm1GvqLsk2ZrArTFLp+/PRHhj30DwRzjKCX9fY2M/xlsjlgvOO9K6AGdT
-	MNLkQIYNY/t44kiBlUWftXm7mDdahtjaBJGHPBn1V0mpc41EAg+TlZRKyH8lMQ7ifzZ8fssDHHg
-	5fTA1g8XAiyDzfrwKvnh3crNm1YRo21I4Kmq5BwJDcI2sKtwovFcc=
-X-Received: by 2002:a05:600c:1384:b0:490:6869:46c3 with SMTP id 5b1f17b1804b1-490b50c2008mr8721775e9.30.1780419677363;
-        Tue, 02 Jun 2026 10:01:17 -0700 (PDT)
+        d=1e100.net; s=20251104; t=1780419684; x=1781024484;
+        h=cc:to:in-reply-to:references:message-id:content-transfer-encoding
+         :mime-version:subject:date:from:x-gm-gg:x-gm-message-state:from:to
+         :cc:subject:date:message-id:reply-to;
+        bh=cTm3whJEPVR1V6vQN57Lc8lY18BNxkH1NXZKiaHL+cg=;
+        b=r6NmxywoF6bdbFiRRSbLLFbTOGKyMMF56+OUknDWfuDauqEpfLVj1vLVOTkNLVVU+L
+         c/4AF+JabQjeYIcOaKYXiB6UOSh6Jm/eTqjEzKmJ3LW/vmh6h1lTrdcbN/ht/kRpODkE
+         tJMJEcVduHhJ5/+bAxpywA7RPgNTKctCr7TG9Swh2iYVuZsdkXxLi1fSC5/lrTbBL2ZJ
+         FE+q+psouxF6Jsx/71eJNxIkYPJikF0mmL9+ku79bSe3A32TC0MVNgmmPlrMHWyhNswo
+         9vYnRElvAl5NontgxPyUkjskDHtAtX/bLBV/4gLr+jQPJen7pY4d2T6z07AAaUOAgYMG
+         3Gjg==
+X-Forwarded-Encrypted: i=1; AFNElJ9vF6HOdFdu33QjK3UOWbEQyjznl+5nyq8wGgxs6dcP+/V36ryhDlLfIhgUl/XgvJ7BlQWrbLy4AnjMZhd4YpgL@lists.infradead.org
+X-Gm-Message-State: AOJu0YyrB0mIAABYqqmYz2ojfH1NmbX+VfBv+t8P67U661QqO6AiNMmh
+	JQoj2FZxhGfxzauWMfx5bE9QtR+gRb4NQVziWbx5ZDFos12E7nOhoF4c9JvxHvtCwrw=
+X-Gm-Gg: Acq92OGXegMSVM6+M4s0WmWIm11OE6y8yvX8GxutqmgY5zCSR0ZyBfdBedY6RVp99gP
+	5xnZQr6EXJPC1mQRwucarxohPssjcczXow6Xs9RizvxokCMlKyehEAE+73N9guvKXScCCJ4Kz76
+	IPrkdf1lCLohTpU6wcbrmBfCI0VyVUIc7Hnm+8OcYsk9+6Yzqr05Bqlaj0O8aUwKQBa8bUj9pj7
+	mFhglW4CB5cehqR5acl269stS3araxyEK3GHyhFhCWEZdz+25smZNYaKeoWiMWmYiCjouqQyFG4
+	gWCUUd5gVj+hETsCx6KQCP6+iarJRttJRqSlb3pw6M/ue4Hqjs5atsLk38W8jvbNAsvjhLuqLXn
+	2mrfYinVB1TxnXgRZhDmrMbSTa/3vJdSQyjYeLuOu0LIoAubV0BW9lQU3YeOjp3+YWtt6T/urSw
+	8DuzaeX2v2wERukty8fbhn+ahErE/yXgB01tM65ulvikGfN8jh7yLTks+E/3uIVQ==
+X-Received: by 2002:a05:600c:6211:b0:485:4388:3492 with SMTP id 5b1f17b1804b1-490b505e6bamr11024685e9.11.1780419683944;
+        Tue, 02 Jun 2026 10:01:23 -0700 (PDT)
 Received: from alchark-surface.localdomain ([5.194.92.128])
-        by smtp.gmail.com with ESMTPSA id ffacd0b85a97d-4601f2dcbe3sm588495f8f.8.2026.06.02.10.01.12
+        by smtp.gmail.com with ESMTPSA id ffacd0b85a97d-4601f2dcbe3sm588495f8f.8.2026.06.02.10.01.21
         (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Tue, 02 Jun 2026 10:01:16 -0700 (PDT)
+        Tue, 02 Jun 2026 10:01:23 -0700 (PDT)
 From: Alexey Charkov <alchark@flipper.net>
-Subject: [PATCH 0/2] drm/rockchip: dw_hdmi_qp: Add support for HDMI
- overscan compensation
-Date: Tue, 02 Jun 2026 21:00:38 +0400
-Message-Id: <20260602-hdmi-overscan-v1-0-31f71b817c80@flipper.net>
+Date: Tue, 02 Jun 2026 21:00:40 +0400
+Subject: [PATCH 2/2] drm/rockchip: dw_hdmi_qp: expose "overscan" property
 MIME-Version: 1.0
 Content-Type: text/plain; charset="utf-8"
 Content-Transfer-Encoding: 7bit
-X-B4-Tracking: v=1; b=H4sIADYMH2oC/6tWKk4tykwtVrJSqFYqSi3LLM7MzwNyDHUUlJIzE
- vPSU3UzU4B8JSMDIzMDMwMj3YyU3Ezd/LLUouLkxDxdkzSDFAvLpLQUSwtDJaCegqLUtMwKsHn
- RsbW1ADtlkBpfAAAA
-X-Change-ID: 20260602-hdmi-overscan-4f0d89bfd981
+Message-Id: <20260602-hdmi-overscan-v1-2-31f71b817c80@flipper.net>
+References: <20260602-hdmi-overscan-v1-0-31f71b817c80@flipper.net>
+In-Reply-To: <20260602-hdmi-overscan-v1-0-31f71b817c80@flipper.net>
 To: Sandy Huang <hjc@rock-chips.com>, 
  =?utf-8?q?Heiko_St=C3=BCbner?= <heiko@sntech.de>, 
  Andy Yan <andy.yan@rock-chips.com>, 
@@ -91,18 +89,17 @@ Cc: dri-devel@lists.freedesktop.org, linux-arm-kernel@lists.infradead.org,
  linux-rockchip@lists.infradead.org, linux-kernel@vger.kernel.org, 
  Alexey Charkov <alchark@flipper.net>
 X-Mailer: b4 0.14.3
-X-Developer-Signature: v=1; a=openpgp-sha256; l=1055; i=alchark@flipper.net;
- h=from:subject:message-id; bh=mr+rOHka+rwyOFfzI59/eJ3S3PjIo4G5+vOSklSi9WQ=;
- b=owGbwMvMwCW2adGNfoHIK0sZT6slMWTJ8/gmM7HPdFlsfzlmuwfbuhvmzJMVmc2YUs1tgi/oO
- 8eE7DPtmMjCIMbFYCmmyDL32xLbqUZ8s3Z5eHyFmcPKBDJEWqSBAQhYGPhyE/NKjXSM9Ey1DfUM
- jXSMdYwYuDgFYKoXNzD84b59tIy5/sjtcxN85I+zlATPjdlpnNfjarprsWnEVN9IM4b/CY+3igg
- 9Tl5w0PjVp7Up58/IFnm7Mz14lfc74wsjU1IQOwA=
+X-Developer-Signature: v=1; a=openpgp-sha256; l=2125; i=alchark@flipper.net;
+ h=from:subject:message-id; bh=tHygaxsktj42z30dgx6UrKlEC5FoIMQxcKQ2lQcmua4=;
+ b=owGbwMvMwCW2adGNfoHIK0sZT6slMWTJ84QWFpevzNSVk3KbHC56Jr/59YE7c9cfbMmaquPyU
+ WPBI+3MjoksDGJcDJZiiixzvy2xnWrEN2uXh8dXmDmsTCBDpEUaGICAhYEvNzGv1EjHSM9U21DP
+ 0EjHWMeIgYtTAKY6vJKR4UhqqtjB4/6f1iwr2uOiUxorJcHYPiX05ukJaUuZAht04xn+Ge4taNm
+ kGF3z68uU2DUrlLr/aCsWxnl6+h7Q/tQu8F+PCQA=
 X-Developer-Key: i=alchark@flipper.net; a=openpgp;
  fpr=9DF6A43D95320E9ABA4848F5B2A2D88F1059D4A5
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260602_100120_700365_86AFFBBE 
-X-CRM114-Status: UNSURE (   8.45  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20260602_100125_847090_0DE29152 
+X-CRM114-Status: GOOD (  12.36  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -117,30 +114,58 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-When using a TV as a display, output image may be cropped due to overscan.
-Rockchip VOP2 supports post-composition scaling in hardware, which can be
-used to compensate for the overscan.
+Expose the "overscan" connector property as recognized by KWin and the
+likes to compensate for TV overscan cropping.
 
-This adds the necessary pixel margin fields to the CRTC state, and sets
-them from the TV overscan property of the connector which is understood
-by the userspace (tested with KWin's display configuration module).
+The CRTC will use the margin values derived from this overscan percentage
+in its post-composition scaler to add appropriate blank margins on all
+sides of the output image so that the TV doesn't eat up visible content.
 
 Signed-off-by: Alexey Charkov <alchark@flipper.net>
 ---
-Alexey Charkov (2):
-      drm/rockchip: vop2: honor TV margins from CRTC state for overscan compensation
-      drm/rockchip: dw_hdmi_qp: expose "overscan" property
-
  drivers/gpu/drm/rockchip/dw_hdmi_qp-rockchip.c | 16 ++++++++++++++++
- drivers/gpu/drm/rockchip/rockchip_drm_drv.h    |  2 ++
- drivers/gpu/drm/rockchip/rockchip_drm_vop2.c   | 17 +++++++++++------
- 3 files changed, 29 insertions(+), 6 deletions(-)
----
-base-commit: 08484c504b55a98bd100527fbe10a3caf55ff3ff
-change-id: 20260602-hdmi-overscan-4f0d89bfd981
+ 1 file changed, 16 insertions(+)
 
-Best regards,
+diff --git a/drivers/gpu/drm/rockchip/dw_hdmi_qp-rockchip.c b/drivers/gpu/drm/rockchip/dw_hdmi_qp-rockchip.c
+index f35484715c2d..fae44d11dbef 100644
+--- a/drivers/gpu/drm/rockchip/dw_hdmi_qp-rockchip.c
++++ b/drivers/gpu/drm/rockchip/dw_hdmi_qp-rockchip.c
+@@ -137,10 +137,18 @@ dw_hdmi_qp_rockchip_encoder_atomic_check(struct drm_encoder *encoder,
+ 					 struct drm_connector_state *conn_state)
+ {
+ 	struct rockchip_hdmi_qp *hdmi = to_rockchip_hdmi_qp(encoder);
++	const struct drm_display_mode *adj_mode = &crtc_state->adjusted_mode;
+ 	struct rockchip_crtc_state *s = to_rockchip_crtc_state(crtc_state);
+ 	union phy_configure_opts phy_cfg = {};
++	unsigned int overscan;
+ 	int ret;
+ 
++	overscan = min(conn_state->tv.overscan, 100u);
++	s->tv_margins.left   = adj_mode->hdisplay * overscan / 200;
++	s->tv_margins.right  = s->tv_margins.left;
++	s->tv_margins.top    = adj_mode->vdisplay * overscan / 200;
++	s->tv_margins.bottom = s->tv_margins.top;
++
+ 	if (hdmi->tmds_char_rate == conn_state->hdmi.tmds_char_rate &&
+ 	    s->output_bpc == conn_state->hdmi.output_bpc)
+ 		return 0;
+@@ -603,6 +611,14 @@ static int dw_hdmi_qp_rockchip_bind(struct device *dev, struct device *master,
+ 		return dev_err_probe(hdmi->dev, PTR_ERR(connector),
+ 				     "Failed to init bridge connector\n");
+ 
++	ret = drm_mode_create_tv_properties_legacy(drm, 0, NULL);
++	if (ret)
++		return dev_err_probe(dev, ret,
++				     "Failed to create TV connector properties\n");
++
++	drm_object_attach_property(&connector->base,
++				   drm->mode_config.tv_overscan_property, 0);
++
+ 	return 0;
+ }
+ 
+
 -- 
-Alexey Charkov <alchark@flipper.net>
+2.52.0
 
 
