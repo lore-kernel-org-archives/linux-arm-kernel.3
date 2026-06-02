@@ -4,73 +4,72 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 0EA6CCD6E4A
-	for <linux-arm-kernel@archiver.kernel.org>; Tue,  2 Jun 2026 04:47:16 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 4BDF9CD6E4A
+	for <linux-arm-kernel@archiver.kernel.org>; Tue,  2 Jun 2026 05:12:14 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:
+	Content-Transfer-Encoding:Content-Type:MIME-Version:References:Message-ID:
+	Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=w2vFw2b6Dq4kXYpDSqPPl/I2tXbfPjM4tacHe5F7/ME=; b=q9p8Zvjbk79uYW7PbTVxMFphWk
-	6m36X7MfrglsONJKSbT/EWyopmopxgHDdUKhh7M8jW2S+vRRSarlPKbFdEzUOYG6xu9HfCZDGldJV
-	3Ej91Dfq7WGHBnQsop5NroWuGfgHGetFV2md+8Ee2ctpTf58Sex5uQyw7Kc8s+H1WwidnTG8qHJlr
-	mnDt+ZwgSzuyPPEXA67QOhb7XuLZ6LQiLLxrj5wv1Gl4z8qyNoLYK3L2XK+UCkLe+ucAGZTQoEwRB
-	6hA4oJnY92LuVgdN63wiD/FE2t66ma8rWLuwY89c5nc0Rpg5IZmF0gHJRkPpp9NyK9KvbcsRdJ26G
-	Jsexon9w==;
+	bh=OqMWFZd9Lh6luW5CeI848QHyRFF7wsnQ7DaiCYPSL9Y=; b=zHIJDsw0O5xuDMRQK5Ak2H0OU4
+	xCX3NV7L5C6HgxKW8YisCwXEbdu6LrNjgcLlviNCkClnAXlhvuDESNV1MHXOR7WxFbW6a93gqs1qo
+	fCfUKgeRFkx79Hwe9Q/CAhJ5LRK2KsD14JO+XK5ZiSsw15zv1pPpyp6xh/K/ekcZ9QGgYK8tacWFm
+	U6nRDwcPcF1zVOgigab1XjUl1peuuoX2t60RXsGlJ5KLJ5MkcumGxghjSfAq1s2mjDKDh1ieIM2WS
+	alcQNxhesxSymur5iU0G/cpttvXLDYC9XvQPRfBKxilQCHqYkcRy5Lt2JBbXTrDiE8bSLo+17nqPE
+	Vku1HxBg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wUH1y-0000000CIPx-3uMO;
-	Tue, 02 Jun 2026 04:47:11 +0000
-Received: from tor.source.kernel.org ([172.105.4.254])
+	id 1wUHQ5-0000000CJep-1XNn;
+	Tue, 02 Jun 2026 05:12:05 +0000
+Received: from mail11.truemail.it ([217.194.8.81])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wUH1v-0000000CIPe-1lk6;
-	Tue, 02 Jun 2026 04:47:07 +0000
-Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
-	by tor.source.kernel.org (Postfix) with ESMTP id A79176001A;
-	Tue,  2 Jun 2026 04:47:06 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 867101F00893;
-	Tue,  2 Jun 2026 04:46:58 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1780375626;
-	bh=w2vFw2b6Dq4kXYpDSqPPl/I2tXbfPjM4tacHe5F7/ME=;
-	h=Date:From:To:Cc:Subject:References:In-Reply-To;
-	b=YVUczLjsw80yEWH3gu3NkaGjxurIFsxviLifgTASl5KmyxzFoZ9D6BRbFnC647FHj
-	 lx/XsyIDDrgeNc880H1ZCzZ6k2GAkGqLt2HPVSKtCr9mjn6m2DCwScX7GkN79pS6Kb
-	 Ybu4ua2edqgSU8v2FiaC7J5DsTHfum101oh9NnXGGFgdKNTpHz803fqOarf2Aq/REj
-	 rrFf4M6W83xFQsgAsvLEXmOIlSUp/imXkfYWMxxsDexeQ3reNFAuz1/La1vSHOW9B9
-	 ecfNlu1N+o672xehcI60o8JlzLchfcXr0Hdq8pu+MVpFykxKhmlLGaQmBsGApTcQm1
-	 IWYYOlv9b/uSQ==
-Date: Tue, 2 Jun 2026 06:46:55 +0200
-From: "Oscar Salvador (SUSE)" <osalvador@kernel.org>
-To: Muchun Song <songmuchun@bytedance.com>
-Cc: Andrew Morton <akpm@linux-foundation.org>,
-	David Hildenbrand <david@kernel.org>,
-	Catalin Marinas <catalin.marinas@arm.com>,
-	Will Deacon <will@kernel.org>, Palmer Dabbelt <palmer@dabbelt.com>,
-	Paul Walmsley <pjw@kernel.org>, Huacai Chen <chenhuacai@kernel.org>,
-	Andreas Larsson <andreas@gaisler.com>,
-	"David S. Miller" <davem@davemloft.net>,
-	Muchun Song <muchun.song@linux.dev>, linux-mm@kvack.org,
-	linux-kernel@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
-	linux-riscv@lists.infradead.org, loongarch@lists.linux.dev,
-	sparclinux@vger.kernel.org, Alexandre Ghiti <alex@ghiti.fr>,
-	Albert Ou <aou@eecs.berkeley.edu>, WANG Xuerui <kernel@xen0n.name>,
-	Lorenzo Stoakes <ljs@kernel.org>,
-	"Liam R. Howlett" <liam@infradead.org>,
-	Vlastimil Babka <vbabka@kernel.org>,
-	Mike Rapoport <rppt@kernel.org>,
-	Suren Baghdasaryan <surenb@google.com>,
-	Michal Hocko <mhocko@suse.com>
-Subject: Re: [PATCH v3 5/5] sparc/mm: drop vmemmap_check_pmd helper and use
- generic code
-Message-ID: <ah5gPx1TuEH1wFzC@localhost.localdomain>
-References: <20260601084845.3792171-1-songmuchun@bytedance.com>
- <20260601084845.3792171-6-songmuchun@bytedance.com>
+	id 1wUHQ1-0000000CJeR-1Juy
+	for linux-arm-kernel@lists.infradead.org;
+	Tue, 02 Jun 2026 05:12:04 +0000
+Received: from francesco-nb (93-35-44-150.ip53.fastwebnet.it [93.35.44.150])
+	by mail11.truemail.it (Postfix) with ESMTPA id 1B9531F995;
+	Tue,  2 Jun 2026 07:11:56 +0200 (CEST)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=dolcini.it;
+	s=default; t=1780377117;
+	bh=OqMWFZd9Lh6luW5CeI848QHyRFF7wsnQ7DaiCYPSL9Y=; h=From:To:Subject;
+	b=EuyAaD33iam5wEgPz3B0xxsCuCn8h90PG0NaCsDppKjEHbv7BFaezyA039ledRFC9
+	 MyIz2AagOJx82b1IT61YdAZxnjke7CB1L5JFzeSIiUVMwkHI+1S+fBLDPyap5zbZYy
+	 kBxyhPWBeDcNijtGYDaVFtSee8RGrs1axpHZFZyXpZiLblOPaqXM+PeXwLgw7Jd7CE
+	 /yvtMsZRlzIqz/FDe6YPSPX1SWMmnlQFj+kUcPVCQYViJt7OtfxtSerVjhfp5wYrVI
+	 8vcuHjvUjUseC3KUFMfsdVE+7IL056HU1d3lo5sceRLuv5Mvw7giHI0p8/mrsN0Bjy
+	 M16Xbf3o0QNGg==
+Date: Tue, 2 Jun 2026 07:11:54 +0200
+From: Francesco Dolcini <francesco@dolcini.it>
+To: Frank Li <Frank.li@nxp.com>
+Cc: Franz Schnyder <fra.schnyder@gmail.com>, Rob Herring <robh@kernel.org>,
+	Krzysztof Kozlowski <krzk+dt@kernel.org>,
+	Conor Dooley <conor+dt@kernel.org>, Shawn Guo <shawnguo@kernel.org>,
+	Sascha Hauer <s.hauer@pengutronix.de>,
+	Pengutronix Kernel Team <kernel@pengutronix.de>,
+	Fabio Estevam <festevam@gmail.com>, devicetree@vger.kernel.org,
+	linux-kernel@vger.kernel.org, imx@lists.linux.dev,
+	linux-arm-kernel@lists.infradead.org,
+	Francesco Dolcini <francesco@dolcini.it>,
+	Franz Schnyder <franz.schnyder@toradex.com>,
+	=?iso-8859-1?Q?Jo=E3o_Paulo_Gon=E7alves?= <joao.goncalves@toradex.com>,
+	Emanuele Ghidoli <emanuele.ghidoli@toradex.com>,
+	Francesco Dolcini <francesco.dolcini@toradex.com>,
+	Antoine Gouby <antoine.gouby@toradex.com>,
+	Ernest Van Hoecke <ernest.vanhoecke@toradex.com>
+Subject: Re: [PATCH v4 2/3] arm64: dts: freescale: add Aquila iMX95 support
+Message-ID: <20260602051154.GB4108@francesco-nb>
+References: <20260521-add-aquila-imx95-v4-0-5a7f86c824f5@toradex.com>
+ <20260521-add-aquila-imx95-v4-2-5a7f86c824f5@toradex.com>
+ <ah3hbkIEXaJnAtk2@lizhi-Precision-Tower-5810>
 MIME-Version: 1.0
-Content-Type: text/plain; charset=us-ascii
+Content-Type: text/plain; charset=iso-8859-1
 Content-Disposition: inline
-In-Reply-To: <20260601084845.3792171-6-songmuchun@bytedance.com>
+Content-Transfer-Encoding: 8bit
+In-Reply-To: <ah3hbkIEXaJnAtk2@lizhi-Precision-Tower-5810>
+X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
+X-CRM114-CacheID: sfid-20260601_221202_381680_D6799E8B 
+X-CRM114-Status: GOOD (  16.02  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -85,16 +84,60 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Mon, Jun 01, 2026 at 04:48:44PM +0800, Muchun Song wrote:
-> The generic implementations now suffice; remove the sparc copies.
+On Mon, Jun 01, 2026 at 03:45:50PM -0400, Frank Li wrote:
+> On Thu, May 21, 2026 at 07:11:05PM +0200, Franz Schnyder wrote:
+> > From: João Paulo Gonçalves <joao.goncalves@toradex.com>
+> >
+> > Add support for the Toradex Aquila iMX95 and its development carrier
+> > board.
+> >
+> > The module consists of an NXP i.MX95 family SoC, up to 16GB LPDDR5 RAM,
+> > up to 128GB of storage, a USB 3.2 OTG and USB 2.0 Host, a Gigabit
+> > Ethernet PHY, a 10 Gigabit Ethernet interface, an I2C EEPROM and
+> > Temperature Sensor, an RX8130 RTC, one Quad lane CSI interface, one Quad
+> > lane DSI or CSI interface, one LVDS interface (one or two channels), and
+> > some optional addons: DisplayPort (through a DSI-DP bridge), TPM 2.0,
+> > and a WiFi/BT module.
+> >
+> > Link: https://www.toradex.com/computer-on-modules/aquila-arm-family/nxp-imx95
+> > Link: https://www.toradex.com/products/carrier-board/aquila-development-board-kit
+> > Signed-off-by: João Paulo Gonçalves <joao.goncalves@toradex.com>
+> > Co-developed-by: Emanuele Ghidoli <emanuele.ghidoli@toradex.com>
+> > Signed-off-by: Emanuele Ghidoli <emanuele.ghidoli@toradex.com>
+> > Co-developed-by: Francesco Dolcini <francesco.dolcini@toradex.com>
+> > Signed-off-by: Francesco Dolcini <francesco.dolcini@toradex.com>
+> > Co-developed-by: Antoine Gouby <antoine.gouby@toradex.com>
+> > Signed-off-by: Antoine Gouby <antoine.gouby@toradex.com>
+> > Co-developed-by: Ernest Van Hoecke <ernest.vanhoecke@toradex.com>
+> > Signed-off-by: Ernest Van Hoecke <ernest.vanhoecke@toradex.com>
+> > Co-developed-by: Franz Schnyder <franz.schnyder@toradex.com>
+> > Signed-off-by: Franz Schnyder <franz.schnyder@toradex.com>
+> > ---
+> ...
+> > +
+> > +	carrier_eeprom: eeprom@57 {
+> > +		compatible = "st,24c02", "atmel,24c02";
 > 
-> Signed-off-by: Muchun Song <songmuchun@bytedance.com>
+> st,24c02 is not documented.
 
-Reviewed-by: Oscar Salvador (SUSE) <osalvador@kernel.org>
+Do not use checkpatch to check a DT file, you have the DT validator for
+that.
 
- 
+st,24c02 is perfectly valid, check Documentation/devicetree/bindings/eeprom/at24.yaml
 
--- 
-Oscar Salvador
-SUSE Labs
+> > +
+> > +	/* Aquila GPIO_08 */
+> > +	pinctrl_gpio_8: gpio8grp {
+> > +		fsl,pins = <IMX95_PAD_PDM_BIT_STREAM1__AONMIX_TOP_GPIO1_IO_BIT10	0x31e>; /* Aquila C24 */
+> > +	};
+> 
+> Please fix checkpatch worning, it exceed 100 char.
+
+It is wanted to improve read-ability. Can you keep it like that?
+
+Please see Linus option on checkpatch,
+https://lore.kernel.org/all/CAHk-=wiwpTUr8keTinnPU8kTN9dpYgDtwM4wONRF_j=1gvo3MQ@mail.gmail.com/
+
+Francesco
+
 
