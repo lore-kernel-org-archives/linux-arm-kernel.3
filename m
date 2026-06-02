@@ -4,74 +4,151 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id C5DE3CD6E60
-	for <linux-arm-kernel@archiver.kernel.org>; Tue,  2 Jun 2026 12:14:58 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 19C4ACD6E60
+	for <linux-arm-kernel@archiver.kernel.org>; Tue,  2 Jun 2026 12:16:15 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:From:References:CC:To:Subject:MIME-Version:Date:
+	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
 	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=DcFDkH7OKiLQtjPcKiWGd0H8nAOe5WjORs+AxCHbS3I=; b=TD+KFjvClE3KJJomkHIj7k0XHg
-	mND4949cb9rTGRTq3JObwX24TaUHBtwi+dVnxNjG6WqjIVKC4PBNs2pqTpFt0UD8n8HJaen3u+pEF
-	J/YcyzGhnvauQypUqYk6Pn7C2bwYx3zcrCBKMffDEd1vYmwkZ0z1jgHfbY/rkzLnhLwzssyF5oWKO
-	f5g8JV0hfdjkWZZO4HaXM99brh3RpgfrtL0uf+TrAEbwgVf/QtkIpzaOaxAV6ZMD9BYU6YABbcSmb
-	hRc8oLKWEQLRzT8TpteUhYjdo6YLJH/TXr5Yzs+tOmQaNRGzE33my+5ieLydrMrKqJR4lVQDwVK0a
-	3fa/4Xcw==;
+	bh=1ANrwuqdjefDIFHmc5n5pfhXi8/X9vYH5MINxqlroZ0=; b=a1z9ZkUF6Y5eeyt1mgECCJJS9j
+	6sZqIwwtXSjEin4xMtCS5F50N8qxZm7F09W/ZvxVCZmXbMIBLAWT+QrSX5nQbjjYo0PrgfSUaRHfi
+	deNoMJqez82NqJUayS3tucmER+O84fCvDeZdwbEHJ2vjbseoFqwJ4KDXl8TW+jtHtdbRKisB4dEov
+	/ZGml3cRc1OJsd6Oka3sMAvvq4SJnC9EFrpyVr81XgQxMuqw4eiGnFuYBcA5rkuXCbS2O5tkeLCJJ
+	Ck7JmK2wfAMOyQOX6QC6ZTIn2e4PCXunYbzTVCNr78mCXZjbmgTbtuQEf4EwyXQ5Sgb6UCJlPOnhP
+	TEOsWrww==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wUO1B-0000000CxB0-0lUt;
-	Tue, 02 Jun 2026 12:14:49 +0000
-Received: from canpmsgout11.his.huawei.com ([113.46.200.226])
+	id 1wUO2R-0000000CxPo-3dwI;
+	Tue, 02 Jun 2026 12:16:07 +0000
+Received: from mx0a-0031df01.pphosted.com ([205.220.168.131])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wUO17-0000000CxAM-15Tr
+	id 1wUO2O-0000000CxOT-3ZrN
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 02 Jun 2026 12:14:47 +0000
-dkim-signature: v=1; a=rsa-sha256; d=huawei.com; s=dkim;
-	c=relaxed/relaxed; q=dns/txt;
-	h=From;
-	bh=DcFDkH7OKiLQtjPcKiWGd0H8nAOe5WjORs+AxCHbS3I=;
-	b=ByDqvzRnRvzNvkY/aS0pjNOXsjflbJv2AjZdiaFs7F0qsdZHbKhMGZeFMf+ObixV1aSqqGp6+
-	97oJ/5fDAWuITZaAUp278GuZ99JQU96AEZq3jqk8v5IIBhdxiTCAwyroJ6lWqMZG9lxuMS48np9
-	wP6vRM04hg1n0JpXIuO4mZA=
-Received: from mail.maildlp.com (unknown [172.19.163.163])
-	by canpmsgout11.his.huawei.com (SkyGuard) with ESMTPS id 4gV8gw4NxQzKm4Z;
-	Tue,  2 Jun 2026 20:06:36 +0800 (CST)
-Received: from dggpemf500011.china.huawei.com (unknown [7.185.36.131])
-	by mail.maildlp.com (Postfix) with ESMTPS id 7DCD74048B;
-	Tue,  2 Jun 2026 20:14:28 +0800 (CST)
-Received: from [10.67.109.254] (10.67.109.254) by
- dggpemf500011.china.huawei.com (7.185.36.131) with Microsoft SMTP Server
- (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
- 15.2.1544.11; Tue, 2 Jun 2026 20:14:26 +0800
-Message-ID: <37bc3f0c-adeb-41b8-9b26-fabe43f47e6a@huawei.com>
-Date: Tue, 2 Jun 2026 20:14:26 +0800
+	Tue, 02 Jun 2026 12:16:06 +0000
+Received: from pps.filterd (m0279866.ppops.net [127.0.0.1])
+	by mx0a-0031df01.pphosted.com (8.18.1.11/8.18.1.11) with ESMTP id 6525tltv1855076
+	for <linux-arm-kernel@lists.infradead.org>; Tue, 2 Jun 2026 12:16:04 GMT
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=qualcomm.com; h=
+	cc:content-transfer-encoding:content-type:date:from:in-reply-to
+	:message-id:mime-version:references:subject:to; s=qcppdkim1; bh=
+	1ANrwuqdjefDIFHmc5n5pfhXi8/X9vYH5MINxqlroZ0=; b=CDaRNRGTczDxuYRs
+	Lf+2do2rIC9cKHydSllTzTE3IPYjVIxzMlQ91EFvnC7TErQnECoxsyUjfSH0qrfa
+	hHTB/HEjawVUSg5xIsdKEQX8BqQCGV915orbtiZU3lga6J8QvWdWXGmmJSxYzsAq
+	3EJ+HxZ2dhx+1tJ+Zpvc35eSIyhKsEsRAUmkCAQvz2pXzQewyKkRUzrmm8jKZRxi
+	m4cTGKXCt+r5DW1VIvuRcti2qMl/ixyJS5Kq5fZYQCKkWcJYVSrhAc0eexdf51jR
+	cBLTluwozFBmQdwhi5Fmtn7NW1cgnQWoKbmIBcIgyQzeqPbpVGIrFMZbPgTqAEd8
+	v45CzQ==
+Received: from mail-vk1-f197.google.com (mail-vk1-f197.google.com [209.85.221.197])
+	by mx0a-0031df01.pphosted.com (PPS) with ESMTPS id 4ehsf79dym-1
+	(version=TLSv1.3 cipher=TLS_AES_128_GCM_SHA256 bits=128 verify=NOT)
+	for <linux-arm-kernel@lists.infradead.org>; Tue, 02 Jun 2026 12:16:04 +0000 (GMT)
+Received: by mail-vk1-f197.google.com with SMTP id 71dfb90a1353d-5a10923f7d7so2651377e0c.0
+        for <linux-arm-kernel@lists.infradead.org>; Tue, 02 Jun 2026 05:16:03 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=oss.qualcomm.com; s=google; t=1780402563; x=1781007363; darn=lists.infradead.org;
+        h=content-transfer-encoding:in-reply-to:from:content-language
+         :references:cc:to:subject:user-agent:mime-version:date:message-id
+         :from:to:cc:subject:date:message-id:reply-to;
+        bh=1ANrwuqdjefDIFHmc5n5pfhXi8/X9vYH5MINxqlroZ0=;
+        b=CX0TiurLXQZUjTl2DK5tCXipvyu34zXgKWI8V/7byTfBvb9ioK3d1ziHO/fgWBUjmH
+         6Ua8hOTC6tsg9N2ZVCkj3HhtRoodkG0WLCt+diNPCVGNVs7syFmu9mTYEX1jyadBKD7l
+         E4T5BG8BgDf4sxa4lSu4kewPtKkNmgCfh8oUxBetRJ5pUfSRwvV/THuqQBujdMdJpIrq
+         s3PNh+c96nsH4EIEejSrACf1YhP7tUH9MkVjIpgeK5hTQunumoeEMl2jRdrw5TBan85T
+         6ZRCvU1OjXYJ0lpcE4RkzbNmvs3ZNJVlOc28zFf2Eyb8z9UrkThDmqLW1aLZ9xGWcXh+
+         3FKA==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20251104; t=1780402563; x=1781007363;
+        h=content-transfer-encoding:in-reply-to:from:content-language
+         :references:cc:to:subject:user-agent:mime-version:date:message-id
+         :x-gm-gg:x-gm-message-state:from:to:cc:subject:date:message-id
+         :reply-to;
+        bh=1ANrwuqdjefDIFHmc5n5pfhXi8/X9vYH5MINxqlroZ0=;
+        b=WlIwr9duvR7Nv+QOGBM4LUaXyTE/nE3BdvCUiPYGsIhURhXO2J3RNWkirTQXW1HM1j
+         RG+OQjm9N3cPM8Wz7eUby+XDxhbqi/l4BbH7oAm3JlLJwQ4YHFDb8TtnaPhsypTPqgcK
+         H4x5+Zp2Lyt/4A2+PcWnTqQguc6PsYLM/GkfYX1y4fh48hUCoc8Mu34tKdkGQFqc5rYC
+         tkYNS+NaYcRzHMdUd+hCDYSmu0VZW2eZz2NCt56C5oMuWzp6lO64f/grff8/rh84WneC
+         oFY9XkE2mpxPq9r1l0yAexj7Y1W5+GIrvTT3CYT1GdaRBf6qS2go3JV/L86o3APn66qY
+         sApw==
+X-Forwarded-Encrypted: i=1; AFNElJ9jJ9j+b7QP84YBqGOxdb2CXcyoKALaxnU4AQVW3uE43SngCcRTv50GfeUWKlnWNMJlGbUrYDflNUfT6eIpuk4q@lists.infradead.org
+X-Gm-Message-State: AOJu0YxTjR566sja8M5Wafrk9qIyMg+D3+Qkh0dTQuSxntL0osBNq6ip
+	Tf0J5DHfiLkkSruv9Owb81S2UKnF6LS2If+2hAacR7NxDcrthp2YCB8MDxvNoYdI3BxxJDUOQsO
+	wj/PP2gZ0M3xmk2aqfiQqSwIl10PBktwiLaEEpnhYAdSyGpAO9YjVOVKuW2PPuz1u0j7R8giFU6
+	hw9g==
+X-Gm-Gg: Acq92OEPWENVhxXF/BrXOjthTWIZteyRDE8E7IFcF03/DmYw4p/GsJ9R4lIk0Gs/l0h
+	MxpjW0aE6zsAH8IwXYKHvVKzHj3mua0oQfZ3wxImWNzdr/8zK1BF+UVODRjeJE1ZGM9IVx0MrOG
+	qc/6l0ymkpsFILgzuwU30YopnmYx/74PJg+fTOCQNl8faDbeSG2Sspc+SUzQAqN7sF/S28CV108
+	6cxsw8xPkHznk1AUHeii1IpuyX7ylpK6Ad4Pdm8dt+da5aAspL3Ns8/lF/Wll/2ayB8Hs6anyT3
+	EzXnY85fDBFyL8AYSwrOg/qxJvkPX7FRVsNT/IIDRAdtADenralH9Zx2jVtWgCIFSESGhtQWTc1
+	uRHlJKkoONasmV8Diw6ggyOzfeBzSk6a+PvG1dIi9XzuHrNqYzfs2mD2zuw+29LJn7wi2XJ/YUK
+	in
+X-Received: by 2002:ac5:cd98:0:b0:5a2:497:328e with SMTP id 71dfb90a1353d-5a3ff16a77bmr1158728e0c.6.1780402563059;
+        Tue, 02 Jun 2026 05:16:03 -0700 (PDT)
+X-Received: by 2002:ac5:cd98:0:b0:5a2:497:328e with SMTP id 71dfb90a1353d-5a3ff16a77bmr1158685e0c.6.1780402562608;
+        Tue, 02 Jun 2026 05:16:02 -0700 (PDT)
+Received: from [192.168.2.1] (146725694.box.freepro.com. [130.180.211.218])
+        by smtp.gmail.com with ESMTPSA id 5b1f17b1804b1-490b0e7639csm65066665e9.10.2026.06.02.05.15.57
+        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
+        Tue, 02 Jun 2026 05:16:01 -0700 (PDT)
+Message-ID: <49dcaade-4927-40e6-9864-9d4f3a8412d8@oss.qualcomm.com>
+Date: Tue, 2 Jun 2026 14:15:54 +0200
 MIME-Version: 1.0
 User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH v3] cpu/hotplug: Fix NULL kobject warning in
- cpuhp_smt_enable()
-To: Will Deacon <will@kernel.org>
-CC: <catalin.marinas@arm.com>, <corbet@lwn.net>, <skhan@linuxfoundation.org>,
-	<punit.agrawal@oss.qualcomm.com>, <jic23@kernel.org>,
-	<osama.abdelkader@gmail.com>, <chenl311@chinatelecom.cn>,
-	<fengchengwen@huawei.com>, <suzuki.poulose@arm.com>, <maz@kernel.org>,
-	<lpieralisi@kernel.org>, <timothy.hayes@arm.com>, <sascha.bischoff@arm.com>,
-	<arnd@arndb.de>, <mrigendra.chaubey@gmail.com>, <pierre.gondois@arm.com>,
-	<dietmar.eggemann@arm.com>, <yangyicong@hisilicon.com>,
-	<sudeep.holla@kernel.org>, <linux-arm-kernel@lists.infradead.org>,
-	<linux-doc@vger.kernel.org>, <linux-kernel@vger.kernel.org>
-References: <20260520022023.126670-1-ruanjinjie@huawei.com>
- <ah65zXlOH6a9geD9@willie-the-truck>
-From: Jinjie Ruan <ruanjinjie@huawei.com>
-In-Reply-To: <ah65zXlOH6a9geD9@willie-the-truck>
-Content-Type: text/plain; charset="UTF-8"
+Subject: Re: [PATCH v2] firmware: meson: sm: add stub functions when
+ CONFIG_MESON_SM is disabled
+To: Ronald Claveau <linux-kernel-dev@aliel.fr>
+Cc: Guillaume La Roque <glaroque@baylibre.com>,
+        Kevin Hilman <khilman@baylibre.com>,
+        Jerome Brunet <jbrunet@baylibre.com>,
+        Martin Blumenstingl <martin.blumenstingl@googlemail.com>,
+        linux-arm-kernel@lists.infradead.org,
+        linux-amlogic@lists.infradead.org, linux-kernel@vger.kernel.org,
+        linux-pm@vger.kernel.org, Mark Brown <broonie@kernel.org>,
+        kernel test robot <lkp@intel.com>,
+        Neil Armstrong <neil.armstrong@linaro.org>,
+        Daniel Lezcano <daniel.lezcano@kernel.org>,
+        Zhang Rui <rui.zhang@intel.com>,
+        "Rafael J. Wysocki" <rafael@kernel.org>,
+        Lukasz Luba <lukasz.luba@arm.com>
+References: <20260531-fix-missing-meson_sm-symbol-v2-1-1def8c3c169f@aliel.fr>
+ <8c11a91b-cfbf-4b9c-a46f-907989bf8305@oss.qualcomm.com>
+ <12d74340-0213-4f7e-a494-10ce147844ad@aliel.fr>
+ <0c5033f7-1535-49e8-a502-426e54333496@oss.qualcomm.com>
+ <59afecd4-7749-4be5-a261-a850634178b1@oss.qualcomm.com>
+ <376eec65-20ea-434b-a6ee-edbc12e6d7d9@aliel.fr>
+Content-Language: en-US
+From: Daniel Lezcano <daniel.lezcano@oss.qualcomm.com>
+In-Reply-To: <376eec65-20ea-434b-a6ee-edbc12e6d7d9@aliel.fr>
+Content-Type: text/plain; charset=UTF-8; format=flowed
 Content-Transfer-Encoding: 7bit
-X-Originating-IP: [10.67.109.254]
-X-ClientProxiedBy: kwepems500001.china.huawei.com (7.221.188.70) To
- dggpemf500011.china.huawei.com (7.185.36.131)
+X-Authority-Analysis: v=2.4 cv=WKRPmHsR c=1 sm=1 tr=0 ts=6a1ec984 cx=c_pps
+ a=JIY1xp/sjQ9K5JH4t62bdg==:117 a=uw/3876vWhRnNVL35W6mqQ==:17
+ a=IkcTkHD0fZMA:10 a=FelO9ux0wxsA:10 a=s4-Qcg_JpJYA:10
+ a=VkNPw1HP01LnGYTKEx00:22 a=u7WPNUs3qKkmUXheDGA7:22 a=YMgV9FUhrdKAYTUUvYB2:22
+ a=VwQbUJbxAAAA:8 a=QyXUC8HyAAAA:8 a=LwlhRjmIQBesJAWEzoAA:9 a=QEXdDO2ut3YA:10
+ a=tNoRWFLymzeba-QzToBc:22
+X-Proofpoint-GUID: rXL4kPrY96UHvEV_mtYqjXUhisxjqAa8
+X-Proofpoint-ORIG-GUID: rXL4kPrY96UHvEV_mtYqjXUhisxjqAa8
+X-Proofpoint-Spam-Details-Enc: AW1haW4tMjYwNjAyMDExNyBTYWx0ZWRfXx7Zmn9i5Zsy5
+ Dm6lmLb0zIYxWZiRNipXf3Sy5Mk92ZGytwB3JOfmL26tZ9AqHog2ib8GRnD7z/CDEBqcbIhS3pr
+ EQ/KmN5C4VpzcOk13as7Lsdt82v1oYDV9rFkn5fhmT10+tzn8R6m6SJ8U6nKAG9COkceOVyx3u+
+ M6ELXr1YBZCEAC9tKmRAJWMA+RudogXydYe8rdLbOTep4aepIMKBPjdwqTh9RlfbR8poIjxLbzm
+ V7cqwXHhEaqxPCPehVa4jwRdOydhaGk/n4xbOuZY9qeeOi0Zm8HJvyEqBqxvf8kKUt8zLTtcMP1
+ HMR4KBYY6Mqn+dAoI/XmMpqne5y6+9fsVbp2G+o0Cf+wKqqVLeg34CyE49/smlkbqZvvzog9ZDW
+ wRjHd6aZuRdLW5WZb4+XTGdCpvOLeVEJmw7zO8obBH+9+BglhxXfJwIge2ZpopChgY/6hkiWmpn
+ JgwEV+ubfvSx5TMu7iw==
+X-Proofpoint-Virus-Version: vendor=baseguard
+ engine=ICAP:2.0.293,Aquarius:18.0.1143,Hydra:6.1.125,FMLib:17.12.100.49
+ definitions=2026-06-02_01,2026-05-28_03,2025-10-01_01
+X-Proofpoint-Spam-Details: rule=outbound_notspam policy=outbound score=0
+ impostorscore=0 spamscore=0 suspectscore=0 lowpriorityscore=0 adultscore=0
+ malwarescore=0 phishscore=0 priorityscore=1501 clxscore=1015 bulkscore=0
+ classifier=typeunknown authscore=0 authtc= authcc= route=outbound adjust=0
+ reason=mlx scancount=1 engine=8.22.0-2605210000 definitions=main-2606020117
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260602_051445_921168_B37FB49B 
-X-CRM114-Status: GOOD (  17.42  )
+X-CRM114-CacheID: sfid-20260602_051604_935252_50279D46 
+X-CRM114-Status: GOOD (  14.19  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -86,92 +163,27 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
+On 6/2/26 13:58, Ronald Claveau wrote:
+> On 6/2/26 11:57 AM, Daniel Lezcano wrote:
+>> On 5/31/26 21:58, Daniel Lezcano wrote:
+>>> On 5/31/26 19:49, Ronald Claveau wrote:
+>>>> On 5/31/26 10:41 AM, Daniel Lezcano wrote:
+>>>>> On 5/31/26 09:51, Ronald Claveau via B4 Relay wrote:
+>>>>>> From: Ronald Claveau <linux-kernel-dev@aliel.fr>
+>>>
+>>> [ ... ]
 
+[ ... ]
 
-On 6/2/2026 7:09 PM, Will Deacon wrote:
-> On Wed, May 20, 2026 at 10:20:23AM +0800, Jinjie Ruan wrote:
->> On arm64, when booting with `maxcpus` greater than the number of present
->> CPUs (e.g., QEMU -smp cpus=4,maxcpus=8), some CPUs are marked as 'present'
->> but have not yet been registered via register_cpu(). Consequently,
->> the per-cpu device objects for these CPUs are not yet initialized.
->>
->> In cpuhp_smt_enable(), the code iterates over all present CPUs. Calling
->> _cpu_up() for these unregistered CPUs eventually leads to
->> sysfs_create_group() being called with a NULL kobject (or a kobject
->> without a directory), triggering the following warning in
->> fs/sysfs/group.c:
->>
->> 	if (WARN_ON(!kobj || (!update && !kobj->sd)))
->> 		return -EINVAL;
->>
->> When booting with ACPI, arm64 smp_prepare_cpus() currently sets all
->> enumerated CPUs as "present" regardless of their status in the MADT. This
->> causes issues with SMT hotplug control. For instance, with QEMU's
->> "-smp 4,maxcpus=8" configuration, the MADT GICC entries are populated as
->> follows: the first four CPUs are marked Enabled while the remaining four
->> are marked Online Capable to support potential hot-plugging.
->>
->> Fix this by:
->>
->> 1. When booting with ACPI, checking the ACPI_MADT_ENABLED flag in the GICC
->>    entry before calling set_cpu_present() during SMP initialization.
->>
->> 2. Properly managing the present mask in acpi_map_cpu() and
->>    acpi_unmap_cpu() to support actual CPU hotplug events, This aligns with
->>    other architectures like x86 and LoongArch.
->>
->> 3. Update the arm64 CPU hotplug documentation to no longer state that all
->>    online-capable vCPUs are marked as present by the kernel at boot time.
->>
->> This ensures that only physically available or explicitly enabled CPUs
->> are in the present mask, keeping the SMT control logic consistent with
->> the actual hardware state.
+> Sorry for the delay.
+> The module issue was raised by the test robot here
+> https://lore.kernel.org/oe-kbuild-all/202605310154.bmdMBZHJ-lkp@intel.com/
 > 
-> Please can you check the Sashiko review comment?
-> 
-> https://sashiko.dev/#/patchset/20260520022023.126670-1-ruanjinjie@huawei.com
+> If I understand correctly we can drop this stub change and only use a
+> "depends on MESON_SM" for the "AMLOGIC_THERMAL" config, is it correct ?
 
-On arm64, arch_unregister_cpu() enforces a safety block against physical
-CPU hot-removal by aborting early if cpu_present() is true but the
-device is no longer physically present, thereby skipping
-unregister_cpu() and leaking the sysfs device node.
-If acpi_unmap_cpu() blindly clears the present bit while the sysfs
-device remains registered, a subsequent hot-add attempt will see the
-valid leaked device pointer, skip acpi_processor_hotadd_init() (and thus
-skip acpi_map_cpu()), leaving the hot-added CPU permanently absent and
-deadlocked.
+Yes, that is the simplest solution for now
 
-Hi, Will,
-
-what do you think about fix it like this?
-
---- a/arch/arm64/kernel/acpi.c
-+++ b/arch/arm64/kernel/acpi.c
-@@ -455,7 +455,6 @@ EXPORT_SYMBOL(acpi_map_cpu);
-
- int acpi_unmap_cpu(int cpu)
- {
--       set_cpu_present(cpu, false);
-        return 0;
- }
- EXPORT_SYMBOL(acpi_unmap_cpu);
-diff --git a/arch/arm64/kernel/smp.c b/arch/arm64/kernel/smp.c
-index 5932e5b30b71..507c6d761434 100644
---- a/arch/arm64/kernel/smp.c
-+++ b/arch/arm64/kernel/smp.c
-@@ -554,6 +554,7 @@ void arch_unregister_cpu(int cpu)
-        }
-
-        unregister_cpu(c);
-+       set_cpu_present(cpu, false);
- }
- #endif /* CONFIG_ACPI_HOTPLUG_CPU */
-
-
-> 
-> Cheers,
-> 
-> Will
-> 
-
+Indirectly related, where is the mod dependency telling meson_sm must be 
+loaded before the amlogic thermal driver ?
 
