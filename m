@@ -4,107 +4,107 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id F1F34C5DF71
-	for <linux-arm-kernel@archiver.kernel.org>; Tue,  2 Jun 2026 08:54:25 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 1E7A8CD6E4A
+	for <linux-arm-kernel@archiver.kernel.org>; Tue,  2 Jun 2026 08:58:15 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:Cc:To:Subject:Message-ID:Date:From:In-Reply-To:References:
-	MIME-Version:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=rks7RgU8lnN1tl1OcZKY8fr3t/XyAMQZ/mP+r7NDPTc=; b=XAPfKqi6ASNDf7hhU21p1sYAMu
-	02WzmotiJeJNiQMZnA41bzmE40uHSymEv2vZWQLPRmnpiYG+7FBwYuH7kM574P4+ajBAe1j1YM+RV
-	mw5G97vebnONqQbWjY9YhFxOlcbRfobvgEo2PEfYuJbNT8cNgnCTt/a0kr+VmvtgOK8ux83Igc9ru
-	zU17DmBKscLFSzZ5k0lr3bDYm2ousPPsWwsBKm4WvvG1MceNQkVrfj5TuB8PnvPOwwavY1ZQ0mylG
-	PToA+ml0JX6CLWA4EYHn/5wyerxtxQ7JAS/rnbbOvmTQRCb9u6hPVeA7drGfLU43dbC3HihTa8iNA
-	WuZB+hhg==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:Cc:To:Subject:
+	Message-ID:Date:From:In-Reply-To:References:MIME-Version:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=S1oIF7XavksgqfJwObOatvwzU0WAoielu1phntwFc58=; b=XPh7QHbaYSf2MsNOdXwSQC4O13
+	JV/BHWyrtA7Oe220HMdOO5sVUxnmO2Uj7RHHuXOoWzxKprlnQz/83PUCPKVAwhmfWacvzNqpCUZ0J
+	mNoLCumDjKwQMmdYi7EfKNiKUzYY1XevIJ13S/yRIOZ/hEBAn0IKMgqZt9HoKb4l2CBD1y1EghSjW
+	ihlRL23GIDdwHsf7bC6oG7ULi5d8PfWeFO4wCsAyigwbh9BfeC1Ar8vIBMU+pDg4l7AWg9Pe2S9UE
+	QtoKckETknf77t5bogJ0xr7UnbF4Bp/Bw6FVTuPA/IFtSFO/lHUVOhUOIRJp43ep9FyfN7lNk60qc
+	Osf9eirA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wUKt3-0000000Cbc6-3vkh;
-	Tue, 02 Jun 2026 08:54:13 +0000
-Received: from mail-ed1-x534.google.com ([2a00:1450:4864:20::534])
+	id 1wUKwq-0000000Cc4F-3IUC;
+	Tue, 02 Jun 2026 08:58:08 +0000
+Received: from mail-wr1-x436.google.com ([2a00:1450:4864:20::436])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wUKt1-0000000CbbG-00Dv
+	id 1wUKwo-0000000Cc3n-34dn
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 02 Jun 2026 08:54:12 +0000
-Received: by mail-ed1-x534.google.com with SMTP id 4fb4d7f45d1cf-68d233bf083so3573212a12.1
-        for <linux-arm-kernel@lists.infradead.org>; Tue, 02 Jun 2026 01:54:10 -0700 (PDT)
-ARC-Seal: i=1; a=rsa-sha256; t=1780390449; cv=none;
+	Tue, 02 Jun 2026 08:58:07 +0000
+Received: by mail-wr1-x436.google.com with SMTP id ffacd0b85a97d-45ef82204c6so1711231f8f.3
+        for <linux-arm-kernel@lists.infradead.org>; Tue, 02 Jun 2026 01:58:06 -0700 (PDT)
+ARC-Seal: i=1; a=rsa-sha256; t=1780390685; cv=none;
         d=google.com; s=arc-20240605;
-        b=cKHkDSxTlkco4entOSO/A4Y3gxCAVwBKzAbzOK1UQeJ8KClYhW6gNpoZIWquwRr7jb
-         ADPyKnGVnwUCZAgvliWyzPRaiIem/QMLAks0krtD+Y42UMBjcmazVpXQCKVDjUMazYbw
-         yP1iJcr39Ymzev2n5TMLNZuRixBqY9j/T7bBCfGleREIAU/G009OZN3wJG2OWTy2dcYt
-         ffa3PtRyHgAsFvKA5Cx9MeQA4iREeM+UgAr64cfdfWKwQljv+zsv0bXt3yHxOIlifGfu
-         mZ7/AXRxqjHORTEqxmgxw/xL9HczgGQGr76bEK5cwFCRVdbu8X5023I/IlSVROMYzaLA
-         NyxA==
+        b=DGtpBSrIsmknclMUR9nTYLfFhh0jy9PjyEqIJQ7MoSc566tGwlDXDhy4l1mZM/o/1Z
+         7rhwcThh1tdbL2aOFiDWgl/2TEHAp7P72PbV6C5DSgb177vlVf5qQtdUyfOWo4GrcMEX
+         fYkyEmM1bz0JRBHTw77JOEBV3lK4O8mxQ+MTHWzbKI//xrZsW29X5KOg/FHFasuQutSe
+         tHqrkh3LXlNEiVSyxJbdfLJ8HMplN9OIotgkiQMXrN2V1i4W2sU5Lj7mlLQdGqqs52p5
+         r2uQa9Enwbjs6BhGWxmrFWUUPfqVxvTuDG0TnnAz06XWZMWGimEflaOZjrN0OGs0qvaz
+         zkgw==
 ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20240605;
-        h=content-transfer-encoding:cc:to:subject:message-id:date:from
-         :in-reply-to:references:mime-version:dkim-signature;
-        bh=rks7RgU8lnN1tl1OcZKY8fr3t/XyAMQZ/mP+r7NDPTc=;
-        fh=Ipk2j40+RdMv4SFeZIOD2gMpjjCR7rmCZZrneMzlXYg=;
-        b=AXP+MaV1lbVudOBBINd5I+PgXQKt1wAUyDau85bO6oUuQ9FvdJh+zo2vSLIdNcNQWA
-         cxTEIHcxXR0Q+Jjkp0TO2sxoJQI6QxiuFfLKlhc8uuUSKRSycuIKdNfZdDsnDyoCiIg6
-         AOus73SapcTxTLK2QQTOWBxGceiE+0TVfJ0xWpnjwYYVuMu6fuglmua7awU2njTAOpqO
-         ZqGtKELfZFERBYdRhis1TkQhUZ392iGN+VANC+pmXK4CzErNeYTaSFKREe3DW+2uZB0D
-         aM+sbKiyPwMs/NhqTfF7utM5s1dqjC6ZwGiINR3xQwXY/zsE9IRq/MkkYidmAzqRChfI
-         ODcg==;
+        h=cc:to:subject:message-id:date:from:in-reply-to:references
+         :mime-version:dkim-signature;
+        bh=S1oIF7XavksgqfJwObOatvwzU0WAoielu1phntwFc58=;
+        fh=2LsM+yx/n+n0oA77i/Nx9xB7oGTZMHmcglmLMjnIauw=;
+        b=UNxrj0iVVcmsD1kK60bhQbooNlDLiKk4U9k3Gmzu0zO9csX60oq0KNLVV6WE3+V9Jc
+         1A4Y39+tEH4GzOLvOm79jOiNryaONS84iCeK2Exi+9qcb942nH7Ss9vA9Pn2isFzory3
+         MX03PEgd2YXWj0CvkxRl/a80LeRv+AqHPK9jpyxtlVsmNhVgLGWd1VOh1/hJNMkY2BkL
+         ZMZUbKK4mKwwZlUgN9YD4F8oEXHrYJCmK5mEPldPdsrm0al5FE94LKmA6Qmk7LhFSCGU
+         3AicGUyQn0HJLrZ3u6ndcxYrxKBPF6pVmMPf4DjKB6TGXMrzBHxJsOccPPh3F7/9qSri
+         7jZg==;
         darn=lists.infradead.org
 ARC-Authentication-Results: i=1; mx.google.com; arc=none
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20251104; t=1780390449; x=1780995249; darn=lists.infradead.org;
-        h=content-transfer-encoding:cc:to:subject:message-id:date:from
-         :in-reply-to:references:mime-version:from:to:cc:subject:date
-         :message-id:reply-to;
-        bh=rks7RgU8lnN1tl1OcZKY8fr3t/XyAMQZ/mP+r7NDPTc=;
-        b=GWvTW9FdPkQl51XHx/V5Gl+jNeVmthBKHuyrM51wf9ydKGEYgT58/EiSiWEf9KQZsu
-         XLU8pigKOEkrG9nGcPKdlMVBW9CYEvRpAnuPJ5mafFyKY26WIIVeaC7yU7AiU84bytW1
-         Yk/zRjrgBAU5MBPc5/zRnnDPp7AxTLhJ+0WNYQChhKXTlxBMWL8dJM34sc2BKds0umqJ
-         4V67OIL4dy8Ym5i8SG0YCNo/Q9/lrDoWnsHmG0MmSQVEKWG5ZC4JMye3Lx5SJRuFZWUJ
-         gbMt2zc06rKFmqCdUeenZTsU3HkmX/u7m4jXe57UqwoT+txH5Aac/gwLH7UPqrs+vnH6
-         s5Ew==
+        d=gmail.com; s=20251104; t=1780390685; x=1780995485; darn=lists.infradead.org;
+        h=cc:to:subject:message-id:date:from:in-reply-to:references
+         :mime-version:from:to:cc:subject:date:message-id:reply-to;
+        bh=S1oIF7XavksgqfJwObOatvwzU0WAoielu1phntwFc58=;
+        b=q5gVGV3JDppVVUQj9+9UpOTnLSfUIf2EI6MqVuMt6pbSiJxt/CiJosYmwNGeL2yFX+
+         nRLaFlrGqJMbys23dsDxtbD93UdBj29ev9ySO+pi5GWwzh+m3Yg4C5FO5zQMzkyVLbeD
+         3vR5oNZD2oPWTNXqfF/UwDdAYzPwhJAy/tSa7tEpe/AtuHQo0PGiCLeaeEQwx5O5nQ5p
+         G0dKtImh2xo0+cyu8rOuN2LDDIUuBrbG2EDee46lqUHo8tCTAi4hKAMDBUUGtpmTgq/g
+         14piTtEtl7bQ9hBvxgp9O7AIjlpWuoFpiBvho0Z9yPnaRyqhLQImegya2UWH6SyJSbRp
+         EG4w==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20251104; t=1780390449; x=1780995249;
-        h=content-transfer-encoding:cc:to:subject:message-id:date:from
-         :in-reply-to:references:mime-version:x-gm-gg:x-gm-message-state:from
-         :to:cc:subject:date:message-id:reply-to;
-        bh=rks7RgU8lnN1tl1OcZKY8fr3t/XyAMQZ/mP+r7NDPTc=;
-        b=hZrl9UHv9GDJ4AhRT9dMRYL68CakfzUnKfcVfwQVCa0PyzvoIp4sQNeFppQ/tlD5dn
-         DLzyozui1m5Lrr7YUbI+3uAeVr/XY6cJKXGLnhfGEEDwOwppF29D1AF0kUZRgADcDQGP
-         niC0JiUEVL+nwFRlEoroQuqh+MqyWejxFYqBN3qSVYx1ictHpDHlGiBq78dXinqfFsYc
-         EDNUTGDmgPES4oWlqy3dmPBk7qs9XtWblv12SCSMk2fIfHtQHAdfVIk3bRIAEQEjG6w8
-         cWbsPpFonrk2Gow9s3ChpUcAEyYyc1wliA42UCdx1vW0nxLz/hi/TmUiaNTGEU5z6ktB
-         7aLA==
-X-Forwarded-Encrypted: i=1; AFNElJ/B4d4SFPv6Iz2NvP1EIC5psqrX0mTzgPffnR+0b0NQi5L4uVq8JT0D1E0NL3JRzUQgt+6Lr+Inc92fXADc/d+p@lists.infradead.org
-X-Gm-Message-State: AOJu0YxpE5Ej5sX8I2Dd+YiHF33Xhwx9jzqGxdjNZ34ZgEsI1FKNcxE7
-	UdabfK3I0r8Lx0XSmVLzv3Hnp+zBfa5Gh541aQ8gvMkpO1dJ53P9vqiYAdiwKe4QCriTbJTDsBs
-	sQyFqC4rDg3wj+bGhcWwbDG+c0gEF+2Y=
-X-Gm-Gg: Acq92OF4FMvbPUUzjEN0+GnqRzyY3/fZ36wtQLz8wSRpFpknbhDPiW3qU6J/pEbual4
-	EAMUkGdz8mBgsRyMrh1SPUOzRUhXsATlcZfhjJDP2kPuKg2sG65QuUPhRc2KrF074eRmnjDHPeb
-	ocHxtW6s9uphbin+HNw8mJMcL8dM/71YJDsOfOsMbYY7qRS4oycW5EQusWawWn9bNZt+XnhJn33
-	O1qDz5fP7kmazNlYSU1nd+xMLR73jCbl+iby79iDgbKbTkYJFQqB09mZMqMNgfHPC8NFTKCVhdV
-	0G+cKb7gOUGGlg9LkbTPiNwRWMu5/aUP9KVwApztL+S/3fHzje43yda1c9yfb7AbEfVz+OzPWQ8
-	in8dukoloqtxpgSyZb9qSCkmdxWl57+lnRwG7GYGle1LJmxWgBVc89IATA0PHu6lF7nj9
-X-Received: by 2002:a05:6402:3554:b0:68b:f026:f381 with SMTP id
- 4fb4d7f45d1cf-68c8ab2e567mr7105442a12.8.1780390448854; Tue, 02 Jun 2026
- 01:54:08 -0700 (PDT)
+        d=1e100.net; s=20251104; t=1780390685; x=1780995485;
+        h=cc:to:subject:message-id:date:from:in-reply-to:references
+         :mime-version:x-gm-gg:x-gm-message-state:from:to:cc:subject:date
+         :message-id:reply-to;
+        bh=S1oIF7XavksgqfJwObOatvwzU0WAoielu1phntwFc58=;
+        b=RqgVgRpVyi6JeYSdzH8UQ6TSWZLNWPCyJxiswUlno972d12Ukc74sKxTzrSg7b1AUq
+         h7qbU6UmQ72EQogKd0p9WsT6XxxGF5tIzLoYZWByK6xdmBzwNMPCLRe6/aK+MpK5Uz1J
+         b1sIMX0zyKmQ2+r0FT7u3YKdLocuNAsI86zHhkk3e5bOz+UDsZsnlIQnYVI5irKmBzsB
+         jbrhpSpO1LVttZ89gIgXs0R4TCsoFHz6F8Hypyn6VPQcZmelnzQPyQdomxxHu1pZlwyv
+         US2foZXm/W9BYj/V8jWLT1bGR6kFVhQmyRhGxfa8GCLdPQzzxBYBRF3q1L95bSAwwfBY
+         QW1g==
+X-Forwarded-Encrypted: i=1; AFNElJ96nFPyZuqtsS80h/oUiDHyBPQCdnDaxOQBFNUu/xjDzWtOKLqaykfDpO3qG9p4lqDhOGfio/5z41ke7HxV3lUM@lists.infradead.org
+X-Gm-Message-State: AOJu0YyjaT+/LzMnoOr3X5YwIMkjrDwPo1iLVCpsQ+WoJ4UnbVB2w6PP
+	j7Ii52h3FbKF1Y1Qp/VIS/IZnFoYokFEmzWPNkdlE0ay2ix2397IMTBW976zfoWtnonMXDK97kO
+	j55KMdWbFXJUHk7l+Kqx3HnnQoEVJafs=
+X-Gm-Gg: Acq92OH4yJPT7kshBqMFXcVd7UUT68FeaV7I2uJL2zYa9nzBmplb1C3jzOtb/Yl6FtK
+	FuVx7Njc3+D5dhuDbKkANrxBjN4/H8FkjG8HDRRuZ+5Iq7gSCJ/0qm09Ab90JmVw6xilIsiNQ+a
+	DZ1pOJIZrG4BJRN1o9yboleRV5xRnXyCQIJ+CP6l5VAVITYnwQCng3hPLkgA6bk7umrY1BvZGXs
+	kJ8ktxF0NOZLCOfP3GNTCpKX+PcYM/arcUYnFkyqDRHZayfzG+4RftET+FlUYgw8a97QldAuq/O
+	yxV1shF8mj2O4VSyees=
+X-Received: by 2002:a05:6000:4b19:b0:45f:f142:d55a with SMTP id
+ ffacd0b85a97d-45ff142d6bamr20280733f8f.14.1780390684617; Tue, 02 Jun 2026
+ 01:58:04 -0700 (PDT)
 MIME-Version: 1.0
-References: <20260531210747.11401-1-rosenp@gmail.com> <CAD++jLk3HmmTBfjLaVKBcRi87EmAdzs9BGy6teerJ-rN92MtCg@mail.gmail.com>
-In-Reply-To: <CAD++jLk3HmmTBfjLaVKBcRi87EmAdzs9BGy6teerJ-rN92MtCg@mail.gmail.com>
-From: Rosen Penev <rosenp@gmail.com>
-Date: Tue, 2 Jun 2026 01:53:57 -0700
-X-Gm-Features: AVHnY4KscwoQmk_hWxdvXdiz9lrBDSO5kvhYw84zUg0Fx_ut4kbOFRTKcKnGsdY
-Message-ID: <CAKxU2N9BKyz-8y2Jyrv9xFpCWL4euv3uCZXBrQdT7mWn3q6eMQ@mail.gmail.com>
-Subject: Re: [PATCH] dmaengine: ste_dma40: fix out-of-bounds access from D40_MEMCPY_MAX_CHANS
-To: Linus Walleij <linusw@kernel.org>
-Cc: dmaengine@vger.kernel.org, Vinod Koul <vkoul@kernel.org>, 
-	Frank Li <Frank.Li@kernel.org>, Lee Jones <lee@kernel.org>, Arnd Bergmann <arnd@arndb.de>, 
-	"moderated list:ARM/NOMADIK/Ux500 ARCHITECTURES" <linux-arm-kernel@lists.infradead.org>, 
-	open list <linux-kernel@vger.kernel.org>
+References: <20260522053146.83209-1-jiangwenxiaomi@gmail.com>
+ <20260522053146.83209-7-jiangwenxiaomi@gmail.com> <3f55655c-b50b-45fa-9314-23e35d04ae7e@arm.com>
+In-Reply-To: <3f55655c-b50b-45fa-9314-23e35d04ae7e@arm.com>
+From: Wen Jiang <jiangwenxiaomi@gmail.com>
+Date: Tue, 2 Jun 2026 16:57:52 +0800
+X-Gm-Features: AVHnY4IW685izywGKg4IIg8w_aDLTDby4_6g3UPUknnDrjCf3XAzk_RAN4y6TTI
+Message-ID: <CAHKocdH-CgkFTbcowvs0gEgWrzu_9=928yFJH-dQWQxny2au7w@mail.gmail.com>
+Subject: Re: [PATCH v3 6/6] mm/vmalloc: align vm_area so vmap() can batch mappings
+To: Dev Jain <dev.jain@arm.com>
+Cc: linux-mm@kvack.org, linux-arm-kernel@lists.infradead.org, 
+	catalin.marinas@arm.com, will@kernel.org, akpm@linux-foundation.org, 
+	urezki@gmail.com, baohua@kernel.org, Xueyuan.chen21@gmail.com, 
+	rppt@kernel.org, david@kernel.org, ryan.roberts@arm.com, 
+	anshuman.khandual@arm.com, ajd@linux.ibm.com, linux-kernel@vger.kernel.org, 
+	jiangwen6@xiaomi.com
 Content-Type: text/plain; charset="UTF-8"
-Content-Transfer-Encoding: quoted-printable
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260602_015411_062154_FC77B99B 
-X-CRM114-Status: GOOD (  12.92  )
+X-CRM114-CacheID: sfid-20260602_015806_807140_8ED6BE29 
+X-CRM114-Status: GOOD (  25.58  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -119,33 +119,100 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Tue, Jun 2, 2026 at 1:48=E2=80=AFAM Linus Walleij <linusw@kernel.org> wr=
-ote:
+On Wed, 27 May 2026 at 14:25, Dev Jain <dev.jain@arm.com> wrote:
 >
-> On Sun, May 31, 2026 at 11:08=E2=80=AFPM Rosen Penev <rosenp@gmail.com> w=
-rote:
 >
-> > D40_MEMCPY_MAX_CHANS is defined as 8, but the dma40_memcpy_channels[]
-> > array only has 6 elements. This mismatch causes an out-of-bounds
-> > issue:
+>
+> On 22/05/26 11:01 am, Wen Jiang wrote:
+> > From: "Barry Song (Xiaomi)" <baohua@kernel.org>
 > >
-> > 1. d40_of_probe() accepts up to 8 memcpy channels from DT
-> >    (num_memcpy > D40_MEMCPY_MAX_CHANS allows 7-8), then writes them
-> >    into the 6-element dma40_memcpy_channels[], corrupting adjacent
-> >    stack memory.
+> > Try to align the vmap virtual address to PMD_SHIFT or a
+> > larger PTE mapping size hinted by the architecture, so
+> > contiguous pages can be batch-mapped when setting PMD or
+> > PTE entries.
 > >
-> > Fix by defining D40_MEMCPY_MAX_CHANS as 6 to match the array size.
+> > Signed-off-by: Barry Song (Xiaomi) <baohua@kernel.org>
+> > Signed-off-by: Wen Jiang <jiangwen6@xiaomi.com>
+> > Tested-by: Xueyuan Chen <xueyuan.chen21@gmail.com>
+>
+>
+> Hmm okay I would have preferred to squash this in the previous, but
+> the correctness of previous patch does not rely on this, so it's fine.
+>
+> > ---
+> >  mm/vmalloc.c | 33 ++++++++++++++++++++++++++++++++-
+> >  1 file changed, 32 insertions(+), 1 deletion(-)
 > >
-> > Fixes: a7dacb68b35a ("dmaengine: ste_dma40: Allow memcpy channels to be=
- configured from DT")
-> > Assisted-by: Opencode:Big-Pickle
-> > Signed-off-by: Rosen Penev <rosenp@gmail.com>
+> > diff --git a/mm/vmalloc.c b/mm/vmalloc.c
+> > index 50642246f4d40..040d400928aab 100644
+> > --- a/mm/vmalloc.c
+> > +++ b/mm/vmalloc.c
+> > @@ -3620,6 +3620,37 @@ static int vmap_batched(unsigned long addr, unsigned long end,
+> >       return err;
+> >  }
+> >
 >
-> Excellent find Rosen!
-All credit is to our robot overl-i mean sashiko. I'm under the
-impression nothing can get merged unless it's happy.
-> Reviewed-by: Linus Walleij <linusw@kernel.org>
+> This is screaming for a helper :)
 >
-> Yours,
-> Linus Walleij
+> > +static struct vm_struct *get_aligned_vm_area(unsigned long size,
+> > +             unsigned long flags, const void *caller)
+>
+>
+> Call this vmap_get_aligned_vm_area, then ...
+>
+>
+
+Will rename  get_aligned_vm_area to vmap_get_aligned_vm_area.
+
+> > +{
+> > +     struct vm_struct *vm_area;
+> > +     unsigned int shift;
+> > +
+> > +     /* Try PMD alignment for large sizes */
+> > +     if (size >= PMD_SIZE) {
+> > +             vm_area = __get_vm_area_node(size, PMD_SIZE, PAGE_SHIFT, flags,
+> > +                             VMALLOC_START, VMALLOC_END,
+> > +                             NUMA_NO_NODE, GFP_KERNEL, caller);
+>
+> Add a wrapper over this called __get_vm_area_node_aligned_caller, which can
+> call __get_vm_area_node() with all other arguments fixed, except "align".
+>
+
+Will add a __get_vm_area_node_aligned_caller. Will send in v4.
+
+Thanks,
+Wen
+> > +             if (vm_area)
+> > +                     return vm_area;
+> > +     }
+> > +
+> > +     /* Try CONT_PTE alignment */
+> > +     shift = arch_vmap_pte_supported_shift(size);
+> > +     if (shift > PAGE_SHIFT) {
+> > +             vm_area = __get_vm_area_node(size, 1UL << shift, PAGE_SHIFT, flags,
+> > +                             VMALLOC_START, VMALLOC_END,
+> > +                             NUMA_NO_NODE, GFP_KERNEL, caller);
+> > +             if (vm_area)
+> > +                     return vm_area;
+> > +     }
+> > +
+> > +     /* Fall back to page alignment */
+> > +     return __get_vm_area_node(size, PAGE_SIZE, PAGE_SHIFT, flags,
+> > +                     VMALLOC_START, VMALLOC_END,
+> > +                     NUMA_NO_NODE, GFP_KERNEL, caller);
+> > +}
+> > +
+> >  /**
+> >   * vmap - map an array of pages into virtually contiguous space
+> >   * @pages: array of page pointers
+> > @@ -3658,7 +3689,7 @@ void *vmap(struct page **pages, unsigned int count,
+> >               return NULL;
+> >
+> >       size = (unsigned long)count << PAGE_SHIFT;
+> > -     area = get_vm_area_caller(size, flags, __builtin_return_address(0));
+> > +     area = get_aligned_vm_area(size, flags, __builtin_return_address(0));
+> >       if (!area)
+> >               return NULL;
+> >
+>
 
