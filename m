@@ -4,71 +4,97 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 59AA3CD6E57
-	for <linux-arm-kernel@archiver.kernel.org>; Tue,  2 Jun 2026 13:46:01 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 03F26CD6E57
+	for <linux-arm-kernel@archiver.kernel.org>; Tue,  2 Jun 2026 13:56:16 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Subject:Message-Id:
-	References:In-Reply-To:To:Cc:From:MIME-Version:Content-Transfer-Encoding:
-	Content-Type:Date:Reply-To:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=M9+6BaKxCtZ2oRdla2ck1apQ7Hfje/TDxTyYeJJkXPM=; b=smpqn5aR6rKUxlmFC1atGe0wnA
-	3h6hOEM0V3plI0e/07SWpbHrHbioYLklBUpCY/GsA7cVFcKHbvfivRLSPdzdQj63dnScuna5K5BFC
-	fq6HLtZ99kHGHCkGQEfHQ3xt44WcL9OBmMWp5DQcbVuJ8fm8/Hk5EycE2WFxwix6vSIYnLOlK2NG+
-	EpBihjs7pviqtscjs385frc2YPcWvPhzEwEf7X1+DrSpAjpP7yRmaFUEDTjjYeVV5f7Yldduvdu0w
-	12hvBc6tAU79gbTcwah/4pZTSU9S++HsS9GxPaWBxBdFOh58lT0MzFyFDJ/q8OHTdTsuiFF1UtQ3A
-	b9EFOLxA==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:Cc:To:Subject:
+	Message-ID:Date:From:MIME-Version:Reply-To:Content-Transfer-Encoding:
+	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
+	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=t9jtpHRRJE/DKOFfDRogyp/xh/qyYac7Jc/ujWsn6Ik=; b=oxzRr9Nd4KOyHYcvn/l9gnwCEK
+	5uO+/blX7uZdaigVCuTzhwsWXbSqmASZBGiTo0BhlAFMOyV+2Xcf0Jr8MjAqlcDVkRhs1lBKg3IzE
+	37z53g7mlAgdBRmTrpkQw66el+e+KShzw34Vxa4rnQ5TL6WctUQGBU0WC7kQoZwzloElOJ1qviMxg
+	fG0VmGmw1DBN0YrWXeM7rWdedbIPYjnqk4fj4MoliqtP9QdBgnVye6UUetc/SyX6f9xjPuoqu7grA
+	aKdR3Wd6EQyImGJu6lu4sWYBxqE44YoR5RZBoJ1dhoqIzvOXcVsS4Zmf/keFEwBhEGBqGpMxXW9Di
+	zTFTx0kw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wUPRL-0000000D8IC-1SRL;
-	Tue, 02 Jun 2026 13:45:55 +0000
-Received: from tor.source.kernel.org ([172.105.4.254])
+	id 1wUPbF-0000000D8lQ-18LR;
+	Tue, 02 Jun 2026 13:56:09 +0000
+Received: from mail-yx1-xb134.google.com ([2607:f8b0:4864:20::b134])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wUPRK-0000000D8Hu-0dj1
+	id 1wUPbC-0000000D8l0-0GaY
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 02 Jun 2026 13:45:54 +0000
-Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
-	by tor.source.kernel.org (Postfix) with ESMTP id 370176008A;
-	Tue,  2 Jun 2026 13:45:53 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id C24AE1F00893;
-	Tue,  2 Jun 2026 13:45:52 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1780407952;
-	bh=M9+6BaKxCtZ2oRdla2ck1apQ7Hfje/TDxTyYeJJkXPM=;
-	h=Date:From:Cc:To:In-Reply-To:References:Subject;
-	b=B98OVdpJWUZAnFL1XvRYfwcafAsY8Qj0f7Suj/5iVWCuVw8xd59E+1gcLe/h2RJJO
-	 r/PYoiWBfSmNDftOOJ0Y0B2n3RBwMrt58D34mIPQosd/3h3wOvsu/eUUzZ5TSSQe12
-	 8QFAX4Yhzjt5aOHRTS8F5Z0I48MLo9jUjAikSnP5c/2ttsX7sAgVbFYAw2+y4eh2pr
-	 DRGkB8gDqMu56oW20Oi+vzJcVnvZSMsRiovmHk0Keg+LxYamuHL36YfdPBSDSxSYOL
-	 57HWDb3FHotn1jXRUpvoRnUT8wd9Qy9XCyhAGsyNnKXMdCbdPf7X9kqx6aWHlAJZDR
-	 KIWb+xj137gOw==
-Date: Tue, 02 Jun 2026 08:45:52 -0500
-Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: 8bit
+	Tue, 02 Jun 2026 13:56:08 +0000
+Received: by mail-yx1-xb134.google.com with SMTP id 956f58d0204a3-6604176b575so4080250d50.1
+        for <linux-arm-kernel@lists.infradead.org>; Tue, 02 Jun 2026 06:56:05 -0700 (PDT)
+ARC-Seal: i=1; a=rsa-sha256; t=1780408565; cv=none;
+        d=google.com; s=arc-20240605;
+        b=UM4finRoUCgpdoa5kyr76PAcnF0mvRni85C2X5sEjUh3SpYWwB9w/t9/QQAd7d1mkL
+         /EMlJszJu7dWIdiOZgKGYkjI8O05r5irSEdmVv89dYt60sALu/hi4U0FBAMTvF+hgMx3
+         L+I4ZSKyBAYAZ5679qc/Amf8cC4AT7S0EmzrZDEEoZ2P841v+lmwSpxsHy2WifYhcVfL
+         HDGzpPnP0kgKIfBu77r6ZHVglIG6cNymVGroU1WfS8+5e1/FJJo2awXNb32yIQHYgR7N
+         MTtUYXO5GrNZR7fYQUGfNNudLW3e2IzAJx34TjKHCd+JhAZOby1v26SawXjsAX5lx5Fv
+         mk9A==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20240605;
+        h=cc:to:subject:message-id:date:from:mime-version:dkim-signature;
+        bh=t9jtpHRRJE/DKOFfDRogyp/xh/qyYac7Jc/ujWsn6Ik=;
+        fh=ngnzniW9/251Blo+3H7OvJM/allDljIxuXeYmmxYfks=;
+        b=UqKIFtuUwrK3/vV38XrnhCkCRT6pDb3/DfUzvoWziPND4IWRsiDsN79tL/RYX3Lqqk
+         ZI3bccNGaZAfxJWBX7DDZauGMSQb5WRStBeJ/PUwN+ZBMCsr9aV9TbN6eag8j5F3ctEH
+         R043Fr7/X40sSHgOAeiBTY+aLu2YyOoYtMbI03mrPHLqVUM4xYsYdk1NV4+OlXtJP94U
+         Ani0aMRlaPywjo7Wvjf4jcd98vU7YUiLOmckZ7ln4v0aGei9qwD01kDL/FhIkKBTXIzN
+         l5HV2EXbskl+KVYH81Wic9N1gLT8MR2en9I0eXecwWO73R5cDVTSQ5PXWuO+z6g7Szyy
+         urIQ==;
+        darn=lists.infradead.org
+ARC-Authentication-Results: i=1; mx.google.com; arc=none
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=monstr-eu.20251104.gappssmtp.com; s=20251104; t=1780408565; x=1781013365; darn=lists.infradead.org;
+        h=cc:to:subject:message-id:date:from:mime-version:from:to:cc:subject
+         :date:message-id:reply-to;
+        bh=t9jtpHRRJE/DKOFfDRogyp/xh/qyYac7Jc/ujWsn6Ik=;
+        b=EFsH5l4kDvvgZAeUdIgcyyaMIxVdcWSUDg8Jckl8kt9FsltQ2KF+/j89LPGGspo9LM
+         qeEEhFY8FCf44OmK6LpavUs1EnY6ZZSx6bhqvqaMg+JWBYipzIMtIiwrGHnvSH6zf7JO
+         FX2Wtm1LQ02u0Ac6y89USfRWBmOTA7g579jYJJkBnN8i0P6wsoPtXoUcJYluQBR8G7kw
+         QynEQMihachIgqo1Y9QXv44pkmBAZPwJW1kbjsKDvEDfc0hVcJ0pd4Io/5/GWimVwvoh
+         8zSDvBc2WpI2c4M+CUhSomaMX7ac8+CDA9iFqTnlBE5MacFNBJAhmgDLI3A0ZEVOtuTE
+         Lxeg==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20251104; t=1780408565; x=1781013365;
+        h=cc:to:subject:message-id:date:from:mime-version:x-gm-gg
+         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to;
+        bh=t9jtpHRRJE/DKOFfDRogyp/xh/qyYac7Jc/ujWsn6Ik=;
+        b=KTl215dEegto5nANScdlhn4URYGbr8ZDZyv9xwNvxyL6ZKHixIpOY70t6n0ZGYhWk1
+         xzVd0EpjigY034xXSrISfHvinOFbu+7aWYn3oqsB38rK9aEaxiqd1/pbTbl30sTs4/h0
+         kdZihX+TAgVI5qy9tZ4L02MK9ohrqV9zGg0V6PZ7EbWyu+H345nlmYvTUzhq6DXzuVQp
+         m38i+CmHzhZjoLY1zwoS5G55a3ij2jg9fa+I1KSN8kvHCLaeGcpHhERL6z8NPix4yfRL
+         NEwm5qlcYnoa4ipVz8uXJvMcV9aKJABrf6zZOGLhGOyh5UQhH/KjOviGN0Zof2VkmShe
+         gwWw==
+X-Gm-Message-State: AOJu0YyJtT8hNSdDOL6MNsB6/QfLwsnxrnSZy0FmycW1du/9Ct0suJf4
+	R8mhkNVSujcwyGr0kZateCzzBRYpl79J4GGIaMvqSb8Z/IU84wSfDg5XrvgLh9d48TW96LL3X7o
+	KbR9HVn5UsYHEFajZiRcqOO33R7TtOMT67Ec9+uZ0EU5vbbs/HR824W31
+X-Gm-Gg: Acq92OH7hEzZJcIAEOAoFmcfV3+nQ3c9/JeAA1Xt54jMOKHxF3hDdU2ly4HBfLxA5GL
+	NARz5n9wSrxtEGQ3yzpM2xb2xGV1rB733RsmO59aRQZ6nNdi90KkUupZ13G5QGdAPjwPMlufhCv
+	3WWZorfFaqWXUeArv2O+nWXe36FCZGwWp4P0y0PxJT5Ws2YyapuoT9t8BTOZOLH3B5PhmkZlpdf
+	wrCz+WC4hOIAfBYr+v2WxjqnAAmglVgMXeIRYx8Spj4nr6NuUUG0oe2oanxwgcfW/pQsGzkK9uX
+	uFyTAPDpSmVsrexQbMxNmyYX9CdWLH8alfpEF7lZ94DSYqwlWGU=
+X-Received: by 2002:a53:ac81:0:b0:660:55e1:5bb0 with SMTP id
+ 956f58d0204a3-6605edd30e6mr13392101d50.22.1780408564617; Tue, 02 Jun 2026
+ 06:56:04 -0700 (PDT)
 MIME-Version: 1.0
-From: "Rob Herring (Arm)" <robh@kernel.org>
-Cc: Karthikeyan Mitran <m.karthikeyan@mobiveil.co.in>, 
- Thierry Reding <thierry.reding@gmail.com>, linux-kernel@vger.kernel.org, 
- Jonathan Hunter <jonathanh@nvidia.com>, 
- =?utf-8?q?Krzysztof_Wilczy=C5=84ski?= <kwilczynski@kernel.org>, 
- Michal Simek <michal.simek@amd.com>, 
- Thomas Petazzoni <thomas.petazzoni@bootlin.com>, 
- Lorenzo Pieralisi <lpieralisi@kernel.org>, 
- linux-arm-kernel@lists.infradead.org, 
- Kevin Xie <kevin.xie@starfivetech.com>, Bjorn Helgaas <bhelgaas@google.com>, 
- linux-tegra@vger.kernel.org, Manivannan Sadhasivam <mani@kernel.org>, 
- Conor Dooley <conor+dt@kernel.org>, 
- Krzysztof Kozlowski <krzk+dt@kernel.org>, devicetree@vger.kernel.org, 
- Thierry Reding <treding@nvidia.com>, linux-pci@vger.kernel.org, 
- Hou Zhiqiang <Zhiqiang.Hou@nxp.com>, Aksh Garg <a-garg7@ti.com>, 
- =?utf-8?q?Pali_Roh=C3=A1r?= <pali@kernel.org>
-To: Thierry Reding <thierry.reding@kernel.org>
-In-Reply-To: <20260602-tegra264-pcie-v6-1-edbcfa7a78fe@nvidia.com>
-References: <20260602-tegra264-pcie-v6-0-edbcfa7a78fe@nvidia.com>
- <20260602-tegra264-pcie-v6-1-edbcfa7a78fe@nvidia.com>
-Message-Id: <178040795218.231197.636617303245801505.robh@kernel.org>
-Subject: Re: [PATCH v6 1/4] dt-bindings: pci: Strictly distinguish C0 from
- C1-C5
+From: Michal Simek <monstr@monstr.eu>
+Date: Tue, 2 Jun 2026 15:55:57 +0200
+X-Gm-Features: AVHnY4L18eyVlhjycUY5iNpuboxB-7Rv0SWEmLrcTIjnB41jeLOIdSTZeBHV958
+Message-ID: <CAHTX3dKJBTQ9TF2TeTTjsWBo9bkV=39b5YjTG7j+tqct0Q-E5w@mail.gmail.com>
+Subject: [GIT PULL] arm64: AMD/Xilinx SOC changes for v7.2 v2
+To: SoC Team <soc@kernel.org>
+Cc: linux-arm <linux-arm-kernel@lists.infradead.org>
+Content-Type: text/plain; charset="UTF-8"
+X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
+X-CRM114-CacheID: sfid-20260602_065606_127099_211CBDAD 
+X-CRM114-Status: UNSURE (   8.58  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -83,73 +109,46 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
+Hi,
 
-On Tue, 02 Jun 2026 13:33:23 +0200, Thierry Reding wrote:
-> From: Thierry Reding <treding@nvidia.com>
-> 
-> Instead of using the ECAM registers as the first entry, strictly make a
-> distinction between C0 and C1-C5. This is needed because otherwise the
-> unit address doesn't match the first "reg" entry. We also cannot change
-> the ordering of these nodes to follow the ECAM addresses because that
-> would put them outside of their "control bus" hierarchy since the ECAM
-> address space is a global one outside of any of the control busses.
-> 
-> Signed-off-by: Thierry Reding <treding@nvidia.com>
-> ---
-> Changes in v6:
-> - add maxItems as suggested by Sashiko
-> 
-> Changes in v5:
-> - rebase on top of v7.1-rc1, make it into a fix
-> 
-> Changes in v4:
-> - ECAM is outside of the controller's region, so it cannot be the first
->   reg entry, otherwise we get warnings because it doesn't match the
->   unit-address, so revert back to oneOf construct
-> 
-> Changes in v2:
-> - move ECAM region first and unify C0 vs. C1-C5
-> - move unevaluatedProperties to right before the examples
-> - add description to clarify the two types of controllers
-> - add examples for C0 and C1-C5
-> ---
->  .../bindings/pci/nvidia,tegra264-pcie.yaml         | 79 +++++++++++++++-------
->  1 file changed, 54 insertions(+), 25 deletions(-)
-> 
+please pull these 2 patches to your tree. I have removed that 2
+problematic patches from my queue.
 
-My bot found errors running 'make dt_binding_check' on your patch:
+Thanks,
+Michal
 
-yamllint warnings/errors:
+The following changes since commit 254f49634ee16a731174d2ae34bc50bd5f45e731:
 
-dtschema/dtc warnings/errors:
-/builds/robherring/dt-review-ci/linux/Documentation/devicetree/bindings/pci/nvidia,tegra264-pcie.yaml: allOf:1:oneOf:0:properties:reg-names: {'maxItems': 4, 'items': [{'const': 'xal'}, {'const': 'xtl'}, {'const': 'xtl-pri'}, {'const': 'ecam'}]} should not be valid under {'required': ['maxItems']}
-	hint: "maxItems" is not needed with an "items" list
-	from schema $id: http://devicetree.org/meta-schemas/items.yaml
-/builds/robherring/dt-review-ci/linux/Documentation/devicetree/bindings/pci/nvidia,tegra264-pcie.yaml: allOf:1:oneOf:0:properties:reg: {'maxItems': 4, 'items': [{'description': 'application layer registers'}, {'description': 'transaction layer registers'}, {'description': 'privileged transaction layer registers'}, {'description': 'ECAM compatible configuration space'}]} should not be valid under {'required': ['maxItems']}
-	hint: "maxItems" is not needed with an "items" list
-	from schema $id: http://devicetree.org/meta-schemas/items.yaml
-/builds/robherring/dt-review-ci/linux/Documentation/devicetree/bindings/pci/nvidia,tegra264-pcie.yaml: allOf:1:oneOf:1:properties:reg-names: {'maxItems': 5, 'items': [{'const': 'xal'}, {'const': 'xtl'}, {'const': 'xtl-pri'}, {'const': 'xpl'}, {'const': 'ecam'}]} should not be valid under {'required': ['maxItems']}
-	hint: "maxItems" is not needed with an "items" list
-	from schema $id: http://devicetree.org/meta-schemas/items.yaml
-/builds/robherring/dt-review-ci/linux/Documentation/devicetree/bindings/pci/nvidia,tegra264-pcie.yaml: allOf:1:oneOf:1:properties:reg: {'maxItems': 5, 'items': [{'description': 'application layer registers'}, {'description': 'transaction layer registers'}, {'description': 'privileged transaction layer registers'}, {'description': 'data link/physical layer registers'}, {'description': 'ECAM compatible configuration space'}]} should not be valid under {'required': ['maxItems']}
-	hint: "maxItems" is not needed with an "items" list
-	from schema $id: http://devicetree.org/meta-schemas/items.yaml
+  Linux 7.1-rc1 (2026-04-26 14:19:00 -0700)
 
-doc reference errors (make refcheckdocs):
+are available in the Git repository at:
 
-See https://patchwork.kernel.org/project/devicetree/patch/20260602-tegra264-pcie-v6-1-edbcfa7a78fe@nvidia.com
+  https://github.com/Xilinx/linux-xlnx.git tags/zynqmp-soc-for-7.2-v2
 
-The base for the series is generally the latest rc1. A different dependency
-should be noted in *this* patch.
+for you to fetch changes up to fdee7c66c0d7b6869c36b9f9a915abf29ab5b550:
 
-If you already ran 'make dt_binding_check' and didn't see the above
-error(s), then make sure 'yamllint' is installed and dt-schema is up to
-date:
+  soc: xilinx: Shutdown and free rx mailbox channel (2026-04-30 12:50:05 +0200)
 
-pip3 install dtschema --upgrade
+----------------------------------------------------------------
+arm64: Xilinx SOC changes for 7.2 v2
 
-Please check and re-submit after running the above command yourself. Note
-that DT_SCHEMA_FILES can be set to your schema file to speed up checking
-your schema. However, it must be unset to test all examples with your schema.
+zynqmp_power:
+- Fix race condition in event registration
+- Fix shutdown and free rx mailbox channel
 
+----------------------------------------------------------------
+Prasanna Kumar T S M (2):
+      soc: xilinx: Fix race condition in event registration
+      soc: xilinx: Shutdown and free rx mailbox channel
+
+ drivers/soc/xilinx/zynqmp_power.c | 47 +++++++++-----------
+ 1 file changed, 20 insertions(+), 27 deletions(-)
+
+
+-- 
+Michal Simek, Ing. (M.Eng), OpenPGP -> KeyID: FE3D1F91
+w: www.monstr.eu p: +42-0-721842854
+Maintainer of Linux kernel - Xilinx Microblaze
+Maintainer of Linux kernel - Xilinx Zynq ARM and ZynqMP ARM64 SoCs
+U-Boot custodian - Xilinx Microblaze/Zynq/ZynqMP/Versal SoCs
 
