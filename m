@@ -4,175 +4,125 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id B2C5ACD6E60
-	for <linux-arm-kernel@archiver.kernel.org>; Tue,  2 Jun 2026 16:10:39 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 4AADFCD6E57
+	for <linux-arm-kernel@archiver.kernel.org>; Tue,  2 Jun 2026 16:12:40 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
-	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=4wuW/Yokzii57HXL/z3H+3SCKWh40lWXglHNdQClPAg=; b=rg91jWw8gYc0+ZzreN33FSf0IF
-	Gp//IAWQwIQMoF3AkSz0Tt9EkhXprS0r9TdKAVKvcCjBCJW1IhaMjLuwI7kYs7NUc1/BR+EFDmJV7
-	99yjFspQLOvpo0q1KiH1JH4dbre3L3GJA/+9Pu619Matm069yJ3LhABKX4XozKy8BPJyPTQIxrgg6
-	LF5UdFc/0VAMt43SMsEzxQdvGMiuNLc7abi80E5NkM++Ntq7QxRWebhoRAa9K/6ACywlK8TFqbVAr
-	7L+qDJhchzElK4ZO3DXFCD2pj5PfAuTbQI9is4pPOUnuYL4512Ah5pU+IeL4t7Y95Bpna38D6TMfB
-	taWMW9IQ==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:In-Reply-To:
+	Content-Type:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=DzMWaxY3+xdB7M/N9E6Bz6G/YiCyCQxLEc4ORzcnXCg=; b=Js+O+wCOlN0Aqix/ca5rj+xVYP
+	lZtDHzh9+TJ8ZS14OGzdcXaEINtLgANfG4zrXIto2Nmnb4wbPtL+Roa7VcxpWT6X3u55C5iJlynOY
+	8GrusJGHj/xcW7QLw06V/EPBVa/AXFjSbxrlXivtIUqH8NG01fbYBk0YRkNVNU6x6cKc3kghskNQA
+	5wumLbTMtNSNT5VxWZdT6P0PADM1Tkf79+ImbEOUadF1OlzNF7I9PUCjoqu5VY3AJjuwL6QtzwMfX
+	3XH/rLawLrmQoauYxxxpERMJEB7At1IpDpUh9nn8J6AuWzZmUVH7JwSiWzTcrwSl2mxvYHF4GBWNl
+	2bd2R3Kw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wURhI-0000000DPRg-2yu8;
-	Tue, 02 Jun 2026 16:10:32 +0000
-Received: from mx0b-0031df01.pphosted.com ([205.220.180.131])
+	id 1wURjF-0000000DPh9-1zMi;
+	Tue, 02 Jun 2026 16:12:33 +0000
+Received: from mail-westus2azon11010050.outbound.protection.outlook.com ([52.101.46.50] helo=CO1PR03CU002.outbound.protection.outlook.com)
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wURhG-0000000DPRH-2LsE
+	id 1wURjC-0000000DPgV-2c3V
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 02 Jun 2026 16:10:32 +0000
-Received: from pps.filterd (m0279872.ppops.net [127.0.0.1])
-	by mx0a-0031df01.pphosted.com (8.18.1.11/8.18.1.11) with ESMTP id 652EE3lh3303188
-	for <linux-arm-kernel@lists.infradead.org>; Tue, 2 Jun 2026 16:10:29 GMT
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=qualcomm.com; h=
-	cc:content-transfer-encoding:content-type:date:from:in-reply-to
-	:message-id:mime-version:references:subject:to; s=qcppdkim1; bh=
-	4wuW/Yokzii57HXL/z3H+3SCKWh40lWXglHNdQClPAg=; b=CrsBW21DYrzUoj39
-	LSZG/g+HQ1czUCOfiW5AI9AgHw5zw6fjbd6pvyuNSmPbPF08VGO3D1slcgqznn9a
-	3SINRsyYzPGI7e8cMXT9AT5N7LgsWlK+7YgQb0AGS7Dm3SicCXfcBxXY5/ss2+EC
-	TSSqL5ZcyEIZaWXiG+daLy1ibhnuWr7zGH7J7s4pJE0SK9LOhH8siUV35CzuGYbk
-	HEtAqlGgieVJErm0WSJVwESs3f0Tq/qgRupknT+S/Vm75Z3MdT5P8qdEgegp5KAC
-	joxuomMDVECFRAKY1rJB13gE0gYslRkJhxFA0PtWxoZRbS8QudVOJ4gTzZUPO8Ze
-	kGl5NQ==
-Received: from mail-ua1-f70.google.com (mail-ua1-f70.google.com [209.85.222.70])
-	by mx0a-0031df01.pphosted.com (PPS) with ESMTPS id 4ehu18j3he-1
-	(version=TLSv1.3 cipher=TLS_AES_128_GCM_SHA256 bits=128 verify=NOT)
-	for <linux-arm-kernel@lists.infradead.org>; Tue, 02 Jun 2026 16:10:29 +0000 (GMT)
-Received: by mail-ua1-f70.google.com with SMTP id a1e0cc1a2514c-963aef8141bso1083668241.0
-        for <linux-arm-kernel@lists.infradead.org>; Tue, 02 Jun 2026 09:10:29 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=oss.qualcomm.com; s=google; t=1780416629; x=1781021429; darn=lists.infradead.org;
-        h=content-transfer-encoding:in-reply-to:from:content-language
-         :references:cc:to:subject:user-agent:mime-version:date:message-id
-         :from:to:cc:subject:date:message-id:reply-to;
-        bh=4wuW/Yokzii57HXL/z3H+3SCKWh40lWXglHNdQClPAg=;
-        b=EA7VYUHOyzVriRageNdL1wFvyYTMKcTmSeOW7I3aPutwM5r9ihuA7xc/kdyxeCtJHF
-         AqiH3FRjaJlJ2deKRTaFb1Cy2PKeAkP/VZDMtSwL29TBwLZJpLBY5okPrLplW4sqZVuZ
-         sW7FWdVMxK7FBxUwYiYhs9/5Vxhr8j4emdCyf0OQalDLdmBLq4OpH2g2Wd/4RPkb8jN/
-         IT+v9teLecAsDF25Auo5x/tN00HDLl5FkIySEEDdoNTajwujkqTew/4qazuYyoE5IybD
-         mEsIRER0Tprq9PDbZ7IxrNPRsfb6VyZaCEs+cQruWmTTWh7189CGhtyNKSCQZK0dy80Q
-         QHkg==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20251104; t=1780416629; x=1781021429;
-        h=content-transfer-encoding:in-reply-to:from:content-language
-         :references:cc:to:subject:user-agent:mime-version:date:message-id
-         :x-gm-gg:x-gm-message-state:from:to:cc:subject:date:message-id
-         :reply-to;
-        bh=4wuW/Yokzii57HXL/z3H+3SCKWh40lWXglHNdQClPAg=;
-        b=fgIBBrTIzY31ByFf2pinnMhXiKFfoFuI/ZXkpKPjJE7JaHEuZMXFzMOiaqQ3jwijbt
-         oXdkz9xNw81o+6ntN9T5dSc5obeXoZLxmlRISEyvgb3Y+wEiSv/i+WOLiTBNq9gddf1Q
-         BMrxBdMPzrRpCahxL+fBcsEbuF7V1rIF4Hn9Irw+Q3bjGcMGIDSHWnGLAwIADrAIa9bQ
-         8uZt7KNn2luDm0ZaihI8xZ0fnN/SYnJqobAg5AKXYiXYd9+4XNn157wWDxk28nLTR1cw
-         JDHOSTBW5DJ+fVz4ojR/i+G6h4EYgoCM0dsdNeEttqsVBam/Cf2DcPlN2epM4xXUZB09
-         40rg==
-X-Forwarded-Encrypted: i=1; AFNElJ/PCkfIzFygL4bmUEvll3g2gy1E+cwNdPjai6N838sf04epVKioZAsyGXOA0MergSpKQWGGV151kH88ABVAksS4@lists.infradead.org
-X-Gm-Message-State: AOJu0YzH+wtzarQZ9E2UtEb5Xi8V58Kxln/DycmrZrw9f/X8IWww1e47
-	78cVRVlm4LfLUHM7iGIJ2FH4iFJz3qxu6mzT/zdZh8kXZE+nEAVWf1eqEcIjF3oKWHpRJgoD229
-	G6RK3OkzRBYAy/9Wq2WbkdYGUa7ImSxIwmI2MaqwquIUwnHVqrWqhHfrj6xWuLBpQoLC9/OI54I
-	dL2A==
-X-Gm-Gg: Acq92OEoRHOyxb3EcDy3/FPXe1apfIGa6NXhVxLsAn7uKyQGp0gSAG8MUI/6aA+GSQC
-	DR+kzcv4Da4cEdsweu3LpwbLOmudjSMtPlW8gKF5f8NqY39/me20RkCGUCI7ExD46sTECm9OAta
-	RiRcsJahIUL5cm2X1I+jBvUKqS7CK0i55+CAqvg0h97mPj/gSU5tTukFEl0Aotwb3P6Vp4Ea7O5
-	SmNfwYozkjUalYkS5nJma37DoauMUtycJogwStarYZHNRkl5aJ2i5DfetUX4B6APNjQ/tveLGPv
-	spOxzbxZ1mNp4fzNHgxpFUlI2bqCGRnqkO+/tAvUOk+20xf4Mxn9txEjLf8N9/Jly3g6PLQTdJ9
-	Xpl1IBA++J8+QuaFfJ1+x584nRfFugD+qfH2NxLvay12pulA+6sTk3BELr65A46wTU3QzJrmfcD
-	xq
-X-Received: by 2002:a05:6122:1984:b0:5a1:de02:b177 with SMTP id 71dfb90a1353d-5a6974e7e80mr582311e0c.13.1780416628891;
-        Tue, 02 Jun 2026 09:10:28 -0700 (PDT)
-X-Received: by 2002:a05:6122:1984:b0:5a1:de02:b177 with SMTP id 71dfb90a1353d-5a6974e7e80mr582191e0c.13.1780416628462;
-        Tue, 02 Jun 2026 09:10:28 -0700 (PDT)
-Received: from [192.168.2.1] (146725694.box.freepro.com. [130.180.211.218])
-        by smtp.gmail.com with ESMTPSA id 5b1f17b1804b1-490b0e37851sm80264715e9.13.2026.06.02.09.10.17
-        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
-        Tue, 02 Jun 2026 09:10:27 -0700 (PDT)
-Message-ID: <13afc706-2513-4fd5-9e5a-50c4307508a2@oss.qualcomm.com>
-Date: Tue, 2 Jun 2026 18:10:15 +0200
+	Tue, 02 Jun 2026 16:12:32 +0000
+ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
+ b=ozhL5IYSD/simmzgi9cQAdURutKfMfAJGAzCV9VMAboL2PymvQQBPuefeltiqQHfYSwkCTpAZGp/kLbFYGzPscvBfGILoLpMU0amEsOgyH9SB2rzrG2Rgcvgj6o+/85bNv3ZxpcKx+ye/8z8VACLMcppBrbF6o1owqLOSGzBIcu3pHvht+9p/sM1MVND4EmuIG3Jv6pjw6JySyskZf4hcmifGDTwwxzc284y1dc4xse7p1U3x2f6LJQw2WvRaItIqTPFu+4w716aN79qAV9NYXoJ2/S4UmujazK+uonpc9WFXyuaYDbH34asUtLJDaWJPTzqn5PUuTUVsL2v5CKgtw==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
+ s=arcselector10001;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
+ bh=DzMWaxY3+xdB7M/N9E6Bz6G/YiCyCQxLEc4ORzcnXCg=;
+ b=wfZSi5wbwcBh8O0EkaBjyPY5dYdI1BGBThTLRkABVTVHwpI0JEkMZ5LU6i9kftiQa1YiKG32K64O5RWkVxDDDqI1GOSx4wsQR1pFFVQV6WaCdzeM9RizM9FVvjV1X1hZRhz3R9KUCVT7f/tfQIN4zuFxu8HyutxqMnQpu7UX2Q9BTuaRXfv75ThY7NqIaB/x7XEckg57Mfo3rA5ofk5cbmJpw5ySPMeXScoi+WoP0BDWQOzzZyymdWQ1oj/gGY3dpYsPLf4ygxjOo3TKcVKo45EEvVat4Z1wMsEgCVpCzvPiphhj2mLRTxocWC9/SVFNKDwRnuLRlkjtpHqQ1d2C0A==
+ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
+ smtp.mailfrom=nvidia.com; dmarc=pass action=none header.from=nvidia.com;
+ dkim=pass header.d=nvidia.com; arc=none
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=Nvidia.com;
+ s=selector2;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
+ bh=DzMWaxY3+xdB7M/N9E6Bz6G/YiCyCQxLEc4ORzcnXCg=;
+ b=aDzNZ/fp1lHl7u5Jwy8Q6lXdwXscMGvHpskW6u59TH4fpvUh+OArWB7u1Pm+u3U5YS/hNG+Os+DYuWrIshZgqW8cXKy8bV83gqVL8ThpxiKWQ03Vd7C0//xcGsQn8ny7lrTnaUoehn18IDjlFZIVoyVbXp4hpRt4yzsTj0pHN6VgtwLiN5P/8SxZrlwcCnLSgMp3udt8w8dIr2u+FHhyxQVgLuZvCI3GRV/zxqwppartUu38EzZiBxP8Ttw852QxHEw3GobBwDweE4hiFESSIQu4/xKAvvG+WOWWsiH2Pio4C5xk7jzLGMgMR1jWOh52iOfKx/emqa3TqFFuHaNBfA==
+Authentication-Results: dkim=none (message not signed)
+ header.d=none;dmarc=none action=none header.from=nvidia.com;
+Received: from DS0PR12MB8768.namprd12.prod.outlook.com (2603:10b6:8:14f::20)
+ by BN5PR12MB9485.namprd12.prod.outlook.com (2603:10b6:408:2a8::11) with
+ Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.21.92.7; Tue, 2 Jun 2026
+ 16:12:24 +0000
+Received: from DS0PR12MB8768.namprd12.prod.outlook.com
+ ([fe80::c16b:c351:2fc7:95e5]) by DS0PR12MB8768.namprd12.prod.outlook.com
+ ([fe80::c16b:c351:2fc7:95e5%7]) with mapi id 15.21.0048.016; Tue, 2 Jun 2026
+ 16:12:24 +0000
+Date: Tue, 2 Jun 2026 11:12:03 -0500
+From: Seth Forshee <sforshee@nvidia.com>
+To: Sudeep Holla <sudeep.holla@kernel.org>
+Cc: Sebastian Ene <sebastianene@google.com>,
+	linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org
+Subject: Re: [PATCH 1/2] firmware: arm_ffa: Honor maximum RX/TX buffer size
+Message-ID: <ah8A05Mt9W1yZjFW@omni-lfn-logwh>
+References: <20260601-b4-ffa-rxtx-map-fixes-v1-0-c071b12ae05c@nvidia.com>
+ <20260601-b4-ffa-rxtx-map-fixes-v1-1-c071b12ae05c@nvidia.com>
+ <20260602-grateful-elfish-elk-413154@sudeepholla>
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+In-Reply-To: <20260602-grateful-elfish-elk-413154@sudeepholla>
+X-ClientProxiedBy: MW4PR04CA0131.namprd04.prod.outlook.com
+ (2603:10b6:303:84::16) To DS0PR12MB8768.namprd12.prod.outlook.com
+ (2603:10b6:8:14f::20)
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH v3 00/17] arm64: Use EL2 virtual timer when running VHE
-To: Marc Zyngier <maz@kernel.org>, Daniel Lezcano
- <daniel.lezcano@kernel.org>,
-        linux-arm-kernel@lists.infradead.org, linux-acpi@vger.kernel.org,
-        linux-kernel@vger.kernel.org, devicetree@vger.kernel.org
-Cc: Lorenzo Pieralisi <lpieralisi@kernel.org>,
-        Hanjun Guo <guohanjun@huawei.com>,
-        Sudeep Holla <sudeep.holla@kernel.org>,
-        Catalin Marinas <catalin.marinas@arm.com>,
-        Will Deacon <will@kernel.org>, "Rafael J. Wysocki" <rafael@kernel.org>,
-        Mark Rutland
- <mark.rutland@arm.com>,
-        Thomas Gleixner <tglx@kernel.org>, Rob Herring <robh@kernel.org>,
-        Krzysztof Kozlowski <krzk+dt@kernel.org>,
-        Conor Dooley <conor+dt@kernel.org>, Chen-Yu Tsai <wens@kernel.org>,
-        Jernej Skrabec <jernej.skrabec@gmail.com>,
-        Samuel Holland <samuel@sholland.org>,
-        Neil Armstrong <neil.armstrong@linaro.org>,
-        Kevin Hilman <khilman@baylibre.com>,
-        Jerome Brunet <jbrunet@baylibre.com>,
-        Martin Blumenstingl <martin.blumenstingl@googlemail.com>,
-        Ge Gordon <gordon.ge@bst.ai>,
-        BST Linux Kernel Upstream Group <bst-upstream@bstai.top>,
-        Jesper Nilsson <jesper.nilsson@axis.com>,
-        Lars Persson <lars.persson@axis.com>,
-        Alim Akhtar <alim.akhtar@samsung.com>,
-        Ivaylo Ivanov <ivo.ivanov.ivanov1@gmail.com>,
-        Frank Li <Frank.Li@nxp.com>, Sascha Hauer <s.hauer@pengutronix.de>,
-        Pengutronix Kernel Team <kernel@pengutronix.de>,
-        Fabio Estevam <festevam@gmail.com>, Dinh Nguyen <dinguyen@kernel.org>,
-        Matthias Brugger <matthias.bgg@gmail.com>,
-        AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>,
-        Thierry Reding <thierry.reding@kernel.org>,
-        Jonathan Hunter <jonathanh@nvidia.com>,
-        Bjorn Andersson <andersson@kernel.org>,
-        Konrad Dybcio <konradybcio@kernel.org>,
-        =?UTF-8?Q?Andreas_F=C3=A4rber?=
- <afaerber@suse.de>,
-        =?UTF-8?B?WXUtQ2h1biBMaW4gW+ael+elkOWQm10=?=
- <eleanor.lin@realtek.com>,
-        Heiko Stuebner <heiko@sntech.de>, Shawn Lin <shawn.lin@rock-chips.com>,
-        Orson Zhai <orsonzhai@gmail.com>,
-        Baolin Wang <baolin.wang@linux.alibaba.com>,
-        Michal Simek <michal.simek@amd.com>
-References: <20260523140242.586031-1-maz@kernel.org>
- <8633z5ugzi.wl-maz@kernel.org>
-Content-Language: en-US
-From: Daniel Lezcano <daniel.lezcano@oss.qualcomm.com>
-In-Reply-To: <8633z5ugzi.wl-maz@kernel.org>
-Content-Type: text/plain; charset=UTF-8; format=flowed
-Content-Transfer-Encoding: 7bit
-X-Authority-Analysis: v=2.4 cv=POA/P/qC c=1 sm=1 tr=0 ts=6a1f0075 cx=c_pps
- a=R6oCqFB+Yf/t2GF8e0/dFg==:117 a=uw/3876vWhRnNVL35W6mqQ==:17
- a=IkcTkHD0fZMA:10 a=FelO9ux0wxsA:10 a=s4-Qcg_JpJYA:10
- a=VkNPw1HP01LnGYTKEx00:22 a=u7WPNUs3qKkmUXheDGA7:22 a=yx91gb_oNiZeI1HMLzn7:22
- a=VwQbUJbxAAAA:8 a=0vUytTvmGukYalHcjhgA:9 a=QEXdDO2ut3YA:10
- a=TD8TdBvy0hsOASGTdmB-:22
-X-Proofpoint-Spam-Details-Enc: AW1haW4tMjYwNjAyMDE1NSBTYWx0ZWRfX+ygfyjBoTaRV
- F/fRIlUH36wMxWhaOEe3z1RsM6eT4XkuvHEftM1V4anlGS0kXLCdQ4yaZezLxRCfOsP3LHm8IwF
- zkLl6fO3AaMk/hR1RmxEkzB/zShp9iGCa7vBmN7pUZfWM6oOkBICotExyMkSjVWaa2grgqoPd6Q
- 6XbZHcUbGDr4AEl9IutMlEVIHMl6ycSN850/BTF+XI0yQDhdtGSX6vh++gQOkds6tpgycPnmTl8
- E807RFT/kIAbXFqiPV2OtkPgZ929RwK1Gf9xuASvQlr3XuDrkn/Sj0ZUj1OAoXmIhmBl8SkLQ2P
- 45E9R3kUwFFYfv+7dILLbTiFWNpZ8dSICKZK1RHW4zJOAcKDXquoMIDtgmjyRBKdqUkOBv6k2TC
- V8fubBUkdTDwyaNFx6aK3DrFynqlDvACxqvS0AsQ1KuC/GT7j+BDM9RmMcLedR/r2S9WBufnxnk
- OIzT6+A4c+s7BTrZkgQ==
-X-Proofpoint-GUID: F3T40F8IOoq2sOFyvYpmHw9PBhPJvkeB
-X-Proofpoint-ORIG-GUID: F3T40F8IOoq2sOFyvYpmHw9PBhPJvkeB
-X-Proofpoint-Virus-Version: vendor=baseguard
- engine=ICAP:2.0.293,Aquarius:18.0.1143,Hydra:6.1.125,FMLib:17.12.100.49
- definitions=2026-06-02_02,2026-05-28_03,2025-10-01_01
-X-Proofpoint-Spam-Details: rule=outbound_notspam policy=outbound score=0
- malwarescore=0 lowpriorityscore=0 priorityscore=1501 spamscore=0 bulkscore=0
- adultscore=0 phishscore=0 impostorscore=0 clxscore=1015 suspectscore=0
- classifier=typeunknown authscore=0 authtc= authcc= route=outbound adjust=0
- reason=mlx scancount=1 engine=8.22.0-2605210000 definitions=main-2606020155
+X-MS-PublicTrafficType: Email
+X-MS-TrafficTypeDiagnostic: DS0PR12MB8768:EE_|BN5PR12MB9485:EE_
+X-MS-Office365-Filtering-Correlation-Id: 5e794cb8-bfac-4c1d-7ca3-08dec0c1bb88
+X-MS-Exchange-SenderADCheck: 1
+X-MS-Exchange-AntiSpam-Relay: 0
+X-Microsoft-Antispam: BCL:0;ARA:13230040|1800799024|366016|376014|56012099006|5023799004|4143699003|11063799006|18002099003|22082099003|6133799003;
+X-Microsoft-Antispam-Message-Info: Yg2zp3JkoB7CRLTHFBiq4C3bZH6GspOccOMahcDE6Q+2ml2Qm8EXMKEjcrQ5VxnSqmCV/oC4WKrVrePbgABOys8G2C9NhHjfkoJxsrXEyARuwX3/BKs7Eh4kl4wLlzFZB1ByR62n3CGH1qnVdmmgjV5W/W66Z514gkJqSszGgAb2r8XNoTtys68FDYjI3ALaKlLeHddSdygB3r8AEEiIkgaYj3I9Ududqe1E3hPpNH9cV1SbTK3Akk1XiL9L69xnOtPPnkVBCoYsZGhWimHi7ELoAUyx23fBI0F0wNftcUmjyCiLNCJREAZEI7iGgH1aD5jbTxUfdHKY6INOTBQHg0pVTBHe4rsCvB5i31w0pTc3NpWKTIH4bpFKIsgUApxNLQl4ic2MCAsbbmJZq5dEZoJzIZ0X0Tvzy2vlEKlG/nthFFB0q83FJvG0BLhp/kZlUWAbA0JY8TGEEORCBl8CIT/oJWrlF63fqZBNa+PmT1AvnhO9/iqwRmtVOMolEGDaJJY2E6nPNbkOt/5UIwFWhCu6itMeMZrXvmYTeSlV+7YxLr2vxgWUai8cTuTSUkqJ6cZa7a97z/YuZJ9/GVGbufsjJSEUpTHUZFUEOdXMnuIadSJUvvykIH6ccSSeNCXv/bl/XdalYSA814S+K/lSjrV1U5RInFg2wwXQ7E0fHztHtM0AzN1Dl+O3leLRYAKP
+X-Forefront-Antispam-Report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:DS0PR12MB8768.namprd12.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(1800799024)(366016)(376014)(56012099006)(5023799004)(4143699003)(11063799006)(18002099003)(22082099003)(6133799003);DIR:OUT;SFP:1101;
+X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
+X-MS-Exchange-AntiSpam-MessageData-0: =?us-ascii?Q?UIuhOaQU1wvT1s3AhlGbhKSU2BJH5Do0ocUBZQRkK5jiCId21/NiQoGyoEBm?=
+ =?us-ascii?Q?aHWg5HhXQxqS4tYBHlj59Xy7KrEVga1cILfysv2fP9CrQds1KMZA3vDYrjCl?=
+ =?us-ascii?Q?/RF8MjEgrTVD2bVDvJGYZF1BCfqhx2MxI5tJUXf8x+map56aB7oRQZGOPNkB?=
+ =?us-ascii?Q?bG0lGChtwR114dG+RN6KboQBcps4Jg820QrUjIAiyXi64eg9LDrjEvdDjYoQ?=
+ =?us-ascii?Q?2U5uyNGT4zBIYQdctvj/Bk7U5Lpxcc8eClM8ZZekUBQfmYNsx7WY2niT3DBc?=
+ =?us-ascii?Q?9bg0gvFAIIzTGPquC1zjlEEqyC3xYeZpVOGjqWnTbOwLKzSHR3bEsd/9bFP3?=
+ =?us-ascii?Q?7kiBuV1499RVWIZ7C536Dj4Yek8acHV7sqsOr+yc/ULExgnHJkp750wBsTrl?=
+ =?us-ascii?Q?iUDLzWZiFRFAgho3Lm4KMPzihFCtBGH9uykRIOC3XcB33tPYzOI+4s9hhGO9?=
+ =?us-ascii?Q?4yIpPyCCdU9dEtRc9CoKUkkiXrPJ7wJotvQ7E/b9W3tdKzvROhLLgd+o65eu?=
+ =?us-ascii?Q?jCXRhYdZ3VZozDwVWeTWRzYw+jNRdXeXFHUMPinNvdO2y56kbLVEA0G1F143?=
+ =?us-ascii?Q?lda99XgudyoF2FW8be/h6ml25DOOsblNxDFe+KYlkMukXWACrT/2Di5oLnfO?=
+ =?us-ascii?Q?65syUwz0Yym/WdI6fs9+mM2+N79BdtezPP/KhTa6MpFX87qOUIEty22DplyR?=
+ =?us-ascii?Q?kUaOfF5J9AC9xemik5mEO/zQEETEYRraINTn44kBIMRJ/2BkJtwvUK6CKUK1?=
+ =?us-ascii?Q?uI6pqVmf3hqJPFZTORXn9Zk/LY/mM3MY8Nw0i7C7EBd8twlNtFCuwwTAg0RE?=
+ =?us-ascii?Q?5Lp4Mzh3psqr1Gt0NsCnqriWyUD9Ln62T1XiHbu095vsHknsgTh22T/g0RsP?=
+ =?us-ascii?Q?6Uv0CrT6ixCNdt0Cgi/laLQ4ozyTcYSiqU/QV1CgrJg/GqvhBfWs62Ktn3zL?=
+ =?us-ascii?Q?cc76ql2Fw/VkxP0xiZhZchAJuYUJ3UNa8hfTxEuIRbNC2b0M/3cYCTpl4yzT?=
+ =?us-ascii?Q?5/YUpfNEFUisF6fG84LR1Er/0sXfRvpocBxz90aZTI0Y87DDx/GuP3ldlmEt?=
+ =?us-ascii?Q?TKVyxTKKiRJf8OzD/BfAFiIsjaTBX1ceZJpm8P6ckc0UBilhVv4yq0XOEaS9?=
+ =?us-ascii?Q?1dur24aNAsyfpS6d+iC+EZVuj8gJ4mGrY/uPCnbKX+6sG2GnE4rO8vJqPe/c?=
+ =?us-ascii?Q?6IrcAc/Rm7NnpQHYqtZwQWlc/7g9GBV8m6O4NnCN4rycTcM5QLie6E50cVyw?=
+ =?us-ascii?Q?dhu6ZkLP+AkIVfVzyeHbeaWbGkTSIOaTcuF23G47PuaaFsWBg8f0qdKizH3d?=
+ =?us-ascii?Q?cS9Wd3j4tXpGyD4ZHKevSSdh/AoVmwf8nefpklEe78VPUu8nIP1kOnBZHf7u?=
+ =?us-ascii?Q?ruzd4qBBr0PTyOidP9G0SNnhZ1XnPviY7TSFsCsExVg7Cmd8mTmVmkGz6g0N?=
+ =?us-ascii?Q?hgxu4/vzDqa+jrxDPkBlH5JZZ3tJVWoOgDhiupIv47by0x2OpFAPDfaSR+35?=
+ =?us-ascii?Q?yAh/K4M1+7hYkgsFdJpLq32K+t5IPHWSyowi6AwaqESKRgtzcVPsZC7bpQYz?=
+ =?us-ascii?Q?CSL54UroRgmZMvbbPjhpQ6F4wvPPDhOw7GgXFyp63MjkWI9UO+NP2jIweoM2?=
+ =?us-ascii?Q?1hIOVZP7+GJTub7XKoXX30X32lVepbEew23DZpLcrYjCAenAf17mz0vfv2cB?=
+ =?us-ascii?Q?TDWvgdvShfvkmgYrpQSBPBZMRiU7DlNFnhaVz97NM28TFlaaXER+C9chD6ko?=
+ =?us-ascii?Q?tACTs6HYcA=3D=3D?=
+X-OriginatorOrg: Nvidia.com
+X-MS-Exchange-CrossTenant-Network-Message-Id: 5e794cb8-bfac-4c1d-7ca3-08dec0c1bb88
+X-MS-Exchange-CrossTenant-AuthSource: DS0PR12MB8768.namprd12.prod.outlook.com
+X-MS-Exchange-CrossTenant-AuthAs: Internal
+X-MS-Exchange-CrossTenant-OriginalArrivalTime: 02 Jun 2026 16:12:24.2840
+ (UTC)
+X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
+X-MS-Exchange-CrossTenant-Id: 43083d15-7273-40c1-b7db-39efd9ccc17a
+X-MS-Exchange-CrossTenant-MailboxType: HOSTED
+X-MS-Exchange-CrossTenant-UserPrincipalName: loUD/4nVL01ZAzxYoarbOzheIrv6HDPiIF9zIhECmQ797rl8a0ZxFlDEnbAsWNpW0eilqdc793slCPLw2oTr6Q==
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: BN5PR12MB9485
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260602_091030_801545_72B7CF75 
-X-CRM114-Status: GOOD (  17.46  )
+X-CRM114-CacheID: sfid-20260602_091230_671138_5F30AE6A 
+X-CRM114-Status: GOOD (  33.77  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -187,30 +137,108 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On 6/2/26 16:58, Marc Zyngier wrote:
-> On Sat, 23 May 2026 15:02:25 +0100,
-> Marc Zyngier <maz@kernel.org> wrote:
->>
->> This is the third version of the series initially posted at [1],
->> which
->>
->> - updates the ACPI GTDT parsing to deal the v3 layout and the EL2
->>    virtual timer,
->> - moves the architected timer driver to use it when running VHE,
->> - fixes a number of DTs to reflect the reality of the HW.
->>
->> This results in significant performance uplift in deeper nested virt
->> scenarios, at no overhead to the host.
->>
->> Patches based on -rc3, tested on Amlogic SM1, QC X1E, Ampere Altra,
->> and Apple M2, as well as KVM NV guests.
+On Tue, Jun 02, 2026 at 04:56:48PM +0100, Sudeep Holla wrote:
+> On Mon, Jun 01, 2026 at 03:45:11PM -0500, Seth Forshee wrote:
+> > FFA_FEATURES in v1.2+ supports a maximum RXTX_MAP size. This maximum
+> > size is not checked when page-aligning the RX/TX buffer size, and
+> > FFA_RXTX_MAP may fail when passed a size greater than the maximum.
+> > 
+> > Decode the maximum buffer size returned from FFA_FEATURES and limit the
+> > buffer size based on this value if it is non-zero (zero indicates no
+> > maximum). Include verification that the max returned by the SPMC is
+> > larger than the minimum, otherwise use the minimum.
+> > 
+> > While there, also update RXTX_MAP_MIN_BUFSZ() to use FIELD_GET() for
+> > consistency.
+> > 
+> > Fixes: 83210251fd70 ("firmware: arm_ffa: Use the correct buffer size during RXTX_MAP")
+> > Assisted-by: Claude:claude-opus-4-8
+> > Signed-off-by: Seth Forshee <sforshee@nvidia.com>
+> > ---
+> >  drivers/firmware/arm_ffa/driver.c | 29 +++++++++++++++++++++++++++--
+> >  1 file changed, 27 insertions(+), 2 deletions(-)
+> > 
+> > diff --git a/drivers/firmware/arm_ffa/driver.c b/drivers/firmware/arm_ffa/driver.c
+> > index b9f17fda7243..dc45724a29ba 100644
+> > --- a/drivers/firmware/arm_ffa/driver.c
+> > +++ b/drivers/firmware/arm_ffa/driver.c
+> > @@ -32,6 +32,7 @@
+> >  #include <linux/interrupt.h>
+> >  #include <linux/io.h>
+> >  #include <linux/kernel.h>
+> > +#include <linux/minmax.h>
+> >  #include <linux/module.h>
+> >  #include <linux/mm.h>
+> >  #include <linux/mutex.h>
+> > @@ -55,7 +56,9 @@
+> >  	(FIELD_PREP(SENDER_ID_MASK, (s)) | FIELD_PREP(RECEIVER_ID_MASK, (r)))
+> >  
+> >  #define RXTX_MAP_MIN_BUFSZ_MASK	GENMASK(1, 0)
+> > -#define RXTX_MAP_MIN_BUFSZ(x)	((x) & RXTX_MAP_MIN_BUFSZ_MASK)
+> > +#define RXTX_MAP_MAX_BUFSZ_MASK	GENMASK(31, 16)
+> > +#define RXTX_MAP_MIN_BUFSZ(x)	(FIELD_GET(RXTX_MAP_MIN_BUFSZ_MASK, (x)))
+> > +#define RXTX_MAP_MAX_BUFSZ(x)	(FIELD_GET(RXTX_MAP_MAX_BUFSZ_MASK, (x)))
+> >  
+> >  #define FFA_MAX_NOTIFICATIONS		64
+> >  
+> > @@ -2086,11 +2089,13 @@ static void ffa_notifications_setup(void)
+> >  	ffa_notifications_cleanup();
+> >  }
+> >  
+> > +#define FFA_SUPPORTS_RXTX_MAX_BUFSZ(version)	((version) > FFA_VERSION_1_1)
+> > +
+> >  static int __init ffa_init(void)
+> >  {
+> >  	int ret;
+> >  	u32 buf_sz;
+> > -	size_t rxtx_bufsz = SZ_4K;
+> > +	size_t rxtx_bufsz = SZ_4K, rxtx_max_bufsz = 0;
+> >  
+> >  	ret = ffa_transport_init(&invoke_ffa_fn);
+> >  	if (ret)
+> > @@ -2118,9 +2123,29 @@ static int __init ffa_init(void)
+> >  			rxtx_bufsz = SZ_16K;
+> >  		else
+> >  			rxtx_bufsz = SZ_4K;
+> > +
+> > +		if (FFA_SUPPORTS_RXTX_MAX_BUFSZ(drv_info->version)) {
 > 
-> [...]
+> This is not even compile tested ? I don't think this is defined anyway.
+> Anyways I don't think we need this condition as v1.1 or below had it
+> MBZ, so it is fine to drop it.
+
+It is added just above ffa_init(). The code as been compile and run
+tested on multiple platforms, as noted in the cover letter.
+
+I hadn't checked older spec versions, so if they have it as MBZ then I
+agree we can drop the check.
+
 > 
-> Daniel, can you please pick the first 3 patches? Or would you rather
-> have them routed via the arm64 tree?
+> > +			rxtx_max_bufsz = (size_t)RXTX_MAP_MAX_BUFSZ(buf_sz) * SZ_4K;
+> 
+> The cast is unnecessary, its is 16 bit, so max 0xFFFF << 12.
 
-I'll pick them up
+Correct, though linters complain about it which is why I added it. I can
+drop it though if you prefer.
 
-Thanks
+> 
+> 
+> > +			if (rxtx_max_bufsz != 0 && rxtx_max_bufsz < rxtx_bufsz) {
+> > +				/*
+> > +				 * Per spec the maximum must be >= the minimum, or
+> > +				 * else zero if there is no size limit. If the SPMC
+> > +				 * violates this constraint, use the minimum as the
+> > +				 * effective maximum.
+> > +				 */
+> 
+> I don't see any text implying the above from the spec, drop it. Please point
+> it to me if you find. Even otherwise it seems obvious here and doesn't need
+> the note.
+
+I found it in v1.3 of the spec in Table 13.15: "Size must be greater or
+equal to the minimum buffer size, else MBZ if there is no size limit." I
+will remove the comment.
+
+Thanks,
+Seth
 
