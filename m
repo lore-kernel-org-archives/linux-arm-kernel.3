@@ -4,153 +4,143 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 0C7E7CD6E60
-	for <linux-arm-kernel@archiver.kernel.org>; Tue,  2 Jun 2026 17:33:35 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 2224FCD6E60
+	for <linux-arm-kernel@archiver.kernel.org>; Tue,  2 Jun 2026 17:36:06 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:
-	Content-Transfer-Encoding:Content-Type:References:In-Reply-To:Message-ID:Date
-	:Subject:Cc:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=dx1mmzNu0nkJmpnkHIX5axwsRMhzh62Rft9E/Gi5m94=; b=t+9auqfzmjkWsRZHdeCFqtCy+K
-	YpUUQO4vemvzx2A/5xqvcsKEHBq8PW2naUY1D9wbQBgO5tZaKb0DmZOnZmD24wapumE0goec8H2I7
-	ru7UVShPlBC0EvpL2S7kT418wLTQnTshwSNwN1wIrNWqPn5LQHkgvEs+kLScuUI7W6vQ+6hO+hV0P
-	jQJlqKR5hM6mQP7aR8C1OfslWx4KV7M/75ISzTY4SBrcqD/79wR5iBTlh5saFBh3Bv4dmk0H1Nr1o
-	Pqop/UaXg5X6AvBPzp4PQlhCyAABXzlLhOglCawCK1cTQgLeuDk7FTsC7cJoFw5MPo0HFVlx7qF3u
-	dBocwp9g==;
+	bh=PzdYszYKaK4b4vH0SnQI6TUiWFf8bFm1Ogb1TfiqgZs=; b=JNDF35ccupm2c44dAS2C7JfLZb
+	p/wAD4r1ThE6SpFK6jCQWaezcGHQECRqOOeoEl2SjSeUGrNEKjS0T9e6rQeZoYIsCpeHuMigBbAL7
+	8woJfA/zqhknvpNXmeOwYyzeD+Hdc6e4NDYl128O4I2v8QZ+SaPL41bfIjYk+KaBrxkc8ZcI05hNG
+	S7LsMFY/FArdH1YYthZiDrm5awvnl9ODTknhoCvdmlq3hFPqp520Z0q5KxTWxns1gF0xqblNn837Z
+	VWsntow+tjeYAR+DG01buoVuJq+42HDoReu+CsjRII0ajdqA4R/oa5RtxC+eInrW4sobWWkAT6Upi
+	DNz92KoQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wUSzX-0000000DabV-2X9G;
-	Tue, 02 Jun 2026 17:33:27 +0000
-Received: from mail-northeuropeazon11010060.outbound.protection.outlook.com ([52.101.84.60] helo=DB3PR0202CU003.outbound.protection.outlook.com)
+	id 1wUT1z-0000000Darr-3Zdk;
+	Tue, 02 Jun 2026 17:35:59 +0000
+Received: from smtp-out2.suse.de ([195.135.223.131])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wUSzV-0000000DaaI-0R9X
+	id 1wUT1x-0000000Daqj-0geE
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 02 Jun 2026 17:33:26 +0000
-ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
- b=cqBIjG5WsvmGALC0OgwaIVJglMXfG+iQq3hVt53WR31ItspgoIPe6hJuugRiHHfOTlrKWogMKrmkPsoZaRDe2oyEZn+1RLLuzSN/L2hv4+fZS/y3pn+c5n5aZsD5l9xFq5YTighdpYR1EdL4rJ2EQiYiuXQve7I34yMCyP9j1et/8cYDFTTQ/pMZ+8eTCWJ03ET0/K+anC3i2s93UUjqgtP7G7rZKynQGFndZF8mRZrgQHEt2JROLcoUlxU0YmkpfwrNZo18o238+9CfQUmZoW1pBwGtXdb1gga8S3x0UxKUaajPbcCgbUv//axNLjr1UrZKN8nU9jW22lvF5iVLMA==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
- s=arcselector10001;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
- bh=dx1mmzNu0nkJmpnkHIX5axwsRMhzh62Rft9E/Gi5m94=;
- b=dgx+INBfWF+nPoj+Az/Wzc0mLJ4NpaZ68V+7WUfjyW2fypPU684Iij9vic/QM83o3wpvGGjlhlVWA0KuMjJ2lqjO+Of5LaOheg0KOCSsGUZNNUoyGdTLWX5k5qLSz1uqvHlJmVBVQluVUlZMwmrpB0etxHz6V2pnTdS1T2junyswJAKi7VuxHPWLZl2gNbRkytiFMrO9RVMM04tw4qLuXb29D8s78PKBGiPIhRdCdX1eccSepraSEIQHGPhygM46pe5+65MlfjRL5XfcE9DZnaQ3P/A6wUL4Zz93DeEVnJFLDNR38nbOw9pXTaSQPEb0y9MUjFU5hqACBW2dnFxzZQ==
-ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
- smtp.mailfrom=oss.nxp.com; dmarc=pass action=none header.from=oss.nxp.com;
- dkim=pass header.d=oss.nxp.com; arc=none
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=NXP1.onmicrosoft.com;
- s=selector1-NXP1-onmicrosoft-com;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
- bh=dx1mmzNu0nkJmpnkHIX5axwsRMhzh62Rft9E/Gi5m94=;
- b=Fg4vdGrcZJEDZhK0GFK1NaLOJ8JX1sDlAYjbLrcWyUNKMpTSJ2+64l4SSKh/5t8V0ffpQv2osjShxlrkykrQBiuHe9mVtnL1wCtf8m4Kn+00PRMxq39HnNOBi4rTq/XZvNqvL1D506UY3LF/A+G3yrdEIyq34BUVSi0+lHK+JF6krF7+nDqShoao56CXXju40JJPvfN0KUTy4rBXr73/a5poEVBvy6ixkXdQgOTCgUwRQX7ONUgyJtlYu6w8Vc6t5EVCawgEXsFu7rE/tgwVBk2FPDILGpRbiWaBrkyv2sbwLiU2gm75VWuT9QP3ywC4B4pS4Xn7vywtKrzBmlYw4Q==
-Authentication-Results: dkim=none (message not signed)
- header.d=none;dmarc=none action=none header.from=oss.nxp.com;
-Received: from GV2PR04MB11799.eurprd04.prod.outlook.com (2603:10a6:150:2cf::9)
- by AM9PR04MB8338.eurprd04.prod.outlook.com (2603:10a6:20b:3ec::18) with
- Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.21.71.11; Tue, 2 Jun 2026
- 17:33:21 +0000
-Received: from GV2PR04MB11799.eurprd04.prod.outlook.com
- ([fe80::2146:83a2:5329:b7c]) by GV2PR04MB11799.eurprd04.prod.outlook.com
- ([fe80::2146:83a2:5329:b7c%6]) with mapi id 15.21.0092.006; Tue, 2 Jun 2026
- 17:33:21 +0000
-From: Frank.Li@oss.nxp.com
-To: Rob Herring <robh@kernel.org>,
-	Krzysztof Kozlowski <krzk+dt@kernel.org>,
-	Conor Dooley <conor+dt@kernel.org>,
-	Shawn Guo <shawnguo@kernel.org>,
-	Sascha Hauer <s.hauer@pengutronix.de>,
-	Pengutronix Kernel Team <kernel@pengutronix.de>,
-	Fabio Estevam <festevam@gmail.com>,
-	Franz Schnyder <fra.schnyder@gmail.com>
-Cc: Frank Li <Frank.Li@nxp.com>,
-	devicetree@vger.kernel.org,
-	linux-kernel@vger.kernel.org,
-	imx@lists.linux.dev,
-	linux-arm-kernel@lists.infradead.org,
-	Francesco Dolcini <francesco@dolcini.it>,
-	Franz Schnyder <franz.schnyder@toradex.com>,
-	Conor Dooley <conor.dooley@microchip.com>,
-	=?UTF-8?q?Jo=C3=A3o=20Paulo=20Gon=C3=A7alves?= <joao.goncalves@toradex.com>,
-	Emanuele Ghidoli <emanuele.ghidoli@toradex.com>,
-	Francesco Dolcini <francesco.dolcini@toradex.com>,
-	Antoine Gouby <antoine.gouby@toradex.com>,
-	Ernest Van Hoecke <ernest.vanhoecke@toradex.com>
-Subject: Re: [PATCH v4 0/3] arm64: dts: freescale: add Toradex Aquila iMX95
-Date: Tue,  2 Jun 2026 13:33:07 -0400
-Message-ID: <178042156156.3430605.11944248821061210803.b4-ty@b4>
-X-Mailer: git-send-email 2.43.0
-In-Reply-To: <20260521-add-aquila-imx95-v4-0-5a7f86c824f5@toradex.com>
-References: <20260521-add-aquila-imx95-v4-0-5a7f86c824f5@toradex.com>
-Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: 8bit
-X-ClientProxiedBy: SA1P222CA0078.NAMP222.PROD.OUTLOOK.COM
- (2603:10b6:806:2c1::25) To GV2PR04MB11799.eurprd04.prod.outlook.com
- (2603:10a6:150:2cf::9)
+	Tue, 02 Jun 2026 17:35:58 +0000
+Received: from imap1.dmz-prg2.suse.org (imap1.dmz-prg2.suse.org [IPv6:2a07:de40:b281:104:10:150:64:97])
+	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
+	 key-exchange X25519 server-signature RSA-PSS (4096 bits) server-digest SHA256)
+	(No client certificate requested)
+	by smtp-out2.suse.de (Postfix) with ESMTPS id C33E275BE7;
+	Tue,  2 Jun 2026 17:35:52 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=suse.de; s=susede2_rsa;
+	t=1780421753; h=from:from:reply-to:date:date:message-id:message-id:to:to:cc:cc:
+	 mime-version:mime-version:content-type:content-type:
+	 in-reply-to:in-reply-to:references:references;
+	bh=PzdYszYKaK4b4vH0SnQI6TUiWFf8bFm1Ogb1TfiqgZs=;
+	b=oJcmiZ+IRDb0Vl8+5HTv2yX/FDF9rGccWP37o6YhmvUhiE2iOxo3tg5UegmyBF2vhhgR4b
+	Bn0yWmBg2jeI/af12tSnXAWoTv6YHiNlxM75JHnWcI0qPQ6m/dQe/olnfe5LbEpVl48w1F
+	Zn5QLciVSgcBoN4ANRIvAu6btk/OF6I=
+DKIM-Signature: v=1; a=ed25519-sha256; c=relaxed/relaxed; d=suse.de;
+	s=susede2_ed25519; t=1780421753;
+	h=from:from:reply-to:date:date:message-id:message-id:to:to:cc:cc:
+	 mime-version:mime-version:content-type:content-type:
+	 in-reply-to:in-reply-to:references:references;
+	bh=PzdYszYKaK4b4vH0SnQI6TUiWFf8bFm1Ogb1TfiqgZs=;
+	b=jhN2GYkSZ6ZmL7SlhUTGxGK8CGKvahfHmS6TdWBw2sjqUP11uu8YbNTC0yD4ZwQRc7jxoy
+	7y47Oyq0haBSpRCA==
+Authentication-Results: smtp-out2.suse.de;
+	dkim=pass header.d=suse.de header.s=susede2_rsa header.b=CjoN6ud0;
+	dkim=pass header.d=suse.de header.s=susede2_ed25519 header.b=d+8GAyg8
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=suse.de; s=susede2_rsa;
+	t=1780421752; h=from:from:reply-to:date:date:message-id:message-id:to:to:cc:cc:
+	 mime-version:mime-version:content-type:content-type:
+	 in-reply-to:in-reply-to:references:references;
+	bh=PzdYszYKaK4b4vH0SnQI6TUiWFf8bFm1Ogb1TfiqgZs=;
+	b=CjoN6ud0xM6zZLHHr+iDUEJvlRR5Tcqe7CvaIG+t31o4cy6J/x5ZZFE/0EuCt9l70ftEzF
+	4L2SgHs9MheGVMjLGRN+ReW6rIzJF3ziG39/Txnz/q21ehkbfyJulncwGEdvfmSZt2Eu6v
+	YN3wdIaK7Ymkb7hLrFH7QvFmi3zUJcM=
+DKIM-Signature: v=1; a=ed25519-sha256; c=relaxed/relaxed; d=suse.de;
+	s=susede2_ed25519; t=1780421752;
+	h=from:from:reply-to:date:date:message-id:message-id:to:to:cc:cc:
+	 mime-version:mime-version:content-type:content-type:
+	 in-reply-to:in-reply-to:references:references;
+	bh=PzdYszYKaK4b4vH0SnQI6TUiWFf8bFm1Ogb1TfiqgZs=;
+	b=d+8GAyg8Gv/8dblHxs6OE+NHkcm59mYKFHrOEl4A53724DsuXV2AEYoC1YVWXKOJkRxAv6
+	CItYWAayJ3znFBBQ==
+Received: from imap1.dmz-prg2.suse.org (localhost [127.0.0.1])
+	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
+	 key-exchange X25519 server-signature RSA-PSS (4096 bits) server-digest SHA256)
+	(No client certificate requested)
+	by imap1.dmz-prg2.suse.org (Postfix) with ESMTPS id 5D53F779A7;
+	Tue,  2 Jun 2026 17:35:50 +0000 (UTC)
+Received: from dovecot-director2.suse.de ([2a07:de40:b281:106:10:150:64:167])
+	by imap1.dmz-prg2.suse.org with ESMTPSA
+	id TNkpE3YUH2oqKgAAD6G6ig
+	(envelope-from <pfalcato@suse.de>); Tue, 02 Jun 2026 17:35:50 +0000
+Date: Tue, 2 Jun 2026 18:35:48 +0100
+From: Pedro Falcato <pfalcato@suse.de>
+To: Jan Kara <jack@suse.cz>
+Cc: Usama Arif <usama.arif@linux.dev>, willy@infradead.org, 
+	Andrew Morton <akpm@linux-foundation.org>, david@kernel.org, ryan.roberts@arm.com, linux-mm@kvack.org, 
+	r@hev.cc, Andrew Donnellan <andrew+kernel@donnellan.id.au>, 
+	apopple@nvidia.com, baohua@kernel.org, baolin.wang@linux.alibaba.com, 
+	brauner@kernel.org, catalin.marinas@arm.com, dev.jain@arm.com, kees@kernel.org, 
+	kevin.brodsky@arm.com, lance.yang@linux.dev, "Liam R. Howlett" <liam@infradead.org>, 
+	linux-arm-kernel@lists.infradead.org, linux-fsdevel@vger.kernel.org, linux-kernel@vger.kernel.org, 
+	ljs@kernel.org, mhocko@suse.com, npache@redhat.com, pasha.tatashin@soleen.com, 
+	rmclure@linux.ibm.com, rppt@kernel.org, surenb@google.com, vbabka@kernel.org, 
+	Al Viro <viro@zeniv.linux.org.uk>, wilts.infradead.org@pedro-suse.lan, ziy@nvidia.com, 
+	hannes@cmpxchg.org, kas@kernel.org, shakeel.butt@linux.dev, kernel-team@meta.com
+Subject: Re: [PATCH v6 2/2] mm: use mapping_max_folio_order() for
+ force_thp_readahead order
+Message-ID: <ah8Qcxuugn5tTilK@pedro-suse>
+References: <20260528165635.2068012-1-usama.arif@linux.dev>
+ <20260528165635.2068012-3-usama.arif@linux.dev>
+ <ahlh2vdHEGo6ZSot@pedro-suse.lan>
+ <cc9a1cf7-7b96-439a-b0be-ecdcf27b5da5@linux.dev>
+ <ahmSolHvUChl-3vM@pedro-suse.lan>
+ <185f1caf-b33d-4467-beb5-51bd8520ac78@linux.dev>
+ <u52xvwk2fjjk2izdb4wvuqq2zhc5neb4q6usimcxejluuyngxw@d64sc6rvojyp>
 MIME-Version: 1.0
-X-MS-PublicTrafficType: Email
-X-MS-TrafficTypeDiagnostic: GV2PR04MB11799:EE_|AM9PR04MB8338:EE_
-X-MS-Office365-Filtering-Correlation-Id: d61779a2-82d9-4235-fce6-08dec0cd0a7b
-X-LD-Processed: 686ea1d3-bc2b-4c6f-a92c-d99c5c301635,ExtAddr
-X-MS-Exchange-SenderADCheck: 1
-X-MS-Exchange-AntiSpam-Relay: 0
-X-Microsoft-Antispam: BCL:0;ARA:13230040|19092799006|7416014|376014|366016|1800799024|56012099006|18002099003|22082099003|11063799006;
-X-Microsoft-Antispam-Message-Info: PXJi6fKUkBZ2fAWqnHBF37g3jbCB9bWoSal4gHQ8DxWElJpuKZzPo9tU5ATjd/KBggCegjVBnR6qMTKQz6p9XRKgSIKMthPkg21bjqqPvAnawNx2lUeeBV3vO1puW4N4tEQgiYyBoGdzmbeBLBp0Ny7badGFyCg1xvUh8K3Pgp8dOw/1FiDC68U4RAdSqIAaW7cwdLFAMQTTScB2j/5SFa9oYpjU8irCz2iZCzvNpefk/4T5pEcC2JtNceSLef45+VfaJV3R8hlH5bzyxOZwunLtOPaoJMO676QDgqekg0+GSlmFTea5h3yA4HSramuz9CKNl4MSXRE44A6jrvt7QV9x10NPsc6WCjN7BF8+k936MteO55+FpkQtxH5Qj6zw8eioceso/Nr5BLuaOAjzVztJV8Hk+ZEM2DfX93rLp0s1cLzMNnY1B74HrXceGrgzeJAPkXzwVft1sWZFK/ycKs5AQQbI3FWTR6E3XJCZc70Q3PaDTY7C4sSGe1wk3KXRUUJ6W+aRNHEXjzQqWkHCVIwlN3D70aO1j9AhoaEGt3QrogpfJi07P6JdxXtn0K92/lcO1G5MDIQddqON2q9sa1D3rvyOa6o7Wm/3JrBDt2kiuPFOHfS87204z1/9l+xfQN/i8vvTFCuuZdNavDfAjLFzE+sBfHyGlOUDqjjU6WvGT8UgbfJZEgxAe9LYy6CK
-X-Forefront-Antispam-Report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:GV2PR04MB11799.eurprd04.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(19092799006)(7416014)(376014)(366016)(1800799024)(56012099006)(18002099003)(22082099003)(11063799006);DIR:OUT;SFP:1101;
-X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
-X-MS-Exchange-AntiSpam-MessageData-0: =?utf-8?B?c0pYQkszQzJqeHZ3NGk3MjVJMlhnNExHbTBnSXErUURUZzh1aTFTNGp6alM4?=
- =?utf-8?B?am40RHhmQWpMLzlrTTl1M2xhU0pDT3Vnc1k2SUkvTW9uZFR3WU82OWFTRTlV?=
- =?utf-8?B?K1ZmOFhLcnRIdGFoRGZWVVlDaE9XeXEzejNtY0JKcmQraWxjL0FpR0ppTDMx?=
- =?utf-8?B?bk50SlB1L3BQeUZQTnRUekVBdDRObUxRaG82eE5MWFZNQ2U1U1BGWk5kZDJ4?=
- =?utf-8?B?eVordTFBMStwR3JJclYyd213ZzJiakNHOUtDK3MwQkhoZHI5TWx4MHljZVFY?=
- =?utf-8?B?NHZXUk5vMk5nMHd3YmFEekdqM0RlR3dFMTRraUpEV2FoWFIwSnBBL0ZOWEZT?=
- =?utf-8?B?M0svSWtWM3pEN0RRZlFhU3hCSnphd3gvZS9PemRuc0k4MXM4aGxDNEJESkZi?=
- =?utf-8?B?cTJiRXYzYTRXR0c1cEJRQ1BQYTZXVHEzNFdWRTNNNy9uR3pIZEtBNHRhL3NJ?=
- =?utf-8?B?NlRVTTVKYytqdWw4VlFmZzVyUHhsNkQrdlp5THczUTFuRmpkYzJWbWFPY0ZS?=
- =?utf-8?B?b3lsVzN4amo5NFl3eUt5OGU5dUxCQWNpb1NwQzM0N1RvRVJTVS8wZmdKdWFz?=
- =?utf-8?B?RGwwU1RQOFMyQ2Myc3RiaVl1NjBRcy9qZkdvMk9yNUxTN3BaR2dEL2I3d1ph?=
- =?utf-8?B?dVBWbWJ5MXJoczNZOXo0N0YvMUhVeVAyVmFEVnVLZ1EvOW9wWER6QXVWTjdW?=
- =?utf-8?B?TSsyNVZRQ1ROYUpWZnVmS2pjRU5zVlJRL2dkZGtiV0czUnEvUWdWUnZheU84?=
- =?utf-8?B?KzFxdEVnWVc4UXM3ckZrKzF3VXdYdWU3NXdVdFpXTVNrbGJBQ3J4dHg2Y2xn?=
- =?utf-8?B?UkkrZWg1aVJaZms0R0NEVWdwUnFOMWVIai84SEIxYUVVa1E1WVZ4S3lrTStY?=
- =?utf-8?B?Zzd1NG4wUFhFQVU4bWJmeTJCZFJDaC9QdFphdCtwWllUbkdjdGR1eGRxazhH?=
- =?utf-8?B?Y01lZ2hRZzRtMHZweTZmN3ozRUhwMVdRQTd2NUNBWHl4ZGNtRUJZaVF1aUVQ?=
- =?utf-8?B?SDl3LzRMbVFSOE4yZTJDL2ZRRlVMNHlaQU5ja0lYM0pqVFdpaytncDhNMmRo?=
- =?utf-8?B?NTdPUTZVSDZlY0pCWnVIUlRLVjNIRzlnTzZjejNSSFFyWTJXR2d2Z3RrRlJU?=
- =?utf-8?B?QitSTy8yYmtVaTdqWDVaR3NGa283WllrU3cwc0c2NnV0N25kbzNaRHJoZ3JV?=
- =?utf-8?B?WjVha2ZsR3N2NkcydlVSVW5Xd1ZZQ3BuZ3JsOHBCbHVIaW4rYmxQSHJ6bmZ5?=
- =?utf-8?B?RjltSHZOd29hL2NVcVpzMTlvZUhYRnFIQm16dUdIZlg3RE02VmNMNDBsczFk?=
- =?utf-8?B?NmwyZlhrbnhGaUZ4blo1b1FEOUZjeWQ0TlpYMm1QQXZvdWJ1d3I4THBSOUd2?=
- =?utf-8?B?N3MrVHFsZTIzVC91ZjlwelNqd2h1UHBvbWc5QlgzS294SndxTzZoQ01adEt1?=
- =?utf-8?B?eTFoMVNnLzV3NEE0b09EVjRhZkNtbHN2cVdrSy9rZDFpZ2NFNTJ2OTNoQ2Jh?=
- =?utf-8?B?eTdKcTVpVTFTM1lkQU0rclFvSEpaN0NMZ1VZWXMyYVlpd2NwOXpESGsrbERh?=
- =?utf-8?B?RDI5TVBXT1c5YiszQjBzRnJmdFhQOHdkbzU0S0htdnpXVXN1b2lXQ0NFU2Vq?=
- =?utf-8?B?VlhaY0FkMC9WY1lOdXZRUURzQ0VxR2JiMzc4aEgzaXZzTWc1Q3dIMTJnRyts?=
- =?utf-8?B?ZG1kUzZOejhuZHJ6VmFxN1pPelgyZXlhTTJSbzVpdlBOUEdKcDVURjAxRVFr?=
- =?utf-8?B?RzRVYjZuMEY3L3gzTGpWRi9EQVFqclNZVW1GU2YrbSs4M1dERzRwd1JaZUh5?=
- =?utf-8?B?OUdmeDZtTERrWXVLaGdRbG5iNE42RUNNeHluZlh5a0R6SDh6UEh0bWtZcjh1?=
- =?utf-8?B?d0YrL3I5bG1sR0J0MnA2YnhDaUFJVW94Z1MrWUVJWXBrdnR6UW5UNHZkTHVF?=
- =?utf-8?B?clVES1MxZklGQ0F6TXVYVEtOUXE5TEQ3azV1WW1tS2lOdXl1UFp1ZXZ2d3dW?=
- =?utf-8?B?Ylc0OENrcW8vYURsbVY1aEFuVnJsQmRYK1BkdEkzTDQrckdjbW5NbDV6MTFa?=
- =?utf-8?B?RkNyTkJPYWlyZkdYRzV4aklqOEF6aG1BTEZXMlE0R29VRVMrWVk5SXNtOGZi?=
- =?utf-8?B?YndOWUNkK0lxVlZlcWgrQ3hsZHhkM0JGSnR6RkI1UmhaL3ppMFFYSlB6YTB6?=
- =?utf-8?B?Ry96SVZuMkF3cGZCRG5aSXJCbmlCMnVqb1gveFV0MEEvc3JvSm02Yk11dmNY?=
- =?utf-8?B?Z3UzK1IzWmtwVytrZHFzSlpIYytRSTFKTFZsa0xZZC84QmpnV3c1aFhqeDc3?=
- =?utf-8?B?RkQwQ0E0R01oTjVNdXN2OXRERU9UUmZFSi9aRmVQbTFsRzQ2SlNzTEtPbUhp?=
- =?utf-8?Q?9BUZ7WHyhdMSdDh4/ZkMi6pvklw6iwOPoyxwj?=
-X-OriginatorOrg: oss.nxp.com
-X-MS-Exchange-CrossTenant-Network-Message-Id: d61779a2-82d9-4235-fce6-08dec0cd0a7b
-X-MS-Exchange-CrossTenant-AuthSource: GV2PR04MB11799.eurprd04.prod.outlook.com
-X-MS-Exchange-CrossTenant-AuthAs: Internal
-X-MS-Exchange-CrossTenant-OriginalArrivalTime: 02 Jun 2026 17:33:21.1284
- (UTC)
-X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
-X-MS-Exchange-CrossTenant-Id: 686ea1d3-bc2b-4c6f-a92c-d99c5c301635
-X-MS-Exchange-CrossTenant-MailboxType: HOSTED
-X-MS-Exchange-CrossTenant-UserPrincipalName: qCJxtgCdOnhHaoWnGiv9sOQ3gnioS/F1hgqlCCgeabAxWk5kx8wQtkGef6Le2Fi4qq5d7t3jWRVByQbVLraR0Ej8xQl7vBKw2GDuzYy37R3VRY9uNBN8jMQa5eHDvRFl
-X-MS-Exchange-Transport-CrossTenantHeadersStamped: AM9PR04MB8338
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+In-Reply-To: <u52xvwk2fjjk2izdb4wvuqq2zhc5neb4q6usimcxejluuyngxw@d64sc6rvojyp>
+X-Rspamd-Action: no action
+X-Rspamd-Queue-Id: C33E275BE7
+X-Spamd-Result: default: False [-2.51 / 50.00];
+	BAYES_HAM(-3.00)[100.00%];
+	SUSPICIOUS_RECIPS(1.50)[];
+	NEURAL_HAM_LONG(-1.00)[-1.000];
+	MID_RHS_NOT_FQDN(0.50)[];
+	R_DKIM_ALLOW(-0.20)[suse.de:s=susede2_rsa,suse.de:s=susede2_ed25519];
+	NEURAL_HAM_SHORT(-0.20)[-1.000];
+	MIME_GOOD(-0.10)[text/plain];
+	MX_GOOD(-0.01)[];
+	TO_MATCH_ENVRCPT_ALL(0.00)[];
+	DKIM_SIGNED(0.00)[suse.de:s=susede2_rsa,suse.de:s=susede2_ed25519];
+	FUZZY_RATELIMITED(0.00)[rspamd.com];
+	ARC_NA(0.00)[];
+	RBL_SPAMHAUS_BLOCKED_OPENRESOLVER(0.00)[2a07:de40:b281:104:10:150:64:97:from];
+	RCPT_COUNT_TWELVE(0.00)[37];
+	MIME_TRACE(0.00)[0:+];
+	FROM_HAS_DN(0.00)[];
+	RCVD_TLS_ALL(0.00)[];
+	DKIM_TRACE(0.00)[suse.de:+];
+	DNSWL_BLOCKED(0.00)[2a07:de40:b281:104:10:150:64:97:from,2a07:de40:b281:106:10:150:64:167:received];
+	RCVD_COUNT_TWO(0.00)[2];
+	FROM_EQ_ENVFROM(0.00)[];
+	TO_DN_SOME(0.00)[];
+	RECEIVED_SPAMHAUS_BLOCKED_OPENRESOLVER(0.00)[2a07:de40:b281:106:10:150:64:167:received];
+	RCVD_VIA_SMTP_AUTH(0.00)[];
+	TAGGED_RCPT(0.00)[kernel];
+	R_RATELIMIT(0.00)[to_ip_from(RL764437jfm1qe6abtk9nwyx8m)];
+	MISSING_XM_UA(0.00)[];
+	DBL_BLOCKED_OPENRESOLVER(0.00)[suse.de:dkim]
+X-Rspamd-Server: rspamd1.dmz-prg2.suse.org
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260602_103325_155663_34B784D6 
-X-CRM114-Status: GOOD (  10.93  )
+X-CRM114-CacheID: sfid-20260602_103557_498045_CA54A8C8 
+X-CRM114-Status: GOOD (  29.87  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -165,34 +155,66 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-From: Frank Li <Frank.Li@nxp.com>
-
-
-On Thu, 21 May 2026 19:11:03 +0200, Franz Schnyder wrote:
-> This patch series adds support for the Toradex Aquila i.MX95 SoM and its
-> currently available carrier boards: the Aquila Development Board and the
-> Clover carrier board.
+On Sat, May 30, 2026 at 05:16:29PM +0200, Jan Kara wrote:
+> On Fri 29-05-26 15:11:54, Usama Arif wrote:
+> > On 29/05/2026 14:40, Pedro Falcato wrote:
+> > > On Fri, May 29, 2026 at 01:19:03PM +0100, Usama Arif wrote:
+> > >>
+> > >> which means mapping_max_folio_order(mapping) <= MAX_PAGECACHE_ORDER <= HPAGE_PMD_ORDER is always
+> > >> true, and you dont need the min3(..) in your diff.
+> > >>
+> > >> Now the question is if then why not just do:
+> > >>
+> > >> 	if (IS_ENABLED(CONFIG_TRANSPARENT_HUGEPAGE) && (vm_flags & VM_HUGEPAGE)) {
+> > >> 		if (mapping_large_folio_support(mapping)) {
+> > >> 			force_thp_readahead = true;
+> > >> 			thp_order = min_t(unsigned int,
+> > >> 					  mapping_max_folio_order(mapping),
+> > >> 					  get_order(SZ_2M));
+> > >> 		}
+> > >> 	}
+> > >>
+> > >>
+> > >> This is because this will regress the 16K ARM case where we already got 32M
+> > >> folios. Someone might upgrade the kernel and start getting 2M folios now.
+> > > 
+> > > So maybe limit to 32MB? It's still arbitrary but at least you get simpler
+> > > logic. If the architecture does not support 32MiB folios, it will clamp
+> > > the maximum folio order to HPAGE_PMD_ORDER, and you get the same result.
+> > > 
+> > > Does this sound correct?
+> > > 
+> > 
+> > Yes, so if we replace it with SZ_32M, it sounds correct. I just think
+> > the 32M size is too large. But as you pointed out, even 2M can be too large...
 > 
-> The module consists of an NXP i.MX95 family SoC, up to 16GB LPDDR5 RAM,
-> up to 128GB of storage, a USB 3.2 OTG and USB 2.0 Host, a Gigabit
-> Ethernet PHY, a 10 Gigabit Ethernet interface, an I2C EEPROM and
-> Temperature Sensor, an RX8130 RTC, one Quad lane CSI interface, one Quad
-> lane DSI or CSI interface, one LVDS interface (one or two channels), and
-> some optional addons: DisplayPort (through a DSI-DP bridge), TPM 2.0,
-> and a WiFi/BT module.
+> So AFAIU the practical discussion is about two options:
 > 
-> [...]
+> 1) limiting at 2MB with a slighly more complicated logic to keep mapping at
+> PMD order for 16k pagesize on ARM but use 2MB pages for 64k pagesize on ARM
+> 
+> or
+> 
+> 2) limit at 32MB with simple logic which results in larger (32MB) folios
+> with 16k and 64k pagesize on ARM and thus larger memory overhead.
+> 
+> I'd like to maybe offer option 3): limit at 2MB with simple logic. This
+> will reduce folio size on 16k pagesize ARM compared to 1) but do we really
+> care? I.e., is there big enough practical performance impact with conpte
+> and other tricks ARM is playing?
+> 
 
-Applied, thanks!
+arm64 16K contpte tops out at 256KB TLB entries. It's quite a lot smaller than
+a PMD entry. Also, something that was discussed at LSFMM was its effectiveness.
+Apparently, most of the gains seem to sit on actually having a larger page size
+(perhaps Dev/Ryan can comment; sadly the slides were not posted anywhere on
+the ML, so I don't have numbers).
 
-[1/3] dt-bindings: arm: fsl: add Aquila iMX95
-      commit: 4d0c0b7fcf59b1410fdeb18e2837d0c1e9ec14ba
-[2/3] arm64: dts: freescale: add Aquila iMX95 support
-      commit: 5daa24ec08a8f57a7f41a16cac140a69db813bba
-[3/3] arm64: dts: freescale: imx95-aquila: Add Clover carrier board
-      commit: 802cee9b535163f66fa635888c2922c760d5d526
+To me, the question is quite clear: do we trust users that say "please give me
+hugepages" enough to unconditionally give them hugepages? I would assume the
+answer lies somewhere between "yes" and "no", but 32MB I would say is not
+particularly excessive. 512MB is... much worse.
 
-Best regards,
 -- 
-Frank Li <Frank.Li@nxp.com>
+Pedro
 
