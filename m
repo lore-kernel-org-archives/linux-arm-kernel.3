@@ -4,77 +4,70 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 46FA6CD6E4A
-	for <linux-arm-kernel@archiver.kernel.org>; Tue,  2 Jun 2026 09:33:52 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 2F1AACD6E4A
+	for <linux-arm-kernel@archiver.kernel.org>; Tue,  2 Jun 2026 09:34:20 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	MIME-Version:Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-Type:
-	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
-	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
-	bh=ll7wsI/Em/Jn1sDgGc7GNu+RMvSzQcPU87sVEyRKPIs=; b=bIA8GcE1p6S0tfb5rotXcJ1+Th
-	wmSINMKGa3pCjZ25T6ie9wy4mnqaPa86A3VSLCeGvyuikNGWkUhqiSiSzOHExpIXTf39GwSo0qpsq
-	B5HtzKmhMojrvzXruqHGDggYmf1jAJOOwovoNzSMS/EIinC6NXAJeu5k0qQPciRzX22WqTWFygSUp
-	+6pb09bY4Rfw/U8sh2Eu6wy+8FUn9heO4odQHJAJXJgVuMl16RrmJouuHDtaxtRxxAAmmGnvf3/3R
-	4z3R19LEt726CVnTWGWRitJAOi7ra4hBsnUxVRcWGFnz3LmRL0pQFCU4StWRrcT9DjJTe5IVirc19
-	ICE/m9sw==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=0PgKu/MhXV92fdaOPawC1vOXdcv4sVC0hsvmah/4e8Y=; b=o+MPROY3y7f2VO2jgX4kqDwESf
+	eJxeny0IhypzFqUrWJJT9tudG7wQLBUNm8kUy46jCDHp8+5+yIZcGRp5K8/OcK4Tujpw/cF7ShbsU
+	PfrvH+la/FV4QR8HwdgRTifNWWA35fHhqg9+4VqIpRX7K8wXb2g/v2kDKauBfbW6Wb7UDpRlUGS3H
+	W0AFumGUksZtFXzhjI7TfmyGzG0+kb5csynuK2FeJAHUPHHNi9xKyEW7ii7YT5DkXOHOo+c5XEdp3
+	Jm0yRG8bxChu5oUOc8Ooq5PmK4mZb4HsPF+YrduZ/WBLHmLBH65pxY4GoLuGYQb44z71F5W9twNO4
+	746Fa+lw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wULVJ-0000000Cg2o-40s4;
-	Tue, 02 Jun 2026 09:33:45 +0000
-Received: from www537.your-server.de ([188.40.3.216])
+	id 1wULVm-0000000Cg6B-0nlv;
+	Tue, 02 Jun 2026 09:34:14 +0000
+Received: from tor.source.kernel.org ([172.105.4.254])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wULVF-0000000Cg1l-48KX
-	for linux-arm-kernel@lists.infradead.org;
-	Tue, 02 Jun 2026 09:33:44 +0000
-DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=ew.tq-group.com; s=default2602; h=Content-Transfer-Encoding:MIME-Version:
-	Message-ID:Date:Subject:Cc:To:From:Sender:Reply-To:Content-Type:Content-ID:
-	Content-Description:Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc
-	:Resent-Message-ID:In-Reply-To:References;
-	bh=ll7wsI/Em/Jn1sDgGc7GNu+RMvSzQcPU87sVEyRKPIs=; b=O/35tX7GuXF/+1DjOrDR+8DuZd
-	clwUabfnWXg7PoWht4TLnZzlrTF6Bo6WFicrWHs4ue+yPICeMGPb6r48LMcMd93Jmuq7fkOXy+kh4
-	ny66V1r6q2ck9SUosZ2A8WEbJnhH37IzGxEd6dtvkwyDeYF3iPCeVnZW4RyQGxQMEdfg+QF2jJlOK
-	C/BEpGLVcARGzYyim+id3eNSgxnxk8HSrTzgKiVCkBYdgScpCdVRwcofrBtiWS9d2WvqUZgIwx0v1
-	AnA37WpgzJAZUcGZY9ateRit5Bh30caPp2hqJhPgYOOkBSztLMKUW9wJdPQBLks9vstEpe6fV7/7v
-	C948ogZw==;
-Received: from sslproxy06.your-server.de ([78.46.172.3])
-	by www537.your-server.de with esmtpsa  (TLS1.3) tls TLS_AES_256_GCM_SHA384
-	(Exim 4.96.2)
-	(envelope-from <alexander.stein@ew.tq-group.com>)
-	id 1wULV8-0000ZI-2W;
-	Tue, 02 Jun 2026 11:33:34 +0200
-Received: from localhost ([127.0.0.1])
-	by sslproxy06.your-server.de with esmtpsa  (TLS1.3) tls TLS_AES_256_GCM_SHA384
-	(Exim 4.96)
-	(envelope-from <alexander.stein@ew.tq-group.com>)
-	id 1wULV7-000HOK-1r;
-	Tue, 02 Jun 2026 11:33:34 +0200
-From: Alexander Stein <alexander.stein@ew.tq-group.com>
-To: Rob Herring <robh@kernel.org>,
-	Krzysztof Kozlowski <krzk+dt@kernel.org>,
-	Conor Dooley <conor+dt@kernel.org>,
-	Frank Li <Frank.Li@nxp.com>,
-	Sascha Hauer <s.hauer@pengutronix.de>,
-	Pengutronix Kernel Team <kernel@pengutronix.de>,
-	Fabio Estevam <festevam@gmail.com>,
-	Alexander Stein <alexander.stein@ew.tq-group.com>,
-	Shawn Guo <shawnguo@kernel.org>
-Cc: linux@ew.tq-group.com,
-	devicetree@vger.kernel.org,
-	imx@lists.linux.dev,
-	linux-arm-kernel@lists.infradead.org,
-	linux-kernel@vger.kernel.org
-Subject: [PATCH v2 1/1] arm64: dts: tqma8mpql-mba8mpxl: configure sai clock in audio codec as well
-Date: Tue,  2 Jun 2026 11:33:30 +0200
-Message-ID: <20260602093331.1698756-1-alexander.stein@ew.tq-group.com>
-X-Mailer: git-send-email 2.43.0
+	id 1wULVj-0000000Cg5R-47jK;
+	Tue, 02 Jun 2026 09:34:12 +0000
+Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
+	by tor.source.kernel.org (Postfix) with ESMTP id 557536001A;
+	Tue,  2 Jun 2026 09:34:11 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 8CDA81F00893;
+	Tue,  2 Jun 2026 09:34:04 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
+	s=k20260515; t=1780392851;
+	bh=0PgKu/MhXV92fdaOPawC1vOXdcv4sVC0hsvmah/4e8Y=;
+	h=Date:From:To:Cc:Subject:References:In-Reply-To;
+	b=KH5cT3/d1fW7mKTPUXP2hJf3hqjzw8svhzdezKnm8uDo4NbITku1tcc4lgSDjgCnQ
+	 LzoUKYJhDN2BgKJZVqXrTz9wXYbOVdWAntoJqPrxf4WCHj/PeYLX9uMDR7+GZolZr5
+	 68FAvxXuuSkAlZZ5ixjIEQEXa/aiyQmCfunPFE2j+qmVfSBZl0YJC8GFWOwYBNsFHg
+	 FIsTovKWHP0jaHKp91YmXvpwbu27upGLBcRgjel2izDC/4xZY4FGhFLHlDig1d8Ibf
+	 ipIx7HBOjEWNbarMhA7Z8LcEl9VRxhvrmOho3XVlzdpNJGdgt2fiEYoNBjjc9/8g4j
+	 BjoxvWi8ygLNQ==
+Date: Tue, 2 Jun 2026 12:34:01 +0300
+From: Mike Rapoport <rppt@kernel.org>
+To: Baoquan He <baoquan.he@linux.dev>
+Cc: Will Deacon <will@kernel.org>, Wandun Chen <chenwandun1@gmail.com>,
+	linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org,
+	loongarch@lists.linux.dev, linux-riscv@lists.infradead.org,
+	devicetree@vger.kernel.org, kexec@lists.infradead.org,
+	iommu@lists.linux.dev, zhaomeijing@lixiang.com,
+	catalin.marinas@arm.com, chenhuacai@kernel.org, kernel@xen0n.name,
+	pjw@kernel.org, palmer@dabbelt.com, aou@eecs.berkeley.edu,
+	alex@ghiti.fr, robh@kernel.org, saravanak@kernel.org,
+	akpm@linux-foundation.org, bhe@redhat.com,
+	pasha.tatashin@soleen.com, pratyush@kernel.org,
+	ruirui.yang@linux.dev, m.szyprowski@samsung.com,
+	robin.murphy@arm.com, quic_obabatun@quicinc.com
+Subject: Re: [PATCH v3 09/11] arm64: kdump: exclude non-dumpable reserved
+ memory regions from vmcore
+Message-ID: <ah6jiWwwC6DDSJXd@kernel.org>
+References: <20260527032917.3385849-1-chenwandun1@gmail.com>
+ <20260527032917.3385849-10-chenwandun1@gmail.com>
+ <ahmr-UjoApj2j5JS@willie-the-truck>
+ <ahsPcv8G1BR9rLah@kernel.org>
+ <ah0R8pEIyuk4N2Is@MiWiFi-R3L-srv>
 MIME-Version: 1.0
-Content-Transfer-Encoding: 8bit
-X-Virus-Scanned: Clear (ClamAV 1.4.3/28019/Tue Jun  2 08:33:27 2026)
-X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260602_023342_132627_EB301805 
-X-CRM114-Status: GOOD (  10.42  )
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+In-Reply-To: <ah0R8pEIyuk4N2Is@MiWiFi-R3L-srv>
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -89,34 +82,31 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-With deferrable card binding the sound card driver tries to
-get the mclk configuration before it is setup in sai3 node.
-Fix this by setting the sai clock config for the audio codec as well.
+Hi Baoquan,
 
-Fixes: d8f9d8126582 ("arm64: dts: imx8mp: Add analog audio output on i.MX8MP TQMa8MPxL/MBa8MPxL")
-Signed-off-by: Alexander Stein <alexander.stein@ew.tq-group.com>
----
-Changes in v2:
-* Set the clock source in the audio codec instead
+On Mon, Jun 01, 2026 at 01:00:34PM +0800, Baoquan He wrote:
+> On 05/30/26 at 07:25pm, Mike Rapoport wrote:
+> > On Fri, May 29, 2026 at 04:08:41PM +0100, Will Deacon wrote:
+> > > On Wed, May 27, 2026 at 11:29:15AM +0800, Wandun Chen wrote:
+> ...snip...
+> > There are patches that move common code to kernel/crash_core.c:
+> > 
+> > https://lore.kernel.org/all/20260525084932.934910-1-ruanjinjie@huawei.com
+> >  
+> > Review from arch maintainers would be helpful there ;-)
+> 
+> Before, Andrew would put patch candidates into his mm tree and trigger
+> testing. If any adjustment, he would take them off. Can we do the
+> similar thing for kexec/kdump patches, unless the patches are objected
+> explicitly?
 
- arch/arm64/boot/dts/freescale/imx8mp-tqma8mpql-mba8mpxl.dts | 3 +++
- 1 file changed, 3 insertions(+)
-
-diff --git a/arch/arm64/boot/dts/freescale/imx8mp-tqma8mpql-mba8mpxl.dts b/arch/arm64/boot/dts/freescale/imx8mp-tqma8mpql-mba8mpxl.dts
-index 890d1e525a489..6b0f944095e7c 100644
---- a/arch/arm64/boot/dts/freescale/imx8mp-tqma8mpql-mba8mpxl.dts
-+++ b/arch/arm64/boot/dts/freescale/imx8mp-tqma8mpql-mba8mpxl.dts
-@@ -609,6 +609,9 @@ tlv320aic3x04: audio-codec@18 {
- 		reset-gpios = <&gpio4 29 GPIO_ACTIVE_LOW>;
- 		iov-supply = <&reg_vcc_1v8>;
- 		ldoin-supply = <&reg_vcc_3v3>;
-+		assigned-clocks = <&clk IMX8MP_CLK_SAI3>;
-+		assigned-clock-parents = <&clk IMX8MP_AUDIO_PLL1_OUT>;
-+		assigned-clock-rates = <12288000>;
- 	};
+Yes, we can add patches that look reasonable and expose them in -next.
+Now is too late in the release cycle, let's start with it after -rc1.
  
- 	se97_1c: temperature-sensor@1c {
--- 
-2.43.0
+> Thanks
+> Baoquan
 
+-- 
+Sincerely yours,
+Mike.
 
