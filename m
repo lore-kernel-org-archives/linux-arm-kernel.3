@@ -4,58 +4,68 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 9524BCD6E57
-	for <linux-arm-kernel@archiver.kernel.org>; Tue,  2 Jun 2026 15:49:52 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 1A021CD6E64
+	for <linux-arm-kernel@archiver.kernel.org>; Tue,  2 Jun 2026 15:54:03 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
 	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
 	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=CmLAuu1dz6ogdVEDsfDy7WMXAGwx2zeUtPl8MqWKjew=; b=Jzikda9wNeheTKxfBVYkTVncKa
-	mgiAb5bK2LPOeo+HmjaQdGgJ2Q+xUjcwVaZv6zoEB1GSy/PiHf3PeYFQs/AxLYsl7rqbOUT5pGpHv
-	FP93lPmYDfMdAfJssjlbREluZebYiFBJDlvpDuJWeEKWo9FS+cgOH1p4vYfIqnajWcfqP52sDiago
-	+W9BV959qTJIFN+gFlIJCxGbChGZPUbadCMc0fuB8VNONyjT54sWsBIH6OXaI7FYACCnAxHqAbmRZ
-	5PovBTjBK0vGDfH8IDa5dUchLKMav4W04LwZX/FIXehtu0K1FSbBLBsmKPdhiYdA6yvUT8K/aynTm
-	VDZ6gAkw==;
+	bh=g1gxQOYwgpOrI7CcKQFX0nybbQGoJfcX1gVspJlp6G0=; b=3FJEs8CYWALRuParv6IVtEIqg2
+	HVqLae9o8gR6oLdKwmFqcR2YUhj9vTULcpBop4azD/MnR3LsQTe4QLE3//u0xYK/yrXPQlXWRuNn7
+	X2XGCyNVyCFgF2P1xAt6Ja4jWRZEIWhCiESaXEy+ZGDkbIwpNujxbfDVgyWrmaxodFpF8AFJpaJJe
+	rPhAVB5vXQ/x9PF1eS4hn38zOofKE79H6GQWlaC3X5xJXajO3xSoEkikuUe5ukO9huCIYpa7fnvOy
+	UxIZ9oI0Eq9sTeBVRMubm871BMDjY/niaB2cB2D2KXDbxHq6Y6VsEq0zbIYMulns7p+ayt3L6P4EN
+	fIThIuNw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wURN9-0000000DMhi-0aWK;
-	Tue, 02 Jun 2026 15:49:43 +0000
-Received: from vps0.lunn.ch ([156.67.10.101])
+	id 1wURRE-0000000DN2y-38G7;
+	Tue, 02 Jun 2026 15:53:56 +0000
+Received: from sea.source.kernel.org ([172.234.252.31])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wURN7-0000000DMhC-0kFF
+	id 1wURRB-0000000DN2P-1H9K
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 02 Jun 2026 15:49:42 +0000
-DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed; d=lunn.ch;
-	s=20171124; h=In-Reply-To:Content-Disposition:Content-Type:MIME-Version:
-	References:Message-ID:Subject:Cc:To:From:Date:From:Sender:Reply-To:Subject:
-	Date:Message-ID:To:Cc:MIME-Version:Content-Type:Content-Transfer-Encoding:
-	Content-ID:Content-Description:Content-Disposition:In-Reply-To:References;
-	bh=CmLAuu1dz6ogdVEDsfDy7WMXAGwx2zeUtPl8MqWKjew=; b=WrLns3aTSv1A8CkS/ZsErx+m2T
-	btyk4KwUw0bTBCE3txgNbpurvS8Rx5Zvv7uaw3V22TgDMjvpUQzKzpXcBt2yuubLv4wWdX1eaVwWb
-	o2BAzHi7Aa+xXUZQ6+y1YYiH23GFrhcn8sa6uX3f5e9quGJCWZt68UVqJtuozvQku5X0=;
-Received: from andrew by vps0.lunn.ch with local (Exim 4.94.2)
-	(envelope-from <andrew@lunn.ch>)
-	id 1wURMp-005iUd-91; Tue, 02 Jun 2026 17:49:23 +0200
-Date: Tue, 2 Jun 2026 17:49:23 +0200
-From: Andrew Lunn <andrew@lunn.ch>
-To: =?iso-8859-1?Q?Gr=E9goire?= Layet <gregoire.layet@9elements.com>
-Cc: joel@jms.id.au, andrew@codeconstruct.com.au, jacky_chou@aspeedtech.com,
-	yh_chung@aspeedtech.com, ninad@linux.ibm.com,
-	linux-aspeed@lists.ozlabs.org, linux-arm-kernel@lists.infradead.org,
-	linux-kernel@vger.kernel.org
-Subject: Re: [PATCH v1 2/2] soc: aspeed: add host-side PCIe BMC device driver
-Message-ID: <ecc3bd49-829f-49b8-b3b1-4f16363ea5b9@lunn.ch>
-References: <cover.1780409151.git.gregoire.layet@9elements.com>
- <a8e1396af1b6db38bab13383c6ba303e8427aefc.1780409151.git.gregoire.layet@9elements.com>
+	Tue, 02 Jun 2026 15:53:54 +0000
+Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
+	by sea.source.kernel.org (Postfix) with ESMTP id AF2D8435E5;
+	Tue,  2 Jun 2026 15:53:52 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id DE6981F00893;
+	Tue,  2 Jun 2026 15:53:47 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
+	s=k20260515; t=1780415632;
+	bh=g1gxQOYwgpOrI7CcKQFX0nybbQGoJfcX1gVspJlp6G0=;
+	h=Date:From:To:Cc:Subject:References:In-Reply-To;
+	b=Eh27QgfhvW7svjtX9XwdHqJ+rCdP7BBSdRVIVnMc1Wg7O9IHCAC5GUR6nIO11Faj1
+	 I/8a+n1vmleEaNXGJ5drcpYTDyxJ8s6fFiNyOt6JtIPlGYCfgsbTAtmqDQf6u2+nSq
+	 79sP/Wt67eSw1KbcYcWyfNiLFqWDyoh264CLTjF+zTjfQ2/2NV0Wv90+AoQIG4t2kP
+	 5cGHX35eJ8FiVRKaiyRLWqdvBk8z6+GryQaamsTO3jPSmIAOZIwUQHZ6MKD6OPhPK6
+	 r18UrNY2Fwh2uPGPorFa9v9L14OQIZkjcwrxsYdTdz1uh3nsa+sfZOytlKVAog+dsq
+	 VSD/fiH4NIzoA==
+Date: Tue, 2 Jun 2026 16:53:44 +0100
+From: Will Deacon <will@kernel.org>
+To: Zeng Heng <zengheng@huaweicloud.com>
+Cc: vladimir.murzin@arm.com, xuwei5@huawei.com, wangyushan12@huawei.com,
+	yangyicong@hisilicon.com, maz@kernel.org, yeoreum.yun@arm.com,
+	miko.lenczewski@arm.com, james.clark@linaro.org, corbet@lwn.net,
+	skhan@linuxfoundation.org, kuninori.morimoto.gx@renesas.com,
+	lucaswei@google.com, catalin.marinas@arm.com, broonie@kernel.org,
+	lpieralisi@kernel.org, thuth@redhat.com, kevin.brodsky@arm.com,
+	tongtiangen@huawei.com, oupton@kernel.org, ryan.roberts@arm.com,
+	mark.rutland@arm.com, Sascha.Bischoff@arm.com,
+	linux-arm-kernel@lists.infradead.org, wangkefeng.wang@huawei.com,
+	linux-doc@vger.kernel.org, linux-kernel@vger.kernel.org
+Subject: Re: [PATCH v3 2/2] arm64: kernel: Disable CNP on HiSilicon HIP09
+Message-ID: <ah78iIqAqzfofnIG@willie-the-truck>
+References: <20260601112000.1145391-1-zengheng@huaweicloud.com>
+ <20260601112000.1145391-3-zengheng@huaweicloud.com>
 MIME-Version: 1.0
 Content-Type: text/plain; charset=us-ascii
 Content-Disposition: inline
-In-Reply-To: <a8e1396af1b6db38bab13383c6ba303e8427aefc.1780409151.git.gregoire.layet@9elements.com>
+In-Reply-To: <20260601112000.1145391-3-zengheng@huaweicloud.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260602_084941_219583_CA26A1DC 
-X-CRM114-Status: GOOD (  14.83  )
+X-CRM114-CacheID: sfid-20260602_085353_459851_1D414E0E 
+X-CRM114-Status: GOOD (  12.17  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -70,39 +80,31 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-> +static int aspeed_pci_bmc_device_setup_vuart(struct pci_dev *pdev)
-> +{
-> +	struct aspeed_pci_bmc_dev *pci_bmc_dev = pci_get_drvdata(pdev);
-> +	struct device *dev = &pdev->dev;
-> +	u16 vuart_ioport;
-> +	int ret, i;
-> +
-> +	for (i = 0; i < VUART_MAX_PARMS; i++) {
-> +		/* Assign the line to non-exist device */
-> +		pci_bmc_dev->uart_line[i] = -ENOENT;
-> +		vuart_ioport = 0x3F8 - (i * 0x100);
-> +		pci_bmc_dev->uart[i].port.flags =
-> +			UPF_SKIP_TEST | UPF_BOOT_AUTOCONF | UPF_SHARE_IRQ;
-> +		pci_bmc_dev->uart[i].port.uartclk = 115200 * 16;
-> +		pci_bmc_dev->uart[i].port.irq = pci_irq_vector(
-> +			pdev, pci_bmc_dev->msi_idx_table[VUART0_MSI + i]);
-> +		pci_bmc_dev->uart[i].port.dev = dev;
-> +		pci_bmc_dev->uart[i].port.iotype = UPIO_MEM32;
-> +		pci_bmc_dev->uart[i].port.iobase = 0;
+On Mon, Jun 01, 2026 at 07:20:00PM +0800, Zeng Heng wrote:
+> diff --git a/arch/arm64/kernel/cpu_errata.c b/arch/arm64/kernel/cpu_errata.c
+> index b0db946568b7..02e0ee5c948c 100644
+> --- a/arch/arm64/kernel/cpu_errata.c
+> +++ b/arch/arm64/kernel/cpu_errata.c
+> @@ -608,6 +608,14 @@ static const struct midr_range erratum_ac04_cpu_23_list[] = {
+>  };
+>  #endif
+> 
+> +#ifdef CONFIG_ARM64_WORKAROUND_DISABLE_CNP
+> +static const struct midr_range cnp_erratum_cpus[] = {
+> +	MIDR_ALL_VERSIONS(MIDR_NVIDIA_CARMEL),
+> +	MIDR_ALL_VERSIONS(MIDR_HISI_HIP09),
+> +	{},
+> +};
+> +#endif
 
-How virtual is this? Is this directly accessing the hardware via
-shared memory? Or is there software on the BMC which traps these
-reads/writes and responds?
+Sashiko [1] points out that this means that
+CONFIG_HISILICON_ERRATUM_162100125 now affects NVIDIA parts and
+vice-versa for CONFIG_NVIDIA_CARMEL_CNP_ERRATUM.
 
-But first we need to decide if this is the correct architecture. The
-alternative is rpmsg or virtio. There is already tty/rpmsg_tty.c. A
-gpio driver over rpmsg is on the way. I2C has been discussed. There
-are plenty of virtio drivers, console, i2c, spi, gpio. virtio has
-higher performance, but also requires more memory. rpmsg is more
-suited to slower devices where memory is tight.
+The easiest fix is probably to guard the entries in the array above with
+their respective config options? Otherwise, this all looks good to me.
 
-Either of these seem like a better way to expose resources of the BMC
-to the host.
+Will
 
-       Andrew
+[1] https://sashiko.dev/#/patchset/20260601112000.1145391-1-zengheng@huaweicloud.com
 
