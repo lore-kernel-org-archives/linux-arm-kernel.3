@@ -4,104 +4,97 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id A6ED1CD6E60
-	for <linux-arm-kernel@archiver.kernel.org>; Tue,  2 Jun 2026 16:38:48 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id C81FECD6E68
+	for <linux-arm-kernel@archiver.kernel.org>; Tue,  2 Jun 2026 16:42:26 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:
+	Content-Transfer-Encoding:Content-Type:References:In-Reply-To:Date:Cc:To:From
+	:Subject:Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=SqqoX5qQzGE5eNHSgLyrNrWlqXnwPa/uOKYx/N6zAZQ=; b=TQp5KYYETZT8J+5IZZlfYeiDJd
-	tNUpNfxAnvsbIiMjDRr3q33r2wxIuxq9hLTxMPj/dSyjjIjzm6F3V+J2luHygiAIVif6wxF0OAhxp
-	9F/Vb3Vl2rvA602QFbFA5YgzdPjqcuF3tKG1luLuhLt4RbobgHMP/s0k094bXjc0WTsFMmsBjoPPw
-	oeODa0x+IOEFKKjGU5UAuKP6GdROWj6PXv/OUQxuVLH0QkR4qcZkaoJxsWMsfY7fbniKc9tn8ASwz
-	qJUbOzNbHwgGwkgj6GLFoOh21yiKfY3Jz8r4Ow2i1mk67mdhB8u+6vFnN6Gu7qyWJKo3WfhrZO5u1
-	gOLApujg==;
+	bh=zCciMA4f/2leknE0hevkJM9c0pFZpflJQvPHBF72s8k=; b=CDN+zk+HvgQwO+F7iyu5MtvIrP
+	Belj9Ek2Rs/tYDBASLGBMCJcACGUR/7wtUgdbNCuL4ijOgU/l8QCqjbz04XjuhyV9lKnzBapWT0XC
+	aHH3pxQLCz5fMl/XJr2aERLPfG0m8YyPRItfhvDIV+tq/RgJF7nsHo10PcRh18SXx42PXBdsmHQck
+	WAeHkgEXdUa03pewHCndDAqEDiydIuua2nyj/PrPRnEkulcTD9TTWzgFV89z7lQc1u40Mgb2DWWnM
+	JD1CdjdPAwJzvezvUE+e09eJRTica8QCdtp8BPbkz4c3A+DgQn6DGQ8FBuzf73aaQHcUf2Wl7ynmO
+	pLpOhUmg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wUS8Y-0000000DTT8-1VOF;
-	Tue, 02 Jun 2026 16:38:42 +0000
-Received: from mail-wm1-x335.google.com ([2a00:1450:4864:20::335])
+	id 1wUSC4-0000000DTr1-3K82;
+	Tue, 02 Jun 2026 16:42:20 +0000
+Received: from mail-wm1-x32d.google.com ([2a00:1450:4864:20::32d])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wUS8V-0000000DTRw-47vf
+	id 1wUSC0-0000000DTpH-450l
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 02 Jun 2026 16:38:41 +0000
-Received: by mail-wm1-x335.google.com with SMTP id 5b1f17b1804b1-490b12270b3so7674145e9.1
-        for <linux-arm-kernel@lists.infradead.org>; Tue, 02 Jun 2026 09:38:39 -0700 (PDT)
+	Tue, 02 Jun 2026 16:42:19 +0000
+Received: by mail-wm1-x32d.google.com with SMTP id 5b1f17b1804b1-490aebf33e9so11777555e9.3
+        for <linux-arm-kernel@lists.infradead.org>; Tue, 02 Jun 2026 09:42:15 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=linaro.org; s=google; t=1780418318; x=1781023118; darn=lists.infradead.org;
-        h=in-reply-to:content-disposition:mime-version:references:message-id
-         :subject:cc:to:from:date:from:to:cc:subject:date:message-id:reply-to;
-        bh=SqqoX5qQzGE5eNHSgLyrNrWlqXnwPa/uOKYx/N6zAZQ=;
-        b=VJmAO0IOPwh1JIJ5xqIGsc+SYTvdg+3hJUh5zB7vFX5J7Ytuk1YvGIqZ34vf6fS7h/
-         alUzX0BAqr9P1uB04+2G9Zov5HJzpXTD/JE4WxkEK8L/ULX+H9aK6Rw6EDMTQF/7dovK
-         XiQMuDgFMp6tq0RUcN8onwPwOcTH9PFG6jyGR77DyNmPAcqEGxqEqIkqhwJGQzy9PvKQ
-         gtJybqk0/W6usxw5+U8QSuOPidHy1N1/Tloo8d3fj0crM1DPBV7UF5GK3Rw9xUyks9NB
-         rdnaq4HRlwVfiGwmA/D7g2Lqt1aqditaMn5Eguk0BF4WkGxRshgIIOQ1CZft0dMoutzv
-         TfDw==
+        d=gmail.com; s=20251104; t=1780418535; x=1781023335; darn=lists.infradead.org;
+        h=mime-version:user-agent:content-transfer-encoding:references
+         :in-reply-to:date:cc:to:from:subject:message-id:from:to:cc:subject
+         :date:message-id:reply-to;
+        bh=zCciMA4f/2leknE0hevkJM9c0pFZpflJQvPHBF72s8k=;
+        b=mIGaP6OVZBfmiZFwdeI1+KFwbhWPuqQkBBRjhSp3i0BCGSKck3thxRG87m8xcV6ifP
+         Kp5HzbqGQ/BGu5xSJK0BHVShw1tKAR2lWsTGo03vyNq3mKCDNhHW8c3mNm0tEJSAgdjT
+         TxrRypBaZxCh9CEb7eqGlRw5A+gRsuC1GC1Vr2SPc7QcFub0s0XenGS5rAs4aC1sqdFu
+         CeIS21Rv4sdJIg/WiJSnA/lDIvPfh+QbZ9U7ncTd96o0CPEFn/Spy/R+RSatiFZyDsqb
+         ZssNVtap+Ht6N/zeaaHyZKdO0J8CM+HvnG3SMuS2P2qUucRi3RPzSlV5KrufEm6Rm1Jn
+         q2aQ==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20251104; t=1780418318; x=1781023118;
-        h=in-reply-to:content-disposition:mime-version:references:message-id
-         :subject:cc:to:from:date:x-gm-gg:x-gm-message-state:from:to:cc
-         :subject:date:message-id:reply-to;
-        bh=SqqoX5qQzGE5eNHSgLyrNrWlqXnwPa/uOKYx/N6zAZQ=;
-        b=bmxsBXRLylUBzlZrKfHUE85jTHooh1udNTPIEVbhc9NIAUx9v1IBMNejDmH61NKlcD
-         tt3FFHkx5x3t8yRqFDYECCfPX3rTG+ok2NqbAo15t8KmwkwQGTwo3yQoLmEXc8PSf5YK
-         mGbIw0/syKSayC9DG3UjxTw5eJx3MUZZK4P+eyNAE//EWcwyCvaVO4e8FJue1+jTkXbN
-         YCqKnzLuE1X4yNjJhsGItGbocgkKLAdHsYZYtLg8nKTeubzyWSvSkiTEDcQjum0rdKBW
-         nKksgQvarJMaTGwdpY1Q8z3LSZL7gGQkg2TupmI2zrGE31+N8FvozPBDmDYrXUZSkarZ
-         BSdg==
-X-Forwarded-Encrypted: i=1; AFNElJ/8PLPLnwIEhsqIbvqLvvqKVLdgQgDOEItWCa3WbI4zOmIGuuxIXlIO8QlBhbTMwbaQfVyaGRGuEmA0vjQvA20/@lists.infradead.org
-X-Gm-Message-State: AOJu0Ywed9jxHasUANR3sVPRXdaaWvQ8wj/TEYFA9l9DhNQ98Z7kCBWD
-	3mc1FC5UZOxihHE9o4/bblYkTgHI9O8mm9aHS2khC2RgW2rUMiiaIMP+YHdajzQWk4I=
-X-Gm-Gg: Acq92OFodwgu03A36JSmhMGgt1RFmD+8Qh96R78Odjjoou1imkO3AZS6jRQ7uJzGIOV
-	CUY040hGJ53E2b46/y8U6SRQKsio7FZe0QfbWqHmwh9atzgeP0/MCa4JvE1q4hK3Je4CRTlFioi
-	3AkkbwguUlTpFAJlEYo2Vj3ej9UXeabTN2LlsH7pcRL8t4eLb9Yx2RtbtTfzfGi5pgNPvao8IsJ
-	J7tpYth6XWEZuqpKv8CsyF0LHw7zYeBmsCT8iLyeV9/d90qOQ/Fzs+7HJ4RPdzGI1bmXEDJGCus
-	ZsK0k/opM3zGMiYGGs2mJ4/AINaV9kzKZcQf8IGjV1y8S4fJlSewppakDF0/dZGhRBffXELGWa/
-	MCMhY2T1Wqv7L2CyTrl0+qu+WWYQ2bMfl6Ou4SmwdKdFL66DXTUPCmorE7jw/IiPtBdPQyyKumx
-	hY1FxjVwu2m7YBaF4KeSBYKFVT+8gGlpEX5BXEjO/WvHG8Uw==
-X-Received: by 2002:a05:600c:608e:b0:48f:d1c0:5cd3 with SMTP id 5b1f17b1804b1-490b5065ee5mr8757815e9.13.1780418317804;
-        Tue, 02 Jun 2026 09:38:37 -0700 (PDT)
-Received: from linaro.org ([2a02:2454:ff23:4410:9db1:6daa:c0a7:d3cf])
-        by smtp.gmail.com with ESMTPSA id ffacd0b85a97d-4601f2e4b18sm407269f8f.10.2026.06.02.09.38.36
+        d=1e100.net; s=20251104; t=1780418535; x=1781023335;
+        h=mime-version:user-agent:content-transfer-encoding:references
+         :in-reply-to:date:cc:to:from:subject:message-id:x-gm-gg
+         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to;
+        bh=zCciMA4f/2leknE0hevkJM9c0pFZpflJQvPHBF72s8k=;
+        b=MIII6YovLcw9CY2998/EwWXbOO/m8YFNWiVEdXNEfLzPn8TUipc4k4gJ+j6p/bO0H7
+         ZhyNm1xlMAWaZfc0jgfu7iUhWeVntLo6Ob+PKly5d0clSr8yoIfj0GdzqSovRrBnX07L
+         xkflAFGW9gjQHOR0Ua9eBnwjItqmi2X8qeopQxluN5GCs54dsofBPEZQvrvxRh5aE1TM
+         zSoV2CYQJc8QQ3GG/7exWDkzWgszPQTgbhLKEgePUFH1q5FfeuXHBew+jESuiDShuwQy
+         mHL2Zsvg3c1nPzAzOLS3ubFPH5cVW3MJWzXJYoOsdQ0QeeTDq72JFpXjHKsjGkOqkZi4
+         VSMQ==
+X-Forwarded-Encrypted: i=1; AFNElJ+k07N9ydoXP3cjNqj9pCyDMgTpbm59iv8VX/3PVmZCi9/4bCHUbdO9QGrHrO2brzgQ8vgALAMIW6HTmG7lBwrd@lists.infradead.org
+X-Gm-Message-State: AOJu0YzgaxU7cLMsrwZzzut3vF7OUnfWnJ1cqWZduQeCrBze/IkJeOqS
+	PI86PeVLHR7NCCCrW4TH4qd1cVuOe70xDvowsEC8dHrsPCHAoShtbApz
+X-Gm-Gg: Acq92OF3Jnj5aF/Hqj/X7ORQ6TFNRkEHWCK5u9YEY4nzJQXObtrGWDTiFQjqjtgVMFt
+	m+4cOp0b6dkaVRLSyqyv5r3iIiZhHTwVaSlk6OjwC2HLbQbV8XA35Prcai+l75KfQ/Pm4xXQ0nC
+	4IQ0XoUJmv3J3ojGGZSNzne9mbzUTf/FmBUp81g2K8iPVjmeZdR6sE7winIybaNw7aoQQOfTXbx
+	LXCRSUiME7C4X6LoXi2kJDlyHAQkChhH/UA8Z6Lv7azKLO7+wkc6AoVLaJpGmfQCMq4rbr5fmFK
+	o818NeSFDsLho27FSnuxShfGHYtjMbddZGowZRhlLqDtM9HV7+156vXP0nhbJwByYmDxf1fl/8p
+	yE57g+2d9xae6uL2juB1qRp0NfJ/m7xcd0d25FKfAERFuHwcjsAGZ/xdZH+ih6cXErHhEPW5qGD
+	2wL6zSPLyGJ9gtQ6x/OnIvCG2tm7pAYqRBajXN3lwpXU7Y4QY/3XlrR+81UNSO3l4QrZPkidVCp
+	N0yBfdD6g/XarcG4M5pxZ4=
+X-Received: by 2002:a05:600c:35c9:b0:490:3d62:f5e1 with SMTP id 5b1f17b1804b1-490b50b972amr8330945e9.22.1780418534540;
+        Tue, 02 Jun 2026 09:42:14 -0700 (PDT)
+Received: from ?IPv6:2001:818:ea56:d000:56e0:ceba:7da4:6673? ([2001:818:ea56:d000:56e0:ceba:7da4:6673])
+        by smtp.gmail.com with ESMTPSA id 5b1f17b1804b1-490b0e20bacsm74368025e9.6.2026.06.02.09.42.13
         (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Tue, 02 Jun 2026 09:38:37 -0700 (PDT)
-Date: Tue, 2 Jun 2026 18:38:21 +0200
-From: Stephan Gerhold <stephan.gerhold@linaro.org>
-To: Bartosz Golaszewski <bartosz.golaszewski@oss.qualcomm.com>
-Cc: Vinod Koul <vkoul@kernel.org>, Jonathan Corbet <corbet@lwn.net>,
-	Thara Gopinath <thara.gopinath@gmail.com>,
-	Herbert Xu <herbert@gondor.apana.org.au>,
-	"David S. Miller" <davem@davemloft.net>,
-	Udit Tiwari <quic_utiwari@quicinc.com>,
-	Md Sadre Alam <mdalam@qti.qualcomm.com>,
-	Dmitry Baryshkov <lumag@kernel.org>,
-	Manivannan Sadhasivam <mani@kernel.org>,
-	Bjorn Andersson <andersson@kernel.org>,
-	Peter Ujfalusi <peter.ujfalusi@gmail.com>,
-	Michal Simek <michal.simek@amd.com>, Frank Li <Frank.Li@kernel.org>,
-	Andy Gross <agross@codeaurora.org>,
-	Neil Armstrong <neil.armstrong@linaro.org>,
-	dmaengine@vger.kernel.org, linux-doc@vger.kernel.org,
-	linux-kernel@vger.kernel.org, linux-arm-msm@vger.kernel.org,
-	linux-crypto@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
-	brgl@kernel.org,
-	Bartosz Golaszewski <bartosz.golaszewski@linaro.org>,
-	Dmitry Baryshkov <dmitry.baryshkov@oss.qualcomm.com>,
-	Konrad Dybcio <konrad.dybcio@oss.qualcomm.com>
-Subject: Re: [PATCH v19 00/14] crypto/dmaengine: qce: introduce BAM locking
- and use DMA for register I/O
-Message-ID: <ah8G_ajPS1KhgPP_@linaro.org>
-References: <20260526-qcom-qce-cmd-descr-v19-0-08472fdcbf4a@oss.qualcomm.com>
+        Tue, 02 Jun 2026 09:42:14 -0700 (PDT)
+Message-ID: <2df4cad5e29fbcb4c5c5f59ea0bf322c7a301bdc.camel@gmail.com>
+Subject: Re: [PATCH 2/4] iio: adc: mt6323-auxadc: add mt6323 PMIC AUXADC
+ driver
+From: Nuno =?ISO-8859-1?Q?S=E1?= <noname.nuno@gmail.com>
+To: rva333@protonmail.com, Jonathan Cameron <jic23@kernel.org>, David
+ Lechner	 <dlechner@baylibre.com>, Nuno =?ISO-8859-1?Q?S=E1?=
+ <nuno.sa@analog.com>,  Andy Shevchenko	 <andy@kernel.org>, Rob Herring
+ <robh@kernel.org>, Krzysztof Kozlowski	 <krzk+dt@kernel.org>, Conor Dooley
+ <conor+dt@kernel.org>, Matthias Brugger	 <matthias.bgg@gmail.com>,
+ AngeloGioacchino Del Regno	 <angelogioacchino.delregno@collabora.com>, Lee
+ Jones <lee@kernel.org>
+Cc: linux-iio@vger.kernel.org, devicetree@vger.kernel.org, 
+	linux-kernel@vger.kernel.org, linux-arm-kernel@lists.infradead.org, 
+	linux-mediatek@lists.infradead.org, Ben Grisdale <bengris32@protonmail.ch>
+Date: Tue, 02 Jun 2026 17:43:18 +0100
+In-Reply-To: <20260602-mt6323-adc-v1-2-68ec737508ee@protonmail.com>
+References: <20260602-mt6323-adc-v1-0-68ec737508ee@protonmail.com>
+	 <20260602-mt6323-adc-v1-2-68ec737508ee@protonmail.com>
+Content-Type: text/plain; charset="UTF-8"
+Content-Transfer-Encoding: quoted-printable
+User-Agent: Evolution 3.56.2 (3.56.2-2.fc42) 
 MIME-Version: 1.0
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-In-Reply-To: <20260526-qcom-qce-cmd-descr-v19-0-08472fdcbf4a@oss.qualcomm.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260602_093840_047822_53EC2609 
-X-CRM114-Status: GOOD (  14.82  )
+X-CRM114-CacheID: sfid-20260602_094217_036531_2BA86ACA 
+X-CRM114-Status: GOOD (  23.45  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -116,29 +109,154 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Tue, May 26, 2026 at 03:10:48PM +0200, Bartosz Golaszewski wrote:
-> I feel like I fell into the trap of trying to address pre-existing
-> issues reported by sashiko and in the process provoking more reports so
-> let this be the last iteration where I do this. Vinod can we get this
-> queued for v7.2 now and iron out any previously existing problems in
-> tree?
+On Tue, 2026-06-02 at 15:46 +0300, Roman Vivchar via B4 Relay wrote:
+> From: Roman Vivchar <rva333@protonmail.com>
+>=20
+> The mt6323 AUXADC is a 15-bit ADC used for system monitoring. This driver
+> provides support for reading various channels including battery and
+> charger voltages, battery and chip temperature, current sensing and
+> accessory detection.
+>=20
+> Add a driver for the AUXADC found in the MediaTek mt6323 PMIC.
+>=20
+> Tested-by: Ben Grisdale <bengris32@protonmail.ch> # Amazon Echo Dot (2nd
+> Generation)
+> Signed-off-by: Roman Vivchar <rva333@protonmail.com>
+> ---
+> =C2=A0MAINTAINERS=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=
+=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0 |=C2=A0=
+=C2=A0 8 ++
+> =C2=A0drivers/iio/adc/Kconfig=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=
+=C2=A0 |=C2=A0 11 ++
+> =C2=A0drivers/iio/adc/Makefile=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0 =
+|=C2=A0=C2=A0 1 +
+> =C2=A0drivers/iio/adc/mt6323-auxadc.c | 299 +++++++++++++++++++++++++++++=
++++++++++++
+> =C2=A04 files changed, 319 insertions(+)
+>=20
+> diff --git a/MAINTAINERS b/MAINTAINERS
+> index d1cc0e12fe1f..c9ad2417a3ef 100644
+> --- a/MAINTAINERS
+> +++ b/MAINTAINERS
+> @@ -16256,6 +16256,14 @@ S:	Maintained
+> =C2=A0F:	Documentation/devicetree/bindings/mmc/mtk-sd.yaml
+> =C2=A0F:	drivers/mmc/host/mtk-sd.c
+> =C2=A0
+> +MEDIATEK MT6323 PMIC AUXADC DRIVER
+> +M:	Roman Vivchar <rva333@protonmail.com>
+> +L:	linux-iio@vger.kernel.org
+> +L:	linux-mediatek@lists.infradead.org=C2=A0(moderated for non-subscriber=
+s)
+> +S:	Maintained
+> +F:	drivers/iio/adc/mt6323-auxadc.c
+> +F:	include/dt-bindings/iio/adc/mediatek,mt6323-auxadc.h
 
-Thanks a lot for working on fixing all these issues!
+The above file was not added in this patch
 
-I agree there is no point addressing all the "pre-existing issues"
-pointed out by Sashiko, but have you looked through the other comments
-for new issues pointed out for your patches?
+...
 
-Out of curiosity, I was looking a bit at the comments for [PATCH v19
-06/14] dmaengine: qcom: bam_dma: add support for BAM locking [1]. There
-are 8 open comments there (Critical: 1, High: 6 and Medium: 1). From a
-quick look I would say most of these could be valid. The critical one
-about the usage of dma_cookie_assign() sounds a bit concerning to me, if
-it is true we would be basically breaking parts of the dmaengine API for
-consumers by inserting the lock descriptor in front of everything else.
+> +
+> +static const struct iio_chan_spec mt6323_auxadc_channels[] =3D {
+> +	MTK_PMIC_IIO_CHAN(baton2,=C2=A0=C2=A0=C2=A0 MT6323_AUXADC_BATON2,=C2=A0=
+=C2=A0=C2=A0 MT6323_AUXADC_ADC6,=C2=A0
+> IIO_VOLTAGE),
+> +	MTK_PMIC_IIO_CHAN(ch6,=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0 MT6323_AUXAD=
+C_CH6,=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0 MT6323_AUXADC_ADC11,
+> IIO_VOLTAGE),
+> +	MTK_PMIC_IIO_CHAN(bat_temp,=C2=A0 MT6323_AUXADC_BAT_TEMP,=C2=A0 MT6323_=
+AUXADC_ADC5,=C2=A0
+> IIO_VOLTAGE),
+> +	MTK_PMIC_IIO_CHAN(chip_temp, MT6323_AUXADC_CHIP_TEMP, MT6323_AUXADC_ADC=
+4,=C2=A0
+> IIO_VOLTAGE),
+> +	MTK_PMIC_IIO_CHAN(vcdt,=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0 MT6323_AUXADC_VCD=
+T,=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0 MT6323_AUXADC_ADC2,=C2=A0
+> IIO_VOLTAGE),
+> +	MTK_PMIC_IIO_CHAN(baton1,=C2=A0=C2=A0=C2=A0 MT6323_AUXADC_BATON1,=C2=A0=
+=C2=A0=C2=A0 MT6323_AUXADC_ADC3,=C2=A0
+> IIO_VOLTAGE),
+> +	MTK_PMIC_IIO_CHAN(isense,=C2=A0=C2=A0=C2=A0 MT6323_AUXADC_ISENSE,=C2=A0=
+=C2=A0=C2=A0 MT6323_AUXADC_ADC1,=C2=A0
+> IIO_VOLTAGE),
+> +	MTK_PMIC_IIO_CHAN(batsns,=C2=A0=C2=A0=C2=A0 MT6323_AUXADC_BATSNS,=C2=A0=
+=C2=A0=C2=A0 MT6323_AUXADC_ADC0,=C2=A0
+> IIO_VOLTAGE),
+> +	MTK_PMIC_IIO_CHAN(accdet,=C2=A0=C2=A0=C2=A0 MT6323_AUXADC_ACCDET,=C2=A0=
+=C2=A0=C2=A0 MT6323_AUXADC_ADC7,=C2=A0
+> IIO_VOLTAGE),
+> +};
 
-[1]: https://sashiko.dev/#/patchset/20260526-qcom-qce-cmd-descr-v19-0-08472fdcbf4a%40oss.qualcomm.com?part=6
+All of the above are IIO_VOLTAGE. Just remove _ch_type then.
 
-Thanks,
-Stephan
+> +
+> +/**
+> + * struct mt6323_auxadc - Main driver structure
+> + * @regmap:=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0 Regmap from PWRAP
+> + * @lock:=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0 Mutex to=
+ serialize AUXADC reading vs configuration
+> + *
+> + * The MediaTek MT6323 (as well as a lot of other PMICs) has the followi=
+ng
+> hierarchy:
+> + * PMIC AUXADC <- PMIC MFD <- SoC PWRAP (wrapper for PWRAP FSM)
+> + *
+> + * Therefore, PWRAP regmap should be obtained using dev->parent->parent.
+> + */
+
+The above kerneldoc seems unnecessary to me.
+
+> +struct mt6323_auxadc {
+> +	struct regmap *regmap;
+> +	struct mutex lock;
+> +};
+
+...
+
+>=20
+> +
+> +static int mt6323_auxadc_read_raw(struct iio_dev *indio_dev,
+> +				=C2=A0 const struct iio_chan_spec *chan,
+> +				=C2=A0 int *val, int *val2, long mask)
+> +{
+> +	struct mt6323_auxadc *auxadc =3D iio_priv(indio_dev);
+> +	int ret, mult;
+> +
+> +	switch (mask) {
+> +	case IIO_CHAN_INFO_SCALE:
+> +		if (chan->channel =3D=3D MT6323_AUXADC_ISENSE ||
+> +		=C2=A0=C2=A0=C2=A0 chan->channel =3D=3D MT6323_AUXADC_BATSNS)
+> +			mult =3D 4;
+> +		else
+> +			mult =3D 1;
+> +
+> +		/* 1800mV full range with 15-bit resolution. */
+> +		*val =3D mult * 1800;
+> +		*val2 =3D 15;
+> +
+> +		return IIO_VAL_FRACTIONAL_LOG2;
+> +	case IIO_CHAN_INFO_RAW:
+> +		scoped_guard(mutex, &auxadc->lock) {
+> +			ret =3D mt6323_auxadc_prepare_channel(auxadc);
+> +			if (ret)
+> +				return ret;
+> +
+> +			ret =3D mt6323_auxadc_request(auxadc, chan->channel);
+> +			if (ret)
+> +				return ret;
+> +
+> +			/* Hardware limitation: the AUXADC needs a delay to become
+> ready. */
+> +			fsleep(300);
+> +
+> +			ret =3D mt6323_auxadc_read(auxadc, chan, val);
+> +			if (ret)
+> +				return ret;
+
+Could be return mt6323_auxadc_read(...)
+
+- Nuno S=C3=A1
+>=20
+> +
+> +MODULE_LICENSE("GPL");
+> +MODULE_DESCRIPTION("MediaTek MT6323 PMIC AUXADC Driver");
 
