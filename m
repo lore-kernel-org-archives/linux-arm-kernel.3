@@ -4,66 +4,100 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id B576ACD6E4A
-	for <linux-arm-kernel@archiver.kernel.org>; Tue,  2 Jun 2026 09:24:19 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 39FEDCD6E61
+	for <linux-arm-kernel@archiver.kernel.org>; Tue,  2 Jun 2026 09:24:57 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
-	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=Iuu1Z6lWzhKiUJpXTyC7Fvs2sexhgmfYnXKlxVE25As=; b=vhEnsPi3SBNpgep8JuGroqeWNo
-	CNoq1iYXZ3kpgqvDv1zVj3m+ESHR9/KK2ON52QUEKubJqpBYdbqv9fr8QZDmXMT6xlLP5wG6tT+xU
-	hcyDC7Euc/0U9BWP7yN5/o8c4bduNcw0i7ltVA49SOClF4H3y0Q+Uqrd0i8X6kR3psmUJnU+PlXOs
-	PgyGFfLBldojwUPOHP9PHQKNww0b7gaaKdRn78aegp6F2bj0oQQOiGiHmt8ddniA/36rV1oEJBOzS
-	F1PldPa1w27S29lddfYirFkmqhKSCTpN27QslAAyD6rAbRBKVYzOJ5wkflBgE0gu+AeHaT5tnxPE6
-	XMP9ImHw==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=Sdj05aVjubyRyarZQo/HaMsFhs/qxMG3Rw3z3n07hDA=; b=bvDVDMy0lY2msz8Gfrw4xtp8um
+	w6IyNVitzqro2yla/bhLUNRvwICG0SK3ne3HgfaOa/P71+T0p33nGAa/NGpyVfsJ1P7+GKgprqY9y
+	t9D3edj6DtG6znDLIYpiqaVtMpuIDCxRlwN1nm/sbVK62eIolz6SNL07AApDzJefXy93F2XlvTSQS
+	HwWwq+uy/i1mIryvHEQqSCEmnzQQncRlXVwCKR8ftLE8UUPFvUw6bVZfD6a5qvgsw7gYZ7mn6A9Yx
+	38EGWkLDVTQEIn3duKFBdIWJayL4Q3iTBPDi81KTjk6eVDK2tkwT4217Ln4fiU660BMzYhFUIOaqb
+	zdOuLHug==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wULM5-0000000CeMN-1le9;
-	Tue, 02 Jun 2026 09:24:13 +0000
-Received: from foss.arm.com ([217.140.110.172])
-	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wULM3-0000000CeLx-0tRE
+	id 1wULMg-0000000CeTF-3IiB;
+	Tue, 02 Jun 2026 09:24:50 +0000
+Received: from desiato.infradead.org ([2001:8b0:10b:1:d65d:64ff:fe57:4e05])
+	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
+	id 1wULMe-0000000CeSZ-43uN
+	for linux-arm-kernel@bombadil.infradead.org;
+	Tue, 02 Jun 2026 09:24:48 +0000
+DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
+	d=infradead.org; s=desiato.20200630; h=In-Reply-To:Content-Type:MIME-Version:
+	References:Message-ID:Subject:Cc:To:From:Date:Sender:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description;
+	bh=Sdj05aVjubyRyarZQo/HaMsFhs/qxMG3Rw3z3n07hDA=; b=bQLg+emC8n7GPb4cK+8OV6rt54
+	nENwx5cOBft4NEqztAW5IbeuyW++ofdxk6kBvJ6FLlXTsbLclxA8oZMDaVu20Dxqw3w3jfZ2IhfQh
+	ejN3zwflHU/xaIHBCZ6j/rWkazbVI/cnIvgYsBXdpP7SM8PY856cu7DwLnrZRqTnfRmDZ0tDxBZkj
+	Ioa2gfl7NIbToGu/0jyABksAZ9wZFga1o/4xgFs8i3Boa4PlHrfTjK6rtqtyy42PwdzkJ526dJMVs
+	liZtsHvMmvRt9B34kPIjRVFdQbjwUOy5DXMKg3xPEIKAYObuYrb9AM/QIYzBMRLEO7H747KOvx6Ik
+	hBfSALNQ==;
+Received: from mgamail.intel.com ([198.175.65.21])
+	by desiato.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
+	id 1wULMa-00000008sLN-3WTX
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 02 Jun 2026 09:24:12 +0000
-Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
-	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id 34B80176C;
-	Tue,  2 Jun 2026 02:24:05 -0700 (PDT)
-Received: from [10.1.25.162] (e121487-lin.cambridge.arm.com [10.1.25.162])
-	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id 2A82D3F7D8;
-	Tue,  2 Jun 2026 02:24:05 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=simple/simple; d=arm.com; s=foss;
-	t=1780392250; bh=kURsakSarcl//H2lXUzaloTxQoTNSvHm76NHoueoSPA=;
-	h=Date:Subject:To:Cc:References:From:In-Reply-To:From;
-	b=UgQP5zO7KBi6zVGpIAGZ1VsGduXv8Mu5uoHno/xmOJn2v8gh1qYsu1ECLNUhHrATt
-	 BZsiNBQEtc/CN54Pxd1hACgHSB8jaE2VcuN/mCtI5+bGMjZ1tdwka+taPxXpBGUttH
-	 EzhSzh8WYnXyxvpv5RaT8z7SFnbvAPPt1pPRV7UU=
-Message-ID: <0b4cae62-bb4a-4b2c-af4e-0f9d7077961a@arm.com>
-Date: Tue, 2 Jun 2026 10:24:03 +0100
+	Tue, 02 Jun 2026 09:24:47 +0000
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple;
+  d=intel.com; i=@intel.com; q=dns/txt; s=Intel;
+  t=1780392285; x=1811928285;
+  h=date:from:to:cc:subject:message-id:references:
+   mime-version:in-reply-to;
+  bh=dmW9oDcU2mcbwI8dPNWwDJs8S3z5iYkuegCzVTuA9XQ=;
+  b=Mdk3GxY1mRkD/I6khIakO5Z6Jmw3E3DQI4I8NAQ/aTsJopk6SMUOt0/Q
+   vMUbjx0oj6cKTgiqIjaypw/fQSvvIaGn2KEHDaQ7JnmZZ7vTbBKHrp5rh
+   nSXN6ii2fE1Q7GzG2jeItz6q09j20o77ffTY1LG+5nyjN7ibHE6x5IAFy
+   yU/1sQPUfghbmnK5WUvVKhJWiPsZhCXZS2WY2+EoJHhCnf4KFWDJMCbXo
+   jopmiP4Rw2zmGQBslEQ4HmlzZvsUq2CyzovW75B7pFONTiUlseIYzzOsG
+   nol2QwEM9P1uByPgp7JWxDj50FT0WGdSwQehqmnwsgjXLi4QPgxMWHc4P
+   w==;
+X-CSE-ConnectionGUID: Usnj3doiTQWci/gpPgEvKw==
+X-CSE-MsgGUID: JgUVhYV0TLqrIrmweYjyFg==
+X-IronPort-AV: E=McAfee;i="6800,10657,11804"; a="81072267"
+X-IronPort-AV: E=Sophos;i="6.24,183,1774335600"; 
+   d="scan'208";a="81072267"
+Received: from fmviesa005.fm.intel.com ([10.60.135.145])
+  by orvoesa113.jf.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 02 Jun 2026 02:24:42 -0700
+X-CSE-ConnectionGUID: 77NfOhEcQD2SfDz3F9aTng==
+X-CSE-MsgGUID: ngJI9wi+SQ6GlRwtWahacg==
+X-ExtLoop1: 1
+X-IronPort-AV: E=Sophos;i="6.24,183,1774335600"; 
+   d="scan'208";a="248940582"
+Received: from mkosciow-mobl1.ger.corp.intel.com (HELO localhost) ([10.245.245.229])
+  by fmviesa005-auth.fm.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 02 Jun 2026 02:24:38 -0700
+Date: Tue, 2 Jun 2026 12:24:36 +0300
+From: Andy Shevchenko <andriy.shevchenko@intel.com>
+To: Jonathan Cameron <jic23@kernel.org>
+Cc: Angelo Dureghello <adureghello@baylibre.com>,
+	Greg Ungerer <gerg@linux-m68k.org>,
+	Geert Uytterhoeven <geert@linux-m68k.org>,
+	Steven King <sfking@fdwdc.com>, Arnd Bergmann <arnd@arndb.de>,
+	Maxime Coquelin <mcoquelin.stm32@gmail.com>,
+	Alexandre Torgue <alexandre.torgue@foss.st.com>,
+	David Lechner <dlechner@baylibre.com>,
+	Nuno =?iso-8859-1?Q?S=E1?= <nuno.sa@analog.com>,
+	Andy Shevchenko <andy@kernel.org>, Greg Ungerer <gerg@uclinux.org>,
+	linux-m68k@lists.linux-m68k.org, linux-kernel@vger.kernel.org,
+	linux-stm32@st-md-mailman.stormreply.com,
+	linux-arm-kernel@lists.infradead.org, linux-iio@vger.kernel.org
+Subject: Re: [PATCH v4 04/11] m68k: defconfig: update stmark2 defconfig
+Message-ID: <ah6hVLn_OES-ql9j@ashevche-desk.local>
+References: <20260531-wip-stmark2-dac-v4-0-7e65ab4215dd@baylibre.com>
+ <20260531-wip-stmark2-dac-v4-4-7e65ab4215dd@baylibre.com>
+ <20260531165155.13e586cd@jic23-huawei>
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH v3 2/2] arm64: kernel: Disable CNP on HiSilicon HIP09
-To: Zeng Heng <zengheng@huaweicloud.com>, xuwei5@huawei.com,
- wangyushan12@huawei.com, yangyicong@hisilicon.com, maz@kernel.org,
- yeoreum.yun@arm.com, miko.lenczewski@arm.com, james.clark@linaro.org,
- corbet@lwn.net, skhan@linuxfoundation.org, kuninori.morimoto.gx@renesas.com,
- lucaswei@google.com, catalin.marinas@arm.com, broonie@kernel.org,
- lpieralisi@kernel.org, thuth@redhat.com, kevin.brodsky@arm.com,
- tongtiangen@huawei.com, oupton@kernel.org, ryan.roberts@arm.com,
- mark.rutland@arm.com, will@kernel.org, Sascha.Bischoff@arm.com
-Cc: linux-arm-kernel@lists.infradead.org, wangkefeng.wang@huawei.com,
- linux-doc@vger.kernel.org, linux-kernel@vger.kernel.org
-References: <20260601112000.1145391-1-zengheng@huaweicloud.com>
- <20260601112000.1145391-3-zengheng@huaweicloud.com>
-Content-Language: en-GB
-From: Vladimir Murzin <vladimir.murzin@arm.com>
-In-Reply-To: <20260601112000.1145391-3-zengheng@huaweicloud.com>
-Content-Type: text/plain; charset=UTF-8
-Content-Transfer-Encoding: 7bit
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+In-Reply-To: <20260531165155.13e586cd@jic23-huawei>
+Organization: Intel Finland Oy - BIC 0357606-4 - c/o Alberga Business Park, 6
+ krs, Bertel Jungin Aukio 5, 02600 Espoo
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260602_022411_339554_B75C3EB8 
-X-CRM114-Status: GOOD (  19.96  )
+X-CRM114-CacheID: sfid-20260602_102445_807867_F1A5D0A6 
+X-CRM114-Status: GOOD (  11.66  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -78,107 +112,28 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On 6/1/26 12:20, Zeng Heng wrote:
-> From: Zeng Heng <zengheng4@huawei.com>
-> 
-> HiSilicon HIP09 implements TLB entry matching behavior that deviates
-> from the ARM architecture specification when the CNP (Common not Private)
-> bit is set in TTBRx_ELx.
-> 
-> When TTBRx.CNP=1, TLB entries may be incorrectly shared between CPU
-> cores, leading to TLB conflicts and stale mappings. This affects
-> coherency and can result in incorrect translations.
-> 
-> Add the hardware erratum workaround (Hisilicon erratum 162100125) to
-> disable CNP on affected HIP09 cores.
-> 
-> Co-developed-by: Tong Tiangen <tongtiangen@huawei.com>
-> Signed-off-by: Tong Tiangen <tongtiangen@huawei.com>
-> Signed-off-by: Zeng Heng <zengheng4@huawei.com>
-> ---
->  Documentation/arch/arm64/silicon-errata.rst |  2 ++
->  arch/arm64/Kconfig                          | 16 ++++++++++++++++
->  arch/arm64/kernel/cpu_errata.c              | 13 ++++++++++---
->  3 files changed, 28 insertions(+), 3 deletions(-)
-> 
-> diff --git a/Documentation/arch/arm64/silicon-errata.rst b/Documentation/arch/arm64/silicon-errata.rst
-> index 211119ce7adc..cd50059edb85 100644
-> --- a/Documentation/arch/arm64/silicon-errata.rst
-> +++ b/Documentation/arch/arm64/silicon-errata.rst
-> @@ -284,6 +284,8 @@ stable kernels.
->  +----------------+-----------------+-----------------+-----------------------------+
->  | Hisilicon      | Hip09           | #162100801      | HISILICON_ERRATUM_162100801 |
->  +----------------+-----------------+-----------------+-----------------------------+
-> +| Hisilicon      | Hip09           | #162100125      | HISILICON_ERRATUM_162100125 |
-> ++----------------+-----------------+-----------------+-----------------------------+
->  +----------------+-----------------+-----------------+-----------------------------+
->  | Qualcomm Tech. | Kryo/Falkor v1  | E1003           | QCOM_FALKOR_ERRATUM_1003    |
->  +----------------+-----------------+-----------------+-----------------------------+
-> diff --git a/arch/arm64/Kconfig b/arch/arm64/Kconfig
-> index f297517a83b9..75638e37883d 100644
-> --- a/arch/arm64/Kconfig
-> +++ b/arch/arm64/Kconfig
-> @@ -1273,6 +1273,22 @@ config HISILICON_ERRATUM_162100801
-> 
->  	  If unsure, say Y.
-> 
-> +config HISILICON_ERRATUM_162100125
-> +	bool "Hisilicon erratum 162100125"
-> +	default y
-> +	select ARM64_WORKAROUND_DISABLE_CNP
-> +	help
-> +	  On HiSilicon HIP09, TLB entry matching behavior when CNP
-> +	  (TTBRx.CNP=1) is enabled differs from the ARM architecture
-> +	  specification.
-> +
-> +	  TLB entries may be incorrectly shared between CPUs, potentially
-> +	  causing TLB conflicts and stale mappings.
-> +
-> +	  Disable CNP support for affected HiSilicon HIP09 cores.
-> +
-> +	  If unsure, say Y.
-> +
->  config QCOM_FALKOR_ERRATUM_1003
->  	bool "Falkor E1003: Incorrect translation due to ASID change"
->  	default y
-> diff --git a/arch/arm64/kernel/cpu_errata.c b/arch/arm64/kernel/cpu_errata.c
-> index b0db946568b7..02e0ee5c948c 100644
-> --- a/arch/arm64/kernel/cpu_errata.c
-> +++ b/arch/arm64/kernel/cpu_errata.c
-> @@ -608,6 +608,14 @@ static const struct midr_range erratum_ac04_cpu_23_list[] = {
->  };
->  #endif
-> 
-> +#ifdef CONFIG_ARM64_WORKAROUND_DISABLE_CNP
-> +static const struct midr_range cnp_erratum_cpus[] = {
-> +	MIDR_ALL_VERSIONS(MIDR_NVIDIA_CARMEL),
-> +	MIDR_ALL_VERSIONS(MIDR_HISI_HIP09),
-> +	{},
-> +};
-> +#endif
-> +
->  const struct arm64_cpu_capabilities arm64_errata[] = {
->  #ifdef CONFIG_ARM64_WORKAROUND_CLEAN_CACHE
->  	{
-> @@ -803,10 +811,9 @@ const struct arm64_cpu_capabilities arm64_errata[] = {
->  #endif
->  #ifdef CONFIG_ARM64_WORKAROUND_DISABLE_CNP
->  	{
-> -		/* NVIDIA Carmel */
-> -		.desc = "NVIDIA Carmel CNP erratum",
-> +		.desc = "NVIDIA Carmel CNP erratum, or Hisilicon erratum 162100125",
->  		.capability = ARM64_WORKAROUND_DISABLE_CNP,
-> -		ERRATA_MIDR_ALL_VERSIONS(MIDR_NVIDIA_CARMEL),
-> +		ERRATA_MIDR_RANGE_LIST(cnp_erratum_cpus),
->  	},
->  #endif
->  #ifdef CONFIG_ARM64_WORKAROUND_TRBE_OVERWRITE_FILL_MODE
-> --
-> 2.43.0
-> 
+On Sun, May 31, 2026 at 04:51:55PM +0100, Jonathan Cameron wrote:
+> On Sun, 31 May 2026 17:25:57 +0200
+> Angelo Dureghello <adureghello@baylibre.com> wrote:
 
-FWIW,
+...
 
-Reviewed-by: Vladimir Murzin <vladimir.murzin@arm.com>
+> > +CONFIG_MCF54415_DAC=y
+> 
+> Sashiko makes the reasonable point that this symbol doesn't exist yet.
+> We don't care that much as they make different paths anyway but generally
+> I'd make sure defconfig updates are after the symbols are added.
+> 
+> https://sashiko.dev/#/patchset/20260531-wip-stmark2-dac-v4-0-7e65ab4215dd%40baylibre.com
+
+There is even Bugzilla report for dangling entries and the ongoing patch review
+for adding this check to the `make` menu and some to checkpatch.pl.
+
+TL;DR: This change has to be fixed accordingly.
+
+-- 
+With Best Regards,
+Andy Shevchenko
+
 
 
