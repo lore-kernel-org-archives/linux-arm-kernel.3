@@ -4,97 +4,62 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 14311CD6E57
-	for <linux-arm-kernel@archiver.kernel.org>; Tue,  2 Jun 2026 14:58:22 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 39568CD6E57
+	for <linux-arm-kernel@archiver.kernel.org>; Tue,  2 Jun 2026 15:03:24 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:MIME-Version:
-	References:In-Reply-To:Subject:Cc:To:From:Message-ID:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:
+	Content-Transfer-Encoding:MIME-Version:References:In-Reply-To:Message-ID:Date
+	:Subject:Cc:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=DnM2hO41RX1ZjYT2K0TjVIZOoePCgu/n2TLpxGi/ANw=; b=NToAsQ+H/+bEieyoAkxujii66v
-	tUlnkWcIO4RjehUk0Q2zNAg3lwZz73aFIMD+z8epkBzouopdL+T7M9wgDN6PVfzKnrf/xPmWTaLML
-	b334Y7ywVMLpxDFbExp92vc/1a6V/W4EjK/PC8TZ90qUDlu64qfF1JVczI3DTEixmOUi9ZYeELFy3
-	8MGWX90WNaFho2XGabc8JLk6pqdJfmKh0tpwDJ6iARqpJnqu6mK/3CoPB1MV44SSMEqyccTfZBAE0
-	jGiqZENMtASlqz6rDuTrE+fNXXevXy3wJqkXMphZJunTn29JiDYQuyTnH5VsA6q83lGboJynTC/bz
-	KGmtRo6g==;
+	bh=dJzkqUtVg54mBprGrZtQSWQkiwWBq/0aCh5qUpxBt0w=; b=mg9MgXvUxxId7kr+AQjc+6BaoX
+	0Uj8BoH5JzwHNvOYsmpULA6ZWPAVov+inVEgLpqT3GQC+5zxk6vMXfa2vmZCdlkTR4Nte4qQ6qpob
+	j/mDHTMRoBmiXs9B7v6IfRPv3RAO7YMVqZoGkXAp+b4+DMjoYC+1oobPGzpHe/lZ0xmQlMXHOzSV5
+	YuuwTi8s6s3VlgO5JxE5DPem2P3oYq4pgcFOcAoEHn4BFXms5fiwJi+RijZDpPT5Ni8WWfvx0uJSQ
+	X+leau+BcZ74p6+u5G08mC1uewcxwgoZWaTbImYyv2f34hUTPFihp6s5/f8a+4B3UrIaTxDnmzZ6G
+	lrBhDQ2w==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wUQZM-0000000DEB5-2S3o;
-	Tue, 02 Jun 2026 14:58:16 +0000
-Received: from tor.source.kernel.org ([2600:3c04:e001:324:0:1991:8:25])
+	id 1wUQeE-0000000DEs0-0ol7;
+	Tue, 02 Jun 2026 15:03:18 +0000
+Received: from gloria.sntech.de ([185.11.138.130])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wUQZK-0000000DEAw-44nq
-	for linux-arm-kernel@lists.infradead.org;
-	Tue, 02 Jun 2026 14:58:15 +0000
-Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
-	by tor.source.kernel.org (Postfix) with ESMTP id EA1716001A;
-	Tue,  2 Jun 2026 14:58:13 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 957A71F00893;
-	Tue,  2 Jun 2026 14:58:13 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1780412293;
-	bh=DnM2hO41RX1ZjYT2K0TjVIZOoePCgu/n2TLpxGi/ANw=;
-	h=Date:From:To:Cc:Subject:In-Reply-To:References;
-	b=dUjAXOVAK+ks3hrv+Xa685ts0MW2Cl+aSZOl+l2Szs7WY1c9D6SvOlw3sE9mYacz0
-	 n43WjYamFByyiiCExlI5ilvpZHWIGxqrMKsmokFnr5mw8+Y7DSUPTffryjzWlW741p
-	 pqgU1q19ny15e1j228qYReoiHWBTzmggf4ohzcjbZqFcOk2+yCOA4Nf2bsi/y8OMem
-	 a8/gKXDQrAFQwza0edc/eiefAzd70BZvfONWdljFPhtsL05epaN907a4idbsqUzy3Z
-	 iwH/fqeAp2wNJ2h9/dBHnfxz7aY9KCBsZGPdZSE+iBSdiYxJUqDA7ctTm4MV199biX
-	 FOIEZHiyz2Iig==
-Received: from sofa.misterjones.org ([185.219.108.64] helo=goblin-girl.misterjones.org)
-	by disco-boy.misterjones.org with esmtpsa  (TLS1.3) tls TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384
-	(Exim 4.98.2)
-	(envelope-from <maz@kernel.org>)
-	id 1wUQZG-00000008e1B-22sE;
-	Tue, 02 Jun 2026 14:58:10 +0000
-Date: Tue, 02 Jun 2026 15:58:09 +0100
-Message-ID: <8633z5ugzi.wl-maz@kernel.org>
-From: Marc Zyngier <maz@kernel.org>
-To: Daniel Lezcano <daniel.lezcano@kernel.org>,
-	linux-arm-kernel@lists.infradead.org,
-	linux-acpi@vger.kernel.org,
-	linux-kernel@vger.kernel.org,
-	devicetree@vger.kernel.org
-Cc: Lorenzo Pieralisi <lpieralisi@kernel.org>,	Hanjun Guo
- <guohanjun@huawei.com>,	Sudeep Holla <sudeep.holla@kernel.org>,	Catalin
- Marinas <catalin.marinas@arm.com>,	Will Deacon <will@kernel.org>,
-	"Rafael J. Wysocki" <rafael@kernel.org>,	Mark Rutland
- <mark.rutland@arm.com>,	Thomas Gleixner <tglx@kernel.org>,	Rob Herring
- <robh@kernel.org>,	Krzysztof Kozlowski <krzk+dt@kernel.org>,	Conor Dooley
- <conor+dt@kernel.org>,	Chen-Yu Tsai <wens@kernel.org>,	Jernej Skrabec
- <jernej.skrabec@gmail.com>,	Samuel Holland <samuel@sholland.org>,	Neil
- Armstrong <neil.armstrong@linaro.org>,	Kevin Hilman <khilman@baylibre.com>,
-	Jerome Brunet <jbrunet@baylibre.com>,	Martin Blumenstingl
- <martin.blumenstingl@googlemail.com>,	Ge Gordon <gordon.ge@bst.ai>,	BST
- Linux Kernel Upstream Group <bst-upstream@bstai.top>,	Jesper Nilsson
- <jesper.nilsson@axis.com>,	Lars Persson <lars.persson@axis.com>,	Alim
- Akhtar <alim.akhtar@samsung.com>,	Ivaylo Ivanov
- <ivo.ivanov.ivanov1@gmail.com>,	Frank Li <Frank.Li@nxp.com>,	Sascha Hauer
- <s.hauer@pengutronix.de>,	Pengutronix Kernel Team <kernel@pengutronix.de>,
-	Fabio Estevam <festevam@gmail.com>,	Dinh Nguyen <dinguyen@kernel.org>,
-	Matthias Brugger <matthias.bgg@gmail.com>,	AngeloGioacchino Del Regno
- <angelogioacchino.delregno@collabora.com>,	Thierry Reding
- <thierry.reding@kernel.org>,	Jonathan Hunter <jonathanh@nvidia.com>,	Bjorn
- Andersson <andersson@kernel.org>,	Konrad Dybcio <konradybcio@kernel.org>,
-	Andreas =?UTF-8?B?RsOkcmJlcg==?= <afaerber@suse.de>,	=?UTF-8?B?Ill1LUNo?=
- =?UTF-8?B?dW4gTGluIFvmnpfnpZDlkJtdIg==?= <eleanor.lin@realtek.com>,	Heiko
- Stuebner <heiko@sntech.de>,	Shawn Lin <shawn.lin@rock-chips.com>,	Orson
- Zhai <orsonzhai@gmail.com>,	Baolin Wang <baolin.wang@linux.alibaba.com>,
-	Michal Simek <michal.simek@amd.com>
-Subject: Re: [PATCH v3 00/17] arm64: Use EL2 virtual timer when running VHE
-In-Reply-To: <20260523140242.586031-1-maz@kernel.org>
-References: <20260523140242.586031-1-maz@kernel.org>
-User-Agent: Wanderlust/2.15.9 (Almost Unreal) SEMI-EPG/1.14.7 (Harue)
- FLIM-LB/1.14.9 (=?UTF-8?B?R29qxY0=?=) APEL-LB/10.8 EasyPG/1.0.0 Emacs/30.1
- (aarch64-unknown-linux-gnu) MULE/6.0 (HANACHIRUSATO)
-MIME-Version: 1.0 (generated by SEMI-EPG 1.14.7 - "Harue")
-Content-Type: text/plain; charset=US-ASCII
-X-SA-Exim-Connect-IP: 185.219.108.64
-X-SA-Exim-Rcpt-To: daniel.lezcano@kernel.org, linux-arm-kernel@lists.infradead.org, linux-acpi@vger.kernel.org, linux-kernel@vger.kernel.org, devicetree@vger.kernel.org, lpieralisi@kernel.org, guohanjun@huawei.com, sudeep.holla@kernel.org, catalin.marinas@arm.com, will@kernel.org, rafael@kernel.org, mark.rutland@arm.com, tglx@kernel.org, robh@kernel.org, krzk+dt@kernel.org, conor+dt@kernel.org, wens@kernel.org, jernej.skrabec@gmail.com, samuel@sholland.org, neil.armstrong@linaro.org, khilman@baylibre.com, jbrunet@baylibre.com, martin.blumenstingl@googlemail.com, gordon.ge@bst.ai, bst-upstream@bstai.top, jesper.nilsson@axis.com, lars.persson@axis.com, alim.akhtar@samsung.com, ivo.ivanov.ivanov1@gmail.com, Frank.Li@nxp.com, s.hauer@pengutronix.de, kernel@pengutronix.de, festevam@gmail.com, dinguyen@kernel.org, matthias.bgg@gmail.com, angelogioacchino.delregno@collabora.com, thierry.reding@kernel.org, jonathanh@nvidia.com, andersson@kernel.org, konradybcio@kernel.org, afaerber@suse.de, 
- eleanor.lin@realtek.com, heiko@sntech.de, shawn.lin@rock-chips.com, orsonzhai@gmail.com, baolin.wang@linux.alibaba.com, michal.simek@amd.com
-X-SA-Exim-Mail-From: maz@kernel.org
-X-SA-Exim-Scanned: No (on disco-boy.misterjones.org); SAEximRunCond expanded to false
+	id 1wUQe9-0000000DEpR-3zDb;
+	Tue, 02 Jun 2026 15:03:16 +0000
+DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed; d=sntech.de;
+	s=gloria202408; h=Content-Type:Content-Transfer-Encoding:MIME-Version:
+	References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:Reply-To;
+	bh=dJzkqUtVg54mBprGrZtQSWQkiwWBq/0aCh5qUpxBt0w=; b=gQeJJRTQB6Dg11khGhrcVXu63F
+	d0RG0hYUA6OciYzZiAle8Fnk87FXjgvhJBxnKlh7OVQ8c5BFSFH50OjDwxEm0v5Oug2LoGOoRAff/
+	/BapZxdQro6zjQWEnrok3Xu91ao6JlxxmJZz9CcitdpyRD36ZatxqGwtqIuy5NiIdJxF5qzzjL0Z1
+	bzQC0bqJF2BmWHIrknloT/w32TAFEaogrC/i6gpK3fln2NNr6/Rq6vTwkOJHVpTppKr1oZfWlcYZL
+	ZQtJ0sxju1t7J37uuRu5jy9JGmd8bNvDXojYEQYEQjpIFKhPcD0u2IAKsHNmfNVSCIhmil9gewqIR
+	0ZiXPtIA==;
+From: Heiko Stuebner <heiko@sntech.de>
+To: Andrzej Hajda <andrzej.hajda@intel.com>,
+ Neil Armstrong <neil.armstrong@linaro.org>, Robert Foss <rfoss@kernel.org>,
+ Laurent Pinchart <Laurent.pinchart@ideasonboard.com>,
+ Jonas Karlman <jonas@kwiboo.se>, Jernej Skrabec <jernej.skrabec@gmail.com>,
+ Luca Ceresoli <luca.ceresoli@bootlin.com>,
+ Maarten Lankhorst <maarten.lankhorst@linux.intel.com>,
+ Thomas Zimmermann <tzimmermann@suse.de>, David Airlie <airlied@gmail.com>,
+ Simona Vetter <simona@ffwll.ch>, Maxime Ripard <mripard@kernel.org>
+Cc: Dmitry Baryshkov <lumag@kernel.org>, dri-devel@lists.freedesktop.org,
+ Maxime Ripard <mripard@kernel.org>, Sandy Huang <hjc@rock-chips.com>,
+ Andy Yan <andy.yan@rock-chips.com>, linux-arm-kernel@lists.infradead.org,
+ linux-rockchip@lists.infradead.org
+Subject: Re: [PATCH 62/76] drm/rockchip: cdn-dp: Switch to atomic_create_state
+Date: Tue, 02 Jun 2026 17:02:37 +0200
+Message-ID: <4650339.9PvXe5no7K@phil>
+In-Reply-To: <20260530-drm-no-more-bridge-reset-v1-62-875d828d31bc@kernel.org>
+References: <20260530-drm-no-more-bridge-reset-v1-0-875d828d31bc@kernel.org>
+ <20260530-drm-no-more-bridge-reset-v1-62-875d828d31bc@kernel.org>
+MIME-Version: 1.0
+Content-Transfer-Encoding: quoted-printable
+Content-Type: text/plain; charset="utf-8"
+X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
+X-CRM114-CacheID: sfid-20260602_080313_987127_879ABEF3 
+X-CRM114-Status: GOOD (  16.06  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -109,32 +74,56 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Sat, 23 May 2026 15:02:25 +0100,
-Marc Zyngier <maz@kernel.org> wrote:
-> 
-> This is the third version of the series initially posted at [1],
-> which
-> 
-> - updates the ACPI GTDT parsing to deal the v3 layout and the EL2
->   virtual timer,
-> - moves the architected timer driver to use it when running VHE,
-> - fixes a number of DTs to reflect the reality of the HW.
-> 
-> This results in significant performance uplift in deeper nested virt
-> scenarios, at no overhead to the host.
-> 
-> Patches based on -rc3, tested on Amlogic SM1, QC X1E, Ampere Altra,
-> and Apple M2, as well as KVM NV guests.
+Am Samstag, 30. Mai 2026, 16:00:07 Mitteleurop=C3=A4ische Sommerzeit schrie=
+b Maxime Ripard:
+> The drm_bridge_funcs.atomic_reset callback and its
+> drm_atomic_helper_bridge_reset() helper are deprecated.
+>=20
+> Switch to the atomic_create_state callback and its
+> drm_atomic_helper_bridge_create_state() counterpart.
+>=20
+> Signed-off-by: Maxime Ripard <mripard@kernel.org>
 
-[...]
+having looked at the first parts of the series adding
+the new functionality, this change looks good:
 
-Daniel, can you please pick the first 3 patches? Or would you rather
-have them routed via the arm64 tree?
+Reviewed-by: Heiko Stuebner <heiko@sntech.de>
 
-Thanks,
+>=20
+> ---
+> To: Sandy Huang <hjc@rock-chips.com>
+> To: "Heiko St=C3=BCbner" <heiko@sntech.de>
+> To: Andy Yan <andy.yan@rock-chips.com>
+> Cc: dri-devel@lists.freedesktop.org
+> Cc: linux-arm-kernel@lists.infradead.org
+> Cc: linux-rockchip@lists.infradead.org
+> ---
+>  drivers/gpu/drm/rockchip/cdn-dp-core.c | 2 +-
+>  1 file changed, 1 insertion(+), 1 deletion(-)
+>=20
+> diff --git a/drivers/gpu/drm/rockchip/cdn-dp-core.c b/drivers/gpu/drm/roc=
+kchip/cdn-dp-core.c
+> index 190cce9530c8..e159e1627f3c 100644
+> --- a/drivers/gpu/drm/rockchip/cdn-dp-core.c
+> +++ b/drivers/gpu/drm/rockchip/cdn-dp-core.c
+> @@ -823,11 +823,11 @@ static int cdn_dp_audio_mute_stream(struct drm_brid=
+ge *bridge,
+>  }
+> =20
+>  static const struct drm_bridge_funcs cdn_dp_bridge_funcs =3D {
+>  	.atomic_duplicate_state =3D drm_atomic_helper_bridge_duplicate_state,
+>  	.atomic_destroy_state =3D drm_atomic_helper_bridge_destroy_state,
+> -	.atomic_reset =3D drm_atomic_helper_bridge_reset,
+> +	.atomic_create_state =3D drm_atomic_helper_bridge_create_state,
+>  	.detect =3D cdn_dp_bridge_detect,
+>  	.edid_read =3D cdn_dp_bridge_edid_read,
+>  	.atomic_enable =3D cdn_dp_bridge_atomic_enable,
+>  	.atomic_disable =3D cdn_dp_bridge_atomic_disable,
+>  	.mode_valid =3D cdn_dp_bridge_mode_valid,
+>=20
+>=20
 
-	M.
 
--- 
-Without deviation from the norm, progress is not possible.
+
+
 
