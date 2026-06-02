@@ -4,71 +4,71 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id F1208CD6E64
-	for <linux-arm-kernel@archiver.kernel.org>; Tue,  2 Jun 2026 10:16:55 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 951CDCD6E57
+	for <linux-arm-kernel@archiver.kernel.org>; Tue,  2 Jun 2026 10:17:02 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
 	MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:
 	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=zlqWTxvd2nybMb9oOkq3B+WZ2+KSO9DV36s9D60SrZ0=; b=oyq+cPeUzqEWUp8NRH2v+Vcgeu
-	S6VPNckkJly2ziuMRYAu7yaZlLdCQ7Suu1vXV5uxgMt1xeKQi0Pq3E3zeVGi955Fbm1iRHZcEdhkY
-	EpnrYUFkxHhijsPg6lswWLczUamdKhcLoGnMEW73PnkNWf3iis/6FrurbmjLwD2ynSoQyGRE402Xc
-	AP1bqV+b7UQQziYydNMYhynUZmVsau5PHPU1nZI9HeBADEi8Ii/S7RpdD5AMEIO0ywKTP9tU+Uirl
-	wPLLF0WpQgrJyRPmW+i96IBboZZCoXXGHj3G/JslUzE8ubA+741HFB+tnUQd1XN8HPz0xN4Bpn/Jx
-	9hZUD+NQ==;
+	bh=rCb8DxBgLNYKl2se7nFRUFkwYJO2PqG9toAr7Dgva9M=; b=vj0kW5/iY2c7T+fyFmukyFL8Xv
+	wT5QuG8wiKC0FmnJUtyUP0FSwvAZkYAkjduqh6tT++W/1snAZfQqDcNp36PSmLzCTDELwlwcaBzGm
+	f0IY5DvAk5dHtMJui3A7eS2OXb1JyaRSn87INQsRlY+xkS9JtySD7D3PM7ZPES796j6z2IGENN7B7
+	bJofgNjcKc6xf+zR6gCiFp15UaHUvA5owKyzApCZn/escJ+W+J72iSC9mQ6GIBjo/6M6e2/hVei6Y
+	BPj/P73Jg46LzVIgsUwcqQtaCRwTjX2qT/lH3sj7vxsMoRxwJnmO+FcSECDPkUCgPoNB8YQkn+64s
+	KD8Iq8tg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wUMAz-0000000CkTK-3iOB;
-	Tue, 02 Jun 2026 10:16:49 +0000
-Received: from mail-pl1-x62b.google.com ([2607:f8b0:4864:20::62b])
+	id 1wUMB5-0000000CkXz-0oca;
+	Tue, 02 Jun 2026 10:16:55 +0000
+Received: from mail-pl1-x62a.google.com ([2607:f8b0:4864:20::62a])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wUMAx-0000000CkRi-1I3B
+	id 1wUMB2-0000000CkVm-3Cum
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 02 Jun 2026 10:16:48 +0000
-Received: by mail-pl1-x62b.google.com with SMTP id d9443c01a7336-2bf20f6be6bso23755315ad.3
-        for <linux-arm-kernel@lists.infradead.org>; Tue, 02 Jun 2026 03:16:47 -0700 (PDT)
+	Tue, 02 Jun 2026 10:16:53 +0000
+Received: by mail-pl1-x62a.google.com with SMTP id d9443c01a7336-2c0c3546924so16019015ad.3
+        for <linux-arm-kernel@lists.infradead.org>; Tue, 02 Jun 2026 03:16:52 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20251104; t=1780395406; x=1781000206; darn=lists.infradead.org;
+        d=gmail.com; s=20251104; t=1780395412; x=1781000212; darn=lists.infradead.org;
         h=content-transfer-encoding:mime-version:references:in-reply-to
          :message-id:date:subject:cc:to:from:from:to:cc:subject:date
          :message-id:reply-to;
-        bh=zlqWTxvd2nybMb9oOkq3B+WZ2+KSO9DV36s9D60SrZ0=;
-        b=o/xhyL2hXom+YowGp67VwsUwDMCzLXbWKLlWAG0vFG+y/gpbgu4Ur/FmC58/NxjCTC
-         0eFwFiyfwgQ3x5scpAJZYJvYs7kpLlei8X5tWi8EcKOtm9l8XU7Vaimprts9yzEvP05L
-         CJDhXXmqRxli2cRlsyZhF4nGkq0q0cJAQuPhzpsq2nP78XDV9TQErmswqW3dTKEfYl2b
-         UCHulfA6tgBVKljJ3HwMHgBU12NVBwd2muMJlXvp1Lyv3Tnn5YWK3lwCdcv5d9ixvIel
-         Cx1krt3efz5cO6FZCUzlPeTFhriRy8sKjbu35K0edUzIzL6YCG6EENGsZs7GGyOqYTkg
-         XgHw==
+        bh=rCb8DxBgLNYKl2se7nFRUFkwYJO2PqG9toAr7Dgva9M=;
+        b=E/jauxwRs03ZEjUh2Yhb9o72i9VEcF6c5yRPqVU8Cbd9f9gLcqrgEMZHKGaGEKvYpT
+         glWhahIYioCSA4UHqi6cu3l/5EUyulT8OFgBKObtIwVGZSYYekbvR/LOfUJR2wcMsKtM
+         rG4KLazaqPjZsz7PZTpTlKckgjn5T9XvVes1lzeDUuq1uckRskW48xpiQvi7hLWa0uan
+         U6wjqPd8/Q282smdaj/PD40DqVSJgnKTFupMT9iKf4GvEVay+YnnnlNCegZo8unMUk2H
+         8D/gbYG5xpso82RtDzvZ1uzfNis/+q+ZZ8i1KMOlxjqIVZDhbno8qLY9fi5Gnj+4IASg
+         Wnjw==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20251104; t=1780395406; x=1781000206;
+        d=1e100.net; s=20251104; t=1780395412; x=1781000212;
         h=content-transfer-encoding:mime-version:references:in-reply-to
          :message-id:date:subject:cc:to:from:x-gm-gg:x-gm-message-state:from
          :to:cc:subject:date:message-id:reply-to;
-        bh=zlqWTxvd2nybMb9oOkq3B+WZ2+KSO9DV36s9D60SrZ0=;
-        b=D5qrYx0tQ6W4tAGXInH8zD4a0CfCgS1GBY7RYC7Q2iT4/doOQI6iK4L+LpCaAIqgVl
-         2yLV74OpWIDOKxna/pDqBbcuHaofB1RJEP7/HDjiHxCHTqIoRvV2OkpSDwKd60skaVJT
-         P667zqHYMHHW0Z9xy6TW5CPpkBf9YDnj2p4sbzk5l3XKAdFh5xGE+pJyblYp557tlyMv
-         +0g2sxpMGcfU00sg6CkPx/jSd38eajwWBYHQuGhEdYjdCmrBDoHwLp9s7GDdwkAPhe+y
-         M4yUdbZp3kAAMhjxrjN6hR5j3xPtr9krjNtzKG0npYY8QuQxF6YIwl4KJEC5ool1SWg0
-         4vog==
-X-Forwarded-Encrypted: i=1; AFNElJ+zvwPY+rjSKH6nQOsBig+xrmERl8XraLqRRve+S9KG9RfLGzVn4fllAcr6Ycnd6J4nFJO/Ayj65sk3qMcThqO8@lists.infradead.org
-X-Gm-Message-State: AOJu0Yxn3tVpLT4qATPIsHsq3UVcc78KIISW/UvTEsoBal4kV4p2CoKc
-	VTVLvKV5Tt9axTtOk58DUa3ILgB+qjZaqWZGs68im89fyKEiNbrfuSUD
-X-Gm-Gg: Acq92OHFSSoXeAbhyCDcHGS6XX/jL9xa2cWUckiPhVW2VHpdoZuvEvyvxYJ0GGAO4l8
-	2ee0q+rTbLxd+lbQ1wJVzxxLlcDXCYH/BjY+51M9TZ1jR71hZK5XRh5HGDM3pKi+25BYUlnv7Kp
-	Nz7AoOlfOM1A5ftoEiUGNVRiVphAoyI4zRgp9QIYo2L64TfnVIWqGO/s8BmHwX93DC4HDdXopim
-	elOl4BXEvDxfaESFcgiv54IZTEMGFtiTdHtnk4NQEq2ICzylRKkuDwswVDddMD+RUE5obqIF2ZD
-	K2/MAIU5MeY5qY5fgri/FJQpCiNEXZ+s1xmgqcYcMVOHwS6+xVd1E8Ni3t5fyzsy+PiP115ngpS
-	HlH7bjdNiv3GsMu+4F7CNatfo4XONsELiSFKH/L03Nhr3B38qcZTld06g6/Bb3mmtyn/SUnBxr6
-	1T2SvoReApBbLLQ2C1PHJeJp8Tz87y+OaURXmC9qTWuCNYLCy2jLpZ0m2vIb8U3skp9w1x
-X-Received: by 2002:a17:903:1983:b0:2bf:23cf:3e4 with SMTP id d9443c01a7336-2bf367d9da0mr164110925ad.17.1780395406357;
-        Tue, 02 Jun 2026 03:16:46 -0700 (PDT)
+        bh=rCb8DxBgLNYKl2se7nFRUFkwYJO2PqG9toAr7Dgva9M=;
+        b=sVPcuUQy14c6vH/nRB9mA2Gb/9BtSZgPRtNsVLUnZSwfYOTxbAbi6pHzJwH+e9qtCa
+         QXBYIwCaehx33rZert7Bg5xITkadYRzGNpPQ6OHeRvsyAXCW8/vVeZYDFSNQSGL9nPti
+         6dVzl5gRgTY2DRj4T0gC+v3FmZtS7eYxampHRKyQPa6qqOe/LH4PYgVQsWHtChDUfNqK
+         /WKt39ypfPFjfzly9unB00l7w/PK/Xxhv1iFhNJ/m8F5Wi/pDbk5VI5boSOzcrEKUJzu
+         YNyuoQqb1EaLrIJxIxKlSZS/f+dv7F80wzsfOqsqvb/AMr/ONFPOVG52Cf2Q0oCYbIwS
+         PJgQ==
+X-Forwarded-Encrypted: i=1; AFNElJ+DC1OkJLkRXT2ODujEzQwY14RcKRhgr3cQFuupqFzKt0BnTU6I3Q2Ysgqsm6YdD12iRBA8Ul1WRzc6SQpnroFa@lists.infradead.org
+X-Gm-Message-State: AOJu0YwDcSFy4Tf/FVJpzydTY83OqKyVGlGOmrUmGL4gbS+au0rOdlTK
+	u3dn6IIY006zhMgw1UcAKUT5oxQhnqPRfeJL/TFYy01LUQhPr1AWnEq1
+X-Gm-Gg: Acq92OGWAwDXj26R/njFZ1HpztKmL2MfuYzYiD88Lxmx/zBePMppxh5qlvF0ZiPptOy
+	6Q5yLfWJ4nXLLXQAiCggGraGkBUZxQYw6MHsfZorZGigv3zOqQ/uX1C8tplwAm/LIriWeyj9xUv
+	vhxfSRQiPvDwVtNCmcU96O34m8LE029yXk+As2TsIgXUpdp/gifztiudRNf7/Z6RZuzfOb4sQJd
+	uCZbKwKcpHFxMQT/1FoCTI/0O+8HgzK0ej0R7KAy7Fp6qlEwWunWmJQjR9NSUqb4a7wJArCjJNO
+	KsuysXjSXNflviozAklG3PPPO7kp/a0hyfNobtd0VWzcjYsvm/x+BEFNukXfHZ8Q7mp1Lkgkunj
+	WjxNGox8gw5xWBQ/ivqdf/VHWbvkIrgzaJpWYGP5z2W3MZep0gA6TYsazsYgQBBRvm0mM1VvqL+
+	4KVHsudWZl5VswC6VWlXtaNwpZNn2VEIiWRl7pjGPUbjh2LfxTjoiI+qLBERLxxZT+qkd7
+X-Received: by 2002:a17:903:46cf:b0:2c0:c625:400d with SMTP id d9443c01a7336-2c0c6254383mr111686365ad.37.1780395411951;
+        Tue, 02 Jun 2026 03:16:51 -0700 (PDT)
 Received: from phuc-desktop.. ([183.91.15.56])
-        by smtp.gmail.com with ESMTPSA id d9443c01a7336-2bf239fd84fsm132766305ad.23.2026.06.02.03.16.42
+        by smtp.gmail.com with ESMTPSA id d9443c01a7336-2bf239fd84fsm132766305ad.23.2026.06.02.03.16.48
         (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Tue, 02 Jun 2026 03:16:45 -0700 (PDT)
+        Tue, 02 Jun 2026 03:16:51 -0700 (PDT)
 From: phucduc.bui@gmail.com
 To: Heiko Stuebner <heiko@sntech.de>,
 	Mark Brown <broonie@kernel.org>,
@@ -84,17 +84,17 @@ Cc: Rob Herring <robh@kernel.org>,
 	linux-arm-kernel@lists.infradead.org,
 	linux-kernel@vger.kernel.org,
 	bui duc phuc <phucduc.bui@gmail.com>
-Subject: [PATCH v2 2/5] ASoC: rockchip: spdif: Reorder clock enable sequence
-Date: Tue,  2 Jun 2026 17:16:05 +0700
-Message-ID: <20260602101608.45137-3-phucduc.bui@gmail.com>
+Subject: [PATCH v2 3/5] ASoC: rockchip: rockchip_pdm: Reorder clock enable sequence
+Date: Tue,  2 Jun 2026 17:16:06 +0700
+Message-ID: <20260602101608.45137-4-phucduc.bui@gmail.com>
 X-Mailer: git-send-email 2.43.0
 In-Reply-To: <20260602101608.45137-1-phucduc.bui@gmail.com>
 References: <20260602101608.45137-1-phucduc.bui@gmail.com>
 MIME-Version: 1.0
 Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260602_031647_349993_28606543 
-X-CRM114-Status: GOOD (  14.41  )
+X-CRM114-CacheID: sfid-20260602_031652_821077_5CB53F9B 
+X-CRM114-Status: GOOD (  14.32  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -111,7 +111,7 @@ Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.i
 
 From: bui duc phuc <phucduc.bui@gmail.com>
 
-Enable the 'hclk' bus clock before the 'mclk' controller clock during
+Enable the 'hclk' bus clock before the 'clk' controller clock during
 runtime resume.
 The bus clock provides the register access interface, so enable it before
 the controller clock. This also makes the resume sequence the reverse of
@@ -126,32 +126,32 @@ Changes in v2:
   - Clarify in the commit message that the resume sequence becomes the
     reverse of the suspend sequence.
 
- sound/soc/rockchip/rockchip_spdif.c | 10 +++++-----
+ sound/soc/rockchip/rockchip_pdm.c | 10 +++++-----
  1 file changed, 5 insertions(+), 5 deletions(-)
 
-diff --git a/sound/soc/rockchip/rockchip_spdif.c b/sound/soc/rockchip/rockchip_spdif.c
-index 581624f2682e..8de5b76cfe79 100644
---- a/sound/soc/rockchip/rockchip_spdif.c
-+++ b/sound/soc/rockchip/rockchip_spdif.c
-@@ -76,16 +76,16 @@ static int rk_spdif_runtime_resume(struct device *dev)
- 	struct rk_spdif_dev *spdif = dev_get_drvdata(dev);
+diff --git a/sound/soc/rockchip/rockchip_pdm.c b/sound/soc/rockchip/rockchip_pdm.c
+index c69cdd6f2499..8f78f7bc1806 100644
+--- a/sound/soc/rockchip/rockchip_pdm.c
++++ b/sound/soc/rockchip/rockchip_pdm.c
+@@ -422,16 +422,16 @@ static int rockchip_pdm_runtime_resume(struct device *dev)
+ 	struct rk_pdm_dev *pdm = dev_get_drvdata(dev);
  	int ret;
  
--	ret = clk_prepare_enable(spdif->mclk);
-+	ret = clk_prepare_enable(spdif->hclk);
+-	ret = clk_prepare_enable(pdm->clk);
++	ret = clk_prepare_enable(pdm->hclk);
  	if (ret) {
--		dev_err(spdif->dev, "mclk clock enable failed %d\n", ret);
-+		dev_err(spdif->dev, "hclk clock enable failed %d\n", ret);
+-		dev_err(pdm->dev, "clock enable failed %d\n", ret);
++		dev_err(pdm->dev, "hclock enable failed %d\n", ret);
  		return ret;
  	}
  
--	ret = clk_prepare_enable(spdif->hclk);
-+	ret = clk_prepare_enable(spdif->mclk);
+-	ret = clk_prepare_enable(pdm->hclk);
++	ret = clk_prepare_enable(pdm->clk);
  	if (ret) {
--		clk_disable_unprepare(spdif->mclk);
--		dev_err(spdif->dev, "hclk clock enable failed %d\n", ret);
-+		clk_disable_unprepare(spdif->hclk);
-+		dev_err(spdif->dev, "mclk clock enable failed %d\n", ret);
+-		clk_disable_unprepare(pdm->clk);
+-		dev_err(pdm->dev, "hclock enable failed %d\n", ret);
++		clk_disable_unprepare(pdm->hclk);
++		dev_err(pdm->dev, "clock enable failed %d\n", ret);
  		return ret;
  	}
  
