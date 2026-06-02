@@ -4,74 +4,105 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id B5AAECD6E4A
-	for <linux-arm-kernel@archiver.kernel.org>; Tue,  2 Jun 2026 13:28:10 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id D2874CD6E57
+	for <linux-arm-kernel@archiver.kernel.org>; Tue,  2 Jun 2026 13:45:53 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Message-ID:MIME-Version:
-	Content-Type:Content-Transfer-Encoding:References:In-Reply-To:Subject:Cc:To:
-	From:Date:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:Cc:To:Subject:Message-ID:Date:From:In-Reply-To:References:
+	MIME-Version:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=UEGrnMJfjuJTN/ukZi5Az/WjTew/M9r24Ec276ZDEkA=; b=m+qbUfWlITt5Drxp4zSFaEAWcS
-	gXixLjfNdGlrJ+THeIjivusk5nOYbOIbNtK2mvA5NCJebIU3QnNzgSzidgSTqZI47UbmXeMAoi3Qi
-	0qMt8N2iiKWX/JwvOijJVOQLmBgE8cLIf5fVdYpNup1irSNV7m5iRe+OTTGAt+l6sVvEwVSzbll0D
-	rxOkEms+2+wovSXqsrW6VENkVcPxOrfRELGEu5HS7xLZzviXqwbqG1PePD4kYc5IXhgR/PH/kxdzY
-	hX/h7noFg7kIWtCmN+INF6vsLLuJaaT7P/IDUUQ6jGBwy+V2L2E9NbwOEvuERNgO1sHoi07PmGL7d
-	j0yPIBWg==;
+	bh=PucKtDJMe6zdtKxDZ+KDmDvt++ux5fvyPgJXVX2gaxM=; b=w/1y+qsFS+oMy4AlNZQAwYsFEB
+	0iEq4Pl6EgCjVe9wMT8UTGja3n2L7e2sbNm7H11j2s9/VGwtL+iEWBYPSZQLU/i4aqrnZS0uowG0s
+	yhzWvefDjraABM0v+9tuFhayLH9e6aVokiD2w5UUEIP4V9K7pJ9SeyQXu4Kfpon6kd1CxSkfzau1s
+	40mJhRE8ipDQfMKTavSHf4KbKSypmaI+FwbqhTIO8FLdo2F76+S/g0Nvd8Q883ymPtd2TO/nr9YOq
+	Xp+OnlQNfvElQuE1zzdjgfRmwoS7xuU8/aFFp6pd4foSmmXzE1Ok68DjplJDnvK0sLd9IouentOwu
+	uJVrDR7Q==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wUPA3-0000000D745-1Wgk;
-	Tue, 02 Jun 2026 13:28:03 +0000
-Received: from m16.mail.163.com ([220.197.31.2])
+	id 1wUPRC-0000000D8Gt-0mhU;
+	Tue, 02 Jun 2026 13:45:46 +0000
+Received: from mail-yw1-x1133.google.com ([2607:f8b0:4864:20::1133])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wUPA0-0000000D73L-3g9L;
-	Tue, 02 Jun 2026 13:28:02 +0000
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=163.com;
-	s=s110527; h=Date:From:To:Subject:Content-Type:MIME-Version:
-	Message-ID; bh=UEGrnMJfjuJTN/ukZi5Az/WjTew/M9r24Ec276ZDEkA=; b=e
-	HAZ+HwbIWaFhOxm1IP1VjtUnKgBPsNrnnnITTca4q2V4JVJ8Ysxz5UFgMxoTBBEx
-	2QL5247COpz1dcoot+flXT7XGH8Vqq2/sd6eq7T3xSZGuhmkZkLfxH6pzqx7obQj
-	y8SqhTTSMkk9Rq0iZC/OQkHDDkRpZcINXqXX0Hrnkk=
-Received: from andyshrk$163.com ( [61.154.14.86] ) by
- ajax-webmail-wmsvr-40-120 (Coremail) ; Tue, 2 Jun 2026 21:25:03 +0800 (CST)
-X-Originating-IP: [61.154.14.86]
-Date: Tue, 2 Jun 2026 21:25:03 +0800 (CST)
-From: "Andy Yan" <andyshrk@163.com>
-To: "Cristian Ciocaltea" <cristian.ciocaltea@collabora.com>
-Cc: "Sandy Huang" <hjc@rock-chips.com>,
-	=?UTF-8?Q?Heiko_St=C3=BCbner?= <heiko@sntech.de>,
-	"Andy Yan" <andy.yan@rock-chips.com>,
-	"Maarten Lankhorst" <maarten.lankhorst@linux.intel.com>,
-	"Maxime Ripard" <mripard@kernel.org>,
-	"Thomas Zimmermann" <tzimmermann@suse.de>,
-	"David Airlie" <airlied@gmail.com>,
-	"Simona Vetter" <simona@ffwll.ch>, kernel@collabora.com,
-	dri-devel@lists.freedesktop.org,
-	linux-arm-kernel@lists.infradead.org,
-	linux-rockchip@lists.infradead.org, linux-kernel@vger.kernel.org
-Subject: Re:[PATCH v2 1/2] drm/rockchip: vop2: Rename CSC_BT2020 to
- CSC_BT2020L
-X-Priority: 3
-X-Mailer: Coremail Webmail Server Version 2023.4-cmXT build
- 20260403(27802f6d) Copyright (c) 2002-2026 www.mailtech.cn 163com
-In-Reply-To: <20260601-vop2-bg-yuv-v2-1-e5aef1d16fec@collabora.com>
-References: <20260601-vop2-bg-yuv-v2-0-e5aef1d16fec@collabora.com>
- <20260601-vop2-bg-yuv-v2-1-e5aef1d16fec@collabora.com>
-X-CM-CTRLMSGS: orIOyHBsdXM9MTc4MDQwNjcwMjQ1N19lZTQ5OTRjYWQxNTQ3Yjk3MjcyNTg1M
- GQ4NWFkMjdiMA==
-X-NTES-SC: AL_Qu2TAvibuU8r5SabZ+kfmUgWjuw/WsG1v/Ul1YBSP556jDLp4yQsdlhFB13k6v+RMTGlqAieVTxg0OFXWa1WfaYt9nJWp8HBWVM13wAjL2z6rw==
-Content-Transfer-Encoding: base64
-Content-Type: text/plain; charset=UTF-8
+	id 1wUPR8-0000000D8GT-3G5c
+	for linux-arm-kernel@lists.infradead.org;
+	Tue, 02 Jun 2026 13:45:45 +0000
+Received: by mail-yw1-x1133.google.com with SMTP id 00721157ae682-7e053987001so25857827b3.0
+        for <linux-arm-kernel@lists.infradead.org>; Tue, 02 Jun 2026 06:45:41 -0700 (PDT)
+ARC-Seal: i=1; a=rsa-sha256; t=1780407941; cv=none;
+        d=google.com; s=arc-20240605;
+        b=bgICT252H00G+wZmGPwZPqlN+lgxC9t5Uq/IvA5eRtG38aXPWFyFmYeSpUl4K8pyQh
+         zfBrhHoEWizTG+Sx/KgarRRB2f07VOsGpkxMAwCJYVoCnsZ0USTIH94DZfkgQK7lgAr9
+         Z+BkQtPcZtXT47owZ7rPZaNP9dZ5zLVti1ltZbTjIMZqfhKgrLgiZodXTvBP1DBKcXSh
+         SgiJVWmyNAxcQd3IE/ZmeuEuu/tgqoaFV7qi4SUeFkys/fLqdopJjlvWxnbNZsPBHhBK
+         At0iA3kuOBudhsMl/nnF+946e3V6msj045OSfpC/sdAF9u7R/xvHChVOlCjDluPFtSR+
+         O2aw==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20240605;
+        h=content-transfer-encoding:cc:to:subject:message-id:date:from
+         :in-reply-to:references:mime-version:dkim-signature;
+        bh=PucKtDJMe6zdtKxDZ+KDmDvt++ux5fvyPgJXVX2gaxM=;
+        fh=g7gmdm7ktZ0QXbcVczpjMiufy2Cffhg5B9uJ6yxIClw=;
+        b=h5KxbuLQBw0I3Je8llAKbqnWjagdFmYRsJRijNelhciG+NIAzqwvo3FLZeqta3CqKE
+         zpfzbwVl+FSTbkNpI/cKWY0ZAEx4yEO6TjwOSJIQ3Eh7LXuyuFmNgkCRrTJIJQ6ruKWq
+         ctN4JQ7X2GqkItB5yIRloRpJDSISEGpHRij2Z9rk+ycB5jfhNYf7IOfH0Yf0PrW24dX0
+         l+hU6g81x1iDOxANKAGn1jft67+MN2VpbhIgWs6vVxV2YBY/Dh5gWBvomyIq1dTA2qxN
+         SgJ1vDDFuzmWEpKViotYWvnxV0jz/KiWsGDppujvJc2r75FA9IsquYqHf9vJHeqn7n4V
+         0fvg==;
+        darn=lists.infradead.org
+ARC-Authentication-Results: i=1; mx.google.com; arc=none
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=monstr-eu.20251104.gappssmtp.com; s=20251104; t=1780407941; x=1781012741; darn=lists.infradead.org;
+        h=content-transfer-encoding:cc:to:subject:message-id:date:from
+         :in-reply-to:references:mime-version:from:to:cc:subject:date
+         :message-id:reply-to;
+        bh=PucKtDJMe6zdtKxDZ+KDmDvt++ux5fvyPgJXVX2gaxM=;
+        b=zrlEFCJ+VgLVbrodC7qWE3tund9bhLLxpmeoimDUP6SYqo4B2v/ER51broJiCoqP1V
+         84WYVhvWG0iiuPwvLTssBwP47C12C74efa2C7TChvNCIF7Uya2Bcm35/Y/bXxX2Qg689
+         bg0wnBI+OKgSJ7zVGHKX47xzeCmHSb8yR520eEbJUBnEZ1gBhVQm9hyjGNEQ06fbps0b
+         R2L5rm6wNQrP+kOZxzT6KBK98q3Pmi1CW8UFjVAL8M0KyeqpG2IAzKR6w9HyeVnREUPR
+         gOcoYsUEmlPB8qtdjzX6pwJjiH6ZETYTj78BrwIxxGTa/tOZl0WKm+UsMN7A7yhAzLhl
+         ldQw==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20251104; t=1780407941; x=1781012741;
+        h=content-transfer-encoding:cc:to:subject:message-id:date:from
+         :in-reply-to:references:mime-version:x-gm-gg:x-gm-message-state:from
+         :to:cc:subject:date:message-id:reply-to;
+        bh=PucKtDJMe6zdtKxDZ+KDmDvt++ux5fvyPgJXVX2gaxM=;
+        b=PmgcRbyutnthzVsnkz8jmI1/Mi+fp50hDAasavydqlMuONP77eBoo7NCxoRrA8Q1ZD
+         ip4BSzCmtkByrjTyFZ5+8zTYcF+GKnQs6hytwIf+PCRBDei+r43lLYPGh9QBrUsA034q
+         Ggv9rxzxR9TnLiB44ln52CuTgAygcMF10w3lVLkPqLSOApqnRqBUd4T3oWAlmlJTeJtt
+         NWvEoPDImMeeVRCGT3sINbyKJ95fuwJ1El3VDfST+qz9zA2+LIUe9yIwEBh/5JeSYfQv
+         mEEQocX4LIl7hXydLEU2bfCiGEsf3AczreLMwF8pqj5W2OJqIeCTJC5+nZADFcKhk9FD
+         18mg==
+X-Forwarded-Encrypted: i=1; AFNElJ8QTkrwy4b/VVJYyzinPfwOR/uapT5i5cYc60JYnd4e6rQwxNvWjFpvmDkwtCs59I4cTS41lkpajjc+nPkMI2V2@lists.infradead.org
+X-Gm-Message-State: AOJu0Yy1+gotFQRym51CB8OLtL18ySPlp4iEK0gHzlEr0jkGDoumqbcX
+	ggHXjEf+o/l0QnIWESEeMNgsb84IUrnIXGF04o7sc+Un3a6h78lEdPVqWurEtRp2SYOW3ufEIUb
+	SmAX5iCaMk254SUH2457s97V6/HdRYD89/3fhPZe8uY80Yge+JiavRGO/
+X-Gm-Gg: Acq92OGkzDdn8GjHlML/OLbg3HDe+WEyhN9qhc0OBhnDrZ6idlVtmL+xpOMAUF57dak
+	Un7QuIC/bAoVSMAEqIMTo6rHQuQ7HAEOTw2uZ9CFqt4oTx0fZpKiXJm9XIbs2Km6+OhvSdTOxO+
+	1o0rTm4uk0kehAaySm9DMqmriZ7NySwOSe+cz/P4niHvg8YCW/kMZrfoiYMdoiwMBTTcctx8Yw/
+	HEwicIrd6sABIqoO80/3BGiVeo1y+7ddvJ42hMDoe7VcWrrLSN5wp5AGQjKFIciCalg+ehMEBvI
+	a6Bw5fx/sJNjkS/r/MZXo0gDDXuzI/73u9W8SkyFgA+idQRa8CSJNJHuO6RoUQ==
+X-Received: by 2002:a05:690e:408c:b0:65c:290a:d7ac with SMTP id
+ 956f58d0204a3-660a60f477bmr2995698d50.6.1780407940794; Tue, 02 Jun 2026
+ 06:45:40 -0700 (PDT)
 MIME-Version: 1.0
-Message-ID: <7bca6efb.a37a.19e88825619.Coremail.andyshrk@163.com>
-X-Coremail-Locale: zh_CN
-X-CM-TRANSID: eCgvCgDHT+ew2R5qI9cAAA--.8190W
-X-CM-SenderInfo: 5dqg52xkunqiywtou0bp/xtbC7g-DImoe2a-5LgAA3V
-X-Coremail-Antispam: 1U5529EdanIXcx71UUUUU7vcSsGvfC2KfnxnUU==
+References: <CAHTX3dKWE6DOPLXPq31wRiXfjac0TVqSOAOLP8itHoGYpF9eBA@mail.gmail.com>
+ <b56b09af-cd0a-4061-8cce-5e8a50033b4f@app.fastmail.com> <CAHTX3dL2W9iZDWLk=OVmno0ZUHx_EkXrJqskmpXCM_CQROWgEg@mail.gmail.com>
+ <55c1b29a-cdea-4508-b77f-d5a2da247662@app.fastmail.com>
+In-Reply-To: <55c1b29a-cdea-4508-b77f-d5a2da247662@app.fastmail.com>
+From: Michal Simek <monstr@monstr.eu>
+Date: Tue, 2 Jun 2026 15:45:31 +0200
+X-Gm-Features: AVHnY4IJdLvmxR6QW8fYJcxGv1ygcnwa_HYL_gCiFtUQ8w0cJZRCGJCbylQkZy0
+Message-ID: <CAHTX3dLhDT0TVD1+=MVzjNPAY6yi9Yba6WfZO1ihq+k_82n7Wg@mail.gmail.com>
+Subject: Re: [GIT PULL] arm64: AMD/Xilinx SOC changes for v7.2
+To: Arnd Bergmann <arnd@arndb.de>
+Cc: SoC Team <soc@kernel.org>, linux-arm <linux-arm-kernel@lists.infradead.org>
+Content-Type: text/plain; charset="UTF-8"
+Content-Transfer-Encoding: quoted-printable
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260602_062801_273390_C8AE8E10 
-X-CRM114-Status: UNSURE (   5.53  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20260602_064543_000899_886DED1B 
+X-CRM114-Status: GOOD (  36.24  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -86,31 +117,104 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-CkhlbGxvIENyaXN0aWFu77yMCgpBdCAyMDI2LTA2LTAyIDAyOjAwOjAzLCAiQ3Jpc3RpYW4gQ2lv
-Y2FsdGVhIiA8Y3Jpc3RpYW4uY2lvY2FsdGVhQGNvbGxhYm9yYS5jb20+IHdyb3RlOgo+UmVuYW1l
-IENTQ19CVDIwMjAgdG8gQ1NDX0JUMjAyMEwgZm9yIGNvbnNpc3RlbmN5IHdpdGggdGhlIG90aGVy
-Cj5saW1pdGVkLXJhbmdlIGVudW0gbWVtYmVycyAoQ1NDX0JUNjAxTCwgQ1NDX0JUNzA5TCkgYW5k
-IHRvIGRpc3Rpbmd1aXNoCj5pdCBmcm9tIGEgcG90ZW50aWFsIGZ1dHVyZSBmdWxsLXJhbmdlIEJU
-LjIwMjAgdmFyaWFudC4KPgo+U2lnbmVkLW9mZi1ieTogQ3Jpc3RpYW4gQ2lvY2FsdGVhIDxjcmlz
-dGlhbi5jaW9jYWx0ZWFAY29sbGFib3JhLmNvbT4KPi0tLQo+IGRyaXZlcnMvZ3B1L2RybS9yb2Nr
-Y2hpcC9yb2NrY2hpcF9kcm1fdm9wMi5jIHwgMiArLQo+IGRyaXZlcnMvZ3B1L2RybS9yb2NrY2hp
-cC9yb2NrY2hpcF9kcm1fdm9wMi5oIHwgMiArLQo+IDIgZmlsZXMgY2hhbmdlZCwgMiBpbnNlcnRp
-b25zKCspLCAyIGRlbGV0aW9ucygtKQo+Cj5kaWZmIC0tZ2l0IGEvZHJpdmVycy9ncHUvZHJtL3Jv
-Y2tjaGlwL3JvY2tjaGlwX2RybV92b3AyLmMgYi9kcml2ZXJzL2dwdS9kcm0vcm9ja2NoaXAvcm9j
-a2NoaXBfZHJtX3ZvcDIuYwo+aW5kZXggYTE2MDA3N2E1MDdmLi42NGFjMDdjYjFiMGQgMTAwNjQ0
-Cj4tLS0gYS9kcml2ZXJzL2dwdS9kcm0vcm9ja2NoaXAvcm9ja2NoaXBfZHJtX3ZvcDIuYwo+Kysr
-IGIvZHJpdmVycy9ncHUvZHJtL3JvY2tjaGlwL3JvY2tjaGlwX2RybV92b3AyLmMKPkBAIC02NTgs
-NyArNjU4LDcgQEAgc3RhdGljIGludCB2b3AyX2NvbnZlcnRfY3NjX21vZGUoaW50IGNzY19tb2Rl
-KQo+IAljYXNlIFY0TDJfQ09MT1JTUEFDRV9KUEVHOgo+IAkJcmV0dXJuIENTQ19CVDYwMUY7Cj4g
-CWNhc2UgVjRMMl9DT0xPUlNQQUNFX0JUMjAyMDoKPi0JCXJldHVybiBDU0NfQlQyMDIwOwo+KwkJ
-cmV0dXJuIENTQ19CVDIwMjBMOwo+IAlkZWZhdWx0Ogo+IAkJcmV0dXJuIENTQ19CVDcwOUw7Cj4g
-CX0KPmRpZmYgLS1naXQgYS9kcml2ZXJzL2dwdS9kcm0vcm9ja2NoaXAvcm9ja2NoaXBfZHJtX3Zv
-cDIuaCBiL2RyaXZlcnMvZ3B1L2RybS9yb2NrY2hpcC9yb2NrY2hpcF9kcm1fdm9wMi5oCj5pbmRl
-eCAzNzcyMjY1Mjg0NGEuLmZmY2IzOWMxMzBhYSAxMDA2NDQKPi0tLSBhL2RyaXZlcnMvZ3B1L2Ry
-bS9yb2NrY2hpcC9yb2NrY2hpcF9kcm1fdm9wMi5oCj4rKysgYi9kcml2ZXJzL2dwdS9kcm0vcm9j
-a2NoaXAvcm9ja2NoaXBfZHJtX3ZvcDIuaAo+QEAgLTM3Myw3ICszNzMsNyBAQCBlbnVtIHZvcF9j
-c2NfZm9ybWF0IHsKPiAJQ1NDX0JUNjAxTCwKPiAJQ1NDX0JUNzA5TCwKPiAJQ1NDX0JUNjAxRiwK
-Pi0JQ1NDX0JUMjAyMCwKPisJQ1NDX0JUMjAyMEwsCj4gfTsKCgoKICBBY2tlZC1ieTogQW5keSBZ
-YW4gPGFuZHlzaHJrQDE2My5jb20+CgoKPiAKPiBlbnVtIHNyY19mYWN0b3JfbW9kZSB7Cj4KPi0t
-IAo+Mi41NC4wCg==
+=C3=BAt 2. 6. 2026 v 15:00 odes=C3=ADlatel Arnd Bergmann <arnd@arndb.de> na=
+psal:
+>
+> On Tue, Jun 2, 2026, at 14:29, Michal Simek wrote:
+> > po 1. 6. 2026 v 22:39 odes=C3=ADlatel Arnd Bergmann <arnd@arndb.de> nap=
+sal:
+> >>
+> >> What type of userspace would access those, and why can't
+> >> this be done in a portable way?
+> >
+> > multiboot is useful for A/B updates when used. It is also pointing to
+> > where the boot image exactly is.
+>
+> That sounds like it should use a reboot-mode driver. There is
+> a patchset that streamlines the reboot parameter passing that
+> will hopefully get merged soon, see:
+
+not really. When you ask for a reboot you could reuse this mechanism
+to boot to a different
+image but in A/B which would be a very hard way to do it. We do use
+ARM DEN0118 spec
+with mdata for it. It means actual change in multiboot is done by low
+level firmware where
+different values are read based on mdata structure.
+
+> https://lore.kernel.org/all/20260514-arm-psci-system_reset2-vendor-reboot=
+s-v22-0-28a5bde07483@oss.qualcomm.com/
+>
+> If you can't fit this into PSCI reboot arguments, you can
+> add a custom driver here that picks the A/B update etc
+
+A/B in our way will be handled via capsule update/u-boot via ESP partition.
+
+Maybe it was misleading to point to A/B. Even when you have a single image
+it is useful to know which offset was used for boot. Because you can
+have fallback images
+if the first one is broken/corrupted.
+I was more thinking that maybe useful would be to share it via nvmem
+like it is done for some other options
+drivers/nvmem/zynqmp_nvmem.c.
+
+> > idcode/pcap for fpga programming case. That your bitstream matches the =
+device
+> > you use.
+> > Scripts or user programs can use them.
+>
+> You already have an fpga driver, right? Why is that not part of
+> its user interface?
+
+The fpga driver is just loading the boot image and providing a way to
+firmware to do it.
+There are different types of bitstreams/formats. Bitstream in bit
+format has header which you can validate,
+bitstream in bin format don't have this header. Then you have also
+encrypted bitstreamed, compressed one, etc.
+
+When you have support for more silicons (different PL sizes) you
+should know which bitstreams need to be loaded,
+passed to be programmed.
+
+Maybe at the end of a day instead of creating a custom driver with a
+custom sysfs interface we can create a nvmem driver
+which can dynamically create cells based on firmware interface.
+
+>
+> > IDcode could be the part of SMCCC_ARCH_SOC_ID but we can't change what
+> > we have done in the past
+> > but we plan to implement plat_get_soc_name() which will also contain
+> > IDcode. That's the one where a standard interface could be used.
+>
+> I'm not sure what plat_get_soc_name() does, I don't see that in
+> the current sources, but can have multiple soc_device drivers
+> and use soc_device_match() in drivers to compare the ID
+> string from the platform with a known lists for things like
+> driver quirks.
+
+Sorry that's function name from TF-A
+In Linux kernel you have smccc_soc_name_init()
+
+in our case version/revisions are defined (and to be fair to say our
+firmware messes up with version/revision)
+but SOC_NAME is unused today for us and that can be used for passing more
+information about system/chip.
+
+> If there is a hardware interface to find out the ID, just add
+> a driver that registers another soc_device in addition to the
+> SMCCC one, and soc_device_match() will attempt to match each
+> one separately.
+
+yep.
+
+Thanks,
+Michal
+
+--
+Michal Simek, Ing. (M.Eng), OpenPGP -> KeyID: FE3D1F91
+w: www.monstr.eu p: +42-0-721842854
+Maintainer of Linux kernel - Xilinx Microblaze
+Maintainer of Linux kernel - Xilinx Zynq ARM and ZynqMP ARM64 SoCs
+U-Boot custodian - Xilinx Microblaze/Zynq/ZynqMP/Versal SoCs
 
