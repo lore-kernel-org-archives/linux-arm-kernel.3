@@ -4,60 +4,127 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id A4DD6CD5BD1
-	for <linux-arm-kernel@archiver.kernel.org>; Tue,  2 Jun 2026 21:26:54 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id F181FCD5BD1
+	for <linux-arm-kernel@archiver.kernel.org>; Tue,  2 Jun 2026 21:31:00 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:In-Reply-To:
+	Content-Type:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
 	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=ze0kNDk6g2fIlh+GS7Z/yQ6VYddrJB+PKpzcEjeF1PU=; b=1gVEFXHyDTc8x4InzDg1xv3YxQ
-	RLnRgb9Ut72pT2sbedtyh1OLOYPIJpaJAM97AHd6yCjmllpzFAGhkpgGmqRhrCSH6cVgezFkDNOL3
-	VxLWXFIYO1xefhZBypv3ItOHvDU2SvmQILW+iJ7HhmOU8c/G6niheB9z6KL9JBDgCeV9p4IKVSJtk
-	YJPAhJHhGw7tPPVNpYPqzPzHN2Mi5CaJwKtmKq5Z9Y0nvwFaNC+8+Ijjh2IVISaISKXusWgAJxmgF
-	toDPwxK2eDmLdVSu1zQ9JzdTJ+TlEE10C/kiNsw4rTFz7Jy1CjsrI3E2tAMnCyPufiGMU444XgPlO
-	3tyKrBeQ==;
+	bh=qYVpYlI1Ds2TmRULjV9jF3RCcVpAJOhIes5qsrdqEk8=; b=IvwLuI7l9v8a64py+yImiuN5kX
+	ATpuycMjbj/nqDuCo1TNfxM5b0WuPUD1Teu26EvcCdvIpQ1vAuxRH8gIVrovOpSfRntM3+8QG/tMr
+	4x2PQ/EHYSYX04N6cjwnOltY/4qkx0a2Erf1qjGk4f3ov/vhndZ+jLrXwGbp6fPZNSDX3L8kfj3dB
+	6kWS0OiB1I0W3soTZm2s211VO+KOHEfP84Q1kTHKYulnYp4Pws8obYjgAf1Mxb4SbB5wUiRV93OMR
+	E3iS6xnKDNKOLvBUew8FKxx2g3BxjQaoOwkNCdXbtDf//CoZZKPZHnabsU76uxy9USBt2uFiVHdx4
+	cDnzbc/w==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wUWdM-0000000Dowd-39Bb;
-	Tue, 02 Jun 2026 21:26:48 +0000
-Received: from tor.source.kernel.org ([172.105.4.254])
+	id 1wUWhK-0000000DpaW-2fSU;
+	Tue, 02 Jun 2026 21:30:54 +0000
+Received: from mail-norwayeastazon11013010.outbound.protection.outlook.com ([40.107.159.10] helo=OSPPR02CU001.outbound.protection.outlook.com)
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wUWdK-0000000Dovy-489K
+	id 1wUWhI-0000000Dpa4-1TGf
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 02 Jun 2026 21:26:47 +0000
-Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
-	by tor.source.kernel.org (Postfix) with ESMTP id 16A01601FD;
-	Tue,  2 Jun 2026 21:26:46 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 9D6DD1F0089B;
-	Tue,  2 Jun 2026 21:26:45 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1780435605;
-	bh=ze0kNDk6g2fIlh+GS7Z/yQ6VYddrJB+PKpzcEjeF1PU=;
-	h=Date:From:To:Cc:Subject:References:In-Reply-To;
-	b=KFwHDOgFvIhGuQcI+ESC5fZw6qjE8ld7genCRd/zpNjBooCmQS5a0A/NAntHb9aNl
-	 7HPL4It0xnAM9X5Rn2oeMnoTHUWVDv3/pxh0qCql2xq1tS/eQDES3Hss0tsZqlrL4r
-	 iCmxBdnQwfk/uVoIei8Iuz5ghvmKZ+vTQ3JVEkq0Lf3UErTx6YwGhhV3Wm6JcPSXZz
-	 bUW5/pTfsD7XocB2uKoZYFTnPX6z8YN9Cz7iJVD0dy8I+IinFopnCMZSj2hkoSCDt9
-	 PiG4pFn4T+tcX21l20/ursTZXm6L8pULwJSI5i3+ZMQhQXvq7+xvXV5RxYkN7IuCY0
-	 6I289whe+O/XA==
-Date: Tue, 2 Jun 2026 14:26:44 -0700
-From: Oliver Upton <oupton@kernel.org>
-To: Hyunwoo Kim <imv4bel@gmail.com>
-Cc: maz@kernel.org, joey.gouly@arm.com, seiden@linux.ibm.com,
-	suzuki.poulose@arm.com, yuzenghui@huawei.com,
-	catalin.marinas@arm.com, will@kernel.org, kees@kernel.org,
-	linux-arm-kernel@lists.infradead.org, kvmarm@lists.linux.dev,
-	linux-kernel@vger.kernel.org
-Subject: Re: [PATCH] KVM: arm64: vgic-its: Drop the translation cache
- reference only for the erased entry
-Message-ID: <ah9KlG9agyde6Ipf@kernel.org>
-References: <ah2c5lu4JbUg7dj-@v4bel>
-MIME-Version: 1.0
+	Tue, 02 Jun 2026 21:30:53 +0000
+ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
+ b=InIVeZedDjXfo31+yMH7//K2oQ9RVejq3+1tCaDxgbfm1d70LVkfydZi0Iy8nwZYNPLz/JIYEZSDznMBN08f7N1ESYSeKgGXtQWZ69hAl28KDHLPmbN3hrWyAsYzREgaP2z4hICaZQaLOrphb5h5j612lEZTvQD58mlBo9A3DUT747IQITIhY3Plzm2fUmvymhlZ7idYvfINJLNMXoc23+IvnehYwLv85ZqeVPv7hHOny3cbPl6FS0+7ZOjU0uASlWaknY1gC7cMmmfBgLh+9s/IN5vXsIFvSgBEeFFabwr15b3n/90hXL0X2LaAwz3Dapv13lRLqv9JcmLT/L4Nmg==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
+ s=arcselector10001;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
+ bh=qYVpYlI1Ds2TmRULjV9jF3RCcVpAJOhIes5qsrdqEk8=;
+ b=noeP74dTv3h2j/+KcDK93LIReaKNInYvAECxbft0PsMveNi5HoA3qphIXZQ8V0MervmhlK7y5H1vCVAadOy1hjS5mrhFF5liCdbxhMqvxWRj9dRhN4ulKWTF1cZiRibe3f4ZQb39yVtbvjim4N7nqVIzB93zvKvuc1UEj3bGnbmQfn9N+zHH9UXNbVqpXm6RlZKglYsiuTqbZZNsJ7dXf8t/BkwxWeGP6WZGspoMlcaqZO17+UP7SUdhPsvc51bRW1mS2aCRdXPK4+00fck8lBxtKMyCXGRpadDxu4rMc+VBwxbOz2WmFv5wIDlUYbh2aRjSxtdieJqlUEiUESw3mw==
+ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
+ smtp.mailfrom=nxp.com; dmarc=pass action=none header.from=nxp.com; dkim=pass
+ header.d=nxp.com; arc=none
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=nxp.com; s=selector1;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
+ bh=qYVpYlI1Ds2TmRULjV9jF3RCcVpAJOhIes5qsrdqEk8=;
+ b=aur8VarueS+hUaxCJAV5je34tqlaH/B0P7xlWlbGvX2pUd1GvV6m/q4+II/10WB6F7q9VGu/HcFXnDIAw91VqOgt37Wc1qCFyjc5Y3cypieU8WF1gi0DA7fQBjfqoE0nGPcIoSJCkAibetKt16WgB+jidDs2G24wdG+XWqSdj8Ma1OZgE+Y5gHpv2EKf+Nx/sdwjHAeysJLzraDD6h/zQgNsisfzkP9Eh5vPnfxK66o+0UkycpnkPNbYmu1ZgJNFC6/iicgsI0IJh2KgxvO3OnfH6fb5bOVxryzFMKyAiaTj9o8nmLEkiS40RYzz0rU2RmTwb0c9faxIlIYWXwBlQA==
+Authentication-Results: dkim=none (message not signed)
+ header.d=none;dmarc=none action=none header.from=nxp.com;
+Received: from PA4PR04MB9366.eurprd04.prod.outlook.com (2603:10a6:102:2a9::8)
+ by AM9PR04MB8131.eurprd04.prod.outlook.com (2603:10a6:20b:3ed::21) with
+ Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.21.71.12; Tue, 2 Jun 2026
+ 21:30:47 +0000
+Received: from PA4PR04MB9366.eurprd04.prod.outlook.com
+ ([fe80::75e4:8143:ddbc:6588]) by PA4PR04MB9366.eurprd04.prod.outlook.com
+ ([fe80::75e4:8143:ddbc:6588%3]) with mapi id 15.21.0071.015; Tue, 2 Jun 2026
+ 21:30:47 +0000
+Date: Tue, 2 Jun 2026 17:30:40 -0400
+From: Frank Li <Frank.li@nxp.com>
+To: Rosen Penev <rosenp@gmail.com>
+Cc: linux-i2c@vger.kernel.org, Andi Shyti <andi.shyti@kernel.org>,
+	Sascha Hauer <s.hauer@pengutronix.de>,
+	Pengutronix Kernel Team <kernel@pengutronix.de>,
+	Fabio Estevam <festevam@gmail.com>,
+	"open list:ARM/FREESCALE IMX / MXC ARM ARCHITECTURE" <imx@lists.linux.dev>,
+	"moderated list:ARM/FREESCALE IMX / MXC ARM ARCHITECTURE" <linux-arm-kernel@lists.infradead.org>,
+	open list <linux-kernel@vger.kernel.org>
+Subject: Re: [PATCH] i2c: mxs: add missing kernel-doc for struct mxs_i2c_dev
+ members
+Message-ID: <ah9LgLKcriw4qFlc@lizhi-Precision-Tower-5810>
+References: <20260530200554.8415-1-rosenp@gmail.com>
 Content-Type: text/plain; charset=us-ascii
 Content-Disposition: inline
-In-Reply-To: <ah2c5lu4JbUg7dj-@v4bel>
+In-Reply-To: <20260530200554.8415-1-rosenp@gmail.com>
+X-ClientProxiedBy: PH7PR10CA0013.namprd10.prod.outlook.com
+ (2603:10b6:510:23d::9) To PA4PR04MB9366.eurprd04.prod.outlook.com
+ (2603:10a6:102:2a9::8)
+MIME-Version: 1.0
+X-MS-PublicTrafficType: Email
+X-MS-TrafficTypeDiagnostic: PA4PR04MB9366:EE_|AM9PR04MB8131:EE_
+X-MS-Office365-Filtering-Correlation-Id: 7f5ba44f-1291-4b30-b05a-08dec0ee35d7
+X-MS-Exchange-SenderADCheck: 1
+X-MS-Exchange-AntiSpam-Relay: 0
+X-Microsoft-Antispam: BCL:0;ARA:13230040|376014|1800799024|366016|52116014|19092799006|56012099006|11063799006|18002099003|22082099003|38350700014;
+X-Microsoft-Antispam-Message-Info: jAzJ2c8aRJho6OqO+pN7hCINLay1mQuK1bPYPML9Drg1XMJGkuudjy3LIm018qRfL4TJ/GCbhwPA1mV3yDwhDkj4A+SMeE2spV2AX2s1BLpLjAkE8fIMIzcoJezZAyHR+k6Gn1HwUr/A9d0bI1yyp/+XleiMHIH+SQOHRlyYo+5w6utR9omOizAYGpkyImMPpe/5Em4xYzrdT4aOlhX6TnD4+gtfyl3DT/MhkggCMsaBCnpEjA3dsQ4x1LRVKIgZzhj64KCtecGh8BZ4+izsSah8+/hymYhG5RtUaG7LIcihtLGSqQkJ87c3zIgASRgmJ0CYQAGjXlZjojPES6/3DITiCt5hwJHcP8t5t9LvkWn+YTndcNYNouB1IAXm2fjEDT2y2QaCEAN1Ygt8riXhY3hN1rc01EMNQEESQ5+xlAmn8T3jIXoXuWrUTaKAMWK7KM7oNTsltKAcoSEc+xfuzmRZ77B+ihyrJsAGNBWeeoHpvT3v6UzrOl2hRHUXec5HOBQenaNEbkWi23VEKJZzbK6kmndiuyRbGB/2YfEsgWyJInEgESt+X6IpX8PqA3xuD3Aef/RQlxFepoZJ4XvaD+gxKz/LmJi8pOkEVYXN8z3cyZVDW3xuQHnu0gm30vBPVhv1VyERhKitLJq3IZttR0Li6j9cvrdTCw/qo1R/O+KYkDzDC4d4D88/7pdErNZZfcswm6xZmpn75++QTh469wQ3y+8jfHQL/psSgVPvh7wIJRBHcxuqcHk10m+BT+sl
+X-Forefront-Antispam-Report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:PA4PR04MB9366.eurprd04.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(376014)(1800799024)(366016)(52116014)(19092799006)(56012099006)(11063799006)(18002099003)(22082099003)(38350700014);DIR:OUT;SFP:1101;
+X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
+X-MS-Exchange-AntiSpam-MessageData-0: =?us-ascii?Q?npzBfc770EZPjT7cxVNCaHCDQm1IgViM4a0CcSuoDYNkQVT0xO2ifd8xoDxF?=
+ =?us-ascii?Q?JSROOVYq74g2mUTsDepCSvQRFsP5SAeEEHS12OcxBYexAEKunf/aAW2GleTi?=
+ =?us-ascii?Q?9klJYKIIlWa4tSlJhsoorat6DjggkJ0bb1t9v96dOHdgY7CTudKzSXGQ9EK2?=
+ =?us-ascii?Q?vlWqNiTFPvwOU9NRYUga3KLRQfV/Tlra2el7r20roQ74IskRPxrel3ktp94V?=
+ =?us-ascii?Q?ib1/8qpPVgtFcuwm6PPXhL8ygMdfuTM89/qp5UqkXTE9F7UzTeyE3NJ68mm4?=
+ =?us-ascii?Q?hjgKx07yDehse1xa6yy1TaJF6IJBAuszHTpmsVfVyIZBTFTKPPxKOH1566B5?=
+ =?us-ascii?Q?cdKkUkxwW/54PjtyNg0GT8GY+dTdj7l86dJBFQY3/LhzUhFiJAwb9qwtUAet?=
+ =?us-ascii?Q?c0ZASgPULKmmAi+WMdEYsLd5gyn3DkOs/v1btPpYDTehO8fT1l7l6HFz4gPO?=
+ =?us-ascii?Q?BmYi1nIyyyYk9UXKg/Y6eJRBR1UHgkKT+U6hG5UlceOp0t/gSNBE/zz7BZF0?=
+ =?us-ascii?Q?w69ZaxDOE2cT784ld90WeBzg00lO/N3wWE/VE5wFN2UvINjbaU7nojldg2M5?=
+ =?us-ascii?Q?7+98m/v9+dQTKeLFRNyZbZpiBllWUepc0UMvpfyYkZYVjBBr3q4qY3zpgKAU?=
+ =?us-ascii?Q?EVrDtxb7EDIn1+0Aia3B0rxFVsEXai2KOVvuCfDE8X2cQt/WrCh0OXmrBzL+?=
+ =?us-ascii?Q?hrfzjKdE1cstRariTc1vz5rtSk6K9GkqVYo3jUGtmyPN4AzSM5xF45B/RVrC?=
+ =?us-ascii?Q?4wuaCPVGWjZUiHZ1+35jHFop9J53UmGKQ36rZXm1suO3ze9CDLqSErN5HRLM?=
+ =?us-ascii?Q?aRsTIH/ymr5d1qRCE9AyhDt7VEqnnX7qBcEOhQ/Jaj1DjctTy91982bRR1s1?=
+ =?us-ascii?Q?QOSd8OoycW9qJU3e8qG78w3+uCngCwwnE/Kfpub5959UrWLy4/Pdh5KzJNOs?=
+ =?us-ascii?Q?PhRfZC3UZuGxOebtK4eobxYMqMjrChfCozE3OCSHpQRD/Q89qTJqH/bqJSVe?=
+ =?us-ascii?Q?Ewg3iryVet5nzTH2frtvXgcFLkbXoNxc9D4yhoizQvd0Ad2ujaot8fZ3wIYz?=
+ =?us-ascii?Q?TDX4kVkIY9m2hSkiRZxg4HTNcxmNe8zn8rh0+SRQ/huIrOhSQ0IfJX/263rr?=
+ =?us-ascii?Q?ofrRu4maU26THjXbIDbC4yYG1+KRgsZNAL5drfP0KQjTvBGMsLLxmaD1srwy?=
+ =?us-ascii?Q?mnmVNVmUzUcLDGAR/Mc7Y/GIHHstFQmaZAN8Duw6NCapIxMMlDIfe6aOXtuC?=
+ =?us-ascii?Q?78mt6P67CS4fIQlGF/5dDtPRabVRIByjkeId9S+QzSrfK4WOZNa7fRk6D8j+?=
+ =?us-ascii?Q?gvlWn7DiLPyUKET4WKUTtnc3KV4zTNP3sQGoG1pBgQHCkIe6Bo42NXYYKV/v?=
+ =?us-ascii?Q?xdBn+tv1K7tKmsVfrbL6VvH82dXU29uDBfg8Dhs4XOvMHsUiQtxE827n/b5b?=
+ =?us-ascii?Q?kadZIDfJSmuiMZU64WAADYTjEl3FzgxYInsvLzjEX8vxNDOAx3UVDLlV9fPV?=
+ =?us-ascii?Q?mfuMvSZ5HU3rMcmJngJSwZ4P9LdTqmrnvB604MuB5nDVtGQwlve5CvnMCQOy?=
+ =?us-ascii?Q?tvwy8ztlQb7myUenKszBTVJ7+XOZuCwIkThp7M7rANP65r8c7VuXvkXM4DvZ?=
+ =?us-ascii?Q?rcU/QRa1XapWUeRhVAMWY2LINAN4UUbuLWbL4JzumjWLbSsNEN1btJZbniGT?=
+ =?us-ascii?Q?Hrs46AYzlpO6R3DsSqy1MPeuYcHt6TC2jdycjEgJNhqjbQNe?=
+X-OriginatorOrg: nxp.com
+X-MS-Exchange-CrossTenant-Network-Message-Id: 7f5ba44f-1291-4b30-b05a-08dec0ee35d7
+X-MS-Exchange-CrossTenant-AuthSource: PA4PR04MB9366.eurprd04.prod.outlook.com
+X-MS-Exchange-CrossTenant-AuthAs: Internal
+X-MS-Exchange-CrossTenant-OriginalArrivalTime: 02 Jun 2026 21:30:47.2676
+ (UTC)
+X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
+X-MS-Exchange-CrossTenant-Id: 686ea1d3-bc2b-4c6f-a92c-d99c5c301635
+X-MS-Exchange-CrossTenant-MailboxType: HOSTED
+X-MS-Exchange-CrossTenant-UserPrincipalName: Z0J3W0E4PCpP3DSSjDMRK4/HA1IPhUYpk5y96cGR6FLxHx+UldnVl38KchJ9DX9N5pchyQqk++tz/lqFtorx+A==
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: AM9PR04MB8131
+X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
+X-CRM114-CacheID: sfid-20260602_143052_417481_EEAEA183 
+X-CRM114-Status: GOOD (  17.07  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -72,55 +139,42 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Mon, Jun 01, 2026 at 11:53:26PM +0900, Hyunwoo Kim wrote:
-> vgic_its_invalidate_cache() walks the per-ITS translation cache with
-> xa_for_each() and drops the cache's reference on each entry with
-> vgic_put_irq(). It puts the iterated pointer, though, rather than the
-> value returned by xa_erase().
-> 
-> The function is called from contexts that do not exclude one another: the
-> ITS command handlers hold its_lock, the GITS_CTLR write path holds
-> cmd_lock, and the path that clears EnableLPIs in a redistributor's
-> GICR_CTLR holds neither. Two or more of them can drain the same cache
-> concurrently, and if each one observes the same entry, erases it and then
-> puts it, the single reference the cache holds on that entry is dropped
-> more than once. The entry can then be freed while an ITE still maps it.
-> 
-> xa_erase() is atomic and returns the previous entry, so put only the entry
-> that this context actually removed. The cache reference is then dropped
-> exactly once per entry even when the invalidations run concurrently, and
-> the behavior is unchanged when only one context runs.
-> 
-> Fixes: 8201d1028caa ("KVM: arm64: vgic-its: Maintain a translation cache per ITS")
-> Signed-off-by: Hyunwoo Kim <imv4bel@gmail.com>
+On Sat, May 30, 2026 at 01:05:54PM -0700, Rosen Penev wrote:
+> Add kernel-doc documentation for the struct members that were previously
+> undocumented. This fixes warnings when building with W=1 and ensures
+> the struct is fully documented per kernel-doc conventions.
+>
+> Assisted-by: Opencode:Big-pickle
+> Signed-off-by: Rosen Penev &lt;rosenp@gmail.com&gt;
 
-Reviewed-by: Oliver Upton <oupton@kernel.org>
+&lt; is html tags. Please fix it.
 
-Thanks,
-Oliver
+Frank
 
 > ---
->  arch/arm64/kvm/vgic/vgic-its.c | 6 ++++--
->  1 file changed, 4 insertions(+), 2 deletions(-)
-> 
-> diff --git a/arch/arm64/kvm/vgic/vgic-its.c b/arch/arm64/kvm/vgic/vgic-its.c
-> index 1d7e5d560af4..1e3706ac3b8e 100644
-> --- a/arch/arm64/kvm/vgic/vgic-its.c
-> +++ b/arch/arm64/kvm/vgic/vgic-its.c
-> @@ -597,8 +597,10 @@ static void vgic_its_invalidate_cache(struct vgic_its *its)
->  	unsigned long idx;
->  
->  	xa_for_each(&its->translation_cache, idx, irq) {
-> -		xa_erase(&its->translation_cache, idx);
-> -		vgic_put_irq(kvm, irq);
-> +		/* Only the context that erases the entry drops its cache ref. */
-> +		irq = xa_erase(&its->translation_cache, idx);
-> +		if (irq)
-> +			vgic_put_irq(kvm, irq);
->  	}
->  }
->  
-> -- 
-> 2.43.0
-> 
+>  drivers/i2c/busses/i2c-mxs.c | 8 ++++++++
+>  1 file changed, 8 insertions(+)
+>
+> diff --git a/drivers/i2c/busses/i2c-mxs.c b/drivers/i2c/busses/i2c-mxs.c
+> index 08c9091a1e35..4e07babea9c3 100644
+> --- a/drivers/i2c/busses/i2c-mxs.c
+> +++ b/drivers/i2c/busses/i2c-mxs.c
+> @@ -108,6 +108,14 @@ enum mxs_i2c_devtype {
+>   * @cmd_complete: completion object for transaction wait
+>   * @cmd_err: error code for last transaction
+>   * @adapter: i2c subsystem adapter node
+> + * @timing0: I2C TIMING0 register value
+> + * @timing1: I2C TIMING1 register value
+> + * @timing2: I2C TIMING2 register value
+> + * @dmach: DMA channel
+> + * @pio_data: PIO data for DMA
+> + * @addr_data: address data for DMA
+> + * @sg_io: scatterlist for I/O
+> + * @dma_read: flag indicating DMA read
+>   */
+>  struct mxs_i2c_dev {
+>  	struct device *dev;
+> --
+> 2.54.0
+>
 
