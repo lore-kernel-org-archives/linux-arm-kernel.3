@@ -4,127 +4,85 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id F181FCD5BD1
-	for <linux-arm-kernel@archiver.kernel.org>; Tue,  2 Jun 2026 21:31:00 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id EF72DCD6E5D
+	for <linux-arm-kernel@archiver.kernel.org>; Tue,  2 Jun 2026 21:33:20 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:In-Reply-To:
-	Content-Type:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
 	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=qYVpYlI1Ds2TmRULjV9jF3RCcVpAJOhIes5qsrdqEk8=; b=IvwLuI7l9v8a64py+yImiuN5kX
-	ATpuycMjbj/nqDuCo1TNfxM5b0WuPUD1Teu26EvcCdvIpQ1vAuxRH8gIVrovOpSfRntM3+8QG/tMr
-	4x2PQ/EHYSYX04N6cjwnOltY/4qkx0a2Erf1qjGk4f3ov/vhndZ+jLrXwGbp6fPZNSDX3L8kfj3dB
-	6kWS0OiB1I0W3soTZm2s211VO+KOHEfP84Q1kTHKYulnYp4Pws8obYjgAf1Mxb4SbB5wUiRV93OMR
-	E3iS6xnKDNKOLvBUew8FKxx2g3BxjQaoOwkNCdXbtDf//CoZZKPZHnabsU76uxy9USBt2uFiVHdx4
-	cDnzbc/w==;
+	bh=jdudOJL+raYR/P30MGb9StMfBGEfajIKmHJbLO4Ebr8=; b=CQjis+YTOkgDpwjGTCqOdynxZV
+	8bMZ2esVOWslA1nw+UZhFWuO8Pnr769NfL2HsTEnUoLlFVjYSrvTy1u1WJARteLoSg2ZQV3BdAk6w
+	p9VUSSGVgGbOpXc+S6Xq9rrGziCgfy4DpwrAiLAyeGG6O2bi7yCMkPvgHFi7W5/tGYxoovWD7yI83
+	+mw3rQ8NAPELKp7jB25vIDKJQOsumaiUBSNcZwmHGxYEeDga5VeDz05mSrmc8YLwLSNJeEDvqVDbV
+	AOtshhWyT7sbtOx+PuqDkCMTsll6IvNdxvIxT86c+eg5S4muwtXPcGTilZEMSPMuRP7UUJWkfaIwf
+	eY96RfYA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wUWhK-0000000DpaW-2fSU;
-	Tue, 02 Jun 2026 21:30:54 +0000
-Received: from mail-norwayeastazon11013010.outbound.protection.outlook.com ([40.107.159.10] helo=OSPPR02CU001.outbound.protection.outlook.com)
+	id 1wUWjZ-0000000Dpkm-3gBh;
+	Tue, 02 Jun 2026 21:33:13 +0000
+Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wUWhI-0000000Dpa4-1TGf
+	id 1wUWjX-0000000Dpk7-2klX
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 02 Jun 2026 21:30:53 +0000
-ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
- b=InIVeZedDjXfo31+yMH7//K2oQ9RVejq3+1tCaDxgbfm1d70LVkfydZi0Iy8nwZYNPLz/JIYEZSDznMBN08f7N1ESYSeKgGXtQWZ69hAl28KDHLPmbN3hrWyAsYzREgaP2z4hICaZQaLOrphb5h5j612lEZTvQD58mlBo9A3DUT747IQITIhY3Plzm2fUmvymhlZ7idYvfINJLNMXoc23+IvnehYwLv85ZqeVPv7hHOny3cbPl6FS0+7ZOjU0uASlWaknY1gC7cMmmfBgLh+9s/IN5vXsIFvSgBEeFFabwr15b3n/90hXL0X2LaAwz3Dapv13lRLqv9JcmLT/L4Nmg==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
- s=arcselector10001;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
- bh=qYVpYlI1Ds2TmRULjV9jF3RCcVpAJOhIes5qsrdqEk8=;
- b=noeP74dTv3h2j/+KcDK93LIReaKNInYvAECxbft0PsMveNi5HoA3qphIXZQ8V0MervmhlK7y5H1vCVAadOy1hjS5mrhFF5liCdbxhMqvxWRj9dRhN4ulKWTF1cZiRibe3f4ZQb39yVtbvjim4N7nqVIzB93zvKvuc1UEj3bGnbmQfn9N+zHH9UXNbVqpXm6RlZKglYsiuTqbZZNsJ7dXf8t/BkwxWeGP6WZGspoMlcaqZO17+UP7SUdhPsvc51bRW1mS2aCRdXPK4+00fck8lBxtKMyCXGRpadDxu4rMc+VBwxbOz2WmFv5wIDlUYbh2aRjSxtdieJqlUEiUESw3mw==
-ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
- smtp.mailfrom=nxp.com; dmarc=pass action=none header.from=nxp.com; dkim=pass
- header.d=nxp.com; arc=none
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=nxp.com; s=selector1;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
- bh=qYVpYlI1Ds2TmRULjV9jF3RCcVpAJOhIes5qsrdqEk8=;
- b=aur8VarueS+hUaxCJAV5je34tqlaH/B0P7xlWlbGvX2pUd1GvV6m/q4+II/10WB6F7q9VGu/HcFXnDIAw91VqOgt37Wc1qCFyjc5Y3cypieU8WF1gi0DA7fQBjfqoE0nGPcIoSJCkAibetKt16WgB+jidDs2G24wdG+XWqSdj8Ma1OZgE+Y5gHpv2EKf+Nx/sdwjHAeysJLzraDD6h/zQgNsisfzkP9Eh5vPnfxK66o+0UkycpnkPNbYmu1ZgJNFC6/iicgsI0IJh2KgxvO3OnfH6fb5bOVxryzFMKyAiaTj9o8nmLEkiS40RYzz0rU2RmTwb0c9faxIlIYWXwBlQA==
-Authentication-Results: dkim=none (message not signed)
- header.d=none;dmarc=none action=none header.from=nxp.com;
-Received: from PA4PR04MB9366.eurprd04.prod.outlook.com (2603:10a6:102:2a9::8)
- by AM9PR04MB8131.eurprd04.prod.outlook.com (2603:10a6:20b:3ed::21) with
- Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.21.71.12; Tue, 2 Jun 2026
- 21:30:47 +0000
-Received: from PA4PR04MB9366.eurprd04.prod.outlook.com
- ([fe80::75e4:8143:ddbc:6588]) by PA4PR04MB9366.eurprd04.prod.outlook.com
- ([fe80::75e4:8143:ddbc:6588%3]) with mapi id 15.21.0071.015; Tue, 2 Jun 2026
- 21:30:47 +0000
-Date: Tue, 2 Jun 2026 17:30:40 -0400
-From: Frank Li <Frank.li@nxp.com>
-To: Rosen Penev <rosenp@gmail.com>
-Cc: linux-i2c@vger.kernel.org, Andi Shyti <andi.shyti@kernel.org>,
-	Sascha Hauer <s.hauer@pengutronix.de>,
-	Pengutronix Kernel Team <kernel@pengutronix.de>,
-	Fabio Estevam <festevam@gmail.com>,
-	"open list:ARM/FREESCALE IMX / MXC ARM ARCHITECTURE" <imx@lists.linux.dev>,
-	"moderated list:ARM/FREESCALE IMX / MXC ARM ARCHITECTURE" <linux-arm-kernel@lists.infradead.org>,
-	open list <linux-kernel@vger.kernel.org>
-Subject: Re: [PATCH] i2c: mxs: add missing kernel-doc for struct mxs_i2c_dev
- members
-Message-ID: <ah9LgLKcriw4qFlc@lizhi-Precision-Tower-5810>
-References: <20260530200554.8415-1-rosenp@gmail.com>
+	Tue, 02 Jun 2026 21:33:12 +0000
+Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
+	by sea.source.kernel.org (Postfix) with ESMTP id 89EA34026E;
+	Tue,  2 Jun 2026 21:33:10 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 18EA21F00893;
+	Tue,  2 Jun 2026 21:33:10 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
+	s=k20260515; t=1780435990;
+	bh=jdudOJL+raYR/P30MGb9StMfBGEfajIKmHJbLO4Ebr8=;
+	h=Date:From:To:Cc:Subject:References:In-Reply-To;
+	b=V9SFy076bGKjitzQm68Krm+0Rj2oH6tD8ejVPMJ5I/uiNj2eELLvem5TBfWJhWS4Y
+	 TNxkpj0r0EocaKdfV56ca0uDZSuziD13GMeufrm1EkQYXl0dCfsFY9YyiesUFWhGHl
+	 UOin2nIqMxPo5V8Rma6DTTuqNFut73Fbsj1WZ4Fu1ANDORSyKssdikJ5woI/BNsu9l
+	 v2mM4MTf9qRrePcAHv2EQ+vCuYaejc3jfUE4bEVGTXMm0pKZaSeNx64p/NZBkyjPI+
+	 qEcYTk0FOzw47y+XX7bp2LjYzzjiZ7m6ac/+kx2hpwt6249m/LIFyHVdITnIiP7Fe8
+	 7BqzG0nolC9Cg==
+Date: Tue, 2 Jun 2026 14:33:08 -0700
+From: Oliver Upton <oupton@kernel.org>
+To: Andreas Grapentin <gra@linux.ibm.com>
+Cc: Steffen Eiden <seiden@linux.ibm.com>, kvm@vger.kernel.org,
+	kvmarm@lists.linux.dev, linux-arm-kernel@lists.infradead.org,
+	linux-kernel@vger.kernel.org, linux-s390@vger.kernel.org,
+	Alexander Gordeev <agordeev@linux.ibm.com>,
+	Arnd Bergmann <arnd@arndb.de>,
+	Catalin Marinas <catalin.marinas@arm.com>,
+	Christian Borntraeger <borntraeger@linux.ibm.com>,
+	Claudio Imbrenda <imbrenda@linux.ibm.com>,
+	David Hildenbrand <david@kernel.org>,
+	Friedrich Welter <fritz@linux.ibm.com>,
+	Gautam Gala <ggala@linux.ibm.com>,
+	Hariharan Mari <hari55@linux.ibm.com>,
+	Heiko Carstens <hca@linux.ibm.com>,
+	Hendrik Brueckner <brueckner@linux.ibm.com>,
+	Ilya Leoshkevich <iii@linux.ibm.com>,
+	Janosch Frank <frankja@linux.ibm.com>,
+	Joey Gouly <joey.gouly@arm.com>, Marc Zyngier <maz@kernel.org>,
+	Nico Boehr <nrb@linux.ibm.com>,
+	Nina Schoetterl-Glausch <oss@nina.schoetterlglausch.eu>,
+	Paolo Bonzini <pbonzini@redhat.com>,
+	Suzuki K Poulose <suzuki.poulose@arm.com>,
+	Sven Schnelle <svens@linux.ibm.com>,
+	Ulrich Weigand <Ulrich.Weigand@de.ibm.com>,
+	Vasily Gorbik <gor@linux.ibm.com>, Will Deacon <will@kernel.org>,
+	Zenghui Yu <yuzenghui@huawei.com>
+Subject: Re: [PATCH v1 15/26] s390: Add functions to query arm guest time
+Message-ID: <ah9MFEq09ISAu9cb@kernel.org>
+References: <20260529155601.2927240-1-seiden@linux.ibm.com>
+ <20260529155601.2927240-16-seiden@linux.ibm.com>
+ <ah4G847iT_pPRuQm@kernel.org>
+ <ah7Ul7YwJOFuSMaD@li-d8547bcc-2d90-11b2-a85c-a70f2a37009a.ibm.com>
+MIME-Version: 1.0
 Content-Type: text/plain; charset=us-ascii
 Content-Disposition: inline
-In-Reply-To: <20260530200554.8415-1-rosenp@gmail.com>
-X-ClientProxiedBy: PH7PR10CA0013.namprd10.prod.outlook.com
- (2603:10b6:510:23d::9) To PA4PR04MB9366.eurprd04.prod.outlook.com
- (2603:10a6:102:2a9::8)
-MIME-Version: 1.0
-X-MS-PublicTrafficType: Email
-X-MS-TrafficTypeDiagnostic: PA4PR04MB9366:EE_|AM9PR04MB8131:EE_
-X-MS-Office365-Filtering-Correlation-Id: 7f5ba44f-1291-4b30-b05a-08dec0ee35d7
-X-MS-Exchange-SenderADCheck: 1
-X-MS-Exchange-AntiSpam-Relay: 0
-X-Microsoft-Antispam: BCL:0;ARA:13230040|376014|1800799024|366016|52116014|19092799006|56012099006|11063799006|18002099003|22082099003|38350700014;
-X-Microsoft-Antispam-Message-Info: jAzJ2c8aRJho6OqO+pN7hCINLay1mQuK1bPYPML9Drg1XMJGkuudjy3LIm018qRfL4TJ/GCbhwPA1mV3yDwhDkj4A+SMeE2spV2AX2s1BLpLjAkE8fIMIzcoJezZAyHR+k6Gn1HwUr/A9d0bI1yyp/+XleiMHIH+SQOHRlyYo+5w6utR9omOizAYGpkyImMPpe/5Em4xYzrdT4aOlhX6TnD4+gtfyl3DT/MhkggCMsaBCnpEjA3dsQ4x1LRVKIgZzhj64KCtecGh8BZ4+izsSah8+/hymYhG5RtUaG7LIcihtLGSqQkJ87c3zIgASRgmJ0CYQAGjXlZjojPES6/3DITiCt5hwJHcP8t5t9LvkWn+YTndcNYNouB1IAXm2fjEDT2y2QaCEAN1Ygt8riXhY3hN1rc01EMNQEESQ5+xlAmn8T3jIXoXuWrUTaKAMWK7KM7oNTsltKAcoSEc+xfuzmRZ77B+ihyrJsAGNBWeeoHpvT3v6UzrOl2hRHUXec5HOBQenaNEbkWi23VEKJZzbK6kmndiuyRbGB/2YfEsgWyJInEgESt+X6IpX8PqA3xuD3Aef/RQlxFepoZJ4XvaD+gxKz/LmJi8pOkEVYXN8z3cyZVDW3xuQHnu0gm30vBPVhv1VyERhKitLJq3IZttR0Li6j9cvrdTCw/qo1R/O+KYkDzDC4d4D88/7pdErNZZfcswm6xZmpn75++QTh469wQ3y+8jfHQL/psSgVPvh7wIJRBHcxuqcHk10m+BT+sl
-X-Forefront-Antispam-Report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:PA4PR04MB9366.eurprd04.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(376014)(1800799024)(366016)(52116014)(19092799006)(56012099006)(11063799006)(18002099003)(22082099003)(38350700014);DIR:OUT;SFP:1101;
-X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
-X-MS-Exchange-AntiSpam-MessageData-0: =?us-ascii?Q?npzBfc770EZPjT7cxVNCaHCDQm1IgViM4a0CcSuoDYNkQVT0xO2ifd8xoDxF?=
- =?us-ascii?Q?JSROOVYq74g2mUTsDepCSvQRFsP5SAeEEHS12OcxBYexAEKunf/aAW2GleTi?=
- =?us-ascii?Q?9klJYKIIlWa4tSlJhsoorat6DjggkJ0bb1t9v96dOHdgY7CTudKzSXGQ9EK2?=
- =?us-ascii?Q?vlWqNiTFPvwOU9NRYUga3KLRQfV/Tlra2el7r20roQ74IskRPxrel3ktp94V?=
- =?us-ascii?Q?ib1/8qpPVgtFcuwm6PPXhL8ygMdfuTM89/qp5UqkXTE9F7UzTeyE3NJ68mm4?=
- =?us-ascii?Q?hjgKx07yDehse1xa6yy1TaJF6IJBAuszHTpmsVfVyIZBTFTKPPxKOH1566B5?=
- =?us-ascii?Q?cdKkUkxwW/54PjtyNg0GT8GY+dTdj7l86dJBFQY3/LhzUhFiJAwb9qwtUAet?=
- =?us-ascii?Q?c0ZASgPULKmmAi+WMdEYsLd5gyn3DkOs/v1btPpYDTehO8fT1l7l6HFz4gPO?=
- =?us-ascii?Q?BmYi1nIyyyYk9UXKg/Y6eJRBR1UHgkKT+U6hG5UlceOp0t/gSNBE/zz7BZF0?=
- =?us-ascii?Q?w69ZaxDOE2cT784ld90WeBzg00lO/N3wWE/VE5wFN2UvINjbaU7nojldg2M5?=
- =?us-ascii?Q?7+98m/v9+dQTKeLFRNyZbZpiBllWUepc0UMvpfyYkZYVjBBr3q4qY3zpgKAU?=
- =?us-ascii?Q?EVrDtxb7EDIn1+0Aia3B0rxFVsEXai2KOVvuCfDE8X2cQt/WrCh0OXmrBzL+?=
- =?us-ascii?Q?hrfzjKdE1cstRariTc1vz5rtSk6K9GkqVYo3jUGtmyPN4AzSM5xF45B/RVrC?=
- =?us-ascii?Q?4wuaCPVGWjZUiHZ1+35jHFop9J53UmGKQ36rZXm1suO3ze9CDLqSErN5HRLM?=
- =?us-ascii?Q?aRsTIH/ymr5d1qRCE9AyhDt7VEqnnX7qBcEOhQ/Jaj1DjctTy91982bRR1s1?=
- =?us-ascii?Q?QOSd8OoycW9qJU3e8qG78w3+uCngCwwnE/Kfpub5959UrWLy4/Pdh5KzJNOs?=
- =?us-ascii?Q?PhRfZC3UZuGxOebtK4eobxYMqMjrChfCozE3OCSHpQRD/Q89qTJqH/bqJSVe?=
- =?us-ascii?Q?Ewg3iryVet5nzTH2frtvXgcFLkbXoNxc9D4yhoizQvd0Ad2ujaot8fZ3wIYz?=
- =?us-ascii?Q?TDX4kVkIY9m2hSkiRZxg4HTNcxmNe8zn8rh0+SRQ/huIrOhSQ0IfJX/263rr?=
- =?us-ascii?Q?ofrRu4maU26THjXbIDbC4yYG1+KRgsZNAL5drfP0KQjTvBGMsLLxmaD1srwy?=
- =?us-ascii?Q?mnmVNVmUzUcLDGAR/Mc7Y/GIHHstFQmaZAN8Duw6NCapIxMMlDIfe6aOXtuC?=
- =?us-ascii?Q?78mt6P67CS4fIQlGF/5dDtPRabVRIByjkeId9S+QzSrfK4WOZNa7fRk6D8j+?=
- =?us-ascii?Q?gvlWn7DiLPyUKET4WKUTtnc3KV4zTNP3sQGoG1pBgQHCkIe6Bo42NXYYKV/v?=
- =?us-ascii?Q?xdBn+tv1K7tKmsVfrbL6VvH82dXU29uDBfg8Dhs4XOvMHsUiQtxE827n/b5b?=
- =?us-ascii?Q?kadZIDfJSmuiMZU64WAADYTjEl3FzgxYInsvLzjEX8vxNDOAx3UVDLlV9fPV?=
- =?us-ascii?Q?mfuMvSZ5HU3rMcmJngJSwZ4P9LdTqmrnvB604MuB5nDVtGQwlve5CvnMCQOy?=
- =?us-ascii?Q?tvwy8ztlQb7myUenKszBTVJ7+XOZuCwIkThp7M7rANP65r8c7VuXvkXM4DvZ?=
- =?us-ascii?Q?rcU/QRa1XapWUeRhVAMWY2LINAN4UUbuLWbL4JzumjWLbSsNEN1btJZbniGT?=
- =?us-ascii?Q?Hrs46AYzlpO6R3DsSqy1MPeuYcHt6TC2jdycjEgJNhqjbQNe?=
-X-OriginatorOrg: nxp.com
-X-MS-Exchange-CrossTenant-Network-Message-Id: 7f5ba44f-1291-4b30-b05a-08dec0ee35d7
-X-MS-Exchange-CrossTenant-AuthSource: PA4PR04MB9366.eurprd04.prod.outlook.com
-X-MS-Exchange-CrossTenant-AuthAs: Internal
-X-MS-Exchange-CrossTenant-OriginalArrivalTime: 02 Jun 2026 21:30:47.2676
- (UTC)
-X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
-X-MS-Exchange-CrossTenant-Id: 686ea1d3-bc2b-4c6f-a92c-d99c5c301635
-X-MS-Exchange-CrossTenant-MailboxType: HOSTED
-X-MS-Exchange-CrossTenant-UserPrincipalName: Z0J3W0E4PCpP3DSSjDMRK4/HA1IPhUYpk5y96cGR6FLxHx+UldnVl38KchJ9DX9N5pchyQqk++tz/lqFtorx+A==
-X-MS-Exchange-Transport-CrossTenantHeadersStamped: AM9PR04MB8131
+In-Reply-To: <ah7Ul7YwJOFuSMaD@li-d8547bcc-2d90-11b2-a85c-a70f2a37009a.ibm.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260602_143052_417481_EEAEA183 
-X-CRM114-Status: GOOD (  17.07  )
+X-CRM114-CacheID: sfid-20260602_143311_731718_8D148202 
+X-CRM114-Status: GOOD (  19.00  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -139,42 +97,47 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Sat, May 30, 2026 at 01:05:54PM -0700, Rosen Penev wrote:
-> Add kernel-doc documentation for the struct members that were previously
-> undocumented. This fixes warnings when building with W=1 and ensures
-> the struct is fully documented per kernel-doc conventions.
->
-> Assisted-by: Opencode:Big-pickle
-> Signed-off-by: Rosen Penev &lt;rosenp@gmail.com&gt;
+Hi Andreas,
 
-&lt; is html tags. Please fix it.
+On Tue, Jun 02, 2026 at 03:25:13PM +0200, Andreas Grapentin wrote:
+> On Jun 01 26, Oliver Upton wrote:
+> > > Add functions to convert between ARM guest time (LSB0) and s390 host
+> > > time (MSB0) using new ptff function codes.
+> > > 
+> > > Co-developed-by: Nico Boehr <nrb@linux.ibm.com>
+> > > Signed-off-by: Nico Boehr <nrb@linux.ibm.com>
+> > > Signed-off-by: Steffen Eiden <seiden@linux.ibm.com>
+> > > ---
+> > >  arch/s390/include/asm/timex.h | 49 +++++++++++++++++++++++++++++++++++
+> > >  arch/s390/kernel/time.c       |  1 +
+> > >  arch/s390/kvm/arm64/arm.c     |  9 ++++++-
+> > >  3 files changed, 58 insertions(+), 1 deletion(-)
+> > > 
+> > > diff --git a/arch/s390/include/asm/timex.h b/arch/s390/include/asm/timex.h
+> > > index 49447b40f038..9ec22a28bbda 100644
+> > > --- a/arch/s390/include/asm/timex.h
+> > > +++ b/arch/s390/include/asm/timex.h
+> > > @@ -99,6 +99,8 @@ extern unsigned char ptff_function_mask[16];
+> > >  #define PTFF_QSI	0x02	/* query steering information */
+> > >  #define PTFF_QPT	0x03	/* query physical clock */
+> > >  #define PTFF_QUI	0x04	/* query UTC information */
+> > > +#define PTFF_QAGTO	0x10	/* query arm guest time offset */
+> > > +#define PTFF_QAGPT	0x11	/* query arm guest physical time offset */
+> > 
+> > Are these analogous to CNTVOFF_EL2 and CNTPOFF_EL2?
+> 
+> They are somewhat related -- we don't have the EL2 counter offset
+> registers, but we still need to virtualize the guest counters, so
+> instead we have to maintain the guest counter offset separately.
+> 
+> However, to determine the correct guest counter offset, we are using
+> these new PTFF function codes to translate between the s390 and arm64
+> architected counter domains.
 
-Frank
+Thanks for clarifying, I was trying to figure out how these functions
+apply to the virtual and "physical" views of the counter inside the VM.
 
-> ---
->  drivers/i2c/busses/i2c-mxs.c | 8 ++++++++
->  1 file changed, 8 insertions(+)
->
-> diff --git a/drivers/i2c/busses/i2c-mxs.c b/drivers/i2c/busses/i2c-mxs.c
-> index 08c9091a1e35..4e07babea9c3 100644
-> --- a/drivers/i2c/busses/i2c-mxs.c
-> +++ b/drivers/i2c/busses/i2c-mxs.c
-> @@ -108,6 +108,14 @@ enum mxs_i2c_devtype {
->   * @cmd_complete: completion object for transaction wait
->   * @cmd_err: error code for last transaction
->   * @adapter: i2c subsystem adapter node
-> + * @timing0: I2C TIMING0 register value
-> + * @timing1: I2C TIMING1 register value
-> + * @timing2: I2C TIMING2 register value
-> + * @dmach: DMA channel
-> + * @pio_data: PIO data for DMA
-> + * @addr_data: address data for DMA
-> + * @sg_io: scatterlist for I/O
-> + * @dma_read: flag indicating DMA read
->   */
->  struct mxs_i2c_dev {
->  	struct device *dev;
-> --
-> 2.54.0
->
+--
+Best,
+Oliver
 
