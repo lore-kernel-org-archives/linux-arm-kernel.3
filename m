@@ -4,137 +4,130 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id DE074CD6E5D
-	for <linux-arm-kernel@archiver.kernel.org>; Tue,  2 Jun 2026 20:39:10 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 4886FCD6E57
+	for <linux-arm-kernel@archiver.kernel.org>; Tue,  2 Jun 2026 20:39:11 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:
-	Content-Transfer-Encoding:Content-Type:In-Reply-To:References:Cc:To:Subject:
-	From:Date:Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=ysr80nku/yfby49ZyHpMXbea27vDPm38hsSIWs09kzs=; b=HarlbOh2IIVijDImHdhMeBENjq
-	0tHeMyCueG7JWIQ4goI1P3pgqTyRWtC5yF3k2l3AvT5KZ/QzooM1MZ2cJseKMj742yEJNH61ZfFdB
-	Y/zB4CAd2yaO0hPa2IeIjgfTbZG+A2BRQifsFSCn0MfQgEuPZxQ3MVyHL9rO2NG3MD8BHtCa/j4SV
-	XuNycngTaQU5HcU/F2DBVDH4jix7Nz7V0K290gzPzPP+izLdv8qXM6agVSlhH/hlRrpRy30ApJPo4
-	wpLnrS0cfFrbjIro9sTilBNOtBsK6icC6dnDrdmefTSBojWwgg1k3yD91Rg+f+DlxjL6ClytAiIx8
-	gxSajJMA==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:In-Reply-To:
+	Content-Transfer-Encoding:Content-Type:References:Message-ID:Subject:Cc:To:
+	From:Date:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=nvhA5ChVOcQ/XJI+Tcbc6DLIvrjkLc0iOPcR5ePR2Nc=; b=BDzoFZMlpfESG5ucjZSVn5j2Nj
+	G4sR4bpXPk56JRi4inaX87g71axTddUDpVjzJJmGgqB0Ymfg0hArN2WOyFcGg4LN+EMmcM8Tmy7vT
+	MJCOVq9KVNPUQwMNnf5Wn9TD/8g+w6cSl2905XkgFVXtuGN0polOLe+oRYvCOnqJBbp7dhUb57WjO
+	KHzzzsCe7XwOlDYrnQzNPA6GVoisPRQd+gRG6isEPvX2qNBPrhcIRPip+Btp5yRNPFVwFf8fYewoP
+	Gq4xZRYudZyZUj0PjHqPoboI0cGMoEXWk6mLeh1rgcK+AdFhi7oJrOFoheCvvqRxkGSTVmiLmEibA
+	QEgRYrYA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wUVt9-0000000DlJ9-1uCQ;
-	Tue, 02 Jun 2026 20:39:03 +0000
-Received: from mail-westusazon11022090.outbound.protection.outlook.com ([52.101.43.90] helo=SJ2PR03CU001.outbound.protection.outlook.com)
+	id 1wUVtB-0000000DlJr-3Gsd;
+	Tue, 02 Jun 2026 20:39:05 +0000
+Received: from mail-northeuropeazon11010002.outbound.protection.outlook.com ([52.101.84.2] helo=DB3PR0202CU003.outbound.protection.outlook.com)
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wUVt6-0000000DlIH-1cBl
+	id 1wUVt7-0000000DlIN-0thD
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 02 Jun 2026 20:39:01 +0000
+	Tue, 02 Jun 2026 20:39:02 +0000
 ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
- b=ZR+Gmrm777i4tjQZVyvLrDgg8m3bVrRV2250tTqvlH4f8N6Yoj+T9veIvY4ibltKPfibQM9N35nnrRheU2XCUmEJBI22sWl+rbvfDcH9my+CPee4hwhfIJ8NpgYx+WpBh6Nnnf4xL4xhe8r+Hekk35DDLS5KYud9sSit7OA0F7MeimNnTEOpk3b9tujWNzh5jzMpAA8cPyYNpLlM+2b19gjpYvn9TDKueiAyl3RrLniOBY8L/8WNGdNppVHtSoLNvWNvSmbo5OiNV3FmPkl4GdfXEGTnZMaCIL/StB64JfgIlMlT8qr+d1d+SMgbL3bcftSmTK8QF3MHLYeQNbE1rg==
+ b=oK1+vmjzAXm5SSNCuQLunK7rM4OZKm0oTKH8fMSMp6t65QdLCMOsTLjDvnsLY3p4YuedGCaMf7WeHyD/nsmvzoIAWzJ3HNibMH+7uptN9HLVOiB53zPC3N9YBSYmECRPVLlTdTPe5MrQ23U7IRT529zVfn0Ua+tJhuToZ80pW/gf6lprMKnCPcmDqoOOK/ckfFsf0FdLOrfk5hO3GvvqPDfkbjz5GDvnajldJcGVrf6vlUdN7vDiNHB+EmPZFltf+IVxaWs5qmFHKJ0GOaSMMe9fh0l7LGJASfBg3GTQoILDaXJYMf9jt388mQszi2erP8LuPVEXwvUQvb0xSPuHag==
 ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
  s=arcselector10001;
  h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
- bh=ysr80nku/yfby49ZyHpMXbea27vDPm38hsSIWs09kzs=;
- b=AH+Aw9m4y/Cms/l37SRctGfTwWHZwUNJ8pdBhnXi9DGGcwIh0EjsYLiijkWcea5grWaEAVF//W7UkJSOSNulIUOESqCiUU0MDMs0LgK+unnebWw8+WSS33qm/qZf5qqPf1hWsCQ13P3Tx20FOPPZ/Tl86Zfwwz3XiA55dWqevduVQezdDs9yGHZOxmFhe0SeMuTUAA9iWyMRWMcmFwWioM4sF0AjxmwkoNpSmpXiuYhjIxRvmEjURBVLhJtVMGUAqEtFsDk/jazLCwsa7UCNBovWhVvCmQ087kWstDBbO/7hrz41uOVibNDlMrL+LAFsQVZ7xc8grEuiKWkSxZhlWA==
+ bh=tofWZcrBvj/w0ajDKPePucgR5JZiHerCipC72hV4qIA=;
+ b=iJ3kf4qu6A5PTvfP9f/hwl2CrRNDUgMQbaj5XnBK57FUC+3zjW5IxJY4moD4Jezw3q3IFu2XlnMQCJcI0pndsVlFPQUj3K336ZHku/YPt2H9NowdtRlSzb0WkD+b9hVhV136El8KQDsGKPOClOGqnlTeEJLHuNhWNO6ENp8cnvKplU8QUcPQG6WQvXeBPvmWZHAtkhmqT4O5aWAi3y8iRNqnGmOumiR7jIEz59hpP/8cLFOs1K1bW2TDV/6E+eJcvXUEniok9VdcV7/1SFpK15xlT58owSvKp6ikZmfBsiXVHlmQWcLXR6oDys/Q1z38LjuGtyzhfbFqHyT4uzgUTw==
 ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
- smtp.mailfrom=os.amperecomputing.com; dmarc=pass action=none
- header.from=os.amperecomputing.com; dkim=pass
- header.d=os.amperecomputing.com; arc=none
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
- d=os.amperecomputing.com; s=selector2;
+ smtp.mailfrom=nxp.com; dmarc=pass action=none header.from=nxp.com; dkim=pass
+ header.d=nxp.com; arc=none
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=nxp.com; s=selector1;
  h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
- bh=ysr80nku/yfby49ZyHpMXbea27vDPm38hsSIWs09kzs=;
- b=dXkL6wFwWt4hUzakG4bDiyRVZt6xjU5QDw6iPcCziaYCj9DM//qudelnfN/3txh0zTU1FCOE9toDgstMzRdGaEKx0PBEogXcoAJzlHRg8MZogxxn/3ffKgIHjagszTxefTTUP87PGpkSsmyjNTY+8QuyxhFd58YiZuQa13HCJG8=
+ bh=tofWZcrBvj/w0ajDKPePucgR5JZiHerCipC72hV4qIA=;
+ b=gXi04hYIsh9zl/tbCD41iX3771lDiq4WQDSkAI9+AFrdOqxzi1ZwuV9qdxNJEyqYj2vMsU858tNxTLOuJ6+DXTw5D88dSpmO5EbIkCayBJECrvkGT+yFA8J415NR/zFvI8UDR5qXeYHYJ7d0r/BDlj69Ss+cAG4aMVADtfq2EN9y1O4Wih2t/91P7OhpDCVd9ZQHVPfjK1wHRYh8FtcnR41IIZ7hDlXy+hSwgGEUojsgZ2jpwX/kWPsfMzHCmbbGG7dMJhzG9OE8mJsQD8y6Va+6bzzHioA6TsRpIvx97Yepu8zVOweNk11gxzmXBMfsxFlAmiJHdZKeVC1zqXX6Kg==
 Authentication-Results: dkim=none (message not signed)
- header.d=none;dmarc=none action=none header.from=os.amperecomputing.com;
-Received: from CH0PR01MB6873.prod.exchangelabs.com (2603:10b6:610:112::22) by
- BN3PR01MB9233.prod.exchangelabs.com (2603:10b6:408:2ca::14) with Microsoft
- SMTP Server (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
- 15.21.92.7; Tue, 2 Jun 2026 20:38:51 +0000
-Received: from CH0PR01MB6873.prod.exchangelabs.com
- ([fe80::46eb:64a3:667c:c1a0]) by CH0PR01MB6873.prod.exchangelabs.com
- ([fe80::46eb:64a3:667c:c1a0%3]) with mapi id 15.21.0071.011; Tue, 2 Jun 2026
- 20:38:51 +0000
-Message-ID: <1252b93e-0c6b-4e33-9bf9-e42cde5ba0d2@os.amperecomputing.com>
-Date: Tue, 2 Jun 2026 13:38:48 -0700
-User-Agent: Mozilla Thunderbird
-From: Yang Shi <yang@os.amperecomputing.com>
-Subject: Re: [v7 PATCH] arm64: mm: show direct mapping use in /proc/meminfo
-To: Will Deacon <will@kernel.org>
-Cc: catalin.marinas@arm.com, ryan.roberts@arm.com, cl@gentwo.org,
- linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org
-References: <20260519163657.1259416-1-yang@os.amperecomputing.com>
- <ah7uCj2V11MnAlaR@willie-the-truck>
-Content-Language: en-US
-In-Reply-To: <ah7uCj2V11MnAlaR@willie-the-truck>
-Content-Type: text/plain; charset=UTF-8; format=flowed
-Content-Transfer-Encoding: 7bit
-X-ClientProxiedBy: SJ0PR03CA0085.namprd03.prod.outlook.com
- (2603:10b6:a03:331::30) To CH0PR01MB6873.prod.exchangelabs.com
- (2603:10b6:610:112::22)
+ header.d=none;dmarc=none action=none header.from=nxp.com;
+Received: from PA4PR04MB9366.eurprd04.prod.outlook.com (2603:10a6:102:2a9::8)
+ by AS1PR04MB9699.eurprd04.prod.outlook.com (2603:10a6:20b:482::9) with
+ Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.21.92.7; Tue, 2 Jun 2026
+ 20:38:55 +0000
+Received: from PA4PR04MB9366.eurprd04.prod.outlook.com
+ ([fe80::75e4:8143:ddbc:6588]) by PA4PR04MB9366.eurprd04.prod.outlook.com
+ ([fe80::75e4:8143:ddbc:6588%3]) with mapi id 15.21.0071.015; Tue, 2 Jun 2026
+ 20:38:55 +0000
+Date: Tue, 2 Jun 2026 16:38:48 -0400
+From: Frank Li <Frank.li@nxp.com>
+To: Nora Schiffer <nora.schiffer@ew.tq-group.com>
+Cc: Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>,
+	Conor Dooley <conor+dt@kernel.org>,
+	Alexander Stein <alexander.stein@ew.tq-group.com>,
+	linux-arm-kernel@lists.infradead.org, linux@ew.tq-group.com,
+	devicetree@vger.kernel.org, linux-kernel@vger.kernel.org
+Subject: Re: [PATCH v2] arm64: dts: freescale:
+ fsl-ls1028a-tqmls1028a-mbls1028a: switch mmc aliases
+Message-ID: <ah8_WDMsJLIoEJ-y@lizhi-Precision-Tower-5810>
+References: <20260224152523.570057-1-nora.schiffer@ew.tq-group.com>
+ <bfd19beec4ccbe296cdc1da865b15caf3ad1e5cc.camel@ew.tq-group.com>
+ <fc375090851c17e069d7271f99ac4f75490a9a92.camel@ew.tq-group.com>
+ <2b4b5b6ab51f991d859e52c1572008ae715c650f.camel@ew.tq-group.com>
+Content-Type: text/plain; charset=iso-8859-1
+Content-Disposition: inline
+Content-Transfer-Encoding: 8bit
+In-Reply-To: <2b4b5b6ab51f991d859e52c1572008ae715c650f.camel@ew.tq-group.com>
+X-ClientProxiedBy: PH8PR07CA0045.namprd07.prod.outlook.com
+ (2603:10b6:510:2cf::14) To PA4PR04MB9366.eurprd04.prod.outlook.com
+ (2603:10a6:102:2a9::8)
 MIME-Version: 1.0
 X-MS-PublicTrafficType: Email
-X-MS-TrafficTypeDiagnostic: CH0PR01MB6873:EE_|BN3PR01MB9233:EE_
-X-MS-Office365-Filtering-Correlation-Id: eee6069c-b5a1-4942-0420-08dec0e6f4ad
-X-MS-Exchange-AtpMessageProperties: SA
+X-MS-TrafficTypeDiagnostic: PA4PR04MB9366:EE_|AS1PR04MB9699:EE_
+X-MS-Office365-Filtering-Correlation-Id: 3bfe8457-b0d0-4723-8808-08dec0e6f727
 X-MS-Exchange-SenderADCheck: 1
 X-MS-Exchange-AntiSpam-Relay: 0
-X-Microsoft-Antispam: BCL:0;ARA:13230040|1800799024|366016|376014|56012099006|5023799004|4143699003|11063799006|18002099003|22082099003|6133799003|55112099003;
-X-Microsoft-Antispam-Message-Info: Yhl5gVIQt9cD6aMMOekigusGIX1xcGIfarWKrryYENxkJQ0iJe6W/gPpD/bhKGaYsdKBySCyjpdZFsFYQMYPViKgmTk7z1sF9V9euO86RQMBatU3Z3ruhX5z7knVVlJN4TApa3540b0+EUgayW9S1s8eizEbirw02+A4MoYn338dRdLvqHNFdhAAP3BSc44YHe8ZCbeWOzBCXrgKz6Qap2rlYhV7mEI3WpamhriyXi1ogker+1AQoV0O73KGGqzY2/kwWlQyGZeUWk3qE/xDs39pAhQ/mnB/oyf+Who5lHNQ8lmN7yAP0KI8hGrW7U5w7q7YDnVdjZOjOS/7Mf+LXlQ7ViBbj7xgmBdSjbIARWNLLmMx/ddLfzR1qkJzsTe05rBvJbn+NNyO+8YV3IW0ZOtdwgNjuB+Azpjou+l2fogFQxRFSPnTNt8zTm9atsFhmLDaVy0EBhLmEC9O0kNX6wBe9LY9bRJw3tE9ClbJl/HreXofF7eYo1Dx9kcZ70+WkLrZStjChYTl6T7jF8hmay9Va9Mz3pfyvFRJKJ2g9nEWIEwvodzLqpGTLyVA+DjkogvuyXOwtLJK4SpmyXBxX2jk32+9HCqNgOgy+u5bqX14PoxaVlYtj13+9B4nYSut1WCvn+PdOGJ7rHA4Tb7WcQ==
-X-Forefront-Antispam-Report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:CH0PR01MB6873.prod.exchangelabs.com;PTR:;CAT:NONE;SFS:(13230040)(1800799024)(366016)(376014)(56012099006)(5023799004)(4143699003)(11063799006)(18002099003)(22082099003)(6133799003)(55112099003);DIR:OUT;SFP:1102;
+X-Microsoft-Antispam: BCL:0;ARA:13230040|52116014|376014|1800799024|19092799006|366016|38350700014|56012099006|11063799006|4143699003|22082099003|18002099003;
+X-Microsoft-Antispam-Message-Info: 19qnHJeQxdPLUECyczUtwb2nECnOkFjcsGZ/Fw+VajweNwdE6WM4XKDLXX1cmX4JBJdN1PTRYjc1394DB+QcXrtSqmzVkw0O0QEZLe0hg1Hau2vt2eFkXUOcAFG88u4LE/4OBmOZv984enxckK2bG9ASrFVygoHMQUMA7ygmNJQwiLYxVx5cHf42okgwq9NUG1nxpHPf5r/gg3SZyYYCFmLyqkzbDXO46zySOLESYFVWUuciGtWEo4wEPlK9UZ9X6MTpkkvEhOeZA01phNoN07zG2k16pPgoqPQaHUsInVGncgkshHga1/PaZFSdeltfeR/VOb7G1axAADpYZa1/8FwLHvVwlBnZ0DkRViqRioNLPXa6Hgbynt3yUOgXHIs4Fh2yvNF5THWH5Qp1L6FBk1HR44oKKLPcZvaVlgXQXU/bnlOkYHWWoEWSeW7Vc8uhd+HcqRWGPPpZrPOE1MmUEGehAID/rfFmjCkpPAdsZt4F2ZqBJkWqhhWcX3RZphrO0nTfKuF/F2+hzb368dJFOaEUr8IHBa843aLX4hEQOf9emW+/Z/rh2KGladxZ9c+njbupCaIXqxhK99CAhcEAHtcoifGoZy50Lbc2KgExA93jmhg+Rzdl2XrXN7uuWYUe9QdLiFf9ICZYQuE8Y6sY+4mfCDu0e9PneMrEWcD3jiI7xoh4Vn+/Tad3ok3bkHe/MA0q0lvTmgB+TeVcyN0qgA==
+X-Forefront-Antispam-Report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:PA4PR04MB9366.eurprd04.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(52116014)(376014)(1800799024)(19092799006)(366016)(38350700014)(56012099006)(11063799006)(4143699003)(22082099003)(18002099003);DIR:OUT;SFP:1101;
 X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
-X-MS-Exchange-AntiSpam-MessageData-0: =?utf-8?B?Ni8rdDRMcHdWVE0wVzVBNmVISjJRSTlSY2lEN3dJT0l5OEcyeDRHbUhWQ2g3?=
- =?utf-8?B?RnNmZjBjS2VMSkVNZ2FwWmZvcW93dTdnL2kxYmlmK0psRC94MDBoUk5hczE4?=
- =?utf-8?B?ODlOUlZ1L1AwamFvYXc0K0lpOHhvT1I3L0pTR2pobW04ZWN5Y3lDaWxsSEk3?=
- =?utf-8?B?Rnc1ZGUrSlcreEllY1JtQzY0SDYxaGozZkN2MGtTUW53Q3lDSXR1WFQvcFdC?=
- =?utf-8?B?LzFTOEJieHFtWW1xU0pIMHpmRTJnWlN0SmpSbVR2UXp3R0o1SFQ3S0cxRWNV?=
- =?utf-8?B?Wko4ckVpZG9uQnR0RGtVZm82UllRRmgzQmZjUTB2c2JuME1ub2dHclRVMlNO?=
- =?utf-8?B?cnJ5RFQyYVFoRU1QYkVCMG9BOCtETS9LNkx6L2V2TlIramo2UXFCWjNLbTRv?=
- =?utf-8?B?ZWJ3REtXKzQ4S3MreG9YeXJTTTNMb0JBTlg4WE9MR3ZSbFlpa1FrZi96WEFP?=
- =?utf-8?B?WTRPZlZBRDQvamJMUWYraVFyb1BzTU1HZzM5ek9SUmovWE1leXRPVmt2Y2pG?=
- =?utf-8?B?REI5MGVQODI2b0FlVUJuSUFMTDZQU3hISXp2VHJUNk9FT3Q2TUhTSW9JVHlN?=
- =?utf-8?B?L1dBaldRcDI0ZEh6Rk91QUVYWmY2S0swUC9BbGFraTc1VndubEtyZWc5S1Fp?=
- =?utf-8?B?VXNOOVBVd1ppQ2Q5aExHbHNBT2pDT2RSTXRwZTh4ejJoYWFCT1IveUdZMHgw?=
- =?utf-8?B?RE94d3JzM1NyZjMvUDNLV1lzRkdlTllqcGlMeWRSK0kwYWRBRkdXbnZ5NmNw?=
- =?utf-8?B?YXowakVoQktPcXoxMjZkaVBXb3ZUT1RDQ1I5QkNHWXdSSSsxSTFZYkwxMElK?=
- =?utf-8?B?bXZXS0s0WjFXZUdub2RldXBPQ2s5TTA5WWxaVm1oSHlOM0F3aEdQTlorclFH?=
- =?utf-8?B?clJ4dVBjZVBZT0RQeHlPandYS2JGUGJXZTVEMGs3RmNBU2hvUFRxL3ZJcG9L?=
- =?utf-8?B?bzY2cXFUWE1lOWxIQTNPRWJCQmZkWC9uTnpMQWk4dGxMUTZsQWlSMjBESHMz?=
- =?utf-8?B?ZXZRU3Fjd0VkaDIwY3lwdW1laXdkRWpSQmNxMzQyKzRiRmQrbGk5VDdMZGFU?=
- =?utf-8?B?NitCVkdJMkJCbk9mL3F6eUgvNnpkYWJqZW5IbGZnM3NTV0RWZDR4Tk9LREM4?=
- =?utf-8?B?cC9yRHgxd0dGekZLZEY0dE95ZmQwRE9qblFlam92MHhPQVhFZllpeStqazYr?=
- =?utf-8?B?dUVsd3J2dUwvUXBZcFpyN0xOMVQzaWlheDIvQ0RWWHNrUGZUVEtUQVkra3Fv?=
- =?utf-8?B?SCsyUHcvQ1VuekRoUkJTVGpQMUowNHFjZkNyeEYrb1dqL3JMWEd5OXVWSjhu?=
- =?utf-8?B?UkJZMlFpaTNsV3FjckNmdTJjdXhrSHhhRGovRzNBMmNzMitsMjVJYXVsQ2pW?=
- =?utf-8?B?ZmFCVDhYblpWc1JxRDM1a01DeU5kVThja0M5dXRma0psMnFVOEZhZHVXUWlv?=
- =?utf-8?B?R013bzZYL1JUY3lWbUUwWnh1R2JOc1pGelJNNzZEL2lYSGlnMUV5Yk8yejBU?=
- =?utf-8?B?VWhHOThrVGNvYm5lUGtKYXlIY0cxcWhURkhSZ3NzSkZKMUtseFlMUHd4anFU?=
- =?utf-8?B?anRJdDF5VjAvZ013SG5QYmZmUDM2SnROMVhwSS9WbHlvczVHVUtEdVNwQ2lO?=
- =?utf-8?B?S2F6aXlLQStmRklveWtNNXY0dGVvRG9na3BrNU1EaUxkQ1F1dUxCdzdqczYz?=
- =?utf-8?B?VzQySEVzV0dNcldZU1IvT0hhUkpYYXlOMmx0bzNZN1N6L0tOck51a0F4QTR5?=
- =?utf-8?B?TG9aSkU2K1lOdUhoWTY1TEVNWEJQWk0xbFNYUUMzTGQrZitpd0ZGTDFVMFRt?=
- =?utf-8?B?SDhoVUtWVWgzc1pDeWVQNlNCYmd0MmhSbk1HblRXWDhwNDJaUHhwdGhaaUR6?=
- =?utf-8?B?S0J5Zy9QM3prNWliRFBPemlWSUVMVnFBd1dEYlEvcmdNS0JxZmFUd0UvN2w3?=
- =?utf-8?B?TXBhWHU0Rm1PM25rOW93K3hwT1JhS3VFdFAyM1dteWZvU2tSMHE3dGJCRG5M?=
- =?utf-8?B?UmxrWGlRbHgreGdqT2xtdlNJN3FsOXJZL3B5cmJBdWkrZU1icitIV1doUUVr?=
- =?utf-8?B?U1RBdGNIT0N0SUkrbENuM3RYYTRNZTZUdUpyajlGOUZCbko5TTI0K3pVN04y?=
- =?utf-8?B?V0UxNGkvdWQwNi9IcTBWb3VnbUx1OFEwNitOUXJUbXhrc3FaMU5YNUVtUDdQ?=
- =?utf-8?B?eXdLamRybEFQK3FWMHF1anY0V2dWK2ZyS1g3ZlUxQkVMNVppN09yeGdoN3Vi?=
- =?utf-8?B?cmpjOUx1cFkyeDZMWFNnVlcyQk9BRXhOMWdSWHVTODBBTWloRlpPbnR5Zmdx?=
- =?utf-8?B?OFJ6bGxoQXFlRWducVFCeWpsOGxYa2tEZlhHbTdjQVQ3VTdhQ2Y1a0t6QWxp?=
- =?utf-8?Q?x1SsLT2TugrYUfDg=3D?=
-X-OriginatorOrg: os.amperecomputing.com
-X-MS-Exchange-CrossTenant-Network-Message-Id: eee6069c-b5a1-4942-0420-08dec0e6f4ad
-X-MS-Exchange-CrossTenant-AuthSource: CH0PR01MB6873.prod.exchangelabs.com
+X-MS-Exchange-AntiSpam-MessageData-0: =?iso-8859-1?Q?1xJHM6aNUKO5dd8JemqoTHBdJdYx1C8mJIBFqRIWey5nGXhjyslgTrSsJd?=
+ =?iso-8859-1?Q?jR4wxnKvXR35FbTyyQgadWncuxQXzTsgMF6TB2Zs/7EbvtDXXjCOnCqpXq?=
+ =?iso-8859-1?Q?EVFBvi0QlXhti28O15fdDG7zFLgbVnPQGMk7F+0SdGD9XEJb0cLsqm5zGs?=
+ =?iso-8859-1?Q?/YJekBDGB4Je+D/YXV30H2ttRbHD4e/FYLNcNiNdbxdQOETLuyHrlF7R6H?=
+ =?iso-8859-1?Q?smT/GQWh3F58ZVqBBjUF3MqJ11H3acAid2QjD/ZwS9Z/Taa+5QIIp60M0V?=
+ =?iso-8859-1?Q?kw9PgJhjx5HVl3qWVJ4XjqlaOogcUc9iMLtb70pzfpWkGXYs+x3kC+tS27?=
+ =?iso-8859-1?Q?SoMDdkyHRx66d2CTqrk4O9eKW3N63GjiRQop2QMLPk7Bc9JBBDtV+NDNxw?=
+ =?iso-8859-1?Q?F+Y6Ez85lu39d/O+0g1HaMcdVd59kck2Mkib/Xnr0bmrT1c8Ussa6Ebeh9?=
+ =?iso-8859-1?Q?aJhr+ZACtDsdRfmabRvdE7xPyWugcgPxyht+zzjqxeqP9gYdPGVLBrYtHS?=
+ =?iso-8859-1?Q?Vqk7z/LcKFDQqxGEJkqV8EW8IpAyvFiAiGE2hT3vQWjdsPy4VVjJMKJTsT?=
+ =?iso-8859-1?Q?fU1FXTwkFpf4do+dCBR5UIoZ4i8n7UYR6B+xU49qWEbwXxVwxnH46gk0Hr?=
+ =?iso-8859-1?Q?Nblzv7uqVcSVxBbbst02GICdOuhrduaQlBhSXLzzeAmP0dDbF3KW2Z1rdd?=
+ =?iso-8859-1?Q?JhiVG25V73xhbWeeJYL7xyO1Pl5w6yJUK9LmtP65EG0EmMSjIQ4N95x5Fr?=
+ =?iso-8859-1?Q?FfQYEhAT2PyFOkBkVEefO8Nn4Fwh3/E1v6ot/px4lq6fTpWIxNAAe6DQaO?=
+ =?iso-8859-1?Q?RwReRTrPB8BbwyXKLbReuOVWCTotHYTvWp9eCoCqNMT5ERLe+w4KRibWRL?=
+ =?iso-8859-1?Q?eWvst8A/ZWoSNXrFvKci9xF4xTbeaQF2TH8XAtAgbu0+PTUzY5gX3XdKj/?=
+ =?iso-8859-1?Q?VIFAFsa6OhEM/6WL7iTc18cB3mUnddyHcpPpNEnkujGFo1AqoxsT8SzOe9?=
+ =?iso-8859-1?Q?BEJ0esqFiQz8n9urlVkGVzv+h7LX5Q8hr+zhCe+mAONO2h7Z3gO0/nqLrk?=
+ =?iso-8859-1?Q?UO1Evz515NTXsy+TxFhjFQmjyNX6TIGW0u0JKjVCZhNN47R6tyd1fikV45?=
+ =?iso-8859-1?Q?kjL/j79JihC2WOeTRvHqjBMuCiNISgnesX6LGY6k4mEaG/S+ac+/3l0JGD?=
+ =?iso-8859-1?Q?+Ue7RGaJCn75V6vqtbyNnr487e8jlxQCgPjLxO6lPwwABLtjP5zIp/yl8K?=
+ =?iso-8859-1?Q?1oQqt0ifLfm3M2esLsgZsKpDArbEmSqWV/NNON10ILh2OvRKjWGXGLD5Af?=
+ =?iso-8859-1?Q?fCkg/vt2q2WDn48QeyeSt5lUAKuQxlfqNtTXm5vpJAGwwJ3XP1PIo/Jr1x?=
+ =?iso-8859-1?Q?w0PhCDn6uwpmUIqIVUnJ2WZ6gFs5hsCVsYr3tRqTME2k1ephRJayPisB4J?=
+ =?iso-8859-1?Q?NoYiCNemhNy5kyfg+naBnPjkxnTUcvHhryn+syPcC4kRX5tACKBBScIge6?=
+ =?iso-8859-1?Q?iMFNXLDV0MVBVdl/koA4IbY9iaBU2J5DDkG/c+qzhOOyC+pWci+ZlQ1aff?=
+ =?iso-8859-1?Q?yIxaq3uxLtDRYx16APi5QsS4FlUyJCGR+KSLh3VvZDcCPH/UGMWUlLZobI?=
+ =?iso-8859-1?Q?9bRrnE/CeXmGgcOrMHDkTdsC/XuMq8RoRNwLl0SfP0sZVxSAFK3QzbBuWs?=
+ =?iso-8859-1?Q?QmgJhR541JRuTpWNV0qRMljaUFvqUCwqmXNQaQ7+z3uQyUdQ2dgkn6q7Qi?=
+ =?iso-8859-1?Q?EIICqZ7+Kbawh5xR13oS7/JqmIpiBWubzfM12fPrE/XvRR?=
+X-OriginatorOrg: nxp.com
+X-MS-Exchange-CrossTenant-Network-Message-Id: 3bfe8457-b0d0-4723-8808-08dec0e6f727
+X-MS-Exchange-CrossTenant-AuthSource: PA4PR04MB9366.eurprd04.prod.outlook.com
 X-MS-Exchange-CrossTenant-AuthAs: Internal
-X-MS-Exchange-CrossTenant-OriginalArrivalTime: 02 Jun 2026 20:38:51.4321
+X-MS-Exchange-CrossTenant-OriginalArrivalTime: 02 Jun 2026 20:38:55.5863
  (UTC)
 X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
-X-MS-Exchange-CrossTenant-Id: 3bc2b170-fd94-476d-b0ce-4229bdc904a7
+X-MS-Exchange-CrossTenant-Id: 686ea1d3-bc2b-4c6f-a92c-d99c5c301635
 X-MS-Exchange-CrossTenant-MailboxType: HOSTED
-X-MS-Exchange-CrossTenant-UserPrincipalName: 0Ofkb+CDiW21gfOHMR24P82vTgtQCvms9C0CIMXpjKuwXpf/kjZsRePbBxZZgMP03D67BJVkSRQi91AB/VP2qJvpFc4vxF1JnZxpfXsY+bQ=
-X-MS-Exchange-Transport-CrossTenantHeadersStamped: BN3PR01MB9233
+X-MS-Exchange-CrossTenant-UserPrincipalName: OAE1lNssyvBGyYaRwjt4UkJ48np6/TNBqtF2DllKtdqGoAW1e09C4rEsSMnEzeRJLqBHwWRWGRKQw+Zi8dr04g==
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: AS1PR04MB9699
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260602_133900_445688_4955BAAE 
-X-CRM114-Status: GOOD (  36.87  )
+X-CRM114-CacheID: sfid-20260602_133901_253544_79748BE9 
+X-CRM114-Status: GOOD (  37.86  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -149,131 +142,104 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-
-
-On 6/2/26 7:51 AM, Will Deacon wrote:
-> On Tue, May 19, 2026 at 09:36:57AM -0700, Yang Shi wrote:
->> Since commit a166563e7ec3 ("arm64: mm: support large block mapping when
->> rodata=full"), the direct mapping may be split on some machines instead
->> keeping static since boot. It makes more sense to show the direct mapping
->> use in /proc/meminfo than before.
->> This patch will make /proc/meminfo show the direct mapping use like the
->> below (4K base page size):
->> DirectMap4K:       94792 kB
->> DirectMap64K:     134208 kB
->> DirectMap2M:     1173504 kB
->> DirectMap32M:    5636096 kB
->> DirectMap1G:    529530880 kB
->>
->> Although just the machines which support BBML2_NOABORT can split the
->> direct mapping, show it on all machines regardless of BBML2_NOABORT so
->> that the users have consistent view in order to avoid confusion.
->>
->> Although ptdump also can tell the direct map use, but it needs to dump
->> the whole kernel page table. It is costly and overkilling. It is also
->> in debugfs which may not be enabled by all distros. So showing direct
->> map use in /proc/meminfo seems more convenient and has less overhead.
->>
->> Signed-off-by: Yang Shi<yang@os.amperecomputing.com>
->> ---
->>   arch/arm64/mm/mmu.c | 192 +++++++++++++++++++++++++++++++++++++++-----
->>   1 file changed, 171 insertions(+), 21 deletions(-)
->>
->> v7: * Rebased to v7.1-rc4
->>      * Changed "dm" to "lm" to follow ARM convention per Will
->>      * Used __is_lm_alias() instead of reinventing a new helper per Will
-> Thanks, but Sashiko has pointed out a few nasty issues:
+On Tue, Jun 02, 2026 at 11:56:10AM +0200, Nora Schiffer wrote:
+> On Wed, 2026-04-01 at 13:31 +0200, Nora Schiffer wrote:
+> > On Tue, 2026-03-17 at 09:29 +0100, Nora Schiffer wrote:
+> > > On Tue, 2026-02-24 at 16:25 +0100, Nora Schiffer wrote:
+> > > > All modern TQ-Systems boards follow the convention that mmc0 is the eMMC
+> > > > and mmc1 is the SD-card when both interfaces exist, reducing differences
+> > > > between boards for both documentation and U-Boot code (which uses the
+> > > > same Device Trees). Adjust the recently added MBLS1028A Device Tree
+> > > > accordingly.
+> > > >
+> > > > Fixes: 0538ca1f102d ("arm64: dts: ls1028a: Add mbls1028a and mbls1028a-ind devicetrees")
+> > > > Signed-off-by: Nora Schiffer <nora.schiffer@ew.tq-group.com>
+> > > > Reviewed-by: Alexander Stein <alexander.stein@ew.tq-group.com>
+> > > > Reviewed-by: Frank Li <Frank.Li@nxp.com>
+> > > > ---
+> > > >
+> > > > v2:
+> > > > - updated author information after name change
+> > > > - collected review tags
+> > > >
+> > > > As mentioned in the v1 submission, it would be great to get this in
+> > > > before v7.0, as the TQMLS1028A/MBLS1028A was just added in the current
+> > > > development cycle, and we'd like to avoid changing the aliases after the
+> > > > DTS was part of a mainline kernel release.
+> > > >
+> > > > Best,
+> > > > Nora
+> > >
+> > >
+> > > Hi Frank,
+> > >
+> > > can we get this applied, so the change makes it into v7.0?
+> > >
+> > > Best,
+> > > Nora
+> >
+> > Hi Frank,
+> >
+> > is there still time for this patch to make it into v7.0? If not, it would be
+> > great to have this applied early in the v7.1 development cycle, so it can get
+> > backported to 7.0.y before anyone starts relying on the current order of mmc
+> > devices.
+> >
+> > Best,
+> > Nora
 >
-> https://sashiko.dev/#/patchset/20260519163657.1259416-1-yang@os.amperecomputing.com
+> Hi Frank,
 >
-> In particular, the potential for races updating the shared counters and
-> double-accounting of entries due to permission changes look like
-> interesting things to check.
+> how should we proceed with this? You provided your Reviewed-by months ago, but
+> the patch never got applied. It is also marked as 'archived' in patchwork:
+> https://patchwork.kernel.org/project/linux-arm-kernel/patch/20260224152523.570057-1-nora.schiffer@ew.tq-group.com/
+>
+>
+> I'm not sure if changing the aliases at this point would be too much of a
+> breaking change... would it make sense to resubmit it, or should I consider it
+> rejected?
 
-Hi Will,
+Sorry, wrong patchwork status let me miss it. I just applied.
 
-Thanks for reminding for Sashiko review. Please see the below response.
+Frank
 
-#1
-> When features like memfd_secret remove pages from the direct map by 
-> calling
-> set_direct_map_invalid_noflush(), it clears the PTE_VALID bit via the 
-> pageattr
-> infrastructure.
-> Since this patch doesn't hook into those callbacks or set_pte() to invoke
-> lm_meminfo_sub(), could the unmapped memory continue to be accounted for,
-> leading to a persistent mismatch between the actual direct map size 
-> and the
-> reported statistics?
-
-The direct mapping counters in /proc/meminfo don't treat invalid direct 
-mapping differently if I read the x86 code correctly, as long as the 
-range is still mapped by page table regardless whether it is valid or 
-not. The counters are just updated when the mapping is created, removed 
-(for example, boot stage or hot plug/unplug), split and collapsed. It 
-seems like transient invalid direct mapping is not considered as 
-"removed". And it seems not bother anyone.
-
-I think we should follow the semantics and keep the consistency. We can 
-definitely make changes in the future if it turns out to be a real problem.
-
-
-#2
-> Could concurrent calls to functions like split_pmd() (e.g., via
-> set_memory_ro() or set_memory_rw() during BPF JIT allocations or module
-> loading) cause data races and lost updates here?
-> These updates use non-atomic read-modify-write operations, and
-> apply_to_page_range() only locks individual page tables rather than 
-> using a
-> global lock.
-
-Sounds like a false positive. The direct mapping page table split is 
-serialized by pgtable_split_lock.
-
-
-#3
-> Does this code, as well as similar sections in init_pmd() and
-> alloc_init_pud(), double-count memory regions when updating permissions
-> of existing direct mappings?
-> When functions like update_mapping_prot() change the permissions of 
-> existing
-> valid direct map entries, this will unconditionally add the size again 
-> without
-> checking if the entry was already present (e.g., checking pte_none() 
-> first)
-> or subtracting the old size.
-
-Yes, it may double count when updating permission because updating 
-permission reuses the same functions. It sounds not hard to address. We 
-can check whether PUD/PMD/PTE is none. If it is none it means kernel is 
-creating new page table, then we count it. If it not none, we skip 
-accounting.
-
-
-#4
-> If a portion of a contiguous block is hot-removed, could this multiple
-> subtraction underflow the counter?
-> On ARM64, the memory hotplug block size can be smaller than a 
-> contiguous block
-> size (e.g., CONT_PMD_SIZE is 16GB with 64K base pages). If a partial 
-> chunk is
-> removed, this subtracts the full CONT_PMD_SIZE. However, it leaves the
-> PTE_CONT bit intact on the remaining valid PMDs.
-> A subsequent removal in the same contiguous block would see the PTE_CONT
-> bit again and subtract the full CONT_PMD_SIZE a second time, 
-> underflowing the
-> counter.
-
-It sounds like a false positive to me. This case should not happen at 
-all. We just can't unplug a portion of DIMM, right?
-
-For example, we plug a 16G dimm to the machine. We can offline a portion 
-of it (at section granularity), but we can't unplug a portion of it, we 
-just can unplug the whole dimm. The counters update happens when unplug.
-
-Thanks,
-Yang
-
-> Will
-
+>
+> Best,
+> Nora
+>
+>
+> >
+> >
+> >
+> > >
+> > >
+> > >
+> > > >
+> > > >
+> > > >  .../boot/dts/freescale/fsl-ls1028a-tqmls1028a-mbls1028a.dtsi  | 4 ++--
+> > > >  1 file changed, 2 insertions(+), 2 deletions(-)
+> > > >
+> > > > diff --git a/arch/arm64/boot/dts/freescale/fsl-ls1028a-tqmls1028a-mbls1028a.dtsi b/arch/arm64/boot/dts/freescale/fsl-ls1028a-tqmls1028a-mbls1028a.dtsi
+> > > > index cf338b2e80064..426a81e1743f1 100644
+> > > > --- a/arch/arm64/boot/dts/freescale/fsl-ls1028a-tqmls1028a-mbls1028a.dtsi
+> > > > +++ b/arch/arm64/boot/dts/freescale/fsl-ls1028a-tqmls1028a-mbls1028a.dtsi
+> > > > @@ -17,8 +17,8 @@ aliases {
+> > > >  		gpio0 = &gpio1;
+> > > >  		gpio1 = &gpio2;
+> > > >  		gpio2 = &gpio3;
+> > > > -		mmc0 = &esdhc; /* SD-Card */
+> > > > -		mmc1 = &esdhc1; /* eMMC */
+> > > > +		mmc0 = &esdhc1; /* eMMC */
+> > > > +		mmc1 = &esdhc; /* SD-Card */
+> > > >  		serial0 = &duart0;
+> > > >  		serial1 = &duart1;
+> > > >  	};
+> > >
+> >
+>
+> --
+> TQ-Systems GmbH | Mühlstraße 2, Gut Delling | 82229 Seefeld, Germany
+> Amtsgericht München, HRB 105018
+> Geschäftsführer: Detlef Schneider, Rüdiger Stahl, Stefan Schneider
+> https://www.tq-group.com/
 
