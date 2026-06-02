@@ -4,58 +4,75 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id DB250CD6E4A
-	for <linux-arm-kernel@archiver.kernel.org>; Tue,  2 Jun 2026 04:22:35 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id E1AD6CD6E4A
+	for <linux-arm-kernel@archiver.kernel.org>; Tue,  2 Jun 2026 04:40:42 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:Mime-Version:References:In-Reply-To:Message-Id:Subject:Cc:To:
-	From:Date:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=nXGOCPORwRtBIOtgSlL5BmqNdJWalyZfji2BLv/IMKg=; b=IlLVa329Pf5Ugu8M1looivbOPL
-	pQKsOnQSX2pkCrBfxHgvyQs0GwnRwOQ1B2SUDEqwLmWQCbVzKgoG4BD6vhETGCX6mCMcVbSnTZKWV
-	9UEPUG8dk7XrB6yqKl7+YYN02+Lc+RG/sUTc0oavHZV1sHD+YQagWVPXw+Ui806i0S6eSry6fUHrr
-	95zVqYJrHPHmro93GtJkd2FqqDWm2GRAuDMb4shkJ1DdjSxmolCtbDtASmx+d+GdugmLyy85fL0Kf
-	A7G013XeuYgFs3xpmDcl3IILYKJa3KjmIkQeI7UKfabWa0bKsBbp9/ppWb6ILC7ozT7yK/TROdKR8
-	NtUHYYIg==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=srXwF/yhg+rbIcHkVtsiegnwql9Xlps6nvacpPywWg4=; b=aRIZLPXDow1WYNFI3xia9V5twN
+	ikIBLNUFTNHOEwrsH0/0XZyQApTz/HH6BTJ/jfTp56korptWRtCzI+Vr1DU4Nux5Ik2ufiRiUz2Qx
+	qmY/yF0qbar+BHwmlOo63E57ASZ9qdaAMgUwthsUEntmhNXIqCkdsfRCXovIsj9ZB3lSJpbbY+2ku
+	d+sgnYmMNwMtYBSwgSX0GZqVKh5j+fElIC0mGtsmWcki1X4Ss+eoiiwMifJh8UyJ0LRyzQ9aWvOt4
+	DOltsDNWPJ3qvBbLNyFFxTZZQNIhvy0kMfIXlMGMxzPyG6WVbnbem8DCdM+nXDF3+E5dOWyuQt97E
+	ILeDBQWg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wUGe5-0000000CGyc-39MS;
-	Tue, 02 Jun 2026 04:22:29 +0000
-Received: from tor.source.kernel.org ([2600:3c04:e001:324:0:1991:8:25])
+	id 1wUGvb-0000000CHYh-0l5U;
+	Tue, 02 Jun 2026 04:40:35 +0000
+Received: from tor.source.kernel.org ([172.105.4.254])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wUGe3-0000000CGyW-3cf1
-	for linux-arm-kernel@lists.infradead.org;
-	Tue, 02 Jun 2026 04:22:28 +0000
+	id 1wUGva-0000000CHYX-0wj5;
+	Tue, 02 Jun 2026 04:40:34 +0000
 Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
-	by tor.source.kernel.org (Postfix) with ESMTP id A14516001A;
-	Tue,  2 Jun 2026 04:22:26 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 285571F00893;
-	Tue,  2 Jun 2026 04:22:26 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-	d=linux-foundation.org; s=korg; t=1780374146;
-	bh=nXGOCPORwRtBIOtgSlL5BmqNdJWalyZfji2BLv/IMKg=;
-	h=Date:From:To:Cc:Subject:In-Reply-To:References;
-	b=SeRc4CB3tfoKRBhIV6CGSKRkthW7QoclBiBsZUpKUThMOsXOQD8ty6QdCV0U8iGvs
-	 qb9WbjKCfWAijL1XQoR2zdLBhNf8zE90wk4B7r+Vg1SkFv/MvZPhepzVtpqXtRVNPB
-	 IjhNm2dPXy3wlmsU+kVOfZzq6mhQwdo4CryaCDdo=
-Date: Mon, 1 Jun 2026 21:22:25 -0700
-From: Andrew Morton <akpm@linux-foundation.org>
-To: Catalin Marinas <catalin.marinas@arm.com>
-Cc: Alistair Popple <apopple@nvidia.com>,
- linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org,
- linux-mm@kvack.org, will@kernel.org, david@kernel.org
-Subject: Re: [PATCH] arm64: mm: call pagetable dtor when freeing hot-removed
- page tables
-Message-Id: <20260601212225.11f277a85d5ed15083b08cc2@linux-foundation.org>
-In-Reply-To: <ahACfQ6kCfONqz5h@arm.com>
-References: <20260521032730.2104017-1-apopple@nvidia.com>
-	<20260521153130.d7d5cd060f7522f894252333@linux-foundation.org>
-	<ahACfQ6kCfONqz5h@arm.com>
-X-Mailer: Sylpheed 3.8.0beta1 (GTK+ 2.24.33; x86_64-pc-linux-gnu)
-Mime-Version: 1.0
-Content-Type: text/plain; charset=US-ASCII
-Content-Transfer-Encoding: 7bit
+	by tor.source.kernel.org (Postfix) with ESMTP id 568BC6001A;
+	Tue,  2 Jun 2026 04:40:33 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 43B6F1F00893;
+	Tue,  2 Jun 2026 04:40:27 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
+	s=k20260515; t=1780375233;
+	bh=srXwF/yhg+rbIcHkVtsiegnwql9Xlps6nvacpPywWg4=;
+	h=Date:From:To:Cc:Subject:References:In-Reply-To;
+	b=AVxln0DQCY1PNRUb9aWahhA0PjWLTKukZTz6gcf/R6ukpUVkqFE8CWcIeAncWYn7N
+	 9SVxYIW6aEFeLIlpyYOFHeaEHecDbIuH3q+g5YLAKEHaNn6ZRrgsqJihYLcXVkdG1x
+	 u8LM5FkmNtBFW2jPuWRqGDHrJbv/cHyD11bDv+X/qQmKmosro2X4Pg0c151+Y8SSAv
+	 hQWSIBG7Hk+uobN/a+cvh066m33eGdPyJnddbAG+dmD9IyBZMt1CDCndeajD7bKPSP
+	 7X0uyZ4JancSZq6PFTUoH3q4q3QPPvxzUudeqGg4m53tr/brD9qU9izIXKAOHQBjPp
+	 P3lcfQWN227kQ==
+Date: Tue, 2 Jun 2026 06:40:24 +0200
+From: "Oscar Salvador (SUSE)" <osalvador@kernel.org>
+To: Muchun Song <muchun.song@linux.dev>
+Cc: "David Hildenbrand (Arm)" <david@kernel.org>,
+	Muchun Song <songmuchun@bytedance.com>,
+	Andrew Morton <akpm@linux-foundation.org>,
+	Catalin Marinas <catalin.marinas@arm.com>,
+	Will Deacon <will@kernel.org>, Palmer Dabbelt <palmer@dabbelt.com>,
+	Paul Walmsley <pjw@kernel.org>, Huacai Chen <chenhuacai@kernel.org>,
+	Andreas Larsson <andreas@gaisler.com>,
+	"David S. Miller" <davem@davemloft.net>, linux-mm@kvack.org,
+	linux-kernel@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
+	linux-riscv@lists.infradead.org, loongarch@lists.linux.dev,
+	sparclinux@vger.kernel.org, Alexandre Ghiti <alex@ghiti.fr>,
+	Albert Ou <aou@eecs.berkeley.edu>, WANG Xuerui <kernel@xen0n.name>,
+	Lorenzo Stoakes <ljs@kernel.org>,
+	"Liam R. Howlett" <liam@infradead.org>,
+	Vlastimil Babka <vbabka@kernel.org>,
+	Mike Rapoport <rppt@kernel.org>,
+	Suren Baghdasaryan <surenb@google.com>,
+	Michal Hocko <mhocko@suse.com>
+Subject: Re: [PATCH v3 1/5] mm/sparse-vmemmap: provide generic
+ vmemmap_set_pmd() and vmemmap_check_pmd()
+Message-ID: <ah5euKU9l3pP_8Ty@localhost.localdomain>
+References: <20260601084845.3792171-1-songmuchun@bytedance.com>
+ <20260601084845.3792171-2-songmuchun@bytedance.com>
+ <db8d440d-c8a1-4f77-b5d9-00bab8737f12@kernel.org>
+ <0D4AF42F-37C5-4A76-9703-44ACC6374C48@linux.dev>
+MIME-Version: 1.0
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+In-Reply-To: <0D4AF42F-37C5-4A76-9703-44ACC6374C48@linux.dev>
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -70,109 +87,56 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Fri, 22 May 2026 08:15:09 +0100 Catalin Marinas <catalin.marinas@arm.com> wrote:
-
-> > > --- a/arch/arm64/mm/mmu.c
-> > > +++ b/arch/arm64/mm/mmu.c
-> > > @@ -1422,6 +1422,7 @@ static void free_hotplug_page_range(struct page *page, size_t size,
-> > >  
-> > >  static void free_hotplug_pgtable_page(struct page *page)
-> > >  {
-> > > +	pagetable_dtor(page_ptdesc(page));
-> > >  	free_hotplug_page_range(page, PAGE_SIZE, NULL);
-> > >  }
+On Mon, Jun 01, 2026 at 08:37:42PM +0800, Muchun Song wrote:
+> 
+> 
+> > On Jun 1, 2026, at 20:22, David Hildenbrand (Arm) <david@kernel.org> wrote:
 > > 
-> > I'd of course prefer that arm maintainers handle this.  But
-> > 5e8eb9aeeda3 came via myself so convention kinda-dictates that I get to
-> > fix it.
+> > On 6/1/26 10:48, Muchun Song wrote:
+> >> The two weak functions are currently no-ops on every architecture,
+> >> forcing each platform that needs them to duplicate the same handful
+> >> of lines.  Provide a generic implementation:
+> >> 
+> >> - vmemmap_set_pmd() simply sets a huge PMD with PAGE_KERNEL protection.
+> >> 
+> >> - vmemmap_check_pmd() verifies that the PMD is present and leaf,
+> >>  then calls the existing vmemmap_verify() helper.
+> >> 
+> >> Architectures that need special handling can continue to override the
+> >> weak symbols; everyone else gets the standard version for free.
+> >> 
+> >> Signed-off-by: Muchun Song <songmuchun@bytedance.com>
+> >> ---
+> >> v2->v3:
+> >> - Replace BUG_ON() with WARN_ON_ONCE() in vmemmap_set_pmd()
+> >> ---
+> >> mm/sparse-vmemmap.c | 7 ++++++-
+> >> 1 file changed, 6 insertions(+), 1 deletion(-)
+> >> 
+> >> diff --git a/mm/sparse-vmemmap.c b/mm/sparse-vmemmap.c
+> >> index 112ccf9c71ca..99e2be39671b 100644
+> >> --- a/mm/sparse-vmemmap.c
+> >> +++ b/mm/sparse-vmemmap.c
+> >> @@ -386,12 +386,17 @@ int __meminit vmemmap_populate_hvo(unsigned long addr, unsigned long end,
+> >> void __weak __meminit vmemmap_set_pmd(pmd_t *pmd, void *p, int node,
+> >>       unsigned long addr, unsigned long next)
+> >> {
+> >> + 	WARN_ON_ONCE(!pmd_set_huge(pmd, virt_to_phys(p), PAGE_KERNEL));
+> > 
+> > 
+> > Not sure if a VM_WARN_ON_ONCE() would be appropriate. (then, we have to move the
+> > pmd_set_huge() out of the statement).
 > 
-> That's fine but Sashiko has some points:
-> 
-> https://sashiko.dev/#/patchset/20260521032730.2104017-1-apopple@nvidia.com
-> 
-> The __remove_pgd_mapping() path is fine but we also have the
-> vmemmap_free() path where the constructor was never called.
-> 
-> We could pass around a bool dtor argument but I wonder whether we could
-> just check it's a pgtable page:
-> 
-> diff --git a/arch/arm64/mm/mmu.c b/arch/arm64/mm/mmu.c
-> index 4c8959153ac4..9d42cbddce27 100644
-> --- a/arch/arm64/mm/mmu.c
-> +++ b/arch/arm64/mm/mmu.c
-> @@ -1441,6 +1441,9 @@ static void free_hotplug_page_range(struct page *page, size_t size,
->  
->  static void free_hotplug_pgtable_page(struct page *page)
->  {
-> +	if (folio_test_pgtable(page_folio(page)))
-> +		pagetable_dtor(page_ptdesc(page));
-> +
->  	free_hotplug_page_range(page, PAGE_SIZE, NULL);
->  }
+> I think it might be better to keep WARN_ON_ONCE here. This way, we can still
+> monitor for warnings in production while keeping the code simple.
 
-This patch is still floating around in mm.git awaiting some
-finalization.  What to do?
+IIRC there was a discussion about this some time ago, given the fact that quite
+some people out there tend to have 'panic_on_warn', but then again, if we fail to
+set a PMD here it means something pretty nasty happened, so I am ok with that.
 
-From: Alistair Popple <apopple@nvidia.com>
-Subject: arm64: mm: call pagetable dtor when freeing hot-removed page tables
-Date: Thu, 21 May 2026 13:27:30 +1000
-
-Since 5e8eb9aeeda3 ("arm64: mm: always call PTE/PMD ctor in
-__create_pgd_mapping()") page-table allocation on ARM64 always calls
-pagetable_{pte,pmd,pud,p4d}_ctor().  This sets the page_type to
-PGTY_table, increments NR_PAGETABLE and possible allocates a PTL.  However
-the matching pagetable_dtor() calls were never added.
-
-With DEBUG_VM enabled on kernel versions prior to v6.17 without
-2dfcd1608f3a9 ("mm/page_alloc: let page freeing clear any set page type")
-this leads to the following warning when freeing these pages due to
-page->page_type sharing page->_mapcount:
-
-  BUG: Bad page state in process ... pfn:284fbb
-  page: refcount:0 mapcount:0 mapping:0000000000000000 index:0x0 pfn:0x284fbb
-  flags: 0x17fffc000000000(node=0|zone=2|lastcpupid=0x1ffff)
-  page_type: f2(table)
-  page dumped because: nonzero mapcount
-  Call trace:
-   bad_page+0x13c/0x160
-   __free_frozen_pages+0x6cc/0x860
-   ___free_pages+0xf4/0x180
-   free_pages+0x54/0x80
-   free_hotplug_page_range.part.0+0x58/0x90
-   free_empty_tables+0x438/0x500
-   __remove_pgd_mapping.constprop.0+0x60/0xa8
-   arch_remove_memory+0x48/0x80
-   try_remove_memory+0x158/0x1d8
-   offline_and_remove_memory+0x138/0x180
-
-It can also lead to leaking the ptl allocation if ALLOC_SPLIT_PTLOCKS is
-defined and incorrect NR_PAGETABLE stats.  Fix this by calling
-pagetable_dtor() in free_hotplug_pgtable_page() prior to freeing the page
-to undo the effects of calling pagetable_*_ctor().
-
-Link: https://lore.kernel.org/20260521032730.2104017-1-apopple@nvidia.com
-Fixes: 5e8eb9aeeda3 ("arm64: mm: always call PTE/PMD ctor in __create_pgd_mapping()")
-Signed-off-by: Alistair Popple <apopple@nvidia.com>
-Cc: Catalin Marinas <catalin.marinas@arm.com>
-Cc: David Hildenbrand <david@kernel.org>
-Cc: Will Deacon <will@kernel.org>
-Cc: <stable@vger.kernel.org>
-Signed-off-by: Andrew Morton <akpm@linux-foundation.org>
----
-
- arch/arm64/mm/mmu.c |    1 +
- 1 file changed, 1 insertion(+)
-
---- a/arch/arm64/mm/mmu.c~arm64-mm-call-pagetable-dtor-when-freeing-hot-removed-page-tables
-+++ a/arch/arm64/mm/mmu.c
-@@ -1441,6 +1441,7 @@ static void free_hotplug_page_range(stru
  
- static void free_hotplug_pgtable_page(struct page *page)
- {
-+	pagetable_dtor(page_ptdesc(page));
- 	free_hotplug_page_range(page, PAGE_SIZE, NULL);
- }
- 
-_
 
+-- 
+Oscar Salvador
+SUSE Labs
 
