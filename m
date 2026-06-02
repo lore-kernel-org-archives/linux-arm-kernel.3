@@ -4,64 +4,57 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 747C8CD5BD1
-	for <linux-arm-kernel@archiver.kernel.org>; Tue,  2 Jun 2026 20:59:55 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 845FFCD6E5D
+	for <linux-arm-kernel@archiver.kernel.org>; Tue,  2 Jun 2026 21:00:08 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:
+	Content-Transfer-Encoding:MIME-Version:References:In-Reply-To:Message-ID:Date
+	:Subject:Cc:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=skOs4tsc6sXpiuWDaL8QUnUwJQBbvqvvO4BpIjWXX0I=; b=wweFwj8PGohbRCJY8h245FI5LL
-	oFDAPjazdxi88J24GsBb9gHOMuCCm+MHPpWKT6sKVYp54gsDB0eKyAaGa74PnY/WaC5Jr0twTYsjA
-	Ja7rZ9FnbnuqtkhelKjdrVyDiNA/ktDQbeDEMRaPrHofaTQ6d6HBVhd+8gpwTHoMvrW1vxe7LSe7y
-	ni2Sg8UBBHqHtKXkInaYQX8ZHbcloPRykfebXDduSuSbykTpTDbfdvIFdJ1dWQNbltdqWQRRZpD9/
-	8u0jhTuAXWSrDFYycI98nfXLsvX+NYVOYSk8ZlN9nwtyJEax+Dh2k8FXtxHauAsuiqYhn8DeojU3o
-	6lz6Rg+A==;
+	bh=gdnGze8I+ROg9ZF+rqMhgnzW1lOwo0q/HCgzLDR7Li4=; b=AUCvuMmsYDAs97fKlbo/7fKgxE
+	G/iU/nccXkS4eul+jiXDUURo3x6itYmczwdN46AsDxUx2l0vdEdF1vA0SaiIjP+G2q8pW4VCLbddl
+	+udrX+qPkWGU0OfJQpzDkjq5oSRbIAiTwHMlFAeVn9OCpXbE8JxZLXYsZqLBoZ08t0oWMU0R5fL0J
+	SXVuncDGS3LjCivqfj0Mgv5z1tct13vE5MYREtMUyIacnvtCwLtsYyx8Oy4g6305+/SZ5gLThTXSZ
+	kwjM7VaDu+jUsYaAibnC2osuU1nupZvwjULE/1DegY2VnRmiJ2/LuiMGBy4VolVKLL+gDr9SAM0K6
+	RZxpvcgQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wUWDE-0000000Dmxe-3oQq;
-	Tue, 02 Jun 2026 20:59:48 +0000
-Received: from sea.source.kernel.org ([172.234.252.31])
+	id 1wUWDR-0000000Dn1o-03dA;
+	Tue, 02 Jun 2026 21:00:01 +0000
+Received: from gloria.sntech.de ([185.11.138.130])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wUWDC-0000000Dmwp-0HRs
-	for linux-arm-kernel@lists.infradead.org;
-	Tue, 02 Jun 2026 20:59:47 +0000
-Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
-	by sea.source.kernel.org (Postfix) with ESMTP id 0D8AE438F3;
-	Tue,  2 Jun 2026 20:59:45 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 2FD1F1F00898;
-	Tue,  2 Jun 2026 20:59:43 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1780433984;
-	bh=skOs4tsc6sXpiuWDaL8QUnUwJQBbvqvvO4BpIjWXX0I=;
-	h=Date:From:To:Cc:Subject:References:In-Reply-To;
-	b=acgcWDchyxTz4KJwz+pLvRVBcM9FKZeKwGBsxUztZ0IrE6QEiXDoqCmpsx2ctNZz/
-	 JuZ8c3+MifLDO2GrZUhF37qIXBWlPIeSXhrFDu8S/HRAc+UG9Z9+IBmlzt6luopuHD
-	 5nFQuEaeyKdhPOqXVec3Yyyc7N3iz17T5hQSipK1cD2d/aid0Fz50W/LxVwNPVGixl
-	 zNNuSe9QrlIUyfmjEFo89fjNn3nRAGpYumAsEnbkaw4U7J8rUreARt+gs/PTNVVj5h
-	 ALZdvDYw2arTQOSj2EwHhlA8ElAkCjDy+OPbuouJbERvnyZ6276/hP8XxIHQU6IKqp
-	 kNl/UIotlbZjw==
-Date: Tue, 2 Jun 2026 21:59:39 +0100
-From: Will Deacon <will@kernel.org>
-To: Nicolin Chen <nicolinc@nvidia.com>
-Cc: Ashish Mhetre <amhetre@nvidia.com>, robin.murphy@arm.com,
-	joro@8bytes.org, jgg@ziepe.ca, linux-arm-kernel@lists.infradead.org,
-	iommu@lists.linux.dev, linux-kernel@vger.kernel.org,
-	linux-tegra@vger.kernel.org
-Subject: Re: [PATCH v3 2/3] iommu/arm-smmu-v3: Detect Tegra264 erratum
-Message-ID: <ah9EO-djR3Tf9ohf@willie-the-truck>
-References: <20260601104845.995005-1-amhetre@nvidia.com>
- <20260601104845.995005-3-amhetre@nvidia.com>
- <ah85c4u011WNJQgE@willie-the-truck>
- <ah89vg26255v4lqF@Asurada-Nvidia>
+	id 1wUWDK-0000000DmzA-2g4P;
+	Tue, 02 Jun 2026 20:59:59 +0000
+DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed; d=sntech.de;
+	s=gloria202408; h=Content-Type:Content-Transfer-Encoding:MIME-Version:
+	References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:Reply-To;
+	bh=gdnGze8I+ROg9ZF+rqMhgnzW1lOwo0q/HCgzLDR7Li4=; b=eN/qgfbUu5LYjEDPu3bQBRNWJT
+	nDng4lbq0YaU0YNm1apXfmZav0rAq3YPs1VjngWgjaOflt6FwOPUkk44Rd/Zsypp9nBqmc0wS/Prd
+	X1Tf2b/PdsGDQYgpeR0N9ZBVCNtiG7BDIXrsx/YwqX1IHKi+Q2o8ek3ifAIjCad9zQ+Srx3OIuSMO
+	uHDnSDOXCbdorbcZ5lxxyhOlugDpfukBs7cZAvOhI90RbW/XjJWi6z8CiE+moIFU8ODTg+iuzaWiF
+	6S25iu+JRMlbIPOepXrNn66zp3555eg7FLUP3d7reL/9n+NUxuf90bnQYmzjG9j0GqyFf5CehjG1m
+	bIJ5dPmw==;
+From: Heiko Stuebner <heiko@sntech.de>
+To: Sandy Huang <hjc@rock-chips.com>, Andy Yan <andy.yan@rock-chips.com>,
+ Maarten Lankhorst <maarten.lankhorst@linux.intel.com>,
+ Maxime Ripard <mripard@kernel.org>, Thomas Zimmermann <tzimmermann@suse.de>,
+ David Airlie <airlied@gmail.com>, Simona Vetter <simona@ffwll.ch>,
+ Guochun Huang <hero.huang@rock-chips.com>, Chaoyi Chen <kernel@airkyi.com>
+Cc: dri-devel@lists.freedesktop.org, linux-arm-kernel@lists.infradead.org,
+ linux-rockchip@lists.infradead.org, linux-kernel@vger.kernel.org,
+ Chaoyi Chen <chaoyi.chen@rock-chips.com>
+Subject: Re: [PATCH 1/2] drm/rockchip: dsi: Add maximum per lane bit rate calculation
+Date: Tue, 02 Jun 2026 22:59:38 +0200
+Message-ID: <4888940.6M6d0yLqnL@phil>
+In-Reply-To: <20260324085838.90-1-kernel@airkyi.com>
+References: <20260324085838.90-1-kernel@airkyi.com>
 MIME-Version: 1.0
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-In-Reply-To: <ah89vg26255v4lqF@Asurada-Nvidia>
+Content-Transfer-Encoding: quoted-printable
+Content-Type: text/plain; charset="utf-8"
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260602_135946_122933_F6E57854 
-X-CRM114-Status: GOOD (  26.99  )
+X-CRM114-CacheID: sfid-20260602_135954_825159_DB9FF3B8 
+X-CRM114-Status: GOOD (  21.50  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -76,47 +69,195 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Tue, Jun 02, 2026 at 01:31:58PM -0700, Nicolin Chen wrote:
-> On Tue, Jun 02, 2026 at 09:13:39PM +0100, Will Deacon wrote:
-> > On Mon, Jun 01, 2026 at 10:48:44AM +0000, Ashish Mhetre wrote:
-> > > Tegra264 SMMU is affected by erratum where a TLB entry can survive an
-> > > invalidation that races with concurrent traffic targeting the same
-> > > entry. The hardware-recommended software workaround is to issue every
-> > > CFGI/TLBI command (each followed by CMD_SYNC) twice. The second issue
-> > > is guaranteed to evict the entry. ATC_INV is not affected and must not
-> > > be doubled.
-> > > 
-> > > The erratum is not flagged by any SMMUv3 IDR/IIDR register, so it
-> > > cannot be detected from hardware ID. Tegra264 boots from device tree
-> > > only and has no ACPI/IORT support, so detection is through device
-> > > tree only.
-> > 
-> > That seems odd to me -- whether the hardware has the erratum is
-> > completely unrelated to whether it probes using DT or ACPI, so I find it
-> > really weird to have the workaround enabled when booting with DT and not
-> > when booting with ACPI. We should have consistent behaviour between the
-> > two.
-> 
-> That's a good point. Yet, for ACPI to detect the erratum, we would
-> need a new IORT model or flag, right? That would need to go through
-> the entire ACPI protocol to update SMMU's IORT spec and the header
-> accordingly, which we don't have a use case to do so or to test it.
-> 
-> What would you like us to do here for the consistency?
+Am Dienstag, 24. M=C3=A4rz 2026, 09:58:37 Mitteleurop=C3=A4ische Sommerzeit=
+ schrieb Chaoyi Chen:
+> From: Chaoyi Chen <chaoyi.chen@rock-chips.com>
+>=20
+> Different chips have varying support for the maximum bit rate per lane.
+>=20
+> Add calculation for the maximum per lane bit rate for various chip
+> platforms, and relax the bandwidth margin requirements.
+>=20
+> Signed-off-by: Chaoyi Chen <chaoyi.chen@rock-chips.com>
+> ---
+>  .../gpu/drm/rockchip/dw-mipi-dsi-rockchip.c   | 21 +++++++++++++++----
+>  1 file changed, 17 insertions(+), 4 deletions(-)
+>=20
+> diff --git a/drivers/gpu/drm/rockchip/dw-mipi-dsi-rockchip.c b/drivers/gp=
+u/drm/rockchip/dw-mipi-dsi-rockchip.c
+> index 3547d91b25d3..d3bacfae174e 100644
+> --- a/drivers/gpu/drm/rockchip/dw-mipi-dsi-rockchip.c
+> +++ b/drivers/gpu/drm/rockchip/dw-mipi-dsi-rockchip.c
+> @@ -268,6 +268,7 @@ struct rockchip_dw_dsi_chip_data {
+> =20
+>  	unsigned int flags;
+>  	unsigned int max_data_lanes;
+> +	unsigned long max_bit_rate_per_lane;
+>  };
+> =20
+>  struct dw_mipi_dsi_rockchip {
+> @@ -565,7 +566,7 @@ dw_mipi_dsi_get_lane_mbps(void *priv_data, const stru=
+ct drm_display_mode *mode,
+>  	int bpp;
+>  	unsigned long mpclk, tmp;
+>  	unsigned int target_mbps =3D 1000;
+> -	unsigned int max_mbps =3D dppa_map[ARRAY_SIZE(dppa_map) - 1].max_mbps;
+> +	unsigned int max_mbps;
+>  	unsigned long best_freq =3D 0;
+>  	unsigned long fvco_min, fvco_max, fin, fout;
+>  	unsigned int min_prediv, max_prediv;
+> @@ -573,6 +574,7 @@ dw_mipi_dsi_get_lane_mbps(void *priv_data, const stru=
+ct drm_display_mode *mode,
+>  	unsigned long _fbdiv, best_fbdiv;
+>  	unsigned long min_delta =3D ULONG_MAX;
+> =20
+> +	max_mbps =3D dsi->cdata->max_bit_rate_per_lane;
 
-Gah, I now realise I've mixed up Tegra264 and Tegra241 because
-tegra_cmdqv_dt_probe() is only called if the compatible string matches
-"nvidia,tegra264-smmu" yet all the cmdqv stuff talks only about
-Tegra241. So I was surprised that the ACPI probing code for Tegra241
-wasn't enabling the workaround.
+I may be blind, but how do the values come together?
+In the dppa_map table we have mbps values of 89 to 1500
+(MHz)
 
-But if you're saying that:
+While below the values set are
+	.max_bit_rate_per_lane =3D 1500000000UL,
+in Hz I guess
 
-1. Tegra264 never uses ACPI
-2. Tegra241 doesn't have the invalidation erratum
+And I don't see the needed conversion somehow.
 
-Then I'm less worried (even though it's a shame that we can't detect
-the erratum from the hardware itself).
 
-Will
+>  	dsi->format =3D format;
+>  	bpp =3D mipi_dsi_pixel_format_to_bpp(dsi->format);
+>  	if (bpp < 0) {
+> @@ -584,8 +586,8 @@ dw_mipi_dsi_get_lane_mbps(void *priv_data, const stru=
+ct drm_display_mode *mode,
+> =20
+>  	mpclk =3D DIV_ROUND_UP(mode->clock, MSEC_PER_SEC);
+>  	if (mpclk) {
+> -		/* take 1 / 0.8, since mbps must big than bandwidth of RGB */
+> -		tmp =3D mpclk * (bpp / lanes) * 10 / 8;
+> +		/* take 1 / 0.9, since mbps must big than bandwidth of RGB */
+> +		tmp =3D mpclk * (bpp / lanes) * 10 / 9;
+
+Please do this in a separate patch, especially as I would expect some
+sort of explanation on why this is ok to do.
+
+Thanks
+Heiko
+
+>  		if (tmp < max_mbps)
+>  			target_mbps =3D tmp;
+>  		else
+> @@ -595,7 +597,7 @@ dw_mipi_dsi_get_lane_mbps(void *priv_data, const stru=
+ct drm_display_mode *mode,
+> =20
+>  	/* for external phy only a the mipi_dphy_config is necessary */
+>  	if (dsi->phy) {
+> -		phy_mipi_dphy_get_default_config(mode->clock * 1000 * 10 / 8,
+> +		phy_mipi_dphy_get_default_config(mode->clock * 1000 * 10 / 9,
+>  						 bpp, lanes,
+>  						 &dsi->phy_opts.mipi_dphy);
+>  		dsi->lane_mbps =3D target_mbps;
+> @@ -1503,6 +1505,7 @@ static const struct rockchip_dw_dsi_chip_data px30_=
+chip_data[] =3D {
+>  						PX30_DSI_FORCETXSTOPMODE), 0),
+> =20
+>  		.max_data_lanes =3D 4,
+> +		.max_bit_rate_per_lane =3D 1000000000UL,
+>  	},
+>  	{ /* sentinel */ }
+>  };
+> @@ -1515,6 +1518,7 @@ static const struct rockchip_dw_dsi_chip_data rk312=
+8_chip_data[] =3D {
+>  						RK3128_DSI_FORCERXMODE |
+>  						RK3128_DSI_FORCETXSTOPMODE), 0),
+>  		.max_data_lanes =3D 4,
+> +		.max_bit_rate_per_lane =3D 1000000000UL,
+>  	},
+>  	{ /* sentinel */ }
+>  };
+> @@ -1527,6 +1531,7 @@ static const struct rockchip_dw_dsi_chip_data rk328=
+8_chip_data[] =3D {
+>  		.lcdsel_lit =3D FIELD_PREP_WM16_CONST(RK3288_DSI0_LCDC_SEL, 1),
+> =20
+>  		.max_data_lanes =3D 4,
+> +		.max_bit_rate_per_lane =3D 1500000000UL,
+>  	},
+>  	{
+>  		.reg =3D 0xff964000,
+> @@ -1535,6 +1540,7 @@ static const struct rockchip_dw_dsi_chip_data rk328=
+8_chip_data[] =3D {
+>  		.lcdsel_lit =3D FIELD_PREP_WM16_CONST(RK3288_DSI1_LCDC_SEL, 1),
+> =20
+>  		.max_data_lanes =3D 4,
+> +		.max_bit_rate_per_lane =3D 1500000000UL,
+>  	},
+>  	{ /* sentinel */ }
+>  };
+> @@ -1547,6 +1553,7 @@ static const struct rockchip_dw_dsi_chip_data rk336=
+8_chip_data[] =3D {
+>  						RK3368_DSI_FORCETXSTOPMODE |
+>  						RK3368_DSI_FORCERXMODE), 0),
+>  		.max_data_lanes =3D 4,
+> +		.max_bit_rate_per_lane =3D 1500000000UL,
+>  	},
+>  	{ /* sentinel */ }
+>  };
+> @@ -1634,6 +1641,7 @@ static const struct rockchip_dw_dsi_chip_data rk339=
+9_chip_data[] =3D {
+> =20
+>  		.flags =3D DW_MIPI_NEEDS_PHY_CFG_CLK | DW_MIPI_NEEDS_GRF_CLK,
+>  		.max_data_lanes =3D 4,
+> +		.max_bit_rate_per_lane =3D 1500000000UL,
+>  	},
+>  	{
+>  		.reg =3D 0xff968000,
+> @@ -1658,6 +1666,7 @@ static const struct rockchip_dw_dsi_chip_data rk339=
+9_chip_data[] =3D {
+> =20
+>  		.flags =3D DW_MIPI_NEEDS_PHY_CFG_CLK | DW_MIPI_NEEDS_GRF_CLK,
+>  		.max_data_lanes =3D 4,
+> +		.max_bit_rate_per_lane =3D 1500000000UL,
+> =20
+>  		.dphy_rx_init =3D rk3399_dphy_tx1rx1_init,
+>  		.dphy_rx_power_on =3D rk3399_dphy_tx1rx1_power_on,
+> @@ -1674,6 +1683,7 @@ static const struct rockchip_dw_dsi_chip_data rk350=
+6_chip_data[] =3D {
+>  			     FIELD_PREP_WM16_CONST(RK3506_DSI_FORCERXMODE, 0) |
+>  			     FIELD_PREP_WM16_CONST(RK3506_DSI_FORCETXSTOPMODE, 0)),
+>  		.max_data_lanes =3D 2,
+> +		.max_bit_rate_per_lane =3D 1500000000UL,
+>  	},
+>  	{ /* sentinel */ }
+>  };
+> @@ -1687,6 +1697,7 @@ static const struct rockchip_dw_dsi_chip_data rk356=
+8_chip_data[] =3D {
+>  			     FIELD_PREP_WM16_CONST(RK3568_DSI0_TURNDISABLE, 0) |
+>  			     FIELD_PREP_WM16_CONST(RK3568_DSI0_FORCERXMODE, 0)),
+>  		.max_data_lanes =3D 4,
+> +		.max_bit_rate_per_lane =3D 1200000000UL,
+>  	},
+>  	{
+>  		.reg =3D 0xfe070000,
+> @@ -1696,6 +1707,7 @@ static const struct rockchip_dw_dsi_chip_data rk356=
+8_chip_data[] =3D {
+>  			     FIELD_PREP_WM16_CONST(RK3568_DSI1_TURNDISABLE, 0) |
+>  			     FIELD_PREP_WM16_CONST(RK3568_DSI1_FORCERXMODE, 0)),
+>  		.max_data_lanes =3D 4,
+> +		.max_bit_rate_per_lane =3D 1200000000UL,
+>  	},
+>  	{ /* sentinel */ }
+>  };
+> @@ -1708,6 +1720,7 @@ static const struct rockchip_dw_dsi_chip_data rv112=
+6_chip_data[] =3D {
+>  			     FIELD_PREP_WM16_CONST(RV1126_DSI_FORCERXMODE, 0) |
+>  			     FIELD_PREP_WM16_CONST(RV1126_DSI_FORCETXSTOPMODE, 0)),
+>  		.max_data_lanes =3D 4,
+> +		.max_bit_rate_per_lane =3D 1000000000UL,
+>  	},
+>  	{ /* sentinel */ }
+>  };
+>=20
+
+
+
+
 
