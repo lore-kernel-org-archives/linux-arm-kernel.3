@@ -4,64 +4,120 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id C5F2AC5DF71
-	for <linux-arm-kernel@archiver.kernel.org>; Tue,  2 Jun 2026 05:58:33 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 7C284C5DF71
+	for <linux-arm-kernel@archiver.kernel.org>; Tue,  2 Jun 2026 06:00:14 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	MIME-Version:References:Message-ID:Subject:CC:To:From:Date:Reply-To:
 	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=i/FErISb+2QnG1P6pu4OzfuEn7EsXrCTB7tFZI6xt/Y=; b=AKbiNDart/gM+5kdyLAP6z21Yl
-	NcTjtTIgSmW3ttAmCA80LUEIjW+uHKyR4BvvIvg+uTs4RqK8AT/tIxrv/7p0AYfAJ/DaSkssAhELk
-	X1C/Sh9bbA6yYpNeZdTqkxJsvtuMclAmw/aFlMKQ9rGlesb7cBZGSBAv5RH23onL3QTfWIqL7vwZy
-	29BgtDyLPDutoHuIsPcc6Ws8f3zm8ei7UCjF2H2L09eOqT+k6yKpGcDoU5nkeApauFww2WXi8+H7k
-	m/UmIrNy20LX1Lx5dPNSIgMAvLWiJtbe6lyH+Ub9bqza4Ld9UpTUZ1g1nlnx8nZTpARU4SIBY0z4d
-	sgmM5f+w==;
+	bh=A59f4bB3fj3QOTgEJWC74U7y6yOnYMv8ej5jObvFEb0=; b=vck4f92rEIQDKqVqKMuDTLkFCn
+	Pzo2dp6oJi6pflBrjNgU4PaepSTf6yo9QK1cWO0BcuOI7MNundIz1h1hSNv8nx01Q5RbLl9cTWREm
+	bZCKvhRfrPQOynt+uAe0LTLtXD/TuY44jSdnbr/VNPFjFD2jls1He0WEcoXMAvPd8wyqPOXJXd9yL
+	dLyoQm7sxB6Gb1WGv9VRoCnuTpxVGFszEcf7RA6K33cju0gm6WSUQ8TsYGnZpmx6gBM1TW7XOz+pl
+	vnngYOETXCiy2JHgOkaC4eC8GOSeH/6LXSOjEc3hvZgJVmqQv7AdCX5nwTgjTNYkb5Orhh9ZtOUsY
+	jM5qmw+g==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wUI8w-0000000CLzb-3wyX;
-	Tue, 02 Jun 2026 05:58:26 +0000
-Received: from sea.source.kernel.org ([172.234.252.31])
+	id 1wUIAa-0000000CM6m-0evE;
+	Tue, 02 Jun 2026 06:00:08 +0000
+Received: from mail-centralusazon11011062.outbound.protection.outlook.com ([52.101.62.62] helo=DM5PR21CU001.outbound.protection.outlook.com)
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wUI8t-0000000CLz5-3w9h
+	id 1wUIAX-0000000CM69-0b2J
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 02 Jun 2026 05:58:25 +0000
-Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
-	by sea.source.kernel.org (Postfix) with ESMTP id B69E9441F6;
-	Tue,  2 Jun 2026 05:58:22 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id EFBCB1F00893;
-	Tue,  2 Jun 2026 05:58:21 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=linuxfoundation.org;
-	s=korg; t=1780379902;
-	bh=i/FErISb+2QnG1P6pu4OzfuEn7EsXrCTB7tFZI6xt/Y=;
-	h=Date:From:To:Cc:Subject:References:In-Reply-To;
-	b=bJW1kDdfNtPpXHSmmydgicC+jRCKoyenJ0pTetch8dufqFBZT8OAnclAKC+6nmeGW
-	 1+nkcnPHd4QwtYeuhmTNl9V3QI5TfdCmZfp5IjG2nknuig1l4SPcxjuIS0Qwh1J7vT
-	 0xvVp2qmHWksOHK5+wOII9EPoLxHsBpmdIPJJemU=
-Date: Tue, 2 Jun 2026 07:57:26 +0200
-From: Greg KH <gregkh@linuxfoundation.org>
-To: Grewstad <dogestad24@gmail.com>
-Cc: Andrew Lunn <andrew@lunn.ch>, jic23@kernel.org, jacobsfeder@gmail.com,
-	linux-staging@lists.linux.dev, linux-arm-kernel@lists.infradead.org,
-	linux-kernel@vger.kernel.org, hjk@hansjkoch.de, davem@davemloft.net,
-	netdev@vger.kernel.org
-Subject: Re: [RFC] drivers/staging/axis-fifo: TODO file and subsystem
- direction
-Message-ID: <2026060202-wad-skittle-263f@gregkh>
-References: <CAD03fjaBJGtNATBxaYO-PAxdKC=HxYgE+M7HQ_a0O+3Sp9Mruw@mail.gmail.com>
- <84d8f2a1-6562-47a9-93d7-2d7ff33c31c0@lunn.ch>
- <CAD03fjah2GMedDtauPQjP0++3USpy6tm3AUemgAjVHS=5Nirtg@mail.gmail.com>
- <8f7eb9c7-6695-450c-81c4-fb96643adbc2@lunn.ch>
- <CAD03fja5oG3-BrQoy4+LEmCWPYGW_JWDEkaPndjSVz=PbRj4wg@mail.gmail.com>
+	Tue, 02 Jun 2026 06:00:06 +0000
+ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
+ b=VKMWXnFQJ3av0GAX281Y+s1hI+gBGNzmkKw8VEmmUsOKGdCaVKnLzy8qyxVK5vPO+QiuVSKSzMVfexyou9N6a/pEzOiptKQe8D8bOm7cg5hpgRf2YMuSvyQ3AyF1uIGNOwR69p6+jhDPinkYK45tjmAA6hLSEOCnf/Px2Q24aLpGnEYk2dG/3+GoCInL2DBRmVBkEFdc5NvZ8uEQEbhxZumvAYpEbNOgqcn+vMP031Jk48QVcJ5z3T19Tlxmgrntzz/9/5qT6i3FIjuqYuakIxlp6PpxsSSgzmKUKgoYGCiWcyQe2Wg6g8YbVsc/I0CKu6rrk+7Ej1IjgeRurNPmcw==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
+ s=arcselector10001;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
+ bh=A59f4bB3fj3QOTgEJWC74U7y6yOnYMv8ej5jObvFEb0=;
+ b=Jcrgtqs7l9GticNryCoR2FUGrMGp63M46vsdWZSTp/wilnP4CwzM+TQEgfMTZ2VvDk6a0GSm6qt6pXo0OSSAfyI4rCr4QW4mOehR2ghxvcyNe89eKZ50QbdE9UO4QuK4yDcg2voriLoZv7depoaw3jbELMyENWj3UiJp/ICKPKK2IBXNpA8U0hZ7bmJe9D3CWsBpjH9zokj2L7SiIEA/hF0jEaZMNBu63t7WGknBzyGbqg5yCe8vN6DUz0OybTrTR4dpTThH8yFnWx+s8XaLXIYGDy8PU/l5dzMlPYcFF1pMDbyjMJRFy4ApjdKxtAXjKLvN38M82270Js0NLGp5zw==
+ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass (sender ip is
+ 216.228.118.233) smtp.rcpttodomain=google.com smtp.mailfrom=nvidia.com;
+ dmarc=pass (p=reject sp=reject pct=100) action=none header.from=nvidia.com;
+ dkim=none (message not signed); arc=none (0)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=Nvidia.com;
+ s=selector2;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
+ bh=A59f4bB3fj3QOTgEJWC74U7y6yOnYMv8ej5jObvFEb0=;
+ b=RGs6pDqIkkbDk9WA6gslmS89raHebX35cb/oOZpevUfZO1Vzzudu3yeJJjxv4ReFfuqsna7zQk1+ZFiN/rorB5vNJdaIYwk0cIXa8l5Tnb3bVAnQ/n/ee2Ew4t0rR1DBe0JgKlX8J/cQ95y/YSV9D1KQ9E/vpFue+GSGpRbI8QYIh5q6tyvHoB/Raebs47LNV9+frrCBwL874SjRUCLD0d5lDyvfaUIDQ6sJs0/9z7XkPdimQoEqp3zhbBrhlYrlWqK92IghzzUUtiDD8YI/k02AO2MDG+S1zZSgVXXkaF2sa9ROPrtLAUY2BdWHDIfMqHGK6w/f0cp3uP/ljm1pig==
+Received: from DS7P220CA0108.NAMP220.PROD.OUTLOOK.COM (2603:10b6:8:25d::14) by
+ CY8PR12MB7268.namprd12.prod.outlook.com (2603:10b6:930:54::20) with Microsoft
+ SMTP Server (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
+ 15.21.92.7; Tue, 2 Jun 2026 05:59:58 +0000
+Received: from CY4PEPF0000EE38.namprd03.prod.outlook.com
+ (2603:10b6:8:25d:cafe::3a) by DS7P220CA0108.outlook.office365.com
+ (2603:10b6:8:25d::14) with Microsoft SMTP Server (version=TLS1_3,
+ cipher=TLS_AES_256_GCM_SHA384) id 15.21.92.7 via Frontend Transport; Tue, 2
+ Jun 2026 05:59:58 +0000
+X-MS-Exchange-Authentication-Results: spf=pass (sender IP is 216.228.118.233)
+ smtp.mailfrom=nvidia.com; dkim=none (message not signed)
+ header.d=none;dmarc=pass action=none header.from=nvidia.com;
+Received-SPF: Pass (protection.outlook.com: domain of nvidia.com designates
+ 216.228.118.233 as permitted sender) receiver=protection.outlook.com;
+ client-ip=216.228.118.233; helo=mail.nvidia.com; pr=C
+Received: from mail.nvidia.com (216.228.118.233) by
+ CY4PEPF0000EE38.mail.protection.outlook.com (10.167.242.10) with Microsoft
+ SMTP Server (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
+ 15.21.92.5 via Frontend Transport; Tue, 2 Jun 2026 05:59:58 +0000
+Received: from drhqmail203.nvidia.com (10.126.190.182) by mail.nvidia.com
+ (10.127.129.6) with Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.2.2562.20; Mon, 1 Jun
+ 2026 22:59:35 -0700
+Received: from drhqmail201.nvidia.com (10.126.190.180) by
+ drhqmail203.nvidia.com (10.126.190.182) with Microsoft SMTP Server
+ (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
+ 15.2.2562.20; Mon, 1 Jun 2026 22:59:35 -0700
+Received: from Asurada-Nvidia (10.127.8.9) by mail.nvidia.com (10.126.190.180)
+ with Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.2.2562.20 via Frontend
+ Transport; Mon, 1 Jun 2026 22:59:34 -0700
+Date: Mon, 1 Jun 2026 22:59:33 -0700
+From: Nicolin Chen <nicolinc@nvidia.com>
+To: Pranjal Shrivastava <praan@google.com>
+CC: <iommu@lists.linux.dev>, Will Deacon <will@kernel.org>, Joerg Roedel
+	<joro@8bytes.org>, Robin Murphy <robin.murphy@arm.com>, Jason Gunthorpe
+	<jgg@ziepe.ca>, Mostafa Saleh <smostafa@google.com>, Daniel Mentz
+	<danielmentz@google.com>, Ashish Mhetre <amhetre@nvidia.com>,
+	<linux-arm-kernel@lists.infradead.org>
+Subject: Re: [PATCH v8 08/12] iommu/tegra241-cmdqv: Add a helper to quiesce
+ VCMDQs
+Message-ID: <ah5xRRn0IjdWiF8F@Asurada-Nvidia>
+References: <20260601215909.3958732-1-praan@google.com>
+ <20260601215909.3958732-9-praan@google.com>
+ <ah4gYCgSO1bBOUTj@Asurada-Nvidia>
+ <ah5QB0Hfpi9wZMLY@google.com>
 MIME-Version: 1.0
-Content-Type: text/plain; charset=us-ascii
+Content-Type: text/plain; charset="us-ascii"
 Content-Disposition: inline
-In-Reply-To: <CAD03fja5oG3-BrQoy4+LEmCWPYGW_JWDEkaPndjSVz=PbRj4wg@mail.gmail.com>
+In-Reply-To: <ah5QB0Hfpi9wZMLY@google.com>
+X-NV-OnPremToCloud: ExternallySecured
+X-EOPAttributedMessage: 0
+X-MS-PublicTrafficType: Email
+X-MS-TrafficTypeDiagnostic: CY4PEPF0000EE38:EE_|CY8PR12MB7268:EE_
+X-MS-Office365-Filtering-Correlation-Id: 6339e4c8-1da9-4f64-d959-08dec06c2d70
+X-MS-Exchange-SenderADCheck: 1
+X-MS-Exchange-AntiSpam-Relay: 0
+X-Microsoft-Antispam: BCL:0;ARA:13230040|36860700016|1800799024|376014|82310400026|22082099003|18002099003|11063799006|4143699003|56012099006;
+X-Microsoft-Antispam-Message-Info: jINwkB9xJmHTF3xH6aeEqk4KZxpAMGA9TEYUugU+ifMTnKnmM+1Ctj01KM9RnNGMXTwHjPPKKDb7cUWfcjaktd+ehWotMTSXHHO6lsYDESrFZ4o88j2a4m4TjuJp2WUYRD9/YvIBL+gnZA2aLd6YyjaEK26v4SUW6U0OhbGtie9W4rk3Uaem+krwF9sGEU9JP25uAqfEMB4Jte9WwBBM7JLwJ10AhwRBbqOQVm09eDKyKsxK9nH9cavSCfBhIoOXxWGOqzfYh0Ab84nY0s38ogpi/MmhaAG3BlNDDKCM9EPw14kKNN/rXXcrN0rO4yTC5Lh9pD1QmrXNMHIabGguswEYeDi3A8kkWyQyZL2goH1R9Fx1GrtoyL1MOHjhXT5ZnBW6m9viCQGeM5bgv36ECv973Ljo/TOal7Wblou0xrOJ4ucE3Pt0y1cTj1w9ePVt3RWBj68TSLmuYz+/ZFXQSIaFHd7v04zyBGJ5t1jfRpZ7tFBGYjEwXi4bDgOt3yPnjBDq5WHtfdppwA52HzAu7ipOKb18P4nhtvMy/eEbE6KayXTpUhvC+4TbzpeYr1cRSu2y0ZO6B1kFxdGAkrEmKvm4Y5TEOMVGdyTTwIs4wkeHvMcwyjY6kItWZpYADhQ8qTLA/vYh3W8rY1q1Qu1SwIhWhq6Bhd1R4RrWqMEfaV/w/WgkGkIgPCg/7PFD/owx1frT71zIRyJ/VHQnMJijJZKQuxz5URIhtIebfyCHRpk=
+X-Forefront-Antispam-Report: CIP:216.228.118.233;CTRY:US;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:mail.nvidia.com;PTR:dc7edge2.nvidia.com;CAT:NONE;SFS:(13230040)(36860700016)(1800799024)(376014)(82310400026)(22082099003)(18002099003)(11063799006)(4143699003)(56012099006);DIR:OUT;SFP:1101;
+X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
+X-MS-Exchange-AntiSpam-MessageData-0: 0Y2oOF0Biul5dXynFUCZhrp0Ik7/58C/Q9dJPa6r/N6m9Id3WhVl/BTa9Ysr+S6/IpwAFO46G3gGvAGnDf/T5u7U1kUxNYniC9wArZ46vVXQhHgu6n3NlPrd1A0/PZsPVQzmaexXH/nDZEGQBap+xdqqdkH/Ka8xZPqItVnrMLwfHx4KBJVNKwUijxXWNgE1wRqO5Hmt4JlMHJYAgy+Va6s5PVmlJLCgigrJK2dWVm5WJ7sdBT3Np7EK/CNfN7/aLnVOY6eyJW5D0GzX8rJoH4/7VqR/+Xd2nL13kAQWDoj3V/Xowo51eCDjVSUAtAqw/+ThHUBKHuiEEwECH+CwXG6mxz7FNQWctBSwj0pK2zIeev/iSJzstuuembuJ4o3QSCYU/pYguMbKxY5ZNiWFv+eA5yg0a12gqO7mLwRZ3dfsEyJ9xc3xuzYvMfK3au8D
+X-OriginatorOrg: Nvidia.com
+X-MS-Exchange-CrossTenant-OriginalArrivalTime: 02 Jun 2026 05:59:58.3264
+ (UTC)
+X-MS-Exchange-CrossTenant-Network-Message-Id: 6339e4c8-1da9-4f64-d959-08dec06c2d70
+X-MS-Exchange-CrossTenant-Id: 43083d15-7273-40c1-b7db-39efd9ccc17a
+X-MS-Exchange-CrossTenant-OriginalAttributedTenantConnectingIp: TenantId=43083d15-7273-40c1-b7db-39efd9ccc17a;Ip=[216.228.118.233];Helo=[mail.nvidia.com]
+X-MS-Exchange-CrossTenant-AuthSource: CY4PEPF0000EE38.namprd03.prod.outlook.com
+X-MS-Exchange-CrossTenant-AuthAs: Anonymous
+X-MS-Exchange-CrossTenant-FromEntityHeader: HybridOnPrem
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: CY8PR12MB7268
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260601_225824_110770_711F730E 
-X-CRM114-Status: UNSURE (   7.27  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20260601_230005_193969_CA020DB6 
+X-CRM114-Status: GOOD (  15.81  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -76,15 +132,35 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Mon, Jun 01, 2026 at 10:15:49PM +0530, Grewstad wrote:
-> Thanks. My research shows that no user-space application depends on
-> this driver. As you said, we cannot determine the subsystem without
-> knowing the actual end users.
+On Tue, Jun 02, 2026 at 03:37:43AM +0000, Pranjal Shrivastava wrote:
+> On Mon, Jun 01, 2026 at 05:14:24PM -0700, Nicolin Chen wrote:
+> > On Mon, Jun 01, 2026 at 09:59:05PM +0000, Pranjal Shrivastava wrote:
+> > > @@ -887,7 +887,7 @@ struct arm_smmu_impl_ops {
+> > >  	size_t (*get_viommu_size)(enum iommu_viommu_type viommu_type);
+> > >  	int (*vsmmu_init)(struct arm_vsmmu *vsmmu,
+> > >  			  const struct iommu_user_data *user_data);
+> > > -	int (*drain_queues)(struct arm_smmu_device *smmu);
+> > > +	int (*quiesce_and_drain_queues)(struct arm_smmu_device *smmu);
+> > 
+> > Hmm? What's the point in PATCH-3 adding drain_queues then?
+> 
+> Well, you suggested in the previous version that STOP_FLAG needs to be
+> set for the secondary CMDQs too
+> 
+> All we're doing here is renaming this function as it also sets the
+> STOP_FLAG on impl-specific CMDQs now. We can still call it drain_queues
+> if you prefer not renaming this.
+> 
+> On the other hand, we can add a dedicated queisce_queues() op too that's
+> called before draining queues. I found that to be unnecessary as I'd rather
+> have one impl-specific op handle everything for impl-specific queues.
 
-If no one is using it, why don't we just delete it then?  It can come
-back if someone shows a real use-case for it.
+The renaming is very confusing... I'd leave it as drain_queues.
 
-thanks,
+Arguably,
+	atomic_or(CMDQ_PROD_STOP_FLAG, &vcmdq->cmdq.q.llq.atomic.prod);
+could be even stuffed into tegra241_cmdqv_drain_vintf0_lvcmdqs(),
+where there is a for loop already.
 
-greg k-h
+Nicolin
 
