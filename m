@@ -4,71 +4,71 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id CA1F7CD6E57
-	for <linux-arm-kernel@archiver.kernel.org>; Tue,  2 Jun 2026 10:17:07 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 59249CD6E4A
+	for <linux-arm-kernel@archiver.kernel.org>; Tue,  2 Jun 2026 10:17:15 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
 	MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:
 	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=GPHRLle9I7Nd/qZunsQNy1JsrfMY8rVkIYFRWvNrhY8=; b=vwPdek5xourWFFvQ8NIPwVVs7y
-	liaviSWGXd1g6EOYGWtnElc1hc0n1s7icsm1PvPZTTWkM3T/iWMzfkrPdp09xDOY+MwoLdZvCrWIr
-	t+dy2lftNU7pTghevHkzK0SdfDE4BfqyQLj192Qfr69zVq/uTjzJPqCWZt/zylWNA2YEQjZLsawvH
-	AmZnwCD4L7lzBQ3FWP+yXT9EO/hsQ762+bi5Ex28uxtHw5Ft3n5BrTEjgMHhPizJBx2Z65Ud378qu
-	ELYea4yboa5LfDLgZm6L1mpDMQ+a1old4Qu06jsLgZL48OXbhOYgMF9rf7f0LJZgZJ5x0rqmqVycE
-	ezXMoYaw==;
+	bh=lT+JLRZTXmUkizcf52XaQYhGVpogr5HSaG3W4C826mA=; b=oflFC9u0WAqXlvgGuDuQ9fUBwr
+	iGOK3O905zTCgR5FVr9IoO+/PgoSjoyFj6cfC465K8AUL2XIVX0aeVI0tVqIxEVXscxCwhE//9RN/
+	99/z51SMcJS7m9IlfjTp2UaFIKBmiTQaPen4r3wW0xo2vlyOQb3n2ZK6prMzDeQdQjQIkvCIL6DVw
+	8NUsi1UG+ZtHJhdIjW7svIhWZkYxGDo6MysuapnklvME0RVMqtmYqHGez/GYgNAN6muVJJNjbVj5t
+	PztG9D1ngvLePDGu3l3c+aRdA27lEu7P+iwwpFv+3ZV0EdUtnqfqKm71Oue3S/XkQjhBftUlBc6lL
+	yVty86fg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wUMBB-0000000Ckef-3Gbh;
-	Tue, 02 Jun 2026 10:17:01 +0000
-Received: from mail-pl1-x629.google.com ([2607:f8b0:4864:20::629])
+	id 1wUMBH-0000000Ckke-3pGt;
+	Tue, 02 Jun 2026 10:17:09 +0000
+Received: from mail-pl1-x635.google.com ([2607:f8b0:4864:20::635])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wUMB8-0000000Ckao-2U9K
+	id 1wUMBE-0000000CkhK-34Pb
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 02 Jun 2026 10:17:00 +0000
-Received: by mail-pl1-x629.google.com with SMTP id d9443c01a7336-2bf02708e8fso38063485ad.2
-        for <linux-arm-kernel@lists.infradead.org>; Tue, 02 Jun 2026 03:16:58 -0700 (PDT)
+	Tue, 02 Jun 2026 10:17:06 +0000
+Received: by mail-pl1-x635.google.com with SMTP id d9443c01a7336-2bf77d4a4e2so12394885ad.1
+        for <linux-arm-kernel@lists.infradead.org>; Tue, 02 Jun 2026 03:17:04 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20251104; t=1780395418; x=1781000218; darn=lists.infradead.org;
+        d=gmail.com; s=20251104; t=1780395424; x=1781000224; darn=lists.infradead.org;
         h=content-transfer-encoding:mime-version:references:in-reply-to
          :message-id:date:subject:cc:to:from:from:to:cc:subject:date
          :message-id:reply-to;
-        bh=GPHRLle9I7Nd/qZunsQNy1JsrfMY8rVkIYFRWvNrhY8=;
-        b=NEBkZkjEKvAJgcI3OgF1imMtqHvSWSRtSQpcPa/cqSthpJhdkey9lKDma1agYCW+fd
-         JBratAntAyOvOc28SFYN183Xd+YeCQTKzsDzSrRU07InRuEq+k34rW9SWWXtFZ0gKj9X
-         D9FaZx/7E4UcST+vcwKuaxFeDKt1sH8xOyeK/RVK0kVzv2Q0hUUfmiaxeJj5cN27oQhz
-         k8w10yWZHsQOq89/vURHPPDljq38XqX11JNa9wPwsM+57craN9a/HIJ/AJzQX0M/47GI
-         iDDVlJssjVyduolsAiFZpHIRRTsiLC0j4rYzowCNwAG4fuEW5T/USLBPbl7K1pkYv7ap
-         DAeA==
+        bh=lT+JLRZTXmUkizcf52XaQYhGVpogr5HSaG3W4C826mA=;
+        b=R6M9rR51nLNP+TPUsa8ofm443+SrhrSSHa7mS+TC7DW6BkJ8XVNJL97Zh9/tFOjC6h
+         iBwaPUZUDGXO72OouPlJn0MYQQM7LmIrp2paFGVGXyZ38SUYHXk/qjx0UdTEtojK9UKm
+         lqFpbrZFb2T8XTzurYqZw8M6CsaC9pf0O5reUm2bYnG5u7GZy/hfCWw+KmBEYZVGp6ZR
+         SxcpTUVntOJwekHqefluApNEcx/XAlM6shlBtcjsXkhh6KXBp/5DlpLznjYBjz9FygOH
+         GFAZAjgX1MTr1UHYknFjBrU5ilh80ULMK2GvwEmeq8nWN8/BJLkyL4/AcQzmkbK7wiHk
+         WDlA==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20251104; t=1780395418; x=1781000218;
+        d=1e100.net; s=20251104; t=1780395424; x=1781000224;
         h=content-transfer-encoding:mime-version:references:in-reply-to
          :message-id:date:subject:cc:to:from:x-gm-gg:x-gm-message-state:from
          :to:cc:subject:date:message-id:reply-to;
-        bh=GPHRLle9I7Nd/qZunsQNy1JsrfMY8rVkIYFRWvNrhY8=;
-        b=I9E7sA098tmBDiWSI2F4cTQcYfhF8vjRQpQLNK+wliTv3kn8/8VRFdq+Zkq2JsZWqa
-         JiHPcUuQQntG3pkQSjLX7BJjqPyeRyAe3H35WD6eRJHOLfwCE7oWMQvjUo55Hf6m6qeD
-         +m/iR4F2rcvjNeTfgL0tUwz+NV7/3B03koB7mplB9Y7bA98PcmzEPeJ7Sln8vjbPBrQh
-         nTWOU0BBN5TyBQj4wLJQpymyArSkstTybI69+SnAt4tBIW2hZb9/0ujauQ+ugU4ej1oJ
-         ByqTer7dJsQkIV0HLqg7mYHMIzNVNsk5egg0zwe/G/oxI/BMmF34DcPt5y1a9j84qn1+
-         axUw==
-X-Forwarded-Encrypted: i=1; AFNElJ9OuHhsH0xODAa5GHZ8zRaUJJHfw7Tl6JEjTy6qiWHXdWwLQHJabDBWByH6Rn+4xqeg4QnZ5gsU2UeaJvZ8nO5d@lists.infradead.org
-X-Gm-Message-State: AOJu0YxlVAWuLPe3ZVaArbomjEcsbqlm5rI6KIh5i4UwTc6NJvt8ZGCR
-	INI6mbWKjbjzHUL4urRlQiL6QHQmovORyudtjgaKQble6sAest/PwKmF
-X-Gm-Gg: Acq92OGmuzOHsN0F4aYUHG8ef8zLO96lTexgc2qy5IMSHpLsbTJwaMI2e33GqyxAjGT
-	0vI8dxZEtl5Nn9y/5+neQsk0RXaXzrMe0gET8+sw9FJePsgaj+O4r9e4lFHiTaMpGKGExFVrUs4
-	/Rn3XY1xAYUjJidN8GMp8ClG85xmYaXjPld8jTI/YiBFmipnajvp+4FcM5nsS0k9kh/Qs/9NRAF
-	ZdeRdYpaynhAGGvcPMndhwQwj+z8QQZX6HiSuL8SbhZPKu8/RrmgIPmqrbSs+AfLIhmFbwQ+cSE
-	pMu+7pDh9llsIsFETKarlUzGGtZwAT5OZDidZE+S+qrUJbNzKKC+AkRgxJzXOP2JTFScmKozUtv
-	4Nf339OdCqHLzZGKUHpPL2vVaeD4z0AfNvTree5WpuOWEE6wfu+KWJ32lVXSoo7he9aLZXQNT9J
-	8pj/hhYRpIBfcT4HMvn8rkJY+ZR5sFUkqLznugzBZGTetOZNpNP/X+yXd21r/w+I9zPmNL
-X-Received: by 2002:a17:903:1905:b0:2bf:23c3:34b2 with SMTP id d9443c01a7336-2bf36867d31mr173447395ad.32.1780395417737;
-        Tue, 02 Jun 2026 03:16:57 -0700 (PDT)
+        bh=lT+JLRZTXmUkizcf52XaQYhGVpogr5HSaG3W4C826mA=;
+        b=HXKAuGK427r90h2Th4tJ0uLSht71TwrZ/2nZITubgiiQvf3qjZMBsLpsO6aatb8v8b
+         qQL/DaKjcV6MpgmQrxXP32GJnM1aAcB420rfTya92kImtZj4CJBZuPTBHy6GlkyBHBXz
+         3560rpcGzVf64GE0xod+OBVL9ySNJwlUUEG+vC5jcUpZEGUvs/kT8NqV7Wxb2EBcAqJc
+         Mav9bIH9YhN3bNHHmhPHpmYC9qKSrBjBbmUzWUO6XqAnLZ3U1T+GMTd3t+Rj3TGaN2U/
+         LYeeLM7FlemycX92MbYvq/xoFLs8AddpaiuRjD+7iLYYCEy82GwL9mDMLueFp2F0g6vG
+         0B4g==
+X-Forwarded-Encrypted: i=1; AFNElJ/19Sd1U4jH16xGIDC2k75NxHpy6/SQbuW4XY/TS/Olhw9bn4+6Wy22nIDEC4Kf1pA3sLuuftaAY3HwguxCUdjN@lists.infradead.org
+X-Gm-Message-State: AOJu0YyxBW7xXyq9fVv6KIVAuZ8hQR3ueCvKv27OHiVb7cCjwQHRz7Qj
+	UB71D4/I1dgiKTH8kdA6Bp1LIGzM+V4LmVQqU1NUEPMeQ7DSHZKeqMUm
+X-Gm-Gg: Acq92OGUbDBmoB5t6pTmjS4VQuzg6dt7+EDmKGEMZ1+b2nhptIBqV8+pZbFRaNYT8lf
+	dw6jesQSx+90aDw3fkuzkR2X0/lC7qAw6mSPek8LCNyUhJFevAO5a/WGHOkpdQOgwhYaOC+WYHW
+	g4DLdA84PTiRefKUfDHrkKj3hGu9MNbl4P6WCjpv0qNXrB8oMG62+PZbvfYHGFLf8Oe6BDtV/lA
+	bVf1gtmnHytL95tbaiGfI15oIek9No0W2SYH7wxpadTKI96o8cprBeLIWQqvDGvl7chtXhCaxM+
+	oMSE3urbcUgoCUNzWVFX9H9tLEtnj4DKXNpREvh+7C9tdzBclmO2SwFg1WwFNZV9KvNeWmuMln2
+	l3w+9PmBGfrhub+wc0OGAnVUuvLmF+wq0DF9zbqanvdgTgs+DQkRqnSZR3spuLFcIYELBzsrKoZ
+	T0RDa6oKc8tTCBLzF6w6hKFAh0RcGykT0o8kS+/Jiq9kpdA7PvOMnIgDITWDofbSMq5L3R
+X-Received: by 2002:a17:903:3848:b0:2c0:a4c3:d7a with SMTP id d9443c01a7336-2c10ccfb095mr31503255ad.26.1780395423749;
+        Tue, 02 Jun 2026 03:17:03 -0700 (PDT)
 Received: from phuc-desktop.. ([183.91.15.56])
-        by smtp.gmail.com with ESMTPSA id d9443c01a7336-2bf239fd84fsm132766305ad.23.2026.06.02.03.16.53
+        by smtp.gmail.com with ESMTPSA id d9443c01a7336-2bf239fd84fsm132766305ad.23.2026.06.02.03.16.59
         (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Tue, 02 Jun 2026 03:16:57 -0700 (PDT)
+        Tue, 02 Jun 2026 03:17:03 -0700 (PDT)
 From: phucduc.bui@gmail.com
 To: Heiko Stuebner <heiko@sntech.de>,
 	Mark Brown <broonie@kernel.org>,
@@ -85,17 +85,17 @@ Cc: Rob Herring <robh@kernel.org>,
 	linux-kernel@vger.kernel.org,
 	bui duc phuc <phucduc.bui@gmail.com>,
 	Sashiko AI Review <sashiko-bot@kernel.org>
-Subject: [PATCH v2 4/5] ASoC: rockchip: spdif: Restore regcache cache-only mode on sync failure
-Date: Tue,  2 Jun 2026 17:16:07 +0700
-Message-ID: <20260602101608.45137-5-phucduc.bui@gmail.com>
+Subject: [PATCH v2 5/5] ASoC: rockchip: rockchip_pdm: Handle runtime PM resume failures in set_fmt
+Date: Tue,  2 Jun 2026 17:16:08 +0700
+Message-ID: <20260602101608.45137-6-phucduc.bui@gmail.com>
 X-Mailer: git-send-email 2.43.0
 In-Reply-To: <20260602101608.45137-1-phucduc.bui@gmail.com>
 References: <20260602101608.45137-1-phucduc.bui@gmail.com>
 MIME-Version: 1.0
 Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260602_031658_668807_2FA75540 
-X-CRM114-Status: GOOD (  12.59  )
+X-CRM114-CacheID: sfid-20260602_031704_801891_C96A24FC 
+X-CRM114-Status: GOOD (  13.81  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -112,35 +112,48 @@ Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.i
 
 From: bui duc phuc <phucduc.bui@gmail.com>
 
-If regcache_sync() fails during runtime resume, the driver disables the
-clocks and returns an error. However, the regmap cache-only mode is left
-disabled.
-Restore cache-only mode in the error path so subsequent register accesses
-continue to use the cache while the device is inactive.
+rockchip_pdm_set_fmt() calls pm_runtime_get_sync() before accessing
+hardware registers, but ignores its return value.
+If the runtime resume fails, the function continues to perform register
+accesses while the device state is undefined.
+Replace pm_runtime_get_sync() with pm_runtime_resume_and_get() and
+return early on failure to avoid unpowered register accesses.
 
 Reported-by: Sashiko AI Review <sashiko-bot@kernel.org>
-Closes: https://lore.kernel.org/all/20260522103713.6C09D1F000E9@smtp.kernel.org/
+Closes: https://lore.kernel.org/all/20260522110302.349421F000E9@smtp.kernel.org/
 Signed-off-by: bui duc phuc <phucduc.bui@gmail.com>
 ---
 
 NOTE: This patch is compile-tested only. Please help test if you have 
     the relevant Rockchip hardware.
 
- sound/soc/rockchip/rockchip_spdif.c | 1 +
- 1 file changed, 1 insertion(+)
+ sound/soc/rockchip/rockchip_pdm.c | 6 +++++-
+ 1 file changed, 5 insertions(+), 1 deletion(-)
 
-diff --git a/sound/soc/rockchip/rockchip_spdif.c b/sound/soc/rockchip/rockchip_spdif.c
-index 8de5b76cfe79..7f15bc7f8f35 100644
---- a/sound/soc/rockchip/rockchip_spdif.c
-+++ b/sound/soc/rockchip/rockchip_spdif.c
-@@ -94,6 +94,7 @@ static int rk_spdif_runtime_resume(struct device *dev)
+diff --git a/sound/soc/rockchip/rockchip_pdm.c b/sound/soc/rockchip/rockchip_pdm.c
+index 8f78f7bc1806..115e90d3bbfe 100644
+--- a/sound/soc/rockchip/rockchip_pdm.c
++++ b/sound/soc/rockchip/rockchip_pdm.c
+@@ -321,6 +321,7 @@ static int rockchip_pdm_set_fmt(struct snd_soc_dai *cpu_dai,
+ {
+ 	struct rk_pdm_dev *pdm = to_info(cpu_dai);
+ 	unsigned int mask = 0, val = 0;
++	int ret;
  
- 	ret = regcache_sync(spdif->regmap);
- 	if (ret) {
-+		regcache_cache_only(spdif->regmap, true);
- 		clk_disable_unprepare(spdif->mclk);
- 		clk_disable_unprepare(spdif->hclk);
+ 	mask = PDM_CKP_MSK;
+ 	switch (fmt & SND_SOC_DAIFMT_INV_MASK) {
+@@ -334,7 +335,10 @@ static int rockchip_pdm_set_fmt(struct snd_soc_dai *cpu_dai,
+ 		return -EINVAL;
  	}
+ 
+-	pm_runtime_get_sync(cpu_dai->dev);
++	ret = pm_runtime_resume_and_get(cpu_dai->dev);
++	if (ret)
++		return ret;
++
+ 	regmap_update_bits(pdm->regmap, PDM_CLK_CTRL, mask, val);
+ 	pm_runtime_put(cpu_dai->dev);
+ 
 -- 
 2.43.0
 
