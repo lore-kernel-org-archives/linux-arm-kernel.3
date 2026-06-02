@@ -4,83 +4,58 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 215B7CD6E4A
-	for <linux-arm-kernel@archiver.kernel.org>; Tue,  2 Jun 2026 04:15:19 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id DB250CD6E4A
+	for <linux-arm-kernel@archiver.kernel.org>; Tue,  2 Jun 2026 04:22:35 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=xGMcSXlLmelrlkFExuwUUOPrNe6xhBS5KWnaRnD/JaE=; b=V72PZY3MXCOPY6wR1YCAkkiP/T
-	8PTCgTlFz00nREEYBqiyiaaNOmbi9BRqZ+z5f0PSWuqJJsNbAVAUlsKumZ7/niKReBOrR7W+ux1JL
-	JwOpV9Ozik4FOHkXZn0DYqDN4wfht7sGDDODER2jibWCrFd90fqsmVitqNBlYk6GP23FRGF3Slm0z
-	aNWvfmLEvZ9W5HKFii360RAeYS/jDsh2axfLBtWwETgU0SlEV3WHpkFHDRnQAnaqHNjZiHa+u5cGw
-	5ZpFwtr0S2p8n4SMdN+VuYxruQFttD9jYfLhFduBpSOb7a70IL1N6ISKd3w6fv/GA87pjqedJYrq/
-	ONY+/RIw==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:Mime-Version:References:In-Reply-To:Message-Id:Subject:Cc:To:
+	From:Date:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=nXGOCPORwRtBIOtgSlL5BmqNdJWalyZfji2BLv/IMKg=; b=IlLVa329Pf5Ugu8M1looivbOPL
+	pQKsOnQSX2pkCrBfxHgvyQs0GwnRwOQ1B2SUDEqwLmWQCbVzKgoG4BD6vhETGCX6mCMcVbSnTZKWV
+	9UEPUG8dk7XrB6yqKl7+YYN02+Lc+RG/sUTc0oavHZV1sHD+YQagWVPXw+Ui806i0S6eSry6fUHrr
+	95zVqYJrHPHmro93GtJkd2FqqDWm2GRAuDMb4shkJ1DdjSxmolCtbDtASmx+d+GdugmLyy85fL0Kf
+	A7G013XeuYgFs3xpmDcl3IILYKJa3KjmIkQeI7UKfabWa0bKsBbp9/ppWb6ILC7ozT7yK/TROdKR8
+	NtUHYYIg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wUGWy-0000000CGlM-05ZB;
-	Tue, 02 Jun 2026 04:15:08 +0000
-Received: from mgamail.intel.com ([198.175.65.16])
+	id 1wUGe5-0000000CGyc-39MS;
+	Tue, 02 Jun 2026 04:22:29 +0000
+Received: from tor.source.kernel.org ([2600:3c04:e001:324:0:1991:8:25])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wUGWu-0000000CGkw-0H6O
+	id 1wUGe3-0000000CGyW-3cf1
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 02 Jun 2026 04:15:06 +0000
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple;
-  d=intel.com; i=@intel.com; q=dns/txt; s=Intel;
-  t=1780373704; x=1811909704;
-  h=date:from:to:cc:subject:message-id:references:
-   mime-version:in-reply-to;
-  bh=vfRA/Ie/j4izTP90KkxVG6PO83nBUWibXhsc1OZxR+I=;
-  b=SnoGZMsx8Is8yP9e86PyfCtma2EXJIBnj14iMHLNAxU1OOU1eio4svj0
-   GaqN3kLpT7ehdBVFIZ3rVjCIcTKVH9tRCpBUXUyPemKy6MVgM8Ry6tlFP
-   MGhPMnR3kvF6zt7vMJ5x9iLZ7tCRbnuck4olY3MproICred7Q+fe0/Vr8
-   41LcQVIVfdQY8hYZpWHoEVIn0xSqpf+O3OtFGxldpCQBpwVF/Z4dtsAY+
-   X2F6pr5o7WJWukPtL3ycCwIKf6KjYFEz1mBebnz0NvkvUr3eMF4OYVq0+
-   GiV8sPkLpvOsJifH9OWE3gipBjJjQeGYdDt2yOxnTHMXy1QT5O/c/PU8Z
-   g==;
-X-CSE-ConnectionGUID: yo7KLqg/Qnm1Ao68f9ChPw==
-X-CSE-MsgGUID: ckQZTqAqTPO96qNhRrN5tw==
-X-IronPort-AV: E=McAfee;i="6800,10657,11804"; a="81332267"
-X-IronPort-AV: E=Sophos;i="6.24,182,1774335600"; 
-   d="scan'208";a="81332267"
-Received: from orviesa006.jf.intel.com ([10.64.159.146])
-  by orvoesa108.jf.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 01 Jun 2026 21:15:01 -0700
-X-CSE-ConnectionGUID: 2Wo58T2iR0ymRS+tXnPy6w==
-X-CSE-MsgGUID: XzqRfukNQgysyyAQQYsEyA==
-X-ExtLoop1: 1
-X-IronPort-AV: E=Sophos;i="6.24,182,1774335600"; 
-   d="scan'208";a="242752583"
-Received: from lkp-server01.sh.intel.com (HELO f0d55cb201f0) ([10.239.97.150])
-  by orviesa006.jf.intel.com with ESMTP; 01 Jun 2026 21:14:58 -0700
-Received: from kbuild by f0d55cb201f0 with local (Exim 4.98.2)
-	(envelope-from <lkp@intel.com>)
-	id 1wUGWl-00000000BUI-2Uz6;
-	Tue, 02 Jun 2026 04:14:55 +0000
-Date: Tue, 2 Jun 2026 12:14:47 +0800
-From: kernel test robot <lkp@intel.com>
-To: Congkai Tan <congkai@amazon.com>, kvmarm@lists.linux.dev,
-	linux-arm-kernel@lists.infradead.org
-Cc: oe-kbuild-all@lists.linux.dev, Congkai Tan <congkai@amazon.com>,
-	Marc Zyngier <maz@kernel.org>, Oliver Upton <oupton@kernel.org>,
-	Joey Gouly <joey.gouly@arm.com>,
-	Suzuki K Poulose <suzuki.poulose@arm.com>,
-	Zenghui Yu <yuzenghui@huawei.com>,
-	Catalin Marinas <catalin.marinas@arm.com>,
-	Will Deacon <will@kernel.org>, Mark Rutland <mark.rutland@arm.com>,
-	Haris Okanovic <harisokn@amazon.com>,
-	Geoff Blake <blakgeof@amazon.com>, linux-kernel@vger.kernel.org
-Subject: Re: [PATCH] KVM: arm64: Expose PMMIR_EL1.SLOTS to guests
-Message-ID: <202606021209.2lvgE216-lkp@intel.com>
-References: <20260601193954.2103455-1-congkai@amazon.com>
-MIME-Version: 1.0
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-In-Reply-To: <20260601193954.2103455-1-congkai@amazon.com>
-X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260601_211504_182230_77B3F9D3 
-X-CRM114-Status: GOOD (  11.44  )
+	Tue, 02 Jun 2026 04:22:28 +0000
+Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
+	by tor.source.kernel.org (Postfix) with ESMTP id A14516001A;
+	Tue,  2 Jun 2026 04:22:26 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 285571F00893;
+	Tue,  2 Jun 2026 04:22:26 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+	d=linux-foundation.org; s=korg; t=1780374146;
+	bh=nXGOCPORwRtBIOtgSlL5BmqNdJWalyZfji2BLv/IMKg=;
+	h=Date:From:To:Cc:Subject:In-Reply-To:References;
+	b=SeRc4CB3tfoKRBhIV6CGSKRkthW7QoclBiBsZUpKUThMOsXOQD8ty6QdCV0U8iGvs
+	 qb9WbjKCfWAijL1XQoR2zdLBhNf8zE90wk4B7r+Vg1SkFv/MvZPhepzVtpqXtRVNPB
+	 IjhNm2dPXy3wlmsU+kVOfZzq6mhQwdo4CryaCDdo=
+Date: Mon, 1 Jun 2026 21:22:25 -0700
+From: Andrew Morton <akpm@linux-foundation.org>
+To: Catalin Marinas <catalin.marinas@arm.com>
+Cc: Alistair Popple <apopple@nvidia.com>,
+ linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org,
+ linux-mm@kvack.org, will@kernel.org, david@kernel.org
+Subject: Re: [PATCH] arm64: mm: call pagetable dtor when freeing hot-removed
+ page tables
+Message-Id: <20260601212225.11f277a85d5ed15083b08cc2@linux-foundation.org>
+In-Reply-To: <ahACfQ6kCfONqz5h@arm.com>
+References: <20260521032730.2104017-1-apopple@nvidia.com>
+	<20260521153130.d7d5cd060f7522f894252333@linux-foundation.org>
+	<ahACfQ6kCfONqz5h@arm.com>
+X-Mailer: Sylpheed 3.8.0beta1 (GTK+ 2.24.33; x86_64-pc-linux-gnu)
+Mime-Version: 1.0
+Content-Type: text/plain; charset=US-ASCII
+Content-Transfer-Encoding: 7bit
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -95,60 +70,109 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hi Congkai,
+On Fri, 22 May 2026 08:15:09 +0100 Catalin Marinas <catalin.marinas@arm.com> wrote:
 
-kernel test robot noticed the following build errors:
+> > > --- a/arch/arm64/mm/mmu.c
+> > > +++ b/arch/arm64/mm/mmu.c
+> > > @@ -1422,6 +1422,7 @@ static void free_hotplug_page_range(struct page *page, size_t size,
+> > >  
+> > >  static void free_hotplug_pgtable_page(struct page *page)
+> > >  {
+> > > +	pagetable_dtor(page_ptdesc(page));
+> > >  	free_hotplug_page_range(page, PAGE_SIZE, NULL);
+> > >  }
+> > 
+> > I'd of course prefer that arm maintainers handle this.  But
+> > 5e8eb9aeeda3 came via myself so convention kinda-dictates that I get to
+> > fix it.
+> 
+> That's fine but Sashiko has some points:
+> 
+> https://sashiko.dev/#/patchset/20260521032730.2104017-1-apopple@nvidia.com
+> 
+> The __remove_pgd_mapping() path is fine but we also have the
+> vmemmap_free() path where the constructor was never called.
+> 
+> We could pass around a bool dtor argument but I wonder whether we could
+> just check it's a pgtable page:
+> 
+> diff --git a/arch/arm64/mm/mmu.c b/arch/arm64/mm/mmu.c
+> index 4c8959153ac4..9d42cbddce27 100644
+> --- a/arch/arm64/mm/mmu.c
+> +++ b/arch/arm64/mm/mmu.c
+> @@ -1441,6 +1441,9 @@ static void free_hotplug_page_range(struct page *page, size_t size,
+>  
+>  static void free_hotplug_pgtable_page(struct page *page)
+>  {
+> +	if (folio_test_pgtable(page_folio(page)))
+> +		pagetable_dtor(page_ptdesc(page));
+> +
+>  	free_hotplug_page_range(page, PAGE_SIZE, NULL);
+>  }
 
-[auto build test ERROR on 1702da76e017ae0fbe1a92b07bc332972c293e89]
+This patch is still floating around in mm.git awaiting some
+finalization.  What to do?
 
-url:    https://github.com/intel-lab-lkp/linux/commits/Congkai-Tan/KVM-arm64-Expose-PMMIR_EL1-SLOTS-to-guests/20260602-034527
-base:   1702da76e017ae0fbe1a92b07bc332972c293e89
-patch link:    https://lore.kernel.org/r/20260601193954.2103455-1-congkai%40amazon.com
-patch subject: [PATCH] KVM: arm64: Expose PMMIR_EL1.SLOTS to guests
-config: arm64-randconfig-r123-20260602 (https://download.01.org/0day-ci/archive/20260602/202606021209.2lvgE216-lkp@intel.com/config)
-compiler: aarch64-linux-gcc (GCC) 11.5.0
-sparse: v0.6.5-rc1
-reproduce (this is a W=1 build): (https://download.01.org/0day-ci/archive/20260602/202606021209.2lvgE216-lkp@intel.com/reproduce)
+From: Alistair Popple <apopple@nvidia.com>
+Subject: arm64: mm: call pagetable dtor when freeing hot-removed page tables
+Date: Thu, 21 May 2026 13:27:30 +1000
 
-If you fix the issue in a separate patch/commit (i.e. not just a new version of
-the same patch/commit), kindly add following tags
-| Reported-by: kernel test robot <lkp@intel.com>
-| Closes: https://lore.kernel.org/oe-kbuild-all/202606021209.2lvgE216-lkp@intel.com/
+Since 5e8eb9aeeda3 ("arm64: mm: always call PTE/PMD ctor in
+__create_pgd_mapping()") page-table allocation on ARM64 always calls
+pagetable_{pte,pmd,pud,p4d}_ctor().  This sets the page_type to
+PGTY_table, increments NR_PAGETABLE and possible allocates a PTL.  However
+the matching pagetable_dtor() calls were never added.
 
-All errors (new ones prefixed by >>):
+With DEBUG_VM enabled on kernel versions prior to v6.17 without
+2dfcd1608f3a9 ("mm/page_alloc: let page freeing clear any set page type")
+this leads to the following warning when freeing these pages due to
+page->page_type sharing page->_mapcount:
 
-   arch/arm64/kvm/sys_regs.c: In function 'access_pmmir':
->> arch/arm64/kvm/sys_regs.c:1391:28: error: invalid use of undefined type 'struct arm_pmu'
-    1391 |         p->regval = cpu_pmu->reg_pmmir & ARMV8_PMU_SLOTS;
-         |                            ^~
+  BUG: Bad page state in process ... pfn:284fbb
+  page: refcount:0 mapcount:0 mapping:0000000000000000 index:0x0 pfn:0x284fbb
+  flags: 0x17fffc000000000(node=0|zone=2|lastcpupid=0x1ffff)
+  page_type: f2(table)
+  page dumped because: nonzero mapcount
+  Call trace:
+   bad_page+0x13c/0x160
+   __free_frozen_pages+0x6cc/0x860
+   ___free_pages+0xf4/0x180
+   free_pages+0x54/0x80
+   free_hotplug_page_range.part.0+0x58/0x90
+   free_empty_tables+0x438/0x500
+   __remove_pgd_mapping.constprop.0+0x60/0xa8
+   arch_remove_memory+0x48/0x80
+   try_remove_memory+0x158/0x1d8
+   offline_and_remove_memory+0x138/0x180
 
+It can also lead to leaking the ptl allocation if ALLOC_SPLIT_PTLOCKS is
+defined and incorrect NR_PAGETABLE stats.  Fix this by calling
+pagetable_dtor() in free_hotplug_pgtable_page() prior to freeing the page
+to undo the effects of calling pagetable_*_ctor().
 
-vim +1391 arch/arm64/kvm/sys_regs.c
+Link: https://lore.kernel.org/20260521032730.2104017-1-apopple@nvidia.com
+Fixes: 5e8eb9aeeda3 ("arm64: mm: always call PTE/PMD ctor in __create_pgd_mapping()")
+Signed-off-by: Alistair Popple <apopple@nvidia.com>
+Cc: Catalin Marinas <catalin.marinas@arm.com>
+Cc: David Hildenbrand <david@kernel.org>
+Cc: Will Deacon <will@kernel.org>
+Cc: <stable@vger.kernel.org>
+Signed-off-by: Andrew Morton <akpm@linux-foundation.org>
+---
 
-  1373	
-  1374	/*
-  1375	 * Expose only PMMIR_EL1.SLOTS to the guest, which is consumed by perf in its
-  1376	 * topdown default metric group. Other PMMIR_EL1 fields remain RAZ. Future
-  1377	 * patches can extend the exposed mask incrementally as KVM gains support for
-  1378	 * those features.
-  1379	 */
-  1380	static bool access_pmmir(struct kvm_vcpu *vcpu, struct sys_reg_params *p,
-  1381				 const struct sys_reg_desc *r)
-  1382	{
-  1383		struct arm_pmu *cpu_pmu = vcpu->kvm->arch.arm_pmu;
-  1384	
-  1385		if (p->is_write)
-  1386			return write_to_read_only(vcpu, p, r);
-  1387	
-  1388		if (check_pmu_access_disabled(vcpu, 0))
-  1389			return false;
-  1390	
-> 1391		p->regval = cpu_pmu->reg_pmmir & ARMV8_PMU_SLOTS;
-  1392		return true;
-  1393	}
-  1394	
+ arch/arm64/mm/mmu.c |    1 +
+ 1 file changed, 1 insertion(+)
 
---
-0-DAY CI Kernel Test Service
-https://github.com/intel/lkp-tests/wiki
+--- a/arch/arm64/mm/mmu.c~arm64-mm-call-pagetable-dtor-when-freeing-hot-removed-page-tables
++++ a/arch/arm64/mm/mmu.c
+@@ -1441,6 +1441,7 @@ static void free_hotplug_page_range(stru
+ 
+ static void free_hotplug_pgtable_page(struct page *page)
+ {
++	pagetable_dtor(page_ptdesc(page));
+ 	free_hotplug_page_range(page, PAGE_SIZE, NULL);
+ }
+ 
+_
+
 
