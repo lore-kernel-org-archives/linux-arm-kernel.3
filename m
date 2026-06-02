@@ -4,92 +4,136 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id EF745C5DF71
-	for <linux-arm-kernel@archiver.kernel.org>; Tue,  2 Jun 2026 03:38:01 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 9AEFDC5DF71
+	for <linux-arm-kernel@archiver.kernel.org>; Tue,  2 Jun 2026 03:38:19 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=0/D3ZWx6zAJFAsJdaNfsvsIVkbBQo8N/NxdK+lpcSrQ=; b=DS7mn8JmM4XplhN31Gi8m5w74g
-	ln0e3mebaUTo8YpCYHE4WRNirbL3GwN005tr3SN8bYxRb1ToRXpD7fWfEsSQ8/OZwb5PGhJ4Fwu3I
-	pBOsIKVpJVZWlKaXPynz485ZtVrCDWN1tb6fVqFNvTxQkbzsvdnXN9bFxVztSReBdULVRJMrVnQOP
-	xTDiIfo9Sfd7D1PDyADMW3UrmygbcCU4C/eTDHneSaC02X2raGwTYIabKC0RNdTa48NImD8CEXsVz
-	oIO4Son9XQ/U6RWyluQ7NtOBicyizL8Y8sXRWJTLrClAArJDyl4SIM6HhoKbAIi5YXsm/4sAvkVTA
-	uBUbH3TQ==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:
+	Content-Transfer-Encoding:Content-Type:Message-ID:Date:Subject:CC:To:From:
+	Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender
+	:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=ppCtYcqixq+SetYMeXmsM2Ivq2IcyzjNMKQuKvrtJNk=; b=wZ/SrT6iizs7fFC37U6gr3B7NU
+	asGSxoT+ra2FOufPILV+R7uhE/NbLAd2B+NGrd+zoM09s9eitdBLMhQyeMujjYsfVJ3OrWOD84os0
+	u4VikenQ6aBVxgcUa0uk51hu8ur7jMd+rU1T2fp6O5f0kAvVKB0ho/ayGs0XWZoMTGfnxOHLkmzh2
+	a6f948Sadi+8JeLhgmOtkSkNCkySLvjp/dnq/jjMuxasw1IO1yBs/qKQEAz9hbj4qHEc8Bb+YtmfZ
+	Ulr7Z7LjgT5WZDQ8sOAreTP+++kw4QttoKIzOLupP25I+MKeeFmsY4ujIJZC/l2PdpHney5Qb5kYj
+	UdGjZFOw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wUFww-0000000CEed-1s0J;
-	Tue, 02 Jun 2026 03:37:54 +0000
-Received: from mail-pl1-x634.google.com ([2607:f8b0:4864:20::634])
+	id 1wUFxF-0000000CEiD-2KTv;
+	Tue, 02 Jun 2026 03:38:13 +0000
+Received: from mail-francecentralazolkn19013072.outbound.protection.outlook.com ([52.103.46.72] helo=PA4PR04CU001.outbound.protection.outlook.com)
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wUFwt-0000000CEeC-3YqR
+	id 1wUFxD-0000000CEhT-1BJ6
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 02 Jun 2026 03:37:53 +0000
-Received: by mail-pl1-x634.google.com with SMTP id d9443c01a7336-2bf2911f93cso655ad.1
-        for <linux-arm-kernel@lists.infradead.org>; Mon, 01 Jun 2026 20:37:51 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=google.com; s=20251104; t=1780371471; x=1780976271; darn=lists.infradead.org;
-        h=in-reply-to:content-disposition:mime-version:references:message-id
-         :subject:cc:to:from:date:from:to:cc:subject:date:message-id:reply-to;
-        bh=0/D3ZWx6zAJFAsJdaNfsvsIVkbBQo8N/NxdK+lpcSrQ=;
-        b=uIks3WjNQMx5Kx/iQJKU7OD4pxhdHG0zvNDFgBTx7R6A2Y1V/b7WLNYLaTGnCrF3jd
-         Ia3+2rqmysjTC/2Ow9MGdynRSNrKGvV5CRhSui4hLe4DnpsGL2tggN6/zHLl6lMPm4/d
-         ugnP4ADxcDck9M9T9XrezPdauPkoHOqeco7y3YTsfJNYoCQSVsq5/4LoM7+DxgvN4nkA
-         /kNorIbE4cKWXeHPERKyt1cqR02Oh/1BxKwUnjqOHYlpaBrjigBXRnoYCtKUrrkiYyh1
-         6GZEn3YomEj8NwD/dXpLRifhLJvd2y9Z/N0pw4MwdQ3IrtNRjQ7BPm4yaq+j8xK/Zmi7
-         j2wQ==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20251104; t=1780371471; x=1780976271;
-        h=in-reply-to:content-disposition:mime-version:references:message-id
-         :subject:cc:to:from:date:x-gm-gg:x-gm-message-state:from:to:cc
-         :subject:date:message-id:reply-to;
-        bh=0/D3ZWx6zAJFAsJdaNfsvsIVkbBQo8N/NxdK+lpcSrQ=;
-        b=kzPI0Jg2lIinnESOU23lN8sfGkok4A0RN/ZRMydsNZiRQo3uaJ7VWb7msSbdYSIy8u
-         6s0scS9JEV4D5c98lIrjLvhWT+fq00xPZfoz8gAi913oIRD/JrnVYdXrqEIezVJBLfn4
-         1jtfrE7nlOx86E0u6NmSkilFA/keYqAKH4Af2bLvanNBMZoO/F5BtkdGodOqtvr9JCJi
-         9i0w9YjRShMmx+yuZowg3JYKI+esIZKWchkIMfHEJ5idgIcFt67/sHUGCkzPLw8J2I7B
-         EaEQybjGJdKVBRHsxhxpOa8gztK+SyRPlgeHJMMMU4pO+FhYpW5LaUouBFarXNQ2Ng1Y
-         OuHg==
-X-Forwarded-Encrypted: i=1; AFNElJ8vM+JO7BBCTt1DUwLk3/bWDpf+fm/SuQEY+aL6bYI/XgtFCWG0tw7vPsjwN2Iyc/exI2F0X2UgRsReg/pbltM/@lists.infradead.org
-X-Gm-Message-State: AOJu0YxlC3U6T568w2y7F6erwJasrONyXbyzw3wAByDJiIEtrBa6JANn
-	2ODcXfENDzotNSc7zhBAi5JWJoGMxtZJb9MeT6CsmyiCUU8doLJMhH8dzWYNmsFRAQ==
-X-Gm-Gg: Acq92OGcw66nB0zwasi6bakx21qb3joauLJtVzly2j5/02mEoOCjz8JfSjFwz1CCm9a
-	3H19InF9RB5z+sStNllOtgWrHdAR1fQuDkMwh89emc/CmbL6gh5kTY8Uvn6BQipLqnlhaujosG9
-	Fx1okRVkHPam/mcOsqLsb2Ih4kUjjE/GwkBuvBzzjpGszPzgIBLi4dXr3OSlcBM/imy/oXbzDZ/
-	0GvxBMmhibeshJ6hdzHRs7izdSHncohTECroYZ5bNc2QJLXBLqeP+CTYtDxcwftbhSCdZNfFH23
-	H6ip0SrTgmJTxDDKnOI0vIZ6xhDTFE+RSV7O/dskpgaBeq1M0FUYGfeqCyUhr4wz95EIXAFim9b
-	y2CmVj4ImuHfsp7tz74r0deYm9B68VjPlwi6EBbSaJW4WLLIy1iQLtcbCaLYNQqzWdh/GSSKZJJ
-	ZybEn2a5i6hMsOAsD3uM7jcp9Eka8NDA4KxFvl1GNbBFgUPFbPGVMq+hEm/RX973AwXmSvIt8=
-X-Received: by 2002:a17:903:249:b0:2b0:aee4:afe7 with SMTP id d9443c01a7336-2c10e85e5dbmr1892275ad.10.1780371470317;
-        Mon, 01 Jun 2026 20:37:50 -0700 (PDT)
-Received: from google.com (199.255.142.34.bc.googleusercontent.com. [34.142.255.199])
-        by smtp.gmail.com with ESMTPSA id d2e1a72fcca58-842222e2394sm9752165b3a.2.2026.06.01.20.37.46
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Mon, 01 Jun 2026 20:37:49 -0700 (PDT)
-Date: Tue, 2 Jun 2026 03:37:43 +0000
-From: Pranjal Shrivastava <praan@google.com>
-To: Nicolin Chen <nicolinc@nvidia.com>
-Cc: iommu@lists.linux.dev, Will Deacon <will@kernel.org>,
-	Joerg Roedel <joro@8bytes.org>, Robin Murphy <robin.murphy@arm.com>,
-	Jason Gunthorpe <jgg@ziepe.ca>, Mostafa Saleh <smostafa@google.com>,
-	Daniel Mentz <danielmentz@google.com>,
-	Ashish Mhetre <amhetre@nvidia.com>,
-	linux-arm-kernel@lists.infradead.org
-Subject: Re: [PATCH v8 08/12] iommu/tegra241-cmdqv: Add a helper to quiesce
- VCMDQs
-Message-ID: <ah5QB0Hfpi9wZMLY@google.com>
-References: <20260601215909.3958732-1-praan@google.com>
- <20260601215909.3958732-9-praan@google.com>
- <ah4gYCgSO1bBOUTj@Asurada-Nvidia>
+	Tue, 02 Jun 2026 03:38:12 +0000
+ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
+ b=M5CcbiZACK+mtZVFM8PeGxA8CBPoHcsedb0BCyHPwUbyHUc22ViSN41Q3ydWFDSsDnumOqzngnaOX5TRMRsJj9twwTCEjbgruFkAGa6/uKw9RYZgBgghnAK/SEyDXrOA2Q99RGJujXnbVpNjq32DKKiuzoQZWfU/fJo0KEuofrXZR4C+xG/lkaFk/1UsfTtEZnRkZgGDYlNaoXnDqYM68Ymmym6vSkATpR+6LHZhjGOjsH21DKMyiZuDdsg9LvjVyTIehIP0HjR6qB8bw7jdqJGNEHb2yK8IO8y2jzf+aCIfHKnxR4NBM56dHZYI67kbih3G+CuoOx+91nXr7a/Qtg==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
+ s=arcselector10001;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
+ bh=ppCtYcqixq+SetYMeXmsM2Ivq2IcyzjNMKQuKvrtJNk=;
+ b=HJ/CNHv1Di7D9mv2Uvqg0M9RhKjIVffznuRrxx+hSpqP5ZrFesJYVtol1LBDER4pMSM1pVnoBfTr4tTho0Xggrf//APjvPjEmv/1ftdOR8UXtcy/PPWzHu4cAKiISssIbAlkipHpUFZsKBsrQO6qAVxDPyw6zh7zTJc+zXQEh/agGBzcgPY7otMLTV3noE3io0Tu4ENqskJfk3iuBvfDo+eYrwUo46VBXSV4qZdoz8ZJ2j0O18OSVJsf2p5IXk/cAlGL0cqPAEXoPNdS9xNiJHNxnnDq+Y0QR8vhFFWb1cj6GdjR+KVwUDgU9KC7H+euCQozximplpmbQGSRB0pJkA==
+ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=none; dmarc=none;
+ dkim=none; arc=none
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=outlook.com;
+ s=selector1;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
+ bh=ppCtYcqixq+SetYMeXmsM2Ivq2IcyzjNMKQuKvrtJNk=;
+ b=Hik6jILswjUcQYraFSb1tXW38OFZdGKf1cG+eEM5Q42BNwmmFiLwddXGB94V25BndKdbFZ/rMrM8hqhiYWs7A5zfhzvkt8TNXpUgtuAogYihRFPe729hmhkN0MSevo0I5eyz07Q/st5G0NcwzBkfMQ0bt5ZyWdc9mAtUxFgv+90P0pDsEOJA2pqF4qEmUZoOcyHNGONUJOqBXMx+WHyFIr1DhIwIMhZ9rCaZcfL3JR36XEzYlIZ0QbvP5m37ZMHglEduz2JJFAXrT73w1M3oiHFNLQLEZn5zd8EP3EIXB+XPZPVglYmE895jOqFUqTuyiPijIYi815waYUF9bYQTTg==
+Received: from BESPR10MB9223.EURPRD10.PROD.OUTLOOK.COM (2603:10a6:b10:ef::8)
+ by GV2PR10MB7990.EURPRD10.PROD.OUTLOOK.COM (2603:10a6:150:b9::21) with
+ Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.21.71.16; Tue, 2 Jun 2026
+ 03:38:08 +0000
+Received: from BESPR10MB9223.EURPRD10.PROD.OUTLOOK.COM
+ ([fe80::1847:57:5806:6cfe]) by BESPR10MB9223.EURPRD10.PROD.OUTLOOK.COM
+ ([fe80::1847:57:5806:6cfe%6]) with mapi id 15.21.0071.014; Tue, 2 Jun 2026
+ 03:38:08 +0000
+From: Nisarg Rajput <rajputnisarg17@outlook.com>
+To: "linux-sunxi@lists.linux.dev" <linux-sunxi@lists.linux.dev>,
+	"linux-arm-kernel@lists.infradead.org" <linux-arm-kernel@lists.infradead.org>
+CC: "mripard@kernel.org" <mripard@kernel.org>
+Subject: [PATCH v2] arm: dts: allwinner: enable overlay support for
+ sun8i-h2-plus pi boards
+Thread-Topic: [PATCH v2] arm: dts: allwinner: enable overlay support for
+ sun8i-h2-plus pi boards
+Thread-Index: AQHc8kEUm8oxNsj+BE63RXN5Eudeow==
+Date: Tue, 2 Jun 2026 03:38:08 +0000
+Message-ID: <BESPR10MB9223FFB989C825881E02F0CAD2122@BESPR10MB9223.EURPRD10.PROD.OUTLOOK.COM>
+Accept-Language: en-GB, en-US
+Content-Language: en-GB
+X-MS-Has-Attach: 
+X-MS-TNEF-Correlator: 
+msip_labels: 
+x-ms-publictraffictype: Email
+x-ms-traffictypediagnostic: BESPR10MB9223:EE_|GV2PR10MB7990:EE_
+x-ms-office365-filtering-correlation-id: fb756257-13f8-4cd5-ab96-08dec0585ced
+x-ms-exchange-slblob-mailprops: 30ekHghIwFpCqul8QpcVn7bH49gTWybxqyMJATrvjkJww584Lr6aEG5LaDA+Y7D+DtRwgzpeDM93PJDX/eeDceIQaDUvvxK/6grnd1fztrM0Yi6hVMgxxIm6Sp226HnukzD349o4xN6V0+GIfIWzyDFlO7T0/MebsTp7laDjjUjlJ+JQI5KBdxojtPTk5ObV64/hgsZTYST1zLtWM1Vc0S/3NOdflYhjr2TkCxmfnWJXQNAhqoL6F3XYZJneYBc8Um3ApUgbdSo2++HBIoJRlC0KXsIQa+2mTgpE27tFY0ccC4L6xWDfBAsUlTGwh2UqwH6hve0iojLufZUt3RGjQdkkZvuXd1TRkph3Svp1xsFuGDgcIPzpqvhOUYKWjAPVVpylEXvzL9TYuihPmlL/GHjPinr0oOk2Du3UQ6oi7msyDobBTP6gdfog63yRzvGsQ7y/cpcK8oBVyfySJivHzjet2ASkZ4hwjYJTT/NkaAIVKQxD6FJNPubsgCyXrwg69iaJQ/0Dk066oi/GfAWDL0HTGUD6Z4GSdq5WB66UOJMz5lTAwUQRBEDTls2Foul424ArHfaCnoaap8B3oWmBz+A+AJNXc+MSn2ByFq52YWPIdRbfHqTsav+cleIeI0tEQf8sTPgC7z7B5NnIDlrWTJRGlGxnfrD2t6hjjNb017tXef1vzGqhS8VlpjoWsZIo6ij39tVQEybjHS9/kbQV6ehsnDKek3+3YF5ws0WzFJLF1we6KRG2e5r73bjBXLKn
+x-microsoft-antispam: BCL:0;ARA:14566002|19110799012|8060799015|8062599012|24021099003|31061999003|15080799012|15030799006|26104999009|52005399003|40105399003|440099028|3412199025|102099032;
+x-microsoft-antispam-message-info: =?iso-8859-1?Q?qBtwf4/zrbuR3Z9Iip1PnRE+e8/d5jFJoYomT5Fd+DoPwjQ9xSe26A0ukK?=
+ =?iso-8859-1?Q?3Is9cIm+JXXR0qSKysoK6OWqVZMcbJvdehNEpGGczb07rHFdpttWqqC0WR?=
+ =?iso-8859-1?Q?43X51FKMfaCdlOHzG0o0CeXxCbDHyEHivU9Z/uKH9q5dnnANlRDOgePP3f?=
+ =?iso-8859-1?Q?u1vpvPqy+BIJEih6oWJsVwU2z9WVaYCvLehSgL7I0fUuG/dWnRJIZ4onvv?=
+ =?iso-8859-1?Q?vKJ8JDoUcWNwu2KGp4hzejt61pxLkURytvqLmG0L94Q+hGH1CKj7z6hvi3?=
+ =?iso-8859-1?Q?81AaTZarNXHXiJBb7L0PHazX3WipYg4kp8Ljumz1C4yfF1HG9hP/i1pGLL?=
+ =?iso-8859-1?Q?ajLWXnVOq6aTzFB8FL1IQK2cZLFgtoQZERWQWx+L7PYzLw8yBxru+cst6f?=
+ =?iso-8859-1?Q?wGh+rX28Bt3lUlUVY1zjxdAsxqJuKFdBOnC21o6KtkRIy18Yn2ckvCNfSa?=
+ =?iso-8859-1?Q?T0tVhQsBlSZmOFVn/9GSZhqD2OMBGNqd5a5l5PQMJueYhThZiOQSPqmILF?=
+ =?iso-8859-1?Q?WThbAHNhv7kueqoPpEDAvb+lhI0VB3u1fELO5biz2VDiuJAMB4Vrwe6L2l?=
+ =?iso-8859-1?Q?SgGCO1lZA0jOYHflPSYIKsFqAZKY0kR8FoKBoVv39Du/Zh/QJkQwAAxZbl?=
+ =?iso-8859-1?Q?4EMFWCKoWSQCC4eV0Vx/Mjyq6QILqNAUDy/QWuUhGzGFsaegK0SpWhcwvC?=
+ =?iso-8859-1?Q?iietQEiroEQJUm1oZKmjOCRMDyPcLJ3KR3gmYit1vlhaYKpR17Oh7GCd2H?=
+ =?iso-8859-1?Q?8B39ETjzVXIWVp8gYQyLmW95UKZQIdMaJacKESxZAsSHYAI5JJAaXzlVMW?=
+ =?iso-8859-1?Q?M3TmwaGudZb3UBQIgC5m2U3g/vEX/rdDi5OY4AsVMdWFltomWdNSQQuZQt?=
+ =?iso-8859-1?Q?way6WCb5w2oJICdp/9LhYdKvsRBp8dg6j/38AmRtJ8Y7OCn83Xje8Sp2XM?=
+ =?iso-8859-1?Q?y0cv/LMQ8VZz5rnfVo9EnKHm29x098xIOUn9LmK39MV4V/GaVNYQjBHJFB?=
+ =?iso-8859-1?Q?cypwep9HxNXsNh0qE=3D?=
+x-ms-exchange-antispam-messagedata-chunkcount: 1
+x-ms-exchange-antispam-messagedata-0: =?iso-8859-1?Q?AvtTBPI4NZ54R1DILqRvmYOVh12OQc+e12D5WnhDjwpHFsinYUVVCbJRA/?=
+ =?iso-8859-1?Q?UPWIB60d1eUmh1YcSeKSgltK64kMdbXFeMpcgsj/azBGueuzcX6lsh7q/x?=
+ =?iso-8859-1?Q?3FOxNpyx6EKchK/mDWOPZoUhCz1gNfsvIb1lA9dNbEID8n9zAdkpI3cb+R?=
+ =?iso-8859-1?Q?XkRKqF9O6FtiGHQrbTa4h6I5JYDQdkF8ZtUct+wN3FwUKYwk/rZW2Qd12O?=
+ =?iso-8859-1?Q?/rfrYeLKiqaQAWzFxwQLTpyjuya352OadkacDJmqfLSOs5CDWJ5+s3EKcw?=
+ =?iso-8859-1?Q?SrA/ksCVb9LzAQPSPEvZVMoJKGtKdD87WRpw+P4SFaZhe/BEJz0xZ4V05G?=
+ =?iso-8859-1?Q?31DhEreKP+iu08ozEWw85zCpZyftqqc4lcATGzPhrEpuOmbTYv5fiPiztC?=
+ =?iso-8859-1?Q?NOvW/OghSJKrEsfdQ3b0pdIhzPAqZ5O1yWxK0Z+seutL4oyg0lD7WAUghV?=
+ =?iso-8859-1?Q?FJljp1O4VvVqii0XemC5E85NJQujboRMuxal+dWV5tyjuSX7O1beLcNUhs?=
+ =?iso-8859-1?Q?Y8o8eKkw53PrI/+AvAMdX1iGfR/FimRHpmrefptC5ISBE5ggE/P9fMq6Ki?=
+ =?iso-8859-1?Q?UmkGKt469CtwV/bnPCZWvNYHqZain22CcTOjUxzcEdcDX6RAcY8k9qRUBk?=
+ =?iso-8859-1?Q?MwAwEqtROvbl5VHvVFZr0f67Oa4x7kVbqB9Z4xExtc5caiFBd1LSDR/9U6?=
+ =?iso-8859-1?Q?bQ0USCkZ0L5D5lzkmQn9MOvRKjj7uC6vLBczlJkAldI/eU9rXXgVqXLKlm?=
+ =?iso-8859-1?Q?DIFhewdPlecMFu8nPonOaKGlDYrmre1cR0uYHb+5gmVZV7qORVbUUtUdvi?=
+ =?iso-8859-1?Q?CbpTD817uF8df+SzIiDfLRpkwVwXtbiDsBYSvQOyPNnjp2DLXKcU0Upqj7?=
+ =?iso-8859-1?Q?i0Pp0PoVESV9z5TaWo0LLHbEjDRntXWddPodKEpNhYKaj2NEFMmK2OvuhL?=
+ =?iso-8859-1?Q?BwP3Xm23sjJBwf3De9vT8pPihiN9Wsa18715L97OIv327QIlwnx2XRD64u?=
+ =?iso-8859-1?Q?+Tk2fPpwuokxeJedPm4AiKAhvnw89/bn6abHbnr/sceKdOZTFT8VqaPycY?=
+ =?iso-8859-1?Q?nNcf7LkNCPMkBtEx7i6NMr2RUUrwceHpOWt/cOmVFBhwFB2wOZLn6qHrt/?=
+ =?iso-8859-1?Q?xdN2PSmrOqNQfPKL0Sxf/Mbqn6fuXEEGt3tzkhT4tbJ4Snvxi4B6Ypky/9?=
+ =?iso-8859-1?Q?2EiGBlkO8OjxuxPnkyb9OKkUwRVSYx1aqAvqTdFlqIUtqxE3qnfzqS5OXg?=
+ =?iso-8859-1?Q?cFRyQTY7VRYcEBJhag3fnQ+WrMx9BTJy6h0KupOQiC/YqBJoi7Q/mEjbF3?=
+ =?iso-8859-1?Q?KKTZNyEeTKhhS04VrU2gEW7n/ohCj47D0+qmlxJY6QZ6gToXKtPJ2tUOFq?=
+ =?iso-8859-1?Q?UUk3rfLrLvuRYeCIpJx5YwSbqT+msu4/O6j/3Py5MC+aagOKuCPvcrXuU1?=
+ =?iso-8859-1?Q?LIiEs1Aj91u2LgiZwhogAU+gl7YFG7AMi2JSNg3D8hKuWrjZtAzBy6C89v?=
+ =?iso-8859-1?Q?20YcLE5U45Kynuhk7lCdul?=
+Content-Type: text/plain; charset="iso-8859-1"
+Content-Transfer-Encoding: quoted-printable
 MIME-Version: 1.0
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-In-Reply-To: <ah4gYCgSO1bBOUTj@Asurada-Nvidia>
+X-OriginatorOrg: outlook.com
+X-MS-Exchange-CrossTenant-AuthAs: Internal
+X-MS-Exchange-CrossTenant-AuthSource: BESPR10MB9223.EURPRD10.PROD.OUTLOOK.COM
+X-MS-Exchange-CrossTenant-RMS-PersistedConsumerOrg: 00000000-0000-0000-0000-000000000000
+X-MS-Exchange-CrossTenant-Network-Message-Id: fb756257-13f8-4cd5-ab96-08dec0585ced
+X-MS-Exchange-CrossTenant-originalarrivaltime: 02 Jun 2026 03:38:08.1352
+ (UTC)
+X-MS-Exchange-CrossTenant-fromentityheader: Hosted
+X-MS-Exchange-CrossTenant-id: 84df9e7f-e9f6-40af-b435-aaaaaaaaaaaa
+X-MS-Exchange-CrossTenant-rms-persistedconsumerorg: 00000000-0000-0000-0000-000000000000
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: GV2PR10MB7990
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260601_203751_891647_0EB1CB1A 
-X-CRM114-Status: GOOD (  13.68  )
+X-CRM114-CacheID: sfid-20260601_203811_318626_75DEFDB7 
+X-CRM114-Status: UNSURE (   6.90  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -104,28 +148,46 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Mon, Jun 01, 2026 at 05:14:24PM -0700, Nicolin Chen wrote:
-> On Mon, Jun 01, 2026 at 09:59:05PM +0000, Pranjal Shrivastava wrote:
-> > @@ -887,7 +887,7 @@ struct arm_smmu_impl_ops {
-> >  	size_t (*get_viommu_size)(enum iommu_viommu_type viommu_type);
-> >  	int (*vsmmu_init)(struct arm_vsmmu *vsmmu,
-> >  			  const struct iommu_user_data *user_data);
-> > -	int (*drain_queues)(struct arm_smmu_device *smmu);
-> > +	int (*quiesce_and_drain_queues)(struct arm_smmu_device *smmu);
-> 
-> Hmm? What's the point in PATCH-3 adding drain_queues then?
-
-Well, you suggested in the previous version that STOP_FLAG needs to be
-set for the secondary CMDQs too
-
-All we're doing here is renaming this function as it also sets the
-STOP_FLAG on impl-specific CMDQs now. We can still call it drain_queues
-if you prefer not renaming this.
-
-On the other hand, we can add a dedicated queisce_queues() op too that's
-called before draining queues. I found that to be unnecessary as I'd rather
-have one impl-specific op handle everything for impl-specific queues.
-
-Thanks,
-Praan
+Subject: [PATCH v2] arm: dts: allwinner: enable overlay support for sun8i-h=
+2-plus pi boards=0A=
+=0A=
+Add DTC_FLAGS -@ for all H2+ pi-class devices to enable device-tree=0A=
+overlay support. This follows the same approach used for H3 pi boards=0A=
+in commit 0801a3a9f35854c91f1f3ab8e879c3d14912d214 ("arm: dts: Enable=0A=
+device-tree overlay support for sun8i-h3 pi devices").=0A=
+=0A=
+The -@ flag populates the __symbols__ node in the DTB which is required=0A=
+for applying device-tree overlays from the bootloader or firmware.=0A=
+=0A=
+Boards affected:=0A=
+- sun8i-h2-plus-bananapi-m2-zero=0A=
+- sun8i-h2-plus-libretech-all-h3-cc=0A=
+- sun8i-h2-plus-orangepi-r1=0A=
+- sun8i-h2-plus-orangepi-zero=0A=
+=0A=
+Signed-off-by: Nisarg Rajput <rajputnisarg17@outlook.com>=0A=
+---=0A=
+ arch/arm/boot/dts/allwinner/Makefile | 6 ++++++=0A=
+ 1 file changed, 6 insertions(+)=0A=
+=0A=
+diff --git a/arch/arm/boot/dts/allwinner/Makefile b/arch/arm/boot/dts/allwi=
+nner/Makefile=0A=
+index 296be33ec934..2e0cc454df74 100644=0A=
+--- a/arch/arm/boot/dts/allwinner/Makefile=0A=
++++ b/arch/arm/boot/dts/allwinner/Makefile=0A=
+@@ -198,6 +198,12 @@ DTC_FLAGS_sun8i-h3-nanopi-r1 :=3D -@=0A=
+ DTC_FLAGS_sun8i-h3-orangepi-pc :=3D -@=0A=
+ DTC_FLAGS_sun8i-h3-bananapi-m2-plus-v1.2 :=3D -@=0A=
+ DTC_FLAGS_sun8i-h3-orangepi-pc-plus :=3D -@=0A=
++=0A=
++# Enables support for device-tree overlays for H2+ pi boards=0A=
++DTC_FLAGS_sun8i-h2-plus-bananapi-m2-zero :=3D -@=0A=
++DTC_FLAGS_sun8i-h2-plus-libretech-all-h3-cc :=3D -@=0A=
++DTC_FLAGS_sun8i-h2-plus-orangepi-r1 :=3D -@=0A=
++DTC_FLAGS_sun8i-h2-plus-orangepi-zero :=3D -@=0A=
+ dtb-$(CONFIG_MACH_SUN8I) +=3D \=0A=
+ 	sun8i-a23-evb.dtb \=0A=
+ 	sun8i-a23-gt90h-v4.dtb \=0A=
+--=0A=
+2.43.0=
 
