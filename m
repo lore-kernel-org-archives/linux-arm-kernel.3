@@ -4,83 +4,61 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id AF96ACD6E60
-	for <linux-arm-kernel@archiver.kernel.org>; Tue,  2 Jun 2026 16:29:07 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id DC389CD6E57
+	for <linux-arm-kernel@archiver.kernel.org>; Tue,  2 Jun 2026 16:29:48 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
 	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
 	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=fX3mxaloZXVdfONlQnBRTNrtTT6d9pOvEBlD8qfbPpk=; b=NAePpSuM4mYoYMwdQSs7JvVLNb
-	HS+Zq56pIYlpjEBejeCuve0ATt0OSREuLgSxgZnYl6urf9A2eGaGWTx502wrKP2O34hdUdh9lzSLJ
-	CexDHXIv7G6/N3c7/g0syRdUUVzybGRmJdTvvZrNVHX4euj494Gy2g0CbmgRc38wgbv0O1PqllTf7
-	t6d5yeCV4sM4jYrrq8Yz3xlX6On09jdRNbwk5rG4W4k7+1hIImcPwbFWd/adduCssh9HQ1fjSyLt/
-	j4voe3CyPlHM5iQEDuzLwJK5/MDZpkupkzIqbs63GcSGCOf3BlbE0TAkd35yxABe5G4WCjdaLNMnq
-	auI/dawA==;
+	bh=kTMa3wbs9wKjuE3FChumE80na/HZhnWiymDIapbAGF0=; b=PT3S+m6emQiR1gBg88Tt8m+Ypd
+	NF4wqJsv7WiDviV7Bfpf7M7Th6VpJyhua7cBRcrQUP93pQ2zAtHLU+Lce6XesBCx9yDABqrNBnNj2
+	66Ne56aZ6Q+JOjSywCG/USP7xfF9de0wahvrW226wpQsHpgS5jjbh/zwi0Wb/fVGaBtb5VXqp7wSZ
+	+/2QZBy5yfSy480s2eeVexhRUH64u5mEnbkYbK3KNA7usvAOiuEWVZQd1XrIm3dIViWl6pxwyT/yS
+	I6qN8IYNh5wlA9JeHu5kIDCaFP/8duf2pz2ZIA3Ilg8u1AjZGryCdV9JeHDK7+T9CBffhi6WEMEOO
+	pbA6vfpQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wURzB-0000000DRkG-2oy1;
-	Tue, 02 Jun 2026 16:29:01 +0000
-Received: from sea.source.kernel.org ([172.234.252.31])
+	id 1wURzq-0000000DRsX-3vCD;
+	Tue, 02 Jun 2026 16:29:42 +0000
+Received: from tor.source.kernel.org ([2600:3c04:e001:324:0:1991:8:25])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wURz8-0000000DRji-3I8p
+	id 1wURzp-0000000DRrx-1pRb
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 02 Jun 2026 16:29:00 +0000
+	Tue, 02 Jun 2026 16:29:41 +0000
 Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
-	by sea.source.kernel.org (Postfix) with ESMTP id 4F5A543D2D;
-	Tue,  2 Jun 2026 16:28:58 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id C1A461F00893;
-	Tue,  2 Jun 2026 16:28:52 +0000 (UTC)
+	by tor.source.kernel.org (Postfix) with ESMTP id DF3376001A;
+	Tue,  2 Jun 2026 16:29:40 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 98A9D1F00893;
+	Tue,  2 Jun 2026 16:29:39 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1780417738;
-	bh=fX3mxaloZXVdfONlQnBRTNrtTT6d9pOvEBlD8qfbPpk=;
+	s=k20260515; t=1780417780;
+	bh=kTMa3wbs9wKjuE3FChumE80na/HZhnWiymDIapbAGF0=;
 	h=Date:From:To:Cc:Subject:References:In-Reply-To;
-	b=iDHlwG0bzuh0CFILnENYRBJ3yxmdq0tICesnt1nNqQcdEFTN2Zc2JBchLvWI2WGKo
-	 m1EwYKqPw9GrWCg9PhftjYBVq45dMyHN/nk9ZOMtY7URwMiB5O3wWSWKgPHj/H2ov/
-	 izi+mBVaQgqh1uCAjurlLHnlodWdhUXd2HZtadgTzVqDsd0lH9XcOU1GOKM038fcHy
-	 5KIHFrh4HTQ/BI7bmQcs4DAGLke2MxdrqGALzbEWEB00p2aMJ5bXVNRFCLXImO1TXw
-	 Yxpvzqul5pR0R200cUcUjohjuSQZ0vK1za646xfMp+KiWe38EDRz7uSWptdYUWKPxM
-	 YzbbnPTU5Eozw==
-Date: Tue, 2 Jun 2026 17:28:50 +0100
-From: Conor Dooley <conor@kernel.org>
-To: Khristine Andreea Barbulescu <khristineandreea.barbulescu@oss.nxp.com>
-Cc: Linus Walleij <linusw@kernel.org>, Bartosz Golaszewski <brgl@bgdev.pl>,
-	Rob Herring <robh@kernel.org>,
-	Krzysztof Kozlowski <krzk+dt@kernel.org>,
-	Conor Dooley <conor+dt@kernel.org>,
-	Chester Lin <chester62515@gmail.com>,
-	Matthias Brugger <mbrugger@suse.com>,
-	Ghennadi Procopciuc <ghennadi.procopciuc@nxp.com>,
-	Larisa Grigore <larisa.grigore@nxp.com>, Lee Jones <lee@kernel.org>,
-	Shawn Guo <shawnguo@kernel.org>,
-	Sascha Hauer <s.hauer@pengutronix.de>,
-	Fabio Estevam <festevam@gmail.com>,
-	Dong Aisheng <aisheng.dong@nxp.com>, Jacky Bai <ping.bai@nxp.com>,
-	Greg Kroah-Hartman <gregkh@linuxfoundation.org>,
-	"Rafael J. Wysocki" <rafael@kernel.org>,
-	Srinivas Kandagatla <srini@kernel.org>,
-	Alberto Ruiz <aruizrui@redhat.com>,
-	Christophe Lizzi <clizzi@redhat.com>, devicetree@vger.kernel.org,
-	Enric Balletbo <eballetb@redhat.com>,
-	Eric Chanudet <echanude@redhat.com>, imx@lists.linux.dev,
-	linux-arm-kernel@lists.infradead.org, linux-gpio@vger.kernel.org,
-	linux-kernel@vger.kernel.org, NXP S32 Linux Team <s32@nxp.com>,
-	Pengutronix Kernel Team <kernel@pengutronix.de>,
-	Vincent Guittot <vincent.guittot@linaro.org>
-Subject: Re: [PATCH v10 4/6] dt-bindings: pinctrl: s32g2-siul2: describe GPIO
- and EIRQ resources
-Message-ID: <20260602-casualty-overstuff-b46f9c7d7d12@spud>
-References: <20260602080132.3256239-1-khristineandreea.barbulescu@oss.nxp.com>
- <20260602080132.3256239-5-khristineandreea.barbulescu@oss.nxp.com>
+	b=jRXtIWCsdQ2C1OSNmb19XSv2BbMfG2UhOfsubkLC3p5rj3CkJvHvaltqe8fpAh7sk
+	 dZAyCgUt5ta+LM3NhX0q8jAMLC2pCdZa2bfvKntglBDL4iS7ZTsC3eACVZbySdRBlx
+	 Fx0/So56x3akOO06gDqcJejqGETDUF5FZOGmTM/TJuxjxSh4IBm+dGJoEsVxU15qdK
+	 C64jNEveQuLsKj12AX5r1WRhIN9jzj/+8Y50z5CpOO0k3s/btGEevUPbvrgiGF0j7X
+	 8nXyiFm2Cbdte3CqKKWzSDjigKIKTbLeKsZh6dWKNnKx4pK1y1qSo/03Y3qRnpotvQ
+	 /lyDW9ryKwf8g==
+Date: Tue, 2 Jun 2026 17:29:37 +0100
+From: Sudeep Holla <sudeep.holla@kernel.org>
+To: Seth Forshee <sforshee@nvidia.com>
+Cc: Sebastian Ene <sebastianene@google.com>,
+	Sudeep Holla <sudeep.holla@kernel.org>,
+	linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org
+Subject: Re: [PATCH 2/2] firmware: arm_ffa: Fall back to minimum buffer size
+ if RXTX_MAP fails
+Message-ID: <20260602-original-ocelot-of-witchcraft-dcdb96@sudeepholla>
+References: <20260601-b4-ffa-rxtx-map-fixes-v1-0-c071b12ae05c@nvidia.com>
+ <20260601-b4-ffa-rxtx-map-fixes-v1-2-c071b12ae05c@nvidia.com>
+ <20260602-defiant-perfect-bustard-cbf22e@sudeepholla>
+ <ah8DDVyxO0vNH-nb@omni-lfn-logwh>
 MIME-Version: 1.0
-Content-Type: multipart/signed; micalg=pgp-sha512;
-	protocol="application/pgp-signature"; boundary="Lx2mHOuNnTOuI0LO"
+Content-Type: text/plain; charset=us-ascii
 Content-Disposition: inline
-In-Reply-To: <20260602080132.3256239-5-khristineandreea.barbulescu@oss.nxp.com>
-X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260602_092858_866230_68E6E64F 
-X-CRM114-Status: GOOD (  30.06  )
+In-Reply-To: <ah8DDVyxO0vNH-nb@omni-lfn-logwh>
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -95,238 +73,34 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
+On Tue, Jun 02, 2026 at 11:21:33AM -0500, Seth Forshee wrote:
+> On Tue, Jun 02, 2026 at 04:48:11PM +0100, Sudeep Holla wrote:
+> > On Mon, Jun 01, 2026 at 03:45:12PM -0500, Seth Forshee wrote:
+> > > FFA_FEATURES only supports a maximum size value for RXTX_MAP in v1.2+.
+> > > Older implementations may still reject larger sizes, which can happen
+> > > when the minimum size is rounded up to the page size when PAGE_SIZE >
+> > > 4K.
+> > > 
+> > > Fall back to the minimum size when RXTX_MAP fails with
+> > > INVALID_PARAMETERS to fix the regression on these platforms. This also
+> > > has the side effect of falling back for v1.2+ with a maximum of 0 (i.e.
+> > > no maximum), where the rounded-up value isn't expected to be rejected,
+> > > but there's no harm in retrying with a smaller size and it might even be
+> > > of benefit for a non-compliant SPMC.
+> > > 
+> > 
+> > Is this needed on any of your platforms ? I don't want to push a solution
+> > or fallback/workaround if there are no users for it.
+> 
+> Yes, we have platforms for which commit 83210251fd70 causes RXTX_MAP
+> failures with page sizes larger than 4K.
+>
 
---Lx2mHOuNnTOuI0LO
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-Content-Transfer-Encoding: quoted-printable
+And they are FF-A v1.1 or doesn't set max_buf size ? Sorry for being
+pedantic, just want to be sure it is useful on real platforms before
+pushing it as fix/workaround.
 
-On Tue, Jun 02, 2026 at 10:01:30AM +0200, Khristine Andreea Barbulescu wrot=
-e:
-> Extend the S32G2 SIUL2 pinctrl binding to describe the GPIO data and
-> external interrupt resources present in the same SIUL2 hardware block.
->=20
-> Besides the MSCR and IMCR registers used for pin multiplexing and pad
-> configuration, SIUL2 also contains PGPDO and PGPDI registers
-> for GPIO data and EIRQ registers for external interrupt control.
->=20
-> Add GPIO controller properties because the SIUL2 block also provides
-> GPIO functionality, and gpio-ranges are needed to describe the
-> mapping between GPIO lines and pin controller pins.
->=20
-> Document the interrupt controller properties. The SIUL2 block
-> contains EIRQ hardware as part of the same register space. IRQ support
-> itself will be added in a follow-up patch series.
->=20
-> Update the example accordingly to show the complete SIUL2 register
-> layout, including the GPIO data and EIRQ register windows.
->=20
-> Signed-off-by: Khristine Andreea Barbulescu <khristineandreea.barbulescu@=
-oss.nxp.com>
-> ---
->  .../pinctrl/nxp,s32g2-siul2-pinctrl.yaml      | 83 +++++++++++++++++--
->  1 file changed, 78 insertions(+), 5 deletions(-)
->=20
-> diff --git a/Documentation/devicetree/bindings/pinctrl/nxp,s32g2-siul2-pi=
-nctrl.yaml b/Documentation/devicetree/bindings/pinctrl/nxp,s32g2-siul2-pinc=
-trl.yaml
-> index a24286e4def6..e4cc1a3a795c 100644
-> --- a/Documentation/devicetree/bindings/pinctrl/nxp,s32g2-siul2-pinctrl.y=
-aml
-> +++ b/Documentation/devicetree/bindings/pinctrl/nxp,s32g2-siul2-pinctrl.y=
-aml
-> @@ -1,5 +1,5 @@
->  # SPDX-License-Identifier: (GPL-2.0-only OR BSD-2-Clause)
-> -# Copyright 2022 NXP
-> +# Copyright 2022, 2026 NXP
->  %YAML 1.2
->  ---
->  $id: http://devicetree.org/schemas/pinctrl/nxp,s32g2-siul2-pinctrl.yaml#
-> @@ -17,8 +17,10 @@ description: |
->      SIUL2_0 @ 0x4009c000
->      SIUL2_1 @ 0x44010000
-> =20
-> -  Every SIUL2 region has multiple register types, and here only MSCR and
-> -  IMCR registers need to be revealed for kernel to configure pinmux.
-> +  Every SIUL2 region has multiple register types. MSCR and IMCR registers
-> +  need to be revealed for kernel to configure pinmux. PGPDO and PGPDI
-> +  registers are used for GPIO output/input operations. EIRQ registers
-> +  are used for external interrupt configuration.
-> =20
->    Please note that some register indexes are reserved in S32G2, such as
->    MSCR102-MSCR111, MSCR123-MSCR143, IMCR84-IMCR118 and IMCR398-IMCR429.
-> @@ -29,14 +31,22 @@ properties:
->        - nxp,s32g2-siul2-pinctrl
-> =20
->    reg:
-> +    minItems: 6
->      description: |
-> -      A list of MSCR/IMCR register regions to be reserved.
-> +      A list of MSCR/IMCR/PGPDO/PGPDI/EIRQ register regions to be reserv=
-ed.
->        - MSCR (Multiplexed Signal Configuration Register)
->          An MSCR register can configure the associated pin as either a GP=
-IO pin
->          or a function output pin depends on the selected signal source.
->        - IMCR (Input Multiplexed Signal Configuration Register)
->          An IMCR register can configure the associated pin as function in=
-put
->          pin depends on the selected signal source.
-> +      - PGPDO (Parallel GPIO Pad Data Out Register)
-> +        A PGPDO register is used to set the output value of a GPIO pin.
-> +      - PGPDI (Parallel GPIO Pad Data In Register)
-> +        A PGPDI register is used to read the input value of a GPIO pin.
-> +      - EIRQ (External Interrupt Request)
-> +        EIRQ registers are used to configure and manage external interru=
-pts.
-> +
->      items:
->        - description: MSCR registers group 0 in SIUL2_0
->        - description: MSCR registers group 1 in SIUL2_1
-> @@ -44,6 +54,28 @@ properties:
->        - description: IMCR registers group 0 in SIUL2_0
->        - description: IMCR registers group 1 in SIUL2_1
->        - description: IMCR registers group 2 in SIUL2_1
-> +      - description: PGPDO registers in SIUL2_0
-> +      - description: PGPDI registers in SIUL2_0
-> +      - description: PGPDO registers in SIUL2_1
-> +      - description: PGPDI registers in SIUL2_1
-> +      - description: EIRQ registers in SIUL2_1
-> +
-> +  gpio-controller: true
-> +
-> +  "#gpio-cells":
-> +    const: 2
-> +
-> +  gpio-ranges:
-> +    minItems: 1
-> +    maxItems: 4
-> +
-> +  interrupt-controller: true
-> +
-> +  "#interrupt-cells":
-> +    const: 2
-> +
-> +  interrupts:
-> +    maxItems: 1
-> =20
->  patternProperties:
->    '-pins$':
-> @@ -86,10 +118,32 @@ required:
->    - compatible
->    - reg
-> =20
-> +oneOf:
-> +  - description: Legacy pinctrl-only node
-> +    properties:
-> +      reg:
-> +        minItems: 6
-
-drop minItems here, since it matches the outer minItems.
-
-> +        maxItems: 6
-
-You're missing having
-properties:
-   gpio-controller: false
-etc here, the condition you have doesn't prevent having them without the
-reg properties to support them. E.g. with a diff like this applied:
-diff --git a/Documentation/devicetree/bindings/pinctrl/nxp,s32g2-siul2-pinc=
-trl.yaml b/Documentation/devicetree/bindings/pinctrl/nxp,s32g2-siul2-pinctr=
-l.yaml
-index e4cc1a3a795c..f0fc6a771f32 100644
---- a/Documentation/devicetree/bindings/pinctrl/nxp,s32g2-siul2-pinctrl.yaml
-+++ b/Documentation/devicetree/bindings/pinctrl/nxp,s32g2-siul2-pinctrl.yaml
-@@ -158,17 +158,7 @@ examples:
-               /* IMCR119-IMCR397 registers on siul2_1 */
-               <0x44010c1c 0x45c>,
-               /* IMCR430-IMCR495 registers on siul2_1 */
--              <0x440110f8 0x108>,
--              /* PGPDO registers on siul2_0 */
--              <0x4009d700 0x10>,
--              /* PGPDI registers on siul2_0 */
--              <0x4009d740 0x10>,
--              /* PGPDO registers on siul2_1 */
--              <0x44011700 0x18>,
--              /* PGPDI registers on siul2_1 */
--              <0x44011740 0x18>,
--              /* EIRQ registers on siul2_1 */
--              <0x44010010 0x34>;
-+              <0x440110f8 0x108>;
-
-> +
-> +  - description: Pinctrl node with GPIO and external interrupt support
-> +    required:
-> +      - gpio-controller
-> +      - "#gpio-cells"
-> +      - gpio-ranges
-> +      - interrupt-controller
-> +      - "#interrupt-cells"
-> +      - interrupts
-> +    properties:
-> +      reg:
-> +        minItems: 11
-> +        maxItems: 11
-
-And the same here for maxItems.
-
-Cheers,
-Conor.
-
-> +
->  additionalProperties: false
-> =20
->  examples:
->    - |
-> +    #include <dt-bindings/interrupt-controller/arm-gic.h>
-> +
->      pinctrl@4009c240 {
->          compatible =3D "nxp,s32g2-siul2-pinctrl";
-> =20
-> @@ -104,7 +158,26 @@ examples:
->                /* IMCR119-IMCR397 registers on siul2_1 */
->                <0x44010c1c 0x45c>,
->                /* IMCR430-IMCR495 registers on siul2_1 */
-> -              <0x440110f8 0x108>;
-> +              <0x440110f8 0x108>,
-> +              /* PGPDO registers on siul2_0 */
-> +              <0x4009d700 0x10>,
-> +              /* PGPDI registers on siul2_0 */
-> +              <0x4009d740 0x10>,
-> +              /* PGPDO registers on siul2_1 */
-> +              <0x44011700 0x18>,
-> +              /* PGPDI registers on siul2_1 */
-> +              <0x44011740 0x18>,
-> +              /* EIRQ registers on siul2_1 */
-> +              <0x44010010 0x34>;
-> +
-> +        gpio-controller;
-> +        #gpio-cells =3D <2>;
-> +        gpio-ranges =3D <&pinctrl 0 0 102>,
-> +                      <&pinctrl 112 112 79>;
-> +
-> +        interrupt-controller;
-> +        #interrupt-cells =3D <2>;
-> +        interrupts =3D <GIC_SPI 210 IRQ_TYPE_LEVEL_HIGH>;
-> =20
->          llce-can0-pins {
->              llce-can0-grp0 {
-> --=20
-> 2.34.1
->=20
---
-pw-bot: changes-requested
-
---Lx2mHOuNnTOuI0LO
-Content-Type: application/pgp-signature; name="signature.asc"
-
------BEGIN PGP SIGNATURE-----
-
-iHUEABYKAB0WIQRh246EGq/8RLhDjO14tDGHoIJi0gUCah8EwgAKCRB4tDGHoIJi
-0rDoAQDdONXb61PReEftXDCleOh95uWQWsiptxxVevCmx/K4vwEAgTlvIEH7BXpy
-jTnkORdiRCEP/mgQ7e3y9iz6VwD/Dwg=
-=2hLs
------END PGP SIGNATURE-----
-
---Lx2mHOuNnTOuI0LO--
+-- 
+Regards,
+Sudeep
 
