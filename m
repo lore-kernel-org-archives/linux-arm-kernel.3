@@ -4,66 +4,61 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id D9C9ECD6E64
-	for <linux-arm-kernel@archiver.kernel.org>; Tue,  2 Jun 2026 16:24:59 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 947ADCD6E60
+	for <linux-arm-kernel@archiver.kernel.org>; Tue,  2 Jun 2026 16:26:17 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=ARchzyUNZAbw3oM5o7JzGNUTWxidv0kmAjA3GG9Rj+I=; b=4OkpVl3FgrewqTzcM1rhEFZJgB
-	ONCiuudnptKMknPUkTHqoL4s/sD/54xUb0kVwIRqho+qUWAMr+3EX+7d0lM7WjVYdXTbupSbBRM6R
-	XrT0FSufJLIz+yJWuIF5j5C8L/12dtxJpZVokpYItBePAh0aM8XiODwG3zj34YVaa2WanRLy8q3Bb
-	5GvKAs3p+Q8/+aBlByXoplMJ4kPAMPR9j/54iWfzAaFgKtRLRmTBnJlg8tG58fxyfupXCxbOXLPqi
-	nqN0B0zJBRnxT1V+MHDt0nnoOxDPdID4Wy7eWu4iND+z8zdm78rseRWSHgfi7JvcNBl/vEUtVv1pH
-	F+lQ32tA==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:In-Reply-To:References:Cc:To:Subject:From:MIME-Version:Date:
+	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=s05O4OoFcgMwrJVM6iNq1/iV7JgKLVa4E+Pjbd7gBr0=; b=aBnlCFXpprkyVQiumM8Fb6tudR
+	3mEOIz3Hsz/aKNA9pZjW4qAbKFotU47JUdXFiZQA4rzcaes78G1jLPNjQZ3KtEp156+Yr1exuCYmZ
+	YNbP0TDGtrvHvWNzb/FC/AhotIqcavAJUCskWjPtomkpevm/Efosgd/1hNv4smosyWHPYz6tq4SMA
+	ETDhpYCCnk4OpXaX4DfcaIIlDt1cVQPGR0+UUHpR47cAbIq1WRamy8hwaN3c5ATuPWJUPJPMfa33C
+	oOuzEbwpMUd46o8gA62QAa0C4JHPZwQwnHCJpkfmFCxK8fawCw0ciSGJLzddr3eWZImaP0nzyes1N
+	DYItD1Sg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wURvB-0000000DQw0-3OS5;
-	Tue, 02 Jun 2026 16:24:53 +0000
-Received: from tor.source.kernel.org ([2600:3c04:e001:324:0:1991:8:25])
+	id 1wURwR-0000000DRGY-18wq;
+	Tue, 02 Jun 2026 16:26:11 +0000
+Received: from courrier.aliel.fr ([65.21.61.41])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wURvA-0000000DQvQ-0poq;
-	Tue, 02 Jun 2026 16:24:52 +0000
-Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
-	by tor.source.kernel.org (Postfix) with ESMTP id 808B96001A;
-	Tue,  2 Jun 2026 16:24:51 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 112731F00893;
-	Tue,  2 Jun 2026 16:24:51 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1780417491;
-	bh=ARchzyUNZAbw3oM5o7JzGNUTWxidv0kmAjA3GG9Rj+I=;
-	h=Date:From:To:Cc:Subject:References:In-Reply-To;
-	b=hWgXm3gqMKY1cga0sOGDmfX5tuur2FyZ2+UBKReLheii8J6pYT4NdM8Jm0IdJQTQn
-	 YWb5GtNBHGO5azMu8v0S2CijL/q9nO0etmifndyKMg/5hUFS6st/r1flJP8/8tttch
-	 THCbDFAXfUiokcjRZ8qLXphB/uxFsMKIq/qqcvhpFYvqfilke+/F4bnb9zSexfdfMJ
-	 PBW5qll4e5sf/7LoTMSvRxiI3pFmz3IHO5uXBSfN1L/ZrofDyZuS5elvTeSfdzxzJ/
-	 QHyYqEaWl9xKmA0OOuDM8nLNcMlZp52JjLzyOmS/xiU9ZsWzbevIAWWlCjMz0sBFvA
-	 xnlna8VtJdPPA==
-Date: Tue, 2 Jun 2026 11:24:50 -0500
-From: Rob Herring <robh@kernel.org>
-To: Wandun Chen <chenwandun1@gmail.com>
-Cc: linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org,
-	loongarch@lists.linux.dev, linux-riscv@lists.infradead.org,
-	devicetree@vger.kernel.org, kexec@lists.infradead.org,
-	iommu@lists.linux.dev, zhaomeijing@lixiang.com,
-	catalin.marinas@arm.com, will@kernel.org, chenhuacai@kernel.org,
-	kernel@xen0n.name, pjw@kernel.org, palmer@dabbelt.com,
-	aou@eecs.berkeley.edu, alex@ghiti.fr, saravanak@kernel.org,
-	akpm@linux-foundation.org, bhe@redhat.com, rppt@kernel.org,
-	pasha.tatashin@soleen.com, pratyush@kernel.org,
-	ruirui.yang@linux.dev, m.szyprowski@samsung.com,
-	robin.murphy@arm.com, quic_obabatun@quicinc.com
-Subject: Re: [PATCH v3 03/11] of: reserved_mem: avoid post-init UAF when
- alloc_reserved_mem_array() fails
-Message-ID: <20260602162450.GA442759-robh@kernel.org>
-References: <20260527032917.3385849-1-chenwandun1@gmail.com>
- <20260527032917.3385849-4-chenwandun1@gmail.com>
+	id 1wURwN-0000000DREZ-2M64;
+	Tue, 02 Jun 2026 16:26:10 +0000
+Message-ID: <60aa3f88-e8de-4594-9c07-832aa6d97b23@aliel.fr>
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=aliel.fr;
+	s=courrier-s1; t=1780417561;
+	bh=3PpZSCOhrX5Fo3r9Inj3yvrlHVLpHLHBcy3c4inz8f8=;
+	h=Date:From:Subject:To:Cc:References:In-Reply-To;
+	b=Zt5cuLdllnhn6/RSFBvGVLVkHSYH0N/2m2xi0TnPS3BHc+i4DxP61s3qzdCh8m/k6
+	 OhVN0kVWi9Z9f3m33lO2WNyhgDP/z4LgZQqCcaswTzwyIg1/YgvEQryErkU8gzolfT
+	 0MkGNAR/9VNXcRMdVW60B/goXUDqg/EfYe8/3f74=
+Date: Tue, 2 Jun 2026 18:26:00 +0200
 MIME-Version: 1.0
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-In-Reply-To: <20260527032917.3385849-4-chenwandun1@gmail.com>
+User-Agent: Mozilla Thunderbird Beta
+From: linux-kernel-dev@aliel.fr
+Subject: Re: [PATCH v3] thermal: amlogic: add missing dependency on MESON_SM
+To: Daniel Lezcano <daniel.lezcano@oss.qualcomm.com>
+Cc: Guillaume La Roque <glaroque@baylibre.com>,
+ Kevin Hilman <khilman@baylibre.com>, Jerome Brunet <jbrunet@baylibre.com>,
+ Martin Blumenstingl <martin.blumenstingl@googlemail.com>,
+ linux-arm-kernel@lists.infradead.org, linux-amlogic@lists.infradead.org,
+ linux-kernel@vger.kernel.org, linux-pm@vger.kernel.org,
+ Mark Brown <broonie@kernel.org>, kernel test robot <lkp@intel.com>,
+ Neil Armstrong <neil.armstrong@linaro.org>,
+ Daniel Lezcano <daniel.lezcano@kernel.org>, Zhang Rui <rui.zhang@intel.com>,
+ "Rafael J. Wysocki" <rafael@kernel.org>, Lukasz Luba <lukasz.luba@arm.com>
+References: <20260602-fix-missing-meson_sm-symbol-v3-1-6f7f69cd7d6c@aliel.fr>
+ <9adbe3cb-d42e-4b89-b6d7-62dd58b98e15@oss.qualcomm.com>
+Content-Language: en-US
+In-Reply-To: <9adbe3cb-d42e-4b89-b6d7-62dd58b98e15@oss.qualcomm.com>
+Content-Type: text/plain; charset=UTF-8
+Content-Transfer-Encoding: 8bit
+X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
+X-CRM114-CacheID: sfid-20260602_092608_038390_E35E6B7E 
+X-CRM114-Status: UNSURE (   9.65  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -78,68 +73,31 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Wed, May 27, 2026 at 11:29:09AM +0800, Wandun Chen wrote:
-> From: Wandun Chen <chenwandun@lixiang.com>
+On 6/2/26 6:01 PM, Daniel Lezcano wrote:
+>> ---
+>>   drivers/thermal/Kconfig | 1 +
+>>   1 file changed, 1 insertion(+)
+>>
+>> diff --git a/drivers/thermal/Kconfig b/drivers/thermal/Kconfig
+>> index 1c4a5cd5a23ee..810eeccedfbab 100644
+>> --- a/drivers/thermal/Kconfig
+>> +++ b/drivers/thermal/Kconfig
+>> @@ -436,6 +436,7 @@ config AMLOGIC_THERMAL
+>>       tristate "Amlogic Thermal Support"
+>>       default ARCH_MESON
+>>       depends on OF && ARCH_MESON
+>> +    depends on MESON_SM
+>>       help
+>>         If you say yes here you get support for Amlogic Thermal
+>>         for G12 SoC Family.
 > 
-> The global pointer 'reserved_mem' continues to reference the
-> reserved_mem_array which lives in __initdata if
-> alloc_reserved_mem_array() fails. of_reserved_mem_lookup() is
-> exported for post-init use, that would dereference freed memory
-> and trigger a use-after-free.
-> 
-> So reset reserved_mem_count to 0 when alloc_reserved_mem_array()
-> fails.
-> 
-> Fixes: 00c9a452a235 ("of: reserved_mem: Add code to dynamically allocate reserved_mem array")
+> Did you forget to remove the stubs ?
 
-Fixes should come first in a series.
+The commit for the stub as already been removed from the
+thermal/bleeding-edge branch, so I think there is nothing to remove
+anymore, and I dropped it on my side too.
 
-> Signed-off-by: Wandun Chen <chenwandun@lixiang.com>
-> ---
->  drivers/of/of_reserved_mem.c | 20 ++++++++++++++------
->  1 file changed, 14 insertions(+), 6 deletions(-)
-> 
-> diff --git a/drivers/of/of_reserved_mem.c b/drivers/of/of_reserved_mem.c
-> index 313cbc57aa45..6d479381ff1f 100644
-> --- a/drivers/of/of_reserved_mem.c
-> +++ b/drivers/of/of_reserved_mem.c
-> @@ -69,29 +69,31 @@ static int __init early_init_dt_alloc_reserved_memory_arch(phys_addr_t size,
->   * the initial static array is copied over to this new array and
->   * the new array is used from this point on.
->   */
-> -static void __init alloc_reserved_mem_array(void)
-> +static bool __init alloc_reserved_mem_array(void)
->  {
->  	struct reserved_mem *new_array;
->  	size_t alloc_size, copy_size, memset_size;
->  
-> +	if (!total_reserved_mem_cnt)
-> +		return true;
-> +
->  	alloc_size = array_size(total_reserved_mem_cnt, sizeof(*new_array));
->  	if (alloc_size == SIZE_MAX) {
->  		pr_err("Failed to allocate memory for reserved_mem array with err: %d", -EOVERFLOW);
-> -		return;
-> +		goto fail;
->  	}
->  
->  	new_array = memblock_alloc(alloc_size, SMP_CACHE_BYTES);
->  	if (!new_array) {
->  		pr_err("Failed to allocate memory for reserved_mem array with err: %d", -ENOMEM);
-> -		return;
-> +		goto fail;
->  	}
->  
->  	copy_size = array_size(reserved_mem_count, sizeof(*new_array));
->  	if (copy_size == SIZE_MAX) {
->  		memblock_free(new_array, alloc_size);
-> -		total_reserved_mem_cnt = MAX_RESERVED_REGIONS;
->  		pr_err("Failed to allocate memory for reserved_mem array with err: %d", -EOVERFLOW);
-
-These prints could be moved to 'fail'. Perhaps instead of just printing 
-an error value, you can return the error value instead of boolean.
-
-If you respin just this patch, I can pick it up for 7.2.
-
-Rob
+-- 
+Best regards,
+Ronald
 
