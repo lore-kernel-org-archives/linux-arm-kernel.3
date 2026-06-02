@@ -4,84 +4,66 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id A2BE5CD6E64
-	for <linux-arm-kernel@archiver.kernel.org>; Tue,  2 Jun 2026 09:27:40 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id D0385CD6E4A
+	for <linux-arm-kernel@archiver.kernel.org>; Tue,  2 Jun 2026 09:28:42 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=+WLorXbZ4o8fZGK8UKxbD3vCYdd4HGXM53dEe2fZfIQ=; b=iSM/OYd3BRHw8EydypYZ42J6bt
-	5xpAZxYGnjkqSg30PniOVfENr6m75rjsx3gFwh7aRoXT/NXMsbN1y73ajdxc6n7pgpZJTtnFvwSJg
-	B0mNAkFG6ZJlCezlEOQ7BVSo47fQa8Eb6xFzJJQVmogb58OYHLfsNDSySYjtgJQFH02zK4mdq8xRB
-	2MsC2EnrBgeb6mXObyHllJtf22iucKGQaCwKEbmD/Gmg056wcEtz4MmHLvDD8BOqDounkDsyKme6z
-	D7tnNpd9uv0xBfdPPtTaWOyC8+zVORBUabU4C25ReL08S1bWAetOhiOBb0ngYh7hQfJI7IBm9EIvn
-	nbS9Ma2w==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
+	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=aOL4oVcXwoiI4c1ezwww44jwDWGsyrBXEaQDVMmabaM=; b=AGP2cjKFMh56JNQfPrq4TPXgWV
+	AcBL2rKEV1Td90gyWDmRA1qivRUXIgPdEdpOJtvKh6m6uErwHbG3nqEVw9M/UVEutCNpVg6eF98cn
+	wnoKA08PvESehbEht089nGc4+fVRNNUHp8Ugvi8z7TjUGXzk+ldQctwpq+CbQJ06XlhXUKBdT57sv
+	NuIAjI5RrSJqqJDRGlEHTg0ddf0CaPZhh+aftmgAfMv5E71EuAtwsge5VDWDAU9jDrph/B5LcpT9v
+	XOBULXhxc1bLuzkPlhb7HKvUdeh5D+QI7fC3SXp0DmHDbhqPPOwW8+iY2NAD0BTHtrW723CtGeodg
+	lAtvykMg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wULPK-0000000CewM-37FC;
-	Tue, 02 Jun 2026 09:27:34 +0000
-Received: from mgamail.intel.com ([198.175.65.21])
-	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wULPI-0000000Cevp-20AK
+	id 1wULQE-0000000Cf9U-42Gx;
+	Tue, 02 Jun 2026 09:28:30 +0000
+Received: from foss.arm.com ([217.140.110.172])
+	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
+	id 1wULQB-0000000Cf8C-2pFH
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 02 Jun 2026 09:27:34 +0000
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple;
-  d=intel.com; i=@intel.com; q=dns/txt; s=Intel;
-  t=1780392452; x=1811928452;
-  h=date:from:to:cc:subject:message-id:references:
-   mime-version:in-reply-to;
-  bh=ItblxYpNb+2Ay97S4QWuJOOupifreuKenS9xKDaH38Q=;
-  b=I7Qq0PIprKsX460df0GaMUY4tE/9iHYYZENL/BMlW3DskozOBsdtz6RK
-   EziX1HrD/4a3ha9g8YaonGZSOEVdxoV0G+c2fEq75cLNLUi0+pCI3QnPU
-   xZ7W8sxAkW7LEsobptSsf46M/p+tXQD5TIAx1tj6iKMXqd6uN0CkGRHSD
-   sxYaNyJESwbSF+JD248cmTjMkV9TVhb0tcK/7kJa1O2h2qBdEFgnRzY/i
-   hFXkWrl+vBmI0+lfbS0Rg5mmt8vMgl98+X7hBPGZ7dzyMzx0EjCQbzrT9
-   kUAPiOsi0mzhY7Nl/Kh1Xw+PNGJdHuhNwWQauVl3Y/kymC/gN27hNw+Nr
-   Q==;
-X-CSE-ConnectionGUID: IsYaFQPpQNauI9PkmQ615w==
-X-CSE-MsgGUID: O5LWMRFZQmurGj3prbM0tg==
-X-IronPort-AV: E=McAfee;i="6800,10657,11804"; a="81072424"
-X-IronPort-AV: E=Sophos;i="6.24,183,1774335600"; 
-   d="scan'208";a="81072424"
-Received: from fmviesa006.fm.intel.com ([10.60.135.146])
-  by orvoesa113.jf.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 02 Jun 2026 02:27:31 -0700
-X-CSE-ConnectionGUID: LFPp70urSQm5UUL05sBrfA==
-X-CSE-MsgGUID: 6O4Zj6lvSPe1U7nQPoyqcw==
-X-ExtLoop1: 1
-X-IronPort-AV: E=Sophos;i="6.24,183,1774335600"; 
-   d="scan'208";a="239414468"
-Received: from mkosciow-mobl1.ger.corp.intel.com (HELO localhost) ([10.245.245.229])
-  by fmviesa006-auth.fm.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 02 Jun 2026 02:27:27 -0700
-Date: Tue, 2 Jun 2026 12:27:25 +0300
-From: Andy Shevchenko <andriy.shevchenko@intel.com>
-To: Angelo Dureghello <adureghello@baylibre.com>
-Cc: Greg Ungerer <gerg@linux-m68k.org>,
-	Geert Uytterhoeven <geert@linux-m68k.org>,
-	Steven King <sfking@fdwdc.com>, Arnd Bergmann <arnd@arndb.de>,
-	Maxime Coquelin <mcoquelin.stm32@gmail.com>,
-	Alexandre Torgue <alexandre.torgue@foss.st.com>,
-	Jonathan Cameron <jic23@kernel.org>,
-	David Lechner <dlechner@baylibre.com>,
-	Nuno =?iso-8859-1?Q?S=E1?= <nuno.sa@analog.com>,
-	Andy Shevchenko <andy@kernel.org>, Greg Ungerer <gerg@uclinux.org>,
-	linux-m68k@lists.linux-m68k.org, linux-kernel@vger.kernel.org,
-	linux-stm32@st-md-mailman.stormreply.com,
-	linux-arm-kernel@lists.infradead.org, linux-iio@vger.kernel.org
-Subject: Re: [PATCH v4 09/11] m68k: stmark2: add mcf5441x DAC platform devices
-Message-ID: <ah6h_XW2wvgEYXKd@ashevche-desk.local>
-References: <20260531-wip-stmark2-dac-v4-0-7e65ab4215dd@baylibre.com>
- <20260531-wip-stmark2-dac-v4-9-7e65ab4215dd@baylibre.com>
+	Tue, 02 Jun 2026 09:28:30 +0000
+Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
+	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id D10EE3532;
+	Tue,  2 Jun 2026 02:28:21 -0700 (PDT)
+Received: from [10.1.25.162] (e121487-lin.cambridge.arm.com [10.1.25.162])
+	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id BD0AC3F7D8;
+	Tue,  2 Jun 2026 02:28:21 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=simple/simple; d=arm.com; s=foss;
+	t=1780392506; bh=dZrUdnqAf9XrzV7pvUqn+kP9qXBcqosGRgnk/2w21Mo=;
+	h=Date:Subject:To:Cc:References:From:In-Reply-To:From;
+	b=QPhYm6gK4mC+PEzhaxpriTDtkt9wexQpUn5bZD3nhFZ1OPU1VQxd8/DvJ7tY/23iK
+	 3ru7ryoDFTi3yePlTC+aVsBG+cOKyu7AvcegU8To6luKr26XNXII3U00CXMz3R8UAD
+	 Vb/IUQUHxHFDn/C0cS7hVQcTjH0r5Gog2bi94yL8=
+Message-ID: <c3aa7bac-4770-4179-b433-15e421ae2e96@arm.com>
+Date: Tue, 2 Jun 2026 10:28:19 +0100
 MIME-Version: 1.0
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-In-Reply-To: <20260531-wip-stmark2-dac-v4-9-7e65ab4215dd@baylibre.com>
-Organization: Intel Finland Oy - BIC 0357606-4 - c/o Alberga Business Park, 6
- krs, Bertel Jungin Aukio 5, 02600 Espoo
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH v3 0/2] arm64: cpufeature: Add WORKAROUND_DISABLE_CNP
+ capability
+To: Zeng Heng <zengheng@huaweicloud.com>, xuwei5@huawei.com,
+ wangyushan12@huawei.com, yangyicong@hisilicon.com, maz@kernel.org,
+ yeoreum.yun@arm.com, miko.lenczewski@arm.com, james.clark@linaro.org,
+ corbet@lwn.net, skhan@linuxfoundation.org, kuninori.morimoto.gx@renesas.com,
+ lucaswei@google.com, catalin.marinas@arm.com, broonie@kernel.org,
+ lpieralisi@kernel.org, thuth@redhat.com, kevin.brodsky@arm.com,
+ tongtiangen@huawei.com, oupton@kernel.org, ryan.roberts@arm.com,
+ mark.rutland@arm.com, will@kernel.org, Sascha.Bischoff@arm.com
+Cc: linux-arm-kernel@lists.infradead.org, wangkefeng.wang@huawei.com,
+ linux-doc@vger.kernel.org, linux-kernel@vger.kernel.org
+References: <20260601112000.1145391-1-zengheng@huaweicloud.com>
+Content-Language: en-GB
+From: Vladimir Murzin <vladimir.murzin@arm.com>
+In-Reply-To: <20260601112000.1145391-1-zengheng@huaweicloud.com>
+Content-Type: text/plain; charset=UTF-8
+Content-Transfer-Encoding: 7bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260602_022732_558425_F46B9D1F 
-X-CRM114-Status: GOOD (  10.90  )
+X-CRM114-CacheID: sfid-20260602_022827_804007_7E406DF0 
+X-CRM114-Status: GOOD (  10.31  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -96,25 +78,41 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Sun, May 31, 2026 at 05:26:02PM +0200, Angelo Dureghello wrote:
+Hi,
 
-> Add mcf5441x DAC platform devices.
+On 6/1/26 12:19, Zeng Heng wrote:
+> From: Zeng Heng <zengheng4@huawei.com>
+> 
+> v2: https://lore.kernel.org/all/20260529063132.766491-1-zengheng@huaweicloud.com/
+> v1: https://lore.kernel.org/all/20260526015720.206854-1-zengheng@huaweicloud.com/
+> 
+> Changes in v3:
+>   - Keep CONFIG_ARM64_WORKAROUND_DISABLE_CNP config and generalise
+>     ARM64_WORKAROUND_DISABLE_CNP capability.
+> 
+> Changes in v2:
+>   - Unify CNP disable workaround into ARM64_WORKAROUND_DISABLE_CNP
+> 
+> Zeng Heng (2):
+>   arm64: cpufeature: Add WORKAROUND_DISABLE_CNP capability
+>   arm64: kernel: Disable CNP on HiSilicon HIP09
+> 
+>  Documentation/arch/arm64/silicon-errata.rst |  2 ++
+>  arch/arm64/Kconfig                          | 20 ++++++++++++++++++++
+>  arch/arm64/include/asm/cpucaps.h            |  4 ++--
+>  arch/arm64/kernel/cpu_errata.c              | 17 ++++++++++++-----
+>  arch/arm64/kernel/cpufeature.c              |  2 +-
+>  arch/arm64/tools/cpucaps                    |  2 +-
+>  6 files changed, 38 insertions(+), 9 deletions(-)
+> 
+> --
+> 2.43.0
+> 
 
-...
+Thanks a lot for going the extra mile and putting everything
+together! I have no further comments, but let's give others some
+time to chime in.
 
-> --- a/arch/m68k/coldfire/stmark2.c
-> +++ b/arch/m68k/coldfire/stmark2.c
-> @@ -8,6 +8,7 @@
->   * for more details.
->   */
->  
-> +#include <linux/ioport.h>
-
-If I'm not mistaken this part has to be done in the previous patch?
-
--- 
-With Best Regards,
-Andy Shevchenko
-
-
+Cheers
+Vladimir
 
