@@ -4,100 +4,104 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 39FEDCD6E61
-	for <linux-arm-kernel@archiver.kernel.org>; Tue,  2 Jun 2026 09:24:57 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 87521CD6E57
+	for <linux-arm-kernel@archiver.kernel.org>; Tue,  2 Jun 2026 09:27:01 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=Sdj05aVjubyRyarZQo/HaMsFhs/qxMG3Rw3z3n07hDA=; b=bvDVDMy0lY2msz8Gfrw4xtp8um
-	w6IyNVitzqro2yla/bhLUNRvwICG0SK3ne3HgfaOa/P71+T0p33nGAa/NGpyVfsJ1P7+GKgprqY9y
-	t9D3edj6DtG6znDLIYpiqaVtMpuIDCxRlwN1nm/sbVK62eIolz6SNL07AApDzJefXy93F2XlvTSQS
-	HwWwq+uy/i1mIryvHEQqSCEmnzQQncRlXVwCKR8ftLE8UUPFvUw6bVZfD6a5qvgsw7gYZ7mn6A9Yx
-	38EGWkLDVTQEIn3duKFBdIWJayL4Q3iTBPDi81KTjk6eVDK2tkwT4217Ln4fiU660BMzYhFUIOaqb
-	zdOuLHug==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:Cc:To:Subject:Message-ID:Date:From:In-Reply-To:References:
+	MIME-Version:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=erM29B/q/4TY7LekE/elitCLlJ0U5rKe/FuPyMus6Fg=; b=GNPrAxKZRQQ+XC8pGTPiKNzeh1
+	CrW9vMCl87U6M9viAcR49R9p10UAz3uvFLXxDqTMLTYoDLXZoPWL9Ii/1tGKXOLsgzyDi6nopvb5C
+	YmLU/iPa3IBTv9M13E8hoNtCA8BmNrGgcF6fhsKX9doSCnrvUsyTxXU88/Z7wU2SzcUHiXfNMlgdJ
+	mmeCI45oQIRmIkLhfyqztw+6yhZZvQUYnvSSJIESV5GasOeokoBqqpXSlJ3CO+dNzrHs/ssiuK2Io
+	VelH3khE4V2nlAvSDGJ03rTnnu20TjrhtO6v4ohk3A3ykhkOcfJ4oP4qVL6TUo6XqQWFuogLk5OrG
+	CTgWGeuw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wULMg-0000000CeTF-3IiB;
-	Tue, 02 Jun 2026 09:24:50 +0000
-Received: from desiato.infradead.org ([2001:8b0:10b:1:d65d:64ff:fe57:4e05])
+	id 1wULOg-0000000CeoQ-0qwL;
+	Tue, 02 Jun 2026 09:26:54 +0000
+Received: from us-smtp-delivery-124.mimecast.com ([170.10.129.124])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wULMe-0000000CeSZ-43uN
-	for linux-arm-kernel@bombadil.infradead.org;
-	Tue, 02 Jun 2026 09:24:48 +0000
-DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=infradead.org; s=desiato.20200630; h=In-Reply-To:Content-Type:MIME-Version:
-	References:Message-ID:Subject:Cc:To:From:Date:Sender:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description;
-	bh=Sdj05aVjubyRyarZQo/HaMsFhs/qxMG3Rw3z3n07hDA=; b=bQLg+emC8n7GPb4cK+8OV6rt54
-	nENwx5cOBft4NEqztAW5IbeuyW++ofdxk6kBvJ6FLlXTsbLclxA8oZMDaVu20Dxqw3w3jfZ2IhfQh
-	ejN3zwflHU/xaIHBCZ6j/rWkazbVI/cnIvgYsBXdpP7SM8PY856cu7DwLnrZRqTnfRmDZ0tDxBZkj
-	Ioa2gfl7NIbToGu/0jyABksAZ9wZFga1o/4xgFs8i3Boa4PlHrfTjK6rtqtyy42PwdzkJ526dJMVs
-	liZtsHvMmvRt9B34kPIjRVFdQbjwUOy5DXMKg3xPEIKAYObuYrb9AM/QIYzBMRLEO7H747KOvx6Ik
-	hBfSALNQ==;
-Received: from mgamail.intel.com ([198.175.65.21])
-	by desiato.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wULMa-00000008sLN-3WTX
+	id 1wULOb-0000000CenP-3pMh
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 02 Jun 2026 09:24:47 +0000
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple;
-  d=intel.com; i=@intel.com; q=dns/txt; s=Intel;
-  t=1780392285; x=1811928285;
-  h=date:from:to:cc:subject:message-id:references:
-   mime-version:in-reply-to;
-  bh=dmW9oDcU2mcbwI8dPNWwDJs8S3z5iYkuegCzVTuA9XQ=;
-  b=Mdk3GxY1mRkD/I6khIakO5Z6Jmw3E3DQI4I8NAQ/aTsJopk6SMUOt0/Q
-   vMUbjx0oj6cKTgiqIjaypw/fQSvvIaGn2KEHDaQ7JnmZZ7vTbBKHrp5rh
-   nSXN6ii2fE1Q7GzG2jeItz6q09j20o77ffTY1LG+5nyjN7ibHE6x5IAFy
-   yU/1sQPUfghbmnK5WUvVKhJWiPsZhCXZS2WY2+EoJHhCnf4KFWDJMCbXo
-   jopmiP4Rw2zmGQBslEQ4HmlzZvsUq2CyzovW75B7pFONTiUlseIYzzOsG
-   nol2QwEM9P1uByPgp7JWxDj50FT0WGdSwQehqmnwsgjXLi4QPgxMWHc4P
-   w==;
-X-CSE-ConnectionGUID: Usnj3doiTQWci/gpPgEvKw==
-X-CSE-MsgGUID: JgUVhYV0TLqrIrmweYjyFg==
-X-IronPort-AV: E=McAfee;i="6800,10657,11804"; a="81072267"
-X-IronPort-AV: E=Sophos;i="6.24,183,1774335600"; 
-   d="scan'208";a="81072267"
-Received: from fmviesa005.fm.intel.com ([10.60.135.145])
-  by orvoesa113.jf.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 02 Jun 2026 02:24:42 -0700
-X-CSE-ConnectionGUID: 77NfOhEcQD2SfDz3F9aTng==
-X-CSE-MsgGUID: ngJI9wi+SQ6GlRwtWahacg==
-X-ExtLoop1: 1
-X-IronPort-AV: E=Sophos;i="6.24,183,1774335600"; 
-   d="scan'208";a="248940582"
-Received: from mkosciow-mobl1.ger.corp.intel.com (HELO localhost) ([10.245.245.229])
-  by fmviesa005-auth.fm.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 02 Jun 2026 02:24:38 -0700
-Date: Tue, 2 Jun 2026 12:24:36 +0300
-From: Andy Shevchenko <andriy.shevchenko@intel.com>
-To: Jonathan Cameron <jic23@kernel.org>
-Cc: Angelo Dureghello <adureghello@baylibre.com>,
-	Greg Ungerer <gerg@linux-m68k.org>,
-	Geert Uytterhoeven <geert@linux-m68k.org>,
-	Steven King <sfking@fdwdc.com>, Arnd Bergmann <arnd@arndb.de>,
-	Maxime Coquelin <mcoquelin.stm32@gmail.com>,
-	Alexandre Torgue <alexandre.torgue@foss.st.com>,
-	David Lechner <dlechner@baylibre.com>,
-	Nuno =?iso-8859-1?Q?S=E1?= <nuno.sa@analog.com>,
-	Andy Shevchenko <andy@kernel.org>, Greg Ungerer <gerg@uclinux.org>,
-	linux-m68k@lists.linux-m68k.org, linux-kernel@vger.kernel.org,
-	linux-stm32@st-md-mailman.stormreply.com,
-	linux-arm-kernel@lists.infradead.org, linux-iio@vger.kernel.org
-Subject: Re: [PATCH v4 04/11] m68k: defconfig: update stmark2 defconfig
-Message-ID: <ah6hVLn_OES-ql9j@ashevche-desk.local>
-References: <20260531-wip-stmark2-dac-v4-0-7e65ab4215dd@baylibre.com>
- <20260531-wip-stmark2-dac-v4-4-7e65ab4215dd@baylibre.com>
- <20260531165155.13e586cd@jic23-huawei>
+	Tue, 02 Jun 2026 09:26:52 +0000
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=redhat.com;
+	s=mimecast20190719; t=1780392407;
+	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
+	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
+	 content-transfer-encoding:content-transfer-encoding:
+	 in-reply-to:in-reply-to:references:references;
+	bh=erM29B/q/4TY7LekE/elitCLlJ0U5rKe/FuPyMus6Fg=;
+	b=arTFLvJen7Sg23JT0+32wa6uz/tK/JP0Rz2QxYjEP97IBiT6eGQENgb34XYvE9PRa0txg+
+	sQs0IsJaQjIPKgaGFy0QZ2f5e1f8a7X6sC398KcsI2n8F1WTramA2Yu7lnHGl8P6KK8Mrm
+	KLbDjzjMHbtIArIO5UbB8qHbivofO30=
+Received: from mail-lj1-f197.google.com (mail-lj1-f197.google.com
+ [209.85.208.197]) by relay.mimecast.com with ESMTP with STARTTLS
+ (version=TLSv1.3, cipher=TLS_AES_256_GCM_SHA384) id
+ us-mta-645-jfhF_scFPpqNlkNtAC-WyA-1; Tue, 02 Jun 2026 05:26:44 -0400
+X-MC-Unique: jfhF_scFPpqNlkNtAC-WyA-1
+X-Mimecast-MFC-AGG-ID: jfhF_scFPpqNlkNtAC-WyA_1780392403
+Received: by mail-lj1-f197.google.com with SMTP id 38308e7fff4ca-3966793fb99so1952831fa.3
+        for <linux-arm-kernel@lists.infradead.org>; Tue, 02 Jun 2026 02:26:44 -0700 (PDT)
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20251104; t=1780392403; x=1780997203;
+        h=content-transfer-encoding:cc:to:subject:message-id:date:from
+         :in-reply-to:references:mime-version:x-gm-gg:x-gm-message-state:from
+         :to:cc:subject:date:message-id:reply-to;
+        bh=erM29B/q/4TY7LekE/elitCLlJ0U5rKe/FuPyMus6Fg=;
+        b=LWfSRGdFgZoPOs3bRFnCfwsK8hbhGhdcN3TlOwkzD0dZGSAaHsj4nXgT09yNBD/zNS
+         YlA7GIzc4ejmnNcn1uBWXZQDT60LhTUZ35YPGJqoexU4AXnmqIMrJWCpP9QnsUQGOKrP
+         u+JVKYCVoElddG2X0j5nZQ3/IPHcAKtCYZxSGDl2AvG05WFVheLOabdyXT60LWdwKqeP
+         v3X2Oa+U3tOd3L3U2MnENPVUJNAlg3/uqrevNOnY5G3HM45Un7Cjp0bk9bqOXLGZj/85
+         K7hLXnxgW2cv3TrV3Vl9xGzotEGAMZsNOfURFaB8e9bn0oF9Qs9a37bz3TLAjbbGz2Bk
+         M0yQ==
+X-Forwarded-Encrypted: i=1; AFNElJ9QzjfR0yIU/HZ9EWlURUSwJoo0HCsn9DPNTBVcU/AtWiwoReIK41cumZzW4ffxpHfwoZYWCg0S/riEQElotb4l@lists.infradead.org
+X-Gm-Message-State: AOJu0YxpA0ND7D/mAv/06HJ8tVjfQSDkuYNmosuJw/+NqT8iPRQjNc2F
+	HKKyYuruBT58+rxZWQ9SeGBAWzx9z1dK3T1nY+6rF89kV1WZ4MmHz7yx3R2gOeYVw4jCO4pzsLm
+	w18lk9u/Wd6xYOU5k/BQF6mX7XSbGIZyH2wAWGhXuAFHR47DyAngzIZeEa0q6JwujPEQ6Ba+6O9
+	x/Rz2Ot751ozfrSWqFMUJrKtL6RACyHWpPDh9hMkKuep4iEtCk7KQ=
+X-Gm-Gg: Acq92OE6xeSvDIr9fK6NTEN4d6z7oi3hWd0wEGy8ydLIKEIQBzOcJz4LR7j7S5DjavP
+	vthla0aikhsdOmIXkG/IuXik8DJ7jy6VLWaQNAHqNkzyXH9xMAt7V8RvYTzHxcl2CuPDdv4l4no
+	wNe6UYj1WC+MTTBFiv5easq9w4qVJ7SoV26Ub+Oyzk2bY9KbuAAYAHOrgKP15JHVhEf7Sc6REY5
+	2lgafsloJaTL6XV
+X-Received: by 2002:a05:651c:546:b0:396:7222:d730 with SMTP id 38308e7fff4ca-3967222d8abmr17160701fa.6.1780392402437;
+        Tue, 02 Jun 2026 02:26:42 -0700 (PDT)
+X-Received: by 2002:a05:651c:546:b0:396:7222:d730 with SMTP id
+ 38308e7fff4ca-3967222d8abmr17160491fa.6.1780392401612; Tue, 02 Jun 2026
+ 02:26:41 -0700 (PDT)
 MIME-Version: 1.0
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-In-Reply-To: <20260531165155.13e586cd@jic23-huawei>
-Organization: Intel Finland Oy - BIC 0357606-4 - c/o Alberga Business Park, 6
- krs, Bertel Jungin Aukio 5, 02600 Espoo
+References: <20260602080132.3256239-1-khristineandreea.barbulescu@oss.nxp.com> <20260602080132.3256239-6-khristineandreea.barbulescu@oss.nxp.com>
+In-Reply-To: <20260602080132.3256239-6-khristineandreea.barbulescu@oss.nxp.com>
+From: Enric Balletbo i Serra <eballetb@redhat.com>
+Date: Tue, 2 Jun 2026 11:26:28 +0200
+X-Gm-Features: AVHnY4Lf2PZgv3ScKJyTl4g9Ti_cdZcTHd7ECVSE1v2QlWX3JfB1RBx2u7TyJGw
+Message-ID: <CALE0LRu1aJAY_-7imYFFPbEwWPpodArXbxtjE-ur3UQnVt5fHw@mail.gmail.com>
+Subject: Re: [PATCH v10 5/6] pinctrl: s32cc: implement GPIO functionality
+To: Khristine Andreea Barbulescu <khristineandreea.barbulescu@oss.nxp.com>
+Cc: Linus Walleij <linusw@kernel.org>, Bartosz Golaszewski <brgl@bgdev.pl>, Rob Herring <robh@kernel.org>, 
+	Krzysztof Kozlowski <krzk+dt@kernel.org>, Conor Dooley <conor+dt@kernel.org>, 
+	Chester Lin <chester62515@gmail.com>, Matthias Brugger <mbrugger@suse.com>, 
+	Ghennadi Procopciuc <ghennadi.procopciuc@nxp.com>, Larisa Grigore <larisa.grigore@nxp.com>, 
+	Lee Jones <lee@kernel.org>, Shawn Guo <shawnguo@kernel.org>, 
+	Sascha Hauer <s.hauer@pengutronix.de>, Fabio Estevam <festevam@gmail.com>, 
+	Dong Aisheng <aisheng.dong@nxp.com>, Jacky Bai <ping.bai@nxp.com>, 
+	Greg Kroah-Hartman <gregkh@linuxfoundation.org>, "Rafael J. Wysocki" <rafael@kernel.org>, 
+	Srinivas Kandagatla <srini@kernel.org>, Alberto Ruiz <aruizrui@redhat.com>, 
+	Christophe Lizzi <clizzi@redhat.com>, devicetree@vger.kernel.org, 
+	Eric Chanudet <echanude@redhat.com>, imx@lists.linux.dev, 
+	linux-arm-kernel@lists.infradead.org, linux-gpio@vger.kernel.org, 
+	linux-kernel@vger.kernel.org, NXP S32 Linux Team <s32@nxp.com>, 
+	Pengutronix Kernel Team <kernel@pengutronix.de>, Vincent Guittot <vincent.guittot@linaro.org>
+X-Mimecast-Spam-Score: 0
+X-Mimecast-MFC-PROC-ID: mc2u4pXHCOljQz8joPC2KpkqnpUczqfowVaHt-UjVdA_1780392403
+X-Mimecast-Originator: redhat.com
+Content-Type: text/plain; charset="UTF-8"
+Content-Transfer-Encoding: quoted-printable
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260602_102445_807867_F1A5D0A6 
-X-CRM114-Status: GOOD (  11.66  )
+X-CRM114-CacheID: sfid-20260602_022650_188276_BA32A245 
+X-CRM114-Status: GOOD (  35.68  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -112,28 +116,1141 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Sun, May 31, 2026 at 04:51:55PM +0100, Jonathan Cameron wrote:
-> On Sun, 31 May 2026 17:25:57 +0200
-> Angelo Dureghello <adureghello@baylibre.com> wrote:
+Hi Khristine,
 
-...
+Thank you for the patch. I got some checkpatch warnings, could you
+take a look? And some minor comments below.
 
-> > +CONFIG_MCF54415_DAC=y
-> 
-> Sashiko makes the reasonable point that this symbol doesn't exist yet.
-> We don't care that much as they make different paths anyway but generally
-> I'd make sure defconfig updates are after the symbols are added.
-> 
-> https://sashiko.dev/#/patchset/20260531-wip-stmark2-dac-v4-0-7e65ab4215dd%40baylibre.com
+On Tue, Jun 2, 2026 at 10:02=E2=80=AFAM Khristine Andreea Barbulescu
+<khristineandreea.barbulescu@oss.nxp.com> wrote:
+>
+> From: Andrei Stefanescu <andrei.stefanescu@oss.nxp.com>
+>
+> The updated SIUL2 block groups pinctrl, GPIO data access
+> and interrupt control within the same hardware unit.
+> The SIUL2 driver is therefore structured as a monolithic
+> pinctrl/GPIO driver.
+>
+> GPIO data access and direction handling are implemented using the
+> gpio-regmap library backed by a virtual regmap. The virtual regmap
+> translates the gpio-regmap register model to the underlying SIUL2
+> registers: MSCR for direction, PGPDI for input values and PGPDO for
+> output values.
+>
+> The existing pinctrl GPIO callbacks are used for the request/free path:
+> they switch the pad to GPIO mode on request and restore the previous
+> MSCR configuration when the GPIO is released.
+>
+> This change came as a result of upstream review in the
+> following series:
+> https://lore.kernel.org/linux-gpio/20260120115923.3463866-4-khristineandr=
+eea.barbulescu@oss.nxp.com/T/#m543c9edbdde74bdc68b6a2364e8b975356c33043
+> https://lore.kernel.org/all/20260504131148.3622697-7-khristineandreea.bar=
+bulescu@oss.nxp.com/
+>
+> Support both SIUL2 DT layouts:
+> - legacy pinctrl-only binding
+> - extended pinctrl/GPIO/irqchip binding
+>
+> Signed-off-by: Andrei Stefanescu <andrei.stefanescu@oss.nxp.com>
+> Signed-off-by: Khristine Andreea Barbulescu <khristineandreea.barbulescu@=
+oss.nxp.com>
+> ---
+>  drivers/pinctrl/nxp/Kconfig         |   1 +
+>  drivers/pinctrl/nxp/pinctrl-s32.h   |  32 +-
+>  drivers/pinctrl/nxp/pinctrl-s32cc.c | 685 +++++++++++++++++++++++++---
+>  drivers/pinctrl/nxp/pinctrl-s32g2.c |  46 +-
+>  4 files changed, 686 insertions(+), 78 deletions(-)
+>
+> diff --git a/drivers/pinctrl/nxp/Kconfig b/drivers/pinctrl/nxp/Kconfig
+> index abca7ef97003..59fc6adf5b0b 100644
+> --- a/drivers/pinctrl/nxp/Kconfig
+> +++ b/drivers/pinctrl/nxp/Kconfig
+> @@ -5,6 +5,7 @@ config PINCTRL_S32CC
+>         select GENERIC_PINCTRL_GROUPS
+>         select GENERIC_PINMUX_FUNCTIONS
+>         select GENERIC_PINCONF
+> +       select GPIO_REGMAP
+>         select REGMAP_MMIO
+>
+>  config PINCTRL_S32G2
+> diff --git a/drivers/pinctrl/nxp/pinctrl-s32.h b/drivers/pinctrl/nxp/pinc=
+trl-s32.h
+> index 8715befd5f05..c2fc5eda7eb4 100644
+> --- a/drivers/pinctrl/nxp/pinctrl-s32.h
+> +++ b/drivers/pinctrl/nxp/pinctrl-s32.h
+> @@ -2,7 +2,7 @@
+>   *
+>   * S32 pinmux core definitions
+>   *
+> - * Copyright 2016-2020, 2022 NXP
+> + * Copyright 2016-2020, 2022, 2026 NXP
+>   * Copyright (C) 2022 SUSE LLC
+>   * Copyright 2015-2016 Freescale Semiconductor, Inc.
+>   * Copyright (C) 2012 Linaro Ltd.
+> @@ -34,11 +34,39 @@ struct s32_pin_range {
+>         unsigned int end;
+>  };
+>
+> +/**
+> + * struct s32_gpio_range - contiguous GPIO pin range within a SIUL2 modu=
+le
+> + * @gpio_base: first GPIO line offset in the GPIO range
+> + * @pin_base: first pinctrl pin number mapped by this GPIO range
+> + * @gpio_num: number of consecutive GPIO pins in the range
+> + */
+> +struct s32_gpio_range {
+> +       unsigned int gpio_base;
+> +       unsigned int pin_base;
+> +       unsigned int gpio_num;
+> +};
+> +
+> +/**
+> + * struct s32_gpio_pad_map - mapping between GPIO ranges and PGPD pads
+> + * @gpio_start: first GPIO line offset in the range
+> + * @gpio_end: last GPIO line offset in the range
+> + * @pad: PGPD pad number serving the range
+> + */
+> +struct s32_gpio_pad_map {
+> +       unsigned int gpio_start;
+> +       unsigned int gpio_end;
+> +       unsigned int pad;
+> +};
+> +
+>  struct s32_pinctrl_soc_data {
+>         const struct pinctrl_pin_desc *pins;
+>         unsigned int npins;
+>         const struct s32_pin_range *mem_pin_ranges;
+>         unsigned int mem_regions;
+> +       const struct s32_gpio_range *gpio_ranges;
+> +       unsigned int num_gpio_ranges;
+> +       const struct s32_gpio_pad_map *gpio_pad_maps;
+> +       unsigned int num_gpio_pad_maps;
+>  };
+>
+>  struct s32_pinctrl_soc_info {
+> @@ -53,6 +81,8 @@ struct s32_pinctrl_soc_info {
+>
+>  #define S32_PINCTRL_PIN(pin)   PINCTRL_PIN(pin, #pin)
+>  #define S32_PIN_RANGE(_start, _end) { .start =3D _start, .end =3D _end }
+> +#define S32_GPIO_RANGE(gpio, pin, num) \
+> +       { .gpio_base =3D gpio, .pin_base =3D pin, .gpio_num =3D num }
+>
+>  int s32_pinctrl_probe(struct platform_device *pdev,
+>                       const struct s32_pinctrl_soc_data *soc_data);
+> diff --git a/drivers/pinctrl/nxp/pinctrl-s32cc.c b/drivers/pinctrl/nxp/pi=
+nctrl-s32cc.c
+> index 89a4eb2000ee..8843926345ec 100644
+> --- a/drivers/pinctrl/nxp/pinctrl-s32cc.c
+> +++ b/drivers/pinctrl/nxp/pinctrl-s32cc.c
+> @@ -2,7 +2,7 @@
+>  /*
+>   * Core driver for the S32 CC (Common Chassis) pin controller
+>   *
+> - * Copyright 2017-2022,2024 NXP
+> + * Copyright 2017-2022,2024-2026 NXP
+>   * Copyright (C) 2022 SUSE LLC
+>   * Copyright 2015-2016 Freescale Semiconductor, Inc.
+>   */
+> @@ -10,6 +10,7 @@
+>  #include <linux/bitops.h>
+>  #include <linux/err.h>
+>  #include <linux/gpio/driver.h>
+> +#include <linux/gpio/regmap.h>
+>  #include <linux/init.h>
+>  #include <linux/io.h>
+>  #include <linux/module.h>
+> @@ -39,6 +40,40 @@
+>  #define S32_MSCR_ODE           BIT(20)
+>  #define S32_MSCR_OBE           BIT(21)
+>
+> +#define S32_GPIO_OP_SHIFT      16
+> +#define S32_GPIO_OP_MASK       GENMASK(19, 16)
+> +
+> +#define S32_GPIO_OP_DIR                0 /* MSCR direction */
+> +#define S32_GPIO_OP_DAT                BIT(S32_GPIO_OP_SHIFT) /* PGPDI r=
+ead */
+> +#define S32_GPIO_OP_SET                BIT(S32_GPIO_OP_SHIFT + 1) /* PGP=
+DO write */
+> +
+> +/*
+> + * [15:12] =3D GPIO bank / gpio range index
+> + * [11:0]  =3D real register offset or pin id
+> + */
+> +#define S32_GPIO_BANK_SHIFT    12
+> +#define S32_GPIO_BANK_MASK    GENMASK(15, 12)
+> +#define S32_GPIO_REG_MASK    GENMASK(11, 0)
+> +
+> +#define S32_GPIO_ENCODE(bank, off) \
+> +       ((((bank) << S32_GPIO_BANK_SHIFT) & S32_GPIO_BANK_MASK) | \
+> +               ((off) & S32_GPIO_REG_MASK))
+> +
+> +#define S32_GPIO_DECODE_BANK(reg) \
+> +       (((reg) & S32_GPIO_BANK_MASK) >> S32_GPIO_BANK_SHIFT)
+> +
+> +#define S32_GPIO_DECODE_OFF(reg) \
+> +       ((reg) & S32_GPIO_REG_MASK)
+> +
+> +/*
+> + * PGPDOs are 16bit registers that come in big endian
+> + * order if they are grouped in pairs of two.
+> + *
+> + * For example, the order is PGPDO1, PGPDO0, PGPDO3, PGPDO2...
+> + */
+> +#define S32_PGPD(N)            (((N) ^ 1) * 2)
+> +#define S32_PGPD_SIZE          16
+> +
+>  enum s32_write_type {
+>         S32_PINCONF_UPDATE_ONLY,
+>         S32_PINCONF_OVERWRITE,
+> @@ -72,6 +107,18 @@ struct s32_pinctrl_mem_region {
+>         char name[8];
+>  };
+>
+> +/*
+> + * struct s32_gpio_regmaps - GPIO register maps for a SIUL2 instance
+> + * @pgpdo: regmap for Parallel GPIO Pad Data Out registers
+> + * @pgpdi: regmap for Parallel GPIO Pad Data In registers
+> + * @range: GPIO range info
+> + */
+> +struct s32_gpio_regmaps {
+> +       struct regmap *pgpdo;
+> +       struct regmap *pgpdi;
+> +       const struct s32_gpio_range *range;
+> +};
+> +
+>  /*
+>   * struct gpio_pin_config - holds pin configuration for GPIO's
+>   * @pin_id: Pin ID for this GPIO
+> @@ -98,6 +145,12 @@ struct s32_pinctrl_context {
+>   * @pctl: a pointer to the pinctrl device structure
+>   * @regions: reserved memory regions with start/end pin
+>   * @info: structure containing information about the pin
+> + * @gpio_regmaps: PGPDO/PGPDI regmaps for each SIUL2 module
+> + * @num_gpio_regmaps: number of GPIO regmap entries
+> + * @gpio_regmap: regmap bridging gpio-regmap to SIUL2 registers
+> + * @gpio_rgm: gpio-regmap instance registered for this controller
+> + * @ngpio: total number of GPIO line offsets
+> + * @gpio_names: GPIO line names array passed to gpio-regmap
+>   * @gpio_configs: saved configurations for GPIO pins
+>   * @gpio_configs_lock: lock for the `gpio_configs` list
+>   * @saved_context: configuration saved over system sleep
+> @@ -107,6 +160,12 @@ struct s32_pinctrl {
+>         struct pinctrl_dev *pctl;
+>         struct s32_pinctrl_mem_region *regions;
+>         struct s32_pinctrl_soc_info *info;
+> +       struct s32_gpio_regmaps *gpio_regmaps;
+> +       unsigned int num_gpio_regmaps;
+> +       struct regmap *gpio_regmap;
+> +       struct gpio_regmap *gpio_rgm;
+> +       unsigned int ngpio;
+> +       const char *const *gpio_names;
+>         struct list_head gpio_configs;
+>         spinlock_t gpio_configs_lock;
+>  #ifdef CONFIG_PM_SLEEP
+> @@ -356,88 +415,84 @@ static int s32_pmx_get_funcs_count(struct pinctrl_d=
+ev *pctldev)
+>         return info->nfunctions;
+>  }
+>
+> -static const char *s32_pmx_get_func_name(struct pinctrl_dev *pctldev,
+> -                                        unsigned int selector)
+> -{
+> -       struct s32_pinctrl *ipctl =3D pinctrl_dev_get_drvdata(pctldev);
+> -       const struct s32_pinctrl_soc_info *info =3D ipctl->info;
+> -
+> -       return info->functions[selector].name;
+> -}
+> -
+> -static int s32_pmx_get_groups(struct pinctrl_dev *pctldev,
+> -                             unsigned int selector,
+> -                             const char * const **groups,
+> -                             unsigned int * const num_groups)
+> -{
+> -       struct s32_pinctrl *ipctl =3D pinctrl_dev_get_drvdata(pctldev);
+> -       const struct s32_pinctrl_soc_info *info =3D ipctl->info;
+> -
+> -       *groups =3D info->functions[selector].groups;
+> -       *num_groups =3D info->functions[selector].ngroups;
+> -
+> -       return 0;
+> -}
+> -
+>  static int s32_pmx_gpio_request_enable(struct pinctrl_dev *pctldev,
+>                                        struct pinctrl_gpio_range *range,
+> -                                      unsigned int offset)
+> +                                      unsigned int pin)
+>  {
+>         struct s32_pinctrl *ipctl =3D pinctrl_dev_get_drvdata(pctldev);
+> -       struct gpio_pin_config *gpio_pin;
+> +       struct gpio_pin_config *gpio_pin __free(kfree) =3D NULL;
+>         unsigned int config;
+> -       unsigned long flags;
+>         int ret;
+>
+> -       ret =3D s32_regmap_read(pctldev, offset, &config);
+> +       ret =3D s32_regmap_read(pctldev, pin, &config);
+>         if (ret)
+>                 return ret;
+>
+> -       /* Save current configuration */
+> -       gpio_pin =3D kmalloc_obj(*gpio_pin);
+> +       gpio_pin =3D kmalloc(sizeof(*gpio_pin), GFP_KERNEL);
 
-There is even Bugzilla report for dangling entries and the ongoing patch review
-for adding this check to the `make` menu and some to checkpatch.pl.
+Why? Isn't kmalloc_obj safer?
 
-TL;DR: This change has to be fixed accordingly.
+>         if (!gpio_pin)
+>                 return -ENOMEM;
+>
+> -       gpio_pin->pin_id =3D offset;
+> +       gpio_pin->pin_id =3D pin;
+>         gpio_pin->config =3D config;
+> -       INIT_LIST_HEAD(&gpio_pin->list);
+> -
+> -       spin_lock_irqsave(&ipctl->gpio_configs_lock, flags);
+> -       list_add(&gpio_pin->list, &ipctl->gpio_configs);
+> -       spin_unlock_irqrestore(&ipctl->gpio_configs_lock, flags);
+>
+>         /* GPIO pin means SSS =3D 0 */
+> -       config &=3D ~S32_MSCR_SSS_MASK;
+> +       ret =3D s32_regmap_update(pctldev, pin,
+> +                               S32_MSCR_SSS_MASK | S32_MSCR_IBE,
+> +                               S32_MSCR_IBE);
+> +       if (ret)
+> +               return ret;
+> +
+> +       scoped_guard(spinlock_irqsave, &ipctl->gpio_configs_lock)
+> +               list_add(&no_free_ptr(gpio_pin)->list, &ipctl->gpio_confi=
+gs);
+>
+> -       return s32_regmap_write(pctldev, offset, config);
+> +       return 0;
+>  }
+>
+>  static void s32_pmx_gpio_disable_free(struct pinctrl_dev *pctldev,
+>                                       struct pinctrl_gpio_range *range,
+> -                                     unsigned int offset)
+> +                                     unsigned int pin)
+>  {
+>         struct s32_pinctrl *ipctl =3D pinctrl_dev_get_drvdata(pctldev);
+> -       struct gpio_pin_config *gpio_pin, *tmp;
+> +       struct gpio_pin_config *gpio_pin, *found =3D NULL;
+>         unsigned long flags;
+> -       int ret;
+>
+>         spin_lock_irqsave(&ipctl->gpio_configs_lock, flags);
+> -
+> -       list_for_each_entry_safe(gpio_pin, tmp, &ipctl->gpio_configs, lis=
+t) {
+> -               if (gpio_pin->pin_id =3D=3D offset) {
+> -                       ret =3D s32_regmap_write(pctldev, gpio_pin->pin_i=
+d,
+> -                                                gpio_pin->config);
+> -                       if (ret !=3D 0)
+> -                               goto unlock;
+> -
+> +       list_for_each_entry(gpio_pin, &ipctl->gpio_configs, list) {
+> +               if (gpio_pin->pin_id =3D=3D pin) {
+>                         list_del(&gpio_pin->list);
+> -                       kfree(gpio_pin);
+> +                       found =3D gpio_pin;
+>                         break;
+>                 }
+>         }
+> -
+> -unlock:
+>         spin_unlock_irqrestore(&ipctl->gpio_configs_lock, flags);
+> +
+> +       if (found) {
+> +               s32_regmap_write(pctldev, found->pin_id, found->config);
+> +               kfree(found);
+> +       }
+> +}
+> +
+> +static const char *s32_pmx_get_func_name(struct pinctrl_dev *pctldev,
+> +                                        unsigned int selector)
+> +{
+> +       struct s32_pinctrl *ipctl =3D pinctrl_dev_get_drvdata(pctldev);
+> +       const struct s32_pinctrl_soc_info *info =3D ipctl->info;
+> +
+> +       return info->functions[selector].name;
+> +}
+> +
+> +static int s32_pmx_get_groups(struct pinctrl_dev *pctldev,
+> +                             unsigned int selector,
+> +                             const char * const **groups,
+> +                             unsigned int * const num_groups)
+> +{
+> +       struct s32_pinctrl *ipctl =3D pinctrl_dev_get_drvdata(pctldev);
+> +       const struct s32_pinctrl_soc_info *info =3D ipctl->info;
+> +
+> +       *groups =3D info->functions[selector].groups;
+> +       *num_groups =3D info->functions[selector].ngroups;
+> +
+> +       return 0;
+>  }
+>
+>  static int s32_pmx_gpio_set_direction(struct pinctrl_dev *pctldev,
+> @@ -649,9 +704,9 @@ static void s32_pinconf_dbg_show(struct pinctrl_dev *=
+pctldev,
+>
+>         ret =3D s32_regmap_read(pctldev, pin_id, &config);
+>         if (ret)
+> -               return;
+> -
+> -       seq_printf(s, "0x%x", config);
+> +               seq_printf(s, "error %d", ret);
+> +       else
+> +               seq_printf(s, "0x%x", config);
+>  }
+>
+>  static void s32_pinconf_group_dbg_show(struct pinctrl_dev *pctldev,
+> @@ -662,15 +717,13 @@ static void s32_pinconf_group_dbg_show(struct pinct=
+rl_dev *pctldev,
+>         struct s32_pin_group *grp;
+>         unsigned int config;
+>         const char *name;
+> -       int i, ret;
+> +       int i;
+>
+>         seq_puts(s, "\n");
+>         grp =3D &info->groups[selector];
+>         for (i =3D 0; i < grp->data.npins; i++) {
+>                 name =3D pin_get_name(pctldev, grp->data.pins[i]);
+> -               ret =3D s32_regmap_read(pctldev, grp->data.pins[i], &conf=
+ig);
+> -               if (ret)
+> -                       return;
+> +               s32_regmap_read(pctldev, grp->data.pins[i], &config);
+>                 seq_printf(s, "%s: 0x%x\n", name, config);
+>         }
+>  }
+> @@ -683,6 +736,450 @@ static const struct pinconf_ops s32_pinconf_ops =3D=
+ {
+>         .pin_config_group_dbg_show =3D s32_pinconf_group_dbg_show,
+>  };
+>
+> +static void s32_gpio_free_saved_configs(void *data)
+> +{
+> +       struct s32_pinctrl *ipctl =3D data;
+> +       struct gpio_pin_config *gpio_pin, *tmp;
+> +       unsigned long flags;
+> +
+> +       spin_lock_irqsave(&ipctl->gpio_configs_lock, flags);
+> +       list_for_each_entry_safe(gpio_pin, tmp, &ipctl->gpio_configs, lis=
+t) {
+> +               list_del(&gpio_pin->list);
+> +               kfree(gpio_pin);
+> +       }
+> +       spin_unlock_irqrestore(&ipctl->gpio_configs_lock, flags);
+> +}
+> +
+> +static unsigned int s32_pin2pad(unsigned int pin)
+> +{
+> +       return pin / S32_PGPD_SIZE;
+> +}
+> +
+> +static u16 s32_pin2mask(unsigned int pin)
+> +{
+> +       /*
+> +        * From Reference manual :
+> +        * PGPDOx[PPDOy] =3D GPDO(x =C3=97 16) + (15 - y)[PDO_(x =C3=97 1=
+6) + (15 - y)]
+> +        */
+> +       return BIT(S32_PGPD_SIZE - 1 - pin % S32_PGPD_SIZE);
+> +}
+> +
+> +static int s32_gpio_get_range(struct s32_pinctrl *ipctl,
+> +                             unsigned int gpio,
+> +                             unsigned int *pin,
+> +                             unsigned int *bank)
+> +{
+> +       const struct s32_pinctrl_soc_data *soc_data =3D ipctl->info->soc_=
+data;
+> +       const struct s32_gpio_range *range;
+> +       int i;
+> +
+> +       for (i =3D 0; i < soc_data->num_gpio_ranges; i++) {
+> +               range =3D &soc_data->gpio_ranges[i];
+> +
+> +               if (gpio < range->gpio_base ||
+> +                   gpio >=3D range->gpio_base + range->gpio_num)
+> +                       continue;
+> +
+> +               if (pin)
+> +                       *pin =3D range->pin_base + gpio - range->gpio_bas=
+e;
+> +
+> +               if (bank)
+> +                       *bank =3D i;
+> +
+> +               return 0;
+> +       }
+> +
+> +       return -EINVAL;
+> +}
+> +
+> +static int s32_gpio_pad_map_xlate(struct s32_pinctrl *ipctl,
+> +                                 unsigned int gpio,
+> +                                 unsigned int *reg_offset,
+> +                                 u16 *mask)
+> +{
+> +       const struct s32_pinctrl_soc_data *soc_data =3D ipctl->info->soc_=
+data;
+> +       const struct s32_gpio_pad_map *map;
+> +       unsigned int bit;
+> +       int i;
+> +
+> +       if (!soc_data->gpio_pad_maps || !soc_data->num_gpio_pad_maps)
+> +               return -EINVAL;
+> +
+> +       for (i =3D 0; i < soc_data->num_gpio_pad_maps; i++) {
+> +               map =3D &soc_data->gpio_pad_maps[i];
+> +
+> +               if (gpio < map->gpio_start || gpio > map->gpio_end)
+> +                       continue;
+> +
+> +               bit =3D gpio - map->gpio_start;
+> +               *mask =3D BIT(S32_PGPD_SIZE - 1 - bit);
+> +               *reg_offset =3D S32_PGPD(map->pad);
+> +
+> +               return 0;
+> +       }
+> +
+> +       return -EINVAL;
+> +}
+> +
+> +static int s32_gpio_xlate_pgpd(struct s32_pinctrl *ipctl,
+> +                              unsigned int pin,
+> +                              unsigned int *reg_offset,
+> +                              u16 *mask)
+> +{
+> +       /*
+> +        * SIUL2_1 does not expose GPIO data registers as a linear pad se=
+quence.
+> +        * Valid PGPD offsets there correspond to PGPD7, PGPD9, PGPD10, P=
+GPD11.
+> +        */
+> +       if (pin >=3D 112)
 
--- 
-With Best Regards,
-Andy Shevchenko
+The magic number 112 requires better documentation or a define
 
+Or maybe, (NOT TESTED) instead of hardcoding, check if a pad map
+exists for this pin
+
+    /* Try pad map first (needed for SIUL2_1's sparse layout) */
+    ret =3D s32_gpio_pad_map_xlate(ipctl, pin, reg_offset, mask);
+    if (ret !=3D -EINVAL)
+        return ret;
+
+    /* Fall back to linear layout (SIUL2_0) */
+    *mask =3D s32_pin2mask(pin);
+    *reg_offset =3D S32_PGPD(s32_pin2pad(pin));
+    return 0;
+
+Does it make sense?
+
+> +               return s32_gpio_pad_map_xlate(ipctl, pin, reg_offset, mas=
+k);
+> +
+> +       *mask =3D s32_pin2mask(pin);
+> +       *reg_offset =3D S32_PGPD(s32_pin2pad(pin));
+> +
+> +       return 0;
+> +}
+> +
+> +static int s32_gpio_reg_mask_xlate(struct gpio_regmap *gpio,
+> +                                  unsigned int base, unsigned int offset=
+,
+> +                                  unsigned int *reg, unsigned int *mask)
+> +{
+> +       struct s32_pinctrl *ipctl =3D gpio_regmap_get_drvdata(gpio);
+> +       unsigned int pgpd_reg, pin, bank;
+> +       u16 pgpd_mask;
+> +       int ret;
+> +
+> +       ret =3D s32_gpio_get_range(ipctl, offset, &pin, &bank);
+> +       if (ret)
+> +               return ret;
+> +
+> +       switch (base) {
+> +       case S32_GPIO_OP_DIR:
+> +               /*
+> +                * Direction is controlled through MSCR OBE.
+> +                * Encode the real pin id in the virtual register.
+> +                */
+> +               *reg =3D S32_GPIO_OP_DIR | pin;
+> +               *mask =3D S32_MSCR_OBE;
+> +               return 0;
+> +
+> +       case S32_GPIO_OP_DAT:
+> +       case S32_GPIO_OP_SET:
+> +               ret =3D s32_gpio_xlate_pgpd(ipctl, pin, &pgpd_reg, &pgpd_=
+mask);
+> +               if (ret)
+> +                       return ret;
+> +               /*
+> +                * Encode both the GPIO bank and the real PGPD register o=
+ffset.
+> +                */
+> +               *reg =3D base | S32_GPIO_ENCODE(bank, pgpd_reg);
+> +               *mask =3D pgpd_mask;
+> +               return 0;
+> +       default:
+> +               return -EINVAL;
+> +       }
+> +}
+> +
+> +static int s32_gpio_reg_read(void *context, unsigned int reg,
+> +                            unsigned int *val)
+> +{
+> +       struct s32_pinctrl *ipctl =3D context;
+> +       unsigned int op =3D reg & S32_GPIO_OP_MASK;
+> +       unsigned int vreg =3D reg & ~S32_GPIO_OP_MASK;
+> +       unsigned int bank;
+> +       unsigned int offset;
+> +       struct regmap *map;
+> +
+> +       switch (op) {
+> +       case S32_GPIO_OP_DIR:
+> +               /*
+> +                * Lower bits contain the real MSCR pin id.
+> +                */
+> +               offset =3D S32_GPIO_DECODE_OFF(vreg);
+> +
+> +               return s32_regmap_read(ipctl->pctl, offset, val);
+> +
+> +       case S32_GPIO_OP_DAT:
+> +               bank =3D S32_GPIO_DECODE_BANK(vreg);
+> +               offset =3D S32_GPIO_DECODE_OFF(vreg);
+> +
+> +               if (bank >=3D ipctl->num_gpio_regmaps)
+> +                       return -EINVAL;
+> +
+> +               map =3D ipctl->gpio_regmaps[bank].pgpdi;
+> +               if (!map)
+> +                       return -ENODEV;
+> +
+> +               return regmap_read(map, offset, val);
+> +
+> +       case S32_GPIO_OP_SET:
+> +               /*
+> +                * gpio-regmap uses update_bits() for set, so it needs to=
+ read
+> +                * the output register before writing the updated value.
+> +                */
+> +               bank =3D S32_GPIO_DECODE_BANK(vreg);
+> +               offset =3D S32_GPIO_DECODE_OFF(vreg);
+> +
+> +               if (bank >=3D ipctl->num_gpio_regmaps)
+> +                       return -EINVAL;
+> +
+> +               map =3D ipctl->gpio_regmaps[bank].pgpdo;
+> +               if (!map)
+> +                       return -ENODEV;
+> +
+> +               return regmap_read(map, offset, val);
+> +
+> +       default:
+> +               return -EINVAL;
+> +       }
+> +}
+> +
+> +static int s32_gpio_reg_write(void *context, unsigned int reg,
+> +                             unsigned int val)
+> +{
+> +       struct s32_pinctrl *ipctl =3D context;
+> +       unsigned int op =3D reg & S32_GPIO_OP_MASK;
+> +       unsigned int vreg =3D reg & ~S32_GPIO_OP_MASK;
+> +       unsigned int bank, offset, config;
+> +       struct regmap *map;
+> +
+> +       switch (op) {
+> +       case S32_GPIO_OP_DIR:
+> +               /*
+> +                * gpio-regmap sets S32_MSCR_OBE for output and clears it=
+ for
+> +                * input. Keep IBE enabled for GPIOs in both cases.
+> +                */
+> +               offset =3D S32_GPIO_DECODE_OFF(vreg);
+> +
+> +               config =3D S32_MSCR_IBE;
+> +               if (val & S32_MSCR_OBE)
+> +                       config |=3D S32_MSCR_OBE;
+> +
+> +               return s32_regmap_update(ipctl->pctl, offset,
+> +                                        S32_MSCR_OBE | S32_MSCR_IBE,
+> +                                        config);
+> +
+> +       case S32_GPIO_OP_SET:
+> +               bank =3D S32_GPIO_DECODE_BANK(vreg);
+> +               offset =3D S32_GPIO_DECODE_OFF(vreg);
+> +
+> +               if (bank >=3D ipctl->num_gpio_regmaps)
+> +                       return -EINVAL;
+> +
+> +               map =3D ipctl->gpio_regmaps[bank].pgpdo;
+> +               if (!map)
+> +                       return -ENODEV;
+> +
+> +               return regmap_write(map, offset, val);
+> +
+> +       default:
+> +               return -EINVAL;
+> +       }
+> +}
+> +
+> +static const struct regmap_bus s32_gpio_regmap_bus =3D {
+> +       .reg_read =3D s32_gpio_reg_read,
+> +       .reg_write =3D s32_gpio_reg_write,
+> +};
+> +
+> +static const struct regmap_config s32_gpio_regmap_config =3D {
+> +       .name =3D "s32-gpio",
+> +       .reg_bits =3D 32,
+> +       .val_bits =3D 32,
+> +       .reg_stride =3D 1,
+> +       .max_register =3D S32_GPIO_OP_SET | S32_GPIO_BANK_MASK | S32_GPIO=
+_REG_MASK,
+> +       .cache_type =3D REGCACHE_NONE,
+> +};
+> +
+> +static int s32_gpio_get_ngpio(const struct s32_pinctrl_soc_data *soc_dat=
+a,
+> +                             unsigned int *ngpio)
+> +{
+> +       const struct s32_gpio_range *range;
+> +       unsigned int end, max =3D 0;
+> +       int i;
+> +
+> +       if (!soc_data->gpio_ranges || !soc_data->num_gpio_ranges)
+> +               return -EINVAL;
+> +
+> +       for (i =3D 0; i < soc_data->num_gpio_ranges; i++) {
+> +               range =3D &soc_data->gpio_ranges[i];
+> +
+> +               if (!range->gpio_num)
+> +                       return -EINVAL;
+> +
+> +               end =3D range->gpio_base + range->gpio_num;
+> +
+> +               /*
+> +                * gpio_ranges must be ordered by gpio_base and must not =
+overlap.
+> +                * The GPIO line space size is derived from the highest r=
+ange end.
+> +                */
+> +               if (i > 0 && range->gpio_base < max)
+> +                       return -EINVAL;
+> +
+> +               if (end > max)
+> +                       max =3D end;
+> +       }
+> +
+> +       *ngpio =3D max;
+> +
+> +       return 0;
+> +}
+> +
+> +static int s32_init_gpio_regmap(struct platform_device *pdev,
+> +                               struct s32_pinctrl *ipctl)
+> +{
+> +       ipctl->gpio_regmap =3D
+> +               devm_regmap_init(&pdev->dev, &s32_gpio_regmap_bus,
+> +                                ipctl, &s32_gpio_regmap_config);
+> +       if (IS_ERR(ipctl->gpio_regmap))
+> +               return dev_err_probe(&pdev->dev,
+> +                                    PTR_ERR(ipctl->gpio_regmap),
+> +                                    "Failed to init GPIO regmap\n");
+> +
+> +       return 0;
+> +}
+> +
+> +static int s32_init_valid_mask(struct gpio_chip *chip, unsigned long *ma=
+sk,
+> +                              unsigned int ngpios)
+> +{
+> +       struct gpio_regmap *gpio =3D gpiochip_get_data(chip);
+> +       struct s32_pinctrl *ipctl =3D gpio_regmap_get_drvdata(gpio);
+> +       unsigned int gpio_num, pin, reg_offset;
+> +       u16 pgpd_mask;
+> +       int ret;
+> +
+> +       bitmap_zero(mask, ngpios);
+> +
+> +       for (gpio_num =3D 0; gpio_num < ngpios; gpio_num++) {
+> +               ret =3D s32_gpio_get_range(ipctl, gpio_num, &pin, NULL);
+> +               if (ret)
+> +                       continue;
+> +
+> +               ret =3D s32_gpio_xlate_pgpd(ipctl, pin, &reg_offset, &pgp=
+d_mask);
+> +               if (ret)
+> +                       continue;
+> +
+> +               bitmap_set(mask, gpio_num, 1);
+> +       }
+> +
+> +       return 0;
+> +}
+> +
+> +static int s32_gpio_populate_names(struct s32_pinctrl *ipctl)
+> +{
+> +       char **names;
+> +       unsigned int gpio;
+> +       unsigned int pin;
+> +       char port;
+> +       int ret;
+> +
+> +       names =3D devm_kcalloc(ipctl->dev, ipctl->ngpio, sizeof(*names),
+> +                            GFP_KERNEL);
+> +       if (!names)
+> +               return -ENOMEM;
+> +
+> +       for (gpio =3D 0; gpio < ipctl->ngpio; gpio++) {
+> +               ret =3D s32_gpio_get_range(ipctl, gpio, &pin, NULL);
+> +               if (ret)
+> +                       continue;
+> +
+> +               port =3D 'A' + pin / 16;
+> +
+> +               names[gpio] =3D devm_kasprintf(ipctl->dev, GFP_KERNEL,
+> +                                            "P%c_%02u", port, pin & 0xf)=
+;
+> +               if (!names[gpio])
+> +                       return -ENOMEM;
+> +       }
+> +
+> +       ipctl->gpio_names =3D (const char *const *)names;
+> +
+> +       return 0;
+> +}
+> +
+> +static int s32_pinctrl_init_gpio_regmaps(struct platform_device *pdev,
+> +                                        struct s32_pinctrl *ipctl)
+> +{
+> +       const struct s32_pinctrl_soc_data *soc_data =3D ipctl->info->soc_=
+data;
+> +       static const struct regmap_config pgpd_config =3D {
+> +               .reg_bits =3D 32,
+> +               .val_bits =3D 16,
+> +               .reg_stride =3D 2,
+> +       };
+> +       struct regmap_config cfg;
+> +       struct resource *res;
+> +       void __iomem *base;
+> +       unsigned int pgpdo_idx, pgpdi_idx;
+> +       unsigned int i;
+> +
+> +       if (!soc_data->gpio_ranges || !soc_data->num_gpio_ranges)
+> +               return 0;
+> +
+> +       ipctl->num_gpio_regmaps =3D soc_data->num_gpio_ranges;
+> +       ipctl->gpio_regmaps =3D devm_kcalloc(&pdev->dev, ipctl->num_gpio_=
+regmaps,
+> +                                          sizeof(*ipctl->gpio_regmaps),
+> +                                          GFP_KERNEL);
+> +       if (!ipctl->gpio_regmaps)
+> +               return -ENOMEM;
+> +
+> +       for (i =3D 0; i < ipctl->num_gpio_regmaps; i++) {
+> +               ipctl->gpio_regmaps[i].range =3D &soc_data->gpio_ranges[i=
+];
+> +
+> +               /*
+> +                * GPIO resources are placed after the pinctrl regions
+> +                */
+> +               pgpdo_idx =3D soc_data->mem_regions + i * 2;
+> +               pgpdi_idx =3D soc_data->mem_regions + i * 2 + 1;
+> +
+> +               /* PGPDO */
+> +               res =3D platform_get_resource(pdev, IORESOURCE_MEM, pgpdo=
+_idx);
+> +               if (!res)
+> +                       return dev_err_probe(&pdev->dev, -ENOENT,
+> +                                                "Missing PGPDO resource =
+%u\n", i);
+> +
+> +               base =3D devm_ioremap_resource(&pdev->dev, res);
+> +               if (IS_ERR(base))
+> +                       return PTR_ERR(base);
+> +
+> +               cfg =3D pgpd_config;
+> +               cfg.name =3D devm_kasprintf(&pdev->dev, GFP_KERNEL, "pgpd=
+o%u", i);
+> +               if (!cfg.name)
+> +                       return -ENOMEM;
+> +
+> +               cfg.max_register =3D resource_size(res) - cfg.reg_stride;
+> +
+> +               ipctl->gpio_regmaps[i].pgpdo =3D
+> +                       devm_regmap_init_mmio(&pdev->dev, base, &cfg);
+> +               if (IS_ERR(ipctl->gpio_regmaps[i].pgpdo))
+> +                       return dev_err_probe(&pdev->dev,
+> +                                                PTR_ERR(ipctl->gpio_regm=
+aps[i].pgpdo),
+> +                                                "Failed to init PGPDO re=
+gmap %u\n", i);
+> +
+> +               /* PGPDI */
+> +               res =3D platform_get_resource(pdev, IORESOURCE_MEM, pgpdi=
+_idx);
+> +               if (!res)
+> +                       return dev_err_probe(&pdev->dev, -ENOENT,
+> +                                                "Missing PGPDI resource =
+%u\n", i);
+> +
+> +               base =3D devm_ioremap_resource(&pdev->dev, res);
+> +               if (IS_ERR(base))
+> +                       return PTR_ERR(base);
+> +
+> +               cfg =3D pgpd_config;
+> +               cfg.name =3D devm_kasprintf(&pdev->dev, GFP_KERNEL, "pgpd=
+i%u", i);
+> +               if (!cfg.name)
+> +                       return -ENOMEM;
+> +
+> +               cfg.max_register =3D resource_size(res) - cfg.reg_stride;
+> +
+> +               ipctl->gpio_regmaps[i].pgpdi =3D
+> +                       devm_regmap_init_mmio(&pdev->dev, base, &cfg);
+> +               if (IS_ERR(ipctl->gpio_regmaps[i].pgpdi))
+> +                       return dev_err_probe(&pdev->dev,
+> +                                                PTR_ERR(ipctl->gpio_regm=
+aps[i].pgpdi),
+> +                                                "Failed to init PGPDI re=
+gmap %u\n", i);
+> +       }
+> +
+> +       return 0;
+> +}
+> +
+>  #ifdef CONFIG_PM_SLEEP
+>  static bool s32_pinctrl_should_save(struct s32_pinctrl *ipctl,
+>                                     unsigned int pin)
+> @@ -710,7 +1207,6 @@ int s32_pinctrl_suspend(struct device *dev)
+>         const struct s32_pinctrl_soc_info *info =3D ipctl->info;
+>         struct s32_pinctrl_context *saved_context =3D &ipctl->saved_conte=
+xt;
+>         int i;
+> -       int ret;
+>         unsigned int config;
+>
+>         for (i =3D 0; i < info->soc_data->npins; i++) {
+> @@ -719,9 +1215,7 @@ int s32_pinctrl_suspend(struct device *dev)
+>                 if (!s32_pinctrl_should_save(ipctl, pin->number))
+>                         continue;
+>
+> -               ret =3D s32_regmap_read(ipctl->pctl, pin->number, &config=
+);
+> -               if (ret)
+> -                       return -EINVAL;
+> +               s32_regmap_read(ipctl->pctl, pin->number, &config);
+>
+>                 saved_context->pads[i] =3D config;
+>         }
+> @@ -736,7 +1230,7 @@ int s32_pinctrl_resume(struct device *dev)
+>         const struct s32_pinctrl_soc_info *info =3D ipctl->info;
+>         const struct pinctrl_pin_desc *pin;
+>         struct s32_pinctrl_context *saved_context =3D &ipctl->saved_conte=
+xt;
+> -       int ret, i;
+> +       int i;
+>
+>         for (i =3D 0; i < info->soc_data->npins; i++) {
+>                 pin =3D &info->soc_data->pins[i];
+> @@ -744,10 +1238,8 @@ int s32_pinctrl_resume(struct device *dev)
+>                 if (!s32_pinctrl_should_save(ipctl, pin->number))
+>                         continue;
+>
+> -               ret =3D s32_regmap_write(ipctl->pctl, pin->number,
+> -                                        saved_context->pads[i]);
+> -               if (ret)
+> -                       return ret;
+> +               s32_regmap_write(ipctl->pctl, pin->number,
+> +                                saved_context->pads[i]);
+>         }
+>
+>         return 0;
+> @@ -927,13 +1419,15 @@ static int s32_pinctrl_probe_dt(struct platform_de=
+vice *pdev,
+>  int s32_pinctrl_probe(struct platform_device *pdev,
+>                       const struct s32_pinctrl_soc_data *soc_data)
+>  {
+> -       struct s32_pinctrl *ipctl;
+> -       int ret;
+> -       struct pinctrl_desc *s32_pinctrl_desc;
+> -       struct s32_pinctrl_soc_info *info;
+>  #ifdef CONFIG_PM_SLEEP
+>         struct s32_pinctrl_context *saved_context;
+>  #endif
+> +       struct gpio_regmap_config gpio_cfg =3D {};
+> +       struct pinctrl_desc *s32_pinctrl_desc;
+> +       struct s32_pinctrl_soc_info *info;
+> +       struct s32_pinctrl *ipctl;
+> +       unsigned int ngpio;
+> +       int ret;
+>
+>         if (!soc_data || !soc_data->pins || !soc_data->npins) {
+>                 dev_err(&pdev->dev, "wrong pinctrl info\n");
+> @@ -959,6 +1453,11 @@ int s32_pinctrl_probe(struct platform_device *pdev,
+>         INIT_LIST_HEAD(&ipctl->gpio_configs);
+>         spin_lock_init(&ipctl->gpio_configs_lock);
+>
+> +       ret =3D devm_add_action_or_reset(&pdev->dev,
+> +                                      s32_gpio_free_saved_configs, ipctl=
+);
+> +       if (ret)
+> +               return ret;
+> +
+>         s32_pinctrl_desc =3D
+>                 devm_kzalloc(&pdev->dev, sizeof(*s32_pinctrl_desc), GFP_K=
+ERNEL);
+>         if (!s32_pinctrl_desc)
+> @@ -978,6 +1477,11 @@ int s32_pinctrl_probe(struct platform_device *pdev,
+>                 return ret;
+>         }
+>
+> +       ret =3D s32_pinctrl_init_gpio_regmaps(pdev, ipctl);
+> +       if (ret)
+> +               return dev_err_probe(&pdev->dev, ret,
+> +                                    "Failed to init GPIO regmaps\n");
+> +
+>         ret =3D devm_pinctrl_register_and_init(&pdev->dev, s32_pinctrl_de=
+sc,
+>                                              ipctl, &ipctl->pctl);
+>         if (ret)
+> @@ -999,7 +1503,42 @@ int s32_pinctrl_probe(struct platform_device *pdev,
+>                 return dev_err_probe(&pdev->dev, ret,
+>                                      "Failed to enable pinctrl\n");
+>
+> -       dev_info(&pdev->dev, "Initialized S32 pinctrl driver\n");
+> +       /* Setup GPIO if GPIO ranges are defined */
+> +       if (!soc_data->gpio_ranges || !soc_data->num_gpio_ranges)
+> +               return 0;
+> +
+> +       ret =3D s32_gpio_get_ngpio(soc_data, &ngpio);
+> +       if (ret)
+> +               return dev_err_probe(&pdev->dev, ret, "Invalid GPIO range=
+s\n");
+> +
+> +       ipctl->ngpio =3D ngpio;
+> +
+> +       ret =3D s32_gpio_populate_names(ipctl);
+> +       if (ret)
+> +               return ret;
+> +
+> +       ret =3D s32_init_gpio_regmap(pdev, ipctl);
+> +       if (ret)
+> +               return ret;
+> +
+> +       gpio_cfg.parent =3D &pdev->dev;
+> +       gpio_cfg.fwnode =3D dev_fwnode(&pdev->dev);
+> +       gpio_cfg.label =3D dev_name(&pdev->dev);
+> +       gpio_cfg.regmap =3D ipctl->gpio_regmap;
+> +       gpio_cfg.ngpio =3D ngpio;
+> +       gpio_cfg.names =3D ipctl->gpio_names;
+> +       gpio_cfg.reg_dir_out_base =3D GPIO_REGMAP_ADDR(S32_GPIO_OP_DIR);
+> +       gpio_cfg.reg_dat_base =3D GPIO_REGMAP_ADDR(S32_GPIO_OP_DAT);
+> +       gpio_cfg.reg_set_base =3D GPIO_REGMAP_ADDR(S32_GPIO_OP_SET);
+> +       gpio_cfg.reg_mask_xlate =3D s32_gpio_reg_mask_xlate;
+> +       gpio_cfg.init_valid_mask =3D s32_init_valid_mask;
+> +       gpio_cfg.drvdata =3D ipctl;
+> +
+> +       ipctl->gpio_rgm =3D devm_gpio_regmap_register(&pdev->dev, &gpio_c=
+fg);
+> +       if (IS_ERR(ipctl->gpio_rgm))
+> +               return dev_err_probe(&pdev->dev,
+> +                                    PTR_ERR(ipctl->gpio_rgm),
+> +                                    "Unable to add gpio_regmap chip\n");
+>
+>         return 0;
+>  }
+> diff --git a/drivers/pinctrl/nxp/pinctrl-s32g2.c b/drivers/pinctrl/nxp/pi=
+nctrl-s32g2.c
+> index c49d28793b69..0bd6e6ab5ad1 100644
+> --- a/drivers/pinctrl/nxp/pinctrl-s32g2.c
+> +++ b/drivers/pinctrl/nxp/pinctrl-s32g2.c
+> @@ -3,7 +3,7 @@
+>   * NXP S32G pinctrl driver
+>   *
+>   * Copyright 2015-2016 Freescale Semiconductor, Inc.
+> - * Copyright 2017-2018, 2020-2022 NXP
+> + * Copyright 2017-2018, 2020-2022, 2025-2026 NXP
+>   * Copyright (C) 2022 SUSE LLC
+>   */
+>
+> @@ -773,17 +773,47 @@ static const struct s32_pin_range s32_pin_ranges_si=
+ul2[] =3D {
+>         S32_PIN_RANGE(942, 1007),
+>  };
+>
+> -static const struct s32_pinctrl_soc_data s32_pinctrl_data =3D {
+> +static const struct s32_gpio_range s32_gpio_ranges_siul2[] =3D {
+> +       S32_GPIO_RANGE(0, 0, 102),
+> +       S32_GPIO_RANGE(112, 112, 79),
+> +};
+> +
+> +/*
+> + * SIUL2_1 GPIO ranges mapped to sparse PGPD pads.
+> + *
+> + * SIUL2_1 does not expose GPIO data registers as a linear pad
+> + * sequence. Each entry describes a contiguous GPIO offset range
+> + * and the PGPD pad servicing that range.
+> + */
+> +static const struct s32_gpio_pad_map s32g_gpio_pad_maps[] =3D {
+> +       { 112, 122, 7  }, /* PH_00 .. PH_10 -> PGPD7  */
+> +       { 144, 159, 9  }, /* PJ_00 .. PJ_15 -> PGPD9  */
+> +       { 160, 175, 10 }, /* PK_00 .. PK_15 -> PGPD10 */
+> +       { 176, 190, 11 }, /* PL_00 .. PL_14 -> PGPD11 */
+> +};
+> +
+> +/* Legacy data for old DT bindings without GPIO support */
+> +static const struct s32_pinctrl_soc_data legacy_s32g_pinctrl_data =3D {
+> +       .pins =3D s32_pinctrl_pads_siul2,
+> +       .npins =3D ARRAY_SIZE(s32_pinctrl_pads_siul2),
+> +       .mem_pin_ranges =3D s32_pin_ranges_siul2,
+> +       .mem_regions =3D ARRAY_SIZE(s32_pin_ranges_siul2),
+> +};
+> +
+> +static const struct s32_pinctrl_soc_data s32g_pinctrl_data =3D {
+>         .pins =3D s32_pinctrl_pads_siul2,
+>         .npins =3D ARRAY_SIZE(s32_pinctrl_pads_siul2),
+>         .mem_pin_ranges =3D s32_pin_ranges_siul2,
+>         .mem_regions =3D ARRAY_SIZE(s32_pin_ranges_siul2),
+> +       .gpio_ranges =3D s32_gpio_ranges_siul2,
+> +       .num_gpio_ranges =3D ARRAY_SIZE(s32_gpio_ranges_siul2),
+> +       .gpio_pad_maps =3D s32g_gpio_pad_maps,
+> +       .num_gpio_pad_maps =3D ARRAY_SIZE(s32g_gpio_pad_maps),
+>  };
+>
+>  static const struct of_device_id s32_pinctrl_of_match[] =3D {
+>         {
+>                 .compatible =3D "nxp,s32g2-siul2-pinctrl",
+> -               .data =3D &s32_pinctrl_data,
+>         },
+>         { /* sentinel */ }
+>  };
+> @@ -792,8 +822,16 @@ MODULE_DEVICE_TABLE(of, s32_pinctrl_of_match);
+>  static int s32g_pinctrl_probe(struct platform_device *pdev)
+>  {
+>         const struct s32_pinctrl_soc_data *soc_data;
+> +       struct device_node *np =3D pdev->dev.of_node;
+>
+> -       soc_data =3D of_device_get_match_data(&pdev->dev);
+> +       /*
+> +        * Legacy DTs only describe the pinctrl resources.
+> +        * New DT changes extend the same node with GPIO resources.
+> +        */
+> +       if (of_property_present(np, "gpio-controller"))
+> +               soc_data =3D &s32g_pinctrl_data;
+> +       else
+> +               soc_data =3D &legacy_s32g_pinctrl_data;
+>
+>         return s32_pinctrl_probe(pdev, soc_data);
+>  }
+> --
+> 2.34.1
+>
 
 
