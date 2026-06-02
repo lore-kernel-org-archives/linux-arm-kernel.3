@@ -4,107 +4,70 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id C9A62C5DF71
-	for <linux-arm-kernel@archiver.kernel.org>; Tue,  2 Jun 2026 05:26:05 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 1C422CD6E60
+	for <linux-arm-kernel@archiver.kernel.org>; Tue,  2 Jun 2026 05:44:18 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:Cc:To:Subject:Message-ID:Date:From:In-Reply-To:References:
-	MIME-Version:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=dUr/bDGg9l6+S25kggcGIvYETcmzBiihCI+mnqh90MM=; b=Hebn/Wh8oeFL2UOhuXQ3OlV5hs
-	dLnlw1y5unEiQE4ZfQ5AHKhepDNjsPeg/li0mtEYgflvquF+fN3MSoxMfX3nVVlUC6CH3XBB55qbm
-	cPmnNaVRXpiBdf/qblNYGR6q6qDq/dO7sZodamjwciS0NsZy6o+JbjQN7kP/4dZ+4h+r+IEkzsOZf
-	H75upU5wOyCRfr7Mya06FE8xYH9xroL/S1zgUuy8l5EPJjY6QgX/z3aFJ4yxEhCc8n4HMRKTxRqfk
-	URTBVmGr0E7taJlq/JnDdMVKZk9X2FZ4LIEAbkWnms0cgVqHRkYm0M3CSyugJfvAGLpswzOsVXpAd
-	Yb8B1frQ==;
+	MIME-Version:Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-Type:
+	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
+	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=w0p9jMiNGqOAdQsTSO1Efu/8z8Epr6DYVgCEY2udtoI=; b=3GpOuKDUS+fVZyjJAYGMcx8c3V
+	089TGaETs+fZtWqcA9VLFD5zRIRp7QQGSe5XqVt/aVFMORPuM8cfta/9pRdMtOR+4YMLRdZbFacJF
+	whfunFtvHdNbAwKXEvpZprVNqeVPApXfUZzGqO6lScNkYegXDRJ5CiCcyMTgDP+6Ma2tupeU5qoGW
+	CWIHk/qSI8aIvnc3rg+n6VwLXltj7a5PFqfUEuc9ujSLA1hm8fjn835svw0FZNYxYfxz4+zWh6jJR
+	B6TO+yBWAtA343VrBrxdJp65KpHEaB8cX7kekcy2U6/sXnSRzGKrZxguA/apSTDC1xnJHgK29Shkf
+	/KeQeppA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wUHdV-0000000CKCA-31sg;
-	Tue, 02 Jun 2026 05:25:57 +0000
-Received: from mail-qt1-x835.google.com ([2607:f8b0:4864:20::835])
+	id 1wUHv9-0000000CKuB-0xjP;
+	Tue, 02 Jun 2026 05:44:11 +0000
+Received: from mailgw.kylinos.cn ([124.126.103.232])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wUHdT-0000000CKBk-0Tev
-	for linux-arm-kernel@lists.infradead.org;
-	Tue, 02 Jun 2026 05:25:56 +0000
-Received: by mail-qt1-x835.google.com with SMTP id d75a77b69052e-50e61648f10so331cf.1
-        for <linux-arm-kernel@lists.infradead.org>; Mon, 01 Jun 2026 22:25:54 -0700 (PDT)
-ARC-Seal: i=1; a=rsa-sha256; t=1780377954; cv=none;
-        d=google.com; s=arc-20240605;
-        b=dYcLcSqWh0ID73Ad46zWS0QF49TRWTBrHKxniHoPV4/x1RkohYDpa1AJapnpoTZ783
-         OVu8QEfaoOm1XaDZhxACfBLPVsk1e1wZWoVhqidYSlMK4TzVEHdM+qw8AXeVZd73euMG
-         Cz0wMpa1APzfZBVz2pwjlVL+BXRGODaVLieAw4mGNXPSuANp1GInChdYZs9D0pbXJALe
-         mH4zqjL7z+t5RPPBIU2aR7cSMsgzWwR//FZXrcn1XOFjlPGRRpsyQ7GpNwcFhBKrcDGZ
-         aJ88Y+ppBgCsh0frBP9/hgAQmBPhIlP14IgKbK8C2i8iMKwZWQSUQ/2ssR5Y8N4/mIk9
-         xmhg==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20240605;
-        h=content-transfer-encoding:cc:to:subject:message-id:date:from
-         :in-reply-to:references:mime-version:dkim-signature;
-        bh=dUr/bDGg9l6+S25kggcGIvYETcmzBiihCI+mnqh90MM=;
-        fh=JrUUeFhxL7WufgAc1vyD+4WUoZN3NagBF60h78sWvak=;
-        b=lF/pIH9niPC74D9oV60buAQikJNZtgjt8EhLSvC7QO4akNjI31RaoBy8YVRm3DxsV/
-         EX2LOIb65/mXMWiIwaP48PudQL5VOe2d/JR3nmN1LhMvGFS3r4xgdfJdiwLqXfLFDpQl
-         BRHV7VY4CjtPs1JgLs7/YRtHwcHgUrmPDbLGcYnbCpTQa8AT91lnRBzmf0ugrPRcKkcP
-         91YyBS4u4vKmJK0EIksUxPgXrltsTw8NCUIQCCH7qyhvkMx+lspdSrehIEzyoMjyWINh
-         P6rdA2nr8RokfiDFzFzAVUfTvUOr93mYrtY9+mmho9NgULmlTWYkkrV+wxPn8IRT6l+q
-         1aFw==;
-        darn=lists.infradead.org
-ARC-Authentication-Results: i=1; mx.google.com; arc=none
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=google.com; s=20251104; t=1780377954; x=1780982754; darn=lists.infradead.org;
-        h=content-transfer-encoding:cc:to:subject:message-id:date:from
-         :in-reply-to:references:mime-version:from:to:cc:subject:date
-         :message-id:reply-to;
-        bh=dUr/bDGg9l6+S25kggcGIvYETcmzBiihCI+mnqh90MM=;
-        b=NyRESQDh/g68FYXND/ZPip/x1fpTz8CTSUNnTLodWD2xD2ZO+3CJOy3Cly0vpRF11l
-         ss/CMkn+s0MoZe698d/j2nmHXXyjCzpnao0dQyD2OlqimaD90FqbT347zA1bcjLv7Wn3
-         dEPdk/ILenQrtFc70nRCOK5nZKb+3f/hOzto34FDEoJBz0PiX0W18cZ4VftuafgUk+XK
-         +WyYG4pyr/+ztyDMVBu0QZ7/ZKrQUjZSSMvp0EouohS5MZkBAxPjxVOvwMxBlx2xQ9JT
-         akJIdWOwMzUKpvjm+uwr6Oog+3XI6GXWE0WA20G2cdEgIktubA+fDD5a1LVhFrnOemQ8
-         c8GA==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20251104; t=1780377954; x=1780982754;
-        h=content-transfer-encoding:cc:to:subject:message-id:date:from
-         :in-reply-to:references:mime-version:x-gm-gg:x-gm-message-state:from
-         :to:cc:subject:date:message-id:reply-to;
-        bh=dUr/bDGg9l6+S25kggcGIvYETcmzBiihCI+mnqh90MM=;
-        b=OsXoRCT+8DZU10i80pMkxpyrtziVL2GKpr8kXlpVKytkZKrv7xoX/ltKDaPubpfzQY
-         VgS1OGQl11ibExiaYl/ZqPWB29izMwsDNqyZFcnubwnUpJANRyzunN0fOj5JAFPDeeB7
-         2g68Crj9vGFiAjFVkh/2UHC2YblFUKjS7YbULqv9n1qlZq6OHvjXl0j+FyM0K92xYj5g
-         Y3uPKrrCmME7cPNqRF6H3T2uc0LOn3B4eJrcMmSkfJfcDxZ/h1rDlwvKmqwxxDBTCZRv
-         MfOQJDWKnde104juFw+qZFa3iTkZd22iSDpnwYLdErpxwF+8+HPhN7EXO7RCC8xLSKs0
-         tOxQ==
-X-Forwarded-Encrypted: i=1; AFNElJ9N8eUhTc3xUJ+l17O+RTlQUMGKyr4Xlrc4Ma+yFj4HeCX6A9+riwM+sYuDlQtQ2iqAuaZEyajRLwdjWh8DLe+6@lists.infradead.org
-X-Gm-Message-State: AOJu0YwqGgqe0XMVZrj1hoZRhMnqmQrI9yTIBOgGhBN07RmNUtjXX1RI
-	ruI/85Q0TrIR78wgspVbamqyyi47fBIbXeV5dNtb+/objgcP7J8/c6zjja5UuboVDzUXqtPmEt7
-	r90AEf6ljWpMFmnr4pOOw3lsG95mJUHwxTz3oNZXY
-X-Gm-Gg: Acq92OF0cqtX29CjuahAfIL11D72UY+3mEcRNX+sbz0fOnvn6Zl3kJOTBQk2Esfibz3
-	DXyYOsbf/Q41hh7MB8tTeA7QO7G7EWOxYJOR8/F0gecWihILhfPYIzQ8ixWyKl18xq6irMRO4+p
-	Rjn/jQ4ybW+2rTD2c7CPkMYqxqF5CbNxGsZNOtaAiXU8IwgiReh1sFA5pRt2lRlKYSDGS/qMCvC
-	0ksccGlGsiLBJv2YJUtIRKNU8UZ6AKZgEy71Mb6L4W6k6/TRqR38F3k4ZW2gLkg+ifzY6E69mZ8
-	cBdcYOW+NOyUGmA=
-X-Received: by 2002:ac8:44ca:0:b0:517:5ec3:b59c with SMTP id
- d75a77b69052e-51766ef52aamr6504621cf.2.1780377953476; Mon, 01 Jun 2026
- 22:25:53 -0700 (PDT)
+	id 1wUHv6-0000000CKtB-1lkl;
+	Tue, 02 Jun 2026 05:44:10 +0000
+X-UUID: 0abea2ac5e4611f1aa26b74ffac11d73-20260602
+X-CID-P-RULE: Release_Ham
+X-CID-O-INFO: VERSION:1.3.12,REQID:ea6a243b-a388-4986-acd6-d3c846136447,IP:0,U
+	RL:0,TC:0,Content:0,EDM:25,RT:0,SF:0,FILE:0,BULK:0,RULE:Release_Ham,ACTION
+	:release,TS:25
+X-CID-META: VersionHash:e7bac3a,CLOUDID:cc7987b97370d2f75803ee3150f26bf6,BulkI
+	D:nil,BulkQuantity:0,Recheck:0,SF:102|115|854|861|865|898,TC:nil,Content:0
+	|15|50,EDM:5|9,IP:nil,URL:0,File:nil,RT:nil,Bulk:nil,QS:nil,BEC:nil,COL:0,
+	OSI:0,OSA:0,AV:0,LES:1,SPR:NO,DKR:0,DKP:0,BRR:0,BRE:0,ARC:0
+X-CID-BVR: 2,SSN|SDN
+X-CID-BAS: 2,SSN|SDN,0,_
+X-CID-FACTOR: TF_CID_SPAM_SNR
+X-CID-RHF: D41D8CD98F00B204E9800998ECF8427E
+X-UUID: 0abea2ac5e4611f1aa26b74ffac11d73-20260602
+X-User: liujiajia@kylinos.cn
+Received: from nature.lan [(10.44.16.150)] by mailgw.kylinos.cn
+	(envelope-from <liujia6264@gmail.com>)
+	(Generic MTA with TLSv1.3 TLS_AES_256_GCM_SHA384 256/256)
+	with ESMTP id 321207560; Tue, 02 Jun 2026 13:43:54 +0800
+From: Jiajia Liu <liujia6264@gmail.com>
+To: Felix Fietkau <nbd@nbd.name>,
+	Lorenzo Bianconi <lorenzo@kernel.org>,
+	Ryder Lee <ryder.lee@mediatek.com>,
+	Shayne Chen <shayne.chen@mediatek.com>,
+	Sean Wang <sean.wang@mediatek.com>,
+	Matthias Brugger <matthias.bgg@gmail.com>,
+	AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>
+Cc: linux-wireless@vger.kernel.org,
+	linux-kernel@vger.kernel.org,
+	linux-arm-kernel@lists.infradead.org,
+	linux-mediatek@lists.infradead.org,
+	Jiajia Liu <liujiajia@kylinos.cn>
+Subject: [PATCH] wifi: mt76: transform aspm_conf for pci_disable_link_state
+Date: Tue,  2 Jun 2026 13:43:49 +0800
+Message-ID: <20260602054349.42429-1-liujia6264@gmail.com>
+X-Mailer: git-send-email 2.53.0
 MIME-Version: 1.0
-References: <20260601215909.3958732-1-praan@google.com> <20260601215909.3958732-10-praan@google.com>
-In-Reply-To: <20260601215909.3958732-10-praan@google.com>
-From: Daniel Mentz <danielmentz@google.com>
-Date: Mon, 1 Jun 2026 22:25:41 -0700
-X-Gm-Features: AVHnY4IfYeAAnGDfZFtab7X_lZydVua3zMR87OUc2sWsRLSKLKQf56joUBM3Me0
-Message-ID: <CAE2F3rAYWMq6DO5k20e4iMtPbh_X9JeiU8kUfw8nsS5xs42F_Q@mail.gmail.com>
-Subject: Re: [PATCH v8 09/12] iommu/arm-smmu-v3: Implement pm_runtime & system
- sleep ops
-To: Pranjal Shrivastava <praan@google.com>
-Cc: iommu@lists.linux.dev, Will Deacon <will@kernel.org>, Joerg Roedel <joro@8bytes.org>, 
-	Robin Murphy <robin.murphy@arm.com>, Jason Gunthorpe <jgg@ziepe.ca>, Mostafa Saleh <smostafa@google.com>, 
-	Nicolin Chen <nicolinc@nvidia.com>, Ashish Mhetre <amhetre@nvidia.com>, 
-	linux-arm-kernel@lists.infradead.org
-Content-Type: text/plain; charset="UTF-8"
-Content-Transfer-Encoding: quoted-printable
+Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260601_222555_204941_9486B6AC 
-X-CRM114-Status: GOOD (  11.41  )
+X-CRM114-CacheID: sfid-20260601_224408_779221_225569F3 
+X-CRM114-Status: UNSURE (   8.83  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -119,28 +82,42 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Mon, Jun 1, 2026 at 2:59=E2=80=AFPM Pranjal Shrivastava <praan@google.co=
-m> wrote:
+From: Jiajia Liu <liujiajia@kylinos.cn>
 
-> +       /* Drain the CMDQs */
-> +       ret =3D arm_smmu_drain_queues(smmu);
-> +       if (ret)
-> +               dev_warn(smmu->dev, "failed to drain queues, forcing susp=
-end\n");
+commit b478e162f227 ("PCI/ASPM: Consolidate link state defines") changed
+PCIE_LINK_STATE_L0S (1) to (BIT(0) | BIT(1)). PCI_EXP_LNKCTL_ASPM_L0S (1)
+and PCI_EXP_LNKCTL_ASPM_L1 (2) are no longer matched with
+PCIE_LINK_STATE_L0S (3) and PCIE_LINK_STATE_L1 (4).
 
-Can arm_smmu_drain_queues() be called after cmdq->lock is 0? I think
-that way we can be sure that no other thread updates smmu->cmdq.q.cons
+On the platform enabling ASPM L0s and L1, mt76_pci_disable_aspm is not able
+to disable L1. Fix this by transforming aspm_conf to pcie link state.
 
-> +
-> +       /* Wait for cmdq->lock =3D=3D 0 to ensure last CMDQ_CONS_REG is w=
-ritten */
-> +       timeout =3D ARM_SMMU_SUSPEND_TIMEOUT_US;
-> +       while (atomic_read(&cmdq->lock) !=3D 0 && --timeout)
-> +               udelay(1);
-> +
-> +       /* Timing out here implies misconfigured Runtime PM or broken dev=
-links */
-> +       if (!timeout)
-> +               dev_err(smmu->dev, "cmdq lock !=3D 0, forcing suspend. Po=
-lling CPUs may fault.\n");
+Signed-off-by: Jiajia Liu <liujiajia@kylinos.cn>
+---
+ drivers/net/wireless/mediatek/mt76/pci.c | 8 +++++++-
+ 1 file changed, 7 insertions(+), 1 deletion(-)
+
+diff --git a/drivers/net/wireless/mediatek/mt76/pci.c b/drivers/net/wireless/mediatek/mt76/pci.c
+index 833923ab2483..11fe62aa8113 100644
+--- a/drivers/net/wireless/mediatek/mt76/pci.c
++++ b/drivers/net/wireless/mediatek/mt76/pci.c
+@@ -30,8 +30,14 @@ void mt76_pci_disable_aspm(struct pci_dev *pdev)
+ 
+ 	if (IS_ENABLED(CONFIG_PCIEASPM)) {
+ 		int err;
++		int state = 0;
+ 
+-		err = pci_disable_link_state(pdev, aspm_conf);
++		if (aspm_conf & PCI_EXP_LNKCTL_ASPM_L0S)
++			state |= PCIE_LINK_STATE_L0S;
++		if (aspm_conf & PCI_EXP_LNKCTL_ASPM_L1)
++			state |= PCIE_LINK_STATE_L1;
++
++		err = pci_disable_link_state(pdev, state);
+ 		if (!err)
+ 			return;
+ 	}
+-- 
+2.53.0
+
 
