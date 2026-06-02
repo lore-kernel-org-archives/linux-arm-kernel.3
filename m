@@ -4,38 +4,38 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 03C54CD6E70
-	for <linux-arm-kernel@archiver.kernel.org>; Tue,  2 Jun 2026 10:47:08 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 879E6CD6E6C
+	for <linux-arm-kernel@archiver.kernel.org>; Tue,  2 Jun 2026 10:47:06 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
 	MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:
 	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=IHlmwkp5E6y8Q4Y8FCcuIlB8UhrtfgCWXf1p/iBu1UE=; b=DWRSm14j4S/8UXT2wcY892q4mZ
-	5qbsE18MmO0bb7X4BD6ipO4wZ0fXnXLAiD0M6AwoyjJVq+gO48R8ZjLQ5Mgld2L7s/mQtT6pQs1Bk
-	8c8bW4XqpghanBt3lylhELuVtjdwFS5mRgoieY8ioTEDX0aqAaVN3HU/Wh5hNlpdks++8KUruBvxj
-	/w10fZ74DTGn8R3G0oiVoQKhy80Td8FO2iBxU2Ku4fVSpvcTc9X3+UlQsJ1QDDM5yCNNQtwhMIAy9
-	7KAb4JFCqNwMxq4rhnIs5tAL1oqirwaw8GX/7Sdn/THd7foEHB602zTv5GbLDKiNfMVjsjYI4q59g
-	4GN771kg==;
+	bh=/s0JwaJLS0ug4dMnq5/oVetvw4KKwU6QXk7J9Nngu08=; b=K87ev6cKgrvweglgAx+JtnKmZh
+	NOJDXZ/idlBX3eB2SSTa+K6YWLdBEMoD96qXub/yCdG/NsdTah5LN+W4//PcH/Usd3EA8tHGlujQc
+	uyTQyPPMiCENG31g89SbQoYazXA6rTdJWwRczGRIVaGTIluQ548Edydth+8qTp+nI65Qz0Chx+B9d
+	oC3AwiI0N+MGNSNA0h5tQRrIodsENkZsObiHIyy8FisQ2KPtgBV8xRXIveG8e6Ab0wSRWAB3aJzOQ
+	2cbQSHnqQ7wB9dVtG7wQ/9zEOwIlOsKk4Q25FHKOZQU14pVHty0Lq5Mggro+OAy/e6LozM0b/+xWL
+	f51Qyjow==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wUMeG-0000000Cnti-0Grk;
-	Tue, 02 Jun 2026 10:47:04 +0000
-Received: from out30-98.freemail.mail.aliyun.com ([115.124.30.98])
+	id 1wUMeC-0000000Cnod-1uur;
+	Tue, 02 Jun 2026 10:47:00 +0000
+Received: from out30-99.freemail.mail.aliyun.com ([115.124.30.99])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wUMeC-0000000Cnmt-1Cdo
+	id 1wUMe9-0000000Cnjq-0o8z
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 02 Jun 2026 10:47:01 +0000
+	Tue, 02 Jun 2026 10:46:58 +0000
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
 	d=linux.alibaba.com; s=default;
-	t=1780397218; h=From:To:Subject:Date:Message-ID:MIME-Version;
-	bh=IHlmwkp5E6y8Q4Y8FCcuIlB8UhrtfgCWXf1p/iBu1UE=;
-	b=aIXhzpTIpxJSmp3Fp/j4DjUYDVPunHL1h6aH4X70JgDMQHRmZYRo3/WTOUL/8HlNHF9R+vRkWs7wyTG0tZq0IM1viT3YSqlU8J6eXpJ25qToOaDNaVdgGXTyIbYUm7eo4khEipDhkmgU9b2cncdcF5g0Qf+bSh9OU/DjXS17iZ0=
-X-Alimail-AntiSpam: AC=PASS;BC=-1|-1;BR=01201311R591e4;CH=green;DM=||false|;DS=||;FP=0|-1|-1|-1|0|-1|-1|-1;HT=maildocker-contentspam033037033178;MF=guanghuifeng@linux.alibaba.com;NM=1;PH=DS;RN=28;SR=0;TI=SMTPD_---0X44E94E_1780397216;
-Received: from VM20241011-104.tbsite.net(mailfrom:guanghuifeng@linux.alibaba.com fp:SMTPD_---0X44E94E_1780397216 cluster:ay36)
+	t=1780397215; h=From:To:Subject:Date:Message-ID:MIME-Version;
+	bh=/s0JwaJLS0ug4dMnq5/oVetvw4KKwU6QXk7J9Nngu08=;
+	b=nwdEvE9SLC/fhdEu7wyY3eXD/l4E3+qfMXrhDyiXkjNUte061UQLjim2SIacUZR5eioHcvJeYVJYPmvG8fopPlXNVqZG/AuLJdLubJRdZI2jPSY8d0ZdAOBY2VAATCenzcfd5h3ZIvkxQBPVQIxDkqD0xMNjWZZEw8LzjK9fZbU=
+X-Alimail-AntiSpam: AC=PASS;BC=-1|-1;BR=01201311R211e4;CH=green;DM=||false|;DS=||;FP=0|-1|-1|-1|0|-1|-1|-1;HT=maildocker-contentspam033045133197;MF=guanghuifeng@linux.alibaba.com;NM=1;PH=DS;RN=28;SR=0;TI=SMTPD_---0X44E93R_1780397213;
+Received: from VM20241011-104.tbsite.net(mailfrom:guanghuifeng@linux.alibaba.com fp:SMTPD_---0X44E93R_1780397213 cluster:ay36)
           by smtp.aliyun-inc.com;
-          Tue, 02 Jun 2026 18:46:56 +0800
+          Tue, 02 Jun 2026 18:46:53 +0800
 From: Guanghui Feng <guanghuifeng@linux.alibaba.com>
 To: adrian.larumbe@collabora.com,
 	airlied@gmail.com,
@@ -65,9 +65,9 @@ To: adrian.larumbe@collabora.com,
 	will@kernel.org,
 	xlpang@linux.alibaba.com
 Cc: alikernel-developer@linux.alibaba.com
-Subject: [PATCH v2 09/30] iommu/apple-dart: implement iova_to_phys_length
-Date: Tue,  2 Jun 2026 18:46:16 +0800
-Message-ID: <20260602104637.1219810-10-guanghuifeng@linux.alibaba.com>
+Subject: [PATCH v2 06/30] iommu/arm-smmu-v3: implement iova_to_phys_length
+Date: Tue,  2 Jun 2026 18:46:13 +0800
+Message-ID: <20260602104637.1219810-7-guanghuifeng@linux.alibaba.com>
 X-Mailer: git-send-email 2.43.7
 In-Reply-To: <20260602104637.1219810-1-guanghuifeng@linux.alibaba.com>
 References: <20260531093637.3893199-1-guanghuifeng@linux.alibaba.com>
@@ -75,8 +75,8 @@ References: <20260531093637.3893199-1-guanghuifeng@linux.alibaba.com>
 MIME-Version: 1.0
 Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260602_034700_556939_FE04C20D 
-X-CRM114-Status: UNSURE (   9.78  )
+X-CRM114-CacheID: sfid-20260602_034657_464129_ED74BB35 
+X-CRM114-Status: UNSURE (   9.60  )
 X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
@@ -92,29 +92,27 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Migrate Apple DART to implement iova_to_phys_length, passing through
-mapped_length from io-pgtable.
+Migrate ARM SMMUv3 to implement iova_to_phys_length, calling
+ops->iova_to_phys_length on the io-pgtable layer.
 
 Signed-off-by: Guanghui Feng <guanghuifeng@linux.alibaba.com>
 ---
- drivers/iommu/apple-dart.c | 13 ++++++++-----
- 1 file changed, 8 insertions(+), 5 deletions(-)
+ drivers/iommu/arm/arm-smmu-v3/arm-smmu-v3.c | 12 ++++++++----
+ 1 file changed, 8 insertions(+), 4 deletions(-)
 
-diff --git a/drivers/iommu/apple-dart.c b/drivers/iommu/apple-dart.c
-index 17bdadb6b504..2d753ce96cd9 100644
---- a/drivers/iommu/apple-dart.c
-+++ b/drivers/iommu/apple-dart.c
-@@ -528,16 +528,19 @@ static int apple_dart_iotlb_sync_map(struct iommu_domain *domain,
- 	return 0;
+diff --git a/drivers/iommu/arm/arm-smmu-v3/arm-smmu-v3.c b/drivers/iommu/arm/arm-smmu-v3/arm-smmu-v3.c
+index e8d7dbe495f0..69fb7ce74681 100644
+--- a/drivers/iommu/arm/arm-smmu-v3/arm-smmu-v3.c
++++ b/drivers/iommu/arm/arm-smmu-v3/arm-smmu-v3.c
+@@ -4069,14 +4069,18 @@ static void arm_smmu_iotlb_sync(struct iommu_domain *domain,
  }
  
--static phys_addr_t apple_dart_iova_to_phys(struct iommu_domain *domain,
--					   dma_addr_t iova)
-+static phys_addr_t apple_dart_iova_to_phys_length(struct iommu_domain *domain,
-+					   dma_addr_t iova, size_t *mapped_length)
+ static phys_addr_t
+-arm_smmu_iova_to_phys(struct iommu_domain *domain, dma_addr_t iova)
++arm_smmu_iova_to_phys_length(struct iommu_domain *domain, dma_addr_t iova,
++			     size_t *mapped_length)
  {
- 	struct apple_dart_domain *dart_domain = to_dart_domain(domain);
- 	struct io_pgtable_ops *ops = dart_domain->pgtbl_ops;
+ 	struct io_pgtable_ops *ops = to_smmu_domain(domain)->pgtbl_ops;
  
 +	if (mapped_length)
 +		*mapped_length = 0;
@@ -127,14 +125,14 @@ index 17bdadb6b504..2d753ce96cd9 100644
 +	return ops->iova_to_phys_length(ops, iova, mapped_length);
  }
  
- static int apple_dart_map_pages(struct iommu_domain *domain, unsigned long iova,
-@@ -1018,7 +1021,7 @@ static const struct iommu_ops apple_dart_iommu_ops = {
- 		.flush_iotlb_all = apple_dart_flush_iotlb_all,
- 		.iotlb_sync	= apple_dart_iotlb_sync,
- 		.iotlb_sync_map	= apple_dart_iotlb_sync_map,
--		.iova_to_phys	= apple_dart_iova_to_phys,
-+		.iova_to_phys_length = apple_dart_iova_to_phys_length,
- 		.free		= apple_dart_domain_free,
+ static struct platform_driver arm_smmu_driver;
+@@ -4396,7 +4400,7 @@ static const struct iommu_ops arm_smmu_ops = {
+ 		.unmap_pages		= arm_smmu_unmap_pages,
+ 		.flush_iotlb_all	= arm_smmu_flush_iotlb_all,
+ 		.iotlb_sync		= arm_smmu_iotlb_sync,
+-		.iova_to_phys		= arm_smmu_iova_to_phys,
++		.iova_to_phys_length	= arm_smmu_iova_to_phys_length,
+ 		.free			= arm_smmu_domain_free_paging,
  	}
  };
 -- 
