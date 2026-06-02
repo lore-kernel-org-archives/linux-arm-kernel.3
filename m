@@ -4,77 +4,129 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id B3566CD6E61
-	for <linux-arm-kernel@archiver.kernel.org>; Tue,  2 Jun 2026 09:29:37 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 67141CD6E57
+	for <linux-arm-kernel@archiver.kernel.org>; Tue,  2 Jun 2026 09:32:08 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:MIME-Version:References:In-Reply-To:Message-Id:Date:Subject:Cc:
-	To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=hwhnOXJquDTFrNkY3bAEDfh98xtmc3TROZSuwO/v1yg=; b=zGW86iydpwxIA3g3Rko4OuNgJU
-	wPaC14Ze/55mx783oyv05RJ4Hmc5lEG87Xx6cPmkcCZ9MsEitgZx7UKnoBbC3c1HHOK0f7Xr+7K8E
-	m966apw5G/7r+sROkiG4wYQFA2bs7hi8O7f1BSOGRkZ6oe19ce6UQFrAgwuQR0ANxDTm1nnvie5fT
-	J9pVO2D/WrpwDD95R60FIhY/zijo9T8T/asV97jWLXqavLOCaqbZqBQOORQI8NJIWVEbmV9ceveKR
-	BMOFLhqNPKyLqpWRUq8ypR6SrR/HEoTtsbYVJH3urDRLyrvWDH+V7dFfI0z/gsdzZ686NlUMo5TXc
-	QwmwElUw==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=WJm6ApGKzkKEwcgHKyf0jD9MBtlkYjEx4H0AHzDW9eE=; b=R9PpRssAViPP2CMurO72ddzABa
+	JcBYsSxp5nloShbtdRpQnA3NiSZuf98oiLLYIw96x96KldPuSMT0e49mO5jHGIbvjrglSB2DjHauG
+	WoaOxDzs9CBrUfDffMiNv01smIEUWbKylX7LM6nnoHR0W+k8M/kdUoS6aIVhW0Zy/1O+egKbofxJs
+	RBv8HmptWe362zHcYjcTIoyxgTmhATQoysic/pLCV4ovAwYrGpXU92uPl7eQDG00c2gP6wEb2L2n+
+	X/q8sizF7Z/kQaMHtLOwwCrV69PTD6/LtVGBpjIyLze2empzq1QzKA1ruB6a5oU40A46m2gTE1rVE
+	p45zK3kw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wULRD-0000000CfQa-0iMd;
-	Tue, 02 Jun 2026 09:29:31 +0000
-Received: from m16.mail.163.com ([220.197.31.3])
+	id 1wULTd-0000000CftN-2pUC;
+	Tue, 02 Jun 2026 09:32:01 +0000
+Received: from mx0b-001b2d01.pphosted.com ([148.163.158.5])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wULR9-0000000CfLF-3Kbv
+	id 1wULTb-0000000Cfss-0bC3
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 02 Jun 2026 09:29:29 +0000
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=163.com;
-	s=s110527; h=From:To:Subject:Date:Message-Id:MIME-Version:
-	Content-Type; bh=hwhnOXJquDTFrNkY3bAEDfh98xtmc3TROZSuwO/v1yg=;
-	b=PkZPaK8/d2mnZxilpRJtFfxV62MDrsJQxMOAqjTDtXrR17I6Tw7SdKqlbt/Kjn
-	jCQ1Q1ESIJeBmDvVND9XFFsMWM/Yqgbbd8yiUAJje2Gaw5TzOncrZgaytnxWgcLe
-	Q/g6t7AjnhMetcsI6DsrEjz/7Z2lQULkt+p5bmmBHS2SY=
-Received: from localhost.localdomain (unknown [])
-	by gzsmtp5 (Coremail) with SMTP id QCgvCgCn8hoxoh5qnwk+AA--.6197S2;
-	Tue, 02 Jun 2026 17:28:18 +0800 (CST)
-From: Ding Hui <dinghui1111@163.com>
-To: pabeni@redhat.com
-Cc: alexandre.torgue@foss.st.com,
-	andrew+netdev@lunn.ch,
-	andrew@lunn.ch,
-	davem@davemloft.net,
-	dinghui1111@163.com,
-	dinghui@lixiang.com,
-	edumazet@google.com,
-	kuba@kernel.org,
-	linux-arm-kernel@lists.infradead.org,
-	linux-kernel@vger.kernel.org,
-	linux-stm32@st-md-mailman.stormreply.com,
-	liuxuanjun@lixiang.com,
-	maxime.chevallier@bootlin.com,
-	mcoquelin.stm32@gmail.com,
-	netdev@vger.kernel.org,
-	rmk+kernel@armlinux.org.uk,
-	xiasanbo@lixiang.com,
-	yangchen11@lixiang.com
-Subject: Re:Re: [PATCH v2] net: stmmac: fix fatal bus error on resume by reinitializing RX buffers
-Date: Tue,  2 Jun 2026 17:28:17 +0800
-Message-Id: <20260602092817.929979-1-dinghui1111@163.com>
-X-Mailer: git-send-email 2.34.1
-In-Reply-To: <20260528120203.245762-1-pabeni@redhat.com>
-References: <20260528120203.245762-1-pabeni@redhat.com>
+	Tue, 02 Jun 2026 09:32:00 +0000
+Received: from pps.filterd (m0356516.ppops.net [127.0.0.1])
+	by mx0a-001b2d01.pphosted.com (8.18.1.11/8.18.1.11) with ESMTP id 6527V5c63295133;
+	Tue, 2 Jun 2026 09:31:41 GMT
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=ibm.com; h=cc
+	:content-type:date:from:in-reply-to:message-id:mime-version
+	:references:subject:to; s=pp1; bh=WJm6ApGKzkKEwcgHKyf0jD9MBtlkYj
+	Ex4H0AHzDW9eE=; b=l+xomWIK0Wq/E3Qmh5M/Qa5Hg9vz3Dby5OZC/T+ea4kynl
+	gAbetBvgebQYozhB3j84HFl+y1JnIDw14XV39nhN+TQvXrdYDCFROXHwvSciRsy/
+	sEMEHUdG5ha4E52FiYkjg6XUb2dYUisuut/zO/cKNLkWvjRLufioCofWY6YwJc04
+	4naPjx7U2I5YP6q2v1iUPdskZBZnfV1HbQfd9AXJZQz1pUEdag0v8K5vk5lUPeuV
+	BgIcV51neP/HPcS9wOMmoL5U37wf+cpf6LL3K0VDpdGrBmJhk0WmAqxrxvm6VFb5
+	XGhnuTkpZZTVva4a7ni2k8KGKOvgtIyerx9RgACA==
+Received: from ppma21.wdc07v.mail.ibm.com (5b.69.3da9.ip4.static.sl-reverse.com [169.61.105.91])
+	by mx0a-001b2d01.pphosted.com (PPS) with ESMTPS id 4efnahmyt8-1
+	(version=TLSv1.2 cipher=ECDHE-RSA-AES256-GCM-SHA384 bits=256 verify=NOT);
+	Tue, 02 Jun 2026 09:31:41 +0000 (GMT)
+Received: from pps.filterd (ppma21.wdc07v.mail.ibm.com [127.0.0.1])
+	by ppma21.wdc07v.mail.ibm.com (8.18.1.7/8.18.1.7) with ESMTP id 6529O5pD006737;
+	Tue, 2 Jun 2026 09:31:40 GMT
+Received: from smtprelay06.fra02v.mail.ibm.com ([9.218.2.230])
+	by ppma21.wdc07v.mail.ibm.com (PPS) with ESMTPS id 4egb7k2j23-1
+	(version=TLSv1.2 cipher=ECDHE-RSA-AES256-GCM-SHA384 bits=256 verify=NOT);
+	Tue, 02 Jun 2026 09:31:40 +0000 (GMT)
+Received: from smtpav02.fra02v.mail.ibm.com (smtpav02.fra02v.mail.ibm.com [10.20.54.101])
+	by smtprelay06.fra02v.mail.ibm.com (8.14.9/8.14.9/NCO v10.0) with ESMTP id 6529VXP530933318
+	(version=TLSv1/SSLv3 cipher=DHE-RSA-AES256-GCM-SHA384 bits=256 verify=OK);
+	Tue, 2 Jun 2026 09:31:33 GMT
+Received: from smtpav02.fra02v.mail.ibm.com (unknown [127.0.0.1])
+	by IMSVA (Postfix) with ESMTP id B2A872004B;
+	Tue,  2 Jun 2026 09:31:33 +0000 (GMT)
+Received: from smtpav02.fra02v.mail.ibm.com (unknown [127.0.0.1])
+	by IMSVA (Postfix) with ESMTP id 863C220043;
+	Tue,  2 Jun 2026 09:31:33 +0000 (GMT)
+Received: from localhost (unknown [9.111.42.7])
+	by smtpav02.fra02v.mail.ibm.com (Postfix) with ESMTP;
+	Tue,  2 Jun 2026 09:31:33 +0000 (GMT)
+Date: Tue, 2 Jun 2026 11:31:33 +0200
+From: Andreas Grapentin <gra@linux.ibm.com>
+To: Oliver Upton <oupton@kernel.org>
+Cc: Steffen Eiden <seiden@linux.ibm.com>, kvm@vger.kernel.org,
+        kvmarm@lists.linux.dev, linux-arm-kernel@lists.infradead.org,
+        linux-kernel@vger.kernel.org, linux-s390@vger.kernel.org,
+        Alexander Gordeev <agordeev@linux.ibm.com>,
+        Arnd Bergmann <arnd@arndb.de>,
+        Catalin Marinas <catalin.marinas@arm.com>,
+        Christian Borntraeger <borntraeger@linux.ibm.com>,
+        Claudio Imbrenda <imbrenda@linux.ibm.com>,
+        David Hildenbrand <david@kernel.org>,
+        Friedrich Welter <fritz@linux.ibm.com>,
+        Gautam Gala <ggala@linux.ibm.com>,
+        Hariharan Mari <hari55@linux.ibm.com>,
+        Heiko Carstens <hca@linux.ibm.com>,
+        Hendrik Brueckner <brueckner@linux.ibm.com>,
+        Ilya Leoshkevich <iii@linux.ibm.com>,
+        Janosch Frank <frankja@linux.ibm.com>, Joey Gouly <joey.gouly@arm.com>,
+        Marc Zyngier <maz@kernel.org>, Nico Boehr <nrb@linux.ibm.com>,
+        Nina Schoetterl-Glausch <oss@nina.schoetterlglausch.eu>,
+        Paolo Bonzini <pbonzini@redhat.com>,
+        Suzuki K Poulose <suzuki.poulose@arm.com>,
+        Sven Schnelle <svens@linux.ibm.com>,
+        Ulrich Weigand <Ulrich.Weigand@de.ibm.com>,
+        Vasily Gorbik <gor@linux.ibm.com>, Will Deacon <will@kernel.org>,
+        Zenghui Yu <yuzenghui@huawei.com>
+Subject: Re: [PATCH v1 10/26] KVM: arm64: Fix set_oslsr_el1 to write to
+ OSLAR_EL1
+Message-ID: <ah6fmaSnsM_o8NcR@li-d8547bcc-2d90-11b2-a85c-a70f2a37009a.ibm.com>
+References: <20260529155601.2927240-1-seiden@linux.ibm.com>
+ <20260529155601.2927240-11-seiden@linux.ibm.com>
+ <ah4F7dAEA7LFz5fN@kernel.org>
 MIME-Version: 1.0
-Content-Type: text/plain; charset=UTF-8
-Content-Transfer-Encoding: 8bit
-X-CM-TRANSID: QCgvCgCn8hoxoh5qnwk+AA--.6197S2
-X-Coremail-Antispam: 1Uf129KBjvJXoWxAFWfuw13AFy3tr13KrW5Awb_yoWruF47pF
-	W7Aa1qkrykJr13Jw4UZw48uFy5Aay5tF4UCw13X3ZI9ayakr92vF4aqr45ua47Cr18Zw1S
-	yF4UA3sxCF4DuFDanT9S1TB71UUUUU7qnTZGkaVYY2UrUUUUjbIjqfuFe4nvWSU5nxnvy2
-	9KBjDUYxBIdaVFxhVjvjDU0xZFpf9x0pihL08UUUUU=
-X-Originating-IP: [220.248.55.69]
-X-CM-SenderInfo: pglqwx1xlriiqr6rljoofrz/xtbC0hLWA2oeojJeHwAA3w
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+In-Reply-To: <ah4F7dAEA7LFz5fN@kernel.org>
+X-TM-AS-GCONF: 00
+X-Proofpoint-Spam-Details-Enc: AW1haW4tMjYwNjAyMDA4NSBTYWx0ZWRfX181A+AGJbeaJ
+ 8ee4QN6Pl/iBbMATYkWypcyDwv6rUrkLP5JzfF7elSisdcNiLdyb/GH/XLGmsEIojCMBlMmZl1W
+ J5f0tMDzUXrw/APH/4C+ne3LmOeaPgyRU7G9Wr/QMZW1gyo6mXjXgH308urEAZDt8Ozc+ngigPJ
+ wwKCBu88QTWK3bM2kyMRCWnLNHbxsjdIiNXAiYhxOghTJ9GKhKyoj55EdC0bd5PXpRZ4VGVMrrp
+ 8yWeSy1L5jVDOSrPQxyUYnpiTYgEK3xbqUQSywWCN7bZz7Po0xmLBFFLaPeLP7s9H+DGf4UfNvC
+ mSHoVMJTnRPUl5UGdOk2+pgPv+T7kMmUnfqYVab5j9f4BprRxQmEc8l1blBRvstLGNAW2XcAWrx
+ ELKmit3Op2fgvb349mJAFb1CUe3kjfAZwLwJKq9r4nOF1dqb/0fnnVG5E+g+EVOhLMFqifarP02
+ c1g4o1q97OFnAvS2ZlQ==
+X-Proofpoint-ORIG-GUID: UcBU39xqv_22mUun1G5fgwQbsPs36BwG
+X-Authority-Analysis: v=2.4 cv=cOzQdFeN c=1 sm=1 tr=0 ts=6a1ea2fd cx=c_pps
+ a=GFwsV6G8L6GxiO2Y/PsHdQ==:117 a=GFwsV6G8L6GxiO2Y/PsHdQ==:17
+ a=kj9zAlcOel0A:10 a=FelO9ux0wxsA:10 a=VkNPw1HP01LnGYTKEx00:22
+ a=RnoormkPH1_aCDwRdu11:22 a=Y2IxJ9c9Rs8Kov3niI8_:22 a=EMFgzdqWpYFkXg4I9EcA:9
+ a=CjuIK1q_8ugA:10
+X-Proofpoint-GUID: UcBU39xqv_22mUun1G5fgwQbsPs36BwG
+X-Proofpoint-Virus-Version: vendor=baseguard
+ engine=ICAP:2.0.293,Aquarius:18.0.1143,Hydra:6.1.125,FMLib:17.12.100.49
+ definitions=2026-06-01_07,2026-05-28_03,2025-10-01_01
+X-Proofpoint-Spam-Details: rule=outbound_notspam policy=outbound score=0
+ clxscore=1011 impostorscore=0 lowpriorityscore=0 spamscore=0 bulkscore=0
+ malwarescore=0 phishscore=0 suspectscore=0 priorityscore=1501 adultscore=0
+ classifier=typeunknown authscore=0 authtc= authcc= route=outbound adjust=0
+ reason=mlx scancount=1 engine=8.22.0-2605210000 definitions=main-2606020085
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260602_022928_254803_AD6AE61A 
-X-CRM114-Status: GOOD (  23.60  )
+X-CRM114-CacheID: sfid-20260602_023159_337892_30346902 
+X-CRM114-Status: GOOD (  18.41  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -89,136 +141,31 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-At 2026-05-28 20:02:02, "Paolo Abeni" <pabeni@redhat.com> wrote:
+On Jun 01 26, Oliver Upton wrote:
+> The current behavior of KVM is correct. KVM treats OSLSR_EL1 as the
+> stateful representation of the OS lock and is RO from the guest POV.
+> 
+> We keep the UAPI straightforward by making this register RW from
+> userspace, such that the VMM can directly write back the value returned
+> from KVM_GET_ONE_REG.
+> 
+> Do you have another reason for using OSLAR_EL1 as the canonical
+> representation?
 
->> diff --git a/drivers/net/ethernet/stmicro/stmmac/stmmac_main.c b/drivers/net/ethernet/stmicro/stmmac/stmmac_main.c
->> index 3591755ea30b..0dc27d8c66a0 100644
->> --- a/drivers/net/ethernet/stmicro/stmmac/stmmac_main.c
->> +++ b/drivers/net/ethernet/stmicro/stmmac/stmmac_main.c
->> @@ -1642,6 +1642,79 @@ static void stmmac_clear_descriptors(struct stmmac_priv *priv,
->>  		stmmac_clear_tx_descriptors(priv, dma_conf, queue);
->>  }
->>  
->> +/**
->> + * stmmac_reinit_rx_descriptors - re-program RX descriptors from existing
->> + *				   buffers (allocation-free)
->
->[ ... ]
->
->> +static void stmmac_reinit_rx_descriptors(struct stmmac_priv *priv,
->> +					 struct stmmac_dma_conf *dma_conf,
->> +					 u32 queue)
->> +{
->> +	struct stmmac_rx_queue *rx_q = &dma_conf->rx_queue[queue];
->> +	int i;
->> +
->> +	for (i = 0; i < dma_conf->dma_rx_size; i++) {
->> +		struct stmmac_rx_buffer *buf = &rx_q->buf_pool[i];
->> +		struct dma_desc *p = stmmac_get_rx_desc(priv, rx_q, i);
->> +
->> +		if (rx_q->xsk_pool) {
->> +			dma_addr_t dma_addr;
->> +
->> +			/* The XSK pool may not be fully populated (e.g.
->> +			 * xdpsock TX-only); skip empty slots.
->> +			 */
->> +			if (!buf->xdp)
->> +				continue;
->
->[High]
->Does the continue here regress to the same fatal bus error this patch
->sets out to fix?
->
->When the slot is skipped, its descriptor address fields keep whatever
->HW writeback left behind. Then stmmac_clear_descriptors() runs right
->after stmmac_reinit_rx_descriptors() in stmmac_resume() and unconditionally
->re-arms OWN on every slot. For dwmac4 that is dwmac4_set_rx_owner():
->
->	p->des3 |= cpu_to_le32(RDES3_OWN | RDES3_BUFFER1_VALID_ADDR |
->			       RDES3_INT_ON_COMPLETION_EN);
->
->and for enh_desc / ndesc the equivalent OR of RDES0_OWN / RDES1 fields.
->None of these clear the address fields.
->
->When stmmac_hw_setup() restarts the DMA, the controller sees an owned
->descriptor with VALID_ADDR set and a stale address — the exact failure
->mode the commit message describes. Could the skipped slots be cleared
->(stmmac_clear_desc() or zeroing des0/des1/des2) instead of left intact,
->or arranged so clear_descriptors() does not arm OWN on them?
+Ah, thanks for pointing that out!
 
-It's right that the skipped slots must be cleared instead of left intact.
-This change will be reflected in version v3.
+this change must have bled into the shared KVM code by mistake, it was
+supposed to live in the s390 specific code because it deals with an s390
+specific quirk. It was not intended for this change to have any impact
+on the native arm64 KVM implementation.
 
->
->> +
->> +			dma_addr = xsk_buff_xdp_get_dma(buf->xdp);
->> +			stmmac_set_desc_addr(priv, p, dma_addr);
->> +			stmmac_set_desc_sec_addr(priv, p, 0, false);
->> +		} else {
->> +			/* Theoretically unreachable: napi_disable() in
->> +			 * stmmac_suspend() ensures all initialized slots
->> +			 * have a valid page before we get here.
->> +			 * Defensive check only.
->> +			 */
->> +			if (!buf->page)
->> +				continue;
->
->[High]
->Is the comment "Theoretically unreachable: napi_disable() in
->stmmac_suspend() ensures all initialized slots have a valid page"
->accurate?
->
->stmmac_rx() assigns buf->page = NULL at multiple points when handing the
->page on to the stack or to XDP, for example:
->
->	buf->page = NULL;
->
->in stmmac_rx() after the page has been consumed.
->
->stmmac_rx_refill() allocates with GFP_ATOMIC | __GFP_NOWARN and breaks
->on allocation failure without advancing dirty_rx, leaving the failing
->slot (and any subsequent slots) with buf->page == NULL:
->
->	if (!buf->page) {
->		buf->page = page_pool_alloc_pages(rx_q->page_pool, gfp);
->		if (!buf->page)
->			break;
->		...
->	}
->
->stmmac_disable_all_queues() only does synchronize_rcu() and
->napi_disable() — it does not retry refills. Under the memory-pressure
->scenario this patch is explicitly designed to make safe, a prior
->GFP_ATOMIC failure can leave the ring with NULL-page slots at the
->moment suspend happens.
->
->If such a slot is then skipped here, the same OWN-with-stale-address
->condition described above applies on resume. Should the page_pool path
->also clear the descriptor for skipped slots, or allocate a replacement
->buffer rather than leave a stale-address descriptor for
->stmmac_clear_descriptors() to arm?
->
->> +
->> +			stmmac_set_desc_addr(priv, p, buf->addr);
->> +			stmmac_set_desc_sec_addr(priv, p, buf->sec_addr,
->> +						 priv->sph_active &&
->> +						 buf->sec_page);
->> +
->> +			if (dma_conf->dma_buf_sz == BUF_SIZE_16KiB)
->> +				stmmac_init_desc3(priv, p);
->> +		}
->> +	}
->
->[ ... ]
->
->> +}
->> +
+on s390, we need to map the userspace writes of OSLSR_EL1 to OSLAR_EL1,
+because OSLSR_EL1 is write-only for the facilities that are available to
+us to write system registers. But that detail should be confined to an
+s390-specific implementation of set_oslsr_el1.
 
-Same as above, the skipped slots must be cleared instead of left intact.
-This change will be reflected in version v3.
+We'll amend this for v2.
 
-Thanks for the review. I will upload the v3 version soon.
-
-Ding Hui
-
+Best,
+Andreas
 
