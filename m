@@ -4,86 +4,77 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 4BDEACD6E4A
-	for <linux-arm-kernel@archiver.kernel.org>; Tue,  2 Jun 2026 09:40:30 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 41107CD6E57
+	for <linux-arm-kernel@archiver.kernel.org>; Tue,  2 Jun 2026 09:43:35 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:
+	Content-Transfer-Encoding:Content-Type:MIME-Version:References:Message-ID:
+	Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=I1hZCHsBDF0UzZLjGJuaWE3X7G9u3Khp34m3pFgNfn4=; b=MxnKfFDaPMXZJtanZCFXqKqUsS
-	jNVOZ9gMYwCZpf7GMOyQMr7neTA9er6gqTyf2zPm98GvDCl++Y+w6GbVpZjM7CuxD1vnjnGxwcvVJ
-	OwgQGLvkNy9biiBPdDIQBWs0M5+JR43hi7hHln63FCZ+dR0H31/B3C/S26ZIrxKwzWfhoE3fCZ/a+
-	2dRGI1F+gxdKNHjyDzGL13QK/5KIsjpC4zTC1qyfjRl7/yhrCLBHkla/0HDO++J2k6L+mwLsGgj8U
-	0XquE6gAVrWKbOc59zcOaVegjTvZEdkLkEgbKcfGV40Cx7gR+ctKzkOYKFe/sDVVxR7V28yF1Qab4
-	K4Xyj9mw==;
+	bh=4bPY4fJ6c9uP07ufSfPcuq2d7wSLvbUz6mUS+a9l00c=; b=ZdZZNpZzn2ZATISzKzZxP60QJy
+	XIfuLRRDjpMac+gm2u4LqpN5dZ7K1gIF0xOaxpnBnDi7j/XTHxvw3UFwNtRsLf42cFCFOnUzzZrMY
+	qVGaFiPgsuVZhtGkKoz6LGaTBaH74efjzrjY9OoC3CXjJScmSnGq3k4fxUZHKkhvXmhIapZcwyt2L
+	gIlyydyZxn73bjkx++plPTZdUZPTheukuBrId0F/qfKjIibJT60i9uOX8Gcl7ng4pJfazJXxvKLnU
+	OrePhQzf6fuXmHFMM7XWV9OUF+yZyPVBkojM/bT9nrk1RvcYPszh1nnkBtbN4k1L9J32Ibd0eR3Po
+	jbpOzlEg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wULbk-0000000CgjW-1JUa;
-	Tue, 02 Jun 2026 09:40:24 +0000
-Received: from mgamail.intel.com ([192.198.163.19])
+	id 1wULej-0000000Ch9M-1BdA;
+	Tue, 02 Jun 2026 09:43:29 +0000
+Received: from tor.source.kernel.org ([2600:3c04:e001:324:0:1991:8:25])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wULbh-0000000Cgif-3FIL
+	id 1wULeh-0000000Ch93-3VSw
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 02 Jun 2026 09:40:22 +0000
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple;
-  d=intel.com; i=@intel.com; q=dns/txt; s=Intel;
-  t=1780393221; x=1811929221;
-  h=date:from:to:cc:subject:message-id:references:
-   mime-version:in-reply-to;
-  bh=jqR4dzKGvV3HqFH6eaz3fG39vDCQjIDVnOKaJWrWjRM=;
-  b=M+UCPAr/oPKwlKL6fcG6ZLCbOBD7nChfObtLnTdlG8QgXvhMRIvn877Z
-   CauyKgeZxo/6Rjxvdu8m0hJBe/24lK+enD/EMyGgbB29JmUoY9yJE4aFK
-   iD4aX8dKmE+IbPCsTi9Y+bRdVXJ13qccnz5VcaeLoYE97N2MmuDPAevpY
-   oCNWUqt08m/vqBlwpD1vtRHDbpqQjvVrnkYaiVmPveq8NJsgEoCtrLPh7
-   SidLDvvOYkAqqCgJZdpliCU6FISHhpocGser1N7IhK2vbF1h9eCK20++Y
-   bJBIyUu0Nnxys37EChod2QvWeMF5NnuajxFr1X/LFi4wvC4Chrapipdx/
-   g==;
-X-CSE-ConnectionGUID: M0vFqjLBRMibAcGMz5aRDg==
-X-CSE-MsgGUID: jroBkqTdSc6QrAqEkd8uug==
-X-IronPort-AV: E=McAfee;i="6800,10657,11804"; a="80203799"
-X-IronPort-AV: E=Sophos;i="6.24,183,1774335600"; 
-   d="scan'208";a="80203799"
-Received: from fmviesa007.fm.intel.com ([10.60.135.147])
-  by fmvoesa113.fm.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 02 Jun 2026 02:40:21 -0700
-X-CSE-ConnectionGUID: h4duNntZTUmobA4ypFYP9w==
-X-CSE-MsgGUID: p/6IPsYQQO+Vr1wS+/oE7Q==
-X-ExtLoop1: 1
-X-IronPort-AV: E=Sophos;i="6.24,183,1774335600"; 
-   d="scan'208";a="240853439"
-Received: from mkosciow-mobl1.ger.corp.intel.com (HELO localhost) ([10.245.245.229])
-  by fmviesa007-auth.fm.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 02 Jun 2026 02:40:17 -0700
-Date: Tue, 2 Jun 2026 12:40:15 +0300
-From: Andy Shevchenko <andriy.shevchenko@intel.com>
-To: Jonathan Cameron <jic23@kernel.org>
-Cc: Angelo Dureghello <adureghello@baylibre.com>,
-	Greg Ungerer <gerg@linux-m68k.org>,
-	Geert Uytterhoeven <geert@linux-m68k.org>,
-	Steven King <sfking@fdwdc.com>, Arnd Bergmann <arnd@arndb.de>,
-	Maxime Coquelin <mcoquelin.stm32@gmail.com>,
-	Alexandre Torgue <alexandre.torgue@foss.st.com>,
-	David Lechner <dlechner@baylibre.com>,
-	Nuno =?iso-8859-1?Q?S=E1?= <nuno.sa@analog.com>,
-	Andy Shevchenko <andy@kernel.org>, Greg Ungerer <gerg@uclinux.org>,
-	linux-m68k@lists.linux-m68k.org, linux-kernel@vger.kernel.org,
-	linux-stm32@st-md-mailman.stormreply.com,
-	linux-arm-kernel@lists.infradead.org, linux-iio@vger.kernel.org
-Subject: Re: [PATCH v4 04/11] m68k: defconfig: update stmark2 defconfig
-Message-ID: <ah6k_wfIpwuussC2@ashevche-desk.local>
-References: <20260531-wip-stmark2-dac-v4-0-7e65ab4215dd@baylibre.com>
- <20260531-wip-stmark2-dac-v4-4-7e65ab4215dd@baylibre.com>
- <20260531165155.13e586cd@jic23-huawei>
- <ah6hVLn_OES-ql9j@ashevche-desk.local>
+	Tue, 02 Jun 2026 09:43:27 +0000
+Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
+	by tor.source.kernel.org (Postfix) with ESMTP id 03AB56001A;
+	Tue,  2 Jun 2026 09:43:27 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id D85081F00893;
+	Tue,  2 Jun 2026 09:43:21 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
+	s=k20260515; t=1780393406;
+	bh=4bPY4fJ6c9uP07ufSfPcuq2d7wSLvbUz6mUS+a9l00c=;
+	h=Date:From:To:Cc:Subject:References:In-Reply-To;
+	b=gzXKXxmC3P5o3dySXNAJu+zeZEwj9UBO/v0KTIuNNvh8Ej4STiKcOPOHo0ZIgaFtJ
+	 eSrWI4uSeLhxM1n2alt/Ar8C1z7/xaM9r0/pywPQu97dhXsEAPFe/Bk0rRmPEo0Xni
+	 tVmqMN38Cwkvb0AsC7BvQ6WtRFeSztNRIT/jSG3VCCLx7waIf5S0KmEIG0ZEyh4gVp
+	 hTF+lp3wVJo4EtAMhKuzeeMyMsg868tIE06X7oei5fmb1xG7X2TLm4G4wHg5Nr0vlJ
+	 wWbF7NfnuqFTZtnh3VMagiWz4EIKQRz5aijEsLWT+LVzOla4ZZFCWPqtJBOYo29u5B
+	 z/1Q3q5IlAgqg==
+Date: Tue, 2 Jun 2026 10:43:18 +0100
+From: Will Deacon <will@kernel.org>
+To: Rong Xu <xur@google.com>
+Cc: Nathan Chancellor <nathan@kernel.org>, Yabin Cui <yabinc@google.com>,
+	Han Shen <shenhan@google.com>, Thomas Gleixner <tglx@linutronix.de>,
+	Ingo Molnar <mingo@redhat.com>, Borislav Petkov <bp@alien8.de>,
+	Dave Hansen <dave.hansen@linux.intel.com>,
+	"H. Peter Anvin" <hpa@zytor.com>, Kees Cook <kees@kernel.org>,
+	Nicolas Schier <nicolas.schier@linux.dev>,
+	Linus Walleij <linusw@kernel.org>, Arnd Bergmann <arnd@arndb.de>,
+	Mathieu Desnoyers <mathieu.desnoyers@efficios.com>,
+	Miguel Ojeda <ojeda@kernel.org>,
+	Peter Zijlstra <peterz@infradead.org>,
+	Jinjie Ruan <ruanjinjie@huawei.com>,
+	Lukas Bulwahn <lukas.bulwahn@redhat.com>,
+	linux-kernel@vger.kernel.org, Juergen Gross <jgross@suse.com>,
+	Helge Deller <deller@gmx.de>, Ryan Roberts <ryan.roberts@arm.com>,
+	Marc Zyngier <maz@kernel.org>, Ard Biesheuvel <ardb@kernel.org>,
+	Vincent Donnefort <vdonnefort@google.com>,
+	Alice Ryhl <aliceryhl@google.com>, x86@kernel.org,
+	linux-arm-kernel@lists.infradead.org
+Subject: Re: [PATCH v3 2/2] kconfig: Remove the architecture specific config
+ for Propeller
+Message-ID: <ah6ltnOk2ol8_2ly@willie-the-truck>
+References: <20260527214510.3907973-1-xur@google.com>
+ <20260527214510.3907973-3-xur@google.com>
+ <178010203122.3743687.12531843798236779880.b4-review@b4>
+ <CAF1bQ=RNokHJtf=8RGKyP12jNPKUvyztJVRaDZ2fnXSVzZ3L5g@mail.gmail.com>
 MIME-Version: 1.0
-Content-Type: text/plain; charset=us-ascii
+Content-Type: text/plain; charset=utf-8
 Content-Disposition: inline
-In-Reply-To: <ah6hVLn_OES-ql9j@ashevche-desk.local>
-Organization: Intel Finland Oy - BIC 0357606-4 - c/o Alberga Business Park, 6
- krs, Bertel Jungin Aukio 5, 02600 Espoo
-X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260602_024021_825827_4257B770 
-X-CRM114-Status: GOOD (  10.13  )
+Content-Transfer-Encoding: 8bit
+In-Reply-To: <CAF1bQ=RNokHJtf=8RGKyP12jNPKUvyztJVRaDZ2fnXSVzZ3L5g@mail.gmail.com>
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -98,19 +89,59 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Tue, Jun 02, 2026 at 12:24:36PM +0300, Andy Shevchenko wrote:
-> On Sun, May 31, 2026 at 04:51:55PM +0100, Jonathan Cameron wrote:
+On Mon, Jun 01, 2026 at 11:18:27AM -0700, Rong Xu wrote:
+> On Fri, May 29, 2026 at 5:47 PM Nathan Chancellor <nathan@kernel.org> wrote:
+> > On Wed, 27 May 2026 14:45:08 -0700, xur@google.com <xur@google.com> wrote:
+> > > diff --git a/arch/Kconfig b/arch/Kconfig
+> > > index e510c585ea84..e4eaca9c917c 100644
+> > > --- a/arch/Kconfig
+> > > +++ b/arch/Kconfig
+> > > @@ -879,12 +879,8 @@ config AUTOFDO_CLANG
+> > >
+> > >         If unsure, say N.
+> > >
+> > > -config ARCH_SUPPORTS_PROPELLER_CLANG
+> > > -     bool
+> > > -
+> > >  config PROPELLER_CLANG
+> > >       bool "Enable Clang's Propeller build"
+> > > -     depends on ARCH_SUPPORTS_PROPELLER_CLANG
+> >
+> > It does not look like '' or its predecessor,
+> > '-fbasic-block-sections=labels', are supported by all architectures?
+> > This will break allmodconfig for some architectures in that case, so
+> > this needs to addressed with some other dependency.
+> 
+> Thanks for catching this. Yes. -fbasic-block-address-map currently
+> only supports Arm64 and X86_64 as of now.
+> We thought people would only enable this config if they knew Propeller
+> was supported on that architecture.
+> But the allmodconfig build breaks this assumption.  I think I have to
+> keep this config for propeller, and make arm64 opt-in.
+> 
+> >
+> >   | $ make -skj"$(nproc)" ARCH=arm LLVM=1 mrproper allmodconfig all
+> >   | ...
+> >   | clang: error: unsupported option '-fbasic-block-address-map' for target 'armv6k-unknown-linux-gnueabi'
+> >   | ...
+> >   |
+> >   | $ make -skj"$(nproc)" ARCH=s390 LLVM=1 mrproper allmodconfig all
+> >   | ...
+> >   | clang: error: unsupported option '-fbasic-block-address-map' for target 's390x-unknown-linux-gnu'
+> >   | ...
+> >
+> > Maybe something like
+> >
+> >   depends on CC_IS_CLANG && $(cc-option,-fbasic-block-address-map)
+> >
+> > then cleaning up scripts/Makefile.propeller to use it exclusively?
+> 
+> I think keep ARCH_SUPPORTS_PROPELLER_CLANG is cleaner.
 
-...
+I still don't think it has anything to do with the arch. If the compiler
+supports the option, then we can use it. The arch code in the kernel
+doesn't need to do anything, right? So can you just check if the
+compiler accepts the option using a 'depends on $(cc-option, ...)' line?
 
-> TL;DR: This change has to be fixed accordingly.
-
-After reviewing the whole series, the fix is trivial, just move this to be the
-last patch in the series.
-
--- 
-With Best Regards,
-Andy Shevchenko
-
-
+Will
 
