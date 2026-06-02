@@ -4,103 +4,90 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 76634CD6E57
-	for <linux-arm-kernel@archiver.kernel.org>; Tue,  2 Jun 2026 14:12:59 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id C4E4DCD5BD1
+	for <linux-arm-kernel@archiver.kernel.org>; Tue,  2 Jun 2026 14:13:38 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:Message-Id:
-	Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:From:
-	Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender
-	:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
-	bh=7XCowtVnjKXnbcRNuimTNpT8EiRYTBtdlRiIVINQJ3g=; b=MnmsVNtfdMTaPHfTAKoTTUXhBt
-	98bLpXBrOxAcO750Qzvb4vPfhrBpUx2s8GCG4WrbptUM2jlJXglJOOJ38KbSZXAUwEwJSuhHHHKKi
-	ffvD5dgYug/XFURZf5kXSKOPaZaLxNphm6y+7mh4ExSKrFQH0og3fTuxi8JPJ7Ji3KM2Yrj5S+Y8x
-	OAKBMtlJdnq1RHDeEJfV4228gFM+RsKRUEPlg1F7Xnhz/dwey/KjmeD7w9YKbOOscz/8QP3/IHQTv
-	NjF5kdN/HOxQNGpYFVsgxXm/2HFNlKil3tb0G1/7soRduNkzqHtCNkYunV4UYGdBOrX1hcYv01tKu
-	W8eVogmQ==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	MIME-Version:Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-Type:
+	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
+	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=jxxG3sxLN/Uuk+t7td4zwCVsz76654fGw3zkw6fR8J4=; b=uGKOhwKHb5G2XSey6fY00uVCXG
+	LQIC+KR/XMT870prSRPjLbYXUiK3Xoa3nN7qX5fivEh0UZE4odBQur/CfEqgr54VV4rAmZcP8+oaw
+	NxlrikuJYedVRlDXwe73b8nAF00l8AI5barIJq/V3bjQMvIkxZKg8ZsRH3yL+2tsba7GYECeLy1Zt
+	ErgUxAocM6/kCHX0TAr/aHjlhHHxZkr/+iUlz0uvchAGV6m+aZhHocmAxujQNQnOz7US4Sz8pvbN4
+	h/v9Ca1u+y0Y0Ho/iacAAYYAmT70O/8GN53O1hslLIeqN/M3SgOnH6lmdOOtq6Gk43C8aWDeLJJ4O
+	NTIIZ0Xg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wUPrQ-0000000D9mu-1NsO;
-	Tue, 02 Jun 2026 14:12:52 +0000
-Received: from mail-pj1-x102e.google.com ([2607:f8b0:4864:20::102e])
+	id 1wUPs4-0000000D9tE-2CJS;
+	Tue, 02 Jun 2026 14:13:32 +0000
+Received: from mail-wm1-x32f.google.com ([2a00:1450:4864:20::32f])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wUPrM-0000000D9lS-26Ef
+	id 1wUPs0-0000000D9s2-3ROS
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 02 Jun 2026 14:12:50 +0000
-Received: by mail-pj1-x102e.google.com with SMTP id 98e67ed59e1d1-36ad15213fbso5649098a91.0
-        for <linux-arm-kernel@lists.infradead.org>; Tue, 02 Jun 2026 07:12:48 -0700 (PDT)
+	Tue, 02 Jun 2026 14:13:30 +0000
+Received: by mail-wm1-x32f.google.com with SMTP id 5b1f17b1804b1-49041fb8c23so87080805e9.0
+        for <linux-arm-kernel@lists.infradead.org>; Tue, 02 Jun 2026 07:13:28 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20251104; t=1780409567; x=1781014367; darn=lists.infradead.org;
-        h=cc:to:message-id:content-transfer-encoding:mime-version:subject
-         :date:from:from:to:cc:subject:date:message-id:reply-to;
-        bh=7XCowtVnjKXnbcRNuimTNpT8EiRYTBtdlRiIVINQJ3g=;
-        b=IqBte+L5oSUbEQhTvCI0AHl624cYwwrf+c6orztNF+6FxMUV85ugkhal6gGbKXKXe4
-         nuFrY2GGV69Xvj/aurgUF7iy7dzZKuO/56nWbFHs6Hy9c79A1Beuuu9rH9mZlLBuIrCj
-         iB6HlaLwMo91HuuojJM7WwYfNVwHpemDHv++WHh7V1YK2Y4/dCLwHe+MZgrl5/Q7dSN+
-         NJvyP6H3AoMQGZdcDhQGk7/YDVk5NK871grBEeTyFfcRyiJHKPMXBf48PblI19OlPKBq
-         Eowbha7GnWA6yn8MmMJFvPTqHLxxIcUAhEqbMxbijzYQVSq8kmOcN0Hf6jQy0167TXKK
-         BtrA==
+        d=gmail.com; s=20251104; t=1780409607; x=1781014407; darn=lists.infradead.org;
+        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
+         :to:from:from:to:cc:subject:date:message-id:reply-to;
+        bh=jxxG3sxLN/Uuk+t7td4zwCVsz76654fGw3zkw6fR8J4=;
+        b=RhnD/R032iX0i04N3WizkK7U08AWH8ESGEYIHAOd7fK9DTYRA14cXiTV9IMd8Z2zNy
+         yg4ubIgprZY2P9w6mfwYK5TzXdYmgQItSntjfHLNboa/vQkuXx+gjIkxxb8zISH3uFxR
+         +NqRCcHgw+EPHX4jr2ObphYji1rXxBbcJXZI51vCJOYxJtuNa1uBZZofnfpYhBwLnJ4e
+         UAqROb0MP3K4b99QLAFihoMGGhM/Sv7+JfL/GmxxoDqMeMjJ9IWL2nmtGqI0vszYtqh5
+         cM3Ks9/9pF8NlosGqRkiCxsRY9Hsc/sr7BJnILl1t/YGat/xfBNOYvK+L9zOHXK/0LRD
+         XNyg==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20251104; t=1780409567; x=1781014367;
-        h=cc:to:message-id:content-transfer-encoding:mime-version:subject
-         :date:from:x-gm-gg:x-gm-message-state:from:to:cc:subject:date
+        d=1e100.net; s=20251104; t=1780409607; x=1781014407;
+        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
+         :to:from:x-gm-gg:x-gm-message-state:from:to:cc:subject:date
          :message-id:reply-to;
-        bh=7XCowtVnjKXnbcRNuimTNpT8EiRYTBtdlRiIVINQJ3g=;
-        b=PX/TeeBsxswg0kyTKJgHTqwnHyEtNBhmApkQ70oq+TxllGJS58mfG3pbIki7clTjU+
-         ca+VHqX6S9yEtUIdWSqPcUnKM6gbkkYHrB2x+Ud8XWGrUDAO+sS6J5ZA3Ca2tCzVsfAS
-         rrRn8AS4eQAR/fBtUMoGrW30Hn21mN6P5zgjjR9BrSl3AVeqteEdWnPunBJl1BP724jZ
-         7JYnCAhPfGeU6XpMc2a4AjUBgnxTvXYn1yKsb+PKgFxdcFPw703rQ6yE6REHIFcuTw5z
-         K9F2MAVXNSJjUoNcUbW71qbZlAvwevHMTx+mSlZvrfiqniBjXuZsgIzsvGFz1kCgcKh+
-         ROOw==
-X-Forwarded-Encrypted: i=1; AFNElJ+OLLvLOfbBOmFEcV6LRmM+IGxp+Cj4707NGC46GxKJN5pc6UaqrEP4LBQI89xN8b0y/uv18akNP2GxVvEUgBAJ@lists.infradead.org
-X-Gm-Message-State: AOJu0YxsRfxSMJiw+j5qfPCOXeue3SvgCa2Yk0gvzPX2JOLkU9oMWE/M
-	fu//VRg1+EfvSL/lW17LpU/FNwiRNbxf3MNz+9P2MTOx5LWVz2nBIlNW
-X-Gm-Gg: Acq92OG16Xi354OBkQN7BNfPnDID5d3EtqA89A2bh+744AY030BGIPK22YEH00XnSok
-	U+tlBvmaXTBMwYt1+1XpY/iFuGn5JEwnG4JaOVOL+0J6HKZ8y42p0u4hNVKvOGDnoHxs/AvVleJ
-	OO0cOO//7pEUUO4GTmplSGyPl5Qgg22XMq/71XNrleWHXsugTefAz0AqW6T+6uwlA48blzifYYk
-	ewjw/QYKPdt/RudPwzDR9et38xB8PLwfCHTvzLhXRwyRIl+I6rxqhRAEyUNxvYfXa3IC19gD2dJ
-	T6Jk6/FEUgqY4VBNascBIzqux8kn/wHrh37PmEgIYtWYE8L+Yfr1B4MoEMG+GFD6cJ15KKBMv6n
-	8Cy/PidqaMEYc0tgP6ZnksTvJPJybX2q1rz306/zpllUQTQdrkbUyD94HxcZH0gEsEpRvednjXy
-	GWD6/cKYOxNvHQVd3iXAMrzLdyohHm+2Q7ueZ3iQi/EqUwvsYNvxz72sXBmbgzyTzHX1ypTVEVn
-	5cdz8Xkt10tcRzf4ymj3b3frFAx
-X-Received: by 2002:a17:90b:3442:b0:36c:e254:4d5 with SMTP id 98e67ed59e1d1-36ce25410d6mr9832117a91.4.1780409567301;
-        Tue, 02 Jun 2026 07:12:47 -0700 (PDT)
-Received: from junjungu-PC.localdomain ([223.166.246.30])
-        by smtp.gmail.com with ESMTPSA id 98e67ed59e1d1-36dd90415besm3601775a91.0.2026.06.02.07.12.43
+        bh=jxxG3sxLN/Uuk+t7td4zwCVsz76654fGw3zkw6fR8J4=;
+        b=W1UJJ3/tgw2zWhHggeECU3VtFarQ5JuerGyJu2UR60sP3/YjTa5t4tsJwPclPjPRh7
+         H0OZJdtWWAAfLkRAngahbpDjGgVlxaDNo43i4nsQlwddbr7SuYxup+t7nulvHup43ROU
+         WVzWdxbdnSePzLhH82FuDvZvGGKWxuoCBYNw3Meoodw6yrVsfP0w9rUGWOdOYVKJhGzJ
+         vtBhrIijPcJnAY3HyzVTp60VuaNh67WtJwe0c7rk6YoZildxzm8M6e/3Z7nRiD42lBrU
+         nwqbeQiZC4tUVjzbdHyqCSaFwW7XT1UJhhx38CkaM9JqL+Bee6qoKfhrzFAEUdRzxP4I
+         iBUw==
+X-Forwarded-Encrypted: i=1; AFNElJ/AlJD2B3+qlBQiOG96ps0bY4iFExVxje2ybKY4QQdqLb+0ELksJmytWy1ArJ7dHrVkEes8j1C2dVP+3jd4A8Kn@lists.infradead.org
+X-Gm-Message-State: AOJu0YwexDEn90mg2EWncWfnhJx3WuphURql8FmiaoMKyO0mwKgAdp5U
+	vU2B5SK+11SsSv8dohPKMobWF7gPClnG1iPfB9CIUskM5MZ8e0UInXoA
+X-Gm-Gg: Acq92OHGry/Fqjs9TP04VX2yYA+j8XpzpdhTQ5/ICVkwT6dByyJKlqo2u8XLvjJs+GJ
+	Xf9/ckq1cSIH0iXKSZectJNeYIdo+jJdc/vSQUZ2UrQVPH0sqd53mBR6JmZmzYeFVlXhOLKncPl
+	p++qEWzrPKNcsn/XoFXGk9qMTYIlY0qkM0eV57bbTbjQgqC+NTWxsDk6SEWb4N7q58+Pm0bIUxJ
+	rgqDMdpF1x0je28OkBdx7jzVoyA++ven1+LSSE16wEkbctbecdRUjrvakDHlKlwPvd5mj6sGUw8
+	86jS3FPZnJWtOp7LXXGhJjS0Fp6XBetsoTLLIaygemTkR45RnejLHXKzkSOvBMdQ41Eb0lTKncF
+	RVeKnS0ibqLThkZe6J91Y5RFSgkkotnXDW1cyHT9Vb+/4vkQaPaXyXf9qgCpbcIetQhBDeKwTHf
+	ogu6qNcyXDgpO7anyEScxmIgCq5AMX78ifXezF
+X-Received: by 2002:a05:600c:8582:b0:48f:d1c0:721e with SMTP id 5b1f17b1804b1-490a2921e1fmr225702915e9.12.1780409606574;
+        Tue, 02 Jun 2026 07:13:26 -0700 (PDT)
+Received: from vitor-nb ([2001:8a0:c4c6:f00:e8c3:a961:5b26:a2c6])
+        by smtp.gmail.com with ESMTPSA id 5b1f17b1804b1-490b0e0de7bsm60816345e9.3.2026.06.02.07.13.24
         (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Tue, 02 Jun 2026 07:12:46 -0700 (PDT)
-From: Felix Gu <ustc.gu@gmail.com>
-Date: Tue, 02 Jun 2026 22:12:41 +0800
-Subject: [PATCH] phy: fsl-imx8mq-usb: fix typec switch leak on probe error
- path
+        Tue, 02 Jun 2026 07:13:25 -0700 (PDT)
+From: Vitor Soares <ivitro@gmail.com>
+To: Nishanth Menon <nm@ti.com>,
+	Vignesh Raghavendra <vigneshr@ti.com>,
+	Tero Kristo <kristo@kernel.org>,
+	Rob Herring <robh@kernel.org>,
+	Krzysztof Kozlowski <krzk+dt@kernel.org>,
+	Conor Dooley <conor+dt@kernel.org>
+Cc: Vitor Soares <vitor.soares@toradex.com>,
+	linux-arm-kernel@lists.infradead.org,
+	devicetree@vger.kernel.org,
+	linux-kernel@vger.kernel.org
+Subject: [PATCH 0/3] arm64: dts: ti: k3-am62p-verdin: Add device tree overlays
+Date: Tue,  2 Jun 2026 15:13:10 +0100
+Message-ID: <20260602141311.1366818-5-ivitro@gmail.com>
+X-Mailer: git-send-email 2.54.0
 MIME-Version: 1.0
-Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: 7bit
-Message-Id: <20260602-imx8mq-typec-v1-1-3debe9bc77d9@gmail.com>
-X-B4-Tracking: v=1; b=H4sIANjkHmoC/yXMTQ5AMBBA4avIrDWZdtHgKmJBTRmJvxapiLsrl
- t/ivQs8OSYPRXKBo4M9z1OETBMwfT11JLiNBoVKo0YleAzZuIrtXMgIhbW2spU5ooWYLI4sh29
- XVr/93gxktvcB9/0A33aWg3AAAAA=
-X-Change-ID: 20260602-imx8mq-typec-20a6f1d1900f
-To: Vinod Koul <vkoul@kernel.org>, 
- Neil Armstrong <neil.armstrong@linaro.org>, Frank Li <Frank.Li@nxp.com>, 
- Sascha Hauer <s.hauer@pengutronix.de>, 
- Pengutronix Kernel Team <kernel@pengutronix.de>, 
- Fabio Estevam <festevam@gmail.com>, Xu Yang <xu.yang_2@nxp.com>, 
- Jun Li <jun.li@nxp.com>
-Cc: linux-phy@lists.infradead.org, imx@lists.linux.dev, 
- linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org, 
- Felix Gu <ustc.gu@gmail.com>
-X-Mailer: b4 0.15.2
-X-Developer-Signature: v=1; a=ed25519-sha256; t=1780409563; l=2735;
- i=ustc.gu@gmail.com; h=from:subject:message-id;
- bh=kpmGkkU11ecTwdVdTxlaGp+lNBsMTsb/Nj9af5UXA/A=;
- b=4YSIt8pCDNOFocdXGuAudSQFQldGYnUBr8V6MOtFtbIGLD00AcsWNSa6+B/Ptk3ul3742sf1P
- htOMmlEyovCCgKwh7yZxmffvwspM7qwRIj/dbKpNJgLdmX5jcRHNlr2
-X-Developer-Key: i=ustc.gu@gmail.com; a=ed25519;
- pk=fjUXwmjchVN7Ja6KGP55IXOzFeCl9edaHoQIEUA+/hw=
+Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260602_071248_550486_3A52C28B 
-X-CRM114-Status: GOOD (  16.29  )
+X-CRM114-CacheID: sfid-20260602_071328_884219_520662C5 
+X-CRM114-Status: GOOD (  11.85  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -115,90 +102,42 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-If probe fails after imx95_usb_phy_get_tca() succeeds, the typec
-switch leaks because the only cleanup path was in .remove, which
-never runs on probe failure.
+From: Vitor Soares <vitor.soares@toradex.com>
 
-Use devm_add_action_or_reset() so the switch is cleaned up on both
-probe failure and driver removal.  The .remove callback and
-imx95_usb_phy_put_tca() are no longer needed.
+This series adds device tree overlays for the Toradex Verdin AM62P,
+bringing it in line with the overlay support already present for the
+Verdin AM62.
 
-Fixes: b58f0f86fd61 ("phy: fsl-imx8mq-usb: add tca function driver for imx95")
-Signed-off-by: Felix Gu <ustc.gu@gmail.com>
----
- drivers/phy/freescale/phy-fsl-imx8mq-usb.c | 27 ++++++++-------------------
- 1 file changed, 8 insertions(+), 19 deletions(-)
+The first patch enables Bridge Tied Load (BTL) mode on the Nuvoton
+NAU8822 audio codec present on the Verdin Development Board, combining
+the two loudspeaker outputs for higher output power.
 
-diff --git a/drivers/phy/freescale/phy-fsl-imx8mq-usb.c b/drivers/phy/freescale/phy-fsl-imx8mq-usb.c
-index b05d80e849a1..8af5a4f85698 100644
---- a/drivers/phy/freescale/phy-fsl-imx8mq-usb.c
-+++ b/drivers/phy/freescale/phy-fsl-imx8mq-usb.c
-@@ -173,8 +173,10 @@ static struct typec_switch_dev *tca_blk_get_typec_switch(struct platform_device
- 	return sw;
- }
- 
--static void tca_blk_put_typec_switch(struct typec_switch_dev *sw)
-+static void tca_blk_put_typec_switch(void *data)
- {
-+	struct typec_switch_dev *sw = data;
-+
- 	typec_switch_unregister(sw);
- }
- 
-@@ -248,6 +250,7 @@ static struct tca_blk *imx95_usb_phy_get_tca(struct platform_device *pdev,
- 	struct device *dev = &pdev->dev;
- 	struct resource *res;
- 	struct tca_blk *tca;
-+	int ret;
- 
- 	res = platform_get_resource(pdev, IORESOURCE_MEM, 1);
- 	if (!res)
-@@ -266,17 +269,11 @@ static struct tca_blk *imx95_usb_phy_get_tca(struct platform_device *pdev,
- 	tca->orientation = TYPEC_ORIENTATION_NORMAL;
- 	tca->sw = tca_blk_get_typec_switch(pdev, imx_phy);
- 
--	return tca;
--}
--
--static void imx95_usb_phy_put_tca(struct imx8mq_usb_phy *imx_phy)
--{
--	struct tca_blk *tca = imx_phy->tca;
--
--	if (!tca)
--		return;
-+	ret = devm_add_action_or_reset(&pdev->dev, tca_blk_put_typec_switch, tca->sw);
-+	if (ret)
-+		return ERR_PTR(ret);
- 
--	tca_blk_put_typec_switch(tca->sw);
-+	return tca;
- }
- 
- static u32 phy_tx_vref_tune_from_property(u32 percent)
-@@ -739,16 +736,8 @@ static int imx8mq_usb_phy_probe(struct platform_device *pdev)
- 	return PTR_ERR_OR_ZERO(phy_provider);
- }
- 
--static void imx8mq_usb_phy_remove(struct platform_device *pdev)
--{
--	struct imx8mq_usb_phy *imx_phy = platform_get_drvdata(pdev);
--
--	imx95_usb_phy_put_tca(imx_phy);
--}
--
- static struct platform_driver imx8mq_usb_phy_driver = {
- 	.probe	= imx8mq_usb_phy_probe,
--	.remove = imx8mq_usb_phy_remove,
- 	.driver = {
- 		.name	= "imx8mq-usb-phy",
- 		.of_match_table	= imx8mq_usb_phy_of_match,
+The second patch reserves the AM62P MCU_UART0 (Verdin UART_4) for use
+by the Cortex-R5F co-processor as its debug UART.
 
----
-base-commit: 08484c504b55a98bd100527fbe10a3caf55ff3ff
-change-id: 20260602-imx8mq-typec-20a6f1d1900f
+The third patch adds OV5640 CSI camera support on Verdin CSI_1 in two
+variants: the current CSI Camera Set 5MP OV5640 with a 27 MHz oscillator
+and the legacy CSI Camera Module 5MP OV5640 with a 24 MHz oscillator.
 
-Best regards,
---  
-Felix Gu <ustc.gu@gmail.com>
+Vitor Soares (3):
+  arm64: dts: ti: k3-am62p-verdin: Add NAU8822 Bridge Tied Load
+  arm64: dts: ti: k3-am62p-verdin: Reserve UART_4 for Cortex-R5F
+  arm64: dts: ti: k3-am62p-verdin: Add Toradex OV5640 CSI Cameras
+
+ arch/arm64/boot/dts/ti/Makefile               | 16 +++++
+ .../ti/k3-am62p5-verdin-dev-nau8822-btl.dtso  | 14 ++++
+ .../dts/ti/k3-am62p5-verdin-ov5640-24mhz.dtso | 17 +++++
+ .../boot/dts/ti/k3-am62p5-verdin-ov5640.dtsi  | 72 +++++++++++++++++++
+ .../boot/dts/ti/k3-am62p5-verdin-ov5640.dtso  | 18 +++++
+ .../dts/ti/k3-am62p5-verdin-uart4-mcu.dtso    | 13 ++++
+ 6 files changed, 150 insertions(+)
+ create mode 100644 arch/arm64/boot/dts/ti/k3-am62p5-verdin-dev-nau8822-btl.dtso
+ create mode 100644 arch/arm64/boot/dts/ti/k3-am62p5-verdin-ov5640-24mhz.dtso
+ create mode 100644 arch/arm64/boot/dts/ti/k3-am62p5-verdin-ov5640.dtsi
+ create mode 100644 arch/arm64/boot/dts/ti/k3-am62p5-verdin-ov5640.dtso
+ create mode 100644 arch/arm64/boot/dts/ti/k3-am62p5-verdin-uart4-mcu.dtso
+
+-- 
+2.54.0
 
 
