@@ -4,56 +4,60 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id AF309CD5BD1
-	for <linux-arm-kernel@archiver.kernel.org>; Tue,  2 Jun 2026 21:15:13 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id C6746CD6E5D
+	for <linux-arm-kernel@archiver.kernel.org>; Tue,  2 Jun 2026 21:26:27 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:
-	To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=7p5lf5hswHmqSvQefpV12eu4f1a/WMpYwYwBP6vLB7A=; b=S3x1HzcnsoBfFAfD3rQ4qb5req
-	v+zkRUenAqRY91EShwDAp4VMaBbL6OwuR07uQCrr36Rt2WC26bnF7j7bB9BppYo76oVhhp5U+Hes+
-	pKGVL/oTTSZcmp5GyweJXuTGiM/6H+2uXrXc98n8x32TRryMHCzE11KIbBtK1N6lQTm/nIKUZNQnz
-	ktrv2J5EIMCZlf3oLK1GZ/F5j1FhoBfD6GL+4qxnY8GoeSaL5DME3Zpecs/m2dDjTmU03PW/dZKp8
-	p1+owzbiABSovGUu16w3Fpitla4vN5Ov+M5IFhbjVoDBuXjy3rn0uSTEnoOvJg1GQBSB9sMYsJp6E
-	WNDvyRSg==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=Q67DNBKcuffmWspv6LvVXCmA21SteXLC22ebhEgdn1U=; b=I+YOegSj0aMAJUrNF7d+KrOiyz
+	ooX8Ov92sT0956ozEB1pxCoXkzbT0xC6s5ZCoqAjvj7zFlDu0QZhc3BSi6QgvZKRUK0VYJlIjqoRV
+	izKwOEQetSI4erX1eHW508Muyp+ti3rWWc229KcI7koq78s5ZYUd5ecpU3NdYsvikPynSRyS4eCtY
+	71Z1V4M+rtu0Fc72ubTDf17ud46Cr9i7Em86agvh8EnZQ3CRTjMLiTfkIopglPSnq79A59NMJqQAZ
+	6Wk2aBZvsQXZbm69jm+gh1Yj1WExMNjRbmniDBBJyUPmHqJ7CH4Er9njEIKRNwMm4sB8eOnJp8naa
+	vfqGlxgQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wUWS2-0000000DoG5-1kIW;
-	Tue, 02 Jun 2026 21:15:06 +0000
-Received: from gloria.sntech.de ([185.11.138.130])
+	id 1wUWcu-0000000Doqz-2fE9;
+	Tue, 02 Jun 2026 21:26:20 +0000
+Received: from tor.source.kernel.org ([2600:3c04:e001:324:0:1991:8:25])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wUWRz-0000000DoFa-2Dcy;
-	Tue, 02 Jun 2026 21:15:05 +0000
-DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed; d=sntech.de;
-	s=gloria202408; h=Content-Transfer-Encoding:Content-Type:MIME-Version:
-	References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:Reply-To;
-	bh=7p5lf5hswHmqSvQefpV12eu4f1a/WMpYwYwBP6vLB7A=; b=ehIUepHfrxEQp8N7IY64K7OP8g
-	qanKSA8DkbZJRYSL/zJiDyVcjp45OA7sajBXx3jzl7RE4YZ6KEN6GRyeH10SNC61QstrjhckWAGAO
-	iTnwrUJ6VwngAKwkgtHMtkQoFow1kL3iRKHqLYGZdVdZXA5Bngwx4yobnwH7Vzm0X9XYE5QlpQnEK
-	OVI8lyoHheD0eBYneDiP8fmeZLUx9AHo2CV1PUSDCiisfo2Wy2D08pBOjjEEvwIfhfDfXaWHU8Emh
-	SvnVvFdeXdNY2iXZG0eU/H1f9MTyvU1bbHp/ZQgbezJTYRW4Gkt5NMKXvumzQkD2sxRrb9ZOc9g4L
-	OAT44QVg==;
-From: Heiko Stuebner <heiko@sntech.de>
-To: Heiko Stuebner <heiko@sntech.de>
-Cc: linux-rockchip@lists.infradead.org,
-	linux-arm-kernel@lists.infradead.org,
-	linux-kernel@vger.kernel.org,
-	amadeus@jmu.edu.cn,
-	jonas@kwiboo.se
-Subject: Re: [PATCH v4 0/5] rockchip: add USB nodes for RK3528
-Date: Tue,  2 Jun 2026 23:14:56 +0200
-Message-ID: <178043489360.713702.10193094828449758923.b4-ty@sntech.de>
-X-Mailer: git-send-email 2.47.3
-In-Reply-To: <20260529190355.4148175-1-heiko@sntech.de>
-References: <20260529190355.4148175-1-heiko@sntech.de>
+	id 1wUWcs-0000000DoqZ-3PDt
+	for linux-arm-kernel@lists.infradead.org;
+	Tue, 02 Jun 2026 21:26:18 +0000
+Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
+	by tor.source.kernel.org (Postfix) with ESMTP id CED9A6012B;
+	Tue,  2 Jun 2026 21:26:17 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 5BBC41F00893;
+	Tue,  2 Jun 2026 21:26:17 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
+	s=k20260515; t=1780435577;
+	bh=Q67DNBKcuffmWspv6LvVXCmA21SteXLC22ebhEgdn1U=;
+	h=Date:From:To:Cc:Subject:References:In-Reply-To;
+	b=mdbJmsmkEsdF6WXBnuWjh113rOwL2Pkj8cahrG8MIion6Mz4kplBkEhwPrDD33eDD
+	 znJSL3Bibb+P0LWtHqZVhkaYTTlsjFLBbn+TB7WYFekuQYnB6/BA0xquWaFJL5DHPn
+	 TuwV9LJLjB8JHgjfzUrsFuUHGOQpbKFa+5fp+uG1pxjBjrnB9SODF/YTjNxUg7ymZt
+	 HQ8g4hoCHHaBwCoFvYsf8ubM69aIgs9gl+gLeVh5B6quLPTQTFmjCV6bU2eGkCAFn7
+	 PDwfb2rpskRTXn+L5A43fU6kavrSI3fkI7tESb84CJ7qEImG5/D25t8R64BdT3qupN
+	 Hb7Xbj58pX/sw==
+Date: Tue, 2 Jun 2026 14:26:16 -0700
+From: Oliver Upton <oupton@kernel.org>
+To: Hyunwoo Kim <imv4bel@gmail.com>
+Cc: maz@kernel.org, joey.gouly@arm.com, seiden@linux.ibm.com,
+	suzuki.poulose@arm.com, yuzenghui@huawei.com,
+	catalin.marinas@arm.com, will@kernel.org, kees@kernel.org,
+	linux-arm-kernel@lists.infradead.org, kvmarm@lists.linux.dev,
+	linux-kernel@vger.kernel.org, stable@vger.kernel.org
+Subject: Re: [PATCH v2] KVM: arm64: vgic-its: Serialize translation cache
+ invalidation under its_lock
+Message-ID: <ah9KeH8bFl8NOveO@kernel.org>
+References: <ah6Lsi4MfKUU6wBR@v4bel>
 MIME-Version: 1.0
-Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: 8bit
-X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260602_141503_590070_B91D2D82 
-X-CRM114-Status: GOOD (  10.93  )
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+In-Reply-To: <ah6Lsi4MfKUU6wBR@v4bel>
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -68,32 +72,54 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
+Hi Hyunwoo,
 
-On Fri, 29 May 2026 21:03:50 +0200, Heiko Stuebner wrote:
-> This adds the USB nodes to RK3528 and therefore needs both the dwc3
-> compatible [0], as well as the phy support [1] to be merged first.
+Thanks for respinning.
+
+On Tue, Jun 02, 2026 at 04:52:18PM +0900, Hyunwoo Kim wrote:
+> @@ -607,17 +609,16 @@ void vgic_its_invalidate_all_caches(struct kvm *kvm)
+>  	struct kvm_device *dev;
+>  	struct vgic_its *its;
+>  
+> -	rcu_read_lock();
+> +	guard(mutex)(&kvm->lock);
+
+Urgh, entirely my mistake but we can get here holding the vcpu->mutex
+which is an ordering bug. We can defer the locking cleanup as a long
+term fix (which I still want) and take what you had before in v1.
+
+Sorry for the noise.
+
+Thanks,
+Oliver
+
+> -	list_for_each_entry_rcu(dev, &kvm->devices, vm_node) {
+> +	list_for_each_entry(dev, &kvm->devices, vm_node) {
+>  		if (dev->ops != &kvm_arm_vgic_its_ops)
+>  			continue;
+>  
+>  		its = dev->private;
+> +		guard(mutex)(&its->its_lock);
+>  		vgic_its_invalidate_cache(its);
+>  	}
+> -
+> -	rcu_read_unlock();
+>  }
+>  
+>  int vgic_its_resolve_lpi(struct kvm *kvm, struct vgic_its *its,
+> @@ -1725,8 +1726,10 @@ static void vgic_mmio_write_its_ctlr(struct kvm *kvm, struct vgic_its *its,
+>  		goto out;
+>  
+>  	its->enabled = !!(val & GITS_CTLR_ENABLE);
+> -	if (!its->enabled)
+> +	if (!its->enabled) {
+> +		guard(mutex)(&its->its_lock);
+>  		vgic_its_invalidate_cache(its);
+> +	}
+>  
+>  	/*
+>  	 * Try to process any pending commands. This function bails out early
+> -- 
+> 2.43.0
 > 
-> changes in v4:
-> - phy-supply not vbus-supply on armsom sige1
-> - adapt e20c commit message explaining the hub
-> - describe my changes to the original patches inside them
-> 
-> [...]
-
-Applied, thanks!
-
-[1/5] arm64: dts: rockchip: Add USB nodes for RK3528
-      commit: 5f3ae9b12a6c523992a7216bbc4420ac33450b79
-[2/5] arm64: dts: rockchip: Enable USB 2.0 ports on Radxa E20C
-      commit: e897bcf81dd920bf80ace6d98ec6f9645c5b50f2
-[3/5] arm64: dts: rockchip: Enable USB ports on Radxa ROCK 2A/2F
-      commit: 4e55d52f5f3b333a9ff5103099df97291aaeb083
-[4/5] arm64: dts: rockchip: Enable USB 2.0 ports on ArmSoM Sige1
-      commit: b6b74087f90a201cfdd6da6a43e7b92dba8370e3
-[5/5] arm64: dts: rockchip: Enable USB 2.0 ports on NanoPi Zero2
-      commit: ff660109f4129a13bbdc31bc14ca233ebf0c9450
-
-Best regards,
--- 
-Heiko Stuebner <heiko@sntech.de>
 
