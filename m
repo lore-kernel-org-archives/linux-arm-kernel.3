@@ -4,58 +4,94 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 3510FCD5BD1
-	for <linux-arm-kernel@archiver.kernel.org>; Tue,  2 Jun 2026 16:51:23 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id DFAE8CD5BD1
+	for <linux-arm-kernel@archiver.kernel.org>; Tue,  2 Jun 2026 16:52:06 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
 	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
 	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=z9XXEX3smppW2TBh0BppyjpS4seK2gYW5VurxkC9Y5g=; b=fVhI9nYXYzXjYIRq8ZO8XozoeS
-	c93joSyAliCq4H3NPrXcUQnrbksH8W9bDxWFk8rZmuWC2HZGKdA7KyVvvdwVMtnElkMV5riBVA8R/
-	fv+sgyb+IgiFXwHWts/CzNbXP0hrXoQBCvbwa9js7FS1263CB88DhT8ZOVRBWCFA+i6NkOQhMjOpq
-	NAAY1LgbZyj2RfC0ZfvJOfsOB0lCccQIjgoZPAdv1ppEjFZyddQiHaTjV50ZSTBQTcgUOvWuI1V9L
-	I3PTShVa74p+Pvr/kFg31Y9RT05dyQvEq3z9LGy8/v+erXF9unzSRGM/aUVGY3F0P6KDqShK4WPKN
-	v+vmmfCw==;
+	bh=nJdp4XF3Fcb1uyz/I+762d0PZHcMV95pqLsyirgwV5U=; b=u3iDBJwwZnDgOcfQ39I03jNH6o
+	voWEzi9681daF+WuqWFcnpLJeC79Z5teBn+zMwbJipi9TPFl+uOu8veCL3dwoi6EUFeyXcYk8aBy6
+	IXA4hlD/0dHk+5BOQNlTZ7V81Y2asR0bGrtL29OtoMgHfwqRROKt2XXhS1liACElh+9SadNgaAOHk
+	+yk0A7LIzNE0DwGU3ffH3jF3tRXzqaqhQ5Hr2ZEWkVbRrRxknwpXsQMeAnYzfCffss+AFiWSouGmL
+	kDB092StZuqlSf2nfyUhy5qLDej9HzRrKLhOBsYcP6x+rmWZAVqapIGMkIqBmar21AaferodTCigf
+	Qw//K+Ug==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wUSKh-0000000DUjN-2o9C;
-	Tue, 02 Jun 2026 16:51:15 +0000
-Received: from tor.source.kernel.org ([172.105.4.254])
+	id 1wUSLQ-0000000DUo4-3UXr;
+	Tue, 02 Jun 2026 16:52:00 +0000
+Received: from mail-pf1-x429.google.com ([2607:f8b0:4864:20::429])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wUSKg-0000000DUjH-2HS8
+	id 1wUSLO-0000000DUnd-0g7O
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 02 Jun 2026 16:51:14 +0000
-Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
-	by tor.source.kernel.org (Postfix) with ESMTP id 048B26001A;
-	Tue,  2 Jun 2026 16:51:14 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id A15E01F00893;
-	Tue,  2 Jun 2026 16:51:12 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1780419073;
-	bh=z9XXEX3smppW2TBh0BppyjpS4seK2gYW5VurxkC9Y5g=;
-	h=Date:From:To:Cc:Subject:References:In-Reply-To;
-	b=HCfEPfYgWXSl6oQEaBH+XCNIKSVaCxeGIgus+1lMDWb2ZbTpFVnUcHPXNY2qQCQYg
-	 4w3ZAPOajH7KUjV+/+IrHRsTYGBXiGmh65N9JKEdMopoKEDYY2dsHd/diC4EXybn7t
-	 amhS4/84hq7RutKCbcP60f490c4VwlsCLo/xOTCLyKtoY8ngacSCkMuG95fVPakHSl
-	 9LQ2KhQ5L65/VcI68X1KL6/2FsK/ZfQdEvzKsIpXJkLqayrLlB7Gi+qW8hlVtqX0PJ
-	 YacoHaHlmtJcdhJyHoDywIVwHdsUM58Zb6Q58SAzrm1VNgYTFD0b43SJsXrhFjA5tB
-	 8KOsvK40Xj5aQ==
-Date: Tue, 2 Jun 2026 17:51:10 +0100
-From: Sudeep Holla <sudeep.holla@kernel.org>
-To: Seth Forshee <sforshee@nvidia.com>
-Cc: Sebastian Ene <sebastianene@google.com>,
-	Sudeep Holla <sudeep.holla@kernel.org>,
-	linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org
-Subject: Re: [PATCH 0/2] firmware: arm_ffa: Fix RXTX_MAP buffer size
- regressions
-Message-ID: <20260602-fuzzy-adamant-catfish-3afaeb@sudeepholla>
-References: <20260601-b4-ffa-rxtx-map-fixes-v1-0-c071b12ae05c@nvidia.com>
+	Tue, 02 Jun 2026 16:51:59 +0000
+Received: by mail-pf1-x429.google.com with SMTP id d2e1a72fcca58-8422a92b6d6so1593930b3a.1
+        for <linux-arm-kernel@lists.infradead.org>; Tue, 02 Jun 2026 09:51:57 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=linaro.org; s=google; t=1780419117; x=1781023917; darn=lists.infradead.org;
+        h=in-reply-to:content-disposition:mime-version:references:message-id
+         :subject:cc:to:from:date:from:to:cc:subject:date:message-id:reply-to;
+        bh=nJdp4XF3Fcb1uyz/I+762d0PZHcMV95pqLsyirgwV5U=;
+        b=dvuwu3JkNCbjd7EwZLF1rFniaoSHPZQ/GOkL/pgUm2SuxvxG6eFceeLs0zjPeCmBEs
+         CwvT+dof09FgMiKxCZCIVmCCWB9wC6TFxDt4yFhI55SNukF1nLH0zS+8Ua0rTnht4JmT
+         McChro8x19bDqcNWKe07TJjOLriEP/BxNQ/oKM/VCaNj9gpc6ZAOdFcU6pawf1r2jyUP
+         m/XF8rHpWSMl6GktnYVEon/2HM+JqRnfmjlaxROprmhrjKDJzV685M5WDF5CU2Ehm4xG
+         Ap6nBMkTXSVdHAJfoQsPJiUMaToy22hDjx54FGDvdiFSZNSk487NqYiatSmd2jFIs8y2
+         5VFg==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20251104; t=1780419117; x=1781023917;
+        h=in-reply-to:content-disposition:mime-version:references:message-id
+         :subject:cc:to:from:date:x-gm-gg:x-gm-message-state:from:to:cc
+         :subject:date:message-id:reply-to;
+        bh=nJdp4XF3Fcb1uyz/I+762d0PZHcMV95pqLsyirgwV5U=;
+        b=mIlvt14gSIZrnvTMyRGpZgHCsVUyUrSas0AlM86dvzjZgI4Pyph3fUs2ujClG9EDHH
+         /fpWTIDr52/AHZd5bFcfghxKPNAEciKc9Qrpbi0VkNV6aPBqJGfMsWAaI/Z8lAFuma+8
+         1QlDRPM6AerUEw9IpjoaZv9IkkfLHNrFi0ZA9vfbt/ySNTAax9tyR2E/z4eqkiUrofOc
+         F7a13fpf+RqiL7e0bRqitj066yv++UNPozaFgXMA0WrTxKGqFPfly8I4zpxWxAmX7Msd
+         f7IUJj7G07V+JajB4X1fP7dzZ8ybi36SnypGLK0uTPna3Tu6sBwuuZujGfbjmXKhUfmx
+         WtfA==
+X-Forwarded-Encrypted: i=1; AFNElJ/wL9koB29XvW47EtHNZXhR+EqZfwy5mxy4Igry+DPbuPmfRk01+7ZyRb241rZD1HgZx9NGB+ci4A9cNj6+jbxB@lists.infradead.org
+X-Gm-Message-State: AOJu0YwMBX0uPACbnEM2BjsEE8pR59pkMoC5/7h50cqzQVq4YU1JBqSf
+	hcifaZkwTpyLkawHhTo13BkYHlnmCmLa57LHh7eodGqhjgQzqwuzOZsWCGWObvjogZA=
+X-Gm-Gg: Acq92OGyYZghiEQVfbLWjAo1WGYJsabvJz/hy8sIyX4kBlnqifZ8Z5T2xgrnmTfX1ir
+	oOyzir9PbfoAf/SUleTgK+eY+ovRoVRehhbGMORgdLovZiLgBXhZ5kZjBieRZvPZO2nHIRdV6f3
+	mtbHc9YYEleXVODWoad8o4MoOWUehiS2/gYGfFDDEG51xzF3AX7hlk/5Rwl04wWdzVhO9UxRmjs
+	vE4Ag3RduZoMSEfwz6765P2BCBvldPWtWKPIkfnkMrvXBg71q2NS7D/PwIkBK5k/lrfkuhML5pL
+	ijYa85kwpLdqYGvfRKcLAa+FrWEop2YJcp/+m9droNvmTlSobkeXyUHA09WPg4inzFbhoHRL9EX
+	VAkQWBRXQN3fRmTpD9O1ck89hJBrglT95ihhlbvWvdMxVyZJ6K44ZpqDOuCCc0ERWN5TLhKf5+k
+	a11Orej43d56mO50GAZRV44WgDR0UuJgAh1MzCYPfYFzWO8sAw
+X-Received: by 2002:a05:6a00:a112:b0:842:6259:5e2b with SMTP id d2e1a72fcca58-8426a96af92mr4013059b3a.33.1780419116687;
+        Tue, 02 Jun 2026 09:51:56 -0700 (PDT)
+Received: from p14s ([2604:3d09:148c:c800:6f6a:5e58:19fa:e0f1])
+        by smtp.gmail.com with ESMTPSA id d2e1a72fcca58-84282372a16sm399509b3a.18.2026.06.02.09.51.54
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Tue, 02 Jun 2026 09:51:56 -0700 (PDT)
+Date: Tue, 2 Jun 2026 10:51:53 -0600
+From: Mathieu Poirier <mathieu.poirier@linaro.org>
+To: Sebastian Andrzej Siewior <bigeasy@linutronix.de>
+Cc: linux-rt-devel@lists.linux.dev, imx@lists.linux.dev,
+	linux-arm-kernel@lists.infradead.org,
+	linux-remoteproc@vger.kernel.org,
+	Bjorn Andersson <andersson@kernel.org>,
+	Clark Williams <clrkwllms@kernel.org>,
+	Fabio Estevam <festevam@gmail.com>, Frank Li <Frank.Li@nxp.com>,
+	Jassi Brar <jassisinghbrar@gmail.com>,
+	Pengutronix Kernel Team <kernel@pengutronix.de>,
+	Sascha Hauer <s.hauer@pengutronix.de>,
+	Steven Rostedt <rostedt@goodmis.org>
+Subject: Re: [PATCH 0/5] mailbox: imx: Use threaded handler to avoid kworker
+ in imx's remoteproc
+Message-ID: <ah8KKVmE5qCGJ1cs@p14s>
+References: <20260529-imx_mbox_rproc-v1-0-b8ffc36e11e5@linutronix.de>
 MIME-Version: 1.0
 Content-Type: text/plain; charset=us-ascii
 Content-Disposition: inline
-In-Reply-To: <20260601-b4-ffa-rxtx-map-fixes-v1-0-c071b12ae05c@nvidia.com>
+In-Reply-To: <20260529-imx_mbox_rproc-v1-0-b8ffc36e11e5@linutronix.de>
+X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
+X-CRM114-CacheID: sfid-20260602_095158_209030_1EF9BC80 
+X-CRM114-Status: GOOD (  23.11  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -70,123 +106,57 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Mon, Jun 01, 2026 at 03:45:10PM -0500, Seth Forshee wrote:
-> Commit 83210251fd70 ("firmware: arm_ffa: Use the correct buffer size
-> during RXTX_MAP") caused a regression for some FF-A implementations. It
-> has the effect of passing the size of the page-aligned buffers to
-> FFA_RXTX_MAP, which may be larger than the maximum size supported by the
-> SPMC. When this happens FFA_RXTX_MAP will fail with INVALID_PARAMETERS.
+On Fri, May 29, 2026 at 06:01:02PM +0200, Sebastian Andrzej Siewior wrote:
+> The imx's remoteproc driver uses a kworker from its mailbox callback to
+> complete the request. The reason is that the imx mailbox driver invokes
+> the callback from its interrupt handler and the remoteproc callback (at
+> least the rpmsg-tty) requires a preemptible context.
 > 
-> The following patches deal with two distinct scenarios which lead to
-> this issue. With FF-A v1.2+, FFA_FEATURES can specify a maximum supported
-> RX/TX buffer size, so patch 1 decodes this field and honors the maximum if
-> specified. For FF-A v1.1 and earlier the maximum is unknown, so patch 2
-> deals with this by first attempting FFA_RXTX_MAP with the page-aligned
-> buffer size (preserving the behavior introduced by commit 83210251fd70).
-> If this fails due to invalid parameters it retries with the minimum buffer
-> size from FFA_FEATURES.
+> This works but is problematic in a PREEMPT_RT environment where the
+> latency of the invocation is important. By scheduling a kworker the
+> high task priority from the threaded handler is lost and the kworker
+> competes for CPU ressources with every SCHED_OTHER task in the system.
+> This can lead to long delays on a busy system with other RT threads
+> which are less important than the completion of this request.
 > 
-> Testing was done with FF-A v1.1 and v1.2 implementations, both of which
-> reject buffer sizes larger than 4K. Both implementations were tested with
-> 4K, 16K, and 64K pages. Without these patches, probe fails for page sizes
-> larger than 4K with the message "failed to register FFA RxTx buffers."
-> With the patches probe succeeds for all page sizes.
+> Looking over other mailbox driver, like the arm_mhu for instance, they
+> use a threaded interrupt handler to invoke the callback. This avoids the
+> kworker detour.
 > 
-> The patches are based on for-next/ffa/fixes.
-
-for-next/ffa/updates has patches queued for v7.2.
-
+> The here suggested change utilises a threaded interrupt to invoke the
+> callback. The primary handler mask the interrupt source so that the
+> handler can run without getting interrupted by the interrupt again.
+> Doing so avoids marking the interrupt IRQF_ONESHOT so that that in a
+> shared-interrupt environment the other interrupt can still fire while
+> the first one is masked.
 > 
-> Signed-off-by: Seth Forshee <sforshee@nvidia.com>
+> This change was tested on a im93 board with rpmsg-tty driver.
+> 
+> Signed-off-by: Sebastian Andrzej Siewior <bigeasy@linutronix.de>
 > ---
-> Seth Forshee (2):
->       firmware: arm_ffa: Honor maximum RX/TX buffer size
->       firmware: arm_ffa: Fall back to minimum buffer size if RXTX_MAP fails
+> Sebastian Andrzej Siewior (5):
+>       mailbox: imx: Start splitting the IRQ handler in primary and threaded handler
+>       mailbox: imx: Move the RX part of the mailbox into the threaded handler
+>       mailbox: imx: Move the RXDB part of the mailbox into the threaded handler
+>       mailbox: imx: Don't force-thread the primary handler
+>       remoteproc: imx_rproc: Invoke the callback directly
 > 
->  drivers/firmware/arm_ffa/driver.c | 51 ++++++++++++++++++++++++++++++++++-----
->  1 file changed, 45 insertions(+), 6 deletions(-)
+>  drivers/mailbox/imx-mailbox.c  | 65 +++++++++++++++++++++++++++++++++---------
+>  drivers/remoteproc/imx_rproc.c | 33 +--------------------
 
-Wondering if these 2 fixes can be merged into one and simplified something
-like(untested) patch below(rebased on linux-next or for-next/ffa/updates)
+For imx_rproc.c:
 
-Regards,
-Sudeep
+Reviewed-by: Mathieu Poirier <mathieu.poirier@linaro.org>
 
--->8
-diff --git a/drivers/firmware/arm_ffa/driver.c b/drivers/firmware/arm_ffa/driver.c
-index 0f468362c288..5ffe21c568b7 100644
---- a/drivers/firmware/arm_ffa/driver.c
-+++ b/drivers/firmware/arm_ffa/driver.c
-@@ -32,6 +32,7 @@
- #include <linux/interrupt.h>
- #include <linux/io.h>
- #include <linux/kernel.h>
-+#include <linux/minmax.h>
- #include <linux/module.h>
- #include <linux/mm.h>
- #include <linux/mutex.h>
-@@ -59,7 +60,9 @@
-        (FIELD_PREP(SENDER_ID_MASK, (s)) | FIELD_PREP(RECEIVER_ID_MASK, (r)))
+You may also want to fix driver/remoteproc/stm32_rproc.c
 
- #define RXTX_MAP_MIN_BUFSZ_MASK        GENMASK(1, 0)
--#define RXTX_MAP_MIN_BUFSZ(x)  ((x) & RXTX_MAP_MIN_BUFSZ_MASK)
-+#define RXTX_MAP_MAX_BUFSZ_MASK        GENMASK(31, 16)
-+#define RXTX_MAP_MIN_BUFSZ(x)  (FIELD_GET(RXTX_MAP_MIN_BUFSZ_MASK, (x)))
-+#define RXTX_MAP_MAX_BUFSZ(x)  (FIELD_GET(RXTX_MAP_MAX_BUFSZ_MASK, (x)))
-
- #define FFA_MAX_NOTIFICATIONS          64
-
-@@ -2101,7 +2104,7 @@ static int ffa_probe(struct platform_device *pdev)
- {
-        int ret;
-        u32 buf_sz;
--       size_t rxtx_bufsz = SZ_4K;
-+       size_t rxtx_min_bufsz = SZ_4K, rxtx_bufsz, rxtx_max_bufsz = 0;
-
-        if (IS_BUILTIN(CONFIG_ARM_FFA_TRANSPORT) &&
-            is_protected_kvm_enabled() && !is_pkvm_initialized())
-@@ -2132,15 +2135,18 @@ static int ffa_probe(struct platform_device *pdev)
-        ret = ffa_features(FFA_FN_NATIVE(RXTX_MAP), 0, &buf_sz, NULL);
-        if (!ret) {
-                if (RXTX_MAP_MIN_BUFSZ(buf_sz) == 1)
--                       rxtx_bufsz = SZ_64K;
-+                       rxtx_min_bufsz = SZ_64K;
-                else if (RXTX_MAP_MIN_BUFSZ(buf_sz) == 2)
--                       rxtx_bufsz = SZ_16K;
-+                       rxtx_min_bufsz = SZ_16K;
-                else
--                       rxtx_bufsz = SZ_4K;
-+                       rxtx_min_bufsz = SZ_4K;
-+
-+               rxtx_max_bufsz = RXTX_MAP_MAX_BUFSZ(buf_sz) * SZ_4K;
-+               if (rxtx_max_bufsz != 0 && rxtx_max_bufsz < rxtx_min_bufsz)
-+                       rxtx_max_bufsz = rxtx_min_bufsz;
-        }
-
--       rxtx_bufsz = PAGE_ALIGN(rxtx_bufsz);
--       drv_info->rxtx_bufsz = rxtx_bufsz;
-+       rxtx_bufsz = min_not_zero(PAGE_ALIGN(rxtx_min_bufsz), rxtx_max_bufsz);
-        drv_info->rx_buffer = alloc_pages_exact(rxtx_bufsz, GFP_KERNEL);
-        if (!drv_info->rx_buffer) {
-                ret = -ENOMEM;
-@@ -2156,10 +2162,17 @@ static int ffa_probe(struct platform_device *pdev)
-        ret = ffa_rxtx_map(virt_to_phys(drv_info->tx_buffer),
-                           virt_to_phys(drv_info->rx_buffer),
-                           rxtx_bufsz / FFA_PAGE_SIZE);
-+       if (ret == -EINVAL && !rxtx_max_bufsz && rxtx_min_bufsz < rxtx_bufsz) {
-+               rxtx_bufsz = rxtx_min_bufsz;
-+               ret = ffa_rxtx_map(virt_to_phys(drv_info->tx_buffer),
-+                                  virt_to_phys(drv_info->rx_buffer),
-+                                  rxtx_bufsz / FFA_PAGE_SIZE);
-+       }
-        if (ret) {
-                pr_err("failed to register FFA RxTx buffers\n");
-                goto free_pages;
-        }
-+       drv_info->rxtx_bufsz = rxtx_bufsz;
-
-        mutex_init(&drv_info->rx_lock);
-        mutex_init(&drv_info->tx_lock);
-
-
+>  2 files changed, 53 insertions(+), 45 deletions(-)
+> ---
+> base-commit: 9e171fc1d7d7ab847a750c03571c87ac3c17bd84
+> change-id: 20260529-imx_mbox_rproc-7d512f5a6f78
+> 
+> Best regards,
+> -- 
+> Sebastian Andrzej Siewior <bigeasy@linutronix.de>
+> 
 
