@@ -4,79 +4,97 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 59CD0CD6E55
-	for <linux-arm-kernel@archiver.kernel.org>; Wed,  3 Jun 2026 09:31:17 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 7E10DCD6E64
+	for <linux-arm-kernel@archiver.kernel.org>; Wed,  3 Jun 2026 09:36:41 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=9AerHmbjV83y9A55r5tKc0QfFhPXJXRVsUh6a0eEv+0=; b=4YPH0eiwaLSEGX3U9snWcx4GBB
-	Wsj/P0MZEHoUeylTHz/kVSred4l6efKogsFNQSZN3Z5oGcRyoIP3N6MRc+zJH6PkZKEc/XpiI6CZU
-	SDQsq1rldlTQOFuYVTE2a1BnXkt3GUvPwFOeHZEjJlgiiAbYp2azLyGWQrcoIn/9AiLyUAqD8GsSt
-	l3sk8u3QmZHQRyiICPXwwKehDkST+3ckKwIdd01wFSh32HqpmbEIk1bgNklSYXk3PTy7f5dCG9gZ7
-	U2jFDQSa00HUTu2VEiJk9+H12DFkgv4hDxspPtaeVthPpFnKB2l8wrCPxBw0V8t/H3eP53JzBiezD
-	c13t8fKw==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:
+	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=BZaK2VHMmtg9p9ZKczMZbO5H9m/De8saV7x8KOEKEY4=; b=CUO2bdWcGock7E4CD5qd8UPen+
+	hhNQGM/RMYM1Asuie1ybvLPznq9eu4tWS6kzP202v6fbpOV6HvQPsbesqSyZFSzOadg4N3Wdw2Q8U
+	vqLQJzajaaVJzvmy1/JQQqC6Mn/MJrpRiKdx+hBaYH8ssb0sLzuDUj10z8e2lqdtjz/YZtJ8H14Zk
+	mzn1rbXUpRba2SVDg+f1ux3wpMMhsi7j51/Vbg6DVqXg0UvlvQfTiQRYOQHm/2G6clcWm5ZP/xIKj
+	27W9jCJQDzjgxmDyHczhO+ml6Gu4RWq+JsJc12C53PqU+Ft3qHsIN/641aPuPDoVqAPYzjGgqT/pB
+	OrAId5yA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wUhwN-0000000EiB1-0HiV;
-	Wed, 03 Jun 2026 09:31:11 +0000
+	id 1wUi1b-0000000Eig6-0i3z;
+	Wed, 03 Jun 2026 09:36:35 +0000
 Received: from desiato.infradead.org ([2001:8b0:10b:1:d65d:64ff:fe57:4e05])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wUhwL-0000000EiAl-1Yy3
+	id 1wUi1Z-0000000EifY-1fhs
 	for linux-arm-kernel@bombadil.infradead.org;
-	Wed, 03 Jun 2026 09:31:09 +0000
+	Wed, 03 Jun 2026 09:36:33 +0000
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=infradead.org; s=desiato.20200630; h=In-Reply-To:Content-Type:MIME-Version:
-	References:Message-ID:Subject:Cc:To:From:Date:Sender:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description;
-	bh=9AerHmbjV83y9A55r5tKc0QfFhPXJXRVsUh6a0eEv+0=; b=UxnM/YgK9Pq2gZiX/bgUV+25SL
-	GhS+atkcSfezMBa5P67CSS4G9bFMCwndIe5nwO11KBs5sT5UImuyhcJe4dC79PYjnzmyppkIVLEH9
-	VjfFnhKjyHDmz6eF8NtbCI+QX4g/3NkO4qiy7Mc1khvR4jB51yik/obcyYyvmFhQjbP6irNMM9Hqu
-	kbJm2tdPG2JqV8kCo4xXWfgzXipk881DHrMQvFnRsN/AkOSJAmm/tIYRoVboVDWkmUovm6dupTp/9
-	B3CJv+Kqbc5u9s6YNM36bd/uvwihtMb803zvLv1AviaNLjkJ3Vqc7z9cSvs0g2jaUs1rIj6paHa4N
-	Fy0zyh5A==;
-Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
+	d=infradead.org; s=desiato.20200630; h=Content-Transfer-Encoding:MIME-Version
+	:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:Sender:Reply-To:
+	Content-Type:Content-ID:Content-Description;
+	bh=BZaK2VHMmtg9p9ZKczMZbO5H9m/De8saV7x8KOEKEY4=; b=KJ6gUp/WoHPKJh+2f2AnVyrgL9
+	t8TD3OqayRUpAQSKIJnQjIH4hIrr2/RCDESzKYTR19A8ZVwDzsmlrDT3IrovYL4xD0FfvuDu3ZErS
+	IVUwKuupnnkjADiUAFbS3ha3vxXVlMJxpDlTPTsjX952pDPFmnJp/ReAnXlBwR4qUoe6f06VbSUe5
+	SWpbE3HGhkQvYCTRp/giMFANzGZ2xL1LzSGvab/WpbPsOO/cSczEgjmtE5dYC8z4oS7UUmj83IJTo
+	CBHKga4upFzDwyZvlDdkif1UfpKA8+71VOixcqQvQR7Jc+X6azeJzSjpOeVVIDxU/F4dNlI0ar5lI
+	/k26zFmg==;
+Received: from www537.your-server.de ([188.40.3.216])
 	by desiato.infradead.org with esmtps (Exim 4.99.2 #2 (Red Hat Linux))
-	id 1wUhwI-0000000Bihn-1cl3
+	id 1wUi1U-0000000BjS2-3ztF
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 03 Jun 2026 09:31:08 +0000
-Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
-	by sea.source.kernel.org (Postfix) with ESMTP id 54EB741919;
-	Wed,  3 Jun 2026 09:31:03 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 63BFD1F00893;
-	Wed,  3 Jun 2026 09:31:01 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1780479063;
-	bh=9AerHmbjV83y9A55r5tKc0QfFhPXJXRVsUh6a0eEv+0=;
-	h=Date:From:To:Cc:Subject:References:In-Reply-To;
-	b=gKLZwikIl6VoRszNhPOK/+zp4BVbh6zVW6r8nz2fnlagc02qK642z4MrYzSbbssSw
-	 e7JRRtsWorSrBHsqNO4xQhZX12YvUZbRJbVTQ2g2v0dWqWlV7FcMsFv/gwZ1YbvAz0
-	 +vUddHj3B1Vt+6On03NYjYrOLTNGii7X2GDulHv8wWBGP1eMar/AVYvKii2fLfKfrm
-	 0lkbEmJx1jNscxT8WjJBtidHIfJBhvcIAVXKh6fs6J0R4qn80HyhT5CqDeW90HtbMU
-	 qGIcCmuNydBim+RvY5zxFR24oGjQ8AdFIwPqZNwo0cswOM4hMbD0viAWZ5Pj1Y6t2d
-	 hnbSm0QXnB0Yg==
-Date: Wed, 3 Jun 2026 10:30:58 +0100
-From: Mark Brown <broonie@kernel.org>
-To: Chi-Wen Weng <cwweng.linux@gmail.com>
-Cc: robh@kernel.org, krzk+dt@kernel.org, conor+dt@kernel.org,
-	linux-arm-kernel@lists.infradead.org, linux-spi@vger.kernel.org,
-	devicetree@vger.kernel.org, linux-kernel@vger.kernel.org,
-	cwweng@nuvoton.com
-Subject: Re: [PATCH 2/2] spi: Add Nuvoton MA35D1 QSPI controller support
-Message-ID: <d32634eb-4eed-46e6-b378-d42df0b1c75e@sirena.org.uk>
-References: <20260603043551.1062112-1-cwweng.linux@gmail.com>
- <20260603043551.1062112-3-cwweng.linux@gmail.com>
+	Wed, 03 Jun 2026 09:36:30 +0000
+DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
+	d=ew.tq-group.com; s=default2602; h=Content-Transfer-Encoding:MIME-Version:
+	References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:Sender:Reply-To:
+	Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID;
+	bh=BZaK2VHMmtg9p9ZKczMZbO5H9m/De8saV7x8KOEKEY4=; b=T4QnKWfWMsdjwLf8PIw0nccGrG
+	BULX9cqKezLixwOGCTXPG0WkmduC/w4uBUaTy4+0NoMrwQTQljo71F+HiFg90EN2Y0QMD7gOivVaX
+	UNf23mtGe0IA0nkxAjsJxvGh1IcI6j6PZMiVDyA7pMNYqVMgLIGsEhS+02lZ27j6rPlZcUwhgSPQo
+	yF0W0TILrbUPPkuif5e8uAN4Yi/2ddHp9wUVddAwENZ+Fv8CHp6EzgJoXbV2hB4TBU46zI0y65oce
+	/EJkGZLu3X+D3BNttb08TgQ85r3hu+qfd+uivL908bW+fnnjKsgtGbiZET9oD+2xjlmX5aEnrwf0P
+	YtNUblHA==;
+Received: from sslproxy05.your-server.de ([78.46.172.2])
+	by www537.your-server.de with esmtpsa  (TLS1.3) tls TLS_AES_256_GCM_SHA384
+	(Exim 4.96.2)
+	(envelope-from <alexander.stein@ew.tq-group.com>)
+	id 1wUi1T-00030V-2A;
+	Wed, 03 Jun 2026 11:36:27 +0200
+Received: from localhost ([127.0.0.1])
+	by sslproxy05.your-server.de with esmtpsa  (TLS1.3) tls TLS_AES_256_GCM_SHA384
+	(Exim 4.96)
+	(envelope-from <alexander.stein@ew.tq-group.com>)
+	id 1wUi1S-000Hpl-1A;
+	Wed, 03 Jun 2026 11:36:27 +0200
+From: Alexander Stein <alexander.stein@ew.tq-group.com>
+To: Rob Herring <robh@kernel.org>,
+	Krzysztof Kozlowski <krzk+dt@kernel.org>,
+	Conor Dooley <conor+dt@kernel.org>,
+	Frank Li <Frank.Li@nxp.com>,
+	Sascha Hauer <s.hauer@pengutronix.de>,
+	Pengutronix Kernel Team <kernel@pengutronix.de>,
+	Fabio Estevam <festevam@gmail.com>,
+	Geert Uytterhoeven <geert+renesas@glider.be>,
+	Magnus Damm <magnus.damm@gmail.com>,
+	Shawn Guo <shawnguo@kernel.org>
+Cc: Alexander Stein <alexander.stein@ew.tq-group.com>,
+	devicetree@vger.kernel.org,
+	linux-kernel@vger.kernel.org,
+	imx@lists.linux.dev,
+	linux-arm-kernel@lists.infradead.org,
+	linux@ew.tq-group.com,
+	linux-renesas-soc@vger.kernel.org
+Subject: [PATCH v4 4/4] arm64: dts: freescale: Add dual-channel LVDS overlay for TQMa8MPxS
+Date: Wed,  3 Jun 2026 11:36:09 +0200
+Message-ID: <20260603093621.2504490-4-alexander.stein@ew.tq-group.com>
+X-Mailer: git-send-email 2.54.0
+In-Reply-To: <20260603093621.2504490-1-alexander.stein@ew.tq-group.com>
+References: <20260603093621.2504490-1-alexander.stein@ew.tq-group.com>
 MIME-Version: 1.0
-Content-Type: multipart/signed; micalg=pgp-sha512;
-	protocol="application/pgp-signature"; boundary="UGarUI9v4pCN0SBM"
-Content-Disposition: inline
-In-Reply-To: <20260603043551.1062112-3-cwweng.linux@gmail.com>
-X-Cookie: micro:
+Content-Transfer-Encoding: 8bit
+X-Virus-Scanned: Clear (ClamAV 1.4.3/28019/Tue Jun  2 08:33:27 2026)
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260603_103106_796103_642EFCB2 
-X-CRM114-Status: GOOD (  20.48  )
+X-CRM114-CacheID: sfid-20260603_103629_243286_D9416806 
+X-CRM114-Status: GOOD (  12.77  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -91,95 +109,116 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
+This adds an overlay for the supported LVDS display AUO G133HAN01.
+Configure the video PLL frequency to exactly match typical pixel clock of
+141.200 MHz.
 
---UGarUI9v4pCN0SBM
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
+Signed-off-by: Alexander Stein <alexander.stein@ew.tq-group.com>
+---
+Changes in v4:
+* New to series v4
 
-On Wed, Jun 03, 2026 at 12:35:51PM +0800, Chi-Wen Weng wrote:
+ arch/arm64/boot/dts/freescale/Makefile        |  2 +
+ ...p-tqma8mpqs-mb-smarc-2-lvds-g133han01.dtso | 74 +++++++++++++++++++
+ 2 files changed, 76 insertions(+)
+ create mode 100644 arch/arm64/boot/dts/freescale/imx8mp-tqma8mpqs-mb-smarc-2-lvds-g133han01.dtso
 
-> +config SPI_MA35D1_QSPI
-> +	tristate "Nuvoton MA35D1 QSPI Controller"
-> +	help
-> +	  This driver provides support for Nuvoton MA35D1
-> +	  QSPI controller in master mode.
-> +
+diff --git a/arch/arm64/boot/dts/freescale/Makefile b/arch/arm64/boot/dts/freescale/Makefile
+index dee2bea156740..3f466f102dc1d 100644
+--- a/arch/arm64/boot/dts/freescale/Makefile
++++ b/arch/arm64/boot/dts/freescale/Makefile
+@@ -385,8 +385,10 @@ dtb-$(CONFIG_ARCH_MXC) += imx8mp-tqma8mpql-mba8mp-ras314-imx219.dtbo
+ dtb-$(CONFIG_ARCH_MXC) += imx8mp-tqma8mpql-mba8mp-ras314-lvds-tm070jvhg33.dtb
+ dtb-$(CONFIG_ARCH_MXC) += imx8mp-tqma8mpql-mba8mp-ras314-lvds-tm070jvhg33-imx219.dtb
+ 
++imx8mp-tqma8mpqs-mb-smarc-2-lvds-g133han01-dtbs += imx8mp-tqma8mpqs-mb-smarc-2.dtb imx8mp-tqma8mpqs-mb-smarc-2-lvds-g133han01.dtbo
+ imx8mp-tqma8mpqs-mb-smarc-2-lvds0-tm070jvhg33-dtbs += imx8mp-tqma8mpqs-mb-smarc-2.dtb imx8mp-tqma8mpqs-mb-smarc-2-lvds0-tm070jvhg33.dtbo
+ imx8mp-tqma8mpqs-mb-smarc-2-lvds1-tm070jvhg33-dtbs += imx8mp-tqma8mpqs-mb-smarc-2.dtb imx8mp-tqma8mpqs-mb-smarc-2-lvds1-tm070jvhg33.dtbo
++dtb-$(CONFIG_ARCH_MXC) += imx8mp-tqma8mpqs-mb-smarc-2-lvds-g133han01.dtb
+ dtb-$(CONFIG_ARCH_MXC) += imx8mp-tqma8mpqs-mb-smarc-2-lvds0-tm070jvhg33.dtb
+ dtb-$(CONFIG_ARCH_MXC) += imx8mp-tqma8mpqs-mb-smarc-2-lvds1-tm070jvhg33.dtb
+ 
+diff --git a/arch/arm64/boot/dts/freescale/imx8mp-tqma8mpqs-mb-smarc-2-lvds-g133han01.dtso b/arch/arm64/boot/dts/freescale/imx8mp-tqma8mpqs-mb-smarc-2-lvds-g133han01.dtso
+new file mode 100644
+index 0000000000000..9595cf4d43cd0
+--- /dev/null
++++ b/arch/arm64/boot/dts/freescale/imx8mp-tqma8mpqs-mb-smarc-2-lvds-g133han01.dtso
+@@ -0,0 +1,74 @@
++// SPDX-License-Identifier: (GPL-2.0-or-later OR MIT)
++/*
++ * Copyright (c) 2025-2026 TQ-Systems GmbH <linux@ew.tq-group.com>,
++ * D-82229 Seefeld, Germany.
++ * Author: Martin Schmiedel
++ */
++
++/dts-v1/;
++/plugin/;
++
++&backlight_lvds0 {
++	status = "okay";
++};
++
++&panel_lvds0 {
++	compatible = "auo,g133han01";
++	status = "okay";
++
++	ports {
++		#address-cells = <1>;
++		#size-cells = <0>;
++
++		port@0 {
++			reg = <0>;
++			dual-lvds-odd-pixels;
++
++			panel_in_lvds0: endpoint {
++				remote-endpoint = <&ldb_lvds_ch0>;
++			};
++		};
++
++		port@1 {
++			reg = <1>;
++			dual-lvds-even-pixels;
++
++			panel_in_lvds1: endpoint {
++				remote-endpoint = <&ldb_lvds_ch1>;
++			};
++		};
++	};
++};
++
++&lcdif2 {
++	status = "okay";
++};
++
++&lvds_bridge {
++	status = "okay";
++
++	ports {
++		port@1 {
++			ldb_lvds_ch0: endpoint {
++				remote-endpoint = <&panel_in_lvds0>;
++			};
++		};
++
++		port@2 {
++			ldb_lvds_ch1: endpoint {
++				remote-endpoint = <&panel_in_lvds1>;
++			};
++		};
++	};
++};
++
++// Update VIDEO_PLL1 frequency
++&media_blk_ctrl {
++	assigned-clock-rates = <500000000>, <200000000>,
++			       <0>, <0>, <500000000>,
++			       <988400000>;
++};
++
++&pwm3 {
++	status = "okay";
++};
+-- 
+2.54.0
 
-Other drivers for this SoC seem to have ARCH_MA35 || COMPILE_TEST?
-
-> @@ -0,0 +1,579 @@
-> +// SPDX-License-Identifier: GPL-2.0-or-later
-> +/*
-> + * Nuvoton MA35D1 QSPI controller driver
-> + *
-> + * Copyright (c) 2026 Nuvoton Technology Corp.
-> + * Author: Chi-Wen Weng <cwweng@nuvoton.com>
-> + */
-
-Please make the entire comment a C++ one so things look more
-intentional.
-
-> +static void nuvoton_qspi_set_cs(struct spi_device *spi, bool enable)
-> +{
-> +	struct nuvoton_qspi *qspi = spi_controller_get_devdata(spi->controller);
-> +	unsigned int cs = spi_get_chipselect(spi, 0);
-> +	u32 mask;
-> +	u32 val;
-> +
-> +	if (cs == 0)
-> +		mask = NUVOTON_QSPI_SSCTL_SS0_MASK;
-> +	else
-> +		mask = NUVOTON_QSPI_SSCTL_SS1_MASK;
-> +
-> +	val = nuvoton_qspi_read(qspi, NUVOTON_QSPI_SSCTL_OFFSET);
-> +
-> +	/* SPI core passes enable=true when CS is asserted (typically active-low) */
-> +	if (enable)
-> +		val |= mask;
-> +	else
-> +		val &= ~mask;
-> +
-> +	nuvoton_qspi_write(qspi, val, NUVOTON_QSPI_SSCTL_OFFSET);
-> +}
-
-Note that the core deals with SPI_CS_HIGH, the driver doesn't need to...
-
-> +static int nuvoton_qspi_mem_exec_op(struct spi_mem *mem,
-> +				    const struct spi_mem_op *op)
-> +{
-> +	struct spi_device *spi = mem->spi;
-> +	struct nuvoton_qspi *qspi = spi_controller_get_devdata(spi->controller);
-> +	u8 addr[4];
-> +	int ret;
-> +	int i;
-> +
-> +	ret = nuvoton_qspi_setup_transfer(spi, NULL);
-> +	if (ret)
-> +		return ret;
-
-This uses spi->max_speed_hz but spi_mem configures p->max_freq which you
-should use (it might be lower).
-
-> +
-> +	nuvoton_qspi_set_cs(spi, true);
-
-...except where you're calling in directly at which point the driver
-needs to figure this out.
-
---UGarUI9v4pCN0SBM
-Content-Type: application/pgp-signature; name="signature.asc"
-
------BEGIN PGP SIGNATURE-----
-
-iQEzBAABCgAdFiEEreZoqmdXGLWf4p/qJNaLcl1Uh9AFAmof9FEACgkQJNaLcl1U
-h9AGigf+PXAtexduRP/S5ai2U1yA1oOZHH5GxgE1+Oyoyq8Z+QkGmkVCjl4ru80E
-7R1XMoIB0CB46+Pkd4+3bvwxfWTqLtrdknVUatHO/QcvWOezFdEk3sPF3XOyEfdH
-S/u1vxPWFi+L6ywy2OdG0gFt7aYJIZAc7l1SZNe5C7Ck0HLpY1O5sajk+Gu08tY5
-UeskE7hA23JmD14+jzbM8yMVyVHVYNwpIq9Y2cfA7I8Hxe+wkLVGnN46FIgzXrsI
-ZwHk1Y48hGsKqqHjLdkiYvv5kHAKI+3uoJNicUuhycLo9980PDh999clA/7+RPUL
-Uzf+IFtyZ0vuj1TsWQ90yUArWSfLLw==
-=PW/z
------END PGP SIGNATURE-----
-
---UGarUI9v4pCN0SBM--
 
