@@ -4,71 +4,82 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id E04DDCD6E55
-	for <linux-arm-kernel@archiver.kernel.org>; Wed,  3 Jun 2026 14:13:38 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 7868DCD6E57
+	for <linux-arm-kernel@archiver.kernel.org>; Wed,  3 Jun 2026 14:20:11 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
-	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=SnV3qkM8vXKz87ni6r4AwY45doVDY/GJzEej5br5st4=; b=BODvh3oIhJOJaqT6yiMhvsXrPt
-	yw41tklG0AOKHYJERXzB9KvHcp8bP+7dOzuVp2G/ChfDpREd4Pc4lXt4leazz8iiTol80JpoYQp7x
-	rUjR4/NRiX3ZttP0Yst6qXZiQxTiSKbYimW5iGU5KPCH3/Q5y7hQqhd/MHrxAlmLWxc6lfvgEqJT/
-	n+eEwDU0bKixiUOWol6AssTGYEL52jAvQubwovI/pweWrQHlBoyeKtTYNezze2Xs4xNHIbUf0ixIE
-	rQLeTAAzJC5ZWCw95p7ZsHFZjueOxKgv/HLFUwUjTrIxQwUz+fQrxqjqc7FokFjmJLb1pn9sdXwcV
-	j2E276tA==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=ZN3EAPjcfRHByZ0TBbBSnzSEdQWlPtyMnaOEoRpWKrM=; b=gFqQO3JYR1rHqKDU69oySMsKB5
+	ApUDaJ3ZaxY+grkL6145Yu4DchfEd6qHaitHDHSMrw0cUTLfCYGiNydNaqpvxA4ytCkZ5K5CbVX4W
+	Yv4XHsa7Ez286mg5khNE2oE+HYMVc+9AC4y+anvDSERDsQJOhiYsjmFU3+RtWkwE1Lfx+c1VvD8oS
+	QIzzrIU7qmpUlgCy9cpkbBPnGSeKEmLdP1hYYEwtV9i/CVP2ElP/qkA5JfS4mNodIDtWVgVyPQMOg
+	4hMO/J2ZfuQPk73CYoSgBVMkatW1LG3Us/eIdW7rHCtk3aC32nTcwAVZZdBsEJgsTHh5aFQvDfNFw
+	nLCwM6ig==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wUmLb-0000000FEC8-3lHU;
-	Wed, 03 Jun 2026 14:13:31 +0000
-Received: from mout-p-101.mailbox.org ([2001:67c:2050:0:465::101])
+	id 1wUmRw-0000000FEds-2JPV;
+	Wed, 03 Jun 2026 14:20:04 +0000
+Received: from mgamail.intel.com ([192.198.163.12])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wUmLZ-0000000FEAx-3PAI
+	id 1wUmRu-0000000FEcf-0Ssj
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 03 Jun 2026 14:13:31 +0000
-Received: from smtp102.mailbox.org (smtp102.mailbox.org [IPv6:2001:67c:2050:b231:465::102])
-	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
-	 key-exchange X25519 server-signature RSA-PSS (4096 bits) server-digest SHA256)
-	(No client certificate requested)
-	by mout-p-101.mailbox.org (Postfix) with ESMTPS id 4gVqRV1nDbz9tjf;
-	Wed,  3 Jun 2026 16:13:10 +0200 (CEST)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=mailbox.org; s=mail20150812;
-	t=1780495990;
-	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
-	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
-	 content-transfer-encoding:content-transfer-encoding:
-	 in-reply-to:in-reply-to:references:references;
-	bh=SnV3qkM8vXKz87ni6r4AwY45doVDY/GJzEej5br5st4=;
-	b=nVumAYB24WEopxRdmCdptRc4D/aq1fAw6mjBWBUfeCdAlb72LbldJGbWxmcNADb205l5sj
-	eJibB9U22Hqdqc6bPWYdewugZZXcCIf14qEaASFwzENFVwkX2xPinyzvNM2nYInetX2n6d
-	GfWFIPQB9ni0LUnqu2QgO+iw0NC2AuJg3r5K0wzaNFv+WTuE/vQSsgIX6A3sFi7OUKYcVj
-	Zcj/Qv/396S0+09Pm38CN8AIGqqD3tz8NrysrNozXiy5+KetjZg5LNcv/4zK/lDlomnqa6
-	RxQi/eqRjSeMnWvr/XGWJEq+1/pZw6RcQo+tkFSZ7CmnlxxUcfp3zxbYKxSKmg==
-Message-ID: <a5535498-ea43-42ab-9cff-0ad53551737b@mailbox.org>
-Date: Wed, 3 Jun 2026 16:13:06 +0200
+	Wed, 03 Jun 2026 14:20:03 +0000
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple;
+  d=intel.com; i=@intel.com; q=dns/txt; s=Intel;
+  t=1780496402; x=1812032402;
+  h=date:from:to:cc:subject:message-id:references:
+   mime-version:in-reply-to;
+  bh=vwsFzcfP/4JAioQo/Nb7KCVYo0sn23L12Vil+WJYSDQ=;
+  b=DkV6tBBjz2aPRaiyoi8brweNcEcnuFcrXG29toeQ4HduAAyrAvya8d0y
+   klUMcles78DpCR9icwyZfCbYe2DGtJh6SWFDMdVmBCIz9jbHwZnNUKxH3
+   nijTec5CwcFy4CjKOCvEOg/Dowoxhkz6TFdj1ZDGOWb3OJQeW1oPsbPjY
+   nuWd3mU52s6fmzoVc+8sRlfyDT9U6iM+LuvyU8zqq4sVmYD3OTkh7cFJh
+   5Ui7NFvqP4S+mFi8f2BLzMXUE1kKdEq7AHzu84BmhafgUCuZUGrYmc310
+   NtjOgbpBVpvDImIa4GHEUFaLOldpJk6dwme+4gM0abIb96MXEvBOCodc/
+   g==;
+X-CSE-ConnectionGUID: qtpHtEIkTbCHpnMP8qBkUQ==
+X-CSE-MsgGUID: /6a1fCZ0TKK7rbjNWM2QsQ==
+X-IronPort-AV: E=McAfee;i="6800,10657,11805"; a="85162028"
+X-IronPort-AV: E=Sophos;i="6.24,185,1774335600"; 
+   d="scan'208";a="85162028"
+Received: from fmviesa006.fm.intel.com ([10.60.135.146])
+  by fmvoesa106.fm.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 03 Jun 2026 07:20:00 -0700
+X-CSE-ConnectionGUID: LoSveQ9VTW+tmjlePSRlKg==
+X-CSE-MsgGUID: 5Nn22IyPSTyv6aezcUX4uw==
+X-ExtLoop1: 1
+X-IronPort-AV: E=Sophos;i="6.24,185,1774335600"; 
+   d="scan'208";a="239778637"
+Received: from slindbla-desk.ger.corp.intel.com (HELO localhost) ([10.245.244.250])
+  by fmviesa006-auth.fm.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 03 Jun 2026 07:19:56 -0700
+Date: Wed, 3 Jun 2026 17:19:54 +0300
+From: Andy Shevchenko <andriy.shevchenko@intel.com>
+To: Petar Stepanovic <pstepanovic@axiado.com>
+Cc: Akhila Kavi <akavi@axiado.com>,
+	Prasad Bolisetty <pbolisetty@axiado.com>,
+	Jonathan Cameron <jic23@kernel.org>,
+	David Lechner <dlechner@baylibre.com>,
+	Nuno =?iso-8859-1?Q?S=E1?= <nuno.sa@analog.com>,
+	Andy Shevchenko <andy@kernel.org>, Rob Herring <robh@kernel.org>,
+	Krzysztof Kozlowski <krzk+dt@kernel.org>,
+	Conor Dooley <conor+dt@kernel.org>, Harshit Shah <hshah@axiado.com>,
+	linux-iio@vger.kernel.org, devicetree@vger.kernel.org,
+	linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org
+Subject: Re: [PATCH 0/3] Subject: [PATCH 0/3] iio: adc: Add Axiado SARADC
+ driver
+Message-ID: <aiA4CocrAmUCKDKn@ashevche-desk.local>
+References: <20260528-axiado-ax3000-ax3005-saradc-v1-0-345dd5f6608a@axiado.com>
 MIME-Version: 1.0
-Subject: Re: [PATCH] arm64: dts: renesas: r8a78000: Enable application CPU
- cores via PSCI
-To: Geert Uytterhoeven <geert@linux-m68k.org>
-Cc: linux-arm-kernel@lists.infradead.org, Conor Dooley <conor+dt@kernel.org>,
- Krzysztof Kozlowski <krzk+dt@kernel.org>, Magnus Damm
- <magnus.damm@gmail.com>, Rob Herring <robh@kernel.org>,
- devicetree@vger.kernel.org, linux-kernel@vger.kernel.org,
- linux-renesas-soc@vger.kernel.org
-References: <20260601113919.8327-1-marek.vasut+renesas@mailbox.org>
- <CAMuHMdXGJ+Ww+ek3KLvrnFKpw2cJn=RB8q3k=W6ECVgtw-zK6Q@mail.gmail.com>
-Content-Language: en-US
-From: Marek Vasut <marek.vasut@mailbox.org>
-In-Reply-To: <CAMuHMdXGJ+Ww+ek3KLvrnFKpw2cJn=RB8q3k=W6ECVgtw-zK6Q@mail.gmail.com>
-Content-Type: text/plain; charset=UTF-8; format=flowed
-Content-Transfer-Encoding: 7bit
-X-MBO-RS-ID: e6913ec3d3745fd1b4a
-X-MBO-RS-META: ffe1ti4tsfjmtqc1bf9w344pn51uzy9c
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+In-Reply-To: <20260528-axiado-ax3000-ax3005-saradc-v1-0-345dd5f6608a@axiado.com>
+Organization: Intel Finland Oy - BIC 0357606-4 - c/o Alberga Business Park, 6
+ krs, Bertel Jungin Aukio 5, 02600 Espoo
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260603_071330_338100_B249AA8B 
-X-CRM114-Status: UNSURE (   9.39  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20260603_072002_171608_8B2D0E88 
+X-CRM114-Status: GOOD (  13.75  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -83,32 +94,27 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On 6/3/26 2:42 PM, Geert Uytterhoeven wrote:
-
-Hello Geert,
-
-> On Mon, 1 Jun 2026 at 13:39, Marek Vasut
-> <marek.vasut+renesas@mailbox.org> wrote:
->> Add PSCI "enable-method" DT property to all application CPU cores.
->> This allows the OS to bring application CPU cores up and down.
->>
->> Signed-off-by: Marek Vasut <marek.vasut+renesas@mailbox.org>
+On Thu, May 28, 2026 at 01:10:22AM -0700, Petar Stepanovic wrote:
+> This series adds support for the SAR ADC controller found on Axiado
+> AX3000 and AX3005 SoCs.
 > 
-> Reviewed-by: Geert Uytterhoeven <geert+renesas@glider.be>
-> i.e. will queue in renesas-devel for v7.3.
+> The controller is a 10-bit ADC. AX3000 has sixteen input channels and
+> AX3005 has eight input channels. The driver uses SoC match data to
+> select the number of available channels for each compatible.
 > 
->> NOTE: This depends mainline TFA 2.15 or newer (or SDK TFA version
->>        which includes b950bc09f5e9 ("plat: rcar_gen5: Fix multicore
->>        boot by ensuring fixed address for plat_secondary_reset"))
->>        and on SDK 4.32 or newer SCP firmware.
-> 
-> I assume SDK 4.32 includes a sufficiently new TFA
+> The driver supports single-shot voltage reads through the IIO subsystem
+> and uses the reference voltage regulator for scale calculation.
 
-It does not, but it does include sufficiently patched old TFA.
+Always explain:
+- why do we need a brand new driver?
+- where can we read the datasheet (Link)?
 
-[...]
+No need to resend for that right now, just reply here
+(also do not forget to include in a new version).
 
 -- 
-Best regards,
-Marek Vasut
+With Best Regards,
+Andy Shevchenko
+
+
 
