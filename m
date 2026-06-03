@@ -4,82 +4,67 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 2C319CD6E4A
-	for <linux-arm-kernel@archiver.kernel.org>; Wed,  3 Jun 2026 07:05:03 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 356BECD6E55
+	for <linux-arm-kernel@archiver.kernel.org>; Wed,  3 Jun 2026 07:09:27 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:MIME-Version:Date:Message-Id:Subject:References:In-Reply-To:Cc:
-	To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=Z6/ckCFcgr4XWtYBVVRtL+Ct7dfjpf8dESf8wUMG9iA=; b=Wy8w6TfmWd2y8YgKfHQG8GitCH
-	dspfPGlgRJBiuRTxXgqoQE5JQVmNy7F71HHWRbZgrUFqoFCCzWjpKiShU7ibOMSiZTcjAIcdK7BSC
-	8XTFcHIrdFlKb94pjrQ+g6A8pGv8YdiS0ngWyYmROz1MvDMlyAQsKvECxcy9538U21BXJ24J9VEMD
-	gQpOp0JEl8PCr4vcH7QAMPtX1VRGH77ukCwSoabI53cG/qTeUE2sYLH7GKA6dpGAdbOP9IpQ3l8I6
-	NgjwoA7Yjh3RlwDU1I4n/lMOq4R7sbkNCScnzuosi3KS4yMhkg6rNtiTEA2/AA5Sg3FZOQ8oK6nK9
-	Q6/n9LnA==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=tJ0eBPoOv/JpwRjPZ38KgLzK58Xw2bMW0W/NSctuIjg=; b=3AvwxrtKL6ozi0YynmeCmpHtVF
+	eMUkcXjtuSUvvCLZslX69yZH8R/9tCbK2pSHVuk6SaR4hhN0DU4rpVdyYrEShNMRr3opCN2BnOneE
+	WY91J1I8WKpkRcjRmwPdCxC96kbberbjnL5nxQ3NY7zPQ5/HT7X9EytWSEWmMfBiyvYLa3Sfv5IDa
+	5RFTHxXKjpLJYg2CespcRn3Mgct1q/eX5cQSwiunDOYuCwDXQ8vG973QWUF3azudmvhIXpi4Lghq4
+	+s8JhK3p/RPNVMXP2tpVTCp/0ghoOstlOnhzjd3D8Ca8ryxWL503JaQOZfP6XZ3cW1XefaGNzkp+c
+	oEm8uiRQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wUfer-0000000EQjl-0rhA;
-	Wed, 03 Jun 2026 07:04:57 +0000
-Received: from tor.source.kernel.org ([172.105.4.254])
+	id 1wUfj7-0000000ERHx-0Uzd;
+	Wed, 03 Jun 2026 07:09:21 +0000
+Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wUfeq-0000000EQjD-24IB;
-	Wed, 03 Jun 2026 07:04:56 +0000
+	id 1wUfj4-0000000ERHW-3xWv;
+	Wed, 03 Jun 2026 07:09:20 +0000
 Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
-	by tor.source.kernel.org (Postfix) with ESMTP id E497D60221;
-	Wed,  3 Jun 2026 07:04:55 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id F2AB01F00893;
-	Wed,  3 Jun 2026 07:04:50 +0000 (UTC)
+	by sea.source.kernel.org (Postfix) with ESMTP id 3170F4192D;
+	Wed,  3 Jun 2026 07:09:18 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 8AA591F00893;
+	Wed,  3 Jun 2026 07:09:17 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1780470295;
-	bh=Z6/ckCFcgr4XWtYBVVRtL+Ct7dfjpf8dESf8wUMG9iA=;
-	h=From:To:Cc:In-Reply-To:References:Subject:Date;
-	b=k7GUF5l8oVabuD+5BF+MS3uw4cnRpVWa0H9A8XsabOvcehxVWo/UOmOl7lbVnx/xR
-	 vXTAqLIG03CbQJJvJ2Xudfmx2KTlfBE6II/bziCPeyHDEx3ItGbaKDCU2iNhpmhj8X
-	 nhyCi7ALSVu5THk832x+1HOlZHA+bDbNQ4LNIEUb8XQkl3nuN04yr2yrsLI87QXKVC
-	 b6+r/7zveWoKebATm7JJZqLTqcgpWRZF7yf74WcjFe56NfWlWrc+8wotLW9P9EGYl1
-	 47PVl5HfiM1W4WxxR6r5SnR11WQglvtEUpxZ3E79C6zLpJpLfkUsgNLUK9ux1E7oqt
-	 lQCmLonveBqVw==
-From: Mark Brown <broonie@kernel.org>
-To: Liam Girdwood <lgirdwood@gmail.com>, 
- =?utf-8?q?Uwe_Kleine-K=C3=B6nig_=28The_Capable_Hub=29?= <u.kleine-koenig@baylibre.com>
-Cc: Chanwoo Choi <cw00.choi@samsung.com>, 
- Krzysztof Kozlowski <krzk@kernel.org>, 
- Javier Martinez Canillas <javier@dowhile0.org>, 
- Matthias Brugger <matthias.bgg@gmail.com>, 
- AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>, 
- =?utf-8?q?Andr=C3=A9_Draszik?= <andre.draszik@linaro.org>, 
- linux-kernel@vger.kernel.org, linux-arm-kernel@lists.infradead.org, 
- linux-mediatek@lists.infradead.org, linux-samsung-soc@vger.kernel.org, 
- Karel Balej <balejk@matfyz.cz>, Matti Vaittinen <mazziesaccount@gmail.com>, 
- Marek Vasut <marek.vasut+renesas@gmail.com>, 
- Samuel Kayode <samkay014@gmail.com>, Aaro Koskinen <aaro.koskinen@iki.fi>, 
- Andreas Kemnade <andreas@kemnade.info>, Kevin Hilman <khilman@baylibre.com>, 
- Roger Quadros <rogerq@kernel.org>, Tony Lindgren <tony@atomide.com>, 
- linux-renesas-soc@vger.kernel.org, imx@lists.linux.dev, 
- linux-arm-msm@vger.kernel.org, linux-omap@vger.kernel.org
-In-Reply-To: <cover.1779878004.git.u.kleine-koenig@baylibre.com>
-References: <cover.1779878004.git.u.kleine-koenig@baylibre.com>
-Subject: Re: [PATCH v1 0/3] regulator: Use named initializers for
- platform_device_id arrays
-Message-Id: <178041297263.93058.3488426549945445903.b4-ty@b4>
-Date: Tue, 02 Jun 2026 16:09:32 +0100
+	s=k20260515; t=1780470558;
+	bh=tJ0eBPoOv/JpwRjPZ38KgLzK58Xw2bMW0W/NSctuIjg=;
+	h=Date:From:To:Cc:Subject:References:In-Reply-To;
+	b=hOsWvKuy+Pbscbm5sqjTueOn2Sn2balOIPVRPQpnUdQMgo6bHIGvnk/cchDYYHdao
+	 E7zBrv8PZDLP+kCGfL0Pq8iGphuCFasANddvCOdZj1dww6Y3PNPzE33VhAieqHBMQE
+	 fK3nWPy5Ue67WXtig0zQV6P/OMhMzqY9ElRC4VnKfqgCxHTMr56CGZOBi9PDehhW1M
+	 tXNM6iczVV4xY7fxD9GfvMWmnh1SDXTxkxaU4dPIoAuuHSC183so4961vd2qiNXPwS
+	 lg+4Da1NBF7wVe/5Ri6jgRCPQlPg3Laf5xBQiR7vZy77gE6BI3CqqzcQabGFbMzNDQ
+	 pQgk0Jceoxm9Q==
+Date: Wed, 3 Jun 2026 09:09:15 +0200
+From: Lorenzo Bianconi <lorenzo@kernel.org>
+To: Dylan Eskew <dylan.eskew@candelatech.com>
+Cc: Felix Fietkau <nbd@nbd.name>, Ryder Lee <ryder.lee@mediatek.com>,
+	Shayne Chen <shayne.chen@mediatek.com>,
+	Sean Wang <sean.wang@mediatek.com>,
+	Matthias Brugger <matthias.bgg@gmail.com>,
+	AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>,
+	linux-wireless@vger.kernel.org,
+	linux-arm-kernel@lists.infradead.org,
+	linux-mediatek@lists.infradead.org
+Subject: Re: [PATCH] wifi: mt76: mt7996: Fix possible token leak in
+ mt7996_tx_prepare_skb()
+Message-ID: <ah_TG4bkzitM4AER@lore-desk>
+References: <20260531-mt7996_tx_prepare_skb-token-leack-v1-1-2b9c9f59ceb1@kernel.org>
+ <80ff2108-dce3-4060-a8d0-59740979a99a@candelatech.com>
 MIME-Version: 1.0
-Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: 8bit
-X-Mailer: b4 0.16-dev
-X-Developer-Signature: v=1; a=openpgp-sha256; l=1683; i=broonie@kernel.org;
- h=from:subject:message-id; bh=bTVy3FAIZsqQF1unUBLrL1Tiy1sS6gTQkrGyju0A2UI=;
- b=owEBbQGS/pANAwAKASTWi3JdVIfQAcsmYgBqH9IR+5XenVVA9mLHD2HeO7sMNeqC+VxerFOpf
- IwsWOpOWzOJATMEAAEKAB0WIQSt5miqZ1cYtZ/in+ok1otyXVSH0AUCah/SEQAKCRAk1otyXVSH
- 0IP9CACDwCfsHAyOc8wD19LkmpqTPvPL3MCjfuetPTU/gdAUVVKU3hJDg0mrEFSFtECISuQKNp+
- IDZhuxqSzlFO9vZYfTxelGP2i+YDA5qKrvSVWhUh/o2ocvKdqAkCTAbqKDoAO+zPRKhLq8LdQA4
- 3vAQ7MaG3XwQh+DPYWKKOf3XpJSfpAewhEfaGYKG8ZCqwCZJM8KNvEUXW4sjxWfxA0b5+BEiNj8
- VtqKQ41+jd8pBtR8CP3onpyOFmb1T4iAKTxhxbub7qPgS9U4TjBvYRFo5RlcuC6CP8ulHLffsFV
- uaG1JcYy7gUAXHRu8KISbRgIZxYDYJgHHdl9F7pN7BIG+fMS
-X-Developer-Key: i=broonie@kernel.org; a=openpgp;
- fpr=3F2568AAC26998F9E813A1C5C3F436CA30F5D8EB
+Content-Type: multipart/signed; micalg=pgp-sha512;
+	protocol="application/pgp-signature"; boundary="bdJq5GVxual618Pk"
+Content-Disposition: inline
+In-Reply-To: <80ff2108-dce3-4060-a8d0-59740979a99a@candelatech.com>
+X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
+X-CRM114-CacheID: sfid-20260603_000919_026790_168581FB 
+X-CRM114-Status: GOOD (  22.51  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -94,47 +79,105 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Wed, 27 May 2026 12:47:43 +0200, Uwe Kleine-König (The Capable Hub) wrote:
-> regulator: Use named initializers for platform_device_id arrays
-> 
-> Hello,
-> 
-> this series targets to use named initializers for platform_device_id
-> arrays. In general these are better readable for humans and more robust
-> to changes in the respective struct definition.
-> 
-> [...]
 
-Applied to
+--bdJq5GVxual618Pk
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+Content-Transfer-Encoding: quoted-printable
 
-   https://git.kernel.org/pub/scm/linux/kernel/git/broonie/regulator.git for-7.2
+> Hi Lore,
 
-Thanks!
+Hi Dylan,
 
-[1/3] regulator: Drop unused assignment of platform_device_id driver data
-      https://git.kernel.org/broonie/regulator/c/4079e9d91b40
-[2/3] regulator: Use named initializers for platform_device_id arrays
-      https://git.kernel.org/broonie/regulator/c/d35028340d75
-[3/3] regulator: Unify usage of space and comma in platform_device_id arrays
-      https://git.kernel.org/broonie/regulator/c/0eb17367814a
+>=20
+> We have been seeing the token memory leak in our custom kernel. After
+> pulling your patch in, we are still getting the leak (validated with
+> kmemleak). How did you figure out where this potential leak was? I want to
+> determine if we are leaking because of our changes or if there's more are=
+as
+> for token leakage.
 
-All being well this means that it will be integrated into the linux-next
-tree (usually sometime in the next 24 hours) and sent to Linus during
-the next merge window (or sooner if it is a bug fix), however if
-problems are discovered then the patch may be dropped or reverted.
+Can you please try to run kmemleak on Felix's tree to check if there are any
+leftover leaks not fixed yet?
 
-You may get further e-mails resulting from automated or manual testing
-and review of the tree, please engage with people reporting problems and
-send followup patches addressing any issues that are reported if needed.
+Regards,
+Lorenzo
 
-If any updates are required or you are submitting further changes they
-should be sent as incremental updates against current git, existing
-patches will not be replaced.
+>=20
+> -- Dylan
+>=20
+> On 5/31/26 2:10 AM, Lorenzo Bianconi wrote:
+> > If link_conf or link_sta lookup fails in mt7996_tx_prepare_skb routine,
+> > mt7996 driver leaks an already allocated tx token. Fix the issue
+> > releasing the token in case of error.
+> >=20
+> > Fixes: 7ef0c7ad735b0 ("wifi: mt76: mt7996: Implement MLD address transl=
+ation for EAPOL")
+> > Signed-off-by: Lorenzo Bianconi <lorenzo@kernel.org>
+> > ---
+> >   drivers/net/wireless/mediatek/mt76/mt7996/mac.c | 8 ++++++--
+> >   drivers/net/wireless/mediatek/mt76/tx.c         | 2 +-
+> >   2 files changed, 7 insertions(+), 3 deletions(-)
+> >=20
+> > diff --git a/drivers/net/wireless/mediatek/mt76/mt7996/mac.c b/drivers/=
+net/wireless/mediatek/mt76/mt7996/mac.c
+> > index c98446057282..8c56344d211b 100644
+> > --- a/drivers/net/wireless/mediatek/mt76/mt7996/mac.c
+> > +++ b/drivers/net/wireless/mediatek/mt76/mt7996/mac.c
+> > @@ -1067,11 +1067,11 @@ int mt7996_tx_prepare_skb(struct mt76_dev *mdev=
+, void *txwi_ptr,
+> >   		link_conf =3D rcu_dereference(vif->link_conf[wcid->link_id]);
+> >   		if (!link_conf)
+> > -			return -EINVAL;
+> > +			goto error_relase_token;
+> >   		link_sta =3D rcu_dereference(sta->link[wcid->link_id]);
+> >   		if (!link_sta)
+> > -			return -EINVAL;
+> > +			goto error_relase_token;
+> >   		dma_sync_single_for_cpu(mdev->dma_dev, tx_info->buf[1].addr,
+> >   					tx_info->buf[1].len, DMA_TO_DEVICE);
+> > @@ -1176,6 +1176,10 @@ int mt7996_tx_prepare_skb(struct mt76_dev *mdev,=
+ void *txwi_ptr,
+> >   	tx_info->nbuf =3D MT_CT_DMA_BUF_NUM;
+> >   	return 0;
+> > +
+> > +error_relase_token:
+> > +	mt76_token_release(mdev, id, NULL);
+> > +	return -EINVAL;
+> >   }
+> >   u32 mt7996_wed_init_buf(void *ptr, dma_addr_t phys, int token_id)
+> > diff --git a/drivers/net/wireless/mediatek/mt76/tx.c b/drivers/net/wire=
+less/mediatek/mt76/tx.c
+> > index 22f9690634c9..f96d9c471853 100644
+> > --- a/drivers/net/wireless/mediatek/mt76/tx.c
+> > +++ b/drivers/net/wireless/mediatek/mt76/tx.c
+> > @@ -933,7 +933,7 @@ mt76_token_release(struct mt76_dev *dev, int token,=
+ bool *wake)
+> >   #endif
+> >   	}
+> > -	if (dev->token_count < dev->token_size - MT76_TOKEN_FREE_THR &&
+> > +	if (wake && dev->token_count < dev->token_size - MT76_TOKEN_FREE_THR =
+&&
+> >   	    dev->phy.q_tx[0]->blocked)
+> >   		*wake =3D true;
+> >=20
+> > ---
+> > base-commit: 4913f44167cf35a9536e9eec7352e15b2de0c573
+> > change-id: 20260531-mt7996_tx_prepare_skb-token-leack-82e240d8c66f
+> >=20
+> > Best regards,
+>=20
 
-Please add any relevant lists and maintainers to the CCs when replying
-to this mail.
+--bdJq5GVxual618Pk
+Content-Type: application/pgp-signature; name=signature.asc
 
-Thanks,
-Mark
+-----BEGIN PGP SIGNATURE-----
 
+iHUEABYKAB0WIQTquNwa3Txd3rGGn7Y6cBh0uS2trAUCah/TGwAKCRA6cBh0uS2t
+rNbDAPwPu5r9lorwMXt2ieCx4e8ZOixDsiJeTJLhBI1PCwhZHgD/TD9Hgb+5876Y
+J8R/PRU26mzWgUpnb1+WZKRZmUYovQY=
+=BrEn
+-----END PGP SIGNATURE-----
+
+--bdJq5GVxual618Pk--
 
