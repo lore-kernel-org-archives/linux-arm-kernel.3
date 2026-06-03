@@ -4,106 +4,93 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 1846FCD6E57
-	for <linux-arm-kernel@archiver.kernel.org>; Wed,  3 Jun 2026 16:49:43 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id E84D2CD6E55
+	for <linux-arm-kernel@archiver.kernel.org>; Wed,  3 Jun 2026 17:23:51 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:In-Reply-To:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
 	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
 	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=H0xSjr3/s1klHevj+Rk+NoDkA/+B2Ij31Shj5ijEvbc=; b=TTiKXJuw8UnPmtAhZuQw4fVTLJ
-	umRgyOR5eILQlwPmfdL0D58i7yue63ld2I15zLDgfK2zYgQvmzSkZYEXU+HSFUf/NHbsbArhcGsjL
-	dZeI7Q6ikSpjnqAZG3NePHjqFKZmBXugdSJB9yWQiTUhnxoYtZgnbZ1DPzbcLF4Fx8q7XQtreY+UR
-	YfmL99DybRsdTFFUPriLJlIxojb/3UDzrapkGKTYCgkJu2tzcy8i5/f6a71KXyj/CKEPC4VQ7MRkW
-	4GmcL1lOiAy/WzbOy/iy3l7fPEVMA/yX0ZQOxttbYryQKaBZe37Z0t0oEqLvEmpm027KXUIG1NOdz
-	SH2ONj9A==;
+	bh=SrzBV/CHeC4K43UCwv6a0kN1Tfy/GhWE6NmP1fIYMXI=; b=3CASPUHMYFJWWwSw0Wj/X3rLTI
+	HncnQqNCP4K+GC5YisJj1mRykxcPvvfrvokG7nOFX8eaULfuaUFltm/K1xHt6hTBbY6vaVHncB6K/
+	HK7B+Uuc34qSJQoMwwsXtBoVHf7d5xb5gty81xZbm8shPuHLgJb4dslSdDp0VykLOWOouOCkwtm6l
+	2dq5q0kTkPeE/+8BY+oSxZbjHDw6Oexe1hrbQDl7EbyBbPw7Xuh284oAywsS2hIDCID1TAs2jnF5A
+	/+qrB0zWd3IHFZFgbj6nbu/g2qgo+H6Wds7o6bQx7I6shyoo1Y8Lloim6uPfPQCwUsrcnF8IMQxD+
+	963QqZLw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wUomb-0000000FXal-3nl5;
-	Wed, 03 Jun 2026 16:49:33 +0000
-Received: from us-smtp-delivery-124.mimecast.com ([170.10.129.124])
+	id 1wUpJf-0000000FZW0-3mZM;
+	Wed, 03 Jun 2026 17:23:43 +0000
+Received: from mail-dy1-x1330.google.com ([2607:f8b0:4864:20::1330])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wUomX-0000000FXaG-3BNF
+	id 1wUpJd-0000000FZVU-3slf
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 03 Jun 2026 16:49:32 +0000
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=redhat.com;
-	s=mimecast20190719; t=1780505366;
-	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
-	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
-	 in-reply-to:in-reply-to:references:references;
-	bh=H0xSjr3/s1klHevj+Rk+NoDkA/+B2Ij31Shj5ijEvbc=;
-	b=Qvo9g6W/QKPZhv7cBenQWJPZvlPCI2mQe4J6ezR9yRs3FDuw6isjGrxqKN3sZ5wexnpFyi
-	xrJpy2i6dKFbJCCxISBPnnvelwVGyXklX0W98APxAsVUk+XJ5iKHDwqOEa05Gls3vBRaBZ
-	VF3gCH5nBBMwJuoQHElfrizXWxN7At8=
-Received: from mail-qk1-f197.google.com (mail-qk1-f197.google.com
- [209.85.222.197]) by relay.mimecast.com with ESMTP with STARTTLS
- (version=TLSv1.3, cipher=TLS_AES_256_GCM_SHA384) id
- us-mta-259-CbfbPxjROvKIhQe4UBsk1w-1; Wed, 03 Jun 2026 12:49:25 -0400
-X-MC-Unique: CbfbPxjROvKIhQe4UBsk1w-1
-X-Mimecast-MFC-AGG-ID: CbfbPxjROvKIhQe4UBsk1w_1780505365
-Received: by mail-qk1-f197.google.com with SMTP id af79cd13be357-914f037b7dfso1825699285a.3
-        for <linux-arm-kernel@lists.infradead.org>; Wed, 03 Jun 2026 09:49:25 -0700 (PDT)
+	Wed, 03 Jun 2026 17:23:43 +0000
+Received: by mail-dy1-x1330.google.com with SMTP id 5a478bee46e88-304f0039c02so52071eec.1
+        for <linux-arm-kernel@lists.infradead.org>; Wed, 03 Jun 2026 10:23:41 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=chromium.org; s=google; t=1780507420; x=1781112220; darn=lists.infradead.org;
+        h=in-reply-to:content-disposition:mime-version:references:message-id
+         :subject:cc:to:from:date:from:to:cc:subject:date:message-id:reply-to;
+        bh=SrzBV/CHeC4K43UCwv6a0kN1Tfy/GhWE6NmP1fIYMXI=;
+        b=FbD1s+ImASClxnAW0B/x4s2pFS1rXXEoZz1d734umND4lwchC5lZDALXGX1PpIYnpb
+         klZFFAzr3gc0XmWqfQ7Gm7KXD5OMhk3HCUQJQWe5VvEi7IEGkCfps+8S4KFELhHFN229
+         abIK3KzyaPzXOpYOdQi+dKxTYJtdBe75+d/NY=
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20251104; t=1780505365; x=1781110165;
-        h=user-agent:in-reply-to:content-disposition:mime-version:references
-         :message-id:subject:cc:to:from:date:x-gm-gg:x-gm-message-state:from
-         :to:cc:subject:date:message-id:reply-to;
-        bh=H0xSjr3/s1klHevj+Rk+NoDkA/+B2Ij31Shj5ijEvbc=;
-        b=DAYFDk7Z/oxGNImT/hSiYl0Y8y9KMMiNpcbAU5NUGjDUvfY92aNZoydWyIxqysvo9G
-         OUWmzze3jPfY53d9l6ZuxCsb/0ay+C6bhF0xffJDHavmq54hfGlR9EgiX7HOuiwPwnI3
-         Ma+wcL/nk7VQ3El/kwCr+iYeT67fuKp5U3UbILh2GnwLgLu/BYgjOPCmz5efwGW8FvIV
-         Ii1UJh200q+2o5emFFxsbtPwk7lohYT6BGhLtLchILuo20u4jmyo1nc+oRMqeeRjIoCN
-         OtPMjoNuB/CAP3UqZ1IO8mG7rgIZOGAuBadMKFmx6lrxQ2ExfUB2mAa+svfTWW+vs5Wq
-         D/uw==
-X-Forwarded-Encrypted: i=1; AFNElJ+HvwdUy8yVycYwwu4GYC4eCW2rnflsCa2Wq8+4Tx9G/GgCSsOufEPE21jUnbt1jrt3KZ2Hc13Y0S9SZ0FSMvgY@lists.infradead.org
-X-Gm-Message-State: AOJu0YxcM7rHTiIrbve9ynVgzGCI+nq1LIsxzWWFDIcJAcQaudbeeL5h
-	sys2xZY3eic+v/OuRcj5Z8c3Jucc6X37XmnsonhJBRULjX7xj0YZc+1bBe7j5HU/pltjkFmS2eM
-	GSZ5ahPypQwrvxMSWTjvoh9fipIg9YK57IZn6fctsqMK8xDLLH0mxlHIym6i3t44yO3D99weBfj
-	gXdYI24wSX
-X-Gm-Gg: Acq92OEaBaXQuYe8QVcis1/xHbHi9uBEYZQjOV6doIydolrZOvc2EwVd+MS/21X8/dG
-	uyG7RDqsyNdSjv7WeVzwyS8VlglWZbkIgyNr3xUDMDYR8uxTdcYbm+8oyGQ+QpieO6CVBO+cxds
-	oWN4Gl/TFQDBUnSBq3BTVnhJscCb0DrG7GDMOJMknDdizQlElNAlI/ygEi5FU1E5dq4+5RJfPei
-	OREAlFoX0joegtHfSNg88DcKEkKxGJxgu0vaEzf6dEyvOqFfJ+OOOh/3AzHMh0TDRrLfYipU9Yo
-	akSBtDIFEUYBP+RdxxJABEMGUpbpYHkEdev8aOWGc5Yd+/V6o4C6PlUfew5AvFMfxe2ltOWn5K0
-	6HRbmjFOf3YLuwWtwF354w369kg==
-X-Received: by 2002:a05:620a:294b:b0:914:c8aa:34ea with SMTP id af79cd13be357-9158a83cd2emr683498885a.56.1780505364650;
-        Wed, 03 Jun 2026 09:49:24 -0700 (PDT)
-X-Received: by 2002:a05:620a:294b:b0:914:c8aa:34ea with SMTP id af79cd13be357-9158a83cd2emr683478185a.56.1780505362817;
-        Wed, 03 Jun 2026 09:49:22 -0700 (PDT)
-Received: from redhat.com ([23.25.77.22])
-        by smtp.gmail.com with ESMTPSA id af79cd13be357-9158a37c50bsm294228485a.24.2026.06.03.09.49.21
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Wed, 03 Jun 2026 09:49:22 -0700 (PDT)
-Date: Wed, 3 Jun 2026 12:49:19 -0400
-From: Brian Masney <bmasney@redhat.com>
-To: Nishanth Menon <nm@ti.com>
-Cc: Stephen Boyd <sboyd@kernel.org>, a-christidis@ti.com,
-	Tero Kristo <kristo@kernel.org>,
-	Santosh Shilimkar <ssantosh@kernel.org>,
-	Michael Turquette <mturquette@baylibre.com>,
-	linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org,
-	linux-clk@vger.kernel.org, Michael Walle <mwalle@kernel.org>,
-	Kevin Hilman <khilman@baylibre.com>, Randolph Sapp <rs@ti.com>
-Subject: Re: [PATCH v2] clk: keystone: don't cache clock rate
-Message-ID: <aiBbD2Y6s-1NKnhT@redhat.com>
-References: <20260507-clk-sci-v2-1-38f59b48777a@ti.com>
- <agHpYnkCgGfZp2-E@redhat.com>
- <20260512104848.4axgjeto6i7ejvli@retorted>
- <agM-VB-ToGFNphfu@redhat.com>
- <20260512171604.5ntgq65bmedb7jpc@stinger>
- <20260603160034.fbemt5n6pqyrmwke@strode>
+        d=1e100.net; s=20251104; t=1780507420; x=1781112220;
+        h=in-reply-to:content-disposition:mime-version:references:message-id
+         :subject:cc:to:from:date:x-gm-gg:x-gm-message-state:from:to:cc
+         :subject:date:message-id:reply-to;
+        bh=SrzBV/CHeC4K43UCwv6a0kN1Tfy/GhWE6NmP1fIYMXI=;
+        b=VrtqvvtkBkpuH4+mGj436V7M9V+wKJ1B+aC16gBMZkWXU3Uh6BA6Lynyx8ntWYaMIA
+         e6r5ZLphxLQ1A075oO+Ml02zHLPTlp26ObDECyCQ4ByAkPvykQj8j14OiT/q3dHNVCOM
+         A50GMn+Ot8f8sYa+32OP2UZG+4aNo8bD49eslSGpH+hvDjERp4uPFtmpTso8H+ssX5PQ
+         amndo43skdNB0OqjOSRYEdqCIqs7VdmouV0NRaffKnfu/+31HezktV8dalWkWi9HeBBd
+         HXZRzNNq+LrEMy1xdGewNqptshLCnmpVpk6FjZ3oxQOWNdiYhNJDLnTdDQ9Xj5LIZEmu
+         QPig==
+X-Forwarded-Encrypted: i=1; AFNElJ9C9bW3uXlAyVZOTMCGuiwsg3isw7ML7dKKaB5VvkXNRamayaTa3jP8m7NvANZKlAubjPpX5vxOFRevKDh/aQGf@lists.infradead.org
+X-Gm-Message-State: AOJu0Yxe435q30+fZKNGRkoCaTWZDUH5faehtPuKYQwN4j4BKP3F9yVV
+	ALkAcQrA2pesZW4i9x4EChH52XA6Qri+9Iwyam8n7JRICy9nVbuJRdF9pkaT63QB0w==
+X-Gm-Gg: Acq92OH6H4uxk9Vbv9e1u4UHU4lt9abkGG1XEKXZW/2kWNz4Va9AvltS/UUDTvNGi5V
+	wVHiq3R03+gMM3l878XD10WOjGr3P+MNFsDVd9HjrEHh6o19hf8ygGLWgV+mKiRgtMLKLwAR76z
+	BU0p7eECu+Nscd04Upfkr6g8l82fGeCosA/s5qIGY/84BLeLTU2g3vbHMOq6g3yPdyQM8anXO8Y
+	t/f3g7d78s1loOO8PnmzQS8QsVxiuvBnwd4CpqEnW9MC0OVSjabA9102NqEeG/YkoqyY4DDsKxE
+	4/vIK//+9EMNznTId4+YbVY1mMdtQUnKXHxkJQQss4dE0UApl1+/2Nvcyc5YfAJHZ0M/y3+h06z
+	2dITft48GePKHQHV4JOt3Z8s7ts+WjGvYfp8GkJQa2KfC4Pb0sMipX5yvS2OmwLlpT3xU2ibthR
+	/SapULTNW+9J4LJQMjXIfDiH2BtOfDGTItl5rnH/HolfJIvFz6MrN17ZHO7hQZEvhauCFHXApq
+X-Received: by 2002:a05:7301:128b:b0:2ea:b7a9:580d with SMTP id 5a478bee46e88-3074fa80739mr2310951eec.9.1780507420313;
+        Wed, 03 Jun 2026 10:23:40 -0700 (PDT)
+Received: from localhost ([2a00:79e0:2e7c:8:c444:80f4:5ace:a65c])
+        by smtp.gmail.com with UTF8SMTPSA id 5a478bee46e88-3074d9fde90sm4323779eec.0.2026.06.03.10.23.38
+        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
+        Wed, 03 Jun 2026 10:23:39 -0700 (PDT)
+Date: Wed, 3 Jun 2026 10:23:37 -0700
+From: Brian Norris <briannorris@chromium.org>
+To: Matthias Brugger <matthias.bgg@gmail.com>,
+	AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>,
+	Bjorn Andersson <andersson@kernel.org>
+Cc: devicetree@vger.kernel.org, Doug Anderson <dianders@chromium.org>,
+	linux-arm-kernel@lists.infradead.org,
+	Tzung-Bi Shih <tzungbi@kernel.org>, chrome-platform@lists.linux.dev,
+	Julius Werner <jwerner@chromium.org>,
+	cros-qcom-dts-watchers@chromium.org, linux-arm-msm@vger.kernel.org,
+	linux-kernel@vger.kernel.org, Rob Herring <robh@kernel.org>,
+	Krzysztof Kozlowski <krzk+dt@kernel.org>,
+	Conor Dooley <conor+dt@kernel.org>,
+	Konrad Dybcio <konradybcio@kernel.org>,
+	Chen-Yu Tsai <wens@kernel.org>
+Subject: Re: [PATCH 0/7] dts: Add /firmware/#{address,size}-cells to
+ Chromium-based DTs
+Message-ID: <aiBjGekXkr2nIf-w@google.com>
+References: <20260428200712.2660635-1-briannorris@chromium.org>
 MIME-Version: 1.0
-In-Reply-To: <20260603160034.fbemt5n6pqyrmwke@strode>
-User-Agent: Mutt/2.3.1 (2026-03-20)
-X-Mimecast-Spam-Score: 0
-X-Mimecast-MFC-PROC-ID: yJ89kPbfL2LHpuVLQg75ApKb9NiFJRw_E_FMwnh8v8w_1780505365
-X-Mimecast-Originator: redhat.com
 Content-Type: text/plain; charset=us-ascii
 Content-Disposition: inline
+In-Reply-To: <20260428200712.2660635-1-briannorris@chromium.org>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260603_094929_878381_D88B9DE3 
-X-CRM114-Status: GOOD (  22.92  )
+X-CRM114-CacheID: sfid-20260603_102341_998718_C1C6FB0A 
+X-CRM114-Status: GOOD (  17.47  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -118,38 +105,49 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hi Nishanth,
+(Trim address list)
 
-On Wed, Jun 03, 2026 at 11:00:34AM -0500, Nishanth Menon wrote:
-> On 12:16-20260512, Nishanth Menon wrote:
-> > On 10:51-20260512, Brian Masney wrote:
-> > > > Could you clarify if I need to take it via my tree to arnd or if this
-> > > > patch will go via the clk tree?
-> > > 
-> > > Sorry, I'm not sure what Stephen prefers here. An argument could be made
-> > > for either approach. I would just go with whatever you have done in the
-> > > past.
-> > 
-> > Thanks Brian for the review.
-> > 
-> > This usually will go via Stephen. Will wait, just trying to make sure
-> > there is no change in expectations (given this patch missed a window).
-> > 
+Hi Bjorn, AngeloGioacchino,
+
+On Tue, Apr 28, 2026 at 01:06:52PM -0700, Brian Norris wrote:
+...
+> The /firmware node has an empty 'ranges', but does not have
+> address/size-cells.
 > 
-> Stephen, I'd like to clarify: would you pick this patch up directly,
-> or would like me to send you a PR after collecting sci_clk patches? I am
-> OK with either, would prefer to not have wrong expectations.
+> Commit 6e5773d52f4a ("of/address: Fix WARN when attempting translating
+> non-translatable addresses") started requiring #address-cells for a
+> device's parent if we want to use the reg resource in a device node.
+> This leads to errors like the following:
 > 
-> I see two patches pending to be queued:
-> * this one
-> * https://lore.kernel.org/linux-arm-kernel/20260512110028.2999471-1-nm@ti.com/
+> [    7.763870] coreboot_table firmware:coreboot: probe with driver coreboot_table failed with error -22
+> 
+> This series adds appropriate #{address,size}-cells to the device trees
+> used on Arm Chromebooks to work around the problem.
+...
 
-Since Stephen hasn't replied yet, I would just include it in your pull
-to him to make sure it gets in.
+> Brian Norris (7):
+>   arm64: dts: rockchip: Add #{address,size}-cells to Chromium-based
+>     /firmware
+>   ARM: dts: rockchip: Add #{address,size}-cells to Chromium-based
+>     /firmware
+>   ARM: dts: nvidia: Add #{address,size}-cells to Chromium-based
+>     /firmware
+>   ARM: dts: samsung: Add #{address,size}-cells to Chromium-based
+>     /firmware
+>   arm64: dts: mediatek: Add #{address,size}-cells to Chromium-based
+>     /firmware
+>   arm64: dts: nvidia: Add #{address,size}-cells to Chromium-based
+>     /firmware
+>   arm64: dts: qcom: Add #{address,size}-cells to Chromium-based
+>     /firmware
 
-If he has an issue, then it will be straight forward to make a v2 pull
-without this patch.
+Patch 1 and 2 (Rockchip) and 3 and 6 (Nvidia) are applied to linux-next.
+Patch 4 is obsolete / unnecessary. That leaves patch 5 (Mediatek) and 7
+(Qualcomm).
 
+Bjorn (Qualcomm) and AngeloGioacchino (Mediatek), any thoughts? I can
+resend them separately if that helps somehow.
+
+Regards,
 Brian
-
 
