@@ -4,57 +4,78 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id BB5B4CD6E57
-	for <linux-arm-kernel@archiver.kernel.org>; Wed,  3 Jun 2026 21:07:08 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id E4895CD6E57
+	for <linux-arm-kernel@archiver.kernel.org>; Wed,  3 Jun 2026 21:07:12 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
 	Content-Type:MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:
 	To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=B/ZiYOUmPHLHotUhywFnn0yHtujDN/WsHiPkrIyT5HU=; b=JIa6PQIXo9bIf1JsKNa24DhcHm
-	tkCT4Iv+cg4zKKw7TD5RkQDDaR3WhLGWJ+OZ0Fp1tbvNUY3/HPWjar23CWAJcHXNfadru0fWFnENZ
-	OOopyPnZU8M7AoI42a86/d5sgcrG4kVPoMhHSZP/vbo3LZ+h8QRKxhQnc03yRQ/6L50Mkgd6FpObg
-	RTGEkPN7iXWCsLPf51k7umWDmfJBXMoiIma2eTVLWviftNrzXFyxKp9gYGQQ61PbCX7xXy06LmC/F
-	iNXpQCD1YHuj5qsRBHT77Y9LZ0ln0aw3uKM9B8u0vm38G9FeyizyZoONgKGlv24BcemlcVQKaH72w
-	atCSlaHQ==;
+	bh=zuCcNKlBGvtnqvBvkqXr9K8d2tUZ3DIWY7nKfWt/lcs=; b=e8da/VhxfNBCkYRbET+ng9CB5A
+	ps4gVJiyV9GCo7tdcIM6N2bwfGQelxCF4nSWcwo/DXFQGfMjeneN546euFxd/R+9WoLnFT6JKN4ay
+	3CsRtkf90kRQ4Vc5qsauCxMDYqawu+bR1kNG4eXIsDQGVMmvsQ+zIhGhwa3kZ0Yu9pVsibZ6QloSH
+	FfUewIgvzZ5Ry1PrA4aSrIc4n9BaTWZAzjxHYJCoLFU1TquAfve08l3Op62qJrZKFN+JVs4FeGz+7
+	kKZnVrVzhAoJOAzwJk5U0auEvHzYdQEaLd6QMthX+T0GfEhKr8Dwgiq5yRWJxvmV+t+Qc4Kea4MdJ
+	pn3dxWXw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wUsnl-0000000FpYA-3F8T;
-	Wed, 03 Jun 2026 21:07:01 +0000
+	id 1wUsnr-0000000Fpb3-03vO;
+	Wed, 03 Jun 2026 21:07:07 +0000
 Received: from tor.source.kernel.org ([172.105.4.254])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wUsnk-0000000FpXV-1XxJ
+	id 1wUsnp-0000000FpaO-3gwJ
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 03 Jun 2026 21:07:00 +0000
+	Wed, 03 Jun 2026 21:07:05 +0000
 Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
-	by tor.source.kernel.org (Postfix) with ESMTP id CE3D060136;
-	Wed,  3 Jun 2026 21:06:59 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 3A8031F0089A;
-	Wed,  3 Jun 2026 21:06:58 +0000 (UTC)
+	by tor.source.kernel.org (Postfix) with ESMTP id 4147960136;
+	Wed,  3 Jun 2026 21:07:05 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 2C75D1F00893;
+	Wed,  3 Jun 2026 21:07:00 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1780520819;
-	bh=B/ZiYOUmPHLHotUhywFnn0yHtujDN/WsHiPkrIyT5HU=;
+	s=k20260515; t=1780520825;
+	bh=zuCcNKlBGvtnqvBvkqXr9K8d2tUZ3DIWY7nKfWt/lcs=;
 	h=From:To:Cc:Subject:Date:In-Reply-To:References;
-	b=XGWVLIPrusBg+AxlTpZAVvbBCe2NVCNbSxKfPFXbCfwMg/BLF/2/Qfvvdupj1YZsO
-	 eT8lmp0GQaE8KLvstEgFds/qDHgODLFRBaCDi9HiRRIz53hqVMOlTTCe3XW+tndGvv
-	 WxaQ9yVAh3wQaNdZNqH9d3/TKnE9aiVuKvS117JHH1KomybnZhQ1TpSxAumVXYy1sk
-	 xX6A0U9oVRG+QxwoSzZ+38kiX/kFxRir9nCgAsWy7Z/3W3Z/MDTejLdO5mQB7Q7h6X
-	 8t82f737DAK+juS4tLBQnw5P/uMHe5IqeD1nUxOSQgwc8ma30SrK1MvwzUbcuBcNKS
-	 mYHcOi0QN71IQ==
+	b=C3NEPwD4GvgSeWN6a3CQ/gyiEh+c0zvPeQQGLhGxCTjJet12GZSBrXbGn9OH0fhcz
+	 hpMn48cXO8/bhBG1zh9zB6P3mRCow/IqcbgbwCJRugr3zXJFhZi9t862Ip6Owa+hJg
+	 2BOXHRdLsy7Ue1D4XV29EC1bdDP5qtC6rNkxfXGmeekH3i8oGoRbHI1GeJuosp42BH
+	 tH/TL+AP/KMPMuJJkP4t1OAjayb0Ffo3bYj3qKN7X1nqueA6+bQLCbYNgNOWk3f8D8
+	 Cen2wOVPr+p6qQSHKaNDiCG0ndlgVo3FsPPaQ8vHCA/EKtLnZ+Fr1R8kFwMkTrkqLl
+	 /QvGO20Ola7AA==
 From: Will Deacon <will@kernel.org>
-To: Catalin Marinas <catalin.marinas@arm.com>,
-	Thorsten Blum <thorsten.blum@linux.dev>
+To: vladimir.murzin@arm.com,
+	xuwei5@huawei.com,
+	broonie@kernel.org,
+	ryan.roberts@arm.com,
+	corbet@lwn.net,
+	catalin.marinas@arm.com,
+	oupton@kernel.org,
+	kevin.brodsky@arm.com,
+	maz@kernel.org,
+	yeoreum.yun@arm.com,
+	skhan@linuxfoundation.org,
+	yangyicong@hisilicon.com,
+	thuth@redhat.com,
+	kuninori.morimoto.gx@renesas.com,
+	lucaswei@google.com,
+	lpieralisi@kernel.org,
+	miko.lenczewski@arm.com,
+	mark.rutland@arm.com,
+	james.clark@linaro.org,
+	Zeng Heng <zengheng@huaweicloud.com>
 Cc: kernel-team@android.com,
 	Will Deacon <will@kernel.org>,
+	wangkefeng.wang@huawei.com,
 	linux-arm-kernel@lists.infradead.org,
-	linux-kernel@vger.kernel.org
-Subject: Re: [PATCH] arm64: patching: replace min_t with min in __text_poke
-Date: Wed,  3 Jun 2026 22:06:30 +0100
-Message-ID: <178051772459.443326.10117872015673922438.b4-ty@kernel.org>
+	linux-kernel@vger.kernel.org,
+	linux-doc@vger.kernel.org,
+	zengheng4@huawei.com
+Subject: Re: [PATCH v4 0/2] arm64: cpufeature: Add WORKAROUND_DISABLE_CNP capability
+Date: Wed,  3 Jun 2026 22:06:31 +0100
+Message-ID: <178048700943.309679.7634002465643697724.b4-ty@kernel.org>
 X-Mailer: git-send-email 2.47.3
-In-Reply-To: <20260531220817.738904-2-thorsten.blum@linux.dev>
-References: <20260531220817.738904-2-thorsten.blum@linux.dev>
+In-Reply-To: <20260603062025.1504083-1-zengheng@huaweicloud.com>
+References: <20260603062025.1504083-1-zengheng@huaweicloud.com>
 MIME-Version: 1.0
 Content-Type: text/plain; charset="utf-8"
 Content-Transfer-Encoding: 8bit
@@ -72,16 +93,23 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Mon, 01 Jun 2026 00:08:16 +0200, Thorsten Blum wrote:
-> Use the simpler min() macro since both values are unsigned and
-> compatible.
+On Wed, 03 Jun 2026 14:20:23 +0800, Zeng Heng wrote:
+> v3: https://lore.kernel.org/all/20260601112000.1145391-1-zengheng@huaweicloud.com/
+> v2: https://lore.kernel.org/all/20260529063132.766491-1-zengheng@huaweicloud.com/
+> v1: https://lore.kernel.org/all/20260526015720.206854-1-zengheng@huaweicloud.com/
 > 
+> Changes in v4:
+>   - Keep orthogonality for CONFIG_NVIDIA_CARMEL_CNP_ERRATUM and
+>     CONFIG_HISILICON_ERRATUM_162100125 within the cnp_erratum_cpus array.
 > 
+> [...]
 
-Applied to arm64 (for-next/misc), thanks!
+Applied to arm64 (for-next/errata), thanks!
 
-[1/1] arm64: patching: replace min_t with min in __text_poke
-      https://git.kernel.org/arm64/c/6c2ccb4979b2
+[1/2] arm64: cpufeature: Add WORKAROUND_DISABLE_CNP capability
+      https://git.kernel.org/arm64/c/25996982ebcf
+[2/2] arm64: kernel: Disable CNP on HiSilicon HIP09
+      https://git.kernel.org/arm64/c/f64328ecf4bf
 
 Cheers,
 -- 
