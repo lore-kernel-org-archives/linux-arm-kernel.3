@@ -4,65 +4,149 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 0EADACD6E64
-	for <linux-arm-kernel@archiver.kernel.org>; Wed,  3 Jun 2026 10:30:45 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 5F3D2CD6E55
+	for <linux-arm-kernel@archiver.kernel.org>; Wed,  3 Jun 2026 10:33:25 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:Message-Id:
-	Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:From:
-	Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender
-	:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
-	bh=mWj9HVq5gBiKHnyrvip7gxwpROvspRY6Q5wfNRCKOgc=; b=UMeDgtcsjeZIiXd7ahnGeq4GUD
-	/LDxdMy28QyDoqrjZnvH2TNqK2tghqmt/YDcVg+97LQscm+rfySxr+tCRjrE5I1RLrkcZEuCwsyYT
-	+nu/jeBhfQd2S3Du5ZHA0bIB2Bw+GplIUgMQzQkt4L49z7Jhl9qaYXM0aXjVv2x9QFlKb5PLc2OhU
-	p2Lyy/ZE4H7ik1vV8kJHCFlxyw4IVWf3YDg6t3c2nIO6v4H0BZJisv3d1ZPGWnJOmhV4j99CDFJ8q
-	UBrNjJ/IWmrSbBujWSYeL7qJGPTKJDqfCacEXNwmC+umXfpBlpF2+obhLyfz4GqCQz8uzkRM5QyF4
-	8XKe+WZQ==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:
+	Content-Transfer-Encoding:Content-Type:In-Reply-To:From:References:Cc:To:
+	Subject:Date:Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=yTmy1+Bnh1Q98z/0VgrnDYRASEenUODU2UMGo4ASW9I=; b=lAc9+ios+xMV4nj79EpvyIshmQ
+	JjUujJwHs8wBV0z6FtQamlHHfm1fKgmriLdVXgrpXoI2NYmSCCQOCTVItCdx56oYVR8qXNwoyGbgP
+	35IIgMd9ASwjN8nrQZyV6YWjnINL3pVQTBBtE3lBW8ubUdBP24m7hWoK1EqnMLC01+6AwvMBExjpM
+	L873PZn3TdZx+aGjzBfIjgNpqLATU47quitN8W6U5OfAoxZCEWcHQoBEzXk7Yv8qDUBbR6fjGd12R
+	6WU7y+ej4Ovxccp1FDfbfCGZsggBhYWOf/7r+fz0RfOiZD3RYKQA8wh7ZuHOBAihJwzHVhqH18reO
+	tqI455ig==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wUirr-0000000Eoom-1Ft0;
-	Wed, 03 Jun 2026 10:30:35 +0000
-Received: from sea.source.kernel.org ([172.234.252.31])
+	id 1wUiuU-0000000Ep7w-3ZXk;
+	Wed, 03 Jun 2026 10:33:18 +0000
+Received: from mail-westeuropeazlp170110003.outbound.protection.outlook.com ([2a01:111:f403:c201::3] helo=AS8PR04CU009.outbound.protection.outlook.com)
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wUiro-0000000EooE-1rtL;
-	Wed, 03 Jun 2026 10:30:33 +0000
-Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
-	by sea.source.kernel.org (Postfix) with ESMTP id C1B17437AD;
-	Wed,  3 Jun 2026 10:30:31 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 28B2F1F00893;
-	Wed,  3 Jun 2026 10:30:30 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1780482631;
-	bh=mWj9HVq5gBiKHnyrvip7gxwpROvspRY6Q5wfNRCKOgc=;
-	h=From:Date:Subject:To:Cc;
-	b=Mc92wN7TYo0So44/VHoRjYGK/hlL+9mfKrxNyw6jQj0ppRxP9rwN7kagfRE4QcDOj
-	 IaBnZBBjLowUFa66pVaT9Wsbanw5BBUK6FoN0uhQ4U+HTnGSQs09YZPUl0jXvYwM3f
-	 4MRsarKQnSyoFwsd16LD8/JUi5iwYZhKiqJH8iE5c3Nx060wpix+IQjMSL1m6l8s0Z
-	 kxS8JH3vHlIemn5HcSWIpwf9x/rAlaWKjCxTe2T0qjZScQk5nKghlZViTeKR4iAKEE
-	 5yW9GbF4y/sc83zsTiLOfgBN5Qo7GzP/cIcMoX9DR7zVdFRdgK732Uf5UxjmCNMXjX
-	 YbX//Ok4mt42Q==
-From: Lorenzo Bianconi <lorenzo@kernel.org>
-Date: Wed, 03 Jun 2026 12:30:01 +0200
-Subject: [PATCH net-next] net: airoha: Report extack error to the user if
- airoha_tc_htb_modify_queue() fails
+	id 1wUiuS-0000000Ep7K-0vmZ
+	for linux-arm-kernel@lists.infradead.org;
+	Wed, 03 Jun 2026 10:33:17 +0000
+ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
+ b=fTIEWHV9a7auCjZNhPVpfCabQZGZDbIQO4Vkwb60HDls55kV1cUAXtMo9UemONgZXRBpwelWzVnj4MCcbupS8vcZReOS//XCrY2kMTX6DaLBooYba6imAbEWDvciP7+mJ8r+WjbyqU4RM6h2kd2dg7SHg+GH+uQcwuopiv5dFx6Q6aeKDSbzLb8jTkjxrMaZNxD9JqpeHOUQ2J3UlZNhxkeG6nPtYV8Nxq5G/UgUmT4WzqmVsSrZd6DpPKuzSnRBT0ApWh/w/7bf02aVpYYW0kdWpygUoV0idL+Sm342ZOwD34QKEO8gxXDk7RkB946Za/omU6C2YiEYUp9gJAX4Hg==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
+ s=arcselector10001;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
+ bh=yTmy1+Bnh1Q98z/0VgrnDYRASEenUODU2UMGo4ASW9I=;
+ b=O4FS3OPAL2qk+FdJjAc/1A5CF96AIa+uFt1E++4r0I01cixb3qbjY0eL9eC1w+AfDLGTeU71cNQ554OSM1NRd2nHiJXKseQajdnuN2ZQX1g7e7hQoLBCv9t+cyfErqM2n98LY2DMf91Ej5NGQ453WbyoJgVYLX9JlkmZVm4FZqZkEQc0/OIKrfdbILcCNA97h+HCSyT7f6I8USzD/j9t7gZ7mxn9xyXzI8CeCsxriw7Pe9nGp74nniAuYkN3Pq4gJ+R+9+1BgvgtA3l3d9U/0EKjt7AkHUI0FP1bUvTjOtElZ8s/T7xmJPdsryuWhpSz+vtz4Z9rjsUm+/LzcHqX9w==
+ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
+ smtp.mailfrom=oss.nxp.com; dmarc=pass action=none header.from=oss.nxp.com;
+ dkim=pass header.d=oss.nxp.com; arc=none
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=NXP1.onmicrosoft.com;
+ s=selector1-NXP1-onmicrosoft-com;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
+ bh=yTmy1+Bnh1Q98z/0VgrnDYRASEenUODU2UMGo4ASW9I=;
+ b=QINVjFkDQpDrL6xJKeaOM8xnUoJhiIHDwgjKN9qB8RWzXzZN7NYOEEQWaNqPRyjFvkq0hXrP8XIqsR+YTxUgoX4IuwlLCN3Bwq5Bq+h0+XFFijNU5qvseXBFpNnumcWmKZnCc4vXux77EtCX8jUbGKe6/cEuPuP7jzeVOrj4klMAWARaZ5B5sxIkRQROWUlV3FqqR+lTAPjBgc9ajDmsxYF620tkvyH7SjTeby30jUSMK2m5yD24DXZjGvQGG9L/W3M9MWCm2zR0Azar06+r7vzp76Il0Z57cS69+uw7eAXhgsCdXH1j+fXDw3JlcSDkjZYXDj/60ilDph5rIYXIpg==
+Authentication-Results: dkim=none (message not signed)
+ header.d=none;dmarc=none action=none header.from=oss.nxp.com;
+Received: from AM0PR04MB5858.eurprd04.prod.outlook.com (2603:10a6:208:132::23)
+ by GV4PR04MB11944.eurprd04.prod.outlook.com (2603:10a6:150:2ec::18) with
+ Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.21.92.7; Wed, 3 Jun 2026
+ 10:33:10 +0000
+Received: from AM0PR04MB5858.eurprd04.prod.outlook.com
+ ([fe80::bdf4:c9d1:4e3f:68c6]) by AM0PR04MB5858.eurprd04.prod.outlook.com
+ ([fe80::bdf4:c9d1:4e3f:68c6%4]) with mapi id 15.21.0071.011; Wed, 3 Jun 2026
+ 10:33:10 +0000
+Message-ID: <9844321a-59e3-4131-886d-5b884a0a1986@oss.nxp.com>
+Date: Wed, 3 Jun 2026 13:33:06 +0300
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH RESEND v4 0/8] can: flexcan: Add NXP S32N79 SoC support
+To: Enric Balletbo i Serra <eballetb@redhat.com>,
+ Bough Chen <haibo.chen@oss.nxp.com>
+Cc: Marc Kleine-Budde <mkl@pengutronix.de>,
+ Vincent Mailhol <mailhol@kernel.org>, Rob Herring <robh@kernel.org>,
+ Krzysztof Kozlowski <krzk+dt@kernel.org>, Conor Dooley
+ <conor+dt@kernel.org>, Frank Li <Frank.Li@nxp.com>,
+ Sascha Hauer <s.hauer@pengutronix.de>, Fabio Estevam <festevam@gmail.com>,
+ Pengutronix Kernel Team <kernel@pengutronix.de>, linux-can@vger.kernel.org,
+ devicetree@vger.kernel.org, linux-kernel@vger.kernel.org,
+ imx@lists.linux.dev, linux-arm-kernel@lists.infradead.org,
+ NXP S32 Linux Team <s32@nxp.com>, Christophe Lizzi <clizzi@redhat.com>,
+ Alberto Ruiz <aruizrui@redhat.com>, Eric Chanudet <echanude@redhat.com>
+References: <20260603071342.641874-1-ciprianmarian.costea@oss.nxp.com>
+ <20260603093941.ysev5do557hy2rui@nxp.com>
+ <CALE0LRuqZhm03QbYg-ZOJcKe0XqCLqVZ8j-4o07QuBF-OqX9BA@mail.gmail.com>
+Content-Language: en-US
+From: Ciprian Marian Costea <ciprianmarian.costea@oss.nxp.com>
+In-Reply-To: <CALE0LRuqZhm03QbYg-ZOJcKe0XqCLqVZ8j-4o07QuBF-OqX9BA@mail.gmail.com>
+Content-Type: text/plain; charset=UTF-8; format=flowed
+Content-Transfer-Encoding: 8bit
+X-ClientProxiedBy: FR4P281CA0450.DEUP281.PROD.OUTLOOK.COM
+ (2603:10a6:d10:c6::11) To AM0PR04MB5858.eurprd04.prod.outlook.com
+ (2603:10a6:208:132::23)
 MIME-Version: 1.0
-Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: 7bit
-Message-Id: <20260603-airoha_tc_htb_modify_queue-err-message-v1-1-33ec3ab997d9@kernel.org>
-X-B4-Tracking: v=1; b=H4sIAAAAAAAC/x2NQQ7CIBQFr9L8tSSIBhOvYgyh9CF/UdAPbWqa3
- l3ichYzs1OFMCrdh50EK1cuucP5NFBIPr+geOpMRhurrb4oz1KSdy241EY3l4nj130WLFAQUTN
- q9d2K8DfjownX0VKPvQWRt//oQRlNZWyNnsfxAxKvlPaCAAAA
-X-Change-ID: 20260603-airoha_tc_htb_modify_queue-err-message-fea72af2c4b6
-To: Andrew Lunn <andrew+netdev@lunn.ch>, 
- "David S. Miller" <davem@davemloft.net>, Eric Dumazet <edumazet@google.com>, 
- Jakub Kicinski <kuba@kernel.org>, Paolo Abeni <pabeni@redhat.com>
-Cc: linux-arm-kernel@lists.infradead.org, 
- linux-mediatek@lists.infradead.org, netdev@vger.kernel.org, 
- Lorenzo Bianconi <lorenzo@kernel.org>
-X-Mailer: b4 0.14.3
+X-MS-Exchange-MessageSentRepresentingType: 1
+X-MS-PublicTrafficType: Email
+X-MS-TrafficTypeDiagnostic: AM0PR04MB5858:EE_|GV4PR04MB11944:EE_
+X-MS-Office365-Filtering-Correlation-Id: e7d96222-227e-4700-bfc8-08dec15b81d0
+X-MS-Exchange-SharedMailbox-RoutingAgent-Processed: True
+X-LD-Processed: 686ea1d3-bc2b-4c6f-a92c-d99c5c301635,ExtAddr
+X-MS-Exchange-SenderADCheck: 1
+X-MS-Exchange-AntiSpam-Relay: 0
+X-Microsoft-Antispam: BCL:0;ARA:13230040|19092799006|1800799024|366016|7416014|376014|22082099003|18002099003|56012099006|6133799003|4143699003|11063799006;
+X-Microsoft-Antispam-Message-Info: Snn4+c8jajAqn7aYRCusiAnvmyNNGPy7HEhjnf2+rWe/uq18tEgZmXFAjTEwAmsLe/BIz78fJnGkpaG+TdN3r/TojuiXVSV1TnGMXR2+g2ruyxWCxDa8Os+G2tzEtuR6nYVzqRCFEcaAgaoKfP0FCLZ6qCf0sToRtcHC8ZUWh7q8UVq3Nf3TkFuoly8Eu9JSkcRbEF6A8GxIMvgkgk8b2A1TNct1RPB7oMrFHpdClzmiCVoH3Ss68c2wrHEVRCvanytZT5l85BOh1X5ncqv83OnDVhKZKFN3HiW/DY8RFiaznuduAlmJW5zLrBphhcO3nDrUwh1VYTl3gLHHBM467gZ5G3fkOzG+p34L5E0IWLMi0iK7avfQT98xjB60rIdr4CjyS4DMl3+U/MPtVpMzVWhFBTLwfEn0Ofw0ab9Z6CHxee46Ivp75h1cQW5xmgKTOma9INuWbU1D2pstiqZLP4l1qXnDJqZUQXMdEU/UcIrf0xzNM1axpeN1N3gyTQ4AeRuYuQFvH8oHYa1snmfJiXtnfNn54gqfl4qi579JcIK4n266Hb5lWMwUgJHwJScRhJOCGgVH6zxfmDUM5ulgfQW1TfHo7FWiiMHm/azJ9foh4WWolHX/7Say/Nn4rPckiPJFiGcLOZNd0atWxqn1JzbGoTxr6OiUFlMHq3Tb29Pv4rRA3cJtDn3THf08ky7g
+X-Forefront-Antispam-Report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:AM0PR04MB5858.eurprd04.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(19092799006)(1800799024)(366016)(7416014)(376014)(22082099003)(18002099003)(56012099006)(6133799003)(4143699003)(11063799006);DIR:OUT;SFP:1101;
+X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
+X-MS-Exchange-AntiSpam-MessageData-0: =?utf-8?B?N2tQd2U4M0JwTGRMck4vK29RYmRuRlZEQ09hdTNxTHJxOUxJRU1XVVZPL0dt?=
+ =?utf-8?B?WU9NZEFBbXhoM1F0ZkZkaTdJelRPVEdib21ld1JxL0tYckg0M1lmQ3ZnYlY4?=
+ =?utf-8?B?bUNRdjJTemh2ZHdneGlXazlRcFlsMVIweHE5NmpxM3FNVkRsMlM4NzNRaFUy?=
+ =?utf-8?B?ZFIzYnZqYjBzNzVBUXBMUmJzSDA5UXUvbSsvdDFxNzhFUVVzT3dVM0xSek1x?=
+ =?utf-8?B?MGlBT0pEcWViVEJiNXdtcHNJaTcrTXdaOXoxZWhWci9WOXdMWkJaSWg1ZnJ6?=
+ =?utf-8?B?Qk11blhoOUhSMCtjanAwUzYvZExaS2E4dXFOR2d0SlozYU9uSzJDL2F4OE1Z?=
+ =?utf-8?B?c2xOQURCdVRNY0N0WGkvZ1B5cUNnOTFSZ0FGTVU2aU9LWHZtcnpnczRpYjZh?=
+ =?utf-8?B?eG9Pak04QS9xelFqaTBzb0k1d1Q3Y2NOUXZPdHVnNWNaMy9qelhDZGZlT1BT?=
+ =?utf-8?B?MHFwaEZMWWVyOU5mYTRVczVsUGVtanVNY3RobzJ5bUo2c2g1UnJZQ1Rjanov?=
+ =?utf-8?B?RWtFUzlyVUJoR3hUamY5MlNrbzd6aEwvcFFsM1d2c2VEQU9kK0JzRElWdVYy?=
+ =?utf-8?B?a3hyRUYrdXpWc0FmQjZVNm01NCtSQkpSbGkzcTRKSDZndzZ0b25kYlV1VVkv?=
+ =?utf-8?B?OHdUWTltQmtUWUZqTkN5QkpmMG9Mem0yZHhSYU5kaExBZTdlV3RWck1XbGFM?=
+ =?utf-8?B?VXNua0NQc3YvVjVwclN1eHZSSnJSWm9LOHdHVVNQZHNzMG9BUnlxM0FLT0VD?=
+ =?utf-8?B?VkxTc05aekRTY0xPTHBOSHRHdTUrWUNCT3FYM2FVbjhkYUxja1haR1ZiN1NC?=
+ =?utf-8?B?Zks0VjZiTk45cWxuV21XUElEUDBpZVh6K2tTUHM1bGkzVWtVMGVQQUZiamo2?=
+ =?utf-8?B?NEwwdGlrbnFLNnV0R2wyY1NqUFhPdmxYdTNJM3JJcm1vQm5HUHJ4bkR4cnJv?=
+ =?utf-8?B?cFBZWVlrZ3dlNTR0ZzVvWXM4N1N1Y3JVZFRRNWE5elZzVEJpL0c0M0pqSk93?=
+ =?utf-8?B?eDdFcDNCY05zM203dDZlTjNHclFvTnhMU3VqT25VaGVuSFBiZWQ5Zmh1OGJp?=
+ =?utf-8?B?bU03cUk3M0xGbzNJRzZKSENtR3ZlbXI1WS9ZNVlYMkFNT2dYVEgvVHJZVVI4?=
+ =?utf-8?B?eU5BM2tpMWZ1bS9XdkdFT3dlSUFaT1VDeWN3VFVvYll6NkVycjFieGRRT3J5?=
+ =?utf-8?B?V0VMdFJOd3hQYVhaNVFzMjBYSVUwWWdJTFo4UWVDVHdnZ0tlM0ZqQmVMdGhx?=
+ =?utf-8?B?WnFXRXpWSWo0SGMzZFpHbmp2eVRaOGdTQkhmeVUyZ1dXV01NSkhRdkt5NmtI?=
+ =?utf-8?B?TXhlOGJUVnFqSXZUbnJVU1hiVDJ6WDRjN3lFc1J5RHpzRm00OXJRRzllZlhC?=
+ =?utf-8?B?UStkZ1Z6anNrSmpNaGxEazRvM3I4ZHVIQWRaRDkxa1F0NmdZUE5BWDFueGtw?=
+ =?utf-8?B?dlRVbUI0UCt0eVpGUVV1bWlqdHBTcnJyRy94VHVpaG95MmFaOElYaVcyblN0?=
+ =?utf-8?B?am1GK3p2L2UxSnd6UzNUcFNZbEZ6dVJwbDQ3YzZ0RDlGeUtIUDIzQk90S0o2?=
+ =?utf-8?B?OGFUa1laNGxoY3BCejRTeHQwTkIwMkdsR1BvM0FjY1g2V1pYcDNuTDkwelB4?=
+ =?utf-8?B?ZkxHL290djdycEltYmpNaTkwTFFuZzFNUWNtTlZkVy9rdVBKdDN3VEpyUS9W?=
+ =?utf-8?B?WE9EY1JBUUpkRWlrTW1ad2czc2R5YnVZcmJGdVRQOXJCanlZVHpWY3RBbXlm?=
+ =?utf-8?B?OGJDRHp5ZzZQMFVxc1hpdStlVDBaa0Mxam1SQ3lrMHlRR2Npcm50TjMvdWlF?=
+ =?utf-8?B?YnRlOWpVUDlJb0hBTmU4RzJ5S3E0N1MxVS9JalVBMWFBSkhNOFA0Y2ZWbmcw?=
+ =?utf-8?B?Y1ZrY09NVjNyc3lOVk9FUXhvWll4dVloUWM3RHdvR2VLNnhhSjlEWmc3Qm9w?=
+ =?utf-8?B?QlJGeHZqL0t4Zi81T2d2bDZDeTREd0dTMDVITWpwblNSWlhUclR0aUwrZGRn?=
+ =?utf-8?B?c3NQSjU1UW1RVGFGUzRaN0JJdm5qQXNHakpKVXFoTnBERksxVWw5ZzZVRHlS?=
+ =?utf-8?B?YlREcldPNUZScDNBdWQrdktMbDBSa0xEVGtSZ3N5cVp2YkZHOWk4dHhYU1Jo?=
+ =?utf-8?B?QkRTQlFHbDVWU21NTlc3THlhdWZpMWhLVUtUTkJpbWpqWWc5dXd3TUc5ZnJC?=
+ =?utf-8?B?cHlpRldNVUQyQ2paUkJqVXREYXIvWHRGY05oOGtWVzZxWlFsallFUkt0OUxm?=
+ =?utf-8?B?S2dBcGtTL1FjbEFCeHI2d01BelJ1UWNoenFTTzlvc3B3WVRFRXZJdDlLR2FM?=
+ =?utf-8?B?endmK0VMTVgzVWRWNGpxT3RZUWxDZXpwcEdWdHBMOFlpYllCeklNQ2R2Yytv?=
+ =?utf-8?Q?GnAH9XGTnkKmUzY0=3D?=
+X-OriginatorOrg: oss.nxp.com
+X-MS-Exchange-CrossTenant-Network-Message-Id: e7d96222-227e-4700-bfc8-08dec15b81d0
+X-MS-Exchange-CrossTenant-AuthSource: AM0PR04MB5858.eurprd04.prod.outlook.com
+X-MS-Exchange-CrossTenant-AuthAs: Internal
+X-MS-Exchange-CrossTenant-OriginalArrivalTime: 03 Jun 2026 10:33:10.0486
+ (UTC)
+X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
+X-MS-Exchange-CrossTenant-Id: 686ea1d3-bc2b-4c6f-a92c-d99c5c301635
+X-MS-Exchange-CrossTenant-MailboxType: HOSTED
+X-MS-Exchange-CrossTenant-UserPrincipalName: d9wG2KlIVYNzCcIH6a2dGlX2RRrs5rO4WFPU1IJAUCCLpHizjromX4EULhZfD9f9ZSvyOaoIJBM6p09qTBoFhRKRZTP4N9XxuToAa/B8vQM=
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: GV4PR04MB11944
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260603_033032_510334_0C6A8DAC 
-X-CRM114-Status: GOOD (  10.18  )
+X-CRM114-CacheID: sfid-20260603_033316_263899_B9BDB5DF 
+X-CRM114-Status: GOOD (  20.98  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -77,46 +161,115 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Report an extack error message in airoha_tc_htb_modify_queue routine if
-airoha_qdma_set_tx_rate_limit() fails.
+On 6/3/2026 1:28 PM, Enric Balletbo i Serra wrote:
+> Hi Ciprian,
+> 
+> Sorry in advance for the noise, for some strange reason I didn't get
+> or find the cover until now, so I added my tested patch in 1. Doing it
+> now properly.
 
-Signed-off-by: Lorenzo Bianconi <lorenzo@kernel.org>
----
- drivers/net/ethernet/airoha/airoha_eth.c | 8 +++++++-
- 1 file changed, 7 insertions(+), 1 deletion(-)
+Hello Enric and Bough Chen,
 
-diff --git a/drivers/net/ethernet/airoha/airoha_eth.c b/drivers/net/ethernet/airoha/airoha_eth.c
-index 6574901ebd19..d0d13f01e50f 100644
---- a/drivers/net/ethernet/airoha/airoha_eth.c
-+++ b/drivers/net/ethernet/airoha/airoha_eth.c
-@@ -2605,13 +2605,19 @@ static int airoha_tc_htb_modify_queue(struct net_device *dev,
- {
- 	u32 channel = TC_H_MIN(opt->classid) % AIROHA_NUM_QOS_CHANNELS;
- 	u32 rate = div_u64(opt->rate, 1000) << 3; /* kbps */
-+	int err;
- 
- 	if (opt->parent_classid != TC_HTB_CLASSID_ROOT) {
- 		NL_SET_ERR_MSG_MOD(opt->extack, "invalid parent classid");
- 		return -EINVAL;
- 	}
- 
--	return airoha_qdma_set_tx_rate_limit(dev, channel, rate, opt->quantum);
-+	err = airoha_qdma_set_tx_rate_limit(dev, channel, rate, opt->quantum);
-+	if (err)
-+		NL_SET_ERR_MSG_MOD(opt->extack,
-+				   "failed configuring htb offload");
-+
-+	return err;
- }
- 
- static int airoha_tc_htb_alloc_leaf_queue(struct net_device *netdev,
+Thank you for taking time in testing this FlexCAN series against
+both functionality on S32N79-RDB and regressions on other platforms.
 
----
-base-commit: dfcc2ff12925d99e858eaf539eaa4aaaf81fe2a6
-change-id: 20260603-airoha_tc_htb_modify_queue-err-message-fea72af2c4b6
+Best Regards,
+Ciprian
 
-Best regards,
--- 
-Lorenzo Bianconi <lorenzo@kernel.org>
+> 
+> On Wed, Jun 3, 2026 at 11:44 AM Bough Chen <haibo.chen@oss.nxp.com> wrote:
+>>
+>> On Wed, Jun 03, 2026 at 09:13:34AM +0200, Ciprian Costea wrote:
+>>> From: Ciprian Marian Costea <ciprianmarian.costea@oss.nxp.com>
+>>>
+>>> This patch series adds FlexCAN support for the NXP S32N79 SoC.
+>>>
+>>> The S32N79 is an automotive-grade processor from NXP with multiple
+>>> FlexCAN instances. The FlexCAN IP integration on S32N79 differs from
+>>> other SoCs in the interrupt routing - it uses two separate interrupt
+>>> lines:
+>>>    - one interrupt for mailboxes 0-127
+>>>    - one interrupt for bus error detection and device state changes
+>>>
+>>> The CAN controllers are connected through an irqsteer interrupt
+>>> controller in the RCU (Resource Control Unit) domain.
+>>>
+>>> This series:
+>>>    1. Splits flexcan_irq() into dedicated handlers for multi-IRQ platforms
+>>>    2. Adds dt-bindings documentation for S32N79 FlexCAN
+>>>    3. Introduces FLEXCAN_QUIRK_IRQ_BERR to handle the two-interrupt
+>>>       configuration
+>>>    4. Adds S32N79 device data and compatible string to the driver
+>>>    5. Adds FlexCAN device tree nodes for S32N79 SoC
+>>>    6. Enables FlexCAN devices on the S32N79-RDB board
+>>>
+>>> Tested on S32N79-RDB board with CAN and CAN FD communication.
+>>
+>> Tested on imx95-19x19-evk board with CAN and CAN FD communication. No issue found.
+>> This means this patch set do not impact the original platforms.
+>>
+>> For this patch set, feel free to add tag:
+>> Reviewed-and-tested-by: Haibo Chen <haibo.chen@nxp.com>
+>>
+>> Regards
+>> Haibo Chen
+> 
+> Tested-by: Enric Balletbo i Serra <eballetb@.redhat.com>
+> 
+> Tested on the NXP S32G399A-RDB3 with loopback and high-rate traffic.
+> No regressions observed:
+>    CAN frames transmit and receive correctly, with no duplicates.
+>    Frame reception showed no errors during stress testing.
+> 
+> Regards,
+>    Enric Balletbo
+> 
+>>>
+>>> This is a resend of v4 with no changes.
+>>>
+>>> v4 -> v3
+>>> - flexcan_chip_interrupts_enable(): disable/enable all IRQ lines
+>>>    (not just dev->irq) during IMASK register writes
+>>> - Split rx/tx masks per mailbox IRQ line (struct flexcan_mb_irq) so
+>>>    each handler on S32G2 only processes its own MB range
+>>> - Added received Acked-by tag on DT bindings patch
+>>>
+>>> v3 -> v2
+>>> - Split flexcan_irq() into dedicated handlers (flexcan_irq_mb,
+>>>    flexcan_irq_boff, flexcan_irq_berr) to fix duplicate event
+>>>    processing when multiple IRQ lines run concurrently (new patch).
+>>> - Added flexcan_irq_esr() handler composing state + berr for S32N79
+>>> - Ordered quirks used by s32n devtype data by value.
+>>>
+>>> v2 -> v1
+>>> - Renamed FLEXCAN_QUIRK_NR_IRQ_2 to FLEXCAN_QUIRK_IRQ_BERR to better
+>>> describe the actual hardware feature
+>>> - Appended new quirk at the end
+>>> - Switched from platform_get_irq to platform_get_irq_byname usage
+>>> - Updated interrupt description in dt-bindings
+>>>
+>>> Ciprian Marian Costea (8):
+>>>    can: flexcan: use dedicated IRQ handlers for multi-IRQ platforms
+>>>    can: flexcan: disable all IRQ lines in
+>>>      flexcan_chip_interrupts_enable()
+>>>    can: flexcan: split rx/tx masks per mailbox IRQ line
+>>>    dt-bindings: can: fsl,flexcan: add NXP S32N79 SoC support
+>>>    can: flexcan: add FLEXCAN_QUIRK_IRQ_BERR quirk
+>>>    can: flexcan: add NXP S32N79 SoC support
+>>>    arm64: dts: s32n79: add FlexCAN nodes
+>>>    arm64: dts: s32n79: enable FlexCAN devices
+>>>
+>>>   .../bindings/net/can/fsl,flexcan.yaml         |  30 ++-
+>>>   arch/arm64/boot/dts/freescale/s32n79-rdb.dts  |  12 +
+>>>   arch/arm64/boot/dts/freescale/s32n79.dtsi     |  50 ++++
+>>>   drivers/net/can/flexcan/flexcan-core.c        | 249 +++++++++++++++---
+>>>   drivers/net/can/flexcan/flexcan.h             |  12 +-
+>>>   5 files changed, 316 insertions(+), 37 deletions(-)
+>>>
+>>> --
+>>> 2.43.0
+>>>
+>>
+> 
 
 
