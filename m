@@ -4,157 +4,72 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id BBBFECD6E4A
-	for <linux-arm-kernel@archiver.kernel.org>; Wed,  3 Jun 2026 07:14:33 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id E0DBACD6E4A
+	for <linux-arm-kernel@archiver.kernel.org>; Wed,  3 Jun 2026 07:19:19 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:References
-	:Message-Id:Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:
-	From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=0NESXEAUnIJZlgHkQhSkW2BBr8htvCi9q/3exWK1858=; b=KphYFPi4AECzBMUFk++2nPUPDy
-	yCYbMLNGZ3ZzWXRgn2Ng34B5ycWhdISyRuqfMr2ykzDJQNesnm5RECZvePHmuBhSNCf9ZJT6BwPcg
-	Z7nC+JmsixA3zmIahY81iOzjxrOb9MY+s2QxtWFYbRCcUbiR3CH+1IBZhsZQK3ZFPS0ZceeYyYSWZ
-	/9OeUcqtJtyFANWOlGiHUZbMtJKCQ9yKCqubquyYA4rXIuQjT7tUEQN2Mb6rBtnPJ7mIWL/IR11Oc
-	NEcOtJQVJhh/tGjlfIYMEG2ovCtnwuAsi5EWl8WCozXotx5vzaXwAomd38rf5lQd6S6C0GRFEIxUk
-	Zfsv13SQ==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:
+	Content-Transfer-Encoding:Content-Type:Date:Cc:To:From:Subject:Message-ID:
+	Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender
+	:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=y5M+BHkdRMszwF+UBYD7j3KKopl0PRpBV+LxR571Fz4=; b=KYYxPvG4PmYIpPVbfixXmaLc5B
+	l449M5m22UgL2gLQXoch4h61bfnbcEl1BfdoJjeK/SU7UkXL0FvBwt4kNBz2VlkFJm8i0cTqjWPkU
+	5xjVvtTc9jPYHdDahPtWvlOqFycvFNR4imYYt8LQ7wVxx+MWvJFo/82r5YwQicUoo16yHFAet8txC
+	q/KsEv1fTb/VoauoZPjJrNiEI5b3DNGjHEj/AL+R+nCoV/rQ2QGS/K9lKe5L8Pu6bD2WT5ng/xYDc
+	nfo4QANoEr9DOhvkpVCbEFuSJyO5ZN6uXx3FcH/z3v+B3VZPyWN9QkVeiNhdW1rM5YpPxEDISmEoD
+	Fomcxy6g==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wUfo2-0000000ES9J-2oBJ;
-	Wed, 03 Jun 2026 07:14:26 +0000
-Received: from mx0b-0031df01.pphosted.com ([205.220.180.131])
+	id 1wUfsc-0000000ESzs-3vey;
+	Wed, 03 Jun 2026 07:19:10 +0000
+Received: from desiato.infradead.org ([2001:8b0:10b:1:d65d:64ff:fe57:4e05])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wUfo0-0000000ES5b-1Zxe
+	id 1wUfsa-0000000ESzh-17Nf
+	for linux-arm-kernel@bombadil.infradead.org;
+	Wed, 03 Jun 2026 07:19:08 +0000
+DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
+	d=infradead.org; s=desiato.20200630; h=MIME-Version:Content-Transfer-Encoding
+	:Content-Type:Date:Cc:To:From:Subject:Message-ID:Sender:Reply-To:Content-ID:
+	Content-Description:In-Reply-To:References;
+	bh=y5M+BHkdRMszwF+UBYD7j3KKopl0PRpBV+LxR571Fz4=; b=E3gPdF+getGsasFXQPUin6xQoo
+	vZKXH9295qaZbSpuhZhL0l1nWBO1TYSZD8sASxxuROZNLcOc9FoZSrR7I+PuzbNVn/yj/0FlYXGlg
+	boh4NFWAk8GmhZer/0UF4z1wdHaEgbWnfcX2Xn9Mun89b3BHEYCoNBxqhGo6cOE96l99rxfMMoFXu
+	AHrcP349fg5dYrzZTq8KWOM4IEpUtmzGH3tY4i1XoOU+VHaf8wnxnVrS4SXzttqMyaN+ukwWqffNG
+	5uEXZG0y7o8K7f9ZU3YiSaXnEQ0c7YYqmfpS8qDZWr/f4WtIBqqO4fTeKhoejaHLbjHsH5YVpEDQ+
+	+wE9gu7w==;
+Received: from pi.codeconstruct.com.au ([203.29.241.158] helo=codeconstruct.com.au)
+	by desiato.infradead.org with esmtps (Exim 4.99.2 #2 (Red Hat Linux))
+	id 1wUfsV-0000000BOsi-3al5
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 03 Jun 2026 07:14:25 +0000
-Received: from pps.filterd (m0279873.ppops.net [127.0.0.1])
-	by mx0a-0031df01.pphosted.com (8.18.1.11/8.18.1.11) with ESMTP id 6536v62W1755364
-	for <linux-arm-kernel@lists.infradead.org>; Wed, 3 Jun 2026 07:14:22 GMT
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=qualcomm.com; h=
-	cc:content-transfer-encoding:content-type:date:from:in-reply-to
-	:message-id:mime-version:references:subject:to; s=qcppdkim1; bh=
-	0NESXEAUnIJZlgHkQhSkW2BBr8htvCi9q/3exWK1858=; b=nqgLSJgqZuxMg4dj
-	TkTyKMYGew2vpzd0IHJcj+bRfWM+33dnwHxuTNAamr6pDsRV2FvzsmV5zd1bwJhI
-	tAOlM6O+ek6AdbS9PhZlK4v6jzh/DdFOpiIIbdhJ9W+1xpM/yavnl1x+qVdjteh8
-	2Vt1lYUMAQDpy2wPnUbTtipX3TPGAstlE0RZL6EXNhq4AbNzumGBA8zePWvUjomR
-	npOr5NyxqpfbiZMznELtlvnUdLvke48QBTmmcAvP56uIHzPNKxvolFaolqh1xpkY
-	J/H2O5PQeVGrF1elJ8yYuaW1JboWVsyqNMMgYbj9dn6pKgk3jXC88udBDXXOqC6e
-	vmlIZQ==
-Received: from mail-pl1-f198.google.com (mail-pl1-f198.google.com [209.85.214.198])
-	by mx0a-0031df01.pphosted.com (PPS) with ESMTPS id 4ejff002cq-1
-	(version=TLSv1.3 cipher=TLS_AES_128_GCM_SHA256 bits=128 verify=NOT)
-	for <linux-arm-kernel@lists.infradead.org>; Wed, 03 Jun 2026 07:14:22 +0000 (GMT)
-Received: by mail-pl1-f198.google.com with SMTP id d9443c01a7336-2beff6b6e74so77587065ad.1
-        for <linux-arm-kernel@lists.infradead.org>; Wed, 03 Jun 2026 00:14:22 -0700 (PDT)
+	Wed, 03 Jun 2026 07:19:06 +0000
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=oss.qualcomm.com; s=google; t=1780470861; x=1781075661; darn=lists.infradead.org;
-        h=cc:to:in-reply-to:references:message-id:content-transfer-encoding
-         :mime-version:subject:date:from:from:to:cc:subject:date:message-id
-         :reply-to;
-        bh=0NESXEAUnIJZlgHkQhSkW2BBr8htvCi9q/3exWK1858=;
-        b=I4cfa5J4hohInyNUdKxHgXCCIBvz6gPmMrrLZYxDphmwshkjhZl6XDguqqmkYHUtvK
-         jwiEgKYZXpDirQQOjfsJRfQp4FG+ZnWhk+sbOTXC0yGToG5aFBNBDwSTSLUKCM14NOZo
-         uAsWwJfk4vgLWaeuKaB0kjVSVCbboq+wdcStKF5VUVdsrIAtRzfyh5e2ZTjzhZVeLpR+
-         qNeRDLEK85AouVUcxEhEkTxk3Ankpworz6qbBH4gBKMVgA/F2BnLcDI0jKDVQk5emEKG
-         GqFrSb42X/m7MdlJyP3ZboioI3JOViyiAptAtEVwk7w0wbZTWn5/k4KZbTeFw6L2Ck9Q
-         LbOw==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20251104; t=1780470861; x=1781075661;
-        h=cc:to:in-reply-to:references:message-id:content-transfer-encoding
-         :mime-version:subject:date:from:x-gm-gg:x-gm-message-state:from:to
-         :cc:subject:date:message-id:reply-to;
-        bh=0NESXEAUnIJZlgHkQhSkW2BBr8htvCi9q/3exWK1858=;
-        b=LwY/MBp1j0R5od8hBXTaIhuGZEuHUFxmMJt/kmtNF02vSWi1P9JclwPqj1BeN6Ah2J
-         iznsuGTLPJvgCttndlOZt6rdbPWGrJyhd92z0Inmi0oJutnxCR9Ju0fzjmQpb5mDQUzx
-         A5ElqugUcxtDh6ovu9DrBmSWXrBGqlkMaVwvxS8MSrFAEI8mQYfGRBr8kizVxcctFArY
-         ngo7Ktqq5tdvouGuUqeuzrkzYRm4E4Bxnf9oqCnHX2cJ7l5sk1xGBkn9tm/jUu2DrPTj
-         Qjp7pSovEkOhiCeYkpErqxLBjAYrLLhKAQCJ4EfktLTFMOrJbF11jusw/I5gbeIQzFvQ
-         lGnQ==
-X-Forwarded-Encrypted: i=1; AFNElJ82S3ERZ0oPrMuvM5m5Sn34Y4wj/Tcx+AFgn5o3NQgyU5wuxlljOi/Vesr7Gj+RjZVuD13wO0AyUobEAqzvYbWl@lists.infradead.org
-X-Gm-Message-State: AOJu0Yz7U4jr7TaJhHmCuFEHLhInAc5Om0tt5lVR6YvRiqiS5Oa5DPJn
-	euy0RGfO35iobScMUkOma5lf6wy2W1TpNcRZZ9JkEdPF6bBMThhsrqQL1NvWEJG4uJqt30oW/Ro
-	6j4G9wVeJj4c9kz+NtE4VslqvlP18G3V05BoLEuMreptuH01dvUaRVnzhrbBHCphdsw0UuMaZbg
-	DpiQ==
-X-Gm-Gg: Acq92OFMguAwDXmob3Y7FYhQVqEK3NwCn/+AZHBPFSl2nBmSRE2IAXkHntwmLtoBemd
-	xBp1R2/86GoaMEADuqOH51I3f7/y7iVpnEltlYtDGGw8Y/7PHVltdRhXglXZHWwEag6nOKQQJJf
-	1a7ClTpjKGsn8ppYfFy9udJP/zWKysII+Wz1axfxvR6J86C/HURgFFpdiI9y3lD62xOc0PhXOwi
-	qcMsiM3zb524vs/kgQvmTYIdrnJVdmVWJGFd4KEEvk7lfZHxTfqJpIQjr8bnzR0/GnGyOvOKeO1
-	72YmRsr/0QddU2EP64wYZPHQMvvaBh6D1SXm2M1v7izS5ctAaeFG0HP1Q4yol67E7rE/4cp8i1p
-	yXN1mMarm69KzXHZDaPCjkPw2pFBrnVEqYcAxivuluYFD/1fhFBmp1HEAwKXrdUAJyjQ=
-X-Received: by 2002:a17:903:2409:b0:2bf:e5c:d90b with SMTP id d9443c01a7336-2c1644aae32mr24391935ad.32.1780470861097;
-        Wed, 03 Jun 2026 00:14:21 -0700 (PDT)
-X-Received: by 2002:a17:903:2409:b0:2bf:e5c:d90b with SMTP id d9443c01a7336-2c1644aae32mr24391335ad.32.1780470860486;
-        Wed, 03 Jun 2026 00:14:20 -0700 (PDT)
-Received: from hu-vjitta-hyd.qualcomm.com ([202.46.23.25])
-        by smtp.gmail.com with ESMTPSA id d9443c01a7336-2c164f8429fsm17249725ad.18.2026.06.03.00.14.12
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Wed, 03 Jun 2026 00:14:20 -0700 (PDT)
-From: Vijayanand Jitta <vijayanand.jitta@oss.qualcomm.com>
-Date: Wed, 03 Jun 2026 12:43:14 +0530
-Subject: [PATCH v16 3/3] of: Respect #{iommu,msi}-cells in maps
+	d=codeconstruct.com.au; s=2022a; t=1780471127;
+	bh=y5M+BHkdRMszwF+UBYD7j3KKopl0PRpBV+LxR571Fz4=;
+	h=Subject:From:To:Cc:Date;
+	b=NKyx2CatndWRFcz4jUeX3R9F8lteKdztwG4DlJlQ5HB7ZZdsHTr4O3xArvyGt3dv7
+	 KHl74V01O88gBB7sP7UH2Ubh0AAQIqnMpZCQ5SJZcG5rhR65cs6rS3N5PstQPhty5C
+	 +sv+4+hppj1+avwMSza3zSVQNvSRVyhBUzAht8WBzbMb3tQ3/W1uP34PFHIxc6tsnw
+	 74q37neyo0wodQFl3P5FxWlV1/dBpQ1HN0L37UaeVXnJA0FZEmqr/kb+3BdACgw19h
+	 U3g+0cLuTwlBAr24dhUWWsI4HBz3KHp3upuBzExVNa2a2k5hP6iizHVePx3D6zhMHc
+	 n2/xSwzTbZWDg==
+Received: from [IPv6:2405:6e00:2428:1c7f:23a6:ec69:2b14:b7d] (unknown [120.20.104.66])
+	by mail.codeconstruct.com.au (Postfix) with ESMTPSA id B237960087;
+	Wed,  3 Jun 2026 15:18:45 +0800 (AWST)
+Message-ID: <cbd2822caa9fc7c2b4567703be785b9b4fd829cd.camel@codeconstruct.com.au>
+Subject: [RESEND,GIT PULL] aspeed: First batch of ARM devicetree changes for
+ v7.2
+From: Andrew Jeffery <andrew@codeconstruct.com.au>
+To: soc@lists.linux.dev
+Cc: linux-arm-kernel@lists.infradead.org, linux-aspeed@lists.ozlabs.org, 
+	linux-kernel@vger.kernel.org, Joel Stanley <joel@jms.id.au>
+Date: Wed, 03 Jun 2026 16:48:43 +0930
+Content-Type: text/plain; charset="UTF-8"
+Content-Transfer-Encoding: quoted-printable
+User-Agent: Evolution 3.56.2-0+deb13u1 
 MIME-Version: 1.0
-Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: 7bit
-Message-Id: <20260603-parse_iommu_cells-v16-3-dc509dacb19a@oss.qualcomm.com>
-References: <20260603-parse_iommu_cells-v16-0-dc509dacb19a@oss.qualcomm.com>
-In-Reply-To: <20260603-parse_iommu_cells-v16-0-dc509dacb19a@oss.qualcomm.com>
-To: Nipun Gupta <nipun.gupta@amd.com>, Nikhil Agarwal <nikhil.agarwal@amd.com>,
-        Joerg Roedel <joro@8bytes.org>, Will Deacon <will@kernel.org>,
-        Robin Murphy <robin.murphy@arm.com>,
-        Lorenzo Pieralisi <lpieralisi@kernel.org>,
-        Marc Zyngier <maz@kernel.org>, Thomas Gleixner <tglx@kernel.org>,
-        Rob Herring <robh@kernel.org>, Saravana Kannan <saravanak@kernel.org>,
-        Richard Zhu <hongxing.zhu@nxp.com>,
-        Lucas Stach <l.stach@pengutronix.de>,
-        =?utf-8?q?Krzysztof_Wilczy=C5=84ski?= <kwilczynski@kernel.org>,
-        Manivannan Sadhasivam <mani@kernel.org>,
-        Bjorn Helgaas <bhelgaas@google.com>, Frank Li <Frank.Li@nxp.com>,
-        Sascha Hauer <s.hauer@pengutronix.de>,
-        Pengutronix Kernel Team <kernel@pengutronix.de>,
-        Fabio Estevam <festevam@gmail.com>, Juergen Gross <jgross@suse.com>,
-        Stefano Stabellini <sstabellini@kernel.org>,
-        Oleksandr Tyshchenko <oleksandr_tyshchenko@epam.com>
-Cc: linux-arm-msm@vger.kernel.org, linux-kernel@vger.kernel.org,
-        iommu@lists.linux.dev, linux-arm-kernel@lists.infradead.org,
-        devicetree@vger.kernel.org, linux-pci@vger.kernel.org,
-        imx@lists.linux.dev, xen-devel@lists.xenproject.org,
-        Vijayanand Jitta <vijayanand.jitta@oss.qualcomm.com>,
-        Charan Teja Kalla <charan.kalla@oss.qualcomm.com>
-X-Mailer: b4 0.15.2
-X-Developer-Signature: v=1; a=ed25519-sha256; t=1780470825; l=12579;
- i=vijayanand.jitta@oss.qualcomm.com; s=20260301; h=from:subject:message-id;
- bh=LPtm8WRL1ePgVwpjpfKGmM3BfFB+wBr62xMWuFSMIXc=;
- b=akSqVr4B15pnrlPKudtM7LDFqnlZY755iH00YvUmRmRXT010tIliyd5qbMUXYUsNrA1CeFZLr
- x5IZ2Ex1fT9Afpi39siNTFcy0lhQVnAIK8REPd8mwI7kfwda3ocWUcq
-X-Developer-Key: i=vijayanand.jitta@oss.qualcomm.com; a=ed25519;
- pk=Lpi7Cs3wHe8KZtqvyci7FTOLzsKpEHKGCaPNZw+1zRI=
-X-Proofpoint-GUID: kjPCyHPDR_QlY4UVW9zi6pZnQKTbk9BK
-X-Proofpoint-ORIG-GUID: kjPCyHPDR_QlY4UVW9zi6pZnQKTbk9BK
-X-Authority-Analysis: v=2.4 cv=LYwMLDfi c=1 sm=1 tr=0 ts=6a1fd44e cx=c_pps
- a=MTSHoo12Qbhz2p7MsH1ifg==:117 a=ZePRamnt/+rB5gQjfz0u9A==:17
- a=IkcTkHD0fZMA:10 a=FelO9ux0wxsA:10 a=s4-Qcg_JpJYA:10
- a=VkNPw1HP01LnGYTKEx00:22 a=u7WPNUs3qKkmUXheDGA7:22 a=rJkE3RaqiGZ5pbrm-msn:22
- a=7CQSdrXTAAAA:8 a=EUspDBNiAAAA:8 a=9707C7GnR82a18xSEiYA:9 a=QEXdDO2ut3YA:10
- a=GvdueXVYPmCkWapjIL-Q:22 a=a-qgeE7W1pNrGK8U0ZQC:22
-X-Proofpoint-Spam-Details-Enc: AW1haW4tMjYwNjAzMDA2NiBTYWx0ZWRfX/mM4oPu9NRMQ
- uOGp1/4HxzMhMEgjWRlaWmXhh+/MO31XIzKeR/h6ei7B1bgeC9c72CryCrXBjsOT2L8moAmYYBu
- /Mod+g5XSEPXOzIM+j/EDqAPeywU7wSe4oIH0kujRLVd/TiyuW8Oe0WBM9QdkYK36F9sQC28c69
- IWSVVwTMpJGHEPgxob8WISF/hqsfCZtIt1gthynETLaYbfl93tQ7YwwVkMos1XqYzDAbL9K5Ufr
- td0ztUkFevAup5mnWBI8n3Tj64JMCMMIq6/dvdm3UbOQ3TJkWXz14K5CtBUJHbWcF/EqJID70TC
- 8i3TKN6jcC0DgCejVvymB/sRM+3B7c7k/PUKNoyn7Z2HJF3eN1zJIyOgYndRJ7LgAL/uW1AQWNx
- 8YcCcPkOc292jUtk3yCc8DOFe/p6MRuWZHyC/coeq2A+RxCYRigkXXPk+vdPeqr04qXOGYZeqkq
- 0tnBCpj3E8iW3+M9l2g==
-X-Proofpoint-Virus-Version: vendor=baseguard
- engine=ICAP:2.0.293,Aquarius:18.0.1143,Hydra:6.1.125,FMLib:17.12.100.49
- definitions=2026-06-03_02,2026-05-28_03,2025-10-01_01
-X-Proofpoint-Spam-Details: rule=outbound_notspam policy=outbound score=0
- bulkscore=0 clxscore=1015 malwarescore=0 phishscore=0 lowpriorityscore=0
- adultscore=0 impostorscore=0 suspectscore=0 spamscore=0 priorityscore=1501
- classifier=typeunknown authscore=0 authtc= authcc= route=outbound adjust=0
- reason=mlx scancount=1 engine=8.22.0-2605210000 definitions=main-2606030066
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260603_001424_568838_BAC8EC55 
-X-CRM114-Status: GOOD (  30.51  )
+X-CRM114-CacheID: sfid-20260603_081904_894737_DFC945D3 
+X-CRM114-Status: GOOD (  12.26  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -169,332 +84,135 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-From: Robin Murphy <robin.murphy@arm.com>
+Hi SoC maintainers,
 
-So far our parsing of {iommu,msi}-map properties has always blindly
-assumed that the output specifiers will always have exactly 1 cell.
-This typically does happen to be the case, but is not actually enforced
-(and the PCI msi-map binding even explicitly states support for 0 or 1
-cells) - as a result we've now ended up with dodgy DTs out in the field
-which depend on this behaviour to map a 1-cell specifier for a 2-cell
-provider, despite that being bogus per the bindings themselves.
+The first attempt[1] missed the preamble, so here's the same again,
+this time with it included.
 
-Since there is some potential use in being able to map at least single
-input IDs to multi-cell output specifiers (and properly support 0-cell
-outputs as well), add support for properly parsing and using the target
-nodes' #cells values, albeit with the unfortunate complication of still
-having to work around expectations of the old behaviour too.
+[1]: https://lore.kernel.org/soc/55ab27bc5e09252b1dbfdf1505693eb193b8e846.c=
+amel@codeconstruct.com.au/
 
-Since there are multi-cell output specifiers, the callers of of_map_id()
-may need to get the exact cell output value for further processing.
-Update of_map_id() to set args_count in the output to reflect the actual
-number of output specifier cells.
+Cheers,
 
-Signed-off-by: Robin Murphy <robin.murphy@arm.com>
-Signed-off-by: Charan Teja Kalla <charan.kalla@oss.qualcomm.com>
-Signed-off-by: Vijayanand Jitta <vijayanand.jitta@oss.qualcomm.com>
----
- drivers/of/base.c  | 168 +++++++++++++++++++++++++++++++++++++++++------------
- include/linux/of.h |   6 +-
- 2 files changed, 135 insertions(+), 39 deletions(-)
+Andrew
 
-diff --git a/drivers/of/base.c b/drivers/of/base.c
-index d658c2620135..ac7961cbab94 100644
---- a/drivers/of/base.c
-+++ b/drivers/of/base.c
-@@ -2116,19 +2116,49 @@ int of_find_last_cache_level(unsigned int cpu)
- 	return cache_level;
- }
- 
-+/*
-+ * Some DTs have an iommu-map targeting a 2-cell IOMMU node while
-+ * specifying only 1 cell. Fortunately they all consist of value '1'
-+ * as the 2nd cell entry with the same target, so check for that pattern.
-+ *
-+ * Example:
-+ *	IOMMU node:
-+ *		#iommu-cells = <2>;
-+ *
-+ *	Device node:
-+ *		iommu-map = <0x0000 &smmu 0x0000 0x1>,
-+ *			    <0x0100 &smmu 0x0100 0x1>;
-+ */
-+static bool of_check_bad_map(const __be32 *map, int len)
-+{
-+	__be32 phandle = map[1];
-+
-+	if (len % 4)
-+		return false;
-+	for (int i = 0; i < len; i += 4) {
-+		if (map[i + 1] != phandle || map[i + 3] != cpu_to_be32(1))
-+			return false;
-+	}
-+	return true;
-+}
-+
- /**
-  * of_map_id - Translate an ID through a downstream mapping.
-  * @np: root complex device node.
-  * @id: device ID to map.
-  * @map_name: property name of the map to use.
-+ * @cells_name: property name of target specifier cells.
-  * @map_mask_name: optional property name of the mask to use.
-  * @filter_np: pointer to an optional filter node, or NULL to allow bypass.
-  *	If non-NULL, the map property must exist (-ENODEV if absent). If
-  *	*filter_np is also non-NULL, only entries targeting that node match.
-  * @arg: pointer to a &struct of_phandle_args for the result. On success,
-- *	@arg->args[0] will contain the translated ID. If a map entry was
-- *	matched, @arg->np will be set to the target node with a reference
-- *	held that the caller must release with of_node_put().
-+ *	@arg->args_count will be set to the number of output specifier cells
-+ *	as defined by @cells_name in the target node, and
-+ *	@arg->args[0..args_count-1] will contain the translated output
-+ *	specifier values. If a map entry was matched, @arg->np will be set
-+ *	to the target node with a reference held that the caller must release
-+ *	with of_node_put().
-  *
-  * Given a device ID, look up the appropriate implementation-defined
-  * platform ID and/or the target device which receives transactions on that
-@@ -2137,19 +2167,21 @@ int of_find_last_cache_level(unsigned int cpu)
-  * Return: 0 on success or a standard error code on failure.
-  */
- int of_map_id(const struct device_node *np, u32 id,
--	       const char *map_name, const char *map_mask_name,
-+	       const char *map_name, const char *cells_name,
-+	       const char *map_mask_name,
- 	       struct device_node * const *filter_np, struct of_phandle_args *arg)
- {
- 	u32 map_mask, masked_id;
--	int map_len;
-+	int map_bytes, map_len, offset = 0;
-+	bool bad_map = false;
- 	const __be32 *map = NULL;
- 
--	if (!np || !map_name || !arg)
-+	if (!np || !map_name || !cells_name || !arg)
- 		return -EINVAL;
- 	/* Ensure bypass/no-match success never returns a stale target node. */
- 	arg->np = NULL;
- 
--	map = of_get_property(np, map_name, &map_len);
-+	map = of_get_property(np, map_name, &map_bytes);
- 	if (!map) {
- 		if (filter_np)
- 			return -ENODEV;
-@@ -2159,11 +2191,9 @@ int of_map_id(const struct device_node *np, u32 id,
- 		return 0;
- 	}
- 
--	if (!map_len || map_len % (4 * sizeof(*map))) {
--		pr_err("%pOF: Error: Bad %s length: %d\n", np,
--			map_name, map_len);
--		return -EINVAL;
--	}
-+	if (map_bytes % sizeof(*map))
-+		goto err_map_len;
-+	map_len = map_bytes / sizeof(*map);
- 
- 	/* The default is to select all bits. */
- 	map_mask = 0xffffffff;
-@@ -2176,39 +2206,93 @@ int of_map_id(const struct device_node *np, u32 id,
- 		of_property_read_u32(np, map_mask_name, &map_mask);
- 
- 	masked_id = map_mask & id;
--	for ( ; map_len > 0; map_len -= 4 * sizeof(*map), map += 4) {
-+
-+	while (offset < map_len) {
- 		struct device_node *phandle_node;
--		u32 id_base = be32_to_cpup(map + 0);
--		u32 phandle = be32_to_cpup(map + 1);
--		u32 out_base = be32_to_cpup(map + 2);
--		u32 id_len = be32_to_cpup(map + 3);
-+		u32 id_base, phandle, id_len, id_off, cells = 0;
-+		const __be32 *out_base;
-+
-+		if (map_len - offset < 2)
-+			goto err_map_len;
-+
-+		id_base = be32_to_cpup(map + offset);
- 
- 		if (id_base & ~map_mask) {
--			pr_err("%pOF: Invalid %s translation - %s-mask (0x%x) ignores id-base (0x%x)\n",
--				np, map_name, map_name,
--				map_mask, id_base);
-+			pr_err("%pOF: Invalid %s translation - %s (0x%x) ignores id-base (0x%x)\n",
-+			       np, map_name, map_mask_name, map_mask, id_base);
- 			return -EFAULT;
- 		}
- 
--		if (masked_id < id_base || masked_id >= id_base + id_len)
--			continue;
--
-+		phandle = be32_to_cpup(map + offset + 1);
- 		phandle_node = of_find_node_by_phandle(phandle);
- 		if (!phandle_node)
- 			return -ENODEV;
- 
-+		/*
-+		 * Assume 1-cell output specifier if the target node lacks the
-+		 * #cells property, for backward compatibility with controllers
-+		 * that predate the property (e.g. arm,gic-v2m-frame).
-+		 */
-+		if (bad_map || of_property_read_u32(phandle_node, cells_name, &cells))
-+			cells = 1;
-+
-+		if (cells > MAX_PHANDLE_ARGS) {
-+			pr_err("%pOF: %s cell count %d exceeds maximum\n",
-+			       phandle_node, cells_name, cells);
-+			of_node_put(phandle_node);
-+			return -EINVAL;
-+		}
-+
-+		if (offset == 0 && cells == 2) {
-+			bad_map = of_check_bad_map(map, map_len);
-+			if (bad_map) {
-+				pr_warn_once("%pOF: %s has 1-cell entries targeting 2-cell %s, treating as 1-cell output\n",
-+					     np, map_name, cells_name);
-+				cells = 1;
-+			}
-+		}
-+
-+		if (map_len - offset < 3 + cells) {
-+			of_node_put(phandle_node);
-+			goto err_map_len;
-+		}
-+
-+		out_base = map + offset + 2;
-+		offset += 3 + cells;
-+
-+		id_len = be32_to_cpup(map + offset - 1);
-+		id_off = masked_id - id_base;
-+		if (masked_id < id_base || id_off >= id_len) {
-+			of_node_put(phandle_node);
-+			continue;
-+		}
-+		if (id_len > 1 && cells > 1) {
-+			/*
-+			 * With 1 output cell we reasonably assume its value
-+			 * has a linear relationship to the input; with more,
-+			 * we'd need help from the provider to know what to do.
-+			 */
-+			pr_err("%pOF: Unsupported %s - cannot handle %d-ID range with %d-cell output specifier\n",
-+			       np, map_name, id_len, cells);
-+			of_node_put(phandle_node);
-+			return -EINVAL;
-+		}
-+
- 		if (filter_np && *filter_np && *filter_np != phandle_node) {
- 			of_node_put(phandle_node);
- 			continue;
- 		}
- 
- 		arg->np = phandle_node;
--		arg->args[0] = masked_id - id_base + out_base;
--		arg->args_count = 1;
-+		for (int i = 0; i < cells; i++)
-+			arg->args[i] = id_off + be32_to_cpu(out_base[i]);
-+		arg->args_count = cells;
- 
- 		pr_debug("%pOF: %s, using mask %08x, id-base: %08x, out-base: %08x, length: %08x, id: %08x -> %08x\n",
--			np, map_name, map_mask, id_base, out_base,
--			id_len, id, masked_id - id_base + out_base);
-+			np, map_name, map_mask, id_base,
-+			cells ? be32_to_cpup(out_base) : 0,
-+			id_len, id,
-+			cells ? id_off + be32_to_cpup(out_base) : id_off);
- 		return 0;
- 	}
- 
-@@ -2219,6 +2303,10 @@ int of_map_id(const struct device_node *np, u32 id,
- 	arg->args[0] = id;
- 	arg->args_count = 1;
- 	return 0;
-+
-+err_map_len:
-+	pr_err("%pOF: Error: Bad %s length: %d\n", np, map_name, map_bytes);
-+	return -EINVAL;
- }
- EXPORT_SYMBOL_GPL(of_map_id);
- 
-@@ -2228,18 +2316,21 @@ EXPORT_SYMBOL_GPL(of_map_id);
-  * @id: Requester ID of the device (e.g. PCI RID/BDF or a platform
-  *      stream/device ID) used as the lookup key in the iommu-map table.
-  * @arg: pointer to a &struct of_phandle_args for the result. On success,
-- *	@arg->args[0] contains the translated ID. If a map entry was matched,
-- *	@arg->np holds a reference to the target node that the caller must
-- *	release with of_node_put().
-+ *	@arg->args_count will be set to the number of output specifier cells
-+ *	and @arg->args[0..args_count-1] will contain the translated output
-+ *	specifier values. If a map entry was matched, @arg->np holds a
-+ *	reference to the target node that the caller must release with
-+ *	of_node_put().
-  *
-- * Convenience wrapper around of_map_id() using "iommu-map" and "iommu-map-mask".
-+ * Convenience wrapper around of_map_id() using "iommu-map", "#iommu-cells",
-+ * and "iommu-map-mask".
-  *
-  * Return: 0 on success or a standard error code on failure.
-  */
- int of_map_iommu_id(const struct device_node *np, u32 id,
- 		    struct of_phandle_args *arg)
- {
--	return of_map_id(np, id, "iommu-map", "iommu-map-mask", NULL, arg);
-+	return of_map_id(np, id, "iommu-map", "#iommu-cells", "iommu-map-mask", NULL, arg);
- }
- EXPORT_SYMBOL_GPL(of_map_iommu_id);
- 
-@@ -2252,17 +2343,20 @@ EXPORT_SYMBOL_GPL(of_map_iommu_id);
-  *	If non-NULL, the map property must exist (-ENODEV if absent). If
-  *	*filter_np is also non-NULL, only entries targeting that node match.
-  * @arg: pointer to a &struct of_phandle_args for the result. On success,
-- *	@arg->args[0] contains the translated ID. If a map entry was matched,
-- *	@arg->np holds a reference to the target node that the caller must
-- *	release with of_node_put().
-+ *	@arg->args_count will be set to the number of output specifier cells
-+ *	and @arg->args[0..args_count-1] will contain the translated output
-+ *	specifier values. If a map entry was matched, @arg->np holds a
-+ *	reference to the target node that the caller must release with
-+ *	of_node_put().
-  *
-- * Convenience wrapper around of_map_id() using "msi-map" and "msi-map-mask".
-+ * Convenience wrapper around of_map_id() using "msi-map", "#msi-cells",
-+ * and "msi-map-mask".
-  *
-  * Return: 0 on success or a standard error code on failure.
-  */
- int of_map_msi_id(const struct device_node *np, u32 id,
- 		  struct device_node * const *filter_np, struct of_phandle_args *arg)
- {
--	return of_map_id(np, id, "msi-map", "msi-map-mask", filter_np, arg);
-+	return of_map_id(np, id, "msi-map", "#msi-cells", "msi-map-mask", filter_np, arg);
- }
- EXPORT_SYMBOL_GPL(of_map_msi_id);
-diff --git a/include/linux/of.h b/include/linux/of.h
-index ea50b45d9ff7..374b249766a2 100644
---- a/include/linux/of.h
-+++ b/include/linux/of.h
-@@ -465,7 +465,8 @@ const char *of_prop_next_string(const struct property *prop, const char *cur);
- bool of_console_check(const struct device_node *dn, char *name, int index);
- 
- int of_map_id(const struct device_node *np, u32 id,
--	       const char *map_name, const char *map_mask_name,
-+	       const char *map_name, const char *cells_name,
-+	       const char *map_mask_name,
- 	       struct device_node * const *filter_np,
- 	       struct of_phandle_args *arg);
- 
-@@ -950,7 +951,8 @@ static inline void of_property_clear_flag(struct property *p, unsigned long flag
- }
- 
- static inline int of_map_id(const struct device_node *np, u32 id,
--			     const char *map_name, const char *map_mask_name,
-+			     const char *map_name, const char *cells_name,
-+			     const char *map_mask_name,
- 			     struct device_node * const *filter_np,
- 			     struct of_phandle_args *arg)
- {
+The following changes since commit 254f49634ee16a731174d2ae34bc50bd5f45e731=
+:
 
--- 
-2.34.1
+  Linux 7.1-rc1 (2026-04-26 14:19:00 -0700)
 
+are available in the Git repository at:
+
+  https://git.kernel.org/pub/scm/linux/kernel/git/bmc/linux.git tags/aspeed=
+-7.2-devicetree-0
+
+for you to fetch changes up to 1249ee157de518a76cec169e2a5db4d6e523cc90:
+
+  ARM: dts: aspeed: sanmiguel: Fix the CPU_CHIPTHROT linename (2026-05-27 1=
+2:44:26 +0930)
+
+----------------------------------------------------------------
+aspeed: First batch of ARM devicetree changes for v7.2
+
+New platforms:
+
+- Rainiera6 (Meta)
+- SanMiguel (Meta)
+
+Updated platforms:
+
+- Anacapa: SGPIO line names and interrupt configuration
+- Clemente: Remove TMP421 nodes
+- Kommando: Enable networking via MAC2/MDIO2
+- SanMiguel: Line names and interrupt configuration
+
+AST2600 SoC updates:
+
+- Describe PWM/Tach
+- Describe I3C controllers
+- Reorganise I2C nodes
+
+Other notes:
+
+91b9aed7381c ("ARM: dts: aspeed-g6: Add nodes for i3c controllers") current=
+ly
+causes a new warning:
+
+  ... /ahb/apb/bus@1e7a0000/syscon@0: failed to match any schema with compa=
+tible: ['aspeed,ast2600-i3c-global', 'syscon']
+
+The patch necessary to address it has an R-b tag from Kryzsztof[2] but as b=
+est
+I can tell is yet to be applied to the MFD tree. I've left the change in fo=
+r now
+as the warning will resolve once the binding patch is applied.
+
+Lastly, as part of improving support for the Kommando card Anirudh has also
+addressed[1] the persistent pain we've had with the phy-mode property for t=
+he
+AST2600 MACs. Thanks to Andrew Lunn for being on the case for a while now, =
+and
+for those who tested Anirudh's patch.
+
+[1]: https://lore.kernel.org/all/20260525-asus-kommando-v3-0-e6a0ca1b4a3e@g=
+mail.com/
+[2]: https://lore.kernel.org/all/20260425-poised-accomplished-hyena-d2c1a0@=
+quoll/
+
+----------------------------------------------------------------
+Anirudh Srinivasan (1):
+      ARM: dts: aspeed: Enable networking for Asus Kommando IPMI Card
+
+Billy Tsai (1):
+      ARM: dts: aspeed: g6: Add PWM/Tach controller node
+
+Colin Huang (1):
+      ARM: dts: aspeed: anacapa: Add JTAG CPLD TRST pin to SGPIO map
+
+Daniel Hsu (1):
+      ARM: dts: aspeed: yosemite5: Add MP5998 power monitor
+
+Dawid Glazik (2):
+      ARM: dts: aspeed-g6: move i2c controllers directly into apb node
+      ARM: dts: aspeed-g6: Add nodes for i3c controllers
+
+Ender Hsieh (1):
+      ARM: dts: aspeed: msx4: enable BMC networking via MAC0
+
+Mike Hsieh (1):
+      ARM: dts: aspeed: clemente: Remove IOB NIC TMP421 nodes
+
+Neil Cheng (2):
+      dt-bindings: arm: aspeed: Add Meta Rainiera6 board
+      ARM: dts: aspeed: rainiera6: Add Meta Rainiera6 BMC
+
+Potin Lai (4):
+      dt-bindings: arm: aspeed: add Meta SanMiguel BMC
+      ARM: dts: aspeed: Add Meta SanMiguel BMC
+      ARM: dts: aspeed: sanmiguel: Add IOEXP interrupt pin settings
+      ARM: dts: aspeed: sanmiguel: Fix the CPU_CHIPTHROT linename
+
+Rex Fu (2):
+      ARM: dts: aspeed: anacapa: Add interrupt properties for PDB PCA9555
+      ARM: dts: aspeed: anacapa: Correct SGPIO names for monitoring
+
+ Documentation/devicetree/bindings/arm/aspeed/aspeed.yaml        |    2 +
+ arch/arm/boot/dts/aspeed/Makefile                               |    2 +
+ arch/arm/boot/dts/aspeed/aspeed-bmc-asus-kommando-ipmi-card.dts |   18 ++
+ arch/arm/boot/dts/aspeed/aspeed-bmc-facebook-anacapa.dts        |   34 ++-
+ arch/arm/boot/dts/aspeed/aspeed-bmc-facebook-clemente.dts       |   20 --
+ arch/arm/boot/dts/aspeed/aspeed-bmc-facebook-rainiera6.dts      | 1012 +++=
++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++=
+++
+ arch/arm/boot/dts/aspeed/aspeed-bmc-facebook-sanmiguel.dts      |  672 +++=
+++++++++++++++++++++++++++++++++++++++++++++++++++
+ arch/arm/boot/dts/aspeed/aspeed-bmc-facebook-yosemite5.dts      |    5 +
+ arch/arm/boot/dts/aspeed/aspeed-bmc-nvidia-msx4-bmc.dts         |   15 ++
+ arch/arm/boot/dts/aspeed/aspeed-g6.dtsi                         |  552 +++=
++++++++++++++++++++++++------------------
+ 10 files changed, 2074 insertions(+), 258 deletions(-)
+ create mode 100644 arch/arm/boot/dts/aspeed/aspeed-bmc-facebook-rainiera6.=
+dts
+ create mode 100644 arch/arm/boot/dts/aspeed/aspeed-bmc-facebook-sanmiguel.=
+dts
 
