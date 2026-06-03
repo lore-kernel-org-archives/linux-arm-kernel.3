@@ -4,89 +4,105 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 91146CD6E5D
-	for <linux-arm-kernel@archiver.kernel.org>; Wed,  3 Jun 2026 01:08:01 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 53DD2CD6E5D
+	for <linux-arm-kernel@archiver.kernel.org>; Wed,  3 Jun 2026 01:08:49 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	MIME-Version:Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-Type:
-	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
-	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
-	bh=PMCZ3kwt54+wBckEugkgYH3+Oq9j8RKzLnXGdNOFnIY=; b=r63yoawA8+h6r+ryV+Rqeuyvsz
-	QbHDLoy9sBeXIq5MA/iZ5t/ru3cMYt2YB7A8nfwvJ5L/553kCz8mEugvrSwsF62ek5mnz+e6YbW8e
-	UfbCK/rnBEIh9TMJrOEmU18rFVlyonBZ/ptXiZof/IpcNyHzIheClq8OHKxarVTJdB1WsyAO7R9nw
-	nK6XGJKWC7G8fMfglnR/yIQQJYyKaPMcdQXpL9uPSFtBaZfH9L0msR6DThFtKrmpNQHFUb18VJ3Wq
-	03d6MpDrbwnMwzwZPxh1XuMVzy+EeAngaPY5r7771uiaQLISw0kjDiHorP8gLo6Lh7EjY8zBcdljy
-	sIJaEjYw==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=5b1waI30m43a9rgbDHZrFDb+c/4Zyp2tRTfYwiyzcxw=; b=y3TQn8A1P/RSG54tYSRv3UErLm
+	SGQGroX7vrlCB6mHr4V/3yhon134JqCpeSJ6YqXLjBrGIKeIL2JXd/fuY9TKaoPz15FCSAzEbMPGN
+	C4bTVpp6Cj4bad3h9knIfRqUvC85skWE8Dlv8DLima8JRdU1ghakH/yIqVK37LmIqUICxNijp29LA
+	4VSFrb64dhHQ2ux8z7MqYFEZragijqZQCCM+vKq3gvtd8aFHN4kQQh/WiMAkKMUi4P0o3DxcaOjlB
+	H+Q928a+OMiibxYbiiq1iWP85d5r0fVx8VUMlfHvzYZUQBUYU35ijY1OK94EaB1gBobf4jbDPpSXC
+	rMPKM7/g==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wUa5J-0000000E1OI-3tHf;
-	Wed, 03 Jun 2026 01:07:53 +0000
-Received: from mail-qt1-x82e.google.com ([2607:f8b0:4864:20::82e])
+	id 1wUa66-0000000E1Sl-0JMQ;
+	Wed, 03 Jun 2026 01:08:42 +0000
+Received: from mail-qk1-x736.google.com ([2607:f8b0:4864:20::736])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wUa5H-0000000E1Ns-1hcV
+	id 1wUa63-0000000E1SC-20pF
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 03 Jun 2026 01:07:52 +0000
-Received: by mail-qt1-x82e.google.com with SMTP id d75a77b69052e-516e1525aa3so121873611cf.3
-        for <linux-arm-kernel@lists.infradead.org>; Tue, 02 Jun 2026 18:07:50 -0700 (PDT)
+	Wed, 03 Jun 2026 01:08:40 +0000
+Received: by mail-qk1-x736.google.com with SMTP id af79cd13be357-91587626a3eso92429985a.2
+        for <linux-arm-kernel@lists.infradead.org>; Tue, 02 Jun 2026 18:08:39 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20251104; t=1780448870; x=1781053670; darn=lists.infradead.org;
-        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
-         :to:from:from:to:cc:subject:date:message-id:reply-to;
-        bh=PMCZ3kwt54+wBckEugkgYH3+Oq9j8RKzLnXGdNOFnIY=;
-        b=PlArxemjOAkeHiJ5bkECGndPC3Y1SMYXtNGjf0Mkm32f8Qiy39ds42z/oRBc5Q+UnV
-         KnGH1xTAzcb1mTWDkjxSaeC2+wnI7fF2Ea2DLdcl6V1Go5g0siboH1QHlMicYTPGbJkU
-         QTB1lvwDdTDTmV62KWUlqmSVMMIJs5xXEQAsugVF1xexKGNcxPHJlThGedd9aYkM/iqp
-         mZi6bGaVJuEL8JY4izkr3K/Fdb0844VC/bcx08T3VxsfJR2205cPCLe+8Uj50c/bYoRm
-         7PmADpNXc9xzXovJmQ2B5BtmQ2wgXJJiICxO24F/xni1JWO8N302soNGPvcp6qbPVdxr
-         Gt/Q==
+        d=ziepe.ca; s=google; t=1780448918; x=1781053718; darn=lists.infradead.org;
+        h=in-reply-to:content-disposition:mime-version:references:message-id
+         :subject:cc:to:from:date:from:to:cc:subject:date:message-id:reply-to;
+        bh=5b1waI30m43a9rgbDHZrFDb+c/4Zyp2tRTfYwiyzcxw=;
+        b=GR60uMOwX+JPN3N/nuZxNlHJ6XFZC27Whahg+hE9eMeDoTKb+JRh9wgTE+NOO2liNJ
+         6WP0lOyC89a409NPtoxKdS3g8ayCD48ioU+xd9SgZ2gKKHlH7lgNnQQlvHMNMqxSgPCK
+         N9kwHCpTv653XtKEPRnyXmefZNHXg5oHS0qiRgy8QI1yoW59ezHjuMlLfQIZSZpQVQe9
+         QlLQm2EiROa43E4DXrtLLXBb6qF/3n9NPwkOssYXE0SMdULNvuTU+FPhP68+sDvOpPtb
+         mNevdG1Eauu1e7owfZiMrBfpzuNAIxKifeqjDvZaRD4tJozA5wjT0mky4RT1FPnccQrN
+         IrNw==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20251104; t=1780448870; x=1781053670;
-        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
-         :to:from:x-gm-gg:x-gm-message-state:from:to:cc:subject:date
-         :message-id:reply-to;
-        bh=PMCZ3kwt54+wBckEugkgYH3+Oq9j8RKzLnXGdNOFnIY=;
-        b=k3R/ovsUQzdb1uiQTJbRv0fOAfDjxr8HyI1CnFLyrzRJS68bHTMtvWN0C0udGY8JOL
-         +zdFTlJSEJitc78IBkSH3PXANWbcYK6GHa1QtBlOaNPoRe9zlOx4k3k6y93dqDtSb9Va
-         MFfhNxezUpYru4NwSXXTf8QcKU0olwAkay9kXcD141KPTj9V3I/eKpSgq2J6nA+szHKa
-         FB1pu+k2UBK17Ec2reaP7YZMW/uE4RFZCemVTL8FtEt4vK57opspeszvoK69T8N2Dkwu
-         YCEC0QcYrFN0en7DMEtgYHiDBhIRhG3Srn440sArn+bUimLZKSIPgKHGWKZ83MY9cZ4B
-         lxsA==
-X-Forwarded-Encrypted: i=1; AFNElJ8JXH2YbDLeTDBgTt5f0IaVn04kiyawdPNyiQ17GWeqURXWFifJO7A7kxOymz6uJ4S5P0+X7rZnWYsqPCMuV3Na@lists.infradead.org
-X-Gm-Message-State: AOJu0Yw32gMetzUM7pagx9hBa4SlryJgKAwBg4BU/D0tkxTqJ7xfd5eX
-	0mfmd6SE1iVoE+a32F25Esb0SAjcK10zCVGmJiJMsnQskE7T1dfUhRDR
-X-Gm-Gg: Acq92OE+MeUdsy+Vhl31QAnFeJdyhCLJqsJ7TNkKlMUvnbGNJzH6tPtCpigCc/n+VGQ
-	Ckb+ImWpAsl+jMFMBHCqO6IWaWKpYK/brXMdbU5UKEYKq6YAOxSi7rhA320lL3xbCrhq/rLbdHq
-	UJEzfBmw0f6ay+7Z+EiIWuBJqm+JWlUV6+E7LjgDg9C4jXv0oyCuPHY6Ar1GmMa8YpY8sN7H4hW
-	c99JIjVSSH6cuxTnhriV75KDOJQCYer3Vt+b1GvNK+Euaj3rk/nHwBGptvIcjjndmkwP9lbn+B3
-	+6Ag+EUdGsV9jBllwdaiaVGscNtZb5IybUoSvva3+7lXgRbWMruvBQBxtn9jBoE6y4NPYQpX6Sl
-	NgP/EM4w8lMvtBP7olsDW1ljz6KgZ0S7jETbZIVVXUig7rOl0xWFycb3M/Mx+Bhz5BCQPb9ft+R
-	dHkN4fSw0MwsymierBv/Xb7XEHYblKZvx/HfNNLpkAI9lhAb4vn0SZVddZAyWqw3lbjmsPLsycD
-	y1XWR3tlYt8boRE6ppL90P39w1s5c0bb4ONTR3XKCnY71hz3VhoSq9U
-X-Received: by 2002:ac8:5dd0:0:b0:517:6665:2a9a with SMTP id d75a77b69052e-517787bf3d1mr23491841cf.50.1780448869820;
-        Tue, 02 Jun 2026 18:07:49 -0700 (PDT)
-Received: from ryzen ([2601:644:8000:5b5d:7285:c2ff:fe45:8a32])
-        by smtp.gmail.com with ESMTPSA id 6a1803df08f44-8cecd26b9d5sm7037416d6.44.2026.06.02.18.07.48
+        d=1e100.net; s=20251104; t=1780448918; x=1781053718;
+        h=in-reply-to:content-disposition:mime-version:references:message-id
+         :subject:cc:to:from:date:x-gm-gg:x-gm-message-state:from:to:cc
+         :subject:date:message-id:reply-to;
+        bh=5b1waI30m43a9rgbDHZrFDb+c/4Zyp2tRTfYwiyzcxw=;
+        b=fOvgeQzXkE4y8GV84BFSZsa5JQKSvMSzcZA69nbXJPeMaBMPxYKRbnUImhgRfEfEUX
+         I+uX9tFqAkExiwPDFm7/4JsuXxVALxJNeP6Qk3uvWo+o74XM0v64VDkdbHoL8rQcKfzC
+         g4ri10VYfLm4FR+Z1CBNgUYZyYEF4VuYuaIwiB7OhFY7pmUyK4SHgffVu2yigr3eb+F6
+         nO2PGB7XNKUVPZLTSNxy6aM6fZAVapNz1Q3iW1DTPpFrcKdmOhMzcAkHO8V06S9Aqctq
+         zLqHR6xeJEdF+YEgBkSaS7xCbCcNwcXYOmK5aW5f9j1t+/OBtLuakyeKjFonFynE12xl
+         GJXQ==
+X-Forwarded-Encrypted: i=1; AFNElJ+1x7xsMk1OZCw6mBdZ1VSdTooNZF9DotnpxcGJC0juDvULziy2DNdXwRsn5tRIM6a00ZIQ1aJ/saMGy0WbJnR/@lists.infradead.org
+X-Gm-Message-State: AOJu0YylajIGNGIydZBbV6WyBEtkdMl7lowku3G+vfcar6ud03vGni09
+	3OkaInuJGcKMjDlfDAL6k15KOrdcDg/f5QhgM66ZKamnGoQXMo6Umfxt41KPq1rdQPTz4xNcRtB
+	reJfiQi8=
+X-Gm-Gg: Acq92OE0iELos4z4VtpdLL0TWV/QzwOnOURVgZw4x0/zklHVwNlnrp3RIt1WYpvp/SI
+	hDf4fJKljsR0zGdwln5E7Hd8sjfxhfz/kVmws2hOj33gD/J/v2y2bfhXGCA9y4A30ebSZSArswg
+	G0np9Xpz5dtXjzfD8BNSwcLlk76/OnP+uy7JHQfRsPCsWTuo75Dxy7VkPuV4JMause5SbZCre7S
+	a3+tun4QLpCZPthwibrAphE59NLKSuPbdiL6dxngckb4yL2XQ6vZ9WupCp/zRhFcxXuTpDYHVCa
+	q94uvScNf/YdJo3qHAMW1WWexVmomGEsy9sXc3wL/QTZWzZuH2676OJs7M5FzzAAm07U2GxXIsW
+	/UaDIJUDB2+WFCnefeNmlkd2g1C+SRsoYioaINc5TOzlZU30JVAq48ApcjBsl3Cg3aaWFdK134t
+	T9GUDWpK9vrnfZ8UzciOonkZj7B8JSjNT2hZ2tKjohpFILXwtgvx7C0C9ATcaHONZxfk0g5U3nE
+	zCWRvgYBupwLR+L
+X-Received: by 2002:a05:620a:1722:b0:911:de69:ee21 with SMTP id af79cd13be357-9158a656dbdmr268795585a.11.1780448917995;
+        Tue, 02 Jun 2026 18:08:37 -0700 (PDT)
+Received: from ziepe.ca (crbknf0213w-47-54-130-67.pppoe-dynamic.high-speed.nl.bellaliant.net. [47.54.130.67])
+        by smtp.gmail.com with ESMTPSA id af79cd13be357-9158a37c50bsm99840585a.24.2026.06.02.18.08.37
         (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Tue, 02 Jun 2026 18:07:49 -0700 (PDT)
-From: Rosen Penev <rosenp@gmail.com>
-To: linux-watchdog@vger.kernel.org
-Cc: Nicolas Ferre <nicolas.ferre@microchip.com>,
-	Alexandre Belloni <alexandre.belloni@bootlin.com>,
-	Claudiu Beznea <claudiu.beznea@tuxon.dev>,
-	Wim Van Sebroeck <wim@linux-watchdog.org>,
-	Guenter Roeck <linux@roeck-us.net>,
-	linux-arm-kernel@lists.infradead.org (moderated list:ARM/Microchip (AT91) SoC support),
-	linux-kernel@vger.kernel.org (open list)
-Subject: [PATCH] watchdog/sama5d4: set platform driver data before requesting IRQ
-Date: Tue,  2 Jun 2026 18:07:31 -0700
-Message-ID: <20260603010731.230581-1-rosenp@gmail.com>
-X-Mailer: git-send-email 2.54.0
+        Tue, 02 Jun 2026 18:08:37 -0700 (PDT)
+Received: from jgg by wakko with local (Exim 4.97)
+	(envelope-from <jgg@ziepe.ca>)
+	id 1wUa60-00000004yEH-2fsG;
+	Tue, 02 Jun 2026 22:08:36 -0300
+Date: Tue, 2 Jun 2026 22:08:36 -0300
+From: Jason Gunthorpe <jgg@ziepe.ca>
+To: Guanghui Feng <guanghuifeng@linux.alibaba.com>
+Cc: adrian.larumbe@collabora.com, airlied@gmail.com, alex@shazbot.org,
+	baolu.lu@linux.intel.com, boris.brezillon@collabora.com,
+	dri-devel@lists.freedesktop.org, dwmw2@infradead.org,
+	iommu@lists.linux.dev, joro@8bytes.org, kevin.tian@intel.com,
+	kvm@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
+	linux-kernel@vger.kernel.org, liviu.dudau@arm.com,
+	maarten.lankhorst@linux.intel.com, mripard@kernel.org,
+	oliver.yang@linux.alibaba.com, robh@kernel.org,
+	robin.murphy@arm.com, shiyu.zsq@linux.alibaba.com,
+	steven.price@arm.com, suravee.suthikulpanit@amd.com,
+	tzimmermann@suse.de, wei.guo.simon@linux.alibaba.com,
+	will@kernel.org, xlpang@linux.alibaba.com,
+	alikernel-developer@linux.alibaba.com
+Subject: Re: [PATCH v2 01/30] iommu: introduce iova_to_phys_length in
+ iommu_domain_ops
+Message-ID: <20260603010836.GQ2487554@ziepe.ca>
+References: <20260531093637.3893199-1-guanghuifeng@linux.alibaba.com>
+ <20260602104637.1219810-1-guanghuifeng@linux.alibaba.com>
+ <20260602104637.1219810-2-guanghuifeng@linux.alibaba.com>
 MIME-Version: 1.0
-Content-Transfer-Encoding: 8bit
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+In-Reply-To: <20260602104637.1219810-2-guanghuifeng@linux.alibaba.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260602_180751_450627_FC9512D1 
-X-CRM114-Status: GOOD (  11.15  )
+X-CRM114-CacheID: sfid-20260602_180839_529916_81F787D2 
+X-CRM114-Status: GOOD (  14.86  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -101,43 +117,43 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-sama5d4_wdt_probe() requests a shared IRQ before calling
-platform_set_drvdata().  Because the IRQ is shared, the handler
-(sama5d4_wdt_irq_handler) can fire immediately, at which point
-platform_get_drvdata() returns NULL and the subsequent dereference
-of wdt->sam9x60_support causes a NULL pointer crash.
+On Tue, Jun 02, 2026 at 06:46:08PM +0800, Guanghui Feng wrote:
+> +/**
+> + * iommu_iova_to_phys_length - Translate IOVA and return mapping page size
+> + * @domain: IOMMU domain to query
+> + * @iova: IO virtual address to translate
+> + * @mapped_length: Output parameter for the PTE page size (e.g. 4KB/2MB/1GB)
+> + *
+> + * Like iommu_iova_to_phys() but additionally returns the page size of the
+> + * PTE mapping at @iova through @mapped_length.
+> + *
+> + * Return: The physical address for the given IOVA, or PHYS_ADDR_MAX if no translation.
+> + */
+> +phys_addr_t iommu_iova_to_phys_length(struct iommu_domain *domain,
+> +				       dma_addr_t iova,
+> +				       size_t *mapped_length)
+>  {
+> +	if (mapped_length)
+> +		*mapped_length = 0;
+> +
+>  	if (domain->type == IOMMU_DOMAIN_IDENTITY)
+>  		return iova;
 
-Move platform_set_drvdata() to the beginning of probe, right after
-watchdog_set_drvdata(), so the handler always sees valid driver data.
+This doesn't seem right. It needs to return a mapped_length of
+something that is not zero..
 
-Assisted-by: opencode:big-pickle
-Signed-off-by: Rosen Penev <rosenp@gmail.com>
----
- drivers/watchdog/sama5d4_wdt.c | 3 +--
- 1 file changed, 1 insertion(+), 2 deletions(-)
+> -	if (domain->type == IOMMU_DOMAIN_BLOCKED)
+> -		return 0;
+> +	if (!domain->ops->iova_to_phys_length) {
+> +		/* Fallback to legacy iova_to_phys without length info */
+> +		if (domain->ops->iova_to_phys) {
+> +			phys_addr_t phys = domain->ops->iova_to_phys(domain, iova);
+> +			if (phys && mapped_length)
+> +				*mapped_length = PAGE_SIZE;
+> +			return phys ? phys : PHYS_ADDR_MAX;
+> +		}
 
-diff --git a/drivers/watchdog/sama5d4_wdt.c b/drivers/watchdog/sama5d4_wdt.c
-index e82b91513fa8..024300299b57 100644
---- a/drivers/watchdog/sama5d4_wdt.c
-+++ b/drivers/watchdog/sama5d4_wdt.c
-@@ -267,6 +267,7 @@ static int sama5d4_wdt_probe(struct platform_device *pdev)
- 						: AT91_WDT_WDDIS;
- 
- 	watchdog_set_drvdata(wdd, wdt);
-+	platform_set_drvdata(pdev, wdt);
- 
- 	regs = devm_platform_ioremap_resource(pdev, 0);
- 	if (IS_ERR(regs))
-@@ -315,8 +316,6 @@ static int sama5d4_wdt_probe(struct platform_device *pdev)
- 	if (ret)
- 		return ret;
- 
--	platform_set_drvdata(pdev, wdt);
--
- 	dev_info(dev, "initialized (timeout = %d sec, nowayout = %d)\n",
- 		 wdd->timeout, nowayout);
- 
--- 
-2.54.0
+Follow success oriented flow..
 
+Jason
 
