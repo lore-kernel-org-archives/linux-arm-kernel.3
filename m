@@ -4,145 +4,75 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 61B2DCD6E4A
-	for <linux-arm-kernel@archiver.kernel.org>; Wed,  3 Jun 2026 13:15:33 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 3D516CD6E4A
+	for <linux-arm-kernel@archiver.kernel.org>; Wed,  3 Jun 2026 13:20:49 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:
-	Content-Transfer-Encoding:Content-Type:In-Reply-To:From:References:Cc:To:
-	Subject:Date:Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=RU29oH8/NrEW6DEgTusosPvx2uF7ptt9MF8V4tjIKt4=; b=LFWK1WL0RBNys+SSVaxwRHRCW0
-	IM2B4TNLr+YuVSwDXZ466zccf4ZfV+Z4rvNaH6c638IZxgTRzvxrdsEW8R6zV1o5eA7zyI3vZkn8i
-	JDoy4lhnSw7hR/8UkMyJSFySZW3PuZuHwpoHAYBqcbWPhc5R4dKPm3XZygUv3bZWcNwUe6/GTKlaZ
-	vTw0KYUFdzk2Mvn3zG3+nj/zDRd8xpI6ZhAZfpTt4ebjQywt8f2AxLzRCXrxDABvxsN8qhVx3cHNp
-	i4QSt02lWUIqsdrTcx/lQSuuzHDaf+zO8lBMODfT+r7jzxDRS+tdghhVUyQbuBGVxw7tf8cn05Dvh
-	fBTyk6RA==;
+	bh=64ct7Kd+yKxlS9V8CwC0aSCLMmSvEB4LS5D/r91q8JY=; b=0BvRMzxQhEu8glqfFu6IhcUK4G
+	3a4zBa7u17xGOW9YGmefgLn4szhf6HLAO4qf6EcU2bl/pr4WE4ARZTBKbgF3RPTsapqVxv/xR1PZT
+	noJyacISDBscgd4XXcsEizQjW5+RimksaAkHRp1+0U0n4R6gVmua6GWl10PGub8O4kL4ENTwPchgR
+	bO7r8X2lMhjNTUYd939I9Gn/VGACJZf6LHHif4DB7WyO6xuMtjRWuT+Xvgt+2clsZ4m1fHwYom4HY
+	8hY+PoAX/iMQkHDjFDwLS6mMvNSiiHCBVY6YhbNYuAg0EWdAoAVmlrZp+TGHgEfloDSJn3MXuQTUW
+	KhBEUVNw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wUlRN-0000000F9nK-3MFn;
-	Wed, 03 Jun 2026 13:15:25 +0000
-Received: from mail-northeuropeazon11010032.outbound.protection.outlook.com ([52.101.84.32] helo=DB3PR0202CU003.outbound.protection.outlook.com)
+	id 1wUlWU-0000000FAIM-0tux;
+	Wed, 03 Jun 2026 13:20:42 +0000
+Received: from galois.linutronix.de ([2a0a:51c0:0:12e:550::1])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wUlRL-0000000F9mZ-2GUk
+	id 1wUlWR-0000000FAHX-0nfu
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 03 Jun 2026 13:15:24 +0000
-ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
- b=l2ztrDK0xGrrTgCNUMJ8rSQEmWm87C6Qv9m84wcwSR++K+D+f5e7foLiS4cmULOJoG58HOILiHAVVN7wT3eDQrDhMetHMdrDZmohYkGfiN06bP/VfODXDvBcf8x5D1Q8ohkZJzfP0243TUSnEOygehYv3dbvmT/MP7HGkQb3SbUxujWITfYfpcZWJn5KaSF7uoFK9hmdVMmcBr40CFO+O4/esaqz2+86XDJbbNcvbsRcvyABbzsGd+nHocSTspsC6WhPCR5iqYEPo4CKMiyfjBmZLP8gNR8w9HPIISt5+1u+C7qzFDQQA8xQkGMELONTQmTiruV8MRInVuD0XPlctQ==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
- s=arcselector10001;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
- bh=RU29oH8/NrEW6DEgTusosPvx2uF7ptt9MF8V4tjIKt4=;
- b=yzMurfBPV/JJ9SstlqZcr12zREdEW3xsEuJc9N67uvIdz+qxxnwvgqAXPO3n8alyOYl+byyL6W7tZJZVvi0RaRUoAeuyTGsac7VDZvwSO2mOYe71Df6zZxCp7hkSHEKplgzGnFfcehXRPJx89GtjoYLheUxmLQhXyNgmu2ei6rPU3KUEf7ChSbjwij0PmRmaRgfGpRaJcB56sbVdCfKnudPZMiREOtZ2+oGHRqogrACIRukKwxfwvPcDsfv7g+XeFXJzMXzMyzeRpIsK/ioYj5sM329snejjrFu9RGb+Lspmqh3ek/hpNJEMldzz/A1//+VGaYaBGy4gmIdA0aETQw==
-ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
- smtp.mailfrom=oss.nxp.com; dmarc=pass action=none header.from=oss.nxp.com;
- dkim=pass header.d=oss.nxp.com; arc=none
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=NXP1.onmicrosoft.com;
- s=selector1-NXP1-onmicrosoft-com;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
- bh=RU29oH8/NrEW6DEgTusosPvx2uF7ptt9MF8V4tjIKt4=;
- b=TrqYdm+zPR25zJFLLMTRt6/OuEq9LkD7CWg6EKPypD49dJHu63s1APKOBQplPCux1P1639HJwQQKihVPw2oEl6UCNFYvzJyvYdgDmrQTWDC7U8eDjh2TVDkJJD5PknjUjh6LLN6ThX8MuyghOLFG1a+65dTYLYyKcC9/o8bjohtu2qVPQlWCFr7Nc70/KNBB+13lVV1fjXSXeIiKg+f+Ilwci1ERARtB/VJTatpUIrAylp1aKVIsmqmzgdFYCnZw3x5/pCoejFYBNcsVjeVfd/r7AhzZF387EjwPrvuaU3GPy4jQv9v2xsoFWyasQjnWgaIe5VWtK5M9F71jKKlhxQ==
-Authentication-Results: dkim=none (message not signed)
- header.d=none;dmarc=none action=none header.from=oss.nxp.com;
-Received: from GVXPR04MB12316.eurprd04.prod.outlook.com (2603:10a6:150:2c6::8)
- by GV2PR04MB11958.eurprd04.prod.outlook.com (2603:10a6:150:2f3::12) with
- Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.21.92.7; Wed, 3 Jun 2026
- 13:15:14 +0000
-Received: from GVXPR04MB12316.eurprd04.prod.outlook.com
- ([fe80::fc6e:ca22:f065:def4]) by GVXPR04MB12316.eurprd04.prod.outlook.com
- ([fe80::fc6e:ca22:f065:def4%6]) with mapi id 15.21.0092.006; Wed, 3 Jun 2026
- 13:15:14 +0000
-Message-ID: <c81d12a8-7544-493f-a947-8f70ad9d409d@oss.nxp.com>
-Date: Wed, 3 Jun 2026 16:18:22 +0300
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH v2 6/9] mailbox: imx: Move the RX part of the mailbox into
- the threaded handler
-To: Sebastian Andrzej Siewior <bigeasy@linutronix.de>,
- linux-kernel@vger.kernel.org, imx@lists.linux.dev,
- linux-arm-kernel@lists.infradead.org, linux-remoteproc@vger.kernel.org,
- linux-rt-devel@lists.linux.dev
-Cc: Bjorn Andersson <andersson@kernel.org>,
- Clark Williams <clrkwllms@kernel.org>, Fabio Estevam <festevam@gmail.com>,
- Frank Li <Frank.Li@nxp.com>, Jassi Brar <jassisinghbrar@gmail.com>,
- Mathieu Poirier <mathieu.poirier@linaro.org>,
- Pengutronix Kernel Team <kernel@pengutronix.de>,
- Sascha Hauer <s.hauer@pengutronix.de>, Steven Rostedt <rostedt@goodmis.org>
+	Wed, 03 Jun 2026 13:20:41 +0000
+Date: Wed, 3 Jun 2026 15:20:34 +0200
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=linutronix.de;
+	s=2020; t=1780492836;
+	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
+	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
+	 in-reply-to:in-reply-to:references:references;
+	bh=64ct7Kd+yKxlS9V8CwC0aSCLMmSvEB4LS5D/r91q8JY=;
+	b=jSN6T8gPT2w3DLFI3CwrUaQ7Daf6BrZSGQsHzMRW1es3bXugS1XcBt8F/mUGLh5Cb1Dtoz
+	p5VuCf9XpkGoXASyXhIdh+/oCRpngggfosroE6e3ZgTJLl9RluzX8ai2v0L2nGDS/r+g5o
+	7Uef7pHjpZZxFmZGbDKbihXDcmV2403HFEARtLi6/FYSGnSbcip91odXyx7mtuO165utsg
+	xOFPm7Lh4pRaU9ac91YnfQrjMjq0PkJkMSFcxyEc52Qepk7b2HV6eZZdzvzEZpHuHGfzHC
+	PKYdqZdTI1hAIHj8Y4xzmceE7TUO/b7XwCKd/6dczf+EjDRiBvezgHtac+4iMg==
+DKIM-Signature: v=1; a=ed25519-sha256; c=relaxed/relaxed; d=linutronix.de;
+	s=2020e; t=1780492836;
+	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
+	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
+	 in-reply-to:in-reply-to:references:references;
+	bh=64ct7Kd+yKxlS9V8CwC0aSCLMmSvEB4LS5D/r91q8JY=;
+	b=UP/Js1ozjTwwW13wk3m9RpZXA0bC4wMD3AdiEEc6Rw9BPBc1ktYeCPK8qHXJQ/JoeeEByZ
+	X1w4H88/SgcCx0AA==
+From: Sebastian Andrzej Siewior <bigeasy@linutronix.de>
+To: Daniel Baluta <daniel.baluta@oss.nxp.com>
+Cc: linux-kernel@vger.kernel.org, imx@lists.linux.dev,
+	linux-arm-kernel@lists.infradead.org,
+	linux-remoteproc@vger.kernel.org, linux-rt-devel@lists.linux.dev,
+	Bjorn Andersson <andersson@kernel.org>,
+	Clark Williams <clrkwllms@kernel.org>,
+	Fabio Estevam <festevam@gmail.com>, Frank Li <Frank.Li@nxp.com>,
+	Jassi Brar <jassisinghbrar@gmail.com>,
+	Mathieu Poirier <mathieu.poirier@linaro.org>,
+	Pengutronix Kernel Team <kernel@pengutronix.de>,
+	Sascha Hauer <s.hauer@pengutronix.de>,
+	Steven Rostedt <rostedt@goodmis.org>
+Subject: Re: [PATCH v2 6/9] mailbox: imx: Move the RX part of the mailbox
+ into the threaded handler
+Message-ID: <20260603132034.NxZoA4pH@linutronix.de>
 References: <20260603-imx_mbox_rproc-v2-0-a0059dc3b69a@linutronix.de>
  <20260603-imx_mbox_rproc-v2-6-a0059dc3b69a@linutronix.de>
-Content-Language: en-US
-From: Daniel Baluta <daniel.baluta@oss.nxp.com>
-In-Reply-To: <20260603-imx_mbox_rproc-v2-6-a0059dc3b69a@linutronix.de>
-Content-Type: text/plain; charset=UTF-8
-Content-Transfer-Encoding: 7bit
-X-ClientProxiedBy: FR4P281CA0415.DEUP281.PROD.OUTLOOK.COM
- (2603:10a6:d10:d0::12) To GVXPR04MB12316.eurprd04.prod.outlook.com
- (2603:10a6:150:2c6::8)
+ <c81d12a8-7544-493f-a947-8f70ad9d409d@oss.nxp.com>
 MIME-Version: 1.0
-X-MS-Exchange-MessageSentRepresentingType: 1
-X-MS-PublicTrafficType: Email
-X-MS-TrafficTypeDiagnostic: GVXPR04MB12316:EE_|GV2PR04MB11958:EE_
-X-MS-Office365-Filtering-Correlation-Id: c8875f04-a312-4d91-b162-08dec17225b6
-X-MS-Exchange-SharedMailbox-RoutingAgent-Processed: True
-X-MS-Exchange-SenderADCheck: 1
-X-MS-Exchange-AntiSpam-Relay: 0
-X-Microsoft-Antispam: BCL:0;ARA:13230040|366016|19092799006|376014|7416014|1800799024|22082099003|18002099003|11063799006|56012099006|4143699003;
-X-Microsoft-Antispam-Message-Info: GhNjn9l5UlXsKHUbK0Xd/9VDfj26tuHyoFBNn7RBDJSB5FnPVHs9g6p44Wvy2xmwXAVMx4I/cMwliMpMi54rzawMkYSf74Y/3bcQ5pj0OxFYW5yN50LmqbzC2iiEHfE+Wg68UTuUL5zU6t88emzRpUtnaPbnz3tQ5MPJdULiUc/wUvOnPYAY0NZn0rqXenHl1aD0ra+IWRZap1BZyfeQROZPB/4qjfSPQdu79s7dfpGWvJ39pqQvJJANlteH2Vj2Sovak6XPRfeQJQGesDZUY+64xllw6T+XAp9ox1DP3wkcXC3OdInVJoC7LS+3Tl0ykH29WNvRf1KUqZLYRCa/Isc7gibHxkX37Y9pyrh+NpyR1UXVYGjN/1+0ZPNxUt3bXPWtyV/xlahDaO9hY8Q9kZQMQCDksAeLAoRWPh5gFTKVTZAebwL+EKRNLPubjCKrrZvBX/pCn+BfVY8dvXKAnmjtlFbeBpnAQysUip9D6Qra2jAwkb6Um3RtZqXmz35GfAXlayNBYBKKTPdqthMWNSDftfXWGBdGc7GYUp/pxatE55VFozshSxbMR6lIBj1ZgtKsdGURDUyAXxftEXOObkEQuY0lApEf6fJb76shL9PEqJInKReUm++0tNJHMGX9m5LPMOFNxA+YmczNbbZmacmLzIr58Q0hqaneOAcSHbI47QKbcfNl6m5DnB1mxz1D
-X-Forefront-Antispam-Report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:GVXPR04MB12316.eurprd04.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(366016)(19092799006)(376014)(7416014)(1800799024)(22082099003)(18002099003)(11063799006)(56012099006)(4143699003);DIR:OUT;SFP:1101;
-X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
-X-MS-Exchange-AntiSpam-MessageData-0: =?utf-8?B?UjBXUklmYlRJYWlrSDdRejJNQlBiTXlDWlJ6bHFycFhJelc4eVhEaHdBQ1Za?=
- =?utf-8?B?WHQxc2JQQ0Z1YVVibE1QbDRFWTZqVDZJOWRHWE01REl3NmtGWTNmNXFIWTBF?=
- =?utf-8?B?aUZUNk5kNUYxNkRIVTZSMllnZWIvS3VTbTdXTTFERVdQK3VaZkdJcU5Pclp3?=
- =?utf-8?B?RExvQnhSVGdPRlBXYjlwUzNQbWYvWTFtK2VDejNiNGpvRVYwOXp4MVZqazNl?=
- =?utf-8?B?TWRRU2pLTWUvdllNVkNjemxHMjVSaERnTUF4NVh0c2wrZEduSkZCc2FnWGUv?=
- =?utf-8?B?NHpIWHNiWXBtNkJMVGtVWVh1MW8zS2htSk5NaXlic1Q5cGkreTcrVGMxRStr?=
- =?utf-8?B?Wlc5NmxWc3FyNDF4OEVtMVRxQ1VDUW8wTEx0WFVOaEVWdmNCTU1QREEyRFRr?=
- =?utf-8?B?bVNNL3ZUWElQeFR4cjgxZTBHNXlubnNDZkp2MFd2Uko4SXJFYXM1Z1JiRlNh?=
- =?utf-8?B?ZVpyb2VoTDllQ0U3eUtPWnpoZzFRZmFFYzlqN1hBWWJlUWJob0xvSWZ1M2lv?=
- =?utf-8?B?eWIxV0xiR2s1ZVlwQ21FQUIxVDgzQ082S2dPOUh4ckdrdCt4ZldaR0dLdmdP?=
- =?utf-8?B?amVPeEpxU1IwZ2hNMDJtRm5QcVJMMnNqUUVFRFV5WEFpTXhCSHJYM0JYOHlV?=
- =?utf-8?B?YVROdFQ1K2FyVm1SbFBDWll1dFUvWWduK1lNbXhVL1V3ZTBRK1l5QmE1R1Q5?=
- =?utf-8?B?WnNlZDgwaGJwTWRqRzFkRVhpTS9MZ1ZkRURXM0JBemJ6R1FHZHJqTklaSGZq?=
- =?utf-8?B?MFBNZEc2bnpoOWRVOVVudVZ1bUhCRzh4dUtrYW1DcGUvc2dEcHRPMjJGU1Nr?=
- =?utf-8?B?V3pGekV2ZDFZOUJYRUJ3V0tuaVk5VlNWeHdLbkErNUhxLzN3eGVnNEpyWm5O?=
- =?utf-8?B?UjJENGI0T2IyNzRhNUNEeHN5dnB5b043bTUxT2M4RzdDV3EzT0lpNmZqR3FP?=
- =?utf-8?B?bWs5dGs4K1N1NSt0OXRsUmk5S1RYcEpjeVRPcDZXci9GVGpoYktFNUpEWThL?=
- =?utf-8?B?SlNDamFnb2NQMjF1djV5SGFrdXorUnRXSjFXeHdzbE9BTnczR3grbFIrUkNk?=
- =?utf-8?B?SCtMczI0QnFTTE9DaXlQR0tKQVA0RHl1eHZRemxvLzJQai8zZVZDTFBKK3Vs?=
- =?utf-8?B?U2RBUXlMam1VSjgxR2FwM01ScExNMS91RjY1TExMdERtQ2FHMHQ2WVlSalNp?=
- =?utf-8?B?cUdNVk9FZWdIeXRLYzdheHZYVUxqQXMyTU5jYmtVK0xLeHBaNWxheEtpakRV?=
- =?utf-8?B?bk9HcXp2L0ZmVkp1YVdXNFQrd1EyNllkbWFLWmZtZ0U3S3pROHN0NGdBV0ZE?=
- =?utf-8?B?UUVEcnNtdnN5RkErSld3VjZzeStpUUZVcTIyOW5LdmpZRCtPMG5SWUZGYmxT?=
- =?utf-8?B?a0UrandKak16VCt6SUVQNElZTVhOUUJySXdURUYvWnJ0YkxtY2FFVVU2Uzlz?=
- =?utf-8?B?VS9zNzhyenJyd1J0WmhzTkp3a1FMWkZJWmg2SElMeXpvSVA2Y3dMTDN2b0NE?=
- =?utf-8?B?UXQ3cFV5YnNoUHJPbHZxZ2ZUcWlyM1JwS0NORitvK2VzMXM0dUFJQ0ttd2hp?=
- =?utf-8?B?aktVWXlLVWF1YS9Fc21sTGlGZzNEbS9wNnQzd21SWmpjNVd0R0orb0p0WjZi?=
- =?utf-8?B?YUV4emZKam5tQjhIYmliS2lGZ2IyZjgwNHJtNFQ4cEtONVE3bkh2dWtndVgz?=
- =?utf-8?B?aGZncjRCNkpUSXlHSnZKR0tCdzBNaGdoMCtyR21SZHdqTENDellYZWc2VUVt?=
- =?utf-8?B?WHdBY1NsbkpxYndVTkRWcEI0YkhGSklJYjZxQjZjSWp6aElDd3hMNkZxVzYx?=
- =?utf-8?B?cFYvbVY5K1dTNmQ4VmpWZXZKb25OR2cwcmZuR1FhMzhsZmQ3eUQ4RjlldS8x?=
- =?utf-8?B?L0xjcWZtZGh5V0tSSy84MVUzeDNHcFNRT2tVQzR1RHkxT2hOR3ZKQlZ4dWRT?=
- =?utf-8?B?RFRlSE81aitJMmxQMW02YngrVnJNT0FtWXEzZTdCUFFRQzJISzZGeWQyL3NQ?=
- =?utf-8?B?QlVLYTQvRUZVOGZaWkorZFIxUm5rbVgxQ3Jwc3J5b1hHUEtrVjBMNGI0UklE?=
- =?utf-8?B?eXcxV3lqcGxCT2o0Qitld0ttcE9jLzNrcndDL1UrM01jSTBZb2tzWlh5cmxj?=
- =?utf-8?B?dlV5em51cVJWM0tpSW9rOU9uSVNDTGoxeXlNd1l2Myt4SUZkU3VsYnNNL0Ri?=
- =?utf-8?B?cjNyZkcya1AwQ2JjTzNUcjNTT0hiNzlsUkY1K2JkdnFvLzBCcWo2bDZIWVBF?=
- =?utf-8?B?NFlDNDNKWUpqSW1kellrc3g4b0MzMXdEUGFKUDFSbTZDSWg5cTRNYWZlNDRw?=
- =?utf-8?B?eXdRTHNQNGEraThzT29oN2dzcXBUVGFMSnhkZG1OVTA0aUJ1SXg0QT09?=
-X-OriginatorOrg: oss.nxp.com
-X-MS-Exchange-CrossTenant-Network-Message-Id: c8875f04-a312-4d91-b162-08dec17225b6
-X-MS-Exchange-CrossTenant-AuthSource: GVXPR04MB12316.eurprd04.prod.outlook.com
-X-MS-Exchange-CrossTenant-AuthAs: Internal
-X-MS-Exchange-CrossTenant-OriginalArrivalTime: 03 Jun 2026 13:15:13.9735
- (UTC)
-X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
-X-MS-Exchange-CrossTenant-Id: 686ea1d3-bc2b-4c6f-a92c-d99c5c301635
-X-MS-Exchange-CrossTenant-MailboxType: HOSTED
-X-MS-Exchange-CrossTenant-UserPrincipalName: HGH0UOaBQYgNvtDCL82wqi1ODKUXLgvgAmM1/yDgSDpDi4VpaLuiGwhC8VATXZMUCjbvcsf/IeBydq5Ru3wgxQ==
-X-MS-Exchange-Transport-CrossTenantHeadersStamped: GV2PR04MB11958
+Content-Type: text/plain; charset=utf-8
+Content-Disposition: inline
+In-Reply-To: <c81d12a8-7544-493f-a947-8f70ad9d409d@oss.nxp.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260603_061523_589050_06A61CCB 
-X-CRM114-Status: GOOD (  21.59  )
+X-CRM114-CacheID: sfid-20260603_062040_087164_04CB66EC 
+X-CRM114-Status: GOOD (  16.08  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -157,74 +87,32 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On 6/3/26 16:05, Sebastian Andrzej Siewior wrote:
-> Move RX callback handling into the threaded handler. This is similar to
-> the TX side except that we explicitly mask the source interrupt in the
-> primary handler and unmask it in the threaded handler again after
-> success. This was done automatically in the TX part.
+On 2026-06-03 16:18:22 [+0300], Daniel Baluta wrote:
+> On 6/3/26 16:05, Sebastian Andrzej Siewior wrote:
+> > Move RX callback handling into the threaded handler. This is similar to
+> > the TX side except that we explicitly mask the source interrupt in the
+> > primary handler and unmask it in the threaded handler again after
+> > success. This was done automatically in the TX part.
+> > 
+> > The masking/ unmasking can be removed from imx_mu_specific_rx() since it
+> > already happens in the primary/ threaded handler before invoking the
+> > channel specific callback.
+> > 
+> > Move RX channel handling into threaded handler.
 > 
-> The masking/ unmasking can be removed from imx_mu_specific_rx() since it
-> already happens in the primary/ threaded handler before invoking the
-> channel specific callback.
+> Hi Sebastian,
 > 
-> Move RX channel handling into threaded handler.
+> It is not very clear from me from the commit message why this change is needed.
+> Can you please update the commit message with proper explanation?
 
-Hi Sebastian,
+The intention is to move the entire interrupt handling into the threaded
+handler. The primary handler masks just event, the threaded handler
+performs the RX/TX/ event.
+I move the individual events step by step so the previous patch moved
+the TX, here is RX and the next one does RXDB.
 
-It is not very clear from me from the commit message why this change is needed.
-Can you please update the commit message with proper explanation?
+Is this clear now? The cover later explains why this done in the first
+place.
 
-
-> 
-> Signed-off-by: Sebastian Andrzej Siewior <bigeasy@linutronix.de>
-> ---
->  drivers/mailbox/imx-mailbox.c | 12 +++++++++---
->  1 file changed, 9 insertions(+), 3 deletions(-)
-> 
-> diff --git a/drivers/mailbox/imx-mailbox.c b/drivers/mailbox/imx-mailbox.c
-> index 006aa76b74b62..6fe202593592f 100644
-> --- a/drivers/mailbox/imx-mailbox.c
-> +++ b/drivers/mailbox/imx-mailbox.c
-> @@ -381,7 +381,6 @@ static int imx_mu_specific_rx(struct imx_mu_priv *priv, struct imx_mu_con_priv *
->  
->  	data = (u32 *)priv->msg;
->  
-> -	imx_mu_xcr_rmw(priv, IMX_MU_RCR, 0, IMX_MU_xCR_RIEn(priv->dcfg->type, cp->idx));
->  	*data++ = imx_mu_read(priv, priv->dcfg->xRR);
->  
->  	if (priv->dcfg->type & IMX_MU_V2_S4) {
-> @@ -408,7 +407,6 @@ static int imx_mu_specific_rx(struct imx_mu_priv *priv, struct imx_mu_con_priv *
->  		*data++ = imx_mu_read(priv, priv->dcfg->xRR + (i % num_rr) * 4);
->  	}
->  
-> -	imx_mu_xcr_set_act(priv, cp, IMX_MU_RCR, IMX_MU_xCR_RIEn(priv->dcfg->type, cp->idx));
->  	mbox_chan_received_data(cp->chan, (void *)priv->msg);
->  
->  	return 0;
-> @@ -555,6 +553,12 @@ static irqreturn_t imx_mu_isr_th(int irq, void *p)
->  		mbox_chan_txdone(chan, 0);
->  		break;
->  
-> +	case IMX_MU_TYPE_RX:
-> +		cp->pending = false;
-> +		if (!priv->dcfg->rx(priv, cp))
-> +			imx_mu_xcr_set_act(priv, cp, IMX_MU_RCR, IMX_MU_xCR_RIEn(priv->dcfg->type, cp->idx));
-> +		break;
-> +
->  	default:
->  		dev_warn_ratelimited(priv->dev, "Unhandled channel type %d\n",
->  				     cp->type);
-> @@ -608,7 +612,9 @@ static irqreturn_t imx_mu_isr(int irq, void *p)
->  		ret = IRQ_WAKE_THREAD;
->  	} else if ((val == IMX_MU_xSR_RFn(priv->dcfg->type, cp->idx)) &&
->  		   (cp->type == IMX_MU_TYPE_RX)) {
-> -		priv->dcfg->rx(priv, cp);
-> +		cp->pending = true;
-> +		imx_mu_xcr_rmw(priv, IMX_MU_RCR, 0, IMX_MU_xCR_RIEn(priv->dcfg->type, cp->idx));
-> +		ret = IRQ_WAKE_THREAD;
->  	} else if ((val == IMX_MU_xSR_GIPn(priv->dcfg->type, cp->idx)) &&
->  		   (cp->type == IMX_MU_TYPE_RXDB)) {
->  		priv->dcfg->rxdb(priv, cp);
-> 
-
+Sebastian
 
