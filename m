@@ -4,53 +4,38 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 0A955CD6E55
-	for <linux-arm-kernel@archiver.kernel.org>; Wed,  3 Jun 2026 15:19:13 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 80CD6CD6E6C
+	for <linux-arm-kernel@archiver.kernel.org>; Wed,  3 Jun 2026 15:19:19 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
 	MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:
 	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=F3eN6aAZAGCJthbocac3Ss/Txd8BjZoiukZVZ8bvt4k=; b=o6j4QrMlZadjXUj7tXhGa0HbD6
-	bS3A1aTlgsM8kd5AYXPL6NAfWllvZ0D+QFPZcOMXNbz6ObaoZ/3Cx0jr+zm78IXprzoDdOCUGDxFp
-	9zEy/fmHzCS0EZaUY7a3RRHlCoNgvNb0vMDp2x+ZhJj8bkuTW66x3zfkL2iikF8gUoNLzFanIR8rx
-	T4JzkBrP3sgcBKXVH6jNDB47OPqiuQfW3Z9f9aXFjg8+dOrec4BJgqTaPNjhfhOJorG1ywYXO5Q91
-	5/OirHx+V7OTeNBM8r5TiJGZgUC0yjtR27tEJCCRqiWNQSpNTOmTXLoiEIp8nU+sy8JqlcuQdK8vu
-	uXqPTxjA==;
+	bh=5ykDhaVAxXdOnsgLU7UizM8a0Siq2UzQqZmVaU1DWpg=; b=SLpsd7L9QqIiVbX0GTLJtVUdOy
+	uLsZs0LqwN/pjFo/FryVdNeaByYSTEg8z1W7V2MlXI1aj3HSI6/kJRTjXY1ILk+q2XasUnd9hzGni
+	W2zjxkFww5iJDDRMWw96CCg27u9VRgqs0glpwpgj5vBJ/tYcULzqK3m/LDw5HHniwiUFugCtIo8x3
+	frohW0MwJc1DZ99yG3G5aqYjYaO+5xu/YzWbaU70iTYfFRswn9w3bo6VGZW5WbxxaeMMfKOj6Sbua
+	BTW5AhBrirra/YbJmFw2JVy4LhLovPkIVRhNpYUP7EzVTNP9YBkHEJCo1fJ5+mZKHS1mIoCIXEQ0y
+	N9rrUJWg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wUnN3-0000000FMpC-0j6g;
-	Wed, 03 Jun 2026 15:19:05 +0000
-Received: from desiato.infradead.org ([90.155.92.199])
+	id 1wUnN2-0000000FMnZ-2Wlu;
+	Wed, 03 Jun 2026 15:19:04 +0000
+Received: from out199-15.us.a.mail.aliyun.com ([47.90.199.15])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wUnN1-0000000FMlr-1hWX
-	for linux-arm-kernel@bombadil.infradead.org;
-	Wed, 03 Jun 2026 15:19:03 +0000
-DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=infradead.org; s=desiato.20200630; h=Content-Transfer-Encoding:MIME-Version
-	:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:Sender:Reply-To:
-	Content-Type:Content-ID:Content-Description;
-	bh=F3eN6aAZAGCJthbocac3Ss/Txd8BjZoiukZVZ8bvt4k=; b=ib+hiPVan8xpGo0x8rxDhMdp7b
-	L2DzL83MPJ36qdcpxa9IiqqCdwZ5V6g+1CCSrG5BmBq7/+zfbuGElwkwW8nbKNO+u6jyQ+4c9eaPC
-	RmegeAQjBSzfzhgbRfsQleibRr2a7FilhH8gPoFXiLfhDi7v7+bPT++WvvAX5znh2B/NPg3xR0/Nc
-	14msVQ7gVNqj6+4ihhhmBiFo9OuvnqOzrG6/HhZnt86JCxqodstarHvpdYHi9W4PRyaFmfa87bEYP
-	gS8vwjENTA13Q1ufdtQZH036Jf0IeDE1ZIntcPp4hU+Q/kYV+oozlOQf1pqO4Bw0ICay6xCGb4dJO
-	pY3XT7nQ==;
-Received: from out30-118.freemail.mail.aliyun.com ([115.124.30.118])
-	by desiato.infradead.org with esmtps (Exim 4.99.2 #2 (Red Hat Linux))
-	id 1wUnMy-0000000CXb6-0nq9
+	id 1wUnMx-0000000FMfM-0G93
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 03 Jun 2026 15:19:02 +0000
+	Wed, 03 Jun 2026 15:19:01 +0000
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
 	d=linux.alibaba.com; s=default;
-	t=1780499926; h=From:To:Subject:Date:Message-ID:MIME-Version;
-	bh=F3eN6aAZAGCJthbocac3Ss/Txd8BjZoiukZVZ8bvt4k=;
-	b=YvaDwZrbt2OLddwT5aLexmG60mYcgSh8AC5oMN/CaHjsScH+C0rf/In8S95pu12h9Fc+jkqDWPapL0kmQGY87Cvb6dEtdgF+ZOD5vgjUDZvHmmemQB1uQaBAStEYi66ocb5UpR/R7VeKBIe/dbwBoqZogf08QbZnr4igWrTPhho=
-X-Alimail-AntiSpam: AC=PASS;BC=-1|-1;BR=01201311R181e4;CH=green;DM=||false|;DS=||;FP=0|-1|-1|-1|0|-1|-1|-1;HT=maildocker-contentspam033045098064;MF=guanghuifeng@linux.alibaba.com;NM=1;PH=DS;RN=28;SR=0;TI=SMTPD_---0X47fR29_1780499924;
-Received: from VM20241011-104.tbsite.net(mailfrom:guanghuifeng@linux.alibaba.com fp:SMTPD_---0X47fR29_1780499924 cluster:ay36)
+	t=1780499935; h=From:To:Subject:Date:Message-ID:MIME-Version;
+	bh=5ykDhaVAxXdOnsgLU7UizM8a0Siq2UzQqZmVaU1DWpg=;
+	b=HbrcXWnW2jIp3HwUHsYDWt1Kk3copU9B4QEzZ91FyiSxM12yBrA9zbnhhW5vGFa/lx3qK6XhDJlc6tbAZSmkrmMvibTufsrRtYs7+L4Jayq7tLWsrNd+K8nSF8MB6QKvygIvckCieROCH3daSUjNx3LVfPYR2liq/Gf4N+Bm4JY=
+X-Alimail-AntiSpam: AC=PASS;BC=-1|-1;BR=01201311R141e4;CH=green;DM=||false|;DS=||;FP=0|-1|-1|-1|0|-1|-1|-1;HT=maildocker-contentspam033045098064;MF=guanghuifeng@linux.alibaba.com;NM=1;PH=DS;RN=28;SR=0;TI=SMTPD_---0X47fR4F_1780499932;
+Received: from VM20241011-104.tbsite.net(mailfrom:guanghuifeng@linux.alibaba.com fp:SMTPD_---0X47fR4F_1780499932 cluster:ay36)
           by smtp.aliyun-inc.com;
-          Wed, 03 Jun 2026 23:18:44 +0800
+          Wed, 03 Jun 2026 23:18:52 +0800
 From: Guanghui Feng <guanghuifeng@linux.alibaba.com>
 To: jgg@ziepe.ca
 Cc: adrian.larumbe@collabora.com,
@@ -80,9 +65,9 @@ Cc: adrian.larumbe@collabora.com,
 	wei.guo.simon@linux.alibaba.com,
 	will@kernel.org,
 	xlpang@linux.alibaba.com
-Subject: [PATCH v3 06/32] iommu/arm-smmu-v3: implement iova_to_phys_length
-Date: Wed,  3 Jun 2026 23:17:38 +0800
-Message-ID: <20260603151804.1963871-7-guanghuifeng@linux.alibaba.com>
+Subject: [PATCH v3 14/32] iommu/msm: implement iova_to_phys_length
+Date: Wed,  3 Jun 2026 23:17:46 +0800
+Message-ID: <20260603151804.1963871-15-guanghuifeng@linux.alibaba.com>
 X-Mailer: git-send-email 2.43.7
 In-Reply-To: <20260603151804.1963871-1-guanghuifeng@linux.alibaba.com>
 References: <20260602104637.1219810-1-guanghuifeng@linux.alibaba.com>
@@ -90,9 +75,8 @@ References: <20260602104637.1219810-1-guanghuifeng@linux.alibaba.com>
 MIME-Version: 1.0
 Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260603_161900_830946_89FF757E 
-X-CRM114-Status: UNSURE (   9.28  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20260603_081859_410427_07BB2D2B 
+X-CRM114-Status: GOOD (  10.60  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -107,45 +91,68 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Migrate ARM SMMUv3 to implement iova_to_phys_length, calling
-ops->iova_to_phys_length on the io-pgtable layer.
+Implement iova_to_phys_length for MSM IOMMU driver,
+returning the actual PTE mapping size.
 
 Signed-off-by: Guanghui Feng <guanghuifeng@linux.alibaba.com>
 ---
- drivers/iommu/arm/arm-smmu-v3/arm-smmu-v3.c | 10 ++++++----
- 1 file changed, 6 insertions(+), 4 deletions(-)
+ drivers/iommu/msm_iommu.c | 21 ++++++++++++++-------
+ 1 file changed, 14 insertions(+), 7 deletions(-)
 
-diff --git a/drivers/iommu/arm/arm-smmu-v3/arm-smmu-v3.c b/drivers/iommu/arm/arm-smmu-v3/arm-smmu-v3.c
-index e8d7dbe495f0..616e7057ec7f 100644
---- a/drivers/iommu/arm/arm-smmu-v3/arm-smmu-v3.c
-+++ b/drivers/iommu/arm/arm-smmu-v3/arm-smmu-v3.c
-@@ -4069,14 +4069,16 @@ static void arm_smmu_iotlb_sync(struct iommu_domain *domain,
+diff --git a/drivers/iommu/msm_iommu.c b/drivers/iommu/msm_iommu.c
+index 0ad5ff431d5b..1038e8141223 100644
+--- a/drivers/iommu/msm_iommu.c
++++ b/drivers/iommu/msm_iommu.c
+@@ -523,15 +523,16 @@ static size_t msm_iommu_unmap(struct iommu_domain *domain, unsigned long iova,
+ 	return ret;
  }
  
- static phys_addr_t
--arm_smmu_iova_to_phys(struct iommu_domain *domain, dma_addr_t iova)
-+arm_smmu_iova_to_phys_length(struct iommu_domain *domain, dma_addr_t iova,
-+			     size_t *mapped_length)
+-static phys_addr_t msm_iommu_iova_to_phys(struct iommu_domain *domain,
+-					  dma_addr_t va)
++static phys_addr_t msm_iommu_iova_to_phys_length(struct iommu_domain *domain,
++						 dma_addr_t va,
++						 size_t *mapped_length)
  {
- 	struct io_pgtable_ops *ops = to_smmu_domain(domain)->pgtbl_ops;
+ 	struct msm_priv *priv;
+ 	struct msm_iommu_dev *iommu;
+ 	struct msm_iommu_ctx_dev *master;
+ 	unsigned int par;
+ 	unsigned long flags;
+-	phys_addr_t ret = 0;
++	phys_addr_t ret = PHYS_ADDR_MAX;
  
-+
- 	if (!ops)
--		return 0;
-+		return PHYS_ADDR_MAX;
+ 	spin_lock_irqsave(&msm_iommu_lock, flags);
  
--	return ops->iova_to_phys(ops, iova);
-+	return ops->iova_to_phys_length(ops, iova, mapped_length);
- }
+@@ -558,13 +559,19 @@ static phys_addr_t msm_iommu_iova_to_phys(struct iommu_domain *domain,
+ 	par = GET_PAR(iommu->base, master->num);
  
- static struct platform_driver arm_smmu_driver;
-@@ -4396,7 +4398,7 @@ static const struct iommu_ops arm_smmu_ops = {
- 		.unmap_pages		= arm_smmu_unmap_pages,
- 		.flush_iotlb_all	= arm_smmu_flush_iotlb_all,
- 		.iotlb_sync		= arm_smmu_iotlb_sync,
--		.iova_to_phys		= arm_smmu_iova_to_phys,
-+		.iova_to_phys_length	= arm_smmu_iova_to_phys_length,
- 		.free			= arm_smmu_domain_free_paging,
+ 	/* We are dealing with a supersection */
+-	if (GET_NOFAULT_SS(iommu->base, master->num))
++	if (GET_NOFAULT_SS(iommu->base, master->num)) {
+ 		ret = (par & 0xFF000000) | (va & 0x00FFFFFF);
+-	else	/* Upper 20 bits from PAR, lower 12 from VA */
++		if (mapped_length)
++			*mapped_length = SZ_16M;
++	} else {
++		/* Upper 20 bits from PAR, lower 12 from VA */
+ 		ret = (par & 0xFFFFF000) | (va & 0x00000FFF);
++		if (mapped_length)
++			*mapped_length = SZ_4K;
++	}
+ 
+ 	if (GET_FAULT(iommu->base, master->num))
+-		ret = 0;
++		ret = PHYS_ADDR_MAX;
+ 
+ 	__disable_clocks(iommu);
+ fail:
+@@ -706,7 +713,7 @@ static struct iommu_ops msm_iommu_ops = {
+ 		 */
+ 		.iotlb_sync	= NULL,
+ 		.iotlb_sync_map	= msm_iommu_sync_map,
+-		.iova_to_phys	= msm_iommu_iova_to_phys,
++		.iova_to_phys_length	= msm_iommu_iova_to_phys_length,
+ 		.free		= msm_iommu_domain_free,
  	}
  };
 -- 
