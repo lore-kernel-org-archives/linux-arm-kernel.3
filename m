@@ -4,109 +4,53 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 8A163CD6E4A
-	for <linux-arm-kernel@archiver.kernel.org>; Wed,  3 Jun 2026 06:55:44 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id D267ECD6E69
+	for <linux-arm-kernel@archiver.kernel.org>; Wed,  3 Jun 2026 06:57:07 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:Cc:To:Subject:Message-ID:Date:From:In-Reply-To:References:
-	MIME-Version:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Message-ID:Date:To:Cc:From:
+	Subject:References:In-Reply-To:Content-Transfer-Encoding:MIME-Version:
+	Content-Type:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=eMVHxMtbHCbUYEX8FNbdji2LBuN1ycDKpUMu2gGLVv0=; b=kR4HQJNoqlVGDgb4qXgNyddama
-	6oPv8huVgmaDJJfSEug7IQ53FWtVGwRTQmGJn0tKR2teNpAfTTrzpirtWeuXwfFPYTPC5EM4r14eY
-	ykibfTqDm2a5RctgiBYh9IJNkShoWpU1Cmyp00Zs/KmBKV+tVJU7U46t2ixW3enb3q5VvShfAnw9X
-	d5Aq+8BJCPEBnv7Ox3i1vqYcDjuZkeDDFVaqngUgZjUW+2BMEvYaXRvSP0554URBjBrZFBl8VeuRT
-	TU5clu9h4+KmsnQJ6NSIkKM6+R81zILJGfB387PfQkGhIxlBTv19ZVwv4j3+8PL0MGRzNdruHdIcQ
-	VqHE9WsA==;
+	bh=Yp2kNgidltvb4huKC+mNqn7jKg4NCbFYi9r3UQNyARg=; b=LyGUTyYTEc5wdDf5iX/FYrbnR8
+	wT4V7N2h6AA0S79FYbwSJE7WCu/1s+2xi0DzswPUqSSnT39bU/GRaY0/PtIAFXlSSlj4l79yrIYsS
+	LKQfhNfsIW1xhIUQyUNo8YpjQuMSULtkg4AyFNgobqdzdXvVmcZk7E5JxEhnetOQkqwX8+Pi7GruU
+	iaY0KMFCZBispC4p0bFmVOkTyo7FwYZewXNF7WxofyBe2V1iAnAnro4MrgwzOiWIcPNE8zzRVKt8X
+	6oz2IDPbZjn14IEiEK6tW/zXnHoqa8O6vKcBrr7HCJbm3BOqI3hiMw6DBGzj84m3mosDSI1AvZYUV
+	LAUvPaKg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wUfVp-0000000EPv5-1mOe;
-	Wed, 03 Jun 2026 06:55:37 +0000
-Received: from mail-lf1-x12b.google.com ([2a00:1450:4864:20::12b])
+	id 1wUfXB-0000000EQB6-3g1B;
+	Wed, 03 Jun 2026 06:57:01 +0000
+Received: from perceval.ideasonboard.com ([213.167.242.64])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wUfVm-0000000EPuG-0tNS
-	for linux-arm-kernel@lists.infradead.org;
-	Wed, 03 Jun 2026 06:55:35 +0000
-Received: by mail-lf1-x12b.google.com with SMTP id 2adb3069b0e04-5aa2c25c632so13460160e87.1
-        for <linux-arm-kernel@lists.infradead.org>; Tue, 02 Jun 2026 23:55:33 -0700 (PDT)
-ARC-Seal: i=1; a=rsa-sha256; t=1780469732; cv=none;
-        d=google.com; s=arc-20240605;
-        b=C+AseuXxKLFYLeM1eVZyEp578qEoEkywDUlLhXAG1YIxXkmhBHyMv+JWBKWV9Hb7VK
-         BcaGnhat2nyUmBLrjHsMlWncNY+rGQHZb6TDmSgsDmY2o6BpphH2Ez7eH/xxdP5OHCPd
-         mySvIRxq8D7zAB7DiKmj3EcWatF1jiWmo79pXMlY53c+QjacSq/mFYmAJl/Fmtq9LLzQ
-         mivoJwjLtuIDQJoBa+7MeyE8NqEANogkzwAHH84IK9iyuwntpUQ7G7XCBNhakhbLpiOY
-         TVbe3uzUFVxWCSYwayAUCxg1JWwZjLHXD41QbxG68+Dk1VwoRz+R/ubeGD8f1yOm9fTQ
-         8mrA==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20240605;
-        h=content-transfer-encoding:cc:to:subject:message-id:date:from
-         :in-reply-to:references:mime-version:dkim-signature;
-        bh=eMVHxMtbHCbUYEX8FNbdji2LBuN1ycDKpUMu2gGLVv0=;
-        fh=WBsRRD+mrDx0GB8oEKJzBdVPS5fwuCRp/rLi8raqXjg=;
-        b=PB4Wt4ajXLyvYnn48LxsT1YSWUndpjpvU5dTcP+b7CBECvOSLJazLyvqcx6Saa4PBa
-         NYhrnjRVmRI+MIpMw20c82nnLiZliO0tEWX+OSpP9MQFaWAyiRTzGpl/jNJxKbyWNGBU
-         zH3sb82T5CLkMZZo2nuuB4LsWVqTV52577Dnm+VyDbeXhDwtwObAFOXeQUvrPfEGJ+GO
-         YjSfa5ta3aTzU3VLuHMp2zLABXwSIFwz8pzztuV/wc7tfmB2bokV0JyM6XRtXXUeei1Y
-         qiQWampL+zAB3DL9p7lmAy/CoCAB/v6cwfpqPyXJXkdqPFwNCHSSq9eq3pEIPYQ3iovv
-         30IQ==;
-        darn=lists.infradead.org
-ARC-Authentication-Results: i=1; mx.google.com; arc=none
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=chromium.org; s=google; t=1780469732; x=1781074532; darn=lists.infradead.org;
-        h=content-transfer-encoding:cc:to:subject:message-id:date:from
-         :in-reply-to:references:mime-version:from:to:cc:subject:date
-         :message-id:reply-to;
-        bh=eMVHxMtbHCbUYEX8FNbdji2LBuN1ycDKpUMu2gGLVv0=;
-        b=dcNMSGOpqkKjO/1dCoFJfcOHDEd5UOF3TobjATFOvtgDz4H4GC/Xhrc2awScCMvzYt
-         e6cFQncJA5yDg+0QRaYcPvmg0Da3cG8qcNDV4kDK6roRXn8TrXAAQZfC4JZTM66Xq+sL
-         zxC7T2723I2M7flNA1i8+b4501j3hpzB6RpqE=
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20251104; t=1780469732; x=1781074532;
-        h=content-transfer-encoding:cc:to:subject:message-id:date:from
-         :in-reply-to:references:mime-version:x-gm-gg:x-gm-message-state:from
-         :to:cc:subject:date:message-id:reply-to;
-        bh=eMVHxMtbHCbUYEX8FNbdji2LBuN1ycDKpUMu2gGLVv0=;
-        b=DUuQDCicYZ/yV20P8V4oH9bNvmnTpM5VPCe3uRp93v3Nwhzy/6GX5ZtIb8oI6sUYRG
-         xffgYIgwSowKPehYbyaSt+XMzm4GqcOsCtcQHgVGTtpIGGO9RWwjUSNP+He283unY7FD
-         HS6Agf2TFeDS/74tjq95P6CiRiyY5LHHTzWshMB8TbmEldhVMoDF+6jkjY9Nl+XXahVp
-         GeeYPLs2EmroB3wZEBh0WMj5ZP830q+y/lakWGJIEGqE7fnrUZh6eg6ainbMc3Ew56zD
-         B7DKV7pIvhJcZnNE+McXJSAAYWMui98RHgKcxg0vz/bDmsd0UtfBa0Wc21kQbyT33cuw
-         uQcA==
-X-Forwarded-Encrypted: i=1; AFNElJ9Ws9YM/aC6sGHwhYQLC36m/E2Uyow8wbh9ijz5jIZinU9s092qKZbcBV1qQD4lfXCw3vBwTsWCUIaExSl+NW/S@lists.infradead.org
-X-Gm-Message-State: AOJu0Yy/4wxXOJAnSs1JDE5otoh17I7gGllepC3qrz0BaNkzJ8gH7ULx
-	5NAxxuScez2jE3ovKD2KOHFspH3g+0RMnXhnfaqVwdMHA9hbPVxjdd06KsyhevS+BiVR0Q/KSXP
-	PVsGn6VgDtwD90sKP3531pqUw8UXanp59ygXTqM0q
-X-Gm-Gg: Acq92OFf8bxrB1vpGH+R/81Qay3ibolIugu/IX2PynM4lShdSVQREDmM6XXmn7sD2+9
-	lBvo44AiDPLWqTBaq+LHFrCswp1QwBVbk/tcDjkheKIg8ErNyV7EI8F3O15Rdumn7WI8gtnDVi7
-	iJPPqIgSUeYjKf7g0O79Zs9+gOAuh1PKPrI5DpRiNt0Hfb02E5W75MmWSPayyMyD/VSj1wz2Q1/
-	c0Vf55z2l/sw+SKuh8naNjBHh1OaVf5grGujaAOpsoIUYlw8qC68Kwy22aJLY7wFccFmTdqm6UT
-	4eMJMutFmNCKOeiENcgo8JWraA31XT8ykseLdR2K6YmMlcaD
-X-Received: by 2002:a05:6512:2310:b0:5aa:5f81:51cc with SMTP id
- 2adb3069b0e04-5aa7bfd939emr598153e87.0.1780469731666; Tue, 02 Jun 2026
- 23:55:31 -0700 (PDT)
+	id 1wUfX9-0000000EQAF-3Ko0;
+	Wed, 03 Jun 2026 06:57:00 +0000
+Received: from mail.ideasonboard.com (unknown [IPv6:2401:4900:1c66:476d:c684:fe78:389f:7375])
+	by perceval.ideasonboard.com (Postfix) with ESMTPSA id 803C1DF3;
+	Wed,  3 Jun 2026 08:48:02 +0200 (CEST)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=ideasonboard.com;
+	s=mail; t=1780469283;
+	bh=5k/c6VDEVBRdhrNJr2zMBa0bQcPXUXjROhDeuMYMBL4=;
+	h=In-Reply-To:References:Subject:From:Cc:To:Date:From;
+	b=b1WT6sF5L3UHoF+qviCSWaAPOP2lD4F5sKKcFpTel2EM9d1g17KoZyLMUy1yF/wiD
+	 yyrCHguxL+ODDXnrII7WucqSKuEhlWn/Ea5kdgfUx4M0R0a/vvED+ERBaG7ZEzeNo7
+	 YrE6DTLCHdlGiGBaz41A4fY1x8tTkJBUGuKPC6So=
+Content-Type: text/plain; charset="utf-8"
 MIME-Version: 1.0
-References: <20260515090149.3169406-1-wenst@chromium.org> <CAMRc=MdnjRRMVzxPkkrPhQ4dz7rsK8-HKUp9cQ0z11apL3escQ@mail.gmail.com>
- <CAGXv+5HC3dqgcE3KnKzakHHWFHB6m_X42orOkNUvZvp=SL_O8g@mail.gmail.com>
- <CAMRc=Med-_0GSYzoFBRiwFzBCK0DZqJD8_SEBxi+zwR20GS-HA@mail.gmail.com>
- <CAGXv+5GbW0bx3nKdZt2+tHuHyQ-J-1-Z79nMzHAwjmEPGKT02A@mail.gmail.com> <CAMRc=McADm0F4bwhj5qoigfUT-AV6CVpo+FAaqoBnZ3PrjBc7Q@mail.gmail.com>
-In-Reply-To: <CAMRc=McADm0F4bwhj5qoigfUT-AV6CVpo+FAaqoBnZ3PrjBc7Q@mail.gmail.com>
-From: Chen-Yu Tsai <wenst@chromium.org>
-Date: Wed, 3 Jun 2026 14:55:20 +0800
-X-Gm-Features: AVHnY4LlLDHphsEQE3sATrymTCUnapNz7ZFd_5P8UcLWbDeGGfHP5mUv-LY1yqE
-Message-ID: <CAGXv+5FhUuV_0fdOMDowffA-1jtUoNOcxZSZE-pd_T4V5Qg3Jg@mail.gmail.com>
-Subject: Re: [PATCH RFC 00/12] arm64: mediatek: Add M.2 E-key slot on Chromebooks
-To: Bartosz Golaszewski <brgl@kernel.org>
-Cc: Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>, 
-	Conor Dooley <conor+dt@kernel.org>, Matthias Brugger <matthias.bgg@gmail.com>, 
-	AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>, linux-pm@vger.kernel.org, 
-	linux-usb@vger.kernel.org, devicetree@vger.kernel.org, 
-	linux-mediatek@lists.infradead.org, linux-arm-kernel@lists.infradead.org, 
-	linux-kernel@vger.kernel.org, Greg Kroah-Hartman <gregkh@linuxfoundation.org>, 
-	Manivannan Sadhasivam <mani@kernel.org>
-Content-Type: text/plain; charset="UTF-8"
 Content-Transfer-Encoding: quoted-printable
+In-Reply-To: <20260520-bcmpi-v1-1-41d80125a7b9@kernel.org>
+References: <20260520-bcmpi-v1-1-41d80125a7b9@kernel.org>
+Subject: Re: [PATCH] media: bcm2835-unicam: Fix pipeline wrong validation for unpacked formats
+From: Jai Luthra <jai.luthra@ideasonboard.com>
+Cc: linux-media@vger.kernel.org, linux-rpi-kernel@lists.infradead.org, linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org, Eugen Hristev <ehristev@kernel.org>
+To: Broadcom internal kernel review list <bcm-kernel-feedback-list@broadcom.com>, Eugen Hristev <ehristev@kernel.org>, Florian Fainelli <florian.fainelli@broadcom.com>, Hans Verkuil <hverkuil+cisco@kernel.org>, Laurent Pinchart <laurent.pinchart@ideasonboard.com>, Mauro Carvalho Chehab <mchehab@kernel.org>, Maxime Ripard <mripard@redhat.com>, Raspberry Pi Kernel Maintenance <kernel-list@raspberrypi.com>, Ray Jui <rjui@broadcom.com>, Sakari Ailus <sakari.ailus@linux.intel.com>, Scott Branden <sbranden@broadcom.com>
+Date: Wed, 03 Jun 2026 12:18:20 +0530
+Message-ID: <178046930079.1525445.16102733967737177325@freya>
+User-Agent: alot/0.13.dev20+g31692a239
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260602_235534_335325_1E761A93 
-X-CRM114-Status: GOOD (  50.21  )
+X-CRM114-CacheID: sfid-20260602_235659_974052_0FE7F5E0 
+X-CRM114-Status: GOOD (  19.92  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -121,123 +65,87 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Thu, May 28, 2026 at 4:33=E2=80=AFPM Bartosz Golaszewski <brgl@kernel.or=
-g> wrote:
+Hi Eugen,
+
+Quoting Eugen Hristev (2026-05-20 21:07:00)
+> The commit
+> 08f9794d9b79 ("media: bcm2835-unicam: Fix RGB format / mbus code associat=
+ion")
+> introduced a check to see whether the format requested is the same as the
+> fourcc in the format list.
+>=20
+> However, this breaks the case when userspace requested an unpacked fourcc,
+> e.g. RG10.
+>=20
+> Unicam can work with or without unpacking pixels, e.g. pRAA or RG10, depe=
+nding
+> on what userspace requests.
+> In the unpacking case, a dedicated register is being set.
+>=20
+> If the userspace requests pRAA, this works, because the check validates t=
+he
+> pipeline:
+>=20
+> v4l2-ctl -d /dev/video0 --set-fmt-video=3Dwidth=3D3280,height=3D2464,pixe=
+lformat=3DpRAA \
+>  --stream-mmap --stream-count=3D1 --stream-to=3Dframe.raw
+>=20
+> but, with
+> v4l2-ctl -d /dev/video0 --set-fmt-video=3Dwidth=3D3280,height=3D2464,pixe=
+lformat=3DRG10 \
+> --stream-mmap --stream-count=3D1 --stream-to=3Dframe.raw
+>=20
+> unicam complains at validation level:
+>=20
+> image: format mismatch: 0x300f <=3D> RG10 little-endian (0x30314752)
+>=20
+> This should work, because MEDIA_BUS_FMT_SRGGB10_1X10 can be packed into e=
+ither
+> RG10 or pRAA depending on the packing register.
+>=20
+> To fix this, modified the condition check to also allow in the case when
+> requested format (fmt->pixelformat) is equal to fmtinfo->unpacked_fourcc.
+>=20
+> Fixes: 08f9794d9b79 ("media: bcm2835-unicam: Fix RGB format / mbus code a=
+ssociation")
+> Signed-off-by: Eugen Hristev <ehristev@kernel.org>
+> ---
+>  drivers/media/platform/broadcom/bcm2835-unicam.c | 3 ++-
+>  1 file changed, 2 insertions(+), 1 deletion(-)
+>=20
+> diff --git a/drivers/media/platform/broadcom/bcm2835-unicam.c b/drivers/m=
+edia/platform/broadcom/bcm2835-unicam.c
+> index 8d28ba0b59a3..cc7627e9a51a 100644
+> --- a/drivers/media/platform/broadcom/bcm2835-unicam.c
+> +++ b/drivers/media/platform/broadcom/bcm2835-unicam.c
+> @@ -2158,7 +2158,8 @@ static int unicam_video_link_validate(struct media_=
+link *link)
+>                  * In order to allow the applications using the old behav=
+iour to
+>                  * run, let's accept the old combination, but warn about =
+it.
+>                  */
+> -               if (fmtinfo->fourcc !=3D fmt->pixelformat) {
+> +               if (fmt->pixelformat !=3D fmtinfo->fourcc &&
+> +                   fmt->pixelformat !=3D fmtinfo->unpacked_fourcc) {
+>                         if ((fmt->pixelformat =3D=3D V4L2_PIX_FMT_BGR24 &&
+>                              format->code =3D=3D MEDIA_BUS_FMT_BGR888_1X2=
+4) ||
+>                             (fmt->pixelformat =3D=3D V4L2_PIX_FMT_RGB24 &&
+>=20
+
+Reviewed-by: Jai Luthra <jai.luthra@ideasonboard.com>
+
+Thanks,
+Jai
+
+> ---
+> base-commit: e98d21c170b01ddef366f023bbfcf6b31509fa83
+> change-id: 20260520-bcmpi-2c4850314e21
+>=20
+> Best regards,
+> -- =20
+> Eugen Hristev <ehristev@kernel.org>
+>=20
 >
-> On Wed, 27 May 2026 18:21:00 +0200, Chen-Yu Tsai <wenst@chromium.org> sai=
-d:
-> > On Tue, May 26, 2026 at 11:48=E2=80=AFAM Bartosz Golaszewski <brgl@kern=
-el.org> wrote:
-> >>
-> >> On Sun, May 24, 2026 at 10:06=E2=80=AFAM Chen-Yu Tsai <wenst@chromium.=
-org> wrote:
-> >> >
-> >> > > >
-> >> > > > I expect some discussion on this patch, because a) it adds some
-> >> > > > OF-specific code into an otherwise generic (core) driver, and
-> >> > > > b) it doesn't yet handle USB 2.0 / 3.x shared ports; it ends up =
-powering
-> >> > > > on the port twice, which negates the port reset part.
-> >> > > >
-> >> > >
-> >> > > I understand that you do this because the port device has no OF no=
-de
-> >> > > assigned. If we wanted to call pwrseq_get() for the port device, i=
-s
-> >> > > there really no other way to associate it with the correct pwrseq
-> >> > > provider?
-> >> >
-> >> > I suppose we could tie the "port@X" node to the usb port device, but
-> >> > AFAIK no other subsystem does this so we would be introducing a new
-> >> > pattern.
-> >> >
-> >> > In the M.2 pwrseq driver, we would have to match by port node instea=
-d
-> >> > of its parent device node. We may end up with different behavior for
-> >> > the USB target vs the other targets.
-> >> >
-> >>
-> >> I imagine, we can check the bus type of the parent device to know if
-> >> this is USB?
-> >
-> > The "bus type" type is probably not exported. However since the DT bind=
-ing
-> > explicitly says which port on the M.2 slot is for which connection type=
-,
-> > I think the matching can do a special case check for the USB port.
-> > The next obstacle is that the target string is not given to the provide=
-r
-> > match function.
-> >
-> >> > Also, the "port@X" nodes only exist for the OF graph connections to
-> >> > connectors and/or muxes (this series doesn't deal with the latter).
-> >> > For directly connected devices, there is a "device@X" child node
-> >> > directly under the USB hub node. That node is what gets tied to the
-> >> > the USB device.
-> >> >
-> >>
-> >> Is this a problem? I don't think I understand what you're saying here.
-> >
-> > It shouldn't be. I'm just saying there would be different behavior on
-> > the USB side for connectors vs onboard devices (like hubs) device nodes=
-.
-> >
-> > I talked to Greg earlier, and he said not to touch the hub driver; the
-> > hub driver should only deal with features from the USB spec. The
-> > "onboard USB devices" driver is what should be used. And this would
-> > be a proper case of adding an auxiliary device to the M.2 slot driver.
-> >
->
-> The onboard USB device is what initially inspired the PCI pwrctl code so =
-it
-> doesn't surprise me we circle back to it.
->
-> > However this seems to completely decouple the power sequencing from the
-> > USB core. Take the USB A connector for example, it was recently added t=
-o
-> > the onboard USB devices driver. However the connector has a device node
-> > that is not a child node of any USB host controller or hub; it is conne=
-cted
-> > through OF graph. At the same time, since it typically sits at the top
-> > level of the device tree, a platform device is directly created and the
-> > driver subsequently binds to that device. This is totally different fro=
-m
-> > how the hub and other directly connected onboard USB devices work. In
-> > the onboard device case, the device node is a child node of the USB hub
-> > or controller, and the corresponding platform device only gets created
-> > when the USB hub driver probes, thereby sort of tying it into the USB
-> > device topology.
-> >
->
-> Which is precisely what we do for PCI pwrctl. Though I'm not sure how we =
-could
-> replicate this behavior without touching the hub driver.
->
-> > If the power sequencing ends up not connected to the USB subsystem, the=
-n
-> > maybe the M.2 slot driver could just check if the USB port (port@3) was
-> > used, and just enable the USB / BT pwrseq target at probe time? That
-> > would mean less changes needed.
-> >
->
-> That sounds sane to me.
-
-Mani seems to be against this idea though, since as I mentioned it decouple=
-s
-the timing of the power sequencing from the USB subsystem completely.
-
-Ideally we want them to be linked.
-
-So I will take a stab at option one for now, incorporating changes you
-requested:
-
-- Drop the pwrseq API change
-- Use the firmware node API instead of the OF API
-- Tie the usb_port device to the "port@N" node
-
-And we'll see how the USB folks like or dislike it.
-
-
-Thanks
-ChenYu
 
