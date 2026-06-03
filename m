@@ -4,68 +4,56 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id CC006CD6E4A
-	for <linux-arm-kernel@archiver.kernel.org>; Wed,  3 Jun 2026 02:30:26 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 6984CCD6E5D
+	for <linux-arm-kernel@archiver.kernel.org>; Wed,  3 Jun 2026 02:34:22 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:References
-	:Date:Message-Id:From:Subject:Content-Transfer-Encoding:MIME-Version:
-	Content-Type:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=zslATiuQUoQ2ecIXBPpBnr1n5ssTXiki4SD5XB/9EKY=; b=BPtwjzPFrIIy9Q65ZN409JRz5i
-	MMBRzQ1Pm9OK0gg+3NTtf6uS8YDi7Xua3AUywL5f/+qf1ZKsVzziwta3GZkhm3W11BN/bJH6yCj/Z
-	OXw0ye3WagjxgoS1EPtze4dJEZhtvUIVyh8DNbw4j3UAnjX2BX2gl+gfdCqWBv5gssfwj1qDGfhAr
-	VwCiaa/t5qaoPcfCXnOj4HrAO7MZX0fUeKFCI+W6yPU/HBYTly0EXF2yMmvMzE8WND9E6eHr3bIqI
-	JKI+ozN3x9D6oBo7F/ENWpNWbtluas13KaONhRH19oIULmVl1YmYBWAOZwMbXPJtMGz7zokgWsxLf
-	S0MNCHlA==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:
+	Content-Transfer-Encoding:Content-Type:Date:Cc:To:From:Subject:Message-ID:
+	Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender
+	:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=0P5xTtK6qJk11drFxut88gGWQ14R3F9398eX/Saen6s=; b=iRefIcax6zk4kIfLf+XP5270vy
+	AisGiNnlwAkRXnH67A1mhreo9Dx73i4KPwuLuIEeD28ks8bFsrdPe+y1Ff9ICF+XeISo9M7dNQ6oE
+	yrv0RNaxfshys+bGxEggDD+431HwIEClGyp4sVvCYThc0vcbpV47ji7dQEvPfYZdVN9JlIaO2Py9w
+	eIqMMrFc5XzRhvuxNbyX+AkGS4zfRlHzXla5M9lNsj348b0yPQxAr7J7lVX/rMJ81xZRho0OoCmtH
+	YK5ozXMp7gelAjKZddU8MCu5poHHp7M6WhLg5j8q3bai71QYNJIn+CAYeszUSTDI56VIH4Uew2xDN
+	5kn7ATPg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wUbN6-0000000E6pK-2eMA;
-	Wed, 03 Jun 2026 02:30:20 +0000
-Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
+	id 1wUbQt-0000000E78B-0Cbq;
+	Wed, 03 Jun 2026 02:34:15 +0000
+Received: from pi.codeconstruct.com.au ([203.29.241.158] helo=codeconstruct.com.au)
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wUbN3-0000000E6oU-3RBA
+	id 1wUbQq-0000000E77l-0a8v
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 03 Jun 2026 02:30:19 +0000
-Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
-	by sea.source.kernel.org (Postfix) with ESMTP id 530EC43C7E;
-	Wed,  3 Jun 2026 02:30:16 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 32F161F00893;
-	Wed,  3 Jun 2026 02:30:16 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1780453816;
-	bh=zslATiuQUoQ2ecIXBPpBnr1n5ssTXiki4SD5XB/9EKY=;
-	h=Subject:From:Date:References:In-Reply-To:To:Cc;
-	b=X6YY1Z/Uq+hO232LGzWrVs4nQ8gGEE18O7LnEzsUclcqtvgD4sNPaa5sN+4VEyYX5
-	 bI+0MIvg5I3yycNHcMjYwgxZA+7lum0MN8GTbww3vwteGP6Io/v26LYr5AEbD85dst
-	 XRNUDKY1uvF219CscOiNn4EWYXqi2bnF9FaOMvxY52eTvAFMxOv9SEZSuN8t4RZSiZ
-	 A0WjNTGUSqpYmfUcYe3m0LkVaBoIbOkyAimcTLTZSYqR5NwjTh+bvAnLV6Uj/ATG1K
-	 E6vs13bugSzt5WsUuwZRFN7A27J29Z3qJk4I3rpfvAdAbGS90RZCr/y+FZn2uZJdxb
-	 6RAnWW85RZEfA==
-Received: from [10.30.226.235] (localhost [IPv6:::1])
-	by aws-us-west-2-korg-oddjob-rhel9-1.codeaurora.org (Postfix) with ESMTP id 1993C393003B;
-	Wed,  3 Jun 2026 02:30:19 +0000 (UTC)
-Content-Type: text/plain; charset="utf-8"
+	Wed, 03 Jun 2026 02:34:13 +0000
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+	d=codeconstruct.com.au; s=2022a; t=1780454050;
+	bh=0P5xTtK6qJk11drFxut88gGWQ14R3F9398eX/Saen6s=;
+	h=Subject:From:To:Cc:Date;
+	b=LY5gsaZEH8JGU8zm2qE+glifMq+UTc38flMyOSQoQ6WcAyQUQSpa4NdyJnnAk16zV
+	 OaloRtqWrAABbM6nKhJ2NqxjBV/eMzuw9kFzyHnklntr58HYkBpeb6M33FBfBIeVxN
+	 IMAbL3qUOjTHOpmsPdB21cxUYB9kuhaC5/VEDsGu5+GxSr9EfAJ2eZHcFaalS6qW8K
+	 E/VZUKf/kTpYVvQ6wO7QjFrCG824k8kbaUpEpJ1mNMseE+syVhLK+dK6/2z99TSNHk
+	 93NZY/ZgvTam5ER0zT5A2k4K3Aqn8U/zQ5kYv3J3csekPY+O+Ucwe0ndsh1mxRzW8Q
+	 MUeDo3GpFnvCw==
+Received: from [192.168.68.117] (unknown [180.150.112.11])
+	by mail.codeconstruct.com.au (Postfix) with ESMTPSA id 44A5960087;
+	Wed,  3 Jun 2026 10:34:09 +0800 (AWST)
+Message-ID: <55ab27bc5e09252b1dbfdf1505693eb193b8e846.camel@codeconstruct.com.au>
+Subject: [GIT PULL] aspeed: First batch of ARM devicetree changes for v7.2
+From: Andrew Jeffery <andrew@codeconstruct.com.au>
+To: soc@lists.linux.dev
+Cc: linux-arm-kernel@lists.infradead.org, linux-aspeed@lists.ozlabs.org, 
+	linux-kernel@vger.kernel.org, Joel Stanley <joel@jms.id.au>
+Date: Wed, 03 Jun 2026 12:04:08 +0930
+Content-Type: text/plain; charset="UTF-8"
+Content-Transfer-Encoding: quoted-printable
+User-Agent: Evolution 3.56.2-0+deb13u1 
 MIME-Version: 1.0
-Content-Transfer-Encoding: 8bit
-Subject: Re: [PATCH v3] net: stmmac: Improve Tx timer arm logic further
-From: patchwork-bot+netdevbpf@kernel.org
-Message-Id: <178045381764.1178989.10990235373154874362.git-patchwork-notify@kernel.org>
-Date: Wed, 03 Jun 2026 02:30:17 +0000
-References: <20260529064659.32287-1-muhammad.nazim.amirul.nazle.asmade@altera.com>
-In-Reply-To: <20260529064659.32287-1-muhammad.nazim.amirul.nazle.asmade@altera.com>
-To: Nazle@aws-us-west-2-korg-oddjob-rhel9-1.codeaurora.org,
-	Asmade@aws-us-west-2-korg-oddjob-rhel9-1.codeaurora.org,
-	Muhammad Nazim Amirul <muhammad.nazim.amirul.nazle.asmade@altera.com>
-Cc: netdev@vger.kernel.org, andrew+netdev@lunn.ch, davem@davemloft.net,
- edumazet@google.com, kuba@kernel.org, pabeni@redhat.com,
- mcoquelin.stm32@gmail.com, alexandre.torgue@foss.st.com,
- rmk+kernel@armlinux.org.uk, maxime.chevallier@bootlin.com,
- linux-stm32@st-md-mailman.stormreply.com,
- linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260602_193017_882136_CC4C3058 
-X-CRM114-Status: GOOD (  10.52  )
+X-CRM114-CacheID: sfid-20260602_193412_379822_848DA3B7 
+X-CRM114-Status: GOOD (  10.57  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -80,34 +68,108 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hello:
+aspeed: First batch of ARM devicetree changes for v7.2
 
-This patch was applied to netdev/net-next.git (main)
-by Jakub Kicinski <kuba@kernel.org>:
+New platforms:
 
-On Thu, 28 May 2026 23:46:59 -0700 you wrote:
-> From: Nazim Amirul <muhammad.nazim.amirul.nazle.asmade@altera.com>
-> 
-> Calling hrtimer_start() on an already-active txtimer is unnecessary
-> and expensive. Skip the restart if the timer is already active by
-> adding an hrtimer_active() check before hrtimer_start().
-> 
-> Previously, each packet reset the timer to tx_coal_timer in the future,
-> acting as a sliding window that delayed NAPI under burst traffic. With
-> this change, an already-active timer is left to fire sooner, scheduling
-> NAPI within tx_coal_timer of the first packet and freeing TX descriptors
-> earlier.
-> 
-> [...]
+- Rainiera6 (Meta)
+- SanMiguel (Meta)
 
-Here is the summary with links:
-  - [v3] net: stmmac: Improve Tx timer arm logic further
-    https://git.kernel.org/netdev/net-next/c/edceeba4af3d
+Updated platforms:
 
-You are awesome, thank you!
--- 
-Deet-doot-dot, I am a bot.
-https://korg.docs.kernel.org/patchwork/pwbot.html
+- Anacapa: SGPIO line names and interrupt configuration
+- Clemente: Remove TMP421 nodes
+- Kommando: Enable networking via MAC2/MDIO2
+- SanMiguel: Line names and interrupt configuration
 
+AST2600 SoC updates:
+
+- Describe PWM/Tach
+- Describe I3C controllers
+- Reorganise I2C nodes
+
+Other notes:
+
+91b9aed7381c ("ARM: dts: aspeed-g6: Add nodes for i3c controllers") current=
+ly
+causes a new warning:
+
+  ... /ahb/apb/bus@1e7a0000/syscon@0: failed to match any schema with compa=
+tible: ['aspeed,ast2600-i3c-global', 'syscon']
+
+The patch necessary to address it has an R-b tag from Kryzsztof[2] but as b=
+est
+I can tell is yet to be applied to the MFD tree. I've left the change in fo=
+r now
+as the warning will resolve once the binding patch is applied.
+
+Lastly, as part of improving support for the Kommando card Anirudh has also
+addressed[1] the persistent pain we've had with the phy-mode property for t=
+he
+AST2600 MACs. Thanks to Andrew Lunn for being on the case for a while now, =
+and
+for those who tested Anirudh's patch.
+
+[1]: https://lore.kernel.org/all/20260525-asus-kommando-v3-0-e6a0ca1b4a3e@g=
+mail.com/
+[2]: https://lore.kernel.org/all/20260425-poised-accomplished-hyena-d2c1a0@=
+quoll/
+
+----------------------------------------------------------------
+Anirudh Srinivasan (1):
+      ARM: dts: aspeed: Enable networking for Asus Kommando IPMI Card
+
+Billy Tsai (1):
+      ARM: dts: aspeed: g6: Add PWM/Tach controller node
+
+Colin Huang (1):
+      ARM: dts: aspeed: anacapa: Add JTAG CPLD TRST pin to SGPIO map
+
+Daniel Hsu (1):
+      ARM: dts: aspeed: yosemite5: Add MP5998 power monitor
+
+Dawid Glazik (2):
+      ARM: dts: aspeed-g6: move i2c controllers directly into apb node
+      ARM: dts: aspeed-g6: Add nodes for i3c controllers
+
+Ender Hsieh (1):
+      ARM: dts: aspeed: msx4: enable BMC networking via MAC0
+
+Mike Hsieh (1):
+      ARM: dts: aspeed: clemente: Remove IOB NIC TMP421 nodes
+
+Neil Cheng (2):
+      dt-bindings: arm: aspeed: Add Meta Rainiera6 board
+      ARM: dts: aspeed: rainiera6: Add Meta Rainiera6 BMC
+
+Potin Lai (4):
+      dt-bindings: arm: aspeed: add Meta SanMiguel BMC
+      ARM: dts: aspeed: Add Meta SanMiguel BMC
+      ARM: dts: aspeed: sanmiguel: Add IOEXP interrupt pin settings
+      ARM: dts: aspeed: sanmiguel: Fix the CPU_CHIPTHROT linename
+
+Rex Fu (2):
+      ARM: dts: aspeed: anacapa: Add interrupt properties for PDB PCA9555
+      ARM: dts: aspeed: anacapa: Correct SGPIO names for monitoring
+
+ Documentation/devicetree/bindings/arm/aspeed/aspeed.yaml        |    2 +
+ arch/arm/boot/dts/aspeed/Makefile                               |    2 +
+ arch/arm/boot/dts/aspeed/aspeed-bmc-asus-kommando-ipmi-card.dts |   18 ++
+ arch/arm/boot/dts/aspeed/aspeed-bmc-facebook-anacapa.dts        |   34 ++-
+ arch/arm/boot/dts/aspeed/aspeed-bmc-facebook-clemente.dts       |   20 --
+ arch/arm/boot/dts/aspeed/aspeed-bmc-facebook-rainiera6.dts      | 1012 +++=
++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++=
+++++++++
+ arch/arm/boot/dts/aspeed/aspeed-bmc-facebook-sanmiguel.dts      |  672 +++=
+++++++++++++++++++++++++++++++++++++++++++++++++++++++
+ arch/arm/boot/dts/aspeed/aspeed-bmc-facebook-yosemite5.dts      |    5 +
+ arch/arm/boot/dts/aspeed/aspeed-bmc-nvidia-msx4-bmc.dts         |   15 ++
+ arch/arm/boot/dts/aspeed/aspeed-g6.dtsi                         |  552 +++=
+++++++++++++++++++++++++--------------------
+ 10 files changed, 2074 insertions(+), 258 deletions(-)
+ create mode 100644 arch/arm/boot/dts/aspeed/aspeed-bmc-facebook-rainiera6.=
+dts
+ create mode 100644 arch/arm/boot/dts/aspeed/aspeed-bmc-facebook-sanmiguel.=
+dts
 
 
