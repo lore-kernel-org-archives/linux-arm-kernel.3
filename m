@@ -4,79 +4,60 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 0430FCD6E57
-	for <linux-arm-kernel@archiver.kernel.org>; Wed,  3 Jun 2026 17:45:02 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 81A31CD6E69
+	for <linux-arm-kernel@archiver.kernel.org>; Wed,  3 Jun 2026 17:50:20 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:Cc:To:Subject:Message-ID:Date:From:In-Reply-To:References:
-	MIME-Version:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:References
+	:Date:Message-Id:From:Subject:Content-Transfer-Encoding:MIME-Version:
+	Content-Type:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=FUParyONVI2Qj3PwFGzLdK26Nc4Lc+7LxeqmGfzlOkM=; b=k6cfjm23/DzMDdZ+q0C6qlBNgB
-	NdVWKgO6T4I6XTbVr/flKCcDa8pUooQjs/2sv18CrAP3qTFZBHbihl0Qt7qf+Dsn3yWqubKm1f2Qc
-	rSoLUj5+sSSXh9OJ+isvVloT0BsIauTTYXllJPuVpr0OcdqfDs51UcCZsAjhD/0gJbRwT0/s9D5xa
-	kdTD+vpoJTVP4l2P157TXzQ5ZYlZ5H8qgPsPh4zuW4ydhEct1U/fje1Fb4MaXEUOAkLW78CH11eGa
-	dm3h3G3rrvj7NhiYePKEuKpINuZNzufnCheBka1o9BRj8Rsqd3VBKWzo7RSpYjJU5DfaNuNWoYp80
-	7uE75OSw==;
+	bh=wrzOVnS+X13tXKUjZu1rFaIumJnVPw+bRqGM+bZ2KoQ=; b=YFMYDih4EZgloAItlczqN0mGB/
+	QG3CgISOdvhFZBkUCUI86jxU06eKhdaDHPfyO2JZPPIlJbfAoGsMvhqrkZxRY+7fwC6b5qCyiqX2K
+	1awZSnDbBMpw0qQlCxgO3M5wrKD/fL0OippOliVcLlHWO9CpSbFVyH8LRMbGaVuD0Cpy0fDZk2GDY
+	ZfZTyMln9LT3Ei2mrit5hr0gr1AsfvqPwmismKqoWgX5ZbFmColh3h82jcv3N3gh6mKZ2JEp69nQ0
+	565MJDApCQbm5THiUscxFQ1NhBMS2c0KfTvQIt4JJs2mVj7Y7NPw4lgCw83XR+XF4aDEu9XQbQTT5
+	nEreDDRw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wUpe8-0000000Fb8Q-21S8;
-	Wed, 03 Jun 2026 17:44:52 +0000
-Received: from sea.source.kernel.org ([172.234.252.31])
+	id 1wUpjK-0000000Fbgm-0ADV;
+	Wed, 03 Jun 2026 17:50:14 +0000
+Received: from tor.source.kernel.org ([2600:3c04:e001:324:0:1991:8:25])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wUpe5-0000000Fb7C-1QmD
-	for linux-arm-kernel@lists.infradead.org;
-	Wed, 03 Jun 2026 17:44:51 +0000
+	id 1wUpjI-0000000FbgN-1UKx;
+	Wed, 03 Jun 2026 17:50:12 +0000
 Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
-	by sea.source.kernel.org (Postfix) with ESMTP id 92ABE445E4
-	for <linux-arm-kernel@lists.infradead.org>; Wed,  3 Jun 2026 17:44:48 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 7A7DA1F00899
-	for <linux-arm-kernel@lists.infradead.org>; Wed,  3 Jun 2026 17:44:48 +0000 (UTC)
+	by tor.source.kernel.org (Postfix) with ESMTP id 881D660218;
+	Wed,  3 Jun 2026 17:50:11 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 3F1D81F00898;
+	Wed,  3 Jun 2026 17:50:11 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1780508688;
-	bh=FUParyONVI2Qj3PwFGzLdK26Nc4Lc+7LxeqmGfzlOkM=;
-	h=References:In-Reply-To:From:Date:Subject:To:Cc;
-	b=XVmh5ADe07P1f9LqFCukv3auT/xdl4cJ45wk/gD5dFRsMpz5sCJ4B7u+9tu3rhoZr
-	 EXPTc7jDaVUDZVie2L60Kjm9z+Et2iGuPB/8li6Yihuhm6C/vAgimQKCYm7I3iU9Ni
-	 BAvD4RjcCj2uEjB0DPlu5xRwpj8sNtSMqh6Ys9dy01dbEly2l7JWXAUmkqCKqkzeRu
-	 TOja3UUzgCCzYccSqtJ8e+7JHAIAY29bLR0W+6ngtd94yZnkXBu6WVcpOMVpyyyglD
-	 TRhj0tCqeEQgsrH3txoTP5WOoxU1eCm2PH+w1gEMtJQdBcU/ccnxYYY1xY2vWFZgzn
-	 ZM0drYjJBYo4w==
-Received: by mail-ed1-f41.google.com with SMTP id 4fb4d7f45d1cf-68ced97b6eeso5684684a12.0
-        for <linux-arm-kernel@lists.infradead.org>; Wed, 03 Jun 2026 10:44:48 -0700 (PDT)
-X-Gm-Message-State: AOJu0Yy1bkiIYGCYg1fW8nNlkRQTeWqD6bV3QmAMQn+sLrj62ok4wCP3
-	s9wBMtQwZzBkagXUTf53QOCi34iRWsHWI+nT+gqBqOtjI5d4+weaiCNrfFjWDTS1bjg/IPnaMeO
-	xQkPSQCmrIuXdIHZ86Phh0HozscAUSg==
-X-Received: by 2002:a05:6402:3224:b0:67f:9124:8815 with SMTP id
- 4fb4d7f45d1cf-68e71e788c3mr2143257a12.17.1780508687065; Wed, 03 Jun 2026
- 10:44:47 -0700 (PDT)
+	s=k20260515; t=1780509011;
+	bh=wrzOVnS+X13tXKUjZu1rFaIumJnVPw+bRqGM+bZ2KoQ=;
+	h=Subject:From:Date:References:In-Reply-To:To:Cc;
+	b=gTzoTF7iyjzmSk19M+GJZPuzAL1JSSn9JqKteKp1sC4eqiBvds9gzoRkjBC20BMvC
+	 75oAR0+yxzHdwTjPCzx342nc2t3OZ6YaYLPdhWnl9P5q1D1xY6fsIyATsKys7a3Qm6
+	 du7qekO8L1KEc+Hnput9mhcTDCJZBEASDKtP75qPLtyqxfD9C+4RwwbLHTmWI0w18J
+	 8DKg1GBn36T6b9hLmj3BKxPgLcekR/XrQNUTs31rcgjqeUEIrPelN4Lybs1Tb18P8q
+	 nm///H8WsHu/T/F1VM2IByaaQ/sb4XXRotGHxu7fHQ7SuOKreb/n/sRsiaypO2zfzc
+	 IBSfU3bkWsrRA==
+Received: from [10.30.226.235] (localhost [IPv6:::1])
+	by aws-us-west-2-korg-oddjob-rhel9-1.codeaurora.org (Postfix) with ESMTP id D0B2239308BE;
+	Wed,  3 Jun 2026 17:50:13 +0000 (UTC)
+Content-Type: text/plain; charset="utf-8"
 MIME-Version: 1.0
-References: <20260527032917.3385849-1-chenwandun1@gmail.com>
- <20260527032917.3385849-4-chenwandun1@gmail.com> <20260602162450.GA442759-robh@kernel.org>
- <79932afc-2e91-4a54-aff9-f550be784c36@gmail.com>
-In-Reply-To: <79932afc-2e91-4a54-aff9-f550be784c36@gmail.com>
-From: Rob Herring <robh@kernel.org>
-Date: Wed, 3 Jun 2026 12:44:34 -0500
-X-Gmail-Original-Message-ID: <CAL_JsqJOC1ko1Len3Dyc5SNKrHmhQn9uiDAkFfVbYa2wAfFUTg@mail.gmail.com>
-X-Gm-Features: AVHnY4Jg1TFYCpbsJd3VXxxqiBkj66MRmp2Oem1kgjUPEYvvmBJ9wL6Wox9sVrg
-Message-ID: <CAL_JsqJOC1ko1Len3Dyc5SNKrHmhQn9uiDAkFfVbYa2wAfFUTg@mail.gmail.com>
-Subject: Re: [PATCH v3 03/11] of: reserved_mem: avoid post-init UAF when
- alloc_reserved_mem_array() fails
-To: Wandun <chenwandun1@gmail.com>
-Cc: linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org, 
-	loongarch@lists.linux.dev, linux-riscv@lists.infradead.org, 
-	devicetree@vger.kernel.org, kexec@lists.infradead.org, iommu@lists.linux.dev, 
-	zhaomeijing@lixiang.com, catalin.marinas@arm.com, will@kernel.org, 
-	chenhuacai@kernel.org, kernel@xen0n.name, pjw@kernel.org, palmer@dabbelt.com, 
-	aou@eecs.berkeley.edu, alex@ghiti.fr, saravanak@kernel.org, 
-	akpm@linux-foundation.org, bhe@redhat.com, rppt@kernel.org, 
-	pasha.tatashin@soleen.com, pratyush@kernel.org, ruirui.yang@linux.dev, 
-	m.szyprowski@samsung.com, robin.murphy@arm.com, quic_obabatun@quicinc.com
-Content-Type: text/plain; charset="UTF-8"
-Content-Transfer-Encoding: quoted-printable
-X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260603_104449_461428_7E25E358 
-X-CRM114-Status: GOOD (  31.85  )
+Content-Transfer-Encoding: 8bit
+Subject: Re: [PATCH] Bluetooth: btmtk: Disable remote wakeup for MT7922/MT7925
+From: patchwork-bot+bluetooth@kernel.org
+Message-Id: <178050901239.1520440.2026593395539384648.git-patchwork-notify@kernel.org>
+Date: Wed, 03 Jun 2026 17:50:12 +0000
+References: <20260603-btmtk-remote-wakeup-v1-1-5c1006442f36@rong.moe>
+In-Reply-To: <20260603-btmtk-remote-wakeup-v1-1-5c1006442f36@rong.moe>
+To: Rong Zhang <i@rong.moe>
+Cc: marcel@holtmann.org, luiz.dentz@gmail.com, matthias.bgg@gmail.com,
+ angelogioacchino.delregno@collabora.com, linux-bluetooth@vger.kernel.org,
+ linux-kernel@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
+ linux-mediatek@lists.infradead.org
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -91,102 +72,32 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Wed, Jun 3, 2026 at 1:44=E2=80=AFAM Wandun <chenwandun1@gmail.com> wrote=
-:
->
->
->
-> On 6/3/26 00:24, Rob Herring wrote:
-> > On Wed, May 27, 2026 at 11:29:09AM +0800, Wandun Chen wrote:
-> >> From: Wandun Chen <chenwandun@lixiang.com>
-> >>
-> >> The global pointer 'reserved_mem' continues to reference the
-> >> reserved_mem_array which lives in __initdata if
-> >> alloc_reserved_mem_array() fails. of_reserved_mem_lookup() is
-> >> exported for post-init use, that would dereference freed memory
-> >> and trigger a use-after-free.
-> >>
-> >> So reset reserved_mem_count to 0 when alloc_reserved_mem_array()
-> >> fails.
-> >>
-> >> Fixes: 00c9a452a235 ("of: reserved_mem: Add code to dynamically alloca=
-te reserved_mem array")
-> > Fixes should come first in a series.
-> Understood, will do in future submissions.
-> >
-> >> Signed-off-by: Wandun Chen <chenwandun@lixiang.com>
-> >> ---
-> >>   drivers/of/of_reserved_mem.c | 20 ++++++++++++++------
-> >>   1 file changed, 14 insertions(+), 6 deletions(-)
-> >>
-> >> diff --git a/drivers/of/of_reserved_mem.c b/drivers/of/of_reserved_mem=
-.c
-> >> index 313cbc57aa45..6d479381ff1f 100644
-> >> --- a/drivers/of/of_reserved_mem.c
-> >> +++ b/drivers/of/of_reserved_mem.c
-> >> @@ -69,29 +69,31 @@ static int __init early_init_dt_alloc_reserved_mem=
-ory_arch(phys_addr_t size,
-> >>    * the initial static array is copied over to this new array and
-> >>    * the new array is used from this point on.
-> >>    */
-> >> -static void __init alloc_reserved_mem_array(void)
-> >> +static bool __init alloc_reserved_mem_array(void)
-> >>   {
-> >>      struct reserved_mem *new_array;
-> >>      size_t alloc_size, copy_size, memset_size;
-> >>
-> >> +    if (!total_reserved_mem_cnt)
-> >> +            return true;
-> >> +
-> >>      alloc_size =3D array_size(total_reserved_mem_cnt, sizeof(*new_arr=
-ay));
-> >>      if (alloc_size =3D=3D SIZE_MAX) {
-> >>              pr_err("Failed to allocate memory for reserved_mem array =
-with err: %d", -EOVERFLOW);
-> >> -            return;
-> >> +            goto fail;
-> >>      }
-> >>
-> >>      new_array =3D memblock_alloc(alloc_size, SMP_CACHE_BYTES);
-> >>      if (!new_array) {
-> >>              pr_err("Failed to allocate memory for reserved_mem array =
-with err: %d", -ENOMEM);
-> >> -            return;
-> >> +            goto fail;
-> >>      }
-> >>
-> >>      copy_size =3D array_size(reserved_mem_count, sizeof(*new_array));
-> >>      if (copy_size =3D=3D SIZE_MAX) {
-> >>              memblock_free(new_array, alloc_size);
-> >> -            total_reserved_mem_cnt =3D MAX_RESERVED_REGIONS;
-> >>              pr_err("Failed to allocate memory for reserved_mem array =
-with err: %d", -EOVERFLOW);
-> > These prints could be moved to 'fail'. Perhaps instead of just printing
-> > an error value, you can return the error value instead of boolean.
-> Will do, consolidating pr_err() under 'fail' and changing the return type
-> to int.
-> >
-> > If you respin just this patch, I can pick it up for 7.2.
-> Before I respin, I'd like to flag a dependency:
-> patch 05/07 in this series build on the signature change introduced by th=
-is
-> patch ("the void -> bool return type change of alloc_reserved_mem_array()=
-")
->
-> Could you let me know which of the following you'd prefer:
-> a) Take patch 03 alone via your tree as you suggested, after it lands, I'=
-ll
->     respin the remaining patches of this series.
+Hello:
 
-I would go with this option. AIUI, this series isn't going to land in
-7.2, so ultimately you will rebase on v7.2-rc1 which will have the
-fix.
+This patch was applied to bluetooth/bluetooth-next.git (master)
+by Luiz Augusto von Dentz <luiz.von.dentz@intel.com>:
 
->
-> b) Keep patch 03 in the v4 respin of the full series, reordered to the fr=
-ont
->     per your earlier comment.
+On Wed, 03 Jun 2026 02:38:10 +0800 you wrote:
+> These NICs are often reported to lose their Bluetooth interfaces, i.e,
+> their USB interfaces suddenly become completely unresponsive, causing
+> the USB core to reset them, only to find that they are no longer
+> accessible. A power cycle is required to make the Bluetooth interfaces
+> recover.
+> 
+> After some investigations, I found that their USB autosuspend remote
+> wakeup capabilities are so broken that they are precisely the culprit
+> behind the issue:
+> 
+> [...]
+
+Here is the summary with links:
+  - Bluetooth: btmtk: Disable remote wakeup for MT7922/MT7925
+    https://git.kernel.org/bluetooth/bluetooth-next/c/247570151789
+
+You are awesome, thank you!
+-- 
+Deet-doot-dot, I am a bot.
+https://korg.docs.kernel.org/patchwork/pwbot.html
 
 
-Rob
 
