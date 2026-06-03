@@ -4,77 +4,71 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 1E2B6CD6E55
-	for <linux-arm-kernel@archiver.kernel.org>; Wed,  3 Jun 2026 14:12:29 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id E04DDCD6E55
+	for <linux-arm-kernel@archiver.kernel.org>; Wed,  3 Jun 2026 14:13:38 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:Message-Id:
-	Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:From:
-	Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender
-	:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
-	bh=qNe8wO7To1uXLuvMXlb/yhmyc8HWMkfNPw2M+VueKjQ=; b=1pvBADZqlWKov2BiXZno/kW8U+
-	s2uTieYiqY6V4k+LLh5cXbIgg9iU4vJZoa/DKmgA2eBlOYkrZnFmGSgclkzWzjJawYklrvKZAfx/y
-	DctozZEEpFpF/t4l3tK2bOsBWzS52+/86wjzSGGE6MMibLOK5/z+WrJE5B7qlbENVRqYo9ZypsOFf
-	F6b+R7nUyR9C5YS4C9gqhWP+Fqk3J3hvxkXrjyAwK6v03TvDBADEmN1Pb4/a1+MtEaAwiEVxVlGKV
-	+HgCY6QwhOICuvfRqohvIhsifFj9mWTwoPMdB5oNU26Ljl2XPw0I4wsjwQfpoc9G/qw5YK66irUu5
-	hvpjJFwg==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
+	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=SnV3qkM8vXKz87ni6r4AwY45doVDY/GJzEej5br5st4=; b=BODvh3oIhJOJaqT6yiMhvsXrPt
+	yw41tklG0AOKHYJERXzB9KvHcp8bP+7dOzuVp2G/ChfDpREd4Pc4lXt4leazz8iiTol80JpoYQp7x
+	rUjR4/NRiX3ZttP0Yst6qXZiQxTiSKbYimW5iGU5KPCH3/Q5y7hQqhd/MHrxAlmLWxc6lfvgEqJT/
+	n+eEwDU0bKixiUOWol6AssTGYEL52jAvQubwovI/pweWrQHlBoyeKtTYNezze2Xs4xNHIbUf0ixIE
+	rQLeTAAzJC5ZWCw95p7ZsHFZjueOxKgv/HLFUwUjTrIxQwUz+fQrxqjqc7FokFjmJLb1pn9sdXwcV
+	j2E276tA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wUmKS-0000000FE6x-348I;
-	Wed, 03 Jun 2026 14:12:20 +0000
-Received: from metis.whiteo.stw.pengutronix.de ([2a0a:edc0:2:b01:1d::104])
+	id 1wUmLb-0000000FEC8-3lHU;
+	Wed, 03 Jun 2026 14:13:31 +0000
+Received: from mout-p-101.mailbox.org ([2001:67c:2050:0:465::101])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wUmKQ-0000000FE6S-2wdE
+	id 1wUmLZ-0000000FEAx-3PAI
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 03 Jun 2026 14:12:19 +0000
-Received: from drehscheibe.grey.stw.pengutronix.de ([2a0a:edc0:0:c01:1d::a2])
-	by metis.whiteo.stw.pengutronix.de with esmtp (Exim 4.92)
-	(envelope-from <s.hauer@pengutronix.de>)
-	id 1wUmKL-00029V-16; Wed, 03 Jun 2026 16:12:13 +0200
-Received: from dude02.red.stw.pengutronix.de ([2a0a:edc0:0:1101:1d::28])
-	by drehscheibe.grey.stw.pengutronix.de with esmtps  (TLS1.3) tls TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384
-	(Exim 4.96)
-	(envelope-from <s.hauer@pengutronix.de>)
-	id 1wUmKK-000vVI-0i;
-	Wed, 03 Jun 2026 16:12:12 +0200
-Received: from [::1] (helo=dude02.red.stw.pengutronix.de)
-	by dude02.red.stw.pengutronix.de with esmtp (Exim 4.98.2)
-	(envelope-from <s.hauer@pengutronix.de>)
-	id 1wUmKK-00000007Qap-0bFJ;
-	Wed, 03 Jun 2026 16:12:12 +0200
-From: Sascha Hauer <s.hauer@pengutronix.de>
-Date: Wed, 03 Jun 2026 16:12:10 +0200
-Subject: [PATCH] arm: gen-mach-types: don't include absolute filename
+	Wed, 03 Jun 2026 14:13:31 +0000
+Received: from smtp102.mailbox.org (smtp102.mailbox.org [IPv6:2001:67c:2050:b231:465::102])
+	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
+	 key-exchange X25519 server-signature RSA-PSS (4096 bits) server-digest SHA256)
+	(No client certificate requested)
+	by mout-p-101.mailbox.org (Postfix) with ESMTPS id 4gVqRV1nDbz9tjf;
+	Wed,  3 Jun 2026 16:13:10 +0200 (CEST)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=mailbox.org; s=mail20150812;
+	t=1780495990;
+	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
+	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
+	 content-transfer-encoding:content-transfer-encoding:
+	 in-reply-to:in-reply-to:references:references;
+	bh=SnV3qkM8vXKz87ni6r4AwY45doVDY/GJzEej5br5st4=;
+	b=nVumAYB24WEopxRdmCdptRc4D/aq1fAw6mjBWBUfeCdAlb72LbldJGbWxmcNADb205l5sj
+	eJibB9U22Hqdqc6bPWYdewugZZXcCIf14qEaASFwzENFVwkX2xPinyzvNM2nYInetX2n6d
+	GfWFIPQB9ni0LUnqu2QgO+iw0NC2AuJg3r5K0wzaNFv+WTuE/vQSsgIX6A3sFi7OUKYcVj
+	Zcj/Qv/396S0+09Pm38CN8AIGqqD3tz8NrysrNozXiy5+KetjZg5LNcv/4zK/lDlomnqa6
+	RxQi/eqRjSeMnWvr/XGWJEq+1/pZw6RcQo+tkFSZ7CmnlxxUcfp3zxbYKxSKmg==
+Message-ID: <a5535498-ea43-42ab-9cff-0ad53551737b@mailbox.org>
+Date: Wed, 3 Jun 2026 16:13:06 +0200
 MIME-Version: 1.0
-Content-Type: text/plain; charset="utf-8"
+Subject: Re: [PATCH] arm64: dts: renesas: r8a78000: Enable application CPU
+ cores via PSCI
+To: Geert Uytterhoeven <geert@linux-m68k.org>
+Cc: linux-arm-kernel@lists.infradead.org, Conor Dooley <conor+dt@kernel.org>,
+ Krzysztof Kozlowski <krzk+dt@kernel.org>, Magnus Damm
+ <magnus.damm@gmail.com>, Rob Herring <robh@kernel.org>,
+ devicetree@vger.kernel.org, linux-kernel@vger.kernel.org,
+ linux-renesas-soc@vger.kernel.org
+References: <20260601113919.8327-1-marek.vasut+renesas@mailbox.org>
+ <CAMuHMdXGJ+Ww+ek3KLvrnFKpw2cJn=RB8q3k=W6ECVgtw-zK6Q@mail.gmail.com>
+Content-Language: en-US
+From: Marek Vasut <marek.vasut@mailbox.org>
+In-Reply-To: <CAMuHMdXGJ+Ww+ek3KLvrnFKpw2cJn=RB8q3k=W6ECVgtw-zK6Q@mail.gmail.com>
+Content-Type: text/plain; charset=UTF-8; format=flowed
 Content-Transfer-Encoding: 7bit
-Message-Id: <20260603-arm-remove-path-from-mach-types-h-v1-1-cda9890ba788@pengutronix.de>
-X-B4-Tracking: v=1; b=H4sIADk2IGoC/x3NQQqEMAxA0atI1hOIlSmDVxEXQdNpFrUlFRkR7
- 26Z5dv8f0EVU6kwdheYHFo1bw39q4Ml8vYV1LUZHDlPngZkS2iS8iFYeI8YLCdMvETczyIVI7I
- Pb/dZPQkRtE4xCfr7P6b5vh/T+d4pcwAAAA==
-X-Change-ID: 20260603-arm-remove-path-from-mach-types-h-a6f528d60e00
-To: Russell King <linux@armlinux.org.uk>
-Cc: linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org, 
- Marco Felsch <m.felsch@pengutronix.de>, 
- =?utf-8?q?Uwe_Kleine-K=C3=B6nig?= <u.kleine-koenig@baylibre.com>, 
- Alexander Stein <alexander.stein@ew.tq-group.com>, 
- Ryan Eatmon <reatmon@ti.com>, kernel@pengutronix.de, 
- Sascha Hauer <s.hauer@pengutronix.de>
-X-Mailer: b4 0.14.3
-X-Developer-Signature: v=1; a=ed25519-sha256; t=1780495932; l=1856;
- i=s.hauer@pengutronix.de; s=20230412; h=from:subject:message-id;
- bh=6NBGGGqQdAlf19cdKqd6/c9iSmq50Hg/WoFP4yTaX50=;
- b=smgTy4jOXbjolFympty6AJluSL4Rbwcxk7U6iebblgjl540rACBjgF4K8uZBnDc8Tge3Vy4DK
- HAUxEAHjlKSAeN3x/Q0XnXkGtFxi8LohpGjl1nZngqoMGvRgWLrWCFm
-X-Developer-Key: i=s.hauer@pengutronix.de; a=ed25519;
- pk=4kuc9ocmECiBJKWxYgqyhtZOHj5AWi7+d0n/UjhkwTg=
-X-SA-Exim-Connect-IP: 2a0a:edc0:0:c01:1d::a2
-X-SA-Exim-Mail-From: s.hauer@pengutronix.de
-X-SA-Exim-Scanned: No (on metis.whiteo.stw.pengutronix.de); SAEximRunCond expanded to false
-X-PTX-Original-Recipient: linux-arm-kernel@lists.infradead.org
+X-MBO-RS-ID: e6913ec3d3745fd1b4a
+X-MBO-RS-META: ffe1ti4tsfjmtqc1bf9w344pn51uzy9c
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260603_071218_746383_B1796C1D 
-X-CRM114-Status: GOOD (  15.12  )
+X-CRM114-CacheID: sfid-20260603_071330_338100_B249AA8B 
+X-CRM114-Status: UNSURE (   9.39  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -89,50 +83,32 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-mach-types.h is part of the kapi and as such shipped in the
-linux-headers package. The embedded build path makes that package
-non-reproducible without going through an extra step of normalizing the
-path. YOCTO has similar problems in the kernel debug source package.
+On 6/3/26 2:42 PM, Geert Uytterhoeven wrote:
 
-Make the path relative to the kernel source tree which is enough to
-find the tool that has generated the file.
+Hello Geert,
 
-Signed-off-by: Sascha Hauer <s.hauer@pengutronix.de>
----
-This topic comes up every once in a while, without any clear objection
-other than "Or just leave it as is. It's in a comment, it doesn't get
-into the executable, and thus is harmless.", from which I am not sure if
-it actually is an objection. Cced the authors of the previous patches
-that I am aware of:
+> On Mon, 1 Jun 2026 at 13:39, Marek Vasut
+> <marek.vasut+renesas@mailbox.org> wrote:
+>> Add PSCI "enable-method" DT property to all application CPU cores.
+>> This allows the OS to bring application CPU cores up and down.
+>>
+>> Signed-off-by: Marek Vasut <marek.vasut+renesas@mailbox.org>
+> 
+> Reviewed-by: Geert Uytterhoeven <geert+renesas@glider.be>
+> i.e. will queue in renesas-devel for v7.3.
+> 
+>> NOTE: This depends mainline TFA 2.15 or newer (or SDK TFA version
+>>        which includes b950bc09f5e9 ("plat: rcar_gen5: Fix multicore
+>>        boot by ensuring fixed address for plat_secondary_reset"))
+>>        and on SDK 4.32 or newer SCP firmware.
+> 
+> I assume SDK 4.32 includes a sufficiently new TFA
 
-https://lore.kernel.org/all/20241114130021.2802803-1-m.felsch@pengutronix.de/
-https://lore.kernel.org/all/13360982.O9o76ZdvQC@steina-w/
-https://lore.kernel.org/all/20240213092835.754462-2-u.kleine-koenig@pengutronix.de/
-https://lore.kernel.org/all/20241002175049.15219-1-reatmon@ti.com/
----
- arch/arm/tools/gen-mach-types | 2 +-
- 1 file changed, 1 insertion(+), 1 deletion(-)
+It does not, but it does include sufficiently patched old TFA.
 
-diff --git a/arch/arm/tools/gen-mach-types b/arch/arm/tools/gen-mach-types
-index cbe1c33bb8710..65ec262b31e65 100644
---- a/arch/arm/tools/gen-mach-types
-+++ b/arch/arm/tools/gen-mach-types
-@@ -24,7 +24,7 @@ NF == 3 {
- 
- END	{
- 	  printf("/*\n");
--	  printf(" * This was automagically generated from %s!\n", FILENAME);
-+	  printf(" * This was automagically generated from arch/arm/tools/gen-mach-types!\n");
- 	  printf(" * Do NOT edit\n");
- 	  printf(" */\n\n");
- 	  printf("#ifndef __ASM_ARM_MACH_TYPE_H\n");
+[...]
 
----
-base-commit: ba3e43a9e601636f5edb54e259a74f96ca3b8fd8
-change-id: 20260603-arm-remove-path-from-mach-types-h-a6f528d60e00
-
-Best regards,
 -- 
-Sascha Hauer <s.hauer@pengutronix.de>
-
+Best regards,
+Marek Vasut
 
