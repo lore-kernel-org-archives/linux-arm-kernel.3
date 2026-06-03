@@ -4,91 +4,63 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id CD7C0CD6E57
-	for <linux-arm-kernel@archiver.kernel.org>; Wed,  3 Jun 2026 20:49:57 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 6855BCD6E55
+	for <linux-arm-kernel@archiver.kernel.org>; Wed,  3 Jun 2026 21:07:03 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:MIME-Version:
-	References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=2dGbw/HligoRwXWmwyuEZ3eA9ohzHJBiYcKD6StczHo=; b=gz1imWN5eekLWd1hHI2OL25M8A
-	8kd+PsN5WF6cktERGe1Taft0RmHawvd/KPevW3g9Roo9TwPqBX+sVMa3CJyE3JYINQ1sSXmPnWivg
-	hkBYWTRRmqcWgZ6+hMrIDwuRGnHHMRlzNkNJBRjKXr6bPpQCowQKwuC07Hnozj5tK1p3PGlCw9hsu
-	AQvDSmwSWrmuxZiE6UYp/fQPSp3+ozFOAnr3t0xYytoxDse5ppNkLv09KAs5KjbsL35IluuCmccJJ
-	Kyw1SSrcd+MtAjMqowdLQb1NiLtyvnNiKbnd4W/rL40BpBsL4fIK3lnCxnEWttP/pJf9z5lOJTNZW
-	++QKM3Kw==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:
+	To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=21q3frG5dqsfzhzDGUSQ2foZqGYT+5Kd243FESgXfYg=; b=bml2evUWXZmbgUI5EsDfVp7Di0
+	V4cYqRnWC/9qHUtfXsp4pnd4Vh5lWLzbX0S/2UGICb8eOp9dO2gjU3kqIR2fVYtDRohfX5ZDPXn99
+	eS5VTLcLhG+oho+F8N+daSqlk6DTeQQwDj/zyZab8il+Kd2wvwmPNLi5xDQ+GFH7Us9YCKPzDOg19
+	MUS48TSJ/kQTCfTSaksW3XZVEAgO+V02ZCNm0rJBYKoiRp41SpwQGq39fFnz231vqXhT10mBN8hd/
+	20nuuFcww3t/73i+bWAEAkrwNYoCYh8x29HLKAYm+yLx71+LBG0Gu/GEpDW1lHn8EpQiBv39enum1
+	G5tyhPQQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wUsX9-0000000ForO-3WfU;
-	Wed, 03 Jun 2026 20:49:51 +0000
-Received: from mail-wr1-x42d.google.com ([2a00:1450:4864:20::42d])
+	id 1wUsnf-0000000FpW9-1ylI;
+	Wed, 03 Jun 2026 21:06:55 +0000
+Received: from tor.source.kernel.org ([2600:3c04:e001:324:0:1991:8:25])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wUsX7-0000000Foqh-3oFb
+	id 1wUsnd-0000000FpW2-3K4c
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 03 Jun 2026 20:49:51 +0000
-Received: by mail-wr1-x42d.google.com with SMTP id ffacd0b85a97d-45ef56d9b67so4526389f8f.2
-        for <linux-arm-kernel@lists.infradead.org>; Wed, 03 Jun 2026 13:49:49 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20251104; t=1780519788; x=1781124588; darn=lists.infradead.org;
-        h=mime-version:references:in-reply-to:message-id:date:subject:cc:to
-         :from:from:to:cc:subject:date:message-id:reply-to;
-        bh=2dGbw/HligoRwXWmwyuEZ3eA9ohzHJBiYcKD6StczHo=;
-        b=cO5txT+jISTitN8b/ByPlJZgcpNDu3eJD5msjDP9Ft9qPCNmIqxssgwlvd5KQfu/WL
-         D+dausTDmlm1KVCrUO2h6BS2UHqLxfWuoPWX8UgWZp9iRjtKYdYCJyDjWhaQuu8Nj7qf
-         0M78E4o2mg0mGBX5bldO4N4jsrCOu2vhOVlI8W8Tl4ujV0NGKutwbOWfEyzAGBWnPxlo
-         F8l8fyCe9uvelxIyB8dliri5BmrJrAEL4mZMRkJimDvZEnp/uED10SSVMNfi2sCbmdj0
-         8mb1jFh9i9S7vtKOJhfOXHDCGO8utaZ20s/wDPoDOJ6xpVhnjNhZWa1d9YOYgMsaReiQ
-         5nQA==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20251104; t=1780519788; x=1781124588;
-        h=mime-version:references:in-reply-to:message-id:date:subject:cc:to
-         :from:x-gm-gg:x-gm-message-state:from:to:cc:subject:date:message-id
-         :reply-to;
-        bh=2dGbw/HligoRwXWmwyuEZ3eA9ohzHJBiYcKD6StczHo=;
-        b=tMdODvVDlGM2kk0viMFXs4nExs6tKHHu1kUpWlvSVi66GeMItVBEZfyZd+9nfp/zgQ
-         YctoNXoVWJxgiDlYwxxHpWVZlZB0abvHy1OYtYwX9jJZICZk5AX3HvvTZ4hopGI/l6pG
-         4GThbvqdTDwM2sHCq/hMVj/6c6uy8zlMpdgNMfqTGcasiugEBLkeHsyPg+kEhggDqLBL
-         IPGla8x918odEu02gOvn3IIqO5NSvKt9kEGa6rO3dUZsEOCODgkHPlTStvQD0P8yQ+fK
-         ML42lmfRPxxMjW+QPd2IDQY5zK8J3sIi91duKcb+DHZ63idyHxIjdnXBWYuqVFL/ScKC
-         N2Ow==
-X-Forwarded-Encrypted: i=1; AFNElJ95Tu6J9nYicVxM7ykWOMXGQJ7xiliBal9zdnQKefYJLQSwae9Arh4a9An0kKRAwPJsqAofmu6rQFeMCCW420Bm@lists.infradead.org
-X-Gm-Message-State: AOJu0YzWzX0rheKrN2ShaidxKy/tQS4O8zco3aklCnn66BLgN5SAocAX
-	7rmEfRWZ2yOHnS4JqALqI59FhYZqwMibC2JmYjbPpTMkeB8l8UNno4dK
-X-Gm-Gg: Acq92OHaAIJ2MqmizPEWyn4DPumVpwNTrFWOvrPWlYJHVwYNkuvQba90e5lRxTaqLOk
-	sfsq4mg2KEoODKePtLmUDPMfA+SHXrwTF7i0DM69V34IR/p3/dciY32k1y3oC/L3fI1X9HNzk3K
-	9I/45uZKD8ArsCpX8X7azAcM8RHnerphsVZPsE3JdTJfRhHNFHhygNeLzHwMvLL+wK13aL9fozN
-	uBpnn5yzWLCK+M6IeaT0UgWhB/5Bx0rGKXx3m5t35xivQyzjYx7yVjsg0+Pb3kxGkRFduHiraHP
-	8KgBG2e0Ily9v1D8ybdj8f3jdOz9f+jHj24aDQieWAHy0s5eD9Noy1G4Iml+3XRGUb940XY2Dhu
-	1jIbc1OiDL8JxHo1YtXllq7DRluyawS9Kjz1TTxihdyiKnI9g9+dvx8T/gJUFsTGWN+1aUdSuZ5
-	2wu0wlWQgL0GZE0N1ZhFp7fDIf1EeU+UUx+o7U/ewUmPoYLrM=
-X-Received: by 2002:a05:6000:2990:20b0:460:e2e:6e25 with SMTP id ffacd0b85a97d-460219363dbmr5503550f8f.21.1780519788018;
-        Wed, 03 Jun 2026 13:49:48 -0700 (PDT)
-Received: from strix.localnet ([197.250.226.198])
-        by smtp.gmail.com with ESMTPSA id ffacd0b85a97d-4601f35fd33sm11286220f8f.35.2026.06.03.13.49.44
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Wed, 03 Jun 2026 13:49:47 -0700 (PDT)
-From: Stefan =?UTF-8?B?RMO2c2luZ2Vy?= <stefandoesinger@gmail.com>
-To: Michael Turquette <mturquette@baylibre.com>,
- Stephen Boyd <sboyd@kernel.org>, Rob Herring <robh@kernel.org>,
- Krzysztof Kozlowski <krzk+dt@kernel.org>, Conor Dooley <conor+dt@kernel.org>,
- Brian Masney <bmasney@redhat.com>, Philipp Zabel <p.zabel@pengutronix.de>
-Cc: linux-clk@vger.kernel.org, devicetree@vger.kernel.org,
- linux-kernel@vger.kernel.org, linux-arm-kernel@lists.infradead.org
-Subject: Re: [PATCH RFC v3 3/5] clk: zte: Introduce a driver for zx297520v3 top clocks
- and resets.
-Date: Wed, 03 Jun 2026 23:49:41 +0300
-Message-ID: <7973709.EvYhyI6sBW@strix>
-In-Reply-To: <99743c29fe81a90d3c1f51889d42ef9d4766de3c.camel@pengutronix.de>
-References: <20260529-zx29clk-v3-0-c7fe54ea388f@gmail.com>
- <20260529-zx29clk-v3-3-c7fe54ea388f@gmail.com>
- <99743c29fe81a90d3c1f51889d42ef9d4766de3c.camel@pengutronix.de>
+	Wed, 03 Jun 2026 21:06:53 +0000
+Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
+	by tor.source.kernel.org (Postfix) with ESMTP id C4ACD60138;
+	Wed,  3 Jun 2026 21:06:52 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id A893D1F00893;
+	Wed,  3 Jun 2026 21:06:50 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
+	s=k20260515; t=1780520812;
+	bh=21q3frG5dqsfzhzDGUSQ2foZqGYT+5Kd243FESgXfYg=;
+	h=From:To:Cc:Subject:Date:In-Reply-To:References;
+	b=nydNbfnm6Q5PM5n4h1PYamx+MAScoZSsjbgXa+PidSrdlv9limWwAAs3w1gBxgW3/
+	 E2eDdyXoSqKK97c/sq0583UeeMRLETMOdukT3NfBOxopHZbugjnQcuX3EzwPciOpkr
+	 YL0jB0WM3VW5Q73BK4TcFxQCXcu21BGcy9UIisT4THSEErXd1SnwKHO8Xym6Xof1y4
+	 CVNXDJDN/VjIWvoU2mY4RlYK9vIMPKtgAqbUU1Y6hoDv9ejbMyW+5ooj6Y6ThM3vtS
+	 WMofj3ch2GU28t6P4s7QXSFiP2onkVdUaEJky1Qel8NaKg7Iermv4Jy6sNxJEYxdTJ
+	 AR7+TlBkLkgAQ==
+From: Will Deacon <will@kernel.org>
+To: Catalin Marinas <catalin.marinas@arm.com>,
+	Jonathan Corbet <corbet@lwn.net>,
+	Shuah Khan <skhan@linuxfoundation.org>,
+	Mark Brown <broonie@kernel.org>
+Cc: kernel-team@android.com,
+	Will Deacon <will@kernel.org>,
+	linux-arm-kernel@lists.infradead.org,
+	linux-doc@vger.kernel.org,
+	linux-kernel@vger.kernel.org
+Subject: Re: [PATCH] arm64: Document SVE constraints on new hwcaps
+Date: Wed,  3 Jun 2026 22:06:27 +0100
+Message-ID: <178048736181.314885.11070346483704289867.b4-ty@kernel.org>
+X-Mailer: git-send-email 2.47.3
+In-Reply-To: <20260522-arm64-elf-hwcaps-sve-cleanup-v1-1-07b0cedfc6fa@kernel.org>
+References: <20260522-arm64-elf-hwcaps-sve-cleanup-v1-1-07b0cedfc6fa@kernel.org>
 MIME-Version: 1.0
-Content-Type: multipart/signed; boundary="nextPart3972897.kQq0lBPeGt";
- micalg="pgp-sha256"; protocol="application/pgp-signature"
-X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260603_134949_970207_60A33E92 
-X-CRM114-Status: GOOD (  19.73  )
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: 8bit
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -103,84 +75,27 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
---nextPart3972897.kQq0lBPeGt
-Content-Transfer-Encoding: 7Bit
-Content-Type: text/plain; charset="utf-8"; protected-headers="v1"
-From: Stefan =?UTF-8?B?RMO2c2luZ2Vy?= <stefandoesinger@gmail.com>
-Date: Wed, 03 Jun 2026 23:49:41 +0300
-Message-ID: <7973709.EvYhyI6sBW@strix>
-MIME-Version: 1.0
-
-Hi,
-
-Thanks for the comments!
-
-Am Mittwoch, 3. Juni 2026, 12:14:21 Ostafrikanische Zeit schrieb Philipp 
-Zabel:
-
-> Is this delay long enough for all potential users of reset_control_reset()?
-> Are there actually any at all?
-
-You mean drivers that are in use on this SoC that call reset_control_reset? 
-Afaics not, they all call reset_assert/reset_deassert, or only ever deassert a 
-reset that is set on boot. It isn't called at runtime and the only driver 
-calling it that is in use on zx297520v3 is stmmac, which only calls it if 
-assert/deassert aren't available.
-
-I implemented the reset() callback because other drivers had it and grabbed 
-the magic usleep(100) from ZTE's USB code. It looks like I should just /dev/
-null it.
-
-> I'd move the spinlock in here ...
+On Fri, 22 May 2026 18:50:28 +0100, Mark Brown wrote:
+> Two of the SVE hwcaps added for the SVE features in the 2025 dpISA did
+> not explicitly call out their dependency on SVE in the ABI documentation.
+> Do so.
 > 
-> > ```
+> While we're here reorder the SVE and fature specific ID registers for
+> HWCAP3_SVE_LUT6 which did have the SVE dependency but listed it second
+> unlike the other SVE specific ID registers.
 > 
-> +	/* This is a special case used only by USB reset */
-> +	if (data->resets[id].wait_mask) {
-> +		return readl_poll_timeout(data->resets[id].reg + 4, val,
-> +					  val & data-
->resets[id].wait_mask, 1, 100);
-> ```
-> 
-> 
-> ... because this might sleep.
+> [...]
 
-Ack
+Applied to arm64 (for-next/cpufeature), thanks!
 
-> +	return val & data->resets[id].mask;
-> ```
-> 
-> 
-> This will return a negative value for bit BIT(31), I'd wrap this with a
-> double negation.
+[1/1] arm64: Document SVE constraints on new hwcaps
+      https://git.kernel.org/arm64/c/f20f8fe086b2
 
-Sounds good
+Cheers,
+-- 
+Will
 
---nextPart3972897.kQq0lBPeGt
-Content-Type: application/pgp-signature; name="signature.asc"
-Content-Description: This is a digitally signed message part.
-Content-Transfer-Encoding: 7Bit
-
------BEGIN PGP SIGNATURE-----
-
-iQJPBAABCAA5FiEEQxb0tqoFWyeVMl1sPRO8yFRPGiIFAmogk2UbFIAAAAAABAAO
-bWFudTIsMi41KzEuMTIsMiwyAAoJED0TvMhUTxoig7IP/0VOIVlPzWqCbTORa8Ag
-o4V6xlbD01NZlIPog4nma5eaAeHlu186bslT26PX+RvCITgO9h6jVYMMw/x0ENgL
-zx08FDGRm/yjN3a8OStSgVEIZszr+wJcVdT8m2ODHG+yxLRwAJOBMEpL8oHJ8K3V
-FcbhrWzibd5kcCqcE3iODoIzs0yE1seUWsNOPRT9cgrzDekdYufZd7Ytj5doT2Vw
-FJwnjvxCpoULJP2OqbZaKu2eAuyBnhd/o96l2SMkz8l/d6AIgnv2cw1RdqmxiUsj
-4KDDmNcutHqS5HSg4SowO4pLX/b6vlMzNGjZrjpKgnPLOCqLgCSNLkBWRSA/xRwB
-VVthQxmH+JmO6s0h7MxiPEdYD9DCQznvxKW5GNpHFi8KotZtFUOaG6ACCK7o/zwA
-VXAr8LA1EMZY7M2ar+Z/Lu0YC73I8OACijBtuDP4/O9olftuXDamnZcumL+j2wZv
-L6Q6/RiJBPG588d+5PY+FsSfX9COQbOpL4IzvT6g8LvjF4wkR2m+2zwzLZlSkj/v
-p86aL5HDAlRInf/kTP3tt6hz6ksWJN0PdozFM8hLVGBRDG5lFZ/gF6O7Fdxg+0Bv
-hyceItcgi/00qhno/ZOXr0I3pqHCfMjVBO5lzeY+X16VfUVCiY8bIcAbVu0SllEg
-CtjIia7y5d3THiUTfJ7sfbEs
-=x7MD
------END PGP SIGNATURE-----
-
---nextPart3972897.kQq0lBPeGt--
-
-
-
+https://fixes.arm64.dev
+https://next.arm64.dev
+https://will.arm64.dev
 
