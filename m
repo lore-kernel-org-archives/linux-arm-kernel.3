@@ -4,69 +4,87 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 080B4CD6E57
-	for <linux-arm-kernel@archiver.kernel.org>; Wed,  3 Jun 2026 20:47:16 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 9D280CD6E55
+	for <linux-arm-kernel@archiver.kernel.org>; Wed,  3 Jun 2026 20:48:03 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:MIME-Version:Date:Message-Id:Subject:References:In-Reply-To:Cc:
-	To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=t+ZHrbj2i11Saz1eCvmQXhFAkb8MvefLbBLUFLZYRdE=; b=SJRpg0rpx2cmSAinmmxVyAvj95
-	qdpxDIC59wBNUBKGxIgQ8YkTHiARA9X4XCgAaA+zUIpSLUqNsq0GBFy6KlA64ghi2LTb5yWl/xIjB
-	Xw497yqiOKbuEdekRHaF8P93t8JFKYnw4mmSGkcnHdpuu5WwoujGN95WdWxFnpi4Pdm70O1T6gS9S
-	/bLuMNPxPQCgE1S6X/YzD1MrGemq7OzXGzLtulIqk/z9NApcEJ/NcSudjQD1RCVGY7ZDSQS8tdVhM
-	7+nM+qj4w7OEMuxLTrCZOwyv72ARjZTf9/UCbee2ka6QQNOkXeWieO88TE9xFNGWmd1ypSiJiVjOH
-	nGduxibA==;
+	MIME-Version:Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-Type:
+	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
+	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=uN5cSlSsFmu1fB4MX4N7BjMN4TwFpgg10y85Ysy+5Xo=; b=L+TlzgFEYe9yxxN3vh/mFEDiS4
+	7fTaTy2123BDlZ3WY1cTzXStWAjfSEy8G54MXyrGKJRmX0Lmbi2dvCWXP7kCfnW+zAnyr3PtqdY1M
+	3djPqPO9xpU31NYLf5tUKhjwxLtScrNAd2+0L1Acfq6zhJlS/vAFVIWJWqwYUorP8Y+QVVDgjCzNH
+	qJjmo/AkTlhExrmuI8QBs5F+9HFE6Y0F9pIo6quuWuylk62hhg0XiCmevW27gM9lfxzeK88uDcAkk
+	OS6v24vadf8w2EosbpeyPQh1cc9JWiL0ex8l0q/2t95KfjoS70fDLaI4kyX2Eyq3tmVdz2m1bx+oX
+	89s2AVyA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wUsUV-0000000FoWF-0OYo;
-	Wed, 03 Jun 2026 20:47:07 +0000
-Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
+	id 1wUsVJ-0000000Fofv-1sIL;
+	Wed, 03 Jun 2026 20:47:57 +0000
+Received: from mail-qk1-x72b.google.com ([2607:f8b0:4864:20::72b])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wUsUS-0000000FoVh-3kTd;
-	Wed, 03 Jun 2026 20:47:05 +0000
-Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
-	by sea.source.kernel.org (Postfix) with ESMTP id 961B743B3E;
-	Wed,  3 Jun 2026 20:47:02 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 470E71F00893;
-	Wed,  3 Jun 2026 20:47:02 +0000 (UTC)
-Received: by venus (Postfix, from userid 1000)
-	id BDB17180C6E; Wed, 03 Jun 2026 22:46:59 +0200 (CEST)
-From: Sebastian Reichel <sebastian.reichel@collabora.com>
-To: Sebastian Reichel <sre@kernel.org>, 
- =?utf-8?q?Uwe_Kleine-K=C3=B6nig_=28The_Capable_Hub=29?= <u.kleine-koenig@baylibre.com>
-Cc: Kuan-Wei Chiu <visitorckw@gmail.com>, 
- Benson Leung <bleung@chromium.org>, Guenter Roeck <groeck@chromium.org>, 
- =?utf-8?q?Thomas_Wei=C3=9Fschuh?= <linux@weissschuh.net>, 
- Krzysztof Kozlowski <krzk@kernel.org>, 
- Matthias Brugger <matthias.bgg@gmail.com>, 
- AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>, 
- linux-pm@vger.kernel.org, linux-kernel@vger.kernel.org, 
- chrome-platform@lists.linux.dev, linux-arm-kernel@lists.infradead.org, 
- linux-mediatek@lists.infradead.org, Hans de Goede <hansg@kernel.org>, 
- Marek Szyprowski <m.szyprowski@samsung.com>, 
- Sebastian Krzyszkowiak <sebastian.krzyszkowiak@puri.sm>, 
- Purism Kernel Team <kernel@puri.sm>, Yixun Lan <dlan@kernel.org>, 
- Andreas Kemnade <andreas@kemnade.info>, 
- Matti Vaittinen <mazziesaccount@gmail.com>, Sven Peter <sven@kernel.org>, 
- Janne Grunau <j@jannau.net>, Neal Gompa <neal@gompa.dev>, 
- Amit Sunil Dhamne <amitsd@google.com>, Samuel Kayode <samkay014@gmail.com>, 
- linux-riscv@lists.infradead.org, spacemit@lists.linux.dev, 
- asahi@lists.linux.dev, imx@lists.linux.dev, Chen-Yu Tsai <wens@kernel.org>
-In-Reply-To: <cover.1780048925.git.u.kleine-koenig@baylibre.com>
-References: <cover.1780048925.git.u.kleine-koenig@baylibre.com>
-Subject: Re: (subset) [PATCH v1 0/6] power: Use named initializers for
- platform_device_id arrays
-Message-Id: <178051961974.2666348.7125017575893735399.b4-ty@collabora.com>
-Date: Wed, 03 Jun 2026 22:46:59 +0200
+	id 1wUsVH-0000000Fof8-08kL
+	for linux-arm-kernel@lists.infradead.org;
+	Wed, 03 Jun 2026 20:47:56 +0000
+Received: by mail-qk1-x72b.google.com with SMTP id af79cd13be357-915336b83adso2975285a.2
+        for <linux-arm-kernel@lists.infradead.org>; Wed, 03 Jun 2026 13:47:54 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=gmail.com; s=20251104; t=1780519674; x=1781124474; darn=lists.infradead.org;
+        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
+         :to:from:from:to:cc:subject:date:message-id:reply-to;
+        bh=uN5cSlSsFmu1fB4MX4N7BjMN4TwFpgg10y85Ysy+5Xo=;
+        b=JGdioQTgIJH+MGESGhNAYuF74sHVlDQLQJrK1YXv+yeoyShCwV7+Ip8ViuFxvyy+n6
+         4NFrHEtFZcg5YYsQUxLSMYgmpdwXkCda7+9ZM5U2PWSDSfXGf5OnVZs2erJI1ZLr64a0
+         rM3HdcmfZtCZuhOGgGoK7rJl23CQ6qhALtiQnwgo7Dh9ygYjjkVUibc/PHmldiGFS/gY
+         DIaXBHnyDXO27djZ/RD7bZ6lAB5WSyC7zrL/f4pyiEplGen3zJXmnnzP3G392S9cyYn7
+         XM/ebrUq5peqiKhYvqQOOfRQZ0IhBfN12m3oM+PR3TtmtfBZVw7WY5vdVMztRzZkHe8H
+         8Alw==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20251104; t=1780519674; x=1781124474;
+        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
+         :to:from:x-gm-gg:x-gm-message-state:from:to:cc:subject:date
+         :message-id:reply-to;
+        bh=uN5cSlSsFmu1fB4MX4N7BjMN4TwFpgg10y85Ysy+5Xo=;
+        b=F8h5wEoIunOSf9n0RYNDPPE/ioPonoTFdUVwSjY9QU+bPqH4pv5OIcwpLlAktBWHAR
+         AFs6Ahv7P5Ta1xEvCZ9/cuQnDAath/dSajKO37M1pbHbxzWqG9J/Vs2W6KrKSogKbZeB
+         Kt8Mg94poWX0nqc5gjTu+Ud8e3O5YOvA2wHZBi3y84XIAVkGjMIEVCEM1irXYFL6qHr+
+         HnKJWkrJU+xIQMtSSz+oaNMgEH1pHavsdzKyRlpW8BBGNn3beSWWUyS/1/633Cmgm/8q
+         mPZvES6d6R3MBkVf+QU6ST780Itl78O8rlQT6hQF+gfGb5s8jYtdcx9sYyWzWVgPd6o+
+         CCBQ==
+X-Forwarded-Encrypted: i=1; AFNElJ9gupLlg/4lbcoWt0YsZjmnsq23+ZbVnSYlX1dxQGhprro5Yl6v56yJlkiUwuElpXBieDPAKyo1ATTnyFYtT3kj@lists.infradead.org
+X-Gm-Message-State: AOJu0YxuDWd2wyvBA7c6A6LNFFXj1HpCzNlbaAdWPsMu4htS9cK7LllW
+	Mnoys1PuqIT19CMB3LvqrqzoA7wIvLcwKLpHmT5J9BltiJSGi4bFbXa/
+X-Gm-Gg: Acq92OFbwohN0LiI2PWmxxTekfuJZVonDFWWdy6moLV9vkyOHSfcAW6EGJc7+HlL+hM
+	zvbPd6Ioua/oFECA7VAFgJv8udvEHR0BuRJmvfUIyJ3GyImeiYedSWd98Ldx7dxeXzUDqWDC8Rr
+	nypIXJ2zHtTR9O+d4b2i7GtbG7aukTpwHKc/EJdCrfu1ha2IXbV5BN7QFwKTqEyhUkbyBNhW+Xs
+	ElyxjJ0KA9KsE3m0aK5euO1wOo5p1th3iEsZAuIuOE9eJAfoelQXGqFkYps1hsysUUjLxzFzLar
+	kI+mGxYYei5vVGrZO0Hm8eKR/dciFI09S4m8C9jR5O0G6b4nSTsh3mVtEU9hyhtfgSLX3ZN47fl
+	YN678dF/cl7o9dRV5IEBNIV9BHz3uNS8nNXGBtGsEIZOHoGNkAuqHkUknWf0WeCC+JCMBXqaBSo
+	tp9wHXTJ/+nds8XrVmWbbaL0BxuASnjJ7VfoO3WCIToSCNALXrA6w=
+X-Received: by 2002:a05:620a:2989:b0:915:7f42:d91 with SMTP id af79cd13be357-9158a642e0amr795141385a.8.1780519673783;
+        Wed, 03 Jun 2026 13:47:53 -0700 (PDT)
+Received: from i4-gl-tmk5904.ad.psu.edu ([130.203.156.186])
+        by smtp.gmail.com with ESMTPSA id af79cd13be357-9158a37bcd6sm359860185a.25.2026.06.03.13.47.52
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Wed, 03 Jun 2026 13:47:53 -0700 (PDT)
+From: Yuho Choi <dbgh9129@gmail.com>
+To: Borislav Petkov <bp@alien8.de>,
+	Tony Luck <tony.luck@intel.com>,
+	Michal Simek <michal.simek@amd.com>
+Cc: linux-edac@vger.kernel.org,
+	linux-arm-kernel@lists.infradead.org,
+	linux-kernel@vger.kernel.org,
+	Yuho Choi <dbgh9129@gmail.com>
+Subject: [PATCH v1] EDAC/synopsys: Fix cleanup on injection sysfs failure
+Date: Wed,  3 Jun 2026 16:47:21 -0400
+Message-ID: <20260603204721.2200819-1-dbgh9129@gmail.com>
+X-Mailer: git-send-email 2.43.0
 MIME-Version: 1.0
-Content-Type: text/plain; charset="utf-8"
 Content-Transfer-Encoding: 8bit
-X-Mailer: b4 0.14.3
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260603_134704_951263_A70ABBDB 
-X-CRM114-Status: GOOD (  12.45  )
+X-CRM114-CacheID: sfid-20260603_134755_083321_B3054C0D 
+X-CRM114-Status: GOOD (  14.62  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -81,44 +99,61 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
+edac_create_sysfs_attributes() creates inject_data_error before
+inject_data_poison. If the second file creation fails, the first file is
+left behind.
 
-On Fri, 29 May 2026 12:18:15 +0200, Uwe Kleine-König (The Capable Hub) wrote:
-> this series targets to use named initializers for platform_device_id
-> arrays. In general these are better readable for humans and more robust
-> to changes in the respective struct definition.
-> 
-> This robustness is needed as I want to do
-> 
-> 	diff --git a/include/linux/mod_devicetable.h b/include/linux/mod_devicetable.h
-> 	--- a/include/linux/mod_devicetable.h
-> 	+++ b/include/linux/mod_devicetable.h
-> 	@@ -610,4 +610,7 @@ struct dmi_system_id {
-> 	 struct platform_device_id {
-> 		char name[PLATFORM_NAME_SIZE];
-> 	-	kernel_ulong_t driver_data;
-> 	+	union {
-> 	+		kernel_ulong_t driver_data;
-> 	+		const void *driver_data_ptr;
-> 	+	};
-> 	 };
-> 
-> [...]
+The same failure path runs after edac_mc_add_mc() has registered the
+memory controller with the EDAC core. Jumping directly to edac_mc_free()
+skips edac_mc_del_mc() and leaves the registered controller state
+unwound incorrectly.
 
-Applied, thanks!
+Remove inject_data_error when inject_data_poison creation fails, and
+route the probe failure through edac_mc_del_mc() before freeing mci.
 
-[1/6] power: Drop unused assignment of platform_device_id driver data
-      commit: 75a0e1e0b86078687c3c6a05107a98c7e59a65a8
-[2/6] power: supply: max14577: Drop driver data in of and platform device id arrays
-      commit: 37258ad1f3a52ea442c32b3c92ad7146e74050c7
-[4/6] power: Use named initializers for platform_device_id arrays
-      commit: e28f7498dd819878b8acacb89c4c073a646feea0
-[5/6] power: supply: mt6360_charger: Use of match table unconditionally
-      commit: eb7ed650e5960fc303130704d1e29d18a7d0e1df
-[6/6] power: Unify code style for platform_device_id arrays
-      commit: e3f669bed32287ae72c05a4ddab4a6687b0e62ca
+Fixes: 1a81361f75d8 ("EDAC, synopsys: Add Error Injection support for ZynqMP DDR controller")
+Signed-off-by: Yuho Choi <dbgh9129@gmail.com>
+---
+ drivers/edac/synopsys_edac.c | 10 ++++++++--
+ 1 file changed, 8 insertions(+), 2 deletions(-)
 
-Best regards,
+diff --git a/drivers/edac/synopsys_edac.c b/drivers/edac/synopsys_edac.c
+index 51143b3257de..c395a1e97a36 100644
+--- a/drivers/edac/synopsys_edac.c
++++ b/drivers/edac/synopsys_edac.c
+@@ -1120,8 +1120,10 @@ static int edac_create_sysfs_attributes(struct mem_ctl_info *mci)
+ 	if (rc < 0)
+ 		return rc;
+ 	rc = device_create_file(&mci->dev, &dev_attr_inject_data_poison);
+-	if (rc < 0)
++	if (rc < 0) {
++		device_remove_file(&mci->dev, &dev_attr_inject_data_error);
+ 		return rc;
++	}
+ 	return 0;
+ }
+ 
+@@ -1431,7 +1433,7 @@ static int mc_probe(struct platform_device *pdev)
+ 		if (rc) {
+ 			edac_printk(KERN_ERR, EDAC_MC,
+ 					"Failed to create sysfs entries\n");
+-			goto free_edac_mc;
++			goto del_mc;
+ 		}
+ 	}
+ 
+@@ -1448,6 +1450,10 @@ static int mc_probe(struct platform_device *pdev)
+ 
+ 	return rc;
+ 
++#ifdef CONFIG_EDAC_DEBUG
++del_mc:
++	edac_mc_del_mc(&pdev->dev);
++#endif
+ free_edac_mc:
+ 	edac_mc_free(mci);
+ 
 -- 
-Sebastian Reichel <sebastian.reichel@collabora.com>
+2.43.0
 
 
