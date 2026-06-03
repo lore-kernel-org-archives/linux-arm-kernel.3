@@ -4,70 +4,70 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id B773BCD6E55
-	for <linux-arm-kernel@archiver.kernel.org>; Wed,  3 Jun 2026 20:49:52 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id CD7C0CD6E57
+	for <linux-arm-kernel@archiver.kernel.org>; Wed,  3 Jun 2026 20:49:57 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:MIME-Version:
 	References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:Reply-To:
 	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=358Mtgqr9PnThHflx8oLv1DNt6BNQTRALDH0kJnXh6k=; b=RY19QQA19GAj53blKQW2S9OmU7
-	skywmTfRJQFrYfpx6FDUkfuepbcM0ruTvyB1gK/Gg65eLZvvGVyfL9cabxJ9ftb3y+c5M2lxgR2ux
-	CFLrXiKqdM9XkmpEC11eoeOccgiEk7dZyq0z/gbrwO3IfMHFH0IQ2aaMc2hbsiFyYQnpU1xq2vYsn
-	jBwU9766wpXXgYgr+NJMaelmnWjAof1Pu1UvOk7FNDCaQwmZ+qUfkEEFlNvNaxAwHpWHDEkq1DNvS
-	QNc8/XjVZf9gyQ/3bGMPSe7RRjYyQtoqcQVUZZZloq3uPUYLOTKos0Olry/gBcXU5aUOWuBsq4jFB
-	KebubmVQ==;
+	bh=2dGbw/HligoRwXWmwyuEZ3eA9ohzHJBiYcKD6StczHo=; b=gz1imWN5eekLWd1hHI2OL25M8A
+	8kd+PsN5WF6cktERGe1Taft0RmHawvd/KPevW3g9Roo9TwPqBX+sVMa3CJyE3JYINQ1sSXmPnWivg
+	hkBYWTRRmqcWgZ6+hMrIDwuRGnHHMRlzNkNJBRjKXr6bPpQCowQKwuC07Hnozj5tK1p3PGlCw9hsu
+	AQvDSmwSWrmuxZiE6UYp/fQPSp3+ozFOAnr3t0xYytoxDse5ppNkLv09KAs5KjbsL35IluuCmccJJ
+	Kyw1SSrcd+MtAjMqowdLQb1NiLtyvnNiKbnd4W/rL40BpBsL4fIK3lnCxnEWttP/pJf9z5lOJTNZW
+	++QKM3Kw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wUsX4-0000000FoqL-39kf;
-	Wed, 03 Jun 2026 20:49:46 +0000
-Received: from mail-wm1-x32f.google.com ([2a00:1450:4864:20::32f])
+	id 1wUsX9-0000000ForO-3WfU;
+	Wed, 03 Jun 2026 20:49:51 +0000
+Received: from mail-wr1-x42d.google.com ([2a00:1450:4864:20::42d])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wUsX2-0000000Foq0-2qcI
+	id 1wUsX7-0000000Foqh-3oFb
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 03 Jun 2026 20:49:45 +0000
-Received: by mail-wm1-x32f.google.com with SMTP id 5b1f17b1804b1-490b3e03939so10861545e9.1
-        for <linux-arm-kernel@lists.infradead.org>; Wed, 03 Jun 2026 13:49:43 -0700 (PDT)
+	Wed, 03 Jun 2026 20:49:51 +0000
+Received: by mail-wr1-x42d.google.com with SMTP id ffacd0b85a97d-45ef56d9b67so4526389f8f.2
+        for <linux-arm-kernel@lists.infradead.org>; Wed, 03 Jun 2026 13:49:49 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20251104; t=1780519782; x=1781124582; darn=lists.infradead.org;
+        d=gmail.com; s=20251104; t=1780519788; x=1781124588; darn=lists.infradead.org;
         h=mime-version:references:in-reply-to:message-id:date:subject:cc:to
          :from:from:to:cc:subject:date:message-id:reply-to;
-        bh=358Mtgqr9PnThHflx8oLv1DNt6BNQTRALDH0kJnXh6k=;
-        b=g3IjvoCkhm0YfVABfKcxFWaW5u0HHMriMJN/OquggaELKfUZ2OAyd0LvcSvPUBPVWm
-         YC+AcBoTuNe3yQzLhQd+HHVqzhHB7qzPTSORdVmW7BU+/phiJP32dB1sZobuhhsYEPB6
-         MuCT3ypvMTvwvfqbo6ESsTcJcnViRuJ8/7jALZxHS9LihmN7GiRc62xIz6TjaTMywxcM
-         lJx09F3mkrVmmsNsf1Z6kwfvYzTJcLhPdUsE0FROL+aAsvurrs7hEfBmq0T+9POis5T9
-         znA24JO59ovT/ZMXgT65Q7qY4OqqrFAedbY5bt3eigZj2BLHgXdV8EXWV6nmF2YFf9ea
-         jEYw==
+        bh=2dGbw/HligoRwXWmwyuEZ3eA9ohzHJBiYcKD6StczHo=;
+        b=cO5txT+jISTitN8b/ByPlJZgcpNDu3eJD5msjDP9Ft9qPCNmIqxssgwlvd5KQfu/WL
+         D+dausTDmlm1KVCrUO2h6BS2UHqLxfWuoPWX8UgWZp9iRjtKYdYCJyDjWhaQuu8Nj7qf
+         0M78E4o2mg0mGBX5bldO4N4jsrCOu2vhOVlI8W8Tl4ujV0NGKutwbOWfEyzAGBWnPxlo
+         F8l8fyCe9uvelxIyB8dliri5BmrJrAEL4mZMRkJimDvZEnp/uED10SSVMNfi2sCbmdj0
+         8mb1jFh9i9S7vtKOJhfOXHDCGO8utaZ20s/wDPoDOJ6xpVhnjNhZWa1d9YOYgMsaReiQ
+         5nQA==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20251104; t=1780519782; x=1781124582;
+        d=1e100.net; s=20251104; t=1780519788; x=1781124588;
         h=mime-version:references:in-reply-to:message-id:date:subject:cc:to
          :from:x-gm-gg:x-gm-message-state:from:to:cc:subject:date:message-id
          :reply-to;
-        bh=358Mtgqr9PnThHflx8oLv1DNt6BNQTRALDH0kJnXh6k=;
-        b=dkJandRIroI66PK3fPrZswjL9e5x8OLyLL7s5QWdM3dU+watqooD2WygTUaC1nKADC
-         Xz+zWR/uiUZb0eI1qKfIlQLA82mIfya1M3NFve8bnqhNg5In2c2SjeiIgB9FHQ1vGRIr
-         eanHCp6s2wk58wo4QW+4ia/dzrynwFQuLfL7gPGD/sLoa9Pq76YdMdC6sMxsUdRhkI5U
-         EhNBPM1pP82mmbgF7PqTibASyHpn/7BkT06hnpitCMIPFvrHBBIdUJv+M9PPZKIHC14M
-         y9/YSEikXKau+PCsnaYXMiUF8nRt28jLPhii07gpnMqPObP4DJ6cfj7b+jo7uL50lcR9
-         Lwdg==
-X-Forwarded-Encrypted: i=1; AFNElJ97HfY+XsdAR0UttySzptd8GODAWdcwBKmCr5OmEqNLOJhfJpmocvdgfa0DA1imEnU453Svzfh9NiB62ZLZDJGG@lists.infradead.org
-X-Gm-Message-State: AOJu0YykYJml/5HdFEArRDubCQUoaw+TtqGDoP5XBQtFt5DImKttzTMe
-	pFUXEIzgpulo57WzD2Klfj1XR9xGA5JH+PPJlvXn3VRkYM1dNjGhAC/M
-X-Gm-Gg: Acq92OGJ/xqgKQh+rBhqwtFrrUWyfF1ns81RK01TkC31e0IWCKCiUeCHeSJYPE9ME5s
-	AyK83vMV7OUjsp7/y2udQNWTvAmLoBzVmWfGtWpxrtUG9Yfx5BhRQpD45pYkXX8wokn/QyjioEv
-	5bdU+unYgjHK4FLH7Ww/hRo1MSlAFTdY1vzn5tXbqF+bJOiimyquKKR/TVNsvdqxIdbRPOnBgo0
-	9VJgXVOD6TxYoZ9k6ETrgHAwj74i9o4gXudBlB5Wxx+unXQe/YYix2EjGD6cVTSxxrB6owdVtBw
-	Moudh3rcYMUckqz+v+b7Cpk924QUlHqJ3udwsPmezcG2lu1UDeQRrZJO/ocl9ga1r1MpeJDVONm
-	hRRTZ/foPXmvUrOlbG2Bg1o+0kDJwyUyE2REtS/j2gWtyrnyyO6XRplumifv0cwlcH93pus7lvi
-	3NLuZnscU30KoygACGRJj8ZaaB+MllnxGILMR0gO8naaVbDss4vidxXaFCaQ==
-X-Received: by 2002:a05:600c:6095:b0:490:bb60:68ca with SMTP id 5b1f17b1804b1-490bc4b54b4mr11734085e9.3.1780519782401;
-        Wed, 03 Jun 2026 13:49:42 -0700 (PDT)
+        bh=2dGbw/HligoRwXWmwyuEZ3eA9ohzHJBiYcKD6StczHo=;
+        b=tMdODvVDlGM2kk0viMFXs4nExs6tKHHu1kUpWlvSVi66GeMItVBEZfyZd+9nfp/zgQ
+         YctoNXoVWJxgiDlYwxxHpWVZlZB0abvHy1OYtYwX9jJZICZk5AX3HvvTZ4hopGI/l6pG
+         4GThbvqdTDwM2sHCq/hMVj/6c6uy8zlMpdgNMfqTGcasiugEBLkeHsyPg+kEhggDqLBL
+         IPGla8x918odEu02gOvn3IIqO5NSvKt9kEGa6rO3dUZsEOCODgkHPlTStvQD0P8yQ+fK
+         ML42lmfRPxxMjW+QPd2IDQY5zK8J3sIi91duKcb+DHZ63idyHxIjdnXBWYuqVFL/ScKC
+         N2Ow==
+X-Forwarded-Encrypted: i=1; AFNElJ95Tu6J9nYicVxM7ykWOMXGQJ7xiliBal9zdnQKefYJLQSwae9Arh4a9An0kKRAwPJsqAofmu6rQFeMCCW420Bm@lists.infradead.org
+X-Gm-Message-State: AOJu0YzWzX0rheKrN2ShaidxKy/tQS4O8zco3aklCnn66BLgN5SAocAX
+	7rmEfRWZ2yOHnS4JqALqI59FhYZqwMibC2JmYjbPpTMkeB8l8UNno4dK
+X-Gm-Gg: Acq92OHaAIJ2MqmizPEWyn4DPumVpwNTrFWOvrPWlYJHVwYNkuvQba90e5lRxTaqLOk
+	sfsq4mg2KEoODKePtLmUDPMfA+SHXrwTF7i0DM69V34IR/p3/dciY32k1y3oC/L3fI1X9HNzk3K
+	9I/45uZKD8ArsCpX8X7azAcM8RHnerphsVZPsE3JdTJfRhHNFHhygNeLzHwMvLL+wK13aL9fozN
+	uBpnn5yzWLCK+M6IeaT0UgWhB/5Bx0rGKXx3m5t35xivQyzjYx7yVjsg0+Pb3kxGkRFduHiraHP
+	8KgBG2e0Ily9v1D8ybdj8f3jdOz9f+jHj24aDQieWAHy0s5eD9Noy1G4Iml+3XRGUb940XY2Dhu
+	1jIbc1OiDL8JxHo1YtXllq7DRluyawS9Kjz1TTxihdyiKnI9g9+dvx8T/gJUFsTGWN+1aUdSuZ5
+	2wu0wlWQgL0GZE0N1ZhFp7fDIf1EeU+UUx+o7U/ewUmPoYLrM=
+X-Received: by 2002:a05:6000:2990:20b0:460:e2e:6e25 with SMTP id ffacd0b85a97d-460219363dbmr5503550f8f.21.1780519788018;
+        Wed, 03 Jun 2026 13:49:48 -0700 (PDT)
 Received: from strix.localnet ([197.250.226.198])
-        by smtp.gmail.com with ESMTPSA id 5b1f17b1804b1-490bc413adbsm18512815e9.15.2026.06.03.13.49.38
+        by smtp.gmail.com with ESMTPSA id ffacd0b85a97d-4601f35fd33sm11286220f8f.35.2026.06.03.13.49.44
         (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Wed, 03 Jun 2026 13:49:41 -0700 (PDT)
+        Wed, 03 Jun 2026 13:49:47 -0700 (PDT)
 From: Stefan =?UTF-8?B?RMO2c2luZ2Vy?= <stefandoesinger@gmail.com>
 To: Michael Turquette <mturquette@baylibre.com>,
  Stephen Boyd <sboyd@kernel.org>, Rob Herring <robh@kernel.org>,
@@ -75,18 +75,20 @@ To: Michael Turquette <mturquette@baylibre.com>,
  Brian Masney <bmasney@redhat.com>, Philipp Zabel <p.zabel@pengutronix.de>
 Cc: linux-clk@vger.kernel.org, devicetree@vger.kernel.org,
  linux-kernel@vger.kernel.org, linux-arm-kernel@lists.infradead.org
-Subject: Re: [PATCH RFC v3 0/5] ZTE zx297520v3 clock bindings and driver
-Date: Wed, 03 Jun 2026 23:49:26 +0300
-Message-ID: <2062167.PYKUYFuaPT@strix>
-In-Reply-To: <5620a8969da87612a2d89578be656b5d00662635.camel@pengutronix.de>
+Subject: Re: [PATCH RFC v3 3/5] clk: zte: Introduce a driver for zx297520v3 top clocks
+ and resets.
+Date: Wed, 03 Jun 2026 23:49:41 +0300
+Message-ID: <7973709.EvYhyI6sBW@strix>
+In-Reply-To: <99743c29fe81a90d3c1f51889d42ef9d4766de3c.camel@pengutronix.de>
 References: <20260529-zx29clk-v3-0-c7fe54ea388f@gmail.com>
- <5620a8969da87612a2d89578be656b5d00662635.camel@pengutronix.de>
+ <20260529-zx29clk-v3-3-c7fe54ea388f@gmail.com>
+ <99743c29fe81a90d3c1f51889d42ef9d4766de3c.camel@pengutronix.de>
 MIME-Version: 1.0
-Content-Type: multipart/signed; boundary="nextPart23148593.EfDdHjke4D";
+Content-Type: multipart/signed; boundary="nextPart3972897.kQq0lBPeGt";
  micalg="pgp-sha256"; protocol="application/pgp-signature"
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260603_134944_739701_E18772F5 
-X-CRM114-Status: GOOD (  12.06  )
+X-CRM114-CacheID: sfid-20260603_134949_970207_60A33E92 
+X-CRM114-Status: GOOD (  19.73  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -101,58 +103,83 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
---nextPart23148593.EfDdHjke4D
+--nextPart3972897.kQq0lBPeGt
 Content-Transfer-Encoding: 7Bit
 Content-Type: text/plain; charset="utf-8"; protected-headers="v1"
 From: Stefan =?UTF-8?B?RMO2c2luZ2Vy?= <stefandoesinger@gmail.com>
-Date: Wed, 03 Jun 2026 23:49:26 +0300
-Message-ID: <2062167.PYKUYFuaPT@strix>
+Date: Wed, 03 Jun 2026 23:49:41 +0300
+Message-ID: <7973709.EvYhyI6sBW@strix>
 MIME-Version: 1.0
 
-Hi Philipp,
+Hi,
 
-Am Mittwoch, 3. Juni 2026, 11:50:14 Ostafrikanische Zeit schrieben Sie:
-> When there is no interaction required when operating the clk/reset
-> bits, I prefer the reset driver sitting in drivers/reset as an aux
-> device, especially when register access can be abstracted via a shared
-> regmap. Some of the reset drivers under drivers/clk just predate the
-> aux bus.
+Thanks for the comments!
 
-There are two interactions:
+Am Mittwoch, 3. Juni 2026, 12:14:21 Ostafrikanische Zeit schrieb Philipp 
+Zabel:
 
-The register lock because all LSP and at least one TOP register contains both 
-clocks and resets.
+> Is this delay long enough for all potential users of reset_control_reset()?
+> Are there actually any at all?
 
-Shared register definition: in the case of the LSP clocks breaking up the 
-composite definition would sacrifice readability.
+You mean drivers that are in use on this SoC that call reset_control_reset? 
+Afaics not, they all call reset_assert/reset_deassert, or only ever deassert a 
+reset that is set on boot. It isn't called at runtime and the only driver 
+calling it that is in use on zx297520v3 is stmmac, which only calls it if 
+assert/deassert aren't available.
 
-Neither of them are insurmountable and I can certainly arrange a separation if 
-asked to - but my preference is to keep them together.
+I implemented the reset() callback because other drivers had it and grabbed 
+the magic usleep(100) from ZTE's USB code. It looks like I should just /dev/
+null it.
 
---nextPart23148593.EfDdHjke4D
+> I'd move the spinlock in here ...
+> 
+> > ```
+> 
+> +	/* This is a special case used only by USB reset */
+> +	if (data->resets[id].wait_mask) {
+> +		return readl_poll_timeout(data->resets[id].reg + 4, val,
+> +					  val & data-
+>resets[id].wait_mask, 1, 100);
+> ```
+> 
+> 
+> ... because this might sleep.
+
+Ack
+
+> +	return val & data->resets[id].mask;
+> ```
+> 
+> 
+> This will return a negative value for bit BIT(31), I'd wrap this with a
+> double negation.
+
+Sounds good
+
+--nextPart3972897.kQq0lBPeGt
 Content-Type: application/pgp-signature; name="signature.asc"
 Content-Description: This is a digitally signed message part.
 Content-Transfer-Encoding: 7Bit
 
 -----BEGIN PGP SIGNATURE-----
 
-iQJPBAABCAA5FiEEQxb0tqoFWyeVMl1sPRO8yFRPGiIFAmogk1YbFIAAAAAABAAO
-bWFudTIsMi41KzEuMTIsMiwyAAoJED0TvMhUTxoiV0kP/jAXJ2XwCEk6Ov9f/83t
-331cAIqbxbBmPnF9O4P3A0w41ADMtcz4NQVXn8vKymp2NdUgz85g6j9Dl21OvH5h
-bOE3+Y3lJUNYN7g7Xq/bH0xgcpVRk3QPi0mDZ8k6RMYWIN8KMXpDyNyqUFbIomO9
-8QVbtS8/oSAXydX/jkUWT0/YKKNDNAnFEZfTnKNe4y/HLxPsHi9Xulm94HWFmcR8
-A4BMIyFKYFbEadZ/a61HdyM3QidwgnmEaMIbWB2zLEW+3X/GEfM8v2sc6qp9cPDX
-mMQzi7d3ns3K4H8JD6VUveo2id2EhJX3IThs/RH9e4araNBdrM7f2huSt0GjNqeE
-0JsQBTw/ypRHyzIgG74xlHRonnEZJZI67oDSe7IyLTa9KfTvqpwQH259eRvApZFh
-zhdbljzFDiaaW+mGl+T5kXZHQxzIfpUaGDjYbYG8hDPmX2lUf+M6A6tPmvHgo1hD
-VB733fUWH95J74asXaZqZKDegV6QF12zgDPIS2lFCOQSgw00FvIRnTvYJqVmFexI
-4TR3b/Igs9FQ7VbDsk+mvFOKvOQZIRKi6TBho62Rs1KflnRQd0NlIKAD1Alqd7Wt
-GZBVFaQNh/1L960YYzJvio1cuhVi5t1nlgzC5OYawX8+dKcBo2+gffcgBshm7pIx
-51DdNXFu6LWbBbozN4tsiovJ
-=zIPc
+iQJPBAABCAA5FiEEQxb0tqoFWyeVMl1sPRO8yFRPGiIFAmogk2UbFIAAAAAABAAO
+bWFudTIsMi41KzEuMTIsMiwyAAoJED0TvMhUTxoig7IP/0VOIVlPzWqCbTORa8Ag
+o4V6xlbD01NZlIPog4nma5eaAeHlu186bslT26PX+RvCITgO9h6jVYMMw/x0ENgL
+zx08FDGRm/yjN3a8OStSgVEIZszr+wJcVdT8m2ODHG+yxLRwAJOBMEpL8oHJ8K3V
+FcbhrWzibd5kcCqcE3iODoIzs0yE1seUWsNOPRT9cgrzDekdYufZd7Ytj5doT2Vw
+FJwnjvxCpoULJP2OqbZaKu2eAuyBnhd/o96l2SMkz8l/d6AIgnv2cw1RdqmxiUsj
+4KDDmNcutHqS5HSg4SowO4pLX/b6vlMzNGjZrjpKgnPLOCqLgCSNLkBWRSA/xRwB
+VVthQxmH+JmO6s0h7MxiPEdYD9DCQznvxKW5GNpHFi8KotZtFUOaG6ACCK7o/zwA
+VXAr8LA1EMZY7M2ar+Z/Lu0YC73I8OACijBtuDP4/O9olftuXDamnZcumL+j2wZv
+L6Q6/RiJBPG588d+5PY+FsSfX9COQbOpL4IzvT6g8LvjF4wkR2m+2zwzLZlSkj/v
+p86aL5HDAlRInf/kTP3tt6hz6ksWJN0PdozFM8hLVGBRDG5lFZ/gF6O7Fdxg+0Bv
+hyceItcgi/00qhno/ZOXr0I3pqHCfMjVBO5lzeY+X16VfUVCiY8bIcAbVu0SllEg
+CtjIia7y5d3THiUTfJ7sfbEs
+=x7MD
 -----END PGP SIGNATURE-----
 
---nextPart23148593.EfDdHjke4D--
+--nextPart3972897.kQq0lBPeGt--
 
 
 
