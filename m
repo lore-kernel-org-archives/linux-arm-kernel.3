@@ -4,72 +4,72 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id E59B8CD6E6C
-	for <linux-arm-kernel@archiver.kernel.org>; Wed,  3 Jun 2026 13:13:18 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 1222ACD6E55
+	for <linux-arm-kernel@archiver.kernel.org>; Wed,  3 Jun 2026 13:13:19 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
 	MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:
 	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=YgwmeHX1hbkUcZ0QBlqPTtZl5v1WvSKOppfTm3dzSus=; b=d64LfuwRyAZX3vNi9TKpXz5jTH
-	4M9h6exgokXIiNl9hT6BBr3GgR1Euh8oTO3JCbL4dW+ZkbaKQVfhqkWjP4TeZRBJpAlLFPQ5ATeV8
-	jb2yV23A/aKcgfbj7EKanq2TZVTyJbcVz3KuAVDYwHXYxEAhqRCJdoPWoFgvYR+Sqiq7SrsI5Z5+0
-	qCHo0XH91Is0FEJ0ae4HRmMFix26TcjnLQsefc2vpQeJDiRXmxmQz+N1Andej5To4d/7/KV4xMLpZ
-	nP+c3iM42kYKqQ6NKxdsjkWrH1cKSdr52n6wzTPROsFjb28W0ZIr7yBK6rz38no/3SC+PS6Yh73yx
-	5Z5IP5Rw==;
+	bh=CKKJfzXLLkRH7XSkPhI5X70VU7gNsq42WXvtDW5Ht6c=; b=1DVBYcDQx9X/SPDDWFuvqU0Bd+
+	W6pUL4fInmdxgJSbDvasGZQIssM3zlLZolx0GGQwCGf1GS3eU9Bt22w51Cxrar+ddRsejPofjw3Tm
+	1big9TyL2EwSoP5bDWhh290tF7JBXBQiZpXH14j+paROBP2D7FtY5lbKCTbG2sNWmF9HhjQDNP3Yc
+	FNxdDfkm0PrX7rXWd2tdNfIE3CWz5bf2uVYPfSdkGDlZTg5YTUVzcdBxUgjb87GmRzJmWWpCD79ED
+	bg2EcU7M0HXRdPjbatAOd0/IcXeouoTj5PbfyUOq55UbLvyw50vQqvCQPDt97KJUIcTYpKdGKu7Kf
+	2DMz+g8g==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wUlPE-0000000F8uo-3rXH;
-	Wed, 03 Jun 2026 13:13:12 +0000
-Received: from mail-wm1-x330.google.com ([2a00:1450:4864:20::330])
+	id 1wUlPF-0000000F8vF-0Dif;
+	Wed, 03 Jun 2026 13:13:13 +0000
+Received: from mail-wr1-x42a.google.com ([2a00:1450:4864:20::42a])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wUlP9-0000000F8kV-1me7
+	id 1wUlPA-0000000F8mJ-24ny
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 03 Jun 2026 13:13:08 +0000
-Received: by mail-wm1-x330.google.com with SMTP id 5b1f17b1804b1-49050ff7cbdso118700775e9.2
-        for <linux-arm-kernel@lists.infradead.org>; Wed, 03 Jun 2026 06:13:06 -0700 (PDT)
+	Wed, 03 Jun 2026 13:13:09 +0000
+Received: by mail-wr1-x42a.google.com with SMTP id ffacd0b85a97d-45ee6d32402so3666684f8f.1
+        for <linux-arm-kernel@lists.infradead.org>; Wed, 03 Jun 2026 06:13:07 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20251104; t=1780492386; x=1781097186; darn=lists.infradead.org;
+        d=gmail.com; s=20251104; t=1780492387; x=1781097187; darn=lists.infradead.org;
         h=content-transfer-encoding:mime-version:references:in-reply-to
          :message-id:date:subject:cc:to:from:from:to:cc:subject:date
          :message-id:reply-to;
-        bh=YgwmeHX1hbkUcZ0QBlqPTtZl5v1WvSKOppfTm3dzSus=;
-        b=tLckJ4ajemakabl814hQBtVujQH0AhT6lmrKOJVU8zGbNeSjO/NcAPInUl09m5hbmU
-         uGbgYqOfmHPleog1tDWQtambhiGTQ7+WwEiu4n5+7d2nQ0R5lLelUxOHLhybH3jews8l
-         eO6Rls3kgJJxtfnMWlogOtxfqTyCG2usTlMYLhZWvsVIMZEyFud1+/nm6ty5Qj/H49oD
-         VFA5SZsIRd1defHVaD5Jne4Xe2+SPZYBNHndemLcs1LDW8I22Q1Q7kvMUZ0hrU18vj5t
-         q7jQQulcY14m13jfvn4oFjsbItGkhNyp/PCTEh+B3vR/2enhNOBUnyiARWe5+5frJgqo
-         fBAw==
+        bh=CKKJfzXLLkRH7XSkPhI5X70VU7gNsq42WXvtDW5Ht6c=;
+        b=llYe+xPhwESDECCag7rA3x39DoWTcH/xJ8zfGc7yWC4TxwebnJmb3O6urVa7531jeH
+         gvoQNvjelB+4x7NaF9aUPe+fu/SM11rmH3G1ZUCgKjWRsV36MSHPU1IGrI5RAqH0lW2p
+         rUIz30wC83PWe6Bcpc7lPgH0Ny83TYSeG+CUgqZO5CY5dvo67sarQzJubTOfgRrjAztS
+         tfxaPteZFvf2NmR5PA/sS9Z+tohOrZzUt4VZ8jcUE7nkdcZQ/0tFvCARjpqb3t73WvMr
+         SepD3vdPUd5njC0XY3QAUqxrX2UeXFXEzW04n4yTxwNHVUistudyBuKHHWxQGW6aCIQE
+         lm6g==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20251104; t=1780492386; x=1781097186;
+        d=1e100.net; s=20251104; t=1780492387; x=1781097187;
         h=content-transfer-encoding:mime-version:references:in-reply-to
          :message-id:date:subject:cc:to:from:x-gm-gg:x-gm-message-state:from
          :to:cc:subject:date:message-id:reply-to;
-        bh=YgwmeHX1hbkUcZ0QBlqPTtZl5v1WvSKOppfTm3dzSus=;
-        b=B+J0cxfDxRMDVnQuUBR3hQwXL8v2cAiIs3jPyN7bnpDFT6oxV15AKBxHrEsGcmYAg6
-         2md9OKRakpPfea7M+4NUhBC/jWEXoacOFaipwny8fUAs4JWTEhcYrKHpOKRqZ4TCtxfg
-         K9SIGEZ5xvLKqfATWwwQV259raDUEtz4deR88nbExuUHi8l0mHgpRA7HORn46IWGf1bd
-         Y+QrQRvfn96DIy6ueHbhT02d5PAcZ2SkpS6VEuu/DdnhaKN59hMLH7COD5n7yfDIgW3v
-         cmnximyXw6Dp8ni/BODvPxHvVc/Ofwdpd4jt9Jnjrb/KwcF6I5r3gcqhi1W/1SkayNTi
-         fCbw==
-X-Forwarded-Encrypted: i=1; AFNElJ/3LepJqFlqVwA2wLsBI8Dun0wTyyopwfMZzmaiAdGMP/8JcrnnJePKphd4Ujy7FLVazedf6tA7haH/ITYf01I4@lists.infradead.org
-X-Gm-Message-State: AOJu0YyHdBB04MWZdmD+To52uAfNadPuLKyzdbkyJ04ZEQQjboJN+Q6k
-	ub0/CXUFsJNEwruMYXoHL32eohCR7PGTtxScMdTfbWEYnkmDHPwCFdk8
-X-Gm-Gg: Acq92OH+Nh59lrMDGcIlHZV0fItFyYWZ2R8xGVqbVhcrLJXvHytwEWGxgFplIh+Hwyv
-	yz6QxR9VAXgE1n4lwizjB8JwwXwzY2aAnEbpSt4fJIJ9oAqYTcQYL6ivmWWOWEUhAjGczYKVmla
-	Uk31hxmk+oYWxU4Qh/Y/z7kAff7t1vhRlDCycM5QyRoNWK1q2aHYJfK0QZjMgGGg5S/eb20XGRl
-	3FCAfojBLoe77bAEP/vLGuSoMPkLLLtj6ngxCTRiGxylK/ZjKYBPskc+Ozu1Owoswxq7ELwkKUF
-	mlmBjDzfufR3HThe2T+x8mx8x0gy3OgWeHO+0/niytNOYjFz5bmW5ayzGCyvjPnhSmePLL0uOeS
-	v44KmFlaMqgtCTg7twBD6ndfxHF0GgRlJZxo5zeeJQO41e7xY0RsF2hZSuOcPP7bNnQW0zAWdH1
-	mTd/s9Z4+YTB4aLEZ9obiBPCLTO0sCx/wSoF7i0hjDUFsBUPqoqUot85GGirLY7WoLwNji2pQ+b
-	TT7YGTz5SSeSihCefr2+mEAWOCx3LCUYsZ5W9SArxqKoYaU
-X-Received: by 2002:a05:600c:1551:b0:490:9d1b:2022 with SMTP id 5b1f17b1804b1-490b5e805aemr59644945e9.13.1780492385546;
-        Wed, 03 Jun 2026 06:13:05 -0700 (PDT)
+        bh=CKKJfzXLLkRH7XSkPhI5X70VU7gNsq42WXvtDW5Ht6c=;
+        b=RoXQfayfwEP6Rw8k0nJmC838JrAJrH6d8IrDrWu9VMpY30Qxj2Na46oqMRKEP42W54
+         Cx/7iopvUfXJ13cWQUETPBkJmkLc3DwCSLbJWpTcuowBMpW6Zhk6Yr79XnOvpcddloDc
+         aZ97DuwNKvx81N/hLq4XxTGTaVMgIDn4VvsJVmgdBUoEb6b2duS7dRM106kL28ThbMVg
+         PTD40p2lVdieJJJZ+unGTwV+G5hk8Z9TUEMUJhzKSPZWFi3eNEszChoBNiXqIZxD6nrc
+         hfbv+6arQdcvaGnB3TyRgoWqf7fgJxiYHzC4pt8Is669NPui8R2T06zujzsFEHauiUO/
+         h5XQ==
+X-Forwarded-Encrypted: i=1; AFNElJ9Gxo1paFit2PFFpa3b9BncrDH88VQnbTtN1NAz3gEa1pwRYvFp0U/ab8qSoQuq7zQzj+97S6PSCsx7djMObF79@lists.infradead.org
+X-Gm-Message-State: AOJu0Yw2y150i6rCuzjBOOgii6Qzh7XaiIS5xjQbcQGLXt94ALSkfN+T
+	CyvvkbgbIWNFlf7rZUvcBlB42y2kcx2diU3NWgpsS7WE+sb/yNiLm8R6
+X-Gm-Gg: Acq92OEhBmqyos+0H5R8UxqMyojLL5zQt58FtuIcGmBlgO4nkkT1gmsv6eik2MgoN0L
+	YQ+pJlyNyqF9IclE77rjZFogdt1u1/kpea4xvnemty4ccPpYcIn/Zh3ujmW+IMt9L9RPi/2ltq5
+	/wcX6CKyrNzMP02QPfYqSmZzc6oTqZsR8F2PqLo/553WaH1Txh7Wr6hoH0V/0BwdTZ8QxrjkHla
+	BFNSgGSdPNG1Jtn3bZU7/3ZEhsO8nsIdA+Kl3gr9CBTLBXEUVpOH1qzL0Yihql+6PIQTO+zKPeo
+	tgTsrWgLj/2XBWyB11vMi3kNlohUWNTpgao+OPP1vshqG7DyXYAfnkXtl9d1vyEcCqzx+qWUxTc
+	2nUTgjHJmFf/mOryamJXndJz5G3hejhA/ddIMOvMhuFV49kvFYIw+pnAn5WrDSCSNG97vvkbvoy
+	kD2Jd3fiEPMp19o7XFsWKaRKZngvxJt67MxcSJCeoYZE+k8cdVZXjUh6shiY5wPWHEQPF6pfusG
+	+bge35YRs9ofY2wKoamMSaE6ZgQfBcOydvXul4vJUaW2XXK
+X-Received: by 2002:a5d:4384:0:b0:44d:1338:46b4 with SMTP id ffacd0b85a97d-460217924aamr3428115f8f.9.1780492386487;
+        Wed, 03 Jun 2026 06:13:06 -0700 (PDT)
 Received: from Lord-Beerus.station (net-93-144-65-244.cust.vodafonedsl.it. [93.144.65.244])
-        by smtp.gmail.com with ESMTPSA id ffacd0b85a97d-4601f3444fesm8361306f8f.20.2026.06.03.06.13.04
+        by smtp.gmail.com with ESMTPSA id ffacd0b85a97d-4601f3444fesm8361306f8f.20.2026.06.03.06.13.05
         (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Wed, 03 Jun 2026 06:13:05 -0700 (PDT)
+        Wed, 03 Jun 2026 06:13:06 -0700 (PDT)
 From: Stefano Radaelli <stefano.radaelli21@gmail.com>
 X-Google-Original-From: Stefano Radaelli <stefano.r@variscite.com>
 To: linux-kernel@vger.kernel.org,
@@ -85,17 +85,17 @@ Cc: pierluigi.p@variscite.com,
 	Sascha Hauer <s.hauer@pengutronix.de>,
 	Pengutronix Kernel Team <kernel@pengutronix.de>,
 	Fabio Estevam <festevam@gmail.com>
-Subject: [PATCH v2 11/12] arm64: dts: imx8mp-var-som-symphony: enable PWM1
-Date: Wed,  3 Jun 2026 15:12:49 +0200
-Message-ID: <ecdc707f750339257a758a09b61f5382d0bde471.1780492180.git.stefano.r@variscite.com>
+Subject: [PATCH v2 12/12] arm64: dts: freescale: imx8mp-var-som: add I2C1 bus recovery GPIOs
+Date: Wed,  3 Jun 2026 15:12:50 +0200
+Message-ID: <54a90899d068a4281cf57d2b17bee4616a75f6a2.1780492180.git.stefano.r@variscite.com>
 X-Mailer: git-send-email 2.47.3
 In-Reply-To: <cover.1780492180.git.stefano.r@variscite.com>
 References: <cover.1780492180.git.stefano.r@variscite.com>
 MIME-Version: 1.0
 Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260603_061307_492661_69AA2AE1 
-X-CRM114-Status: GOOD (  11.14  )
+X-CRM114-CacheID: sfid-20260603_061308_556860_4EB97762 
+X-CRM114-Status: GOOD (  12.11  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -112,47 +112,51 @@ Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.i
 
 From: Stefano Radaelli <stefano.r@variscite.com>
 
-Enable PWM1 on the Symphony carrier board and add the corresponding
-pinctrl configuration.
+Add the GPIO pinctrl state and GPIO descriptors required for I2C1 bus
+recovery on the VAR-SOM-MX8M-PLUS.
+
+This allows the I2C controller to recover the bus if SDA or SCL are held
+low by a device.
 
 Signed-off-by: Stefano Radaelli <stefano.r@variscite.com>
 ---
 v1->v2:
  - 
 
- .../boot/dts/freescale/imx8mp-var-som-symphony.dts   | 12 ++++++++++++
- 1 file changed, 12 insertions(+)
+ arch/arm64/boot/dts/freescale/imx8mp-var-som.dtsi | 12 +++++++++++-
+ 1 file changed, 11 insertions(+), 1 deletion(-)
 
-diff --git a/arch/arm64/boot/dts/freescale/imx8mp-var-som-symphony.dts b/arch/arm64/boot/dts/freescale/imx8mp-var-som-symphony.dts
-index 91d24110a283..912d064a4ce1 100644
---- a/arch/arm64/boot/dts/freescale/imx8mp-var-som-symphony.dts
-+++ b/arch/arm64/boot/dts/freescale/imx8mp-var-som-symphony.dts
-@@ -246,6 +246,12 @@ &pcie_phy {
- 	status = "okay";
- };
+diff --git a/arch/arm64/boot/dts/freescale/imx8mp-var-som.dtsi b/arch/arm64/boot/dts/freescale/imx8mp-var-som.dtsi
+index 49467b48d0b0..61786eee0e82 100644
+--- a/arch/arm64/boot/dts/freescale/imx8mp-var-som.dtsi
++++ b/arch/arm64/boot/dts/freescale/imx8mp-var-som.dtsi
+@@ -180,8 +180,11 @@ led@1 {
  
-+&pwm1 {
-+	pinctrl-names = "default";
-+	pinctrl-0 = <&pinctrl_pwm1>;
-+	status = "okay";
-+};
-+
- &snvs_pwrkey {
+ &i2c1 {
+ 	clock-frequency = <400000>;
+-	pinctrl-names = "default";
++	pinctrl-names = "default", "gpio";
+ 	pinctrl-0 = <&pinctrl_i2c1>;
++	pinctrl-1 = <&pinctrl_i2c1_gpio>;
++	scl-gpios = <&gpio2 6 (GPIO_ACTIVE_HIGH | GPIO_OPEN_DRAIN)>;
++	sda-gpios = <&gpio2 7 (GPIO_ACTIVE_HIGH | GPIO_OPEN_DRAIN)>;
  	status = "okay";
- };
-@@ -398,6 +404,12 @@ MX8MP_IOMUXC_GPIO1_IO05__GPIO1_IO05				0x10
+ 
+ 	pmic@25 {
+@@ -415,6 +418,13 @@ MX8MP_IOMUXC_SD1_DATA5__I2C1_SDA				0x400001c2
  		>;
  	};
  
-+	pinctrl_pwm1: pwm1grp {
++	pinctrl_i2c1_gpio: i2c1gpiogrp {
 +		fsl,pins = <
-+			MX8MP_IOMUXC_SPDIF_EXT_CLK__PWM1_OUT				0x116
++			MX8MP_IOMUXC_SD1_DATA4__GPIO2_IO06				0x1c2
++			MX8MP_IOMUXC_SD1_DATA5__GPIO2_IO07				0x1c2
 +		>;
 +	};
 +
- 	pinctrl_uart1: uart1grp {
+ 	pinctrl_pmic: pmicgrp {
  		fsl,pins = <
- 			MX8MP_IOMUXC_UART1_RXD__UART1_DCE_RX				0x40
+ 			MX8MP_IOMUXC_SPDIF_RX__GPIO5_IO04				0x1c0
 -- 
 2.47.3
 
