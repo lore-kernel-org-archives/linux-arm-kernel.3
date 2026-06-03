@@ -4,71 +4,72 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id D6AD0CD6E55
-	for <linux-arm-kernel@archiver.kernel.org>; Wed,  3 Jun 2026 08:25:17 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 2BCE7CD6E64
+	for <linux-arm-kernel@archiver.kernel.org>; Wed,  3 Jun 2026 08:25:20 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	MIME-Version:Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-Type:
-	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
-	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
-	bh=zPqZJh4lrGWaEtR1Sz6JxGrxryGpEZ6DtkLfnuyqJQU=; b=48h7cPnefe4xAF8/NsrK2isJN4
-	l4oZeXkRNDCgFhKb1g8McEefxfk3pScZlCRwImqa0gEAl8T8QFkU4XhguTbpX+w2RAX9JgylZtwwB
-	LdmxzyGu7UbrTIsSrDbE8kgmba1FfuRvf3rEXt/ZLKOa4+PyJbRakwLBglUtHgbC3YfTBYmKWiNOh
-	pbG9Xuw39VUZCzITf4WCqpwDTmSeD+pgeqZJrftVr6flAl8MKxgu5FtHC+5EyA/oC99jQ/5S/J5vL
-	qFoYxmcg0CC+imjpCUfR7ocGhf9oafYsczaXkrp9DA+lCkBICZF1f2BrZjxJi8WNZbdp8drTWM4JG
-	Y9Rr408g==;
+	MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:
+	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=Tkvod7hGaP12ovakGTLdAVDUjFqJVukCmyxNpLyjWHA=; b=RKrmLsNEfgOZ5jcx80rHsY+Lyn
+	RkOXa0rEjE8FP71dIUOUnZEBJS9+67SHd9WCdyt2e4E7QcsEG/AXKQbKebDeD+m0fRyQs6BjKXQSl
+	0YmRsXruRfoJyIjEtFDedGrtTD38sNWF4+SuIaYVWYCfCMzPNiFzWtamy7c+v2FyzX9y9W7Ui1/gv
+	IxFlI8Z4kgAH6k4djLY9m+HSwDb4Kn9H3donUsB7jQylcZ4vN0AB+EFrTNh/ZRk5fPh0RQHs0l0Ca
+	H2CATtKItIXb/yShOwQ1w1TJaOx5zJazAmf94Nk/wGVhJKVA94fpusttDR55djkHwleacr3s2M9IY
+	Pk3EUSiw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wUguV-0000000EabR-3Xit;
-	Wed, 03 Jun 2026 08:25:11 +0000
-Received: from mail-wm1-x32a.google.com ([2a00:1450:4864:20::32a])
+	id 1wUguX-0000000EacO-3ygM;
+	Wed, 03 Jun 2026 08:25:13 +0000
+Received: from mail-wr1-x432.google.com ([2a00:1450:4864:20::432])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wUguT-0000000Eaa5-1DxQ
+	id 1wUguU-0000000EaaF-0iKU
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 03 Jun 2026 08:25:10 +0000
-Received: by mail-wm1-x32a.google.com with SMTP id 5b1f17b1804b1-490aaeabdb4so19692385e9.1
-        for <linux-arm-kernel@lists.infradead.org>; Wed, 03 Jun 2026 01:25:08 -0700 (PDT)
+	Wed, 03 Jun 2026 08:25:11 +0000
+Received: by mail-wr1-x432.google.com with SMTP id ffacd0b85a97d-45ef1629ff4so3931799f8f.0
+        for <linux-arm-kernel@lists.infradead.org>; Wed, 03 Jun 2026 01:25:09 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20251104; t=1780475107; x=1781079907; darn=lists.infradead.org;
-        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
-         :to:from:from:to:cc:subject:date:message-id:reply-to;
-        bh=zPqZJh4lrGWaEtR1Sz6JxGrxryGpEZ6DtkLfnuyqJQU=;
-        b=kbg7kkNAqC1XK/OdNggT3MnNhV9mBidHcLkRrJonGdLqzzepl22t2oEBsnvRUyw0z1
-         JKiXnpEIhjK3NYjB6DcxCniiwYyfBvYG01SXtLNmUEncFi/ciM0zRuMLUbIm9aALtLsE
-         5WH4HUrfobc9n9Hcraw+si9/DAtzAfwVJTUlnzM8W2btauhHC6+ecZUK5wKJZxNn9g+q
-         qtWVbYuXjcM8AosL/l7PfO9yNDP59YVCEz79WemP8X4YyWqH+flxy8i7e0QCHJe2d4th
-         g0Hf0fPHrGJVb2/buUvs3wCneTeoa7kMa/5W78s453Btkv8fw1V3lS47oZFKT99y4Il0
-         rbdw==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20251104; t=1780475107; x=1781079907;
-        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
-         :to:from:x-gm-gg:x-gm-message-state:from:to:cc:subject:date
+        d=gmail.com; s=20251104; t=1780475108; x=1781079908; darn=lists.infradead.org;
+        h=content-transfer-encoding:mime-version:references:in-reply-to
+         :message-id:date:subject:cc:to:from:from:to:cc:subject:date
          :message-id:reply-to;
-        bh=zPqZJh4lrGWaEtR1Sz6JxGrxryGpEZ6DtkLfnuyqJQU=;
-        b=XxSS6bcz6k5HNZVV2cL4Nr3ym2Kv2LSmfmZpS+QPMeAGslq7YegBrmfoPlflxGQvE3
-         kMNNyWk3fRGlaDJ7A779WFPpFfSLMntQ31nq0jnQHt6kfBzgWkWmK1KIU3tICxDN5mCB
-         gPKOi+UYbZufxMjnqsvaKRZTwxNYhlU9qxhkF+Y9aO6HWNCT8db7hqcNycji+88eE9Mq
-         3Mkcx73kjWbWCUkHz3zJVfWBKmtJ57TsHc7Itm44OMsjzqp3L2HcE/zwFj06kG1D3ytD
-         oLSk7pzcC2ij+MWudOaCTWNlI0cnTGVyUQ3wTuvNVtlTT99jy78MTSu/kV38KAgAR8nM
-         a8BA==
-X-Forwarded-Encrypted: i=1; AFNElJ/O42NB/ViYEc77aUDPgX9bp1SJ7tEweXkY5vMXt7wWZI9KLQjS45R3CSLbPqD+SC3s9OjRXSzaFD/8llmOjEaz@lists.infradead.org
-X-Gm-Message-State: AOJu0YxyYdQILPgCCmvt5DoM1Bg2RrAoYLhSJdMxg2toBxk8On2F939J
-	b2etfOIpFEzQ/5j2HuCb/I9BQrQo4+fJf817bmCiiYF57wGn+ZoTox7L
-X-Gm-Gg: Acq92OGqhHEOn2h4nBPr454s+W2bbqeUc8WiOJsxAh24m8buLUDnhBwfTJSOik4uPoV
-	WlchQm6Gx5awCK1Bb5tr2i/hEwm3DwsJQ1n1FFBTPhkqElnuQIvEkblJXPFu7TCeW+AqB1tUuIY
-	bcL2M5y3F0flu3CrFs8XC/2JNSsyNPGaNsEc6HjDc4CHA7rwpVzs1w40GtvV0AKvGtxkMnvzjqZ
-	YtuMZxkUU/b20TkQwGnQ9j7ryMWf/AwNNaPVbZQxdR/g9391omhhWEZVAH7jrPdZZ/HmeL3PeN6
-	LpeFOlikIVsKKJ0lEEHOi3LmX3Z0efspMR5/8/Y9PEaWDk3YsHQ8TpUmUdNx6St/9JpsQlDANZ1
-	annL4B9WV2+5A+5s9AukkoUzplfH9vKRE/sRRTTE9cHhTTp/UMJZwA+vgrcBz2NaiRNW6sRID3a
-	aqrioRF7d/lQUzmALnnE780rNNAxiAtpDIBFY5tqpyYad8izNs7uTEwtL2Msh//Q5wynuklc2bf
-	AdpXmGZrk89MB1CJ+Khh8EyC3WxktOEUjg+LimOwsUVuMaB
-X-Received: by 2002:a05:600c:6290:b0:490:b9d3:a9ce with SMTP id 5b1f17b1804b1-490b9d3aa4emr14885625e9.30.1780475107253;
-        Wed, 03 Jun 2026 01:25:07 -0700 (PDT)
+        bh=Tkvod7hGaP12ovakGTLdAVDUjFqJVukCmyxNpLyjWHA=;
+        b=s3s4d0nMd7WErOx6WD1HomU4qCq7SPradxYXGsvpaIBJl/YEuHXVTu0eSlI0oqCzX5
+         O7UqEyyhNoi1srkus3XJ/hmMkxVEaRLk5VoV9+5NXkNUaB/sKAjk5mU3AsvmJkxB6URK
+         hjrmWHzuBpR/wUw633yr0zq9Ewh+XkAgkGn5qLMBuQjYj5X7kTf7zvvizwKEApxZSZNY
+         Ac/X34jJaWLxxLQu4trbuXeW6at170Jd43QEgKEcqMVK12WkJ06A0nYekmbTTTRtMmvB
+         D37wQS47zmGYp8YKbYRNfJ2iG8D37DILHuOhsRoHJOVS2GJ5S9spCtYS3bKXY3kUAdTL
+         8pGQ==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20251104; t=1780475108; x=1781079908;
+        h=content-transfer-encoding:mime-version:references:in-reply-to
+         :message-id:date:subject:cc:to:from:x-gm-gg:x-gm-message-state:from
+         :to:cc:subject:date:message-id:reply-to;
+        bh=Tkvod7hGaP12ovakGTLdAVDUjFqJVukCmyxNpLyjWHA=;
+        b=p5alcLDGCxHil3nYvGa1yi3/K9Qr60Du9M2nYwzNiQHKhy/O5/BLcMadyzjmnZeabP
+         PtKHn9txdtNVN6HBJolPNS7b1f5S5GTs2LK58Qpkv1Xvq91w3P10DLpWRn84IrTa+rDp
+         Cv3SABe+SsL6AmPRu8+LcyslxaYnYLH9XaWJfFHkPgeyAVA9Hah2Tf1deFeWdLKbeMrm
+         b+IkWZEbjqJW4KeM7QaQ9XMB3tQgfN1do6dOCmi9bn3wVERyagWK+7EKqv1JyEmbcK7k
+         Jk1zA1rPpK8Etzo7vaCYVGIrgc1sI9vTMt6uzdY+7jN5vgozCvzkE0rV4VgoUuyjaU+G
+         b64A==
+X-Forwarded-Encrypted: i=1; AFNElJ+EXugEcFKZI+XZcFXbAyKvKBjRpq5UI0++0BaEQQIG9031LBstVb75dolR2e3iazk6DUiXKafrCDWmFWrl7Lsq@lists.infradead.org
+X-Gm-Message-State: AOJu0Yx1iPUusTzC7VOhMwC/oTrf1fNCcfBCl2e9WkKF4hh0ccJb9XHX
+	Ssy03Ncs9jrZuFCvylaah2BuEWy2OF+dVsAHCXtq5+PB6EJIayzQaXa2
+X-Gm-Gg: Acq92OEOF0rJn3qtku0hzkBnJMRbRalVAuCTlMQcz7wpas9WM7BHG2v27wBNOXOZnLp
+	wooTpu48l6uuJL0L0yxHIw77DF4pPJRYJTZKWbZbrZhxlGLRMDQdfxQ1my6k9o2byqg0yqgQV5o
+	6WbmiPb/7reC7BEPHF4HqV/nN1zZ9pJBG6RLvW+w/oUKUj9HM6JKyWGxhx5Bmwv2agBrbwiRIuF
+	lKMERYBhl9zyQXlrToRbPyyGUkUrje1N8xj9qNDpR0cruhI9Jwpg6jD+RB4NReG63Gi9JV76Wrg
+	LaKQgsvNoklpYfdM7EGFPTrovftZgwaAdv6Jb3pvl5Xb78BVwEP0TTmqrqzfmLMgLvuhnJxplCG
+	NHtHjNnr4JeYipQoN6/RkLuPQw1j8MZ4B9G2KXMmzO1qwDe+ib/VUBDn67U4skzr7syyEO0Kz6v
+	gQhyR5Ej3KB2Y8dfc9Z/3KJoFPLqcYcu6DtmEToCypA8XQ3qTXZu4ng6ywToiQugNgNLilU4QMl
+	TNcC3hDb/vvH2NsqzAkNB0oin4VVvDeEwfosbOcLGHmD13z
+X-Received: by 2002:a05:600c:8184:b0:490:b3f1:e41b with SMTP id 5b1f17b1804b1-490b60e20b2mr36144035e9.26.1780475108116;
+        Wed, 03 Jun 2026 01:25:08 -0700 (PDT)
 Received: from Lord-Beerus.station (net-93-144-65-244.cust.vodafonedsl.it. [93.144.65.244])
-        by smtp.gmail.com with ESMTPSA id 5b1f17b1804b1-490b63d8205sm33175305e9.11.2026.06.03.01.25.06
+        by smtp.gmail.com with ESMTPSA id 5b1f17b1804b1-490b63d8205sm33175305e9.11.2026.06.03.01.25.07
         (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Wed, 03 Jun 2026 01:25:06 -0700 (PDT)
+        Wed, 03 Jun 2026 01:25:07 -0700 (PDT)
 From: Stefano Radaelli <stefano.radaelli21@gmail.com>
 X-Google-Original-From: Stefano Radaelli <stefano.r@variscite.com>
 To: linux-kernel@vger.kernel.org,
@@ -84,16 +85,17 @@ Cc: pierluigi.p@variscite.com,
 	Sascha Hauer <s.hauer@pengutronix.de>,
 	Pengutronix Kernel Team <kernel@pengutronix.de>,
 	Fabio Estevam <festevam@gmail.com>
-Subject: [PATCH v3 0/5] arm64: dts: imx93-var-som-symphony: align DTS with hardware revision
-Date: Wed,  3 Jun 2026 10:24:59 +0200
-Message-ID: <cover.1780474803.git.stefano.r@variscite.com>
+Subject: [PATCH v3 1/5] arm64: dts: imx93-var-som-symphony: add TPM support
+Date: Wed,  3 Jun 2026 10:25:00 +0200
+Message-ID: <0018706953ce5c0ab87d1e9f361973429bf0457f.1780474803.git.stefano.r@variscite.com>
 X-Mailer: git-send-email 2.47.3
+In-Reply-To: <cover.1780474803.git.stefano.r@variscite.com>
+References: <cover.1780474803.git.stefano.r@variscite.com>
 MIME-Version: 1.0
 Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260603_012509_338232_0729E894 
-X-CRM114-Status: UNSURE (   9.93  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20260603_012510_225703_8131DD76 
+X-CRM114-Status: GOOD (  12.75  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -108,32 +110,51 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-This series updates the i.MX93 VAR-SOM Symphony device tree to match the
-latest carrier board hardware revision.
+From: Stefano Radaelli <stefano.r@variscite.com>
 
-The changes add support for onboard peripherals and complete the board
-configuration with the required GPIO, pinctrl and PWM settings.
+Add the ST33KTPM2XI2C TPM device on the Symphony carrier board.
 
+The TPM reset line is driven through a PCAL6408 GPIO expander, so add
+the expander on the I2C bus and describe the TPM reset GPIO.
+
+Signed-off-by: Stefano Radaelli <stefano.r@variscite.com>
+---
 v2->v3:
  - Use reset-gpios for the TPM instead of a GPIO hog
- - Add ADC1 support
 
 v1->v2:
  - Rename pca6408 label to pcal6408 to match the compatible
  - Clarify that the TPM enable line is a board-level GPIO hog
 
-Stefano Radaelli (5):
-  arm64: dts: imx93-var-som-symphony: add TPM support
-  arm64: dts: imx93-var-som-symphony: enable UART7
-  arm64: dts: imx93-var-som-symphony: keep RGB_SEL low
-  arm64: dts: imx93-var-som-symphony: enable TPM3 PWM
-  arm64: dts: imx93-var-som-symphony: enable ADC
+ .../boot/dts/freescale/imx93-var-som-symphony.dts | 15 +++++++++++++++
+ 1 file changed, 15 insertions(+)
 
- .../dts/freescale/imx93-var-som-symphony.dts  | 61 +++++++++++++++++++
- 1 file changed, 61 insertions(+)
-
-
-base-commit: b3c1d1631f097619f8091f0293e027c4301285d6
+diff --git a/arch/arm64/boot/dts/freescale/imx93-var-som-symphony.dts b/arch/arm64/boot/dts/freescale/imx93-var-som-symphony.dts
+index c0842fb3cfa3..c736127c7115 100644
+--- a/arch/arm64/boot/dts/freescale/imx93-var-som-symphony.dts
++++ b/arch/arm64/boot/dts/freescale/imx93-var-som-symphony.dts
+@@ -208,6 +208,21 @@ &lpi2c1 {
+ 	sda-gpios = <&gpio1 1 GPIO_ACTIVE_HIGH>;
+ 	status = "okay";
+ 
++	pcal6408: gpio@21 {
++		compatible = "nxp,pcal6408";
++		reg = <0x21>;
++		gpio-controller;
++		#gpio-cells = <2>;
++		status = "okay";
++	};
++
++	st33ktpm2xi2c: tpm@2e {
++		compatible = "st,st33ktpm2xi2c", "tcg,tpm-tis-i2c";
++		reg = <0x2e>;
++		label = "tpm";
++		reset-gpios = <&pcal6408 4 GPIO_ACTIVE_LOW>;
++	};
++
+ 	/* Capacitive touch controller */
+ 	ft5x06_ts: touchscreen@38 {
+ 		compatible = "edt,edt-ft5206";
 -- 
 2.47.3
 
