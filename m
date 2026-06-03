@@ -4,93 +4,75 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 5144FCD6E55
-	for <linux-arm-kernel@archiver.kernel.org>; Wed,  3 Jun 2026 11:03:29 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 5BF87CD6E55
+	for <linux-arm-kernel@archiver.kernel.org>; Wed,  3 Jun 2026 11:05:40 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
-	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=RASJEjVAR9afFVw3X7mPRvBm05E0D//IY850D9FxOG0=; b=mASf4KMCQyU+Hpj+cYVmsMGKl1
-	vrbQDUJzF2Ud00OpUy0teFKycxO+Ep2BRYiU2v6yX2G6pT/gBwYeATBMqwjcA7Nob0tBQzXPdjZmL
-	5VJCBQ//Ui6L8sEstynOiUgRHLPm6u+HHVTxybF/EiZ00shZLj3QuL3vm5m2CXvbMNhpU0hDAEhjq
-	pJyKeVICNOku9DcI7MFZCx57J1gPxeU8lePXegmPy8mOOJcOdSGkeuGHy3pagK0/8ANHgNgIURlVm
-	UuE7d3NpO/nWC5AeAx6pI/zdNkXOIe8NW8MNqjUaIbmPQtiF1i5gmQZLK6VZOx4bQJjfqOyhjwU7w
-	L9lczCeQ==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:Cc:To:From:
+	Subject:Message-ID:Mime-Version:Date:Reply-To:Content-Transfer-Encoding:
+	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
+	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=s2JIhr6kqeQn6ELJOtjE/E16B/iQOXIXCDrOzxfZKEc=; b=t8i3Gvzo9hM9az41pRd0pAw6s4
+	+Sz2yCrKfgs1U1YZpaevXRLaX0Hfj3ZTy/xc79uzogYl4v6YbbNRjFjC6X8mP62XIiCUim+VeJVbj
+	jlGudSeuwjsrkVebVvYJbKwm95smkNKOCTSq/yuIFcESu/JMQtHZYY7vF65tsJewf30sbMfW5nZaU
+	vfeZwUZ00gY1MVig91t6gdGYWqXgiaW/hyAxy30u8dAkk0VuABalcF1msiJcZnt+a+Lcr0XmkACJ5
+	zBnFskDpeCJ1t2E6yEtX2436e/Zvqvl+ceA6XpX3UwrvR7qAFnZdafYzgfg42fk7atcPLeclqrnS2
+	XMWXOIOg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wUjNb-0000000Es7m-112j;
-	Wed, 03 Jun 2026 11:03:23 +0000
-Received: from mail-pl1-x636.google.com ([2607:f8b0:4864:20::636])
+	id 1wUjPi-0000000EsQP-25ch;
+	Wed, 03 Jun 2026 11:05:34 +0000
+Received: from mail-wm1-x34a.google.com ([2a00:1450:4864:20::34a])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wUjNY-0000000Es6o-45DN
+	id 1wUjPg-0000000EsPS-1t3X
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 03 Jun 2026 11:03:22 +0000
-Received: by mail-pl1-x636.google.com with SMTP id d9443c01a7336-2c0c1e0d00bso34655655ad.0
-        for <linux-arm-kernel@lists.infradead.org>; Wed, 03 Jun 2026 04:03:20 -0700 (PDT)
+	Wed, 03 Jun 2026 11:05:33 +0000
+Received: by mail-wm1-x34a.google.com with SMTP id 5b1f17b1804b1-490b56bf7bcso9565575e9.3
+        for <linux-arm-kernel@lists.infradead.org>; Wed, 03 Jun 2026 04:05:30 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20251104; t=1780484600; x=1781089400; darn=lists.infradead.org;
-        h=content-transfer-encoding:in-reply-to:from:content-language
-         :references:cc:to:subject:user-agent:mime-version:date:message-id
-         :from:to:cc:subject:date:message-id:reply-to;
-        bh=RASJEjVAR9afFVw3X7mPRvBm05E0D//IY850D9FxOG0=;
-        b=EbZQmQatfnTVHxJNNO8FC9dqgTAJAFzNEHaSov04YJo4t/hD9ddzXYajmBnGBj/6s6
-         2k10l0WMHqJiB7fL5rCZoA/sXzyrdh/tPoDFlMgA+JmD5bzt49gnAqV9j/G2rk20yNPg
-         v+iFk41IsIHkiwbz6E0d4bCzd7wqUs5Ga/advqxDYg+VgzYHXbqGqLHYKFtKAyZQ3Y75
-         57swkUfGc51rPQbwXSXuLLYGzPagJhZBWg9SkRtoQQqPktZTbm0r3xOe4WBcBieV9mcp
-         z+2FTBGI0cxYCCZ9CAvAk9Qe8y9NoC1YFylDtEWQGnbJf1rrubKmtQ6koMK6CGMhyvjp
-         sxLg==
+        d=google.com; s=20251104; t=1780484730; x=1781089530; darn=lists.infradead.org;
+        h=cc:to:from:subject:message-id:mime-version:date:from:to:cc:subject
+         :date:message-id:reply-to;
+        bh=s2JIhr6kqeQn6ELJOtjE/E16B/iQOXIXCDrOzxfZKEc=;
+        b=EqEeYGOC8nWlVQfjZWEl8euB8em+znFVe47SGgNb0Afm0eBZPPU6uy7HwDhFRrfLsu
+         VfqV/rbnVDByGZj8Aa3zlcsTg0eM127HAoXJEhozyk9U8JGuFcwN9sfIa9K9h8YXLEmH
+         xa6G8WaPnkCi+Fc6dMbArklnnvyLfChzgFgzC3axZM2f9c5kQbIkhNk+BeRf02UyeLaz
+         5P5kjlWZB9h92pKBlVGNjLpEBW349tJyRgmJJxy51Vjw0e70RfOxGYZJ5cL9Y3495uH+
+         XTOq/dbtZp5rGqFynT1DkcAIBrgu4F9e1l8iJb26hxt7lLZsQqsOicm6UEvakMV2d3sB
+         qU4w==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20251104; t=1780484600; x=1781089400;
-        h=content-transfer-encoding:in-reply-to:from:content-language
-         :references:cc:to:subject:user-agent:mime-version:date:message-id
-         :x-gm-gg:x-gm-message-state:from:to:cc:subject:date:message-id
-         :reply-to;
-        bh=RASJEjVAR9afFVw3X7mPRvBm05E0D//IY850D9FxOG0=;
-        b=iD3GUwevdksIp7nx2mhol9KgQXOHa0w0dekcSjhUJs81Hnw/KwT/s4VfwxK1D2NNVT
-         ehdJNmvSRDNZv9aG2oH+ViPWm9bmctAXHsS7NCwmq/Vtn5HDNT0rQVyKKRw+sc0qH5/3
-         6xsjMKHEcpDSCh7nQjJsslEiblfCEcce9eTp1UuTK5Ed6eJxfZ1HAYXf+QgkvvFGqwtY
-         A65S2wNJ63noctPhpClRaVfEDoiOrHPKj7piKdlYfbHp1FIzH+bP9jx5RlirtYE6SNnX
-         2T3VWBb+aoprf4qWxKanRNHY7f27I5nSdL4LsWiBZgzCaLhKYEkM+yohRuNpBtAx1CKt
-         INjw==
-X-Forwarded-Encrypted: i=1; AFNElJ/KH0tozmDLrjQ4+Xu4q4dSp9WreZlA38GE4CVVvKNNXzRE+kAUDw1cPVh4NmkKNOQLGsoYew1nm4F27KM5QVa0@lists.infradead.org
-X-Gm-Message-State: AOJu0YwtPnvwroZSx/ppREVjsLzCqCj8bPnZaKwBTOHBE4tlupT5CLsU
-	3eoM0FZ1JQdaqHJSZe2juWqKfF/7u91y51i5rTLGnwSZQp6Gef+sVpCx
-X-Gm-Gg: Acq92OGuXODYTwEkKASLBZZDG4UQEuQp4CRrh26RylrkMgbWsQzOkjxu6CF7X9R/0kj
-	dUPEbLKJx2I/jxqwesXCqkEooHyaca2diig+zv78o2/X1NHKO8RNup6gpCY6xstrVAlDt31B9mx
-	+LsLS+4hf3vbWBh9K0XEn6lmNO1GtpSuwputQje/QdDbkv0LYsXi/N3Z5ghNbHmFjGdXFk5reqO
-	Ev4qPEmJ/+FWSYFMlldQC2agL2rVGazIhiq+D0+l/tsQLNMOX0OhOcmXgzbzsMF+vv8Uici0TXz
-	0ojkM1nGmuCqna+GqMYJpzP5SXaHli4ZbNsIQOeydf3sXtq6owc/A98n4FaNtO6rfBJngiuvRlA
-	wSo5w/kd6lkpc8kfWdZX3pDFbunZ224b6QEcFjKqDM6pyQUkNfpmEDB3v5YtQC90y186zFxNNSA
-	/BJ+ACPtlcsS8XvMltpJHQwpzXZSnXtvHpJwYdRZ+7q0lR1+NMod7/xviglqjCY8mcXPuAr/gFI
-	pCKE+9JCoRmcQ==
-X-Received: by 2002:a17:903:1252:b0:2c0:e5ee:f554 with SMTP id d9443c01a7336-2c163a24976mr28261115ad.8.1780484600180;
-        Wed, 03 Jun 2026 04:03:20 -0700 (PDT)
-Received: from [172.19.1.42] (60-250-196-139.hinet-ip.hinet.net. [60.250.196.139])
-        by smtp.gmail.com with ESMTPSA id d9443c01a7336-2c16609e1b6sm21738805ad.38.2026.06.03.04.03.17
-        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
-        Wed, 03 Jun 2026 04:03:19 -0700 (PDT)
-Message-ID: <5d6ecdf7-1987-4ecf-ad59-06595742cc8f@gmail.com>
-Date: Wed, 3 Jun 2026 19:03:16 +0800
-MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH 2/2] spi: Add Nuvoton MA35D1 QSPI controller support
-To: Mark Brown <broonie@kernel.org>
-Cc: robh@kernel.org, krzk+dt@kernel.org, conor+dt@kernel.org,
- linux-arm-kernel@lists.infradead.org, linux-spi@vger.kernel.org,
- devicetree@vger.kernel.org, linux-kernel@vger.kernel.org, cwweng@nuvoton.com
-References: <20260603043551.1062112-1-cwweng.linux@gmail.com>
- <20260603043551.1062112-3-cwweng.linux@gmail.com>
- <d32634eb-4eed-46e6-b378-d42df0b1c75e@sirena.org.uk>
-Content-Language: en-US
-From: Chi-Wen Weng <cwweng.linux@gmail.com>
-In-Reply-To: <d32634eb-4eed-46e6-b378-d42df0b1c75e@sirena.org.uk>
-Content-Type: text/plain; charset=UTF-8; format=flowed
-Content-Transfer-Encoding: 8bit
+        d=1e100.net; s=20251104; t=1780484730; x=1781089530;
+        h=cc:to:from:subject:message-id:mime-version:date:x-gm-message-state
+         :from:to:cc:subject:date:message-id:reply-to;
+        bh=s2JIhr6kqeQn6ELJOtjE/E16B/iQOXIXCDrOzxfZKEc=;
+        b=YbXRgzYSm1tml4sX4VZirRb9Bq4Z1B0v4aO+tDtg7EgNaICB/5/X4FnzpGdd9TLJdU
+         3CNciM3nmOyNpW8UjyBOog253Fd7NT0raYIsD0NarmiWqtfdyiSRmH6L5FHpXl1PNKJg
+         ppDAS7+wEO4+ErYie1Gm1RePGYfuxOQzGR50PCVl1108YUa8QsC3J9JD1ltGLu3m5wPT
+         mcp9mfrEIDQSzQOctgBme5QKtiMolaWouH9usH23jdbJNAoLGrNvuVboxx3NVnpwRQWJ
+         jFB6vAF23wd0sNTJnOnGkZLMzl2OHAt/MSofaiA3MsBLh5eZKJNGzlW+qJAna4PqA0I2
+         81nQ==
+X-Gm-Message-State: AOJu0Yx/jfAgwbEuOy7gqc+ekBGDaXh5NqiTsUxR1GDEQQNOj7iIQMSo
+	jAtE2nnXuyib6JNY9CDVry9mp/aKuJ4lsRo10Qoesu7IILHSK8lanHfc/qAUB5tXPzrgaTjVlXz
+	mK/ohmBNqu2Jrxgsuic+5XE2M12A3MTHPMKcdZXAOClhVP0wQhJRi8NAWK71ZFiMAu9V0nYFfXN
+	XgV9+76+uPpbydUMkc9B3HyZ763TewctTk77OltUqnPyqXNvi6VPkonnOmsXO9BQfHyg==
+X-Received: from wmbjd23.prod.google.com ([2002:a05:600c:68d7:b0:490:af61:3390])
+ (user=smostafa job=prod-delivery.src-stubby-dispatcher) by
+ 2002:a05:600c:8a16:20b0:490:6869:7d8b with SMTP id 5b1f17b1804b1-490b5e8f064mr34662755e9.15.1780484729649;
+ Wed, 03 Jun 2026 04:05:29 -0700 (PDT)
+Date: Wed,  3 Jun 2026 11:05:19 +0000
+Mime-Version: 1.0
+X-Mailer: git-send-email 2.54.0.1032.g2f8565e1d1-goog
+Message-ID: <20260603110522.3331819-1-smostafa@google.com>
+Subject: [PATCH 0/3] arm64/coco: Convert pKVM to a CC platform
+From: Mostafa Saleh <smostafa@google.com>
+To: linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org
+Cc: akpm@linux-foundation.org, catalin.marinas@arm.com, will@kernel.org, 
+	rppt@kernel.org, maz@kernel.org, aneesh.kumar@kernel.org, 
+	Mostafa Saleh <smostafa@google.com>
+Content-Type: text/plain; charset="UTF-8"
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260603_040321_018816_65E996F8 
-X-CRM114-Status: GOOD (  18.89  )
+X-CRM114-CacheID: sfid-20260603_040532_501787_637D788E 
+X-CRM114-Status: GOOD (  10.14  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -105,86 +87,31 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hi Mark,
+The goal of series is to convert pKVM as a CC platform similar to
+ARM CCA, that makes CC guests consistently discovered which avoid
+breaking it by the ongoing DMA rework [1]
 
-Thanks for the review.
+The first patch is a minor clean up I noticed while reading the code.
 
-I will address these in v2:
-- add "depends on ARCH_MA35 || COMPILE_TEST" to the Kconfig entry;
-- convert the file header to // comments;
-- split the low-level CS register update from the SPI core .set_cs()
-   callback, and make the spi-mem direct CS path handle SPI_CS_HIGH
-   explicitly;
-- use op->max_freq for spi-mem operations instead of spi->max_speed_hz.
+And the second patch is a bug fix found by Sashiko.
 
-I will also fix the subject lines in the next version.
+The third patch is the main one.
 
-Best regards,
-Chi-Wen Weng
+[1]https://lore.kernel.org/all/20260522042815.370873-1-aneesh.kumar@kernel.org/
 
-Mark Brown 於 2026/6/3 下午 05:30 寫道:
-> On Wed, Jun 03, 2026 at 12:35:51PM +0800, Chi-Wen Weng wrote:
->
->> +config SPI_MA35D1_QSPI
->> +	tristate "Nuvoton MA35D1 QSPI Controller"
->> +	help
->> +	  This driver provides support for Nuvoton MA35D1
->> +	  QSPI controller in master mode.
->> +
-> Other drivers for this SoC seem to have ARCH_MA35 || COMPILE_TEST?
->
->> @@ -0,0 +1,579 @@
->> +// SPDX-License-Identifier: GPL-2.0-or-later
->> +/*
->> + * Nuvoton MA35D1 QSPI controller driver
->> + *
->> + * Copyright (c) 2026 Nuvoton Technology Corp.
->> + * Author: Chi-Wen Weng <cwweng@nuvoton.com>
->> + */
-> Please make the entire comment a C++ one so things look more
-> intentional.
->
->> +static void nuvoton_qspi_set_cs(struct spi_device *spi, bool enable)
->> +{
->> +	struct nuvoton_qspi *qspi = spi_controller_get_devdata(spi->controller);
->> +	unsigned int cs = spi_get_chipselect(spi, 0);
->> +	u32 mask;
->> +	u32 val;
->> +
->> +	if (cs == 0)
->> +		mask = NUVOTON_QSPI_SSCTL_SS0_MASK;
->> +	else
->> +		mask = NUVOTON_QSPI_SSCTL_SS1_MASK;
->> +
->> +	val = nuvoton_qspi_read(qspi, NUVOTON_QSPI_SSCTL_OFFSET);
->> +
->> +	/* SPI core passes enable=true when CS is asserted (typically active-low) */
->> +	if (enable)
->> +		val |= mask;
->> +	else
->> +		val &= ~mask;
->> +
->> +	nuvoton_qspi_write(qspi, val, NUVOTON_QSPI_SSCTL_OFFSET);
->> +}
-> Note that the core deals with SPI_CS_HIGH, the driver doesn't need to...
->
->> +static int nuvoton_qspi_mem_exec_op(struct spi_mem *mem,
->> +				    const struct spi_mem_op *op)
->> +{
->> +	struct spi_device *spi = mem->spi;
->> +	struct nuvoton_qspi *qspi = spi_controller_get_devdata(spi->controller);
->> +	u8 addr[4];
->> +	int ret;
->> +	int i;
->> +
->> +	ret = nuvoton_qspi_setup_transfer(spi, NULL);
->> +	if (ret)
->> +		return ret;
-> This uses spi->max_speed_hz but spi_mem configures p->max_freq which you
-> should use (it might be lower).
->
->> +
->> +	nuvoton_qspi_set_cs(spi, true);
-> ...except where you're calling in directly at which point the driver
-> needs to figure this out.
+Mostafa Saleh (3):
+  arm64/mm: Simplify SWIOTLB setup in arch_mm_preinit()
+  drivers/virt: pkvm: Fix end calculation in mmio_guard_ioremap_hook()
+  arm64/coco: Add pKVM as a CC platform
+
+ arch/arm64/include/asm/hypervisor.h           | 13 ++++++++++
+ arch/arm64/include/asm/mem_encrypt.h          |  3 ++-
+ arch/arm64/kernel/rsi.c                       | 12 ---------
+ arch/arm64/mm/init.c                          | 26 +++++++++++++------
+ drivers/virt/coco/pkvm-guest/arm-pkvm-guest.c |  5 +++-
+ 5 files changed, 37 insertions(+), 22 deletions(-)
+
+-- 
+2.54.0.1032.g2f8565e1d1-goog
+
 
