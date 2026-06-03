@@ -4,134 +4,96 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id B5DCDCD6E55
-	for <linux-arm-kernel@archiver.kernel.org>; Wed,  3 Jun 2026 11:51:37 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 8B19BCD6E55
+	for <linux-arm-kernel@archiver.kernel.org>; Wed,  3 Jun 2026 12:00:11 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=uIeJZpdX8FCDjWAXiU77ogVQ0B8VkYFjD6D0OQC7A18=; b=QZqT03b0RhtDvFBZDC4KUmpb0S
-	w6RbLQ5jy3E8OPfHECPKt86KKKmqUW3vlFQ6Ws+KQSZsTC6xTh5gOTZBGacCkRNlKTmAJh2BOCYOC
-	0ergNE5dv0WsW64SKmIs9nrOmjvOdeLGwOfXox4uaAN82PwNGb4YvzpDi2LEosvJY2PrCpZr9D5PR
-	NUPfU3EkBhYtwzbWSBW1e/QjN5YVwsfc/HI4mc5FjS+mk81pADwGrnCISOsdSkBv+SNMdrUVlolkD
-	gaCFZNGqpVDWPcR4+RQe4iYyzoGdEh3E09I+iLngOoM6SV2a14oci9BMECM7pV4cWDulwu9WgPuvb
-	wFXw9Zmw==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	MIME-Version:Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-Type:
+	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
+	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=RDe3rLy4zwbLWq8QIOjW3QNgCqdLF/T/ByhSBBeRxlg=; b=IwmVmNslrPqfZLynAfHfKcKtxT
+	LH4Qbr37tRcEupi92UcwOWSKDycTs+6e1w7k+q3CSyIn7NDcalJwSOxETuF97Ud/E2C3LOL0jVFou
+	ZEBAkVGTrB1bB4iPUBxtT/F6E7spnTpkNCKoyeshm+lHpb3h1+3Nax6kGU0W9FWjVymczCQ47Etqg
+	uRKGvOMP91uMf19IlsJavFRAmnCchcZOZCoajpwEySPbY+YedKmvLw+CbAIHl7/RVj2A1WJzEBLTT
+	rA1GGhHaLLMxCEZcEJdZ/2HshlNrITiMY/dMl7imxDw4z3o2LVfcmj7lqMkY574MAyL56Uu/9kySh
+	1AaAFi2g==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wUk89-0000000Eyyg-1CYt;
-	Wed, 03 Jun 2026 11:51:29 +0000
-Received: from smtp-out1.suse.de ([195.135.223.130])
+	id 1wUkGS-0000000F0IO-2VJ2;
+	Wed, 03 Jun 2026 12:00:04 +0000
+Received: from mail-wm1-x333.google.com ([2a00:1450:4864:20::333])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wUk87-0000000Eyy9-1vpZ
+	id 1wUkGQ-0000000F0HA-1NME
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 03 Jun 2026 11:51:28 +0000
-Received: from imap1.dmz-prg2.suse.org (unknown [10.150.64.97])
-	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
-	 key-exchange X25519 server-signature RSA-PSS (4096 bits) server-digest SHA256)
-	(No client certificate requested)
-	by smtp-out1.suse.de (Postfix) with ESMTPS id EC7C56A967;
-	Wed,  3 Jun 2026 11:51:24 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=suse.de; s=susede2_rsa;
-	t=1780487485; h=from:from:reply-to:date:date:message-id:message-id:to:to:cc:cc:
-	 mime-version:mime-version:content-type:content-type:
-	 in-reply-to:in-reply-to:references:references;
-	bh=uIeJZpdX8FCDjWAXiU77ogVQ0B8VkYFjD6D0OQC7A18=;
-	b=QbdYIxe/Gs/9/BoTeN7ibvY7dS8gkSD+ySmZXR3ZJiaWbT4eVFOcZf/Jj9iwSY0dtbs5fG
-	Q9m6Ep6bYwT1tl9MDgjfLwj46KNaDwmJX95T4RaOS4tZmxmTInBiiSG7+w7y25DWFf0Ah2
-	K8G40+l3/dVpOh8xBDjwoyCWP1Xusp8=
-DKIM-Signature: v=1; a=ed25519-sha256; c=relaxed/relaxed; d=suse.de;
-	s=susede2_ed25519; t=1780487485;
-	h=from:from:reply-to:date:date:message-id:message-id:to:to:cc:cc:
-	 mime-version:mime-version:content-type:content-type:
-	 in-reply-to:in-reply-to:references:references;
-	bh=uIeJZpdX8FCDjWAXiU77ogVQ0B8VkYFjD6D0OQC7A18=;
-	b=z08nhYPV1E3pSjmY8dnj/KUsuV7AN17ldgtTRzfkW/DiBQD8dzONmIhC46Q7J8idHUlHkt
-	JUUY+3VLSPA4/mCw==
-Authentication-Results: smtp-out1.suse.de;
-	none
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=suse.de; s=susede2_rsa;
-	t=1780487484; h=from:from:reply-to:date:date:message-id:message-id:to:to:cc:cc:
-	 mime-version:mime-version:content-type:content-type:
-	 in-reply-to:in-reply-to:references:references;
-	bh=uIeJZpdX8FCDjWAXiU77ogVQ0B8VkYFjD6D0OQC7A18=;
-	b=oFyz+dhjaeqWT7Truzwz4h9no5m6xSisEeu7H4N6wTmSn4R3Y/OsJi0AQ1HpeF/tAKk5Ye
-	TmdCqKwT/sbDV/a5iQUF21TUBq3QdDVCh8ZKiWVwNaBniEuMghV7dLEUNde6yIFVttdnqB
-	bIaatVvaryXEIZxJ3tKzs6NR9L6I9U8=
-DKIM-Signature: v=1; a=ed25519-sha256; c=relaxed/relaxed; d=suse.de;
-	s=susede2_ed25519; t=1780487484;
-	h=from:from:reply-to:date:date:message-id:message-id:to:to:cc:cc:
-	 mime-version:mime-version:content-type:content-type:
-	 in-reply-to:in-reply-to:references:references;
-	bh=uIeJZpdX8FCDjWAXiU77ogVQ0B8VkYFjD6D0OQC7A18=;
-	b=8+ubzr4LKhjqgIw6B8HAYIBMlI/o1uUjb6pNV7y8iq23Vl/Go3QS/QWW5T0LjX8dhS5mS2
-	+hI0sxVvmnd7LeDw==
-Received: from imap1.dmz-prg2.suse.org (localhost [127.0.0.1])
-	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
-	 key-exchange X25519 server-signature RSA-PSS (4096 bits) server-digest SHA256)
-	(No client certificate requested)
-	by imap1.dmz-prg2.suse.org (Postfix) with ESMTPS id D22DC779A7;
-	Wed,  3 Jun 2026 11:51:22 +0000 (UTC)
-Received: from dovecot-director2.suse.de ([2a07:de40:b281:106:10:150:64:167])
-	by imap1.dmz-prg2.suse.org with ESMTPSA
-	id doglMDoVIGo+YwAAD6G6ig
-	(envelope-from <pfalcato@suse.de>); Wed, 03 Jun 2026 11:51:22 +0000
-Date: Wed, 3 Jun 2026 12:51:21 +0100
-From: Pedro Falcato <pfalcato@suse.de>
-To: Usama Arif <usama.arif@linux.dev>
-Cc: Jan Kara <jack@suse.cz>, willy@infradead.org, 
-	Andrew Morton <akpm@linux-foundation.org>, david@kernel.org, ryan.roberts@arm.com, linux-mm@kvack.org, 
-	r@hev.cc, Andrew Donnellan <andrew+kernel@donnellan.id.au>, 
-	apopple@nvidia.com, baohua@kernel.org, baolin.wang@linux.alibaba.com, 
-	brauner@kernel.org, catalin.marinas@arm.com, dev.jain@arm.com, kees@kernel.org, 
-	kevin.brodsky@arm.com, lance.yang@linux.dev, "Liam R. Howlett" <liam@infradead.org>, 
-	linux-arm-kernel@lists.infradead.org, linux-fsdevel@vger.kernel.org, linux-kernel@vger.kernel.org, 
-	ljs@kernel.org, mhocko@suse.com, npache@redhat.com, pasha.tatashin@soleen.com, 
-	rmclure@linux.ibm.com, rppt@kernel.org, surenb@google.com, vbabka@kernel.org, 
-	Al Viro <viro@zeniv.linux.org.uk>, wilts.infradead.org@pedro-suse.lan, ziy@nvidia.com, 
-	hannes@cmpxchg.org, kas@kernel.org, shakeel.butt@linux.dev, kernel-team@meta.com
-Subject: Re: [PATCH v6 2/2] mm: use mapping_max_folio_order() for
- force_thp_readahead order
-Message-ID: <aiAUoWiXNpUY_iIg@pedro-suse.lan>
-References: <20260528165635.2068012-1-usama.arif@linux.dev>
- <20260528165635.2068012-3-usama.arif@linux.dev>
- <ahlh2vdHEGo6ZSot@pedro-suse.lan>
- <cc9a1cf7-7b96-439a-b0be-ecdcf27b5da5@linux.dev>
- <ahmSolHvUChl-3vM@pedro-suse.lan>
- <185f1caf-b33d-4467-beb5-51bd8520ac78@linux.dev>
- <u52xvwk2fjjk2izdb4wvuqq2zhc5neb4q6usimcxejluuyngxw@d64sc6rvojyp>
- <ah8Qcxuugn5tTilK@pedro-suse>
- <68ca2764-ca7c-482e-8e78-8c112ce01f99@linux.dev>
+	Wed, 03 Jun 2026 12:00:03 +0000
+Received: by mail-wm1-x333.google.com with SMTP id 5b1f17b1804b1-490b915ded5so4646105e9.3
+        for <linux-arm-kernel@lists.infradead.org>; Wed, 03 Jun 2026 05:00:01 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=gmail.com; s=20251104; t=1780488000; x=1781092800; darn=lists.infradead.org;
+        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
+         :to:from:from:to:cc:subject:date:message-id:reply-to;
+        bh=RDe3rLy4zwbLWq8QIOjW3QNgCqdLF/T/ByhSBBeRxlg=;
+        b=hPi6xIVSY8IRIjYY4uPoRRNU2raMfsr3QLQSkhw64bh3IBc5PVuK9IUIKBu6yNVOS3
+         O1kYwAq2/LAD/k5aDGqgSlbTMXt355z3GuWDK+VuyC+7q1WghZStuCrEMFeR7ZfPMQNg
+         IAuJ2SWYkEKDeg3aNCc85v5FCSZpSA3HYGebTo0dJt2o017Vb3St8OLmv2N8lEDsaGvC
+         PL7+Nu7VLnEh0UrchjVL+F6gnQCwmR9nCxwwlTlpcc4FHf1QApHx0w0jlGYMhA1PERJv
+         F0qNJjnn6x1EyH420YmnR4LLVojDUSAV0D/tAGThnvPPYiHhVPZnDhfWZdII6x6WleKW
+         7dkg==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20251104; t=1780488000; x=1781092800;
+        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
+         :to:from:x-gm-gg:x-gm-message-state:from:to:cc:subject:date
+         :message-id:reply-to;
+        bh=RDe3rLy4zwbLWq8QIOjW3QNgCqdLF/T/ByhSBBeRxlg=;
+        b=aakj4TBzZWq6MY5y7iTzrBV3ktcjcL8T4moKQPIYdUlHfivgSneJaW8qovbXpz65MD
+         xUtWa9VpWDxryg981mx1heA9FG7ypcuab9KxgeHh4/9kXxqrCWSzESQC7Qd6afdaHQ6c
+         I9hdws1DjMBhfX3Eho6JpskMkq1OT/lIhmrJNEX60a3JWXxSKZGThv9WeqPSVJqOu1tB
+         3MbKCuskF5vC9AcKcTKdEs2CAgjzqnhfNpdT3Cx6p3ng/fLv2ABExz1plUhgF3AMWOlU
+         73ch1Z0CCRkCozR3cXVP7momrpsoK97v9Cur0SBzO691ZNYcN9fQxHVY2LtZhc6A3Qhu
+         Q8xA==
+X-Forwarded-Encrypted: i=1; AFNElJ8aVq77rntgKBQzwt1bo29yiavTdXmj28q3N5dSyxtwaua3iUdrUv5cDb/T/WUT7iU29jjMEJ8hYz21M26dAfUH@lists.infradead.org
+X-Gm-Message-State: AOJu0YwOwgA8mZ5y76U77VZDNgpXItIGiBO1+fyeomsnZuEoqtdGsrTZ
+	6w+Odybp97DBLgnRv8x2pqwK4LufAkTws+37AbQASY6nPUY5fT0Pw83c
+X-Gm-Gg: Acq92OF4vH2no0T7lsN2fGtykhTtSCId/siyr9GA0FvWBl4UdDSIpKIN/oTs0SioCI/
+	uHD3oXunwnTnVug/jgSXmH3iuXz9hGOVdWVq+P3vN1ANmTOmQexCHA6A1DI20zjkvX+dheBfsLL
+	IZngYrJlgFAMjudQ+lDwraZuFvv71m3aRGudnbmAtwNFw+Ynhdxi048Drl1n5ARTVYx923A/usD
+	jhGyjNQb849Sxpp5uuDSfWTFc3JPQfhzsJgOGIgdJgO3xdnWFYalPDYHj9eA/IlowCrLayTg4WT
+	XxmovHA+1+Pj3BWSPS3v8yXZE0SgEpUtbRmhAwbS0Du6EWY/wf0PZ4eXR/DCyRFmG8U0yIsUoaI
+	jMcY0vBLDXgNMgUpFdyxvtEYHOihuMNu3YiPStiU0YcvLCfcMdxYPE+3xko4T4A3DAG0uG76Mtv
+	ue/zofWcfGZIptXK9D/Xk8gO7niUV+SJo9dj21/flyAwOJaFTlBHhAXGasCfqSfLnq9AQYzEifL
+	DtpEiaaIHFO1VNRih6/jy7RKb7kpvlHKiwmu1OZKE3dFw/6
+X-Received: by 2002:a05:600c:3ba9:b0:490:b072:1be6 with SMTP id 5b1f17b1804b1-490b60f6d03mr55331115e9.25.1780488000209;
+        Wed, 03 Jun 2026 05:00:00 -0700 (PDT)
+Received: from Lord-Beerus.station (net-93-144-65-244.cust.vodafonedsl.it. [93.144.65.244])
+        by smtp.gmail.com with ESMTPSA id ffacd0b85a97d-4601f344762sm7771928f8f.23.2026.06.03.04.59.59
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Wed, 03 Jun 2026 04:59:59 -0700 (PDT)
+From: Stefano Radaelli <stefano.radaelli21@gmail.com>
+X-Google-Original-From: Stefano Radaelli <stefano.r@variscite.com>
+To: linux-kernel@vger.kernel.org,
+	devicetree@vger.kernel.org,
+	imx@lists.linux.dev,
+	linux-arm-kernel@lists.infradead.org
+Cc: pierluigi.p@variscite.com,
+	Stefano Radaelli <stefano.r@variscite.com>,
+	Rob Herring <robh@kernel.org>,
+	Krzysztof Kozlowski <krzk+dt@kernel.org>,
+	Conor Dooley <conor+dt@kernel.org>,
+	Frank Li <Frank.Li@nxp.com>,
+	Sascha Hauer <s.hauer@pengutronix.de>,
+	Pengutronix Kernel Team <kernel@pengutronix.de>,
+	Fabio Estevam <festevam@gmail.com>
+Subject: [PATCH v1 00/12] arm64: dts: imx8mp-var-som-symphony: align DTS with hardware revision
+Date: Wed,  3 Jun 2026 13:55:38 +0200
+Message-ID: <cover.1780487415.git.stefano.r@variscite.com>
+X-Mailer: git-send-email 2.47.3
 MIME-Version: 1.0
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-In-Reply-To: <68ca2764-ca7c-482e-8e78-8c112ce01f99@linux.dev>
-X-Spamd-Result: default: False [-2.80 / 50.00];
-	BAYES_HAM(-3.00)[100.00%];
-	SUSPICIOUS_RECIPS(1.50)[];
-	NEURAL_HAM_LONG(-1.00)[-1.000];
-	NEURAL_HAM_SHORT(-0.20)[-1.000];
-	MIME_GOOD(-0.10)[text/plain];
-	MISSING_XM_UA(0.00)[];
-	MIME_TRACE(0.00)[0:+];
-	RCVD_TLS_ALL(0.00)[];
-	RCPT_COUNT_TWELVE(0.00)[37];
-	ARC_NA(0.00)[];
-	TO_DN_SOME(0.00)[];
-	RCVD_VIA_SMTP_AUTH(0.00)[];
-	TAGGED_RCPT(0.00)[kernel];
-	R_RATELIMIT(0.00)[to_ip_from(RLxu57a9hfgn7tttf5jiwuqe5o)];
-	FROM_EQ_ENVFROM(0.00)[];
-	FROM_HAS_DN(0.00)[];
-	FUZZY_RATELIMITED(0.00)[rspamd.com];
-	TO_MATCH_ENVRCPT_ALL(0.00)[];
-	DKIM_SIGNED(0.00)[suse.de:s=susede2_rsa,suse.de:s=susede2_ed25519];
-	RCVD_COUNT_TWO(0.00)[2];
-	DBL_BLOCKED_OPENRESOLVER(0.00)[imap1.dmz-prg2.suse.org:helo,pedro-suse.lan:mid]
+Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260603_045127_646383_8B31A05E 
-X-CRM114-Status: GOOD (  36.18  )
+X-CRM114-CacheID: sfid-20260603_050002_383884_08DEB321 
+X-CRM114-Status: UNSURE (   9.29  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -146,91 +108,33 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Wed, Jun 03, 2026 at 11:10:45AM +0100, Usama Arif wrote:
-> 
-> 
-> On 02/06/2026 18:35, Pedro Falcato wrote:
-> > On Sat, May 30, 2026 at 05:16:29PM +0200, Jan Kara wrote:
-> >> On Fri 29-05-26 15:11:54, Usama Arif wrote:
-> >>> On 29/05/2026 14:40, Pedro Falcato wrote:
-> >>>> On Fri, May 29, 2026 at 01:19:03PM +0100, Usama Arif wrote:
-> >>>>>
-> >>>>> which means mapping_max_folio_order(mapping) <= MAX_PAGECACHE_ORDER <= HPAGE_PMD_ORDER is always
-> >>>>> true, and you dont need the min3(..) in your diff.
-> >>>>>
-> >>>>> Now the question is if then why not just do:
-> >>>>>
-> >>>>> 	if (IS_ENABLED(CONFIG_TRANSPARENT_HUGEPAGE) && (vm_flags & VM_HUGEPAGE)) {
-> >>>>> 		if (mapping_large_folio_support(mapping)) {
-> >>>>> 			force_thp_readahead = true;
-> >>>>> 			thp_order = min_t(unsigned int,
-> >>>>> 					  mapping_max_folio_order(mapping),
-> >>>>> 					  get_order(SZ_2M));
-> >>>>> 		}
-> >>>>> 	}
-> >>>>>
-> >>>>>
-> >>>>> This is because this will regress the 16K ARM case where we already got 32M
-> >>>>> folios. Someone might upgrade the kernel and start getting 2M folios now.
-> >>>>
-> >>>> So maybe limit to 32MB? It's still arbitrary but at least you get simpler
-> >>>> logic. If the architecture does not support 32MiB folios, it will clamp
-> >>>> the maximum folio order to HPAGE_PMD_ORDER, and you get the same result.
-> >>>>
-> >>>> Does this sound correct?
-> >>>>
-> >>>
-> >>> Yes, so if we replace it with SZ_32M, it sounds correct. I just think
-> >>> the 32M size is too large. But as you pointed out, even 2M can be too large...
-> >>
-> >> So AFAIU the practical discussion is about two options:
-> >>
-> >> 1) limiting at 2MB with a slighly more complicated logic to keep mapping at
-> >> PMD order for 16k pagesize on ARM but use 2MB pages for 64k pagesize on ARM
-> >>
-> >> or
-> >>
-> >> 2) limit at 32MB with simple logic which results in larger (32MB) folios
-> >> with 16k and 64k pagesize on ARM and thus larger memory overhead.
-> >>
-> >> I'd like to maybe offer option 3): limit at 2MB with simple logic. This
-> >> will reduce folio size on 16k pagesize ARM compared to 1) but do we really
-> >> care? I.e., is there big enough practical performance impact with conpte
-> >> and other tricks ARM is playing?
-> >>
-> > 
-> > arm64 16K contpte tops out at 256KB TLB entries. It's quite a lot smaller than
-> > a PMD entry. Also, something that was discussed at LSFMM was its effectiveness.
-> > Apparently, most of the gains seem to sit on actually having a larger page size
-> > (perhaps Dev/Ryan can comment; sadly the slides were not posted anywhere on
-> > the ML, so I don't have numbers).
-> > 
-> > To me, the question is quite clear: do we trust users that say "please give me
-> > hugepages" enough to unconditionally give them hugepages? I would assume the
-> > answer lies somewhere between "yes" and "no", but 32MB I would say is not
-> > particularly excessive. 512MB is... much worse.
-> > 
-> 
-> I think the other question also is, if the userspace asks for hugepages, is it asking
-> for the biggest possible one? I think the answer is yes on 4K base page size when
-> largest is 2M, but maybe not the case for 16K and 64K. 
+This series updates the i.MX8MP VAR-SOM and Symphony device trees to
+better align them with the current hardware configuration.
 
-Yep, fully agree, the interface itself is limited. Though perhaps userspace
-itself would not know...
+It adds the missing board peripherals and completes the related pinctrl,
+GPIO and bus configuration.
 
-> 
-> /sys/kernel/mm/transparent_hugepage/hugepages-* is supposed to be used
-> for anon only, but maybe in the future we could use that to determine the size
-> of THP to give to the user for file over here? For e.g. over here we could have
-> used it to determine what the biggest size is that has madvise (or always) set
-> and used it over here. Its probably a much bigger discussion.
+Stefano Radaelli (12):
+  arm64: dts: imx8mp-var-som-symphony: add input keys
+  arm64: dts: imx8mp-var-som-symphony: enable USB support
+  arm64: dts: imx8mp-var-som-symphony: add TPM support
+  arm64: dts: imx8mp-var-som-symphony: add external RTC
+  arm64: dts: imx8mp-var-som-symphony: enable header UARTs
+  arm64: dts: imx8mp-var-som-symphony: enable PCIe
+  arm64: dts: imx8mp-var-som-symphony: add HDMI support
+  arm64: dts: imx8mp-var-som-symphony: add capacitive touchscreen
+  arm64: dts: imx8mp-var-som-symphony: enable ECSPI2
+  arm64: dts: imx8mp-var-som-symphony: keep RGB_SEL low
+  arm64: dts: imx8mp-var-som-symphony: enable PWM1
+  arm64: dts: freescale: imx8mp-var-som: add I2C1 bus recovery GPIOs
 
-Hmm, I'm not a huge fan of those toggles (that not many people know how to
-toggle), maybe using those would be a mistake. Do note that shmem already has
-its own set of confusing toggles, which work similarly to these anon ones.
+ .../dts/freescale/imx8mp-var-som-symphony.dts | 307 +++++++++++++++++-
+ .../boot/dts/freescale/imx8mp-var-som.dtsi    |  12 +-
+ 2 files changed, 317 insertions(+), 2 deletions(-)
 
-But, yes, it's a much bigger discussion :)
 
+base-commit: b3c1d1631f097619f8091f0293e027c4301285d6
 -- 
-Pedro
+2.47.3
+
 
