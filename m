@@ -4,63 +4,106 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 31627CD6E55
-	for <linux-arm-kernel@archiver.kernel.org>; Wed,  3 Jun 2026 19:27:57 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id C0FFFCD6E55
+	for <linux-arm-kernel@archiver.kernel.org>; Wed,  3 Jun 2026 19:53:09 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:
-	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Content-Type:Cc:To:Subject:Message-ID:Date:From:In-Reply-To:References:
+	MIME-Version:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=mIccNETEsaVgsXVsdiNeLcJNTcvR+VVsNEPVr66vAb8=; b=BzvgseMm2jSccMKaoRqzJNCscl
-	AYfW4zt76b/mmnQAfPbF8GQnqTnU+t6m5BR7I99TQI4dPFTsbi4inqkHROkLQ1PDMpdc7BESuoTFU
-	ov4SSR230fsMt1bCI2mXlB0BmKXxrYfe9jVZQeV7nxDqbukIfIejkkJxfaGpnObxzqdSGSQC1b4ja
-	LJOx4FmU6o8UxFDWs2ZoGSxQKqlIvTDtQwX9NMhmXiT5Ktgu2uw8Qq4Z+NG0OoXkBA9m1jRH3DKqe
-	3JuU/11S3TIRG4duK5qyoY1tfHyMiOsh5kwUpGeuH7t34ZSYhRswgmGno0zjZJcWPueG4eoOdAGac
-	QTgMPXdQ==;
+	bh=5CjYWfuw46cQGe2he7C4ADsV/syPYLLl4cXDp18Yd+4=; b=q20+OdIwmHjaxi4SXz+OGAoo00
+	5ryY9dLxI+rL+KFtOvViLQfhN1wYukY+w493f0ZWHqNY3iyv47nwKErTD9brWJLa7lUWtPQbCrq+0
+	BnqP62gJlEzAO6j+eD0rzQ91ZTE5mcnd+4HSR+BgLt7wdCmbzfZAJtzh26xhvxj28FiVVH4g4vK/1
+	JJeI6oTumHMWWRTCqHNYAJ5juWsdZowBTSQyapxf37NmuSN+dlTmN+dqxdnn4RoqRY+HzflL2qoOq
+	8MBfspfI32SyK2IKk55Vjn3t03ONYr/2fUzn67ADdm92zvIAc2kiQzOFUKsb7fgypo3LP8ya7rUSQ
+	ca875ZMA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wUrFn-0000000FktU-0sUt;
-	Wed, 03 Jun 2026 19:27:51 +0000
-Received: from out-189.mta0.migadu.com ([2001:41d0:1004:224b::bd])
+	id 1wUre8-0000000FmR6-3dAe;
+	Wed, 03 Jun 2026 19:53:00 +0000
+Received: from mail-lf1-x12d.google.com ([2a00:1450:4864:20::12d])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wUrFl-0000000FksR-0Z2y
+	id 1wUre5-0000000FmQa-420o
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 03 Jun 2026 19:27:50 +0000
-X-Report-Abuse: Please report any abuse attempt to abuse@migadu.com and include these headers.
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=linux.dev; s=key1;
-	t=1780514865;
-	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
-	 to:to:cc:cc:mime-version:mime-version:
-	 content-transfer-encoding:content-transfer-encoding:
-	 in-reply-to:in-reply-to:references:references;
-	bh=mIccNETEsaVgsXVsdiNeLcJNTcvR+VVsNEPVr66vAb8=;
-	b=nvMkxRvD7yo2PyPijIONheRnh1BM02mO+6I2SyIc6xYmyyAV0ZEgzVCKKrRszpNdBDBfge
-	2Hb4op9LlXbKxpK34ef2PEnXTQmXQ1eS55pjY+6Cwn/0+RgDGE3EQHT/2j03NXuJn86XHj
-	0mHhbN1cHOuXSncOn2L/CZP2JCz7jvs=
-From: Thorsten Blum <thorsten.blum@linux.dev>
-To: Thorsten Blum <thorsten.blum@linux.dev>,
-	Herbert Xu <herbert@gondor.apana.org.au>,
-	"David S. Miller" <davem@davemloft.net>,
-	Nicolas Ferre <nicolas.ferre@microchip.com>,
-	Alexandre Belloni <alexandre.belloni@bootlin.com>,
-	Claudiu Beznea <claudiu.beznea@tuxon.dev>
-Cc: linux-crypto@vger.kernel.org,
-	linux-arm-kernel@lists.infradead.org,
-	linux-kernel@vger.kernel.org
-Subject: [PATCH 2/2] crypto: atmel-ecc - clean up and improve ECDH comments
-Date: Wed,  3 Jun 2026 21:27:11 +0200
-Message-ID: <20260603192708.1237715-5-thorsten.blum@linux.dev>
-In-Reply-To: <20260603192708.1237715-4-thorsten.blum@linux.dev>
-References: <20260603192708.1237715-4-thorsten.blum@linux.dev>
+	Wed, 03 Jun 2026 19:52:59 +0000
+Received: by mail-lf1-x12d.google.com with SMTP id 2adb3069b0e04-5aa6cdebc33so3419133e87.2
+        for <linux-arm-kernel@lists.infradead.org>; Wed, 03 Jun 2026 12:52:57 -0700 (PDT)
+ARC-Seal: i=1; a=rsa-sha256; t=1780516376; cv=none;
+        d=google.com; s=arc-20240605;
+        b=FPdSJ3eU0C9EXCiWjaP219/dZX2KY8HJ//ikVUr32U9qcM9ORRRUoUcIybgEFnqTCi
+         SYpHO/8SHkz2ypwlEWl+Qi9nd3s2KfoeQSNdwKo/f9mp9UWypgOXq+PIWhEe+J2caWA9
+         H2PpGrLSXhhpK1kneZ/HGeobbgam7TwbBLG5mmsRp+A5/6I19Dgb3PWwlvZqnNKGDzkU
+         W72BP3y4z7wUz/s+FNmGc0PmyIrHNofpjMvO0LP3iIuUQFjmoEW4BkY0QmbRL70lB+RV
+         /UtxNDfxHg7Dz3taAPVcEdo2bK5Si5EPefuc2F8c4l98A5H+CfNHnDsMvpylJC6VmM7h
+         LPgw==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20240605;
+        h=content-transfer-encoding:cc:to:subject:message-id:date:from
+         :in-reply-to:references:mime-version:dkim-signature;
+        bh=5CjYWfuw46cQGe2he7C4ADsV/syPYLLl4cXDp18Yd+4=;
+        fh=uL2zloJThhsNHQjzlmlXTYP5DgePnP/k4/enU5K+y40=;
+        b=XM74BLr1BJ/zSEvGLbhfMEtT/pfJeeCU3jWFwvmuv7nTfU3uwpxGLHsmCOtWr3zlut
+         F3bbllYHyAyxaF+RaBNSt8KfcwDHZG0gMuRAOfMVyGBFyBWR+t4aGqrNeVoL5JNpILsR
+         SLULWNmjpd3d2IWOnmbQc57gwXpWDXEOUzDghb0uRSfZKMVTVKYkf58kW3M5JbckQlJq
+         kzf+NpLyJRvumtC1gfatpuAYgximv1Htc6vO6wO0UVWKRJd56wumwqjbajF1NNcR0dr8
+         dugOd18mq7Af9IADXOxCHtMJVWU+984wTSBh/ij0rXKiOUPwoc4s5yzl7iPMgqciQpb5
+         HJDA==;
+        darn=lists.infradead.org
+ARC-Authentication-Results: i=1; mx.google.com; arc=none
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=gmail.com; s=20251104; t=1780516376; x=1781121176; darn=lists.infradead.org;
+        h=content-transfer-encoding:cc:to:subject:message-id:date:from
+         :in-reply-to:references:mime-version:from:to:cc:subject:date
+         :message-id:reply-to;
+        bh=5CjYWfuw46cQGe2he7C4ADsV/syPYLLl4cXDp18Yd+4=;
+        b=W0Ts4Byf4uIw9kSDJWYmgD3ck1vfdSQmcvHkRFdVXJrWt7R3fwZntVlhBoCUi6+RlN
+         20GVl5NzeAPGSHDmdab4c0lTnG4Th6D3ifPF2Ng/CmfIpQw9L+/iomQhuN+I0cQh1Olz
+         qBTz/UHacXMvb6iE7inNkqNv+cppG0d3HxBJNuEkUwun7RXMUgiEXqsctXcCfw+0Ksxi
+         gGfJozzQZCWvkTwzpvI6TsYJ8nDKZ6hP/9utxdqsUoFq0ysU3gCSOyTXoKu/XxanOIMS
+         EpkgNCZ5lKbdP9TxtqddICLCBpD6Z8T+AkxeSoS4/feLgNdtme6Z3GozNNmefevARBFP
+         I5ug==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20251104; t=1780516376; x=1781121176;
+        h=content-transfer-encoding:cc:to:subject:message-id:date:from
+         :in-reply-to:references:mime-version:x-gm-gg:x-gm-message-state:from
+         :to:cc:subject:date:message-id:reply-to;
+        bh=5CjYWfuw46cQGe2he7C4ADsV/syPYLLl4cXDp18Yd+4=;
+        b=FopYlGBbmrkfyH7A09wy3pzuKKMZFTnu53Ee5lqJ9DG9RbKInzds6+IorBcOjEUWtN
+         lcehS0hVgdK4mRBEZF67j/f6oO1EU6Ktf3eKa0qbbe93Bs+LqHFicuc1X9+LVYIVWH/e
+         Sxt21NNQKXy862M5TWAm9NVDWx5I3RWeIXCJO1e3b+b2BVLzoO8xxKIOAccOrb5/qPzG
+         wW6cbGDFvPlsBxlN+Rf2s3kqs9Nr67F3OYLeXdkyknmMSc76OVM+AX/teG18SHoGY3zj
+         WYxNmxl1BVKP2lXTu69xW616J5RjBRCwaUSO7fcxAQ7ewF9nSIJQQFnJpcnHHpumFsR6
+         T9Vg==
+X-Forwarded-Encrypted: i=1; AFNElJ+XC5cYKfU8IPgL6B8hIh+Dr2tSWlzV8Lzv/LFM7wlXVrYLPORpYlwsyfnwTeO17Lg45S2PXVuYIUbKaewAoM8i@lists.infradead.org
+X-Gm-Message-State: AOJu0YxUGfuey47zyLPKF6JZTlhfOTeei5E/sqFKxrJMr2Qp4estWGFE
+	VEj/1K7oiIdIouTXUX1f8dQXJt3n35xKi1PQqEhC5MAVWMoCvreCf01TYAxCfT+hW6eO7kltKLm
+	OHJB2DLWx4L5Zh1apqVobnqs2wYC28VY=
+X-Gm-Gg: Acq92OGTWkFWJdBZiifhOmp6nT34qNyE6IxkfdHrGaGnReah3stGy84SSVKZbnIRLS4
+	PqhjZQMklkCWFNPlVCXS0bU1ly0dkEEql7c/UfXhnExeWjR8P1MoP8v0psFsKZzoffxCTO9rCP8
+	ie4J+g5QRd5RP6ccHYj7KdszkzjRcNSCZnmKAh9VSP28qedDkEw0hw9urK6jJG5zEk16bWktNwh
+	wbwt3tkgxVp1+Hx0biqkNCPkqNYyi8mcPnELS6AY35wqdoFWM3/NQHrp9RgcnBQY1g4MogCgK5R
+	YBLeVjpiao044OU4A67Mid1KulND9GzU7UaJ88HoChJJeS18g8usYwI6TU8OFMfDtRAQ4KNAAk2
+	SatFFminZ3bMg3VqKzfCtVgHoftLu2FeHL/giDpbkFLukwSEo8uAwDr/GVX/Is7+XzAYS
+X-Received: by 2002:a05:6512:10d2:b0:5aa:6a83:4dbe with SMTP id
+ 2adb3069b0e04-5aa7c0af4bfmr1548683e87.16.1780516375512; Wed, 03 Jun 2026
+ 12:52:55 -0700 (PDT)
 MIME-Version: 1.0
-X-Developer-Signature: v=1; a=openpgp-sha256; l=5151; i=thorsten.blum@linux.dev; h=from:subject; bh=WDSgSckh8g9+f4668nJMYJAMuCO0geaqbEBfilh+t5Y=; b=owGbwMvMwCUWt7pQ4caZUj3G02pJDFkKDWK+ksLXE/4vnCKmNDnYqP+stWHS1Yi8oA3eZ2J7H u8UW1zaUcrCIMbFICumyPJg1o8ZvqU1lZtMInbCzGFlAhnCwMUpABPJXsrwi+n8gysNu9ZZVVl/ zojiNzY+93LbiyS9Y5/f6f5m3jxBxZeRYWXfPfWHztn3fyhVLLIrOjftrMdpw8XXL5mdaGy7dpM rgw8A
-X-Developer-Key: i=thorsten.blum@linux.dev; a=openpgp; fpr=1D60735E8AEF3BE473B69D84733678FD8DFEEAD4
-Content-Transfer-Encoding: 8bit
-X-Migadu-Flow: FLOW_OUT
+References: <20260602035717.623208-1-rosenp@gmail.com> <878fd338-b4d0-4e46-987c-5a0ee52989dc@amd.com>
+In-Reply-To: <878fd338-b4d0-4e46-987c-5a0ee52989dc@amd.com>
+From: Rosen Penev <rosenp@gmail.com>
+Date: Wed, 3 Jun 2026 12:52:43 -0700
+X-Gm-Features: AVHnY4LRsE2jv5lCvhjKQ2mfUtc8xNZTp8J8_S3W6GCVeMhXFbrDmadR2pgVY3E
+Message-ID: <CAKxU2N_U=Wk4f9ankopVBMRGH+YdTn8FOuyoDs4Of04o63bTHg@mail.gmail.com>
+Subject: Re: [PATCH] char: xilinx_hwicap: replace in_be32/out_be32 with ioread32be/iowrite32be
+To: Michal Simek <michal.simek@amd.com>
+Cc: linux-kernel@vger.kernel.org, Arnd Bergmann <arnd@arndb.de>, chleroy@kernel.org, 
+	Greg Kroah-Hartman <gregkh@linuxfoundation.org>, 
+	"moderated list:ARM/ZYNQ ARCHITECTURE" <linux-arm-kernel@lists.infradead.org>
+Content-Type: text/plain; charset="UTF-8"
+Content-Transfer-Encoding: quoted-printable
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260603_122749_455181_917F6DEA 
-X-CRM114-Status: GOOD (  20.12  )
+X-CRM114-CacheID: sfid-20260603_125258_043144_AF618248 
+X-CRM114-Status: GOOD (  14.66  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -75,133 +118,36 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Improve the kerneldoc for struct atmel_ecdh_ctx by removing the stale
-"unsupported curves" wording, since the device only supports a single
-curve (P-256), and move the set_secret() constraint to the description.
+On Mon, Jun 1, 2026 at 11:22=E2=80=AFPM Michal Simek <michal.simek@amd.com>=
+ wrote:
+>
+>
+>
+> On 6/2/26 05:57, Rosen Penev wrote:
+> > Mechanical conversion of the ppc4xx-specific accessors to the generic
+> > portable helpers.
+> >
+> > As a result, COMPILE_TEST is added for extra compile coverage.
+> >
+> > Assisted-by: opencode:big-pickle
+> > Signed-off-by: Rosen Penev <rosenp@gmail.com>
+> > ---
+> >   drivers/char/Kconfig                     |  2 +-
+> >   drivers/char/xilinx_hwicap/buffer_icap.c | 16 +++++------
+> >   drivers/char/xilinx_hwicap/fifo_icap.c   | 34 +++++++++++------------=
+-
+> >   3 files changed, 24 insertions(+), 28 deletions(-)
+>
+> I don't really mind about this because I think that we can also remove th=
+e whole
+> driver.
+I looked into this. The problem here is that there are actual users
 
-In atmel_ecdh_set_secret(), clarify that the device generates the
-private key, and drop the redundant "only supports NIST P256" comment.
+arch/microblaze/boot/dts/system.dts
 
-In atmel_ecdh_done() and atmel_ecdh_generate_public_key(), clarify the
-truncation comments. Also note that a P-256 public key consists of two
-32-byte coordinates in atmel_ecdh_compute_shared_secret(), and remove
-the unnecessary fall-through comment and other redundant comments.
+and
 
-Signed-off-by: Thorsten Blum <thorsten.blum@linux.dev>
----
- drivers/crypto/atmel-ecc.c | 37 ++++++++++++++-----------------------
- 1 file changed, 14 insertions(+), 23 deletions(-)
-
-diff --git a/drivers/crypto/atmel-ecc.c b/drivers/crypto/atmel-ecc.c
-index 9387eea4513d..1443e18a9cee 100644
---- a/drivers/crypto/atmel-ecc.c
-+++ b/drivers/crypto/atmel-ecc.c
-@@ -27,15 +27,15 @@ static struct atmel_ecc_driver_data driver_data;
- 
- /**
-  * struct atmel_ecdh_ctx - transformation context
-- * @client     : pointer to i2c client device
-- * @fallback   : used for unsupported curves or when user wants to use its own
-- *               private key.
-- * @public_key : generated when calling set_secret(). It's the responsibility
-- *               of the user to not call set_secret() while
-- *               generate_public_key() or compute_shared_secret() are in flight.
-+ * @client     : I2C client device
-+ * @fallback   : ECDH fallback used for caller-provided private keys
-+ * @public_key : cached public key corresponding to the device-generated
-+ *               private key
-  * @curve_id   : elliptic curve id
-- * @do_fallback: true when the device doesn't support the curve or when the user
-- *               wants to use its own private key.
-+ * @do_fallback: true when ECDH operations should use @fallback
-+ *
-+ * The caller must not invoke set_secret() while generate_public_key()
-+ * or compute_shared_secret() are in flight.
-  */
- struct atmel_ecdh_ctx {
- 	struct i2c_client *client;
-@@ -55,7 +55,7 @@ static void atmel_ecdh_done(struct atmel_i2c_work_data *work_data, void *areq,
- 	if (status)
- 		goto free_work_data;
- 
--	/* might want less than we've got */
-+	/* copy only as much as requested, capped at 32 bytes */
- 	n_sz = min(ATMEL_ECC_NIST_P256_N_SIZE, req->dst_len);
- 
- 	/* copy the shared secret */
-@@ -64,15 +64,15 @@ static void atmel_ecdh_done(struct atmel_i2c_work_data *work_data, void *areq,
- 	if (copied != n_sz)
- 		status = -EINVAL;
- 
--	/* fall through */
- free_work_data:
- 	kfree_sensitive(work_data);
- 	kpp_request_complete(req, status);
- }
- 
- /*
-- * A random private key is generated and stored in the device. The device
-- * returns the pair public key.
-+ * If no private key is provided, generate one in the device and cache
-+ * the corresponding public key. The generated private key never leaves
-+ * the device.
-  */
- static int atmel_ecdh_set_secret(struct crypto_kpp *tfm, const void *buf,
- 				 unsigned int len)
-@@ -83,9 +83,7 @@ static int atmel_ecdh_set_secret(struct crypto_kpp *tfm, const void *buf,
- 	struct ecdh params;
- 	int ret = -ENOMEM;
- 
--	/* free the old public key, if any */
- 	kfree(ctx->public_key);
--	/* make sure you don't free the old public key twice */
- 	ctx->public_key = NULL;
- 
- 	if (crypto_ecdh_decode_key(buf, len, &params) < 0) {
-@@ -94,7 +92,6 @@ static int atmel_ecdh_set_secret(struct crypto_kpp *tfm, const void *buf,
- 	}
- 
- 	if (params.key_size) {
--		/* fallback to ecdh software implementation */
- 		ctx->do_fallback = true;
- 		return crypto_kpp_set_secret(ctx->fallback, buf, len);
- 	}
-@@ -103,11 +100,6 @@ static int atmel_ecdh_set_secret(struct crypto_kpp *tfm, const void *buf,
- 	if (!cmd)
- 		return -ENOMEM;
- 
--	/*
--	 * The device only supports NIST P256 ECC keys. The public key size will
--	 * always be the same. Use a macro for the key size to avoid unnecessary
--	 * computations.
--	 */
- 	public_key = kmalloc(ATMEL_ECC_PUBKEY_SIZE, GFP_KERNEL);
- 	if (!public_key)
- 		goto free_cmd;
-@@ -120,7 +112,6 @@ static int atmel_ecdh_set_secret(struct crypto_kpp *tfm, const void *buf,
- 	if (ret)
- 		goto free_public_key;
- 
--	/* save the public key */
- 	memcpy(public_key, &cmd->data[RSP_DATA_IDX], ATMEL_ECC_PUBKEY_SIZE);
- 	ctx->public_key = public_key;
- 
-@@ -149,7 +140,7 @@ static int atmel_ecdh_generate_public_key(struct kpp_request *req)
- 	if (!ctx->public_key)
- 		return -EINVAL;
- 
--	/* might want less than we've got */
-+	/* copy only as much as requested, capped at 64 bytes */
- 	nbytes = min(ATMEL_ECC_PUBKEY_SIZE, req->dst_len);
- 
- 	/* public key was saved at private key generation */
-@@ -175,7 +166,7 @@ static int atmel_ecdh_compute_shared_secret(struct kpp_request *req)
- 		return crypto_kpp_compute_shared_secret(req);
- 	}
- 
--	/* must have exactly two points to be on the curve */
-+	/* A P-256 public key must contain two 32-byte coordinates */
- 	if (req->src_len != ATMEL_ECC_PUBKEY_SIZE)
- 		return -EINVAL;
- 
+arch/mips/boot/dts/xilfpga/nexys4ddr.dts
+> Thanks,
+> Michal
 
