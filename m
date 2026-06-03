@@ -4,94 +4,135 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 43FD0CD6E6C
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 1DCD9CD6E60
 	for <linux-arm-kernel@archiver.kernel.org>; Wed,  3 Jun 2026 15:19:38 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:
-	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=B2CWGyb/jy+luBGe9CF0J2PFthBHN8proHGbNilHQH0=; b=dFWX7ufJX54vZjo6aJlp+MdHoO
-	AqsZjORUfHAv3XCIZNY0ciB0jzcQXGg7gLFd5F+JyNR6PzlsLLK44y6AF60M+V0UhACNrUVWLq2oB
-	0d79d+i0oB+bY9IEzuQBILS7srRT4vdV6yERxBV0pGuFuAC12v6jTb/M/U2aA6WFEw23er444rIc3
-	6p9XmNmi5P7KW4QZZePpQjqyEBX7C4Vjr0QPs7eAVfLOINk01KZDSR1VN+O//D57vcE5kuDlJBxu6
-	1yY1wyluGAzdt7cneeM6dfHTP37mvNV41nABtwKFCpuwvFc64OU/ZZiI3cXYdm1GS/tXYdO16trkR
-	5EvdVnIg==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:
+	Content-Transfer-Encoding:Content-Type:In-Reply-To:From:References:To:Subject
+	:Date:Message-ID:Reply-To:Cc:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=qEOOWQCKoQTUHOgTwDfguTIq0f4e7+VzfnrSTgZ6iMk=; b=mlw51d/8vCD6VDnklyU+JfiziK
+	Iu6ME3fUBS/xb3rSgkPBsoI9ROSMZZ8u4FDWZ1qKPMuWnYanJ4PZUWzDlvnFnVb6bZwu6VpRbAZf/
+	oZsoLSXXKswrKYDs4x8b5PIGn2Hjsl4hwBD5uUCBpP6rOOvXrSpJOrIEI/ZX4P8WuZEwrw2yKVw4/
+	OeFMHp9vNoz14+O/ETOMNOkbHpdSEhka0w9y0tAd51xBvRBQjR74L7OerMq8Ka76Qtj4TBudhqBRg
+	4NAuP6RyIvi2wB1D1HiFeE/IY6xKJHUl8rRSXjqo3f0TGlI0AJh1edJE6uc3sFmptC1mfdQOpTLEM
+	lrku5CNg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wUnNJ-0000000FN8b-3Knx;
+	id 1wUnNJ-0000000FN87-2nDU;
 	Wed, 03 Jun 2026 15:19:21 +0000
-Received: from desiato.infradead.org ([90.155.92.199])
+Received: from mail-westcentralusazon11023125.outbound.protection.outlook.com ([40.93.201.125] helo=CY3PR05CU001.outbound.protection.outlook.com)
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wUnN5-0000000FMrn-1DmU
-	for linux-arm-kernel@bombadil.infradead.org;
-	Wed, 03 Jun 2026 15:19:07 +0000
-DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=infradead.org; s=desiato.20200630; h=Content-Transfer-Encoding:MIME-Version
-	:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:Sender:Reply-To:
-	Content-Type:Content-ID:Content-Description;
-	bh=B2CWGyb/jy+luBGe9CF0J2PFthBHN8proHGbNilHQH0=; b=Xhoje7itf7eo4ALhBGAs3FmCqn
-	ZQtRo1zHNO7GOkNcneFLuTpOoUHSCad1uxKZFUZeV6X5Cue6/tVIFkwdINDOaRHsuNb3MYA4TS6WY
-	2HeZxWaI90MtvizSTZuT/KZIrdRBwE04Ksae0izYRQ4Lhf2ZBB72MM3cfNrn8nmCGSMK786y6iHcP
-	YCLjOdLZgSuS61FDzbQM0Cd5FPLH/ODh6eN9IbUaD6azujqG3U7mB1MdePtajr/pmoQuki6g2Koai
-	hyPt4j/vC/QrghzPMxom5PqfLfcu09LwZ1COtCijNr+Z9jbevKWpX+GTuSQeMG1MBQR28zCCYAqe2
-	J5IrimpA==;
-Received: from out199-10.us.a.mail.aliyun.com ([47.90.199.10])
-	by desiato.infradead.org with esmtps (Exim 4.99.2 #2 (Red Hat Linux))
-	id 1wUnN2-0000000CXhV-1Ecq
+	id 1wUnN2-0000000FMmi-3yGl
 	for linux-arm-kernel@lists.infradead.org;
 	Wed, 03 Jun 2026 15:19:06 +0000
+ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
+ b=T6Sb6iIY+rc33XWz6l3n//f3ocrEeyJEmlL5VYAWZyVZe54AZrV2xTIoUjpgvg+A71KC3eDy8Ru//rOPgXOE6qoTrxuxvDZaLLchYEhmPAfFHsFlBwleiX2PB6ARH3fKkuYG5fXbZFIf0iNYA3YR843keCVLGQZHxpVyuN4kGFKcrtuHgGUlTHFGECXOoLoPxodnW2gwdbZThuIk7TC3ZsdTuSMM4Eq6ZUnIoRvpsyTMPuCopxa0VhWhAJRsVQFoiLhZK6WWSwuNf8PP54mnMCmH+FF8S3t4saMXjlhn+eTRMG3TTjWVY/4RAcvJWLL2c2l41r8ZDQ7DQxrmw8fP6w==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
+ s=arcselector10001;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
+ bh=qEOOWQCKoQTUHOgTwDfguTIq0f4e7+VzfnrSTgZ6iMk=;
+ b=hm2rqNh/2YmpdoEh3NQvZxxk7XtgpvNCErOHc4GJhjts1qwMQpEHREYBdJ5eT8dzbEPxLNRDyrnq9op9AwA5aXrP1Yj4HXS/jYKvXMQqC80aBWP2geGsMuVlmVEvhMHyxKmWkQkl7udh6j8BPQjjEvaA1nucBrcjpfHR9b5dxcoP2e/REieHviuct8WeBPTE/lRDKi4UTYxQZB27/hG7IzJSxQiPrj/T2hLaaseeUXqBI/ZfnlmFeGUfpeQ+KRn2dwMT/1ns4dJ522/1g4q/ZK/QLbNZmKANxiw0m4XCbbgCQz/0SCC+0Yj5A0E9/4rFif98BUd732uxVtBSPHEbEg==
+ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
+ smtp.mailfrom=os.amperecomputing.com; dmarc=pass action=none
+ header.from=amperemail.onmicrosoft.com; dkim=pass
+ header.d=amperemail.onmicrosoft.com; arc=none
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-	d=linux.alibaba.com; s=default;
-	t=1780499938; h=From:To:Subject:Date:Message-ID:MIME-Version;
-	bh=B2CWGyb/jy+luBGe9CF0J2PFthBHN8proHGbNilHQH0=;
-	b=U3jtHoYmI9JraEWIDtxZuZpVz1+6UrR/jq4EnXftNI2jhoxHQBEi/loi9mbYloL5gGRjCAUA+sSxZGmvV+5wMtM5rEfLz/r+CjKy3oRCTUmG3DcKN8PKfSePZGeC93WYRzNmaUxd0QbIMdlcTpEck/XeEuJCBadaJ9Gvc52pyms=
-X-Alimail-AntiSpam: AC=PASS;BC=-1|-1;BR=01201311R921e4;CH=green;DM=||false|;DS=||;FP=0|-1|-1|-1|0|-1|-1|-1;HT=maildocker-contentspam033032089153;MF=guanghuifeng@linux.alibaba.com;NM=1;PH=DS;RN=28;SR=0;TI=SMTPD_---0X47fR4e_1780499934;
-Received: from VM20241011-104.tbsite.net(mailfrom:guanghuifeng@linux.alibaba.com fp:SMTPD_---0X47fR4e_1780499934 cluster:ay36)
-          by smtp.aliyun-inc.com;
-          Wed, 03 Jun 2026 23:18:54 +0800
-From: Guanghui Feng <guanghuifeng@linux.alibaba.com>
-To: jgg@ziepe.ca
-Cc: adrian.larumbe@collabora.com,
-	airlied@gmail.com,
-	alex@shazbot.org,
-	alikernel-developer@linux.alibaba.com,
-	baolu.lu@linux.intel.com,
-	boris.brezillon@collabora.com,
-	dri-devel@lists.freedesktop.org,
-	dwmw2@infradead.org,
-	iommu@lists.linux.dev,
-	joro@8bytes.org,
-	kevin.tian@intel.com,
-	kvm@vger.kernel.org,
-	linux-arm-kernel@lists.infradead.org,
-	linux-kernel@vger.kernel.org,
-	liviu.dudau@arm.com,
-	maarten.lankhorst@linux.intel.com,
-	mripard@kernel.org,
-	oliver.yang@linux.alibaba.com,
-	robh@kernel.org,
-	robin.murphy@arm.com,
-	shiyu.zsq@linux.alibaba.com,
-	steven.price@arm.com,
-	suravee.suthikulpanit@amd.com,
-	tzimmermann@suse.de,
-	wei.guo.simon@linux.alibaba.com,
-	will@kernel.org,
-	xlpang@linux.alibaba.com
-Subject: [PATCH v3 16/32] iommu/omap: implement iova_to_phys_length
-Date: Wed,  3 Jun 2026 23:17:48 +0800
-Message-ID: <20260603151804.1963871-17-guanghuifeng@linux.alibaba.com>
-X-Mailer: git-send-email 2.43.7
-In-Reply-To: <20260603151804.1963871-1-guanghuifeng@linux.alibaba.com>
-References: <20260602104637.1219810-1-guanghuifeng@linux.alibaba.com>
- <20260603151804.1963871-1-guanghuifeng@linux.alibaba.com>
-MIME-Version: 1.0
+ d=amperemail.onmicrosoft.com; s=selector1-amperemail-onmicrosoft-com;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
+ bh=qEOOWQCKoQTUHOgTwDfguTIq0f4e7+VzfnrSTgZ6iMk=;
+ b=Lv0DGNvfCVIfIQti9WEy25a8q4bVM3bVkkr9gHtIbtZTYIJXmQX1wXoscollQayQb2lnBJqeH3YO5w17+qo2R6FNWfkrRuRjapvqMwRV0quw9ExwT1AgOYAVw2pxZHUMU3fBGZh7evYY9WMMJgwESX10a/JS/QrFRFEIHPG90Cc=
+Authentication-Results: dkim=none (message not signed)
+ header.d=none;dmarc=none action=none header.from=amperemail.onmicrosoft.com;
+Received: from BN3PR01MB9212.prod.exchangelabs.com (2603:10b6:408:2cb::8) by
+ BL1PR01MB9477.prod.exchangelabs.com (2603:10b6:208:5d8::16) with Microsoft
+ SMTP Server (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
+ 15.21.92.7; Wed, 3 Jun 2026 15:18:58 +0000
+Received: from BN3PR01MB9212.prod.exchangelabs.com
+ ([fe80::44f3:1050:dce8:1ea9]) by BN3PR01MB9212.prod.exchangelabs.com
+ ([fe80::44f3:1050:dce8:1ea9%5]) with mapi id 15.21.0092.006; Wed, 3 Jun 2026
+ 15:18:58 +0000
+Message-ID: <e4c85028-2273-48fd-bfb9-40b3696475c7@amperemail.onmicrosoft.com>
+Date: Wed, 3 Jun 2026 11:18:57 -0400
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH v02] mailbox/pcc.c shmem map/unmap in callbacks
+To: linux-arm-kernel@lists.infradead.org
+References: <20260522205220.237355-1-admiyo@os.amperecomputing.com>
+Content-Language: en-US
+From: Adam Young <admiyo@amperemail.onmicrosoft.com>
+In-Reply-To: <20260522205220.237355-1-admiyo@os.amperecomputing.com>
+Content-Type: text/plain; charset=UTF-8; format=flowed
 Content-Transfer-Encoding: 8bit
+X-ClientProxiedBy: BL1PR13CA0315.namprd13.prod.outlook.com
+ (2603:10b6:208:2c1::20) To BN3PR01MB9212.prod.exchangelabs.com
+ (2603:10b6:408:2cb::8)
+MIME-Version: 1.0
+X-MS-PublicTrafficType: Email
+X-MS-TrafficTypeDiagnostic: BN3PR01MB9212:EE_|BL1PR01MB9477:EE_
+X-MS-Office365-Filtering-Correlation-Id: fde62278-2cc9-4dfd-a91c-08dec1836f31
+X-MS-Exchange-AtpMessageProperties: SA
+X-MS-Exchange-SenderADCheck: 1
+X-MS-Exchange-AntiSpam-Relay: 0
+X-Microsoft-Antispam: BCL:0;ARA:13230040|1800799024|366016|10070799003|376014|55112099003|6133799003|56012099006|11063799006|22082099003|18002099003;
+X-Microsoft-Antispam-Message-Info: Eilasa587hw6qfSfOyLTiYV714uSolUZ+wxLjEfMEWqVcVNNiSpcJTl8cs0WbmYKmk2+5tkuvLVC6dylnAsUIQcxqeheoXjoza0LU/Lwavkhtb9shC9DHShQqNV4sWRvdmBrU0ICMwzbnoli+4L9+puEyVGqA4zUioWjvwkzvYUTO9AH+LYFbqY+TYC0mI3Se8Wa0YsteNwlguQGFoCdTO0LUOdzurH/rR5oErciL3MMHr+4ryNgrvqHOdFKyJ28qjjfVXTe3Y0PFUpfhQFmHGkS76oZM1hlKgODG5AAKoxyMEylVM2+OBbf++nLtM5gDXv+qfRtyI6sgdzXrj4fixr6k8GC2Me+EUotYBmy1WKZxCEyYQ3agk3xEIKX4i03BDfVTAgDpGMRqiHtl9RRJv81ULmdYrmKQbocWf0GDQd7a7N8SZaji/uU7QvIZD2x6X3E2eds12LNVCwDvM5zwegoknBUlCztWnIF0JHf7kAkdT2bm/tEJewyDL168KgvVQIezL9oiqrAevOuSCJ0eS4THRibkckJrUzRTIxDljoByNhSB4Z62QqKJ4YuKKIhbIxwyvcuJ4+WlpGMDRDVxn93PAlp7DuR8LtZoJdYegjr9VZ34VHjl/AVOZiZC/IGrsWlxRnfb2CynUAASWyR1vK8TNyKVil1lDqvmU7fgPOJBBMoFZkq9GnX/IfQzc7kv4WUYJ5IE0KAsNu6Cc9cgQ==
+X-Forefront-Antispam-Report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:BN3PR01MB9212.prod.exchangelabs.com;PTR:;CAT:NONE;SFS:(13230040)(1800799024)(366016)(10070799003)(376014)(55112099003)(6133799003)(56012099006)(11063799006)(22082099003)(18002099003);DIR:OUT;SFP:1102;
+X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 2
+X-MS-Exchange-AntiSpam-MessageData-0: =?utf-8?B?QmRMdjNpUW83QWhKUWhzTWo1OW11QnNLSzh3WC82dEtpZ25SWmc3RUZtQ013?=
+ =?utf-8?B?RFFkTlMxeEoza1duNXdKQUxDU1NUdE4xUXZnbmhDUjk2U0czTnlXeXZELzJp?=
+ =?utf-8?B?LzJ3dWcyNVUwditVL0twSVhUeDlCc2k0ckp2eWRCWTh6Ry9ra3BJVVZiTUFs?=
+ =?utf-8?B?YzNOUUpGNHlBdTRkeHQ1WnlhbUFXZXRROVlKOXIrT1NGV0k2OWlrL2t0U2p2?=
+ =?utf-8?B?WVFkSFp0QkFaaE8xb3JBVGpPaEwrT1VtVWhHd21Kc1ViYWdGWHcyVkRGTXUx?=
+ =?utf-8?B?aE9qVkRtVmVPT0pIN1VjNk9LMXlSNWE3TGNLQWMxSDhwdXAwTmNvR0laTHlG?=
+ =?utf-8?B?SlF2RFU3NEZVMmVuVThlbXhaQ0FUR045YklvS0Q5NFEya1lZejBlNEs2TWdx?=
+ =?utf-8?B?cVB5YWo2NWVZeG9Qbjk1SEtCb1VFOUlYYkRISm1qRXZuM3dBemdndXFNUGYy?=
+ =?utf-8?B?WXN0OEJLZ0tVYXRzOStQcTN2SEhOYXRnZzBFN3Yzbk9IaVNFZkk2NDBIOUx6?=
+ =?utf-8?B?aXB3NktPRFhLa3ZhQTlXL1NjVVh4SVVCbjAyck1YSUZHcjNuVGdUT3VTWUxK?=
+ =?utf-8?B?d01oUGo4eC9iUTRzNTByMnNkbUxFMHJjeHhNQjd0Z2FFcTRDWE5BRVhsN09E?=
+ =?utf-8?B?NHNEQ0V2dURCVG90N3JEVkVSQUt3M3VqYW9xcEx2VVBaY3JvWWd5WWRhWDl6?=
+ =?utf-8?B?SkwrM016elhtcjRYNGphOExQdU9Ca2t2QnBNdFhQMmk3RjJCYWdqVGdWOXlD?=
+ =?utf-8?B?WlgyY2xnemIxWHhzQndCbVlramFTdDJNYVF3MjNxV00xOFh4V0o3UjJJeVli?=
+ =?utf-8?B?NHNoUXRJS08rcy94bUI3Y2I0YzlCKzVQeGhwNFVRTUtDdnZ3YlZZSW5pT1A2?=
+ =?utf-8?B?YWFBZ3RDRXRQK2VyVW8wblFuN2JLYVMxTkxxbUozRHRTRzJaeXRXWldZRzZx?=
+ =?utf-8?B?dHFQTEVWRHlHQUZjZEFkdWs1UDhsQms0bDdiUlJ5b1o5Q0Z6c1BITUUvWDRM?=
+ =?utf-8?B?dVNtWXRXYllnWG96NzIwQXNVWXEvdVRCV2hSR0Zvcm5aSlNwOCs1d2NkMitG?=
+ =?utf-8?B?ZTBCSTdOWTJHUHRXQ0MzRWVhT2JSMUFnWERyUGY5c1NYS2xmZ1cwVDVGRUFt?=
+ =?utf-8?B?SSs0NzhEenBnKzFOTGpmd2EyZzBieFhZZ2t4L002bXM4T0hXRDQyc2dGdzdI?=
+ =?utf-8?B?dllkazJMdFNCbWJWVWROZ3l3U0JpZ0pRSVg5blI2emVmWFhmdXViVTRZczNU?=
+ =?utf-8?B?UlhOOXpwT3hRdUlSRWhIcUJOYWd3Q0tYYlNWeXBkU2M4aURBSHQ0QkcyVkZW?=
+ =?utf-8?B?bk5wRDBTVkNhazRPSWZURFFlelJlS2E5a2gzVVFKYjc2cHNGQThRa3NOWnhL?=
+ =?utf-8?B?Y3BkV3FiZWg3TFV4MDdoR1FseVJqbldSTFVqSURJMHYrOU9saWNhQkZTRURU?=
+ =?utf-8?B?MFNsTWVPUGVtWWgyZ2k2NStJeS9xSVNxc3E0UndNZm5MSEJhQTVMa2huNno2?=
+ =?utf-8?B?UzExVEY1V21RbXl1WEoxdmtUTGoyUFErbGZVTHpDdzkxd0xKek1Ndk9WZXRw?=
+ =?utf-8?B?Ym1BWGltLy9NYk8yWUlCS1NkS1NQU2R4Wlh6cTkzd3NiUHlGOVVwa0JnRHgv?=
+ =?utf-8?B?YjNOMWpTY2xJTDhmcXZ0cDVKaHkzYnQ3Yk9ZLzZtdlhVVHA5NjhMLzY4QXpB?=
+ =?utf-8?B?cS9ZbFF0MUNzNEFra0c0dVd4Z1dGdTV1eW5lMlFpRW1IMERiNkhvWkdjb1NG?=
+ =?utf-8?B?V1J5VHprN0IzT0s2bTVZdG5RRTBnZVg1UXNnNzBuUkpRUCt4SzQzSHZ4WlZt?=
+ =?utf-8?B?cHdqTmZaZmNDZjVSd3RkYTlxOWR5OXpDa09WRVNleS96T2xaNmExVmJLMWF5?=
+ =?utf-8?B?RkRpVHlaaDFyYkdEWThFallhUVN1S0JqTm5EM3doYlJKVUJpN1JkVTFGbnpI?=
+ =?utf-8?B?ZERZcXB6ZDJ5Nzk3RUI0TFJGMGhXN2wxU1p6MUV6eFJ3eUQvWlB4OEZaR1NV?=
+ =?utf-8?B?R21DZ3M4RU9iQVR1RUdCRkM0ZEJhNFJVS3hLQ0RqcXp1NHFGTzZYWDdlVEhQ?=
+ =?utf-8?B?MVJVSWJTbUdsNDFabmI5RDJ5Wllqa2dnOFVKZHdEc3RkUHc3L0hrNkdrTjRz?=
+ =?utf-8?B?bEUyOW8vZklqVmNXcGp5QkVZa3Y4RUQySmtEZ3hiVHpNc296SFptQmZiM3JZ?=
+ =?utf-8?B?OXgyUWZXTUw4Yzl6bHJNVUNSeHlJTGZuVTk4YUJ4REQybUFvYXJ6TTRYVTQ1?=
+ =?utf-8?B?M3EwN2tyNGdCMG96bEE0anlldjlsMmRwbUNwRW1VV0pkeWd1d2hrU1hOVWV4?=
+ =?utf-8?B?Vng2RUtFV2pRaDEvOE5rN20yRU9UZXFjMWlQR2t0ckdDb1BONlI1elhpN1V0?=
+ =?utf-8?Q?cSziUBkm9fCY/neCii4KpT5c53kFFwf64zmYnxWcZGVVj?=
+X-MS-Exchange-AntiSpam-MessageData-1: gTPserbF07gadCLquYw0lrwfedqzBoLVHQdUWTJBRFkZKyOKUaBxAbrF
+X-OriginatorOrg: amperemail.onmicrosoft.com
+X-MS-Exchange-CrossTenant-Network-Message-Id: fde62278-2cc9-4dfd-a91c-08dec1836f31
+X-MS-Exchange-CrossTenant-AuthSource: BN3PR01MB9212.prod.exchangelabs.com
+X-MS-Exchange-CrossTenant-AuthAs: Internal
+X-MS-Exchange-CrossTenant-OriginalArrivalTime: 03 Jun 2026 15:18:58.5838
+ (UTC)
+X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
+X-MS-Exchange-CrossTenant-Id: 3bc2b170-fd94-476d-b0ce-4229bdc904a7
+X-MS-Exchange-CrossTenant-MailboxType: HOSTED
+X-MS-Exchange-CrossTenant-UserPrincipalName: jgOO93g1OA9AgakCYmr7O7k3Olqji9h+iOfQHS/jti67JVSGzzo7FoaxjuTn4YAKSW2CtkmF2FhH3CFVJCw9eFOdGFfRSV/gunvXerFnxxQUdGTik8L/W+AyKxMruRtA
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: BL1PR01MB9477
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260603_161904_641141_85A4E414 
-X-CRM114-Status: GOOD (  10.92  )
+X-CRM114-CacheID: sfid-20260603_081905_011473_8764CE7F 
+X-CRM114-Status: GOOD (  28.07  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -106,82 +147,143 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Implement iova_to_phys_length for OMAP IOMMU driver,
-returning the actual PTE mapping size.
+Note that this patch is now a pre-req for the MCTP over PCC driver 
+getting accepted.  I was trying to keep the two patches separate, but 
+this fixes a race condition in that, and any other Type4 based response 
+mechanism.
 
-Signed-off-by: Guanghui Feng <guanghuifeng@linux.alibaba.com>
----
- drivers/iommu/omap-iommu.c | 29 +++++++++++++++++++----------
- 1 file changed, 19 insertions(+), 10 deletions(-)
 
-diff --git a/drivers/iommu/omap-iommu.c b/drivers/iommu/omap-iommu.c
-index 8231d7d6bb6a..f4a416326f7c 100644
---- a/drivers/iommu/omap-iommu.c
-+++ b/drivers/iommu/omap-iommu.c
-@@ -1592,15 +1592,16 @@ static void omap_iommu_domain_free(struct iommu_domain *domain)
- 	kfree(omap_domain);
- }
- 
--static phys_addr_t omap_iommu_iova_to_phys(struct iommu_domain *domain,
--					   dma_addr_t da)
-+static phys_addr_t omap_iommu_iova_to_phys_length(struct iommu_domain *domain,
-+						  dma_addr_t da,
-+						  size_t *mapped_length)
- {
- 	struct omap_iommu_domain *omap_domain = to_omap_domain(domain);
- 	struct omap_iommu_device *iommu = omap_domain->iommus;
- 	struct omap_iommu *oiommu = iommu->iommu_dev;
- 	struct device *dev = oiommu->dev;
- 	u32 *pgd, *pte;
--	phys_addr_t ret = 0;
-+	phys_addr_t ret = PHYS_ADDR_MAX;
- 
- 	/*
- 	 * all the iommus within the domain will have identical programming,
-@@ -1609,19 +1610,27 @@ static phys_addr_t omap_iommu_iova_to_phys(struct iommu_domain *domain,
- 	iopgtable_lookup_entry(oiommu, da, &pgd, &pte);
- 
- 	if (pte) {
--		if (iopte_is_small(*pte))
-+		if (iopte_is_small(*pte)) {
- 			ret = omap_iommu_translate(*pte, da, IOPTE_MASK);
--		else if (iopte_is_large(*pte))
-+			if (mapped_length)
-+				*mapped_length = IOPTE_SIZE;
-+		} else if (iopte_is_large(*pte)) {
- 			ret = omap_iommu_translate(*pte, da, IOLARGE_MASK);
--		else
-+			if (mapped_length)
-+				*mapped_length = IOLARGE_SIZE;
-+		} else
- 			dev_err(dev, "bogus pte 0x%x, da 0x%llx", *pte,
- 				(unsigned long long)da);
- 	} else {
--		if (iopgd_is_section(*pgd))
-+		if (iopgd_is_section(*pgd)) {
- 			ret = omap_iommu_translate(*pgd, da, IOSECTION_MASK);
--		else if (iopgd_is_super(*pgd))
-+			if (mapped_length)
-+				*mapped_length = IOSECTION_SIZE;
-+		} else if (iopgd_is_super(*pgd)) {
- 			ret = omap_iommu_translate(*pgd, da, IOSUPER_MASK);
--		else
-+			if (mapped_length)
-+				*mapped_length = IOSUPER_SIZE;
-+		} else
- 			dev_err(dev, "bogus pgd 0x%x, da 0x%llx", *pgd,
- 				(unsigned long long)da);
- 	}
-@@ -1723,7 +1732,7 @@ static const struct iommu_ops omap_iommu_ops = {
- 		.attach_dev	= omap_iommu_attach_dev,
- 		.map_pages	= omap_iommu_map,
- 		.unmap_pages	= omap_iommu_unmap,
--		.iova_to_phys	= omap_iommu_iova_to_phys,
-+		.iova_to_phys_length	= omap_iommu_iova_to_phys_length,
- 		.free		= omap_iommu_domain_free,
- 	}
- };
--- 
-2.43.7
-
+On 5/22/26 16:52, Adam Young wrote:
+> The mailbox IRQ and shmems are not cleaned up atomically, so there is a
+> race condition. If the shmem is torn down while the IRQ is active, a late
+> interrupt can trigger a write to un-mapped memory.
+> If the shmem is torn down while the IRQ is active, and another thread
+> requests the channel again, we can end up with a channel that has had
+> its shmem unmapped.
+>
+> By moving the map to start up and the unmap to teardown, we can let
+> the mailbox mechanism prevent re-entrance into the startup/teardown
+> functions.
+>
+> Avoid doubly unmapping the region by removing the unmap in the
+> direct error handler for the request.
+>
+> Assisted-by: Codex:gpt-5.4
+> Fixes: fa362ffafa51 ("mailbox: pcc: Always map the shared memory communication address")
+> Signed-off-by: Adam Young <admiyo@os.amperecomputing.com>
+>
+> ---
+> Previous Version:  https://lore.kernel.org/linux-hwmon/20260515161001.699470-1-admiyo@os.amperecomputing.com/
+>
+> Changes in this Version:
+>
+> - Move the initial mapping into the startup callback
+> - No Double unmap on error during setup
+> ---
+>   drivers/mailbox/pcc.c | 42 ++++++++++++++++++------------------------
+>   1 file changed, 18 insertions(+), 24 deletions(-)
+>
+> diff --git a/drivers/mailbox/pcc.c b/drivers/mailbox/pcc.c
+> index 636879ae1db7..c5873f9f2b91 100644
+> --- a/drivers/mailbox/pcc.c
+> +++ b/drivers/mailbox/pcc.c
+> @@ -360,7 +360,6 @@ static irqreturn_t pcc_mbox_irq(int irq, void *p)
+>   struct pcc_mbox_chan *
+>   pcc_mbox_request_channel(struct mbox_client *cl, int subspace_id)
+>   {
+> -	struct pcc_mbox_chan *pcc_mchan;
+>   	struct pcc_chan_info *pchan;
+>   	struct mbox_chan *chan;
+>   	int rc;
+> @@ -375,20 +374,10 @@ pcc_mbox_request_channel(struct mbox_client *cl, int subspace_id)
+>   		return ERR_PTR(-EBUSY);
+>   	}
+>   
+> -	pcc_mchan = &pchan->chan;
+> -	pcc_mchan->shmem = acpi_os_ioremap(pcc_mchan->shmem_base_addr,
+> -					   pcc_mchan->shmem_size);
+> -	if (!pcc_mchan->shmem)
+> -		return ERR_PTR(-ENXIO);
+> -
+>   	rc = mbox_bind_client(chan, cl);
+> -	if (rc) {
+> -		iounmap(pcc_mchan->shmem);
+> -		pcc_mchan->shmem = NULL;
+> +	if (rc)
+>   		return ERR_PTR(rc);
+> -	}
+> -
+> -	return pcc_mchan;
+> +	return  &pchan->chan;
+>   }
+>   EXPORT_SYMBOL_GPL(pcc_mbox_request_channel);
+>   
+> @@ -401,18 +390,8 @@ EXPORT_SYMBOL_GPL(pcc_mbox_request_channel);
+>   void pcc_mbox_free_channel(struct pcc_mbox_chan *pchan)
+>   {
+>   	struct mbox_chan *chan = pchan->mchan;
+> -	struct pcc_chan_info *pchan_info;
+> -	struct pcc_mbox_chan *pcc_mbox_chan;
+> -
+>   	if (!chan || !chan->cl)
+>   		return;
+> -	pchan_info = chan->con_priv;
+> -	pcc_mbox_chan = &pchan_info->chan;
+> -	if (pcc_mbox_chan->shmem) {
+> -		iounmap(pcc_mbox_chan->shmem);
+> -		pcc_mbox_chan->shmem = NULL;
+> -	}
+> -
+>   	mbox_free_channel(chan);
+>   }
+>   EXPORT_SYMBOL_GPL(pcc_mbox_free_channel);
+> @@ -462,9 +441,15 @@ static bool pcc_last_tx_done(struct mbox_chan *chan)
+>   static int pcc_startup(struct mbox_chan *chan)
+>   {
+>   	struct pcc_chan_info *pchan = chan->con_priv;
+> +	struct pcc_mbox_chan *pcc_mchan;
+>   	unsigned long irqflags;
+>   	int rc;
+>   
+> +	pcc_mchan = &pchan->chan;
+> +	pcc_mchan->shmem = acpi_os_ioremap(pcc_mchan->shmem_base_addr,
+> +					   pcc_mchan->shmem_size);
+> +	if (pcc_mchan->shmem  == NULL)
+> +		return -ENOMEM;
+>   	/*
+>   	 * Clear and acknowledge any pending interrupts on responder channel
+>   	 * before enabling the interrupt
+> @@ -479,6 +464,8 @@ static int pcc_startup(struct mbox_chan *chan)
+>   		if (unlikely(rc)) {
+>   			dev_err(chan->mbox->dev, "failed to register PCC interrupt %d\n",
+>   				pchan->plat_irq);
+> +			iounmap(pcc_mchan->shmem);
+> +			pcc_mchan->shmem = NULL;
+>   			return rc;
+>   		}
+>   	}
+> @@ -488,15 +475,22 @@ static int pcc_startup(struct mbox_chan *chan)
+>   
+>   /**
+>    * pcc_shutdown - Called from Mailbox Controller code. Used here
+> - *		to free the interrupt.
+> + *		to free the interrupt and unmap the shared memory.
+>    * @chan: Pointer to Mailbox channel to shutdown.
+>    */
+>   static void pcc_shutdown(struct mbox_chan *chan)
+>   {
+>   	struct pcc_chan_info *pchan = chan->con_priv;
+> +	struct pcc_mbox_chan *pcc_mbox_chan;
+>   
+>   	if (pchan->plat_irq > 0)
+>   		devm_free_irq(chan->mbox->dev, pchan->plat_irq, chan);
+> +
+> +	pcc_mbox_chan = &pchan->chan;
+> +	if (pcc_mbox_chan->shmem) {
+> +		iounmap(pcc_mbox_chan->shmem);
+> +		pcc_mbox_chan->shmem = NULL;
+> +	}
+>   }
+>   
+>   static const struct mbox_chan_ops pcc_chan_ops = {
 
