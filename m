@@ -4,77 +4,68 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id D3F65CD6E57
-	for <linux-arm-kernel@archiver.kernel.org>; Wed,  3 Jun 2026 15:26:15 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id B07B2CD6E57
+	for <linux-arm-kernel@archiver.kernel.org>; Wed,  3 Jun 2026 15:30:45 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
 	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
 	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=YUbArMhatRkOlmiQUjI9Tf31kJ/6pDUsEK5wihs/FxQ=; b=Th4+yPX35qUQGoPZFhdNJ8flxS
-	bfs59QH/PMyY5YLjl7Zd6ly+8ATun0EeQm5sy8m8Cjdfhh5CjbwIJDwbegHa+n0uFwa3u/HkI/+3I
-	vYxNZZrpnpN4S3kGYX1ozteo3Jawu+rC7V1bXEjNWQgwyl9+s5tChGFYX57QFNaAIRwbIaautIJpj
-	hBi2rt4kfVvFJ/rNO9LGddNevQ0wZIO0sL6p7Giw1Nrm0vYgPE3hZJEn1XiWE2GdtuHXf4Lmn7S0r
-	KdkbWOHaGicQPX3zbqKXBY3C0HH/nYOWyniyBgC9A78cTR2OuaG/rGDrXyrvqjDYB9V8DTt/gMVDC
-	q1CP2JaA==;
+	bh=Atnblw3u+0+59oYj3/6rPNoCR3XUYN0HZoGIki7156Y=; b=BGj/L7ZlbIK9gNmrJhrKaii6iQ
+	I5wETNsiuBtx4fDATpxGO8WMd6TXpSNhSUSGWxy65In9HJcov/B1L6DyrLatTgs53UNKBnKYZEHBm
+	qSCPX1zy2vOxM42/m9u+M3y+paxw3qKHL4kOrv69JWVjkzWN0PLh4qtoSjkE7BctadjkmMaUEQN87
+	GnXDbLGZ4T3Fl5gmdBqqSZoiJ5rizZ2MCY9V/RzeciIHkQVsjCwNMls7rU7t44qpjtO4Tv2tB6rf+
+	gL7sP34TAwsio5pA13nK9yKR85OgTbwrmy8xpR3YhKxSLC6nYiHsdvohFanhRcnKj3/C4MALnoRP4
+	WBxkm9Ow==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wUnTv-0000000FPp2-41Jn;
-	Wed, 03 Jun 2026 15:26:11 +0000
-Received: from galois.linutronix.de ([2a0a:51c0:0:12e:550::1])
+	id 1wUnYC-0000000FQ8v-1lJp;
+	Wed, 03 Jun 2026 15:30:38 +0000
+Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wUnTt-0000000FPoV-2KKq
+	id 1wUnY8-0000000FQ7u-1Xtv
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 03 Jun 2026 15:26:10 +0000
-Date: Wed, 3 Jun 2026 17:26:04 +0200
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=linutronix.de;
-	s=2020; t=1780500365;
-	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
-	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
-	 in-reply-to:in-reply-to:references:references;
-	bh=YUbArMhatRkOlmiQUjI9Tf31kJ/6pDUsEK5wihs/FxQ=;
-	b=PD0cQEmeE7cRnI4TGMBwLATUn0Wpc2HlOAAmRmkvN9v2jSSEU+ONmtinEWC55tNXZi2RKC
-	NNUl/goguJx55G9f0HaHcCsmrvodbkPJ3KlfjiUJyBdXFEUbMsp6e7Cr0vlJ14VjeGME3r
-	E7iLpSd84Y7Onx97sgYEHY94tEuNvxGPCuXIH895uvZL+JiiKvF8NvAswZ3C7Hqvczwsmh
-	OiQa0FgfQcM8CUf+9p53KDY5bBNz/y9wUg99ayTaMUFzqrAv4sTih0G2dwCfnA/zyaoNKT
-	qqUGdGIC7zHEnz9vGEs5gM7PGIOkllN5P47ZMPydsBDu+dFspYbwzF2SSl9Xag==
-DKIM-Signature: v=1; a=ed25519-sha256; c=relaxed/relaxed; d=linutronix.de;
-	s=2020e; t=1780500365;
-	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
-	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
-	 in-reply-to:in-reply-to:references:references;
-	bh=YUbArMhatRkOlmiQUjI9Tf31kJ/6pDUsEK5wihs/FxQ=;
-	b=+ft5H0B0zB+qvZsgCto8fK+SXf9/FfUhkyg47hx5xXf3vywr0IhNxkux96Y3KdwbQ5kv0e
-	7MqVVWsALoFikbCg==
-From: Sebastian Andrzej Siewior <bigeasy@linutronix.de>
-To: Daniel Baluta <daniel.baluta@oss.nxp.com>
-Cc: linux-kernel@vger.kernel.org, imx@lists.linux.dev,
-	linux-arm-kernel@lists.infradead.org,
-	linux-remoteproc@vger.kernel.org, linux-rt-devel@lists.linux.dev,
-	Bjorn Andersson <andersson@kernel.org>,
-	Clark Williams <clrkwllms@kernel.org>,
-	Fabio Estevam <festevam@gmail.com>, Frank Li <Frank.Li@nxp.com>,
-	Jassi Brar <jassisinghbrar@gmail.com>,
-	Mathieu Poirier <mathieu.poirier@linaro.org>,
-	Pengutronix Kernel Team <kernel@pengutronix.de>,
-	Sascha Hauer <s.hauer@pengutronix.de>,
-	Steven Rostedt <rostedt@goodmis.org>
-Subject: Re: [PATCH v2 6/9] mailbox: imx: Move the RX part of the mailbox
- into the threaded handler
-Message-ID: <20260603152604.lBbXa3sE@linutronix.de>
-References: <20260603-imx_mbox_rproc-v2-0-a0059dc3b69a@linutronix.de>
- <20260603-imx_mbox_rproc-v2-6-a0059dc3b69a@linutronix.de>
- <c81d12a8-7544-493f-a947-8f70ad9d409d@oss.nxp.com>
- <20260603132034.NxZoA4pH@linutronix.de>
- <944c6eaa-05f2-437a-88e7-1573b64468c5@oss.nxp.com>
+	Wed, 03 Jun 2026 15:30:34 +0000
+Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
+	by sea.source.kernel.org (Postfix) with ESMTP id C7DD1402DB;
+	Wed,  3 Jun 2026 15:30:31 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id BA0701F00898;
+	Wed,  3 Jun 2026 15:30:29 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
+	s=k20260515; t=1780500631;
+	bh=Atnblw3u+0+59oYj3/6rPNoCR3XUYN0HZoGIki7156Y=;
+	h=Date:From:To:Cc:Subject:References:In-Reply-To;
+	b=c+4ezHQ/l8DE9qgvwLmzKdh+Q0oIJqz2dPlHaMlU2NhX94mv71O7XTWjtjWMtkXte
+	 j5jolf1zF+yPVHV1CRxa5+OMxDHavx7RaYwBDO/W5YcFA6FZblcW5iogDOEGY/8LiF
+	 vz24+rHjAXpzxivWn6EaHzIWwxgYeC6xoK4Ve3dc0cZg0rYBiwu/a3hFR/kFHzihFM
+	 GBFvMAI9dSQsFcQiHwOiHrTjoMLwjF3bJfSjR4aWlX06FFfp2soHUtiVza2nZ50CqU
+	 gIOdcCLsYWFA2nMvRolRAbm3yJ6S+EbSalSBIP0mZG4vKzePocwOhdNR+sL/ksMY1n
+	 6VvusPV1tn0mQ==
+Date: Wed, 3 Jun 2026 16:30:27 +0100
+From: Conor Dooley <conor@kernel.org>
+To: Michal Simek <michal.simek@amd.com>
+Cc: linux-kernel@vger.kernel.org, monstr@monstr.eu, git@amd.com,
+	Conor Dooley <conor+dt@kernel.org>,
+	Krzysztof Kozlowski <krzk+dt@kernel.org>,
+	Rob Herring <robh@kernel.org>,
+	"open list:OPEN FIRMWARE AND FLATTENED DEVICE TREE BINDINGS" <devicetree@vger.kernel.org>,
+	kishore Manne <nava.kishore.manne@amd.com>,
+	"moderated list:ARM/ZYNQ ARCHITECTURE" <linux-arm-kernel@lists.infradead.org>
+Subject: Re: [PATCH v3 1/5] dt-bindings: firmware: xilinx: Add missing
+ example for ZynqMP
+Message-ID: <20260603-recycler-copied-b9387a9ab0c9@spud>
+References: <cover.1780499520.git.michal.simek@amd.com>
+ <da152696e367eee8717a644d9303d27df1a3107b.1780499520.git.michal.simek@amd.com>
 MIME-Version: 1.0
-Content-Type: text/plain; charset=utf-8
+Content-Type: multipart/signed; micalg=pgp-sha512;
+	protocol="application/pgp-signature"; boundary="OEj4Bn3ueDRLlxNp"
 Content-Disposition: inline
-In-Reply-To: <944c6eaa-05f2-437a-88e7-1573b64468c5@oss.nxp.com>
+In-Reply-To: <da152696e367eee8717a644d9303d27df1a3107b.1780499520.git.michal.simek@amd.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260603_082609_749764_2B49DC85 
-X-CRM114-Status: GOOD (  12.97  )
+X-CRM114-CacheID: sfid-20260603_083032_423664_5F0C96D3 
+X-CRM114-Status: UNSURE (   7.01  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -89,21 +80,24 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On 2026-06-03 16:45:16 [+0300], Daniel Baluta wrote:
-> I would prefer to add the explanation for this in at least one commit
-> message to be there in git log.
-> 
-> Cover letter is not kept in git history.
 
-You could merge is part of the series. But I could of course add the
-rational behind this to the patch where I start adding the threaded
-handler and move the TX bits.
+--OEj4Bn3ueDRLlxNp
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
 
-I just finished of with sashiko. Do you have other human input?
-Otherwise I would fix the one thing I did wrong, propagate the one error
-sashiko mentioned. I'm not sure what to do about the long time outs it
-complains about, I would keep them for now. That timeout check based on
-jiffies is also odd.
+Acked-by: Conor Dooley <conor.dooley@microchip.com>
+pw-bot: not-applicable
 
-Sebastian
+--OEj4Bn3ueDRLlxNp
+Content-Type: application/pgp-signature; name="signature.asc"
+
+-----BEGIN PGP SIGNATURE-----
+
+iHUEABYKAB0WIQRh246EGq/8RLhDjO14tDGHoIJi0gUCaiBIkwAKCRB4tDGHoIJi
+0jiuAQC+o/oDdeA3mOii20jfihnzZcxChbwgO4sqzA0qk1FMegD/SBtPmGcjqHIm
+x+QJ9PD4NMqs2PhnT21AfVROHTb5ugI=
+=2Tsg
+-----END PGP SIGNATURE-----
+
+--OEj4Bn3ueDRLlxNp--
 
