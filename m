@@ -4,87 +4,140 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id D2676CD6E55
-	for <linux-arm-kernel@archiver.kernel.org>; Wed,  3 Jun 2026 03:37:07 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 62840CD6E55
+	for <linux-arm-kernel@archiver.kernel.org>; Wed,  3 Jun 2026 03:40:12 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:References:In-Reply-To:
-	Message-Id:Date:Subject:Cc:To:From:Reply-To:MIME-Version:Content-Type:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=3osqFgBIrekk0aasLKdM5b2OMYUqCjmmQPGJNM+Bp4I=; b=ztwwNIbh9XSEGygR5IqudmSaWF
-	3MLU85fxnxBqhuZ015ht+k1y0hEm81UPE2KHTcpn2eT5naj5j/MnJKGg+W7vPSrFVS5kI5mVzT7Ma
-	VP84YPWY1VBOp9opkkUOui/trxVw++EM1cdjcZasiKstfVxtde2LCjA5SavGQxwze2XKQleMoFXpG
-	QxqTuiT+nOHsudt4sLXf5iNio7JEtd+8tsyzPeFzP9Rs7cMkqseRnDTEiIXeiUUGD+TZBfC8cBFw0
-	ifSAR/KQwzX0ftrYgrcteEiEBM7x2eRJuXHmmSLTrK7SFTmQgeQtTRtqA3/k1a9reVkPWKEtItyHc
-	WaHXPJ/Q==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
+	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=X9JI8nlQhsgi6jVORje76ie+FBqkJZd2ksOQfkbJQkE=; b=WtM5cGbQT4tYBeyRBWbfkne3uS
+	IjRscfQaBZL19HpTO2qk8CJhnUhQAygHvTogIcZgI3kOXH1nWbZUCIVG/pkHgc2s0GSUkTy75q3BH
+	s8nbXoBM+3UBb4MExJyr7X6gbEWFyfGpxj4GXpQDenxzs8lVLZvIb5zbl7tepQD5koQs8g9orFy8b
+	Ftns4m6n/ZVnR3kXH8zDObAeHB6HyYz7s5S2456Fm30/M3RhdUwJkieFm3fOdudILTLn2WABBwYL5
+	EFrsqiVlkYG1NGHZBAiEAtccwA68IBeJWgIl7Gfp3R7Lg9hd0gLOX9uUaf3bJNwyoP8/Po3Jzrngc
+	N7xotBRw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wUcPd-0000000EC8A-3Y2Y;
-	Wed, 03 Jun 2026 03:37:01 +0000
-Received: from smtpbguseast3.qq.com ([54.243.244.52])
+	id 1wUcSc-0000000ECec-0xPS;
+	Wed, 03 Jun 2026 03:40:06 +0000
+Received: from mail-ot1-x363.google.com ([2607:f8b0:4864:20::363])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wUcPa-0000000EBvO-0vAu;
-	Wed, 03 Jun 2026 03:37:00 +0000
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=airkyi.com;
-	s=altu2504; t=1780457751;
-	bh=3osqFgBIrekk0aasLKdM5b2OMYUqCjmmQPGJNM+Bp4I=;
-	h=From:To:Subject:Date:Message-Id;
-	b=gvJSlXfD+PsAsdJHkgL9ttFyxaR0I/ZEEd8dENvWyqZHqAifjIfvX9jeJHNXes5hi
-	 4IGmFdQcEpA4FMSjD4j809rccid/N2Uux5E2ic7YoxJfcsBwi7gbWHRYqi6PM8of8j
-	 c1yLNSYF2vXOvVfU6pLxpN/519TxuoyJfIUha5Cs=
-X-QQ-mid: zesmtpsz3t1780457749t34a776f7
-X-QQ-Originating-IP: CPrpKAdSZ/ltdFjp1z8IAthR2uE4Y8wFlpZ9Tj6q6XI=
-Received: from DESKTOP-8BT1A2O.localdomain ( [58.22.7.114])
-	by bizesmtp.qq.com (ESMTP) with 
-	id ; Wed, 03 Jun 2026 11:35:46 +0800 (CST)
-X-QQ-SSF: 0000000000000000000000000000000
-X-QQ-GoodBg: 0
-X-BIZMAIL-ID: 2992502231679952474
-From: Chaoyi Chen <kernel@airkyi.com>
-To: Sandy Huang <hjc@rock-chips.com>,
-	=?UTF-8?q?Heiko=20St=C3=BCbner?= <heiko@sntech.de>,
-	Andy Yan <andy.yan@rock-chips.com>,
-	Maarten Lankhorst <maarten.lankhorst@linux.intel.com>,
-	Maxime Ripard <mripard@kernel.org>,
-	Thomas Zimmermann <tzimmermann@suse.de>,
-	David Airlie <airlied@gmail.com>,
-	Simona Vetter <simona@ffwll.ch>,
-	Guochun Huang <hero.huang@rock-chips.com>
-Cc: dri-devel@lists.freedesktop.org,
-	linux-arm-kernel@lists.infradead.org,
-	linux-rockchip@lists.infradead.org,
-	linux-kernel@vger.kernel.org,
-	Chaoyi Chen <chaoyi.chen@rock-chips.com>
-Subject: [PATCH v2 2/3] drm/rockchip: dsi: Add dphy_get_timing support for multiple PHY types
-Date: Wed,  3 Jun 2026 11:35:31 +0800
-Message-Id: <20260603033532.164-3-kernel@airkyi.com>
-X-Mailer: git-send-email 2.17.1
-In-Reply-To: <20260603033532.164-1-kernel@airkyi.com>
-References: <20260603033532.164-1-kernel@airkyi.com>
-X-QQ-SENDSIZE: 520
-Feedback-ID: zesmtpsz:airkyi.com:qybglogicsvrgz:qybglogicsvrgz6b-0
-X-QQ-XMAILINFO: M3vv73qU6a4uywa5T2AnRL6EIQAHH/XOu9LDGz7BOSmPu1DEwe4Uv/X9
-	Ja5mH1RQ4kXo+G1fFvwGs+jg+duS9pzC5mfEZ8BtBg08AqTI7QfZ4kNCBoljEHvwI2E9qpt
-	/9+Fx6kehX0j1Mj7DD630FMXJe2INVUlcuWu0PsXum8aaguOI+i4e6+m5BavFApuCG0PUU7
-	abP6pf/e00vrDUdqDSVJJFMxHHTwEDsXjYw24+PT05JfRD9IhfDmOJvbhiZm73d+EfDYjCy
-	Kmwgm8oNuGYat7CZ3UKf7SIZh46kWX/o9F8tBWwTt9njh8y4fa/WlgbbdarLEtCp2BcadDR
-	gVk9+OaM8raWFdHlLwRQA9excKKbo+bRZb5EnsIshgIklFQXJT6i3Ulb0VkYrXaxpdn6www
-	cBbElRRpY5lIMj9zXDp3IATuK+nNGGzqv12Cyfz/hkU/2oF9Z8sumTnr+DC4VggjaUVwgQp
-	Xuky10Qib1F0tigs+X7+ybYN2KdxqlMeyOz9wm7LaMAAy+KocB16F52hN+gEKQkP7Q341nS
-	MDNQRl982ypVIlm5VQ6i78bYNQRVRYskTssQmhSJbAqNpIgdSo0N5e06EC9XyziptpeBeMU
-	D7Fh9R1Lp7IRJCZNuI2eC9WLeDJapQ+8vInzsquavsPtp34s7D+f1Q83iQ5CRcKBJrezkuC
-	w+LKSFp2Bx2oTTFxZqCawYaz6Py37nCFYnietMUg/cW4mgRC6VeDsJh6IEBOfiGriyRlyjY
-	qNKMdwnUdi9/RMS75ZGPDfQFRxMqvt6HYfdK56cjijYOVptJKHRHJ8hVEpL6Pxt7uE1qorJ
-	xY6izUoUXVUBalUVypexZM+xM8tmsVDQ2coMzCuLo7TUlcVub8RCbQHDv+pEwYWFwD4i0C7
-	2JA5mx0M0JVZxyl1CJ/SedpSWtUFGRnE9eqC0C5dnUxaZFmdn5Q65FXZ007w7pS3pBxxMz/
-	Ppv5iIpOAe+D1owKYgVqX8ItRoC64miQukdMdPYlj4q5WDwP8AUttRL09Dp77utZm3nztZq
-	gNJFA+yEC7VvfxCAa0W3xH0KvPjFXtexpwj3gohQ==
-X-QQ-XMRINFO: MPJ6Tf5t3I/ylTmHUqvI8+Wpn+Gzalws3A==
-X-QQ-RECHKSPAM: 0
+	id 1wUcSZ-0000000ECeG-2D3M
+	for linux-arm-kernel@lists.infradead.org;
+	Wed, 03 Jun 2026 03:40:04 +0000
+Received: by mail-ot1-x363.google.com with SMTP id 46e09a7af769-7e6d2f297f4so998235a34.2
+        for <linux-arm-kernel@lists.infradead.org>; Tue, 02 Jun 2026 20:40:02 -0700 (PDT)
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20251104; t=1780458002; x=1781062802;
+        h=content-transfer-encoding:in-reply-to:autocrypt:from
+         :content-language:references:cc:to:subject:user-agent:mime-version
+         :date:message-id:dkim-signature:x-gm-gg:x-gm-message-state:from:to
+         :cc:subject:date:message-id:reply-to;
+        bh=X9JI8nlQhsgi6jVORje76ie+FBqkJZd2ksOQfkbJQkE=;
+        b=FF/OS7P78VvIy88eAF7i5uZcl7384yihGhh+zxjW07ze8s9+Ld2KSCW8LImDD/Fy3w
+         ISM2rwRr5rmZTv5oBX6ypPpNRPTKwIEcanaD96qdj8FkFDMwqmEIXMZFG33ilO+Y/bG9
+         yScdazwHBzYpUTMK73G6Jhgbt/r8xLVlRvqcaey6Q/Dm1frxeVyRFFnZxvphDhP3kjsG
+         Ckp4fij1AsT+7Pc/1n56l9ubwR+nI4ZtQ6we6vxpBoychfRUHccuP2x4yxP8EiWpv9yU
+         KChcSp92AqXorqNHoNVeDtSpO8wFdBxZRT6h+MHpRsGUD2kyKhd8/UIPtFlBvR5+Aash
+         WVOw==
+X-Forwarded-Encrypted: i=1; AFNElJ9x0i/bIJCSf/DI23v3yjqHj7bKztJj79ppBSOc3YVO3w+43gJEubdNw2RQOqEEZDOQWwxwygeQVhzLavxkqs+v@lists.infradead.org
+X-Gm-Message-State: AOJu0Yzo/aeClIh8S0GpT6hvisP6JKY4Pb59dmEMuDiZTayoHOZBjGCO
+	SYbzo7Hrw3fMQEDwsq8HH7nUkZV/j5xvqX89JkOW6Z3tyFIhjcF3J7EiFuq8oDueAsdxaiPguHb
+	nREzRL6i2tRdgHejrHnrExAA16ag53Uu618CZ1ODhuToOp6tT1vAAP0xgNRQUU7C7X4e1jNBiOu
+	NwxpIs0dREiTVnAZ6rX54j+pURwH9gVYlUjZyq2LAjR3ZR++uU6ASHlo4K3fdXQ+QkybqSSjedK
+	1t6l72RdPBh2Zbt/0VqVSedqT36FOGUe5w=
+X-Gm-Gg: Acq92OF/xaL18GgVpZhMVdg8N7O5BBLn/QMegl+aq0qOf5/2Ucz+GB2f+n6BcaobNQW
+	94LfNH13wezYt8Z4VTkMGC3BHU8CUIDyzYZ/n4E+T4K8/QA/MX5cglwzCSaJyBWXufU6Vovh1zM
+	p3b02WReRl3uNzrOif0XbJmg4BhHQUAbXqGgZLd2EuvriWTN5G2KRM+5BVKfrVmUCpvr8Giw2vu
+	P3VaVdM4rq+nIhBjuoHOo16VaEnDtuyrerq9RY4hZj0OTcBLOdzDfXzMB1/TWhvLpRuhPglelGc
+	pxj18Fwy5TLMpbeWh+yN4eWv7kx49t2xtQaaM8rhCgPnA4MtHY5xJLSriOzYq3QNVLBcZxlLyUP
+	gCQpey/DONMRstlfEzfHvaerjlo7zPxFTbIbuGwlyd/7xKN9fuoXNgo7SMfGA4jPqhbXd/9pAfy
+	WrS4KyErc5qLIuPmq/lyJqo3jr3CVCMk4T9EnnX31K1touEuOk+thrVtH/K6qfk1McYMK9VKKvF
+	j0=
+X-Received: by 2002:a4a:d746:0:b0:69d:c62a:f33d with SMTP id 006d021491bc7-69e4807cd3amr805580eaf.33.1780458001880;
+        Tue, 02 Jun 2026 20:40:01 -0700 (PDT)
+Received: from smtp-us-east1-p01-i01-si01.dlp.protect.broadcom.com (address-144-49-247-102.dlp.protect.broadcom.com. [144.49.247.102])
+        by smtp-relay.gmail.com with ESMTPS id 006d021491bc7-69e462580basm77778eaf.1.2026.06.02.20.40.00
+        for <linux-arm-kernel@lists.infradead.org>
+        (version=TLS1_2 cipher=ECDHE-ECDSA-AES128-GCM-SHA256 bits=128/128);
+        Tue, 02 Jun 2026 20:40:01 -0700 (PDT)
+X-Relaying-Domain: broadcom.com
+X-CFilter-Loop: Reflected
+Received: by mail-dy1-f199.google.com with SMTP id 5a478bee46e88-304f23c55b2so4770472eec.0
+        for <linux-arm-kernel@lists.infradead.org>; Tue, 02 Jun 2026 20:40:00 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=broadcom.com; s=google; t=1780458000; x=1781062800; darn=lists.infradead.org;
+        h=content-transfer-encoding:in-reply-to:autocrypt:from
+         :content-language:references:cc:to:subject:user-agent:mime-version
+         :date:message-id:from:to:cc:subject:date:message-id:reply-to;
+        bh=X9JI8nlQhsgi6jVORje76ie+FBqkJZd2ksOQfkbJQkE=;
+        b=VvzL7JCKn6m83OLJ42Y+IwqA9cly3TKfkQ0MxkOpIxNZP9c+JdUb8FO91Bw+Dp1A4q
+         9lKQmx8vSEF/dUN20Z/Y44L+YP/6B1MqNUqu7nq/J35EESwoYgDanOPYn1+wSTbxhhQL
+         TbVUAc5iaVIvwXnXTjypNP3g8cEZdZot6CclM=
+X-Forwarded-Encrypted: i=1; AFNElJ8L8GzFrNveojn1Fa4ftcg14+mJsyDTq91vJG7jwl51vIoPgEK8maBTsBqRFlP4l/QKkBZzVNNHGPmHkbCBnWPn@lists.infradead.org
+X-Received: by 2002:a05:7300:371e:b0:303:f2dc:8ab4 with SMTP id 5a478bee46e88-3074fa3d73cmr883757eec.2.1780457999563;
+        Tue, 02 Jun 2026 20:39:59 -0700 (PDT)
+X-Received: by 2002:a05:7300:371e:b0:303:f2dc:8ab4 with SMTP id 5a478bee46e88-3074fa3d73cmr883739eec.2.1780457998957;
+        Tue, 02 Jun 2026 20:39:58 -0700 (PDT)
+Received: from [192.168.1.3] (ip68-4-215-93.oc.oc.cox.net. [68.4.215.93])
+        by smtp.gmail.com with ESMTPSA id 5a478bee46e88-3074df64eb9sm1109950eec.25.2026.06.02.20.39.57
+        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
+        Tue, 02 Jun 2026 20:39:58 -0700 (PDT)
+Message-ID: <22348975-bfb1-42c9-9593-06215f961845@broadcom.com>
+Date: Tue, 2 Jun 2026 20:39:56 -0700
+MIME-Version: 1.0
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH v7 0/3] Adding brcmstb-hwspinlock support
+To: Kamal Dasu <kamal.dasu@broadcom.com>, andersson@kernel.org,
+ robh@kernel.org, baolin.wang@linux.alibaba.com
+Cc: krzysztof.kozlowski@linaro.org, conor+dt@kernel.org,
+ bcm-kernel-feedback-list@broadcom.com, linux-remoteproc@vger.kernel.org,
+ devicetree@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
+ linux-kernel@vger.kernel.org
+References: <20260427201233.380314-1-kamal.dasu@broadcom.com>
+Content-Language: en-US
+From: Florian Fainelli <florian.fainelli@broadcom.com>
+Autocrypt: addr=florian.fainelli@broadcom.com; keydata=
+ xsBNBFPAG8ABCAC3EO02urEwipgbUNJ1r6oI2Vr/+uE389lSEShN2PmL3MVnzhViSAtrYxeT
+ M0Txqn1tOWoIc4QUl6Ggqf5KP6FoRkCrgMMTnUAINsINYXK+3OLe7HjP10h2jDRX4Ajs4Ghs
+ JrZOBru6rH0YrgAhr6O5gG7NE1jhly+EsOa2MpwOiXO4DE/YKZGuVe6Bh87WqmILs9KvnNrQ
+ PcycQnYKTVpqE95d4M824M5cuRB6D1GrYovCsjA9uxo22kPdOoQRAu5gBBn3AdtALFyQj9DQ
+ KQuc39/i/Kt6XLZ/RsBc6qLs+p+JnEuPJngTSfWvzGjpx0nkwCMi4yBb+xk7Hki4kEslABEB
+ AAHNMEZsb3JpYW4gRmFpbmVsbGkgPGZsb3JpYW4uZmFpbmVsbGlAYnJvYWRjb20uY29tPsLB
+ IQQQAQgAywUCZWl41AUJI+Jo+hcKAAG/SMv+fS3xUQWa0NryPuoRGjsA3SAUAAAAAAAWAAFr
+ ZXktdXNhZ2UtbWFza0BwZ3AuY29tjDAUgAAAAAAgAAdwcmVmZXJyZWQtZW1haWwtZW5jb2Rp
+ bmdAcGdwLmNvbXBncG1pbWUICwkIBwMCAQoFF4AAAAAZGGxkYXA6Ly9rZXlzLmJyb2FkY29t
+ Lm5ldAUbAwAAAAMWAgEFHgEAAAAEFQgJChYhBNXZKpfnkVze1+R8aIExtcQpvGagAAoJEIEx
+ tcQpvGagWPEH/2l0DNr9QkTwJUxOoP9wgHfmVhqc0ZlDsBFv91I3BbhGKI5UATbipKNqG13Z
+ TsBrJHcrnCqnTRS+8n9/myOF0ng2A4YT0EJnayzHugXm+hrkO5O9UEPJ8a+0553VqyoFhHqA
+ zjxj8fUu1px5cbb4R9G4UAySqyeLLeqnYLCKb4+GklGSBGsLMYvLmIDNYlkhMdnnzsSUAS61
+ WJYW6jjnzMwuKJ0ZHv7xZvSHyhIsFRiYiEs44kiYjbUUMcXor/uLEuTIazGrE3MahuGdjpT2
+ IOjoMiTsbMc0yfhHp6G/2E769oDXMVxCCbMVpA+LUtVIQEA+8Zr6mX0Yk4nDS7OiBlvOwE0E
+ U8AbwQEIAKxr71oqe+0+MYCc7WafWEcpQHFUwvYLcdBoOnmJPxDwDRpvU5LhqSPvk/yJdh9k
+ 4xUDQu3rm1qIW2I9Puk5n/Jz/lZsqGw8T13DKyu8eMcvaA/irm9lX9El27DPHy/0qsxmxVmU
+ pu9y9S+BmaMb2CM9IuyxMWEl9ruWFS2jAWh/R8CrdnL6+zLk60R7XGzmSJqF09vYNlJ6Bdbs
+ MWDXkYWWP5Ub1ZJGNJQ4qT7g8IN0qXxzLQsmz6tbgLMEHYBGx80bBF8AkdThd6SLhreCN7Uh
+ IR/5NXGqotAZao2xlDpJLuOMQtoH9WVNuuxQQZHVd8if+yp6yRJ5DAmIUt5CCPcAEQEAAcLB
+ gQQYAQIBKwUCU8AbwgUbDAAAAMBdIAQZAQgABgUCU8AbwQAKCRCTYAaomC8PVQ0VCACWk3n+
+ obFABEp5Rg6Qvspi9kWXcwCcfZV41OIYWhXMoc57ssjCand5noZi8bKg0bxw4qsg+9cNgZ3P
+ N/DFWcNKcAT3Z2/4fTnJqdJS//YcEhlr8uGs+ZWFcqAPbteFCM4dGDRruo69IrHfyyQGx16s
+ CcFlrN8vD066RKevFepb/ml7eYEdN5SRALyEdQMKeCSf3mectdoECEqdF/MWpfWIYQ1hEfdm
+ C2Kztm+h3Nkt9ZQLqc3wsPJZmbD9T0c9Rphfypgw/SfTf2/CHoYVkKqwUIzI59itl5Lze+R5
+ wDByhWHx2Ud2R7SudmT9XK1e0x7W7a5z11Q6vrzuED5nQvkhAAoJEIExtcQpvGagugcIAJd5
+ EYe6KM6Y6RvI6TvHp+QgbU5dxvjqSiSvam0Ms3QrLidCtantcGT2Wz/2PlbZqkoJxMQc40rb
+ fXa4xQSvJYj0GWpadrDJUvUu3LEsunDCxdWrmbmwGRKqZraV2oG7YEddmDqOe0Xm/NxeSobc
+ MIlnaE6V0U8f5zNHB7Y46yJjjYT/Ds1TJo3pvwevDWPvv6rdBeV07D9s43frUS6xYd1uFxHC
+ 7dZYWJjZmyUf5evr1W1gCgwLXG0PEi9n3qmz1lelQ8lSocmvxBKtMbX/OKhAfuP/iIwnTsww
+ 95A2SaPiQZA51NywV8OFgsN0ITl2PlZ4Tp9hHERDe6nQCsNI/Us=
+In-Reply-To: <20260427201233.380314-1-kamal.dasu@broadcom.com>
+Content-Type: text/plain; charset=UTF-8; format=flowed
+Content-Transfer-Encoding: 7bit
+X-DetectorID-Processed: b00c1d49-9d2e-4205-b15f-d015386d3d5e
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260602_203658_761831_ABD6FAD3 
-X-CRM114-Status: GOOD (  16.03  )
+X-CRM114-CacheID: sfid-20260602_204003_615580_A08C4396 
+X-CRM114-Status: GOOD (  11.84  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -99,178 +152,24 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-From: Chaoyi Chen <chaoyi.chen@rock-chips.com>
+Hi Bjorn, Baolin,
 
-Currently, there are generally two types of DPHY for Rockchip. One is
-the DPHY used by RK3288/RK3399, whose timing is described by Table A-3
-High-Speed Transition Times in the databook. The other is the DPHY used
-by PX30 and its successors. If its timing is still described using
-RK3288/RK3399, it may not perform correctly on some DSI panel.
+On 4/27/2026 1:12 PM, Kamal Dasu wrote:
+> This series adds hardware semaphore support for Broadcom set-top SoCs
+> via the generic hwspinlock framework.
+> 
+> The semaphore registers live in the sundry block; the DT binding
+> describes only the semaphore register range. The compatible is
+> brcm,bcm7038-sun-top-ctrl-semaphore (BCM7038 is where this block first
+> appeared on set-top chips).
+> 
+> The driver has been tested built-in and as a module.
 
-Add dphy_get_timing for different D-PHY types to adapt to timing
-differences. The configuration details are as follows:
+Is there anything else you would want to see being done differently here 
+or is this ready for being merged into your tree?
 
-- RK3288/RK3399: Select the corresponding entry from the timing table based
-                 on the data rate.
-- PX30 and later platforms: Use a fixed timing configuration.
-
-Signed-off-by: Chaoyi Chen <chaoyi.chen@rock-chips.com>
----
-Changes in v2:
-- Add more comment about timing config.
-
----
- .../gpu/drm/rockchip/dw-mipi-dsi-rockchip.c   | 45 ++++++++++++++++++-
- 1 file changed, 43 insertions(+), 2 deletions(-)
-
-diff --git a/drivers/gpu/drm/rockchip/dw-mipi-dsi-rockchip.c b/drivers/gpu/drm/rockchip/dw-mipi-dsi-rockchip.c
-index 1060abec9f29..e64dfc327891 100644
---- a/drivers/gpu/drm/rockchip/dw-mipi-dsi-rockchip.c
-+++ b/drivers/gpu/drm/rockchip/dw-mipi-dsi-rockchip.c
-@@ -247,6 +247,7 @@ enum {
- 	BIASEXTR_127_7,
- };
- 
-+struct dw_mipi_dsi_rockchip;
- struct rockchip_dw_dsi_chip_data {
- 	u32 reg;
- 
-@@ -262,6 +263,9 @@ struct rockchip_dw_dsi_chip_data {
- 	u32 lanecfg2_grf_reg;
- 	u32 lanecfg2;
- 
-+	int (*dphy_get_timing)(struct dw_mipi_dsi_rockchip *dsi, unsigned int lane_mbps,
-+			       struct dw_mipi_dsi_dphy_timing *timing);
-+
- 	int (*dphy_rx_init)(struct phy *phy);
- 	int (*dphy_rx_power_on)(struct phy *phy);
- 	int (*dphy_rx_power_off)(struct phy *phy);
-@@ -721,8 +725,9 @@ static struct hstt hstt_table[] = {
- };
- 
- static int
--dw_mipi_dsi_phy_get_timing(void *priv_data, unsigned int lane_mbps,
--			   struct dw_mipi_dsi_dphy_timing *timing)
-+dw_mipi_dsi_phy_rk3288_get_timing(struct dw_mipi_dsi_rockchip *dsi,
-+				  unsigned int lane_mbps,
-+				  struct dw_mipi_dsi_dphy_timing *timing)
- {
- 	int i;
- 
-@@ -738,6 +743,32 @@ dw_mipi_dsi_phy_get_timing(void *priv_data, unsigned int lane_mbps,
- 	return 0;
- }
- 
-+static const struct dw_mipi_dsi_dphy_timing dphy_timing_px30 = {
-+	.clk_lp2hs = 0x40,
-+	.clk_hs2lp = 0x40,
-+	.data_lp2hs = 0x10,
-+	.data_hs2lp = 0x14,
-+};
-+
-+static int
-+dw_mipi_dsi_phy_px30_get_timing(struct dw_mipi_dsi_rockchip *dsi,
-+				unsigned int lane_mbps,
-+				struct dw_mipi_dsi_dphy_timing *timing)
-+{
-+	*timing = dphy_timing_px30;
-+
-+	return 0;
-+}
-+
-+static int
-+dw_mipi_dsi_phy_get_timing(void *priv_data, unsigned int lane_mbps,
-+			   struct dw_mipi_dsi_dphy_timing *timing)
-+{
-+	struct dw_mipi_dsi_rockchip *dsi = priv_data;
-+
-+	return dsi->cdata->dphy_get_timing(dsi, lane_mbps, timing);
-+}
-+
- static const struct dw_mipi_dsi_phy_ops dw_mipi_dsi_rockchip_phy_ops = {
- 	.init = dw_mipi_dsi_phy_init,
- 	.power_on = dw_mipi_dsi_phy_power_on,
-@@ -1506,6 +1537,7 @@ static const struct rockchip_dw_dsi_chip_data px30_chip_data[] = {
- 
- 		.max_data_lanes = 4,
- 		.max_bit_rate_per_lane = 1000000000UL,
-+		.dphy_get_timing = dw_mipi_dsi_phy_px30_get_timing,
- 	},
- 	{ /* sentinel */ }
- };
-@@ -1519,6 +1551,7 @@ static const struct rockchip_dw_dsi_chip_data rk3128_chip_data[] = {
- 						RK3128_DSI_FORCETXSTOPMODE), 0),
- 		.max_data_lanes = 4,
- 		.max_bit_rate_per_lane = 1000000000UL,
-+		.dphy_get_timing = dw_mipi_dsi_phy_px30_get_timing,
- 	},
- 	{ /* sentinel */ }
- };
-@@ -1532,6 +1565,7 @@ static const struct rockchip_dw_dsi_chip_data rk3288_chip_data[] = {
- 
- 		.max_data_lanes = 4,
- 		.max_bit_rate_per_lane = 1500000000UL,
-+		.dphy_get_timing = dw_mipi_dsi_phy_rk3288_get_timing,
- 	},
- 	{
- 		.reg = 0xff964000,
-@@ -1541,6 +1575,7 @@ static const struct rockchip_dw_dsi_chip_data rk3288_chip_data[] = {
- 
- 		.max_data_lanes = 4,
- 		.max_bit_rate_per_lane = 1500000000UL,
-+		.dphy_get_timing = dw_mipi_dsi_phy_rk3288_get_timing,
- 	},
- 	{ /* sentinel */ }
- };
-@@ -1554,6 +1589,7 @@ static const struct rockchip_dw_dsi_chip_data rk3368_chip_data[] = {
- 						RK3368_DSI_FORCERXMODE), 0),
- 		.max_data_lanes = 4,
- 		.max_bit_rate_per_lane = 1500000000UL,
-+		.dphy_get_timing = dw_mipi_dsi_phy_px30_get_timing,
- 	},
- 	{ /* sentinel */ }
- };
-@@ -1642,6 +1678,7 @@ static const struct rockchip_dw_dsi_chip_data rk3399_chip_data[] = {
- 		.flags = DW_MIPI_NEEDS_PHY_CFG_CLK | DW_MIPI_NEEDS_GRF_CLK,
- 		.max_data_lanes = 4,
- 		.max_bit_rate_per_lane = 1500000000UL,
-+		.dphy_get_timing = dw_mipi_dsi_phy_rk3288_get_timing,
- 	},
- 	{
- 		.reg = 0xff968000,
-@@ -1671,6 +1708,7 @@ static const struct rockchip_dw_dsi_chip_data rk3399_chip_data[] = {
- 		.dphy_rx_init = rk3399_dphy_tx1rx1_init,
- 		.dphy_rx_power_on = rk3399_dphy_tx1rx1_power_on,
- 		.dphy_rx_power_off = rk3399_dphy_tx1rx1_power_off,
-+		.dphy_get_timing = dw_mipi_dsi_phy_rk3288_get_timing,
- 	},
- 	{ /* sentinel */ }
- };
-@@ -1698,6 +1736,7 @@ static const struct rockchip_dw_dsi_chip_data rk3568_chip_data[] = {
- 			     FIELD_PREP_WM16_CONST(RK3568_DSI0_FORCERXMODE, 0)),
- 		.max_data_lanes = 4,
- 		.max_bit_rate_per_lane = 1200000000UL,
-+		.dphy_get_timing = dw_mipi_dsi_phy_px30_get_timing,
- 	},
- 	{
- 		.reg = 0xfe070000,
-@@ -1708,6 +1747,7 @@ static const struct rockchip_dw_dsi_chip_data rk3568_chip_data[] = {
- 			     FIELD_PREP_WM16_CONST(RK3568_DSI1_FORCERXMODE, 0)),
- 		.max_data_lanes = 4,
- 		.max_bit_rate_per_lane = 1200000000UL,
-+		.dphy_get_timing = dw_mipi_dsi_phy_px30_get_timing,
- 	},
- 	{ /* sentinel */ }
- };
-@@ -1721,6 +1761,7 @@ static const struct rockchip_dw_dsi_chip_data rv1126_chip_data[] = {
- 			     FIELD_PREP_WM16_CONST(RV1126_DSI_FORCETXSTOPMODE, 0)),
- 		.max_data_lanes = 4,
- 		.max_bit_rate_per_lane = 1000000000UL,
-+		.dphy_get_timing = dw_mipi_dsi_phy_px30_get_timing,
- 	},
- 	{ /* sentinel */ }
- };
+Thanks!
 -- 
-2.53.0
+Florian
 
 
