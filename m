@@ -4,127 +4,86 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 34982CD6E4A
-	for <linux-arm-kernel@archiver.kernel.org>; Wed,  3 Jun 2026 05:41:08 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id B8526CD6E55
+	for <linux-arm-kernel@archiver.kernel.org>; Wed,  3 Jun 2026 05:42:44 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:In-Reply-To:
-	Content-Type:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=0sWDiookUDaIyxNSUo+ZW15UQ7ZbLs7tmOHhj7ymsRg=; b=b/qRJlXzsVZa+5vQ6/EsHI2jSr
-	Dm8JuowW7DDJmbU3I3oKC1RwOZCUmcbUb8YQzIW6wiVL6qmZjsjOVcbpHccZaqC/OXC3KTQHuqytp
-	rh+g0SR9jxyaWk/Q/Qaqur7IgHBO3YpYvHvbryBT3peCev4ceqexQEzP4/o9nlvVSaJiFnACIXsEF
-	D2bL6xQ0BuNyCZ3XDXiMl1P/o85IN/PMe/wWPoZcGZ2GCUgiJTiQlxnsZQCL8/dmk9+iBadBxSaoN
-	kJR8LgSdGnBIRS5BslnLjynECJVQ0wUgvdaHD52iG1y3m8FsiG8kwcxwmugsUNBIePzCcKKbQ9mWr
-	YeFL186w==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	MIME-Version:Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-Type:
+	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
+	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=dmM4Z/K62obQMJtoATM7dbLY0Uor4qUOBp49Ia9JKaA=; b=OyhY39b5LFDlRMhFVnJa5DCwDV
+	ty7D9VsxF436oQE960Cu4IOYGqBaDz7zy2XKgCx4a29JiaWj9gXcCIpAdtjrkiHRz89NpOPlKwbKX
+	6FXXlwiCjfGnR6fkTIeA90GVT0+emvBnb4DEpQEnke96YnX8a4TCzoDm4SyLtSBcOZBWogL/7BSG9
+	jMtXE1w3fZnSUsla1FjwJwMegfWLNE22D7U+HzSyQDz1pWU6+lVWJ0j91sBB5Ca43wbeIiAWtCphE
+	igxo/IjyHU97isfUbZfMh7NfC2wR7TDbnbtb5tJDZ9Yc0rXK3KTVI91jCyIVksTTAEtD9T3REx1O3
+	kIuTcqhA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wUeLc-0000000EIX9-36rl;
-	Wed, 03 Jun 2026 05:41:00 +0000
-Received: from mail-francecentralazlp170130007.outbound.protection.outlook.com ([2a01:111:f403:c20a::7] helo=PA4PR04CU001.outbound.protection.outlook.com)
+	id 1wUeNC-0000000EIjK-1paX;
+	Wed, 03 Jun 2026 05:42:38 +0000
+Received: from mail-pf1-x436.google.com ([2607:f8b0:4864:20::436])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wUeLa-0000000EIWf-1CWv;
-	Wed, 03 Jun 2026 05:40:59 +0000
-ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
- b=lEFvgAO8QFFho4rF0vKl5bGJ/ft0GRmfqv78oOBKwdrqaK33c2ANYlEOCewadnH/6vbHk90Go8eLuZeBddvRxsuE7r4RNhu74IfCCUl+ZIl3ciDXinzxo/gdzvb4B5RwDdduT7/MXeqbQZTMI019CnHjTW+Z0DP4D+u7HI0VFOx1HQ9o2j51pjdQm6xI4vV/+0gjedEEQlgZW5pMujSfHI1zyLnVG3NMbgaA/kzOpTd81Dovz4DsD4SQL+scO4gVArzmIqXzLuo/Ngve6qsEqcqz2QD/UtrpgLfdxBuP1baTxHOo+sepnvng8HDNX9PeRvzrnzz9vaWpH9BC7q1/EQ==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
- s=arcselector10001;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
- bh=0sWDiookUDaIyxNSUo+ZW15UQ7ZbLs7tmOHhj7ymsRg=;
- b=qBqcNXVM8epP0hBbh+Xv7n3zFmeC0Zv4OhI8JQR9srYml3OYGfQh61+vG5uaYJ0xpb1OMFirap0zBTzvA8xcQxk819JsGJaOj9EGjBek8+0yoP1ch8zV/yWvIm0A3V8qtNohajR0bLHu35AG0evNZG4T7GsyILeVrTUczzY17Lds7UqImwwENdaKyjPdj0ml0W5jSou2S8SeIj8ndjrxeESI/5a7/s+x5W5njjeOwDGe6cu91EQrtONzlqeyrkGYsdiYlRpfJgeqGUoAuq7aHYEfjhEe4IRLEEWBj/D/uMk3OyECGE8tmNq+nOGnNBVdeoNk2hZ6GTT9Kka/I5CacA==
-ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
- smtp.mailfrom=oss.nxp.com; dmarc=pass action=none header.from=oss.nxp.com;
- dkim=pass header.d=oss.nxp.com; arc=none
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=NXP1.onmicrosoft.com;
- s=selector1-NXP1-onmicrosoft-com;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
- bh=0sWDiookUDaIyxNSUo+ZW15UQ7ZbLs7tmOHhj7ymsRg=;
- b=JwL2R5kCbGcHRJ8aNKpk+JUKarI0SW2CkIyaK4s+Ov3+hvFCaesefmRVYEpBYEeChYn+J5KO5kh+br5wmlHhsa8v1CgdebbZGih4E2QLqy8JeaZjkE3UgJbSuQ8b1myULP4vPg+d4kHaiijx0CJwsDV1E5dFcLk02eCb9btV1rFQ/L3WqX6enDbyMYT9KOZABTCVjpjdrUrCpSRdcpp93ct+EWwNplgd9Y1g7y197MBgDtWvvEMOlilQV7Rdawf5SuLiBQ0Xg43lbu7jG9ngBnqt46PsVAOJTBQ4w1ca0faEzK9bVOgvtacl6AjpqZfk5h9j0EDwtso5HKYZutuVVA==
-Authentication-Results: dkim=none (message not signed)
- header.d=none;dmarc=none action=none header.from=oss.nxp.com;
-Received: from PAXPR04MB9422.eurprd04.prod.outlook.com (2603:10a6:102:2b4::21)
- by AM7PR04MB6871.eurprd04.prod.outlook.com (2603:10a6:20b:109::14) with
- Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.21.92.7; Wed, 3 Jun 2026
- 05:40:53 +0000
-Received: from PAXPR04MB9422.eurprd04.prod.outlook.com
- ([fe80::54e:28bf:aa85:d25d]) by PAXPR04MB9422.eurprd04.prod.outlook.com
- ([fe80::54e:28bf:aa85:d25d%4]) with mapi id 15.21.0071.015; Wed, 3 Jun 2026
- 05:40:53 +0000
-Date: Wed, 3 Jun 2026 13:39:50 +0800
-From: Xu Yang <xu.yang_2@oss.nxp.com>
-To: Felix Gu <ustc.gu@gmail.com>
-Cc: Vinod Koul <vkoul@kernel.org>, 
-	Neil Armstrong <neil.armstrong@linaro.org>, Frank Li <Frank.Li@nxp.com>, 
-	Sascha Hauer <s.hauer@pengutronix.de>, Pengutronix Kernel Team <kernel@pengutronix.de>, 
-	Fabio Estevam <festevam@gmail.com>, Xu Yang <xu.yang_2@nxp.com>, linux-phy@lists.infradead.org, 
-	imx@lists.linux.dev, linux-arm-kernel@lists.infradead.org, 
-	linux-kernel@vger.kernel.org
-Subject: Re: [PATCH] phy: fsl-imx8mq-usb: fix vbus regulator leak on error
- paths
-Message-ID: <p5c77fejmivzt7pn5toc3bu46fkc6lv46gu3nmskbzhktu3cvt@qafk6e75rtkc>
-References: <20260602-imx9mq-v1-1-e58b912923d2@gmail.com>
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-In-Reply-To: <20260602-imx9mq-v1-1-e58b912923d2@gmail.com>
-X-ClientProxiedBy: SI1PR02CA0037.apcprd02.prod.outlook.com
- (2603:1096:4:1f6::13) To PAXPR04MB9422.eurprd04.prod.outlook.com
- (2603:10a6:102:2b4::21)
+	id 1wUeNA-0000000EIir-1PRr
+	for linux-arm-kernel@lists.infradead.org;
+	Wed, 03 Jun 2026 05:42:37 +0000
+Received: by mail-pf1-x436.google.com with SMTP id d2e1a72fcca58-84275887a3fso128232b3a.1
+        for <linux-arm-kernel@lists.infradead.org>; Tue, 02 Jun 2026 22:42:36 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=gmail.com; s=20251104; t=1780465355; x=1781070155; darn=lists.infradead.org;
+        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
+         :to:from:from:to:cc:subject:date:message-id:reply-to;
+        bh=dmM4Z/K62obQMJtoATM7dbLY0Uor4qUOBp49Ia9JKaA=;
+        b=s/YpQ6SPPvOyhWue9hiZlt2fhIVLa8CBk4iUTtBfDzklNR2Dnvsq2aDp/fwYLxSorP
+         +TDwwo28v9Cdb/9hXymVUe6EsKlVjqTslIV2Rbcnk2SBNryToEMLX3icW9BAbeKSu2Il
+         bVVugZS0243Er/Xa6bnkhTzQi8T91t0Qqu0Z2ZlLZShXQ8hweV2ZfEasN3usmWmo1q6m
+         hsjN3jAfXif43HWFpGJF/+l/j7n1RrkYeKgDkk4ED3DPo/gOYBbIKwaIoZ3L3k3Qviny
+         PfazGo9PHk6KtkRdOG9PzRhCceDtmChhEOBqaj4NijcZ94TIJ7TSdOzK+VAKF2b+Xs9j
+         vvRQ==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20251104; t=1780465355; x=1781070155;
+        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
+         :to:from:x-gm-gg:x-gm-message-state:from:to:cc:subject:date
+         :message-id:reply-to;
+        bh=dmM4Z/K62obQMJtoATM7dbLY0Uor4qUOBp49Ia9JKaA=;
+        b=YRuJ0ePe00JGa85YboEFfC8cyKb3i0EGBhdthPyjhno17sjPeJFfKKgK9eEpZ1PxVK
+         wuCYRmkt7vOEyyWVJSfce/XbEzj+A27/rcLrA4BVsXueMqf91Ni4VJMkzpE7ziDCUWV/
+         VsnTRza9x0SpsPvTxXXA/+hvmzY0bNg57R7nytj7YUquVMBxqqx/3214mMIlDdbtr5+v
+         SvqRksMiIsQt9UxgWMT43J8cAjxFFad2Bb77zzn4A4yV9LhmuSLzk4RVUVv4zz11s9Fa
+         Uqp1xspGrtvK+AzO1wU+ly6uIDuq18movLNO4zdfnnf9OqX4UEFJwtbCaJzYgW+P/a/z
+         jnxQ==
+X-Forwarded-Encrypted: i=1; AFNElJ9w2eANYtCOd4m/l+rUv8ECgdlrd/MTfWDqsYVVP4R4d1nqyYaakc5SagKRNrMEo7BEK2G7JMBnvHcUJ0YleOsg@lists.infradead.org
+X-Gm-Message-State: AOJu0Yyvn/jlQjtKQ7ep7Q/tmyF+nI/aQWjdHBXaRySLwx8E7RFLLUL1
+	qHGBy7heczQjSsXNDKKaiswfk3jDxHkgfczLun3jeH9ugWKW2LPgjbTR
+X-Gm-Gg: Acq92OGLgPqKZ3f3x/1DOuEwmoJOE71MGZAn5X8rGFWU3otzXE2d/9j/Fg75kP4QA4v
+	9FsrOipevQyNFrAXFRqLbdtZzaslLANmkghK2K1r53p//AL8t5MB63CIsFUPDZGDA6j4uGxFzaV
+	hcjQjkdhZVsmCTYsrXRtTASSBjIOW1zUN37y7YxROftjbjlDjdpqkbWlOS2dayIT0JgJ0KoYrep
+	hgeEJY0EaR4GHO5mwIQ4w66U6j4+wxNGDX0FhTc69oqRHSs9EB+mtcDcKTzmF0B0IyighDnpVjT
+	h3qUQEvD1/bvYYjTlXnpijd4v/5wNYJnFy+hZP/u9QV22hds/04/G+OKFCLvx2djKlY2b0bp7oX
+	62XWwqTeHZZkgekdXfzJ6ZR61EzQ4mo3c5j19z6QvBTn/QH3wKAaegYdWiCiGMPtqxqtoqPv7rX
+	SEXveqKCOYhiCahkoMHfJEfIbPLXXhRWMwVU+Ac5xKsNskujyvLXDQEkVpFlHtlr55gGc0Qy36T
+	ojABjwfHvtKD09eyTPC8EkmwbOwUHDWCVGn1cBUQZMvYdk1IymvpFjY
+X-Received: by 2002:a05:6a00:2e9e:b0:842:3838:cb03 with SMTP id d2e1a72fcca58-842859f9b6emr1494731b3a.11.1780465355245;
+        Tue, 02 Jun 2026 22:42:35 -0700 (PDT)
+Received: from ryzen ([2601:644:8000:5b5d:7285:c2ff:fe45:8a32])
+        by smtp.gmail.com with ESMTPSA id d2e1a72fcca58-8428291ed20sm1909506b3a.61.2026.06.02.22.42.34
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Tue, 02 Jun 2026 22:42:34 -0700 (PDT)
+From: Rosen Penev <rosenp@gmail.com>
+To: linux-input@vger.kernel.org
+Cc: Dmitry Torokhov <dmitry.torokhov@gmail.com>,
+	Michal Simek <michal.simek@amd.com>,
+	linux-kernel@vger.kernel.org (open list),
+	linux-arm-kernel@lists.infradead.org (moderated list:ARM/ZYNQ ARCHITECTURE)
+Subject: [PATCH] Input: xilinx_ps2 - remove driver
+Date: Tue,  2 Jun 2026 22:42:17 -0700
+Message-ID: <20260603054217.442016-1-rosenp@gmail.com>
+X-Mailer: git-send-email 2.54.0
 MIME-Version: 1.0
-X-MS-PublicTrafficType: Email
-X-MS-TrafficTypeDiagnostic: PAXPR04MB9422:EE_|AM7PR04MB6871:EE_
-X-MS-Office365-Filtering-Correlation-Id: 0a5f8b6b-9aa4-4369-b824-08dec132ace0
-X-MS-Exchange-SenderADCheck: 1
-X-MS-Exchange-AntiSpam-Relay: 0
-X-Microsoft-Antispam: BCL:0;ARA:13230040|1800799024|366016|19092799006|376014|7416014|3023799007|18002099003|22082099003|56012099006|11063799006;
-X-Microsoft-Antispam-Message-Info: Ad5t2jogP036P59no47/2d+XGeCEdP1b4nCUeBor+7xbc98hO829RThLkP93z4J+Nj5YyL6xbenRJhlNMIkM9geA0aYnIUjDZdvK2Hzf2OkGE0Eoj/c3jGNhac83rJ/hgEJn75oOsGnFPOU//CK043jv7m7K5jx847S7x9t2cItx2SmITGTkCvtw3ai0i9wPleXR+6P0fklshcGixB3Ps3J1jKgDwNHtPL8OVm7fdYVijP3iysPcfs1jcBkIW/sfd4IJDKE+UxK9JtlHBRwKABRYDkyxOAkTP2ab3o10dsvOJiWASZkGSK6so7/oIjeuxL2abUDRZnyYlVwYZKz445CNswXrYVNgEcttvl3bNZ6kiqqcmbdwPa8ddlPMMvjWYCO8c8sanHuLSZ0QWMBrGYxQsk4ACBIrtyIHB/57j6gnplC91PiVaWRGPQ5VZDFzvqdmxHd6Zj2mSJ+wdW7nnTAPYGLLN99ZZa82QZ8VyFQE+2aEiON4CTFLLI9i+8ywwFfB7zsOUMT8NMBh4fPnSfaW0HIv2RRTT3WTfPqqBTMjwamWh8Y2DZRjCu4X9iX17FScRV6Sm86SPB60Jv3weerej4mZxZVc/uNk5i78IH9p07y55EHriuwNYLXdKRkwQLA2Wu8FlqqPLKiOUjelUP2frwIpaFuFmDRVlsnhHepawvydIP+j8/5hiXCJX3emzpvTDZm7kOzwD13+7T5CRQ==
-X-Forefront-Antispam-Report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:PAXPR04MB9422.eurprd04.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(1800799024)(366016)(19092799006)(376014)(7416014)(3023799007)(18002099003)(22082099003)(56012099006)(11063799006);DIR:OUT;SFP:1101;
-X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
-X-MS-Exchange-AntiSpam-MessageData-0: =?us-ascii?Q?KZdn7K6tEWQcp3Cgo1dvSj2cnP7xjWcWGLhw1GYinf6J0mqzzb3lo/CBAOmt?=
- =?us-ascii?Q?O2v8AvvJC7YsCwS/nk5U38JbA4A68Nmf8JXbMPaDitXv7JcJZcBqiJ2O1tJU?=
- =?us-ascii?Q?Jux1MQB6OtQSxIQ1fPlbE2pEob8UxH//F5tLK04A+4mrcxSDHQRrioqjyfNA?=
- =?us-ascii?Q?U84UKWo++iLN59JeJ4djuBTQtX21Srsg3I9yZAzoFrOTIPg5TbL2jSQVS86u?=
- =?us-ascii?Q?7H7aBpKb0VDv5qjsTqx4bGweLGCTrqHfU9CqcgLklGH/dOj/HzEd7t6AGHSQ?=
- =?us-ascii?Q?5bDXZQjgDbNZlq4B6Kd+FInq6hvtUNlXRhJmgyc97Nc2nZkFx0RVbSaWxY5T?=
- =?us-ascii?Q?+OTCvXLdjrfAoxTZ5/0/xz/EnYEz7Z5ShJRmX1fUkp0Rt5s4Dc2E/xklstMS?=
- =?us-ascii?Q?CiluB9b4RCfhX+JLul+zfoYuEHDz3xXzOW9TDoALT7s4LbiKsij9WJ7GQ2B0?=
- =?us-ascii?Q?OWkfrn7mlSXeo7Wotd/A/FBtCs8rj4heaXibeuMy0uvtTdq20ztf5HJFwQRG?=
- =?us-ascii?Q?kcVVz+JdEoMlxJaXNnvHjbNULdWdBQHeh7OomoqgOmlo3xjRtW/qcc8FycgW?=
- =?us-ascii?Q?xQK7TXSGPBKVGhUyk/gAwVgqEFu+xoDz1o3ufyZYpcVF5BmB+qBEMc28TO82?=
- =?us-ascii?Q?6M6d+wrGN4IQ2gYg/ByPsT75/C0y9a1ZYDqdJPzvwSyjCxeT/iMfGih8B/V4?=
- =?us-ascii?Q?/vzzZjQnuGwGtD/9zyzMgIyEsLcWf0mZDqGjcjVwkS6C8IHIyzULMpa9Kdgh?=
- =?us-ascii?Q?59iE5XBCt+s1oT7cg/0xLDkjmbb2TAWyOMIjxf1Z06yWBkzLfBtzocjhePms?=
- =?us-ascii?Q?qC95XHMs35AxL8oVDR+3xoawvjcG86Y0/QT+wrHrde9+314Alcmc8wt8OMjE?=
- =?us-ascii?Q?65aLpW7PJM7L17Gzsuc/3YE1xCy+wfeJWw/tGEDdK04vPcjoSx8ser/hThl7?=
- =?us-ascii?Q?v9XdlhZ9OBPvcssuf6bII+0P6BqPNZ7FgRJk2OC/eXPSEitdSFXuDYNPi5yT?=
- =?us-ascii?Q?JuZ3FAy8swaTaRnlgN0pfNNzpLGKVcB+oYqwNhymjjFt4HiAMGhTJVpuGiqX?=
- =?us-ascii?Q?u7xrtyz/KlX9tsOKaVBsYHmpSvyOvhUZOthhQHx//OdVNa/jYUFhqdZIKoEZ?=
- =?us-ascii?Q?TG3+Z1tZigr6UGeqGaQFScjorkh15YHgGjgxhDnzI95kY3uyAEc9p8Z/wqZh?=
- =?us-ascii?Q?2Vfjgt+ozvgqrktEVDK2mFb4nFOrlmw+ja2I63EHZ/qWm/tRkbxtoAvNcTud?=
- =?us-ascii?Q?KOYeJSiKq7+8PN9PaBZcBHQN7SG4NRD5dz0JRV0D8B4F60otxstM7x68kbC3?=
- =?us-ascii?Q?DGbaAPe0QLPeFqnb6T0mrcWp+L9TJ44Wur6OGpwRdHuIwGaHqBHumykN4LoD?=
- =?us-ascii?Q?rSKQMtxLBW2lsv0imqXi6aV3C1Th69kbwDIx+vMR+4WqSkil7PE6ovBZZYQX?=
- =?us-ascii?Q?CzRaRNxm/RVM5i6EkSEQXwL44TrIHDwAiywSiJ93tF+xFSZDszMawcw99jXv?=
- =?us-ascii?Q?jwpAKPbJZs7iD8xBfsUu38ymgGZH0OXXhQoR7MQ5DUx7gf+/Y+N4v5yvsi6a?=
- =?us-ascii?Q?3E+JFYAey6STHv+Rom9e/yDm+2Hlu/zHvM8k2YW2dyiJhvBCR5Ah12OXZpfz?=
- =?us-ascii?Q?zh5jFrsRsGKw3w0DDPfnbzQBH/TeMTV2jQLWGBDbZbh3n14gDn2fOcIsNabo?=
- =?us-ascii?Q?vT1bj9a0PfRBVC/duqGvd6Zgb94kLlwLAHHomyce2z68KAI7FcQwBs5ySVD4?=
- =?us-ascii?Q?0/m8ymviHsb8XWCtcE2iiK7CQuVDila+VUoBuXbk+0xbCiJz2M0V?=
-X-OriginatorOrg: oss.nxp.com
-X-MS-Exchange-CrossTenant-Network-Message-Id: 0a5f8b6b-9aa4-4369-b824-08dec132ace0
-X-MS-Exchange-CrossTenant-AuthSource: PAXPR04MB9422.eurprd04.prod.outlook.com
-X-MS-Exchange-CrossTenant-AuthAs: Internal
-X-MS-Exchange-CrossTenant-OriginalArrivalTime: 03 Jun 2026 05:40:52.9495
- (UTC)
-X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
-X-MS-Exchange-CrossTenant-Id: 686ea1d3-bc2b-4c6f-a92c-d99c5c301635
-X-MS-Exchange-CrossTenant-MailboxType: HOSTED
-X-MS-Exchange-CrossTenant-UserPrincipalName: 9/zo5IAiJgo+c1HqyG0q58qzUuS8oXpmZaanbtXVRXtvSy71YJSsPmvi2ERZ7X6p2ih4wvYJtNYp2/SogLHVtBPiZVNjDrsXeQ0EMv7CCqRBng8KwCQo/pTBXsYukA3u
-X-MS-Exchange-Transport-CrossTenantHeadersStamped: AM7PR04MB6871
+Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260602_224058_355364_B7332008 
-X-CRM114-Status: GOOD (  21.26  )
+X-CRM114-CacheID: sfid-20260602_224236_418177_4A3C73C7 
+X-CRM114-Status: GOOD (  36.09  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -139,77 +98,422 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hi Felix,
+Remove the Xilinx XPS PS/2 controller driver. This driver supports an
+old Xilinx EDK IP core that is no longer in active use. The hardware
+is not available on modern platforms, and the driver has no users here.
 
-On Tue, Jun 02, 2026 at 09:14:33PM +0800, Felix Gu wrote:
-> In imx8mq_phy_power_on(), if clk_prepare_enable() fails after
-> regulator_enable() has succeeded, the vbus regulator is left
-> enabled. The same issue exists for the alt_clk error path.
-> 
-> Fix both by converting to the standard goto-based cleanup
-> pattern, ensuring the regulator is disabled when any
-> subsequent step fails.
+Assisted-by: opencode:big-pickle
+Signed-off-by: Rosen Penev <rosenp@gmail.com>
+---
+ drivers/input/serio/Kconfig      |  10 -
+ drivers/input/serio/Makefile     |   1 -
+ drivers/input/serio/xilinx_ps2.c | 363 -------------------------------
+ 3 files changed, 374 deletions(-)
+ delete mode 100644 drivers/input/serio/xilinx_ps2.c
 
-I am fixing the bugs which are reported by sashiko-bot based on my previous
-patch these days. And I already build a patchset to add runtime PM support
-which will move all clock callbakcs to runtime operations. Therefore, this
-patch is not needed anymore once runtime PM is ready.
+diff --git a/drivers/input/serio/Kconfig b/drivers/input/serio/Kconfig
+index 5f15a6462056..bacab1f58400 100644
+--- a/drivers/input/serio/Kconfig
++++ b/drivers/input/serio/Kconfig
+@@ -188,16 +188,6 @@ config SERIO_RAW
+ 	  To compile this driver as a module, choose M here: the
+ 	  module will be called serio_raw.
+ 
+-config SERIO_XILINX_XPS_PS2
+-	tristate "Xilinx XPS PS/2 Controller Support"
+-	depends on PPC || MICROBLAZE
+-	help
+-	  This driver supports XPS PS/2 IP from the Xilinx EDK on
+-	  PowerPC platform.
+-
+-	  To compile this driver as a module, choose M here: the
+-	  module will be called xilinx_ps2.
+-
+ config SERIO_ALTERA_PS2
+ 	tristate "Altera UP PS/2 controller"
+ 	depends on HAS_IOMEM
+diff --git a/drivers/input/serio/Makefile b/drivers/input/serio/Makefile
+index 8ab98f4aa28d..7f5137dc02e2 100644
+--- a/drivers/input/serio/Makefile
++++ b/drivers/input/serio/Makefile
+@@ -23,7 +23,6 @@ obj-$(CONFIG_SERIO_SGI_IOC3)	+= ioc3kbd.o
+ obj-$(CONFIG_SERIO_LIBPS2)	+= libps2.o
+ obj-$(CONFIG_SERIO_RAW)		+= serio_raw.o
+ obj-$(CONFIG_SERIO_AMS_DELTA)	+= ams_delta_serio.o
+-obj-$(CONFIG_SERIO_XILINX_XPS_PS2)	+= xilinx_ps2.o
+ obj-$(CONFIG_SERIO_ALTERA_PS2)	+= altera_ps2.o
+ obj-$(CONFIG_SERIO_ARC_PS2)	+= arc_ps2.o
+ obj-$(CONFIG_SERIO_APBPS2)	+= apbps2.o
+diff --git a/drivers/input/serio/xilinx_ps2.c b/drivers/input/serio/xilinx_ps2.c
+deleted file mode 100644
+index 411d55ca1a66..000000000000
+--- a/drivers/input/serio/xilinx_ps2.c
++++ /dev/null
+@@ -1,363 +0,0 @@
+-// SPDX-License-Identifier: GPL-2.0-or-later
+-/*
+- * Xilinx XPS PS/2 device driver
+- *
+- * (c) 2005 MontaVista Software, Inc.
+- * (c) 2008 Xilinx, Inc.
+- */
+-
+-
+-#include <linux/module.h>
+-#include <linux/serio.h>
+-#include <linux/interrupt.h>
+-#include <linux/errno.h>
+-#include <linux/slab.h>
+-#include <linux/list.h>
+-#include <linux/io.h>
+-#include <linux/mod_devicetable.h>
+-#include <linux/of_address.h>
+-#include <linux/of_irq.h>
+-#include <linux/platform_device.h>
+-
+-#define DRIVER_NAME		"xilinx_ps2"
+-
+-/* Register offsets for the xps2 device */
+-#define XPS2_SRST_OFFSET	0x00000000 /* Software Reset register */
+-#define XPS2_STATUS_OFFSET	0x00000004 /* Status register */
+-#define XPS2_RX_DATA_OFFSET	0x00000008 /* Receive Data register */
+-#define XPS2_TX_DATA_OFFSET	0x0000000C /* Transmit Data register */
+-#define XPS2_GIER_OFFSET	0x0000002C /* Global Interrupt Enable reg */
+-#define XPS2_IPISR_OFFSET	0x00000030 /* Interrupt Status register */
+-#define XPS2_IPIER_OFFSET	0x00000038 /* Interrupt Enable register */
+-
+-/* Reset Register Bit Definitions */
+-#define XPS2_SRST_RESET		0x0000000A /* Software Reset  */
+-
+-/* Status Register Bit Positions */
+-#define XPS2_STATUS_RX_FULL	0x00000001 /* Receive Full  */
+-#define XPS2_STATUS_TX_FULL	0x00000002 /* Transmit Full  */
+-
+-/*
+- * Bit definitions for ISR/IER registers. Both the registers have the same bit
+- * definitions and are only defined once.
+- */
+-#define XPS2_IPIXR_WDT_TOUT	0x00000001 /* Watchdog Timeout Interrupt */
+-#define XPS2_IPIXR_TX_NOACK	0x00000002 /* Transmit No ACK Interrupt */
+-#define XPS2_IPIXR_TX_ACK	0x00000004 /* Transmit ACK (Data) Interrupt */
+-#define XPS2_IPIXR_RX_OVF	0x00000008 /* Receive Overflow Interrupt */
+-#define XPS2_IPIXR_RX_ERR	0x00000010 /* Receive Error Interrupt */
+-#define XPS2_IPIXR_RX_FULL	0x00000020 /* Receive Data Interrupt */
+-
+-/* Mask for all the Transmit Interrupts */
+-#define XPS2_IPIXR_TX_ALL	(XPS2_IPIXR_TX_NOACK | XPS2_IPIXR_TX_ACK)
+-
+-/* Mask for all the Receive Interrupts */
+-#define XPS2_IPIXR_RX_ALL	(XPS2_IPIXR_RX_OVF | XPS2_IPIXR_RX_ERR |  \
+-				 XPS2_IPIXR_RX_FULL)
+-
+-/* Mask for all the Interrupts */
+-#define XPS2_IPIXR_ALL		(XPS2_IPIXR_TX_ALL | XPS2_IPIXR_RX_ALL |  \
+-				 XPS2_IPIXR_WDT_TOUT)
+-
+-/* Global Interrupt Enable mask */
+-#define XPS2_GIER_GIE_MASK	0x80000000
+-
+-struct xps2data {
+-	int irq;
+-	spinlock_t lock;
+-	void __iomem *base_address;	/* virt. address of control registers */
+-	unsigned int flags;
+-	struct serio *serio;		/* serio */
+-	struct device *dev;
+-};
+-
+-/************************************/
+-/* XPS PS/2 data transmission calls */
+-/************************************/
+-
+-/**
+- * xps2_recv() - attempts to receive a byte from the PS/2 port.
+- * @drvdata:	pointer to ps2 device private data structure
+- * @byte:	address where the read data will be copied
+- *
+- * If there is any data available in the PS/2 receiver, this functions reads
+- * the data, otherwise it returns error.
+- */
+-static int xps2_recv(struct xps2data *drvdata, u8 *byte)
+-{
+-	u32 sr;
+-	int status = -1;
+-
+-	/* If there is data available in the PS/2 receiver, read it */
+-	sr = in_be32(drvdata->base_address + XPS2_STATUS_OFFSET);
+-	if (sr & XPS2_STATUS_RX_FULL) {
+-		*byte = in_be32(drvdata->base_address + XPS2_RX_DATA_OFFSET);
+-		status = 0;
+-	}
+-
+-	return status;
+-}
+-
+-/*********************/
+-/* Interrupt handler */
+-/*********************/
+-static irqreturn_t xps2_interrupt(int irq, void *dev_id)
+-{
+-	struct xps2data *drvdata = dev_id;
+-	u32 intr_sr;
+-	u8 c;
+-	int status;
+-
+-	/* Get the PS/2 interrupts and clear them */
+-	intr_sr = in_be32(drvdata->base_address + XPS2_IPISR_OFFSET);
+-	out_be32(drvdata->base_address + XPS2_IPISR_OFFSET, intr_sr);
+-
+-	/* Check which interrupt is active */
+-	if (intr_sr & XPS2_IPIXR_RX_OVF)
+-		dev_warn(drvdata->dev, "receive overrun error\n");
+-
+-	if (intr_sr & XPS2_IPIXR_RX_ERR)
+-		drvdata->flags |= SERIO_PARITY;
+-
+-	if (intr_sr & (XPS2_IPIXR_TX_NOACK | XPS2_IPIXR_WDT_TOUT))
+-		drvdata->flags |= SERIO_TIMEOUT;
+-
+-	if (intr_sr & XPS2_IPIXR_RX_FULL) {
+-		status = xps2_recv(drvdata, &c);
+-
+-		/* Error, if a byte is not received */
+-		if (status) {
+-			dev_err(drvdata->dev,
+-				"wrong rcvd byte count (%d)\n", status);
+-		} else {
+-			serio_interrupt(drvdata->serio, c, drvdata->flags);
+-			drvdata->flags = 0;
+-		}
+-	}
+-
+-	return IRQ_HANDLED;
+-}
+-
+-/*******************/
+-/* serio callbacks */
+-/*******************/
+-
+-/**
+- * sxps2_write() - sends a byte out through the PS/2 port.
+- * @pserio:	pointer to the serio structure of the PS/2 port
+- * @c:		data that needs to be written to the PS/2 port
+- *
+- * This function checks if the PS/2 transmitter is empty and sends a byte.
+- * Otherwise it returns error. Transmission fails only when nothing is connected
+- * to the PS/2 port. Thats why, we do not try to resend the data in case of a
+- * failure.
+- */
+-static int sxps2_write(struct serio *pserio, unsigned char c)
+-{
+-	struct xps2data *drvdata = pserio->port_data;
+-	u32 sr;
+-
+-	guard(spinlock_irqsave)(&drvdata->lock);
+-
+-	/* If the PS/2 transmitter is empty send a byte of data */
+-	sr = in_be32(drvdata->base_address + XPS2_STATUS_OFFSET);
+-	if (sr & XPS2_STATUS_TX_FULL)
+-		return -EAGAIN;
+-
+-	out_be32(drvdata->base_address + XPS2_TX_DATA_OFFSET, c);
+-	return 0;
+-}
+-
+-/**
+- * sxps2_open() - called when a port is opened by the higher layer.
+- * @pserio:	pointer to the serio structure of the PS/2 device
+- *
+- * This function requests irq and enables interrupts for the PS/2 device.
+- */
+-static int sxps2_open(struct serio *pserio)
+-{
+-	struct xps2data *drvdata = pserio->port_data;
+-	int error;
+-	u8 c;
+-
+-	error = request_irq(drvdata->irq, &xps2_interrupt, 0,
+-				DRIVER_NAME, drvdata);
+-	if (error) {
+-		dev_err(drvdata->dev,
+-			"Couldn't allocate interrupt %d\n", drvdata->irq);
+-		return error;
+-	}
+-
+-	/* start reception by enabling the interrupts */
+-	out_be32(drvdata->base_address + XPS2_GIER_OFFSET, XPS2_GIER_GIE_MASK);
+-	out_be32(drvdata->base_address + XPS2_IPIER_OFFSET, XPS2_IPIXR_RX_ALL);
+-	(void)xps2_recv(drvdata, &c);
+-
+-	return 0;		/* success */
+-}
+-
+-/**
+- * sxps2_close() - frees the interrupt.
+- * @pserio:	pointer to the serio structure of the PS/2 device
+- *
+- * This function frees the irq and disables interrupts for the PS/2 device.
+- */
+-static void sxps2_close(struct serio *pserio)
+-{
+-	struct xps2data *drvdata = pserio->port_data;
+-
+-	/* Disable the PS2 interrupts */
+-	out_be32(drvdata->base_address + XPS2_GIER_OFFSET, 0x00);
+-	out_be32(drvdata->base_address + XPS2_IPIER_OFFSET, 0x00);
+-	free_irq(drvdata->irq, drvdata);
+-}
+-
+-/**
+- * xps2_of_probe - probe method for the PS/2 device.
+- * @ofdev:	pointer to OF device structure
+- *
+- * This function probes the PS/2 device in the device tree.
+- * It initializes the driver data structure and the hardware.
+- * It returns 0, if the driver is bound to the PS/2 device, or a negative
+- * value if there is an error.
+- */
+-static int xps2_of_probe(struct platform_device *ofdev)
+-{
+-	struct resource r_mem; /* IO mem resources */
+-	struct xps2data *drvdata;
+-	struct serio *serio;
+-	struct device *dev = &ofdev->dev;
+-	resource_size_t remap_size, phys_addr;
+-	unsigned int irq;
+-	int error;
+-
+-	dev_info(dev, "Device Tree Probing \'%pOFn\'\n", dev->of_node);
+-
+-	/* Get iospace for the device */
+-	error = of_address_to_resource(dev->of_node, 0, &r_mem);
+-	if (error) {
+-		dev_err(dev, "invalid address\n");
+-		return error;
+-	}
+-
+-	/* Get IRQ for the device */
+-	irq = irq_of_parse_and_map(dev->of_node, 0);
+-	if (!irq) {
+-		dev_err(dev, "no IRQ found\n");
+-		return -ENODEV;
+-	}
+-
+-	drvdata = kzalloc_obj(*drvdata);
+-	serio = kzalloc_obj(*serio);
+-	if (!drvdata || !serio) {
+-		error = -ENOMEM;
+-		goto failed1;
+-	}
+-
+-	spin_lock_init(&drvdata->lock);
+-	drvdata->irq = irq;
+-	drvdata->serio = serio;
+-	drvdata->dev = dev;
+-
+-	phys_addr = r_mem.start;
+-	remap_size = resource_size(&r_mem);
+-	if (!request_mem_region(phys_addr, remap_size, DRIVER_NAME)) {
+-		dev_err(dev, "Couldn't lock memory region at 0x%08llX\n",
+-			(unsigned long long)phys_addr);
+-		error = -EBUSY;
+-		goto failed1;
+-	}
+-
+-	/* Fill in configuration data and add them to the list */
+-	drvdata->base_address = ioremap(phys_addr, remap_size);
+-	if (drvdata->base_address == NULL) {
+-		dev_err(dev, "Couldn't ioremap memory at 0x%08llX\n",
+-			(unsigned long long)phys_addr);
+-		error = -EFAULT;
+-		goto failed2;
+-	}
+-
+-	/* Disable all the interrupts, just in case */
+-	out_be32(drvdata->base_address + XPS2_IPIER_OFFSET, 0);
+-
+-	/*
+-	 * Reset the PS2 device and abort any current transaction,
+-	 * to make sure we have the PS2 in a good state.
+-	 */
+-	out_be32(drvdata->base_address + XPS2_SRST_OFFSET, XPS2_SRST_RESET);
+-
+-	dev_info(dev, "Xilinx PS2 at 0x%08llX mapped to 0x%p, irq=%d\n",
+-		 (unsigned long long)phys_addr, drvdata->base_address,
+-		 drvdata->irq);
+-
+-	serio->id.type = SERIO_8042;
+-	serio->write = sxps2_write;
+-	serio->open = sxps2_open;
+-	serio->close = sxps2_close;
+-	serio->port_data = drvdata;
+-	serio->dev.parent = dev;
+-	snprintf(serio->name, sizeof(serio->name),
+-		 "Xilinx XPS PS/2 at %08llX", (unsigned long long)phys_addr);
+-	snprintf(serio->phys, sizeof(serio->phys),
+-		 "xilinxps2/serio at %08llX", (unsigned long long)phys_addr);
+-
+-	serio_register_port(serio);
+-
+-	platform_set_drvdata(ofdev, drvdata);
+-	return 0;		/* success */
+-
+-failed2:
+-	release_mem_region(phys_addr, remap_size);
+-failed1:
+-	kfree(serio);
+-	kfree(drvdata);
+-
+-	return error;
+-}
+-
+-/**
+- * xps2_of_remove - unbinds the driver from the PS/2 device.
+- * @of_dev:	pointer to OF device structure
+- *
+- * This function is called if a device is physically removed from the system or
+- * if the driver module is being unloaded. It frees any resources allocated to
+- * the device.
+- */
+-static void xps2_of_remove(struct platform_device *of_dev)
+-{
+-	struct xps2data *drvdata = platform_get_drvdata(of_dev);
+-	struct resource r_mem; /* IO mem resources */
+-
+-	serio_unregister_port(drvdata->serio);
+-	iounmap(drvdata->base_address);
+-
+-	/* Get iospace of the device */
+-	if (of_address_to_resource(of_dev->dev.of_node, 0, &r_mem))
+-		dev_err(drvdata->dev, "invalid address\n");
+-	else
+-		release_mem_region(r_mem.start, resource_size(&r_mem));
+-
+-	kfree(drvdata);
+-}
+-
+-/* Match table for of_platform binding */
+-static const struct of_device_id xps2_of_match[] = {
+-	{ .compatible = "xlnx,xps-ps2-1.00.a", },
+-	{ /* end of list */ },
+-};
+-MODULE_DEVICE_TABLE(of, xps2_of_match);
+-
+-static struct platform_driver xps2_of_driver = {
+-	.driver = {
+-		.name = DRIVER_NAME,
+-		.of_match_table = xps2_of_match,
+-	},
+-	.probe		= xps2_of_probe,
+-	.remove		= xps2_of_remove,
+-};
+-module_platform_driver(xps2_of_driver);
+-
+-MODULE_AUTHOR("Xilinx, Inc.");
+-MODULE_DESCRIPTION("Xilinx XPS PS/2 driver");
+-MODULE_LICENSE("GPL");
+-
+-- 
+2.54.0
 
-Please refer to:
-https://lore.kernel.org/linux-phy/20260603-imx8mp-usb-phy-improvement-v3-0-7afb8f89abc6@nxp.com/T/#t
-
-Thanks,
-Xu Yang
-
-> 
-> Fixes: 3b64ea4768e7 ("phy: fsl-imx8mq-usb: support alternate reference clock")
-> Signed-off-by: Felix Gu <ustc.gu@gmail.com>
-> ---
->  drivers/phy/freescale/phy-fsl-imx8mq-usb.c | 15 ++++++++++-----
->  1 file changed, 10 insertions(+), 5 deletions(-)
-> 
-> diff --git a/drivers/phy/freescale/phy-fsl-imx8mq-usb.c b/drivers/phy/freescale/phy-fsl-imx8mq-usb.c
-> index b05d80e849a1..e45e4f16057e 100644
-> --- a/drivers/phy/freescale/phy-fsl-imx8mq-usb.c
-> +++ b/drivers/phy/freescale/phy-fsl-imx8mq-usb.c
-> @@ -627,13 +627,11 @@ static int imx8mq_phy_power_on(struct phy *phy)
->  
->  	ret = clk_prepare_enable(imx_phy->clk);
->  	if (ret)
-> -		return ret;
-> +		goto disable_vbus;
->  
->  	ret = clk_prepare_enable(imx_phy->alt_clk);
-> -	if (ret) {
-> -		clk_disable_unprepare(imx_phy->clk);
-> -		return ret;
-> -	}
-> +	if (ret)
-> +		goto disable_clk;
->  
->  	/* Disable rx term override */
->  	value = readl(imx_phy->base + PHY_CTRL6);
-> @@ -641,6 +639,13 @@ static int imx8mq_phy_power_on(struct phy *phy)
->  	writel(value, imx_phy->base + PHY_CTRL6);
->  
->  	return 0;
-> +
-> +disable_clk:
-> +	clk_disable_unprepare(imx_phy->clk);
-> +disable_vbus:
-> +	regulator_disable(imx_phy->vbus);
-> +
-> +	return ret;
->  }
->  
->  static int imx8mq_phy_power_off(struct phy *phy)
-> 
-> ---
-> base-commit: 08484c504b55a98bd100527fbe10a3caf55ff3ff
-> change-id: 20260602-imx9mq-30169239b590
-> 
-> Best regards,
-> --  
-> Felix Gu <ustc.gu@gmail.com>
-> 
 
