@@ -4,103 +4,64 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id B9645CD6E5D
-	for <linux-arm-kernel@archiver.kernel.org>; Wed,  3 Jun 2026 01:17:14 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id CBE72CD6E57
+	for <linux-arm-kernel@archiver.kernel.org>; Wed,  3 Jun 2026 01:29:15 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=+0q9jHEvyutbUqJNds5rNSupxxEZQmy/I4DCyfn2tFo=; b=c9+LrQtdSBSgLtHISy1UhbGjsy
-	q+Dk+DyZohqdUITa6i30poTD4GgRkCTTxw2aiW28J8dW3/i9ch2Uukp3vjaM0s1beTCFFZwCBQknG
-	lA0IxxM2bM6fxRG9MGZyRi4Q7sxB6tHejT4OZGdC6jy+WZ8lcMSMBj28w/22GrahYW5azHOkyCA4y
-	MUOnwICefAlzJQYeHZDw3wgz/qQzoWILDlIEJoIRBHBOd/9AMzRzcv4+In5WkkgF9MUow5fpAWDD1
-	/ivKPIpZB+z5RzmWbAm03dgTi9x5ma1ZnpDK/gCPVEDYtO3CzrDrUDOhXeWR9RncrwMdL6mM4mBHj
-	CTvaVR7g==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
+	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=m1cnttQcMrvUZx5o8JPHBR3oI+NYB+tDa2bCbLIj358=; b=c7xvc1yqO1r2qKXzlI3N6eooTY
+	y1fliExNdQ/Tf+a+dzJuVa+Jpof4uShZu0xvsy3aWmCZQOEnlrmEYLjJoilXaG0Hq6q8UG4hP2nld
+	CbYBd+3+cHICzB5jX5IcCmD/0mbgdnlVZVnR5urS5b7Gn1jIBUyyaLF6bNhbQBh52zA+X4zuOF7Sd
+	VuryDRkMUPgPDAfipmCp2AQQ+DZdkN/s8GAgUd3xQUmVntPdg2rt3/tVu8b6pIFySUCLgujdtLJtn
+	zkoznZcrdp7Xo9l6jpBeT3Lo+PeyguBqr19bhtZm7d1Hfk+1qDq3mOU1NGWZ7Xo9LIN+IoEcRV8Ru
+	AxrjBAYA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wUaEG-0000000E2Fe-3A7W;
-	Wed, 03 Jun 2026 01:17:08 +0000
-Received: from mail-qk1-x732.google.com ([2607:f8b0:4864:20::732])
+	id 1wUaPr-0000000E2va-0Wp3;
+	Wed, 03 Jun 2026 01:29:07 +0000
+Received: from mail-m158177.netease.com ([47.251.158.177])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wUaEE-0000000E2FH-1uC6
-	for linux-arm-kernel@lists.infradead.org;
-	Wed, 03 Jun 2026 01:17:07 +0000
-Received: by mail-qk1-x732.google.com with SMTP id af79cd13be357-915660e5b8eso331234485a.3
-        for <linux-arm-kernel@lists.infradead.org>; Tue, 02 Jun 2026 18:17:06 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=ziepe.ca; s=google; t=1780449425; x=1781054225; darn=lists.infradead.org;
-        h=in-reply-to:content-disposition:mime-version:references:message-id
-         :subject:cc:to:from:date:from:to:cc:subject:date:message-id:reply-to;
-        bh=+0q9jHEvyutbUqJNds5rNSupxxEZQmy/I4DCyfn2tFo=;
-        b=UlxYctLi27kp0kO9nzbm8Luw/e2lcp6AT6kU9GQ6h7DwCDi9QQZY1NsEII5YRfKHWP
-         TmlES7ppnVTQfmi3mtAsDVW3P5bh/KD26sriF2lfztIRMUs9NdU7zvL+JC+QW0MfRGXB
-         /s/HUx2TvDlkmtan8UL9RWZdnLtomIVszwkEQR+/8N9qT/4JU2vTyYuEKvuqS6Q00/O5
-         CFdBcNSoA76YBibx7+r5m/L+iKIGN01LfhxluDFq/INrRUfoq5Zs5IgP3VnhrBxW+GZY
-         sQbbuzpnSfKR2VbaUrcRbxZ55cu/ChRdJ2gcm66ANtXSuTyoOvGlBakK28jBu8DZKCkP
-         tYrQ==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20251104; t=1780449425; x=1781054225;
-        h=in-reply-to:content-disposition:mime-version:references:message-id
-         :subject:cc:to:from:date:x-gm-gg:x-gm-message-state:from:to:cc
-         :subject:date:message-id:reply-to;
-        bh=+0q9jHEvyutbUqJNds5rNSupxxEZQmy/I4DCyfn2tFo=;
-        b=JohdM7vDfcSZS1g83pipQH39D0U7AWlsTxodNsKekvcwEJVTsysLfWf3qQ9PyqBaU9
-         vOZ/gImMhFpklXwnd6x/9YQuoh+X3bmaIKcFnfsZjMKYQ1kNKIauV3eSchoPgCbwnrbh
-         eK9WaLNNXEiRM74TW2KeKhLW3xFiKldKHkfpBqfcHOFtT2Nqq4vsU+nkBV+I1cnstAAo
-         8sfkWaCEm3rq9cgjErEmd4kdjMd9gmQfmcFyxJPEFJLRCWYsqGcoQrvsPlrjS4Banif0
-         1DF74zZ0gfvxzJFOQUp0GZg0+lGZaYekVFKwpKZBlOc1UORZ5QStHqdLLq1jz1wK2skF
-         9DWA==
-X-Forwarded-Encrypted: i=1; AFNElJ9VyZuQP73sVzskxfKcjkL2Z/D2XXBbkGnrSllvkuoYBFqH8MYWNkNJlTPFqWzfa6K4poHg7w9A+0ZbVYOwYPmM@lists.infradead.org
-X-Gm-Message-State: AOJu0Yy7D/zwnWcU4p6Ug5Zw26rWh9RM/sXsiHt/MYJjuGnsWgknRPMS
-	YpKHUQM7tLPcOims3L1CNGZ8TACM1RlFVUPaRxi+vSjFTNgi0NdmHBmvvJRmeizIWgA=
-X-Gm-Gg: Acq92OE1clt/D6PtfzE8WHtK2tbMDEIWU2khZqQOAAlrRSBjDMr521iYQcWn88DrlDc
-	aZx/bz0GnSRCsXGRZs8ROXPx1rkuIzmVhL9Gwpq+vYMaGAusN29YC5ubzkc/J9IcxgwvYSa04O5
-	w6M/fJp1rPWWrPCCJwvrPgCYOwqFBWzYIJYD2IveTJHgXw/dUbe1Naax2ngROIF6ItGDKhPUG+u
-	q8MPHpjH+P8c4DahHUsL9yXY1TI3zJmGKhWytxnzCZLZ1i3kIpumzJJnN1i5hX3QCv1osrLXS7S
-	Qxm+wFjBZxBQFWUsYjelVIGiXArfXqbbNnW4IGZapDgY96WlczY1An/cvO20TmAMpVKOn3951cJ
-	VVKoY+Q8W+LfIiFZd78m1dxvUJeJLqP/CJZoTsTsJ91DiTv9Yv5EZZFQbFYWnE+MF4ltqXOjg7T
-	bvy2YPA/dI2ny+9cSAqCjZ/KoWlq+YbRhlKff+ptF++UpRO6UqoaPO7q+jwxA6psb4DRnBZ+Ygb
-	ow7BxWzr5zfP/cD
-X-Received: by 2002:a05:620a:4455:b0:914:c788:761a with SMTP id af79cd13be357-9158a84f289mr254481885a.58.1780449425306;
-        Tue, 02 Jun 2026 18:17:05 -0700 (PDT)
-Received: from ziepe.ca (crbknf0213w-47-54-130-67.pppoe-dynamic.high-speed.nl.bellaliant.net. [47.54.130.67])
-        by smtp.gmail.com with ESMTPSA id af79cd13be357-9158a009fe7sm102378285a.8.2026.06.02.18.17.04
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Tue, 02 Jun 2026 18:17:04 -0700 (PDT)
-Received: from jgg by wakko with local (Exim 4.97)
-	(envelope-from <jgg@ziepe.ca>)
-	id 1wUaEC-00000004yu4-0q6Q;
-	Tue, 02 Jun 2026 22:17:04 -0300
-Date: Tue, 2 Jun 2026 22:17:04 -0300
-From: Jason Gunthorpe <jgg@ziepe.ca>
-To: Guanghui Feng <guanghuifeng@linux.alibaba.com>
-Cc: adrian.larumbe@collabora.com, airlied@gmail.com, alex@shazbot.org,
-	baolu.lu@linux.intel.com, boris.brezillon@collabora.com,
-	dri-devel@lists.freedesktop.org, dwmw2@infradead.org,
-	iommu@lists.linux.dev, joro@8bytes.org, kevin.tian@intel.com,
-	kvm@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
-	linux-kernel@vger.kernel.org, liviu.dudau@arm.com,
-	maarten.lankhorst@linux.intel.com, mripard@kernel.org,
-	oliver.yang@linux.alibaba.com, robh@kernel.org,
-	robin.murphy@arm.com, shiyu.zsq@linux.alibaba.com,
-	steven.price@arm.com, suravee.suthikulpanit@amd.com,
-	tzimmermann@suse.de, wei.guo.simon@linux.alibaba.com,
-	will@kernel.org, xlpang@linux.alibaba.com,
-	alikernel-developer@linux.alibaba.com
-Subject: Re: [PATCH v2 11/30] iommu/mtk_iommu: implement iova_to_phys_length
-Message-ID: <20260603011704.GT2487554@ziepe.ca>
-References: <20260531093637.3893199-1-guanghuifeng@linux.alibaba.com>
- <20260602104637.1219810-1-guanghuifeng@linux.alibaba.com>
- <20260602104637.1219810-12-guanghuifeng@linux.alibaba.com>
+	id 1wUaPm-0000000E2uG-1yRU;
+	Wed, 03 Jun 2026 01:29:05 +0000
+Received: from [172.16.12.90] (unknown [61.154.14.86])
+	by smtp.qiye.163.com (Hmail) with ESMTP id 40d472abe;
+	Wed, 3 Jun 2026 09:28:46 +0800 (GMT+08:00)
+Message-ID: <91378132-8a8e-4bcc-9aa7-4de9fb135a6a@rock-chips.com>
+Date: Wed, 3 Jun 2026 09:28:44 +0800
 MIME-Version: 1.0
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-In-Reply-To: <20260602104637.1219810-12-guanghuifeng@linux.alibaba.com>
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH 1/2] drm/rockchip: dsi: Add maximum per lane bit rate
+ calculation
+To: Heiko Stuebner <heiko@sntech.de>
+Cc: Sandy Huang <hjc@rock-chips.com>, Andy Yan <andy.yan@rock-chips.com>,
+ Maarten Lankhorst <maarten.lankhorst@linux.intel.com>,
+ Maxime Ripard <mripard@kernel.org>, Thomas Zimmermann <tzimmermann@suse.de>,
+ David Airlie <airlied@gmail.com>, Simona Vetter <simona@ffwll.ch>,
+ Guochun Huang <hero.huang@rock-chips.com>, Chaoyi Chen <kernel@airkyi.com>,
+ dri-devel@lists.freedesktop.org, linux-arm-kernel@lists.infradead.org,
+ linux-rockchip@lists.infradead.org, linux-kernel@vger.kernel.org
+References: <20260324085838.90-1-kernel@airkyi.com> <4888940.6M6d0yLqnL@phil>
+Content-Language: en-US
+From: Chaoyi Chen <chaoyi.chen@rock-chips.com>
+In-Reply-To: <4888940.6M6d0yLqnL@phil>
+Content-Type: text/plain; charset=UTF-8
+Content-Transfer-Encoding: 8bit
+X-HM-Tid: 0a9e8b18ebda03a7kunma7a4b39932116e
+X-HM-MType: 1
+X-HM-Spam-Status: e1kfGhgUHx5ZQUpXWQgPGg8OCBgUHx5ZQUlOS1dZFg8aDwILHllBWSg2Ly
+	tZV1koWUFITzdXWRgWCB1ZQUpXWS1ZQUlXWQ8JGhUIEh9ZQVkaTU1NVktKGkhCGUhOSkodQ1YVFA
+	kWGhdVEwETFhoSFyQUDg9ZV1kYEgtZQVlNSlVKTk9VSk9VQ01ZV1kWGg8SFR0UWUFZT0tIVUpLSU
+	9PT0hVSktLVUpCS0tZBg++
+DKIM-Signature: a=rsa-sha256;
+	b=DpCRBhYhHsk59imJ+FGOLy8d4MOtCjg9bDkKtXvNrDk5iWWBwZS1A4x0JDviW1oUGeFdDFS2d0NWdJVtU4YkUlRC3PajKAKdjolU8I8op2P1QcWAmkz2FKNW1VnFI1EwqOqeverIZpow5QyF0+1N/oei5IaiUWhLDi9TV/7d7fg=; c=relaxed/relaxed; s=default; d=rock-chips.com; v=1;
+	bh=m1cnttQcMrvUZx5o8JPHBR3oI+NYB+tDa2bCbLIj358=;
+	h=date:mime-version:subject:message-id:from;
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260602_181706_502120_26733440 
-X-CRM114-Status: GOOD (  10.53  )
+X-CRM114-CacheID: sfid-20260602_182903_374317_6335C9AA 
+X-CRM114-Status: GOOD (  16.87  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -115,24 +76,86 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Tue, Jun 02, 2026 at 06:46:18PM +0800, Guanghui Feng wrote:
-> -	pa = dom->iop->iova_to_phys(dom->iop, iova);
-> +	if (mapped_length)
-> +		*mapped_length = 0;
-> +
-> +	pa = dom->iop->iova_to_phys_length(dom->iop, iova, mapped_length);
-> +	if (pa == PHYS_ADDR_MAX)
-> +		return PHYS_ADDR_MAX;
+Hi Heiko,
 
-???
+On 6/3/2026 4:59 AM, Heiko Stuebner wrote:
+> Am Dienstag, 24. März 2026, 09:58:37 Mitteleuropäische Sommerzeit schrieb Chaoyi Chen:
+>> From: Chaoyi Chen <chaoyi.chen@rock-chips.com>
+>>
+>> Different chips have varying support for the maximum bit rate per lane.
+>>
+>> Add calculation for the maximum per lane bit rate for various chip
+>> platforms, and relax the bandwidth margin requirements.
+>>
+>> Signed-off-by: Chaoyi Chen <chaoyi.chen@rock-chips.com>
+>> ---
+>>  .../gpu/drm/rockchip/dw-mipi-dsi-rockchip.c   | 21 +++++++++++++++----
+>>  1 file changed, 17 insertions(+), 4 deletions(-)
+>>
+>> diff --git a/drivers/gpu/drm/rockchip/dw-mipi-dsi-rockchip.c b/drivers/gpu/drm/rockchip/dw-mipi-dsi-rockchip.c
+>> index 3547d91b25d3..d3bacfae174e 100644
+>> --- a/drivers/gpu/drm/rockchip/dw-mipi-dsi-rockchip.c
+>> +++ b/drivers/gpu/drm/rockchip/dw-mipi-dsi-rockchip.c
+>> @@ -268,6 +268,7 @@ struct rockchip_dw_dsi_chip_data {
+>>  
+>>  	unsigned int flags;
+>>  	unsigned int max_data_lanes;
+>> +	unsigned long max_bit_rate_per_lane;
+>>  };
+>>  
+>>  struct dw_mipi_dsi_rockchip {
+>> @@ -565,7 +566,7 @@ dw_mipi_dsi_get_lane_mbps(void *priv_data, const struct drm_display_mode *mode,
+>>  	int bpp;
+>>  	unsigned long mpclk, tmp;
+>>  	unsigned int target_mbps = 1000;
+>> -	unsigned int max_mbps = dppa_map[ARRAY_SIZE(dppa_map) - 1].max_mbps;
+>> +	unsigned int max_mbps;
+>>  	unsigned long best_freq = 0;
+>>  	unsigned long fvco_min, fvco_max, fin, fout;
+>>  	unsigned int min_prediv, max_prediv;
+>> @@ -573,6 +574,7 @@ dw_mipi_dsi_get_lane_mbps(void *priv_data, const struct drm_display_mode *mode,
+>>  	unsigned long _fbdiv, best_fbdiv;
+>>  	unsigned long min_delta = ULONG_MAX;
+>>  
+>> +	max_mbps = dsi->cdata->max_bit_rate_per_lane;
+> 
+> I may be blind, but how do the values come together?
+> In the dppa_map table we have mbps values of 89 to 1500
+> (MHz)
+> 
+> While below the values set are
+> 	.max_bit_rate_per_lane = 1500000000UL,
+> in Hz I guess
+> 
+> And I don't see the needed conversion somehow.
+> 
+>
 
-I guess lots of AI made this right? Please review the AI output for
-the little slop things left over..
+Oh! It should be:
 
-I saw enough unnecessary hunks, and goofy things like putting the
-mapped_len zero in every driver instead of in the core caller.
+max_mbps = dsi->cdata->max_bit_rate_per_lane / USEC_PER_SEC;
 
-That said it looks pretty close overall..
+Will fix in v2.
 
-Jason
+>>  	dsi->format = format;
+>>  	bpp = mipi_dsi_pixel_format_to_bpp(dsi->format);
+>>  	if (bpp < 0) {
+>> @@ -584,8 +586,8 @@ dw_mipi_dsi_get_lane_mbps(void *priv_data, const struct drm_display_mode *mode,
+>>  
+>>  	mpclk = DIV_ROUND_UP(mode->clock, MSEC_PER_SEC);
+>>  	if (mpclk) {
+>> -		/* take 1 / 0.8, since mbps must big than bandwidth of RGB */
+>> -		tmp = mpclk * (bpp / lanes) * 10 / 8;
+>> +		/* take 1 / 0.9, since mbps must big than bandwidth of RGB */
+>> +		tmp = mpclk * (bpp / lanes) * 10 / 9;
+> 
+> Please do this in a separate patch, especially as I would expect some
+> sort of explanation on why this is ok to do.
+>
+
+Sure! I'll split this out in the new series.
+
+-- 
+Best, 
+Chaoyi
 
