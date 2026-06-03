@@ -4,115 +4,79 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 15967CD6E55
-	for <linux-arm-kernel@archiver.kernel.org>; Wed,  3 Jun 2026 17:37:27 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 0430FCD6E57
+	for <linux-arm-kernel@archiver.kernel.org>; Wed,  3 Jun 2026 17:45:02 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:
-	Content-Transfer-Encoding:MIME-Version:Message-ID:Date:Subject:Cc:To:From:
-	Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender
-	:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
-	bh=xQSqvgIh3JfDd8+sWsT+tPLti0JbgQXsRemk7Tn4+r0=; b=XZnASEVDEQuPjF9G2VHP6YKp9E
-	whLj4AooTam+12/ck92GuqsaCMDlgHLwptdVx4qlthmXxoukd+DynWnrjZC8IpA5OiacAgFFVLrNx
-	koed1Wjoy9tty61M208/CurZK3gWg2eBz2dzq9/1/VN1DjNlflCfqcLmrFE2jJAaNl6k0imGOxS+A
-	2Hmm+vW6OTOBGGJFyBmveFKKGAQZW9IlsaFjbzEHzV+hWPSV+GFr0Hw3Xz6F2rIi2Z0dkjzH47JiB
-	LtjH2nXqqtWYQN568j+t6U0/Y2Yt35PmPYKKp0UQs7gEugZnZf4yKrCoQffAz4IzGoPBoL0T9cmJj
-	+yU7jI1Q==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:Cc:To:Subject:Message-ID:Date:From:In-Reply-To:References:
+	MIME-Version:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=FUParyONVI2Qj3PwFGzLdK26Nc4Lc+7LxeqmGfzlOkM=; b=k6cfjm23/DzMDdZ+q0C6qlBNgB
+	NdVWKgO6T4I6XTbVr/flKCcDa8pUooQjs/2sv18CrAP3qTFZBHbihl0Qt7qf+Dsn3yWqubKm1f2Qc
+	rSoLUj5+sSSXh9OJ+isvVloT0BsIauTTYXllJPuVpr0OcdqfDs51UcCZsAjhD/0gJbRwT0/s9D5xa
+	kdTD+vpoJTVP4l2P157TXzQ5ZYlZ5H8qgPsPh4zuW4ydhEct1U/fje1Fb4MaXEUOAkLW78CH11eGa
+	dm3h3G3rrvj7NhiYePKEuKpINuZNzufnCheBka1o9BRj8Rsqd3VBKWzo7RSpYjJU5DfaNuNWoYp80
+	7uE75OSw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wUpWp-0000000Fahk-1wTU;
-	Wed, 03 Jun 2026 17:37:19 +0000
-Received: from mail-japanwestazon11011044.outbound.protection.outlook.com ([40.107.74.44] helo=OS0P286CU010.outbound.protection.outlook.com)
+	id 1wUpe8-0000000Fb8Q-21S8;
+	Wed, 03 Jun 2026 17:44:52 +0000
+Received: from sea.source.kernel.org ([172.234.252.31])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wUpWm-0000000FahC-45QO
+	id 1wUpe5-0000000Fb7C-1QmD
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 03 Jun 2026 17:37:18 +0000
-ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
- b=fQxU7EdWItUnoHsSBkyU2fkZxlF8gJQ7BiueDN343fTjoVZcYWvSf4mPQ+22cWIkbLOdNJVghbPI9TCFbQRzzbpZVTh9YOrcS4Q3xJAzebfKJjA48PEwH1amyScEhbtjDtsjOAi7W8KykFHqjtivjSJTpiFJfx7A+Bon5ExYb6xOaUNOXafwwmIa9oZGdDl3QxnkraNN0FJQnfUMyrgqV0nlZ89XOiClp00UBeOzE3jcQd48QuCuK2D4ySnxSn1bggSNaWoq02lSziSRTUBV+bqCiEcVdPWPX/M94LvNDfMxAqx8qiERvYWat4zFEqjZoPSIE8VsHYXpZNTgljFzTQ==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
- s=arcselector10001;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
- bh=xQSqvgIh3JfDd8+sWsT+tPLti0JbgQXsRemk7Tn4+r0=;
- b=xnkP3qicD8EzqJthJtlXzYU9L0YWD15kKp3DQXxrOabi0rE1FshyisLptIUlCE3THafoMg0LI5vubV89kBzFq6brUSDqjz0Q/pvRdWDSXepKMkVntYsZC6+STQgBa4arXo03vB0tfHbjZBDB9NT7Xx81SNK7a5UYs29TWIO4M4fOuSCiBgIH+fUdRoiKpeaFgzxx49obHT/mtTGse7ZnRCrWvyNxaWaXRI3nxUHqonxIC5FmxM7UMtvBoeQT2fVfJAKLq9rA5ouxehM8j7P51CB4H/g/5LnnfCvkn19ei0FxAe6y9V7RB2tX1uSdtG3Mvo7RAYM8Ef4CnlwNB7+9zg==
-ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass (sender ip is
- 8.62.32.50) smtp.rcpttodomain=armlinux.org.uk smtp.mailfrom=renesas.com;
- dmarc=pass (p=none sp=none pct=100) action=none header.from=renesas.com;
- dkim=none (message not signed); arc=none (0)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=renesas.com;
- s=selector1;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
- bh=xQSqvgIh3JfDd8+sWsT+tPLti0JbgQXsRemk7Tn4+r0=;
- b=mYg+rKeNqIgM7sC6feUbW7mhlG6fKZ3lIWmQMdI24/1n0qCDdEb8T1scSzdo6eTBWH3uPP4Zzf3sRaXVszeKzkJfDml8RB/zv6rQ5mF7PmpOStDPY/va57PO1yHw+zTejrNGXym2+EDy86Pg7Q3aIatZbVuHAXemwD+MIQCSjzI=
-Received: from TY4P286CA0109.JPNP286.PROD.OUTLOOK.COM (2603:1096:405:380::15)
- by TYTPR01MB10936.jpnprd01.prod.outlook.com (2603:1096:400:39f::14) with
- Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.21.92.7; Wed, 3 Jun 2026
- 17:37:09 +0000
-Received: from TYO1EPF00005024.JPNP286.PROD.OUTLOOK.COM
- (2603:1096:405:380:cafe::a3) by TY4P286CA0109.outlook.office365.com
- (2603:1096:405:380::15) with Microsoft SMTP Server (version=TLS1_3,
- cipher=TLS_AES_256_GCM_SHA384) id 15.21.92.7 via Frontend Transport; Wed, 3
- Jun 2026 17:37:09 +0000
-X-MS-Exchange-Authentication-Results: spf=pass (sender IP is 8.62.32.50)
- smtp.mailfrom=renesas.com; dkim=none (message not signed)
- header.d=none;dmarc=pass action=none header.from=renesas.com;
-Received-SPF: Pass (protection.outlook.com: domain of renesas.com designates
- 8.62.32.50 as permitted sender) receiver=protection.outlook.com;
- client-ip=8.62.32.50; helo=ejcrelay005p.adwin.renesas.com; pr=E
-Received: from ejcrelay005p.adwin.renesas.com (8.62.32.50) by
- TYO1EPF00005024.mail.protection.outlook.com (10.167.240.21) with Microsoft
- SMTP Server (version=TLS1_3, cipher=TLS_AES_256_GCM_SHA384) id 15.21.92.5 via
- Frontend Transport; Wed, 3 Jun 2026 17:37:08 +0000
-Received: from vm01.adwin.renesas.com (DEU-5CG20946WF.adwin.renesas.com [10.226.92.182])
-	by ejcrelay005p.adwin.renesas.com (Postfix) with ESMTP id E834F3000284;
-	Thu,  4 Jun 2026 02:37:03 +0900 (JST)
-From: Ovidiu Panait <ovidiu.panait.rb@renesas.com>
-To: andrew+netdev@lunn.ch,
-	davem@davemloft.net,
-	edumazet@google.com,
-	kuba@kernel.org,
-	pabeni@redhat.com,
-	mcoquelin.stm32@gmail.com,
-	alexandre.torgue@foss.st.com,
-	rmk+kernel@armlinux.org.uk,
-	maxime.chevallier@bootlin.com,
-	o.rempel@pengutronix.de
-Cc: netdev@vger.kernel.org,
-	linux-stm32@st-md-mailman.stormreply.com,
-	linux-arm-kernel@lists.infradead.org,
-	linux-kernel@vger.kernel.org,
-	Ovidiu Panait <ovidiu.panait.rb@renesas.com>
-Subject: [PATCH net-next] net: stmmac: dwmac4: Report DCB feature capability
-Date: Wed,  3 Jun 2026 17:36:43 +0000
-Message-ID: <20260603173644.24371-1-ovidiu.panait.rb@renesas.com>
-X-Mailer: git-send-email 2.43.0
+	Wed, 03 Jun 2026 17:44:51 +0000
+Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
+	by sea.source.kernel.org (Postfix) with ESMTP id 92ABE445E4
+	for <linux-arm-kernel@lists.infradead.org>; Wed,  3 Jun 2026 17:44:48 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 7A7DA1F00899
+	for <linux-arm-kernel@lists.infradead.org>; Wed,  3 Jun 2026 17:44:48 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
+	s=k20260515; t=1780508688;
+	bh=FUParyONVI2Qj3PwFGzLdK26Nc4Lc+7LxeqmGfzlOkM=;
+	h=References:In-Reply-To:From:Date:Subject:To:Cc;
+	b=XVmh5ADe07P1f9LqFCukv3auT/xdl4cJ45wk/gD5dFRsMpz5sCJ4B7u+9tu3rhoZr
+	 EXPTc7jDaVUDZVie2L60Kjm9z+Et2iGuPB/8li6Yihuhm6C/vAgimQKCYm7I3iU9Ni
+	 BAvD4RjcCj2uEjB0DPlu5xRwpj8sNtSMqh6Ys9dy01dbEly2l7JWXAUmkqCKqkzeRu
+	 TOja3UUzgCCzYccSqtJ8e+7JHAIAY29bLR0W+6ngtd94yZnkXBu6WVcpOMVpyyyglD
+	 TRhj0tCqeEQgsrH3txoTP5WOoxU1eCm2PH+w1gEMtJQdBcU/ccnxYYY1xY2vWFZgzn
+	 ZM0drYjJBYo4w==
+Received: by mail-ed1-f41.google.com with SMTP id 4fb4d7f45d1cf-68ced97b6eeso5684684a12.0
+        for <linux-arm-kernel@lists.infradead.org>; Wed, 03 Jun 2026 10:44:48 -0700 (PDT)
+X-Gm-Message-State: AOJu0Yy1bkiIYGCYg1fW8nNlkRQTeWqD6bV3QmAMQn+sLrj62ok4wCP3
+	s9wBMtQwZzBkagXUTf53QOCi34iRWsHWI+nT+gqBqOtjI5d4+weaiCNrfFjWDTS1bjg/IPnaMeO
+	xQkPSQCmrIuXdIHZ86Phh0HozscAUSg==
+X-Received: by 2002:a05:6402:3224:b0:67f:9124:8815 with SMTP id
+ 4fb4d7f45d1cf-68e71e788c3mr2143257a12.17.1780508687065; Wed, 03 Jun 2026
+ 10:44:47 -0700 (PDT)
 MIME-Version: 1.0
-Content-Transfer-Encoding: 8bit
-X-EOPAttributedMessage: 0
-X-MS-PublicTrafficType: Email
-X-MS-TrafficTypeDiagnostic: TYO1EPF00005024:EE_|TYTPR01MB10936:EE_
-Content-Type: text/plain
-X-MS-Office365-Filtering-Correlation-Id: 825015ff-f2f2-463b-e82f-08dec196bc8d
-X-MS-Exchange-SenderADCheck: 1
-X-MS-Exchange-AntiSpam-Relay: 0
-X-Microsoft-Antispam: BCL:0;ARA:13230040|36860700016|376014|7416014|1800799024|82310400026|18002099003|921020|11063799006|56012099006;
-X-Microsoft-Antispam-Message-Info: Z5Qn8VAu+OE0p2NU8NItprhcoZpTFMvRhtPERS17lzFrUR0xIFZSNVQrRwuvGY4kGR6L7QSEvpLkKl2CTvujUpS3zUM5qj0v+rXRxZ+Tro2Nbn2p5B1Ad5K6x/WUo6lmB47NqcS9tkhIn94e78jNs7zDL6tTrWrnXWvaokB/OdkrBqqnCBrswX3BtPD4kDaMSMjtqISyVO+S9QkYtu1A8oiH6lAYE0cSNncpAoIFtqbiKbvP4rAMj5RdEIf8VoEjE0xRHUHP0IhvKgKTKObibE67kAhoYkd0tCkR1pttmdpBCcqyJWiRsGyE9/Xb+1qLawged2NevhqXFOkUmlvVVju82kIMBiCP08V8RQA9c5/bEHMdGPZmmHtpYwWKtQ1aa4Y0ygDeWZ2DkUrGx+bI/sf5jhjaxW0EBp4YESIB/0tNNXYNSYxavBzb4C022bNCDMU3RV7HqE+z/Rr7RxWl6h57kOIo7mC+Ro3vTWZ45bmsPK8hOVFOxIVOkC8RPUR5N33nCGhBiDkPF4/0TXEStiDzJ0lxZSFCl2hExHpDlwMmHMONXxOzYTh6pJtW0bZgJS1coKjUlQGFd1IxQXDesAxx0oGI2IuJaxibPIZ3p4LIS2Pm+9OoIjjvLi+YQiTzqow67XSxjeZ2SXiKIRwUdZwa0X+KksnQIH9aWZ6kL0YV5MlU+n+fxMohL2igPyweSb2ijB/knsitMm/B8JWVC/6o1p4a3Wz5TovsBhbcp4GdaLV7+ahuP16unVRT2QqT2q2WcL0QMjjaOplMVI6B5w==
-X-Forefront-Antispam-Report: CIP:8.62.32.50;CTRY:US;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:ejcrelay005p.adwin.renesas.com;PTR:InfoDomainNonexistent;CAT:NONE;SFS:(13230040)(36860700016)(376014)(7416014)(1800799024)(82310400026)(18002099003)(921020)(11063799006)(56012099006);DIR:OUT;SFP:1101;
-X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
-X-MS-Exchange-AntiSpam-MessageData-0: /p1NvTEKLmzvWEW4VAkmrDiOtbHl3g0rkrNrv/fAyncKfqgWeC3fcQuJ4LzuXoJ82XfLGgKFVdSikRpfMQXgHJ90pYzsOLwRm64KAGHn8fjkryALPuhxP6nAZnbi8/QXT6zXjVxGeE1a6cJHAHQO1kD5sug75Nh8cG4mfI/1Su8Zdf/OxpFrSW7D5aLtOBmphOdYbArrBxymzGJWhh/kgQWyc1iKObGhqCOk4aag8cPzvisCGmJVRjyT/1iRv3it6qi1puDwLUC09QKlzlm/sex8jpUvA8atEjXXgT9UkcMM+pi2WG4+LLqonOMq9yZHZS0mJLGi30EojgEs8o51WwjU6PX5offhA5/pn3O9wISbhjF7//Zzc91d9LxGoYGodwtK4qFvHDmfcRv6duXLY+zrDMRJ6+G4pSwVzvVl/flHU8rU8+/b2lgkenCizIMD
-X-OriginatorOrg: renesas.com
-X-MS-Exchange-CrossTenant-OriginalArrivalTime: 03 Jun 2026 17:37:08.5354
- (UTC)
-X-MS-Exchange-CrossTenant-Network-Message-Id: 825015ff-f2f2-463b-e82f-08dec196bc8d
-X-MS-Exchange-CrossTenant-Id: 53d82571-da19-47e4-9cb4-625a166a4a2a
-X-MS-Exchange-CrossTenant-OriginalAttributedTenantConnectingIp: TenantId=53d82571-da19-47e4-9cb4-625a166a4a2a;Ip=[8.62.32.50];Helo=[ejcrelay005p.adwin.renesas.com]
-X-MS-Exchange-CrossTenant-AuthSource: TYO1EPF00005024.JPNP286.PROD.OUTLOOK.COM
-X-MS-Exchange-CrossTenant-AuthAs: Anonymous
-X-MS-Exchange-CrossTenant-FromEntityHeader: HybridOnPrem
-X-MS-Exchange-Transport-CrossTenantHeadersStamped: TYTPR01MB10936
+References: <20260527032917.3385849-1-chenwandun1@gmail.com>
+ <20260527032917.3385849-4-chenwandun1@gmail.com> <20260602162450.GA442759-robh@kernel.org>
+ <79932afc-2e91-4a54-aff9-f550be784c36@gmail.com>
+In-Reply-To: <79932afc-2e91-4a54-aff9-f550be784c36@gmail.com>
+From: Rob Herring <robh@kernel.org>
+Date: Wed, 3 Jun 2026 12:44:34 -0500
+X-Gmail-Original-Message-ID: <CAL_JsqJOC1ko1Len3Dyc5SNKrHmhQn9uiDAkFfVbYa2wAfFUTg@mail.gmail.com>
+X-Gm-Features: AVHnY4Jg1TFYCpbsJd3VXxxqiBkj66MRmp2Oem1kgjUPEYvvmBJ9wL6Wox9sVrg
+Message-ID: <CAL_JsqJOC1ko1Len3Dyc5SNKrHmhQn9uiDAkFfVbYa2wAfFUTg@mail.gmail.com>
+Subject: Re: [PATCH v3 03/11] of: reserved_mem: avoid post-init UAF when
+ alloc_reserved_mem_array() fails
+To: Wandun <chenwandun1@gmail.com>
+Cc: linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org, 
+	loongarch@lists.linux.dev, linux-riscv@lists.infradead.org, 
+	devicetree@vger.kernel.org, kexec@lists.infradead.org, iommu@lists.linux.dev, 
+	zhaomeijing@lixiang.com, catalin.marinas@arm.com, will@kernel.org, 
+	chenhuacai@kernel.org, kernel@xen0n.name, pjw@kernel.org, palmer@dabbelt.com, 
+	aou@eecs.berkeley.edu, alex@ghiti.fr, saravanak@kernel.org, 
+	akpm@linux-foundation.org, bhe@redhat.com, rppt@kernel.org, 
+	pasha.tatashin@soleen.com, pratyush@kernel.org, ruirui.yang@linux.dev, 
+	m.szyprowski@samsung.com, robin.murphy@arm.com, quic_obabatun@quicinc.com
+Content-Type: text/plain; charset="UTF-8"
+Content-Transfer-Encoding: quoted-printable
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260603_103717_050504_94A7B50B 
-X-CRM114-Status: GOOD (  10.35  )
+X-CRM114-CacheID: sfid-20260603_104449_461428_7E25E358 
+X-CRM114-Status: GOOD (  31.85  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -127,41 +91,102 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Bit 16 of the MAC HW Feature1 register reports the DCB (Data Centre
-Bridging) feature. Read it so that dma_cap.dcben and the debugfs
-report it accurately. Right now it is always reported as being disabled.
+On Wed, Jun 3, 2026 at 1:44=E2=80=AFAM Wandun <chenwandun1@gmail.com> wrote=
+:
+>
+>
+>
+> On 6/3/26 00:24, Rob Herring wrote:
+> > On Wed, May 27, 2026 at 11:29:09AM +0800, Wandun Chen wrote:
+> >> From: Wandun Chen <chenwandun@lixiang.com>
+> >>
+> >> The global pointer 'reserved_mem' continues to reference the
+> >> reserved_mem_array which lives in __initdata if
+> >> alloc_reserved_mem_array() fails. of_reserved_mem_lookup() is
+> >> exported for post-init use, that would dereference freed memory
+> >> and trigger a use-after-free.
+> >>
+> >> So reset reserved_mem_count to 0 when alloc_reserved_mem_array()
+> >> fails.
+> >>
+> >> Fixes: 00c9a452a235 ("of: reserved_mem: Add code to dynamically alloca=
+te reserved_mem array")
+> > Fixes should come first in a series.
+> Understood, will do in future submissions.
+> >
+> >> Signed-off-by: Wandun Chen <chenwandun@lixiang.com>
+> >> ---
+> >>   drivers/of/of_reserved_mem.c | 20 ++++++++++++++------
+> >>   1 file changed, 14 insertions(+), 6 deletions(-)
+> >>
+> >> diff --git a/drivers/of/of_reserved_mem.c b/drivers/of/of_reserved_mem=
+.c
+> >> index 313cbc57aa45..6d479381ff1f 100644
+> >> --- a/drivers/of/of_reserved_mem.c
+> >> +++ b/drivers/of/of_reserved_mem.c
+> >> @@ -69,29 +69,31 @@ static int __init early_init_dt_alloc_reserved_mem=
+ory_arch(phys_addr_t size,
+> >>    * the initial static array is copied over to this new array and
+> >>    * the new array is used from this point on.
+> >>    */
+> >> -static void __init alloc_reserved_mem_array(void)
+> >> +static bool __init alloc_reserved_mem_array(void)
+> >>   {
+> >>      struct reserved_mem *new_array;
+> >>      size_t alloc_size, copy_size, memset_size;
+> >>
+> >> +    if (!total_reserved_mem_cnt)
+> >> +            return true;
+> >> +
+> >>      alloc_size =3D array_size(total_reserved_mem_cnt, sizeof(*new_arr=
+ay));
+> >>      if (alloc_size =3D=3D SIZE_MAX) {
+> >>              pr_err("Failed to allocate memory for reserved_mem array =
+with err: %d", -EOVERFLOW);
+> >> -            return;
+> >> +            goto fail;
+> >>      }
+> >>
+> >>      new_array =3D memblock_alloc(alloc_size, SMP_CACHE_BYTES);
+> >>      if (!new_array) {
+> >>              pr_err("Failed to allocate memory for reserved_mem array =
+with err: %d", -ENOMEM);
+> >> -            return;
+> >> +            goto fail;
+> >>      }
+> >>
+> >>      copy_size =3D array_size(reserved_mem_count, sizeof(*new_array));
+> >>      if (copy_size =3D=3D SIZE_MAX) {
+> >>              memblock_free(new_array, alloc_size);
+> >> -            total_reserved_mem_cnt =3D MAX_RESERVED_REGIONS;
+> >>              pr_err("Failed to allocate memory for reserved_mem array =
+with err: %d", -EOVERFLOW);
+> > These prints could be moved to 'fail'. Perhaps instead of just printing
+> > an error value, you can return the error value instead of boolean.
+> Will do, consolidating pr_err() under 'fail' and changing the return type
+> to int.
+> >
+> > If you respin just this patch, I can pick it up for 7.2.
+> Before I respin, I'd like to flag a dependency:
+> patch 05/07 in this series build on the signature change introduced by th=
+is
+> patch ("the void -> bool return type change of alloc_reserved_mem_array()=
+")
+>
+> Could you let me know which of the following you'd prefer:
+> a) Take patch 03 alone via your tree as you suggested, after it lands, I'=
+ll
+>     respin the remaining patches of this series.
 
-Signed-off-by: Ovidiu Panait <ovidiu.panait.rb@renesas.com>
----
- drivers/net/ethernet/stmicro/stmmac/dwmac4.h     | 1 +
- drivers/net/ethernet/stmicro/stmmac/dwmac4_dma.c | 1 +
- 2 files changed, 2 insertions(+)
+I would go with this option. AIUI, this series isn't going to land in
+7.2, so ultimately you will rebase on v7.2-rc1 which will have the
+fix.
 
-diff --git a/drivers/net/ethernet/stmicro/stmmac/dwmac4.h b/drivers/net/ethernet/stmicro/stmmac/dwmac4.h
-index ffcd036d4c02..6382836828ba 100644
---- a/drivers/net/ethernet/stmicro/stmmac/dwmac4.h
-+++ b/drivers/net/ethernet/stmicro/stmmac/dwmac4.h
-@@ -198,6 +198,7 @@ enum power_event {
- #define GMAC_HW_FEAT_AVSEL		BIT(20)
- #define GMAC_HW_TSOEN			BIT(18)
- #define GMAC_HW_FEAT_SPHEN		BIT(17)
-+#define GMAC_HW_FEAT_DCBEN		BIT(16)
- #define GMAC_HW_ADDR64			GENMASK(15, 14)
- #define GMAC_HW_TXFIFOSIZE		GENMASK(10, 6)
- #define GMAC_HW_RXFIFOSIZE		GENMASK(4, 0)
-diff --git a/drivers/net/ethernet/stmicro/stmmac/dwmac4_dma.c b/drivers/net/ethernet/stmicro/stmmac/dwmac4_dma.c
-index 28728271fbc9..829a23bdad01 100644
---- a/drivers/net/ethernet/stmicro/stmmac/dwmac4_dma.c
-+++ b/drivers/net/ethernet/stmicro/stmmac/dwmac4_dma.c
-@@ -391,6 +391,7 @@ static int dwmac4_get_hw_feature(void __iomem *ioaddr,
- 	dma_cap->av = (hw_cap & GMAC_HW_FEAT_AVSEL) >> 20;
- 	dma_cap->tsoen = (hw_cap & GMAC_HW_TSOEN) >> 18;
- 	dma_cap->sphen = (hw_cap & GMAC_HW_FEAT_SPHEN) >> 17;
-+	dma_cap->dcben = (hw_cap & GMAC_HW_FEAT_DCBEN) >> 16;
- 
- 	dma_cap->addr64 = (hw_cap & GMAC_HW_ADDR64) >> 14;
- 	switch (dma_cap->addr64) {
--- 
-2.34.1
+>
+> b) Keep patch 03 in the v4 respin of the full series, reordered to the fr=
+ont
+>     per your earlier comment.
 
+
+Rob
 
