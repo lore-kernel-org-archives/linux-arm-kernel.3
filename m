@@ -4,100 +4,89 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id AB03BCD6E57
-	for <linux-arm-kernel@archiver.kernel.org>; Wed,  3 Jun 2026 00:35:06 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 0ACDCCD6E5D
+	for <linux-arm-kernel@archiver.kernel.org>; Wed,  3 Jun 2026 00:54:38 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:
-	Content-Transfer-Encoding:Content-Type:MIME-Version:References:Message-ID:
-	Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=mFUi0rvgDMbY+nDvA7uRYcsSENGniRaTxeLwzgU1JGg=; b=qNfdcpsJgv7CcEHbjqV6Qn0Ptg
-	dbt2kX2TWLH24+AH5ckzlxMHjrtyy/6LPKM9SrHw+Ez3qQ8E3npT10GKoKRvfIy1dPKpFs2j2O/8h
-	rmZPW+E/+HfzUC0EoHnkKZv2lczbCSQeY7r5JiJ6i+TX6TI9Jrw4SXFejam7iFqjTQcf/dJg1Hg0A
-	4+t+MqlkcM640Viu0PrdwuTB/VPtLiAPTH3SDeL90eOH/g7FrypxO/487tiOgbzGo1aPg/cvIVksS
-	sbX9vob2YvVaO05hFMlK11HUagvdsiuG7MeE0Mj4lEozy4Z2nh+4oEcYvXxXggkCksFFPdNO/wEe8
-	Mo10FGnw==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	MIME-Version:Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-Type:
+	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
+	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=wuWxtoLkojb3/QNJMxn6zgx0PCcWwdg04dV9N02CDM4=; b=KQa7oyclcO71LgY24fRsLmTVze
+	e6NkkynhZSHuKjIyMV8/sYGLg4I7UFVGuqDnKV3cXAx3ZdE1C7H32n7uuxa/wq4E19LOBeI/24WgZ
+	RNjm2UqA9IWdUXnarfOztAa3nXapEQlUetGalAxvSInIoGOSZOvnSOcM5RPMKqpNtQPULXVi7u4E2
+	fVKOTiMD+P9/U2QiBgvWFiGQMvqb4AYsC/OgZ3e4YGp073xkZllAfeb3xaHWMfBgc6iT2HnzmQjuZ
+	9azB/yJ1Led0dhoU7MsjT7jwkAp1dYXoA3WyS5cVC2FGT7HgI4mXh3X5kS8DlTgkx7VB3X+sIFXkY
+	Mtf12rnQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wUZZN-0000000E03N-1NA5;
-	Wed, 03 Jun 2026 00:34:53 +0000
-Received: from mgamail.intel.com ([198.175.65.14])
+	id 1wUZsN-0000000E0Yu-3cds;
+	Wed, 03 Jun 2026 00:54:31 +0000
+Received: from mail-qv1-xf2e.google.com ([2607:f8b0:4864:20::f2e])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wUZZJ-0000000E02p-3xRO;
-	Wed, 03 Jun 2026 00:34:51 +0000
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple;
-  d=intel.com; i=@intel.com; q=dns/txt; s=Intel;
-  t=1780446890; x=1811982890;
-  h=date:from:to:cc:subject:message-id:references:
-   mime-version:content-transfer-encoding:in-reply-to;
-  bh=6CR/rYWpbekN6oqzrZ6DgconT/RJAzmKq8Nf7HR3UU4=;
-  b=j5z06nNgO1u0oZ+2KEpENoVpZBCJhVHjdW+KsL4raVTBDJTaCmvBy2xz
-   Ta2Bd2y74bT+6qx0YCSO2f+YuCx0Q9jbEppn4qPSnbNJQFZyDMqvSjRoG
-   rE+4qIlDz6pY/NnPB+i++rG9kdIz2ti+Qrd0RUiyvmiAhI799TtYyb4n+
-   wWMwjh/slGjAhDwYm7YYgy3iMXuZYlI8y2rLdbWfvUjV9wuqDgChZDWLd
-   2OODjjfL83P8imyFimpAEYqI1wd0kbGvDbaRi8GKeKoBsyrTMm4g7qgiL
-   zS+WOSe8iOPdIo/n8u9oD/EXa++fK0l0pAAJAbTKt5ad+GQqF7B7GQyPQ
-   Q==;
-X-CSE-ConnectionGUID: itoCahP+TV+IKvpsbFWd/w==
-X-CSE-MsgGUID: QmqVPkgdREWALpyhTJO1jg==
-X-IronPort-AV: E=McAfee;i="6800,10657,11805"; a="85131703"
-X-IronPort-AV: E=Sophos;i="6.24,184,1774335600"; 
-   d="scan'208";a="85131703"
-Received: from orviesa007.jf.intel.com ([10.64.159.147])
-  by orvoesa106.jf.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 02 Jun 2026 17:34:49 -0700
-X-CSE-ConnectionGUID: UL9swsBaS4GHr8Zz1+JY7A==
-X-CSE-MsgGUID: 3lmg5tijRHmPL3vZdZQSDw==
-X-ExtLoop1: 1
-X-IronPort-AV: E=Sophos;i="6.24,184,1774335600"; 
-   d="scan'208";a="244170860"
-Received: from pgcooper-mobl3.ger.corp.intel.com (HELO localhost) ([10.245.244.116])
-  by orviesa007-auth.jf.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 02 Jun 2026 17:34:42 -0700
-Date: Wed, 3 Jun 2026 03:34:40 +0300
-From: Andy Shevchenko <andriy.shevchenko@intel.com>
-To: Yu-Chun Lin =?utf-8?B?W+ael+elkOWQm10=?= <eleanor.lin@realtek.com>
-Cc: "linusw@kernel.org" <linusw@kernel.org>,
-	"mwalle@kernel.org" <mwalle@kernel.org>,
-	"robh@kernel.org" <robh@kernel.org>,
-	"krzk+dt@kernel.org" <krzk+dt@kernel.org>,
-	"conor+dt@kernel.org" <conor+dt@kernel.org>,
-	"afaerber@suse.com" <afaerber@suse.com>,
-	"wbg@kernel.org" <wbg@kernel.org>,
-	"mathieu.dubois-briand@bootlin.com" <mathieu.dubois-briand@bootlin.com>,
-	"lars@metafoo.de" <lars@metafoo.de>,
-	"Michael.Hennerich@analog.com" <Michael.Hennerich@analog.com>,
-	"jic23@kernel.org" <jic23@kernel.org>,
-	"nuno.sa@analog.com" <nuno.sa@analog.com>,
-	"andy@kernel.org" <andy@kernel.org>,
-	"dlechner@baylibre.com" <dlechner@baylibre.com>,
-	=?utf-8?B?VFlfQ2hhbmdb5by15a2Q6YC4XQ==?= <tychang@realtek.com>,
-	"linux-gpio@vger.kernel.org" <linux-gpio@vger.kernel.org>,
-	"devicetree@vger.kernel.org" <devicetree@vger.kernel.org>,
-	"linux-kernel@vger.kernel.org" <linux-kernel@vger.kernel.org>,
-	"linux-arm-kernel@lists.infradead.org" <linux-arm-kernel@lists.infradead.org>,
-	"linux-realtek-soc@lists.infradead.org" <linux-realtek-soc@lists.infradead.org>,
-	"linux-iio@vger.kernel.org" <linux-iio@vger.kernel.org>,
-	=?utf-8?B?Q1lfSHVhbmdb6buD6Ymm5pmPXQ==?= <cy.huang@realtek.com>,
-	Stanley =?utf-8?B?Q2hhbmdb5piM6IKy5b63XQ==?= <stanley_chang@realtek.com>,
-	James Tai =?utf-8?B?W+aItOW/l+WzsF0=?= <james.tai@realtek.com>,
-	"brgl@kernel.org" <brgl@kernel.org>
-Subject: Re: [PATCH v3 2/7] gpio: regmap: add gpio_regmap_get_gpiochip()
- accessor
-Message-ID: <ah92oEavMu4QRn8y@ashevche-desk.local>
-References: <20260512033317.1602537-1-eleanor.lin@realtek.com>
- <20260512033317.1602537-3-eleanor.lin@realtek.com>
- <agMM9soiqpG-TRSb@ashevche-desk.local>
- <adff3a2d21a64d3ea3b408d62157ee1e@realtek.com>
+	id 1wUZsL-0000000E0YZ-21K5
+	for linux-arm-kernel@lists.infradead.org;
+	Wed, 03 Jun 2026 00:54:30 +0000
+Received: by mail-qv1-xf2e.google.com with SMTP id 6a1803df08f44-8cce87d7995so58965416d6.0
+        for <linux-arm-kernel@lists.infradead.org>; Tue, 02 Jun 2026 17:54:29 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=gmail.com; s=20251104; t=1780448068; x=1781052868; darn=lists.infradead.org;
+        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
+         :to:from:from:to:cc:subject:date:message-id:reply-to;
+        bh=wuWxtoLkojb3/QNJMxn6zgx0PCcWwdg04dV9N02CDM4=;
+        b=H891AM/mqnct/CBbzQXfJbsg2Oeqc5CwKsSHTbxMBSThB7jLf4cyhuvYQZk3977+7g
+         HOKNwiopIO2cVn8cCeBLp82Nj3OJtqL1Nkutf2dJ6dU4PK6kwhsQh13tLSIYomOwv2Lh
+         IpAzsjT+Wrvt189oLMM4G7quOVFQm1M+aVMQumQQYmOVWClKuwndPhWtiGszg2Fh+i5t
+         kOMWul+Wkj4tVjrcIb7MxFQRSsd4rMeed+gpIihnc5RHiqlnDi/TLEy+pVmhJxZuJNbF
+         E6St21A7+qIahf05lLMIE6bQU61jfuzbAMZd95+Jl36bx0LEUX23INwzxy0XDoLN0bXY
+         un1w==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20251104; t=1780448068; x=1781052868;
+        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
+         :to:from:x-gm-gg:x-gm-message-state:from:to:cc:subject:date
+         :message-id:reply-to;
+        bh=wuWxtoLkojb3/QNJMxn6zgx0PCcWwdg04dV9N02CDM4=;
+        b=jJlmKnQRJNCqM7wuviqnpBdvIlPceyMbVY/qlR9GR+hh4chMuKJJFQeCJooeCUkAcX
+         reoMMA8WQFvLhIeRofkMKBosGRbL/DxLvpZRlyy6dP2gUQDaMeSfsgTm3yxnjz8x6pYu
+         +tkK9pSEAzNPhd3hZJCI14pPgjIBiLG9LT+pqT1nBhj+VoB/PchMY6BMy2GB+SnnQv5+
+         cAe9/vGpd4p8Et7nr1SIg0BTdKiDiqK+9bLkwpDXO066uaQi3NtHByqq1kDDjShWmO+B
+         dKxCfaIuS7Kqba8PFD8rvijkMxk3OYA5zscGrgDZMQ0rPFm0rcYmmKqpcHiKhl83+E7O
+         0y+Q==
+X-Forwarded-Encrypted: i=1; AFNElJ/YrFvSZ11n6oMYRSQXFY5ACC9fsL0en0+RrmQKM379WLigcdsz1Tx+DvRWO1BWuaONeGgg81AnUFQCUyg0LCaT@lists.infradead.org
+X-Gm-Message-State: AOJu0YzsZEYaPJdWxMjUsdaUik5gRNlCWLEaw7vZ/AflVNLb/rD/sORs
+	5oossO9fmxVjFeS5OT1vyJoHo7eujzPfn/ak1K4Oqgv3l7LHbue4Y/LCM5zDaq1X
+X-Gm-Gg: Acq92OHjgFO7va/1D95qeEjo/TFY6BjOQuzFAWwHNYb0A8QLh8A+AtBynLbQTXQP3to
+	WOZ2coEFrvqFEAdr9aBy4uFHppNzoXb93MLl8dIHWE4ZMapc6ki7JkdtLbB/yRjDEA61PlxlO2j
+	u3IWfrrxDI+y/VHbPhMtEaBd/65efAEhTKcPR/ScIJeA/C1wma+auZMccJM1PpWxU/xiyFOWmOE
+	3nEDT+cKmwXFYfy1cT6QQGiCIxX3LHOQPEqnzLSardlGug6MbQ3nHVxMMS5SCUvxjvXR/PlAcvi
+	UTuLsA6/NVG3b9yDZSIZEWvFLDMoxuQkPS/Ys1YarDh2Cr5QGPntSzPwDHBNJaV3gY5c4OyeQjQ
+	QauKd+CHJ+Vt6jIVVRBt9I098SlqjMPZ3TjmxNy+f6Iej7QDBA4rIEkwaITw0YhWXW6sbUeyANB
+	MFT8tKmCtPjL1Rho6/yC31XzeEIIGz5EWKLUU3+UYEvUyi57AvbRPwzAN9IBWuFV+OKeEuxH6lp
+	emseWpo55piHosVcuz9jmAHtU0fJ+oxM5WFwRvLp4ISLQ==
+X-Received: by 2002:a05:622a:313:b0:516:df62:bde3 with SMTP id d75a77b69052e-51778793493mr21392041cf.54.1780448068201;
+        Tue, 02 Jun 2026 17:54:28 -0700 (PDT)
+Received: from ryzen ([2601:644:8000:5b5d:7285:c2ff:fe45:8a32])
+        by smtp.gmail.com with ESMTPSA id d75a77b69052e-51775e25c5dsm11828721cf.30.2026.06.02.17.54.26
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Tue, 02 Jun 2026 17:54:27 -0700 (PDT)
+From: Rosen Penev <rosenp@gmail.com>
+To: linux-watchdog@vger.kernel.org
+Cc: Nicolas Ferre <nicolas.ferre@microchip.com>,
+	Alexandre Belloni <alexandre.belloni@bootlin.com>,
+	Claudiu Beznea <claudiu.beznea@tuxon.dev>,
+	Wim Van Sebroeck <wim@linux-watchdog.org>,
+	Guenter Roeck <linux@roeck-us.net>,
+	linux-arm-kernel@lists.infradead.org (moderated list:ARM/Microchip (AT91) SoC support),
+	linux-kernel@vger.kernel.org (open list)
+Subject: [PATCH] watchdog: sama5d4_wdt: use platform_get_irq()
+Date: Tue,  2 Jun 2026 17:54:09 -0700
+Message-ID: <20260603005409.226774-1-rosenp@gmail.com>
+X-Mailer: git-send-email 2.54.0
 MIME-Version: 1.0
-Content-Type: text/plain; charset=utf-8
-Content-Disposition: inline
 Content-Transfer-Encoding: 8bit
-In-Reply-To: <adff3a2d21a64d3ea3b408d62157ee1e@realtek.com>
-Organization: Intel Finland Oy - BIC 0357606-4 - c/o Alberga Business Park, 6
- krs, Bertel Jungin Aukio 5, 02600 Espoo
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260602_173450_034110_57E19EDD 
-X-CRM114-Status: GOOD (  26.88  )
+X-CRM114-CacheID: sfid-20260602_175429_525820_AFA067BC 
+X-CRM114-Status: GOOD (  12.67  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -112,92 +101,30 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Mon, May 25, 2026 at 12:04:09PM +0000, Yu-Chun Lin [林祐君] wrote:
-> > On Tue, May 12, 2026 at 11:33:12AM +0800, Yu-Chun Lin wrote:
-> > > Expose an accessor function to retrieve the gpio_chip pointer from a
-> > > gpio_regmap instance.
-> > >
-> > > This is needed by drivers that use gpio_regmap but also manage their
-> > > own irq_chip, where gpiochip_enable_irq()/gpiochip_disable_irq() must
-> > > be called with the gpio_chip pointer.
-> > >
-> > > Add gpio_regmap_get_gpiochip() to allow drivers with complex custom
-> > > IRQ implementations.
-> > 
-> > Hmm... Can't we rather add
-> > gpio_regmap_enable_irq()/gpio_regmap_disable_irq()
-> > that take regmap or GPIO regmap (whatever suits better for the purpose) and
-> > do the magic inside GPIO regmap library code?
+irq_of_parse_and_map() requires irq_dispose_mapping() on failure. Don't
+bother with it as platform_get_irq doesn't need it.
 
-> Thanks for the review! I apologize for the misleading commit message.
-> The real reason I need the struct gpio_chip pointer is to properly set up a custom
-> IRQ domain. Our SoC GPIO controller is quite complex. It routes different trigger
-> types to multiple parent IRQs, which doesn't fit the generic regmap_irq framework.
-> Therefore, we have to create our own irq_domain and pass it to
-> gpio_regmap_config.irq_domain.
-> 
-> The core problem occurs inside our custom irq_domain_ops.map() callback:
-> 
-> static int rtd1625_gpio_irq_map(struct irq_domain *domain, unsigned int irq,
->                                 irq_hw_number_t hwirq)
-> {
-> 	struct rtd1625_gpio *data = domain->host_data;
-> 	struct gpio_chip *gc = data->gpio_chip;
-> 
-> 	/* 
-> 	 * The second argument MUST be struct gpio_chip *.
-> 	 * If we pass our custom data structure here, the kernel will panic later 
-> 	 * in gpiochip_irq_reqres() when it calls irq_data_get_irq_chip_data()
-> 	 * and strictly expects it to be a gpio_chip.
-> 	 */
-> 	irq_set_chip_data(irq, gc);
-> 
-> 	irq_set_lockdep_class(irq, &rtd1625_gpio_irq_lock_class,
-> 				&rtd1625_gpio_irq_request_class);
-> 
-> 	irq_set_chip_and_handler(irq, &rtd1625_iso_gpio_irq_chip, handle_bad_irq);
-> 	irq_set_noprobe(irq);
-> 
-> 	return 0;
-> }
-> 
-> Without an accessor like gpio_regmap_get_gpiochip(), we cannot retrieve the
-> gpio_chip instantiated inside gpio-regmap.c to fulfill these requirements in our
-> map() function.
+Signed-off-by: Rosen Penev <rosenp@gmail.com>
+---
+ drivers/watchdog/sama5d4_wdt.c | 4 ++--
+ 1 file changed, 2 insertions(+), 2 deletions(-)
 
-This is all good and needs to be depicted in the cover-letter and/or commit message.
-
-> Before I send a v4, I see 3 possible paths:
-> 
-> Option 1: Keep the accessor (Current v3 approach)
-> We keep gpio_regmap_get_gpiochip() but I will completely rewrite the commit message
-> to explain the custom irq_domain_ops.map and lockdep requirements.
-> 
-> Option 2: Let gpiolib create the irq_domain via gpio_regmap_config
-> Instead of creating the irq_domain in our driver, we add all necessary IRQ fields
-> (irq_chip, irq_handler, irq_parents, etc.) into struct gpio_regmap_config. Then
-> gpio-regmap.c populates the gpio_irq_chip structure before calling 
-> gpiochip_add_data(). This prevents an early return and allows the core gpiolib
-> (gpiochip_add_irqchip()) to automatically create the irq_domain for us.
-> Drawback: This adds a lot of fields to gpio_regmap_config and might violate the
-> original design philosophy of gpio-regmap.c (commit ebe363197e52), which explicitly
-> states that it does not implement its own IRQ chip and delegates it to the parent
-> driver.
-> 
-> Option 3: Drop gpio-regmap entirely (Revert to v2 approach)
-> Currently, all drivers using gpio-regmap (mostly simple CPLDs and external I/O cards)
-> use regmap-irq to get their domain. Since our SoC has a complex IRQ routing scheme
-> with multiple parents, maybe gpio-regmap is simply not the right tool for this
-> hardware, and we should just implement a standard GPIO driver directly using gpiolib.
-> 
-> Which approach would you prefer upstream?
-
-This question to Bart, Linus, and poissibly gpio-regmap stakeholders. I'm not sure
-that my personal opinion will be the best fit here.
-
+diff --git a/drivers/watchdog/sama5d4_wdt.c b/drivers/watchdog/sama5d4_wdt.c
+index 704b786cc2ec..d62031b02348 100644
+--- a/drivers/watchdog/sama5d4_wdt.c
++++ b/drivers/watchdog/sama5d4_wdt.c
+@@ -280,8 +280,8 @@ static int sama5d4_wdt_probe(struct platform_device *pdev)
+ 		return ret;
+ 
+ 	if (wdt->need_irq) {
+-		irq = irq_of_parse_and_map(dev->of_node, 0);
+-		if (!irq) {
++		irq = platform_get_irq(pdev, 0);
++		if (irq < 0) {
+ 			dev_warn(dev, "failed to get IRQ from DT\n");
+ 			wdt->need_irq = false;
+ 		}
 -- 
-With Best Regards,
-Andy Shevchenko
-
+2.54.0
 
 
