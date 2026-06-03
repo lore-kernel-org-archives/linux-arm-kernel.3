@@ -4,77 +4,89 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id D38CFCD6E60
-	for <linux-arm-kernel@archiver.kernel.org>; Wed,  3 Jun 2026 13:05:43 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 904C7CD6E4A
+	for <linux-arm-kernel@archiver.kernel.org>; Wed,  3 Jun 2026 13:06:31 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:
-	To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=rg4CWBKqcg/43kRp7XELQX8SwIZj03OaAVdBvFZ3LCA=; b=hzGmLv468yhBwFb0nbbrp2PlSm
-	VO91xm+a9DgFCLjCg3lkfBXMZ5Dl0OUYisqDdbZJN1UX43jL6epDSpbpLNyv8fZzlfr1cgTHtr5km
-	RuTpQi4JFW1ShgXs4IYttZDrTd8p/EEI0Mi9GQECXSbalxl7mmlmW5Mtn5xLWwkgFHTx6x4ryniNR
-	bJFDleQ4GQ+bJ6/BYUyeNNLDzlMJ+5ZPO1eUeiRS/urghBmn7wsLoPTKI0iaZfjHMM0nDW2CPiaUW
-	sa7bf/E9pIWvHT3002gxZcFIhgdK1Zuk0jhcQpI311Tr1cnS9hRzYnBvGYykmt/E5DaqwSinWLZgp
-	yOcZ0sOg==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:Cc:To:Subject:
+	Message-ID:Date:From:In-Reply-To:References:MIME-Version:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=+vDFPb86PvQvyL1RfDQoX7OYCgpH5JEVJJIcrin/l7k=; b=TIpR8ZGbpzNfDi4Y6KYXA5mDa7
+	IwxT94YWba3xSPsq6qYoLkXuj0NeUQv2kr9/4TOTLgLLSv2thIQi5TJMEHsbPyyDDAXMO3PC9/JZP
+	maGN9T5zf+0aWDxMh7K3wzd/8zcW3vQ2B08q4H0k6okoq+x/fkd4E8Ad9MY3evhvxT1CD0BGn+P0+
+	BSzFrqQqjIRCkDQLKOUMFboVuAyLLaMOrdDPQP2RVJXrJ0hra8MPbgf39HQ/ikzMdRhsb0eo/oyU6
+	MGaXFI/hjiNd95LZD9EgDSYBXrqykEkOu3jZjbxxz1SNo4V6JSts1R9LohmlOP9MPOyC3+CHcOxA0
+	hr80MDpw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wUlHs-0000000F7TE-1IPI;
-	Wed, 03 Jun 2026 13:05:36 +0000
-Received: from galois.linutronix.de ([193.142.43.55])
+	id 1wUlIf-0000000F7yp-2Q6a;
+	Wed, 03 Jun 2026 13:06:25 +0000
+Received: from mail-ej1-f47.google.com ([209.85.218.47])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wUlHj-0000000F7GW-3NFg
+	id 1wUlIb-0000000F7vk-1zxz
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 03 Jun 2026 13:05:29 +0000
-From: Sebastian Andrzej Siewior <bigeasy@linutronix.de>
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=linutronix.de;
-	s=2020; t=1780491922;
-	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
-	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
-	 content-transfer-encoding:content-transfer-encoding:
-	 in-reply-to:in-reply-to:references:references;
-	bh=rg4CWBKqcg/43kRp7XELQX8SwIZj03OaAVdBvFZ3LCA=;
-	b=VIphKkJHQCRIH+HaolCSm0qkoMV/vpBsMu8KbZcQuJBE9ua8VZe3rFQe7TmdHQDqEkZSSH
-	CTTs9UBef/qc/hRIoT6vM+IR+fvOtHX1TNS6W0qeFNHWm658l4+VXvy+MuaVH52OBYdGad
-	9c38/jUq+6DmHfRhQcrMfaGdp3dboeQ9DP7xgj7JsIf4CbvBW4d+fTimte/2SIoj2m2uQT
-	YJH78KEElIFg9wbgu2bcHoEXm6Vp1OLcJXi11qeS1fWK8PIHahdNPOIvDY1PNU/TaKXCVK
-	5h+Ou0sFPjakAEi7AX8vc8yyQowYrMkQWnwYTXxULdm0ZAWjI40juG/UAhx8dw==
-DKIM-Signature: v=1; a=ed25519-sha256; c=relaxed/relaxed; d=linutronix.de;
-	s=2020e; t=1780491922;
-	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
-	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
-	 content-transfer-encoding:content-transfer-encoding:
-	 in-reply-to:in-reply-to:references:references;
-	bh=rg4CWBKqcg/43kRp7XELQX8SwIZj03OaAVdBvFZ3LCA=;
-	b=FdaI/vTPqi+vjz8LzpQeIj7r/QhPZwNHZFdSc8cIISer7KnLruWkdgESv2k6qaH28nQJ0A
-	o12XgVpfQZFZPvDw==
-To: linux-kernel@vger.kernel.org,
-	imx@lists.linux.dev,
-	linux-arm-kernel@lists.infradead.org,
-	linux-remoteproc@vger.kernel.org,
-	linux-rt-devel@lists.linux.dev
-Cc: Sebastian Andrzej Siewior <bigeasy@linutronix.de>,
-	Bjorn Andersson <andersson@kernel.org>,
-	Clark Williams <clrkwllms@kernel.org>,
-	Fabio Estevam <festevam@gmail.com>,
-	Frank Li <Frank.Li@nxp.com>,
-	Jassi Brar <jassisinghbrar@gmail.com>,
-	Mathieu Poirier <mathieu.poirier@linaro.org>,
-	Pengutronix Kernel Team <kernel@pengutronix.de>,
-	Sascha Hauer <s.hauer@pengutronix.de>,
-	Steven Rostedt <rostedt@goodmis.org>
-Subject: [PATCH v2 9/9] remoteproc: imx_rproc: Invoke the callback directly
-Date: Wed,  3 Jun 2026 15:05:12 +0200
-Message-ID: <20260603-imx_mbox_rproc-v2-9-a0059dc3b69a@linutronix.de>
-In-Reply-To: <20260603-imx_mbox_rproc-v2-0-a0059dc3b69a@linutronix.de>
-References: <20260603-imx_mbox_rproc-v2-0-a0059dc3b69a@linutronix.de>
+	Wed, 03 Jun 2026 13:06:23 +0000
+Received: by mail-ej1-f47.google.com with SMTP id a640c23a62f3a-bebde89cfd3so535828866b.2
+        for <linux-arm-kernel@lists.infradead.org>; Wed, 03 Jun 2026 06:06:20 -0700 (PDT)
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20251104; t=1780491979; x=1781096779;
+        h=cc:to:subject:message-id:date:from:in-reply-to:references
+         :mime-version:x-gm-gg:x-gm-message-state:from:to:cc:subject:date
+         :message-id:reply-to;
+        bh=+vDFPb86PvQvyL1RfDQoX7OYCgpH5JEVJJIcrin/l7k=;
+        b=F0NbJ//WdNJJ3LiwM6wBuuu89hXFM0txjZVuS5C522zuv6DYrE4W9KWsupIly9pYeM
+         l4IACVz8GJvhRR4lWI7cVsR7pnJ5UfF41ZHWBltFrqMj6BXx34SzNVN8gexaiaGmu4kc
+         pFseMjSzg/QVP3pu1DvyMA8wqw6LD54AW0hOheuC8W2+dwsZOtPlZvoscmXtnLH8xvdu
+         e2ezNydMIO9CVqEtQ+hY8MTYjqyIvUP7CsV1DAdAJWlwmyj77dAR7EfYUdqt79LjnXvJ
+         TfvvPdgm6QVRENIDYJNxlHb+3xtiT37LTAB8oo45kVOXKCXhwXqIMaVK68kdlNSDo+O4
+         BcXg==
+X-Forwarded-Encrypted: i=1; AFNElJ9Kob/2fTr7fq5ryof1zp/wdvPnVlz2KNWlSrkIJw+cADG10VQ5VEcslnayb2D8Jzqgn9s/udOqSf3IJnUQnL1V@lists.infradead.org
+X-Gm-Message-State: AOJu0Yx3f+O1qwuXtEZTa9GMVN0U8dkiZk0wOLF1W8peHjvzMRb+rRg7
+	5cFBxw9r754BGV7duABzARbOLyC1KeOmjoIIg50v2MUR45qBon4W4AhLAZLZiZHac7c=
+X-Gm-Gg: Acq92OHSJB1GTYHppj8epfeZ42LuJmoDb2dOyD3y2Ztf+4K0p2Nta0YY06jc6l+F5SX
+	mBdTq+CHGa/Q6nysSpsfdTIljwgP2TDj11YG+ra9DIpwVQ+BDav6DSFEmSRltPK0JhBrI4EjiFn
+	N45R4LZADtrV4IMYFSxzRkKR5JSGYkUFLYbYjeH/Z+Qnydlsli+ijYr3NeyGDRltpqcxnYWudOb
+	SRgYztqnwOb1lAKegeqJKuID2kdnN5klZeC82DhAUg6fLgjObHAqRFvAuRBrb9t4Zq61lcTSPmK
+	7a0uGFl3o/iHMi5H5sgDwU/GZ+jDRLP/I4A/nXsepJy6Bn97oYt/o6R3yhwfAjcXDymAomPj9o9
+	SqIUmWXfgQ5qKEsTbXk4nnC2x0roE4W+lP8Y+gw2NooyDmn57BRlbi1B2Y8Eg0BljaRrebazMtT
+	bv4KatsO83GEOoCbpaCSDeSWTm1o8hd+nDiK/s4/eZdMQl6mzMuAsGAWw1tuoVBTsBDUaDTuQ=
+X-Received: by 2002:a17:907:1c15:b0:be2:9d25:3da0 with SMTP id a640c23a62f3a-bf0aa105800mr173048466b.25.1780491978499;
+        Wed, 03 Jun 2026 06:06:18 -0700 (PDT)
+Received: from mail-ed1-f44.google.com (mail-ed1-f44.google.com. [209.85.208.44])
+        by smtp.gmail.com with ESMTPSA id a640c23a62f3a-bf055305d40sm143376966b.45.2026.06.03.06.05.59
+        for <linux-arm-kernel@lists.infradead.org>
+        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
+        Wed, 03 Jun 2026 06:06:00 -0700 (PDT)
+Received: by mail-ed1-f44.google.com with SMTP id 4fb4d7f45d1cf-6896c54a7easo2182095a12.3
+        for <linux-arm-kernel@lists.infradead.org>; Wed, 03 Jun 2026 06:05:59 -0700 (PDT)
+X-Forwarded-Encrypted: i=1; AFNElJ/NwwKer+ZObR6X4qx3+ZRmG7l2WvTfFNg4jyLdos4owkcWJwkS2J+elhJ6DJHuI9pv/lc65kq7gbxwhNcD/MsI@lists.infradead.org
+X-Received: by 2002:a05:6402:e08:b0:686:9c15:3121 with SMTP id
+ 4fb4d7f45d1cf-68e713e3184mr1563082a12.12.1780491958656; Wed, 03 Jun 2026
+ 06:05:58 -0700 (PDT)
 MIME-Version: 1.0
-Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: quoted-printable
+References: <20260603093621.2504490-1-alexander.stein@ew.tq-group.com> <aiAkdZ5XuYC-wpCL@ninjato>
+In-Reply-To: <aiAkdZ5XuYC-wpCL@ninjato>
+From: Geert Uytterhoeven <geert@linux-m68k.org>
+Date: Wed, 3 Jun 2026 15:05:42 +0200
+X-Gmail-Original-Message-ID: <CAMuHMdXG200TTrZGp1YJGt7T2u9vUy9ipoRaOWw_jTaa8Ui81A@mail.gmail.com>
+X-Gm-Features: AVHnY4Jn5WJuuexJ9K698In0uzIER4UcBvwdWNgk9D9nn5i9fKP95_v3uD6TZnc
+Message-ID: <CAMuHMdXG200TTrZGp1YJGt7T2u9vUy9ipoRaOWw_jTaa8Ui81A@mail.gmail.com>
+Subject: Re: [PATCH v4 1/4] dt-bindings: arm: fsl: add TQMa8MPxS board
+To: Wolfram Sang <wsa+renesas@sang-engineering.com>
+Cc: Alexander Stein <alexander.stein@ew.tq-group.com>, Rob Herring <robh@kernel.org>, 
+	Krzysztof Kozlowski <krzk+dt@kernel.org>, Conor Dooley <conor+dt@kernel.org>, Frank Li <Frank.Li@nxp.com>, 
+	Sascha Hauer <s.hauer@pengutronix.de>, Pengutronix Kernel Team <kernel@pengutronix.de>, 
+	Fabio Estevam <festevam@gmail.com>, Geert Uytterhoeven <geert+renesas@glider.be>, 
+	Magnus Damm <magnus.damm@gmail.com>, Shawn Guo <shawnguo@kernel.org>, 
+	Paul Gerber <paul.gerber@tq-group.com>, devicetree@vger.kernel.org, 
+	linux-kernel@vger.kernel.org, imx@lists.linux.dev, 
+	linux-arm-kernel@lists.infradead.org, linux@ew.tq-group.com, 
+	linux-renesas-soc@vger.kernel.org, Conor Dooley <conor.dooley@microchip.com>
+Content-Type: text/plain; charset="UTF-8"
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260603_060527_985102_4D8C7475 
-X-CRM114-Status: GOOD (  12.50  )
+X-CRM114-CacheID: sfid-20260603_060622_457877_C3350DF0 
+X-CRM114-Status: GOOD (  17.89  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -89,104 +101,26 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-The imx-mailbox driver moved the callback invocation into the threaded
-IRQ handler. This means the callback is invoked in preemptible context
-and there is no need to schedule the kworker for the
-imx_rproc_notified_idr_cb() invocation.
+Hi Wolfram,
 
-This was tested with the rpmsg-tty driver on imx93.
+On Wed, 3 Jun 2026 at 14:56, Wolfram Sang
+<wsa+renesas@sang-engineering.com> wrote:
+> how do you generate the CC list? I wonder because linux-renesas-soc is
+> added while only files in the freescale directory are touched? Any idea?
 
-Remove the workqueue handling and invoke the imx_rproc_notified_idr_cb()
-callback directly.
+DTS:
 
-Signed-off-by: Sebastian Andrzej Siewior <bigeasy@linutronix.de>
----
- drivers/remoteproc/imx_rproc.c | 33 +--------------------------------
- 1 file changed, 1 insertion(+), 32 deletions(-)
++       pcieclk: clock-generator@6a {
++               compatible = "renesas,9fgv0241";
 
-diff --git a/drivers/remoteproc/imx_rproc.c b/drivers/remoteproc/imx_rproc.c
-index 0dd80e688b0ea..c97bc1c401655 100644
---- a/drivers/remoteproc/imx_rproc.c
-+++ b/drivers/remoteproc/imx_rproc.c
-@@ -24,7 +24,6 @@
- #include <linux/regmap.h>
- #include <linux/remoteproc.h>
- #include <linux/scmi_imx_protocol.h>
--#include <linux/workqueue.h>
-=20
- #include "imx_rproc.h"
- #include "remoteproc_internal.h"
-@@ -115,8 +114,6 @@ struct imx_rproc {
- 	struct mbox_client		cl;
- 	struct mbox_chan		*tx_ch;
- 	struct mbox_chan		*rx_ch;
--	struct work_struct		rproc_work;
--	struct workqueue_struct		*workqueue;
- 	void __iomem			*rsc_table;
- 	struct imx_sc_ipc		*ipc_handle;
- 	struct notifier_block		rproc_nb;
-@@ -835,21 +832,11 @@ static int imx_rproc_notified_idr_cb(int id, void *pt=
-r, void *data)
- 	return 0;
- }
-=20
--static void imx_rproc_vq_work(struct work_struct *work)
--{
--	struct imx_rproc *priv =3D container_of(work, struct imx_rproc,
--					      rproc_work);
--	struct rproc *rproc =3D priv->rproc;
--
--	idr_for_each(&rproc->notifyids, imx_rproc_notified_idr_cb, rproc);
--}
--
- static void imx_rproc_rx_callback(struct mbox_client *cl, void *msg)
- {
- 	struct rproc *rproc =3D dev_get_drvdata(cl->dev);
--	struct imx_rproc *priv =3D rproc->priv;
-=20
--	queue_work(priv->workqueue, &priv->rproc_work);
-+	idr_for_each(&rproc->notifyids, imx_rproc_notified_idr_cb, rproc);
- }
-=20
- static int imx_rproc_xtr_mbox_init(struct rproc *rproc, bool tx_block)
-@@ -1214,13 +1201,6 @@ static int imx_rproc_sys_off_handler(struct sys_off_=
-data *data)
- 	return NOTIFY_DONE;
- }
-=20
--static void imx_rproc_destroy_workqueue(void *data)
--{
--	struct workqueue_struct *workqueue =3D data;
--
--	destroy_workqueue(workqueue);
--}
--
- static int imx_rproc_probe(struct platform_device *pdev)
- {
- 	struct device *dev =3D &pdev->dev;
-@@ -1249,17 +1229,6 @@ static int imx_rproc_probe(struct platform_device *p=
-dev)
- 		priv->ops =3D dcfg->ops;
-=20
- 	dev_set_drvdata(dev, rproc);
--	priv->workqueue =3D create_workqueue(dev_name(dev));
--	if (!priv->workqueue) {
--		dev_err(dev, "cannot create workqueue\n");
--		return -ENOMEM;
--	}
--
--	ret =3D devm_add_action_or_reset(dev, imx_rproc_destroy_workqueue, priv->=
-workqueue);
--	if (ret)
--		return dev_err_probe(dev, ret, "Failed to add devm destroy workqueue act=
-ion\n");
--
--	INIT_WORK(&priv->rproc_work, imx_rproc_vq_work);
-=20
- 	ret =3D imx_rproc_xtr_mbox_init(rproc, true);
- 	if (ret)
+Gr{oetje,eeting}s,
 
---=20
-2.53.0
+                        Geert
 
+-- 
+Geert Uytterhoeven -- There's lots of Linux beyond ia32 -- geert@linux-m68k.org
+
+In personal conversations with technical people, I call myself a hacker. But
+when I'm talking to journalists I just say "programmer" or something like that.
+                                -- Linus Torvalds
 
