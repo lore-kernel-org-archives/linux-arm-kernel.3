@@ -4,154 +4,151 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 74EFCCD6E55
-	for <linux-arm-kernel@archiver.kernel.org>; Wed,  3 Jun 2026 10:15:29 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id B94E6CD6E64
+	for <linux-arm-kernel@archiver.kernel.org>; Wed,  3 Jun 2026 10:15:35 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
 	Content-Type:Cc:To:Subject:Message-ID:Date:From:In-Reply-To:References:
 	MIME-Version:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=cemMVSwWpUomfLDkEQHTnLgIi/llhyTHZDSVwZ5DF6o=; b=YLS5Ra364hA5URXD/7Zrfm8u3g
-	LaCufJmUMJ/R1tV0CuFjgybfn+ychJ0nTy4896Z/lYKDc5dXog16tvzlQl39T5gG30PTz3kPvWkhh
-	J5TXrFFRQNLfpHVLxp+EnpCkxj7M/vhNqSDh7aHizL10PG5C18KEDpwu+v/jiL7NwfY+CtoEQKYNa
-	5PjXcMekizrkHMqmQPo9P23ENQ4fcrOn/LvcbbmGNCbPP5JxETZ6KMFdEIp74Fm7Rr+xJgLDb99Bv
-	V0IEpsgtzz0LPy3RJWfYF9j0vOhkhcI1V6JqtpUKMWQKCk8JsM5rmUxr0ZZeqlwpTacGTRtbc9xyE
-	8Jf9GWQg==;
+	bh=ENWTTyz1dB4FHEiWpExoeF0j7dMymKgaFvfH6YbqIQA=; b=fjEewnEYba//nMRo17vVbhjbGN
+	Z37idooVP5H6HkqtfkwMCW94OA2HNmp3ExYSU0UEh7txn1Z7tHV43FXaWYIRZyIdXMOPYPSJu3nVD
+	BTY3uPVpzDUvMjq0cEkiRs9T3aUYb81clSbqxVvcHfI0TzHRoqxr7wOpYjUkqCTxydqkfDFVOPnn+
+	Uh9o6Yx9Oh2T6XDTnh/YZGM1/Hijf3V55mqNohVImXejuoKB+LB9cVolbAPA4ukP+WTOWCbTIPtQq
+	t7M7mM8wZg9Q+BnQWZ8b5rqTMwedzwE1XEAMBLyGpV9ltfp2UHkI0EdC0ENY09UDPJ/wBefwOFd1o
+	OWIG8arg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wUid9-0000000EmsV-1WtN;
-	Wed, 03 Jun 2026 10:15:23 +0000
-Received: from mx0a-0031df01.pphosted.com ([205.220.168.131])
+	id 1wUidF-0000000Emv0-2JVg;
+	Wed, 03 Jun 2026 10:15:29 +0000
+Received: from mx0b-0031df01.pphosted.com ([205.220.180.131])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wUid7-0000000Emrp-0zsP
+	id 1wUidC-0000000Emth-1xv2
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 03 Jun 2026 10:15:22 +0000
-Received: from pps.filterd (m0279865.ppops.net [127.0.0.1])
-	by mx0a-0031df01.pphosted.com (8.18.1.11/8.18.1.11) with ESMTP id 6536RRXa3077979
-	for <linux-arm-kernel@lists.infradead.org>; Wed, 3 Jun 2026 10:15:21 GMT
+	Wed, 03 Jun 2026 10:15:27 +0000
+Received: from pps.filterd (m0279873.ppops.net [127.0.0.1])
+	by mx0a-0031df01.pphosted.com (8.18.1.11/8.18.1.11) with ESMTP id 6536v7KJ1755407
+	for <linux-arm-kernel@lists.infradead.org>; Wed, 3 Jun 2026 10:15:25 GMT
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=qualcomm.com; h=
 	cc:content-transfer-encoding:content-type:date:from:in-reply-to
 	:message-id:mime-version:references:subject:to; s=qcppdkim1; bh=
-	cemMVSwWpUomfLDkEQHTnLgIi/llhyTHZDSVwZ5DF6o=; b=ln/Ht+CxkbGrBgNy
-	wPjkkVIlTOOgLK2eipmC/+xX7OCKCHzDFzzB2Nm52nMjfKPJOUj3n5mfl6UwjcpQ
-	7Udc9IUF1V/oDCXW1QBbbmZc6Sn5z1BMPWq5dBPOwXUXLyk+wIrSW0Nvt1Vk4OJt
-	TrDaAm05OwjKwc9RM8jNDlPAZ+cAkDZ3iNO6fT2slHbotWYq5QqfJIyxPTkzV7m+
-	AK7SEr/dt7wcZC6a5ecldZ/zraKys6A1ornmHmSD+X4oANirp//WIARcW42LKahf
-	xkSN0ge2lV56EWn0rM/ph8mP/psnmHQO0fSqi0YcHDL7C6C0+O3w7a7EXN1xguQn
-	byisqw==
-Received: from mail-qv1-f72.google.com (mail-qv1-f72.google.com [209.85.219.72])
-	by mx0a-0031df01.pphosted.com (PPS) with ESMTPS id 4ejabbsya6-1
+	ENWTTyz1dB4FHEiWpExoeF0j7dMymKgaFvfH6YbqIQA=; b=XmrpaKZigwia/7BY
+	DCjkUP+LzEvNycdfLoO5/BLfMGABaH18v7DbZ0POu67u3H5IgMW75BXxhwpEeQj/
+	PDNoDIf3n+cRt6WlYOt8mb09cJyhMObuWCMx497xl614LZRPIFwMzLrA2IXjW/LT
+	rgkZFG12prZa/OJC5QUT3qDit1Z8AZPCJLj4+fl+g27leNvpdFN+yr7MEp5CJVtP
+	kfFkuyheLAoVOLJXTFA2MiOGkmqZZUyYdefv3f3qzuUYladbXjT8ikhI02GJJsGz
+	QB7o1d9GVv9HABFLI8KWBJEJ6vQ8rNYmLbGTe0CZiWHouz9Z1QdlNkNA4W9foDUM
+	KPv7wQ==
+Received: from mail-qv1-f69.google.com (mail-qv1-f69.google.com [209.85.219.69])
+	by mx0a-0031df01.pphosted.com (PPS) with ESMTPS id 4ejff00ueh-1
 	(version=TLSv1.3 cipher=TLS_AES_128_GCM_SHA256 bits=128 verify=NOT)
-	for <linux-arm-kernel@lists.infradead.org>; Wed, 03 Jun 2026 10:15:16 +0000 (GMT)
-Received: by mail-qv1-f72.google.com with SMTP id 6a1803df08f44-8ccf62978bfso103955776d6.1
-        for <linux-arm-kernel@lists.infradead.org>; Wed, 03 Jun 2026 03:15:15 -0700 (PDT)
-ARC-Seal: i=1; a=rsa-sha256; t=1780481714; cv=none;
+	for <linux-arm-kernel@lists.infradead.org>; Wed, 03 Jun 2026 10:15:25 +0000 (GMT)
+Received: by mail-qv1-f69.google.com with SMTP id 6a1803df08f44-8ccf3d72081so7651926d6.3
+        for <linux-arm-kernel@lists.infradead.org>; Wed, 03 Jun 2026 03:15:25 -0700 (PDT)
+ARC-Seal: i=1; a=rsa-sha256; t=1780481725; cv=none;
         d=google.com; s=arc-20240605;
-        b=Mu27GOFNJ0xlrElYY4gBwlPIIZypCdCMt4yx9j8E35TlIuJX6xe+g3/Djuc5fe6A6Y
-         omzNd7NSxf0x1PDp4chWvBxBahgezPgAGGinpyEmeVAIkruAixRNY0fW2K8V5navDkYQ
-         y1i3vUZ4D/ooIqXOpNajKhlfuR6SuzVbfySCZ5u4Htcl0Gxk6Ob1Tnzqe12yqLjJHP3z
-         yAOA0Ax4ep1YSCXjWJLbPv3kxmvsxfD1bEcrXTcu0bQXvEb/NZQO9OLSxG4YOy5H31Wq
-         zZpHo9922LPx0Y+/DrVJ2XQwMK61YuJFQMU/6WhSOEJNu+YqyvQgJ14s7t+owHzufEZ4
-         aDMQ==
+        b=F8P0TgS4vpVys535O5g8X7/mB3GeS379KqNJc0DsEAX+QsgZ7Gt8d6EjPSYqn6YjKC
+         mNevWdhb9hu2viFQYDPcXLK+2uNb506x3a/KpictkLpQFR8pY/fILe0gGuZbmq8XPio6
+         4QH6UzO2btgj/qwOj0RenEQsn984VjEUCLJinFX1v2WSkNYiEm2XtOSrNazrUwiCHoZ+
+         ryC8+BpIjNHPcidjCPBJgbCWnRsx/WaDrUlH0svepFViM2ioyv5VgpVQjc6WTnBR23m/
+         OAyevkDz3/JCn4hNumpeA9Wtzg9qAVpBxnRwefCmBx0cT4TNwgTaud1BHVQQXS/EEecp
+         fPww==
 ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20240605;
         h=content-transfer-encoding:cc:to:subject:message-id:date:from
          :in-reply-to:references:mime-version:dkim-signature;
-        bh=cemMVSwWpUomfLDkEQHTnLgIi/llhyTHZDSVwZ5DF6o=;
-        fh=11RVPa6N9KfzViaIf7MIq5FRrS8e8mDHmIGcdmieCtg=;
-        b=T17ZGtkAxBttR7WowgEoPYYubkbj5fPeFU/3L4elI5GBG3/Ls52BImJ87GvqT/GeWl
-         +ZZJoq5aRcLp4jnBGcu/8tzj2zlwu6Lhr8QiOWDYq1mOo+RY2QMF8Qj9UJwUMzgvjHsW
-         Fj3rzdyPpzJ2Bi6++MKkm6M6eC1bTAImc3ZOk6T5SZ7rkverulb+6rr34+l8auW14LHM
-         gfguUDXrorfQVFRzxRfBYhVD/NPlDhRtekAzn/yImODkA3Snbzj1rNGqF+P4xDIUEcX3
-         eNees82FBGwMec1h0pNa3qrpXUj9tnFMRCMnnObiwB3pJii5qy+xle95Q0L+FLQHeECd
-         nlAQ==;
+        bh=ENWTTyz1dB4FHEiWpExoeF0j7dMymKgaFvfH6YbqIQA=;
+        fh=7KO5YUyHGjYYh+7oLtW014yye3fcTqqQDoT/TdEvBmE=;
+        b=axOD14wh5O0o4WRPbQTnLNdRKjO1eHeAbidwXjjAX6ZkJ+H2yEHAU4ZyhGkoj4ENE3
+         6VyhflHd5IuHJ1GQxSz3fI7LrA21pdutNOI5iLE6pVE10/QRaykTe16/wawnbGM6RoA2
+         XXfXNBiAjWRjHgEGk5l9drIEK+IO7y/LWD8JavLmYw/uXAOXR4M1ysA0gI1HWBXw2F/C
+         z/SxZEUmmNEVaP4plRQHEwblRZtSWlSHTqlxV2RSX66lTw15VnYSXA6SLtaxazjRtLlV
+         q1RBONjo3Pb2uOJFohn0xZraiGk8hDpoygGuzzF5svc8TLvHhjFWWIdMoiqad4d4R3tl
+         5WIw==;
         darn=lists.infradead.org
 ARC-Authentication-Results: i=1; mx.google.com; arc=none
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=oss.qualcomm.com; s=google; t=1780481714; x=1781086514; darn=lists.infradead.org;
+        d=oss.qualcomm.com; s=google; t=1780481725; x=1781086525; darn=lists.infradead.org;
         h=content-transfer-encoding:cc:to:subject:message-id:date:from
          :in-reply-to:references:mime-version:from:to:cc:subject:date
          :message-id:reply-to;
-        bh=cemMVSwWpUomfLDkEQHTnLgIi/llhyTHZDSVwZ5DF6o=;
-        b=NZdWQdmeu9qN8Fe8Uv76V6kvFB6v27FwgIMmMdcLmBFRpDAeD5Pfap7PH51YF5osai
-         Mk+5c+x638JIymMS3Yd5YzBoFL3Pioj+4j5fniwEcN8ell4d1GVrZMortIJ0LtsOYmB5
-         OtgfsmwHS80tZbozvFeClpkmox2adD1cZOJmE1qSYdiBR4uiDJHh8BhNEEeAWubJIPwI
-         GI3zL3JOfhzf6mmZHurS7yRLQQ/5H9nZgD6kb8epW/AeFo/gZSirKEDtdEYuvGhCf2z8
-         QXxKuvJ5b/+V94KibPbsoVBTCcKDs9v+agSEXeAUcFQamZ0BHz6TODRWWHldECuakaob
-         rpuw==
+        bh=ENWTTyz1dB4FHEiWpExoeF0j7dMymKgaFvfH6YbqIQA=;
+        b=YPZEbbLQMdnRT3JCbQWaCfjjpztmDhXNg7Z/5VnNPug6gbqRLbNg6ZljWxoqvdEfXA
+         duZ55aYce2UfYY3X2NTH8sxNhmVDHtgZpeHn9he/rMwvas4dx/pv1ZmMoWdf12qoQBxm
+         7+TQ6fTIkca0ViZSzRtL20KwUBglXaql76aT4GT/xm27sDOMDpAeOsnhBRKgtqJpXgOW
+         9SOflwgeDobX6v1Z0Vpwz7h6dcAeMweZbFAefmgliVOpTnfr50uQcbDYEtCWsnBnv2PU
+         nZSHC2jXRTWOO1kf4erEoSYpKL7pRv/qvYRuJfODip7lrHVCc1oNVo90b8mUJlkdr1wG
+         66RA==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20251104; t=1780481714; x=1781086514;
+        d=1e100.net; s=20251104; t=1780481725; x=1781086525;
         h=content-transfer-encoding:cc:to:subject:message-id:date:from
          :in-reply-to:references:mime-version:x-gm-gg:x-gm-message-state:from
          :to:cc:subject:date:message-id:reply-to;
-        bh=cemMVSwWpUomfLDkEQHTnLgIi/llhyTHZDSVwZ5DF6o=;
-        b=HHESZwiL2YS+/D3iuIYdh48dk+FqA4feNfF8Ylzf5B5HfaVd56RZVjwkgrjbmdnaJO
-         hRuj6GX7vQrObS/PEpEtsvR3+Ktemn3HFIXibepkSlIDnfUMkZTBII0yTdFQe+3yNPKx
-         K3cvc6VpFCRTkLH83Ps5BH/hsEV1UviAgEVcUIRXdtnY1VKL5TaCDIsgYRWjXkwgYq6w
-         vc7Rhc758ke4l6F3Z1PcYTCK1KTFlK57besrLpoyUN9C31QFIbSorxNa9SXZ0iPNoxyt
-         uOYclfGqgLe/noZGP3G/OuGRFz8Lairampu90DWOwk9GLp+FmuILi/pBv5lIUNNF5SCE
-         VhPg==
-X-Forwarded-Encrypted: i=1; AFNElJ+BqqTdT47WIvrAYVJpyP+s/TwyP6a4tnb7LU9PwPN+FWyNGHvnl8CJJ25ZZ4MUzE8ek9/BBIo/zv+Cz2lLtgCh@lists.infradead.org
-X-Gm-Message-State: AOJu0YyRNubk0C/Ewp56Yjc1xPcQ54H3qmhIWdjIDG5YSNMnMNfWui7F
-	GAOqR5Bg//ysHVqjVCd/qo2WSX6jHTigPmiAX8De5v/l/cVld4cZ+5OVQBvKOgJHZePrnKpFb/c
-	hJfKxB7s+1zY/gfQjnxGh806UolX86uNPoHnWPj3aKuBKyv/Jp1ouWNVRaE9YAVeAULOK1hPt5h
-	VmevaZiQ5QNFMAV69v22KE9HleXxMIR1vdpY7pZq8o1CRhPSYMSSLE
-X-Gm-Gg: Acq92OGHlm4JoM4hJAUWQ6Px1HD5S9i37B695WyKFyooxtFkvOVVsW9FMJf0X7T1yma
-	xvz/1sRdHjT2ClzDKEGBhJCzEhkfGyqU5lQLz/r/zJrs7kdW2HZ009WDi8ok8W94Zw9VmVuu29v
-	TNYTpdJB+eJwO1q+qA7BO1BsTDn2DBpA0mBCkw5rEWVUkJJ9o4iAo6DqquIdo/PZwzPqK7C7BVu
-	ocDid9NVjnJ741N
-X-Received: by 2002:a05:6214:838e:10b0:8cc:58f2:339f with SMTP id 6a1803df08f44-8cecdc3aca9mr28775376d6.16.1780481714561;
-        Wed, 03 Jun 2026 03:15:14 -0700 (PDT)
-X-Received: by 2002:a05:6214:838e:10b0:8cc:58f2:339f with SMTP id
- 6a1803df08f44-8cecdc3aca9mr28775016d6.16.1780481714092; Wed, 03 Jun 2026
- 03:15:14 -0700 (PDT)
+        bh=ENWTTyz1dB4FHEiWpExoeF0j7dMymKgaFvfH6YbqIQA=;
+        b=dOK+shy2uAJqZ22QrUuRioEkk3wDkpQfyJ30QClog/67zmkyBaqfDykp4wtC4FiDPl
+         yldVnRbV6dNiu++pCJ7tuvsXKyA3oNZAANMsg9zgFu793cE+GS+mcKPXWydEzQCCQDTy
+         oLO7mIwV4hdG98Cz/AklBhn4GaBiUBZsmwi6d6nDuhZXP3jy7xytk8ANA5WyYes7EWI/
+         q14zvOucjm5Z8NIDDSmmMq/ZI9mC7h6HdXtew5RfDRTHjW+gZR+pDOy7IOHa65FRklPD
+         hQCJsFQyscms/ETQ4mYIIbsokA0BPswjZ6HlHjXzvE81tQBoBV8sCGSKaLfOCXN0569H
+         BDow==
+X-Forwarded-Encrypted: i=1; AFNElJ+MJazCsZDYuwX0hCG6XIj9Z+cWe5W7HtbCbHOmdVOeyCGyQ6HCz7O591g1OGCN7Oh2eowcJ10egdtb4GqG/N1x@lists.infradead.org
+X-Gm-Message-State: AOJu0YwJnZ4F0aMwnBmaeXtUf1NUmNdC9kBV+J2GzPA+ZbqCQ1GAHjxC
+	3x241181vm1HWT2KS8mCwBDbEUStKVvToUm5WgcWXls00mXWzCniCruULoahkTvGi/kVjULCDfK
+	izpECS97r/IDVux/I4gBQApM6janngVFvN9XYk8V5n9O2jB4DqSfWuNJszIQwqmn2ICKaOAxN7C
+	Y0pCZwQMWruJsu2IrceFP2vVWvyR0THRFnw1POazeWuCCWAmekE8nClAChkEBn0AI=
+X-Gm-Gg: Acq92OH+SnhDfaa94RYJweL/O0Ip3eosdxsvWkPpha3TNyNnIdos2oioVdnE2MWIjl7
+	GboBjPKg1Lx85/c+YgIhtKin3W2gPCqs7cKX2nssHWr+lAfjdK10boUid8JyTc+/kwL9kbz4pN5
+	hvxnMrhOLHi2EgHpG0KoG7tIOOBoqQWlBmjixb1fascOMC0n1x6bBHeYt2ZIEZRrGtTgEu+q0gg
+	WK2NoIOxnkTmRwU
+X-Received: by 2002:a05:6214:3204:b0:8ca:25e6:e892 with SMTP id 6a1803df08f44-8cecdc15d66mr42033566d6.2.1780481724721;
+        Wed, 03 Jun 2026 03:15:24 -0700 (PDT)
+X-Received: by 2002:a05:6214:3204:b0:8ca:25e6:e892 with SMTP id
+ 6a1803df08f44-8cecdc15d66mr42033086d6.2.1780481724247; Wed, 03 Jun 2026
+ 03:15:24 -0700 (PDT)
 MIME-Version: 1.0
-References: <20260505-clk-determine-rate-noop-v3-0-f3f829fbacdf@redhat.com> <20260505-clk-determine-rate-noop-v3-15-f3f829fbacdf@redhat.com>
-In-Reply-To: <20260505-clk-determine-rate-noop-v3-15-f3f829fbacdf@redhat.com>
+References: <20260510-pck600-a733-gpu-v1-1-d6393646d714@gmail.com>
+In-Reply-To: <20260510-pck600-a733-gpu-v1-1-d6393646d714@gmail.com>
 From: Ulf Hansson <ulf.hansson@oss.qualcomm.com>
-Date: Wed, 3 Jun 2026 12:15:03 +0200
-X-Gm-Features: AVHnY4LC-7sv-Yo8uO8EA2lGD_GeWV9mrQovi0mZKLxB119HM7ymo5rY21qtuRc
-Message-ID: <CAPx+jO-zN7+q2CWGpMnistOqwVSipdQLi9b=fMwtZg_xy_Jxwg@mail.gmail.com>
-Subject: Re: [PATCH v3 15/15] pmdomain: mediatek: mtk-mfg: use clk_determine_rate_noop()
-To: Brian Masney <bmasney@redhat.com>
-Cc: Michael Turquette <mturquette@baylibre.com>,
-        Stephen Boyd <sboyd@kernel.org>, linux-clk@vger.kernel.org,
-        linux-kernel@vger.kernel.org, Ulf Hansson <ulfh@kernel.org>,
-        Matthias Brugger <matthias.bgg@gmail.com>,
-        AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>,
-        linux-pm@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
-        linux-mediatek@lists.infradead.org
+Date: Wed, 3 Jun 2026 12:15:12 +0200
+X-Gm-Features: AVHnY4K08klW06vk2eW3sXiNnVn0avH1wL4mD1fro5ZcJ4CYf6HKE76f_6zfqQk
+Message-ID: <CAPx+jO9GrBPZvBr6pU7GpGdp=+xKQb4YSQut-M1LONEMnwkDxA@mail.gmail.com>
+Subject: Re: [PATCH] pmdomain: sunxi: support power domain flags for pck600
+To: Yuanshen Cao <alex.caoys@gmail.com>
+Cc: Ulf Hansson <ulfh@kernel.org>, Chen-Yu Tsai <wens@kernel.org>,
+        Jernej Skrabec <jernej.skrabec@gmail.com>,
+        Samuel Holland <samuel@sholland.org>, linux-pm@vger.kernel.org,
+        linux-arm-kernel@lists.infradead.org, linux-sunxi@lists.linux.dev,
+        linux-kernel@vger.kernel.org, Icenowy Zheng <uwu@icenowy.me>,
+        Mikhail Kalashnikov <iuncuim@gmail.com>
 Content-Type: text/plain; charset="UTF-8"
 Content-Transfer-Encoding: quoted-printable
-X-Proofpoint-Spam-Details-Enc: AW1haW4tMjYwNjAzMDA5NyBTYWx0ZWRfX4NOkapqjuPJR
- q3SwAqqZFwdWoSb253grcRkNZ8soLbJW29ugymzik1f5nOVCndF97Mh+CGH+7SjAUHJsNG9AKHr
- 8HbsTC3KbBfLHwHOyqxiH2lm1X/iMIgVVzR2E2NaKGEYJXMI6fsQHjEt28icfkCOjeqnH9vuAmy
- mMbiQsau3aADruV4jW96bQ9tCKQYB/dFNiPrqermV54qTF/+FZx2zPn5nbOWtT3EGa36foGzJkg
- JQWkJdvUByTQ/f4QUDi4ENDoyWjgootwtawa9HCLSnPEPVQbwS5t3x4PTF0itrkmXd26GW7qaq6
- xRIy5PS8tkY+QSX74KB53yDrjsJvOsTE7xu3ciQf4mwdJHwJwuKnNiYifEVVZr/Gz1QTQeMxS1j
- WVe1x+NIU1oJIrtQBHkCK/dOIRqjC9zYojyT+Tks8MQigfeosfOlKTTqqAcuuzwCQN0Y+4PvQFz
- Lx2F3Ca+f5Y4qQy9+rw==
-X-Authority-Analysis: v=2.4 cv=UqZT8ewB c=1 sm=1 tr=0 ts=6a1ffeb7 cx=c_pps
- a=7E5Bxpl4vBhpaufnMqZlrw==:117 a=IkcTkHD0fZMA:10 a=FelO9ux0wxsA:10
+X-Proofpoint-GUID: 9cjAOyQzBnIrahu9SjR9u0D4Y5H1YGOS
+X-Proofpoint-ORIG-GUID: 9cjAOyQzBnIrahu9SjR9u0D4Y5H1YGOS
+X-Authority-Analysis: v=2.4 cv=LYwMLDfi c=1 sm=1 tr=0 ts=6a1ffebd cx=c_pps
+ a=wEM5vcRIz55oU/E2lInRtA==:117 a=IkcTkHD0fZMA:10 a=FelO9ux0wxsA:10
  a=s4-Qcg_JpJYA:10 a=VkNPw1HP01LnGYTKEx00:22 a=u7WPNUs3qKkmUXheDGA7:22
- a=Um2Pa8k9VHT-vaBCBUpS:22 a=20KFwNOVAAAA:8 a=VwQbUJbxAAAA:8 a=pGLkceISAAAA:8
- a=QX4gbG5DAAAA:8 a=IpJZQVW2AAAA:8 a=JfrnYn6hAAAA:8 a=rQN42pXJ2LDxoJgk6j4A:9
- a=QEXdDO2ut3YA:10 a=pJ04lnu7RYOZP9TFuWaZ:22 a=AbAUZ8qAyYyZVLSsDulk:22
- a=IawgGOuG5U0WyFbmm1f5:22 a=1CNFftbPRP8L7MoqJWF3:22
-X-Proofpoint-ORIG-GUID: nC8zAEowYQ16XloR5lSksewrYj9ln_Ft
-X-Proofpoint-GUID: nC8zAEowYQ16XloR5lSksewrYj9ln_Ft
+ a=rJkE3RaqiGZ5pbrm-msn:22 a=gYkhY3VTAAAA:20 a=pGLkceISAAAA:8
+ a=fAHllOzSo_MIxufCVBsA:9 a=QEXdDO2ut3YA:10 a=OIgjcC2v60KrkQgK7BGD:22
+ a=bA3UWDv6hWIuX7UZL3qL:22
+X-Proofpoint-Spam-Details-Enc: AW1haW4tMjYwNjAzMDA5NyBTYWx0ZWRfX0/XSsxJ/25/8
+ OpgOG6HbK416OSusHiComspyRofaQ+/kVMc+IRhRvYp+VhdSjlKU+UqwybtNz+Ij0fqFdhHsy0u
+ Ju//5iQ9A7FbWMcXYYqm94fsdWSP12k3UMxqhGds8R9Eg9aStjcMtmUILRZUreIsWNSCgJVVrkN
+ 5og/X24MKiRAVeG7clPRs+EfonF57A/KGqzEWdjUywyaNqiHjA/2MNsyo7aR7GqApas4Y+XI5Qg
+ 3wu4A2AxlmKn3o1tluEn28gvMhUwMgJSSuG4e6Geiq5RbyEZc/jEedNdCv4Feu8bHse0q+x8S1s
+ eQ7fCqHKTM5LOD33yDQaaciV5UlR3VVDl7zpiUDXJa2kMjvIOAAZJKfB+04aHGr9zSEQ6UAH/II
+ 47/90XEJ25iNnge8H2aNzvb9Tgaq/hIV4lN75QlUiTmrk9uOoXAyk6oH5eEHhEn6GK+kiHq4xai
+ JD/F0kQCGMwWDgBHZ9w==
 X-Proofpoint-Virus-Version: vendor=baseguard
  engine=ICAP:2.0.293,Aquarius:18.0.1143,Hydra:6.1.125,FMLib:17.12.100.49
  definitions=2026-06-03_03,2026-05-28_03,2025-10-01_01
 X-Proofpoint-Spam-Details: rule=outbound_notspam policy=outbound score=0
- adultscore=0 malwarescore=0 lowpriorityscore=0 priorityscore=1501
- impostorscore=0 bulkscore=0 clxscore=1015 spamscore=0 suspectscore=0
- phishscore=0 classifier=typeunknown authscore=0 authtc= authcc=
- route=outbound adjust=0 reason=mlx scancount=1 engine=8.22.0-2605210000
- definitions=main-2606030097
+ bulkscore=0 clxscore=1015 malwarescore=0 phishscore=0 lowpriorityscore=0
+ adultscore=0 impostorscore=0 suspectscore=0 spamscore=0 priorityscore=1501
+ classifier=typeunknown authscore=0 authtc= authcc= route=outbound adjust=0
+ reason=mlx scancount=1 engine=8.22.0-2605210000 definitions=main-2606030097
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260603_031521_279932_3BC2B6CF 
-X-CRM114-Status: GOOD (  24.14  )
+X-CRM114-CacheID: sfid-20260603_031526_642598_1DF8B72A 
+X-CRM114-Status: GOOD (  30.64  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -166,93 +163,138 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Wed, May 6, 2026 at 2:49=E2=80=AFAM Brian Masney <bmasney@redhat.com> wr=
-ote:
+On Sun, May 10, 2026 at 7:25=E2=80=AFAM Yuanshen Cao <alex.caoys@gmail.com>=
+ wrote:
 >
-> Drop the driver-specific empty determine_rate() function and use the new
-> shared clk_determine_rate_noop() helper.
+> Hi everyone,
 >
-> Signed-off-by: Brian Masney <bmasney@redhat.com>
+> This patch refactors the sunxi pck600 power domain implementation to
+> support individual power domain flags.
+>
+> While bringing up the PowerVR GPU on the A733 (Radxa Cubie A7Z), we
+> found that one of the GPU power domains must be configured as "always
+> on." While the Radxa BSP device tree leaves the GPU power domain nodes
+> commented out, the GPU driver code contains traces indicating an "always
+> on" requirement [1].
+>
+> Currently, sunxi_pck600_desc only supports specifying pd_names. This
+> patch introduces sunxi_pck600_pd_desc, which stores both the name and
+> its associated flags. This also (more or less) aligns the implementation
+> with the existing sun50i PPU handling of always-on domains.
+>
+> With this change, individual power domains can now be configured more
+> granularly. In particular, the GPU_CORE domain in sun60i_a733_pck600_pds
+> can now be explicitly marked with GENPD_FLAG_ALWAYS_ON.
+>
+> The patch was tested on the Radxa Cubie A7Z, where the GPU now functions
+> as expected.
+>
+> Thanks to Icenowy for her support and expertise on sunxi and PowerVR,
+> and thanks to Mikhail for identifying this exact cause of the GPU
+> bring-up issue.
+>
+> [1] https://github.com/radxa/allwinner-bsp/blob/cubie-aiot-v1.4.6/modules=
+/gpu/img-bxm/linux/rogue_km/services/system/rogue/rgx_sunxi/sunxi_platform.=
+c#L62
+>
+> Signed-off-by: Yuanshen Cao <alex.caoys@gmail.com>
 
-Acked-by: Ulf Hansson <ulfh@kernel.org>
+Applied for next, thanks!
 
 Kind regards
 Uffe
 
+
 > ---
-> To: Ulf Hansson <ulfh@kernel.org>
-> To: Matthias Brugger <matthias.bgg@gmail.com>
-> To: AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>
-> To: Michael Turquette <mturquette@baylibre.com>
-> To: Stephen Boyd <sboyd@kernel.org>
-> To: Brian Masney <bmasney@redhat.com>
-> Cc: linux-clk@vger.kernel.org
-> Cc: linux-pm@vger.kernel.org
-> Cc: linux-kernel@vger.kernel.org
-> Cc: linux-arm-kernel@lists.infradead.org
-> Cc: linux-mediatek@lists.infradead.org
-> ---
->  drivers/pmdomain/mediatek/mtk-mfg-pmdomain.c | 23 ++--------------------=
--
->  1 file changed, 2 insertions(+), 21 deletions(-)
+>  drivers/pmdomain/sunxi/sun55i-pck600.c | 31 ++++++++++++++++++++--------=
+---
+>  1 file changed, 20 insertions(+), 11 deletions(-)
 >
-> diff --git a/drivers/pmdomain/mediatek/mtk-mfg-pmdomain.c b/drivers/pmdom=
-ain/mediatek/mtk-mfg-pmdomain.c
-> index 3ce6fb74dd53..64fef838776e 100644
-> --- a/drivers/pmdomain/mediatek/mtk-mfg-pmdomain.c
-> +++ b/drivers/pmdomain/mediatek/mtk-mfg-pmdomain.c
-> @@ -310,25 +310,6 @@ static unsigned long mtk_mfg_recalc_rate_gpu(struct =
-clk_hw *hw,
->         return readl(mfg->shared_mem + GF_REG_FREQ_OUT_GPU) * HZ_PER_KHZ;
+> diff --git a/drivers/pmdomain/sunxi/sun55i-pck600.c b/drivers/pmdomain/su=
+nxi/sun55i-pck600.c
+> index 1d47bbd35ced..8a37d11b65a2 100644
+> --- a/drivers/pmdomain/sunxi/sun55i-pck600.c
+> +++ b/drivers/pmdomain/sunxi/sun55i-pck600.c
+> @@ -41,8 +41,13 @@
+>
+>  #define PPU_REG_SIZE   0x1000
+>
+> +struct sunxi_pck600_pd_desc {
+> +       const char *name;
+> +       unsigned int flags;
+> +};
+> +
+>  struct sunxi_pck600_desc {
+> -       const char * const *pd_names;
+> +       const struct sunxi_pck600_pd_desc *pd_descs;
+>         unsigned int num_domains;
+>         u32 logic_power_switch0_delay_offset;
+>         u32 logic_power_switch1_delay_offset;
+> @@ -164,10 +169,12 @@ static int sunxi_pck600_probe(struct platform_devic=
+e *pdev)
+>
+>         for (i =3D 0; i < desc->num_domains; i++) {
+>                 struct sunxi_pck600_pd *pd =3D &pck->pds[i];
+> +               const struct sunxi_pck600_pd_desc *pd_desc =3D &desc->pd_=
+descs[i];
+>
+> -               pd->genpd.name =3D desc->pd_names[i];
+> +               pd->genpd.name =3D pd_desc->name;
+>                 pd->genpd.power_off =3D sunxi_pck600_power_off;
+>                 pd->genpd.power_on =3D sunxi_pck600_power_on;
+> +               pd->genpd.flags =3D pd_desc->flags;
+>                 pd->base =3D base + PPU_REG_SIZE * i;
+>
+>                 sunxi_pck600_pd_setup(pd, desc);
+> @@ -195,13 +202,14 @@ static int sunxi_pck600_probe(struct platform_devic=
+e *pdev)
+>         return ret;
 >  }
 >
-> -static int mtk_mfg_determine_rate(struct clk_hw *hw,
-> -                                 struct clk_rate_request *req)
-> -{
-> -       /*
-> -        * The determine_rate callback needs to be implemented to avoid r=
-eturning
-> -        * the current clock frequency, rather than something even remote=
-ly
-> -        * close to the frequency that was asked for.
-> -        *
-> -        * Instead of writing considerable amounts of possibly slow code =
-just to
-> -        * somehow figure out which of the three PLLs to round for, or ev=
-en to
-> -        * do a search through one of two OPP tables in order to find the=
- closest
-> -        * OPP of a frequency, just return the rate as-is. This avoids de=
-vfreq
-> -        * "rounding" a request for the lowest frequency to the possibly =
-very
-> -        * high current frequency, breaking the powersave governor in the=
- process.
-> -        */
-> -
-> -       return 0;
-> -}
-> -
->  static unsigned long mtk_mfg_recalc_rate_stack(struct clk_hw *hw,
->                                                unsigned long parent_rate)
->  {
-> @@ -339,12 +320,12 @@ static unsigned long mtk_mfg_recalc_rate_stack(stru=
-ct clk_hw *hw,
->
->  static const struct clk_ops mtk_mfg_clk_gpu_ops =3D {
->         .recalc_rate =3D mtk_mfg_recalc_rate_gpu,
-> -       .determine_rate =3D mtk_mfg_determine_rate,
-> +       .determine_rate =3D clk_determine_rate_noop,
+> -static const char * const sun55i_a523_pck600_pd_names[] =3D {
+> -       "VE", "GPU", "VI", "VO0", "VO1", "DE", "NAND", "PCIE"
+> +static const struct sunxi_pck600_pd_desc sun55i_a523_pck600_pds[] =3D {
+> +       { "VE", }, { "GPU", }, { "VI", }, { "VO0", }, { "VO1", },
+> +       { "DE", }, { "NAND", }, { "PCIE", },
 >  };
 >
->  static const struct clk_ops mtk_mfg_clk_stack_ops =3D {
->         .recalc_rate =3D mtk_mfg_recalc_rate_stack,
-> -       .determine_rate =3D mtk_mfg_determine_rate,
-> +       .determine_rate =3D clk_determine_rate_noop,
+>  static const struct sunxi_pck600_desc sun55i_a523_pck600_desc =3D {
+> -       .pd_names =3D sun55i_a523_pck600_pd_names,
+> -       .num_domains =3D ARRAY_SIZE(sun55i_a523_pck600_pd_names),
+> +       .pd_descs =3D sun55i_a523_pck600_pds,
+> +       .num_domains =3D ARRAY_SIZE(sun55i_a523_pck600_pds),
+>         .logic_power_switch0_delay_offset =3D 0xc00,
+>         .logic_power_switch1_delay_offset =3D 0xc04,
+>         .off2on_delay_offset =3D 0xc10,
+> @@ -213,14 +221,15 @@ static const struct sunxi_pck600_desc sun55i_a523_p=
+ck600_desc =3D {
+>         .has_rst_clk =3D true,
 >  };
 >
->  static const struct clk_init_data mtk_mfg_clk_gpu_init =3D {
+> -static const char * const sun60i_a733_pck600_pd_names[] =3D {
+> -       "VI", "DE_SYS", "VE_DEC", "VE_ENC", "NPU",
+> -       "GPU_TOP", "GPU_CORE", "PCIE", "USB2", "VO", "VO1"
+> +static const struct sunxi_pck600_pd_desc sun60i_a733_pck600_pds[] =3D {
+> +       { "VI", }, { "DE_SYS", }, { "VE_DEC", }, { "VE_ENC", }, { "NPU", =
+},
+> +       { "GPU_TOP", }, { "GPU_CORE", GENPD_FLAG_ALWAYS_ON },
+> +       { "PCIE", }, { "USB2", }, { "VO", }, { "VO1", },
+>  };
 >
+>  static const struct sunxi_pck600_desc sun60i_a733_pck600_desc =3D {
+> -       .pd_names =3D sun60i_a733_pck600_pd_names,
+> -       .num_domains =3D ARRAY_SIZE(sun60i_a733_pck600_pd_names),
+> +       .pd_descs =3D sun60i_a733_pck600_pds,
+> +       .num_domains =3D ARRAY_SIZE(sun60i_a733_pck600_pds),
+>         .logic_power_switch0_delay_offset =3D 0xc00,
+>         .logic_power_switch1_delay_offset =3D 0xc04,
+>         .off2on_delay_offset =3D 0xc10,
+>
+> ---
+> base-commit: 1bfaee9d3351b9b32a99766bbfb1f5baed60ddef
+> change-id: 20260510-pck600-a733-gpu-dcbfc0c7ce99
+>
+> Best regards,
 > --
-> 2.54.0
+> Yuanshen Cao <alex.caoys@gmail.com>
 
