@@ -4,90 +4,85 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 158F5CD6E4A
-	for <linux-arm-kernel@archiver.kernel.org>; Wed,  3 Jun 2026 03:12:03 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 9D935CD6E4A
+	for <linux-arm-kernel@archiver.kernel.org>; Wed,  3 Jun 2026 03:36:49 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	MIME-Version:Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-Type:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Message-Id:Date:Subject:Cc:
+	To:From:Reply-To:MIME-Version:Content-Type:Content-Transfer-Encoding:
 	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
 	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
-	bh=DgpTLB1hzkqNPPrde/I8zx966U5X1f7Z9OQaGxgrfCc=; b=sF+kG99O+1hl420eE2xI8PMnaO
-	iHfyso1AQwAB/gDW9AEXNNOQthMZ1ScJjtVuHcQfxpZ/vHer36dElghQpi0/c07443dESv7CRUIIX
-	e7ll+wSg1cPiK6IrT75cmp95f1bWI76u/KaJ1kDa49no8bj16156Nn5w32Zn9k88Gwsg+7dcTiuJQ
-	/MdcbySQajcFkn5OXXe+311JcHWBnxEtRvCCdZtxHD5S7LTBoyqpmcHvx6ChubGIP6KX+ejpvnpLt
-	kUfx5ijLELAB06tR8NsmCCKgNgY7mS19QOUm863d9QN8RdoBQ58ixSX7ps8Z42fZdUW2YsVMFFX2i
-	9bofBSVA==;
+	bh=MuJLtYdtHWKaqd46ljA3SGhtc0u+suGv8rl/EcC4vg8=; b=EHH3IQRNX+IvBYUrAqUwRXmB8G
+	qcTbpWRf5eJ/fd3hSeBcLySRVnyGSV43idIbFBctiRezCZKkJL7ljj114LNRy6MzoTbDXs0YGYtWk
+	PcLJcIMdyrEm85xCF6tlkrzwP3NvYKq6PbRvWj4zl/qzV3t1q03qu6Pr163bAomNY27Fw7juwoYbU
+	7Gdod+oNk7IfMieU1tk/S5bK/C59fJtuDT2Z1IYDq7XmlXC15Xq8OoJb1BOt2mJDFOeLlDa0HycZz
+	fcFbfYnA0PTs3xWQ1+iQ0JRKvW0nbgo+AoLO84iWEwUtRWCGp7jLo8pg3lHmvhWCNdMbPFBuB8VJC
+	USAevAfg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wUc1N-0000000EA32-0QVM;
-	Wed, 03 Jun 2026 03:11:57 +0000
-Received: from mail-pl1-x632.google.com ([2607:f8b0:4864:20::632])
+	id 1wUcPK-0000000EBts-0u7G;
+	Wed, 03 Jun 2026 03:36:42 +0000
+Received: from smtpbgau2.qq.com ([54.206.34.216])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wUc1K-0000000EA2e-3LKN
-	for linux-arm-kernel@lists.infradead.org;
-	Wed, 03 Jun 2026 03:11:55 +0000
-Received: by mail-pl1-x632.google.com with SMTP id d9443c01a7336-2c0b9328c4aso25082355ad.0
-        for <linux-arm-kernel@lists.infradead.org>; Tue, 02 Jun 2026 20:11:54 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20251104; t=1780456314; x=1781061114; darn=lists.infradead.org;
-        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
-         :to:from:from:to:cc:subject:date:message-id:reply-to;
-        bh=DgpTLB1hzkqNPPrde/I8zx966U5X1f7Z9OQaGxgrfCc=;
-        b=plAvbkJ1LoztiXT/n3f9hGDnUkpMHoXsBg/nc1x3x4ngXhxVl9t0dvwZTZUTgGdAIt
-         28rExS+GGdpu2D+2V/H89srAXjzdxQUypdfiCxG9d1VXyd3KGrYiEesPp6JLixkkhNor
-         Wl636K+2NVvE4czsciP7cFjrqTjs3gvr1DdriusTa2/hHjdTQ0aIiApPLobEMsGzZcQi
-         uUk7DrBhV5Ao1MVIuOX5CIIdIWdbZiWgQMasZxCWPkjt/4CNklFyefZPqwnGQv/2jzFT
-         2p8a7R4le5v3wrolYXNKXP0bTCVLUXUTX2hFwms77dIQMsewC664hlo+I6euchnxli3W
-         pB1A==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20251104; t=1780456314; x=1781061114;
-        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
-         :to:from:x-gm-gg:x-gm-message-state:from:to:cc:subject:date
-         :message-id:reply-to;
-        bh=DgpTLB1hzkqNPPrde/I8zx966U5X1f7Z9OQaGxgrfCc=;
-        b=hgl4aO2f61fqU4x6P4/V5pLdQQ2eDkuytSX0WMw/bNzXVCizE0xfS3T2SDUeA/uwT6
-         r3uaEddShWgd8r1SWmgdfS/sG8PFvK8Pu2Gpsd87gB2nSyYyTMTqf0CPAxOk8mrBQC3k
-         zzladeL66UCtgBYRE3Bd56OjNq4bn8KFDk+kdrZVh6NbbsqeFkryHvpqit0o35U1yOxt
-         jGgOnPcko0i4+mgrse9rKHtC/sYaYoZcRnkYgCMYGkn5EgZdd1AkcaOPOh6/WQrJq033
-         5wMFw0P/Z3XPwI2CGqcwy1wJqw4lVtAll4Rgu2+6LGqP7trkIIMdtWAAPLXQVY1xTw6b
-         9Zgw==
-X-Forwarded-Encrypted: i=1; AFNElJ9VWy5Wq5LgGOjiJ96OqYmGxJRfH4dg864yviCsBJj+qEChkfI8zvCu87FQSHFWID8fPALNSup7b6pAGsRCXbNe@lists.infradead.org
-X-Gm-Message-State: AOJu0YwwHMGHf2Sa3xYYVQK60aJbo51KPErOf5oYh4/G1RRJFspqaZLE
-	5ZDG1KDIjr6uBSplhKe83K7GkGRYc/kljB16SQUF/L6VPThKIDdsiDjB
-X-Gm-Gg: Acq92OFVJ+HawXmrOB4gcnhVfjJiJn9Mfk85zm93sTO1mZX/3tsks9l51IJd4niH8Li
-	/UF4PCTeye5Fhd50WDZcYLJTOIpqxUTJzktcn+N2SqblcSW3cY8ofJ+opYU5n8/H/YtS4R+DONG
-	vdntJIRyurSh+R3Y3mldb55qdsnzb8blZnczKrFdgdsKTYuw0AHOtq1X+Zm69cX/jw3DpKz36Gn
-	zYMbHMe5fL8GAOVIe4AKOZhMRHxvigQnM5/5qgc3I/Fli8igJTC5oPoxVwxhmPjBOKRmq4N64F2
-	ILGEv/tfn/NJeAjlbMMiYG0iIkVvgmdrR0AABZjCDmsSMfLoUl1slk6487cvA4NJ681e4zELW4K
-	tIy2PT8O3Hon+bgf81w1Xbj/Pl1mKuzj/51R0DWqHrJs5AC6CjRshXZxUxvpIn+gcec8vuTTUPf
-	4ehTo4pi+aGyPoYAoFxU8DT5OgMVVhLXRi8ovgC3N9BvuzwhQClaS/lXehVgcfrq63rv1DPkdN4
-	pp+l81yVoGCz6TF+MXq7/lMnbyIFWXyjUzru1/Gxqqxsg==
-X-Received: by 2002:a17:902:f545:b0:2bf:211c:4980 with SMTP id d9443c01a7336-2c1644d5834mr13983125ad.35.1780456313668;
-        Tue, 02 Jun 2026 20:11:53 -0700 (PDT)
-Received: from ryzen ([2601:644:8000:5b5d:7285:c2ff:fe45:8a32])
-        by smtp.gmail.com with ESMTPSA id d9443c01a7336-2c164f96b3fsm7211795ad.29.2026.06.02.20.11.52
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Tue, 02 Jun 2026 20:11:52 -0700 (PDT)
-From: Rosen Penev <rosenp@gmail.com>
-To: linux-i2c@vger.kernel.org
-Cc: Andi Shyti <andi.shyti@kernel.org>,
-	Frank Li <Frank.Li@nxp.com>,
-	Sascha Hauer <s.hauer@pengutronix.de>,
-	Pengutronix Kernel Team <kernel@pengutronix.de>,
-	Fabio Estevam <festevam@gmail.com>,
-	imx@lists.linux.dev (open list:ARM/FREESCALE IMX / MXC ARM ARCHITECTURE),
-	linux-arm-kernel@lists.infradead.org (moderated list:ARM/FREESCALE IMX / MXC ARM ARCHITECTURE),
-	linux-kernel@vger.kernel.org (open list)
-Subject: [PATCHv2] i2c: mxs: add missing kernel-doc for struct mxs_i2c_dev members
-Date: Tue,  2 Jun 2026 20:11:35 -0700
-Message-ID: <20260603031135.289302-1-rosenp@gmail.com>
-X-Mailer: git-send-email 2.54.0
-MIME-Version: 1.0
-Content-Transfer-Encoding: 8bit
+	id 1wUcPG-0000000EBqy-3erN;
+	Wed, 03 Jun 2026 03:36:41 +0000
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=airkyi.com;
+	s=altu2504; t=1780457742;
+	bh=MuJLtYdtHWKaqd46ljA3SGhtc0u+suGv8rl/EcC4vg8=;
+	h=From:To:Subject:Date:Message-Id;
+	b=K3cQ0muORXeRzDUjJAklwiu/B/9TvmYbwjOxlOEK06KuSFgFob2m8aOTCvdZbdDPo
+	 pxBbb6BpaOS9nxGVUHltY3BRBVkwQeduOpc4VXOaChDMxto5/J7JofDMZySEirmoMp
+	 Srxw8/8n1HJnOwNjSXQ5h50eYcMVgMYGd6+Efg68=
+X-QQ-mid: zesmtpsz3t1780457740t290e62f8
+X-QQ-Originating-IP: CzBw4Y9AFqPGcBi+9pnSIOAZiI3fSc2fRqSUVrQ4w0Q=
+Received: from DESKTOP-8BT1A2O.localdomain ( [58.22.7.114])
+	by bizesmtp.qq.com (ESMTP) with 
+	id ; Wed, 03 Jun 2026 11:35:37 +0800 (CST)
+X-QQ-SSF: 0000000000000000000000000000000
+X-QQ-GoodBg: 0
+X-BIZMAIL-ID: 16903120165726575849
+From: Chaoyi Chen <kernel@airkyi.com>
+To: Sandy Huang <hjc@rock-chips.com>,
+	=?UTF-8?q?Heiko=20St=C3=BCbner?= <heiko@sntech.de>,
+	Andy Yan <andy.yan@rock-chips.com>,
+	Maarten Lankhorst <maarten.lankhorst@linux.intel.com>,
+	Maxime Ripard <mripard@kernel.org>,
+	Thomas Zimmermann <tzimmermann@suse.de>,
+	David Airlie <airlied@gmail.com>,
+	Simona Vetter <simona@ffwll.ch>,
+	Guochun Huang <hero.huang@rock-chips.com>
+Cc: dri-devel@lists.freedesktop.org,
+	linux-arm-kernel@lists.infradead.org,
+	linux-rockchip@lists.infradead.org,
+	linux-kernel@vger.kernel.org,
+	Chaoyi Chen <chaoyi.chen@rock-chips.com>
+Subject: [PATCH v2 0/3] DSI Controller improvements for Rockchip platforms
+Date: Wed,  3 Jun 2026 11:35:29 +0800
+Message-Id: <20260603033532.164-1-kernel@airkyi.com>
+X-Mailer: git-send-email 2.17.1
+X-QQ-SENDSIZE: 520
+Feedback-ID: zesmtpsz:airkyi.com:qybglogicsvrgz:qybglogicsvrgz6b-0
+X-QQ-XMAILINFO: Nw9C1WBu09hPXUn7REqwKFYd3so+pwkePaCYgrPWDg6vuu+MG6DV2r6R
+	TEi0Vi8ilW7vrbmLAEIF5Z0MHaK841xPQHN8KBpV2XkhoizoAXezOY/eRF5oyZJD5Tq184j
+	5L3sIdYgNR9Ie1Ov/t0ih0sVwanhvT4lrOFqilPL58RzlkPBjF/7lCJQldKp/OEoH5T/DDi
+	bJPel0cq0fPwwXZFMhPqyukSUky5IoUTlOS0Dh4/0SNDVVKuIkHD0qAr9ZNELCe/VAr+898
+	wnD18snZeoyCQiTVDcH7XFxd57MydlcpZ7Uqnsy6sMWq9qUDlBTJ6LDltnVsCmStD09gq54
+	bg/fSJTLVhNv5NAvshPMAWL1o5MaISI6Q8LFi6D+P1QAgug0wVZEDZ7UCehEFB+hPqGl/Jw
+	eDLe+S8370hkwNx+t+pJIwio3sL630yOIObenaRPAcJnBfyqiAJGts6FEHcntg68h4j5R4K
+	Q6x+QrLKjBoTRxV9UFOtCShELZHNAzo8qAUvf8VTrpE37k7/Jb5kVsaJPZVD7PqHk+AleVP
+	Hq1IexyvLARMq39/XoSy3F9Cr1Inu+bJ6kkpLsJFbh2rg8VBx4kJJlrf2DHML1mEF/0kEiS
+	KIx7SG9E6DqHUe7zSoB2dyFBHPny5nM1whBwi4aJmnbtAUQsZQdahRabr7Wte842KxVN4Or
+	P+oOb3WkD2r7RtXaLZebqJucsYXPwGR3LOsgV1WXdice/V0JsvNC6WQAd02yQ9T+hzUusw9
+	TdNBfY9ZVKXrEMXx83tS0tMh60aJ149G4juXrT2pyid7q9/lR84EHMUV+dqx8LoNphLvIb9
+	4Gr4BNEdHQrwUP1m9MLaPriizE0CFd+nLN13murEO5IHXYieeLM+OBUNoUy/+Tj9JVECz39
+	yIYLk95jPp/vUON1tYxcYPn2qTwZyZRkj+WAbocGj96O3KZZObTK8ue5SLamJS0IjNpE0Xi
+	ZT9SVparm1BqgiGD/rx0/HnjP5cQTYKax3lRoFfUX9uXMBTi0O3bvoTDM0IcKenAEuxlwIz
+	s1w1mnEh2AHnxOdxqWHbp2DGFrPlQ=
+X-QQ-XMRINFO: OD9hHCdaPRBwH5bRRRw8tsiH4UAatJqXfg==
+X-QQ-RECHKSPAM: 0
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260602_201154_855888_69935FE0 
-X-CRM114-Status: UNSURE (   9.72  )
+X-CRM114-CacheID: sfid-20260602_203639_377408_92108247 
+X-CRM114-Status: UNSURE (   6.99  )
 X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
@@ -103,37 +98,27 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Add kernel-doc documentation for the struct members that were previously
-undocumented. This fixes warnings when building with W=1 and ensures
-the struct is fully documented per kernel-doc conventions.
+From: Chaoyi Chen <chaoyi.chen@rock-chips.com>
 
-Assisted-by: opencode:big-pickle
-Signed-off-by: Rosen Penev <rosenp@gmail.com>
----
- v2: fixed Signed-off-by.
- drivers/i2c/busses/i2c-mxs.c | 8 ++++++++
- 1 file changed, 8 insertions(+)
+This series is dedicated to enhancing the DSI controller and PHY timing
+interaction, refining the lane rate calculation, and addressing the
+associated hardware limitations.
 
-diff --git a/drivers/i2c/busses/i2c-mxs.c b/drivers/i2c/busses/i2c-mxs.c
-index 08c9091a1e35..4e07babea9c3 100644
---- a/drivers/i2c/busses/i2c-mxs.c
-+++ b/drivers/i2c/busses/i2c-mxs.c
-@@ -108,6 +108,14 @@ enum mxs_i2c_devtype {
-  * @cmd_complete: completion object for transaction wait
-  * @cmd_err: error code for last transaction
-  * @adapter: i2c subsystem adapter node
-+ * @timing0: I2C TIMING0 register value
-+ * @timing1: I2C TIMING1 register value
-+ * @timing2: I2C TIMING2 register value
-+ * @dmach: DMA channel
-+ * @pio_data: PIO data for DMA
-+ * @addr_data: address data for DMA
-+ * @sg_io: scatterlist for I/O
-+ * @dma_read: flag indicating DMA read
-  */
- struct mxs_i2c_dev {
- 	struct device *dev;
---
-2.54.0
+Changes in v2:
+- Link to v1: https://lore.kernel.org/all/20260324085838.90-1-kernel@airkyi.com/
+- Fix the unit conversion for max_mbps.
+- Split the lane rate calculation into a separate patch.
+- Add more comment about timing config.
+
+Chaoyi Chen (3):
+  drm/rockchip: dsi: Add maximum per lane bit rate calculation
+  drm/rockchip: dsi: Add dphy_get_timing support for multiple PHY types
+  drm/rockchip: dsi: Relax the lane rate margin requirements
+
+ .../gpu/drm/rockchip/dw-mipi-dsi-rockchip.c   | 66 +++++++++++++++++--
+ 1 file changed, 60 insertions(+), 6 deletions(-)
+
+-- 
+2.53.0
 
 
