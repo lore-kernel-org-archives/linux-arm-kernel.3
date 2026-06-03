@@ -4,84 +4,83 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 0FFA1CD6E55
-	for <linux-arm-kernel@archiver.kernel.org>; Wed,  3 Jun 2026 16:11:35 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id C6E65CD6E55
+	for <linux-arm-kernel@archiver.kernel.org>; Wed,  3 Jun 2026 16:15:11 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:Cc:To:From:
-	Subject:Message-ID:References:Mime-Version:In-Reply-To:Date:Reply-To:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
 	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=S0uwFj2oVK8Ym93JzitEXh3ZnJKfgcyu+cm0Jby8VRA=; b=cgbbBf3OaTTQWQRq+LHRthsPh2
-	U/d2vSHaBnSuKKGbo8sd9cjPPQzTGYkWdbI7zRvb1Z8maLKwy7BxcjMy06w/6+FSGrwTJIPSD9I8X
-	hhr6MRbCB9GltnH2sercS6KaP2gSAgymZjixNh06CXlOiMTug9bBIYP/lDCR4KvNEML2FjTboy4uv
-	3u1tErlRI5lVnFrc+EyeybjIG5Obr+OEcFHIwA0cLhJgIy5sWe0kBnU9tXSmKLXO6VLfE2UdC/yEo
-	I947LuoDBXh96QKlgZk61qrlyqaTP3sc6BewJwmrjgv5IyRGKgACd1fa0qA7X7PwY0in8aXmz4zEt
-	i8P2c+FQ==;
+	bh=dwQAgj5+iT5nXjtC4meACtY9EVtZ0m/GsoPdDY/zB1E=; b=b5uVmImvf4VgHWE+BmC252faJ+
+	YnTzT+MxdAh4gIz5l/A/rqS3NU+L4og6k3bpm6MW8V7DFT4Au077rFOnV+f/8sJx5EdVDYWvuC4ZB
+	vopVCU2yjw6miNJ3lGOsIdDMOw3ty8SUFG6g/Ef8zLd/4uatyag7u+Sr+QEZm811yps7kuVo5igco
+	rsM0gig1hLPGgNqg7slTHVCAl1XCqtnj8QHJNAephbdThYU7L00hH5q32fIGCrM+YOClZQGY/mXBo
+	R5qXVD9QAMfVFxIeUG6STKPbVSowBtbLvDyjAJS5TSHYsxEUsggDprS5GSCdq6bxjfxFAjTpUqt+8
+	IQZcsNng==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wUoBk-0000000FUeC-3ySA;
-	Wed, 03 Jun 2026 16:11:28 +0000
-Received: from mail-wm1-x349.google.com ([2a00:1450:4864:20::349])
+	id 1wUoFE-0000000FV5H-2WaL;
+	Wed, 03 Jun 2026 16:15:04 +0000
+Received: from tor.source.kernel.org ([2600:3c04:e001:324:0:1991:8:25])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wUoBg-0000000FUaO-48OX
-	for linux-arm-kernel@lists.infradead.org;
-	Wed, 03 Jun 2026 16:11:26 +0000
-Received: by mail-wm1-x349.google.com with SMTP id 5b1f17b1804b1-490b8adf8b8so8727405e9.0
-        for <linux-arm-kernel@lists.infradead.org>; Wed, 03 Jun 2026 09:11:23 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=google.com; s=20251104; t=1780503082; x=1781107882; darn=lists.infradead.org;
-        h=cc:to:from:subject:message-id:references:mime-version:in-reply-to
-         :date:from:to:cc:subject:date:message-id:reply-to;
-        bh=S0uwFj2oVK8Ym93JzitEXh3ZnJKfgcyu+cm0Jby8VRA=;
-        b=knvr3GRFIdCrRnEsxv59SNVCHOF2HUQQYYwVKwViP1oAmOHB+8h317nOMZto6wzx5W
-         KMLzlGLlP78AF8M822Djylt8CAMWVcOqFT+Yi9o8OANxDT6AeaWSECsmcFUR250MABfu
-         NnHcw4uJl67be8AU80lalNmfoirdVdEYxav/wm8Y7Aj55q1m25XOEA5fGLZvkRdhN61D
-         XFj503dhOrEbwnZ8Njy7WRG5pdc56eSECx90izoIteQA/s4ptNiGIL+ccLdt54KEht4d
-         zCReohrmluDWirXBKiWI9VEiksUUMcdeeHXOWt//2AQD92lnVbHq1R4nHgv+vto2M3dc
-         GH5Q==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20251104; t=1780503082; x=1781107882;
-        h=cc:to:from:subject:message-id:references:mime-version:in-reply-to
-         :date:x-gm-message-state:from:to:cc:subject:date:message-id:reply-to;
-        bh=S0uwFj2oVK8Ym93JzitEXh3ZnJKfgcyu+cm0Jby8VRA=;
-        b=iw79p/pH8HOvByiHFGx+a2ONKGJdQ4GiugpIir9D52QodO1rkrZl8hVkAXzFcAlLx8
-         knaeI94bI+06lPEHoeDeRTmb0DUkJqLeDlxmif5Q5ITOjjO96Aoj+KbnlRRjx+3DhO1A
-         Um3zw2d+r4fTmc2NOfwu+eJTjtSG+uWj2FYf1icG/KW8oQfmLm7TXWNbGUIXFtCyo9+N
-         q6xBHZNxBMHGrZ4BkJjcBD5qvLvlmVRgtgatVBYfST2ia8pl48eCulOB7bh2PANM1zgG
-         Q0UQbNsZCcWIGUtelWMopuatAWJP2AujcZ2T6hiXq794BQKR1PpI9lYPYhd0snWe+vfX
-         B/JA==
-X-Gm-Message-State: AOJu0YzgpZ6FqDgFs5s1M+PcWKEGVIkNvSWWjcMuh1ki9vP6kWwEaN8Q
-	1K36iWv/70TdXxYeOGTdafYqV0FrlK8nqLKdtZT52cP6dYQqT+nWDj4AEhZtxl5vkjZxpocWOlk
-	eWtUkQCsYuMPWAfrEkAdJnVlArQa6iZC6yOI6uUv/JkO3RFW8CtYDsalEqApC2pJINbG4Xt29+W
-	6ij0XuKRoIuHWTg9cEbMeGZy/fCU7CyIwl4cc7a93rQDXH
-X-Received: from wmog10.prod.google.com ([2002:a05:600c:310a:b0:490:b360:5841])
- (user=ardb job=prod-delivery.src-stubby-dispatcher) by 2002:a05:600c:4e87:b0:490:9d1b:f05c
- with SMTP id 5b1f17b1804b1-490b60e3f91mr74583475e9.33.1780503082036; Wed, 03
- Jun 2026 09:11:22 -0700 (PDT)
-Date: Wed,  3 Jun 2026 18:09:53 +0200
-In-Reply-To: <20260603160949.3372482-6-ardb+git@google.com>
-Mime-Version: 1.0
-References: <20260603160949.3372482-6-ardb+git@google.com>
-X-Developer-Key: i=ardb@kernel.org; a=openpgp; fpr=F43D03328115A198C90016883D200E9CA6329909
-X-Developer-Signature: v=1; a=openpgp-sha256; l=1037; i=ardb@kernel.org;
- h=from:subject; bh=SJHawBMrvWNXo+6oa7fD+p3VxoLw7RWBCVzA/QDwCOg=;
- b=owGbwMvMwCVmkMcZplerG8N4Wi2JIUsh8FLd1w3h24XNTyeYGLFxHm72u+/DcGNVcbKX3jXWH
- UnCv092lLIwiHExyIopsgjM/vtu5+mJUrXOs2Rh5rAygQxh4OIUgIn01TIyvHN4t/fK3iV7N0yb
- H3rcwJP5rHPc4/MJQYtmbpwYdK+Ut4vhr+SPVTMyHFw14pUUEyfzzTXYGGSy5frpGwsWtSz5UpT uwAEA
-X-Mailer: git-send-email 2.54.0.1013.g208068f2d8-goog
-Message-ID: <20260603160949.3372482-9-ardb+git@google.com>
-Subject: [PATCH 3/4] arm64: mte: Disregard the zero page explicitly for
- manipulating tags
-From: Ard Biesheuvel <ardb+git@google.com>
-To: linux-arm-kernel@lists.infradead.org
-Cc: linux-kernel@vger.kernel.org, will@kernel.org, catalin.marinas@arm.com, 
-	maz@kernel.org, Ard Biesheuvel <ardb@kernel.org>, Kevin Brodsky <kevin.brodsky@arm.com>, 
-	Mark Brown <broonie@kernel.org>
-Content-Type: text/plain; charset="UTF-8"
-X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260603_091125_030459_FE44E53A 
-X-CRM114-Status: GOOD (  12.03  )
+	id 1wUoFC-0000000FV52-3l5U;
+	Wed, 03 Jun 2026 16:15:03 +0000
+Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
+	by tor.source.kernel.org (Postfix) with ESMTP id EE7B4601D8;
+	Wed,  3 Jun 2026 16:15:01 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id D574D1F00898;
+	Wed,  3 Jun 2026 16:14:55 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
+	s=k20260515; t=1780503301;
+	bh=dwQAgj5+iT5nXjtC4meACtY9EVtZ0m/GsoPdDY/zB1E=;
+	h=Date:From:To:Cc:Subject:References:In-Reply-To;
+	b=ULuDGwSSLIRN0w9IuEJ5JU6MC9AQGP/tI3k6TfNL25n5+MhzzAvJyNgp786DYy4qd
+	 SU+2ZsMvjSEWLR06CcWK9d4SpnJ8j+YSbw+9huywRO+70nf1qBP8vzVdp0xu3wgA8r
+	 R/Sd5Hl8C1MSFYa2Vs7SDPXHG5A3/nlyhk7eIewmDh+WRIfXivRE8AyEiA8ifvB3L6
+	 MlQFwcIw3MftF1zdN13bQZDXQP0KzZBuxMZ+w65qe8Fd6UwM70TLAwr/jSK4kopAFx
+	 AgyniZEqiZSJXMXe16mZawh39Ow3S15EGMEE4lAUd8excYWx/V3u54sxyTsvx5xo63
+	 gNmSCy/Mk1NCg==
+Date: Wed, 3 Jun 2026 17:14:53 +0100
+From: Conor Dooley <conor@kernel.org>
+To: Kyrie Wu <kyrie.wu@mediatek.com>
+Cc: Tiffany Lin <tiffany.lin@mediatek.com>,
+	Andrew-CT Chen <andrew-ct.chen@mediatek.com>,
+	Yunfei Dong <yunfei.dong@mediatek.com>,
+	Mauro Carvalho Chehab <mchehab@kernel.org>,
+	Rob Herring <robh@kernel.org>,
+	Krzysztof Kozlowski <krzk+dt@kernel.org>,
+	Conor Dooley <conor+dt@kernel.org>,
+	Matthias Brugger <matthias.bgg@gmail.com>,
+	AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>,
+	Nicolas Dufresne <nicolas.dufresne@collabora.com>,
+	Ricardo Ribalda <ribalda@chromium.org>, Kees Cook <kees@kernel.org>,
+	Hans Verkuil <hverkuil+cisco@kernel.org>,
+	Haoxiang Li <haoxiang_li2024@163.com>,
+	Fei Shao <fshao@chromium.org>, Chen-Yu Tsai <wenst@chromium.org>,
+	Laurent Pinchart <laurent.pinchart+renesas@ideasonboard.com>,
+	Sebastian Fricke <sebastian.fricke@collabora.com>,
+	Benjamin Gaignard <benjamin.gaignard@collabora.com>,
+	Philipp Zabel <p.zabel@pengutronix.de>,
+	Qianfeng Rong <rongqianfeng@vivo.com>,
+	Jacopo Mondi <jacopo.mondi@ideasonboard.com>,
+	Irui Wang <irui.wang@mediatek.com>, Fan Wu <fanwu01@zju.edu.cn>,
+	linux-media@vger.kernel.org, devicetree@vger.kernel.org,
+	linux-kernel@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
+	linux-mediatek@lists.infradead.org,
+	Sakari Ailus <sakari.ailus@linux.intel.com>,
+	Tzung-Bi Shih <tzungbi@kernel.org>,
+	Tomasz Figa <tfiga@chromium.org>
+Subject: Re: [PATCH v5 11/14] dt-bindings: media: mediatek: vcodec: add
+ decoder dt-bindings for mt8196
+Message-ID: <20260603-pentagram-unleveled-8729d0003aa7@spud>
+References: <20260603084045.17488-1-kyrie.wu@mediatek.com>
+ <20260603084045.17488-12-kyrie.wu@mediatek.com>
+MIME-Version: 1.0
+Content-Type: multipart/signed; micalg=pgp-sha512;
+	protocol="application/pgp-signature"; boundary="t67lQ/zxp5PMEWTK"
+Content-Disposition: inline
+In-Reply-To: <20260603084045.17488-12-kyrie.wu@mediatek.com>
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -96,38 +95,65 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-From: Ard Biesheuvel <ardb@kernel.org>
 
-The zero page is conceptually immutable, and will be moved into .rodata
-to prevent inadvertent corruption.
+--t67lQ/zxp5PMEWTK
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+Content-Transfer-Encoding: quoted-printable
 
-Prepare the MTE code for this, by ensuring that the zero page is never
-taken into account for tag manipulation, given that those actions will
-no longer be permitted on the read-only alias of .rodata in the linear
-map.
+On Wed, Jun 03, 2026 at 04:40:41PM +0800, Kyrie Wu wrote:
+> From: Yunfei Dong <yunfei.dong@mediatek.com>
+>=20
+> The MT8196 decoder differs from previous generations in several
+> key aspects, most notably in its use of VCP instead of SCP.
+> Additionally, the MT8196 enhances codec capabilities by supporting
+> HEVC Main10 profile decoding. To accommodate these hardware changes,
+> the binding constraints specify a total of 12 clock inputs,
+> consisting of 9 decoder clocks and 3 VCP interface clocks,
+> along with 2 power domains covering both the decoder and VCP
+> subsystems.
 
-Signed-off-by: Ard Biesheuvel <ardb@kernel.org>
----
- arch/arm64/include/asm/mte.h | 5 +++++
- 1 file changed, 5 insertions(+)
+I'm pretty pretty confused by this statement about constraints, since
+there's none added?
+The vcodec-dec node doesn't even seem to permit clocks at all?
 
-diff --git a/arch/arm64/include/asm/mte.h b/arch/arm64/include/asm/mte.h
-index 7f7b97e09996..093b34944aee 100644
---- a/arch/arm64/include/asm/mte.h
-+++ b/arch/arm64/include/asm/mte.h
-@@ -80,6 +80,11 @@ static inline bool page_mte_tagged(struct page *page)
-  */
- static inline bool try_page_mte_tagging(struct page *page)
- {
-+	extern struct page *__zero_page;
-+
-+	if (page == __zero_page)
-+		return false;
-+
- 	VM_WARN_ON_ONCE(folio_test_hugetlb(page_folio(page)));
- 
- 	if (!test_and_set_bit(PG_mte_lock, &page->flags.f))
--- 
-2.54.0.1013.g208068f2d8-goog
+>=20
+> Signed-off-by: Yunfei Dong <yunfei.dong@mediatek.com>
+> Acked-by: Nicolas Dufresne <nicolas.dufresne@collabora.com>
+> ---
+>  .../bindings/media/mediatek,vcodec-subdev-decoder.yaml           | 1 +
+>  1 file changed, 1 insertion(+)
+>=20
+> diff --git a/Documentation/devicetree/bindings/media/mediatek,vcodec-subd=
+ev-decoder.yaml b/Documentation/devicetree/bindings/media/mediatek,vcodec-s=
+ubdev-decoder.yaml
+> index bf8082d87ac0..74e1d88d3056 100644
+> --- a/Documentation/devicetree/bindings/media/mediatek,vcodec-subdev-deco=
+der.yaml
+> +++ b/Documentation/devicetree/bindings/media/mediatek,vcodec-subdev-deco=
+der.yaml
+> @@ -76,6 +76,7 @@ properties:
+>        - mediatek,mt8186-vcodec-dec
+>        - mediatek,mt8188-vcodec-dec
+>        - mediatek,mt8195-vcodec-dec
+> +      - mediatek,mt8196-vcodec-dec
+> =20
+>    reg:
+>      minItems: 1
+> --=20
+> 2.45.2
+>=20
 
+--t67lQ/zxp5PMEWTK
+Content-Type: application/pgp-signature; name="signature.asc"
+
+-----BEGIN PGP SIGNATURE-----
+
+iHUEABYKAB0WIQRh246EGq/8RLhDjO14tDGHoIJi0gUCaiBS/QAKCRB4tDGHoIJi
+0oufAP9lJNwOAT7VUSW+zV4U2z3qVv4MRzJDqgtx5EAGueP/8QD/cTypdP6H/JNn
+OwufpOGYDIsoQ8ZXAYdX5gTK/xBsNwI=
+=W/Ot
+-----END PGP SIGNATURE-----
+
+--t67lQ/zxp5PMEWTK--
 
