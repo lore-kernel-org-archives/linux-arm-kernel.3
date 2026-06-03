@@ -4,7 +4,7 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 5EE7DCD6E6E
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 61CF7CD6E70
 	for <linux-arm-kernel@archiver.kernel.org>; Wed,  3 Jun 2026 15:19:38 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
@@ -12,45 +12,30 @@ DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:
 	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=YhFCJ0OCDdDnQ9GsEesCvbAqOo6Zg3iFvNCzM+hu5ak=; b=cGrrlm6LvgA8rWW0ZJwYeZYylM
-	eYNkQaXUoMyPIs1cLNyIxkECHyg5E6nU3nGmmWR6tev0he2NHf4EwyFZA43ocgpOnVWYFYs70hZWY
-	DudhUxklsbSaCsQTwPMdZjzBforMgX0IdP7lEouFi8ZO8iCtfq6H6ZW8mP0w/XW9NFWQcIOB+CgFI
-	6rEHNcnFYF704xZrsq+DuMNTO7hfhdIK+/N6hTMe9z54OEJD/9riZKKTHVoit7yCsDw9WGZB7EDvP
-	cuwoeyi+E3eO4UFqEOJH81v8RA4p1Zn/C3O8LGBVS0PBLbqpHOVZZbMRwUynQhlQq/0omtDzLlZ9T
-	qOhEEO2A==;
+	bh=YeBRD/MSt6wsGVdzvt9zKUavpOowrxOrf9yWTOinoZY=; b=gWAU12x3g8TogyjEXvCCZPqlnN
+	yJ3N+6+tooLZ2TzJjuwgSV4w5nHGxGrOGM7vCrMWrI9mygVLpn7B+nMUGDXXuIOTQHBkoY7fIm6XR
+	CSBYg5t2hJg2FF83kevzE5+4bC37RzCy1lP8BAMsJzWAlzUO9Dmr8AFRbqLPRLa7Z64vi/wJryNou
+	BjOoqNBXcH674TRGvsm4u1wHXvhyKFivQR5yEvr1xyv8YO0A3RUSRrgt8FOrLAGK7oVh/+zFmqhAK
+	0gbsMt/oXgG8Q1ubEx7JFbulcB7IHXEtsMI7hURrpIAKtyZIIQ64gHzYVbbBtSDKaClKJjbt3+j8J
+	SbkVo+8g==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wUnNM-0000000FNDF-16gX;
-	Wed, 03 Jun 2026 15:19:24 +0000
-Received: from desiato.infradead.org ([90.155.92.199])
+	id 1wUnNQ-0000000FNKd-14OR;
+	Wed, 03 Jun 2026 15:19:28 +0000
+Received: from out30-119.freemail.mail.aliyun.com ([115.124.30.119])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wUnNB-0000000FMxR-1Oml
-	for linux-arm-kernel@bombadil.infradead.org;
-	Wed, 03 Jun 2026 15:19:13 +0000
-DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=infradead.org; s=desiato.20200630; h=Content-Transfer-Encoding:MIME-Version
-	:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:Sender:Reply-To:
-	Content-Type:Content-ID:Content-Description;
-	bh=YhFCJ0OCDdDnQ9GsEesCvbAqOo6Zg3iFvNCzM+hu5ak=; b=NYpmRNZQ4pdM+/BQTnOukj1S+k
-	v89dSmr/n4F5h4aEIgLfKBuyJE5XWuO9yLcvM+9Q8D/Mmu5oJJLsUQPQXvCkSasg/uONrCUNh63mk
-	fT+0QAvNCVqYDnT4U2lx6sExAO5pvGW5SvTliWWgqUBjljHyof7dsQy5iLc6SwAsdPK418PtZhwzW
-	HggbmpmUcXnSbleC55C0HgvyankwVlArckD24VVUMOnhLAXCJYXl5QYHVKNkaBhqTDCMIbYjhhwa6
-	prFSslmsAqRHhfVkzqLM2NX7goMFyeKSiBdIe9lgmEqaAvVaakSbptCDh3A/EYAlC450qX2Zh7wsI
-	PgOjqMQg==;
-Received: from out30-130.freemail.mail.aliyun.com ([115.124.30.130])
-	by desiato.infradead.org with esmtps (Exim 4.99.2 #2 (Red Hat Linux))
-	id 1wUnN7-0000000CXiq-115J
+	id 1wUnN8-0000000FMvM-446v
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 03 Jun 2026 15:19:12 +0000
+	Wed, 03 Jun 2026 15:19:16 +0000
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
 	d=linux.alibaba.com; s=default;
-	t=1780499941; h=From:To:Subject:Date:Message-ID:MIME-Version;
-	bh=YhFCJ0OCDdDnQ9GsEesCvbAqOo6Zg3iFvNCzM+hu5ak=;
-	b=kB8lIvHgB7Mf8hAADuyKaxGMB64JMCqGbupJuIST/2yOWLtvhgJiuJb5A0/i2eEs4KG+CoC/ScqH1h7Sb8haCOEFeLkjEm6LnbRbGgdcIGqAfopBc8xFWldM2jw2gp369UaTiuEVI/oDuA6KW2+YI917ysgnH0VMCkhJsev/L/o=
-X-Alimail-AntiSpam: AC=PASS;BC=-1|-1;BR=01201311R231e4;CH=green;DM=||false|;DS=||;FP=0|-1|-1|-1|0|-1|-1|-1;HT=maildocker-contentspam011083073210;MF=guanghuifeng@linux.alibaba.com;NM=1;PH=DS;RN=28;SR=0;TI=SMTPD_---0X47fR6-_1780499939;
-Received: from VM20241011-104.tbsite.net(mailfrom:guanghuifeng@linux.alibaba.com fp:SMTPD_---0X47fR6-_1780499939 cluster:ay36)
+	t=1780499949; h=From:To:Subject:Date:Message-ID:MIME-Version;
+	bh=YeBRD/MSt6wsGVdzvt9zKUavpOowrxOrf9yWTOinoZY=;
+	b=pAaxJILarWhzgNQrBVSgPEFodchyKdfpgMuboq7jRq8to8tMdmem+yfow8Mxq7uJ8qxkGVJlrHMMHDTII3RKZbf+twbNdEImZH5saRTxXPwguIBx9Y67dM4vR3TDE39otmB8Gqprq8yLaOpXbtrjlW7Ffv2QbT9HnZG+acMONt8=
+X-Alimail-AntiSpam: AC=PASS;BC=-1|-1;BR=01201311R951e4;CH=green;DM=||false|;DS=||;FP=0|-1|-1|-1|0|-1|-1|-1;HT=maildocker-contentspam033045133197;MF=guanghuifeng@linux.alibaba.com;NM=1;PH=DS;RN=28;SR=0;TI=SMTPD_---0X47fR6h_1780499941;
+Received: from VM20241011-104.tbsite.net(mailfrom:guanghuifeng@linux.alibaba.com fp:SMTPD_---0X47fR6h_1780499941 cluster:ay36)
           by smtp.aliyun-inc.com;
-          Wed, 03 Jun 2026 23:18:59 +0800
+          Wed, 03 Jun 2026 23:19:01 +0800
 From: Guanghui Feng <guanghuifeng@linux.alibaba.com>
 To: jgg@ziepe.ca
 Cc: adrian.larumbe@collabora.com,
@@ -80,9 +65,9 @@ Cc: adrian.larumbe@collabora.com,
 	wei.guo.simon@linux.alibaba.com,
 	will@kernel.org,
 	xlpang@linux.alibaba.com
-Subject: [PATCH v3 21/32] iommu/tegra-smmu: implement iova_to_phys_length
-Date: Wed,  3 Jun 2026 23:17:53 +0800
-Message-ID: <20260603151804.1963871-22-guanghuifeng@linux.alibaba.com>
+Subject: [PATCH v3 23/32] vfio: use iova_to_phys_length for efficient unmap
+Date: Wed,  3 Jun 2026 23:17:55 +0800
+Message-ID: <20260603151804.1963871-24-guanghuifeng@linux.alibaba.com>
 X-Mailer: git-send-email 2.43.7
 In-Reply-To: <20260603151804.1963871-1-guanghuifeng@linux.alibaba.com>
 References: <20260602104637.1219810-1-guanghuifeng@linux.alibaba.com>
@@ -90,9 +75,8 @@ References: <20260602104637.1219810-1-guanghuifeng@linux.alibaba.com>
 MIME-Version: 1.0
 Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260603_161909_685427_7A8E501F 
-X-CRM114-Status: UNSURE (   8.97  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20260603_081913_324273_58BBA392 
+X-CRM114-Status: GOOD (  11.58  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -107,53 +91,68 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Implement iova_to_phys_length for Tegra SMMU IOMMU driver,
-returning the actual PTE mapping size.
+Use iommu_iova_to_phys_length() to get PTE page size, allowing
+traversal by actual mapping granularity instead of PAGE_SIZE steps.
 
 Signed-off-by: Guanghui Feng <guanghuifeng@linux.alibaba.com>
+Acked-by: Shiqiang Zhang <shiyu.zsq@linux.alibaba.com>
+Acked-by: Simon Guo <wei.guo.simon@linux.alibaba.com>
 ---
- drivers/iommu/tegra-smmu.c | 11 +++++++----
- 1 file changed, 7 insertions(+), 4 deletions(-)
+ drivers/vfio/vfio_iommu_type1.c | 27 ++++++++++++++++++++++-----
+ 1 file changed, 22 insertions(+), 5 deletions(-)
 
-diff --git a/drivers/iommu/tegra-smmu.c b/drivers/iommu/tegra-smmu.c
-index 67e7a7b925f0..12f9bb623d87 100644
---- a/drivers/iommu/tegra-smmu.c
-+++ b/drivers/iommu/tegra-smmu.c
-@@ -803,8 +803,8 @@ static size_t tegra_smmu_unmap(struct iommu_domain *domain, unsigned long iova,
- 	return size;
- }
+diff --git a/drivers/vfio/vfio_iommu_type1.c b/drivers/vfio/vfio_iommu_type1.c
+index c8151ba54de3..115d88d7003e 100644
+--- a/drivers/vfio/vfio_iommu_type1.c
++++ b/drivers/vfio/vfio_iommu_type1.c
+@@ -1177,25 +1177,42 @@ static long vfio_unmap_unpin(struct vfio_iommu *iommu, struct vfio_dma *dma,
  
--static phys_addr_t tegra_smmu_iova_to_phys(struct iommu_domain *domain,
--					   dma_addr_t iova)
-+static phys_addr_t tegra_smmu_iova_to_phys_length(struct iommu_domain *domain,
-+					   dma_addr_t iova, size_t *mapped_length)
- {
- 	struct tegra_smmu_as *as = to_smmu_as(domain);
- 	unsigned long pfn;
-@@ -813,10 +813,13 @@ static phys_addr_t tegra_smmu_iova_to_phys(struct iommu_domain *domain,
+ 	iommu_iotlb_gather_init(&iotlb_gather);
+ 	while (pos < dma->size) {
+-		size_t unmapped, len;
++		size_t unmapped, len, pgsize;
+ 		phys_addr_t phys, next;
+ 		dma_addr_t iova = dma->iova + pos;
  
- 	pte = tegra_smmu_pte_lookup(as, iova, &pte_dma);
- 	if (!pte || !*pte)
--		return 0;
-+		return PHYS_ADDR_MAX;
+-		phys = iommu_iova_to_phys(domain->domain, iova);
+-		if (WARN_ON(!phys)) {
++		/* Single page table walk returns both phys and PTE size */
++		phys = iommu_iova_to_phys_length(domain->domain, iova,
++						  &pgsize);
++		if (WARN_ON(phys == PHYS_ADDR_MAX)) {
+ 			pos += PAGE_SIZE;
+ 			continue;
+ 		}
++		if (WARN_ON(!pgsize || pgsize < PAGE_SIZE))
++			pgsize = PAGE_SIZE;
  
- 	pfn = *pte & as->smmu->pfn_mask;
- 
-+	if (mapped_length)
-+		*mapped_length = SZ_4K;
+ 		/*
+ 		 * To optimize for fewer iommu_unmap() calls, each of which
+ 		 * may require hardware cache flushing, try to find the
+ 		 * largest contiguous physical memory chunk to unmap.
++		 *
++		 * mapped_length already accounts for contiguous entries
++		 * from iova, then try to join following physically
++		 * contiguous PTEs.
+ 		 */
+-		for (len = PAGE_SIZE; pos + len < dma->size; len += PAGE_SIZE) {
+-			next = iommu_iova_to_phys(domain->domain, iova + len);
++		len = min_t(size_t, pgsize, dma->size - pos);
++		for (; pos + len < dma->size; ) {
++			size_t next_pgsize;
 +
- 	return SMMU_PFN_PHYS(pfn) + SMMU_OFFSET_IN_PAGE(iova);
- }
++			next = iommu_iova_to_phys_length(domain->domain,
++							  iova + len,
++							  &next_pgsize);
+ 			if (next != phys + len)
+ 				break;
++			if (WARN_ON(!next_pgsize || next_pgsize < PAGE_SIZE))
++				next_pgsize = PAGE_SIZE;
++			len += min_t(size_t, next_pgsize,
++				     dma->size - pos - len);
+ 		}
  
-@@ -1007,7 +1010,7 @@ static const struct iommu_ops tegra_smmu_ops = {
- 		.attach_dev	= tegra_smmu_attach_dev,
- 		.map_pages	= tegra_smmu_map,
- 		.unmap_pages	= tegra_smmu_unmap,
--		.iova_to_phys	= tegra_smmu_iova_to_phys,
-+		.iova_to_phys_length = tegra_smmu_iova_to_phys_length,
- 		.free		= tegra_smmu_domain_free,
- 	}
- };
+ 		/*
 -- 
 2.43.7
 
