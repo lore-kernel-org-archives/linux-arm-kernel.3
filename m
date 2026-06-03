@@ -4,64 +4,73 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 328A7CD6E55
-	for <linux-arm-kernel@archiver.kernel.org>; Wed,  3 Jun 2026 06:01:25 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 6EAD8CD6E69
+	for <linux-arm-kernel@archiver.kernel.org>; Wed,  3 Jun 2026 06:17:36 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:References
-	:Message-Id:Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:
-	From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=kwIhmiUhjwa16fmPX2KCAn+2U6erjZhTvA6Oh/JF3Ek=; b=kYQWfvTeWwprB10+XU45MCcI6V
-	K5QPcSk02YDkiE7YYlRs6YnctigKzE+S2jsuhfx/SmAHSvaOmQ0Wz9npY3I+cDwhxBT/OLHk9svkI
-	E+hFZtqd/n0tx0nK8UcTlAvLxCL14XXX3icnN91xVPW1UDmPXfaUYMWTtpVNdt9z7f7mXpweFIxeU
-	SAi14m7eKzEnQS/HKwSRWeWTxpDF6O5TkKLdF95M9gxfMaFq1qxy25PAXIZrJVyg2sVeWfjZilFiL
-	XTPjhGJRb4qiNuTZckiBkfOvF/wPFuBK0aD+y40wL2rEgZGO//eiqQHmtuZlcrld8JHViJTAN8rMz
-	XTjxEWBg==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	MIME-Version:Message-Id:Date:Subject:Cc:To:From:Reply-To:Content-Type:
+	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
+	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=c3ohQ6vqH+01TsKexr5i6q7jS1ycxHNWNoraF5ZmvWg=; b=LNEuFcUs+fEaW2tLcdXa+ZncZW
+	/6euYvdu4E8HBjR/d+7LMvpLRQOF1XscbIozin4iQqVQ7ABp8Hehts7FvQLtwZQOyDpe8NiS4rOaL
+	V0dEh9wzLgauKUbyRZonQjxRAD7shdMje8m7l2/ytig+VCpzTh9797kNGSRHUvTdcyDTpqBYUAppI
+	Jvr+QD6/RuZlBoYMCNvvqR1CVZlasx4ykHjbXTH69RKSdExUkxLximj27zz3ZMMVmx9zYyVvkiLLY
+	oYv6wBVRFarC0H6af6+yLEZsUxsbgGefmbsHXMWVs5vvqqJ6SCnCz480s3RLBnGGL6nY/ttYuIi3c
+	i1NaKkOw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wUefH-0000000EM6Y-0apZ;
-	Wed, 03 Jun 2026 06:01:19 +0000
-Received: from tor.source.kernel.org ([2600:3c04:e001:324:0:1991:8:25])
+	id 1wUeut-0000000EN12-3Gcf;
+	Wed, 03 Jun 2026 06:17:27 +0000
+Received: from smtp21.cstnet.cn ([159.226.251.21] helo=cstnet.cn)
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wUefF-0000000EM3O-0kcR;
-	Wed, 03 Jun 2026 06:01:17 +0000
-Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
-	by tor.source.kernel.org (Postfix) with ESMTP id 9BB0D60228;
-	Wed,  3 Jun 2026 06:01:16 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id C88421F0089B;
-	Wed,  3 Jun 2026 06:01:15 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1780466476;
-	bh=kwIhmiUhjwa16fmPX2KCAn+2U6erjZhTvA6Oh/JF3Ek=;
-	h=From:Date:Subject:References:In-Reply-To:To:Cc;
-	b=enSpK/FqKXcv6CnTcskuOQrBmQWdqGUhBqQnFU6/NwkpB4Pud96BO4KgfO/LlFgrd
-	 NvJH9+sMnfoFKaS0GzI5iijhQ0IoSqEHt2pOl4t21LGRL4mgPJyNQiPsGsBhEhHYSr
-	 YsU50pJgrKlEAUxtGDzgK1kjI+KFKQoUHl6fKXfAjzoyXEbDvUkHAicP1QJW9SFTUv
-	 FNMYkxrRdr8lAaFQbOkPLU3EOrHy/KsGKIKImUdSbGQQzn4XZxWI0dj8geVZcxNxLh
-	 Gj1S+4mLYDlBk+g4rFVkc1c+1eTwhUAPjxogPZh4F7imYZFqKm8ka9vAzD3Qtq+Moe
-	 0FQ5IAaUveY+Q==
-From: Lorenzo Bianconi <lorenzo@kernel.org>
-Date: Wed, 03 Jun 2026 08:00:20 +0200
-Subject: [PATCH net-next v9 6/6] net: airoha: Support multiple LAN/WAN
- interfaces for hw MAC address configuration
+	id 1wUeuq-0000000EN0Q-0fCA
+	for linux-arm-kernel@lists.infradead.org;
+	Wed, 03 Jun 2026 06:17:26 +0000
+Received: from localhost.localdomain (unknown [36.112.3.223])
+	by APP-01 (Coremail) with SMTP id qwCowAB3GdLtxh9q+ROAAA--.1778S2;
+	Wed, 03 Jun 2026 14:17:19 +0800 (CST)
+From: Haoxiang Li <lihaoxiang@isrc.iscas.ac.cn>
+To: andrew+netdev@lunn.ch,
+	davem@davemloft.net,
+	kuba@kernel.org,
+	pabeni@redhat.com,
+	Steen.Hegelund@microchip.com,
+	daniel.machon@microchip.com,
+	UNGLinuxDriver@microchip.com,
+	kees@kernel.org
+Cc: netdev@vger.kernel.org,
+	linux-arm-kernel@lists.infradead.org,
+	linux-kernel@vger.kernel.org,
+	Haoxiang Li <lihaoxiang@isrc.iscas.ac.cn>
+Subject: [PATCH net-next v3] net: microchip: sparx5: clean up PSFP resources on flower setup failure
+Date: Wed,  3 Jun 2026 14:17:16 +0800
+Message-Id: <20260603061716.747282-1-lihaoxiang@isrc.iscas.ac.cn>
+X-Mailer: git-send-email 2.25.1
 MIME-Version: 1.0
-Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: 7bit
-Message-Id: <20260603-airoha-eth-multi-serdes-v9-6-5d476bc2f426@kernel.org>
-References: <20260603-airoha-eth-multi-serdes-v9-0-5d476bc2f426@kernel.org>
-In-Reply-To: <20260603-airoha-eth-multi-serdes-v9-0-5d476bc2f426@kernel.org>
-To: Andrew Lunn <andrew+netdev@lunn.ch>, 
- "David S. Miller" <davem@davemloft.net>, Eric Dumazet <edumazet@google.com>, 
- Jakub Kicinski <kuba@kernel.org>, Paolo Abeni <pabeni@redhat.com>, 
- Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>, 
- Conor Dooley <conor+dt@kernel.org>, Lorenzo Bianconi <lorenzo@kernel.org>
-Cc: Christian Marangi <ansuelsmth@gmail.com>, 
- Benjamin Larsson <benjamin.larsson@genexis.eu>, 
- linux-arm-kernel@lists.infradead.org, linux-mediatek@lists.infradead.org, 
- netdev@vger.kernel.org, devicetree@vger.kernel.org, 
- Madhur Agrawal <madhur.agrawal@airoha.com>
-X-Mailer: b4 0.14.3
+Content-Transfer-Encoding: 8bit
+X-CM-TRANSID: qwCowAB3GdLtxh9q+ROAAA--.1778S2
+X-Coremail-Antispam: 1UD129KBjvJXoWxZFWUKr18CryUWryUGw45Jrb_yoW5KFy7pF
+	WUA3sIkr18Gr43uF18tr40vFn8Z34SqrWxWF4fK345Aw15CF4kCF1DKFyFgr1YgryUAFn3
+	ZF4DAa17uwnxGr7anT9S1TB71UUUUU7qnTZGkaVYY2UrUUUUjbIjqfuFe4nvWSU5nxnvy2
+	9KBjDU0xBIdaVrnRJUUU9014x267AKxVW8JVW5JwAFc2x0x2IEx4CE42xK8VAvwI8IcIk0
+	rVWrJVCq3wAFIxvE14AKwVWUJVWUGwA2ocxC64kIII0Yj41l84x0c7CEw4AK67xGY2AK02
+	1l84ACjcxK6xIIjxv20xvE14v26r1j6r1xM28EF7xvwVC0I7IYx2IY6xkF7I0E14v26r4j
+	6F4UM28EF7xvwVC2z280aVAFwI0_Jr0_Gr1l84ACjcxK6I8E87Iv6xkF7I0E14v26r4j6r
+	4UJwAS0I0E0xvYzxvE52x082IY62kv0487Mc02F40EFcxC0VAKzVAqx4xG6I80ewAv7VC0
+	I7IYx2IY67AKxVWUJVWUGwAv7VC2z280aVAFwI0_Jr0_Gr1lOx8S6xCaFVCjc4AY6r1j6r
+	4UM4x0Y48IcxkI7VAKI48JM4x0x7Aq67IIx4CEVc8vx2IErcIFxwACI402YVCY1x02628v
+	n2kIc2xKxwCY1x0262kKe7AKxVWUtVW8ZwCF04k20xvY0x0EwIxGrwCFx2IqxVCFs4IE7x
+	kEbVWUJVW8JwC20s026c02F40E14v26r1j6r18MI8I3I0E7480Y4vE14v26r106r1rMI8E
+	67AF67kF1VAFwI0_Jw0_GFylIxkGc2Ij64vIr41lIxAIcVC0I7IYx2IY67AKxVWUJVWUCw
+	CI42IY6xIIjxv20xvEc7CjxVAFwI0_Gr0_Cr1lIxAIcVCF04k26cxKx2IYs7xG6r1j6r1x
+	MIIF0xvEx4A2jsIE14v26r1j6r4UMIIF0xvEx4A2jsIEc7CjxVAFwI0_Gr0_Gr1UYxBIda
+	VFxhVjvjDU0xZFpf9x0JUd-B_UUUUU=
+X-Originating-IP: [36.112.3.223]
+X-CM-SenderInfo: 5olkt0x0ld0ww6lv2u4olvutnvoduhdfq/1tbiBwsHE2ofvUkf-wAAs5
+X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
+X-CRM114-CacheID: sfid-20260602_231724_574914_127B4AE5 
+X-CRM114-Status: GOOD (  16.71  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -76,173 +85,106 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-The EN7581 and AN7583 SoCs provide registers to configure hardware LAN/WAN
-MAC addresses. These registers are used during FE hw acceleration to
-determine whether received traffic is destined to this host (L3 traffic)
-or should be switched to another device (L2 traffic).
-The SoC hardware design assumes all interfaces configured as LAN (or WAN)
-share the MAC address MSBs, which are programmed into the
-REG_FE_{LAN,WAN}_MAC_H register. The LSBs of 'local' mac addresses can be
-expressed as a range via the REG_FE_MAC_LMIN and REG_FE_MAC_LMAX
-registers. In order to properly accelerate the traffic, FE module requires
-the user to configure the REG_FE_{LAN,WAN}_MAC_H register respecting this
-limitation. Please note a misconfiguration in REG_FE_{LAN,WAN}_MAC_H
-will still allow the user to log into the device for debugging.
-Previously, only a single interface was considered when programming these
-registers. Extend the logic to derive the correct minimum and maximum
-values for REG_FE_MAC_LMIN/REG_FE_MAC_LMAX when two or more interfaces are
-configured as LAN or WAN. Since this functionality was not available
-before this series, no regression is introduced.
+sparx5_tc_flower_psfp_setup() allocates PSFP stream gate, flow meter and
+stream filter resources before adding VCAP actions. If a later step
+fails, the resources allocated earlier in the function are not unwound.
 
-Tested-by: Madhur Agrawal <madhur.agrawal@airoha.com>
-Signed-off-by: Lorenzo Bianconi <lorenzo@kernel.org>
+Add error paths to release the stream filter, flow meter and stream gate
+when setup fails after they have been acquired.
+
+Also make sparx5_psfp_fm_add() return the acquired flow-meter id before
+the existing-flow-meter early return. When an existing flow meter is
+reused, sparx5_psfp_fm_get() increments its pool reference count, but the
+caller previously kept psfp_fmid as 0. If a later setup step failed, the
+error path could try to delete flow-meter id 0 instead of the reused flow
+meter, leaving the incremented reference behind.
+
+Signed-off-by: Haoxiang Li <lihaoxiang@isrc.iscas.ac.cn>
 ---
- drivers/net/ethernet/airoha/airoha_eth.c | 77 ++++++++++++++++++++++++++++----
- drivers/net/ethernet/airoha/airoha_eth.h |  2 +-
- drivers/net/ethernet/airoha/airoha_ppe.c |  4 +-
- 3 files changed, 71 insertions(+), 12 deletions(-)
+Changes in v3:
+ - Make sparx5_psfp_fm_add() return the acquired flow-meter id before the 
+   ret > 1 early return
+ - Modify the commit message
+Changes in v2:
+ - Rebase on netdev/net-next.
+ - Add a Reviewed-by tag.
+---
+ .../ethernet/microchip/sparx5/sparx5_psfp.c    |  5 +++--
+ .../microchip/sparx5/sparx5_tc_flower.c        | 18 ++++++++++++++----
+ 2 files changed, 17 insertions(+), 6 deletions(-)
 
-diff --git a/drivers/net/ethernet/airoha/airoha_eth.c b/drivers/net/ethernet/airoha/airoha_eth.c
-index 64ee526da241..8f2608293bb7 100644
---- a/drivers/net/ethernet/airoha/airoha_eth.c
-+++ b/drivers/net/ethernet/airoha/airoha_eth.c
-@@ -71,20 +71,76 @@ static void airoha_qdma_irq_disable(struct airoha_irq_bank *irq_bank,
- 	airoha_qdma_set_irqmask(irq_bank, index, mask, 0);
- }
+diff --git a/drivers/net/ethernet/microchip/sparx5/sparx5_psfp.c b/drivers/net/ethernet/microchip/sparx5/sparx5_psfp.c
+index cd4f42c3f7eb..83b37f95ee46 100644
+--- a/drivers/net/ethernet/microchip/sparx5/sparx5_psfp.c
++++ b/drivers/net/ethernet/microchip/sparx5/sparx5_psfp.c
+@@ -277,6 +277,9 @@ int sparx5_psfp_fm_add(struct sparx5 *sparx5, u32 uidx,
+ 	ret = sparx5_psfp_fm_get(sparx5, uidx, &fm->pol.idx);
+ 	if (ret < 0)
+ 		return ret;
++
++	*id = fm->pol.idx;
++
+ 	/* Was already in use, no need to reconfigure */
+ 	if (ret > 1)
+ 		return 0;
+@@ -291,8 +294,6 @@ int sparx5_psfp_fm_add(struct sparx5 *sparx5, u32 uidx,
+ 	if (ret < 0)
+ 		return ret;
  
--static void airoha_set_macaddr(struct airoha_gdm_dev *dev, const u8 *addr)
-+static int airoha_set_macaddr(struct airoha_gdm_dev *dev, const u8 *addr)
- {
-+	u8 ref_addr[ETH_ALEN] __aligned(2);
- 	struct airoha_eth *eth = dev->eth;
--	u32 val, reg;
-+	u32 reg, val, lmin, lmax;
-+	int i;
-+
-+	eth_zero_addr(ref_addr);
-+	lmin = (addr[3] << 16) | (addr[4] << 8) | addr[5];
-+	lmax = lmin;
-+
-+	for (i = 0; i < ARRAY_SIZE(eth->ports); i++) {
-+		struct airoha_gdm_port *port = eth->ports[i];
-+		int j;
-+
-+		if (!port)
-+			continue;
-+
-+		for (j = 0; j < ARRAY_SIZE(port->devs); j++) {
-+			struct airoha_gdm_dev *iter_dev;
-+			struct net_device *netdev;
-+
-+			iter_dev = port->devs[j];
-+			if (!iter_dev || iter_dev == dev)
-+				continue;
-+
-+			if (airoha_is_lan_gdm_dev(iter_dev) !=
-+			    airoha_is_lan_gdm_dev(dev))
-+				continue;
-+
-+			netdev = netdev_from_priv(iter_dev);
-+			if (netdev->reg_state != NETREG_REGISTERED)
-+				continue;
-+
-+			ether_addr_copy(ref_addr, netdev->dev_addr);
-+			val = (netdev->dev_addr[3] << 16) |
-+			      (netdev->dev_addr[4] << 8) | netdev->dev_addr[5];
-+			if (val < lmin)
-+				lmin = val;
-+			if (val > lmax)
-+				lmax = val;
-+		}
-+	}
-+
-+	if (!is_zero_ether_addr(ref_addr) && memcmp(ref_addr, addr, 3)) {
-+		/* According to the HW design, hw mac address MSBs must be
-+		 * the same for each net_device with the same LAN/WAN
-+		 * configuration.
-+		 */
-+		struct net_device *netdev = netdev_from_priv(dev);
-+
-+		dev_warn(eth->dev,
-+			 "%s: wrong mac addr, MSBs must be %02x:%02x:%02x\n",
-+			 netdev->name, ref_addr[0], ref_addr[1],
-+			 ref_addr[2]);
-+		dev_warn(eth->dev, "FE hw forwarding won't work properly\n");
-+
-+		return -EINVAL;
-+	}
- 
- 	reg = airoha_is_lan_gdm_dev(dev) ? REG_FE_LAN_MAC_H : REG_FE_WAN_MAC_H;
- 	val = (addr[0] << 16) | (addr[1] << 8) | addr[2];
- 	airoha_fe_wr(eth, reg, val);
- 
--	val = (addr[3] << 16) | (addr[4] << 8) | addr[5];
--	airoha_fe_wr(eth, REG_FE_MAC_LMIN(reg), val);
--	airoha_fe_wr(eth, REG_FE_MAC_LMAX(reg), val);
-+	airoha_fe_wr(eth, REG_FE_MAC_LMIN(reg), lmin);
-+	airoha_fe_wr(eth, REG_FE_MAC_LMAX(reg), lmax);
- 
--	airoha_ppe_init_upd_mem(dev);
-+	airoha_ppe_init_upd_mem(dev, addr);
-+
-+	return 0;
- }
- 
- static void airoha_set_gdm_port_fwd_cfg(struct airoha_eth *eth, u32 addr,
-@@ -1826,13 +1882,18 @@ static int airoha_dev_stop(struct net_device *netdev)
- static int airoha_dev_set_macaddr(struct net_device *netdev, void *p)
- {
- 	struct airoha_gdm_dev *dev = netdev_priv(netdev);
-+	struct sockaddr *addr = p;
- 	int err;
- 
--	err = eth_mac_addr(netdev, p);
-+	err = eth_prepare_mac_addr_change(netdev, p);
- 	if (err)
- 		return err;
- 
--	airoha_set_macaddr(dev, netdev->dev_addr);
-+	err = airoha_set_macaddr(dev, addr->sa_data);
-+	if (err)
-+		return err;
-+
-+	eth_commit_mac_addr_change(netdev, p);
- 
+-	*id = fm->pol.idx;
+-
  	return 0;
  }
-diff --git a/drivers/net/ethernet/airoha/airoha_eth.h b/drivers/net/ethernet/airoha/airoha_eth.h
-index 3e8262f583a7..8f42973f9cf5 100644
---- a/drivers/net/ethernet/airoha/airoha_eth.h
-+++ b/drivers/net/ethernet/airoha/airoha_eth.h
-@@ -683,7 +683,7 @@ void airoha_ppe_check_skb(struct airoha_ppe_dev *dev, struct sk_buff *skb,
- int airoha_ppe_setup_tc_block_cb(struct airoha_ppe_dev *dev, void *type_data);
- int airoha_ppe_init(struct airoha_eth *eth);
- void airoha_ppe_deinit(struct airoha_eth *eth);
--void airoha_ppe_init_upd_mem(struct airoha_gdm_dev *dev);
-+void airoha_ppe_init_upd_mem(struct airoha_gdm_dev *dev, const u8 *addr);
- u32 airoha_ppe_get_total_num_entries(struct airoha_ppe *ppe);
- struct airoha_foe_entry *airoha_ppe_foe_get_entry(struct airoha_ppe *ppe,
- 						  u32 hash);
-diff --git a/drivers/net/ethernet/airoha/airoha_ppe.c b/drivers/net/ethernet/airoha/airoha_ppe.c
-index f54622904733..91bcc55a6ac6 100644
---- a/drivers/net/ethernet/airoha/airoha_ppe.c
-+++ b/drivers/net/ethernet/airoha/airoha_ppe.c
-@@ -1487,12 +1487,10 @@ void airoha_ppe_check_skb(struct airoha_ppe_dev *dev, struct sk_buff *skb,
- 	airoha_ppe_foe_insert_entry(ppe, skb, hash, rx_wlan);
+ 
+diff --git a/drivers/net/ethernet/microchip/sparx5/sparx5_tc_flower.c b/drivers/net/ethernet/microchip/sparx5/sparx5_tc_flower.c
+index f779a5c00803..a17143953502 100644
+--- a/drivers/net/ethernet/microchip/sparx5/sparx5_tc_flower.c
++++ b/drivers/net/ethernet/microchip/sparx5/sparx5_tc_flower.c
+@@ -807,7 +807,7 @@ static int sparx5_tc_flower_psfp_setup(struct sparx5 *sparx5,
+ 		/* Add new flow-meter */
+ 		ret = sparx5_psfp_fm_add(sparx5, pol_idx, fm, &psfp_fmid);
+ 		if (ret < 0)
+-			return ret;
++			goto err_sg_del;
+ 	}
+ 
+ 	/* Map stream filter to stream gate */
+@@ -816,7 +816,7 @@ static int sparx5_tc_flower_psfp_setup(struct sparx5 *sparx5,
+ 	/* Add new stream-filter and map it to a steam gate */
+ 	ret = sparx5_psfp_sf_add(sparx5, sf, &psfp_sfid);
+ 	if (ret < 0)
+-		return ret;
++		goto err_fm_del;
+ 
+ 	/* Streams are classified by ISDX - map ISDX 1:1 to sfid for now. */
+ 	sparx5_isdx_conf_set(sparx5, psfp_sfid, psfp_sfid, psfp_fmid);
+@@ -824,13 +824,23 @@ static int sparx5_tc_flower_psfp_setup(struct sparx5 *sparx5,
+ 	ret = vcap_rule_add_action_bit(vrule, VCAP_AF_ISDX_ADD_REPLACE_SEL,
+ 				       VCAP_BIT_1);
+ 	if (ret)
+-		return ret;
++		goto err_sf_del;
+ 
+ 	ret = vcap_rule_add_action_u32(vrule, VCAP_AF_ISDX_VAL, psfp_sfid);
+ 	if (ret)
+-		return ret;
++		goto err_sf_del;
+ 
+ 	return 0;
++
++err_sf_del:
++	sparx5_isdx_conf_set(sparx5, psfp_sfid, 0, 0);
++	sparx5_psfp_sf_del(sparx5, psfp_sfid);
++err_fm_del:
++	if (pol_idx >= 0)
++		sparx5_psfp_fm_del(sparx5, psfp_fmid);
++err_sg_del:
++	sparx5_psfp_sg_del(sparx5, psfp_sgid);
++	return ret;
  }
  
--void airoha_ppe_init_upd_mem(struct airoha_gdm_dev *dev)
-+void airoha_ppe_init_upd_mem(struct airoha_gdm_dev *dev, const u8 *addr)
- {
--	struct net_device *netdev = netdev_from_priv(dev);
- 	struct airoha_gdm_port *port = dev->port;
- 	struct airoha_eth *eth = dev->eth;
--	const u8 *addr = netdev->dev_addr;
- 	u32 val;
- 
- 	val = (addr[2] << 24) | (addr[3] << 16) | (addr[4] << 8) | addr[5];
-
+ /* Handle the action trap for a VCAP rule */
 -- 
-2.54.0
+2.25.1
 
 
