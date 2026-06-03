@@ -4,38 +4,53 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 13141CD6E6C
-	for <linux-arm-kernel@archiver.kernel.org>; Wed,  3 Jun 2026 15:19:28 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 291CFCD6E57
+	for <linux-arm-kernel@archiver.kernel.org>; Wed,  3 Jun 2026 15:19:31 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
 	MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:
 	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=Zkn8atwigb0RDyBkQZl4U8k5iUnpgoKnP+BxdtigQbU=; b=bRNqY833ggGjl5r+pffqYjSzQq
-	gVplHoexIignXmSktACsKJHheIfwJPZxiFN/ifDDciapV5a4QcSFNonklaWrAenyxc3C0qTE+F9Wi
-	pMVuBLX/KLMD/RW3Jp1wtUKJKFZ+Rt7AnviL/iuGkdlWT3ds10VjRKVIIpn+qSo9LVg4jZtpQm/my
-	8ZyCRYcxEidDbLvKBw9a0EzgklQurxRndKABaZaBHbs5I3aqsoNcZH534mexw8PjwtUE85A5Q/G5i
-	5zKWI6GHI8erHV83UHtK1QHhe3m481HejuCUCus53SfRsrz5a7xEPN+JQMiH31178F0u+zFSk8rSf
-	hanitFDA==;
+	bh=iWO0sMJG8r4J7LKnC484yIJn4WyUtK7EGFantGfMt+4=; b=tGroqopMiJ1A34V7onp6hdGH/r
+	/KVmzEY7KMxjNsh/W/9JWRPSS8Up/Drd/somPMrZDc46ZD7vKSphUlJ3T1JgiokgkJWQNzwjaxxEs
+	Jpz9zJWrde5UsCWt2mwfPl6SuJ/XxsI3YCB0hZm+O7pqV7JNYc/BRWKAZnXhKmBaQI0IDkEDmFku+
+	6IwanKf0i2UdqTMwhvkoufupAp4t3xz1Cv90mn7FJI0QdmwzZROgpfXmE9REPhCxwHiDakc7u9Mqc
+	BQDpXPvQoRPafP1QV7/tuFzfbG2CPWr8Lul2xOfipo08ulPEgjbfvZjzTmk+gNCZ1gKsbZLQRbHkE
+	gX9fFZKw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wUnNK-0000000FN9D-1FnT;
-	Wed, 03 Jun 2026 15:19:22 +0000
-Received: from out199-6.us.a.mail.aliyun.com ([47.90.199.6])
+	id 1wUnNL-0000000FNBU-1gCU;
+	Wed, 03 Jun 2026 15:19:23 +0000
+Received: from casper.infradead.org ([2001:8b0:10b:1236::1])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wUnN3-0000000FMlu-3f3Q
+	id 1wUnNA-0000000FMxL-2DFI
+	for linux-arm-kernel@bombadil.infradead.org;
+	Wed, 03 Jun 2026 15:19:13 +0000
+DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
+	d=infradead.org; s=casper.20170209; h=Content-Transfer-Encoding:MIME-Version:
+	References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:Sender:Reply-To:
+	Content-Type:Content-ID:Content-Description;
+	bh=iWO0sMJG8r4J7LKnC484yIJn4WyUtK7EGFantGfMt+4=; b=UK/eyF8J3u0YVs2H0Fmp6tMGoB
+	7IaGaEWvFqyCnML+tu84JXcpCky+Qkq8Ls3GOcQvW6sdOU2SU4HNPKkzQrB1I4wLlEMi7itLr/5kC
+	ihYNyni8TOJvMQIcCDXuWMVZ+hhccnjBLz1eIl78xunvC3/rSRl2jgmvjMGAoHjuLm7TDD8/EORwv
+	gEI/1iWWQwOvDxPRYcOFJ4L3INh9QSrcs+mD5aN8cSkBblRl0QhU2JfZlnF30Ex/TWxpmSwH+jIJi
+	MfJU7coSdGEiTcHEpDPfWBMyo/pOjx61JUtI79rTP1CtgA3bY8AkKYJPxyskDdgEIryN0oW97zSZM
+	QgLVKRdg==;
+Received: from out30-113.freemail.mail.aliyun.com ([115.124.30.113])
+	by casper.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
+	id 1wUnN5-000000045gQ-41Ih
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 03 Jun 2026 15:19:07 +0000
+	Wed, 03 Jun 2026 15:19:11 +0000
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
 	d=linux.alibaba.com; s=default;
-	t=1780499942; h=From:To:Subject:Date:Message-ID:MIME-Version;
-	bh=Zkn8atwigb0RDyBkQZl4U8k5iUnpgoKnP+BxdtigQbU=;
-	b=tPNIvZocCmGgTPirhfZyAaDCqo65mWvGZoXWW5oZahDv8iDPKz+ERFwz0+dxtvzopOh7PzBCOqogc4RH3lo0bKyBMDlT24fqZOH+gBVM/BcycmsNSZCW83sXQGVvh28sro6TUrpIN7k36qQwmGFbS5pAEE9oUEr+CU3FVFXZm5s=
-X-Alimail-AntiSpam: AC=PASS;BC=-1|-1;BR=01201311R181e4;CH=green;DM=||false|;DS=||;FP=0|-1|-1|-1|0|-1|-1|-1;HT=maildocker-contentspam033037009110;MF=guanghuifeng@linux.alibaba.com;NM=1;PH=DS;RN=28;SR=0;TI=SMTPD_---0X47fR6P_1780499940;
-Received: from VM20241011-104.tbsite.net(mailfrom:guanghuifeng@linux.alibaba.com fp:SMTPD_---0X47fR6P_1780499940 cluster:ay36)
+	t=1780499933; h=From:To:Subject:Date:Message-ID:MIME-Version;
+	bh=iWO0sMJG8r4J7LKnC484yIJn4WyUtK7EGFantGfMt+4=;
+	b=mgnOawTmohCMp1wPATKwzqF7HiGzpzYONgwlQTYAiJigmHcg/LnN5RL+luPimvQSeqmLIZ4xRyWNAjViMIIecFK/UewRfbINL2z15SlKRAghNmtWUMIQc+8tMBL9/GTcjYCPyOHBdATbxR43+jPyxf2gNL7lrYuPg84RA9bUtnQ=
+X-Alimail-AntiSpam: AC=PASS;BC=-1|-1;BR=01201311R581e4;CH=green;DM=||false|;DS=||;FP=0|-1|-1|-1|0|-1|-1|-1;HT=maildocker-contentspam033037026112;MF=guanghuifeng@linux.alibaba.com;NM=1;PH=DS;RN=28;SR=0;TI=SMTPD_---0X47fR3Q_1780499930;
+Received: from VM20241011-104.tbsite.net(mailfrom:guanghuifeng@linux.alibaba.com fp:SMTPD_---0X47fR3Q_1780499930 cluster:ay36)
           by smtp.aliyun-inc.com;
-          Wed, 03 Jun 2026 23:19:00 +0800
+          Wed, 03 Jun 2026 23:18:50 +0800
 From: Guanghui Feng <guanghuifeng@linux.alibaba.com>
 To: jgg@ziepe.ca
 Cc: adrian.larumbe@collabora.com,
@@ -65,9 +80,9 @@ Cc: adrian.larumbe@collabora.com,
 	wei.guo.simon@linux.alibaba.com,
 	will@kernel.org,
 	xlpang@linux.alibaba.com
-Subject: [PATCH v3 22/32] iommu/virtio: implement iova_to_phys_length
-Date: Wed,  3 Jun 2026 23:17:54 +0800
-Message-ID: <20260603151804.1963871-23-guanghuifeng@linux.alibaba.com>
+Subject: [PATCH v3 12/32] iommu/exynos: implement iova_to_phys_length
+Date: Wed,  3 Jun 2026 23:17:44 +0800
+Message-ID: <20260603151804.1963871-13-guanghuifeng@linux.alibaba.com>
 X-Mailer: git-send-email 2.43.7
 In-Reply-To: <20260603151804.1963871-1-guanghuifeng@linux.alibaba.com>
 References: <20260602104637.1219810-1-guanghuifeng@linux.alibaba.com>
@@ -75,8 +90,8 @@ References: <20260602104637.1219810-1-guanghuifeng@linux.alibaba.com>
 MIME-Version: 1.0
 Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260603_081906_212041_B09EBB6D 
-X-CRM114-Status: UNSURE (   9.55  )
+X-CRM114-CacheID: sfid-20260603_161908_770120_0A8AC81F 
+X-CRM114-Status: UNSURE (   9.82  )
 X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
@@ -92,52 +107,68 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Implement iova_to_phys_length for virtio IOMMU driver,
+Implement iova_to_phys_length for Exynos IOMMU driver,
 returning the actual PTE mapping size.
 
 Signed-off-by: Guanghui Feng <guanghuifeng@linux.alibaba.com>
 ---
- drivers/iommu/virtio-iommu.c | 12 ++++++++----
- 1 file changed, 8 insertions(+), 4 deletions(-)
+ drivers/iommu/exynos-iommu.c | 20 ++++++++++++++------
+ 1 file changed, 14 insertions(+), 6 deletions(-)
 
-diff --git a/drivers/iommu/virtio-iommu.c b/drivers/iommu/virtio-iommu.c
-index 587fc13197f1..b92316257e42 100644
---- a/drivers/iommu/virtio-iommu.c
-+++ b/drivers/iommu/virtio-iommu.c
-@@ -912,10 +912,11 @@ static size_t viommu_unmap_pages(struct iommu_domain *domain, unsigned long iova
- 	return ret ? 0 : unmapped;
+diff --git a/drivers/iommu/exynos-iommu.c b/drivers/iommu/exynos-iommu.c
+index 874d05f4b396..17d77b9114c4 100644
+--- a/drivers/iommu/exynos-iommu.c
++++ b/drivers/iommu/exynos-iommu.c
+@@ -1372,13 +1372,14 @@ static size_t exynos_iommu_unmap(struct iommu_domain *iommu_domain,
+ 	return 0;
  }
  
--static phys_addr_t viommu_iova_to_phys(struct iommu_domain *domain,
--				       dma_addr_t iova)
-+static phys_addr_t viommu_iova_to_phys_length(struct iommu_domain *domain,
-+					      dma_addr_t iova,
-+					      size_t *mapped_length)
+-static phys_addr_t exynos_iommu_iova_to_phys(struct iommu_domain *iommu_domain,
+-					  dma_addr_t iova)
++static phys_addr_t exynos_iommu_iova_to_phys_length(struct iommu_domain *iommu_domain,
++						 dma_addr_t iova,
++						 size_t *mapped_length)
  {
--	u64 paddr = 0;
-+	u64 paddr = PHYS_ADDR_MAX;
+ 	struct exynos_iommu_domain *domain = to_exynos_domain(iommu_domain);
+ 	sysmmu_pte_t *entry;
  	unsigned long flags;
- 	struct viommu_mapping *mapping;
- 	struct interval_tree_node *node;
-@@ -926,6 +927,9 @@ static phys_addr_t viommu_iova_to_phys(struct iommu_domain *domain,
- 	if (node) {
- 		mapping = container_of(node, struct viommu_mapping, iova);
- 		paddr = mapping->paddr + (iova - mapping->iova.start);
-+		if (mapped_length)
-+			*mapped_length = mapping->iova.last -
-+					 mapping->iova.start + 1;
- 	}
- 	spin_unlock_irqrestore(&vdomain->mappings_lock, flags);
+-	phys_addr_t phys = 0;
++	phys_addr_t phys = PHYS_ADDR_MAX;
  
-@@ -1102,7 +1106,7 @@ static const struct iommu_ops viommu_ops = {
- 		.attach_dev		= viommu_attach_dev,
- 		.map_pages		= viommu_map_pages,
- 		.unmap_pages		= viommu_unmap_pages,
--		.iova_to_phys		= viommu_iova_to_phys,
-+		.iova_to_phys_length	= viommu_iova_to_phys_length,
- 		.flush_iotlb_all	= viommu_flush_iotlb_all,
- 		.iotlb_sync		= viommu_iotlb_sync,
- 		.iotlb_sync_map		= viommu_iotlb_sync_map,
+ 	spin_lock_irqsave(&domain->pgtablelock, flags);
+ 
+@@ -1386,13 +1387,20 @@ static phys_addr_t exynos_iommu_iova_to_phys(struct iommu_domain *iommu_domain,
+ 
+ 	if (lv1ent_section(entry)) {
+ 		phys = section_phys(entry) + section_offs(iova);
++		if (mapped_length)
++			*mapped_length = SECT_SIZE;
+ 	} else if (lv1ent_page(entry)) {
+ 		entry = page_entry(entry, iova);
+ 
+-		if (lv2ent_large(entry))
++		if (lv2ent_large(entry)) {
+ 			phys = lpage_phys(entry) + lpage_offs(iova);
+-		else if (lv2ent_small(entry))
++			if (mapped_length)
++				*mapped_length = LPAGE_SIZE;
++		} else if (lv2ent_small(entry)) {
+ 			phys = spage_phys(entry) + spage_offs(iova);
++			if (mapped_length)
++				*mapped_length = SPAGE_SIZE;
++		}
+ 	}
+ 
+ 	spin_unlock_irqrestore(&domain->pgtablelock, flags);
+@@ -1484,7 +1492,7 @@ static const struct iommu_ops exynos_iommu_ops = {
+ 		.attach_dev	= exynos_iommu_attach_device,
+ 		.map_pages	= exynos_iommu_map,
+ 		.unmap_pages	= exynos_iommu_unmap,
+-		.iova_to_phys	= exynos_iommu_iova_to_phys,
++		.iova_to_phys_length	= exynos_iommu_iova_to_phys_length,
+ 		.free		= exynos_iommu_domain_free,
+ 	}
+ };
 -- 
 2.43.7
 
