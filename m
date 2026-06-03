@@ -4,27 +4,27 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id BAF57CD6E60
-	for <linux-arm-kernel@archiver.kernel.org>; Wed,  3 Jun 2026 13:05:34 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 3FEBCCD6E6C
+	for <linux-arm-kernel@archiver.kernel.org>; Wed,  3 Jun 2026 13:05:35 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:
-	To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=9c+IJqqXc5Um/JnqM9Fs6W5B34mNQPyzW5r2N0OJlp0=; b=hLNZWnseOPZjYHezNWslwd2Azr
-	LPuxIbCixg0GJ30LzmUspDK7WnHeRyQHCaI4+U5HWF5sVLLmoP43kDfL3qW22jx/HS9NnmMnry/Tl
-	5nJnUA4mL76N8HSdBuyVqQe5NyGdpirzDFNyd6JALDSCZI0ryX/87o2217HqOD2K3La0ktqeIKenq
-	MeYTfAp4elXrXS7OmZQbTEdotT4w5EJBb3Slakdh1l8n5coEhF4s4/OjOlZMLyA1SHonl2IpUSFqZ
-	zNvRyb7Zw0bS52oGMqQ/9iV/C67qgWdwwrBrbfV4wUgwHXe0wdiLmqISO2vQ/tBQL4Hxc5KrNPjdr
-	6pkUkt8g==;
+	Content-Type:MIME-Version:Message-ID:Date:Subject:Cc:To:From:Reply-To:
+	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
+	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=smnfHwXHRkzzEhvhUiFBh6IWlVN4loP6QRpo40MdtYc=; b=4zFML2rucJiVH7RtIxJXoJYmfx
+	gA//UftbKuGRwdbpD9p552TW36wPRBZ3txMffx3LiyLrZlaY64uf85euB6luazUMF3903kKrs28kB
+	3IKvmP91lDnEjnCY+EoRgJ9afXAd1Q2ST2IggcAc8MRBy4GvsZJyqECeX4Dmra1j8JR+wG0qLAaQa
+	B5xcUEcLPz9pIlMO7fRl70O0B7zzISRVZIz0l50WrnXcvU7OBvVugQSEJMnNZ9EWzCt3So6hHqTCe
+	/uBFqePIvTbv0BtMAhpmZywKvV8vEt6VA4f2M+Fu5kq0hm+H2d/SOQe7nOLvXFCnQUvNiSWstzqVo
+	mEzMZuTQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wUlHk-0000000F7Hz-2ZPI;
+	id 1wUlHk-0000000F7IK-3BlB;
 	Wed, 03 Jun 2026 13:05:28 +0000
 Received: from galois.linutronix.de ([2a0a:51c0:0:12e:550::1])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wUlHf-0000000F7Cq-3XIh
+	id 1wUlHf-0000000F7Ci-3Sqh
 	for linux-arm-kernel@lists.infradead.org;
 	Wed, 03 Jun 2026 13:05:26 +0000
 From: Sebastian Andrzej Siewior <bigeasy@linutronix.de>
@@ -32,23 +32,21 @@ DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=linutronix.de;
 	s=2020; t=1780491919;
 	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
 	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
-	 content-transfer-encoding:content-transfer-encoding:
-	 in-reply-to:in-reply-to:references:references;
-	bh=9c+IJqqXc5Um/JnqM9Fs6W5B34mNQPyzW5r2N0OJlp0=;
-	b=nmG0UQZ3uRRN421PZnIKKsQ/6CUuMSXFdXHRToidgzlX6MbhOua4omBZxgwYrJ+9EIDwNa
-	VOLxH4eon4lO0Q5Tr0PUuxKGLJ11rP0slhUuGDDPVtpbT5X+4AqDZfLTAyKh6slnqyn5gK
-	+niXF+JR4Px1NC1KXEjDQerjPG1mN3zsm8lJggu6d79WndRE1uWLfIHXXhN2HI0Hl/STHY
-	FBlvoaXiZRN4sniNzsrpGjFKi/6OqVhQo3NQvWBrPlac1fzoSy0LB1m1t9sqmyHCCGzjFa
-	dlNCQc1OfxXEk1El0mcdDTPxLhyPSN1dVycTRObLqJfHCdhrCHZt1ooA7m1Zcg==
+	 content-transfer-encoding:content-transfer-encoding;
+	bh=smnfHwXHRkzzEhvhUiFBh6IWlVN4loP6QRpo40MdtYc=;
+	b=bLhZV4+3rA+M0tfAjH7IrUXHcPwutz6J7D+nezxX/fvNCqdClJab2N0xH/0sWk5pv8GrUL
+	vX1DE5lsM3MKOjG7lTFUAmaX9jEB2dsNIRh6T+j9fk+xciJCM/qRIJLqCF8MJ99WMR/cAr
+	0TdGSyCa3KpJ3lLNAsSxiEUNKdKZImSf7Y4O21sWrOMO1MKUrMXA+Lbgv/uPinCZ3uMezD
+	qjkSJCLuYCzIud3kJaVwKFVrmeJwxKJYskJTP/PxF2WAq01Mj1kKhk7pekuR295WkxS8Hy
+	gjX+zZzF0hOyGqi0WS4pQQuGXwmIrW9NStKKTfaRqAING47nYm5a2REe7Ju1FA==
 DKIM-Signature: v=1; a=ed25519-sha256; c=relaxed/relaxed; d=linutronix.de;
 	s=2020e; t=1780491919;
 	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
 	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
-	 content-transfer-encoding:content-transfer-encoding:
-	 in-reply-to:in-reply-to:references:references;
-	bh=9c+IJqqXc5Um/JnqM9Fs6W5B34mNQPyzW5r2N0OJlp0=;
-	b=s2TKqXuf2rV/21XHS+15u8efIO2Hw6iOXn8HyAluV9CkNUkjgbXX2FmbpkcMU+7h19BJpl
-	IsOqMLnf6sGAASBQ==
+	 content-transfer-encoding:content-transfer-encoding;
+	bh=smnfHwXHRkzzEhvhUiFBh6IWlVN4loP6QRpo40MdtYc=;
+	b=BpOQHe6vRJ0U5f1cJNCncBj0jhdla7xnn9+jXYzroPsWQ06vioMEQ0jIU9JPz8q0IkVdGT
+	M/s8xbavRtIh4dAw==
 To: linux-kernel@vger.kernel.org,
 	imx@lists.linux.dev,
 	linux-arm-kernel@lists.infradead.org,
@@ -64,17 +62,16 @@ Cc: Sebastian Andrzej Siewior <bigeasy@linutronix.de>,
 	Pengutronix Kernel Team <kernel@pengutronix.de>,
 	Sascha Hauer <s.hauer@pengutronix.de>,
 	Steven Rostedt <rostedt@goodmis.org>
-Subject: [PATCH v2 2/9] mailbox: imx: Use devm_pm_runtime_enable()
-Date: Wed,  3 Jun 2026 15:05:05 +0200
-Message-ID: <20260603-imx_mbox_rproc-v2-2-a0059dc3b69a@linutronix.de>
-In-Reply-To: <20260603-imx_mbox_rproc-v2-0-a0059dc3b69a@linutronix.de>
-References: <20260603-imx_mbox_rproc-v2-0-a0059dc3b69a@linutronix.de>
+Subject: [PATCH v2 0/9] mailbox: imx: Use threaded handler to avoid kworker in imx's remoteproc
+Date: Wed,  3 Jun 2026 15:05:03 +0200
+Message-ID: <20260603-imx_mbox_rproc-v2-0-a0059dc3b69a@linutronix.de>
 MIME-Version: 1.0
 Content-Type: text/plain; charset="utf-8"
+X-Change-ID: 20260529-imx_mbox_rproc-7d512f5a6f78
 Content-Transfer-Encoding: quoted-printable
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260603_060524_024696_FCE3533A 
-X-CRM114-Status: GOOD (  14.06  )
+X-CRM114-CacheID: sfid-20260603_060524_007566_C002881B 
+X-CRM114-Status: GOOD (  12.18  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -89,84 +86,73 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-sashiko complained about early usage of the device while probe isn't
-completed. This can be mitigated by delaying the pm_runtime_enable()
-into the removal path instead doing it early. This ensures that in an
-error case the device is removed (and imx_mu_shutdown()) before
-pm_runtime_disable() so we don't have to do this manually.
+The imx's remoteproc driver uses a kworker from its mailbox callback to
+complete the request. The reason is that the imx mailbox driver invokes
+the callback from its interrupt handler and the remoteproc callback (at
+least the rpmsg-tty) requires a preemptible context.
 
-For the order to work, lets move devm_mbox_controller_register() until
-after the pm-runtime part. So the reverse order will be mbox-controller
-removal followed by disabling pm runtime.
+This works but is problematic in a PREEMPT_RT environment where the
+latency of the invocation is important. By scheduling a kworker the
+high task priority from the threaded handler is lost and the kworker
+competes for CPU ressources with every SCHED_OTHER task in the system.
+This can lead to long delays on a busy system with other RT threads
+which are less important than the completion of this request.
 
-Use devm_pm_runtime_enable(), remove manual pm_runtime_disable()
-invocations and move the pm_runtime handling in probe before
-devm_mbox_controller_register().
+Looking over other mailbox driver, like the arm_mhu for instance, they
+use a threaded interrupt handler to invoke the callback. This avoids the
+kworker detour.
+
+The here suggested change utilises a threaded interrupt to invoke the
+callback. The primary handler mask the interrupt source so that the
+handler can run without getting interrupted by the interrupt again.
+Doing so avoids marking the interrupt IRQF_ONESHOT so that in a
+shared-interrupt environment the other interrupt can still fire while
+the first is masked.
+
+The first four patches are result of the sashiko review. Does not look
+critical.
+
+This change was tested on a im93 board with rpmsg-tty driver.
+
+v1=E2=80=A6v2: https://lore.kernel.org/r/20260529-imx_mbox_rproc-v1-0-b8ffc=
+36e11e5@linutronix.de
+  - Using correct register to enable RXDB event.
+  - Update commit description for the "threaded interrupt", "unmasks the
+    interrupt" =3D> "masks the interrupt event".
+  - Add a shutdown field so that the interrupt does not unmask the
+    interrupt if it has been already disabled because the channel is
+    about to be shutdown.  A possible race mentioned by sashiko.
+  - Use devm_pm_runtime_enable(). This should avoid a possible race
+    sashiko mentioned.
+  - Use devm_of_platform_populate().
 
 Signed-off-by: Sebastian Andrzej Siewior <bigeasy@linutronix.de>
 ---
- drivers/mailbox/imx-mailbox.c | 31 ++++++++++++++-----------------
- 1 file changed, 14 insertions(+), 17 deletions(-)
+Sebastian Andrzej Siewior (9):
+      mailbox: imx: Add a channel shutdown field
+      mailbox: imx: Use devm_pm_runtime_enable()
+      mailbox: imx: use devm_of_platform_populate()
+      mailbox: imx: Use channel index instead of zero in imx_mu_specific_rx=
+()
+      mailbox: imx: Start splitting the IRQ handler in primary and threaded=
+ handler
+      mailbox: imx: Move the RX part of the mailbox into the threaded handl=
+er
+      mailbox: imx: Move the RXDB part of the mailbox into the threaded han=
+dler
+      mailbox: imx: Don't force-thread the primary handler
+      remoteproc: imx_rproc: Invoke the callback directly
 
-diff --git a/drivers/mailbox/imx-mailbox.c b/drivers/mailbox/imx-mailbox.c
-index 34edc2f31dcb5..24cf704b4f9bd 100644
---- a/drivers/mailbox/imx-mailbox.c
-+++ b/drivers/mailbox/imx-mailbox.c
-@@ -965,28 +965,28 @@ static int imx_mu_probe(struct platform_device *pdev)
-=20
- 	platform_set_drvdata(pdev, priv);
-=20
-+	ret =3D devm_pm_runtime_enable(dev);
-+	if (ret < 0)
-+		goto disable_clk;
-+
-+	ret =3D pm_runtime_resume_and_get(dev);
-+	if (ret < 0)
-+		goto disable_clk;
-+
-+	ret =3D pm_runtime_put_sync(dev);
-+	if (ret < 0)
-+		goto disable_clk;
-+
-+	clk_disable_unprepare(priv->clk);
-+
- 	ret =3D devm_mbox_controller_register(dev, &priv->mbox);
- 	if (ret)
- 		goto disable_clk;
-=20
- 	of_platform_populate(dev->of_node, NULL, NULL, dev);
-=20
--	pm_runtime_enable(dev);
--
--	ret =3D pm_runtime_resume_and_get(dev);
--	if (ret < 0)
--		goto disable_runtime_pm;
--
--	ret =3D pm_runtime_put_sync(dev);
--	if (ret < 0)
--		goto disable_runtime_pm;
--
--	clk_disable_unprepare(priv->clk);
--
- 	return 0;
-=20
--disable_runtime_pm:
--	pm_runtime_disable(dev);
- disable_clk:
- 	clk_disable_unprepare(priv->clk);
- 	return ret;
-@@ -994,9 +994,6 @@ static int imx_mu_probe(struct platform_device *pdev)
-=20
- static void imx_mu_remove(struct platform_device *pdev)
- {
--	struct imx_mu_priv *priv =3D platform_get_drvdata(pdev);
--
--	pm_runtime_disable(priv->dev);
- }
-=20
- static const struct imx_mu_dcfg imx_mu_cfg_imx6sx =3D {
+ drivers/mailbox/imx-mailbox.c  | 133 ++++++++++++++++++++++++++++++-------=
+----
+ drivers/remoteproc/imx_rproc.c |  33 +---------
+ 2 files changed, 100 insertions(+), 66 deletions(-)
+---
+base-commit: 3bc831df9ee16fceee851872315161377ca1417d
+change-id: 20260529-imx_mbox_rproc-7d512f5a6f78
 
+Best regards,
 --=20
-2.53.0
+Sebastian Andrzej Siewior <bigeasy@linutronix.de>
 
 
