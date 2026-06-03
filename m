@@ -4,84 +4,103 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id C00D8CD6E5D
-	for <linux-arm-kernel@archiver.kernel.org>; Wed,  3 Jun 2026 01:13:52 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id B9645CD6E5D
+	for <linux-arm-kernel@archiver.kernel.org>; Wed,  3 Jun 2026 01:17:14 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
-	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=SRC5QZFYNr4zXx9kWIyvmMC0zvuEvBSSf0z+79uU89E=; b=USpERS/58/y2d23hhQLpI5n445
-	xLyoJLbUqetgP0yAH6un4eaQhVWlydeE3ZUSEyIsP2RgV2C6iqIATeEn7tJXQvLbQp4IxbhdCdiJe
-	Kn0af/Y6m6P2gC7JsBD4ESW3ofPAdjeflPhJ5R2bfnvE82Bmah+TmNMXdb/zg93EYZdZPnpEYvORe
-	iIZAnfOzqY/SlaDPq6r8zYc5/IJR8wkiDUMx4OORloBwkz+OhwLVAxHpqaHR1cyrGDSQZhr9Geyff
-	mKIVQLE6MWNdQBUqMFjma9jfXF1JxOzYnSI3rqh9sSAdrGPVAWJwTCA4LTxSWBlictLuz4mwY4Ksw
-	lOLgYlqQ==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=+0q9jHEvyutbUqJNds5rNSupxxEZQmy/I4DCyfn2tFo=; b=c9+LrQtdSBSgLtHISy1UhbGjsy
+	q+Dk+DyZohqdUITa6i30poTD4GgRkCTTxw2aiW28J8dW3/i9ch2Uukp3vjaM0s1beTCFFZwCBQknG
+	lA0IxxM2bM6fxRG9MGZyRi4Q7sxB6tHejT4OZGdC6jy+WZ8lcMSMBj28w/22GrahYW5azHOkyCA4y
+	MUOnwICefAlzJQYeHZDw3wgz/qQzoWILDlIEJoIRBHBOd/9AMzRzcv4+In5WkkgF9MUow5fpAWDD1
+	/ivKPIpZB+z5RzmWbAm03dgTi9x5ma1ZnpDK/gCPVEDYtO3CzrDrUDOhXeWR9RncrwMdL6mM4mBHj
+	CTvaVR7g==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wUaB0-0000000E20N-1hAN;
-	Wed, 03 Jun 2026 01:13:46 +0000
-Received: from dggsgout11.his.huawei.com ([45.249.212.51])
+	id 1wUaEG-0000000E2Fe-3A7W;
+	Wed, 03 Jun 2026 01:17:08 +0000
+Received: from mail-qk1-x732.google.com ([2607:f8b0:4864:20::732])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wUaAx-0000000E1yD-03C4
+	id 1wUaEE-0000000E2FH-1uC6
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 03 Jun 2026 01:13:45 +0000
-Received: from mail.maildlp.com (unknown [172.19.163.170])
-	by dggsgout11.his.huawei.com (SkyGuard) with ESMTPS id 4gVV7l33TqzYQtfV
-	for <linux-arm-kernel@lists.infradead.org>; Wed,  3 Jun 2026 09:13:23 +0800 (CST)
-Received: from mail02.huawei.com (unknown [10.116.40.112])
-	by mail.maildlp.com (Postfix) with ESMTP id 39A544056D
-	for <linux-arm-kernel@lists.infradead.org>; Wed,  3 Jun 2026 09:13:29 +0800 (CST)
-Received: from [10.174.179.37] (unknown [10.174.179.37])
-	by APP1 (Coremail) with SMTP id cCh0CgAndzy0fx9q9xuvAQ--.52112S3;
-	Wed, 03 Jun 2026 09:13:26 +0800 (CST)
-Message-ID: <77b7ee79-65e5-0c81-664c-2b6777f583ff@huaweicloud.com>
-Date: Wed, 3 Jun 2026 09:13:24 +0800
+	Wed, 03 Jun 2026 01:17:07 +0000
+Received: by mail-qk1-x732.google.com with SMTP id af79cd13be357-915660e5b8eso331234485a.3
+        for <linux-arm-kernel@lists.infradead.org>; Tue, 02 Jun 2026 18:17:06 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=ziepe.ca; s=google; t=1780449425; x=1781054225; darn=lists.infradead.org;
+        h=in-reply-to:content-disposition:mime-version:references:message-id
+         :subject:cc:to:from:date:from:to:cc:subject:date:message-id:reply-to;
+        bh=+0q9jHEvyutbUqJNds5rNSupxxEZQmy/I4DCyfn2tFo=;
+        b=UlxYctLi27kp0kO9nzbm8Luw/e2lcp6AT6kU9GQ6h7DwCDi9QQZY1NsEII5YRfKHWP
+         TmlES7ppnVTQfmi3mtAsDVW3P5bh/KD26sriF2lfztIRMUs9NdU7zvL+JC+QW0MfRGXB
+         /s/HUx2TvDlkmtan8UL9RWZdnLtomIVszwkEQR+/8N9qT/4JU2vTyYuEKvuqS6Q00/O5
+         CFdBcNSoA76YBibx7+r5m/L+iKIGN01LfhxluDFq/INrRUfoq5Zs5IgP3VnhrBxW+GZY
+         sQbbuzpnSfKR2VbaUrcRbxZ55cu/ChRdJ2gcm66ANtXSuTyoOvGlBakK28jBu8DZKCkP
+         tYrQ==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20251104; t=1780449425; x=1781054225;
+        h=in-reply-to:content-disposition:mime-version:references:message-id
+         :subject:cc:to:from:date:x-gm-gg:x-gm-message-state:from:to:cc
+         :subject:date:message-id:reply-to;
+        bh=+0q9jHEvyutbUqJNds5rNSupxxEZQmy/I4DCyfn2tFo=;
+        b=JohdM7vDfcSZS1g83pipQH39D0U7AWlsTxodNsKekvcwEJVTsysLfWf3qQ9PyqBaU9
+         vOZ/gImMhFpklXwnd6x/9YQuoh+X3bmaIKcFnfsZjMKYQ1kNKIauV3eSchoPgCbwnrbh
+         eK9WaLNNXEiRM74TW2KeKhLW3xFiKldKHkfpBqfcHOFtT2Nqq4vsU+nkBV+I1cnstAAo
+         8sfkWaCEm3rq9cgjErEmd4kdjMd9gmQfmcFyxJPEFJLRCWYsqGcoQrvsPlrjS4Banif0
+         1DF74zZ0gfvxzJFOQUp0GZg0+lGZaYekVFKwpKZBlOc1UORZ5QStHqdLLq1jz1wK2skF
+         9DWA==
+X-Forwarded-Encrypted: i=1; AFNElJ9VyZuQP73sVzskxfKcjkL2Z/D2XXBbkGnrSllvkuoYBFqH8MYWNkNJlTPFqWzfa6K4poHg7w9A+0ZbVYOwYPmM@lists.infradead.org
+X-Gm-Message-State: AOJu0Yy7D/zwnWcU4p6Ug5Zw26rWh9RM/sXsiHt/MYJjuGnsWgknRPMS
+	YpKHUQM7tLPcOims3L1CNGZ8TACM1RlFVUPaRxi+vSjFTNgi0NdmHBmvvJRmeizIWgA=
+X-Gm-Gg: Acq92OE1clt/D6PtfzE8WHtK2tbMDEIWU2khZqQOAAlrRSBjDMr521iYQcWn88DrlDc
+	aZx/bz0GnSRCsXGRZs8ROXPx1rkuIzmVhL9Gwpq+vYMaGAusN29YC5ubzkc/J9IcxgwvYSa04O5
+	w6M/fJp1rPWWrPCCJwvrPgCYOwqFBWzYIJYD2IveTJHgXw/dUbe1Naax2ngROIF6ItGDKhPUG+u
+	q8MPHpjH+P8c4DahHUsL9yXY1TI3zJmGKhWytxnzCZLZ1i3kIpumzJJnN1i5hX3QCv1osrLXS7S
+	Qxm+wFjBZxBQFWUsYjelVIGiXArfXqbbNnW4IGZapDgY96WlczY1An/cvO20TmAMpVKOn3951cJ
+	VVKoY+Q8W+LfIiFZd78m1dxvUJeJLqP/CJZoTsTsJ91DiTv9Yv5EZZFQbFYWnE+MF4ltqXOjg7T
+	bvy2YPA/dI2ny+9cSAqCjZ/KoWlq+YbRhlKff+ptF++UpRO6UqoaPO7q+jwxA6psb4DRnBZ+Ygb
+	ow7BxWzr5zfP/cD
+X-Received: by 2002:a05:620a:4455:b0:914:c788:761a with SMTP id af79cd13be357-9158a84f289mr254481885a.58.1780449425306;
+        Tue, 02 Jun 2026 18:17:05 -0700 (PDT)
+Received: from ziepe.ca (crbknf0213w-47-54-130-67.pppoe-dynamic.high-speed.nl.bellaliant.net. [47.54.130.67])
+        by smtp.gmail.com with ESMTPSA id af79cd13be357-9158a009fe7sm102378285a.8.2026.06.02.18.17.04
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Tue, 02 Jun 2026 18:17:04 -0700 (PDT)
+Received: from jgg by wakko with local (Exim 4.97)
+	(envelope-from <jgg@ziepe.ca>)
+	id 1wUaEC-00000004yu4-0q6Q;
+	Tue, 02 Jun 2026 22:17:04 -0300
+Date: Tue, 2 Jun 2026 22:17:04 -0300
+From: Jason Gunthorpe <jgg@ziepe.ca>
+To: Guanghui Feng <guanghuifeng@linux.alibaba.com>
+Cc: adrian.larumbe@collabora.com, airlied@gmail.com, alex@shazbot.org,
+	baolu.lu@linux.intel.com, boris.brezillon@collabora.com,
+	dri-devel@lists.freedesktop.org, dwmw2@infradead.org,
+	iommu@lists.linux.dev, joro@8bytes.org, kevin.tian@intel.com,
+	kvm@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
+	linux-kernel@vger.kernel.org, liviu.dudau@arm.com,
+	maarten.lankhorst@linux.intel.com, mripard@kernel.org,
+	oliver.yang@linux.alibaba.com, robh@kernel.org,
+	robin.murphy@arm.com, shiyu.zsq@linux.alibaba.com,
+	steven.price@arm.com, suravee.suthikulpanit@amd.com,
+	tzimmermann@suse.de, wei.guo.simon@linux.alibaba.com,
+	will@kernel.org, xlpang@linux.alibaba.com,
+	alikernel-developer@linux.alibaba.com
+Subject: Re: [PATCH v2 11/30] iommu/mtk_iommu: implement iova_to_phys_length
+Message-ID: <20260603011704.GT2487554@ziepe.ca>
+References: <20260531093637.3893199-1-guanghuifeng@linux.alibaba.com>
+ <20260602104637.1219810-1-guanghuifeng@linux.alibaba.com>
+ <20260602104637.1219810-12-guanghuifeng@linux.alibaba.com>
 MIME-Version: 1.0
-User-Agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:102.0) Gecko/20100101
- Thunderbird/102.11.0
-Subject: Re: [PATCH v3 2/2] arm64: kernel: Disable CNP on HiSilicon HIP09
-Content-Language: en-US
-To: Will Deacon <will@kernel.org>
-Cc: vladimir.murzin@arm.com, xuwei5@huawei.com, wangyushan12@huawei.com,
- yangyicong@hisilicon.com, maz@kernel.org, yeoreum.yun@arm.com,
- miko.lenczewski@arm.com, james.clark@linaro.org, corbet@lwn.net,
- skhan@linuxfoundation.org, kuninori.morimoto.gx@renesas.com,
- lucaswei@google.com, catalin.marinas@arm.com, broonie@kernel.org,
- lpieralisi@kernel.org, thuth@redhat.com, kevin.brodsky@arm.com,
- tongtiangen@huawei.com, oupton@kernel.org, ryan.roberts@arm.com,
- mark.rutland@arm.com, Sascha.Bischoff@arm.com,
- linux-arm-kernel@lists.infradead.org, wangkefeng.wang@huawei.com,
- linux-doc@vger.kernel.org, linux-kernel@vger.kernel.org, zengheng4@huawei.com
-References: <20260601112000.1145391-1-zengheng@huaweicloud.com>
- <20260601112000.1145391-3-zengheng@huaweicloud.com>
- <ah78iIqAqzfofnIG@willie-the-truck>
-From: Zeng Heng <zengheng@huaweicloud.com>
-In-Reply-To: <ah78iIqAqzfofnIG@willie-the-truck>
-Content-Type: text/plain; charset=UTF-8; format=flowed
-Content-Transfer-Encoding: 7bit
-X-CM-TRANSID: cCh0CgAndzy0fx9q9xuvAQ--.52112S3
-X-Coremail-Antispam: 1UD129KBjvJXoW7JF18Xw1xZF45uFy7JFy5urg_yoW8Jr18pr
-	4UAr1UJF4v9r1a934kZ3Z8X3ZYkFZ8Kr4Fka4qg3WSyws0qFy3AF10gw4jgan29rykW3y0
-	vFn09F15Ja1jy37anT9S1TB71UUUUU7qnTZGkaVYY2UrUUUUjbIjqfuFe4nvWSU5nxnvy2
-	9KBjDU0xBIdaVrnRJUUU9Ib4IE77IF4wAFF20E14v26rWj6s0DM7CY07I20VC2zVCF04k2
-	6cxKx2IYs7xG6r1S6rWUM7CIcVAFz4kK6r1j6r18M28lY4IEw2IIxxk0rwA2F7IY1VAKz4
-	vEj48ve4kI8wA2z4x0Y4vE2Ix0cI8IcVAFwI0_tr0E3s1l84ACjcxK6xIIjxv20xvEc7Cj
-	xVAFwI0_Gr1j6F4UJwA2z4x0Y4vEx4A2jsIE14v26rxl6s0DM28EF7xvwVC2z280aVCY1x
-	0267AKxVW0oVCq3wAS0I0E0xvYzxvE52x082IY62kv0487Mc02F40EFcxC0VAKzVAqx4xG
-	6I80ewAv7VC0I7IYx2IY67AKxVWUJVWUGwAv7VC2z280aVAFwI0_Jr0_Gr1lOx8S6xCaFV
-	Cjc4AY6r1j6r4UM4x0Y48IcVAKI48JM4IIrI8v6xkF7I0E8cxan2IY04v7Mxk0xIA0c2IE
-	e2xFo4CEbIxvr21lc7CjxVAaw2AFwI0_GFv_Wryl42xK82IYc2Ij64vIr41l4I8I3I0E4I
-	kC6x0Yz7v_Jr0_Gr1lx2IqxVAqx4xG67AKxVWUJVWUGwC20s026x8GjcxK67AKxVWUGVWU
-	WwC2zVAF1VAY17CE14v26r4a6rW5MIIYrxkI7VAKI48JMIIF0xvE2Ix0cI8IcVAFwI0_Jr
-	0_JF4lIxAIcVC0I7IYx2IY6xkF7I0E14v26r4j6F4UMIIF0xvE42xK8VAvwI8IcIk0rVWU
-	JVWUCwCI42IY6I8E87Iv67AKxVWUJVW8JwCI42IY6I8E87Iv6xkF7I0E14v26r4j6r4UJb
-	IYCTnIWIevJa73UjIFyTuYvjxUIF4iUUUUU
-X-CM-SenderInfo: p2hqwxhhqjqx5xdzvxpfor3voofrz/
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+In-Reply-To: <20260602104637.1219810-12-guanghuifeng@linux.alibaba.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260602_181343_415266_7C4658A5 
-X-CRM114-Status: GOOD (  13.18  )
+X-CRM114-CacheID: sfid-20260602_181706_502120_26733440 
+X-CRM114-Status: GOOD (  10.53  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -96,42 +115,24 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hi Will,
+On Tue, Jun 02, 2026 at 06:46:18PM +0800, Guanghui Feng wrote:
+> -	pa = dom->iop->iova_to_phys(dom->iop, iova);
+> +	if (mapped_length)
+> +		*mapped_length = 0;
+> +
+> +	pa = dom->iop->iova_to_phys_length(dom->iop, iova, mapped_length);
+> +	if (pa == PHYS_ADDR_MAX)
+> +		return PHYS_ADDR_MAX;
 
-On 2026/6/2 23:53, Will Deacon wrote:
-> On Mon, Jun 01, 2026 at 07:20:00PM +0800, Zeng Heng wrote:
->> diff --git a/arch/arm64/kernel/cpu_errata.c b/arch/arm64/kernel/cpu_errata.c
->> index b0db946568b7..02e0ee5c948c 100644
->> --- a/arch/arm64/kernel/cpu_errata.c
->> +++ b/arch/arm64/kernel/cpu_errata.c
->> @@ -608,6 +608,14 @@ static const struct midr_range erratum_ac04_cpu_23_list[] = {
->>   };
->>   #endif
->>
->> +#ifdef CONFIG_ARM64_WORKAROUND_DISABLE_CNP
->> +static const struct midr_range cnp_erratum_cpus[] = {
->> +	MIDR_ALL_VERSIONS(MIDR_NVIDIA_CARMEL),
->> +	MIDR_ALL_VERSIONS(MIDR_HISI_HIP09),
->> +	{},
->> +};
->> +#endif
-> Sashiko [1] points out that this means that
-> CONFIG_HISILICON_ERRATUM_162100125 now affects NVIDIA parts and
-> vice-versa for CONFIG_NVIDIA_CARMEL_CNP_ERRATUM.
->
-> The easiest fix is probably to guard the entries in the array above with
-> their respective config options? Otherwise, this all looks good to me.
->
-> Will
->
-> [1] https://sashiko.dev/#/patchset/20260601112000.1145391-1-zengheng@huaweicloud.com
+???
 
-Yes, that makes sense to me. Thanks for the reminder.
+I guess lots of AI made this right? Please review the AI output for
+the little slop things left over..
 
-I'll apply the changes in v4.
+I saw enough unnecessary hunks, and goofy things like putting the
+mapped_len zero in every driver instead of in the core caller.
 
+That said it looks pretty close overall..
 
-Best regards,
-Zeng Heng
-
+Jason
 
