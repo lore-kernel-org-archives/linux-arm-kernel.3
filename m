@@ -4,102 +4,106 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 2CB7FCD6E4A
-	for <linux-arm-kernel@archiver.kernel.org>; Wed,  3 Jun 2026 02:52:55 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 61987CD6E5D
+	for <linux-arm-kernel@archiver.kernel.org>; Wed,  3 Jun 2026 02:54:24 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:Cc:To:Subject:
 	Message-ID:Date:From:In-Reply-To:References:MIME-Version:Reply-To:
 	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=haCzACy1VwjEhPVktl6DfR/M1mIaZzLk35CXYf7U7J8=; b=NAfjGNPcPHSG44UK81auEKYsZ/
-	QCC/0c4Ik7lmlouktpK4JdSFE8XzzkWpiUhvzlsYXQqFws0LrTnKPW3LwWkPysEDZA+2WoaTCOK9y
-	xFosLQShsvIRG08rpU+JDzTh2lZGVqCUT0CsRfAwZhQ5iQkVC8Oc4RgEJMbu2Slam7wmjZcSSjKrM
-	AncKeGBvv7Ed9a2/CskRWWT+OVDt4OQiFPsTfnTu8xJIYmjg/Ojcr387b65M2Ewfiq4m2zfJPNoUG
-	CGfogrKlfGUSIVyTJnIHBHOjP9uy46nD2kmkHwpu9qAweEunc8CSAv8qitAerkF63Jrv77XNQYhPz
-	LBQ2BWwQ==;
+	bh=6YEVSweRiJIFFM92G7CI5lIVwON7XPQd0EAv/NVq7jo=; b=Ub1wV9IM8G+jo43wjaUKYJ3oQ4
+	tlyUPV1mMdRzrmSirPW3KTk/RcWB1U12OHM9pHsEV8RnUEbTvgTAhh+jGbHNEZjFDr96g6RM81W5L
+	Itm7foNS95Omh+Dv+XM1Mj5oowKT/TJym8DDun34XUH4e4RsE4ViKBqGlTSqp5jbXq2XB5vQlE+Zu
+	vnmQPDHrKXmTEXeqmgtMSx/DmcGe/Q9SSPDG2iF3IhQfGXFGBMU0s6+EGXhez5xtELx8WgHO8APQ8
+	b3g+bQZY7f152/4g3vktOsWmUJy+iOt6x69LPUZEFIoGWRfbdEIzNAUvn0YJhRUUe3u0CJrj87Tq3
+	LPFtkpsg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wUbip-0000000E8D1-3eW9;
-	Wed, 03 Jun 2026 02:52:47 +0000
-Received: from mail-ej1-x62c.google.com ([2a00:1450:4864:20::62c])
+	id 1wUbkH-0000000E8Mm-0ZRP;
+	Wed, 03 Jun 2026 02:54:17 +0000
+Received: from mail-lj1-x22d.google.com ([2a00:1450:4864:20::22d])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wUbin-0000000E8Cf-3xbx
+	id 1wUbkF-0000000E8M8-2JmJ
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 03 Jun 2026 02:52:47 +0000
-Received: by mail-ej1-x62c.google.com with SMTP id a640c23a62f3a-bebbc325000so429814166b.0
-        for <linux-arm-kernel@lists.infradead.org>; Tue, 02 Jun 2026 19:52:44 -0700 (PDT)
-ARC-Seal: i=1; a=rsa-sha256; t=1780455163; cv=none;
+	Wed, 03 Jun 2026 02:54:16 +0000
+Received: by mail-lj1-x22d.google.com with SMTP id 38308e7fff4ca-396771119c4so34047531fa.0
+        for <linux-arm-kernel@lists.infradead.org>; Tue, 02 Jun 2026 19:54:14 -0700 (PDT)
+ARC-Seal: i=1; a=rsa-sha256; t=1780455253; cv=none;
         d=google.com; s=arc-20240605;
-        b=a3++mXol+8VEP/5TwOltqH1vON7VQUvsE0ixqsA4vX/8YfKS4iMm4BboiRbtILUK+I
-         zu9ECdlbMZG8wE3Ji8l9wxo5f7Kz1ezv1ZPhLvk435TFd6khJTdNAReto4xAJqzosmEb
-         TTFocrlgdvjb7ciaoCxl7pP8YOQMkA4xXA9qMnftluN6bF7LqEWyMoDM2n8UDSLz/3EO
-         V2fKTvupVgw7RMKkiHf+qUXdxK1JzroKh2jMaFqzQZfJnbxkfJWg0XDsi4kvcjofEjjJ
-         6vvTybvNHWuV/7ndIVHxDDfC/gQuwAzjZBQ0QTmwEiF4771mjaQ/DNbVisiUC2PkmoWy
-         q3gA==
+        b=h/vouG8O6/Vt2bY0USqgSo9BGRjqpPWk8fNQnSyV+8xPvH8UmMKgBdpG7fBCd9mnx0
+         rKRnr8WDOlGMeo1yVieUgmL5oloHr3pORJYtjbTgLHK/dv4HYRIrlpZFsg8RwGl2IWw5
+         qNR59/C52LEjgV1lEz796b6YGHeZs694SCdyQpXxg6odZg1haLfgr8DNQI5lp5mZhUki
+         93qSUloaJNg7+63gByKzd/9wa6LMyU5eIfQZLpQ9DQggrs3WGgLwjM4I5MhN6Ursnzz9
+         0snIokgyGq0bsNLsaEPBLBdW4db59aJghkXofBSrcqW8heQD6PJfPUb0bpIqtIsmWMih
+         SvSw==
 ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20240605;
         h=cc:to:subject:message-id:date:from:in-reply-to:references
          :mime-version:dkim-signature;
-        bh=haCzACy1VwjEhPVktl6DfR/M1mIaZzLk35CXYf7U7J8=;
-        fh=u5yfwPJ/RRrO2BOgUbtp2kIROApeRGTEqfSsyQVdAXM=;
-        b=QTSvp90GV+S5sA3sdxfnAioE+Q8eXukZ0OjRW1sIlFBnHYGR2pT47aK1GVsKf27+Hk
-         B3huKZtZlKU+wgH6H9MuzWCJbuGujIewAiLeCvfXb+QhKNIJzgPK9cr1Jpc3qfEyJgVp
-         ivZqmkLmVFE/YvuUBSVwVDENk9mZ08k69j3pLN+4C7PdE0gFHBb/ILV6xE2s/ToC5dO/
-         fhOIrNSMUFpoP44hCOisDeXqUNM+QTXfO6AnZMnjwk0+Aa82Xb5TMUuL/xKt9vFwuDVb
-         H/lG/fgvUNhUMMComoDYMA44IzGB4YeCeEZU7EvSnpPZdquUPHOxsHeIMpipmMYr62ni
-         Vaqw==;
+        bh=6YEVSweRiJIFFM92G7CI5lIVwON7XPQd0EAv/NVq7jo=;
+        fh=EhASGG3a8erxfy4kRajDhfFWtp60pjj0J+3yiH+3UHc=;
+        b=bgQF+sPO8jyuVRr41pEcJWZgjDHdvBM0z7ixPNxuI9c+QyEbhZVS7qYKmFPh9B7AKL
+         Yvh441u4gi1A0CaD/OVahP4bIbFseU64hLbogh0aSSEgRzI2DiJrPiROL1lBkq4tbpYE
+         1xpQTMiEUH9aLmcyCo0/joFqePLDUz2/sttQ3/mCj2uv12v3nq6PY4elVDl23XAPTXB2
+         Re07GcQJrGatTS+qid/mXOn1GyGJy0DrZvUcMMjFWtATRDFp3z78VVwgjctsx2y6IBxM
+         aCixwwc8oamYXAmn0uALIt1UdwXNewW8TSqbvAW4/uqZioSOGXfhm5OdA9dy7QOh39lU
+         4RiQ==;
         darn=lists.infradead.org
 ARC-Authentication-Results: i=1; mx.google.com; arc=none
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20251104; t=1780455163; x=1781059963; darn=lists.infradead.org;
+        d=gmail.com; s=20251104; t=1780455253; x=1781060053; darn=lists.infradead.org;
         h=cc:to:subject:message-id:date:from:in-reply-to:references
          :mime-version:from:to:cc:subject:date:message-id:reply-to;
-        bh=haCzACy1VwjEhPVktl6DfR/M1mIaZzLk35CXYf7U7J8=;
-        b=jtcyTNUWwJrtO6yooQmK5qXHmVJ2cDZDxj6CLSrF/jWWIqHK1rlgEQC5TXGKkJH0Re
-         Y1vpKi8zrdf95hETcVJhozz06QWxP/kqAadx0o5oKgtghuIcjLFTCxF/AjQZvVFU0TPK
-         2jiPrx0Orb2nh/82XUR0rycxQIVf657sCihA7thVu62rRyaRWrBHNr19OfqYz7LknNdp
-         DRJa+hy5ectZU1cE6FqgBrc4Dx/AoJTo5WmJOgoeChgVSeMpA2Ry00hN0WLCnsqbV9Rs
-         Rei7S9LMXr2Op5eXyJ5Z7NPAm2nPJhFxMVMtC3F1QN9ulV97NKQFihQkcxudkjSw1Nek
-         4BHQ==
+        bh=6YEVSweRiJIFFM92G7CI5lIVwON7XPQd0EAv/NVq7jo=;
+        b=o1MTatwoI9HFsHMZgO4fiVd9b98WLdwsOCQn/hv6ijMXxhqko9epSU8AO2g35WW4EU
+         dUjwH2tD2pf68Abe9YaFSYM81l2UnjWEK0uZalg1v/pOQioSKNcrkZUNUiRS93PtBHSi
+         mG6wDNpPxU6nj4+KArxchy79ilGmPK1EuXTnYfizc1AHYw0AYipuqlzzNS7fl6lnKd2p
+         uK71QH7e7aLUDnE0RvW3tX/+Mdce1q5A0DRgodYBqX1ThqMOUs45wsMQkblSZMUYKCyp
+         1uFPWUlxRahLpsiSZe/XTJnG7ncurJtf81ZCs5K94Dn6m2g4Ju74bDAq5sg/w07nV1Rz
+         qUng==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20251104; t=1780455163; x=1781059963;
+        d=1e100.net; s=20251104; t=1780455253; x=1781060053;
         h=cc:to:subject:message-id:date:from:in-reply-to:references
          :mime-version:x-gm-gg:x-gm-message-state:from:to:cc:subject:date
          :message-id:reply-to;
-        bh=haCzACy1VwjEhPVktl6DfR/M1mIaZzLk35CXYf7U7J8=;
-        b=JMYrRvP78ye9nX0GumFD82JsC5L3/pr/zcxqTrXETlSb3pTCN2h1tNJDW/TX4wibWJ
-         A3oJq+O4bNT/FIYDfB3Kwa80nfnVZYny+9c+xmHYuCywH7bZJtQQxmRQJFpzpaGGVKKn
-         M5mee0ZtbklpX9BYB6I/nhR3Fy81HLq1Xx4WzzveSQgprU3wBbOHDN5W5ywVMH7n3kcS
-         9GfCAcyawiMQ3DR3+E1RVWGh0g7z1gP5UixEsPTU7ucuWs2ktMFx38TGapZYCauXhfXN
-         DzVshxa1Rnh9Wt3Uata90lqpJQ9yiPO+hld0gXCtqlCaozJjfUDfyBD9Khb+v1ugU9a/
-         eIHQ==
-X-Forwarded-Encrypted: i=1; AFNElJ9A95TIxVucuZLoqYfPvk4edVR/GdFnNphOfptK4Fn8JvALL3DhuCOwQvJzVGpNlpFHdq1XGFRRNZkOqip2q1mE@lists.infradead.org
-X-Gm-Message-State: AOJu0YxgmA613SDc0RHFckj/1IKE34SwISYvtbG/tlQp3JrtxVpop2/D
-	x/p9w85tYhNddA/XtuiRVOmn69GR6hdQaosK8i2G25a9f6SJZ9RWK+0rXH9HFbCv3EuBfUcIeaI
-	wTpdqSvtPjW3ODACA8NerVowXDIjBU7s=
-X-Gm-Gg: Acq92OFe/R9YNPZRQm8/4b8B+iiNQmGXj1o6eKSv1ZUFdT8MGlPu7PJGFO1Kr5nujsc
-	/mxwer+wrKBnmuBPNaq1L4NPtWMGJ25xSEbbfRAg6nknCKEut8ZkdeSgu2/G2GVWRnsSUjtYXB/
-	tX7GjBnkz9lXTAsD8U+NIFTF+GXAGQXGb/C7Ht0lafqu2dgi3JUGEkKqOjVTL9jYbw7tOdqmLcM
-	Lj5Z16dP2Fs2CwMxcNyFWzGf8e2tU3dq7NR5ObI+iP4CH8suyxw4hoSEP1Y4cIiYgskfLcesnhb
-	AVm3xtHT1v9Sm+Jn
-X-Received: by 2002:a17:906:7952:b0:bee:4ddb:6729 with SMTP id
- a640c23a62f3a-bf0b32b88cdmr45709066b.35.1780455163306; Tue, 02 Jun 2026
- 19:52:43 -0700 (PDT)
+        bh=6YEVSweRiJIFFM92G7CI5lIVwON7XPQd0EAv/NVq7jo=;
+        b=asakdP5dFGjH7lHgfWcDwYfWxB2DpWAYb1rHGqhCLuFQP9f9GJKtmzg1FjGp2nRBFp
+         N1aMVfMGOamBXeGxpYEQchUVJGymHfgbkRZFClBukEbYY5WGs3a90JTDC9a22Ja48swB
+         JmC312qYyViZacRMI801fATuz5kl8Yb82Jf01O4Yi/aL3TQVMPe7hJmrg+cMkO2H40FY
+         TmTko0tsaMUCwNdh0drIv98BV4rmx7+wW3Ci5tFBwIsrasaL7lbBLHkCYIerwEHTdcSj
+         vxS3A6w9O8TXlEAr7FQKJKYg4Y9e3RiLGVKPh68i8Z0w9aLvcXYwMD2iO7I1vLe7vys4
+         M0Gw==
+X-Forwarded-Encrypted: i=1; AFNElJ+++1ZIGDffyKiT4gCpRAKjoYDZOjDxeFVmadMeZZmQXcoEYtOL19cCv3mhaHBaKfif/VXhjbEhDfbmVPY8pQd+@lists.infradead.org
+X-Gm-Message-State: AOJu0Yx3aAaDzYZrOo0cNZZ4qSzQyxxPbAgjG0kn89JhY0phkZFXENzU
+	bMljKosTuHtUQmvWXdlYtXLXq/A0x2oEiPks3Z0kydLrgYHsN9gDxAf+kmTmGXlw7mkWPaBrV0g
+	V4t8G67ztkBqXFLLxI80EpbJpR92gjRg=
+X-Gm-Gg: Acq92OFQAFV0u+0H3CWh8NvTelzbO3l0D0RD+o29iwjc54JhpPClKecxBk2rA0b7gdz
+	Wmbt+t6k/7OxhhFjZla2RUqKdSsvHtzcLF6Oy15OuAV1Ibe+HT72B1zDACSv3SO4Jrqtpoy0l19
+	xoMaes9Nw0bvBe2nQwqc4bAP+Mkke8T/nZrh0LWTx7IOtTUXP6Gu8slEqsaxn9Dn3bkXF356ZXu
+	Wf9MhXSE42QuNOK+oACROP7klmYQw/CVa7Cp3Ss1oxs7yxFOqcjHJV1il8sRN1vpja5HneSYPVi
+	Cukn9kaenOFqfd/9
+X-Received: by 2002:a2e:b8c1:0:b0:393:ba06:158f with SMTP id
+ 38308e7fff4ca-396af436647mr2834231fa.16.1780455253043; Tue, 02 Jun 2026
+ 19:54:13 -0700 (PDT)
 MIME-Version: 1.0
-References: <20260505003252.2886028-1-dbgh9129@gmail.com>
-In-Reply-To: <20260505003252.2886028-1-dbgh9129@gmail.com>
+References: <20260504164711.2854116-1-dbgh9129@gmail.com>
+In-Reply-To: <20260504164711.2854116-1-dbgh9129@gmail.com>
 From: =?UTF-8?B?7LWc7Jyg7Zi4?= <dbgh9129@gmail.com>
-Date: Tue, 2 Jun 2026 22:52:32 -0400
-X-Gm-Features: AVHnY4Jgu1-ziAloT_3M6UL_04UsPmj3eqL5tOmM7rr25gB3-A3ycr-DrZ9fp4k
-Message-ID: <CACrCO_VG11oDkLODimguZKN2xHHa7ki40RofZ2Z5UxvPkxgOOw@mail.gmail.com>
-Subject: Re: [PATCH v1] ARM: Feroceon: Fix OF node and mapping leaks in L2 init
-To: Russell King <linux@armlinux.org.uk>, Nishanth Menon <nm@ti.com>
-Cc: Lee Jones <lee@kernel.org>, Kees Cook <kees@kernel.org>, 
-	linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org
+Date: Tue, 2 Jun 2026 22:54:01 -0400
+X-Gm-Features: AVHnY4KNwoXo7QpfYN1PxgSWQeICNocegKeRauPpmBUxYtBRqMrv5QlOe5Fanmk
+Message-ID: <CACrCO_Xw+xi1jjNGmVjV3-7v_v=9AZ1Nm_FHGvf_B7gOu6G4Zg@mail.gmail.com>
+Subject: Re: [PATCH v1] ARM: OMAP2+: Fix OF node reference leaks in omap_hwmod
+To: Paul Walmsley <paul@pwsan.com>, Aaro Koskinen <aaro.koskinen@iki.fi>, 
+	Andreas Kemnade <andreas@kemnade.info>, Kevin Hilman <khilman@baylibre.com>, 
+	Roger Quadros <rogerq@kernel.org>, Tony Lindgren <tony@atomide.com>, 
+	Russell King <linux@armlinux.org.uk>
+Cc: linux-omap@vger.kernel.org, linux-arm-kernel@lists.infradead.org, 
+	linux-kernel@vger.kernel.org
 Content-Type: text/plain; charset="UTF-8"
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260602_195246_003828_9B395310 
-X-CRM114-Status: GOOD (  22.41  )
+X-CRM114-CacheID: sfid-20260602_195415_599607_7D32A642 
+X-CRM114-Status: UNSURE (   9.74  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -124,50 +128,4 @@ Thanks for your time.
 
 Best regards,
 Yuho Choi
-
-On Mon, 4 May 2026 at 20:32, Yuho Choi <dbgh9129@gmail.com> wrote:
->
-> of_find_matching_node() returns a referenced device node, and of_iomap()
-> creates a temporary mapping. feroceon_of_init() currently leaves both
-> resources around after init and also returns from the of_iomap() failure
-> path without dropping the node reference.
->
-> Unmap the register mapping after the register update and put the node on
-> both the failure and success paths.
->
-> Fixes: 4b8f7a11c9fb ("ARM: MM: Add DT binding for Feroceon L2 cache")
-> Signed-off-by: Yuho Choi <dbgh9129@gmail.com>
-> ---
->  arch/arm/mm/cache-feroceon-l2.c | 6 +++++-
->  1 file changed, 5 insertions(+), 1 deletion(-)
->
-> diff --git a/arch/arm/mm/cache-feroceon-l2.c b/arch/arm/mm/cache-feroceon-l2.c
-> index 2bfefb252ffd..1fe931a09d79 100644
-> --- a/arch/arm/mm/cache-feroceon-l2.c
-> +++ b/arch/arm/mm/cache-feroceon-l2.c
-> @@ -373,16 +373,20 @@ int __init feroceon_of_init(void)
->         node = of_find_matching_node(NULL, feroceon_ids);
->         if (node && of_device_is_compatible(node, "marvell,kirkwood-cache")) {
->                 base = of_iomap(node, 0);
-> -               if (!base)
-> +               if (!base) {
-> +                       of_node_put(node);
->                         return -ENOMEM;
-> +               }
->
->                 if (l2_wt_override)
->                         writel(readl(base) | L2_WRITETHROUGH_KIRKWOOD, base);
->                 else
->                         writel(readl(base) & ~L2_WRITETHROUGH_KIRKWOOD, base);
-> +               iounmap(base);
->         }
->
->         feroceon_l2_init(l2_wt_override);
-> +       of_node_put(node);
->
->         return 0;
->  }
-> --
-> 2.43.0
->
 
