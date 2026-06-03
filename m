@@ -4,96 +4,103 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id D8B45CD6E55
-	for <linux-arm-kernel@archiver.kernel.org>; Wed,  3 Jun 2026 09:12:29 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 2425FCD6E64
+	for <linux-arm-kernel@archiver.kernel.org>; Wed,  3 Jun 2026 09:13:00 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=7Hkz0Eq0uDpMi6XdoQlTFpPc33Fvk2t3F5VcoWVOi/A=; b=ZxSPeXT1YtFsBoIou3lzQdBHS0
-	M8HEcqXb+U16cFziqkP8bXhaSTWdA+rgjxwf+bZKUFK18YaXPmZeugE0J/2eZkFZkQv3Ba7itA9hR
-	Pgns81n+Ou0tXKrNWAKq0CvyGvlyhNXfI4hthJWO/zkJ4/juDaoGTKmqZDoih/DSYRl45oasVK2Li
-	y6ScH0SY5UYTfANA6bq1q4j0n4It1njTmQZuJWPb0QGeZ9MpoMDRtfSeKorJQYPnla3kZCJbaXghs
-	cLuCNnLBJXiIkZbFJoRA0xNS4YoZjUKVwjbrDK/xFXJ74cGmftXtXTKgn1ueZ0PUmznH7UMLdQ2+T
-	f2RhsXpw==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
+	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=xFSSCTcERcktnq9rrrwtuMBmDOr+rXOYNH+Dqadrsus=; b=mp7qWEKamKH8mgytE7aIcs7WzB
+	1hruYkruHgpipeV/b/c6emejSWxHu+w+oeWjsx13jc5TpF2ftXjDfix3jdRI+gBZkoEDTrNuFlLf1
+	JhCYwUY2m054VVeZjSaDRI0tQORzHa491XGOgtOveC6tlDyGueXTir0CerRbKAkmKB+xubxqE9u7c
+	GpQYi7J0RYxRmu+hztkEjUFA3tGbk0f7CRJ8+K1GNBpqpNkgs/h6gyhxEvcp/k2hw4WqcKSgrzI3z
+	nhuAq0lrzac1Szqm47qo8GTLvtk5YBJ9FpO3sqRUV0z1U6oK91Tk8qGM/UjrMLbiyPoNoSnC/woCs
+	gjQ12EVw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wUheB-0000000EgHt-49dC;
-	Wed, 03 Jun 2026 09:12:24 +0000
-Received: from mail-wr1-x435.google.com ([2a00:1450:4864:20::435])
+	id 1wUhef-0000000EgNq-0bIk;
+	Wed, 03 Jun 2026 09:12:53 +0000
+Received: from tor.source.kernel.org ([2600:3c04:e001:324:0:1991:8:25])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wUhe9-0000000EgHT-1BeZ
+	id 1wUhed-0000000EgNO-3fOi
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 03 Jun 2026 09:12:22 +0000
-Received: by mail-wr1-x435.google.com with SMTP id ffacd0b85a97d-45ebafde87cso8455996f8f.3
-        for <linux-arm-kernel@lists.infradead.org>; Wed, 03 Jun 2026 02:12:20 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20251104; t=1780477939; x=1781082739; darn=lists.infradead.org;
-        h=in-reply-to:content-disposition:mime-version:references:message-id
-         :subject:cc:to:from:date:from:to:cc:subject:date:message-id:reply-to;
-        bh=7Hkz0Eq0uDpMi6XdoQlTFpPc33Fvk2t3F5VcoWVOi/A=;
-        b=Bu6PpmXcjzvun6dCTOce5VLjR24mJtX13vscp6pZYcRTRwz2FmRkOidtBsiHY4NPzZ
-         3WxNT4Vp1B9WUT7YBJ9qdtavCWDM0mvke7wgabtDnWPJxES51c8UzV3dXAO0sDUNwvPJ
-         TSRnttey1c8jo6tI1r17QDw2NODk6QcLLJNO+09QlYppsP0nr4nFWw0nFtQPHAL6rWw7
-         r7lIRtn+3QyTvu596nCGN0OND29YMoeFdiQmaz2q7UwalWENR576ZeZGlOGaTcUQP5A0
-         y43lQX+wHZxsz9XkwgqXGPFsI6dcDe6cGBl7+UfEco5McdYXdGIyRsSFj52AAXKuy9ts
-         hJ1Q==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20251104; t=1780477939; x=1781082739;
-        h=in-reply-to:content-disposition:mime-version:references:message-id
-         :subject:cc:to:from:date:x-gm-gg:x-gm-message-state:from:to:cc
-         :subject:date:message-id:reply-to;
-        bh=7Hkz0Eq0uDpMi6XdoQlTFpPc33Fvk2t3F5VcoWVOi/A=;
-        b=d9ZfKxuckpBea2E5wHrCiVWcdZOA13X5gwcADjOaYgZQeL5WDoX1qN+c6OZLPQFHFr
-         wugHbXil4oXJuigSNGzuo4UBdp9mNzlsY+ODKIpIMQb/Heyczsa59OG8g0xlHSZ07Ulh
-         x8KcHG2r53oPZqI3Aq6ezK/5IQkjdCaGEhaZ7p+k1l5GOS8DNnX9nEHKg0lxf70vDQJA
-         mA2tEEDh7EEtEOrCWmI433ssql/onwIOJqb3tx8PMiZWMV5nk/hUZ5wATOZd2uvJ+Dg4
-         ubyuTBxkkKDcSba8u/ky4Ncl5g+CkXP6GYJMlcQaGuoELg+jf9yRYpQPcxj5yeuv/NRZ
-         joZg==
-X-Forwarded-Encrypted: i=1; AFNElJ8f8lMGFkPCnqNJt9aqNGgod0lVJF1q1jwr0su1I329m0KDBYh7s6uWZu5DUrtgb8h41nfjfrROanwDmmV9K2xt@lists.infradead.org
-X-Gm-Message-State: AOJu0YycjFOSSJ63x3aGorQg1iYFdbmkO1xjMssLVMFVyQrRvhxKmLBm
-	Ge6sxB+Wq1PaBcSRmrTcJhyyhCQ5juEhZQq+hH8MVSsXM9UGD5eem6fTwJAnSQ==
-X-Gm-Gg: Acq92OECR+beFNNNFvCNWTiPnTopbRsaToFCGTO4mqQEpO/cUgX7uFZfa+DedwtvLgO
-	HqHGdJM8Q3p+LobTlIiSlspQsSVV7p8kbj/ce0bNI4Q3VDffqlrwkt14BsoKmTW7Etj4MO8j9i/
-	ogBioOnkmjFn9hkLrFou2aOVqEgMANnbyp8NxJfVGlGyY2cmIFIpa0f34JpKD+P7m5Uh90VZ4zo
-	F5tGGYMUA/cffNTWfz+84a++WM2/n/H91eZRqrt/mfskgTRlVUtOPJO2v9YFcqH+Ah2X0/L+Z3L
-	vm3RWIiUus/424E8oT5+uyUPDtsz7tBrDoqbdetRucD0NGCACb3Zw2Fonws1b529zI2tA71SgBq
-	R9kReETlq/P4GrNHFm+rrQEuxieohsUP4O9KTCckSGElb8tIko8GBZ05B6QZ1LiMcYOwANzFPSK
-	Kz89OKRCPehrLb1uR1nU1BlMCQ7wj3cPGFJURM5IFR/YRYM2f/kilPV0J66DMLahVC4YcTwMPHC
-	TxBPrT/V72IX9hh8paQRlVD7jRMw9ZSR1402y2oV5dKm0F8tLOENAaink+8CuSNhg==
-X-Received: by 2002:a05:600c:4510:b0:490:a298:3859 with SMTP id 5b1f17b1804b1-490b60f001amr37402095e9.24.1780477939047;
-        Wed, 03 Jun 2026 02:12:19 -0700 (PDT)
-Received: from Lord-Beerus.station (net-93-144-65-244.cust.vodafonedsl.it. [93.144.65.244])
-        by smtp.gmail.com with ESMTPSA id 5b1f17b1804b1-490b7c6b966sm25579115e9.2.2026.06.03.02.12.18
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Wed, 03 Jun 2026 02:12:18 -0700 (PDT)
-Date: Wed, 3 Jun 2026 11:12:16 +0200
-From: Stefano Radaelli <stefano.radaelli21@gmail.com>
-To: Frank Li <Frank.li@nxp.com>
-Cc: linux-kernel@vger.kernel.org, devicetree@vger.kernel.org,
-	imx@lists.linux.dev, pierluigi.p@variscite.com,
-	Stefano Radaelli <stefano.r@variscite.com>,
-	Rob Herring <robh@kernel.org>,
-	Krzysztof Kozlowski <krzk+dt@kernel.org>,
-	Conor Dooley <conor+dt@kernel.org>,
-	Sascha Hauer <s.hauer@pengutronix.de>,
-	Pengutronix Kernel Team <kernel@pengutronix.de>,
-	Fabio Estevam <festevam@gmail.com>,
-	linux-arm-kernel@lists.infradead.org
-Subject: Re: [PATCH v1 1/1] arm64: dts: imx91-var-som-symphony: fix RGB_SEL
- handling
-Message-ID: <ah_v8E78aV3n1TZx@Lord-Beerus.station>
-References: <20260529134850.22196-1-stefano.r@variscite.com>
- <ah3uuIeZ4Z6BMwfi@lizhi-Precision-Tower-5810>
+	Wed, 03 Jun 2026 09:12:51 +0000
+Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
+	by tor.source.kernel.org (Postfix) with ESMTP id E3D3E6008A;
+	Wed,  3 Jun 2026 09:12:50 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id A443C1F00893;
+	Wed,  3 Jun 2026 09:12:47 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
+	s=k20260515; t=1780477970;
+	bh=xFSSCTcERcktnq9rrrwtuMBmDOr+rXOYNH+Dqadrsus=;
+	h=Date:Subject:To:Cc:References:From:In-Reply-To;
+	b=gg3Crw1TbLgjkpoGlPYAiFdrKPju3D9Prb+vU7JF4kifVpXrQcuGbEfqNe/MusyM+
+	 Ku8c2WL3Wj4o7erD0mCMflDdUvP5SSY48JzHp0ejtGzgjoJbvKoLQOeGnv8gsufvdJ
+	 6DyZjllP+GaWF3abyRUHkQC96swTAw09foPW2V/B3/KV+qmhCl+2OJQ9XEuO7XHQHE
+	 KrB3nodDft9Hjs/E2CvJ2G7ImXityq/mnxT9IJBojosgrR+1Bu1q1yDynpaW09vc1G
+	 vhxMvWuZrP5JwFY5eHnqprFFlDSnES/8xOa6E6B8+BcJ/yp8ssI0VWzhjqzdKaVCov
+	 lcwgMiioI9vDw==
+Message-ID: <ccd048c2-ee82-481a-b948-9f5e5e114c25@kernel.org>
+Date: Wed, 3 Jun 2026 11:12:45 +0200
 MIME-Version: 1.0
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-In-Reply-To: <ah3uuIeZ4Z6BMwfi@lizhi-Precision-Tower-5810>
-X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260603_021221_339609_66F45B86 
-X-CRM114-Status: GOOD (  21.68  )
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH] ARM: configs: Drop duplicated CONFIG_EXT4_FS
+To: Richard Cheng <icheng@nvidia.com>
+Cc: Arnd Bergmann <arnd@arndb.de>, soc@lists.linux.dev,
+ Russell King <linux@armlinux.org.uk>, Theodore Ts'o <tytso@mit.edu>,
+ linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org
+References: <20260603072726.19404-2-krzysztof.kozlowski@oss.qualcomm.com>
+ <ah_sf1lIBD8UcOHs@MWDK4CY14F>
+From: Krzysztof Kozlowski <krzk@kernel.org>
+Content-Language: en-US
+Autocrypt: addr=krzk@kernel.org; keydata=
+ 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 a/A=
+In-Reply-To: <ah_sf1lIBD8UcOHs@MWDK4CY14F>
+Content-Type: text/plain; charset=UTF-8
+Content-Transfer-Encoding: 7bit
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -108,40 +115,29 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hi Frank,
+On 03/06/2026 10:59, Richard Cheng wrote:
 
-On Mon, Jun 01, 2026 at 04:42:32PM -0400, Frank Li wrote:
-> On Fri, May 29, 2026 at 03:48:50PM +0200, Stefano Radaelli wrote:
-> > From: Stefano Radaelli <stefano.r@variscite.com>
-> >
-> > RGB_SEL is a board-level signal driven by the PCAL6408 GPIO expander on
-> > the Symphony carrier board.
-> >
-> > The signal needs to be driven high on the i.MX91 variant to keep the
-> > board in the expected display configuration. Move the handling of this
-> > line from a fixed regulator tied to the PCAL6408 supply to a GPIO hog on
-> > the correct GPIO expander.
+Please kindly trim the replies from unnecessary context. It makes it
+much easier to find new content.
+
+>> -- 
+>> 2.53.0
+>>
+>>
 > 
-> Look like this can't resolve your problem.  gpio driver may probe later
-> than display, so gpio-hog may not set correct when display setup.
+> Hi Krzysztof,
 > 
-> Frank
-> >
+> LGTM.
+> Though I wonder which compiler did you use and how did you encounter
+> the warning? on what system if you may share with us?
 
-thanks for looking at this.
+I am confused with above questions and it feels like the review might
+not be applicable in such case. You do understand this is a defconfig?
 
-The main issue I am trying to fix here is that the current upstream DT
-describes RGB_SEL on the wrong GPIO expander.
+> 
+> Reviewed-by: Richard Cheng <icheng@nvidia.com>
 
-The existing DT drives RGB_SEL from pca9534 GPIO 7 and also uses it as a
-fake supply for the pca6408. That is not correct for this board. RGB_SEL
-is actually connected to pca6408 GPIO 7, so the current description does
-not drive the intended line at all.
+Best regards,
+Krzysztof
 
-With this change, RGB_SEL is driven by the correct GPIO controller and
-this fixes the hardware configuration issue I am seeing on the i.MX91
-Symphpony board, making it working now as expected.
-
-Best Regards,
-Stefano
 
