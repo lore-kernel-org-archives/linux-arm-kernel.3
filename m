@@ -4,87 +4,86 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 505D2CD6E55
-	for <linux-arm-kernel@archiver.kernel.org>; Wed,  3 Jun 2026 15:24:57 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 94A77CD6E55
+	for <linux-arm-kernel@archiver.kernel.org>; Wed,  3 Jun 2026 15:25:03 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:To:From:Reply-To:
-	Cc:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Content-Type:MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:To:
+	From:Reply-To:Cc:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=RUWg5GWqhMeDrgGwJjMhc1B+7LHRy8TQo04xcORPTAE=; b=K+nqDKAGO0fMwbQnss9SubfTpA
-	sl2kC8YrEmr6darWiswE01xZ95WwqSJKksdMysmFQ/57nCQoK6+yu+6vfhWF/8ljLSrdr2mGXIogz
-	/2ewnrrfjGOW+XJZT3mUkwGdc0daW6xMpUopuZI+Yw3V6k0JCd+QXiWVCpitvQhKvFPmLJu9G3qwM
-	vUt9XfHEi6Xw5LZEucVTMqLc3Sy34OIwvlZEaS9gU+gTWxrk7V66QshAu2Q/ygtQsYfkRfT3ndeWR
-	l50lKQm4WKpoLtMnv8+voUq9vlw2nnLUtqsDFwCCckEsUdmkgM4FOWgvzVuiutBYlZWmRFgS+D4F+
-	Y7FWa77Q==;
+	bh=1VpdADK/Opt4+P/cfoUSLFmtCuEst2gAjqDHHWtHbso=; b=h4vycXd8TUxCObl9KeTE/AGmU5
+	Z5lJBQHOBlIT+Ww8sSZlMXwjkrPjwk7y8c8BBhFq4BQLbEATei6p6NaomqvqIM7eR6cYakXjt7num
+	qqFjAJ7LKw2DFIsHf6rOhTLIFHOMZ7D19fKt6jUts68p2Z+FN2zIbIFJLUexruzWhW9MCA+THi1jo
+	b56Kt5uk4X16u15FTPopPG+EhaF2vUSCTaG3fC9F8BysYBNdGZ7hLuE4o4+nWQ/Lgf49tRmncr3R8
+	+3b2YxInk2RjuEdIqmNcu7nVdWGl9Ay3JoK6dXlP/+mCybZQCLYmrgbSe52fS3B+l9EZ/5n1YhKdk
+	UPFd5y6g==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wUnSb-0000000FPVW-43mi;
-	Wed, 03 Jun 2026 15:24:49 +0000
+	id 1wUnSe-0000000FPY0-1rsn;
+	Wed, 03 Jun 2026 15:24:52 +0000
 Received: from desiato.infradead.org ([90.155.92.199])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wUnSa-0000000FPTh-2XN4
+	id 1wUnSa-0000000FPTj-2d0x
 	for linux-arm-kernel@bombadil.infradead.org;
 	Wed, 03 Jun 2026 15:24:48 +0000
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=infradead.org; s=desiato.20200630; h=Content-Transfer-Encoding:MIME-Version
-	:References:In-Reply-To:Message-ID:Date:Subject:To:From:Sender:Reply-To:Cc:
-	Content-Type:Content-ID:Content-Description;
-	bh=RUWg5GWqhMeDrgGwJjMhc1B+7LHRy8TQo04xcORPTAE=; b=XHhj8hYIhgqOKr9+GhRONy7Wk3
-	n24THfAwfpUohYPq/GFXlLfQ/ql6BgaycS4OV/vYib9QA0tjNYWS0lkjm0+PLtPhHnDCUpO0Eysrm
-	a9nOjRy7GL5m3W+XzAi2xcLqR44E5EjEJkk8iaxktpsLzYElj3D/o+BfotooKgi+0S7Jg6f9d/yft
-	kv7ST6lNGbyLDl1TB8m1YK1UrJV9CsWcEIHUBGjG5+OQquGeIYLGnLuKCkSKJrvNiEiu2rmJgoKub
-	GaDvQyACgONaktz+pG4d2Nyax1mwLInyxAjKDV4oUL5UDJhwLDK3l+ljHEpna49wLOrE0eXS4jYi8
-	GIzNODgQ==;
-Received: from mail-wm1-x336.google.com ([2a00:1450:4864:20::336])
+	d=infradead.org; s=desiato.20200630; h=Content-Transfer-Encoding:Content-Type
+	:MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:To:From:Sender:
+	Reply-To:Cc:Content-ID:Content-Description;
+	bh=1VpdADK/Opt4+P/cfoUSLFmtCuEst2gAjqDHHWtHbso=; b=PVcQLlrjsnwo36fK7trk4llD/q
+	jNIUwR8S6hFXL4knMCnE2ByQEQuqbwLXteCJ/yiv1T/FfMR8iZebjbF1Wg+yRIkh0Slxnc5j2Ci5c
+	YM0HzpOux50lEeeLiDMAJeFs94tpxl7CnetCYCcxTp1R+goXe/Fwb7mfVoNTNeFtXkfW32yfXTrNt
+	etYVGmP8akEO9B0/iYOoTBlYVYGQGxvVFvz1CIBTxd+BoCx3Aj/vmcjsBz8ap8R3Kve2FQznbyOlv
+	vZQeLSPkROsvkevNZ5Bn175GASvGNd5C9W8Sk6xqYkdgyzAvlZ35/cs+rqHCFyMhRLhhgdwengXzT
+	A1SBnvOA==;
+Received: from mail-wm1-x329.google.com ([2a00:1450:4864:20::329])
 	by desiato.infradead.org with esmtps (Exim 4.99.2 #2 (Red Hat Linux))
-	id 1wUnSW-0000000CYy9-2iV3
+	id 1wUnSW-0000000CYxe-16aR
 	for linux-arm-kernel@lists.infradead.org;
 	Wed, 03 Jun 2026 15:24:47 +0000
-Received: by mail-wm1-x336.google.com with SMTP id 5b1f17b1804b1-490b4a8e28bso11687055e9.1
-        for <linux-arm-kernel@lists.infradead.org>; Wed, 03 Jun 2026 08:24:44 -0700 (PDT)
+Received: by mail-wm1-x329.google.com with SMTP id 5b1f17b1804b1-4903d730b1fso117618735e9.2
+        for <linux-arm-kernel@lists.infradead.org>; Wed, 03 Jun 2026 08:24:43 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
         d=suse.com; s=google; t=1780500283; x=1781105083; darn=lists.infradead.org;
         h=content-transfer-encoding:mime-version:references:in-reply-to
          :message-id:date:subject:to:from:from:to:cc:subject:date:message-id
          :reply-to;
-        bh=RUWg5GWqhMeDrgGwJjMhc1B+7LHRy8TQo04xcORPTAE=;
-        b=a0lbDRty40lT7GxPgTT7D/D83q/J3hRewq56U14mZbJ2juCoBQ9mEpObj8Ivk7TPF6
-         2QVYsTcjQhdRym5ykZzxzfrGFuOvKu9gWbXqQDK8nIxORPxg1hQnVVYQVvV3hTio1fqd
-         TymK5WrU7Nl0fR9ka0DE0PeVZ5Ozu6bu9Xb9rt94nD4Vv5r3X16+Ki4SAQCH+RFlhlWr
-         ZEMBEEJ7iQ1Ch0UXe/e1ty3vKyaujtPA0FuZzEbBoBuMIKBaZDQ78zHs+Y5UKOt376G4
-         /58EoR1VQ65JEdyAFFJhT8L90sLnPhj/invg6pxYw0iWPgKo8e+dNMBTjZhPj2lvPoVF
-         oU/A==
+        bh=1VpdADK/Opt4+P/cfoUSLFmtCuEst2gAjqDHHWtHbso=;
+        b=QRDpBqsusDtzxCcRmesLA8H3TnwGNro10afupLL6oMWLHWqY357xHdpbFQyjJqm/Bv
+         5A1LZLvhwNtsl+BrJYfwbhpE6CA7+xcAYpx8bG2yYTTCLnAzFHDaP0e30lD7kzJy0jKN
+         AKKdi0VwIrj2vQfhFreeTIcHIaLpvsxRc44WkdNkbu7obilvFoDN4HHTbNF7CgR4ZAhK
+         EPEaHfFfupq7nBiEtcGjM2TLBswL6+ith7ibYyDaaJlfGbEIXK03gxV/sFPRHz+N6K6K
+         YJPblwQt6Vk45zbsCGqCTjAqtqHnBvL9rl2qPdXh5S4lMwgRf3BxACd+WVSeHc6NuWdt
+         flVA==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
         d=1e100.net; s=20251104; t=1780500283; x=1781105083;
         h=content-transfer-encoding:mime-version:references:in-reply-to
          :message-id:date:subject:to:from:x-gm-gg:x-gm-message-state:from:to
          :cc:subject:date:message-id:reply-to;
-        bh=RUWg5GWqhMeDrgGwJjMhc1B+7LHRy8TQo04xcORPTAE=;
-        b=K1q5rWRTOuE7mHZ6WMOpteaiJEZ64+o/rJXX5W80Xrxsk7XOxtrvDmcZWGu2an5+pP
-         9AI0279HfgptEJmZyi/UBQCiWdY5D/VHOZkusD7HoG47iVtA5xueBt0UZSPGebIQV9Nn
-         YsBaxPdJk9Xzzz+0E/IT+VWz/CfOxks9VzA8IzVCfbmurMHv3h/KoN40kepOCpxsXl1H
-         ocslQw067IE+KHJA00Pds2B2j0Z792+aXmb+6eSLeMjyiWNRByneav7/DSm8UGngvdPf
-         Cp2945rucNyun7BW4UTh4Hh2+dHqWva2/WQk5jHkn5cHBpW0LzyWOzMdhTMya2u0pmgz
-         j6Jw==
-X-Forwarded-Encrypted: i=1; AFNElJ+67ufEK9ArPwCtQg98poyxwQsofTCo+KUcm+BKlKMR8thxqpp/crYjaC4U6CTGQetK3PQ6/BozTrk8bQ1qEKyx@lists.infradead.org
-X-Gm-Message-State: AOJu0YyOHhynqPpKeY1FXDe+kYcvykJqlmaM+JYiGOiig2yHTHEofx97
-	2MlxEKEawHCKiw2ZgdVsTofhRJAkuEbLP+ICkd/WnuC7O/cpGMhwhvGgF6QOWbAJFrPC9unBgqh
-	WOinMN8o=
-X-Gm-Gg: Acq92OEZKOuSgKoU755ntq8UwKYYIx50oUdfT4at6ZBcYVE0eGbeq6vmKpoYTkWqUFw
-	LC9NK22/f57N0tEGz4jxUbbp9/FzDBYAgvT55m9B4pJ0rG2b8/kbuWpHCrDyPa5heeSHMERa0vv
-	EHWu25Rv4tQGFU0BskYZc8G2vWg6DqD1JsbHQS8OFb7pa6iNQ6D4GYNtLaei5GsAi5OrK/HZm6B
-	1tPS0tHGgxWkX+7Wd1Rai0BhT8ajqFLkL2qudpbSSYawgZPuHJ5FopvONTv5shn6rPg56diRteq
-	IlEQ6yw8YgUKm3cXboQ/6if47JQ/SyGbkqGAe/UR8hCl8ADGzB1fMaI8Mvw9GogvLCM1QMfqSQz
-	Tg/BHS7wotNl+FFxj/xEeRGGUToyVtrzHiMALwxvYJ9E4tQv2HGwDJtNRhioNNMd6ntj1zu8TZb
-	fuONaRjs03biZ6CTr+uFwYS25g+F4nPVQoUV44T8xylMQ=
-X-Received: by 2002:a05:600c:8b01:b0:490:6237:5200 with SMTP id 5b1f17b1804b1-490b5d36863mr63918565e9.10.1780500283560;
-        Wed, 03 Jun 2026 08:24:43 -0700 (PDT)
+        bh=1VpdADK/Opt4+P/cfoUSLFmtCuEst2gAjqDHHWtHbso=;
+        b=rmSD7hEDTHZUy5Sqvw8diDuY00Gw4zCE3CBvfG4RDP/53sBcN2EQvQzoJySJIu5IsY
+         8JwVk/MDWy73UcpgHQjxH+QDM4qBEtzOiBWdRSbfX4H1xEYeenyKDGJKlghrzC+pNEEC
+         GSXmkApctquRWQXqXWHOKfPFoGZPoY1eg9xSGcUkd7oOh0GzXEqbIRFFaosxSrdiFX28
+         ZVDMeqcjr8rOoxsdR3HSv+iY2IMfSTysxYlOMKAzu7J1qIkxOsM7Tqd9APUoEZ4FS0EF
+         HmAOU3ijcmvwyVlGSBW08CJ+7yo0utSuHYJTKM5VwZhLzfE6CbgkqwdXxXUsAFsVF2P6
+         8dQg==
+X-Forwarded-Encrypted: i=1; AFNElJ/6H0dGjp6rA1q7YkMgWMJNgiRes7W5yIjkxTLiM/xUHzh6ooJXmWYMwnjP9mjUys0LzxC4AZn4qiy1dDOa7fYz@lists.infradead.org
+X-Gm-Message-State: AOJu0YwIRSCUhIGyPqPHqr77cK4S+DuTEMTI2fdfz7ipg/3QllrfsbDF
+	9GlYQxzwZM4GVixug6DVVycsz+ObeGp3s4H+y4Kri45L/3QkfG9kfs+cZdoEoZ0lAoQ=
+X-Gm-Gg: Acq92OEhUMt7+hKg5/47neZnlEm5bswJKPzRDTKShPNjhOsAuqRoP+5Z+SS94K/5vH2
+	JQWP8GeRqCvqjFZ530WQ32+90m2zcPGJX3q9cmRo+AwzaapOLJECe8jwNZOmLRxB5PF4glpkIup
+	d92hjFBVwm0d4WpEHypfooW4+ntghwiwjf854xieJeef4LCojcRyY92R7PjIDh+ZBSZ876F6bdk
+	SYQoaBY/NYJfhEVCL+ZKNUIPDXl/kkSOG6wNQiPo5u1DI47lRqlstAlFw3+wz/v3ZUeL7IN6dIp
+	XKWB3LBi3PJzwEbbPyTk/njLep5E+5vbH6cwDuQVke8B187Ffd0ASgKsGzjH9iSYEOkmvkv8cTD
+	NlkY3axM6qQjCJxStdCTsu8MVyC8krzTduFGxzfJo0DQpicSNqRWJt+50oxiCvT/sGu/t4Uc/Wf
+	N0bs8fQOmHYXp4BXaqknjh3OAwSUwkLrwn
+X-Received: by 2002:a05:600c:4f07:b0:490:3c15:7146 with SMTP id 5b1f17b1804b1-490b5ec411bmr69822605e9.19.1780500282594;
+        Wed, 03 Jun 2026 08:24:42 -0700 (PDT)
 Received: from localhost ([82.192.120.99])
-        by smtp.gmail.com with ESMTPSA id 5b1f17b1804b1-490b725fb1bsm63329125e9.8.2026.06.03.08.24.43
+        by smtp.gmail.com with ESMTPSA id ffacd0b85a97d-4601f3529e0sm8466551f8f.28.2026.06.03.08.24.42
         (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Wed, 03 Jun 2026 08:24:43 -0700 (PDT)
+        Wed, 03 Jun 2026 08:24:42 -0700 (PDT)
 From: Andrea della Porta <andrea.porta@suse.com>
 To: =?UTF-8?q?Uwe=20Kleine-K=C3=B6nig?= <ukleinek@kernel.org>,
 	linux-pwm@vger.kernel.org,
@@ -101,17 +100,18 @@ To: =?UTF-8?q?Uwe=20Kleine-K=C3=B6nig?= <ukleinek@kernel.org>,
 	Naushir Patuck <naush@raspberrypi.com>,
 	Stanimir Varbanov <svarbanov@suse.de>,
 	mbrugger@suse.com
-Subject: [PATCH v4 3/3] arm64: dts: broadcom: rpi-5: Add RP1 PWM node
-Date: Wed,  3 Jun 2026 17:27:46 +0200
-Message-ID: <3328baef11e5cf57391c2679d810922807f26a7a.1780498640.git.andrea.porta@suse.com>
+Subject: [PATCH v4 2/3] pwm: rp1: Add RP1 PWM controller driver
+Date: Wed,  3 Jun 2026 17:27:45 +0200
+Message-ID: <8eef956a5eb473f051bbda89ec4c9991c1b47de2.1780498640.git.andrea.porta@suse.com>
 X-Mailer: git-send-email 2.51.0
 In-Reply-To: <cover.1780498640.git.andrea.porta@suse.com>
 References: <cover.1780498640.git.andrea.porta@suse.com>
 MIME-Version: 1.0
+Content-Type: text/plain; charset=UTF-8
 Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260603_162444_789631_C68ABFC6 
-X-CRM114-Status: GOOD (  12.01  )
+X-CRM114-CacheID: sfid-20260603_162444_436331_CEA07940 
+X-CRM114-Status: GOOD (  34.61  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -126,72 +126,491 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-From: Stanimir Varbanov <svarbanov@suse.de>
+From: Naushir Patuck <naush@raspberrypi.com>
 
-The RP1 chipset used on the Raspberry Pi 5 features an integrated
-PWM controller to drive the cooling fan.
+The Raspberry Pi RP1 southbridge features an embedded PWM
+controller with 4 output channels, alongside an RPM interface
+to read the fan speed on the Raspberry Pi 5.
 
-Add the corresponding DT node for this PWM controller.
+Add the supporting driver.
 
+Signed-off-by: Naushir Patuck <naush@raspberrypi.com>
+Co-developed-by: Stanimir Varbanov <svarbanov@suse.de>
 Signed-off-by: Stanimir Varbanov <svarbanov@suse.de>
-Co-developed-by: Andrea della Porta <andrea.porta@suse.com>
 Signed-off-by: Andrea della Porta <andrea.porta@suse.com>
 ---
- arch/arm64/boot/dts/broadcom/bcm2712-rpi-5-b.dts | 12 ++++++++++++
- arch/arm64/boot/dts/broadcom/rp1-common.dtsi     |  9 +++++++++
- 2 files changed, 21 insertions(+)
+Referring to the comments from:
+https://sashiko.dev/#/patchset/cover.1776932336.git.andrea.porta%40suse.com
+regarding the register synchronization, there is no race condition
+because the pwm driver is not using the PHASE register at all,
+while the (future) consumer driver will just read from that register.
+---
+ drivers/pwm/Kconfig   |   9 +
+ drivers/pwm/Makefile  |   1 +
+ drivers/pwm/pwm-rp1.c | 422 ++++++++++++++++++++++++++++++++++++++++++
+ 3 files changed, 432 insertions(+)
+ create mode 100644 drivers/pwm/pwm-rp1.c
 
-diff --git a/arch/arm64/boot/dts/broadcom/bcm2712-rpi-5-b.dts b/arch/arm64/boot/dts/broadcom/bcm2712-rpi-5-b.dts
-index 0fc57e72632ed..748be8f1ee9e2 100644
---- a/arch/arm64/boot/dts/broadcom/bcm2712-rpi-5-b.dts
-+++ b/arch/arm64/boot/dts/broadcom/bcm2712-rpi-5-b.dts
-@@ -64,6 +64,12 @@ phy1: ethernet-phy@1 {
- };
+diff --git a/drivers/pwm/Kconfig b/drivers/pwm/Kconfig
+index 6f3147518376a..c3ddc0eb4774f 100644
+--- a/drivers/pwm/Kconfig
++++ b/drivers/pwm/Kconfig
+@@ -625,6 +625,15 @@ config PWM_ROCKCHIP
+ 	  Generic PWM framework driver for the PWM controller found on
+ 	  Rockchip SoCs.
  
- &rp1_gpio {
-+	fan_pwm_default_state: fan-pwm-default-state {
-+		function = "pwm1";
-+		pins = "gpio45";
-+		bias-pull-down;
-+	};
++config PWM_RASPBERRYPI_RP1
++	tristate "RP1 PWM support"
++	depends on MISC_RP1 || COMPILE_TEST
++	depends on HAS_IOMEM
++	select REGMAP_MMIO
++	select MFD_SYSCON
++	help
++	  PWM framework driver for Raspberry Pi RP1 controller.
 +
- 	usb_vbus_default_state: usb-vbus-default-state {
- 		function = "vbus1";
- 		groups = "vbus1";
-@@ -94,6 +100,12 @@ &rp1_i2c6 {
- 	pinctrl-names = "default";
- };
- 
-+&rp1_pwm1 {
-+	pinctrl-0 = <&fan_pwm_default_state>;
-+	pinctrl-names = "default";
-+	status = "okay";
+ config PWM_SAMSUNG
+ 	tristate "Samsung PWM support"
+ 	depends on PLAT_SAMSUNG || ARCH_S5PV210 || ARCH_EXYNOS || COMPILE_TEST
+diff --git a/drivers/pwm/Makefile b/drivers/pwm/Makefile
+index 0dc0d2b69025d..59f29f60f9123 100644
+--- a/drivers/pwm/Makefile
++++ b/drivers/pwm/Makefile
+@@ -56,6 +56,7 @@ obj-$(CONFIG_PWM_RENESAS_RZG2L_GPT)	+= pwm-rzg2l-gpt.o
+ obj-$(CONFIG_PWM_RENESAS_RZ_MTU3)	+= pwm-rz-mtu3.o
+ obj-$(CONFIG_PWM_RENESAS_TPU)	+= pwm-renesas-tpu.o
+ obj-$(CONFIG_PWM_ROCKCHIP)	+= pwm-rockchip.o
++obj-$(CONFIG_PWM_RASPBERRYPI_RP1)	+= pwm-rp1.o
+ obj-$(CONFIG_PWM_SAMSUNG)	+= pwm-samsung.o
+ obj-$(CONFIG_PWM_SIFIVE)	+= pwm-sifive.o
+ obj-$(CONFIG_PWM_SL28CPLD)	+= pwm-sl28cpld.o
+diff --git a/drivers/pwm/pwm-rp1.c b/drivers/pwm/pwm-rp1.c
+new file mode 100644
+index 0000000000000..052c3ae770569
+--- /dev/null
++++ b/drivers/pwm/pwm-rp1.c
+@@ -0,0 +1,422 @@
++// SPDX-License-Identifier: GPL-2.0
++/*
++ * pwm-rp1.c
++ *
++ * Raspberry Pi RP1 PWM.
++ *
++ * Copyright © 2026 Raspberry Pi Ltd.
++ *
++ * Author: Naushir Patuck (naush@raspberrypi.com)
++ *
++ * Based on the pwm-bcm2835 driver by:
++ * Bart Tanghe <bart.tanghe@thomasmore.be>
++ *
++ * Datasheet: https://pip-assets.raspberrypi.com/categories/892-raspberry-pi-5/documents/RP-008370-DS-1-rp1-peripherals.pdf?disposition=inline
++ *
++ * Limitations:
++ * - Channels can be enabled/disabled through a global update flag, while the
++ *   period and duty per-channel registers are independently updatable, and
++ *   they are latched on the end of (specific channel) period strobe.
++ *   This means that period and duty changes might result in glitches if the
++ *   period/duty is changed exactly during an end of period strobe.
++ * - Since the duty/period registers are freely updatable (do not depend on
++ *   the global update flag), setting one of them close to the period end and
++ *   the other right afterwards results in a mixed output for that cycle because
++ *   the write ops are not atomic.
++ * - The global update flag prevents mis-sampling of multi-bit bus signals in
++ *   the PWM clock domain. This ensures that all PWM channel settings update
++ *   on the same PWM clock cycle. Channels start in sync only if they share the
++ *   same period.
++ * - If both duty and period are set to 0, the output is a constant low signal
++ *   if polarity is normal or a constant high signal if polarity is inversed.
++ * - When disabled the output is driven to 0 if polarity is normal, or to 1
++ *   if polarity is inversed.
++ * - Disabling the PWM stops the output immediately, without waiting for current
++ *   period to complete first.
++ * - Channels are phase-capable, but on RPi5, the firmware can use a channel
++ *   phase register to report the RPM of the fan connected to that PWM
++ *   channel. As a result, phase control will be ignored for now.
++ */
++
++#include <linux/bitops.h>
++#include <linux/clk.h>
++#include <linux/err.h>
++#include <linux/io.h>
++#include <linux/module.h>
++#include <linux/of.h>
++#include <linux/platform_device.h>
++#include <linux/pwm.h>
++#include <linux/regmap.h>
++#include <linux/mfd/syscon.h>
++#include <linux/units.h>
++
++#define RP1_PWM_GLB_CTRL			0x000
++#define RP1_PWM_GLB_CTRL_CHANNEL_ENABLE(chan)	BIT(chan)
++#define RP1_PWM_GLB_CTRL_SET_UPDATE		BIT(31)
++
++#define RP1_PWM_CHAN_CTRL(chan)			(0x014 + ((chan) * 0x10))
++#define RP1_PWM_CHAN_CTRL_POLARITY		BIT(3)
++#define RP1_PWM_CHAN_CTRL_FIFO_POP_MASK		BIT(8)
++#define RP1_PWM_CHAN_CTRL_MODE			GENMASK(2, 0)
++enum rp1_pwm_ctrl_mode {
++	RP1_PWM_CHAN_CTRL_MODE_ZERO,
++	RP1_PWM_CHAN_CTRL_MODE_TE_MS,
++	RP1_PWM_CHAN_CTRL_MODE_PC_MS,
++	RP1_PWM_CHAN_CTRL_MODE_PD_ENC,
++	RP1_PWM_CHAN_CTRL_MODE_MSB_SER,
++	RP1_PWM_CHAN_CTRL_MODE_PPM,
++	RP1_PWM_CHAN_CTRL_MODE_LE_MS,
++	RP1_PWM_CHAN_CTRL_MODE_LSB_SER,
 +};
 +
- &rp1_usb0 {
- 	pinctrl-0 = <&usb_vbus_default_state>;
- 	pinctrl-names = "default";
-diff --git a/arch/arm64/boot/dts/broadcom/rp1-common.dtsi b/arch/arm64/boot/dts/broadcom/rp1-common.dtsi
-index 16f5359395835..df4c2d09c8d34 100644
---- a/arch/arm64/boot/dts/broadcom/rp1-common.dtsi
-+++ b/arch/arm64/boot/dts/broadcom/rp1-common.dtsi
-@@ -99,7 +99,16 @@ rp1_i2c6: i2c@40088000 {
- 		clocks = <&rp1_clocks RP1_CLK_SYS>;
- 		i2c-scl-rising-time-ns = <65>;
- 		i2c-scl-falling-time-ns = <100>;
-+		status = "disabled";
-+	};
- 
-+	rp1_pwm1: pwm@4009c000 {
-+		compatible = "raspberrypi,rp1-pwm";
-+		reg = <0x00 0x4009c000  0x0 0x100>;
-+		clocks = <&rp1_clocks RP1_CLK_PWM1>;
-+		assigned-clocks = <&rp1_clocks RP1_CLK_PWM1>;
-+		assigned-clock-rates = <50000000>;
-+		#pwm-cells = <3>;
- 		status = "disabled";
- 	};
- 
++#define RP1_PWM_CHAN_CTRL_DEFAULT		(RP1_PWM_CHAN_CTRL_FIFO_POP_MASK +  \
++						FIELD_PREP(RP1_PWM_CHAN_CTRL_MODE, \
++						RP1_PWM_CHAN_CTRL_MODE_TE_MS))
++
++#define RP1_PWM_RANGE(chan)			(0x018 + ((chan) * 0x10))
++#define RP1_PWM_PHASE(chan)			(0x01C + ((chan) * 0x10))
++#define RP1_PWM_DUTY(chan)			(0x020 + ((chan) * 0x10))
++
++#define RP1_PWM_NUM_PWMS			4
++
++struct rp1_pwm {
++	struct regmap *regmap;
++	struct clk *clk;
++	unsigned long clk_rate;
++	bool clk_enabled;
++};
++
++struct rp1_pwm_waveform {
++	u32 period_ticks;
++	u32 duty_ticks;
++	bool enabled;
++	bool inverted_polarity;
++};
++
++static const struct regmap_config rp1_pwm_regmap_config = {
++	.reg_bits = 32,
++	.val_bits = 32,
++	.reg_stride = 4,
++	.max_register = 0x60,
++};
++
++static void rp1_pwm_apply_config(struct pwm_chip *chip, struct pwm_device *pwm)
++{
++	struct rp1_pwm *rp1 = pwmchip_get_drvdata(chip);
++	u32 value;
++
++	/* update the changed registers on the next strobe to avoid glitches */
++	regmap_read(rp1->regmap, RP1_PWM_GLB_CTRL, &value);
++	value |= RP1_PWM_GLB_CTRL_SET_UPDATE;
++	regmap_write(rp1->regmap, RP1_PWM_GLB_CTRL, value);
++}
++
++static int rp1_pwm_request(struct pwm_chip *chip, struct pwm_device *pwm)
++{
++	struct rp1_pwm *rp1 = pwmchip_get_drvdata(chip);
++
++	/* init channel to reset defaults, preserving the polarity bit */
++	regmap_update_bits(rp1->regmap, RP1_PWM_CHAN_CTRL(pwm->hwpwm),
++			   ~(u32)RP1_PWM_CHAN_CTRL_POLARITY, RP1_PWM_CHAN_CTRL_DEFAULT);
++	return 0;
++}
++
++static int rp1_pwm_round_waveform_tohw(struct pwm_chip *chip,
++				       struct pwm_device *pwm,
++				       const struct pwm_waveform *wf,
++				       void *_wfhw)
++{
++	struct rp1_pwm *rp1 = pwmchip_get_drvdata(chip);
++	u64 period_ticks, duty_ticks, offset_ticks;
++	struct rp1_pwm_waveform *wfhw = _wfhw;
++	u64 clk_rate = rp1->clk_rate;
++	int ret = 0;
++
++	if (!wf->period_length_ns) {
++		wfhw->enabled = false;
++		return 0;
++	}
++
++	period_ticks = mul_u64_u64_div_u64(wf->period_length_ns, clk_rate, NSEC_PER_SEC);
++
++	/*
++	 * The period is limited to U32_MAX - 1
++	 * to allow 100% duty cycle.
++	 */
++	if (period_ticks > U32_MAX) {
++		period_ticks = U32_MAX - 1;
++	} else if (!period_ticks) {
++		period_ticks = 2;
++		ret = 1;
++	}
++
++	duty_ticks = mul_u64_u64_div_u64(wf->duty_length_ns, clk_rate, NSEC_PER_SEC);
++	duty_ticks = min(duty_ticks, period_ticks);
++	offset_ticks = mul_u64_u64_div_u64(wf->duty_offset_ns, clk_rate, NSEC_PER_SEC);
++	if (offset_ticks >= period_ticks)
++		offset_ticks %= period_ticks;
++	if (duty_ticks && offset_ticks &&
++	    duty_ticks + offset_ticks >= period_ticks) {
++		wfhw->duty_ticks = period_ticks - duty_ticks;
++		wfhw->inverted_polarity = true;
++	} else {
++		wfhw->duty_ticks = duty_ticks;
++		wfhw->inverted_polarity = false;
++	}
++	/* Account for the extra tick at the end of the period */
++	wfhw->period_ticks = period_ticks - 1;
++
++	wfhw->enabled = true;
++
++	return ret;
++}
++
++static int rp1_pwm_round_waveform_fromhw(struct pwm_chip *chip,
++					 struct pwm_device *pwm,
++					 const void *_wfhw,
++					 struct pwm_waveform *wf)
++{
++	struct rp1_pwm *rp1 = pwmchip_get_drvdata(chip);
++	const struct rp1_pwm_waveform *wfhw = _wfhw;
++	u64 clk_rate = rp1->clk_rate;
++	u32 ticks;
++
++	*wf = (struct pwm_waveform){ };
++
++	if (!wfhw->enabled)
++		return 0;
++
++	wf->period_length_ns = DIV_ROUND_UP_ULL((u64)(wfhw->period_ticks + 1) * NSEC_PER_SEC,
++						clk_rate);
++
++	if (!wfhw->inverted_polarity) {
++		wf->duty_length_ns = DIV_ROUND_UP_ULL((u64)wfhw->duty_ticks * NSEC_PER_SEC,
++						      clk_rate);
++	} else {
++		ticks = wfhw->period_ticks + 1 - wfhw->duty_ticks;
++		wf->duty_length_ns = DIV_ROUND_UP_ULL((u64)ticks * NSEC_PER_SEC, clk_rate);
++		wf->duty_offset_ns = wf->period_length_ns - wf->duty_length_ns;
++	}
++
++	return 0;
++}
++
++static int rp1_pwm_write_waveform(struct pwm_chip *chip,
++				  struct pwm_device *pwm,
++				  const void *_wfhw)
++{
++	struct rp1_pwm *rp1 = pwmchip_get_drvdata(chip);
++	const struct rp1_pwm_waveform *wfhw = _wfhw;
++	u32 value, ctrl;
++
++	/* early exit if disabled */
++	regmap_read(rp1->regmap, RP1_PWM_GLB_CTRL, &ctrl);
++	if (!wfhw->enabled) {
++		ctrl &= ~RP1_PWM_GLB_CTRL_CHANNEL_ENABLE(pwm->hwpwm);
++		goto exit_disable;
++	}
++
++	/* set period and duty cycle */
++	regmap_write(rp1->regmap,
++		     RP1_PWM_RANGE(pwm->hwpwm), wfhw->period_ticks);
++	regmap_write(rp1->regmap,
++		     RP1_PWM_DUTY(pwm->hwpwm), wfhw->duty_ticks);
++
++	/* set polarity */
++	regmap_read(rp1->regmap, RP1_PWM_CHAN_CTRL(pwm->hwpwm), &value);
++	if (!wfhw->inverted_polarity)
++		value &= ~RP1_PWM_CHAN_CTRL_POLARITY;
++	else
++		value |= RP1_PWM_CHAN_CTRL_POLARITY;
++	regmap_write(rp1->regmap, RP1_PWM_CHAN_CTRL(pwm->hwpwm), value);
++
++	/* enable the channel */
++	ctrl |= RP1_PWM_GLB_CTRL_CHANNEL_ENABLE(pwm->hwpwm);
++exit_disable:
++	regmap_write(rp1->regmap, RP1_PWM_GLB_CTRL, ctrl);
++
++	rp1_pwm_apply_config(chip, pwm);
++
++	return 0;
++}
++
++static int rp1_pwm_read_waveform(struct pwm_chip *chip,
++				 struct pwm_device *pwm,
++				 void *_wfhw)
++{
++	struct rp1_pwm *rp1 = pwmchip_get_drvdata(chip);
++	struct rp1_pwm_waveform *wfhw = _wfhw;
++	u32 value;
++
++	regmap_read(rp1->regmap, RP1_PWM_GLB_CTRL, &value);
++	wfhw->enabled = !!(value & RP1_PWM_GLB_CTRL_CHANNEL_ENABLE(pwm->hwpwm));
++
++	regmap_read(rp1->regmap, RP1_PWM_CHAN_CTRL(pwm->hwpwm), &value);
++	wfhw->inverted_polarity = !!(value & RP1_PWM_CHAN_CTRL_POLARITY);
++
++	if (wfhw->enabled) {
++		regmap_read(rp1->regmap, RP1_PWM_RANGE(pwm->hwpwm), &wfhw->period_ticks);
++		regmap_read(rp1->regmap, RP1_PWM_DUTY(pwm->hwpwm), &wfhw->duty_ticks);
++	} else {
++		wfhw->period_ticks = 0;
++		wfhw->duty_ticks = 0;
++	}
++
++	return 0;
++}
++
++static const struct pwm_ops rp1_pwm_ops = {
++	.sizeof_wfhw = sizeof(struct rp1_pwm_waveform),
++	.request = rp1_pwm_request,
++	.round_waveform_tohw = rp1_pwm_round_waveform_tohw,
++	.round_waveform_fromhw = rp1_pwm_round_waveform_fromhw,
++	.read_waveform = rp1_pwm_read_waveform,
++	.write_waveform = rp1_pwm_write_waveform,
++};
++
++static int rp1_pwm_probe(struct platform_device *pdev)
++{
++	struct device *dev = &pdev->dev;
++	struct device_node *np = dev->of_node;
++	unsigned long clk_rate;
++	struct pwm_chip *chip;
++	void __iomem	*base;
++	struct rp1_pwm *rp1;
++	int ret;
++
++	chip = devm_pwmchip_alloc(dev, RP1_PWM_NUM_PWMS, sizeof(*rp1));
++	if (IS_ERR(chip))
++		return PTR_ERR(chip);
++
++	rp1 = pwmchip_get_drvdata(chip);
++
++	base = devm_platform_ioremap_resource(pdev, 0);
++	if (IS_ERR(base))
++		return PTR_ERR(base);
++
++	rp1->regmap = devm_regmap_init_mmio(dev, base, &rp1_pwm_regmap_config);
++	if (IS_ERR(rp1->regmap))
++		return dev_err_probe(dev, PTR_ERR(rp1->regmap), "Cannot initialize regmap\n");
++
++	rp1->clk = devm_clk_get(dev, NULL);
++	if (IS_ERR(rp1->clk))
++		return dev_err_probe(dev, PTR_ERR(rp1->clk), "Clock not found\n");
++
++	ret = clk_prepare_enable(rp1->clk);
++	if (ret)
++		return dev_err_probe(dev, ret, "Failed to enable clock\n");
++	rp1->clk_enabled = true;
++
++	ret = devm_clk_rate_exclusive_get(dev, rp1->clk);
++	if (ret) {
++		dev_err_probe(dev, ret, "Failed to get exclusive rate\n");
++		goto err_disable_clk;
++	}
++
++	clk_rate = clk_get_rate(rp1->clk);
++	if (!clk_rate) {
++		ret = dev_err_probe(dev, -EINVAL, "Failed to get clock rate\n");
++		goto err_disable_clk;
++	}
++	/*
++	 * To prevent u64 overflow in period calculations:
++	 * mul_u64_u64_div_u64(period_ns, clk_rate, NSEC_PER_SEC)
++	 * If clk_rate > 1 GHz, the result can overflow.
++	 */
++	if (clk_rate > HZ_PER_GHZ) {
++		ret = dev_err_probe(dev, -EINVAL, "Clock rate > 1 GHz is not supported\n");
++		goto err_disable_clk;
++	}
++	rp1->clk_rate = clk_rate;
++
++	chip->ops = &rp1_pwm_ops;
++
++	platform_set_drvdata(pdev, chip);
++
++	ret = pwmchip_add(chip);
++	if (ret) {
++		dev_err_probe(dev, ret, "Failed to register PWM chip\n");
++		goto err_disable_clk;
++	}
++
++	ret = of_syscon_register_regmap(np, rp1->regmap);
++	if (ret) {
++		dev_err_probe(dev, ret, "Failed to register syscon\n");
++		goto err_disable_clk;
++	}
++
++	return 0;
++
++err_disable_clk:
++	clk_disable_unprepare(rp1->clk);
++
++	return ret;
++}
++
++static void rp1_pwm_remove(struct platform_device *pdev)
++{
++	struct pwm_chip *chip = platform_get_drvdata(pdev);
++	struct rp1_pwm *rp1 = pwmchip_get_drvdata(chip);
++
++	pwmchip_remove(chip);
++
++	if (rp1->clk_enabled) {
++		clk_disable_unprepare(rp1->clk);
++		rp1->clk_enabled = false;
++	}
++}
++
++static int rp1_pwm_suspend(struct device *dev)
++{
++	struct pwm_chip *chip = dev_get_drvdata(dev);
++	struct rp1_pwm *rp1 = pwmchip_get_drvdata(chip);
++
++	if (rp1->clk_enabled) {
++		clk_disable_unprepare(rp1->clk);
++		rp1->clk_enabled = false;
++	}
++
++	return 0;
++}
++
++static int rp1_pwm_resume(struct device *dev)
++{
++	struct pwm_chip *chip = dev_get_drvdata(dev);
++	struct rp1_pwm *rp1 = pwmchip_get_drvdata(chip);
++	int ret;
++
++	ret = clk_prepare_enable(rp1->clk);
++	if (ret) {
++		dev_err(dev, "Failed to enable clock on resume: %pe\n", ERR_PTR(ret));
++		return ret;
++	}
++
++	rp1->clk_enabled = true;
++
++	return 0;
++}
++
++static DEFINE_SIMPLE_DEV_PM_OPS(rp1_pwm_pm_ops, rp1_pwm_suspend, rp1_pwm_resume);
++
++static const struct of_device_id rp1_pwm_of_match[] = {
++	{ .compatible = "raspberrypi,rp1-pwm" },
++	{ /* sentinel */ }
++};
++MODULE_DEVICE_TABLE(of, rp1_pwm_of_match);
++
++static struct platform_driver rp1_pwm_driver = {
++	.probe = rp1_pwm_probe,
++	.remove = rp1_pwm_remove,
++	.driver = {
++		.name = "rp1-pwm",
++		.of_match_table = rp1_pwm_of_match,
++		.pm = pm_ptr(&rp1_pwm_pm_ops),
++		.suppress_bind_attrs = true,
++	},
++};
++builtin_platform_driver(rp1_pwm_driver);
++
++MODULE_DESCRIPTION("RP1 PWM driver");
++MODULE_AUTHOR("Naushir Patuck <naush@raspberrypi.com>");
++MODULE_AUTHOR("Andrea della Porta <andrea.porta@suse.com>");
++MODULE_LICENSE("GPL");
 -- 
 2.35.3
 
