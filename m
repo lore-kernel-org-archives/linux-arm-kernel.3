@@ -4,143 +4,142 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 3ADF2CD6E55
-	for <linux-arm-kernel@archiver.kernel.org>; Wed,  3 Jun 2026 07:26:23 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id B77F5CD6E4A
+	for <linux-arm-kernel@archiver.kernel.org>; Wed,  3 Jun 2026 07:27:48 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:In-Reply-To:
-	Content-Type:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=LeWyXD/dr7ykIMyGGLoumDBn0/im4yH+BpC7DCd4kuk=; b=bFWg6DFMj6ZRlYPOhhKvIWgnfs
-	r7/JVjeQzp1oTeei/JtKHiDal5sPjPuV29/ng5v+8bDJduLidOnImT3sEoFp+J1nasl1WKAtu34IB
-	CDtbgSk781wyMWF4vLd0tkWs3jkWf8PAXPYBuLdLKnjvZwS6CiJ9ZaYWeHkGMOKlMUJf7TgAH55P6
-	RthGDa/uSZUORmkM4/CO3PRi75FXPoSfYzFXBBvEH6OQCqg96n8JcnJPzJtvYFCjLZKZDLN2qH+SH
-	RIGGHhIKTysHgnny7oOfrUcvqThbW6V0X0DG0Qugqd1mVD/mV3Y1kmA0H1emoslNzbaePMPA3ZEwQ
-	uOG73OvQ==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	MIME-Version:Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-Type:
+	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
+	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=FYOzg1Fk7Sgk+JACbw9qdH4YfBZnKqaT7rzqbcYZULE=; b=ZzBjIwg3pxyz17mMnJFExmU3ZB
+	zSHvtX1GojoQS397Cu5PqJ4+f2RTuPbQ9VGiVffjBoG1FhUwVQw5Jb1s5t8qiSgnX9yastdAydlUi
+	bqv0w5qvhwx6oXXaEwDFXlX9f8fOKjOtqmjqi/ziqJTtZvVDyF13GuXO/s3XegF5m40lZPKvqUUer
+	xCAswOfU9Lpo/fXIzc6HMl9Oh4rfo0oOD3eO+8SDqYZ2EKXzfdHyM9uywabaU0TsvVrgTP4yu0Iyr
+	dfwRLn0EplrlXsI/RLzmCr9tRay0Btimx/gteGG+U5n6mbMOawweVkQ6R/JOQFnGaigXpRvw++Zlv
+	DxlH1pnQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wUfzU-0000000ETnr-16ue;
-	Wed, 03 Jun 2026 07:26:16 +0000
-Received: from desiato.infradead.org ([2001:8b0:10b:1:d65d:64ff:fe57:4e05])
+	id 1wUg0s-0000000ETxh-2vLV;
+	Wed, 03 Jun 2026 07:27:42 +0000
+Received: from mx0b-0031df01.pphosted.com ([205.220.180.131])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wUfzS-0000000ETnN-1ndp;
-	Wed, 03 Jun 2026 07:26:14 +0000
-DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=infradead.org; s=desiato.20200630; h=MIME-Version:In-Reply-To:Content-Type:
-	References:Message-ID:Subject:Cc:To:From:Date:Sender:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description;
-	bh=LeWyXD/dr7ykIMyGGLoumDBn0/im4yH+BpC7DCd4kuk=; b=FTxUGcryG6UsNMnc3JWKJXzt6+
-	qAs+KxF1iGJ8n2T1EUnGBvAx2zZaLUuyIkjyvt7mpEbi3SxBvwsr4VmEzeqpnBxZbERSu9Yzilc4i
-	/2Hwbim8hGSzdVOj+8vlnACAycsW25C+jPqG+JwUR3+KfRr3Sr+o99fAEIFHCbI+QCz8V+eveV3TK
-	RqbBunnzDVWO/S7mHRNjXpD1wDsR0Mw+OptctphtWsomGJ1qAr5l/FXXNovceUOXP0EAvyBu6fTc/
-	ZwdAqgGjv0e2pKcJRO8yUnYTuXrRgnuCPrrl4032RajYdEQOskfi0nJLHvMc/IfZBMtD9OVRj71a5
-	EZ3QOnXg==;
-Received: from mail-northeuropeazon11012002.outbound.protection.outlook.com ([52.101.66.2] helo=DUZPR83CU001.outbound.protection.outlook.com)
-	by desiato.infradead.org with esmtps (Exim 4.99.2 #2 (Red Hat Linux))
-	id 1wUfzO-0000000BQCG-3MDa;
-	Wed, 03 Jun 2026 07:26:13 +0000
-ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
- b=zFOWy0/PB8E+mdGHiVtnP4xW/axfNWTkhNI0rkwKgivpP8D8KmkSU/2PTYiXtHLvIQ2qRlJlwTqpfY+0MvyokyQ6M5z2jPkp76uGPlSLlpWN4xjHqJBinnVYA6vhWvTAyjK6eAhY0encgkPQVMIgxVMo0SgcVLSINdlc5TJbFIGaYqOXc4MJZT8OuE2iwbo3lirx5Gb0OYjgHUen8ejCeJcx7DfuGKUvCMuLeo8No6zwYyAOKa40FkJhJu6cseRwSDdHdKmLgex4ZuymwltbcQ9of78Dfr1WVhT07bWNzOE3O+00K7m5b2q1zHhYdd13wuP3z4U2MG8o+45VNkevDQ==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
- s=arcselector10001;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
- bh=LeWyXD/dr7ykIMyGGLoumDBn0/im4yH+BpC7DCd4kuk=;
- b=ibJQ6SJsX9IEHsxMQYAvcHYJQ3p6V5kYx2bAJZcWqXaq4xcMJtg7BioD3Dwye2iVW0e0czSOYvDip3zQNgyCTpcH9Uz0TXNOKwY/V51WdJrknFc9Xw6cKrE3oULTor4X/xQ36F5lhV+ecu0yvMkionslakDmwv1eNpBVhObqGO91Pw7UkjD/7G5dSeNPVWy+D9ZhN6xP2DLNGkOhjS3OWBiS7LBqgd3lVyzD1ZTTxo3e+4fUX3A2051HlSufriXPxYjmxwluz2qlJT34uj/e79sGCU21XwOK0OqCeaDtts3zth5AYwSMx+dDU6ZyDNvXquyTQYTh2yQB2xYQ/dyqwA==
-ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
- smtp.mailfrom=oss.nxp.com; dmarc=pass action=none header.from=oss.nxp.com;
- dkim=pass header.d=oss.nxp.com; arc=none
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=NXP1.onmicrosoft.com;
- s=selector1-NXP1-onmicrosoft-com;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
- bh=LeWyXD/dr7ykIMyGGLoumDBn0/im4yH+BpC7DCd4kuk=;
- b=Mci6BkE3FZPx6TJxokx60PkIxg2XlW5p1ssOZuTccP7n9DWlE2a08zZwJ5FYYq3SEDnUo9EJKIIReqZYDxFHhm3MBK8ZQ0FBlyo6bYpOzQt4M/kIfDg2qcDHLct7XT7dvtREf8eDuHuFG8/VfFJLibT0MJuQKj65vhpSsaJBmNpl2eHvFhZ+AIRglW/XE5nyU9CxSXiMY18vYbP1aO7kxvWgEoqoddR5JRR60HuE7p+1EQuFT088OfkFGiIKSb7pq75T6tx3n4l05rkH4OJCo87o0mq/bWtds1Gbj8GU4teVXB83cQXgACUAFdsBO/oA3NqYmuW6lZyKi70IRJG+UA==
-Authentication-Results: dkim=none (message not signed)
- header.d=none;dmarc=none action=none header.from=oss.nxp.com;
-Received: from PA6PR04MB11909.eurprd04.prod.outlook.com
- (2603:10a6:102:51c::22) by PAWPR04MB9765.eurprd04.prod.outlook.com
- (2603:10a6:102:389::6) with Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.21.92.7; Wed, 3 Jun 2026
- 07:26:06 +0000
-Received: from PA6PR04MB11909.eurprd04.prod.outlook.com
- ([fe80::a4b:fa4e:7fe7:e6a2]) by PA6PR04MB11909.eurprd04.prod.outlook.com
- ([fe80::a4b:fa4e:7fe7:e6a2%5]) with mapi id 15.21.0092.006; Wed, 3 Jun 2026
- 07:26:06 +0000
-Date: Wed, 3 Jun 2026 15:21:07 +0800
-From: Bough Chen <haibo.chen@oss.nxp.com>
-To: Xu Yang <xu.yang_2@oss.nxp.com>
-Cc: Vinod Koul <vkoul@kernel.org>,
-	Neil Armstrong <neil.armstrong@linaro.org>,
-	Frank Li <Frank.Li@nxp.com>, Sascha Hauer <s.hauer@pengutronix.de>,
-	Pengutronix Kernel Team <kernel@pengutronix.de>,
-	Fabio Estevam <festevam@gmail.com>, Jun Li <jun.li@nxp.com>,
-	linux-phy@lists.infradead.org, imx@lists.linux.dev,
-	linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org,
-	Xu Yang <xu.yang_2@nxp.com>
-Subject: Re: [PATCH v3 4/5] phy: fsl-imx8mq-usb: add control register regmap
-Message-ID: <20260603072107.xhrzxrgbrb7q6fhe@nxp.com>
-References: <20260603-imx8mp-usb-phy-improvement-v3-0-7afb8f89abc6@nxp.com>
- <20260603-imx8mp-usb-phy-improvement-v3-4-7afb8f89abc6@nxp.com>
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-In-Reply-To: <20260603-imx8mp-usb-phy-improvement-v3-4-7afb8f89abc6@nxp.com>
-X-ClientProxiedBy: MA5P287CA0211.INDP287.PROD.OUTLOOK.COM
- (2603:1096:a01:1ab::17) To PA6PR04MB11909.eurprd04.prod.outlook.com
- (2603:10a6:102:51c::22)
+	id 1wUg0q-0000000ETx5-44GB
+	for linux-arm-kernel@lists.infradead.org;
+	Wed, 03 Jun 2026 07:27:42 +0000
+Received: from pps.filterd (m0279872.ppops.net [127.0.0.1])
+	by mx0a-0031df01.pphosted.com (8.18.1.11/8.18.1.11) with ESMTP id 6536RHmj2076092
+	for <linux-arm-kernel@lists.infradead.org>; Wed, 3 Jun 2026 07:27:39 GMT
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=qualcomm.com; h=
+	cc:content-transfer-encoding:date:from:message-id:mime-version
+	:subject:to; s=qcppdkim1; bh=FYOzg1Fk7Sgk+JACbw9qdH4YfBZnKqaT7rz
+	qbcYZULE=; b=oRoN8/vI5m8H2bkLd7NMzQpQhy2/wmJ/idkPGfPOZViN3A34FCr
+	n8rNMPjVIt3uMgsPzOeS+wxUqBYRfTvQTG/cow1aQGxZhakTMhTcVoDgP0UVOkSy
+	fo03dCnvcWcdskX/y4kiJCqzbcEI3a6zn138QDUctMsh2pI7Xxnm5qjf7oBINApJ
+	GSnjxNPXRlFKJPF98xatbAsnvyQceOndslFa8NOoPUScVL6gj61GDD2dvPCQ6b6q
+	al+5foNI4DEgZLQSmfpdIbyL5shA1zqE4J5CfHEO7Khs1i2CVbPuxeOm9EuaR5bY
+	4IDITVCSYzEfulicf/1kewr1V8KIoHy1ysg==
+Received: from mail-qt1-f200.google.com (mail-qt1-f200.google.com [209.85.160.200])
+	by mx0a-0031df01.pphosted.com (PPS) with ESMTPS id 4ejev189tg-1
+	(version=TLSv1.3 cipher=TLS_AES_128_GCM_SHA256 bits=128 verify=NOT)
+	for <linux-arm-kernel@lists.infradead.org>; Wed, 03 Jun 2026 07:27:39 +0000 (GMT)
+Received: by mail-qt1-f200.google.com with SMTP id d75a77b69052e-5176d949c58so9502001cf.0
+        for <linux-arm-kernel@lists.infradead.org>; Wed, 03 Jun 2026 00:27:39 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=oss.qualcomm.com; s=google; t=1780471659; x=1781076459; darn=lists.infradead.org;
+        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
+         :to:from:from:to:cc:subject:date:message-id:reply-to;
+        bh=FYOzg1Fk7Sgk+JACbw9qdH4YfBZnKqaT7rzqbcYZULE=;
+        b=ey0pdTC/sfbH5B3fcS/qtHyF+GYIhwvPze1ApgrLTG7pJ8Z6vSkNp8/3oKF8CSna67
+         uxIVgKQhXgezPp5vA2MDH5wl/dZ9OUsBsLZkESUu5mDwbAoD2/FRck1w3tUa9qNLI4Xe
+         44GDGBwkto7PsVsqa4EBGivCs+hm1Ip278a1bgMoZkd7x5VBm/GsfeVexCShyCRg5oX6
+         ZiCig+8i6gWP4gWnPpHqvCnyfsDb3urB2kNci4rDdq+rnmZiFtWjLDPqpyFWv9DWEP0g
+         LvoRJXqJaCWWDC3aoG6w6wx09Jg8zDQ99IZMyPbIIp5Df8OBL8kngTTMoYH6ZKucr8CX
+         jMlw==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20251104; t=1780471659; x=1781076459;
+        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
+         :to:from:x-gm-gg:x-gm-message-state:from:to:cc:subject:date
+         :message-id:reply-to;
+        bh=FYOzg1Fk7Sgk+JACbw9qdH4YfBZnKqaT7rzqbcYZULE=;
+        b=JNPhpEG50W15DmzPhp7HEOYaB8Zt61lcvG/nYiK/TFNIftgp7MyEIYZEmeaf9wnJgf
+         oew647CkTo0dqwk3qDbtLidyJ7diL7AKBdBBx0mXMVaqPlPG1pAvnX+AIe++er0wl9hq
+         GGKCHixlPXAuwZl8Nb8EXr61YSuJEP8RO5KRfxG4M0WPEfwoRtvhCSZIZc3saZJggdh9
+         MLOcqwOF5i6GXeEec9a/Mitf4W9hQVywIqINa3LppOtz2rVy0Gx9nveZfYLXwLgSzFQb
+         CvlvFHySjAIzlTte8vmKJt9Z3Jf8wX+YBNwtBFq3w+5+OTcZdMIbLkq4aQMzhoClQruA
+         qAkQ==
+X-Forwarded-Encrypted: i=1; AFNElJ9YnElmfJ9ra4tv7vuJKvfMcnglf/fiYrSIiLZscWohFGrGE4CoXq1h22qAh43HycQYd6kOrA3slUubnYTYJbKT@lists.infradead.org
+X-Gm-Message-State: AOJu0Yxhg2P1YYsI9h5WMJ7YqUKRmt06a8f7Y8NEF7L6oO+4iqeQF6rJ
+	a2nIWy7yARpSiyI8PUyDvHi0bhkIgQnVRmIgTLRT8n+YzEM86Wc0T5TMsIrhvM8wsIx1uSGgbGH
+	DFyy4SUaUSzbam449az9NgIkGEihdx5xZefX2xKbjDb2KuLK6Qz2hIluq1bwKjgl751UQ6UH53I
+	9LmQ==
+X-Gm-Gg: Acq92OGreHxUNINKWSEpMeJgP5eTck0EKGSV8wjsbyugVvC42ZHz3AcUcLeT/yJ5YGW
+	9UPdV/80SXtIiP2WUVtghREWlx9i8KtSgyeFFwEDdTEvIvJ/Q3E1p1+x2tdr7pBPMelGfn6GXCq
+	5DX8OMqNDKqa2nf4L7WYCJzjnlkeeAkIeyvv/ae2Uex9zKQSUUy/5KpBihNFTtodmNZjkVmlJj3
+	ddzOKeoJ763EFiS7MAx4JO74UZP5OijLbZF3VDKbF2n3GF2MFgD67Gj7UHkmkEQiNtpldJHiYAb
+	t0d02dGjDavyD6YOw14oSYbLenEbOhfJUw16KJj+HPLKrZziRD8umIMMisrK0PL8wOeHxdZ+I4+
+	jU+GwYRpgfTo0t4ChtNCwRK8HLrsv0Wjtjixh9CIpYz8cOEh3dTNfnZw44z1IH1sEkvIROsJAaj
+	mL78iejQzGzS2TS/++
+X-Received: by 2002:a05:622a:50c:b0:50d:9b4a:e6f with SMTP id d75a77b69052e-517785ae63cmr36451591cf.1.1780471659122;
+        Wed, 03 Jun 2026 00:27:39 -0700 (PDT)
+X-Received: by 2002:a05:622a:50c:b0:50d:9b4a:e6f with SMTP id d75a77b69052e-517785ae63cmr36451391cf.1.1780471658627;
+        Wed, 03 Jun 2026 00:27:38 -0700 (PDT)
+Received: from quoll.toolboxoffice.it (public.toolboxoffice.it. [213.215.163.27])
+        by smtp.gmail.com with ESMTPSA id ffacd0b85a97d-4601f0a43e9sm5381844f8f.0.2026.06.03.00.27.36
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Wed, 03 Jun 2026 00:27:37 -0700 (PDT)
+From: Krzysztof Kozlowski <krzysztof.kozlowski@oss.qualcomm.com>
+To: Arnd Bergmann <arnd@arndb.de>, soc@lists.linux.dev,
+        Russell King <linux@armlinux.org.uk>, "Theodore Ts'o" <tytso@mit.edu>,
+        linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org
+Cc: Krzysztof Kozlowski <krzysztof.kozlowski@oss.qualcomm.com>
+Subject: [PATCH] ARM: configs: Drop duplicated CONFIG_EXT4_FS
+Date: Wed,  3 Jun 2026 09:27:27 +0200
+Message-ID: <20260603072726.19404-2-krzysztof.kozlowski@oss.qualcomm.com>
+X-Mailer: git-send-email 2.53.0
 MIME-Version: 1.0
-X-MS-PublicTrafficType: Email
-X-MS-TrafficTypeDiagnostic: PA6PR04MB11909:EE_|PAWPR04MB9765:EE_
-X-MS-Office365-Filtering-Correlation-Id: 0ecf33d8-7563-4abf-1a9d-08dec1415fc2
-X-MS-Exchange-SenderADCheck: 1
-X-MS-Exchange-AntiSpam-Relay: 0
-X-Microsoft-Antispam: BCL:0;ARA:13230040|376014|1800799024|19092799006|366016|56012099006|18002099003|22082099003|11063799006|4143699003|3023799007;
-X-Microsoft-Antispam-Message-Info: gDtn7KEAeUpHqiWIG+3DNSTiqaH88c2s9wf8diqpx4xjWXs6Edlk9/MBq7eO4y8S3qgnPrV9hZSicb20n1oFr6ve/JB8u8Xn3qD1EQfCOSptg/oAVV/mzRsjxlx6ia60OEm6Bd6rDMNCgt+i4P7DOecPQ3e8QTQcjBUi/VYyj4l0sNhjz9C4PgkQRfCAnJMTEpo8I7Da0Iw1lBzk0ll/TEPAqrMCpkJrwZ0l5dpOXuw2wvm5z8MfyEaRqQvx/45ORlPGotG2sWXr9CSyhwctcL+rcAOCQ3vcYfTgEzZlxBxIatqcWPKGQVsX8JDMnOx5r+6fnLMnwpVHuNuQUSxst91P5VwZ1QvPvg4sVFPtaJkiq1uDiRdD2Cp41XmiCWLDv1FVJzHulfvhfbPPlKw+IffsIo9jXnT0+Mm6ld5W+ybebeYm6MI1y68Oa/0lBCAQe0Al3YAdTVcVLFkeyWU/yrFuYIObgM09X5GzZq+/6jkMs6gbhCUcMBYE6nJINzm7UR/oo85ioX0LtBUhxWzH8tu/J6btmHwiaBT5K5GtSAbt02cORwPNycpK6CZApt5A1/qkGWMRdpJ69vrx558iTO/O9oHsrIHGroUBjzgThFiMuZPBH6ToDQiEpUQXfa3bpnXaOZBTrU3svQw4Ygu4CNvxvWIQ48EMb1qvDy6w45Q/xF/POAOj1D9XTOi7jpsA
-X-Forefront-Antispam-Report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:PA6PR04MB11909.eurprd04.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(376014)(1800799024)(19092799006)(366016)(56012099006)(18002099003)(22082099003)(11063799006)(4143699003)(3023799007);DIR:OUT;SFP:1101;
-X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
-X-MS-Exchange-AntiSpam-MessageData-0: =?us-ascii?Q?7o0oDvxdCM1Zt5FzR3PpyM4BYeWeLyQC24ZEG1M3bxVryQRzvqBb6PxqJjdb?=
- =?us-ascii?Q?Y/2xGEhcg8fKWC50lVIqsEDhmux64Uufofk5E8DXQjdQ01fOky4jIsMXjWUF?=
- =?us-ascii?Q?em30C0N3eO3jjG+sX6aR1RaS3mftF05GqUo1u0EPPtGRgdl4DOKimNAWobPy?=
- =?us-ascii?Q?qdmrvf3CJ6OaRQy4W/RH4HjP9rlWqYW+0pBJIgrJgnPn5HFTpa1qoLY55PUH?=
- =?us-ascii?Q?ff/dURVb8R5ZVpYRXj+JsuppDXr6ALJUs0OC8wKICN1wPNJlldAFRVcgdwAm?=
- =?us-ascii?Q?LXCBm38Z9wefSnaoGTsZY4Xch1K7gRWW6g4kos270T+TWoA0BZifpRgy8tns?=
- =?us-ascii?Q?pe7OuDFnfxHKSpqk9m64XLn85aXvX6Tiw7mKH2mf3VfD9aaDIyQJVyrs665v?=
- =?us-ascii?Q?PghoLzDAPXYRp5qG7bm9gUbCOeKnpbXMoBUii5whAwA9YCBhpp8TWwXbzqti?=
- =?us-ascii?Q?QkpzTeX416WvFN38XrpGlZLaUfjsWh2tl5jW2UVFOyKzwk2+iG0V1qfX+O8V?=
- =?us-ascii?Q?kRwuvWmdNe9nP3jPmEBWiPy4PYVMxcnRhzctYg9+LSN8xekX+TuWwYxFzsiz?=
- =?us-ascii?Q?FCLFnmSYXl6YcjvzXyTS5spKOogQMWoN6DZBW/Pq1px1sprDFr+WD5BL1tC+?=
- =?us-ascii?Q?5sggLaImuTibNqU4u0u0u/jt5EgZrd3EZux9UjcBGKX/YzOrMOZDZt2sKE8Z?=
- =?us-ascii?Q?cRooiZx+ch0BsNn9wisgNXqdV9kgqHEIM99iMyL/UHMBAXIca+FCSl08oqx9?=
- =?us-ascii?Q?j04gQYZjO25YZdujJq0KxH9uOR3ulSHYmeHriSHc0jQO7Z06tpq2tDesjxPV?=
- =?us-ascii?Q?6+z5V7r/TCCxESB6dMqiLOltuahRo4dhqoc4juSnp7sWhO9Rh9ai+YkDogUr?=
- =?us-ascii?Q?AjHO4V7q2SU8y8ok1bXgQwSSUGHqnyitG6Rkq8ArDrHiMmUnlzOkD6r6GTsu?=
- =?us-ascii?Q?5QIhBbcKif71Hh8Qy05n98WZ8zL6QzcOMc8sob1cXxyu8YaLAFW8OSdMumyR?=
- =?us-ascii?Q?dMA0vE/LcFGRYrcdBltNTfsCyDNd8pM8j1l3xciATlUZrLyqrhbn2MHfjNJ0?=
- =?us-ascii?Q?0WZjSmDL5tbB82F9eLN0VY0CRqkeTUXw7FeOBkbNsdfFO14grQfddl+W0kdL?=
- =?us-ascii?Q?aUlhhd7KXPttgapYwR825SGIiTsBAGkinX4EHvD2S3qmPoF4X6K7aHqAcdxG?=
- =?us-ascii?Q?SN0q3c3wfYgH8KYIs1kPmE5a42gtpKJvbbN/nZtZZoMA+IVfawH/cycLinAq?=
- =?us-ascii?Q?9xLrpnEKUrSnIPMUNVIraVtZ0qYdbk2uy0XmLy0GEMhbbUKId0KIMLHW5u9n?=
- =?us-ascii?Q?UfO3urSaPw6pV337t4Q3ypTmusMlb+kPU718odXDmlEizgZNH8JRLEgSQ1Q4?=
- =?us-ascii?Q?VRloeThu0TWGJAFC9JXSFm7HJEnr8aAC4sWaSWDTaFcsVfm41pSe9WFthfmz?=
- =?us-ascii?Q?ygLjPcNSU1MqYESS58LKVEeVUkebd6ZVi8ArQaS0+IGblnYxdkyzHp7UNBEz?=
- =?us-ascii?Q?PV1WN7RRoNw+DrhEN6++zYnk9dehWp8qxSDgEvM2HksgH62qbH9wEjAIR7GC?=
- =?us-ascii?Q?7ZJtATS+6u16xbQ6IItLd1zyn9Fi1gKqHQgR2GthSW3yQSY+4Dw4HwJ3u8wD?=
- =?us-ascii?Q?rkxNYFX7mdKLUi6Lhx1s79vn2tiNANApWXWfiVE6Z7hb6GxXGpOawCm3tzUE?=
- =?us-ascii?Q?Uf3kKCLKdRmuX9NT6g52G+kEIXTVr29xFnMjxbjZ4SGL9leH7cAeVz2OB3NS?=
- =?us-ascii?Q?PQcyRuJ1BizmdaFOqQohSpKaRlq6SPpQ70nQm55wJmaZzExehiS7?=
-X-OriginatorOrg: oss.nxp.com
-X-MS-Exchange-CrossTenant-Network-Message-Id: 0ecf33d8-7563-4abf-1a9d-08dec1415fc2
-X-MS-Exchange-CrossTenant-AuthSource: PA6PR04MB11909.eurprd04.prod.outlook.com
-X-MS-Exchange-CrossTenant-AuthAs: Internal
-X-MS-Exchange-CrossTenant-OriginalArrivalTime: 03 Jun 2026 07:26:06.1690
- (UTC)
-X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
-X-MS-Exchange-CrossTenant-Id: 686ea1d3-bc2b-4c6f-a92c-d99c5c301635
-X-MS-Exchange-CrossTenant-MailboxType: HOSTED
-X-MS-Exchange-CrossTenant-UserPrincipalName: YW/4loapVZU1ubFTvZqVLDVXOanmGpfchIi0du1lvx6fuacWUyKMFqNXQIuFsWKQCZD6lYrAjseBTxU8dc2G9CvfKiazloWNfnX3M0cBHPc+9mCsbC8yYsPdBeK1bRZZ
-X-MS-Exchange-Transport-CrossTenantHeadersStamped: PAWPR04MB9765
+X-Developer-Signature: v=1; a=openpgp-sha256; l=2595; i=krzysztof.kozlowski@oss.qualcomm.com;
+ h=from:subject; bh=rAbXFaXFU6UvePteZWVBleQLgNYQKxjPkG8bfnnqoDs=;
+ b=owEBbQKS/ZANAwAKAcE3ZuaGi4PXAcsmYgBqH9deBeWI1AbqghJFz4j+0xmG3QYTxBltIGzts
+ QbZR0wzmGKJAjMEAAEKAB0WIQTd0mIoPREbIztuuKjBN2bmhouD1wUCah/XXgAKCRDBN2bmhouD
+ 1wrHD/4xVkFvRp8eDM9rgBwX69LF/qnkkZaz849Bfft3iWPeAO7Z14ivBJiBFpOXhEHaeA81JMl
+ pXGS1M2c6eAp6Ezq21bhFZyzqwiFdAfiMsFrQoEjxRDu6q2hdb+dUfUrYTnQk313PhNlnMdHBzC
+ Ryv6/H/c/4a4m6cA/+ewcLo0gMKxarDfu91WTFOQZp0SvcJ6+MxWOrDc8laipUCddKjnJL8VAC9
+ PgB3U53SeIiIdbFHVLDeJI1JmwyrDgJDmcL5DZPtT1MgVVyUV4lLvgeWqey2U2QgHIAsCsJ5U/L
+ SyrDLhYcTfLpDwqfHIzVN9lQw/VlniyDUmN5WPxAMzk81mlaNvgw7mFW7IjU4KtocC9WsPrAw0b
+ clSxFqqJHR6hHpaI0mu76nH43iOTm9QRFdxkekg0FjfCQA9/O8PcNzq9uv6wL8DQwORJhfIiMng
+ rEKReJWQJ2OMy0JV625kGpyy8WabZQZL8zAJjvCpDoc81+6EiJUwPhvcFbdlOg1mty84kNCslM0
+ /Fs+a7/ah23DVCiWtKbQwctAwX1aQmLlHK3eJxEkaYYdkzVO2kUopC2FuwfffA3AfC7t/U97Zms
+ TJ4nHlFzpCqlPXPk6pnG66le9Ye7jG2msJmPgqqr+EJ2eS9g+fi14NZYerAtCJpLPAWy3N9jfIL VKi+9Cxx2vVK18Q==
+X-Developer-Key: i=krzysztof.kozlowski@oss.qualcomm.com; a=openpgp; fpr=9BD07E0E0C51F8D59677B7541B93437D3B41629B
+Content-Transfer-Encoding: 8bit
+X-Proofpoint-ORIG-GUID: 053N3TgoQZEcysWOJNd2wf7nTDjwsqwV
+X-Authority-Analysis: v=2.4 cv=PNE/P/qC c=1 sm=1 tr=0 ts=6a1fd76b cx=c_pps
+ a=JbAStetqSzwMeJznSMzCyw==:117 a=aBIYUfOEhgoR9egqXYNcqA==:17
+ a=FelO9ux0wxsA:10 a=s4-Qcg_JpJYA:10 a=VkNPw1HP01LnGYTKEx00:22
+ a=u7WPNUs3qKkmUXheDGA7:22 a=yx91gb_oNiZeI1HMLzn7:22 a=EUspDBNiAAAA:8
+ a=s6cvWP-jlV_YwPVwP18A:9 a=uxP6HrT_eTzRwkO_Te1X:22
+X-Proofpoint-GUID: 053N3TgoQZEcysWOJNd2wf7nTDjwsqwV
+X-Proofpoint-Spam-Details-Enc: AW1haW4tMjYwNjAzMDA3MCBTYWx0ZWRfX96Socm/LfHyc
+ DdHNT66/9dICm9sWtMVgqbV2Th86P7BkGoHRo0lvnHptle8ZZHHYPXRUgAOas/Z7gicGoTtPJjm
+ jF03vCozcHX5akUvw/IgeRmNZiwFUnDlmxlob39uqMc/uuJPcFqkhpPG5ZY6+7dbnBysTXEpsYZ
+ nU/nKLhxR76IuY53pODkdqTSawZDZiOhH5gQJ+p1tx+DPU+LzXAI2OG+bjO70d3aLoFQFvGHCRl
+ z2X2tfBg77WAuAJKlmAVHs3me4poE6LS8NfkIs/HabauCFjt/h7JgR2pWGr7umZABV1ZC+VLtoS
+ ZF7QHLwwqqiI6TlR0L4W1/bDp/aWNC/AbcouWEOlAzMH/NxDoHZWtqqihk7CvEXAbSQUfWL2T3p
+ KFjnmrvmsXTNrkOAdEwvkBtlY5i1NDXVqUhMfgGQxP6jz2zWp+JlSbEkKY4AYkHoE2l1XWrbE+i
+ ose9AAGsZjiQqqteCFg==
+X-Proofpoint-Virus-Version: vendor=baseguard
+ engine=ICAP:2.0.293,Aquarius:18.0.1143,Hydra:6.1.125,FMLib:17.12.100.49
+ definitions=2026-06-03_03,2026-05-28_03,2025-10-01_01
+X-Proofpoint-Spam-Details: rule=outbound_notspam policy=outbound score=0
+ phishscore=0 bulkscore=0 clxscore=1015 malwarescore=0 spamscore=0
+ adultscore=0 impostorscore=0 suspectscore=0 priorityscore=1501
+ lowpriorityscore=0 classifier=typeunknown authscore=0 authtc= authcc=
+ route=outbound adjust=0 reason=mlx scancount=1 engine=8.22.0-2605210000
+ definitions=main-2606030070
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260603_082610_976483_89E9F63A 
-X-CRM114-Status: GOOD (  25.97  )
+X-CRM114-CacheID: sfid-20260603_002741_127367_5A7B75E6 
+X-CRM114-Status: GOOD (  13.17  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -155,144 +154,81 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Wed, Jun 03, 2026 at 01:37:17PM +0800, Xu Yang wrote:
-> From: Xu Yang <xu.yang_2@nxp.com>
-> 
-> The CR port is a simple 16-bit data/address parallel port that is
-> provided for on-chip access to the control registers inside the
-> USB 3.0 femtoPHY. Add control register regmap and export these
-> registers by debugfs to help PHY's diagnostic.
-> 
-> Signed-off-by: Xu Yang <xu.yang_2@nxp.com>
-> 
-> ---
-> Changes in v3:
->  - drop Frank's tag because it includes other changes
->  - new patch
-> ---
->  drivers/phy/freescale/phy-fsl-imx8mq-usb.c | 27 ++++++++++++++++++++++++++-
->  1 file changed, 26 insertions(+), 1 deletion(-)
-> 
-> diff --git a/drivers/phy/freescale/phy-fsl-imx8mq-usb.c b/drivers/phy/freescale/phy-fsl-imx8mq-usb.c
-> index b0092c34416e..cda88ea1f12d 100644
-> --- a/drivers/phy/freescale/phy-fsl-imx8mq-usb.c
-> +++ b/drivers/phy/freescale/phy-fsl-imx8mq-usb.c
-> @@ -1,5 +1,5 @@
->  // SPDX-License-Identifier: GPL-2.0+
-> -/* Copyright (c) 2017 NXP. */
-> +/* Copyright 2017-2026 NXP. */
+Remove redundant, duplicated CONFIG_EXT4_FS to fix warnings like:
 
-Should be : Copyright 2017, 2026 NXP.
+  axm55xx_defconfig:198:warning: override: reassigning to symbol EXT4_FS
 
->  
->  #include <linux/bitfield.h>
->  #include <linux/clk.h>
-> @@ -11,6 +11,7 @@
->  #include <linux/platform_device.h>
->  #include <linux/pm_runtime.h>
->  #include <linux/regulator/consumer.h>
-> +#include <linux/regmap.h>
->  #include <linux/usb/typec_mux.h>
->  
->  #define PHY_CTRL0			0x0
-> @@ -56,6 +57,8 @@
->  #define PHY_CTRL6_ALT_CLK_EN		BIT(1)
->  #define PHY_CTRL6_ALT_CLK_SEL		BIT(0)
->  
-> +#define PHY_CRCTL			0x30
-> +
->  #define PHY_TUNE_DEFAULT		0xffffffff
->  
->  #define TCA_CLK_RST			0x00
-> @@ -119,6 +122,7 @@ struct imx8mq_usb_phy {
->  	void __iomem *base;
->  	struct regulator *vbus;
->  	struct tca_blk *tca;
-> +	struct regmap *cr_regmap;
->  	u32 pcs_tx_swing_full;
->  	u32 pcs_tx_deemph_3p5db;
->  	u32 tx_vref_tune;
-> @@ -665,6 +669,14 @@ static const struct of_device_id imx8mq_usb_phy_of_match[] = {
->  };
->  MODULE_DEVICE_TABLE(of, imx8mq_usb_phy_of_match);
->  
-> +static const struct regmap_config imx_cr_regmap_config = {
-> +	.name = "cr",
-> +	.reg_bits = 32,
-> +	.val_bits = 32,
-> +	.reg_stride = 4,
-> +	.max_register = 0x7,
-> +};
-> +
+Fixes: c065b6046b34 ("Use CONFIG_EXT4_FS instead of CONFIG_EXT3_FS in all of the defconfigs")
+Signed-off-by: Krzysztof Kozlowski <krzysztof.kozlowski@oss.qualcomm.com>
+---
+ arch/arm/configs/axm55xx_defconfig | 1 -
+ arch/arm/configs/dove_defconfig    | 1 -
+ arch/arm/configs/ep93xx_defconfig  | 1 -
+ arch/arm/configs/mmp2_defconfig    | 1 -
+ arch/arm/configs/mv78xx0_defconfig | 1 -
+ 5 files changed, 5 deletions(-)
 
-Your commit message says: The CR port is a simple 16-bit data/address parallel port
-But here you use 32 bit mmio, which is a bit confuse to reader. 
-Maybe you can add the following comment before the regmap config:
+diff --git a/arch/arm/configs/axm55xx_defconfig b/arch/arm/configs/axm55xx_defconfig
+index 22b189090e15..0952e5e94c5e 100644
+--- a/arch/arm/configs/axm55xx_defconfig
++++ b/arch/arm/configs/axm55xx_defconfig
+@@ -195,7 +195,6 @@ CONFIG_PL320_MBOX=y
+ # CONFIG_IOMMU_SUPPORT is not set
+ CONFIG_EXT2_FS=y
+ CONFIG_EXT4_FS=y
+-CONFIG_EXT4_FS=y
+ CONFIG_AUTOFS_FS=y
+ CONFIG_FUSE_FS=y
+ CONFIG_CUSE=y
+diff --git a/arch/arm/configs/dove_defconfig b/arch/arm/configs/dove_defconfig
+index e98c35df675e..3d978ce34b54 100644
+--- a/arch/arm/configs/dove_defconfig
++++ b/arch/arm/configs/dove_defconfig
+@@ -97,7 +97,6 @@ CONFIG_MV_XOR=y
+ CONFIG_EXT2_FS=y
+ CONFIG_EXT4_FS=y
+ # CONFIG_EXT4_FS_XATTR is not set
+-CONFIG_EXT4_FS=y
+ CONFIG_ISO9660_FS=y
+ CONFIG_JOLIET=y
+ CONFIG_UDF_FS=m
+diff --git a/arch/arm/configs/ep93xx_defconfig b/arch/arm/configs/ep93xx_defconfig
+index 9f3c7324d1cf..ce41dc8c435c 100644
+--- a/arch/arm/configs/ep93xx_defconfig
++++ b/arch/arm/configs/ep93xx_defconfig
+@@ -105,7 +105,6 @@ CONFIG_EP93XX_DMA=y
+ CONFIG_EXT2_FS=y
+ CONFIG_EXT4_FS=y
+ # CONFIG_EXT4_FS_XATTR is not set
+-CONFIG_EXT4_FS=y
+ CONFIG_VFAT_FS=y
+ CONFIG_TMPFS=y
+ CONFIG_JFFS2_FS=y
+diff --git a/arch/arm/configs/mmp2_defconfig b/arch/arm/configs/mmp2_defconfig
+index a9a212abfd69..0ea608c75f22 100644
+--- a/arch/arm/configs/mmp2_defconfig
++++ b/arch/arm/configs/mmp2_defconfig
+@@ -54,7 +54,6 @@ CONFIG_RTC_DRV_MAX8925=y
+ # CONFIG_RESET_CONTROLLER is not set
+ CONFIG_EXT2_FS=y
+ CONFIG_EXT4_FS=y
+-CONFIG_EXT4_FS=y
+ # CONFIG_DNOTIFY is not set
+ CONFIG_MSDOS_FS=y
+ CONFIG_FAT_DEFAULT_CODEPAGE=437
+diff --git a/arch/arm/configs/mv78xx0_defconfig b/arch/arm/configs/mv78xx0_defconfig
+index d3a26efe766c..c6b46141cb69 100644
+--- a/arch/arm/configs/mv78xx0_defconfig
++++ b/arch/arm/configs/mv78xx0_defconfig
+@@ -93,7 +93,6 @@ CONFIG_RTC_DRV_M41T80=y
+ CONFIG_EXT2_FS=y
+ CONFIG_EXT4_FS=y
+ # CONFIG_EXT4_FS_XATTR is not set
+-CONFIG_EXT4_FS=m
+ CONFIG_ISO9660_FS=m
+ CONFIG_JOLIET=y
+ CONFIG_UDF_FS=m
+-- 
+2.53.0
 
-/*
- * CR Port MMIO Register Map
- * 
- * The CR (Control Register) port uses a 16-bit data/address protocol,
- * but is accessed through 32-bit MMIO registers:
- * 
- * Offset 0x0: CR Control Register
- *   [31:16] - Control/Status flags
- *   [15:0]  - 16-bit CR Address
- * 
- * Offset 0x4: CR Data Register
- *   [31:16] - Reserved/Status
- *   [15:0]  - 16-bit CR Data
- */
-
-Or change your commit log like this:
-
-The CR port is a 16-bit data/address parallel port protocol that is
-accessed through 32-bit MMIO registers for on-chip access to the
-control registers inside the USB 3.0 femtoPHY. Add control register
-regmap and export these registers by debugfs to help PHY's diagnostic.
-
-Regards
-Haibo Chen
-
->  static int imx8mq_usb_phy_probe(struct platform_device *pdev)
->  {
->  	struct phy_provider *phy_provider;
-> @@ -694,6 +706,13 @@ static int imx8mq_usb_phy_probe(struct platform_device *pdev)
->  	if (IS_ERR(imx_phy->base))
->  		return PTR_ERR(imx_phy->base);
->  
-> +	imx_phy->cr_regmap = devm_regmap_init_mmio(dev, imx_phy->base + PHY_CRCTL,
-> +						   &imx_cr_regmap_config);
-> +	if (IS_ERR(imx_phy->cr_regmap)) {
-> +		dev_warn(dev, "Fail to init debug register regmap\n");
-> +		imx_phy->cr_regmap = NULL;
-> +	}
-> +
->  	ret = devm_pm_runtime_set_active_enabled(dev);
->  	if (ret)
->  		return dev_err_probe(dev, ret, "Failed to enable runtime PM\n");
-> @@ -729,6 +748,9 @@ static int imx8mq_usb_phy_runtime_suspend(struct device *dev)
->  {
->  	struct imx8mq_usb_phy *imx_phy = dev_get_drvdata(dev);
->  
-> +	if (imx_phy->cr_regmap)
-> +		regcache_cache_only(imx_phy->cr_regmap, true);
-> +
->  	clk_disable_unprepare(imx_phy->alt_clk);
->  	clk_disable_unprepare(imx_phy->clk);
->  
-> @@ -750,6 +772,9 @@ static int imx8mq_usb_phy_runtime_resume(struct device *dev)
->  		return ret;
->  	}
->  
-> +	if (imx_phy->cr_regmap)
-> +		regcache_cache_only(imx_phy->cr_regmap, false);
-> +
->  	return 0;
->  }
->  
-> 
-> -- 
-> 2.34.1
-> 
 
