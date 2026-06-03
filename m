@@ -4,69 +4,60 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id D5369CD6E55
-	for <linux-arm-kernel@archiver.kernel.org>; Wed,  3 Jun 2026 09:50:52 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id BCBC1CD6E55
+	for <linux-arm-kernel@archiver.kernel.org>; Wed,  3 Jun 2026 09:54:18 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
-	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=oyAmqc74tPeSqmdOneDeQhCxyrBsJsodvaoN1wzTpP0=; b=SMckL3pUN5xZ0RropxgWLALi50
-	2741nRRfDhA7uTbO2cxFF0pVjdzpKLeRB6IyL/xywed35fUzt2yMSM0OQZ7LS6VFS5ryvaAYD/Ihn
-	84EaDYu5wxVHi0RA2ekYf8ZWCbHHidgHOBJiYs6IrA4KRfAixeNFGlXgv6PcsWYySY7cTUDPCiyPm
-	5UXnywBtoBA+4CkFuanbCh2wgmJEQ/GlgeJ7psw9zJEBwmJGSbOWOIZp9CGMnawrECLkoN3IiKRWc
-	gJEcNnxj2DwceV/aW34lbRnIPEmoXCICOLWbdGLoq9UXo+m8DJO4VUPidtGtOkcSPNSbmBY1o9upc
-	N7Xq1y9A==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=9xCV/qxJqiKKp2PBwOK0nokY77A79DqJoh7VyY2kPoY=; b=KxfcTou0T8FVaUxSSmOctmI7pO
+	2hsOO4ulmAKKjrjk0gx1qk+r9ojxXikRvOIGopFq+GA5UDCoCgny2CHrjuO9MsCmq0Jh0vJrC31sX
+	alRcqUrEzY5BYeGykqvZ/hPggh5eYdZUjZQh8d5NgvRtk5KDYU6JBbDr5KOwjgiezOOK70OCnymQt
+	gKpSVuynhNzcor/5khH5p4kmsPTzVQTwrLEJmaKLFHF8mJGna3V45MoqGO7om2yzfL3jYsWQ6ZTMe
+	Nkqt14tKBy2LIePw7ax6jp0BEyQ9i6163xHdY/4Y2gY3rwNIyDTQ3NtiRTC+pvSMxYtZRg/ZiFhGV
+	PunbO/ZA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wUiFK-0000000EkBr-3f9h;
-	Wed, 03 Jun 2026 09:50:46 +0000
-Received: from sender4-pp-f112.zoho.com ([136.143.188.112])
+	id 1wUiId-0000000Ekiv-2gnZ;
+	Wed, 03 Jun 2026 09:54:11 +0000
+Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wUiFI-0000000EkBI-1i1P;
-	Wed, 03 Jun 2026 09:50:45 +0000
-ARC-Seal: i=1; a=rsa-sha256; t=1780480236; cv=none; 
-	d=zohomail.com; s=zohoarc; 
-	b=MA70eK+bFGLjjVj+v3J16+vPsqLFjqfRRq7mvnEIWOvMlkieD5d9mLtry1r5V+9nJf2yFmyzIDTXD0HgG4Y8QTZaSj5ARaY3vbpOqw1JDj/x76uSHCtRlwC7MRsf+SIogXl17sWcGJIJjgqm7FiR4qUb17sa2uobOf0aWeaV8iQ=
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=zohomail.com; s=zohoarc; 
-	t=1780480236; h=Content-Type:Content-Transfer-Encoding:Cc:Cc:Date:Date:From:From:In-Reply-To:MIME-Version:Message-ID:References:Subject:Subject:To:To:Message-Id:Reply-To; 
-	bh=oyAmqc74tPeSqmdOneDeQhCxyrBsJsodvaoN1wzTpP0=; 
-	b=B4/PTzPW//F7DZ1zrNRhqvzwlB4lAH++tCSKPcmsx0G4SB7KFMxca6kvt3bT1L3fioj1+dDDBjA4ft5ruMwtxgj63ssSjQ+4nrgBFbbMIFx5PvKEExGF6Hc4yKPhoporIodJyPmBa5sRG+way0t+MGWUG2zbxu5/AQRpT9jNlds=
-ARC-Authentication-Results: i=1; mx.zohomail.com;
-	dkim=pass  header.i=collabora.com;
-	spf=pass  smtp.mailfrom=michael.riesch@collabora.com;
-	dmarc=pass header.from=<michael.riesch@collabora.com>
-DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed; t=1780480236;
-	s=zohomail; d=collabora.com; i=michael.riesch@collabora.com;
-	h=Message-ID:Date:Date:MIME-Version:Subject:Subject:To:To:Cc:Cc:References:From:From:In-Reply-To:Content-Type:Content-Transfer-Encoding:Message-Id:Reply-To;
-	bh=oyAmqc74tPeSqmdOneDeQhCxyrBsJsodvaoN1wzTpP0=;
-	b=M8bQZJTIvUTA95lVuo8E4jz5bFadZ5tELZLhHVsPRc8PsAn9uQzw4jyx2/H11jCv
-	JAKmCpYK3v0h5nzSpzLaob8pg5aAvYAUoWZwqZsCzW2Ruk/Frv4nsamb+aS124SB0sR
-	IVEVk9Yyv4F3/NVXtTBWtqalgajlkNjnAzumY6Bg=
-Received: by mx.zohomail.com with SMTPS id 1780480234850793.9722590953027;
-	Wed, 3 Jun 2026 02:50:34 -0700 (PDT)
-Message-ID: <a80c978f-65e8-436e-a3d6-74cf50b5ea6a@collabora.com>
-Date: Wed, 3 Jun 2026 11:50:31 +0200
+	id 1wUiIb-0000000EkiE-3tR9;
+	Wed, 03 Jun 2026 09:54:11 +0000
+Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
+	by sea.source.kernel.org (Postfix) with ESMTP id 7B6C543414;
+	Wed,  3 Jun 2026 09:54:09 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 38D101F00893;
+	Wed,  3 Jun 2026 09:54:07 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
+	s=k20260515; t=1780480449;
+	bh=9xCV/qxJqiKKp2PBwOK0nokY77A79DqJoh7VyY2kPoY=;
+	h=Date:From:To:Cc:Subject:References:In-Reply-To;
+	b=MM82qxf4iTqm031iiSIhaEh2ZzE5D12HodyvbRYuoARHXvhAV1vqkHt9X8WK+T0Sa
+	 VbjfBRB5mb42kftUPgIcQwJ6C3Zkd+BvWG/g+e1gEPXsFQ4Z6KkAdSy56i3a9akUoI
+	 TlYJiQKzI11nDSvlBJKgKL7OxUX0GtsHqFULQwWdsRZR83amm7MpW0dIxzKVg4uWBZ
+	 5Ifdj0KvFaHJF5RAagFxdhva1S1zf9W/ASqk+N3NVTyfnp/z0eKyS4SI8xlPw38G3r
+	 oJsx/BSrRJcgg8pEsFaLOGFt6Ds7x3Ao9cxixPAj+jXaePoZpg2BJAhEvQbmtQgYeS
+	 ydOs585LONqtg==
+Date: Wed, 3 Jun 2026 10:54:02 +0100
+From: Keith Busch <kbusch@kernel.org>
+To: Gui-Dong Han <hanguidong02@gmail.com>
+Cc: sven@kernel.org, linux-nvme@lists.infradead.org, axboe@kernel.dk,
+	hch@lst.de, sagi@grimberg.me, j@jannau.net, neal@gompa.dev,
+	asahi@lists.linux.dev, linux-kernel@vger.kernel.org,
+	linux-arm-kernel@lists.infradead.org, baijiaju1990@gmail.com
+Subject: Re: [PATCH] nvme-apple: Use acquire/release for queue enabled state
+Message-ID: <ah_5utfy2oJbUCw7@kbusch-mbp>
+References: <20260603072205.3291888-1-hanguidong02@gmail.com>
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH] media: rockchip: rkcif: Fix error handling for
- media_entity_remote_source_pad_unique()
-To: Chen Ni <nichen@iscas.ac.cn>, mehdi.djait@linux.intel.com
-Cc: mchehab@kernel.org, heiko@sntech.de, hverkuil+cisco@kernel.org,
- gerald.loacker@wolfvision.net, bryan.odonoghue@linaro.org,
- linux-media@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
- linux-rockchip@lists.infradead.org, linux-kernel@vger.kernel.org
-References: <20260522065548.2438545-1-nichen@iscas.ac.cn>
-Content-Language: en-US
-From: Michael Riesch <michael.riesch@collabora.com>
-In-Reply-To: <20260522065548.2438545-1-nichen@iscas.ac.cn>
-Content-Type: text/plain; charset=UTF-8
-Content-Transfer-Encoding: 7bit
-X-ZohoMailClient: External
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+In-Reply-To: <20260603072205.3291888-1-hanguidong02@gmail.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260603_025044_512695_3F5000A2 
-X-CRM114-Status: GOOD (  13.94  )
+X-CRM114-CacheID: sfid-20260603_025409_988556_2BA5BDB7 
+X-CRM114-Status: GOOD (  10.30  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -81,39 +72,21 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hi Chen,
-
-Thanks for the fix!
-
-On 5/22/26 08:55, Chen Ni wrote:
-> The media_entity_remote_source_pad_unique() function returns an error
-> pointer on failure, not NULL. Fix the check to use IS_ERR() and return
-> PTR_ERR() to correctly handle allocation failures.
+On Wed, Jun 03, 2026 at 03:22:05PM +0800, Gui-Dong Han wrote:
+> apple_nvme_init_queue() initializes queue state and then marks the queue
+> enabled. The interrupt and request paths check enabled before using that
+> queue state.
 > 
-> Fixes: 501802e2ad51 ("media: rockchip: rkcif: add abstraction for dma blocks")
-> Signed-off-by: Chen Ni <nichen@iscas.ac.cn>
-
-Reviewed-by: Michael Riesch <michael.riesch@collabora.com>
-
-Best regards,
-Michael
-
-> ---
->  drivers/media/platform/rockchip/rkcif/rkcif-stream.c | 2 +-
->  1 file changed, 1 insertion(+), 1 deletion(-)
+> The existing wmb() after WRITE_ONCE(enabled, true) orders the enabled
+> store before later queue use, but it does not publish the earlier
+> initialization before enabled becomes visible.
 > 
-> diff --git a/drivers/media/platform/rockchip/rkcif/rkcif-stream.c b/drivers/media/platform/rockchip/rkcif/rkcif-stream.c
-> index 3130d420ad55..542aa877919d 100644
-> --- a/drivers/media/platform/rockchip/rkcif/rkcif-stream.c
-> +++ b/drivers/media/platform/rockchip/rkcif/rkcif-stream.c
-> @@ -466,7 +466,7 @@ static int rkcif_stream_link_validate(struct media_link *link)
->  	struct rkcif_stream *stream = to_rkcif_stream(vdev);
->  	int ret = -EINVAL;
->  
-> -	if (!media_entity_remote_source_pad_unique(link->sink->entity))
-> +	if (IS_ERR(media_entity_remote_source_pad_unique(link->sink->entity)))
->  		return -ENOTCONN;
->  
->  	sd = media_entity_to_v4l2_subdev(link->source->entity);
+> Use a release store when enabling the queue and acquire loads when
+> testing it. Keep the existing wmb() in place for the
+> store-before-later-use ordering.
 
+Doesn't smp_store_release() already get you those semantics?
+
+Also, there are a few other places doing the READ/WRITE_ONCE() calls in
+apple_nvme_disable. Do you want to update those too for consistency?
 
