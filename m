@@ -4,62 +4,57 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 414ABCD6E56
-	for <linux-arm-kernel@archiver.kernel.org>; Wed,  3 Jun 2026 11:24:29 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 94A85CD6E4A
+	for <linux-arm-kernel@archiver.kernel.org>; Wed,  3 Jun 2026 11:24:55 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:
-	Content-Transfer-Encoding:Content-Type:MIME-Version:References:Message-ID:
-	Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=G5bfBija3hKjOioAnk8QC657O/TcCbqFHBfv3XYBPyE=; b=QmuO8wi2vFOGBPOop4nVFtSNaG
-	sz9EN69vfozY52/r8kWTQ2vvYNDP/gMfgHGYs90kC7lTz8OMC6FxrsVXQlWv4kxzI9zxmuIVzikZb
-	FgUl9CJWYnG7cM/XrAFF0eTwz5jRYe1xtE1oMvZwGvoeQjUVwKIZ8aBvCDPA6amoNBzfEwaU1a53Q
-	5sI77rn2iamnSVLvNNX2uWLOr9OxExnIBuvABvW/bdwjN/+obKPX9lycjuo3eNTwbWU2fiJP73CJH
-	02iUNxYpDYV+Rmu8/FRuwZK24d44YViPb462hd3dHKfy/EJV4OQm691t1WxXbO2zdgHB9tkK1Wliy
-	tJ00YjIg==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:MIME-Version:References:In-Reply-To:Message-ID:Subject:Cc:From:
+	To:Date:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=P45qutj83EPuBcxc7lV8YTtEi6GE80sIlzmJ+HSce+I=; b=B8UddY/Ut0yoF61Ab64IfcrRRE
+	Ejn87RYs0YVUugQOsetNm5ap8umWEYxTns/PtQy2Zf8tDj+8NfC8ayFLqVX3S/mDx7jQp+/31zHD2
+	HxtkV0/zwV7n+rAzaVQ2Fd5AGrKEJbXujsd4cNPj3lyk7miKKRF/OCmYa5qncDVC4tybFPNp2P+g3
+	LidTMWEr5vXrnfRj4naANto3VydBtqIikTdJO4OYRG5cTOIRKwEPSlI1Tlpu5NuSh0uqQI9NP1Zx0
+	g9ZfnlV2D3vmE3umFyI3cCidjcpUFCwZqaooVQ6dllLw8xS8rdVI+KmzneneNZyCV+sIEvf1UqvOM
+	GP55WPtw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wUjhv-0000000Evte-1Vnb;
-	Wed, 03 Jun 2026 11:24:23 +0000
-Received: from sea.source.kernel.org ([172.234.252.31])
+	id 1wUjiL-0000000EvyV-27OE;
+	Wed, 03 Jun 2026 11:24:49 +0000
+Received: from mail-24429.protonmail.ch ([109.224.244.29])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wUjhs-0000000Evt7-0bu7
+	id 1wUjiI-0000000Evwu-2ArY
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 03 Jun 2026 11:24:21 +0000
-Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
-	by sea.source.kernel.org (Postfix) with ESMTP id 5438840E34;
-	Wed,  3 Jun 2026 11:24:19 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id EAF681F00893;
-	Wed,  3 Jun 2026 11:24:17 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1780485859;
-	bh=G5bfBija3hKjOioAnk8QC657O/TcCbqFHBfv3XYBPyE=;
-	h=Date:From:To:Cc:Subject:References:In-Reply-To;
-	b=MeTSKMWubRAF6yVG5TeZRsMc54tCBAPOXobfdjvzvoYBYZbrF25y6d/BVMTKH6JxC
-	 pI11YuqecERKVrbf2hfHNai8NfY6AHyz9Zs4H3unSj/4by40l3YRdyQ+VdQcMKlZc2
-	 feIk/k5bpRJt6eS8lFo5YQkUB9N7g5xIvoh2AuV0lP9z4tDMQvF8FlFnuipjWg13OE
-	 Zz5PqX2onjoRIR/wkkJVBB5dXTtrWqbRuOp0NzypPLqCUEHwInsHc+AaRklFE6Lgc6
-	 9XHWqbAS8nkl4Lpbui+VfaqP82+8yogXcfdXsQb+i3CyPzdqmFfG2XSd9aZgrHUJZk
-	 1uQv2L3g1BWdg==
-Date: Wed, 3 Jun 2026 12:24:15 +0100
-From: Will Deacon <will@kernel.org>
-To: cki-project@redhat.com
-Cc: linux-arm-kernel@lists.infradead.org, yoyang@redhat.com,
-	ftjahjad@redhat.com, catalin.marinas@arm.com, bgoncalv@redhat.com
-Subject: Re: =?utf-8?B?4p2MIEZBSUwgKE1JU1NFRCAyIG9m?=
- =?utf-8?Q?_56=29=3A_Test_repor?= =?utf-8?Q?t?= for for-kernelci (7.1.0-rc6,
- upstream-arm-next, e8a95b97)
-Message-ID: <aiAO37JSEGED5P38@willie-the-truck>
-References: <09110.126060304320900870@us-mta-618.us.mimecast.lan>
+	Wed, 03 Jun 2026 11:24:47 +0000
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=protonmail.com;
+	s=protonmail3; t=1780485882; x=1780745082;
+	bh=P45qutj83EPuBcxc7lV8YTtEi6GE80sIlzmJ+HSce+I=;
+	h=Date:To:From:Cc:Subject:Message-ID:In-Reply-To:References:
+	 Feedback-ID:From:To:Cc:Date:Subject:Reply-To:Feedback-ID:
+	 Message-ID:BIMI-Selector;
+	b=MRpgLKYK4k+5y4H94xvCl6mldixarjou5AVOOKQYEqmpdAnG+mmwrV7krO1EWADHv
+	 aIWlAxRZZkhxKlNzNIp8edSNuRtsGBAMb8BQ/V4mwEUjIc5rp7M4567lNK2PMvInP4
+	 6TnQ/n4H15vzo/wjeOXPTbphLcVQyf0rUIwCEFYOx53sKXri9+aEPkiKnG+ujwAxHx
+	 VDQLLeqI+1ZU/lRanp1vRHwQxSENibnLBQLKaKPmvSFXqOdUfSY86KDTPvwQHvVTG3
+	 8UzWb8SQ54cbR9n6k0nOWhrEsmn9dUNCCx8j/skIdpm4LaAnk08ID8F4b9p+kJ+1zd
+	 QwGCJc5ywhPvQ==
+Date: Wed, 03 Jun 2026 11:24:37 +0000
+To: =?utf-8?Q?Nuno_S=C3=A1?= <noname.nuno@gmail.com>
+From: Roman Vivchar <rva333@protonmail.com>
+Cc: Jonathan Cameron <jic23@kernel.org>, David Lechner <dlechner@baylibre.com>, =?utf-8?Q?Nuno_S=C3=A1?= <nuno.sa@analog.com>, Andy Shevchenko <andy@kernel.org>, Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>, Conor Dooley <conor+dt@kernel.org>, Matthias Brugger <matthias.bgg@gmail.com>, AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>, Lee Jones <lee@kernel.org>, linux-iio@vger.kernel.org, devicetree@vger.kernel.org, linux-kernel@vger.kernel.org, linux-arm-kernel@lists.infradead.org, linux-mediatek@lists.infradead.org, Ben Grisdale <bengris32@protonmail.ch>
+Subject: Re: [PATCH 2/4] iio: adc: mt6323-auxadc: add mt6323 PMIC AUXADC driver
+Message-ID: <RRvh9UBBrqdfKoCLaqgfcQ06UY-BSM2hQ0F6F1YkdB2k2RXYMQmlCG4phXk72oGY03t1g1kDI4z-SDeKlYkUv84-AjNLaWK7tDQlpEFQVKk=@protonmail.com>
+In-Reply-To: <2df4cad5e29fbcb4c5c5f59ea0bf322c7a301bdc.camel@gmail.com>
+References: <20260602-mt6323-adc-v1-0-68ec737508ee@protonmail.com> <20260602-mt6323-adc-v1-2-68ec737508ee@protonmail.com> <2df4cad5e29fbcb4c5c5f59ea0bf322c7a301bdc.camel@gmail.com>
+Feedback-ID: 173184497:user:proton
+X-Pm-Message-ID: 23b503d43eacd82716b8210413e6edddc9faa175
 MIME-Version: 1.0
 Content-Type: text/plain; charset=utf-8
-Content-Disposition: inline
-Content-Transfer-Encoding: 8bit
-In-Reply-To: <09110.126060304320900870@us-mta-618.us.mimecast.lan>
+Content-Transfer-Encoding: quoted-printable
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260603_042420_202819_8DA1F761 
-X-CRM114-Status: GOOD (  11.76  )
+X-CRM114-CacheID: sfid-20260603_042446_727007_13BF05C3 
+X-CRM114-Status: GOOD (  14.40  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -74,49 +69,88 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Wed, Jun 03, 2026 at 08:32:05AM -0000, cki-project@redhat.com wrote:
-> Hi, we tested your kernel and here are the results:
-> 
->     Overall result: FAILED
->              Merge: OK
->            Compile: OK
->               Test: FAILED
-> 
-> 
-> Kernel information:
->     Commit message: Merge branch 'for-next/core' into for-kernelci
-> 
-> You can find all the details about the test run at
->     https://datawarehouse.cki-project.org/kcidb/checkouts/redhat:2571596185
-> 
-> One or more kernel tests failed:
->     Unrecognized or new issues:
->         Boot test
->              aarch64
->                    Logs: https://datawarehouse.cki-project.org/kcidb/tests/redhat:2571596185_aarch64_kernel_kcidb_tool_21399931_6
->                    Non-passing ran subtests:
->                        ❌ FAIL distribution/kpkginstall/journalctl-check
+Hi Nuno,
 
-There's a WARN_ON() in dmesg which looks like it could be due to Ard's
-changes.
+On Tuesday, June 2nd, 2026 at 7:42 PM, Nuno S=C3=A1 <noname.nuno@gmail.com>=
+ wrote:
 
->         xfstests - btrfs
->              aarch64
->                    Logs: https://datawarehouse.cki-project.org/kcidb/tests/redhat:2571596185_aarch64_kernel_kcidb_tool_21398598_9
->                    Non-passing ran subtests:
->                        ❌ FAIL generic/001
->                        ❌ FAIL generic/004
->                        ❌ FAIL generic/005
+> On Tue, 2026-06-02 at 15:46 +0300, Roman Vivchar via B4 Relay wrote:
 
-[...]
+...
 
-but these look like a possible infra issue?
+> >
+> > +MEDIATEK MT6323 PMIC AUXADC DRIVER
+> > +M:=09Roman Vivchar <rva333@protonmail.com>
+> > +L:=09linux-iio@vger.kernel.org
+> > +L:=09linux-mediatek@lists.infradead.org (moderated for non-subscribers=
+)
+> > +S:=09Maintained
+> > +F:=09drivers/iio/adc/mt6323-auxadc.c
+> > +F:=09include/dt-bindings/iio/adc/mediatek,mt6323-auxadc.h
+>
+> The above file was not added in this patch
 
-ERROR: /dev/vda5 appears to contain an existing filesystem (type=xfs)
-ERROR: use the -f option to force overwrite of /dev/vda5
-check: failed to mkfs $SCRATCH_DEV using specified options
-Interrupted!
-Passed all 0 tests
+The header file is added in patch 1 (dt-bindings). Following Krzysztof's
+feedback on the previous version, I squashed the MAINTAINERS into this patc=
+h.
+Please let me know if I misunderstood anything.
 
-Will
+...
+
+> > +=09MTK_PMIC_IIO_CHAN(accdet,    MT6323_AUXADC_ACCDET,    MT6323_AUXADC=
+_ADC7,
+> > IIO_VOLTAGE),
+> > +};
+>
+> All of the above are IIO_VOLTAGE. Just remove _ch_type then.
+
+Ack.
+
+> > +
+> > +/**
+> > + * struct mt6323_auxadc - Main driver structure
+> > + * @regmap:        Regmap from PWRAP
+> > + * @lock:          Mutex to serialize AUXADC reading vs configuration
+> > + *
+> > + * The MediaTek MT6323 (as well as a lot of other PMICs) has the follo=
+wing
+> > hierarchy:
+> > + * PMIC AUXADC <- PMIC MFD <- SoC PWRAP (wrapper for PWRAP FSM)
+> > + *
+> > + * Therefore, PWRAP regmap should be obtained using dev->parent->paren=
+t.
+> > + */
+>
+> The above kerneldoc seems unnecessary to me.
+
+Ack.
+
+...
+
+> > +=09case IIO_CHAN_INFO_RAW:
+> > +=09=09scoped_guard(mutex, &auxadc->lock) {
+> > +=09=09=09ret =3D mt6323_auxadc_prepare_channel(auxadc);
+> > +=09=09=09if (ret)
+> > +=09=09=09=09return ret;
+> > +
+> > +=09=09=09ret =3D mt6323_auxadc_request(auxadc, chan->channel);
+> > +=09=09=09if (ret)
+> > +=09=09=09=09return ret;
+> > +
+> > +=09=09=09/* Hardware limitation: the AUXADC needs a delay to become
+> > ready. */
+> > +=09=09=09fsleep(300);
+> > +
+> > +=09=09=09ret =3D mt6323_auxadc_read(auxadc, chan, val);
+> > +=09=09=09if (ret)
+> > +=09=09=09=09return ret;
+>
+> Could be return mt6323_auxadc_read(...)
+
+The mt6323_auxadc_read returns 0, while IIO expects IIO_VAL_INT (defined as=
+ 1).
+Should the mt6323_auxadc_read function return 1 for success?
+
+Best regards,
+Roman
 
