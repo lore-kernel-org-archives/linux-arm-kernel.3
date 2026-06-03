@@ -4,155 +4,74 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 7C0A5CD6E55
-	for <linux-arm-kernel@archiver.kernel.org>; Wed,  3 Jun 2026 06:22:50 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 97B94CD6E69
+	for <linux-arm-kernel@archiver.kernel.org>; Wed,  3 Jun 2026 06:38:53 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:Content-Type:
-	Content-Transfer-Encoding:References:In-Reply-To:Message-Id:Date:Subject:Cc:
-	To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:In-Reply-To:From:References:CC:To:Subject:MIME-Version:Date:
+	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=+pmLHNVQTwRhPPgDGD4+ceJg/sD4Ow1EkhP8RZ0rvm0=; b=rNoxsxqEsUABnj9fhlQ6OLLc6n
-	QhH9CHZjuX+eBFOi/6xs5UnOBIoA1+fU2Cw6r0E6L6Q+yQBc7E8I5xzKJHy9sszF1BEMJbywIFZZg
-	J24r1ASw7hv2TjENmjKaRV1hIdsr9864x6D84EB2NDa4ydBDovgSbucekNgRwLYVBZ2sAn8tVdAHi
-	ieQUa4d8t+HQpSolm7VNY7G5rjf+VsSAFoVszIm6piWhlW4acH51m5LMVYc6503fA7PGrifwuTs+d
-	H8sWw833FW+eDP5cETg69UT1aeTgrsC2yrAIrVVLASlIZZgziQa9E0/H2rlOivFsVm4gPQT6vChnQ
-	a25WEpww==;
+	bh=4Oj3xlhd91tMPareGsz8kkrFDyhyuA01Er8yZMiuEgw=; b=S2JykM4x7M6Yn5VtC3KNsjxF+C
+	RR+sw8OThqJVlw/5w7ikHfgpRM3iF/eoc6i+Q53oWLrfUYQnyXTqIS9aic3QDa8LBxn8kjGKrl564
+	sfd3xOMb24H/ASWMl7X6mMjvciuf10F36omCDI+JABEsJafaa0SN5/AOIW7NVBVrl3ie9kl01M53s
+	ywUJbEUoO3zL5QJ5udClfhUfKkuJHGCyDCuJhx+LtCWwqrWXAN9qbU0Fqa7bcMdgjAn3+z+Q+s3R3
+	FbXWgmLSQn/RbbEjB5EVMalCE4SDpYiI8K1epNtx4gTtntlbzDcZYCzIW5UL+zpBXute8GXJPvK+6
+	dVDDnByQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wUezw-0000000ENfs-1ah6;
-	Wed, 03 Jun 2026 06:22:40 +0000
-Received: from desiato.infradead.org ([2001:8b0:10b:1:d65d:64ff:fe57:4e05])
+	id 1wUfFV-0000000EObs-12Jo;
+	Wed, 03 Jun 2026 06:38:45 +0000
+Received: from canpmsgout07.his.huawei.com ([113.46.200.222])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wUezu-0000000ENf1-1vPh
-	for linux-arm-kernel@bombadil.infradead.org;
-	Wed, 03 Jun 2026 06:22:38 +0000
-DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=infradead.org; s=desiato.20200630; h=MIME-Version:Content-Type:
-	Content-Transfer-Encoding:References:In-Reply-To:Message-Id:Date:Subject:Cc:
-	To:From:Sender:Reply-To:Content-ID:Content-Description;
-	bh=+pmLHNVQTwRhPPgDGD4+ceJg/sD4Ow1EkhP8RZ0rvm0=; b=ZeEQD5t2xzIQzfgtPD/Zfyy9RL
-	ES/RSW0wlXAeYu7pyP/o4ETqkO12XyWv14hWInpdP9gGUSgZNlJ/5JBSeaP+PrTJPXR8ykJwVM68K
-	0UKywj79qHBziR/caP5zDswmbogfUO5c8DTUSZqt9fW4yPgkJ6WbEcppaiK0IFJGTwTefp4VOHadE
-	KlDv3MiV+H1dyQpoZ+ctky9hKHdyQowXf1QH494sKpsU0aFR7zZUESiPmXcZesuDoEeMR3qo1FhT8
-	O7WRwfOkgm6iXdYyqVMvLSdebn7Nu7rMqxqJvZNB0cfXmNy5le1DSwwpJxGy0jvre8FFlxVfzKdwE
-	bqbiudFg==;
-Received: from mail-francesouthazon11011040.outbound.protection.outlook.com ([40.107.130.40] helo=MRWPR03CU001.outbound.protection.outlook.com)
-	by desiato.infradead.org with esmtps (Exim 4.99.2 #2 (Red Hat Linux))
-	id 1wUezr-0000000BGdb-1guT
+	id 1wUfFQ-0000000EObF-1ytv
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 03 Jun 2026 06:22:37 +0000
-ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
- b=elk1vXHnFrUHZhMPsEkAcX7H8zvnBosO0RjxQU7SOZrHNgclLi4+xRc9x54LrHDhgWdEP0sFANZFW/2SRSOfqa1KvScR4Uumy8hZh2IGq8Hv5hUEACCBJGhaflcXxqDHzAl2RkVqlYL+3WMqxj33Bmg7EQ52d0ntAoNqCSwGxuMIIrLzW9wAxIJeZ/UpGSzHNQCswvmpfyGr9fQVx8ClQxS72w2yBqLvgQPJ2zAhfcuxt+zALVCzqpvUNZ1SaKxNFo06lEo1MYRZZmnoqkvfHX9P/7qsMVvyBrDvuVdP9SzLoDxrF7O/+QRRiOj/0qHzYjZ87w8148JMyLvbqdjyZQ==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
- s=arcselector10001;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
- bh=+pmLHNVQTwRhPPgDGD4+ceJg/sD4Ow1EkhP8RZ0rvm0=;
- b=Q3rVkYSiF9ZUhjSs7wa8Ui/OJb2siP4LSKPP+yKlvTyFovZby+/1biMiAm41DhlwZm14UuWs9OSU1FepB9N2l1Rz74J30OAG9H9vqLkuGehPFuVREJdZMiwGfF5nlENlix+VQHh9n0TLrCplgLdh5vmYa2JhcwVXmr7vMD4UJLhZt1vMTcFViGCyMd6UzPGifX05U3ExZ5iXdO9NBWxA4CWUdtAKpWdjPzOFWOm9OnfPR6f5Fpm+BQkFl3YNiHnYivV5KU8SwdE+FigEeB3HF971LB848qOzVXc3VBl/5qK3BpGaqDzt+fT4GP5UqjUN4tTuWky1hOfEmCrxztCehw==
-ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
- smtp.mailfrom=oss.nxp.com; dmarc=pass action=none header.from=oss.nxp.com;
- dkim=pass header.d=oss.nxp.com; arc=none
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=NXP1.onmicrosoft.com;
- s=selector1-NXP1-onmicrosoft-com;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
- bh=+pmLHNVQTwRhPPgDGD4+ceJg/sD4Ow1EkhP8RZ0rvm0=;
- b=c47QqiTCknA49L0EayB9pfdgP5zV1+C4CzzH5gZmiZPR6VpixjgKlXaqmGRrTlk2go62ZlrERl4q6wEC5ghOolVw78wwAGob9RkHjrB1rGEQtK6Sex23xtikAScbww/M8jcxVV7xel2gt+msQw1NP8Bok84iN2OA+4K8UG6UxiwguvP26hU68zq9Qpm8ky4+bQagjaLG4GUOtYeFyQA2G7p/fDcXWlHBeJzMvNT31XUSPAcivjgUxqAWo1umUNJ6rLrTvSWcndWZhZA5sQL1bqU3CAX0bHSPCQb8WJlf3W3JNe6upDOC7YiAQtb4TGINnZQJPw+9nbxWysuouOetpg==
-Authentication-Results: dkim=none (message not signed)
- header.d=none;dmarc=none action=none header.from=oss.nxp.com;
-Received: from PAXPR04MB8096.eurprd04.prod.outlook.com (2603:10a6:102:1c7::19)
- by PA2PR04MB10311.eurprd04.prod.outlook.com (2603:10a6:102:413::6) with
- Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.21.92.7; Wed, 3 Jun 2026
- 06:22:30 +0000
-Received: from PAXPR04MB8096.eurprd04.prod.outlook.com
- ([fe80::68be:f721:5000:3f2d]) by PAXPR04MB8096.eurprd04.prod.outlook.com
- ([fe80::68be:f721:5000:3f2d%6]) with mapi id 15.21.0092.006; Wed, 3 Jun 2026
- 06:22:30 +0000
-From: hongxing.zhu@oss.nxp.com
-To: robh@kernel.org,
-	krzk+dt@kernel.org,
-	conor+dt@kernel.org,
-	bhelgaas@google.com,
-	frank.li@nxp.com,
-	l.stach@pengutronix.de,
-	lpieralisi@kernel.org,
-	kwilczynski@kernel.org,
-	mani@kernel.org,
-	s.hauer@pengutronix.de,
-	kernel@pengutronix.de,
-	festevam@gmail.com
-Cc: linux-pci@vger.kernel.org,
-	linux-arm-kernel@lists.infradead.org,
-	devicetree@vger.kernel.org,
-	imx@lists.linux.dev,
-	linux-kernel@vger.kernel.org,
-	Richard Zhu <hongxing.zhu@nxp.com>
-Subject: [PATCH v6 2/3] arm64: dts: imx95: Add dma, intr, aer and pme interrupts for PCIe
-Date: Wed,  3 Jun 2026 14:25:09 +0800
-Message-Id: <20260603062510.3767610-3-hongxing.zhu@oss.nxp.com>
-X-Mailer: git-send-email 2.34.1
-In-Reply-To: <20260603062510.3767610-1-hongxing.zhu@oss.nxp.com>
-References: <20260603062510.3767610-1-hongxing.zhu@oss.nxp.com>
-Content-Transfer-Encoding: 8bit
-Content-Type: text/plain
-X-ClientProxiedBy: MAXP287CA0014.INDP287.PROD.OUTLOOK.COM
- (2603:1096:a00:49::25) To PAXPR04MB8096.eurprd04.prod.outlook.com
- (2603:10a6:102:1c7::19)
+	Wed, 03 Jun 2026 06:38:43 +0000
+dkim-signature: v=1; a=rsa-sha256; d=huawei.com; s=dkim;
+	c=relaxed/relaxed; q=dns/txt;
+	h=From;
+	bh=4Oj3xlhd91tMPareGsz8kkrFDyhyuA01Er8yZMiuEgw=;
+	b=yJOcOWb8eN8UcDUd6xEp3vNqiX3pvYpSyHflhdOMNAKQL8p4DCMYkGHqQ00BAfGjqAJXn8Mes
+	rCu8DPQip9P9c0d9mNgq9Ongzlzo+3PfRrR8DMpRaMU3NRH5qZputFwvO9lXTis5BSS5PQOPeks
+	M4C5wzulmhXepHgvJYcZbrw=
+Received: from mail.maildlp.com (unknown [172.19.162.92])
+	by canpmsgout07.his.huawei.com (SkyGuard) with ESMTPS id 4gVd9g1hJPzLlYQ;
+	Wed,  3 Jun 2026 14:30:31 +0800 (CST)
+Received: from dggpemf500011.china.huawei.com (unknown [7.185.36.131])
+	by mail.maildlp.com (Postfix) with ESMTPS id B30FF40570;
+	Wed,  3 Jun 2026 14:38:20 +0800 (CST)
+Received: from [10.67.109.254] (10.67.109.254) by
+ dggpemf500011.china.huawei.com (7.185.36.131) with Microsoft SMTP Server
+ (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
+ 15.2.1544.11; Wed, 3 Jun 2026 14:38:11 +0800
+Message-ID: <02932ef7-5819-4cf5-8e78-8fd3fd40274f@huawei.com>
+Date: Wed, 3 Jun 2026 14:38:11 +0800
 MIME-Version: 1.0
-X-MS-PublicTrafficType: Email
-X-MS-TrafficTypeDiagnostic: PAXPR04MB8096:EE_|PA2PR04MB10311:EE_
-X-MS-Office365-Filtering-Correlation-Id: 98ff97e6-b32f-481a-3303-08dec1387d4c
-X-MS-Exchange-SenderADCheck: 1
-X-MS-Exchange-AntiSpam-Relay: 0
-X-Microsoft-Antispam: BCL:0;ARA:13230040|1800799024|366016|19092799006|376014|7416014|921020|6133799003|18002099003|22082099003|56012099006|11063799006;
-X-Microsoft-Antispam-Message-Info: 3mh4T0gQB29ofE9RkXLYszWeJpC73++jOwbPH8nwVr/Vjd9TwWIbkZNchuc4s00Ok+0e7kSonfmXCPjbOVakoG37lLSNi7qDM8nF6FjIhelWWm1wmwgaNfmYIK3zFMqwWwZYAiHtWBAO3GT3Enhm6odZ8RhaMDX/9ASotmsJXFa3rbxJrSIWXcRovCJw1E3lIE5F1qsJQOhzS913dgH4MPVC0iD2P0S2m8FD+FAkyXOH/2T0JICGdCMuAGDiYohLPaAFU7zzohwf6++l2sylI5xWSiOsagvTTdsozr1ivycZB3Wz3xiH1I11AYJnvWIWtV6pbedn8PfMh/HNdSchuw3hedXIQJYp2qGuPGDv2C8PWcRsJ/a2LE/gu3fS/Ke0FHV+0Kp1oD8YjBtQcTAGi2EUQFuxL0Q2sIl9ualTC69//epCRyT1/E6YD+DbJAaXLX88hmFtIOHzuikwi2PPEyxZdjxX3U75uufYutpVTf4Dvm4reNyplNRNCuQMMfre7CMbwb2aifwDpySjpy1msvACBRwy0BzQIw9+HlY3tGzWNYIMdiZMuFS1PG5MwD8aD3a/dco9QNbAVrnvGgcaGTk8cssCj9hSUMZUD8C/77kjldx74olFg0H1oXCYIqMmoOOVvJbi+I3vH16hcNyCySo7tfQhTblZbV8EOWz83oxORvof4H9IncP5GpX4PMMbKMhLhHRdhazOHxrskG8iCFgM+OBXh8vDQz0/4CjFkdE=
-X-Forefront-Antispam-Report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:PAXPR04MB8096.eurprd04.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(1800799024)(366016)(19092799006)(376014)(7416014)(921020)(6133799003)(18002099003)(22082099003)(56012099006)(11063799006);DIR:OUT;SFP:1101;
-X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
-X-MS-Exchange-AntiSpam-MessageData-0: =?us-ascii?Q?DfX0c3iNj1q5F4Pi3cz458pH7kNZhLeM3L1RftGtc1neLvxtWEWvmQiSNiJP?=
- =?us-ascii?Q?42tgJ+pbC6HS0bsq9cC9tFchLQu+NQ9RCMbdLHSUnIaUYa9/g+Q0uHb1P80H?=
- =?us-ascii?Q?6dhV8qNt/yk31pLw79Iyp6mEegBvUBBQMYbEmrmD9oiRcyY8cDCO35W4javq?=
- =?us-ascii?Q?tNBmlW857AuxzdzBKPTNUGFXejfcRmDaZ+DPjx5FjFRUDUwfAmVf6PwwpAO4?=
- =?us-ascii?Q?TYBMT3copXJIddB3sJ2sEYkdAvFLt7ty+lMewD/tY1esMy0s4xoDfaMcBqC1?=
- =?us-ascii?Q?znZO2m/hBx0hWroXZUz2YOuGHlclszRasiBR2N7ywVyQZJbL1sT/0+2+x0vR?=
- =?us-ascii?Q?QkbE431mKNcRtQn2fCh95cxTYp67D73RRLd1genKH9KQTutmajMXaQxUS3l4?=
- =?us-ascii?Q?qnhEjjR67+Ce7uLX76yt5OXVw37gUX7R6Lg3KWlbedqmHHa/sbhRTHAjbr5v?=
- =?us-ascii?Q?n9PetH8HzvhW1lmkXd4ihuzm+jTNNWzwM0NiWihoWU/TGY0nt6SheAyJ8enN?=
- =?us-ascii?Q?d0vrqtu0dyBF4GnshjHn1DvglF/e+2lJqfnfOtAYqc2weCk4XWr0ueha9cVh?=
- =?us-ascii?Q?KY1guEFjQPS8JtHdfxUdW9p03L68R0j3G2LYCGi2IM7O7qz6/1G5bAyJL1TI?=
- =?us-ascii?Q?7a+ray/cWJ1ygP0PtAjgdTgQ0eYoNvpST/5LvLl74Oh5mYPoXNN9xdhObG2+?=
- =?us-ascii?Q?+On8r8fHOz9b5hrdJ7KADs62xAx+ZxkesVgpbkkjr/TMfoWYqtD6IyMN9feE?=
- =?us-ascii?Q?ROEHH0o+AMjabafJwHns2O4cf2Bn+lvp7wb8nmgKruIUOVyVKi2zzR4kviET?=
- =?us-ascii?Q?t7D75tgUuwToQywQpu7UDK7wl9zBtvGOts5GE+Ma+JbwAYjbxfVuZtCoRH5g?=
- =?us-ascii?Q?/UO2gooy+4OID1HioBRLAo2P96xjmGqpO8bSY5x7ljQi3E4VPqBPkyCRX7dJ?=
- =?us-ascii?Q?OPQ/RxoHRDthLkx9f0nLA6Q/neN/FiLjoZUlJpx53okIwLxXzH9t06jfE50o?=
- =?us-ascii?Q?X5O2uYFdLbhD4nyipCuNmrrJfgZuYdSUJlrNkMoCIkTCBhuoUipPtrwNn5eQ?=
- =?us-ascii?Q?KtXZFmCyBIBP4zasZzAMpifqtH6bQfCbFaICdwYf7gDGQqb9Cx0C+R+cJuaR?=
- =?us-ascii?Q?axItAPSRrS7a0rQXY2DtbN2msSPsUu0mkCND9uLeDp21JcugV3zHY6SbkMzv?=
- =?us-ascii?Q?xi+9eToL69sX7t49RzefBSf9QJVyWMs6Mxv+m/kLrmVRw+jwRgOUgf4p12G5?=
- =?us-ascii?Q?DQL3+jUzNNyuyVbfdanWpsfHTQxnYf08t7zmTIi3xWsAt6SmYWP9vbx4/fWq?=
- =?us-ascii?Q?o6djVyc3LN7kl4Hh6E9WHG+4hJ8uwfxvk0+j2eP+F7awh4+3ikUr5+ito1ZN?=
- =?us-ascii?Q?qTr2uAZN+ZmLXi8OkEgfxg1rpdg7uAn5YqPMVw9e4fmgsN831UBRLaaYwZGx?=
- =?us-ascii?Q?7TqqEMIvNe1F4nwIJ1FM0zWuye9tooCeDDnPMs9c9g8Y8WNdwZxiMxKHfG3I?=
- =?us-ascii?Q?adKWOrceB7vQjmMaNd58ldgl6cWUogF7cGrWiyEjQkxnZzdR41X+34M29U7D?=
- =?us-ascii?Q?6XallMkKzTJIdpp5Qca3ChpCw715J7WJeXIk8OVS8xou6YInwvonSLcdli8A?=
- =?us-ascii?Q?QlAd+xb17rq1GklS9QMXA9nVA6uwS1WfIohfvKXqy2tD3P/B9XxEzSxHsqEW?=
- =?us-ascii?Q?teJydsX4Az6MDzkjm4PX7tpNQVlAlpYBV5OFAsXby3+qK4hP7+kghOL2aacR?=
- =?us-ascii?Q?qYRXG4y8MiD3dHEBRZJ4dIln0S2KPot++O2F4JeZB3l7/KOhLY53?=
-X-OriginatorOrg: oss.nxp.com
-X-MS-Exchange-CrossTenant-Network-Message-Id: 98ff97e6-b32f-481a-3303-08dec1387d4c
-X-MS-Exchange-CrossTenant-AuthSource: PAXPR04MB8096.eurprd04.prod.outlook.com
-X-MS-Exchange-CrossTenant-AuthAs: Internal
-X-MS-Exchange-CrossTenant-OriginalArrivalTime: 03 Jun 2026 06:22:29.9918
- (UTC)
-X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
-X-MS-Exchange-CrossTenant-Id: 686ea1d3-bc2b-4c6f-a92c-d99c5c301635
-X-MS-Exchange-CrossTenant-MailboxType: HOSTED
-X-MS-Exchange-CrossTenant-UserPrincipalName: q3O+k6+R+f5ZxnTecGgnCDmbrWzPbPfmJxCK82IUrcGvuVk+SMyP3ibrhIs99RYuARmLu+0eNxobPttmf+nvh6d5lKpb3aF62wKS8ncgRDS4QZaxMPWwA4t2y08UeUOK
-X-MS-Exchange-Transport-CrossTenantHeadersStamped: PA2PR04MB10311
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH v3] cpu/hotplug: Fix NULL kobject warning in
+ cpuhp_smt_enable()
+To: Will Deacon <will@kernel.org>
+CC: <catalin.marinas@arm.com>, <corbet@lwn.net>, <skhan@linuxfoundation.org>,
+	<punit.agrawal@oss.qualcomm.com>, <jic23@kernel.org>,
+	<osama.abdelkader@gmail.com>, <chenl311@chinatelecom.cn>,
+	<fengchengwen@huawei.com>, <suzuki.poulose@arm.com>, <maz@kernel.org>,
+	<lpieralisi@kernel.org>, <timothy.hayes@arm.com>, <sascha.bischoff@arm.com>,
+	<arnd@arndb.de>, <mrigendra.chaubey@gmail.com>, <pierre.gondois@arm.com>,
+	<dietmar.eggemann@arm.com>, <yangyicong@hisilicon.com>,
+	<sudeep.holla@kernel.org>, <linux-arm-kernel@lists.infradead.org>,
+	<linux-doc@vger.kernel.org>, <linux-kernel@vger.kernel.org>
+References: <20260520022023.126670-1-ruanjinjie@huawei.com>
+ <ah65zXlOH6a9geD9@willie-the-truck>
+From: Jinjie Ruan <ruanjinjie@huawei.com>
+In-Reply-To: <ah65zXlOH6a9geD9@willie-the-truck>
+Content-Type: text/plain; charset="UTF-8"
+Content-Transfer-Encoding: 7bit
+X-Originating-IP: [10.67.109.254]
+X-ClientProxiedBy: kwepems500002.china.huawei.com (7.221.188.17) To
+ dggpemf500011.china.huawei.com (7.185.36.131)
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260603_072235_556562_99C8A814 
-X-CRM114-Status: UNSURE (   9.90  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20260602_233841_183626_B037B42A 
+X-CRM114-Status: GOOD (  22.83  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -167,61 +86,183 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-From: Richard Zhu <hongxing.zhu@nxp.com>
 
-The current PCIe device tree configuration only defines the MSI
-interrupt, which is sufficient for basic PCIe operation but limits
-advanced functionality.
 
-Add the following interrupt lines to pcie0 and pcie1 nodes:
-- dma: DMA interrupt for PCIe DMA operations
-- intr: General controller events and link state changes
-- aer: Advanced Error Reporting interrupt
-- pme: Power Management Event interrupt
+On 6/2/2026 7:09 PM, Will Deacon wrote:
+> On Wed, May 20, 2026 at 10:20:23AM +0800, Jinjie Ruan wrote:
+>> On arm64, when booting with `maxcpus` greater than the number of present
+>> CPUs (e.g., QEMU -smp cpus=4,maxcpus=8), some CPUs are marked as 'present'
+>> but have not yet been registered via register_cpu(). Consequently,
+>> the per-cpu device objects for these CPUs are not yet initialized.
+>>
+>> In cpuhp_smt_enable(), the code iterates over all present CPUs. Calling
+>> _cpu_up() for these unregistered CPUs eventually leads to
+>> sysfs_create_group() being called with a NULL kobject (or a kobject
+>> without a directory), triggering the following warning in
+>> fs/sysfs/group.c:
+>>
+>> 	if (WARN_ON(!kobj || (!update && !kobj->sd)))
+>> 		return -EINVAL;
+>>
+>> When booting with ACPI, arm64 smp_prepare_cpus() currently sets all
+>> enumerated CPUs as "present" regardless of their status in the MADT. This
+>> causes issues with SMT hotplug control. For instance, with QEMU's
+>> "-smp 4,maxcpus=8" configuration, the MADT GICC entries are populated as
+>> follows: the first four CPUs are marked Enabled while the remaining four
+>> are marked Online Capable to support potential hot-plugging.
+>>
+>> Fix this by:
+>>
+>> 1. When booting with ACPI, checking the ACPI_MADT_ENABLED flag in the GICC
+>>    entry before calling set_cpu_present() during SMP initialization.
+>>
+>> 2. Properly managing the present mask in acpi_map_cpu() and
+>>    acpi_unmap_cpu() to support actual CPU hotplug events, This aligns with
+>>    other architectures like x86 and LoongArch.
+>>
+>> 3. Update the arm64 CPU hotplug documentation to no longer state that all
+>>    online-capable vCPUs are marked as present by the kernel at boot time.
+>>
+>> This ensures that only physically available or explicitly enabled CPUs
+>> are in the present mask, keeping the SMT control logic consistent with
+>> the actual hardware state.
+> 
+> Please can you check the Sashiko review comment?
+> 
+> https://sashiko.dev/#/patchset/20260520022023.126670-1-ruanjinjie@huawei.com
 
-This enables enhanced PCIe features and capabilities that were
-previously unavailable due to missing interrupt definitions.
+Hi, all,
 
-Signed-off-by: Richard Zhu <hongxing.zhu@nxp.com>
----
- arch/arm64/boot/dts/freescale/imx95.dtsi | 16 ++++++++++++----
- 1 file changed, 12 insertions(+), 4 deletions(-)
+I think commit eba4675008a6 ("arm64: arch_register_cpu() variant to
+check if an ACPI handle is now available.") introduced this bug.
 
-diff --git a/arch/arm64/boot/dts/freescale/imx95.dtsi b/arch/arm64/boot/dts/freescale/imx95.dtsi
-index 3e35c956a4d7..1a9803f96790 100644
---- a/arch/arm64/boot/dts/freescale/imx95.dtsi
-+++ b/arch/arm64/boot/dts/freescale/imx95.dtsi
-@@ -1945,8 +1945,12 @@ pcie0: pcie@4c300000 {
- 			bus-range = <0x00 0xff>;
- 			num-lanes = <1>;
- 			num-viewport = <8>;
--			interrupts = <GIC_SPI 310 IRQ_TYPE_LEVEL_HIGH>;
--			interrupt-names = "msi";
-+			interrupts = <GIC_SPI 310 IRQ_TYPE_LEVEL_HIGH>,
-+				     <GIC_SPI 311 IRQ_TYPE_LEVEL_HIGH>,
-+				     <GIC_SPI 310 IRQ_TYPE_LEVEL_HIGH>,
-+				     <GIC_SPI 310 IRQ_TYPE_LEVEL_HIGH>,
-+				     <GIC_SPI 310 IRQ_TYPE_LEVEL_HIGH>;
-+			interrupt-names = "msi", "dma", "intr", "aer", "pme";
- 			#interrupt-cells = <1>;
- 			interrupt-map-mask = <0 0 0 0x7>;
- 			interrupt-map = <0 0 0 1 &gic 0 0 GIC_SPI 306 IRQ_TYPE_LEVEL_HIGH>,
-@@ -2020,8 +2024,12 @@ pcie1: pcie@4c380000 {
- 			bus-range = <0x00 0xff>;
- 			num-lanes = <1>;
- 			num-viewport = <8>;
--			interrupts = <GIC_SPI 316 IRQ_TYPE_LEVEL_HIGH>;
--			interrupt-names = "msi";
-+			interrupts = <GIC_SPI 316 IRQ_TYPE_LEVEL_HIGH>,
-+				     <GIC_SPI 317 IRQ_TYPE_LEVEL_HIGH>,
-+				     <GIC_SPI 316 IRQ_TYPE_LEVEL_HIGH>,
-+				     <GIC_SPI 316 IRQ_TYPE_LEVEL_HIGH>,
-+				     <GIC_SPI 316 IRQ_TYPE_LEVEL_HIGH>;
-+			interrupt-names = "msi", "dma", "intr", "aer", "pme";
- 			#interrupt-cells = <1>;
- 			interrupt-map-mask = <0 0 0 0x7>;
- 			interrupt-map = <0 0 0 1 &gic 0 0 GIC_SPI 312 IRQ_TYPE_LEVEL_HIGH>,
--- 
-2.34.1
+It introduced an architectural safety block inside
+arch_unregister_cpu(). If a hot-unplug operation is determined to be a
+physical hardware removal (where _STA evaluates to
+!ACPI_STA_DEVICE_PRESENT), it aborts the unregistration transaction
+early to protect unreadied arm64 infrastructure, thereby skipping
+unregister_cpu().
+
+However, the generic ACPI processor driver path in
+acpi_processor_post_eject() currently treats arch_unregister_cpu() as
+an unconditional void operation. When arch_unregister_cpu() bails out
+early, the subsequent cleanup flow blindly proceeds to call
+acpi_unmap_cpu(), clears global per-cpu processor arrays, and
+unconditionally free the 'struct acpi_processor' object.
+
+I think we can fix this by:
+
+    1. Refactoring arch_unregister_cpu() to return an integer
+transaction status. It returns -EOPNOTSUPP when aborting due to physical
+hot-remove blocking, -EINVAL/-EIO on firmware failures, and 0 only upon
+successful unregistration.
+
+    2. Guarding the downstream execution flow in
+acpi_processor_post_eject(). If arch_unregister_cpu() returns a error
+code, the hot-unplug transaction is considered aborted.
+
+What do you think about this fix?
+
+diff --git a/arch/arm64/kernel/smp.c b/arch/arm64/kernel/smp.c
+index 1aa324104afb..f451c9c82212 100644
+--- a/arch/arm64/kernel/smp.c
++++ b/arch/arm64/kernel/smp.c
+@@ -531,29 +531,30 @@ int arch_register_cpu(int cpu)
+ }
+
+ #ifdef CONFIG_ACPI_HOTPLUG_CPU
+-void arch_unregister_cpu(int cpu)
++int arch_unregister_cpu(int cpu)
+ {
+        acpi_handle acpi_handle = acpi_get_processor_handle(cpu);
+        struct cpu *c = &per_cpu(cpu_devices, cpu);
+-       acpi_status status;
+        unsigned long long sta;
++       acpi_status status;
+
+        if (!acpi_handle) {
+                pr_err_once("Removing a CPU without associated ACPI
+handle\n");
+-               return;
++               return -EINVAL;
+        }
+
+        status = acpi_evaluate_integer(acpi_handle, "_STA", NULL, &sta);
+        if (ACPI_FAILURE(status))
+-               return;
++               return -EIO;
+
+        /* For now do not allow anything that looks like physical CPU HP */
+        if (cpu_present(cpu) && !(sta & ACPI_STA_DEVICE_PRESENT)) {
+                pr_err_once("Changing CPU present bit is not supported\n");
+-               return;
++               return -EOPNOTSUPP;
+        }
+
+        unregister_cpu(c);
++       return 0;
+ }
+ #endif /* CONFIG_ACPI_HOTPLUG_CPU */
+
+diff --git a/drivers/acpi/acpi_processor.c b/drivers/acpi/acpi_processor.c
+index 00775b91bd41..4361eed26d83 100644
+--- a/drivers/acpi/acpi_processor.c
++++ b/drivers/acpi/acpi_processor.c
+@@ -499,7 +499,15 @@ static void acpi_processor_post_eject(struct
+acpi_device *device)
+        cpus_write_lock();
+
+        /* Remove the CPU. */
+-       arch_unregister_cpu(pr->id);
++       if (arch_unregister_cpu(pr->id)) {
++               cpus_write_unlock();
++               cpu_maps_update_done();
++               acpi_bind_one(pr->dev, device);
++               if (device_attach(pr->dev) < 0)
++                       dev_err(pr->dev, "Processor driver could not be
+attached\n");
++               return;
++       }
++
+        acpi_unmap_cpu(pr->id);
+
+        /* Clean up. */
+diff --git a/drivers/base/cpu.c b/drivers/base/cpu.c
+index 875abdc9942e..57980d1c2931 100644
+--- a/drivers/base/cpu.c
++++ b/drivers/base/cpu.c
+@@ -570,9 +570,10 @@ int __weak arch_register_cpu(int cpu)
+ }
+
+ #ifdef CONFIG_HOTPLUG_CPU
+-void __weak arch_unregister_cpu(int num)
++int __weak arch_unregister_cpu(int num)
+ {
+        unregister_cpu(&per_cpu(cpu_devices, num));
++       return 0;
+ }
+ #endif /* CONFIG_HOTPLUG_CPU */
+ #endif /* CONFIG_GENERIC_CPU_DEVICES */
+diff --git a/include/linux/cpu.h b/include/linux/cpu.h
+index 9b6b0d87fdb0..a7c191dea1fc 100644
+--- a/include/linux/cpu.h
++++ b/include/linux/cpu.h
+@@ -91,7 +91,7 @@ struct device *cpu_device_create(struct device
+*parent, void *drvdata,
+                                 const char *fmt, ...);
+ extern bool arch_cpu_is_hotpluggable(int cpu);
+ extern int arch_register_cpu(int cpu);
+-extern void arch_unregister_cpu(int cpu);
++extern int arch_unregister_cpu(int cpu);
+ #ifdef CONFIG_HOTPLUG_CPU
+ extern void unregister_cpu(struct cpu *cpu);
+ extern ssize_t arch_cpu_probe(const char *, size_t);
+
+
+> 
+> Cheers,
+> 
+> Will
+> 
 
 
