@@ -4,117 +4,107 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 731D6CD6E55
-	for <linux-arm-kernel@archiver.kernel.org>; Wed,  3 Jun 2026 22:15:28 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id AB4DECD6E57
+	for <linux-arm-kernel@archiver.kernel.org>; Wed,  3 Jun 2026 22:18:55 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
 	Content-Type:Cc:To:Subject:Message-ID:Date:From:In-Reply-To:References:
 	MIME-Version:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=MLDN4B5mhvjg2cVYjJTndsMZTbvIoVHvjMDN1QV80yU=; b=KbAflUC3YEKYQtBgFWxlMcRJgQ
-	llj6DiBhqOyHbeu3VjYinjtEaSwU/+ey6taVZVUOMsZAQX3X22/yq+ZaGb0+399EpL++cRxHo/B5D
-	ZXdJf7vQC5srj9HEBA/SnlCcANPVtR+oVDP0mcAcBYffzWhAhA7/aHGzw/rggPKZCfIEBhE39zth2
-	EEO14CTYH4yuS5FCXrU9N+vrGFgUewMAywbJ4jMp+U/NYod5/N0/noqxsOGd8lNs3GiBCcXNLmNRE
-	jgbTrg8eyk488YQvqj73v1iK5re9Xi1vOAFu9tIVxpUER2W8NgHB+3o3Ij/hm1zyCIjq3kgkgM+5a
-	fEpBj/5A==;
+	bh=YEnl0CjbpYzEzr2ANZLBuMg/VY55F7qyhRm6Ui2g+y8=; b=m87ml+gc6xI75qXdSwiz5jXxoL
+	y79bfUDyi8rAkYSM4AVz9KgDUNq9E6SM97gadFjvCrbPWdXPZpCQKGcbI7e9Fnl7xDFUzJzG34T0/
+	dLwA5bVLAtUmuPqxULdBxIqhqJkmespjEq/1+jhJ/UCHOuXgJAF24dBZlCNkIUQXr11EOzIw8IkLK
+	4KvNQ51EqoknUVImqbzhtcVlyEnuUKg68nVF3DT+ptMNgxn8RCnFt7eDaEp+0RS/MON+kwUgs6jG4
+	HKRCAs9Iiv31ocH0+P126jTqMHtJgPxndOuBYT/Gl9WTDDbODqADqDk3zqQXeACDye+6rVgimR1pL
+	EjQ3EBXA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wUtrs-0000000FsnF-21nz;
-	Wed, 03 Jun 2026 22:15:20 +0000
-Received: from mail-ed1-x52d.google.com ([2a00:1450:4864:20::52d])
+	id 1wUtvD-0000000FsyU-3ELM;
+	Wed, 03 Jun 2026 22:18:47 +0000
+Received: from mail-qt1-x833.google.com ([2607:f8b0:4864:20::833])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wUtrp-0000000Fsmr-2yeC
+	id 1wUtvB-0000000Fsy6-1cu0
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 03 Jun 2026 22:15:18 +0000
-Received: by mail-ed1-x52d.google.com with SMTP id 4fb4d7f45d1cf-68d22476e88so3915a12.0
-        for <linux-arm-kernel@lists.infradead.org>; Wed, 03 Jun 2026 15:15:16 -0700 (PDT)
-ARC-Seal: i=1; a=rsa-sha256; t=1780524915; cv=none;
+	Wed, 03 Jun 2026 22:18:46 +0000
+Received: by mail-qt1-x833.google.com with SMTP id d75a77b69052e-5175d339e8bso203091cf.0
+        for <linux-arm-kernel@lists.infradead.org>; Wed, 03 Jun 2026 15:18:45 -0700 (PDT)
+ARC-Seal: i=1; a=rsa-sha256; t=1780525124; cv=none;
         d=google.com; s=arc-20240605;
-        b=fRE7v+FzTGglz8T+mkpdntHMAD21j65EOJzJg0Lp+JyJGjkQM8hiSMX5Lx0Zq69zNr
-         VcEUgnlW/C/rpCdUytK0aMjfk+XuVAe3K1ONbqfPGVfWFzZ0RWc2Ozv8rguVKlIi3u91
-         cArLWXUWTcQSN+N4LIYhrdME3cm9WYBaS8h68n6l8UC7ac3eXc9rtqDfeWgLveGyNQJE
-         HV4H0QBZO7xzy0IE6eph0xJiAoQPH9I/JtsFr+Pb8ZBw9JTFOcKl8Xo4douomVhuBpcs
-         WZE+84wGuOEnuhlz2XrqPIrhz+vEelsMOJf8By8baJpOEVRxBej/uMWs7bvMzeaMgGjT
-         o5Rw==
+        b=j12tm6sq0cvtRr9jREHYQbXlVoqbElnMJww1n5BXHLyGNpeGKQw903DfbET6h8AHmh
+         q0QHE7pHmWXBWCxCU4Oo3/ceLzZ30HNSIxPEuQwn/p19Kh+elPOzRYO4hN479DIz0a8m
+         DHwacgGKtStlCe+MwH301Bg851oVgVNC66zR3tmDAH7BnjBvpQsaOUoPBW1qZKSgq2dZ
+         kB1O7xyAie7OQTEvIOCxKV7DhXAv8vjVsWq7tkJ78na6wPV7NH4/zk3F7ByeYnY/t90t
+         KHUbt7eEuHLv+IqUJPLwj4e/T4IR4WOjJflxMSasxlBGGKl9rMQBtBcWxBlGLAgDTsuT
+         iNSg==
 ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20240605;
         h=content-transfer-encoding:cc:to:subject:message-id:date:from
          :in-reply-to:references:mime-version:dkim-signature;
-        bh=MLDN4B5mhvjg2cVYjJTndsMZTbvIoVHvjMDN1QV80yU=;
-        fh=jD7H+GjT+yjdPmRTek3i5dKwKrvjW2cZAU3yxMMrqh8=;
-        b=OeLd2SEgIDF77ydmYZu0i5v/vYsFtpdI4SYnA2RnRe9FSm5KwbdrqjA099SV5NYnlw
-         76A6dJ/N/TRKMUohzPTWBTlmBXL2XKlvV17H9n2yYoCnOIAUCUYTayn9q/zDYd8wLREV
-         fNE6o+HO2Lbmr7MxfvhRFhGrwIQcmsVm71b/aZ5auNiGqAnojEc8CIluJiW/oGJa8MoL
-         28UpWVFa5SLP0MYnyK9i24c2HgOmPudcpu+3L14N1fHtrxCfcUIxOnJtbx60zfqbBFvX
-         eOs1r+9Qj61t0Stvc+QAJ57KJczmFHAFr6zLESBphFD66NE5622i5R/kQaKjkWCqku7q
-         vYAw==;
+        bh=YEnl0CjbpYzEzr2ANZLBuMg/VY55F7qyhRm6Ui2g+y8=;
+        fh=9FK5NKaaYm08xvv+DLSKyLnTN9RzPMTKGRndCiTqr24=;
+        b=TwdAwc/Wc8jxTTwtJXJVVr2DJ8llwrzqqOAC6Kp/2ff4Z4R9Zz97ohcwXVvc0Z/Bj6
+         4gjXVJhiJ6ZcEEwPbJsaKvSs88oZKRK5t9w3Ky1ynCncb6UBuCbERInf9p0nSkkbKzR5
+         uZerYEHwDnwvy2StUIIkPNTNXEzOTFxXyV31BNp9rFhj7WVtn04JQ1u5jwsS2y73FCJq
+         tD+1isv8uycz4gM2MR/mhS8fbeYzhd+XxV3NXLRF9GrSWolvwsqLVr2wSglo8gq8R2tF
+         fSsPFiIJGUelrTWd3Ktig2Bnh5i/o8zLEb5qLdcHeocLzZjOE8SAEdncDJYhTUUdp4DL
+         BDGg==;
         darn=lists.infradead.org
 ARC-Authentication-Results: i=1; mx.google.com; arc=none
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=google.com; s=20251104; t=1780524915; x=1781129715; darn=lists.infradead.org;
+        d=google.com; s=20251104; t=1780525124; x=1781129924; darn=lists.infradead.org;
         h=content-transfer-encoding:cc:to:subject:message-id:date:from
          :in-reply-to:references:mime-version:from:to:cc:subject:date
          :message-id:reply-to;
-        bh=MLDN4B5mhvjg2cVYjJTndsMZTbvIoVHvjMDN1QV80yU=;
-        b=T/QaqMODU4yOR5shyEhyMGcYKVIfH0Sjfz0lCFdkQlLtLjqiQoKwIxLJg799YIcoO5
-         k6OyS+6IyLRgH1o1paQZv32btsmj27UIn8LqkoFn+DRJCad3vXlXw+UbbvdOevdS/+ah
-         1nE3tth53diLxLk8ZRWjl4Phl7D0/PVudTWQztT9FV0vzXdHl0i7IfPGkv58dylRgFj6
-         x8RafBygLMc3aRYOlyQhCsUR/uUO51aRsydT7uGv9YJvXjQ5OuSpaYRGdUG0nI/Bz3Cd
-         LiqJQwZsyBBDKLyEmdKE+Hy5xgr3I9aIpQHsdNP4tRvH4t/qiXV9b9/NlrfybJjbpo3m
-         pS3g==
+        bh=YEnl0CjbpYzEzr2ANZLBuMg/VY55F7qyhRm6Ui2g+y8=;
+        b=hYsKbsvpWuv31Kr7aY0w5bmlB2KgyK4LP0QqMRQDU1qO0uFGTo3d8Aedt7kEn8EQTg
+         3Wrj2l6uduLm39mJwK1/zrJ3yv/uxipaJY+m5BtxQsWsawnDb6RlvsHd15/ZXh5GRptn
+         oJ/0ZJAtKydgPKXypmCdDsCtySs9XQ5wHur228a6qOwfWt1eq5fn4ClA7gl5AdEd1ZYt
+         8oOtM0Kf1vYWevBNUymGWqrEoTN8UOGcc3vqfYt4gMSYefZ/1S1dKx1BkTIoxzaI5Yfe
+         3gh19tuQhGnt2UUFsI1FZj9wPQuRRuOrIj7TipRitWKarAjqwRSeH0JjhIIUZoWRdGoa
+         Az5Q==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20251104; t=1780524915; x=1781129715;
+        d=1e100.net; s=20251104; t=1780525124; x=1781129924;
         h=content-transfer-encoding:cc:to:subject:message-id:date:from
          :in-reply-to:references:mime-version:x-gm-gg:x-gm-message-state:from
          :to:cc:subject:date:message-id:reply-to;
-        bh=MLDN4B5mhvjg2cVYjJTndsMZTbvIoVHvjMDN1QV80yU=;
-        b=SQXULk7gkZPgjL6tGnd4+M88NpEHKokSBcb5NI6cKU8jCm2ug1kRDIOmVB0ZtaCLMK
-         B1D5rGzI8/AG0ptIep5SpiroAlfJLF6O1c3CFjXqifsoA0pMbjtnlWP7W96gYMnTUGVy
-         pEpI/ojBuIXtHxlo3eDQ3JHI81AN5RZP6QvOmwxXHhnorx8Kc6boixPyk74AsFudsTEL
-         Wkm21BGqxtqhaRYpRVlD4UaG4SHPK+72MrVFBIzHNBlV/zFItJhl34kMlH+e767j6IwS
-         QK23RIdiT+iTfwJTYW9OebsroWV6OeZQnbZYzXXh33RgqNxFlWluVMyl0Hckp1E/eZcC
-         3R6w==
-X-Forwarded-Encrypted: i=1; AFNElJ975vat3UNSAqn/Bwlo3+88ZJCms8GY0qB5eg30HmLwEkM2CM6I72u4/hJRmMwB8ExqGKPLbDuLvDO7mpI1MXvr@lists.infradead.org
-X-Gm-Message-State: AOJu0YwT1akCCfpE5BTngp2mtbP6sK73lyW6jjDuTajLgyCf9+usWOKG
-	4mj9qOHxyxqeaBj6qcuTcDqPX9RwW0ZrmeZDQ7N8qfEK4XlQZQ7zhTt8qyveLcm2Ewp0dP5RsVe
-	6XcmdnpP/SYVipF+631evuI1NPG7D56+ClOsOw34a
-X-Gm-Gg: Acq92OEGBN6QTb2e3PmopUDVxHyco1hBWsAMIzhZSp5L4EvSs9jToQK6jOHV2F8GQ67
-	wBwJJoWJ4xl5Ya2nz29vsKqB9pCWtx5KoBiWhPy0eD2Q9tSTSepy8zmGQhyMELoJZuSlkxb7MO3
-	m4ZaSZgY9xUVbvgs5Ps/7L17yUB1mSgGYJ5v3rCIdpVumtVfrKvMpuT8zaJncJKcN1k9CyT8hFa
-	dR8CPN8bzvlNKtSk2c959OFu1gN2Ln25OteoOIfucaIADeqnfhWoV4ZUYOzSrDI4Qx7h7O3Zwi8
-	OOGM2ycdruYlIFdRd/jxb3kVWiwUUl0wINC4z/GGEpJcdWGc
-X-Received: by 2002:a05:6402:a2d4:10b0:67b:6d1c:9585 with SMTP id
- 4fb4d7f45d1cf-68f127a4904mr26320a12.8.1780524914333; Wed, 03 Jun 2026
- 15:15:14 -0700 (PDT)
+        bh=YEnl0CjbpYzEzr2ANZLBuMg/VY55F7qyhRm6Ui2g+y8=;
+        b=L7bnMF4T5IiMmOKcmn1Q6MvKibF7dEBLJPIE5VED8ofg6Sy63QRE2MtlnkUgncOwTT
+         tgfuC2O/fA/eIwcmM/1+U6uZ8F6Q2bNThREM0dFe6/07dekqj4eEdqkF9EmNNoNPgZWC
+         4nGLp3B4DKYY4/kJahE2HjIultylmZHtb9guDhKhp84ZVOUOBWWgUwnDaZCl/V9v5ucO
+         ZhehZMRH3meoHmgKqKWi+U279UQCrgeHAobj8qJoku9TQF1GnyePKXhU+3CV2nW0KExc
+         qwQ3s91zh7CqRvA75bh360tnQTh+vRwvdf7MU16Ace/o0+moXve4G0aXKt0X+BA4gBZ2
+         aBIw==
+X-Forwarded-Encrypted: i=1; AFNElJ+QugIl/lacZoak33uQ4sRqhJHqj5zY4Avzi68au4g749LvDLmURkNxr7FW9UKErXmrNEgvy5QfIPOcPh0cBCei@lists.infradead.org
+X-Gm-Message-State: AOJu0YxxXcWn7atPkkhrJqPzh9KrUisuJ53O2G0CGnM7kZ1mH3OV6zNo
+	z91+izPBV0kMf21e+7WVlrTwr07TBi2OJwnVit9FqQoAUQBcndyUHHLxMzIPV/I0c3tor80guFk
+	RqE85cd5brOsp8EAVzq1S1/QGocBgnfFo5UD/IuUb
+X-Gm-Gg: Acq92OHbbKgKbyRO0F7liNNExtNzh1+TeveS2IuSZpHAkRtyZw7Z/JHpPtHykf/a5Sx
+	qS7UxLApvevOAsRSzu4RKxTSD7IseNTRZvxEE2k/1tguGtYFbL1QjIlJmh/f2YXIftyySwhGjp5
+	5esy104pyzTihwGU35gqcPL3ZbkJ/tr28cj1+xDHckQ22qkJ2Eqn2O+ELkurh/RsH43D65CVCoF
+	SG70ch9dAbxAC5yiN5QF3Jn8O4PhzH+oCuszn/vftqlCM/nwMZNDF/ljh9NZdR2LjU0cToim7E7
+	wl+G9ae2oXIyx9m2cDSMRMZ5FGyaZPLdziFcxU5Tvcpr5QtqbphF5wr0H5w=
+X-Received: by 2002:a05:622a:1801:b0:516:4f62:85f1 with SMTP id
+ d75a77b69052e-51787ab8be4mr3489001cf.22.1780525123437; Wed, 03 Jun 2026
+ 15:18:43 -0700 (PDT)
 MIME-Version: 1.0
-References: <20260527214510.3907973-1-xur@google.com> <20260527214510.3907973-3-xur@google.com>
- <178010203122.3743687.12531843798236779880.b4-review@b4> <CAF1bQ=RNokHJtf=8RGKyP12jNPKUvyztJVRaDZ2fnXSVzZ3L5g@mail.gmail.com>
- <ah6ltnOk2ol8_2ly@willie-the-truck> <CAF1bQ=TfCAdxh64cSNeO5wiT8o02o6+bVooju1Bgy3odM1NYwQ@mail.gmail.com>
- <20260603015354.GD1940387@ax162>
-In-Reply-To: <20260603015354.GD1940387@ax162>
-From: Rong Xu <xur@google.com>
-Date: Wed, 3 Jun 2026 15:15:02 -0700
-X-Gm-Features: AVHnY4JoKqPNtFC8KSG0ucxe9HUkTf7rnxcDaO7oIMZ4_zBprpY9uLs2z6jxzFw
-Message-ID: <CAF1bQ=S-p+Mi80a8C8pZzJ3E3bW_5tr6WBUKVV1LaXC9iBor=g@mail.gmail.com>
-Subject: Re: [PATCH v3 2/2] kconfig: Remove the architecture specific config
- for Propeller
-To: Nathan Chancellor <nathan@kernel.org>
-Cc: Will Deacon <will@kernel.org>, Yabin Cui <yabinc@google.com>, Han Shen <shenhan@google.com>, 
-	Thomas Gleixner <tglx@linutronix.de>, Ingo Molnar <mingo@redhat.com>, Borislav Petkov <bp@alien8.de>, 
-	Dave Hansen <dave.hansen@linux.intel.com>, "H. Peter Anvin" <hpa@zytor.com>, Kees Cook <kees@kernel.org>, 
-	Nicolas Schier <nicolas.schier@linux.dev>, Linus Walleij <linusw@kernel.org>, 
-	Arnd Bergmann <arnd@arndb.de>, Mathieu Desnoyers <mathieu.desnoyers@efficios.com>, 
-	Miguel Ojeda <ojeda@kernel.org>, Peter Zijlstra <peterz@infradead.org>, 
-	Jinjie Ruan <ruanjinjie@huawei.com>, Lukas Bulwahn <lukas.bulwahn@redhat.com>, 
-	linux-kernel@vger.kernel.org, Juergen Gross <jgross@suse.com>, 
-	Helge Deller <deller@gmx.de>, Ryan Roberts <ryan.roberts@arm.com>, Marc Zyngier <maz@kernel.org>, 
-	Ard Biesheuvel <ardb@kernel.org>, Vincent Donnefort <vdonnefort@google.com>, 
-	Alice Ryhl <aliceryhl@google.com>, x86@kernel.org, linux-arm-kernel@lists.infradead.org
+References: <20260527221407.1756491-1-praan@google.com> <20260527221407.1756491-11-praan@google.com>
+ <ahilX8Za1NRCH3ik@Asurada-Nvidia> <ahi3uY9YZZtR1Lq5@google.com>
+In-Reply-To: <ahi3uY9YZZtR1Lq5@google.com>
+From: Daniel Mentz <danielmentz@google.com>
+Date: Wed, 3 Jun 2026 15:18:32 -0700
+X-Gm-Features: AVHnY4ILrsvBe4oXAMQWWdFEm4mbOUJGKXcyXE1-JTxXk1zIsDS0pKvD5RiQwxo
+Message-ID: <CAE2F3rDeZe+w7-V6hyJtSOwCj619E5SNtjJjZ1-yu1sVdf=35A@mail.gmail.com>
+Subject: Re: [PATCH v7 10/11] iommu/arm-smmu-v3: Invoke pm_runtime before hw access
+To: Pranjal Shrivastava <praan@google.com>
+Cc: Nicolin Chen <nicolinc@nvidia.com>, iommu@lists.linux.dev, 
+	Will Deacon <will@kernel.org>, Joerg Roedel <joro@8bytes.org>, Robin Murphy <robin.murphy@arm.com>, 
+	Jason Gunthorpe <jgg@ziepe.ca>, Mostafa Saleh <smostafa@google.com>, Ashish Mhetre <amhetre@nvidia.com>, 
+	linux-arm-kernel@lists.infradead.org
 Content-Type: text/plain; charset="UTF-8"
 Content-Transfer-Encoding: quoted-printable
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260603_151517_809851_B913CDA9 
-X-CRM114-Status: GOOD (  29.14  )
+X-CRM114-CacheID: sfid-20260603_151845_462279_2E246268 
+X-CRM114-Status: GOOD (  17.88  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -129,67 +119,39 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Tue, Jun 2, 2026 at 6:54=E2=80=AFPM Nathan Chancellor <nathan@kernel.org=
-> wrote:
+On Thu, May 28, 2026 at 2:46=E2=80=AFPM Pranjal Shrivastava <praan@google.c=
+om> wrote:
 >
-> On Tue, Jun 02, 2026 at 10:52:48AM -0700, Rong Xu wrote:
-> > On Tue, Jun 2, 2026 at 2:43=E2=80=AFAM Will Deacon <will@kernel.org> wr=
-ote:
-> > > I still don't think it has anything to do with the arch. If the compi=
-ler
-> > > supports the option, then we can use it. The arch code in the kernel
-> > > doesn't need to do anything, right? So can you just check if the
-> > > compiler accepts the option using a 'depends on $(cc-option, ...)' li=
-ne?
+> On Thu, May 28, 2026 at 01:28:15PM -0700, Nicolin Chen wrote:
+> > On Wed, May 27, 2026 at 10:14:06PM +0000, Pranjal Shrivastava wrote:
+> > > TLB and CFG invalidations are
+> > > elided if the SMMU is suspended by observing the CMDQ_PROD_STOP_FLAG =
+via
+> > > the arm_smmu_can_elide() helper.
 > >
-> > Yes, arch code in the kernel does not need to do anything=E2=80=94it is=
- just a marker.
-> >
-> > I understand your concern. I can use (cc-options,...) in PROPELLER_CLAN=
-G config.
-> > But I will not use -fbasic-block-address-map for backward compatiliby r=
-eason.
-> > I would use "-fbasic-block-sections=3Dlist=3D/dev/null".
-> >
-> > I'll send the updated patch shortly.
+> > All the arm_smmu_can_elide() call sites here would eventually elide
+> > the commands in arm_smmu_cmdq_issue_cmdlist() that is already gated
+> > by CMDQ_PROD_STOP_FLAG? It doesn't seem necessary to gate again?
 >
-> Technically, an architecture needs to add the section generated by this
-> compiler option to their linker script to avoid an orphan section
-> warning (or error from CONFIG_WERROR) if enabled, as has been done in
-> this series.
+> While issue_cmdlist() would eventually elide these commands, the
+> can_elide() check is necessary to return early during suspension.
 >
-> I worry that moving to a dynamic check will cause build breakage if an
-> LLVM target gains support for Propeller without having their kernel
-> image linker script adjusted. Maybe that will not happen very often and
-> even if it does, I do not mind taking on the maintenance burden of
-> fixing it but there is a cost of moving to a dynamic check like this.
+> This avoids unnecessary stack allocation, cmd building, and spinlock
+> contention on the cmdq->lock for threads that are anyway about to be
+> elided.
 >
+> By dropping these requests immediately, we significantly reduce cacheline
+> bouncing and contention during unmap storms. Furthermore, the early check
+> also allows us to specifically trigger the WARN_ON_ONCE() for broken
+> devlinks.
 
-This is true.
+Hi Pranjal,
 
-That said, these orphan sections usually won't impact correctness. The
-linker will group these together even withgout the link script change,
-even though it generates a lot of warnings.
+Have you observed unmap storms in a real-world use case, or is this a
+preemptive optimization? I would not expect a high rate of map/unmap
+operations while the SMMU is suspended. If a client device calls
+iommu_map/iommu_unmap (directly or indirectly), it suggests the client
+device is RPM_ACTIVE, meaning the SMMU should be active as well.
 
-With moving to a dynamic check, correct usage of this feature remains
-the user's responsibility -- I think this is Will's point from the
-very beginning.
-As noted in your previous response, the dynamic check is primarily
-intended to prevent "allmodconfig" build failures.
-
-I am comfortable with either the arch_kconfig or dynamic_check
-approach. Once a preferred solution is decided, please let me know so
-I can submit v4 for review.
-
-Thanks,
-
--Rong
-
-
-
-
-
-> --
-> Cheers,
-> Nathan
+I am in favor of removing arm_smmu_can_elide().
 
