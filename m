@@ -4,92 +4,108 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id E83A5CD6E55
-	for <linux-arm-kernel@archiver.kernel.org>; Wed,  3 Jun 2026 10:11:40 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id CA42CCD6E64
+	for <linux-arm-kernel@archiver.kernel.org>; Wed,  3 Jun 2026 10:12:22 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
-	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=6CrNVQ8IBF7mJpxU4e+u8veQd433I9uH8sSfHrF0nKU=; b=kguEkQycyvbhus3adQn0qGAUnV
-	z4+n5f5Gila0Lrv44z+7jsfNOxitLrGUOjF//4FcKrqPmbgsSTK8SPxpQ79a5Xx0s55nVcqmA5WTc
-	q5+SvbvMlxpHp8KZFfhIlfdxeKl6hJWA0vN6ai2FyPqN3bvrBari9jLJdlOgbkW34ku3rYfMIcuLt
-	tpCjJPoP9zng5ouEXEfhHA+5Lb21zaN9k16BVtxOKbEhXzuoB+daMHyAYy0ILeUuYJJMIoJQBwyf6
-	q+NE9q66Sn90ISnwD+xLB1EnkEdv448EzndD6yU5tiV5uVhUbvT7NT0f1ppTSdGClZZUe4iMytFR7
-	aBF6eBkA==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=pIaWOz4jzomrlICte653zCUp4/MwcwzwiqZTiopmMBg=; b=Yo+Le4ra2RXC3m4uirlKeGTlYG
+	7PyxPgWhOkKsl3KVhoLbzeYr8S+1MYOg7qJXnJPlyyDG3IO5GZhirbXud+t8Tw8ETPBIV5p+VBgbu
+	VeO3n7qsZUrTZ6gH/N8Sx38dmtaFc9PIgq1E91fae468poF2NPlL/W6tVre3wExdcPOdH0wSRIV97
+	zE5kDgitCdvZkAfYTeUz3LiWHTk0btPXuycio+8dLQo9PRSzQcLhgClX9D2amd5ykW3M8HWv5Tom0
+	NlxC7HEm1V4/1VPjlD+LvDFTQZPNGmeleNMkh9JraQ7ePyhOj0CSf+JY8vShC9bmMemSAKRzJj32t
+	MpS1pXLA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wUiZS-0000000EmNG-1gOx;
-	Wed, 03 Jun 2026 10:11:34 +0000
+	id 1wUia8-0000000EmV7-2s1w;
+	Wed, 03 Jun 2026 10:12:16 +0000
 Received: from desiato.infradead.org ([2001:8b0:10b:1:d65d:64ff:fe57:4e05])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wUiZQ-0000000EmN8-2PM5
+	id 1wUia7-0000000EmUt-3hiL
 	for linux-arm-kernel@bombadil.infradead.org;
-	Wed, 03 Jun 2026 10:11:32 +0000
+	Wed, 03 Jun 2026 10:12:16 +0000
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=infradead.org; s=desiato.20200630; h=Content-Transfer-Encoding:Content-Type
-	:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:Message-ID:
-	Sender:Reply-To:Content-ID:Content-Description;
-	bh=6CrNVQ8IBF7mJpxU4e+u8veQd433I9uH8sSfHrF0nKU=; b=X8yxfZJi5NVeVB+rJEAsdrjAYM
-	wXTZ1z6jYsULvxBf4miQTrNXBGYLo4dWlKkyGLlZXJH1nfBgmHIIW4cQj+Mv023u0XAHA75x6699u
-	gHRkSN1P30LB/RJy0RqI70k34S4LEhnywEThaWiw6/fKxM3FjUfAFRPh44Cv3G6IFZmjEdt53pzEx
-	0wlOWtvR9jKY7HcbyEB9MahZzLutjOlzWbFbBuS6qz8VevUgWpqARpBmEj2k4B6xas4ddCfY1g6tm
-	sKbcK+d12pGf6kCnnIqqc8A5Q4M4MGpYYAJC51T0F3xgO571AE2R1/S4TcI2wTA80ZfjjEZnEMla2
-	Y4rRagjg==;
-Received: from out-180.mta1.migadu.com ([95.215.58.180])
+	d=infradead.org; s=desiato.20200630; h=In-Reply-To:Content-Type:MIME-Version:
+	References:Message-ID:Subject:Cc:To:From:Date:Sender:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description;
+	bh=pIaWOz4jzomrlICte653zCUp4/MwcwzwiqZTiopmMBg=; b=UA4ae+BuGK3YDFXG70HnNrux5w
+	eBWAFrwSTYwbLsOMFO2v9JVUDa+k6b5oR/fW3bAE2ES2PNRfHLTz3zoZMSWfI/IKdsGCE/8n168Je
+	VX4LL0nbl2bR5XGs+qTjUuv8ud4gPQ+4AJzk1MaSh3neeCC0X6omgMdjus+WjLM98cXByCvc2127h
+	6cx0Kq3Pzzcm2iQGbRRkS5CG+3qTplj9lBMXAVug03OJsNusWv4VrFXo5zloJS9hKcVWcSeu19SAe
+	WDSKcpLxRVSkk0c0tc0mgnFee6uSVS1+RTfWoKgU36GBdKK82KXrYKlIpp0heB1M7ACi+9BnGjeB2
+	FVMz4y6Q==;
+Received: from mail-wm1-x32f.google.com ([2a00:1450:4864:20::32f])
 	by desiato.infradead.org with esmtps (Exim 4.99.2 #2 (Red Hat Linux))
-	id 1wUiZM-0000000BnyY-3QnC
+	id 1wUia4-0000000Bo4H-4C8Y
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 03 Jun 2026 10:11:31 +0000
-Message-ID: <68ca2764-ca7c-482e-8e78-8c112ce01f99@linux.dev>
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=linux.dev; s=key1;
-	t=1780481475;
-	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
-	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
-	 content-transfer-encoding:content-transfer-encoding:
-	 in-reply-to:in-reply-to:references:references;
-	bh=6CrNVQ8IBF7mJpxU4e+u8veQd433I9uH8sSfHrF0nKU=;
-	b=fIZnn70MFJFtSsMFPkgs+Fv+g0kizUEPLIjo6aWTQWcbFMleyzoP3NGdSMWey53IBZJ6BL
-	933IzFB1daK0zrKn/VrPYJibB0+74lHr9frtFkWnTfZbJqaEqpC41aiBvU0RwwgMbIEoS8
-	8agagZWYtGlgr4/yw+KkGXIRbqGZmkY=
-Date: Wed, 3 Jun 2026 11:10:45 +0100
+	Wed, 03 Jun 2026 10:12:14 +0000
+Received: by mail-wm1-x32f.google.com with SMTP id 5b1f17b1804b1-49041e84237so4665045e9.1
+        for <linux-arm-kernel@lists.infradead.org>; Wed, 03 Jun 2026 03:12:11 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=google.com; s=20251104; t=1780481530; x=1781086330; darn=lists.infradead.org;
+        h=in-reply-to:content-disposition:mime-version:references:message-id
+         :subject:cc:to:from:date:from:to:cc:subject:date:message-id:reply-to;
+        bh=pIaWOz4jzomrlICte653zCUp4/MwcwzwiqZTiopmMBg=;
+        b=cvK7Hn4pcVKLChReq+7O/AHcj/4Sb8jj4pY6zikuIFNqPC0eODW8/MyFD+/6ksHn11
+         RR4hZZy5Rvuo5YLLEG6viklWA4h7fe0fTnC3TIBRqm9lsq8SNd6PYOYJTqKbdOZ9vrv9
+         U5UGZaLgoGi+vODfTYQMFwEMX6pu/KxCLpWxQb90ZLBOO7OxuOG1u1Ank3bj9egvGylN
+         MgOux+1yqDPM/xb3O9eGdd9Q/Zdg54xDVY+kDscMFhdU84fyeZNz3x/acEXA7jO4Qwxu
+         qbOtkeQOBhTRp2VPBCPS6rK2SAWgg3bLf16mlzewa4eu7/vJVgSciMrP7hYFBCh8vF4W
+         ywNA==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20251104; t=1780481530; x=1781086330;
+        h=in-reply-to:content-disposition:mime-version:references:message-id
+         :subject:cc:to:from:date:x-gm-gg:x-gm-message-state:from:to:cc
+         :subject:date:message-id:reply-to;
+        bh=pIaWOz4jzomrlICte653zCUp4/MwcwzwiqZTiopmMBg=;
+        b=Q/FEVpeJ1hsZewQDzFM39c2I20mNOIvf6dUxrapaXPWNm62o6EMw21iOJJ2nImHaOx
+         kCx7VoE91taBYj6/NHsmLNqnSlZ10ZPihZiSQW5H7qd1hJc5dx9IF10pxNSIjR1uh3F+
+         Xh/LEVgu5I/4ds/ImkYtjiPHmFoO6spL24jIITIdPAztNxsNboIynOaLULmC4OzOcKgn
+         ESL7onlb3oB8u6Pg51nnQVx4ZpDjZ+JK1ilXLRA2ToFE8y2pc9GAz3kmeENUJPXsaAe/
+         34mrenWDtfSpQQjgz88vrCAqux6KtjROvcj68/Aa1Izsk1tyYgl4XIMZErEPMjCre1fS
+         q4Xg==
+X-Forwarded-Encrypted: i=1; AFNElJ9IuNPYxdNKi6NPnoc0W81xPuwV2wd0PgYg0AItAkCacCTh7eMHDZtZLxqghcRlv9D4L4MXcl3M8fUDuPlfYaKn@lists.infradead.org
+X-Gm-Message-State: AOJu0YyMDbW5LcjHObwWY8inxbKzwipVfkAw8svufbtpIP5plnrRPRv7
+	z3H3ZNmEkCPYcLa2Ndeca3JPeCqu2fU/4YuWMnFxefsoqMOTRHnPdUFlNtqWbOTB3A==
+X-Gm-Gg: Acq92OGQFGapWxTOumtC7HEhekMtif3KUKKtPxeuvzRfmd1zZd9I53aMwatFSnGaEja
+	TXFFFOdhPgiqeePDVOfz2TqOfjFdi07mis3F7oj5CMWceOBzeVTioviy9jD6uOE1l91QAZRkSfT
+	zdaAit2/cevt2qDnbPB/4LHagniDo8/pZsF2LvhqXGKlwGP5S3eUcsRBuYx2DlZkCrgJRKOn8CK
+	jYnq5BGOdWG4S0NnHIq+CInuqVZOsnQf45/aC00v7RrYf/ShBemk17voJoKBxXTR1FCfFBQRpke
+	1XWP9LujHclU5MuMt37lhYEe3PNCogutkMCXOJohhZpYQO/3bsgt4rIn0BL7FHWQFiYbaEf+6Cw
+	DC6CPTY2IS4+7G9epv2pOCPntPiNevlXlN435StY7EBs1nwYd8Xe4FIFL2dADrZt2JHtoCyrLYs
+	LQX+D79a5NDW90UQdr9fzobA6wNOWsfDwUYrwxxUJSpFw0OwgRG7OozLStJJpVchNDH5CjVIBZd
+	vTdYMrvJW6LBw5b
+X-Received: by 2002:a05:600c:8488:b0:490:b4cb:3866 with SMTP id 5b1f17b1804b1-490b613f181mr34363835e9.10.1780481530006;
+        Wed, 03 Jun 2026 03:12:10 -0700 (PDT)
+Received: from google.com (135.91.155.104.bc.googleusercontent.com. [104.155.91.135])
+        by smtp.gmail.com with ESMTPSA id 5b1f17b1804b1-490b63e63d7sm51863845e9.12.2026.06.03.03.12.08
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Wed, 03 Jun 2026 03:12:09 -0700 (PDT)
+Date: Wed, 3 Jun 2026 11:12:05 +0100
+From: Vincent Donnefort <vdonnefort@google.com>
+To: tabba@google.com
+Cc: Marc Zyngier <maz@kernel.org>, Oliver Upton <oupton@kernel.org>,
+	Joey Gouly <joey.gouly@arm.com>,
+	Suzuki K Poulose <suzuki.poulose@arm.com>,
+	Zenghui Yu <yuzenghui@huawei.com>,
+	Catalin Marinas <catalin.marinas@arm.com>,
+	Will Deacon <will@kernel.org>, Quentin Perret <qperret@google.com>,
+	linux-arm-kernel@lists.infradead.org, kvmarm@lists.linux.dev,
+	linux-kernel@vger.kernel.org
+Subject: Re: [PATCH v2 0/3] KVM: arm64: Fix host/hyp tracking on
+ share/unshare hypercall failure
+Message-ID: <ah_99d29qLuQey35@google.com>
+References: <20260529121755.2923500-1-tabba@google.com>
 MIME-Version: 1.0
-Subject: Re: [PATCH v6 2/2] mm: use mapping_max_folio_order() for
- force_thp_readahead order
-To: Pedro Falcato <pfalcato@suse.de>, Jan Kara <jack@suse.cz>
-Cc: willy@infradead.org, Andrew Morton <akpm@linux-foundation.org>,
- david@kernel.org, ryan.roberts@arm.com, linux-mm@kvack.org, r@hev.cc,
- Andrew Donnellan <andrew+kernel@donnellan.id.au>, apopple@nvidia.com,
- baohua@kernel.org, baolin.wang@linux.alibaba.com, brauner@kernel.org,
- catalin.marinas@arm.com, dev.jain@arm.com, kees@kernel.org,
- kevin.brodsky@arm.com, lance.yang@linux.dev,
- "Liam R. Howlett" <liam@infradead.org>,
- linux-arm-kernel@lists.infradead.org, linux-fsdevel@vger.kernel.org,
- linux-kernel@vger.kernel.org, ljs@kernel.org, mhocko@suse.com,
- npache@redhat.com, pasha.tatashin@soleen.com, rmclure@linux.ibm.com,
- rppt@kernel.org, surenb@google.com, vbabka@kernel.org,
- Al Viro <viro@zeniv.linux.org.uk>, wilts.infradead.org@pedro-suse.lan,
- ziy@nvidia.com, hannes@cmpxchg.org, kas@kernel.org, shakeel.butt@linux.dev,
- kernel-team@meta.com
-References: <20260528165635.2068012-1-usama.arif@linux.dev>
- <20260528165635.2068012-3-usama.arif@linux.dev>
- <ahlh2vdHEGo6ZSot@pedro-suse.lan>
- <cc9a1cf7-7b96-439a-b0be-ecdcf27b5da5@linux.dev>
- <ahmSolHvUChl-3vM@pedro-suse.lan>
- <185f1caf-b33d-4467-beb5-51bd8520ac78@linux.dev>
- <u52xvwk2fjjk2izdb4wvuqq2zhc5neb4q6usimcxejluuyngxw@d64sc6rvojyp>
- <ah8Qcxuugn5tTilK@pedro-suse>
-Content-Language: en-US
-X-Report-Abuse: Please report any abuse attempt to abuse@migadu.com and include these headers.
-From: Usama Arif <usama.arif@linux.dev>
-In-Reply-To: <ah8Qcxuugn5tTilK@pedro-suse>
-Content-Type: text/plain; charset=UTF-8
-Content-Transfer-Encoding: 7bit
-X-Migadu-Flow: FLOW_OUT
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+In-Reply-To: <20260529121755.2923500-1-tabba@google.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260603_111128_923648_645D2B7F 
-X-CRM114-Status: GOOD (  24.54  )
+X-CRM114-CacheID: sfid-20260603_111213_158354_8FB6E2F1 
+X-CRM114-Status: GOOD (  22.71  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -104,79 +120,65 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-
-
-On 02/06/2026 18:35, Pedro Falcato wrote:
-> On Sat, May 30, 2026 at 05:16:29PM +0200, Jan Kara wrote:
->> On Fri 29-05-26 15:11:54, Usama Arif wrote:
->>> On 29/05/2026 14:40, Pedro Falcato wrote:
->>>> On Fri, May 29, 2026 at 01:19:03PM +0100, Usama Arif wrote:
->>>>>
->>>>> which means mapping_max_folio_order(mapping) <= MAX_PAGECACHE_ORDER <= HPAGE_PMD_ORDER is always
->>>>> true, and you dont need the min3(..) in your diff.
->>>>>
->>>>> Now the question is if then why not just do:
->>>>>
->>>>> 	if (IS_ENABLED(CONFIG_TRANSPARENT_HUGEPAGE) && (vm_flags & VM_HUGEPAGE)) {
->>>>> 		if (mapping_large_folio_support(mapping)) {
->>>>> 			force_thp_readahead = true;
->>>>> 			thp_order = min_t(unsigned int,
->>>>> 					  mapping_max_folio_order(mapping),
->>>>> 					  get_order(SZ_2M));
->>>>> 		}
->>>>> 	}
->>>>>
->>>>>
->>>>> This is because this will regress the 16K ARM case where we already got 32M
->>>>> folios. Someone might upgrade the kernel and start getting 2M folios now.
->>>>
->>>> So maybe limit to 32MB? It's still arbitrary but at least you get simpler
->>>> logic. If the architecture does not support 32MiB folios, it will clamp
->>>> the maximum folio order to HPAGE_PMD_ORDER, and you get the same result.
->>>>
->>>> Does this sound correct?
->>>>
->>>
->>> Yes, so if we replace it with SZ_32M, it sounds correct. I just think
->>> the 32M size is too large. But as you pointed out, even 2M can be too large...
->>
->> So AFAIU the practical discussion is about two options:
->>
->> 1) limiting at 2MB with a slighly more complicated logic to keep mapping at
->> PMD order for 16k pagesize on ARM but use 2MB pages for 64k pagesize on ARM
->>
->> or
->>
->> 2) limit at 32MB with simple logic which results in larger (32MB) folios
->> with 16k and 64k pagesize on ARM and thus larger memory overhead.
->>
->> I'd like to maybe offer option 3): limit at 2MB with simple logic. This
->> will reduce folio size on 16k pagesize ARM compared to 1) but do we really
->> care? I.e., is there big enough practical performance impact with conpte
->> and other tricks ARM is playing?
->>
+On Fri, May 29, 2026 at 01:17:52PM +0100, tabba@google.com wrote:
+> Hi folks,
 > 
-> arm64 16K contpte tops out at 256KB TLB entries. It's quite a lot smaller than
-> a PMD entry. Also, something that was discussed at LSFMM was its effectiveness.
-> Apparently, most of the gains seem to sit on actually having a larger page size
-> (perhaps Dev/Ryan can comment; sadly the slides were not posted anywhere on
-> the ML, so I don't have numbers).
+> The first two started as bugs I found testing Sashiko locally with
+> fixes to review-prompts. The third grew out of the v1 discussion.
 > 
-> To me, the question is quite clear: do we trust users that say "please give me
-> hugepages" enough to unconditionally give them hugepages? I would assume the
-> answer lies somewhere between "yes" and "no", but 32MB I would say is not
-> particularly excessive. 512MB is... much worse.
+> share_pfn_hyp() and unshare_pfn_hyp() in arch/arm64/kvm/mmu.c maintain
+> a host-side RB-tree mirroring the set of pages shared with EL2. The
+> hypercalls they wrap can fail (page-state mismatch, EL2 refcount still
+> held), and neither the per-pfn helpers nor the multi-page wrappers
+> cleaned up correctly on failure:
 > 
+> - share_pfn_hyp() left its tracking node in the tree on failure,
+>   leaking the allocation and presenting a phantom share to a later
+>   unshare (patch 1).
+> 
+> - unshare_pfn_hyp() erased its tracking node before the hypercall, so
+>   on failure the host lost its record while EL2 still owned the share
+>   (patch 2).
+> 
+> - kvm_share_hyp() returned on the first per-page failure, stranding the
+>   pages already shared by that call: the caller treats the whole range
+>   as failed and never unshares them (patch 3).
+> 
+> As Vincent and Marc noted on v1, none of this compromises isolation. A
+> page that cannot be unshared is simply leaked: it stays shared with the
+> hypervisor and is no longer reusable for pKVM. So kvm_share_hyp() now
+> rolls back on failure, and the unshare WARN_ON()s are left non-fatal
+> and documented rather than promoted to BUG_ON(). The system keeps
+> running, and only later pKVM reuse of a leaked page would fail. We do
+> not expect any of these paths to trigger in practice.
+> 
+> Severity is low and this can wait for 7.2. Patch 3 builds on patch 2,
+> otherwise they are independent.
+> 
+> Changes since v1:
+>  - New patch 3: roll back partial shares in kvm_share_hyp(); document
+>    the deliberate leak-on-WARN in kvm_unshare_hyp() (Vincent, Marc).
+>  - Patches 1 and 2 functionally unchanged (patch 2 gains the call-site
+>    comment).
+>  - v1: https://lore.kernel.org/all/20260529074341.2271950-1-tabba@google.com/
+> 
+> Cheers,
+> /fuad
 
-I think the other question also is, if the userspace asks for hugepages, is it asking
-for the biggest possible one? I think the answer is yes on 4K base page size when
-largest is 2M, but maybe not the case for 16K and 64K. 
+For the whole series:
 
-/sys/kernel/mm/transparent_hugepage/hugepages-* is supposed to be used
-for anon only, but maybe in the future we could use that to determine the size
-of THP to give to the user for file over here? For e.g. over here we could have
-used it to determine what the biggest size is that has madvise (or always) set
-and used it over here. Its probably a much bigger discussion.
+Reviewed-by: Vincent Donnefort <vdonnefort@google.com>
 
-
+> 
+> Fuad Tabba (3):
+>   KVM: arm64: Free hyp-share tracking node when share hypercall fails
+>   KVM: arm64: Avoid host/hyp share desync on unshare hypercall failure
+>   KVM: arm64: Roll back partial shares on kvm_share_hyp() failure
+> 
+>  arch/arm64/kvm/mmu.c | 39 +++++++++++++++++++++++++++++++++------
+>  1 file changed, 33 insertions(+), 6 deletions(-)
+> 
+> -- 
+> 2.54.0.929.g9b7fa37559-goog
+> 
 
