@@ -4,66 +4,96 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 0FC75CD6E55
-	for <linux-arm-kernel@archiver.kernel.org>; Wed,  3 Jun 2026 08:22:09 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id D6AD0CD6E55
+	for <linux-arm-kernel@archiver.kernel.org>; Wed,  3 Jun 2026 08:25:17 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:References
-	:Message-Id:Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:
-	From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=m+5k6g5V08oIf0zyIc0HtMgKRyoeGZij4UaZCAbhjl4=; b=lUpQhbI6SUxdSpOcYDuWSswyJw
-	urv0WzpJd91JFz27tkf7iCdBqsC/OwVQTi5T4fMYW8E/aWJ7dAbLsI+qbWiNrbT/ZH1rKy/nNu8tm
-	6Op5dnLH4oKj61OweTnfaeE4fLMNc+wYo8iHrDDzEKOIaKeWU2EpRc2Zbq+/Q1j3TFlUuEJLPFSKB
-	b0uOVFd7KtuExtIwVW07/tRToCpJ84FEqTQHJqxjRm29Ip7Lq8MkYFzSacCMK8LnJW3KGyOslSteY
-	rTpgamwnmlDwsfq6W43bDRqZhhnvQS8NCw5EGTzyoO6qvmY3GpIpcJQxq2t6eqDlJmvNJYc5weDkr
-	xwO65Jlg==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	MIME-Version:Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-Type:
+	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
+	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=zPqZJh4lrGWaEtR1Sz6JxGrxryGpEZ6DtkLfnuyqJQU=; b=48h7cPnefe4xAF8/NsrK2isJN4
+	l4oZeXkRNDCgFhKb1g8McEefxfk3pScZlCRwImqa0gEAl8T8QFkU4XhguTbpX+w2RAX9JgylZtwwB
+	LdmxzyGu7UbrTIsSrDbE8kgmba1FfuRvf3rEXt/ZLKOa4+PyJbRakwLBglUtHgbC3YfTBYmKWiNOh
+	pbG9Xuw39VUZCzITf4WCqpwDTmSeD+pgeqZJrftVr6flAl8MKxgu5FtHC+5EyA/oC99jQ/5S/J5vL
+	qFoYxmcg0CC+imjpCUfR7ocGhf9oafYsczaXkrp9DA+lCkBICZF1f2BrZjxJi8WNZbdp8drTWM4JG
+	Y9Rr408g==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wUgrS-0000000EZoZ-4BNv;
-	Wed, 03 Jun 2026 08:22:03 +0000
-Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
+	id 1wUguV-0000000EabR-3Xit;
+	Wed, 03 Jun 2026 08:25:11 +0000
+Received: from mail-wm1-x32a.google.com ([2a00:1450:4864:20::32a])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wUgrO-0000000EZis-1P2c;
-	Wed, 03 Jun 2026 08:22:01 +0000
-Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
-	by sea.source.kernel.org (Postfix) with ESMTP id 866F8419C2;
-	Wed,  3 Jun 2026 08:21:57 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 98C5A1F00899;
-	Wed,  3 Jun 2026 08:21:53 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1780474917;
-	bh=m+5k6g5V08oIf0zyIc0HtMgKRyoeGZij4UaZCAbhjl4=;
-	h=From:Date:Subject:References:In-Reply-To:To:Cc;
-	b=gm3Yv3ZaferZ76474cGhOraU0cQUJRTFq09a7OoW6Gnr0QvP0dbYge9HrxDMwy0rU
-	 Vsq3FQq7GzRlxIryPMbchjYGIFZVJGbh5zyv5uqQiFcVY2oZ7k1UJABr6LK2RzMS3u
-	 n0erUHnhlqTg0SAYlGwh5uaMO9W+LaFvVakEYwoSolQDR4pZLfVX7+TIDB2eI575lK
-	 QJJ6XxodqXXEKPYYrZ/tjrffvZoZZcJCfBCT82eHtakWjrkfXKMNpxo0bRY3RhRXFP
-	 ADo2IgymnLL2GlTzDAjtinN5uN8tvDiLppx9P7Iu0N7HTgUPdbT2c84Cw5wyIx71/c
-	 fr1kKInZ6bjSA==
-From: Lorenzo Pieralisi <lpieralisi@kernel.org>
-Date: Wed, 03 Jun 2026 10:21:02 +0200
-Subject: [PATCH v2 6/6] irqchip/gic-v5: Enable GICv5 IWB ACPI probe
- ordering detection
+	id 1wUguT-0000000Eaa5-1DxQ
+	for linux-arm-kernel@lists.infradead.org;
+	Wed, 03 Jun 2026 08:25:10 +0000
+Received: by mail-wm1-x32a.google.com with SMTP id 5b1f17b1804b1-490aaeabdb4so19692385e9.1
+        for <linux-arm-kernel@lists.infradead.org>; Wed, 03 Jun 2026 01:25:08 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=gmail.com; s=20251104; t=1780475107; x=1781079907; darn=lists.infradead.org;
+        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
+         :to:from:from:to:cc:subject:date:message-id:reply-to;
+        bh=zPqZJh4lrGWaEtR1Sz6JxGrxryGpEZ6DtkLfnuyqJQU=;
+        b=kbg7kkNAqC1XK/OdNggT3MnNhV9mBidHcLkRrJonGdLqzzepl22t2oEBsnvRUyw0z1
+         JKiXnpEIhjK3NYjB6DcxCniiwYyfBvYG01SXtLNmUEncFi/ciM0zRuMLUbIm9aALtLsE
+         5WH4HUrfobc9n9Hcraw+si9/DAtzAfwVJTUlnzM8W2btauhHC6+ecZUK5wKJZxNn9g+q
+         qtWVbYuXjcM8AosL/l7PfO9yNDP59YVCEz79WemP8X4YyWqH+flxy8i7e0QCHJe2d4th
+         g0Hf0fPHrGJVb2/buUvs3wCneTeoa7kMa/5W78s453Btkv8fw1V3lS47oZFKT99y4Il0
+         rbdw==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20251104; t=1780475107; x=1781079907;
+        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
+         :to:from:x-gm-gg:x-gm-message-state:from:to:cc:subject:date
+         :message-id:reply-to;
+        bh=zPqZJh4lrGWaEtR1Sz6JxGrxryGpEZ6DtkLfnuyqJQU=;
+        b=XxSS6bcz6k5HNZVV2cL4Nr3ym2Kv2LSmfmZpS+QPMeAGslq7YegBrmfoPlflxGQvE3
+         kMNNyWk3fRGlaDJ7A779WFPpFfSLMntQ31nq0jnQHt6kfBzgWkWmK1KIU3tICxDN5mCB
+         gPKOi+UYbZufxMjnqsvaKRZTwxNYhlU9qxhkF+Y9aO6HWNCT8db7hqcNycji+88eE9Mq
+         3Mkcx73kjWbWCUkHz3zJVfWBKmtJ57TsHc7Itm44OMsjzqp3L2HcE/zwFj06kG1D3ytD
+         oLSk7pzcC2ij+MWudOaCTWNlI0cnTGVyUQ3wTuvNVtlTT99jy78MTSu/kV38KAgAR8nM
+         a8BA==
+X-Forwarded-Encrypted: i=1; AFNElJ/O42NB/ViYEc77aUDPgX9bp1SJ7tEweXkY5vMXt7wWZI9KLQjS45R3CSLbPqD+SC3s9OjRXSzaFD/8llmOjEaz@lists.infradead.org
+X-Gm-Message-State: AOJu0YxyYdQILPgCCmvt5DoM1Bg2RrAoYLhSJdMxg2toBxk8On2F939J
+	b2etfOIpFEzQ/5j2HuCb/I9BQrQo4+fJf817bmCiiYF57wGn+ZoTox7L
+X-Gm-Gg: Acq92OGqhHEOn2h4nBPr454s+W2bbqeUc8WiOJsxAh24m8buLUDnhBwfTJSOik4uPoV
+	WlchQm6Gx5awCK1Bb5tr2i/hEwm3DwsJQ1n1FFBTPhkqElnuQIvEkblJXPFu7TCeW+AqB1tUuIY
+	bcL2M5y3F0flu3CrFs8XC/2JNSsyNPGaNsEc6HjDc4CHA7rwpVzs1w40GtvV0AKvGtxkMnvzjqZ
+	YtuMZxkUU/b20TkQwGnQ9j7ryMWf/AwNNaPVbZQxdR/g9391omhhWEZVAH7jrPdZZ/HmeL3PeN6
+	LpeFOlikIVsKKJ0lEEHOi3LmX3Z0efspMR5/8/Y9PEaWDk3YsHQ8TpUmUdNx6St/9JpsQlDANZ1
+	annL4B9WV2+5A+5s9AukkoUzplfH9vKRE/sRRTTE9cHhTTp/UMJZwA+vgrcBz2NaiRNW6sRID3a
+	aqrioRF7d/lQUzmALnnE780rNNAxiAtpDIBFY5tqpyYad8izNs7uTEwtL2Msh//Q5wynuklc2bf
+	AdpXmGZrk89MB1CJ+Khh8EyC3WxktOEUjg+LimOwsUVuMaB
+X-Received: by 2002:a05:600c:6290:b0:490:b9d3:a9ce with SMTP id 5b1f17b1804b1-490b9d3aa4emr14885625e9.30.1780475107253;
+        Wed, 03 Jun 2026 01:25:07 -0700 (PDT)
+Received: from Lord-Beerus.station (net-93-144-65-244.cust.vodafonedsl.it. [93.144.65.244])
+        by smtp.gmail.com with ESMTPSA id 5b1f17b1804b1-490b63d8205sm33175305e9.11.2026.06.03.01.25.06
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Wed, 03 Jun 2026 01:25:06 -0700 (PDT)
+From: Stefano Radaelli <stefano.radaelli21@gmail.com>
+X-Google-Original-From: Stefano Radaelli <stefano.r@variscite.com>
+To: linux-kernel@vger.kernel.org,
+	devicetree@vger.kernel.org,
+	imx@lists.linux.dev,
+	linux-arm-kernel@lists.infradead.org
+Cc: pierluigi.p@variscite.com,
+	Stefano Radaelli <stefano.r@variscite.com>,
+	Rob Herring <robh@kernel.org>,
+	Krzysztof Kozlowski <krzk+dt@kernel.org>,
+	Conor Dooley <conor+dt@kernel.org>,
+	Frank Li <Frank.Li@nxp.com>,
+	Sascha Hauer <s.hauer@pengutronix.de>,
+	Pengutronix Kernel Team <kernel@pengutronix.de>,
+	Fabio Estevam <festevam@gmail.com>
+Subject: [PATCH v3 0/5] arm64: dts: imx93-var-som-symphony: align DTS with hardware revision
+Date: Wed,  3 Jun 2026 10:24:59 +0200
+Message-ID: <cover.1780474803.git.stefano.r@variscite.com>
+X-Mailer: git-send-email 2.47.3
 MIME-Version: 1.0
-Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: 7bit
-Message-Id: <20260603-gic-v5-acpi-iwb-probe-deferral-v2-6-23ffa16b6ebb@kernel.org>
-References: <20260603-gic-v5-acpi-iwb-probe-deferral-v2-0-23ffa16b6ebb@kernel.org>
-In-Reply-To: <20260603-gic-v5-acpi-iwb-probe-deferral-v2-0-23ffa16b6ebb@kernel.org>
-To: "Rafael J. Wysocki" <rafael@kernel.org>, Len Brown <lenb@kernel.org>, 
- Sunil V L <sunilvl@ventanamicro.com>, Marc Zyngier <maz@kernel.org>, 
- Thomas Gleixner <tglx@kernel.org>, Huacai Chen <chenhuacai@kernel.org>, 
- Anup Patel <anup@brainfault.org>, Hanjun Guo <guohanjun@huawei.com>, 
- Sudeep Holla <sudeep.holla@kernel.org>, 
- Catalin Marinas <catalin.marinas@arm.com>, Will Deacon <will@kernel.org>
-Cc: linux-riscv@lists.infradead.org, linux-kernel@vger.kernel.org, 
- linux-acpi@vger.kernel.org, linux-arm-kernel@lists.infradead.org, 
- loongarch@lists.linux.dev, Lorenzo Pieralisi <lpieralisi@kernel.org>
-X-Mailer: b4 0.15.2
+Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260603_012158_422208_72058949 
-X-CRM114-Status: GOOD (  14.41  )
+X-CRM114-CacheID: sfid-20260603_012509_338232_0729E894 
+X-CRM114-Status: UNSURE (   9.93  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -78,78 +108,33 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Register an ACPI hook in the ACPI interrupt management code for GICv5 to
-retrieve the ACPI interrupt controller handle (if any) of the controller
-handling a specific GSI, by updating the acpi_set_irq_model() call with
-the gic_v5_get_gsi_handle() function pointer parameter.
+This series updates the i.MX93 VAR-SOM Symphony device tree to match the
+latest carrier board hardware revision.
 
-gicv5_get_gsi_handle() allows ACPI core to detect the ACPI handle
-of the controller that manages a specific GSI interrupt.
+The changes add support for onboard peripherals and complete the board
+configuration with the required GPIO, pinctrl and PWM settings.
 
-Update the IWB driver to clear device dependencies in ACPI core once the
-IWB driver has probed.
+v2->v3:
+ - Use reset-gpios for the TPM instead of a GPIO hog
+ - Add ADC1 support
 
-Signed-off-by: Lorenzo Pieralisi <lpieralisi@kernel.org>
-Cc: Thomas Gleixner <tglx@kernel.org>
-Cc: Marc Zyngier <maz@kernel.org>
----
- drivers/irqchip/irq-gic-v5-iwb.c |  5 +++++
- drivers/irqchip/irq-gic-v5.c     | 13 +++++++++++--
- 2 files changed, 16 insertions(+), 2 deletions(-)
+v1->v2:
+ - Rename pca6408 label to pcal6408 to match the compatible
+ - Clarify that the TPM enable line is a board-level GPIO hog
 
-diff --git a/drivers/irqchip/irq-gic-v5-iwb.c b/drivers/irqchip/irq-gic-v5-iwb.c
-index 9103feb70ce8..a02cb9537b15 100644
---- a/drivers/irqchip/irq-gic-v5-iwb.c
-+++ b/drivers/irqchip/irq-gic-v5-iwb.c
-@@ -269,6 +269,11 @@ static int gicv5_iwb_device_probe(struct platform_device *pdev)
- 	if (IS_ERR(iwb_node))
- 		return PTR_ERR(iwb_node);
- 
-+#ifdef CONFIG_ACPI
-+	if (has_acpi_companion(&pdev->dev))
-+		acpi_dev_clear_dependencies(ACPI_COMPANION(&pdev->dev));
-+#endif
-+
- 	return 0;
- }
- 
-diff --git a/drivers/irqchip/irq-gic-v5.c b/drivers/irqchip/irq-gic-v5.c
-index 03cc2830b260..26cfaea1af41 100644
---- a/drivers/irqchip/irq-gic-v5.c
-+++ b/drivers/irqchip/irq-gic-v5.c
-@@ -1217,11 +1217,19 @@ static struct fwnode_handle *gsi_domain_handle;
- static struct fwnode_handle *gic_v5_get_gsi_domain_id(u32 gsi)
- {
- 	if (FIELD_GET(GICV5_GSI_IC_TYPE, gsi) == GICV5_GSI_IWB_TYPE)
--		return iort_iwb_handle(FIELD_GET(GICV5_GSI_IWB_FRAME_ID, gsi));
-+		return iort_iwb_handle_fwnode(FIELD_GET(GICV5_GSI_IWB_FRAME_ID, gsi));
- 
- 	return gsi_domain_handle;
- }
- 
-+static acpi_handle gic_v5_get_gsi_handle(u32 gsi)
-+{
-+	if (FIELD_GET(GICV5_GSI_IC_TYPE, gsi) == GICV5_GSI_IWB_TYPE)
-+		return iort_iwb_handle(FIELD_GET(GICV5_GSI_IWB_FRAME_ID, gsi));
-+
-+	return NULL;
-+}
-+
- static int __init gic_acpi_init(union acpi_subtable_headers *header, const unsigned long end)
- {
- 	struct acpi_madt_gicv5_irs *irs = (struct acpi_madt_gicv5_irs *)header;
-@@ -1242,7 +1250,8 @@ static int __init gic_acpi_init(union acpi_subtable_headers *header, const unsig
- 	if (ret)
- 		goto out_irs;
- 
--	acpi_set_irq_model(ACPI_IRQ_MODEL_GIC_V5, gic_v5_get_gsi_domain_id, NULL);
-+	acpi_set_irq_model(ACPI_IRQ_MODEL_GIC_V5, gic_v5_get_gsi_domain_id,
-+			   gic_v5_get_gsi_handle);
- 
- 	return 0;
- 
+Stefano Radaelli (5):
+  arm64: dts: imx93-var-som-symphony: add TPM support
+  arm64: dts: imx93-var-som-symphony: enable UART7
+  arm64: dts: imx93-var-som-symphony: keep RGB_SEL low
+  arm64: dts: imx93-var-som-symphony: enable TPM3 PWM
+  arm64: dts: imx93-var-som-symphony: enable ADC
 
+ .../dts/freescale/imx93-var-som-symphony.dts  | 61 +++++++++++++++++++
+ 1 file changed, 61 insertions(+)
+
+
+base-commit: b3c1d1631f097619f8091f0293e027c4301285d6
 -- 
-2.54.0
+2.47.3
 
 
