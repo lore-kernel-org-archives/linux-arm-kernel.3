@@ -4,79 +4,57 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 914AACD6E5D
-	for <linux-arm-kernel@archiver.kernel.org>; Wed,  3 Jun 2026 01:54:11 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 98CC1CD6E5D
+	for <linux-arm-kernel@archiver.kernel.org>; Wed,  3 Jun 2026 01:55:41 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:
-	Content-Transfer-Encoding:Content-Type:MIME-Version:References:Message-ID:
-	Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=KYO62/oFjD0abSuq1/jy6x/O1dFV+Q8x1xWCOazlAO4=; b=rRnl+dnifKLuYezGlab2AzGeb0
-	OvrquCf/zZ0KBnyeuD9xx43/VRh9CObkoSfaakKduDyVWaNFyjBejhTAJsiVr4uDyUANuVHeWPVIV
-	4sg761cy62MWaxP1sGYwlJD2CmhZhnzCxzjzzBz/Z6/S+4z65n1xq3UKWtt+Eh1PpdI/4QINmEQuR
-	MdrOxw7571bRPjTCy5y1C18pN3LmzqdAExuOLxrKhK4UMUfmUWRXIF0eddtbU9W8KbNm+0AbR+9Ox
-	X6NeFY9n8+SNdSU9imcrIZ3GLObKAxfi302TL4wNNz7TlO/kjhG+/lRK8u5H2Or/ubNYks8kCWWmc
-	2TKJ+ZfQ==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:
+	Content-Transfer-Encoding:Content-Type:Date:Cc:To:From:Subject:Message-ID:
+	Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender
+	:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=tx82nXcNwoZBDaSltchd88wfYFzbl1TA2nlVTrEqhtg=; b=L+N4iJqWEp+3R4hUx8qZmD6jxd
+	uLt81pvDIVg8wfminyGgeDSiwy+EMO24gfKgdo87gaS0mLitttr5vq46AXWcmwcT7zYm6qM9wvAAh
+	RBgNMoPZ7ketLu+SYACIMz5MBAJMakBiLyhi+TFnYxgAK6vTxp05UOSOgvXdBEewAfj1dow/h07EM
+	9G3qY66yTbaSlfDXCj9tlkVt891XPXBQcAN8thitb5gKSbJN0c+volkfsAy3YIUn6qlhpsb5tgwWN
+	FuB6XuEGPg47d2E9bIbwGKKN28YSrMKDt9okf+5D/69zfMPe2bCbit6gQ9OFPPsEJnEMsJSIdHk5T
+	2DlY2SNg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wUao0-0000000E4MJ-24hz;
-	Wed, 03 Jun 2026 01:54:04 +0000
-Received: from tor.source.kernel.org ([172.105.4.254])
+	id 1wUapT-0000000E4ZV-39b2;
+	Wed, 03 Jun 2026 01:55:35 +0000
+Received: from pi.codeconstruct.com.au ([203.29.241.158] helo=codeconstruct.com.au)
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wUanz-0000000E4MA-08FQ
+	id 1wUapQ-0000000E4Yt-2P1f
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 03 Jun 2026 01:54:03 +0000
-Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
-	by tor.source.kernel.org (Postfix) with ESMTP id 23572601F6;
-	Wed,  3 Jun 2026 01:54:02 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 9024E1F00893;
-	Wed,  3 Jun 2026 01:53:56 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1780451641;
-	bh=KYO62/oFjD0abSuq1/jy6x/O1dFV+Q8x1xWCOazlAO4=;
-	h=Date:From:To:Cc:Subject:References:In-Reply-To;
-	b=WavqzsYTNF5CF0f9tPKtjHExBLcwiGTWEfzrkVi+S+sOHj5OeXuiDdsf66NDMEbDv
-	 ru8+pXG0x6BXMkr19TvhvPwXnjGxMK3aXlySJNSSqP606jdOfaqPZJ9ws/i+PJqr1K
-	 +NdOUuThL68NVCtqCUsUsKfuI1XKRQp0YpHz+Lv2A0WybAb+TurHz77WelZkE/zMBy
-	 vICgMDDf1xTxvAEEWW7YBk33OJ6ZhUfqv232cT80GTRJfPZn5xt/UuK1Cju4a4D+pq
-	 ZSjkp9OoT0LBhZWuzMRwv5YzSKbltkYTGDV+Y//SVrJy8U19komqU043mjtIP3tPGe
-	 /mAEKb/fUWfuw==
-Date: Tue, 2 Jun 2026 18:53:54 -0700
-From: Nathan Chancellor <nathan@kernel.org>
-To: Rong Xu <xur@google.com>
-Cc: Will Deacon <will@kernel.org>, Yabin Cui <yabinc@google.com>,
-	Han Shen <shenhan@google.com>, Thomas Gleixner <tglx@linutronix.de>,
-	Ingo Molnar <mingo@redhat.com>, Borislav Petkov <bp@alien8.de>,
-	Dave Hansen <dave.hansen@linux.intel.com>,
-	"H. Peter Anvin" <hpa@zytor.com>, Kees Cook <kees@kernel.org>,
-	Nicolas Schier <nicolas.schier@linux.dev>,
-	Linus Walleij <linusw@kernel.org>, Arnd Bergmann <arnd@arndb.de>,
-	Mathieu Desnoyers <mathieu.desnoyers@efficios.com>,
-	Miguel Ojeda <ojeda@kernel.org>,
-	Peter Zijlstra <peterz@infradead.org>,
-	Jinjie Ruan <ruanjinjie@huawei.com>,
-	Lukas Bulwahn <lukas.bulwahn@redhat.com>,
-	linux-kernel@vger.kernel.org, Juergen Gross <jgross@suse.com>,
-	Helge Deller <deller@gmx.de>, Ryan Roberts <ryan.roberts@arm.com>,
-	Marc Zyngier <maz@kernel.org>, Ard Biesheuvel <ardb@kernel.org>,
-	Vincent Donnefort <vdonnefort@google.com>,
-	Alice Ryhl <aliceryhl@google.com>, x86@kernel.org,
-	linux-arm-kernel@lists.infradead.org
-Subject: Re: [PATCH v3 2/2] kconfig: Remove the architecture specific config
- for Propeller
-Message-ID: <20260603015354.GD1940387@ax162>
-References: <20260527214510.3907973-1-xur@google.com>
- <20260527214510.3907973-3-xur@google.com>
- <178010203122.3743687.12531843798236779880.b4-review@b4>
- <CAF1bQ=RNokHJtf=8RGKyP12jNPKUvyztJVRaDZ2fnXSVzZ3L5g@mail.gmail.com>
- <ah6ltnOk2ol8_2ly@willie-the-truck>
- <CAF1bQ=TfCAdxh64cSNeO5wiT8o02o6+bVooju1Bgy3odM1NYwQ@mail.gmail.com>
+	Wed, 03 Jun 2026 01:55:34 +0000
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+	d=codeconstruct.com.au; s=2022a; t=1780451730;
+	bh=tx82nXcNwoZBDaSltchd88wfYFzbl1TA2nlVTrEqhtg=;
+	h=Subject:From:To:Cc:Date;
+	b=bCn2zoTloqOxxDig5JmDUJm6foeRhBtzOX06v24QuFpeEjX86wYXplBnnTpBJPJfk
+	 ih1moDj6u1KxTKfjvzvsxivMT6Z6NWmGeAvVsWM0ujjYUrseXUDfxszU6lg5YSXDaV
+	 OvPbBIHLJZxAP33hcJOscqqQxTFfYEatcUIG93f222aVOm8igbNg8LOJMEoR0OXYxi
+	 S7Y+FwoafaPjMtHQPCSt/Dhvk5CwhDZJ40NoP3qpw6nPJpmK7CJnqX96gA0oTzyVPS
+	 5L19RZvH4Qrv9rUOIdrNLqRo5qXDYG45kKZdoLaxUwk1BMH/lFw4U+C5qVgYilnpc9
+	 GV8o/lchiUpAg==
+Received: from [192.168.68.117] (unknown [180.150.112.11])
+	by mail.codeconstruct.com.au (Postfix) with ESMTPSA id 302CA60087;
+	Wed,  3 Jun 2026 09:55:30 +0800 (AWST)
+Message-ID: <0743460993783da99c633acbfb84bfe065cb303d.camel@codeconstruct.com.au>
+Subject: [GIT PULL] nuvoton: First batch of arm64 devicetree changes for v7.2
+From: Andrew Jeffery <andrew@codeconstruct.com.au>
+To: soc <soc@lists.linux.dev>
+Cc: linux-arm-kernel@lists.infradead.org, openbmc@lists.ozlabs.org, 
+	linux-kernel@vger.kernel.org, Joel Stanley <joel@jms.id.au>
+Date: Wed, 03 Jun 2026 11:25:29 +0930
+Content-Type: text/plain; charset="UTF-8"
+Content-Transfer-Encoding: quoted-printable
+User-Agent: Evolution 3.56.2-0+deb13u1 
 MIME-Version: 1.0
-Content-Type: text/plain; charset=utf-8
-Content-Disposition: inline
-Content-Transfer-Encoding: 8bit
-In-Reply-To: <CAF1bQ=TfCAdxh64cSNeO5wiT8o02o6+bVooju1Bgy3odM1NYwQ@mail.gmail.com>
+X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
+X-CRM114-CacheID: sfid-20260602_185532_802425_9A5C241A 
+X-CRM114-Status: UNSURE (   5.22  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -91,33 +69,35 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Tue, Jun 02, 2026 at 10:52:48AM -0700, Rong Xu wrote:
-> On Tue, Jun 2, 2026 at 2:43 AM Will Deacon <will@kernel.org> wrote:
-> > I still don't think it has anything to do with the arch. If the compiler
-> > supports the option, then we can use it. The arch code in the kernel
-> > doesn't need to do anything, right? So can you just check if the
-> > compiler accepts the option using a 'depends on $(cc-option, ...)' line?
-> 
-> Yes, arch code in the kernel does not need to do anything—it is just a marker.
-> 
-> I understand your concern. I can use (cc-options,...) in PROPELLER_CLANG config.
-> But I will not use -fbasic-block-address-map for backward compatiliby reason.
-> I would use "-fbasic-block-sections=list=/dev/null".
-> 
-> I'll send the updated patch shortly.
+The following changes since commit 254f49634ee16a731174d2ae34bc50bd5f45e731=
+:
 
-Technically, an architecture needs to add the section generated by this
-compiler option to their linker script to avoid an orphan section
-warning (or error from CONFIG_WERROR) if enabled, as has been done in
-this series.
+  Linux 7.1-rc1 (2026-04-26 14:19:00 -0700)
 
-I worry that moving to a dynamic check will cause build breakage if an
-LLVM target gains support for Propeller without having their kernel
-image linker script adjusted. Maybe that will not happen very often and
-even if it does, I do not mind taking on the maintenance burden of
-fixing it but there is a cost of moving to a dynamic check like this.
+are available in the Git repository at:
 
--- 
-Cheers,
-Nathan
+  https://git.kernel.org/pub/scm/linux/kernel/git/bmc/linux.git tags/nuvoto=
+n-7.2-devicetree-0
+
+for you to fetch changes up to eae82b6e8c2399892e145195cae9aaa0b960fdaf:
+
+  arm64: dts: nuvoton: Add Ethernet nodes (2026-05-18 23:18:01 +0930)
+
+----------------------------------------------------------------
+nuvoton: First batch of arm64 devicetree changes for v7.2
+
+Just the one patch adding ethernet nodes for the MA35D1 development board.
+
+----------------------------------------------------------------
+Joey Lu (1):
+      arm64: dts: nuvoton: Add Ethernet nodes
+
+ arch/arm64/boot/dts/nuvoton/ma35d1-iot-512m.dts | 25 +++++++++++++++++++++=
+++++
+ arch/arm64/boot/dts/nuvoton/ma35d1-som-256m.dts | 24 +++++++++++++++++++++=
++++
+ arch/arm64/boot/dts/nuvoton/ma35d1.dtsi         | 52 +++++++++++++++++++++=
++++++++++++++++++++++++++++++++
+ 3 files changed, 101 insertions(+)
+
 
