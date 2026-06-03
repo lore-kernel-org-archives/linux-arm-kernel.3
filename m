@@ -4,99 +4,103 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id C44AFCD6E5D
-	for <linux-arm-kernel@archiver.kernel.org>; Wed,  3 Jun 2026 01:12:01 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id E591CCD6E5D
+	for <linux-arm-kernel@archiver.kernel.org>; Wed,  3 Jun 2026 01:13:42 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:MIME-Version:Message-ID:References:In-Reply-To:Subject:CC:To:
-	From:Date:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=wfa0xqifL6vDOGACfxfGJ3JF4SFfMplxwiS2lFwtPkg=; b=uSf7fBMNTGejKURtwti6wCqpuN
-	ZuSYMUTTJHSB5gvcs5Ca26Y7NHz0W1jEvSjD9cbkEqvmUJx8W9Qouu7pgOmJvOAHUQ+8oFTocjPpY
-	cJ4IgWqnHOm2Z8P/s5a02h+LC2ArGeblGz/K/MGBtRAguCYE61i+fqZauqC4gvkdlra4eqQKuD+S4
-	KaG3B0Xvgg1aH7CdqEtvByEi/lK4aYBo4AX2xuMSfEbocg3+zocK5qSaZV+OWBt+u5b5gDrcpppXw
-	S9bS2nJw4PJa1czcMUCC5gKyfgQ2eFAzZPsJIHcqZxExpLY8Ku8HmTf5NkiC/tig+pRB+xp58SSaL
-	QLLraMeg==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=2cdnAPJ/txGMdC+542Rqoyln86KAovKwsF9QsCq4AEY=; b=otALj4ye3jRRDSZhZNvgELntNM
+	y10msRykMKlQ25ZTpnkS0OWJHJZ74keKdmqH1+SrL0ROzyTwUDa9HDFKKTCbwsQ4TUV1GiPnwIwFe
+	EnX70Cio7YU+aICdOIdtu/rLw/TbfadKXSZHay+FEM1jrpVV1ZKgFMoDunabTQiGYqr86jzRrlzUP
+	oyGwaBzcgZnImdHM2/6e3JkKheIGnxUhe+Sz3xVOAi+VlGModL86zztBEJeMtwm/uHDa+nH/2p1CS
+	XJYeaO4kFPWyWGHkdp9PWGbHSvlEJqUAq+xRaaljl3FZV7jXydLRndsKXHOt05lFqEewiDu24DUN7
+	aJYylfeg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wUa9B-0000000E1mw-0Abf;
-	Wed, 03 Jun 2026 01:11:53 +0000
-Received: from mail-pg1-x529.google.com ([2607:f8b0:4864:20::529])
+	id 1wUaAp-0000000E1yK-1J2j;
+	Wed, 03 Jun 2026 01:13:35 +0000
+Received: from mail-qt1-x82e.google.com ([2607:f8b0:4864:20::82e])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wUa98-0000000E1lI-12pX
+	id 1wUaAn-0000000E1xy-1wIB
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 03 Jun 2026 01:11:51 +0000
-Received: by mail-pg1-x529.google.com with SMTP id 41be03b00d2f7-c859878eb48so1302252a12.0
-        for <linux-arm-kernel@lists.infradead.org>; Tue, 02 Jun 2026 18:11:49 -0700 (PDT)
+	Wed, 03 Jun 2026 01:13:34 +0000
+Received: by mail-qt1-x82e.google.com with SMTP id d75a77b69052e-5177b1a7441so2658541cf.3
+        for <linux-arm-kernel@lists.infradead.org>; Tue, 02 Jun 2026 18:13:32 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20251104; t=1780449109; x=1781053909; darn=lists.infradead.org;
-        h=content-transfer-encoding:mime-version:message-id:references
-         :in-reply-to:user-agent:subject:cc:to:from:date:from:to:cc:subject
-         :date:message-id:reply-to;
-        bh=wfa0xqifL6vDOGACfxfGJ3JF4SFfMplxwiS2lFwtPkg=;
-        b=PID7lL92qRk3KyHCIWK+APkZH1VIxH4uY90I0X/HJs7AaUS0CXesFUou7LOXnPrpep
-         y/DxT9QSPL26Zj7zyxpt0Yey2eWYEpIHYCdEOy+2LroYMlZvJxfKx8wL/8JV5Q31srFY
-         GfWKoN2IPz+NEUzlPGZZw5S2JfNmw7HCYiyqQXTPy5YC6/Wi7BfMq0Is7nFKfnWgBF4w
-         P1OFJlHZm/IZZKKGsBvIvQlLK4h7+Cre7/8Wcc3vdZpVyc9aXVsFeoyxO5mfv69jhgUJ
-         tV888XtZ7c2YxR6vwfoiBRwzVvuNT5IIeCrHWrr4BkeivRaaw8yo+aOTLkK0UjUo+xaz
-         Y4RQ==
+        d=ziepe.ca; s=google; t=1780449212; x=1781054012; darn=lists.infradead.org;
+        h=in-reply-to:content-disposition:mime-version:references:message-id
+         :subject:cc:to:from:date:from:to:cc:subject:date:message-id:reply-to;
+        bh=2cdnAPJ/txGMdC+542Rqoyln86KAovKwsF9QsCq4AEY=;
+        b=Wel0kdWv8E9m5uZBNPiTM2IOckNo40lqf9U/e98/r5zOabwHLWpXoPf4eAHDjHoD6X
+         NPXrIcP6Lt9pgofwjPoFYOgoflfgJffScqSaGxTs7zohPSazQd6vkT6xU+sMvc1vFU+8
+         1VJnIORI1aP/KXonlxGoZ5Ft6gz97C0a1dHhCgjTeXLWX1n+b84kPy/I3XOhAdqS5b8c
+         cQDwrBYxmAxaraN560r7EACUPXlPkezZ4qYT0BdY2jdExNIhdzJ/fM/nDDpbbADypKK1
+         eoI/2J8EvCCYpBG5qO7fk1U7IH8/ujfWuJSKY32+bGpSV/1l1uikelZY4RV+MZ51Nr4D
+         yiIA==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20251104; t=1780449109; x=1781053909;
-        h=content-transfer-encoding:mime-version:message-id:references
-         :in-reply-to:user-agent:subject:cc:to:from:date:x-gm-gg
-         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to;
-        bh=wfa0xqifL6vDOGACfxfGJ3JF4SFfMplxwiS2lFwtPkg=;
-        b=cMapKzuvMpWnXMCET7zamw5h2Jb6jpamRNwnBGUSeuK/n1OfKLBEvx+E+R1n9zIOz6
-         mjpNUIAR7Cdhvuk4VaiwOHu3rqGk7/LysosHH/ZzTPRUIgkv8SIyfCmcZ5HHWIKrwK74
-         fhLDkYYnUIUcgX50+t5ACJygYrZW+RuzvqdGKaltXzHOK6HrvoT/TgILI71SBrzEnOTl
-         VJ9Ankx85dI7VCaVrsLNjEDNpeWvfvhaBgoQ6JxOq60riz30RY8vAkuTTePUwXFvsfgN
-         OKPiNj4KBQEHyUwBDvAhb1Ha0hZwHmjTMWNRTTjotXZl9liouiMBjjjqs51w8emVqmlz
-         +fkg==
-X-Forwarded-Encrypted: i=1; AFNElJ/RK4F7arSG3PllcfXGbt8EMwR7CFdfim3zLSaw9fsdF1479M4oKLK2JlZ/Xznj2DFJ2JbgLiJYU4Fe/54bU8Lh@lists.infradead.org
-X-Gm-Message-State: AOJu0YzHEBEA5ST9etqq8fZJuQlhVoX1Ce2QhtAas4EV0hbAnhLZbNvq
-	75tdED/Uu7xcqN7KcsM/zhqb55T5TvpYLmbQnLZH6U2qS+a+1FbLQg6A
-X-Gm-Gg: Acq92OFLiEMhQNBXt7cSVq75sF7AL+oaTLBstFd0HEzasQjyFCUNH/N9qGK4bx+h/E0
-	7E0BPRb2pwf4iJzOX8u0dFL3xg1B887Hq2xlebsbv5HsdoALdHhsYGgLmb9XyDhOKPXr4GYXT7K
-	PVtNyXXpSrU8cLYiAPJCBpV2xPJZdfVCC/ndGw25l29b0M47sJW83KmwwEVvzkG6MvqHTSUyD9I
-	kIqXo0ilLJ72jCFrNAuBtE5fdtMa6yZ61vfrntL4BVnXRx6KyskmYCsUd4sRhQTbev6f6c3XyYi
-	rtPf91cq3um/mAh3L8WrmHU+qrQmbvYZ5mqWv/6iGkNH0xigYRF4Cq8c+k3O3O0ke51I90LFv08
-	or0e2xAJuJtwU6Iu88Hkk8rJbcQ0Qx0wXq7Pov3SuaDrWDOH240q+XbKHq/VMOB0bPqFIFLQ4TQ
-	LZlBgkrBAzRBPCAIHLGKtoH3kuMKCwxQohRvCSc/uv3aIdaHHoalIKgCusVA==
-X-Received: by 2002:a05:6a00:1f06:b0:83c:928:6e5a with SMTP id d2e1a72fcca58-84284e22fd8mr1087363b3a.13.1780449108782;
-        Tue, 02 Jun 2026 18:11:48 -0700 (PDT)
-Received: from ehlo.thunderbird.net ([2401:4900:8899:fcac:9fd7:3b2f:a800:e88c])
-        by smtp.gmail.com with ESMTPSA id d2e1a72fcca58-842828fa877sm1081497b3a.51.2026.06.02.18.11.47
-        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
-        Tue, 02 Jun 2026 18:11:48 -0700 (PDT)
-Date: Wed, 03 Jun 2026 06:41:43 +0530
-From: Sanjay Chitroda <sanjayembeddedse@gmail.com>
-To: rva333@protonmail.com,
- Roman Vivchar via B4 Relay <devnull+rva333.protonmail.com@kernel.org>,
- Jonathan Cameron <jic23@kernel.org>, David Lechner <dlechner@baylibre.com>,
- =?ISO-8859-1?Q?Nuno_S=E1?= <nuno.sa@analog.com>,
- Andy Shevchenko <andy@kernel.org>, Rob Herring <robh@kernel.org>,
- Krzysztof Kozlowski <krzk+dt@kernel.org>, Conor Dooley <conor+dt@kernel.org>,
- Matthias Brugger <matthias.bgg@gmail.com>,
- AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>,
- Lee Jones <lee@kernel.org>
-CC: linux-iio@vger.kernel.org, devicetree@vger.kernel.org,
- linux-kernel@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
- linux-mediatek@lists.infradead.org, Ben Grisdale <bengris32@protonmail.ch>,
- Roman Vivchar <rva333@protonmail.com>
-Subject: =?US-ASCII?Q?Re=3A_=5BPATCH_2/4=5D_iio=3A_adc=3A_mt6323-au?=
- =?US-ASCII?Q?xadc=3A_add_mt6323_PMIC_AUXADC_driver?=
-User-Agent: Thunderbird for Android
-In-Reply-To: <20260602-mt6323-adc-v1-2-68ec737508ee@protonmail.com>
-References: <20260602-mt6323-adc-v1-0-68ec737508ee@protonmail.com> <20260602-mt6323-adc-v1-2-68ec737508ee@protonmail.com>
-Message-ID: <1F6728A6-BD73-4159-AAC9-82370212EF04@gmail.com>
+        d=1e100.net; s=20251104; t=1780449212; x=1781054012;
+        h=in-reply-to:content-disposition:mime-version:references:message-id
+         :subject:cc:to:from:date:x-gm-gg:x-gm-message-state:from:to:cc
+         :subject:date:message-id:reply-to;
+        bh=2cdnAPJ/txGMdC+542Rqoyln86KAovKwsF9QsCq4AEY=;
+        b=PKsMNVFBlMXFzjZFVlzRjBM8QaT1RnocJhChiXWeLKhP55RRcSXcSHuJu8MyX1Clwc
+         obtqUgka82nHCiup6QMksopWPoRQkrMS4RMafohv308H7y5QV+uBXscR2jmclZ64suYl
+         vaq7U47jQvOfwYvhUsp56Dji8C/Eoh/Q9YfLVYGNeVglXJrz5tbehMJJqQuUhlNU6akc
+         GP/5u7GRzneXMfShv+ni+N9tHbcP6fD6bUkWLzarnjhQjujrwJQxvYZcdU6H8Quw5+Wb
+         ru+p8KSElcZnddsBdTAIu4dzB/O+cQZOe1Cs3d/Vd7yqkqHb+qdgIYJo10LYldCiarCI
+         lufw==
+X-Forwarded-Encrypted: i=1; AFNElJ+CNBmrRoqaS9VJ+oJCDDqIslTBvMvEWY9mutAUogxsCQHHkFZCLBY+XzNiC4pjXdKzVBo2fGa7xVwpsZ1SHFYO@lists.infradead.org
+X-Gm-Message-State: AOJu0Yyq8ux7o/rXZNyXvylQXhsDkNf6Pn4+lXkLVjJV6MJKNXTVsT1v
+	83Xc07LN+08E3nvAydij4D4KQ8XJyiumEVsWNwdj9AbBuqI1QNxA4P+3yfarhHUBRIs=
+X-Gm-Gg: Acq92OFS6H2f06C6mH4LhdueulWbhiAx6o0qSBbMPNuMl2ybO2M3jmgGu/eEpndKu7c
+	POIu20327bLB8ib3HYUKQkjpjI6sD5DXwA6j99kg4Y/aMr7AJxTxTZWYDOD5RgVtcFQxmT6mKWN
+	oTuMX79cxConp9K/vw1wNhCmCpSXb0Lh819PiBPx1X7Dx3zPV45z6Mk6qk5awCe5Cj2g50Zs79Z
+	iwRdROZYA9h9ciDIh0wNK9AZZqfCm0cB6Y0DZX5KVHqKHDtFU+MV2+fwfU9Onv9k1hcriWn/bmx
+	BgLR/sjnZ5aRMTpN6M6WiueBd58DdROLPDrO2mIUFTXzy8cdjDxcOZu+0RgMMFhRI8AOjlKnfcS
+	LO4rOsr47KrnMmVq6ivNgxZTjR/ZR+3tkYMpD+VHIz/Q7Kl1OqD/U2ZGtET5fUGW0kG8FxbRdIC
+	n+YZrMh4EXD02AvPlDeRomAg0JZ1TrEFBNP8Czo854YiCBuvz9npgzkQa7J4wTKa/x/Ka1mHWqk
+	WBIRvFfuXOrLGQI
+X-Received: by 2002:a05:622a:5b90:b0:517:7590:228e with SMTP id d75a77b69052e-517784827b9mr21839501cf.0.1780449212162;
+        Tue, 02 Jun 2026 18:13:32 -0700 (PDT)
+Received: from ziepe.ca (crbknf0213w-47-54-130-67.pppoe-dynamic.high-speed.nl.bellaliant.net. [47.54.130.67])
+        by smtp.gmail.com with ESMTPSA id d75a77b69052e-51775c54177sm13497781cf.12.2026.06.02.18.13.30
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Tue, 02 Jun 2026 18:13:31 -0700 (PDT)
+Received: from jgg by wakko with local (Exim 4.97)
+	(envelope-from <jgg@ziepe.ca>)
+	id 1wUaAk-00000004yZP-2Ic0;
+	Tue, 02 Jun 2026 22:13:30 -0300
+Date: Tue, 2 Jun 2026 22:13:30 -0300
+From: Jason Gunthorpe <jgg@ziepe.ca>
+To: Guanghui Feng <guanghuifeng@linux.alibaba.com>
+Cc: adrian.larumbe@collabora.com, airlied@gmail.com, alex@shazbot.org,
+	baolu.lu@linux.intel.com, boris.brezillon@collabora.com,
+	dri-devel@lists.freedesktop.org, dwmw2@infradead.org,
+	iommu@lists.linux.dev, joro@8bytes.org, kevin.tian@intel.com,
+	kvm@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
+	linux-kernel@vger.kernel.org, liviu.dudau@arm.com,
+	maarten.lankhorst@linux.intel.com, mripard@kernel.org,
+	oliver.yang@linux.alibaba.com, robh@kernel.org,
+	robin.murphy@arm.com, shiyu.zsq@linux.alibaba.com,
+	steven.price@arm.com, suravee.suthikulpanit@amd.com,
+	tzimmermann@suse.de, wei.guo.simon@linux.alibaba.com,
+	will@kernel.org, xlpang@linux.alibaba.com,
+	alikernel-developer@linux.alibaba.com
+Subject: Re: [PATCH v2 10/30] iommu/ipmmu-vmsa: implement iova_to_phys_length
+Message-ID: <20260603011330.GS2487554@ziepe.ca>
+References: <20260531093637.3893199-1-guanghuifeng@linux.alibaba.com>
+ <20260602104637.1219810-1-guanghuifeng@linux.alibaba.com>
+ <20260602104637.1219810-11-guanghuifeng@linux.alibaba.com>
 MIME-Version: 1.0
-Content-Type: text/plain;
- charset=utf-8
-Content-Transfer-Encoding: quoted-printable
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+In-Reply-To: <20260602104637.1219810-11-guanghuifeng@linux.alibaba.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260602_181150_283878_C7619C6F 
-X-CRM114-Status: GOOD (  11.85  )
+X-CRM114-CacheID: sfid-20260602_181333_508205_AD3095CA 
+X-CRM114-Status: GOOD (  14.82  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -111,59 +115,34 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
+On Tue, Jun 02, 2026 at 06:46:17PM +0800, Guanghui Feng wrote:
+> Migrate IPMMU-VMSA to implement iova_to_phys_length, passing through
+> mapped_length from io-pgtable.
+> 
+> Signed-off-by: Guanghui Feng <guanghuifeng@linux.alibaba.com>
+> ---
+>  drivers/iommu/ipmmu-vmsa.c | 12 ++++++++----
+>  1 file changed, 8 insertions(+), 4 deletions(-)
+> 
+> diff --git a/drivers/iommu/ipmmu-vmsa.c b/drivers/iommu/ipmmu-vmsa.c
+> index 9386b752dea2..a1b659ddbdb5 100644
+> --- a/drivers/iommu/ipmmu-vmsa.c
+> +++ b/drivers/iommu/ipmmu-vmsa.c
+> @@ -699,14 +699,18 @@ static void ipmmu_iotlb_sync(struct iommu_domain *io_domain,
+>  	ipmmu_flush_iotlb_all(io_domain);
+>  }
+>  
+> -static phys_addr_t ipmmu_iova_to_phys(struct iommu_domain *io_domain,
+> -				      dma_addr_t iova)
+> +static phys_addr_t ipmmu_iova_to_phys_length(struct iommu_domain *io_domain,
+> +				      dma_addr_t iova, size_t *mapped_length)
+>  {
+>  	struct ipmmu_vmsa_domain *domain = to_vmsa_domain(io_domain);
+>  
+> +	if (mapped_length)
+> +		*mapped_length = 0;
 
+Why?
 
-On 2 June 2026 6:16:55=E2=80=AFpm IST, Roman Vivchar via B4 Relay <devnull=
-+rva333=2Eprotonmail=2Ecom@kernel=2Eorg> wrote:
->From: Roman Vivchar <rva333@protonmail=2Ecom>
->
->The mt6323 AUXADC is a 15-bit ADC used for system monitoring=2E This driv=
-er
->provides support for reading various channels including battery and
->charger voltages, battery and chip temperature, current sensing and
->accessory detection=2E
->
->Add a driver for the AUXADC found in the MediaTek mt6323 PMIC=2E
->
->Tested-by: Ben Grisdale <bengris32@protonmail=2Ech> # Amazon Echo Dot (2n=
-d Generation)
->Signed-off-by: Roman Vivchar <rva333@protonmail=2Ecom>
-Hi Roman,
-Thank you for the patch=2E
->---
-> MAINTAINERS                     |   8 ++
-> drivers/iio/adc/Kconfig         |  11 ++
-> drivers/iio/adc/Makefile        |   1 +
-> drivers/iio/adc/mt6323-auxadc=2Ec | 299 ++++++++++++++++++++++++++++++++=
-++++++++
-> 4 files changed, 319 insertions(+)
->
->diff --git a/MAINTAINERS b/MAINTAINERS
->index d1cc0e12fe1f=2E=2Ec9ad2417a3ef 100644
->--- a/MAINTAINERS
->+++ b/MAINTAINERS
->@@ -16256,6 +16256,14 @@ S:	Maintained
-> F:	Documentation/devicetree/bindings/mmc/mtk-sd=2Eyaml
-> F:	drivers/mmc/host/mtk-sd=2Ec
->=20
->+MEDIATEK MT6323 PMIC AUXADC DRIVER
->+M:	Roman Vivchar <rva333@protonmail=2Ecom>
->+L:	linux-iio@vger=2Ekernel=2Eorg
-
-No need to add explicit iio list for driver=2E
-Top level entry covers this driver=2E
-
->+L:	linux-mediatek@lists=2Einfradead=2Eorg (moderated for non-subscribers=
-)
->+S:	Maintained
->+F:	drivers/iio/adc/mt6323-auxadc=2Ec
->+F:	include/dt-bindings/iio/adc/mediatek,mt6323-auxadc=2Eh
->+
-> MEDIATEK MT6735 CLOCK & RESET DRIVERS
-> M:	Yassine Oudjana <y=2Eoudjana@protonmail=2Ecom>
-> L:	linux-clk@vger=2Ekernel=2Eorg
-=2E=2E=2E
-Thanks, Sanjay
->+MODULE_DESCRIPTION("MediaTek MT6323 PMIC AUXADC Driver");
->
+Jason
 
