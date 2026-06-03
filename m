@@ -4,119 +4,54 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id BAF4DCD6E57
-	for <linux-arm-kernel@archiver.kernel.org>; Wed,  3 Jun 2026 21:28:02 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 26063CD6E57
+	for <linux-arm-kernel@archiver.kernel.org>; Wed,  3 Jun 2026 21:37:57 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:
-	Content-Transfer-Encoding:MIME-Version:References:In-Reply-To:Message-ID:Date
-	:Subject:CC:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=Jro+oWb50BLSYPPGkHvb0B1CsoYVX5cPW7wYzIpozBM=; b=qIaKioF4fDi1dC49tQ6Avc1LgT
-	p69LrwI8BVfEkWPKlT6IObMebEeQ5CBQrZQCrIormZX9nlvFPtbk7elB66HORuqk9uoBQ8jf3XFaN
-	T9WeCS4XInO2XgMqgztMQraChWp4JzbT6h3cg07ttq/unub8awPgAxW616k+DYe2fDXzCF/AOVbv8
-	fUPkRgST56O7xlNMw61OCXCcmZSwAjOzAUfYWdMd42z9USRLnFJiObFkCF30v/rZxnP3OcpIclTK3
-	C6jQwuRnlk7gajQCPNXGJwhBW89rCNkQMYrxO7y+9gMuEiSxJk1dswBU8vrzDS7NuShEFXweJ8cUb
-	RrkoKn/Q==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	MIME-Version:Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-Type:
+	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
+	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=zuOjzE83S2w3miwJiK/G2SRQFoPd2jOOmbLhRNJa6Yg=; b=BbV2aDoNorUZ3wFRt68mm6nJiZ
+	SswkuLozZhRcheyNq1PkXm0WTcpVbc0L/yaaaPaH2mg12ignsrZngp4ccWfYgn1FuJ4Bi/fFwA0z9
+	MuHduis0QH2NenhBU9MRGdZRNyrsDAxLUeSgrG+LtuHzqXa8rhb3OEjkOB8qbKcgdeY2nG5M8UiHN
+	jqnuyuUHzkZ1NCBt0lyaojlU5BesAVxJZRgvBeBUTs9dMjQw1+5MQyAOzo6JfzojmVzQzlGfRmaZY
+	5w6rSDhGA5cwb6iow0jeLgv6YRcEv4DVU+saJ5vPf5GzOqcEz9v7tAqnSweXLnmIZVIbfwtevV82V
+	1w1+1AQQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wUt80-0000000FqwT-2F2G;
-	Wed, 03 Jun 2026 21:27:56 +0000
-Received: from mail-northcentralusazon11013002.outbound.protection.outlook.com ([40.107.201.2] helo=CH4PR04CU002.outbound.protection.outlook.com)
+	id 1wUtHU-0000000Frhb-2F3R;
+	Wed, 03 Jun 2026 21:37:44 +0000
+Received: from gloria.sntech.de ([185.11.138.130])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wUt7x-0000000FqtR-3hY3
-	for linux-arm-kernel@lists.infradead.org;
-	Wed, 03 Jun 2026 21:27:55 +0000
-ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
- b=a4SQ6mE5IH7eKgodR3pW0UJU2+bwUhzDDCEoVnyn4GZsFJPbfeCRMyabn8jLJ0Yry3bOcmunhnKi4iPp6HgSpqtVSdJGAG2i6E/LhPpTiQvcQXTUlB3yK3//sc7fhlkUOj2472wz9tpPZr8so78fR0uWu7ThOTzwGtRz4bctlm3K0vG41Ir2a+9iFfh9BjMA+Bo49b4nXnP3EKZqgkm3xIoUG4r+56/Sbw6DEKDG5StyD8GL72GV210bSAN+ysq4NbpObr6+OHfx5HbJYJTLOSTszWXVbTDV1YQpkbeK99aBHXwZMUIZKFGYsjIHUWtDlL/cCNVfWAemsHQZMjmAHg==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
- s=arcselector10001;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
- bh=Jro+oWb50BLSYPPGkHvb0B1CsoYVX5cPW7wYzIpozBM=;
- b=X16qz+iojTLbhI10TKJlaaIEt7EYXQ6e+iVjMJRrJimeOWZItiBIyWxwwcIpqijd4PJR8n1SEdIejGjBdowTeta5OMRY2IPURz/zroSE/k4dPrDZzHsrR93StZGpgs3rQanGUeFWXADwDLouxisQzqTyget++3idCCHrRLWMyfEqbteCQBJjNyNow326U36lL4hy7K5J62y6Q4od5Tf6m1Xlf9KNRWKr+2LjAdoX8LCQNzqTFwU2IBuFCj6OGU984pQX7+v8SGKXzw13460iHgPgxQHIKQdrWtb74HC7ky2DLrrdoR+BoX/HcfAlhETEWqqFk2KOGSvzOg4Pghk8rw==
-ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass (sender ip is
- 216.228.117.160) smtp.rcpttodomain=kernel.org smtp.mailfrom=nvidia.com;
- dmarc=pass (p=reject sp=reject pct=100) action=none header.from=nvidia.com;
- dkim=none (message not signed); arc=none (0)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=Nvidia.com;
- s=selector2;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
- bh=Jro+oWb50BLSYPPGkHvb0B1CsoYVX5cPW7wYzIpozBM=;
- b=LmvO8QngPzRsn8NVxoT7hKfXTHmCI3FfSWx2rGcEe4eJFMZ9SYbJSIhuw40dPze2Yj7kfFvRy7osK19OTpPoG1LDQWCLRIuNpoCNTnW5lU9MHtgvuYzKBitGj5omrAbfSfiGipKl7C9dFCPTcsLdzQY3fAK3cUVlBw6xPhu3Q/DNY8WXPTLmObaSAE5edHDEBU2XCS8ezHdK1i+rWMtQveO1aaUMUv1cQVVlcEM7BDqfpd3TZgXIiR+L4cgViyGIWZaC8ZslFOihNThvR+QZ7tzocjB5SQEOs1E+hQgsgdaGOS0IY+Xx3ChIUXr7d2yG6XAF/NWEsyP0j5ZtaPLOSw==
-Received: from DM6PR07CA0076.namprd07.prod.outlook.com (2603:10b6:5:337::9) by
- SJ0PR12MB8092.namprd12.prod.outlook.com (2603:10b6:a03:4ee::12) with
- Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.21.92.7; Wed, 3 Jun 2026
- 21:27:38 +0000
-Received: from CY4PEPF0000EDD5.namprd03.prod.outlook.com
- (2603:10b6:5:337:cafe::4d) by DM6PR07CA0076.outlook.office365.com
- (2603:10b6:5:337::9) with Microsoft SMTP Server (version=TLS1_3,
- cipher=TLS_AES_256_GCM_SHA384) id 15.21.92.7 via Frontend Transport; Wed, 3
- Jun 2026 21:27:38 +0000
-X-MS-Exchange-Authentication-Results: spf=pass (sender IP is 216.228.117.160)
- smtp.mailfrom=nvidia.com; dkim=none (message not signed)
- header.d=none;dmarc=pass action=none header.from=nvidia.com;
-Received-SPF: Pass (protection.outlook.com: domain of nvidia.com designates
- 216.228.117.160 as permitted sender) receiver=protection.outlook.com;
- client-ip=216.228.117.160; helo=mail.nvidia.com; pr=C
-Received: from mail.nvidia.com (216.228.117.160) by
- CY4PEPF0000EDD5.mail.protection.outlook.com (10.167.241.201) with Microsoft
- SMTP Server (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
- 15.21.92.5 via Frontend Transport; Wed, 3 Jun 2026 21:27:38 +0000
-Received: from rnnvmail201.nvidia.com (10.129.68.8) by mail.nvidia.com
- (10.129.200.66) with Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.2.2562.20; Wed, 3 Jun
- 2026 14:27:22 -0700
-Received: from rnnvmail203.nvidia.com (10.129.68.9) by rnnvmail201.nvidia.com
- (10.129.68.8) with Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.2.2562.20; Wed, 3 Jun
- 2026 14:27:21 -0700
-Received: from Asurada-Nvidia.nvidia.com (10.127.8.9) by mail.nvidia.com
- (10.129.68.9) with Microsoft SMTP Server id 15.2.2562.20 via Frontend
- Transport; Wed, 3 Jun 2026 14:27:20 -0700
-From: Nicolin Chen <nicolinc@nvidia.com>
-To: Will Deacon <will@kernel.org>, Jason Gunthorpe <jgg@nvidia.com>, "Kevin
- Tian" <kevin.tian@intel.com>
-CC: Robin Murphy <robin.murphy@arm.com>, Joerg Roedel <joro@8bytes.org>,
-	"Shuah Khan" <shuah@kernel.org>, Pranjal Shrivastava <praan@google.com>, Kees
- Cook <kees@kernel.org>, Yi Liu <yi.l.liu@intel.com>, Eric Auger
-	<eric.auger@redhat.com>, <linux-arm-kernel@lists.infradead.org>,
-	<iommu@lists.linux.dev>, <linux-kernel@vger.kernel.org>,
-	<linux-kselftest@vger.kernel.org>
-Subject: [PATCH v1 3/4] iommu: Avoid copying the user array twice in the full-array copy helper
-Date: Wed, 3 Jun 2026 14:26:55 -0700
-Message-ID: <6c9eca4ff584cb977661e97799ac6fe934e7f51c.1780521606.git.nicolinc@nvidia.com>
-X-Mailer: git-send-email 2.43.0
-In-Reply-To: <cover.1780521606.git.nicolinc@nvidia.com>
-References: <cover.1780521606.git.nicolinc@nvidia.com>
+	id 1wUtHQ-0000000FrhE-3xCn;
+	Wed, 03 Jun 2026 21:37:42 +0000
+DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed; d=sntech.de;
+	s=gloria202408; h=Content-Transfer-Encoding:MIME-Version:Message-ID:Date:
+	Subject:Cc:To:From:Reply-To:Content-Type:In-Reply-To:References;
+	bh=zuOjzE83S2w3miwJiK/G2SRQFoPd2jOOmbLhRNJa6Yg=; b=KLv4xqGHn/Rb59QQu7gjH/7r/N
+	vOzVZz3GsMP8g3rfh44djegNWEANqKyi9gwZ060yBMGHn95argxyNIIb/Cpzfz9Hsb6VcbkiL9THf
+	HnKKmUafK8GUfDWjVr7kUuAgazy33AICxLwtpkfJZt5wu5VIBmVAN/213ae87h7afDYgDzcKgeIki
+	ADvdSvc39yFqLm6k5gQqlc+WWMf6pBloi1HXPqIy+XdidHRuGQ9+CuAhOhmGelQANLTCd93tO8CQ/
+	ZjJXk88CEqNDWUl/ZNWqQG5iy7m2wJSSpvXaCpBUIbxu9CJU+5JHPVYCVh2nN1FOUxnkb05s6seD7
+	iHz5mRrQ==;
+From: Heiko Stuebner <heiko@sntech.de>
+To: heiko@sntech.de
+Cc: rosenp@gmail.com,
+	linux-arm-kernel@lists.infradead.org,
+	linux-rockchip@lists.infradead.org,
+	linux-clk@vger.kernel.org,
+	kernel test robot <lkp@intel.com>
+Subject: [PATCH] clk: rockchip: don't COMPILE_TEST builds on M68K
+Date: Wed,  3 Jun 2026 23:37:26 +0200
+Message-ID: <20260603213726.1025094-1-heiko@sntech.de>
+X-Mailer: git-send-email 2.47.3
 MIME-Version: 1.0
 Content-Transfer-Encoding: 8bit
-Content-Type: text/plain
-X-NV-OnPremToCloud: ExternallySecured
-X-EOPAttributedMessage: 0
-X-MS-PublicTrafficType: Email
-X-MS-TrafficTypeDiagnostic: CY4PEPF0000EDD5:EE_|SJ0PR12MB8092:EE_
-X-MS-Office365-Filtering-Correlation-Id: 5a659e8b-d6e6-4928-1213-08dec1b6efae
-X-MS-Exchange-SenderADCheck: 1
-X-MS-Exchange-AntiSpam-Relay: 0
-X-Microsoft-Antispam: BCL:0;ARA:13230040|376014|1800799024|82310400026|36860700016|7416014|8126099003|18002099003|22082099003|56012099006|11063799006;
-X-Microsoft-Antispam-Message-Info: ZTo1Kx48EQCcCAqt6v4sB4+uHyC9C2sbwNDkORsImfnW+ZqNORrKmlsclQUEEjngoU1SXejvab8Maj/RkpcVHgE7MSBikFme7pP5+Sq2kan4mdtFM1t5FaPQRMbECkI1QHU02v9I0xmfZ8pceF8n527C4zHTUE7p5m2ul6c/963Raqp0iUrVN9b7Hxl31k9I1gfcxy22uoijoofF7uj2iygQOuRuejRL5piGuw0PvT5dtubT47+9Buhk2rdfcBUKg7jbEmk8NfpmnRFdFCwKuiX62tbkNLDaR+U/JFXMquZdNAkfYrRLIHeeKm/3AbKe4ImTrhoKq5my7WWAb7/wejBQKjTgxgTOmTtzyu99qP2haZXQl+R//iG8jLZ2kW/dJMGFJd44I61iIc6CMWUHuVYgNnOJ3mnmLJ9HAGp00PEmNXibwaYpCrT9QkoeQ4p8un2Gu/Hbfs42TAph7EP7r28KwoPIfWqbKiGANv61oJaM/aZMd0BhAvDMDx9MC0+Xl9HpYk97He4GlIeM8a6cDFGkZouZb34uL0PkUXaoDV5GbrMNgDc5XtWVzY6TjzvA/TyEQGhQUoTTPqxwYmOFM18SgWGZyqMNgQ1vVJ+H2X1eeuDXPHS3U14ESFXsOOPuR1JpoYj4GMlmFP4XkSk5BmybdV5km8tste205BR3VfpQ8tovjpWwJftaqp4m6NTJiHKZSPiIyhqTE0zrDyHVFUl0rZyUwZLbNDLez7ToXGc=
-X-Forefront-Antispam-Report: CIP:216.228.117.160;CTRY:US;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:mail.nvidia.com;PTR:dc6edge1.nvidia.com;CAT:NONE;SFS:(13230040)(376014)(1800799024)(82310400026)(36860700016)(7416014)(8126099003)(18002099003)(22082099003)(56012099006)(11063799006);DIR:OUT;SFP:1101;
-X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
-X-MS-Exchange-AntiSpam-MessageData-0: xXkQzksmkY2DTbuBnpfxm56+b2anyyAvhV7f0BdN6ubz98xqR2t7ZFuiTi+WIkT6DnQHyBcVltiq0QAkkzCPrLHHvuEY/yZs1zoHChwFML6WYjFgM671q9eqUiWRaEjb8RfWKXkfJ61CDvZwuX4QgLJzNyQXyNWJxcXGKWy4B+U9uHlE6CZLWVTLbYJYuJcXPkYhwDXMDNzyKyoH9bT4eI1dOVn5dmBP20/DRiZuXy6hkTd3UM5IcV2AxgwR0sS+7yYOmfPQc8Rd8wENnGfPUOmHS95TTtGNWiXmMCZyCNU7xxtqydm9QoErGXnkN3GbggwVnE1OAFe2kNepPvpQpOvhw+uJgRw+IM4gZjqz8w5v4zuxq38jgeOQqy8wIBiMBcgmj1yb1tqO2MoD7aJglAI0RXiSm02Gcj7Cp7vMT7yewcS62+Tlosy+PhS85rxs
-X-OriginatorOrg: Nvidia.com
-X-MS-Exchange-CrossTenant-OriginalArrivalTime: 03 Jun 2026 21:27:38.1159
- (UTC)
-X-MS-Exchange-CrossTenant-Network-Message-Id: 5a659e8b-d6e6-4928-1213-08dec1b6efae
-X-MS-Exchange-CrossTenant-Id: 43083d15-7273-40c1-b7db-39efd9ccc17a
-X-MS-Exchange-CrossTenant-OriginalAttributedTenantConnectingIp: TenantId=43083d15-7273-40c1-b7db-39efd9ccc17a;Ip=[216.228.117.160];Helo=[mail.nvidia.com]
-X-MS-Exchange-CrossTenant-AuthSource: CY4PEPF0000EDD5.namprd03.prod.outlook.com
-X-MS-Exchange-CrossTenant-AuthAs: Anonymous
-X-MS-Exchange-CrossTenant-FromEntityHeader: HybridOnPrem
-X-MS-Exchange-Transport-CrossTenantHeadersStamped: SJ0PR12MB8092
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260603_142753_948067_20D51766 
-X-CRM114-Status: GOOD (  11.62  )
+X-CRM114-CacheID: sfid-20260603_143741_061936_E55F38E0 
+X-CRM114-Status: UNSURE (   8.74  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -131,39 +66,39 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-iommu_copy_struct_from_full_user_array() copies a whole user array into a
-kernel buffer. In the common case, where user entry_len equals destination
-entry size, it takes a fast path and copies the whole array with a single
-copy_from_user().
+Rockchip clock drivers use hash-tables with enums as inputs.
 
-That fast path does not return, so it falls through into the item-by-item
-copy_struct_from_user() loop and copies every entry a second time. For an
-equal entry_len that loop is just a copy_from_user() of the same bytes, so
-the whole array is copied twice for no benefit.
+M68K does interesting things in its __hash_32() implementation, casting
+that u32 input to an u16 and therefore triggering warnings like:
 
-Return right after the bulk copy. The per-item loop then runs only on the
-slow path, where entry_len differs and each entry needs size adaption.
+   drivers/clk/rockchip/clk-rk3528.c: note: in included file (through include/linux/hash.h, include/linux/slab.h):
+     arch/m68k/include/asm/hash.h:57:24: sparse: sparse: cast truncates bits from constant value (18720 becomes 8720)
+     arch/m68k/include/asm/hash.h:57:24: sparse: sparse: cast truncates bits from constant value (1e8e8 becomes e8e8)
 
-Fixes: 4f2e59ccb698 ("iommu: Add iommu_copy_struct_from_full_user_array helper")
-Assisted-by: Claude:claude-opus-4-8
-Signed-off-by: Nicolin Chen <nicolinc@nvidia.com>
+As M68K should never ever need Rockchip clock drivers, simply disable
+compile-tests for M68K.
+
+Fixes: 7edfb7fb58ee ("clk: rockchip: allow COMPILE_TEST builds")
+Reported-by: kernel test robot <lkp@intel.com>
+Closes: https://lore.kernel.org/oe-kbuild-all/202605191434.PQkj2Rki-lkp@intel.com/
+Signed-off-by: Heiko Stuebner <heiko@sntech.de>
 ---
- include/linux/iommu.h | 1 +
+ drivers/clk/rockchip/Kconfig | 1 +
  1 file changed, 1 insertion(+)
 
-diff --git a/include/linux/iommu.h b/include/linux/iommu.h
-index e587d4ac4d331..6957144263793 100644
---- a/include/linux/iommu.h
-+++ b/include/linux/iommu.h
-@@ -547,6 +547,7 @@ iommu_copy_struct_from_full_user_array(void *kdst, size_t kdst_entry_size,
- 				   user_array->entry_num *
- 					   user_array->entry_len))
- 			return -EFAULT;
-+		return 0;
- 	}
- 
- 	/* Copy item by item */
+diff --git a/drivers/clk/rockchip/Kconfig b/drivers/clk/rockchip/Kconfig
+index 85133498f013..8b49fe6f46fb 100644
+--- a/drivers/clk/rockchip/Kconfig
++++ b/drivers/clk/rockchip/Kconfig
+@@ -4,6 +4,7 @@
+ config COMMON_CLK_ROCKCHIP
+ 	bool "Rockchip clock controller common support"
+ 	depends on ARCH_ROCKCHIP || COMPILE_TEST
++	depends on !M68K
+ 	default ARCH_ROCKCHIP
+ 	help
+ 	  Say y here to enable common clock controller for Rockchip platforms.
 -- 
-2.43.0
+2.47.3
 
 
