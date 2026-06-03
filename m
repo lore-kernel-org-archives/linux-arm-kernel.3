@@ -4,38 +4,53 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id D859ACD6E57
-	for <linux-arm-kernel@archiver.kernel.org>; Wed,  3 Jun 2026 15:19:37 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 480AACD6E6F
+	for <linux-arm-kernel@archiver.kernel.org>; Wed,  3 Jun 2026 15:19:38 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
 	MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:
 	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=4BjT23R8uSreRxsom16Fm8xCEovN+6PRTMHyPqG167s=; b=1YER4+3HUOW072Ah/5Yi6pcMMI
-	k2vq4xT7Wn0TktrhN+erkUqLLzNVSlqKf4VnJoAOBcUIRN44Ous5jhrZRDasi3yzMS2hDt1hRh3YV
-	yYeFkIYxmJbTRI/71OKP2e8nv2Tnh5FmUTbszNwNIgdr67yBsl0S/rpaU+HOBZGyvYEKr4Hs7Uug7
-	Zy4+4Yh9XxMIktqKhhYA9IgPJ6/XBHYuflAjAXqoNj/+ywhUZMSniuD4ks2v7vT40av5i8Vae56KG
-	YAswWOGshm+6abfhlfjXcGNAf5UiqvglPqV2a3aK25gD+P3arL+OOYrMi9aoOvxJ5MbTpmSrURZzb
-	SOGMNkRg==;
+	bh=QjZ8f27cqLiBL9quajEXvEuD5izxdrCDst1w3hORFvo=; b=jAEe1Ivrv6HE+UFcQfMxHEMmu7
+	WL2fOPYrMXffuNDDHCnol7isYOwFPGtHGNc6o5a3wH/pj9kI2EMsa/Z9w+u2ljmOr5WmueF+JvKNX
+	jOAPSR3VwmdbgCfN3e9QL9ZB/s0gsKqkoA2th6b0mDgLRnKIH39eAKJPbeBqWGWz/iWDHalHIydB/
+	T2MCKL0E+EDjEDVI1ijJ1teZm3R2eefFfBJSOcug4JaLCrY3mt6ki4lCYLeZ3xZSzb86Rq7MGjWVE
+	CRyJTcVoT8z2Yt2+U4mUQf5biaTgC8GoPjrtpPj1dARA9qMplJIykWKC09BDYcWEqFn1Y2susXdPg
+	nqu1km1w==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wUnNK-0000000FN9e-1uJ6;
+	id 1wUnNK-0000000FNAC-38MF;
 	Wed, 03 Jun 2026 15:19:22 +0000
-Received: from out199-6.us.a.mail.aliyun.com ([47.90.199.6])
+Received: from desiato.infradead.org ([90.155.92.199])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wUnN6-0000000FMrd-3ZAE
+	id 1wUnN8-0000000FMwI-41vf
+	for linux-arm-kernel@bombadil.infradead.org;
+	Wed, 03 Jun 2026 15:19:13 +0000
+DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
+	d=infradead.org; s=desiato.20200630; h=Content-Transfer-Encoding:MIME-Version
+	:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:Sender:Reply-To:
+	Content-Type:Content-ID:Content-Description;
+	bh=QjZ8f27cqLiBL9quajEXvEuD5izxdrCDst1w3hORFvo=; b=XJ2bfgGZVEyLYYgEpKM8mRE539
+	I4kEIbcaVzCfcOuhrIhRebvPm4bkjS7hYKw2sbQJEIfmkwwpd83PV7lBSgMbo8URhTR3HObjb9get
+	8AvDD+dxA66mY8KWvuIJWPQuZ/kBo5uY7E9b+lMFxEVIZvoon71LRRxlc+IFN3Oqotiw1RR9pcHj6
+	FrdmNghJx2ugvVO59F+ifs2LOkInJPEY5YRAN9zvnBSLv+NryGvZjhzoHWR8e7KxjO7/CO6Gzby2l
+	XqxMMhVlduv8J2ZEBxCucm1wZ+h+o/mB5kA60HZeLrZwHJwMKI1M7l40O80GASMyR8bx3I7BZzngY
+	W8pyiaZA==;
+Received: from out199-5.us.a.mail.aliyun.com ([47.90.199.5])
+	by desiato.infradead.org with esmtps (Exim 4.99.2 #2 (Red Hat Linux))
+	id 1wUnN4-0000000CXip-1dpQ
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 03 Jun 2026 15:19:10 +0000
+	Wed, 03 Jun 2026 15:19:09 +0000
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
 	d=linux.alibaba.com; s=default;
-	t=1780499945; h=From:To:Subject:Date:Message-ID:MIME-Version;
-	bh=4BjT23R8uSreRxsom16Fm8xCEovN+6PRTMHyPqG167s=;
-	b=Q/xHi9VtpAOeWiQCNd6WUGDprjUaTGCg2YsjbgdYQCfc3x5kt8n2oK577LleGtZZ8e0FJff/MNx1yOF72o1WzTmbD1IelpK7Veqsa1T/U0AvKLOEAeiBAr3ZpC3EFx3qYmOdlrbuFe09VBUVDKEpylrFaVSFN6t0Cy38h+fBQFI=
-X-Alimail-AntiSpam: AC=PASS;BC=-1|-1;BR=01201311R151e4;CH=green;DM=||false|;DS=||;FP=0|-1|-1|-1|0|-1|-1|-1;HT=maildocker-contentspam033037026112;MF=guanghuifeng@linux.alibaba.com;NM=1;PH=DS;RN=28;SR=0;TI=SMTPD_---0X47fR6t_1780499942;
-Received: from VM20241011-104.tbsite.net(mailfrom:guanghuifeng@linux.alibaba.com fp:SMTPD_---0X47fR6t_1780499942 cluster:ay36)
+	t=1780499940; h=From:To:Subject:Date:Message-ID:MIME-Version;
+	bh=QjZ8f27cqLiBL9quajEXvEuD5izxdrCDst1w3hORFvo=;
+	b=hV9Koh2cxRoTfjnu9bgWdNIEROapxFIrFH7s2DA6Wf5GwVom6NfWlhUMgWczfQQpvgMpZgqXbYLbfEQrJVp3eZtJHPlkteFXfw3Jt8NqJ96sXRMgmPjQGRZn7LsLPcC3t4OE8LRXsw1luzi9R7wak5RZocgaNyzzbzoa+OtUJd8=
+X-Alimail-AntiSpam: AC=PASS;BC=-1|-1;BR=01201311R531e4;CH=green;DM=||false|;DS=||;FP=0|-1|-1|-1|0|-1|-1|-1;HT=maildocker-contentspam033037026112;MF=guanghuifeng@linux.alibaba.com;NM=1;PH=DS;RN=28;SR=0;TI=SMTPD_---0X47fR5b_1780499938;
+Received: from VM20241011-104.tbsite.net(mailfrom:guanghuifeng@linux.alibaba.com fp:SMTPD_---0X47fR5b_1780499938 cluster:ay36)
           by smtp.aliyun-inc.com;
-          Wed, 03 Jun 2026 23:19:02 +0800
+          Wed, 03 Jun 2026 23:18:58 +0800
 From: Guanghui Feng <guanghuifeng@linux.alibaba.com>
 To: jgg@ziepe.ca
 Cc: adrian.larumbe@collabora.com,
@@ -65,9 +80,9 @@ Cc: adrian.larumbe@collabora.com,
 	wei.guo.simon@linux.alibaba.com,
 	will@kernel.org,
 	xlpang@linux.alibaba.com
-Subject: [PATCH v3 24/32] iommufd: use iova_to_phys_length for efficient unmap
-Date: Wed,  3 Jun 2026 23:17:56 +0800
-Message-ID: <20260603151804.1963871-25-guanghuifeng@linux.alibaba.com>
+Subject: [PATCH v3 20/32] iommu/sun50i: implement iova_to_phys_length
+Date: Wed,  3 Jun 2026 23:17:52 +0800
+Message-ID: <20260603151804.1963871-21-guanghuifeng@linux.alibaba.com>
 X-Mailer: git-send-email 2.43.7
 In-Reply-To: <20260603151804.1963871-1-guanghuifeng@linux.alibaba.com>
 References: <20260602104637.1219810-1-guanghuifeng@linux.alibaba.com>
@@ -75,8 +90,9 @@ References: <20260602104637.1219810-1-guanghuifeng@linux.alibaba.com>
 MIME-Version: 1.0
 Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260603_081909_181140_6B6ECEA2 
-X-CRM114-Status: GOOD (  15.30  )
+X-CRM114-CacheID: sfid-20260603_161906_771503_4FE5CC9A 
+X-CRM114-Status: UNSURE (   9.31  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -91,113 +107,58 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Use iommu_iova_to_phys_length() to get PTE page size in
-batch_from_domain and raw_pages_from_domain, allowing traversal
-by actual mapping granularity instead of PAGE_SIZE steps.
+Implement iova_to_phys_length for sun50i IOMMU driver,
+returning the actual PTE mapping size.
 
 Signed-off-by: Guanghui Feng <guanghuifeng@linux.alibaba.com>
-Acked-by: Shiqiang Zhang <shiyu.zsq@linux.alibaba.com>
-Acked-by: Simon Guo <wei.guo.simon@linux.alibaba.com>
 ---
- drivers/iommu/iommufd/pages.c | 74 +++++++++++++++++++++++++++++------
- 1 file changed, 62 insertions(+), 12 deletions(-)
+ drivers/iommu/sun50i-iommu.c | 14 +++++++++-----
+ 1 file changed, 9 insertions(+), 5 deletions(-)
 
-diff --git a/drivers/iommu/iommufd/pages.c b/drivers/iommu/iommufd/pages.c
-index 9bdb2945afe1..40a2fe9adf9c 100644
---- a/drivers/iommu/iommufd/pages.c
-+++ b/drivers/iommu/iommufd/pages.c
-@@ -417,17 +417,42 @@ static void batch_from_domain(struct pfn_batch *batch,
- 	if (start_index == iopt_area_index(area))
- 		page_offset = area->page_offset;
- 	while (start_index <= last_index) {
-+		size_t pgsize;
-+		unsigned long npages;
-+		unsigned long i;
-+
- 		/*
--		 * This is pretty slow, it would be nice to get the page size
--		 * back from the driver, or have the driver directly fill the
--		 * batch.
-+		 * Use iova_to_phys_length to get both the physical address
-+		 * and the contiguous mapped length in a single page table
-+		 * walk, allowing us to skip ahead by the contiguous region
-+		 * size instead of walking page tables for every PAGE_SIZE.
-+		 * Query at page-aligned iova so pgsize covers from page start.
- 		 */
--		phys = iommu_iova_to_phys(domain, iova) - page_offset;
--		if (!batch_add_pfn(batch, PHYS_PFN(phys)))
--			return;
--		iova += PAGE_SIZE - page_offset;
-+		phys = iommu_iova_to_phys_length(domain, iova - page_offset,
-+						  &pgsize);
-+		if (WARN_ON(phys == PHYS_ADDR_MAX))
-+			break;
-+		if (WARN_ON(!pgsize || pgsize < PAGE_SIZE))
-+			pgsize = PAGE_SIZE;
-+
-+		/*
-+		 * pgsize is the contiguous length from the page-aligned
-+		 * iova, so npages is simply pgsize / PAGE_SIZE.
-+		 */
-+		npages = pgsize / PAGE_SIZE;
-+		npages = min_t(unsigned long, npages,
-+			       last_index - start_index + 1);
-+		if (!npages)
-+			npages = 1;
-+
-+		for (i = 0; i < npages; i++) {
-+			if (!batch_add_pfn(batch, PHYS_PFN(phys) + i))
-+				return;
-+		}
-+
-+		iova += npages * PAGE_SIZE - page_offset;
- 		page_offset = 0;
--		start_index++;
-+		start_index += npages;
- 	}
+diff --git a/drivers/iommu/sun50i-iommu.c b/drivers/iommu/sun50i-iommu.c
+index be3f1ce696ba..9f39fe4a9d4f 100644
+--- a/drivers/iommu/sun50i-iommu.c
++++ b/drivers/iommu/sun50i-iommu.c
+@@ -659,8 +659,9 @@ static size_t sun50i_iommu_unmap(struct iommu_domain *domain, unsigned long iova
+ 	return SZ_4K;
  }
  
-@@ -445,11 +470,36 @@ static struct page **raw_pages_from_domain(struct iommu_domain *domain,
- 	if (start_index == iopt_area_index(area))
- 		page_offset = area->page_offset;
- 	while (start_index <= last_index) {
--		phys = iommu_iova_to_phys(domain, iova) - page_offset;
--		*(out_pages++) = pfn_to_page(PHYS_PFN(phys));
--		iova += PAGE_SIZE - page_offset;
-+		size_t pgsize;
-+		unsigned long npages;
-+		unsigned long i;
+-static phys_addr_t sun50i_iommu_iova_to_phys(struct iommu_domain *domain,
+-					     dma_addr_t iova)
++static phys_addr_t sun50i_iommu_iova_to_phys_length(struct iommu_domain *domain,
++						    dma_addr_t iova,
++						    size_t *mapped_length)
+ {
+ 	struct sun50i_iommu_domain *sun50i_domain = to_sun50i_domain(domain);
+ 	phys_addr_t pt_phys;
+@@ -669,13 +670,16 @@ static phys_addr_t sun50i_iommu_iova_to_phys(struct iommu_domain *domain,
+ 
+ 	dte = sun50i_domain->dt[sun50i_iova_get_dte_index(iova)];
+ 	if (!sun50i_dte_is_pt_valid(dte))
+-		return 0;
++		return PHYS_ADDR_MAX;
+ 
+ 	pt_phys = sun50i_dte_get_pt_address(dte);
+ 	page_table = (u32 *)phys_to_virt(pt_phys);
+ 	pte = page_table[sun50i_iova_get_pte_index(iova)];
+ 	if (!sun50i_pte_is_page_valid(pte))
+-		return 0;
++		return PHYS_ADDR_MAX;
 +
-+		/*
-+		 * Resolve the contiguous mapped length together with the
-+		 * physical address so we can fill multiple struct page
-+		 * pointers per page table walk when the IOMMU uses large
-+		 * pages. Query at page-aligned iova so pgsize covers from
-+		 * page start.
-+		 */
-+		phys = iommu_iova_to_phys_length(domain, iova - page_offset,
-+						  &pgsize);
-+		if (WARN_ON(phys == PHYS_ADDR_MAX))
-+			break;
-+		if (WARN_ON(!pgsize || pgsize < PAGE_SIZE))
-+			pgsize = PAGE_SIZE;
-+
-+		npages = pgsize / PAGE_SIZE;
-+		npages = min_t(unsigned long, npages,
-+			       last_index - start_index + 1);
-+		if (!npages)
-+			npages = 1;
-+
-+		for (i = 0; i < npages; i++)
-+			*(out_pages++) = pfn_to_page(PHYS_PFN(phys) + i);
-+
-+		iova += npages * PAGE_SIZE - page_offset;
- 		page_offset = 0;
--		start_index++;
-+		start_index += npages;
- 	}
- 	return out_pages;
- }
++	if (mapped_length)
++		*mapped_length = SZ_4K;
+ 
+ 	return sun50i_pte_get_page_address(pte) +
+ 		sun50i_iova_get_page_offset(iova);
+@@ -857,7 +861,7 @@ static const struct iommu_ops sun50i_iommu_ops = {
+ 		.flush_iotlb_all = sun50i_iommu_flush_iotlb_all,
+ 		.iotlb_sync_map = sun50i_iommu_iotlb_sync_map,
+ 		.iotlb_sync	= sun50i_iommu_iotlb_sync,
+-		.iova_to_phys	= sun50i_iommu_iova_to_phys,
++		.iova_to_phys_length	= sun50i_iommu_iova_to_phys_length,
+ 		.map_pages	= sun50i_iommu_map,
+ 		.unmap_pages	= sun50i_iommu_unmap,
+ 		.free		= sun50i_iommu_domain_free,
 -- 
 2.43.7
 
