@@ -4,51 +4,51 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id A3FE8CD6E6A
-	for <linux-arm-kernel@archiver.kernel.org>; Wed,  3 Jun 2026 06:01:17 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 492DCCD6E6B
+	for <linux-arm-kernel@archiver.kernel.org>; Wed,  3 Jun 2026 06:01:18 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:References
 	:Message-Id:Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:
 	From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=Q3bsDHY4zT4OOEbFiIvYw60Y+WRRMdHm85pPHhesy2U=; b=V8WbpMWX2WLlcsRdrFW2COWHa2
-	jQ2VeCNJSppM9qdk9kLTOO/O45IdTx+7no5mDZvgottf8BRlEsVY9Coc+019Iq1r1msww+xr2Np9B
-	vSdJy2+AdiuFP0HEWxXBSpgHsoQ1puplzFSiDEwYDzLSk+b/CzvoH+MfMjbfpNekEBoSnaYPdgu4T
-	WyURzoI3papdLPJ37fbh7OPaJKdJYRcSo0rAccF/Uawe4rA/CeJFWt5ZH1s004YVahY1WQJb32NMU
-	hN3I6qkcZSSMb7KCcVbjMGxX2qGCPEv/Qni3CVv8RLwBMCmIUpSprybow3t/WtBzrUeG/d/mchxZv
-	CXvhuXsg==;
+	bh=aoqeg4r0oBstpJPgBzmFYmQpgDOXqKeWC10hLg4z5BM=; b=42PGeAko6vkDcKI/GpkMR++5rj
+	+yD2qlGeGchPlfVrtdWXGkC/LEGjxfcz+pKd3hqivKtA1kYYV/r3hVlgHuaE3QshYlNMwUMqceD3L
+	e+bKKfIjudXnY+6NwspDHGpXKlwp/QV7+gn8cPwqA4vsIoeHjSsVAcPwITWVm/mXMMT522fcM3Gy2
+	JkYrbmvD1/cxOlDv1vdbY5GHds2dX10jOmdHqfuUQdH16rf0Us2NAMEF3uU0FN+xpp6wy0z6O2bXX
+	sfT1ERTfSVju5WpKgPGlNwIcd+MMRVrMUdgd86tUzqU88gJ2/kkUjpCQPke++5ME35Nc97P5HTdqF
+	tFE8T/7A==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wUef5-0000000ELsL-2tEk;
-	Wed, 03 Jun 2026 06:01:07 +0000
-Received: from tor.source.kernel.org ([2600:3c04:e001:324:0:1991:8:25])
+	id 1wUefA-0000000ELxK-0AlQ;
+	Wed, 03 Jun 2026 06:01:12 +0000
+Received: from sea.source.kernel.org ([172.234.252.31])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wUef2-0000000ELqf-3BiG;
-	Wed, 03 Jun 2026 06:01:04 +0000
+	id 1wUef7-0000000ELtm-0bJv;
+	Wed, 03 Jun 2026 06:01:10 +0000
 Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
-	by tor.source.kernel.org (Postfix) with ESMTP id 088306022A;
-	Wed,  3 Jun 2026 06:01:04 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 370A11F00893;
-	Wed,  3 Jun 2026 06:01:03 +0000 (UTC)
+	by sea.source.kernel.org (Postfix) with ESMTP id D0A27443DA;
+	Wed,  3 Jun 2026 06:01:08 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 37A0E1F00899;
+	Wed,  3 Jun 2026 06:01:08 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1780466463;
-	bh=Q3bsDHY4zT4OOEbFiIvYw60Y+WRRMdHm85pPHhesy2U=;
+	s=k20260515; t=1780466468;
+	bh=aoqeg4r0oBstpJPgBzmFYmQpgDOXqKeWC10hLg4z5BM=;
 	h=From:Date:Subject:References:In-Reply-To:To:Cc;
-	b=N2w4vwSUsct2QPHlmtOhz9IDz3tbqDxeuEzoPRHfBsBO6tKwEjOsVYYfq5P7m2Yih
-	 IqrLeLBSJB786r6YYKABjCA+EgxcGpuATMz3RqCAyPAaY+V+Hps6eQPTjbTPPy+OaV
-	 XTEUvMx3MSj4vn6VlgQ/QuBbQvl3qELkJiYUzTS5db/O8D9yhLxZWqwaUUP0bofrps
-	 iQ79yhSZU5Pwh1He1HAB82I7UbP8F8oUXhY8M0JItXD7ATDrtCyW/JqY7q85KXzzTj
-	 Q0cq5+F+eCb2XmUJgkeU5l0j+CtF8oXfjdFxKqZjuhZoO6wu1d/6bgoSmE9dA7qY68
-	 j33Nest2DSNVA==
+	b=l8mOiG1uZahQX/p90CRXSuebreOQ+5FkLcCRPZOr0G9FpdM/sNBpXYDVaM5Nhgz08
+	 N2/1If6CyeBC1e/HfwNbetyg4zs3S84+1nHg2UdrMPYDRE2Tk3THcvc+vMUfJ4B9Ji
+	 XDadBpwxeK+sqpGnKTaBdr+hoIdPslP2LcV1i3zqE5IBinLihi5ck9XyatkjWigK3e
+	 bJrECehseZRGBLD07DEdH2rB/5PzBETzr3kGG6m0anWO+r9j/MdM0jQkVdbGiiqbBX
+	 8QNj6rI2HsjJpi0pOWM3NTskcSZpwAuFccG9Hw4UiALR3T33TtVRdwWZ4eb4LHaUgo
+	 Ni7xvclNyS/+A==
 From: Lorenzo Bianconi <lorenzo@kernel.org>
-Date: Wed, 03 Jun 2026 08:00:15 +0200
-Subject: [PATCH net-next v9 1/6] dt-bindings: net: airoha: Add GDM port
- ethernet child node
+Date: Wed, 03 Jun 2026 08:00:17 +0200
+Subject: [PATCH net-next v9 3/6] net: airoha: Support multiple net_devices
+ for a single FE GDM port
 MIME-Version: 1.0
 Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: 7bit
-Message-Id: <20260603-airoha-eth-multi-serdes-v9-1-5d476bc2f426@kernel.org>
+Content-Transfer-Encoding: 8bit
+Message-Id: <20260603-airoha-eth-multi-serdes-v9-3-5d476bc2f426@kernel.org>
 References: <20260603-airoha-eth-multi-serdes-v9-0-5d476bc2f426@kernel.org>
 In-Reply-To: <20260603-airoha-eth-multi-serdes-v9-0-5d476bc2f426@kernel.org>
 To: Andrew Lunn <andrew+netdev@lunn.ch>, 
@@ -59,8 +59,12 @@ To: Andrew Lunn <andrew+netdev@lunn.ch>,
 Cc: Christian Marangi <ansuelsmth@gmail.com>, 
  Benjamin Larsson <benjamin.larsson@genexis.eu>, 
  linux-arm-kernel@lists.infradead.org, linux-mediatek@lists.infradead.org, 
- netdev@vger.kernel.org, devicetree@vger.kernel.org
+ netdev@vger.kernel.org, devicetree@vger.kernel.org, 
+ Xuegang Lu <xuegang.lu@airoha.com>
 X-Mailer: b4 0.14.3
+X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
+X-CRM114-CacheID: sfid-20260602_230109_239499_E16A3758 
+X-CRM114-Status: GOOD (  24.69  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -75,100 +79,637 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-EN7581 and AN7583 SoCs support connecting multiple external SerDes to GDM3
-or GDM4 ports via a hw arbiter that manages the traffic in a TDM manner.
-As a result multiple net_devices can connect to the same GDM{3,4} port
-and there is a theoretical "1:n" relation between GDM ports and
-net_devices.
-Introduce the ethernet node child of a specific GDM port in order to model
-a given net_device that is connected via the external arbiter to the
-GDM{3,4} port. This new ethernet node is defined by the "airoha,eth-port"
-compatible string. Please note GDM1 and GDM2 does not support the
-connection with the external arbiter and they are represented by an
-ethernet node defined by the "airoha,eth-mac" compatible string.
+EN7581 or AN7583 SoCs support connecting multiple external SerDes (e.g.
+Ethernet or USB SerDes) to GDM3 or GDM4 ports via a hw arbiter that
+manages the traffic in a TDM manner. As a result multiple net_devices can
+connect to the same GDM{3,4} port and there is a theoretical "1:n"
+relation between GDM ports and net_devices.
 
-Reviewed-by: Rob Herring (Arm) <robh@kernel.org>
+           ┌─────────────────────────────────┐
+           │                                 │    ┌──────┐
+           │                         P1 GDM1 ├────►MT7530│
+           │                                 │    └──────┘
+           │                                 │      ETH0 (DSA conduit)
+           │                                 │
+           │              PSE/FE             │
+           │                                 │
+           │                                 │
+           │                                 │    ┌─────┐
+           │                         P0 CDM1 ├────►QDMA0│
+           │  P4                     P9 GDM4 │    └─────┘
+           └──┬─────────────────────────┬────┘
+              │                         │
+           ┌──▼──┐                 ┌────▼────┐
+           │ PPE │                 │   ARB   │
+           └─────┘                 └─┬─────┬─┘
+                                     │     │
+                                  ┌──▼──┐┌─▼───┐
+                                  │ ETH ││ USB │
+                                  └─────┘└─────┘
+                                   ETH1   ETH2
+
+Introduce support for multiple net_devices connected to the same Frame
+Engine (FE) GDM port (GDM3 or GDM4) via an external hw arbiter.
+Please note GDM1 or GDM2 does not support the connection with the external
+arbiter.
+Add get_dev_from_sport callback since EN7581 and AN7583 have different
+logics for the net_device type connected to GDM3 or GDM4.
+
+Tested-by: Xuegang Lu <xuegang.lu@airoha.com>
 Signed-off-by: Lorenzo Bianconi <lorenzo@kernel.org>
 ---
- .../devicetree/bindings/net/airoha,en7581-eth.yaml | 56 +++++++++++++++++++++-
- 1 file changed, 55 insertions(+), 1 deletion(-)
+ drivers/net/ethernet/airoha/airoha_eth.c | 280 +++++++++++++++++++++++--------
+ drivers/net/ethernet/airoha/airoha_eth.h |   8 +-
+ drivers/net/ethernet/airoha/airoha_ppe.c |  26 ++-
+ 3 files changed, 237 insertions(+), 77 deletions(-)
 
-diff --git a/Documentation/devicetree/bindings/net/airoha,en7581-eth.yaml b/Documentation/devicetree/bindings/net/airoha,en7581-eth.yaml
-index fbe2ddcdd909..17fe2edf4886 100644
---- a/Documentation/devicetree/bindings/net/airoha,en7581-eth.yaml
-+++ b/Documentation/devicetree/bindings/net/airoha,en7581-eth.yaml
-@@ -130,6 +130,42 @@ patternProperties:
-         maximum: 4
-         description: GMAC port identifier
+diff --git a/drivers/net/ethernet/airoha/airoha_eth.c b/drivers/net/ethernet/airoha/airoha_eth.c
+index 57a16de0a2ec..1d088d95d5fb 100644
+--- a/drivers/net/ethernet/airoha/airoha_eth.c
++++ b/drivers/net/ethernet/airoha/airoha_eth.c
+@@ -106,7 +106,7 @@ static int airoha_set_vip_for_gdm_port(struct airoha_gdm_dev *dev, bool enable)
+ 	struct airoha_eth *eth = dev->eth;
+ 	u32 vip_port;
  
-+    allOf:
-+      - if:
-+          properties:
-+            reg:
-+              contains:
-+                items:
-+                  - enum:
-+                      - 3
-+                      - 4
-+        then:
-+          properties:
-+            '#address-cells':
-+              const: 1
-+
-+            '#size-cells':
-+              const: 0
-+
-+          patternProperties:
-+            "^ethernet@[0-5]$":
-+              type: object
-+              unevaluatedProperties: false
-+              $ref: ethernet-controller.yaml#
-+              description: External ethernet port ID available on the GDM port
-+
-+              properties:
-+                compatible:
-+                  const: airoha,eth-port
-+
-+                reg:
-+                  maximum: 5
-+                  description: External ethernet port identifier
-+
-+              required:
-+                - reg
-+                - compatible
-+
-     required:
-       - reg
-       - compatible
-@@ -191,9 +227,27 @@ examples:
-         #address-cells = <1>;
-         #size-cells = <0>;
+-	vip_port = eth->soc->ops.get_vip_port(port, port->nbq);
++	vip_port = eth->soc->ops.get_vip_port(port, dev->nbq);
+ 	if (enable) {
+ 		airoha_fe_set(eth, REG_FE_VIP_PORT_EN, vip_port);
+ 		airoha_fe_set(eth, REG_FE_IFC_PORT_EN, vip_port);
+@@ -566,24 +566,26 @@ static int airoha_qdma_fill_rx_queue(struct airoha_queue *q)
+ 	return nframes;
+ }
  
--        mac: ethernet@1 {
-+        ethernet@1 {
-           compatible = "airoha,eth-mac";
-           reg = <1>;
-         };
+-static int airoha_qdma_get_gdm_port(struct airoha_eth *eth,
+-				    struct airoha_qdma_desc *desc)
++static struct airoha_gdm_dev *
++airoha_qdma_get_gdm_dev(struct airoha_eth *eth, struct airoha_qdma_desc *desc)
+ {
+-	u32 port, sport, msg1 = le32_to_cpu(READ_ONCE(desc->msg1));
++	struct airoha_gdm_port *port;
++	u16 p, d;
+ 
+-	sport = FIELD_GET(QDMA_ETH_RXMSG_SPORT_MASK, msg1);
+-	switch (sport) {
+-	case 0x10 ... 0x14:
+-		port = 0;
+-		break;
+-	case 0x2 ... 0x4:
+-		port = sport - 1;
+-		break;
+-	default:
+-		return -EINVAL;
+-	}
++	if (eth->soc->ops.get_dev_from_sport(desc, &p, &d))
++		return ERR_PTR(-ENODEV);
+ 
+-	return port >= ARRAY_SIZE(eth->ports) ? -EINVAL : port;
++	if (p >= ARRAY_SIZE(eth->ports))
++		return ERR_PTR(-ENODEV);
 +
-+        ethernet@4 {
-+          compatible = "airoha,eth-mac";
-+          reg = <4>;
++	port = eth->ports[p];
++	if (!port)
++		return ERR_PTR(-ENODEV);
 +
-+          #address-cells = <1>;
-+          #size-cells = <0>;
++	if (d >= ARRAY_SIZE(port->devs))
++		return ERR_PTR(-ENODEV);
 +
-+          ethernet@0 {
-+            compatible = "airoha,eth-port";
-+            reg = <0>;
-+          };
++	return port->devs[d] ? port->devs[d] : ERR_PTR(-ENODEV);
+ }
+ 
+ static int airoha_qdma_rx_process(struct airoha_queue *q, int budget)
+@@ -598,9 +600,9 @@ static int airoha_qdma_rx_process(struct airoha_queue *q, int budget)
+ 		struct airoha_queue_entry *e = &q->entry[q->tail];
+ 		struct airoha_qdma_desc *desc = &q->desc[q->tail];
+ 		u32 hash, reason, msg1, desc_ctrl;
+-		struct airoha_gdm_port *port;
++		struct airoha_gdm_dev *dev;
+ 		struct net_device *netdev;
+-		int data_len, len, p;
++		int data_len, len;
+ 		struct page *page;
+ 
+ 		desc_ctrl = le32_to_cpu(READ_ONCE(desc->ctrl));
+@@ -621,15 +623,11 @@ static int airoha_qdma_rx_process(struct airoha_queue *q, int budget)
+ 		if (!len || data_len < len)
+ 			goto free_frag;
+ 
+-		p = airoha_qdma_get_gdm_port(eth, desc);
+-		if (p < 0 || !eth->ports[p])
++		dev = airoha_qdma_get_gdm_dev(eth, desc);
++		if (IS_ERR(dev))
+ 			goto free_frag;
+ 
+-		port = eth->ports[p];
+-		if (!port->dev)
+-			goto free_frag;
+-
+-		netdev = netdev_from_priv(port->dev);
++		netdev = netdev_from_priv(dev);
+ 		if (!q->skb) { /* first buffer */
+ 			q->skb = napi_build_skb(e->buf - AIROHA_RX_HEADROOM,
+ 						q->buf_size);
+@@ -659,6 +657,8 @@ static int airoha_qdma_rx_process(struct airoha_queue *q, int budget)
+ 			continue;
+ 
+ 		if (netdev_uses_dsa(netdev)) {
++			struct airoha_gdm_port *port = dev->port;
 +
-+          ethernet@1 {
-+            compatible = "airoha,eth-port";
-+            reg = <1>;
-+          };
-+        };
-       };
-     };
+ 			/* PPE module requires untagged packets to work
+ 			 * properly and it provides DSA port index via the
+ 			 * DMA descriptor. Report DSA tag to the DSA stack
+@@ -852,26 +852,29 @@ static void airoha_qdma_wake_netdev_txqs(struct airoha_queue *q)
+ 
+ 	for (i = 0; i < ARRAY_SIZE(eth->ports); i++) {
+ 		struct airoha_gdm_port *port = eth->ports[i];
+-		struct airoha_gdm_dev *dev;
+-		struct net_device *netdev;
+-		int j;
++		int d;
+ 
+ 		if (!port)
+ 			continue;
+ 
+-		dev = port->dev;
+-		if (!dev)
+-			continue;
++		for (d = 0; d < ARRAY_SIZE(port->devs); d++) {
++			struct airoha_gdm_dev *dev = port->devs[d];
++			struct net_device *netdev;
++			int j;
+ 
+-		if (dev->qdma != qdma)
+-			continue;
++			if (!dev)
++				continue;
+ 
+-		netdev = netdev_from_priv(dev);
+-		for (j = 0; j < netdev->num_tx_queues; j++) {
+-			if (airoha_qdma_get_txq(qdma, j) != qid)
++			if (dev->qdma != qdma)
+ 				continue;
+ 
+-			netif_wake_subqueue(netdev, j);
++			netdev = netdev_from_priv(dev);
++			for (j = 0; j < netdev->num_tx_queues; j++) {
++				if (airoha_qdma_get_txq(qdma, j) != qid)
++					continue;
++
++				netif_wake_subqueue(netdev, j);
++			}
+ 		}
+ 	}
+ 	q->txq_stopped = false;
+@@ -1742,11 +1745,9 @@ static int airoha_dev_open(struct net_device *netdev)
+ 			GLOBAL_CFG_RX_DMA_EN_MASK);
+ 	atomic_inc(&qdma->users);
+ 
+-	if (port->id == AIROHA_GDM2_IDX &&
+-	    airoha_ppe_is_enabled(qdma->eth, 1)) {
+-		/* For PPE2 always use secondary cpu port. */
++	if (!airoha_is_lan_gdm_dev(dev) &&
++	    airoha_ppe_is_enabled(qdma->eth, 1))
+ 		pse_port = FE_PSE_PORT_PPE2;
+-	}
+ 	airoha_set_gdm_port_fwd_cfg(qdma->eth, REG_GDM_FWD_CFG(port->id),
+ 				    pse_port);
+ 
+@@ -1834,7 +1835,7 @@ static int airoha_enable_gdm2_loopback(struct airoha_gdm_dev *dev)
+ 	airoha_fe_clear(eth, REG_FE_VIP_PORT_EN, BIT(AIROHA_GDM2_IDX));
+ 	airoha_fe_clear(eth, REG_FE_IFC_PORT_EN, BIT(AIROHA_GDM2_IDX));
+ 
+-	src_port = eth->soc->ops.get_sport(port, port->nbq);
++	src_port = eth->soc->ops.get_sport(port, dev->nbq);
+ 	if (src_port < 0)
+ 		return src_port;
+ 
+@@ -1851,7 +1852,7 @@ static int airoha_enable_gdm2_loopback(struct airoha_gdm_dev *dev)
+ 		airoha_ppe_set_cpu_port(dev, i, AIROHA_GDM2_IDX);
+ 
+ 	if (port->id == AIROHA_GDM4_IDX && airoha_is_7581(eth)) {
+-		u32 mask = FC_ID_OF_SRC_PORT_MASK(port->nbq);
++		u32 mask = FC_ID_OF_SRC_PORT_MASK(dev->nbq);
+ 
+ 		airoha_fe_rmw(eth, REG_SRC_PORT_FC_MAP6, mask,
+ 			      __field_prep(mask, AIROHA_GDM2_IDX));
+@@ -1865,7 +1866,7 @@ static int airoha_dev_init(struct net_device *netdev)
+ 	struct airoha_gdm_dev *dev = netdev_priv(netdev);
+ 	struct airoha_gdm_port *port = dev->port;
+ 	struct airoha_eth *eth = dev->eth;
+-	int i;
++	int ppe_id;
+ 
+ 	/* QDMA0 is used for lan ports while QDMA1 is used for WAN ports */
+ 	dev->qdma = &eth->qdma[!airoha_is_lan_gdm_dev(dev)];
+@@ -1888,8 +1889,8 @@ static int airoha_dev_init(struct net_device *netdev)
+ 		break;
+ 	}
+ 
+-	for (i = 0; i < eth->soc->num_ppe; i++)
+-		airoha_ppe_set_cpu_port(dev, i, airoha_get_fe_port(dev));
++	ppe_id = !airoha_is_lan_gdm_dev(dev) && airoha_ppe_is_enabled(eth, 1);
++	airoha_ppe_set_cpu_port(dev, ppe_id, airoha_get_fe_port(dev));
+ 
+ 	return 0;
+ }
+@@ -2055,7 +2056,8 @@ static netdev_tx_t airoha_dev_xmit(struct sk_buff *skb,
+ 	}
+ 
+ 	fport = airoha_get_fe_port(dev);
+-	msg1 = FIELD_PREP(QDMA_ETH_TXMSG_FPORT_MASK, fport) |
++	msg1 = FIELD_PREP(QDMA_ETH_TXMSG_NBOQ_MASK, dev->nbq) |
++	       FIELD_PREP(QDMA_ETH_TXMSG_FPORT_MASK, fport) |
+ 	       FIELD_PREP(QDMA_ETH_TXMSG_METER_MASK, 0x7f);
+ 
+ 	q = &qdma->q_tx[qid];
+@@ -2985,12 +2987,15 @@ bool airoha_is_valid_gdm_dev(struct airoha_eth *eth,
+ 
+ 	for (i = 0; i < ARRAY_SIZE(eth->ports); i++) {
+ 		struct airoha_gdm_port *port = eth->ports[i];
++		int j;
+ 
+ 		if (!port)
+ 			continue;
+ 
+-		if (port->dev == dev)
+-			return true;
++		for (j = 0; j < ARRAY_SIZE(port->devs); j++) {
++			if (port->devs[j] == dev)
++				return true;
++		}
+ 	}
+ 
+ 	return false;
+@@ -2998,10 +3003,11 @@ bool airoha_is_valid_gdm_dev(struct airoha_eth *eth,
+ 
+ static int airoha_alloc_gdm_device(struct airoha_eth *eth,
+ 				   struct airoha_gdm_port *port,
+-				   struct device_node *np)
++				   int nbq, struct device_node *np)
+ {
+-	struct airoha_gdm_dev *dev;
+ 	struct net_device *netdev;
++	struct airoha_gdm_dev *dev;
++	u8 index;
+ 	int err;
+ 
+ 	netdev = devm_alloc_etherdev_mqs(eth->dev, sizeof(*dev),
+@@ -3021,7 +3027,6 @@ static int airoha_alloc_gdm_device(struct airoha_eth *eth,
+ 			      NETIF_F_HW_TC;
+ 	netdev->features |= netdev->hw_features;
+ 	netdev->vlan_features = netdev->hw_features;
+-	netdev->dev.of_node = np;
+ 	SET_NETDEV_DEV(netdev, eth->dev);
+ 
+ 	/* reserve hw queues for HTB offloading */
+@@ -3039,10 +3044,24 @@ static int airoha_alloc_gdm_device(struct airoha_eth *eth,
+ 			 netdev->dev_addr);
+ 	}
+ 
++	/* Allowed nbq for EN7581 on GDM3 port are 4 and 5 for PCIE0
++	 * and PCIE1 respectively.
++	 */
++	index = nbq;
++	if (index && airoha_is_7581(eth) && port->id == AIROHA_GDM3_IDX)
++		index -= 4;
++
++	if (index >= ARRAY_SIZE(port->devs) || port->devs[index]) {
++		dev_err(eth->dev, "invalid nbq id: %d\n", nbq);
++		return -EINVAL;
++	}
++
++	netdev->dev.of_node = of_node_get(np);
+ 	dev = netdev_priv(netdev);
+ 	dev->port = port;
+-	port->dev = dev;
+ 	dev->eth = eth;
++	dev->nbq = nbq;
++	port->devs[index] = dev;
+ 
+ 	return 0;
+ }
+@@ -3052,7 +3071,8 @@ static int airoha_alloc_gdm_port(struct airoha_eth *eth,
+ {
+ 	const __be32 *id_ptr = of_get_property(np, "reg", NULL);
+ 	struct airoha_gdm_port *port;
+-	int err, p;
++	struct device_node *node;
++	int err, nbq, p, d = 0;
+ 	u32 id;
+ 
+ 	if (!id_ptr) {
+@@ -3080,15 +3100,51 @@ static int airoha_alloc_gdm_port(struct airoha_eth *eth,
+ 	u64_stats_init(&port->stats.syncp);
+ 	spin_lock_init(&port->stats.lock);
+ 	port->id = id;
+-	/* XXX: Read nbq from DTS */
+-	port->nbq = id == AIROHA_GDM3_IDX && airoha_is_7581(eth) ? 4 : 0;
+ 	eth->ports[p] = port;
+ 
+ 	err = airoha_metadata_dst_alloc(port);
+ 	if (err)
+ 		return err;
+ 
+-	return airoha_alloc_gdm_device(eth, port, np);
++	/* Default nbq value to ensure backward compatibility */
++	nbq = id == AIROHA_GDM3_IDX && airoha_is_7581(eth) ? 4 : 0;
++
++	for_each_child_of_node(np, node) {
++		/* Multiple external serdes connected to the FE GDM port via an
++		 * external arbiter.
++		 */
++		const __be32 *nbq_ptr;
++
++		if (!of_device_is_compatible(node, "airoha,eth-port"))
++			continue;
++
++		d++;
++		if (!of_device_is_available(node))
++			continue;
++
++		nbq_ptr = of_get_property(node, "reg", NULL);
++		if (!nbq_ptr) {
++			dev_err(eth->dev, "missing nbq id\n");
++			of_node_put(node);
++			return -EINVAL;
++		}
++
++		/* Verify the provided nbq parameter is valid */
++		nbq = be32_to_cpup(nbq_ptr);
++		err = eth->soc->ops.get_sport(port, nbq);
++		if (err < 0) {
++			of_node_put(node);
++			return err;
++		}
++
++		err = airoha_alloc_gdm_device(eth, port, nbq, node);
++		if (err) {
++			of_node_put(node);
++			return err;
++		}
++	}
++
++	return !d ? airoha_alloc_gdm_device(eth, port, nbq, np) : 0;
+ }
+ 
+ static int airoha_register_gdm_devices(struct airoha_eth *eth)
+@@ -3097,14 +3153,22 @@ static int airoha_register_gdm_devices(struct airoha_eth *eth)
+ 
+ 	for (i = 0; i < ARRAY_SIZE(eth->ports); i++) {
+ 		struct airoha_gdm_port *port = eth->ports[i];
+-		int err;
++		int j;
+ 
+ 		if (!port)
+ 			continue;
+ 
+-		err = register_netdev(netdev_from_priv(port->dev));
+-		if (err)
+-			return err;
++		for (j = 0; j < ARRAY_SIZE(port->devs); j++) {
++			struct airoha_gdm_dev *dev = port->devs[j];
++			int err;
++
++			if (!dev)
++				continue;
++
++			err = register_netdev(netdev_from_priv(dev));
++			if (err)
++				return err;
++		}
+ 	}
+ 
+ 	set_bit(DEV_STATE_REGISTERED, &eth->state);
+@@ -3211,17 +3275,22 @@ static int airoha_probe(struct platform_device *pdev)
+ 
+ 	for (i = 0; i < ARRAY_SIZE(eth->ports); i++) {
+ 		struct airoha_gdm_port *port = eth->ports[i];
+-		struct airoha_gdm_dev *dev;
++		int j;
+ 
+ 		if (!port)
+ 			continue;
+ 
+-		dev = port->dev;
+-		if (dev) {
+-			struct net_device *netdev = netdev_from_priv(dev);
++		for (j = 0; j < ARRAY_SIZE(port->devs); j++) {
++			struct airoha_gdm_dev *dev = port->devs[j];
++			struct net_device *netdev;
++
++			if (!dev)
++				continue;
+ 
++			netdev = netdev_from_priv(dev);
+ 			if (netdev->reg_state == NETREG_REGISTERED)
+ 				unregister_netdev(netdev);
++			of_node_put(netdev->dev.of_node);
+ 		}
+ 		airoha_metadata_dst_free(port);
+ 	}
+@@ -3243,14 +3312,22 @@ static void airoha_remove(struct platform_device *pdev)
+ 
+ 	for (i = 0; i < ARRAY_SIZE(eth->ports); i++) {
+ 		struct airoha_gdm_port *port = eth->ports[i];
+-		struct airoha_gdm_dev *dev;
++		int j;
+ 
+ 		if (!port)
+ 			continue;
+ 
+-		dev = port->dev;
+-		if (dev)
+-			unregister_netdev(netdev_from_priv(dev));
++		for (j = 0; j < ARRAY_SIZE(port->devs); j++) {
++			struct airoha_gdm_dev *dev = port->devs[j];
++			struct net_device *netdev;
++
++			if (!dev)
++				continue;
++
++			netdev = netdev_from_priv(dev);
++			unregister_netdev(netdev);
++			of_node_put(netdev->dev.of_node);
++		}
+ 		airoha_metadata_dst_free(port);
+ 	}
+ 	airoha_hw_cleanup(eth);
+@@ -3313,6 +3390,39 @@ static u32 airoha_en7581_get_vip_port(struct airoha_gdm_port *port, int nbq)
+ 	return 0;
+ }
+ 
++static int airoha_en7581_get_dev_from_sport(struct airoha_qdma_desc *desc,
++					    u16 *port, u16 *dev)
++{
++	u32 sport = FIELD_GET(QDMA_ETH_RXMSG_SPORT_MASK,
++			      le32_to_cpu(READ_ONCE(desc->msg1)));
++
++	*dev = 0;
++	switch (sport) {
++	case 0x10 ... 0x14:
++		*port = 0; /* GDM1 */
++		break;
++	case 0x2 ... 0x4:
++		*port = sport - 1;
++		break;
++	case HSGMII_LAN_7581_PCIE1_SRCPORT:
++		*dev = 1;
++		fallthrough;
++	case HSGMII_LAN_7581_PCIE0_SRCPORT:
++		*port = 2; /* GDM3 */
++		break;
++	case HSGMII_LAN_7581_USB_SRCPORT:
++		*dev = 1;
++		fallthrough;
++	case HSGMII_LAN_7581_ETH_SRCPORT:
++		*port = 3; /* GDM4 */
++		break;
++	default:
++		return -EINVAL;
++	}
++
++	return 0;
++}
++
+ static const char * const an7583_xsi_rsts_names[] = {
+ 	"xsi-mac",
+ 	"hsi0-mac",
+@@ -3362,6 +3472,36 @@ static u32 airoha_an7583_get_vip_port(struct airoha_gdm_port *port, int nbq)
+ 	return 0;
+ }
+ 
++static int airoha_an7583_get_dev_from_sport(struct airoha_qdma_desc *desc,
++					    u16 *port, u16 *dev)
++{
++	u32 sport = FIELD_GET(QDMA_ETH_RXMSG_SPORT_MASK,
++			      le32_to_cpu(READ_ONCE(desc->msg1)));
++
++	*dev = 0;
++	switch (sport) {
++	case 0x10 ... 0x14:
++		*port = 0; /* GDM1 */
++		break;
++	case 0x2 ... 0x4:
++		*port = sport - 1;
++		break;
++	case HSGMII_LAN_7583_ETH_SRCPORT:
++		*port = 2; /* GDM3 */
++		break;
++	case HSGMII_LAN_7583_USB_SRCPORT:
++		*dev = 1;
++		fallthrough;
++	case HSGMII_LAN_7583_PCIE_SRCPORT:
++		*port = 3; /* GDM4 */
++		break;
++	default:
++		return -EINVAL;
++	}
++
++	return 0;
++}
++
+ static const struct airoha_eth_soc_data en7581_soc_data = {
+ 	.version = 0x7581,
+ 	.xsi_rsts_names = en7581_xsi_rsts_names,
+@@ -3370,6 +3510,7 @@ static const struct airoha_eth_soc_data en7581_soc_data = {
+ 	.ops = {
+ 		.get_sport = airoha_en7581_get_sport,
+ 		.get_vip_port = airoha_en7581_get_vip_port,
++		.get_dev_from_sport = airoha_en7581_get_dev_from_sport,
+ 	},
+ };
+ 
+@@ -3381,6 +3522,7 @@ static const struct airoha_eth_soc_data an7583_soc_data = {
+ 	.ops = {
+ 		.get_sport = airoha_an7583_get_sport,
+ 		.get_vip_port = airoha_an7583_get_vip_port,
++		.get_dev_from_sport = airoha_an7583_get_dev_from_sport,
+ 	},
+ };
+ 
+diff --git a/drivers/net/ethernet/airoha/airoha_eth.h b/drivers/net/ethernet/airoha/airoha_eth.h
+index 1f162fa1405e..92fd81bb9269 100644
+--- a/drivers/net/ethernet/airoha/airoha_eth.h
++++ b/drivers/net/ethernet/airoha/airoha_eth.h
+@@ -17,6 +17,7 @@
+ #include <net/dsa.h>
+ 
+ #define AIROHA_MAX_NUM_GDM_PORTS	4
++#define AIROHA_MAX_NUM_GDM_DEVS		2
+ #define AIROHA_MAX_NUM_QDMA		2
+ #define AIROHA_MAX_NUM_IRQ_BANKS	4
+ #define AIROHA_MAX_DSA_PORTS		7
+@@ -546,12 +547,13 @@ struct airoha_gdm_dev {
+ 	/* qos stats counters */
+ 	u64 cpu_tx_packets;
+ 	u64 fwd_tx_packets;
++
++	int nbq;
+ };
+ 
+ struct airoha_gdm_port {
+-	struct airoha_gdm_dev *dev;
++	struct airoha_gdm_dev *devs[AIROHA_MAX_NUM_GDM_DEVS];
+ 	int id;
+-	int nbq;
+ 
+ 	struct airoha_hw_stats stats;
+ 
+@@ -587,6 +589,8 @@ struct airoha_eth_soc_data {
+ 	struct {
+ 		int (*get_sport)(struct airoha_gdm_port *port, int nbq);
+ 		u32 (*get_vip_port)(struct airoha_gdm_port *port, int nbq);
++		int (*get_dev_from_sport)(struct airoha_qdma_desc *desc,
++					  u16 *port, u16 *dev);
+ 	} ops;
+ };
+ 
+diff --git a/drivers/net/ethernet/airoha/airoha_ppe.c b/drivers/net/ethernet/airoha/airoha_ppe.c
+index c9711bb7ef1c..96abf451fdac 100644
+--- a/drivers/net/ethernet/airoha/airoha_ppe.c
++++ b/drivers/net/ethernet/airoha/airoha_ppe.c
+@@ -167,9 +167,7 @@ static void airoha_ppe_hw_init(struct airoha_ppe *ppe)
+ 		airoha_fe_clear(eth, REG_PPE_PPE_FLOW_CFG(i),
+ 				PPE_FLOW_CFG_IP6_6RD_MASK);
+ 
+-		for (p = 0; p < ARRAY_SIZE(eth->ports); p++) {
+-			struct airoha_gdm_port *port = eth->ports[p];
+-
++		for (p = 0; p < ARRAY_SIZE(eth->ports); p++)
+ 			airoha_fe_rmw(eth, REG_PPE_MTU(i, p),
+ 				      FP0_EGRESS_MTU_MASK |
+ 				      FP1_EGRESS_MTU_MASK,
+@@ -177,11 +175,27 @@ static void airoha_ppe_hw_init(struct airoha_ppe *ppe)
+ 						 AIROHA_MAX_MTU) |
+ 				      FIELD_PREP(FP1_EGRESS_MTU_MASK,
+ 						 AIROHA_MAX_MTU));
+-			if (!port)
++	}
++
++	for (i = 0; i < ARRAY_SIZE(eth->ports); i++) {
++		struct airoha_gdm_port *port = eth->ports[i];
++		int j;
++
++		if (!port)
++			continue;
++
++		for (j = 0; j < ARRAY_SIZE(port->devs); j++) {
++			struct airoha_gdm_dev *dev = port->devs[j];
++			int ppe_id;
++			u8 fport;
++
++			if (!dev)
+ 				continue;
+ 
+-			airoha_ppe_set_cpu_port(port->dev, i,
+-						airoha_get_fe_port(port->dev));
++			ppe_id = !airoha_is_lan_gdm_dev(dev) &&
++				 airoha_ppe_is_enabled(eth, 1);
++			fport = airoha_get_fe_port(dev);
++			airoha_ppe_set_cpu_port(dev, ppe_id, fport);
+ 		}
+ 	}
+ }
 
 -- 
 2.54.0
