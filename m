@@ -4,88 +4,45 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id B631FCD6E57
-	for <linux-arm-kernel@archiver.kernel.org>; Wed,  3 Jun 2026 15:09:56 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 716A5CD6E55
+	for <linux-arm-kernel@archiver.kernel.org>; Wed,  3 Jun 2026 15:10:27 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=YxqzNwaAdmL0/SThUg+qILxDXPPyBFWSONMfuCfu5/s=; b=c7lj+z8fBOPSrqceI8LWicwIfj
-	WqHFEw8g1prjknhogZaI7wzZ0EZg5BCUz/1b8ba5uh+uOStzlsT4pJODHwBbbrqVG4MWMizu96ozK
-	Xm2o6Ud6pEUsznCF2t5XTFHnZFsot8mHZ7C9miAU0gCXgEGP/1zYDaSx/2aWii/kGYvE2skPI3FZo
-	5AWElXF9gj4lxtG6yLv8RqPlNXKNIPbbq8CGiofNr3+E7RM7J6VLbsGiE+EB8Cwgro7rqGREKLeJ8
-	myHu9ISp7fU/pERy3St2qtEzZ7khhOB6hD/A6vSANYteB9AG5vONCDv8KG03aeyguqZ21s06o/hS/
-	1DvjxgcA==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	MIME-Version:Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-Type:
+	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
+	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=7xhxHbGK6ZztdBWb0pqhgV5oa0fD8oyXHXsLeb4c66M=; b=aPPO1CF25oSHQa12SDSIW+Lzcj
+	e4b+4xCt2px0o1m2/cfOm/ZfboLTOPQQCxXHHBqcnsjoIJ1OoqtB3423aC9dTSS3Js26jummsAQ0W
+	z+fYw3E4yKZzhjFoI7l2ap/B4NCew9pBT/dAwG9AM+uq8hHmUY9t0jArITGemwmicTGkKwjIG2eSG
+	6f5rlxQjQdMayXyhf7d7pWT7CejjAe+BCl01Och/xv57qbF+l6KPohFzvztdf5mgZhx2Xl/4BcSUy
+	iKw8W25E2LTJGgiL2B1ouq6XQUrOBAthV4A7ve6IiNJ8QR17eWEq5ocFUHo8s1CsaZRsVB2ou6Lsq
+	qQ5ZgRJQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wUnE6-0000000FKtI-2552;
-	Wed, 03 Jun 2026 15:09:50 +0000
-Received: from mail-wm1-x333.google.com ([2a00:1450:4864:20::333])
+	id 1wUnEa-0000000FL0q-313E;
+	Wed, 03 Jun 2026 15:10:20 +0000
+Received: from tor.source.kernel.org ([2600:3c04:e001:324:0:1991:8:25])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wUnE3-0000000FKsf-3yad
+	id 1wUnEZ-0000000FL09-0zyF
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 03 Jun 2026 15:09:49 +0000
-Received: by mail-wm1-x333.google.com with SMTP id 5b1f17b1804b1-490b8ac62baso5772915e9.0
-        for <linux-arm-kernel@lists.infradead.org>; Wed, 03 Jun 2026 08:09:45 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=baylibre.com; s=google; t=1780499384; x=1781104184; darn=lists.infradead.org;
-        h=in-reply-to:content-disposition:mime-version:references:message-id
-         :subject:cc:to:from:date:from:to:cc:subject:date:message-id:reply-to;
-        bh=YxqzNwaAdmL0/SThUg+qILxDXPPyBFWSONMfuCfu5/s=;
-        b=EZZUUDEtYSV9MxqVTvvTDT3KbSZo+JezwR/39ayoWLj2aEAb8U8fVNzgDwMgJ3PUX2
-         DxvLTUTwAQphixAtDkQr1dhTjnf59GgBcZ2LKKKCDdea8wkYRbsL8JVTezGgEsnYodv8
-         Q3tP4cXMep2CmxjXtL8DW5Gd39v466Rwp2hutTXPrkXmcWYnp2ofsOpUmXjC/TdL7bEU
-         3rsU7QepCMYjFiMXut2Sr8epBplxWGsUuo6/bfzsTskDpO4O0qmLJjeDQ1yIL9VQHitg
-         WLf1gu24kh5yFlxOjQ+RSr5s44Gtz5x4g0XIjVNyieMaTgi9RkGwOV1b0Fp4SpcHA0Yn
-         ZcwQ==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20251104; t=1780499384; x=1781104184;
-        h=in-reply-to:content-disposition:mime-version:references:message-id
-         :subject:cc:to:from:date:x-gm-gg:x-gm-message-state:from:to:cc
-         :subject:date:message-id:reply-to;
-        bh=YxqzNwaAdmL0/SThUg+qILxDXPPyBFWSONMfuCfu5/s=;
-        b=o8XgMaitsBuwDqsbonr0DWAPqv/5Dc0QjbGZVs99tpw2np0cSEkBNuc7IJ2AevLV9G
-         OoBGp1b1ZbwoWNeg3jQpMo+vGq7z80ktXFiBTdpOUtjgk50u3a3h5u81VYHiD0oxNbHf
-         2pO563ntyu33x/yUUuiCdFcNt8oua1KbjFA9/BoxNzLyGwP7mfqXf+V1JgtWcYIQYklV
-         fugo5Mop1eKKNTfph9Vnpm/OYBbK5zb5L6TShxyx6LztBiNaxdtzL0XQgY2vADsbqx7Z
-         ehQK2zQi3bYCudKQ+3ErMm++aRiFCB/1lNkyXcopisiK38ud42PYsulayTN3C5Pn5hhY
-         q7GQ==
-X-Forwarded-Encrypted: i=1; AFNElJ/LrB8tmjfbjAWPOJlryqA5q0Va4mY9hDmBZmf+n3FwxcNoSE94eQs4GSzyHYJTTk9avIr9N190NXsJ6TdEBj3V@lists.infradead.org
-X-Gm-Message-State: AOJu0Yxsn9Ta9p/ozCbMVT8k6w7O5RNvuxhsdM+82ASBoLYMYKnBY+Xg
-	uY79Z8dQ6u6CkodilQmj1eD6FXlk5ByvPtP3Doeet5aluua0rg6bqTspLg7pfXaGMHA=
-X-Gm-Gg: Acq92OGZyLqNaGZJ9n6YijwxV9KqQne+ffruWfVxRz2gMOKR48KkSZsud7ErhCZMinW
-	FlyCFnLkXqt46vWxSN50lwV8wOUAB0yEpPz11JkYNLHascfS2S84IRYVwmQa4dXkHpF9pU1KutD
-	ELPdkeF/cIKJgRruNvwVD7kqWgHDL/wHngtDpfXjeHyMwM8qgzcqXakIW2kTSrtXryI7BqdVxKO
-	z4YffArH8WD3Phty6ftPjVMeK7iqzkbzl99OsE9x7xm5u9Jo0eXMY8xS50UFfvlkYD9yxyvuqVq
-	UQ3QEF819Bwq+xriQRRAVQV5VbZsTPXklg7jKXT9WbGkFPKxwMi6BI35WG4HtRQ5LJLKnR9DEz2
-	UtA3HSOP3fliqUKKkdL4bUX2QiagfGHHn+RentVOjTNMYUWMFKECbuZW34a30bDpdqHyTzf4jCT
-	CMtJ0o18qxrK2nuPf9OzhKbV5b3l1CkvfM8tOEEKr0faY=
-X-Received: by 2002:a05:600c:4750:b0:490:b4a8:e031 with SMTP id 5b1f17b1804b1-490b611ac38mr48537035e9.4.1780499384621;
-        Wed, 03 Jun 2026 08:09:44 -0700 (PDT)
-Received: from localhost ([90.85.134.233])
-        by smtp.gmail.com with UTF8SMTPSA id 5b1f17b1804b1-490b63d810dsm76797115e9.9.2026.06.03.08.09.43
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Wed, 03 Jun 2026 08:09:43 -0700 (PDT)
-Date: Wed, 3 Jun 2026 17:09:42 +0200
-From: Uwe =?utf-8?Q?Kleine-K=C3=B6nig?= <u.kleine-koenig@baylibre.com>
-To: Sascha Hauer <s.hauer@pengutronix.de>
-Cc: Russell King <linux@armlinux.org.uk>, 
-	linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org, 
-	Marco Felsch <m.felsch@pengutronix.de>, Alexander Stein <alexander.stein@ew.tq-group.com>, 
-	Ryan Eatmon <reatmon@ti.com>, kernel@pengutronix.de
-Subject: Re: [PATCH] arm: gen-mach-types: don't include absolute filename
-Message-ID: <aiBDAQmQFKeN033y@monoceros>
-References: <20260603-arm-remove-path-from-mach-types-h-v1-1-cda9890ba788@pengutronix.de>
+	Wed, 03 Jun 2026 15:10:19 +0000
+Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
+	by tor.source.kernel.org (Postfix) with ESMTP id 45424601DD;
+	Wed,  3 Jun 2026 15:10:18 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 0FF011F00893;
+	Wed,  3 Jun 2026 15:10:16 +0000 (UTC)
+From: Geert Uytterhoeven <geert+renesas@glider.be>
+To: Magnus Damm <magnus.damm@gmail.com>,
+	linux-arm-kernel@lists.infradead.org
+Cc: linux-renesas-soc@vger.kernel.org,
+	Geert Uytterhoeven <geert+renesas@glider.be>
+Subject: [PATCH] ARM: shmobile: rcar-gen2: Use of_machine_compatible_match() helper
+Date: Wed,  3 Jun 2026 17:10:14 +0200
+Message-ID: <2230eb28da9b8d8bdee4e4fd7e19dc8f074531bc.1780499233.git.geert+renesas@glider.be>
+X-Mailer: git-send-email 2.43.0
 MIME-Version: 1.0
-Content-Type: multipart/signed; micalg=pgp-sha512;
-	protocol="application/pgp-signature"; boundary="oavmczg5e5fbabuf"
-Content-Disposition: inline
-In-Reply-To: <20260603-arm-remove-path-from-mach-types-h-v1-1-cda9890ba788@pengutronix.de>
-X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260603_080948_007924_D151AC89 
-X-CRM114-Status: GOOD (  15.88  )
+Content-Transfer-Encoding: 8bit
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -100,48 +57,79 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
+Replace sequences of of_machine_is_compatible() calls by single calls to
+the of_machine_compatible_match() helper, to simplify the code, and to
+reduce code size.
 
---oavmczg5e5fbabuf
-Content-Type: text/plain; protected-headers=v1; charset=iso-8859-1
-Content-Disposition: inline
-Content-Transfer-Encoding: quoted-printable
-Subject: Re: [PATCH] arm: gen-mach-types: don't include absolute filename
-MIME-Version: 1.0
+Note that this does have a slight performance impact on matching
+platforms: while the C sequences terminated evaluation after a match,
+(internal) of_device_compatible_match() calculates a matching score, and
+thus always checks against all passed compatible values.
 
-Hello Sascha,
+Signed-off-by: Geert Uytterhoeven <geert+renesas@glider.be>
+---
+To be queued in renesas-devel for v7.3.
 
-On Wed, Jun 03, 2026 at 04:12:10PM +0200, Sascha Hauer wrote:
-> mach-types.h is part of the kapi and as such shipped in the
-> linux-headers package. The embedded build path makes that package
-> non-reproducible without going through an extra step of normalizing the
-> path. YOCTO has similar problems in the kernel debug source package.
->=20
-> Make the path relative to the kernel source tree which is enough to
-> find the tool that has generated the file.
->=20
-> Signed-off-by: Sascha Hauer <s.hauer@pengutronix.de>
+ arch/arm/mach-shmobile/regulator-quirk-rcar-gen2.c | 10 +++++-----
+ arch/arm/mach-shmobile/setup-rcar-gen2.c           |  9 +++++----
+ 2 files changed, 10 insertions(+), 9 deletions(-)
 
-Compared to my old patch this is simpler, I like it.
+diff --git a/arch/arm/mach-shmobile/regulator-quirk-rcar-gen2.c b/arch/arm/mach-shmobile/regulator-quirk-rcar-gen2.c
+index 747a96c58df15075..647e5f9f6aa8ba40 100644
+--- a/arch/arm/mach-shmobile/regulator-quirk-rcar-gen2.c
++++ b/arch/arm/mach-shmobile/regulator-quirk-rcar-gen2.c
+@@ -140,6 +140,10 @@ static struct notifier_block regulator_quirk_nb = {
+ 
+ static int __init rcar_gen2_regulator_quirk(void)
+ {
++	static const char *const boards[] __initconst = {
++		"renesas,koelsch", "renesas,lager", "renesas,porter",
++		"renesas,stout", "renesas,gose", NULL
++	};
+ 	struct regulator_quirk *quirk, *pos, *tmp;
+ 	struct of_phandle_args *args;
+ 	const struct of_device_id *id;
+@@ -147,11 +151,7 @@ static int __init rcar_gen2_regulator_quirk(void)
+ 	u32 mon, addr;
+ 	int ret;
+ 
+-	if (!of_machine_is_compatible("renesas,koelsch") &&
+-	    !of_machine_is_compatible("renesas,lager") &&
+-	    !of_machine_is_compatible("renesas,porter") &&
+-	    !of_machine_is_compatible("renesas,stout") &&
+-	    !of_machine_is_compatible("renesas,gose"))
++	if (!of_machine_compatible_match(boards))
+ 		return -ENODEV;
+ 
+ 	for_each_matching_node_and_match(np, rcar_gen2_quirk_match, &id) {
+diff --git a/arch/arm/mach-shmobile/setup-rcar-gen2.c b/arch/arm/mach-shmobile/setup-rcar-gen2.c
+index 3cd34a42e39bb1d7..5145589059191a96 100644
+--- a/arch/arm/mach-shmobile/setup-rcar-gen2.c
++++ b/arch/arm/mach-shmobile/setup-rcar-gen2.c
+@@ -56,6 +56,10 @@ static unsigned int __init get_extal_freq(void)
+ 
+ static void __init rcar_gen2_timer_init(void)
+ {
++	static const char *const fixed_freq_socs[] __initconst = {
++		"renesas,r8a7745", "renesas,r8a77470", "renesas,r8a7792",
++		"renesas,r8a7794", NULL
++	};
+ 	bool need_update = true;
+ 	void __iomem *base;
+ 	u32 freq;
+@@ -76,10 +80,7 @@ static void __init rcar_gen2_timer_init(void)
+ 
+ 	secure_cntvoff_init();
+ 
+-	if (of_machine_is_compatible("renesas,r8a7745") ||
+-	    of_machine_is_compatible("renesas,r8a77470") ||
+-	    of_machine_is_compatible("renesas,r8a7792") ||
+-	    of_machine_is_compatible("renesas,r8a7794")) {
++	if (of_machine_compatible_match(fixed_freq_socs)) {
+ 		freq = 260000000 / 8;	/* ZS / 8 */
+ 	} else {
+ 		/* At Linux boot time the r8a7790 arch timer comes up
+-- 
+2.43.0
 
-Acked-by: Uwe Kleine-K=F6nig <u.kleine-koenig@baylibre.com>
-
-Thanks
-Uwe
-
---oavmczg5e5fbabuf
-Content-Type: application/pgp-signature; name="signature.asc"
-
------BEGIN PGP SIGNATURE-----
-
-iQEzBAABCgAdFiEEP4GsaTp6HlmJrf7Tj4D7WH0S/k4FAmogQ7MACgkQj4D7WH0S
-/k4dewf+MNI97X4Fwp5u/4n9hOmWPPEgzpwtq2F7qjwkXHhWs7ec/8U15RAQ1W5V
-F6Vr7r1vp6pW1iS7SYm0FdQ5ckV4D1/a6aEMHCplGoOsObHbTRz1dHF/NttGsJoR
-Yz5Tq7jVx/RTZxOW35g5CIOZNc+g9SPGsdIzf+7Xjh+MYzIErpDa5HcxMia78fFN
-2V13SvUO4s2adPY/tj13BogMaCnuXnRGeIQg5vZdyNK090y9HZK3h3Zmp9xDWREj
-2QN/tjGU4mV+QGqmWLCYFKSkpGjbmLu/pEX61pegOVjhNYgwYsV7I3yNNwsRpcqn
-o5nWsb5MijkWtSFxX/O5c0epteFS4A==
-=dgqp
------END PGP SIGNATURE-----
-
---oavmczg5e5fbabuf--
 
