@@ -4,124 +4,81 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 3BF11CD6E55
-	for <linux-arm-kernel@archiver.kernel.org>; Wed,  3 Jun 2026 16:01:06 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 29564CD6E57
+	for <linux-arm-kernel@archiver.kernel.org>; Wed,  3 Jun 2026 16:11:30 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:CC:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=KCK/BW3J71SgpnFE5QPnk2kR+1iP5v1udNsZWnPnFD8=; b=uMD6RbJwJcyAnjnOtlAbzGhmd1
-	izZFOufvbdt6klkm1sIcNgwDYhHCzmSxPSabqKIWxqWyccTbzun1NTvVuKrGUURBB9yRTncVwM4ap
-	xzV30wFLLcvGoKjEf8vCZ5PwEs/kxDJaVf2g0l3IqG6aoRpwhChfohHmBx8i7tDg4/tyKkhQlMfmS
-	f1NJN46mVyDhF27g63GSdcvoz6GciSJf+GsvwRm1kx3/66kK3jkQlm59g+EO1eENbiDGRRfe4kC4b
-	KZ5TBFIq29ASgbZ8SmCej1hN/gJd43EKS6fDsVDzIFFr2a7Dc8iIg3osxhsMlzaIbJtPMClG3a3mO
-	cpOJ75pQ==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:Cc:To:From:
+	Subject:Message-ID:Mime-Version:Date:Reply-To:Content-Transfer-Encoding:
+	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
+	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=oQpDktMuJeHzAycycK0zHXfq1NrEyk0DRgWt786hC0g=; b=X7r41SXjoClQ71Uj4oGwk2urVS
+	hROLN7ipTO5AFAVq7z5Yg7TZUFr0w2JTM8Pob/CYAc7j1SxxsIVCMNE68hFE6cY21go68dNauF3Vh
+	o4pY38y360GlimtStmz3yOjS43pI0XPd4q5663wjmNujl3gWa6uxiPN/bYLACJUutAa3c3gj5RIna
+	Y2XH7XKDHrMibSA2Bu6+Pa7eUALpfii0XTLQxZ0zM3UJG2Z4T4qEd4Ii5nLYbxU/KJcL0RWMCxukN
+	ZtYZPHvjYr3PyLt5QBIcZSXDNINokvwbIWuPjGIbD8U194qxpuS+xu3iAfzoLGLQZu5tL+zf2m1vE
+	XscVnzQg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wUo1b-0000000FTtK-0ikH;
-	Wed, 03 Jun 2026 16:00:59 +0000
-Received: from mail-southcentralusazon11012058.outbound.protection.outlook.com ([40.93.195.58] helo=SN4PR2101CU001.outbound.protection.outlook.com)
+	id 1wUoBf-0000000FUaT-1is6;
+	Wed, 03 Jun 2026 16:11:23 +0000
+Received: from mail-wr1-x44a.google.com ([2a00:1450:4864:20::44a])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wUo1X-0000000FTsw-3zxp
+	id 1wUoBc-0000000FUZi-3xV3
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 03 Jun 2026 16:00:57 +0000
-ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
- b=B4lGyn1TZUocQBjppMp5WaGAF8Alz77j6a3n0oWOUSGWqnMinMv+lT7InrAzqihdk73y8SYHKz0bGBUCrVO1MqIZglXwsa+Ak0XLm4tqdJSo7ong4IKyjW8wJJW+eDGjyLoXXTzw16uuL2EYigZQANdnBGUsoj1gnhBRWgALL0BsTxAEiv+tmfxK7Om3h6qy0VU2tp1nMpAzpj6PTiutGlA8NnHdofYeaAKgvGMTk4uLZLDW8HG6b6/oNFA37FXTngol/4Q19QODsCkWboQdgNKdYWsttsI9bBqZMIuqulo6bT0Tm5n9/u0QqOPQXDI/AacoXvd9bUPdyfFmCZgyJA==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
- s=arcselector10001;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
- bh=KCK/BW3J71SgpnFE5QPnk2kR+1iP5v1udNsZWnPnFD8=;
- b=n1RHM5FQCifRmaVwjHO85NBnb5E3z8+FOE+MfsaG/url6V0q+rHr6KOXyD1W8ubyFNkYtwhiLRUtwEHGHQj2fCwYR1nADhzslurrfgW3GvT2Oe7/unjYDf1OlpvXZDTlC46Q0Y1jA6ORgAi11qh4sWVWoFbI4k76AEwhOzGmxZWLpM71ojJlVcR6yfLF8gxhdQYoszOQwAD1rPCgHktGARThBKPEs0O68ZItk1jK9c98VxGibkDKRwU+/FwEcp0LfsBRjF7lTsm7qxY8L8yg9qaMJRUrJj0LF/urXA6FJdNsqHVFAuttvoV+0M76cVgf2fr0q3VxfMBm2NBajQrRlQ==
-ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass (sender ip is
- 198.47.23.195) smtp.rcpttodomain=redhat.com smtp.mailfrom=ti.com; dmarc=pass
- (p=quarantine sp=none pct=100) action=none header.from=ti.com; dkim=none
- (message not signed); arc=none (0)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=ti.com; s=selector1;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
- bh=KCK/BW3J71SgpnFE5QPnk2kR+1iP5v1udNsZWnPnFD8=;
- b=UIG8MSPSBPYDxUknCggYl7OJkBAo3NxAYLf74Xl80ylg1lJLqtMwYHJqAZkgTdp78kl3kITrHsJIMU6u8UPGH9xN2lxiAzc1cib1zM1VV2NWFahzJddxbm+7UwTNvqNpa/pQteINhIDyND2CZsZR4z5VQN/U4lPpryRtId8Jpfo=
-Received: from MW4PR03CA0166.namprd03.prod.outlook.com (2603:10b6:303:8d::21)
- by CO6PR10MB5789.namprd10.prod.outlook.com (2603:10b6:303:140::14) with
- Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.21.92.7; Wed, 3 Jun 2026
- 16:00:51 +0000
-Received: from CO1PEPF000075EE.namprd03.prod.outlook.com
- (2603:10b6:303:8d:cafe::6) by MW4PR03CA0166.outlook.office365.com
- (2603:10b6:303:8d::21) with Microsoft SMTP Server (version=TLS1_3,
- cipher=TLS_AES_256_GCM_SHA384) id 15.21.92.7 via Frontend Transport; Wed, 3
- Jun 2026 16:00:51 +0000
-X-MS-Exchange-Authentication-Results: spf=pass (sender IP is 198.47.23.195)
- smtp.mailfrom=ti.com; dkim=none (message not signed) header.d=none;dmarc=pass
- action=none header.from=ti.com;
-Received-SPF: Pass (protection.outlook.com: domain of ti.com designates
- 198.47.23.195 as permitted sender) receiver=protection.outlook.com;
- client-ip=198.47.23.195; helo=lewvzet201.ext.ti.com; pr=C
-Received: from lewvzet201.ext.ti.com (198.47.23.195) by
- CO1PEPF000075EE.mail.protection.outlook.com (10.167.249.37) with Microsoft
- SMTP Server (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
- 15.21.92.5 via Frontend Transport; Wed, 3 Jun 2026 16:00:51 +0000
-Received: from DLEE200.ent.ti.com (157.170.170.75) by lewvzet201.ext.ti.com
- (10.4.14.104) with Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.2.2562.37; Wed, 3 Jun
- 2026 11:00:35 -0500
-Received: from DLEE207.ent.ti.com (157.170.170.95) by DLEE200.ent.ti.com
- (157.170.170.75) with Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.2.2562.37; Wed, 3 Jun
- 2026 11:00:34 -0500
-Received: from lelvem-mr05.itg.ti.com (10.180.75.9) by DLEE207.ent.ti.com
- (157.170.170.95) with Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.2.2562.37 via Frontend
- Transport; Wed, 3 Jun 2026 11:00:34 -0500
-Received: from localhost (uda0133052.dhcp.ti.com [128.247.81.232] (may be forged))
-	by lelvem-mr05.itg.ti.com (8.18.1/8.18.1) with ESMTP id 653G0Y2A2063177;
-	Wed, 3 Jun 2026 11:00:34 -0500
-Date: Wed, 3 Jun 2026 11:00:34 -0500
-From: Nishanth Menon <nm@ti.com>
-To: Stephen Boyd <sboyd@kernel.org>
-CC: <a-christidis@ti.com>, Tero Kristo <kristo@kernel.org>, Santosh Shilimkar
-	<ssantosh@kernel.org>, Michael Turquette <mturquette@baylibre.com>, "Stephen
- Boyd" <sboyd@kernel.org>, <linux-arm-kernel@lists.infradead.org>,
-	<linux-kernel@vger.kernel.org>, <linux-clk@vger.kernel.org>, Michael Walle
-	<mwalle@kernel.org>, Kevin Hilman <khilman@baylibre.com>, Randolph Sapp
-	<rs@ti.com>, Brian Masney <bmasney@redhat.com>
-Subject: Re: [PATCH v2] clk: keystone: don't cache clock rate
-Message-ID: <20260603160034.fbemt5n6pqyrmwke@strode>
-References: <20260507-clk-sci-v2-1-38f59b48777a@ti.com>
- <agHpYnkCgGfZp2-E@redhat.com>
- <20260512104848.4axgjeto6i7ejvli@retorted>
- <agM-VB-ToGFNphfu@redhat.com>
- <20260512171604.5ntgq65bmedb7jpc@stinger>
-MIME-Version: 1.0
-Content-Type: text/plain; charset="us-ascii"
-Content-Disposition: inline
-In-Reply-To: <20260512171604.5ntgq65bmedb7jpc@stinger>
-X-C2ProcessedOrg: 333ef613-75bf-4e12-a4b1-8e3623f5dcea
-X-EOPAttributedMessage: 0
-X-MS-PublicTrafficType: Email
-X-MS-TrafficTypeDiagnostic: CO1PEPF000075EE:EE_|CO6PR10MB5789:EE_
-X-MS-Office365-Filtering-Correlation-Id: 811e468e-b61f-44c1-3af3-08dec1894926
-X-MS-Exchange-SenderADCheck: 1
-X-MS-Exchange-AntiSpam-Relay: 0
-X-Microsoft-Antispam: BCL:0;ARA:13230040|376014|82310400026|1800799024|36860700016|7416014|4143699003|56012099006|18002099003|22082099003;
-X-Microsoft-Antispam-Message-Info: CstvOpx6KEBPkcMIIfjgCWU6UrOUybbDClXoSaImpKFjKSnJPwqjccIImqnH+zPnw5RqFrYKv8pySSftuaQSrxffo9hMypLPnFcskTVePWTVBC+5UORo+e8UH2LK7Co6e8ZZBlmt7jjXflPkzcnj/zQvA/bq3ZJeqrnEh1VmIrV6aibKbOjcL5ndtdcYqXzz8rZLOGjZmdN8islYyAFEzry1WGSzdAYQLA0AwlDfX+nFl21iDx4DcHD34g98M83MRrcZKB8zcExJoKkd6e/YR7rV3ElAC07DcI5r2jetjc7LkYi3jWKwk7JWIQpk0krYhyRTAxaUUyZpxqzH6YdJrWChRHh0/5HJTf//dEqzdNgVssm9E7w5R18AMlxxsqP59aEsX7N9vZwxAqOLnJ1v2ea90uUyq6imKdSOODBihgCw1EAV0sxu9de0KJYc3G+5Uzr/9zajDQ1mmsy4rrrEr8UIN9oJdhL3WMbsE8prjNIAlwNdB/wsIgBOhOu5MRP1T7ZENjKcg7/IaEk9drZQ+pt8cTyjzQFiPfJAbLdHQid3vXhUVipsisxpvfKFea3i8xDUstTy6N2NcsmHjfO4dD4BC5h5nvushL1FbEqLhOV0xX3iGV6IJE+54nhmCmURzYdLLj6O5JBIakjLUHGAziqKCG0iiw+Hbn0AkpIU/sjaIvEzHc12vOHBsnRYYgfoOLyfRbXqtDePItgoB+GpxQYoB+tUXIQWCE1QJRg1uFY=
-X-Forefront-Antispam-Report: CIP:198.47.23.195;CTRY:US;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:lewvzet201.ext.ti.com;PTR:InfoDomainNonexistent;CAT:NONE;SFS:(13230040)(376014)(82310400026)(1800799024)(36860700016)(7416014)(4143699003)(56012099006)(18002099003)(22082099003);DIR:OUT;SFP:1101;
-X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
-X-MS-Exchange-AntiSpam-MessageData-0: gphL3X0vWm2+Z5eAvrqokeddJbNgQJQzhTjUANcCm9siOx57VEQQPzsLF0/ou7wAHPBY+gK330zrEu+41yMGSmuz5UDygaNU+suM9lIPWAM5mx1nZ7/rpNBBUZicm11EPiq7krAj3Ja1gnr2h9jLSuJjevGT8Na7ujZvimSBsdDOtP34T76Xcdf2HcvzKb5uEptwUzFO74qELedBzjAyVGhb26s55tdwoaQ4T2l5NroZgcTubfa3azumTa8w5pItI8RW9Hgevh81Xm1xQjyEVEsIznnQTHJHEn4TrxlIjm+RHaWMG34CtC3APBvwk3sxbbi2AXzBC4Z5lVN1+qaCQw9nEUmTYqbe/ZGSITqtipxetIWk82ddP8VE62C8/6xKqQvo8GX6YIqpXQIc5DAYvxhVbJtEAaIDM35DRdLHl2w+gEcegfY/HjETCOhgPWvP
-X-OriginatorOrg: ti.com
-X-MS-Exchange-CrossTenant-OriginalArrivalTime: 03 Jun 2026 16:00:51.3826
- (UTC)
-X-MS-Exchange-CrossTenant-Network-Message-Id: 811e468e-b61f-44c1-3af3-08dec1894926
-X-MS-Exchange-CrossTenant-Id: e5b49634-450b-4709-8abb-1e2b19b982b7
-X-MS-Exchange-CrossTenant-OriginalAttributedTenantConnectingIp: TenantId=e5b49634-450b-4709-8abb-1e2b19b982b7;Ip=[198.47.23.195];Helo=[lewvzet201.ext.ti.com]
-X-MS-Exchange-CrossTenant-AuthSource: CO1PEPF000075EE.namprd03.prod.outlook.com
-X-MS-Exchange-CrossTenant-AuthAs: Anonymous
-X-MS-Exchange-CrossTenant-FromEntityHeader: HybridOnPrem
-X-MS-Exchange-Transport-CrossTenantHeadersStamped: CO6PR10MB5789
+	Wed, 03 Jun 2026 16:11:22 +0000
+Received: by mail-wr1-x44a.google.com with SMTP id ffacd0b85a97d-4601daf4c65so1196799f8f.2
+        for <linux-arm-kernel@lists.infradead.org>; Wed, 03 Jun 2026 09:11:19 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=google.com; s=20251104; t=1780503078; x=1781107878; darn=lists.infradead.org;
+        h=cc:to:from:subject:message-id:mime-version:date:from:to:cc:subject
+         :date:message-id:reply-to;
+        bh=oQpDktMuJeHzAycycK0zHXfq1NrEyk0DRgWt786hC0g=;
+        b=tdgMOIfxi8MEShIO+mm8Y6jO8jW/cpF8rYDHxkfnvuWIbPauoZZlqaaqSLgV7vfFiT
+         /do2vn5WpUOMrNCNXTY200JGhfosnoWAbee5apoEB1PwhNS6Bu6bA2rJhoNg7x9DL+5M
+         0EwGkkcCZevA+Poi1i85scVJ2lF9tG/4UJyy0OD2NQWHl2llY9wT7BrwPdQZSFJwP/9V
+         JN6pJW29JbakpFSTlBkw/yRI5SgCF0IDQ8f2zkmVYvbwQwIvUjHWb0VW5amaBsJ4SP7G
+         8GDubE3HWvs9TiqyORG9jklD1xnnWh+eTDvHaAaEswrYFOCEz6NWrnl1znYwwxJcjoH/
+         Ua5Q==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20251104; t=1780503078; x=1781107878;
+        h=cc:to:from:subject:message-id:mime-version:date:x-gm-message-state
+         :from:to:cc:subject:date:message-id:reply-to;
+        bh=oQpDktMuJeHzAycycK0zHXfq1NrEyk0DRgWt786hC0g=;
+        b=B5VcqlcKOtNN35IC7x7vcPjbYGA3+Ys5R7X8HQiGjISV7k5URqAE9dSt9ockC0pwM9
+         tnySOo3m5fmEkdQcOpgqxG5EbZ+ZJEDNR03hfZKQn/HOWQL5RXbTefq4o0TKIm3BVHVL
+         hIkFIh3o+SPc9D4ErWWqwaaIWXgt8qLIrbl1ZHpgbTOl0QXGuyGtE9TAxxpupF547SqR
+         FRsCzKR+m1FVjfeEWBoztBpxxfPzF5DT5D78D3T7tqfEFhlOYWPKGqgZkhumG+fNZ1jn
+         ZGzlPzOuatZLP/Bc+/qKJszhm1k6BFMx8/tI5OeBPQekyvHe0FnYbEII353q8Y+fgHYv
+         J5/w==
+X-Gm-Message-State: AOJu0YwCBzWnL5GLZBSx6VsMRrgqtlPRLnBE9QPIlTV74IPcxaRKHOlW
+	4kksGdC76+TdnCb3cEbXsfAufdCSxYaf2BvUXGIzIS7pxBgEUR2HkyXJhFkvZ9j94UuWxZOepPW
+	M5BGNXPyNc9RP6LweARuTA1y0chRnBzcMVebd5jIf+nm4fmFJDvJHiX277JqFZEFrbEHRA1ukSW
+	5Ief1LymBd/iTU5sQ2XvVSQbigjl3UNwQsKZVuIwxyvf/W
+X-Received: from wmth11.prod.google.com ([2002:a05:600c:8b6b:b0:490:b475:af3a])
+ (user=ardb job=prod-delivery.src-stubby-dispatcher) by 2002:a05:600c:859b:b0:490:b55c:cec3
+ with SMTP id 5b1f17b1804b1-490b5e95fccmr54840825e9.12.1780503078163; Wed, 03
+ Jun 2026 09:11:18 -0700 (PDT)
+Date: Wed,  3 Jun 2026 18:09:50 +0200
+Mime-Version: 1.0
+X-Developer-Key: i=ardb@kernel.org; a=openpgp; fpr=F43D03328115A198C90016883D200E9CA6329909
+X-Developer-Signature: v=1; a=openpgp-sha256; l=1312; i=ardb@kernel.org;
+ h=from:subject; bh=JOcaecGImIfdl5TWZ/0jC1KNpNDZd0MmitdNR6ldmsg=;
+ b=owGbwMvMwCVmkMcZplerG8N4Wi2JIUsh8NyctsUn3/xq+v33lMqeoyzPjyhuniKiu/Osa1iI8
+ qeIe38/dJSyMIhxMciKKbIIzP77bufpiVK1zrNkYeawMoEMYeDiFICJ1D5g+B+X4fA4mbFVROF2
+ i8Jxs5PT1u4MDU+szNkb3mM109H5ZhLDP8Obm3e/5bKZIKsrJst//8mXjWLPDvL95F5ss9+zS+G IIwcA
+X-Mailer: git-send-email 2.54.0.1013.g208068f2d8-goog
+Message-ID: <20260603160949.3372482-6-ardb+git@google.com>
+Subject: [PATCH 0/4] fixes for data/bss linear alias unmap series
+From: Ard Biesheuvel <ardb+git@google.com>
+To: linux-arm-kernel@lists.infradead.org
+Cc: linux-kernel@vger.kernel.org, will@kernel.org, catalin.marinas@arm.com, 
+	maz@kernel.org, Ard Biesheuvel <ardb@kernel.org>, Kevin Brodsky <kevin.brodsky@arm.com>, 
+	Mark Brown <broonie@kernel.org>
+Content-Type: text/plain; charset="UTF-8"
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260603_090055_995199_9AB41A4B 
-X-CRM114-Status: GOOD (  18.29  )
+X-CRM114-CacheID: sfid-20260603_091120_988249_FBBEBC00 
+X-CRM114-Status: GOOD (  10.47  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -136,33 +93,43 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On 12:16-20260512, Nishanth Menon wrote:
-> On 10:51-20260512, Brian Masney wrote:
-> > Hi Nishanth,
-> > > Could you clarify if I need to take it via my tree to arnd or if this
-> > > patch will go via the clk tree?
-> > 
-> > Sorry, I'm not sure what Stephen prefers here. An argument could be made
-> > for either approach. I would just go with whatever you have done in the
-> > past.
-> 
-> Thanks Brian for the review.
-> 
-> This usually will go via Stephen. Will wait, just trying to make sure
-> there is no change in expectations (given this patch missed a window).
-> 
+From: Ard Biesheuvel <ardb@kernel.org>
 
-Stephen, I'd like to clarify: would you pick this patch up directly,
-or would like me to send you a PR after collecting sci_clk patches? I am
-OK with either, would prefer to not have wrong expectations.
+Fixes for the data/bss linear alias unmap series:
 
-I see two patches pending to be queued:
-* this one
-* https://lore.kernel.org/linux-arm-kernel/20260512110028.2999471-1-nm@ti.com/
+- Fix KASAN related issue reported by Mark, by moving all KASAN page
+  tables out of BSS [on arm64], not just the ones defined under
+  arch/arm64
 
+- Fix two issues spotted by Sashiko
+
+- Fix the CKI reported WARN() splat on BBML2_NOABORT systems that try to
+  split block mappings too early.
+
+Cc: Kevin Brodsky <kevin.brodsky@arm.com>
+Cc: Mark Brown <broonie@kernel.org>
+
+Ard Biesheuvel (4):
+  arm64: Move generic KASAN page tables out of BSS too
+  arm64: Avoid double evaluation of __ptep_get()
+  arm64: mte: Disregard the zero page explicitly for manipulating tags
+  arm64: mm: Defer remap of linear alias of data/bss
+
+ arch/arm64/include/asm/linkage.h |  2 ++
+ arch/arm64/include/asm/mmu.h     |  2 --
+ arch/arm64/include/asm/mte.h     |  5 +++++
+ arch/arm64/include/asm/pgtable.h |  4 ----
+ arch/arm64/kernel/vmlinux.lds.S  |  8 ++++----
+ arch/arm64/mm/fixmap.c           |  6 +++---
+ arch/arm64/mm/kasan_init.c       |  2 +-
+ arch/arm64/mm/mmu.c              | 20 +++++++++++++-------
+ include/linux/linkage.h          |  4 ++++
+ mm/kasan/init.c                  | 10 +++++-----
+ 10 files changed, 37 insertions(+), 26 deletions(-)
+
+
+base-commit: 63e0b6a5b6934d6a919d1c65ea185303200a1874
 -- 
-Regards,
-Nishanth Menon
-Key (0xDDB5849D1736249D) / Fingerprint: F8A2 8693 54EB 8232 17A3  1A34 DDB5 849D 1736 249D
-https://ti.com/opensource
+2.54.0.1013.g208068f2d8-goog
+
 
