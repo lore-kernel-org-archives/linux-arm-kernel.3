@@ -4,65 +4,57 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 7555CCD6E57
-	for <linux-arm-kernel@archiver.kernel.org>; Wed,  3 Jun 2026 01:34:43 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 57EACCD6E4A
+	for <linux-arm-kernel@archiver.kernel.org>; Wed,  3 Jun 2026 01:45:51 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
-	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=/YTKzn8x+ScPY0xOlbOt0GetCsCtokkL6paqigkGfsw=; b=d8DJnLfoXrnCOCN35CQv8ln1m9
-	1KA1ePLTQ7UF3INyaw72AcSKZxsR1Y5DpyIpcXj3cDQBVf5FVGgtONsnXHPx/csmklSSwfTfQRgTk
-	QeTDGGEaiJ/SYPlKM0gqpa7AJiFU/PvnV/hMtdsk0qkNuH8K7szxGjG/r0LK160KqIwZhwFACHBqA
-	r5l6lGhU72TczWfy8sZ/S7o9ljZ3XHAedxcJ4EK104jNYLBpfwARE3Ap97jIhyLytbkVbLegajv1Z
-	Ju5XOOJH8GzlBdycLLPI2Uh4KrGSPSgQel9dx49P7zuABjZL9YSz93LTFBUjdaXN510CGbGt2XJDc
-	6pzxAcYQ==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:
+	Content-Transfer-Encoding:Content-Type:Date:Cc:To:From:Subject:Message-ID:
+	Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender
+	:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=6sNKaf6Emxid3ZVnRf3FrHFQvVHAGDbo00Rv0+jMbEM=; b=LEZLeAQTP53LWqYlcN0D7Q44Md
+	2sLOYVZ6atKQYPvciU0JH/vv0V+adl8sUo1dl/3tEK3/dFtGzLe/aUTHYp0wFmdobuDujJHRzKnui
+	tUp96bNNHBxQ2mpHgD4gWns8mrVTWyaV/PlxfRF43Q2Z0mkOc4iNBRi1eVOxgBOOXjwPpAtjV/cqK
+	STTgGPrVUyunbDv3+xeOKAwNCLd72Zs5wgVADQrY0C4VnoKRwKM81dtuYPbgFlLUpClSIo9jtcK8f
+	PoWQTH+Hd8QbTqjp878GitR6WG98Zg0BKxZhgd5iGNMS9wA324xSDeOKZK0nzxRWQHK5hHg7MEofG
+	sXTEXldA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wUaVB-0000000E3HP-1R3V;
-	Wed, 03 Jun 2026 01:34:37 +0000
-Received: from mail-m128113.netease.com ([103.209.128.113])
+	id 1wUafr-0000000E3mh-1Y1i;
+	Wed, 03 Jun 2026 01:45:39 +0000
+Received: from pi.codeconstruct.com.au ([203.29.241.158] helo=codeconstruct.com.au)
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wUaV7-0000000E3Go-443X;
-	Wed, 03 Jun 2026 01:34:35 +0000
-Received: from [172.16.12.90] (unknown [61.154.14.86])
-	by smtp.qiye.163.com (Hmail) with ESMTP id 40d4cc4e8;
-	Wed, 3 Jun 2026 09:34:29 +0800 (GMT+08:00)
-Message-ID: <a473c5a2-b1f9-4cf8-85bb-d3ec1572cbe8@rock-chips.com>
-Date: Wed, 3 Jun 2026 09:34:27 +0800
+	id 1wUafn-0000000E3m0-3Y3X
+	for linux-arm-kernel@lists.infradead.org;
+	Wed, 03 Jun 2026 01:45:37 +0000
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+	d=codeconstruct.com.au; s=2022a; t=1780451126;
+	bh=6sNKaf6Emxid3ZVnRf3FrHFQvVHAGDbo00Rv0+jMbEM=;
+	h=Subject:From:To:Cc:Date;
+	b=Pzsp8widNNQW7lqYjOla9SV0FDAI+RLJyW+mVvMJR4Uqg8RR3xCb5tR/ehxAWXxhW
+	 6CPj7Sz8sHE83Jc8qynufLBIG4JAk44kcJtAg68SDJnPV/B2IwL7s5ZcCv2y5r1ocU
+	 LdjthGl3VI7blsWS8gJiC48QHG6NQAb7GXJ0dSANxhXjAxzvIAOaaddUU8ti2tTYSH
+	 q0IUd3HvVe5fjzz4deqhllDjKgLVnJMtFVShHDe2QG+z5FKjy13tSh399hxRONzUqO
+	 AL1ev+iZvi3fIZtXaKR/02pKI+ImwZiqd92b5zcRF3SpF4u6qtXryJFN6MqsDd5MiM
+	 lEJkg7RMGrRcw==
+Received: from [192.168.68.117] (unknown [180.150.112.11])
+	by mail.codeconstruct.com.au (Postfix) with ESMTPSA id 1B9F66025D;
+	Wed,  3 Jun 2026 09:45:25 +0800 (AWST)
+Message-ID: <6b6b592163523beea48e875a047afc8b4bdbb00b.camel@codeconstruct.com.au>
+Subject: [GIT PULL] aspeed: First batch of driver changes for v7.2
+From: Andrew Jeffery <andrew@codeconstruct.com.au>
+To: soc <soc@lists.linux.dev>
+Cc: linux-arm-kernel@lists.infradead.org, linux-aspeed@lists.ozlabs.org, 
+	linux-kernel@vger.kernel.org, Joel Stanley <joel@jms.id.au>
+Date: Wed, 03 Jun 2026 11:15:25 +0930
+Content-Type: text/plain; charset="UTF-8"
+Content-Transfer-Encoding: quoted-printable
+User-Agent: Evolution 3.56.2-0+deb13u1 
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH 2/2] drm/rockchip: dsi: Add dphy_get_timing support for
- multiple PHY types
-To: Heiko Stuebner <heiko@sntech.de>
-Cc: dri-devel@lists.freedesktop.org, linux-arm-kernel@lists.infradead.org,
- linux-rockchip@lists.infradead.org, linux-kernel@vger.kernel.org,
- Sandy Huang <hjc@rock-chips.com>, Andy Yan <andy.yan@rock-chips.com>,
- Maarten Lankhorst <maarten.lankhorst@linux.intel.com>,
- Maxime Ripard <mripard@kernel.org>, Thomas Zimmermann <tzimmermann@suse.de>,
- David Airlie <airlied@gmail.com>, Simona Vetter <simona@ffwll.ch>,
- Guochun Huang <hero.huang@rock-chips.com>, Chaoyi Chen <kernel@airkyi.com>
-References: <20260324085838.90-1-kernel@airkyi.com>
- <20260324085838.90-2-kernel@airkyi.com> <7091445.e8TTKsaY2g@phil>
-Content-Language: en-US
-From: Chaoyi Chen <chaoyi.chen@rock-chips.com>
-In-Reply-To: <7091445.e8TTKsaY2g@phil>
-Content-Type: text/plain; charset=UTF-8
-Content-Transfer-Encoding: 8bit
-X-HM-Tid: 0a9e8b1e272b03a7kunm90780f18321e8e
-X-HM-MType: 1
-X-HM-Spam-Status: e1kfGhgUHx5ZQUpXWQgPGg8OCBgUHx5ZQUlOS1dZFg8aDwILHllBWSg2Ly
-	tZV1koWUFITzdXWRgWCB1ZQUpXWS1ZQUlXWQ8JGhUIEh9ZQVlCSE8dVkNMTR9DSUNMGkxMSFYVFA
-	kWGhdVEwETFhoSFyQUDg9ZV1kYEgtZQVlNSlVKTk9VSk9VQ01ZV1kWGg8SFR0UWUFZT0tIVUpLSU
-	9PT0hVSktLVUpCS0tZBg++
-DKIM-Signature: a=rsa-sha256;
-	b=gzwYSJAZtEjsJiFDXTJx3X3klY2kxyRngymRyZO/CboKLZ4h8irwxcCEeGyX/4ik7HcJIYhtzRcN48RWubO1+CNdphs94VR4/HiD0dJq7ShOOng0FAHP3mmqLCnuMneIWFjfLaJ6qckQdBgFJ7eHVyPbITPJ1a+LXjFeJvoGu9M=; c=relaxed/relaxed; s=default; d=rock-chips.com; v=1;
-	bh=/YTKzn8x+ScPY0xOlbOt0GetCsCtokkL6paqigkGfsw=;
-	h=date:mime-version:subject:message-id:from;
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260602_183434_236553_43781A90 
-X-CRM114-Status: GOOD (  16.65  )
+X-CRM114-CacheID: sfid-20260602_184536_081725_D3660AAD 
+X-CRM114-Status: UNSURE (   8.79  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -77,83 +69,43 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hi Heiko,
+The following changes since commit 254f49634ee16a731174d2ae34bc50bd5f45e731=
+:
 
-On 6/3/2026 5:02 AM, Heiko Stuebner wrote:
-> Am Dienstag, 24. März 2026, 09:58:38 Mitteleuropäische Sommerzeit schrieb Chaoyi Chen:
->> From: Chaoyi Chen <chaoyi.chen@rock-chips.com>
->>
->> Currently, there are generally two types of DPHY for Rockchip. One is
->> the DPHY used by RK3288/RK3399, whose timing is described by Table A-3
->> High-Speed Transition Times in the databook. The other is the DPHY used
->> by PX30 and its successors. If its timing is still described using
->> RK3288/RK3399, it may not perform correctly on some DSI panel.
->>
->> Add dphy_get_timing for different D-PHY types to adapt to timing
->> differences.
->>
->> Signed-off-by: Chaoyi Chen <chaoyi.chen@rock-chips.com>
->> ---
->>  .../gpu/drm/rockchip/dw-mipi-dsi-rockchip.c   | 45 ++++++++++++++++++-
->>  1 file changed, 43 insertions(+), 2 deletions(-)
->>
->> diff --git a/drivers/gpu/drm/rockchip/dw-mipi-dsi-rockchip.c b/drivers/gpu/drm/rockchip/dw-mipi-dsi-rockchip.c
->> index d3bacfae174e..2d1c9e54ff85 100644
->> --- a/drivers/gpu/drm/rockchip/dw-mipi-dsi-rockchip.c
->> +++ b/drivers/gpu/drm/rockchip/dw-mipi-dsi-rockchip.c
->> @@ -247,6 +247,7 @@ enum {
->>  	BIASEXTR_127_7,
->>  };
->>  
->> +struct dw_mipi_dsi_rockchip;
->>  struct rockchip_dw_dsi_chip_data {
->>  	u32 reg;
->>  
->> @@ -262,6 +263,9 @@ struct rockchip_dw_dsi_chip_data {
->>  	u32 lanecfg2_grf_reg;
->>  	u32 lanecfg2;
->>  
->> +	int (*dphy_get_timing)(struct dw_mipi_dsi_rockchip *dsi, unsigned int lane_mbps,
->> +			       struct dw_mipi_dsi_dphy_timing *timing);
->> +
->>  	int (*dphy_rx_init)(struct phy *phy);
->>  	int (*dphy_rx_power_on)(struct phy *phy);
->>  	int (*dphy_rx_power_off)(struct phy *phy);
->> @@ -721,8 +725,9 @@ static struct hstt hstt_table[] = {
->>  };
->>  
->>  static int
->> -dw_mipi_dsi_phy_get_timing(void *priv_data, unsigned int lane_mbps,
->> -			   struct dw_mipi_dsi_dphy_timing *timing)
->> +dw_mipi_dsi_phy_rk3288_get_timing(struct dw_mipi_dsi_rockchip *dsi,
->> +				  unsigned int lane_mbps,
->> +				  struct dw_mipi_dsi_dphy_timing *timing)
->>  {
->>  	int i;
->>  
->> @@ -738,6 +743,32 @@ dw_mipi_dsi_phy_get_timing(void *priv_data, unsigned int lane_mbps,
->>  	return 0;
->>  }
->>  
->> +static const struct dw_mipi_dsi_dphy_timing dphy_timing_px30 = {
->> +	.clk_lp2hs = 0x40,
->> +	.clk_hs2lp = 0x40,
->> +	.data_lp2hs = 0x10,
->> +	.data_hs2lp = 0x14,
->> +};
-> 
-> so just to make sure, the timing on the px30 (and later) variant is the
-> same for all lane speeds?
->
+  Linux 7.1-rc1 (2026-04-26 14:19:00 -0700)
 
-More precisely, it applies to this fixed value for INNO PHY used after PX30.
+are available in the Git repository at:
 
-> Please include that bit in the commit description
-> 
+  https://git.kernel.org/pub/scm/linux/kernel/git/bmc/linux.git tags/aspeed=
+-7.2-drivers-0
 
-I will add more details in v2. Thank you!
+for you to fetch changes up to bc13f14f5cd3d15054de38dc1232b49343d36297:
 
--- 
-Best, 
-Chaoyi
+  soc: aspeed: cleanup dead default for ASPEED_SOCINFO (2026-06-03 10:47:55=
+ +0930)
+
+----------------------------------------------------------------
+aspeed: First batch of driver changes for v7.2
+
+While bc13f14f5cd3 ("soc: aspeed: cleanup dead default for
+ASPEED_SOCINFO") was committed just now it has been in -next for a while as
+b333a0f1c857411d83a02aa6f1d9ecc7666d6179. The commit is fresh as I moved it
+between branches.
+
+Other than that it's just the one other patch from Krzysztof tidying up the
+location of MODULE_DEVICE_TABLE().
+
+----------------------------------------------------------------
+Julian Braha (1):
+      soc: aspeed: cleanup dead default for ASPEED_SOCINFO
+
+Krzysztof Kozlowski (1):
+      soc: aspeed: Move MODULE_DEVICE_TABLE next to the table itself
+
+ drivers/soc/aspeed/Kconfig            | 1 -
+ drivers/soc/aspeed/aspeed-lpc-ctrl.c  | 2 +-
+ drivers/soc/aspeed/aspeed-lpc-snoop.c | 2 +-
+ drivers/soc/aspeed/aspeed-p2a-ctrl.c  | 2 +-
+ 4 files changed, 3 insertions(+), 4 deletions(-)
+
 
