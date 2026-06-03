@@ -4,74 +4,53 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 97B94CD6E69
-	for <linux-arm-kernel@archiver.kernel.org>; Wed,  3 Jun 2026 06:38:53 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 94DD8CD6E55
+	for <linux-arm-kernel@archiver.kernel.org>; Wed,  3 Jun 2026 06:42:06 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:From:References:CC:To:Subject:MIME-Version:Date:
-	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Message-ID:Date:To:Cc:From:
+	Subject:References:In-Reply-To:Content-Transfer-Encoding:MIME-Version:
+	Content-Type:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=4Oj3xlhd91tMPareGsz8kkrFDyhyuA01Er8yZMiuEgw=; b=S2JykM4x7M6Yn5VtC3KNsjxF+C
-	RR+sw8OThqJVlw/5w7ikHfgpRM3iF/eoc6i+Q53oWLrfUYQnyXTqIS9aic3QDa8LBxn8kjGKrl564
-	sfd3xOMb24H/ASWMl7X6mMjvciuf10F36omCDI+JABEsJafaa0SN5/AOIW7NVBVrl3ie9kl01M53s
-	ywUJbEUoO3zL5QJ5udClfhUfKkuJHGCyDCuJhx+LtCWwqrWXAN9qbU0Fqa7bcMdgjAn3+z+Q+s3R3
-	FbXWgmLSQn/RbbEjB5EVMalCE4SDpYiI8K1epNtx4gTtntlbzDcZYCzIW5UL+zpBXute8GXJPvK+6
-	dVDDnByQ==;
+	bh=blZ2Gd4REKJ2Ou0LNr4qVkmCMj007v4mx9yV2Wm+6kE=; b=QHYwA2hoBbfN0ViA8wIqt7ALMp
+	E4tdDEMIkzMl58XMwEbFaS2gzGDJySvhJikGeyDnZQurHa5fMrXOVRrHyqvT+GvjdiIJdLKit4qWI
+	gNBbtOaG5HVXWjFdK7bj8321jm49AnVDS6V27WrlFDR/4UXonwX70no2kBU/ZFDscC4Rgqq7LvN0J
+	2QQTeFM33YlrVYwUJ3fvzNS7ooyV8OxZYe2DJ/0MW0zUx0tdL8gYmZJr9wpH+MSomxpajw1xGPRHn
+	BEkT6oAUHNgnrZeQJSI/fDjJlIXPR79No+1SQS9q4ngVD0BvIm43y7sXOxdlT/vBvEMlFgx66nblt
+	OLX/e2fw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wUfFV-0000000EObs-12Jo;
-	Wed, 03 Jun 2026 06:38:45 +0000
-Received: from canpmsgout07.his.huawei.com ([113.46.200.222])
+	id 1wUfIe-0000000EOmm-2YSp;
+	Wed, 03 Jun 2026 06:42:00 +0000
+Received: from perceval.ideasonboard.com ([213.167.242.64])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wUfFQ-0000000EObF-1ytv
-	for linux-arm-kernel@lists.infradead.org;
-	Wed, 03 Jun 2026 06:38:43 +0000
-dkim-signature: v=1; a=rsa-sha256; d=huawei.com; s=dkim;
-	c=relaxed/relaxed; q=dns/txt;
-	h=From;
-	bh=4Oj3xlhd91tMPareGsz8kkrFDyhyuA01Er8yZMiuEgw=;
-	b=yJOcOWb8eN8UcDUd6xEp3vNqiX3pvYpSyHflhdOMNAKQL8p4DCMYkGHqQ00BAfGjqAJXn8Mes
-	rCu8DPQip9P9c0d9mNgq9Ongzlzo+3PfRrR8DMpRaMU3NRH5qZputFwvO9lXTis5BSS5PQOPeks
-	M4C5wzulmhXepHgvJYcZbrw=
-Received: from mail.maildlp.com (unknown [172.19.162.92])
-	by canpmsgout07.his.huawei.com (SkyGuard) with ESMTPS id 4gVd9g1hJPzLlYQ;
-	Wed,  3 Jun 2026 14:30:31 +0800 (CST)
-Received: from dggpemf500011.china.huawei.com (unknown [7.185.36.131])
-	by mail.maildlp.com (Postfix) with ESMTPS id B30FF40570;
-	Wed,  3 Jun 2026 14:38:20 +0800 (CST)
-Received: from [10.67.109.254] (10.67.109.254) by
- dggpemf500011.china.huawei.com (7.185.36.131) with Microsoft SMTP Server
- (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
- 15.2.1544.11; Wed, 3 Jun 2026 14:38:11 +0800
-Message-ID: <02932ef7-5819-4cf5-8e78-8fd3fd40274f@huawei.com>
-Date: Wed, 3 Jun 2026 14:38:11 +0800
+	id 1wUfIb-0000000EOmJ-2V19;
+	Wed, 03 Jun 2026 06:41:59 +0000
+Received: from mail.ideasonboard.com (unknown [IPv6:2401:4900:1c66:476d:c684:fe78:389f:7375])
+	by perceval.ideasonboard.com (Postfix) with ESMTPSA id 936BA929;
+	Wed,  3 Jun 2026 08:41:30 +0200 (CEST)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=ideasonboard.com;
+	s=mail; t=1780468891;
+	bh=q3QoO4/fdcnDdKNPMUrRwhJUlgJyK+9LTYw9k+mqm7A=;
+	h=In-Reply-To:References:Subject:From:Cc:To:Date:From;
+	b=H4b3Nn73S5ABwcHogJ20oGDXD/c7CBvkmU5CptPoMsvUnpT9mVXp+3MFrvks0hfLT
+	 BNgATXhTYlguJ8CH9hsTMVgpUlWQJWdQsaAhqG+6Ctxbwpo4ulGS0g5ybJkO8w75Fw
+	 uRuM7y72YI99rQBVlsv+E9l5g3YZC8A4EEohAB3o=
+Content-Type: text/plain; charset="utf-8"
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH v3] cpu/hotplug: Fix NULL kobject warning in
- cpuhp_smt_enable()
-To: Will Deacon <will@kernel.org>
-CC: <catalin.marinas@arm.com>, <corbet@lwn.net>, <skhan@linuxfoundation.org>,
-	<punit.agrawal@oss.qualcomm.com>, <jic23@kernel.org>,
-	<osama.abdelkader@gmail.com>, <chenl311@chinatelecom.cn>,
-	<fengchengwen@huawei.com>, <suzuki.poulose@arm.com>, <maz@kernel.org>,
-	<lpieralisi@kernel.org>, <timothy.hayes@arm.com>, <sascha.bischoff@arm.com>,
-	<arnd@arndb.de>, <mrigendra.chaubey@gmail.com>, <pierre.gondois@arm.com>,
-	<dietmar.eggemann@arm.com>, <yangyicong@hisilicon.com>,
-	<sudeep.holla@kernel.org>, <linux-arm-kernel@lists.infradead.org>,
-	<linux-doc@vger.kernel.org>, <linux-kernel@vger.kernel.org>
-References: <20260520022023.126670-1-ruanjinjie@huawei.com>
- <ah65zXlOH6a9geD9@willie-the-truck>
-From: Jinjie Ruan <ruanjinjie@huawei.com>
-In-Reply-To: <ah65zXlOH6a9geD9@willie-the-truck>
-Content-Type: text/plain; charset="UTF-8"
-Content-Transfer-Encoding: 7bit
-X-Originating-IP: [10.67.109.254]
-X-ClientProxiedBy: kwepems500002.china.huawei.com (7.221.188.17) To
- dggpemf500011.china.huawei.com (7.185.36.131)
+Content-Transfer-Encoding: quoted-printable
+In-Reply-To: <20260514193148.2357371-1-ingyujang25@korea.ac.kr>
+References: <20260514193148.2357371-1-ingyujang25@korea.ac.kr>
+Subject: Re: [PATCH] media: rp1-cfe: Use IS_ERR() check for media_entity_remote_source_pad_unique()
+From: Jai Luthra <jai.luthra@ideasonboard.com>
+Cc: Broadcom internal kernel review list <bcm-kernel-feedback-list@broadcom.com>, linux-media@vger.kernel.org, linux-rpi-kernel@lists.infradead.org, linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org
+To: Florian Fainelli <florian.fainelli@broadcom.com>, Ingyu Jang <ingyujang25@korea.ac.kr>, Mauro Carvalho Chehab <mchehab@kernel.org>, Raspberry Pi Kernel Maintenance <kernel-list@raspberrypi.com>, Tomi Valkeinen <tomi.valkeinen@ideasonboard.com>
+Date: Wed, 03 Jun 2026 12:11:48 +0530
+Message-ID: <178046890878.1525445.10660936368234203663@freya>
+User-Agent: alot/0.13.dev20+g31692a239
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260602_233841_183626_B037B42A 
-X-CRM114-Status: GOOD (  22.83  )
+X-CRM114-CacheID: sfid-20260602_234157_800632_8B31FB76 
+X-CRM114-Status: GOOD (  14.04  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -86,183 +65,55 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
+Hi Ingyu,
 
+Quoting Ingyu Jang (2026-05-15 01:01:48)
+> media_entity_remote_source_pad_unique() returns either a valid struct
+> media_pad pointer or an error pointer (ERR_PTR(-ENOTUNIQ) or
+> ERR_PTR(-ENOLINK)); it never returns NULL. The current NULL check
+> therefore never triggers, and the "pad not connected" error path is
+> unreachable.
+>=20
+> Replace the NULL check with an IS_ERR() check so the validation
+> actually detects malformed media graphs.
+>=20
+> Signed-off-by: Ingyu Jang <ingyujang25@korea.ac.kr>
 
-On 6/2/2026 7:09 PM, Will Deacon wrote:
-> On Wed, May 20, 2026 at 10:20:23AM +0800, Jinjie Ruan wrote:
->> On arm64, when booting with `maxcpus` greater than the number of present
->> CPUs (e.g., QEMU -smp cpus=4,maxcpus=8), some CPUs are marked as 'present'
->> but have not yet been registered via register_cpu(). Consequently,
->> the per-cpu device objects for these CPUs are not yet initialized.
->>
->> In cpuhp_smt_enable(), the code iterates over all present CPUs. Calling
->> _cpu_up() for these unregistered CPUs eventually leads to
->> sysfs_create_group() being called with a NULL kobject (or a kobject
->> without a directory), triggering the following warning in
->> fs/sysfs/group.c:
->>
->> 	if (WARN_ON(!kobj || (!update && !kobj->sd)))
->> 		return -EINVAL;
->>
->> When booting with ACPI, arm64 smp_prepare_cpus() currently sets all
->> enumerated CPUs as "present" regardless of their status in the MADT. This
->> causes issues with SMT hotplug control. For instance, with QEMU's
->> "-smp 4,maxcpus=8" configuration, the MADT GICC entries are populated as
->> follows: the first four CPUs are marked Enabled while the remaining four
->> are marked Online Capable to support potential hot-plugging.
->>
->> Fix this by:
->>
->> 1. When booting with ACPI, checking the ACPI_MADT_ENABLED flag in the GICC
->>    entry before calling set_cpu_present() during SMP initialization.
->>
->> 2. Properly managing the present mask in acpi_map_cpu() and
->>    acpi_unmap_cpu() to support actual CPU hotplug events, This aligns with
->>    other architectures like x86 and LoongArch.
->>
->> 3. Update the arm64 CPU hotplug documentation to no longer state that all
->>    online-capable vCPUs are marked as present by the kernel at boot time.
->>
->> This ensures that only physically available or explicitly enabled CPUs
->> are in the present mask, keeping the SMT control logic consistent with
->> the actual hardware state.
-> 
-> Please can you check the Sashiko review comment?
-> 
-> https://sashiko.dev/#/patchset/20260520022023.126670-1-ruanjinjie@huawei.com
+Needs fixes and Cc to stable,
 
-Hi, all,
+Fixes: 6edb685abb2a ("media: raspberrypi: Add support for RP1-CFE")
+Cc: stable@vger.kernel.org=20
 
-I think commit eba4675008a6 ("arm64: arch_register_cpu() variant to
-check if an ACPI handle is now available.") introduced this bug.
+With that,
 
-It introduced an architectural safety block inside
-arch_unregister_cpu(). If a hot-unplug operation is determined to be a
-physical hardware removal (where _STA evaluates to
-!ACPI_STA_DEVICE_PRESENT), it aborts the unregistration transaction
-early to protect unreadied arm64 infrastructure, thereby skipping
-unregister_cpu().
+Reviewed-by: Jai Luthra <jai.luthra@ideasonboard.com>
 
-However, the generic ACPI processor driver path in
-acpi_processor_post_eject() currently treats arch_unregister_cpu() as
-an unconditional void operation. When arch_unregister_cpu() bails out
-early, the subsequent cleanup flow blindly proceeds to call
-acpi_unmap_cpu(), clears global per-cpu processor arrays, and
-unconditionally free the 'struct acpi_processor' object.
+Thanks,
+    Jai
 
-I think we can fix this by:
-
-    1. Refactoring arch_unregister_cpu() to return an integer
-transaction status. It returns -EOPNOTSUPP when aborting due to physical
-hot-remove blocking, -EINVAL/-EIO on firmware failures, and 0 only upon
-successful unregistration.
-
-    2. Guarding the downstream execution flow in
-acpi_processor_post_eject(). If arch_unregister_cpu() returns a error
-code, the hot-unplug transaction is considered aborted.
-
-What do you think about this fix?
-
-diff --git a/arch/arm64/kernel/smp.c b/arch/arm64/kernel/smp.c
-index 1aa324104afb..f451c9c82212 100644
---- a/arch/arm64/kernel/smp.c
-+++ b/arch/arm64/kernel/smp.c
-@@ -531,29 +531,30 @@ int arch_register_cpu(int cpu)
- }
-
- #ifdef CONFIG_ACPI_HOTPLUG_CPU
--void arch_unregister_cpu(int cpu)
-+int arch_unregister_cpu(int cpu)
- {
-        acpi_handle acpi_handle = acpi_get_processor_handle(cpu);
-        struct cpu *c = &per_cpu(cpu_devices, cpu);
--       acpi_status status;
-        unsigned long long sta;
-+       acpi_status status;
-
-        if (!acpi_handle) {
-                pr_err_once("Removing a CPU without associated ACPI
-handle\n");
--               return;
-+               return -EINVAL;
-        }
-
-        status = acpi_evaluate_integer(acpi_handle, "_STA", NULL, &sta);
-        if (ACPI_FAILURE(status))
--               return;
-+               return -EIO;
-
-        /* For now do not allow anything that looks like physical CPU HP */
-        if (cpu_present(cpu) && !(sta & ACPI_STA_DEVICE_PRESENT)) {
-                pr_err_once("Changing CPU present bit is not supported\n");
--               return;
-+               return -EOPNOTSUPP;
-        }
-
-        unregister_cpu(c);
-+       return 0;
- }
- #endif /* CONFIG_ACPI_HOTPLUG_CPU */
-
-diff --git a/drivers/acpi/acpi_processor.c b/drivers/acpi/acpi_processor.c
-index 00775b91bd41..4361eed26d83 100644
---- a/drivers/acpi/acpi_processor.c
-+++ b/drivers/acpi/acpi_processor.c
-@@ -499,7 +499,15 @@ static void acpi_processor_post_eject(struct
-acpi_device *device)
-        cpus_write_lock();
-
-        /* Remove the CPU. */
--       arch_unregister_cpu(pr->id);
-+       if (arch_unregister_cpu(pr->id)) {
-+               cpus_write_unlock();
-+               cpu_maps_update_done();
-+               acpi_bind_one(pr->dev, device);
-+               if (device_attach(pr->dev) < 0)
-+                       dev_err(pr->dev, "Processor driver could not be
-attached\n");
-+               return;
-+       }
-+
-        acpi_unmap_cpu(pr->id);
-
-        /* Clean up. */
-diff --git a/drivers/base/cpu.c b/drivers/base/cpu.c
-index 875abdc9942e..57980d1c2931 100644
---- a/drivers/base/cpu.c
-+++ b/drivers/base/cpu.c
-@@ -570,9 +570,10 @@ int __weak arch_register_cpu(int cpu)
- }
-
- #ifdef CONFIG_HOTPLUG_CPU
--void __weak arch_unregister_cpu(int num)
-+int __weak arch_unregister_cpu(int num)
- {
-        unregister_cpu(&per_cpu(cpu_devices, num));
-+       return 0;
- }
- #endif /* CONFIG_HOTPLUG_CPU */
- #endif /* CONFIG_GENERIC_CPU_DEVICES */
-diff --git a/include/linux/cpu.h b/include/linux/cpu.h
-index 9b6b0d87fdb0..a7c191dea1fc 100644
---- a/include/linux/cpu.h
-+++ b/include/linux/cpu.h
-@@ -91,7 +91,7 @@ struct device *cpu_device_create(struct device
-*parent, void *drvdata,
-                                 const char *fmt, ...);
- extern bool arch_cpu_is_hotpluggable(int cpu);
- extern int arch_register_cpu(int cpu);
--extern void arch_unregister_cpu(int cpu);
-+extern int arch_unregister_cpu(int cpu);
- #ifdef CONFIG_HOTPLUG_CPU
- extern void unregister_cpu(struct cpu *cpu);
- extern ssize_t arch_cpu_probe(const char *, size_t);
-
-
-> 
-> Cheers,
-> 
-> Will
-> 
-
+> ---
+>  drivers/media/platform/raspberrypi/rp1-cfe/cfe.c | 2 +-
+>  1 file changed, 1 insertion(+), 1 deletion(-)
+>=20
+> diff --git a/drivers/media/platform/raspberrypi/rp1-cfe/cfe.c b/drivers/m=
+edia/platform/raspberrypi/rp1-cfe/cfe.c
+> index 8375ed3e97b9f..91e9fa0341e06 100644
+> --- a/drivers/media/platform/raspberrypi/rp1-cfe/cfe.c
+> +++ b/drivers/media/platform/raspberrypi/rp1-cfe/cfe.c
+> @@ -1779,7 +1779,7 @@ static int cfe_video_link_validate(struct media_lin=
+k *link)
+>                 link->source->entity->name, link->source->index,
+>                 link->sink->entity->name, link->sink->index);
+> =20
+> -       if (!media_entity_remote_source_pad_unique(link->sink->entity)) {
+> +       if (IS_ERR(media_entity_remote_source_pad_unique(link->sink->enti=
+ty))) {
+>                 cfe_err(cfe, "video node %s pad not connected\n", vd->nam=
+e);
+>                 return -ENOTCONN;
+>         }
+> --=20
+> 2.34.1
+>=20
+>
 
