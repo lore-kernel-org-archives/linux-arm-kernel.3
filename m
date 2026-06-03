@@ -4,84 +4,79 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id AC88DCD6E64
-	for <linux-arm-kernel@archiver.kernel.org>; Wed,  3 Jun 2026 09:29:24 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 59CD0CD6E55
+	for <linux-arm-kernel@archiver.kernel.org>; Wed,  3 Jun 2026 09:31:17 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
 	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
 	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=0YKYxaewRvA3lfBC/tETR3ZEPA7XYWmFAA/XZnPbico=; b=nKpGW7uuIC20bnOPYcjJ+4GOez
-	0Tknz3nEWD2NFYjSW7xpwWBjv0l/j3838ozM2uUjGQiOG9Ea1MiskGDwWtuvjhElhM1YSTLRjmllf
-	KKdUPnF6OLpIlWvJg1gNw4Y0XA5SJrQoCdhi7PgelKknoGue81m5S75qdkaiQ7hn9q3VFJiC3vSH8
-	EiFBb6Wi1nRz/WelFhoK4+2a96iJm0Dpi2o8sV95WL4ccQEO1luVN4HlxN2ykOLryLTzZgOPJzGEC
-	yoQUixkTk/4wdhCf5bBQ6AFrpQ3oDraOmCWxV2fg4y5q7d5QrYQUSDZzLmjO6eeMRtek0Bwy2fDgp
-	GNjEWE9A==;
+	bh=9AerHmbjV83y9A55r5tKc0QfFhPXJXRVsUh6a0eEv+0=; b=4YPH0eiwaLSEGX3U9snWcx4GBB
+	Wsj/P0MZEHoUeylTHz/kVSred4l6efKogsFNQSZN3Z5oGcRyoIP3N6MRc+zJH6PkZKEc/XpiI6CZU
+	SDQsq1rldlTQOFuYVTE2a1BnXkt3GUvPwFOeHZEjJlgiiAbYp2azLyGWQrcoIn/9AiLyUAqD8GsSt
+	l3sk8u3QmZHQRyiICPXwwKehDkST+3ckKwIdd01wFSh32HqpmbEIk1bgNklSYXk3PTy7f5dCG9gZ7
+	U2jFDQSa00HUTu2VEiJk9+H12DFkgv4hDxspPtaeVthPpFnKB2l8wrCPxBw0V8t/H3eP53JzBiezD
+	c13t8fKw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wUhuY-0000000Ehxi-3Ndl;
-	Wed, 03 Jun 2026 09:29:18 +0000
-Received: from sea.source.kernel.org ([172.234.252.31])
+	id 1wUhwN-0000000EiB1-0HiV;
+	Wed, 03 Jun 2026 09:31:11 +0000
+Received: from desiato.infradead.org ([2001:8b0:10b:1:d65d:64ff:fe57:4e05])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wUhuW-0000000Ehwc-0RbU;
-	Wed, 03 Jun 2026 09:29:17 +0000
+	id 1wUhwL-0000000EiAl-1Yy3
+	for linux-arm-kernel@bombadil.infradead.org;
+	Wed, 03 Jun 2026 09:31:09 +0000
+DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
+	d=infradead.org; s=desiato.20200630; h=In-Reply-To:Content-Type:MIME-Version:
+	References:Message-ID:Subject:Cc:To:From:Date:Sender:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description;
+	bh=9AerHmbjV83y9A55r5tKc0QfFhPXJXRVsUh6a0eEv+0=; b=UxnM/YgK9Pq2gZiX/bgUV+25SL
+	GhS+atkcSfezMBa5P67CSS4G9bFMCwndIe5nwO11KBs5sT5UImuyhcJe4dC79PYjnzmyppkIVLEH9
+	VjfFnhKjyHDmz6eF8NtbCI+QX4g/3NkO4qiy7Mc1khvR4jB51yik/obcyYyvmFhQjbP6irNMM9Hqu
+	kbJm2tdPG2JqV8kCo4xXWfgzXipk881DHrMQvFnRsN/AkOSJAmm/tIYRoVboVDWkmUovm6dupTp/9
+	B3CJv+Kqbc5u9s6YNM36bd/uvwihtMb803zvLv1AviaNLjkJ3Vqc7z9cSvs0g2jaUs1rIj6paHa4N
+	Fy0zyh5A==;
+Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
+	by desiato.infradead.org with esmtps (Exim 4.99.2 #2 (Red Hat Linux))
+	id 1wUhwI-0000000Bihn-1cl3
+	for linux-arm-kernel@lists.infradead.org;
+	Wed, 03 Jun 2026 09:31:08 +0000
 Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
-	by sea.source.kernel.org (Postfix) with ESMTP id E648D4430D;
-	Wed,  3 Jun 2026 09:29:14 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 97B8A1F00893;
-	Wed,  3 Jun 2026 09:29:03 +0000 (UTC)
+	by sea.source.kernel.org (Postfix) with ESMTP id 54EB741919;
+	Wed,  3 Jun 2026 09:31:03 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 63BFD1F00893;
+	Wed,  3 Jun 2026 09:31:01 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1780478954;
-	bh=0YKYxaewRvA3lfBC/tETR3ZEPA7XYWmFAA/XZnPbico=;
+	s=k20260515; t=1780479063;
+	bh=9AerHmbjV83y9A55r5tKc0QfFhPXJXRVsUh6a0eEv+0=;
 	h=Date:From:To:Cc:Subject:References:In-Reply-To;
-	b=aROTsNtP0NwcPyhOGg9EN7SaKgxWgmBik4nkTEgxduPxK5HRWw3N84c9Y+ACmVTN1
-	 wgGQ5LmSO16hd/kW00Z44oqbucTBUZSCI5qkU4XBMgLuDQlQoPU5Q7drqrxWizzv3f
-	 rrWFolACkQfVjWy8P7nyYRfKI3cGxZO78QELntbROjZh2g+LwBwdTl5Zzy83wMh8Ah
-	 +jsOcKbtZk9aA7P96fnDV/449Ef6mxs1KgAP+RaMN8fr1epn59jCUIuT3pzqyXrl2/
-	 Cty+iU235/fJlfaqEQKiPp5aeuN6LGB+fM5/HMK485/qyjL0EeNknVF9PU08lbGj8F
-	 jYzXoc72/R2Ow==
-Date: Wed, 3 Jun 2026 12:29:00 +0300
-From: Mike Rapoport <rppt@kernel.org>
-To: Jork Loeser <jloeser@linux.microsoft.com>
-Cc: linux-hyperv@vger.kernel.org, linux-mm@kvack.org,
-	kexec@lists.infradead.org, "K. Y. Srinivasan" <kys@microsoft.com>,
-	Haiyang Zhang <haiyangz@microsoft.com>,
-	Wei Liu <wei.liu@kernel.org>, Dexuan Cui <decui@microsoft.com>,
-	Long Li <longli@microsoft.com>,
-	Pasha Tatashin <pasha.tatashin@soleen.com>,
-	Pratyush Yadav <pratyush@kernel.org>,
-	Alexander Graf <graf@amazon.com>, Jason Miu <jasonmiu@google.com>,
-	Andrew Morton <akpm@linux-foundation.org>,
-	David Hildenbrand <david@kernel.org>,
-	Muchun Song <muchun.song@linux.dev>,
-	Oscar Salvador <osalvador@suse.de>, Baoquan He <bhe@redhat.com>,
-	Catalin Marinas <catalin.marinas@arm.com>,
-	Will Deacon <will@kernel.org>, Thomas Gleixner <tglx@kernel.org>,
-	Ingo Molnar <mingo@redhat.com>, Borislav Petkov <bp@alien8.de>,
-	Dave Hansen <dave.hansen@linux.intel.com>,
-	"H. Peter Anvin" <hpa@zytor.com>, Kees Cook <kees@kernel.org>,
-	Ran Xiaokai <ran.xiaokai@zte.com.cn>,
-	Justinien Bouron <jbouron@amazon.com>,
-	Sourabh Jain <sourabhjain@linux.ibm.com>,
-	Pingfan Liu <piliu@redhat.com>,
-	"Rafael J. Wysocki" <rafael.j.wysocki@intel.com>,
-	Mario Limonciello <mario.limonciello@amd.com>,
-	linux-arm-kernel@lists.infradead.org, x86@kernel.org,
-	linux-kernel@vger.kernel.org, Michael Kelley <mhklinux@outlook.com>
-Subject: Re: [RFC PATCH 00/20] mshv: enable kexec with Hyper-V donated pages
- and partitions
-Message-ID: <ah_z3GV55RY3ZnT-@kernel.org>
-References: <20260528004204.1484584-1-jloeser@linux.microsoft.com>
- <ahxrc4pTvVU20RTX@kernel.org>
- <f9d95fb1-ef3-d4a-19e4-afe7cdde5d1f@linux.microsoft.com>
+	b=gKLZwikIl6VoRszNhPOK/+zp4BVbh6zVW6r8nz2fnlagc02qK642z4MrYzSbbssSw
+	 e7JRRtsWorSrBHsqNO4xQhZX12YvUZbRJbVTQ2g2v0dWqWlV7FcMsFv/gwZ1YbvAz0
+	 +vUddHj3B1Vt+6On03NYjYrOLTNGii7X2GDulHv8wWBGP1eMar/AVYvKii2fLfKfrm
+	 0lkbEmJx1jNscxT8WjJBtidHIfJBhvcIAVXKh6fs6J0R4qn80HyhT5CqDeW90HtbMU
+	 qGIcCmuNydBim+RvY5zxFR24oGjQ8AdFIwPqZNwo0cswOM4hMbD0viAWZ5Pj1Y6t2d
+	 hnbSm0QXnB0Yg==
+Date: Wed, 3 Jun 2026 10:30:58 +0100
+From: Mark Brown <broonie@kernel.org>
+To: Chi-Wen Weng <cwweng.linux@gmail.com>
+Cc: robh@kernel.org, krzk+dt@kernel.org, conor+dt@kernel.org,
+	linux-arm-kernel@lists.infradead.org, linux-spi@vger.kernel.org,
+	devicetree@vger.kernel.org, linux-kernel@vger.kernel.org,
+	cwweng@nuvoton.com
+Subject: Re: [PATCH 2/2] spi: Add Nuvoton MA35D1 QSPI controller support
+Message-ID: <d32634eb-4eed-46e6-b378-d42df0b1c75e@sirena.org.uk>
+References: <20260603043551.1062112-1-cwweng.linux@gmail.com>
+ <20260603043551.1062112-3-cwweng.linux@gmail.com>
 MIME-Version: 1.0
-Content-Type: text/plain; charset=us-ascii
+Content-Type: multipart/signed; micalg=pgp-sha512;
+	protocol="application/pgp-signature"; boundary="UGarUI9v4pCN0SBM"
 Content-Disposition: inline
-In-Reply-To: <f9d95fb1-ef3-d4a-19e4-afe7cdde5d1f@linux.microsoft.com>
+In-Reply-To: <20260603043551.1062112-3-cwweng.linux@gmail.com>
+X-Cookie: micro:
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260603_022916_164891_EBD14BF6 
-X-CRM114-Status: GOOD (  11.67  )
+X-CRM114-CacheID: sfid-20260603_103106_796103_642EFCB2 
+X-CRM114-Status: GOOD (  20.48  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -96,26 +91,95 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Mon, Jun 01, 2026 at 01:09:41PM -0700, Jork Loeser wrote:
-> On Sun, 31 May 2026, Mike Rapoport wrote:
-> 
-> > > Patch 19:      Export kexec_in_progress for modules
-> > 
-> > Isn't there another way to differentiate kexec reboot?
 
-There's that "kexec reboot" string passed as the cmd to the reboot
-notifier.
-Maybe we can make it somehow more well defined API and use it?
- 
-> I could not find one, unfortunately.
-> 
-> > Sincerely yours,
-> > Mike.
-> 
-> Best,
-> Jork
+--UGarUI9v4pCN0SBM
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
 
--- 
-Sincerely yours,
-Mike.
+On Wed, Jun 03, 2026 at 12:35:51PM +0800, Chi-Wen Weng wrote:
+
+> +config SPI_MA35D1_QSPI
+> +	tristate "Nuvoton MA35D1 QSPI Controller"
+> +	help
+> +	  This driver provides support for Nuvoton MA35D1
+> +	  QSPI controller in master mode.
+> +
+
+Other drivers for this SoC seem to have ARCH_MA35 || COMPILE_TEST?
+
+> @@ -0,0 +1,579 @@
+> +// SPDX-License-Identifier: GPL-2.0-or-later
+> +/*
+> + * Nuvoton MA35D1 QSPI controller driver
+> + *
+> + * Copyright (c) 2026 Nuvoton Technology Corp.
+> + * Author: Chi-Wen Weng <cwweng@nuvoton.com>
+> + */
+
+Please make the entire comment a C++ one so things look more
+intentional.
+
+> +static void nuvoton_qspi_set_cs(struct spi_device *spi, bool enable)
+> +{
+> +	struct nuvoton_qspi *qspi = spi_controller_get_devdata(spi->controller);
+> +	unsigned int cs = spi_get_chipselect(spi, 0);
+> +	u32 mask;
+> +	u32 val;
+> +
+> +	if (cs == 0)
+> +		mask = NUVOTON_QSPI_SSCTL_SS0_MASK;
+> +	else
+> +		mask = NUVOTON_QSPI_SSCTL_SS1_MASK;
+> +
+> +	val = nuvoton_qspi_read(qspi, NUVOTON_QSPI_SSCTL_OFFSET);
+> +
+> +	/* SPI core passes enable=true when CS is asserted (typically active-low) */
+> +	if (enable)
+> +		val |= mask;
+> +	else
+> +		val &= ~mask;
+> +
+> +	nuvoton_qspi_write(qspi, val, NUVOTON_QSPI_SSCTL_OFFSET);
+> +}
+
+Note that the core deals with SPI_CS_HIGH, the driver doesn't need to...
+
+> +static int nuvoton_qspi_mem_exec_op(struct spi_mem *mem,
+> +				    const struct spi_mem_op *op)
+> +{
+> +	struct spi_device *spi = mem->spi;
+> +	struct nuvoton_qspi *qspi = spi_controller_get_devdata(spi->controller);
+> +	u8 addr[4];
+> +	int ret;
+> +	int i;
+> +
+> +	ret = nuvoton_qspi_setup_transfer(spi, NULL);
+> +	if (ret)
+> +		return ret;
+
+This uses spi->max_speed_hz but spi_mem configures p->max_freq which you
+should use (it might be lower).
+
+> +
+> +	nuvoton_qspi_set_cs(spi, true);
+
+...except where you're calling in directly at which point the driver
+needs to figure this out.
+
+--UGarUI9v4pCN0SBM
+Content-Type: application/pgp-signature; name="signature.asc"
+
+-----BEGIN PGP SIGNATURE-----
+
+iQEzBAABCgAdFiEEreZoqmdXGLWf4p/qJNaLcl1Uh9AFAmof9FEACgkQJNaLcl1U
+h9AGigf+PXAtexduRP/S5ai2U1yA1oOZHH5GxgE1+Oyoyq8Z+QkGmkVCjl4ru80E
+7R1XMoIB0CB46+Pkd4+3bvwxfWTqLtrdknVUatHO/QcvWOezFdEk3sPF3XOyEfdH
+S/u1vxPWFi+L6ywy2OdG0gFt7aYJIZAc7l1SZNe5C7Ck0HLpY1O5sajk+Gu08tY5
+UeskE7hA23JmD14+jzbM8yMVyVHVYNwpIq9Y2cfA7I8Hxe+wkLVGnN46FIgzXrsI
+ZwHk1Y48hGsKqqHjLdkiYvv5kHAKI+3uoJNicUuhycLo9980PDh999clA/7+RPUL
+Uzf+IFtyZ0vuj1TsWQ90yUArWSfLLw==
+=PW/z
+-----END PGP SIGNATURE-----
+
+--UGarUI9v4pCN0SBM--
 
