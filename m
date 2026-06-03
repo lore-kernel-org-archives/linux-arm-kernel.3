@@ -4,7 +4,7 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 1D3FDCD6E55
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 43D3FCD6E6B
 	for <linux-arm-kernel@archiver.kernel.org>; Wed,  3 Jun 2026 12:00:22 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
@@ -12,64 +12,64 @@ DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:
 	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=IxqoZSOsdKShySi9J5rcifIzmhLS2QDbh6Ass0cr7R8=; b=msrMuWH+6oq/5v+iAnBXTaTZp+
-	/2+FLt9F80lmgU6SXfhcWDcCf4B6iehNXwpR7HTJg7ojvXnj4Rzo4v8XnxpyVKn7sMaSBLvesU0or
-	6Ic39aLg1JPrEJ7Vo/CiVDGtjC7QJPmwlwgsZpLnd/skjDWWSQYa1mMJSKRAMzXZ8aLc5BC/0nBJs
-	4Ksad23/A9SRuo3xPiJKwrIV8dUllFApPE99fjRky2cPr+sXAplaXe02inWl/wj47fXon8MZ1ylwX
-	n0lIFDI0g0NZnppt0peqckrZOBibfrJZOyfN3TQWi+tYtk56l3cFihzUg/892va+MkKzzVkiN1Thl
-	Q9Y3gH9A==;
+	bh=1Pm0RvpU3HH/cr1nURW51vxgVUsJsWvr1G1CVEkJHJc=; b=AbPbv0BoEH5xXhvTYEfMQsL5WX
+	1gX42mi48zX2kr8myTM0VT4zDvn6MpjOi/tH+Tax9jPC0RNLl8VcDz9BI3Pg1TzzPcgKqRa4k7ju1
+	hSkZ/2bXfImXlTu5npXAWUUjlTSSwVzYY0sHm6sz0F/aU19g9rb6o7nMwL9ylz3RBXs+hntTDQPsL
+	9w1Y64hDgkNDAVIAmIwx3dx4hWCerMDvVKV/Ut5IXvatmKuUkPnkjfSP1uuA12UuHQe+Jyu0FmTff
+	2GZ+c+cQYjAEqxpCO5bR2FJ2NFSxvCbnqZTWUndgCZRucNbfmM47gp5O+gt2UMoWMOt49KGrJ7E49
+	jPbnNS2A==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wUkGd-0000000F0UY-3JAQ;
+	id 1wUkGd-0000000F0TO-0lvr;
 	Wed, 03 Jun 2026 12:00:15 +0000
-Received: from mail-wm1-x32b.google.com ([2a00:1450:4864:20::32b])
+Received: from mail-wr1-x42a.google.com ([2a00:1450:4864:20::42a])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wUkGb-0000000F0PO-0jph
+	id 1wUkGY-0000000F0Lv-2Tae
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 03 Jun 2026 12:00:14 +0000
-Received: by mail-wm1-x32b.google.com with SMTP id 5b1f17b1804b1-490b4e1ade7so11296835e9.0
-        for <linux-arm-kernel@lists.infradead.org>; Wed, 03 Jun 2026 05:00:12 -0700 (PDT)
+	Wed, 03 Jun 2026 12:00:11 +0000
+Received: by mail-wr1-x42a.google.com with SMTP id ffacd0b85a97d-45eeea039ebso2936020f8f.1
+        for <linux-arm-kernel@lists.infradead.org>; Wed, 03 Jun 2026 05:00:10 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20251104; t=1780488011; x=1781092811; darn=lists.infradead.org;
+        d=gmail.com; s=20251104; t=1780488009; x=1781092809; darn=lists.infradead.org;
         h=content-transfer-encoding:mime-version:references:in-reply-to
          :message-id:date:subject:cc:to:from:from:to:cc:subject:date
          :message-id:reply-to;
-        bh=IxqoZSOsdKShySi9J5rcifIzmhLS2QDbh6Ass0cr7R8=;
-        b=XEzyBADLP8plVPpsX74B1m2dQFMJAxEi3KXHUfGrCg0N5Unv6CsSaWmnCQr2R4bpfe
-         kZlJuwfOPi8SNCiQEzz8tz/RvE1sGcQ3leVhiw28lBd1CZ9mWvEIgyfdm9KEQlmJoouN
-         NJ0UwAHsqcPHdF1JijnCQGUdSmbTkAiaiwd25Po6e20XfbaaVhhTnhq2cqV/W+mJtd0d
-         rigFlezFqkmmpWacFpJcmRZb1VP8Ee4DjanHKwjMRiqI+e4YzVbSTQjSr0kD8NioNJpT
-         Cyfws673LZsP3uKbTcFTBomWkTSlxkFbSL45gXGdl8gxrWwHXG5K4HCsLHRQmKLmVLlK
-         XHbQ==
+        bh=1Pm0RvpU3HH/cr1nURW51vxgVUsJsWvr1G1CVEkJHJc=;
+        b=NiNZzTZJKkG+h91OXqGY7gDIybLMbcwlV0uwO1X3kxMfBgYQA0pMF7tY3lW5VBzPYg
+         nvA0cdKraT7h63/A9Bmc7QXWfUC/7zQYtAaV7kHwt9vNSj3kwrJ6xxlTvjmHmRl03B8c
+         uXkZVxt/EXjAfFEQfsApRSYlmqtyif4cO1fRgaWOIeYhRPzuY+X0AaY2FE3xcYR9vlsN
+         qVxSHQxDfHawMp0M53wMUwBQYl7UELqLQPgbgcHkfk9/U0ja6bnBrk7KDqzzW/adCK28
+         YfhXWsJpFxQw+hdnAtAIshHIl9pgL2WzAdrDPfAPPyqJd+OWGlrYIIgE7iKL+jIFvaiy
+         9AQg==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20251104; t=1780488011; x=1781092811;
+        d=1e100.net; s=20251104; t=1780488009; x=1781092809;
         h=content-transfer-encoding:mime-version:references:in-reply-to
          :message-id:date:subject:cc:to:from:x-gm-gg:x-gm-message-state:from
          :to:cc:subject:date:message-id:reply-to;
-        bh=IxqoZSOsdKShySi9J5rcifIzmhLS2QDbh6Ass0cr7R8=;
-        b=FC0LL8cbXvIc0zfEgKhwoPyprjmM59xeL8aEz2eAXexosT+HvfNseFEmGsH23+Z2I9
-         a4TM1/aRijnEaQLi1GoL8UadGUaRRPErPv2pmIezKauACnzSk7baVepG8b3+WYgaRRuy
-         GZK9FrutTTBjvKiqAd66bhrrqRUqw5bxZWPhR9NY9FZEVH6kiUO8b1rAGwavarGSO4uO
-         iMNw+53gkCL344GQpPtC1gPP4I2VYsyRDUARn0KgnCbxB5b+2858iouDn5g7vTP8rNyE
-         c2imWYmiiMnsImJ0k3m4jVL5kV67LGMQ2wj/StLje78F5nkIqmOjDsT1VII7Mjrr9gCr
-         ak/Q==
-X-Forwarded-Encrypted: i=1; AFNElJ9ExKQLLF2AtOjXlbTltgnuYCzwyVfWtWW0oaQs3vLfzz9tsX7zaSKY61LKoPmW+tgdC8QjM1UdU3kLd1868eOh@lists.infradead.org
-X-Gm-Message-State: AOJu0YwALBVM/XY2sfoSso3NEGAn9Q7AdrPK2yEquxLFXcTIOt/f6TaZ
-	AsI5+twT5+vHRw+TXte0uhBBC5tPYbl/M5UC1NTFXi6mZ5wXZIJ+r12Y
-X-Gm-Gg: Acq92OG7kqGr4zzDX889zDEaPhN3rTwYiYZepstUNDfRypetDP5KdiAPwEdaQ8wdYuj
-	mYoq/K711tY6aXE1KiQPjR5YuDzm1XRgUAk8gNxht2V4MnXghIIWqJuxMDA4PyPU9Vlsx9V6bMl
-	pULlaSPmTwV4Tc2SCeJym2JpU4jQvoje5VVmOa6CffKnYJPygtUVO8V0hscm3mfMkdtvPqoZSlI
-	bdqmWnmsB5ECN2hyLrX4/pWW0lkIr4Ae4TqqGzmMmb5i8Fb1ngKtvG+ih2BvEwizSabFvVT9kaN
-	7fjdB98L0A5x2B8g8yi2U7h/WMeqEX+wGu4iAh67CkBpC/rvpJrp7SIjgMbfxR1sEdUxoevZDD3
-	dz52E+3GJ3OrkCl7dVTNCl701yMagRJGy4u3Nn2R1eA98MlNdmORY3CGVRK3pB43b8GO3R63FLP
-	p5agTcsJ3AlfdAyKJgcDRUX0/A6EimSvrn3GzRF2VRVY6dAeqN2+VB+rJC4FySEnqBhnX8oZ49l
-	Tj1F68oXpShxYXGuDeytTob1czJa6kFc0uZu1AIr39D
-X-Received: by 2002:a05:600c:4fcb:b0:48f:e230:1d12 with SMTP id 5b1f17b1804b1-490b60ff366mr49248825e9.31.1780488010942;
-        Wed, 03 Jun 2026 05:00:10 -0700 (PDT)
+        bh=1Pm0RvpU3HH/cr1nURW51vxgVUsJsWvr1G1CVEkJHJc=;
+        b=eBY43ozQxiXdXEwVkhGdMcekg4PQT7xjBIJrahphOQEl7wDURrf27rP0Hltnsavx9Q
+         KXVRSWMCV4qCiJ2kx348RrfU2TYlVY9OX7zo3owvBa31M/a9HNnIrjkJkKmDjrYblClj
+         geGbO+xErhBs+G88Abjy4g1wjuJBx3L36c/ejwkX+7xdydChdgWV2RYU0K7istIyb9Wx
+         SB0tPKlJ1VaiklmsCZp1qk33n9Ix+tE586yqmWbcGjwHCtWcyvab466rZFdVrfG70f71
+         TM6YCkE8aggKSDVYzrUhk3JRhcrlYReW8PlEg4qS0NnbiWxtEA2LJR6S5dZMftMYvy5q
+         MLkA==
+X-Forwarded-Encrypted: i=1; AFNElJ/fkJZkZt6g3B/PPfK1uI9sAlNOXhjWVNlP0kZyhp34Kl1drmtQgzWBEX8hwMRKus0/yYjWjDuRM/QUNfQB3rAn@lists.infradead.org
+X-Gm-Message-State: AOJu0Yx5wbMEPaNHEQackLvO60AA+dDRNJ1pEtfYtsJPux4+6Szep0lq
+	d4sAF8Z3u19nD775/0PX2CVr/Q8D26KeRl2srPWFatha0S2ePOnyXP8S
+X-Gm-Gg: Acq92OFiEQjJJbdGTgSSGCjmXqHW/78ncVQE41m5QqrUIGzaKZmU/TOLuSnaO5HxahF
+	i9+Fa+vMAv7VcNa/V/HidFs3uWgSJZa3GW4E7XLBF173aJNDRHcnXTREirsu3omulRplC8J6Otf
+	ydy+NHaHZfsP14lkZCcE1CTmOnP3ZjCGmP+lCoFpv9ZwSQlnzFxqFGsBR9txHXzk3yXCMphJHRW
+	34+9N+N7o5ikgP3uGowM2iorehhVbCLnHMBfg8bE8s9ox24Rp8g9t53fLR3cPCMNUTsqZQ4UCmc
+	Oe1IYi14iSyXAeD2BY9k4blofmzUZ+VIgEmTZxlORzzCf5JA9AegQeqsdab/U7zqzLB7nQbnJ56
+	g3SzvdyfkpMNqli7ouJzsB++6vubmLeIL/octkzAn9eJVj03L742Gv+h7FOyRH6EjFZs3edn/ee
+	5czDNsVHygYq2ErDny69abTdCs6Se2us5uahRix2lhtLGya10nz2bAt0StPThKAvh4GIgr7hJf7
+	Hb5Q6pAjrqklU2/ElNyP8oaxVHqtOZv6XoRmNneyoRnByOk
+X-Received: by 2002:adf:f50b:0:b0:45e:f073:d2fc with SMTP id ffacd0b85a97d-460217a92afmr3856857f8f.11.1780488008559;
+        Wed, 03 Jun 2026 05:00:08 -0700 (PDT)
 Received: from Lord-Beerus.station (net-93-144-65-244.cust.vodafonedsl.it. [93.144.65.244])
-        by smtp.gmail.com with ESMTPSA id ffacd0b85a97d-4601f344762sm7771928f8f.23.2026.06.03.05.00.09
+        by smtp.gmail.com with ESMTPSA id ffacd0b85a97d-4601f344762sm7771928f8f.23.2026.06.03.05.00.07
         (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Wed, 03 Jun 2026 05:00:10 -0700 (PDT)
+        Wed, 03 Jun 2026 05:00:08 -0700 (PDT)
 From: Stefano Radaelli <stefano.radaelli21@gmail.com>
 X-Google-Original-From: Stefano Radaelli <stefano.r@variscite.com>
 To: linux-kernel@vger.kernel.org,
@@ -85,17 +85,17 @@ Cc: pierluigi.p@variscite.com,
 	Sascha Hauer <s.hauer@pengutronix.de>,
 	Pengutronix Kernel Team <kernel@pengutronix.de>,
 	Fabio Estevam <festevam@gmail.com>
-Subject: [PATCH v1 10/12] arm64: dts: imx8mp-var-som-symphony: keep RGB_SEL low
-Date: Wed,  3 Jun 2026 13:55:48 +0200
-Message-ID: <642c165fa5ce0951352d7d164ae7d871120e8631.1780487415.git.stefano.r@variscite.com>
+Subject: [PATCH v1 08/12] arm64: dts: imx8mp-var-som-symphony: add capacitive touchscreen
+Date: Wed,  3 Jun 2026 13:55:46 +0200
+Message-ID: <db8411dc811bd9fcc76ca72cfbfdade2b1eef99b.1780487415.git.stefano.r@variscite.com>
 X-Mailer: git-send-email 2.47.3
 In-Reply-To: <cover.1780487415.git.stefano.r@variscite.com>
 References: <cover.1780487415.git.stefano.r@variscite.com>
 MIME-Version: 1.0
 Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260603_050013_241882_0DB4B958 
-X-CRM114-Status: GOOD (  11.23  )
+X-CRM114-CacheID: sfid-20260603_050010_853086_5B5E6DC3 
+X-CRM114-Status: GOOD (  10.98  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -112,35 +112,54 @@ Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.i
 
 From: Stefano Radaelli <stefano.r@variscite.com>
 
-Keep the RGB_SEL line driven low on the Symphony carrier board.
-
-This avoids leaving the line floating and ensures the board remains in
-the expected display configuration.
+Add the FT5206 capacitive touchscreen controller on the Symphony carrier
+board.
+Describe the interrupt pin and touchscreen geometry.
 
 Signed-off-by: Stefano Radaelli <stefano.r@variscite.com>
 ---
- arch/arm64/boot/dts/freescale/imx8mp-var-som-symphony.dts | 8 ++++++++
- 1 file changed, 8 insertions(+)
+ .../dts/freescale/imx8mp-var-som-symphony.dts | 21 +++++++++++++++++++
+ 1 file changed, 21 insertions(+)
 
 diff --git a/arch/arm64/boot/dts/freescale/imx8mp-var-som-symphony.dts b/arch/arm64/boot/dts/freescale/imx8mp-var-som-symphony.dts
-index df4409af26a2..d796c32f50cc 100644
+index 6878b89c4db8..9622f77f8f13 100644
 --- a/arch/arm64/boot/dts/freescale/imx8mp-var-som-symphony.dts
 +++ b/arch/arm64/boot/dts/freescale/imx8mp-var-som-symphony.dts
-@@ -191,6 +191,14 @@ pcal6408: gpio@21 {
- 		reg = <0x21>;
- 		#gpio-cells = <2>;
- 		gpio-controller;
-+
-+		/* RGB_SEL */
-+		lvds-brg-enable-hog {
-+			gpio-hog;
-+			gpios = <7 GPIO_ACTIVE_HIGH>;
-+			output-low;
-+			line-name = "rgb_sel";
-+		};
+@@ -193,6 +193,21 @@ st33ktpm2xi2c: tpm@2e {
+ 		reset-gpios = <&pcal6408 4 GPIO_ACTIVE_LOW>;
  	};
  
- 	st33ktpm2xi2c: tpm@2e {
++	/* Capacitive touch controller */
++	ft5x06_ts: touchscreen@38 {
++		compatible = "edt,edt-ft5206";
++		reg = <0x38>;
++		pinctrl-names = "default";
++		pinctrl-0 = <&pinctrl_captouch>;
++		interrupt-parent = <&gpio5>;
++		interrupts = <3 IRQ_TYPE_EDGE_FALLING>;
++		touchscreen-size-x = <800>;
++		touchscreen-size-y = <480>;
++		touchscreen-inverted-x;
++		touchscreen-inverted-y;
++		wakeup-source;
++	};
++
+ 	rtc@68 {
+ 		compatible = "dallas,ds1337";
+ 		reg = <0x68>;
+@@ -300,6 +315,12 @@ &usdhc2 {
+ };
+ 
+ &iomuxc {
++	pinctrl_captouch: captouchgrp {
++		fsl,pins = <
++			MX8MP_IOMUXC_SPDIF_TX__GPIO5_IO03				0x16
++		>;
++	};
++
+ 	pinctrl_i2c3: i2c3grp {
+ 		fsl,pins = <
+ 			MX8MP_IOMUXC_I2C3_SCL__I2C3_SCL                                 0x400001c2
 -- 
 2.47.3
 
