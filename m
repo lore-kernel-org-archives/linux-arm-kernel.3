@@ -4,128 +4,67 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 7816CCD6E4A
-	for <linux-arm-kernel@archiver.kernel.org>; Wed,  3 Jun 2026 05:46:19 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 25507CD6E55
+	for <linux-arm-kernel@archiver.kernel.org>; Wed,  3 Jun 2026 05:50:33 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:In-Reply-To:
-	Content-Type:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=3RwLQweE4pxkT96+g7nuBEjoQ9A50333iRyALWgYafw=; b=bYqqyYyvTSt3zD/4ML+KSMINkc
-	nfD4EddEFwgxK3you5Z4I+0RvdJb0O6AsAvOW96kYALO9l90QB0VYdcJD+C4g865ZuYOwtHc2qHbJ
-	/MGWdNHUGOhIam8RWnBhBPxOyorSTkk+jg3o/u/EVxqdpp/LbJc2o7Zljzd0EewF1ycPPYFrYf3Uj
-	767VHSlQeXbr9EtOE5hw/JLAqyRxa5GVDwQ83lqTcXSCRX3Hjq0Qc0u25tgfiIQXQBfXeVEQ/67ji
-	DQxng4p2ckPlg4nGMMwbtNDogH0rU590SwXCSywr77L+FdLiEZRrmCiTBwPzd9UNVxay2GdXfXbX1
-	vb/Z/B4g==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:CC:To:In-Reply-To:References
+	:Message-ID:Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:
+	From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=wf3GXQMq/sbUvVQvMpZuJdRO//yxgSA4sFLPJEPAeWc=; b=ULX5frjeaJAxrt75f4EfbC/cC0
+	rf37zi5+Nh8G5LeLsIlgmIcbw4uGopgZFJa4ufZ6gisWCxNEQxqwNMdk826wT99vm9ve/1soUx8Gb
+	kMqxHUqO7MirqYkB9JyXevRRgsv11QTphxRzxQUfuq4ojaL2sn6Tj5/wVyB3M8CixbxAEU9owds26
+	E2ZIsfuPt1lOMaRUM4yuGYdM/EdWISpIKgU9rbigl0KD46jsP6EN0DOPPirvasm7VxgqDjQH9x3lO
+	NWNWe2cJ53HuQgvUrPj9UyFPTs5nK9/bMIYHxqrZa6vZbHqGZzLLNpeYXXPWv4EfJgGEHOOdZ+1VH
+	OkIeaU8A==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wUeQd-0000000EIzL-46qd;
-	Wed, 03 Jun 2026 05:46:12 +0000
-Received: from mail-swedencentralazon11013003.outbound.protection.outlook.com ([52.101.83.3] helo=GVXPR05CU001.outbound.protection.outlook.com)
+	id 1wUeUk-0000000EJLx-42lJ;
+	Wed, 03 Jun 2026 05:50:27 +0000
+Received: from mail.aspeedtech.com ([211.20.114.72] helo=twmbx01.aspeedtech.com)
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wUeQb-0000000EIyX-1BCs;
-	Wed, 03 Jun 2026 05:46:10 +0000
-ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
- b=yO/SHkYofRVFN0G39xUNgdL8927M0E+kfzXHy5yeuh855PLRM6pV0yd2gQrYOSBInzjbKIHk2gsVk05IoC0eWCdtJ1SUl+0fzf56VVVrnrf74QjZrSjM/WYqDkAEdnZU3BuvHUke6zLVyH42oaPlx7UU0LiJAJMQNkXBXg8ov1FjEQReSmH1x2Qbii9T9kShYogHxe9RGOqtPDUBhQQMR/fyQUlvs32KV8tMyjwHXlj60RiKCnFP4wtNYaE8CpnTQste8YhE7BFxTf0vHJ7mKI/O3oh4n+SRK2+ZWqQmzFRGrK3vIIbcWgG3FEhbxpTwabkreqkigDRzXJt14O40nA==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
- s=arcselector10001;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
- bh=3RwLQweE4pxkT96+g7nuBEjoQ9A50333iRyALWgYafw=;
- b=ql/cb/i4H1J7LqBUbZL8wIx9H1+F3sAUR9dnAXvTAqV9BCHn6H2h/XuoEpypm+IXjx88s4Je2B0e/jdORjr3POo9iJb1oOvt7mBrqvoZOvfY3WRe8A9CnEZyIzRZSzrRMaAc2eL0A+gPKSe986gTYYA2kTmZrPfSj/PoH0DQcHq+eI+JaQK2PQv9sm6OBUFk1iQx1HbQjLMyQpel8vqeYwE6h5AR71uoN/gpnYMieC9/GpVtprMyIbUFVKW5mEwaLCuT5vP/LqqIyrM29gO87u1mBTdOwywD6N2LM065Fnues5nlLoMBdHkaaKVnyOYx7zY+ISe7gj1sfEu2SLznHg==
-ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
- smtp.mailfrom=oss.nxp.com; dmarc=pass action=none header.from=oss.nxp.com;
- dkim=pass header.d=oss.nxp.com; arc=none
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=NXP1.onmicrosoft.com;
- s=selector1-NXP1-onmicrosoft-com;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
- bh=3RwLQweE4pxkT96+g7nuBEjoQ9A50333iRyALWgYafw=;
- b=YZ24kYt29AF6Dep9YloSoOztzdgrkWRXrP8Co/BTAZemhdHAqRGnAN6Dl6YQcFsqYjk1LLttkuCiwRETuLauYnLZpgmpD6WiTOf+B3PLDhQdNcFLY0Pcv4g41aB0BUDzYNJ4oFc71eruzcipE72dT7l5k9018pGMyacgjwgffFIVpfkSi/fzhkmLsxfPe0oLFm91Kf6xMMxTVdI9XVJ4GswijYoLJ6LLjm/iCXmEitaAOHPykgx4J1G0rfNpTR1ls3Fz7SDbp9n6JIwZRQbaFzrPwB7BxiZ4n3m7vhoNaMmBLFZVnKjCckoECD+meUysd0ka49gkan2XSDxF2wGMag==
-Authentication-Results: dkim=none (message not signed)
- header.d=none;dmarc=none action=none header.from=oss.nxp.com;
-Received: from PAXPR04MB9422.eurprd04.prod.outlook.com (2603:10a6:102:2b4::21)
- by AS8PR04MB7495.eurprd04.prod.outlook.com (2603:10a6:20b:295::14) with
- Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.21.92.7; Wed, 3 Jun 2026
- 05:46:03 +0000
-Received: from PAXPR04MB9422.eurprd04.prod.outlook.com
- ([fe80::54e:28bf:aa85:d25d]) by PAXPR04MB9422.eurprd04.prod.outlook.com
- ([fe80::54e:28bf:aa85:d25d%4]) with mapi id 15.21.0071.015; Wed, 3 Jun 2026
- 05:46:03 +0000
-Date: Wed, 3 Jun 2026 13:45:00 +0800
-From: Xu Yang <xu.yang_2@oss.nxp.com>
-To: Felix Gu <ustc.gu@gmail.com>
-Cc: Vinod Koul <vkoul@kernel.org>, 
-	Neil Armstrong <neil.armstrong@linaro.org>, Frank Li <Frank.Li@nxp.com>, 
-	Sascha Hauer <s.hauer@pengutronix.de>, Pengutronix Kernel Team <kernel@pengutronix.de>, 
-	Fabio Estevam <festevam@gmail.com>, Xu Yang <xu.yang_2@nxp.com>, Jun Li <jun.li@nxp.com>, 
-	linux-phy@lists.infradead.org, imx@lists.linux.dev, linux-arm-kernel@lists.infradead.org, 
-	linux-kernel@vger.kernel.org
-Subject: Re: [PATCH] phy: fsl-imx8mq-usb: fix typec switch leak on probe
- error path
-Message-ID: <7qxgf6rknx2ysv5oavwn5ige2isd4iqk43qrtxp7wzby56oaus@ygn2eocxxxzf>
-References: <20260602-imx8mq-typec-v1-1-3debe9bc77d9@gmail.com>
- <ryzrcml3jo2lj657inrm6dlh2d3so7redxvjhhq3pbe435vq7n@khuctebwompe>
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-In-Reply-To: <ryzrcml3jo2lj657inrm6dlh2d3so7redxvjhhq3pbe435vq7n@khuctebwompe>
-X-ClientProxiedBy: MA5P287CA0033.INDP287.PROD.OUTLOOK.COM
- (2603:1096:a01:17a::16) To PAXPR04MB9422.eurprd04.prod.outlook.com
- (2603:10a6:102:2b4::21)
+	id 1wUeUi-0000000EJKV-2Cb0
+	for linux-arm-kernel@lists.infradead.org;
+	Wed, 03 Jun 2026 05:50:25 +0000
+Received: from TWMBX01.aspeed.com (192.168.0.62) by TWMBX01.aspeed.com
+ (192.168.0.62) with Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.2.1748.10; Wed, 3 Jun
+ 2026 13:50:14 +0800
+Received: from [127.0.1.1] (192.168.10.13) by TWMBX01.aspeed.com
+ (192.168.0.62) with Microsoft SMTP Server id 15.2.1748.10 via Frontend
+ Transport; Wed, 3 Jun 2026 13:50:14 +0800
+From: Ryan Chen <ryan_chen@aspeedtech.com>
+Date: Wed, 3 Jun 2026 13:50:13 +0800
+Subject: [PATCH v31 1/5] dt-bindings: i2c: Split AST2600 binding into a new
+ YAML
 MIME-Version: 1.0
-X-MS-PublicTrafficType: Email
-X-MS-TrafficTypeDiagnostic: PAXPR04MB9422:EE_|AS8PR04MB7495:EE_
-X-MS-Office365-Filtering-Correlation-Id: edb23de7-2cfb-450f-30c0-08dec13365d5
-X-MS-Exchange-SenderADCheck: 1
-X-MS-Exchange-AntiSpam-Relay: 0
-X-Microsoft-Antispam: BCL:0;ARA:13230040|376014|7416014|366016|19092799006|1800799024|4143699003|11063799006|56012099006|22082099003|18002099003;
-X-Microsoft-Antispam-Message-Info: SjQx4oZs4qk1STYJ1jKrPbk6p72fMTYhzYt6raaYP2JJczb9tgb/qfQjf1W0Kw7hmrObZAIQwcjOMqSJnPNlLvSVSn/B0hGXlJ8s8o1N5scpZnKILZ02ZPZ6xDtvguRcCPsmlUtmKiKNw4xwfnrB/xhGrTz/k59JOg9rTH3IeLo7PImIrTOJt5fpzQ6CnZIoc5uT+XmchvCqY/JVr3mOJe7PgH3Sg/ZJL1NbpuePtmNrKS+1RlgXCFmuhNausWQ+zJViBIrqAGOAUijdpQPZVIrB2fb6bIhkS3rOlONnClf2selE7oUFOAa4P9p0eMWnovZs6UOFS36smUnvAov11JIdRHBOkQRzlYubPVQBJG02Rmh1Vm2ZkJFlRzIy2POk0lsVfnpJnE+AVPdRiGoU7AEi+2hkrJNgUELw1ZO2NdOYi+HWvVclPn4lbCu2TcZwzewwJUZWgUF8ZicFIKKg9sf9sq6qe0iY2G1H0586zNhFnoMoADEAxHYtOXurk+1dEr9dcEcKwESqVLhud+m+QVWo7tqFh3wvhTZtZKm6DT58xtKEro9MRY5MNB03YA9f76eXEYDpYmVEhBs2X/TbiFL+S/uAyeBbKUgMfAlvhg4+GiLPydkodnEx0wSUBvxaq/179fTLmuIW2IHUWNMw3yi7keBe1ufoUjuaAQLnna/f8odcA/vzAZSscEzIhmGXYDRGIIBeHf32uraJikV8TQ==
-X-Forefront-Antispam-Report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:PAXPR04MB9422.eurprd04.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(376014)(7416014)(366016)(19092799006)(1800799024)(4143699003)(11063799006)(56012099006)(22082099003)(18002099003);DIR:OUT;SFP:1101;
-X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
-X-MS-Exchange-AntiSpam-MessageData-0: =?us-ascii?Q?jaAeJ+zMsCswFUhXphhbTquEi3VGaZsbmD5ddACf2pd6dihTkJUrPshK7Sa/?=
- =?us-ascii?Q?l/AonO7PRGjrZ41YR5QmKzuiL+gKtNH0b8bM4Z+0xcjYkUn9ovhPLihhAZHx?=
- =?us-ascii?Q?BrGV9iNJDazVWhcbHtUwiaa2HnSw2KhtEE6l0h+EPsgsZ9GCGWuuOTQUhxOz?=
- =?us-ascii?Q?5DYCmclXqoXHZELaOZSkqewZwMyj8QKsG0Zw1rLeZ29PXRZnp6MExxt2iZth?=
- =?us-ascii?Q?x0Er8obdwfwc6n1a0qaYjLNAaZPnsmuICWRuLJSk/tu9QlOw/yibA7cSnip5?=
- =?us-ascii?Q?pG0FRJdMCBbdsYArjeYfeZT9UytApk2sGM09fHTHmWNqRzfQgaQzXLxjhU3p?=
- =?us-ascii?Q?tPYuXCgbsQWoG2ckoIpW97rxQRjxDhsKF20eNCiVuBjGLtMJtp8T/BElpMPp?=
- =?us-ascii?Q?RjBP22oPHw1BPOE1TzTSz1hcF7QVKmL55cEaF1Q7URCylJnIGorQXPjFwgI8?=
- =?us-ascii?Q?lliqD1bijL5rKi6vVTSUqfWsXYbkrflNcTtX7DScUJIFMbgVpkK0j13Rc+jW?=
- =?us-ascii?Q?B0fPnvFZRRQkITmcbsMJVT8eaKbzUUJOR+ZCdu1REnZBkHnEtUptIqv3Ubae?=
- =?us-ascii?Q?kBm/vrDzL/kIlfJnQWYMQI6XBWYnvKBxRGPilimfj6mpIJvHk46KArVHbe3E?=
- =?us-ascii?Q?faFFrQIj6iDKuIXkY7r4vHIVgJ7gpTGjqV4PoLwy6Ihb2lho/kOWB1tvNpYx?=
- =?us-ascii?Q?cxAlNSljSSlz+bhasTIfGB8GYt3z/X8kUAhUx6Y+jA9XDocOc6auS0OaFCln?=
- =?us-ascii?Q?xj/gVeC2rCMCgM6TM5Sqqc8fS10w0Z3Evt+Z6M05V4vTertOnAVDQ6Pet1Mm?=
- =?us-ascii?Q?z2GOyS4I9WZblaOmmsXmTLNNEQzyPt3LhM4RqJI0itUacRlNgfkFzn8N+jR0?=
- =?us-ascii?Q?Hqr/UqnKkVXtPp2S4kZo8TT7CU3vNHm3sB5noKFh77gh1JfRXhOBzBwbo8wT?=
- =?us-ascii?Q?h49M8wTD37he/uTJVKnoZ/yWDx+Yx8uFJJJwWQcYobP+ivbd4cotlYkbT1VT?=
- =?us-ascii?Q?4IWwkFMx9CFOwzhLvZsiIMK2oZwF4Eo6Qq9KEgND9KcBMGTSEN/bpxSX5OTI?=
- =?us-ascii?Q?t5dkY9Xh4maAJKm99fQh6Irggq15mUkjPIb4jSej56YNFprIwybY8IiPdYsM?=
- =?us-ascii?Q?X/THcttUw0/kfl6DlppaLTOALSA7JErN2b+8LvoaG1ZOFEiTkeixUUsF36pI?=
- =?us-ascii?Q?v6wFi51FIBjkffuQtmcyVlzu78YECL/3QUNCnevdwpngOEaN1AXFpqGN1GuE?=
- =?us-ascii?Q?uZ/VybQEnCxWZ/PY9x6xDg6yFWDUpC1JlUE7JnrJaJ2tCFo47G/NgkAseTH7?=
- =?us-ascii?Q?7JcNGI5LJlU7xV5y2+al4xPVx1KKawIa6OBS4M4wiFtMo45YJwsqLmNOf+E7?=
- =?us-ascii?Q?qTHvBcxYJXYCXiI5K/J2u1C4DMp/X1q9RZDiab1lDaoz2ypaDva98uKpHKJE?=
- =?us-ascii?Q?GG3EuxBodTmx8uooYWcVCd2LQ7/SuzjJ2e/o4DSZRWF0qyxEzxLw4c39dZhl?=
- =?us-ascii?Q?8sWsFcU+0yBm6G31kE12BgoHTIVF46hZiVjCFp7e+2JFX5hfls+ltpL2i6pg?=
- =?us-ascii?Q?dI2/WlVSZ4NRcUVelba0wSktMES5I8VdJnDJF9Y3Pi/3mcOI81B6QFy81FbX?=
- =?us-ascii?Q?jZ6O5OYTjZlFJ1ESe9cJ9jowmJwcwmPnZPIt7NjVhuEavNJtsBYFnEzOs+WP?=
- =?us-ascii?Q?dqg499wY0efWzmSilg0uB+6bIDMvqYg2h6iBk9KKNfbPJURKQZI3XHoe5zCd?=
- =?us-ascii?Q?PSbzlJH1wnc95q7S7swRVlNPGR+y9wXJ9hebQFneKcy/WQU+yAp8?=
-X-OriginatorOrg: oss.nxp.com
-X-MS-Exchange-CrossTenant-Network-Message-Id: edb23de7-2cfb-450f-30c0-08dec13365d5
-X-MS-Exchange-CrossTenant-AuthSource: PAXPR04MB9422.eurprd04.prod.outlook.com
-X-MS-Exchange-CrossTenant-AuthAs: Internal
-X-MS-Exchange-CrossTenant-OriginalArrivalTime: 03 Jun 2026 05:46:03.0421
- (UTC)
-X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
-X-MS-Exchange-CrossTenant-Id: 686ea1d3-bc2b-4c6f-a92c-d99c5c301635
-X-MS-Exchange-CrossTenant-MailboxType: HOSTED
-X-MS-Exchange-CrossTenant-UserPrincipalName: nGWCF87qmMMwz4/zo+HyU4HbZAo27SuHNwIpgAkmc2ijsDKaNICytyBERdNuubIg3OAhlekIjr9bQ6dPIPuxQY40axPE0AH5vckJGZA6PtO1ZTxR6MjUhtkHucKp50H1
-X-MS-Exchange-Transport-CrossTenantHeadersStamped: AS8PR04MB7495
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: 7bit
+Message-ID: <20260603-upstream_i2c-v31-1-ba7a02714f22@aspeedtech.com>
+References: <20260603-upstream_i2c-v31-0-ba7a02714f22@aspeedtech.com>
+In-Reply-To: <20260603-upstream_i2c-v31-0-ba7a02714f22@aspeedtech.com>
+To: <jk@codeconstruct.com.au>, <andriy.shevchenko@linux.intel.com>, Andi Shyti
+	<andi.shyti@kernel.org>, Rob Herring <robh@kernel.org>, Krzysztof Kozlowski
+	<krzk+dt@kernel.org>, Conor Dooley <conor+dt@kernel.org>, Joel Stanley
+	<joel@jms.id.au>, Andrew Jeffery <andrew@codeconstruct.com.au>, "Benjamin
+ Herrenschmidt" <benh@kernel.crashing.org>, Rayn Chen
+	<rayn_chen@aspeedtech.com>, Philipp Zabel <p.zabel@pengutronix.de>
+CC: <linux-i2c@vger.kernel.org>, <devicetree@vger.kernel.org>,
+	<linux-arm-kernel@lists.infradead.org>, <linux-aspeed@lists.ozlabs.org>,
+	<linux-kernel@vger.kernel.org>, <openbmc@lists.ozlabs.org>, Ryan Chen
+	<ryan_chen@aspeedtech.com>, Conor Dooley <conor.dooley@microchip.com>
+X-Mailer: b4 0.14.3
+X-Developer-Signature: v=1; a=ed25519-sha256; t=1780465814; l=4676;
+ i=ryan_chen@aspeedtech.com; s=20251126; h=from:subject:message-id;
+ bh=YPKMcrNDJaJX+8ptTV6qqSy9Lxm7XtwOftPiAB5gsvk=;
+ b=wa4XHPTuEaYeA3jwIGbJnp4YGL7gVWelgUi0BTLpfPmipntbPb5gFzWzMfTQKQ+A/PN0sC2/O
+ 95hD/cPJ+nYAopHvOlfsnN7d7xogQn6yKFPvNcnj8UIRwyWCXZgLaro
+X-Developer-Key: i=ryan_chen@aspeedtech.com; a=ed25519;
+ pk=Xe73xY6tcnkuRjjbVAB/oU30KdB3FvG4nuJuILj7ZVc=
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260602_224609_407529_65E499BE 
-X-CRM114-Status: GOOD (  21.75  )
+X-CRM114-CacheID: sfid-20260602_225024_573474_9F7FF056 
+X-CRM114-Status: GOOD (  17.50  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -140,48 +79,149 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Wed, Jun 03, 2026 at 11:09:32AM +0800, Xu Yang wrote:
-> On Tue, Jun 02, 2026 at 10:12:41PM +0800, Felix Gu wrote:
-> > If probe fails after imx95_usb_phy_get_tca() succeeds, the typec
-> > switch leaks because the only cleanup path was in .remove, which
-> > never runs on probe failure.
-> > 
-> > Use devm_add_action_or_reset() so the switch is cleaned up on both
-> > probe failure and driver removal.  The .remove callback and
-> > imx95_usb_phy_put_tca() are no longer needed.
-> > 
-> > Fixes: b58f0f86fd61 ("phy: fsl-imx8mq-usb: add tca function driver for imx95")
-> > Signed-off-by: Felix Gu <ustc.gu@gmail.com>
-> > ---
-> >  drivers/phy/freescale/phy-fsl-imx8mq-usb.c | 27 ++++++++-------------------
-> >  1 file changed, 8 insertions(+), 19 deletions(-)
-> > 
-> > diff --git a/drivers/phy/freescale/phy-fsl-imx8mq-usb.c b/drivers/phy/freescale/phy-fsl-imx8mq-usb.c
-> > index b05d80e849a1..8af5a4f85698 100644
-> > --- a/drivers/phy/freescale/phy-fsl-imx8mq-usb.c
-> > +++ b/drivers/phy/freescale/phy-fsl-imx8mq-usb.c
-> > @@ -173,8 +173,10 @@ static struct typec_switch_dev *tca_blk_get_typec_switch(struct platform_device
-> >  	return sw;
-> >  }
-> >  
-> > -static void tca_blk_put_typec_switch(struct typec_switch_dev *sw)
-> > +static void tca_blk_put_typec_switch(void *data)
-> >  {
-> > +	struct typec_switch_dev *sw = data;
-> > +
-> >  	typec_switch_unregister(sw);
-> >  }
-> 
-> Nit: You can simply call typec_switch_unregister(data)
-> 
-> Reviewed-by: Xu Yang <xu.yang_2@nxp.com>
+The AST2600 I2C controller introduces a completely new register layout
+with separate controller and target register blocks, unlike the mixed
+register layout used by AST2400/AST2500.
 
-I have a similar patch in my patchset. I have added your patch to my patchset
-because it has been reviewed and my other patches depend on this one. Otherwise,
-rebase is needed for others.
+Move AST2600 I2C binding from aspeed,i2c.yaml to a dedicated
+aspeed,ast2600-i2c.yaml schema.
 
-https://lore.kernel.org/linux-phy/20260603-imx8mp-usb-phy-improvement-v3-0-7afb8f89abc6@nxp.com/T/#t
+Besides the split, this also adjusts for AST2600-specific requirements.
+- describe two reg regions (controller register block + buffer block);
+  the second region is optional (minItems: 1) so existing AST2600 DTs
+  that only declare the controller register block continue to validate
+- use clock-frequency for bus speed description
+- interrupts are required on AST2600
+- use correct DTS coding style in example
 
-Thanks,
-Xu Yang
+No compatible strings are changed.
+
+Acked-by: Conor Dooley <conor.dooley@microchip.com>
+Reviewed-by: Rob Herring (Arm) <robh@kernel.org>
+Signed-off-by: Ryan Chen <ryan_chen@aspeedtech.com>
+---
+Changes in v31:
+- Commit message body: clarify that the second reg region is optional
+  (minItems: 1) rather than required, matching the schema and the v30
+  backward-compatibility fix (Sashiko AI review).
+
+Changes in v30:
+- Add minItems: 1 to reg so existing AST2600 DTs with a single reg
+  region continue to validate (Sashiko AI review)
+- Retain bus-frequency as a deprecated property to avoid breaking
+  existing AST2600 DTs under unevaluatedProperties: false
+  (Sashiko AI review)
+Changes in v26:
+- commit message: include details of changes from original binding
+- fix example property ordering to follow DTS coding style
+- use consistent "AST2600" naming
+---
+ .../bindings/i2c/aspeed,ast2600-i2c.yaml           | 73 ++++++++++++++++++++++
+ .../devicetree/bindings/i2c/aspeed,i2c.yaml        |  3 +-
+ 2 files changed, 74 insertions(+), 2 deletions(-)
+
+diff --git a/Documentation/devicetree/bindings/i2c/aspeed,ast2600-i2c.yaml b/Documentation/devicetree/bindings/i2c/aspeed,ast2600-i2c.yaml
+new file mode 100644
+index 000000000000..abc614315dff
+--- /dev/null
++++ b/Documentation/devicetree/bindings/i2c/aspeed,ast2600-i2c.yaml
+@@ -0,0 +1,73 @@
++# SPDX-License-Identifier: (GPL-2.0-only OR BSD-2-Clause)
++%YAML 1.2
++---
++$id: http://devicetree.org/schemas/i2c/aspeed,ast2600-i2c.yaml#
++$schema: http://devicetree.org/meta-schemas/core.yaml#
++
++title: ASPEED I2C on the AST2600 SoCs
++
++maintainers:
++  - Ryan Chen <ryan_chen@aspeedtech.com>
++
++allOf:
++  - $ref: /schemas/i2c/i2c-controller.yaml#
++
++properties:
++  compatible:
++    enum:
++      - aspeed,ast2600-i2c-bus
++
++  reg:
++    minItems: 1
++    items:
++      - description: controller registers
++      - description: controller buffer space
++
++  interrupts:
++    maxItems: 1
++
++  clocks:
++    maxItems: 1
++
++  clock-frequency:
++    description: Desired operating frequency of the I2C bus in Hz.
++    minimum: 500
++    maximum: 4000000
++    default: 100000
++
++  bus-frequency:
++    $ref: /schemas/types.yaml#/definitions/uint32
++    deprecated: true
++    description:
++      Legacy name for clock-frequency. Existing AST2600 device trees
++      used this before the binding was split out. New device trees
++      should use the standard clock-frequency property instead.
++    minimum: 500
++    maximum: 4000000
++
++  resets:
++    maxItems: 1
++
++required:
++  - reg
++  - compatible
++  - clocks
++  - resets
++  - interrupts
++
++unevaluatedProperties: false
++
++examples:
++  - |
++    #include <dt-bindings/clock/aspeed-clock.h>
++    #include <dt-bindings/interrupt-controller/arm-gic.h>
++    i2c@80 {
++        compatible = "aspeed,ast2600-i2c-bus";
++        reg = <0x80 0x80>, <0xc00 0x20>;
++        #address-cells = <1>;
++        #size-cells = <0>;
++        clocks = <&syscon ASPEED_CLK_APB>;
++        resets = <&syscon ASPEED_RESET_I2C>;
++        clock-frequency = <100000>;
++        interrupts = <GIC_SPI 110 IRQ_TYPE_LEVEL_HIGH>;
++    };
+diff --git a/Documentation/devicetree/bindings/i2c/aspeed,i2c.yaml b/Documentation/devicetree/bindings/i2c/aspeed,i2c.yaml
+index 5b9bd2feda3b..d4e4f412feba 100644
+--- a/Documentation/devicetree/bindings/i2c/aspeed,i2c.yaml
++++ b/Documentation/devicetree/bindings/i2c/aspeed,i2c.yaml
+@@ -4,7 +4,7 @@
+ $id: http://devicetree.org/schemas/i2c/aspeed,i2c.yaml#
+ $schema: http://devicetree.org/meta-schemas/core.yaml#
+ 
+-title: ASPEED I2C on the AST24XX, AST25XX, and AST26XX SoCs
++title: ASPEED I2C on the AST24XX, AST25XX SoCs
+ 
+ maintainers:
+   - Rayn Chen <rayn_chen@aspeedtech.com>
+@@ -17,7 +17,6 @@ properties:
+     enum:
+       - aspeed,ast2400-i2c-bus
+       - aspeed,ast2500-i2c-bus
+-      - aspeed,ast2600-i2c-bus
+ 
+   reg:
+     minItems: 1
+
+-- 
+2.34.1
+
 
