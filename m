@@ -4,100 +4,91 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 7685ECD6E4A
-	for <linux-arm-kernel@archiver.kernel.org>; Wed,  3 Jun 2026 02:54:50 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 00DDECD6E4A
+	for <linux-arm-kernel@archiver.kernel.org>; Wed,  3 Jun 2026 02:59:24 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:Cc:To:Subject:
-	Message-ID:Date:From:In-Reply-To:References:MIME-Version:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=6YEVSweRiJIFFM92G7CI5lIVwON7XPQd0EAv/NVq7jo=; b=xyjGaTw11Xn1oJiu2UuJrcB8kC
-	esDt+z9IlmylBC8Q4mtBXEFXyWnDeLoZEYGtl3qh4aQbqxJbtyjtVzO7w5tkGL4ZwPInI3YRn1fRm
-	CNcbgMOtTHUT0KgLH3f7hXwJxb5PaIdZmxcHkkVkIoius15ermmgv+5AiJXEg4rAiEzk7kFs1afWr
-	Dw6FGWx3+/0E48flMVtTGnCZu0pgxanwuVDEzvNTTabPdaiqtTutOT2vooMPjOFHm4Bf0blaqIArZ
-	QMIj40yVuIvxYsUZh4VWAZPjEzTL2oQt//Fjfje1OqvP03+8ISF0Z3iW63SLenMypp5GK2HqomjnT
-	uYVcj1bQ==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	MIME-Version:Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-Type:
+	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
+	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=3USj/+ztE88i2k2s18GnugDmZKrDU3UbbzkTJE6QuT8=; b=RUDeIpRhER1eadZF3/CHl0TCrJ
+	vhVcZ/wdjo3DSJ+7K2CdJtaVVXKKYGu73nPkxhcy8wBmNBe3g5+20/r81ltdo+3wNYX21EUlEbA3u
+	nwjAnAZo2b3h07g+F7tPfpMtfm4eobqRRQdXZ7IIDvAEGXZj+wncvX4CsC9nKLF0ovGGDVPnBepcB
+	gkjcwtUtKk0L2acbWAuxMgJLc/Z40Kap/xlM75mdQYr1LhFNo1diYORa6IAFVJFQqeg0ajx+Lqzh1
+	F2P7rqii5Nf1S0Rz2Qec2Gysc+gC2hNwLGSKWd6msgPQMgy2GqKMk6LkT1HMYI8cQUkk7lfk6HBw4
+	JBKMQ0BQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wUbki-0000000E8SV-1OoH;
-	Wed, 03 Jun 2026 02:54:44 +0000
-Received: from mail-lf1-x131.google.com ([2a00:1450:4864:20::131])
+	id 1wUbp8-0000000E8n0-3oR4;
+	Wed, 03 Jun 2026 02:59:18 +0000
+Received: from mail-pl1-x62d.google.com ([2607:f8b0:4864:20::62d])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wUbkg-0000000E8Rv-1tze
+	id 1wUbp6-0000000E8li-29e4
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 03 Jun 2026 02:54:43 +0000
-Received: by mail-lf1-x131.google.com with SMTP id 2adb3069b0e04-5aa7a7c9711so252228e87.0
-        for <linux-arm-kernel@lists.infradead.org>; Tue, 02 Jun 2026 19:54:41 -0700 (PDT)
-ARC-Seal: i=1; a=rsa-sha256; t=1780455280; cv=none;
-        d=google.com; s=arc-20240605;
-        b=JKqSGikWwajFarE+p3+Oh7KtAH0GwKnqnIelNp0t+oxMp2oNJ8VxHqIq+96qrg1Wmt
-         Yp5oyKH5Hbh2HKPajFQCKV9lrsVzzoYKKgON2klm4//8XBlbboTm21ceC9lfui5sz8da
-         FZnLqPyVeOc+a8GsYe4YhTdDgOwqGwSN9k251yOtULDefNrMhoD9qAdODs8zJtqueqbt
-         qyV/6uXZiAftL0UKKziG1I3IrdaqNJHaloX8fpZutzqUzu9IwvzUCdXQQi7pjsDi5DjH
-         xUO/z0JAkTMsPyiuVhfFg3pwVc2scAiSezT1JS+lAd1Vdgrn0SqkPBPtpxLPh08WrH0I
-         W70Q==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20240605;
-        h=cc:to:subject:message-id:date:from:in-reply-to:references
-         :mime-version:dkim-signature;
-        bh=6YEVSweRiJIFFM92G7CI5lIVwON7XPQd0EAv/NVq7jo=;
-        fh=kYFfu8Qkub7fTjuxqs6SrEo0vbe5D0X0YDKSbtlw9+E=;
-        b=JTUvAsZummzrGnb9clXXhjBXqbzEGDzcegeXGZY1L3F90vcP4UpuvexMUyfrwPZBMc
-         9P+c0pQA0zx57EOR5M+eFRBzfudIcZkJDk7uB6kJasp7TXIoSsZhPi4+LAPz6axeN7ti
-         mMyZ4CoxRJFhniX65TWaaaQvRNy2t72reqW+i0xHAPz5GDnYZXnZkhL25fAmDuIEYsVJ
-         wzO3xz/BtRPdxPDJ160oLg37ZHcfaGlvLRFDdPDqc7SAOF6fM1ZC4Vx6VYIuwUO4NWSF
-         AzT7FOBoe/l02JVOYe7kVv3/8+PTAkm4I42dTWDyqeRjzgqdsRdwsjIr4DGXKQ8GtN/6
-         OvlQ==;
-        darn=lists.infradead.org
-ARC-Authentication-Results: i=1; mx.google.com; arc=none
+	Wed, 03 Jun 2026 02:59:17 +0000
+Received: by mail-pl1-x62d.google.com with SMTP id d9443c01a7336-2c168baac83so978715ad.2
+        for <linux-arm-kernel@lists.infradead.org>; Tue, 02 Jun 2026 19:59:15 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20251104; t=1780455280; x=1781060080; darn=lists.infradead.org;
-        h=cc:to:subject:message-id:date:from:in-reply-to:references
-         :mime-version:from:to:cc:subject:date:message-id:reply-to;
-        bh=6YEVSweRiJIFFM92G7CI5lIVwON7XPQd0EAv/NVq7jo=;
-        b=iVZOV49Fw3fKMbh082jeTDvUT4/+6hE90hBANDy74WJYJeBbRW9rpW+kr3ZrxDFFTw
-         L3FOa/w7c5Sgn5Y+5ox+5W1x/FLePNdYFpC1uypyT1kta2E0ZfGlXgCi5oXdPvnspOAy
-         V3+S08Tpi+ZC3mO5htgeE5ojl3zLkAdAAWqgKf1T8uUhDtdmyIgowUQo2OZyD2xD3BM8
-         npPcfw//adhYXl1eGDQIzNpsMRtFL42I7fMycOym6YcTGiYCSp2nhavfUH+WbEhSbnlL
-         Brtb63T/uWLLEv2BBxYWqXn1+DINsrLT0zJ83PQL1Qi+7TdMKyvXijmsttPZWFWkLWU8
-         oJQw==
+        d=gmail.com; s=20251104; t=1780455555; x=1781060355; darn=lists.infradead.org;
+        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
+         :to:from:from:to:cc:subject:date:message-id:reply-to;
+        bh=3USj/+ztE88i2k2s18GnugDmZKrDU3UbbzkTJE6QuT8=;
+        b=QGlYExju0XN4GYtwvW2OSrITLbop/juz3rpzfM6wfKFpjVACWyHymqz4rFAXryY6Ac
+         H7ACPOaIW46cuXXeLn+BZABcC/+i1bMq6D44LufYWEe1KlPBTCyUeRjtPmPGDgTwjoG0
+         qzafXLaZf21+/34A/GNvhynWA9mpKX5g8hUkk43Y1zgdaJNJp9fkFMiE+EA01nz5D/Yl
+         WtCSYaVNo8MF0AjBdPHQWve0ctKtDUIhSs3kwEQ9wHPYCBZMKzb0QVKSjBZBy66wN12c
+         uVEI5WhfTJR8RYe7hzApLThUZbuTrysqmjNCSJLlMxbwe+sxVcGb6rQyEs0W6c8QKYfq
+         yzUw==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20251104; t=1780455280; x=1781060080;
-        h=cc:to:subject:message-id:date:from:in-reply-to:references
-         :mime-version:x-gm-gg:x-gm-message-state:from:to:cc:subject:date
+        d=1e100.net; s=20251104; t=1780455555; x=1781060355;
+        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
+         :to:from:x-gm-gg:x-gm-message-state:from:to:cc:subject:date
          :message-id:reply-to;
-        bh=6YEVSweRiJIFFM92G7CI5lIVwON7XPQd0EAv/NVq7jo=;
-        b=i5CA+AcEZ4x0CtO9iReiBuDA8VBGSkwHseUtTPrPqx2YGcWPfSXHMHDQt4EymNx50p
-         SsLHoIMkCvyWjpgcMGroIkytsNWKxbcm0rsnnGsxV6+XhNGN8LFknG9nQg+Y2MmDqwL2
-         gtA2nFidd4uGVTPAgSemXvib/EdWVzdli9YvYHCdQmrDG3f+D/nvAZL8mkOCh+k1VwCY
-         Cy0eH/UpYZqdzG7g2Wjf7u5EiDOEJm3ZoiScaD+0rgR5sUKHYFeAlEwcijuLhauCsbip
-         c15iIewNKLqRjV3+V8iaXSfDoSSwmdkrkNoGHLI6iAMdFNP/mIbTrtrAj2xRNakcb8K+
-         Vvng==
-X-Gm-Message-State: AOJu0Yx4BHUxzustIWFKS+VaZ/EVMEgzmRq5vmBaS1bpk+bKEGSv76ab
-	c9RYruP8/q8aJY5BWJftIwbNO5lirU2ZzZMmqa46g3z5XrshBF5oJ5v2c0cef1cHy93Jx9GYvmN
-	BlKkq4mNRTfqki0lLhxe3Ti57UbZYnXA=
-X-Gm-Gg: Acq92OGZ92LfZpQ+2lgcg+ncQGodq7EM//NFpV2zWOXqYwKervmj2TuCyf9yq3Nnyv8
-	EhVfeLKt3ISH/13rgGi2cXpGfPvNd5d1gv4XVhexAqABaxnX48jMKfFaD9sJGGwQbq84gqGWle8
-	+ehXkNsVJMG4nues9AWeabUG5+dg8Q7ZS80CVqT3V/A8SGkFCRpBDoCOE7gsNTbLft4fOBbL8pD
-	McjZ9HYRP1/nTJIRjYJvcEbaDadx4/k7aAxYfTXtwza3JJYdjpiEHCF0e7nOf8gEFEzNk+jX0vy
-	qLDh0NPC1qcRIyYhwnjtrkC1zqY=
-X-Received: by 2002:a05:6512:3b8b:b0:5aa:6ec6:257f with SMTP id
- 2adb3069b0e04-5aa7c75f6f5mr249329e87.10.1780455279974; Tue, 02 Jun 2026
- 19:54:39 -0700 (PDT)
+        bh=3USj/+ztE88i2k2s18GnugDmZKrDU3UbbzkTJE6QuT8=;
+        b=bZQPf80WcigxSb57mdGyp2ansK8NRp5/K0NZpyvrSCssr6Xm6bncvEbpn0la5WX79A
+         X4IMTBdOsNxLBifuIZrln9X6Y7TUhV/Y1amLW/p6RAxw+EmEzg+2oDexJVpXxFJKMHRe
+         K25kS4W0yrarvAfSHHr9LE9Z7sHT4wcWmYoMN4BX+ahVSKQdLAzJpF7X2nVbS3kQ3jbR
+         mn0JsEs7VzRYBwvpaS9zQirqzxxuPciAQQCfe2SX+mKZW9zPkg6MT67bGA470LUZXPy+
+         roqcInnrhrDR9T/rDcpE7E31yyyhyPrNWVhUHxUKgvrmg22lyvb97P4jKF7fHoC/ApUy
+         fYoA==
+X-Forwarded-Encrypted: i=1; AFNElJ/xm2LIXQ9yBv0iAKPcXMRHMtnboz7pFewY1lhkbu0OqsowwjmNxQw6hrtvB6g81F5jEW253A4tnCXpXNv/GXPz@lists.infradead.org
+X-Gm-Message-State: AOJu0YxiOgb1cxV2D3FmvOBabGy6ukdpuvCt43XCrjNfko81CKuPT/Lp
+	c0yVtoLc56zKTXrzVbojvOYzjn4kmXzgtPhC0b+ZbkyzWw2se0OUgblr
+X-Gm-Gg: Acq92OEZBz6HdCP0PgBVJw2/HqqamIh3WYdgrwGiYvOSGyKpghTDzqEhQYjit6o5MVP
+	4/QpNPRVo8Z2cQtoYfyeUbXY2gIQ2zRpYq7tCh0QJRPSbXi7eS8ClYitVePf6/m1jrfAOUDrA6A
+	R70/oIRa0Ksr7mDDfCchhgtUJoQ5IfB1GPyLR1LtOpSa55s/+MgwX3qWcQ/NspdCHe/H8kr25zW
+	8ZdXkkmaWKGRMj7Nr2e7s23yfWuPNbck8KbL5D/Rjt8VrzTq2Akd764BrlshqTVXBaa7/t4JdzG
+	ve1xFw2y+TG4FksPqDcjWEYXpb07UW+I0DNl4GoGsexYXkarJdB33ZRpMllHN6/BS2KOqrrsMm8
+	MuD4lMAMxGWx2COkfdrcIzVRLOq7p6KFyyu1Vww0LGqmgxOcbeGYeuuWW9CJ7AovjMV2z3Wd7LU
+	YFmquGy4LowojnMd4ex+7/2PWsK0qa5rbjRgKVFP0Aj4ZcLjE3h356AOdXcruC87Q2l81rWu/V3
+	qU++HIPM/ybCHMu0ntcrcJ7SMbDI1ytZZoIL1QZj+HA6Q==
+X-Received: by 2002:a17:903:2410:b0:2c0:b6c7:2273 with SMTP id d9443c01a7336-2c163a257e8mr14341345ad.3.1780455555160;
+        Tue, 02 Jun 2026 19:59:15 -0700 (PDT)
+Received: from ryzen ([2601:644:8000:5b5d:7285:c2ff:fe45:8a32])
+        by smtp.gmail.com with ESMTPSA id d9443c01a7336-2c164f6d395sm8093805ad.17.2026.06.02.19.59.13
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Tue, 02 Jun 2026 19:59:14 -0700 (PDT)
+From: Rosen Penev <rosenp@gmail.com>
+To: linux-serial@vger.kernel.org
+Cc: Greg Kroah-Hartman <gregkh@linuxfoundation.org>,
+	Jiri Slaby <jirislaby@kernel.org>,
+	Frank Li <Frank.Li@nxp.com>,
+	Sascha Hauer <s.hauer@pengutronix.de>,
+	Pengutronix Kernel Team <kernel@pengutronix.de>,
+	Fabio Estevam <festevam@gmail.com>,
+	linux-kernel@vger.kernel.org (open list:TTY LAYER AND SERIAL DRIVERS),
+	imx@lists.linux.dev (open list:ARM/FREESCALE IMX / MXC ARM ARCHITECTURE),
+	linux-arm-kernel@lists.infradead.org (moderated list:ARM/FREESCALE IMX / MXC ARM ARCHITECTURE)
+Subject: [PATCH 0/3] serial: mxs-auart: devm conversion, clock rework, and IRQ ordering fixes
+Date: Tue,  2 Jun 2026 19:58:54 -0700
+Message-ID: <20260603025857.287148-1-rosenp@gmail.com>
+X-Mailer: git-send-email 2.54.0
 MIME-Version: 1.0
-References: <20260513205720.638900-1-dbgh9129@gmail.com>
-In-Reply-To: <20260513205720.638900-1-dbgh9129@gmail.com>
-From: =?UTF-8?B?7LWc7Jyg7Zi4?= <dbgh9129@gmail.com>
-Date: Tue, 2 Jun 2026 22:54:26 -0400
-X-Gm-Features: AVHnY4K5DBF0weFjnJmuCniRxbOFWsLayi0NoEqhh__lipvmCqWEylpszpHtTeE
-Message-ID: <CACrCO_WA27igaDzS5N_Vi3oxjSe3dvv8iLG3OLS_ZJ+NxTw4YQ@mail.gmail.com>
-Subject: Re: [PATCH v1] ARM: devtree: Fix /cpus node reference leak
-To: Russell King <linux@armlinux.org.uk>
-Cc: linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org
-Content-Type: text/plain; charset="UTF-8"
+Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260602_195442_494139_857E25D3 
-X-CRM114-Status: UNSURE (   9.39  )
+X-CRM114-CacheID: sfid-20260602_195916_553358_D3982979 
+X-CRM114-Status: UNSURE (   8.63  )
 X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
@@ -113,14 +104,31 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hi,
+This series cleans up the mxs-auart driver by converting to devm-managed
+resources, fixing clock prepare/enable ordering, and addressing IRQ
+registration races.
 
-Just a gentle reminder regarding this patch.
+Patch 1 reworks the clock handling to use devm_clk_get_enabled and
+reorders clk_prepare_enable after clk_set_rate to avoid
+CLK_SET_RATE_GATE failures.
 
-I would appreciate any feedback when you have a chance to review it.
+Patch 2 converts iomem mapping and GPIO IRQ requests to devm,
+removing the manual cleanup paths.
 
-Thanks for your time.
+Patch 3 moves the main UART IRQ registration after uart_add_one_port
+so the port state is initialized before the handler can run, and
+manages the module clock for console vs non-console ports correctly.
 
-Best regards,
-Yuho Choi
+Rosen Penev (3):
+  serial: mxs-auart: rework clock handling in mxs_get_clks and probe
+  serial: mxs-auart: use devm resources for iomem and GPIO IRQs
+  serial: mxs-auart: fix IRQ registration ordering and manage console
+    clock
+
+ drivers/tty/serial/mxs-auart.c | 133 ++++++++++++++-------------------
+ 1 file changed, 55 insertions(+), 78 deletions(-)
+
+-- 
+2.54.0
+
 
