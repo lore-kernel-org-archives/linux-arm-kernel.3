@@ -4,51 +4,51 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 11AAACD6E55
-	for <linux-arm-kernel@archiver.kernel.org>; Wed,  3 Jun 2026 08:21:52 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id E9083CD6E55
+	for <linux-arm-kernel@archiver.kernel.org>; Wed,  3 Jun 2026 08:22:01 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:References
 	:Message-Id:Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:
 	From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=Pamo4jTIx9z4Xf6mq2Ox//K3gj7hfSbjLsah6wBCtzc=; b=tbfxz8w7fJfADsV2r6XxQXciTd
-	d8HK3H57wP3iNb6s2e9yT3bt1PxmUrzjs1/ZH+bRvblHHglpQaLwZ+KaP5TML10oZJI7ais7DkDyL
-	Sa903Gs4sjwol4hyhbvtTl7CSBWqt/B6y0GCOtmdccMYmWfnLxs3mwTqcgDqYuB7F0DWOZjnRAUZa
-	DBEulNLsZzmHRm7Gao8weyMeHFvS5FDvcO7n7BT8SEXnTNbCR9aQb0bxl/MslGneiJpyNkE8SsX+y
-	64OU9/K82Geb+VH91e4lynwFvLjmbll1n884H4SjgHP+zOBxATi36fuQnnSsJQ+LoPoOiebFUaLWt
-	gGV0oqhg==;
+	bh=ZXGjepFLBlF5CYmJKu9nzonog+TjUvQLSqr6dGfFK2E=; b=Wv1qLufO3edieT0eh48gL4D8vN
+	B7W+qCN5Y02jrqTwe6RiyBR4pbfHkYqElfKerQn1FlSpGUk1+cpBsw0sHZZI5ZXjCQc9CQA09jSVP
+	crZgcS+G+I+9CziWVrCyP/ER/U2nvAs7OAbonmJVGe8+O2upJNzZPLvHpNCMhfOWTBqE3bWFkUJuB
+	2vxZBNPHbeQkleWwElHmkjStfoYQzHxmvjesQJYn2kZJ0F/M3ecOE1gB110LOlOitkRQwzqsiCz/F
+	ekQy82wgBnd+ad0sHXiFQoCXWbwbl8w4kzGREH/28HJtXMCC3qBQ/wAFn/ot3gYC+ekPlKz21R5Sr
+	x54WqZZQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wUgrC-0000000EZUu-0jJI;
-	Wed, 03 Jun 2026 08:21:46 +0000
+	id 1wUgrL-0000000EZg5-2eHS;
+	Wed, 03 Jun 2026 08:21:55 +0000
 Received: from tor.source.kernel.org ([172.105.4.254])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wUgrB-0000000EZSV-07WD;
-	Wed, 03 Jun 2026 08:21:45 +0000
+	id 1wUgrJ-0000000EZe2-3wx7;
+	Wed, 03 Jun 2026 08:21:54 +0000
 Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
-	by tor.source.kernel.org (Postfix) with ESMTP id 7A95760232;
-	Wed,  3 Jun 2026 08:21:44 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 6295E1F00898;
-	Wed,  3 Jun 2026 08:21:40 +0000 (UTC)
+	by tor.source.kernel.org (Postfix) with ESMTP id 6360460239;
+	Wed,  3 Jun 2026 08:21:53 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 46AE91F00893;
+	Wed,  3 Jun 2026 08:21:49 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1780474904;
-	bh=Pamo4jTIx9z4Xf6mq2Ox//K3gj7hfSbjLsah6wBCtzc=;
+	s=k20260515; t=1780474913;
+	bh=ZXGjepFLBlF5CYmJKu9nzonog+TjUvQLSqr6dGfFK2E=;
 	h=From:Date:Subject:References:In-Reply-To:To:Cc;
-	b=fS750F7TFs/HKsUEE1WJvRe800uTXJ+WBlUN3gohTW06px4gbGfVc5plSSa3Ug4qD
-	 68TcWoVkKWcWiYkY4W5a83z46yA96TzsbwfRhsBxsDRiabwQkWns/Tif8yiaS6gKL6
-	 A/7d7E0N43yTcUZVyIGSyzY65ASgvfB6Z5RjtduLCL+hVMiQk4gdZYnvheIlDcS7QX
-	 R4djuzdFmUEX6fxvHS+FyNqDYvCURwcZeps3YwrHy88ZagnuyleM1tL3kJIK30DByL
-	 YwjOeO69BVtUNRPMBdiM3PgfdZMhDZlXyx9pwU7s4tlEHkwL3frYSNef6rIkZu7rmK
-	 2ocvGnzUFW+Xg==
+	b=ABBhZrjqOU3o537lh2MnRYUpYMrAMI0ROn0RsyvtsI8PXipIkR061ks9udXEF2C0h
+	 If3i0UetpaEvv3OrWUZmz4KSy5bQw4ttj0XV5p8H3AqqM7/KgXEDY/YmOhiUrI0GAG
+	 FN2f8lQQNU9nuQTNyBN9u8N2HfgXpZt7imZnGJlYPEtqXYUr5W7wh+S2eDopa987I1
+	 3kIHecyEJsrk3xPW9OyOuJhGNieglEb8tZX+2QzifZQckprT5MvOTYLMMSHNJ5HZY2
+	 EF0ucrZb2UKmy77Rp6L4/gRBiE0L2kZZYsmUHc16Urh7rw7/dKM50uBu4pQ+7nM77Y
+	 aucxO+nLtV0rQ==
 From: Lorenzo Pieralisi <lpieralisi@kernel.org>
-Date: Wed, 03 Jun 2026 10:20:59 +0200
-Subject: [PATCH v2 3/6] ACPI: RISC-V: Fix riscv_acpi_add_prt_dep() loop
- handling
+Date: Wed, 03 Jun 2026 10:21:01 +0200
+Subject: [PATCH v2 5/6] ACPI/IORT: Implement ACPI infrastructure to enable
+ GICv5 IWB probe deferral
 MIME-Version: 1.0
 Content-Type: text/plain; charset="utf-8"
 Content-Transfer-Encoding: 7bit
-Message-Id: <20260603-gic-v5-acpi-iwb-probe-deferral-v2-3-23ffa16b6ebb@kernel.org>
+Message-Id: <20260603-gic-v5-acpi-iwb-probe-deferral-v2-5-23ffa16b6ebb@kernel.org>
 References: <20260603-gic-v5-acpi-iwb-probe-deferral-v2-0-23ffa16b6ebb@kernel.org>
 In-Reply-To: <20260603-gic-v5-acpi-iwb-probe-deferral-v2-0-23ffa16b6ebb@kernel.org>
 To: "Rafael J. Wysocki" <rafael@kernel.org>, Len Brown <lenb@kernel.org>, 
@@ -75,66 +75,101 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-The loop in riscv_acpi_add_prt_dep() includes error conditions that are
-handled in a dubious - if not outright wrong - way, by continuining the
-loop (which skips and misses the entry pointer update to point to the next
-entry).
+Implement an IORT ACPI hook to retrieve the acpi_handle of the interrupt
+controller handling a specific GSI (if any, on GICv5 systems only the IWB
+is represented in firmware with an ACPI device object) and add the IWB to
+the list of devices whose dependencies can be detected (and cleared) in
+ACPI core to guarantee that probe dependencies for the IWB can be
+satisfied.
 
-Rewrite the loop as a for loop (that handles the continuation correctly)
-and wrap the condition and update statements using helper functions to make
-it cleaner.
+Enable autodep detection for arm64 by adding the arch_acpi_add_auto_dep()
+callback in the ACPI IORT driver.
 
 Signed-off-by: Lorenzo Pieralisi <lpieralisi@kernel.org>
+Cc: Hanjun Guo <guohanjun@huawei.com>
+Cc: Sudeep Holla <sudeep.holla@kernel.org>
 Cc: "Rafael J. Wysocki" <rafael@kernel.org>
-Cc: Sunil V L <sunilvl@ventanamicro.com>
 ---
- drivers/acpi/riscv/irq.c | 19 +++++++++++++++----
- 1 file changed, 15 insertions(+), 4 deletions(-)
+ drivers/acpi/arm64/iort.c | 22 +++++++++++++++++++---
+ drivers/acpi/scan.c       |  1 +
+ include/linux/acpi_iort.h |  3 ++-
+ 3 files changed, 22 insertions(+), 4 deletions(-)
 
-diff --git a/drivers/acpi/riscv/irq.c b/drivers/acpi/riscv/irq.c
-index 75170151c614..0cdec5dd575e 100644
---- a/drivers/acpi/riscv/irq.c
-+++ b/drivers/acpi/riscv/irq.c
-@@ -319,6 +319,20 @@ static int riscv_acpi_irq_get_dep(acpi_handle handle, unsigned int index, acpi_h
- 	return ctx.rc;
+diff --git a/drivers/acpi/arm64/iort.c b/drivers/acpi/arm64/iort.c
+index af7a9b2fd5bc..34412cd697d8 100644
+--- a/drivers/acpi/arm64/iort.c
++++ b/drivers/acpi/arm64/iort.c
+@@ -789,11 +789,9 @@ struct irq_domain *iort_get_device_domain(struct device *dev, u32 id,
+ 	return irq_find_matching_fwnode(handle, bus_token);
  }
  
-+static bool acpi_prt_entry_valid(void *prt_entry)
-+{
-+	struct acpi_pci_routing_table *entry = prt_entry;
-+
-+	return entry && entry->length > 0;
-+}
-+
-+static void *acpi_prt_next_entry(void *prt_entry)
-+{
-+	struct acpi_pci_routing_table *entry = prt_entry;
-+
-+	return prt_entry + entry->length;
-+}
-+
- static u32 riscv_acpi_add_prt_dep(acpi_handle handle)
+-struct fwnode_handle *iort_iwb_handle(u32 iwb_id)
++acpi_handle iort_iwb_handle(u32 iwb_id)
  {
- 	struct acpi_buffer buffer = { ACPI_ALLOCATE_BUFFER, NULL };
-@@ -337,7 +351,7 @@ static u32 riscv_acpi_add_prt_dep(acpi_handle handle)
- 	}
+-	struct fwnode_handle *fwnode;
+ 	struct acpi_iort_node *node;
+-	struct acpi_device *device;
+ 	struct acpi_iort_iwb *iwb;
+ 	acpi_status status;
+ 	acpi_handle handle;
+@@ -808,6 +806,19 @@ struct fwnode_handle *iort_iwb_handle(u32 iwb_id)
+ 	if (ACPI_FAILURE(status))
+ 		return NULL;
  
- 	entry = buffer.pointer;
--	while (entry && (entry->length > 0)) {
-+	for (; acpi_prt_entry_valid(entry); entry = acpi_prt_next_entry(entry)) {
- 		if (entry->source[0]) {
- 			status = acpi_get_handle(handle, entry->source, &link_handle);
- 			if (ACPI_FAILURE(status))
-@@ -365,9 +379,6 @@ static u32 riscv_acpi_add_prt_dep(acpi_handle handle)
- 			dep_devices.handles[0] = gsi_handle;
- 			count += acpi_scan_add_dep(handle, &dep_devices);
- 		}
--
--		entry = (struct acpi_pci_routing_table *)
--			((unsigned long)entry + entry->length);
++	return handle;
++}
++
++struct fwnode_handle *iort_iwb_handle_fwnode(u32 iwb_id)
++{
++	struct fwnode_handle *fwnode;
++	struct acpi_device *device;
++	acpi_handle handle;
++
++	handle = iort_iwb_handle(iwb_id);
++	if (!handle)
++		return NULL;
++
+ 	device = acpi_get_acpi_dev(handle);
+ 	if (!device)
+ 		return NULL;
+@@ -2090,6 +2101,11 @@ static void __init iort_init_platform_devices(void)
  	}
+ }
  
- 	kfree(buffer.pointer);
++u32 arch_acpi_add_auto_dep(acpi_handle handle)
++{
++	return acpi_irq_add_auto_dep(handle);
++}
++
+ void __init acpi_iort_init(void)
+ {
+ 	acpi_status status;
+diff --git a/drivers/acpi/scan.c b/drivers/acpi/scan.c
+index 530547cda8b2..ba15da9058dc 100644
+--- a/drivers/acpi/scan.c
++++ b/drivers/acpi/scan.c
+@@ -856,6 +856,7 @@ static const char * const acpi_ignore_dep_ids[] = {
+ 
+ /* List of HIDs for which we honor deps of matching ACPI devs, when checking _DEP lists. */
+ static const char * const acpi_honor_dep_ids[] = {
++	"ARMH0003", /* ARM GICv5 IWB */
+ 	"INT3472", /* Camera sensor PMIC / clk and regulator info */
+ 	"INTC1059", /* IVSC (TGL) driver must be loaded to allow i2c access to camera sensors */
+ 	"INTC1095", /* IVSC (ADL) driver must be loaded to allow i2c access to camera sensors */
+diff --git a/include/linux/acpi_iort.h b/include/linux/acpi_iort.h
+index 17bb3374f4ca..931eaa7bbf6a 100644
+--- a/include/linux/acpi_iort.h
++++ b/include/linux/acpi_iort.h
+@@ -27,7 +27,8 @@ int iort_register_domain_token(int trans_id, phys_addr_t base,
+ 			       struct fwnode_handle *fw_node);
+ void iort_deregister_domain_token(int trans_id);
+ struct fwnode_handle *iort_find_domain_token(int trans_id);
+-struct fwnode_handle *iort_iwb_handle(u32 iwb_id);
++acpi_handle iort_iwb_handle(u32 iwb_id);
++struct fwnode_handle *iort_iwb_handle_fwnode(u32 iwb_id);
+ 
+ #ifdef CONFIG_ACPI_IORT
+ u32 iort_msi_map_id(struct device *dev, u32 id);
 
 -- 
 2.54.0
