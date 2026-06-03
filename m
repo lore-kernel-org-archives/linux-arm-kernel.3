@@ -4,66 +4,71 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 4AEEFCD6E56
-	for <linux-arm-kernel@archiver.kernel.org>; Wed,  3 Jun 2026 11:07:37 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 15415CD6E56
+	for <linux-arm-kernel@archiver.kernel.org>; Wed,  3 Jun 2026 11:22:38 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	MIME-Version:References:In-Reply-To:Message-Id:Date:Subject:Cc:To:From:
-	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=puY3IhzbekBHl3aU6zEhSPzlqOC+lFTSjTT7xZ6KpDA=; b=EvsZUAmAw1VPxvElhT+H3SDcTZ
-	EBRJS859fP7zDnchwMAeRVm2gp5c254W8e66fmdl3BVHt7tFx/P929p2PxncbCrZPiszqRwdnn//H
-	TadYmwcemD7V41QnwlgqWhKkIvhI/AINFw9vhmUZW4jdjHqRCA5ru+jdPQxCYSBHlHQTWY43ZU349
-	497YTrhAEp6xk+YE1GTobjMVG5u333bRvLxWT5o7o+YPqMybmkidKrzqkRSkMiHHz2CUo7jakNSyR
-	yR1r/AIRhPoHhazSMSFbP+XrUhZAniX2Xi0WZmvZNZfwGdU/J5Ck3di/drQ+mVWzXzEZHizyA4SD4
-	pyTrtNFA==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=cXEjc/5hFRDYA1JmIf1Nf0sHw2o3MsqDWZosJ8VPs34=; b=hyE/e6JwExoTXIQ6xeZX0eeaUV
+	Ac2t1pzlqmBLMLR0G6QXTcPKu8uyunAcYhKz795LWqS4uxWFQfBenAha6duJldTYnUmxatBhntvuq
+	2bsq1VjcD6siAWlns5VaSWgercZgTjWHVSsxjEFJeyuKBP24Xut/xVuhTe4eViekRufS8GBq+OaEY
+	eE/iOfsFaJpRsOZvemp2q4M1gIA/9bwvsepa8dB5B38+Ahhi/NxDSv7fUEORIhAqjOEEVuFllbo1P
+	kQy89DKfPTdrNM/caqj6puYPHfuShBFCDWrIujlPT9/5FXzxSfYjNjmZjktDcMH01IufITxfVNJB4
+	lQ0nBFmw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wUjRX-0000000Etn0-2OMM;
-	Wed, 03 Jun 2026 11:07:27 +0000
-Received: from foss.arm.com ([217.140.110.172])
-	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wUjRU-0000000Etgm-1lUr
+	id 1wUjg4-0000000EvZP-05T1;
+	Wed, 03 Jun 2026 11:22:28 +0000
+Received: from tor.source.kernel.org ([2600:3c04:e001:324:0:1991:8:25])
+	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
+	id 1wUjg2-0000000EvZE-1qyc
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 03 Jun 2026 11:07:25 +0000
-Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
-	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id 108CD49FB;
-	Wed,  3 Jun 2026 04:07:19 -0700 (PDT)
-Received: from lakrids.cambridge.arm.com (usa-sjc-imap-foss1.foss.arm.com [10.121.207.14])
-	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPA id 39AD63F86F;
-	Wed,  3 Jun 2026 04:07:22 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=simple/simple; d=arm.com; s=foss;
-	t=1780484844; bh=p7t9IwwhIVJ7szPDIPPLd4qn5HtQFfzvbSGJLEXQP3Q=;
-	h=From:To:Cc:Subject:Date:In-Reply-To:References:From;
-	b=C/GdyccYgwTxR6Gt6pi5ZQY9reiKcl3vO5w6ic7/wTIQqhcDI4GIdzeL6BKos/lTd
-	 CpkR4v/ZAkWqTDhfHwwLDJm8qDFd1Jh6DSbJevN+tvyPj4InsGwKbUAQKZ4vkdjKEQ
-	 j1o+MetAu10931HxdRhK1nvJySZ3GiiXbXvQ75JY=
-From: Mark Rutland <mark.rutland@arm.com>
-To: linux-arm-kernel@lists.infradead.org,
-	kvmarm@lists.linux.dev
-Cc: broonie@kernel.org,
-	catalin.marinas@arm.com,
-	james.morse@arm.com,
-	mark.rutland@arm.com,
-	maz@kernel.org,
-	oupton@kernel.org,
-	stable@vger.kernel.org,
-	tabba@google.com,
-	vladimir.murzin@arm.com,
-	will@kernel.org
-Subject: [PATCH v4 20/20] arm64: fpsimd: Remove <asm/fpsimdmacros.h>
-Date: Wed,  3 Jun 2026 12:06:30 +0100
-Message-Id: <20260603110630.1027435-21-mark.rutland@arm.com>
-X-Mailer: git-send-email 2.30.2
-In-Reply-To: <20260603110630.1027435-1-mark.rutland@arm.com>
-References: <20260603110630.1027435-1-mark.rutland@arm.com>
+	Wed, 03 Jun 2026 11:22:26 +0000
+Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
+	by tor.source.kernel.org (Postfix) with ESMTP id 9B19D60052;
+	Wed,  3 Jun 2026 11:22:25 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 6DB941F00893;
+	Wed,  3 Jun 2026 11:22:21 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
+	s=k20260515; t=1780485745;
+	bh=cXEjc/5hFRDYA1JmIf1Nf0sHw2o3MsqDWZosJ8VPs34=;
+	h=Date:From:To:Cc:Subject:References:In-Reply-To;
+	b=nOUzc5Op+hlkXIq555+AjTA9AOIZ7Z/YhcVbMSB4YwqOyXHfvGEboKFwb1vMLFt7z
+	 rgKJtmrr9RSDpWZVJgclHeFWHWqp6QeZ+OTN48bM6NozoU4da0Hk9Gt2Y/JcudJEq2
+	 GUczLX4n71GwBEEel4mmlmoZUS9yEwOF0baAxVKlshP+xIZDOeW+gOltyQf0EeJOxa
+	 v1kSlqwBO+BJhMb/5PBSK1Cte2N6RJllzVJUPROBTzHF2O2Db4t8JgXrZllrcxfwyR
+	 iQ0iWfIYE/MAD2Xc8q8C2xQaw0gMJu5BOUJL2/LSuVWBwP1A5hpdzljfWlbC8DcGez
+	 f+NxByEYGWbkg==
+Date: Wed, 3 Jun 2026 12:22:17 +0100
+From: Will Deacon <will@kernel.org>
+To: Ard Biesheuvel <ardb@kernel.org>
+Cc: linux-arm-kernel@lists.infradead.org,
+	Ard Biesheuvel <ardb+git@google.com>,
+	Catalin Marinas <catalin.marinas@arm.com>, kernel-team@android.com,
+	linux-kernel@vger.kernel.org, Mark Rutland <mark.rutland@arm.com>,
+	Ryan Roberts <ryan.roberts@arm.com>,
+	Anshuman Khandual <anshuman.khandual@arm.com>,
+	Kevin Brodsky <kevin.brodsky@arm.com>,
+	Liz Prucka <lizprucka@google.com>,
+	Seth Jenkins <sethjenkins@google.com>, Kees Cook <kees@kernel.org>,
+	Mike Rapoport <rppt@kernel.org>,
+	David Hildenbrand <david@kernel.org>,
+	Andrew Morton <akpm@linux-foundation.org>,
+	Jann Horn <jannh@google.com>, linux-mm@kvack.org,
+	linux-hardening@vger.kernel.org, linuxppc-dev@lists.ozlabs.org,
+	linux-sh@vger.kernel.org, maz@kernel.org
+Subject: Re: [PATCH v7 00/15] arm64: Unmap linear alias of kernel data/bss
+Message-ID: <aiAOaYwPlGEG6FML@willie-the-truck>
+References: <20260529150150.1670604-17-ardb+git@google.com>
+ <178041415770.4024555.11336437584927054639.b4-ty@kernel.org>
+ <2c7929d4-6622-475d-af1b-bcd0cd997cd3@app.fastmail.com>
 MIME-Version: 1.0
-Content-Transfer-Encoding: 8bit
-X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260603_040724_534786_7D698D69 
-X-CRM114-Status: UNSURE (   8.13  )
-X-CRM114-Notice: Please train this message.
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+In-Reply-To: <2c7929d4-6622-475d-af1b-bcd0cd997cd3@app.fastmail.com>
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -78,95 +83,55 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-We no longer need any of the remaining macros in <asm/fpsimdmacros.h>.
+On Wed, Jun 03, 2026 at 10:57:49AM +0200, Ard Biesheuvel wrote:
+> (cc Marc)
+> 
+> On Tue, 2 Jun 2026, at 22:34, Will Deacon wrote:
+> > On Fri, 29 May 2026 17:01:51 +0200, Ard Biesheuvel wrote:
+> >> One of the reasons the lack of randomization of the linear map on arm64
+> >> is considered problematic is the fact that bootloaders adhering to the
+> >> original arm64 boot protocol (i.e., a substantial fraction of all
+> >> Android phones) may place the kernel at the base of DRAM, and therefore
+> >> at the base of the non-randomized linear map. This puts a writable alias
+> >> of the kernel's data and bss regions at a predictable location, removing
+> >> the need for an attacker to guess where KASLR mapped the kernel.
+> >> 
+> >> [...]
+> >
+> > It would've been nice to hear from the ppc folks on patch 11, but I've
+> > picked it up on the assumption that they'll love the negative diff stat.
+> > Worst case, we can drop/revert stuff if they have late objections.
+> >
+> 
+> Thanks.
+> 
+> There is a de facto ack from Michael Ellerman in the Link:, which is why
+> I included it.
+> 
+> Note that Sashiko found an issue with KVM+MTE, where a read-only mapping
+> of the zero page in the linear map may result in issues:
+> 
+> """
+> Does moving the zero page to .rodata (or unmapping/read-only mapping its
+> linear alias) expose a guest-to-host denial of service with KVM and MTE?
+> When an MTE-enabled KVM guest reads an unmapped memory address, KVM handles
+> the stage-2 fault by mapping the host's shared zero page. KVM will then
+> call sanitise_mte_tags() in arch/arm64/kvm/mmu.c.
+> Since the PG_mte_tagged flag is never set on the zero page, KVM's
+> try_page_mte_tagging() succeeds, and it calls mte_clear_page_tags().
+> This executes the STGM instruction using the zero page's linear map alias.
+> If this alias is read-only or unmapped, won't the STGM instruction trigger
+> a synchronous permission fault or translation fault in EL1, causing a host
+> kernel panic?
+> """
+> 
+> Marc seems to think it is legit, so I came up with the following (I'll send
+> it out separately with another pair of tweaks):
 
-Remove all of it.
+Thanks, it also looks like we're getting some early WARN_ON()s firing in
+CI from split_kernel_leaf_mapping() after applying your changes:
 
-Signed-off-by: Mark Rutland <mark.rutland@arm.com>
-Reviewed-by: Mark Brown <broonie@kernel.org>
-Reviewed-by: Vladimir Murzin <vladimir.murzin@arm.com>
-Cc: Catalin Marinas <catalin.marinas@arm.com>
-Cc: Fuad Tabba <tabba@google.com>
-Cc: James Morse <james.morse@arm.com>
-Cc: Marc Zyngier <maz@kernel.org>
-Cc: Oliver Upton <oupton@kernel.org>
-Cc: Will Deacon <will@kernel.org>
----
- arch/arm64/include/asm/fpsimdmacros.h | 64 ---------------------------
- 1 file changed, 64 deletions(-)
- delete mode 100644 arch/arm64/include/asm/fpsimdmacros.h
+https://s3.amazonaws.com/arr-cki-prod-trusted-artifacts/trusted-artifacts/2571596185/test_aarch64/14662134813/artifacts/jobwatch/logs/recipes/21399931/tasks/219104268/results/1007729692/logs/journalctl.log
 
-diff --git a/arch/arm64/include/asm/fpsimdmacros.h b/arch/arm64/include/asm/fpsimdmacros.h
-deleted file mode 100644
-index a763fd03ffef3..0000000000000
---- a/arch/arm64/include/asm/fpsimdmacros.h
-+++ /dev/null
-@@ -1,64 +0,0 @@
--/* SPDX-License-Identifier: GPL-2.0-only */
--/*
-- * FP/SIMD state saving and restoring macros
-- *
-- * Copyright (C) 2012 ARM Ltd.
-- * Author: Catalin Marinas <catalin.marinas@arm.com>
-- */
--
--#include <asm/assembler.h>
--
--/* Sanity-check macros to help avoid encoding garbage instructions */
--
--.macro _check_general_reg nr
--	.if (\nr) < 0 || (\nr) > 30
--		.error "Bad register number \nr."
--	.endif
--.endm
--
--.macro _sve_check_zreg znr
--	.if (\znr) < 0 || (\znr) > 31
--		.error "Bad Scalable Vector Extension vector register number \znr."
--	.endif
--.endm
--
--.macro _sve_check_preg pnr
--	.if (\pnr) < 0 || (\pnr) > 15
--		.error "Bad Scalable Vector Extension predicate register number \pnr."
--	.endif
--.endm
--
--.macro _check_num n, min, max
--	.if (\n) < (\min) || (\n) > (\max)
--		.error "Number \n out of range [\min,\max]"
--	.endif
--.endm
--
--.macro _sme_check_wv v
--	.if (\v) < 12 || (\v) > 15
--		.error "Bad vector select register \v."
--	.endif
--.endm
--
--.macro __for from:req, to:req
--	.if (\from) == (\to)
--		_for__body %\from
--	.else
--		__for %\from, %((\from) + ((\to) - (\from)) / 2)
--		__for %((\from) + ((\to) - (\from)) / 2 + 1), %\to
--	.endif
--.endm
--
--.macro _for var:req, from:req, to:req, insn:vararg
--	.macro _for__body \var:req
--		.noaltmacro
--		\insn
--		.altmacro
--	.endm
--
--	.altmacro
--	__for \from, \to
--	.noaltmacro
--
--	.purgem _for__body
--.endm
--- 
-2.30.2
-
+Will
 
