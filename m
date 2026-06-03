@@ -4,82 +4,88 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 05EC1CD6E60
-	for <linux-arm-kernel@archiver.kernel.org>; Wed,  3 Jun 2026 15:00:56 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id B631FCD6E57
+	for <linux-arm-kernel@archiver.kernel.org>; Wed,  3 Jun 2026 15:09:56 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:
-	Content-Transfer-Encoding:MIME-Version:References:In-Reply-To:Message-ID:Date
-	:Subject:CC:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=R0HoyT4NEUL1z4G9ZQY5XnazpZFdb87Z3AGye2VMEMs=; b=rmtWJwTqNmGBRA8Z/KNxs4erml
-	vhJXwS+tHQ4UBgb2/yGhkv1MfMnb7wFJG2BVXoEt0Rp8XW8P9pI830H+jeIbRjFrdM8nUP/4qauYN
-	vCF4366RyZxwizS6al8HxtBwUEVN6k6GPertzExQjIshLaQMc70/KiNBKXmwIXBT7sGhiUu/eYqB1
-	MPSYt9SUmKtQLllNkTMSSGeLbQ5ESSDUQYInHp2PdYbiVnk4qc00roa/7wbJDjRkfUbbqUyHqzcQS
-	zaUlwNq5DapWROq7gCwkK5nlMmVL3fV8230C+wH9WSnUluHaV3zhxxvNXfjvkXm/HFAI+7gfahmOJ
-	KwIn3PQQ==;
+	bh=YxqzNwaAdmL0/SThUg+qILxDXPPyBFWSONMfuCfu5/s=; b=c7lj+z8fBOPSrqceI8LWicwIfj
+	WqHFEw8g1prjknhogZaI7wzZ0EZg5BCUz/1b8ba5uh+uOStzlsT4pJODHwBbbrqVG4MWMizu96ozK
+	Xm2o6Ud6pEUsznCF2t5XTFHnZFsot8mHZ7C9miAU0gCXgEGP/1zYDaSx/2aWii/kGYvE2skPI3FZo
+	5AWElXF9gj4lxtG6yLv8RqPlNXKNIPbbq8CGiofNr3+E7RM7J6VLbsGiE+EB8Cwgro7rqGREKLeJ8
+	myHu9ISp7fU/pERy3St2qtEzZ7khhOB6hD/A6vSANYteB9AG5vONCDv8KG03aeyguqZ21s06o/hS/
+	1DvjxgcA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wUn5L-0000000FJyI-3vfR;
-	Wed, 03 Jun 2026 15:00:48 +0000
-Received: from pdx-out-015.esa.us-west-2.outbound.mail-perimeter.amazon.com ([50.112.246.219])
+	id 1wUnE6-0000000FKtI-2552;
+	Wed, 03 Jun 2026 15:09:50 +0000
+Received: from mail-wm1-x333.google.com ([2a00:1450:4864:20::333])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wUn5D-0000000FJto-1gcu
+	id 1wUnE3-0000000FKsf-3yad
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 03 Jun 2026 15:00:45 +0000
+	Wed, 03 Jun 2026 15:09:49 +0000
+Received: by mail-wm1-x333.google.com with SMTP id 5b1f17b1804b1-490b8ac62baso5772915e9.0
+        for <linux-arm-kernel@lists.infradead.org>; Wed, 03 Jun 2026 08:09:45 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-  d=amazon.com; i=@amazon.com; q=dns/txt; s=amazoncorp2;
-  t=1780498839; x=1812034839;
-  h=from:to:cc:subject:date:message-id:in-reply-to:
-   references:mime-version:content-transfer-encoding;
-  bh=R0HoyT4NEUL1z4G9ZQY5XnazpZFdb87Z3AGye2VMEMs=;
-  b=SfX1Js/G8i6mXckIR62osV0hM5asUCmNoMOL148Tu85gkq6181mpg2JA
-   Fs84VHIFZHUhpAkPlvmMT0vPNA9m2MA3mnb9MFQ+ACLJdB6mm+v2I1dnn
-   22As9XfvGaQ2wmZOrnPBbE5e+jbbIQWE4Dr0yrX7U/0Bv+5O0wiK4GBGL
-   INc9tdqgMImPaUaCC/4HXNR4RQHnFuhfKkakjDb/9LYFwdCjEKvpsDvHJ
-   yKDQHcBY283bTGswRJ4gM9BL/hcPwFynQLyLkT/PPSMH7+4fvWuOLGQ4z
-   e8xYroH8oQbPqTkdSe9M7Z/WUOJIqCYEOeNqJanzwIYzPwlY8sFiGfcE0
-   A==;
-X-CSE-ConnectionGUID: kiuWK5H5SbSaZBuIPsvtyQ==
-X-CSE-MsgGUID: +I7UP4SORdiodO8dt9Btow==
-X-IronPort-AV: E=Sophos;i="6.24,185,1774310400"; 
-   d="scan'208";a="20825743"
-Received: from ip-10-5-0-115.us-west-2.compute.internal (HELO smtpout.naws.us-west-2.prod.farcaster.email.amazon.dev) ([10.5.0.115])
-  by internal-pdx-out-015.esa.us-west-2.outbound.mail-perimeter.amazon.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 03 Jun 2026 15:00:33 +0000
-Received: from EX19MTAUWA001.ant.amazon.com [205.251.233.236:26102]
- by smtpin.naws.us-west-2.prod.farcaster.email.amazon.dev [10.0.19.88:2525] with esmtp (Farcaster)
- id a7656433-0c55-46ee-a621-641430ec32f8; Wed, 3 Jun 2026 15:00:33 +0000 (UTC)
-X-Farcaster-Flow-ID: a7656433-0c55-46ee-a621-641430ec32f8
-Received: from EX19D001UWA001.ant.amazon.com (10.13.138.214) by
- EX19MTAUWA001.ant.amazon.com (10.250.64.218) with Microsoft SMTP Server
- (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_128_CBC_SHA) id 15.2.2562.37;
- Wed, 3 Jun 2026 15:00:33 +0000
-Received: from dev-dsk-avivb-1b-e28f450e.eu-west-1.amazon.com (10.15.33.9) by
- EX19D001UWA001.ant.amazon.com (10.13.138.214) with Microsoft SMTP Server
- (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_128_CBC_SHA) id 15.2.2562.37;
- Wed, 3 Jun 2026 15:00:31 +0000
-From: Aviv Bakal <avivb@amazon.com>
-To: <robin.murphy@arm.com>, <will@kernel.org>, <mark.rutland@arm.com>
-CC: <linux-arm-kernel@lists.infradead.org>,
-	<linux-perf-users@vger.kernel.org>, <linux-kernel@vger.kernel.org>,
-	<avivb@amazon.com>, <zeev@amazon.com>, <blakgeof@amazon.com>,
-	<ilkka@os.amperecomputing.com>
-Subject: [PATCH v5 2/2] perf/arm-cmn: Add workarounds for CMN-S3 on Graviton5
-Date: Wed, 3 Jun 2026 18:00:25 +0300
-Message-ID: <20260603150025.30980-3-avivb@amazon.com>
-X-Mailer: git-send-email 2.47.3
-In-Reply-To: <20260603150025.30980-1-avivb@amazon.com>
-References: <20260531110447.10095-1-avivb@amazon.com>
- <20260603150025.30980-1-avivb@amazon.com>
+        d=baylibre.com; s=google; t=1780499384; x=1781104184; darn=lists.infradead.org;
+        h=in-reply-to:content-disposition:mime-version:references:message-id
+         :subject:cc:to:from:date:from:to:cc:subject:date:message-id:reply-to;
+        bh=YxqzNwaAdmL0/SThUg+qILxDXPPyBFWSONMfuCfu5/s=;
+        b=EZZUUDEtYSV9MxqVTvvTDT3KbSZo+JezwR/39ayoWLj2aEAb8U8fVNzgDwMgJ3PUX2
+         DxvLTUTwAQphixAtDkQr1dhTjnf59GgBcZ2LKKKCDdea8wkYRbsL8JVTezGgEsnYodv8
+         Q3tP4cXMep2CmxjXtL8DW5Gd39v466Rwp2hutTXPrkXmcWYnp2ofsOpUmXjC/TdL7bEU
+         3rsU7QepCMYjFiMXut2Sr8epBplxWGsUuo6/bfzsTskDpO4O0qmLJjeDQ1yIL9VQHitg
+         WLf1gu24kh5yFlxOjQ+RSr5s44Gtz5x4g0XIjVNyieMaTgi9RkGwOV1b0Fp4SpcHA0Yn
+         ZcwQ==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20251104; t=1780499384; x=1781104184;
+        h=in-reply-to:content-disposition:mime-version:references:message-id
+         :subject:cc:to:from:date:x-gm-gg:x-gm-message-state:from:to:cc
+         :subject:date:message-id:reply-to;
+        bh=YxqzNwaAdmL0/SThUg+qILxDXPPyBFWSONMfuCfu5/s=;
+        b=o8XgMaitsBuwDqsbonr0DWAPqv/5Dc0QjbGZVs99tpw2np0cSEkBNuc7IJ2AevLV9G
+         OoBGp1b1ZbwoWNeg3jQpMo+vGq7z80ktXFiBTdpOUtjgk50u3a3h5u81VYHiD0oxNbHf
+         2pO563ntyu33x/yUUuiCdFcNt8oua1KbjFA9/BoxNzLyGwP7mfqXf+V1JgtWcYIQYklV
+         fugo5Mop1eKKNTfph9Vnpm/OYBbK5zb5L6TShxyx6LztBiNaxdtzL0XQgY2vADsbqx7Z
+         ehQK2zQi3bYCudKQ+3ErMm++aRiFCB/1lNkyXcopisiK38ud42PYsulayTN3C5Pn5hhY
+         q7GQ==
+X-Forwarded-Encrypted: i=1; AFNElJ/LrB8tmjfbjAWPOJlryqA5q0Va4mY9hDmBZmf+n3FwxcNoSE94eQs4GSzyHYJTTk9avIr9N190NXsJ6TdEBj3V@lists.infradead.org
+X-Gm-Message-State: AOJu0Yxsn9Ta9p/ozCbMVT8k6w7O5RNvuxhsdM+82ASBoLYMYKnBY+Xg
+	uY79Z8dQ6u6CkodilQmj1eD6FXlk5ByvPtP3Doeet5aluua0rg6bqTspLg7pfXaGMHA=
+X-Gm-Gg: Acq92OGZyLqNaGZJ9n6YijwxV9KqQne+ffruWfVxRz2gMOKR48KkSZsud7ErhCZMinW
+	FlyCFnLkXqt46vWxSN50lwV8wOUAB0yEpPz11JkYNLHascfS2S84IRYVwmQa4dXkHpF9pU1KutD
+	ELPdkeF/cIKJgRruNvwVD7kqWgHDL/wHngtDpfXjeHyMwM8qgzcqXakIW2kTSrtXryI7BqdVxKO
+	z4YffArH8WD3Phty6ftPjVMeK7iqzkbzl99OsE9x7xm5u9Jo0eXMY8xS50UFfvlkYD9yxyvuqVq
+	UQ3QEF819Bwq+xriQRRAVQV5VbZsTPXklg7jKXT9WbGkFPKxwMi6BI35WG4HtRQ5LJLKnR9DEz2
+	UtA3HSOP3fliqUKKkdL4bUX2QiagfGHHn+RentVOjTNMYUWMFKECbuZW34a30bDpdqHyTzf4jCT
+	CMtJ0o18qxrK2nuPf9OzhKbV5b3l1CkvfM8tOEEKr0faY=
+X-Received: by 2002:a05:600c:4750:b0:490:b4a8:e031 with SMTP id 5b1f17b1804b1-490b611ac38mr48537035e9.4.1780499384621;
+        Wed, 03 Jun 2026 08:09:44 -0700 (PDT)
+Received: from localhost ([90.85.134.233])
+        by smtp.gmail.com with UTF8SMTPSA id 5b1f17b1804b1-490b63d810dsm76797115e9.9.2026.06.03.08.09.43
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Wed, 03 Jun 2026 08:09:43 -0700 (PDT)
+Date: Wed, 3 Jun 2026 17:09:42 +0200
+From: Uwe =?utf-8?Q?Kleine-K=C3=B6nig?= <u.kleine-koenig@baylibre.com>
+To: Sascha Hauer <s.hauer@pengutronix.de>
+Cc: Russell King <linux@armlinux.org.uk>, 
+	linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org, 
+	Marco Felsch <m.felsch@pengutronix.de>, Alexander Stein <alexander.stein@ew.tq-group.com>, 
+	Ryan Eatmon <reatmon@ti.com>, kernel@pengutronix.de
+Subject: Re: [PATCH] arm: gen-mach-types: don't include absolute filename
+Message-ID: <aiBDAQmQFKeN033y@monoceros>
+References: <20260603-arm-remove-path-from-mach-types-h-v1-1-cda9890ba788@pengutronix.de>
 MIME-Version: 1.0
-Content-Transfer-Encoding: 8bit
-Content-Type: text/plain
-X-Originating-IP: [10.15.33.9]
-X-ClientProxiedBy: EX19D038UWB002.ant.amazon.com (10.13.139.185) To
- EX19D001UWA001.ant.amazon.com (10.13.138.214)
+Content-Type: multipart/signed; micalg=pgp-sha512;
+	protocol="application/pgp-signature"; boundary="oavmczg5e5fbabuf"
+Content-Disposition: inline
+In-Reply-To: <20260603-arm-remove-path-from-mach-types-h-v1-1-cda9890ba788@pengutronix.de>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260603_080043_906949_6A968533 
-X-CRM114-Status: GOOD (  17.11  )
+X-CRM114-CacheID: sfid-20260603_080948_007924_D151AC89 
+X-CRM114-Status: GOOD (  15.88  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -94,115 +100,48 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Graviton5 uses a customised CMN-S3 implementation where certain
-discovery registers report zeroed fields. Add the following workarounds:
 
- - Introduce a dedicated ACPI HID to identify the Graviton5 CMN variant.
- - Derive the DTC domain from the XP node ID, since the unit info
-   register reports it as zero.
- - Set the DTC logical ID from the XP's logical ID, since the node info
-   register's logical ID field is also zeroed.
+--oavmczg5e5fbabuf
+Content-Type: text/plain; protected-headers=v1; charset=iso-8859-1
+Content-Disposition: inline
+Content-Transfer-Encoding: quoted-printable
+Subject: Re: [PATCH] arm: gen-mach-types: don't include absolute filename
+MIME-Version: 1.0
 
-Signed-off-by: Aviv Bakal <avivb@amazon.com>
-Reviewed-by: Robin Murphy <robin.murphy@arm.com>
-Reviewed-by: Ilkka Koskinen <ilkka@os.amperecomputing.com>
----
- drivers/perf/arm-cmn.c | 32 +++++++++++++++++++++++++++++++-
- 1 file changed, 31 insertions(+), 1 deletion(-)
+Hello Sascha,
 
-diff --git a/drivers/perf/arm-cmn.c b/drivers/perf/arm-cmn.c
-index f1978a53d1c1..3fb71d9a57eb 100644
---- a/drivers/perf/arm-cmn.c
-+++ b/drivers/perf/arm-cmn.c
-@@ -31,7 +31,8 @@
- #define CMN_CHILD_NODE_ADDR		GENMASK(29, 0)
- #define CMN_CHILD_NODE_EXTERNAL		BIT(31)
- 
--#define CMN_MAX_DIMENSION		12
-+/* Some implementations use a mesh larger than the architectural max of 12 */
-+#define CMN_MAX_DIMENSION		14
- #define CMN_MAX_XPS			(CMN_MAX_DIMENSION * CMN_MAX_DIMENSION)
- #define CMN_MAX_DTMS			(CMN_MAX_XPS + (CMN_MAX_DIMENSION - 1) * 4)
- 
-@@ -214,6 +215,8 @@ enum cmn_part {
- 	PART_CMN700 = 0x43c,
- 	PART_CI700 = 0x43a,
- 	PART_CMN_S3 = 0x43e,
-+	/* Synthetic part number, overridden to PART_CMN_S3 during discovery */
-+	PART_GRAVITON5 = 0xa5,
- };
- 
- /* CMN-600 r0px shouldn't exist in silicon, thankfully */
-@@ -2250,6 +2253,18 @@ static unsigned int arm_cmn_dtc_domain(struct arm_cmn *cmn, void __iomem *xp_reg
- 	return FIELD_GET(CMN_DTM_UNIT_INFO_DTC_DOMAIN, readl_relaxed(xp_region + offset));
- }
- 
-+static unsigned int arm_cmn_graviton5_dtc_domain(u16 xp_id)
-+{
-+	unsigned int x = (xp_id >> 7) & 0xf;
-+	unsigned int y = (xp_id >> 3) & 0xf;
-+
-+	/*
-+	 * The unit info register reads as zero; derive the DTC domain from
-+	 * the XP's mesh coordinates over the 10x14 mesh.
-+	 */
-+	return (x / 5) + (y / 7) * 2;
-+}
-+
- static void arm_cmn_init_node_info(struct arm_cmn *cmn, u32 offset, struct arm_cmn_node *node)
- {
- 	int level;
-@@ -2295,6 +2310,7 @@ static int arm_cmn_discover(struct arm_cmn *cmn, unsigned int rgn_offset)
- 	u64 reg;
- 	int i, j;
- 	size_t sz;
-+	bool graviton5_workaround = false;
- 
- 	arm_cmn_init_node_info(cmn, rgn_offset, &cfg);
- 	if (cfg.type != CMN_TYPE_CFG)
-@@ -2305,6 +2321,13 @@ static int arm_cmn_discover(struct arm_cmn *cmn, unsigned int rgn_offset)
- 	reg = readq_relaxed(cfg_region + CMN_CFGM_PERIPH_ID_01);
- 	part = FIELD_GET(CMN_CFGM_PID0_PART_0, reg);
- 	part |= FIELD_GET(CMN_CFGM_PID1_PART_1, reg) << 8;
-+
-+	/* Graviton5 has a customised CMN-S3 which needs some fixups */
-+	if (cmn->part == PART_GRAVITON5) {
-+		cmn->part = PART_CMN_S3;
-+		graviton5_workaround = true;
-+	}
-+
- 	/* 600AE is close enough that it's not really worth more complexity */
- 	if (part == PART_CMN600AE)
- 		part = PART_CMN600;
-@@ -2394,6 +2417,8 @@ static int arm_cmn_discover(struct arm_cmn *cmn, unsigned int rgn_offset)
- 
- 		if (cmn->part == PART_CMN600)
- 			xp->dtc = -1;
-+		else if (graviton5_workaround)
-+			xp->dtc = arm_cmn_graviton5_dtc_domain(xp->id);
- 		else
- 			xp->dtc = arm_cmn_dtc_domain(cmn, xp_region);
- 
-@@ -2472,6 +2497,10 @@ static int arm_cmn_discover(struct arm_cmn *cmn, unsigned int rgn_offset)
- 
- 			switch (dn->type) {
- 			case CMN_TYPE_DTC:
-+				if (graviton5_workaround) {
-+					/* Node info logical ID is zeroed; use the XP's */
-+					dn->logid = xp->logid;
-+				}
- 				cmn->num_dtcs++;
- 				dn++;
- 				break;
-@@ -2687,6 +2716,7 @@ static const struct acpi_device_id arm_cmn_acpi_match[] = {
- 	{ "ARMHC650" },
- 	{ "ARMHC700" },
- 	{ "ARMHC003" },
-+	{ "AMZN0070", PART_GRAVITON5 },
- 	{}
- };
- MODULE_DEVICE_TABLE(acpi, arm_cmn_acpi_match);
--- 
-2.47.3
+On Wed, Jun 03, 2026 at 04:12:10PM +0200, Sascha Hauer wrote:
+> mach-types.h is part of the kapi and as such shipped in the
+> linux-headers package. The embedded build path makes that package
+> non-reproducible without going through an extra step of normalizing the
+> path. YOCTO has similar problems in the kernel debug source package.
+>=20
+> Make the path relative to the kernel source tree which is enough to
+> find the tool that has generated the file.
+>=20
+> Signed-off-by: Sascha Hauer <s.hauer@pengutronix.de>
 
+Compared to my old patch this is simpler, I like it.
+
+Acked-by: Uwe Kleine-K=F6nig <u.kleine-koenig@baylibre.com>
+
+Thanks
+Uwe
+
+--oavmczg5e5fbabuf
+Content-Type: application/pgp-signature; name="signature.asc"
+
+-----BEGIN PGP SIGNATURE-----
+
+iQEzBAABCgAdFiEEP4GsaTp6HlmJrf7Tj4D7WH0S/k4FAmogQ7MACgkQj4D7WH0S
+/k4dewf+MNI97X4Fwp5u/4n9hOmWPPEgzpwtq2F7qjwkXHhWs7ec/8U15RAQ1W5V
+F6Vr7r1vp6pW1iS7SYm0FdQ5ckV4D1/a6aEMHCplGoOsObHbTRz1dHF/NttGsJoR
+Yz5Tq7jVx/RTZxOW35g5CIOZNc+g9SPGsdIzf+7Xjh+MYzIErpDa5HcxMia78fFN
+2V13SvUO4s2adPY/tj13BogMaCnuXnRGeIQg5vZdyNK090y9HZK3h3Zmp9xDWREj
+2QN/tjGU4mV+QGqmWLCYFKSkpGjbmLu/pEX61pegOVjhNYgwYsV7I3yNNwsRpcqn
+o5nWsb5MijkWtSFxX/O5c0epteFS4A==
+=dgqp
+-----END PGP SIGNATURE-----
+
+--oavmczg5e5fbabuf--
 
