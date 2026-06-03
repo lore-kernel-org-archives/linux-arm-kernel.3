@@ -4,56 +4,102 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 6984CCD6E5D
-	for <linux-arm-kernel@archiver.kernel.org>; Wed,  3 Jun 2026 02:34:22 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 2CB7FCD6E4A
+	for <linux-arm-kernel@archiver.kernel.org>; Wed,  3 Jun 2026 02:52:55 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:
-	Content-Transfer-Encoding:Content-Type:Date:Cc:To:From:Subject:Message-ID:
-	Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender
-	:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
-	bh=0P5xTtK6qJk11drFxut88gGWQ14R3F9398eX/Saen6s=; b=iRefIcax6zk4kIfLf+XP5270vy
-	AisGiNnlwAkRXnH67A1mhreo9Dx73i4KPwuLuIEeD28ks8bFsrdPe+y1Ff9ICF+XeISo9M7dNQ6oE
-	yrv0RNaxfshys+bGxEggDD+431HwIEClGyp4sVvCYThc0vcbpV47ji7dQEvPfYZdVN9JlIaO2Py9w
-	eIqMMrFc5XzRhvuxNbyX+AkGS4zfRlHzXla5M9lNsj348b0yPQxAr7J7lVX/rMJ81xZRho0OoCmtH
-	YK5ozXMp7gelAjKZddU8MCu5poHHp7M6WhLg5j8q3bai71QYNJIn+CAYeszUSTDI56VIH4Uew2xDN
-	5kn7ATPg==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:Cc:To:Subject:
+	Message-ID:Date:From:In-Reply-To:References:MIME-Version:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=haCzACy1VwjEhPVktl6DfR/M1mIaZzLk35CXYf7U7J8=; b=NAfjGNPcPHSG44UK81auEKYsZ/
+	QCC/0c4Ik7lmlouktpK4JdSFE8XzzkWpiUhvzlsYXQqFws0LrTnKPW3LwWkPysEDZA+2WoaTCOK9y
+	xFosLQShsvIRG08rpU+JDzTh2lZGVqCUT0CsRfAwZhQ5iQkVC8Oc4RgEJMbu2Slam7wmjZcSSjKrM
+	AncKeGBvv7Ed9a2/CskRWWT+OVDt4OQiFPsTfnTu8xJIYmjg/Ojcr387b65M2Ewfiq4m2zfJPNoUG
+	CGfogrKlfGUSIVyTJnIHBHOjP9uy46nD2kmkHwpu9qAweEunc8CSAv8qitAerkF63Jrv77XNQYhPz
+	LBQ2BWwQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wUbQt-0000000E78B-0Cbq;
-	Wed, 03 Jun 2026 02:34:15 +0000
-Received: from pi.codeconstruct.com.au ([203.29.241.158] helo=codeconstruct.com.au)
+	id 1wUbip-0000000E8D1-3eW9;
+	Wed, 03 Jun 2026 02:52:47 +0000
+Received: from mail-ej1-x62c.google.com ([2a00:1450:4864:20::62c])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wUbQq-0000000E77l-0a8v
+	id 1wUbin-0000000E8Cf-3xbx
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 03 Jun 2026 02:34:13 +0000
+	Wed, 03 Jun 2026 02:52:47 +0000
+Received: by mail-ej1-x62c.google.com with SMTP id a640c23a62f3a-bebbc325000so429814166b.0
+        for <linux-arm-kernel@lists.infradead.org>; Tue, 02 Jun 2026 19:52:44 -0700 (PDT)
+ARC-Seal: i=1; a=rsa-sha256; t=1780455163; cv=none;
+        d=google.com; s=arc-20240605;
+        b=a3++mXol+8VEP/5TwOltqH1vON7VQUvsE0ixqsA4vX/8YfKS4iMm4BboiRbtILUK+I
+         zu9ECdlbMZG8wE3Ji8l9wxo5f7Kz1ezv1ZPhLvk435TFd6khJTdNAReto4xAJqzosmEb
+         TTFocrlgdvjb7ciaoCxl7pP8YOQMkA4xXA9qMnftluN6bF7LqEWyMoDM2n8UDSLz/3EO
+         V2fKTvupVgw7RMKkiHf+qUXdxK1JzroKh2jMaFqzQZfJnbxkfJWg0XDsi4kvcjofEjjJ
+         6vvTybvNHWuV/7ndIVHxDDfC/gQuwAzjZBQ0QTmwEiF4771mjaQ/DNbVisiUC2PkmoWy
+         q3gA==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20240605;
+        h=cc:to:subject:message-id:date:from:in-reply-to:references
+         :mime-version:dkim-signature;
+        bh=haCzACy1VwjEhPVktl6DfR/M1mIaZzLk35CXYf7U7J8=;
+        fh=u5yfwPJ/RRrO2BOgUbtp2kIROApeRGTEqfSsyQVdAXM=;
+        b=QTSvp90GV+S5sA3sdxfnAioE+Q8eXukZ0OjRW1sIlFBnHYGR2pT47aK1GVsKf27+Hk
+         B3huKZtZlKU+wgH6H9MuzWCJbuGujIewAiLeCvfXb+QhKNIJzgPK9cr1Jpc3qfEyJgVp
+         ivZqmkLmVFE/YvuUBSVwVDENk9mZ08k69j3pLN+4C7PdE0gFHBb/ILV6xE2s/ToC5dO/
+         fhOIrNSMUFpoP44hCOisDeXqUNM+QTXfO6AnZMnjwk0+Aa82Xb5TMUuL/xKt9vFwuDVb
+         H/lG/fgvUNhUMMComoDYMA44IzGB4YeCeEZU7EvSnpPZdquUPHOxsHeIMpipmMYr62ni
+         Vaqw==;
+        darn=lists.infradead.org
+ARC-Authentication-Results: i=1; mx.google.com; arc=none
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-	d=codeconstruct.com.au; s=2022a; t=1780454050;
-	bh=0P5xTtK6qJk11drFxut88gGWQ14R3F9398eX/Saen6s=;
-	h=Subject:From:To:Cc:Date;
-	b=LY5gsaZEH8JGU8zm2qE+glifMq+UTc38flMyOSQoQ6WcAyQUQSpa4NdyJnnAk16zV
-	 OaloRtqWrAABbM6nKhJ2NqxjBV/eMzuw9kFzyHnklntr58HYkBpeb6M33FBfBIeVxN
-	 IMAbL3qUOjTHOpmsPdB21cxUYB9kuhaC5/VEDsGu5+GxSr9EfAJ2eZHcFaalS6qW8K
-	 E/VZUKf/kTpYVvQ6wO7QjFrCG824k8kbaUpEpJ1mNMseE+syVhLK+dK6/2z99TSNHk
-	 93NZY/ZgvTam5ER0zT5A2k4K3Aqn8U/zQ5kYv3J3csekPY+O+Ucwe0ndsh1mxRzW8Q
-	 MUeDo3GpFnvCw==
-Received: from [192.168.68.117] (unknown [180.150.112.11])
-	by mail.codeconstruct.com.au (Postfix) with ESMTPSA id 44A5960087;
-	Wed,  3 Jun 2026 10:34:09 +0800 (AWST)
-Message-ID: <55ab27bc5e09252b1dbfdf1505693eb193b8e846.camel@codeconstruct.com.au>
-Subject: [GIT PULL] aspeed: First batch of ARM devicetree changes for v7.2
-From: Andrew Jeffery <andrew@codeconstruct.com.au>
-To: soc@lists.linux.dev
-Cc: linux-arm-kernel@lists.infradead.org, linux-aspeed@lists.ozlabs.org, 
-	linux-kernel@vger.kernel.org, Joel Stanley <joel@jms.id.au>
-Date: Wed, 03 Jun 2026 12:04:08 +0930
-Content-Type: text/plain; charset="UTF-8"
-Content-Transfer-Encoding: quoted-printable
-User-Agent: Evolution 3.56.2-0+deb13u1 
+        d=gmail.com; s=20251104; t=1780455163; x=1781059963; darn=lists.infradead.org;
+        h=cc:to:subject:message-id:date:from:in-reply-to:references
+         :mime-version:from:to:cc:subject:date:message-id:reply-to;
+        bh=haCzACy1VwjEhPVktl6DfR/M1mIaZzLk35CXYf7U7J8=;
+        b=jtcyTNUWwJrtO6yooQmK5qXHmVJ2cDZDxj6CLSrF/jWWIqHK1rlgEQC5TXGKkJH0Re
+         Y1vpKi8zrdf95hETcVJhozz06QWxP/kqAadx0o5oKgtghuIcjLFTCxF/AjQZvVFU0TPK
+         2jiPrx0Orb2nh/82XUR0rycxQIVf657sCihA7thVu62rRyaRWrBHNr19OfqYz7LknNdp
+         DRJa+hy5ectZU1cE6FqgBrc4Dx/AoJTo5WmJOgoeChgVSeMpA2Ry00hN0WLCnsqbV9Rs
+         Rei7S9LMXr2Op5eXyJ5Z7NPAm2nPJhFxMVMtC3F1QN9ulV97NKQFihQkcxudkjSw1Nek
+         4BHQ==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20251104; t=1780455163; x=1781059963;
+        h=cc:to:subject:message-id:date:from:in-reply-to:references
+         :mime-version:x-gm-gg:x-gm-message-state:from:to:cc:subject:date
+         :message-id:reply-to;
+        bh=haCzACy1VwjEhPVktl6DfR/M1mIaZzLk35CXYf7U7J8=;
+        b=JMYrRvP78ye9nX0GumFD82JsC5L3/pr/zcxqTrXETlSb3pTCN2h1tNJDW/TX4wibWJ
+         A3oJq+O4bNT/FIYDfB3Kwa80nfnVZYny+9c+xmHYuCywH7bZJtQQxmRQJFpzpaGGVKKn
+         M5mee0ZtbklpX9BYB6I/nhR3Fy81HLq1Xx4WzzveSQgprU3wBbOHDN5W5ywVMH7n3kcS
+         9GfCAcyawiMQ3DR3+E1RVWGh0g7z1gP5UixEsPTU7ucuWs2ktMFx38TGapZYCauXhfXN
+         DzVshxa1Rnh9Wt3Uata90lqpJQ9yiPO+hld0gXCtqlCaozJjfUDfyBD9Khb+v1ugU9a/
+         eIHQ==
+X-Forwarded-Encrypted: i=1; AFNElJ9A95TIxVucuZLoqYfPvk4edVR/GdFnNphOfptK4Fn8JvALL3DhuCOwQvJzVGpNlpFHdq1XGFRRNZkOqip2q1mE@lists.infradead.org
+X-Gm-Message-State: AOJu0YxgmA613SDc0RHFckj/1IKE34SwISYvtbG/tlQp3JrtxVpop2/D
+	x/p9w85tYhNddA/XtuiRVOmn69GR6hdQaosK8i2G25a9f6SJZ9RWK+0rXH9HFbCv3EuBfUcIeaI
+	wTpdqSvtPjW3ODACA8NerVowXDIjBU7s=
+X-Gm-Gg: Acq92OFe/R9YNPZRQm8/4b8B+iiNQmGXj1o6eKSv1ZUFdT8MGlPu7PJGFO1Kr5nujsc
+	/mxwer+wrKBnmuBPNaq1L4NPtWMGJ25xSEbbfRAg6nknCKEut8ZkdeSgu2/G2GVWRnsSUjtYXB/
+	tX7GjBnkz9lXTAsD8U+NIFTF+GXAGQXGb/C7Ht0lafqu2dgi3JUGEkKqOjVTL9jYbw7tOdqmLcM
+	Lj5Z16dP2Fs2CwMxcNyFWzGf8e2tU3dq7NR5ObI+iP4CH8suyxw4hoSEP1Y4cIiYgskfLcesnhb
+	AVm3xtHT1v9Sm+Jn
+X-Received: by 2002:a17:906:7952:b0:bee:4ddb:6729 with SMTP id
+ a640c23a62f3a-bf0b32b88cdmr45709066b.35.1780455163306; Tue, 02 Jun 2026
+ 19:52:43 -0700 (PDT)
 MIME-Version: 1.0
+References: <20260505003252.2886028-1-dbgh9129@gmail.com>
+In-Reply-To: <20260505003252.2886028-1-dbgh9129@gmail.com>
+From: =?UTF-8?B?7LWc7Jyg7Zi4?= <dbgh9129@gmail.com>
+Date: Tue, 2 Jun 2026 22:52:32 -0400
+X-Gm-Features: AVHnY4Jgu1-ziAloT_3M6UL_04UsPmj3eqL5tOmM7rr25gB3-A3ycr-DrZ9fp4k
+Message-ID: <CACrCO_VG11oDkLODimguZKN2xHHa7ki40RofZ2Z5UxvPkxgOOw@mail.gmail.com>
+Subject: Re: [PATCH v1] ARM: Feroceon: Fix OF node and mapping leaks in L2 init
+To: Russell King <linux@armlinux.org.uk>, Nishanth Menon <nm@ti.com>
+Cc: Lee Jones <lee@kernel.org>, Kees Cook <kees@kernel.org>, 
+	linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org
+Content-Type: text/plain; charset="UTF-8"
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260602_193412_379822_848DA3B7 
-X-CRM114-Status: GOOD (  10.57  )
+X-CRM114-CacheID: sfid-20260602_195246_003828_9B395310 
+X-CRM114-Status: GOOD (  22.41  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -68,108 +114,60 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-aspeed: First batch of ARM devicetree changes for v7.2
+Hi,
 
-New platforms:
+Just a gentle reminder regarding this patch.
 
-- Rainiera6 (Meta)
-- SanMiguel (Meta)
+I would appreciate any feedback when you have a chance to review it.
 
-Updated platforms:
+Thanks for your time.
 
-- Anacapa: SGPIO line names and interrupt configuration
-- Clemente: Remove TMP421 nodes
-- Kommando: Enable networking via MAC2/MDIO2
-- SanMiguel: Line names and interrupt configuration
+Best regards,
+Yuho Choi
 
-AST2600 SoC updates:
-
-- Describe PWM/Tach
-- Describe I3C controllers
-- Reorganise I2C nodes
-
-Other notes:
-
-91b9aed7381c ("ARM: dts: aspeed-g6: Add nodes for i3c controllers") current=
-ly
-causes a new warning:
-
-  ... /ahb/apb/bus@1e7a0000/syscon@0: failed to match any schema with compa=
-tible: ['aspeed,ast2600-i3c-global', 'syscon']
-
-The patch necessary to address it has an R-b tag from Kryzsztof[2] but as b=
-est
-I can tell is yet to be applied to the MFD tree. I've left the change in fo=
-r now
-as the warning will resolve once the binding patch is applied.
-
-Lastly, as part of improving support for the Kommando card Anirudh has also
-addressed[1] the persistent pain we've had with the phy-mode property for t=
-he
-AST2600 MACs. Thanks to Andrew Lunn for being on the case for a while now, =
-and
-for those who tested Anirudh's patch.
-
-[1]: https://lore.kernel.org/all/20260525-asus-kommando-v3-0-e6a0ca1b4a3e@g=
-mail.com/
-[2]: https://lore.kernel.org/all/20260425-poised-accomplished-hyena-d2c1a0@=
-quoll/
-
-----------------------------------------------------------------
-Anirudh Srinivasan (1):
-      ARM: dts: aspeed: Enable networking for Asus Kommando IPMI Card
-
-Billy Tsai (1):
-      ARM: dts: aspeed: g6: Add PWM/Tach controller node
-
-Colin Huang (1):
-      ARM: dts: aspeed: anacapa: Add JTAG CPLD TRST pin to SGPIO map
-
-Daniel Hsu (1):
-      ARM: dts: aspeed: yosemite5: Add MP5998 power monitor
-
-Dawid Glazik (2):
-      ARM: dts: aspeed-g6: move i2c controllers directly into apb node
-      ARM: dts: aspeed-g6: Add nodes for i3c controllers
-
-Ender Hsieh (1):
-      ARM: dts: aspeed: msx4: enable BMC networking via MAC0
-
-Mike Hsieh (1):
-      ARM: dts: aspeed: clemente: Remove IOB NIC TMP421 nodes
-
-Neil Cheng (2):
-      dt-bindings: arm: aspeed: Add Meta Rainiera6 board
-      ARM: dts: aspeed: rainiera6: Add Meta Rainiera6 BMC
-
-Potin Lai (4):
-      dt-bindings: arm: aspeed: add Meta SanMiguel BMC
-      ARM: dts: aspeed: Add Meta SanMiguel BMC
-      ARM: dts: aspeed: sanmiguel: Add IOEXP interrupt pin settings
-      ARM: dts: aspeed: sanmiguel: Fix the CPU_CHIPTHROT linename
-
-Rex Fu (2):
-      ARM: dts: aspeed: anacapa: Add interrupt properties for PDB PCA9555
-      ARM: dts: aspeed: anacapa: Correct SGPIO names for monitoring
-
- Documentation/devicetree/bindings/arm/aspeed/aspeed.yaml        |    2 +
- arch/arm/boot/dts/aspeed/Makefile                               |    2 +
- arch/arm/boot/dts/aspeed/aspeed-bmc-asus-kommando-ipmi-card.dts |   18 ++
- arch/arm/boot/dts/aspeed/aspeed-bmc-facebook-anacapa.dts        |   34 ++-
- arch/arm/boot/dts/aspeed/aspeed-bmc-facebook-clemente.dts       |   20 --
- arch/arm/boot/dts/aspeed/aspeed-bmc-facebook-rainiera6.dts      | 1012 +++=
-+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++=
-++++++++
- arch/arm/boot/dts/aspeed/aspeed-bmc-facebook-sanmiguel.dts      |  672 +++=
-++++++++++++++++++++++++++++++++++++++++++++++++++++++
- arch/arm/boot/dts/aspeed/aspeed-bmc-facebook-yosemite5.dts      |    5 +
- arch/arm/boot/dts/aspeed/aspeed-bmc-nvidia-msx4-bmc.dts         |   15 ++
- arch/arm/boot/dts/aspeed/aspeed-g6.dtsi                         |  552 +++=
-++++++++++++++++++++++++--------------------
- 10 files changed, 2074 insertions(+), 258 deletions(-)
- create mode 100644 arch/arm/boot/dts/aspeed/aspeed-bmc-facebook-rainiera6.=
-dts
- create mode 100644 arch/arm/boot/dts/aspeed/aspeed-bmc-facebook-sanmiguel.=
-dts
-
+On Mon, 4 May 2026 at 20:32, Yuho Choi <dbgh9129@gmail.com> wrote:
+>
+> of_find_matching_node() returns a referenced device node, and of_iomap()
+> creates a temporary mapping. feroceon_of_init() currently leaves both
+> resources around after init and also returns from the of_iomap() failure
+> path without dropping the node reference.
+>
+> Unmap the register mapping after the register update and put the node on
+> both the failure and success paths.
+>
+> Fixes: 4b8f7a11c9fb ("ARM: MM: Add DT binding for Feroceon L2 cache")
+> Signed-off-by: Yuho Choi <dbgh9129@gmail.com>
+> ---
+>  arch/arm/mm/cache-feroceon-l2.c | 6 +++++-
+>  1 file changed, 5 insertions(+), 1 deletion(-)
+>
+> diff --git a/arch/arm/mm/cache-feroceon-l2.c b/arch/arm/mm/cache-feroceon-l2.c
+> index 2bfefb252ffd..1fe931a09d79 100644
+> --- a/arch/arm/mm/cache-feroceon-l2.c
+> +++ b/arch/arm/mm/cache-feroceon-l2.c
+> @@ -373,16 +373,20 @@ int __init feroceon_of_init(void)
+>         node = of_find_matching_node(NULL, feroceon_ids);
+>         if (node && of_device_is_compatible(node, "marvell,kirkwood-cache")) {
+>                 base = of_iomap(node, 0);
+> -               if (!base)
+> +               if (!base) {
+> +                       of_node_put(node);
+>                         return -ENOMEM;
+> +               }
+>
+>                 if (l2_wt_override)
+>                         writel(readl(base) | L2_WRITETHROUGH_KIRKWOOD, base);
+>                 else
+>                         writel(readl(base) & ~L2_WRITETHROUGH_KIRKWOOD, base);
+> +               iounmap(base);
+>         }
+>
+>         feroceon_l2_init(l2_wt_override);
+> +       of_node_put(node);
+>
+>         return 0;
+>  }
+> --
+> 2.43.0
+>
 
