@@ -4,95 +4,96 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 7CE03CD6E64
-	for <linux-arm-kernel@archiver.kernel.org>; Wed,  3 Jun 2026 09:07:54 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id D8B45CD6E55
+	for <linux-arm-kernel@archiver.kernel.org>; Wed,  3 Jun 2026 09:12:29 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:MIME-Version:References:In-Reply-To:Message-Id:Date:Subject:Cc:
-	To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=Y2WtKlX5Be+t9WCfynzOY98X+OoJJT2Buiwxou/xw8c=; b=r2M/LYr2d4c8ibqzMQATpSirj9
-	YCvNYp5IiZ8abTuzIFmzZNZ/0BnXqU+BXi0oCh4AVW+BktosJGhia4QygmJzdfTtqmE1dujZvPocs
-	13xyudw3C0l9vYJkO/A8QeWuR6ermWcUVqtbS9WvzJWuAgZUqCcWPgn91ctp9GZRzbhxMPXg3KW9F
-	ogxcjmV863jEyh5mfsvvkeHydq65+aGM/3LddwAhe5S0VT6mX0RrNx8wuFYjpWNq2lWuJeGUQ7oY7
-	Eo/uxGU82ivq1rJpPrCDo5GH9xdL+QiCzepStj7e4nsUTUqN8+YayYbmxLp6/Qv6mAS1uqSn0Jh7s
-	Tu3Ny8GQ==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=7Hkz0Eq0uDpMi6XdoQlTFpPc33Fvk2t3F5VcoWVOi/A=; b=ZxSPeXT1YtFsBoIou3lzQdBHS0
+	M8HEcqXb+U16cFziqkP8bXhaSTWdA+rgjxwf+bZKUFK18YaXPmZeugE0J/2eZkFZkQv3Ba7itA9hR
+	Pgns81n+Ou0tXKrNWAKq0CvyGvlyhNXfI4hthJWO/zkJ4/juDaoGTKmqZDoih/DSYRl45oasVK2Li
+	y6ScH0SY5UYTfANA6bq1q4j0n4It1njTmQZuJWPb0QGeZ9MpoMDRtfSeKorJQYPnla3kZCJbaXghs
+	cLuCNnLBJXiIkZbFJoRA0xNS4YoZjUKVwjbrDK/xFXJ74cGmftXtXTKgn1ueZ0PUmznH7UMLdQ2+T
+	f2RhsXpw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wUhZh-0000000EfZZ-44vw;
-	Wed, 03 Jun 2026 09:07:45 +0000
-Received: from mail-pj1-x1031.google.com ([2607:f8b0:4864:20::1031])
+	id 1wUheB-0000000EgHt-49dC;
+	Wed, 03 Jun 2026 09:12:24 +0000
+Received: from mail-wr1-x435.google.com ([2a00:1450:4864:20::435])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wUhZf-0000000EfZ8-3OYy
+	id 1wUhe9-0000000EgHT-1BeZ
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 03 Jun 2026 09:07:45 +0000
-Received: by mail-pj1-x1031.google.com with SMTP id 98e67ed59e1d1-36b7b802299so937972a91.1
-        for <linux-arm-kernel@lists.infradead.org>; Wed, 03 Jun 2026 02:07:43 -0700 (PDT)
+	Wed, 03 Jun 2026 09:12:22 +0000
+Received: by mail-wr1-x435.google.com with SMTP id ffacd0b85a97d-45ebafde87cso8455996f8f.3
+        for <linux-arm-kernel@lists.infradead.org>; Wed, 03 Jun 2026 02:12:20 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20251104; t=1780477662; x=1781082462; darn=lists.infradead.org;
-        h=content-transfer-encoding:mime-version:references:in-reply-to
-         :message-id:date:subject:cc:to:from:from:to:cc:subject:date
-         :message-id:reply-to;
-        bh=Y2WtKlX5Be+t9WCfynzOY98X+OoJJT2Buiwxou/xw8c=;
-        b=nbVLEEp65A4dByelGyKoMC3ZoXuGApIqZwjAuO0JgUGV+jDdJmvIxy66Cm6juvNxuY
-         gTJ1nJTXDtS8+qxYH5oqI1U+Yb2cPPucL4kVd+YzizubsWJ7fpgR0t/hBtwuSEFG2nde
-         0aBmH7fxfVVhmpB9nvZJTrl4jC9CqDH6SF0LyVneBGzGePLfpNcJM7cX15O6Ua8fjh42
-         OSpVntE0O3n8QqyM15OAelg7SucKBy1lO0+ay3KzVlDcmTt7fwAzFwZktPWMwIMRDZmS
-         FR2Eil9GBM9XuLN515eUDKcO0k3JpNCY5DEzUWErF1R8DWNbo+KWmGeDGP7kYONSGcxo
-         dZnA==
+        d=gmail.com; s=20251104; t=1780477939; x=1781082739; darn=lists.infradead.org;
+        h=in-reply-to:content-disposition:mime-version:references:message-id
+         :subject:cc:to:from:date:from:to:cc:subject:date:message-id:reply-to;
+        bh=7Hkz0Eq0uDpMi6XdoQlTFpPc33Fvk2t3F5VcoWVOi/A=;
+        b=Bu6PpmXcjzvun6dCTOce5VLjR24mJtX13vscp6pZYcRTRwz2FmRkOidtBsiHY4NPzZ
+         3WxNT4Vp1B9WUT7YBJ9qdtavCWDM0mvke7wgabtDnWPJxES51c8UzV3dXAO0sDUNwvPJ
+         TSRnttey1c8jo6tI1r17QDw2NODk6QcLLJNO+09QlYppsP0nr4nFWw0nFtQPHAL6rWw7
+         r7lIRtn+3QyTvu596nCGN0OND29YMoeFdiQmaz2q7UwalWENR576ZeZGlOGaTcUQP5A0
+         y43lQX+wHZxsz9XkwgqXGPFsI6dcDe6cGBl7+UfEco5McdYXdGIyRsSFj52AAXKuy9ts
+         hJ1Q==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20251104; t=1780477662; x=1781082462;
-        h=content-transfer-encoding:mime-version:references:in-reply-to
-         :message-id:date:subject:cc:to:from:x-gm-gg:x-gm-message-state:from
-         :to:cc:subject:date:message-id:reply-to;
-        bh=Y2WtKlX5Be+t9WCfynzOY98X+OoJJT2Buiwxou/xw8c=;
-        b=oc3gHa1NX3ZaSBCvQ2qpnP8I50L3qupgj4FGdNQs1DZOcInlkMD4mjkjyNqtrdEmiL
-         pkuQLtlcA+il/ZGwdUd2JIGcNTjoXH00hfUaP21kzTwgwt7M4hryl/4IXx6V5P5SwG55
-         wSmifa8HB6NO4HpNRfUj6gJiaXieOR2tsAWF/eu/szaxx216iEbzNdeUa8BSeG0i3q9Q
-         Pqg+sJqPOfz3osBw3ZI3iDrtNoTBVRn3UZVyJYUfai76SLdWLFc2ANR8MoNVYIUhUk3S
-         MQ9APIUdNj8Ds88H/q7FjQhygOnTp2+5cJLY80X5GdNrjDdIs74vCL8CCJ/UVBkJ0dXN
-         UqXg==
-X-Forwarded-Encrypted: i=1; AFNElJ8ptbRcOr1U+4q9FxKtgVAgt0rTwEO/N2ocGbsRsERfwO3mH4VqGAEGEMi/Vj0o48C7hIc3a1qvcJzWVO3VYDTM@lists.infradead.org
-X-Gm-Message-State: AOJu0Yzjy1lG0hjgAgIaQUKFYgtye2+eSHSSkebbSTDEGLmyqrquCuKX
-	oE9eVWSD8WVtMEN1DZqECtIkQgcC2GjAihqfcx7ey8I6+MbsbU49yWY8
-X-Gm-Gg: Acq92OEmlxKEH4r2XigFL0GRFS215EiM+VE5T7jc1KxEXrducqdcTl1XZsMOQKt909P
-	Ywz5evr878GB+vO9iU02oEzx8WYhFMfSel5q0IwUYVFu7Eiik9W3U1B5GSqqzAYJqb/BY0kQQDu
-	R0e3cei9VnsUu3JLUWFEtqTwTLuwNe10tXpRonBzcmKtEl85/nyEwvUvSwnTCGGljlX/1A+icEJ
-	DxCDRnFotq9c+Kt6+QWmvBXzQB9DF3+hKBedg+a19SeGAmexsHwQwYRghWxLpq0xGges2tgcHRI
-	cZkkmvI0G0P4e/AwhPkbKOB1RSEpcB6cyAcA8qM18/FjQcg3dafsOKJ22Jo7I8oV/whWwDjhGtl
-	nri/cAa5E7CisVTYqsLdVQweqJnsC+6UuiP60bvOAsVW4KGODtsWll6xO+1vs95cdRTBfrd7F5h
-	XM9hPBVt3EAA8eXefQFVU4T08ojYlLYX0P8vDY00pt7KA=
-X-Received: by 2002:a17:90b:5690:b0:369:a719:6747 with SMTP id 98e67ed59e1d1-36e318c3497mr1428504a91.3.1780477662315;
-        Wed, 03 Jun 2026 02:07:42 -0700 (PDT)
-Received: from localhost.localdomain ([189.1.242.96])
-        by smtp.gmail.com with ESMTPSA id 98e67ed59e1d1-36e0a14485esm2417617a91.3.2026.06.03.02.07.39
+        d=1e100.net; s=20251104; t=1780477939; x=1781082739;
+        h=in-reply-to:content-disposition:mime-version:references:message-id
+         :subject:cc:to:from:date:x-gm-gg:x-gm-message-state:from:to:cc
+         :subject:date:message-id:reply-to;
+        bh=7Hkz0Eq0uDpMi6XdoQlTFpPc33Fvk2t3F5VcoWVOi/A=;
+        b=d9ZfKxuckpBea2E5wHrCiVWcdZOA13X5gwcADjOaYgZQeL5WDoX1qN+c6OZLPQFHFr
+         wugHbXil4oXJuigSNGzuo4UBdp9mNzlsY+ODKIpIMQb/Heyczsa59OG8g0xlHSZ07Ulh
+         x8KcHG2r53oPZqI3Aq6ezK/5IQkjdCaGEhaZ7p+k1l5GOS8DNnX9nEHKg0lxf70vDQJA
+         mA2tEEDh7EEtEOrCWmI433ssql/onwIOJqb3tx8PMiZWMV5nk/hUZ5wATOZd2uvJ+Dg4
+         ubyuTBxkkKDcSba8u/ky4Ncl5g+CkXP6GYJMlcQaGuoELg+jf9yRYpQPcxj5yeuv/NRZ
+         joZg==
+X-Forwarded-Encrypted: i=1; AFNElJ8f8lMGFkPCnqNJt9aqNGgod0lVJF1q1jwr0su1I329m0KDBYh7s6uWZu5DUrtgb8h41nfjfrROanwDmmV9K2xt@lists.infradead.org
+X-Gm-Message-State: AOJu0YycjFOSSJ63x3aGorQg1iYFdbmkO1xjMssLVMFVyQrRvhxKmLBm
+	Ge6sxB+Wq1PaBcSRmrTcJhyyhCQ5juEhZQq+hH8MVSsXM9UGD5eem6fTwJAnSQ==
+X-Gm-Gg: Acq92OECR+beFNNNFvCNWTiPnTopbRsaToFCGTO4mqQEpO/cUgX7uFZfa+DedwtvLgO
+	HqHGdJM8Q3p+LobTlIiSlspQsSVV7p8kbj/ce0bNI4Q3VDffqlrwkt14BsoKmTW7Etj4MO8j9i/
+	ogBioOnkmjFn9hkLrFou2aOVqEgMANnbyp8NxJfVGlGyY2cmIFIpa0f34JpKD+P7m5Uh90VZ4zo
+	F5tGGYMUA/cffNTWfz+84a++WM2/n/H91eZRqrt/mfskgTRlVUtOPJO2v9YFcqH+Ah2X0/L+Z3L
+	vm3RWIiUus/424E8oT5+uyUPDtsz7tBrDoqbdetRucD0NGCACb3Zw2Fonws1b529zI2tA71SgBq
+	R9kReETlq/P4GrNHFm+rrQEuxieohsUP4O9KTCckSGElb8tIko8GBZ05B6QZ1LiMcYOwANzFPSK
+	Kz89OKRCPehrLb1uR1nU1BlMCQ7wj3cPGFJURM5IFR/YRYM2f/kilPV0J66DMLahVC4YcTwMPHC
+	TxBPrT/V72IX9hh8paQRlVD7jRMw9ZSR1402y2oV5dKm0F8tLOENAaink+8CuSNhg==
+X-Received: by 2002:a05:600c:4510:b0:490:a298:3859 with SMTP id 5b1f17b1804b1-490b60f001amr37402095e9.24.1780477939047;
+        Wed, 03 Jun 2026 02:12:19 -0700 (PDT)
+Received: from Lord-Beerus.station (net-93-144-65-244.cust.vodafonedsl.it. [93.144.65.244])
+        by smtp.gmail.com with ESMTPSA id 5b1f17b1804b1-490b7c6b966sm25579115e9.2.2026.06.03.02.12.18
         (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Wed, 03 Jun 2026 02:07:41 -0700 (PDT)
-From: Yiqi Sun <sunyiqixm@gmail.com>
-To: will@kernel.org
-Cc: catalin.marinas@arm.com,
-	kees@kernel.org,
-	keno@juliacomputing.com,
-	linux-arm-kernel@lists.infradead.org,
-	linux-kernel@vger.kernel.org,
-	luis.machado@linaro.org,
-	mark.rutland@arm.com,
-	rmk+kernel@armlinux.org.uk,
-	ruanjinjie@huawei.com,
-	sunyiqixm@gmail.com
-Subject: Re: Re: [PATCH] fix: arm64: syscall: use live x0 for syscall_get_arguments() arg0
-Date: Wed,  3 Jun 2026 17:07:30 +0800
-Message-Id: <20260603090730.16960-1-sunyiqixm@gmail.com>
-X-Mailer: git-send-email 2.34.1
-In-Reply-To: <ah1-fmV1VcN3cKto@willie-the-truck>
-References: <ah1-fmV1VcN3cKto@willie-the-truck>
+        Wed, 03 Jun 2026 02:12:18 -0700 (PDT)
+Date: Wed, 3 Jun 2026 11:12:16 +0200
+From: Stefano Radaelli <stefano.radaelli21@gmail.com>
+To: Frank Li <Frank.li@nxp.com>
+Cc: linux-kernel@vger.kernel.org, devicetree@vger.kernel.org,
+	imx@lists.linux.dev, pierluigi.p@variscite.com,
+	Stefano Radaelli <stefano.r@variscite.com>,
+	Rob Herring <robh@kernel.org>,
+	Krzysztof Kozlowski <krzk+dt@kernel.org>,
+	Conor Dooley <conor+dt@kernel.org>,
+	Sascha Hauer <s.hauer@pengutronix.de>,
+	Pengutronix Kernel Team <kernel@pengutronix.de>,
+	Fabio Estevam <festevam@gmail.com>,
+	linux-arm-kernel@lists.infradead.org
+Subject: Re: [PATCH v1 1/1] arm64: dts: imx91-var-som-symphony: fix RGB_SEL
+ handling
+Message-ID: <ah_v8E78aV3n1TZx@Lord-Beerus.station>
+References: <20260529134850.22196-1-stefano.r@variscite.com>
+ <ah3uuIeZ4Z6BMwfi@lizhi-Precision-Tower-5810>
 MIME-Version: 1.0
-Content-Type: text/plain; charset=UTF-8
-Content-Transfer-Encoding: 8bit
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+In-Reply-To: <ah3uuIeZ4Z6BMwfi@lizhi-Precision-Tower-5810>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260603_020743_855925_5196216D 
-X-CRM114-Status: GOOD (  29.83  )
+X-CRM114-CacheID: sfid-20260603_021221_339609_66F45B86 
+X-CRM114-Status: GOOD (  21.68  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -107,78 +108,40 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Mon, 1 Jun 2026 13:43:42 +0100, Well wrote:
-> On Fri, May 29, 2026 at 02:54:44PM +0800, Yiqi Sun wrote:
-> > On arm64, seccomp obtains syscall arguments via syscall_get_arguments(),
-> > where arg0 is currently read from regs->orig_x0. However, the syscall
-> > wrapper consumes live arguments from regs->regs[0..5].
-> > 
-> > A ptracer can modify x0 on syscall-enter stop before seccomp runs,
-> > but cannot update orig_x0 through that interface. This can
-> > leave seccomp checking stale arg0 while the syscall executes with updated
-> > live x0, allowing seccomp bypass when filters depend on arg0.
-> > 
-> > Make syscall_get_arguments() read arg0 from regs->regs[0], matching the
-> > actual dispatch arguments and removing this desynchronization.
-> > 
-> > Fixes: f27bb139c387 ("arm64: Miscellaneous library functions")
-> > Signed-off-by: Yiqi Sun <sunyiqixm@gmail.com>
-> > ---
-> >  arch/arm64/include/asm/syscall.h | 2 +-
-> >  1 file changed, 1 insertion(+), 1 deletion(-)
-> > 
-> > diff --git a/arch/arm64/include/asm/syscall.h b/arch/arm64/include/asm/syscall.h
-> > index 5e4c7fc44f73..4bdb4d3ce2b4 100644
-> > --- a/arch/arm64/include/asm/syscall.h
-> > +++ b/arch/arm64/include/asm/syscall.h
-> > @@ -81,7 +81,7 @@ static inline void syscall_get_arguments(struct task_struct *task,
-> >  					 struct pt_regs *regs,
-> >  					 unsigned long *args)
-> >  {
-> > -	args[0] = regs->orig_x0;
-> > +	args[0] = regs->regs[0];
-> >  	args[1] = regs->regs[1];
-> >  	args[2] = regs->regs[2];
-> >  	args[3] = regs->regs[3];
-> > -- 
-> > 2.34.1
+Hi Frank,
+
+On Mon, Jun 01, 2026 at 04:42:32PM -0400, Frank Li wrote:
+> On Fri, May 29, 2026 at 03:48:50PM +0200, Stefano Radaelli wrote:
+> > From: Stefano Radaelli <stefano.r@variscite.com>
+> >
+> > RGB_SEL is a board-level signal driven by the PCAL6408 GPIO expander on
+> > the Symphony carrier board.
+> >
+> > The signal needs to be driven high on the i.MX91 variant to keep the
+> > board in the expected display configuration. Move the handling of this
+> > line from a fixed regulator tied to the PCAL6408 supply to a GPIO hog on
+> > the correct GPIO expander.
 > 
-> Hrm, this looks like a long-standing issue and I'm pretty nervous about
-> changing it :/
+> Look like this can't resolve your problem.  gpio driver may probe later
+> than display, so gpio-hog may not set correct when display setup.
 > 
-> How did you spot it?
+> Frank
+> >
 
-I share your concern here, and I’m trying to be very careful with any
-behavior change.
+thanks for looking at this.
 
-I spotted this while comparing seccomp+ptrace ordering across arches.
-I had previously looked at x86/x86_64 (including the seccomp/ptrace
-ordering fix from more than 10 years ago), and then checked whether
-other arches like arm64 had the same issue.
+The main issue I am trying to fix here is that the current upstream DT
+describes RGB_SEL on the wrong GPIO expander.
 
-> A quick look at the code suggests we have a similar issue with
-> audit_syscall_entry(), so if we take your patch here then it will silently
-> introduce a behavioural change to this guy:
-> 
-> https://lore.kernel.org/all/20260320102620.1336796-5-ruanjinjie@huawei.com/
-> 
-> I also notice that the compat ptrace interface allows 'orig_x0' to be
-> set -- could that cause issues with things like syscall_rollback()?
-> Will
+The existing DT drives RGB_SEL from pca9534 GPIO 7 and also uses it as a
+fake supply for the pca6408. That is not correct for this board. RGB_SEL
+is actually connected to pca6408 GPIO 7, so the current description does
+not drive the intended line at all.
 
-You are right that on arm64, audit_syscall_entry() still takes arg0
-from orig_x0, so taking only this seccomp fix would diverge seccomp
-and audit semantics.
+With this change, RGB_SEL is driven by the correct GPIO controller and
+this fixes the hardware configuration issue I am seeing on the i.MX91
+Symphpony board, making it working now as expected.
 
-I also checked syscall_rollback(): on arm64 it restores regs[0] from
-orig_x0, and orig_x0 is captured at syscall entry before the ptrace
-syscall-stop hook. So rollback normally returns to the syscall-entry
-state (i.e. pre-ptrace argument value), which does not look like a new
-security issue by itself. compat ptrace can explicitly write orig_x0,
-but that is existing tracer-controlled behavior and does not, by itself,
-cross a new security boundary introduced by this patch.
-
-If you agree, I can send a follow-up later so seccomp/audit stay consistent.
-
-Yiqi Sun
+Best Regards,
+Stefano
 
