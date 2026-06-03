@@ -4,38 +4,38 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 0BC19CD6E55
-	for <linux-arm-kernel@archiver.kernel.org>; Wed,  3 Jun 2026 15:19:38 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id D859ACD6E57
+	for <linux-arm-kernel@archiver.kernel.org>; Wed,  3 Jun 2026 15:19:37 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
 	MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:
 	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=+Wp4AveBKc/b0x14itG2lBTs4ZcmFK8t4NnzErdtQRw=; b=C2+S92obEGeQ3SkfzaQmBAPCkJ
-	/beMJln92c2xWo3PWuMcCRdrLJdTGRHvGWqFUHidua3Y/XTKSw3n+m5vWzpHtGcDdTVfq699TDPRo
-	+Gvya70OG1ziFJ0mVbg/c15ULL5mzESlNB7vdcTJVi2UMxYUryULk0+Vrx5EXv8GB5ln8bfij99PB
-	lzz6xtyV5VjYY3hHg3SmYdh1U09dKEqdG1nA3VDumhkoER/gZzsOZKQqNpL4UbU07IGnp3zQpZJ5j
-	Fo5alnGPzzRdwdQqfsXN/yAvtdKBVTUTi5cZFhxsbADFLqBRt12oYhnKYxGn/sw58MVNID5UodO9e
-	zzcraNig==;
+	bh=4BjT23R8uSreRxsom16Fm8xCEovN+6PRTMHyPqG167s=; b=1YER4+3HUOW072Ah/5Yi6pcMMI
+	k2vq4xT7Wn0TktrhN+erkUqLLzNVSlqKf4VnJoAOBcUIRN44Ous5jhrZRDasi3yzMS2hDt1hRh3YV
+	yYeFkIYxmJbTRI/71OKP2e8nv2Tnh5FmUTbszNwNIgdr67yBsl0S/rpaU+HOBZGyvYEKr4Hs7Uug7
+	Zy4+4Yh9XxMIktqKhhYA9IgPJ6/XBHYuflAjAXqoNj/+ywhUZMSniuD4ks2v7vT40av5i8Vae56KG
+	YAswWOGshm+6abfhlfjXcGNAf5UiqvglPqV2a3aK25gD+P3arL+OOYrMi9aoOvxJ5MbTpmSrURZzb
+	SOGMNkRg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wUnNP-0000000FNJ5-3FdG;
-	Wed, 03 Jun 2026 15:19:27 +0000
-Received: from out30-118.freemail.mail.aliyun.com ([115.124.30.118])
+	id 1wUnNK-0000000FN9e-1uJ6;
+	Wed, 03 Jun 2026 15:19:22 +0000
+Received: from out199-6.us.a.mail.aliyun.com ([47.90.199.6])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wUnN8-0000000FMuD-3WLm
+	id 1wUnN6-0000000FMrd-3ZAE
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 03 Jun 2026 15:19:15 +0000
+	Wed, 03 Jun 2026 15:19:10 +0000
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
 	d=linux.alibaba.com; s=default;
-	t=1780499948; h=From:To:Subject:Date:Message-ID:MIME-Version;
-	bh=+Wp4AveBKc/b0x14itG2lBTs4ZcmFK8t4NnzErdtQRw=;
-	b=DqQYGk9WmyyAwNatJOn8Tsr2q7aYfxUFHzVnIeIf7ZVcKK/o1W1r3ma9T7uZRIa2uCAN+9VgTw0G5dL1Cr6r7s3CguxhXJP1obebryncXquYKNk8uO+9Vku0l/cfs60mzPGJBiv5xT0mUKGeVqMkDxm0vbsIaJ4j6VHZIybiQjA=
-X-Alimail-AntiSpam: AC=PASS;BC=-1|-1;BR=01201311R131e4;CH=green;DM=||false|;DS=||;FP=0|-1|-1|-1|0|-1|-1|-1;HT=maildocker-contentspam011083073210;MF=guanghuifeng@linux.alibaba.com;NM=1;PH=DS;RN=28;SR=0;TI=SMTPD_---0X47fR74_1780499943;
-Received: from VM20241011-104.tbsite.net(mailfrom:guanghuifeng@linux.alibaba.com fp:SMTPD_---0X47fR74_1780499943 cluster:ay36)
+	t=1780499945; h=From:To:Subject:Date:Message-ID:MIME-Version;
+	bh=4BjT23R8uSreRxsom16Fm8xCEovN+6PRTMHyPqG167s=;
+	b=Q/xHi9VtpAOeWiQCNd6WUGDprjUaTGCg2YsjbgdYQCfc3x5kt8n2oK577LleGtZZ8e0FJff/MNx1yOF72o1WzTmbD1IelpK7Veqsa1T/U0AvKLOEAeiBAr3ZpC3EFx3qYmOdlrbuFe09VBUVDKEpylrFaVSFN6t0Cy38h+fBQFI=
+X-Alimail-AntiSpam: AC=PASS;BC=-1|-1;BR=01201311R151e4;CH=green;DM=||false|;DS=||;FP=0|-1|-1|-1|0|-1|-1|-1;HT=maildocker-contentspam033037026112;MF=guanghuifeng@linux.alibaba.com;NM=1;PH=DS;RN=28;SR=0;TI=SMTPD_---0X47fR6t_1780499942;
+Received: from VM20241011-104.tbsite.net(mailfrom:guanghuifeng@linux.alibaba.com fp:SMTPD_---0X47fR6t_1780499942 cluster:ay36)
           by smtp.aliyun-inc.com;
-          Wed, 03 Jun 2026 23:19:03 +0800
+          Wed, 03 Jun 2026 23:19:02 +0800
 From: Guanghui Feng <guanghuifeng@linux.alibaba.com>
 To: jgg@ziepe.ca
 Cc: adrian.larumbe@collabora.com,
@@ -65,9 +65,9 @@ Cc: adrian.larumbe@collabora.com,
 	wei.guo.simon@linux.alibaba.com,
 	will@kernel.org,
 	xlpang@linux.alibaba.com
-Subject: [PATCH v3 25/32] iommufd/selftest: switch to iommu_iova_to_phys_length
-Date: Wed,  3 Jun 2026 23:17:57 +0800
-Message-ID: <20260603151804.1963871-26-guanghuifeng@linux.alibaba.com>
+Subject: [PATCH v3 24/32] iommufd: use iova_to_phys_length for efficient unmap
+Date: Wed,  3 Jun 2026 23:17:56 +0800
+Message-ID: <20260603151804.1963871-25-guanghuifeng@linux.alibaba.com>
 X-Mailer: git-send-email 2.43.7
 In-Reply-To: <20260603151804.1963871-1-guanghuifeng@linux.alibaba.com>
 References: <20260602104637.1219810-1-guanghuifeng@linux.alibaba.com>
@@ -75,9 +75,8 @@ References: <20260602104637.1219810-1-guanghuifeng@linux.alibaba.com>
 MIME-Version: 1.0
 Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260603_081913_278270_22F8CDBF 
-X-CRM114-Status: UNSURE (   8.53  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20260603_081909_181140_6B6ECEA2 
+X-CRM114-Status: GOOD (  15.30  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -92,29 +91,113 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Replace direct domain->ops->iova_to_phys() call with the new
-iommu_iova_to_phys_length() interface in selftest.
+Use iommu_iova_to_phys_length() to get PTE page size in
+batch_from_domain and raw_pages_from_domain, allowing traversal
+by actual mapping granularity instead of PAGE_SIZE steps.
 
 Signed-off-by: Guanghui Feng <guanghuifeng@linux.alibaba.com>
 Acked-by: Shiqiang Zhang <shiyu.zsq@linux.alibaba.com>
 Acked-by: Simon Guo <wei.guo.simon@linux.alibaba.com>
 ---
- drivers/iommu/iommufd/selftest.c | 2 +-
- 1 file changed, 1 insertion(+), 1 deletion(-)
+ drivers/iommu/iommufd/pages.c | 74 +++++++++++++++++++++++++++++------
+ 1 file changed, 62 insertions(+), 12 deletions(-)
 
-diff --git a/drivers/iommu/iommufd/selftest.c b/drivers/iommu/iommufd/selftest.c
-index af07c642a526..d4dd39930224 100644
---- a/drivers/iommu/iommufd/selftest.c
-+++ b/drivers/iommu/iommufd/selftest.c
-@@ -1214,7 +1214,7 @@ static int iommufd_test_md_check_pa(struct iommufd_ucmd *ucmd,
- 		pfn = page_to_pfn(pages[0]);
- 		put_page(pages[0]);
+diff --git a/drivers/iommu/iommufd/pages.c b/drivers/iommu/iommufd/pages.c
+index 9bdb2945afe1..40a2fe9adf9c 100644
+--- a/drivers/iommu/iommufd/pages.c
++++ b/drivers/iommu/iommufd/pages.c
+@@ -417,17 +417,42 @@ static void batch_from_domain(struct pfn_batch *batch,
+ 	if (start_index == iopt_area_index(area))
+ 		page_offset = area->page_offset;
+ 	while (start_index <= last_index) {
++		size_t pgsize;
++		unsigned long npages;
++		unsigned long i;
++
+ 		/*
+-		 * This is pretty slow, it would be nice to get the page size
+-		 * back from the driver, or have the driver directly fill the
+-		 * batch.
++		 * Use iova_to_phys_length to get both the physical address
++		 * and the contiguous mapped length in a single page table
++		 * walk, allowing us to skip ahead by the contiguous region
++		 * size instead of walking page tables for every PAGE_SIZE.
++		 * Query at page-aligned iova so pgsize covers from page start.
+ 		 */
+-		phys = iommu_iova_to_phys(domain, iova) - page_offset;
+-		if (!batch_add_pfn(batch, PHYS_PFN(phys)))
+-			return;
+-		iova += PAGE_SIZE - page_offset;
++		phys = iommu_iova_to_phys_length(domain, iova - page_offset,
++						  &pgsize);
++		if (WARN_ON(phys == PHYS_ADDR_MAX))
++			break;
++		if (WARN_ON(!pgsize || pgsize < PAGE_SIZE))
++			pgsize = PAGE_SIZE;
++
++		/*
++		 * pgsize is the contiguous length from the page-aligned
++		 * iova, so npages is simply pgsize / PAGE_SIZE.
++		 */
++		npages = pgsize / PAGE_SIZE;
++		npages = min_t(unsigned long, npages,
++			       last_index - start_index + 1);
++		if (!npages)
++			npages = 1;
++
++		for (i = 0; i < npages; i++) {
++			if (!batch_add_pfn(batch, PHYS_PFN(phys) + i))
++				return;
++		}
++
++		iova += npages * PAGE_SIZE - page_offset;
+ 		page_offset = 0;
+-		start_index++;
++		start_index += npages;
+ 	}
+ }
  
--		io_phys = mock->domain.ops->iova_to_phys(&mock->domain, iova);
-+		io_phys = iommu_iova_to_phys_length(&mock->domain, iova, NULL);
- 		if (io_phys !=
- 		    pfn * PAGE_SIZE + ((uintptr_t)uptr % PAGE_SIZE)) {
- 			rc = -EINVAL;
+@@ -445,11 +470,36 @@ static struct page **raw_pages_from_domain(struct iommu_domain *domain,
+ 	if (start_index == iopt_area_index(area))
+ 		page_offset = area->page_offset;
+ 	while (start_index <= last_index) {
+-		phys = iommu_iova_to_phys(domain, iova) - page_offset;
+-		*(out_pages++) = pfn_to_page(PHYS_PFN(phys));
+-		iova += PAGE_SIZE - page_offset;
++		size_t pgsize;
++		unsigned long npages;
++		unsigned long i;
++
++		/*
++		 * Resolve the contiguous mapped length together with the
++		 * physical address so we can fill multiple struct page
++		 * pointers per page table walk when the IOMMU uses large
++		 * pages. Query at page-aligned iova so pgsize covers from
++		 * page start.
++		 */
++		phys = iommu_iova_to_phys_length(domain, iova - page_offset,
++						  &pgsize);
++		if (WARN_ON(phys == PHYS_ADDR_MAX))
++			break;
++		if (WARN_ON(!pgsize || pgsize < PAGE_SIZE))
++			pgsize = PAGE_SIZE;
++
++		npages = pgsize / PAGE_SIZE;
++		npages = min_t(unsigned long, npages,
++			       last_index - start_index + 1);
++		if (!npages)
++			npages = 1;
++
++		for (i = 0; i < npages; i++)
++			*(out_pages++) = pfn_to_page(PHYS_PFN(phys) + i);
++
++		iova += npages * PAGE_SIZE - page_offset;
+ 		page_offset = 0;
+-		start_index++;
++		start_index += npages;
+ 	}
+ 	return out_pages;
+ }
 -- 
 2.43.7
 
