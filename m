@@ -4,93 +4,91 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 59EF5CD6E5D
-	for <linux-arm-kernel@archiver.kernel.org>; Wed,  3 Jun 2026 00:56:38 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id B7AA4CD6E5D
+	for <linux-arm-kernel@archiver.kernel.org>; Wed,  3 Jun 2026 00:57:15 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
 	MIME-Version:Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-Type:
 	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
 	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
-	bh=uBYTSeXQapsOuHzeBt9LtaLn+b+KZK8UfNhCrwV35RE=; b=ONKzPzAw/I6OKwWn36Dx9AeXsT
-	5ZWvPtLPzd4sCOg7NW7ZsQj3lOa/tRYXlKg4EODG06R/OU4R4Zz3izBBaP35VpV5mAOG+mU8KZYer
-	Q929QB0ZuNoIYkSgbEH4y1vG1nQPjDZUNQ9iZ3LhJ5pGzfNJJQNH7bOhaFUoymNidd6pPixFabeya
-	QoVTHt0PORvwWv9mIWeWI0gpqqzDGzZqkdyWl1L3lKaOaqknKfzGxGY9E4YxYdM/Ha/CgjAohutYL
-	bwAxYt3CwdZcqh5dsiL8UiXYJnjBjs07JKSFYC99KU3+WWIa4j4uDCovk/SX0rS4RHN8MIKcUHMNt
-	W4eOYf2Q==;
+	bh=7Jhe81GLnFMt2SFFisrAqvCgJB0UsWbau4qiCW8JuqQ=; b=uDGgG4btlEEohOsoZ0XK2ZEizN
+	D4PYGSra/Wf0TY8dJ7b/v3ya5MfWmsCTPM7pLaePvYHQVuysx/kLXpHdBAcxXBfV462+uFEBxWW0C
+	4z6HGRk0clO40tyHtVgXAOJmIHNxDPbzJwwCmwLv2FoLUQj44yfU1BtESaLl+9O9NRVG+EeeTmqVr
+	BlxYMxmAsgAritvkmP0aB0Vs6JU/C8dBZjReeG4XEGMNd1CR7NoRvrrFrUWZ6mD/QsBj5HKdt8wvZ
+	/iPHg8nwoZhYAxdey6SPgqeHnM7rGgiJugfwY+ClLCuKf4CFXmgAUr9gMPBI1cgW948G/sr3cPpY0
+	WTSnZEzw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wUZuK-0000000E0mJ-1C9T;
-	Wed, 03 Jun 2026 00:56:32 +0000
-Received: from mail-qt1-x831.google.com ([2607:f8b0:4864:20::831])
+	id 1wUZuu-0000000E0qY-1pIN;
+	Wed, 03 Jun 2026 00:57:08 +0000
+Received: from mail-qt1-x836.google.com ([2607:f8b0:4864:20::836])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wUZuI-0000000E0lo-0mRb
+	id 1wUZur-0000000E0pl-1mqG
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 03 Jun 2026 00:56:31 +0000
-Received: by mail-qt1-x831.google.com with SMTP id d75a77b69052e-5175b6c4e19so23569681cf.0
-        for <linux-arm-kernel@lists.infradead.org>; Tue, 02 Jun 2026 17:56:29 -0700 (PDT)
+	Wed, 03 Jun 2026 00:57:06 +0000
+Received: by mail-qt1-x836.google.com with SMTP id d75a77b69052e-5174a3a025aso32384561cf.3
+        for <linux-arm-kernel@lists.infradead.org>; Tue, 02 Jun 2026 17:57:05 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20251104; t=1780448189; x=1781052989; darn=lists.infradead.org;
+        d=gmail.com; s=20251104; t=1780448224; x=1781053024; darn=lists.infradead.org;
         h=content-transfer-encoding:mime-version:message-id:date:subject:cc
          :to:from:from:to:cc:subject:date:message-id:reply-to;
-        bh=uBYTSeXQapsOuHzeBt9LtaLn+b+KZK8UfNhCrwV35RE=;
-        b=AaVOxEs+iepImi4BRUqC/14tGD7fbkzJfqUb1jqHt3ODj5NhU/QzSmZ4vS7HLPrL+B
-         X4P+hDMUfGnw+cS+Bdkd0N7MzEgGz5P5udmynsf9zt3+uOjSJTTtb5exzERCilAKV7dM
-         t3WoXKxDGfa2TRdI0YZMX2goHwlV6MaHRE9NRd6uoiOas9zHUzrE3OjlkER+Iwdj28Af
-         +uzBodwqh+rNsmGoKyqdtJIU8sJ0748PY2MJzDsB6v75NLH1oRQ+BneXlu++LLWGGzmL
-         +t8JprBYGY6/jHb6QO+tZIwPvJA1QKYeyz3zW4QeGPvaxVXqn+Yal67BHaUY34dovmAH
-         NwSg==
+        bh=7Jhe81GLnFMt2SFFisrAqvCgJB0UsWbau4qiCW8JuqQ=;
+        b=aOYQm1CE/4EBA2cGIDqDNDdeEYs9B2yrc7L24AtjNtgBjGaoNr5ukUeZFpVVwNNzPW
+         siaHSgsg72wkD8RnvIZeqw2ltW1IYluRQPwm9J68L8Wsysq6VcFDkWHYa6X281f37WUi
+         gL1TVdNXQ+3wCrjTamTvOIng9FIq1H8otbxFhOAghammxevOHjlJPW0zTaL9oTUMI3Z5
+         Gk1chlkVNMeYgOwBGT0tq6k4x3EWCDOx/F5J4AuTomAyJq9tAJi/ZuDvQfqpNJnqR4KJ
+         67fHxElLZDs2D7lt6JKE19ajdHmcEYkPuRby2ZidiUTbgf2pAACc7CsuayjTbBdnYB6j
+         D9jA==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20251104; t=1780448189; x=1781052989;
+        d=1e100.net; s=20251104; t=1780448224; x=1781053024;
         h=content-transfer-encoding:mime-version:message-id:date:subject:cc
          :to:from:x-gm-gg:x-gm-message-state:from:to:cc:subject:date
          :message-id:reply-to;
-        bh=uBYTSeXQapsOuHzeBt9LtaLn+b+KZK8UfNhCrwV35RE=;
-        b=Lwkiv1YSv0D6kbn/EO2JgO4rJUGvL/4YjypPcsgKFDTT9HCseI1WkEhLTkwQMkYpWK
-         ORX8ur0XxvYCaQE56rOv5xU1wfknWN+DBD5ZrPRy0PwORvJ5CF+48bcUCmx3y2UihsuA
-         U7+sHXhzTOHCMiAejq8rY0xqi/VDBVYAQMNVOalCgmHCwchhVulgny3YkbETR/XeKxSY
-         AiBjmq7uqQUKRSxOo8ZVoqzkGaa9ISlqeZAm5JzEBePfbA1+SQ5xUECGX8opsGINbFQY
-         igCmRCxwVyIsgf0R7IZqVWBo2p0QCNGDD1rTaGziF8fi2cPzJEyZQ8RQdfCaQKJIAHw9
-         B1vA==
-X-Forwarded-Encrypted: i=1; AFNElJ+PjOfpByLJp4/Ji+WbIzM6y8kBl5kZIEcx6d+K61yyB/k7d8f/3PIy+jAO4YGz3/h2jGdjhyzBSw8TqgvGByOC@lists.infradead.org
-X-Gm-Message-State: AOJu0Yw2enzuSeyt88kdkGgOEaeSuzlSP95ZXuS186IbhrxemT0/MYWS
-	BKbfIFTzdYWBuksrl2FmDg9tbFDZZoRW74fUZN+y28kRnAkry/KCRWuI
-X-Gm-Gg: Acq92OFtPEwy0XkVrm+rM2zB3aBX3J+Hh+UMZQx0zRICjBdnXE6DjcxXoc5adad39FN
-	ebI3r29M1dfHSuW2FgJeJK1P5z3eIZ5pzCNq9YnnQx7COd1Tg6MLpA0ktLmlu3vyXkt8Cg47/zR
-	JeC8prOo1F8xrf07pkQ6GKUFY7bVob8zWpxw6g77kKyHSqTfrcPCYyNb/BWoq2ShbZe5IyDlH6n
-	mTuWs6q/W+lUwUTPXqjOJeacmiVaf06uLMVJQOFMFCZqL/mXNFtg02zo79YoF2GBvdy3tWNsVVV
-	w0bKh0PBmV2yebzyO5JqGeu6RLXN+bzwSf/TxAiSecYpJcVXly09lVwjoECM94FeyC5r5Df1AOP
-	0LlyCCkcacHraqZY9rNDsypq0nZthQJJkMZgrNaDs5pFK2P2R4JU6Db/UOAEw2K6QUHWKsJmH36
-	rgXDLjhG0SGZC7CPTCCJ7qpAcIjWbMMfEw7XrQEavqrNncEJuny2c8n1gt9iuuOZ2Gha+TNvcdZ
-	JJ0+h1q0chYz5lk3nZ+WxHPGnOkAw6ZiEkntSeuJzvM0g==
-X-Received: by 2002:a05:620a:6403:b0:914:9ecb:9adb with SMTP id af79cd13be357-9158a834e25mr269631485a.50.1780448188737;
-        Tue, 02 Jun 2026 17:56:28 -0700 (PDT)
+        bh=7Jhe81GLnFMt2SFFisrAqvCgJB0UsWbau4qiCW8JuqQ=;
+        b=Pn+TVpVzKoTZAZTTvpR7+xUUMcmRxTUFJ6XkawtRX1yyZElrCwgP44nFx5zEC4ZWNb
+         GtKZBeKUu6Pdz6R+vYKJo2i5sylHHT03qCRc515KSMJ5aaGZ91ynJjAZ6FyXn2b4auG/
+         GkzHSKN+lmGWNzXtegkChlZ43OA1nWP+ft817OviH1jJ42cz/j65fOVHgDoJwVojdRv0
+         Z2gmoHxtK8pcrh0K4nuTxFeTXUuGp3+seDofL7FyhtihnI2wSBHg7h/J91YxIFQlgZ0n
+         bDHtOul53RwJINLpNWEXXJfCplixhXg5/iiax8GELiX7yhDgTau1faB7plpVuFj/aZ5n
+         eGeA==
+X-Forwarded-Encrypted: i=1; AFNElJ8gLE4SPsF5TctJvmnvFw9aRuBPboqpvKLazF/vsafFRTzuz1kZ+iAScXg9SNCDfHrhyhoUE1hReYYaQUVdZCg4@lists.infradead.org
+X-Gm-Message-State: AOJu0Yxt2IYSYQAY/f8Pm1fjZoKbN8QXIguNC7W8zn5rgZKSHhG/oHL6
+	wbCIJFAxUs3fZDFnYiL+DOh0VnNCtpt12Q4deYyBdgIyBLOLAl8dhw36
+X-Gm-Gg: Acq92OF3cRXw6Axm7daSDZfuGLipSIyfnHvUNYpVm7R2jiyHOWRS/CvlPphPBN2sgW3
+	lTac2oX0Y1VG331Glyektc3LaFyGTZPH6AeiGuk44X+eBgODgc9todpuNkr+U6Pfpy0k3E3osWS
+	RjCQR63JlEtkDkQg1fbfK2NcGMrSEmzDs8+UQTOIoA4E3PyaTRIQ4H1Mu71tIeNri0KZnXZBxBv
+	wGKVc720SVEVftcfMc+mKO3Py/kMLtHrs5vDYRqacAAxREogHJLM6W3yti8oljiBudPDAUthEeQ
+	rDQxQDXxIORR3pOfNqeJLHSGAtvFGyHIHFIHjdTDX0kV0hU2/IzbJDDVxg5bQOP3+mkwWMvgiR7
+	r0RuLNnEequMA4PcjMnpFtEAmHA+YJtc1ewIpTz8sg0WoyuyTLBufJ8Eqrqn+2Q5GgY/LYgshwz
+	2/EXRYXDgHKOoqQJOIo/eDvVFanQdHFrnpU6qpiWNabScvGTV35+dw7dlaSm8PbkEZAYqH2m2F+
+	xAgxWUBoepm7UtsGHFq6X5qRULpxQBjbCWLXqprMx2lPQ==
+X-Received: by 2002:a05:622a:4114:b0:517:642c:8196 with SMTP id d75a77b69052e-517785921eemr24993891cf.12.1780448224112;
+        Tue, 02 Jun 2026 17:57:04 -0700 (PDT)
 Received: from ryzen ([2601:644:8000:5b5d:7285:c2ff:fe45:8a32])
-        by smtp.gmail.com with ESMTPSA id af79cd13be357-9158a00ac5esm99574885a.6.2026.06.02.17.56.26
+        by smtp.gmail.com with ESMTPSA id d75a77b69052e-51775c297a8sm12121051cf.8.2026.06.02.17.57.02
         (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Tue, 02 Jun 2026 17:56:28 -0700 (PDT)
+        Tue, 02 Jun 2026 17:57:03 -0700 (PDT)
 From: Rosen Penev <rosenp@gmail.com>
-To: linux-pm@vger.kernel.org
-Cc: Bartlomiej Zolnierkiewicz <bzolnier@gmail.com>,
-	Krzysztof Kozlowski <krzk@kernel.org>,
-	"Rafael J. Wysocki" <rafael@kernel.org>,
-	Daniel Lezcano <daniel.lezcano@kernel.org>,
-	Zhang Rui <rui.zhang@intel.com>,
-	Lukasz Luba <lukasz.luba@arm.com>,
-	Peter Griffin <peter.griffin@linaro.org>,
-	Alim Akhtar <alim.akhtar@samsung.com>,
-	linux-samsung-soc@vger.kernel.org (open list:SAMSUNG THERMAL DRIVER),
-	linux-arm-kernel@lists.infradead.org (moderated list:ARM/SAMSUNG S3C, S5P AND EXYNOS ARM ARCHITECTURES),
+To: linux-i2c@vger.kernel.org
+Cc: Ryan Chen <ryan_chen@aspeedtech.com>,
+	Benjamin Herrenschmidt <benh@kernel.crashing.org>,
+	Joel Stanley <joel@jms.id.au>,
+	Andi Shyti <andi.shyti@kernel.org>,
+	Andrew Jeffery <andrew@codeconstruct.com.au>,
+	openbmc@lists.ozlabs.org (moderated list:ARM/ASPEED I2C DRIVER),
+	linux-arm-kernel@lists.infradead.org (moderated list:ARM/ASPEED MACHINE SUPPORT),
+	linux-aspeed@lists.ozlabs.org (moderated list:ARM/ASPEED MACHINE SUPPORT),
 	linux-kernel@vger.kernel.org (open list)
-Subject: [PATCH] thermal/samsung: Use platform_get_irq() in exynos_tmu
-Date: Tue,  2 Jun 2026 17:56:08 -0700
-Message-ID: <20260603005608.227153-1-rosenp@gmail.com>
+Subject: [PATCH] i2c: aspeed: Simplify resource mapping and IRQ retrieval
+Date: Tue,  2 Jun 2026 17:56:45 -0700
+Message-ID: <20260603005645.227239-1-rosenp@gmail.com>
 X-Mailer: git-send-email 2.54.0
 MIME-Version: 1.0
 Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260602_175630_227913_FC8CC468 
-X-CRM114-Status: GOOD (  12.75  )
+X-CRM114-CacheID: sfid-20260602_175705_474611_B5D5638A 
+X-CRM114-Status: GOOD (  12.35  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -105,36 +103,45 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Replace deprecated irq_of_parse_and_map() with platform_get_irq() for IRQ
-retrieval in exynos_tmu, and change error handling to propagate the error
-code directly. This improves maintainability and aligns with standard
-driver practices. irq_of_parse_and_map() requires irq_dispose_mapping(),
-which is missing.
+Simplify resource mapping by using devm_platform_ioremap_resource()
+instead of the longer devm_platform_get_and_ioremap_resource() helper
+as the last argument is NULL.
 
-Assisted-by: opencode:big-pickle
+Additionally, use platform_get_irq() to retrieve the interrupt
+instead of irq_of_parse_and_map() and propagate its error code on
+failure.
+
+Assisted-by: Antigravity:Gemini-3.5-Flash
 Signed-off-by: Rosen Penev <rosenp@gmail.com>
 ---
- drivers/thermal/samsung/exynos_tmu.c | 6 +++---
- 1 file changed, 3 insertions(+), 3 deletions(-)
+ drivers/i2c/busses/i2c-aspeed.c | 7 +++++--
+ 1 file changed, 5 insertions(+), 2 deletions(-)
 
-diff --git a/drivers/thermal/samsung/exynos_tmu.c b/drivers/thermal/samsung/exynos_tmu.c
-index 47a99b3c5395..ff81b81b4532 100644
---- a/drivers/thermal/samsung/exynos_tmu.c
-+++ b/drivers/thermal/samsung/exynos_tmu.c
-@@ -846,10 +846,10 @@ static int exynos_map_dt_data(struct platform_device *pdev)
- 	if (!data || !pdev->dev.of_node)
- 		return -ENODEV;
+diff --git a/drivers/i2c/busses/i2c-aspeed.c b/drivers/i2c/busses/i2c-aspeed.c
+index a26b74c71206..f3c28c7c547d 100644
+--- a/drivers/i2c/busses/i2c-aspeed.c
++++ b/drivers/i2c/busses/i2c-aspeed.c
+@@ -1006,7 +1006,7 @@ static int aspeed_i2c_probe_bus(struct platform_device *pdev)
+ 	if (!bus)
+ 		return -ENOMEM;
  
--	data->irq = irq_of_parse_and_map(pdev->dev.of_node, 0);
--	if (data->irq <= 0) {
-+	data->irq = platform_get_irq(pdev, 0);
-+	if (data->irq < 0) {
- 		dev_err(&pdev->dev, "failed to get IRQ\n");
--		return -ENODEV;
-+		return data->irq;
- 	}
+-	bus->base = devm_platform_get_and_ioremap_resource(pdev, 0, NULL);
++	bus->base = devm_platform_ioremap_resource(pdev, 0);
+ 	if (IS_ERR(bus->base))
+ 		return PTR_ERR(bus->base);
  
- 	if (of_address_to_resource(pdev->dev.of_node, 0, &res)) {
+@@ -1064,7 +1064,10 @@ static int aspeed_i2c_probe_bus(struct platform_device *pdev)
+ 	if (ret < 0)
+ 		return ret;
+ 
+-	irq = irq_of_parse_and_map(pdev->dev.of_node, 0);
++	irq = platform_get_irq(pdev, 0);
++	if (irq < 0)
++		return irq;
++
+ 	ret = devm_request_irq(&pdev->dev, irq, aspeed_i2c_bus_irq,
+ 			       0, dev_name(&pdev->dev), bus);
+ 	if (ret < 0)
 -- 
 2.54.0
 
