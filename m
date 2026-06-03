@@ -4,72 +4,76 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 6B3ACCD6E55
-	for <linux-arm-kernel@archiver.kernel.org>; Wed,  3 Jun 2026 10:57:34 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 7DE09CD6E56
+	for <linux-arm-kernel@archiver.kernel.org>; Wed,  3 Jun 2026 11:03:26 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
-	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=Bf9RnpSR+UZn8m23JJ8dfk2mwotSD9sQez0rnSvHcyc=; b=oRQZNi1ib0IuNrix7OLEI9k9Lf
-	HClDtZJXz/x4gJkJ0YtvtzScVj+/9GYO79vjhDK6ayU6EWCFmkwurfe0qujCXm3S/ysER44dO4L9E
-	ZDtjbUU7chAF6ySv1QQBb7V0A5VrUXNqFunkJ7iX+AsCeIm0a82k0YyVVZGrkPRprzsbZMx0MGL35
-	5Ytr1l6xVQ1Rk8/g7Y58vSPggpSdvgSEaY+ZnA6gcbX6eiyVbJgap8Rg+XZFnBFh3xLU03Umwu1GA
-	qix3J69bTRYKdAzMoDhJu3TWJOkMBO9BOXMW4R/UVtwqFvjG5T/c+risf52paThu3MQs8tjCpEg/q
-	hR0D5hCw==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:Cc:To:From:
+	Subject:Message-ID:Mime-Version:Date:Reply-To:Content-Transfer-Encoding:
+	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
+	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=YM3OgQYUM4wpN2ATYj7S7HcuVfmqgGkKpiwqvbUC2NY=; b=J1Th74wmFLwv9oavaKuRN6d9se
+	a0VOhNEJxD9mEuDcRLcAQpaLZSH/TdxKOnJzrzKtWkUYV7SfN3R+k1cIG6xBwznKSoPWdzuUj7+2S
+	XKhEVSERzKu+J+EJQ+gaNtZUoy9p4kKObtPQjbsjssG2XOuWXVahY72nUJI+TmlUqBo3pDIViEtJ4
+	ZkRhPM+Fl5bG17gcEQ7/6KodSgQ9tsFnA03arf3TtCQvm3WyMReUlmpcsXEYR3qTIKt02GcCe66Ee
+	eFZwH41u8w6dQw10EGELPxpBZC48u+CypQDvRwbTdgAc89qf8h+BmphIk5CQD7HXoYNvxk1AMJ8HI
+	Fg6T5hbw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wUjHs-0000000Eqoj-1ayk;
-	Wed, 03 Jun 2026 10:57:28 +0000
-Received: from foss.arm.com ([217.140.110.172])
-	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wUjHq-0000000Eqny-3uVJ
+	id 1wUjNX-0000000Es6P-0WoY;
+	Wed, 03 Jun 2026 11:03:19 +0000
+Received: from mail-wr1-x449.google.com ([2a00:1450:4864:20::449])
+	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
+	id 1wUjNV-0000000Es5s-1gVa
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 03 Jun 2026 10:57:28 +0000
-Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
-	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id 8346249E3;
-	Wed,  3 Jun 2026 03:57:20 -0700 (PDT)
-Received: from [10.57.26.22] (unknown [10.57.26.22])
-	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id 5D3013F632;
-	Wed,  3 Jun 2026 03:57:20 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=simple/simple; d=arm.com; s=foss;
-	t=1780484245; bh=Cbom3lLA/oZS7Gf7ajwverW1Ai4B/b3z2gFyR3cP6kg=;
-	h=Date:Subject:To:Cc:References:From:In-Reply-To:From;
-	b=eNBypVqikAVvslU2dozRzAi/42KRf1QN3GyF+PjiX1Fwkyr5+wSTOg4FSY5wO0t72
-	 pZ3567HwrF3FO2JZjd0DpdkFQF+q9NSYA/WiQBBKtpkStJity9ezznwGOBMIfTZnyv
-	 pivG5AchAXnj1UwH6V3pS50qAnqFDiXn+0L+3McM=
-Message-ID: <1085ff2d-1e23-4df9-baad-cfafeb1f6449@arm.com>
-Date: Wed, 3 Jun 2026 11:57:12 +0100
-MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH v14 06/44] arm64: RMI: Check for RMI support at init
-To: Marc Zyngier <maz@kernel.org>
-Cc: kvm@vger.kernel.org, kvmarm@lists.linux.dev,
- Catalin Marinas <catalin.marinas@arm.com>, Will Deacon <will@kernel.org>,
- James Morse <james.morse@arm.com>, Oliver Upton <oliver.upton@linux.dev>,
- Suzuki K Poulose <suzuki.poulose@arm.com>, Zenghui Yu
- <yuzenghui@huawei.com>, linux-arm-kernel@lists.infradead.org,
- linux-kernel@vger.kernel.org, Joey Gouly <joey.gouly@arm.com>,
- Alexandru Elisei <alexandru.elisei@arm.com>,
- Christoffer Dall <christoffer.dall@arm.com>, Fuad Tabba <tabba@google.com>,
- linux-coco@lists.linux.dev,
- Ganapatrao Kulkarni <gankulkarni@os.amperecomputing.com>,
- Gavin Shan <gshan@redhat.com>, Shanker Donthineni <sdonthineni@nvidia.com>,
- Alper Gun <alpergun@google.com>, "Aneesh Kumar K . V"
- <aneesh.kumar@kernel.org>, Emi Kisanuki <fj0570is@fujitsu.com>,
- Vishal Annapurve <vannapurve@google.com>, WeiLin.Chang@arm.com,
- Lorenzo.Pieralisi2@arm.com
-References: <20260513131757.116630-1-steven.price@arm.com>
- <20260513131757.116630-7-steven.price@arm.com> <86bje8x6dj.wl-maz@kernel.org>
-From: Steven Price <steven.price@arm.com>
-Content-Language: en-GB
-In-Reply-To: <86bje8x6dj.wl-maz@kernel.org>
-Content-Type: text/plain; charset=UTF-8
-Content-Transfer-Encoding: 7bit
+	Wed, 03 Jun 2026 11:03:18 +0000
+Received: by mail-wr1-x449.google.com with SMTP id ffacd0b85a97d-45ef616db45so3172295f8f.2
+        for <linux-arm-kernel@lists.infradead.org>; Wed, 03 Jun 2026 04:03:16 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=google.com; s=20251104; t=1780484595; x=1781089395; darn=lists.infradead.org;
+        h=cc:to:from:subject:message-id:mime-version:date:from:to:cc:subject
+         :date:message-id:reply-to;
+        bh=YM3OgQYUM4wpN2ATYj7S7HcuVfmqgGkKpiwqvbUC2NY=;
+        b=qwNvfaO1oey3kxnlGHPVrKOqtDU6U34T99/TTCmwty4YmAsYER+6HrYjKa6ovVatvs
+         ch0LKGDiWtID82YEMywOhS97K6aEGEAVOQ6BL/G327rqaLskZ2S5ps2enX9c7ttMlbUr
+         n+zJxX3GqrvUTISVP+6aTGgRe/dRMn2TdVTMD8HhUS4suTzfbT9xg4xHftDrPJEy4hB+
+         aaN3+pWpEkBDtGIUiPkbplmCdgKysM4YYYd7V4zIPbJPdSKG7MCyyP/80w+3iIuU9RLn
+         e+qss2kaIJEJu3OyAQfAzr181D6cUdIVU1xaBMQzUiLQcK4lbL7+WoW3WvKdS9NV8GDo
+         xZWQ==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20251104; t=1780484595; x=1781089395;
+        h=cc:to:from:subject:message-id:mime-version:date:x-gm-message-state
+         :from:to:cc:subject:date:message-id:reply-to;
+        bh=YM3OgQYUM4wpN2ATYj7S7HcuVfmqgGkKpiwqvbUC2NY=;
+        b=PinyX8yivInhZ+NLvZxuI2He4uqonVkZD/MSO00FegHjBKRmqEq3GAuOzyVCJwJtO6
+         xouawxpE1elW8DRhvypwR+Z1K5cMpbR/DkKYO680zyWlyau6IzCrqcC0JCLt6gqKJEQB
+         U5jF/rqDovuYQK6Vx5aM8fQl18JGYKUohNCJKE/WPAzg9tXshYXTVgZ8J1tXo51FJu7G
+         OBHsS0TR51HMRvFXhx+72ZScP0ER6guuRifS0gkCEZ0bJEcoEkjqv0K7Q+1uDUZpYklN
+         ROEtWyeHap1brFvcb2mBLsEWgi+3jKiWfRFRT0CR6BTS9Uz+/B2G99RtvrhAOR2qm9TS
+         fHoQ==
+X-Gm-Message-State: AOJu0YwLddDdNCwJCLR92Y0mHk4tcjPrZ0FGnK0KP08gQQgrQdnvTyiQ
+	RDUlQiwm4a3nYKcYti2EEz968JoGr0C5hZGD39zKlLtvjpIGRWwt9UxI8Aj8GG7wNkXcQ0cRNQL
+	LaDvndbI6cKHi3lnX0lV2vA==
+X-Received: from wryf10.prod.google.com ([2002:a05:6000:1a8a:b0:449:a64d:86c9])
+ (user=vdonnefort job=prod-delivery.src-stubby-dispatcher) by
+ 2002:a5d:4bc7:0:b0:45e:f266:f4c4 with SMTP id ffacd0b85a97d-460218433c0mr3010157f8f.29.1780484594559;
+ Wed, 03 Jun 2026 04:03:14 -0700 (PDT)
+Date: Wed,  3 Jun 2026 12:03:12 +0100
+Mime-Version: 1.0
+X-Mailer: git-send-email 2.54.0.1032.g2f8565e1d1-goog
+Message-ID: <20260603110312.2909844-1-vdonnefort@google.com>
+Subject: [PATCH] KVM: arm64: Set a linux errno on SMCCC error in kvm_call_hyp_nvhe()
+From: Vincent Donnefort <vdonnefort@google.com>
+To: maz@kernel.org, oliver.upton@linux.dev, joey.gouly@arm.com, 
+	suzuki.poulose@arm.com, yuzenghui@huawei.com, catalin.marinas@arm.com, 
+	will@kernel.org
+Cc: linux-arm-kernel@lists.infradead.org, kvmarm@lists.linux.dev, 
+	kernel-team@android.com, tabba@google.com, 
+	Vincent Donnefort <vdonnefort@google.com>
+Content-Type: text/plain; charset="UTF-8"
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260603_035727_059043_AA39CFE2 
-X-CRM114-Status: GOOD (  27.26  )
+X-CRM114-CacheID: sfid-20260603_040317_448857_BB42A517 
+X-CRM114-Status: GOOD (  11.38  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -84,162 +88,52 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On 21/05/2026 14:02, Marc Zyngier wrote:
-> On Wed, 13 May 2026 14:17:14 +0100,
-> Steven Price <steven.price@arm.com> wrote:
->>
->> Query the RMI version number and check if it is a compatible version.
->> The first two feature registers are read and exposed for future code to
->> use.
->>
->> Signed-off-by: Steven Price <steven.price@arm.com>
->> ---
->> v14:
->>  * This moves the basic RMI setup into the 'kernel' directory. This is
->>    because RMI will be used for some features outside of KVM so should
->>    be available even if KVM isn't compiled in.
->> ---
->>  arch/arm64/include/asm/rmi_cmds.h |  3 ++
->>  arch/arm64/kernel/Makefile        |  2 +-
->>  arch/arm64/kernel/cpufeature.c    |  1 +
->>  arch/arm64/kernel/rmi.c           | 65 +++++++++++++++++++++++++++++++
->>  4 files changed, 70 insertions(+), 1 deletion(-)
->>  create mode 100644 arch/arm64/kernel/rmi.c
->>
->> diff --git a/arch/arm64/include/asm/rmi_cmds.h b/arch/arm64/include/asm/rmi_cmds.h
->> index 04f7066894e9..9179934925c5 100644
->> --- a/arch/arm64/include/asm/rmi_cmds.h
->> +++ b/arch/arm64/include/asm/rmi_cmds.h
->> @@ -10,6 +10,9 @@
->>  
->>  #include <asm/rmi_smc.h>
->>  
->> +extern unsigned long rmm_feat_reg0;
->> +extern unsigned long rmm_feat_reg1;
->> +
->>  struct rtt_entry {
->>  	unsigned long walk_level;
->>  	unsigned long desc;
->> diff --git a/arch/arm64/kernel/Makefile b/arch/arm64/kernel/Makefile
->> index 74b76bb70452..d68f351aae75 100644
->> --- a/arch/arm64/kernel/Makefile
->> +++ b/arch/arm64/kernel/Makefile
->> @@ -34,7 +34,7 @@ obj-y			:= debug-monitors.o entry.o irq.o fpsimd.o		\
->>  			   cpufeature.o alternative.o cacheinfo.o		\
->>  			   smp.o smp_spin_table.o topology.o smccc-call.o	\
->>  			   syscall.o proton-pack.o idle.o patching.o pi/	\
->> -			   rsi.o jump_label.o
->> +			   rsi.o jump_label.o rmi.o
->>  
->>  obj-$(CONFIG_COMPAT)			+= sys32.o signal32.o			\
->>  					   sys_compat.o
->> diff --git a/arch/arm64/kernel/cpufeature.c b/arch/arm64/kernel/cpufeature.c
->> index 6d53bb15cf7b..8bdd95a8c2de 100644
->> --- a/arch/arm64/kernel/cpufeature.c
->> +++ b/arch/arm64/kernel/cpufeature.c
->> @@ -292,6 +292,7 @@ static const struct arm64_ftr_bits ftr_id_aa64isar3[] = {
->>  static const struct arm64_ftr_bits ftr_id_aa64pfr0[] = {
->>  	ARM64_FTR_BITS(FTR_HIDDEN, FTR_NONSTRICT, FTR_LOWER_SAFE, ID_AA64PFR0_EL1_CSV3_SHIFT, 4, 0),
->>  	ARM64_FTR_BITS(FTR_HIDDEN, FTR_NONSTRICT, FTR_LOWER_SAFE, ID_AA64PFR0_EL1_CSV2_SHIFT, 4, 0),
->> +	ARM64_FTR_BITS(FTR_HIDDEN, FTR_NONSTRICT, FTR_LOWER_SAFE, ID_AA64PFR0_EL1_RME_SHIFT, 4, 0),
->>  	ARM64_FTR_BITS(FTR_VISIBLE, FTR_STRICT, FTR_LOWER_SAFE, ID_AA64PFR0_EL1_DIT_SHIFT, 4, 0),
->>  	ARM64_FTR_BITS(FTR_HIDDEN, FTR_NONSTRICT, FTR_LOWER_SAFE, ID_AA64PFR0_EL1_AMU_SHIFT, 4, 0),
->>  	ARM64_FTR_BITS(FTR_HIDDEN, FTR_STRICT, FTR_LOWER_SAFE, ID_AA64PFR0_EL1_MPAM_SHIFT, 4, 0),
->> diff --git a/arch/arm64/kernel/rmi.c b/arch/arm64/kernel/rmi.c
->> new file mode 100644
->> index 000000000000..99c1ccc35c11
->> --- /dev/null
->> +++ b/arch/arm64/kernel/rmi.c
->> @@ -0,0 +1,65 @@
->> +// SPDX-License-Identifier: GPL-2.0
->> +/*
->> + * Copyright (C) 2023-2025 ARM Ltd.
->> + */
->> +
->> +#include <linux/memblock.h>
->> +
->> +#include <asm/rmi_cmds.h>
->> +
->> +unsigned long rmm_feat_reg0;
->> +unsigned long rmm_feat_reg1;
-> 
-> What is the requirement for making those globally accessible? Can't
-> they be made static and use an accessor that returns them? Can the
-> variables be made __ro_after_init?
+If the HVC called in kvm_call_hyp_nvhe() fails with an SMCCC error code,
+we WARN. However, the returned value isn't initialized and the caller
+might get garbage or 0 which is likely to be interpreted as success.
 
-Good point - there's no requirement. Also the name isn't quite right - 
-these should be named rmi_ as there is a different set for RSI.
+Set a default -EPERM error value, ensuring all callers get the message
+when SMCCC calls fail.
 
->> +
->> +static int rmi_check_version(void)
->> +{
->> +	struct arm_smccc_res res;
->> +	unsigned short version_major, version_minor;
->> +	unsigned long host_version = RMI_ABI_VERSION(RMI_ABI_MAJOR_VERSION,
->> +						     RMI_ABI_MINOR_VERSION);
->> +	unsigned long aa64pfr0 = read_sanitised_ftr_reg(SYS_ID_AA64PFR0_EL1);
->> +
->> +	/* If RME isn't supported, then RMI can't be */
->> +	if (cpuid_feature_extract_unsigned_field(aa64pfr0, ID_AA64PFR0_EL1_RME_SHIFT) == 0)
->> +		return -ENXIO;
->> +
->> +	arm_smccc_1_1_invoke(SMC_RMI_VERSION, host_version, &res);
->> +
->> +	if (res.a0 == SMCCC_RET_NOT_SUPPORTED)
->> +		return -ENXIO;
->> +
->> +	version_major = RMI_ABI_VERSION_GET_MAJOR(res.a1);
->> +	version_minor = RMI_ABI_VERSION_GET_MINOR(res.a1);
->> +
->> +	if (res.a0 != RMI_SUCCESS) {
->> +		unsigned short high_version_major, high_version_minor;
->> +
->> +		high_version_major = RMI_ABI_VERSION_GET_MAJOR(res.a2);
->> +		high_version_minor = RMI_ABI_VERSION_GET_MINOR(res.a2);
->> +
->> +		pr_err("Unsupported RMI ABI (v%d.%d - v%d.%d) we want v%d.%d\n",
->> +		       version_major, version_minor,
->> +		       high_version_major, high_version_minor,
->> +		       RMI_ABI_MAJOR_VERSION,
->> +		       RMI_ABI_MINOR_VERSION);
->> +		return -ENXIO;
->> +	}
->> +
->> +	pr_info("RMI ABI version %d.%d\n", version_major, version_minor);
->> +
->> +	return 0;
->> +}
->> +
->> +static int __init arm64_init_rmi(void)
->> +{
->> +	/* Continue without realm support if we can't agree on a version */
->> +	if (rmi_check_version())
->> +		return 0;
->> +
->> +	if (WARN_ON(rmi_features(0, &rmm_feat_reg0)))
->> +		return 0;
->> +	if (WARN_ON(rmi_features(1, &rmm_feat_reg1)))
->> +		return 0;
->> +
->> +	return 0;
->> +}
->> +subsys_initcall(arm64_init_rmi);
-> 
-> Is there any reliance on this being executed before or after KVM's own
-> initialisation? If so, this should be captured.
+Signed-off-by: Vincent Donnefort <vdonnefort@google.com>
 
-Yes I'm expecting this to be called before KVM's initialisation. 
-kvm_init_rmi() alls rmi_is_available() to check if CCA is supported and 
-only enables the KVM side of things if that check passes. So if the 
-initialisation was the other way round then Realm guests would be 
-unsupported. I'll add a comment
+---
 
-/*
- * Note arm64_init_rmi() must be called before kvm_init_rmi() otherwise KVM
- * will not support realm guests. subsys_initcall() is called before
- * module_init() (used for KVM) so this is OK.
- */
+I have encountered this issue while working on a follow-up contribution to the
+hypervisor tracing. In that case it completely crashed the kernel because
+IS_ERR() failed on that res.a1 value.
 
-Thanks,
-Steve
+Now, if it makes that function more robust, I do not believe it is fixing any
+existing bug which is why I haven't added a "Fixes:" tag. 
+
+In case we want to stick one, here it is:
+
+Fixes: 054698316d87 ("KVM: arm64: nVHE: Migrate hyp interface to SMCCC")
+
+diff --git a/arch/arm64/include/asm/kvm_host.h b/arch/arm64/include/asm/kvm_host.h
+index a49042bfa801..6b8fd494792c 100644
+--- a/arch/arm64/include/asm/kvm_host.h
++++ b/arch/arm64/include/asm/kvm_host.h
+@@ -1273,13 +1273,14 @@ void kvm_arm_resume_guest(struct kvm *kvm);
+ #define vcpu_has_run_once(vcpu)	(!!READ_ONCE((vcpu)->pid))
+ 
+ #ifndef __KVM_NVHE_HYPERVISOR__
+-#define kvm_call_hyp_nvhe(f, ...)						\
++#define kvm_call_hyp_nvhe(f, ...)					\
+ 	({								\
+ 		struct arm_smccc_res res;				\
+ 									\
+ 		arm_smccc_1_1_hvc(KVM_HOST_SMCCC_FUNC(f),		\
+ 				  ##__VA_ARGS__, &res);			\
+-		WARN_ON(res.a0 != SMCCC_RET_SUCCESS);			\
++		if (WARN_ON(res.a0 != SMCCC_RET_SUCCESS))		\
++			res.a1 = -EPERM;				\
+ 									\
+ 		res.a1;							\
+ 	})
+
+base-commit: e43ffb69e0438cddd72aaa30898b4dc446f664f8
+-- 
+2.54.0.1032.g2f8565e1d1-goog
+
 
