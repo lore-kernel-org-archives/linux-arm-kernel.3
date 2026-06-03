@@ -4,93 +4,74 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id E84D2CD6E55
-	for <linux-arm-kernel@archiver.kernel.org>; Wed,  3 Jun 2026 17:23:51 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 33DF3CD6E55
+	for <linux-arm-kernel@archiver.kernel.org>; Wed,  3 Jun 2026 17:26:23 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:MIME-Version:
+	References:Message-ID:In-Reply-To:Subject:cc:To:From:Date:Reply-To:
 	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=SrzBV/CHeC4K43UCwv6a0kN1Tfy/GhWE6NmP1fIYMXI=; b=3CASPUHMYFJWWwSw0Wj/X3rLTI
-	HncnQqNCP4K+GC5YisJj1mRykxcPvvfrvokG7nOFX8eaULfuaUFltm/K1xHt6hTBbY6vaVHncB6K/
-	HK7B+Uuc34qSJQoMwwsXtBoVHf7d5xb5gty81xZbm8shPuHLgJb4dslSdDp0VykLOWOouOCkwtm6l
-	2dq5q0kTkPeE/+8BY+oSxZbjHDw6Oexe1hrbQDl7EbyBbPw7Xuh284oAywsS2hIDCID1TAs2jnF5A
-	/+qrB0zWd3IHFZFgbj6nbu/g2qgo+H6Wds7o6bQx7I6shyoo1Y8Lloim6uPfPQCwUsrcnF8IMQxD+
-	963QqZLw==;
+	bh=DiMi2AOkr41lLQQ8lkXK5ScVvrndiW+3Zkpi2ThCMg8=; b=N+snc3D97zh6eDTkHEu9Hw8pBg
+	zIC0kkow3wfod8+s0PWV/w1BUkhaOl72OaqgYTNTyhd9cfMxwL8QH2Dmvvo9UvYDaGp7GFjaRQjVg
+	e6lNT7A0r/Q/7F0hjYV7wxHIJMJ0pZe/B3fMO01LEv/7db9Oh5ZeuvzdEkjBuII2FqZOpZIUhaX4v
+	jEQg9alnkweQIQHofjR9V+Iv/reswEZmGehBSjE8n4dkAumsSfCYky2c/ONFYPkuk4PqnTtg+vGf/
+	4OEwu9Pv18n96MyrcuQ5jk8CKxahzUNTsSvdc2jiaFxmVZO8vem5SSlqyzNjBHB7GWyZHrP/JJFTu
+	nedI8zPg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wUpJf-0000000FZW0-3mZM;
-	Wed, 03 Jun 2026 17:23:43 +0000
-Received: from mail-dy1-x1330.google.com ([2607:f8b0:4864:20::1330])
-	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wUpJd-0000000FZVU-3slf
-	for linux-arm-kernel@lists.infradead.org;
-	Wed, 03 Jun 2026 17:23:43 +0000
-Received: by mail-dy1-x1330.google.com with SMTP id 5a478bee46e88-304f0039c02so52071eec.1
-        for <linux-arm-kernel@lists.infradead.org>; Wed, 03 Jun 2026 10:23:41 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=chromium.org; s=google; t=1780507420; x=1781112220; darn=lists.infradead.org;
-        h=in-reply-to:content-disposition:mime-version:references:message-id
-         :subject:cc:to:from:date:from:to:cc:subject:date:message-id:reply-to;
-        bh=SrzBV/CHeC4K43UCwv6a0kN1Tfy/GhWE6NmP1fIYMXI=;
-        b=FbD1s+ImASClxnAW0B/x4s2pFS1rXXEoZz1d734umND4lwchC5lZDALXGX1PpIYnpb
-         klZFFAzr3gc0XmWqfQ7Gm7KXD5OMhk3HCUQJQWe5VvEi7IEGkCfps+8S4KFELhHFN229
-         abIK3KzyaPzXOpYOdQi+dKxTYJtdBe75+d/NY=
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20251104; t=1780507420; x=1781112220;
-        h=in-reply-to:content-disposition:mime-version:references:message-id
-         :subject:cc:to:from:date:x-gm-gg:x-gm-message-state:from:to:cc
-         :subject:date:message-id:reply-to;
-        bh=SrzBV/CHeC4K43UCwv6a0kN1Tfy/GhWE6NmP1fIYMXI=;
-        b=VrtqvvtkBkpuH4+mGj436V7M9V+wKJ1B+aC16gBMZkWXU3Uh6BA6Lynyx8ntWYaMIA
-         e6r5ZLphxLQ1A075oO+Ml02zHLPTlp26ObDECyCQ4ByAkPvykQj8j14OiT/q3dHNVCOM
-         A50GMn+Ot8f8sYa+32OP2UZG+4aNo8bD49eslSGpH+hvDjERp4uPFtmpTso8H+ssX5PQ
-         amndo43skdNB0OqjOSRYEdqCIqs7VdmouV0NRaffKnfu/+31HezktV8dalWkWi9HeBBd
-         HXZRzNNq+LrEMy1xdGewNqptshLCnmpVpk6FjZ3oxQOWNdiYhNJDLnTdDQ9Xj5LIZEmu
-         QPig==
-X-Forwarded-Encrypted: i=1; AFNElJ9C9bW3uXlAyVZOTMCGuiwsg3isw7ML7dKKaB5VvkXNRamayaTa3jP8m7NvANZKlAubjPpX5vxOFRevKDh/aQGf@lists.infradead.org
-X-Gm-Message-State: AOJu0Yxe435q30+fZKNGRkoCaTWZDUH5faehtPuKYQwN4j4BKP3F9yVV
-	ALkAcQrA2pesZW4i9x4EChH52XA6Qri+9Iwyam8n7JRICy9nVbuJRdF9pkaT63QB0w==
-X-Gm-Gg: Acq92OH6H4uxk9Vbv9e1u4UHU4lt9abkGG1XEKXZW/2kWNz4Va9AvltS/UUDTvNGi5V
-	wVHiq3R03+gMM3l878XD10WOjGr3P+MNFsDVd9HjrEHh6o19hf8ygGLWgV+mKiRgtMLKLwAR76z
-	BU0p7eECu+Nscd04Upfkr6g8l82fGeCosA/s5qIGY/84BLeLTU2g3vbHMOq6g3yPdyQM8anXO8Y
-	t/f3g7d78s1loOO8PnmzQS8QsVxiuvBnwd4CpqEnW9MC0OVSjabA9102NqEeG/YkoqyY4DDsKxE
-	4/vIK//+9EMNznTId4+YbVY1mMdtQUnKXHxkJQQss4dE0UApl1+/2Nvcyc5YfAJHZ0M/y3+h06z
-	2dITft48GePKHQHV4JOt3Z8s7ts+WjGvYfp8GkJQa2KfC4Pb0sMipX5yvS2OmwLlpT3xU2ibthR
-	/SapULTNW+9J4LJQMjXIfDiH2BtOfDGTItl5rnH/HolfJIvFz6MrN17ZHO7hQZEvhauCFHXApq
-X-Received: by 2002:a05:7301:128b:b0:2ea:b7a9:580d with SMTP id 5a478bee46e88-3074fa80739mr2310951eec.9.1780507420313;
-        Wed, 03 Jun 2026 10:23:40 -0700 (PDT)
-Received: from localhost ([2a00:79e0:2e7c:8:c444:80f4:5ace:a65c])
-        by smtp.gmail.com with UTF8SMTPSA id 5a478bee46e88-3074d9fde90sm4323779eec.0.2026.06.03.10.23.38
-        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
-        Wed, 03 Jun 2026 10:23:39 -0700 (PDT)
-Date: Wed, 3 Jun 2026 10:23:37 -0700
-From: Brian Norris <briannorris@chromium.org>
-To: Matthias Brugger <matthias.bgg@gmail.com>,
-	AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>,
-	Bjorn Andersson <andersson@kernel.org>
-Cc: devicetree@vger.kernel.org, Doug Anderson <dianders@chromium.org>,
-	linux-arm-kernel@lists.infradead.org,
-	Tzung-Bi Shih <tzungbi@kernel.org>, chrome-platform@lists.linux.dev,
-	Julius Werner <jwerner@chromium.org>,
-	cros-qcom-dts-watchers@chromium.org, linux-arm-msm@vger.kernel.org,
-	linux-kernel@vger.kernel.org, Rob Herring <robh@kernel.org>,
-	Krzysztof Kozlowski <krzk+dt@kernel.org>,
-	Conor Dooley <conor+dt@kernel.org>,
-	Konrad Dybcio <konradybcio@kernel.org>,
-	Chen-Yu Tsai <wens@kernel.org>
-Subject: Re: [PATCH 0/7] dts: Add /firmware/#{address,size}-cells to
- Chromium-based DTs
-Message-ID: <aiBjGekXkr2nIf-w@google.com>
-References: <20260428200712.2660635-1-briannorris@chromium.org>
+	id 1wUpM9-0000000FZoe-1KEo;
+	Wed, 03 Jun 2026 17:26:17 +0000
+Received: from linux.microsoft.com ([13.77.154.182])
+	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
+	id 1wUpM6-0000000FZnd-1FB6;
+	Wed, 03 Jun 2026 17:26:15 +0000
+Received: by linux.microsoft.com (Postfix, from userid 1241)
+	id 928E120B7168; Wed,  3 Jun 2026 10:25:58 -0700 (PDT)
+DKIM-Filter: OpenDKIM Filter v2.11.0 linux.microsoft.com 928E120B7168
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=linux.microsoft.com;
+	s=default; t=1780507558;
+	bh=DiMi2AOkr41lLQQ8lkXK5ScVvrndiW+3Zkpi2ThCMg8=;
+	h=Date:From:To:cc:Subject:In-Reply-To:References:From;
+	b=EnMUBUXndkm6H+8pw74uuRu7AaBF6Y2P5UHSn671EYJ6AHspLIGBAjxTK0YnC63tg
+	 a9gWzTZ1uhg3OfJ+IGfN+QTusX0nyLn1rYJxr/vxFjCDx91PproYwVJZZfVSXuq4sc
+	 rr0JK382f+sPSDMf6vulEDPlcs/vBEF43JAe1mGA=
+Received: from localhost (localhost [127.0.0.1])
+	by linux.microsoft.com (Postfix) with ESMTP id 903BE307050F;
+	Wed,  3 Jun 2026 10:25:58 -0700 (PDT)
+Date: Wed, 3 Jun 2026 10:25:58 -0700 (PDT)
+From: Jork Loeser <jloeser@linux.microsoft.com>
+To: Mike Rapoport <rppt@kernel.org>
+cc: linux-hyperv@vger.kernel.org, linux-mm@kvack.org, 
+    kexec@lists.infradead.org, "K. Y. Srinivasan" <kys@microsoft.com>, 
+    Haiyang Zhang <haiyangz@microsoft.com>, Wei Liu <wei.liu@kernel.org>, 
+    Dexuan Cui <decui@microsoft.com>, Long Li <longli@microsoft.com>, 
+    Pasha Tatashin <pasha.tatashin@soleen.com>, 
+    Pratyush Yadav <pratyush@kernel.org>, Alexander Graf <graf@amazon.com>, 
+    Jason Miu <jasonmiu@google.com>, Andrew Morton <akpm@linux-foundation.org>, 
+    David Hildenbrand <david@kernel.org>, Muchun Song <muchun.song@linux.dev>, 
+    Oscar Salvador <osalvador@suse.de>, Baoquan He <bhe@redhat.com>, 
+    Catalin Marinas <catalin.marinas@arm.com>, Will Deacon <will@kernel.org>, 
+    Thomas Gleixner <tglx@kernel.org>, Ingo Molnar <mingo@redhat.com>, 
+    Borislav Petkov <bp@alien8.de>, Dave Hansen <dave.hansen@linux.intel.com>, 
+    "H. Peter Anvin" <hpa@zytor.com>, Kees Cook <kees@kernel.org>, 
+    Ran Xiaokai <ran.xiaokai@zte.com.cn>, 
+    Justinien Bouron <jbouron@amazon.com>, 
+    Sourabh Jain <sourabhjain@linux.ibm.com>, Pingfan Liu <piliu@redhat.com>, 
+    "Rafael J. Wysocki" <rafael.j.wysocki@intel.com>, 
+    Mario Limonciello <mario.limonciello@amd.com>, 
+    linux-arm-kernel@lists.infradead.org, x86@kernel.org, 
+    linux-kernel@vger.kernel.org, Michael Kelley <mhklinux@outlook.com>
+Subject: Re: [RFC PATCH 00/20] mshv: enable kexec with Hyper-V donated pages
+ and partitions
+In-Reply-To: <ah_z3GV55RY3ZnT-@kernel.org>
+Message-ID: <3197c9c9-9e4f-c592-bb7-ac422f89115@linux.microsoft.com>
+References: <20260528004204.1484584-1-jloeser@linux.microsoft.com> <ahxrc4pTvVU20RTX@kernel.org> <f9d95fb1-ef3-d4a-19e4-afe7cdde5d1f@linux.microsoft.com> <ah_z3GV55RY3ZnT-@kernel.org>
 MIME-Version: 1.0
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-In-Reply-To: <20260428200712.2660635-1-briannorris@chromium.org>
+Content-Type: text/plain; charset=US-ASCII; format=flowed
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260603_102341_998718_C1C6FB0A 
-X-CRM114-Status: GOOD (  17.47  )
+X-CRM114-CacheID: sfid-20260603_102614_369071_C296EBF7 
+X-CRM114-Status: GOOD (  10.22  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -105,49 +86,24 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-(Trim address list)
 
-Hi Bjorn, AngeloGioacchino,
 
-On Tue, Apr 28, 2026 at 01:06:52PM -0700, Brian Norris wrote:
-...
-> The /firmware node has an empty 'ranges', but does not have
-> address/size-cells.
-> 
-> Commit 6e5773d52f4a ("of/address: Fix WARN when attempting translating
-> non-translatable addresses") started requiring #address-cells for a
-> device's parent if we want to use the reg resource in a device node.
-> This leads to errors like the following:
-> 
-> [    7.763870] coreboot_table firmware:coreboot: probe with driver coreboot_table failed with error -22
-> 
-> This series adds appropriate #{address,size}-cells to the device trees
-> used on Arm Chromebooks to work around the problem.
-...
+On Wed, 3 Jun 2026, Mike Rapoport wrote:
 
-> Brian Norris (7):
->   arm64: dts: rockchip: Add #{address,size}-cells to Chromium-based
->     /firmware
->   ARM: dts: rockchip: Add #{address,size}-cells to Chromium-based
->     /firmware
->   ARM: dts: nvidia: Add #{address,size}-cells to Chromium-based
->     /firmware
->   ARM: dts: samsung: Add #{address,size}-cells to Chromium-based
->     /firmware
->   arm64: dts: mediatek: Add #{address,size}-cells to Chromium-based
->     /firmware
->   arm64: dts: nvidia: Add #{address,size}-cells to Chromium-based
->     /firmware
->   arm64: dts: qcom: Add #{address,size}-cells to Chromium-based
->     /firmware
+> On Mon, Jun 01, 2026 at 01:09:41PM -0700, Jork Loeser wrote:
+>> On Sun, 31 May 2026, Mike Rapoport wrote:
+>>
+>>>> Patch 19:      Export kexec_in_progress for modules
+>>>
+>>> Isn't there another way to differentiate kexec reboot?
+>
+> There's that "kexec reboot" string passed as the cmd to the reboot
+> notifier.
+> Maybe we can make it somehow more well defined API and use it?
 
-Patch 1 and 2 (Rockchip) and 3 and 6 (Nvidia) are applied to linux-next.
-Patch 4 is obsolete / unnecessary. That leaves patch 5 (Mediatek) and 7
-(Qualcomm).
+A string? Dear my - the compiler won't flag it on an API change then, not 
+ideal clearly. What's wrong with exporting kexec_in_progress()?
 
-Bjorn (Qualcomm) and AngeloGioacchino (Mediatek), any thoughts? I can
-resend them separately if that helps somehow.
-
-Regards,
-Brian
+Best,
+Jork
 
