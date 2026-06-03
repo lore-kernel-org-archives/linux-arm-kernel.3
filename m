@@ -4,38 +4,53 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 61CF7CD6E70
-	for <linux-arm-kernel@archiver.kernel.org>; Wed,  3 Jun 2026 15:19:38 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 4DC19CD6E55
+	for <linux-arm-kernel@archiver.kernel.org>; Wed,  3 Jun 2026 15:19:41 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
 	MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:
 	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=YeBRD/MSt6wsGVdzvt9zKUavpOowrxOrf9yWTOinoZY=; b=gWAU12x3g8TogyjEXvCCZPqlnN
-	yJ3N+6+tooLZ2TzJjuwgSV4w5nHGxGrOGM7vCrMWrI9mygVLpn7B+nMUGDXXuIOTQHBkoY7fIm6XR
-	CSBYg5t2hJg2FF83kevzE5+4bC37RzCy1lP8BAMsJzWAlzUO9Dmr8AFRbqLPRLa7Z64vi/wJryNou
-	BjOoqNBXcH674TRGvsm4u1wHXvhyKFivQR5yEvr1xyv8YO0A3RUSRrgt8FOrLAGK7oVh/+zFmqhAK
-	0gbsMt/oXgG8Q1ubEx7JFbulcB7IHXEtsMI7hURrpIAKtyZIIQ64gHzYVbbBtSDKaClKJjbt3+j8J
-	SbkVo+8g==;
+	bh=o1pBWOp6KPk1xwyKTTozbXEjvmJOV/Yw7GM3gk1sgVc=; b=Dm6TpC8Md5BFdbdfyZGz+iBQ6K
+	R91sLKuaKOnPEu9Bm59YXWOoKjOvMcoxFko0qPbh8u5JydccnRPvdRX1tsbgXpaeqPMtW9tf1L+yp
+	edY3ZHYN3BWBzxphUa1WZN9xhOg0/1hsTNiAubPxiI/QM1y9pm6OBC0Bv8NDhN7h+imHBtXwKAVx4
+	R+DQ7q/nrPYsI3DsSQrQMD7dagSZak5ik/WmidgPysAdKu8FvNZlLOiMvTAeX9egPiNH1rBTkrTAH
+	oh7qycR593zw3VVE5H+YQe+xcwROJ+syvu3NUfhkuK38nMewrzxoXyvytLJa5mPpPwf/eg68p8re2
+	jT+hLzHw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wUnNQ-0000000FNKd-14OR;
-	Wed, 03 Jun 2026 15:19:28 +0000
-Received: from out30-119.freemail.mail.aliyun.com ([115.124.30.119])
+	id 1wUnNT-0000000FNRK-0u8N;
+	Wed, 03 Jun 2026 15:19:31 +0000
+Received: from desiato.infradead.org ([90.155.92.199])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wUnN8-0000000FMvM-446v
+	id 1wUnNH-0000000FN5B-0q4Y
+	for linux-arm-kernel@bombadil.infradead.org;
+	Wed, 03 Jun 2026 15:19:19 +0000
+DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
+	d=infradead.org; s=desiato.20200630; h=Content-Transfer-Encoding:MIME-Version
+	:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:Sender:Reply-To:
+	Content-Type:Content-ID:Content-Description;
+	bh=o1pBWOp6KPk1xwyKTTozbXEjvmJOV/Yw7GM3gk1sgVc=; b=UkeP9b46X+Bux5WMMbJsqnTSQM
+	fjQf9kJ33WIvH4YZv4LyKecWfY0oGw6nXWSOXjrR6w6R4bfYKr2z9JB4BI00Bo3+Ydc161d3kDVkg
+	lvIK+UXPZP2NotIZX4aHSm8S62qdPlISls4IZwqvBqzO24y4tHIZieSGAYkJYkAXRw1vzviK4FWZN
+	TaAOLiD3G/1Qme+DtOAcKH5IRQa1gTBU4e/rLxngbvYZOduVhoF5dSY7knX41Lj2u4AzGIOFn0nRY
+	gYCRE0TwFHopZO3NQAuSdhRu45FyaMwejRFvw2jqSsVXBNPiSJlMHzh4wEx0LYR1nsgc30HmHzGcu
+	Kvr5sFmQ==;
+Received: from out30-99.freemail.mail.aliyun.com ([115.124.30.99])
+	by desiato.infradead.org with esmtps (Exim 4.99.2 #2 (Red Hat Linux))
+	id 1wUnND-0000000CXs8-3Zuo
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 03 Jun 2026 15:19:16 +0000
+	Wed, 03 Jun 2026 15:19:17 +0000
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
 	d=linux.alibaba.com; s=default;
-	t=1780499949; h=From:To:Subject:Date:Message-ID:MIME-Version;
-	bh=YeBRD/MSt6wsGVdzvt9zKUavpOowrxOrf9yWTOinoZY=;
-	b=pAaxJILarWhzgNQrBVSgPEFodchyKdfpgMuboq7jRq8to8tMdmem+yfow8Mxq7uJ8qxkGVJlrHMMHDTII3RKZbf+twbNdEImZH5saRTxXPwguIBx9Y67dM4vR3TDE39otmB8Gqprq8yLaOpXbtrjlW7Ffv2QbT9HnZG+acMONt8=
-X-Alimail-AntiSpam: AC=PASS;BC=-1|-1;BR=01201311R951e4;CH=green;DM=||false|;DS=||;FP=0|-1|-1|-1|0|-1|-1|-1;HT=maildocker-contentspam033045133197;MF=guanghuifeng@linux.alibaba.com;NM=1;PH=DS;RN=28;SR=0;TI=SMTPD_---0X47fR6h_1780499941;
-Received: from VM20241011-104.tbsite.net(mailfrom:guanghuifeng@linux.alibaba.com fp:SMTPD_---0X47fR6h_1780499941 cluster:ay36)
+	t=1780499951; h=From:To:Subject:Date:Message-ID:MIME-Version;
+	bh=o1pBWOp6KPk1xwyKTTozbXEjvmJOV/Yw7GM3gk1sgVc=;
+	b=E/0Mh5ep1zBw8wm0hFBWXel7/ni9lFcFy1IAkRWd3V7tLwguZIxWpfpE7zEPxyK0xjB4zpRc0VefWNcBvNFeaf3RgnEuaKB7Q3ZT2llCh0OSaYhsHoEPuzqmIsSRQGMxDyUe0qJWZtv7rvx1DVv4FBRFioO5gWPe0awKRiTf304=
+X-Alimail-AntiSpam: AC=PASS;BC=-1|-1;BR=01201311R751e4;CH=green;DM=||false|;DS=||;FP=0|-1|-1|-1|0|-1|-1|-1;HT=maildocker-contentspam011083073210;MF=guanghuifeng@linux.alibaba.com;NM=1;PH=DS;RN=28;SR=0;TI=SMTPD_---0X47fR8Z_1780499949;
+Received: from VM20241011-104.tbsite.net(mailfrom:guanghuifeng@linux.alibaba.com fp:SMTPD_---0X47fR8Z_1780499949 cluster:ay36)
           by smtp.aliyun-inc.com;
-          Wed, 03 Jun 2026 23:19:01 +0800
+          Wed, 03 Jun 2026 23:19:09 +0800
 From: Guanghui Feng <guanghuifeng@linux.alibaba.com>
 To: jgg@ziepe.ca
 Cc: adrian.larumbe@collabora.com,
@@ -65,9 +80,9 @@ Cc: adrian.larumbe@collabora.com,
 	wei.guo.simon@linux.alibaba.com,
 	will@kernel.org,
 	xlpang@linux.alibaba.com
-Subject: [PATCH v3 23/32] vfio: use iova_to_phys_length for efficient unmap
-Date: Wed,  3 Jun 2026 23:17:55 +0800
-Message-ID: <20260603151804.1963871-24-guanghuifeng@linux.alibaba.com>
+Subject: [PATCH v3 31/32] iommu/io-pgtable-dart: remove deprecated iova_to_phys wrapper
+Date: Wed,  3 Jun 2026 23:18:03 +0800
+Message-ID: <20260603151804.1963871-32-guanghuifeng@linux.alibaba.com>
 X-Mailer: git-send-email 2.43.7
 In-Reply-To: <20260603151804.1963871-1-guanghuifeng@linux.alibaba.com>
 References: <20260602104637.1219810-1-guanghuifeng@linux.alibaba.com>
@@ -75,8 +90,9 @@ References: <20260602104637.1219810-1-guanghuifeng@linux.alibaba.com>
 MIME-Version: 1.0
 Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260603_081913_324273_58BBA392 
-X-CRM114-Status: GOOD (  11.58  )
+X-CRM114-CacheID: sfid-20260603_161916_339417_82614D5D 
+X-CRM114-Status: UNSURE (   6.31  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -91,68 +107,45 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Use iommu_iova_to_phys_length() to get PTE page size, allowing
-traversal by actual mapping granularity instead of PAGE_SIZE steps.
+Remove the iova_to_phys wrapper function and .iova_to_phys assignment
+from DART io-pgtable, as all callers now use iova_to_phys_length.
 
 Signed-off-by: Guanghui Feng <guanghuifeng@linux.alibaba.com>
-Acked-by: Shiqiang Zhang <shiyu.zsq@linux.alibaba.com>
-Acked-by: Simon Guo <wei.guo.simon@linux.alibaba.com>
 ---
- drivers/vfio/vfio_iommu_type1.c | 27 ++++++++++++++++++++++-----
- 1 file changed, 22 insertions(+), 5 deletions(-)
+ drivers/iommu/io-pgtable-dart.c | 13 -------------
+ 1 file changed, 13 deletions(-)
 
-diff --git a/drivers/vfio/vfio_iommu_type1.c b/drivers/vfio/vfio_iommu_type1.c
-index c8151ba54de3..115d88d7003e 100644
---- a/drivers/vfio/vfio_iommu_type1.c
-+++ b/drivers/vfio/vfio_iommu_type1.c
-@@ -1177,25 +1177,42 @@ static long vfio_unmap_unpin(struct vfio_iommu *iommu, struct vfio_dma *dma,
+diff --git a/drivers/iommu/io-pgtable-dart.c b/drivers/iommu/io-pgtable-dart.c
+index 2dac21a578a7..01c4c022830b 100644
+--- a/drivers/iommu/io-pgtable-dart.c
++++ b/drivers/iommu/io-pgtable-dart.c
+@@ -333,18 +333,6 @@ static size_t dart_unmap_pages(struct io_pgtable_ops *ops, unsigned long iova,
+ 	return i * pgsize;
+ }
  
- 	iommu_iotlb_gather_init(&iotlb_gather);
- 	while (pos < dma->size) {
--		size_t unmapped, len;
-+		size_t unmapped, len, pgsize;
- 		phys_addr_t phys, next;
- 		dma_addr_t iova = dma->iova + pos;
+-static phys_addr_t dart_iova_to_phys_length(struct io_pgtable_ops *ops,
+-					    unsigned long iova,
+-					    size_t *mapped_length);
+-
+-static phys_addr_t dart_iova_to_phys(struct io_pgtable_ops *ops,
+-				     unsigned long iova)
+-{
+-	phys_addr_t phys = dart_iova_to_phys_length(ops, iova, NULL);
+-
+-	return (phys == PHYS_ADDR_MAX) ? 0 : phys;
+-}
+-
+ static phys_addr_t dart_iova_to_phys_length(struct io_pgtable_ops *ops,
+ 					    unsigned long iova,
+ 					    size_t *mapped_length)
+@@ -416,7 +404,6 @@ dart_alloc_pgtable(struct io_pgtable_cfg *cfg)
+ 	data->iop.ops = (struct io_pgtable_ops) {
+ 		.map_pages		= dart_map_pages,
+ 		.unmap_pages		= dart_unmap_pages,
+-		.iova_to_phys		= dart_iova_to_phys,
+ 		.iova_to_phys_length	= dart_iova_to_phys_length,
+ 	};
  
--		phys = iommu_iova_to_phys(domain->domain, iova);
--		if (WARN_ON(!phys)) {
-+		/* Single page table walk returns both phys and PTE size */
-+		phys = iommu_iova_to_phys_length(domain->domain, iova,
-+						  &pgsize);
-+		if (WARN_ON(phys == PHYS_ADDR_MAX)) {
- 			pos += PAGE_SIZE;
- 			continue;
- 		}
-+		if (WARN_ON(!pgsize || pgsize < PAGE_SIZE))
-+			pgsize = PAGE_SIZE;
- 
- 		/*
- 		 * To optimize for fewer iommu_unmap() calls, each of which
- 		 * may require hardware cache flushing, try to find the
- 		 * largest contiguous physical memory chunk to unmap.
-+		 *
-+		 * mapped_length already accounts for contiguous entries
-+		 * from iova, then try to join following physically
-+		 * contiguous PTEs.
- 		 */
--		for (len = PAGE_SIZE; pos + len < dma->size; len += PAGE_SIZE) {
--			next = iommu_iova_to_phys(domain->domain, iova + len);
-+		len = min_t(size_t, pgsize, dma->size - pos);
-+		for (; pos + len < dma->size; ) {
-+			size_t next_pgsize;
-+
-+			next = iommu_iova_to_phys_length(domain->domain,
-+							  iova + len,
-+							  &next_pgsize);
- 			if (next != phys + len)
- 				break;
-+			if (WARN_ON(!next_pgsize || next_pgsize < PAGE_SIZE))
-+				next_pgsize = PAGE_SIZE;
-+			len += min_t(size_t, next_pgsize,
-+				     dma->size - pos - len);
- 		}
- 
- 		/*
 -- 
 2.43.7
 
