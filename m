@@ -4,60 +4,65 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 81A31CD6E69
-	for <linux-arm-kernel@archiver.kernel.org>; Wed,  3 Jun 2026 17:50:20 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id E6108CD6E69
+	for <linux-arm-kernel@archiver.kernel.org>; Wed,  3 Jun 2026 17:50:40 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:References
-	:Date:Message-Id:From:Subject:Content-Transfer-Encoding:MIME-Version:
-	Content-Type:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:In-Reply-To:References:Cc:To:Subject:From:MIME-Version:Date:
+	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=wrzOVnS+X13tXKUjZu1rFaIumJnVPw+bRqGM+bZ2KoQ=; b=YFMYDih4EZgloAItlczqN0mGB/
-	QG3CgISOdvhFZBkUCUI86jxU06eKhdaDHPfyO2JZPPIlJbfAoGsMvhqrkZxRY+7fwC6b5qCyiqX2K
-	1awZSnDbBMpw0qQlCxgO3M5wrKD/fL0OippOliVcLlHWO9CpSbFVyH8LRMbGaVuD0Cpy0fDZk2GDY
-	ZfZTyMln9LT3Ei2mrit5hr0gr1AsfvqPwmismKqoWgX5ZbFmColh3h82jcv3N3gh6mKZ2JEp69nQ0
-	565MJDApCQbm5THiUscxFQ1NhBMS2c0KfTvQIt4JJs2mVj7Y7NPw4lgCw83XR+XF4aDEu9XQbQTT5
-	nEreDDRw==;
+	bh=f0Gu/QEaEBpn9xA/x1k7nlG/V9M8itGCgcB1M4Hio/o=; b=h1gf12xg4G5SIju22VWyCI6UZs
+	MfTRN2q/V80D49N307UZLpADHKRkaWRRjPmszRDsdbpPpF9Hgcv+q76d+5XGUF43jSuvvalKEaaqa
+	l6UdrsrpiBNSa1KsV9MSlcnCO7/dNdJrN+pB5M1S842mDanS/ddMRBKgPK4y5ug1OyTUKVnylTmAU
+	rquKiyxWYVeIj8B9JSngG5LIWQf9MWhJC2kme6/WmNO3az4RkyZaHAV5Ktz+38BDTJO1uvwBKu4bX
+	zIyyAqUDvdV2ITPtMVIsfPseC758V0XIf9ySKynLRnm3A8rC+pktMJ8sUeDfEnLAGpojbq7O2P+zx
+	KPRMvqVg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wUpjK-0000000Fbgm-0ADV;
-	Wed, 03 Jun 2026 17:50:14 +0000
-Received: from tor.source.kernel.org ([2600:3c04:e001:324:0:1991:8:25])
+	id 1wUpjd-0000000Fbl7-1Ff2;
+	Wed, 03 Jun 2026 17:50:33 +0000
+Received: from courrier.aliel.fr ([2a01:4f9:c011:1c83::1])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wUpjI-0000000FbgN-1UKx;
-	Wed, 03 Jun 2026 17:50:12 +0000
-Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
-	by tor.source.kernel.org (Postfix) with ESMTP id 881D660218;
-	Wed,  3 Jun 2026 17:50:11 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 3F1D81F00898;
-	Wed,  3 Jun 2026 17:50:11 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1780509011;
-	bh=wrzOVnS+X13tXKUjZu1rFaIumJnVPw+bRqGM+bZ2KoQ=;
-	h=Subject:From:Date:References:In-Reply-To:To:Cc;
-	b=gTzoTF7iyjzmSk19M+GJZPuzAL1JSSn9JqKteKp1sC4eqiBvds9gzoRkjBC20BMvC
-	 75oAR0+yxzHdwTjPCzx342nc2t3OZ6YaYLPdhWnl9P5q1D1xY6fsIyATsKys7a3Qm6
-	 du7qekO8L1KEc+Hnput9mhcTDCJZBEASDKtP75qPLtyqxfD9C+4RwwbLHTmWI0w18J
-	 8DKg1GBn36T6b9hLmj3BKxPgLcekR/XrQNUTs31rcgjqeUEIrPelN4Lybs1Tb18P8q
-	 nm///H8WsHu/T/F1VM2IByaaQ/sb4XXRotGHxu7fHQ7SuOKreb/n/sRsiaypO2zfzc
-	 IBSfU3bkWsrRA==
-Received: from [10.30.226.235] (localhost [IPv6:::1])
-	by aws-us-west-2-korg-oddjob-rhel9-1.codeaurora.org (Postfix) with ESMTP id D0B2239308BE;
-	Wed,  3 Jun 2026 17:50:13 +0000 (UTC)
-Content-Type: text/plain; charset="utf-8"
+	id 1wUpja-0000000FbjQ-1hrz;
+	Wed, 03 Jun 2026 17:50:32 +0000
+Message-ID: <178b09d3-4e05-4f0c-b598-fa37c7a2503c@aliel.fr>
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=aliel.fr;
+	s=courrier-s1; t=1780509023;
+	bh=amx6I/JNCKHxEvNbyv/PbbKeEY7AbmQHEo9KEoDEbYo=;
+	h=Date:From:Subject:To:Cc:References:In-Reply-To;
+	b=bW4O1NM9ociaYy6qcst2Iwikhf5fggRkga5WL9qp0wiI8XXwbe77IgZh9Fnb0WQfY
+	 cNk0+AlS6MiibZ9tmPzUOXzCwwiUCw7plgrGCvSV5qd/Rw9oss0Rz70lOHgzoT2+Ku
+	 iTGLu9iXs8MdTdY+wDjQz8lQ+agVoeEod6CDQEA4=
+Date: Wed, 3 Jun 2026 19:50:22 +0200
 MIME-Version: 1.0
+User-Agent: Mozilla Thunderbird Beta
+From: linux-kernel-dev@aliel.fr
+Subject: Re: [PATCH v6 4/8] mfd: khadas-mcu: Add support for VIM4 MCU variant
+To: Lee Jones <lee@kernel.org>
+Cc: Neil Armstrong <neil.armstrong@linaro.org>, Rob Herring
+ <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>,
+ Conor Dooley <conor+dt@kernel.org>, Andi Shyti <andi.shyti@kernel.org>,
+ Kevin Hilman <khilman@baylibre.com>, Jerome Brunet <jbrunet@baylibre.com>,
+ Martin Blumenstingl <martin.blumenstingl@googlemail.com>,
+ Beniamino Galvani <b.galvani@gmail.com>,
+ "Rafael J. Wysocki" <rafael@kernel.org>,
+ Daniel Lezcano <daniel.lezcano@kernel.org>, Zhang Rui <rui.zhang@intel.com>,
+ Lukasz Luba <lukasz.luba@arm.com>, Liam Girdwood <lgirdwood@gmail.com>,
+ Mark Brown <broonie@kernel.org>, linux-amlogic@lists.infradead.org,
+ devicetree@vger.kernel.org, linux-kernel@vger.kernel.org,
+ linux-i2c@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
+ linux-pm@vger.kernel.org
+References: <20260516-add-mcu-fan-khadas-vim4-v6-0-cccc9b61f465@aliel.fr>
+ <20260516-add-mcu-fan-khadas-vim4-v6-4-cccc9b61f465@aliel.fr>
+ <20260527145322.GB671544@google.com>
+Content-Language: en-US
+In-Reply-To: <20260527145322.GB671544@google.com>
+Content-Type: text/plain; charset=UTF-8
 Content-Transfer-Encoding: 8bit
-Subject: Re: [PATCH] Bluetooth: btmtk: Disable remote wakeup for MT7922/MT7925
-From: patchwork-bot+bluetooth@kernel.org
-Message-Id: <178050901239.1520440.2026593395539384648.git-patchwork-notify@kernel.org>
-Date: Wed, 03 Jun 2026 17:50:12 +0000
-References: <20260603-btmtk-remote-wakeup-v1-1-5c1006442f36@rong.moe>
-In-Reply-To: <20260603-btmtk-remote-wakeup-v1-1-5c1006442f36@rong.moe>
-To: Rong Zhang <i@rong.moe>
-Cc: marcel@holtmann.org, luiz.dentz@gmail.com, matthias.bgg@gmail.com,
- angelogioacchino.delregno@collabora.com, linux-bluetooth@vger.kernel.org,
- linux-kernel@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
- linux-mediatek@lists.infradead.org
+X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
+X-CRM114-CacheID: sfid-20260603_105031_033382_695CBEDF 
+X-CRM114-Status: GOOD (  18.05  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -72,32 +77,206 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hello:
-
-This patch was applied to bluetooth/bluetooth-next.git (master)
-by Luiz Augusto von Dentz <luiz.von.dentz@intel.com>:
-
-On Wed, 03 Jun 2026 02:38:10 +0800 you wrote:
-> These NICs are often reported to lose their Bluetooth interfaces, i.e,
-> their USB interfaces suddenly become completely unresponsive, causing
-> the USB core to reset them, only to find that they are no longer
-> accessible. A power cycle is required to make the Bluetooth interfaces
-> recover.
+On 5/27/26 4:53 PM, Lee Jones wrote:
+> On Sat, 16 May 2026, Ronald Claveau via B4 Relay wrote:
 > 
-> After some investigations, I found that their USB autosuspend remote
-> wakeup capabilities are so broken that they are precisely the culprit
-> behind the issue:
+>> From: Ronald Claveau <linux-kernel-dev@aliel.fr>
+>>
+>> Refactor probe() to use per-variant khadas_mcu_data
+>> instead of hardcoded globals.
+>>
+>> Add dedicated regmap configuration and device data for the VIM4 MCU,
+>> with its own volatile/writeable registers.
+>>
+>> Add the fan control register
+>> (0–100 levels vs 0–3 for previous supported boards).
+>>
+>> Add a new compatible string "khadas,vim4-mcu".
+>>
+>> Reviewed-by: Neil Armstrong <neil.armstrong@linaro.org>
+>> Signed-off-by: Ronald Claveau <linux-kernel-dev@aliel.fr>
+>> ---
+>>  drivers/mfd/khadas-mcu.c | 119 +++++++++++++++++++++++++++++++++++++++++------
+>>  1 file changed, 104 insertions(+), 15 deletions(-)
+>>
+>> diff --git a/drivers/mfd/khadas-mcu.c b/drivers/mfd/khadas-mcu.c
+>> index ba981a7886921..7bc538232a445 100644
+>> --- a/drivers/mfd/khadas-mcu.c
+>> +++ b/drivers/mfd/khadas-mcu.c
+>> @@ -75,15 +75,91 @@ static const struct regmap_config khadas_mcu_regmap_config = {
+>>  	.cache_type	= REGCACHE_MAPLE,
+>>  };
+>>  
+>> -static struct mfd_cell khadas_mcu_fan_cells[] = {
+>> +static const struct khadas_mcu_fan_pdata khadas_mcu_fan_pdata = {
+>> +	.fan_reg	= KHADAS_MCU_CMD_FAN_STATUS_CTRL_REG,
+>> +	.max_level	= 3, /* Fan speed: 0 = off, 1 = low, 2 = medium, 3 = high */
+>> +};
+>> +
+>> +static const struct mfd_cell khadas_mcu_fan_cells[] = {
+>>  	/* VIM1/2 Rev13+ and VIM3 only */
+>> -	{ .name = "khadas-mcu-fan-ctrl", },
+>> +	{
+>> +		.name = "khadas-mcu-fan-ctrl",
+>> +		.platform_data = &khadas_mcu_fan_pdata,
+>> +		.pdata_size    = sizeof(khadas_mcu_fan_pdata),
+>> +	},
+>>  };
+>>  
+>> -static struct mfd_cell khadas_mcu_cells[] = {
+>> +static const struct mfd_cell khadas_mcu_cells[] = {
+>>  	{ .name = "khadas-mcu-user-mem", },
+>>  };
+>>  
+>> +static const struct khadas_mcu_data khadas_mcu_data = {
+>> +	.regmap_config	= &khadas_mcu_regmap_config,
+>> +	.cells		= khadas_mcu_cells,
+>> +	.ncells		= ARRAY_SIZE(khadas_mcu_cells),
+>> +	.fan_cells	= khadas_mcu_fan_cells,
+>> +	.nfan_cells	= ARRAY_SIZE(khadas_mcu_fan_cells),
+>> +};
 > 
-> [...]
+> Let's not over-complicate things please.
+> 
+> You can do all of this with local variables inside khadas_mcu_probe()
+> and omit the terribly named khadas_mcu_data structure entirely.
+> 
 
-Here is the summary with links:
-  - Bluetooth: btmtk: Disable remote wakeup for MT7922/MT7925
-    https://git.kernel.org/bluetooth/bluetooth-next/c/247570151789
+Ok thanks, I will send a new version according to your feedback.
 
-You are awesome, thank you!
+>> +static bool khadas_mcu_vim4_reg_volatile(struct device *dev, unsigned int reg)
+>> +{
+>> +	switch (reg) {
+>> +	case KHADAS_MCU_PWR_OFF_CMD_REG:
+>> +	case KHADAS_MCU_VIM4_REST_CONF_REG:
+>> +	case KHADAS_MCU_WOL_INIT_START_REG:
+>> +	case KHADAS_MCU_VIM4_LED_ON_RAM_REG:
+>> +	case KHADAS_MCU_VIM4_FAN_CTRL_REG:
+>> +	case KHADAS_MCU_VIM4_WDT_EN_REG:
+>> +	case KHADAS_MCU_VIM4_SYS_RST_REG:
+>> +		return true;
+>> +	default:
+>> +		return false;
+>> +	}
+>> +}
+>> +
+>> +static bool khadas_mcu_vim4_reg_writeable(struct device *dev, unsigned int reg)
+>> +{
+>> +	switch (reg) {
+>> +	case KHADAS_MCU_VERSION_0_REG:
+>> +	case KHADAS_MCU_VERSION_1_REG:
+>> +	case KHADAS_MCU_SHUTDOWN_NORMAL_STATUS_REG:
+>> +		return false;
+>> +	default:
+>> +		return true;
+>> +	}
+>> +}
+>> +
+>> +static const struct regmap_config khadas_mcu_vim4_regmap_config = {
+>> +	.reg_bits	= 8,
+>> +	.reg_stride	= 1,
+>> +	.val_bits	= 8,
+>> +	.max_register	= KHADAS_MCU_VIM4_SYS_RST_REG,
+>> +	.volatile_reg	= khadas_mcu_vim4_reg_volatile,
+>> +	.writeable_reg	= khadas_mcu_vim4_reg_writeable,
+>> +	.cache_type	= REGCACHE_MAPLE,
+>> +};
+>> +
+>> +static const struct khadas_mcu_fan_pdata khadas_vim4_fan_pdata = {
+>> +	.fan_reg	= KHADAS_MCU_VIM4_FAN_CTRL_REG,
+>> +	.max_level	= 0x64,
+>> +};
+>> +
+>> +static const struct mfd_cell khadas_mcu_vim4_cells[] = {
+>> +	{
+>> +		.name		= "khadas-mcu-fan-ctrl",
+>> +		.platform_data	= &khadas_vim4_fan_pdata,
+>> +		.pdata_size	= sizeof(khadas_vim4_fan_pdata),
+>> +	},
+>> +};
+>> +
+>> +static const struct khadas_mcu_data khadas_vim4_mcu_data = {
+>> +	.regmap_config	= &khadas_mcu_vim4_regmap_config,
+>> +	.cells		= NULL,
+>> +	.ncells		= 0,
+>> +	.fan_cells	= khadas_mcu_vim4_cells,
+>> +	.nfan_cells	= ARRAY_SIZE(khadas_mcu_vim4_cells),
+>> +};
+>> +
+>>  static int khadas_mcu_probe(struct i2c_client *client)
+>>  {
+>>  	struct device *dev = &client->dev;
+>> @@ -94,28 +170,40 @@ static int khadas_mcu_probe(struct i2c_client *client)
+>>  	if (!ddata)
+>>  		return -ENOMEM;
+>>  
+>> +	switch ((uintptr_t)i2c_get_match_data(client)) {
+>> +	case KHADAS_MCU_GENERIC:
+>> +		ddata->data = &khadas_mcu_data;
+>> +		break;
+>> +	case KHADAS_MCU_VIM4:
+>> +		ddata->data = &khadas_vim4_mcu_data;
+>> +		break;
+>> +	default:
+>> +		return -ENODEV;
+>> +	}
+>> +
+>>  	i2c_set_clientdata(client, ddata);
+>>  
+>>  	ddata->dev = dev;
+>>  
+>> -	ddata->regmap = devm_regmap_init_i2c(client, &khadas_mcu_regmap_config);
+>> +	ddata->regmap = devm_regmap_init_i2c(client, ddata->data->regmap_config);
+>>  	if (IS_ERR(ddata->regmap)) {
+>>  		ret = PTR_ERR(ddata->regmap);
+>> -		dev_err(dev, "Failed to allocate register map: %d\n", ret);
+>> -		return ret;
+>> +		return dev_err_probe(dev, ret, "Failed to allocate register map\n");
+>>  	}
+>>  
+>> -	ret = devm_mfd_add_devices(dev, PLATFORM_DEVID_NONE,
+>> -				   khadas_mcu_cells,
+>> -				   ARRAY_SIZE(khadas_mcu_cells),
+>> -				   NULL, 0, NULL);
+>> -	if (ret)
+>> -		return ret;
+>> +	if (ddata->data->cells && ddata->data->ncells) {
+>> +		ret = devm_mfd_add_devices(dev, PLATFORM_DEVID_NONE,
+>> +					   ddata->data->cells,
+>> +					   ddata->data->ncells,
+>> +					   NULL, 0, NULL);
+>> +		if (ret)
+>> +			return ret;
+>> +	}
+>>  
+>>  	if (of_property_present(dev->of_node, "#cooling-cells"))
+>>  		return devm_mfd_add_devices(dev, PLATFORM_DEVID_NONE,
+>> -					    khadas_mcu_fan_cells,
+>> -					    ARRAY_SIZE(khadas_mcu_fan_cells),
+>> +					    ddata->data->fan_cells,
+>> +					    ddata->data->nfan_cells,
+>>  					    NULL, 0, NULL);
+>>  
+>>  	return 0;
+>> @@ -123,7 +211,8 @@ static int khadas_mcu_probe(struct i2c_client *client)
+>>  
+>>  #ifdef CONFIG_OF
+>>  static const struct of_device_id khadas_mcu_of_match[] = {
+>> -	{ .compatible = "khadas,mcu", },
+>> +	{ .compatible = "khadas,mcu", .data = (void *)KHADAS_MCU_GENERIC },
+>> +	{ .compatible = "khadas,vim4-mcu", .data = (void *)KHADAS_MCU_VIM4 },
+>>  	{},
+>>  };
+>>  MODULE_DEVICE_TABLE(of, khadas_mcu_of_match);
+>>
+>> -- 
+>> 2.49.0
+>>
+>>
+> 
+
+
 -- 
-Deet-doot-dot, I am a bot.
-https://korg.docs.kernel.org/patchwork/pwbot.html
-
-
+Best regards,
+Ronald
 
