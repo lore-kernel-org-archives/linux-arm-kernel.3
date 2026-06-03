@@ -4,76 +4,76 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 26060CD6E57
-	for <linux-arm-kernel@archiver.kernel.org>; Wed,  3 Jun 2026 00:59:27 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id BBB6ACD6E5D
+	for <linux-arm-kernel@archiver.kernel.org>; Wed,  3 Jun 2026 01:01:26 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
 	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
 	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=LHu0GHEmte9bNVYdHYkwG9CA4CfbBZuMIjXj0kPY41Q=; b=EWRGWq5ESnKlXpWBNtdf0gZY2Q
-	awXpkDC2QLvb9v+P6O3wHBQ5OoSDmHW9Asc4q+4QJoRXXpy27nxhNYmrNITq9cC/PGMBnR9c5m/PY
-	6n5nUQm1v+C5F+37yeNWJ330m7/DNX0TdRBT/vqDhN4CRTFx3jgJu1qUGVPTyY/V7NIYcGa92DQnE
-	y2b9pcONRbI1q/6+qSe08aNsroJrwWnSKAClub3ZMm0nimyNluwxDYnR/R9HK6la0hnP01078qXCS
-	ErJNbyYndZjInFlVhOKzPSeJMGWI3L/359nWIBU2tw99j8TZKIuug18Ow9C2OZe/Wye+M3+0cxiq3
-	RKDBtkbQ==;
+	bh=AkdC3dWZFs3uTmguQZS1ztKpgkqPeW1kWupRwLRFJ1I=; b=1tGGglBhQGi8kgA+/cEr89YGvD
+	dN2x1XniERpF1x3eKG3rQRXDRbXANDwpXBZUKKdwsINt+vD1SP/mzp/yrYVd3NXgdG9hjgySQCwvu
+	KfbV1h531eZean53XwABBXhvvJrDYAnUVVoZM+i2bb3tqtBwuFHul3iLH4Bf79aDeaMzKnrgiDfOM
+	psH8VLrI4dOp7KpN7WLfN+iMpB10VmVsZCbDL/RNz4gN2PR+xeRxcxaDLCrucmvVKWPY7uhc+Rk3U
+	mkdriPNghEs0pni1IiQVKtaMdtIYQkBDQ/mXNCAO++vyaSdwG4hvHBZeYDWfe3HkoE6QZ52KisOPY
+	5QuJ0S8A==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wUZx1-0000000E100-2rcP;
-	Wed, 03 Jun 2026 00:59:19 +0000
-Received: from mail-qv1-xf2d.google.com ([2607:f8b0:4864:20::f2d])
+	id 1wUZyy-0000000E1AY-12ps;
+	Wed, 03 Jun 2026 01:01:20 +0000
+Received: from mail-qk1-x732.google.com ([2607:f8b0:4864:20::732])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wUZwy-0000000E0zS-35u6
+	id 1wUZyv-0000000E1AC-3CJX
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 03 Jun 2026 00:59:17 +0000
-Received: by mail-qv1-xf2d.google.com with SMTP id 6a1803df08f44-8cce26ee1e9so80755226d6.2
-        for <linux-arm-kernel@lists.infradead.org>; Tue, 02 Jun 2026 17:59:16 -0700 (PDT)
+	Wed, 03 Jun 2026 01:01:18 +0000
+Received: by mail-qk1-x732.google.com with SMTP id af79cd13be357-91550c6ea8eso463928985a.0
+        for <linux-arm-kernel@lists.infradead.org>; Tue, 02 Jun 2026 18:01:17 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=ziepe.ca; s=google; t=1780448355; x=1781053155; darn=lists.infradead.org;
+        d=ziepe.ca; s=google; t=1780448476; x=1781053276; darn=lists.infradead.org;
         h=in-reply-to:content-disposition:mime-version:references:message-id
          :subject:cc:to:from:date:from:to:cc:subject:date:message-id:reply-to;
-        bh=LHu0GHEmte9bNVYdHYkwG9CA4CfbBZuMIjXj0kPY41Q=;
-        b=XJQhhPM/5yKD5m91LvLkDMd43vDMXUVAYS6FOfPh+8hVZNMxU6NFLYgpajB+iFU8wQ
-         G3ilk6up6F7RXcd9U8QaNyWgvLB/siGgaPmR5RZvzGUIz2ZpVtnoa8lwPiEe61K8qvNJ
-         KZT13CH7sea9k5nl2YsmVfBJ4BRbXRqyii1PzhxLbi1LMjrvCz91hZ9UoSs50fdyOdua
-         d6TikpMImA00b0aQ3QuHDL14bzr7gi2chrGS975SD29FzO9hAWJDRJnU8Qe7+y/kHq6t
-         nmJxVjjTTBWMJx7WZyfWJi3G/BddOGcuBm+j7xmpxst04UzijvmYqkFUrWi4LKMPpY/3
-         xj6A==
+        bh=AkdC3dWZFs3uTmguQZS1ztKpgkqPeW1kWupRwLRFJ1I=;
+        b=c+AzQ8ONd1BNAHls0JEtvV22oSs4IzDQao9lx0w5z0FI2lDduulLv7bsfZZX37Y5Aj
+         uXD665W1dqjHBQa+ueFsf8csCB6BJMRt5Q2EvRD7MftA0iZTvT3DJEvd8LxSUdqEtiCh
+         U3p6ocCmdQo7wqpRSeQNRubBmeyvq/t2NXTKJalUW2CLys5P3PR5viwU3pH7zgIT436w
+         7OFOeGsBWmgtBfQPQv8/bxak9u5Y6FxrwCL0CZDzF/ZA0KiBM/c5eb46xc1JFllFZ4In
+         qTtfbfZkTBcsxuyTvm5cQBJGC9QUP0Z1v+9IqfrZVMKOcCeAME5oHVYxuz6+W1ufy3c7
+         pWag==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20251104; t=1780448355; x=1781053155;
+        d=1e100.net; s=20251104; t=1780448476; x=1781053276;
         h=in-reply-to:content-disposition:mime-version:references:message-id
          :subject:cc:to:from:date:x-gm-gg:x-gm-message-state:from:to:cc
          :subject:date:message-id:reply-to;
-        bh=LHu0GHEmte9bNVYdHYkwG9CA4CfbBZuMIjXj0kPY41Q=;
-        b=SgGBRYSaQ/DSawf+t4buZzGoRroQJxwQw2TqwGeMHvCaa97e6nbKW+JMfd6gBngb9X
-         9xZjylxqCSdVEntiO2Hr9FZQ8g12mDO/jJYjmqYf5kf+KwET3lqBgTzykBBaykQ22Dgj
-         dwFMaycxH+q6RUQnrMtw255/fvn912eaKqsm6qrWL5ow00i5yXpGeD9Od24C0QcG2mQi
-         61Ko1AciGpS5gJImJ1YTSDMi1WXMHvNrAXZVdevEbmvR9yg6XinsoJ+UJgTq8ZXiL1Fq
-         p1EdxbA+83ckLf6KS8r90zsI0inqdVYbKh6ZKgu9+KUAcJdlV+yD4axx19ZeUENDQLWX
-         XmSg==
-X-Forwarded-Encrypted: i=1; AFNElJ8D8iwb6mtl0LLMorQSgocV1xblE5P7+2N2yqx6TqxFGoXmcYeBwWf5nAEzyy+mOQqusZL/EuKBVVd7jKYri5ES@lists.infradead.org
-X-Gm-Message-State: AOJu0YzptpdFAq+d7ANM8ZalwYFFgbQKNWsz+9qptYlI4u4XRaRq52/l
-	Y2E5tGWgTglpbdr6wRQ81/vX52gdwMghIr+dCLdw2I6BCSDSxEzFsbWxdtEuw990aq0=
-X-Gm-Gg: Acq92OHcK+tKPei2juvj4kRJSPDf++s0qJT1NkMlczJy3ruERKTGNT5FP8hbbStPgPY
-	WvvnPrlBoGwWHg1/jH7Wb6fJByRnbqfhfgVdaLt+3gxebVpR4/d+t97FHySFDRvph6E/ypRzluV
-	qMlEmxsQqlQPqRnCXbHtKrCRNd/xm8T9xZfugzOnJVrcpC8unAlgiKACx2tbN6GmXaR8CvWud1/
-	lAQ5EQhzy+8g0JtvXb5alOFcH4FEiSNtjJIE+POUarMYa4V4jQ+OaTOeyLXD23rKWk70CMfFHQq
-	30o4aeL35xtccr9/hNdfDwTV7bVfOg9zPu5kM6R2YZ1E3DPdHbqW7/T/M37Z6SE7qG6wpnAOinU
-	yPjNRlHDYYXx+EosgOJtReeiAQsPEpE2qtKoVGng4dL1J99An/6sB8HeT8NT6qCECat3OETR34R
-	RwEHsKpR/vP/tjRIDKKo/rfoX9OVLTxMCvKT5QPIUj2sK6GsItJPPKBYzUiyR9mwSDi3NYIR+5x
-	NIwl3mlxPgRmDiU
-X-Received: by 2002:ad4:5d42:0:b0:8ce:cad9:479a with SMTP id 6a1803df08f44-8cecde9cef5mr16020226d6.15.1780448355181;
-        Tue, 02 Jun 2026 17:59:15 -0700 (PDT)
+        bh=AkdC3dWZFs3uTmguQZS1ztKpgkqPeW1kWupRwLRFJ1I=;
+        b=R/YgYidcmsCBWDbgcmz1jBkhqazj7nF1z+TYZUnnW5bzNv0zQOmrt7J0NXe6x+rP3C
+         YpB6xTF6m1+RFwGJ8k0e7xikEYMCguaWvJ8e234pFe66LO3E+0FPeDPuzxpjnIwYDbUk
+         gkRmjiX+RoO9Pc31V9pmsvlVVX0UWQgt29UVhJK2hDr42bkKs2KNaAGqPKwzCPt7Sb17
+         pxa+tsEYGc16IdKCi9dI5P/bPR6RytjU/1Tf09xisksHhymIYpH7Sej7agWGxV58iDCD
+         1acwBB7/FnTYj2ORvn3j/Hamorz5CAftI8453ZN6cWVJPdWjqGtx7Bvg1c005OJrKFhV
+         l7mA==
+X-Forwarded-Encrypted: i=1; AFNElJ8naxtv5r84d4clA3mAbENXbjX+dAslBYap/WwIbgdBzXvlZPLER4jkTYuNxCUHiR+xWd5ib4DPUEpdpiqvc5Vs@lists.infradead.org
+X-Gm-Message-State: AOJu0YzXBAhQLToX6BpNXuyzOYWU9M5CrxP4hLHedalicza/hAnjnEV8
+	s1PMkN+H52WOeHHmiZRE4KPJ3zxwOQnc1AxYblvOxurkWDQoznFnlP1ne4uRew/jPcs=
+X-Gm-Gg: Acq92OHwdixxC/x94vIvtJGkpbtUiGE7XBseTgae+pIV6kjrO64mpJPauIYPeVKi4FC
+	DE3Q+QOy4KVgg5h4qVBuMz3DPdWbMMG0bqlfo3qDjk2SLbe2d6Hp4xbQco4AZ2+h5aOEV2hGuep
+	yyW3oqIPKeMbmxxpoD868rnW57fHJAu00Nnbh6Mexk+Tvzx4oWZVMU7nhBrfRzjBq2EGB7Bol08
+	VKzBEB5lkqo59BwVnKuEx1/GJN5/BMfmkkL3ptA70WBHoV24TzeSI1HabZNGZIPf53N5YnF98HY
+	+Gw4S6eK3EYM88gTG7MJ2Il9bM987g7LMWPiWD26h/DpnX0S71tVQnunL6yZY5+QwDGnUjCqPGN
+	EoccUoVPyfCsiFaGcB6lPOKk30Fr6AvdCNf2tfSFS8rapvT7I9uUSPMKA7b3vnC9QP4X+HcvJH/
+	+3cPKyv58Y/S72pv1j6UVo4r2LkN20XdBAnNW6vK+tp0s276+Aj4h2xhVHA6FWyBJ31ezGXY4ul
+	eVvId/vEZYxgL5Ryih4yQQt+mc=
+X-Received: by 2002:a05:620a:21c5:b0:915:6c4b:eb60 with SMTP id af79cd13be357-9158a7b6304mr201153885a.29.1780448476209;
+        Tue, 02 Jun 2026 18:01:16 -0700 (PDT)
 Received: from ziepe.ca (crbknf0213w-47-54-130-67.pppoe-dynamic.high-speed.nl.bellaliant.net. [47.54.130.67])
-        by smtp.gmail.com with ESMTPSA id 6a1803df08f44-8cecd0535b0sm6677916d6.28.2026.06.02.17.59.14
+        by smtp.gmail.com with ESMTPSA id af79cd13be357-9158a00afbcsm101995885a.9.2026.06.02.18.01.14
         (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Tue, 02 Jun 2026 17:59:14 -0700 (PDT)
+        Tue, 02 Jun 2026 18:01:15 -0700 (PDT)
 Received: from jgg by wakko with local (Exim 4.97)
 	(envelope-from <jgg@ziepe.ca>)
-	id 1wUZwv-00000004xMg-3Yl1;
-	Tue, 02 Jun 2026 21:59:13 -0300
-Date: Tue, 2 Jun 2026 21:59:13 -0300
+	id 1wUZys-00000004xXc-0zdZ;
+	Tue, 02 Jun 2026 22:01:14 -0300
+Date: Tue, 2 Jun 2026 22:01:14 -0300
 From: Jason Gunthorpe <jgg@ziepe.ca>
 To: Will Deacon <will@kernel.org>
 Cc: Ashish Mhetre <amhetre@nvidia.com>, robin.murphy@arm.com,
@@ -82,7 +82,7 @@ Cc: Ashish Mhetre <amhetre@nvidia.com>, robin.murphy@arm.com,
 	linux-kernel@vger.kernel.org, linux-tegra@vger.kernel.org
 Subject: Re: [PATCH v3 3/3] iommu/arm-smmu-v3: Issue CFGI/TLBI twice on
  Tegra264
-Message-ID: <20260603005913.GN2487554@ziepe.ca>
+Message-ID: <20260603010114.GO2487554@ziepe.ca>
 References: <20260601104845.995005-1-amhetre@nvidia.com>
  <20260601104845.995005-4-amhetre@nvidia.com>
  <ah87dzHOOTNGBBmt@willie-the-truck>
@@ -91,8 +91,8 @@ Content-Type: text/plain; charset=us-ascii
 Content-Disposition: inline
 In-Reply-To: <ah87dzHOOTNGBBmt@willie-the-truck>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260602_175916_781248_1D312A6C 
-X-CRM114-Status: GOOD (  13.16  )
+X-CRM114-CacheID: sfid-20260602_180117_810686_8A601568 
+X-CRM114-Status: GOOD (  16.44  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -108,18 +108,27 @@ Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
 On Tue, Jun 02, 2026 at 09:22:15PM +0100, Will Deacon wrote:
-> be inspecting the command array in that case. Generally, it's a pity
-> that we can't handle this all a bit further up in the stack when we know
-> exactly what operationg we're trying to perform, but I suppose with all
-> the different users of the invalidation commands that's hard to catch in
-> one place?
+> > +	/*
+> > +	 * On Tegra264 (see ARM_SMMU_OPT_TLBI_TWICE) re-issue the same
+> > +	 * cmdlist with another CMD_SYNC to satisfy the erratum.
+> > +	 * Callers must ensure the batch carries a uniform opcode class
+> > +	 * so that checking the first command is enough; the iommufd
+> > +	 * VSMMU path enforces this with arm_vsmmu_can_batch_cmd().
+> > +	 */
+> > +	if (!ret && sync && arm_smmu_cmd_needs_tlbi_twice(smmu, &cmds[0]))
+> 
+> Can you move the arm_smmu_cmd_... part to the start of the conjunction,
+> please? If you make it a static key as I mentioned previously, then
+> hopefully that should mean everything else is moved out of line.
+> 
+> > +		ret = __arm_smmu_cmdq_issue_cmdlist(smmu, cmdq, cmds, n, sync);
+> 
+> Sashiko is also unhappy here if n == 0 because we probably shouldn't
+> be inspecting the command array in that case.
 
-There was an earlier version trying to do this and it was pretty ugly,
-there are alot of places because this errata touches the CD/STE
-invalidation flows too.
-
-If it was just invalidation it could have been solved by manipulating
-the invs list and be almost free on the fast path..
+That seems like an AI mistake though, we shouldn't actually ever pass
+in 0 sized batches? 'zero streams' should fail probe, not get into
+this code, that might be missing but I wouldn't add checks here..
 
 Jason
 
