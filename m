@@ -4,146 +4,107 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 8E3EDCD6E4A
-	for <linux-arm-kernel@archiver.kernel.org>; Wed,  3 Jun 2026 13:42:21 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 897D5CD6E55
+	for <linux-arm-kernel@archiver.kernel.org>; Wed,  3 Jun 2026 13:44:01 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:
-	Content-Transfer-Encoding:Content-Type:In-Reply-To:From:References:Cc:To:
-	Subject:Date:Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=m2+cWnr5k/fU6kdc/DpI/ROxqiURfLn0Uk2R7ACb4ho=; b=qEC7+Qr12MNOrxNOBdLA1tQYGh
-	jKiDCJtawmrS5WVCOdvJ32Gm60Pn63elR1sI8HOEFHjMFABO6ZbF86R+drviI4PZba/5Qx0x409uD
-	oFqHfU4AMbc79aMcuFXNSfnFUQGuw0XQJmvuZcjRb9CRusfNBAK4ucPUPN1GUrbyIU79Di79Q+b/S
-	rGttoynlCwcG/+MTgjcnb4/advLyu+0S7Qp6/M3R+mTIn03OpqLHT1zMkTfbTo8X9o+SLkxF2Ci2w
-	wbEp47bngwFFNY8vCCErZIii4E2O/GSStVlCeHC1ZmkxGGF25FILqWXWM9FeX/nYHTwubEwlC8O95
-	kgpBsSWQ==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:Cc:To:Subject:Message-ID:Date:From:In-Reply-To:References:
+	MIME-Version:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=VTcfkOPlIW892EhdMfr5qQk6TfDhlVCXup0babukdvQ=; b=gYcpP2nu+u4nLW5umUKZuW4WwW
+	5baN1tiX8CHke+XdqtQj1rHhWvktym0T12UsU3Dqj5YUQWbokuKzZnIk7oHL4Oh3jDZ6mqAmFfJrw
+	is6bss1XNExNa51G9qaNNPghuswPnZxl+e+adUff9Q5xxo1R3iIdOd9Z7uZ5+aW382IoGF6btgP5B
+	kXA9XLgXyS0R9rcqc5gcALCLO/oW0bQ+zG3M0WEOIKAnRk3ryc+dGnR58/zHm8ZcVMLTN2BieUDrP
+	71bQaF+ya9QfgFkDF206BvRR8y0XCTyiloqQ14PS8LOr9RDfoqEBqh6t5ChiUcx9hVfG7rb84ZtMX
+	eRnk0LXQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wUlrL-0000000FC2i-2Nyu;
-	Wed, 03 Jun 2026 13:42:15 +0000
-Received: from mail-francesouthazlp170110003.outbound.protection.outlook.com ([2a01:111:f403:c207::3] helo=MRWPR03CU001.outbound.protection.outlook.com)
+	id 1wUlsu-0000000FCGb-3i8i;
+	Wed, 03 Jun 2026 13:43:52 +0000
+Received: from mail-wm1-x334.google.com ([2a00:1450:4864:20::334])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wUlrJ-0000000FC1j-3ZOy
+	id 1wUlsr-0000000FCFp-0zn8
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 03 Jun 2026 13:42:14 +0000
-ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
- b=pKs8CnXULJCO4zzamIRsrkc/lV+eQn7Mu1RxNWekGo9k95zn/oW/9q105IkZG0xeFSOZhMGE3jWJ7D7XRUegisyb5wh0yOUdmx19hPlbPRXj6wj/ED/mZmtVYR/I5XPbv8CRuoxWVMJ7s2v1jUIbxX6i/YQwdVCh3SrbUCqVs4gTnNw6UZTA4b1cyMmJVJTIeUn0XrEMj9qSx+9GUH7rSXNG/LpR/Ytslg/VxGbRCbrSulbfYPPa6YGPXgzQNhe5IFKiOWDioBAhG1Z3BRIxghfHUUqwkqUASRGMagBpwLX62slEHZc21EGnEk9Zvob4bCKcO13M3f1Kgx4CRdT6Mg==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
- s=arcselector10001;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
- bh=m2+cWnr5k/fU6kdc/DpI/ROxqiURfLn0Uk2R7ACb4ho=;
- b=cA8CcG0F6MkJ46IEGnmp+gaTUQwvCiOfjM5FGKlq2dYmLyaDeR2i69Xeaa9X0VPUxft5Z52myi0JfbOV3vG8MOqH0WkaX3Wbw9ktP48odDAgf2UdBWf3wy0Ew4UT8D+e6qB0KKliLrf7+idLGsDNE3fsplkGwb4GOKlVNrkDgQz83tNDSXA8ZJ0hx8NVCASsTbfA7azjxqvUEjQ5J8S6AK6BHt0vMFAP50kQdRjMJTPsQx0Yr/GLItSBuSX2tjBxbO6vkOqoYDIihuqyUMdssgovh6BHbsimbudFtLVxUYAzmh9SJTiiYGmP6iuh923DzvsW0iaQ2gSOzYb0JxQt0A==
-ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
- smtp.mailfrom=oss.nxp.com; dmarc=pass action=none header.from=oss.nxp.com;
- dkim=pass header.d=oss.nxp.com; arc=none
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=NXP1.onmicrosoft.com;
- s=selector1-NXP1-onmicrosoft-com;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
- bh=m2+cWnr5k/fU6kdc/DpI/ROxqiURfLn0Uk2R7ACb4ho=;
- b=Qhyy+t+VxqSfi11NjNKPycOpC+0Rdo3mHWfM0jMwJ6/xEy2UT5WNFFXZp7mcqT/Ot8Po6LSxMTdhtHjpvJfgUp/YV2HdEAlevW2xm3SH8GTCIQt+hiR5FitiCwNOAZTpBEAmqu5YQ+8nGk6FXalYNG5X6bJOwCaNKMh+7L0woIKmyWRkCyw99CcRYgQMlRXg3Tgihws7K0af0+BVMCnEBIYSDz0YQ8Li14jgAdu6cPBNDqfUP+O++2hhTd7j+H5em+yEwFXJjNFu9/a+WHFMdSUsNJfS07fhn6+/Twe8ld9ajN6OoCNNeNBd68cHcum+Uz/dh1gygIoS/D92qbuB2Q==
-Authentication-Results: dkim=none (message not signed)
- header.d=none;dmarc=none action=none header.from=oss.nxp.com;
-Received: from GVXPR04MB12316.eurprd04.prod.outlook.com (2603:10a6:150:2c6::8)
- by AM9PR04MB8440.eurprd04.prod.outlook.com (2603:10a6:20b:3df::20) with
- Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.21.71.11; Wed, 3 Jun 2026
- 13:42:08 +0000
-Received: from GVXPR04MB12316.eurprd04.prod.outlook.com
- ([fe80::fc6e:ca22:f065:def4]) by GVXPR04MB12316.eurprd04.prod.outlook.com
- ([fe80::fc6e:ca22:f065:def4%6]) with mapi id 15.21.0092.006; Wed, 3 Jun 2026
- 13:42:08 +0000
-Message-ID: <944c6eaa-05f2-437a-88e7-1573b64468c5@oss.nxp.com>
-Date: Wed, 3 Jun 2026 16:45:16 +0300
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH v2 6/9] mailbox: imx: Move the RX part of the mailbox into
- the threaded handler
-To: Sebastian Andrzej Siewior <bigeasy@linutronix.de>
-Cc: linux-kernel@vger.kernel.org, imx@lists.linux.dev,
- linux-arm-kernel@lists.infradead.org, linux-remoteproc@vger.kernel.org,
- linux-rt-devel@lists.linux.dev, Bjorn Andersson <andersson@kernel.org>,
- Clark Williams <clrkwllms@kernel.org>, Fabio Estevam <festevam@gmail.com>,
- Frank Li <Frank.Li@nxp.com>, Jassi Brar <jassisinghbrar@gmail.com>,
- Mathieu Poirier <mathieu.poirier@linaro.org>,
- Pengutronix Kernel Team <kernel@pengutronix.de>,
- Sascha Hauer <s.hauer@pengutronix.de>, Steven Rostedt <rostedt@goodmis.org>
-References: <20260603-imx_mbox_rproc-v2-0-a0059dc3b69a@linutronix.de>
- <20260603-imx_mbox_rproc-v2-6-a0059dc3b69a@linutronix.de>
- <c81d12a8-7544-493f-a947-8f70ad9d409d@oss.nxp.com>
- <20260603132034.NxZoA4pH@linutronix.de>
-Content-Language: en-US
-From: Daniel Baluta <daniel.baluta@oss.nxp.com>
-In-Reply-To: <20260603132034.NxZoA4pH@linutronix.de>
-Content-Type: text/plain; charset=UTF-8
-Content-Transfer-Encoding: 7bit
-X-ClientProxiedBy: AM8P251CA0021.EURP251.PROD.OUTLOOK.COM
- (2603:10a6:20b:21b::26) To GVXPR04MB12316.eurprd04.prod.outlook.com
- (2603:10a6:150:2c6::8)
+	Wed, 03 Jun 2026 13:43:51 +0000
+Received: by mail-wm1-x334.google.com with SMTP id 5b1f17b1804b1-490ae94a89eso27958455e9.1
+        for <linux-arm-kernel@lists.infradead.org>; Wed, 03 Jun 2026 06:43:48 -0700 (PDT)
+ARC-Seal: i=1; a=rsa-sha256; t=1780494227; cv=none;
+        d=google.com; s=arc-20240605;
+        b=inVtulpP+/evtwrrlWvzKH4yOi1i8jzY6709qIZZFN4I9fVeiyUiGb91Vrah8LaYBr
+         Ed6nvnxDRw8YGAwBz6NwsYbzTISwx6tGXS4BHr1Ws83tpsoG7i6V7AdDEIGt7DnMYv/X
+         B4j211eycET/qv4DL6KRaJavZ3N2pHF734yOya26xRg6IiN/hh6CO2+tQspm3j0lRYDr
+         fhBO9U+h/r9IB9dSNiG9XT6EV1XmGEImTXIICOe1n66GbEKoO07VUNkWfDGQd9nfJ6dH
+         OgGvsnJjNA/bWFNQzAQ3wkAYnFsQ7eQY3SU6X6ZHwMNBmlFM4xUiIjPni9rogqTcdTqC
+         9toQ==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20240605;
+        h=content-transfer-encoding:cc:to:subject:message-id:date:from
+         :in-reply-to:references:mime-version:dkim-signature;
+        bh=VTcfkOPlIW892EhdMfr5qQk6TfDhlVCXup0babukdvQ=;
+        fh=RI9RYZybuGTx/djjgZo8OgcOaN8b9IPEJuWBW+BELAU=;
+        b=K+I9XhO4RDgzerS7YUIwh/Yodx5eYE1VVT7Y1WMHqnIb8PY71MDMB+sH3TcoRM+Tj8
+         EtI00Eig+H5xjMjdj1x1AIviaEgD74/w2E8vDDhkLuaozTyJrPNvzg2GApumQgp/Z0kX
+         NGTrj6sZTgt7Cy5mKWOrMkAb0bN4kAM1+o0ap0vcHFaL9+TbhnxD1Se6CjpZvSny8ybo
+         wTpJaax0g9Fj5bz21Ov9OI7SmVN8GFD3ptlZWbqr6vB8VpfAfAYOg1vx28NK1sTzq8He
+         03wPyUn6GGkRr3wmRzeR2HeicQo8KXLS3RPzrZX8cnd1UoYrSEkeQrKsuhuZyFuEJQrj
+         ycDA==;
+        darn=lists.infradead.org
+ARC-Authentication-Results: i=1; mx.google.com; arc=none
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=9elements.com; s=google; t=1780494227; x=1781099027; darn=lists.infradead.org;
+        h=content-transfer-encoding:cc:to:subject:message-id:date:from
+         :in-reply-to:references:mime-version:from:to:cc:subject:date
+         :message-id:reply-to;
+        bh=VTcfkOPlIW892EhdMfr5qQk6TfDhlVCXup0babukdvQ=;
+        b=GkNX8bOcOg3d2krdtEQ+TPNcvT9/OUM7Nj7zm0XDDIBbKaipBpQvGKQjTB7bkrveLe
+         A28BnbtV8G9S1mVfl9BbfuXqdTdn+n5Ftpi9UV4QfWPNPie3bSZJXomtZfvyxvnl2WZM
+         Vm4CWfs4iL4EhWLlAWK2TZ/geAiS/1rtYYr4QGn812HnskRLAW/lCV1OYBkc4a97tC8W
+         6GzkuDNlxunue0c9S/jHPdON6rUStwLGAqzA78NqsmIMbCN663NgnDESMz0a0+Dpf+Uk
+         U/Cg8KCmunD4iNqkGXBhdfVLr5St8akMfOc+y1PyBjmpT4VG7QAGi3cQolLqIjXlbtvF
+         1WiA==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20251104; t=1780494227; x=1781099027;
+        h=content-transfer-encoding:cc:to:subject:message-id:date:from
+         :in-reply-to:references:mime-version:x-gm-gg:x-gm-message-state:from
+         :to:cc:subject:date:message-id:reply-to;
+        bh=VTcfkOPlIW892EhdMfr5qQk6TfDhlVCXup0babukdvQ=;
+        b=fjVm8fD8yzd5dgs9g1fDt07lUy9vNfNx4MUqpv3lNSo6Npvwsy/QtGA/W0MOPC9D1M
+         Le+oiOiYkUsJ3d5TASndyQox5OCdnVsPwgds76Y/dQGzNqq+4k/PyzG5xkw5gmSL4uxK
+         6y7t7qHyHIDLZe1cWN2QK3AVbsRH28eqRvBLpjY38oDDTYWlDey+EdxSyFIFEk9Rk7OC
+         glInFXFq4bYR7IzprJuJSPs3/VOhiiJQexQiwVRDQPLBw6QYiPhYYrAGNIollPV9lXwW
+         ud+OXhayY7niEWLwgJQyYGEEAbt3rVn6MNrsneRf+EijfPAIxqW5CcZgBoCiGooWXnh5
+         k9Ow==
+X-Forwarded-Encrypted: i=1; AFNElJ+3bUXD/MsNgIsJBBI/yyVgKMCu5MANaZ0zABVXEtYy5tAILME81kvfMoyxQPNQkUCPAoEhID3rKnnicL+txtiR@lists.infradead.org
+X-Gm-Message-State: AOJu0YwpMIwTxGYkDKM2sBFRkYUlVs/AmFbs79O1pF99+sne/38oJx9W
+	VvKeaBHcp1EkJO/qn3sgTpTZvboxyWxNzoxILGmYRKtIuEdyI+mN05GYhph76KklB4SiPLJe+oO
+	lbsYQTtTtmhw/jrdryHR5lQ95oezDIwzqDPDipRaNHA==
+X-Gm-Gg: Acq92OHiQjEmtzGpksdybAUrj+MSVwHY/cdeJzOnxwmP7mLcdHiQ/UPWZNywKcUiyq/
+	/hIqHHb4F2lWO29aSOIHnaZt8BZcVN13Wn9on1NPkC49CvkmE7WPm7DxZmI93+3wX71i8Us4oR7
+	1l++/uS5P6vJp0GCmSfsWdwERzNkortSrOtxUJh2NiWjIpzXyb2wQQ6u4COnOSeK898gGlXw8lv
+	/pJEEVYjWDFi4OJYCJe4fFe6sn5H0S5iYOf0FnvSmWDGxzHHXmGo9aRnlZbgd5kIqxzjZjoAds6
+	RlnuRjDn9yBFRcdqQA==
+X-Received: by 2002:a05:600c:4513:b0:48e:7854:1608 with SMTP id
+ 5b1f17b1804b1-490b5fe9bd8mr58678515e9.25.1780494227210; Wed, 03 Jun 2026
+ 06:43:47 -0700 (PDT)
 MIME-Version: 1.0
-X-MS-Exchange-MessageSentRepresentingType: 1
-X-MS-PublicTrafficType: Email
-X-MS-TrafficTypeDiagnostic: GVXPR04MB12316:EE_|AM9PR04MB8440:EE_
-X-MS-Office365-Filtering-Correlation-Id: 3dd655e7-6491-432b-d265-08dec175e7d1
-X-MS-Exchange-SharedMailbox-RoutingAgent-Processed: True
-X-MS-Exchange-SenderADCheck: 1
-X-MS-Exchange-AntiSpam-Relay: 0
-X-Microsoft-Antispam: BCL:0;ARA:13230040|1800799024|366016|7416014|376014|19092799006|11063799006|4143699003|18002099003|22082099003|8126099003|56012099006;
-X-Microsoft-Antispam-Message-Info: MsrHvujvutzpslJ/HLbdLSQimgR/MkqWH6a6essgE0RfgoEotc1vAN/4BCaZcATGvZNwUwwgy1Xt6BzmDdGXoIw1FcE7kIVB2WnrEUsEf3IkuY5E3pR6ZlMEW6s79XkvANp/4Wc+9tYBYKq9X89W3Ceh0XVlZlyemsRyVusXYX4fwqtQ8gx9eCTaEvRMfZtsIM+jhfqW4oXbtjiN538aZP5Yo6+f39ThOHPCjT2MbgWVyJXDmZOgd3TpRw+E50tffbervNaKQh87zSbkdNjmKzqL+Qoag/YfZO7Y/FCgh42rsttwFHNSxukGjsaBrDYONnhAxnb+c4FniOEfF3LsdfVuDNEN1o5dwN6+HsZBDND+qyX+VuWIfVT7/sKM0lmc5XGrglDfYEO8ipUkmgOquu8JclfK8OJkfUeLvNDy07y2Ct91Kly1Fl+T53KSaqz16/FCDdlmxarahq4PaIzxdIGP8tH31rz/4K3gvH1sjGoYQIxph1ujmk6t25f2LWW/eqoyLuaLrom9UD0N2WxneyFmewAPUkzf9N8Wug3dVIUnB7NZUgv9VpmHBgjgqD1mwFULvNajNqdEz+qalcYlNPUQjIvGVfTsyZANEHHWXBcgd8FsuZou5V8FmTjLKjhhxBS2XJd4e+3FsLfC5OuKp6I9BEXUpvyxUkokgvANB8qMflXPYskjRqzDyZgEglPv
-X-Forefront-Antispam-Report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:GVXPR04MB12316.eurprd04.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(1800799024)(366016)(7416014)(376014)(19092799006)(11063799006)(4143699003)(18002099003)(22082099003)(8126099003)(56012099006);DIR:OUT;SFP:1101;
-X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
-X-MS-Exchange-AntiSpam-MessageData-0: =?utf-8?B?TnZTN0huc2tUdnZaaUdBT1kwQ0VKaFczYnk5OGcxcC9vZVRhNEFXZmNvcWlX?=
- =?utf-8?B?d3RIR3pGSTV3Q2RHd1g2ei85N1Mreks1c3NzUG5Ta3oySVVaK3ZmK05iU1BJ?=
- =?utf-8?B?THU0TkZhczFnbnptb0JsTHdodEJ2NE1ndVdFTUxYcnhlSEVYMXhnUzV3TXYx?=
- =?utf-8?B?aG1rRitKTE9zQkxyWnlDN1hUdWhWbVVHT1dJb2svSWZwU0VrMGJDOE5td1lM?=
- =?utf-8?B?aGYvUFBOelMvNC9BSGg4bURRL2xPU0YwK2dHN3JZbGpBdWhZVExXQ1A3aUZV?=
- =?utf-8?B?d3BLKzd4WkFXNUowejZmMnc0K3ZHbzJPb2gyT1Z1WVZmaE54c2J3R3F5aTZr?=
- =?utf-8?B?Skd1SzlCamhtQkF0VHF3ZVo4WWZSNldUK0VTVWtVTnlqdzluWnFjR2VQZmVR?=
- =?utf-8?B?eWwzS05XSisxTloxSGpWSlBlYkY1bmxoa1ZjRk9GQzlHTi9UTmtoOVcxdmpF?=
- =?utf-8?B?c1ozWkZsa2NoaDg1OXFOSFlEZ0JZQURNV2hGTUFoVXZkOVhtUTg4dG1hdm9P?=
- =?utf-8?B?V2s3TmZaVzV6aDltS05ndFZlTVpQNmpxZVZ2czlJU1JkU2R1Z2VhY0s5ZW5k?=
- =?utf-8?B?dElEVkptdXh5d2NDaVNyN0ZXanBTN2Z4dTY3SGxkMmNHWUVqQ2hLa0QxK1l1?=
- =?utf-8?B?RVhzcy9uOWM3QnZLamhlLzhncDZvdWVYRUlCelFOOTBMU2RxTnpGU05qOEtZ?=
- =?utf-8?B?UDF1QWZrVGZTMzZLdndUSmYxRXl4bUR2WEx1SjhYdTlzVDJiQTJGQlVYNC9v?=
- =?utf-8?B?aFJGRWtIaGZKLytDdFl6V1NKZkxIRGdNQ0VQMmZBcFBWK1A3OUFkQ1BHR2to?=
- =?utf-8?B?a2FOMUtBdWVhN2t4THA1bzBpdTVjQTZCWDFNWSs2OFowVjA3cWR0TDVMY0JF?=
- =?utf-8?B?RS9aTWdJM3hBRjBNTEN2TTZrYy9lcEhxZXpRc3J1U0I1MnYrMnMzOG1JU0hV?=
- =?utf-8?B?WExVckdCWnhlQng4QVBhcTNsaGk3Y0ZpdzgxNkxJKzhhbjA2R29vUmNCeFdF?=
- =?utf-8?B?TEtJeFFDMHBIMXdkNE9DT0c1VzFzR3REdCttMkFIb2ZRN0NpYjZ1c2FlaUph?=
- =?utf-8?B?YUhtMmQ5TVU0UDM0M25qZHBLS2dxZDFVZGxLQ2x3RGZ6Q3doOTQyMGxpN1JZ?=
- =?utf-8?B?YWh6T0NEdDJYN3hBRE5YUmd5cGY5eHk0cS9KUS9SRFM5NjFPaXM2Y3orWGhD?=
- =?utf-8?B?WEdEemIzb1psSkpRMi8zNFdaUllpY1YvQWo3MVZjUmt1Tm1YUmpIeTg1WXEr?=
- =?utf-8?B?WFVtR2I0dGs1WThGTDhkeVVtV1QyMkpyZWRCNVIzQk5rOHMvRE0xektlcmVa?=
- =?utf-8?B?b3ZLWWdvNjBjRUl2Q2Rldm9tV2E4S1ZnTndEV1Q2MmRrU0FEbGxpaXdXSjlr?=
- =?utf-8?B?ckM5ajg3cGZHZVI4MVYzbytuS2JuU1I3VG1LNzVDSlJGaTIrL1FKZzRRQjQ3?=
- =?utf-8?B?UnZzT0FYYnJ3YWhiNHpUK1RwTHhLQ0VFZ3FnOUJJSk44UC80MEdhS3ZHMGZa?=
- =?utf-8?B?ZlFaZEU1VFl4dUFBa1RMSlREMW45dnMxaHpYU1VCdkc1UU1BdnVUWStrbVJy?=
- =?utf-8?B?TkNla1dzZTltcVNMeWx0eDBNdy9OV25WZ1dKdlp2Zldtd29vUWNhekNpc2Ix?=
- =?utf-8?B?Q3UxSXQvaEYzMU1xUk9ibmNKL216QndtTE1kN2pZNG9kR2pRTTYvWkgwa2d2?=
- =?utf-8?B?Q0JQS0wzRXhwcGVpSGRJRzZaRjVoV1NxSkZIcG9zSzJZQm1jM2JaUFhZZXEv?=
- =?utf-8?B?Qkc3eGE3bWJBamNWZkFzdUlHNzc3Ukg1Yjk1WElBNjdIbXVkOG91TXBNZnpX?=
- =?utf-8?B?YUE1RXN0K3lCNUdnbnZPOWRoOVpSMTNkRW1vTGRZMm1qWWppVmtSNTEySy9Y?=
- =?utf-8?B?eEM0QkhLbWV1ZnV0YzIzYm5KTGN0WGFCc09pRHNzZkx2SlVCTXV2d25IRE5X?=
- =?utf-8?B?MzNTdzZqVWxMcWJuYmg2OFQzMHIrbk5rNGJBdlQ1STFvekdQZCtMQVNaMCtw?=
- =?utf-8?B?T3JFY1V2NU5MTkErUjZDQTN4aUpPTTU5VHAxOFdHUTNCa1hMS0tJYk9kL1lN?=
- =?utf-8?B?ZUxsemZGY2ZZM1czajljaGV6S1MyR291UXN1NnFjSXVLOVMzTlJuanlBZkdS?=
- =?utf-8?B?V1ExeUtWVVMrNldUeXhTcFBxVnNKeXJsRVhiaEt5cEVZMlBrN1NnT0NrRHVF?=
- =?utf-8?B?eTF1dkJZQlRJcEk3NDA5cVJnTmV6Q0F1S0RYVytCRUQ0cnFTTnhlRHF6a1Fy?=
- =?utf-8?B?ZHVsYVJXSmxBeWdwbEVwMUkwd1hmTDNvT0JMRG9HcFlUeW1PYVJmQm5mNzJ5?=
- =?utf-8?B?ZGlvRDNJYis3Ym5rQjFrR1pwR0JLZGpwaktxbmE2V2Y5NE94TzFFdz09?=
-X-OriginatorOrg: oss.nxp.com
-X-MS-Exchange-CrossTenant-Network-Message-Id: 3dd655e7-6491-432b-d265-08dec175e7d1
-X-MS-Exchange-CrossTenant-AuthSource: GVXPR04MB12316.eurprd04.prod.outlook.com
-X-MS-Exchange-CrossTenant-AuthAs: Internal
-X-MS-Exchange-CrossTenant-OriginalArrivalTime: 03 Jun 2026 13:42:07.9905
- (UTC)
-X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
-X-MS-Exchange-CrossTenant-Id: 686ea1d3-bc2b-4c6f-a92c-d99c5c301635
-X-MS-Exchange-CrossTenant-MailboxType: HOSTED
-X-MS-Exchange-CrossTenant-UserPrincipalName: HgTBqD+tk1VjCT5P/60t/GeVP0ZL9mNGu0nMEakh8ZHJUjhO2QnpYXQo3i4rDbrxQtp85ihpJ/Ss4Upv9zPNXg==
-X-MS-Exchange-Transport-CrossTenantHeadersStamped: AM9PR04MB8440
+References: <cover.1780409151.git.gregoire.layet@9elements.com>
+ <a8e1396af1b6db38bab13383c6ba303e8427aefc.1780409151.git.gregoire.layet@9elements.com>
+ <ecc3bd49-829f-49b8-b3b1-4f16363ea5b9@lunn.ch>
+In-Reply-To: <ecc3bd49-829f-49b8-b3b1-4f16363ea5b9@lunn.ch>
+From: =?UTF-8?Q?Gr=C3=A9goire_Layet?= <gregoire.layet@9elements.com>
+Date: Wed, 3 Jun 2026 15:43:36 +0200
+X-Gm-Features: AVHnY4KAjzRL4EZ-_z2w7gIb7xHs465qhHFgOBjhOy8lDYI40Oh9lKfcinUsrDM
+Message-ID: <CAFi2wKY7ECbxSbtsO1W9KEKFET67yKg+C64jtQHFY05DRzhfKg@mail.gmail.com>
+Subject: Re: [PATCH v1 2/2] soc: aspeed: add host-side PCIe BMC device driver
+To: Andrew Lunn <andrew@lunn.ch>
+Cc: joel@jms.id.au, andrew@codeconstruct.com.au, jacky_chou@aspeedtech.com, 
+	yh_chung@aspeedtech.com, ninad@linux.ibm.com, linux-aspeed@lists.ozlabs.org, 
+	linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org
+Content-Type: text/plain; charset="UTF-8"
+Content-Transfer-Encoding: quoted-printable
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260603_064213_919690_D009739A 
-X-CRM114-Status: GOOD (  16.86  )
+X-CRM114-CacheID: sfid-20260603_064349_639336_3BF97344 
+X-CRM114-Status: GOOD (  19.39  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -158,36 +119,57 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On 6/3/26 16:20, Sebastian Andrzej Siewior wrote:
-> On 2026-06-03 16:18:22 [+0300], Daniel Baluta wrote:
->> On 6/3/26 16:05, Sebastian Andrzej Siewior wrote:
->>> Move RX callback handling into the threaded handler. This is similar to
->>> the TX side except that we explicitly mask the source interrupt in the
->>> primary handler and unmask it in the threaded handler again after
->>> success. This was done automatically in the TX part.
->>>
->>> The masking/ unmasking can be removed from imx_mu_specific_rx() since it
->>> already happens in the primary/ threaded handler before invoking the
->>> channel specific callback.
->>>
->>> Move RX channel handling into threaded handler.
->>
->> Hi Sebastian,
->>
->> It is not very clear from me from the commit message why this change is needed.
->> Can you please update the commit message with proper explanation?
-> 
-> The intention is to move the entire interrupt handling into the threaded
-> handler. The primary handler masks just event, the threaded handler
-> performs the RX/TX/ event.
-> I move the individual events step by step so the previous patch moved
-> the TX, here is RX and the next one does RXDB.
-> 
-> Is this clear now? The cover later explains why this done in the first
-> place.
+> How virtual is this? Is this directly accessing the hardware via
+> shared memory? Or is there software on the BMC which traps these
+> reads/writes and responds?
 
-I would prefer to add the explanation for this in at least one commit
-message to be there in git log.
+The VUART is virtual because there is no physical UART link between
+the host and the BMC.
+Instead, the AST2600 exposes a 16550-compatible register set on both
+sides (BMC APB and PCIe host MMIO).
+The data flows using an internal 16 byte FIFO shared between the two
+register views.
+So it's hardware emulated and there is no software in the data path.
 
-Cover letter is not kept in git history.
+The AST2600 has four VUARTs, two of which are accessible via PCIe MMIO.
+This is based on the following section of the AST2600 datasheet:
+III.48 VUART and III.64 PCI2VUART.
+
+Because the silicon presents a standard 16550A interface in hardware,
+the existing 8250 driver works without modification.
+
+> But first we need to decide if this is the correct architecture. The
+> alternative is rpmsg or virtio.
+
+> Either of these seem like a better way to expose resources of the BMC
+> to the host.
+
+For the rest of the driver (shared memory, doorbell and mailbox), you are r=
+ight,
+it makes more sense to implement rpmsg or virtio than just raw shared
+memory binding.
+These are software-defined communication channels and not hardware-emulated=
+,
+so they would fit better as rpmsg or virtio drivers.
+I took the SDK driver as a starting point without questioning its structure=
+.
+I have verified the VUART was working correctly with the shared
+memory, doorbell and mailbox setup removed.
+I can split this into VUART only and defer the rest for a separate
+rpmsg/virtio work.
+
+So I propose for v2:
+- Remove the shared memory device, the sysfs doorbell and the mailbox
+from this series.
+- Retain only the required configuration and initialisation on the BMC
+side driver.
+  This should mainly be SCU and PCIe device configuration but other
+initialisation will be reviewed to determine what is required.
+- The shared memory, doorbell and mailbox features could then be
+addressed in a separate future series, likely as virtio based driver.
+
+Would that be acceptable?
+
+Thanks,
+Gr=C3=A9goire
 
