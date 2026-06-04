@@ -4,60 +4,63 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 3B8B0CD6E4A
-	for <linux-arm-kernel@archiver.kernel.org>; Thu,  4 Jun 2026 08:55:31 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 24CA0CD6E4A
+	for <linux-arm-kernel@archiver.kernel.org>; Thu,  4 Jun 2026 08:56:10 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:MIME-Version:
-	Message-ID:Date:References:In-Reply-To:Subject:Cc:To:From:Reply-To:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
 	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=5KsNES3quG6UyKXy/WSJmh5Tfdqu82vp795Q4GewzKg=; b=Y6IgaA6igUuxyoXSSv7VUOAMUc
-	LGh4rigkR60hQNVukxCELH6DBJrOfRcAHS1TeSFE7OLTsaXw7M5DacirgkIOzuC6zVRZFcZqDsTQn
-	YdIZ4pPG9fuG76QufPUgFwr2g81Gj65OwtFdymeE/JV7D6mYGqFqqdZs6cqqqVF6XbX24qINqcXaq
-	Pt9t1cXwvPzJqBOG3XQsdd3ttu4Z3rqRproHOtmcXhT/O7J7n0EeQtKuboB6iAKFkOkPAZn6qjStY
-	ppe5p9K1Et3jsWh3irXAieQuwL5La5fOL3fW89eN+Cq/i30wGt5d46qUW/MrwglQ+fPofzWqsPt01
-	5VbAc03A==;
+	bh=g0ZRTPlwT/xyxpdHcA09ypJlccbn5Vup1lZsGchbYCc=; b=iI+JCV2mKTCAMzxiox1Xw1EMF8
+	XtSXTeBexAkuB1MBflum+zgGTH56Wj34xcACPqjGfM3g7O2UiaHJFFory2HNxC/jF4wlNY+UtFhWb
+	uZNjuZ1HQ4Nqkpfb0kO+klfKgV/dwgr7GLY0u9KfK0mzsSZe260F4yO1eWNscS6P6YpzeoDI+a9/M
+	S660PW344VOarsMrmuSsUkTE0nbsKpxRjlQ1PBAIObufw4R/qYZPqSS0whoVNX4wKgIfdVL88G0uE
+	eIeCkeZWGBjOrU+IvmDaFY/6WOKyaLuSn1++6G/SGNq0s7oi0YTLG9SlTXcSP8n2J2PxWOBcczjtJ
+	c++0PanA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wV3rJ-0000000GRRw-0EXT;
-	Thu, 04 Jun 2026 08:55:25 +0000
-Received: from tor.source.kernel.org ([2600:3c04:e001:324:0:1991:8:25])
+	id 1wV3rw-0000000GRZ4-19V0;
+	Thu, 04 Jun 2026 08:56:04 +0000
+Received: from sea.source.kernel.org ([172.234.252.31])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wV3rI-0000000GRRa-0gJq
+	id 1wV3rv-0000000GRYq-0rUX
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 04 Jun 2026 08:55:24 +0000
+	Thu, 04 Jun 2026 08:56:03 +0000
 Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
-	by tor.source.kernel.org (Postfix) with ESMTP id 01B9B601DD;
-	Thu,  4 Jun 2026 08:55:23 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 159E31F00893;
-	Thu,  4 Jun 2026 08:55:19 +0000 (UTC)
+	by sea.source.kernel.org (Postfix) with ESMTP id 9D184400EE;
+	Thu,  4 Jun 2026 08:56:02 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 8A9DD1F00898;
+	Thu,  4 Jun 2026 08:56:00 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1780563322;
-	bh=5KsNES3quG6UyKXy/WSJmh5Tfdqu82vp795Q4GewzKg=;
-	h=From:To:Cc:Subject:In-Reply-To:References:Date;
-	b=aPN94Myhtu9FE7edJToCisv6hjR9UpZEQ4OZFASRPQntvLR4IuZbZYE62R3GHgNNp
-	 WBGJg3LT4wVHbyCDW2WIPWyee1y328MS/2elNJqA/7w3Ewcb+ZHapwHyJFslHja/lO
-	 hhliXBqG2iUC2tGCpLA2WT1Aka/BfyKUrTryM2Vpznrv2HO3lvWsBP71mMARHI16iA
-	 vG247/vz1mAZSGRJfWcaBUHW/40VUQkcVs69dCfoe8x4SjAtcT9meswFw3sDdmWGOR
-	 DaGlwaPpsOOn/U1gWMzbqMEaOK11/23xjG7OW8cxN1E68CBZOgk+wtyFUy5mYM1+wW
-	 tdWiBrC1+ZzQw==
-X-Mailer: emacs 30.2 (via feedmail 11-beta-1 I)
-From: Aneesh Kumar K.V <aneesh.kumar@kernel.org>
-To: Mostafa Saleh <smostafa@google.com>,
-	linux-arm-kernel@lists.infradead.org,
-	linux-kernel@vger.kernel.org
-Cc: akpm@linux-foundation.org, catalin.marinas@arm.com, will@kernel.org,
-	rppt@kernel.org, maz@kernel.org,
-	Mostafa Saleh <smostafa@google.com>
-Subject: Re: [PATCH 1/3] arm64/mm: Simplify SWIOTLB setup in arch_mm_preinit()
-In-Reply-To: <20260603110522.3331819-2-smostafa@google.com>
-References: <20260603110522.3331819-1-smostafa@google.com>
- <20260603110522.3331819-2-smostafa@google.com>
-Date: Thu, 04 Jun 2026 14:25:16 +0530
-Message-ID: <yq5a4ijisn0r.fsf@kernel.org>
+	s=k20260515; t=1780563362;
+	bh=g0ZRTPlwT/xyxpdHcA09ypJlccbn5Vup1lZsGchbYCc=;
+	h=Date:From:To:Cc:Subject:References:In-Reply-To;
+	b=VQ0J+CbbA8z53ymXbXli2ktLm3hj2dpSm8vYx6EOzsIKD04T5HKXpSIq7rQ/Rl6xg
+	 u6Ed2IgM7TNaL7b8OZ0rglBpOuIfA6F9gPm6yXsIFjqGYqiWqUMBaCjMXvUWhjlpTM
+	 L9oIoX7KNYDGHvj/H1Tf220DR8/2HEXoS8z2hSqZhpQuUdXtyERbR/wD6JVK3fVFUf
+	 CNz+c+8aejAmVcMYgM7nujR0135LyQJjNV7GtOr7S7zzpUHZRb1S5gQEg4/HLZjiye
+	 +o3yrZ4sdPPAthl0/wzun3PunauL63PeFwdiAGAT0ooIajFer6gpyTbLf8UvmFAMf5
+	 Byte3zz3XJXIQ==
+Date: Thu, 4 Jun 2026 09:55:58 +0100
+From: Conor Dooley <conor@kernel.org>
+To: Chi-Wen Weng <cwweng.linux@gmail.com>
+Cc: broonie@kernel.org, robh@kernel.org, krzk+dt@kernel.org,
+	conor+dt@kernel.org, linux-arm-kernel@lists.infradead.org,
+	linux-spi@vger.kernel.org, devicetree@vger.kernel.org,
+	linux-kernel@vger.kernel.org, cwweng@nuvoton.com
+Subject: Re: [PATCH 1/2] dt-bindings: spi: Add for Nuvoton MA35D1 SoC QSPI
+ Controller
+Message-ID: <20260604-anthem-jokingly-8d8312ff0c3f@spud>
+References: <20260603043551.1062112-1-cwweng.linux@gmail.com>
+ <20260603043551.1062112-2-cwweng.linux@gmail.com>
+ <20260603-daybed-absentee-1b64f5caabe0@spud>
+ <41914879-5fd0-41dd-b097-2be80096e464@gmail.com>
 MIME-Version: 1.0
-Content-Type: text/plain
+Content-Type: multipart/signed; micalg=pgp-sha512;
+	protocol="application/pgp-signature"; boundary="DXfNWS54udZtd82S"
+Content-Disposition: inline
+In-Reply-To: <41914879-5fd0-41dd-b097-2be80096e464@gmail.com>
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -72,59 +75,46 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Mostafa Saleh <smostafa@google.com> writes:
 
-> At the moment, arch_mm_preinit() checks if the system has limited
-> addressing or is running under CCA to enable SWIOTLB, only after to
-> be forced to true anyway if it was false due to
-> CONFIG_DMA_BOUNCE_UNALIGNED_KMALLOC being unconditionally true for
-> arm64.
->
-> Simplify this logic, by making it clear that SWIOTLB is always used
-> but its size depends on the address layout of the system.
->
+--DXfNWS54udZtd82S
+Content-Type: text/plain; charset=utf-8
+Content-Disposition: inline
+Content-Transfer-Encoding: quoted-printable
 
-Reviewed-by: Aneesh Kumar K.V (Arm) <aneesh.kumar@kernel.org>
+On Thu, Jun 04, 2026 at 03:07:31PM +0800, Chi-Wen Weng wrote:
+> Hi Conor,
+>=20
+> Thanks for the review.
+>=20
+> > Missing commit message for one, but why can't your Nuvoton mail be used
+> > here?
+>=20
+> I apologize for the missing commit message; I will add a proper descripti=
+on
+> in v2.
+>=20
+> Regarding the email address, my Nuvoton mail adds a corporate
+> confidentiality disclaimer to outgoing
+> external mail, so I use my personal address for sending kernel patches.
 
-> Signed-off-by: Mostafa Saleh <smostafa@google.com>
-> ---
->  arch/arm64/mm/init.c | 11 ++++-------
->  1 file changed, 4 insertions(+), 7 deletions(-)
->
-> diff --git a/arch/arm64/mm/init.c b/arch/arm64/mm/init.c
-> index 97987f850a33..fcc9c05a8fe6 100644
-> --- a/arch/arm64/mm/init.c
-> +++ b/arch/arm64/mm/init.c
-> @@ -336,25 +336,22 @@ void __init arch_setup_zero_pages(void)
->  void __init arch_mm_preinit(void)
->  {
->  	unsigned int flags = SWIOTLB_VERBOSE;
-> -	bool swiotlb = max_pfn > PFN_DOWN(arm64_dma_phys_limit);
-> +	bool limited_addressing = max_pfn > PFN_DOWN(arm64_dma_phys_limit);
->  
->  	if (is_realm_world()) {
-> -		swiotlb = true;
->  		flags |= SWIOTLB_FORCE;
-> -	}
-> -
-> -	if (IS_ENABLED(CONFIG_DMA_BOUNCE_UNALIGNED_KMALLOC) && !swiotlb) {
-> +	} else if (!limited_addressing) {
->  		/*
->  		 * If no bouncing needed for ZONE_DMA, reduce the swiotlb
->  		 * buffer for kmalloc() bouncing to 1MB per 1GB of RAM.
->  		 */
->  		unsigned long size =
->  			DIV_ROUND_UP(memblock_phys_mem_size(), 1024);
-> +
->  		swiotlb_adjust_size(min(swiotlb_size_or_default(), size));
-> -		swiotlb = true;
->  	}
->  
-> -	swiotlb_init(swiotlb, flags);
-> +	swiotlb_init(true, flags);
->  
->  	/*
->  	 * Check boundaries twice: Some fundamental inconsistencies can be
-> -- 
-> 2.54.0.1032.g2f8565e1d1-goog
+This prevents you sending with your work email account, but you can still
+set your commit author to your Nuvoton address FWIW.
+
+> Conor Dooley =E6=96=BC 2026/6/3 =E4=B8=8B=E5=8D=88 11:24 =E5=AF=AB=E9=81=
+=93:
+> > On Wed, Jun 03, 2026 at 12:35:50PM +0800, Chi-Wen Weng wrote:
+> > > Signed-off-by: Chi-Wen Weng <cwweng.linux@gmail.com>
+
+--DXfNWS54udZtd82S
+Content-Type: application/pgp-signature; name="signature.asc"
+
+-----BEGIN PGP SIGNATURE-----
+
+iHUEABYKAB0WIQRh246EGq/8RLhDjO14tDGHoIJi0gUCaiE9ngAKCRB4tDGHoIJi
+0ns5AQDkCCpaoPInNNPpkFtOd/vTQh2GyJEX+MDZdhtwHCHGVgD9G5JmWreurTno
+vUf1oScgNMeUb2uh4YdzD0lMOOWV0Qw=
+=pGiX
+-----END PGP SIGNATURE-----
+
+--DXfNWS54udZtd82S--
 
