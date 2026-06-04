@@ -4,102 +4,81 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id DE817CD6E6D
-	for <linux-arm-kernel@archiver.kernel.org>; Thu,  4 Jun 2026 14:39:23 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 64F83CD6E4A
+	for <linux-arm-kernel@archiver.kernel.org>; Thu,  4 Jun 2026 14:40:01 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:Message-Id:
-	Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:From:
-	Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender
-	:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
-	bh=DOMV3x2yG7P0NW9CHIRVjoVTM78K6MUr+RoZlGHPHew=; b=kNYiJqPNctfQcNH9ZlOoGJnv3H
-	3KU79F9Gxj/PRczs5eJEaITzRr0u1gyTfGN75jgWYABr0638B/vU+rP7RGZjRMEEgfXrDygKQBkjf
-	YMBxPQzqLadUbe+E5iFATxc/igP6IOpBbITmDWsLKyhmwp0rxDl311bk4Y3M5YqGydHpbfYfajTYf
-	gPRvYyKnXzrvqTsDGDmFPcIhOCwMp0wJjcnE+yzLRZgAtU15Z2vba9byezUEDoKxYtiu0Ms0QITHA
-	4RtcxN5yO6sa52UUAtZmovVAzwR/Xhyzj+ZVCN+r2iDJKEDp8jr2xrm1Iogi5W4x4SJxSMxhoa2S6
-	AWdOKmYg==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:
+	Content-Transfer-Encoding:Content-Type:MIME-Version:References:Message-ID:
+	Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=ee8P1tFhKxvly/ZTq0b1RUjGrPK1o7ySfvF6TcwJsFA=; b=421/uFyRzmHo5OUoXI9qV0/jCD
+	0BEfORaepHBR4Ac/40v1PDgLnzTtdfgrTMDeIWUWWx/tAMC/XauFvG3ZyP7VEDWIRZqHRxV/n3lD1
+	NHStg3ZmJrudS1D62bVu8ap4FqQzGuPLVL+/YWW/1h8iANeY8Sp20KJXxHp/o4Tjnidk5xzJT6iQ7
+	RHCNjWotGY6Hu4WZreunk49a7kA8XTMB+2H1nRYTmGGBAjKCudY0cfYymziuf1JoGvRGIy5mzCgHj
+	AfIHNBSi/Iigqdrl79YEGX6198bPdlTx6FWBv/LKthjEQpuF+KHr2rffDdzBm5Z65o6C6t5+moP0i
+	Y9kRkm0w==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wV9E5-0000000Gue6-0aVU;
-	Thu, 04 Jun 2026 14:39:17 +0000
-Received: from mail-pj1-x1031.google.com ([2607:f8b0:4864:20::1031])
+	id 1wV9Eh-0000000GuoO-2Dro;
+	Thu, 04 Jun 2026 14:39:55 +0000
+Received: from tor.source.kernel.org ([172.105.4.254])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wV9E2-0000000GudE-2bdC
+	id 1wV9Eg-0000000Gunf-0gLB
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 04 Jun 2026 14:39:15 +0000
-Received: by mail-pj1-x1031.google.com with SMTP id 98e67ed59e1d1-36dd65b95f2so546308a91.0
-        for <linux-arm-kernel@lists.infradead.org>; Thu, 04 Jun 2026 07:39:14 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20251104; t=1780583953; x=1781188753; darn=lists.infradead.org;
-        h=cc:to:message-id:content-transfer-encoding:mime-version:subject
-         :date:from:from:to:cc:subject:date:message-id:reply-to;
-        bh=DOMV3x2yG7P0NW9CHIRVjoVTM78K6MUr+RoZlGHPHew=;
-        b=UzwT9riIeM56+6Vb25vz/60o3Vrg7wiJzxHQkQbUHDpZixiDlE0wtUId3MibjKL7Sb
-         25fQByEJAXBEqsXmIqD9pL1XODXfaOr6z1+mvF8swYDSV75RAdXSD5XokdNQ8tBSI05v
-         5yLgkTupNohlDdM2RnTk1Hh8nO8my5W13Zp6BCapehALeIBA4vUK5i/xTyelE9aFWJ6c
-         AS93dhWsSsUeDGgP2qUYKIoRMkSTDcldS3T5lM2j0DYMJFMRXezn3BkRdHmTCP3GfY+9
-         jUSkByEPOi1tBGAwLqLq27g57WVP+kkFLyq17E1v+s9k2Sy+mdjbbybdFwWILNF8otwo
-         W3Ig==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20251104; t=1780583953; x=1781188753;
-        h=cc:to:message-id:content-transfer-encoding:mime-version:subject
-         :date:from:x-gm-gg:x-gm-message-state:from:to:cc:subject:date
-         :message-id:reply-to;
-        bh=DOMV3x2yG7P0NW9CHIRVjoVTM78K6MUr+RoZlGHPHew=;
-        b=RyWa7eFdrXW6NDosY1lD2sVQ0A58Ac8Thf+nKnORK8EMKJxzlJ20VCGoxKaReRYmLK
-         +JK9epqsqnvRVpIxL1xvH2CLB756Td8/ZaUcHV3sVOU+2ViH2Bgj617sjRuShDbLSxGe
-         tBKKfaw951v74pDeUwCAlkQkqbGliuHkduWI4F/KRKE+3Okew04heSObozH+nRuBoEw2
-         FLZ6fjxce3vNlFsXKfAMjMetu3G3zsx5quMwHsP8LIV+YoHTVeJiHtYEcKzVhnays91c
-         KCdhrPatGXG09msyLASK+kaKvScyHYrUNNYs2XtuCubI2xygeKBXpsJwbgIlC0Zo3hT3
-         0iuA==
-X-Forwarded-Encrypted: i=1; AFNElJ+O92fz5nOeyLRG3eEjP/0R785RxC2LUneDvtQKXWBT6KpH7Yyv1aw2+nBiRpzlehMLuFwAupeJGGSCIrGBqvDx@lists.infradead.org
-X-Gm-Message-State: AOJu0YxHZihPQudLsSBF1wmTrH+X8f8HGeHF6587egZIgkkpgERkHjSF
-	goodAiNRWBmtO6HqDFnu3I3TRVd3wISY4wqg5ko61FKiNcHROksBTFxw
-X-Gm-Gg: Acq92OEGx9HDrauQcfe+WEYw3XDyNReZ1kVS5ceVDcWQMkfQtYjGcMriIuO2vlTCRwv
-	X7d9emTPN7bnwTen0/LhLDJbjse2xkoFJDj2caR+oXgEOFb6wZYcmwTY6/BGMVyT31Fh/lBkUpb
-	2ysOuRwMuIXUybMYxIIH1iwH5uscA4wOxFxio+JQQol1a1srv8VErsg2xFdpxd+x8a8eiCcbTYd
-	rAJ+Syu8cZpnvuOICnErVzMycocbZxatBDrY+fYL/Quz2832uNxVU8jExRf525bRTMOydqYeT+Y
-	OooesP/2a6Xqv3lEl5DGMhi6UQbLXjjTJzFCk7gY5G2nPmlrYqT8XmRfEbpPxeO3zbcYl3wTCRU
-	U4W5AnKeATsAplbk2hBkZPiU7CKvxd3ndzsvUO71s8mUhlqkZNBsMDC419wgYmMe1+qsCsp7AD2
-	DrpHR5F5u0zECy5DfYbZQ64HtloQc3jiO9dELYYisaaofi9JPblmkEn6t61wB7MhBFfycycKR+A
-	kuxBgc4hd/XlOetjx9fgMnUb6upc+p3j/4Ga4s=
-X-Received: by 2002:a17:90b:58d0:b0:36b:769c:c037 with SMTP id 98e67ed59e1d1-36f76d559d7mr2969085a91.5.1780583953117;
-        Thu, 04 Jun 2026 07:39:13 -0700 (PDT)
-Received: from junjungu-PC.localdomain ([223.166.246.30])
-        by smtp.gmail.com with ESMTPSA id 98e67ed59e1d1-36f6bf830b2sm3118696a91.4.2026.06.04.07.39.09
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Thu, 04 Jun 2026 07:39:12 -0700 (PDT)
-From: Felix Gu <ustc.gu@gmail.com>
-Date: Thu, 04 Jun 2026 22:39:07 +0800
-Subject: [PATCH] phy: freescale: imx8qm-lvds-phy: Fix missing
- pm_runtime_disable() on probe error path
+	Thu, 04 Jun 2026 14:39:54 +0000
+Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
+	by tor.source.kernel.org (Postfix) with ESMTP id 096FA600B0;
+	Thu,  4 Jun 2026 14:39:53 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id DAB041F00893;
+	Thu,  4 Jun 2026 14:39:47 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
+	s=k20260515; t=1780583992;
+	bh=ee8P1tFhKxvly/ZTq0b1RUjGrPK1o7ySfvF6TcwJsFA=;
+	h=Date:From:To:Cc:Subject:References:In-Reply-To;
+	b=EpSXDkSMw5AZDuqlPmQPMNc8l0eY9JmMHDAbRtmbiB0NzKYOygRT2U0DkZ5/FygiN
+	 7qF5RKNNjOzUtNx+qrXa1QVriiUWFYNBPY+SHvo8Go3QvS9x+NI1iEEsoFAwicSlHE
+	 GeREOhls4S+i2b4vAJrTsREN2YR8RJl6M3fG+p7sepnb6sLonpGuZWJgbgpuH0ydSs
+	 cxXYgdnLOF8EtniLsDjEy0gbeRrowImn05V/vvwacM/xCJnIZCmnxwD+78QDrq0Mjj
+	 GmP1+MyBiN3zxQfPT8X6/aYXFld0uDC99xa50CEHk/AtvO1/4sRkk2rpfLvXdciWeZ
+	 fbIuiVkwwEL4g==
+Date: Thu, 4 Jun 2026 15:39:44 +0100
+From: Will Deacon <will@kernel.org>
+To: Rong Xu <xur@google.com>
+Cc: Nathan Chancellor <nathan@kernel.org>, Yabin Cui <yabinc@google.com>,
+	Han Shen <shenhan@google.com>, Thomas Gleixner <tglx@linutronix.de>,
+	Ingo Molnar <mingo@redhat.com>, Borislav Petkov <bp@alien8.de>,
+	Dave Hansen <dave.hansen@linux.intel.com>,
+	"H. Peter Anvin" <hpa@zytor.com>, Kees Cook <kees@kernel.org>,
+	Nicolas Schier <nicolas.schier@linux.dev>,
+	Linus Walleij <linusw@kernel.org>, Arnd Bergmann <arnd@arndb.de>,
+	Mathieu Desnoyers <mathieu.desnoyers@efficios.com>,
+	Miguel Ojeda <ojeda@kernel.org>,
+	Peter Zijlstra <peterz@infradead.org>,
+	Jinjie Ruan <ruanjinjie@huawei.com>,
+	Lukas Bulwahn <lukas.bulwahn@redhat.com>,
+	linux-kernel@vger.kernel.org, Juergen Gross <jgross@suse.com>,
+	Helge Deller <deller@gmx.de>, Ryan Roberts <ryan.roberts@arm.com>,
+	Marc Zyngier <maz@kernel.org>, Ard Biesheuvel <ardb@kernel.org>,
+	Vincent Donnefort <vdonnefort@google.com>,
+	Alice Ryhl <aliceryhl@google.com>, x86@kernel.org,
+	linux-arm-kernel@lists.infradead.org
+Subject: Re: [PATCH v3 2/2] kconfig: Remove the architecture specific config
+ for Propeller
+Message-ID: <aiGOMPZfk7LIAb59@willie-the-truck>
+References: <20260527214510.3907973-1-xur@google.com>
+ <20260527214510.3907973-3-xur@google.com>
+ <178010203122.3743687.12531843798236779880.b4-review@b4>
+ <CAF1bQ=RNokHJtf=8RGKyP12jNPKUvyztJVRaDZ2fnXSVzZ3L5g@mail.gmail.com>
+ <ah6ltnOk2ol8_2ly@willie-the-truck>
+ <CAF1bQ=TfCAdxh64cSNeO5wiT8o02o6+bVooju1Bgy3odM1NYwQ@mail.gmail.com>
+ <20260603015354.GD1940387@ax162>
+ <CAF1bQ=S-p+Mi80a8C8pZzJ3E3bW_5tr6WBUKVV1LaXC9iBor=g@mail.gmail.com>
 MIME-Version: 1.0
-Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: 7bit
-Message-Id: <20260604-lvds-v1-1-b8e1ff1bdee7@gmail.com>
-X-B4-Tracking: v=1; b=H4sIAAqOIWoC/6tWKk4tykwtVrJSqFYqSi3LLM7MzwNyDHUUlJIzE
- vPSU3UzU4B8JSMDIzMDMwMT3ZyylGLdFDPz5CQzQ8uUNENzJaDSgqLUtMwKsDHRsRB+cWlSVmp
- yCUivUm0tALOMGkpoAAAA
-X-Change-ID: 20260604-lvds-d67cb619df17
-To: Vinod Koul <vkoul@kernel.org>, 
- Neil Armstrong <neil.armstrong@linaro.org>, Frank Li <Frank.Li@nxp.com>, 
- Sascha Hauer <s.hauer@pengutronix.de>, 
- Pengutronix Kernel Team <kernel@pengutronix.de>, 
- Fabio Estevam <festevam@gmail.com>, Liu Ying <victor.liu@nxp.com>
-Cc: linux-phy@lists.infradead.org, imx@lists.linux.dev, 
- linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org, 
- Felix Gu <ustc.gu@gmail.com>
-X-Mailer: b4 0.15.2
-X-Developer-Signature: v=1; a=ed25519-sha256; t=1780583949; l=2666;
- i=ustc.gu@gmail.com; h=from:subject:message-id;
- bh=k21HcNtRfGOfdGEdLFtlrPAUJg8uMPRTOaO8fu5/tX0=;
- b=jhHig4d+JEEW8lyIX24qIbqNx+rDwN/vC6NWkW86ZaeYwEzeYggjta+nO9Lfo878+ax0rH+ol
- 7jOKNHUbE0iDMCul78SSZxFsmrifomdo6iadGIx5pvJmozsEMf3g6HN
-X-Developer-Key: i=ustc.gu@gmail.com; a=ed25519;
- pk=fjUXwmjchVN7Ja6KGP55IXOzFeCl9edaHoQIEUA+/hw=
-X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260604_073914_671388_EA54B423 
-X-CRM114-Status: GOOD (  14.91  )
+Content-Type: text/plain; charset=utf-8
+Content-Disposition: inline
+Content-Transfer-Encoding: 8bit
+In-Reply-To: <CAF1bQ=S-p+Mi80a8C8pZzJ3E3bW_5tr6WBUKVV1LaXC9iBor=g@mail.gmail.com>
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -114,92 +93,54 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-If mixel_lvds_phy_reset() fails in probe after pm_runtime_enable(),
-the function returns directly without calling pm_runtime_disable(),
-leaving runtime PM permanently enabled for the device.
+On Wed, Jun 03, 2026 at 03:15:02PM -0700, Rong Xu wrote:
+> On Tue, Jun 2, 2026 at 6:54 PM Nathan Chancellor <nathan@kernel.org> wrote:
+> >
+> > On Tue, Jun 02, 2026 at 10:52:48AM -0700, Rong Xu wrote:
+> > > On Tue, Jun 2, 2026 at 2:43 AM Will Deacon <will@kernel.org> wrote:
+> > > > I still don't think it has anything to do with the arch. If the compiler
+> > > > supports the option, then we can use it. The arch code in the kernel
+> > > > doesn't need to do anything, right? So can you just check if the
+> > > > compiler accepts the option using a 'depends on $(cc-option, ...)' line?
+> > >
+> > > Yes, arch code in the kernel does not need to do anything—it is just a marker.
+> > >
+> > > I understand your concern. I can use (cc-options,...) in PROPELLER_CLANG config.
+> > > But I will not use -fbasic-block-address-map for backward compatiliby reason.
+> > > I would use "-fbasic-block-sections=list=/dev/null".
+> > >
+> > > I'll send the updated patch shortly.
+> >
+> > Technically, an architecture needs to add the section generated by this
+> > compiler option to their linker script to avoid an orphan section
+> > warning (or error from CONFIG_WERROR) if enabled, as has been done in
+> > this series.
+> >
+> > I worry that moving to a dynamic check will cause build breakage if an
+> > LLVM target gains support for Propeller without having their kernel
+> > image linker script adjusted. Maybe that will not happen very often and
+> > even if it does, I do not mind taking on the maintenance burden of
+> > fixing it but there is a cost of moving to a dynamic check like this.
+> >
+> 
+> This is true.
+> 
+> That said, these orphan sections usually won't impact correctness. The
+> linker will group these together even withgout the link script change,
+> even though it generates a lot of warnings.
+> 
+> With moving to a dynamic check, correct usage of this feature remains
+> the user's responsibility -- I think this is Will's point from the
+> very beginning.
+> As noted in your previous response, the dynamic check is primarily
+> intended to prevent "allmodconfig" build failures.
+> 
+> I am comfortable with either the arch_kconfig or dynamic_check
+> approach. Once a preferred solution is decided, please let me know so
+> I can submit v4 for review.
 
-Fix this by using devm_pm_runtime_enable() so that cleanup is
-automatic on any probe failure or driver unbind. This also allows
-removing the manual err label and the .remove callback.
+I continue to object to the pointless ARCH_ selection and much prefer
+having the core Kconfig check the cc-option.
 
-Fixes: 06ff622d61d2 ("phy: freescale: Add i.MX8qm Mixel LVDS PHY support")
-Signed-off-by: Felix Gu <ustc.gu@gmail.com>
----
- drivers/phy/freescale/phy-fsl-imx8qm-lvds-phy.c | 24 +++++++-----------------
- 1 file changed, 7 insertions(+), 17 deletions(-)
-
-diff --git a/drivers/phy/freescale/phy-fsl-imx8qm-lvds-phy.c b/drivers/phy/freescale/phy-fsl-imx8qm-lvds-phy.c
-index ece357443521..c662f91e598c 100644
---- a/drivers/phy/freescale/phy-fsl-imx8qm-lvds-phy.c
-+++ b/drivers/phy/freescale/phy-fsl-imx8qm-lvds-phy.c
-@@ -345,7 +345,9 @@ static int mixel_lvds_phy_probe(struct platform_device *pdev)
- 
- 	dev_set_drvdata(dev, priv);
- 
--	pm_runtime_enable(dev);
-+	ret = devm_pm_runtime_enable(dev);
-+	if (ret)
-+		return ret;
- 
- 	ret = mixel_lvds_phy_reset(dev);
- 	if (ret) {
-@@ -355,17 +357,15 @@ static int mixel_lvds_phy_probe(struct platform_device *pdev)
- 
- 	for (i = 0; i < PHY_NUM; i++) {
- 		lvds_phy = devm_kzalloc(dev, sizeof(*lvds_phy), GFP_KERNEL);
--		if (!lvds_phy) {
--			ret = -ENOMEM;
--			goto err;
--		}
-+		if (!lvds_phy)
-+			return -ENOMEM;
- 
- 		phy = devm_phy_create(dev, NULL, &mixel_lvds_phy_ops);
- 		if (IS_ERR(phy)) {
- 			ret = PTR_ERR(phy);
- 			dev_err(dev, "failed to create PHY for channel%d: %d\n",
- 				i, ret);
--			goto err;
-+			return ret;
- 		}
- 
- 		lvds_phy->phy = phy;
-@@ -379,19 +379,10 @@ static int mixel_lvds_phy_probe(struct platform_device *pdev)
- 	if (IS_ERR(phy_provider)) {
- 		ret = PTR_ERR(phy_provider);
- 		dev_err(dev, "failed to register PHY provider: %d\n", ret);
--		goto err;
-+		return ret;
- 	}
- 
- 	return 0;
--err:
--	pm_runtime_disable(dev);
--
--	return ret;
--}
--
--static void mixel_lvds_phy_remove(struct platform_device *pdev)
--{
--	pm_runtime_disable(&pdev->dev);
- }
- 
- static int __maybe_unused mixel_lvds_phy_runtime_suspend(struct device *dev)
-@@ -432,7 +423,6 @@ MODULE_DEVICE_TABLE(of, mixel_lvds_phy_of_match);
- 
- static struct platform_driver mixel_lvds_phy_driver = {
- 	.probe = mixel_lvds_phy_probe,
--	.remove = mixel_lvds_phy_remove,
- 	.driver = {
- 		.pm = &mixel_lvds_phy_pm_ops,
- 		.name = "mixel-lvds-phy",
-
----
-base-commit: a225caacc36546a09586e3ece36c0313146e7da9
-change-id: 20260604-lvds-d67cb619df17
-
-Best regards,
---  
-Felix Gu <ustc.gu@gmail.com>
-
+Will
 
