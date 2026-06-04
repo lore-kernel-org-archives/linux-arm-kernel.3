@@ -4,131 +4,100 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 92478CD6E68
-	for <linux-arm-kernel@archiver.kernel.org>; Thu,  4 Jun 2026 08:23:02 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 531E3CD6E68
+	for <linux-arm-kernel@archiver.kernel.org>; Thu,  4 Jun 2026 08:29:48 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:
-	Content-Transfer-Encoding:Content-Type:In-Reply-To:References:Message-ID:Date
-	:Subject:CC:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=3Sw7FAE9X7C90aUEWnkof8I/AA4MOhzFTtic5f5+Q14=; b=0oDh/6JvXsROoJCTkCR0xudL1J
-	AL9Gkw4YPJ974IWMsM9VrJrNkDcKeY6qEN2De7XPiE0Lo4GmvItSYJQB83RZjpQoTk9w+EqRgDc5t
-	1/816DsNm+EXJhDGEeGdMpbox18PTCJoKPbO6f7RJ/3K8paQtqqYp1e5UkyZnpSeQSGtbLVgi5t+Z
-	yvB5W9xQE3NHwz6LSG4NOFk/0BMX4PQJg/eSt4O2NbhuhSCPHJ0FZtIav6TrILJv6flR+eB75M0de
-	tP7BhyY6/CB9k35yp+8tbsDyOCtmS8EowNbKlhXgIQBe0cUfVojy9rWnzqQVd9kKl7439aZ9Ty47X
-	gLd9Fsbw==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:In-Reply-To:References:Cc:To:Subject:From:MIME-Version:Date:
+	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=uIKj96R+mEy42VSULqrrxSvXG3JwcLwhhMAkRL+6Hlg=; b=aO1XnmBblAo/0XcJI58xt/2IyL
+	D2pa30rCnKlnDclg1YRk6J5F/FCZAzMsCN50jbt25OC4DWpqWzZmyNW+HLvcm38rVB/cV8w/CUiLi
+	FxTmdsg9lCfUawKOdoZnecAyVGfZpIaa6ZDDvlDMDRFHqSLprJDMcOFN6souaRJQrrRP2a1+Y6Npv
+	jZzB9/CKiaHbLgrGrULnceJ33Fs9VT9I41Km5928nVtLKbvLjJiibMTGrn2ubvEiy+5qnsCrCJSl1
+	v3V5CuyF0AA8F9L4kU0264pRosGwPkdoyttSr27I7l6y6vCKvMD3eGYoKqdxt9sI8nqKUoNBJc8so
+	fD25UUdw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wV3Lq-0000000GMzq-3my9;
-	Thu, 04 Jun 2026 08:22:54 +0000
-Received: from exmail3.compal.com ([59.120.207.196] helo=tpecef21.compal.com)
+	id 1wV3SP-0000000GNQA-3s6u;
+	Thu, 04 Jun 2026 08:29:41 +0000
+Received: from us-smtp-delivery-124.mimecast.com ([170.10.133.124])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wV3Ln-0000000GMzE-05V3;
-	Thu, 04 Jun 2026 08:22:53 +0000
-X-UUID: 8ac6ddb25fee11f1b2470fb4f881575f-20260604
-X-CID-P-RULE: Release_Ham
-X-CID-O-INFO: VERSION:1.3.15,REQID:f69cd766-2879-4a7a-9a44-abc2017b36ba,IP:0,U
-	RL:0,TC:0,Content:0,EDM:0,RT:0,SF:0,FILE:0,BULK:0,RULE:Release_Ham,ACTION:
-	release,TS:0
-X-CID-META: VersionHash:e276073,CLOUDID:bc4e6886-394e-4a03-8895-d34f53943d06,B
-	ulkID:nil,BulkQuantity:0,Recheck:0,SF:80|81|82|83|102|110|111|836|865|888|
-	898,TC:-5,Content:-10|0|15|50,EDM:-3,IP:nil,URL:99|1,File:130,RT:0,Bulk:ni
-	l,QS:nil,BEC:nil,COL:0,OSI:0,OSA:0,AV:0,LES:1,SPR:NO,DKR:0,DKP:0,BRR:0,BRE
-	:0,ARC:0
-X-CID-BVR: 2,SSN|SDN
-X-CID-BAS: 2,SSN|SDN,0,_
-X-CID-FACTOR: TF_CID_SPAM_SNR,TF_CID_SPAM_ULS
-X-CID-RHF: D41D8CD98F00B204E9800998ECF8427E
-X-UUID: 8ac6ddb25fee11f1b2470fb4f881575f-20260604
-Received: from sdmg12.sdbg.compal.com [(10.113.168.10)] by tpecef21.compal.com
-	(envelope-from <jackbb_wu@compal.com>)
-	(Generic MTA with TLSv1.3 TLS_AES_256_GCM_SHA384 256/256)
-	with ESMTP id 663226871; Thu, 04 Jun 2026 16:22:36 +0800
-X-UUID: 86dc28925fee11f1a42089d3d1632821-20260604
-X-CID-P-RULE: Release_Ham
-X-CID-O-INFO: VERSION:1.3.15,REQID:cafd1c45-fe82-42b3-bec3-59d3594248ee,IP:0,U
-	RL:0,TC:0,Content:0,EDM:0,RT:0,SF:0,FILE:0,BULK:0,RULE:Release_Ham,ACTION:
-	release,TS:0
-X-CID-META: VersionHash:e276073,CLOUDID:894e6886-394e-4a03-8895-d34f53943d06,B
-	ulkID:nil,BulkQuantity:0,Recheck:0,SF:80|81|82|83|102|110|111|836|865|888|
-	898,TC:-5,Content:-10|0|15|50,EDM:-3,IP:nil,URL:99|1,File:130,RT:0,Bulk:ni
-	l,QS:nil,BEC:nil,COL:0,OSI:0,OSA:0,AV:0,LES:1,SPR:NO,DKR:0,DKP:0,BRR:0,BRE
-	:0,ARC:0
-X-CID-BVR: 2,SSN|SDN
-X-CID-BAS: 2,SSN|SDN,0,_
-X-CID-FACTOR: TF_CID_SPAM_SNR,TF_CID_SPAM_ULS
-X-CID-RHF: D41D8CD98F00B204E9800998ECF8427E
-X-UUID: 86dc28925fee11f1a42089d3d1632821-20260604
-Received: from sdbmbx11.tpe.compalcomm.com [(10.113.2.135)] by sdmg12.sdbg.compal.com
-	(envelope-from <jackbb_wu@compal.com>)
-	(Compal Mail Service with TLSv1.2 ECDHE-RSA-AES128-SHA 128/128)
-	with ESMTP id 837588550; Thu, 04 Jun 2026 16:22:29 +0800
-Received: from SDBMBX13.tpe.compalcomm.com (10.113.2.137) by
- SDBMBX11.tpe.compalcomm.com (10.113.2.135) with Microsoft SMTP Server
- (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_128_CBC_SHA) id 15.2.2562.29;
- Thu, 4 Jun 2026 16:22:27 +0800
-Received: from SDBMBX13.tpe.compalcomm.com ([fe80::ea2a:c2b2:8475:8d69]) by
- SDBMBX13.tpe.compalcomm.com ([fe80::ea2a:c2b2:8475:8d69%11]) with mapi id
- 15.02.2562.029; Thu, 4 Jun 2026 16:22:27 +0800
-From: "Wu. JackBB (GSM)" <JackBB_Wu@compal.com>
-To: Sergey Ryazanov <ryazanov.s.a@gmail.com>, Jakub Kicinski
-	<kuba@kernel.org>, Jack Wu via B4 Relay
-	<devnull+jackbb_wu.compal.com@kernel.org>
-CC: Loic Poulain <loic.poulain@oss.qualcomm.com>, Johannes Berg
-	<johannes@sipsolutions.net>, Andrew Lunn <andrew+netdev@lunn.ch>, "David S.
- Miller" <davem@davemloft.net>, Eric Dumazet <edumazet@google.com>, "Paolo
- Abeni" <pabeni@redhat.com>, Wen-Zhi Huang <wen-zhi.huang@mediatek.com>,
-	Shi-Wei Yeh <shi-wei.yeh@mediatek.com>, Minano Tseng
-	<Minano.tseng@mediatek.com>, Matthias Brugger <matthias.bgg@gmail.com>,
-	AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>, "Simon
- Horman" <horms@kernel.org>, Jonathan Corbet <corbet@lwn.net>, Shuah Khan
-	<skhan@linuxfoundation.org>, "linux-kernel@vger.kernel.org"
-	<linux-kernel@vger.kernel.org>, "netdev@vger.kernel.org"
-	<netdev@vger.kernel.org>, "linux-arm-kernel@lists.infradead.org"
-	<linux-arm-kernel@lists.infradead.org>, "linux-mediatek@lists.infradead.org"
-	<linux-mediatek@lists.infradead.org>, "linux-doc@vger.kernel.org"
-	<linux-doc@vger.kernel.org>
-Subject: RE: [External Mail] Re: [PATCH 00/11] net: wwan: t9xx: Add MediaTek
- T9XX WWAN driver
-Thread-Topic: [External Mail] Re: [PATCH 00/11] net: wwan: t9xx: Add MediaTek
- T9XX WWAN driver
-Thread-Index: AQHc8iePJegWnmu1bUi94DWo9+PN/LYrGJEzgAAe7YCAAtdz8A==
-Date: Thu, 4 Jun 2026 08:22:27 +0000
-Message-ID: <98dcaccc34ac4083aef7d57d349c4b7a@compal.com>
-References: <20260529-t9xx_driver_v1-v1-0-bdbfe2c01e57@compal.com>
- <20260601173401.2c892526@kernel.org>
- <c279aea41ecf41c6aca4314a2f4e306b@compal.com>,<e7df5082-ef48-43d0-ad07-10e1e64e1d26@gmail.com>
-In-Reply-To: <e7df5082-ef48-43d0-ad07-10e1e64e1d26@gmail.com>
-Accept-Language: zh-TW, en-US
-Content-Language: zh-TW
-X-MS-Has-Attach: 
-X-MS-TNEF-Correlator: 
-x-originating-ip: [10.113.2.241]
-x-tm-as-product-ver: SMEX-14.0.0.3239-9.1.2019-29986.005
-x-tm-as-result: No-10--26.646500-8.000000
-x-tmase-matchedrid: RjGFKQPDGZ4uv++HU7VXryRFbfQbCufdN0X64jGy2dbVc/AFNTvLS9XY
-	nKy9ZqbG0wNjG7j2lpfWtteiDVXz7mpW0A+eYNud4WMcbQqR5OFkrVIXZHd52KloHyDFpaEsbxq
-	9W35blN9+M8NObIEDkCLCiAPpH5Zk/7zDDoXJoQ2DhqUecocKp1Izqo1F8yQS6ZPX83a4JSt/+c
-	5g4eNP+u8BzumvjiFCXT2nCSyOs5j74diwVvyjRcFwCSR9lLGI8kOnQJj3cxIkxtQqXREtZO/yM
-	kwYZmJ2tOKF1u0biJAV2Z+xPG+d+I62nm6DaDgUVnni4UoVxuO6wG+1uTW14Id1FpoF4NeYU19U
-	ImjpbIGuh6YVToIwy41RNFEIob/KmQi8fYMxpGuFhGp9GNPDrc1nntU6vE00IXRpMFb6AcKB0h0
-	6Pr4Hn4t7NVVLHZ3t19I3/idrQ/D3HS2YoYepd8FvMuNxUA+cG+VnGrXiRgANY08wMOTDmsESno
-	2xw0elmPP9edzaP5oCXDmsMNWqfsnvUK8i80ickY9I7o7kkJprcVVB7l3jO+U0ANNKseCVLUD+q
-	cOWoY+gM0tM9SAUhJd2NMAW0scp0hdWHIAe0CxzrrrGCGpI0nKYwMz9otrH37CRm+BZCt1uXYbG
-	BTRRfjvzjev5OakhYcFXY6YuN83xW9F9t0swPe2k7br7KLbk/NQq8FlIcVgSCDdzAMeX/U7zkly
-	hPTD9YIyQM4JfnWklTScbe2l74JsI6K9TYesLZLQpoie3cD5P8StIwFbkBA==
-x-tm-as-user-approved-sender: No
-x-tm-as-user-blocked-sender: No
-x-tmase-result: 10--26.646500-8.000000
-x-tmase-version: SMEX-14.0.0.3239-9.1.2019-29986.005
-x-tm-snts-smtp: F1D4721A7B9D4994DC53E26ABE48FCE74F86D29E9474505D022697E8716949DA2000:8
-Content-Type: text/plain; charset="big5"
-Content-Transfer-Encoding: base64
+	id 1wV3SM-0000000GNPe-3eNy
+	for linux-arm-kernel@lists.infradead.org;
+	Thu, 04 Jun 2026 08:29:41 +0000
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=redhat.com;
+	s=mimecast20190719; t=1780561776;
+	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
+	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
+	 content-transfer-encoding:content-transfer-encoding:
+	 in-reply-to:in-reply-to:references:references;
+	bh=uIKj96R+mEy42VSULqrrxSvXG3JwcLwhhMAkRL+6Hlg=;
+	b=X9L+bNbEVZ2HE5DSmXdUeMDEKMqRdY+EBl+NNYarszeepWhR1rO3gE1wLt6psGrbnLycR2
+	pZG4GcAxINgMzf7/pYqxSXJI5BOnDY2k+50Qfkr1g/WvpqnGHPhzfkpdTUtAu8jjSRD3c2
+	jzun+c0ctk/sLmSq0TMZanV45GSzccg=
+Received: from mail-wr1-f69.google.com (mail-wr1-f69.google.com
+ [209.85.221.69]) by relay.mimecast.com with ESMTP with STARTTLS
+ (version=TLSv1.3, cipher=TLS_AES_256_GCM_SHA384) id
+ us-mta-255-VlBwSP9HNAWd_JF5um5dLQ-1; Thu, 04 Jun 2026 04:28:02 -0400
+X-MC-Unique: VlBwSP9HNAWd_JF5um5dLQ-1
+X-Mimecast-MFC-AGG-ID: VlBwSP9HNAWd_JF5um5dLQ_1780561681
+Received: by mail-wr1-f69.google.com with SMTP id ffacd0b85a97d-46011aa5000so182453f8f.3
+        for <linux-arm-kernel@lists.infradead.org>; Thu, 04 Jun 2026 01:28:01 -0700 (PDT)
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20251104; t=1780561681; x=1781166481;
+        h=content-transfer-encoding:in-reply-to:content-language:references
+         :cc:to:subject:from:user-agent:mime-version:date:message-id:x-gm-gg
+         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to;
+        bh=uIKj96R+mEy42VSULqrrxSvXG3JwcLwhhMAkRL+6Hlg=;
+        b=iAEOEYiaFnriDkBBcJ89N3Q3yiBqrcewZdzDQf9w+2PizFNVvJIv/t7hjSVmvwsfcz
+         od7+4bnQCZtPcmd95W1XOwK/yGdMnuFw0qsczYZmxF124lfUeAHLNLCx7nThrR9Ehhiu
+         OL8GuwEgVBbVuwpuYpOwQ5yJB9gQyklLT5LB+iydrDvymqrpzR7hkzfAyUHV8cH0/9S9
+         WTgN1MSoDtyRnf6ldUfOkLdgeeRVKyqRJqAowXAHoqenqjSBvtlrnQW/9eObzCvMEYrP
+         KQanYQ34LWOqcWEvRZ/ZBw+vfJNv3iMzyf6n0ViyEJj0TB7BBAiheqmYFn9K0FmQsMHE
+         tFkA==
+X-Forwarded-Encrypted: i=1; AFNElJ83CcAlc7ROjovXLI+i0i6chPPAmaDhvw5lB8zNrCJUpgTbABnc9tI1723x6TZkFvbFLjHTah3pvbRStCqJEIIr@lists.infradead.org
+X-Gm-Message-State: AOJu0YxdOLC6vXFcMRW9HnVBnRVGGvwcRWcP8ffEN5NK7jSUKD05NSAL
+	JyF9Oo9hfF5EmV5jFHFmbp8VoC6cwQC7sz6aBW5quONx7VwSYU+IySzxcVFN/KcjtRgSFVV1q4b
+	rML4QetmAw0AHdnbIlajJMYe/GSoFkX7orRkxv+QoCs4BknmIz/W67VVqi4FLG8NPrwtRPRnhET
+	VQ4QMZrMz1
+X-Gm-Gg: Acq92OFjLTPfQSm9YBGQNlPRDi6qfpDzpnGuz+n12yu04u31Krqb1GAChTOyUcAvD+f
+	pABC2FuTqSK2u5j11suG04gkPX3hSmt98YIA1KSEb5tYlfkox1r/ay0czgSLYOsl4uHTMG8YQYJ
+	+f25nvIlOgnOmDp3ww+fvzT5RLWtlYydj7UvQ0CQ9oNw7ASJvMQsF8PucfIOP/S9A6T8sFnbpy2
+	CI0tDEtgwz97OvAkgL5iUSBeGvXgMmdQAunO6VnR2L4XRMJTnKKmJ4dmm5n1zN1Y2inSYSVBhaR
+	sNrlS7wm47KGh28082kQiJUmPqnMHb/LfaaKm8LxdSI45EUSY2NpYD+JfCJg3iE1n81PPg6RvEg
+	9exWjAEy8YOKJkcDMbALPExcGT+m2GOESiUp82zAdJVSFaSkfu1ul8mEtZGVk9APS7C+QouDvXJ
+	A=
+X-Received: by 2002:a05:600c:c10e:b0:490:51e2:bc86 with SMTP id 5b1f17b1804b1-490b5fe81a2mr85465535e9.23.1780561680657;
+        Thu, 04 Jun 2026 01:28:00 -0700 (PDT)
+X-Received: by 2002:a05:600c:c10e:b0:490:51e2:bc86 with SMTP id 5b1f17b1804b1-490b5fe81a2mr85465165e9.23.1780561680306;
+        Thu, 04 Jun 2026 01:28:00 -0700 (PDT)
+Received: from ?IPV6:2a01:e0a:f0e:9070:527b:9dff:feef:3874? ([2a01:e0a:f0e:9070:527b:9dff:feef:3874])
+        by smtp.gmail.com with ESMTPSA id 5b1f17b1804b1-490bc3b59f0sm61873985e9.2.2026.06.04.01.27.59
+        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
+        Thu, 04 Jun 2026 01:27:59 -0700 (PDT)
+Message-ID: <76355fdf-4658-4e3c-8dc5-d3aae8399dd8@redhat.com>
+Date: Thu, 4 Jun 2026 10:27:58 +0200
 MIME-Version: 1.0
+User-Agent: Mozilla Thunderbird
+From: Eric Auger <eauger@redhat.com>
+Subject: Re: [PATCH v2] KVM/arm64: vgic-its: Make ABI commit helpers return
+ void
+To: Jackie Liu <liu.yun@linux.dev>, maz@kernel.org, oupton@kernel.org,
+ linux-arm-kernel@lists.infradead.org
+Cc: yuzenghui@huawei.com, will@kernel.org, kvmarm@lists.linux.dev
+References: <20260604075147.53299-1-liu.yun@linux.dev>
+In-Reply-To: <20260604075147.53299-1-liu.yun@linux.dev>
+X-Mimecast-Spam-Score: 0
+X-Mimecast-MFC-PROC-ID: jOV6bzLDnNWPaee9NJUdgMdjyZtkGSbIY0hVu7iqWCk_1780561681
+X-Mimecast-Originator: redhat.com
+Content-Language: en-US
+Content-Type: text/plain; charset=UTF-8
+Content-Transfer-Encoding: 7bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260604_012251_422569_50329610 
-X-CRM114-Status: GOOD (  35.27  )
+X-CRM114-CacheID: sfid-20260604_012938_987943_F8B14F76 
+X-CRM114-Status: GOOD (  16.79  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -143,108 +112,107 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-SGkNCg0KPiBsZXQgbWUgam9pbiB0aGUgZGlzY3Vzc2lvbiBhbmQgcHV0IG15IDJjLg0KPg0KPiBP
-biA2LzIvMjYgMTM6NTgsIFd1LiBKYWNrQkIgKEdTTSkgd3JvdGU6DQo+ID4gSGkgSmFrdWIsDQo+
-ID4NCj4gPiA+IE9uIEZyaSwgMjkgTWF5IDIwMjYgMTg6MzE6MzkgKzA4MDAgSmFjayBXdSB2aWEg
-QjQgUmVsYXkgd3JvdGU6DQo+ID4gPiA+IDQzIGZpbGVzIGNoYW5nZWQsIDE0NzYxIGluc2VydGlv
-bnMoKykNCj4gPiA+DQo+ID4gPiBQbGVhc2UgdHJ5IHRvIGN1dCB0aGlzIGRvd24gdG8gfjVrTG9D
-IGZvciB0aGUgaW5pdGlhbCBzdWJtaXNzaW9uLg0KPiA+ID4gV2hhdGV2ZXIgdGhlIGFic29sdXRl
-IG1pbmltdW0gc2Vuc2libGUgY2h1bmsgb2YgY29kZSBpcy4NCj4gPiA+DQo+ID4gPiBFYWNoIHBh
-dGNoIG11c3QgYnVpbGQgY2xlYW5seSB3aXRoIFc9MQ0KPiA+DQo+ID4gV2UndmUgYWxyZWFkeSBy
-ZWR1Y2VkIHRoaXMgc2lnbmlmaWNhbnRseSBmcm9tIHRoZSBvcmlnaW5hbCA0MWsgTG9DDQo+ID4g
-ZG93biB0byB+MTQuN2sgYnkgc3RyaXBwaW5nIG91dCBub24tZXNzZW50aWFsIGZlYXR1cmVzIHN1
-Y2ggYXMNCj4gPiBleGNlcHRpb24gaGFuZGxpbmcsIG1lbW9yeSBsb2dnaW5nLCBkZXZsaW5rLCBz
-dGF0aXN0aWNzLCBkZWJ1Zw0KPiA+IHRyYWNpbmcsIGFuZCBvdGhlcnMuDQo+ID4NCj4gPiBXZSBl
-dmVuIHJlbW92ZWQgc29tZSBhcmd1YWJseSBuZWNlc3NhcnkgZmVhdHVyZXMgKFBNLCBtZGxvZywN
-Cj4gPiB0aHJvdWdocHV0IG9wdGltaXphdGlvbnMpIHRoYXQgd2UgcGxhbiB0byBzdWJtaXQgYXMg
-Zm9sbG93LXVwDQo+ID4gc2VyaWVzLg0KPg0KPiBHcmVhdCB3b3JrLiBIaWdobHkgYXBwcmVjaWF0
-ZSENCj4NCj4gPiBOb3RlIHRoYXQgdGhlIGxpbmUgY291bnQgbWF5IHNsaWdodGx5IGluY3JlYXNl
-IGluIHYyLCBhcyB3ZSBwbGFuDQo+ID4gdG8gYWRkIG1pc3Npbmcga2RvYyBjb21tZW50cyBiYXNl
-ZCBvbiByZXZpZXcgZmVlZGJhY2suDQo+ID4NCj4gPiBGb3IgcmVmZXJlbmNlLCB0aGUgdDd4eCBk
-cml2ZXIgKHR3byBnZW5lcmF0aW9ucyBvbGRlciwgc2ltcGxlciBIVykNCj4gPiBoYWQgYW4gaW5p
-dGlhbCBzdWJtaXNzaW9uIG9mIH4xMS4zayBMb0MgWzFdLiBUaGUgdDl4eCBoYXJkd2FyZSBpcw0K
-PiA+IG1vcmUgY29tcGxleCwgc28gd2UgYmVsaWV2ZSBiZWluZyBpbiBhIHNpbWlsYXIgcmFuZ2Ug
-aXMgcmVhc29uYWJsZS4NCj4NCj4gTGV0IG1lIGVsYWJvcmF0ZSBhIGJpdCBoZXJlLiBUaGUgc2l6
-ZSBwcm9ibGVtIGlzIG5vdCBkdWUgdG8gYSBnaXQgb3IgYQ0KPiBtYWlsYm94IGxpbWl0YXRpb24u
-IEl0IGFyaXNlIGR1ZSB0byB0aGUgaHVtYW4gbGltaXRhdGlvbi4gVGhlIFQ3eHgNCj4gc3VibWlz
-c2lvbiByZXZpZXcgdG9vayBzb21ldGhpbmcgYWJvdXQgNCBtb250aHMgYW5kIDggaXRlcmF0aW9u
-cy4gQW5kIGl0DQo+IHdhcyAnb25seScgMTEuM2sgbGluZXMuIExldCdzIGRvIHNvbWUgZXh0cmFw
-b2xhdGlvbiBhc3N1bWluZyB0aGF0DQo+IGZ1bmN0aW9uIGlzIGxpbmVhci4gMTQuN2sgaXMgMzAl
-IGJpZ2dlciwgdGh1cywgZXN0aW1hdGVkIHJldmlld2luZyB0aW1lDQo+IHNob3VsZCBiZSA1IG1v
-bnRocyBhbmQgMiB3ZWVrcy4gQW5kIHRoaXMgbG9va3Mgb3B0aW1pc3RpYy4NCj4NCj4gUmVjb21t
-ZW5kYXRpb24sIHNoYXJlZCBieSBKYWt1YiwgaXMgcHJhY3RpY2FsLiA1ayBsaW5lcyBtaWdodCBi
-ZQ0KPiByZXZpZXdlZCBpbiBhIHJlYXNvbmFibGUgdGltZSBhbmQgbWVyZ2VkIHdpdGggdGhlIGZ1
-bGwgY29uZmlkZW5jZSBvZiB0aGUNCj4gcXVhbGl0eS4NCj4NCj4gPiBXZSdkIGxpa2UgdG8ga2Vl
-cCB0aGUgZHJpdmVyIGZ1bmN0aW9uYWwgYW5kIHJldmlld2FibGUgaW4gaXRzDQo+ID4gY3VycmVu
-dCBzY29wZS4gRG8geW91IGhhdmUgYW55IHN1Z2dlc3Rpb25zIG9uIGhvdyB3ZSBjb3VsZCBmdXJ0
-aGVyDQo+ID4gcmVkdWNlIHRoZSBzaXplIHdoaWxlIG1haW50YWluaW5nIGEgd29ya2luZyBpbml0
-aWFsIHN1Ym1pc3Npb24/DQo+DQo+IE9mZiB0aGUgdG9wIG9mIG15IGhlYWQsIEkgd291bGQgc3Vn
-Z2VzdCBqb2luaW5nIFQ3eHggYW5kIFQ5eHggY29kZQ0KPiBiYXNlcy4gSXQgY291bGQgYmUgZG9u
-ZSB0aHJvdWdoIGZhY3RvcmluZyBvdXQgYSBjb3JlIGZ1bmN0aW9uYWxpdHkgb2YNCj4gVDd4eCBp
-bnRvIGEgbGlicmFyeSwgb3IgdGhyb3VnaCBtYWtpbmcgdGhlIGRyaXZlciBsYXllcmVkLg0KPg0K
-PiBJIGFtIG5vdCBwcmV0ZW5kaW5nIGJlaW5nIGFuIGV4cGVydCBpbiBhbnkgb2YgdGhlc2UgZHJp
-dmVycywgYnV0DQo+IGdlbmVyYWxseSBkaXZpZGUtbi1jb25xdWVyb3IgdG9nZXRoZXIgd2l0aCBj
-b2RlIHJldXNlIHdvcmsgcmVsaWFibGUuIEFzDQo+IGFuIGFsdGVybmF0aXZlLCBJIGNvdWxkIHNw
-ZW5kIGEgY291cGxlIG9mIHdlZWtzIHJldmlld2luZyB0aGUgbmV3DQo+IHN1Ym1pc3Npb24gYW5k
-IHdpbGwgY29tZSB3aXRoIG1vcmUgc3BlY2lmaWMgaWRlYXMgb24gd2hhdCBjYW4gYmUgdGhyb3du
-DQo+IGF3YXkgb3IgcmV1c2VkLg0KPg0KDQpUaGFuayB5b3UgZm9yIHRoZSBkZXRhaWxlZCBleHBs
-YW5hdGlvbiBhbmQgdGhlIHByYWN0aWNhbCBzdWdnZXN0aW9ucy4NCg0KV2UgZGlzY3Vzc2VkIHRo
-aXMgd2l0aCBNZWRpYVRlay4gVGhlIFQ3WFggYW5kIFQ5WFggaGFyZHdhcmUgYXJjaGl0ZWN0dXJl
-cw0KaGF2ZSBkaXZlcmdlZCBzaWduaWZpY2FudGx5LCBzbyBkZXZlbG9waW5nIGEgc2hhcmVkIGRy
-aXZlciB3b3VsZCByZXF1aXJlDQpzdWJzdGFudGlhbCBlZmZvcnQgYW5kIHJpc2sgaW50cm9kdWNp
-bmcgcmVncmVzc2lvbnMgaW4gdGhlIGV4aXN0aW5nIFQ3WFgNCmRyaXZlciwgcmVxdWlyaW5nIGV4
-dGVuc2l2ZSB0ZXN0aW5nIHRvIGVuc3VyZSByZWxpYWJpbGl0eS4NCg0KTWVkaWFUZWsgYWxzbyBj
-b25maXJtZWQgdGhhdCB0aGUgY3VycmVudCBkcml2ZXIgY2Fubm90IGJlIHJlZHVjZWQgZnVydGhl
-cg0Kd2l0aG91dCByZW1vdmluZyBmdW5jdGlvbmFsaXR5LiBPbmUgb3B0aW9uIHdvdWxkIGJlIHRv
-IHJlbW92ZSB0aGUgZGF0YQ0KcGxhbmUgYW5kIHBvd2VyIG1hbmFnZW1lbnQgcGF0Y2hlcywgd2hp
-Y2ggd291bGQgYnJpbmcgdGhlIHN1Ym1pc3Npb24gZG93bg0KdG8gYXBwcm94aW1hdGVseSA5LDAw
-MCBsaW5lczoNCg0KWzAvN10gbmV0OiB3d2FuOiB0OXh4OiBBZGQgTWVkaWFUZWsgVDlYWCBXV0FO
-IGRyaXZlcg0KWzEvN10gbmV0OiB3d2FuOiB0OXh4OiBBZGQgUENJZSBjb3JlDQpbMi83XSBuZXQ6
-IHd3YW46IHQ5eHg6IEFkZCBjb250cm9sIHBsYW5lIHRyYW5zYWN0aW9uIGxheWVyDQpbMy83XSBu
-ZXQ6IHd3YW46IHQ5eHg6IEFkZCBjb250cm9sIERNQSBpbnRlcmZhY2UNCls0LzddIG5ldDogd3dh
-bjogdDl4eDogQWRkIGNvbnRyb2wgcG9ydA0KWzUvN10gbmV0OiB3d2FuOiB0OXh4OiBBZGQgRlNN
-IHRocmVhZA0KWzYvN10gbmV0OiB3d2FuOiB0OXh4OiBBZGQgQVQgJiBNQklNIFdXQU4gcG9ydHMN
-Cls3LzddIG5ldDogd3dhbjogdDl4eDogQWRkIG1haW50YWluZXJzIGFuZCBkb2N1bWVudGF0aW9u
-DQoNCldlIGhhdmUgdmVyaWZpZWQgdGhhdCB0aGUgTUJJTSBhbmQgQVQgcG9ydHMgd29yayBpbmRl
-cGVuZGVudGx5IGluIHRoaXMNCmNvbmZpZ3VyYXRpb24goVggdGhlIGNvbnRyb2wgcGxhbmUgaXMg
-ZnVsbHkgZnVuY3Rpb25hbCwganVzdCB3aXRob3V0IHRoZQ0KbmV0d29yayBpbnRlcmZhY2UuDQoN
-ClRoYXQgc2FpZCwgd2Ugd291bGQgcHJlZmVyIHRvIGNvbnRpbnVlIHRoZSByZXZpZXcgd2l0aCB0
-aGUgY3VycmVudCAxNC43aw0KbGluZSBzdWJtaXNzaW9uIGlmIHRoZSBjb21tdW5pdHkgaXMgb3Bl
-biB0byBpdCwgYXMgaXQgcmVwcmVzZW50cyBhIG1vcmUNCmNvbXBsZXRlIGFuZCB0ZXN0YWJsZSBk
-cml2ZXIuIFdlIGFyZSBoYXBweSB0byBnbyBlaXRoZXIgd2F5IGJhc2VkIG9uIHlvdXINCnByZWZl
-cmVuY2UuDQoNClRoYW5rcy4NCj4gPiBbMV0NCj4gPiBodHRwczovL3BhdGNod29yay5rZXJuZWwu
-b3JnL3Byb2plY3QvbmV0ZGV2YnBmL2NvdmVyLzIwMjIwNTA2MTgxMzEwLjIxODM4MjktMS1yaWNh
-cmRvLm1hcnRpbmV6QGxpbnV4LmludGVsLmNvbS8NCj4gPg0KPiA+IFRoYW5rcy4NCj4gPg0KPiA+
-DQo+ID4gPT09PT09PT09PT09PT09PT09PT09PT09PT09PT09PT09PT09PT09PT09PT09PT09PT09
-PT09PT09PT09PT09PT09PT09PT09PT09PT09PT09PT09PT09PT09PT09PT09PT09PT09PT09PT09
-PT09PT09PT09PT09PT09PT09PT09PT09PT09PT09PT09PT09PT09PT09PT09PT09PT09PQ0KPiA+
-IFRoaXMgbWVzc2FnZSBtYXkgY29udGFpbiBpbmZvcm1hdGlvbiB3aGljaCBpcyBwcml2YXRlLCBw
-cml2aWxlZ2VkIG9yDQo+ID4gY29uZmlkZW50aWFsIG9mIENvbXBhbCBFbGVjdHJvbmljcywgSW5j
-LiBJZiB5b3UgYXJlIG5vdCB0aGUgaW50ZW5kZWQNCj4gPiByZWNpcGllbnQgb2YgdGhpcyBtZXNz
-YWdlLCBwbGVhc2Ugbm90aWZ5IHRoZSBzZW5kZXIgYW5kIGRlc3Ryb3kvZGVsZXRlIHRoZQ0KPiA+
-IG1lc3NhZ2UuIEFueSByZXZpZXcsIHJldHJhbnNtaXNzaW9uLCBkaXNzZW1pbmF0aW9uIG9yIG90
-aGVyIHVzZSBvZiwgb3INCj4gPiB0YWtpbmcgb2YgYW55IGFjdGlvbiBpbiByZWxpYW5jZSB1cG9u
-IHRoaXMgaW5mb3JtYXRpb24sIGJ5IHBlcnNvbnMgb3INCj4gPiBlbnRpdGllcyBvdGhlciB0aGFu
-IHRoZSBpbnRlbmRlZCByZWNpcGllbnQgaXMgcHJvaGliaXRlZC4NCj4gPiA9PT09PT09PT09PT09
-PT09PT09PT09PT09PT09PT09PT09PT09PT09PT09PT09PT09PT09PT09PT09PT09PT09PT09PT09
-PT09PT09PT09PT09PT09PT09PT09PT09PT09PT09PT09PT09PT09PT09PT09PT09PT09PT09PT09
-PT09PT09PT09PT09PT09PT09PT09PT09PT09PT09PT09DQo+DQo+IEFuZCB0aGlzIGRpc2NsYWlt
-ZXIgZG9lcyBub3QgZmFjaWxpdGF0ZSB0aGUgcmV2aWV3LiBBbSBJICdpbnRlbmRlZCcNCj4gcmVj
-aXBpZW50IG9yIHNob3VsZCBJIGRlc3Ryb3kgdGhlIG1lc3NhZ2UgQVNBUD8NCg0KUGxlYXNlIGln
-bm9yZSB0aGlzIG1lc3NhZ2UuDQpPdXIgY29tcGFueSdzIG1haWwgc2VydmVyIGF1dG9tYXRpY2Fs
-bHkgYWRkcyB0aGlzIGFubm91bmNlbWVudCB0byBhbGwgZXh0ZXJuYWwgZW1haWxzLg0KV2UgYXBv
-bG9naXplIGZvciB0aGUgaW5jb252ZW5pZW5jZS4NCg0KVGhhbmtzLg0KDQoNCj09PT09PT09PT09
-PT09PT09PT09PT09PT09PT09PT09PT09PT09PT09PT09PT09PT09PT09PT09PT09PT09PT09PT09
-PT09PT09PT09PT09PT09PT09PT09PT09PT09PT09PT09PT09PT09PT09PT09PT09PT09PT09PT09
-PT09PT09PT09PT09PT09PT09PT09PT09PT09PT09PT09PT0NClRoaXMgbWVzc2FnZSBtYXkgY29u
-dGFpbiBpbmZvcm1hdGlvbiB3aGljaCBpcyBwcml2YXRlLCBwcml2aWxlZ2VkIG9yIGNvbmZpZGVu
-dGlhbCBvZiBDb21wYWwgRWxlY3Ryb25pY3MsIEluYy4gSWYgeW91IGFyZSBub3QgdGhlIGludGVu
-ZGVkIHJlY2lwaWVudCBvZiB0aGlzIG1lc3NhZ2UsIHBsZWFzZSBub3RpZnkgdGhlIHNlbmRlciBh
-bmQgZGVzdHJveS9kZWxldGUgdGhlIG1lc3NhZ2UuIEFueSByZXZpZXcsIHJldHJhbnNtaXNzaW9u
-LCBkaXNzZW1pbmF0aW9uIG9yIG90aGVyIHVzZSBvZiwgb3IgdGFraW5nIG9mIGFueSBhY3Rpb24g
-aW4gcmVsaWFuY2UgdXBvbiB0aGlzIGluZm9ybWF0aW9uLCBieSBwZXJzb25zIG9yIGVudGl0aWVz
-IG90aGVyIHRoYW4gdGhlIGludGVuZGVkIHJlY2lwaWVudCBpcyBwcm9oaWJpdGVkLg0KPT09PT09
-PT09PT09PT09PT09PT09PT09PT09PT09PT09PT09PT09PT09PT09PT09PT09PT09PT09PT09PT09
-PT09PT09PT09PT09PT09PT09PT09PT09PT09PT09PT09PT09PT09PT09PT09PT09PT09PT09PT09
-PT09PT09PT09PT09PT09PT09PT09PT09PT09PT09PT09PT09PT09PQ0K
+Hi Jackie,
+
+On 6/4/26 9:51 AM, Jackie Liu wrote:
+> From: Jackie Liu <liuyun01@kylinos.cn>
+> 
+> The return values of vgic_its_set_abi() and vgic_its_commit_v0() are always
+> 0 and do not carry useful error information. Simplify by changing them to
+> void.
+> 
+> Suggested-by: Oliver Upton <oupton@kernel.org>
+> Signed-off-by: Jackie Liu <liuyun01@kylinos.cn>
+Reviewed-by: Eric Auger <eric.auger@redhat.com>
+
+Thanks
+
+Eric
+> ---
+>  arch/arm64/kvm/vgic/vgic-its.c | 21 +++++++++------------
+>  1 file changed, 9 insertions(+), 12 deletions(-)
+> 
+> diff --git a/arch/arm64/kvm/vgic/vgic-its.c b/arch/arm64/kvm/vgic/vgic-its.c
+> index 1d7e5d560af4..ca48b34dec20 100644
+> --- a/arch/arm64/kvm/vgic/vgic-its.c
+> +++ b/arch/arm64/kvm/vgic/vgic-its.c
+> @@ -27,7 +27,7 @@ static struct kvm_device_ops kvm_arm_vgic_its_ops;
+>  
+>  static int vgic_its_save_tables_v0(struct vgic_its *its);
+>  static int vgic_its_restore_tables_v0(struct vgic_its *its);
+> -static int vgic_its_commit_v0(struct vgic_its *its);
+> +static void vgic_its_commit_v0(struct vgic_its *its);
+>  static int update_lpi_config(struct kvm *kvm, struct vgic_irq *irq,
+>  			     struct kvm_vcpu *filter_vcpu, bool needs_inv);
+>  
+> @@ -168,7 +168,7 @@ struct vgic_its_abi {
+>  	int ite_esz;
+>  	int (*save_tables)(struct vgic_its *its);
+>  	int (*restore_tables)(struct vgic_its *its);
+> -	int (*commit)(struct vgic_its *its);
+> +	void (*commit)(struct vgic_its *its);
+>  };
+>  
+>  #define ABI_0_ESZ	8
+> @@ -192,13 +192,13 @@ inline const struct vgic_its_abi *vgic_its_get_abi(struct vgic_its *its)
+>  	return &its_table_abi_versions[its->abi_rev];
+>  }
+>  
+> -static int vgic_its_set_abi(struct vgic_its *its, u32 rev)
+> +static void vgic_its_set_abi(struct vgic_its *its, u32 rev)
+>  {
+>  	const struct vgic_its_abi *abi;
+>  
+>  	its->abi_rev = rev;
+>  	abi = vgic_its_get_abi(its);
+> -	return abi->commit(its);
+> +	abi->commit(its);
+>  }
+>  
+>  /*
+> @@ -472,7 +472,8 @@ static int vgic_mmio_uaccess_write_its_iidr(struct kvm *kvm,
+>  
+>  	if (rev >= NR_ITS_ABIS)
+>  		return -EINVAL;
+> -	return vgic_its_set_abi(its, rev);
+> +	vgic_its_set_abi(its, rev);
+> +	return 0;
+>  }
+>  
+>  static unsigned long vgic_mmio_read_its_idregs(struct kvm *kvm,
+> @@ -1888,14 +1889,11 @@ static int vgic_its_create(struct kvm_device *dev, u32 type)
+>  	its->baser_coll_table = INITIAL_BASER_VALUE |
+>  		((u64)GITS_BASER_TYPE_COLLECTION << GITS_BASER_TYPE_SHIFT);
+>  	dev->kvm->arch.vgic.propbaser = INITIAL_PROPBASER_VALUE;
+> -
+>  	dev->private = its;
+>  
+> -	ret = vgic_its_set_abi(its, NR_ITS_ABIS - 1);
+> -
+> +	vgic_its_set_abi(its, NR_ITS_ABIS - 1);
+>  	mutex_unlock(&dev->kvm->arch.config_lock);
+> -
+> -	return ret;
+> +	return 0;
+>  }
+>  
+>  static void vgic_its_destroy(struct kvm_device *kvm_dev)
+> @@ -2610,7 +2608,7 @@ static int vgic_its_restore_tables_v0(struct vgic_its *its)
+>  	return ret;
+>  }
+>  
+> -static int vgic_its_commit_v0(struct vgic_its *its)
+> +static void vgic_its_commit_v0(struct vgic_its *its)
+>  {
+>  	const struct vgic_its_abi *abi;
+>  
+> @@ -2623,7 +2621,6 @@ static int vgic_its_commit_v0(struct vgic_its *its)
+>  
+>  	its->baser_device_table |= (GIC_ENCODE_SZ(abi->dte_esz, 5)
+>  					<< GITS_BASER_ENTRY_SIZE_SHIFT);
+> -	return 0;
+>  }
+>  
+>  static void vgic_its_reset(struct kvm *kvm, struct vgic_its *its)
+
 
