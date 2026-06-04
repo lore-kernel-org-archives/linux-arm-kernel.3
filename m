@@ -4,56 +4,56 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 60D91CD6E57
-	for <linux-arm-kernel@archiver.kernel.org>; Thu,  4 Jun 2026 09:16:47 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id B99EACD6E4A
+	for <linux-arm-kernel@archiver.kernel.org>; Thu,  4 Jun 2026 09:19:28 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:
 	Content-Transfer-Encoding:Content-Type:In-Reply-To:From:References:Cc:To:
 	Subject:Date:Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=RQ341wTgPWJ4ZbIRg4FfnWBxi31BDa73hHv5RFkJJNs=; b=pdrS0BKn/obK4NXQjQxEAkMQws
-	zCIQbjfygKJ8BKiLWY3mkFWRVoI/8uoN0K+9qkIYpcucsOzJmbNq/NSY09L9xf8o0N+fCxUe53W+k
-	hcpSR8i7NVHhcBwoIcydgu05y/0GihMifdCVll8T4HO2D+B4rwutXAqyrzrQQCtHBtSuC7Jotz74N
-	ZCyNgTT5lLrWEJpAHS8mjmgDfV3Uyrzx/TSfaN5+Gpw8dBhEnqMFs3rkexnqZL/DaM5nzzaRo8zqk
-	h5aaXEau78iG2Pp+Prz4PqBMu7PEnwQ2h/pxOuUuHtaRiNuGyLvXc8ZXTks8qUGm6gbxHOITs5ncq
-	JWcs5/RQ==;
+	bh=W64wrl8JXzDsBHhaf2CgpnKsHR42LXs3l5egFVwkoOI=; b=MmLu3ybXSSZK4xd5Mpj73uR5VQ
+	f+RjZGJR70QCQIMochzmzJo/nUoobZgFrcMo93JBcHx71YUExZ6gsmszIICNpqjAslTwAlxlV9et1
+	BqP9vcr9/7fGVIjL+cbtkhEZChu68F9zWt8PL/ZHq4mz35ibM2UFTghEV+IVVeDqajEYXpC1n3n4B
+	lGDwJ3yEThEQWk422vCibOBmIcK9pCFsnJkywPU6Bz6C3rgRflLe8r1+5rLqiy6ybCmn19B66SG5x
+	BHDEwC+G6A6tVR0/K9A68piZf5+aaVWbxJ2UuNH1a/FWOAOxl2842OR7gX09FMELbfEnU5tl7jxsJ
+	NoOVSBqg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wV4Bs-0000000GTgW-3BqK;
-	Thu, 04 Jun 2026 09:16:40 +0000
+	id 1wV4ET-0000000GTxk-0mtB;
+	Thu, 04 Jun 2026 09:19:21 +0000
 Received: from mail-northeuropeazlp170110003.outbound.protection.outlook.com ([2a01:111:f403:c200::3] helo=DU2PR03CU002.outbound.protection.outlook.com)
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wV4Bp-0000000GTfR-49Jv
+	id 1wV4EQ-0000000GTxA-0xWF
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 04 Jun 2026 09:16:39 +0000
+	Thu, 04 Jun 2026 09:19:19 +0000
 ARC-Seal: i=2; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=pass;
- b=e8zIy6zxQHiEZEKSso2aVR2tG5vDz3aTszkzyLxhOBOoCqz5mkAEP0hYKgqviEuAhRtyc1/SZNaGtUoPV3K+vzI5RDfCa36Gbd9NsQ/IEy6LCgY6BlD3SikSvEZ66bxq6uuBqOLwr/12EnpMCTntaL7+/IaDPpNLgm0CiW9CC/bNfuUfuTL8/BisLAdGResSnr0tNGdpey7FxKDF8+0Hof7nQibDGARHfpWnHjuOfE88YyOH2H95g4Jggm3rDMcqdB3PWG0FdjaBJyO44Q2mcZkJ3WbwW0gJO0rTIZPQUrGx0VI99bVknyxUDyyIxZKwV7KX6wXU28hHcVWTfREfqg==
+ b=idzmHLvPRi1oYTusO1bTt+6jqInjVvZJaoUPv5rV4Kd2y8iSDuydqB5jsoxj01+ip/JheTnx9OdvBra7Sao+4Hx4g2ogJ2Muf4fzOklnc6udm2VjQTfA1P01DLK0kmx1uIjrV5PiSkS7yKkYHDR0W2R5CpIPJrG1LqEMYemaaSMZQwZdMzv/0YxKnh/zaFENe5BxtWEDaRamMtissd5hyBmcrw57OPtQyBEINph0SAph1k8PEwb2m6bryGmLWcaTVayq0A/g66OBhvYhHYoDhHtP0H32tDsIml0BZNrjhOuhJA2Ca878bTsSy5z4gtMvERp9ziclocr+AHmeb+vS9Q==
 ARC-Message-Signature: i=2; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
  s=arcselector10001;
  h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
- bh=RQ341wTgPWJ4ZbIRg4FfnWBxi31BDa73hHv5RFkJJNs=;
- b=nYxRibw7jx8ajpmW5Zf8BpQ3d9rZWTC/CBNf64cwNJryZfNHCUarBEuA+S8+Mv2IiD7Mzl1RoE+iroHm3EZSCwQt/twE4RwFhzwBV++Q54hX3HVth/AFbK7jnCD/1BgnoGPb9a7WHcU/wGocJZAQBDX6dxDxQmJzl7NcqDSkzd/hZ/ESMsMPZsHSqBzLmBzlyJT6gOePsiiYyO91JhrhfKuxMhDs8MzaXpiCZ0NtH5bucfulwR5emwEhWD/wKkhwFfOE1/6mCCR9HqmTy7K2CxItEjFYBQDo4XocouvOkd0IVbQKTx5mMrZPXmC5SuHftuahE4yoTKl7FRRTWIX+Hg==
+ bh=W64wrl8JXzDsBHhaf2CgpnKsHR42LXs3l5egFVwkoOI=;
+ b=S3VY8mcc+DvOiPVpwqo4Woz9gChNe8mvSIVFpCqnTR+9pt/5Y9DNP9S1I51le9WlORVL8bqJlJTc1bqtgqlCKKED+TCjeZeVdZ96CzIuTRtMAJntb0dPu3hfkCWFXI+3hCn3x7PdeGCSLnQ+Vcub1lZPqlI4R3BbUG3HRwXT7202SC5rUhsYSajQCVshIo5ODeTXBHfzHllg5zf3xmRepCRaI4xYZ1yi3E42A+y/M8EF+ojUlQ+qT0209u7/vYlXEquRwm8kqKTYK8XS8DdpCJzvYrOPaqIujkAnghpR0vrinJMx6ZVRwwzvMWUG4CCw+xwnE9fsS2yeNknqMkQdOQ==
 ARC-Authentication-Results: i=2; mx.microsoft.com 1; spf=pass (sender ip is
- 4.158.2.129) smtp.rcpttodomain=lists.linaro.org smtp.mailfrom=arm.com;
- dmarc=pass (p=none sp=none pct=100) action=none header.from=arm.com;
- dkim=pass (signature was verified) header.d=arm.com; arc=pass (0 oda=1 ltdi=1
+ 4.158.2.129) smtp.rcpttodomain=kernel.org smtp.mailfrom=arm.com; dmarc=pass
+ (p=none sp=none pct=100) action=none header.from=arm.com; dkim=pass
+ (signature was verified) header.d=arm.com; arc=pass (0 oda=1 ltdi=1
  spf=[1,1,smtp.mailfrom=arm.com] dkim=[1,1,header.d=arm.com]
  dmarc=[1,1,header.from=arm.com])
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=arm.com; s=selector1;
  h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
- bh=RQ341wTgPWJ4ZbIRg4FfnWBxi31BDa73hHv5RFkJJNs=;
- b=Vl95tQL4ZUrf4YE+7WfLZRGPqfwjE+jw8Sgxvn4MaBFvw+SkJ4c1+4OtOeGzekIqpASyE/zO8aT/TRS97lRJAxyYIuNBs7+PlJd1cNfDgBxsdf6uVtKOC2xaT9BNkK10gvQuLDzUtioVxf/8hmimu/kiuWKiY1DztLlPwKrjJD0=
-Received: from AS4P191CA0050.EURP191.PROD.OUTLOOK.COM (2603:10a6:20b:657::26)
- by DB9PR08MB6571.eurprd08.prod.outlook.com (2603:10a6:10:25b::18) with
+ bh=W64wrl8JXzDsBHhaf2CgpnKsHR42LXs3l5egFVwkoOI=;
+ b=KR6Wfj5aZ2C+/SW5NOKTwU2zikRDef828l3wuBX0hLDIggfVYoLuUK+nNXTIa8qOCGDvc6854s6OdScG4FUIPWpb1u+QFUxbDBJtLxz7tMBf6/d4Ubt6JNB0ZYHyQeVejUCWunt7a/H8NLoLcO/t6twO3rrrZkLC0itdjYTneOU=
+Received: from DB8PR06CA0040.eurprd06.prod.outlook.com (2603:10a6:10:120::14)
+ by DB9PR08MB11923.eurprd08.prod.outlook.com (2603:10a6:10:601::18) with
  Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.21.92.8; Thu, 4 Jun 2026
- 09:16:27 +0000
-Received: from AM1PEPF000252DE.eurprd07.prod.outlook.com
- (2603:10a6:20b:657:cafe::a) by AS4P191CA0050.outlook.office365.com
- (2603:10a6:20b:657::26) with Microsoft SMTP Server (version=TLS1_3,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.21.92.7; Thu, 4 Jun 2026
+ 09:19:11 +0000
+Received: from DB1PEPF000509FE.eurprd03.prod.outlook.com
+ (2603:10a6:10:120:cafe::a) by DB8PR06CA0040.outlook.office365.com
+ (2603:10a6:10:120::14) with Microsoft SMTP Server (version=TLS1_3,
  cipher=TLS_AES_256_GCM_SHA384) id 15.21.92.7 via Frontend Transport; Thu, 4
- Jun 2026 09:16:27 +0000
+ Jun 2026 09:19:11 +0000
 X-MS-Exchange-Authentication-Results: spf=pass (sender IP is 4.158.2.129)
  smtp.mailfrom=arm.com; dkim=pass (signature was verified)
  header.d=arm.com;dmarc=pass action=none header.from=arm.com;
@@ -61,90 +61,92 @@ Received-SPF: Pass (protection.outlook.com: domain of arm.com designates
  4.158.2.129 as permitted sender) receiver=protection.outlook.com;
  client-ip=4.158.2.129; helo=outbound-uk1.az.dlp.m.darktrace.com; pr=C
 Received: from outbound-uk1.az.dlp.m.darktrace.com (4.158.2.129) by
- AM1PEPF000252DE.mail.protection.outlook.com (10.167.16.56) with Microsoft
- SMTP Server (version=TLS1_3, cipher=TLS_AES_256_GCM_SHA384) id 15.21.92.5 via
- Frontend Transport; Thu, 4 Jun 2026 09:16:27 +0000
+ DB1PEPF000509FE.mail.protection.outlook.com (10.167.242.40) with Microsoft
+ SMTP Server (version=TLS1_3, cipher=TLS_AES_256_GCM_SHA384) id 15.21.71.7 via
+ Frontend Transport; Thu, 4 Jun 2026 09:19:11 +0000
 ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
- b=IIkpitt12DPkTMOYWQroIP6KY3hYc9sg9EAS8i/Y/gfgLTqQHS0TxKzwnOyZrPL/GjE+CKp2sHbSaPQCIBVvu0ZljyP640Ro2G/9ERSklsh2fqB+eCbGNoWkfI3uZTgdPm5iNOD7k9SUienfbkpQ4RI0PdBhTVYNaxNQea6+ZOrXYSqvBgCdb+VDQbT8jTDmqwD+KzZcVisoQJJjJ9IoswoFmYgTUULfiGXTw5u9mhWJ3Bvca6ObBGqRaNAou90WlU19CoazSJBxLIWXQ64r1zKQyVj0Qc1X54I+YEXGO8aGJXCBHws/4bErmhP/hEgQ7N65xz2inMlZunnjlckvxA==
+ b=Soto6+ozflbZ4cCZrOH0eqjtQqbbsbIr8x4fdCgUQ9aiwWi563tG5AfMWJ+a5t1xcTkK2mOHs+iZjd32/d69VN6iYnPJqf6Qlb2Kp8nDUy+gjoqO2M9o5BFaRK/sz62trE9VEtpIZbp3fqDPZ/gZ1O0Lo4lv/u7nqT6x4zFys5WJzeiMNY0nK39KPeF/I21hWzAixnDjjjYtRXNgzNQfzDrPNzWavzk/aurc1Zh08Usbe/tcuqTIqUwXp5xU9b5CshT4xXabJjN3M0LhRF03CWxGGK63TF1VRqfRSO+hZqHrFKIUyFF/E+3nsD1RDIJ18ur+Z52R8dTVxtHZcAmiFA==
 ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
  s=arcselector10001;
  h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
- bh=RQ341wTgPWJ4ZbIRg4FfnWBxi31BDa73hHv5RFkJJNs=;
- b=vsB7Isi5DQT7d+4wkhSzCC9v5B25Mho4JA/e0drHRe6mN8yJa6CxqGTQmE1TyUgvEp5Fdljt/pphSyqCKUXHOoiB8Nbt6dnDgLyaKoszyKEosSQ6TKla9VH/A+VdzXIvH2OzzJd+mOv3S8J2r7214mH/q6s9lKS299FuDUzZ4C5BKySM+6Nj48QpKnUZAgM9ZNzgzpw3GiTQ7FUe32Qgu3LoMxDj1lq8uKe8SoPZZO6e59Fmtli6lS0ifMjnEyyWvTb5Z3rcBCQrmZsfuVOUNUBKxqBa9XhUZMbzd/OuTMM0L4ynn2IhcxmhQv1hrZQnBr+IDLUq/QfOSiWD3B0VXw==
+ bh=W64wrl8JXzDsBHhaf2CgpnKsHR42LXs3l5egFVwkoOI=;
+ b=gtkKdqd2fQQQllmDlrJU8L2CNE9QbN6p8n3T0XH3T4H/drJa81GmDg7gZW3KkEjkhNLJdMQT97JfnZOQtGyG5m6Y3z+K1HVyswb9IM06LfAFgfvehHdq2s/reeU4XjW4M+hUA0kIruSQ9vCFVpF6jt+FN7pVV4mZBW3HPIIlykI9uS0kHftBBVeUQ7T8IQvDlFJ+yBSCaQqG9CNQsAhk+3wjEXT+Eum9ZE9UiFGwAxC0inXMaE6quYRcGw87nnTy0hMrJlUkbG1Uwml4cVUXVDbCMfOBBzZUYR3lgCVplRRn15/KO0X+NSKNjE4RJfEK9unKXSRVadptMVGVkCx93w==
 ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
  smtp.mailfrom=arm.com; dmarc=pass action=none header.from=arm.com; dkim=pass
  header.d=arm.com; arc=none
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=arm.com; s=selector1;
  h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
- bh=RQ341wTgPWJ4ZbIRg4FfnWBxi31BDa73hHv5RFkJJNs=;
- b=Vl95tQL4ZUrf4YE+7WfLZRGPqfwjE+jw8Sgxvn4MaBFvw+SkJ4c1+4OtOeGzekIqpASyE/zO8aT/TRS97lRJAxyYIuNBs7+PlJd1cNfDgBxsdf6uVtKOC2xaT9BNkK10gvQuLDzUtioVxf/8hmimu/kiuWKiY1DztLlPwKrjJD0=
+ bh=W64wrl8JXzDsBHhaf2CgpnKsHR42LXs3l5egFVwkoOI=;
+ b=KR6Wfj5aZ2C+/SW5NOKTwU2zikRDef828l3wuBX0hLDIggfVYoLuUK+nNXTIa8qOCGDvc6854s6OdScG4FUIPWpb1u+QFUxbDBJtLxz7tMBf6/d4Ubt6JNB0ZYHyQeVejUCWunt7a/H8NLoLcO/t6twO3rrrZkLC0itdjYTneOU=
 Authentication-Results-Original: dkim=none (message not signed)
  header.d=none;dmarc=none action=none header.from=arm.com;
 Received: from PAWPR08MB10975.eurprd08.prod.outlook.com (2603:10a6:102:46e::7)
  by DU0PR08MB9582.eurprd08.prod.outlook.com (2603:10a6:10:44a::5) with
  Microsoft SMTP Server (version=TLS1_2,
  cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.21.92.7; Thu, 4 Jun 2026
- 09:15:23 +0000
+ 09:18:09 +0000
 Received: from PAWPR08MB10975.eurprd08.prod.outlook.com
  ([fe80::3c7a:9a64:14bc:ce15]) by PAWPR08MB10975.eurprd08.prod.outlook.com
  ([fe80::3c7a:9a64:14bc:ce15%7]) with mapi id 15.21.0092.006; Thu, 4 Jun 2026
- 09:15:23 +0000
-Message-ID: <a4bdfe22-12da-4053-91f9-b0e8ede4737f@arm.com>
-Date: Thu, 4 Jun 2026 10:15:22 +0100
+ 09:18:09 +0000
+Message-ID: <fa2c189a-33f6-4e54-bcfb-2c56768e45db@arm.com>
+Date: Thu, 4 Jun 2026 10:18:07 +0100
 User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH v7 05/13] coresight: etm4x: exclude ss_status from
- drvdata->config
-To: Yeoreum Yun <yeoreum.yun@arm.com>
-Cc: coresight@lists.linaro.org, linux-arm-kernel@lists.infradead.org,
- linux-kernel@vger.kernel.org, mike.leach@arm.com, james.clark@linaro.org,
- alexander.shishkin@linux.intel.com, leo.yan@arm.com, jie.gan@oss.qualcomm.com
-References: <20260519154812.254884-1-yeoreum.yun@arm.com>
- <20260519154812.254884-6-yeoreum.yun@arm.com>
- <55b306e3-1e33-4a5b-a2ce-043132db7154@arm.com>
- <ah1yhaZgddq+8fCW@e129823.arm.com>
+Subject: Re: [PATCH v6 3/4] firmware: smccc: arm-cca-guest: Bind the TSM
+ provider to an SMCCC device
+To: "Aneesh Kumar K.V (Arm)" <aneesh.kumar@kernel.org>,
+ linux-coco@lists.linux.dev, linux-arm-kernel@lists.infradead.org,
+ linux-kernel@vger.kernel.org
+Cc: Catalin Marinas <catalin.marinas@arm.com>,
+ Greg KH <gregkh@linuxfoundation.org>, Jeremy Linton <jeremy.linton@arm.com>,
+ Jonathan Cameron <jic23@kernel.org>,
+ Lorenzo Pieralisi <lpieralisi@kernel.org>,
+ Mark Rutland <mark.rutland@arm.com>, Sudeep Holla <sudeep.holla@arm.com>,
+ Will Deacon <will@kernel.org>, Steven Price <steven.price@arm.com>
+References: <20260527100233.428018-1-aneesh.kumar@kernel.org>
+ <20260527100233.428018-4-aneesh.kumar@kernel.org>
 Content-Language: en-US
 From: Suzuki K Poulose <suzuki.poulose@arm.com>
-In-Reply-To: <ah1yhaZgddq+8fCW@e129823.arm.com>
+In-Reply-To: <20260527100233.428018-4-aneesh.kumar@kernel.org>
 Content-Type: text/plain; charset=UTF-8; format=flowed
 Content-Transfer-Encoding: 7bit
-X-ClientProxiedBy: LO4P265CA0200.GBRP265.PROD.OUTLOOK.COM
- (2603:10a6:600:318::15) To PAWPR08MB10975.eurprd08.prod.outlook.com
+X-ClientProxiedBy: PA7P264CA0394.FRAP264.PROD.OUTLOOK.COM
+ (2603:10a6:102:399::28) To PAWPR08MB10975.eurprd08.prod.outlook.com
  (2603:10a6:102:46e::7)
 MIME-Version: 1.0
-X-MS-TrafficTypeDiagnostic: PAWPR08MB10975:EE_|DU0PR08MB9582:EE_|AM1PEPF000252DE:EE_|DB9PR08MB6571:EE_
-X-MS-Office365-Filtering-Correlation-Id: fb351dca-b147-4440-94c2-08dec219f4e1
-X-LD-Processed: f34e5979-57d9-4aaa-ad4d-b122a662184d,ExtAddr,ExtAddr
+X-MS-TrafficTypeDiagnostic: PAWPR08MB10975:EE_|DU0PR08MB9582:EE_|DB1PEPF000509FE:EE_|DB9PR08MB11923:EE_
+X-MS-Office365-Filtering-Correlation-Id: 58f84e75-34fe-455d-1c91-08dec21a56e3
 x-checkrecipientrouted: true
 NoDisclaimer: true
 X-MS-Exchange-SenderADCheck: 1
 X-MS-Exchange-AntiSpam-Relay: 0
-X-Microsoft-Antispam-Untrusted: BCL:0;ARA:13230040|376014|366016|1800799024|56012099006|22082099003|18002099003|3023799007|4143699003|11063799006|6133799003;
-X-Microsoft-Antispam-Message-Info-Original: wNThcgdC3JrMUUVo5nT4B63lzCQabS3Llv2FMqyKxuWiu/XwRU404qtGLYf5ZNVD//deQyiXfpFPyU9xjyiujqyuF1Q2Rl+wbdxyF1E7NMvD7Spp0gZhzFeA2/6eg75lTW9kXitdw8sa1pBWDpNzZvyULCHkLu4289GwoM0NVgXWhFF8UWodEOL+LlHAGIdJJHGkUecXMHwPpr3EnZxvw3rbIzR+u3rxx9cWrcMDWJkZcLaO+7QirnIxdhLo8tRSm6JsXTOtkUXmitiqB+lhRrbzHyDabgiidllP6KAl4s2DpV4R5RlNj5bqeunTe/yuxHap/un+NflEj1N52ivEjrOLEztM6UzmOFcy5hOZPHLq+rL047WYIB9A6ICfWX874KFbOfXatY7UXNive8bd9Ew84u1mBTZ2EORh7YBsNPMTuI1a4voPdFnrG63B/SuuPdq+EcKEEOQQAbfdcvd3y45uJt4FYtaNR0nO+iTottTlG9EnXA/QDbPytzTsC1ZW/I6oxZSl86lyjD+jBjz0ownCtqd8eoU8zsLjl+ogp+v4XAHH7YuKkTeJqAS8L7Gj/ETaP4hzYOD1wfymesoeF39iJFEXNafAFVBdQ9lH5VSfYSeD8GcHfo8XoMdpY+bNRvG7MCZCcoaO283xyyWrHbdaLSOT9P8IiOBb7FM+hDDNpdHjLgztnjrQw/VEoYZv
-X-Forefront-Antispam-Report-Untrusted: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:PAWPR08MB10975.eurprd08.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(376014)(366016)(1800799024)(56012099006)(22082099003)(18002099003)(3023799007)(4143699003)(11063799006)(6133799003);DIR:OUT;SFP:1101;
-X-Exchange-RoutingPolicyChecked: nKLoz4qvL8RQ07vV9eN3FUCntPtMJcPDNFyS2mydDHlzpUU0H4IVUMkmIn5QReYt+iu2D28z7h/sFWfczD5YHrpIW3ywybsXaorPz6ok5HdxvDgYPYFd9kdujey7QqYwCCv6NjlmKt4PzQAWThwwZfCt+Wxpkpm577MfHLDv1mYhpBFZ1lMJU9aK6ia6aXxIHqUoudTZfg8y1bnTT8zyIwVQmXRY3yQW4GRS2+oDFUySGM3xe+jCbdnQAFph35jWDx+CR1g4y/nuhYlbExZDBvTPM5EZqUo0pQwHfuDj5iv9wfMqoPYm+caCyd8QSxpnEgH0eUCEMvmPWFEyk/2IeA==
+X-Microsoft-Antispam-Untrusted: BCL:0;ARA:13230040|376014|366016|1800799024|56012099006|22082099003|18002099003|4143699003|11063799006|6133799003;
+X-Microsoft-Antispam-Message-Info-Original: WA1U2DRTrWcWwxPdfNzWi+lCrp/tSi3FSt9NgZtc2M7Koi5ion26UC9RokJr02mCHZsQgdaCflcMTLzOpb1dfuZkrXvQCmR8yUUqpFhOtnePWHk1CmPpONmh7m9uonp+QRQryY9+6+A6wu5cmXlzNZfhiete03lTDU/BqaOUz1Xi7x2vvetUF3u0yScrVZf4iIImVx4MZSC+5dNXj8sfo822drBTt/A5mGw0AVXKzdJAN8MRsshRHJLCeVCwbIysKmlL7y5aQ3Y6GVe9zRrFOJmJiv4Mev0c3izC13AZrTF3KkYdbr23kAGF9YjlNpDOZUXJYXXiSDaRywvtAMfooG3vB8NgQfC0u35lYTAGCkM7HHxxBrnoZoyHABiAalHFNo9EWkiL30iHesIosPCLGw8Po7LaG3MRkguwB9/Wyde8ziLmMUh9NKUaVlkrVxDsTcXINBqr8gRK8UiQZ67FtTR11Wb/uC1K942dAx62l2JuZcaDxSi7iqZSnpljNhFz9HOWoIVehKllx9QQZeFNZ1g9X2k2xAkV8C23Kjqhzhexi2exhtG3rOAmFjNON8BILqwtaUN4UgN7V9VvCwRfO0Rd6URbYwRP4uDVrQpc1z9VfogUriwQjptSI3gyzRNj9iAbqXZxOyO2gKcNY9ZYNUalMfTV+eUz5Dct2GmYjQiJr0d66hnSaUGgb4MpW30B
+X-Forefront-Antispam-Report-Untrusted: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:PAWPR08MB10975.eurprd08.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(376014)(366016)(1800799024)(56012099006)(22082099003)(18002099003)(4143699003)(11063799006)(6133799003);DIR:OUT;SFP:1101;
+X-Exchange-RoutingPolicyChecked: UHJjzi61tjVENW+0GRwJ2V87yO0W8+S0UGJckne7EOhzxx9WXSeCKSsV4rpBM3wgZJomu7nwYw285xMD77qDkxUQ9s6Br6ubiOVjFtTDyTGbFzkWguyhY/GB2lPN1px7Ec+PPTbSX76HcLQu0gLnZ5BJB4byBSoRJYhDgwjKPGj0LndRozTcdBd0ljw0y5F5chuIxz8VJkVL9cVS1VJxBISyhb22xubToYBcfygIcdSObzy9GJZA9c3rDGYBxWkQH9FVJc08qd9cG2AlASma9LuX/lFdDVjjK3Q1B/uNmOB0xl7LIVv6PVuHHr6DbNuwoWboqHowoSO29ye3mjfEBw==
 X-MS-Exchange-Transport-CrossTenantHeadersStamped: DU0PR08MB9582
 X-EOPAttributedMessage: 0
-X-MS-Exchange-Transport-CrossTenantHeadersStripped: AM1PEPF000252DE.eurprd07.prod.outlook.com
+X-MS-Exchange-Transport-CrossTenantHeadersStripped: DB1PEPF000509FE.eurprd03.prod.outlook.com
 X-MS-PublicTrafficType: Email
-X-MS-Office365-Filtering-Correlation-Id-Prvs: f5bee015-148e-4513-c364-08dec219ce96
-X-Microsoft-Antispam: BCL:0;ARA:13230040|1800799024|35042699022|36860700016|376014|14060799003|82310400026|3023799007|22082099003|18002099003|6133799003|56012099006|11063799006|4143699003;
-X-Microsoft-Antispam-Message-Info: UmpffllH9FtMbTVQA0TjfXxMxSP7VNCjbK8fs2s+4zeo0QNMS96ATiKLPaZU9VjdgzPZf8BCBTSg4YpG9yfKPAT/F5QsB0USoNrrpUaU2YLqz+9zL8pQo2lyYtKFHL1SphnvpqH6seusQKhGgEGBPuJS0MXzwroMRaCcYyMBo8FrpXavFHFlX3lkhpndWctSiQ0jVhGoU0RgidzfZEpDN92j9E0qQjEg0VJRUUpHEVWnvyXbR3yxUpJ6HbuJHQR17uhDkkS8Vv4DEqB1W5PjSpSffp2yf5fwtYiNC3fGfRQ7otLYBAjBXG4R5V0nkgovoi3+Q9lYapvK9478dmxrjK8EpUg+E6NMt0w54PktBcI06SHH99+hcmJB9pJsdUQX4Ce0ZroeHHFTpTO433nrOlT9hBJfK3JsBuhBMRThFagsSzZ49Eao4KeueYbrBHJjZI8y1ILv7pXbAByS5gR0Mu3VriDIXUnGYcrtn86dwvW0Opy8FuYhifc2N6CE1Td1k88E9SFJTj8j6iZ8gorDPgEnu8aqrjckSnWOdNVpzH/3nk3Pe6Og1yWz3iRqVP7LPX4dyh2IyYWvn7UGmgYYY3iPONUKsCzeqmMGW8wCb92/fltT2U9n4KfCJufh31urfBaDmyieau3PPt0wr6zCyk2vcuEpfizaRRtVr4odQ+kjS+Tk4F9NAQZcLWnIg14NVPp8r68DGpVQvt9arO2DAUCyLRRN40qBkqzMpoNFVME=
-X-Forefront-Antispam-Report: CIP:4.158.2.129;CTRY:GB;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:outbound-uk1.az.dlp.m.darktrace.com;PTR:InfoDomainNonexistent;CAT:NONE;SFS:(13230040)(1800799024)(35042699022)(36860700016)(376014)(14060799003)(82310400026)(3023799007)(22082099003)(18002099003)(6133799003)(56012099006)(11063799006)(4143699003);DIR:OUT;SFP:1101;
+X-MS-Office365-Filtering-Correlation-Id-Prvs: 863b4aed-2580-42a9-7f26-08dec21a3171
+X-Microsoft-Antispam: BCL:0;ARA:13230040|35042699022|36860700016|82310400026|1800799024|14060799003|376014|56012099006|4143699003|11063799006|22082099003|6133799003|18002099003;
+X-Microsoft-Antispam-Message-Info: 7uCcSglhGcaCqBVWX7C1UnYjdTZl3o7owe7M9GOmu3HPUEaCx7Kq1CsC/bReINu9RJ0F+EC4gPPPSPlY0sNJpEY+Is8RiZKbG5nCjp4aQJ2PYCjl/1DqCHPIwmhoHzVMoWF0GqP3o1V7b/K4HbQZq+KadFkP4EQLJsCv95Ft/QvnvU3XXPHsefOWBEYquXKzfgge61N8+OaRHyfbTBvoPqnZASvvTuDzO1r5L8+K+USP3j+1+IpYkXW1ESWS64kxUqyO53iPCoFIKFyKDtgHMvpoN9Wme+eILCgvBoAq8bmfEdvR4uMSd0I7vEsrW+V16wWf/PReWWUub9w9X5Nm67CzXsoNS7CfrG1+MzxKBi9Pc5nBEZSjs/vjTavDU1jZAsdskoA+iggTjjLQCzGYNuNS6O2S7e39XHmOOZw3ysMEq+kBvVZbbB5Xl7MdLPLYFLUYn25NSHGCINzhfPTuzhwLVu7HIRxA30nZccandtae58jKQ4IeL8MaNtMIP4gAS6glm+XyaJ4GLhhv4M4OXCejVZ1giSVz2cdKg1I6aRa+kH2m6aN0uVxPs3Za6gBEWhqPCNsl5ZZoo3vozlhyhj6Tn3XjTO3mXNRrCr3Yg6tLoCaXFn6bqhQxm6uAy14lwAHVuTJHbmWCp2dwhzAASfq9CBYg5D6JNqiVzToZCPIJuiqEypBcMs7PviPqvi2g1dWFQzKZxiwECe1I0wCn9x12lp/ewehS4kHFcXEGrdg=
+X-Forefront-Antispam-Report: CIP:4.158.2.129;CTRY:GB;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:outbound-uk1.az.dlp.m.darktrace.com;PTR:InfoDomainNonexistent;CAT:NONE;SFS:(13230040)(35042699022)(36860700016)(82310400026)(1800799024)(14060799003)(376014)(56012099006)(4143699003)(11063799006)(22082099003)(6133799003)(18002099003);DIR:OUT;SFP:1101;
 X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
-X-MS-Exchange-AntiSpam-MessageData-0: ADYD9Qg3AlGgZwpQ7ZePuNkWu1WvBWH2n+R+XCS6V5FOXlvcu4kFGbmyb4XmONk4EDIzYWcwrgumOfNuJhEcB3fevYKTX0PGLvYZjxsYuI+NxLFx9W8CJN6tma2eEV2bZP4x2Rnef7Vga22SJzBhWQgm6zNTBd8A5uYLDMtvOqIOzmfK0I8xLam7ALF2/c6xNlP4KSD7aXpgtnLu2yQBTXvSSiAkNRW4/8dDp9DlxWaAayxjTvEZsj25BJ/r93jVy4irG9pURgeqHrI9dNsOS3g7rMlbOh9Q5mJFLCjUN22Tc1w8w1UffuYIyxqjBrdckV7O/WNzpgCjxdUbc64fX+WHC5Vdh4XGjP23x5/E7E7XWnjMI4gIDxc5fIut7+h9T4E228tRGMpsXefJ437xDOebqqIEZS5cHkglYmoVzcORhSkig7CI7GHrxZU+L3ac
+X-MS-Exchange-AntiSpam-MessageData-0: JIWBki9i7G7cL9S4E0nsYRE5OU7eiRyNm9pt4IYomQyQX9bk7Y/jZru+85+mNZ4SgDncUmSa7oKqKsVpwOWl8sevWc+1RX0j/mHpWJM8zmWAeISED8avbBH/InAvDPQ9LbbeiMBMU3PUg7ZRQcQBWUqcmTkFa/jkogzr7wFz2PDb2CsJQpufa9O614sNo0FY4UG18xzrfAwKuaWZZD7LpeyKnvyqcKHHVX7P12SVKA4x3O1oxYo3znMjMPPrUbMm7m+0FKlU91VbUzZbtv2UC8MMoMoMLw9U7WMURosPZIPQiaVwnKhy7HE8cECwu0A/oYXLBC4XMGTvDpGZlrm1Y6cwaILsxGSl7DGy/NWFRHo9qg8jnpX/NSLF+LJjkN6JXYjuw3EUDnqg6VgIzWK2xa0VwqPwGp5f1AuTascYN4c705Jb5DqFjzeJQNu6NQL7
 X-OriginatorOrg: arm.com
-X-MS-Exchange-CrossTenant-OriginalArrivalTime: 04 Jun 2026 09:16:27.0504
+X-MS-Exchange-CrossTenant-OriginalArrivalTime: 04 Jun 2026 09:19:11.4768
  (UTC)
-X-MS-Exchange-CrossTenant-Network-Message-Id: fb351dca-b147-4440-94c2-08dec219f4e1
+X-MS-Exchange-CrossTenant-Network-Message-Id: 58f84e75-34fe-455d-1c91-08dec21a56e3
 X-MS-Exchange-CrossTenant-Id: f34e5979-57d9-4aaa-ad4d-b122a662184d
 X-MS-Exchange-CrossTenant-OriginalAttributedTenantConnectingIp: TenantId=f34e5979-57d9-4aaa-ad4d-b122a662184d;Ip=[4.158.2.129];Helo=[outbound-uk1.az.dlp.m.darktrace.com]
-X-MS-Exchange-CrossTenant-AuthSource: AM1PEPF000252DE.eurprd07.prod.outlook.com
+X-MS-Exchange-CrossTenant-AuthSource: DB1PEPF000509FE.eurprd03.prod.outlook.com
 X-MS-Exchange-CrossTenant-AuthAs: Anonymous
 X-MS-Exchange-CrossTenant-FromEntityHeader: HybridOnPrem
-X-MS-Exchange-Transport-CrossTenantHeadersStamped: DB9PR08MB6571
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: DB9PR08MB11923
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260604_021638_240844_BC420851 
-X-CRM114-Status: GOOD (  30.32  )
+X-CRM114-CacheID: sfid-20260604_021918_444571_5FAAC2BD 
+X-CRM114-Status: GOOD (  26.62  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -159,212 +161,308 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On 01/06/2026 12:52, Yeoreum Yun wrote:
-> Hi Suzuki,
+On 27/05/2026 11:02, Aneesh Kumar K.V (Arm) wrote:
+> The Arm CCA guest TSM provider currently binds through the arm-cca-dev
+> platform device. Like arm-smccc-trng, this device is not an independent
+> platform resource; it is a software representation of the RSI firmware
+> service discovered through SMCCC.
 > 
->> On 19/05/2026 16:48, Yeoreum Yun wrote:
->>> The purpose of TRCSSCSRn register is to show status of
->>> the corresponding Single-shot Comparator Control and input supports.
->>> That means writable field's purpose for reset or restore from idle status
->>> not for configuration.
->>>
->>> Therefore, exclude ss_status from drvdata->config and move it to drvdata.
->>
->> TRCSSCSRn has two different types of fields.
->>
->> 1. Capability
->> 2. Status
->>
->> Moving the entire register from "config" to a common dangling place looks
->> like shifting the problem to me.
->>
->> Could we do something like :
->>
->> 1. Split the fields to two.
->>    a. Store only the capability information in etmv4_caps. Bits[4:0]
->>    b. Store the Status bit in drvdata->config , as it is really matters
->>       to the session ? Bits[31:30]
->>
->> Add a helper to write/read the TRCSSSRn which would apply/mask the bits from
->> drvdata->etmv4_caps->fields to the Status/Pending
+> Move RSI discovery into the SMCCC firmware driver. When the SMCCC conduit
+> is SMC and the RSI ABI version check succeeds, create an arm-rsi-dev SMCCC
+> device. Convert the Arm CCA guest TSM provider to an SMCCC driver so it
+> binds to that discovered RSI service and keeps module autoloading through
+> the SMCCC device id table.
 > 
-> Well. I'm not sure about whether we need to this.
-> When I remind of discussion with Leo, The Status and Pending bits should
-> be preserved in the *same* session theoretically However, Unitil today
-> In case of *perf* it doesn't keep but always cleared at the time of
-> resuming session and this behavior haven't reported any issue yet.
+> Keep the old arm-cca-dev platform-device registration for now. Userspace
+> has used that device as a Realm-guest indicator, so removing it is left to
+> a follow-up patch that adds a replacement sysfs ABI.
 > 
-> TBH, I don't have any idea how perf could utilise those bits except
-> the current use case for  the sysfs to show the bit via *status* file.
+> Signed-off-by: Aneesh Kumar K.V (Arm) <aneesh.kumar@kernel.org>
+> ---
+>   arch/arm64/include/asm/rsi.h                  |  2 +-
+>   arch/arm64/kernel/rsi.c                       |  2 +-
+>   drivers/firmware/smccc/Makefile               |  4 ++
+>   drivers/firmware/smccc/rmm.c                  | 25 ++++++++
+>   drivers/firmware/smccc/rmm.h                  | 17 ++++++
+>   drivers/firmware/smccc/smccc.c                |  8 +++
+>   drivers/virt/coco/arm-cca-guest/Kconfig       |  1 +
+>   drivers/virt/coco/arm-cca-guest/Makefile      |  2 +
+>   .../{arm-cca-guest.c => arm-cca.c}            | 60 +++++++++----------
+>   9 files changed, 89 insertions(+), 32 deletions(-)
+>   create mode 100644 drivers/firmware/smccc/rmm.c
+>   create mode 100644 drivers/firmware/smccc/rmm.h
+>   rename drivers/virt/coco/arm-cca-guest/{arm-cca-guest.c => arm-cca.c} (85%)
 > 
-> Futhermore, IMHO, config isn't good place for the Status/Pending bits
-> since those fields are not *configrable* fields so I think it would be
-> better to locate saving information for the status and pending bits on
-> drvdata or by defining other fields.
-> 
-> But, until we find some usage of those bits in perf, I think we can
-> delay this separation you suggest and it might be better to keep as-is
-> for the purpose of showing the status/pending bits when sysfs session is
-> finished.
-> 
-> Am I missing something?
+> diff --git a/arch/arm64/include/asm/rsi.h b/arch/arm64/include/asm/rsi.h
+> index 88b50d660e85..2d2d363aaaee 100644
+> --- a/arch/arm64/include/asm/rsi.h
+> +++ b/arch/arm64/include/asm/rsi.h
+> @@ -10,7 +10,7 @@
+>   #include <linux/jump_label.h>
+>   #include <asm/rsi_cmds.h>
+>   
+> -#define RSI_PDEV_NAME "arm-cca-dev"
+> +#define RSI_DEV_NAME "arm-rsi-dev"
+>   
+>   DECLARE_STATIC_KEY_FALSE(rsi_present);
+>   
+> diff --git a/arch/arm64/kernel/rsi.c b/arch/arm64/kernel/rsi.c
+> index 92160f2e57ff..da440f71bb64 100644
+> --- a/arch/arm64/kernel/rsi.c
+> +++ b/arch/arm64/kernel/rsi.c
+> @@ -161,7 +161,7 @@ void __init arm64_rsi_init(void)
+>   }
+>   
+>   static struct platform_device rsi_dev = {
+> -	.name = RSI_PDEV_NAME,
+> +	.name = "arm-cca-dev",
+>   	.id = PLATFORM_DEVID_NONE
+>   };
+>   
+> diff --git a/drivers/firmware/smccc/Makefile b/drivers/firmware/smccc/Makefile
+> index 40d19144a860..33c850aaff4d 100644
+> --- a/drivers/firmware/smccc/Makefile
+> +++ b/drivers/firmware/smccc/Makefile
+> @@ -2,3 +2,7 @@
+>   #
+>   obj-$(CONFIG_HAVE_ARM_SMCCC_DISCOVERY)	+= smccc.o kvm_guest.o
+>   obj-$(CONFIG_ARM_SMCCC_SOC_ID)	+= soc_id.o
+> +
+> +ifeq ($(CONFIG_HAVE_ARM_SMCCC_DISCOVERY),y)
+> +obj-$(CONFIG_ARM64) += rmm.o
+> +endif
+> diff --git a/drivers/firmware/smccc/rmm.c b/drivers/firmware/smccc/rmm.c
+> new file mode 100644
+> index 000000000000..d572f47e955c
+> --- /dev/null
+> +++ b/drivers/firmware/smccc/rmm.c
+> @@ -0,0 +1,25 @@
+> +// SPDX-License-Identifier: GPL-2.0-only
+> +/*
+> + * Copyright (C) 2026 Arm Limited
+> + */
+> +
+> +#include <linux/arm-smccc-bus.h>
+> +#include <linux/err.h>
+> +#include <linux/printk.h>
+> +
+> +#include "rmm.h"
+> +
+> +void __init register_rsi_device(void)
+
+minor nit: Could we rename this global symbol to scope it under rmm ?
+perhaps, rmm_register_rsi_device()?
+
+> +{
+> +	unsigned long ret;
+> +
+> +	if (arm_smccc_1_1_get_conduit() != SMCCC_CONDUIT_SMC)
+> +		return;
+> +
+> +	ret = rsi_request_version(RSI_ABI_VERSION, NULL, NULL);
+> +	if (ret != RSI_SUCCESS)
+> +		return;
+> +
+> +	if (IS_ERR(arm_smccc_device_register(RSI_DEV_NAME)))
+> +		pr_err("%s: could not register device\n", RSI_DEV_NAME);
+> +}
+> diff --git a/drivers/firmware/smccc/rmm.h b/drivers/firmware/smccc/rmm.h
+> new file mode 100644
+> index 000000000000..627098e2ae1f
+> --- /dev/null
+> +++ b/drivers/firmware/smccc/rmm.h
+> @@ -0,0 +1,17 @@
+> +/* SPDX-License-Identifier: GPL-2.0 */
+> +#ifndef _SMCCC_RMM_H
+> +#define _SMCCC_RMM_H
+> +
+> +#include <linux/init.h>
+> +
+> +#ifdef CONFIG_ARM64
+> +#include <linux/arm-smccc-bus.h>
+> +#include <asm/rsi_cmds.h>
+
+minor nit: Could the header files be moved to rmm.c ?
+
+> +void __init register_rsi_device(void);
+> +#else
 
 
-Agreed, this can be cleaned up in a separate series.
+> +
+> +static inline void __init register_rsi_device(void)
+> +{
+> +}
+> +#endif
+
+
+> +#endif
+> diff --git a/drivers/firmware/smccc/smccc.c b/drivers/firmware/smccc/smccc.c
+> index 6d260354d0f9..888e7f1d6f86 100644
+> --- a/drivers/firmware/smccc/smccc.c
+> +++ b/drivers/firmware/smccc/smccc.c
+> @@ -15,6 +15,8 @@
+>   
+>   #include <asm/archrandom.h>
+>   
+> +#include "rmm.h"
+> +
+>   static u32 smccc_version = ARM_SMCCC_VERSION_1_0;
+>   static enum arm_smccc_conduit smccc_conduit = SMCCC_CONDUIT_NONE;
+>   static DEFINE_IDA(arm_smccc_bus_id);
+> @@ -240,6 +242,12 @@ subsys_initcall(arm_smccc_bus_init);
+>   
+>   static int __init smccc_devices_init(void)
+>   {
+> +	/*
+> +	 * Register the RMI and RSI devices only when firmware exposes
+> +	 * the required SMCCC function IDs at a supported revision.
+> +	 */
+> +	register_rsi_device();
+
+nit: We don't have RMI devices yet ? Do we want to make it
+
+rmm_register_devices();
+
+instead ?
+
+
+
+> +
+>   	if (smccc_trng_available) {
+>   		struct arm_smccc_device *sdev;
+>   
+> diff --git a/drivers/virt/coco/arm-cca-guest/Kconfig b/drivers/virt/coco/arm-cca-guest/Kconfig
+> index 3f0f013f03f1..ad7538750c5a 100644
+> --- a/drivers/virt/coco/arm-cca-guest/Kconfig
+> +++ b/drivers/virt/coco/arm-cca-guest/Kconfig
+> @@ -1,6 +1,7 @@
+>   config ARM_CCA_GUEST
+>   	tristate "Arm CCA Guest driver"
+>   	depends on ARM64
+> +	depends on HAVE_ARM_SMCCC_DISCOVERY
+>   	select TSM_REPORTS
+>   	help
+>   	  The driver provides userspace interface to request and
+> diff --git a/drivers/virt/coco/arm-cca-guest/Makefile b/drivers/virt/coco/arm-cca-guest/Makefile
+> index 69eeba08e98a..75a120e24fda 100644
+> --- a/drivers/virt/coco/arm-cca-guest/Makefile
+> +++ b/drivers/virt/coco/arm-cca-guest/Makefile
+> @@ -1,2 +1,4 @@
+>   # SPDX-License-Identifier: GPL-2.0-only
+>   obj-$(CONFIG_ARM_CCA_GUEST) += arm-cca-guest.o
+> +
+> +arm-cca-guest-y +=  arm-cca.o
+> diff --git a/drivers/virt/coco/arm-cca-guest/arm-cca-guest.c b/drivers/virt/coco/arm-cca-guest/arm-cca.c
+> similarity index 85%
+> rename from drivers/virt/coco/arm-cca-guest/arm-cca-guest.c
+> rename to drivers/virt/coco/arm-cca-guest/arm-cca.c
+> index 66d00b6ceb78..8d5a09bd772a 100644
+> --- a/drivers/virt/coco/arm-cca-guest/arm-cca-guest.c
+> +++ b/drivers/virt/coco/arm-cca-guest/arm-cca.c
+> @@ -4,6 +4,7 @@
+>    */
+>   
+>   #include <linux/arm-smccc.h>
+> +#include <linux/arm-smccc-bus.h>
+>   #include <linux/cc_platform.h>
+>   #include <linux/kernel.h>
+>   #include <linux/mod_devicetable.h>
+> @@ -182,52 +183,51 @@ static int arm_cca_report_new(struct tsm_report *report, void *data)
+>   	return ret;
+>   }
+>   
+> -static const struct tsm_report_ops arm_cca_tsm_ops = {
+> +static const struct tsm_report_ops arm_cca_tsm_report_ops = {
+>   	.name = KBUILD_MODNAME,
+>   	.report_new = arm_cca_report_new,
+>   };
+>   
+
+Would you like to either :
+
+1) Call out renaming the existing cca_tsm to reflect cca_tsm_report
+in the commit description ?
+
+OR
+
+2) Split the renaming of the "report" stuff in a follow up patch ?
+
+Rest looks fine by me.
 
 Suzuki
 
-> 
->>
->> Suzuki
->>
->>>
->>> Signed-off-by: Yeoreum Yun <yeoreum.yun@arm.com>
->>> ---
->>>    .../hwtracing/coresight/coresight-etm4x-cfg.c    |  1 -
->>>    .../hwtracing/coresight/coresight-etm4x-core.c   | 16 +++++++++-------
->>>    .../hwtracing/coresight/coresight-etm4x-sysfs.c  | 10 +++++-----
->>>    drivers/hwtracing/coresight/coresight-etm4x.h    |  7 ++++++-
->>>    4 files changed, 20 insertions(+), 14 deletions(-)
->>>
->>> diff --git a/drivers/hwtracing/coresight/coresight-etm4x-cfg.c b/drivers/hwtracing/coresight/coresight-etm4x-cfg.c
->>> index e1a59b434505..9b4947d75fde 100644
->>> --- a/drivers/hwtracing/coresight/coresight-etm4x-cfg.c
->>> +++ b/drivers/hwtracing/coresight/coresight-etm4x-cfg.c
->>> @@ -86,7 +86,6 @@ static int etm4_cfg_map_reg_offset(struct etmv4_drvdata *drvdata,
->>>    		off_mask =  (offset & GENMASK(11, 5));
->>>    		do {
->>>    			CHECKREGIDX(TRCSSCCRn(0), ss_ctrl, idx, off_mask);
->>> -			CHECKREGIDX(TRCSSCSRn(0), ss_status, idx, off_mask);
->>>    			CHECKREGIDX(TRCSSPCICRn(0), ss_pe_cmp, idx, off_mask);
->>>    		} while (0);
->>>    	} else if ((offset >= TRCCIDCVRn(0)) && (offset <= TRCVMIDCVRn(7))) {
->>> diff --git a/drivers/hwtracing/coresight/coresight-etm4x-core.c b/drivers/hwtracing/coresight/coresight-etm4x-core.c
->>> index 53fbc4826628..7783c97b53e8 100644
->>> --- a/drivers/hwtracing/coresight/coresight-etm4x-core.c
->>> +++ b/drivers/hwtracing/coresight/coresight-etm4x-core.c
->>> @@ -95,7 +95,7 @@ static bool etm4x_sspcicrn_present(struct etmv4_drvdata *drvdata, int n)
->>>    	const struct etmv4_caps *caps = &drvdata->caps;
->>>    	return (n < caps->nr_ss_cmp) && caps->nr_pe_cmp &&
->>> -	       (drvdata->config.ss_status[n] & TRCSSCSRn_PC);
->>> +	       (drvdata->ss_status[n] & TRCSSCSRn_PC);
->>>    }
->>>    u64 etm4x_sysreg_read(u32 offset, bool _relaxed, bool _64bit)
->>> @@ -571,11 +571,11 @@ static int etm4_enable_hw(struct etmv4_drvdata *drvdata)
->>>    		etm4x_relaxed_write32(csa, config->res_ctrl[i], TRCRSCTLRn(i));
->>>    	for (i = 0; i < caps->nr_ss_cmp; i++) {
->>> -		/* always clear status bit on restart if using single-shot */
->>> +		/* always clear status and pending bits on restart if using single-shot */
->>>    		if (config->ss_ctrl[i] || config->ss_pe_cmp[i])
->>> -			config->ss_status[i] &= ~TRCSSCSRn_STATUS;
->>> +			drvdata->ss_status[i] &= ~(TRCSSCSRn_STATUS | TRCSSCSRn_PENDING);
->>>    		etm4x_relaxed_write32(csa, config->ss_ctrl[i], TRCSSCCRn(i));
->>> -		etm4x_relaxed_write32(csa, config->ss_status[i], TRCSSCSRn(i));
->>> +		etm4x_relaxed_write32(csa, drvdata->ss_status[i], TRCSSCSRn(i));
->>>    		if (etm4x_sspcicrn_present(drvdata, i))
->>>    			etm4x_relaxed_write32(csa, config->ss_pe_cmp[i], TRCSSPCICRn(i));
->>>    	}
->>> @@ -772,6 +772,7 @@ static int etm4_parse_event_config(struct coresight_device *csdev,
->>>    	/* Clear configuration from previous run */
->>>    	memset(config, 0, sizeof(struct etmv4_config));
->>> +
->>>    	if (attr->exclude_kernel)
->>>    		config->mode = ETM_MODE_EXCL_KERN;
->>> @@ -1064,7 +1065,7 @@ static void etm4_disable_hw(struct etmv4_drvdata *drvdata)
->>>    	/* read the status of the single shot comparators */
->>>    	for (i = 0; i < caps->nr_ss_cmp; i++) {
->>> -		config->ss_status[i] =
->>> +		drvdata->ss_status[i] =
->>>    			etm4x_relaxed_read32(csa, TRCSSCSRn(i));
->>>    	}
->>> @@ -1497,8 +1498,9 @@ static void etm4_init_arch_data(void *info)
->>>    	 */
->>>    	caps->nr_ss_cmp = FIELD_GET(TRCIDR4_NUMSSCC_MASK, etmidr4);
->>>    	for (i = 0; i < caps->nr_ss_cmp; i++) {
->>> -		drvdata->config.ss_status[i] =
->>> -			etm4x_relaxed_read32(csa, TRCSSCSRn(i));
->>> +		drvdata->ss_status[i] = etm4x_relaxed_read32(csa, TRCSSCSRn(i));
->>> +		drvdata->ss_status[i] &= (TRCSSCSRn_PC | TRCSSCSRn_DV |
->>> +					  TRCSSCSRn_DA | TRCSSCSRn_INST);
->>>    	}
->>>    	/* NUMCIDC, bits[27:24] number of Context ID comparators for tracing */
->>>    	caps->numcidc = FIELD_GET(TRCIDR4_NUMCIDC_MASK, etmidr4);
->>> diff --git a/drivers/hwtracing/coresight/coresight-etm4x-sysfs.c b/drivers/hwtracing/coresight/coresight-etm4x-sysfs.c
->>> index 7de3c58a47b4..71e95d152ee6 100644
->>> --- a/drivers/hwtracing/coresight/coresight-etm4x-sysfs.c
->>> +++ b/drivers/hwtracing/coresight/coresight-etm4x-sysfs.c
->>> @@ -1829,8 +1829,8 @@ static ssize_t sshot_ctrl_store(struct device *dev,
->>>    	raw_spin_lock(&drvdata->spinlock);
->>>    	idx = config->ss_idx;
->>>    	config->ss_ctrl[idx] = FIELD_PREP(TRCSSCCRn_SAC_ARC_RST_MASK, val);
->>> -	/* must clear bit 31 in related status register on programming */
->>> -	config->ss_status[idx] &= ~TRCSSCSRn_STATUS;
->>> +	/* must clear bit 31 and 30 in related status register on programming */
->>> +	drvdata->ss_status[idx] &= ~(TRCSSCSRn_STATUS | TRCSSCSRn_PENDING);
->>>    	raw_spin_unlock(&drvdata->spinlock);
->>>    	return size;
->>>    }
->>> @@ -1844,7 +1844,7 @@ static ssize_t sshot_status_show(struct device *dev,
->>>    	struct etmv4_config *config = &drvdata->config;
->>>    	raw_spin_lock(&drvdata->spinlock);
->>> -	val = config->ss_status[config->ss_idx];
->>> +	val = drvdata->ss_status[config->ss_idx];
->>>    	raw_spin_unlock(&drvdata->spinlock);
->>>    	return scnprintf(buf, PAGE_SIZE, "%#lx\n", val);
->>>    }
->>> @@ -1879,8 +1879,8 @@ static ssize_t sshot_pe_ctrl_store(struct device *dev,
->>>    	raw_spin_lock(&drvdata->spinlock);
->>>    	idx = config->ss_idx;
->>>    	config->ss_pe_cmp[idx] = FIELD_PREP(TRCSSPCICRn_PC_MASK, val);
->>> -	/* must clear bit 31 in related status register on programming */
->>> -	config->ss_status[idx] &= ~TRCSSCSRn_STATUS;
->>> +	/* must clear bit 31 and 30 in related status register on programming */
->>> +	drvdata->ss_status[idx] &= ~(TRCSSCSRn_STATUS | TRCSSCSRn_PENDING);
->>>    	raw_spin_unlock(&drvdata->spinlock);
->>>    	return size;
->>>    }
->>> diff --git a/drivers/hwtracing/coresight/coresight-etm4x.h b/drivers/hwtracing/coresight/coresight-etm4x.h
->>> index 6d4fbae78448..43db1eb6f8cd 100644
->>> --- a/drivers/hwtracing/coresight/coresight-etm4x.h
->>> +++ b/drivers/hwtracing/coresight/coresight-etm4x.h
->>> @@ -213,6 +213,7 @@
->>>    #define TRCACATRn_EXLEVEL_MASK			GENMASK(14, 8)
->>>    #define TRCSSCSRn_STATUS			BIT(31)
->>> +#define TRCSSCSRn_PENDING			BIT(30)
->>>    #define TRCSSCCRn_SAC_ARC_RST_MASK		GENMASK(24, 0)
->>>    #define TRCSSPCICRn_PC_MASK			GENMASK(7, 0)
->>> @@ -730,6 +731,9 @@ static inline u32 etm4_res_sel_pair(u8 res_sel_idx)
->>>    #define ETM_DEFAULT_ADDR_COMP		0
->>>    #define TRCSSCSRn_PC			BIT(3)
->>> +#define TRCSSCSRn_DV			BIT(2)
->>> +#define TRCSSCSRn_DA			BIT(1)
->>> +#define TRCSSCSRn_INST			BIT(0)
->>>    /* PowerDown Control Register bits */
->>>    #define TRCPDCR_PU			BIT(3)
->>> @@ -978,7 +982,6 @@ struct etmv4_config {
->>>    	u32				res_ctrl[ETM_MAX_RES_SEL]; /* TRCRSCTLRn */
->>>    	u8				ss_idx;
->>>    	u32				ss_ctrl[ETM_MAX_SS_CMP];
->>> -	u32				ss_status[ETM_MAX_SS_CMP];
->>>    	u32				ss_pe_cmp[ETM_MAX_SS_CMP];
->>>    	u8				addr_idx;
->>>    	u64				addr_val[ETM_MAX_SINGLE_ADDR_CMP];
->>> @@ -1073,6 +1076,7 @@ struct etmv4_save_state {
->>>     * @config:	structure holding configuration parameters.
->>>     * @save_state:	State to be preserved across power loss
->>>     * @paused:	Indicates if the trace unit is paused.
->>> + * @ss_status:	The status of the corresponding single-shot comparator.
->>>     * @arch_features: Bitmap of arch features of etmv4 devices.
->>>     */
->>>    struct etmv4_drvdata {
->>> @@ -1092,6 +1096,7 @@ struct etmv4_drvdata {
->>>    	u64				trfcr;
->>>    	struct etmv4_config		config;
->>>    	struct etmv4_save_state		*save_state;
->>> +	u32				ss_status[ETM_MAX_SS_CMP];
->>>    	DECLARE_BITMAP(arch_features, ETM4_IMPDEF_FEATURE_MAX);
->>>    };
->>
-> 
+
+> -/**
+> - * arm_cca_guest_init - Register with the Trusted Security Module (TSM)
+> - * interface.
+> - *
+> - * Return:
+> - * * %0        - Registered successfully with the TSM interface.
+> - * * %-ENODEV  - The execution context is not an Arm Realm.
+> - * * %-EBUSY   - Already registered.
+> - */
+> -static int __init arm_cca_guest_init(void)
+> +static void unregister_cca_tsm_report(void *data)
+> +{
+> +	tsm_report_unregister(&arm_cca_tsm_report_ops);
+> +}
+> +
+> +static int cca_tsm_probe(struct arm_smccc_device *sdev)
+>   {
+>   	int ret;
+>   
+>   	if (!is_realm_world())
+>   		return -ENODEV;
+>   
+> -	ret = tsm_report_register(&arm_cca_tsm_ops, NULL);
+> -	if (ret < 0)
+> -		pr_err("Error %d registering with TSM\n", ret);
+> +	ret = tsm_report_register(&arm_cca_tsm_report_ops, NULL);
+> +	if (ret < 0) {
+> +		dev_err_probe(&sdev->dev, ret, "Error registering with TSM\n");
+> +		return ret;
+> +	}
+>   
+> -	return ret;
+> -}
+> -module_init(arm_cca_guest_init);
+> +	ret = devm_add_action_or_reset(&sdev->dev, unregister_cca_tsm_report,
+> +				       NULL);
+> +	if (ret < 0) {
+> +		dev_err_probe(&sdev->dev, ret, "Error registering devm action\n");
+> +		return ret;
+> +	}
+>   
+> -/**
+> - * arm_cca_guest_exit - unregister with the Trusted Security Module (TSM)
+> - * interface.
+> - */
+> -static void __exit arm_cca_guest_exit(void)
+> -{
+> -	tsm_report_unregister(&arm_cca_tsm_ops);
+> +	return 0;
+>   }
+> -module_exit(arm_cca_guest_exit);
+>   
+> -/* modalias, so userspace can autoload this module when RSI is available */
+> -static const struct platform_device_id arm_cca_match[] __maybe_unused = {
+> -	{ RSI_PDEV_NAME, 0},
+> -	{ }
+> +static const struct arm_smccc_device_id cca_tsm_id_table[] = {
+> +	{ .name = RSI_DEV_NAME },
+> +	{}
+>   };
+> +MODULE_DEVICE_TABLE(arm_smccc, cca_tsm_id_table);
+>   
+> -MODULE_DEVICE_TABLE(platform, arm_cca_match);
+> +static struct arm_smccc_driver cca_tsm_driver = {
+> +	.name = KBUILD_MODNAME,
+> +	.probe = cca_tsm_probe,
+> +	.id_table = cca_tsm_id_table,
+> +};
+> +module_arm_smccc_driver(cca_tsm_driver);
+>   MODULE_AUTHOR("Sami Mujawar <sami.mujawar@arm.com>");
+>   MODULE_DESCRIPTION("Arm CCA Guest TSM Driver");
+>   MODULE_LICENSE("GPL");
 
 
