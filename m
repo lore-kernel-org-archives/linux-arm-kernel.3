@@ -4,96 +4,110 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id E9722CD6E79
-	for <linux-arm-kernel@archiver.kernel.org>; Thu,  4 Jun 2026 16:29:18 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id A5862CD6E6D
+	for <linux-arm-kernel@archiver.kernel.org>; Thu,  4 Jun 2026 16:31:21 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	MIME-Version:Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-Type:
-	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
-	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
-	bh=Tt5XveIXPd5LExPILUEQj2Sv2Xr+T+q71wH/D2X5w18=; b=iw1jmEGKxIAuoi2ig93TC2Xm4W
-	qm0Yx5AiEn52Mil3/ZvLD4mjY4Rx6DXo4/alxV9sJPcDgg/ktTvG7krv7NgTmiDKxNXmakObc2qnV
-	vpzDcPFDTClUu7c1pZ6mmf03RUP1YGJo5ppd42IDvE/ZLYGnztkrswWoxQAXjZV/QljDN/UorblQY
-	BlN+E6Je/zltYlpIrqrK7Fk/8vtVEbiA+qzAXQIlKAoavINW6uKH2UadS+4klCr6eAA33rM1bdP0f
-	RfvazFfoNYjD16tbNlc+OPFlp6D5l5CPbK2yi5acoSyTXV3YaHL3b5qJFEQC9UtSQliTgbRY2/8Lv
-	00LWG66g==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:Cc:To:Subject:
+	Message-ID:Date:From:In-Reply-To:References:MIME-Version:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=bYQz5WGjsDPNgjJtpHPvb9PJr7MMreR1r3TlgYR8Xgc=; b=Zm/LvA1zHOp08lJ51JEZlAzY1O
+	jyET7SnB1EPfU/5oZUUonQxx7dLdpFkQXXgJ+uzPpLERaHDGJ44P/gLVSvAm7bOXUALC1GqaORMby
+	b1m8SVqjJHEy5J1f41mOs0Ha4cp5dZ09pJ6X8bylCP1mFrn9xdSoWCLAeX81h2OcCXUKT/9l9mN3o
+	EkdLx+WsjTO5C89aX6eFlZxRdMn1xvKDC+vLG8VAavaXZ9Yok4DvDwhcZGpJAt3UUwtIw1wNQcGhJ
+	7TTv0g9Vdrgg5Lf9iwOyzrOFcOMkHKABxLzD1Ls60keGlZQ6PaT0Tvg8PrViPeDFcsr7iGsJCCIic
+	Sqrty2WQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wVAwS-0000000H4EV-0coa;
-	Thu, 04 Jun 2026 16:29:12 +0000
-Received: from mail-pj1-x1029.google.com ([2607:f8b0:4864:20::1029])
+	id 1wVAyR-0000000H4VX-2VRa;
+	Thu, 04 Jun 2026 16:31:15 +0000
+Received: from mail-ed1-x52b.google.com ([2a00:1450:4864:20::52b])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wVAwP-0000000H4Dz-3414
+	id 1wVAyO-0000000H4VA-3HU0
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 04 Jun 2026 16:29:11 +0000
-Received: by mail-pj1-x1029.google.com with SMTP id 98e67ed59e1d1-36b9033d230so552761a91.1
-        for <linux-arm-kernel@lists.infradead.org>; Thu, 04 Jun 2026 09:29:09 -0700 (PDT)
+	Thu, 04 Jun 2026 16:31:14 +0000
+Received: by mail-ed1-x52b.google.com with SMTP id 4fb4d7f45d1cf-68cc6c7df99so1310677a12.1
+        for <linux-arm-kernel@lists.infradead.org>; Thu, 04 Jun 2026 09:31:12 -0700 (PDT)
+ARC-Seal: i=1; a=rsa-sha256; t=1780590671; cv=none;
+        d=google.com; s=arc-20240605;
+        b=afRuW4QA1c12LeNuB4Ou16IV2UT3WiTE0KIZUfRxmqKwRDUSEnBNXUiTK4QpeWz6zr
+         3QTe4w34QogCRCYrlLQVe0HZVpVV8VqSjOFNW5r3IGeMGzYB4p21XAPMjXBTID89UFVt
+         byVBN72GmsEstpliHT2Cms5tw+pqpybArcWAxVU5x8VzLCPmAovwr/OYXMPX45XJBpLZ
+         Nzza98/YvuaNA8Y65DgqAktvMnMiDz9KMitAC2Co7yAS6jChKAm46QYDw3RmPYoOFJjl
+         lldb8PbAUb1CcHk3Ge6q9IdR9uXSeDXrYvDdHBpeLDe0ctnF/jSr22ktu3KngWvW8056
+         Iacg==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20240605;
+        h=cc:to:subject:message-id:date:from:in-reply-to:references
+         :mime-version:dkim-signature;
+        bh=bYQz5WGjsDPNgjJtpHPvb9PJr7MMreR1r3TlgYR8Xgc=;
+        fh=euXWsbnumjsLcUCeTRMn8FiZFe2HfwVHPJBur/+r1Ec=;
+        b=CDDTL1TSMNMooB2khhahuWP5rvLzGlagbLZGeAnEQBm4tFhKTP9oEgAWbkVftAC/qY
+         ps9fbSdkWMwYDMOmK0Fok8pSvN8gNJ3RLdxdfS5SMibRWuVbhhfQkmrlne9j/0TVDozu
+         pCzRm+aY050OJ1bX1/Hi4kERvUsTxsS20hpnVGYLO07Qs6AwWQbHHUnGhDTWcMdEEFQw
+         viv8fjwKFYnh9DY6YekGe4Pnm7SpZ5m1hVDlNSVfOQ7E9KGb4dOdqZwLLG9WwqdyFadb
+         7W9oKGUS1i2vX3bY6SO4feZdbWVNmbh9Po0Pj4w4kTlwZzRve620ZbqP2WZgiLNs5CFK
+         CvFw==;
+        darn=lists.infradead.org
+ARC-Authentication-Results: i=1; mx.google.com; arc=none
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20251104; t=1780590548; x=1781195348; darn=lists.infradead.org;
-        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
-         :to:from:from:to:cc:subject:date:message-id:reply-to;
-        bh=Tt5XveIXPd5LExPILUEQj2Sv2Xr+T+q71wH/D2X5w18=;
-        b=FGUEYtVGrp4ywTcmme1Bv3CJgIjU4LhfByo1tbYIjRWUn27mjM8vnvIllf73n/fN7F
-         Xi+5rM+KF0u+B+5gS+LN3FnQgBL6JCo29rYjVV+CWlT3RNBYkQNgjNEPa9QqeK5SMCaK
-         ZWmj91fV4QV6k3kdJXymsagOzLKEZYQYC/yXeDqQqaG2ypNl0ZVHcDWqRNEhQfAdmAPL
-         bbYrZK3rY7740i/UKH1S1+Ca0oMEebJn+K5xi60WXiK1MR0Ki65EFG6Q+sSZ0vfgQuMJ
-         mYvb+Qc3bvw0l9pjib25u8S6HTWEXivemj9uOiOso6Qf9UHZvTvPVFZtZix1hQ2OuSzz
-         /ncw==
+        d=linaro.org; s=google; t=1780590671; x=1781195471; darn=lists.infradead.org;
+        h=cc:to:subject:message-id:date:from:in-reply-to:references
+         :mime-version:from:to:cc:subject:date:message-id:reply-to;
+        bh=bYQz5WGjsDPNgjJtpHPvb9PJr7MMreR1r3TlgYR8Xgc=;
+        b=fdGUEB2dBi4JtsBDLXXCgPLYF5yAOIJtX8qdsHlebcrpoBEQkm42gyvIzjGzR+w1ad
+         pOUrpSlYP6p1PAl4O19StrcpzwKUxhn2HzRJFj3D6ULtXZRsU9nskmmFwcs8VuMp9fYh
+         TXPdf6oYo7Q6ExEQOaeSJ/1zvKNoEjBLFWjFfsfhl1st1kzrxokrwKNoFON6j18paxnu
+         VOikJDG3IZ863F+mwRhYruDn53MZoL9yqG+HNthg+xP2gi2S7w/DcZcityarDBzNCrPE
+         WLRqBkI4F6VTPuJv8MgEAuqe9qXTtbvL7jUymQ6j0g0hNhHiPjHE4TWIDnIl+h91lBzo
+         WYpg==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20251104; t=1780590548; x=1781195348;
-        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
-         :to:from:x-gm-gg:x-gm-message-state:from:to:cc:subject:date
+        d=1e100.net; s=20251104; t=1780590671; x=1781195471;
+        h=cc:to:subject:message-id:date:from:in-reply-to:references
+         :mime-version:x-gm-gg:x-gm-message-state:from:to:cc:subject:date
          :message-id:reply-to;
-        bh=Tt5XveIXPd5LExPILUEQj2Sv2Xr+T+q71wH/D2X5w18=;
-        b=CCrwrw5KqAv573VJduaFSzkYSP10k/YK8yPE+zpMNlqK/FQQgltjvZZO6S91vqRUn7
-         60z0vCsc0uRF54efWqBsX7rITyWdpHzf0LwI+xsPH1+F6YMTwRQHEqEIs9gQdSk4X6gK
-         ENX/O7Y8GtGxXs/xMSHDssp7AVHvGBsi9l8mncT+1j+Ov6+dQuKDsQ7QwVMipVEpNcEl
-         cROjBHUV6YXmtIludk5VCSKNxZ2/4jududTgheIKF9KjwEZ+uIqJYS6zmk6qQhOr5FA0
-         v7FLcT2En+Qp0vsR7eeAwRmdyLh9mkmC4vyfAHEknN0fN3s4DWcExSlkjezY9h7A79LS
-         gx9g==
-X-Forwarded-Encrypted: i=1; AFNElJ8KHoDmyfLH0bYPPhMJSS9WmmJ68PpspiO0S8gky7T0d53qlxXbGxrMpPgeOkGgcpHaz4omSflMgk/6SYm58ET6@lists.infradead.org
-X-Gm-Message-State: AOJu0Yy3SKU7Qx5H28UtNbCiSPeZWNcOrooOrRA8Na0oJMir71KDoot7
-	UGP0XaGX1GgRfKPfs1MPzKFC0ml27Q9uG6+l4pIsaFU1rwbWipQPLqij
-X-Gm-Gg: Acq92OFl1oKlFbWvSEy02xMvxSpqzHzuBtwzpjqpUTtvfEiNW2FLKSGDNgJgxsp9Kb+
-	uqGtcgAETFcz3arlwzjoCkddXMCsoqYcp3Gg+t6NHRVm+c5wDCC9NhlhjuDvamFso9fPMmy1I6J
-	QecKTTfOZd/SQooFjhXpSN6rqAWA1nj+/xtJ+tUmtLStM0vr47oEZXhs+yrk/xVobpWxiWlKWfd
-	mOpW+g1X80HGiGbuSRcb78ZzGo/3L6ZsvXfjAiZSlirlelmCSW3u0OY5S7yhm2w2cavl+kYWBoV
-	rLoHGq47ge5RCxcxpHZsxaX3/s4tRWh0sVQ0sMEgeynOevGhPSLbpBzBJrflGv5HX+lSsKvORBW
-	C3lm07MpVSoMQwGusGTiPeoB3l0xn02QwkwSRIecRd4uBraN0GuVQencgyG/DGOTwzqdJBZSGqi
-	o9OfV190hMzu/4Dk3mocIxOpk147cJtjev1RyWyAg4ivd4aEBMmN5sD6GA3GAQzqiZ3XXT8aDYv
-	64e2DgZ9R0h3QRQviAKyjGlDBt1
-X-Received: by 2002:a17:90b:2b4b:b0:36a:caf2:3815 with SMTP id 98e67ed59e1d1-36f781bded1mr3553423a91.15.1780590548307;
-        Thu, 04 Jun 2026 09:29:08 -0700 (PDT)
-Received: from fedora ([103.181.54.97])
-        by smtp.gmail.com with ESMTPSA id 98e67ed59e1d1-36f712de91asm3670255a91.16.2026.06.04.09.29.03
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Thu, 04 Jun 2026 09:29:07 -0700 (PDT)
-From: Ninad Naik <ninadnaik07@gmail.com>
-To: lgirdwood@gmail.com,
-	broonie@kernel.org,
-	robh@kernel.org,
-	krzk+dt@kernel.org,
-	conor+dt@kernel.org,
-	matthias.bgg@gmail.com,
-	angelogioacchino.delregno@collabora.com
-Cc: devicetree@vger.kernel.org,
-	linux-kernel@vger.kernel.org,
-	linux-arm-kernel@lists.infradead.org,
-	linux-mediatek@lists.infradead.org,
-	me@brighamcampbell.com,
-	linux-kernel-mentees@lists.linux.dev,
-	skhan@linuxfoundation.org,
-	Ninad Naik <ninadnaik07@gmail.com>
-Subject: [PATCH v2] regulator: dt-bindings: mt6311: Convert to DT schema
-Date: Thu,  4 Jun 2026 21:56:24 +0530
-Message-ID: <20260604162624.644241-1-ninadnaik07@gmail.com>
-X-Mailer: git-send-email 2.54.0
+        bh=bYQz5WGjsDPNgjJtpHPvb9PJr7MMreR1r3TlgYR8Xgc=;
+        b=Mhzi90O2+pHyq9B5u0QgB6+0LxHK8TAA5EOf4bL3XTR0m1usU9RW0H/IPuzNecdEA9
+         R1wgtL8lkPnkQqmXOWvn2i3wNOPrnMuWqxanL9Kpxy1r5dciOtnrPYdR1F1HTTQIGo8G
+         BLduCRBM00N+g6ytwVWeMRO8xwqxQ7K1Ac0iZ9tMU4H88DsOMkpx2CpgNrNmZC/HaJZx
+         ywMA6ZIuWiUYwep7+lRH5mtausK2grYNma8doqg5joH1pQFVNIRXfmWys2hfLrJqnBc5
+         vyWM6lEqLJ09cuT46Ijo7HtHEhmP89SIabLBC6mn9nDoG6fhjUYP0iEPaa2gA7Mn5Ngj
+         ZIgA==
+X-Forwarded-Encrypted: i=1; AFNElJ+v5fXA/y5wXSffnBfwir3+EMuSExXtsNQtmOSuNHpm0xtoYeUQ2JNx3k62H+sU8Amg9W9D2P2HcWWEeEMJxXf0@lists.infradead.org
+X-Gm-Message-State: AOJu0YzaUKcUtsOImvo3vR8tDQJx0oumV/afhBRT1WclB3Oge0Pey689
+	Z8tF77m1VR+39L1BPRvg7OsDeFeFR47cH/CdLMfMFrNMysWQM/za6NS7y6ODrGtCY/uLZzC0DXG
+	RO/CY4Krp48z3iDCDFNHdnZusq16BcWxIljMOMAhxwg==
+X-Gm-Gg: Acq92OF1zi9R3p8MkeysRzIUcvTfH4hkUeOo8/bsNGpk7q2KrenSni+/r2jYMXpYf/m
+	elVzvEhDgEPtaCg6BB26r2ecpEppT36P76pn1p0/X+/IYTMBWqVJkRGLKnMJao7V8rSSyrIWeIf
+	p9fsepxeBnqz6vQXQ0Ez2COzNfB394mlcSiDsqJ00rNzZ2AFVkqydQV98431kHuPnHp96rDxv97
+	lPfaV29yjjRJJ3NOTb6tPesBbntVCuJZHst2oFg+tJcLD7HkTmNhXKkib4BwUlasZbKbaV/ZGUh
+	3l1G6tmNxCang9bsFjY9NKaVNbr5iopwHqe0xQuLIa4HmL+V
+X-Received: by 2002:a05:6402:3215:b0:68b:539c:d269 with SMTP id
+ 4fb4d7f45d1cf-68e710ebc51mr4808114a12.12.1780590670971; Thu, 04 Jun 2026
+ 09:31:10 -0700 (PDT)
 MIME-Version: 1.0
-Content-Transfer-Encoding: 8bit
+References: <20260603-acpm-tmu-v8-0-0f1810a356e6@linaro.org> <20260603-acpm-tmu-v8-2-0f1810a356e6@linaro.org>
+In-Reply-To: <20260603-acpm-tmu-v8-2-0f1810a356e6@linaro.org>
+From: Peter Griffin <peter.griffin@linaro.org>
+Date: Thu, 4 Jun 2026 17:30:59 +0100
+X-Gm-Features: AVHnY4Jq-Cm1FpMQ9NjMzo61aJ4t188OLXQIR-HELOPptilenf70Fcb7QJeV21c
+Message-ID: <CADrjBPoHXi5hp9T=z97k4LKNKQUEnJdN4sSz5g+NgKAGC6jguQ@mail.gmail.com>
+Subject: Re: [PATCH v8 2/5] thermal: samsung: Add Exynos ACPM TMU driver GS101
+To: Tudor Ambarus <tudor.ambarus@linaro.org>
+Cc: "Rafael J. Wysocki" <rafael@kernel.org>, Daniel Lezcano <daniel.lezcano@kernel.org>, 
+	Zhang Rui <rui.zhang@intel.com>, Lukasz Luba <lukasz.luba@arm.com>, Rob Herring <robh@kernel.org>, 
+	Krzysztof Kozlowski <krzk+dt@kernel.org>, Conor Dooley <conor+dt@kernel.org>, 
+	Bartlomiej Zolnierkiewicz <bzolnier@gmail.com>, Krzysztof Kozlowski <krzk@kernel.org>, Kees Cook <kees@kernel.org>, 
+	"Gustavo A. R. Silva" <gustavoars@kernel.org>, =?UTF-8?Q?Andr=C3=A9_Draszik?= <andre.draszik@linaro.org>, 
+	Alim Akhtar <alim.akhtar@samsung.com>, jyescas@google.com, linux-kernel@vger.kernel.org, 
+	linux-samsung-soc@vger.kernel.org, linux-pm@vger.kernel.org, 
+	devicetree@vger.kernel.org, linux-hardening@vger.kernel.org, 
+	linux-arm-kernel@lists.infradead.org, 
+	Krzysztof Kozlowski <krzysztof.kozlowski@oss.qualcomm.com>
+Content-Type: text/plain; charset="UTF-8"
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260604_092909_805331_804E4E53 
-X-CRM114-Status: GOOD (  15.12  )
+X-CRM114-CacheID: sfid-20260604_093112_860430_7903C6C3 
+X-CRM114-Status: GOOD (  11.78  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -108,140 +122,23 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Convert mediatek,mt6311 to DT schema.
+On Wed, 3 Jun 2026 at 14:00, Tudor Ambarus <tudor.ambarus@linaro.org> wrote:
+>
+> Add driver for the Thermal Management Unit (TMU) managed via the Alive
+> Clock and Power Manager (ACPM), found on Samsung Exynos SoCs such as
+> the Google GS101.
+>
+> The TMU on the GS101 utilizes a hybrid management model shared between
+> the Application Processor (AP) and the ACPM firmware. The driver
+> maintains direct memory-mapped access to the TMU interrupt pending
+> registers to identify thermal events, while delegating functional
+> tasks - such as sensor initialization, threshold configuration, and
+> temperature acquisition, to the ACPM firmware via the ACPM IPC
+> protocol.
+>
+> Signed-off-by: Tudor Ambarus <tudor.ambarus@linaro.org>
+> Acked-by: Krzysztof Kozlowski <krzysztof.kozlowski@oss.qualcomm.com>
+> ---
 
-Signed-off-by: Ninad Naik <ninadnaik07@gmail.com>
----
-Changes in v2:
-- Correct "MediaTek" in the title.
-- Drop "|" in the top-level description.
-- Remove unnecessary regulator node description.
-- Remove unused labels from example.
-
- .../regulator/mediatek,mt6311-regulator.yaml  | 70 +++++++++++++++++++
- .../bindings/regulator/mt6311-regulator.txt   | 35 ----------
- 2 files changed, 70 insertions(+), 35 deletions(-)
- create mode 100644 Documentation/devicetree/bindings/regulator/mediatek,mt6311-regulator.yaml
- delete mode 100644 Documentation/devicetree/bindings/regulator/mt6311-regulator.txt
-
-diff --git a/Documentation/devicetree/bindings/regulator/mediatek,mt6311-regulator.yaml b/Documentation/devicetree/bindings/regulator/mediatek,mt6311-regulator.yaml
-new file mode 100644
-index 000000000000..f65ee2c90298
---- /dev/null
-+++ b/Documentation/devicetree/bindings/regulator/mediatek,mt6311-regulator.yaml
-@@ -0,0 +1,70 @@
-+# SPDX-License-Identifier: (GPL-2.0 OR BSD-2-Clause)
-+%YAML 1.2
-+---
-+$id: http://devicetree.org/schemas/regulator/mediatek,mt6311-regulator.yaml#
-+$schema: http://devicetree.org/meta-schemas/core.yaml#
-+
-+title: MediaTek MT6311 Regulator
-+
-+maintainers:
-+  - AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>
-+
-+description:
-+  The MediaTek MT6311 is an I2C power management IC that provides one step-down
-+  converter and one low-dropout regulator. The regulators are named VDVFS and
-+  VBIASN, respectively.
-+
-+properties:
-+  compatible:
-+    const: mediatek,mt6311-regulator
-+
-+  reg:
-+    description: I2C slave address.
-+    maxItems: 1
-+
-+  regulators:
-+    type: object
-+    description: List of regulators provided by this controller.
-+
-+    patternProperties:
-+      "^(VDVFS|VBIASN)$":
-+        type: object
-+        $ref: regulator.yaml#
-+        unevaluatedProperties: false
-+
-+    additionalProperties: false
-+
-+required:
-+  - compatible
-+  - reg
-+  - regulators
-+
-+additionalProperties: false
-+
-+examples:
-+  - |
-+    i2c {
-+      #address-cells = <1>;
-+      #size-cells = <0>;
-+
-+      pmic@6b {
-+        compatible = "mediatek,mt6311-regulator";
-+        reg = <0x6b>;
-+
-+        regulators {
-+          VDVFS {
-+            regulator-name = "VDVFS";
-+            regulator-min-microvolt = <600000>;
-+            regulator-max-microvolt = <1400000>;
-+            regulator-ramp-delay = <10000>;
-+          };
-+
-+          VBIASN {
-+            regulator-name = "VBIASN";
-+            regulator-min-microvolt = <200000>;
-+            regulator-max-microvolt = <800000>;
-+          };
-+        };
-+      };
-+    };
-+...
-diff --git a/Documentation/devicetree/bindings/regulator/mt6311-regulator.txt b/Documentation/devicetree/bindings/regulator/mt6311-regulator.txt
-deleted file mode 100644
-index 84d544d8c1b1..000000000000
---- a/Documentation/devicetree/bindings/regulator/mt6311-regulator.txt
-+++ /dev/null
-@@ -1,35 +0,0 @@
--Mediatek MT6311 Regulator
--
--Required properties:
--- compatible: "mediatek,mt6311-regulator"
--- reg: I2C slave address, usually 0x6b.
--- regulators: List of regulators provided by this controller. It is named
--  to VDVFS and VBIASN.
--  The definition for each of these nodes is defined using the standard binding
--  for regulators at Documentation/devicetree/bindings/regulator/regulator.txt.
--
--The valid names for regulators are:
--BUCK:
--  VDVFS
--LDO:
--  VBIASN
--
--Example:
--	mt6311: pmic@6b {
--		compatible = "mediatek,mt6311-regulator";
--		reg = <0x6b>;
--
--		regulators {
--			mt6311_vcpu_reg: VDVFS {
--				regulator-name = "VDVFS";
--				regulator-min-microvolt = < 600000>;
--				regulator-max-microvolt = <1400000>;
--				regulator-ramp-delay = <10000>;
--			};
--			mt6311_ldo_reg: VBIASN {
--				regulator-name = "VBIASN";
--				regulator-min-microvolt = <200000>;
--				regulator-max-microvolt = <800000>;
--			};
--		};
--	};
--- 
-2.54.0
-
+Acked-by: Peter Griffin <peter.griffin@linaro.org>
 
