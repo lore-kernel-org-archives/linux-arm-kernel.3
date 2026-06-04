@@ -4,162 +4,96 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 8A211CD6E77
-	for <linux-arm-kernel@archiver.kernel.org>; Thu,  4 Jun 2026 16:18:53 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id E9722CD6E79
+	for <linux-arm-kernel@archiver.kernel.org>; Thu,  4 Jun 2026 16:29:18 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:
-	Content-Transfer-Encoding:Content-Type:In-Reply-To:References:Message-ID:Date
-	:Subject:CC:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=pezjpO9+d2P8Jxi67k+0WdnFKmVMdVIaxj9+26sZtmk=; b=w2yOlSOrZvIyeeQCQPDJ8+ibDX
-	YyR/WrDwHc805FsiH1BvllelI5dkz3o7Kst5qufFt8OiZRJjYF4aq0p3M09Cw0vG4kUrdr3C6Ooow
-	N/NH9Fx9AhdHPDfaw9GvChl2qYMev1l7lzcFIqgVUd4CilrzhKqYTHelJnjpoKSgDwnGquX9aUFdS
-	oztKwOBy9RmooP4sW7W02N8H982tKe4r79kSMLJkwAA2y433LqGEZ7qpmTurIxoJGqpAA3e/NQHO6
-	40fXbah6DSvv93tQ2EfbAlVoFwxZIrwfhoHLVBA3zgtFBbpnrrbD6v+jxY46fUCdgVpZ1vpYtr/Gf
-	qxfEwXoA==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	MIME-Version:Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-Type:
+	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
+	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=Tt5XveIXPd5LExPILUEQj2Sv2Xr+T+q71wH/D2X5w18=; b=iw1jmEGKxIAuoi2ig93TC2Xm4W
+	qm0Yx5AiEn52Mil3/ZvLD4mjY4Rx6DXo4/alxV9sJPcDgg/ktTvG7krv7NgTmiDKxNXmakObc2qnV
+	vpzDcPFDTClUu7c1pZ6mmf03RUP1YGJo5ppd42IDvE/ZLYGnztkrswWoxQAXjZV/QljDN/UorblQY
+	BlN+E6Je/zltYlpIrqrK7Fk/8vtVEbiA+qzAXQIlKAoavINW6uKH2UadS+4klCr6eAA33rM1bdP0f
+	RfvazFfoNYjD16tbNlc+OPFlp6D5l5CPbK2yi5acoSyTXV3YaHL3b5qJFEQC9UtSQliTgbRY2/8Lv
+	00LWG66g==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wVAmL-0000000H3OS-32bV;
-	Thu, 04 Jun 2026 16:18:45 +0000
-Received: from mail-eastusazolkn190120001.outbound.protection.outlook.com ([2a01:111:f403:d100::1] helo=BL0PR03CU003.outbound.protection.outlook.com)
+	id 1wVAwS-0000000H4EV-0coa;
+	Thu, 04 Jun 2026 16:29:12 +0000
+Received: from mail-pj1-x1029.google.com ([2607:f8b0:4864:20::1029])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wVAmK-0000000H3Nx-0elD
+	id 1wVAwP-0000000H4Dz-3414
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 04 Jun 2026 16:18:45 +0000
-ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
- b=rWXZdQKo4hJMOTrXishfCKjc/nKF67nngFABsfQ7N8XbPWqiqZmLp1Q/XdOd7TjK1t2lHESCn6c9FfYuBDhr87nWzW4ERsID6Jt/uR1ZFMxv7g2nF4rMy0BTUXJa4nFNVRxk3ad+p6RHbKy+u6QSMAU5/9hgfHKEosS6Ryjql6zdzNGaWYX4csg9bFdLcnKAhy5fkNVjJ0mQk1/gNBQoZ6X/ShzkxDqXzrL097lqt5jFDcw1JWWUELLf7A6y7BV/p/p4JERdOe+BRRndOw1xbsU5hLjNEqPgxf/GHCTHTqKW2WjpoEeQZsnpNCsdiA9PIUI+4lM+AX+FssgiYFHbQQ==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
- s=arcselector10001;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
- bh=pezjpO9+d2P8Jxi67k+0WdnFKmVMdVIaxj9+26sZtmk=;
- b=pnQGPaSL2jvxVJ5UvCPtW1aUQCr6vJTsPJqexVA3qrCTD9UHrsGYMOSbc4Ht8TBgjVDUnzC2g4W1ySlxbYWinNoy0P5zxWtxOxEReHPGaPrE0RtN31thbMfQ1dl6n2n57e0MbL+y9KglbyOA3Ef4YkAAbj38t/6ndsOcWIjzk/c/aeNo3GjKUPNFA/CRD4i4+LqQKA4lkJ2gNHEXdFLqTgnomme0Wiq8IwV+bZ9wlfmZsWwc/88Tc2tzgdj5KoipiHIzsAJiDvu3dZ4u2QFtecYyRuqErkh5774wPCcyBQI5ICkqyf0OwxdzhScHSOXchzx58k95E4eS81BrxXF3Ow==
-ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=none; dmarc=none;
- dkim=none; arc=none
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=outlook.com;
- s=selector1;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
- bh=pezjpO9+d2P8Jxi67k+0WdnFKmVMdVIaxj9+26sZtmk=;
- b=QEsyy5STVBXHUTvkxS0Pkupr45Kjd1ydaf++Kt6bTb+30MAy7lKhAQzww7ZNUwagcJ1khnoKEf/IgZC40skCAZPtT22gxpbODnvziXkriodAGH6W4DDgvGHiwAzmztvgfad649P0IhKPC+nTwfZA9JEl+OGozhwP6qyXHZDXcr+ZMIRAbfUIzPppfQ3t4aq3PfCuEkAAvIxaXsnu35GjDtd2zNvMNs612UgS1xPWUc8CNkUM/u71Wu9JUTccwwd16HOBEw6+O2F2YhqFlFAcwkcYGBDzpgsTg5pu5dgZIl+F8baI0EH6z6Ba+phX16lUe1soLgY+Z2ni531vuRucOQ==
-Received: from SN6PR02MB4157.namprd02.prod.outlook.com (2603:10b6:805:33::23)
- by BN0PR02MB8223.namprd02.prod.outlook.com (2603:10b6:408:155::6) with
- Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.21.71.13; Thu, 4 Jun 2026
- 16:18:38 +0000
-Received: from SN6PR02MB4157.namprd02.prod.outlook.com
- ([fe80::900:1ccf:2b1e:52b6]) by SN6PR02MB4157.namprd02.prod.outlook.com
- ([fe80::900:1ccf:2b1e:52b6%3]) with mapi id 15.21.0092.006; Thu, 4 Jun 2026
- 16:18:38 +0000
-From: Michael Kelley <mhklinux@outlook.com>
-To: Aneesh Kumar K.V <aneesh.kumar@kernel.org>, Michael Kelley
-	<mhklinux@outlook.com>, Jason Gunthorpe <jgg@ziepe.ca>, Michael Kelley
-	<mhklinux@outlook.com>
-CC: "iommu@lists.linux.dev" <iommu@lists.linux.dev>,
-	"linux-arm-kernel@lists.infradead.org"
-	<linux-arm-kernel@lists.infradead.org>, "linux-kernel@vger.kernel.org"
-	<linux-kernel@vger.kernel.org>, "linux-coco@lists.linux.dev"
-	<linux-coco@lists.linux.dev>, Robin Murphy <robin.murphy@arm.com>, Marek
- Szyprowski <m.szyprowski@samsung.com>, Will Deacon <will@kernel.org>, Marc
- Zyngier <maz@kernel.org>, Steven Price <steven.price@arm.com>, Suzuki K
- Poulose <Suzuki.Poulose@arm.com>, Catalin Marinas <catalin.marinas@arm.com>,
-	Jiri Pirko <jiri@resnulli.us>, Mostafa Saleh <smostafa@google.com>, Petr
- Tesarik <ptesarik@suse.com>, Alexey Kardashevskiy <aik@amd.com>, Dan Williams
-	<dan.j.williams@intel.com>, Xu Yilun <yilun.xu@linux.intel.com>,
-	"linuxppc-dev@lists.ozlabs.org" <linuxppc-dev@lists.ozlabs.org>,
-	"linux-s390@vger.kernel.org" <linux-s390@vger.kernel.org>, Madhavan
- Srinivasan <maddy@linux.ibm.com>, Michael Ellerman <mpe@ellerman.id.au>,
-	Nicholas Piggin <npiggin@gmail.com>, "Christophe Leroy (CS GROUP)"
-	<chleroy@kernel.org>, Alexander Gordeev <agordeev@linux.ibm.com>, Gerald
- Schaefer <gerald.schaefer@linux.ibm.com>, Heiko Carstens <hca@linux.ibm.com>,
-	Vasily Gorbik <gor@linux.ibm.com>, Christian Borntraeger
-	<borntraeger@linux.ibm.com>, Sven Schnelle <svens@linux.ibm.com>,
-	"x86@kernel.org" <x86@kernel.org>, Jiri Pirko <jiri@nvidia.com>
-Subject: RE: [PATCH v5 05/20] dma-pool: track decrypted atomic pools and
- select them via attrs
-Thread-Topic: [PATCH v5 05/20] dma-pool: track decrypted atomic pools and
- select them via attrs
-Thread-Index: AQHp6tfu5DGfxW+HBL9src0vNhss0QGjMATQtfypCTCABxNTgIAAi4fggACwGwCAAm86IIAADo0AgAAWnpA=
-Date: Thu, 4 Jun 2026 16:18:38 +0000
-Message-ID: <SN6PR02MB4157BC5B3C824962F091996BD4102@SN6PR02MB4157.namprd02.prod.outlook.com>
-References: <20260522042815.370873-1-aneesh.kumar@kernel.org>
- <20260522042815.370873-6-aneesh.kumar@kernel.org>
- <SN6PR02MB415754E94A9505C2B9739E4DD4092@SN6PR02MB4157.namprd02.prod.outlook.com>
- <yq5afr35sciu.fsf@kernel.org>
- <SN6PR02MB4157D9955A93244014AB7978D4122@SN6PR02MB4157.namprd02.prod.outlook.com>
- <20260603005454.GM2487554@ziepe.ca>
- <SN6PR02MB4157F94C902B78E55E99372DD4102@SN6PR02MB4157.namprd02.prod.outlook.com>
- <yq5apl26qrof.fsf@kernel.org>
-In-Reply-To: <yq5apl26qrof.fsf@kernel.org>
-Accept-Language: en-US
-Content-Language: en-US
-X-MS-Has-Attach: 
-X-MS-TNEF-Correlator: 
-x-ms-publictraffictype: Email
-x-ms-traffictypediagnostic: SN6PR02MB4157:EE_|BN0PR02MB8223:EE_
-x-ms-office365-filtering-correlation-id: 89785a9b-79f0-4673-b6e5-08dec254ef75
-x-microsoft-antispam: BCL:0;ARA:14566002|31061999003|15080799012|51005399006|41001999006|19101099003|37011999003|8062599012|8060799015|13091999003|19110799012|3412199025|440099028|102099032|40105399003|1710799026;
-x-microsoft-antispam-message-info: =?us-ascii?Q?D4uhAPljiDenAI7OEsqFIHYInh2zOm3D9PmrebIMbwbBc0+CqmmhJ1Q9OmiN?=
- =?us-ascii?Q?CeqMKQZwJOWl4dhAFEwKLvaBHTF0bzuOlb2rOQQnS/IFuCuPbs5HNNEyuPv4?=
- =?us-ascii?Q?/nTqiNnXwU6n4WFucwbkSlV1U7bj2o7pWdT5/P8d84Lst1rjAHPkaxeiGua/?=
- =?us-ascii?Q?iJaMl4+E5Vlh+xbwX5jpsWs+qvGMuRCSo83Q/0168CGEeVRIe2Cnv1/kmhQj?=
- =?us-ascii?Q?Ba+CkFMnIm28o2tGEpHl3LUTcW6JpD1p74dFRB67gIFZQycl9s3fU2XyCSY8?=
- =?us-ascii?Q?uO2wtvAyrvts6J5aXMug0KPI++/VZp+d5WPGRUchp0jK4JobiPy6ZPSQq3VM?=
- =?us-ascii?Q?GDVkBR3+o3mE0M1wGsRTTzTUolTwW2VVMAKRwukvIS+belcxtlSIfj25GLJc?=
- =?us-ascii?Q?APrSSoprgZfSJ68QDujTHNrMWzDBDsaBlhNB7jCJ4eGzn+MRDQEnC82vtMsJ?=
- =?us-ascii?Q?I+Sqjcuj1DiREgZbSTymIZ+OKUw3Py5pUEz/yBMkqvj3JJor/satBrIaDt6c?=
- =?us-ascii?Q?fx4lT+zZzWxiEj/KnPsWszbRqedcvevh3biWZLalxNZIO7mcRDqD82m6qqml?=
- =?us-ascii?Q?sO4Hd/4nWDEugqmO+j8vMbHKYLEzRqqZK8yNEg4g2Oo7RQsr/NY7GoXkIwuS?=
- =?us-ascii?Q?J80SV/7ZxVwSLLPUriXQIVR8y5MtVIbZHRZFsfMCh4lIaTpNpQ4Fhd/Nhr5h?=
- =?us-ascii?Q?RN6ZdV9HESu/K2J3C2X8L97k/IM48ZYnJ0Br/mXDdPQnCm2XPdl7gwC91PnC?=
- =?us-ascii?Q?qwEgM5jwZUCm68BvQ3tID6PbQL/X2LDxiY6SJphQSgToTSD3jUvDS1jxpkFy?=
- =?us-ascii?Q?FLtCa3MuNz3T5OGARxZQkDYWvuQAAUpZop/lR9zIHEsp6M1eR9P+L9dy0vnt?=
- =?us-ascii?Q?njL143WcxT2H9/F5YUDS5dLLvF4lUmz6zkb/p7+LEtE1N05KQXez4pxEO+48?=
- =?us-ascii?Q?E/+nXOlJjUpXOMsHoV598vtXe6Ok/pRr2yiqzYGg2u2FkdVnbW8zWh5B+LD7?=
- =?us-ascii?Q?5bj/i9SuOPcLE1XRoHtXV22AEy5sBxQpg5PipD3Bu29BbRfm1H5jPF9dbLaw?=
- =?us-ascii?Q?fw4pwnMs?=
-x-ms-exchange-antispam-messagedata-chunkcount: 1
-x-ms-exchange-antispam-messagedata-0: =?us-ascii?Q?o5CKLdFLdk7QdVeX2xmXhggqcLyDjfknKQUFld1YseSWQCBEcl4XbSnZhfj2?=
- =?us-ascii?Q?9OkiuV5HYdTOOE5GSAQKKRLkgl0mrnP3ZrGQ2ub1bElQlf30vQQjO0aD3C1s?=
- =?us-ascii?Q?seN3cEBjT2G/Yqo+yXjMq7JrFoeaWWFojyg9DCVMnUZEbsdJfp018XhMKSP0?=
- =?us-ascii?Q?EPcksS9UN1ESuBG0AToEQ92xf38l+dMBoYpd0ixLFpzAHZDXEigPWqyGQJmf?=
- =?us-ascii?Q?27kjzPKx6j25B7glpv5IgYFwwCbYs93/pQaNuQKUyIfk47zBfa+HdTPeGY25?=
- =?us-ascii?Q?BwO4SC+za/3lrBYcaFoN1E5G/Vv8AUugKBuOgNrz1LbxFaHn31nvJWckMyXr?=
- =?us-ascii?Q?y2smu5rmWLcbo6m7EDcZoNoAzqGTC+URWIq+kpq1/aSykzG1JWSGf05AR3w8?=
- =?us-ascii?Q?9AENSBShDTjHS6JNaTMEoklrRqY651ASrmQ+coQnMeIOYuqOR9wUvqxAw4W8?=
- =?us-ascii?Q?renNustQl/s543nMsxRKTl7XTCOf/PkNbiKfWGgch/UE114L6sAsuQOR+Lee?=
- =?us-ascii?Q?vsPQy4Hqjm5le/N3wjpoUOGkHAbHjc0kDm07c3T5VdKlXeQrpu8788lJ+o4K?=
- =?us-ascii?Q?UWkMWjb3VqSy+91kBOD4sOdCutCX6CiaHsGcJAsyUugEPUCHO1MfWwZAOGc/?=
- =?us-ascii?Q?C8MrQpm/BwUOaoqRuYJtQx7P/0AmBUNFjgC3oPwupoViyp08ZWv1lwMVDeLx?=
- =?us-ascii?Q?rtoBlogiI1SFbfvnPHkVMflzbSXt7LQvdOn/E1svrRTs/1g89Zh40WjjU1VL?=
- =?us-ascii?Q?dXGQo1baQC8YfEtxo+qJbbtTODhVQS2iQ1wTPJgcXG9AuP6YfAs1n/tO1+iM?=
- =?us-ascii?Q?cZa1ZSqv99evBDReHHgHMS/yMt5qVoZgGcrsU1RYotvH1oFebtu0mjvp5oCj?=
- =?us-ascii?Q?ErYhs4HaWnIw2FlXNr7iEQeujoKEjhUN2UXuZNjG6A+Lz3En8kLjkFazm6YQ?=
- =?us-ascii?Q?YYkSarDTC9F0AQtPb/fwzj5aVEhqx1T1dE2HGDbYrJ16gPsczvJwgE4iyq/X?=
- =?us-ascii?Q?LXsGnurr962YFwbba4XUZ6DI8QClUITrVermGug7BIqoMvQFZh6we3UoR2U2?=
- =?us-ascii?Q?LFJRk+d43/8j/j+2mvUttc9s6phfgW2LbYipOeNBTOtkWOHKgzR38mDz57y0?=
- =?us-ascii?Q?u8u73tdcis/tDR8ICcIbYRmNErEkBzZz00FLw4Wi//HcZPsKQ1ASHV9FSLgQ?=
- =?us-ascii?Q?vRH4xoqtjgsC5I/b2SCxEEnDaVR5nJ2rKx5jyCWaJFwNBWc8LW0N/wUjShmG?=
- =?us-ascii?Q?5YKsowxN64cquoC5mJe1Rz/Cda+bypoMHCKuVRqdWhDUt6jW7cJA9E1BwikP?=
- =?us-ascii?Q?GC/iganXydZvXVb/CGw26jZMHeQLVdLVWEW14cOvncQCjCRnSYnJ4ItbPhIi?=
- =?us-ascii?Q?wyFSIfJIDAbCFU7MByxDSbp6l0S5UPF/93KU+H2P0IJ2c6JjtnWXsvw/gbjI?=
- =?us-ascii?Q?GP42+vqRzKI=3D?=
-Content-Type: text/plain; charset="us-ascii"
-Content-Transfer-Encoding: quoted-printable
+	Thu, 04 Jun 2026 16:29:11 +0000
+Received: by mail-pj1-x1029.google.com with SMTP id 98e67ed59e1d1-36b9033d230so552761a91.1
+        for <linux-arm-kernel@lists.infradead.org>; Thu, 04 Jun 2026 09:29:09 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=gmail.com; s=20251104; t=1780590548; x=1781195348; darn=lists.infradead.org;
+        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
+         :to:from:from:to:cc:subject:date:message-id:reply-to;
+        bh=Tt5XveIXPd5LExPILUEQj2Sv2Xr+T+q71wH/D2X5w18=;
+        b=FGUEYtVGrp4ywTcmme1Bv3CJgIjU4LhfByo1tbYIjRWUn27mjM8vnvIllf73n/fN7F
+         Xi+5rM+KF0u+B+5gS+LN3FnQgBL6JCo29rYjVV+CWlT3RNBYkQNgjNEPa9QqeK5SMCaK
+         ZWmj91fV4QV6k3kdJXymsagOzLKEZYQYC/yXeDqQqaG2ypNl0ZVHcDWqRNEhQfAdmAPL
+         bbYrZK3rY7740i/UKH1S1+Ca0oMEebJn+K5xi60WXiK1MR0Ki65EFG6Q+sSZ0vfgQuMJ
+         mYvb+Qc3bvw0l9pjib25u8S6HTWEXivemj9uOiOso6Qf9UHZvTvPVFZtZix1hQ2OuSzz
+         /ncw==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20251104; t=1780590548; x=1781195348;
+        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
+         :to:from:x-gm-gg:x-gm-message-state:from:to:cc:subject:date
+         :message-id:reply-to;
+        bh=Tt5XveIXPd5LExPILUEQj2Sv2Xr+T+q71wH/D2X5w18=;
+        b=CCrwrw5KqAv573VJduaFSzkYSP10k/YK8yPE+zpMNlqK/FQQgltjvZZO6S91vqRUn7
+         60z0vCsc0uRF54efWqBsX7rITyWdpHzf0LwI+xsPH1+F6YMTwRQHEqEIs9gQdSk4X6gK
+         ENX/O7Y8GtGxXs/xMSHDssp7AVHvGBsi9l8mncT+1j+Ov6+dQuKDsQ7QwVMipVEpNcEl
+         cROjBHUV6YXmtIludk5VCSKNxZ2/4jududTgheIKF9KjwEZ+uIqJYS6zmk6qQhOr5FA0
+         v7FLcT2En+Qp0vsR7eeAwRmdyLh9mkmC4vyfAHEknN0fN3s4DWcExSlkjezY9h7A79LS
+         gx9g==
+X-Forwarded-Encrypted: i=1; AFNElJ8KHoDmyfLH0bYPPhMJSS9WmmJ68PpspiO0S8gky7T0d53qlxXbGxrMpPgeOkGgcpHaz4omSflMgk/6SYm58ET6@lists.infradead.org
+X-Gm-Message-State: AOJu0Yy3SKU7Qx5H28UtNbCiSPeZWNcOrooOrRA8Na0oJMir71KDoot7
+	UGP0XaGX1GgRfKPfs1MPzKFC0ml27Q9uG6+l4pIsaFU1rwbWipQPLqij
+X-Gm-Gg: Acq92OFl1oKlFbWvSEy02xMvxSpqzHzuBtwzpjqpUTtvfEiNW2FLKSGDNgJgxsp9Kb+
+	uqGtcgAETFcz3arlwzjoCkddXMCsoqYcp3Gg+t6NHRVm+c5wDCC9NhlhjuDvamFso9fPMmy1I6J
+	QecKTTfOZd/SQooFjhXpSN6rqAWA1nj+/xtJ+tUmtLStM0vr47oEZXhs+yrk/xVobpWxiWlKWfd
+	mOpW+g1X80HGiGbuSRcb78ZzGo/3L6ZsvXfjAiZSlirlelmCSW3u0OY5S7yhm2w2cavl+kYWBoV
+	rLoHGq47ge5RCxcxpHZsxaX3/s4tRWh0sVQ0sMEgeynOevGhPSLbpBzBJrflGv5HX+lSsKvORBW
+	C3lm07MpVSoMQwGusGTiPeoB3l0xn02QwkwSRIecRd4uBraN0GuVQencgyG/DGOTwzqdJBZSGqi
+	o9OfV190hMzu/4Dk3mocIxOpk147cJtjev1RyWyAg4ivd4aEBMmN5sD6GA3GAQzqiZ3XXT8aDYv
+	64e2DgZ9R0h3QRQviAKyjGlDBt1
+X-Received: by 2002:a17:90b:2b4b:b0:36a:caf2:3815 with SMTP id 98e67ed59e1d1-36f781bded1mr3553423a91.15.1780590548307;
+        Thu, 04 Jun 2026 09:29:08 -0700 (PDT)
+Received: from fedora ([103.181.54.97])
+        by smtp.gmail.com with ESMTPSA id 98e67ed59e1d1-36f712de91asm3670255a91.16.2026.06.04.09.29.03
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Thu, 04 Jun 2026 09:29:07 -0700 (PDT)
+From: Ninad Naik <ninadnaik07@gmail.com>
+To: lgirdwood@gmail.com,
+	broonie@kernel.org,
+	robh@kernel.org,
+	krzk+dt@kernel.org,
+	conor+dt@kernel.org,
+	matthias.bgg@gmail.com,
+	angelogioacchino.delregno@collabora.com
+Cc: devicetree@vger.kernel.org,
+	linux-kernel@vger.kernel.org,
+	linux-arm-kernel@lists.infradead.org,
+	linux-mediatek@lists.infradead.org,
+	me@brighamcampbell.com,
+	linux-kernel-mentees@lists.linux.dev,
+	skhan@linuxfoundation.org,
+	Ninad Naik <ninadnaik07@gmail.com>
+Subject: [PATCH v2] regulator: dt-bindings: mt6311: Convert to DT schema
+Date: Thu,  4 Jun 2026 21:56:24 +0530
+Message-ID: <20260604162624.644241-1-ninadnaik07@gmail.com>
+X-Mailer: git-send-email 2.54.0
 MIME-Version: 1.0
-X-OriginatorOrg: outlook.com
-X-MS-Exchange-CrossTenant-AuthAs: Internal
-X-MS-Exchange-CrossTenant-AuthSource: SN6PR02MB4157.namprd02.prod.outlook.com
-X-MS-Exchange-CrossTenant-RMS-PersistedConsumerOrg: 00000000-0000-0000-0000-000000000000
-X-MS-Exchange-CrossTenant-Network-Message-Id: 89785a9b-79f0-4673-b6e5-08dec254ef75
-X-MS-Exchange-CrossTenant-originalarrivaltime: 04 Jun 2026 16:18:38.3662
- (UTC)
-X-MS-Exchange-CrossTenant-fromentityheader: Hosted
-X-MS-Exchange-CrossTenant-id: 84df9e7f-e9f6-40af-b435-aaaaaaaaaaaa
-X-MS-Exchange-CrossTenant-rms-persistedconsumerorg: 00000000-0000-0000-0000-000000000000
-X-MS-Exchange-Transport-CrossTenantHeadersStamped: BN0PR02MB8223
+Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260604_091844_209005_62F27252 
-X-CRM114-Status: GOOD (  29.26  )
+X-CRM114-CacheID: sfid-20260604_092909_805331_804E4E53 
+X-CRM114-Status: GOOD (  15.12  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -174,67 +108,140 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-From: Aneesh Kumar K.V <aneesh.kumar@kernel.org> Sent: Thursday, June 4, 20=
-26 7:58 AM
->=20
-> Michael Kelley <mhklinux@outlook.com> writes:
->=20
-> > From: Jason Gunthorpe <jgg@ziepe.ca> Sent: Tuesday, June 2, 2026 5:55 P=
-M
-> >>
-> >> On Tue, Jun 02, 2026 at 02:24:40PM +0000, Michael Kelley wrote:
-> >>
-> >> > Except that in a normal VM, the "unencrypted" pool attribute does *n=
-ot*
-> >> > describe the state of the memory itself.  In a normal VM, the memory=
- is
-> >> > unencrypted, but the "unencrypted" pool attribute is false. That
-> >> > contradiction is the essence of my concern.
-> >>
-> >> I would argue no..
-> >>
-> >> When CC is enabled the default state of memory in a Linux environment
-> >> is "encrypted". You have to take a special action to "decrypt" it.
-> >>
-> >> Thus the default state of memory in a non-CC environment is also
-> >> paradoxically "encrypted" too.
-> >
-> > The need to have such an unnatural premise is usually an indication
-> > of a conceptual problem with the overall model, or perhaps just a
-> > terminology problem.
-> >
-> > Here's a proposal. The new DMA attribute is DMA_ATTR_CC_SHARED.
-> > Name the pool attribute "cc_shared" instead of "unencrypted". Having
-> > "cc_shared" set to false in a normal VM doesn't lead to the non-sensica=
-l
-> > situation of claiming that a normal VM is encrypted. The boolean
-> > "unencrypted" parameter that has been added to various calls also
-> > becomes "cc_shared".  If "CC_SHARED" is a suitable name for the DMA
-> > attribute, it ought to be suitable as the pool attribute. And everythin=
-g
-> > matches as well.
-> >
->=20
-> That is better. It would also simplify:
->=20
-> 	if (mem->unencrypted !=3D !!(attrs & DMA_ATTR_CC_SHARED))
-> 		return NULL;
->=20
-> to
-> 	if (mem->cc_shared !=3D !!(attrs & DMA_ATTR_CC_SHARED))
-> 		return NULL;
->=20
->=20
-> I already sent a v6 in the hope of getting this merged for the next
-> merge window. Should I send a v7, or would you prefer that I do the
-> rename on top of v6?
->=20
+Convert mediatek,mt6311 to DT schema.
 
-I would advocate for a v7 with the rename, vs. a separate follow-on
-patch to do the rename, just to reduce churn. But I don't know what
-the tradeoffs are in trying to hit the next merge window. If a follow-on
-patch is more practical from a timing standpoint, I won't object.
+Signed-off-by: Ninad Naik <ninadnaik07@gmail.com>
+---
+Changes in v2:
+- Correct "MediaTek" in the title.
+- Drop "|" in the top-level description.
+- Remove unnecessary regulator node description.
+- Remove unused labels from example.
 
-Michael
+ .../regulator/mediatek,mt6311-regulator.yaml  | 70 +++++++++++++++++++
+ .../bindings/regulator/mt6311-regulator.txt   | 35 ----------
+ 2 files changed, 70 insertions(+), 35 deletions(-)
+ create mode 100644 Documentation/devicetree/bindings/regulator/mediatek,mt6311-regulator.yaml
+ delete mode 100644 Documentation/devicetree/bindings/regulator/mt6311-regulator.txt
+
+diff --git a/Documentation/devicetree/bindings/regulator/mediatek,mt6311-regulator.yaml b/Documentation/devicetree/bindings/regulator/mediatek,mt6311-regulator.yaml
+new file mode 100644
+index 000000000000..f65ee2c90298
+--- /dev/null
++++ b/Documentation/devicetree/bindings/regulator/mediatek,mt6311-regulator.yaml
+@@ -0,0 +1,70 @@
++# SPDX-License-Identifier: (GPL-2.0 OR BSD-2-Clause)
++%YAML 1.2
++---
++$id: http://devicetree.org/schemas/regulator/mediatek,mt6311-regulator.yaml#
++$schema: http://devicetree.org/meta-schemas/core.yaml#
++
++title: MediaTek MT6311 Regulator
++
++maintainers:
++  - AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>
++
++description:
++  The MediaTek MT6311 is an I2C power management IC that provides one step-down
++  converter and one low-dropout regulator. The regulators are named VDVFS and
++  VBIASN, respectively.
++
++properties:
++  compatible:
++    const: mediatek,mt6311-regulator
++
++  reg:
++    description: I2C slave address.
++    maxItems: 1
++
++  regulators:
++    type: object
++    description: List of regulators provided by this controller.
++
++    patternProperties:
++      "^(VDVFS|VBIASN)$":
++        type: object
++        $ref: regulator.yaml#
++        unevaluatedProperties: false
++
++    additionalProperties: false
++
++required:
++  - compatible
++  - reg
++  - regulators
++
++additionalProperties: false
++
++examples:
++  - |
++    i2c {
++      #address-cells = <1>;
++      #size-cells = <0>;
++
++      pmic@6b {
++        compatible = "mediatek,mt6311-regulator";
++        reg = <0x6b>;
++
++        regulators {
++          VDVFS {
++            regulator-name = "VDVFS";
++            regulator-min-microvolt = <600000>;
++            regulator-max-microvolt = <1400000>;
++            regulator-ramp-delay = <10000>;
++          };
++
++          VBIASN {
++            regulator-name = "VBIASN";
++            regulator-min-microvolt = <200000>;
++            regulator-max-microvolt = <800000>;
++          };
++        };
++      };
++    };
++...
+diff --git a/Documentation/devicetree/bindings/regulator/mt6311-regulator.txt b/Documentation/devicetree/bindings/regulator/mt6311-regulator.txt
+deleted file mode 100644
+index 84d544d8c1b1..000000000000
+--- a/Documentation/devicetree/bindings/regulator/mt6311-regulator.txt
++++ /dev/null
+@@ -1,35 +0,0 @@
+-Mediatek MT6311 Regulator
+-
+-Required properties:
+-- compatible: "mediatek,mt6311-regulator"
+-- reg: I2C slave address, usually 0x6b.
+-- regulators: List of regulators provided by this controller. It is named
+-  to VDVFS and VBIASN.
+-  The definition for each of these nodes is defined using the standard binding
+-  for regulators at Documentation/devicetree/bindings/regulator/regulator.txt.
+-
+-The valid names for regulators are:
+-BUCK:
+-  VDVFS
+-LDO:
+-  VBIASN
+-
+-Example:
+-	mt6311: pmic@6b {
+-		compatible = "mediatek,mt6311-regulator";
+-		reg = <0x6b>;
+-
+-		regulators {
+-			mt6311_vcpu_reg: VDVFS {
+-				regulator-name = "VDVFS";
+-				regulator-min-microvolt = < 600000>;
+-				regulator-max-microvolt = <1400000>;
+-				regulator-ramp-delay = <10000>;
+-			};
+-			mt6311_ldo_reg: VBIASN {
+-				regulator-name = "VBIASN";
+-				regulator-min-microvolt = <200000>;
+-				regulator-max-microvolt = <800000>;
+-			};
+-		};
+-	};
+-- 
+2.54.0
 
 
