@@ -4,67 +4,71 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 24707CD6E4A
-	for <linux-arm-kernel@archiver.kernel.org>; Thu,  4 Jun 2026 09:21:51 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 002A9CD6E57
+	for <linux-arm-kernel@archiver.kernel.org>; Thu,  4 Jun 2026 09:23:49 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=dNw5Co3y7LwscFZy6jowrPYsDHekQNpDvhOzWqn0niM=; b=x1dqEDdDsh2j/Nmu+DQ/dc3yey
-	xbLqmKs+veO02Pt0D4PaLGEVUvjRGollV9JCou/Bzg6EXkCe32PvkXtE7QY09ZMCUGIgQSfYpIrN4
-	epQlQZFbiyraTcGmP+C4kGGkTEZjtDRstmHgq1kz1hKEN1IDj39AZczaLS6usnQpB5Ybx7q0TCjGg
-	LpH+jxi2Er66SK5BGRyimYwRm8hBzOzIiLwb+OFZ6GqfCs3q1JsW61bjXVRpyRYADrN6y1qZt4lwG
-	hLhvzKJhCEBWmtaRUl/LfGbwjEehaYvUBPAJ2JJf+5ggMx2oJ+O3lpfIdQT7WNh6gLpb3qVj2uSJg
-	WczkfDUw==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:MIME-Version:Message-Id:Date:Subject:Cc:To:From:Reply-To:
+	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
+	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=Gy7oQoV1YVWq9cYawsnDMlFCdsxns4i/Vok8E9oZ1/U=; b=FxyAY3RCMGUJehOLdLb+SPBT9Q
+	Pr1hx5IxE02WWebkYwkMnZ8HtyLB29tywfn1LUp9Jjvwb+3xlE/TF8e9JHvnb516o+NbUMJ0BLTps
+	uJYjiVY2yrO6Z9YyUOzYKsnmDT25IQ3F15X2Yf9hknBLyBiVy2vToDjEFwuVtg/gR5NEqV3wDq+Z6
+	8Uj6mQFwwSW9Rc4/tlmnOivPKF4VthbPY1P72R3YtybMxZ9gkULHonhuKuHg611IBBdRDbI00IQwt
+	NV7GMQNu3q9qYxmcbw02z1YiTZ+6KEXk5wrv0ozYIpJ/caFNuFIXCnqGVcLfj/Mo8KMiax28vW6z8
+	YSV4d4QQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wV4Gn-0000000GUOu-0XJ3;
-	Thu, 04 Jun 2026 09:21:45 +0000
-Received: from tor.source.kernel.org ([2600:3c04:e001:324:0:1991:8:25])
+	id 1wV4Ig-0000000GUeR-2IUN;
+	Thu, 04 Jun 2026 09:23:42 +0000
+Received: from mailgw.kylinos.cn ([124.126.103.232])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wV4Gm-0000000GUOm-0TT3
+	id 1wV4Id-0000000GUdV-0nEr
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 04 Jun 2026 09:21:44 +0000
-Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
-	by tor.source.kernel.org (Postfix) with ESMTP id 54AC1601D6;
-	Thu,  4 Jun 2026 09:21:43 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id AD2671F00893;
-	Thu,  4 Jun 2026 09:21:40 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1780564903;
-	bh=dNw5Co3y7LwscFZy6jowrPYsDHekQNpDvhOzWqn0niM=;
-	h=Date:From:To:Cc:Subject:References:In-Reply-To;
-	b=bDqaXv36KnS5AV0w0eWLKbEYl0jPQLNRWk3ANk06cZD/3wZLUXGeq4zTcLZQMJRdb
-	 FS8tc44udOeGXserCpp8tU5QPiusNcQVST4LHuaLhOuxbovXcO6PTvVGnmHrDxx6qf
-	 6Nkj1G2as9PpZeiyo+IQauWFDIkGa+RpYdqAEjYHQANT3NJ4+ndRwJizycHChk1nAZ
-	 8e3TsMXYucFWbV4pohkLgwg8O1PmPrD4j+BSZhSqJG2ubRiHDObGPfQJVVlesnPI+4
-	 kxwWeekwUjjdF/v/1nUCfdxNQK8JarBO6MjZ9QDvKHp/SNybxXl3eWWoCAKQL/xaDA
-	 EipozfzWduRSA==
-Date: Thu, 4 Jun 2026 10:21:38 +0100
-From: Sudeep Holla <sudeep.holla@kernel.org>
-To: "Aneesh Kumar K.V (Arm)" <aneesh.kumar@kernel.org>
-Cc: linux-coco@lists.linux.dev, linux-arm-kernel@lists.infradead.org,
+	Thu, 04 Jun 2026 09:23:41 +0000
+X-UUID: 0a27f7325ff711f1aa26b74ffac11d73-20260604
+X-CID-P-RULE: Release_Ham
+X-CID-O-INFO: VERSION:1.3.12,REQID:5b624450-47ea-4371-ae5f-1258fe4495b8,IP:0,U
+	RL:0,TC:0,Content:-25,EDM:0,RT:0,SF:0,FILE:0,BULK:0,RULE:Release_Ham,ACTIO
+	N:release,TS:-25
+X-CID-META: VersionHash:e7bac3a,CLOUDID:e4c7805d934a014666a993804dd046ea,BulkI
+	D:nil,BulkQuantity:0,Recheck:0,SF:102|850|865|898,TC:nil,Content:0|15|50,E
+	DM:-3,IP:nil,URL:99|1,File:nil,RT:nil,Bulk:nil,QS:nil,BEC:nil,COL:0,OSI:0,
+	OSA:0,AV:0,LES:1,SPR:NO,DKR:0,DKP:0,BRR:0,BRE:0,ARC:0
+X-CID-BVR: 2,SSN|SDN
+X-CID-BAS: 2,SSN|SDN,0,_
+X-CID-FACTOR: TF_CID_SPAM_SNR,TF_CID_SPAM_ULS
+X-CID-RHF: D41D8CD98F00B204E9800998ECF8427E
+X-UUID: 0a27f7325ff711f1aa26b74ffac11d73-20260604
+X-User: zenghongling@kylinos.cn
+Received: from localhost.localdomain [(10.44.16.150)] by mailgw.kylinos.cn
+	(envelope-from <zenghongling@kylinos.cn>)
+	(Generic MTA with TLSv1.3 TLS_AES_256_GCM_SHA384 256/256)
+	with ESMTP id 860169002; Thu, 04 Jun 2026 17:23:25 +0800
+From: Hongling Zeng <zenghongling@kylinos.cn>
+To: ludovic.desroches@microchip.com,
+	vkoul@kernel.org,
+	Frank.Li@kernel.org,
+	tudor.ambarus@linaro.org,
+	nicolas.ferre@microchip.com
+Cc: linux-arm-kernel@lists.infradead.org,
+	dmaengine@vger.kernel.org,
 	linux-kernel@vger.kernel.org,
-	Catalin Marinas <catalin.marinas@arm.com>,
-	Sudeep Holla <sudeep.holla@kernel.org>,
-	Greg KH <gregkh@linuxfoundation.org>,
-	Jeremy Linton <jeremy.linton@arm.com>,
-	Jonathan Cameron <jic23@kernel.org>,
-	Lorenzo Pieralisi <lpieralisi@kernel.org>,
-	Mark Rutland <mark.rutland@arm.com>, Will Deacon <will@kernel.org>,
-	Steven Price <steven.price@arm.com>,
-	Suzuki K Poulose <Suzuki.Poulose@arm.com>
-Subject: Re: [PATCH v6 3/4] firmware: smccc: arm-cca-guest: Bind the TSM
- provider to an SMCCC device
-Message-ID: <20260603-determined-bumblebee-of-promise-e633d6@sudeepholla>
-References: <20260527100233.428018-1-aneesh.kumar@kernel.org>
- <20260527100233.428018-4-aneesh.kumar@kernel.org>
+	zhongling0719@126.com,
+	Hongling Zeng <zenghongling@kylinos.cn>,
+	sashiko-bot@kernel.org
+Subject: [PATCH] dma: at_hdmac: Fix use-after-free by proper tasklet cleanup
+Date: Thu,  4 Jun 2026 17:23:20 +0800
+Message-Id: <20260604092320.257303-1-zenghongling@kylinos.cn>
+X-Mailer: git-send-email 2.25.1
 MIME-Version: 1.0
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-In-Reply-To: <20260527100233.428018-4-aneesh.kumar@kernel.org>
+Content-Type: text/plain; charset=UTF-8
+Content-Transfer-Encoding: 8bit
+X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
+X-CRM114-CacheID: sfid-20260604_022339_560884_9F56C198 
+X-CRM114-Status: UNSURE (   9.17  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -79,226 +83,78 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Wed, May 27, 2026 at 03:32:32PM +0530, Aneesh Kumar K.V (Arm) wrote:
-> The Arm CCA guest TSM provider currently binds through the arm-cca-dev
-> platform device. Like arm-smccc-trng, this device is not an independent
-> platform resource; it is a software representation of the RSI firmware
-> service discovered through SMCCC.
-> 
-> Move RSI discovery into the SMCCC firmware driver. When the SMCCC conduit
-> is SMC and the RSI ABI version check succeeds, create an arm-rsi-dev SMCCC
-> device. Convert the Arm CCA guest TSM provider to an SMCCC driver so it
-> binds to that discovered RSI service and keeps module autoloading through
-> the SMCCC device id table.
-> 
-> Keep the old arm-cca-dev platform-device registration for now. Userspace
-> has used that device as a Realm-guest indicator, so removing it is left to
-> a follow-up patch that adds a replacement sysfs ABI.
-> 
-> Signed-off-by: Aneesh Kumar K.V (Arm) <aneesh.kumar@kernel.org>
-> ---
->  arch/arm64/include/asm/rsi.h                  |  2 +-
->  arch/arm64/kernel/rsi.c                       |  2 +-
->  drivers/firmware/smccc/Makefile               |  4 ++
->  drivers/firmware/smccc/rmm.c                  | 25 ++++++++
->  drivers/firmware/smccc/rmm.h                  | 17 ++++++
->  drivers/firmware/smccc/smccc.c                |  8 +++
->  drivers/virt/coco/arm-cca-guest/Kconfig       |  1 +
->  drivers/virt/coco/arm-cca-guest/Makefile      |  2 +
->  .../{arm-cca-guest.c => arm-cca.c}            | 60 +++++++++----------
->  9 files changed, 89 insertions(+), 32 deletions(-)
->  create mode 100644 drivers/firmware/smccc/rmm.c
->  create mode 100644 drivers/firmware/smccc/rmm.h
->  rename drivers/virt/coco/arm-cca-guest/{arm-cca-guest.c => arm-cca.c} (85%)
-> 
-> diff --git a/arch/arm64/include/asm/rsi.h b/arch/arm64/include/asm/rsi.h
-> index 88b50d660e85..2d2d363aaaee 100644
-> --- a/arch/arm64/include/asm/rsi.h
-> +++ b/arch/arm64/include/asm/rsi.h
-> @@ -10,7 +10,7 @@
->  #include <linux/jump_label.h>
->  #include <asm/rsi_cmds.h>
->  
-> -#define RSI_PDEV_NAME "arm-cca-dev"
-> +#define RSI_DEV_NAME "arm-rsi-dev"
->  
->  DECLARE_STATIC_KEY_FALSE(rsi_present);
->  
-> diff --git a/arch/arm64/kernel/rsi.c b/arch/arm64/kernel/rsi.c
-> index 92160f2e57ff..da440f71bb64 100644
-> --- a/arch/arm64/kernel/rsi.c
-> +++ b/arch/arm64/kernel/rsi.c
-> @@ -161,7 +161,7 @@ void __init arm64_rsi_init(void)
->  }
->  
->  static struct platform_device rsi_dev = {
-> -	.name = RSI_PDEV_NAME,
-> +	.name = "arm-cca-dev",
->  	.id = PLATFORM_DEVID_NONE
->  };
->  
-> diff --git a/drivers/firmware/smccc/Makefile b/drivers/firmware/smccc/Makefile
-> index 40d19144a860..33c850aaff4d 100644
-> --- a/drivers/firmware/smccc/Makefile
-> +++ b/drivers/firmware/smccc/Makefile
-> @@ -2,3 +2,7 @@
->  #
->  obj-$(CONFIG_HAVE_ARM_SMCCC_DISCOVERY)	+= smccc.o kvm_guest.o
->  obj-$(CONFIG_ARM_SMCCC_SOC_ID)	+= soc_id.o
-> +
-> +ifeq ($(CONFIG_HAVE_ARM_SMCCC_DISCOVERY),y)
-> +obj-$(CONFIG_ARM64) += rmm.o
-> +endif
-> diff --git a/drivers/firmware/smccc/rmm.c b/drivers/firmware/smccc/rmm.c
-> new file mode 100644
-> index 000000000000..d572f47e955c
-> --- /dev/null
-> +++ b/drivers/firmware/smccc/rmm.c
-> @@ -0,0 +1,25 @@
-> +// SPDX-License-Identifier: GPL-2.0-only
-> +/*
-> + * Copyright (C) 2026 Arm Limited
-> + */
-> +
-> +#include <linux/arm-smccc-bus.h>
-> +#include <linux/err.h>
-> +#include <linux/printk.h>
-> +
-> +#include "rmm.h"
-> +
-> +void __init register_rsi_device(void)
-> +{
-> +	unsigned long ret;
-> +
-> +	if (arm_smccc_1_1_get_conduit() != SMCCC_CONDUIT_SMC)
-> +		return;
-> +
-> +	ret = rsi_request_version(RSI_ABI_VERSION, NULL, NULL);
-> +	if (ret != RSI_SUCCESS)
-> +		return;
-> +
-> +	if (IS_ERR(arm_smccc_device_register(RSI_DEV_NAME)))
-> +		pr_err("%s: could not register device\n", RSI_DEV_NAME);
-> +}
+Current cleanup paths have a use-after-free vulnerability:
+- vchan_init() creates tasklets that access at_dma_chan memory
+- free_irq() only waits for IRQ handler, NOT tasklets
+- atdma is devm-managed and freed after probe/remove
+- Running tasklets accessing freed memory → Use-After-Free!
 
-OK, I had something else in my mind when I started looking at 1/4. I didn't
-expect each device added on this bus comes up with it's own way to enumerate
-it. IMO, it defeats the purpose of building the smccc bus. We may find the
-specs for each feature deviated a bit but we can have a generic probe
-IMO, let's try that before exploring per feature probe function.
+The fix requires careful ordering:
+- Disable interrupts FIRST to stop new tasklets from being scheduled
+- Then kill tasklets to wait for already-scheduled ones to complete
+- Only then free IRQs and other resources
 
-I have a brief sketch of what I think we should aim for(uncompiled/untested)
-below. Let me know if that makes sense. I just based it on your bus code.
+Fixes: ac803b56860f ("dmaengine: at_hdmac: Convert driver to use virt-dma")
+Reported-by: sashiko-bot@kernel.org
+Closes: https://lore.kernel.org/all/20260604073945.54B311F00898@smtp.kernel.org/
+Signed-off-by: Hongling Zeng <zenghongling@kylinos.cn>
+---
+ drivers/dma/at_hdmac.c | 23 ++++++++++++++++-------
+ 1 file changed, 16 insertions(+), 7 deletions(-)
 
-Regards,
-Sudeep
-
--->8
-
-diff --git c/drivers/firmware/smccc/smccc.c w/drivers/firmware/smccc/smccc.c
-index 695c920a8087..450605ddfab6 100644
---- c/drivers/firmware/smccc/smccc.c
-+++ w/drivers/firmware/smccc/smccc.c
-@@ -9,21 +9,58 @@
- #include <linux/init.h>
- #include <linux/arm-smccc.h>
- #include <linux/kernel.h>
--#include <linux/platform_device.h>
- #include <linux/arm-smccc-bus.h>
- #include <linux/idr.h>
- #include <linux/slab.h>
-
--#include <asm/archrandom.h>
--
- static u32 smccc_version = ARM_SMCCC_VERSION_1_0;
- static enum arm_smccc_conduit smccc_conduit = SMCCC_CONDUIT_NONE;
- static DEFINE_IDA(arm_smccc_bus_id);
-
--bool __ro_after_init smccc_trng_available = false;
-+struct smccc_device_info {
-+       u32 func_id;
-+       bool requires_smc;
-+       unsigned long min_return;
-+       const char *device_name;
-+};
-+
-+bool __ro_after_init smccc_trng_available;
- s32 __ro_after_init smccc_soc_id_version = SMCCC_RET_NOT_SUPPORTED;
- s32 __ro_after_init smccc_soc_id_revision = SMCCC_RET_NOT_SUPPORTED;
-
-+static const struct smccc_device_info smccc_devices[] __initconst = {
-+       {
-+               .func_id        = ARM_SMCCC_TRNG_VERSION,
-+               .requires_smc   = false,
-+               .min_return     = ARM_SMCCC_TRNG_MIN_VERSION,
-+               .device_name    = "arm-smccc-trng",
-+       },
-+};
-+
-+static bool __init
-+smccc_probe_smccc_device(const struct smccc_device_info *smccc_dev)
+diff --git a/drivers/dma/at_hdmac.c b/drivers/dma/at_hdmac.c
+index e5b30a57c477..ac45e88e16da 100644
+--- a/drivers/dma/at_hdmac.c
++++ b/drivers/dma/at_hdmac.c
+@@ -1940,6 +1940,19 @@ static void at_dma_off(struct at_dma *atdma)
+ 		cpu_relax();
+ }
+ 
++static void at_dma_cleanup_channels(struct at_dma *atdma)
 +{
-+       struct arm_smccc_res res;
-+       unsigned long ret;
++	struct dma_chan *chan, *_chan;
 +
-+       if (!IS_ENABLED(CONFIG_ARM64))
-+               return false;
-+
-+       if (smccc_conduit == SMCCC_CONDUIT_NONE)
-+               return false;
-+
-+       if (smccc_dev->requires_smc && smccc_conduit != SMCCC_CONDUIT_SMC)
-+               return false;
-+
-+       arm_smccc_1_1_invoke(smccc_dev->func_id, &res);
-+       ret = res.a0;
-+
-+       if ((s32)ret < 0)
-+               return false;
-+
-+       return ret >= smccc_dev->min_return;
++	list_for_each_entry_safe(chan, _chan, &atdma->dma_device.channels,
++			device_node) {
++		/* Disable interrupts */
++		atc_disable_chan_irq(atdma, chan->chan_id);
++		tasklet_kill(&to_at_dma_chan(chan)->vc.task);
++		list_del(&chan->device_node);
++	}
 +}
 +
- void __init arm_smccc_version_init(u32 version, enum arm_smccc_conduit conduit)
+ static int __init at_dma_probe(struct platform_device *pdev)
  {
-        struct arm_smccc_res res;
-@@ -31,7 +68,7 @@ void __init arm_smccc_version_init(u32 version, enum arm_smccc_conduit conduit)
-        smccc_version = version;
-        smccc_conduit = conduit;
-
--       smccc_trng_available = smccc_probe_trng();
-+       smccc_trng_available = smccc_probe_smccc_device(&smccc_devices[0]);
-
-        if ((smccc_version >= ARM_SMCCC_VERSION_1_2) &&
-            (smccc_conduit != SMCCC_CONDUIT_NONE)) {
-@@ -241,14 +278,20 @@ subsys_initcall(arm_smccc_bus_init);
-
- static int __init smccc_devices_init(void)
- {
--       struct platform_device *pdev;
+ 	struct at_dma		*atdma;
+@@ -2109,6 +2122,7 @@ static int __init at_dma_probe(struct platform_device *pdev)
+ err_memset_pool_create:
+ 	dma_pool_destroy(atdma->lli_pool);
+ err_desc_pool_create:
++	at_dma_cleanup_channels(atdma);
+ 	free_irq(platform_get_irq(pdev, 0), atdma);
+ err_irq:
+ 	clk_disable_unprepare(atdma->clk);
+@@ -2125,17 +2139,12 @@ static void at_dma_remove(struct platform_device *pdev)
+ 		of_dma_controller_free(pdev->dev.of_node);
+ 	dma_async_device_unregister(&atdma->dma_device);
+ 
++	at_dma_cleanup_channels(atdma);
++
+ 	dma_pool_destroy(atdma->memset_pool);
+ 	dma_pool_destroy(atdma->lli_pool);
+ 	free_irq(platform_get_irq(pdev, 0), atdma);
+ 
+-	list_for_each_entry_safe(chan, _chan, &atdma->dma_device.channels,
+-			device_node) {
+-		/* Disable interrupts */
+-		atc_disable_chan_irq(atdma, chan->chan_id);
+-		list_del(&chan->device_node);
+-	}
 -
--       if (smccc_trng_available) {
--               pdev = platform_device_register_simple("smccc_trng", -1,
--                                                      NULL, 0);
--               if (IS_ERR(pdev))
--                       pr_err("smccc_trng: could not register device: %ld\n",
--                              PTR_ERR(pdev));
-+       const struct smccc_device_info *smccc_dev;
-+       struct arm_smccc_device *sdev;
-+       int i;
-+
-+       for (i = 0; i < ARRAY_SIZE(smccc_devices); i++) {
-+               smccc_dev = &smccc_devices[i];
-+
-+               if (!smccc_probe_smccc_device(smccc_dev))
-+                       continue;
-+
-+               sdev = arm_smccc_device_register(smccc_dev->device_name);
-+               if (IS_ERR(sdev))
-+                       pr_err("%s: could not register device: %ld\n",
-+                              smccc_dev->device_name, PTR_ERR(sdev));
-        }
-
-        return 0;
+ 	clk_disable_unprepare(atdma->clk);
+ }
+ 
+-- 
+2.25.1
 
 
