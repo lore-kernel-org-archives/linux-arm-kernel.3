@@ -4,68 +4,67 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 3E51ECD6E57
-	for <linux-arm-kernel@archiver.kernel.org>; Thu,  4 Jun 2026 09:20:30 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 24707CD6E4A
+	for <linux-arm-kernel@archiver.kernel.org>; Thu,  4 Jun 2026 09:21:51 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
 	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
 	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=aXWX2X1IdSYuWmeJ4APMMdKu4ZoZ7LZ+WFh9+wZtPXc=; b=14P4HTxYSfRNO5qxxB7Qcy5uSv
-	bpFgjHUnbJ/sT7XbYn+CURKLOgKxj/nI8mIyzI2lO25Sl5Z1uNxDDhFGQxJEJN6g+C6rn3o5dsI4h
-	vwraXqXAjO6KjPT2FnR9AGXqleTYxaD3YGvkkbO7u6PqhuMyn8fzNox0yAeyolE2qHNlUfEHR+0YC
-	fY2yjNwHcJCEe0BRZe2ZG4DE+LWRoaqCP8X0VYNpDrxbngD4CAsK2AA3lR/B+3PTTD7NVtYrYQtIl
-	N40epEn0hnKMbJ9UUei+dk9HpvRhnTEqgzgEkrpU4IdL7zDL586rlQOTxRvh5+YjkYvCKiRYofA/H
-	lSZLceMA==;
+	bh=dNw5Co3y7LwscFZy6jowrPYsDHekQNpDvhOzWqn0niM=; b=x1dqEDdDsh2j/Nmu+DQ/dc3yey
+	xbLqmKs+veO02Pt0D4PaLGEVUvjRGollV9JCou/Bzg6EXkCe32PvkXtE7QY09ZMCUGIgQSfYpIrN4
+	epQlQZFbiyraTcGmP+C4kGGkTEZjtDRstmHgq1kz1hKEN1IDj39AZczaLS6usnQpB5Ybx7q0TCjGg
+	LpH+jxi2Er66SK5BGRyimYwRm8hBzOzIiLwb+OFZ6GqfCs3q1JsW61bjXVRpyRYADrN6y1qZt4lwG
+	hLhvzKJhCEBWmtaRUl/LfGbwjEehaYvUBPAJ2JJf+5ggMx2oJ+O3lpfIdQT7WNh6gLpb3qVj2uSJg
+	WczkfDUw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wV4FT-0000000GU77-20Rs;
-	Thu, 04 Jun 2026 09:20:23 +0000
-Received: from sea.source.kernel.org ([172.234.252.31])
+	id 1wV4Gn-0000000GUOu-0XJ3;
+	Thu, 04 Jun 2026 09:21:45 +0000
+Received: from tor.source.kernel.org ([2600:3c04:e001:324:0:1991:8:25])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wV4FS-0000000GU6w-0cle;
-	Thu, 04 Jun 2026 09:20:22 +0000
+	id 1wV4Gm-0000000GUOm-0TT3
+	for linux-arm-kernel@lists.infradead.org;
+	Thu, 04 Jun 2026 09:21:44 +0000
 Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
-	by sea.source.kernel.org (Postfix) with ESMTP id 9927942A8C;
-	Thu,  4 Jun 2026 09:20:20 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id F1A601F00893;
-	Thu,  4 Jun 2026 09:20:19 +0000 (UTC)
+	by tor.source.kernel.org (Postfix) with ESMTP id 54AC1601D6;
+	Thu,  4 Jun 2026 09:21:43 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id AD2671F00893;
+	Thu,  4 Jun 2026 09:21:40 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1780564820;
-	bh=aXWX2X1IdSYuWmeJ4APMMdKu4ZoZ7LZ+WFh9+wZtPXc=;
+	s=k20260515; t=1780564903;
+	bh=dNw5Co3y7LwscFZy6jowrPYsDHekQNpDvhOzWqn0niM=;
 	h=Date:From:To:Cc:Subject:References:In-Reply-To;
-	b=fZYTMnRFIH8WWQgBB2lEzzMzQy+hhuNR+MyMG6+e3Tlzf3roeq3kJR1MK+By5cR+z
-	 n0ISfSyzY4DtK4ROq5VUTKP+xNd1wCU0awoLYdid9jlMZ+tYbPZR6c8GbgQVhel2ix
-	 EhEo7b4XltVj6L9MX4d8BeU51tAvI7yqAcJ3Hnoq5JINf3iAB0Qs/wffYJMKeXtIUI
-	 tGHqMJYcy8PoXDZKK9iJzkT3HiDJkCbC5qwV5qCvU+2IMinWU+439/VipnM912qlW9
-	 pILQkFBeSZUG2Mkg9S3pczfhGKDWW8L6d8UB5lZb/EqCZdofYitmBVw6x4e3CDn9Ua
-	 PQdWBa8YnyCWQ==
-Date: Thu, 4 Jun 2026 11:20:18 +0200
-From: Lorenzo Bianconi <lorenzo@kernel.org>
-To: Andrew Lunn <andrew+netdev@lunn.ch>,
-	"David S. Miller" <davem@davemloft.net>,
-	Eric Dumazet <edumazet@google.com>,
-	Jakub Kicinski <kuba@kernel.org>, Paolo Abeni <pabeni@redhat.com>,
-	Rob Herring <robh@kernel.org>,
-	Krzysztof Kozlowski <krzk+dt@kernel.org>,
-	Conor Dooley <conor+dt@kernel.org>
-Cc: Christian Marangi <ansuelsmth@gmail.com>,
-	Benjamin Larsson <benjamin.larsson@genexis.eu>,
-	linux-arm-kernel@lists.infradead.org,
-	linux-mediatek@lists.infradead.org, netdev@vger.kernel.org,
-	devicetree@vger.kernel.org,
-	Madhur Agrawal <madhur.agrawal@airoha.com>
-Subject: Re: [PATCH net-next v9 6/6] net: airoha: Support multiple LAN/WAN
- interfaces for hw MAC address configuration
-Message-ID: <aiFDUpMC1RHRkzZL@lore-desk>
-References: <20260603-airoha-eth-multi-serdes-v9-0-5d476bc2f426@kernel.org>
- <20260603-airoha-eth-multi-serdes-v9-6-5d476bc2f426@kernel.org>
+	b=bDqaXv36KnS5AV0w0eWLKbEYl0jPQLNRWk3ANk06cZD/3wZLUXGeq4zTcLZQMJRdb
+	 FS8tc44udOeGXserCpp8tU5QPiusNcQVST4LHuaLhOuxbovXcO6PTvVGnmHrDxx6qf
+	 6Nkj1G2as9PpZeiyo+IQauWFDIkGa+RpYdqAEjYHQANT3NJ4+ndRwJizycHChk1nAZ
+	 8e3TsMXYucFWbV4pohkLgwg8O1PmPrD4j+BSZhSqJG2ubRiHDObGPfQJVVlesnPI+4
+	 kxwWeekwUjjdF/v/1nUCfdxNQK8JarBO6MjZ9QDvKHp/SNybxXl3eWWoCAKQL/xaDA
+	 EipozfzWduRSA==
+Date: Thu, 4 Jun 2026 10:21:38 +0100
+From: Sudeep Holla <sudeep.holla@kernel.org>
+To: "Aneesh Kumar K.V (Arm)" <aneesh.kumar@kernel.org>
+Cc: linux-coco@lists.linux.dev, linux-arm-kernel@lists.infradead.org,
+	linux-kernel@vger.kernel.org,
+	Catalin Marinas <catalin.marinas@arm.com>,
+	Sudeep Holla <sudeep.holla@kernel.org>,
+	Greg KH <gregkh@linuxfoundation.org>,
+	Jeremy Linton <jeremy.linton@arm.com>,
+	Jonathan Cameron <jic23@kernel.org>,
+	Lorenzo Pieralisi <lpieralisi@kernel.org>,
+	Mark Rutland <mark.rutland@arm.com>, Will Deacon <will@kernel.org>,
+	Steven Price <steven.price@arm.com>,
+	Suzuki K Poulose <Suzuki.Poulose@arm.com>
+Subject: Re: [PATCH v6 3/4] firmware: smccc: arm-cca-guest: Bind the TSM
+ provider to an SMCCC device
+Message-ID: <20260603-determined-bumblebee-of-promise-e633d6@sudeepholla>
+References: <20260527100233.428018-1-aneesh.kumar@kernel.org>
+ <20260527100233.428018-4-aneesh.kumar@kernel.org>
 MIME-Version: 1.0
-Content-Type: multipart/signed; micalg=pgp-sha512;
-	protocol="application/pgp-signature"; boundary="SFnAkeHUpYpN2nJa"
+Content-Type: text/plain; charset=us-ascii
 Content-Disposition: inline
-In-Reply-To: <20260603-airoha-eth-multi-serdes-v9-6-5d476bc2f426@kernel.org>
+In-Reply-To: <20260527100233.428018-4-aneesh.kumar@kernel.org>
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -80,221 +79,226 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
+On Wed, May 27, 2026 at 03:32:32PM +0530, Aneesh Kumar K.V (Arm) wrote:
+> The Arm CCA guest TSM provider currently binds through the arm-cca-dev
+> platform device. Like arm-smccc-trng, this device is not an independent
+> platform resource; it is a software representation of the RSI firmware
+> service discovered through SMCCC.
+> 
+> Move RSI discovery into the SMCCC firmware driver. When the SMCCC conduit
+> is SMC and the RSI ABI version check succeeds, create an arm-rsi-dev SMCCC
+> device. Convert the Arm CCA guest TSM provider to an SMCCC driver so it
+> binds to that discovered RSI service and keeps module autoloading through
+> the SMCCC device id table.
+> 
+> Keep the old arm-cca-dev platform-device registration for now. Userspace
+> has used that device as a Realm-guest indicator, so removing it is left to
+> a follow-up patch that adds a replacement sysfs ABI.
+> 
+> Signed-off-by: Aneesh Kumar K.V (Arm) <aneesh.kumar@kernel.org>
+> ---
+>  arch/arm64/include/asm/rsi.h                  |  2 +-
+>  arch/arm64/kernel/rsi.c                       |  2 +-
+>  drivers/firmware/smccc/Makefile               |  4 ++
+>  drivers/firmware/smccc/rmm.c                  | 25 ++++++++
+>  drivers/firmware/smccc/rmm.h                  | 17 ++++++
+>  drivers/firmware/smccc/smccc.c                |  8 +++
+>  drivers/virt/coco/arm-cca-guest/Kconfig       |  1 +
+>  drivers/virt/coco/arm-cca-guest/Makefile      |  2 +
+>  .../{arm-cca-guest.c => arm-cca.c}            | 60 +++++++++----------
+>  9 files changed, 89 insertions(+), 32 deletions(-)
+>  create mode 100644 drivers/firmware/smccc/rmm.c
+>  create mode 100644 drivers/firmware/smccc/rmm.h
+>  rename drivers/virt/coco/arm-cca-guest/{arm-cca-guest.c => arm-cca.c} (85%)
+> 
+> diff --git a/arch/arm64/include/asm/rsi.h b/arch/arm64/include/asm/rsi.h
+> index 88b50d660e85..2d2d363aaaee 100644
+> --- a/arch/arm64/include/asm/rsi.h
+> +++ b/arch/arm64/include/asm/rsi.h
+> @@ -10,7 +10,7 @@
+>  #include <linux/jump_label.h>
+>  #include <asm/rsi_cmds.h>
+>  
+> -#define RSI_PDEV_NAME "arm-cca-dev"
+> +#define RSI_DEV_NAME "arm-rsi-dev"
+>  
+>  DECLARE_STATIC_KEY_FALSE(rsi_present);
+>  
+> diff --git a/arch/arm64/kernel/rsi.c b/arch/arm64/kernel/rsi.c
+> index 92160f2e57ff..da440f71bb64 100644
+> --- a/arch/arm64/kernel/rsi.c
+> +++ b/arch/arm64/kernel/rsi.c
+> @@ -161,7 +161,7 @@ void __init arm64_rsi_init(void)
+>  }
+>  
+>  static struct platform_device rsi_dev = {
+> -	.name = RSI_PDEV_NAME,
+> +	.name = "arm-cca-dev",
+>  	.id = PLATFORM_DEVID_NONE
+>  };
+>  
+> diff --git a/drivers/firmware/smccc/Makefile b/drivers/firmware/smccc/Makefile
+> index 40d19144a860..33c850aaff4d 100644
+> --- a/drivers/firmware/smccc/Makefile
+> +++ b/drivers/firmware/smccc/Makefile
+> @@ -2,3 +2,7 @@
+>  #
+>  obj-$(CONFIG_HAVE_ARM_SMCCC_DISCOVERY)	+= smccc.o kvm_guest.o
+>  obj-$(CONFIG_ARM_SMCCC_SOC_ID)	+= soc_id.o
+> +
+> +ifeq ($(CONFIG_HAVE_ARM_SMCCC_DISCOVERY),y)
+> +obj-$(CONFIG_ARM64) += rmm.o
+> +endif
+> diff --git a/drivers/firmware/smccc/rmm.c b/drivers/firmware/smccc/rmm.c
+> new file mode 100644
+> index 000000000000..d572f47e955c
+> --- /dev/null
+> +++ b/drivers/firmware/smccc/rmm.c
+> @@ -0,0 +1,25 @@
+> +// SPDX-License-Identifier: GPL-2.0-only
+> +/*
+> + * Copyright (C) 2026 Arm Limited
+> + */
+> +
+> +#include <linux/arm-smccc-bus.h>
+> +#include <linux/err.h>
+> +#include <linux/printk.h>
+> +
+> +#include "rmm.h"
+> +
+> +void __init register_rsi_device(void)
+> +{
+> +	unsigned long ret;
+> +
+> +	if (arm_smccc_1_1_get_conduit() != SMCCC_CONDUIT_SMC)
+> +		return;
+> +
+> +	ret = rsi_request_version(RSI_ABI_VERSION, NULL, NULL);
+> +	if (ret != RSI_SUCCESS)
+> +		return;
+> +
+> +	if (IS_ERR(arm_smccc_device_register(RSI_DEV_NAME)))
+> +		pr_err("%s: could not register device\n", RSI_DEV_NAME);
+> +}
 
---SFnAkeHUpYpN2nJa
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-Content-Transfer-Encoding: quoted-printable
+OK, I had something else in my mind when I started looking at 1/4. I didn't
+expect each device added on this bus comes up with it's own way to enumerate
+it. IMO, it defeats the purpose of building the smccc bus. We may find the
+specs for each feature deviated a bit but we can have a generic probe
+IMO, let's try that before exploring per feature probe function.
 
-On Jun 03, Lorenzo Bianconi wrote:
-> The EN7581 and AN7583 SoCs provide registers to configure hardware LAN/WAN
-> MAC addresses. These registers are used during FE hw acceleration to
-> determine whether received traffic is destined to this host (L3 traffic)
-> or should be switched to another device (L2 traffic).
-> The SoC hardware design assumes all interfaces configured as LAN (or WAN)
-> share the MAC address MSBs, which are programmed into the
-> REG_FE_{LAN,WAN}_MAC_H register. The LSBs of 'local' mac addresses can be
-> expressed as a range via the REG_FE_MAC_LMIN and REG_FE_MAC_LMAX
-> registers. In order to properly accelerate the traffic, FE module requires
-> the user to configure the REG_FE_{LAN,WAN}_MAC_H register respecting this
-> limitation. Please note a misconfiguration in REG_FE_{LAN,WAN}_MAC_H
-> will still allow the user to log into the device for debugging.
-> Previously, only a single interface was considered when programming these
-> registers. Extend the logic to derive the correct minimum and maximum
-> values for REG_FE_MAC_LMIN/REG_FE_MAC_LMAX when two or more interfaces are
-> configured as LAN or WAN. Since this functionality was not available
-> before this series, no regression is introduced.
-
-Commenting on sashiko's report:
-https://netdev-ai.bots.linux.dev/sashiko/#/patchset/20260603-airoha-eth-mul=
-ti-serdes-v9-0-5d476bc2f426%40kernel.org
-
-- How does this validation interact with the init path?=20
-  In airoha_alloc_gdm_device(), interfaces lacking a DT MAC fall back to
-  eth_hw_addr_random(), and airoha_dev_init() calls airoha_set_macaddr()
-  but discards the int return, so a netdev whose initial MAC would fail
-  the new MSB check still proceeds to register and reaches NETREG_REGISTERE=
-D.
-  - This is done on purpose to not block the device probe and allow the user
-    to log into the system, and based on the syslog, fix the issue manually.
+I have a brief sketch of what I think we should aim for(uncompiled/untested)
+below. Let me know if that makes sense. I just based it on your bus code.
 
 Regards,
-Lorenzo
+Sudeep
 
->=20
-> Tested-by: Madhur Agrawal <madhur.agrawal@airoha.com>
-> Signed-off-by: Lorenzo Bianconi <lorenzo@kernel.org>
-> ---
->  drivers/net/ethernet/airoha/airoha_eth.c | 77 ++++++++++++++++++++++++++=
-++----
->  drivers/net/ethernet/airoha/airoha_eth.h |  2 +-
->  drivers/net/ethernet/airoha/airoha_ppe.c |  4 +-
->  3 files changed, 71 insertions(+), 12 deletions(-)
->=20
-> diff --git a/drivers/net/ethernet/airoha/airoha_eth.c b/drivers/net/ether=
-net/airoha/airoha_eth.c
-> index 64ee526da241..8f2608293bb7 100644
-> --- a/drivers/net/ethernet/airoha/airoha_eth.c
-> +++ b/drivers/net/ethernet/airoha/airoha_eth.c
-> @@ -71,20 +71,76 @@ static void airoha_qdma_irq_disable(struct airoha_irq=
-_bank *irq_bank,
->  	airoha_qdma_set_irqmask(irq_bank, index, mask, 0);
->  }
-> =20
-> -static void airoha_set_macaddr(struct airoha_gdm_dev *dev, const u8 *add=
-r)
-> +static int airoha_set_macaddr(struct airoha_gdm_dev *dev, const u8 *addr)
->  {
-> +	u8 ref_addr[ETH_ALEN] __aligned(2);
->  	struct airoha_eth *eth =3D dev->eth;
-> -	u32 val, reg;
-> +	u32 reg, val, lmin, lmax;
-> +	int i;
-> +
-> +	eth_zero_addr(ref_addr);
-> +	lmin =3D (addr[3] << 16) | (addr[4] << 8) | addr[5];
-> +	lmax =3D lmin;
-> +
-> +	for (i =3D 0; i < ARRAY_SIZE(eth->ports); i++) {
-> +		struct airoha_gdm_port *port =3D eth->ports[i];
-> +		int j;
-> +
-> +		if (!port)
-> +			continue;
-> +
-> +		for (j =3D 0; j < ARRAY_SIZE(port->devs); j++) {
-> +			struct airoha_gdm_dev *iter_dev;
-> +			struct net_device *netdev;
-> +
-> +			iter_dev =3D port->devs[j];
-> +			if (!iter_dev || iter_dev =3D=3D dev)
-> +				continue;
-> +
-> +			if (airoha_is_lan_gdm_dev(iter_dev) !=3D
-> +			    airoha_is_lan_gdm_dev(dev))
-> +				continue;
-> +
-> +			netdev =3D netdev_from_priv(iter_dev);
-> +			if (netdev->reg_state !=3D NETREG_REGISTERED)
-> +				continue;
-> +
-> +			ether_addr_copy(ref_addr, netdev->dev_addr);
-> +			val =3D (netdev->dev_addr[3] << 16) |
-> +			      (netdev->dev_addr[4] << 8) | netdev->dev_addr[5];
-> +			if (val < lmin)
-> +				lmin =3D val;
-> +			if (val > lmax)
-> +				lmax =3D val;
-> +		}
-> +	}
-> +
-> +	if (!is_zero_ether_addr(ref_addr) && memcmp(ref_addr, addr, 3)) {
-> +		/* According to the HW design, hw mac address MSBs must be
-> +		 * the same for each net_device with the same LAN/WAN
-> +		 * configuration.
-> +		 */
-> +		struct net_device *netdev =3D netdev_from_priv(dev);
-> +
-> +		dev_warn(eth->dev,
-> +			 "%s: wrong mac addr, MSBs must be %02x:%02x:%02x\n",
-> +			 netdev->name, ref_addr[0], ref_addr[1],
-> +			 ref_addr[2]);
-> +		dev_warn(eth->dev, "FE hw forwarding won't work properly\n");
-> +
-> +		return -EINVAL;
-> +	}
-> =20
->  	reg =3D airoha_is_lan_gdm_dev(dev) ? REG_FE_LAN_MAC_H : REG_FE_WAN_MAC_=
-H;
->  	val =3D (addr[0] << 16) | (addr[1] << 8) | addr[2];
->  	airoha_fe_wr(eth, reg, val);
-> =20
-> -	val =3D (addr[3] << 16) | (addr[4] << 8) | addr[5];
-> -	airoha_fe_wr(eth, REG_FE_MAC_LMIN(reg), val);
-> -	airoha_fe_wr(eth, REG_FE_MAC_LMAX(reg), val);
-> +	airoha_fe_wr(eth, REG_FE_MAC_LMIN(reg), lmin);
-> +	airoha_fe_wr(eth, REG_FE_MAC_LMAX(reg), lmax);
-> =20
-> -	airoha_ppe_init_upd_mem(dev);
-> +	airoha_ppe_init_upd_mem(dev, addr);
-> +
-> +	return 0;
->  }
-> =20
->  static void airoha_set_gdm_port_fwd_cfg(struct airoha_eth *eth, u32 addr,
-> @@ -1826,13 +1882,18 @@ static int airoha_dev_stop(struct net_device *net=
-dev)
->  static int airoha_dev_set_macaddr(struct net_device *netdev, void *p)
->  {
->  	struct airoha_gdm_dev *dev =3D netdev_priv(netdev);
-> +	struct sockaddr *addr =3D p;
->  	int err;
-> =20
-> -	err =3D eth_mac_addr(netdev, p);
-> +	err =3D eth_prepare_mac_addr_change(netdev, p);
->  	if (err)
->  		return err;
-> =20
-> -	airoha_set_macaddr(dev, netdev->dev_addr);
-> +	err =3D airoha_set_macaddr(dev, addr->sa_data);
-> +	if (err)
-> +		return err;
-> +
-> +	eth_commit_mac_addr_change(netdev, p);
-> =20
->  	return 0;
->  }
-> diff --git a/drivers/net/ethernet/airoha/airoha_eth.h b/drivers/net/ether=
-net/airoha/airoha_eth.h
-> index 3e8262f583a7..8f42973f9cf5 100644
-> --- a/drivers/net/ethernet/airoha/airoha_eth.h
-> +++ b/drivers/net/ethernet/airoha/airoha_eth.h
-> @@ -683,7 +683,7 @@ void airoha_ppe_check_skb(struct airoha_ppe_dev *dev,=
- struct sk_buff *skb,
->  int airoha_ppe_setup_tc_block_cb(struct airoha_ppe_dev *dev, void *type_=
-data);
->  int airoha_ppe_init(struct airoha_eth *eth);
->  void airoha_ppe_deinit(struct airoha_eth *eth);
-> -void airoha_ppe_init_upd_mem(struct airoha_gdm_dev *dev);
-> +void airoha_ppe_init_upd_mem(struct airoha_gdm_dev *dev, const u8 *addr);
->  u32 airoha_ppe_get_total_num_entries(struct airoha_ppe *ppe);
->  struct airoha_foe_entry *airoha_ppe_foe_get_entry(struct airoha_ppe *ppe,
->  						  u32 hash);
-> diff --git a/drivers/net/ethernet/airoha/airoha_ppe.c b/drivers/net/ether=
-net/airoha/airoha_ppe.c
-> index f54622904733..91bcc55a6ac6 100644
-> --- a/drivers/net/ethernet/airoha/airoha_ppe.c
-> +++ b/drivers/net/ethernet/airoha/airoha_ppe.c
-> @@ -1487,12 +1487,10 @@ void airoha_ppe_check_skb(struct airoha_ppe_dev *=
-dev, struct sk_buff *skb,
->  	airoha_ppe_foe_insert_entry(ppe, skb, hash, rx_wlan);
->  }
-> =20
-> -void airoha_ppe_init_upd_mem(struct airoha_gdm_dev *dev)
-> +void airoha_ppe_init_upd_mem(struct airoha_gdm_dev *dev, const u8 *addr)
->  {
-> -	struct net_device *netdev =3D netdev_from_priv(dev);
->  	struct airoha_gdm_port *port =3D dev->port;
->  	struct airoha_eth *eth =3D dev->eth;
-> -	const u8 *addr =3D netdev->dev_addr;
->  	u32 val;
-> =20
->  	val =3D (addr[2] << 24) | (addr[3] << 16) | (addr[4] << 8) | addr[5];
->=20
-> --=20
-> 2.54.0
->=20
+-->8
 
---SFnAkeHUpYpN2nJa
-Content-Type: application/pgp-signature; name=signature.asc
+diff --git c/drivers/firmware/smccc/smccc.c w/drivers/firmware/smccc/smccc.c
+index 695c920a8087..450605ddfab6 100644
+--- c/drivers/firmware/smccc/smccc.c
++++ w/drivers/firmware/smccc/smccc.c
+@@ -9,21 +9,58 @@
+ #include <linux/init.h>
+ #include <linux/arm-smccc.h>
+ #include <linux/kernel.h>
+-#include <linux/platform_device.h>
+ #include <linux/arm-smccc-bus.h>
+ #include <linux/idr.h>
+ #include <linux/slab.h>
 
------BEGIN PGP SIGNATURE-----
+-#include <asm/archrandom.h>
+-
+ static u32 smccc_version = ARM_SMCCC_VERSION_1_0;
+ static enum arm_smccc_conduit smccc_conduit = SMCCC_CONDUIT_NONE;
+ static DEFINE_IDA(arm_smccc_bus_id);
 
-iHUEABYKAB0WIQTquNwa3Txd3rGGn7Y6cBh0uS2trAUCaiFDUgAKCRA6cBh0uS2t
-rKFZAPsFq8wtcGM5fSMmaXoN8r3ZJahwhyksHFbQVLSGqyPnpgEAonKxBLMX2x26
-QDHe2K2ddF+pJgWY5jkwF5mFrWv1uQo=
-=7aG6
------END PGP SIGNATURE-----
+-bool __ro_after_init smccc_trng_available = false;
++struct smccc_device_info {
++       u32 func_id;
++       bool requires_smc;
++       unsigned long min_return;
++       const char *device_name;
++};
++
++bool __ro_after_init smccc_trng_available;
+ s32 __ro_after_init smccc_soc_id_version = SMCCC_RET_NOT_SUPPORTED;
+ s32 __ro_after_init smccc_soc_id_revision = SMCCC_RET_NOT_SUPPORTED;
 
---SFnAkeHUpYpN2nJa--
++static const struct smccc_device_info smccc_devices[] __initconst = {
++       {
++               .func_id        = ARM_SMCCC_TRNG_VERSION,
++               .requires_smc   = false,
++               .min_return     = ARM_SMCCC_TRNG_MIN_VERSION,
++               .device_name    = "arm-smccc-trng",
++       },
++};
++
++static bool __init
++smccc_probe_smccc_device(const struct smccc_device_info *smccc_dev)
++{
++       struct arm_smccc_res res;
++       unsigned long ret;
++
++       if (!IS_ENABLED(CONFIG_ARM64))
++               return false;
++
++       if (smccc_conduit == SMCCC_CONDUIT_NONE)
++               return false;
++
++       if (smccc_dev->requires_smc && smccc_conduit != SMCCC_CONDUIT_SMC)
++               return false;
++
++       arm_smccc_1_1_invoke(smccc_dev->func_id, &res);
++       ret = res.a0;
++
++       if ((s32)ret < 0)
++               return false;
++
++       return ret >= smccc_dev->min_return;
++}
++
+ void __init arm_smccc_version_init(u32 version, enum arm_smccc_conduit conduit)
+ {
+        struct arm_smccc_res res;
+@@ -31,7 +68,7 @@ void __init arm_smccc_version_init(u32 version, enum arm_smccc_conduit conduit)
+        smccc_version = version;
+        smccc_conduit = conduit;
+
+-       smccc_trng_available = smccc_probe_trng();
++       smccc_trng_available = smccc_probe_smccc_device(&smccc_devices[0]);
+
+        if ((smccc_version >= ARM_SMCCC_VERSION_1_2) &&
+            (smccc_conduit != SMCCC_CONDUIT_NONE)) {
+@@ -241,14 +278,20 @@ subsys_initcall(arm_smccc_bus_init);
+
+ static int __init smccc_devices_init(void)
+ {
+-       struct platform_device *pdev;
+-
+-       if (smccc_trng_available) {
+-               pdev = platform_device_register_simple("smccc_trng", -1,
+-                                                      NULL, 0);
+-               if (IS_ERR(pdev))
+-                       pr_err("smccc_trng: could not register device: %ld\n",
+-                              PTR_ERR(pdev));
++       const struct smccc_device_info *smccc_dev;
++       struct arm_smccc_device *sdev;
++       int i;
++
++       for (i = 0; i < ARRAY_SIZE(smccc_devices); i++) {
++               smccc_dev = &smccc_devices[i];
++
++               if (!smccc_probe_smccc_device(smccc_dev))
++                       continue;
++
++               sdev = arm_smccc_device_register(smccc_dev->device_name);
++               if (IS_ERR(sdev))
++                       pr_err("%s: could not register device: %ld\n",
++                              smccc_dev->device_name, PTR_ERR(sdev));
+        }
+
+        return 0;
+
 
