@@ -4,54 +4,61 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 94317CD6E57
-	for <linux-arm-kernel@archiver.kernel.org>; Thu,  4 Jun 2026 08:59:35 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 8CAC8CD6E4A
+	for <linux-arm-kernel@archiver.kernel.org>; Thu,  4 Jun 2026 09:03:36 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:
-	Content-Transfer-Encoding:MIME-Version:References:In-Reply-To:Message-ID:Date
-	:Subject:Cc:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=2as4PCRWsv024ZlqsXEqA3VU/UiipqE5hLi9l4v3VV0=; b=0q1jus4o8cNnBBdzx+1owivAoE
-	2HQaZvwyn4/ri73yyX0lDc43evRgBX+5W3KZhyp0JbUt41f/UOyn84b5zg1dbu6q3y34mssxzRU78
-	1x+RB0AAosEvTxAtKaC1zMQhoULGMaM3fDD1Z9xBV5yPjq8AyrflDvaXC6sYpil+D2o+0etoQac0A
-	lZMyq8960TEH0286/07BVeidFUfdKNHE0ZrrmAiA3pdfkSkLNK5UfouRW7am9P6RwWnjKSDPt1vpR
-	AqNnEInKCCc1MqdxfsKZPa2YIL4f+qiVSR8AxsCb2pdX329TvReC85hUmFwNUrvCURShe77Hzuwl6
-	FwVfJP1Q==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:MIME-Version:Message-ID:Date:References:In-Reply-To:Subject:Cc:
+	To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=9LUDHGMpxY5/D93pfLKYpEzHyH09fS49yr/B51sO0vo=; b=4JT0+UV6maQ0hQiG4BEMgEHsi6
+	HFQ/nQM6Lg67Jt8p+1zuogMvaumFcQBRyW5tKLA41wdltpbpVfri6ZAKXDcB1RTbKRVOxSKhCDdsf
+	kvedTHXEDIM3IspLuKMox2mAe5atxSui58OO6Q+22NZMDdKI26Rkz/aWJ5eQ1PltUyVYoBJyJ2yne
+	LsEf7Lnheag5CHAtzleOmrwRGyDnGpieKXOduhPseZwdsCtUUIBbx2cvJKQppSHGeOak6KraEJSig
+	8fnm0WI6CCeraFj43S6La+Sn+0gCKYpOPK0I/k0xKVOuD0WnbSKI1k3DyWuGibksBEHB0kweVNmIr
+	vyTk8rcA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wV3vB-0000000GS4E-3xdF;
-	Thu, 04 Jun 2026 08:59:25 +0000
-Received: from gloria.sntech.de ([185.11.138.130])
+	id 1wV3z8-0000000GSeW-28nS;
+	Thu, 04 Jun 2026 09:03:30 +0000
+Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wV3v9-0000000GS2e-1Kl3;
-	Thu, 04 Jun 2026 08:59:24 +0000
-DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed; d=sntech.de;
-	s=gloria202408; h=Content-Type:Content-Transfer-Encoding:MIME-Version:
-	References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:Reply-To;
-	bh=2as4PCRWsv024ZlqsXEqA3VU/UiipqE5hLi9l4v3VV0=; b=tpOKHMCzOlrTYuEe6r9BtA84Uf
-	HE3p6z9xrQ9DgQUtIys9Xr0eyg6UBq1xAwd82I8kflHagSdSQH58knxLzSnde24ThZve7tCiUqPoy
-	85Ybm5DcoDOs6fHpFfp8pyZ3mM7OIAM5CvZ0S1ekEFbQ6bU8jRXLHWec+0tlKH0k0x1XRsjgmQg5b
-	NCgSpv/4KZnY08KejmmGp49UI7vnNNMxJiR59N7hN3iDrGFtYgaxYrb6DsoA1KLhePOkdoNQwizWO
-	uox35V31a8Ql05pPuUlBSAtp0NV0GcS94CiW2acWw0s5KbzWy3njN6OdDsOoXGmn7D1UB0cVpiu9U
-	mtHS++tw==;
-From: Heiko Stuebner <heiko@sntech.de>
-To: Geert Uytterhoeven <geert@linux-m68k.org>
-Cc: rosenp@gmail.com, linux-arm-kernel@lists.infradead.org,
- linux-rockchip@lists.infradead.org, linux-clk@vger.kernel.org,
- kernel test robot <lkp@intel.com>
-Subject: Re: [PATCH] clk: rockchip: don't COMPILE_TEST builds on M68K
-Date: Thu, 04 Jun 2026 10:59:19 +0200
-Message-ID: <36034140.aRNtrjHk3s@phil>
-In-Reply-To: <CAMuHMdUAoUmCNMBVRGgZzSt9SbZqV6SVW2brkvsBKuHrfWHKvw@mail.gmail.com>
-References: <20260603213726.1025094-1-heiko@sntech.de>
- <CAMuHMdUAoUmCNMBVRGgZzSt9SbZqV6SVW2brkvsBKuHrfWHKvw@mail.gmail.com>
+	id 1wV3z7-0000000GSe2-0C9T
+	for linux-arm-kernel@lists.infradead.org;
+	Thu, 04 Jun 2026 09:03:29 +0000
+Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
+	by sea.source.kernel.org (Postfix) with ESMTP id BE854402FA;
+	Thu,  4 Jun 2026 09:03:28 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 067CD1F00893;
+	Thu,  4 Jun 2026 09:03:25 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
+	s=k20260515; t=1780563808;
+	bh=9LUDHGMpxY5/D93pfLKYpEzHyH09fS49yr/B51sO0vo=;
+	h=From:To:Cc:Subject:In-Reply-To:References:Date;
+	b=auhIrtK9ikXMdXDAcVSTuvzh6VYtK99/HrDClrE5/wSkJtxxX5DNXBPaM9o2Adw4p
+	 4YBDaRR66KpOtPX87uSnZaTlivRWZ6jLVqfltutjDQLx23WALPYYy6LS26XgBiH9hX
+	 iXnvJxDA/IIu0nk5B8jm4N8MYL/2M+5zer/AzXoKsiHY4gjEM8hco6uit6JO0VNAPi
+	 uw7Cc/kUjzfVlQy7iZSTTMpuEZnZl5+jqK6VZQOq3/0Rqlinh9TZ8ygb+Hi+PT+82p
+	 c2R0H9cOx0cG/bBkyro3pNven9jghAs4YfTS4bo467AvvBOltFnJuzMnSYJGt7H4e/
+	 enhbqCB4nnGJQ==
+X-Mailer: emacs 30.2 (via feedmail 11-beta-1 I)
+From: Aneesh Kumar K.V <aneesh.kumar@kernel.org>
+To: Mostafa Saleh <smostafa@google.com>,
+	Mike Rapoport <rppt@kernel.org>
+Cc: linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org,
+	akpm@linux-foundation.org, catalin.marinas@arm.com,
+	will@kernel.org, maz@kernel.org
+Subject: Re: [PATCH 1/3] arm64/mm: Simplify SWIOTLB setup in arch_mm_preinit()
+In-Reply-To: <aiAojTDO_FcEG8XC@google.com>
+References: <20260603110522.3331819-1-smostafa@google.com>
+ <20260603110522.3331819-2-smostafa@google.com>
+ <aiAdyLKSRGjV4_r3@kernel.org> <aiAojTDO_FcEG8XC@google.com>
+Date: Thu, 04 Jun 2026 14:33:23 +0530
+Message-ID: <yq5ay0gur82s.fsf@kernel.org>
 MIME-Version: 1.0
+Content-Type: text/plain; charset=utf-8
 Content-Transfer-Encoding: quoted-printable
-Content-Type: text/plain; charset="utf-8"
-X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260604_015923_354951_24E28B3C 
-X-CRM114-Status: GOOD (  16.82  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -66,60 +73,74 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hi Geert,
+Mostafa Saleh <smostafa@google.com> writes:
 
-Am Donnerstag, 4. Juni 2026, 09:56:04 Mitteleurop=C3=A4ische Sommerzeit sch=
-rieb Geert Uytterhoeven:
-> On Wed, 3 Jun 2026 at 23:37, Heiko Stuebner <heiko@sntech.de> wrote:
-> > Rockchip clock drivers use hash-tables with enums as inputs.
-> >
-> > M68K does interesting things in its __hash_32() implementation, casting
-> > that u32 input to an u16 and therefore triggering warnings like:
-> >
-> >    drivers/clk/rockchip/clk-rk3528.c: note: in included file (through i=
-nclude/linux/hash.h, include/linux/slab.h):
-> >      arch/m68k/include/asm/hash.h:57:24: sparse: sparse: cast truncates=
- bits from constant value (18720 becomes 8720)
-> >      arch/m68k/include/asm/hash.h:57:24: sparse: sparse: cast truncates=
- bits from constant value (1e8e8 becomes e8e8)
-> >
-> > As M68K should never ever need Rockchip clock drivers, simply disable
-> > compile-tests for M68K.
-> >
-> > Fixes: 7edfb7fb58ee ("clk: rockchip: allow COMPILE_TEST builds")
-> > Reported-by: kernel test robot <lkp@intel.com>
-> > Closes: https://lore.kernel.org/oe-kbuild-all/202605191434.PQkj2Rki-lkp=
-@intel.com/
-> > Signed-off-by: Heiko Stuebner <heiko@sntech.de>
->=20
-> Thanks for your patch!
->=20
-> > --- a/drivers/clk/rockchip/Kconfig
-> > +++ b/drivers/clk/rockchip/Kconfig
-> > @@ -4,6 +4,7 @@
-> >  config COMMON_CLK_ROCKCHIP
-> >         bool "Rockchip clock controller common support"
-> >         depends on ARCH_ROCKCHIP || COMPILE_TEST
-> > +       depends on !M68K
-> >         default ARCH_ROCKCHIP
-> >         help
-> >           Say y here to enable common clock controller for Rockchip pla=
-tforms.
->=20
-> Obviously this is the wrong fix ;-)
->=20
-> I have sent a better one, fixing the issue for every user:
-> "[PATCH] m68k: hash: Use lower_16_bits() helper"
-> https://lore.kernel.org/b55e9bd0532c0cad519809c86e0a8400060d75a1.17805595=
-61.git.geert@linux-m68k.org
+> Hi Mike,
+>
+> On Wed, Jun 03, 2026 at 03:27:52PM +0300, Mike Rapoport wrote:
+>> Hi,
+>>=20
+>> On Wed, Jun 03, 2026 at 11:05:20AM +0000, Mostafa Saleh wrote:
+>> > At the moment, arch_mm_preinit() checks if the system has limited
+>> > addressing or is running under CCA to enable SWIOTLB, only after to
+>> > be forced to true anyway if it was false due to
+>> > CONFIG_DMA_BOUNCE_UNALIGNED_KMALLOC being unconditionally true for
+>> > arm64.
+>> >=20
+>> > Simplify this logic, by making it clear that SWIOTLB is always used
+>> > but its size depends on the address layout of the system.
+>> >=20
+>> > Signed-off-by: Mostafa Saleh <smostafa@google.com>
+>> > ---
+>> >  arch/arm64/mm/init.c | 11 ++++-------
+>> >  1 file changed, 4 insertions(+), 7 deletions(-)
+>> >=20
+>> > diff --git a/arch/arm64/mm/init.c b/arch/arm64/mm/init.c
+>> > index 97987f850a33..fcc9c05a8fe6 100644
+>> > --- a/arch/arm64/mm/init.c
+>> > +++ b/arch/arm64/mm/init.c
+>> > @@ -336,25 +336,22 @@ void __init arch_setup_zero_pages(void)
+>> >  void __init arch_mm_preinit(void)
+>> >  {
+>> >  	unsigned int flags =3D SWIOTLB_VERBOSE;
+>> > -	bool swiotlb =3D max_pfn > PFN_DOWN(arm64_dma_phys_limit);
+>> > +	bool limited_addressing =3D max_pfn > PFN_DOWN(arm64_dma_phys_limit);
+>> >=20=20
+>> >  	if (is_realm_world()) {
+>> > -		swiotlb =3D true;
+>> >  		flags |=3D SWIOTLB_FORCE;
+>> > -	}
+>> > -
+>> > -	if (IS_ENABLED(CONFIG_DMA_BOUNCE_UNALIGNED_KMALLOC) && !swiotlb) {
+>> > +	} else if (!limited_addressing) {
+>>=20
+>> Can realm_world() coexist with limited_addressing? Then the size adjustm=
+ent
+>> is still required.
+>
+> My guess would be no, my understanding is that CCA guests have niche
+> hardware.
+>
+> However, the check for limited_addressing is negated, we adjust the
+> SWIOTLB to be smaller if no bouncing is needed.
+> So, if this is a realm world, address space layout is irrelevant as we
+> keep the original size which is larger.
+>
 
-oh nice - fixing the actual problem instead of working around the
-issue. I had no clue about m68k and thus no idea of how to test
-anything, so went for the easx "fix" :-)
+That=E2=80=99s correct. Realm guests need swiotlb to always be enabled, and=
+ we
+should not reduce the size of the pool.
 
+>
+> Otherwise, this alters the current behaviour.
+>
+>>=20
+>> I'd also make this more explicit:
+>>=20
+>> 	if (max_pfn > PFN_DOWN(arm64_dma_phys_limit))
+>
+> Sure, I can drop the bool.
+>
 
-So thanks for looking into that
-Heiko
-
-
+-aneesh
 
