@@ -4,60 +4,70 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 37E56CD6E57
-	for <linux-arm-kernel@archiver.kernel.org>; Thu,  4 Jun 2026 10:18:17 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id E0D37CD6E6B
+	for <linux-arm-kernel@archiver.kernel.org>; Thu,  4 Jun 2026 10:19:32 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=pUj7m2CDaW3G/ucn/7/SD3wFXRKZCFFvrBjYxGmN+is=; b=jsVSG62M0pJ6fHVr2113jRE+Hj
-	lHIbEQNasXV4gohndwFUZtpmMe/CMnSKj5U6RZ5Rb9iw3eoFfeucoInr3KCI5oGujVs4j2g1eyQzr
-	g/fyyCortd6v/IZ5dzPeOmYmEpbnFbs6ByUfYopfpzDWPueG9t8mNS1Cmn+CJOg6369sd5owGucwm
-	Vsoh73393vNjUF/qT1XR2+EqsXfLQKLtvF/sdh+iKXulldRH7l8Whh/YkLDjYLS59Sr1WrZ4C/6gi
-	vCV3MPxE7FyAQO9zZE0bgaO8sNQ4rZ4Ra98QXaH7kAsUMfpMrIAZb3uHNVh3ecHAiFWhJUiFItyLg
-	L6f41FDQ==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:MIME-Version:Message-Id:Date:Subject:Cc:To:From:Reply-To:
+	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
+	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=oH+7xtRmtG3x+KckKBu1zr4VOgTg5p/6i1+DZDVm/h8=; b=YoAquGYEuI9BCybPaL72e6s9U9
+	vN1X5A8O7LnoBwB7Y7rDBd3/5swx4VnjD/95X7nQRWw8L+fNsVQrJOKXhLpJYtiL/Fb75xbg8HINW
+	ReUdtxKXKat29zG3Kg5JYRmc9dLH66GF071zOFDlMD1TYNPUuO9HuaTNiD/FQnBZOlE38UB2Q8fBa
+	TS4LUsRBDrd7kZ1jVSUhwIIPK99UyENwF6MiwvHNk0UP5faGG0d97LO10xzkKizn+S8KBlUZWqHwJ
+	5h4vg4u/kVG+/GUNs6ECYYbOKz3OAVWB2lG4qXww2pj/rM30TIV2ZfrKz9j6hFzBOQ2iCwcDN7XY/
+	nWXGsenQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wV59K-0000000GYpn-2w0n;
-	Thu, 04 Jun 2026 10:18:06 +0000
-Received: from tor.source.kernel.org ([2600:3c04:e001:324:0:1991:8:25])
+	id 1wV5Ac-0000000GZ2G-3s8J;
+	Thu, 04 Jun 2026 10:19:26 +0000
+Received: from mailgw.kylinos.cn ([124.126.103.232])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wV59J-0000000GYpY-0Gwt;
-	Thu, 04 Jun 2026 10:18:05 +0000
-Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
-	by tor.source.kernel.org (Postfix) with ESMTP id C82E360219;
-	Thu,  4 Jun 2026 10:18:03 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 03F121F00893;
-	Thu,  4 Jun 2026 10:18:02 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1780568283;
-	bh=pUj7m2CDaW3G/ucn/7/SD3wFXRKZCFFvrBjYxGmN+is=;
-	h=Date:From:To:Cc:Subject:References:In-Reply-To;
-	b=nzq2rcP1fx+yyhPnOyn2Rq5EpciyRCD4vPctNirtOQoDW5WlfuokxEuH+hpss8sJ8
-	 XuqVFpGttKjbEU/tiRl8K/dZMpaX6+5eqh0RHpkkP0+6OweCCTW8vJI5hcXoeSNaSS
-	 5I9q8T17WkGk5zvMZAOhag9Rwd/GiNIWsuOrSO6LSAT8emfcZOug74ZHaNaJ8TLgly
-	 N3IaWugx+FmOnkk2lBV6OQ0A5qrjkWqoT59ET04IjDxUrL0Oy+fbTieF1K+U3SL+Zy
-	 lnUK0I31pZgbfGpDGDQhfDvnYIUeEbJ68F5XgYweaZAUT8TBY31Tz2H7LedkRIo0Dd
-	 wR3AvuQ9yVpMg==
-Date: Thu, 4 Jun 2026 12:18:01 +0200
-From: Lorenzo Bianconi <lorenzo@kernel.org>
-To: ZhaoJinming <zhaojinming@uniontech.com>
-Cc: andrew+netdev@lunn.ch, davem@davemloft.net, edumazet@google.com,
-	kuba@kernel.org, pabeni@redhat.com, horms@kernel.org,
-	linux-arm-kernel@lists.infradead.org,
-	linux-mediatek@lists.infradead.org, netdev@vger.kernel.org,
-	linux-kernel@vger.kernel.org, stable@vger.kernel.org
-Subject: Re: [PATCH net] net: airoha: Add NULL check for
- of_reserved_mem_lookup() in airoha_qdma_init_hfwd_queues()
-Message-ID: <aiFQ2cQIHGXiRdBx@lore-desk>
-References: <20260604070352.2603077-1-zhaojinming@uniontech.com>
+	id 1wV5Aa-0000000GZ1q-03sk
+	for linux-arm-kernel@lists.infradead.org;
+	Thu, 04 Jun 2026 10:19:25 +0000
+X-UUID: d778c6b05ffe11f1aa26b74ffac11d73-20260604
+X-CID-P-RULE: Release_Ham
+X-CID-O-INFO: VERSION:1.3.12,REQID:0642027d-d015-421b-9a2e-cf088fbc5267,IP:0,U
+	RL:0,TC:0,Content:-25,EDM:0,RT:0,SF:0,FILE:0,BULK:0,RULE:Release_Ham,ACTIO
+	N:release,TS:-25
+X-CID-META: VersionHash:e7bac3a,CLOUDID:28094a09612553bf4032c3acc3611d2b,BulkI
+	D:nil,BulkQuantity:0,Recheck:0,SF:102|850|865|898,TC:nil,Content:0|15|50,E
+	DM:-3,IP:nil,URL:99|1,File:nil,RT:nil,Bulk:nil,QS:nil,BEC:nil,COL:0,OSI:0,
+	OSA:0,AV:0,LES:1,SPR:NO,DKR:0,DKP:0,BRR:0,BRE:0,ARC:0
+X-CID-BVR: 2,SSN|SDN
+X-CID-BAS: 2,SSN|SDN,0,_
+X-CID-FACTOR: TF_CID_SPAM_ULS,TF_CID_SPAM_SNR
+X-CID-RHF: D41D8CD98F00B204E9800998ECF8427E
+X-UUID: d778c6b05ffe11f1aa26b74ffac11d73-20260604
+X-User: zenghongling@kylinos.cn
+Received: from localhost.localdomain [(10.44.16.150)] by mailgw.kylinos.cn
+	(envelope-from <zenghongling@kylinos.cn>)
+	(Generic MTA with TLSv1.3 TLS_AES_256_GCM_SHA384 256/256)
+	with ESMTP id 315364915; Thu, 04 Jun 2026 18:19:16 +0800
+From: Hongling Zeng <zenghongling@kylinos.cn>
+To: ludovic.desroches@microchip.com,
+	vkoul@kernel.org,
+	Frank.Li@kernel.org,
+	tudor.ambarus@linaro.org,
+	nicolas.ferre@microchip.com
+Cc: linux-arm-kernel@lists.infradead.org,
+	dmaengine@vger.kernel.org,
+	linux-kernel@vger.kernel.org,
+	zhongling0719@126.com,
+	Hongling Zeng <zenghongling@kylinos.cn>,
+	sashiko-bot@kernel.org
+Subject: [PATCH v2] dma: at_hdmac: Fix use-after-free by proper tasklet cleanup
+Date: Thu,  4 Jun 2026 18:19:12 +0800
+Message-Id: <20260604101912.318118-1-zenghongling@kylinos.cn>
+X-Mailer: git-send-email 2.25.1
 MIME-Version: 1.0
-Content-Type: multipart/signed; micalg=pgp-sha512;
-	protocol="application/pgp-signature"; boundary="MHS1sKb/1YHuFP2O"
-Content-Disposition: inline
-In-Reply-To: <20260604070352.2603077-1-zhaojinming@uniontech.com>
+Content-Type: text/plain; charset=UTF-8
+Content-Transfer-Encoding: 8bit
+X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
+X-CRM114-CacheID: sfid-20260604_031924_370113_AD1A4E23 
+X-CRM114-Status: GOOD (  11.54  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -72,66 +82,86 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
+Current cleanup paths have a use-after-free vulnerability:
+- vchan_init() creates tasklets that access at_dma_chan memory
+- free_irq() only waits for IRQ handler, NOT tasklets
+- atdma is devm-managed and freed after probe/remove
+- Running tasklets accessing freed memory → Use-After-Free!
 
---MHS1sKb/1YHuFP2O
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-Content-Transfer-Encoding: quoted-printable
+The fix requires careful ordering:
+- free_irq() FIRST to synchronize with running IRQ handlers and prevent
+  them from scheduling new tasklets
+- Then kill tasklets to wait for already-scheduled ones to complete
+- Only then free other resources
 
-> of_reserved_mem_lookup() may return NULL if the reserved memory region
-> referenced by the "memory-region" phandle is not found in the reserved
-> memory table (e.g. due to a misconfigured DTS or a removed
-> memory-region node).  The current code dereferences the returned
-> pointer without checking for NULL, leading to a kernel NULL pointer
-> dereference at the following lines:
->=20
->     dma_addr =3D rmem->base;                          // line 1156
->     num_desc =3D div_u64(rmem->size, buf_size);       // line 1160
->=20
-> Add a NULL check after of_reserved_mem_lookup() and return -ENODEV if
-> the lookup fails, which is consistent with the existing error handling
-> for of_parse_phandle() failure in the same code block.
->=20
-> Fixes: 3a1ce9e3d01b ("net: airoha: Add the capability to allocate hwfd bu=
-ffers via reserved-memory")
-> Cc: stable@vger.kernel.org
-> Signed-off-by: ZhaoJinming<zhaojinming@uniontech.com>
+Fixes: ac803b56860f ("dmaengine: at_hdmac: Convert driver to use virt-dma")
+Reported-by: sashiko-bot@kernel.org
+Closes: https://lore.kernel.org/all/20260604073945.54B311F00898@smtp.kernel.org/
+Signed-off-by: Hongling Zeng <zenghongling@kylinos.cn>
 
-Acked-by: Lorenzo Bianconi <lorenzo@kernel.org>
+---
+Change in v2:
+- Fix NULL pointer dereference in probe error path by checking if channels                                                                       list is initialized before cleanup
+- Fix race condition by calling free_irq() before tasklet_kill() to ensure
+  IRQ handlers cannot reschedule tasklets after cleanup
+---
+ drivers/dma/at_hdmac.c | 26 ++++++++++++++++++--------
+ 1 file changed, 18 insertions(+), 8 deletions(-)
 
-> ---
->  drivers/net/ethernet/airoha/airoha_eth.c | 3 +++
->  1 file changed, 3 insertions(+)
->=20
-> diff --git a/drivers/net/ethernet/airoha/airoha_eth.c b/drivers/net/ether=
-net/airoha/airoha_eth.c
-> index cecd66251dba..2444d3275a81 100644
-> --- a/drivers/net/ethernet/airoha/airoha_eth.c
-> +++ b/drivers/net/ethernet/airoha/airoha_eth.c
-> @@ -1153,6 +1153,9 @@ static int airoha_qdma_init_hfwd_queues(struct airo=
-ha_qdma *qdma)
-> =20
->  		rmem =3D of_reserved_mem_lookup(np);
->  		of_node_put(np);
-> +		if (!rmem)
-> +			return -ENODEV;
-> +
->  		dma_addr =3D rmem->base;
->  		/* Compute the number of hw descriptors according to the
->  		 * reserved memory size and the payload buffer size
-> --=20
-> 2.25.1
+diff --git a/drivers/dma/at_hdmac.c b/drivers/dma/at_hdmac.c
+index e5b30a57c477..9048b56b082f 100644
+--- a/drivers/dma/at_hdmac.c
++++ b/drivers/dma/at_hdmac.c
+@@ -1940,6 +1940,19 @@ static void at_dma_off(struct at_dma *atdma)
+ 		cpu_relax();
+ }
+ 
++static void at_dma_cleanup_channels(struct at_dma *atdma)
++{
++	struct dma_chan *chan, *_chan;
++
++	list_for_each_entry_safe(chan, _chan, &atdma->dma_device.channels,
++			device_node) {
++		/* Disable interrupts */
++		atc_disable_chan_irq(atdma, chan->chan_id);
++		tasklet_kill(&to_at_dma_chan(chan)->vc.task);
++		list_del(&chan->device_node);
++	}
++}
++
+ static int __init at_dma_probe(struct platform_device *pdev)
+ {
+ 	struct at_dma		*atdma;
+@@ -2109,6 +2122,8 @@ static int __init at_dma_probe(struct platform_device *pdev)
+ err_memset_pool_create:
+ 	dma_pool_destroy(atdma->lli_pool);
+ err_desc_pool_create:
++	if (atdma->dma_device.channels.next != NULL)
++		at_dma_cleanup_channels(atdma);
+ 	free_irq(platform_get_irq(pdev, 0), atdma);
+ err_irq:
+ 	clk_disable_unprepare(atdma->clk);
+@@ -2125,16 +2140,11 @@ static void at_dma_remove(struct platform_device *pdev)
+ 		of_dma_controller_free(pdev->dev.of_node);
+ 	dma_async_device_unregister(&atdma->dma_device);
+ 
+-	dma_pool_destroy(atdma->memset_pool);
+-	dma_pool_destroy(atdma->lli_pool);
+ 	free_irq(platform_get_irq(pdev, 0), atdma);
++	at_dma_cleanup_channels(atdma);
+ 
+-	list_for_each_entry_safe(chan, _chan, &atdma->dma_device.channels,
+-			device_node) {
+-		/* Disable interrupts */
+-		atc_disable_chan_irq(atdma, chan->chan_id);
+-		list_del(&chan->device_node);
+-	}
++	dma_pool_destroy(atdma->memset_pool);
++	dma_pool_destroy(atdma->lli_pool);
+ 
+ 	clk_disable_unprepare(atdma->clk);
+ }
+-- 
+2.25.1
 
---MHS1sKb/1YHuFP2O
-Content-Type: application/pgp-signature; name=signature.asc
-
------BEGIN PGP SIGNATURE-----
-
-iHUEABYKAB0WIQTquNwa3Txd3rGGn7Y6cBh0uS2trAUCaiFQ2QAKCRA6cBh0uS2t
-rGQoAP0Y+U3xaU4dH4A4qEA5eXkvOPfKybpxGlsEg1dZFVcKfgD/fEwzNgGlnKUX
-1JLWfHZ0UTnNgp7WgqnMb40Sm39fpgM=
-=v7Zm
------END PGP SIGNATURE-----
-
---MHS1sKb/1YHuFP2O--
 
