@@ -4,85 +4,63 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 9EFB9CD6E6B
-	for <linux-arm-kernel@archiver.kernel.org>; Thu,  4 Jun 2026 11:51:02 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id CEEC7CD6E6B
+	for <linux-arm-kernel@archiver.kernel.org>; Thu,  4 Jun 2026 11:53:39 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:Cc:To:Subject:
-	Message-ID:Date:References:MIME-Version:In-Reply-To:From:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=+AP/U3cPeU0fXOEAiHxHazm6k88v5P4k80O8mHj3UmM=; b=Au0Xh2WbhnVDw0ZWK3AhFVqKri
-	JSHTx/oqewyu4ZxwpAVLxLIr0uwfMeUBly1UkruonQAcoclY5yoBbs8YC+/IQvb6ZuI2HjERaOYeP
-	Cle9sNyMHqq+YbE6CM1fMDeKUelT9kzPeAgyaDaRlbf4i9Rx3LUUxKogENGXHzK28aGWRcy3Yz8DO
-	FyN8F9aqbfekO3bB0lHpiIjBbXJI22WwpPfS8BCOrKMCD/hGK1eRO3+024CrSRD8wip59iR29Oaea
-	URaffWqp/0Cc3eFrhqysLX8qGB/bPpdh/sXIuBPkYHOxGYR/qkmHD2fGgztD502BAw2Tn4p87gVxs
-	yvJhZgsg==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	MIME-Version:Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-Type:
+	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
+	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=oWMn64nYBWSIvUnLnrokvGf+sjSPmoshxyBWnGTXZ/E=; b=E2w3Exc8Ebfm32tUb+qOB8rF+K
+	I8pA7efzMUih4TbmbYZ7bcpoBdiBa/68EvxVfmkVzNfzfudueoaXOJAtyOlHe2ivXYwhIfe037ZXb
+	BImPin3VRenJ9B4lMrhsW6JBly/cdQ+2PC4MzV5jASwp/+W+8R6W1zKbfURwRaClfoPxx0JFjcDxm
+	edneCAQk6Jp+92udmAIWvMrV2jJvRgiKFqwqFPHP2OPDcxW6Fv7asn4+kulSVjjzbdTay6OesOE7y
+	70TpdqeEjveZI4Lkovjag6gBEFMwLVmvuDUXwWRbWL+5U5jivpRiW91mnXDb5mv+nyxbb2iZh0a6J
+	GsyAB3Iw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wV6b7-0000000GfRd-1vNM;
-	Thu, 04 Jun 2026 11:50:53 +0000
-Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
+	id 1wV6dg-0000000Gfge-3rAk;
+	Thu, 04 Jun 2026 11:53:32 +0000
+Received: from mail.netcube.li ([173.249.15.149])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wV6b5-0000000GfRV-3cyY
-	for linux-arm-kernel@lists.infradead.org;
-	Thu, 04 Jun 2026 11:50:51 +0000
-Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
-	by sea.source.kernel.org (Postfix) with ESMTP id 450C844626
-	for <linux-arm-kernel@lists.infradead.org>; Thu,  4 Jun 2026 11:50:51 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 2D0071F00899
-	for <linux-arm-kernel@lists.infradead.org>; Thu,  4 Jun 2026 11:50:51 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1780573851;
-	bh=+AP/U3cPeU0fXOEAiHxHazm6k88v5P4k80O8mHj3UmM=;
-	h=From:In-Reply-To:References:Date:Subject:To:Cc;
-	b=gTa53yJV3FNKREqub3QPIdJdIBpiqctfla9UV9JKkXPKWxEGfDkIQGwtIbrwOVEqN
-	 6WUPv32i6BvWBnugDJsvR0knou13vTeL+0tk6S2on+t5TVox8/U7gzRhhksbVI+CDS
-	 DXBwwMvHmfdHMs3AaYmyrqMsscl1JRvo17pC0WJN7BTevi805aE/nsJ8ZlPQFMdpmu
-	 szHsdO6T4b5MpCHi7GvCmN6haPkT45wpzJs9dJIjcgyWtCVlm3ZSPES/ITluPyJx6m
-	 J4vpo+0RaYOmuw8lJTYIaqn0csIPQUuyzgt8xlbtd+n+faRoZB1D+erw6WnEMC3FTC
-	 6D5/6Dz4A+9+w==
-Received: by mail-lj1-f175.google.com with SMTP id 38308e7fff4ca-39666ac91a2so17705681fa.1
-        for <linux-arm-kernel@lists.infradead.org>; Thu, 04 Jun 2026 04:50:51 -0700 (PDT)
-X-Forwarded-Encrypted: i=1; AFNElJ/xnQmyJM7LPYw9a40QZdhCOHhmB15nd2izLpbDRU9Y1sv9H4n6vyJ59bzoD8zC1chulcf7gFwFSepthpziMzCC@lists.infradead.org
-X-Gm-Message-State: AOJu0YxL/s5IINjEyfERgSb9hAcsy8qRwTKzhpYIoY3MBmp9CcUbpbIZ
-	ulW4kehLZryzkRuykOeO0L74FzpbWhaiQhhv58q83qtZcQqaGPOIuVA0qzTdk8Oc6moSPrht+qk
-	TZQFUQU+fwoZ+vaVwfCgpe11ZyJd7PiJhXonD7fY7zw==
-X-Received: by 2002:a05:651c:242:b0:38b:dd55:b71 with SMTP id
- 38308e7fff4ca-396bbb2b99dmr9083771fa.20.1780573849639; Thu, 04 Jun 2026
- 04:50:49 -0700 (PDT)
-Received: from 969154062570 named unknown by gmailapi.google.com with
- HTTPREST; Thu, 4 Jun 2026 04:50:48 -0700
-Received: from 969154062570 named unknown by gmailapi.google.com with
- HTTPREST; Thu, 4 Jun 2026 04:50:48 -0700
-From: Bartosz Golaszewski <brgl@kernel.org>
-In-Reply-To: <aiFScCW_NEY3CsEf@vaman>
+	id 1wV6dd-0000000GffJ-1syQ;
+	Thu, 04 Jun 2026 11:53:30 +0000
+dkim-signature: v=1; a=rsa-sha256; d=netcube.li; s=s1;
+	c=relaxed/relaxed; q=dns/txt; h=From:Subject:Date:Message-ID:To:CC:MIME-Version:Content-Transfer-Encoding;
+	bh=oWMn64nYBWSIvUnLnrokvGf+sjSPmoshxyBWnGTXZ/E=;
+	b=EM/tXpU1wlQHYFGsc/bUXmHgoo59oVfIKpgMEhB4dC3NlM3mPBkClH2fl95cIFZItsMAMGoZKnacPbFGf73FHd2Np1JvjyOHu3qraYCA+4GCPpXhfNYXc1YCW/ckbq9DhzJucu1OI3m+oJHfUqgejF//Z7oWi3SEHVnV5hLVGVw=
+Received: from lukas-hpz440workstation.lan.sk100508.local (194-166-56-114.hdsl.highway.telekom.at [194.166.56.114])
+	by mail.netcube.li with ESMTPA
+	; Thu, 4 Jun 2026 13:53:06 +0200
+From: Lukas Schmid <lukas.schmid@netcube.li>
+To: Rob Herring <robh@kernel.org>,
+	Krzysztof Kozlowski <krzk+dt@kernel.org>,
+	Conor Dooley <conor+dt@kernel.org>,
+	Chen-Yu Tsai <wens@kernel.org>,
+	Jernej Skrabec <jernej.skrabec@gmail.com>,
+	Samuel Holland <samuel@sholland.org>,
+	Paul Walmsley <pjw@kernel.org>,
+	Palmer Dabbelt <palmer@dabbelt.com>,
+	Albert Ou <aou@eecs.berkeley.edu>,
+	Alexandre Ghiti <alex@ghiti.fr>,
+	Maxime Ripard <mripard@kernel.org>
+Cc: Lukas Schmid <lukas.schmid@netcube.li>,
+	devicetree@vger.kernel.org,
+	linux-arm-kernel@lists.infradead.org,
+	linux-sunxi@lists.linux.dev,
+	linux-kernel@vger.kernel.org,
+	linux-riscv@lists.infradead.org
+Subject: [PATCH v1 0/3] Add support for NetCube Systems OpenNMC (dobermann)
+Date: Thu,  4 Jun 2026 13:52:31 +0200
+Message-ID: <20260604115241.1358528-1-lukas.schmid@netcube.li>
+X-Mailer: git-send-email 2.47.3
 MIME-Version: 1.0
-References: <20260526-qcom-qce-cmd-descr-v19-0-08472fdcbf4a@oss.qualcomm.com>
- <ah8G_ajPS1KhgPP_@linaro.org> <aiFScCW_NEY3CsEf@vaman>
-Date: Thu, 4 Jun 2026 04:50:48 -0700
-X-Gmail-Original-Message-ID: <CAMRc=McYB+S1LmqRJbWKirMGqwJHZCTWj6KnB6Z8qUsYQWBqkw@mail.gmail.com>
-X-Gm-Features: AVHnY4ItlnHzBWkZf26uoYFprN5coNBr4vZZe2XdpgFnq6HAZyN9LACZLu6Trcg
-Message-ID: <CAMRc=McYB+S1LmqRJbWKirMGqwJHZCTWj6KnB6Z8qUsYQWBqkw@mail.gmail.com>
-Subject: Re: [PATCH v19 00/14] crypto/dmaengine: qce: introduce BAM locking
- and use DMA for register I/O
-To: Vinod Koul <vkoul@kernel.org>
-Cc: Bartosz Golaszewski <bartosz.golaszewski@oss.qualcomm.com>, Jonathan Corbet <corbet@lwn.net>, 
-	Thara Gopinath <thara.gopinath@gmail.com>, Herbert Xu <herbert@gondor.apana.org.au>, 
-	"David S. Miller" <davem@davemloft.net>, Udit Tiwari <quic_utiwari@quicinc.com>, 
-	Md Sadre Alam <mdalam@qti.qualcomm.com>, Dmitry Baryshkov <lumag@kernel.org>, 
-	Manivannan Sadhasivam <mani@kernel.org>, Bjorn Andersson <andersson@kernel.org>, 
-	Peter Ujfalusi <peter.ujfalusi@gmail.com>, Michal Simek <michal.simek@amd.com>, 
-	Frank Li <Frank.Li@kernel.org>, Andy Gross <agross@codeaurora.org>, 
-	Neil Armstrong <neil.armstrong@linaro.org>, dmaengine@vger.kernel.org, 
-	linux-doc@vger.kernel.org, linux-kernel@vger.kernel.org, 
-	linux-arm-msm@vger.kernel.org, linux-crypto@vger.kernel.org, 
-	linux-arm-kernel@lists.infradead.org, brgl@kernel.org, 
-	Bartosz Golaszewski <bartosz.golaszewski@linaro.org>, 
-	Dmitry Baryshkov <dmitry.baryshkov@oss.qualcomm.com>, 
-	Konrad Dybcio <konrad.dybcio@oss.qualcomm.com>, 
-	Stephan Gerhold <stephan.gerhold@linaro.org>
-Content-Type: text/plain; charset="UTF-8"
+Content-Transfer-Encoding: 8bit
+X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
+X-CRM114-CacheID: sfid-20260604_045329_798195_B2DDB9E5 
+X-CRM114-Status: UNSURE (   8.63  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -97,51 +75,24 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Thu, 4 Jun 2026 12:24:48 +0200, Vinod Koul <vkoul@kernel.org> said:
-> On 02-06-26, 18:38, Stephan Gerhold wrote:
->> On Tue, May 26, 2026 at 03:10:48PM +0200, Bartosz Golaszewski wrote:
->> > I feel like I fell into the trap of trying to address pre-existing
->> > issues reported by sashiko and in the process provoking more reports so
->> > let this be the last iteration where I do this. Vinod can we get this
->> > queued for v7.2 now and iron out any previously existing problems in
->> > tree?
->>
->> Thanks a lot for working on fixing all these issues!
->>
->> I agree there is no point addressing all the "pre-existing issues"
->> pointed out by Sashiko, but have you looked through the other comments
->> for new issues pointed out for your patches?
->
-> I hope Bart and Qualcomm can fix these driver issues as well
->>
->> Out of curiosity, I was looking a bit at the comments for [PATCH v19
->> 06/14] dmaengine: qcom: bam_dma: add support for BAM locking [1]. There
->> are 8 open comments there (Critical: 1, High: 6 and Medium: 1). From a
->> quick look I would say most of these could be valid. The critical one
->> about the usage of dma_cookie_assign() sounds a bit concerning to me, if
->> it is true we would be basically breaking parts of the dmaengine API for
->> consumers by inserting the lock descriptor in front of everything else.
->
-> Yes this seems to be a valid one. Attaching another descriptor for lock
-> does not sound right to me, as in this case causes descriptor to be
-> marked 'done' prematurely.
->
+This series adds support for the NetCube Systems OpenNMC
 
-Yes, I have a fix for this queued.
+Signed-off-by: Lukas Schmid <lukas.schmid@netcube.li>
+---
+Lukas Schmid (3):
+  dt-bindings: arm: sunxi: Add NetCube Systems OpenNMC (dobermann)
+  riscv: dts: allwinner: d1s-t113: Add uart4 pinctrl required by NetCube
+    Systems OpenNMC
+  ARM: dts: sunxi: add support for NetCube Systems OpenNMC (dobermann)
 
-> Honestly, I am not quite happy with the way lock is being handled here.
-> I would hope we can have some better suggestions. Adding a descriptor
-> for lock does not look right to me. We are adding odd hardware/firmware
-> behaviour on engine apis.
->
-> I had earlier suggested to lock always or lock only for hw/sw versions
-> supported inside the driver, that might be simplist solution without the
-> complexity added here
->
+ .../devicetree/bindings/arm/sunxi.yaml        |   1 +
+ .../sun8i-t113s-netcube-dobermann.dts         | 149 ++++++++++++++++++
+ .../boot/dts/allwinner/sunxi-d1s-t113.dtsi    |   6 +
+ 3 files changed, 156 insertions(+)
+ create mode 100644 arch/arm/boot/dts/allwinner/sun8i-t113s-netcube-dobermann.dts
 
-I'm not sure what you mean here. Several iterations ago it was deferred to
-consumer drivers. Mani objected and Bjorn and you agreed. I reworked it to move
-the locking logic into the DMA driver as requested.
+-- 
+2.47.3
 
-Bart
+
 
