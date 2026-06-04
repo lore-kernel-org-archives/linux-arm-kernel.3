@@ -4,68 +4,134 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 21554CD6E4A
-	for <linux-arm-kernel@archiver.kernel.org>; Thu,  4 Jun 2026 03:32:44 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 21973CD6E55
+	for <linux-arm-kernel@archiver.kernel.org>; Thu,  4 Jun 2026 03:32:57 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:MIME-Version:Date:Message-ID:From:References:CC:To:
-	Subject:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=cMgBCSgvMtpZEZrDJ1R+5pwimwPSaByYbNxh3LP7+uM=; b=n5bZ6lJXOj9fum8svRHr1LjpRy
-	2NA8UWMOSaMJ/T86M4s+qC+Fr9NDpHbSfDwwYeqkqSFWH0+C7FStCG5vHgSbyOIbk4S356VH4qNaq
-	26Dc2chOHpmuO2ZHSIK+hnh6XFKqSQwuc3DibWHMcaSL2p1AmMlNlnWSemHeiQxAUcgf8wslXCBam
-	lkBFY13u7ozxt34wWuj30zjpOsxBXeEEsdAcyAHcA45+jF2T2rNvEZ/FMup8N3TbR/g13wp7y2FhO
-	Mv4xy8gxShWoThLfnMigL07wo6Q6skDvKCXT496+GjE4Wcop6FPjgyBCfyXSWmO7ZMFrd/1ObRtQU
-	VPX/bxoA==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:
+	Content-Transfer-Encoding:Content-Type:In-Reply-To:References:Message-ID:Date
+	:Subject:CC:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=t6j4OHKyz0FAUQKBFL7q8z3cjlVR/HJOeYWZHhhyHIo=; b=sdPFJxsLFqHNKxCx4KZBxzPgtX
+	/RsfQJL5HhyD6McnD9pMRSkKpyya5ULCWHFfXBl69tC0J3kk9hgC7hEhvIgnhP3BksyQh2OYS0imm
+	VoIVIVu5XcsmH9b9GVf5J6urN+2jwiOPKm87BgWz946anpYaIymkc7ePTHyQQ+/B0aXY8oZluNshq
+	aSmMfOi1ozIeJR28WnpiqcGbHpZNqXB9IyOsLV81eV4BAwJo3CinAc2vHnso6R8+g7Py8uPGTYQzB
+	WkOxUt0ZNtfs9RTePOAOAXLZfEvjnandeb542robXP7uI2mFgzBFrGARmt0PDCuuLkhc08nka5cxo
+	NXWqhpmw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wUyot-0000000G6Sc-3HZ5;
-	Thu, 04 Jun 2026 03:32:35 +0000
-Received: from canpmsgout09.his.huawei.com ([113.46.200.224])
+	id 1wUyp8-0000000G6Vi-3iQD;
+	Thu, 04 Jun 2026 03:32:50 +0000
+Received: from mail-northeuropeazlp170120005.outbound.protection.outlook.com ([2a01:111:f403:c200::5] helo=DUZPR83CU001.outbound.protection.outlook.com)
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wUyor-0000000G6S1-0Cp1
+	id 1wUyp5-0000000G6UU-0WOT
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 04 Jun 2026 03:32:35 +0000
-dkim-signature: v=1; a=rsa-sha256; d=huawei.com; s=dkim;
-	c=relaxed/relaxed; q=dns/txt;
-	h=From;
-	bh=cMgBCSgvMtpZEZrDJ1R+5pwimwPSaByYbNxh3LP7+uM=;
-	b=b0D/6tYekJLgMjLMWwjnVuLzmDupBuHI0VQIAXUUfPUs8mTBlUW81/A51fwmxND/9D7AnK+DT
-	OZL4NAI8Byt+ENSFJoStoZyERUI9o4QiK983PVPLf3vilQi6iVdy/dCYQoMAbrr86+U1A88di5D
-	UmwAH2Vm+B8EFaKNLwT5rdE=
-Received: from mail.maildlp.com (unknown [172.19.163.163])
-	by canpmsgout09.his.huawei.com (SkyGuard) with ESMTPS id 4gW90d20Cjz1cyPd;
-	Thu,  4 Jun 2026 11:24:33 +0800 (CST)
-Received: from dggpemf500015.china.huawei.com (unknown [7.185.36.143])
-	by mail.maildlp.com (Postfix) with ESMTPS id 7C6304056E;
-	Thu,  4 Jun 2026 11:32:22 +0800 (CST)
-Received: from [10.67.121.110] (10.67.121.110) by
- dggpemf500015.china.huawei.com (7.185.36.143) with Microsoft SMTP Server
- (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
- 15.2.1544.11; Thu, 4 Jun 2026 11:32:21 +0800
-Subject: Re: [PATCH 0/2] HiSilicon TRNG fix and simplification
-To: Eric Biggers <ebiggers@kernel.org>, <linux-crypto@vger.kernel.org>,
-	Herbert Xu <herbert@gondor.apana.org.au>
-CC: Olivia Mackall <olivia@selenic.com>, Weili Qian <qianweili@huawei.com>,
-	Wei Xu <xuwei5@hisilicon.com>, <linux-arm-kernel@lists.infradead.org>,
-	<linux-kernel@vger.kernel.org>
-References: <20260530202624.20768-1-ebiggers@kernel.org>
-From: liulongfang <liulongfang@huawei.com>
-Message-ID: <a5df5973-480e-c18b-90bf-99380d24968d@huawei.com>
-Date: Thu, 4 Jun 2026 11:32:20 +0800
-User-Agent: Mozilla/5.0 (Windows NT 10.0; WOW64; rv:60.0) Gecko/20100101
- Thunderbird/60.8.0
+	Thu, 04 Jun 2026 03:32:48 +0000
+ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
+ b=rBYxsnhOgcAuIO5bR+jntsaCkGKRJBDlz9XZo0faDg16HvRBYAQCOeU3FtxmuyifkyyxUtBEJzE6L+C6sGu/Ieny6jtOus9cPDBpMrWDuI1rZ/1fFk0MEJdrr00WYQ0fmPlBD0yCH3618K7VKlbfbULf2owgGL9rtNCUpzKhbVWnBpv36ceOuuLR48KBY2fZfRVw9zZGHezvGNyhLMkzxds9hrP4adv/akwUTN0gNZgmvPHweEBHPbAzcldTHuvN4FVhIAVUAYrKoMqWv2qfDU0BwT442WEnUiVbzSc3N7ikHL8NFrdOoxLClHUbVhCFZmAfAr6sU91KvZaN0nNQeQ==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
+ s=arcselector10001;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
+ bh=t6j4OHKyz0FAUQKBFL7q8z3cjlVR/HJOeYWZHhhyHIo=;
+ b=uFuKfLqV0ITHxuI+weFwZtcJ2R/X8U8XV9rl8UbG8momNzORlIzzUfYb4NeTLc+2qpn8EILiSot9RIJL4Z3M3Z6riGWPoL3VTUK6wqcZ7s3Vx+X9wOcMWIBymFpIi6V2HJC23eJ+hKUFEU7BGALDIbrYOvYuNsTmOIgvaKSro8aYCDWT4h98/OyGRh12rX2TU9gtkoXA8I6M8z+2qfOrwgsPSjIe04p5yE2pKBjzCEjtxBB+H69WBkd3vwpy1m+fppB6j34/UghQJBDH4ld0b2O7NbhEYIQK1BBLODtn9C35vHegKWdHH3nuUdHPy/ycNBx0Y4fmYncdS7ZLoqO6YQ==
+ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
+ smtp.mailfrom=nxp.com; dmarc=pass action=none header.from=nxp.com; dkim=pass
+ header.d=nxp.com; arc=none
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=nxp.com; s=selector1;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
+ bh=t6j4OHKyz0FAUQKBFL7q8z3cjlVR/HJOeYWZHhhyHIo=;
+ b=U8QlYk2Gc7Pm4hSnyVDS5pBes3BV8xGoQ08eomkUQF9bXFG4ly8wKLwY7V7ZJBI+1R9yPIG5PhfwsEASqU3b4aWzYi0M0lH5gE4oNKCKT4OCEdyPcKsvVcebNAdUNb8cekGwCjG7fym++5GNq5owoiy7s61MonY5kYyfWBaPzZCIV+0Y5iToAtY2ERgJ2IYVY92y/DFG2N4VdMjT3yrNkWReL59oczyFxZdp0KSC/3F9CLm+XhEWm25UbKCou+mfjEXwQhxOVLQToSIcOQw2mdT01J+gMaJqesUhJ/3bGg5Xrhke5OZ28TTbppg2DfVRjZXCqu4LHoAbn9P+t9/Qig==
+Received: from VI0PR04MB12114.eurprd04.prod.outlook.com
+ (2603:10a6:800:315::13) by PAXPR04MB9570.eurprd04.prod.outlook.com
+ (2603:10a6:102:24d::20) with Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.21.92.7; Thu, 4 Jun 2026
+ 03:32:41 +0000
+Received: from VI0PR04MB12114.eurprd04.prod.outlook.com
+ ([fe80::feda:fd0e:147f:f994]) by VI0PR04MB12114.eurprd04.prod.outlook.com
+ ([fe80::feda:fd0e:147f:f994%6]) with mapi id 15.21.0092.006; Thu, 4 Jun 2026
+ 03:32:41 +0000
+From: Sherry Sun <sherry.sun@nxp.com>
+To: "Hongxing Zhu (OSS)" <hongxing.zhu@oss.nxp.com>, "robh@kernel.org"
+	<robh@kernel.org>, "krzk+dt@kernel.org" <krzk+dt@kernel.org>,
+	"conor+dt@kernel.org" <conor+dt@kernel.org>, Frank Li <frank.li@nxp.com>,
+	"s.hauer@pengutronix.de" <s.hauer@pengutronix.de>, "festevam@gmail.com"
+	<festevam@gmail.com>
+CC: "kernel@pengutronix.de" <kernel@pengutronix.de>,
+	"devicetree@vger.kernel.org" <devicetree@vger.kernel.org>,
+	"imx@lists.linux.dev" <imx@lists.linux.dev>,
+	"linux-arm-kernel@lists.infradead.org"
+	<linux-arm-kernel@lists.infradead.org>, "linux-kernel@vger.kernel.org"
+	<linux-kernel@vger.kernel.org>, Hongxing Zhu <hongxing.zhu@nxp.com>
+Subject: RE: [PATCH v1] arm64: dts: imx94: Add Root Port node and PERST
+ property
+Thread-Topic: [PATCH v1] arm64: dts: imx94: Add Root Port node and PERST
+ property
+Thread-Index: AQHc88jWArrt60KYqkOGb5wRYLlZPrYtvIGQ
+Date: Thu, 4 Jun 2026 03:32:41 +0000
+Message-ID: <VI0PR04MB121146852552A5C6B551DB15292102@VI0PR04MB12114.eurprd04.prod.outlook.com>
+References: <20260604022420.120294-1-hongxing.zhu@oss.nxp.com>
+In-Reply-To: <20260604022420.120294-1-hongxing.zhu@oss.nxp.com>
+Accept-Language: zh-CN, en-US
+Content-Language: en-US
+X-MS-Has-Attach: 
+X-MS-TNEF-Correlator: 
+authentication-results: dkim=none (message not signed)
+ header.d=none;dmarc=none action=none header.from=nxp.com;
+x-ms-publictraffictype: Email
+x-ms-traffictypediagnostic: VI0PR04MB12114:EE_|PAXPR04MB9570:EE_
+x-ms-office365-filtering-correlation-id: 510cc435-dd89-4c15-375b-08dec1e9eec5
+x-ms-exchange-senderadcheck: 1
+x-ms-exchange-antispam-relay: 0
+x-microsoft-antispam: BCL:0;ARA:13230040|7416014|376014|1800799024|19092799006|366016|38070700021|56012099006|11063799006|22082099003|18002099003;
+x-microsoft-antispam-message-info: xx0wfVPy3EAWDVrYE6mdQ+sQLlYiyKW8oSfcoQHA1ObVwNQvjNljzV+SFI1h5kJd0HTjMW1wCquy+ozJHThdRIuPKr6jOe4+lN1P+F983kJthM/QMPslCd0fZhi671q0rzslNWeFIwunf1eU0a34DLgQWpLvmVHj1/mlPsvH44lWXLQELm0/t7XbYKFTwyOCXlYZTQ5cWq1R1fisxVXHcUgN7pXzbBPpnpJGodsjFmhHg9bOGHxnq2O2yrzrjYvispJlnW31r0KB1hbvaHir9WRt7o9m2Qt4UNXGLSUZrTBwp6QbkpaXdYmvB7MgXXDUgPsmxAhjCjzu/k2PdqjI4ZZRx5X3E8BsfoGmVrx1yCeo8jsXhe+xnlAgl6/7YCZMGDkflu/aCbaZ8MWm0+pv7cFGX2lXzKD5zo3FgQFmpUwBmn6G6k0N3NFJJ85zj7Oy5wSDqBUO7nHldnCVvP2BqLAEJzm5SFTQ73IlvQlKNT7asm9dXnBInznUwbIYvGabUC9dGKLqjOxENBQsJ8uKr5zDnZw01eJgw2OMCKks/5BTEWmTxOJCEI8fgEpEu/mcU+yZZTSX29rin+g1mRlXedFD2nYbeK7Z3E74aOWvDrm/QwzKlyzvGl6o8V50gHmjwupSE53m9lgjElptzKiexK5PMmSJZ9XBiIPmhF68ZhqI+sdmtyMaLgfKWoJUFkEjNN77lkRghsG2GWRu9a+L060IslzOi9640CtdYeovPq6QNaCVYeabUsp3VXUx8lfi
+x-forefront-antispam-report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:VI0PR04MB12114.eurprd04.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(7416014)(376014)(1800799024)(19092799006)(366016)(38070700021)(56012099006)(11063799006)(22082099003)(18002099003);DIR:OUT;SFP:1101;
+x-ms-exchange-antispam-messagedata-chunkcount: 1
+x-ms-exchange-antispam-messagedata-0: =?us-ascii?Q?UKqlmmQqKXVJRmzTvcvPBKkZDtH1UP2iDhO2EkjwKMBjiWYi7KESU3BcIId7?=
+ =?us-ascii?Q?6P7nx5USsFC573oXMeHy/OSIOMoj0Bz/RI23FYVQ8yFH68Nw6tGh4q7hnw4Q?=
+ =?us-ascii?Q?SmHk7VSF4Agv1CDy76Aj60+VAlWUdsVV0RpOEgl6BmAIF6j79/OWRVCz0Nxr?=
+ =?us-ascii?Q?RrYT5Wv/aFFT9mXTYdG0Y09B0Q1OoPvEkxgUTU51SaZPN7XaQFC3NPDgHDo+?=
+ =?us-ascii?Q?Jfp7ptvfKU+HDqj5xA3PY0fhEljklfdeSRKn6UMg1YMyHlv5zYzUAASgjSP4?=
+ =?us-ascii?Q?C4W+GpAy3VKD18zmh/FLIgR+Pgs5ID/hV0JdTUIqYzUWMmkltEj8wnF9UEHR?=
+ =?us-ascii?Q?BQblwiRtXJNUDeimM3FE7m+4P3vatYTofxYfi7AEeQeKrX6tcYaKefBQkKyP?=
+ =?us-ascii?Q?mCIctX3Pf/0fC0HRy9fUdtA/yp6cAunBUEayoQEKW2E3gnJtAab+D2mz4Ewe?=
+ =?us-ascii?Q?k4KNj5jWLOTrwulUSfYTP8FqoRDqxCOhNaffPYtBGPNL/hHwK6wf7UuwDmh2?=
+ =?us-ascii?Q?93xv69rR4glK00HDc3u28BGsqiTEryxuBxLiATIyM3fwUiUvQruKLs4Q2YHG?=
+ =?us-ascii?Q?GlWLnBG8JUMPaH5OGlnNkjCixx/eqHT5nQwmZaWUIL074v2OCmeKYaVJ2F3Y?=
+ =?us-ascii?Q?BaFMtNw+aRkZPeoehIlnIAUgXbbjUkLkXy3Fy5wAXdXDM9OEl7+lBXPxeotJ?=
+ =?us-ascii?Q?ojUr2zKo8G1xfFTLGTZM9Of8ylSKmu+caRBmaVgPgMhDYMxWz1qJ8Kr3r52C?=
+ =?us-ascii?Q?MvueTsnERqMIDCZDNUQaKksQipvuDl3QnsCUwcKCbix3RA/J2nKNuM6b7SVP?=
+ =?us-ascii?Q?6OuIK2uWiPAP0+inUgSu1i0riRyoUDoeVPnX01nxU4h/yQb8Ex41pi8K8Auc?=
+ =?us-ascii?Q?ZnOyJZR00kTvVu302jvMVtGej6LF5WBx7KC1HlzgJrTk6iizQ+f/Svu6AOIT?=
+ =?us-ascii?Q?L38CWutWaseQCk7BqcDn565IgTAfWeCaZf1pUM4s9fmZRx22cpJz7quJeBHD?=
+ =?us-ascii?Q?iIAvzrhqc97XH30IpF8Kq19cse0HaW1CoGT2zREBGW/OI0mtImPBM+ROlD+g?=
+ =?us-ascii?Q?uy2qE1qRK0T+/lBGKKThuTgxNS1uKQZiQuSuEBVUx8fVbFd23zfm5yWugp4p?=
+ =?us-ascii?Q?VcceCb61L4JxEC9jhTgfZ/Z/9kcwh1AGKx72kZNIT+76JCAVymGuvG0ROlxV?=
+ =?us-ascii?Q?ANCSCUDzXzAIb92Pc9zoWba4XPuqohBqi2iqAV82oBX7rDmkm/qsfskSpFZ3?=
+ =?us-ascii?Q?iHRMtysB7Ch6jYc67J+BtppQ0fEpAuHZihgJjjCKYWu8D32NtP7Hzt1HtJ2z?=
+ =?us-ascii?Q?HxiEVKAwmldBndRpx8Ph2JxGlRHdOjCTVZWD8Smz9Bf3+G1ZmHco0PFSoC0V?=
+ =?us-ascii?Q?Aon78V6fA7AvcqPP7seI9qYFDgdmkcj0F7QcBxw06PhfXemJWF5UXKN4yH4E?=
+ =?us-ascii?Q?R1NvE4g0vsLQH8uavgC4Z5EZVOabz+z6xYK6AIC1EFxdZ7XNxciX8JLTZt9E?=
+ =?us-ascii?Q?bNVYwU7w7MLgEcGf4f4CGKmu1MbR6qobrPZ1BUP1iBwxYtvAw1nQdr2UAwfz?=
+ =?us-ascii?Q?PR20FXODCoTPJFADTp5S6or4Xg/P4IZSzWm/WbgmzvIUQC7ny2yAeK3k1Fyt?=
+ =?us-ascii?Q?W0W2nM8ffizDJd28Au8N1ksLSkqzICsp+wjcePFXTrcFARSmpGWFJqEtX1ko?=
+ =?us-ascii?Q?2DsUI/PDD7Ay7W7VCjIPts485lxDo8JKXWKDncKNvac6f+O+?=
+Content-Type: text/plain; charset="us-ascii"
+Content-Transfer-Encoding: quoted-printable
 MIME-Version: 1.0
-In-Reply-To: <20260530202624.20768-1-ebiggers@kernel.org>
-Content-Type: text/plain; charset="gbk"
-Content-Transfer-Encoding: 7bit
-X-Originating-IP: [10.67.121.110]
-X-ClientProxiedBy: kwepems100001.china.huawei.com (7.221.188.238) To
- dggpemf500015.china.huawei.com (7.185.36.143)
+X-OriginatorOrg: nxp.com
+X-MS-Exchange-CrossTenant-AuthAs: Internal
+X-MS-Exchange-CrossTenant-AuthSource: VI0PR04MB12114.eurprd04.prod.outlook.com
+X-MS-Exchange-CrossTenant-Network-Message-Id: 510cc435-dd89-4c15-375b-08dec1e9eec5
+X-MS-Exchange-CrossTenant-originalarrivaltime: 04 Jun 2026 03:32:41.0296
+ (UTC)
+X-MS-Exchange-CrossTenant-fromentityheader: Hosted
+X-MS-Exchange-CrossTenant-id: 686ea1d3-bc2b-4c6f-a92c-d99c5c301635
+X-MS-Exchange-CrossTenant-mailboxtype: HOSTED
+X-MS-Exchange-CrossTenant-userprincipalname: uEHAKdC5OkMRIiMOqYPBlyGFfoai7Zz/ec2fNzk8otmt4ejSPzHKYlZfSLMwrw+2CieyLkMBoAQc0s6HkxeQfQ==
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: PAXPR04MB9570
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260603_203233_568934_68FFC634 
-X-CRM114-Status: GOOD (  12.19  )
+X-CRM114-CacheID: sfid-20260603_203247_188562_28A6AC21 
+X-CRM114-Status: GOOD (  17.65  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -80,41 +146,128 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On 2026/5/31 4:26, Eric Biggers wrote:
-> This series fixes and greatly simplifies the HiSilicon TRNG driver by
-> removing the gratuitous crypto_rng interface, leaving just hwrng which
-> is the one that actually matters.
-> 
-> Note that this mirrors similar changes in other drivers such as qcom-rng
-> (https://lore.kernel.org/r/20260530020332.143058-1-ebiggers@kernel.org)
-> 
-> Eric Biggers (2):
->   crypto: hisi-trng - Remove crypto_rng interface
->   hwrng: hisi-trng - Move hisi-trng into drivers/char/hw_random/
-> 
->  MAINTAINERS                            |   2 +-
->  arch/arm64/configs/defconfig           |   2 +-
->  drivers/char/hw_random/Kconfig         |  10 +
->  drivers/char/hw_random/Makefile        |   1 +
->  drivers/char/hw_random/hisi-trng-v2.c  |  98 +++++++
->  drivers/crypto/hisilicon/Kconfig       |   8 -
->  drivers/crypto/hisilicon/Makefile      |   1 -
->  drivers/crypto/hisilicon/trng/Makefile |   2 -
->  drivers/crypto/hisilicon/trng/trng.c   | 390 -------------------------
->  9 files changed, 111 insertions(+), 403 deletions(-)
->  create mode 100644 drivers/char/hw_random/hisi-trng-v2.c
->  delete mode 100644 drivers/crypto/hisilicon/trng/Makefile
->  delete mode 100644 drivers/crypto/hisilicon/trng/trng.c
-> 
-> 
-> base-commit: 5624ea54f3ba5c83d2e5503411a31a8be0278c1e
-> prerequisite-patch-id: 07e982b663ac3f8312ca524f6b91b5b38661df5e
-> prerequisite-patch-id: 72064361a8f36e015ab0b7e1fa4d364b40d90506
-> prerequisite-patch-id: 8978b8e0db7f47935e5f6f0aff14a97f55d3073c
-> prerequisite-patch-id: 6aa0e3e93a008279d71e535a3d0cf48643f55e19
->
+> Subject: [PATCH v1] arm64: dts: imx94: Add Root Port node and PERST
+> property
+>=20
+> From: Richard Zhu <hongxing.zhu@oss.nxp.com>
+>=20
+> Since describing the PCIe PERST# property under Host Bridge node is now
+> deprecated, it is recommended to add it to the Root Port node, so creatin=
+g the
+> Root Port node and add the reset-gpios property in Root Port.
+>=20
+> Signed-off-by: Richard Zhu <hongxing.zhu@nxp.com>
+> ---
+>  arch/arm64/boot/dts/freescale/imx94.dtsi     | 11 +++++++++++
+>  arch/arm64/boot/dts/freescale/imx943-evk.dts | 10 ++++++++++
+>  arch/arm64/boot/dts/freescale/imx943.dtsi    | 11 +++++++++++
+>  3 files changed, 32 insertions(+)
+> ---
+> Since the patch-set [1] issued by Sherry had been landed. Add according
+> changes on i.MX943 board too.
+> [1] https://lkml.org/lkml/2026/6/1/1461
+>=20
+> diff --git a/arch/arm64/boot/dts/freescale/imx94.dtsi
+> b/arch/arm64/boot/dts/freescale/imx94.dtsi
+> index 1f9035e6cf159..dfbb73603cb24 100644
+> --- a/arch/arm64/boot/dts/freescale/imx94.dtsi
+> +++ b/arch/arm64/boot/dts/freescale/imx94.dtsi
+> @@ -1411,6 +1411,17 @@ pcie0: pcie@4c300000 {
+>  			power-domains =3D <&scmi_devpd
+> IMX94_PD_HSIO_TOP>;
+>  			fsl,max-link-speed =3D <3>;
+>  			status =3D "disabled";
+> +
+> +			pcie0_port0: pcie@0 {
+> +				compatible =3D "pciclass,0604";
+> +				device_type =3D "pci";
+> +				reg =3D <0x0 0x0 0x0 0x0 0x0>;
+> +				bus-range =3D <0x01 0xff>;
+> +
+> +				#address-cells =3D <3>;
+> +				#size-cells =3D <2>;
+> +				ranges;
+> +			};
+>  		};
+>=20
+>  		pcie0_ep: pcie-ep@4c300000 {
+> diff --git a/arch/arm64/boot/dts/freescale/imx943-evk.dts
+> b/arch/arm64/boot/dts/freescale/imx943-evk.dts
+> index 7cfd424689507..ed3abd3e76e56 100644
+> --- a/arch/arm64/boot/dts/freescale/imx943-evk.dts
+> +++ b/arch/arm64/boot/dts/freescale/imx943-evk.dts
+> @@ -1034,12 +1034,17 @@ &pcie0 {
+>  		 <&pcie_ref_clk>;
+>  	clock-names =3D "pcie", "pcie_bus", "pcie_phy", "pcie_aux",
+>  		      "ref", "extref";
+> +	/* This property is deprecated, use reset-gpios from the Root Port
+> +node. */
+>  	reset-gpio =3D <&pcal6416_i2c3_u46 3 GPIO_ACTIVE_LOW>;
 
-Acked-by: Longfang Liu <liulongfang@huawei.com>
+Hi Richard,
+This reset-gpio property should be deleted, for new i.MX, we can use the
+reset-gpios under Root Port directly.
 
-Thanks.
+>  	vpcie3v3aux-supply =3D <&reg_m2_wlan>;
+>  	supports-clkreq;
+>  	status =3D "okay";
+>  };
+>=20
+> +&pcie0_port0 {
+> +	reset-gpio =3D <&pcal6416_i2c3_u46 3 GPIO_ACTIVE_LOW>; };
+> +
+>  &pcie0_ep {
+>  	pinctrl-0 =3D <&pinctrl_pcie0>;
+>  	pinctrl-names =3D "default";
+> @@ -1058,12 +1063,17 @@ &pcie1 {
+>  		 <&pcie_ref_clk>;
+>  	clock-names =3D "pcie", "pcie_bus", "pcie_phy", "pcie_aux",
+>  		      "ref", "extref";
+> +	/* This property is deprecated, use reset-gpios from the Root Port
+> +node. */
+>  	reset-gpio =3D <&pcal6416_i2c3_u46 1 GPIO_ACTIVE_LOW>;
+
+Same here.
+
+Best Regards
+Sherry
+
+>  	vpcie3v3aux-supply =3D <&reg_slot_pwr>;
+>  	supports-clkreq;
+>  	status =3D "okay";
+>  };
+>=20
+> +&pcie1_port0 {
+> +	reset-gpio =3D <&pcal6416_i2c3_u46 1 GPIO_ACTIVE_LOW>; };
+> +
+>  &pcie1_ep {
+>  	pinctrl-0 =3D <&pinctrl_pcie1>;
+>  	pinctrl-names =3D "default";
+> diff --git a/arch/arm64/boot/dts/freescale/imx943.dtsi
+> b/arch/arm64/boot/dts/freescale/imx943.dtsi
+> index cf5b3dbb47ff7..01152fd0efa5e 100644
+> --- a/arch/arm64/boot/dts/freescale/imx943.dtsi
+> +++ b/arch/arm64/boot/dts/freescale/imx943.dtsi
+> @@ -255,6 +255,17 @@ pcie1: pcie@4c380000 {
+>  			power-domains =3D <&scmi_devpd
+> IMX94_PD_HSIO_TOP>;
+>  			fsl,max-link-speed =3D <3>;
+>  			status =3D "disabled";
+> +
+> +			pcie1_port0: pcie@0 {
+> +				compatible =3D "pciclass,0604";
+> +				device_type =3D "pci";
+> +				reg =3D <0x0 0x0 0x0 0x0 0x0>;
+> +				bus-range =3D <0x01 0xff>;
+> +
+> +				#address-cells =3D <3>;
+> +				#size-cells =3D <2>;
+> +				ranges;
+> +			};
+>  		};
+>=20
+>  		pcie1_ep: pcie-ep@4c380000 {
+> --
+> 2.34.1
+
 
