@@ -4,67 +4,54 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 20EA5CD6E75
-	for <linux-arm-kernel@archiver.kernel.org>; Thu,  4 Jun 2026 21:23:29 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id E7781CD6E75
+	for <linux-arm-kernel@archiver.kernel.org>; Thu,  4 Jun 2026 21:45:57 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Date:Cc:To:From:Subject:
+	References:In-Reply-To:Message-Id:MIME-Version:Content-Type:Reply-To:
 	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=sTEc98M4XZy4WMkROG0qptNsTU3Fmgz7V9VTlpGoaVk=; b=PhKsLvIwdKtTQpKVMqHkNZsL2e
-	Y9egbyyZfvYEW6cxOyYEJ7Xho8FrsTQsdBLtUgAUf/Agdl25Xo+jjF59p22ywe0rLzzCYUrXi9mUq
-	bJ65dciki+PAqQBcmZBIIPvUjyqF4Z6WuACT62+BYCfPlES7Vz8mhvP7F+WXLpwIG00yWa2L8wp6B
-	pn2q/ob1vW1xtQkmpZJ00D8iSW+AeCcFnnohgF2riQAD05Es9hxdFugUKBpGoKJhqUwWtomv7z2bH
-	sdCHDisdBnEd+CAQgUkId17g4iKhqRsl3PcIqydPoZOWWCgLsu3To6tAkuJg1XY8lduWUGXsteM6I
-	5GHw7KKA==;
+	bh=eVPQ3M4nO2cjo4ZvlqJcXIehT4M5f0oVzasV566Wey4=; b=IKkZ2jHBmtMmJ3O0rJ7GtBLeXL
+	7EVGa/JSJFMZw6Eq5ZumASfm03eLyi0LFzUQa+3DaFMwUXIlCcQpPY0WA6heILUMsC6tNcTIVZ5Im
+	sXgSa675GbAu98HSpsHlchYwdKhtuqA/w152L9xTS0SILUhlAUwkmSdVJ6XwCbHKAm1gtQkVEyYoV
+	kzqCVh2RCy4fQ39N8PffLNFvDe+cLyr+kN63n72IVs3v35GMpmlpQbtgqn8TK+mVyTvQBft+PApil
+	belcjpbKTj17EZzeQ6DMv73H8dooeuWX63479eVayTnaN1ZYOldyKiFNeCa2MEa+UudfENeqADxVj
+	Nh646qTw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wVFX8-0000000HKG4-3PYv;
-	Thu, 04 Jun 2026 21:23:22 +0000
+	id 1wVFsr-0000000HMq7-3gj9;
+	Thu, 04 Jun 2026 21:45:49 +0000
 Received: from tor.source.kernel.org ([172.105.4.254])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wVFX7-0000000HKFt-3kZ6;
-	Thu, 04 Jun 2026 21:23:22 +0000
+	id 1wVFsp-0000000HMq0-46P0
+	for linux-arm-kernel@lists.infradead.org;
+	Thu, 04 Jun 2026 21:45:48 +0000
 Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
-	by tor.source.kernel.org (Postfix) with ESMTP id 3065A6001A;
-	Thu,  4 Jun 2026 21:23:21 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 5B1AE1F00893;
-	Thu,  4 Jun 2026 21:23:20 +0000 (UTC)
+	by tor.source.kernel.org (Postfix) with ESMTP id DC88B6001A;
+	Thu,  4 Jun 2026 21:45:46 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 076631F00893;
+	Thu,  4 Jun 2026 21:45:46 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1780608200;
-	bh=sTEc98M4XZy4WMkROG0qptNsTU3Fmgz7V9VTlpGoaVk=;
-	h=Date:From:To:Cc:Subject:References:In-Reply-To;
-	b=UJNpkEQt0CjkCEugmUYRNBhibW8aOtscYwd1wNIXNfvnqPgDBnxZiY1nhmlqv7+ny
-	 9mbOZCovyunje6G1Z6EhgfiE+hADo5LdmjDPBYtBqZNZR7IYQ7SG5JeBDyIrOksuln
-	 KS8Inh2I2jYGs+sE1IKgZqGLLnBca+6vlZnRACzPDmofakkIHTRD6hWN6cio3Jy8Mq
-	 qZxdLtODHaz/gheWt60QtP04MNza/uKK4d9+wqPt3TpMcIrZPheJj1MqZ7azgqTTsm
-	 2w6ortBrQUgasNRO1mQtECATG3HqNSdo9d0FDnAY38MpMKIIQzamgNGoHFDx8P4jrY
-	 7k5oLWJK437Hw==
-Date: Thu, 4 Jun 2026 23:23:16 +0200
-From: Lorenzo Bianconi <lorenzo@kernel.org>
-To: Jacob Keller <jacob.e.keller@intel.com>
-Cc: Andrew Lunn <andrew+netdev@lunn.ch>,
-	"David S. Miller" <davem@davemloft.net>,
-	Eric Dumazet <edumazet@google.com>,
-	Jakub Kicinski <kuba@kernel.org>, Paolo Abeni <pabeni@redhat.com>,
-	Felix Fietkau <nbd@nbd.name>,
-	Matthias Brugger <matthias.bgg@gmail.com>,
-	AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>,
-	Florian Westphal <fw@strlen.de>,
-	linux-arm-kernel@lists.infradead.org,
-	linux-mediatek@lists.infradead.org, netdev@vger.kernel.org
-Subject: Re: [PATCH net 1/2] net: airoha: Fix use-after-free in metadata dst
- teardown
-Message-ID: <aiHsxFrleJfpLeuA@lore-rh-laptop>
-References: <20260602-airoha-mtk-metadata-uaf-fix-v1-0-3aaa99d83351@kernel.org>
- <20260602-airoha-mtk-metadata-uaf-fix-v1-1-3aaa99d83351@kernel.org>
- <21810a20-abe6-4490-969c-cfd62c4c082a@intel.com>
+	s=k20260515; t=1780609546;
+	bh=eVPQ3M4nO2cjo4ZvlqJcXIehT4M5f0oVzasV566Wey4=;
+	h=In-Reply-To:References:Subject:From:To:Cc:Date;
+	b=RjNt1ZflgPOa3QCB1uhADhvuCHHeOhF9pb550vZ9YhQF47A5HGMNfdXAD6wxT6o+s
+	 p4yLBkWFUmqeLxAf9JXAQbeSadGip4m6WTwSx2j06mVZMs9pomJwf6IfpxpYiCHg21
+	 IOGpNWMEzRQC8XyjgcyV0q3vxkS6BIv8fYcuoXvsYbCAXYN89OK5WhQzDzXCOs+g4Q
+	 xwXWWiO9by1OWL2iRaX38Y/NQ00OAFPcya0uwNOVdJwcJrhNU+tTEDOVJ1emi5GEqm
+	 zGBt9qCmETG8CPbSSquApDhNk7saGl8cVIPS2ZUL4J0j3LCWkl964PCyneEPHWJ89M
+	 XFYcOKm3Ai2jw==
+Content-Type: multipart/mixed; boundary="===============3493038701439416165=="
 MIME-Version: 1.0
-Content-Type: multipart/signed; micalg=pgp-sha512;
-	protocol="application/pgp-signature"; boundary="aWp9RvEMdmSaWjBX"
-Content-Disposition: inline
-In-Reply-To: <21810a20-abe6-4490-969c-cfd62c4c082a@intel.com>
+Message-Id: <8642178be3be8efc7f19ac4a9aa37e699f2baa82cab200909b99997068c6ae7b@mail.kernel.org>
+In-Reply-To: <20260604-kasan-v2-8-c066e627fda8@bootlin.com>
+References: <20260604-kasan-v2-8-c066e627fda8@bootlin.com>
+Subject: Re: [PATCH bpf-next v2 8/8] selftests/bpf: add tests to validate KASAN on JIT programs
+From: bot+bpf-ci@kernel.org
+To: alexis.lothore@bootlin.com,ast@kernel.org,daniel@iogearbox.net,andrii@kernel.org,martin.lau@linux.dev,eddyz87@gmail.com,memxor@gmail.com,song@kernel.org,yonghong.song@linux.dev,jolsa@kernel.org,john.fastabend@gmail.com,tglx@kernel.org,mingo@redhat.com,bp@alien8.de,dave.hansen@linux.intel.com,x86@kernel.org,hpa@zytor.com,shuah@kernel.org,mcoquelin.stm32@gmail.com,alexandre.torgue@foss.st.com,ihor.solodrai@linux.dev
+Cc: ebpf@linuxfoundation.org,bastien.curutchet@bootlin.com,thomas.petazzoni@bootlin.com,bpf@vger.kernel.org,linux-kernel@vger.kernel.org,linux-kselftest@vger.kernel.org,linux-stm32@st-md-mailman.stormreply.com,linux-arm-kernel@lists.infradead.org,alexis.lothore@bootlin.com,ast@kernel.org,andrii@kernel.org,daniel@iogearbox.net,martin.lau@kernel.org,eddyz87@gmail.com,yonghong.song@linux.dev,clm@meta.com,ihor.solodrai@linux.dev
+Date: Thu,  4 Jun 2026 21:45:46 +0000 (UTC)
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -79,104 +66,140 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
+--===============3493038701439416165==
+Content-Type: text/plain; charset="us-ascii"
+MIME-Version: 1.0
+Content-Transfer-Encoding: 7bit
 
---aWp9RvEMdmSaWjBX
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-Content-Transfer-Encoding: quoted-printable
+> diff --git a/tools/testing/selftests/bpf/prog_tests/kasan.c b/tools/testing/selftests/bpf/prog_tests/kasan.c
+> new file mode 100644
+> index 000000000000..0000000000000
+> --- /dev/null
+> +++ b/tools/testing/selftests/bpf/prog_tests/kasan.c
+> @@ -0,0 +1,356 @@
 
-> On 6/2/2026 2:21 AM, Lorenzo Bianconi wrote:
-> > airoha_metadata_dst_free() runs metadata_dst_free() which frees the
-> > metadata_dst with kfree() immediately, bypassing the RCU grace period.
-> > In the RX path, skb_dst_set_noref() sets a non-refcounted pointer from
-> > the skb to the metadata_dst. This function requires RCU read-side
-> > protection and the dst must remain valid until all RCU readers complete.
-> > Since metadata_dst_free() calls kfree() directly, an use-after-free can
-> > occur if any skb still holds a noref pointer to the dst when the driver
-> > tears it down.
-> > Replace metadata_dst_free() with dst_release() which properly goes
-> > through the refcount path: when the refcount drops to zero, it schedules
-> > the actual free via call_rcu_hurry(), ensuring all RCU readers have
-> > completed before the memory is freed.
-> >=20
-> > Fixes: af3cf757d5c9 ("net: airoha: Move DSA tag in DMA descriptor")
-> > Signed-off-by: Lorenzo Bianconi <lorenzo@kernel.org>
-> > ---
-> >  drivers/net/ethernet/airoha/airoha_eth.c | 2 +-
-> >  1 file changed, 1 insertion(+), 1 deletion(-)
-> >=20
-> > diff --git a/drivers/net/ethernet/airoha/airoha_eth.c b/drivers/net/eth=
-ernet/airoha/airoha_eth.c
-> > index cecd66251dba..eab6a98d62b9 100644
-> > --- a/drivers/net/ethernet/airoha/airoha_eth.c
-> > +++ b/drivers/net/ethernet/airoha/airoha_eth.c
-> > @@ -2936,7 +2936,7 @@ static void airoha_metadata_dst_free(struct airoh=
-a_gdm_port *port)
-> >  		if (!port->dsa_meta[i])
-> >  			continue;
-> > =20
-> > -		metadata_dst_free(port->dsa_meta[i]);
-> > +		dst_release(&port->dsa_meta[i]->dst);
-> >  	}
-> >  }
-> > =20
-> >=20
->=20
-> the port->dsa_meta is allocated using metadata_dst_alloc().. how is it
-> safe to use dst_release here? Seems like we should be calling dst_alloc
-> instead of metadata_dst_alloc in order to use dst_release??
+[ ... ]
 
-We need to allocate the metadata_dst using metadata_dst_alloc() since
-md_dst->u.port_info.port_id is consumed in dsa_switch_rcv() to get the
-switch conduit port.
-I guess it is fine to free metadata_dst running dst_release() since dst_ini=
-t()
-sets DST_METADATA flag and so dst_destroy() runs metadata_dst_free() after =
-the
-RCU grace period.
+> +	ctx->klog_fd = open_kernel_logs();
+> +	if (!ASSERT_OK_FD(ctx->klog_fd, "open kernel logs"))
+> +		goto destroy;
 
->=20
-> metadata_dst_alloc does call __metadata_dst_init which calls dst_init..
->=20
-> I guess the start of the metadata_dst structure is also the same address
-> as the internal dst_entry struct...
->=20
-> But dst_destroy does a whole lot more than metadata_dst_release so I
-> don't feel confident in this actually being a drop-in replacement... It
-> calls netdev_put, it calls the dst->ops->destroy, it releases child
-> refs.. Or for metadata dst entries is that all basically a no-op??
+[ ... ]
 
-__metadata_dst_init() calls dst_init() with dev =3D NULL so netdev_put() is=
- a
-no-op. Same for dst->ops is dst_blackhole_ops and and dst_blackhole_ops has=
- no
-destroy callback.
+> +	for (i = 0; i < ARRAY_SIZE(tests); i++) {
+> +		test = &tests[i];
+> +		run_subtest(ctx, test);
+> +	}
 
->=20
-> I feel like I'm missing something here.. The driver also calls
-> metadata_dst_free in the remove path and that wasn't changed by this
-> patch either.
+The Sashiko AI review on the RFC v1 8/8 posting raised a concern here that
+does not seem to have been addressed in v2:
 
-can you please explain what you mean here? we do not run metadata_dst_free()
-anymore.
+  https://lore.kernel.org/bpf/20260425065049.BEC63C2BCB0@smtp.kernel.org
 
-Regards,
-Lorenzo
+The original question was:
 
->=20
-> Generally it seems like we should be using the same API to allocate as
-> to release the object... This is confusing. What am I missing?
+  KASAN operates in single-shot mode by default. After the first subtest
+  triggers a report, will subsequent reports be suppressed, causing the
+  remaining subtests to fail? Also, since BPF CI runs with panic_on_warn=1,
+  will the first KASAN splat invoke check_panic_on_warn() and immediately
+  panic the CI runner?
 
---aWp9RvEMdmSaWjBX
-Content-Type: application/pgp-signature; name=signature.asc
+KASAN runs in single-shot mode by default. mm/kasan/report.c suppresses
+reports after the first one unless kasan_multi_shot is set.
 
------BEGIN PGP SIGNATURE-----
+This loop runs roughly 50 subtests, and each one expects a fresh KASAN
+report emitted via the JIT-inserted __asan_load/__asan_store calls that go
+through kasan_report().
 
-iHUEABYKAB0WIQTquNwa3Txd3rGGn7Y6cBh0uS2trAUCaiHswQAKCRA6cBh0uS2t
-rHipAP4llkXraaMXUK3wGAgySlJJUwlEcRj8tHK/o/3m+eELXwEA2l1QByKUIy8/
-sBrHvIWNbv90x/tGgmBZkNoYSKAXpAo=
-=ev4h
------END PGP SIGNATURE-----
+Under default single-shot KASAN, would the subtests after the first one see
+no report and fail the positive assertions?
 
---aWp9RvEMdmSaWjBX--
+Separately, BPF CI runs with panic_on_warn=1 (config.ppc64el still sets
+panic_on_warn=1). Would the first KASAN splat reach check_panic_on_warn()
+and panic the runner?
+
+Nothing in v2 appears to enable kasan_multi_shot or guard against
+panic_on_warn. Was this intended to be handled somewhere?
+
+> diff --git a/tools/testing/selftests/bpf/progs/kasan.c b/tools/testing/selftests/bpf/progs/kasan.c
+> new file mode 100644
+> index 000000000000..670318a956a4
+> --- /dev/null
+> +++ b/tools/testing/selftests/bpf/progs/kasan.c
+> @@ -0,0 +1,382 @@
+
+[ ... ]
+
+> +SEC("tcx/ingress")
+> +int stx_on_stack(struct __sk_buff *skb)
+> +{
+> +	struct kasan_write_val val;
+> +
+> +	bpf_kfunc_kasan_poison(&val, sizeof(struct kasan_write_val));
+> +	switch (access_size) {
+> +	case 1:
+> +		val.data_1 = access_size;
+> +		break;
+> +	case 2:
+> +		val.data_2 = access_size;
+> +		break;
+> +	case 4:
+> +		val.data_4 = access_size;
+> +		break;
+> +	case 8:
+> +		val.data_8 = access_size;
+> +		break;
+> +	}
+> +	bpf_kfunc_kasan_poison(&val, sizeof(struct kasan_write_val));
+
+This isn't a bug, but should this second call be
+bpf_kfunc_kasan_unpoison() rather than bpf_kfunc_kasan_poison()?
+
+Every other program in this file (st_on_stack, st_not_on_stack, ldx_*,
+simple_atomic_*, load_acquire_*, store_release_*) calls
+bpf_kfunc_kasan_unpoison() after the access, and stx_not_on_stack below
+repeats the same poison-twice pattern.
+
+> +	return 0;
+> +}
+
+[ ... ]
+
+> +SEC("tcx/ingress")
+> +int stx_not_on_stack(struct __sk_buff *skb)
+> +{
+
+[ ... ]
+
+> +	bpf_kfunc_kasan_poison(val, sizeof(struct kasan_write_val));
+> +	switch (access_size) {
+> +	case 1:
+> +		val->data_1 = access_size;
+> +		break;
+
+[ ... ]
+
+> +	}
+> +	bpf_kfunc_kasan_poison(val, sizeof(struct kasan_write_val));
+
+Same question here as in stx_on_stack: the second call is
+bpf_kfunc_kasan_poison() where the other programs use
+bpf_kfunc_kasan_unpoison().
+
+The intended store still happens while the memory is poisoned, so the
+expected KASAN report is still generated and the positive assertion still
+passes. The effect is that the leftover poison stays on the test_map slab
+value (and on the stack region for stx_on_stack) until the next subtest
+re-poisons and unpoisons the same region. Was poisoning a second time here
+intentional?
+
+> +	return 0;
+> +}
+
+---
+AI reviewed your patch. Please fix the bug or email reply why it's not a bug.
+See: https://github.com/kernel-patches/vmtest/blob/master/ci/claude/README.md
+
+CI run summary: https://github.com/kernel-patches/bpf/actions/runs/26978380520
+--===============3493038701439416165==--
 
