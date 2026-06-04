@@ -4,82 +4,56 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 86A1CCD6E6B
-	for <linux-arm-kernel@archiver.kernel.org>; Thu,  4 Jun 2026 07:50:39 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id EAEC2CD6E68
+	for <linux-arm-kernel@archiver.kernel.org>; Thu,  4 Jun 2026 07:52:18 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:
-	Content-Transfer-Encoding:MIME-Version:References:In-Reply-To:Message-ID:Date
-	:Subject:CC:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=Ts2iYOlNKH3kWFa5rVVu9XfgvOuT/GxiEr87iyKRZdg=; b=IKBEs3uTf4IWdk1n0Qauf8ZcIz
-	6aN8IxCWDLECX9f2/VKV99KxPogf3b5WWT6LmEFmIbCv2VSGnq0keexPvrFz1oWhcfxejzV4nacTi
-	PRsaFsibjCoyW2Bsv1SgFbTCmAJjJKhkJgwMcla6cZqxr4OzdCX+qI/frzlCT3ub9Lfq6iHBimZGG
-	YYxWgBs8FD9fYb87b8doMxcdHenoDT5Zwb+rEz2/Lvx1VGrtzUhFCgWCbG3j0Sj8xzcEvHCpjDKVM
-	RBp3eWKqkCGZXAcvv8w01JMuVfwvDIlcMrRdh4l1uWY2agLR6qMkF4E4RAomkJ31GCRswDq22nGSY
-	JXdYtj6Q==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	MIME-Version:Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-Type:
+	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
+	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=F/6a5Hz4T+tF5Hum64kyYi4mlYR+VtC6XjGxcnq9JNQ=; b=cDQgFE0brc1waSrn6QMnX+7ItU
+	8XJSnvaYinZGTRVyJoBtj6vx7Sg9aJO4mWQOsTk+RK26zilmstBdqbjaKEOLpyDs4yWed0V+y99OC
+	Aq4MWhCDsS6Y5WC9NTYgtkPLzlh4zMXExWW8n27Z3ZpWYb54EFZ4Y37RvhF5AxesBiBGT1231Yb8w
+	afnW1FUcaMJFq0CcfAi6p0nAYtIWcLzVSxD+OWuYawgN7regpriAkafRMl5gJyMN8Vh7pyHNOan0B
+	IGSW1MVl3PhVSJ4G3QvNbAUbdBQ/gX4FNnqAZhaNlFVH0vh0TNZqjJBJj1LdT2hZ1o0OpVk3ThQMY
+	OCUOeRNA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wV2qU-0000000GKJx-3dsb;
-	Thu, 04 Jun 2026 07:50:30 +0000
-Received: from canpmsgout11.his.huawei.com ([113.46.200.226])
+	id 1wV2s8-0000000GKpR-1rtg;
+	Thu, 04 Jun 2026 07:52:12 +0000
+Received: from out-188.mta0.migadu.com ([2001:41d0:1004:224b::bc])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wV2qN-0000000GKB8-2veF
+	id 1wV2s4-0000000GKoz-1rUK
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 04 Jun 2026 07:50:25 +0000
-dkim-signature: v=1; a=rsa-sha256; d=huawei.com; s=dkim;
-	c=relaxed/relaxed; q=dns/txt;
-	h=From;
-	bh=Ts2iYOlNKH3kWFa5rVVu9XfgvOuT/GxiEr87iyKRZdg=;
-	b=WH/gBSSHVf9VXwlXAHa5ElbV+aucjJmYuCIctUTcGAf8dRCwRPe+0aqhiFGvYOb5sLqRWoDNZ
-	zH3Sa/ejc8FEgjZ+77oaweKi8p7oYa+hYUEvROVIctbEXLhdodm7R6/tsJ36ABZJ2gjhHX0GL5F
-	/A0+xVeUx7684OTjwwW+8aA=
-Received: from mail.maildlp.com (unknown [172.19.163.200])
-	by canpmsgout11.his.huawei.com (SkyGuard) with ESMTPS id 4gWGk01W7XzKm8N;
-	Thu,  4 Jun 2026 15:42:16 +0800 (CST)
-Received: from dggemv712-chm.china.huawei.com (unknown [10.1.198.32])
-	by mail.maildlp.com (Postfix) with ESMTPS id 348594055B;
-	Thu,  4 Jun 2026 15:50:09 +0800 (CST)
-Received: from kwepemn200012.china.huawei.com (7.202.194.135) by
- dggemv712-chm.china.huawei.com (10.1.198.32) with Microsoft SMTP Server
- (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
- 15.2.1544.11; Thu, 4 Jun 2026 15:50:08 +0800
-Received: from huawei.com (10.50.163.32) by kwepemn200012.china.huawei.com
- (7.202.194.135) with Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.2.1544.11; Thu, 4 Jun
- 2026 15:50:07 +0800
-From: Sizhe Liu <liusizhe5@huawei.com>
-To: <rostedt@goodmis.org>, <mhiramat@kernel.org>,
-	<mathieu.desnoyers@efficios.com>, <corbet@lwn.net>,
-	<skhan@linuxfoundation.org>, <bhelgaas@google.com>, <yangyccccc@gmail.com>,
-	<jic23@kernel.org>, <john.g.garry@oracle.com>, <will@kernel.org>,
-	<james.clark@linaro.org>, <mike.leach@arm.com>, <leo.yan@linux.dev>,
-	<peterz@infradead.org>, <mingo@redhat.com>, <acme@kernel.org>,
-	<namhyung@kernel.org>, <mark.rutland@arm.com>,
-	<alexander.shishkin@linux.intel.com>, <jolsa@kernel.org>,
-	<irogers@google.com>, <adrian.hunter@intel.com>, <wangyushan12@huawei.com>,
-	<shenyang39@huawei.com>, <gaozhihao6@h-partners.com>,
-	<yuzhichengcheng@h-partners.com>, <liyihang9@h-partners.com>
-CC: <linux-kernel@vger.kernel.org>, <linux-pci@vger.kernel.org>,
-	<linux-perf-users@vger.kernel.org>, <linux-arm-kernel@lists.infradead.org>,
-	<linux-doc@vger.kernel.org>, <linuxarm@huawei.com>,
-	<prime.zeng@hisilicon.com>, <fanghao11@huawei.com>, <wuyifan50@huawei.com>,
-	<liusizhe5@huawei.com>
-Subject: [PATCH 02/10] perf hisi-ptt: Fix PTT trace TLP Header parsing
-Date: Thu, 4 Jun 2026 15:49:57 +0800
-Message-ID: <20260604075005.2219785-3-liusizhe5@huawei.com>
-X-Mailer: git-send-email 2.33.0
-In-Reply-To: <20260604075005.2219785-1-liusizhe5@huawei.com>
-References: <20260604075005.2219785-1-liusizhe5@huawei.com>
+	Thu, 04 Jun 2026 07:52:10 +0000
+X-Report-Abuse: Please report any abuse attempt to abuse@migadu.com and include these headers.
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=linux.dev; s=key1;
+	t=1780559524;
+	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
+	 to:to:cc:cc:mime-version:mime-version:
+	 content-transfer-encoding:content-transfer-encoding;
+	bh=F/6a5Hz4T+tF5Hum64kyYi4mlYR+VtC6XjGxcnq9JNQ=;
+	b=pwTsRkuRxX/Hf8Nq/pKS0+lmUicQzYXQrTAgan89ZNjbFReMXqbzUdmpwpFnA6xkTBWI3+
+	k3PnNujYF5Dym72An0vvY9hIv6eFfEimp5zqPneuOt1y6pIn1obj9PUunH2cy+mX1eH7+Y
+	UvVpdnTfOf4brq6RzzqTFuYHbPOxRjQ=
+From: Jackie Liu <liu.yun@linux.dev>
+To: maz@kernel.org,
+	oupton@kernel.org,
+	linux-arm-kernel@lists.infradead.org
+Cc: yuzenghui@huawei.com,
+	will@kernel.org,
+	kvmarm@lists.linux.dev
+Subject: [PATCH v2] KVM/arm64: vgic-its: Make ABI commit helpers return void
+Date: Thu,  4 Jun 2026 15:51:47 +0800
+Message-ID: <20260604075147.53299-1-liu.yun@linux.dev>
 MIME-Version: 1.0
 Content-Transfer-Encoding: 8bit
-Content-Type: text/plain
-X-Originating-IP: [10.50.163.32]
-X-ClientProxiedBy: kwepems200001.china.huawei.com (7.221.188.67) To
- kwepemn200012.china.huawei.com (7.202.194.135)
+X-Migadu-Flow: FLOW_OUT
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260604_005024_160634_0C4B58F1 
-X-CRM114-Status: GOOD (  13.79  )
+X-CRM114-CacheID: sfid-20260604_005209_398774_C20B0668 
+X-CRM114-Status: UNSURE (   9.67  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -94,144 +68,101 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-The DW0 bit field layout of the hisi_ptt_4dw union does not match the
-actual bit ordering in little-endian memory, causing incorrect field
-extraction. Reorder the struct members from LSB to MSB to match the
-le32_to_cpu() conversion.
+From: Jackie Liu <liuyun01@kylinos.cn>
 
-Also print all DW hex values in big-endian byte order for readability,
-matching the bit field layout shown in the format diagram.
+The return values of vgic_its_set_abi() and vgic_its_commit_v0() are always
+0 and do not carry useful error information. Simplify by changing them to
+void.
 
-4DW format is like:
-bits [31:30] [ 29:25 ][24][23][22][21][    20:11   ][    10:0    ]
-     |-----|---------|---|---|---|---|-------------|-------------|
-DW0  [ Fmt ][  Type  ][T9][T8][TH][SO][   Length   ][    Time    ]
-DW1  [                     Header DW1                            ]
-DW2  [                     Header DW2                            ]
-DW3  [                     Header DW3                            ]
-
-Cc: stable@vger.kernel.org
-Fixes: 5e91e57e6809 ("perf auxtrace arm64: Add support for parsing HiSilicon PCIe Trace packet")
-Signed-off-by: Sizhe Liu <liusizhe5@huawei.com>
+Suggested-by: Oliver Upton <oupton@kernel.org>
+Signed-off-by: Jackie Liu <liuyun01@kylinos.cn>
 ---
- Documentation/trace/hisi-ptt.rst              | 28 ++++++++--------
- .../hisi-ptt-decoder/hisi-ptt-pkt-decoder.c   | 33 ++++++++++++-------
- 2 files changed, 35 insertions(+), 26 deletions(-)
+ arch/arm64/kvm/vgic/vgic-its.c | 21 +++++++++------------
+ 1 file changed, 9 insertions(+), 12 deletions(-)
 
-diff --git a/Documentation/trace/hisi-ptt.rst b/Documentation/trace/hisi-ptt.rst
-index 6eef28ebb0c7..f6a2655f99e5 100644
---- a/Documentation/trace/hisi-ptt.rst
-+++ b/Documentation/trace/hisi-ptt.rst
-@@ -285,20 +285,20 @@ according to the format described previously (take 8DW as an example):
-     [...perf headers and other information]
-     . ... HISI PTT data: size 4194304 bytes
-     .  00000000: 00 00 00 00                                 Prefix
--    .  00000004: 01 00 00 60                                 Header DW0
--    .  00000008: 0f 1e 00 01                                 Header DW1
--    .  0000000c: 04 00 00 00                                 Header DW2
--    .  00000010: 40 00 81 02                                 Header DW3
--    .  00000014: 33 c0 04 00                                 Time
-+    .  00000004: 60 00 00 01                                 Header DW0
-+    .  00000008: 01 00 1e 0f                                 Header DW1
-+    .  0000000c: 00 00 00 04                                 Header DW2
-+    .  00000010: 02 81 00 40                                 Header DW3
-+    .  00000014: 00 04 c0 33                                 Time
-     .  00000020: 00 00 00 00                                 Prefix
--    .  00000024: 01 00 00 60                                 Header DW0
--    .  00000028: 0f 1e 00 01                                 Header DW1
--    .  0000002c: 04 00 00 00                                 Header DW2
--    .  00000030: 40 00 81 02                                 Header DW3
--    .  00000034: 02 00 00 00                                 Time
-+    .  00000024: 60 00 00 01                                 Header DW0
-+    .  00000028: 01 00 1e 0f                                 Header DW1
-+    .  0000002c: 00 00 00 04                                 Header DW2
-+    .  00000030: 02 81 00 40                                 Header DW3
-+    .  00000034: 00 00 00 02                                 Time
-     .  00000040: 00 00 00 00                                 Prefix
--    .  00000044: 01 00 00 60                                 Header DW0
--    .  00000048: 0f 1e 00 01                                 Header DW1
--    .  0000004c: 04 00 00 00                                 Header DW2
--    .  00000050: 40 00 81 02                                 Header DW3
-+    .  00000044: 60 00 00 01                                 Header DW0
-+    .  00000048: 01 00 1e 0f                                 Header DW1
-+    .  0000004c: 00 00 00 04                                 Header DW2
-+    .  00000050: 02 81 00 40                                 Header DW3
-     [...]
-diff --git a/tools/perf/util/hisi-ptt-decoder/hisi-ptt-pkt-decoder.c b/tools/perf/util/hisi-ptt-decoder/hisi-ptt-pkt-decoder.c
-index c48b2ce7c4a3..67024f18ebbb 100644
---- a/tools/perf/util/hisi-ptt-decoder/hisi-ptt-pkt-decoder.c
-+++ b/tools/perf/util/hisi-ptt-decoder/hisi-ptt-pkt-decoder.c
-@@ -11,6 +11,7 @@
- #include <byteswap.h>
- #include <linux/bitops.h>
- #include <stdarg.h>
-+#include <linux/kernel.h>
+diff --git a/arch/arm64/kvm/vgic/vgic-its.c b/arch/arm64/kvm/vgic/vgic-its.c
+index 1d7e5d560af4..ca48b34dec20 100644
+--- a/arch/arm64/kvm/vgic/vgic-its.c
++++ b/arch/arm64/kvm/vgic/vgic-its.c
+@@ -27,7 +27,7 @@ static struct kvm_device_ops kvm_arm_vgic_its_ops;
  
- #include "../color.h"
- #include "hisi-ptt-pkt-decoder.h"
-@@ -75,14 +76,14 @@ static const char * const hisi_ptt_4dw_pkt_field_name[] = {
+ static int vgic_its_save_tables_v0(struct vgic_its *its);
+ static int vgic_its_restore_tables_v0(struct vgic_its *its);
+-static int vgic_its_commit_v0(struct vgic_its *its);
++static void vgic_its_commit_v0(struct vgic_its *its);
+ static int update_lpi_config(struct kvm *kvm, struct vgic_irq *irq,
+ 			     struct kvm_vcpu *filter_vcpu, bool needs_inv);
  
- union hisi_ptt_4dw {
- 	struct {
--		uint32_t format : 2;
--		uint32_t type : 5;
--		uint32_t t9 : 1;
--		uint32_t t8 : 1;
--		uint32_t th : 1;
--		uint32_t so : 1;
--		uint32_t len : 10;
- 		uint32_t time : 11;
-+		uint32_t len : 10;
-+		uint32_t so : 1;
-+		uint32_t th : 1;
-+		uint32_t t8 : 1;
-+		uint32_t t9 : 1;
-+		uint32_t type : 5;
-+		uint32_t format : 2;
- 	};
- 	uint32_t value;
+@@ -168,7 +168,7 @@ struct vgic_its_abi {
+ 	int ite_esz;
+ 	int (*save_tables)(struct vgic_its *its);
+ 	int (*restore_tables)(struct vgic_its *its);
+-	int (*commit)(struct vgic_its *its);
++	void (*commit)(struct vgic_its *its);
  };
-@@ -90,12 +91,17 @@ union hisi_ptt_4dw {
- static void hisi_ptt_print_pkt(const unsigned char *buf, int pos, const char *desc)
+ 
+ #define ABI_0_ESZ	8
+@@ -192,13 +192,13 @@ inline const struct vgic_its_abi *vgic_its_get_abi(struct vgic_its *its)
+ 	return &its_table_abi_versions[its->abi_rev];
+ }
+ 
+-static int vgic_its_set_abi(struct vgic_its *its, u32 rev)
++static void vgic_its_set_abi(struct vgic_its *its, u32 rev)
  {
- 	const char *color = PERF_COLOR_BLUE;
-+	uint32_t value;
-+	uint8_t byte;
- 	int i;
+ 	const struct vgic_its_abi *abi;
  
-+	value = le32_to_cpu(*(__le32 *)(buf + pos));
- 	printf(".");
- 	color_fprintf(stdout, color, "  %08x: ", pos);
--	for (i = 0; i < HISI_PTT_FIELD_LENGTH; i++)
--		color_fprintf(stdout, color, "%02x ", buf[pos + i]);
-+	for (i = 0; i < HISI_PTT_FIELD_LENGTH; i++) {
-+		byte = (value >> (24 - i * 8)) & 0xFF;
-+		color_fprintf(stdout, color, "%02x ", byte);
-+	}
- 	for (i = 0; i < HISI_PTT_MAX_SPACE_LEN; i++)
- 		color_fprintf(stdout, color, "   ");
- 	color_fprintf(stdout, color, "  %s\n", desc);
-@@ -123,13 +129,16 @@ static void hisi_ptt_4dw_print_dw0(const unsigned char *buf, int pos)
+ 	its->abi_rev = rev;
+ 	abi = vgic_its_get_abi(its);
+-	return abi->commit(its);
++	abi->commit(its);
+ }
+ 
+ /*
+@@ -472,7 +472,8 @@ static int vgic_mmio_uaccess_write_its_iidr(struct kvm *kvm,
+ 
+ 	if (rev >= NR_ITS_ABIS)
+ 		return -EINVAL;
+-	return vgic_its_set_abi(its, rev);
++	vgic_its_set_abi(its, rev);
++	return 0;
+ }
+ 
+ static unsigned long vgic_mmio_read_its_idregs(struct kvm *kvm,
+@@ -1888,14 +1889,11 @@ static int vgic_its_create(struct kvm_device *dev, u32 type)
+ 	its->baser_coll_table = INITIAL_BASER_VALUE |
+ 		((u64)GITS_BASER_TYPE_COLLECTION << GITS_BASER_TYPE_SHIFT);
+ 	dev->kvm->arch.vgic.propbaser = INITIAL_PROPBASER_VALUE;
+-
+ 	dev->private = its;
+ 
+-	ret = vgic_its_set_abi(its, NR_ITS_ABIS - 1);
+-
++	vgic_its_set_abi(its, NR_ITS_ABIS - 1);
+ 	mutex_unlock(&dev->kvm->arch.config_lock);
+-
+-	return ret;
++	return 0;
+ }
+ 
+ static void vgic_its_destroy(struct kvm_device *kvm_dev)
+@@ -2610,7 +2608,7 @@ static int vgic_its_restore_tables_v0(struct vgic_its *its)
+ 	return ret;
+ }
+ 
+-static int vgic_its_commit_v0(struct vgic_its *its)
++static void vgic_its_commit_v0(struct vgic_its *its)
  {
- 	const char *color = PERF_COLOR_BLUE;
- 	union hisi_ptt_4dw dw0;
-+	uint8_t byte;
- 	int i;
+ 	const struct vgic_its_abi *abi;
  
--	dw0.value = *(uint32_t *)(buf + pos);
-+	dw0.value = le32_to_cpu(*(__le32 *)(buf + pos));
- 	printf(".");
- 	color_fprintf(stdout, color, "  %08x: ", pos);
--	for (i = 0; i < HISI_PTT_FIELD_LENGTH; i++)
--		color_fprintf(stdout, color, "%02x ", buf[pos + i]);
-+	for (i = 0; i < HISI_PTT_FIELD_LENGTH; i++) {
-+		byte = (dw0.value >> (24 - i * 8)) & 0xFF;
-+		color_fprintf(stdout, color, "%02x ", byte);
-+	}
- 	for (i = 0; i < HISI_PTT_MAX_SPACE_LEN; i++)
- 		color_fprintf(stdout, color, "   ");
+@@ -2623,7 +2621,6 @@ static int vgic_its_commit_v0(struct vgic_its *its)
  
+ 	its->baser_device_table |= (GIC_ENCODE_SZ(abi->dte_esz, 5)
+ 					<< GITS_BASER_ENTRY_SIZE_SHIFT);
+-	return 0;
+ }
+ 
+ static void vgic_its_reset(struct kvm *kvm, struct vgic_its *its)
 -- 
-2.33.0
+2.54.0
 
 
