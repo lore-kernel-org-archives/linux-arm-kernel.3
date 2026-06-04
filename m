@@ -4,83 +4,68 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 49B6BCD6E4A
-	for <linux-arm-kernel@archiver.kernel.org>; Thu,  4 Jun 2026 03:31:56 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 21554CD6E4A
+	for <linux-arm-kernel@archiver.kernel.org>; Thu,  4 Jun 2026 03:32:44 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
-	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Content-Type:In-Reply-To:MIME-Version:Date:Message-ID:From:References:CC:To:
+	Subject:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=S5wUL8TnAvSWRfSGrRkLV/O+I/wamMk9YaRJHAgLGtA=; b=wKRYXO+Ze/XkS1j8UTnUBQNCbS
-	0FfmoZJ4idiqSF24pXQ3uvv61wLay+KFMfmOY+NKzw6YEhM208DsKyDZz7vUQgE0yPVRGhdFRfOIQ
-	CzTMZLajMiGhartbtZGwKJcwjnd+F6QNNGiSH+gm18vbuoffu+e3U+8D9WSAyP8dPzfpbCHbxFfqV
-	dUreoBVV2S+RkE49yiDiLCvkW3c97fylHOd45uyvJTkLuGS+77l818w8rgXN/II6/9gbNqfhEWr+i
-	+kuUqgmnpZd8DXcLGKxQLD3joeFHc9+gZ4pOJ2KjkvYkMh5BmNvGBjCjlbrOmLRqYBHCN7dM5IwcW
-	2p1tq+2w==;
+	bh=cMgBCSgvMtpZEZrDJ1R+5pwimwPSaByYbNxh3LP7+uM=; b=n5bZ6lJXOj9fum8svRHr1LjpRy
+	2NA8UWMOSaMJ/T86M4s+qC+Fr9NDpHbSfDwwYeqkqSFWH0+C7FStCG5vHgSbyOIbk4S356VH4qNaq
+	26Dc2chOHpmuO2ZHSIK+hnh6XFKqSQwuc3DibWHMcaSL2p1AmMlNlnWSemHeiQxAUcgf8wslXCBam
+	lkBFY13u7ozxt34wWuj30zjpOsxBXeEEsdAcyAHcA45+jF2T2rNvEZ/FMup8N3TbR/g13wp7y2FhO
+	Mv4xy8gxShWoThLfnMigL07wo6Q6skDvKCXT496+GjE4Wcop6FPjgyBCfyXSWmO7ZMFrd/1ObRtQU
+	VPX/bxoA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wUyo3-0000000G6Nv-1rvf;
-	Thu, 04 Jun 2026 03:31:43 +0000
-Received: from mgamail.intel.com ([198.175.65.15])
+	id 1wUyot-0000000G6Sc-3HZ5;
+	Thu, 04 Jun 2026 03:32:35 +0000
+Received: from canpmsgout09.his.huawei.com ([113.46.200.224])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wUyo1-0000000G6Na-05NM
+	id 1wUyor-0000000G6S1-0Cp1
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 04 Jun 2026 03:31:42 +0000
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple;
-  d=intel.com; i=@intel.com; q=dns/txt; s=Intel;
-  t=1780543901; x=1812079901;
-  h=message-id:date:mime-version:subject:to:cc:references:
-   from:in-reply-to:content-transfer-encoding;
-  bh=m9sAhUXyy3CacNduEVQURk/rlD5yMXkjDXgtTZSqvi0=;
-  b=iibQhty2uWH75afsxBwLiYD1ubsqY3XGWfialJGTWRBvZy+0QOJJ9Iq/
-   wFTo+QCn45GOq99RwBRVTCaRFvwvJWtamrQS2Xh5NosMrgdSIdrWqMncN
-   bLzy1r82KcxZST+ASpIvo4CIKaNboNWGrGQDznNc6ivHR1XBTjbyMCvrZ
-   hspuwUvjMIIUHtUu2Ndpy9JzzgxC47GvHBQBG0iXDYaI+TQN+u9phHt5h
-   WCOhzumnux3UMA/32C7PW+Im2ki/NA+eyphaWZE67aq1FBxCzcx+fXAI2
-   6m2cK/rodjyG5vjsDJVrnPj1QoYE22pBqg1twBT5juOmqrYWVrRVK7dMA
-   Q==;
-X-CSE-ConnectionGUID: jneg9GacQhWjSWFTxVeoOg==
-X-CSE-MsgGUID: RJGay5cVTnOUZi+mySCj0A==
-X-IronPort-AV: E=McAfee;i="6800,10657,11806"; a="84988563"
-X-IronPort-AV: E=Sophos;i="6.24,186,1774335600"; 
-   d="scan'208";a="84988563"
-Received: from orviesa010.jf.intel.com ([10.64.159.150])
-  by orvoesa107.jf.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 03 Jun 2026 20:31:39 -0700
-X-CSE-ConnectionGUID: tDtIkBjHQp+ahDL4TIlYWw==
-X-CSE-MsgGUID: RrMw6T74SU6zOV024GZFrg==
-X-ExtLoop1: 1
-X-IronPort-AV: E=Sophos;i="6.24,186,1774335600"; 
-   d="scan'208";a="243589464"
-Received: from allen-sbox.sh.intel.com (HELO [10.239.159.30]) ([10.239.159.30])
-  by orviesa010-auth.jf.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 03 Jun 2026 20:31:34 -0700
-Message-ID: <c179b999-8c7f-4338-8aad-b61fd09f1329@linux.intel.com>
-Date: Thu, 4 Jun 2026 11:30:37 +0800
+	Thu, 04 Jun 2026 03:32:35 +0000
+dkim-signature: v=1; a=rsa-sha256; d=huawei.com; s=dkim;
+	c=relaxed/relaxed; q=dns/txt;
+	h=From;
+	bh=cMgBCSgvMtpZEZrDJ1R+5pwimwPSaByYbNxh3LP7+uM=;
+	b=b0D/6tYekJLgMjLMWwjnVuLzmDupBuHI0VQIAXUUfPUs8mTBlUW81/A51fwmxND/9D7AnK+DT
+	OZL4NAI8Byt+ENSFJoStoZyERUI9o4QiK983PVPLf3vilQi6iVdy/dCYQoMAbrr86+U1A88di5D
+	UmwAH2Vm+B8EFaKNLwT5rdE=
+Received: from mail.maildlp.com (unknown [172.19.163.163])
+	by canpmsgout09.his.huawei.com (SkyGuard) with ESMTPS id 4gW90d20Cjz1cyPd;
+	Thu,  4 Jun 2026 11:24:33 +0800 (CST)
+Received: from dggpemf500015.china.huawei.com (unknown [7.185.36.143])
+	by mail.maildlp.com (Postfix) with ESMTPS id 7C6304056E;
+	Thu,  4 Jun 2026 11:32:22 +0800 (CST)
+Received: from [10.67.121.110] (10.67.121.110) by
+ dggpemf500015.china.huawei.com (7.185.36.143) with Microsoft SMTP Server
+ (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
+ 15.2.1544.11; Thu, 4 Jun 2026 11:32:21 +0800
+Subject: Re: [PATCH 0/2] HiSilicon TRNG fix and simplification
+To: Eric Biggers <ebiggers@kernel.org>, <linux-crypto@vger.kernel.org>,
+	Herbert Xu <herbert@gondor.apana.org.au>
+CC: Olivia Mackall <olivia@selenic.com>, Weili Qian <qianweili@huawei.com>,
+	Wei Xu <xuwei5@hisilicon.com>, <linux-arm-kernel@lists.infradead.org>,
+	<linux-kernel@vger.kernel.org>
+References: <20260530202624.20768-1-ebiggers@kernel.org>
+From: liulongfang <liulongfang@huawei.com>
+Message-ID: <a5df5973-480e-c18b-90bf-99380d24968d@huawei.com>
+Date: Thu, 4 Jun 2026 11:32:20 +0800
+User-Agent: Mozilla/5.0 (Windows NT 10.0; WOW64; rv:60.0) Gecko/20100101
+ Thunderbird/60.8.0
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH v3 05/32] iommu/generic_pt: implement iova_to_phys_length
-To: Guanghui Feng <guanghuifeng@linux.alibaba.com>, jgg@ziepe.ca
-Cc: adrian.larumbe@collabora.com, airlied@gmail.com, alex@shazbot.org,
- alikernel-developer@linux.alibaba.com, boris.brezillon@collabora.com,
- dri-devel@lists.freedesktop.org, dwmw2@infradead.org, iommu@lists.linux.dev,
- joro@8bytes.org, kevin.tian@intel.com, kvm@vger.kernel.org,
- linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org,
- liviu.dudau@arm.com, maarten.lankhorst@linux.intel.com, mripard@kernel.org,
- oliver.yang@linux.alibaba.com, robh@kernel.org, robin.murphy@arm.com,
- shiyu.zsq@linux.alibaba.com, steven.price@arm.com,
- suravee.suthikulpanit@amd.com, tzimmermann@suse.de,
- wei.guo.simon@linux.alibaba.com, will@kernel.org, xlpang@linux.alibaba.com
-References: <20260602104637.1219810-1-guanghuifeng@linux.alibaba.com>
- <20260603151804.1963871-1-guanghuifeng@linux.alibaba.com>
- <20260603151804.1963871-6-guanghuifeng@linux.alibaba.com>
-Content-Language: en-US
-From: Baolu Lu <baolu.lu@linux.intel.com>
-In-Reply-To: <20260603151804.1963871-6-guanghuifeng@linux.alibaba.com>
-Content-Type: text/plain; charset=UTF-8; format=flowed
+In-Reply-To: <20260530202624.20768-1-ebiggers@kernel.org>
+Content-Type: text/plain; charset="gbk"
 Content-Transfer-Encoding: 7bit
+X-Originating-IP: [10.67.121.110]
+X-ClientProxiedBy: kwepems100001.china.huawei.com (7.221.188.238) To
+ dggpemf500015.china.huawei.com (7.185.36.143)
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260603_203141_150456_F1D8018B 
-X-CRM114-Status: GOOD (  26.40  )
+X-CRM114-CacheID: sfid-20260603_203233_568934_68FFC634 
+X-CRM114-Status: GOOD (  12.19  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -95,193 +80,41 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On 6/3/26 23:17, Guanghui Feng wrote:
-> Extend the Generic Page Table framework to implement iova_to_phys_length.
-> Use pt_entry_oa_lg2sz() to determine PTE block size. Update
-> IOMMU_PT_DOMAIN_OPS macro to set .iova_to_phys_length.
+On 2026/5/31 4:26, Eric Biggers wrote:
+> This series fixes and greatly simplifies the HiSilicon TRNG driver by
+> removing the gratuitous crypto_rng interface, leaving just hwrng which
+> is the one that actually matters.
 > 
-> Signed-off-by: Guanghui Feng <guanghuifeng@linux.alibaba.com>
-> Acked-by: Shiqiang Zhang <shiyu.zsq@linux.alibaba.com>
-> Acked-by: Simon Guo <wei.guo.simon@linux.alibaba.com>
-> ---
->   drivers/iommu/generic_pt/iommu_pt.h | 84 +++++++++++++++++++++--------
->   include/linux/generic_pt/iommu.h    | 13 ++---
->   2 files changed, 69 insertions(+), 28 deletions(-)
+> Note that this mirrors similar changes in other drivers such as qcom-rng
+> (https://lore.kernel.org/r/20260530020332.143058-1-ebiggers@kernel.org)
 > 
-> diff --git a/drivers/iommu/generic_pt/iommu_pt.h b/drivers/iommu/generic_pt/iommu_pt.h
-> index dc91fb4e2f61..e362e819ef9c 100644
-> --- a/drivers/iommu/generic_pt/iommu_pt.h
-> +++ b/drivers/iommu/generic_pt/iommu_pt.h
-> @@ -145,13 +145,21 @@ static inline unsigned int compute_best_pgsize(struct pt_state *pts,
->   				      pts->range->va, pts->range->last_va, oa);
->   }
->   
-> -static __always_inline int __do_iova_to_phys(struct pt_range *range, void *arg,
-> -					     unsigned int level,
-> -					     struct pt_table_p *table,
-> -					     pt_level_fn_t descend_fn)
-> +struct iova_to_phys_length_data {
-> +	pt_oaddr_t phys;
-> +	size_t length;
-> +};
-> +
-> +static __always_inline int __do_iova_to_phys_length(struct pt_range *range,
-> +					       void *arg, unsigned int level,
-> +					       struct pt_table_p *table,
-> +					       pt_level_fn_t descend_fn)
->   {
->   	struct pt_state pts = pt_init(range, level, table);
-> -	pt_oaddr_t *res = arg;
-> +	struct iova_to_phys_length_data *data = arg;
-> +	unsigned int entry_lg2sz;
-> +	size_t entry_sz;
-> +	pt_oaddr_t expected_oa;
->   
->   	switch (pt_load_single_entry(&pts)) {
->   	case PT_ENTRY_EMPTY:
-> @@ -159,45 +167,77 @@ static __always_inline int __do_iova_to_phys(struct pt_range *range, void *arg,
->   	case PT_ENTRY_TABLE:
->   		return pt_descend(&pts, arg, descend_fn);
->   	case PT_ENTRY_OA:
-> -		*res = pt_entry_oa_exact(&pts);
-> -		return 0;
-> +		break;
->   	}
-> -	return -ENOENT;
-> +
-> +	data->phys = pt_entry_oa_exact(&pts);
-> +	entry_lg2sz = pt_entry_oa_lg2sz(&pts);
-> +	entry_sz = log2_to_int(entry_lg2sz);
-> +
-> +	/* Start with the full mapping size of the first entry */
-> +	data->length = entry_sz;
+> Eric Biggers (2):
+>   crypto: hisi-trng - Remove crypto_rng interface
+>   hwrng: hisi-trng - Move hisi-trng into drivers/char/hw_random/
+> 
+>  MAINTAINERS                            |   2 +-
+>  arch/arm64/configs/defconfig           |   2 +-
+>  drivers/char/hw_random/Kconfig         |  10 +
+>  drivers/char/hw_random/Makefile        |   1 +
+>  drivers/char/hw_random/hisi-trng-v2.c  |  98 +++++++
+>  drivers/crypto/hisilicon/Kconfig       |   8 -
+>  drivers/crypto/hisilicon/Makefile      |   1 -
+>  drivers/crypto/hisilicon/trng/Makefile |   2 -
+>  drivers/crypto/hisilicon/trng/trng.c   | 390 -------------------------
+>  9 files changed, 111 insertions(+), 403 deletions(-)
+>  create mode 100644 drivers/char/hw_random/hisi-trng-v2.c
+>  delete mode 100644 drivers/crypto/hisilicon/trng/Makefile
+>  delete mode 100644 drivers/crypto/hisilicon/trng/trng.c
+> 
+> 
+> base-commit: 5624ea54f3ba5c83d2e5503411a31a8be0278c1e
+> prerequisite-patch-id: 07e982b663ac3f8312ca524f6b91b5b38661df5e
+> prerequisite-patch-id: 72064361a8f36e015ab0b7e1fa4d364b40d90506
+> prerequisite-patch-id: 8978b8e0db7f47935e5f6f0aff14a97f55d3073c
+> prerequisite-patch-id: 6aa0e3e93a008279d71e535a3d0cf48643f55e19
+>
 
-data->length doesn't account for iova offset. Is this by design? We
-should document this clearly somewhere.
+Acked-by: Longfang Liu <liulongfang@huawei.com>
 
-Sashiko reported the same issue too.
-
-[Severity: High]
-Does this calculation overstate the mapped length for unaligned IOVAs?
-If the IOVA is not aligned to the PTE block size, pt_entry_oa_exact()
-includes the intra-page offset in data->phys. However, data->length
-is unconditionally initialized to the full entry_sz rather than
-entry_sz - offset. Callers relying on mapped_length might operate
-on out-of-bounds memory because data->phys + data->length extends
-beyond the valid mapped physical memory by the unaligned offset amount.
-
-> +
-> +	/* Accumulate subsequent physically contiguous entries */
-> +	expected_oa = pt_entry_oa(&pts) + entry_sz;
-> +	pts.end_index = log2_to_int(pt_num_items_lg2(&pts));
-> +	pt_next_entry(&pts);
-> +
-> +	while (pts.index < pts.end_index) {
-> +		pt_load_entry(&pts);
-> +		if (pts.type != PT_ENTRY_OA)
-> +			break;
-> +		if (pt_entry_oa_lg2sz(&pts) != entry_lg2sz)
-> +			break;
-> +		if (pt_entry_oa(&pts) != expected_oa)
-> +			break;
-> +		data->length += entry_sz;
-> +		expected_oa += entry_sz;
-> +		pt_next_entry(&pts);
-> +	}
-> +
-> +	return 0;
->   }
-> -PT_MAKE_LEVELS(__iova_to_phys, __do_iova_to_phys);
-> +PT_MAKE_LEVELS(__iova_to_phys_length, __do_iova_to_phys_length);
->   
->   /**
-> - * iova_to_phys() - Return the output address for the given IOVA
-> + * iova_to_phys_length() - Translate IOVA returning phys and contiguous length
->    * @domain: Table to query
->    * @iova: IO virtual address to query
-> + * @mapped_length: Output for the total contiguous mapped length in bytes
->    *
-> - * Determine the output address from the given IOVA. @iova may have any
-> - * alignment, the returned physical will be adjusted with any sub page offset.
-> + * Walk the IOMMU page table to translate @iova to a physical address while
-> + * also returning the total contiguous physically mapped length through
-> + * @mapped_length. The function accumulates consecutive page table entries that
-> + * are physically contiguous, so callers can determine the full contiguous
-> + * mapping extent with a single call.
->    *
->    * Context: The caller must hold a read range lock that includes @iova.
->    *
-> - * Return: 0 if there is no translation for the given iova.
-> + * Return: The physical address, or PHYS_ADDR_MAX if there is no translation.
->    */
-> -phys_addr_t DOMAIN_NS(iova_to_phys)(struct iommu_domain *domain,
-> -				    dma_addr_t iova)
-> +phys_addr_t DOMAIN_NS(iova_to_phys_length)(struct iommu_domain *domain,
-> +					    dma_addr_t iova,
-> +					    size_t *mapped_length)
->   {
->   	struct pt_iommu *iommu_table =
->   		container_of(domain, struct pt_iommu, domain);
->   	struct pt_range range;
-> -	pt_oaddr_t res;
-> +	struct iova_to_phys_length_data data;
->   	int ret;
->   
->   	ret = make_range(common_from_iommu(iommu_table), &range, iova, 1);
->   	if (ret)
-> -		return ret;
-> +		return PHYS_ADDR_MAX;
->   
-> -	ret = pt_walk_range(&range, __iova_to_phys, &res);
-> -	/* PHYS_ADDR_MAX would be a better error code */
-> +	ret = pt_walk_range(&range, __iova_to_phys_length, &data);
->   	if (ret)
-> -		return 0;
-> -	return res;
-> +		return PHYS_ADDR_MAX;
-> +
-> +	if (mapped_length)
-> +		*mapped_length = data.length;
-> +	return data.phys;
->   }
-> -EXPORT_SYMBOL_NS_GPL(DOMAIN_NS(iova_to_phys), "GENERIC_PT_IOMMU");
-> +EXPORT_SYMBOL_NS_GPL(DOMAIN_NS(iova_to_phys_length), "GENERIC_PT_IOMMU");
->   
->   struct pt_iommu_dirty_args {
->   	struct iommu_dirty_bitmap *dirty;
-> diff --git a/include/linux/generic_pt/iommu.h b/include/linux/generic_pt/iommu.h
-> index dd0edd02a48a..859b853e9dc7 100644
-> --- a/include/linux/generic_pt/iommu.h
-> +++ b/include/linux/generic_pt/iommu.h
-> @@ -249,8 +249,9 @@ struct pt_iommu_cfg {
->   
->   /* Generate the exported function signatures from iommu_pt.h */
->   #define IOMMU_PROTOTYPES(fmt)                                                  \
-> -	phys_addr_t pt_iommu_##fmt##_iova_to_phys(struct iommu_domain *domain, \
-> -						  dma_addr_t iova);            \
-> +	phys_addr_t pt_iommu_##fmt##_iova_to_phys_length(			\
-> +		struct iommu_domain *domain, dma_addr_t iova,			\
-> +		size_t *mapped_length);						\
->   	int pt_iommu_##fmt##_read_and_clear_dirty(                             \
->   		struct iommu_domain *domain, unsigned long iova, size_t size,  \
->   		unsigned long flags, struct iommu_dirty_bitmap *dirty);        \
-> @@ -267,11 +268,11 @@ struct pt_iommu_cfg {
->   	IOMMU_PROTOTYPES(fmt)
->   
->   /*
-> - * A driver uses IOMMU_PT_DOMAIN_OPS to populate the iommu_domain_ops for the
-> - * iommu_pt
-> + * A driver uses IOMMU_PT_DOMAIN_OPS to populate the iommu_domain_ops for
-> + * the iommu_pt
->    */
-> -#define IOMMU_PT_DOMAIN_OPS(fmt)                        \
-> -	.iova_to_phys = &pt_iommu_##fmt##_iova_to_phys
-> +#define IOMMU_PT_DOMAIN_OPS(fmt)					\
-> +	.iova_to_phys_length = &pt_iommu_##fmt##_iova_to_phys_length
->   #define IOMMU_PT_DIRTY_OPS(fmt) \
->   	.read_and_clear_dirty = &pt_iommu_##fmt##_read_and_clear_dirty
->   
-
-Thanks,
-baolu
+Thanks.
 
