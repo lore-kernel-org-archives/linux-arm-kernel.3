@@ -4,95 +4,94 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 1D4E5CD6E4A
-	for <linux-arm-kernel@archiver.kernel.org>; Thu,  4 Jun 2026 07:07:45 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 0DF4BCD6E68
+	for <linux-arm-kernel@archiver.kernel.org>; Thu,  4 Jun 2026 07:13:31 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
-	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:References:To:
+	From:Subject:Cc:Message-Id:Date:Content-Type:Content-Transfer-Encoding:
+	Mime-Version:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=KeCLb7DuMaDPrPdy8QMk7HQ5zSUfNkiDFhEooBB+e/A=; b=0nL67VrX3FgYzyq0VY2xqprY9Q
-	VVhn9Z2KAtor0pIobRQMB2f9TqWSyMrNb9DdzcL7pq92y4Trmkhqtela/wv1kZQwxy4n7lGz9XOez
-	nbdaDJ1AS3RbY+aU9ZsMDqePidyKtH93MXgMvUeUBfqXeK7SvE9v9XwEnD+OelQlXrxbo1w2LzOTF
-	3XJQq1x3f0jig2PD9jF0WDv0GGonIccrEFP6xGEnLq/+aCclCvxTZMzePgSeGBDuloVUtle2xjWO0
-	+7Jql56KZmqIQ7ImG3ly/3rICDfH4D+cIC6cgumv+w7DJ/o583eNbFV5zMMEOc9epAHyabJxiqRRD
-	yxfvJImw==;
+	bh=k/B0Oc7JSmXys6K6XrBYqYAJwEgg7OwJ60KqTMEqOXs=; b=xSFtVD8OMGWCZKbNF/rK6vDfFh
+	znUHQZWKEaOlt76z/SSE2KE3PNe4lKIYsC+ktUMzP0Hfca9x+iR1vhy48r0ET/2FwkyLUW30sAdwi
+	ruhnmL1p+vwDnHMcWMbzMmv0sZm52kAfNXOy1vyK5D5ReBjLechjCTLtBF9Lo9G+LHIFlIJV57hQZ
+	RmK71C7xVvLVObp+XrJ5an0XVmhbnDsyPeQuTu8RPxwdCifaCAcbvALYWGVVMfSr9L6p3cYAPCbz4
+	uD6sIDVtFR8L7wPREeb6ldK8EFaGOmx3VbfWYi+ajxxlTbYHVnqYErofFQk/fib/7q1jWcoaf03cq
+	2m4KnqTQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wV2B0-0000000GHXG-3SDq;
-	Thu, 04 Jun 2026 07:07:38 +0000
-Received: from mail-pl1-x635.google.com ([2607:f8b0:4864:20::635])
+	id 1wV2GX-0000000GI7G-3q28;
+	Thu, 04 Jun 2026 07:13:21 +0000
+Received: from mail-pf1-x432.google.com ([2607:f8b0:4864:20::432])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wV2Ax-0000000GHWl-2y9b
+	id 1wV2GU-0000000GI6u-49Sx
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 04 Jun 2026 07:07:37 +0000
-Received: by mail-pl1-x635.google.com with SMTP id d9443c01a7336-2c0c3546924so2376835ad.3
-        for <linux-arm-kernel@lists.infradead.org>; Thu, 04 Jun 2026 00:07:35 -0700 (PDT)
+	Thu, 04 Jun 2026 07:13:20 +0000
+Received: by mail-pf1-x432.google.com with SMTP id d2e1a72fcca58-8422f148dfcso177128b3a.3
+        for <linux-arm-kernel@lists.infradead.org>; Thu, 04 Jun 2026 00:13:18 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20251104; t=1780556854; x=1781161654; darn=lists.infradead.org;
-        h=content-transfer-encoding:in-reply-to:from:content-language
-         :references:cc:to:subject:user-agent:mime-version:date:message-id
-         :from:to:cc:subject:date:message-id:reply-to;
-        bh=KeCLb7DuMaDPrPdy8QMk7HQ5zSUfNkiDFhEooBB+e/A=;
-        b=e8dbClD7UN6zrtcTZEpCGVfZJ3HoBMZ6DWp2noqLG/O83ibIEQSI2ReFZFHkETXdC1
-         +I6aa70VaFPQsE2iVEPFEiHoNLP8oFnAu2KGKxMm/GirHjGmOT1nWe7UKgBu5bmDeOBb
-         xpshZuIrIZk3A4f8eeCzM4BAiQSTQQYvNDLiMrhyye0v1e2CNxQh1V5FltzKUMZPYE9C
-         AkLoT7t7nhW+tJH3abJsKKnel0dnzxN7rB8FcvQSPc2eqA1MWJefUFWn1rw7Dn+Gnr9w
-         dvs07iqY5RnggpKujt9beFVpk8+M/7ghK4MEWw6U4DJmfV05RS/wnhaP696a7FmdCz0G
-         fjsg==
+        d=gmail.com; s=20251104; t=1780557197; x=1781161997; darn=lists.infradead.org;
+        h=in-reply-to:references:to:from:subject:cc:message-id:date
+         :content-transfer-encoding:mime-version:from:to:cc:subject:date
+         :message-id:reply-to;
+        bh=k/B0Oc7JSmXys6K6XrBYqYAJwEgg7OwJ60KqTMEqOXs=;
+        b=onK4aKPjLrDF0O5uNZViRvRGkeH7MwpD+RIpPF3KibR2184mBKxTqA1kuoRmNh3kP3
+         DjALHg8oZppJrCEKewhYeTcsGMIwkSDfiGGHMrFHdV2OHoaug4mWRxP5bTF+vROPtbiZ
+         eZ5P+lGixz10v5wzt940SIRRSVGb3Bocw7lGabWfgjbjqBZbBFFaeKTG5EEbbNUXdrhN
+         rQ/lcLG/DdEnggpigaaYA3hdIUHA0AYAWH+Z5uTHAG4CdZ+YFkKqomdT3CNw2pTFr86C
+         rgGYAl0Xd2y/Q+S/A9SntRamFWlNdi3PESqka/M9WA8N7bIg9E40EIrV8U3weQnh1WJ1
+         4Ilg==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20251104; t=1780556854; x=1781161654;
-        h=content-transfer-encoding:in-reply-to:from:content-language
-         :references:cc:to:subject:user-agent:mime-version:date:message-id
-         :x-gm-gg:x-gm-message-state:from:to:cc:subject:date:message-id
-         :reply-to;
-        bh=KeCLb7DuMaDPrPdy8QMk7HQ5zSUfNkiDFhEooBB+e/A=;
-        b=nyegRvL9UpNqazS7tgZ9LdnyixvzOKqzmuMuKNhHuRuJtKhhHvMCapkT/ohY34sDTl
-         GhhTGK1Y2NZtzGkPoX72+QLMO2pBaRKVwJhbkl7ibtMoK53xRDlAlwFAQzP/bMwo6mi8
-         FxQWguO8UvRq0MAWGAINyiwiuG3gzW3QzCJOGMiHyBffHDv0jDIm6q+GVHXz4NUkIn5m
-         4EdVYFCsGHvIdYC9dg2Mnq05NXoRwp+IVopPh1Tjho7Ryq8k1aOrEk+RlqMaTbgR0Gq3
-         rDGjaDmfb0n1+/hVX+bSq/kc0wQZKcoHqE5bMLDckgw9dOdL0cXpKyBI9t3Y2ywiONbt
-         Ptxg==
-X-Forwarded-Encrypted: i=1; AFNElJ+xg/fNgEZWnNlA6TdVViHBj+OhCUTtBcwLdHrI0hLo45Jropzx3lh7WKO1aGdCzmfUsKoPkmDhXb+otQohiDCe@lists.infradead.org
-X-Gm-Message-State: AOJu0YwfgigAWyonGcUavscmcJTuAdPHYpuyHiL1v/tayF9PLNNGGWxU
-	YMC177k+yTv1ACxuTndFq9HpBRxfMJvwwrJr+d7p1edq2TeQaB1B1AUB
-X-Gm-Gg: Acq92OGozyXeeOlvTbP+EmLmQi6b+NOB6QC3Ar3Dda/KHbXqKUpGexapj76zbXNU1HA
-	SNtr3xqHKdX6ZpblUevB5mmaBwVtElcGyr31mCaLDcDxjqqF2aioi14D/SySUomQ5ZUN2kbjv71
-	48kZolokeoVa4nLAZ2NKn7SQrtm+9wFD8xtPC2k89AZOZcd/VnrdnZtO3dswuijQwgR5Z8wje+R
-	9Sf+P/DVM4JpZudAdY6zM8DaR/qgwj5UEQQXHir360OGMLeAZaWsyCzCeKws7OcCD4x9gXkeqjC
-	48mpGfM+Xnzdm7twobl+DKfyL+ogBHvTFSfrypaQ1PbMj3P3GAt4bDOVi27sxdiwOj1Qt+E+DWp
-	Tty5Gw33r0F6wEabcxjlHebYW0fMGAQewyEF4MZJe5G9E0fnkQyHINoUDGr0Z+/k8pojMjYFMc0
-	L48HgdiYzJmTxAv2RG5UDSJ1b5wKWIwTY+yuuDBx0Ey7KXsnvMkIMs+9OSAB+AvhLN6BwEHqscx
-	Q0rXYpWw7UJaA==
-X-Received: by 2002:a17:903:2410:b0:2c1:737:bed9 with SMTP id d9443c01a7336-2c1644a83b5mr69929655ad.30.1780556854379;
-        Thu, 04 Jun 2026 00:07:34 -0700 (PDT)
-Received: from [172.19.1.42] (60-250-196-139.hinet-ip.hinet.net. [60.250.196.139])
-        by smtp.gmail.com with ESMTPSA id d9443c01a7336-2c16649ca4dsm46159235ad.76.2026.06.04.00.07.31
+        d=1e100.net; s=20251104; t=1780557197; x=1781161997;
+        h=in-reply-to:references:to:from:subject:cc:message-id:date
+         :content-transfer-encoding:mime-version:x-gm-gg:x-gm-message-state
+         :from:to:cc:subject:date:message-id:reply-to;
+        bh=k/B0Oc7JSmXys6K6XrBYqYAJwEgg7OwJ60KqTMEqOXs=;
+        b=jUHKEL1jKg5NPr6YZCCQiPpCKayuMjY02VQEle+cKTv54xV/80vTH/Yy3Sj2EOiRjU
+         /wDENIsy2X/WRD35eg1doWhlJxjzj/ypB8VxnWwryiCYY2oi5+heqw8vBHy9VQ5l0yhG
+         KpzXQCb80uCVwl1fYNhY6+aV8osKx/RyxLEYhIwoNxfVB6PUvTOJzXm+ojB0e/4lNAXr
+         bdspzjbjHCgRuYi3Ikm4SxJR02vLY3vzMI6IQ/zSyRUFEt1D5VOaQfiwfIon7CI3HkSM
+         zILJfDBRI8h3XA3BV8eHL3al0FJY5blvi2DbDUtppzn/Ncl5zx/mSWSc7SihFqIaKed9
+         m79g==
+X-Forwarded-Encrypted: i=1; AFNElJ+LcGsrQPj1vxP7dC4eA8RLO00im9feXvB6k2G1I+sHHdE25z+s9xgGWITIWU+DmwvjD2j/XPnMxBVWWsHpktBU@lists.infradead.org
+X-Gm-Message-State: AOJu0YyCSrWNx8F8qdMDie4bmwGVM2w77m5vBwL+tkJXlvwtj78D+vkA
+	9AufSLsDwhcBPS3o65UnDqkZJ8fiRhqKWJuv2mV6K9WP6IljzTw65Axz
+X-Gm-Gg: Acq92OFto8s5dzlnUbgiyuC17aokPDGREYT6JWgd6dzXZPRXhzswoY0B21KXr0Php5x
+	qcJw3X2WGLqY8EJeyytPFS8QicPQYIW9jo08JNW+OqQIsRSVFr+jsZ21MhZXY8H/TwDQx7/dW6G
+	RRgqSOWaUtDaC9XyVbZWYLUYtO+s5v55Jy1iEyfwC6aFfW5Ub1oujy0J1gU2MjTUodEubtk6199
+	eSACdMDYOQnu1Gq4Iok+FD3nSwRkqaDbHAPSTosljNLwguMXBqze/6VaMayhlvVLwdsOCRC6QEx
+	hH8K2tjM4iEqW6IoslJY/lWaA1VBJ26BThLuDV9mw0fMadSH6JzfOGFW4M12jvpJ3xWQYRTJcKn
+	4HhEJObV0iEmNgdAaaA52L/fKSHNffdYgNv/n3u6RGO2dqnWxzndxL22sVD1YEOic9RoeObX4yL
+	n6CYWiuA7pFztvfqiYVHmfxj3dKz5sMf8SnF5lKKtZsCCLsnUOU8BUJRm9p1R1D7mrLIfwBo8t0
+	zsnIXR0Pbx6AXqv+Hb/JDIlM1lQOacKxuXbe5wSb2c+q0r5h2U=
+X-Received: by 2002:a05:6a00:4088:b0:835:41f3:f440 with SMTP id d2e1a72fcca58-84284db3e9dmr6388043b3a.14.1780557197386;
+        Thu, 04 Jun 2026 00:13:17 -0700 (PDT)
+Received: from localhost ([2601:644:8000:5b5d:7285:c2ff:fe45:8a32])
+        by smtp.gmail.com with ESMTPSA id d2e1a72fcca58-842828daf76sm5288169b3a.42.2026.06.04.00.13.16
         (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
-        Thu, 04 Jun 2026 00:07:33 -0700 (PDT)
-Message-ID: <41914879-5fd0-41dd-b097-2be80096e464@gmail.com>
-Date: Thu, 4 Jun 2026 15:07:31 +0800
-MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH 1/2] dt-bindings: spi: Add for Nuvoton MA35D1 SoC QSPI
- Controller
-To: Conor Dooley <conor@kernel.org>
-Cc: broonie@kernel.org, robh@kernel.org, krzk+dt@kernel.org,
- conor+dt@kernel.org, linux-arm-kernel@lists.infradead.org,
- linux-spi@vger.kernel.org, devicetree@vger.kernel.org,
- linux-kernel@vger.kernel.org, cwweng@nuvoton.com
-References: <20260603043551.1062112-1-cwweng.linux@gmail.com>
- <20260603043551.1062112-2-cwweng.linux@gmail.com>
- <20260603-daybed-absentee-1b64f5caabe0@spud>
-Content-Language: en-US
-From: Chi-Wen Weng <cwweng.linux@gmail.com>
-In-Reply-To: <20260603-daybed-absentee-1b64f5caabe0@spud>
-Content-Type: text/plain; charset=UTF-8; format=flowed
-Content-Transfer-Encoding: 8bit
+        Thu, 04 Jun 2026 00:13:16 -0700 (PDT)
+Mime-Version: 1.0
+Content-Transfer-Encoding: quoted-printable
+Content-Type: text/plain; charset=UTF-8
+Date: Thu, 04 Jun 2026 00:13:15 -0700
+Message-Id: <DJ02UJDHW927.1ZCLQQ77E0I95@gmail.com>
+Cc: <linux-kernel@vger.kernel.org>, "Arnd Bergmann" <arnd@arndb.de>,
+ <chleroy@kernel.org>, "Greg Kroah-Hartman" <gregkh@linuxfoundation.org>,
+ "moderated list:ARM/ZYNQ ARCHITECTURE"
+ <linux-arm-kernel@lists.infradead.org>
+Subject: Re: [PATCH] char: xilinx_hwicap: replace in_be32/out_be32 with
+ ioread32be/iowrite32be
+From: "Rosen Penev" <rosenp@gmail.com>
+To: "Michal Simek" <michal.simek@amd.com>, "Rosen Penev" <rosenp@gmail.com>
+X-Mailer: aerc 0.21.0-0-g5549850facc2
+References: <20260602035717.623208-1-rosenp@gmail.com>
+ <878fd338-b4d0-4e46-987c-5a0ee52989dc@amd.com>
+ <CAKxU2N_U=Wk4f9ankopVBMRGH+YdTn8FOuyoDs4Of04o63bTHg@mail.gmail.com>
+ <e331f8d0-11e7-40c1-b4f5-76a591e93bd9@amd.com>
+In-Reply-To: <e331f8d0-11e7-40c1-b4f5-76a591e93bd9@amd.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260604_000735_767610_FC559DDD 
-X-CRM114-Status: GOOD (  17.20  )
+X-CRM114-CacheID: sfid-20260604_001319_052718_A3AA859C 
+X-CRM114-Status: GOOD (  14.05  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -107,119 +106,60 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hi Conor,
-
-Thanks for the review.
-
- > Missing commit message for one, but why can't your Nuvoton mail be used
- > here?
-
-I apologize for the missing commit message; I will add a proper 
-description in v2.
-
-Regarding the email address, my Nuvoton mail adds a corporate 
-confidentiality disclaimer to outgoing
-external mail, so I use my personal address for sending kernel patches.
-
- > Sashiko had two comments about resets and num-cs that looked valid.
-
-Noted. I will add the `num-cs` and `resets` properties in v2.
-
- > Drop this flash node, it serves no purpose here.
-
-Understood, I will remove the flash child node from the example in v2.
-
-Thanks,
-Chi-Wen Weng
-
-Conor Dooley 於 2026/6/3 下午 11:24 寫道:
-> On Wed, Jun 03, 2026 at 12:35:50PM +0800, Chi-Wen Weng wrote:
->> Signed-off-by: Chi-Wen Weng <cwweng.linux@gmail.com>
-> Missing commit message for one, but why can't your Nuvoton mail be used
-> here?
+On Wed Jun 3, 2026 at 11:30 PM PDT, Michal Simek wrote:
 >
-> Sashiko had two comments about resets and num-cs that looked valid.
 >
->> ---
->>   .../bindings/spi/nuvoton,ma35d1-qspi.yaml     | 61 +++++++++++++++++++
->>   1 file changed, 61 insertions(+)
->>   create mode 100644 Documentation/devicetree/bindings/spi/nuvoton,ma35d1-qspi.yaml
+> On 6/3/26 21:52, Rosen Penev wrote:
+>> On Mon, Jun 1, 2026 at 11:22=E2=80=AFPM Michal Simek <michal.simek@amd.c=
+om> wrote:
+>>>
+>>>
+>>>
+>>> On 6/2/26 05:57, Rosen Penev wrote:
+>>>> Mechanical conversion of the ppc4xx-specific accessors to the generic
+>>>> portable helpers.
+>>>>
+>>>> As a result, COMPILE_TEST is added for extra compile coverage.
+>>>>
+>>>> Assisted-by: opencode:big-pickle
+>>>> Signed-off-by: Rosen Penev <rosenp@gmail.com>
+>>>> ---
+>>>>    drivers/char/Kconfig                     |  2 +-
+>>>>    drivers/char/xilinx_hwicap/buffer_icap.c | 16 +++++------
+>>>>    drivers/char/xilinx_hwicap/fifo_icap.c   | 34 +++++++++++----------=
+---
+>>>>    3 files changed, 24 insertions(+), 28 deletions(-)
+>>>
+>>> I don't really mind about this because I think that we can also remove =
+the whole
+>>> driver.
+>> I looked into this. The problem here is that there are actual users
 >>
->> diff --git a/Documentation/devicetree/bindings/spi/nuvoton,ma35d1-qspi.yaml b/Documentation/devicetree/bindings/spi/nuvoton,ma35d1-qspi.yaml
->> new file mode 100644
->> index 000000000000..f7b9cb52d8e5
->> --- /dev/null
->> +++ b/Documentation/devicetree/bindings/spi/nuvoton,ma35d1-qspi.yaml
->> @@ -0,0 +1,61 @@
->> +# SPDX-License-Identifier: (GPL-2.0-only OR BSD-2-Clause)
->> +%YAML 1.2
->> +---
->> +$id: http://devicetree.org/schemas/spi/nuvoton,ma35d1-qspi.yaml#
->> +$schema: http://devicetree.org/meta-schemas/core.yaml#
->> +
->> +title: Nuvoton MA35D1 Quad SPI Controller
->> +
->> +maintainers:
->> +  - Chi-Wen Weng <cwweng@nuvoton.com>
->> +
->> +allOf:
->> +  - $ref: spi-controller.yaml#
->> +
->> +properties:
->> +  compatible:
->> +    const: nuvoton,ma35d1-qspi
->> +
->> +  reg:
->> +    maxItems: 1
->> +
->> +  interrupts:
->> +    maxItems: 1
->> +
->> +  clocks:
->> +    maxItems: 1
->> +
->> +required:
->> +  - compatible
->> +  - reg
->> +  - clocks
->> +
->> +unevaluatedProperties: false
->> +
->> +examples:
->> +  - |
->> +    #include <dt-bindings/interrupt-controller/arm-gic.h>
->> +    #include <dt-bindings/clock/nuvoton,ma35d1-clk.h>
->> +
->> +    soc {
->> +        #address-cells = <2>;
->> +        #size-cells = <2>;
->> +
->> +        spi@40680000 {
->> +            compatible = "nuvoton,ma35d1-qspi";
->> +            reg = <0x0 0x40680000 0x0 0x100>;
->> +            interrupts = <GIC_SPI 57 IRQ_TYPE_LEVEL_HIGH>;
->> +            clocks = <&clk QSPI0_GATE>;
->> +            #address-cells = <1>;
->> +            #size-cells = <0>;
->> +
->> +            flash@0 {
-> Drop this flash node, it serves no purpose here.
+>> arch/microblaze/boot/dts/system.dts
+>>
+>> and
+>>
+>> arch/mips/boot/dts/xilfpga/nexys4ddr.dts
 >
-> pw-bot: changes-requested
+>
+> I can't see users of it.
+Hrm looks like I just grepped xlns,xps and found system.dts. You're
+right.
+>
+> on v7.1-rc1
+> $ git grep opb-hwicap
+> Documentation/devicetree/bindings/xilinx.txt:126:
+> "xlnx,opb-hwicap-1.00.b".
+> drivers/char/xilinx_hwicap/xilinx_hwicap.c:733: { .compatible =3D
+> "xlnx,opb-hwicap-1.00.b", .data =3D &buffer_icap_config},
+> $ git grep xps-hwicap
+> Documentation/devicetree/bindings/xilinx.txt:125:               - compati=
+ble :
+> should contain "xlnx,xps-hwicap-1.00.a" or
+> drivers/char/xilinx_hwicap/xilinx_hwicap.c:734: { .compatible =3D
+> "xlnx,xps-hwicap-1.00.a", .data =3D &fifo_icap_config},
 >
 > Thanks,
-> Conor.
->
->> +                compatible = "jedec,spi-nor";
->> +                spi-max-frequency = <30000000>;
->> +                reg = <0>;
->> +                spi-rx-bus-width = <4>;
->> +                spi-tx-bus-width = <1>;
->> +            };
->> +        };
->> +    };
->> +
->> -- 
->> 2.25.1
->>
+> Michal
+
 
