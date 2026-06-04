@@ -4,133 +4,66 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id E3EAACD6E4A
-	for <linux-arm-kernel@archiver.kernel.org>; Thu,  4 Jun 2026 02:21:39 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 0F3BFCD6E55
+	for <linux-arm-kernel@archiver.kernel.org>; Thu,  4 Jun 2026 02:30:18 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:Content-Type:
-	Content-Transfer-Encoding:Message-Id:Date:Subject:Cc:To:From:Reply-To:
-	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
-	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
-	bh=nxC9BP8N/AZEZlUW04dB553torofxtHAOcB6RV6LRI4=; b=HZZIjFy08It5//ZqTlRnO9jtng
-	raTE871OQbn7D13ykuz+32j4ornC3DHozUH6RcJfVF3J1CfjX0iSb0TOed1S274RhPU3CojUMiiw1
-	jkwk8IrSohwZoZjKR7othVXw26gjP1RdXNFFoEsPBJM9bQ98uP2Tq9dWXd0xdbu+9AtbYTCaAT3dl
-	fjq4L68wHog/p7LUMry2Cv3lEd9Nn7SudspBiEHaTriOLFrLPQfg3eg188NZQLd5x7ebOR+bFgd+j
-	bfZprKZO8Y94SPzPAW4fc2s+4joud6X3es56D2CxAF+FMAaB5wrqskeJNRb4LmlRDMDrgJ+wOC6+d
-	FX3d02cw==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:References
+	:Date:Message-Id:From:Subject:Content-Transfer-Encoding:MIME-Version:
+	Content-Type:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=pYfJh+51yj2R4Kc20BEo/16TMlYX/OGjxFXaijOHj2g=; b=jIwsEitEgCgdwz1FnOruQZuDyC
+	kg5Wr/S1I/NdkpK74TRD8l3+uydtel+HtFYYL732b1Ig7AZbWkQp4gvxH5aaP0/cqHf2uxN6Qj2ae
+	9SXfS33h+E77UgnLPEL43Kl76/Mr7YVbbyncuYPWJKy5/0YdKVPihDvSeat5vdFKxVWYFolB2Ymvv
+	Zv+M4V54b05DpmcH/iWM4rvhCgn1othHZXHy6HoI6ZnVoSNyUYn4nBHoRUifD/ai/Tj7wZnGds9cs
+	xlLePxxytrvU+i5WDluSNwbv/yoAbyERf4Bfs1BQCv1i706XwVOPf/OxfxFv3OuB1GnOIOSi7kVbk
+	yFYTb+NQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wUxi6-0000000G27T-4AXf;
-	Thu, 04 Jun 2026 02:21:31 +0000
-Received: from mail-swedencentralazlp170130007.outbound.protection.outlook.com ([2a01:111:f403:c202::7] helo=GVXPR05CU001.outbound.protection.outlook.com)
+	id 1wUxqU-0000000G2Xo-3tTm;
+	Thu, 04 Jun 2026 02:30:10 +0000
+Received: from sea.source.kernel.org ([172.234.252.31])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wUxi3-0000000G277-2lTe
-	for linux-arm-kernel@lists.infradead.org;
-	Thu, 04 Jun 2026 02:21:29 +0000
-ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
- b=v2qF6geRm1ouCaI+uwa+/yt5PnYQ3dZ0fShhfIkEZm/ANBGzzQFTYZHbydHumTz73KXOFZXS6Nmqbq2P3jPszcf6slmLDgxadNDtRHKBQx0kmNent7ODG/3aAI7IM5q7ITnn5O/kJNKO2RcfJMpNbaP36gXvOMwElSkgXyH2traZZsh109su9MuJwh/mnwS2oLzySkWybv1H25bH8B1tX+qJBjUntuLev+2yhjJShG7noYWgKWeNzH6yfd8MefuHfyWVHzBVMT6gvjGb39U9QywqlE3tvrP/cIXeEo5VElpmTdblss8y/WpdM01rhwB0aa9BsIYxq7KHa8bgKrcxcg==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
- s=arcselector10001;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
- bh=nxC9BP8N/AZEZlUW04dB553torofxtHAOcB6RV6LRI4=;
- b=LtXrDN9qEjkX4vYHxx7v/OG8/vWYn/IjlwSVQhA79kE7h9Pqw0SyznyhbTPN4dNFmQ5dsPvx+VzUKR6VqC6QwO6XF87eEJzmsgv+NFBZ+KopT9BQ/nwYXXzeu03NUyPvVo3k1vhDCoj9Hkb/FH+t5A6/pjqGl8nPrY94LfxXtcrkO1dffGDP3BD1nNFj9BivIsEIXZjllN0Ru46oMIRVy6y0VAxcNKh7y2a8zzQNh8bGyXzypoM8D3KGeIHaYHoEda2ZZ2Ru8P7o7M7fmRi0x6qoO70SYwxqzOqWMZ+la8B307mKVJr7VvXPQ0lokbAO7MpDbqZOBNNkdcnDoRjUEg==
-ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
- smtp.mailfrom=oss.nxp.com; dmarc=pass action=none header.from=oss.nxp.com;
- dkim=pass header.d=oss.nxp.com; arc=none
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=NXP1.onmicrosoft.com;
- s=selector1-NXP1-onmicrosoft-com;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
- bh=nxC9BP8N/AZEZlUW04dB553torofxtHAOcB6RV6LRI4=;
- b=gvxbt7BU/Y0WwLw75Iv7klJyZmmm5RmDK27Rfd0d+MY1lH6oLlOU/jJAd1q0q1a2uj9zA1DyNwLofSKF2733T/1v5zka3Wf+sSpIgyNBZxXyMonOneZEVBl7zfVACM+zeyud+OhVMafvkwhh59x4NYeb16CePj1TUoG13cRvfUNMz4RG8UUtLAzjIy7KCeRRIvsDnb3uUGDJySqQ872t6eGptQwyt89/i4HoDxcE4FyI0KqCo/avWXaB2pPBCDNBB4XxgBDJ1Oj6Cr/U0w6H0IVyHWb1Sap2kcL2Zyw6J9w9IMKxFyPZWczVz/Xu2NwdrLFU+Vzl1detzp84xAnKQw==
-Authentication-Results: dkim=none (message not signed)
- header.d=none;dmarc=none action=none header.from=oss.nxp.com;
-Received: from PAXPR04MB8096.eurprd04.prod.outlook.com (2603:10a6:102:1c7::19)
- by PA1PR04MB10119.eurprd04.prod.outlook.com (2603:10a6:102:45d::21) with
- Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.21.92.7; Thu, 4 Jun 2026
- 02:21:22 +0000
-Received: from PAXPR04MB8096.eurprd04.prod.outlook.com
- ([fe80::68be:f721:5000:3f2d]) by PAXPR04MB8096.eurprd04.prod.outlook.com
- ([fe80::68be:f721:5000:3f2d%6]) with mapi id 15.21.0092.006; Thu, 4 Jun 2026
- 02:21:21 +0000
-From: hongxing.zhu@oss.nxp.com
-To: sherry.sun@nxp.com,
-	robh@kernel.org,
-	krzk+dt@kernel.org,
-	conor+dt@kernel.org,
-	frank.li@nxp.com,
-	s.hauer@pengutronix.de,
-	festevam@gmail.com
-Cc: kernel@pengutronix.de,
-	devicetree@vger.kernel.org,
-	imx@lists.linux.dev,
-	linux-arm-kernel@lists.infradead.org,
-	linux-kernel@vger.kernel.org,
-	Richard Zhu <hongxing.zhu@oss.nxp.com>,
-	Richard Zhu <hongxing.zhu@nxp.com>
-Subject: [PATCH v1] arm64: dts: imx94: Add Root Port node and PERST property
-Date: Thu,  4 Jun 2026 10:24:20 +0800
-Message-Id: <20260604022420.120294-1-hongxing.zhu@oss.nxp.com>
-X-Mailer: git-send-email 2.34.1
-Content-Transfer-Encoding: 8bit
-Content-Type: text/plain
-X-ClientProxiedBy: SI2PR01CA0036.apcprd01.prod.exchangelabs.com
- (2603:1096:4:192::22) To PAXPR04MB8096.eurprd04.prod.outlook.com
- (2603:10a6:102:1c7::19)
+	id 1wUxqS-0000000G2XS-1JSo;
+	Thu, 04 Jun 2026 02:30:09 +0000
+Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
+	by sea.source.kernel.org (Postfix) with ESMTP id 8F14E404A6;
+	Thu,  4 Jun 2026 02:30:07 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 6F8241F00893;
+	Thu,  4 Jun 2026 02:30:07 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
+	s=k20260515; t=1780540207;
+	bh=pYfJh+51yj2R4Kc20BEo/16TMlYX/OGjxFXaijOHj2g=;
+	h=Subject:From:Date:References:In-Reply-To:To:Cc;
+	b=mYT/Gk6lgBe5ptQyD8lFkyNRyBmkUESqSu/6n2CRrDLBo77wah3HAlrHvI1FkTp4w
+	 pOP6FtIHww39OAkIkXAmx9e99BOT8/eqbCVM6YcNgXf0kVseuxCFNge5MjPmDIwp1h
+	 tpcuaj/IX1ohCVlszxLmr6U6Rk7uxt75lAfJ+h3Pxja+UxQwG3IHFsZzdRpFTUuN+J
+	 Wdorom7dBgeCytDsxAHMV78iEUxukQ7ZeVKV0hP4XFV+43jyFl8dcht1I4AVv0DlVK
+	 +g3zLkIsCEOxpndhxapyywVr0GBN6OV2psac2jsNQhXXZ5QvLh8dPBLdAhAaf4WHR/
+	 U3ZzvNdBJVgXw==
+Received: from [10.30.226.235] (localhost [IPv6:::1])
+	by aws-us-west-2-korg-oddjob-rhel9-1.codeaurora.org (Postfix) with ESMTP id D0A5739308E6;
+	Thu,  4 Jun 2026 02:30:09 +0000 (UTC)
+Content-Type: text/plain; charset="utf-8"
 MIME-Version: 1.0
-X-MS-PublicTrafficType: Email
-X-MS-TrafficTypeDiagnostic: PAXPR04MB8096:EE_|PA1PR04MB10119:EE_
-X-MS-Office365-Filtering-Correlation-Id: 9e12092f-f36f-4e20-d858-08dec1dff80f
-X-MS-Exchange-SenderADCheck: 1
-X-MS-Exchange-AntiSpam-Relay: 0
-X-Microsoft-Antispam: BCL:0;ARA:13230040|366016|19092799006|7416014|376014|1800799024|56012099006|11063799006|18002099003;
-X-Microsoft-Antispam-Message-Info: fYqme2Eqg6gMXoweDwFjK6BlfqbpJtd8n0RykKhoGUs/Ak4+Re3PzVVcrQI6ZjeRq25oLtU2SGM87g6VdvP7OcUlEEJcMmkKqGkxsAL30LpKOWXbWHO6IxsJJxlP6pSYNEyMMHozvrHxG6x6ru2iq/xT4VskW8jIE3BfuAmXAXnOE0cJiEQnaf+qrO8YbyFoahECjjrIP3vBoCfNThnInJunizejsAxO57AFAefkUMhU2peO8vq3JEGQzij8+kcS/0zoW+m9c9GANm+HhK5tJxgwFHRV/nbr7iBBQuf67vOl1lccI5kL5f1vJx4BWg+oYxsvcjLAkBh5iTLT8jIv5LtH7MiWUBf036oVa7gziKcS1XLp0UY0DownmOoABGeuDGkIbT3uWZROOkIVdi4/MBEATd9jWuMXkgBltIgnAauU03FYpoBl0JMaU7TxrWHw3VjT5/aGh8lTKKwMqy4Sup5iRq0Xq04O7fQxJNf2Q0GmMCtjBHTwTAI+Cs2AUJ9lnvvv7M/uZHP0Z0DjF5A1tOBWXH/bImXeMZwk3xFerLWBgb3Pj1sDpYgeHwZJ279L/SbmdgOsd1aLcaIGieN+s7X9OhRmZtpktQxb9AD38hMvMNQaTWqQEKPVn1G/rYnbyFarY0LyWmafjlnMABU32nbQiC1b988ZqLbPfoAT1mVOHxwc0WOf/qajYAIOEHKG
-X-Forefront-Antispam-Report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:PAXPR04MB8096.eurprd04.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(366016)(19092799006)(7416014)(376014)(1800799024)(56012099006)(11063799006)(18002099003);DIR:OUT;SFP:1101;
-X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
-X-MS-Exchange-AntiSpam-MessageData-0: =?us-ascii?Q?goEEt0ovHDY/EtGUTwNZ/6wo8xsCnTlv8aadVZ1WGLDB02jyu2i1EDFcLC/Z?=
- =?us-ascii?Q?pMR0o6UiHdUCtTnDsNNNpxGFu2FKdCu6TIIZOzXj3Ee0BWqrCENxhV6TNTOf?=
- =?us-ascii?Q?cAsdQByiiQ1hC39Aba7jkP5khw41wF70IJM7r34F6oGUJtwZWD9wrrNhqDUv?=
- =?us-ascii?Q?p/IJPpuVflluEcdgs918DZMVQluXgzqTixkpoos85mR5zKDtn1ccOE+0yff7?=
- =?us-ascii?Q?QyDCyZxLdbsN5dJZbP5Wef+ygq4e3KfodsHi0wso1Gx9HL8nOd2XWmPzlOYr?=
- =?us-ascii?Q?DXN/rXn/aYGb8BtTih6QCeTmu1zmhXp7lKpOftbp4w8JBuoivb3cqh+kQkqg?=
- =?us-ascii?Q?eJOQcyrzOzHDKK4uRoQ4ymNPNXxdvxRAOvp9uBNV3kiZIMDbJSlg67CoPODK?=
- =?us-ascii?Q?yjzif3GAnVM+PqokMWlDA4dVbpKuVvGqRatEsW0THdguRF36uhvSRMDzAfDc?=
- =?us-ascii?Q?hK+vio1ixymTMZSWdf0nqrloDzWaEsncxdw0XRIKlc6NpmTjSm8TPF3S9IrF?=
- =?us-ascii?Q?H43sJEquxC0qbsHq2WZQG42qsjdIRVj92a6GxRpOoYYnbdoUiWr4rcyMKszm?=
- =?us-ascii?Q?3wt6fi/Ey/AHEYXes69iCMmd79j5I2FiM4SXwz30zQteQhZUXUajPUN9/o3X?=
- =?us-ascii?Q?uc3vQsnPr0dRrXqA5FeaQn2L9ZTDR3kVnpLrcKo6rvgHsM4uvDYOlptYNsUu?=
- =?us-ascii?Q?IX+//hI4bUOIz/bvVptvkWbJK9cAgjXeqsGjJDs9I42M4zYEGzIAlWUxJQeC?=
- =?us-ascii?Q?uKDz+jX9DEqAYO/ZLyyBbI9g2Nt+mu1mp98FkwvlAMnbbnmTX96d2kzbL3Ii?=
- =?us-ascii?Q?7P6jvqpH4i9IdHoxWQV+szblczXkGYj6O8tHP3JbL6fxiBAEW+C7xAnO4cV2?=
- =?us-ascii?Q?PunupwDKjJTLw7vGVF32Ufpqs9s8tji/piVLdDvDpMDpkxtAFkub05NTd4n5?=
- =?us-ascii?Q?oQDjecpEVGmR6VtHskU+urTUsk/2lqdMqU/Hw1EvM4J7MKeSUjR1hzErNRFd?=
- =?us-ascii?Q?K3CHOGonewTk6FPKYPO/2y5EVDWf1xhg7gmL+ms4FuwJFuKdzhC/9FBYe74U?=
- =?us-ascii?Q?VsqWQ9sJPxwfEfUD71uUj3XcbmJAKkJcL6nwpDtZk8qHHn8+wOxKwnMOMKei?=
- =?us-ascii?Q?0cIEpFAmeAMlyMGucObgywKWr2oBPSm6e/gIYaNmix93nmSfxnWImhYGn6Ye?=
- =?us-ascii?Q?lZiYh3t6SwlXHzltkrzAB6AvXHHqR7AFQowVifaK9E0Dbvq1lUEKCmb5prZL?=
- =?us-ascii?Q?rtFJ4KiIFBdsdIrS1vJTD6wPigpFiQy5TJrzxdnFXPA5gCVPItBEl9/HpeEg?=
- =?us-ascii?Q?A+2N04Pb+6QueyWfdSnkTrmaWh2TcuGf/I4X736e16E3TY284YsBkFIUgS9w?=
- =?us-ascii?Q?m0nGzt/MmKlxpl7utBJN4sgiJRC8rqyV36UzXRnULsczqRWBpxW0hefv2CLH?=
- =?us-ascii?Q?FgKack9kAWwZRzK1Zy3n78Ay7EjJXkh7S4hcR+cppro6r3lu61tBt7Ebf16k?=
- =?us-ascii?Q?DK11q+FRNMU9j8qcEBdCRaknoKRl/aSSrmuhAyi0x1jmGVInwWY88cTBEIYb?=
- =?us-ascii?Q?XAlaf0cZwUjhDEWMaYb3KlU+fNZfGe1wK73TVQFxa/SdJ7YkIw1Iyvpka8aU?=
- =?us-ascii?Q?cjo6xFfV029MDIXGDDSIeKZ62W4i7e1e/+gsgDkECpIW/WfyCoWRqh75R9AS?=
- =?us-ascii?Q?tkM/gOCxju/0+shlTsNsMNLWZqKVV0PQ2YVpNwcXv9WKqt4rb2iQb55Ko2m+?=
- =?us-ascii?Q?D051XoKJB2xz2ls2RWU3KF5K7JDMf2HJcxUoaQU9We+NtkOkuJqq?=
-X-OriginatorOrg: oss.nxp.com
-X-MS-Exchange-CrossTenant-Network-Message-Id: 9e12092f-f36f-4e20-d858-08dec1dff80f
-X-MS-Exchange-CrossTenant-AuthSource: PAXPR04MB8096.eurprd04.prod.outlook.com
-X-MS-Exchange-CrossTenant-AuthAs: Internal
-X-MS-Exchange-CrossTenant-OriginalArrivalTime: 04 Jun 2026 02:21:21.9111
- (UTC)
-X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
-X-MS-Exchange-CrossTenant-Id: 686ea1d3-bc2b-4c6f-a92c-d99c5c301635
-X-MS-Exchange-CrossTenant-MailboxType: HOSTED
-X-MS-Exchange-CrossTenant-UserPrincipalName: AZuXmggQds1Jg9jO2Brx5ZI4U0DOp444OC4Che/xW09fgq3EZZ+J6dEKT8zV6142YqXSQVVkY/3enHyiEFJwpSgDNIyI/6ilIvJ5qEe+4BaVwAMhD8l+hDjILTWYigYG
-X-MS-Exchange-Transport-CrossTenantHeadersStamped: PA1PR04MB10119
+Content-Transfer-Encoding: 8bit
+Subject: Re: [PATCH net 0/2] Fix use-after-free in metadata dst teardown in
+ airoha_eth and mtk_eth_soc drivers
+From: patchwork-bot+netdevbpf@kernel.org
+Message-Id: <178054020839.2211213.18332239171948439867.git-patchwork-notify@kernel.org>
+Date: Thu, 04 Jun 2026 02:30:08 +0000
+References: <20260602-airoha-mtk-metadata-uaf-fix-v1-0-3aaa99d83351@kernel.org>
+In-Reply-To: <20260602-airoha-mtk-metadata-uaf-fix-v1-0-3aaa99d83351@kernel.org>
+To: Lorenzo Bianconi <lorenzo@kernel.org>
+Cc: andrew+netdev@lunn.ch, davem@davemloft.net, edumazet@google.com,
+ kuba@kernel.org, pabeni@redhat.com, nbd@nbd.name, matthias.bgg@gmail.com,
+ angelogioacchino.delregno@collabora.com, fw@strlen.de,
+ linux-arm-kernel@lists.infradead.org, linux-mediatek@lists.infradead.org,
+ netdev@vger.kernel.org
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260603_192127_731614_D5264404 
-X-CRM114-Status: GOOD (  10.11  )
+X-CRM114-CacheID: sfid-20260603_193008_384612_F78C5316 
+X-CRM114-Status: UNSURE (   7.57  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -145,109 +78,31 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-From: Richard Zhu <hongxing.zhu@oss.nxp.com>
+Hello:
 
-Since describing the PCIe PERST# property under Host Bridge node is now
-deprecated, it is recommended to add it to the Root Port node, so
-creating the Root Port node and add the reset-gpios property in Root
-Port.
+This series was applied to netdev/net.git (main)
+by Jakub Kicinski <kuba@kernel.org>:
 
-Signed-off-by: Richard Zhu <hongxing.zhu@nxp.com>
----
- arch/arm64/boot/dts/freescale/imx94.dtsi     | 11 +++++++++++
- arch/arm64/boot/dts/freescale/imx943-evk.dts | 10 ++++++++++
- arch/arm64/boot/dts/freescale/imx943.dtsi    | 11 +++++++++++
- 3 files changed, 32 insertions(+)
----
-Since the patch-set [1] issued by Sherry had been landed. Add according
-changes on i.MX943 board too.
-[1] https://lkml.org/lkml/2026/6/1/1461
+On Tue, 02 Jun 2026 11:21:03 +0200 you wrote:
+> airoha_metadata_dst_free() and mtk_free_dev() call metadata_dst_free()
+> which frees the metadata_dst with kfree() immediately, bypassing the RCU
+> grace period.
+> Replace metadata_dst_free() with dst_release() which properly goes
+> through the refcount path and runs call_rcu_hurry() if refcount goes to
+> zero.
+> 
+> [...]
 
-diff --git a/arch/arm64/boot/dts/freescale/imx94.dtsi b/arch/arm64/boot/dts/freescale/imx94.dtsi
-index 1f9035e6cf159..dfbb73603cb24 100644
---- a/arch/arm64/boot/dts/freescale/imx94.dtsi
-+++ b/arch/arm64/boot/dts/freescale/imx94.dtsi
-@@ -1411,6 +1411,17 @@ pcie0: pcie@4c300000 {
- 			power-domains = <&scmi_devpd IMX94_PD_HSIO_TOP>;
- 			fsl,max-link-speed = <3>;
- 			status = "disabled";
-+
-+			pcie0_port0: pcie@0 {
-+				compatible = "pciclass,0604";
-+				device_type = "pci";
-+				reg = <0x0 0x0 0x0 0x0 0x0>;
-+				bus-range = <0x01 0xff>;
-+
-+				#address-cells = <3>;
-+				#size-cells = <2>;
-+				ranges;
-+			};
- 		};
- 
- 		pcie0_ep: pcie-ep@4c300000 {
-diff --git a/arch/arm64/boot/dts/freescale/imx943-evk.dts b/arch/arm64/boot/dts/freescale/imx943-evk.dts
-index 7cfd424689507..ed3abd3e76e56 100644
---- a/arch/arm64/boot/dts/freescale/imx943-evk.dts
-+++ b/arch/arm64/boot/dts/freescale/imx943-evk.dts
-@@ -1034,12 +1034,17 @@ &pcie0 {
- 		 <&pcie_ref_clk>;
- 	clock-names = "pcie", "pcie_bus", "pcie_phy", "pcie_aux",
- 		      "ref", "extref";
-+	/* This property is deprecated, use reset-gpios from the Root Port node. */
- 	reset-gpio = <&pcal6416_i2c3_u46 3 GPIO_ACTIVE_LOW>;
- 	vpcie3v3aux-supply = <&reg_m2_wlan>;
- 	supports-clkreq;
- 	status = "okay";
- };
- 
-+&pcie0_port0 {
-+	reset-gpio = <&pcal6416_i2c3_u46 3 GPIO_ACTIVE_LOW>;
-+};
-+
- &pcie0_ep {
- 	pinctrl-0 = <&pinctrl_pcie0>;
- 	pinctrl-names = "default";
-@@ -1058,12 +1063,17 @@ &pcie1 {
- 		 <&pcie_ref_clk>;
- 	clock-names = "pcie", "pcie_bus", "pcie_phy", "pcie_aux",
- 		      "ref", "extref";
-+	/* This property is deprecated, use reset-gpios from the Root Port node. */
- 	reset-gpio = <&pcal6416_i2c3_u46 1 GPIO_ACTIVE_LOW>;
- 	vpcie3v3aux-supply = <&reg_slot_pwr>;
- 	supports-clkreq;
- 	status = "okay";
- };
- 
-+&pcie1_port0 {
-+	reset-gpio = <&pcal6416_i2c3_u46 1 GPIO_ACTIVE_LOW>;
-+};
-+
- &pcie1_ep {
- 	pinctrl-0 = <&pinctrl_pcie1>;
- 	pinctrl-names = "default";
-diff --git a/arch/arm64/boot/dts/freescale/imx943.dtsi b/arch/arm64/boot/dts/freescale/imx943.dtsi
-index cf5b3dbb47ff7..01152fd0efa5e 100644
---- a/arch/arm64/boot/dts/freescale/imx943.dtsi
-+++ b/arch/arm64/boot/dts/freescale/imx943.dtsi
-@@ -255,6 +255,17 @@ pcie1: pcie@4c380000 {
- 			power-domains = <&scmi_devpd IMX94_PD_HSIO_TOP>;
- 			fsl,max-link-speed = <3>;
- 			status = "disabled";
-+
-+			pcie1_port0: pcie@0 {
-+				compatible = "pciclass,0604";
-+				device_type = "pci";
-+				reg = <0x0 0x0 0x0 0x0 0x0>;
-+				bus-range = <0x01 0xff>;
-+
-+				#address-cells = <3>;
-+				#size-cells = <2>;
-+				ranges;
-+			};
- 		};
- 
- 		pcie1_ep: pcie-ep@4c380000 {
+Here is the summary with links:
+  - [net,1/2] net: airoha: Fix use-after-free in metadata dst teardown
+    https://git.kernel.org/netdev/net/c/b38cae85d1c4
+  - [net,2/2] net: ethernet: mtk_eth_soc: Fix use-after-free in metadata dst teardown
+    https://git.kernel.org/netdev/net/c/80df409e1a48
+
+You are awesome, thank you!
 -- 
-2.34.1
+Deet-doot-dot, I am a bot.
+https://korg.docs.kernel.org/patchwork/pwbot.html
+
 
 
