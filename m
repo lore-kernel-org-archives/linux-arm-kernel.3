@@ -4,70 +4,125 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 4214FCD6E4A
-	for <linux-arm-kernel@archiver.kernel.org>; Thu,  4 Jun 2026 13:26:47 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id C7DE2CD6E4A
+	for <linux-arm-kernel@archiver.kernel.org>; Thu,  4 Jun 2026 13:30:00 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:MIME-Version:Message-ID:Date:References:In-Reply-To:Subject:Cc:
-	To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Content-Type:In-Reply-To:From:References:CC:To:Subject:MIME-Version:Date:
+	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=X1HiQn7Sj8ACG6yAdiTjOB9XT8tmQZ7bjDWPDZ23wt0=; b=LlOnceuV+1ZsXiTECVqkNYgtxC
-	wnKXM2xbse3aiRZYsg0WQVsiN3RC0hdfctQTDQ6MU5JGdRC4CbHJVn/gEpj/Qkc1FAzVXFxx/t9QH
-	Qm7tf6KVk7HbjQMREjy9qW2NCIt34dQuP14OtyMr8lqS1vhf4ddQ9J0QYRl3o8PYcwNebTO+5PGwd
-	q4Wb8645aRZw3uEJcqxeGP7DA55qndSbZrOH4j4vka3Y/cLqvJFXbqthZvjSei84hZ1OLPza28F47
-	MvkIW9M6zVA4ogRXyw9JcIZdKVC51AYF/GOj4AozAuRy61QEELQH4trR3ED7cPPVhoL69GPlybfTz
-	bZZ6Mk7w==;
+	bh=2QZdPuiF3s/K/hP6adyb62JYNxigoWxMG1szuuNaHkc=; b=Q9pCuXhWXdwQq4rSqSGgsX1qkv
+	JinTZ1Ost1i62xubzey/KKRkp38BJpkdVjwbazWJ4jeAylgsd1JXIbNdy096nZqPe1/6rjxPtxZVy
+	Gtsbu1kI1dgTPIrS7rq66eVhVeMevU89uNmLIcg1qAC9zfMd/bunXH9kI1rb5t4SesJeL34nWN7oS
+	hx/v7AkY20cdesyu3z3qah3YDWUfrhHkTdWgs7hsDda1068U6HOh3qVggCMN+oqmoAjh8c00je+ta
+	Kl28zaRcSrnBT4vQE4OoqIqQZMj/pJlanQId5IBZL0TAlu6yjw9Jgb7XhcaHw3q2IVmw5nNGP9yBN
+	ZsFaaBcQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wV85l-0000000GnFt-1P9T;
-	Thu, 04 Jun 2026 13:26:37 +0000
-Received: from sea.source.kernel.org ([172.234.252.31])
+	id 1wV88v-0000000GnPY-39DL;
+	Thu, 04 Jun 2026 13:29:53 +0000
+Received: from mail-centralusazlp170110009.outbound.protection.outlook.com ([2a01:111:f403:c111::9] helo=DM5PR21CU001.outbound.protection.outlook.com)
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wV85k-0000000GnFn-3lts
+	id 1wV88s-0000000GnPC-4BTL
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 04 Jun 2026 13:26:36 +0000
-Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
-	by sea.source.kernel.org (Postfix) with ESMTP id 90A2140338;
-	Thu,  4 Jun 2026 13:26:36 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 0E5461F00893;
-	Thu,  4 Jun 2026 13:26:31 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1780579596;
-	bh=X1HiQn7Sj8ACG6yAdiTjOB9XT8tmQZ7bjDWPDZ23wt0=;
-	h=From:To:Cc:Subject:In-Reply-To:References:Date;
-	b=bbdbeaSHdffGKrFkjEGKKLzhXkGm8ZRRyvvk2T38YWtxavtizF10huPufi3qBVIXc
-	 D/lrOcC6l4hAYS+dzW0pvH2k2SR8hkhpgMueiMPgMFQAokTjua6hv25qB5IeRq2JvA
-	 AJKheqD9FJGfs3gfN4V/5T8SVCIH1doGkFdILE4ZpJ2sfX4hjyN2PJO82AbYgB12Am
-	 J73q0GNh+IL7WbrJr4alMW2oZY/cPU3+bmr8yxgySP9/sTYsTIi0FxD8bZwqyYcqek
-	 ylMnfjPr5LVber9b3ojKwALS+3BaHJZGYtu2CR/Mt3j4NKScfSzgTKl2ImiQEDoO+U
-	 +YIsckLx1kFpA==
-X-Mailer: emacs 30.2 (via feedmail 11-beta-1 I)
-From: Aneesh Kumar K.V <aneesh.kumar@kernel.org>
-To: Sudeep Holla <sudeep.holla@kernel.org>
-Cc: linux-coco@lists.linux.dev, linux-arm-kernel@lists.infradead.org,
-	linux-kernel@vger.kernel.org,
-	Catalin Marinas <catalin.marinas@arm.com>,
-	Sudeep Holla <sudeep.holla@kernel.org>,
-	Greg KH <gregkh@linuxfoundation.org>,
-	Jeremy Linton <jeremy.linton@arm.com>,
-	Jonathan Cameron <jic23@kernel.org>,
-	Lorenzo Pieralisi <lpieralisi@kernel.org>,
-	Mark Rutland <mark.rutland@arm.com>,
-	Will Deacon <will@kernel.org>,
-	Steven Price <steven.price@arm.com>,
-	Suzuki K Poulose <Suzuki.Poulose@arm.com>
-Subject: Re: [PATCH v6 3/4] firmware: smccc: arm-cca-guest: Bind the TSM
- provider to an SMCCC device
-In-Reply-To: <20260603-determined-bumblebee-of-promise-e633d6@sudeepholla>
-References: <20260527100233.428018-1-aneesh.kumar@kernel.org>
- <20260527100233.428018-4-aneesh.kumar@kernel.org>
- <20260603-determined-bumblebee-of-promise-e633d6@sudeepholla>
-Date: Thu, 04 Jun 2026 18:56:28 +0530
-Message-ID: <yq5ase72qvwb.fsf@kernel.org>
+	Thu, 04 Jun 2026 13:29:52 +0000
+ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
+ b=m0N80djnCG8EMxaFkYJ67CYfDorYxAO4/IfdLWjbOdsdl2MufBrG0U9iWkDD3NyYLzxWlC1g4gydabeGlzciDyzhVKKaqajTuN1XjaRvvhw5P5Xbkju8UqnqS6UFQ8GLcp8Ouy/r3nbuQxoVYutcnhrOGCLbCVDi8iNSk/DTr3K6CrWYa7mlUdeRrB8zx0CnG490oHz3Y/p+PieIUylJMH+UQGcFeid0lGpAs+7oDV+paudW8yIQ0JRwg25IW8jaYhzyhnASyH6AkZYjocziBgQtFZSrjxe5QN4hKucrcscXjujuTzsjj06APqZrdkJfkFysy0TynYhFUSNp7Y0lKA==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
+ s=arcselector10001;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
+ bh=2QZdPuiF3s/K/hP6adyb62JYNxigoWxMG1szuuNaHkc=;
+ b=UnxkCHnF6l6P7eYW0iALO4EWGAI0v98Y5XmEOAXTWBn+6DjRFurKYT0aLvS3hNgbryiAxi48Ww306176Xr6h9DwpJKuSzXiC1S7/cqnxW15S2thHeHX5fvE13LmNmbXWhitdhD5FVT4shXRu8CwHnDhoI0vogLmj6/YxCRo6pHyRMXxyodDMtDhJVmyfpZYqNpAwld2b5PkEk9J35lg26ves2mVYxyrlT1XsfchaFkR7C5j+/iwtiK3vod+H/k385NlCE6fiXL5pgZ0UAEU0E3dntSBX1FJNbKBeToc/ND1IZlHjDLoY8y+QTiX9oEq42c6IlfKBcGREqvOrGGJYbA==
+ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass (sender ip is
+ 198.47.21.195) smtp.rcpttodomain=vger.kernel.org smtp.mailfrom=ti.com;
+ dmarc=pass (p=quarantine sp=none pct=100) action=none header.from=ti.com;
+ dkim=none (message not signed); arc=none (0)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=ti.com; s=selector1;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
+ bh=2QZdPuiF3s/K/hP6adyb62JYNxigoWxMG1szuuNaHkc=;
+ b=vYiNs4Tt9ia2xNkGDO1uJNlMtnceurxK3UXd1MZLeASODsUzPB7J7EvmwKtNJJrnfyI87bW+dpqX7+G4ADXxmhGJPY/KtRksDhW3aRBXwNBb0XwZ4JTJJjYuaESvRsBTSt8rS/nIcyio3uQOkuknnmoOsuygjABRTJAPeIUXMJ8=
+Received: from MN2PR05CA0057.namprd05.prod.outlook.com (2603:10b6:208:236::26)
+ by SA2PR10MB4747.namprd10.prod.outlook.com (2603:10b6:806:110::14) with
+ Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.21.92.8; Thu, 4 Jun 2026
+ 13:29:45 +0000
+Received: from BL6PEPF0001AB58.namprd02.prod.outlook.com
+ (2603:10b6:208:236:cafe::66) by MN2PR05CA0057.outlook.office365.com
+ (2603:10b6:208:236::26) with Microsoft SMTP Server (version=TLS1_3,
+ cipher=TLS_AES_256_GCM_SHA384) id 15.21.92.8 via Frontend Transport; Thu, 4
+ Jun 2026 13:29:44 +0000
+X-MS-Exchange-Authentication-Results: spf=pass (sender IP is 198.47.21.195)
+ smtp.mailfrom=ti.com; dkim=none (message not signed) header.d=none;dmarc=pass
+ action=none header.from=ti.com;
+Received-SPF: Pass (protection.outlook.com: domain of ti.com designates
+ 198.47.21.195 as permitted sender) receiver=protection.outlook.com;
+ client-ip=198.47.21.195; helo=flwvzet201.ext.ti.com; pr=C
+Received: from flwvzet201.ext.ti.com (198.47.21.195) by
+ BL6PEPF0001AB58.mail.protection.outlook.com (10.167.241.10) with Microsoft
+ SMTP Server (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
+ 15.21.92.5 via Frontend Transport; Thu, 4 Jun 2026 13:29:43 +0000
+Received: from DFLE210.ent.ti.com (10.64.6.68) by flwvzet201.ext.ti.com
+ (10.248.192.32) with Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.2.2562.37; Thu, 4 Jun
+ 2026 08:29:42 -0500
+Received: from DFLE206.ent.ti.com (10.64.6.64) by DFLE210.ent.ti.com
+ (10.64.6.68) with Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.2.2562.37; Thu, 4 Jun
+ 2026 08:29:42 -0500
+Received: from lelvem-mr06.itg.ti.com (10.180.75.8) by DFLE206.ent.ti.com
+ (10.64.6.64) with Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.2.2562.37 via Frontend
+ Transport; Thu, 4 Jun 2026 08:29:42 -0500
+Received: from [10.249.42.149] ([10.249.42.149])
+	by lelvem-mr06.itg.ti.com (8.18.1/8.18.1) with ESMTP id 654DTf8t3453466;
+	Thu, 4 Jun 2026 08:29:41 -0500
+Message-ID: <203d82b2-216e-4f5d-aa3d-f653228d397a@ti.com>
+Date: Thu, 4 Jun 2026 08:29:41 -0500
 MIME-Version: 1.0
-Content-Type: text/plain; charset=utf-8
-Content-Transfer-Encoding: quoted-printable
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH v2 3/4] arm64: dts: ti: k3-am67a-beagley-ai: Add overlay
+ for IMX219 on CSI0
+To: Nishanth Menon <nm@ti.com>, Jai Luthra <jai.luthra@ideasonboard.com>
+CC: Vignesh Raghavendra <vigneshr@ti.com>, Tero Kristo <kristo@kernel.org>,
+	Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>,
+	Conor Dooley <conor+dt@kernel.org>, Robert Nelson <robertcnelson@gmail.com>,
+	Devarsh Thakkar <devarsht@ti.com>, Tomi Valkeinen
+	<tomi.valkeinen@ideasonboard.com>, <linux-arm-kernel@lists.infradead.org>,
+	<devicetree@vger.kernel.org>, <linux-kernel@vger.kernel.org>
+References: <20260515-beagley-cameras-v2-0-f6acb66c9995@ideasonboard.com>
+ <20260515-beagley-cameras-v2-3-f6acb66c9995@ideasonboard.com>
+ <20260529150119.dqzzruc7xqliftwp@bullhorn>
+Content-Language: en-US
+From: Andrew Davis <afd@ti.com>
+In-Reply-To: <20260529150119.dqzzruc7xqliftwp@bullhorn>
+Content-Type: text/plain; charset="UTF-8"; format=flowed
+Content-Transfer-Encoding: 7bit
+X-C2ProcessedOrg: 333ef613-75bf-4e12-a4b1-8e3623f5dcea
+X-EOPAttributedMessage: 0
+X-MS-PublicTrafficType: Email
+X-MS-TrafficTypeDiagnostic: BL6PEPF0001AB58:EE_|SA2PR10MB4747:EE_
+X-MS-Office365-Filtering-Correlation-Id: 316b6f94-fa86-458f-8492-08dec23d56f5
+X-MS-Exchange-SenderADCheck: 1
+X-MS-Exchange-AntiSpam-Relay: 0
+X-Microsoft-Antispam: BCL:0;ARA:13230040|1800799024|82310400026|376014|7416014|36860700016|13003099007|22082099003|18002099003|5023799004|4143699003|56012099006;
+X-Microsoft-Antispam-Message-Info: gq2d/GemulBTXe3/pXa0FVUE/YsKZjJcTzDAJAM9mjrurG+HYDY2jUBJbJSCuvSJqgWbbbmI/c2TCagQT8Q50ibLrxmLP2VH7npkxvYUfhUl7jA5J255pF8LcpPXdsb8eiQHPgiV7HgPBuzy9OkB/eY2kAZ+8UTuFR+Zw7orcb0UbA/NX3Jmvc8a17V2JiMB3Ecx+hGvfWsM2TQAJcjT45EkrqgFHwqw2nfWXZPrm7+LHVHRR/gX+ejpu2baN46Hsdb3QxyjE0aAkbnSKwcYWoq5C3LP6ZzhWF3iaVLl0XIZQyuiWu+tV9NLH2tcEfm1ccslCR1bY5mflwhM3wyQV4UjiNK0TcWfhllqHP7PCkDDs3XqaL92ouahW40dIm5FCOJYtIfvMbju+ArowckvnECCtf1ZvFBkzncrx260qtgb2UDtoZ0PG2U68bbKLhURI7U305PaCOltBlbPXFa4TJaFxwl02H6ItmkyZSfbNsXgPqSL/ENj37RDYBtKBng3YV6NwRrGX0T2q4a1RozipEiDB4QmNpGhvkGUSqdwBerY30u6sKZCc6y05AOWOfDazajbXezDmP3iVvGm/QFq0J5ppP7gR2tfkwDX2M8Ao6M8B9IAJlP8HD/UZoxoMQoycC0u1tyLTOxtjCT+xhzA+y9VgNLlO8q8gAv/rb50zWeuY6CKsGDC+hFDNaImxmZZ
+X-Forefront-Antispam-Report: CIP:198.47.21.195;CTRY:US;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:flwvzet201.ext.ti.com;PTR:ErrorRetry;CAT:NONE;SFS:(13230040)(1800799024)(82310400026)(376014)(7416014)(36860700016)(13003099007)(22082099003)(18002099003)(5023799004)(4143699003)(56012099006);DIR:OUT;SFP:1101;
+X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
+X-MS-Exchange-AntiSpam-MessageData-0: 8ATxqa74a+ctuapL15k+LHEYobWomREs2gnn/bzCQ4pZhcSsNgB0kZjJVP1ljvbIm1Oo6qtsb0ajdULymit68EEcCKAciIqouiicSkkDxnhJan/fcmoM5E8RRN2m4ocbaGeVnQIZHOe1NYS0mRt+uaaPsjTo9Y4dpXNdjKSVUwfrK8q6vV8b9nDMH0iIaO9pruqY5XCI5dcMAeFXl2yX8/f66VTM0ESeaWdmoCppBNsNzZGL6B6lmuPz7FtGQdEKt6WYclvy+2s4nyjRBYFBM8R4n7xlnWkWtopobNLA6qYsFSB1yMo8kl/cDlVCYn0hpW1wTLgOIpNbewFgcGRNTUiWQA6BfBFfHs0vObkaNZnTMNztPOiGEsVH+4VdMJs+XipVg4bNW4ApDtAVfbwxl/CekXag7y0hNV4iLCdLMQAVt4u069ukby1kt9IPgOnn
+X-OriginatorOrg: ti.com
+X-MS-Exchange-CrossTenant-OriginalArrivalTime: 04 Jun 2026 13:29:43.9799
+ (UTC)
+X-MS-Exchange-CrossTenant-Network-Message-Id: 316b6f94-fa86-458f-8492-08dec23d56f5
+X-MS-Exchange-CrossTenant-Id: e5b49634-450b-4709-8abb-1e2b19b982b7
+X-MS-Exchange-CrossTenant-OriginalAttributedTenantConnectingIp: TenantId=e5b49634-450b-4709-8abb-1e2b19b982b7;Ip=[198.47.21.195];Helo=[flwvzet201.ext.ti.com]
+X-MS-Exchange-CrossTenant-AuthSource: BL6PEPF0001AB58.namprd02.prod.outlook.com
+X-MS-Exchange-CrossTenant-AuthAs: Anonymous
+X-MS-Exchange-CrossTenant-FromEntityHeader: HybridOnPrem
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: SA2PR10MB4747
+X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
+X-CRM114-CacheID: sfid-20260604_062951_144811_48F57C2D 
+X-CRM114-Status: GOOD (  20.26  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -82,102 +137,63 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Sudeep Holla <sudeep.holla@kernel.org> writes:
+On 5/29/26 10:01 AM, Nishanth Menon wrote:
+> On 06:46-20260515, Jai Luthra wrote:
+>> RPi v2 Camera (IMX219) is an 8MP camera that can be used with BeagleY AI
+>> through the 22-pin CSI-RX connectors. Add a DT overlay to enable use of
+>> this camera sensor through the CSI0 connector.
+>>
+>> Signed-off-by: Jai Luthra <jai.luthra@ideasonboard.com>
+>> ---
+>>   arch/arm64/boot/dts/ti/Makefile                    |   4 +
+>>   .../dts/ti/k3-am67a-beagley-ai-csi0-imx219.dtso    | 121 +++++++++++++++++++++
+> 
+> Oh man..
+> https://lore.kernel.org/linux-arm-kernel/20240702164403.29067-1-afd@ti.com/
+> comes to memory.. Afd - what ever happened to that?
+> 
 
-...
+Good question, others have taken over the torch for the most part. Nice
+little talk[0] I found on some current status updates for the topic.
 
-> +static const struct smccc_device_info smccc_devices[] __initconst =3D {
-> +       {
-> +               .func_id        =3D ARM_SMCCC_TRNG_VERSION,
-> +               .requires_smc   =3D false,
-> +               .min_return     =3D ARM_SMCCC_TRNG_MIN_VERSION,
-> +               .device_name    =3D "arm-smccc-trng",
-> +       },
-> +};
-> +
-> +static bool __init
-> +smccc_probe_smccc_device(const struct smccc_device_info *smccc_dev)
-> +{
-> +       struct arm_smccc_res res;
-> +       unsigned long ret;
-> +
-> +       if (!IS_ENABLED(CONFIG_ARM64))
-> +               return false;
-> +
-> +       if (smccc_conduit =3D=3D SMCCC_CONDUIT_NONE)
-> +               return false;
-> +
-> +       if (smccc_dev->requires_smc && smccc_conduit !=3D SMCCC_CONDUIT_S=
-MC)
-> +               return false;
-> +
-> +       arm_smccc_1_1_invoke(smccc_dev->func_id, &res);
-> +       ret =3D res.a0;
-> +
-> +       if ((s32)ret < 0)
-> +               return false;
-> +
-> +       return ret >=3D smccc_dev->min_return;
-> +}
-> +
->
+They even mention my little proof of concept around the 19min mark :D but
+kinda just dismiss it as it doesn't support hotplug, which is a requirement
+for their usecase. But my solution doesn't support hotplug because DT
+doesn't support hotplug. And to add that kind of support to DT they are
+pushing to change the DTC[1], the FDT format[2] (which hasn't changed in 19
+years and is the basis for claiming DT is a firmware/"ABI"), and make an
+alternative to DT overlays called "addon DTs"..
 
-I am not sure we want the check to be as simple as ret < 0. Some
-function IDs may return input errors based on the supplied arguments
-(for example, RMI_ERROR_INPUT). In those cases, we would likely want
-this to be handled via a callback.
+What I proposed was something that can work today without any changes
+to existing DT infra. My only goal being to prevent needless duplication
+in overlays like we see here where you have a new overlay for each
+connector the device could be connected to. Just look at our evil vendor
+tree to see what this problem can look like, go here[3] and search "fpdlink".
+We have 14(!) overlays for just one camera sensor (IMX390) with the only
+difference between each being a single line to select the FPD-Link port
+where the sensor is connected.
 
-We also want to use conditional compilation for some function IDs.
-Given the callback approach and the #ifdefs, I wonder whether what we
-currently have is actually simpler and more flexible.=E2=80=9D
+Jai, I see you have already posted v3 of this series, but could you take
+a look at what I've proposed here[4] and see if this could be used to make
+a single IMX219 overlay that would work for both CSI ports? If you can
+pull that off then we avoid the combinatorial explosion of an overlay
+for each port on each board for each camera sensor.
 
->  void __init arm_smccc_version_init(u32 version, enum arm_smccc_conduit c=
-onduit)
->  {
->         struct arm_smccc_res res;
-> @@ -31,7 +68,7 @@ void __init arm_smccc_version_init(u32 version, enum ar=
-m_smccc_conduit conduit)
->         smccc_version =3D version;
->         smccc_conduit =3D conduit;
->
-> -       smccc_trng_available =3D smccc_probe_trng();
-> +       smccc_trng_available =3D smccc_probe_smccc_device(&smccc_devices[=
-0]);
->
->         if ((smccc_version >=3D ARM_SMCCC_VERSION_1_2) &&
->             (smccc_conduit !=3D SMCCC_CONDUIT_NONE)) {
-> @@ -241,14 +278,20 @@ subsys_initcall(arm_smccc_bus_init);
->
->  static int __init smccc_devices_init(void)
->  {
-> -       struct platform_device *pdev;
-> -
-> -       if (smccc_trng_available) {
-> -               pdev =3D platform_device_register_simple("smccc_trng", -1,
-> -                                                      NULL, 0);
-> -               if (IS_ERR(pdev))
-> -                       pr_err("smccc_trng: could not register device: %l=
-d\n",
-> -                              PTR_ERR(pdev));
-> +       const struct smccc_device_info *smccc_dev;
-> +       struct arm_smccc_device *sdev;
-> +       int i;
-> +
-> +       for (i =3D 0; i < ARRAY_SIZE(smccc_devices); i++) {
-> +               smccc_dev =3D &smccc_devices[i];
-> +
-> +               if (!smccc_probe_smccc_device(smccc_dev))
-> +                       continue;
-> +
-> +               sdev =3D arm_smccc_device_register(smccc_dev->device_name=
-);
-> +               if (IS_ERR(sdev))
-> +                       pr_err("%s: could not register device: %ld\n",
-> +                              smccc_dev->device_name, PTR_ERR(sdev));
->         }
->
->         return 0;
->
+Andrew
 
--aneesh
+[0] https://www.youtube.com/watch?v=C8dEQ4OzMnc
+[1] https://lore.kernel.org/devicetree-compiler/20260112142009.1006236-1-herve.codina@bootlin.com/
+[2] https://lore.kernel.org/devicetree-compiler/20260409115426.352214-1-herve.codina@bootlin.com/
+[3] https://git.ti.com/cgit/ti-linux-kernel/ti-linux-kernel/tree/arch/arm64/boot/dts/ti?h=ti-linux-6.18.y
+[4] https://lore.kernel.org/linux-arm-kernel/20240702164403.29067-1-afd@ti.com/
+
+> other than the dsi mux, painful to see so much duplication..
+> 
+> Other than that, there is the previous comment (ordering etc, repeated
+> here). I also suggest people put the url of the board/part that the
+> overlay is supposed to refer to when creating overlays.. at least, some
+> sort of canonical link so folks are'nt confused in a future date.
+> 
+> 
+
 
