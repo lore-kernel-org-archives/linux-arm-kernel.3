@@ -4,87 +4,54 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 0E545CD6E75
-	for <linux-arm-kernel@archiver.kernel.org>; Thu,  4 Jun 2026 20:59:30 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 68FC0CD6E75
+	for <linux-arm-kernel@archiver.kernel.org>; Thu,  4 Jun 2026 21:13:27 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:MIME-Version:
-	Message-ID:Subject:Cc:To:From:Date:Reply-To:Content-Transfer-Encoding:
-	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
-	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
-	bh=DxKhicoquanRcHmBFTA0cKSjkW5cU988lyFYAH+YfGE=; b=lIZqUg79ZpMTa60lGz1xcDxyzF
-	5sue3FklyGqy1TMiiNHokz9GmvgpMpgANjpbWdP7h5OgMbr6PaffdR2exkDEREaYWI97w1xTO25Ud
-	O4pDos97iGPctFUQqIFojFs/kEbMCupcExW48XAjxrTMY9AJ1TCF0MCKtTNsASob3Ezy06Mslg4IY
-	4so3vjTZ5WJxix0JVaGjkSaklbSMgILEAL+b+hvWoYnWy7QYT5B4Yb8nM+DI8qLVlZ448yaYMLvwp
-	BoTgOfCr6LX666W0Md140cfZEPiyNhcZJdX9Vjrdp0CwIcyzmFurR2FSCaQXm496TF2HcxfDawC8b
-	kXpRiohQ==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Date:Cc:To:From:Subject:
+	References:In-Reply-To:Message-Id:MIME-Version:Content-Type:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=MpZ3QvNzyLq6MCDStBRoFi5pI56pBgPE12+T/xtOUmg=; b=LlBjvJviLQ3cXQWnYV0SoiYMy1
+	zNFsIIf3V/NlxM9Tp2dpA733FUBZZ0mYkKLjlPKt4nlsHmvE3+TkgewfiG8R9j2Zkm958hN8VrC2o
+	bTRwv4geuXh5gYDRMoK0QlYFDA27K1l1+dUTxcn9BlSUyw1vduuqa6W0er5HRISr9VTHiZ8ROekvN
+	Oih0uca3bTexnpXhMXVArtB74aPC4WtmG1YBhTl7atKe9ATDLMWHEavJ3zzcVn1bO1cCH1nElGkg1
+	yofIJd6QFLUSPbRmDdzdyx/6g7KNYI99ynwHLoPy32tdpDF9let1SDARFP0cCFP3yFaXmR4Z9a2lG
+	VvuBYRfA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wVF9v-0000000HItN-3xnW;
-	Thu, 04 Jun 2026 20:59:23 +0000
-Received: from mail-pl1-x62b.google.com ([2607:f8b0:4864:20::62b])
+	id 1wVFNQ-0000000HJTb-0YCb;
+	Thu, 04 Jun 2026 21:13:20 +0000
+Received: from sea.source.kernel.org ([172.234.252.31])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wVF9t-0000000HIsB-33CL
+	id 1wVFNO-0000000HJTF-0pis
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 04 Jun 2026 20:59:22 +0000
-Received: by mail-pl1-x62b.google.com with SMTP id d9443c01a7336-2c0c3184c71so9220715ad.1
-        for <linux-arm-kernel@lists.infradead.org>; Thu, 04 Jun 2026 13:59:21 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20251104; t=1780606761; x=1781211561; darn=lists.infradead.org;
-        h=content-disposition:mime-version:message-id:subject:cc:to:from:date
-         :from:to:cc:subject:date:message-id:reply-to;
-        bh=DxKhicoquanRcHmBFTA0cKSjkW5cU988lyFYAH+YfGE=;
-        b=Lv3fRQzWcYkYELXAMPmTEPsdiYYvH4Dfwps9VRlCYOn54+BiEbntcDdQ7LmPP7fKuf
-         Fopt9Ws97gL+C/eanhKvres1oDpOw4QhtWnBnujUzTPnIZQ/Cbt72Ma67shfyl55VbHR
-         0ZJ7I+jQfxvsuMqZk4G1F3zp/7a47Z3CmpwM+9zDq9AKzOwkRo00G0yjNiVuy8LRG4xD
-         06VowZWSnniGtnlBzvHqqM0soDuznUGjmzh6+ftyz1uVmaT8iOFQkBu0usdlTIzoWK9N
-         vIhC7vStkkqjnsFR9Dwu4Qil0FTZeABXfZBfLevt6y6C/omEt8yUNpL2reo2ye3pN/T3
-         BU/Q==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20251104; t=1780606761; x=1781211561;
-        h=content-disposition:mime-version:message-id:subject:cc:to:from:date
-         :x-gm-gg:x-gm-message-state:from:to:cc:subject:date:message-id
-         :reply-to;
-        bh=DxKhicoquanRcHmBFTA0cKSjkW5cU988lyFYAH+YfGE=;
-        b=E6FBBLLd6DphvtDOCD7BxrntII6XPHgjtQTMZq2ys3y2sscG009I8dNhFtiYpsn4Ox
-         zjn+AP4FQbstrhcB3gjwzGIAU8yJ5H05h+MdFirxvxDf7kFUSM7jTBC6JZZb9zaRO0Sj
-         37p8wCTd86YDdEx/3iaqMqggbTGJ3nK1hxmZqZmPEUObAHsBrBefkj3V2ytj8tTdpPsW
-         vMx3de/xTTKsYlrGvhVNAmU/kbDA9rIPA1b21T2cqsTJGpJmyyfEJFxMph7Ng+kaSKoP
-         fzpSLeI9h2kmuDYWO0/bOfi4vE59pr2/oYjIAyhNlUimPd/R59iIxOInXir91FhNzrDH
-         JMsw==
-X-Gm-Message-State: AOJu0Yw/mRMC74v+RpQyPdUY80JPJYAmqkSHiHBbFS3xR4fY910NNUOG
-	yDVcjQrbCxLwkVmztrghhac19jMZ6mxTxA+zQ3ust6wdkddN1WPxSDq0
-X-Gm-Gg: Acq92OGPi4I9nzPcQyr5FX/qowfesoxEEOOOBFsDDC937f6Kdc0CorSvgC7ey8aa/bW
-	HrhA7+c3l5c6KUJEyk8Xmqx4R0Cl/z1ojSy3RekRbSgGYAqM5BjAIszEXNoXhOaM3ERA4Ry6mLT
-	i5soMaufHZDT6htEiqrxBViNGHmHfLwqf87e0azM+qZOQS1vjN5yVPf1tPvJdGizZunlB5W1OoJ
-	dibp74OWXu2SMY26il4hcl+vQuWwkOhC13OdlzVikC2XtncwCFvFY/dAIQNyFNIyT744cEKbyMg
-	FmNnUawgwosapICpzXzvFu8OIureyFvjerAx9BWZ5n5tAGCowO+i74QZ2EZb1vvCV5AIhF2iZkM
-	QXQukTJgNlsonmBxoZ/rwE3Ib7uE8oEv77f6f0ZVXIGHeHtbpIKYKCvZYQwTHpPs3EpUfjMH1hY
-	E1avtMBLKqllV6Lyfx9sLkhrf3dA/8jeqeYGoh7isYC/ZD8QQct7HwsA==
-X-Received: by 2002:a17:902:fc47:b0:2c0:eee2:fc45 with SMTP id d9443c01a7336-2c1e7b2f6c7mr2868755ad.4.1780606760717;
-        Thu, 04 Jun 2026 13:59:20 -0700 (PDT)
-Received: from v4bel ([58.123.110.97])
-        by smtp.gmail.com with ESMTPSA id d9443c01a7336-2c164f6e294sm67453635ad.6.2026.06.04.13.59.17
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Thu, 04 Jun 2026 13:59:20 -0700 (PDT)
-Date: Fri, 5 Jun 2026 05:59:15 +0900
-From: Hyunwoo Kim <imv4bel@gmail.com>
-To: maz@kernel.org, oupton@kernel.org, joey.gouly@arm.com,
-	seiden@linux.ibm.com, suzuki.poulose@arm.com, yuzenghui@huawei.com,
-	catalin.marinas@arm.com, will@kernel.org, Sascha.Bischoff@arm.com,
-	jic23@kernel.org, timothy.hayes@arm.com, eric.auger@linaro.org,
-	christoffer.dall@linaro.org, andre.przywara@arm.com
-Cc: linux-arm-kernel@lists.infradead.org, kvmarm@lists.linux.dev,
-	imv4bel@gmail.com
-Subject: [PATCH] KVM: arm64: vgic: Check the interrupt is still ours before
- migrating it
-Message-ID: <aiHnI1mu6SGQrgnz@v4bel>
+	Thu, 04 Jun 2026 21:13:18 +0000
+Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
+	by sea.source.kernel.org (Postfix) with ESMTP id 572EA40E21;
+	Thu,  4 Jun 2026 21:13:17 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id A26711F00893;
+	Thu,  4 Jun 2026 21:13:16 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
+	s=k20260515; t=1780607597;
+	bh=MpZ3QvNzyLq6MCDStBRoFi5pI56pBgPE12+T/xtOUmg=;
+	h=In-Reply-To:References:Subject:From:To:Cc:Date;
+	b=DiwgBurVitMzJUb2m1D70814eZtSeLV6fzWGh1T2qAO3fIHYGN7fF6kO/SrAKQjvX
+	 8KwBI4Slif3WPLWLLG+H0ocAbC5Bq1YGBsxs6YxCzrETQKxKe3rlGXXsTN/y3MXau+
+	 F9BwpD8Quj3la/DeROcj+6ufk01ZCIBIe73AK/sNC8YmGSt76noC5is2RVBvBg/s8U
+	 HZiKleQmM9wlj/qZeVAS0qg/RG32HNoU16vexEx2IEStUJnwoma57gmiVl+bLNTPib
+	 +VTcLHOBALlAYOiKOypCREXI/to5P1Lw4xGpsPCy5b5Fr5o9uzIeOPVRuX9afv3Dz0
+	 zydMNdGWcdnhA==
+Content-Type: multipart/mixed; boundary="===============4379291998619388122=="
 MIME-Version: 1.0
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260604_135921_775227_8F802697 
-X-CRM114-Status: GOOD (  16.20  )
+Message-Id: <0e5fcc7f26d096479c14eda3b51a238cecfdeff065ab6f33c50f71e54eee0ff0@mail.kernel.org>
+In-Reply-To: <20260604-kasan-v2-1-c066e627fda8@bootlin.com>
+References: <20260604-kasan-v2-1-c066e627fda8@bootlin.com>
+Subject: Re: [PATCH bpf-next v2 1/8] bpf: mark instructions accessing program stack
+From: bot+bpf-ci@kernel.org
+To: alexis.lothore@bootlin.com,ast@kernel.org,daniel@iogearbox.net,andrii@kernel.org,martin.lau@linux.dev,eddyz87@gmail.com,memxor@gmail.com,song@kernel.org,yonghong.song@linux.dev,jolsa@kernel.org,john.fastabend@gmail.com,tglx@kernel.org,mingo@redhat.com,bp@alien8.de,dave.hansen@linux.intel.com,x86@kernel.org,hpa@zytor.com,shuah@kernel.org,mcoquelin.stm32@gmail.com,alexandre.torgue@foss.st.com,ihor.solodrai@linux.dev
+Cc: ebpf@linuxfoundation.org,bastien.curutchet@bootlin.com,thomas.petazzoni@bootlin.com,bpf@vger.kernel.org,linux-kernel@vger.kernel.org,linux-kselftest@vger.kernel.org,linux-stm32@st-md-mailman.stormreply.com,linux-arm-kernel@lists.infradead.org,alexis.lothore@bootlin.com,ast@kernel.org,andrii@kernel.org,daniel@iogearbox.net,martin.lau@kernel.org,eddyz87@gmail.com,yonghong.song@linux.dev,clm@meta.com,ihor.solodrai@linux.dev
+Date: Thu,  4 Jun 2026 21:13:16 +0000 (UTC)
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -99,56 +66,104 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-vgic_prune_ap_list() drops both ap_list_lock and irq_lock while migrating
-an interrupt to another vCPU. After reacquiring the locks it only checks
-that the affinity is unchanged (target_vcpu == vgic_target_oracle(irq))
-before moving the interrupt, which assumes that an interrupt whose affinity
-is preserved is still queued on this vCPU's ap_list.
+--===============4379291998619388122==
+Content-Type: text/plain; charset="us-ascii"
+MIME-Version: 1.0
+Content-Transfer-Encoding: 7bit
 
-That assumption no longer holds if the interrupt is taken off the ap_list
-while the locks are dropped. vgic_flush_pending_lpis() removes the
-interrupt from the list and sets irq->vcpu to NULL, but leaves
-enabled/pending/target_vcpu untouched. As the interrupt is still enabled
-and pending, vgic_target_oracle() returns the same target_vcpu, so the
-affinity check passes and list_del() is run a second time on an entry that
-has already been removed.
+> diff --git a/kernel/bpf/core.c b/kernel/bpf/core.c
+> index a656a8572bdb..393d9eacd215 100644
+> --- a/kernel/bpf/core.c
+> +++ b/kernel/bpf/core.c
 
-Also check that the interrupt is still assigned to this vCPU
-(irq->vcpu == vcpu) before moving it.
+[ ... ]
 
-Fixes: 0919e84c0fc1 ("KVM: arm/arm64: vgic-new: Add IRQ sync/flush framework")
-Signed-off-by: Hyunwoo Kim <imv4bel@gmail.com>
+> @@ -1583,6 +1583,22 @@ bool bpf_insn_is_indirect_target(const struct bpf_verifier_env *env, const struc
+>  	return env->insn_aux_data[insn_idx].indirect_target;
+>  }
+>
+> +bool bpf_insn_accesses_stack_only(const struct bpf_verifier_env *env,
+> +				  const struct bpf_prog *prog, int insn_idx)
+> +{
+> +	struct bpf_insn *insn;
+> +
+> +	/* cBPF: we have no verifier state, do a best-effort check based on
+> +	 * dst/src reg
+> +	 */
+> +	insn_idx += prog->aux->subprog_start;
+> +	insn = (struct bpf_insn *)prog->insnsi + insn_idx;
+> +	if (!env)
+> +		return insn->dst_reg == BPF_REG_FP ||
+> +		       insn->src_reg == BPF_REG_FP;
+> +	return !env->insn_aux_data[insn_idx].non_stack_access;
+> +}
+> +
+
+Sashiko bot raised a concern about this code in v2 review: When JIT
+compiling an eBPF subprogram, prog points to the subprogram and
+prog->insnsi only spans the subprogram's instructions.
+
+By adding prog->aux->subprog_start to insn_idx, doesn't this result in
+out-of-bounds pointer arithmetic for insn? Even though the pointer is not
+dereferenced here because of the if (!env) check, could this trigger UBSAN
+bounds-checking traps?
+
+Should the insn pointer calculation be deferred until inside the !env block
+where it is genuinely needed for cBPF?
+
+Reference: https://lore.kernel.org/bpf/20260604203644.81EF51F00893@smtp.kernel.org/
+
+> diff --git a/kernel/bpf/fixups.c b/kernel/bpf/fixups.c
+> index 5aa3f7d99ac9..5228c910fbf5 100644
+> --- a/kernel/bpf/fixups.c
+> +++ b/kernel/bpf/fixups.c
+
+[ ... ]
+
+> @@ -185,16 +185,22 @@ static void adjust_insn_aux_data(struct bpf_verifier_env *env,
+>  	}
+>
+>  	/*
+> -	 * The indirect_target flag of the original instruction was moved to the last of the
+> -	 * new instructions by the above memmove and memset, but the indirect jump target is
+> -	 * actually the first instruction, so move it back. This also matches with the behavior
+> -	 * of bpf_insn_array_adjust(), which preserves xlated_off to point to the first new
+> -	 * instruction.
+> +	 * The indirect_target and non_stack_access flags of the original
+> +	 * instruction were moved to the last of the new instructions by the
+> +	 * above memmove and memset, but those actually match the first
+> +	 * instruction, so move them back. This also matches with the behavior
+> +	 * of bpf_insn_array_adjust(), which preserves xlated_off to point to
+> +	 * the first new instruction.
+>  	 */
+>  	if (data[off + cnt - 1].indirect_target) {
+>  		data[off].indirect_target = 1;
+>  		data[off + cnt - 1].indirect_target = 0;
+>  	}
+> +
+> +	if (data[off + cnt - 1].non_stack_access) {
+> +		data[off].non_stack_access = 1;
+> +		data[off + cnt - 1].non_stack_access = 0;
+> +	}
+>  }
+
+Sashiko bot raised a concern about this logic in v2 review: When
+bpf_patch_insn_data() expands a single instruction into multiple
+instructions, this logic restricts the non_stack_access flag to only the
+first instruction of the patched sequence and clears it for the rest.
+
+Since the actual memory load or store in a patched sequence often occurs on
+subsequent instructions rather than the first, wouldn't they lose this flag
+and incorrectly bypass KASAN checks during JIT compilation?
+
+Reference: https://lore.kernel.org/bpf/20260604203644.81EF51F00893@smtp.kernel.org/
+
+
+
 ---
- arch/arm64/kvm/vgic/vgic.c | 11 ++++++-----
- 1 file changed, 6 insertions(+), 5 deletions(-)
+AI reviewed your patch. Please fix the bug or email reply why it's not a bug.
+See: https://github.com/kernel-patches/vmtest/blob/master/ci/claude/README.md
 
-diff --git a/arch/arm64/kvm/vgic/vgic.c b/arch/arm64/kvm/vgic/vgic.c
-index 1e9fe8764584..18b280de9a29 100644
---- a/arch/arm64/kvm/vgic/vgic.c
-+++ b/arch/arm64/kvm/vgic/vgic.c
-@@ -818,15 +818,16 @@ static void vgic_prune_ap_list(struct kvm_vcpu *vcpu)
- 		raw_spin_lock(&irq->irq_lock);
- 
- 		/*
--		 * If the affinity has been preserved, move the
--		 * interrupt around. Otherwise, it means things have
--		 * changed while the interrupt was unlocked, and we
--		 * need to replay this.
-+		 * If the interrupt is still ours and its affinity has
-+		 * been preserved, move it around. Otherwise, it means
-+		 * things have changed while the interrupt was unlocked
-+		 * (it may even have been taken off the list with its
-+		 * affinity left untouched), and we need to replay this.
- 		 *
- 		 * In all cases, we cannot trust the list not to have
- 		 * changed, so we restart from the beginning.
- 		 */
--		if (target_vcpu == vgic_target_oracle(irq)) {
-+		if (irq->vcpu == vcpu && target_vcpu == vgic_target_oracle(irq)) {
- 			struct vgic_cpu *new_cpu = &target_vcpu->arch.vgic_cpu;
- 
- 			list_del(&irq->ap_list);
--- 
-2.43.0
-
+CI run summary: https://github.com/kernel-patches/bpf/actions/runs/26978380520
+--===============4379291998619388122==--
 
