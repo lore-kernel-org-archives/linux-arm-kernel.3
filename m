@@ -4,82 +4,84 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id CE279CD6E6B
-	for <linux-arm-kernel@archiver.kernel.org>; Thu,  4 Jun 2026 07:52:31 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id C7056CD6E4A
+	for <linux-arm-kernel@archiver.kernel.org>; Thu,  4 Jun 2026 07:56:29 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:
-	Content-Transfer-Encoding:MIME-Version:References:In-Reply-To:Message-ID:Date
-	:Subject:CC:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:Cc:To:Subject:
+	Message-ID:Date:From:In-Reply-To:References:MIME-Version:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=U0bZ6/5IF5u6IblAtoXo0vDn8/JhU8/jFh51QnHbslU=; b=0/Bs/oh77rpLqbVx2c2PzosZL0
-	9jspri8YB+KoWC+w+bdS2LAPkXrX7gdM28n+QUNlu+7ywcWICwkNiOLN57FHjqseYIiLrFdUlAv9e
-	YtfYfvKveHX2kL30X3ckew3hZTF6B1dtEEgTP4wHd//MTsnIsuA/51pbnsTzZoaXidi1EebhyZaPY
-	ztveH96Oc937qqst2ysevf6m1F9U1YSxyqVj2vxDnbdRkZ9aEOa59dqPv1iQrneD+VJeCs3bPb78r
-	0AbmQ6pbZsiXkRtrMEIp7RhL+Kt+5dxU/bymif7xhJmbrx5W3hce+yoHusNB+GuF5kNWdxDxnG1q/
-	h0g8VD7A==;
+	bh=1/rC1fo+bW1nAFIVdIH1ju8UCCu+wCVbA2zMBO1aJME=; b=cCE/L7ayVW5hk6/A/X/myvqjPu
+	0WY28TuYIc6PImyYgRIOM2tKdbJ45mGtAZj5FTtPZLB2xG27/AnlsENVPVvj4V3e6fHqdq3386WhI
+	gjxKwtXtVA/BcbK0mzQWsWDkYLdkVYcMof4dmwSaPV7ryPjXvNZzXxBbOlhJftKz75iSsJMYYHHEF
+	F2ac/N90VMpP1GjUht73FlZVya7psDjawV1lsbYyaAeziC49sZsYXwu1vAQp1YTt4UEO1qqPe6thf
+	jnL/0e4SKB83F7t9PdMbkpBoR2/pIjXFwiHZRLofm86ogvTLx41RgpBAE+KH9Huw33nqClTS0YwJk
+	8uX1KFrw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wV2sK-0000000GKrY-2Jbl;
-	Thu, 04 Jun 2026 07:52:24 +0000
-Received: from canpmsgout08.his.huawei.com ([113.46.200.223])
+	id 1wV2wB-0000000GLQA-1lwM;
+	Thu, 04 Jun 2026 07:56:23 +0000
+Received: from mail-ed1-f47.google.com ([209.85.208.47])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wV2sH-0000000GKBB-13gN
+	id 1wV2w9-0000000GLPV-21Pf
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 04 Jun 2026 07:52:22 +0000
-dkim-signature: v=1; a=rsa-sha256; d=huawei.com; s=dkim;
-	c=relaxed/relaxed; q=dns/txt;
-	h=From;
-	bh=U0bZ6/5IF5u6IblAtoXo0vDn8/JhU8/jFh51QnHbslU=;
-	b=wkgUTtvcqEqDW31caCt5WvhxzdZJkB2iN2lbhp5RtvQUsgWZLl/iVTR44OwRC6w6WjZunmttz
-	+79tkYmqdUVEVyWorwp+I0e810IT1jdrXQy9sJhXbOCjDluvQLSaifLXbTUNnXywGmDlvQ/kY6n
-	y7xmAWuqpclxcp8ztcNTHG4=
-Received: from mail.maildlp.com (unknown [172.19.163.214])
-	by canpmsgout08.his.huawei.com (SkyGuard) with ESMTPS id 4gWGk62qtPzmVW0;
-	Thu,  4 Jun 2026 15:42:22 +0800 (CST)
-Received: from dggemv706-chm.china.huawei.com (unknown [10.3.19.33])
-	by mail.maildlp.com (Postfix) with ESMTPS id 24B4440561;
-	Thu,  4 Jun 2026 15:50:14 +0800 (CST)
-Received: from kwepemn200012.china.huawei.com (7.202.194.135) by
- dggemv706-chm.china.huawei.com (10.3.19.33) with Microsoft SMTP Server
- (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
- 15.2.1544.11; Thu, 4 Jun 2026 15:50:13 +0800
-Received: from huawei.com (10.50.163.32) by kwepemn200012.china.huawei.com
- (7.202.194.135) with Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.2.1544.11; Thu, 4 Jun
- 2026 15:50:12 +0800
-From: Sizhe Liu <liusizhe5@huawei.com>
-To: <rostedt@goodmis.org>, <mhiramat@kernel.org>,
-	<mathieu.desnoyers@efficios.com>, <corbet@lwn.net>,
-	<skhan@linuxfoundation.org>, <bhelgaas@google.com>, <yangyccccc@gmail.com>,
-	<jic23@kernel.org>, <john.g.garry@oracle.com>, <will@kernel.org>,
-	<james.clark@linaro.org>, <mike.leach@arm.com>, <leo.yan@linux.dev>,
-	<peterz@infradead.org>, <mingo@redhat.com>, <acme@kernel.org>,
-	<namhyung@kernel.org>, <mark.rutland@arm.com>,
-	<alexander.shishkin@linux.intel.com>, <jolsa@kernel.org>,
-	<irogers@google.com>, <adrian.hunter@intel.com>, <wangyushan12@huawei.com>,
-	<shenyang39@huawei.com>, <gaozhihao6@h-partners.com>,
-	<yuzhichengcheng@h-partners.com>, <liyihang9@h-partners.com>
-CC: <linux-kernel@vger.kernel.org>, <linux-pci@vger.kernel.org>,
-	<linux-perf-users@vger.kernel.org>, <linux-arm-kernel@lists.infradead.org>,
-	<linux-doc@vger.kernel.org>, <linuxarm@huawei.com>,
-	<prime.zeng@hisilicon.com>, <fanghao11@huawei.com>, <wuyifan50@huawei.com>,
-	<liusizhe5@huawei.com>
-Subject: [PATCH 07/10] perf hisi-ptt: Merge 4DW and 8DW HEAD0 printing
-Date: Thu, 4 Jun 2026 15:50:02 +0800
-Message-ID: <20260604075005.2219785-8-liusizhe5@huawei.com>
-X-Mailer: git-send-email 2.33.0
-In-Reply-To: <20260604075005.2219785-1-liusizhe5@huawei.com>
-References: <20260604075005.2219785-1-liusizhe5@huawei.com>
+	Thu, 04 Jun 2026 07:56:23 +0000
+Received: by mail-ed1-f47.google.com with SMTP id 4fb4d7f45d1cf-68bd9fce347so645293a12.2
+        for <linux-arm-kernel@lists.infradead.org>; Thu, 04 Jun 2026 00:56:20 -0700 (PDT)
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20251104; t=1780559779; x=1781164579;
+        h=cc:to:subject:message-id:date:from:in-reply-to:references
+         :mime-version:x-gm-gg:x-gm-message-state:from:to:cc:subject:date
+         :message-id:reply-to;
+        bh=1/rC1fo+bW1nAFIVdIH1ju8UCCu+wCVbA2zMBO1aJME=;
+        b=ZgEAAUXpKLEzL9gzcxp+7TJsIaSj1LN4VUvPhnSWFutFV34lMxJVQQKhwpkDSW9bNc
+         mRl2JCF3JrzTjtIzqKscNauOyeOIA4CIqF7GvVFnS+SXCkP8hDNCQgq4Z5NJtcBHt8Yc
+         tP1gLtx7RXrck8lv5Hy3cdXlaRWTVLUkH4d7tEfCvROsGi07sZjtL0M8x36KKSPzzvHG
+         RvwuD62gIoULqAuHFLWPDDoY6VGpeoR/8N7/lq9cBtEZkTAja/W9/0JrIlWQHJyAkhWE
+         BSp16SKczdMS+pBGl3QqxOlNRaOgrPRsJXJ2cES/N9FMfXIuy2ecuFCzgalGCU8gbLkP
+         fpfQ==
+X-Forwarded-Encrypted: i=1; AFNElJ+6XvT4QJ0erOe/SiLl3RhDh4KPQilnYzi41NzFlWuIt28RYEDYt80adAkOdwxsz03IqNjT7l6OGnB5y9t97av/@lists.infradead.org
+X-Gm-Message-State: AOJu0YzzNZjGh1HU/KoCbbKrNk+n1a7y6FNXwN79nKTvGMu1Z9tbRZlH
+	VpuOBGxbYshS3Yi8cheBtdaNvH+hxppwZVj5/rpFR3G3pdIJYcustxVdqKfWOinFoB4=
+X-Gm-Gg: Acq92OG0c2PguWmbJCQGa7i6C71+tphr9mv0E4OYkdSrTtMZrrQ7c8ePXrg/8PMHtg3
+	v/KRQFrmczLKb3zWgnW1+0XlSdhyGo50yV04PUhenw094CgBKCdGZQ+1UcSDau+USINnawAOewm
+	itxUtDujS2FwVyFNGxIRYTOf2hvYcGN4/JQ8chhOc2NemQRFTRa0i9BlZnHMKbWEpxndk0GgTjx
+	g4mQztdPGzD0YBAD+5W7q5PGjRl0wqoQ3NGlZjp3r/y9532xroS1NuLkUovofDpSeoqbcc0hyct
+	MqcXidXdHuLQ5UZtAL/OcRwWS+zA5/pS7tjZAuLyaSUoGaK9CcUy/DseJOFWkgYCwrxeGpQpnFq
+	JG1F92i6lyPtGuG9ctkRSsvY2kBEVLh9TE0u9uO5Rb1YncPjSEM+obUMAUHUw9idYrYlAyYllnN
+	82Ccj/ppnw39Q+RkqsSgY++LHOJHA59zhid3h0ubK9IuUnuWrB+ZR/K/tbL0zWLOU5896tpmf0i
+	+6+adzGZw==
+X-Received: by 2002:a05:6402:3492:b0:684:17b5:da63 with SMTP id 4fb4d7f45d1cf-68e7070f16amr3323476a12.9.1780559779325;
+        Thu, 04 Jun 2026 00:56:19 -0700 (PDT)
+Received: from mail-ed1-f51.google.com (mail-ed1-f51.google.com. [209.85.208.51])
+        by smtp.gmail.com with ESMTPSA id 4fb4d7f45d1cf-68e64c2f358sm2150939a12.6.2026.06.04.00.56.17
+        for <linux-arm-kernel@lists.infradead.org>
+        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
+        Thu, 04 Jun 2026 00:56:18 -0700 (PDT)
+Received: by mail-ed1-f51.google.com with SMTP id 4fb4d7f45d1cf-68f1e28f258so674614a12.3
+        for <linux-arm-kernel@lists.infradead.org>; Thu, 04 Jun 2026 00:56:17 -0700 (PDT)
+X-Forwarded-Encrypted: i=1; AFNElJ+aE25/QT+Il1YzLUk2llFQ5P0gSSbW43qEhZovSrwyEOqUZ87hRzgq3Ns34wtUbJYWbonARFdbnpc7SKpOgYvJ@lists.infradead.org
+X-Received: by 2002:a17:907:7748:b0:bf1:8faf:d94e with SMTP id
+ a640c23a62f3a-bf18fb047c0mr166351166b.40.1780559777705; Thu, 04 Jun 2026
+ 00:56:17 -0700 (PDT)
 MIME-Version: 1.0
-Content-Transfer-Encoding: 8bit
-Content-Type: text/plain
-X-Originating-IP: [10.50.163.32]
-X-ClientProxiedBy: kwepems200001.china.huawei.com (7.221.188.67) To
- kwepemn200012.china.huawei.com (7.202.194.135)
+References: <20260603213726.1025094-1-heiko@sntech.de>
+In-Reply-To: <20260603213726.1025094-1-heiko@sntech.de>
+From: Geert Uytterhoeven <geert@linux-m68k.org>
+Date: Thu, 4 Jun 2026 09:56:04 +0200
+X-Gmail-Original-Message-ID: <CAMuHMdUAoUmCNMBVRGgZzSt9SbZqV6SVW2brkvsBKuHrfWHKvw@mail.gmail.com>
+X-Gm-Features: AVHnY4IvkoGavCb3kflRroLCR9W-9Zf0z8gdDvwCFWuBrY3WYcj_OOUKtkUAgL4
+Message-ID: <CAMuHMdUAoUmCNMBVRGgZzSt9SbZqV6SVW2brkvsBKuHrfWHKvw@mail.gmail.com>
+Subject: Re: [PATCH] clk: rockchip: don't COMPILE_TEST builds on M68K
+To: Heiko Stuebner <heiko@sntech.de>
+Cc: rosenp@gmail.com, linux-arm-kernel@lists.infradead.org, 
+	linux-rockchip@lists.infradead.org, linux-clk@vger.kernel.org, 
+	kernel test robot <lkp@intel.com>
+Content-Type: text/plain; charset="UTF-8"
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260604_005221_690472_B3619559 
-X-CRM114-Status: GOOD (  10.79  )
+X-CRM114-CacheID: sfid-20260604_005621_529634_73C50726 
+X-CRM114-Status: GOOD (  21.86  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -94,93 +96,53 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Merge the printing of HEAD0 for both 4DW and 8DW TLP headers into
-hisi_ptt_print_head0(). This unifies the entry point and makes it
-easier to add HEAD1/HEAD2/HEAD3 field parsing in subsequent patches.
+Hi Heiko,
 
-Signed-off-by: Sizhe Liu <liusizhe5@huawei.com>
----
- .../hisi-ptt-decoder/hisi-ptt-pkt-decoder.c   | 49 ++++++++++++-------
- 1 file changed, 30 insertions(+), 19 deletions(-)
+On Wed, 3 Jun 2026 at 23:37, Heiko Stuebner <heiko@sntech.de> wrote:
+> Rockchip clock drivers use hash-tables with enums as inputs.
+>
+> M68K does interesting things in its __hash_32() implementation, casting
+> that u32 input to an u16 and therefore triggering warnings like:
+>
+>    drivers/clk/rockchip/clk-rk3528.c: note: in included file (through include/linux/hash.h, include/linux/slab.h):
+>      arch/m68k/include/asm/hash.h:57:24: sparse: sparse: cast truncates bits from constant value (18720 becomes 8720)
+>      arch/m68k/include/asm/hash.h:57:24: sparse: sparse: cast truncates bits from constant value (1e8e8 becomes e8e8)
+>
+> As M68K should never ever need Rockchip clock drivers, simply disable
+> compile-tests for M68K.
+>
+> Fixes: 7edfb7fb58ee ("clk: rockchip: allow COMPILE_TEST builds")
+> Reported-by: kernel test robot <lkp@intel.com>
+> Closes: https://lore.kernel.org/oe-kbuild-all/202605191434.PQkj2Rki-lkp@intel.com/
+> Signed-off-by: Heiko Stuebner <heiko@sntech.de>
 
-diff --git a/tools/perf/util/hisi-ptt-decoder/hisi-ptt-pkt-decoder.c b/tools/perf/util/hisi-ptt-decoder/hisi-ptt-pkt-decoder.c
-index a5b66e0f7827..9ec84d398cc1 100644
---- a/tools/perf/util/hisi-ptt-decoder/hisi-ptt-pkt-decoder.c
-+++ b/tools/perf/util/hisi-ptt-decoder/hisi-ptt-pkt-decoder.c
-@@ -122,6 +122,30 @@ static void hisi_ptt_print_pkt(struct hisi_ptt_pkt_buf *pkt_buf,
- 	pkt_buf->pos += HISI_PTT_FIELD_LENGTH;
- }
- 
-+static void hisi_ptt_print_head0(struct hisi_ptt_pkt_buf *pkt_buf)
-+{
-+	const char *color = PERF_COLOR_BLUE;
-+	union hisi_ptt_field_data dw;
-+
-+	dw.value = le32_to_cpu(*(__le32 *)(pkt_buf->buf + pkt_buf->pos));
-+	hisi_ptt_print_raw_record(pkt_buf->pos, dw.value);
-+
-+	if (pkt_buf->pkt_type == HISI_PTT_4DW_PKT)
-+		color_fprintf(stdout, color,
-+			      "  %s %x %s %x %s %x %s %x %s %x %s %x %s %x %s %x\n",
-+			      "Format", dw.dw0_4dw.format,
-+			      "Type", dw.dw0_4dw.type,
-+			      "T9", dw.dw0_4dw.t9, "T8", dw.dw0_4dw.t8,
-+			      "TH", dw.dw0_4dw.th, "SO", dw.dw0_4dw.so,
-+			      "Length", dw.dw0_4dw.len,
-+			      "Time", dw.dw0_4dw.time);
-+	else
-+		color_fprintf(stdout, color, "  %s\n",
-+			      hisi_ptt_8dw_pkt_field_name[HISI_PTT_8DW_HEAD0]);
-+
-+	pkt_buf->pos += HISI_PTT_FIELD_LENGTH;
-+}
-+
- static int hisi_ptt_8dw_pkt_desc(struct hisi_ptt_pkt_buf *pkt_buf)
- {
- 	int i;
-@@ -133,35 +157,22 @@ static int hisi_ptt_8dw_pkt_desc(struct hisi_ptt_pkt_buf *pkt_buf)
- 			continue;
- 		}
- 
-+		if (i == HISI_PTT_8DW_HEAD0) {
-+			hisi_ptt_print_head0(pkt_buf);
-+			continue;
-+		}
-+
- 		hisi_ptt_print_pkt(pkt_buf, hisi_ptt_8dw_pkt_field_name[i]);
- 	}
- 
- 	return hisi_ptt_pkt_size[HISI_PTT_8DW_PKT];
- }
- 
--static void hisi_ptt_4dw_print_dw0(struct hisi_ptt_pkt_buf *pkt_buf)
--{
--	const char *color = PERF_COLOR_BLUE;
--	union hisi_ptt_field_data dw;
--
--	dw.value = le32_to_cpu(*(__le32 *)(pkt_buf->buf + pkt_buf->pos));
--	hisi_ptt_print_raw_record(pkt_buf->pos, dw.value);
--
--	color_fprintf(stdout, color,
--		      "  %s %x %s %x %s %x %s %x %s %x %s %x %s %x %s %x\n",
--		      "Format", dw.dw0_4dw.format, "Type", dw.dw0_4dw.type,
--		      "T9", dw.dw0_4dw.t9, "T8", dw.dw0_4dw.t8,
--		      "TH", dw.dw0_4dw.th, "SO", dw.dw0_4dw.so,
--		      "Length", dw.dw0_4dw.len, "Time", dw.dw0_4dw.time);
--
--	pkt_buf->pos += HISI_PTT_FIELD_LENGTH;
--}
--
- static int hisi_ptt_4dw_pkt_desc(struct hisi_ptt_pkt_buf *pkt_buf)
- {
- 	int i;
- 
--	hisi_ptt_4dw_print_dw0(pkt_buf);
-+	hisi_ptt_print_head0(pkt_buf);
- 
- 	for (i = HISI_PTT_4DW_HEAD1; i < HISI_PTT_4DW_TYPE_MAX; i++)
- 		hisi_ptt_print_pkt(pkt_buf, hisi_ptt_4dw_pkt_field_name[i]);
+Thanks for your patch!
+
+> --- a/drivers/clk/rockchip/Kconfig
+> +++ b/drivers/clk/rockchip/Kconfig
+> @@ -4,6 +4,7 @@
+>  config COMMON_CLK_ROCKCHIP
+>         bool "Rockchip clock controller common support"
+>         depends on ARCH_ROCKCHIP || COMPILE_TEST
+> +       depends on !M68K
+>         default ARCH_ROCKCHIP
+>         help
+>           Say y here to enable common clock controller for Rockchip platforms.
+
+Obviously this is the wrong fix ;-)
+
+I have sent a better one, fixing the issue for every user:
+"[PATCH] m68k: hash: Use lower_16_bits() helper"
+https://lore.kernel.org/b55e9bd0532c0cad519809c86e0a8400060d75a1.1780559561.git.geert@linux-m68k.org
+
+Gr{oetje,eeting}s,
+
+                        Geert
+
 -- 
-2.33.0
+Geert Uytterhoeven -- There's lots of Linux beyond ia32 -- geert@linux-m68k.org
 
+In personal conversations with technical people, I call myself a hacker. But
+when I'm talking to journalists I just say "programmer" or something like that.
+                                -- Linus Torvalds
 
