@@ -4,88 +4,64 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id E6334CD6E4A
-	for <linux-arm-kernel@archiver.kernel.org>; Thu,  4 Jun 2026 09:42:34 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 17F27CD6E4A
+	for <linux-arm-kernel@archiver.kernel.org>; Thu,  4 Jun 2026 09:50:07 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:Subject:References:In-Reply-To:Message-Id:Cc:To:From:Date:
-	MIME-Version:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Content-Type:MIME-Version:Message-ID:Date:References:In-Reply-To:Subject:Cc:
+	To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=h32UZ5HZFbLbTSLtdvm/gYQOt7Gn6obLad7jKFKWu5o=; b=eV534zZh7GyCwDY03Myug2rYx+
-	EJL2I6Wfhhurj3WwetjEGb+dIVRxjG0hVog/DhPX0IuyOPV+nGu5ih34fBMy1fSRvZ0WCIH8vIUR2
-	lzinOgJeTssVeLeW+RfnGFjEpf/6MVw5tNMu9phj88IjYvVdHSca0MiHoPTW59UR6wazo0tCNUJky
-	w9vZHLimA+JKy11OTonnjAqYiS1qaqCbXbmbEMiVDkKda5O/IxAJoueTngrO/lcgMddDKGHpR2uHU
-	S7zlVkS9n5WfgqWomM4AlknEXVeOXJ5e8z0y8mNrOlEvfT9ex9DHf5uBRUQCvhRPfL0upV9MN1Qla
-	w+5uk/QA==;
+	bh=69DclAwuUnHWVkyy/U5ahKJbr5IsT7bTPMrznQrv5tA=; b=EQLZ86QjW+7KT02zvbXVzUmMe6
+	txK9sZnrEJx9JA1gBhScei0PK1u2QADG11xCNr/kgWyYpPGJMjaTbvCNIPUzOH4w8basajIbUCugX
+	LJh99ILXx7dWn+qqn6x+FSzg863HshMBrtgV9jLneDQgmJBcBDymNrnfbshw9e1o1Bml1yr++8WQf
+	To1S//t5MhoQuT++ho+V1Eh1rai5B/mG4TmoE2xiOr45YhvLbVUWzNd8H5KT7v2veyzzLEMNq2Cq7
+	CfZrLKo1h0kidmrEkbipWM8IDvnbTiCs5nho/gHJC5OZ/EYlF6cj7ZDbidKqJPNcUuhnR8yOAyPq7
+	ObDoPLuA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wV4ap-0000000GWLF-3suw;
-	Thu, 04 Jun 2026 09:42:27 +0000
-Received: from sea.source.kernel.org ([172.234.252.31])
+	id 1wV4i8-0000000GWk4-2L7t;
+	Thu, 04 Jun 2026 09:50:00 +0000
+Received: from tor.source.kernel.org ([2600:3c04:e001:324:0:1991:8:25])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wV4ap-0000000GWL2-0oxR
+	id 1wV4i7-0000000GWjg-1xM5
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 04 Jun 2026 09:42:27 +0000
+	Thu, 04 Jun 2026 09:49:59 +0000
 Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
-	by sea.source.kernel.org (Postfix) with ESMTP id F0480443AA;
-	Thu,  4 Jun 2026 09:42:26 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 7EAB21F00899;
-	Thu,  4 Jun 2026 09:42:26 +0000 (UTC)
+	by tor.source.kernel.org (Postfix) with ESMTP id 84C2A60219;
+	Thu,  4 Jun 2026 09:49:58 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 70ADD1F00893;
+	Thu,  4 Jun 2026 09:49:57 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1780566146;
-	bh=h32UZ5HZFbLbTSLtdvm/gYQOt7Gn6obLad7jKFKWu5o=;
-	h=Date:From:To:Cc:In-Reply-To:References:Subject;
-	b=hPgDBCekiKpW4vsoiNUg34hBRJItnYz49diVbmcIBJpGeSORVpPZ1IJVJQyrBbI0C
-	 m9W5WEjRZuinWHEA/Df+lZxy7p8KLJRqPuJDs4v89R38xmJMviOUN5V38PSIMwY3ZA
-	 KjMIP4aYw9jFBTnbewd5FOmEJBzVp0dQzbwg9EfDLTGW6QdrXWsZ48pnTRY6d9Tsri
-	 /ywOxUsm/lwonGGlxl16DjPaFXxb381A9ZXPUPsHUnS9b8bzsZW1A820g64JGbrVNa
-	 aPsyVTx58Iys7utRCu8fc2acm7xORzZNKGPiVuNf9pRlahmWwoqnfjLHN0lcO5j/yJ
-	 Eu86kCiBLaZtA==
-Received: from phl-compute-01.internal (phl-compute-01.internal [10.202.2.41])
-	by mailfauth.phl.internal (Postfix) with ESMTP id 918AAF4006C;
-	Thu,  4 Jun 2026 05:42:25 -0400 (EDT)
-Received: from phl-imap-05 ([10.202.2.95])
-  by phl-compute-01.internal (MEProxy); Thu, 04 Jun 2026 05:42:25 -0400
-X-ME-Sender: <xms:gUghaubucraqB0dJvmV7PBFH8TyMG-dPUY_bKatFhicuCI5nxZhweQ>
-    <xme:gUghasMvKX0WjFWvGD2wsbsnCSiG9Nq_OvVP81Vn98AzRe_REQbCMz1k_2ZHi4GeS
-    mLQpImIX2fqFJwGBsmnXtrd918klAWLX5v1Ri_UKKgNojmfOYU2yFU>
-X-ME-Proxy-Cause: dmFkZTEWK7AzM/IHw7L3c3dp0bgYN2sBJkCGo08+s4CDuaXVnB8mYhhT5VbvTZTRiVTrCo
-    iuSi7yFaAWIzhOubRbRREFZYkC5GbFYW65UVJoor9RUs0Vv7OVCRXeDaY2E0kV+FEY+WKl
-    OO6nE4EcOfJpKtYNdIBbD6w7mJgmGYno/gYPzIo9+WOk7SGSMB8PskMZpYZsvMgBrqf8Ro
-    WgvuZrR1JCIQsrKUU+Wi+1BFPf774ZqZtgnx7sUFBQXD/cL9Wg99LXtupDGkmP4oa2RQXE
-    aS5pfa4Dj6IrN/IgAIVPqWS7SvdMTtSm2ZxU9XqFO6ojpPqHhlZOIMdXNPcV0OvxZHAvSo
-    D3OMxYdGKd8fESQ4IKkOW9PX6I6BAcVkVswbSCnfEEF/vBUMAUx/PnEkVQuUM4qBgZp69z
-    l9iNRTn9CEGGZ7oKWwDUSQsaBg3ryCbiP8DylLsimqulotXc+g2MYsVknxpf+IFKTtujuA
-    nyMbLehAq1G9KtFGeglSrqu/FO998tUg527k1wlsiYKjr5Vp/EwM9ItRmt8PVAk85kAH3E
-    JUNoTzHg9iWmGNCSLWeML5XiqZMlKvV2TSqqtQVemCybBZrKMCCklABTS53YiNzZAJ/Lux
-    Tg1WsqO7FZUEQIS5+u3EjaPgdUlmb+GK+j9HAOupQvHocVY1155XBTDTxIig
-X-ME-Proxy: <xmx:gUghaprJlMeHvjUo_Ay4xK-zdfR0aRkxumO0Nu9_P6WGjw1llUu8NQ>
-    <xmx:gUghasHoEx_TCDWXWFHACKNj1pzYHo7fnspwoy3nwyU6dTzBJ5kxAw>
-    <xmx:gUgham58itfYYvsNYq-q6becJ2UcOiZZUxOF9DHlRi8pO0oY29ufgg>
-    <xmx:gUghase19cIdkCYNSqryy2s9PAK6Lyu-Oa9MFuMSgGfoJKBYZ6ZCpw>
-    <xmx:gUghap5oCV2pOkN8y0T925Fs5LmDTnGL8FDjvBhdBhkaGQzGA5JOCYnq>
-Feedback-ID: ice86485a:Fastmail
-Received: by mailuser.phl.internal (Postfix, from userid 501)
-	id 673161820082; Thu,  4 Jun 2026 05:42:25 -0400 (EDT)
-X-Mailer: MessagingEngine.com Webmail Interface
+	s=k20260515; t=1780566598;
+	bh=69DclAwuUnHWVkyy/U5ahKJbr5IsT7bTPMrznQrv5tA=;
+	h=From:To:Cc:Subject:In-Reply-To:References:Date;
+	b=fY6EN1Yrc0kbAdsyCX33DJn06AAVMu2OXaCG7SjcHDa7P+TA8G4glswpcNII2gYiD
+	 6b3APQ3PPkm55+Lyq5NxuInWAWRY+G1dKOrUtU+QxhVEaKvSbAW3ZChJi4adOFRktQ
+	 lz70Y43KrC0vh5NGMWiwh8M88IdqHW1EbGsCse3I7Q3sfOV43sqI25WUHzwHVGCR6j
+	 cZdaATeoTEsjU5IWZzTa2DbV+TU/AkzFdx/Rsiy98fsCfyGid9OJGjUtD8b6DmTgt/
+	 ASYX6cf8axzgrzGwra/K+U6gRYhPPF7xNMzSCeMXno6aO+oid8lxM56Z9uxfeVID+E
+	 GLfSFdcjuCF5g==
+From: Thomas Gleixner <tglx@kernel.org>
+To: Uwe =?utf-8?Q?Kleine-K=C3=B6nig?= <ukleinek@kernel.org>, Marc Zyngier
+ <maz@kernel.org>,
+ Oliver Upton <oupton@kernel.org>
+Cc: Joey Gouly <joey.gouly@arm.com>, Steffen Eiden <seiden@linux.ibm.com>,
+ Suzuki K Poulose <suzuki.poulose@arm.com>, Zenghui Yu
+ <yuzenghui@huawei.com>, Catalin Marinas <catalin.marinas@arm.com>, Will
+ Deacon <will@kernel.org>, Jacob Keller <jacob.e.keller@intel.com>, David
+ Woodhouse <dwmw@amazon.co.uk>, Vincent Donnefort <vdonnefort@google.com>,
+ linux-arm-kernel@lists.infradead.org, kvmarm@lists.linux.dev,
+ linux-kernel@vger.kernel.org
+Subject: Re: [PATCH] KVM: arm64: Fix order of arguments to
+ ktime_get_snapshot_id()
+In-Reply-To: <20260604092714.1537457-2-ukleinek@kernel.org>
+References: <20260604092714.1537457-2-ukleinek@kernel.org>
+Date: Thu, 04 Jun 2026 11:49:54 +0200
+Message-ID: <87cxy663el.ffs@fw13>
 MIME-Version: 1.0
-Date: Thu, 04 Jun 2026 11:42:05 +0200
-From: "Ard Biesheuvel" <ardb@kernel.org>
-To: "Catalin Marinas" <catalin.marinas@arm.com>,
- "Ard Biesheuvel" <ardb+git@google.com>
-Cc: linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org,
- "Will Deacon" <will@kernel.org>, maz@kernel.org,
- "Kevin Brodsky" <kevin.brodsky@arm.com>, "Mark Brown" <broonie@kernel.org>,
- "David Hildenbrand" <david@kernel.org>
-Message-Id: <183c8a1e-abb7-4a2f-8e97-e161af4e4fc5@app.fastmail.com>
-In-Reply-To: <aiFDFbeOoxgKigP0@arm.com>
-References: <20260603160949.3372482-6-ardb+git@google.com>
- <20260603160949.3372482-9-ardb+git@google.com> <aiFDFbeOoxgKigP0@arm.com>
-Subject: Re: [PATCH 3/4] arm64: mte: Disregard the zero page explicitly for
- manipulating tags
-Content-Type: text/plain
-Content-Transfer-Encoding: 7bit
+Content-Type: text/plain; charset=utf-8
+Content-Transfer-Encoding: quoted-printable
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -100,86 +76,10 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
+On Thu, Jun 04 2026 at 11:27, Uwe Kleine-K=C3=B6nig wrote:
+> The first argument to ktime_get_snapshot_id() is the clock ID and the
+> second output parameter. Fix the caller that reversed the order and thus
+> fix a compiler error.
 
-
-On Thu, 4 Jun 2026, at 11:19, Catalin Marinas wrote:
-> On Wed, Jun 03, 2026 at 06:09:53PM +0200, Ard Biesheuvel wrote:
->> From: Ard Biesheuvel <ardb@kernel.org>
->> 
->> The zero page is conceptually immutable, and will be moved into .rodata
->> to prevent inadvertent corruption.
->> 
->> Prepare the MTE code for this, by ensuring that the zero page is never
->> taken into account for tag manipulation, given that those actions will
->> no longer be permitted on the read-only alias of .rodata in the linear
->> map.
->> 
->> Signed-off-by: Ard Biesheuvel <ardb@kernel.org>
->> ---
->>  arch/arm64/include/asm/mte.h | 5 +++++
->>  1 file changed, 5 insertions(+)
->> 
->> diff --git a/arch/arm64/include/asm/mte.h b/arch/arm64/include/asm/mte.h
->> index 7f7b97e09996..093b34944aee 100644
->> --- a/arch/arm64/include/asm/mte.h
->> +++ b/arch/arm64/include/asm/mte.h
->> @@ -80,6 +80,11 @@ static inline bool page_mte_tagged(struct page *page)
->>   */
->>  static inline bool try_page_mte_tagging(struct page *page)
->>  {
->> +	extern struct page *__zero_page;
->> +
->> +	if (page == __zero_page)
->> +		return false;
->
-> Better as is_zero_page()
->
-
-True, but I was concerned about #inclusion hell.
-
->> +
->>  	VM_WARN_ON_ONCE(folio_test_hugetlb(page_folio(page)));
->>  
->>  	if (!test_and_set_bit(PG_mte_lock, &page->flags.f))
->
-> Some form of this fix should have:
->
-> Fixes: f620d66af316 ("arm64: mte: Do not flag the zero page as PG_mte_tagged")
-> Cc: <stable@vger.kernel.org> # 5.10.x
->
-> The current mainline assumption is that mapping the zero page in user
-> space is always mapped with pte_special() and we skip the MTE tag
-> zeroing (and PG flag setting). However, the above commit missed the KVM
-> kvm_s2_fault_map() -> sanitise_mte_tags() path and we don't have a form
-> of pte_special() for stage 2 mappings.
->
-> I'm more inclined to go with a specific test in the KVM path. It matches
-> the stage 1 where we skip the actual tagging. We could add a
-> VM_WARN_ONCE in try_page_mte_tagging() to trap future changes.
->
-
-Let's go with that - I'll turn this into a patch for v2
-
-
-> -------------8<-----------------------
-> diff --git a/arch/arm64/kvm/mmu.c b/arch/arm64/kvm/mmu.c
-> index d089c107d9b7..445d6cf035c9 100644
-> --- a/arch/arm64/kvm/mmu.c
-> +++ b/arch/arm64/kvm/mmu.c
-> @@ -1479,6 +1479,11 @@ static void sanitise_mte_tags(struct kvm *kvm, 
-> kvm_pfn_t pfn,
->  	if (!kvm_has_mte(kvm))
->  		return;
-> 
-> +	if (is_zero_pfn(pfn)) {
-> +		WARN_ON_ONCE(nr_pages != 1);
-> +		return;
-> +	}
-> +
->  	if (folio_test_hugetlb(folio)) {
->  		/* Hugetlb has MTE flags set on head page only */
->  		if (folio_try_hugetlb_mte_tagging(folio)) {
->
-> -- 
-> Catalin
+I've already squashed a fix earlier today
 
