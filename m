@@ -4,74 +4,74 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 9CB0CCD6E4A
-	for <linux-arm-kernel@archiver.kernel.org>; Thu,  4 Jun 2026 15:12:29 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 9AE8FCD6E77
+	for <linux-arm-kernel@archiver.kernel.org>; Thu,  4 Jun 2026 15:12:31 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:Cc:To:From:
 	Subject:Message-ID:References:Mime-Version:In-Reply-To:Date:Reply-To:
 	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=1vft77YELPmjJ4ZOMQRn5jvDbuRX5+oDiBLjSUaVIbM=; b=p0/q3WS6uUGILR2Bevmlex0jR9
-	OW8qz2Kv8wd7bKwMUdWT189t2dIOYn6EobEkT67Ac/5fYahPdG2dF64/+zVezVTWqt5xeHhYDl+Tx
-	6UzA7MM06Mgn52qp3f/d7qGix/QpIioGhbrNHdPLBb0dNo6WOZv42Z+Qj49P7/dKwKrTr6buh88dh
-	kCHhO7JAV8I/pCziLYrmaUAof4nI6HVDsjgwHwLk2fsx9KfLK+FR3WFPZH5P4zzVr/ckU/o/imn47
-	9N3/vjH8mxueXMkc7JqKs7Lqdv6ZrCBqBolEI+Ancc6/syLl42PsCXF8JpslKSCeLE6FrhaCD1EWo
-	xQ1AmgIg==;
+	bh=CasHJuCvieisWqL8kBoseI3vU+9nQuNqwVDXJ6YMA3Y=; b=pqQQP2cjWz8DvOba6K4SrP84a0
+	7swnrgxA67Dw8SIfwI11y4XKylUwyqVPNaBHdkF4K73vBz4OSMv55LcfkU1g6bqNzeQAsiqt+FHLh
+	xKfPrhtQpkg4tbrNJ653UYDMx01OA74Q4Ov9fMc7t/LmZVDk8JOZ4hxAPZiRHrWya/yOlPkExbLrf
+	Tnlq8/Etdr7TkKbx14dWvFvO+Ip4nL0PBMYIT7dkdF9doqWDO9D8acojW4P78laOfB79MnP4ns7iH
+	htevY+UnXzdUGyEBMG6Vr+NTcoEFTy8XQDs7zMOIcC5CtVI5x0XvdDSxZSF5mLypeUTLf/QM+Hxwv
+	FUXJrBug==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wV9k7-0000000GxyX-1j4R;
-	Thu, 04 Jun 2026 15:12:23 +0000
-Received: from mail-wm1-x34a.google.com ([2a00:1450:4864:20::34a])
+	id 1wV9k9-0000000Gxze-2DXq;
+	Thu, 04 Jun 2026 15:12:25 +0000
+Received: from mail-wr1-x449.google.com ([2a00:1450:4864:20::449])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wV9k3-0000000Gxwa-3fwe
+	id 1wV9k6-0000000GxxM-0qix
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 04 Jun 2026 15:12:21 +0000
-Received: by mail-wm1-x34a.google.com with SMTP id 5b1f17b1804b1-490bde3d239so6721245e9.1
-        for <linux-arm-kernel@lists.infradead.org>; Thu, 04 Jun 2026 08:12:18 -0700 (PDT)
+	Thu, 04 Jun 2026 15:12:23 +0000
+Received: by mail-wr1-x449.google.com with SMTP id ffacd0b85a97d-460153ce644so575880f8f.0
+        for <linux-arm-kernel@lists.infradead.org>; Thu, 04 Jun 2026 08:12:21 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=google.com; s=20251104; t=1780585938; x=1781190738; darn=lists.infradead.org;
+        d=google.com; s=20251104; t=1780585940; x=1781190740; darn=lists.infradead.org;
         h=cc:to:from:subject:message-id:references:mime-version:in-reply-to
          :date:from:to:cc:subject:date:message-id:reply-to;
-        bh=1vft77YELPmjJ4ZOMQRn5jvDbuRX5+oDiBLjSUaVIbM=;
-        b=G2U+yhcFL0bY4HVNgaCqYDpEvM1hBTDnb6EgOSoUKPUU9c4hq0/9QC1/EIVREzFzfV
-         lHzo4KZl34XuZmADGTxyt7vWz6QSafcTkXOyWISksHTECqcabAWFoBTQ1o6QFJBrUI89
-         O3ZUO67o8guPcZaE/tuSfLa3PDLX1GavMLzkPJByjc4dTV9qpnxz4eLfkVrOVGyqcy32
-         ozI9cjnTVApLu3Ec3aFzIH2yiVYDxxisIDjr618b2s9SFuGMCKYqe0QmiSw59kbkYplO
-         xZYkToUrqnWbA+r58zN7/MkpcgYRcgIGdYHm0aykAIMjlBBEziGYxbd6gCT9RA0HDP5t
-         MNIA==
+        bh=CasHJuCvieisWqL8kBoseI3vU+9nQuNqwVDXJ6YMA3Y=;
+        b=IihIIQ/nmOy7xL8UnWE9hgdlq+1gdTusMYNr3Pf3LBtM/tgEBAy/7m9zz1j9JDtw7m
+         m4NftqInazo8OWgbmeXUNhnjukAEovOva0ByW1NieZnwMtpuT/o3Z3sy9OdaTOQeXpvy
+         PKfrBLBj8JWPpQHCBiB5U/QB/tjlvzj+3kuzl847gGwrzP3TVYXgJT6tWkh7JDp89qaY
+         Vs0zTWuo2JD0VbumTaJI9sWw0+f8LwLgxlcBzD1czpxisdq4pJMb1pEzZ86/Z5J4RwgV
+         uzMSFn21Ua8CClXbg9s5/E/rowlJE6xj9kOoxc6i2oOXbHhL1hBxnKHZhtU2BqzO/f+I
+         RFDw==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20251104; t=1780585938; x=1781190738;
+        d=1e100.net; s=20251104; t=1780585940; x=1781190740;
         h=cc:to:from:subject:message-id:references:mime-version:in-reply-to
          :date:x-gm-message-state:from:to:cc:subject:date:message-id:reply-to;
-        bh=1vft77YELPmjJ4ZOMQRn5jvDbuRX5+oDiBLjSUaVIbM=;
-        b=BzbbHOaVPwIDL0ImfWpRzN2rWGnV7tmTbI2qKZDeltkZjynKcCIRhTO31f1PWP0nUN
-         st6Dp4I+uxioVULP8X/93WfCxcIFS7QY/eNy4nfH0ZNmwLl9QBt4TipKYXIpjIC9EHN3
-         AsVAY8ziM7wxNwhb0m7wjNLJzlcAQiHsx1vBoii9rzViskvowV0gmWME9FaaDEFki+v5
-         zzgzZUU0BA3Zh4kU3p384Sugwx/XuH4GIh24wv5imvMMW8k0OoUSPgS8zW1Sr8UKJe7J
-         YKFgfNarkt7k+4yn6gJPLFXsrIxSSxxNX86hvAOtLrXUmflRBYAOoG3w16ergNze4hEi
-         NmfA==
-X-Gm-Message-State: AOJu0Yzpnv85WbLsB/PPbOWYkDpb/WiA0G7NhQFzqof0sEcjU5ZilcEI
-	nGftHxGMgJca1biKZkA+5XK0B45MSfhJt03/LYxLJZLxdd2dDkpNe3tfaMuwo3gsqsr+JcWO69Z
-	5yqz07RKpVAfGqxt9crLO17jsk2D/mG70sira9FiUeLbH/gie6Enbb+n2iE8lUUCIY4UuCAJT1N
-	MuszRPgLu0mk3zZJaXqQn7v2pKhEsrUdtYoLJwH9Upcc6J
-X-Received: from wrbfi7.prod.google.com ([2002:a05:6000:4407:b0:45e:e6b0:3979])
- (user=ardb job=prod-delivery.src-stubby-dispatcher) by 2002:a05:600c:8b01:b0:490:6237:5200
- with SMTP id 5b1f17b1804b1-490b5d36863mr138738705e9.10.1780585937520; Thu, 04
- Jun 2026 08:12:17 -0700 (PDT)
-Date: Thu,  4 Jun 2026 17:11:53 +0200
+        bh=CasHJuCvieisWqL8kBoseI3vU+9nQuNqwVDXJ6YMA3Y=;
+        b=iyv/nLxhCHyA6iuaQ53t05Z0EwZTsYPoBjVNVrNCYP6KXHLLc6qwToP9AgvDgKpRFE
+         rZnja4qpipUmqrXnDa+xJmJbbueBJ6cb8wNuBtIo+NvgXUeG5YpWCDqe3gIz5n7B7BmR
+         C//9zhmikehsS+tKltzVaVEwFl8iIjXilvcKqYiLawfMLfC9Bo5jb3opx5ovxEvPw9n0
+         +C3GSbcYn76gtMIbH7uRnAt9YmoVxRlpUGtldlI+SOAyTa8xXkhKZVKZtzwnIz/D8SQy
+         DxpgcdjGo2daa9zRCitseO7LNZTghnxNassAwoyprqGAaD3P1FoQ8SKRUcr9DycU9Ts7
+         wJxA==
+X-Gm-Message-State: AOJu0YxCOlB4eWJXCu7jmbua4U0vYHM3xxt0fVo8SHxfXwD9bgIjHEci
+	DmxnmZvlgkWTpq6ZUmXcaEPkrKQ12MaPPt6tpBA5iWn0zeyOr6Jdjc+40BTKLIXaNcAaqOlHDsw
+	i+QGTuTT5dyYN9yGnZdDej7wglElPkZ+L351LfRLAQ/ntwsYp9n+H+kE8WZp/jjoNTlfIIClQPh
+	TuBllxKDsM7uVmfOzInDc3rhpRSx8B/gmUdkh9LoaWyzJa
+X-Received: from wmdd20.prod.google.com ([2002:a05:600c:a214:b0:490:bfa7:ad27])
+ (user=ardb job=prod-delivery.src-stubby-dispatcher) by 2002:a05:600c:c0dc:b0:490:6869:ef13
+ with SMTP id 5b1f17b1804b1-490b5ecce34mr98325645e9.14.1780585939840; Thu, 04
+ Jun 2026 08:12:19 -0700 (PDT)
+Date: Thu,  4 Jun 2026 17:11:55 +0200
 In-Reply-To: <20260604151151.150377-7-ardb+git@google.com>
 Mime-Version: 1.0
 References: <20260604151151.150377-7-ardb+git@google.com>
 X-Developer-Key: i=ardb@kernel.org; a=openpgp; fpr=F43D03328115A198C90016883D200E9CA6329909
-X-Developer-Signature: v=1; a=openpgp-sha256; l=3698; i=ardb@kernel.org;
- h=from:subject; bh=evI3lVeMOyNIXHC2cUpGPRX/cshmKemdx+fpRfwf0/A=;
- b=owGbwMvMwCVmkMcZplerG8N4Wi2JIUtx6q6G5VHLWGY3VFw34+IQ3qEXUnKc4ZZBKBvbzNkrD
- p/ZN2FmRykLgxgXg6yYIovA7L/vdp6eKFXrPEsWZg4rE8gQBi5OAZiIyHuG/55z5G491F67/dKX
- M2zJqSlrH13o3vVvk3rTlv8siw7Hlsxm+Gd77uWt5Jrk549dry/TLf15NfRb/8ySPecfMnDc6u/ PWMAFAA==
+X-Developer-Signature: v=1; a=openpgp-sha256; l=2222; i=ardb@kernel.org;
+ h=from:subject; bh=5MfAD19ZZ8C7D6B6Oy/cwSyuECR6YirB5JgWa4RaF1A=;
+ b=owGbwMvMwCVmkMcZplerG8N4Wi2JIUtx6t5nXSbvtmssWHykqergKUuNdIPnnZdr+ryTDS53S
+ 7jGn33bUcrCIMbFICumyCIw+++7nacnStU6z5KFmcPKBDKEgYtTACZi1sbIsL7hgJ21icadQ4wl
+ sxnry3xtJ/07HvBR97lbm9TvPofDdxkZGrY625Vtydmry5tzLfeG1mlt6aTZH8/6z3E2iPt4uDi NDQA=
 X-Mailer: git-send-email 2.54.0.1032.g2f8565e1d1-goog
-Message-ID: <20260604151151.150377-8-ardb+git@google.com>
-Subject: [PATCH v2 1/5] arm64: Rename page table BSS section to .bss..pgtbl
+Message-ID: <20260604151151.150377-10-ardb+git@google.com>
+Subject: [PATCH v2 3/5] arm64: Avoid double evaluation of __ptep_get()
 From: Ard Biesheuvel <ardb+git@google.com>
 To: linux-arm-kernel@lists.infradead.org
 Cc: linux-kernel@vger.kernel.org, will@kernel.org, catalin.marinas@arm.com, 
@@ -79,8 +79,8 @@ Cc: linux-kernel@vger.kernel.org, will@kernel.org, catalin.marinas@arm.com,
 	Marc Zyngier <maz@kernel.org>
 Content-Type: text/plain; charset="UTF-8"
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260604_081219_931138_2D1DF8DB 
-X-CRM114-Status: GOOD (  13.16  )
+X-CRM114-CacheID: sfid-20260604_081222_258873_F91DB093 
+X-CRM114-Status: GOOD (  13.69  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -97,99 +97,68 @@ Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.i
 
 From: Ard Biesheuvel <ardb@kernel.org>
 
-Rename the .pgdir.bss section to .bss..pgtbl so that the compiler will
-notice the leading ".bss" and mark it as NOBITS by default (rather than
-PROGBITS, which would take up space in Image binary, forcing all of the
-preceding BSS to be emitted into the image as well). This supersedes the
-NOLOAD linker directive, which achieves the same thing, and can be
-therefore be dropped.
+Sashiko warns that the new pte_valid_noncont() macro is used in a manner
+where the argument (which performs a READ_ONCE() of the descriptor) is
+evaluated twice.
 
-Also, rename .pgdir to .pgtbl to be more generic, as page tables of
-various levels will reside here.
+Drop the macro that we just added, and move the check into the newly
+added users.
 
 Signed-off-by: Ard Biesheuvel <ardb@kernel.org>
 ---
- arch/arm64/include/asm/linkage.h | 2 ++
- arch/arm64/include/asm/mmu.h     | 2 --
- arch/arm64/kernel/vmlinux.lds.S  | 8 ++++----
- arch/arm64/mm/fixmap.c           | 6 +++---
- arch/arm64/mm/kasan_init.c       | 2 +-
- 5 files changed, 10 insertions(+), 10 deletions(-)
+ arch/arm64/include/asm/pgtable.h |  4 ----
+ arch/arm64/mm/mmu.c              | 14 ++++++++++----
+ 2 files changed, 10 insertions(+), 8 deletions(-)
 
-diff --git a/arch/arm64/include/asm/linkage.h b/arch/arm64/include/asm/linkage.h
-index 40bd17add539..8637f667667c 100644
---- a/arch/arm64/include/asm/linkage.h
-+++ b/arch/arm64/include/asm/linkage.h
-@@ -43,4 +43,6 @@
- 	SYM_TYPED_START(name, SYM_L_GLOBAL, SYM_A_ALIGN)	\
- 	bti c ;
+diff --git a/arch/arm64/include/asm/pgtable.h b/arch/arm64/include/asm/pgtable.h
+index 491ba0a6492d..c9e4e00a9af2 100644
+--- a/arch/arm64/include/asm/pgtable.h
++++ b/arch/arm64/include/asm/pgtable.h
+@@ -181,10 +181,6 @@ static inline pteval_t __phys_to_pte_val(phys_addr_t phys)
+  * Returns true if the pte is valid and has the contiguous bit set.
+  */
+ #define pte_valid_cont(pte)	(pte_valid(pte) && pte_cont(pte))
+-/*
+- * Returns true if the pte is valid and has the contiguous bit cleared.
+- */
+-#define pte_valid_noncont(pte)	(pte_valid(pte) && !pte_cont(pte))
+ /*
+  * Could the pte be present in the TLB? We must check mm_tlb_flush_pending
+  * so that we don't erroneously return false for pages that have been
+diff --git a/arch/arm64/mm/mmu.c b/arch/arm64/mm/mmu.c
+index be51f6cac86f..d68e691c093a 100644
+--- a/arch/arm64/mm/mmu.c
++++ b/arch/arm64/mm/mmu.c
+@@ -186,9 +186,12 @@ static void init_pte(pte_t *ptep, unsigned long addr, unsigned long end,
  
-+#define __bss_pgtbl __section(".bss..pgtbl") __aligned(PAGE_SIZE)
-+
- #endif
-diff --git a/arch/arm64/include/asm/mmu.h b/arch/arm64/include/asm/mmu.h
-index fb95754f2876..5e1211c540ab 100644
---- a/arch/arm64/include/asm/mmu.h
-+++ b/arch/arm64/include/asm/mmu.h
-@@ -13,8 +13,6 @@
- 
- #ifndef __ASSEMBLER__
- 
--#define __pgtbl_bss __section(".pgdir.bss") __aligned(PAGE_SIZE)
--
- #include <linux/refcount.h>
- #include <asm/cpufeature.h>
- 
-diff --git a/arch/arm64/kernel/vmlinux.lds.S b/arch/arm64/kernel/vmlinux.lds.S
-index 2b0ebfb30c63..d3ed59abab38 100644
---- a/arch/arm64/kernel/vmlinux.lds.S
-+++ b/arch/arm64/kernel/vmlinux.lds.S
-@@ -352,11 +352,11 @@ SECTIONS
- 	BSS_SECTION(SBSS_ALIGN, 0, PAGE_SIZE)
- 	__pi___bss_start = __bss_start;
- 
--	/* fixmap BSS starts here - preceding data/BSS is omitted from the linear map */
--	.pgdir.bss (NOLOAD) : ALIGN(PAGE_SIZE) {
--		*(.pgdir.bss)
-+	/* page table BSS starts here - preceding data/BSS is omitted from the linear map */
-+	.pgtbl : ALIGN(PAGE_SIZE) {
-+		*(.bss..pgtbl)
- 	}
--	ASSERT(ADDR(.pgdir.bss) == __bss_stop, ".pgdir.bss must follow BSS")
-+	ASSERT(ADDR(.pgtbl) == __bss_stop, ".pgtbl must follow BSS")
- 
- 	. = ALIGN(PAGE_SIZE);
- 	__pi_init_pg_dir = .;
-diff --git a/arch/arm64/mm/fixmap.c b/arch/arm64/mm/fixmap.c
-index 1a3bbd67dd76..f66a0016dd02 100644
---- a/arch/arm64/mm/fixmap.c
-+++ b/arch/arm64/mm/fixmap.c
-@@ -31,9 +31,9 @@ static_assert(NR_BM_PMD_TABLES == 1);
- 
- #define BM_PTE_TABLE_IDX(addr)	__BM_TABLE_IDX(addr, PMD_SHIFT)
- 
--static pte_t bm_pte[NR_BM_PTE_TABLES][PTRS_PER_PTE] __pgtbl_bss;
--static pmd_t bm_pmd[PTRS_PER_PMD] __pgtbl_bss __maybe_unused;
--static pud_t bm_pud[PTRS_PER_PUD] __pgtbl_bss __maybe_unused;
-+static pte_t bm_pte[NR_BM_PTE_TABLES][PTRS_PER_PTE] __bss_pgtbl;
-+static pmd_t bm_pmd[PTRS_PER_PMD] __bss_pgtbl __maybe_unused;
-+static pud_t bm_pud[PTRS_PER_PUD] __bss_pgtbl __maybe_unused;
- 
- static inline pte_t *fixmap_pte(unsigned long addr)
+ static bool pte_range_has_valid_noncont(pte_t *ptep)
  {
-diff --git a/arch/arm64/mm/kasan_init.c b/arch/arm64/mm/kasan_init.c
-index dbf22cae82ee..3fcad956fdf7 100644
---- a/arch/arm64/mm/kasan_init.c
-+++ b/arch/arm64/mm/kasan_init.c
-@@ -214,7 +214,7 @@ asmlinkage void __init kasan_early_init(void)
- 		 * shadow pud_t[]/p4d_t[], which could end up getting corrupted
- 		 * when the linear region is mapped.
- 		 */
--		static pte_t tbl[PTRS_PER_PTE] __pgtbl_bss;
-+		static pte_t tbl[PTRS_PER_PTE] __bss_pgtbl;
- 		pgd_t *pgdp = pgd_offset_k(KASAN_SHADOW_START);
+-	for (int i = 0; i < CONT_PTES; i++)
+-		if (pte_valid_noncont(__ptep_get(&ptep[i])))
++	for (int i = 0; i < CONT_PTES; i++) {
++		pte_t pte = __ptep_get(&ptep[i]);
++
++		if (pte_valid(pte) && !pte_cont(pte))
+ 			return true;
++	}
+ 	return false;
+ }
  
- 		set_pgd(pgdp, __pgd(__pa_symbol(tbl) | PGD_TYPE_TABLE));
+@@ -291,9 +294,12 @@ static int init_pmd(pmd_t *pmdp, unsigned long addr, unsigned long end,
+ 
+ static bool pmd_range_has_valid_noncont(pmd_t *pmdp)
+ {
+-	for (int i = 0; i < CONT_PMDS; i++)
+-		if (pte_valid_noncont(pmd_pte(READ_ONCE(pmdp[i]))))
++	for (int i = 0; i < CONT_PMDS; i++) {
++		pte_t pte = pmd_pte(READ_ONCE(pmdp[i]));
++
++		if (pte_valid(pte) && !pte_cont(pte))
+ 			return true;
++	}
+ 	return false;
+ }
+ 
 -- 
 2.54.0.1032.g2f8565e1d1-goog
 
